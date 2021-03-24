@@ -5,9 +5,13 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MemoryCacheAdapter implements MemoryCache {
-    private MemoryCache.ResourceRemovedListener listener;
+    public MemoryCache.ResourceRemovedListener listener;
+
+    @Override // com.bumptech.glide.load.engine.cache.MemoryCache
+    public void clearMemory() {
+    }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
     public long getCurrentSize() {
@@ -17,16 +21,6 @@ public class MemoryCacheAdapter implements MemoryCache {
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
     public long getMaxSize() {
         return 0L;
-    }
-
-    @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    public void setSizeMultiplier(float f) {
-    }
-
-    @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    @Nullable
-    public Resource<?> remove(@NonNull Key key) {
-        return null;
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
@@ -40,12 +34,18 @@ public class MemoryCacheAdapter implements MemoryCache {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
+    @Nullable
+    public Resource<?> remove(@NonNull Key key) {
+        return null;
+    }
+
+    @Override // com.bumptech.glide.load.engine.cache.MemoryCache
     public void setResourceRemovedListener(@NonNull MemoryCache.ResourceRemovedListener resourceRemovedListener) {
         this.listener = resourceRemovedListener;
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    public void clearMemory() {
+    public void setSizeMultiplier(float f2) {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache

@@ -3,16 +3,16 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import android.os.Looper;
 import android.os.Process;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ZeusSDK {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static final String TAG = "ZeusSDK";
-    private static Client mClient;
-    private static Configuration mConfig;
-    private static volatile boolean mHasInited;
-    private static long mTimeInit;
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public static final String TAG = "ZeusSDK";
+    public static Client mClient = new Client();
+    public static Configuration mConfig = new Configuration();
+    public static volatile boolean mHasInited;
+    public static long mTimeInit;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class Client {
         public void onInitFinished(boolean z) {
         }
@@ -25,14 +25,14 @@ public final class ZeusSDK {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class Configuration {
-        private String mAPPIDString;
-        private String mCUIDString;
-        private volatile boolean mEnableBrandPromotion = true;
-        private volatile boolean mEnablePullToRefresh;
-        private boolean mForceUsingSystemWebView;
-        private boolean mThreadingInitialization;
+        public String mAPPIDString;
+        public String mCUIDString;
+        public volatile boolean mEnableBrandPromotion = true;
+        public volatile boolean mEnablePullToRefresh;
+        public boolean mForceUsingSystemWebView;
+        public boolean mThreadingInitialization;
 
         public final boolean forceUsingSystemWebView() {
             return this.mForceUsingSystemWebView;
@@ -95,12 +95,6 @@ public final class ZeusSDK {
         }
     }
 
-    static {
-        $assertionsDisabled = !ZeusSDK.class.desiredAssertionStatus();
-        mClient = new Client();
-        mConfig = new Configuration();
-    }
-
     public static void crashNow() {
     }
 
@@ -137,13 +131,7 @@ public final class ZeusSDK {
     }
 
     public static void initSDKEnvironment(Context context, Client client, Configuration configuration) {
-        if (!$assertionsDisabled && context == null) {
-            throw new AssertionError();
-        }
         final Context applicationContext = context.getApplicationContext();
-        if (!$assertionsDisabled && applicationContext == null) {
-            throw new AssertionError();
-        }
         if (mHasInited) {
             return;
         }
@@ -173,16 +161,12 @@ public final class ZeusSDK {
         Log.e(TAG, "initZeusEngine finished, time=" + (System.currentTimeMillis() - currentTimeMillis));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static boolean initZeusEngine(Context context) {
-        if ($assertionsDisabled || mHasInited) {
-            WebViewFactory.initOnAppStart(context, false, getConfig().forceUsingSystemWebView());
-            WebKitFactory.setEngine(getConfig().forceUsingSystemWebView() ? 0 : 1);
-            WebKitFactory.init(context, getConfig().getAppID(), getConfig().getCUID());
-            getClient().onInitFinished(WebViewFactory.hasProvider());
-            return WebViewFactory.hasProvider();
-        }
-        throw new AssertionError();
+        WebViewFactory.initOnAppStart(context, false, getConfig().forceUsingSystemWebView());
+        WebKitFactory.setEngine(!getConfig().forceUsingSystemWebView());
+        WebKitFactory.init(context, getConfig().getAppID(), getConfig().getCUID());
+        getClient().onInitFinished(WebViewFactory.hasProvider());
+        return WebViewFactory.hasProvider();
     }
 
     public static boolean usingZeusEngine() {

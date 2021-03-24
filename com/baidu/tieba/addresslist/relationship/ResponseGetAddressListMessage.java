@@ -1,40 +1,44 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
+import d.b.h0.r.d0.b;
+import d.b.i0.q.f.a;
+import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
-    private a mAddressListData;
+    public a mAddressListData;
 
-    public void setAddressListData(a aVar) {
-        this.mAddressListData = aVar;
+    public ResponseGetAddressListMessage() {
+        super(304001);
     }
 
     public a getAddressListData() {
         return this.mAddressListData;
     }
 
-    public ResponseGetAddressListMessage() {
-        super(CmdConfigSocket.CMD_GET_ADDRESSLIST);
+    public void setAddressListData(a aVar) {
+        this.mAddressListData = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetAddressListResIdl getAddressListResIdl = (GetAddressListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetAddressListResIdl.class);
         if (getAddressListResIdl != null) {
             if (getAddressListResIdl.data != null) {
-                this.mAddressListData = new a();
-                if (this.mAddressListData.a(getAddressListResIdl.data)) {
-                    com.baidu.tbadk.core.sharedPref.b.brR().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
+                a aVar = new a();
+                this.mAddressListData = aVar;
+                if (aVar.c(getAddressListResIdl.data)) {
+                    b i2 = b.i();
+                    i2.s("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }
-            if (getAddressListResIdl.error != null) {
-                setError(getAddressListResIdl.error.errorno.intValue());
+            Error error = getAddressListResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
                 setErrorString(getAddressListResIdl.error.errmsg);
             }
         }

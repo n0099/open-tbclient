@@ -1,7 +1,8 @@
 package com.qq.e.ads.rewardvideo;
 
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes4.dex */
+import java.util.Map;
+/* loaded from: classes6.dex */
 public interface RewardVideoADListener {
     void onADClick();
 
@@ -15,7 +16,7 @@ public interface RewardVideoADListener {
 
     void onError(AdError adError);
 
-    void onReward();
+    void onReward(Map<String, Object> map);
 
     void onVideoCached();
 

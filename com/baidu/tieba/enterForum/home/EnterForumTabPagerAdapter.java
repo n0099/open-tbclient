@@ -8,95 +8,122 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import java.util.List;
-/* loaded from: classes2.dex */
-public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements com.baidu.tbadk.widget.tab.a {
-    private BaseFragment iLj;
-    private boolean isPrimary;
-    private FragmentManager mFragmentManager;
-    private List<a> mFragments;
-    private int mPrimaryPosition;
+/* loaded from: classes4.dex */
+public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements d.b.h0.b1.n.a {
 
-    /* loaded from: classes2.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public List<a> f15412e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f15413f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public BaseFragment f15414g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f15415h;
+    public FragmentManager i;
+
+    /* loaded from: classes4.dex */
     public static class a {
-        public Fragment fragment;
-        public boolean iLk;
-        public String tabName;
-        public String title;
+
+        /* renamed from: a  reason: collision with root package name */
+        public Fragment f15416a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f15417b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f15418c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f15419d;
     }
 
     public EnterForumTabPagerAdapter(FragmentManager fragmentManager, List<a> list) {
         super(fragmentManager);
-        this.mPrimaryPosition = -1;
-        this.mFragmentManager = fragmentManager;
-        this.mFragments = list;
+        this.f15413f = -1;
+        this.i = fragmentManager;
+        this.f15412e = list;
     }
 
-    @Override // androidx.fragment.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null) {
-            return null;
+    public String e() {
+        BaseFragment baseFragment = this.f15414g;
+        if (baseFragment instanceof BaseFragment) {
+            return baseFragment.getCurrentPageKey();
         }
-        return this.mFragments.get(i).fragment;
+        return null;
     }
 
-    @Override // androidx.fragment.app.FragmentPagerAdapter
-    public long getItemId(int i) {
-        return (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null) ? super.getItemId(i) : this.mFragments.get(i).hashCode();
+    public void f(boolean z) {
+        this.f15415h = z;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.mFragments != null) {
-            return this.mFragments.size();
+        List<a> list = this.f15412e;
+        if (list != null) {
+            return list.size();
         }
         return 0;
     }
 
+    @Override // androidx.fragment.app.FragmentPagerAdapter
+    public Fragment getItem(int i) {
+        List<a> list = this.f15412e;
+        if (list == null || i < 0 || i >= list.size() || this.f15412e.get(i) == null) {
+            return null;
+        }
+        return this.f15412e.get(i).f15416a;
+    }
+
+    @Override // androidx.fragment.app.FragmentPagerAdapter
+    public long getItemId(int i) {
+        List<a> list = this.f15412e;
+        if (list != null && i >= 0 && i < list.size() && this.f15412e.get(i) != null) {
+            return this.f15412e.get(i).hashCode();
+        }
+        return super.getItemId(i);
+    }
+
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getItemPosition(@NonNull Object obj) {
-        return this.mFragmentManager.getFragments().contains(obj) ? -1 : -2;
+        return this.i.getFragments().contains(obj) ? -1 : -2;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null) {
+        List<a> list = this.f15412e;
+        if (list == null || i < 0 || i >= list.size() || this.f15412e.get(i) == null) {
             return null;
         }
-        return this.mFragments.get(i).title;
+        return this.f15412e.get(i).f15417b;
     }
 
-    @Override // com.baidu.tbadk.widget.tab.a
-    public boolean sr(int i) {
-        if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null || !(this.mFragments.get(i).fragment instanceof EnterForumTabFeedFragment)) {
+    @Override // d.b.h0.b1.n.a
+    public boolean h(int i) {
+        List<a> list = this.f15412e;
+        if (list == null || i < 0 || i >= list.size() || this.f15412e.get(i) == null || !(this.f15412e.get(i).f15416a instanceof EnterForumTabFeedFragment)) {
             return false;
         }
-        return this.mFragments.get(i).iLk;
+        return this.f15412e.get(i).f15418c;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        int i2;
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.isPrimary && this.mPrimaryPosition != i) {
-            if (this.mPrimaryPosition != -1) {
-                ((BaseFragment) getItem(this.mPrimaryPosition)).setPrimary(false);
-            }
-            this.mPrimaryPosition = i;
-            if (obj instanceof BaseFragment) {
-                BaseFragment baseFragment = (BaseFragment) obj;
-                baseFragment.setPrimary(true);
-                this.iLj = baseFragment;
-            }
+        if (!this.f15415h || (i2 = this.f15413f) == i) {
+            return;
         }
-    }
-
-    public void setPrimary(boolean z) {
-        this.isPrimary = z;
-    }
-
-    public String getCurrentPageKey() {
-        if (this.iLj instanceof BaseFragment) {
-            return this.iLj.getCurrentPageKey();
+        if (i2 != -1) {
+            ((BaseFragment) getItem(i2)).setPrimary(false);
         }
-        return null;
+        this.f15413f = i;
+        if (obj instanceof BaseFragment) {
+            BaseFragment baseFragment = (BaseFragment) obj;
+            baseFragment.setPrimary(true);
+            this.f15414g = baseFragment;
+        }
     }
 }

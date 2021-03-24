@@ -4,6 +4,30 @@ import java.io.IOException;
 import java.io.StringWriter;
 /* loaded from: classes6.dex */
 public abstract class l {
+    public Number a() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public String b() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public double c() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public long d() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public int e() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public boolean f() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
     public boolean g() {
         return this instanceof i;
     }
@@ -41,30 +65,6 @@ public abstract class l {
         throw new IllegalStateException("Not a JSON Primitive: " + this);
     }
 
-    public boolean f() {
-        throw new UnsupportedOperationException(getClass().getSimpleName());
-    }
-
-    public Number a() {
-        throw new UnsupportedOperationException(getClass().getSimpleName());
-    }
-
-    public String b() {
-        throw new UnsupportedOperationException(getClass().getSimpleName());
-    }
-
-    public double c() {
-        throw new UnsupportedOperationException(getClass().getSimpleName());
-    }
-
-    public long d() {
-        throw new UnsupportedOperationException(getClass().getSimpleName());
-    }
-
-    public int e() {
-        throw new UnsupportedOperationException(getClass().getSimpleName());
-    }
-
     public String toString() {
         try {
             StringWriter stringWriter = new StringWriter();
@@ -72,8 +72,8 @@ public abstract class l {
             cVar.b(true);
             com.bytedance.sdk.openadsdk.preload.a.b.l.a(this, cVar);
             return stringWriter.toString();
-        } catch (IOException e) {
-            throw new AssertionError(e);
+        } catch (IOException e2) {
+            throw new AssertionError(e2);
         }
     }
 }

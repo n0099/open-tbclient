@@ -11,18 +11,65 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.h0.b1.h.a;
+/* loaded from: classes3.dex */
 public class RefreshView extends FrameLayout implements a {
-    private int aln;
-    private ImageView icon;
-    private int status;
-    private TextView textView;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f14163e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f14164f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f14165g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f14166h;
 
     public RefreshView(@NonNull Context context) {
         this(context, null);
+    }
+
+    @Override // d.b.h0.b1.h.a
+    public void a(View view) {
+        if (this.f14166h != 2) {
+            this.f14166h = 2;
+            this.f14164f.setText("释放跳转");
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14163e, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, null);
+        }
+    }
+
+    @Override // d.b.h0.b1.h.a
+    public void b(View view) {
+        if (this.f14166h != 1) {
+            this.f14166h = 1;
+            this.f14164f.setText("查看更多");
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14163e, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, null);
+        }
+    }
+
+    public final void c(Context context) {
+        LayoutInflater.from(context).inflate(R.layout.pull_left_item_view, (ViewGroup) this, true);
+        this.f14163e = (ImageView) findViewById(R.id.arrow_icon);
+        this.f14164f = (TextView) findViewById(R.id.text);
+    }
+
+    public void d() {
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType != this.f14165g) {
+            this.f14166h = 0;
+            this.f14165g = skinType;
+            SkinManager.setViewTextColor(this.f14164f, R.color.CAM_X0109);
+        }
+    }
+
+    @Override // d.b.h0.b1.h.a
+    public View getView() {
+        return this;
     }
 
     public RefreshView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -31,45 +78,7 @@ public class RefreshView extends FrameLayout implements a {
 
     public RefreshView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aln = 3;
-        init(context);
-    }
-
-    private void init(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.pull_left_item_view, (ViewGroup) this, true);
-        this.icon = (ImageView) findViewById(R.id.arrow_icon);
-        this.textView = (TextView) findViewById(R.id.text);
-    }
-
-    @Override // com.baidu.tbadk.widget.horizontalpullview.a
-    public void bX(View view) {
-        if (this.status != 1) {
-            this.status = 1;
-            this.textView.setText("查看更多");
-            SvgManager.bsU().a(this.icon, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.horizontalpullview.a
-    public void bY(View view) {
-        if (this.status != 2) {
-            this.status = 2;
-            this.textView.setText("释放跳转");
-            SvgManager.bsU().a(this.icon, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.horizontalpullview.a
-    public View getView() {
-        return this;
-    }
-
-    public void onChangeSkinType() {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.aln) {
-            this.status = 0;
-            this.aln = skinType;
-            ap.setViewTextColor(this.textView, R.color.CAM_X0109);
-        }
+        this.f14165g = 3;
+        c(context);
     }
 }

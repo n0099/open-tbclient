@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsAdSDK;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends a<Integer> {
     public b() {
         super("batchReportCacheType", 2);
@@ -44,10 +44,6 @@ public class b extends a<Integer> {
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            a((b) Integer.valueOf(jSONObject.optInt(a(), c().intValue())));
-        } else {
-            a((b) c());
-        }
+        a((b) (jSONObject != null ? Integer.valueOf(jSONObject.optInt(a(), c().intValue())) : c()));
     }
 }

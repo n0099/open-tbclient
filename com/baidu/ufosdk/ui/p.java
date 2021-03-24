@@ -3,16 +3,14 @@ package com.baidu.ufosdk.ui;
 import android.view.View;
 import java.util.HashMap;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class p implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackEditActivity f3791a;
+    public final /* synthetic */ FeedbackEditActivity f23291a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public p(FeedbackEditActivity feedbackEditActivity) {
-        this.f3791a = feedbackEditActivity;
+        this.f23291a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,27 +20,27 @@ public final class p implements View.OnClickListener {
         List list2;
         HashMap hashMap;
         List list3;
-        z = this.f3791a.v;
+        z = this.f23291a.v;
         if (z) {
             return;
         }
-        list = this.f3791a.q;
+        list = this.f23291a.q;
         if (list.size() < 2) {
-            FeedbackEditActivity feedbackEditActivity = this.f3791a;
-            list2 = this.f3791a.q;
+            FeedbackEditActivity feedbackEditActivity = this.f23291a;
+            list2 = feedbackEditActivity.q;
             list2.size();
             FeedbackEditActivity.s(feedbackEditActivity);
             return;
         }
         com.baidu.ufosdk.f.c.a("picShotLayout2 --> to browse picture!");
-        hashMap = this.f3791a.r;
+        hashMap = this.f23291a.r;
         String str = (String) hashMap.get("1");
         if (str != null && str.length() != 0) {
-            FeedbackEditActivity.a(this.f3791a, str, 1);
+            FeedbackEditActivity.a(this.f23291a, str, 1);
             return;
         }
-        FeedbackEditActivity feedbackEditActivity2 = this.f3791a;
-        list3 = this.f3791a.q;
+        FeedbackEditActivity feedbackEditActivity2 = this.f23291a;
+        list3 = feedbackEditActivity2.q;
         feedbackEditActivity2.a((byte[]) list3.get(1), false, 1);
     }
 }

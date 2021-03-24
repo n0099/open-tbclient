@@ -6,45 +6,61 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class HotRankListNormaItemHolder extends TypeAdapter.ViewHolder {
-    public int aln;
-    public TextView kxL;
-    public View kxO;
-    public View kxP;
-    public TextView kxS;
-    public TextView kxT;
-    public ImageView kxU;
-    public LinearLayout kxV;
-    public TextView kxW;
-    public TextView kxX;
-    public LinearLayout kxY;
-    public LinearLayout kxZ;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f17576a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f17577b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f17578c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f17579d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f17580e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f17581f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView f17582g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public LinearLayout f17583h;
+    public TextView i;
+    public TextView j;
+    public LinearLayout k;
+    public LinearLayout l;
 
     public HotRankListNormaItemHolder(View view) {
         super(view);
-        this.aln = 3;
-        this.kxS = null;
-        this.kxL = null;
-        this.kxT = null;
-        this.kxO = null;
-        this.kxP = null;
-        this.kxU = null;
-        this.kxV = null;
-        this.kxW = null;
-        this.kxX = null;
-        this.kxY = null;
-        this.kxZ = null;
-        this.kxS = (TextView) view.findViewById(R.id.hot_topic_rank);
-        this.kxL = (TextView) view.findViewById(R.id.hot_topic_title);
-        this.kxT = (TextView) view.findViewById(R.id.hot_topic_num);
-        this.kxO = view.findViewById(R.id.devide_line_top);
-        this.kxP = view.findViewById(R.id.topic_devide_line_bottom);
-        this.kxU = (ImageView) view.findViewById(R.id.hot_topic_pic);
-        this.kxV = (LinearLayout) view.findViewById(R.id.tip_info_item);
-        this.kxW = (TextView) view.findViewById(R.id.tip_info_title);
-        this.kxX = (TextView) view.findViewById(R.id.tip_info_rule);
-        this.kxY = (LinearLayout) view.findViewById(R.id.topic_normal_item);
-        this.kxZ = (LinearLayout) view.findViewById(R.id.tip_rule_container);
+        this.f17576a = 3;
+        this.f17577b = null;
+        this.f17578c = null;
+        this.f17579d = null;
+        this.f17580e = null;
+        this.f17581f = null;
+        this.f17582g = null;
+        this.f17583h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.f17577b = (TextView) view.findViewById(R.id.hot_topic_rank);
+        this.f17578c = (TextView) view.findViewById(R.id.hot_topic_title);
+        this.f17579d = (TextView) view.findViewById(R.id.hot_topic_num);
+        this.f17580e = view.findViewById(R.id.devide_line_top);
+        this.f17581f = view.findViewById(R.id.topic_devide_line_bottom);
+        this.f17582g = (ImageView) view.findViewById(R.id.hot_topic_pic);
+        this.f17583h = (LinearLayout) view.findViewById(R.id.tip_info_item);
+        this.i = (TextView) view.findViewById(R.id.tip_info_title);
+        this.j = (TextView) view.findViewById(R.id.tip_info_rule);
+        this.k = (LinearLayout) view.findViewById(R.id.topic_normal_item);
+        this.l = (LinearLayout) view.findViewById(R.id.tip_rule_container);
     }
 }

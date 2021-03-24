@@ -3,54 +3,15 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DuzhanUpMsgCreator {
-    private static final String TAG = "DuzhanUpMsgCreateor";
-    private static int REQ_TYPE_BOX = 0;
-    private static int REQ_TYPE_PA = 1;
-    private static int REQ_TYPE_CLUE = 3;
-    private static int REQ_TYPE_LEMON = 4;
+    public static int REQ_TYPE_BOX = 0;
+    public static int REQ_TYPE_CLUE = 3;
+    public static int REQ_TYPE_LEMON = 4;
+    public static int REQ_TYPE_PA = 1;
+    public static final String TAG = "DuzhanUpMsgCreateor";
 
-    public static int getReqType(int i) {
-        if (i == 7) {
-            return REQ_TYPE_PA;
-        }
-        if (i == 16) {
-            return REQ_TYPE_CLUE;
-        }
-        if (i == 25) {
-            return REQ_TYPE_LEMON;
-        }
-        return REQ_TYPE_BOX;
-    }
-
-    public static ChatMsg reCreateChatMsg(int i, ChatMsg chatMsg) {
-        chatMsg.setChatType(i);
-        chatMsg.setExtraContent(generateExtJson(chatMsg));
-        return chatMsg;
-    }
-
-    private static JSONObject getImageContent(ChatMsg chatMsg) {
-        try {
-            JSONObject jSONObject = new JSONObject(chatMsg.getJsonContent());
-            String optString = jSONObject.optString("json");
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("name", optString);
-            jSONObject2.put("url", ((ImageMsg) chatMsg).getRemoteUrl());
-            jSONObject2.put("thumbnail", ((ImageMsg) chatMsg).getThumbUrl());
-            jSONObject2.put("w", ((ImageMsg) chatMsg).getWidth());
-            jSONObject2.put("h", ((ImageMsg) chatMsg).getHeight());
-            if (jSONObject.has("ext")) {
-                jSONObject2.put("ext", jSONObject.get("ext"));
-            }
-            return jSONObject2;
-        } catch (Exception e) {
-            LogUtils.e(TAG, "create json excepiton " + e.getMessage());
-            return new JSONObject();
-        }
-    }
-
-    private static String generateExtJson(ChatMsg chatMsg) {
+    public static String generateExtJson(ChatMsg chatMsg) {
         String str = "";
         try {
             JSONObject jSONObject = new JSONObject();
@@ -71,14 +32,33 @@ public class DuzhanUpMsgCreator {
             str = jSONObject.toString();
             LogUtils.d(TAG, "generateExtJson :" + str);
             return str;
-        } catch (Exception e) {
-            LogUtils.e(TAG, "generateExtJson :" + e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "generateExtJson :" + e2);
             return str;
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:12:0x0026 -> B:7:0x0015). Please submit an issue!!! */
-    private static JSONObject getMsgExtContent(ChatMsg chatMsg) {
+    public static JSONObject getImageContent(ChatMsg chatMsg) {
+        try {
+            JSONObject jSONObject = new JSONObject(chatMsg.getJsonContent());
+            String optString = jSONObject.optString("json");
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("name", optString);
+            jSONObject2.put("url", ((ImageMsg) chatMsg).getRemoteUrl());
+            jSONObject2.put("thumbnail", ((ImageMsg) chatMsg).getThumbUrl());
+            jSONObject2.put("w", ((ImageMsg) chatMsg).getWidth());
+            jSONObject2.put("h", ((ImageMsg) chatMsg).getHeight());
+            if (jSONObject.has("ext")) {
+                jSONObject2.put("ext", jSONObject.get("ext"));
+            }
+            return jSONObject2;
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "create json excepiton " + e2.getMessage());
+            return new JSONObject();
+        }
+    }
+
+    public static JSONObject getMsgExtContent(ChatMsg chatMsg) {
         try {
             String jsonContent = chatMsg.getJsonContent();
             if (!TextUtils.isEmpty(jsonContent)) {
@@ -87,9 +67,28 @@ public class DuzhanUpMsgCreator {
                 }
                 return new JSONObject(jsonContent);
             }
-        } catch (Exception e) {
-            LogUtils.e(TAG, "getMsgExtContent :", e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "getMsgExtContent :", e2);
         }
         return new JSONObject();
+    }
+
+    public static int getReqType(int i) {
+        if (i == 7) {
+            return REQ_TYPE_PA;
+        }
+        if (i == 16) {
+            return REQ_TYPE_CLUE;
+        }
+        if (i == 25) {
+            return REQ_TYPE_LEMON;
+        }
+        return REQ_TYPE_BOX;
+    }
+
+    public static ChatMsg reCreateChatMsg(int i, ChatMsg chatMsg) {
+        chatMsg.setChatType(i);
+        chatMsg.setExtraContent(generateExtJson(chatMsg));
+        return chatMsg;
     }
 }

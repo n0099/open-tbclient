@@ -1,21 +1,20 @@
 package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tieba.memberCenter.index.a.m;
-/* loaded from: classes8.dex */
+import d.b.i0.q1.c.b.m;
+/* loaded from: classes3.dex */
 public class GetMemberCacheResponse extends CustomResponsedMessage<Object> {
-    private m mMembercenter;
+    public m mMembercenter;
 
     public GetMemberCacheResponse() {
-        super(CmdConfigCustom.CMD_GET_MEMBER_CENTER_CACHE);
-    }
-
-    public void setMemberCenterData(m mVar) {
-        this.mMembercenter = mVar;
+        super(2016460);
     }
 
     public m getMembercenterData() {
         return this.mMembercenter;
+    }
+
+    public void setMemberCenterData(m mVar) {
+        this.mMembercenter = mVar;
     }
 }

@@ -7,57 +7,69 @@ import android.os.Build;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.pushservice.i.l;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.frequency.GetFrequencyListener;
+import com.baidu.android.pushservice.frequency.GetNoDisturbListener;
+import com.baidu.android.pushservice.frequency.UploadDataListener;
+import com.baidu.android.pushservice.j.l;
+import com.baidu.android.pushservice.j.m;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwai.video.player.PlayerPostEvent;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class PushManager {
-    private static final String TAG = "PushManager";
+    public static final String TAG = "PushManager";
 
     public static void bindPush(Context context, String str) {
-        if (m.j(context)) {
+        if (m.i(context)) {
             return;
         }
         f.a(context, 0, str, true);
     }
 
+    public static void clearIconBadge(Context context) {
+        com.baidu.android.pushservice.f.c.a().a(context);
+    }
+
+    public static void closeNoDisturb(Context context, UploadDataListener uploadDataListener) {
+        if (f.a(context, uploadDataListener)) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("do_not_disturb", com.baidu.android.pushservice.frequency.b.a().a(-1, -1));
+            com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
+        }
+    }
+
     public static void createNotificationChannel(Context context, String str, String str2) {
         if (m.p(context)) {
-            com.baidu.android.pushservice.i.h.a(context, str, str2);
+            com.baidu.android.pushservice.j.h.a(context, str, str2);
         }
     }
 
     public static void delTags(Context context, List<String> list) {
-        Intent c;
+        Intent c2;
         Iterator<String> it;
-        String str;
-        if (list == null || list.size() == 0 || (c = f.c(context)) == null) {
+        if (list == null || list.size() == 0 || (c2 = f.c(context)) == null) {
             return;
         }
-        String str2 = "[";
-        while (true) {
-            str = str2;
-            if (!list.iterator().hasNext()) {
-                break;
-            }
-            str2 = ((str + "\"") + it.next()) + "\",";
+        String str = "[";
+        while (list.iterator().hasNext()) {
+            str = ((str + "\"") + it.next()) + "\",";
         }
         if (str.length() > 0) {
             str = str.substring(0, str.length() - 1);
         }
-        c.putExtra("method", "method_del_tags");
-        c.putExtra(CommandMessage.TYPE_TAGS, str + "]");
-        com.baidu.android.pushservice.f.a.a(TAG, "a delTags intent send", context.getApplicationContext());
-        f.b(context, c);
+        c2.putExtra("method", "method_del_tags");
+        c2.putExtra(CommandMessage.TYPE_TAGS, str + "]");
+        com.baidu.android.pushservice.g.a.a("PushManager", "a delTags intent send", context.getApplicationContext());
+        f.b(context, c2);
     }
 
     public static void deleteNotificationChannel(Context context, String str) {
         if (m.p(context)) {
-            com.baidu.android.pushservice.i.h.a(context, str);
+            com.baidu.android.pushservice.j.h.a(context, str);
         }
     }
 
@@ -68,54 +80,54 @@ public class PushManager {
     }
 
     public static void enableHuaweiProxy(Context context, boolean z) {
-        PushSettings.c = z ? 1 : 0;
-        com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", PushSettings.c);
+        PushSettings.f2673c = z ? 1 : 0;
+        com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableMeizuProxy(Context context, boolean z, String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f.e = str;
-        com.baidu.android.pushservice.i.i.a(context, "BD_MEIZU_PROXY_APPID_KEY", str);
-        f.f = str2;
-        com.baidu.android.pushservice.i.i.a(context, "BD_MEIZU_PROXY_APPKEY_KEY", str2);
-        PushSettings.d = z ? 1 : 0;
-        com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", PushSettings.d);
+        f.f3012e = str;
+        com.baidu.android.pushservice.j.i.a(context, "BD_MEIZU_PROXY_APPID_KEY", str);
+        f.f3013f = str2;
+        com.baidu.android.pushservice.j.i.a(context, "BD_MEIZU_PROXY_APPKEY_KEY", str2);
+        PushSettings.f2674d = z ? 1 : 0;
+        com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableOppoProxy(Context context, boolean z, String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f.g = str;
-        com.baidu.android.pushservice.i.i.a(context, "BD_OPPO_PROXY_APPKEY_KEY", str);
-        f.h = str2;
-        com.baidu.android.pushservice.i.i.a(context, "BD_OPPO_PROXY_APPSECRET_KEY", str2);
-        PushSettings.e = z ? 1 : 0;
-        com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", PushSettings.e);
+        f.f3014g = str;
+        com.baidu.android.pushservice.j.i.a(context, "BD_OPPO_PROXY_APPKEY_KEY", str);
+        f.f3015h = str2;
+        com.baidu.android.pushservice.j.i.a(context, "BD_OPPO_PROXY_APPSECRET_KEY", str2);
+        PushSettings.f2675e = z ? 1 : 0;
+        com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableVivoProxy(Context context, boolean z) {
-        PushSettings.f = z ? 1 : 0;
-        com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", PushSettings.f);
+        PushSettings.f2676f = z ? 1 : 0;
+        com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableXiaomiProxy(Context context, boolean z, String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
-            f.c = str;
-            com.baidu.android.pushservice.i.i.a(context, "BD_PROXY_APPID_KEY", str);
+            f.f3010c = str;
+            com.baidu.android.pushservice.j.i.a(context, "BD_PROXY_APPID_KEY", str);
         }
         if (!TextUtils.isEmpty(str2)) {
-            f.d = str2;
-            com.baidu.android.pushservice.i.i.a(context, "BD_PROXY_APPKEY_KEY", str2);
+            f.f3011d = str2;
+            com.baidu.android.pushservice.j.i.a(context, "BD_PROXY_APPKEY_KEY", str2);
         }
-        PushSettings.b = z ? 1 : 0;
-        com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", PushSettings.b);
+        PushSettings.f2672b = z ? 1 : 0;
+        com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", z ? 1 : 0);
     }
 
     public static int getBindType(Context context) {
-        if (m.j(context)) {
+        if (m.i(context)) {
             if (com.baidu.android.pushservice.b.d.l(context)) {
                 return 2;
             }
@@ -133,6 +145,24 @@ public class PushManager {
         return 0;
     }
 
+    public static void getNoDisturbOnline(Context context, GetNoDisturbListener getNoDisturbListener) {
+        if (getNoDisturbListener == null) {
+            return;
+        }
+        if (context == null) {
+            getNoDisturbListener.onResult(30602, 0, 0);
+        } else {
+            com.baidu.android.pushservice.frequency.b.a().a(context, "do_not_disturb", getNoDisturbListener);
+        }
+    }
+
+    public static void getPushFrequency(Context context, GetFrequencyListener getFrequencyListener) {
+        if (getFrequencyListener == null || context == null) {
+            return;
+        }
+        com.baidu.android.pushservice.frequency.b.a().a(context, PushConstants.EXTRA_PUSH_FREQ, getFrequencyListener);
+    }
+
     public static void insertPassThroughMessageClick(Context context, String str, String str2) {
         if (f.m(context) || str == null || str2 == null) {
             return;
@@ -140,33 +170,36 @@ public class PushManager {
         try {
             Intent intent = new Intent();
             String packageName = context.getPackageName();
-            com.baidu.android.pushservice.f.a.a(TAG, "PassThroughMessageClick  : " + packageName, context.getApplicationContext());
-            intent.putExtra("app_id", str2);
+            com.baidu.android.pushservice.g.a.a("PushManager", "PassThroughMessageClick  : " + packageName, context.getApplicationContext());
+            intent.putExtra(Constants.APP_ID, str2);
             intent.putExtra("msg_id", str);
             intent.setAction("com.baidu.android.pushservice.action.passthrough.notification.CLICK");
             intent.setClassName(packageName, "com.baidu.android.pushservice.CommandService");
             context.startService(intent);
-        } catch (Exception e) {
-            com.baidu.android.pushservice.f.a.b(TAG, "error " + e.getMessage(), context.getApplicationContext());
+        } catch (Exception e2) {
+            com.baidu.android.pushservice.g.a.b("PushManager", "error " + e2.getMessage(), context.getApplicationContext());
         }
     }
 
     public static boolean isPushEnabled(Context context) {
-        return (f.m(context) || m.b(context)) ? false : true;
+        if (f.m(context)) {
+            return false;
+        }
+        return !m.b(context);
     }
 
     public static void listTags(Context context) {
-        Intent c = f.c(context);
-        if (c == null) {
+        Intent c2 = f.c(context);
+        if (c2 == null) {
             return;
         }
-        c.putExtra("method", "method_listtags");
-        com.baidu.android.pushservice.f.a.a(TAG, "a listTags intent send", context.getApplicationContext());
-        f.b(context, c);
+        c2.putExtra("method", "method_listtags");
+        com.baidu.android.pushservice.g.a.a("PushManager", "a listTags intent send", context.getApplicationContext());
+        f.b(context, c2);
     }
 
     public static void reStartWork(final Context context) {
-        if (m.j(context)) {
+        if (m.i(context) && isPushEnabled(context)) {
             new Handler(context.getMainLooper()).postDelayed(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -192,6 +225,10 @@ public class PushManager {
         l.b(context);
     }
 
+    public static void sendPushMsgAck(Context context, String str, int i) {
+        m.a(context, str, i);
+    }
+
     public static void setDefaultNotificationBuilder(Context context, PushNotificationBuilder pushNotificationBuilder) {
         if (f.m(context)) {
             return;
@@ -204,13 +241,25 @@ public class PushManager {
             return;
         }
         if (i < 0 || i > 23 || i3 < 0 || i3 > 23) {
-            com.baidu.android.pushservice.f.a.a(TAG, "setNoDisturbMode hour parameters illegal!", context.getApplicationContext());
+            com.baidu.android.pushservice.g.a.a("PushManager", "setNoDisturbMode hour parameters illegal!", context.getApplicationContext());
         } else if (i2 < 0 || i2 > 59 || i4 < 0 || i4 > 59) {
-            com.baidu.android.pushservice.f.a.a(TAG, "setNoDisturbMode minute parameters illegal!", context.getApplicationContext());
+            com.baidu.android.pushservice.g.a.a("PushManager", "setNoDisturbMode minute parameters illegal!", context.getApplicationContext());
         } else {
             String packageName = context.getPackageName();
-            com.baidu.android.pushservice.f.a.a(TAG, "PushManager setNoDisturbMode package name: " + packageName, context.getApplicationContext());
+            com.baidu.android.pushservice.g.a.a("PushManager", "PushManager setNoDisturbMode package name: " + packageName, context.getApplicationContext());
             com.baidu.android.pushservice.c.a.a(context, packageName, i, i2, i3, i4);
+        }
+    }
+
+    public static void setNoDisturbOnline(Context context, int i, int i2, UploadDataListener uploadDataListener) {
+        if (f.a(context, uploadDataListener)) {
+            if (i > 86400 || i2 > 86400 || i < 0 || i2 < 0) {
+                uploadDataListener.onResult(30602);
+                return;
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("do_not_disturb", com.baidu.android.pushservice.frequency.b.a().a(i, i2));
+            com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
         }
     }
 
@@ -219,63 +268,90 @@ public class PushManager {
             return;
         }
         if (i < 1 || i > 1000) {
-            com.baidu.android.pushservice.f.a.b(TAG, "set notification builder error, id is illegal !", context.getApplicationContext());
+            com.baidu.android.pushservice.g.a.b("PushManager", "set notification builder error, id is illegal !", context.getApplicationContext());
         } else {
             d.a(context, i, pushNotificationBuilder);
         }
     }
 
-    public static void setTags(Context context, List<String> list) {
-        Intent c;
-        Iterator<String> it;
-        String str;
-        if (list == null || list.size() == 0 || (c = f.c(context)) == null) {
+    public static void setPushBackStatus(Context context, boolean z) {
+        if (f.m(context)) {
             return;
         }
-        String str2 = "[";
-        while (true) {
-            str = str2;
-            if (!list.iterator().hasNext()) {
-                break;
+        if (!z) {
+            if (com.baidu.android.pushservice.b.d.d(context)) {
+                a.a(context, true);
             }
-            str2 = ((str + "\"") + it.next()) + "\",";
+            reStartWork(context);
+        } else if ((!com.baidu.android.pushservice.b.d.q(context) || com.baidu.android.pushservice.b.d.c(context)) && com.baidu.android.pushservice.b.d.d(context)) {
+            a.a(context, false);
+            m.d(context);
+            com.baidu.android.pushservice.job.a.b(context);
+            f.n(context);
+        }
+    }
+
+    public static void setPushFrequency(Context context, int i, UploadDataListener uploadDataListener) {
+        if (f.a(context, uploadDataListener)) {
+            if (i < 1 || i > 3) {
+                uploadDataListener.onResult(30602);
+                return;
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put(PushConstants.EXTRA_PUSH_FREQ, Integer.valueOf(i));
+            com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
+        }
+    }
+
+    public static void setTags(Context context, List<String> list) {
+        Intent c2;
+        Iterator<String> it;
+        if (list == null || list.size() == 0 || (c2 = f.c(context)) == null) {
+            return;
+        }
+        String str = "[";
+        while (list.iterator().hasNext()) {
+            str = ((str + "\"") + it.next()) + "\",";
         }
         if (str.length() > 0) {
             str = str.substring(0, str.length() - 1);
         }
-        c.putExtra("method", "method_set_tags");
-        c.putExtra(CommandMessage.TYPE_TAGS, str + "]");
-        com.baidu.android.pushservice.f.a.a(TAG, "a setTags intent send ", context.getApplicationContext());
-        f.b(context, c);
+        c2.putExtra("method", "method_set_tags");
+        c2.putExtra(CommandMessage.TYPE_TAGS, str + "]");
+        com.baidu.android.pushservice.g.a.a("PushManager", "a setTags intent send ", context.getApplicationContext());
+        f.b(context, c2);
     }
 
     public static void startWork(Context context, int i, String str) {
         if (f.m(context)) {
             return;
         }
-        f.f1146a = i;
-        f.b = str;
+        f.f3008a = i;
+        f.f3009b = str;
         h.b(context);
-        String f = m.f(context, str);
-        com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.CHECK_SDK", f);
-        com.baidu.android.pushservice.f.a.a(TAG, "startWork from " + context.getPackageName() + " checkResult: " + f, context.getApplicationContext());
-        m.a("startWork from " + context.getPackageName() + " checkResult: " + f, context);
-        if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f) || !PushSettings.e(context)) && i == 0) {
-            f.a(context, i, f.b);
+        String f2 = m.f(context, str);
+        if (TextUtils.isEmpty(f2)) {
+            f2 = "unKnow error";
+        }
+        com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.CHECK_SDK", f2);
+        com.baidu.android.pushservice.g.a.a("PushManager", "startWork from " + context.getPackageName() + " checkResult: " + f2, context.getApplicationContext());
+        m.a("startWork from " + context.getPackageName() + " checkResult: " + f2, context);
+        if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f2) || !PushSettings.e(context)) && i == 0) {
+            f.a(context, i, f.f3009b);
         } else {
             if (i != 0) {
                 Log.e("BDPushSDK-PushManager", "Wrong LOGIN TYPE, Please use LOGIN_TYPE_API_KEY !");
             }
-            f.b(context, (int) PlayerPostEvent.MEDIA_INFO_PLAY_TO_END, f);
+            f.c(context, PlayerPostEvent.MEDIA_INFO_PLAY_TO_END, f2);
         }
-        m.l(context);
+        m.k(context);
     }
 
     public static void stopWork(Context context) {
         if (f.m(context)) {
             return;
         }
-        com.baidu.android.pushservice.f.a.a(TAG, "stopWork from" + context.getPackageName(), context.getApplicationContext());
+        com.baidu.android.pushservice.g.a.a("PushManager", "stopWork from" + context.getPackageName(), context.getApplicationContext());
         m.a("stopWork from" + context.getPackageName() + " at time of " + System.currentTimeMillis(), context);
         f.g(context);
         a.a(context, false);
@@ -283,5 +359,66 @@ public class PushManager {
         m.d(context);
         com.baidu.android.pushservice.job.a.b(context);
         f.n(context);
+    }
+
+    public static void tokenBind(Context context, String str) {
+        if (context == null || m.i(context) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        f.b(context, 0, str);
+    }
+
+    public static void uploadBduss(Context context, int i, String str, UploadDataListener uploadDataListener) {
+        if (f.a(context, uploadDataListener)) {
+            if (i < 0 || i > 2 || TextUtils.isEmpty(str)) {
+                uploadDataListener.onResult(30602);
+                return;
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put(PushConstants.EXTRA_BDUSS_ACTION, Integer.valueOf(i));
+            hashMap.put("bduss", str);
+            com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
+        }
+    }
+
+    public static void uploadClickData(Context context, int i, String str, String str2) {
+        if (context == null) {
+            return;
+        }
+        com.baidu.android.pushservice.frequency.b.a().a(context.getApplicationContext(), true, i, str, str2);
+    }
+
+    public static void uploadData(Context context, HashMap<String, Object> hashMap, UploadDataListener uploadDataListener) {
+        if (f.a(context, uploadDataListener)) {
+            if (hashMap == null || hashMap.size() == 0) {
+                uploadDataListener.onResult(30602);
+            } else {
+                com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
+            }
+        }
+    }
+
+    public static void uploadLocation(Context context, String str, UploadDataListener uploadDataListener) {
+        if (f.a(context, uploadDataListener)) {
+            if (TextUtils.isEmpty(str)) {
+                uploadDataListener.onResult(30602);
+                return;
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("location", str);
+            com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
+        }
+    }
+
+    public static void uploadNotifyStatus(Context context, int i, UploadDataListener uploadDataListener) {
+        if (f.a(context, uploadDataListener)) {
+            if (i < 0 || i > 2) {
+                uploadDataListener.onResult(30602);
+                return;
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put(PushConstants.EXTRA_APP_NOTIFY_STATUS, Integer.valueOf(i));
+            com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
+        }
     }
 }

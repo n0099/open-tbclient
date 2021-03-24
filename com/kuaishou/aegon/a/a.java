@@ -1,41 +1,41 @@
 package com.kuaishou.aegon.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: com.kuaishou.aegon.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1085a<T> {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0352a<T> {
         T get();
     }
 
-    public static <T> T a(InterfaceC1085a<T> interfaceC1085a) {
+    public static <T> T a(InterfaceC0352a<T> interfaceC0352a) {
         try {
-            return interfaceC1085a.get();
-        } catch (UnsatisfiedLinkError e) {
             try {
-                return interfaceC1085a.get();
-            } catch (UnsatisfiedLinkError e2) {
-                return interfaceC1085a.get();
+                return interfaceC0352a.get();
+            } catch (UnsatisfiedLinkError unused) {
+                return interfaceC0352a.get();
             }
+        } catch (UnsatisfiedLinkError unused2) {
+            return interfaceC0352a.get();
         }
     }
 
     public static void a(Runnable runnable) {
         try {
-            runnable.run();
-        } catch (UnsatisfiedLinkError e) {
             try {
                 runnable.run();
-            } catch (UnsatisfiedLinkError e2) {
+            } catch (UnsatisfiedLinkError unused) {
                 runnable.run();
             }
+        } catch (UnsatisfiedLinkError unused2) {
+            runnable.run();
         }
     }
 
     public static void b(Runnable runnable) {
         try {
             runnable.run();
-        } catch (UnsatisfiedLinkError e) {
+        } catch (UnsatisfiedLinkError unused) {
         }
     }
 }

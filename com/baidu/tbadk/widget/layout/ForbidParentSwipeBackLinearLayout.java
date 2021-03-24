@@ -6,18 +6,10 @@ import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ForbidParentSwipeBackLinearLayout extends LinearLayout {
     public ForbidParentSwipeBackLinearLayout(Context context) {
         super(context);
-    }
-
-    public ForbidParentSwipeBackLinearLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    public ForbidParentSwipeBackLinearLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -30,5 +22,13 @@ public class ForbidParentSwipeBackLinearLayout extends LinearLayout {
             }
         }
         return super.dispatchTouchEvent(motionEvent);
+    }
+
+    public ForbidParentSwipeBackLinearLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public ForbidParentSwipeBackLinearLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 }

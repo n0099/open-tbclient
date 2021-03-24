@@ -4,10 +4,10 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface FunNativeAd {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum InteractionType {
         TYPE_UNKNOW,
         TYPE_DOWNLOAD,

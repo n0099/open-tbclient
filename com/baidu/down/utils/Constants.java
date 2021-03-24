@@ -1,5 +1,5 @@
 package com.baidu.down.utils;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class Constants {
     public static final String CONFIG_URL = "http://flow.app.baidu.com/flow/api/flowset?";
     public static final boolean DEBUG = false;
@@ -26,7 +26,4 @@ public final class Constants {
     public static final String SDK_VER_NAME = "sdk_ver";
     public static final String SPEED_STAT_URL_DEFAULT = "http://appc.baidu.com/globalflow/v1/baseflow?action=statistics";
     public static final long TEST_SPEED_THRESHOLD_DEFAULT = 10240;
-
-    private Constants() {
-    }
 }

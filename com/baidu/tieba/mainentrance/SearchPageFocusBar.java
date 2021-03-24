@@ -8,53 +8,63 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
-    private RelativeLayout llf;
-    private TextView llg;
-    private TextView llh;
-    private Context mContext;
-    private TbPageContext<?> mTbPageContext;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RelativeLayout f18797e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f18798f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbPageContext<?> f18799g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Context f18800h;
+    public TextView i;
 
     public SearchPageFocusBar(Context context) {
         super(context);
-        init(context, null);
+        a(context, null);
     }
 
-    public SearchPageFocusBar(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context, null);
-    }
-
-    public SearchPageFocusBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(context, null);
-    }
-
-    private void init(Context context, AttributeSet attributeSet) {
-        this.mContext = context;
+    public final void a(Context context, AttributeSet attributeSet) {
+        this.f18800h = context;
         LayoutInflater.from(context).inflate(R.layout.home_search_focusbar, this);
-        this.llf = (RelativeLayout) findViewById(R.id.focusbar_container);
-        this.llh = (TextView) findViewById(R.id.focusbar_hint);
-        ap.setViewTextColor(this.llh, R.color.CAM_X0108, 1);
-        this.llh.setVisibility(8);
-        this.llg = (TextView) findViewById(R.id.focusbar_show);
-        ap.setViewTextColor(this.llg, R.color.CAM_X0302, 1);
-        this.llg.setVisibility(8);
+        this.f18797e = (RelativeLayout) findViewById(R.id.focusbar_container);
+        TextView textView = (TextView) findViewById(R.id.focusbar_hint);
+        this.i = textView;
+        SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
+        this.i.setVisibility(8);
+        TextView textView2 = (TextView) findViewById(R.id.focusbar_show);
+        this.f18798f = textView2;
+        SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
+        this.f18798f.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view instanceof TextView) {
             String charSequence = ((TextView) view).getText().toString();
-            if (!StringUtils.isNull(charSequence)) {
-                this.mTbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mTbPageContext.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
+            if (StringUtils.isNull(charSequence)) {
+                return;
             }
+            this.f18799g.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18799g.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
         }
+    }
+
+    public SearchPageFocusBar(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a(context, null);
+    }
+
+    public SearchPageFocusBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a(context, null);
     }
 }

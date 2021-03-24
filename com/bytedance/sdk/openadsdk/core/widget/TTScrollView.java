@@ -11,10 +11,16 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class TTScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4593a;
-    private boolean b;
-    private a c;
-    private boolean d;
+    public int f28854a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f28855b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public a f28856c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f28857d;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -23,90 +29,106 @@ public class TTScrollView extends ScrollView {
 
     public TTScrollView(Context context) {
         super(context);
-        this.b = false;
-        this.d = false;
-    }
-
-    public TTScrollView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.b = false;
-        this.d = false;
-    }
-
-    public TTScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.b = false;
-        this.d = false;
+        this.f28855b = false;
+        this.f28857d = false;
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (!this.b) {
-            try {
-                this.b = true;
-                View childAt = ((ViewGroup) getChildAt(0)).getChildAt(1);
-                ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
-                layoutParams.height = getHeight();
-                childAt.setLayoutParams(layoutParams);
-            } catch (Throwable th) {
-                u.f("TTScrollView", "onLayout error" + th.toString());
-            }
+        if (this.f28855b) {
+            return;
+        }
+        try {
+            this.f28855b = true;
+            View childAt = ((ViewGroup) getChildAt(0)).getChildAt(1);
+            ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
+            layoutParams.height = getHeight();
+            childAt.setLayoutParams(layoutParams);
+        } catch (Throwable th) {
+            u.f("TTScrollView", "onLayout error" + th.toString());
         }
     }
 
-    public void setListener(a aVar) {
-        this.c = aVar;
-    }
-
     @Override // android.widget.ScrollView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean z = false;
-        if (motionEvent.getAction() == 1 && getScrollY() < this.f4593a) {
-            if (getScrollY() > this.f4593a / 2) {
-                post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTScrollView.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        TTScrollView.this.smoothScrollTo(0, TTScrollView.this.f4593a);
-                    }
-                });
-            } else if (getScrollY() > 0) {
-                post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTScrollView.2
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        TTScrollView.this.smoothScrollTo(0, 0);
-                    }
-                });
-                z = true;
-            } else if (getScrollY() == 0) {
-                z = true;
-            }
-            if (this.c != null && z != this.d) {
-                this.c.a(z);
-            }
-            this.d = z;
-        }
-        return super.onTouchEvent(motionEvent);
-    }
-
-    @Override // android.widget.ScrollView, android.view.View
-    protected void onOverScrolled(int i, int i2, boolean z, boolean z2) {
+    public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
         super.onOverScrolled(i, i2, z, z2);
     }
 
     @Override // android.widget.ScrollView, android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.f4593a = getChildAt(0).getMeasuredHeight();
+        this.f28854a = getChildAt(0).getMeasuredHeight();
         post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTScrollView.3
             @Override // java.lang.Runnable
             public void run() {
-                TTScrollView.this.smoothScrollTo(0, TTScrollView.this.f4593a);
+                TTScrollView tTScrollView = TTScrollView.this;
+                tTScrollView.smoothScrollTo(0, tTScrollView.f28854a);
             }
         });
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0037, code lost:
+        if (getScrollY() == 0) goto L9;
+     */
+    @Override // android.widget.ScrollView, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        a aVar;
+        boolean z = true;
+        if (motionEvent.getAction() == 1 && getScrollY() < this.f28854a) {
+            if (getScrollY() > this.f28854a / 2) {
+                post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTScrollView.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        TTScrollView tTScrollView = TTScrollView.this;
+                        tTScrollView.smoothScrollTo(0, tTScrollView.f28854a);
+                    }
+                });
+            } else {
+                if (getScrollY() > 0) {
+                    post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTScrollView.2
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            TTScrollView.this.smoothScrollTo(0, 0);
+                        }
+                    });
+                }
+                aVar = this.f28856c;
+                if (aVar != null && z != this.f28857d) {
+                    aVar.a(z);
+                }
+                this.f28857d = z;
+            }
+            z = false;
+            aVar = this.f28856c;
+            if (aVar != null) {
+                aVar.a(z);
+            }
+            this.f28857d = z;
+        }
+        return super.onTouchEvent(motionEvent);
+    }
+
+    public void setListener(a aVar) {
+        this.f28856c = aVar;
+    }
+
     public boolean a() {
-        return this.d;
+        return this.f28857d;
+    }
+
+    public TTScrollView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f28855b = false;
+        this.f28857d = false;
+    }
+
+    public TTScrollView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f28855b = false;
+        this.f28857d = false;
     }
 }

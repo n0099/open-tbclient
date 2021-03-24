@@ -2,6 +2,8 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import android.util.Log;
+import android.util.Pair;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdExtendListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
@@ -17,7 +19,9 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.bumptech.glide.load.engine.GlideException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
@@ -25,21 +29,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMFetchMsgRequest extends BaseHttpRequest {
-    private static final String TAG = "IMFetchMsgRequest";
-    private Long mAppid;
-    private long mBeginid;
-    private int mCategory;
-    private long mContacter;
-    private int mCount;
-    private long mEndid;
-    private boolean mIsReliable;
-    private String mKey;
-    private long mUk;
+    public static final String TAG = "IMFetchMsgRequest";
+    public Long mAppid;
+    public long mBeginid;
+    public int mCategory;
+    public long mContacter;
+    public int mCount;
+    public long mEndid;
+    public boolean mIsReliable;
+    public String mKey;
+    public long mUk;
 
     public IMFetchMsgRequest(Context context, String str, long j, long j2, long j3, int i, int i2, long j4, long j5, boolean z) {
         this.mContext = context;
@@ -54,87 +57,30 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         this.mIsReliable = z;
     }
 
-    /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Long] */
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        int i2;
-        int i3;
-        String str;
-        ArrayList<ChatMsg> arrayList;
-        String str2 = new String(bArr);
-        LogUtils.d(TAG, "  " + str2);
-        ArrayList<ChatMsg> arrayList2 = null;
-        String str3 = "";
-        Type type = new Type();
-        type.t = 0L;
-        int i4 = 0;
-        boolean z = false;
-        try {
-            JSONObject jSONObject = new JSONObject(str2);
-            i3 = jSONObject.getInt("err_code");
-            str = jSONObject.optString("err_msg", "");
-            str3 = jSONObject.optString("request_id", "0");
-            z = jSONObject.optBoolean("has_more", false);
-            if (i3 == 0 && jSONObject.has("messages")) {
-                JSONArray jSONArray = jSONObject.getJSONArray("messages");
-                if (jSONArray != null) {
-                    i4 = jSONArray.length();
-                }
-                arrayList2 = MessageParser.parserMessage(this.mContext, jSONArray, type, true, false);
-            }
-            i2 = i4;
-            arrayList = arrayList2;
-        } catch (Exception e) {
-            i2 = i4;
-            LogUtils.e("IMPaSetDisturbRequest", "JSONException", e);
-            i3 = 1010;
-            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            arrayList = null;
-        }
-        LogUtils.d(TAG, "requestid : " + str3 + " , resultCode: " + i3 + " , resultMsg : " + str);
-        if (this.mIsReliable && arrayList != null && arrayList.size() > 0) {
-            LogUtils.d(TAG, "短连接回ack begin");
-            final ArrayList<ChatMsg> arrayList3 = arrayList;
-            TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgRequest.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    IMAckRequest iMAckRequest = new IMAckRequest(IMFetchMsgRequest.this.mContext, IMFetchMsgRequest.this.mKey, IMFetchMsgRequest.this.mUk, IMFetchMsgRequest.this.mContacter, IMFetchMsgRequest.this.mCategory, IMFetchMsgRequest.this.mCount, IMFetchMsgRequest.this.mBeginid, IMFetchMsgRequest.this.mEndid, IMFetchMsgRequest.this.mIsReliable, arrayList3);
-                    HttpHelper.executor(IMFetchMsgRequest.this.mContext, iMAckRequest, iMAckRequest);
-                }
-            });
-        }
-        IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener instanceof IFetchMsgByIdExtendListener) {
-            ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList, z);
-            LogUtils.d(TAG, "IFetchMsgByIdExtendListener.onFetchMsgByIdResult");
-        } else if (removeListener instanceof IFetchMsgByIdListener) {
-            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList);
-            LogUtils.d(TAG, "IFetchMsgByIdListener.onFetchMsgByIdResult");
-        }
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        LogUtils.d(TAG, "  errorCode: " + transErrorCode(i, bArr, th).first);
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public Map<String, String> getHeaders() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("Cookie", "BDUSS=");
+        return hashMap;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
+        int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
         String str = "https://pim.baidu.com/";
-        switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
-            case 0:
-                str = "https://pim.baidu.com/";
-                break;
-            case 1:
+        if (readIntData != 0) {
+            if (readIntData == 1) {
                 str = "http://rd-im-server.bcc-szth.baidu.com:8111/";
-                break;
-            case 2:
+            } else if (readIntData == 2) {
                 str = Constants.URL_HTTP_QA;
-                break;
-            case 3:
+            } else if (readIntData == 3) {
                 str = Constants.URL_HTTP_BOX;
-                break;
+            }
         }
         return str + "imsapi/1.0/fetchmsg/liveshow";
     }
@@ -149,19 +95,28 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         JSONObject json;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         StringBuilder sb = new StringBuilder();
-        sb.append("appid=").append(this.mAppid);
-        sb.append("&category=").append(this.mCategory);
-        sb.append("&count=").append(this.mCount);
-        sb.append("&msgid_begin=").append(this.mBeginid);
-        sb.append("&msgid_end=").append(this.mEndid);
-        sb.append("&sdk_version=").append(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-        sb.append("&to=").append(this.mContacter);
-        sb.append("&uk=").append(this.mUk);
+        sb.append("appid=");
+        sb.append(this.mAppid);
+        sb.append("&category=");
+        sb.append(this.mCategory);
+        sb.append("&count=");
+        sb.append(this.mCount);
+        sb.append("&msgid_begin=");
+        sb.append(this.mBeginid);
+        sb.append("&msgid_end=");
+        sb.append(this.mEndid);
+        sb.append("&sdk_version=");
+        sb.append(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+        sb.append("&to=");
+        sb.append(this.mContacter);
+        sb.append("&uk=");
+        sb.append(this.mUk);
         if (4 == this.mCategory && (json = MessageExt.getInstance().toJson()) != null && json.length() > 0) {
-            sb.append("&ext_info=").append(URLEncoder.encode(json.toString()));
+            sb.append("&ext_info=");
+            sb.append(URLEncoder.encode(json.toString()));
         }
         String sb2 = sb.toString();
-        String[] split = sb2.split(ETAG.ITEM_SEPARATOR);
+        String[] split = sb2.split("&");
         Arrays.sort(split);
         String str = "";
         for (String str2 : split) {
@@ -172,20 +127,111 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         }
         LogUtils.d(TAG, "IMFetchMsgRequest param:" + sb2);
         LogUtils.d(TAG, " " + str);
-        sb.append("&sign=").append(getMd5(str));
+        sb.append("&sign=");
+        sb.append(getMd5(str));
         return sb.toString().getBytes();
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return "application/x-www-form-urlencoded";
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+        LogUtils.d(TAG, "  errorCode: " + transErrorCode.first);
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
-        HashMap hashMap = new HashMap();
-        hashMap.put(SM.COOKIE, "BDUSS=");
-        return hashMap;
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00f5  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x011a  */
+    /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onSuccess(int i, byte[] bArr) {
+        boolean z;
+        int i2;
+        final ArrayList<ChatMsg> arrayList;
+        String str;
+        boolean z2;
+        int i3;
+        IMListener removeListener;
+        String str2 = "";
+        String str3 = new String(bArr);
+        LogUtils.d(TAG, GlideException.IndentedAppendable.INDENT + str3);
+        Type type = new Type();
+        type.t = 0L;
+        int i4 = 0;
+        ArrayList<ChatMsg> arrayList2 = null;
+        try {
+            JSONObject jSONObject = new JSONObject(str3);
+            int i5 = jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
+            String optString = jSONObject.optString(PmsConstant.Statistic.STATISTIC_ERRMSG, "");
+            str2 = jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "0");
+            z = jSONObject.optBoolean("has_more", false);
+            if (i5 == 0) {
+                try {
+                    if (jSONObject.has(NotificationCompat.CarExtender.KEY_MESSAGES)) {
+                        JSONArray jSONArray = jSONObject.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
+                        int length = jSONArray != null ? jSONArray.length() : 0;
+                        try {
+                            arrayList2 = MessageParser.parserMessage(this.mContext, jSONArray, type, true, false);
+                            i4 = length;
+                        } catch (Exception e2) {
+                            e = e2;
+                            i4 = length;
+                            LogUtils.e("IMPaSetDisturbRequest", "JSONException", e);
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            i2 = i4;
+                            arrayList = null;
+                            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                            z2 = z;
+                            i3 = 1010;
+                            LogUtils.d(TAG, "requestid : " + str2 + " , resultCode: " + i3 + " , resultMsg : " + str);
+                            if (this.mIsReliable) {
+                                LogUtils.d(TAG, "短连接回ack begin");
+                                TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgRequest.1
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        IMAckRequest iMAckRequest = new IMAckRequest(IMFetchMsgRequest.this.mContext, IMFetchMsgRequest.this.mKey, IMFetchMsgRequest.this.mUk, IMFetchMsgRequest.this.mContacter, IMFetchMsgRequest.this.mCategory, IMFetchMsgRequest.this.mCount, IMFetchMsgRequest.this.mBeginid, IMFetchMsgRequest.this.mEndid, IMFetchMsgRequest.this.mIsReliable, arrayList);
+                                        HttpHelper.executor(IMFetchMsgRequest.this.mContext, iMAckRequest, iMAckRequest);
+                                    }
+                                });
+                            }
+                            removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+                            if (!(removeListener instanceof IFetchMsgByIdExtendListener)) {
+                            }
+                        }
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                }
+            }
+            i2 = i4;
+            arrayList = arrayList2;
+            str = optString;
+            z2 = z;
+            i3 = i5;
+        } catch (Exception e4) {
+            e = e4;
+            z = false;
+        }
+        LogUtils.d(TAG, "requestid : " + str2 + " , resultCode: " + i3 + " , resultMsg : " + str);
+        if (this.mIsReliable && arrayList != null && arrayList.size() > 0) {
+            LogUtils.d(TAG, "短连接回ack begin");
+            TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgRequest.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    IMAckRequest iMAckRequest = new IMAckRequest(IMFetchMsgRequest.this.mContext, IMFetchMsgRequest.this.mKey, IMFetchMsgRequest.this.mUk, IMFetchMsgRequest.this.mContacter, IMFetchMsgRequest.this.mCategory, IMFetchMsgRequest.this.mCount, IMFetchMsgRequest.this.mBeginid, IMFetchMsgRequest.this.mEndid, IMFetchMsgRequest.this.mIsReliable, arrayList);
+                    HttpHelper.executor(IMFetchMsgRequest.this.mContext, iMAckRequest, iMAckRequest);
+                }
+            });
+        }
+        removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+        if (!(removeListener instanceof IFetchMsgByIdExtendListener)) {
+            ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList, z2);
+            LogUtils.d(TAG, "IFetchMsgByIdExtendListener.onFetchMsgByIdResult");
+        } else if (removeListener instanceof IFetchMsgByIdListener) {
+            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList);
+            LogUtils.d(TAG, "IFetchMsgByIdListener.onFetchMsgByIdResult");
+        }
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

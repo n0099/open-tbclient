@@ -6,28 +6,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.systemchannels.KeyEventChannel;
 import io.flutter.plugin.editing.TextInputPlugin;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class AndroidKeyProcessor {
-    private int combiningCharacter;
+    public int combiningCharacter;
     @NonNull
-    private final KeyEventChannel keyEventChannel;
+    public final KeyEventChannel keyEventChannel;
     @NonNull
-    private final TextInputPlugin textInputPlugin;
+    public final TextInputPlugin textInputPlugin;
 
     public AndroidKeyProcessor(@NonNull KeyEventChannel keyEventChannel, @NonNull TextInputPlugin textInputPlugin) {
         this.keyEventChannel = keyEventChannel;
         this.textInputPlugin = textInputPlugin;
-    }
-
-    public void onKeyUp(@NonNull KeyEvent keyEvent) {
-        this.keyEventChannel.keyUp(new KeyEventChannel.FlutterKeyEvent(keyEvent, applyCombiningCharacterToBaseCharacter(keyEvent.getUnicodeChar())));
-    }
-
-    public void onKeyDown(@NonNull KeyEvent keyEvent) {
-        if (this.textInputPlugin.getLastInputConnection() != null && this.textInputPlugin.getInputMethodManager().isAcceptingText()) {
-            this.textInputPlugin.getLastInputConnection().sendKeyEvent(keyEvent);
-        }
-        this.keyEventChannel.keyDown(new KeyEventChannel.FlutterKeyEvent(keyEvent, applyCombiningCharacterToBaseCharacter(keyEvent.getUnicodeChar())));
     }
 
     @Nullable
@@ -37,22 +26,34 @@ public class AndroidKeyProcessor {
         }
         Character valueOf = Character.valueOf((char) i);
         if ((Integer.MIN_VALUE & i) != 0) {
-            int i2 = Integer.MAX_VALUE & i;
-            if (this.combiningCharacter != 0) {
-                this.combiningCharacter = KeyCharacterMap.getDeadChar(this.combiningCharacter, i2);
-                return valueOf;
+            int i2 = i & Integer.MAX_VALUE;
+            int i3 = this.combiningCharacter;
+            if (i3 != 0) {
+                this.combiningCharacter = KeyCharacterMap.getDeadChar(i3, i2);
+            } else {
+                this.combiningCharacter = i2;
             }
-            this.combiningCharacter = i2;
-            return valueOf;
-        } else if (this.combiningCharacter != 0) {
-            int deadChar = KeyCharacterMap.getDeadChar(this.combiningCharacter, i);
-            if (deadChar > 0) {
-                valueOf = Character.valueOf((char) deadChar);
-            }
-            this.combiningCharacter = 0;
-            return valueOf;
         } else {
-            return valueOf;
+            int i4 = this.combiningCharacter;
+            if (i4 != 0) {
+                int deadChar = KeyCharacterMap.getDeadChar(i4, i);
+                if (deadChar > 0) {
+                    valueOf = Character.valueOf((char) deadChar);
+                }
+                this.combiningCharacter = 0;
+            }
         }
+        return valueOf;
+    }
+
+    public void onKeyDown(@NonNull KeyEvent keyEvent) {
+        if (this.textInputPlugin.getLastInputConnection() != null && this.textInputPlugin.getInputMethodManager().isAcceptingText()) {
+            this.textInputPlugin.getLastInputConnection().sendKeyEvent(keyEvent);
+        }
+        this.keyEventChannel.keyDown(new KeyEventChannel.FlutterKeyEvent(keyEvent, applyCombiningCharacterToBaseCharacter(keyEvent.getUnicodeChar())));
+    }
+
+    public void onKeyUp(@NonNull KeyEvent keyEvent) {
+        this.keyEventChannel.keyUp(new KeyEventChannel.FlutterKeyEvent(keyEvent, applyCombiningCharacterToBaseCharacter(keyEvent.getUnicodeChar())));
     }
 }

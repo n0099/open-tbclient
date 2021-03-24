@@ -1,10 +1,13 @@
 package com.baidu.tieba.forumMember.tbtitle.model.req;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GetLevelInfoReadCacheRequestMessage extends CustomMessage<Object> {
-    private String cacheKey;
+    public String cacheKey;
+
+    public GetLevelInfoReadCacheRequestMessage() {
+        super(2003007);
+    }
 
     public String getCacheKey() {
         return this.cacheKey;
@@ -12,9 +15,5 @@ public class GetLevelInfoReadCacheRequestMessage extends CustomMessage<Object> {
 
     public void setCacheKey(String str) {
         this.cacheKey = str;
-    }
-
-    public GetLevelInfoReadCacheRequestMessage() {
-        super(CmdConfigCustom.CMD_GET_LEVEL_INFO_CACHE);
     }
 }

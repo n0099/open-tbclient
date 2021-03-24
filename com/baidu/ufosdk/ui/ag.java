@@ -12,14 +12,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-final class ag extends Handler {
+/* loaded from: classes5.dex */
+public final class ag extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference f3653a;
+    public final WeakReference f23054a;
 
     public ag(FeedbackEditActivity feedbackEditActivity) {
-        this.f3653a = new WeakReference(feedbackEditActivity);
+        this.f23054a = new WeakReference(feedbackEditActivity);
     }
 
     @Override // android.os.Handler
@@ -49,7 +49,7 @@ final class ag extends Handler {
         SharedPreferences.Editor editor6;
         String str10;
         super.handleMessage(message);
-        FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f3653a.get();
+        FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f23054a.get();
         feedbackEditActivity.a(true);
         com.baidu.ufosdk.f.c.a("msg.what = " + message.what);
         if (feedbackEditActivity == null) {
@@ -58,57 +58,88 @@ final class ag extends Handler {
         if (message.what == 0) {
             com.baidu.ufosdk.f.c.a("--- msg.what = 0 ---");
         }
-        if (message.what == 12) {
+        int i2 = message.what;
+        if (i2 == 12) {
             feedbackEditActivity.v = false;
             FeedbackEditActivity.x(feedbackEditActivity);
-            feedbackEditActivity.s = false;
+            feedbackEditActivity.s = Boolean.FALSE;
             str6 = feedbackEditActivity.t;
             if (!TextUtils.isEmpty(str6)) {
-                str9 = feedbackEditActivity.g;
+                str9 = feedbackEditActivity.f22994g;
                 if (TextUtils.isEmpty(str9)) {
-                    editor6 = feedbackEditActivity.b;
+                    editor6 = feedbackEditActivity.f22989b;
                     str10 = feedbackEditActivity.t;
                     editor6.putString(str10, "");
                 }
             }
-            str7 = feedbackEditActivity.g;
+            str7 = feedbackEditActivity.f22994g;
             if (!TextUtils.isEmpty(str7)) {
-                editor5 = feedbackEditActivity.b;
-                str8 = feedbackEditActivity.g;
+                editor5 = feedbackEditActivity.f22989b;
+                str8 = feedbackEditActivity.f22994g;
                 editor5.putString(str8, "");
             }
-            editor4 = feedbackEditActivity.b;
+            editor4 = feedbackEditActivity.f22989b;
             editor4.commit();
             view4 = feedbackEditActivity.u;
             view4.setVisibility(8);
             feedbackEditActivity.finish();
-        } else if (message.what == 13) {
+        } else if (i2 == 13) {
             feedbackEditActivity.v = false;
             view3 = feedbackEditActivity.u;
             view3.setVisibility(8);
             button = feedbackEditActivity.V;
             button.setTextColor(com.baidu.ufosdk.b.v);
             Toast.makeText(feedbackEditActivity, com.baidu.ufosdk.f.s.a("63"), 1).show();
-        } else if (message.what == 14) {
+        } else if (i2 != 14) {
+            if (i2 == 15) {
+                try {
+                    editText = feedbackEditActivity.m;
+                    editText2 = feedbackEditActivity.m;
+                    ((InputMethodManager) editText.getContext().getSystemService("input_method")).showSoftInput(editText2, 0);
+                } catch (Exception unused) {
+                }
+            } else if (i2 == 16) {
+                if (feedbackEditActivity.getCurrentFocus() == null || feedbackEditActivity.getCurrentFocus().getWindowToken() == null) {
+                    return;
+                }
+                ((InputMethodManager) feedbackEditActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackEditActivity.getCurrentFocus().getWindowToken(), 2);
+            } else if (i2 == 17) {
+                feedbackEditActivity.b();
+            } else if (i2 == 18) {
+                try {
+                    JSONObject jSONObject = (JSONObject) message.obj;
+                    feedbackEditActivity.Z = jSONObject.getString("title_context");
+                    feedbackEditActivity.aa = jSONObject.getString("hint_context");
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            } else if (i2 == 19) {
+                Object obj = message.obj;
+                Toast.makeText(feedbackEditActivity, (obj == null || obj.toString().length() <= 0) ? com.baidu.ufosdk.f.s.a("63") : message.obj.toString(), 0).show();
+                feedbackEditActivity.v = false;
+                view = feedbackEditActivity.u;
+                view.setVisibility(8);
+            }
+        } else {
             feedbackEditActivity.v = false;
             FeedbackEditActivity.x(feedbackEditActivity);
-            feedbackEditActivity.s = false;
+            feedbackEditActivity.s = Boolean.FALSE;
             str = feedbackEditActivity.t;
             if (!TextUtils.isEmpty(str)) {
-                str4 = feedbackEditActivity.g;
+                str4 = feedbackEditActivity.f22994g;
                 if (TextUtils.isEmpty(str4)) {
-                    editor3 = feedbackEditActivity.b;
+                    editor3 = feedbackEditActivity.f22989b;
                     str5 = feedbackEditActivity.t;
                     editor3.putString(str5, "");
                 }
             }
-            str2 = feedbackEditActivity.g;
+            str2 = feedbackEditActivity.f22994g;
             if (!TextUtils.isEmpty(str2)) {
-                editor2 = feedbackEditActivity.b;
-                str3 = feedbackEditActivity.g;
+                editor2 = feedbackEditActivity.f22989b;
+                str3 = feedbackEditActivity.f22994g;
                 editor2.putString(str3, "");
             }
-            editor = feedbackEditActivity.b;
+            editor = feedbackEditActivity.f22989b;
             editor.commit();
             view2 = feedbackEditActivity.u;
             view2.setVisibility(8);
@@ -125,37 +156,6 @@ final class ag extends Handler {
             intent.putExtra("fromEdit", true);
             feedbackEditActivity.startActivity(intent);
             feedbackEditActivity.finish();
-        } else if (message.what == 15) {
-            try {
-                editText = feedbackEditActivity.m;
-                editText2 = feedbackEditActivity.m;
-                ((InputMethodManager) editText.getContext().getSystemService("input_method")).showSoftInput(editText2, 0);
-            } catch (Exception e) {
-            }
-        } else if (message.what == 16) {
-            if (feedbackEditActivity.getCurrentFocus() == null || feedbackEditActivity.getCurrentFocus().getWindowToken() == null) {
-                return;
-            }
-            ((InputMethodManager) feedbackEditActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackEditActivity.getCurrentFocus().getWindowToken(), 2);
-        } else if (message.what == 17) {
-            feedbackEditActivity.b();
-        } else if (message.what == 18) {
-            try {
-                JSONObject jSONObject = (JSONObject) message.obj;
-                feedbackEditActivity.Z = jSONObject.getString("title_context");
-                feedbackEditActivity.aa = jSONObject.getString("hint_context");
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        } else if (message.what == 19) {
-            if (message.obj == null || message.obj.toString().length() <= 0) {
-                Toast.makeText(feedbackEditActivity, com.baidu.ufosdk.f.s.a("63"), 0).show();
-            } else {
-                Toast.makeText(feedbackEditActivity, message.obj.toString(), 0).show();
-            }
-            feedbackEditActivity.v = false;
-            view = feedbackEditActivity.u;
-            view.setVisibility(8);
         }
     }
 }

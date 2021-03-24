@@ -3,7 +3,7 @@ package aegon.chrome.base.metrics;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RecordHistogram {
     public static Map<String, Long> sCache;
     public static Throwable sDisabledBy;

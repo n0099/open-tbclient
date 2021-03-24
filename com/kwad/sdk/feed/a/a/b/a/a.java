@@ -14,21 +14,35 @@ import com.kwad.sdk.glide.load.h;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.widget.RCPVADFrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener {
-    private RCPVADFrameLayout b;
-    private TextView c;
-    private ImageView d;
-    private TextView e;
-    private TextView f;
-    private AdTemplate g;
-    private AdInfo h;
-    private com.kwad.sdk.core.download.b.b i;
-    private KsAppDownloadListener j;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RCPVADFrameLayout f34803b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f34804c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f34805d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f34806e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f34807f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public AdTemplate f34808g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public AdInfo f34809h;
+    public com.kwad.sdk.core.download.b.b i;
+    public KsAppDownloadListener j;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        com.kwad.sdk.core.report.b.a(this.g, i, this.b.getTouchCoords());
+        com.kwad.sdk.core.report.b.a(this.f34808g, i, this.f34803b.getTouchCoords());
     }
 
     private KsAppDownloadListener e() {
@@ -36,124 +50,123 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
             this.j = new com.kwad.sdk.core.download.b.c() { // from class: com.kwad.sdk.feed.a.a.b.a.a.1
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onDownloadFailed() {
-                    a.this.f.setTextColor(a.this.o().getResources().getColor(R.color.ksad_feed_covert_idle));
-                    a.this.f.setText(com.kwad.sdk.core.response.b.a.w(a.this.h));
-                    a.this.f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_idle_bg);
-                    ViewGroup.LayoutParams layoutParams = a.this.f.getLayoutParams();
+                    a.this.f34807f.setTextColor(a.this.o().getResources().getColor(R.color.ksad_feed_covert_idle));
+                    a.this.f34807f.setText(com.kwad.sdk.core.response.b.a.w(a.this.f34809h));
+                    a.this.f34807f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_idle_bg);
+                    ViewGroup.LayoutParams layoutParams = a.this.f34807f.getLayoutParams();
                     layoutParams.width = -2;
-                    a.this.f.setLayoutParams(layoutParams);
+                    a.this.f34807f.setLayoutParams(layoutParams);
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onDownloadFinished() {
-                    a.this.f.setTextColor(a.this.o().getResources().getColor(R.color.ksad_feed_covert_finish));
-                    a.this.f.setText(com.kwad.sdk.core.response.b.a.a(a.this.g));
-                    a.this.f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_finish_bg);
-                    ViewGroup.LayoutParams layoutParams = a.this.f.getLayoutParams();
+                    a.this.f34807f.setTextColor(a.this.o().getResources().getColor(R.color.ksad_feed_covert_finish));
+                    a.this.f34807f.setText(com.kwad.sdk.core.response.b.a.a(a.this.f34808g));
+                    a.this.f34807f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_finish_bg);
+                    ViewGroup.LayoutParams layoutParams = a.this.f34807f.getLayoutParams();
                     layoutParams.width = -2;
-                    a.this.f.setLayoutParams(layoutParams);
+                    a.this.f34807f.setLayoutParams(layoutParams);
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onIdle() {
-                    a.this.f.setTextColor(a.this.o().getResources().getColor(R.color.ksad_feed_covert_idle));
-                    a.this.f.setText(com.kwad.sdk.core.response.b.a.w(a.this.h));
-                    a.this.f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_idle_bg);
-                    ViewGroup.LayoutParams layoutParams = a.this.f.getLayoutParams();
+                    a.this.f34807f.setTextColor(a.this.o().getResources().getColor(R.color.ksad_feed_covert_idle));
+                    a.this.f34807f.setText(com.kwad.sdk.core.response.b.a.w(a.this.f34809h));
+                    a.this.f34807f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_idle_bg);
+                    ViewGroup.LayoutParams layoutParams = a.this.f34807f.getLayoutParams();
                     layoutParams.width = -2;
-                    a.this.f.setLayoutParams(layoutParams);
+                    a.this.f34807f.setLayoutParams(layoutParams);
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onInstalled() {
-                    a.this.f.setTextColor(a.this.o().getResources().getColor(R.color.ksad_feed_covert_finish));
-                    a.this.f.setText(com.kwad.sdk.core.response.b.a.b());
-                    a.this.f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_finish_bg);
-                    ViewGroup.LayoutParams layoutParams = a.this.f.getLayoutParams();
+                    a.this.f34807f.setTextColor(a.this.o().getResources().getColor(R.color.ksad_feed_covert_finish));
+                    a.this.f34807f.setText(com.kwad.sdk.core.response.b.a.b());
+                    a.this.f34807f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_finish_bg);
+                    ViewGroup.LayoutParams layoutParams = a.this.f34807f.getLayoutParams();
                     layoutParams.width = -2;
-                    a.this.f.setLayoutParams(layoutParams);
+                    a.this.f34807f.setLayoutParams(layoutParams);
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onProgressUpdate(int i) {
-                    a.this.f.setTextColor(a.this.o().getResources().getColor(R.color.ksad_feed_covert_idle));
-                    a.this.f.setText("下载中..." + i + "%");
-                    a.this.f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_idle_bg);
-                    ViewGroup.LayoutParams layoutParams = a.this.f.getLayoutParams();
+                    a.this.f34807f.setTextColor(a.this.o().getResources().getColor(R.color.ksad_feed_covert_idle));
+                    TextView textView = a.this.f34807f;
+                    textView.setText("下载中..." + i + "%");
+                    a.this.f34807f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_idle_bg);
+                    ViewGroup.LayoutParams layoutParams = a.this.f34807f.getLayoutParams();
                     layoutParams.width = ao.a(a.this.o(), 76.0f);
-                    a.this.f.setLayoutParams(layoutParams);
+                    a.this.f34807f.setLayoutParams(layoutParams);
                 }
             };
         }
         return this.j;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
+        TextView textView;
+        int i;
+        com.kwad.sdk.core.download.b.b bVar;
         super.a();
-        this.g = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).i;
-        this.h = com.kwad.sdk.core.response.b.c.j(this.g);
-        this.i = ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).b;
-        String x = com.kwad.sdk.core.response.b.c.x(this.g);
+        AdTemplate adTemplate = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a).i;
+        this.f34808g = adTemplate;
+        this.f34809h = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        this.i = ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a).f34793b;
+        String x = com.kwad.sdk.core.response.b.c.x(this.f34808g);
         if (ag.a(x)) {
-            this.c.setVisibility(8);
+            textView = this.f34804c;
+            i = 8;
         } else {
-            this.c.setText(x);
-            this.c.setVisibility(0);
+            this.f34804c.setText(x);
+            textView = this.f34804c;
+            i = 0;
         }
-        com.kwad.sdk.glide.c.a(((com.kwad.sdk.feed.a.a.a.b) this.f6892a).d).a(com.kwad.sdk.core.response.b.c.q(this.g)).a(o().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).c(o().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).a((h<Bitmap>) new com.kwad.sdk.support.a()).a(this.d);
-        String v = com.kwad.sdk.core.response.b.c.v(this.g);
-        if (ag.a(v) && com.kwad.sdk.core.response.b.c.c(this.g)) {
+        textView.setVisibility(i);
+        com.kwad.sdk.glide.c.a(((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a).f36002d).a(com.kwad.sdk.core.response.b.c.q(this.f34808g)).a(o().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).c(o().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).a((h<Bitmap>) new com.kwad.sdk.support.a()).a(this.f34805d);
+        String v = com.kwad.sdk.core.response.b.c.v(this.f34808g);
+        if (ag.a(v) && com.kwad.sdk.core.response.b.c.c(this.f34808g)) {
             v = o().getString(R.string.ksad_ad_default_username_normal);
         }
-        this.e.setText(v);
-        this.f.setTextColor(o().getResources().getColor(R.color.ksad_feed_covert_idle));
-        this.f.setText(com.kwad.sdk.core.response.b.a.w(this.h));
-        this.f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_idle_bg);
-        ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
+        this.f34806e.setText(v);
+        this.f34807f.setTextColor(o().getResources().getColor(R.color.ksad_feed_covert_idle));
+        this.f34807f.setText(com.kwad.sdk.core.response.b.a.w(this.f34809h));
+        this.f34807f.setBackgroundResource(R.drawable.ksad_feed_item_covert_btn_idle_bg);
+        ViewGroup.LayoutParams layoutParams = this.f34807f.getLayoutParams();
         layoutParams.width = -2;
-        this.f.setLayoutParams(layoutParams);
-        if (com.kwad.sdk.core.response.b.a.y(this.h) && this.i != null) {
-            this.i.a(e());
+        this.f34807f.setLayoutParams(layoutParams);
+        if (com.kwad.sdk.core.response.b.a.y(this.f34809h) && (bVar = this.i) != null) {
+            bVar.a(e());
         }
-        this.d.setOnClickListener(this);
-        this.e.setOnClickListener(this);
-        this.f.setOnClickListener(this);
+        this.f34805d.setOnClickListener(this);
+        this.f34806e.setOnClickListener(this);
+        this.f34807f.setOnClickListener(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.i != null) {
-            this.i.b(this.j);
+        com.kwad.sdk.core.download.b.b bVar = this.i;
+        if (bVar != null) {
+            bVar.b(this.j);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = (RCPVADFrameLayout) b(R.id.ksad_feed_item_root);
-        this.c = (TextView) b(R.id.ksad_feed_item_photo_desc);
-        this.f = (TextView) b(R.id.ksad_ad_convert_btn);
-        this.d = (ImageView) b(R.id.ksad_feed_item_author_icon);
-        this.e = (TextView) b(R.id.ksad_feed_item_author_name);
+        this.f34803b = (RCPVADFrameLayout) b(R.id.ksad_feed_item_root);
+        this.f34804c = (TextView) b(R.id.ksad_feed_item_photo_desc);
+        this.f34807f = (TextView) b(R.id.ksad_ad_convert_btn);
+        this.f34805d = (ImageView) b(R.id.ksad_feed_item_author_icon);
+        this.f34806e = (TextView) b(R.id.ksad_feed_item_author_name);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        final int i = 0;
-        if (view == this.d) {
-            i = 55;
-        } else if (view == this.e) {
-            i = 82;
-        } else if (view == this.f) {
-            i = 83;
-        }
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.g, new a.InterfaceC1111a() { // from class: com.kwad.sdk.feed.a.a.b.a.a.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
+        final int i = view == this.f34805d ? 55 : view == this.f34806e ? 82 : view == this.f34807f ? 83 : 0;
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f34808g, new a.InterfaceC0378a() { // from class: com.kwad.sdk.feed.a.a.b.a.a.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0378a
             public void a() {
                 a.this.a(i);
             }

@@ -1,35 +1,34 @@
 package com.vivo.push.c;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class b extends com.vivo.push.v {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public b(com.vivo.push.y yVar) {
         super(yVar);
     }
 
     @Override // com.vivo.push.v
-    protected final void a(com.vivo.push.y yVar) {
-        boolean b;
-        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f8089a);
+    public final void a(com.vivo.push.y yVar) {
+        boolean b2;
+        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f39588a);
         try {
             if (((com.vivo.push.b.d) yVar).d()) {
-                b = f.a(this.f8089a);
+                b2 = f.a(this.f39588a);
             } else {
-                b = f.b(this.f8089a);
+                b2 = f.b(this.f39588a);
             }
-            if (b) {
-                com.vivo.push.model.b a3 = com.vivo.push.util.s.a(this.f8089a);
+            if (b2) {
+                com.vivo.push.model.b a3 = com.vivo.push.util.s.a(this.f39588a);
                 if (a2 == null || a3 == null || a3.a() == null || !a3.a().equals(a2.a())) {
                     if (a2 != null && a2.a() != null) {
-                        com.vivo.push.a.a.a(this.f8089a, a2.a(), new com.vivo.push.b.ac(a2.a()));
+                        com.vivo.push.a.a.a(this.f39588a, a2.a(), new com.vivo.push.b.ac(a2.a()));
                     }
-                    if (a3 != null && a3.a() != null) {
-                        com.vivo.push.a.a.a(this.f8089a, a3.a(), new com.vivo.push.b.f());
+                    if (a3 == null || a3.a() == null) {
+                        return;
                     }
+                    com.vivo.push.a.a.a(this.f39588a, a3.a(), new com.vivo.push.b.f());
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

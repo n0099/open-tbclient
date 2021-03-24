@@ -1,285 +1,224 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import android.os.SystemClock;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.TextUtils;
-import com.xiaomi.push.service.XMPushService;
-import java.io.IOException;
-import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes5.dex */
-public abstract class fz extends fs {
+import java.util.List;
+import java.util.Set;
+/* loaded from: classes7.dex */
+public class fz implements gd {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Exception f8378a;
+    public String f40535a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Socket f378a;
-    protected XMPushService b;
-    private int c;
+    public List<fz> f415a;
 
-    /* renamed from: c  reason: collision with other field name */
-    String f379c;
-    private String d;
-    protected volatile long e;
-    protected volatile long f;
-    protected volatile long g;
+    /* renamed from: a  reason: collision with other field name */
+    public String[] f416a;
 
-    public fz(XMPushService xMPushService, ft ftVar) {
-        super(xMPushService, ftVar);
-        this.f8378a = null;
-        this.f379c = null;
-        this.e = 0L;
-        this.f = 0L;
-        this.g = 0L;
-        this.b = xMPushService;
+    /* renamed from: b  reason: collision with root package name */
+    public String f40536b;
+
+    /* renamed from: b  reason: collision with other field name */
+    public String[] f417b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f40537c;
+
+    public fz(String str, String str2, String[] strArr, String[] strArr2) {
+        this.f416a = null;
+        this.f417b = null;
+        this.f415a = null;
+        this.f40535a = str;
+        this.f40536b = str2;
+        this.f416a = strArr;
+        this.f417b = strArr2;
     }
 
-    private void a(ft ftVar) {
-        a(ftVar.c(), ftVar.mo305a());
+    public fz(String str, String str2, String[] strArr, String[] strArr2, String str3, List<fz> list) {
+        this.f416a = null;
+        this.f417b = null;
+        this.f415a = null;
+        this.f40535a = str;
+        this.f40536b = str2;
+        this.f416a = strArr;
+        this.f417b = strArr2;
+        this.f40537c = str3;
+        this.f415a = list;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x028b, code lost:
-        if (android.text.TextUtils.equals(r11, com.xiaomi.push.az.m144a((android.content.Context) r16.b)) != false) goto L34;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x010a  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x021c  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x028e A[RETURN] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void a(String str, int i) {
-        boolean z;
-        Throwable th;
-        boolean z2 = false;
-        this.f8378a = null;
-        ArrayList<String> arrayList = new ArrayList<>();
-        int intValue = com.xiaomi.channel.commonutils.logger.b.a("get bucket for host : " + str).intValue();
-        cv a2 = a(str);
-        com.xiaomi.channel.commonutils.logger.b.a(Integer.valueOf(intValue));
-        if (a2 != null) {
-            arrayList = a2.a(true);
+    public static fz a(Bundle bundle) {
+        ArrayList arrayList;
+        String string = bundle.getString("ext_ele_name");
+        String string2 = bundle.getString("ext_ns");
+        String string3 = bundle.getString("ext_text");
+        Bundle bundle2 = bundle.getBundle("attributes");
+        Set<String> keySet = bundle2.keySet();
+        String[] strArr = new String[keySet.size()];
+        String[] strArr2 = new String[keySet.size()];
+        int i = 0;
+        for (String str : keySet) {
+            strArr[i] = str;
+            strArr2[i] = bundle2.getString(str);
+            i++;
         }
-        if (arrayList.isEmpty()) {
-            arrayList.add(str);
-        }
-        this.g = 0L;
-        String m144a = az.m144a((Context) this.b);
-        StringBuilder sb = new StringBuilder();
-        Iterator<String> it = arrayList.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z = z2;
-                break;
+        if (bundle.containsKey("children")) {
+            Parcelable[] parcelableArray = bundle.getParcelableArray("children");
+            ArrayList arrayList2 = new ArrayList(parcelableArray.length);
+            for (Parcelable parcelable : parcelableArray) {
+                arrayList2.add(a((Bundle) parcelable));
             }
-            String next = it.next();
-            long currentTimeMillis = System.currentTimeMillis();
-            this.f359a++;
-            try {
-                com.xiaomi.channel.commonutils.logger.b.m58a("begin to connect to " + next);
-                this.f378a = a();
-                this.f378a.connect(cx.m217a(next, i), 8000);
-                com.xiaomi.channel.commonutils.logger.b.m58a("tcp connected");
-                this.f378a.setTcpNoDelay(true);
-                this.d = next;
-                a();
-                z = true;
-                try {
-                    this.f360a = System.currentTimeMillis() - currentTimeMillis;
-                    this.f369b = m144a;
-                    if (a2 != null) {
-                        a2.b(next, this.f360a, 0L);
-                    }
-                    this.g = SystemClock.elapsedRealtime();
-                    com.xiaomi.channel.commonutils.logger.b.m58a("connected to " + next + " in " + this.f360a);
+            arrayList = arrayList2;
+        } else {
+            arrayList = null;
+        }
+        return new fz(string, string2, strArr, strArr2, string3, arrayList);
+    }
+
+    public static Parcelable[] a(List<fz> list) {
+        return a((fz[]) list.toArray(new fz[list.size()]));
+    }
+
+    public static Parcelable[] a(fz[] fzVarArr) {
+        if (fzVarArr == null) {
+            return null;
+        }
+        Parcelable[] parcelableArr = new Parcelable[fzVarArr.length];
+        for (int i = 0; i < fzVarArr.length; i++) {
+            parcelableArr[i] = fzVarArr[i].m314a();
+        }
+        return parcelableArr;
+    }
+
+    public Bundle a() {
+        Bundle bundle = new Bundle();
+        bundle.putString("ext_ele_name", this.f40535a);
+        bundle.putString("ext_ns", this.f40536b);
+        bundle.putString("ext_text", this.f40537c);
+        Bundle bundle2 = new Bundle();
+        String[] strArr = this.f416a;
+        if (strArr != null && strArr.length > 0) {
+            int i = 0;
+            while (true) {
+                String[] strArr2 = this.f416a;
+                if (i >= strArr2.length) {
                     break;
-                } catch (Exception e) {
-                    e = e;
-                    this.f8378a = e;
-                    if (z) {
-                        continue;
-                    } else {
-                        com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                        sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f8378a.getClass().getSimpleName()).append("\n");
-                        hg.a(next, this.f8378a);
-                        if (a2 != null) {
-                            a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f8378a);
-                        }
-                        if (!TextUtils.equals(m144a, az.m144a((Context) this.b))) {
-                            cz.a().m227c();
-                            if (!z) {
-                            }
-                        }
-                    }
-                    z2 = z;
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        this.f8378a = new Exception("abnormal exception", th);
-                        com.xiaomi.channel.commonutils.logger.b.a(th);
-                    } catch (Throwable th3) {
-                        th = th3;
-                        if (!z) {
-                            com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                            sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f8378a.getClass().getSimpleName()).append("\n");
-                            hg.a(next, this.f8378a);
-                            if (a2 != null) {
-                                a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f8378a);
-                            }
-                        }
-                        throw th;
-                    }
-                    if (z) {
-                        continue;
-                    } else {
-                        com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                        sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f8378a.getClass().getSimpleName()).append("\n");
-                        hg.a(next, this.f8378a);
-                        if (a2 != null) {
-                            a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f8378a);
-                        }
-                        if (!TextUtils.equals(m144a, az.m144a((Context) this.b))) {
-                            cz.a().m227c();
-                            if (!z) {
-                            }
-                        }
-                    }
-                    z2 = z;
                 }
-            } catch (Exception e2) {
-                e = e2;
-                z = z2;
-            } catch (Throwable th4) {
-                th = th4;
-                z = z2;
-                if (!z) {
-                }
-                throw th;
-            }
-            z2 = z;
-        }
-        cz.a().m227c();
-        if (!z) {
-            throw new gd(sb.toString());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.xiaomi.push.fs
-    public cv a(String str) {
-        cv a2 = cz.a().a(str, false);
-        if (!a2.b()) {
-            gv.a(new gc(this, str));
-        }
-        return a2;
-    }
-
-    @Override // com.xiaomi.push.fs
-    public String a() {
-        return this.d;
-    }
-
-    @Override // com.xiaomi.push.fs
-    public Socket a() {
-        return new Socket();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.xiaomi.push.fs
-    public synchronized void a() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void a(int i, Exception exc) {
-        if (b() != 2) {
-            a(2, i, exc);
-            this.f364a = "";
-            try {
-                this.f378a.close();
-            } catch (Throwable th) {
-            }
-            this.e = 0L;
-            this.f = 0L;
-        }
-    }
-
-    protected void a(Exception exc) {
-        if (SystemClock.elapsedRealtime() - this.g >= 300000) {
-            this.c = 0;
-        } else if (az.b(this.b)) {
-            this.c++;
-            if (this.c >= 2) {
-                String a2 = a();
-                com.xiaomi.channel.commonutils.logger.b.m58a("max short conn time reached, sink down current host:" + a2);
-                a(a2, 0L, exc);
-                this.c = 0;
+                bundle2.putString(strArr2[i], this.f417b[i]);
+                i++;
             }
         }
+        bundle.putBundle("attributes", bundle2);
+        List<fz> list = this.f415a;
+        if (list != null && list.size() > 0) {
+            bundle.putParcelableArray("children", a(this.f415a));
+        }
+        return bundle;
     }
 
-    protected void a(String str, long j, Exception exc) {
-        cv a2 = cz.a().a(ft.a(), false);
-        if (a2 != null) {
-            a2.b(str, j, 0L, exc);
-            cz.a().m227c();
+    /* renamed from: a  reason: collision with other method in class */
+    public Parcelable m314a() {
+        return a();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public String m315a() {
+        return this.f40535a;
+    }
+
+    public String a(String str) {
+        if (str == null) {
+            throw new IllegalArgumentException();
+        }
+        if (this.f416a == null) {
+            return null;
+        }
+        int i = 0;
+        while (true) {
+            String[] strArr = this.f416a;
+            if (i >= strArr.length) {
+                return null;
+            }
+            if (str.equals(strArr[i])) {
+                return this.f417b[i];
+            }
+            i++;
         }
     }
 
-    /* renamed from: a */
-    protected abstract void mo294a(boolean z);
-
-    @Override // com.xiaomi.push.fs
-    public void a(fl[] flVarArr) {
-        throw new gd("Don't support send Blob");
-    }
-
-    @Override // com.xiaomi.push.fs
-    public void b(int i, Exception exc) {
-        a(i, exc);
-        if ((exc != null || i == 18) && this.g != 0) {
-            a(exc);
+    public void a(fz fzVar) {
+        if (this.f415a == null) {
+            this.f415a = new ArrayList();
         }
-    }
-
-    @Override // com.xiaomi.push.fs
-    public void b(boolean z) {
-        long currentTimeMillis = System.currentTimeMillis();
-        mo294a(z);
-        if (z) {
+        if (this.f415a.contains(fzVar)) {
             return;
         }
-        this.b.a(new ga(this, 13, currentTimeMillis), 10000L);
+        this.f415a.add(fzVar);
     }
 
-    @Override // com.xiaomi.push.fs
-    public String c() {
-        return this.f364a;
-    }
-
-    public void c(int i, Exception exc) {
-        this.b.a(new gb(this, 2, i, exc));
-    }
-
-    @Override // com.xiaomi.push.fs
-    public synchronized void e() {
-        try {
-            if (c() || b()) {
-                com.xiaomi.channel.commonutils.logger.b.m58a("WARNING: current xmpp has connected");
-            } else {
-                a(0, 0, (Exception) null);
-                a(this.f361a);
-            }
-        } catch (IOException e) {
-            throw new gd(e);
+    /* renamed from: a  reason: collision with other method in class */
+    public void m316a(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            str = gn.a(str);
         }
+        this.f40537c = str;
     }
 
-    public void f() {
-        this.e = SystemClock.elapsedRealtime();
+    public String b() {
+        return this.f40536b;
     }
 
-    public void g() {
-        this.f = SystemClock.elapsedRealtime();
+    public String c() {
+        return !TextUtils.isEmpty(this.f40537c) ? gn.b(this.f40537c) : this.f40537c;
+    }
+
+    @Override // com.xiaomi.push.gd
+    public String d() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<");
+        sb.append(this.f40535a);
+        if (!TextUtils.isEmpty(this.f40536b)) {
+            sb.append(" ");
+            sb.append("xmlns=");
+            sb.append("\"");
+            sb.append(this.f40536b);
+            sb.append("\"");
+        }
+        String[] strArr = this.f416a;
+        if (strArr != null && strArr.length > 0) {
+            for (int i = 0; i < this.f416a.length; i++) {
+                if (!TextUtils.isEmpty(this.f417b[i])) {
+                    sb.append(" ");
+                    sb.append(this.f416a[i]);
+                    sb.append("=\"");
+                    sb.append(gn.a(this.f417b[i]));
+                    sb.append("\"");
+                }
+            }
+        }
+        if (TextUtils.isEmpty(this.f40537c)) {
+            List<fz> list = this.f415a;
+            if (list == null || list.size() <= 0) {
+                sb.append("/>");
+                return sb.toString();
+            }
+            sb.append(">");
+            for (fz fzVar : this.f415a) {
+                sb.append(fzVar.d());
+            }
+        } else {
+            sb.append(">");
+            sb.append(this.f40537c);
+        }
+        sb.append("</");
+        sb.append(this.f40535a);
+        sb.append(">");
+        return sb.toString();
+    }
+
+    public String toString() {
+        return d();
     }
 }

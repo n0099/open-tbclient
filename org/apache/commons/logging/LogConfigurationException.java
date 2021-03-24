@@ -1,10 +1,15 @@
 package org.apache.commons.logging;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LogConfigurationException extends RuntimeException {
-    protected Throwable cause;
+    public Throwable cause;
 
     public LogConfigurationException() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // java.lang.Throwable
+    public Throwable getCause() {
         throw new RuntimeException("Stub!");
     }
 
@@ -17,11 +22,6 @@ public class LogConfigurationException extends RuntimeException {
     }
 
     public LogConfigurationException(String str, Throwable th) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // java.lang.Throwable
-    public Throwable getCause() {
         throw new RuntimeException("Stub!");
     }
 }

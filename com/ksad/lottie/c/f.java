@@ -3,19 +3,16 @@ package com.ksad.lottie.c;
 import android.graphics.Color;
 import android.util.JsonReader;
 import android.util.JsonToken;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f implements aj<Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final f f5330a = new f();
-
-    private f() {
-    }
+    public static final f f31336a = new f();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj
     /* renamed from: a */
-    public Integer b(JsonReader jsonReader, float f) {
+    public Integer b(JsonReader jsonReader, float f2) {
         boolean z = jsonReader.peek() == JsonToken.BEGIN_ARRAY;
         if (z) {
             jsonReader.beginArray();

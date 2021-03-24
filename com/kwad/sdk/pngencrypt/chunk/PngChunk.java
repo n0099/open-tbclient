@@ -1,18 +1,34 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes3.dex */
+
+import com.baidu.tbadk.core.data.SmallTailInfo;
+/* loaded from: classes6.dex */
 public abstract class PngChunk {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f6917a;
-    public final boolean b;
-    public final boolean c;
-    public final boolean d;
-    protected final com.kwad.sdk.pngencrypt.k e;
-    protected d f;
-    private boolean h = false;
-    protected int g = -1;
+    public final String f36119a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final boolean f36120b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final boolean f36121c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final boolean f36122d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final com.kwad.sdk.pngencrypt.k f36123e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d f36124f;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f36126h = false;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f36125g = -1;
+
+    /* loaded from: classes6.dex */
     public enum ChunkOrderingConstraint {
         NONE,
         BEFORE_PLTE_AND_IDAT,
@@ -26,7 +42,22 @@ public abstract class PngChunk {
             if (this == NONE) {
                 return true;
             }
-            return this == BEFORE_IDAT ? i < 4 : this == BEFORE_PLTE_AND_IDAT ? i < 2 : this == AFTER_PLTE_BEFORE_IDAT ? z ? i < 4 : i < 4 && i > 2 : this == AFTER_IDAT && i > 4;
+            if (this == BEFORE_IDAT) {
+                return i < 4;
+            } else if (this == BEFORE_PLTE_AND_IDAT) {
+                return i < 2;
+            } else if (this != AFTER_PLTE_BEFORE_IDAT) {
+                return this == AFTER_IDAT && i > 4;
+            } else {
+                if (z) {
+                    if (i < 4) {
+                        return true;
+                    }
+                } else if (i < 4 && i > 2) {
+                    return true;
+                }
+                return false;
+            }
         }
 
         public boolean mustGoAfterIDAT() {
@@ -47,41 +78,40 @@ public abstract class PngChunk {
     }
 
     public PngChunk(String str, com.kwad.sdk.pngencrypt.k kVar) {
-        this.f6917a = str;
-        this.e = kVar;
-        this.b = b.b(str);
-        this.c = b.c(str);
-        this.d = b.d(str);
+        this.f36119a = str;
+        this.f36123e = kVar;
+        this.f36120b = b.b(str);
+        this.f36121c = b.c(str);
+        this.f36122d = b.d(str);
     }
 
     public int a() {
-        if (this.f != null) {
-            return this.f.f6921a;
+        d dVar = this.f36124f;
+        if (dVar != null) {
+            return dVar.f36139a;
         }
         return -1;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.g = i;
+        this.f36125g = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void a(d dVar);
 
     public long b() {
-        if (this.f != null) {
-            return this.f.c();
+        d dVar = this.f36124f;
+        if (dVar != null) {
+            return dVar.c();
         }
         return -1L;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b(d dVar) {
-        this.f = dVar;
+        this.f36124f = dVar;
     }
 
     public String toString() {
-        return "chunk id= " + this.f6917a + " (len=" + a() + " offset=" + b() + ")";
+        return "chunk id= " + this.f36119a + " (len=" + a() + " offset=" + b() + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

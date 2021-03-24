@@ -8,47 +8,16 @@ import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f extends com.baidu.mobads.vo.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, String> f2448a;
+    public HashMap<String, String> f8444a;
 
     public f(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
         super(context, activity, slotType);
-        this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.f8625b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         a("androidfeed");
-    }
-
-    @Override // com.baidu.mobads.vo.d
-    protected HashMap<String, String> a() {
-        HashMap<String, String> hashMap = new HashMap<>();
-        if (this.j) {
-            hashMap.put(IXAdRequestInfo.FET, "ANTI,MSSP,VIDEO,NMON,HTML");
-        } else {
-            hashMap.put(IXAdRequestInfo.FET, "ANTI,MSSP,VIDEO,NMON,HTML,CLICK2VIDEO");
-        }
-        if (this.f2448a != null && !this.f2448a.isEmpty()) {
-            hashMap.putAll(this.f2448a);
-        }
-        return hashMap;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Map<String, String> map) {
-        if (this.f2448a == null) {
-            this.f2448a = new HashMap<>();
-        } else {
-            this.f2448a.clear();
-        }
-        if (map != null && !map.isEmpty()) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                try {
-                    this.f2448a.put(e(entry.getKey().trim()), entry.getValue().trim());
-                } catch (Throwable th) {
-                }
-            }
-        }
     }
 
     private String e(String str) {
@@ -63,7 +32,40 @@ public class f extends com.baidu.mobads.vo.d {
     }
 
     @Override // com.baidu.mobads.vo.d
+    public HashMap<String, String> a() {
+        HashMap<String, String> hashMap = new HashMap<>();
+        if (this.j) {
+            hashMap.put(IXAdRequestInfo.FET, "ANTI,MSSP,VIDEO,NMON,HTML");
+        } else {
+            hashMap.put(IXAdRequestInfo.FET, "ANTI,MSSP,VIDEO,NMON,HTML,CLICK2VIDEO");
+        }
+        HashMap<String, String> hashMap2 = this.f8444a;
+        if (hashMap2 != null && !hashMap2.isEmpty()) {
+            hashMap.putAll(this.f8444a);
+        }
+        return hashMap;
+    }
+
+    @Override // com.baidu.mobads.vo.d
     public String b() {
         return super.b();
+    }
+
+    public void a(Map<String, String> map) {
+        HashMap<String, String> hashMap = this.f8444a;
+        if (hashMap == null) {
+            this.f8444a = new HashMap<>();
+        } else {
+            hashMap.clear();
+        }
+        if (map == null || map.isEmpty()) {
+            return;
+        }
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            try {
+                this.f8444a.put(e(entry.getKey().trim()), entry.getValue().trim());
+            } catch (Throwable unused) {
+            }
+        }
     }
 }

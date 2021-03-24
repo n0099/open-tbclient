@@ -2,23 +2,23 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.k;
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        hideArrow();
-        A(0, 0, l.getDimens(context, R.dimen.ds30), 0);
+        c();
+        h(0, 0, l.g(context, R.dimen.ds30), 0);
     }
 
-    public void refresh() {
+    public void i() {
         boolean z = false;
         boolean z2 = TbadkCoreApplication.getInst().getSkinType() == 1;
         VersionData versionData = TbadkCoreApplication.getInst().getVersionData();
@@ -26,14 +26,17 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.fzx.setText("new");
-            this.fzx.setTextAppearance(this.mContext, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
-            ap.setBackgroundResource(this.fzx, R.drawable.icon_news_text_prompt);
+            this.j.setText("new");
+            this.j.setTextAppearance(this.f13777e, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
+            SkinManager.setBackgroundResource(this.j, R.drawable.icon_news_text_prompt);
             return;
         }
         String version = TbConfig.getVersion();
-        this.fzx.setText((TbConfig.getVersionType() != 1 || au.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
-        this.fzx.setBackgroundDrawable(null);
-        this.fzx.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+        if (TbConfig.getVersionType() == 1 && !k.isEmpty(TbConfig.getSubVersion())) {
+            version = version + "." + TbConfig.getSubVersion();
+        }
+        this.j.setText(version);
+        this.j.setBackgroundDrawable(null);
+        this.j.setTextAppearance(this.f13777e, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
     }
 }

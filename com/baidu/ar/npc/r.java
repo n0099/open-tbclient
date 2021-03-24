@@ -2,27 +2,29 @@ package com.baidu.ar.npc;
 
 import com.baidu.ar.npc.ArBridge;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class r implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1299a;
-    final /* synthetic */ ArBridge.d b;
-    final /* synthetic */ ArBridge c;
+    public final /* synthetic */ int f4206a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ ArBridge.d f4207b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ ArBridge f4208c;
+
     public r(ArBridge arBridge, int i, ArBridge.d dVar) {
-        this.c = arBridge;
-        this.f1299a = i;
-        this.b = dVar;
+        this.f4208c = arBridge;
+        this.f4206a = i;
+        this.f4207b = dVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         List list;
-        ArBridge.a aVar = new ArBridge.a(this.f1299a, -1, this.b);
-        list = this.c.e;
+        ArBridge.a aVar = new ArBridge.a(this.f4206a, -1, this.f4207b);
+        list = this.f4208c.f4081e;
         list.add(aVar);
     }
 }

@@ -1,40 +1,72 @@
 package com.bytedance.sdk.openadsdk.j;
 
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.UUID;
+import android.content.Context;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Vibrator;
 /* loaded from: classes6.dex */
-public abstract class g implements Comparable<g>, Runnable {
+public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4870a;
-    private String b;
+    public static SensorManager f29553a;
 
-    public g(int i) {
-        this.f4870a = 0;
-        this.f4870a = i == 0 ? 5 : i;
-        this.b = UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + String.valueOf(System.nanoTime());
-    }
-
-    public g() {
-        this.f4870a = 0;
-        this.f4870a = 5;
-        this.b = UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + String.valueOf(System.nanoTime());
-    }
-
-    public int c() {
-        return this.f4870a;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(g gVar) {
-        if (c() < gVar.c()) {
-            return 1;
+    public static int a(int i) {
+        if (i == 0 || i == 1 || i == 2 || i == 3) {
+            return i;
         }
-        if (c() > gVar.c()) {
-            return -1;
+        return 2;
+    }
+
+    public static void a(Context context, SensorEventListener sensorEventListener, int i) {
+        if (sensorEventListener == null || context == null) {
+            return;
         }
-        return 0;
+        try {
+            SensorManager b2 = b(context);
+            b2.registerListener(sensorEventListener, b2.getDefaultSensor(1), a(i));
+        } catch (Throwable th) {
+            d.a("SensorHub", "startListenAccelerometer error", th);
+        }
+    }
+
+    public static SensorManager b(Context context) {
+        if (f29553a == null) {
+            synchronized (g.class) {
+                if (f29553a == null) {
+                    f29553a = (SensorManager) context.getSystemService("sensor");
+                }
+            }
+        }
+        return f29553a;
+    }
+
+    public static void a(Context context, SensorEventListener sensorEventListener) {
+        if (sensorEventListener == null || context == null) {
+            return;
+        }
+        try {
+            b(context).unregisterListener(sensorEventListener);
+        } catch (Throwable th) {
+            d.a("SensorHub", "stopListen error", th);
+        }
+    }
+
+    public static void a(Context context) {
+        if (context == null) {
+            return;
+        }
+        ((Vibrator) context.getSystemService("vibrator")).vibrate(300L);
+    }
+
+    public static void b(Context context, SensorEventListener sensorEventListener, int i) {
+        if (sensorEventListener == null || context == null) {
+            return;
+        }
+        try {
+            SensorManager b2 = b(context);
+            b2.registerListener(sensorEventListener, b2.getDefaultSensor(4), a(i));
+        } catch (Throwable th) {
+            d.a("SensorHub", "startListenGyroscope error", th);
+        }
     }
 }

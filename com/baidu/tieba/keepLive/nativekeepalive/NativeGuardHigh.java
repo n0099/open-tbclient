@@ -4,19 +4,19 @@ import android.content.Context;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class NativeGuardHigh extends NativeGuardAbs {
-    public native void doDaemon(String str, String str2, String str3, String str4);
-
-    public NativeGuardHigh(Context context) {
-        super(context);
-    }
-
     static {
         try {
             if (Build.VERSION.SDK_INT > 20) {
                 System.loadLibrary("nativeKeepLive21");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
+
+    public NativeGuardHigh(Context context) {
+        super(context);
+    }
+
+    public native void doDaemon(String str, String str2, String str3, String str4);
 }

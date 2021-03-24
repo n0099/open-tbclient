@@ -4,27 +4,24 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class PbNewLocationInfoView extends TextView {
-    private int mState;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f13897e;
 
     public PbNewLocationInfoView(Context context) {
         this(context, null);
     }
 
-    public PbNewLocationInfoView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        setMaxEms(8);
-        setSingleLine(true);
-        setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, l.getDimens(context, R.dimen.ds24));
-        setState(0, null);
+    public int getState() {
+        return this.f13897e;
     }
 
     public void setState(int i, String str) {
-        this.mState = i;
+        this.f13897e = i;
         if (i == 1) {
             if (str == null) {
                 str = getResources().getString(R.string.location_loading);
@@ -43,7 +40,12 @@ public class PbNewLocationInfoView extends TextView {
         }
     }
 
-    public int getState() {
-        return this.mState;
+    public PbNewLocationInfoView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        setMaxEms(8);
+        setSingleLine(true);
+        setEllipsize(TextUtils.TruncateAt.END);
+        setTextSize(0, l.g(context, R.dimen.ds24));
+        setState(0, null);
     }
 }

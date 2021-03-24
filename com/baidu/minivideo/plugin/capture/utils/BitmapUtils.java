@@ -2,7 +2,7 @@ package com.baidu.minivideo.plugin.capture.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class BitmapUtils {
     public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, boolean z) {
         Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, i, bitmap.getHeight());
@@ -12,12 +12,18 @@ public class BitmapUtils {
         return createBitmap;
     }
 
-    public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
-        Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
-        if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
-            bitmap.recycle();
+    public static Bitmap scaleCover(Bitmap bitmap, int i, int i2, boolean z) {
+        if (i > 0) {
+            if ((i2 > 0 || bitmap != null) && !bitmap.isRecycled()) {
+                if ((bitmap.getWidth() > bitmap.getHeight()) != (i > i2)) {
+                    i2 = i;
+                    i = i2;
+                }
+                return (i == bitmap.getWidth() && i2 == bitmap.getHeight()) ? bitmap : scaleImage(bitmap, i, i2, z);
+            }
+            return bitmap;
         }
-        return createBitmap;
+        return bitmap;
     }
 
     public static Bitmap scaleImage(Bitmap bitmap, int i, int i2, boolean z) {
@@ -31,30 +37,15 @@ public class BitmapUtils {
         Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
         if (z && bitmap != null && !bitmap.equals(createBitmap)) {
             bitmap.recycle();
-            return createBitmap;
         }
         return createBitmap;
     }
 
-    public static Bitmap scaleCover(Bitmap bitmap, int i, int i2, boolean z) {
-        int i3;
-        int i4;
-        if (i > 0) {
-            if ((i2 > 0 || bitmap != null) && !bitmap.isRecycled()) {
-                if ((bitmap.getWidth() > bitmap.getHeight()) != (i > i2)) {
-                    i3 = i;
-                    i4 = i2;
-                } else {
-                    i3 = i2;
-                    i4 = i;
-                }
-                if (i4 != bitmap.getWidth() || i3 != bitmap.getHeight()) {
-                    return scaleImage(bitmap, i4, i3, z);
-                }
-                return bitmap;
-            }
-            return bitmap;
+    public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
+        Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
+        if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
+            bitmap.recycle();
         }
-        return bitmap;
+        return createBitmap;
     }
 }

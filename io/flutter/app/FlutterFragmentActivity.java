@@ -9,21 +9,19 @@ import io.flutter.app.FlutterActivityDelegate;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterView;
-/* loaded from: classes14.dex */
-public class FlutterFragmentActivity extends FragmentActivity implements FlutterActivityDelegate.ViewFactory, PluginRegistry, FlutterView.Provider {
-    private final FlutterActivityDelegate delegate = new FlutterActivityDelegate(this, this);
-    private final FlutterActivityEvents eventDelegate = this.delegate;
-    private final FlutterView.Provider viewProvider = this.delegate;
-    private final PluginRegistry pluginRegistry = this.delegate;
+/* loaded from: classes7.dex */
+public class FlutterFragmentActivity extends FragmentActivity implements FlutterView.Provider, PluginRegistry, FlutterActivityDelegate.ViewFactory {
+    public final FlutterActivityDelegate delegate;
+    public final FlutterActivityEvents eventDelegate;
+    public final PluginRegistry pluginRegistry;
+    public final FlutterView.Provider viewProvider;
 
-    @Override // io.flutter.view.FlutterView.Provider
-    public FlutterView getFlutterView() {
-        return this.viewProvider.getFlutterView();
-    }
-
-    @Override // io.flutter.app.FlutterActivityDelegate.ViewFactory
-    public FlutterView createFlutterView(Context context) {
-        return null;
+    public FlutterFragmentActivity() {
+        FlutterActivityDelegate flutterActivityDelegate = new FlutterActivityDelegate(this, this);
+        this.delegate = flutterActivityDelegate;
+        this.eventDelegate = flutterActivityDelegate;
+        this.viewProvider = flutterActivityDelegate;
+        this.pluginRegistry = flutterActivityDelegate;
     }
 
     @Override // io.flutter.app.FlutterActivityDelegate.ViewFactory
@@ -32,8 +30,13 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
     }
 
     @Override // io.flutter.app.FlutterActivityDelegate.ViewFactory
-    public boolean retainFlutterNativeView() {
-        return false;
+    public FlutterView createFlutterView(Context context) {
+        return null;
+    }
+
+    @Override // io.flutter.view.FlutterView.Provider
+    public FlutterView getFlutterView() {
+        return this.viewProvider.getFlutterView();
     }
 
     @Override // io.flutter.plugin.common.PluginRegistry
@@ -41,59 +44,57 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         return this.pluginRegistry.hasPlugin(str);
     }
 
-    @Override // io.flutter.plugin.common.PluginRegistry
-    public final <T> T valuePublishedByPlugin(String str) {
-        return (T) this.pluginRegistry.valuePublishedByPlugin(str);
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (this.eventDelegate.onActivityResult(i, i2, intent)) {
+            return;
+        }
+        super.onActivityResult(i, i2, intent);
     }
 
-    @Override // io.flutter.plugin.common.PluginRegistry
-    public final PluginRegistry.Registrar registrarFor(String str) {
-        return this.pluginRegistry.registrarFor(str);
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onBackPressed() {
+        if (this.eventDelegate.onBackPressed()) {
+            return;
+        }
+        super.onBackPressed();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+        this.eventDelegate.onConfigurationChanged(configuration);
+    }
+
     @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.eventDelegate.onCreate(bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         this.eventDelegate.onDestroy();
         super.onDestroy();
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onBackPressed() {
-        if (!this.eventDelegate.onBackPressed()) {
-            super.onBackPressed();
-        }
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    public void onLowMemory() {
+        this.eventDelegate.onLowMemory();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStart() {
-        super.onStart();
-        this.eventDelegate.onStart();
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        this.eventDelegate.onNewIntent(intent);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStop() {
-        this.eventDelegate.onStop();
-        super.onStop();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
         this.eventDelegate.onPause();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPostResume() {
         super.onPostResume();
@@ -106,24 +107,16 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         this.eventDelegate.onRequestPermissionsResult(i, strArr, iArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (!this.eventDelegate.onActivityResult(i, i2, intent)) {
-            super.onActivityResult(i, i2, intent);
-        }
+    public void onStart() {
+        super.onStart();
+        this.eventDelegate.onStart();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        this.eventDelegate.onNewIntent(intent);
-    }
-
-    @Override // android.app.Activity
-    public void onUserLeaveHint() {
-        this.eventDelegate.onUserLeaveHint();
+    public void onStop() {
+        this.eventDelegate.onStop();
+        super.onStop();
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
@@ -131,14 +124,23 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         this.eventDelegate.onTrimMemory(i);
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
-    public void onLowMemory() {
-        this.eventDelegate.onLowMemory();
+    @Override // android.app.Activity
+    public void onUserLeaveHint() {
+        this.eventDelegate.onUserLeaveHint();
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
-        this.eventDelegate.onConfigurationChanged(configuration);
+    @Override // io.flutter.plugin.common.PluginRegistry
+    public final PluginRegistry.Registrar registrarFor(String str) {
+        return this.pluginRegistry.registrarFor(str);
+    }
+
+    @Override // io.flutter.app.FlutterActivityDelegate.ViewFactory
+    public boolean retainFlutterNativeView() {
+        return false;
+    }
+
+    @Override // io.flutter.plugin.common.PluginRegistry
+    public final <T> T valuePublishedByPlugin(String str) {
+        return (T) this.pluginRegistry.valuePublishedByPlugin(str);
     }
 }

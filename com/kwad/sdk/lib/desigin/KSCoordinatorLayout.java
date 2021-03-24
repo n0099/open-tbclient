@@ -43,6 +43,7 @@ import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mapapi.map.WeightedLatLng;
 import com.kwad.sdk.R;
 import java.lang.annotation.Retention;
@@ -55,41 +56,41 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingParent2 {
-    static final Class<?>[] CONSTRUCTOR_PARAMS;
-    static final int EVENT_NESTED_SCROLL = 1;
-    static final int EVENT_PRE_DRAW = 0;
-    static final int EVENT_VIEW_REMOVED = 2;
-    static final String TAG = "CoordinatorLayout";
-    static final Comparator<View> TOP_SORTED_CHILDREN_COMPARATOR;
-    private static final int TYPE_ON_INTERCEPT = 0;
-    private static final int TYPE_ON_TOUCH = 1;
-    static final String WIDGET_PACKAGE_NAME;
-    static final ThreadLocal<Map<String, Constructor<Behavior>>> sConstructors;
-    private static final Pools.Pool<Rect> sRectPool;
-    private OnApplyWindowInsetsListener mApplyWindowInsetsListener;
-    private View mBehaviorTouchView;
-    private final KSDirectedAcyclicGraph<View> mChildDag;
-    private final List<View> mDependencySortedChildren;
-    private boolean mDisallowInterceptReset;
-    private boolean mDrawStatusBarBackground;
-    private boolean mIsAttachedToWindow;
-    private int[] mKeylines;
-    private WindowInsetsCompat mLastInsets;
-    private boolean mNeedsPreDrawListener;
-    private final NestedScrollingParentHelper mNestedScrollingParentHelper;
-    private View mNestedScrollingTarget;
-    ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
-    private OnPreDrawListener mOnPreDrawListener;
-    private Paint mScrimPaint;
-    private Drawable mStatusBarBackground;
-    private final List<View> mTempDependenciesList;
-    private final int[] mTempIntPair;
-    private final List<View> mTempList1;
+    public static final Class<?>[] CONSTRUCTOR_PARAMS;
+    public static final int EVENT_NESTED_SCROLL = 1;
+    public static final int EVENT_PRE_DRAW = 0;
+    public static final int EVENT_VIEW_REMOVED = 2;
+    public static final String TAG = "CoordinatorLayout";
+    public static final Comparator<View> TOP_SORTED_CHILDREN_COMPARATOR;
+    public static final int TYPE_ON_INTERCEPT = 0;
+    public static final int TYPE_ON_TOUCH = 1;
+    public static final String WIDGET_PACKAGE_NAME;
+    public static final ThreadLocal<Map<String, Constructor<Behavior>>> sConstructors;
+    public static final Pools.Pool<Rect> sRectPool;
+    public OnApplyWindowInsetsListener mApplyWindowInsetsListener;
+    public View mBehaviorTouchView;
+    public final KSDirectedAcyclicGraph<View> mChildDag;
+    public final List<View> mDependencySortedChildren;
+    public boolean mDisallowInterceptReset;
+    public boolean mDrawStatusBarBackground;
+    public boolean mIsAttachedToWindow;
+    public int[] mKeylines;
+    public WindowInsetsCompat mLastInsets;
+    public boolean mNeedsPreDrawListener;
+    public final NestedScrollingParentHelper mNestedScrollingParentHelper;
+    public View mNestedScrollingTarget;
+    public ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
+    public OnPreDrawListener mOnPreDrawListener;
+    public Paint mScrimPaint;
+    public Drawable mStatusBarBackground;
+    public final List<View> mTempDependenciesList;
+    public final int[] mTempIntPair;
+    public final List<View> mTempList1;
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Behavior<V extends View> {
         public Behavior() {
         }
@@ -115,7 +116,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
 
         @ColorInt
         public int getScrimColor(KSCoordinatorLayout kSCoordinatorLayout, V v) {
-            return ViewCompat.MEASURED_STATE_MASK;
+            return -16777216;
         }
 
         @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
@@ -157,11 +158,11 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
             return false;
         }
 
-        public boolean onNestedFling(@NonNull KSCoordinatorLayout kSCoordinatorLayout, @NonNull V v, @NonNull View view, float f, float f2, boolean z) {
+        public boolean onNestedFling(@NonNull KSCoordinatorLayout kSCoordinatorLayout, @NonNull V v, @NonNull View view, float f2, float f3, boolean z) {
             return false;
         }
 
-        public boolean onNestedPreFling(@NonNull KSCoordinatorLayout kSCoordinatorLayout, @NonNull V v, @NonNull View view, float f, float f2) {
+        public boolean onNestedPreFling(@NonNull KSCoordinatorLayout kSCoordinatorLayout, @NonNull V v, @NonNull View view, float f2, float f3) {
             return false;
         }
 
@@ -234,59 +235,61 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Retention(RetentionPolicy.RUNTIME)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface DefaultBehavior {
         Class<? extends Behavior> value();
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface DispatchChangeEvent {
     }
 
-    /* loaded from: classes3.dex */
-    private class HierarchyChangeListener implements ViewGroup.OnHierarchyChangeListener {
-        HierarchyChangeListener() {
+    /* loaded from: classes6.dex */
+    public class HierarchyChangeListener implements ViewGroup.OnHierarchyChangeListener {
+        public HierarchyChangeListener() {
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewAdded(View view, View view2) {
-            if (KSCoordinatorLayout.this.mOnHierarchyChangeListener != null) {
-                KSCoordinatorLayout.this.mOnHierarchyChangeListener.onChildViewAdded(view, view2);
+            ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener = KSCoordinatorLayout.this.mOnHierarchyChangeListener;
+            if (onHierarchyChangeListener != null) {
+                onHierarchyChangeListener.onChildViewAdded(view, view2);
             }
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             KSCoordinatorLayout.this.onChildViewsChanged(2);
-            if (KSCoordinatorLayout.this.mOnHierarchyChangeListener != null) {
-                KSCoordinatorLayout.this.mOnHierarchyChangeListener.onChildViewRemoved(view, view2);
+            ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener = KSCoordinatorLayout.this.mOnHierarchyChangeListener;
+            if (onHierarchyChangeListener != null) {
+                onHierarchyChangeListener.onChildViewRemoved(view, view2);
             }
         }
     }
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public int anchorGravity;
         public int dodgeInsetEdges;
         public int gravity;
         public int insetEdge;
         public int keyline;
-        View mAnchorDirectChild;
-        int mAnchorId;
-        View mAnchorView;
-        Behavior mBehavior;
-        boolean mBehaviorResolved;
-        Object mBehaviorTag;
-        private boolean mDidAcceptNestedScrollNonTouch;
-        private boolean mDidAcceptNestedScrollTouch;
-        private boolean mDidBlockInteraction;
-        private boolean mDidChangeAfterNestedScroll;
-        int mInsetOffsetX;
-        int mInsetOffsetY;
-        final Rect mLastChildRect;
+        public View mAnchorDirectChild;
+        public int mAnchorId;
+        public View mAnchorView;
+        public Behavior mBehavior;
+        public boolean mBehaviorResolved;
+        public Object mBehaviorTag;
+        public boolean mDidAcceptNestedScrollNonTouch;
+        public boolean mDidAcceptNestedScrollTouch;
+        public boolean mDidBlockInteraction;
+        public boolean mDidChangeAfterNestedScroll;
+        public int mInsetOffsetX;
+        public int mInsetOffsetY;
+        public final Rect mLastChildRect;
 
         public LayoutParams(int i, int i2) {
             super(i, i2);
@@ -300,7 +303,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
             this.mLastChildRect = new Rect();
         }
 
-        LayoutParams(Context context, AttributeSet attributeSet) {
+        public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             this.mBehaviorResolved = false;
             this.gravity = 0;
@@ -317,13 +320,15 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
             this.keyline = obtainStyledAttributes.getInteger(R.styleable.ksad_CoordinatorLayout_Layout_ksad_layout_keyline, -1);
             this.insetEdge = obtainStyledAttributes.getInt(R.styleable.ksad_CoordinatorLayout_Layout_ksad_layout_insetEdge, 0);
             this.dodgeInsetEdges = obtainStyledAttributes.getInt(R.styleable.ksad_CoordinatorLayout_Layout_ksad_layout_dodgeInsetEdges, 0);
-            this.mBehaviorResolved = obtainStyledAttributes.hasValue(R.styleable.ksad_CoordinatorLayout_Layout_ksad_layout_behavior);
-            if (this.mBehaviorResolved) {
+            boolean hasValue = obtainStyledAttributes.hasValue(R.styleable.ksad_CoordinatorLayout_Layout_ksad_layout_behavior);
+            this.mBehaviorResolved = hasValue;
+            if (hasValue) {
                 this.mBehavior = KSCoordinatorLayout.parseBehavior(context, attributeSet, obtainStyledAttributes.getString(R.styleable.ksad_CoordinatorLayout_Layout_ksad_layout_behavior));
             }
             obtainStyledAttributes.recycle();
-            if (this.mBehavior != null) {
-                this.mBehavior.onAttachedToLayoutParams(this);
+            Behavior behavior = this.mBehavior;
+            if (behavior != null) {
+                behavior.onAttachedToLayoutParams(this);
             }
         }
 
@@ -364,36 +369,29 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         }
 
         private void resolveAnchorView(View view, KSCoordinatorLayout kSCoordinatorLayout) {
-            this.mAnchorView = kSCoordinatorLayout.findViewById(this.mAnchorId);
-            if (this.mAnchorView == null) {
-                if (!kSCoordinatorLayout.isInEditMode()) {
-                    throw new IllegalStateException("Could not find CoordinatorLayout descendant view with id " + kSCoordinatorLayout.getResources().getResourceName(this.mAnchorId) + " to anchor view " + view);
-                }
-                this.mAnchorDirectChild = null;
-                this.mAnchorView = null;
-            } else if (this.mAnchorView == kSCoordinatorLayout) {
-                if (!kSCoordinatorLayout.isInEditMode()) {
-                    throw new IllegalStateException("View can not be anchored to the the parent CoordinatorLayout");
-                }
-                this.mAnchorDirectChild = null;
-                this.mAnchorView = null;
-            } else {
-                View view2 = this.mAnchorView;
-                for (ViewParent parent = this.mAnchorView.getParent(); parent != kSCoordinatorLayout && parent != null; parent = parent.getParent()) {
-                    if (parent == view) {
-                        if (!kSCoordinatorLayout.isInEditMode()) {
+            View findViewById = kSCoordinatorLayout.findViewById(this.mAnchorId);
+            this.mAnchorView = findViewById;
+            if (findViewById != null) {
+                if (findViewById != kSCoordinatorLayout) {
+                    for (ViewParent parent = findViewById.getParent(); parent != kSCoordinatorLayout && parent != null; parent = parent.getParent()) {
+                        if (parent != view) {
+                            if (parent instanceof View) {
+                                findViewById = (View) parent;
+                            }
+                        } else if (!kSCoordinatorLayout.isInEditMode()) {
                             throw new IllegalStateException("Anchor must not be a descendant of the anchored view");
                         }
-                        this.mAnchorDirectChild = null;
-                        this.mAnchorView = null;
-                        return;
                     }
-                    if (parent instanceof View) {
-                        view2 = (View) parent;
-                    }
+                    this.mAnchorDirectChild = findViewById;
+                    return;
+                } else if (!kSCoordinatorLayout.isInEditMode()) {
+                    throw new IllegalStateException("View can not be anchored to the the parent CoordinatorLayout");
                 }
-                this.mAnchorDirectChild = view2;
+            } else if (!kSCoordinatorLayout.isInEditMode()) {
+                throw new IllegalStateException("Could not find CoordinatorLayout descendant view with id " + kSCoordinatorLayout.getResources().getResourceName(this.mAnchorId) + " to anchor view " + view);
             }
+            this.mAnchorDirectChild = null;
+            this.mAnchorView = null;
         }
 
         private boolean shouldDodge(View view, int i) {
@@ -406,7 +404,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
                 return false;
             }
             View view2 = this.mAnchorView;
-            for (ViewParent parent = this.mAnchorView.getParent(); parent != kSCoordinatorLayout; parent = parent.getParent()) {
+            for (ViewParent parent = view2.getParent(); parent != kSCoordinatorLayout; parent = parent.getParent()) {
                 if (parent == null || parent == view) {
                     this.mAnchorDirectChild = null;
                     this.mAnchorView = null;
@@ -420,22 +418,23 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
             return true;
         }
 
-        boolean checkAnchorChanged() {
+        public boolean checkAnchorChanged() {
             return this.mAnchorView == null && this.mAnchorId != -1;
         }
 
-        boolean dependsOn(KSCoordinatorLayout kSCoordinatorLayout, View view, View view2) {
-            return view2 == this.mAnchorDirectChild || shouldDodge(view2, ViewCompat.getLayoutDirection(kSCoordinatorLayout)) || (this.mBehavior != null && this.mBehavior.layoutDependsOn(kSCoordinatorLayout, view, view2));
+        public boolean dependsOn(KSCoordinatorLayout kSCoordinatorLayout, View view, View view2) {
+            Behavior behavior;
+            return view2 == this.mAnchorDirectChild || shouldDodge(view2, ViewCompat.getLayoutDirection(kSCoordinatorLayout)) || ((behavior = this.mBehavior) != null && behavior.layoutDependsOn(kSCoordinatorLayout, view, view2));
         }
 
-        boolean didBlockInteraction() {
+        public boolean didBlockInteraction() {
             if (this.mBehavior == null) {
                 this.mDidBlockInteraction = false;
             }
             return this.mDidBlockInteraction;
         }
 
-        View findAnchorView(KSCoordinatorLayout kSCoordinatorLayout, View view) {
+        public View findAnchorView(KSCoordinatorLayout kSCoordinatorLayout, View view) {
             if (this.mAnchorId == -1) {
                 this.mAnchorDirectChild = null;
                 this.mAnchorView = null;
@@ -457,48 +456,49 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
             return this.mBehavior;
         }
 
-        boolean getChangedAfterNestedScroll() {
+        public boolean getChangedAfterNestedScroll() {
             return this.mDidChangeAfterNestedScroll;
         }
 
-        Rect getLastChildRect() {
+        public Rect getLastChildRect() {
             return this.mLastChildRect;
         }
 
-        void invalidateAnchor() {
+        public void invalidateAnchor() {
             this.mAnchorDirectChild = null;
             this.mAnchorView = null;
         }
 
-        boolean isBlockingInteractionBelow(KSCoordinatorLayout kSCoordinatorLayout, View view) {
-            if (this.mDidBlockInteraction) {
+        public boolean isBlockingInteractionBelow(KSCoordinatorLayout kSCoordinatorLayout, View view) {
+            boolean z = this.mDidBlockInteraction;
+            if (z) {
                 return true;
             }
-            boolean blocksInteractionBelow = (this.mBehavior != null ? this.mBehavior.blocksInteractionBelow(kSCoordinatorLayout, view) : false) | this.mDidBlockInteraction;
+            Behavior behavior = this.mBehavior;
+            boolean blocksInteractionBelow = (behavior != null ? behavior.blocksInteractionBelow(kSCoordinatorLayout, view) : false) | z;
             this.mDidBlockInteraction = blocksInteractionBelow;
             return blocksInteractionBelow;
         }
 
-        boolean isNestedScrollAccepted(int i) {
-            switch (i) {
-                case 0:
-                    return this.mDidAcceptNestedScrollTouch;
-                case 1:
-                    return this.mDidAcceptNestedScrollNonTouch;
-                default:
+        public boolean isNestedScrollAccepted(int i) {
+            if (i != 0) {
+                if (i != 1) {
                     return false;
+                }
+                return this.mDidAcceptNestedScrollNonTouch;
             }
+            return this.mDidAcceptNestedScrollTouch;
         }
 
-        void resetChangedAfterNestedScroll() {
+        public void resetChangedAfterNestedScroll() {
             this.mDidChangeAfterNestedScroll = false;
         }
 
-        void resetNestedScroll(int i) {
+        public void resetNestedScroll(int i) {
             setNestedScrollAccepted(i, false);
         }
 
-        void resetTouchBehaviorTracking() {
+        public void resetTouchBehaviorTracking() {
             this.mDidBlockInteraction = false;
         }
 
@@ -508,9 +508,10 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         }
 
         public void setBehavior(@Nullable Behavior behavior) {
-            if (this.mBehavior != behavior) {
-                if (this.mBehavior != null) {
-                    this.mBehavior.onDetachedFromLayoutParams();
+            Behavior behavior2 = this.mBehavior;
+            if (behavior2 != behavior) {
+                if (behavior2 != null) {
+                    behavior2.onDetachedFromLayoutParams();
                 }
                 this.mBehavior = behavior;
                 this.mBehaviorTag = null;
@@ -521,32 +522,27 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
             }
         }
 
-        void setChangedAfterNestedScroll(boolean z) {
+        public void setChangedAfterNestedScroll(boolean z) {
             this.mDidChangeAfterNestedScroll = z;
         }
 
-        void setLastChildRect(Rect rect) {
+        public void setLastChildRect(Rect rect) {
             this.mLastChildRect.set(rect);
         }
 
-        void setNestedScrollAccepted(int i, boolean z) {
-            switch (i) {
-                case 0:
-                    this.mDidAcceptNestedScrollTouch = z;
-                    return;
-                case 1:
-                    this.mDidAcceptNestedScrollNonTouch = z;
-                    return;
-                default:
-                    return;
+        public void setNestedScrollAccepted(int i, boolean z) {
+            if (i == 0) {
+                this.mDidAcceptNestedScrollTouch = z;
+            } else if (i != 1) {
+            } else {
+                this.mDidAcceptNestedScrollNonTouch = z;
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class OnPreDrawListener implements ViewTreeObserver.OnPreDrawListener {
-        OnPreDrawListener() {
+        public OnPreDrawListener() {
         }
 
         @Override // android.view.ViewTreeObserver.OnPreDrawListener
@@ -556,8 +552,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.kwad.sdk.lib.desigin.KSCoordinatorLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -579,7 +574,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
                 return new SavedState[i];
             }
         };
-        SparseArray<Parcelable> behaviorStates;
+        public SparseArray<Parcelable> behaviorStates;
 
         public SavedState(Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
@@ -600,7 +595,8 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            int size = this.behaviorStates != null ? this.behaviorStates.size() : 0;
+            SparseArray<Parcelable> sparseArray = this.behaviorStates;
+            int size = sparseArray != null ? sparseArray.size() : 0;
             parcel.writeInt(size);
             int[] iArr = new int[size];
             Parcelable[] parcelableArr = new Parcelable[size];
@@ -613,11 +609,8 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         }
     }
 
-    /* loaded from: classes3.dex */
-    static class ViewElevationComparator implements Comparator<View> {
-        ViewElevationComparator() {
-        }
-
+    /* loaded from: classes6.dex */
+    public static class ViewElevationComparator implements Comparator<View> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(View view, View view2) {
@@ -651,7 +644,6 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         this(context, attributeSet, 0);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KSCoordinatorLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDependencySortedChildren = new ArrayList();
@@ -665,10 +657,11 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         if (resourceId != 0) {
             Resources resources = context.getResources();
             this.mKeylines = resources.getIntArray(resourceId);
-            float f = resources.getDisplayMetrics().density;
+            float f2 = resources.getDisplayMetrics().density;
             int length = this.mKeylines.length;
             for (int i2 = 0; i2 < length; i2++) {
-                this.mKeylines[i2] = (int) (this.mKeylines[i2] * f);
+                int[] iArr = this.mKeylines;
+                iArr[i2] = (int) (iArr[i2] * f2);
             }
         }
         this.mStatusBarBackground = obtainStyledAttributes.getDrawable(R.styleable.ksad_KSCoordinatorLayout_ksad_statusBarBackground);
@@ -678,7 +671,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @NonNull
-    private static Rect acquireTempRect() {
+    public static Rect acquireTempRect() {
         Rect acquire = sRectPool.acquire();
         return acquire == null ? new Rect() : acquire;
     }
@@ -686,103 +679,71 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     private void constrainChildRect(LayoutParams layoutParams, Rect rect, int i, int i2) {
         int width = getWidth();
         int height = getHeight();
-        int max = Math.max(getPaddingLeft() + layoutParams.leftMargin, Math.min(rect.left, ((width - getPaddingRight()) - i) - layoutParams.rightMargin));
-        int max2 = Math.max(getPaddingTop() + layoutParams.topMargin, Math.min(rect.top, ((height - getPaddingBottom()) - i2) - layoutParams.bottomMargin));
-        rect.set(max, max2, max + i, max2 + i2);
+        int max = Math.max(getPaddingLeft() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin, Math.min(rect.left, ((width - getPaddingRight()) - i) - ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin));
+        int max2 = Math.max(getPaddingTop() + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin, Math.min(rect.top, ((height - getPaddingBottom()) - i2) - ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin));
+        rect.set(max, max2, i + max, i2 + max2);
     }
 
     private WindowInsetsCompat dispatchApplyWindowInsetsToBehaviors(WindowInsetsCompat windowInsetsCompat) {
-        WindowInsetsCompat windowInsetsCompat2;
         Behavior behavior;
         if (windowInsetsCompat.isConsumed()) {
             return windowInsetsCompat;
         }
         int childCount = getChildCount();
-        int i = 0;
-        WindowInsetsCompat windowInsetsCompat3 = windowInsetsCompat;
-        while (true) {
-            if (i >= childCount) {
-                windowInsetsCompat2 = windowInsetsCompat3;
-                break;
-            }
+        for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
-            if (!ViewCompat.getFitsSystemWindows(childAt) || (behavior = ((LayoutParams) childAt.getLayoutParams()).getBehavior()) == null) {
-                windowInsetsCompat2 = windowInsetsCompat3;
-            } else {
-                windowInsetsCompat2 = behavior.onApplyWindowInsets(this, childAt, windowInsetsCompat3);
-                if (windowInsetsCompat2.isConsumed()) {
+            if (ViewCompat.getFitsSystemWindows(childAt) && (behavior = ((LayoutParams) childAt.getLayoutParams()).getBehavior()) != null) {
+                windowInsetsCompat = behavior.onApplyWindowInsets(this, childAt, windowInsetsCompat);
+                if (windowInsetsCompat.isConsumed()) {
                     break;
                 }
             }
-            i++;
-            windowInsetsCompat3 = windowInsetsCompat2;
         }
-        return windowInsetsCompat2;
+        return windowInsetsCompat;
     }
 
     private void getDesiredAnchoredChildRectWithoutConstraints(View view, int i, Rect rect, Rect rect2, LayoutParams layoutParams, int i2, int i3) {
-        int width;
-        int height;
         int absoluteGravity = GravityCompat.getAbsoluteGravity(resolveAnchoredChildGravity(layoutParams.gravity), i);
         int absoluteGravity2 = GravityCompat.getAbsoluteGravity(resolveGravity(layoutParams.anchorGravity), i);
         int i4 = absoluteGravity & 7;
         int i5 = absoluteGravity & 112;
-        int i6 = absoluteGravity2 & 112;
-        switch (absoluteGravity2 & 7) {
-            case 1:
-                width = (rect.width() / 2) + rect.left;
-                break;
-            case 5:
-                width = rect.right;
-                break;
-            default:
-                width = rect.left;
-                break;
+        int i6 = absoluteGravity2 & 7;
+        int i7 = absoluteGravity2 & 112;
+        int width = i6 != 1 ? i6 != 5 ? rect.left : rect.right : rect.left + (rect.width() / 2);
+        int height = i7 != 16 ? i7 != 80 ? rect.top : rect.bottom : rect.top + (rect.height() / 2);
+        if (i4 == 1) {
+            width -= i2 / 2;
+        } else if (i4 != 5) {
+            width -= i2;
         }
-        switch (i6) {
-            case 16:
-                height = rect.top + (rect.height() / 2);
-                break;
-            case 80:
-                height = rect.bottom;
-                break;
-            default:
-                height = rect.top;
-                break;
+        if (i5 == 16) {
+            height -= i3 / 2;
+        } else if (i5 != 80) {
+            height -= i3;
         }
-        switch (i4) {
-            case 1:
-                width -= i2 / 2;
-                break;
-            case 5:
-                break;
-            default:
-                width -= i2;
-                break;
-        }
-        switch (i5) {
-            case 16:
-                height -= i3 / 2;
-                break;
-            case 80:
-                break;
-            default:
-                height -= i3;
-                break;
-        }
-        rect2.set(width, height, width + i2, height + i3);
+        rect2.set(width, height, i2 + width, i3 + height);
     }
 
     private int getKeyline(int i) {
-        if (this.mKeylines == null) {
-            Log.e(TAG, "No keylines defined for " + this + " - attempted index lookup " + i);
-            return 0;
-        } else if (i < 0 || i >= this.mKeylines.length) {
-            Log.e(TAG, "Keyline index " + i + " out of range for " + this);
-            return 0;
+        StringBuilder sb;
+        int[] iArr = this.mKeylines;
+        if (iArr == null) {
+            sb = new StringBuilder();
+            sb.append("No keylines defined for ");
+            sb.append(this);
+            sb.append(" - attempted index lookup ");
+            sb.append(i);
+        } else if (i >= 0 && i < iArr.length) {
+            return iArr[i];
         } else {
-            return this.mKeylines[i];
+            sb = new StringBuilder();
+            sb.append("Keyline index ");
+            sb.append(i);
+            sb.append(" out of range for ");
+            sb.append(this);
         }
+        Log.e("CoordinatorLayout", sb.toString());
+        return 0;
     }
 
     private void getTopSortedChildren(List<View> list) {
@@ -792,8 +753,9 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         for (int i = childCount - 1; i >= 0; i--) {
             list.add(getChildAt(isChildrenDrawingOrderEnabled ? getChildDrawingOrder(childCount, i) : i));
         }
-        if (TOP_SORTED_CHILDREN_COMPARATOR != null) {
-            Collections.sort(list, TOP_SORTED_CHILDREN_COMPARATOR);
+        Comparator<View> comparator = TOP_SORTED_CHILDREN_COMPARATOR;
+        if (comparator != null) {
+            Collections.sort(list, comparator);
         }
     }
 
@@ -804,7 +766,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     private void layoutChild(View view, int i) {
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
         Rect acquireTempRect = acquireTempRect();
-        acquireTempRect.set(getPaddingLeft() + layoutParams.leftMargin, getPaddingTop() + layoutParams.topMargin, (getWidth() - getPaddingRight()) - layoutParams.rightMargin, (getHeight() - getPaddingBottom()) - layoutParams.bottomMargin);
+        acquireTempRect.set(getPaddingLeft() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin, getPaddingTop() + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin, (getWidth() - getPaddingRight()) - ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin, (getHeight() - getPaddingBottom()) - ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin);
         if (this.mLastInsets != null && ViewCompat.getFitsSystemWindows(this) && !ViewCompat.getFitsSystemWindows(view)) {
             acquireTempRect.left += this.mLastInsets.getSystemWindowInsetLeft();
             acquireTempRect.top += this.mLastInsets.getSystemWindowInsetTop();
@@ -846,38 +808,32 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         }
         int keyline = getKeyline(i) - measuredWidth;
         int i5 = 0;
-        switch (i3) {
-            case 1:
-                keyline += measuredWidth / 2;
-                break;
-            case 5:
-                keyline += measuredWidth;
-                break;
+        if (i3 == 1) {
+            keyline += measuredWidth / 2;
+        } else if (i3 == 5) {
+            keyline += measuredWidth;
         }
-        switch (i4) {
-            case 16:
-                i5 = 0 + (measuredHeight / 2);
-                break;
-            case 80:
-                i5 = 0 + measuredHeight;
-                break;
+        if (i4 == 16) {
+            i5 = 0 + (measuredHeight / 2);
+        } else if (i4 == 80) {
+            i5 = measuredHeight + 0;
         }
-        int max = Math.max(getPaddingLeft() + layoutParams.leftMargin, Math.min(keyline, ((width - getPaddingRight()) - measuredWidth) - layoutParams.rightMargin));
-        int max2 = Math.max(getPaddingTop() + layoutParams.topMargin, Math.min(i5, ((height - getPaddingBottom()) - measuredHeight) - layoutParams.bottomMargin));
-        view.layout(max, max2, max + measuredWidth, max2 + measuredHeight);
+        int max = Math.max(getPaddingLeft() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin, Math.min(keyline, ((width - getPaddingRight()) - measuredWidth) - ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin));
+        int max2 = Math.max(getPaddingTop() + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin, Math.min(i5, ((height - getPaddingBottom()) - measuredHeight) - ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin));
+        view.layout(max, max2, measuredWidth + max, measuredHeight + max2);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0101  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private void offsetChildByInset(View view, Rect rect, int i) {
         boolean z;
         boolean z2;
-        boolean z3;
+        int width;
         int i2;
-        int height;
         int i3;
+        int i4;
+        int height;
+        int i5;
+        int i6;
+        int i7;
         if (ViewCompat.isLaidOut(view) && view.getWidth() > 0 && view.getHeight() > 0) {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             Behavior behavior = layoutParams.getBehavior();
@@ -895,142 +851,106 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
                 return;
             }
             int absoluteGravity = GravityCompat.getAbsoluteGravity(layoutParams.dodgeInsetEdges, i);
-            if ((absoluteGravity & 48) != 48 || (i3 = (acquireTempRect.top - layoutParams.topMargin) - layoutParams.mInsetOffsetY) >= rect.top) {
+            boolean z3 = true;
+            if ((absoluteGravity & 48) != 48 || (i6 = (acquireTempRect.top - ((ViewGroup.MarginLayoutParams) layoutParams).topMargin) - layoutParams.mInsetOffsetY) >= (i7 = rect.top)) {
                 z = false;
             } else {
-                setInsetOffsetY(view, rect.top - i3);
+                setInsetOffsetY(view, i7 - i6);
                 z = true;
             }
-            if ((absoluteGravity & 80) == 80 && (height = ((getHeight() - acquireTempRect.bottom) - layoutParams.bottomMargin) + layoutParams.mInsetOffsetY) < rect.bottom) {
-                setInsetOffsetY(view, height - rect.bottom);
+            if ((absoluteGravity & 80) == 80 && (height = ((getHeight() - acquireTempRect.bottom) - ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin) + layoutParams.mInsetOffsetY) < (i5 = rect.bottom)) {
+                setInsetOffsetY(view, height - i5);
                 z = true;
             }
             if (!z) {
                 setInsetOffsetY(view, 0);
             }
-            if ((absoluteGravity & 3) != 3 || (i2 = (acquireTempRect.left - layoutParams.leftMargin) - layoutParams.mInsetOffsetX) >= rect.left) {
+            if ((absoluteGravity & 3) != 3 || (i3 = (acquireTempRect.left - ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin) - layoutParams.mInsetOffsetX) >= (i4 = rect.left)) {
                 z2 = false;
             } else {
-                setInsetOffsetX(view, rect.left - i2);
+                setInsetOffsetX(view, i4 - i3);
                 z2 = true;
             }
-            if ((absoluteGravity & 5) == 5) {
-                int width = layoutParams.mInsetOffsetX + ((getWidth() - acquireTempRect.right) - layoutParams.rightMargin);
-                if (width < rect.right) {
-                    setInsetOffsetX(view, width - rect.right);
-                    z3 = true;
-                    if (!z3) {
-                        setInsetOffsetX(view, 0);
-                    }
-                    releaseTempRect(acquireTempRect);
-                }
+            if ((absoluteGravity & 5) != 5 || (width = ((getWidth() - acquireTempRect.right) - ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin) + layoutParams.mInsetOffsetX) >= (i2 = rect.right)) {
+                z3 = z2;
+            } else {
+                setInsetOffsetX(view, width - i2);
             }
-            z3 = z2;
             if (!z3) {
+                setInsetOffsetX(view, 0);
             }
             releaseTempRect(acquireTempRect);
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v20, resolved type: java.lang.Class<?> */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: java.lang.Class<?> */
     /* JADX WARN: Multi-variable type inference failed */
-    static Behavior parseBehavior(Context context, AttributeSet attributeSet, String str) {
-        HashMap hashMap;
+    public static Behavior parseBehavior(Context context, AttributeSet attributeSet, String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (str.startsWith(".")) {
             str = context.getPackageName() + str;
         } else if (str.indexOf(46) < 0 && !TextUtils.isEmpty(WIDGET_PACKAGE_NAME)) {
-            str = WIDGET_PACKAGE_NAME + '.' + str;
+            str = WIDGET_PACKAGE_NAME + IStringUtil.EXTENSION_SEPARATOR + str;
         }
         try {
             Map<String, Constructor<Behavior>> map = sConstructors.get();
             if (map == null) {
-                HashMap hashMap2 = new HashMap();
-                sConstructors.set(hashMap2);
-                hashMap = hashMap2;
-            } else {
-                hashMap = map;
+                map = new HashMap<>();
+                sConstructors.set(map);
             }
-            Constructor<Behavior> constructor = hashMap.get(str);
+            Constructor<Behavior> constructor = map.get(str);
             if (constructor == null) {
                 constructor = Class.forName(str, true, context.getClassLoader()).getConstructor(CONSTRUCTOR_PARAMS);
                 constructor.setAccessible(true);
-                hashMap.put(str, constructor);
+                map.put(str, constructor);
             }
             return constructor.newInstance(context, attributeSet);
-        } catch (Exception e) {
-            throw new RuntimeException("Could not inflate Behavior subclass " + str, e);
+        } catch (Exception e2) {
+            throw new RuntimeException("Could not inflate Behavior subclass " + str, e2);
         }
     }
 
     private boolean performIntercept(MotionEvent motionEvent, int i) {
-        boolean z;
-        MotionEvent motionEvent2;
-        boolean z2;
-        boolean z3 = false;
-        boolean z4 = false;
-        MotionEvent motionEvent3 = null;
         int actionMasked = motionEvent.getActionMasked();
         List<View> list = this.mTempList1;
         getTopSortedChildren(list);
         int size = list.size();
-        int i2 = 0;
-        while (true) {
-            if (i2 < size) {
-                View view = list.get(i2);
-                LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-                Behavior behavior = layoutParams.getBehavior();
-                if ((!z3 && !z4) || actionMasked == 0) {
-                    if (!z3 && behavior != null) {
-                        switch (i) {
-                            case 0:
-                                z3 = behavior.onInterceptTouchEvent(this, view, motionEvent);
-                                break;
-                            case 1:
-                                z3 = behavior.onTouchEvent(this, view, motionEvent);
-                                break;
-                        }
-                        if (z3) {
-                            this.mBehaviorTouchView = view;
-                        }
+        MotionEvent motionEvent2 = null;
+        boolean z = false;
+        boolean z2 = false;
+        for (int i2 = 0; i2 < size; i2++) {
+            View view = list.get(i2);
+            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+            Behavior behavior = layoutParams.getBehavior();
+            if (!(z || z2) || actionMasked == 0) {
+                if (!z && behavior != null) {
+                    if (i == 0) {
+                        z = behavior.onInterceptTouchEvent(this, view, motionEvent);
+                    } else if (i == 1) {
+                        z = behavior.onTouchEvent(this, view, motionEvent);
                     }
-                    z = z3;
-                    boolean didBlockInteraction = layoutParams.didBlockInteraction();
-                    boolean isBlockingInteractionBelow = layoutParams.isBlockingInteractionBelow(this, view);
-                    z2 = isBlockingInteractionBelow && !didBlockInteraction;
-                    if (!isBlockingInteractionBelow || z2) {
-                        motionEvent2 = motionEvent3;
+                    if (z) {
+                        this.mBehaviorTouchView = view;
                     }
-                } else if (behavior != null) {
-                    if (motionEvent3 == null) {
-                        long uptimeMillis = SystemClock.uptimeMillis();
-                        motionEvent2 = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
-                    } else {
-                        motionEvent2 = motionEvent3;
-                    }
-                    switch (i) {
-                        case 0:
-                            behavior.onInterceptTouchEvent(this, view, motionEvent2);
-                            break;
-                        case 1:
-                            behavior.onTouchEvent(this, view, motionEvent2);
-                            break;
-                    }
-                    z2 = z4;
-                    z = z3;
-                } else {
-                    motionEvent2 = motionEvent3;
-                    z2 = z4;
-                    z = z3;
                 }
-                i2++;
-                motionEvent3 = motionEvent2;
-                z4 = z2;
-                z3 = z;
-            } else {
-                z = z3;
+                boolean didBlockInteraction = layoutParams.didBlockInteraction();
+                boolean isBlockingInteractionBelow = layoutParams.isBlockingInteractionBelow(this, view);
+                z2 = isBlockingInteractionBelow && !didBlockInteraction;
+                if (isBlockingInteractionBelow && !z2) {
+                    break;
+                }
+            } else if (behavior != null) {
+                if (motionEvent2 == null) {
+                    long uptimeMillis = SystemClock.uptimeMillis();
+                    motionEvent2 = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
+                }
+                if (i == 0) {
+                    behavior.onInterceptTouchEvent(this, view, motionEvent2);
+                } else if (i == 1) {
+                    behavior.onTouchEvent(this, view, motionEvent2);
+                }
             }
         }
         list.clear();
@@ -1062,7 +982,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         Collections.reverse(this.mDependencySortedChildren);
     }
 
-    private static void releaseTempRect(@NonNull Rect rect) {
+    public static void releaseTempRect(@NonNull Rect rect) {
         rect.setEmpty();
         sRectPool.release(rect);
     }
@@ -1089,19 +1009,21 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         this.mDisallowInterceptReset = false;
     }
 
-    private static int resolveAnchoredChildGravity(int i) {
+    public static int resolveAnchoredChildGravity(int i) {
         if (i == 0) {
             return 17;
         }
         return i;
     }
 
-    private static int resolveGravity(int i) {
-        int i2 = (i & 7) == 0 ? 8388611 | i : i;
-        return (i2 & 112) == 0 ? i2 | 48 : i2;
+    public static int resolveGravity(int i) {
+        if ((i & 7) == 0) {
+            i |= GravityCompat.START;
+        }
+        return (i & 112) == 0 ? i | 48 : i;
     }
 
-    private static int resolveKeylineGravity(int i) {
+    public static int resolveKeylineGravity(int i) {
         if (i == 0) {
             return 8388661;
         }
@@ -1110,16 +1032,18 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
 
     private void setInsetOffsetX(View view, int i) {
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-        if (layoutParams.mInsetOffsetX != i) {
-            ViewCompat.offsetLeftAndRight(view, i - layoutParams.mInsetOffsetX);
+        int i2 = layoutParams.mInsetOffsetX;
+        if (i2 != i) {
+            ViewCompat.offsetLeftAndRight(view, i - i2);
             layoutParams.mInsetOffsetX = i;
         }
     }
 
     private void setInsetOffsetY(View view, int i) {
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-        if (layoutParams.mInsetOffsetY != i) {
-            ViewCompat.offsetTopAndBottom(view, i - layoutParams.mInsetOffsetY);
+        int i2 = layoutParams.mInsetOffsetY;
+        if (i2 != i) {
+            ViewCompat.offsetTopAndBottom(view, i - i2);
             layoutParams.mInsetOffsetY = i;
         }
     }
@@ -1144,7 +1068,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         setSystemUiVisibility(1280);
     }
 
-    void addPreDrawListener() {
+    public void addPreDrawListener() {
         if (this.mIsAttachedToWindow) {
             if (this.mOnPreDrawListener == null) {
                 this.mOnPreDrawListener = new OnPreDrawListener();
@@ -1155,7 +1079,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Override // android.view.ViewGroup
-    protected boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
+    public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
         return (layoutParams instanceof LayoutParams) && super.checkLayoutParams(layoutParams);
     }
 
@@ -1164,29 +1088,17 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         if (incomingEdges == null || incomingEdges.isEmpty()) {
             return;
         }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= incomingEdges.size()) {
-                return;
-            }
-            View view2 = (View) incomingEdges.get(i2);
+        for (int i = 0; i < incomingEdges.size(); i++) {
+            View view2 = (View) incomingEdges.get(i);
             Behavior behavior = ((LayoutParams) view2.getLayoutParams()).getBehavior();
             if (behavior != null) {
                 behavior.onDependentViewChanged(this, view2, view);
             }
-            i = i2 + 1;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
-        if (r3.bottom >= r4.top) goto L21;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public boolean doViewsOverlap(View view, View view2) {
-        boolean z = true;
+        boolean z = false;
         if (view.getVisibility() == 0 && view2.getVisibility() == 0) {
             Rect acquireTempRect = acquireTempRect();
             getChildRect(view, view.getParent() != this, acquireTempRect);
@@ -1194,8 +1106,10 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
             getChildRect(view2, view2.getParent() != this, acquireTempRect2);
             try {
                 if (acquireTempRect.left <= acquireTempRect2.right && acquireTempRect.top <= acquireTempRect2.bottom && acquireTempRect.right >= acquireTempRect2.left) {
+                    if (acquireTempRect.bottom >= acquireTempRect2.top) {
+                        z = true;
+                    }
                 }
-                z = false;
                 return z;
             } finally {
                 releaseTempRect(acquireTempRect);
@@ -1206,10 +1120,11 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Override // android.view.ViewGroup
-    protected boolean drawChild(Canvas canvas, View view, long j) {
+    public boolean drawChild(Canvas canvas, View view, long j) {
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-        if (layoutParams.mBehavior != null) {
-            float scrimOpacity = layoutParams.mBehavior.getScrimOpacity(this, view);
+        Behavior behavior = layoutParams.mBehavior;
+        if (behavior != null) {
+            float scrimOpacity = behavior.getScrimOpacity(this, view);
             if (scrimOpacity > 0.0f) {
                 if (this.mScrimPaint == null) {
                     this.mScrimPaint = new Paint();
@@ -1228,11 +1143,11 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void drawableStateChanged() {
+    public void drawableStateChanged() {
         super.drawableStateChanged();
         int[] drawableState = getDrawableState();
-        boolean z = false;
         Drawable drawable = this.mStatusBarBackground;
+        boolean z = false;
         if (drawable != null && drawable.isStateful()) {
             z = false | drawable.setState(drawableState);
         }
@@ -1241,9 +1156,9 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         }
     }
 
-    void ensurePreDrawListener() {
-        boolean z = false;
+    public void ensurePreDrawListener() {
         int childCount = getChildCount();
+        boolean z = false;
         int i = 0;
         while (true) {
             if (i >= childCount) {
@@ -1265,7 +1180,6 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-2, -2);
@@ -1278,13 +1192,12 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         return layoutParams instanceof LayoutParams ? new LayoutParams((LayoutParams) layoutParams) : layoutParams instanceof ViewGroup.MarginLayoutParams ? new LayoutParams((ViewGroup.MarginLayoutParams) layoutParams) : new LayoutParams(layoutParams);
     }
 
-    void getChildRect(View view, boolean z, Rect rect) {
+    public void getChildRect(View view, boolean z, Rect rect) {
         if (view.isLayoutRequested() || view.getVisibility() == 8) {
             rect.setEmpty();
         } else if (z) {
@@ -1305,7 +1218,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @VisibleForTesting
-    final List<View> getDependencySortedChildren() {
+    public final List<View> getDependencySortedChildren() {
         prepareChildren();
         return Collections.unmodifiableList(this.mDependencySortedChildren);
     }
@@ -1320,11 +1233,11 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         return this.mTempDependenciesList;
     }
 
-    void getDescendantRect(View view, Rect rect) {
+    public void getDescendantRect(View view, Rect rect) {
         KSViewGroupUtils.getDescendantRect(this, view, rect);
     }
 
-    void getDesiredAnchoredChildRect(View view, int i, Rect rect, Rect rect2) {
+    public void getDesiredAnchoredChildRect(View view, int i, Rect rect, Rect rect2) {
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
         int measuredWidth = view.getMeasuredWidth();
         int measuredHeight = view.getMeasuredHeight();
@@ -1332,11 +1245,10 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         constrainChildRect(layoutParams, rect2, measuredWidth, measuredHeight);
     }
 
-    void getLastChildRect(View view, Rect rect) {
+    public void getLastChildRect(View view, Rect rect) {
         rect.set(((LayoutParams) view.getLayoutParams()).getLastChildRect());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final WindowInsetsCompat getLastWindowInsets() {
         return this.mLastInsets;
     }
@@ -1346,7 +1258,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         return this.mNestedScrollingParentHelper.getNestedScrollAxes();
     }
 
-    LayoutParams getResolvedLayoutParams(View view) {
+    public LayoutParams getResolvedLayoutParams(View view) {
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
         if (!layoutParams.mBehaviorResolved) {
             DefaultBehavior defaultBehavior = null;
@@ -1356,12 +1268,11 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
                     break;
                 }
             }
-            DefaultBehavior defaultBehavior2 = defaultBehavior;
-            if (defaultBehavior2 != null) {
+            if (defaultBehavior != null) {
                 try {
-                    layoutParams.setBehavior(defaultBehavior2.value().getDeclaredConstructor(new Class[0]).newInstance(new Object[0]));
-                } catch (Exception e) {
-                    Log.e(TAG, "Default behavior class " + defaultBehavior2.value().getName() + " could not be instantiated. Did you forget a default constructor?", e);
+                    layoutParams.setBehavior(defaultBehavior.value().getDeclaredConstructor(new Class[0]).newInstance(new Object[0]));
+                } catch (Exception e2) {
+                    Log.e("CoordinatorLayout", "Default behavior class " + defaultBehavior.value().getName() + " could not be instantiated. Did you forget a default constructor?", e2);
                 }
             }
             layoutParams.mBehaviorResolved = true;
@@ -1375,12 +1286,12 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Override // android.view.View
-    protected int getSuggestedMinimumHeight() {
+    public int getSuggestedMinimumHeight() {
         return Math.max(super.getSuggestedMinimumHeight(), getPaddingTop() + getPaddingBottom());
     }
 
     @Override // android.view.View
-    protected int getSuggestedMinimumWidth() {
+    public int getSuggestedMinimumWidth() {
         return Math.max(super.getSuggestedMinimumWidth(), getPaddingLeft() + getPaddingRight());
     }
 
@@ -1394,7 +1305,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         }
     }
 
-    void offsetChildToAnchor(View view, int i) {
+    public void offsetChildToAnchor(View view, int i) {
         Behavior behavior;
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
         if (layoutParams.mAnchorView != null) {
@@ -1402,11 +1313,12 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
             Rect acquireTempRect2 = acquireTempRect();
             Rect acquireTempRect3 = acquireTempRect();
             getDescendantRect(layoutParams.mAnchorView, acquireTempRect);
+            boolean z = false;
             getChildRect(view, false, acquireTempRect2);
             int measuredWidth = view.getMeasuredWidth();
             int measuredHeight = view.getMeasuredHeight();
             getDesiredAnchoredChildRectWithoutConstraints(view, i, acquireTempRect, acquireTempRect3, layoutParams, measuredWidth, measuredHeight);
-            boolean z = (acquireTempRect3.left == acquireTempRect2.left && acquireTempRect3.top == acquireTempRect2.top) ? false : true;
+            z = (acquireTempRect3.left == acquireTempRect2.left && acquireTempRect3.top == acquireTempRect2.top) ? true : true;
             constrainChildRect(layoutParams, acquireTempRect3, measuredWidth, measuredHeight);
             int i2 = acquireTempRect3.left - acquireTempRect2.left;
             int i3 = acquireTempRect3.top - acquireTempRect2.top;
@@ -1441,7 +1353,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         this.mIsAttachedToWindow = true;
     }
 
-    final void onChildViewsChanged(int i) {
+    public final void onChildViewsChanged(int i) {
         boolean z;
         int layoutDirection = ViewCompat.getLayoutDirection(this);
         int size = this.mDependencySortedChildren.size();
@@ -1460,21 +1372,17 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
                 getChildRect(view, true, acquireTempRect2);
                 if (layoutParams.insetEdge != 0 && !acquireTempRect2.isEmpty()) {
                     int absoluteGravity = GravityCompat.getAbsoluteGravity(layoutParams.insetEdge, layoutDirection);
-                    switch (absoluteGravity & 112) {
-                        case 48:
-                            acquireTempRect.top = Math.max(acquireTempRect.top, acquireTempRect2.bottom);
-                            break;
-                        case 80:
-                            acquireTempRect.bottom = Math.max(acquireTempRect.bottom, getHeight() - acquireTempRect2.top);
-                            break;
+                    int i4 = absoluteGravity & 112;
+                    if (i4 == 48) {
+                        acquireTempRect.top = Math.max(acquireTempRect.top, acquireTempRect2.bottom);
+                    } else if (i4 == 80) {
+                        acquireTempRect.bottom = Math.max(acquireTempRect.bottom, getHeight() - acquireTempRect2.top);
                     }
-                    switch (absoluteGravity & 7) {
-                        case 3:
-                            acquireTempRect.left = Math.max(acquireTempRect.left, acquireTempRect2.right);
-                            break;
-                        case 5:
-                            acquireTempRect.right = Math.max(acquireTempRect.right, getWidth() - acquireTempRect2.left);
-                            break;
+                    int i5 = absoluteGravity & 7;
+                    if (i5 == 3) {
+                        acquireTempRect.left = Math.max(acquireTempRect.left, acquireTempRect2.right);
+                    } else if (i5 == 5) {
+                        acquireTempRect.right = Math.max(acquireTempRect.right, getWidth() - acquireTempRect2.left);
                     }
                 }
                 if (layoutParams.dodgeInsetEdges != 0 && view.getVisibility() == 0) {
@@ -1486,22 +1394,19 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
                         recordLastChildRect(view, acquireTempRect2);
                     }
                 }
-                for (int i4 = i2 + 1; i4 < size; i4++) {
-                    View view2 = this.mDependencySortedChildren.get(i4);
+                for (int i6 = i2 + 1; i6 < size; i6++) {
+                    View view2 = this.mDependencySortedChildren.get(i6);
                     LayoutParams layoutParams2 = (LayoutParams) view2.getLayoutParams();
                     Behavior behavior = layoutParams2.getBehavior();
                     if (behavior != null && behavior.layoutDependsOn(this, view2, view)) {
                         if (i == 0 && layoutParams2.getChangedAfterNestedScroll()) {
                             layoutParams2.resetChangedAfterNestedScroll();
                         } else {
-                            switch (i) {
-                                case 2:
-                                    behavior.onDependentViewRemoved(this, view2, view);
-                                    z = true;
-                                    break;
-                                default:
-                                    z = behavior.onDependentViewChanged(this, view2, view);
-                                    break;
+                            if (i != 2) {
+                                z = behavior.onDependentViewChanged(this, view2, view);
+                            } else {
+                                behavior.onDependentViewRemoved(this, view2, view);
+                                z = true;
                             }
                             if (i == 1) {
                                 layoutParams2.setChangedAfterNestedScroll(z);
@@ -1523,8 +1428,9 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         if (this.mNeedsPreDrawListener && this.mOnPreDrawListener != null) {
             getViewTreeObserver().removeOnPreDrawListener(this.mOnPreDrawListener);
         }
-        if (this.mNestedScrollingTarget != null) {
-            onStopNestedScroll(this.mNestedScrollingTarget);
+        View view = this.mNestedScrollingTarget;
+        if (view != null) {
+            onStopNestedScroll(view);
         }
         this.mIsAttachedToWindow = false;
     }
@@ -1535,7 +1441,8 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         if (!this.mDrawStatusBarBackground || this.mStatusBarBackground == null) {
             return;
         }
-        int systemWindowInsetTop = this.mLastInsets != null ? this.mLastInsets.getSystemWindowInsetTop() : 0;
+        WindowInsetsCompat windowInsetsCompat = this.mLastInsets;
+        int systemWindowInsetTop = windowInsetsCompat != null ? windowInsetsCompat.getSystemWindowInsetTop() : 0;
         if (systemWindowInsetTop > 0) {
             this.mStatusBarBackground.setBounds(0, 0, getWidth(), systemWindowInsetTop);
             this.mStatusBarBackground.draw(canvas);
@@ -1544,15 +1451,11 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        MotionEvent motionEvent2 = null;
         int actionMasked = motionEvent.getActionMasked();
         if (actionMasked == 0) {
             resetTouchBehaviors(true);
         }
         boolean performIntercept = performIntercept(motionEvent, 0);
-        if (0 != 0) {
-            motionEvent2.recycle();
-        }
         if (actionMasked == 1 || actionMasked == 3) {
             resetTouchBehaviors(true);
         }
@@ -1560,7 +1463,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Behavior behavior;
         int layoutDirection = ViewCompat.getLayoutDirection(this);
         int size = this.mDependencySortedChildren.size();
@@ -1577,22 +1480,41 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         if (layoutParams.checkAnchorChanged()) {
             throw new IllegalStateException("An anchor may not be changed after CoordinatorLayout measurement begins before layout is complete.");
         }
-        if (layoutParams.mAnchorView != null) {
-            layoutChildWithAnchor(view, layoutParams.mAnchorView, i);
-        } else if (layoutParams.keyline >= 0) {
-            layoutChildWithKeyline(view, layoutParams.keyline, i);
+        View view2 = layoutParams.mAnchorView;
+        if (view2 != null) {
+            layoutChildWithAnchor(view, view2, i);
+            return;
+        }
+        int i2 = layoutParams.keyline;
+        if (i2 >= 0) {
+            layoutChildWithKeyline(view, i2, i);
         } else {
             layoutChild(view, i);
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x011a, code lost:
+        if (r0.onMeasureChild(r30, r20, r11, r21, r23, 0) == false) goto L33;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00fb  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x011d  */
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onMeasure(int i, int i2) {
         int i3;
         int i4;
-        int max;
-        int combineMeasuredStates;
         int i5;
+        int i6;
+        Behavior behavior;
+        LayoutParams layoutParams;
+        int i7;
+        int i8;
+        int i9;
+        int i10;
+        int i11;
+        int i12;
         prepareChildren();
         ensurePreDrawListener();
         int paddingLeft = getPaddingLeft();
@@ -1605,56 +1527,91 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         int size = View.MeasureSpec.getSize(i);
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
-        int i6 = paddingLeft + paddingRight;
-        int i7 = paddingTop + paddingBottom;
+        int i13 = paddingLeft + paddingRight;
+        int i14 = paddingTop + paddingBottom;
         int suggestedMinimumWidth = getSuggestedMinimumWidth();
         int suggestedMinimumHeight = getSuggestedMinimumHeight();
-        int i8 = 0;
         boolean z2 = this.mLastInsets != null && ViewCompat.getFitsSystemWindows(this);
         int size3 = this.mDependencySortedChildren.size();
-        int i9 = 0;
-        while (i9 < size3) {
-            View view = this.mDependencySortedChildren.get(i9);
+        int i15 = suggestedMinimumWidth;
+        int i16 = suggestedMinimumHeight;
+        int i17 = 0;
+        int i18 = 0;
+        while (i18 < size3) {
+            View view = this.mDependencySortedChildren.get(i18);
             if (view.getVisibility() == 8) {
-                combineMeasuredStates = i8;
-                max = suggestedMinimumHeight;
-                i5 = suggestedMinimumWidth;
+                i11 = i18;
+                i8 = size3;
+                i9 = paddingLeft;
             } else {
-                LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-                int i10 = 0;
-                if (layoutParams.keyline >= 0 && mode != 0) {
-                    int keyline = getKeyline(layoutParams.keyline);
-                    int absoluteGravity = GravityCompat.getAbsoluteGravity(resolveKeylineGravity(layoutParams.gravity), layoutDirection) & 7;
-                    if ((absoluteGravity == 3 && !z) || (absoluteGravity == 5 && z)) {
-                        i10 = Math.max(0, (size - paddingRight) - keyline);
-                    } else if ((absoluteGravity == 5 && !z) || (absoluteGravity == 3 && z)) {
-                        i10 = Math.max(0, keyline - paddingLeft);
-                    }
-                }
-                if (!z2 || ViewCompat.getFitsSystemWindows(view)) {
-                    i3 = i2;
-                    i4 = i;
+                LayoutParams layoutParams2 = (LayoutParams) view.getLayoutParams();
+                int i19 = layoutParams2.keyline;
+                if (i19 < 0 || mode == 0) {
+                    i3 = i17;
                 } else {
-                    int systemWindowInsetLeft = this.mLastInsets.getSystemWindowInsetLeft() + this.mLastInsets.getSystemWindowInsetRight();
-                    int systemWindowInsetTop = this.mLastInsets.getSystemWindowInsetTop() + this.mLastInsets.getSystemWindowInsetBottom();
-                    i4 = View.MeasureSpec.makeMeasureSpec(size - systemWindowInsetLeft, mode);
-                    i3 = View.MeasureSpec.makeMeasureSpec(size2 - systemWindowInsetTop, mode2);
+                    int keyline = getKeyline(i19);
+                    int absoluteGravity = GravityCompat.getAbsoluteGravity(resolveKeylineGravity(layoutParams2.gravity), layoutDirection) & 7;
+                    i3 = i17;
+                    if ((absoluteGravity == 3 && !z) || (absoluteGravity == 5 && z)) {
+                        i4 = Math.max(0, (size - paddingRight) - keyline);
+                    } else if ((absoluteGravity == 5 && !z) || (absoluteGravity == 3 && z)) {
+                        i4 = Math.max(0, keyline - paddingLeft);
+                    }
+                    if (z2 || ViewCompat.getFitsSystemWindows(view)) {
+                        i5 = i;
+                        i6 = i2;
+                    } else {
+                        i5 = View.MeasureSpec.makeMeasureSpec(size - (this.mLastInsets.getSystemWindowInsetLeft() + this.mLastInsets.getSystemWindowInsetRight()), mode);
+                        i6 = View.MeasureSpec.makeMeasureSpec(size2 - (this.mLastInsets.getSystemWindowInsetTop() + this.mLastInsets.getSystemWindowInsetBottom()), mode2);
+                    }
+                    behavior = layoutParams2.getBehavior();
+                    if (behavior == null) {
+                        layoutParams = layoutParams2;
+                        i10 = i3;
+                        i11 = i18;
+                        i7 = i16;
+                        i9 = paddingLeft;
+                        i12 = i15;
+                        i8 = size3;
+                    } else {
+                        layoutParams = layoutParams2;
+                        i7 = i16;
+                        i8 = size3;
+                        i9 = paddingLeft;
+                        i10 = i3;
+                        i11 = i18;
+                        i12 = i15;
+                    }
+                    onMeasureChild(view, i5, i4, i6, 0);
+                    LayoutParams layoutParams3 = layoutParams;
+                    int max = Math.max(i12, i13 + view.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) layoutParams3).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams3).rightMargin);
+                    int max2 = Math.max(i7, i14 + view.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams3).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams3).bottomMargin);
+                    i17 = View.combineMeasuredStates(i10, view.getMeasuredState());
+                    i15 = max;
+                    i16 = max2;
                 }
-                Behavior behavior = layoutParams.getBehavior();
-                if (behavior == null || !behavior.onMeasureChild(this, view, i4, i10, i3, 0)) {
-                    onMeasureChild(view, i4, i10, i3, 0);
+                i4 = 0;
+                if (z2) {
                 }
-                int max2 = Math.max(suggestedMinimumWidth, view.getMeasuredWidth() + i6 + layoutParams.leftMargin + layoutParams.rightMargin);
-                max = Math.max(suggestedMinimumHeight, view.getMeasuredHeight() + i7 + layoutParams.topMargin + layoutParams.bottomMargin);
-                combineMeasuredStates = View.combineMeasuredStates(i8, view.getMeasuredState());
-                i5 = max2;
+                i5 = i;
+                i6 = i2;
+                behavior = layoutParams2.getBehavior();
+                if (behavior == null) {
+                }
+                onMeasureChild(view, i5, i4, i6, 0);
+                LayoutParams layoutParams32 = layoutParams;
+                int max3 = Math.max(i12, i13 + view.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) layoutParams32).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams32).rightMargin);
+                int max22 = Math.max(i7, i14 + view.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams32).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams32).bottomMargin);
+                i17 = View.combineMeasuredStates(i10, view.getMeasuredState());
+                i15 = max3;
+                i16 = max22;
             }
-            i9++;
-            i8 = combineMeasuredStates;
-            suggestedMinimumHeight = max;
-            suggestedMinimumWidth = i5;
+            i18 = i11 + 1;
+            paddingLeft = i9;
+            size3 = i8;
         }
-        setMeasuredDimension(View.resolveSizeAndState(suggestedMinimumWidth, i, (-16777216) & i8), View.resolveSizeAndState(suggestedMinimumHeight, i2, i8 << 16));
+        int i20 = i17;
+        setMeasuredDimension(View.resolveSizeAndState(i15, i, (-16777216) & i20), View.resolveSizeAndState(i16, i2, i20 << 16));
     }
 
     public void onMeasureChild(View view, int i, int i2, int i3, int i4) {
@@ -1662,26 +1619,18 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedFling(View view, float f, float f2, boolean z) {
-        boolean onNestedFling;
+    public boolean onNestedFling(View view, float f2, float f3, boolean z) {
+        Behavior behavior;
         int childCount = getChildCount();
-        int i = 0;
         boolean z2 = false;
-        while (i < childCount) {
+        for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
-            if (childAt.getVisibility() == 8) {
-                onNestedFling = z2;
-            } else {
+            if (childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                if (layoutParams.isNestedScrollAccepted(0)) {
-                    Behavior behavior = layoutParams.getBehavior();
-                    onNestedFling = behavior != null ? behavior.onNestedFling(this, childAt, view, f, f2, z) | z2 : z2;
-                } else {
-                    onNestedFling = z2;
+                if (layoutParams.isNestedScrollAccepted(0) && (behavior = layoutParams.getBehavior()) != null) {
+                    z2 |= behavior.onNestedFling(this, childAt, view, f2, f3, z);
                 }
             }
-            i++;
-            z2 = onNestedFling;
         }
         if (z2) {
             onChildViewsChanged(1);
@@ -1690,26 +1639,18 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view, float f, float f2) {
-        boolean onNestedPreFling;
+    public boolean onNestedPreFling(View view, float f2, float f3) {
+        Behavior behavior;
         int childCount = getChildCount();
-        int i = 0;
         boolean z = false;
-        while (i < childCount) {
+        for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
-            if (childAt.getVisibility() == 8) {
-                onNestedPreFling = z;
-            } else {
+            if (childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                if (layoutParams.isNestedScrollAccepted(0)) {
-                    Behavior behavior = layoutParams.getBehavior();
-                    onNestedPreFling = behavior != null ? behavior.onNestedPreFling(this, childAt, view, f, f2) | z : z;
-                } else {
-                    onNestedPreFling = z;
+                if (layoutParams.isNestedScrollAccepted(0) && (behavior = layoutParams.getBehavior()) != null) {
+                    z |= behavior.onNestedPreFling(this, childAt, view, f2, f3);
                 }
             }
-            i++;
-            z = onNestedPreFling;
         }
         return z;
     }
@@ -1721,45 +1662,30 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
 
     @Override // androidx.core.view.NestedScrollingParent2
     public void onNestedPreScroll(View view, int i, int i2, int[] iArr, int i3) {
-        int i4;
-        int i5;
-        int i6 = 0;
-        int i7 = 0;
-        boolean z = false;
+        Behavior behavior;
         int childCount = getChildCount();
-        int i8 = 0;
-        while (i8 < childCount) {
-            View childAt = getChildAt(i8);
-            if (childAt.getVisibility() == 8) {
-                i4 = i7;
-                i5 = i6;
-            } else {
+        boolean z = false;
+        int i4 = 0;
+        int i5 = 0;
+        for (int i6 = 0; i6 < childCount; i6++) {
+            View childAt = getChildAt(i6);
+            if (childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                if (layoutParams.isNestedScrollAccepted(i3)) {
-                    Behavior behavior = layoutParams.getBehavior();
-                    if (behavior != null) {
-                        int[] iArr2 = this.mTempIntPair;
-                        this.mTempIntPair[1] = 0;
-                        iArr2[0] = 0;
-                        behavior.onNestedPreScroll(this, childAt, view, i, i2, this.mTempIntPair, i3);
-                        i5 = i > 0 ? Math.max(i6, this.mTempIntPair[0]) : Math.min(i6, this.mTempIntPair[0]);
-                        i4 = i2 > 0 ? Math.max(i7, this.mTempIntPair[1]) : Math.min(i7, this.mTempIntPair[1]);
-                        z = true;
-                    } else {
-                        i4 = i7;
-                        i5 = i6;
-                    }
-                } else {
-                    i4 = i7;
-                    i5 = i6;
+                if (layoutParams.isNestedScrollAccepted(i3) && (behavior = layoutParams.getBehavior()) != null) {
+                    int[] iArr2 = this.mTempIntPair;
+                    iArr2[1] = 0;
+                    iArr2[0] = 0;
+                    behavior.onNestedPreScroll(this, childAt, view, i, i2, iArr2, i3);
+                    int[] iArr3 = this.mTempIntPair;
+                    i4 = i > 0 ? Math.max(i4, iArr3[0]) : Math.min(i4, iArr3[0]);
+                    int[] iArr4 = this.mTempIntPair;
+                    i5 = i2 > 0 ? Math.max(i5, iArr4[1]) : Math.min(i5, iArr4[1]);
+                    z = true;
                 }
             }
-            i8++;
-            i7 = i4;
-            i6 = i5;
         }
-        iArr[0] = i6;
-        iArr[1] = i7;
+        iArr[0] = i4;
+        iArr[1] = i5;
         if (z) {
             onChildViewsChanged(1);
         }
@@ -1772,32 +1698,20 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
 
     @Override // androidx.core.view.NestedScrollingParent2
     public void onNestedScroll(View view, int i, int i2, int i3, int i4, int i5) {
-        boolean z;
+        Behavior behavior;
         int childCount = getChildCount();
-        boolean z2 = false;
-        int i6 = 0;
-        while (i6 < childCount) {
+        boolean z = false;
+        for (int i6 = 0; i6 < childCount; i6++) {
             View childAt = getChildAt(i6);
-            if (childAt.getVisibility() == 8) {
-                z = z2;
-            } else {
+            if (childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                if (layoutParams.isNestedScrollAccepted(i5)) {
-                    Behavior behavior = layoutParams.getBehavior();
-                    if (behavior != null) {
-                        behavior.onNestedScroll(this, childAt, view, i, i2, i3, i4, i5);
-                        z = true;
-                    } else {
-                        z = z2;
-                    }
-                } else {
-                    z = z2;
+                if (layoutParams.isNestedScrollAccepted(i5) && (behavior = layoutParams.getBehavior()) != null) {
+                    behavior.onNestedScroll(this, childAt, view, i, i2, i3, i4, i5);
+                    z = true;
                 }
             }
-            i6++;
-            z2 = z;
         }
-        if (z2) {
+        if (z) {
             onChildViewsChanged(1);
         }
     }
@@ -1823,7 +1737,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Override // android.view.View
-    protected void onRestoreInstanceState(Parcelable parcelable) {
+    public void onRestoreInstanceState(Parcelable parcelable) {
         Parcelable parcelable2;
         if (!(parcelable instanceof SavedState)) {
             super.onRestoreInstanceState(parcelable);
@@ -1844,7 +1758,7 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     @Override // android.view.View
-    protected Parcelable onSaveInstanceState() {
+    public Parcelable onSaveInstanceState() {
         Parcelable onSaveInstanceState;
         SavedState savedState = new SavedState(super.onSaveInstanceState());
         SparseArray<Parcelable> sparseArray = new SparseArray<>();
@@ -1868,30 +1782,23 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
 
     @Override // androidx.core.view.NestedScrollingParent2
     public boolean onStartNestedScroll(View view, View view2, int i, int i2) {
-        boolean z;
-        boolean z2 = false;
         int childCount = getChildCount();
-        int i3 = 0;
-        while (i3 < childCount) {
+        boolean z = false;
+        for (int i3 = 0; i3 < childCount; i3++) {
             View childAt = getChildAt(i3);
-            if (childAt.getVisibility() == 8) {
-                z = z2;
-            } else {
+            if (childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 Behavior behavior = layoutParams.getBehavior();
                 if (behavior != null) {
                     boolean onStartNestedScroll = behavior.onStartNestedScroll(this, childAt, view, view2, i, i2);
-                    z = z2 | onStartNestedScroll;
+                    z |= onStartNestedScroll;
                     layoutParams.setNestedScrollAccepted(i2, onStartNestedScroll);
                 } else {
                     layoutParams.setNestedScrollAccepted(i2, false);
-                    z = z2;
                 }
             }
-            i3++;
-            z2 = z;
         }
-        return z2;
+        return z;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
@@ -1918,69 +1825,62 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
         this.mNestedScrollingTarget = null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x002d  */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0038  */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0043  */
+    /* JADX WARN: Code restructure failed: missing block: B:5:0x0012, code lost:
+        if (r3 != false) goto L19;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0031  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0037  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x004c  */
     @Override // android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean z;
-        boolean z2;
+        boolean onTouchEvent;
         MotionEvent motionEvent2;
-        MotionEvent motionEvent3 = null;
         int actionMasked = motionEvent.getActionMasked();
         if (this.mBehaviorTouchView == null) {
-            boolean performIntercept = performIntercept(motionEvent, 1);
-            if (!performIntercept) {
-                z = performIntercept;
-                z2 = false;
-                if (this.mBehaviorTouchView != null) {
-                    z2 |= super.onTouchEvent(motionEvent);
-                } else if (z) {
-                    if (0 == 0) {
-                        long uptimeMillis = SystemClock.uptimeMillis();
-                        motionEvent2 = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
-                    } else {
-                        motionEvent2 = null;
-                    }
-                    super.onTouchEvent(motionEvent2);
-                    motionEvent3 = motionEvent2;
-                }
-                if (!z2 || actionMasked == 0) {
-                }
-                if (motionEvent3 != null) {
-                    motionEvent3.recycle();
-                }
-                if (actionMasked != 1 || actionMasked == 3) {
-                    resetTouchBehaviors(false);
-                }
-                return z2;
-            }
-            z = performIntercept;
+            z = performIntercept(motionEvent, 1);
         } else {
             z = false;
         }
         Behavior behavior = ((LayoutParams) this.mBehaviorTouchView.getLayoutParams()).getBehavior();
-        z2 = behavior != null ? behavior.onTouchEvent(this, this.mBehaviorTouchView, motionEvent) : false;
+        if (behavior != null) {
+            onTouchEvent = behavior.onTouchEvent(this, this.mBehaviorTouchView, motionEvent);
+            motionEvent2 = null;
+            if (this.mBehaviorTouchView != null) {
+                onTouchEvent |= super.onTouchEvent(motionEvent);
+            } else if (z) {
+                long uptimeMillis = SystemClock.uptimeMillis();
+                motionEvent2 = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
+                super.onTouchEvent(motionEvent2);
+            }
+            if (motionEvent2 != null) {
+                motionEvent2.recycle();
+            }
+            if (actionMasked != 1 || actionMasked == 3) {
+                resetTouchBehaviors(false);
+            }
+            return onTouchEvent;
+        }
+        onTouchEvent = false;
+        motionEvent2 = null;
         if (this.mBehaviorTouchView != null) {
         }
-        if (!z2) {
-        }
-        if (motionEvent3 != null) {
+        if (motionEvent2 != null) {
         }
         if (actionMasked != 1) {
         }
         resetTouchBehaviors(false);
-        return z2;
+        return onTouchEvent;
     }
 
-    void recordLastChildRect(View view, Rect rect) {
+    public void recordLastChildRect(View view, Rect rect) {
         ((LayoutParams) view.getLayoutParams()).setLastChildRect(rect);
     }
 
-    void removePreDrawListener() {
+    public void removePreDrawListener() {
         if (this.mIsAttachedToWindow && this.mOnPreDrawListener != null) {
             getViewTreeObserver().removeOnPreDrawListener(this.mOnPreDrawListener);
         }
@@ -2018,13 +1918,15 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     }
 
     public void setStatusBarBackground(@Nullable Drawable drawable) {
-        if (this.mStatusBarBackground != drawable) {
-            if (this.mStatusBarBackground != null) {
-                this.mStatusBarBackground.setCallback(null);
+        Drawable drawable2 = this.mStatusBarBackground;
+        if (drawable2 != drawable) {
+            if (drawable2 != null) {
+                drawable2.setCallback(null);
             }
-            this.mStatusBarBackground = drawable != null ? drawable.mutate() : null;
-            if (this.mStatusBarBackground != null) {
-                if (this.mStatusBarBackground.isStateful()) {
+            Drawable mutate = drawable != null ? drawable.mutate() : null;
+            this.mStatusBarBackground = mutate;
+            if (mutate != null) {
+                if (mutate.isStateful()) {
                     this.mStatusBarBackground.setState(getDrawableState());
                 }
                 DrawableCompat.setLayoutDirection(this.mStatusBarBackground, ViewCompat.getLayoutDirection(this));
@@ -2047,30 +1949,29 @@ public class KSCoordinatorLayout extends ViewGroup implements NestedScrollingPar
     public void setVisibility(int i) {
         super.setVisibility(i);
         boolean z = i == 0;
-        if (this.mStatusBarBackground == null || this.mStatusBarBackground.isVisible() == z) {
+        Drawable drawable = this.mStatusBarBackground;
+        if (drawable == null || drawable.isVisible() == z) {
             return;
         }
         this.mStatusBarBackground.setVisible(z, false);
     }
 
-    final WindowInsetsCompat setWindowInsets(WindowInsetsCompat windowInsetsCompat) {
-        boolean z = true;
+    public final WindowInsetsCompat setWindowInsets(WindowInsetsCompat windowInsetsCompat) {
         if (ObjectsCompat.equals(this.mLastInsets, windowInsetsCompat)) {
             return windowInsetsCompat;
         }
         this.mLastInsets = windowInsetsCompat;
-        this.mDrawStatusBarBackground = windowInsetsCompat != null && windowInsetsCompat.getSystemWindowInsetTop() > 0;
-        if (this.mDrawStatusBarBackground || getBackground() != null) {
-            z = false;
-        }
-        setWillNotDraw(z);
+        boolean z = true;
+        boolean z2 = windowInsetsCompat != null && windowInsetsCompat.getSystemWindowInsetTop() > 0;
+        this.mDrawStatusBarBackground = z2;
+        setWillNotDraw((z2 || getBackground() != null) ? false : false);
         WindowInsetsCompat dispatchApplyWindowInsetsToBehaviors = dispatchApplyWindowInsetsToBehaviors(windowInsetsCompat);
         requestLayout();
         return dispatchApplyWindowInsetsToBehaviors;
     }
 
     @Override // android.view.View
-    protected boolean verifyDrawable(Drawable drawable) {
+    public boolean verifyDrawable(Drawable drawable) {
         return super.verifyDrawable(drawable) || drawable == this.mStatusBarBackground;
     }
 }

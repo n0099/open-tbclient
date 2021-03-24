@@ -2,21 +2,58 @@ package okhttp3.internal.platform;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes14.dex */
-class OptionalMethod<T> {
-    private final String methodName;
-    private final Class[] methodParams;
-    private final Class<?> returnType;
+/* loaded from: classes7.dex */
+public class OptionalMethod<T> {
+    public final String methodName;
+    public final Class[] methodParams;
+    public final Class<?> returnType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public OptionalMethod(Class<?> cls, String str, Class... clsArr) {
         this.returnType = cls;
         this.methodName = str;
         this.methodParams = clsArr;
     }
 
-    public boolean isSupported(T t) {
-        return getMethod(t.getClass()) != null;
+    private Method getMethod(Class<?> cls) {
+        Class<?> cls2;
+        String str = this.methodName;
+        if (str != null) {
+            Method publicMethod = getPublicMethod(cls, str, this.methodParams);
+            if (publicMethod == null || (cls2 = this.returnType) == null || cls2.isAssignableFrom(publicMethod.getReturnType())) {
+                return publicMethod;
+            }
+            return null;
+        }
+        return null;
+    }
+
+    public static Method getPublicMethod(Class<?> cls, String str, Class[] clsArr) {
+        try {
+            Method method = cls.getMethod(str, clsArr);
+            try {
+                if ((method.getModifiers() & 1) == 0) {
+                    return null;
+                }
+            } catch (NoSuchMethodException unused) {
+            }
+            return method;
+        } catch (NoSuchMethodException unused2) {
+            return null;
+        }
+    }
+
+    public Object invoke(T t, Object... objArr) throws InvocationTargetException {
+        Method method = getMethod(t.getClass());
+        if (method != null) {
+            try {
+                return method.invoke(t, objArr);
+            } catch (IllegalAccessException e2) {
+                AssertionError assertionError = new AssertionError("Unexpectedly could not call: " + method);
+                assertionError.initCause(e2);
+                throw assertionError;
+            }
+        }
+        throw new AssertionError("Method " + this.methodName + " not supported for object " + t);
     }
 
     public Object invokeOptional(T t, Object... objArr) throws InvocationTargetException {
@@ -26,7 +63,7 @@ class OptionalMethod<T> {
         }
         try {
             return method.invoke(t, objArr);
-        } catch (IllegalAccessException e) {
+        } catch (IllegalAccessException unused) {
             return null;
         }
     }
@@ -34,27 +71,13 @@ class OptionalMethod<T> {
     public Object invokeOptionalWithoutCheckedException(T t, Object... objArr) {
         try {
             return invokeOptional(t, objArr);
-        } catch (InvocationTargetException e) {
-            Throwable targetException = e.getTargetException();
+        } catch (InvocationTargetException e2) {
+            Throwable targetException = e2.getTargetException();
             if (targetException instanceof RuntimeException) {
                 throw ((RuntimeException) targetException);
             }
             AssertionError assertionError = new AssertionError("Unexpected exception");
             assertionError.initCause(targetException);
-            throw assertionError;
-        }
-    }
-
-    public Object invoke(T t, Object... objArr) throws InvocationTargetException {
-        Method method = getMethod(t.getClass());
-        if (method == null) {
-            throw new AssertionError("Method " + this.methodName + " not supported for object " + t);
-        }
-        try {
-            return method.invoke(t, objArr);
-        } catch (IllegalAccessException e) {
-            AssertionError assertionError = new AssertionError("Unexpectedly could not call: " + method);
-            assertionError.initCause(e);
             throw assertionError;
         }
     }
@@ -62,8 +85,8 @@ class OptionalMethod<T> {
     public Object invokeWithoutCheckedException(T t, Object... objArr) {
         try {
             return invoke(t, objArr);
-        } catch (InvocationTargetException e) {
-            Throwable targetException = e.getTargetException();
+        } catch (InvocationTargetException e2) {
+            Throwable targetException = e2.getTargetException();
             if (targetException instanceof RuntimeException) {
                 throw ((RuntimeException) targetException);
             }
@@ -73,30 +96,7 @@ class OptionalMethod<T> {
         }
     }
 
-    private Method getMethod(Class<?> cls) {
-        if (this.methodName != null) {
-            Method publicMethod = getPublicMethod(cls, this.methodName, this.methodParams);
-            if (publicMethod == null || this.returnType == null || this.returnType.isAssignableFrom(publicMethod.getReturnType())) {
-                return publicMethod;
-            }
-            return null;
-        }
-        return null;
-    }
-
-    private static Method getPublicMethod(Class<?> cls, String str, Class[] clsArr) {
-        try {
-            Method method = cls.getMethod(str, clsArr);
-            try {
-                if ((method.getModifiers() & 1) == 0) {
-                    return null;
-                }
-                return method;
-            } catch (NoSuchMethodException e) {
-                return method;
-            }
-        } catch (NoSuchMethodException e2) {
-            return null;
-        }
+    public boolean isSupported(T t) {
+        return getMethod(t.getClass()) != null;
     }
 }

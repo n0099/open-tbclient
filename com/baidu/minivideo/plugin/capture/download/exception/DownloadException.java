@@ -1,10 +1,31 @@
 package com.baidu.minivideo.plugin.capture.download.exception;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class DownloadException extends Exception {
-    private int errorCode;
-    private String errorMessage;
+    public int errorCode;
+    public String errorMessage;
 
     public DownloadException() {
+    }
+
+    public int getErrorCode() {
+        return this.errorCode;
+    }
+
+    public String getErrorMessage() {
+        return this.errorMessage;
+    }
+
+    public void setErrorCode(int i) {
+        this.errorCode = i;
+    }
+
+    public void setErrorMessage(String str) {
+        this.errorMessage = str;
+    }
+
+    @Override // java.lang.Throwable
+    public String toString() {
+        return super.toString();
     }
 
     public DownloadException(String str) {
@@ -36,26 +57,5 @@ public class DownloadException extends Exception {
 
     public DownloadException(Throwable th) {
         super(th);
-    }
-
-    public String getErrorMessage() {
-        return this.errorMessage;
-    }
-
-    public void setErrorMessage(String str) {
-        this.errorMessage = str;
-    }
-
-    public int getErrorCode() {
-        return this.errorCode;
-    }
-
-    public void setErrorCode(int i) {
-        this.errorCode = i;
-    }
-
-    @Override // java.lang.Throwable
-    public String toString() {
-        return super.toString();
     }
 }

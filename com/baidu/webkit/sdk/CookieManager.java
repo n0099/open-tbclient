@@ -1,16 +1,11 @@
 package com.baidu.webkit.sdk;
 
 import android.webkit.ValueCallback;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class CookieManager {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static final CookieManager mInstance;
-    private volatile boolean mFlushAsyncing;
-
-    static {
-        $assertionsDisabled = !CookieManager.class.desiredAssertionStatus();
-        mInstance = new CookieManager();
-    }
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public static final CookieManager mInstance = new CookieManager();
+    public volatile boolean mFlushAsyncing;
 
     public static boolean allowFileSchemeCookies() {
         return getInstance().allowFileSchemeCookiesImpl();
@@ -63,9 +58,6 @@ public class CookieManager {
         }
         this.mFlushAsyncing = true;
         if (WebViewFactory.hasProvider()) {
-            if (!$assertionsDisabled && this == WebViewFactory.getProvider().getCookieManager()) {
-                throw new AssertionError();
-            }
             WebViewFactory.getProvider().getCookieManager().flushAsync();
         }
         this.mFlushAsyncing = false;

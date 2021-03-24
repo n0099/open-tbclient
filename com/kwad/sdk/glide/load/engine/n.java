@@ -1,102 +1,108 @@
 package com.kwad.sdk.glide.load.engine;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
-class n<Z> implements s<Z> {
+/* loaded from: classes6.dex */
+public class n<Z> implements s<Z> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f6768a;
-    private final boolean b;
-    private final s<Z> c;
-    private a d;
-    private com.kwad.sdk.glide.load.c e;
-    private int f;
-    private boolean g;
+    public final boolean f35586a;
 
-    /* loaded from: classes3.dex */
-    interface a {
+    /* renamed from: b  reason: collision with root package name */
+    public final boolean f35587b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final s<Z> f35588c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public a f35589d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.glide.load.c f35590e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f35591f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f35592g;
+
+    /* loaded from: classes6.dex */
+    public interface a {
         void a(com.kwad.sdk.glide.load.c cVar, n<?> nVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public n(s<Z> sVar, boolean z, boolean z2) {
-        this.c = (s) com.kwad.sdk.glide.g.j.a(sVar);
-        this.f6768a = z;
-        this.b = z2;
+        this.f35588c = (s) com.kwad.sdk.glide.g.j.a(sVar);
+        this.f35586a = z;
+        this.f35587b = z2;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     @NonNull
     public Class<Z> a() {
-        return this.c.a();
+        return this.f35588c.a();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(com.kwad.sdk.glide.load.c cVar, a aVar) {
-        this.e = cVar;
-        this.d = aVar;
+        this.f35590e = cVar;
+        this.f35589d = aVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public s<Z> b() {
-        return this.c;
+        return this.f35588c;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return this.c.c();
+        return this.f35588c.c();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public synchronized void d_() {
-        if (this.f > 0) {
+        if (this.f35591f > 0) {
             throw new IllegalStateException("Cannot recycle a resource while it is still acquired");
         }
-        if (this.g) {
+        if (this.f35592g) {
             throw new IllegalStateException("Cannot recycle a resource that has already been recycled");
         }
-        this.g = true;
-        if (this.b) {
-            this.c.d_();
+        this.f35592g = true;
+        if (this.f35587b) {
+            this.f35588c.d_();
         }
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     @NonNull
     public Z e() {
-        return this.c.e();
+        return this.f35588c.e();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean f() {
-        return this.f6768a;
+        return this.f35586a;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void g() {
-        if (this.g) {
+        if (this.f35592g) {
             throw new IllegalStateException("Cannot acquire a recycled resource");
         }
-        this.f++;
+        this.f35591f++;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void h() {
-        synchronized (this.d) {
+        synchronized (this.f35589d) {
             synchronized (this) {
-                if (this.f <= 0) {
+                if (this.f35591f <= 0) {
                     throw new IllegalStateException("Cannot release a recycled or not yet acquired resource");
                 }
-                int i = this.f - 1;
-                this.f = i;
+                int i = this.f35591f - 1;
+                this.f35591f = i;
                 if (i == 0) {
-                    this.d.a(this.e, this);
+                    this.f35589d.a(this.f35590e, this);
                 }
             }
         }
     }
 
     public synchronized String toString() {
-        return "EngineResource{isCacheable=" + this.f6768a + ", listener=" + this.d + ", key=" + this.e + ", acquired=" + this.f + ", isRecycled=" + this.g + ", resource=" + this.c + '}';
+        return "EngineResource{isCacheable=" + this.f35586a + ", listener=" + this.f35589d + ", key=" + this.f35590e + ", acquired=" + this.f35591f + ", isRecycled=" + this.f35592g + ", resource=" + this.f35588c + '}';
     }
 }

@@ -8,117 +8,139 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class PersonalCardItemView extends LinearLayout {
-    private int eRK;
-    private int eRL;
-    private TbImageView loj;
-    private TbImageView lok;
-    private Context mContext;
-    private View mRootView;
-    private ImageView nIA;
-    private TextView nJZ;
-    private TbImageView nJp;
-    private TextView nKR;
-    private View nKS;
-    private com.baidu.tieba.themeCenter.a nKT;
-    private a nKU;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(com.baidu.tieba.themeCenter.a aVar);
+    /* renamed from: e  reason: collision with root package name */
+    public Context f21651e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f21652f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbImageView f21653g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f21654h;
+    public TbImageView i;
+    public TbImageView j;
+    public ImageView k;
+    public TextView l;
+    public View m;
+    public d.b.i0.i3.a n;
+    public b o;
+    public int p;
+    public int q;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (view == null || PersonalCardItemView.this.o == null) {
+                return;
+            }
+            PersonalCardItemView.this.o.a(PersonalCardItemView.this.n);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(d.b.i0.i3.a aVar);
     }
 
     public PersonalCardItemView(Context context) {
         super(context);
-        this.mContext = context;
-        initView();
+        this.f21651e = context;
+        d();
+    }
+
+    public void c(d.b.i0.i3.a aVar) {
+        if (aVar == null) {
+            return;
+        }
+        this.n = aVar;
+        if (aVar.a() == d.b.i0.i3.a.k) {
+            this.f21653g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            SkinManager.setBackgroundColor(this.f21653g, R.color.CAM_X0204);
+            SkinManager.setImageResource(this.f21653g, R.drawable.icon_bubble_choose_no);
+            this.f21654h.setVisibility(0);
+            this.j.setVisibility(8);
+            this.i.setVisibility(8);
+        } else {
+            this.f21654h.setVisibility(8);
+            this.j.setVisibility(0);
+            this.i.setVisibility(0);
+            this.f21653g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f21653g.setImageBitmap(null);
+            this.f21653g.setDefaultResource(R.drawable.img_default_100);
+            this.f21653g.W(aVar.e(), 10, false);
+        }
+        if (aVar.g() == 1) {
+            this.k.setVisibility(0);
+            SkinManager.setImageResource(this.k, R.drawable.icon_choose_photo);
+        } else {
+            this.k.setVisibility(8);
+        }
+        this.i.W(aVar.i(), 10, false);
+        this.j.W(aVar.b(), 10, false);
+        this.l.setText(aVar.j());
+        setVisibility(0);
+    }
+
+    public final void d() {
+        setOrientation(1);
+        int k = (l.k(this.f21651e) - l.g(this.f21651e, R.dimen.ds88)) / 3;
+        this.p = k;
+        double d2 = k;
+        Double.isNaN(d2);
+        this.q = (int) (d2 * 0.57d);
+        View inflate = LayoutInflater.from(this.f21651e).inflate(R.layout.personal_card_item_layout, this);
+        this.f21652f = inflate;
+        this.f21653g = (TbImageView) inflate.findViewById(R.id.image_bg);
+        TbImageView tbImageView = (TbImageView) this.f21652f.findViewById(R.id.permission_icon);
+        this.i = tbImageView;
+        tbImageView.setDefaultResource(R.drawable.transparent_bg);
+        this.i.setDefaultBgResource(R.drawable.transparent_bg);
+        TbImageView tbImageView2 = (TbImageView) this.f21652f.findViewById(R.id.state_icon);
+        this.j = tbImageView2;
+        tbImageView2.setDefaultResource(R.drawable.transparent_bg);
+        this.j.setDefaultBgResource(R.drawable.transparent_bg);
+        this.k = (ImageView) this.f21652f.findViewById(R.id.choosed_icon);
+        this.f21654h = (TextView) this.f21652f.findViewById(R.id.txt_default);
+        this.l = (TextView) this.f21652f.findViewById(R.id.view_card_name);
+        this.m = this.f21652f.findViewById(R.id.black_stroke);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21653g.getLayoutParams();
+        layoutParams.height = this.q;
+        layoutParams.width = this.p;
+        this.f21653g.setLayoutParams(layoutParams);
+        this.m.setLayoutParams(layoutParams);
+        this.f21653g.setOnClickListener(new a());
+    }
+
+    public b getCardViewController() {
+        return this.o;
+    }
+
+    public void setCardViewController(b bVar) {
+        this.o = bVar;
     }
 
     public PersonalCardItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mContext = context;
-        initView();
+        this.f21651e = context;
+        d();
     }
 
     public PersonalCardItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mContext = context;
-        initView();
-    }
-
-    private void initView() {
-        setOrientation(1);
-        this.eRK = (l.getEquipmentWidth(this.mContext) - l.getDimens(this.mContext, R.dimen.ds88)) / 3;
-        this.eRL = (int) (this.eRK * 0.57d);
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.personal_card_item_layout, this);
-        this.loj = (TbImageView) this.mRootView.findViewById(R.id.image_bg);
-        this.lok = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
-        this.lok.setDefaultResource(R.drawable.transparent_bg);
-        this.lok.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nJp = (TbImageView) this.mRootView.findViewById(R.id.state_icon);
-        this.nJp.setDefaultResource(R.drawable.transparent_bg);
-        this.nJp.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nIA = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
-        this.nJZ = (TextView) this.mRootView.findViewById(R.id.txt_default);
-        this.nKR = (TextView) this.mRootView.findViewById(R.id.view_card_name);
-        this.nKS = this.mRootView.findViewById(R.id.black_stroke);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.loj.getLayoutParams();
-        layoutParams.height = this.eRL;
-        layoutParams.width = this.eRK;
-        this.loj.setLayoutParams(layoutParams);
-        this.nKS.setLayoutParams(layoutParams);
-        this.loj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardItemView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (view != null && PersonalCardItemView.this.nKU != null) {
-                    PersonalCardItemView.this.nKU.a(PersonalCardItemView.this.nKT);
-                }
-            }
-        });
-    }
-
-    public void b(com.baidu.tieba.themeCenter.a aVar) {
-        if (aVar != null) {
-            this.nKT = aVar;
-            if (aVar.getCardId() == com.baidu.tieba.themeCenter.a.nHU) {
-                this.loj.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                ap.setBackgroundColor(this.loj, R.color.CAM_X0204);
-                ap.setImageResource(this.loj, R.drawable.icon_bubble_choose_no);
-                this.nJZ.setVisibility(0);
-                this.nJp.setVisibility(8);
-                this.lok.setVisibility(8);
-            } else {
-                this.nJZ.setVisibility(8);
-                this.nJp.setVisibility(0);
-                this.lok.setVisibility(0);
-                this.loj.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.loj.setImageBitmap(null);
-                this.loj.setDefaultResource(R.drawable.img_default_100);
-                this.loj.startLoad(aVar.dRf(), 10, false);
-            }
-            if (aVar.dRi() == 1) {
-                this.nIA.setVisibility(0);
-                ap.setImageResource(this.nIA, R.drawable.icon_choose_photo);
-            } else {
-                this.nIA.setVisibility(8);
-            }
-            this.lok.startLoad(aVar.dRg(), 10, false);
-            this.nJp.startLoad(aVar.dRh(), 10, false);
-            this.nKR.setText(aVar.getTitle());
-            setVisibility(0);
-        }
-    }
-
-    public a getCardViewController() {
-        return this.nKU;
-    }
-
-    public void setCardViewController(a aVar) {
-        this.nKU = aVar;
+        this.f21651e = context;
+        d();
     }
 }

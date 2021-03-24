@@ -4,17 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.frs.FrsTabViewPager;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrsNoFullViewPager extends FrsTabViewPager {
     public FrsNoFullViewPager(Context context) {
         this(context, null);
     }
 
-    public FrsNoFullViewPager(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public void onMeasure(int i, int i2) {
         int i3 = 0;
@@ -27,5 +22,9 @@ public class FrsNoFullViewPager extends FrsTabViewPager {
             }
         }
         super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(i3, 1073741824));
+    }
+
+    public FrsNoFullViewPager(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

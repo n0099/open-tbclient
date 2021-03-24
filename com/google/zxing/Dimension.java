@@ -1,33 +1,34 @@
 package com.google.zxing;
-
-import com.baidu.mobstat.Config;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Dimension {
-    private final int height;
-    private final int width;
+    public final int height;
+    public final int width;
 
     public Dimension(int i, int i2) {
-        if (i < 0 || i2 < 0) {
-            throw new IllegalArgumentException();
+        if (i >= 0 && i2 >= 0) {
+            this.width = i;
+            this.height = i2;
+            return;
         }
-        this.width = i;
-        this.height = i2;
+        throw new IllegalArgumentException();
     }
 
-    public int getWidth() {
-        return this.width;
+    public boolean equals(Object obj) {
+        if (obj instanceof Dimension) {
+            Dimension dimension = (Dimension) obj;
+            if (this.width == dimension.width && this.height == dimension.height) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public int getHeight() {
         return this.height;
     }
 
-    public boolean equals(Object obj) {
-        if (obj instanceof Dimension) {
-            Dimension dimension = (Dimension) obj;
-            return this.width == dimension.width && this.height == dimension.height;
-        }
-        return false;
+    public int getWidth() {
+        return this.width;
     }
 
     public int hashCode() {
@@ -35,6 +36,6 @@ public final class Dimension {
     }
 
     public String toString() {
-        return this.width + Config.EVENT_HEAT_X + this.height;
+        return this.width + "x" + this.height;
     }
 }

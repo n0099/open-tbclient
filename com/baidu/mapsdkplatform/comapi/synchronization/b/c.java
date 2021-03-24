@@ -1,32 +1,34 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.b;
 
 import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
-/* loaded from: classes4.dex */
-/* synthetic */ class c {
+/* loaded from: classes2.dex */
+public /* synthetic */ class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f2240a = new int[c.a.values().length];
+    public static final /* synthetic */ int[] f7712a;
 
     static {
+        int[] iArr = new int[c.a.values().length];
+        f7712a = iArr;
         try {
-            f2240a[c.a.SUCCESS.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[c.a.SUCCESS.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            f2240a[c.a.INNER_ERROR.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f7712a[c.a.INNER_ERROR.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
         try {
-            f2240a[c.a.SERVER_ERROR.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+            f7712a[c.a.SERVER_ERROR.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
         }
         try {
-            f2240a[c.a.NETWORK_ERROR.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
+            f7712a[c.a.NETWORK_ERROR.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
         }
         try {
-            f2240a[c.a.REQUEST_ERROR.ordinal()] = 5;
-        } catch (NoSuchFieldError e5) {
+            f7712a[c.a.REQUEST_ERROR.ordinal()] = 5;
+        } catch (NoSuchFieldError unused5) {
         }
     }
 }

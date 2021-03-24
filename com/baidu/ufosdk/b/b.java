@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static String a() {
         String str;
@@ -36,10 +36,10 @@ public final class b {
             String linkedList = eVar.toString();
             try {
                 return linkedList.length() > 65535 ? linkedList.substring(linkedList.length() - 65535, linkedList.length() - 1) : linkedList;
-            } catch (IOException e) {
+            } catch (IOException unused) {
                 return str;
             }
-        } catch (IOException e2) {
+        } catch (IOException unused2) {
             return "";
         }
     }

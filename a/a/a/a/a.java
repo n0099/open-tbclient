@@ -1,8 +1,9 @@
 package a.a.a.a;
 
-import a.a.a.a.j;
+import a.a.a.a.i;
 import android.text.TextUtils;
 import com.baidu.android.util.io.DocumentOpenUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.google.gson.Gson;
 import com.kwad.sdk.core.response.model.AdInfo;
 import java.lang.reflect.Field;
@@ -13,27 +14,29 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f951a;
+    public static String f998a;
 
-    public static <T extends o> T a(Random random, Collection<T> collection, q<T> qVar) {
+    public static <T extends n> T a(Random random, Collection<T> collection, p<T> pVar) {
+        Object obj;
         if (random == null || collection == null || collection.isEmpty()) {
             return null;
         }
-        long j = 0;
         a.a.a.a.v.d.c("Start select for class:%s with size:%d", collection.iterator().next().getClass().getSimpleName(), Integer.valueOf(collection.size()));
         ArrayList arrayList = new ArrayList();
+        long j = 0;
+        long j2 = 0;
         for (T t : collection) {
-            if (qVar != null) {
-                if (((j.b) qVar).a(t)) {
-                    j += t.b();
+            if (pVar != null) {
+                if (((i.b) pVar).a(t)) {
+                    j2 += t.b();
                     arrayList.add(t);
                 }
             } else if (t.a()) {
-                j += t.b();
+                j2 += t.b();
                 arrayList.add(t);
             }
         }
@@ -41,27 +44,57 @@ public final class a {
         if (arrayList.isEmpty()) {
             a.a.a.a.v.d.c("No one is selected", new Object[0]);
             return null;
-        } else if (arrayList.size() == 1) {
+        }
+        if (arrayList.size() == 1) {
             a.a.a.a.v.d.c("Select the only one", new Object[0]);
-            return (T) arrayList.get(0);
-        } else if (j == 0) {
-            a.a.a.a.v.d.c("Select the random one by totalWeight:0", new Object[0]);
-            return (T) arrayList.get(random.nextInt(arrayList.size()));
-        } else {
-            Collections.sort(arrayList, new p());
-            long j2 = 0;
-            long nextFloat = j > 2147483647L ? random.nextFloat() * ((float) j) : random.nextInt((int) j);
+            obj = arrayList.get(0);
+        } else if (j2 != 0) {
+            Collections.sort(arrayList, new o());
+            long nextFloat = j2 > 2147483647L ? random.nextFloat() * ((float) j2) : random.nextInt((int) j2);
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
                 T t2 = (T) it.next();
-                j2 += t2.b();
-                if (nextFloat <= j2) {
-                    a.a.a.a.v.d.c("Select the weight:%d one with sample:%d weightOffset:%d totalWeight:%d", Integer.valueOf(t2.b()), Long.valueOf(nextFloat), Long.valueOf(j2), Long.valueOf(j));
+                j += t2.b();
+                if (nextFloat <= j) {
+                    a.a.a.a.v.d.c("Select the weight:%d one with sample:%d weightOffset:%d totalWeight:%d", Integer.valueOf(t2.b()), Long.valueOf(nextFloat), Long.valueOf(j), Long.valueOf(j2));
                     return t2;
                 }
             }
             throw new IllegalStateException();
+        } else {
+            a.a.a.a.v.d.c("Select the random one by totalWeight:0", new Object[0]);
+            obj = arrayList.get(random.nextInt(arrayList.size()));
         }
+        return (T) obj;
+    }
+
+    public static Object a(String str, Object obj) {
+        Field[] declaredFields;
+        if (obj != null) {
+            try {
+                Class<?> cls = obj.getClass();
+                while (cls != null) {
+                    for (Field field : cls.getDeclaredFields()) {
+                        if (TextUtils.equals(str, field.getType().getName())) {
+                            field.setAccessible(true);
+                            try {
+                                return field.get(obj);
+                            } catch (IllegalAccessException e2) {
+                                e2.printStackTrace();
+                                return null;
+                            }
+                        }
+                    }
+                    cls = cls.getSuperclass();
+                    if (cls == Object.class) {
+                        break;
+                    }
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+        }
+        return null;
     }
 
     public static <T> String a(T t) {
@@ -72,114 +105,65 @@ public final class a {
         a.a.a.a.v.d.b(str, new Object[0]);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0022, code lost:
-        r5.setAccessible(true);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0026, code lost:
-        r0 = r5.get(r8);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x002c, code lost:
-        r1.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0038, code lost:
-        r1 = r2.getSuperclass();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x003e, code lost:
-        if (r1 == java.lang.Object.class) goto L24;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Object c(String str, Object obj) {
-        Class<? super Object> superclass;
-        Object obj2 = null;
-        if (obj != null) {
-            try {
-                Class<? super Object> cls = obj.getClass();
-                loop0: while (true) {
-                    if (cls != null) {
-                        Field[] declaredFields = cls.getDeclaredFields();
-                        int length = declaredFields.length;
-                        int i = 0;
-                        while (true) {
-                            if (i >= length) {
-                                break;
-                            }
-                            Field field = declaredFields[i];
-                            if (TextUtils.equals(str, field.getType().getName())) {
-                                break loop0;
-                            }
-                            i++;
-                        }
-                    }
-                    cls = superclass;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return obj2;
-        return obj2;
-    }
-
-    public static a.a.a.a.c.p r(JSONObject jSONObject) {
+    public static a.a.a.a.u.p a(JSONObject jSONObject) {
         String str;
         String str2;
         String str3;
         JSONObject optJSONObject = jSONObject.optJSONObject("ext");
         if (optJSONObject != null) {
-            str3 = optJSONObject.optString("appname");
-            str2 = optJSONObject.optString("pkg_name");
-            str = optJSONObject.optString("pkgurl");
+            String optString = optJSONObject.optString("appname");
+            String optString2 = optJSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+            str3 = optJSONObject.optString("pkgurl");
+            str = optString;
+            str2 = optString2;
         } else {
             str = null;
             str2 = null;
             str3 = null;
         }
-        return new a.a.a.a.c.p(jSONObject.optString("corporation_name"), jSONObject.optString(DocumentOpenUtil.TXT), jSONObject.optString("desc"), jSONObject.optString("img2"), str3, str2, str, jSONObject.optString("img"), null, jSONObject.optString("video"), jSONObject.optString("rl"), jSONObject.optString("customized_invoke_url"), null);
+        return new a.a.a.a.u.p(jSONObject.optString("corporation_name"), jSONObject.optString(DocumentOpenUtil.TXT), jSONObject.optString("desc"), jSONObject.optString("img2"), str, str2, str3, jSONObject.optString("img"), null, jSONObject.optString("video"), jSONObject.optString("rl"), jSONObject.optString("customized_invoke_url"), null);
     }
 
-    public static a.a.a.a.c.p ai(AdInfo adInfo) {
+    public static a.a.a.a.u.p a(AdInfo adInfo) {
         String str;
+        String str2;
         List<AdInfo.AdMaterialInfo.MaterialFeature> list;
         AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
         AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
-        String str2 = null;
-        String str3 = null;
         AdInfo.AdMaterialInfo adMaterialInfo = adInfo.adMaterialInfo;
-        if (adMaterialInfo != null && (list = adMaterialInfo.materialFeatureList) != null && !list.isEmpty()) {
-            AdInfo.AdMaterialInfo.MaterialFeature materialFeature = adMaterialInfo.materialFeatureList.get(0);
-            str2 = materialFeature.materialUrl;
-            str3 = materialFeature.coverUrl;
-        }
-        String str4 = adBaseInfo.corporationName;
-        String str5 = adBaseInfo.productName;
-        String str6 = adBaseInfo.adDescription;
-        String str7 = adBaseInfo.appName;
-        String str8 = adBaseInfo.appPackageName;
-        String str9 = adConversionInfo.appDownloadUrl;
-        String str10 = adBaseInfo.appIconUrl;
-        List<String> list2 = adBaseInfo.appImageUrl;
-        if (list2 == null || list2.isEmpty()) {
+        String str3 = null;
+        if (adMaterialInfo == null || (list = adMaterialInfo.materialFeatureList) == null || list.isEmpty()) {
             str = null;
+            str2 = null;
         } else {
+            AdInfo.AdMaterialInfo.MaterialFeature materialFeature = adMaterialInfo.materialFeatureList.get(0);
+            String str4 = materialFeature.materialUrl;
+            str = materialFeature.coverUrl;
+            str2 = str4;
+        }
+        String str5 = adBaseInfo.corporationName;
+        String str6 = adBaseInfo.productName;
+        String str7 = adBaseInfo.adDescription;
+        String str8 = adBaseInfo.appName;
+        String str9 = adBaseInfo.appPackageName;
+        String str10 = adConversionInfo.appDownloadUrl;
+        String str11 = adBaseInfo.appIconUrl;
+        List<String> list2 = adBaseInfo.appImageUrl;
+        if (list2 != null && !list2.isEmpty()) {
             StringBuilder sb = new StringBuilder();
             boolean z = true;
-            for (String str11 : list2) {
-                if (!TextUtils.isEmpty(str11)) {
+            for (String str12 : list2) {
+                if (!TextUtils.isEmpty(str12)) {
                     if (z) {
                         z = false;
                     } else {
                         sb.append(',');
                     }
-                    sb.append(str11);
+                    sb.append(str12);
                 }
             }
-            str = sb.toString();
+            str3 = sb.toString();
         }
-        return new a.a.a.a.c.p(str4, str5, str6, str10, str7, str8, str9, str, str3, str2, adBaseInfo.clickUrl, adConversionInfo.deeplinkUrl, adBaseInfo.convUrl);
+        return new a.a.a.a.u.p(str5, str6, str7, str11, str8, str9, str10, str3, str, str2, adBaseInfo.clickUrl, adConversionInfo.deeplinkUrl, adBaseInfo.convUrl);
     }
 }

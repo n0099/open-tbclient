@@ -2,44 +2,40 @@ package com.baidu.mapapi.walknavi.controllers.a;
 
 import com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener;
 import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
-/* loaded from: classes4.dex */
-class c implements com.baidu.platform.comapi.wnplatform.i.a {
+/* loaded from: classes2.dex */
+public class c implements com.baidu.platform.comapi.wnplatform.i.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IWRoutePlanListener f2177a;
-    final /* synthetic */ a b;
+    public final /* synthetic */ IWRoutePlanListener f7433a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ a f7434b;
+
     public c(a aVar, IWRoutePlanListener iWRoutePlanListener) {
-        this.b = aVar;
-        this.f2177a = iWRoutePlanListener;
+        this.f7434b = aVar;
+        this.f7433a = iWRoutePlanListener;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.i.a
     public void a() {
-        this.f2177a.onRoutePlanStart();
+        this.f7433a.onRoutePlanStart();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.i.a
     public void b() {
-        this.f2177a.onRoutePlanSuccess();
+        this.f7433a.onRoutePlanSuccess();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.i.a
     public void a(int i) {
-        switch (i) {
-            case 16777214:
-                this.f2177a.onRoutePlanFail(WalkRoutePlanError.FORWARD_AK_ERROR);
-                return;
-            case 16777216:
-                this.f2177a.onRoutePlanFail(WalkRoutePlanError.SERVER_UNUSUAL);
-                return;
-            case 805306368:
-                this.f2177a.onRoutePlanFail(WalkRoutePlanError.NET_ERR);
-                return;
-            default:
-                this.f2177a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
-                return;
+        if (i == 16777214) {
+            this.f7433a.onRoutePlanFail(WalkRoutePlanError.FORWARD_AK_ERROR);
+        } else if (i == 16777216) {
+            this.f7433a.onRoutePlanFail(WalkRoutePlanError.SERVER_UNUSUAL);
+        } else if (i != 805306368) {
+            this.f7433a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
+        } else {
+            this.f7433a.onRoutePlanFail(WalkRoutePlanError.NET_ERR);
         }
     }
 }

@@ -1,13 +1,13 @@
 package com.google.zxing.client.result;
 
 import com.google.zxing.Result;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class SMSTOMMSTOResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
     public SMSParsedResult parse(Result result) {
         String str;
-        String massagedText = getMassagedText(result);
+        String massagedText = ResultParser.getMassagedText(result);
         if (massagedText.startsWith("smsto:") || massagedText.startsWith("SMSTO:") || massagedText.startsWith("mmsto:") || massagedText.startsWith("MMSTO:")) {
             String substring = massagedText.substring(6);
             int indexOf = substring.indexOf(58);

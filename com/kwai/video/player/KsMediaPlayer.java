@@ -17,6 +17,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import com.android.internal.http.multipart.Part;
+import com.baidu.mapsdkplatform.comapi.map.r;
+import com.baidubce.auth.NTLMEngineImpl;
 import com.kwai.player.KwaiPlayerConfig;
 import com.kwai.player.debuginfo.KwaiPlayerDebugInfoProvider;
 import com.kwai.player.debuginfo.model.AppLiveQosDebugInfo;
@@ -52,87 +55,87 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements KwaiPlayerDebugInfoProvider, AppLiveReatimeInfoProvider {
-    private static final int DEFAULT_LIVE_ADAPTIVE_QOS_TICK_DURATION = 2000;
-    private static final int DEFAULT_MONITOR_INTERVAL = 1000;
-    private static final int DEFAULT_QOS_TICK_DURATION = 10000;
-    private static final int DEVICE_OUT_SPEAKER = 1;
-    private static final int DEVICE_OUT_UNKNOWN = 0;
-    private static final int MEDIA_BUFFERSIZE_DEFAULT = 20;
-    private static final int MEDIA_TIME_OUT_DEFAULT = 30;
-    private static final String TAG = KsMediaPlayer.class.getName();
-    private static final boolean VERBOSE = false;
-    private AppQosLiveAdaptiveRealtime mAppQosLiveAdaptiveRealtime;
-    private AppQosLiveRealtime mAppQosLiveRealtime;
-    private AwesomeCacheCallback mAwesomeCacheCallback;
-    private int mBufferingCount;
-    private CacheSessionListener mCacheSessionListener;
-    private CacheSessionListener mCacheSessionListenerInnerBridge;
-    private Context mContext;
-    private String mDataSource;
-    private boolean mEnableLiveAdaptiveAdditionalQosStat;
-    private boolean mEnableLiveAdaptiveQosStat;
-    private boolean mEnableQosStat;
-    private boolean mEnableStatModule;
-    private int mErrorCode;
-    private String mHost;
-    private boolean mIsLive;
-    private volatile boolean mIsLiveAdaptiveQosTimerStarted;
-    private volatile boolean mIsQosTimerStarted;
-    private boolean mIsVodAdaptive;
-    KwaiPlayerDebugInfo mKwaiPlayerDebugInfo;
-    private Object mLiveAdaptiveQosObject;
-    private long mLiveAdaptiveQosTickDuration;
-    private OnControlMessageListener mOnControlMessageListener;
-    private IMediaPlayer.OnLiveAdaptiveQosStatListener mOnLiveAdaptiveQosStatListener;
-    private IMediaPlayer.OnLiveVoiceCommentListener mOnLiveVoiceCommentListener;
-    private OnNativeInvokeListener mOnNativeInvokeListener;
-    private IMediaPlayer.OnQosStatListener mOnQosStatListener;
-    private OnVideoTextureListener mOnVideoTextureListener;
-    private long mPlayStartTime;
-    private PlayerState mPlayerState;
-    private ByteBuffer mProcessPCMBuffer;
-    private Object mQosObject;
-    private long mQosTickDuration;
-    private boolean mScreenOnWhilePlaying;
-    private long mStartBufferingTime;
-    private boolean mStayAwake;
-    private SurfaceHolder mSurfaceHolder;
-    private int mTotalBufferingTime;
-    private int mVideoHeight;
-    private int mVideoSarDen;
-    private int mVideoSarNum;
-    private int mVideoWidth;
-    private PowerManager.WakeLock mWakeLock;
+    public static final int DEFAULT_LIVE_ADAPTIVE_QOS_TICK_DURATION = 2000;
+    public static final int DEFAULT_MONITOR_INTERVAL = 1000;
+    public static final int DEFAULT_QOS_TICK_DURATION = 10000;
+    public static final int DEVICE_OUT_SPEAKER = 1;
+    public static final int DEVICE_OUT_UNKNOWN = 0;
+    public static final int MEDIA_BUFFERSIZE_DEFAULT = 20;
+    public static final int MEDIA_TIME_OUT_DEFAULT = 30;
+    public static final String TAG = "com.kwai.video.player.KsMediaPlayer";
+    public static final boolean VERBOSE = false;
+    public AppQosLiveAdaptiveRealtime mAppQosLiveAdaptiveRealtime;
+    public AppQosLiveRealtime mAppQosLiveRealtime;
+    public AwesomeCacheCallback mAwesomeCacheCallback;
+    public int mBufferingCount;
+    public CacheSessionListener mCacheSessionListener;
+    public CacheSessionListener mCacheSessionListenerInnerBridge;
+    public Context mContext;
+    public String mDataSource;
+    public boolean mEnableLiveAdaptiveAdditionalQosStat;
+    public boolean mEnableLiveAdaptiveQosStat;
+    public boolean mEnableQosStat;
+    public boolean mEnableStatModule;
+    public int mErrorCode;
+    public String mHost;
+    public boolean mIsLive;
+    public volatile boolean mIsLiveAdaptiveQosTimerStarted;
+    public volatile boolean mIsQosTimerStarted;
+    public boolean mIsVodAdaptive;
+    public KwaiPlayerDebugInfo mKwaiPlayerDebugInfo;
+    public Object mLiveAdaptiveQosObject;
+    public long mLiveAdaptiveQosTickDuration;
+    public OnControlMessageListener mOnControlMessageListener;
+    public IMediaPlayer.OnLiveAdaptiveQosStatListener mOnLiveAdaptiveQosStatListener;
+    public IMediaPlayer.OnLiveVoiceCommentListener mOnLiveVoiceCommentListener;
+    public OnNativeInvokeListener mOnNativeInvokeListener;
+    public IMediaPlayer.OnQosStatListener mOnQosStatListener;
+    public OnVideoTextureListener mOnVideoTextureListener;
+    public long mPlayStartTime;
+    public PlayerState mPlayerState;
+    public ByteBuffer mProcessPCMBuffer;
+    public Object mQosObject;
+    public long mQosTickDuration;
+    public boolean mScreenOnWhilePlaying;
+    public long mStartBufferingTime;
+    public boolean mStayAwake;
+    public SurfaceHolder mSurfaceHolder;
+    public int mTotalBufferingTime;
+    public int mVideoHeight;
+    public int mVideoSarDen;
+    public int mVideoSarNum;
+    public int mVideoWidth;
+    public PowerManager.WakeLock mWakeLock;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
-        private AwesomeCacheCallback awesomeCacheCallback;
-        private CacheSessionListener cacheSessionListener;
-        private Context mContext;
-        private String appId = null;
-        private String accessKey = null;
-        private String secretKeySign = null;
-        private String timeSec = null;
-        private boolean enableStatModule = true;
-        private boolean enablePlayerCache = false;
-        private int preLoadVer = 1;
-        private long preLoadDurationMs = 0;
-        private long abLoopStartMs = 0;
-        private long abLoopEndMs = 0;
-        private long seekAtStart = 0;
-        private int fadeinEndTimeMs = 0;
-        private boolean vodManifestEnable = false;
-        private long vodManifestWidth = 0;
-        private long vodManifestHeight = 0;
-        private int vodManifestNetType = 0;
-        private String vodManifestRateConfig = "";
-        private int vodManifestLowDevice = 0;
-        private int vodManifestSignalStrength = 0;
-        private int vodManifestSwitchCode = 0;
-        private int mVodManifestMaxResolution = 0;
-        private int mManifestType = 0;
+        public AwesomeCacheCallback awesomeCacheCallback;
+        public CacheSessionListener cacheSessionListener;
+        public Context mContext;
+        public String appId = null;
+        public String accessKey = null;
+        public String secretKeySign = null;
+        public String timeSec = null;
+        public boolean enableStatModule = true;
+        public boolean enablePlayerCache = false;
+        public int preLoadVer = 1;
+        public long preLoadDurationMs = 0;
+        public long abLoopStartMs = 0;
+        public long abLoopEndMs = 0;
+        public long seekAtStart = 0;
+        public int fadeinEndTimeMs = 0;
+        public boolean vodManifestEnable = false;
+        public long vodManifestWidth = 0;
+        public long vodManifestHeight = 0;
+        public int vodManifestNetType = 0;
+        public String vodManifestRateConfig = "";
+        public int vodManifestLowDevice = 0;
+        public int vodManifestSignalStrength = 0;
+        public int vodManifestSwitchCode = 0;
+        public int mVodManifestMaxResolution = 0;
+        public int mManifestType = 0;
 
         public Builder(Context context) {
             this.mContext = context.getApplicationContext();
@@ -230,17 +233,17 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnAudioProcessPCMListener {
         void onAudioProcessPCMAvailable(IMediaPlayer iMediaPlayer, ByteBuffer byteBuffer, long j, int i, int i2, int i3);
     }
 
-    /* loaded from: classes3.dex */
-    interface OnControlMessageListener {
+    /* loaded from: classes6.dex */
+    public interface OnControlMessageListener {
         String onControlResolveSegmentUrl(int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnNativeInvokeListener {
         public static final String ARG_RETRY_COUNTER = "retry_counter";
         public static final String ARG_SEGMENT_INDEX = "segment_index";
@@ -253,13 +256,12 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         boolean onNativeInvoke(int i, Bundle bundle);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnVideoTextureListener {
         void onVideoTextureAvailable(IMediaPlayer iMediaPlayer, SurfaceTexture surfaceTexture, int i);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum PlayerState {
         STATE_IDLE,
         STATE_INITIALIZED,
@@ -273,7 +275,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         STATE_END
     }
 
-    private KsMediaPlayer(Builder builder) {
+    public KsMediaPlayer(Builder builder) {
         this.mIsVodAdaptive = false;
         this.mWakeLock = null;
         this.mQosTickDuration = 10000L;
@@ -355,8 +357,9 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         initPlayer();
         setOption(4, "cache-enabled", builder.enablePlayerCache ? 1L : 0L);
         if (builder.awesomeCacheCallback != null) {
-            this.mAwesomeCacheCallback = builder.awesomeCacheCallback;
-            _setAwesomeCacheCallback(this.mAwesomeCacheCallback);
+            AwesomeCacheCallback awesomeCacheCallback = builder.awesomeCacheCallback;
+            this.mAwesomeCacheCallback = awesomeCacheCallback;
+            _setAwesomeCacheCallback(awesomeCacheCallback);
         }
         this.mCacheSessionListener = builder.cacheSessionListener;
         if (builder.preLoadDurationMs > 0) {
@@ -410,7 +413,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     private native String _getAudioCodecInfo();
 
-    private static native String _getColorFormatName(int i);
+    public static native String _getColorFormatName(int i);
 
     private native String _getKwaiLiveVoiceComment(long j);
 
@@ -426,7 +429,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     private native void _getPlayerConfigDebugInfo(PlayerConfigDebugInfo playerConfigDebugInfo);
 
-    private native float _getPropertyFloat(int i, float f);
+    private native float _getPropertyFloat(int i, float f2);
 
     private native long _getPropertyLong(int i, long j);
 
@@ -480,7 +483,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     private native void _setHevcCodecName(String str);
 
-    private static native void _setKlogParam(Object obj);
+    public static native void _setKlogParam(Object obj);
 
     private native void _setLiveManifestSwitchMode(int i);
 
@@ -494,13 +497,13 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     private native void _setProcessPCMBuffer(ByteBuffer byteBuffer);
 
-    private native void _setPropertyFloat(int i, float f);
+    private native void _setPropertyFloat(int i, float f2);
 
     private native void _setPropertyLong(int i, long j);
 
     private native boolean _setRotateDegree(int i);
 
-    private native void _setSpeed(float f);
+    private native void _setSpeed(float f2);
 
     private native void _setStartPlayBlockBufferMs(int i, int i2);
 
@@ -541,10 +544,10 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
                 Field declaredField = fileDescriptor.getClass().getDeclaredField("descriptor");
                 declaredField.setAccessible(true);
                 return declaredField.getInt(fileDescriptor);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            } catch (NoSuchFieldException e2) {
+            } catch (IllegalAccessException e2) {
                 throw new RuntimeException(e2);
+            } catch (NoSuchFieldException e3) {
+                throw new RuntimeException(e3);
             }
         }
         return ParcelFileDescriptor.dup(fileDescriptor).getFd();
@@ -556,7 +559,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     private native void native_finalize();
 
-    private static native void native_init();
+    public static native void native_init();
 
     private native void native_message_loop(Object obj);
 
@@ -573,38 +576,33 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
     private native void native_setup(Object obj);
 
     @CalledByNative
-    private static boolean onNativeInvoke(Object obj, int i, Bundle bundle) {
+    public static boolean onNativeInvoke(Object obj, int i, Bundle bundle) {
+        OnControlMessageListener onControlMessageListener;
         DebugLog.ifmt(TAG, "onNativeInvoke %d", Integer.valueOf(i));
         if (obj == null || !(obj instanceof WeakReference)) {
             throw new IllegalStateException("<null weakThiz>.onNativeInvoke()");
         }
         KsMediaPlayer ksMediaPlayer = (KsMediaPlayer) ((WeakReference) obj).get();
-        if (ksMediaPlayer == null) {
-            throw new IllegalStateException("<null weakPlayer>.onNativeInvoke()");
-        }
-        OnNativeInvokeListener onNativeInvokeListener = ksMediaPlayer.mOnNativeInvokeListener;
-        if (onNativeInvokeListener == null || !onNativeInvokeListener.onNativeInvoke(i, bundle)) {
-            switch (i) {
-                case 65536:
-                    OnControlMessageListener onControlMessageListener = ksMediaPlayer.mOnControlMessageListener;
-                    if (onControlMessageListener == null) {
-                        return false;
-                    }
+        if (ksMediaPlayer != null) {
+            OnNativeInvokeListener onNativeInvokeListener = ksMediaPlayer.mOnNativeInvokeListener;
+            if (onNativeInvokeListener == null || !onNativeInvokeListener.onNativeInvoke(i, bundle)) {
+                if (i == 65536 && (onControlMessageListener = ksMediaPlayer.mOnControlMessageListener) != null) {
                     int i2 = bundle.getInt("segment_index", -1);
-                    if (i2 < 0) {
-                        throw new InvalidParameterException("onNativeInvoke(invalid segment index)");
-                    }
-                    String onControlResolveSegmentUrl = onControlMessageListener.onControlResolveSegmentUrl(i2);
-                    if (onControlResolveSegmentUrl == null) {
+                    if (i2 >= 0) {
+                        String onControlResolveSegmentUrl = onControlMessageListener.onControlResolveSegmentUrl(i2);
+                        if (onControlResolveSegmentUrl != null) {
+                            bundle.putString("url", onControlResolveSegmentUrl);
+                            return true;
+                        }
                         throw new RuntimeException(new IOException("onNativeInvoke() = <NULL newUrl>"));
                     }
-                    bundle.putString("url", onControlResolveSegmentUrl);
-                    return true;
-                default:
-                    return false;
+                    throw new InvalidParameterException("onNativeInvoke(invalid segment index)");
+                }
+                return false;
             }
+            return true;
         }
-        return true;
+        throw new IllegalStateException("<null weakPlayer>.onNativeInvoke()");
     }
 
     private void setDataSource(FileDescriptor fileDescriptor, long j, long j2) {
@@ -624,8 +622,9 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
             }
             this.mIsLiveAdaptiveQosTimerStarted = true;
             if (this.mAppQosLiveAdaptiveRealtime == null) {
-                this.mAppQosLiveAdaptiveRealtime = new AppQosLiveAdaptiveRealtime(1000L, this.mLiveAdaptiveQosTickDuration, this, this.mLiveAdaptiveQosObject);
-                this.mAppQosLiveAdaptiveRealtime.setPlayStartTime(this.mPlayStartTime);
+                AppQosLiveAdaptiveRealtime appQosLiveAdaptiveRealtime = new AppQosLiveAdaptiveRealtime(1000L, this.mLiveAdaptiveQosTickDuration, this, this.mLiveAdaptiveQosObject);
+                this.mAppQosLiveAdaptiveRealtime = appQosLiveAdaptiveRealtime;
+                appQosLiveAdaptiveRealtime.setPlayStartTime(this.mPlayStartTime);
                 this.mAppQosLiveAdaptiveRealtime.setEnableLiveAdaptiveAdditionalQosStat(this.mEnableLiveAdaptiveAdditionalQosStat);
             }
             this.mAppQosLiveAdaptiveRealtime.startReport(this.mOnLiveAdaptiveQosStatListener);
@@ -647,8 +646,9 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     @SuppressLint({"Wakelock"})
     private void stayAwake(boolean z) {
-        if (this.mWakeLock != null) {
-            if (z && !this.mWakeLock.isHeld()) {
+        PowerManager.WakeLock wakeLock = this.mWakeLock;
+        if (wakeLock != null) {
+            if (z && !wakeLock.isHeld()) {
                 this.mWakeLock.acquire();
             } else if (!z && this.mWakeLock.isHeld()) {
                 this.mWakeLock.release();
@@ -683,8 +683,9 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
     }
 
     private void updateSurfaceScreenOn() {
-        if (this.mSurfaceHolder != null) {
-            this.mSurfaceHolder.setKeepScreenOn(this.mScreenOnWhilePlaying && this.mStayAwake);
+        SurfaceHolder surfaceHolder = this.mSurfaceHolder;
+        if (surfaceHolder != null) {
+            surfaceHolder.setKeepScreenOn(this.mScreenOnWhilePlaying && this.mStayAwake);
         }
     }
 
@@ -728,7 +729,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
     }
 
     @Override // com.kwai.video.player.AbstractNativeMediaPlayer
-    protected void enableVideoRawDataCallback(boolean z) {
+    public void enableVideoRawDataCallback(boolean z) {
         _enableVideoRawDataCallback(z);
     }
 
@@ -804,20 +805,23 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     @Override // com.kwai.player.debuginfo.KwaiPlayerDebugInfoProvider
     public KwaiPlayerDebugInfo getDebugInfo() {
-        if (!this.mKwaiPlayerDebugInfo.mPlayerApplyConfig.collectFinish) {
-            _getPlayerConfigDebugInfo(this.mKwaiPlayerDebugInfo.mPlayerApplyConfig);
+        PlayerConfigDebugInfo playerConfigDebugInfo = this.mKwaiPlayerDebugInfo.mPlayerApplyConfig;
+        if (!playerConfigDebugInfo.collectFinish) {
+            _getPlayerConfigDebugInfo(playerConfigDebugInfo);
         }
         this.mKwaiPlayerDebugInfo.setIsLive(this.mIsLive);
         if (this.mIsLive) {
-            if (this.mKwaiPlayerDebugInfo.mAppLiveQosDebugInfoNew == null) {
-                this.mKwaiPlayerDebugInfo.mAppLiveQosDebugInfoNew = new AppLiveQosDebugInfoNew();
+            KwaiPlayerDebugInfo kwaiPlayerDebugInfo = this.mKwaiPlayerDebugInfo;
+            if (kwaiPlayerDebugInfo.mAppLiveQosDebugInfoNew == null) {
+                kwaiPlayerDebugInfo.mAppLiveQosDebugInfoNew = new AppLiveQosDebugInfoNew();
             }
             _getAppLiveQosDebugInfoNew(this.mKwaiPlayerDebugInfo.mAppLiveQosDebugInfoNew);
             this.mKwaiPlayerDebugInfo.mAppLiveQosDebugInfoNew.setWidth(getVideoWidth());
             this.mKwaiPlayerDebugInfo.mAppLiveQosDebugInfoNew.setHeight(getVideoHeight());
         } else {
-            if (this.mKwaiPlayerDebugInfo.mAppVodQosDebugInfo == null) {
-                this.mKwaiPlayerDebugInfo.mAppVodQosDebugInfo = new AppVodQosDebugInfoNew();
+            KwaiPlayerDebugInfo kwaiPlayerDebugInfo2 = this.mKwaiPlayerDebugInfo;
+            if (kwaiPlayerDebugInfo2.mAppVodQosDebugInfo == null) {
+                kwaiPlayerDebugInfo2.mAppVodQosDebugInfo = new AppVodQosDebugInfoNew();
             }
             _getAppVodQosDebugInfoNew(this.mKwaiPlayerDebugInfo.mAppVodQosDebugInfo);
         }
@@ -944,23 +948,26 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
     }
 
     public Bitmap getScreenShot() {
-        if (this.mVideoWidth <= 0 || this.mVideoHeight <= 0) {
+        int i;
+        int i2 = this.mVideoWidth;
+        if (i2 <= 0 || (i = this.mVideoHeight) <= 0) {
             return null;
         }
-        Bitmap createBitmap = Bitmap.createBitmap(this.mVideoWidth, this.mVideoHeight, Bitmap.Config.RGB_565);
+        Bitmap createBitmap = Bitmap.createBitmap(i2, i, Bitmap.Config.RGB_565);
         _getScreenShot(createBitmap);
         return createBitmap;
     }
 
     public int getSelectedTrack(int i) {
-        switch (i) {
-            case 1:
-                return (int) _getPropertyLong(20001, -1L);
-            case 2:
-                return (int) _getPropertyLong(PlayerProps.FFP_PROP_INT64_SELECTED_AUDIO_STREAM, -1L);
-            default:
-                return -1;
+        int i2;
+        if (i == 1) {
+            i2 = 20001;
+        } else if (i != 2) {
+            return -1;
+        } else {
+            i2 = PlayerProps.FFP_PROP_INT64_SELECTED_AUDIO_STREAM;
         }
+        return (int) _getPropertyLong(i2, -1L);
     }
 
     @Override // com.kwai.player.qos.AppLiveReatimeInfoProvider
@@ -972,7 +979,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         return _getPropertyLong(PlayerProps.FFP_PROP_INT64_SOURCE_DEVICE_TYPE, 0L);
     }
 
-    public float getSpeed(float f) {
+    public float getSpeed(float f2) {
         return _getPropertyFloat(10003, 0.0f);
     }
 
@@ -999,6 +1006,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
     @Override // com.kwai.video.player.IMediaPlayer
     public KsTrackInfo[] getTrackInfo() {
         KsMediaMeta parse;
+        int i;
         Bundle mediaMeta = getMediaMeta();
         if (mediaMeta == null || (parse = KsMediaMeta.parse(mediaMeta)) == null || parse.mStreams == null) {
             return null;
@@ -1009,10 +1017,13 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
             KsMediaMeta.KSYStreamMeta next = it.next();
             KsTrackInfo ksTrackInfo = new KsTrackInfo(next);
             if (next.mType.equalsIgnoreCase("video")) {
-                ksTrackInfo.setTrackType(1);
+                i = 1;
             } else if (next.mType.equalsIgnoreCase("audio")) {
-                ksTrackInfo.setTrackType(2);
+                i = 2;
+            } else {
+                arrayList.add(ksTrackInfo);
             }
+            ksTrackInfo.setTrackType(i);
             arrayList.add(ksTrackInfo);
         }
         return (KsTrackInfo[]) arrayList.toArray(new KsTrackInfo[arrayList.size()]);
@@ -1097,7 +1108,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
     }
 
     @Override // com.kwai.video.player.AbstractNativeMediaPlayer
-    protected final void initPlayer() {
+    public final void initPlayer() {
         super.initPlayer();
         native_set_context(this.mContext);
         native_setup(new WeakReference(this));
@@ -1105,14 +1116,10 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
     }
 
     @Override // com.kwai.video.player.AbstractNativeMediaPlayer
-    protected void initProcessPCMBuffer() {
+    public void initProcessPCMBuffer() {
         if (this.mProcessPCMBuffer == null) {
             int _getPropertyLong = (int) _getPropertyLong(PlayerProps.FFP_PROP_INT64_AUDIO_BUF_SIZE, 0L);
-            if (_getPropertyLong <= 0) {
-                this.mProcessPCMBuffer = ByteBuffer.allocate(176000);
-            } else {
-                this.mProcessPCMBuffer = ByteBuffer.allocate(_getPropertyLong * 2);
-            }
+            this.mProcessPCMBuffer = _getPropertyLong <= 0 ? ByteBuffer.allocate(176000) : ByteBuffer.allocate(_getPropertyLong * 2);
         }
         _setProcessPCMBuffer(this.mProcessPCMBuffer);
     }
@@ -1145,72 +1152,64 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
     public native boolean isPlaying();
 
     @Override // com.kwai.video.player.AbstractNativeMediaPlayer
-    protected void onReceivePostEvent(Message message) {
-        switch (message.what) {
-            case 0:
-            case 99:
-                return;
-            case 1:
+    public void onReceivePostEvent(Message message) {
+        int i = message.what;
+        if (i != 0) {
+            if (i == 1) {
                 this.mPlayerState = PlayerState.STATE_PREPARED;
                 notifyOnPrepared();
-                return;
-            case 2:
+            } else if (i == 2) {
                 this.mPlayerState = PlayerState.STATE_COMPLETED;
                 notifyOnCompletion();
                 stayAwake(false);
-                return;
-            case 3:
+            } else if (i == 3) {
                 notifyOnBufferingUpdate(message.arg1);
-                return;
-            case 4:
+            } else if (i == 4) {
                 notifyOnSeekComplete();
-                return;
-            case 5:
-                this.mVideoWidth = message.arg1;
-                this.mVideoHeight = message.arg2;
-                notifyOnVideoSizeChanged(this.mVideoWidth, this.mVideoHeight, this.mVideoSarNum, this.mVideoSarDen);
-                return;
-            case 100:
-                Timber.e("MEDIA_ERROR, msg.arg1:%d, msg.arg2:%d", Integer.valueOf(message.arg1), Integer.valueOf(message.arg2));
-                if (!notifyOnError(message.arg1, message.arg2)) {
-                    notifyOnCompletion();
-                }
-                this.mErrorCode = message.arg1;
-                stayAwake(false);
-                return;
-            case 200:
-                switch (message.arg1) {
-                    case 701:
+            } else if (i == 5) {
+                int i2 = message.arg1;
+                this.mVideoWidth = i2;
+                int i3 = message.arg2;
+                this.mVideoHeight = i3;
+                notifyOnVideoSizeChanged(i2, i3, this.mVideoSarNum, this.mVideoSarDen);
+            } else if (i != 99) {
+                if (i == 100) {
+                    Timber.e("MEDIA_ERROR, msg.arg1:%d, msg.arg2:%d", Integer.valueOf(message.arg1), Integer.valueOf(message.arg2));
+                    if (!notifyOnError(message.arg1, message.arg2)) {
+                        notifyOnCompletion();
+                    }
+                    this.mErrorCode = message.arg1;
+                    stayAwake(false);
+                } else if (i == 200) {
+                    int i4 = message.arg1;
+                    if (i4 == 701) {
                         this.mBufferingCount++;
                         this.mStartBufferingTime = System.currentTimeMillis();
-                        break;
-                    case 702:
-                        this.mTotalBufferingTime = ((int) (System.currentTimeMillis() - this.mStartBufferingTime)) + this.mTotalBufferingTime;
-                        break;
-                    case 10100:
+                    } else if (i4 == 702) {
+                        this.mTotalBufferingTime += (int) (System.currentTimeMillis() - this.mStartBufferingTime);
+                    } else if (i4 == 10100) {
                         notifyOnSeekComplete();
                         return;
+                    }
+                    notifyOnInfo(message.arg1, message.arg2);
+                } else if (i == 300) {
+                    long j = (message.arg1 << 32) | message.arg2;
+                    String kwaiLiveVoiceComment = getKwaiLiveVoiceComment(j);
+                    Timber.i("MEDIA_LIVE_VC_TIME, vc_time:%d, voice_comment:%s", Long.valueOf(j), kwaiLiveVoiceComment);
+                    IMediaPlayer.OnLiveVoiceCommentListener onLiveVoiceCommentListener = getOnLiveVoiceCommentListener();
+                    if (onLiveVoiceCommentListener != null) {
+                        onLiveVoiceCommentListener.onLiveVoiceCommentChange(this, kwaiLiveVoiceComment);
+                    }
+                } else if (i != 10001) {
+                    DebugLog.e(TAG, "Unknown message type " + message.what);
+                } else {
+                    int i5 = message.arg1;
+                    this.mVideoSarNum = i5;
+                    int i6 = message.arg2;
+                    this.mVideoSarDen = i6;
+                    notifyOnVideoSizeChanged(this.mVideoWidth, this.mVideoHeight, i5, i6);
                 }
-                notifyOnInfo(message.arg1, message.arg2);
-                return;
-            case 300:
-                long j = (message.arg1 << 32) | message.arg2;
-                String kwaiLiveVoiceComment = getKwaiLiveVoiceComment(j);
-                Timber.i("MEDIA_LIVE_VC_TIME, vc_time:%d, voice_comment:%s", Long.valueOf(j), kwaiLiveVoiceComment);
-                IMediaPlayer.OnLiveVoiceCommentListener onLiveVoiceCommentListener = getOnLiveVoiceCommentListener();
-                if (onLiveVoiceCommentListener != null) {
-                    onLiveVoiceCommentListener.onLiveVoiceCommentChange(this, kwaiLiveVoiceComment);
-                    return;
-                }
-                return;
-            case 10001:
-                this.mVideoSarNum = message.arg1;
-                this.mVideoSarDen = message.arg2;
-                notifyOnVideoSizeChanged(this.mVideoWidth, this.mVideoHeight, this.mVideoSarNum, this.mVideoSarDen);
-                return;
-            default:
-                DebugLog.e(TAG, "Unknown message type " + message.what);
-                return;
+            }
         }
     }
 
@@ -1297,14 +1296,15 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     public void setBufferSize(int i) {
         if (i <= 0) {
-            Log.w(TAG, "unsupported buffer size :20,replace the default size :20");
+            String str = TAG;
+            Log.w(str, "unsupported buffer size :20,replace the default size :20");
             i = 20;
         }
         _setBufferSize(i);
     }
 
-    public void setBufferTimeMax(float f) {
-        _setPropertyFloat(PlayerProps.FFP_PROP_FLOAT_BUFFERSIZE_MAX, f);
+    public void setBufferTimeMax(float f2) {
+        _setPropertyFloat(PlayerProps.FFP_PROP_FLOAT_BUFFERSIZE_MAX, f2);
     }
 
     public void setBufferedDataSourceSizeKB(int i) {
@@ -1342,7 +1342,8 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     public void setCodecFlag(int i) {
         if (i <= 0) {
-            Log.w(TAG, "unsupported codec flag :0,replace the codec flag :0");
+            String str = TAG;
+            Log.w(str, "unsupported codec flag :0,replace the codec flag :0");
             i = 0;
         }
         _setCodecFlag(i);
@@ -1376,7 +1377,8 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     public void setDataReadTimeout(int i) {
         if (i <= 0) {
-            Log.w(TAG, "unsupported time out  :" + i + ",replace the default time out :30");
+            String str = TAG;
+            Log.w(str, "unsupported time out  :" + i + ",replace the default time out :30");
             i = 30;
         }
         _setTimeout(i);
@@ -1387,61 +1389,59 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         setDataSource(context, uri, (Map<String, String>) null);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x007e, code lost:
+        if (0 == 0) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x0082, code lost:
+        if (0 == 0) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0084, code lost:
+        r0.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x0087, code lost:
+        android.util.Log.d(com.kwai.video.player.KsMediaPlayer.TAG, "Couldn't open file on client side, trying server side");
+        setDataSource(r9.toString(), r10);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x0095, code lost:
+        return;
+     */
     @Override // com.kwai.video.player.IMediaPlayer
     @TargetApi(14)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        AssetFileDescriptor assetFileDescriptor;
         String scheme = uri.getScheme();
         if ("file".equals(scheme)) {
             setDataSource(uri.getPath());
         } else if ("content".equals(scheme) && "settings".equals(uri.getAuthority()) && (uri = RingtoneManager.getActualDefaultRingtoneUri(context, RingtoneManager.getDefaultType(uri))) == null) {
             throw new FileNotFoundException("Failed to resolve default ringtone");
         } else {
-            AssetFileDescriptor assetFileDescriptor2 = null;
+            AssetFileDescriptor assetFileDescriptor = null;
             try {
-                assetFileDescriptor = context.getContentResolver().openAssetFileDescriptor(uri, "r");
-                if (assetFileDescriptor == null) {
-                    if (assetFileDescriptor != null) {
-                        assetFileDescriptor.close();
+                AssetFileDescriptor openAssetFileDescriptor = context.getContentResolver().openAssetFileDescriptor(uri, r.f7663a);
+                if (openAssetFileDescriptor == null) {
+                    if (openAssetFileDescriptor != null) {
+                        openAssetFileDescriptor.close();
                         return;
                     }
                     return;
                 }
-                try {
-                    if (assetFileDescriptor.getDeclaredLength() < 0) {
-                        setDataSource(assetFileDescriptor.getFileDescriptor());
-                    } else {
-                        setDataSource(assetFileDescriptor.getFileDescriptor(), assetFileDescriptor.getStartOffset(), assetFileDescriptor.getDeclaredLength());
-                    }
-                    if (assetFileDescriptor != null) {
-                        assetFileDescriptor.close();
-                    }
-                } catch (IOException e) {
-                    if (assetFileDescriptor != null) {
-                        assetFileDescriptor.close();
-                    }
-                    Log.d(TAG, "Couldn't open file on client side, trying server side");
-                    setDataSource(uri.toString(), map);
-                } catch (SecurityException e2) {
-                    assetFileDescriptor2 = assetFileDescriptor;
-                    if (assetFileDescriptor2 != null) {
-                        assetFileDescriptor2.close();
-                    }
-                    Log.d(TAG, "Couldn't open file on client side, trying server side");
-                    setDataSource(uri.toString(), map);
-                } catch (Throwable th) {
-                    th = th;
-                    if (assetFileDescriptor != null) {
-                        assetFileDescriptor.close();
-                    }
-                    throw th;
+                if (openAssetFileDescriptor.getDeclaredLength() < 0) {
+                    setDataSource(openAssetFileDescriptor.getFileDescriptor());
+                } else {
+                    setDataSource(openAssetFileDescriptor.getFileDescriptor(), openAssetFileDescriptor.getStartOffset(), openAssetFileDescriptor.getDeclaredLength());
                 }
-            } catch (IOException e3) {
-                assetFileDescriptor = null;
-            } catch (SecurityException e4) {
-            } catch (Throwable th2) {
-                th = th2;
-                assetFileDescriptor = null;
+                if (openAssetFileDescriptor != null) {
+                    openAssetFileDescriptor.close();
+                }
+            } catch (IOException unused) {
+            } catch (SecurityException unused2) {
+            } catch (Throwable th) {
+                if (0 != 0) {
+                    assetFileDescriptor.close();
+                }
+                throw th;
             }
         }
     }
@@ -1471,9 +1471,10 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     public void setDataSource(String str, Map<String, String> map) {
         if (map != null && !map.isEmpty()) {
-            this.mHost = map.get("Host");
-            if (this.mHost != null) {
-                setOption(4, "host", this.mHost);
+            String str2 = map.get("Host");
+            this.mHost = str2;
+            if (str2 != null) {
+                setOption(4, "host", str2);
             }
             StringBuilder sb = new StringBuilder();
             for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -1482,7 +1483,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
                 if (!TextUtils.isEmpty(entry.getValue())) {
                     sb.append(entry.getValue());
                 }
-                sb.append("\r\n");
+                sb.append(Part.CRLF);
             }
             setOption(1, "headers", sb.toString());
         }
@@ -1577,17 +1578,18 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
 
     @Override // com.kwai.video.player.IMediaPlayer
     public void setLooping(boolean z) {
-        int i = z ? 0 : 1;
+        int i = !z ? 1 : 0;
         setOption(4, "loop", i);
         _setLoopCount(i);
     }
 
     public void setNetWorkConnectionTimeout(int i) {
-        if (i <= 0) {
-            Log.w(TAG, "unsupported connection time out  :" + i + ", use the default time out : 5");
-        } else {
+        if (i > 0) {
             _setConnectionTimeout(i);
+            return;
         }
+        String str = TAG;
+        Log.w(str, "unsupported connection time out  :" + i + ", use the default time out : 5");
     }
 
     public void setOnControlMessageListener(OnControlMessageListener onControlMessageListener) {
@@ -1598,7 +1600,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         this.mOnLiveVoiceCommentListener = onLiveVoiceCommentListener;
     }
 
-    void setOnNativeInvokeListener(OnNativeInvokeListener onNativeInvokeListener) {
+    public void setOnNativeInvokeListener(OnNativeInvokeListener onNativeInvokeListener) {
         this.mOnNativeInvokeListener = onNativeInvokeListener;
     }
 
@@ -1649,8 +1651,8 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         }
     }
 
-    public void setSpeed(float f) {
-        _setSpeed(f);
+    public void setSpeed(float f2) {
+        _setSpeed(f2);
     }
 
     public void setStartPlayBlockBufferMs(int i, int i2) {
@@ -1741,27 +1743,27 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
     }
 
     @Override // com.kwai.video.player.IMediaPlayer
-    public native void setVolume(float f, float f2);
+    public native void setVolume(float f2, float f3);
 
     @Override // com.kwai.video.player.IMediaPlayer
     @SuppressLint({"Wakelock"})
     public void setWakeMode(Context context, int i) {
         boolean z;
-        boolean z2;
-        if (this.mWakeLock != null) {
-            if (this.mWakeLock.isHeld()) {
-                z2 = true;
+        PowerManager.WakeLock wakeLock = this.mWakeLock;
+        if (wakeLock != null) {
+            if (wakeLock.isHeld()) {
+                z = true;
                 this.mWakeLock.release();
             } else {
-                z2 = false;
+                z = false;
             }
             this.mWakeLock = null;
-            z = z2;
         } else {
             z = false;
         }
-        this.mWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(536870912 | i, KsMediaPlayer.class.getName());
-        this.mWakeLock.setReferenceCounted(false);
+        PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(i | NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, KsMediaPlayer.class.getName());
+        this.mWakeLock = newWakeLock;
+        newWakeLock.setReferenceCounted(false);
         if (z) {
             this.mWakeLock.acquire();
         }

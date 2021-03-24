@@ -2,68 +2,69 @@ package com.baidu.android.imrtc.notify;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.utils.LogUtils;
+import com.baidu.android.imrtc.utils.RtcUtility;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
-    private static final String TAG = "IMInviteRtcInfo";
-    private int mMediaType;
-    private String mRtcAppId;
-    private String mRtcRoomDes;
-    private String mRtcRoomName;
-    private String mRtcRoomToken;
-    private int mRtcRoomType;
-    private long mRtcUserId;
+    public static final String TAG = "IMInviteRtcInfo";
+    public int mMediaType;
+    public String mRtcAppId;
+    public String mRtcRoomDes;
+    public String mRtcRoomName;
+    public String mRtcRoomToken;
+    public int mRtcRoomType;
+    public long mRtcUserId;
 
-    public String getRtcRoomName() {
-        return this.mRtcRoomName;
-    }
-
-    public void setRtcRoomName(String str) {
-        this.mRtcRoomName = str;
-    }
-
-    public String getRtcRoomToken() {
-        return this.mRtcRoomToken;
-    }
-
-    public void setRtcRoomToken(String str) {
-        this.mRtcRoomToken = str;
+    public int getMediaType() {
+        return this.mMediaType;
     }
 
     public String getRtcAppId() {
         return this.mRtcAppId;
     }
 
-    public void setRtcAppId(String str) {
-        this.mRtcAppId = str;
-    }
-
     public String getRtcRoomDes() {
         return this.mRtcRoomDes;
     }
 
-    public void setRtcRoomDes(String str) {
-        this.mRtcRoomDes = str;
+    public String getRtcRoomName() {
+        return this.mRtcRoomName;
+    }
+
+    public String getRtcRoomToken() {
+        return this.mRtcRoomToken;
     }
 
     public int getRtcRoomType() {
         return this.mRtcRoomType;
     }
 
-    public void setRtcRoomType(int i) {
-        this.mRtcRoomType = i;
-    }
-
-    public int getMediaType() {
-        return this.mMediaType;
+    public long getRtcUserId() {
+        return this.mRtcUserId;
     }
 
     public void setMediaType(int i) {
         this.mMediaType = i;
     }
 
-    public long getRtcUserId() {
-        return this.mRtcUserId;
+    public void setRtcAppId(String str) {
+        this.mRtcAppId = str;
+    }
+
+    public void setRtcRoomDes(String str) {
+        this.mRtcRoomDes = str;
+    }
+
+    public void setRtcRoomName(String str) {
+        this.mRtcRoomName = str;
+    }
+
+    public void setRtcRoomToken(String str) {
+        this.mRtcRoomToken = str;
+    }
+
+    public void setRtcRoomType(int i) {
+        this.mRtcRoomType = i;
     }
 
     public void setRtcUserId(long j) {
@@ -75,8 +76,8 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
     public String toRtcInfoString() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("rtc_room_name", this.mRtcRoomName);
-            jSONObject.put("rtc_room_token", this.mRtcRoomToken);
+            jSONObject.put(RtcUtility.KEY_RTC_ROOM_NAME, this.mRtcRoomName);
+            jSONObject.put(RtcUtility.KEY_RTC_ROOM_TOKEN, this.mRtcRoomToken);
             jSONObject.put("rtc_room_desc", this.mRtcRoomDes);
             jSONObject.put("rtc_room_type", this.mRtcRoomType);
             jSONObject.put("media_type", this.mMediaType);
@@ -85,8 +86,8 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
             jSONObject.put("rtc_userid", this.mRtcUserId);
             jSONObject.put("ext", this.mRtcExt);
             return jSONObject.toString();
-        } catch (Exception e) {
-            LogUtils.e(TAG, "IMInviteRtcInfo Exception ", e);
+        } catch (Exception e2) {
+            LogUtils.e("IMInviteRtcInfo", "IMInviteRtcInfo Exception ", e2);
             return "";
         }
     }

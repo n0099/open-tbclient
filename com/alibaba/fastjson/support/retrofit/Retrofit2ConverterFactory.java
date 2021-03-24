@@ -13,74 +13,38 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class Retrofit2ConverterFactory extends Converter.Factory {
-    private Feature[] features;
-    private SerializeConfig serializeConfig;
-    private SerializerFeature[] serializerFeatures;
-    private static final MediaType MEDIA_TYPE = MediaType.parse("application/json; charset=UTF-8");
-    private static final Feature[] EMPTY_SERIALIZER_FEATURES = new Feature[0];
-    private ParserConfig parserConfig = ParserConfig.getGlobalInstance();
-    private int featureValues = JSON.DEFAULT_PARSER_FEATURE;
+    public Feature[] features;
+    public SerializeConfig serializeConfig;
+    public SerializerFeature[] serializerFeatures;
+    public static final MediaType MEDIA_TYPE = MediaType.parse("application/json; charset=UTF-8");
+    public static final Feature[] EMPTY_SERIALIZER_FEATURES = new Feature[0];
+    public ParserConfig parserConfig = ParserConfig.getGlobalInstance();
+    public int featureValues = JSON.DEFAULT_PARSER_FEATURE;
 
-    public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotationArr, Retrofit retrofit) {
-        return new ResponseBodyConverter(type);
+    /* loaded from: classes.dex */
+    public final class RequestBodyConverter<T> implements Converter<T, RequestBody> {
+        public RequestBodyConverter() {
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+        /* JADX WARN: Multi-variable type inference failed */
+        public /* bridge */ /* synthetic */ Object convert(Object obj) throws IOException {
+            return m6convert((RequestBodyConverter<T>) obj);
+        }
+
+        /* renamed from: convert  reason: collision with other method in class */
+        public RequestBody m6convert(T t) throws IOException {
+            return RequestBody.create(Retrofit2ConverterFactory.MEDIA_TYPE, JSON.toJSONBytes(t, Retrofit2ConverterFactory.this.serializeConfig == null ? SerializeConfig.globalInstance : Retrofit2ConverterFactory.this.serializeConfig, Retrofit2ConverterFactory.this.serializerFeatures == null ? SerializerFeature.EMPTY : Retrofit2ConverterFactory.this.serializerFeatures));
+        }
     }
 
-    public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] annotationArr, Annotation[] annotationArr2, Retrofit retrofit) {
-        return new RequestBodyConverter();
-    }
+    /* loaded from: classes.dex */
+    public final class ResponseBodyConverter<T> implements Converter<ResponseBody, T> {
+        public Type type;
 
-    public ParserConfig getParserConfig() {
-        return this.parserConfig;
-    }
-
-    public Retrofit2ConverterFactory setParserConfig(ParserConfig parserConfig) {
-        this.parserConfig = parserConfig;
-        return this;
-    }
-
-    public int getParserFeatureValues() {
-        return this.featureValues;
-    }
-
-    public Retrofit2ConverterFactory setParserFeatureValues(int i) {
-        this.featureValues = i;
-        return this;
-    }
-
-    public Feature[] getParserFeatures() {
-        return this.features;
-    }
-
-    public Retrofit2ConverterFactory setParserFeatures(Feature[] featureArr) {
-        this.features = featureArr;
-        return this;
-    }
-
-    public SerializeConfig getSerializeConfig() {
-        return this.serializeConfig;
-    }
-
-    public Retrofit2ConverterFactory setSerializeConfig(SerializeConfig serializeConfig) {
-        this.serializeConfig = serializeConfig;
-        return this;
-    }
-
-    public SerializerFeature[] getSerializerFeatures() {
-        return this.serializerFeatures;
-    }
-
-    public Retrofit2ConverterFactory setSerializerFeatures(SerializerFeature[] serializerFeatureArr) {
-        this.serializerFeatures = serializerFeatureArr;
-        return this;
-    }
-
-    /* loaded from: classes4.dex */
-    final class ResponseBodyConverter<T> implements Converter<ResponseBody, T> {
-        private Type type;
-
-        ResponseBodyConverter(Type type) {
+        public ResponseBodyConverter(Type type) {
             this.type = type;
         }
 
@@ -94,20 +58,56 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
         }
     }
 
-    /* loaded from: classes4.dex */
-    final class RequestBodyConverter<T> implements Converter<T, RequestBody> {
-        /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
-        /* JADX WARN: Multi-variable type inference failed */
-        public /* bridge */ /* synthetic */ Object convert(Object obj) throws IOException {
-            return m7convert((RequestBodyConverter<T>) obj);
-        }
+    public ParserConfig getParserConfig() {
+        return this.parserConfig;
+    }
 
-        RequestBodyConverter() {
-        }
+    public int getParserFeatureValues() {
+        return this.featureValues;
+    }
 
-        /* renamed from: convert  reason: collision with other method in class */
-        public RequestBody m7convert(T t) throws IOException {
-            return RequestBody.create(Retrofit2ConverterFactory.MEDIA_TYPE, JSON.toJSONBytes(t, Retrofit2ConverterFactory.this.serializeConfig == null ? SerializeConfig.globalInstance : Retrofit2ConverterFactory.this.serializeConfig, Retrofit2ConverterFactory.this.serializerFeatures == null ? SerializerFeature.EMPTY : Retrofit2ConverterFactory.this.serializerFeatures));
-        }
+    public Feature[] getParserFeatures() {
+        return this.features;
+    }
+
+    public SerializeConfig getSerializeConfig() {
+        return this.serializeConfig;
+    }
+
+    public SerializerFeature[] getSerializerFeatures() {
+        return this.serializerFeatures;
+    }
+
+    public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] annotationArr, Annotation[] annotationArr2, Retrofit retrofit) {
+        return new RequestBodyConverter();
+    }
+
+    public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotationArr, Retrofit retrofit) {
+        return new ResponseBodyConverter(type);
+    }
+
+    public Retrofit2ConverterFactory setParserConfig(ParserConfig parserConfig) {
+        this.parserConfig = parserConfig;
+        return this;
+    }
+
+    public Retrofit2ConverterFactory setParserFeatureValues(int i) {
+        this.featureValues = i;
+        return this;
+    }
+
+    public Retrofit2ConverterFactory setParserFeatures(Feature[] featureArr) {
+        this.features = featureArr;
+        return this;
+    }
+
+    public Retrofit2ConverterFactory setSerializeConfig(SerializeConfig serializeConfig) {
+        this.serializeConfig = serializeConfig;
+        return this;
+    }
+
+    public Retrofit2ConverterFactory setSerializerFeatures(SerializerFeature[] serializerFeatureArr) {
+        this.serializerFeatures = serializerFeatureArr;
+        return this;
     }
 }

@@ -4,10 +4,10 @@ import android.graphics.Paint;
 import android.text.TextUtils;
 import android.widget.TextView;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class UIUtils {
-    private static final int NO_ALPHA_STANDARD = 7;
-    private static final int WITH_ALPHA_STANDARD = 9;
+    public static final int NO_ALPHA_STANDARD = 7;
+    public static final int WITH_ALPHA_STANDARD = 9;
 
     public static int getTextViewHeight(TextView textView) {
         if (textView == null) {
@@ -35,17 +35,10 @@ public class UIUtils {
     }
 
     public static boolean isColorValid(Object obj) {
-        boolean z = true;
         if (!(obj instanceof String)) {
             return obj instanceof Integer;
         }
         String valueOf = String.valueOf(obj);
-        if (TextUtils.isEmpty(valueOf)) {
-            return false;
-        }
-        if (!valueOf.startsWith("#") || (valueOf.length() != 7 && valueOf.length() != 9)) {
-            z = false;
-        }
-        return z;
+        return !TextUtils.isEmpty(valueOf) && valueOf.startsWith("#") && (valueOf.length() == 7 || valueOf.length() == 9);
     }
 }

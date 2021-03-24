@@ -1,85 +1,85 @@
 package com.baidu.platform.comapi.wnplatform.h;
 
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static String a(RouteGuideKind routeGuideKind) {
-        switch (routeGuideKind) {
-            case NE_Maneuver_Kind_Front:
+        switch (d.f10274a[routeGuideKind.ordinal()]) {
+            case 1:
                 return "wn_turn_front.png";
-            case NE_Maneuver_Kind_Right_Front:
+            case 2:
                 return "wn_turn_right_front.png";
-            case NE_Maneuver_Kind_Right:
+            case 3:
                 return "wn_turn_right.png";
-            case NE_Maneuver_Kind_Right_Back:
+            case 4:
                 return "wn_turn_right_back.png";
-            case NE_Maneuver_Kind_Left_Back:
+            case 5:
                 return "wn_turn_left_back.png";
-            case NE_Maneuver_Kind_Left:
+            case 6:
                 return "wn_turn_left.png";
-            case NE_Maneuver_Kind_Left_Front:
+            case 7:
                 return "wn_turn_left_front.png";
-            case NE_Maneuver_Kind_Left_Front_Straight:
+            case 8:
                 return "wn_turn_left_front_straight.png";
-            case NE_Maneuver_Kind_Right_Front_Straight:
+            case 9:
                 return "wn_turn_right_front_straight.png";
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Front:
-            case NE_Maneuver_Kind_Left_PassRoad_Front:
+            case 10:
+            case 11:
                 return "wn_turn_left_passroad_front.png";
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Front:
-            case NE_Maneuver_Kind_Right_PassRoad_Front:
+            case 12:
+            case 13:
                 return "wn_turn_right_passroad_front.png";
-            case NE_Maneuver_Kind_Left_PassRoad_UTurn:
+            case 14:
                 return "wn_turn_left_passroad_uturn.png";
-            case NE_Maneuver_Kind_Right_PassRoad_UTurn:
+            case 15:
                 return "wn_turn_right_passroad_uturn.png";
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Right_Front:
+            case 16:
                 return "wn_turn_left_diagonal_passroad_right_front.png";
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Left_Front:
+            case 17:
                 return "wn_turn_left_diagonal_passroad_left_front.png";
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Left_Back:
+            case 18:
                 return "wn_turn_left_diagonal_passroad_left_back.png";
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Left_Front:
+            case 19:
                 return "wn_turn_right_diagonal_passroad_left_front.png";
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Right_Front:
+            case 20:
                 return "wn_turn_right_diagonal_passroad_right_front.png";
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Right_Back:
+            case 21:
                 return "wn_turn_right_diagonal_passroad_right_back.png";
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Left:
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Left:
-            case NE_Maneuver_Kind_PassRoad_Left:
+            case 22:
+            case 23:
+            case 24:
                 return "wn_turn_passroad_left.png";
-            case NE_Maneuver_Kind_PassRoad_Right:
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Right:
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Right:
+            case 25:
+            case 26:
+            case 27:
                 return "wn_turn_passroad_right.png";
-            case NE_Maneuver_Kind_Goto_Left_Road:
+            case 28:
                 return "wn_turn_goto_leftroad_front.png";
-            case NE_Maneuver_Kind_Goto_Right_Road:
+            case 29:
                 return "wn_turn_goto_rightroad_front.png";
-            case NE_Maneuver_Kind_Goto_Left_Road_UTurn:
+            case 30:
                 return "wn_turn_goto_leftroad_uturn.png";
-            case NE_Maneuver_Kind_Goto_Right_Road_UTurn:
+            case 31:
                 return "wn_turn_goto_rightroad_uturn.png";
-            case NE_Maneuver_Kind_Start:
+            case 32:
                 return "wn_start.png";
-            case NE_Maneuver_Kind_Dest:
+            case 33:
                 return "wn_dest.png";
-            case NE_Maneuver_Kind_OverlineBridge:
+            case 34:
                 return "wn_overline_bridge.png";
-            case NE_Maneuver_Kind_UndergroundPassage:
+            case 35:
                 return "wn_underground_passage.png";
-            case NE_Maneuver_Kind_Ring:
+            case 36:
                 return "wn_ring.png";
-            case NE_Maneuver_Kind_Park:
+            case 37:
                 return "wn_park.png";
-            case NE_Maneuver_Kind_Square:
+            case 38:
                 return "wn_square.png";
-            case NE_Maneuver_Kind_Ladder:
+            case 39:
                 return "wn_ladder.png";
-            case NE_Maneuver_Kind_Waypoint:
+            case 40:
                 return "wn_waypoint.png";
-            case NE_Maneuver_Kind_Ferry:
+            case 41:
                 return "wn_ship.png";
             default:
                 return "";
@@ -87,113 +87,113 @@ public class c {
     }
 
     public static String b(RouteGuideKind routeGuideKind) {
-        switch (routeGuideKind) {
-            case NE_Maneuver_Kind_Front:
+        switch (d.f10274a[routeGuideKind.ordinal()]) {
+            case 1:
                 return "bn_turn_front.png";
-            case NE_Maneuver_Kind_Right_Front:
+            case 2:
                 return "bn_turn_right_front.png";
-            case NE_Maneuver_Kind_Right:
+            case 3:
                 return "bn_turn_right.png";
-            case NE_Maneuver_Kind_Right_Back:
+            case 4:
                 return "bn_turn_right_back.png";
-            case NE_Maneuver_Kind_Left_Back:
+            case 5:
                 return "bn_turn_left_back.png";
-            case NE_Maneuver_Kind_Left:
+            case 6:
                 return "bn_turn_left.png";
-            case NE_Maneuver_Kind_Left_Front:
+            case 7:
                 return "bn_turn_left_front.png";
-            case NE_Maneuver_Kind_Left_Front_Straight:
+            case 8:
                 return "bn_turn_left_front_straight.png";
-            case NE_Maneuver_Kind_Right_Front_Straight:
+            case 9:
                 return "bn_turn_right_front_straight.png";
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Front:
-            case NE_Maneuver_Kind_Left_PassRoad_Front:
+            case 10:
+            case 11:
                 return "bn_turn_left_passroad_front.png";
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Front:
-            case NE_Maneuver_Kind_Right_PassRoad_Front:
+            case 12:
+            case 13:
                 return "bn_turn_right_passroad_front.png";
-            case NE_Maneuver_Kind_Left_PassRoad_UTurn:
+            case 14:
                 return "bn_turn_left_passroad_uturn.png";
-            case NE_Maneuver_Kind_Right_PassRoad_UTurn:
+            case 15:
                 return "bn_turn_right_passroad_uturn.png";
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Right_Front:
+            case 16:
                 return "bn_turn_left_diagonal_passroad_right_front.png";
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Left_Front:
+            case 17:
                 return "bn_turn_left_diagonal_passroad_left_front.png";
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Left_Back:
+            case 18:
                 return "bn_turn_left_diagonal_passroad_left_back.png";
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Left_Front:
+            case 19:
                 return "bn_turn_right_diagonal_passroad_left_front.png";
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Right_Front:
+            case 20:
                 return "bn_turn_right_diagonal_passroad_right_front.png";
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Right_Back:
+            case 21:
                 return "bn_turn_right_diagonal_passroad_right_back.png";
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Left:
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Left:
-            case NE_Maneuver_Kind_PassRoad_Left:
+            case 22:
+            case 23:
+            case 24:
                 return "bn_turn_passroad_left.png";
-            case NE_Maneuver_Kind_PassRoad_Right:
-            case NE_Maneuver_Kind_RightDiagonal_PassRoad_Right:
-            case NE_Maneuver_Kind_LeftDiagonal_PassRoad_Right:
+            case 25:
+            case 26:
+            case 27:
                 return "bn_turn_passroad_right.png";
-            case NE_Maneuver_Kind_Goto_Left_Road:
+            case 28:
                 return "bn_turn_goto_leftroad_front.png";
-            case NE_Maneuver_Kind_Goto_Right_Road:
+            case 29:
                 return "bn_turn_goto_rightroad_front.png";
-            case NE_Maneuver_Kind_Goto_Left_Road_UTurn:
+            case 30:
                 return "bn_turn_goto_leftroad_uturn.png";
-            case NE_Maneuver_Kind_Goto_Right_Road_UTurn:
+            case 31:
                 return "bn_turn_goto_rightroad_uturn.png";
-            case NE_Maneuver_Kind_Start:
+            case 32:
                 return "bn_start.png";
-            case NE_Maneuver_Kind_Dest:
+            case 33:
                 return "bn_dest.png";
-            case NE_Maneuver_Kind_OverlineBridge:
+            case 34:
                 return "bn_overline_bridge.png";
-            case NE_Maneuver_Kind_UndergroundPassage:
+            case 35:
                 return "bn_underground_passage.png";
-            case NE_Maneuver_Kind_Ring:
+            case 36:
                 return "bn_ring.png";
-            case NE_Maneuver_Kind_Park:
+            case 37:
                 return "bn_park.png";
-            case NE_Maneuver_Kind_Square:
+            case 38:
                 return "bn_square.png";
-            case NE_Maneuver_Kind_Ladder:
+            case 39:
                 return "bn_ladder.png";
-            case NE_Maneuver_Kind_Waypoint:
+            case 40:
                 return "bn_waypoint.png";
-            case NE_Maneuver_Kind_Ferry:
+            case 41:
             default:
                 return "";
-            case NE_WTT_NAV_TURN_LEFT_THREE_LEFT:
+            case 42:
                 return "bn_turn_left_3branch_left.png";
-            case NE_WTT_NAV_TURN_LEFT_THREE_MID:
+            case 43:
                 return "bn_turn_left_3branch_mid.png";
-            case NE_WTT_NAV_TURN_LEFT_THREE_RIGHT:
+            case 44:
                 return "bn_turn_left_3branch_right.png";
-            case NE_WTT_NAV_TURN_LEFT_TWO_LEFT:
+            case 45:
                 return "bn_turn_left_2branch_left.png";
-            case NE_WTT_NAV_TURN_LEFT_TWO_RIGHT:
+            case 46:
                 return "bn_turn_left_2branch_right.png";
-            case NE_WTT_NAV_TURN_RIGHT_THREE_LEFT:
+            case 47:
                 return "bn_turn_right_3branch_left.png";
-            case NE_WTT_NAV_TURN_RIGHT_THREE_MID:
+            case 48:
                 return "bn_turn_right_3branch_mid.png";
-            case NE_WTT_NAV_TURN_RIGHT_THREE_RIGHT:
+            case 49:
                 return "bn_turn_right_3branch_right.png";
-            case NE_WTT_NAV_TURN_RIGHT_TWO_LEFT:
+            case 50:
                 return "bn_turn_right_2branch_left.png";
-            case NE_WTT_NAV_TURN_RIGHT_TWO_RIGHT:
+            case 51:
                 return "bn_turn_right_2branch_right.png";
-            case NE_WTT_NAV_STRAIGHT_THREE_LEFT:
+            case 52:
                 return "bn_turn_front_3branch_left.png";
-            case NE_WTT_NAV_STRAIGHT_THREE_MID:
+            case 53:
                 return "bn_turn_front_3branch_center.png";
-            case NE_WTT_NAV_STRAIGHT_THREE_RIGHT:
+            case 54:
                 return "bn_turn_front_3branch_right.png";
-            case NE_WTT_NAV_STRAIGHT_TWO_LEFT:
+            case 55:
                 return "bn_turn_front_2branch_left.png";
-            case NE_WTT_NAV_STRAIGHT_TWO_RIGHT:
+            case 56:
                 return "bn_turn_front_2branch_right.png";
         }
     }

@@ -4,27 +4,27 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.glide.g.j;
 import java.nio.ByteBuffer;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WebpImage {
-    private int mBackgroundColor;
-    private int mDurationMs;
-    private int mFrameCount;
-    private int[] mFrameDurations;
-    private int mHeigth;
-    private int mLoopCount;
+    public int mBackgroundColor;
+    public int mDurationMs;
+    public int mFrameCount;
+    public int[] mFrameDurations;
+    public int mHeigth;
+    public int mLoopCount;
     @Keep
-    private long mNativePtr;
-    private int mWidth;
+    public long mNativePtr;
+    public int mWidth;
 
     static {
         try {
             System.loadLibrary("glide-webp");
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
     }
 
     @Keep
-    WebpImage(long j, int i, int i2, int i3, int i4, int[] iArr, int i5, int i6) {
+    public WebpImage(long j, int i, int i2, int i3, int i4, int[] iArr, int i5, int i6) {
         if (j == 0) {
             throw new RuntimeException("internal error: native WebpImage is 0");
         }
@@ -34,7 +34,7 @@ public class WebpImage {
         this.mDurationMs = i4;
         this.mFrameDurations = iArr;
         this.mLoopCount = i5;
-        fixFrameDurations(this.mFrameDurations);
+        fixFrameDurations(iArr);
         this.mBackgroundColor = i6;
         this.mNativePtr = j;
     }
@@ -55,7 +55,7 @@ public class WebpImage {
         }
     }
 
-    private static native WebpImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
+    public static native WebpImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
 
     private native void nativeDispose();
 
@@ -69,7 +69,7 @@ public class WebpImage {
         nativeDispose();
     }
 
-    protected void finalize() {
+    public void finalize() {
         nativeFinalize();
     }
 

@@ -1,23 +1,23 @@
 package com.baidu.tieba.route;
 
-import com.baidu.adp.framework.a.d;
+import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
-public final class NewUserGuideActivityStaticAutoGenerateUrlCollectorImpl implements d {
-    @Override // com.baidu.adp.framework.a.d
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        HashMap hashMap = new HashMap();
-        hashMap.put("com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivityStatic", new ArrayList());
-        return hashMap;
-    }
-
-    @Override // com.baidu.adp.framework.a.d
+/* loaded from: classes5.dex */
+public final class NewUserGuideActivityStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
         HashMap hashMap = new HashMap();
         new ArrayList();
         hashMap.put("2012116", "com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivityStatic");
+        return hashMap;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivityStatic", new ArrayList());
         return hashMap;
     }
 }

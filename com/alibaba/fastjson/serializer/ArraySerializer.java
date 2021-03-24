@@ -1,11 +1,12 @@
 package com.alibaba.fastjson.serializer;
 
+import com.baidu.android.common.others.lang.StringUtil;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class ArraySerializer implements ObjectSerializer {
-    private final ObjectSerializer compObjectSerializer;
-    private final Class<?> componentType;
+    public final ObjectSerializer compObjectSerializer;
+    public final Class<?> componentType;
 
     public ArraySerializer(Class<?> cls, ObjectSerializer objectSerializer) {
         this.componentType = cls;
@@ -34,7 +35,7 @@ public class ArraySerializer implements ObjectSerializer {
                     if (serializeWriter.isEnabled(SerializerFeature.WriteNullStringAsEmpty) && (obj instanceof String[])) {
                         serializeWriter.writeString("");
                     } else {
-                        serializeWriter.append((CharSequence) "null");
+                        serializeWriter.append((CharSequence) StringUtil.NULL_STRING);
                     }
                 } else if (obj3.getClass() == this.componentType) {
                     this.compObjectSerializer.write(jSONSerializer, obj3, Integer.valueOf(i2), null, 0);

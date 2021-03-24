@@ -1,0 +1,322 @@
+package com.baidu.tieba.personPolymeric.event;
+
+import android.os.Bundle;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
+import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
+import com.baidu.tbadk.core.atomData.BigImgPbActivityConfig;
+import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
+import com.baidu.tbadk.core.atomData.ConsumptionRecordsActivityConfig;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.atomData.MembercenterActivityConfig;
+import com.baidu.tbadk.core.atomData.MessageCenterActivityConfig;
+import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
+import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalBackdropGroupActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+import com.baidu.tbadk.data.MembershipUserInfo;
+import d.b.b.e.m.b;
+import d.b.h0.t.n;
+import d.b.i0.h2.d.g;
+import d.b.i0.h2.f.a;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.utils.URLEncodedUtils;
+/* loaded from: classes5.dex */
+public class PersonPolymericEventController extends a {
+
+    /* renamed from: e  reason: collision with root package name */
+    public g f20415e;
+
+    public PersonPolymericEventController(TbPageContext tbPageContext, g gVar) {
+        super(tbPageContext);
+        this.f20415e = gVar;
+    }
+
+    @Override // d.b.i0.h2.f.a, d.b.i0.t3.f
+    public void a(View view, d.b.i0.j0.a aVar) {
+        String str;
+        String str2;
+        int i;
+        MembershipUserInfo membershipUserInfo;
+        super.a(view, aVar);
+        if (aVar == null) {
+            return;
+        }
+        Bundle bundle = aVar.f56403b;
+        UserData userData = bundle != null ? (UserData) bundle.getSerializable(UserData.TYPE_USER) : null;
+        int i2 = 1;
+        switch (aVar.f56402a) {
+            case 1:
+                if (userData == null) {
+                    return;
+                }
+                n nVar = new n();
+                if (!StringUtils.isNull(userData.getPortrait()) && userData.getPortrait().startsWith("http")) {
+                    nVar.g(userData.getPortrait());
+                } else {
+                    nVar.g(userData.getPortraitH());
+                }
+                nVar.k(userData.getPortrait());
+                nVar.j(true);
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(nVar);
+                this.f20415e.o().r(nVar, arrayList, 0);
+                return;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 18:
+            case 19:
+            case 23:
+            case 25:
+            case 26:
+            case 28:
+            case 35:
+            case 37:
+            default:
+                return;
+            case 8:
+                this.f55316a.getPageActivity().finish();
+                return;
+            case 9:
+                g gVar = this.f20415e;
+                if (gVar == null || gVar.m() == null) {
+                    return;
+                }
+                TiebaStatic.log("c12207");
+                this.f20415e.m().e();
+                return;
+            case 10:
+                if (userData != null) {
+                    str = userData.getUserId();
+                    str2 = userData.getBg_pic();
+                    try {
+                        i = b.d(c(str2).get("props_id"), -1);
+                    } catch (URISyntaxException unused) {
+                    }
+                    if (i == -1 && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
+                        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(this.f55316a.getPageActivity(), i, (currentAccountInfo == null || StringUtils.isNull(str2) || StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) || !str2.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) ? 0 : 0)));
+                        return;
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.f55316a.getPageActivity())));
+                    return;
+                }
+                str = "";
+                str2 = null;
+                i = -1;
+                if (i == -1) {
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.f55316a.getPageActivity())));
+                return;
+            case 11:
+                if (TbadkCoreApplication.getCurrentAccountInfo() == null) {
+                    return;
+                }
+                PersonChangeData personChangeData = new PersonChangeData();
+                if (userData != null) {
+                    personChangeData.setPortrait(userData.getPortrait());
+                    personChangeData.setName(userData.getUserName());
+                    personChangeData.setSex(userData.getSex());
+                    personChangeData.setIntro(userData.getIntro());
+                    personChangeData.setNameShow(userData.getName_show());
+                    personChangeData.setMem(userData.getIsMem());
+                    personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
+                    personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
+                    Bundle bundle2 = aVar.f56403b;
+                    if (bundle2 != null) {
+                        personChangeData.setNickNameLeftDays(bundle2.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
+                    }
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.f55316a.getPageActivity(), 101, personChangeData, Boolean.FALSE)));
+                return;
+            case 12:
+                if (userData == null) {
+                    return;
+                }
+                TiebaStatic.log("igift_icon_ck");
+                if (ViewHelper.checkUpIsLogin(this.f55316a.getPageActivity())) {
+                    GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(this.f55316a.getPageActivity(), userData.getUserIdLong(), userData.getUserName(), userData.getName_show(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001);
+                    giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
+                    return;
+                }
+                return;
+            case 13:
+                UrlManager.getInstance().dealOneLink(this.f55316a, new String[]{TbConfig.WEB_URL_FANS});
+                return;
+            case 14:
+                BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.f55316a.getPageActivity(), 0L);
+                buyTBeanActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
+                return;
+            case 15:
+                b(8);
+                if (userData == null || (membershipUserInfo = userData.membershipInfo) == null) {
+                    return;
+                }
+                String str3 = membershipUserInfo.mLink;
+                if (StringUtils.isNull(str3)) {
+                    return;
+                }
+                UrlManager.getInstance().dealOneLink(this.f55316a, new String[]{str3});
+                return;
+            case 16:
+                b(7);
+                d.b.i0.s2.a.v().L(7, false, this.f55319d);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(this.f55316a.getPageActivity())));
+                return;
+            case 17:
+                b(12);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ConsumptionRecordsActivityConfig(TbadkCoreApplication.getInst().getApplicationContext())));
+                return;
+            case 20:
+                b(2);
+                d.b.i0.s2.a.v().L(3, false, this.f55319d);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001259));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(this.f55316a.getPageActivity())));
+                return;
+            case 21:
+                b(5);
+                TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 2).param("obj_source", this.f55318c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(this.f55316a.getPageActivity())));
+                return;
+            case 22:
+                TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 3).param("obj_source", this.f55318c));
+                if (userData == null) {
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MissonDetailsActivityConfig(this.f55316a.getPageActivity(), 24004, userData.getAnchorLevel(), userData.getPortrait(), userData.getName_show(), "from_person")));
+                return;
+            case 24:
+                b(3);
+                d.b.i0.s2.a.v().L(4, false, this.f55319d);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(this.f55316a.getPageActivity())));
+                return;
+            case 27:
+                b(10);
+                TiebaStatic.log(new StatisticItem("c11948"));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BigImgPbActivityConfig(this.f55316a.getPageActivity())));
+                return;
+            case 29:
+                if (userData == null) {
+                    return;
+                }
+                b(6);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.f55316a.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getPortrait(), userData.getSex(), true)));
+                return;
+            case 30:
+                b(1);
+                d.b.i0.s2.a.v().L(8, false, this.f55319d);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.f55316a.getPageActivity())));
+                return;
+            case 31:
+                b(9);
+                UrlManager.getInstance().dealOneLink(this.f55316a, new String[]{aVar.f56403b.getString("book_jump_link")}, true);
+                return;
+            case 32:
+                if (ViewHelper.checkUpIsLogin(this.f55316a.getPageActivity())) {
+                    b(4);
+                    d.b.i0.s2.a.v().L(1, false, this.f55319d);
+                    if (userData == null || !TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
+                        return;
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.f55316a.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
+                    return;
+                }
+                return;
+            case 33:
+                b(11);
+                UrlManager.getInstance().dealOneLink(this.f55316a, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                return;
+            case 34:
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921008, Boolean.FALSE));
+                return;
+            case 36:
+                if (userData == null) {
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.f55316a.getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getName_show(), userData.getSex())));
+                return;
+            case 38:
+                if (userData == null) {
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.f55316a.getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), userData.getSex(), false)));
+                return;
+            case 39:
+                d.b.h0.l.a.l(this.f55316a.getPageActivity(), TbConfig.URL_UEG_SERVICE_CENTER);
+                return;
+            case 40:
+                if (userData == null || !ViewHelper.checkUpIsLogin(this.f55316a.getPageActivity()) || userData == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    return;
+                }
+                try {
+                    TiebaStatic.log(new StatisticItem("c11593"));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.f55316a.getPageActivity(), Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getName_show(), userData.getPortrait(), userData.getSex(), userData.getIsFriend(), userData.getUserType())));
+                    return;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return;
+                }
+            case 41:
+                if (userData == null || userData.getBaijiahaoInfo() == null) {
+                    return;
+                }
+                n nVar2 = new n();
+                nVar2.g(userData.getBaijiahaoInfo().avatar_h);
+                nVar2.k(userData.getBaijiahaoInfo().avatar);
+                nVar2.j(false);
+                ArrayList arrayList2 = new ArrayList();
+                arrayList2.add(nVar2);
+                if (this.f20415e.o() != null) {
+                    this.f20415e.o().s(nVar2, arrayList2, 0, true);
+                    return;
+                }
+                return;
+        }
+    }
+
+    public final void b(int i) {
+        TiebaStatic.log(new StatisticItem(CommonStatisticKey.PERSON_CENTER_FUNCTION_CLICK).param("obj_locate", i));
+    }
+
+    public final Map<String, String> c(final String str) throws URISyntaxException {
+        return new HashMap<String, String>() { // from class: com.baidu.tieba.personPolymeric.event.PersonPolymericEventController.1
+            {
+                for (NameValuePair nameValuePair : URLEncodedUtils.parse(new URI(str), "UTF-8")) {
+                    put(nameValuePair.getName(), nameValuePair.getValue());
+                }
+            }
+        };
+    }
+}

@@ -1,17 +1,16 @@
 package com.baidu.location.a;
-/* loaded from: classes4.dex */
-class s implements Runnable {
+/* loaded from: classes2.dex */
+public class s implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f1935a;
+    public final /* synthetic */ p f6580a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public s(p pVar) {
-        this.f1935a = pVar;
+        this.f6580a = pVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1935a.h();
+        this.f6580a.h();
     }
 }

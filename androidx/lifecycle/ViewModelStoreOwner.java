@@ -1,7 +1,7 @@
 package androidx.lifecycle;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public interface ViewModelStoreOwner {
     @NonNull
     ViewModelStore getViewModelStore();

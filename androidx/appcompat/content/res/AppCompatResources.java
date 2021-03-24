@@ -17,53 +17,37 @@ import androidx.appcompat.widget.AppCompatDrawableManager;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ColorStateListInflaterCompat;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public final class AppCompatResources {
-    private static final String LOG_TAG = "AppCompatResources";
-    private static final ThreadLocal<TypedValue> TL_TYPED_VALUE = new ThreadLocal<>();
-    private static final WeakHashMap<Context, SparseArray<ColorStateListCacheEntry>> sColorStateCaches = new WeakHashMap<>(0);
-    private static final Object sColorStateCacheLock = new Object();
+    public static final String LOG_TAG = "AppCompatResources";
+    public static final ThreadLocal<TypedValue> TL_TYPED_VALUE = new ThreadLocal<>();
+    public static final WeakHashMap<Context, SparseArray<ColorStateListCacheEntry>> sColorStateCaches = new WeakHashMap<>(0);
+    public static final Object sColorStateCacheLock = new Object();
 
-    private AppCompatResources() {
+    /* loaded from: classes.dex */
+    public static class ColorStateListCacheEntry {
+        public final Configuration configuration;
+        public final ColorStateList value;
+
+        public ColorStateListCacheEntry(@NonNull ColorStateList colorStateList, @NonNull Configuration configuration) {
+            this.value = colorStateList;
+            this.configuration = configuration;
+        }
     }
 
-    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            return context.getColorStateList(i);
-        }
-        ColorStateList cachedColorStateList = getCachedColorStateList(context, i);
-        if (cachedColorStateList == null) {
-            ColorStateList inflateColorStateList = inflateColorStateList(context, i);
-            if (inflateColorStateList != null) {
-                addColorStateListToCache(context, i, inflateColorStateList);
-                return inflateColorStateList;
+    public static void addColorStateListToCache(@NonNull Context context, @ColorRes int i, @NonNull ColorStateList colorStateList) {
+        synchronized (sColorStateCacheLock) {
+            SparseArray<ColorStateListCacheEntry> sparseArray = sColorStateCaches.get(context);
+            if (sparseArray == null) {
+                sparseArray = new SparseArray<>();
+                sColorStateCaches.put(context, sparseArray);
             }
-            return ContextCompat.getColorStateList(context, i);
-        }
-        return cachedColorStateList;
-    }
-
-    @Nullable
-    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
-        return AppCompatDrawableManager.get().getDrawable(context, i);
-    }
-
-    @Nullable
-    private static ColorStateList inflateColorStateList(Context context, int i) {
-        if (isColorInt(context, i)) {
-            return null;
-        }
-        Resources resources = context.getResources();
-        try {
-            return ColorStateListInflaterCompat.createFromXml(resources, resources.getXml(i), context.getTheme());
-        } catch (Exception e) {
-            Log.e(LOG_TAG, "Failed to inflate ColorStateList, leaving it to the framework", e);
-            return null;
+            sparseArray.append(i, new ColorStateListCacheEntry(colorStateList, context.getResources().getConfiguration()));
         }
     }
 
     @Nullable
-    private static ColorStateList getCachedColorStateList(@NonNull Context context, @ColorRes int i) {
+    public static ColorStateList getCachedColorStateList(@NonNull Context context, @ColorRes int i) {
         ColorStateListCacheEntry colorStateListCacheEntry;
         synchronized (sColorStateCacheLock) {
             SparseArray<ColorStateListCacheEntry> sparseArray = sColorStateCaches.get(context);
@@ -77,26 +61,29 @@ public final class AppCompatResources {
         }
     }
 
-    private static void addColorStateListToCache(@NonNull Context context, @ColorRes int i, @NonNull ColorStateList colorStateList) {
-        synchronized (sColorStateCacheLock) {
-            SparseArray<ColorStateListCacheEntry> sparseArray = sColorStateCaches.get(context);
-            if (sparseArray == null) {
-                sparseArray = new SparseArray<>();
-                sColorStateCaches.put(context, sparseArray);
-            }
-            sparseArray.append(i, new ColorStateListCacheEntry(colorStateList, context.getResources().getConfiguration()));
+    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            return context.getColorStateList(i);
         }
+        ColorStateList cachedColorStateList = getCachedColorStateList(context, i);
+        if (cachedColorStateList != null) {
+            return cachedColorStateList;
+        }
+        ColorStateList inflateColorStateList = inflateColorStateList(context, i);
+        if (inflateColorStateList != null) {
+            addColorStateListToCache(context, i, inflateColorStateList);
+            return inflateColorStateList;
+        }
+        return ContextCompat.getColorStateList(context, i);
     }
 
-    private static boolean isColorInt(@NonNull Context context, @ColorRes int i) {
-        Resources resources = context.getResources();
-        TypedValue typedValue = getTypedValue();
-        resources.getValue(i, typedValue, true);
-        return typedValue.type >= 28 && typedValue.type <= 31;
+    @Nullable
+    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
+        return AppCompatDrawableManager.get().getDrawable(context, i);
     }
 
     @NonNull
-    private static TypedValue getTypedValue() {
+    public static TypedValue getTypedValue() {
         TypedValue typedValue = TL_TYPED_VALUE.get();
         if (typedValue == null) {
             TypedValue typedValue2 = new TypedValue();
@@ -106,15 +93,25 @@ public final class AppCompatResources {
         return typedValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
-    public static class ColorStateListCacheEntry {
-        final Configuration configuration;
-        final ColorStateList value;
-
-        ColorStateListCacheEntry(@NonNull ColorStateList colorStateList, @NonNull Configuration configuration) {
-            this.value = colorStateList;
-            this.configuration = configuration;
+    @Nullable
+    public static ColorStateList inflateColorStateList(Context context, int i) {
+        if (isColorInt(context, i)) {
+            return null;
         }
+        Resources resources = context.getResources();
+        try {
+            return ColorStateListInflaterCompat.createFromXml(resources, resources.getXml(i), context.getTheme());
+        } catch (Exception e2) {
+            Log.e(LOG_TAG, "Failed to inflate ColorStateList, leaving it to the framework", e2);
+            return null;
+        }
+    }
+
+    public static boolean isColorInt(@NonNull Context context, @ColorRes int i) {
+        Resources resources = context.getResources();
+        TypedValue typedValue = getTypedValue();
+        resources.getValue(i, typedValue, true);
+        int i2 = typedValue.type;
+        return i2 >= 28 && i2 <= 31;
     }
 }

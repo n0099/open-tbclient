@@ -1,7 +1,6 @@
 package com.baidubce.auth;
 
 import android.annotation.SuppressLint;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidubce.BceConfig;
 import com.baidubce.http.Headers;
 import com.baidubce.internal.InternalRequest;
@@ -21,73 +20,17 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import okhttp3.internal.http.HttpMethod;
 @SuppressLint({"NewApi", "DefaultLocale"})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BceV1Signer implements Signer {
-    private static final Set<String> defaultHeadersToSign = new HashSet();
+    public static final Set<String> defaultHeadersToSign;
 
     static {
-        defaultHeadersToSign.add("Host".toLowerCase());
+        HashSet hashSet = new HashSet();
+        defaultHeadersToSign = hashSet;
+        hashSet.add("Host".toLowerCase());
         defaultHeadersToSign.add("Content-Length".toLowerCase());
         defaultHeadersToSign.add("Content-Type".toLowerCase());
         defaultHeadersToSign.add(Headers.CONTENT_MD5.toLowerCase());
-    }
-
-    @Override // com.baidubce.auth.Signer
-    public void sign(InternalRequest internalRequest, BceCredentials bceCredentials) {
-        sign(internalRequest, bceCredentials, null);
-    }
-
-    @Override // com.baidubce.auth.Signer
-    public void sign(InternalRequest internalRequest, BceCredentials bceCredentials, SignOptions signOptions) {
-        CheckUtils.isNotNull(internalRequest, "request should not be null.");
-        if (bceCredentials != null) {
-            if (signOptions == null) {
-                if (internalRequest.getSignOptions() != null) {
-                    signOptions = internalRequest.getSignOptions();
-                } else {
-                    signOptions = SignOptions.DEFAULT;
-                }
-            }
-            String accessKeyId = bceCredentials.getAccessKeyId();
-            String secretKey = bceCredentials.getSecretKey();
-            internalRequest.addHeader("Host", HttpUtils.generateHostHeader(internalRequest.getUri()));
-            String name = internalRequest.getHttpMethod().name();
-            boolean z = HttpMethod.requiresRequestBody(name) || HttpMethod.permitsRequestBody(name);
-            if (internalRequest.getHeaders().get("Content-Length") == null && internalRequest.getContent() == null && z) {
-                internalRequest.addHeader("Content-Length", "0");
-            }
-            if (bceCredentials instanceof BceSessionCredentials) {
-                internalRequest.addHeader(Headers.BCE_SECURITY_TOKEN, ((BceSessionCredentials) bceCredentials).getSessionToken());
-            }
-            Date timestamp = signOptions.getTimestamp();
-            if (timestamp == null) {
-                timestamp = new Date();
-            }
-            String on = JoinerUtils.on("/", BceConfig.BCE_AUTH_VERSION, accessKeyId, DateUtils.alternateIso8601DateFormat(timestamp), Integer.valueOf(signOptions.getExpirationInSeconds()));
-            String sha256Hex = HashUtils.sha256Hex(secretKey, on);
-            String canonicalURIPath = getCanonicalURIPath(internalRequest.getUri().getPath());
-            String canonicalQueryString = HttpUtils.getCanonicalQueryString(internalRequest.getParameters(), true);
-            SortedMap<String, String> headersToSign = getHeadersToSign(internalRequest.getHeaders(), signOptions.getHeadersToSign());
-            String canonicalHeaders = getCanonicalHeaders(headersToSign);
-            String str = "";
-            if (signOptions.getHeadersToSign() != null) {
-                str = JoinerUtils.on(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, headersToSign.keySet()).trim().toLowerCase();
-            }
-            String on2 = JoinerUtils.on("\n", internalRequest.getHttpMethod(), canonicalURIPath, canonicalQueryString, canonicalHeaders);
-            String on3 = JoinerUtils.on("/", on, str, HashUtils.sha256Hex(sha256Hex, on2));
-            BLog.debug("CanonicalRequest:{}\tAuthorization:{}", on2.replace("\n", "[\\n]"), on3);
-            internalRequest.addHeader("Authorization", on3);
-        }
-    }
-
-    private String getCanonicalURIPath(String str) {
-        if (str == null) {
-            return "/";
-        }
-        if (str.startsWith("/")) {
-            return HttpUtils.normalizePath(str);
-        }
-        return "/" + HttpUtils.normalizePath(str);
     }
 
     private String getCanonicalHeaders(SortedMap<String, String> sortedMap) {
@@ -107,6 +50,16 @@ public class BceV1Signer implements Signer {
         }
         Collections.sort(arrayList);
         return JoinerUtils.on("\n", arrayList);
+    }
+
+    private String getCanonicalURIPath(String str) {
+        if (str == null) {
+            return "/";
+        }
+        if (str.startsWith("/")) {
+            return HttpUtils.normalizePath(str);
+        }
+        return "/" + HttpUtils.normalizePath(str);
     }
 
     private SortedMap<String, String> getHeadersToSign(Map<String, String> map, Set<String> set) {
@@ -130,5 +83,51 @@ public class BceV1Signer implements Signer {
     private boolean isDefaultHeaderToSign(String str) {
         String lowerCase = str.trim().toLowerCase();
         return lowerCase.startsWith(Headers.BCE_PREFIX) || defaultHeadersToSign.contains(lowerCase);
+    }
+
+    @Override // com.baidubce.auth.Signer
+    public void sign(InternalRequest internalRequest, BceCredentials bceCredentials) {
+        sign(internalRequest, bceCredentials, null);
+    }
+
+    @Override // com.baidubce.auth.Signer
+    public void sign(InternalRequest internalRequest, BceCredentials bceCredentials, SignOptions signOptions) {
+        CheckUtils.isNotNull(internalRequest, "request should not be null.");
+        if (bceCredentials == null) {
+            return;
+        }
+        if (signOptions == null) {
+            if (internalRequest.getSignOptions() != null) {
+                signOptions = internalRequest.getSignOptions();
+            } else {
+                signOptions = SignOptions.DEFAULT;
+            }
+        }
+        String accessKeyId = bceCredentials.getAccessKeyId();
+        String secretKey = bceCredentials.getSecretKey();
+        internalRequest.addHeader("Host", HttpUtils.generateHostHeader(internalRequest.getUri()));
+        String name = internalRequest.getHttpMethod().name();
+        boolean z = HttpMethod.requiresRequestBody(name) || HttpMethod.permitsRequestBody(name);
+        if (internalRequest.getHeaders().get("Content-Length") == null && internalRequest.getContent() == null && z) {
+            internalRequest.addHeader("Content-Length", "0");
+        }
+        if (bceCredentials instanceof BceSessionCredentials) {
+            internalRequest.addHeader(Headers.BCE_SECURITY_TOKEN, ((BceSessionCredentials) bceCredentials).getSessionToken());
+        }
+        Date timestamp = signOptions.getTimestamp();
+        if (timestamp == null) {
+            timestamp = new Date();
+        }
+        String on = JoinerUtils.on("/", BceConfig.BCE_AUTH_VERSION, accessKeyId, DateUtils.alternateIso8601DateFormat(timestamp), Integer.valueOf(signOptions.getExpirationInSeconds()));
+        String sha256Hex = HashUtils.sha256Hex(secretKey, on);
+        String canonicalURIPath = getCanonicalURIPath(internalRequest.getUri().getPath());
+        String canonicalQueryString = HttpUtils.getCanonicalQueryString(internalRequest.getParameters(), true);
+        SortedMap<String, String> headersToSign = getHeadersToSign(internalRequest.getHeaders(), signOptions.getHeadersToSign());
+        String canonicalHeaders = getCanonicalHeaders(headersToSign);
+        String lowerCase = signOptions.getHeadersToSign() != null ? JoinerUtils.on(";", headersToSign.keySet()).trim().toLowerCase() : "";
+        String on2 = JoinerUtils.on("\n", internalRequest.getHttpMethod(), canonicalURIPath, canonicalQueryString, canonicalHeaders);
+        String on3 = JoinerUtils.on("/", on, lowerCase, HashUtils.sha256Hex(sha256Hex, on2));
+        BLog.debug("CanonicalRequest:{}\tAuthorization:{}", on2.replace("\n", "[\\n]"), on3);
+        internalRequest.addHeader("Authorization", on3);
     }
 }

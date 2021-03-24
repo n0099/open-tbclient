@@ -1,12 +1,34 @@
 package com.fun.openid.sdk;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
-public interface h {
-
-    /* loaded from: classes3.dex */
-    public interface a {
+import android.util.Log;
+import com.fun.openid.sdk.e;
+import com.fun.openid.sdk.f;
+import java.lang.reflect.Method;
+/* loaded from: classes6.dex */
+public class h implements f {
+    @Override // com.fun.openid.sdk.f
+    public void a(Context context, f.a aVar) {
+        String str = null;
+        if (!((m.f30850b == null || m.f30849a == null) ? false : true)) {
+            if (FunOpenIDSdk.isLogEnabled()) {
+                Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
+            }
+            ((e.a) aVar).a(false, null);
+            return;
+        }
+        Method method = m.f30851c;
+        Object obj = m.f30849a;
+        if (obj != null && method != null) {
+            try {
+                Object invoke = method.invoke(obj, context);
+                if (invoke != null) {
+                    str = (String) invoke;
+                }
+            } catch (Exception e2) {
+                Log.e("IdentifierManager", "invoke exception!", e2);
+            }
+        }
+        ((e.a) aVar).a(true, str);
     }
-
-    void a(Context context, a aVar);
 }

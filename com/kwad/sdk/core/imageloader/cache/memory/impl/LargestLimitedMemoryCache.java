@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LargestLimitedMemoryCache extends LimitedMemoryCache {
-    private final Map<DecodedResult, Integer> valueSizes;
+    public final Map<DecodedResult, Integer> valueSizes;
 
     public LargestLimitedMemoryCache(int i) {
         super(i);
@@ -24,12 +24,12 @@ public class LargestLimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
-    protected Reference<DecodedResult> createReference(DecodedResult decodedResult) {
+    public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
-    protected int getSize(DecodedResult decodedResult) {
+    public int getSize(DecodedResult decodedResult) {
         return decodedResult.getByteSize();
     }
 
@@ -52,7 +52,7 @@ public class LargestLimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
-    protected DecodedResult removeNext() {
+    public DecodedResult removeNext() {
         DecodedResult decodedResult;
         Set<Map.Entry<DecodedResult, Integer>> entrySet = this.valueSizes.entrySet();
         synchronized (this.valueSizes) {

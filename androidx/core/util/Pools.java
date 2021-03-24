@@ -2,10 +2,10 @@ package androidx.core.util;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class Pools {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface Pool<T> {
         @Nullable
         T acquire();
@@ -13,44 +13,17 @@ public final class Pools {
         boolean release(@NonNull T t);
     }
 
-    private Pools() {
-    }
-
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public static class SimplePool<T> implements Pool<T> {
-        private final Object[] mPool;
-        private int mPoolSize;
+        public final Object[] mPool;
+        public int mPoolSize;
 
         public SimplePool(int i) {
-            if (i <= 0) {
-                throw new IllegalArgumentException("The max pool size must be > 0");
+            if (i > 0) {
+                this.mPool = new Object[i];
+                return;
             }
-            this.mPool = new Object[i];
-        }
-
-        @Override // androidx.core.util.Pools.Pool
-        public T acquire() {
-            if (this.mPoolSize > 0) {
-                int i = this.mPoolSize - 1;
-                T t = (T) this.mPool[i];
-                this.mPool[i] = null;
-                this.mPoolSize--;
-                return t;
-            }
-            return null;
-        }
-
-        @Override // androidx.core.util.Pools.Pool
-        public boolean release(@NonNull T t) {
-            if (isInPool(t)) {
-                throw new IllegalStateException("Already in the pool!");
-            }
-            if (this.mPoolSize < this.mPool.length) {
-                this.mPool[this.mPoolSize] = t;
-                this.mPoolSize++;
-                return true;
-            }
-            return false;
+            throw new IllegalArgumentException("The max pool size must be > 0");
         }
 
         private boolean isInPool(@NonNull T t) {
@@ -61,11 +34,40 @@ public final class Pools {
             }
             return false;
         }
+
+        @Override // androidx.core.util.Pools.Pool
+        public T acquire() {
+            int i = this.mPoolSize;
+            if (i > 0) {
+                int i2 = i - 1;
+                Object[] objArr = this.mPool;
+                T t = (T) objArr[i2];
+                objArr[i2] = null;
+                this.mPoolSize = i - 1;
+                return t;
+            }
+            return null;
+        }
+
+        @Override // androidx.core.util.Pools.Pool
+        public boolean release(@NonNull T t) {
+            if (!isInPool(t)) {
+                int i = this.mPoolSize;
+                Object[] objArr = this.mPool;
+                if (i < objArr.length) {
+                    objArr[i] = t;
+                    this.mPoolSize = i + 1;
+                    return true;
+                }
+                return false;
+            }
+            throw new IllegalStateException("Already in the pool!");
+        }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public static class SynchronizedPool<T> extends SimplePool<T> {
-        private final Object mLock;
+        public final Object mLock;
 
         public SynchronizedPool(int i) {
             super(i);

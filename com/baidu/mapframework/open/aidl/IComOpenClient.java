@@ -6,21 +6,21 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IComOpenClient extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a extends Binder implements IComOpenClient {
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C0253a implements IComOpenClient {
+        /* loaded from: classes2.dex */
+        public static class C0094a implements IComOpenClient {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f2181a;
+            public IBinder f7450a;
 
-            C0253a(IBinder iBinder) {
-                this.f2181a = iBinder;
+            public C0094a(IBinder iBinder) {
+                this.f7450a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.IComOpenClient
@@ -30,7 +30,7 @@ public interface IComOpenClient extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IComOpenClient");
                     obtain.writeString(str);
-                    this.f2181a.transact(1, obtain, obtain2, 0);
+                    this.f7450a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -53,7 +53,7 @@ public interface IComOpenClient extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f2181a.transact(2, obtain, obtain2, 0);
+                    this.f7450a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -64,7 +64,7 @@ public interface IComOpenClient extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f2181a;
+                return this.f7450a;
             }
         }
 
@@ -73,29 +73,29 @@ public interface IComOpenClient extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C0253a(iBinder) : (IComOpenClient) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C0094a(iBinder) : (IComOpenClient) queryLocalInterface;
         }
 
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            switch (i) {
-                case 1:
-                    parcel.enforceInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-                    String a2 = a(parcel.readString());
-                    parcel2.writeNoException();
-                    parcel2.writeString(a2);
-                    return true;
-                case 2:
-                    parcel.enforceInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-                    boolean a3 = a(parcel.readString(), parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
-                    parcel2.writeNoException();
-                    parcel2.writeInt(a3 ? 1 : 0);
-                    return true;
-                case 1598968902:
-                    parcel2.writeString("com.baidu.mapframework.open.aidl.IComOpenClient");
-                    return true;
-                default:
+            if (i == 1) {
+                parcel.enforceInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
+                String a2 = a(parcel.readString());
+                parcel2.writeNoException();
+                parcel2.writeString(a2);
+                return true;
+            } else if (i != 2) {
+                if (i != 1598968902) {
                     return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString("com.baidu.mapframework.open.aidl.IComOpenClient");
+                return true;
+            } else {
+                parcel.enforceInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
+                boolean a3 = a(parcel.readString(), parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
+                parcel2.writeNoException();
+                parcel2.writeInt(a3 ? 1 : 0);
+                return true;
             }
         }
     }

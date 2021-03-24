@@ -1,11 +1,11 @@
 package com.qq.e.comm.constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Constants {
     public static final String LANDSCAPE = "l";
     public static final int NONE_ECPM = -1;
     public static final String PORTRAIT = "p";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class KEYS {
         public static final String AD_INFO = "adinfo";
         public static final String AD_NEGATIVE_FEEDBACK_INFO = "negative_feedback_url";
@@ -18,6 +18,9 @@ public class Constants {
         public static final String EXPOSED_CLICK_URL_KEY = "clickUrl";
         public static final String FLOW_CONTROL = "flow_control";
         public static final String FORCE_EXPOSURE = "force_exp";
+        public static final String GDT_SDK_CHANNEL = "getSdkChannel";
+        public static final String GDT_SDK_EX1 = "getSdkEX1";
+        public static final String GDT_SDK_EX2 = "getSdkEX2";
         public static final String GDT_SDK_IDENTITY = "gdtSdkIdentity";
         public static final String INNER_BROWSER_SCHEME = "innerBrowserScheme";
         public static final String MINI_CARD_LIST = "miniCardList";
@@ -39,8 +42,8 @@ public class Constants {
         public static final int THROUGH_MAX_TIPS = 512;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class PLUGIN {
-        public static final int ASSET_PLUGIN_VERSION = 1180;
+        public static final int ASSET_PLUGIN_VERSION = 1203;
     }
 }

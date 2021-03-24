@@ -6,79 +6,94 @@ import android.os.Looper;
 import android.os.Process;
 import android.util.Log;
 import androidx.exifinterface.media.ExifInterface;
-import com.xiaomi.mipush.sdk.Constants;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b implements g {
-    private long d = 60;
-    private int e = 10;
-    private boolean i = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f37639d = 60;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f37640e = 10;
+    public boolean i = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private SimpleDateFormat f7382a = new SimpleDateFormat("MM-dd HH:mm:ss");
-    private List<a> b = Collections.synchronizedList(new ArrayList());
-    private Handler c = new Handler(Looper.getMainLooper());
-    private String g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
-    private e f = new e();
-    private String h = String.valueOf(Process.myPid());
+    public SimpleDateFormat f37636a = new SimpleDateFormat("MM-dd HH:mm:ss");
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public List<a> f37637b = Collections.synchronizedList(new ArrayList());
+
+    /* renamed from: c  reason: collision with root package name */
+    public Handler f37638c = new Handler(Looper.getMainLooper());
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f37642g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
+
+    /* renamed from: f  reason: collision with root package name */
+    public e f37641f = new e();
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f37643h = String.valueOf(Process.myPid());
+
+    /* loaded from: classes6.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f7385a;
-        String b;
-        String c;
+        public String f37646a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f37647b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f37648c;
 
         public a(String str, String str2, String str3) {
-            StringBuffer stringBuffer = new StringBuffer(b.this.f7382a.format(new Date()));
+            StringBuffer stringBuffer = new StringBuffer(b.this.f37636a.format(new Date()));
             stringBuffer.append(" ");
-            stringBuffer.append(b.this.h);
-            stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            stringBuffer.append(b.this.f37643h);
+            stringBuffer.append("-");
             stringBuffer.append(String.valueOf(Thread.currentThread().getId()));
             stringBuffer.append(" ");
             stringBuffer.append(str);
             stringBuffer.append("/");
-            this.f7385a = stringBuffer.toString();
-            this.b = str2;
-            this.c = str3;
+            this.f37646a = stringBuffer.toString();
+            this.f37647b = str2;
+            this.f37648c = str3;
         }
     }
 
     private void a(a aVar) {
         try {
-            this.b.add(aVar);
-        } catch (Exception e) {
-            Log.e("Logger", "add logInfo error " + e.getMessage());
+            this.f37637b.add(aVar);
+        } catch (Exception e2) {
+            Log.e("Logger", "add logInfo error " + e2.getMessage());
         }
     }
 
     private void b() {
-        if (this.b.size() == 0) {
-            this.c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.base.b.1
+        if (this.f37637b.size() == 0) {
+            this.f37638c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.base.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.a(true);
                 }
-            }, this.d * 1000);
+            }, this.f37639d * 1000);
         }
     }
 
     private void c() {
-        if (this.b.size() == this.e) {
+        if (this.f37637b.size() == this.f37640e) {
             a(true);
         }
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void a(String str) {
-        this.g = str;
+        this.f37642g = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
@@ -86,7 +101,7 @@ public class b implements g {
         if (this.i) {
             Log.d(str, str2);
         }
-        synchronized (this.b) {
+        synchronized (this.f37637b) {
             b();
             a(new a("D", str, str2));
             c();
@@ -98,7 +113,7 @@ public class b implements g {
         if (this.i) {
             Log.e(str, str2, th);
         }
-        synchronized (this.b) {
+        synchronized (this.f37637b) {
             b();
             a(new a(ExifInterface.LONGITUDE_EAST, str, str2 + "\n" + Log.getStackTraceString(th)));
             c();
@@ -110,33 +125,33 @@ public class b implements g {
         Runnable runnable = new Runnable() { // from class: com.meizu.cloud.pushsdk.base.b.2
             @Override // java.lang.Runnable
             public void run() {
+                b bVar;
                 ArrayList<a> arrayList = new ArrayList();
-                synchronized (b.this.b) {
-                    b.this.c.removeCallbacksAndMessages(null);
-                    arrayList.addAll(b.this.b);
-                    b.this.b.clear();
+                synchronized (b.this.f37637b) {
+                    b.this.f37638c.removeCallbacksAndMessages(null);
+                    arrayList.addAll(b.this.f37637b);
+                    b.this.f37637b.clear();
                 }
                 try {
-                    b.this.f.a(b.this.g);
-                    for (a aVar : arrayList) {
-                        b.this.f.a(aVar.f7385a, aVar.b, aVar.c);
-                    }
                     try {
-                        b.this.f.a();
-                    } catch (Exception e) {
+                        b.this.f37641f.a(b.this.f37642g);
+                        for (a aVar : arrayList) {
+                            b.this.f37641f.a(aVar.f37646a, aVar.f37647b, aVar.f37648c);
+                        }
+                        bVar = b.this;
+                    } catch (Exception unused) {
+                        return;
                     }
-                } catch (Exception e2) {
-                    try {
-                        b.this.f.a();
-                    } catch (Exception e3) {
-                    }
+                } catch (Exception unused2) {
+                    bVar = b.this;
                 } catch (Throwable th) {
                     try {
-                        b.this.f.a();
-                    } catch (Exception e4) {
+                        b.this.f37641f.a();
+                    } catch (Exception unused3) {
                     }
                     throw th;
                 }
+                bVar.f37641f.a();
             }
         };
         if (z) {
@@ -156,7 +171,7 @@ public class b implements g {
         if (this.i) {
             Log.i(str, str2);
         }
-        synchronized (this.b) {
+        synchronized (this.f37637b) {
             b();
             a(new a("I", str, str2));
             c();
@@ -173,7 +188,7 @@ public class b implements g {
         if (this.i) {
             Log.w(str, str2);
         }
-        synchronized (this.b) {
+        synchronized (this.f37637b) {
             b();
             a(new a(ExifInterface.LONGITUDE_WEST, str, str2));
             c();
@@ -185,7 +200,7 @@ public class b implements g {
         if (this.i) {
             Log.e(str, str2);
         }
-        synchronized (this.b) {
+        synchronized (this.f37637b) {
             b();
             a(new a(ExifInterface.LONGITUDE_EAST, str, str2));
             c();

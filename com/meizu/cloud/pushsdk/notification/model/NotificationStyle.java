@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NotificationStyle implements Parcelable {
     public static final String BANNER_IMAGE_URL = "bi";
     public static final String BASE_STYLE = "bs";
@@ -29,11 +29,11 @@ public class NotificationStyle implements Parcelable {
     public static final String INNER_STYLE = "is";
     public static final String NOTIFICATION_STYLE = "ns";
     public static final String TAG = "notification_style";
-    private String bannerImageUrl;
-    private int baseStyle;
-    private String expandableImageUrl;
-    private String expandableText;
-    private int innerStyle;
+    public String bannerImageUrl;
+    public int baseStyle;
+    public String expandableImageUrl;
+    public String expandableText;
+    public int innerStyle;
 
     public NotificationStyle() {
         this.baseStyle = 0;
@@ -55,8 +55,8 @@ public class NotificationStyle implements Parcelable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e(TAG, "parse json string error " + e.getMessage());
+            } catch (JSONException e2) {
+                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -65,6 +65,7 @@ public class NotificationStyle implements Parcelable {
     }
 
     public static NotificationStyle parse(JSONObject jSONObject) {
+        String str;
         NotificationStyle notificationStyle = new NotificationStyle();
         if (jSONObject != null) {
             try {
@@ -83,12 +84,13 @@ public class NotificationStyle implements Parcelable {
                 if (!jSONObject.isNull(BANNER_IMAGE_URL)) {
                     notificationStyle.setBannerImageUrl(jSONObject.getString(BANNER_IMAGE_URL));
                 }
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e(TAG, "parse json obj error " + e.getMessage());
+            } catch (JSONException e2) {
+                str = "parse json obj error " + e2.getMessage();
             }
-        } else {
-            com.meizu.cloud.a.a.e(TAG, "no such tag notification_style");
+            return notificationStyle;
         }
+        str = "no such tag notification_style";
+        d.j.a.a.a.b(TAG, str);
         return notificationStyle;
     }
 

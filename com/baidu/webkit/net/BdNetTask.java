@@ -2,7 +2,6 @@ package com.baidu.webkit.net;
 
 import android.os.AsyncTask;
 import android.os.Looper;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.net.BdNet;
 import java.net.HttpURLConnection;
@@ -11,47 +10,46 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 import javax.net.ssl.SSLContext;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class BdNetTask implements INoProGuard {
-    private static final boolean DEBUG = false;
-    private static final int MAX_POOL_SIZE = 10;
+    public static final boolean DEBUG = false;
+    public static final String LOG_TAG = "BdNetTask";
+    public static final int MAX_POOL_SIZE = 10;
     public static final int TIMEOUT_CONNECTION = 0;
     public static final int TIMEOUT_READ = 25000;
-    private HttpURLConnection mConnection;
-    private byte[] mContent;
-    private boolean mIsRedirect;
-    private volatile boolean mIsStop;
-    private BdNet mNet;
-    private f mNetWorker;
-    private String mRedirectUrl;
-    private String mRefer;
-    private SSLContext mSSLContext;
-    private Object mSetting;
-    private String mUrl;
-    private static final String LOG_TAG = BdNetTask.class.getSimpleName();
-    private static final Map<String, String> NULL_ARRAY = Collections.emptyMap();
-    private static Vector<BdNetTask> sTaskPool = new Vector<>();
-    private BdNet.HttpMethod mMethod = BdNet.HttpMethod.METHOD_GET;
-    private Map<String, String> mHeaders = NULL_ARRAY;
-    private Map<String, String> mResHeaders = NULL_ARRAY;
-    private Map<String, String> mCookies = NULL_ARRAY;
-    private int mReadTimeOut = TIMEOUT_READ;
-    private int mConnectionTimeOut = 0;
-    private boolean mFollowRedirects = true;
-    private boolean isUseCorenet = true;
-    private int mTaskPriority$77d0b2dd = b.b;
+    public boolean isUseCorenet;
+    public HttpURLConnection mConnection;
+    public int mConnectionTimeOut;
+    public byte[] mContent;
+    public Map<String, String> mCookies;
+    public boolean mFollowRedirects;
+    public Map<String, String> mHeaders;
+    public boolean mIsRedirect;
+    public volatile boolean mIsStop;
+    public BdNet.HttpMethod mMethod = BdNet.HttpMethod.METHOD_GET;
+    public BdNet mNet;
+    public f mNetWorker;
+    public int mReadTimeOut;
+    public String mRedirectUrl;
+    public String mRefer;
+    public Map<String, String> mResHeaders;
+    public SSLContext mSSLContext;
+    public Object mSetting;
+    public int mTaskPriority$77d0b2dd;
+    public String mUrl;
+    public static final Map<String, String> NULL_ARRAY = Collections.emptyMap();
+    public static Vector<BdNetTask> sTaskPool = new Vector<>();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class a extends AsyncTask<HttpURLConnection, Void, Void> {
-        private a() {
+        public a() {
         }
 
-        /* synthetic */ a(byte b) {
+        public /* synthetic */ a(byte b2) {
             this();
         }
 
-        private static Void a(HttpURLConnection... httpURLConnectionArr) {
+        public static Void a(HttpURLConnection... httpURLConnectionArr) {
             HttpURLConnection httpURLConnection;
             if (httpURLConnectionArr != null) {
                 try {
@@ -60,7 +58,7 @@ public class BdNetTask implements INoProGuard {
                     }
                     httpURLConnection.disconnect();
                     return null;
-                } catch (Exception e) {
+                } catch (Exception unused) {
                     return null;
                 }
             }
@@ -70,22 +68,42 @@ public class BdNetTask implements INoProGuard {
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // android.os.AsyncTask
-        protected final /* synthetic */ Void doInBackground(HttpURLConnection[] httpURLConnectionArr) {
+        public final /* synthetic */ Void doInBackground(HttpURLConnection[] httpURLConnectionArr) {
             return a(httpURLConnectionArr);
         }
     }
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f3865a = 1;
-        public static final int b = 2;
-        public static final int c = 3;
-        public static final int d = 4;
-        private static final /* synthetic */ int[] e = {f3865a, b, c, d};
+        public static final int f27037a = 1;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final int f27038b = 2;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final int f27039c = 3;
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final int f27040d = 4;
+
+        /* renamed from: e  reason: collision with root package name */
+        public static final /* synthetic */ int[] f27041e = {1, 2, 3, 4};
+    }
+
+    public BdNetTask() {
+        Map<String, String> map = NULL_ARRAY;
+        this.mHeaders = map;
+        this.mResHeaders = map;
+        this.mCookies = map;
+        this.mReadTimeOut = TIMEOUT_READ;
+        this.mConnectionTimeOut = 0;
+        this.mFollowRedirects = true;
+        this.isUseCorenet = true;
+        this.mTaskPriority$77d0b2dd = b.f27038b;
     }
 
     private void clearForRecycle() {
@@ -95,9 +113,10 @@ public class BdNetTask implements INoProGuard {
         this.mRefer = null;
         this.mContent = null;
         this.mMethod = BdNet.HttpMethod.METHOD_GET;
-        this.mHeaders = NULL_ARRAY;
-        this.mResHeaders = NULL_ARRAY;
-        this.mCookies = NULL_ARRAY;
+        Map<String, String> map = NULL_ARRAY;
+        this.mHeaders = map;
+        this.mResHeaders = map;
+        this.mCookies = map;
         this.mReadTimeOut = TIMEOUT_READ;
         this.mConnectionTimeOut = 0;
         this.mIsRedirect = false;
@@ -109,8 +128,9 @@ public class BdNetTask implements INoProGuard {
     }
 
     public static void clearTaskPool() {
-        if (sTaskPool != null) {
-            sTaskPool.clear();
+        Vector<BdNetTask> vector = sTaskPool;
+        if (vector != null) {
+            vector.clear();
         }
     }
 
@@ -119,25 +139,22 @@ public class BdNetTask implements INoProGuard {
             if (this.mConnection != null) {
                 this.mConnection.disconnect();
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
     public static synchronized BdNetTask obtain() {
-        BdNetTask bdNetTask;
         synchronized (BdNetTask.class) {
-            if (sTaskPool.size() > 0) {
-                try {
-                    bdNetTask = sTaskPool.remove(0);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    bdNetTask = new BdNetTask();
-                }
-            } else {
-                bdNetTask = new BdNetTask();
+            if (sTaskPool.size() <= 0) {
+                return new BdNetTask();
+            }
+            try {
+                return sTaskPool.remove(0);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return new BdNetTask();
             }
         }
-        return bdNetTask;
     }
 
     public static BdNetTask obtain(BdNet bdNet) {
@@ -158,13 +175,13 @@ public class BdNetTask implements INoProGuard {
             if (this.mCookies == NULL_ARRAY) {
                 this.mCookies = new HashMap();
             }
-            for (String str2 : str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
+            for (String str2 : str.split(";")) {
                 String[] split = str2.split("=");
                 if (split.length >= 2) {
                     this.mCookies.put(split[0], split[1]);
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
@@ -249,7 +266,6 @@ public class BdNetTask implements INoProGuard {
         return this.mUrl;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public f getWorker() {
         return this.mNetWorker;
     }
@@ -259,7 +275,7 @@ public class BdNetTask implements INoProGuard {
     }
 
     public boolean isHigherPriority() {
-        return this.mTaskPriority$77d0b2dd == b.f3865a;
+        return this.mTaskPriority$77d0b2dd == b.f27037a;
     }
 
     public boolean isRedirect() {
@@ -281,7 +297,6 @@ public class BdNetTask implements INoProGuard {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setConnection(HttpURLConnection httpURLConnection) {
         this.mConnection = httpURLConnection;
     }
@@ -324,12 +339,10 @@ public class BdNetTask implements INoProGuard {
         this.mReadTimeOut = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setRedirect(boolean z) {
         this.mIsRedirect = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setRedirectUrl(String str) {
         this.mRedirectUrl = str;
     }
@@ -354,7 +367,6 @@ public class BdNetTask implements INoProGuard {
         this.mUrl = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setWorker(f fVar) {
         this.mNetWorker = fVar;
     }

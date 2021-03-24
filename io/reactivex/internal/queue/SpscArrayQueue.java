@@ -1,53 +1,75 @@
 package io.reactivex.internal.queue;
 
-import io.reactivex.internal.a.e;
-import io.reactivex.internal.util.h;
+import f.a.x.c.e;
+import f.a.x.i.h;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements e<E> {
-    private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
-    private static final long serialVersionUID = -1296597691183856449L;
-    final AtomicLong consumerIndex;
-    final int lookAheadStep;
-    final int mask;
-    final AtomicLong producerIndex;
-    long producerLookAhead;
+    public static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    public static final long serialVersionUID = -1296597691183856449L;
+    public final AtomicLong consumerIndex;
+    public final int lookAheadStep;
+    public final int mask;
+    public final AtomicLong producerIndex;
+    public long producerLookAhead;
 
     public SpscArrayQueue(int i) {
-        super(h.So(i));
+        super(h.a(i));
         this.mask = length() - 1;
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
         this.lookAheadStep = Math.min(i / 4, MAX_LOOK_AHEAD_STEP.intValue());
     }
 
-    @Override // io.reactivex.internal.a.f
-    public boolean offer(E e) {
-        if (e == null) {
-            throw new NullPointerException("Null is not a valid element");
-        }
-        int i = this.mask;
-        long j = this.producerIndex.get();
-        int calcElementOffset = calcElementOffset(j, i);
-        if (j >= this.producerLookAhead) {
-            int i2 = this.lookAheadStep;
-            if (lvElement(calcElementOffset(i2 + j, i)) == null) {
-                this.producerLookAhead = i2 + j;
-            } else if (lvElement(calcElementOffset) != null) {
-                return false;
+    public int calcElementOffset(long j) {
+        return this.mask & ((int) j);
+    }
+
+    public int calcElementOffset(long j, int i) {
+        return ((int) j) & i;
+    }
+
+    @Override // f.a.x.c.f
+    public void clear() {
+        while (true) {
+            if (poll() == null && isEmpty()) {
+                return;
             }
         }
-        soElement(calcElementOffset, e);
-        soProducerIndex(1 + j);
-        return true;
     }
 
-    public boolean offer(E e, E e2) {
-        return offer(e) && offer(e2);
+    @Override // f.a.x.c.f
+    public boolean isEmpty() {
+        return this.producerIndex.get() == this.consumerIndex.get();
     }
 
-    @Override // io.reactivex.internal.a.e, io.reactivex.internal.a.f
+    public E lvElement(int i) {
+        return get(i);
+    }
+
+    @Override // f.a.x.c.f
+    public boolean offer(E e2) {
+        if (e2 != null) {
+            int i = this.mask;
+            long j = this.producerIndex.get();
+            int calcElementOffset = calcElementOffset(j, i);
+            if (j >= this.producerLookAhead) {
+                long j2 = this.lookAheadStep + j;
+                if (lvElement(calcElementOffset(j2, i)) == null) {
+                    this.producerLookAhead = j2;
+                } else if (lvElement(calcElementOffset) != null) {
+                    return false;
+                }
+            }
+            soElement(calcElementOffset, e2);
+            soProducerIndex(j + 1);
+            return true;
+        }
+        throw new NullPointerException("Null is not a valid element");
+    }
+
+    @Override // f.a.x.c.e, f.a.x.c.f
     public E poll() {
         long j = this.consumerIndex.get();
         int calcElementOffset = calcElementOffset(j);
@@ -60,41 +82,19 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         return lvElement;
     }
 
-    @Override // io.reactivex.internal.a.f
-    public boolean isEmpty() {
-        return this.producerIndex.get() == this.consumerIndex.get();
-    }
-
-    void soProducerIndex(long j) {
-        this.producerIndex.lazySet(j);
-    }
-
-    void soConsumerIndex(long j) {
+    public void soConsumerIndex(long j) {
         this.consumerIndex.lazySet(j);
     }
 
-    @Override // io.reactivex.internal.a.f
-    public void clear() {
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
-            }
-        }
+    public void soElement(int i, E e2) {
+        lazySet(i, e2);
     }
 
-    int calcElementOffset(long j, int i) {
-        return ((int) j) & i;
+    public void soProducerIndex(long j) {
+        this.producerIndex.lazySet(j);
     }
 
-    int calcElementOffset(long j) {
-        return ((int) j) & this.mask;
-    }
-
-    void soElement(int i, E e) {
-        lazySet(i, e);
-    }
-
-    E lvElement(int i) {
-        return get(i);
+    public boolean offer(E e2, E e3) {
+        return offer(e2) && offer(e3);
     }
 }

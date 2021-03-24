@@ -7,7 +7,7 @@ import com.heytap.mcssdk.mode.AppMessage;
 import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a extends c {
     @Override // com.heytap.mcssdk.a.d
     public final Message a(Context context, int i, Intent intent) {
@@ -23,9 +23,9 @@ public final class a extends c {
     public final Message a(Intent intent) {
         try {
             AppMessage appMessage = new AppMessage();
-            appMessage.setMessageID(Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra(Message.MESSAGE_ID))));
-            appMessage.setTaskID(CryptoUtil.desDecrypt(intent.getStringExtra(Message.TASK_ID)));
-            appMessage.setAppPackage(CryptoUtil.desDecrypt(intent.getStringExtra(Message.APP_PACKAGE)));
+            appMessage.setMessageID(Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra("messageID"))));
+            appMessage.setTaskID(CryptoUtil.desDecrypt(intent.getStringExtra("taskID")));
+            appMessage.setAppPackage(CryptoUtil.desDecrypt(intent.getStringExtra("appPackage")));
             appMessage.setContent(CryptoUtil.desDecrypt(intent.getStringExtra("content")));
             appMessage.setBalanceTime(Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra(Message.BALANCE_TIME))));
             appMessage.setStartDate(Long.parseLong(CryptoUtil.desDecrypt(intent.getStringExtra(Message.START_DATE))));
@@ -37,8 +37,8 @@ public final class a extends c {
             appMessage.setDistinctBycontent(Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra(Message.DISTINCT_CONTENT))));
             LogUtil.d("OnHandleIntent-message:" + appMessage.toString());
             return appMessage;
-        } catch (Exception e) {
-            LogUtil.d("OnHandleIntent--" + e.getMessage());
+        } catch (Exception e2) {
+            LogUtil.d("OnHandleIntent--" + e2.getMessage());
             return null;
         }
     }

@@ -5,14 +5,85 @@ import java.io.File;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class PostFileRequest extends HttpRequest<PostFileRequestBuilder> {
-    private static final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream");
-    private File file;
-    private MediaType mediaType;
+    public static final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream");
+    public File file;
+    public MediaType mediaType;
+
+    /* loaded from: classes3.dex */
+    public static class PostFileRequestBuilder extends HttpRequestBuilder<PostFileRequestBuilder> {
+        public File file;
+        public MediaType mediaType;
+
+        public PostFileRequestBuilder(AbstractHttpManager abstractHttpManager) {
+            super(abstractHttpManager);
+        }
+
+        public PostFileRequestBuilder file(File file) {
+            this.file = file;
+            return this;
+        }
+
+        public PostFileRequestBuilder mediaType(MediaType mediaType) {
+            this.mediaType = mediaType;
+            return this;
+        }
+
+        public PostFileRequestBuilder(PostFileRequest postFileRequest) {
+            this(postFileRequest, null);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        public PostFileRequest build() {
+            return new PostFileRequest(this);
+        }
+
+        public PostFileRequestBuilder file(String str) {
+            this.file = new File(str);
+            return this;
+        }
+
+        public PostFileRequestBuilder mediaType(String str) {
+            this.mediaType = MediaType.parse(str);
+            return this;
+        }
+
+        public PostFileRequestBuilder(PostFileRequest postFileRequest, AbstractHttpManager abstractHttpManager) {
+            super(postFileRequest, abstractHttpManager);
+            this.file = postFileRequest.file;
+            this.mediaType = postFileRequest.mediaType;
+        }
+    }
 
     public PostFileRequest(PostFileRequestBuilder postFileRequestBuilder) {
         super(postFileRequestBuilder);
+    }
+
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public Request buildOkRequest(RequestBody requestBody) {
+        return this.okRequestBuilder.post(requestBody).build();
+    }
+
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public RequestBody buildOkRequestBody() {
+        File file = this.file;
+        if (file != null) {
+            return RequestBody.create(this.mediaType, file);
+        }
+        return RequestBody.create((MediaType) null, new byte[0]);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public void initExtraHttpRequest(PostFileRequestBuilder postFileRequestBuilder) {
+        this.file = postFileRequestBuilder.file;
+        MediaType mediaType = postFileRequestBuilder.mediaType;
+        this.mediaType = mediaType;
+        if (mediaType == null) {
+            this.mediaType = MEDIA_TYPE_STREAM;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,75 +96,5 @@ public class PostFileRequest extends HttpRequest<PostFileRequestBuilder> {
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public PostFileRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
         return new PostFileRequestBuilder(this, abstractHttpManager);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    public void initExtraHttpRequest(PostFileRequestBuilder postFileRequestBuilder) {
-        this.file = postFileRequestBuilder.file;
-        this.mediaType = postFileRequestBuilder.mediaType;
-        if (this.mediaType == null) {
-            this.mediaType = MEDIA_TYPE_STREAM;
-        }
-    }
-
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    protected RequestBody buildOkRequestBody() {
-        if (this.file != null) {
-            return RequestBody.create(this.mediaType, this.file);
-        }
-        return RequestBody.create((MediaType) null, new byte[0]);
-    }
-
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    protected Request buildOkRequest(RequestBody requestBody) {
-        return this.okRequestBuilder.post(requestBody).build();
-    }
-
-    /* loaded from: classes6.dex */
-    public static class PostFileRequestBuilder extends HttpRequestBuilder<PostFileRequestBuilder> {
-        private File file;
-        private MediaType mediaType;
-
-        public PostFileRequestBuilder(AbstractHttpManager abstractHttpManager) {
-            super(abstractHttpManager);
-        }
-
-        public PostFileRequestBuilder(PostFileRequest postFileRequest) {
-            this(postFileRequest, null);
-        }
-
-        public PostFileRequestBuilder(PostFileRequest postFileRequest, AbstractHttpManager abstractHttpManager) {
-            super(postFileRequest, abstractHttpManager);
-            this.file = postFileRequest.file;
-            this.mediaType = postFileRequest.mediaType;
-        }
-
-        public PostFileRequestBuilder file(File file) {
-            this.file = file;
-            return this;
-        }
-
-        public PostFileRequestBuilder file(String str) {
-            this.file = new File(str);
-            return this;
-        }
-
-        public PostFileRequestBuilder mediaType(MediaType mediaType) {
-            this.mediaType = mediaType;
-            return this;
-        }
-
-        public PostFileRequestBuilder mediaType(String str) {
-            this.mediaType = MediaType.parse(str);
-            return this;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        public PostFileRequest build() {
-            return new PostFileRequest(this);
-        }
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<UserSettingPaCmdMsg> CREATOR = new Parcelable.Creator<UserSettingPaCmdMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.UserSettingPaCmdMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,26 +23,9 @@ public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProG
             return new UserSettingPaCmdMsg[i];
         }
     };
-    private long mPaId;
-    private int status;
-    private long updateTime;
-
-    public UserSettingPaCmdMsg() {
-        this.mPaId = -1L;
-        this.status = -1;
-        this.updateTime = -1L;
-        setNotifyCmd(23);
-    }
-
-    private UserSettingPaCmdMsg(Parcel parcel) {
-        super(parcel);
-        this.mPaId = -1L;
-        this.status = -1;
-        this.updateTime = -1L;
-        this.mPaId = parcel.readLong();
-        this.status = parcel.readInt();
-        this.updateTime = parcel.readInt();
-    }
+    public long mPaId;
+    public int status;
+    public long updateTime;
 
     public long getPaId() {
         return this.mPaId;
@@ -50,14 +33,6 @@ public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProG
 
     public int getSyncStatus() {
         return this.status;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeLong(this.mPaId);
-        parcel.writeInt(this.status);
-        parcel.writeLong(this.updateTime);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -68,9 +43,34 @@ public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProG
             this.status = jSONObject.getInt("status");
             this.updateTime = jSONObject.getInt("update_time");
             return true;
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "parseJsonString", e);
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
             return false;
         }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+        parcel.writeLong(this.mPaId);
+        parcel.writeInt(this.status);
+        parcel.writeLong(this.updateTime);
+    }
+
+    public UserSettingPaCmdMsg() {
+        this.mPaId = -1L;
+        this.status = -1;
+        this.updateTime = -1L;
+        setNotifyCmd(23);
+    }
+
+    public UserSettingPaCmdMsg(Parcel parcel) {
+        super(parcel);
+        this.mPaId = -1L;
+        this.status = -1;
+        this.updateTime = -1L;
+        this.mPaId = parcel.readLong();
+        this.status = parcel.readInt();
+        this.updateTime = parcel.readInt();
     }
 }

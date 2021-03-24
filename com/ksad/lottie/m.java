@@ -1,26 +1,27 @@
 package com.ksad.lottie;
 
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<String, String> f5371a;
-    private boolean b;
+    public final Map<String, String> f31446a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f31447b;
 
     private String b(String str) {
         return str;
     }
 
     public final String a(String str) {
-        if (this.b && this.f5371a.containsKey(str)) {
-            return this.f5371a.get(str);
+        if (this.f31447b && this.f31446a.containsKey(str)) {
+            return this.f31446a.get(str);
         }
-        String b = b(str);
-        if (this.b) {
-            this.f5371a.put(str, b);
-            return b;
+        String b2 = b(str);
+        if (this.f31447b) {
+            this.f31446a.put(str, b2);
         }
-        return b;
+        return b2;
     }
 }

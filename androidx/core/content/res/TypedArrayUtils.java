@@ -14,24 +14,32 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleableRes;
 import org.xmlpull.v1.XmlPullParser;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class TypedArrayUtils {
-    private static final String NAMESPACE = "http://schemas.android.com/apk/res/android";
+    public static final String NAMESPACE = "http://schemas.android.com/apk/res/android";
 
-    public static boolean hasAttribute(@NonNull XmlPullParser xmlPullParser, @NonNull String str) {
-        return xmlPullParser.getAttributeValue(NAMESPACE, str) != null;
+    public static int getAttr(@NonNull Context context, int i, int i2) {
+        TypedValue typedValue = new TypedValue();
+        context.getTheme().resolveAttribute(i, typedValue, true);
+        return typedValue.resourceId != 0 ? i : i2;
     }
 
-    public static float getNamedFloat(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, float f) {
-        return !hasAttribute(xmlPullParser, str) ? f : typedArray.getFloat(i, f);
+    public static boolean getBoolean(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2, boolean z) {
+        return typedArray.getBoolean(i, typedArray.getBoolean(i2, z));
+    }
+
+    @Nullable
+    public static Drawable getDrawable(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2) {
+        Drawable drawable = typedArray.getDrawable(i);
+        return drawable == null ? typedArray.getDrawable(i2) : drawable;
+    }
+
+    public static int getInt(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2, int i3) {
+        return typedArray.getInt(i, typedArray.getInt(i2, i3));
     }
 
     public static boolean getNamedBoolean(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, boolean z) {
         return !hasAttribute(xmlPullParser, str) ? z : typedArray.getBoolean(i, z);
-    }
-
-    public static int getNamedInt(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, int i2) {
-        return !hasAttribute(xmlPullParser, str) ? i2 : typedArray.getInt(i, i2);
     }
 
     @ColorInt
@@ -43,7 +51,8 @@ public class TypedArrayUtils {
         if (hasAttribute(xmlPullParser, str)) {
             TypedValue typedValue = new TypedValue();
             typedArray.getValue(i, typedValue);
-            if (typedValue.type >= 28 && typedValue.type <= 31) {
+            int i3 = typedValue.type;
+            if (i3 >= 28 && i3 <= 31) {
                 return ComplexColorCompat.from(typedValue.data);
             }
             ComplexColorCompat inflate = ComplexColorCompat.inflate(typedArray.getResources(), typedArray.getResourceId(i, 0), theme);
@@ -52,6 +61,14 @@ public class TypedArrayUtils {
             }
         }
         return ComplexColorCompat.from(i2);
+    }
+
+    public static float getNamedFloat(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, float f2) {
+        return !hasAttribute(xmlPullParser, str) ? f2 : typedArray.getFloat(i, f2);
+    }
+
+    public static int getNamedInt(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, int i2) {
+        return !hasAttribute(xmlPullParser, str) ? i2 : typedArray.getInt(i, i2);
     }
 
     @AnyRes
@@ -67,36 +84,6 @@ public class TypedArrayUtils {
         return null;
     }
 
-    @Nullable
-    public static TypedValue peekNamedValue(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, int i) {
-        if (hasAttribute(xmlPullParser, str)) {
-            return typedArray.peekValue(i);
-        }
-        return null;
-    }
-
-    @NonNull
-    public static TypedArray obtainAttributes(@NonNull Resources resources, @Nullable Resources.Theme theme, @NonNull AttributeSet attributeSet, @NonNull int[] iArr) {
-        return theme == null ? resources.obtainAttributes(attributeSet, iArr) : theme.obtainStyledAttributes(attributeSet, iArr, 0, 0);
-    }
-
-    public static boolean getBoolean(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2, boolean z) {
-        return typedArray.getBoolean(i, typedArray.getBoolean(i2, z));
-    }
-
-    @Nullable
-    public static Drawable getDrawable(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2) {
-        Drawable drawable = typedArray.getDrawable(i);
-        if (drawable == null) {
-            return typedArray.getDrawable(i2);
-        }
-        return drawable;
-    }
-
-    public static int getInt(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2, int i3) {
-        return typedArray.getInt(i, typedArray.getInt(i2, i3));
-    }
-
     @AnyRes
     public static int getResourceId(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2, @AnyRes int i3) {
         return typedArray.getResourceId(i, typedArray.getResourceId(i2, i3));
@@ -105,36 +92,38 @@ public class TypedArrayUtils {
     @Nullable
     public static String getString(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2) {
         String string = typedArray.getString(i);
-        if (string == null) {
-            return typedArray.getString(i2);
-        }
-        return string;
+        return string == null ? typedArray.getString(i2) : string;
     }
 
     @Nullable
     public static CharSequence getText(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2) {
         CharSequence text = typedArray.getText(i);
-        if (text == null) {
-            return typedArray.getText(i2);
-        }
-        return text;
+        return text == null ? typedArray.getText(i2) : text;
     }
 
     @Nullable
     public static CharSequence[] getTextArray(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2) {
         CharSequence[] textArray = typedArray.getTextArray(i);
-        if (textArray == null) {
-            return typedArray.getTextArray(i2);
+        return textArray == null ? typedArray.getTextArray(i2) : textArray;
+    }
+
+    public static boolean hasAttribute(@NonNull XmlPullParser xmlPullParser, @NonNull String str) {
+        return xmlPullParser.getAttributeValue("http://schemas.android.com/apk/res/android", str) != null;
+    }
+
+    @NonNull
+    public static TypedArray obtainAttributes(@NonNull Resources resources, @Nullable Resources.Theme theme, @NonNull AttributeSet attributeSet, @NonNull int[] iArr) {
+        if (theme == null) {
+            return resources.obtainAttributes(attributeSet, iArr);
         }
-        return textArray;
+        return theme.obtainStyledAttributes(attributeSet, iArr, 0, 0);
     }
 
-    public static int getAttr(@NonNull Context context, int i, int i2) {
-        TypedValue typedValue = new TypedValue();
-        context.getTheme().resolveAttribute(i, typedValue, true);
-        return typedValue.resourceId != 0 ? i : i2;
-    }
-
-    private TypedArrayUtils() {
+    @Nullable
+    public static TypedValue peekNamedValue(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, int i) {
+        if (hasAttribute(xmlPullParser, str)) {
+            return typedArray.peekValue(i);
+        }
+        return null;
     }
 }

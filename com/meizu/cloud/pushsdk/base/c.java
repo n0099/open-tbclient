@@ -12,109 +12,121 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7386a = "";
-    private static String b = "";
+    public static String f37650a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f37651b = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(b)) {
-            if (a()) {
-                b = d(context);
-            } else {
-                b = c(context);
-            }
-            return b;
+        if (TextUtils.isEmpty(f37651b)) {
+            f37651b = !a() ? c(context) : d(context);
+            return f37651b;
         }
-        return b;
+        return f37651b;
     }
 
-    private static String a(String str) {
+    public static String a(String str) {
+        String str2;
         try {
             FileInputStream fileInputStream = new FileInputStream("/sys/class/net/" + str + "/address");
             Scanner scanner = new Scanner(fileInputStream);
-            r0 = scanner.hasNextLine() ? scanner.nextLine().trim() : null;
+            r1 = scanner.hasNextLine() ? scanner.nextLine().trim() : null;
             fileInputStream.close();
-        } catch (FileNotFoundException e) {
-            com.meizu.cloud.a.a.e("DeviceUtils", "getMacAddressWithIfName File not found Exception");
-        } catch (IOException e2) {
-            com.meizu.cloud.a.a.e("DeviceUtils", "getMacAddressWithIfName IOException");
-        } catch (Exception e3) {
-            com.meizu.cloud.a.a.e("DeviceUtils", "getMacAddressWithIfName Exception ");
+        } catch (FileNotFoundException unused) {
+            str2 = "getMacAddressWithIfName File not found Exception";
+            d.j.a.a.a.b("DeviceUtils", str2);
+            return r1;
+        } catch (IOException unused2) {
+            str2 = "getMacAddressWithIfName IOException";
+            d.j.a.a.a.b("DeviceUtils", str2);
+            return r1;
+        } catch (Exception unused3) {
+            str2 = "getMacAddressWithIfName Exception ";
+            d.j.a.a.a.b("DeviceUtils", str2);
+            return r1;
         }
-        return r0;
+        return r1;
     }
 
     public static boolean a() {
         String a2 = j.a("ro.target.product");
         if (TextUtils.isEmpty(a2)) {
-            com.meizu.cloud.a.a.i("DeviceUtils", "current product is phone");
+            d.j.a.a.a.d("DeviceUtils", "current product is phone");
             return true;
         }
-        com.meizu.cloud.a.a.i("DeviceUtils", "current product is " + a2);
+        d.j.a.a.a.d("DeviceUtils", "current product is " + a2);
         return false;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0038, code lost:
+        if (r5.getType() == 9) goto L20;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String b(Context context) {
-        WifiInfo connectionInfo;
         String str;
-        String str2 = null;
-        if (TextUtils.isEmpty(f7386a)) {
+        WifiInfo connectionInfo;
+        String macAddress;
+        if (TextUtils.isEmpty(f37650a)) {
             try {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                    if (connectivityManager != null) {
-                        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-                        if (activeNetworkInfo == null) {
-                            str = a("wlan0");
-                            if (TextUtils.isEmpty(str)) {
-                                str = a("eth0");
-                            }
-                        } else if (activeNetworkInfo.getType() == 1) {
-                            str = a("wlan0");
-                        } else if (activeNetworkInfo.getType() == 9) {
-                            str = a("eth0");
-                        }
-                        str2 = str;
-                    }
-                    str = null;
-                    str2 = str;
-                } else {
-                    WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-                    if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
-                        str2 = connectionInfo.getMacAddress();
-                    }
-                }
-                f7386a = str2;
-            } catch (Exception e) {
-                com.meizu.cloud.a.a.e("DeviceUtils", "get address exception ");
+                str = null;
+            } catch (Exception unused) {
+                d.j.a.a.a.b("DeviceUtils", "get address exception ");
             }
-            return f7386a;
+            if (Build.VERSION.SDK_INT < 23) {
+                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+                if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
+                    macAddress = connectionInfo.getMacAddress();
+                    str = macAddress;
+                }
+                f37650a = str;
+                return f37650a;
+            }
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            if (connectivityManager != null) {
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo == null) {
+                    macAddress = a("wlan0");
+                    if (TextUtils.isEmpty(macAddress)) {
+                        macAddress = a("eth0");
+                    }
+                    str = macAddress;
+                } else if (activeNetworkInfo.getType() == 1) {
+                    macAddress = a("wlan0");
+                    str = macAddress;
+                }
+            }
+            f37650a = str;
+            return f37650a;
+            d.j.a.a.a.b("DeviceUtils", "get address exception ");
+            return f37650a;
         }
-        return f7386a;
+        return f37650a;
     }
 
-    private static String c(Context context) {
+    public static String c(Context context) {
         StringBuilder sb = new StringBuilder();
         String str = Build.SERIAL;
-        com.meizu.cloud.a.a.i("DeviceUtils", "device serial " + str);
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        d.j.a.a.a.d("DeviceUtils", "device serial " + str);
+        if (!TextUtils.isEmpty(str)) {
+            sb.append(str);
+            String b2 = b(context);
+            d.j.a.a.a.b("DeviceUtils", "mac address " + b2);
+            if (!TextUtils.isEmpty(b2)) {
+                sb.append(b2.replace(":", "").toUpperCase());
+                return sb.toString();
+            }
         }
-        sb.append(str);
-        String b2 = b(context);
-        com.meizu.cloud.a.a.e("DeviceUtils", "mac address " + b2);
-        if (TextUtils.isEmpty(b2)) {
-            return null;
-        }
-        sb.append(b2.replace(":", "").toUpperCase());
-        return sb.toString();
+        return null;
     }
 
-    private static String d(Context context) {
+    public static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.f7381a ? (String) a2.b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.f37634a ? (String) a2.f37635b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

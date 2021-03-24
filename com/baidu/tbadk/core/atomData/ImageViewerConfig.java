@@ -8,15 +8,15 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
+import d.b.h0.r.q.a2;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ImageViewerConfig extends IntentConfig {
     public static final String ABTEST = "abtest";
     public static final String ACCOUNT_BDUSS = "account_bduss";
@@ -50,6 +50,7 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String IS_SHOW_AD = "is_show_ad";
     public static final String IS_SHOW_BOTTOM_CONTAINER = "is_show_bottom_container";
     public static final String IS_SHOW_HOST = "is_show_host";
+    public static final String IS_VIDEO_WORKS_INFO = "is_video_works_info";
     public static final String LAST_ID = "last_id";
     public static final String NEED_BROADCAST = "need_broadcast";
     public static final String PARAM_IS_CDN = "isCdn";
@@ -64,224 +65,241 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String URL = "url";
     public static final String USER_ID = "user_id";
 
-    private ImageViewerConfig(Context context, a aVar) {
-        super(context);
-        Intent intent;
-        ImageUrlData imageUrlData;
-        if (aVar != null && (intent = getIntent()) != null) {
-            intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-            if (aVar.data != null && aVar.data.size() > 0) {
-                intent.putExtra(IS_DATA_VALID, DATA_VALID);
-                intent.putStringArrayListExtra("url", aVar.data);
-                intent.putExtra("index", aVar.index);
-                intent.putExtra("is_pv", true);
-                intent.putExtra(PV_TYPE, "pb");
-                intent.putExtra(PARAM_IS_CDN, aVar.eLl);
-                intent.putExtra("fname", aVar.forumName);
-                intent.putExtra("fid", aVar.forumId);
-                intent.putExtra("tid", aVar.threadId);
-                intent.putExtra(LAST_ID, aVar.lastId);
-                intent.putExtra(REVERSE_MODE, aVar.eLm);
-                intent.putExtra(ASSIST_URLS, aVar.eLn);
-                intent.putExtra(IS_SHOW_AD, aVar.eLo);
-                intent.putExtra(NEED_BROADCAST, aVar.eLp);
-                intent.putExtra(SEE_HOST, aVar.eLq);
-                int size = aVar.data.size();
-                for (int i = 0; i < size; i++) {
-                    String str = (String) aVar.data.get(i);
-                    if (!StringUtils.isNull(str)) {
-                        ImageUrlData imageUrlData2 = aVar.eLn != null ? (ImageUrlData) aVar.eLn.get(str) : null;
-                        if (imageUrlData2 == null) {
-                            ImageUrlData imageUrlData3 = new ImageUrlData();
-                            imageUrlData3.imageUrl = str;
-                            imageUrlData = imageUrlData3;
-                        } else {
-                            imageUrlData = imageUrlData2;
-                        }
-                        imageUrlData.overAllIndex = i + 1;
-                    }
-                }
-                TbadkCoreApplication.getInst();
-                intent.putExtra(IS_LOGIN, TbadkCoreApplication.isLogin());
-                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                if (currentAccountObj != null) {
-                    intent.putExtra("user_id", currentAccountObj.getID());
-                    intent.putExtra(ACCOUNT_BDUSS, currentAccountObj.getBDUSS());
-                    intent.putExtra(ACCOUNT_STOKEN, currentAccountObj.getStoken());
-                    intent.putExtra(ACCOUNT_TBS, currentAccountObj.getTbs());
-                }
-            } else {
-                intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
-            }
-            if (aVar.eLr != null) {
-                intent.putExtra(IS_BJH, aVar.eLr.bmB());
-                if (aVar.eLr.bmB()) {
-                    intent.putExtra(PARAM_IS_CDN, true);
-                }
-                intent.putExtra(IntentConfig.NID, aVar.eLr.bmq());
-                intent.putExtra(IntentConfig.CARD_TYPE, aVar.eLr.bpT());
-                intent.putExtra(IntentConfig.RECOM_SOURCE, aVar.eLr.mRecomSource);
-                intent.putExtra("ab_tag", aVar.eLr.mRecomAbTag);
-                intent.putExtra("weight", aVar.eLr.mRecomWeight);
-                intent.putExtra("extra", aVar.eLr.mRecomExtra);
-            }
-            if (!TextUtils.isEmpty(aVar.postId)) {
-                intent.putExtra("post_id", aVar.postId);
-            }
-            intent.putExtra(IS_CAN_DRAG, aVar.eLt);
-            if (aVar.eLu != null && aVar.eLv != null) {
-                int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put((int) aVar.eLv.left);
-                jSONArray.put((int) (aVar.eLv.top - statusBarHeight));
-                jSONArray.put((int) aVar.eLv.right);
-                jSONArray.put((int) (aVar.eLv.bottom - statusBarHeight));
-                jSONArray.put(aVar.eLu.left);
-                jSONArray.put(aVar.eLu.top - statusBarHeight);
-                jSONArray.put(aVar.eLu.right);
-                jSONArray.put(aVar.eLu.bottom - statusBarHeight);
-                intent.putExtra("source_rect_in_screen", jSONArray.toString());
-            }
-            intent.putExtra(IS_SHOW_HOST, aVar.eLw);
-            if (aVar.eLx) {
-                intent.putExtra(IS_DYNAMIC_CARD, true);
-                intent.putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
-                intent.putExtra(IS_SHOW_HOST, false);
-            }
-            intent.putExtra(IS_IDENTIFY_IMAGE, IdentifyImageSwitch.isOn());
-            intent.putExtra(IS_FROM_AI_APP, aVar.eLy);
-            intent.putExtra("from_forum_id", aVar.eLs);
-            intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
+    /* loaded from: classes3.dex */
+    public static final class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public ArrayList<String> f13192a;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f13194c;
+
+        /* renamed from: f  reason: collision with root package name */
+        public boolean f13197f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public String f13198g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public boolean f13199h;
+        public ConcurrentHashMap<String, ImageUrlData> i;
+        public boolean j;
+        public boolean k;
+        public a2 m;
+        public String n;
+        public String o;
+        public Rect q;
+        public RectF r;
+        public boolean t;
+        public boolean u;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f13193b = 0;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f13195d = "";
+
+        /* renamed from: e  reason: collision with root package name */
+        public String f13196e = "";
+        public boolean l = false;
+        public boolean p = true;
+        public boolean s = true;
+
+        public b A(String str) {
+            this.n = str;
+            return this;
+        }
+
+        public b B(int i) {
+            this.f13193b = i;
+            return this;
+        }
+
+        public b C(boolean z) {
+            this.f13197f = z;
+            return this;
+        }
+
+        public b D(boolean z) {
+            this.p = z;
+            return this;
+        }
+
+        public b E(boolean z) {
+            this.t = z;
+            return this;
+        }
+
+        public b F(boolean z) {
+            this.u = z;
+            return this;
+        }
+
+        public b G(boolean z) {
+            this.f13199h = z;
+            return this;
+        }
+
+        public b H(boolean z) {
+            this.l = z;
+            return this;
+        }
+
+        public b I(boolean z) {
+            this.j = z;
+            return this;
+        }
+
+        public b J(boolean z) {
+            this.s = z;
+            return this;
+        }
+
+        public b K(String str) {
+            this.f13198g = str;
+            return this;
+        }
+
+        public b L(boolean z) {
+            this.k = z;
+            return this;
+        }
+
+        public b M(String str) {
+            this.o = str;
+            return this;
+        }
+
+        public b N(Rect rect, RectF rectF) {
+            this.q = rect;
+            this.r = rectF;
+            return this;
+        }
+
+        public b O(a2 a2Var) {
+            this.m = a2Var;
+            return this;
+        }
+
+        public b P(String str) {
+            this.f13196e = str;
+            return this;
+        }
+
+        public ImageViewerConfig v(Context context) {
+            return new ImageViewerConfig(context, this);
+        }
+
+        public b w(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
+            this.i = concurrentHashMap;
+            return this;
+        }
+
+        public b x(ArrayList<String> arrayList) {
+            this.f13192a = arrayList;
+            return this;
+        }
+
+        public b y(String str) {
+            this.f13195d = str;
+            return this;
+        }
+
+        public b z(String str) {
+            this.f13194c = str;
+            return this;
         }
     }
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        private ArrayList<String> data;
-        private boolean eLl;
-        private boolean eLm;
-        private ConcurrentHashMap<String, ImageUrlData> eLn;
-        private boolean eLo;
-        private boolean eLp;
-        private cb eLr;
-        private String eLs;
-        private Rect eLu;
-        private RectF eLv;
-        private boolean eLx;
-        private boolean eLy;
-        private String forumName;
-        private String lastId;
-        private String postId;
-        private int index = 0;
-        private String forumId = "";
-        private String threadId = "";
-        private boolean eLq = false;
-        private boolean eLt = true;
-        private boolean eLw = true;
-
-        public a s(ArrayList<String> arrayList) {
-            this.data = arrayList;
-            return this;
+    public ImageViewerConfig(Context context, b bVar) {
+        super(context);
+        Intent intent;
+        if (bVar == null || (intent = getIntent()) == null) {
+            return;
         }
-
-        public a mR(int i) {
-            this.index = i;
-            return this;
+        intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
+        if (bVar.f13192a != null && bVar.f13192a.size() > 0) {
+            intent.putExtra(IS_DATA_VALID, DATA_VALID);
+            intent.putStringArrayListExtra("url", bVar.f13192a);
+            intent.putExtra("index", bVar.f13193b);
+            intent.putExtra("is_pv", true);
+            intent.putExtra(PV_TYPE, "pb");
+            intent.putExtra(PARAM_IS_CDN, bVar.f13197f);
+            intent.putExtra("fname", bVar.f13194c);
+            intent.putExtra("fid", bVar.f13195d);
+            intent.putExtra("tid", bVar.f13196e);
+            intent.putExtra(LAST_ID, bVar.f13198g);
+            intent.putExtra(REVERSE_MODE, bVar.f13199h);
+            intent.putExtra(ASSIST_URLS, bVar.i);
+            intent.putExtra(IS_SHOW_AD, bVar.j);
+            intent.putExtra(NEED_BROADCAST, bVar.k);
+            intent.putExtra(SEE_HOST, bVar.l);
+            int size = bVar.f13192a.size();
+            for (int i = 0; i < size; i++) {
+                String str = (String) bVar.f13192a.get(i);
+                if (!StringUtils.isNull(str)) {
+                    ImageUrlData imageUrlData = bVar.i != null ? (ImageUrlData) bVar.i.get(str) : null;
+                    if (imageUrlData == null) {
+                        imageUrlData = new ImageUrlData();
+                        imageUrlData.imageUrl = str;
+                    }
+                    imageUrlData.overAllIndex = i + 1;
+                }
+            }
+            TbadkCoreApplication.getInst();
+            intent.putExtra(IS_LOGIN, TbadkCoreApplication.isLogin());
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                intent.putExtra("user_id", currentAccountObj.getID());
+                intent.putExtra(ACCOUNT_BDUSS, currentAccountObj.getBDUSS());
+                intent.putExtra(ACCOUNT_STOKEN, currentAccountObj.getStoken());
+                intent.putExtra(ACCOUNT_TBS, currentAccountObj.getTbs());
+            }
+        } else {
+            intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
         }
-
-        public a zQ(String str) {
-            this.forumName = str;
-            return this;
+        if (bVar.m != null) {
+            intent.putExtra(IS_BJH, bVar.m.x2());
+            if (bVar.m.x2()) {
+                intent.putExtra(PARAM_IS_CDN, true);
+            }
+            intent.putExtra("nid", bVar.m.L0());
+            intent.putExtra("card_type", bVar.m.U0());
+            intent.putExtra("recom_source", bVar.m.R0);
+            intent.putExtra("ab_tag", bVar.m.T0);
+            intent.putExtra("weight", bVar.m.S0);
+            intent.putExtra("extra", bVar.m.U0);
+            if (bVar.m.z2()) {
+                intent.putExtra(IS_VIDEO_WORKS_INFO, true);
+            }
         }
-
-        public a zR(String str) {
-            this.forumId = str;
-            return this;
+        if (!TextUtils.isEmpty(bVar.o)) {
+            intent.putExtra("post_id", bVar.o);
         }
-
-        public a zS(String str) {
-            this.threadId = str;
-            return this;
+        intent.putExtra(IS_CAN_DRAG, bVar.p);
+        if (bVar.q != null && bVar.r != null) {
+            int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put((int) bVar.r.left);
+            float f2 = statusBarHeight;
+            jSONArray.put((int) (bVar.r.top - f2));
+            jSONArray.put((int) bVar.r.right);
+            jSONArray.put((int) (bVar.r.bottom - f2));
+            jSONArray.put(bVar.q.left);
+            jSONArray.put(bVar.q.top - statusBarHeight);
+            jSONArray.put(bVar.q.right);
+            jSONArray.put(bVar.q.bottom - statusBarHeight);
+            intent.putExtra(IntentConfig.SOURCE_RECT_IN_SCREEN, jSONArray.toString());
         }
-
-        public a jg(boolean z) {
-            this.eLl = z;
-            return this;
+        intent.putExtra(IS_SHOW_HOST, bVar.s);
+        if (bVar.t) {
+            intent.putExtra(IS_DYNAMIC_CARD, true);
+            intent.putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
+            intent.putExtra(IS_SHOW_HOST, false);
         }
-
-        public a zT(String str) {
-            this.lastId = str;
-            return this;
-        }
-
-        public a jh(boolean z) {
-            this.eLm = z;
-            return this;
-        }
-
-        public a d(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-            this.eLn = concurrentHashMap;
-            return this;
-        }
-
-        public a ji(boolean z) {
-            this.eLo = z;
-            return this;
-        }
-
-        public a jj(boolean z) {
-            this.eLp = z;
-            return this;
-        }
-
-        public a jk(boolean z) {
-            this.eLq = z;
-            return this;
-        }
-
-        public a s(cb cbVar) {
-            this.eLr = cbVar;
-            return this;
-        }
-
-        public a zU(String str) {
-            this.postId = str;
-            return this;
-        }
-
-        public a jl(boolean z) {
-            this.eLt = z;
-            return this;
-        }
-
-        public a a(Rect rect, RectF rectF) {
-            this.eLu = rect;
-            this.eLv = rectF;
-            return this;
-        }
-
-        public a jm(boolean z) {
-            this.eLw = z;
-            return this;
-        }
-
-        public a jn(boolean z) {
-            this.eLx = z;
-            return this;
-        }
-
-        public a jo(boolean z) {
-            this.eLy = z;
-            return this;
-        }
-
-        public a zV(String str) {
-            this.eLs = str;
-            return this;
-        }
-
-        public ImageViewerConfig eO(Context context) {
-            return new ImageViewerConfig(context, this);
-        }
+        intent.putExtra(IS_IDENTIFY_IMAGE, IdentifyImageSwitch.isOn());
+        intent.putExtra(IS_FROM_AI_APP, bVar.u);
+        intent.putExtra("from_forum_id", bVar.n);
+        intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class bn {
     public abstract SharedPreferences a(Context context);
 
@@ -12,6 +12,10 @@ public abstract class bn {
 
     public void b(Context context, String str, boolean z) {
         a(context).edit().putBoolean(str, z).commit();
+    }
+
+    public void c(Context context, String str) {
+        a(context).edit().remove(str).commit();
     }
 
     public int a(Context context, String str, int i) {
@@ -36,9 +40,5 @@ public abstract class bn {
 
     public void b(Context context, String str, String str2) {
         a(context).edit().putString(str, str2).commit();
-    }
-
-    public void c(Context context, String str) {
-        a(context).edit().remove(str).commit();
     }
 }

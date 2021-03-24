@@ -2,37 +2,41 @@ package com.kwad.sdk.internal.api;
 
 import android.text.TextUtils;
 import com.kwad.sdk.api.KsImage;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a implements KsImage {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6859a;
-    private int b;
-    private String c;
+    public int f35894a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f35895b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f35896c;
 
     public a(int i, int i2, String str) {
-        this.f6859a = i;
-        this.b = i2;
-        this.c = str;
+        this.f35894a = i;
+        this.f35895b = i2;
+        this.f35896c = str;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public int getHeight() {
-        return this.b;
+        return this.f35895b;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public String getImageUrl() {
-        return this.c;
+        return this.f35896c;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public int getWidth() {
-        return this.f6859a;
+        return this.f35894a;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public boolean isValid() {
-        return this.f6859a > 0 && this.b > 0 && !TextUtils.isEmpty(this.c);
+        return this.f35894a > 0 && this.f35895b > 0 && !TextUtils.isEmpty(this.f35896c);
     }
 }

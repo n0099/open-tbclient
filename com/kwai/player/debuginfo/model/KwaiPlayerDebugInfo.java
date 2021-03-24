@@ -1,10 +1,10 @@
 package com.kwai.player.debuginfo.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KwaiPlayerDebugInfo {
     public AppLiveQosDebugInfo mAppLiveQosDebugInfo;
     public AppLiveQosDebugInfoNew mAppLiveQosDebugInfoNew;
     public AppVodQosDebugInfoNew mAppVodQosDebugInfo;
-    private boolean mIsLive = false;
+    public boolean mIsLive = false;
     public PlayerConfigDebugInfo mPlayerApplyConfig = new PlayerConfigDebugInfo();
     public String mSdkVersion;
 

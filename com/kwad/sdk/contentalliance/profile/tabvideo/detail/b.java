@@ -15,12 +15,14 @@ import com.kwad.sdk.contentalliance.home.g;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.d;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends IFragmentActivityProxy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private ProfileVideoDetailParam f5868a;
-    private ImageView b;
+    public ProfileVideoDetailParam f32941a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f32942b;
 
     public static void a(Context context, ProfileVideoDetailParam profileVideoDetailParam) {
         if (profileVideoDetailParam == null) {
@@ -34,35 +36,35 @@ public class b extends IFragmentActivityProxy implements View.OnClickListener {
     private boolean a() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_PROFILE_VIDEO_DETAIL_PARAM");
         if (serializableExtra instanceof ProfileVideoDetailParam) {
-            this.f5868a = (ProfileVideoDetailParam) serializableExtra;
+            this.f32941a = (ProfileVideoDetailParam) serializableExtra;
         }
-        return (this.f5868a == null || this.f5868a.mEnterScene == 0) ? false : true;
+        ProfileVideoDetailParam profileVideoDetailParam = this.f32941a;
+        return (profileVideoDetailParam == null || profileVideoDetailParam.mEnterScene == 0) ? false : true;
     }
 
     private void b() {
-        this.b = (ImageView) findViewById(R.id.ksad_profile_back);
+        this.f32942b = (ImageView) findViewById(R.id.ksad_profile_back);
         if (d.a(getActivity())) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f32942b.getLayoutParams();
             marginLayoutParams.topMargin = ao.a((Context) getActivity());
-            this.b.setLayoutParams(marginLayoutParams);
+            this.f32942b.setLayoutParams(marginLayoutParams);
         }
-        this.b.setOnClickListener(this);
+        this.f32942b.setOnClickListener(this);
     }
 
     private void c() {
-        g a2 = g.a(new KsScene.Builder(this.f5868a.mEnterScene).build());
-        a2.getArguments().putSerializable("KEY_PROFILE_VIDEO_DETAIL_PARAM", this.f5868a);
+        g a2 = g.a(new KsScene.Builder(this.f32941a.mEnterScene).build());
+        a2.getArguments().putSerializable("KEY_PROFILE_VIDEO_DETAIL_PARAM", this.f32941a);
         getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, a2).commitAllowingStateLoss();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.b == view) {
+        if (this.f32942b == view) {
             onBackPressed();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);

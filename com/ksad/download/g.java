@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static PendingIntent a(DownloadTask downloadTask) {
         File file = new File(downloadTask.getTargetFilePath());
@@ -46,7 +46,10 @@ public class g {
         return PendingIntent.getActivity(a2, i, launchIntentForPackage, 134217728);
     }
 
-    private static Uri a(Context context, File file) {
-        return Build.VERSION.SDK_INT >= 24 ? FileProvider.getUriForFile(context, context.getPackageName() + ".adFileProvider", file) : Uri.fromFile(file);
+    public static Uri a(Context context, File file) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            return FileProvider.getUriForFile(context, context.getPackageName() + ".adFileProvider", file);
+        }
+        return Uri.fromFile(file);
     }
 }

@@ -1,31 +1,36 @@
 package com.baidu.platform.base;
 
 import com.baidu.mapapi.search.core.SearchResult;
-/* loaded from: classes4.dex */
-class c implements Runnable {
+/* loaded from: classes2.dex */
+public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f2865a;
-    final /* synthetic */ SearchResult b;
-    final /* synthetic */ Object c;
-    final /* synthetic */ a d;
+    public final /* synthetic */ d f9815a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ SearchResult f9816b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ Object f9817c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ a f9818d;
+
     public c(a aVar, d dVar, SearchResult searchResult, Object obj) {
-        this.d = aVar;
-        this.f2865a = dVar;
-        this.b = searchResult;
-        this.c = obj;
+        this.f9818d = aVar;
+        this.f9815a = dVar;
+        this.f9816b = searchResult;
+        this.f9817c = obj;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.f2865a != null) {
-            this.d.f2863a.lock();
+        if (this.f9815a != null) {
+            this.f9818d.f9807a.lock();
             try {
-                this.f2865a.a(this.b, this.c);
+                this.f9815a.a(this.f9816b, this.f9817c);
             } finally {
-                this.d.f2863a.unlock();
+                this.f9818d.f9807a.unlock();
             }
         }
     }

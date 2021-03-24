@@ -2,44 +2,21 @@ package com.baidu.tieba.wallet;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.tbadk.core.util.UrlManager;
 import java.net.URL;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class WalletStaticInit {
-    public static void init() {
-        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1
-            @Override // com.baidu.tbadk.core.util.bf.a
-            public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-                if (strArr == null || strArr.length == 0) {
-                    return 3;
-                }
-                String str = strArr[0];
-                if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, WalletStaticInit.buildWalletActivityUrl(str)));
-                    if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
-                        ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
-                    }
-                    return 0;
-                }
-                return 3;
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public static String buildWalletActivityUrl(String str) {
         URL url;
         try {
             url = new URL(str);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             url = null;
         }
         if (url == null) {
@@ -47,7 +24,7 @@ public class WalletStaticInit {
         }
         String query = url.getQuery();
         HashMap hashMap = new HashMap();
-        String[] split = query.split(ETAG.ITEM_SEPARATOR);
+        String[] split = query.split("&");
         if (split != null) {
             for (String str2 : split) {
                 String[] split2 = str2.split("=");
@@ -57,5 +34,24 @@ public class WalletStaticInit {
             }
         }
         return new JSONObject(hashMap).toString();
+    }
+
+    public static void init() {
+        UrlManager.getInstance().addListener(new UrlManager.UrlDealListener() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1
+            @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
+            public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+                if (strArr != null && strArr.length != 0) {
+                    String str = strArr[0];
+                    if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, WalletStaticInit.buildWalletActivityUrl(str)));
+                        if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
+                            ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
+                        }
+                        return 0;
+                    }
+                }
+                return 3;
+            }
+        });
     }
 }

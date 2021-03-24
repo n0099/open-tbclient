@@ -24,11 +24,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.core.internal.view.SupportMenu;
-import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.utils.BaseUtils;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.tieba.R;
+import com.baidu.ufosdk.ResumeCallBack;
 import com.baidu.ufosdk.f.m;
 import com.baidu.ufosdk.f.r;
 import com.baidu.ufosdk.f.s;
@@ -36,276 +35,288 @@ import com.baidu.ufosdk.ui.FeedbackEditActivity;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ScreenCapEditActivity extends Activity implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3629a = b() + "/ufo/ufo_screen.jpeg";
-    public static int b = SupportMenu.CATEGORY_MASK;
-    public static int d = 0;
-    private float A;
-    private float B;
-    private float C;
-    private float D;
-    private RelativeLayout F;
-    private ImageView G;
-    private ByteArrayOutputStream J;
-    private ImageView O;
-    private RelativeLayout P;
-    private RelativeLayout Q;
-    private Button R;
-    private TextView S;
-    private Button T;
-    private TextView U;
-    private TextView V;
-    private ImageView e;
-    private Bitmap f;
-    private Bitmap g;
-    private Bitmap h;
-    private Canvas m;
-    private int o;
-    private int p;
-    private a u;
-    private Bitmap v;
-    private Bitmap w;
-    private Bitmap x;
-    private Bitmap y;
-    private Bitmap z;
-    private float i = 0.0f;
-    private float j = 0.0f;
-    private float k = 0.0f;
-    private float l = 0.0f;
-    private Paint n = new Paint();
-    private boolean q = true;
-    private int r = 0;
-    private Path s = new Path();
-    public int c = 2;
-    private HashMap t = null;
-    private boolean E = false;
-    private boolean H = false;
-    private boolean I = false;
-    private boolean K = false;
-    private boolean L = false;
-    private int M = -1;
-    private Handler N = new i(this);
+    public static String f22963a = b() + "/ufo/ufo_screen.jpeg";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f22964b = -65536;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f22965d = 0;
+    public float A;
+    public float B;
+    public float C;
+    public float D;
+    public RelativeLayout F;
+    public ImageView G;
+    public ByteArrayOutputStream J;
+    public ImageView O;
+    public RelativeLayout P;
+    public RelativeLayout Q;
+    public Button R;
+    public TextView S;
+    public Button T;
+    public TextView U;
+    public TextView V;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f22967e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Bitmap f22968f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Bitmap f22969g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Bitmap f22970h;
+    public Canvas m;
+    public int o;
+    public int p;
+    public a u;
+    public Bitmap v;
+    public Bitmap w;
+    public Bitmap x;
+    public Bitmap y;
+    public Bitmap z;
+    public float i = 0.0f;
+    public float j = 0.0f;
+    public float k = 0.0f;
+    public float l = 0.0f;
+    public Paint n = new Paint();
+    public boolean q = true;
+    public int r = 0;
+    public Path s = new Path();
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f22966c = 2;
+    public HashMap t = null;
+    public boolean E = false;
+    public boolean H = false;
+    public boolean I = false;
+    public boolean K = false;
+    public boolean L = false;
+    public int M = -1;
+    public Handler N = new i(this);
 
     private void a() {
-        this.m = new Canvas(this.g);
-        this.n.setColor(b);
+        this.m = new Canvas(this.f22969g);
+        this.n.setColor(f22964b);
         this.n.setStyle(Paint.Style.STROKE);
-        if (this.n.getStrokeWidth() < d) {
-            this.n.setStrokeWidth(d);
+        float strokeWidth = this.n.getStrokeWidth();
+        int i = f22965d;
+        if (strokeWidth < i) {
+            this.n.setStrokeWidth(i);
         }
     }
 
-    private void a(float f, float f2, float f3, float f4) {
+    private void a(float f2, float f3, float f4, float f5) {
         this.n.setStrokeWidth(j.a(getApplicationContext(), 1.0f));
         this.n.setStyle(Paint.Style.FILL);
         this.n.setColor(-1);
-        this.m.drawCircle(f, f2, j.a(getApplicationContext(), 7.0f), this.n);
-        this.m.drawCircle(f, (f2 + f4) / 2.0f, j.a(getApplicationContext(), 5.0f), this.n);
-        this.m.drawCircle(f, f4, j.a(getApplicationContext(), 7.0f), this.n);
-        this.m.drawCircle((f + f3) / 2.0f, f2, j.a(getApplicationContext(), 5.0f), this.n);
-        this.m.drawCircle((f + f3) / 2.0f, f4, j.a(getApplicationContext(), 5.0f), this.n);
-        this.m.drawCircle(f3, (f2 + f4) / 2.0f, j.a(getApplicationContext(), 5.0f), this.n);
-        this.m.drawCircle(f3, f4, j.a(getApplicationContext(), 7.0f), this.n);
-        this.m.drawCircle(f3, f2, j.a(getApplicationContext(), 7.0f), this.n);
+        this.m.drawCircle(f2, f3, j.a(getApplicationContext(), 7.0f), this.n);
+        float f6 = (f3 + f5) / 2.0f;
+        this.m.drawCircle(f2, f6, j.a(getApplicationContext(), 5.0f), this.n);
+        this.m.drawCircle(f2, f5, j.a(getApplicationContext(), 7.0f), this.n);
+        float f7 = (f2 + f4) / 2.0f;
+        this.m.drawCircle(f7, f3, j.a(getApplicationContext(), 5.0f), this.n);
+        this.m.drawCircle(f7, f5, j.a(getApplicationContext(), 5.0f), this.n);
+        this.m.drawCircle(f4, f6, j.a(getApplicationContext(), 5.0f), this.n);
+        this.m.drawCircle(f4, f5, j.a(getApplicationContext(), 7.0f), this.n);
+        this.m.drawCircle(f4, f3, j.a(getApplicationContext(), 7.0f), this.n);
         this.n.setStyle(Paint.Style.STROKE);
-        this.n.setColor(SupportMenu.CATEGORY_MASK);
-        this.m.drawCircle(f, f2, j.a(getApplicationContext(), 7.0f), this.n);
-        this.m.drawCircle(f, (f2 + f4) / 2.0f, j.a(getApplicationContext(), 5.0f), this.n);
-        this.m.drawCircle(f, f4, j.a(getApplicationContext(), 7.0f), this.n);
-        this.m.drawCircle((f + f3) / 2.0f, f2, j.a(getApplicationContext(), 5.0f), this.n);
-        this.m.drawCircle((f + f3) / 2.0f, f4, j.a(getApplicationContext(), 5.0f), this.n);
-        this.m.drawCircle(f3, (f2 + f4) / 2.0f, j.a(getApplicationContext(), 5.0f), this.n);
-        this.m.drawCircle(f3, f4, j.a(getApplicationContext(), 7.0f), this.n);
-        this.m.drawCircle(f3, f2, j.a(getApplicationContext(), 7.0f), this.n);
-        this.m.drawLine(f3, f2, f3 - j.a(getApplicationContext(), 3.0f), f2 + j.a(getApplicationContext(), 3.0f), this.n);
-        this.m.drawLine(f3, f2, f3 + j.a(getApplicationContext(), 3.0f), f2 - j.a(getApplicationContext(), 3.0f), this.n);
-        this.m.drawLine(f3, f2, f3 - j.a(getApplicationContext(), 3.0f), f2 - j.a(getApplicationContext(), 3.0f), this.n);
-        this.m.drawLine(f3, f2, f3 + j.a(getApplicationContext(), 3.0f), f2 + j.a(getApplicationContext(), 3.0f), this.n);
+        this.n.setColor(-65536);
+        this.m.drawCircle(f2, f3, j.a(getApplicationContext(), 7.0f), this.n);
+        this.m.drawCircle(f2, f6, j.a(getApplicationContext(), 5.0f), this.n);
+        this.m.drawCircle(f2, f5, j.a(getApplicationContext(), 7.0f), this.n);
+        this.m.drawCircle(f7, f3, j.a(getApplicationContext(), 5.0f), this.n);
+        this.m.drawCircle(f7, f5, j.a(getApplicationContext(), 5.0f), this.n);
+        this.m.drawCircle(f4, f6, j.a(getApplicationContext(), 5.0f), this.n);
+        this.m.drawCircle(f4, f5, j.a(getApplicationContext(), 7.0f), this.n);
+        this.m.drawCircle(f4, f3, j.a(getApplicationContext(), 7.0f), this.n);
+        this.m.drawLine(f4, f3, f4 - j.a(getApplicationContext(), 3.0f), f3 + j.a(getApplicationContext(), 3.0f), this.n);
+        this.m.drawLine(f4, f3, f4 + j.a(getApplicationContext(), 3.0f), f3 - j.a(getApplicationContext(), 3.0f), this.n);
+        this.m.drawLine(f4, f3, f4 - j.a(getApplicationContext(), 3.0f), f3 - j.a(getApplicationContext(), 3.0f), this.n);
+        this.m.drawLine(f4, f3, f4 + j.a(getApplicationContext(), 3.0f), f3 + j.a(getApplicationContext(), 3.0f), this.n);
     }
 
-    private void a(int i, float f, float f2, float f3, float f4) {
-        switch (i) {
-            case -1:
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_NONE");
-                return;
-            case 0:
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_MOVE");
-                float f5 = f3 - f;
-                float f6 = f4 - f2;
-                this.u.a(this.A + f5);
-                this.u.b(this.B + f6);
-                this.u.c(f5 + this.C);
-                this.u.d(f6 + this.D);
-                a(false);
-                for (Map.Entry entry : this.t.entrySet()) {
-                    System.out.println("key= " + ((String) entry.getKey()) + " and value= " + entry.getValue());
-                    this.m.drawRect(((a) entry.getValue()).b(), ((a) entry.getValue()).c(), ((a) entry.getValue()).d(), ((a) entry.getValue()).e(), this.n);
-                }
-                a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
-                a(this.x, (this.u.b() + this.u.d()) / 2.0f, (this.u.c() + this.u.e()) / 2.0f);
-                return;
-            case 1:
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_LEFT");
-                this.u.a((f3 - f) + this.A);
-                a(false);
-                for (Map.Entry entry2 : this.t.entrySet()) {
-                    com.baidu.ufosdk.f.c.a("key= " + ((String) entry2.getKey()) + " and value= " + entry2.getValue());
-                    this.m.drawRect(((a) entry2.getValue()).b(), ((a) entry2.getValue()).c(), ((a) entry2.getValue()).d(), ((a) entry2.getValue()).e(), this.n);
-                }
-                a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
-                a(this.v, this.u.b(), (this.u.c() + this.u.e()) / 2.0f);
-                return;
-            case 2:
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_RIGHT");
-                this.u.c((f3 - f) + this.C);
-                a(false);
-                for (Map.Entry entry3 : this.t.entrySet()) {
-                    com.baidu.ufosdk.f.c.a("key= " + ((String) entry3.getKey()) + " and value= " + entry3.getValue());
-                    this.m.drawRect(((a) entry3.getValue()).b(), ((a) entry3.getValue()).c(), ((a) entry3.getValue()).d(), ((a) entry3.getValue()).e(), this.n);
-                }
-                a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
-                a(this.v, this.u.d(), (this.u.c() + this.u.e()) / 2.0f);
-                return;
-            case 3:
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_TOP");
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_DOWN");
-                this.u.b((f4 - f2) + this.B);
-                a(false);
-                for (Map.Entry entry4 : this.t.entrySet()) {
-                    com.baidu.ufosdk.f.c.a("key= " + ((String) entry4.getKey()) + " and value= " + entry4.getValue());
-                    this.m.drawRect(((a) entry4.getValue()).b(), ((a) entry4.getValue()).c(), ((a) entry4.getValue()).d(), ((a) entry4.getValue()).e(), this.n);
-                }
-                a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
-                a(this.z, (this.u.b() + this.u.d()) / 2.0f, this.u.c());
-                return;
-            case 4:
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_DOWN");
-                this.u.d((f4 - f2) + this.D);
-                a(false);
-                for (Map.Entry entry5 : this.t.entrySet()) {
-                    com.baidu.ufosdk.f.c.a("key= " + ((String) entry5.getKey()) + " and value= " + entry5.getValue());
-                    this.m.drawRect(((a) entry5.getValue()).b(), ((a) entry5.getValue()).c(), ((a) entry5.getValue()).d(), ((a) entry5.getValue()).e(), this.n);
-                }
-                a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
-                a(this.z, (this.u.b() + this.u.d()) / 2.0f, this.u.e());
-                return;
-            case 13:
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_LEFT_TOP");
-                this.u.a((f3 - f) + this.A);
-                this.u.b((f4 - f2) + this.B);
-                a(false);
-                for (Map.Entry entry6 : this.t.entrySet()) {
-                    com.baidu.ufosdk.f.c.a("key= " + ((String) entry6.getKey()) + " and value= " + entry6.getValue());
-                    this.m.drawRect(((a) entry6.getValue()).b(), ((a) entry6.getValue()).c(), ((a) entry6.getValue()).d(), ((a) entry6.getValue()).e(), this.n);
-                }
-                a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
-                a(this.w, this.u.b(), this.u.c());
-                return;
-            case 14:
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_LEFT_DOWN");
-                this.u.a((f3 - f) + this.A);
-                this.u.d((f4 - f2) + this.D);
-                a(false);
-                for (Map.Entry entry7 : this.t.entrySet()) {
-                    com.baidu.ufosdk.f.c.a("key= " + ((String) entry7.getKey()) + " and value= " + entry7.getValue());
-                    this.m.drawRect(((a) entry7.getValue()).b(), ((a) entry7.getValue()).c(), ((a) entry7.getValue()).d(), ((a) entry7.getValue()).e(), this.n);
-                }
-                a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
-                a(this.y, this.u.b(), this.u.e());
-                return;
-            case 23:
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_RIGHT_TOP");
-                return;
-            case 24:
-                com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_RIGHT_DOWN");
-                this.u.c((f3 - f) + this.C);
-                this.u.d((f4 - f2) + this.D);
-                a(false);
-                for (Map.Entry entry8 : this.t.entrySet()) {
-                    com.baidu.ufosdk.f.c.a("key= " + ((String) entry8.getKey()) + " and value= " + entry8.getValue());
-                    this.m.drawRect(((a) entry8.getValue()).b(), ((a) entry8.getValue()).c(), ((a) entry8.getValue()).d(), ((a) entry8.getValue()).e(), this.n);
-                }
-                a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
-                a(this.w, this.u.d(), this.u.e());
-                return;
-            default:
-                com.baidu.ufosdk.f.c.b("^v^ --> state default!");
-                return;
+    private void a(int i, float f2, float f3, float f4, float f5) {
+        if (i == -1) {
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_NONE");
+        } else if (i == 0) {
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_MOVE");
+            float f6 = f4 - f2;
+            float f7 = f5 - f3;
+            this.u.a(this.A + f6);
+            this.u.b(this.B + f7);
+            this.u.c(this.C + f6);
+            this.u.d(this.D + f7);
+            a(false);
+            for (Map.Entry entry : this.t.entrySet()) {
+                PrintStream printStream = System.out;
+                printStream.println("key= " + ((String) entry.getKey()) + " and value= " + entry.getValue());
+                this.m.drawRect(((a) entry.getValue()).b(), ((a) entry.getValue()).c(), ((a) entry.getValue()).d(), ((a) entry.getValue()).e(), this.n);
+            }
+            a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
+            a(this.x, (this.u.b() + this.u.d()) / 2.0f, (this.u.c() + this.u.e()) / 2.0f);
+        } else if (i == 1) {
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_LEFT");
+            this.u.a(this.A + (f4 - f2));
+            a(false);
+            for (Map.Entry entry2 : this.t.entrySet()) {
+                com.baidu.ufosdk.f.c.a("key= " + ((String) entry2.getKey()) + " and value= " + entry2.getValue());
+                this.m.drawRect(((a) entry2.getValue()).b(), ((a) entry2.getValue()).c(), ((a) entry2.getValue()).d(), ((a) entry2.getValue()).e(), this.n);
+            }
+            a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
+            a(this.v, this.u.b(), (this.u.c() + this.u.e()) / 2.0f);
+        } else if (i == 2) {
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_RIGHT");
+            this.u.c(this.C + (f4 - f2));
+            a(false);
+            for (Map.Entry entry3 : this.t.entrySet()) {
+                com.baidu.ufosdk.f.c.a("key= " + ((String) entry3.getKey()) + " and value= " + entry3.getValue());
+                this.m.drawRect(((a) entry3.getValue()).b(), ((a) entry3.getValue()).c(), ((a) entry3.getValue()).d(), ((a) entry3.getValue()).e(), this.n);
+            }
+            a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
+            a(this.v, this.u.d(), (this.u.c() + this.u.e()) / 2.0f);
+        } else if (i == 3) {
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_TOP");
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_DOWN");
+            this.u.b(this.B + (f5 - f3));
+            a(false);
+            for (Map.Entry entry4 : this.t.entrySet()) {
+                com.baidu.ufosdk.f.c.a("key= " + ((String) entry4.getKey()) + " and value= " + entry4.getValue());
+                this.m.drawRect(((a) entry4.getValue()).b(), ((a) entry4.getValue()).c(), ((a) entry4.getValue()).d(), ((a) entry4.getValue()).e(), this.n);
+            }
+            a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
+            a(this.z, (this.u.b() + this.u.d()) / 2.0f, this.u.c());
+        } else if (i == 4) {
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_DOWN");
+            this.u.d(this.D + (f5 - f3));
+            a(false);
+            for (Map.Entry entry5 : this.t.entrySet()) {
+                com.baidu.ufosdk.f.c.a("key= " + ((String) entry5.getKey()) + " and value= " + entry5.getValue());
+                this.m.drawRect(((a) entry5.getValue()).b(), ((a) entry5.getValue()).c(), ((a) entry5.getValue()).d(), ((a) entry5.getValue()).e(), this.n);
+            }
+            a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
+            a(this.z, (this.u.b() + this.u.d()) / 2.0f, this.u.e());
+        } else if (i == 13) {
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_LEFT_TOP");
+            this.u.a(this.A + (f4 - f2));
+            this.u.b(this.B + (f5 - f3));
+            a(false);
+            for (Map.Entry entry6 : this.t.entrySet()) {
+                com.baidu.ufosdk.f.c.a("key= " + ((String) entry6.getKey()) + " and value= " + entry6.getValue());
+                this.m.drawRect(((a) entry6.getValue()).b(), ((a) entry6.getValue()).c(), ((a) entry6.getValue()).d(), ((a) entry6.getValue()).e(), this.n);
+            }
+            a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
+            a(this.w, this.u.b(), this.u.c());
+        } else if (i == 14) {
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_LEFT_DOWN");
+            this.u.a(this.A + (f4 - f2));
+            this.u.d(this.D + (f5 - f3));
+            a(false);
+            for (Map.Entry entry7 : this.t.entrySet()) {
+                com.baidu.ufosdk.f.c.a("key= " + ((String) entry7.getKey()) + " and value= " + entry7.getValue());
+                this.m.drawRect(((a) entry7.getValue()).b(), ((a) entry7.getValue()).c(), ((a) entry7.getValue()).d(), ((a) entry7.getValue()).e(), this.n);
+            }
+            a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
+            a(this.y, this.u.b(), this.u.e());
+        } else if (i == 23) {
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_RIGHT_TOP");
+        } else if (i != 24) {
+            com.baidu.ufosdk.f.c.b("^v^ --> state default!");
+        } else {
+            com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_RIGHT_DOWN");
+            this.u.c(this.C + (f4 - f2));
+            this.u.d(this.D + (f5 - f3));
+            a(false);
+            for (Map.Entry entry8 : this.t.entrySet()) {
+                com.baidu.ufosdk.f.c.a("key= " + ((String) entry8.getKey()) + " and value= " + entry8.getValue());
+                this.m.drawRect(((a) entry8.getValue()).b(), ((a) entry8.getValue()).c(), ((a) entry8.getValue()).d(), ((a) entry8.getValue()).e(), this.n);
+            }
+            a(this.u.b(), this.u.c(), this.u.d(), this.u.e());
+            a(this.w, this.u.d(), this.u.e());
         }
     }
 
-    private void a(Bitmap bitmap, float f, float f2) {
-        this.m.drawBitmap(bitmap, f - (bitmap.getWidth() / 2), f2 - (bitmap.getHeight() / 2), this.n);
+    private void a(Bitmap bitmap, float f2, float f3) {
+        this.m.drawBitmap(bitmap, f2 - (bitmap.getWidth() / 2), f3 - (bitmap.getHeight() / 2), this.n);
     }
 
-    private void a(Canvas canvas, Paint paint, float f, float f2, float f3, float f4) {
+    private void a(Canvas canvas, Paint paint, float f2, float f3, float f4, float f5) {
         paint.setStrokeWidth(j.a(getApplicationContext(), 1.0f));
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(-1);
-        canvas.drawCircle(f, f2, j.a(getApplicationContext(), 7.0f), paint);
-        canvas.drawCircle(f, (f2 + f4) / 2.0f, j.a(getApplicationContext(), 5.0f), paint);
-        canvas.drawCircle(f, f4, j.a(getApplicationContext(), 7.0f), paint);
-        canvas.drawCircle((f + f3) / 2.0f, f2, j.a(getApplicationContext(), 5.0f), paint);
-        canvas.drawCircle((f + f3) / 2.0f, f4, j.a(getApplicationContext(), 5.0f), paint);
-        canvas.drawCircle(f3, (f2 + f4) / 2.0f, j.a(getApplicationContext(), 5.0f), paint);
-        canvas.drawCircle(f3, f4, j.a(getApplicationContext(), 7.0f), paint);
-        canvas.drawCircle(f3, f2, j.a(getApplicationContext(), 7.0f), paint);
+        canvas.drawCircle(f2, f3, j.a(getApplicationContext(), 7.0f), paint);
+        float f6 = (f3 + f5) / 2.0f;
+        canvas.drawCircle(f2, f6, j.a(getApplicationContext(), 5.0f), paint);
+        canvas.drawCircle(f2, f5, j.a(getApplicationContext(), 7.0f), paint);
+        float f7 = (f2 + f4) / 2.0f;
+        canvas.drawCircle(f7, f3, j.a(getApplicationContext(), 5.0f), paint);
+        canvas.drawCircle(f7, f5, j.a(getApplicationContext(), 5.0f), paint);
+        canvas.drawCircle(f4, f6, j.a(getApplicationContext(), 5.0f), paint);
+        canvas.drawCircle(f4, f5, j.a(getApplicationContext(), 7.0f), paint);
+        canvas.drawCircle(f4, f3, j.a(getApplicationContext(), 7.0f), paint);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(SupportMenu.CATEGORY_MASK);
-        canvas.drawCircle(f, f2, j.a(getApplicationContext(), 7.0f), paint);
-        canvas.drawCircle(f, (f2 + f4) / 2.0f, j.a(getApplicationContext(), 5.0f), paint);
-        canvas.drawCircle(f, f4, j.a(getApplicationContext(), 7.0f), paint);
-        canvas.drawCircle((f + f3) / 2.0f, f2, j.a(getApplicationContext(), 5.0f), paint);
-        canvas.drawCircle((f + f3) / 2.0f, f4, j.a(getApplicationContext(), 5.0f), paint);
-        canvas.drawCircle(f3, (f2 + f4) / 2.0f, j.a(getApplicationContext(), 5.0f), paint);
-        canvas.drawCircle(f3, f4, j.a(getApplicationContext(), 7.0f), paint);
-        canvas.drawCircle(f3, f2, j.a(getApplicationContext(), 7.0f), paint);
-        canvas.drawLine(f3, f2, f3 - j.a(getApplicationContext(), 3.0f), f2 + j.a(getApplicationContext(), 3.0f), paint);
-        canvas.drawLine(f3, f2, f3 + j.a(getApplicationContext(), 3.0f), f2 - j.a(getApplicationContext(), 3.0f), paint);
-        canvas.drawLine(f3, f2, f3 - j.a(getApplicationContext(), 3.0f), f2 - j.a(getApplicationContext(), 3.0f), paint);
-        canvas.drawLine(f3, f2, f3 + j.a(getApplicationContext(), 3.0f), f2 + j.a(getApplicationContext(), 3.0f), paint);
+        paint.setColor(-65536);
+        canvas.drawCircle(f2, f3, j.a(getApplicationContext(), 7.0f), paint);
+        canvas.drawCircle(f2, f6, j.a(getApplicationContext(), 5.0f), paint);
+        canvas.drawCircle(f2, f5, j.a(getApplicationContext(), 7.0f), paint);
+        canvas.drawCircle(f7, f3, j.a(getApplicationContext(), 5.0f), paint);
+        canvas.drawCircle(f7, f5, j.a(getApplicationContext(), 5.0f), paint);
+        canvas.drawCircle(f4, f6, j.a(getApplicationContext(), 5.0f), paint);
+        canvas.drawCircle(f4, f5, j.a(getApplicationContext(), 7.0f), paint);
+        canvas.drawCircle(f4, f3, j.a(getApplicationContext(), 7.0f), paint);
+        canvas.drawLine(f4, f3, f4 - j.a(getApplicationContext(), 3.0f), f3 + j.a(getApplicationContext(), 3.0f), paint);
+        canvas.drawLine(f4, f3, f4 + j.a(getApplicationContext(), 3.0f), f3 - j.a(getApplicationContext(), 3.0f), paint);
+        canvas.drawLine(f4, f3, f4 - j.a(getApplicationContext(), 3.0f), f3 - j.a(getApplicationContext(), 3.0f), paint);
+        canvas.drawLine(f4, f3, f4 + j.a(getApplicationContext(), 3.0f), f3 + j.a(getApplicationContext(), 3.0f), paint);
         String str = System.currentTimeMillis() + UUID.randomUUID().toString();
-        a aVar = new a(f, f2, f3, f4, str);
+        a aVar = new a(f2, f3, f4, f5, str);
         this.t.put(str, aVar);
         this.u = aVar;
         a(aVar);
         this.H = false;
-        if (this.H) {
-            this.Q.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+        if (0 != 0) {
+            this.Q.setBackgroundColor(-16777216);
             return;
         }
         RelativeLayout relativeLayout = this.Q;
         getApplicationContext();
-        relativeLayout.setBackgroundDrawable(m.a((int) ViewCompat.MEASURED_STATE_MASK));
+        relativeLayout.setBackgroundDrawable(m.a(-16777216));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(ScreenCapEditActivity screenCapEditActivity, int i) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        screenCapEditActivity.J = byteArrayOutputStream;
+        Bitmap bitmap = screenCapEditActivity.f22969g;
         int i2 = 90;
-        screenCapEditActivity.J = new ByteArrayOutputStream();
-        if (screenCapEditActivity.g != null) {
-            screenCapEditActivity.g.compress(Bitmap.CompressFormat.JPEG, 90, screenCapEditActivity.J);
+        if (bitmap != null) {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, byteArrayOutputStream);
         }
         com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + screenCapEditActivity.J.toByteArray().length);
-        com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + com.baidu.ufosdk.f.i.d(screenCapEditActivity.J.toByteArray().length));
+        com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + com.baidu.ufosdk.f.i.d((long) screenCapEditActivity.J.toByteArray().length));
         int length = screenCapEditActivity.J.toByteArray().length;
         while (length > 300000 && i2 >= 0) {
             i2 -= 10;
             com.baidu.ufosdk.f.c.c("quality is " + i2);
-            screenCapEditActivity.J = new ByteArrayOutputStream();
-            screenCapEditActivity.g.compress(Bitmap.CompressFormat.JPEG, i2, screenCapEditActivity.J);
+            ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+            screenCapEditActivity.J = byteArrayOutputStream2;
+            screenCapEditActivity.f22969g.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream2);
             length = screenCapEditActivity.J.toByteArray().length;
             com.baidu.ufosdk.f.c.c("streamLength is " + length);
         }
         com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + screenCapEditActivity.J.toByteArray().length);
-        com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + com.baidu.ufosdk.f.i.d(screenCapEditActivity.J.toByteArray().length));
+        com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + com.baidu.ufosdk.f.i.d((long) screenCapEditActivity.J.toByteArray().length));
         new h(screenCapEditActivity, i).run();
     }
 
@@ -320,29 +331,39 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         try {
-            int width = this.f.getWidth();
-            int height = this.f.getHeight();
+            int width = this.f22968f.getWidth();
+            int height = this.f22968f.getHeight();
             Matrix matrix = new Matrix();
-            matrix.postScale((float) ((this.o * 1.0d) / width), (float) ((this.p * 1.0d) / height));
-            this.g = Bitmap.createBitmap(this.f, 0, 0, width, height, matrix, true).copy(Bitmap.Config.RGB_565, true);
-            this.e.setImageBitmap(this.g);
+            double d2 = this.o;
+            Double.isNaN(d2);
+            double d3 = width;
+            Double.isNaN(d3);
+            float f2 = (float) ((d2 * 1.0d) / d3);
+            double d4 = this.p;
+            Double.isNaN(d4);
+            double d5 = height;
+            Double.isNaN(d5);
+            matrix.postScale(f2, (float) ((d4 * 1.0d) / d5));
+            Bitmap copy = Bitmap.createBitmap(this.f22968f, 0, 0, width, height, matrix, true).copy(Bitmap.Config.RGB_565, true);
+            this.f22969g = copy;
+            this.f22967e.setImageBitmap(copy);
             a();
-            this.e.invalidate();
+            this.f22967e.invalidate();
             if (z) {
                 this.t.clear();
             }
-        } catch (Exception e) {
-            com.baidu.ufosdk.f.c.a("clearCanvas error!", e);
+        } catch (Exception e2) {
+            com.baidu.ufosdk.f.c.a("clearCanvas error!", e2);
             Toast.makeText(getApplicationContext(), s.a(BaseUtils.METHOD_SENDMESSAGE), 0).show();
             finish();
-        } catch (OutOfMemoryError e2) {
-            com.baidu.ufosdk.f.c.d("clearCanvas " + e2.getMessage());
+        } catch (OutOfMemoryError e3) {
+            com.baidu.ufosdk.f.c.d("clearCanvas " + e3.getMessage());
             Toast.makeText(getApplicationContext(), s.a(BaseUtils.METHOD_SENDMESSAGE), 0).show();
             finish();
         }
     }
 
-    private static String b() {
+    public static String b() {
         File externalStorageDirectory = Environment.getExternalStorageState().equals("mounted") ? Environment.getExternalStorageDirectory() : null;
         if (externalStorageDirectory == null) {
             return null;
@@ -350,40 +371,43 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         return externalStorageDirectory.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void i(ScreenCapEditActivity screenCapEditActivity) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        screenCapEditActivity.J = byteArrayOutputStream;
+        Bitmap bitmap = screenCapEditActivity.f22969g;
         int i = 90;
-        screenCapEditActivity.J = new ByteArrayOutputStream();
-        if (screenCapEditActivity.g != null) {
-            screenCapEditActivity.g.compress(Bitmap.CompressFormat.JPEG, 90, screenCapEditActivity.J);
+        if (bitmap != null) {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, byteArrayOutputStream);
         }
         com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + screenCapEditActivity.J.toByteArray().length);
-        com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + com.baidu.ufosdk.f.i.d(screenCapEditActivity.J.toByteArray().length));
+        com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + com.baidu.ufosdk.f.i.d((long) screenCapEditActivity.J.toByteArray().length));
         int length = screenCapEditActivity.J.toByteArray().length;
         while (length > 300000 && i >= 0) {
             i -= 10;
             com.baidu.ufosdk.f.c.c("quality is " + i);
-            screenCapEditActivity.J = new ByteArrayOutputStream();
-            screenCapEditActivity.g.compress(Bitmap.CompressFormat.JPEG, i, screenCapEditActivity.J);
+            ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+            screenCapEditActivity.J = byteArrayOutputStream2;
+            screenCapEditActivity.f22969g.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream2);
             length = screenCapEditActivity.J.toByteArray().length;
             com.baidu.ufosdk.f.c.c("streamLength is " + length);
         }
         com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + screenCapEditActivity.J.toByteArray().length);
-        com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + com.baidu.ufosdk.f.i.d(screenCapEditActivity.J.toByteArray().length));
+        com.baidu.ufosdk.f.c.c("stream.toByteArray() length is " + com.baidu.ufosdk.f.i.d((long) screenCapEditActivity.J.toByteArray().length));
         Intent intent = new Intent();
         intent.putExtra("shot", screenCapEditActivity.J.toByteArray());
         screenCapEditActivity.setResult(-1, intent);
         screenCapEditActivity.finish();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void j(ScreenCapEditActivity screenCapEditActivity) {
         String str = b() + "/ufo";
         try {
             File file = new File(str);
-            f3629a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
-            com.baidu.ufosdk.f.c.b("--savePic--" + f3629a);
-            File file2 = new File(f3629a);
+            f22963a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
+            StringBuilder sb = new StringBuilder("--savePic--");
+            sb.append(f22963a);
+            com.baidu.ufosdk.f.c.b(sb.toString());
+            File file2 = new File(f22963a);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -391,12 +415,12 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 file2.createNewFile();
             }
             FileOutputStream fileOutputStream = new FileOutputStream(file2);
-            screenCapEditActivity.g.compress(Bitmap.CompressFormat.JPEG, 90, fileOutputStream);
+            screenCapEditActivity.f22969g.compress(Bitmap.CompressFormat.JPEG, 90, fileOutputStream);
             fileOutputStream.flush();
             fileOutputStream.close();
             Toast.makeText(screenCapEditActivity, s.a("56"), 0).show();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -411,26 +435,35 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         return super.dispatchKeyEvent(keyEvent);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:50:0x057b  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x05a2  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0617  */
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onCreate(Bundle bundle) {
+        String str;
+        int i;
         FrameLayout.LayoutParams layoutParams;
+        int i2;
         super.onCreate(bundle);
         requestWindowFeature(1);
         r.a(this, getWindow());
         r.a(getWindow(), com.baidu.ufosdk.b.L);
         byte[] byteArrayExtra = getIntent().getByteArrayExtra("shot");
         String stringExtra = getIntent().getStringExtra("shotUrl");
-        this.K = getIntent().getBooleanExtra(UbcStatConstant.ContentType.UBC_TYPE_PK_DIRECT, false);
+        this.K = getIntent().getBooleanExtra("direct", false);
         this.L = getIntent().getBooleanExtra("from_app", false);
         this.M = getIntent().getIntExtra("extend_feedback_channel", -1);
         if (byteArrayExtra != null && byteArrayExtra.length > 0) {
-            this.f = BitmapFactory.decodeByteArray(byteArrayExtra, 0, byteArrayExtra.length);
+            this.f22968f = BitmapFactory.decodeByteArray(byteArrayExtra, 0, byteArrayExtra.length);
             this.I = true;
-            com.baidu.ufosdk.f.c.c("ScreenCapEditActivity --> bitmap via shot byte[] & bitmap size is " + (byteArrayExtra.length / 1024) + "kb");
+            str = "ScreenCapEditActivity --> bitmap via shot byte[] & bitmap size is " + (byteArrayExtra.length / 1024) + "kb";
         } else if (stringExtra != null && stringExtra.length() != 0) {
-            this.f = BitmapFactory.decodeFile(stringExtra);
+            this.f22968f = BitmapFactory.decodeFile(stringExtra);
             this.I = true;
-            com.baidu.ufosdk.f.c.c("ScreenCapEditActivity --> bitmap via shotUrl");
+            str = "ScreenCapEditActivity --> bitmap via shotUrl";
         } else if (b() == null) {
             com.baidu.ufosdk.f.c.d("ScreenCapEditActivity --> getSDCardPath() == null");
             Intent intent = new Intent();
@@ -441,28 +474,31 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             startActivity(intent);
             finish();
             return;
-        } else if (!new File(b() + "/ufo/ufo_screen.jpeg").exists()) {
-            com.baidu.ufosdk.f.c.d("getSDCardPath() != null & file not exists -> bitmap == null");
-            Intent intent2 = new Intent();
-            intent2.setClass(this, FeedbackEditActivity.class);
-            intent2.putExtra("fromlist", "no");
-            intent2.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-            intent2.putExtra("come_from", 2);
-            startActivity(intent2);
-            finish();
-            return;
         } else {
+            if (!new File(b() + "/ufo/ufo_screen.jpeg").exists()) {
+                com.baidu.ufosdk.f.c.d("getSDCardPath() != null & file not exists -> bitmap == null");
+                Intent intent2 = new Intent();
+                intent2.setClass(this, FeedbackEditActivity.class);
+                intent2.putExtra("fromlist", "no");
+                intent2.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
+                intent2.putExtra("come_from", 2);
+                startActivity(intent2);
+                finish();
+                return;
+            }
             try {
-                this.f = BitmapFactory.decodeFile(b() + "/ufo/ufo_screen.jpeg").copy(Bitmap.Config.RGB_565, true);
-            } catch (OutOfMemoryError e) {
-                com.baidu.ufosdk.f.c.d("clearCanvas " + e.getMessage());
+                this.f22968f = BitmapFactory.decodeFile(b() + "/ufo/ufo_screen.jpeg").copy(Bitmap.Config.RGB_565, true);
+            } catch (OutOfMemoryError e2) {
+                com.baidu.ufosdk.f.c.d("clearCanvas " + e2.getMessage());
                 Toast.makeText(getApplicationContext(), s.a(BaseUtils.METHOD_SENDMESSAGE), 0).show();
                 finish();
             }
             this.I = false;
-            com.baidu.ufosdk.f.c.c("ScreenCapEditActivity --> bitmap via screenshot");
+            str = "ScreenCapEditActivity --> bitmap via screenshot";
         }
-        if (this.f == null) {
+        com.baidu.ufosdk.f.c.c(str);
+        Bitmap bitmap = this.f22968f;
+        if (bitmap == null) {
             com.baidu.ufosdk.f.c.d("ScreenCapEditActivity --> [shot != null & bitmap == null]:decode shot to bitmap error!!");
             Intent intent3 = new Intent();
             intent3.setClass(this, FeedbackEditActivity.class);
@@ -473,75 +509,82 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             finish();
             return;
         }
-        int width = this.f.getWidth();
-        int height = this.f.getHeight();
+        int width = bitmap.getWidth();
+        int height = this.f22968f.getHeight();
         com.baidu.ufosdk.f.c.b("图片尺寸 --> width = " + width + "; height = " + height);
-        int i = width > height ? 3 : width * 4 > height * 3 ? 1 : width * 2 > height ? 0 : 2;
-        this.F = new RelativeLayout(this);
-        this.F.setFitsSystemWindows(true);
-        this.F.setId(R.id.BLOCK);
+        int i3 = width > height ? 3 : width * 4 > height * 3 ? 1 : width * 2 > height ? 0 : 2;
         RelativeLayout relativeLayout = new RelativeLayout(this);
-        relativeLayout.setId(R.id.BOTH);
+        this.F = relativeLayout;
+        relativeLayout.setFitsSystemWindows(true);
+        this.F.setId(R.id.BLOCK);
+        RelativeLayout relativeLayout2 = new RelativeLayout(this);
+        relativeLayout2.setId(R.id.BOTH);
         this.F.setBackgroundColor(-15066598);
-        this.R = new Button(this);
-        this.R.setText(s.a("36"));
+        Button button = new Button(this);
+        this.R = button;
+        button.setText(s.a(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR));
         this.R.setTextSize(com.baidu.ufosdk.b.M);
         this.R.setTextColor(-1);
         this.R.setGravity(17);
         this.R.setTextColor(-1);
         this.R.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0);
-        Button button = this.R;
+        Button button2 = this.R;
         getApplicationContext();
-        button.setBackgroundDrawable(m.a((int) ViewCompat.MEASURED_STATE_MASK));
+        button2.setBackgroundDrawable(m.a(-16777216));
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -1);
         layoutParams2.addRule(9);
         layoutParams2.addRule(15);
-        relativeLayout.addView(this.R, layoutParams2);
-        this.S = new TextView(this);
-        this.S.setId(R.id.Backward);
+        relativeLayout2.addView(this.R, layoutParams2);
+        TextView textView = new TextView(this);
+        this.S = textView;
+        textView.setId(R.id.Backward);
         this.S.setText(s.a("50"));
         this.S.setTextColor(-1);
         this.S.setTextSize(com.baidu.ufosdk.b.T);
         this.S.setGravity(17);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -1);
         layoutParams3.addRule(13);
-        relativeLayout.addView(this.S, layoutParams3);
-        this.T = new Button(this);
-        this.T.setText(s.a("51"));
+        relativeLayout2.addView(this.S, layoutParams3);
+        Button button3 = new Button(this);
+        this.T = button3;
+        button3.setText(s.a("51"));
         this.T.setId(R.id.CTRL);
         this.T.setTextColor(com.baidu.ufosdk.b.v);
         this.T.setTextSize(com.baidu.ufosdk.b.U);
         this.T.setGravity(17);
         this.T.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0);
-        Button button2 = this.T;
+        Button button4 = this.T;
         getApplicationContext();
-        button2.setBackgroundDrawable(m.a((int) ViewCompat.MEASURED_STATE_MASK));
+        button4.setBackgroundDrawable(m.a(-16777216));
         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -1);
         layoutParams4.addRule(11);
         layoutParams4.addRule(15);
-        relativeLayout.addView(this.T, layoutParams4);
-        relativeLayout.setBackgroundColor(-15066598);
+        relativeLayout2.addView(this.T, layoutParams4);
+        relativeLayout2.setBackgroundColor(-15066598);
         RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 70.0f));
         layoutParams5.addRule(10);
-        this.F.addView(relativeLayout, layoutParams5);
+        this.F.addView(relativeLayout2, layoutParams5);
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setId(R.id.DOWN);
         linearLayout.setOrientation(0);
         linearLayout.setBackgroundColor(-15066598);
-        this.Q = new RelativeLayout(this);
-        this.Q.setId(R.id.FUNCTION);
-        RelativeLayout relativeLayout2 = this.Q;
+        RelativeLayout relativeLayout3 = new RelativeLayout(this);
+        this.Q = relativeLayout3;
+        relativeLayout3.setId(R.id.Forward);
+        RelativeLayout relativeLayout4 = this.Q;
         getApplicationContext();
-        relativeLayout2.setBackgroundDrawable(m.a(-15395563));
-        this.G = new ImageView(this);
-        this.G.setId(R.id.SELECT);
+        relativeLayout4.setBackgroundDrawable(m.a(-15395563));
+        ImageView imageView = new ImageView(this);
+        this.G = imageView;
+        imageView.setId(R.id.SHIFT);
         this.G.setBackgroundDrawable(new BitmapDrawable(m.a(getApplicationContext(), "rect_normal.png")));
         RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f));
         layoutParams6.addRule(14);
         layoutParams6.setMargins(0, 0, 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f));
         this.Q.addView(this.G, layoutParams6);
-        this.U = new TextView(this);
-        this.U.setId(R.id.SHIFT);
+        TextView textView2 = new TextView(this);
+        this.U = textView2;
+        textView2.setId(R.id.STROKE);
         this.U.setText(s.a("52"));
         this.U.setTextColor(-1);
         this.U.setTextSize(12.0f);
@@ -552,22 +595,25 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         this.Q.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 2.0f));
         this.G.setOnClickListener(new b(this));
         this.Q.setOnClickListener(new c(this));
-        this.P = new RelativeLayout(this);
-        this.P.setClickable(false);
-        this.P.setId(R.id.STROKE);
-        RelativeLayout relativeLayout3 = this.P;
+        RelativeLayout relativeLayout5 = new RelativeLayout(this);
+        this.P = relativeLayout5;
+        relativeLayout5.setClickable(false);
+        this.P.setId(R.id.SYM);
+        RelativeLayout relativeLayout6 = this.P;
         getApplicationContext();
-        relativeLayout3.setBackgroundDrawable(m.a((int) ViewCompat.MEASURED_STATE_MASK));
+        relativeLayout6.setBackgroundDrawable(m.a(-16777216));
         this.P.setClickable(true);
-        this.O = new ImageView(this);
-        this.O.setId(R.id.TAG_GIFT_ITEM);
+        ImageView imageView2 = new ImageView(this);
+        this.O = imageView2;
+        imageView2.setId(R.id.TRIANGLE);
         this.O.setBackgroundDrawable(new BitmapDrawable(m.a(this, "delete_all_disable.png")));
         RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f));
         layoutParams8.addRule(14);
         layoutParams8.setMargins(0, 0, 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f));
         this.P.addView(this.O, layoutParams8);
-        this.V = new TextView(this);
-        this.V.setId(R.id.SYM);
+        TextView textView3 = new TextView(this);
+        this.V = textView3;
+        textView3.setId(R.id.TOP);
         this.V.setText(s.a("53"));
         this.V.setTextColor(-10066330);
         this.V.setTextSize(12.0f);
@@ -585,54 +631,82 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         layoutParams11.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), 0);
         this.F.addView(linearLayout, layoutParams11);
         FrameLayout frameLayout = new FrameLayout(this);
-        frameLayout.setId(R.id.FILL);
-        this.e = new ImageView(this);
-        this.e.setId(R.id.Emoji_GridView);
-        this.e.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-        com.baidu.ufosdk.f.c.a("^^ imgvStyle = " + i);
-        switch (i) {
-            case 0:
-                layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                break;
-            case 1:
-            case 2:
-            default:
-                layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                break;
-            case 3:
-                Pair a2 = j.a(this);
-                float f = -2.0f;
-                if (a2 != null) {
-                    int intValue = ((Integer) a2.first).intValue() - com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f);
-                    com.baidu.ufosdk.f.c.a("Measure ImageView width: " + intValue);
-                    f = (intValue / this.f.getWidth()) * this.f.getHeight();
-                    com.baidu.ufosdk.f.c.a("Measure ImageView height: " + f);
-                }
-                layoutParams = new FrameLayout.LayoutParams(-1, Math.round(f));
-                break;
-        }
-        layoutParams.gravity = 17;
-        frameLayout.addView(this.e, layoutParams);
-        RelativeLayout.LayoutParams layoutParams12 = new RelativeLayout.LayoutParams(-1, -1);
-        if (i == 3) {
-            layoutParams12.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f));
+        frameLayout.setId(R.id.FUNCTION);
+        ImageView imageView3 = new ImageView(this);
+        this.f22967e = imageView3;
+        imageView3.setId(R.id.FILL);
+        this.f22967e.setBackgroundColor(-16777216);
+        com.baidu.ufosdk.f.c.a("^^ imgvStyle = " + i3);
+        if (i3 == 0) {
+            i = -1;
+            layoutParams = new FrameLayout.LayoutParams(-1, -1);
+        } else if (i3 != 3) {
+            layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            i2 = 17;
+            i = -1;
+            layoutParams.gravity = i2;
+            frameLayout.addView(this.f22967e, layoutParams);
+            RelativeLayout.LayoutParams layoutParams12 = new RelativeLayout.LayoutParams(i, i);
+            if (i3 != 3) {
+                layoutParams12.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f));
+            } else {
+                layoutParams12.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f));
+            }
+            layoutParams12.addRule(3, relativeLayout2.getId());
+            layoutParams12.addRule(2, linearLayout.getId());
+            this.F.addView(frameLayout, layoutParams12);
+            this.T.setOnClickListener(new d(this));
+            this.R.setOnClickListener(new e(this));
+            this.P.setOnClickListener(new f(this));
+            this.O.setOnClickListener(new g(this));
+            setContentView(this.F);
+            this.f22967e.getViewTreeObserver().addOnGlobalLayoutListener(this);
+            if (this.f22968f != null) {
+                this.f22967e.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                this.f22967e.setImageBitmap(this.f22968f);
+            }
+            this.n.setColor(f22964b);
+            this.n.setStyle(Paint.Style.STROKE);
+            this.n.setStrokeCap(Paint.Cap.ROUND);
+            this.n.setStrokeJoin(Paint.Join.ROUND);
+            this.n.setAntiAlias(true);
+            this.t = new HashMap();
+            this.v = m.a(getApplicationContext(), "arrow_left_right.png");
+            this.w = m.a(getApplicationContext(), "arrow_left_up.png");
+            this.x = m.a(getApplicationContext(), "arrow_move.png");
+            this.y = m.a(getApplicationContext(), "arrow_right_up.png");
+            this.z = m.a(getApplicationContext(), "arrow_up_down.png");
+            f22965d = j.a(getApplicationContext(), this.f22966c);
         } else {
-            layoutParams12.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f));
+            Pair a2 = j.a(this);
+            float f2 = -2.0f;
+            if (a2 != null) {
+                int intValue = ((Integer) a2.first).intValue() - com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f);
+                com.baidu.ufosdk.f.c.a("Measure ImageView width: " + intValue);
+                f2 = ((float) this.f22968f.getHeight()) * (((float) intValue) / ((float) this.f22968f.getWidth()));
+                com.baidu.ufosdk.f.c.a("Measure ImageView height: " + f2);
+            }
+            i = -1;
+            layoutParams = new FrameLayout.LayoutParams(-1, Math.round(f2));
         }
-        layoutParams12.addRule(3, relativeLayout.getId());
-        layoutParams12.addRule(2, linearLayout.getId());
-        this.F.addView(frameLayout, layoutParams12);
+        i2 = 17;
+        layoutParams.gravity = i2;
+        frameLayout.addView(this.f22967e, layoutParams);
+        RelativeLayout.LayoutParams layoutParams122 = new RelativeLayout.LayoutParams(i, i);
+        if (i3 != 3) {
+        }
+        layoutParams122.addRule(3, relativeLayout2.getId());
+        layoutParams122.addRule(2, linearLayout.getId());
+        this.F.addView(frameLayout, layoutParams122);
         this.T.setOnClickListener(new d(this));
         this.R.setOnClickListener(new e(this));
         this.P.setOnClickListener(new f(this));
         this.O.setOnClickListener(new g(this));
         setContentView(this.F);
-        this.e.getViewTreeObserver().addOnGlobalLayoutListener(this);
-        if (this.f != null) {
-            this.e.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            this.e.setImageBitmap(this.f);
+        this.f22967e.getViewTreeObserver().addOnGlobalLayoutListener(this);
+        if (this.f22968f != null) {
         }
-        this.n.setColor(b);
+        this.n.setColor(f22964b);
         this.n.setStyle(Paint.Style.STROKE);
         this.n.setStrokeCap(Paint.Cap.ROUND);
         this.n.setStrokeJoin(Paint.Join.ROUND);
@@ -643,32 +717,42 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         this.x = m.a(getApplicationContext(), "arrow_move.png");
         this.y = m.a(getApplicationContext(), "arrow_right_up.png");
         this.z = m.a(getApplicationContext(), "arrow_up_down.png");
-        d = j.a(getApplicationContext(), this.c);
+        f22965d = j.a(getApplicationContext(), this.f22966c);
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         com.baidu.ufosdk.f.c.a("onGlobalLayout --> onGlobalLayout!!!");
-        if (this.r == 0) {
+        int i = this.r;
+        if (i == 0) {
             try {
-                this.r++;
-                this.o = this.e.getMeasuredWidth();
-                this.p = this.e.getMeasuredHeight();
-                int width = this.f.getWidth();
-                int height = this.f.getHeight();
+                this.r = i + 1;
+                this.o = this.f22967e.getMeasuredWidth();
+                this.p = this.f22967e.getMeasuredHeight();
+                int width = this.f22968f.getWidth();
+                int height = this.f22968f.getHeight();
                 Matrix matrix = new Matrix();
-                matrix.postScale((float) ((this.o * 1.0d) / width), (float) ((this.p * 1.0d) / height));
-                this.g = Bitmap.createBitmap(this.f, 0, 0, width, height, matrix, true).copy(Bitmap.Config.RGB_565, true);
+                double d2 = this.o;
+                Double.isNaN(d2);
+                double d3 = width;
+                Double.isNaN(d3);
+                float f2 = (float) ((d2 * 1.0d) / d3);
+                double d4 = this.p;
+                Double.isNaN(d4);
+                double d5 = height;
+                Double.isNaN(d5);
+                matrix.postScale(f2, (float) ((d4 * 1.0d) / d5));
+                this.f22969g = Bitmap.createBitmap(this.f22968f, 0, 0, width, height, matrix, true).copy(Bitmap.Config.RGB_565, true);
                 a();
-                this.e.setImageBitmap(this.g);
-                this.e.setOnTouchListener(this);
+                this.f22967e.setImageBitmap(this.f22969g);
+                this.f22967e.setOnTouchListener(this);
                 com.baidu.ufosdk.f.c.a("onGlobalLayout --> onGlobalLayout!!!--in");
-            } catch (Exception e) {
-                com.baidu.ufosdk.f.c.a("onGlobalLayout error!", e);
+            } catch (Exception e2) {
+                com.baidu.ufosdk.f.c.a("onGlobalLayout error!", e2);
                 Toast.makeText(getApplicationContext(), s.a(BaseUtils.METHOD_SENDMESSAGE), 0).show();
                 finish();
-            } catch (OutOfMemoryError e2) {
-                com.baidu.ufosdk.f.c.d("onGlobalLayout " + e2.getMessage());
+            } catch (OutOfMemoryError e3) {
+                com.baidu.ufosdk.f.c.d("onGlobalLayout " + e3.getMessage());
                 Toast.makeText(getApplicationContext(), s.a(BaseUtils.METHOD_SENDMESSAGE), 0).show();
                 finish();
             }
@@ -676,184 +760,212 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     }
 
     @Override // android.app.Activity
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
-        if (com.baidu.ufosdk.b.ac != null) {
-            com.baidu.ufosdk.b.ac.onResumeCallback();
+        ResumeCallBack resumeCallBack = com.baidu.ufosdk.b.ac;
+        if (resumeCallBack != null) {
+            resumeCallBack.onResumeCallback();
         }
-        this.R.setText(s.a("36"));
+        this.R.setText(s.a(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR));
         this.S.setText(s.a("50"));
         this.T.setText(s.a("51"));
         this.U.setText(s.a("52"));
         this.V.setText(s.a("53"));
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x01bb, code lost:
+        if (r19.u.c() < r19.u.e()) goto L74;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x01f1, code lost:
+        if (r19.u.b() > r19.u.d()) goto L74;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x01f3, code lost:
+        r0 = r19.u.b();
+        r4 = r19.u;
+        r4.a(r4.d());
+        r19.u.c(r0);
+     */
     @Override // android.view.View.OnTouchListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.k = motionEvent.getX();
-                this.l = motionEvent.getY();
-                this.i = motionEvent.getX();
-                this.j = motionEvent.getY();
-                this.s.moveTo(this.i, this.j);
-                this.h = Bitmap.createBitmap(this.g);
-                if (this.t.size() > 0 && this.u.f()) {
-                    this.u.a(this.u.a(this.k, this.l, j.a(getApplicationContext(), 7.0f), j.a(getApplicationContext(), 7.0f)));
-                    com.baidu.ufosdk.f.c.b("^#^ --> OperationTag: " + this.u.g());
-                    if (this.u.g() == 23) {
-                        a(false);
-                        this.t.remove(this.u.a());
-                        for (Map.Entry entry : this.t.entrySet()) {
-                            com.baidu.ufosdk.f.c.a("key= " + ((String) entry.getKey()) + " and value= " + entry.getValue());
-                            this.m.drawRect(((a) entry.getValue()).b(), ((a) entry.getValue()).c(), ((a) entry.getValue()).d(), ((a) entry.getValue()).e(), this.n);
-                        }
-                        return true;
+        float f2;
+        float f3;
+        Canvas canvas;
+        float f4;
+        float f5;
+        Paint paint;
+        float f6;
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            this.k = motionEvent.getX();
+            this.l = motionEvent.getY();
+            this.i = motionEvent.getX();
+            float y = motionEvent.getY();
+            this.j = y;
+            this.s.moveTo(this.i, y);
+            this.f22970h = Bitmap.createBitmap(this.f22969g);
+            if (this.t.size() > 0 && this.u.f()) {
+                a aVar = this.u;
+                aVar.a(aVar.a(this.k, this.l, j.a(getApplicationContext(), 7.0f), j.a(getApplicationContext(), 7.0f)));
+                com.baidu.ufosdk.f.c.b("^#^ --> OperationTag: " + this.u.g());
+                if (this.u.g() == 23) {
+                    a(false);
+                    this.t.remove(this.u.a());
+                    for (Map.Entry entry : this.t.entrySet()) {
+                        com.baidu.ufosdk.f.c.a("key= " + ((String) entry.getKey()) + " and value= " + entry.getValue());
+                        this.m.drawRect(((a) entry.getValue()).b(), ((a) entry.getValue()).c(), ((a) entry.getValue()).d(), ((a) entry.getValue()).e(), this.n);
                     }
                 }
-                break;
-            case 1:
-                float x = motionEvent.getX();
-                float y = motionEvent.getY();
-                if (this.q) {
-                    this.N.obtainMessage(0).sendToTarget();
-                    if (this.t.size() > 0) {
-                        switch (this.u.g()) {
-                            case 1:
-                            case 2:
-                                if (this.u.b() > this.u.d()) {
-                                    float b2 = this.u.b();
-                                    this.u.a(this.u.d());
-                                    this.u.c(b2);
-                                    break;
-                                }
-                                break;
-                            case 3:
-                            case 4:
-                                if (this.u.c() > this.u.e()) {
-                                    float c = this.u.c();
-                                    this.u.b(this.u.e());
-                                    this.u.d(c);
-                                    break;
-                                }
-                                break;
-                            case 13:
-                            case 14:
-                            case 24:
-                                if (this.u.b() > this.u.d() && this.u.c() > this.u.e()) {
-                                    float d2 = this.u.d();
-                                    float e = this.u.e();
-                                    this.u.c(this.u.b());
-                                    this.u.d(this.u.c());
-                                    this.u.a(d2);
-                                    this.u.b(e);
-                                }
-                                if (this.u.b() < this.u.d() && this.u.c() > this.u.e()) {
-                                    float c2 = this.u.c();
-                                    this.u.b(this.u.e());
-                                    this.u.d(c2);
-                                }
-                                if (this.u.b() > this.u.d() && this.u.c() < this.u.e()) {
-                                    float b3 = this.u.b();
-                                    this.u.a(this.u.d());
-                                    this.u.c(b3);
-                                    break;
-                                }
-                                break;
+            }
+        } else if (action == 1) {
+            float x = motionEvent.getX();
+            float y2 = motionEvent.getY();
+            if (this.q) {
+                this.N.obtainMessage(0).sendToTarget();
+                if (this.t.size() > 0) {
+                    int g2 = this.u.g();
+                    if (g2 != 1 && g2 != 2) {
+                        if (g2 == 3 || g2 == 4) {
+                            if (this.u.c() > this.u.e()) {
+                                float c2 = this.u.c();
+                                a aVar2 = this.u;
+                                aVar2.b(aVar2.e());
+                                this.u.d(c2);
+                            }
+                        } else if (g2 == 13 || g2 == 14 || g2 == 24) {
+                            if (this.u.b() > this.u.d() && this.u.c() > this.u.e()) {
+                                float d2 = this.u.d();
+                                float e2 = this.u.e();
+                                a aVar3 = this.u;
+                                aVar3.c(aVar3.b());
+                                a aVar4 = this.u;
+                                aVar4.d(aVar4.c());
+                                this.u.a(d2);
+                                this.u.b(e2);
+                            }
+                            if (this.u.b() < this.u.d() && this.u.c() > this.u.e()) {
+                                float c3 = this.u.c();
+                                a aVar5 = this.u;
+                                aVar5.b(aVar5.e());
+                                this.u.d(c3);
+                            }
+                            if (this.u.b() > this.u.d()) {
+                            }
                         }
                         com.baidu.ufosdk.f.c.b("###selectedRect.getOperateTag(): " + this.u.g());
                     }
-                    a(false);
-                    for (Map.Entry entry2 : this.t.entrySet()) {
-                        com.baidu.ufosdk.f.c.a("key= " + ((String) entry2.getKey()) + " and value= " + entry2.getValue());
-                        this.m.drawRect(((a) entry2.getValue()).b(), ((a) entry2.getValue()).c(), ((a) entry2.getValue()).d(), ((a) entry2.getValue()).e(), this.n);
-                        ((a) entry2.getValue()).a(false);
-                        ((a) entry2.getValue()).a(-1);
-                    }
-                    if (Math.abs(x - this.k) > 20.0f || Math.abs(y - this.l) > 20.0f) {
-                        if (this.E) {
-                            this.m.drawRect(this.k, this.l, x, y, this.n);
-                            float f = this.k;
-                            float f2 = this.l;
-                            if (x > f && y > f2) {
-                                a(this.m, this.n, f, f2, x, y);
-                            }
-                            if (x > f && y < f2) {
-                                a(this.m, this.n, f, y, x, f2);
-                            }
-                            if (x < f && y > f2) {
-                                a(this.m, this.n, x, f2, f, y);
-                            }
-                            if (x < f && y < f2) {
-                                a(this.m, this.n, x, y, f, f2);
-                            }
-                            if (x == f || y == f2) {
-                                a(this.m, this.n, f, f2, x, y);
-                            }
-                        }
-                        this.e.invalidate();
-                        break;
-                    } else {
-                        Iterator it = this.t.entrySet().iterator();
-                        while (true) {
-                            if (it.hasNext()) {
-                                Map.Entry entry3 = (Map.Entry) it.next();
-                                com.baidu.ufosdk.f.c.a("key= " + ((String) entry3.getKey()) + " and value= " + entry3.getValue());
-                                if (((a) entry3.getValue()).a(x, j.a(getApplicationContext(), 7.0f), y, j.a(getApplicationContext(), 7.0f))) {
-                                    ((a) entry3.getValue()).a(true);
-                                    ((a) entry3.getValue()).a(0);
-                                    a(((a) entry3.getValue()).b(), ((a) entry3.getValue()).c(), ((a) entry3.getValue()).d(), ((a) entry3.getValue()).e());
-                                    this.u = (a) entry3.getValue();
-                                    a((a) entry3.getValue());
-                                }
-                            }
-                        }
-                        this.e.invalidate();
-                        break;
-                    }
-                } else {
-                    this.s.reset();
-                    break;
+                    this.f22967e.invalidate();
                 }
-                break;
-            case 2:
-                float x2 = motionEvent.getX();
-                float y2 = motionEvent.getY();
-                if (this.m != null && this.n != null) {
-                    if (this.q) {
-                        this.g = Bitmap.createBitmap(this.h);
-                        this.e.setImageBitmap(this.g);
-                        a();
-                        if (this.t.size() > 0) {
-                            a(this.u.g(), this.k, this.l, x2, y2);
+                a(false);
+                for (Map.Entry entry2 : this.t.entrySet()) {
+                    com.baidu.ufosdk.f.c.a("key= " + ((String) entry2.getKey()) + " and value= " + entry2.getValue());
+                    this.m.drawRect(((a) entry2.getValue()).b(), ((a) entry2.getValue()).c(), ((a) entry2.getValue()).d(), ((a) entry2.getValue()).e(), this.n);
+                    ((a) entry2.getValue()).a(false);
+                    ((a) entry2.getValue()).a(-1);
+                }
+                if (Math.abs(x - this.k) <= 20.0f && Math.abs(y2 - this.l) <= 20.0f) {
+                    Iterator it = this.t.entrySet().iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
                         }
-                        if (this.H && (Math.abs(x2 - this.k) > 20.0f || Math.abs(y2 - this.l) > 20.0f)) {
-                            if (this.t.size() <= 0) {
-                                this.E = true;
-                                this.m.drawRect(this.k, this.l, x2, y2, this.n);
-                            } else if (this.u.f() && this.u.g() != -1) {
-                                this.E = false;
-                                return false;
-                            } else {
-                                this.E = true;
-                                this.m.drawRect(this.k, this.l, x2, y2, this.n);
-                            }
+                        Map.Entry entry3 = (Map.Entry) it.next();
+                        com.baidu.ufosdk.f.c.a("key= " + ((String) entry3.getKey()) + " and value= " + entry3.getValue());
+                        if (((a) entry3.getValue()).a(x, j.a(getApplicationContext(), 7.0f), y2, j.a(getApplicationContext(), 7.0f))) {
+                            ((a) entry3.getValue()).a(true);
+                            ((a) entry3.getValue()).a(0);
+                            a(((a) entry3.getValue()).b(), ((a) entry3.getValue()).c(), ((a) entry3.getValue()).d(), ((a) entry3.getValue()).e());
+                            this.u = (a) entry3.getValue();
+                            a((a) entry3.getValue());
+                            break;
                         }
-                        if (!this.H) {
+                    }
+                } else if (this.E) {
+                    this.m.drawRect(this.k, this.l, x, y2, this.n);
+                    float f7 = this.k;
+                    float f8 = this.l;
+                    if (x > f7 && y2 > f8) {
+                        a(this.m, this.n, f7, f8, x, y2);
+                    }
+                    if (x > f7 && y2 < f8) {
+                        a(this.m, this.n, f7, y2, x, f8);
+                    }
+                    if (x < f7 && y2 > f8) {
+                        a(this.m, this.n, x, f8, f7, y2);
+                    }
+                    if (x < f7 && y2 < f8) {
+                        a(this.m, this.n, x, y2, f7, f8);
+                    }
+                    if (x == f7 || y2 == f8) {
+                        a(this.m, this.n, f7, f8, x, y2);
+                    }
+                }
+                this.f22967e.invalidate();
+            } else {
+                this.s.reset();
+            }
+        } else if (action == 2) {
+            float x2 = motionEvent.getX();
+            float y3 = motionEvent.getY();
+            if (this.m != null && this.n != null) {
+                if (this.q) {
+                    Bitmap createBitmap = Bitmap.createBitmap(this.f22970h);
+                    this.f22969g = createBitmap;
+                    this.f22967e.setImageBitmap(createBitmap);
+                    a();
+                    if (this.t.size() > 0) {
+                        a(this.u.g(), this.k, this.l, x2, y3);
+                    }
+                    if (!this.H || (Math.abs(x2 - this.k) <= 20.0f && Math.abs(y3 - this.l) <= 20.0f)) {
+                        f2 = y3;
+                        f3 = x2;
+                    } else {
+                        if (this.t.size() <= 0) {
+                            f2 = y3;
+                            f3 = x2;
+                            this.E = true;
+                            canvas = this.m;
+                            f4 = this.k;
+                            f5 = this.l;
+                            paint = this.n;
+                            f6 = f3;
+                        } else if (this.u.f() && this.u.g() != -1) {
                             this.E = false;
+                            return false;
+                        } else {
+                            this.E = true;
+                            canvas = this.m;
+                            f4 = this.k;
+                            f5 = this.l;
+                            paint = this.n;
+                            f2 = y3;
+                            f6 = x2;
+                            f3 = x2;
                         }
-                    } else {
-                        this.g = Bitmap.createBitmap(this.h);
-                        this.e.setImageBitmap(this.g);
-                        a();
-                        this.s.lineTo(x2, y2);
-                        this.m.drawPath(this.s, this.n);
+                        canvas.drawRect(f4, f5, f6, f2, paint);
                     }
+                    if (!this.H) {
+                        this.E = false;
+                    }
+                    this.i = f3;
+                    this.j = f2;
+                    this.f22967e.invalidate();
+                } else {
+                    Bitmap createBitmap2 = Bitmap.createBitmap(this.f22970h);
+                    this.f22969g = createBitmap2;
+                    this.f22967e.setImageBitmap(createBitmap2);
+                    a();
+                    this.s.lineTo(x2, y3);
+                    this.m.drawPath(this.s, this.n);
                 }
-                this.i = x2;
-                this.j = y2;
-                this.e.invalidate();
-                break;
+            }
+            f2 = y3;
+            f3 = x2;
+            this.i = f3;
+            this.j = f2;
+            this.f22967e.invalidate();
         }
         return true;
     }

@@ -3,41 +3,43 @@ package com.baidu.cyberplayer.sdk.utils;
 import android.os.HandlerThread;
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DuplayerHandlerThread extends HandlerThread {
     public static final int STATE_IDLE = 0;
     public static final int STATE_IN_USE = 1;
     public static final String TAG = "DuplayerHandlerThread";
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1477a;
-    private volatile int b;
+    public long f5084a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public volatile int f5085b;
 
     public DuplayerHandlerThread(String str) {
         super(str);
-        this.b = 0;
-        this.f1477a = -1L;
+        this.f5085b = 0;
+        this.f5084a = -1L;
     }
 
     public DuplayerHandlerThread(String str, int i) {
         super(str, i);
-        this.b = 0;
-        this.f1477a = -1L;
+        this.f5085b = 0;
+        this.f5084a = -1L;
     }
 
     public long getIdleBeginTime() {
-        return this.f1477a;
+        return this.f5084a;
     }
 
     public int getRunState() {
-        return this.b;
+        return this.f5085b;
     }
 
     public void setIdleBeginTime(long j) {
-        this.f1477a = j;
+        this.f5084a = j;
     }
 
     public void setRunState(int i) {
-        this.b = i;
+        this.f5085b = i;
     }
 }

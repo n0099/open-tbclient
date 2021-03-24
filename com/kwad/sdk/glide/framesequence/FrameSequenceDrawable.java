@@ -16,47 +16,47 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FrameSequenceDrawable extends Drawable implements Animatable, Runnable {
-    private static final long DEFAULT_DELAY_MS = 100;
+    public static final long DEFAULT_DELAY_MS = 100;
     public static final int LOOP_DEFAULT = 3;
     public static final int LOOP_FINITE = 1;
     public static final int LOOP_INF = 2;
     @Deprecated
     public static final int LOOP_ONCE = 1;
-    private static final long MIN_DELAY_MS = 20;
-    private static final int STATE_DECODING = 2;
-    private static final int STATE_READY_TO_SWAP = 4;
-    private static final int STATE_SCHEDULED = 1;
-    private static final int STATE_WAITING_TO_SWAP = 3;
-    private static final String TAG = "FrameSequenceDrawable";
-    private static HandlerThread sDecodingThread;
-    private static Handler sDecodingThreadHandler;
-    private Bitmap mBackBitmap;
-    private BitmapShader mBackBitmapShader;
-    private final a mBitmapProvider;
-    private boolean mCircleMaskEnabled;
-    private int mCurrentLoop;
-    private Runnable mDecodeRunnable;
-    private boolean mDestroyed;
-    private Runnable mFinishedCallbackRunnable;
-    private final FrameSequence mFrameSequence;
-    private final FrameSequence.State mFrameSequenceState;
-    private Bitmap mFrontBitmap;
-    private BitmapShader mFrontBitmapShader;
-    private long mLastSwap;
-    private final Object mLock;
-    private int mLoopBehavior;
-    private int mLoopCount;
-    private int mNextFrameToDecode;
-    private long mNextSwap;
-    private b mOnFinishedListener;
-    private final Paint mPaint;
-    private final Rect mSrcRect;
-    private int mState;
-    private RectF mTempRectF;
-    private static final Object sLock = new Object();
-    private static a sAllocatingBitmapProvider = new a() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.1
+    public static final long MIN_DELAY_MS = 20;
+    public static final int STATE_DECODING = 2;
+    public static final int STATE_READY_TO_SWAP = 4;
+    public static final int STATE_SCHEDULED = 1;
+    public static final int STATE_WAITING_TO_SWAP = 3;
+    public static final String TAG = "FrameSequenceDrawable";
+    public static HandlerThread sDecodingThread;
+    public static Handler sDecodingThreadHandler;
+    public Bitmap mBackBitmap;
+    public BitmapShader mBackBitmapShader;
+    public final a mBitmapProvider;
+    public boolean mCircleMaskEnabled;
+    public int mCurrentLoop;
+    public Runnable mDecodeRunnable;
+    public boolean mDestroyed;
+    public Runnable mFinishedCallbackRunnable;
+    public final FrameSequence mFrameSequence;
+    public final FrameSequence.State mFrameSequenceState;
+    public Bitmap mFrontBitmap;
+    public BitmapShader mFrontBitmapShader;
+    public long mLastSwap;
+    public final Object mLock;
+    public int mLoopBehavior;
+    public int mLoopCount;
+    public int mNextFrameToDecode;
+    public long mNextSwap;
+    public b mOnFinishedListener;
+    public final Paint mPaint;
+    public final Rect mSrcRect;
+    public int mState;
+    public RectF mTempRectF;
+    public static final Object sLock = new Object();
+    public static a sAllocatingBitmapProvider = new a() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.1
         @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
         public Bitmap a(int i, int i2) {
             return Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
@@ -71,14 +71,14 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         Bitmap a(int i, int i2);
 
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(FrameSequenceDrawable frameSequenceDrawable);
     }
@@ -96,10 +96,8 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         this.mDecodeRunnable = new Runnable() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.2
             @Override // java.lang.Runnable
             public void run() {
-                long j;
                 boolean z;
                 Bitmap bitmap;
-                boolean z2;
                 synchronized (FrameSequenceDrawable.this.mLock) {
                     if (FrameSequenceDrawable.this.mDestroyed) {
                         return;
@@ -110,34 +108,33 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                     }
                     Bitmap bitmap2 = FrameSequenceDrawable.this.mBackBitmap;
                     FrameSequenceDrawable.this.mState = 2;
+                    long j = 0;
+                    boolean z2 = true;
                     try {
                         j = FrameSequenceDrawable.this.mFrameSequenceState.getFrame(i, bitmap2, i - 2);
                         z = false;
-                    } catch (Exception e) {
-                        Log.e(FrameSequenceDrawable.TAG, "exception during decode: " + e);
-                        j = 0;
+                    } catch (Exception e2) {
+                        Log.e(FrameSequenceDrawable.TAG, "exception during decode: " + e2);
                         z = true;
                     }
                     if (j < 20) {
-                        j = FrameSequenceDrawable.DEFAULT_DELAY_MS;
+                        j = 100;
                     }
                     synchronized (FrameSequenceDrawable.this.mLock) {
+                        bitmap = null;
                         if (FrameSequenceDrawable.this.mDestroyed) {
-                            bitmap = FrameSequenceDrawable.this.mBackBitmap;
+                            Bitmap bitmap3 = FrameSequenceDrawable.this.mBackBitmap;
                             FrameSequenceDrawable.this.mBackBitmap = null;
-                            z2 = false;
-                        } else if (FrameSequenceDrawable.this.mNextFrameToDecode < 0 || FrameSequenceDrawable.this.mState != 2) {
-                            bitmap = null;
-                            z2 = false;
-                        } else {
+                            bitmap = bitmap3;
+                        } else if (FrameSequenceDrawable.this.mNextFrameToDecode >= 0 && FrameSequenceDrawable.this.mState == 2) {
                             FrameSequenceDrawable.this.mNextSwap = z ? Long.MAX_VALUE : j + FrameSequenceDrawable.this.mLastSwap;
                             FrameSequenceDrawable.this.mState = 3;
-                            bitmap = null;
-                            z2 = true;
                         }
+                        z2 = false;
                     }
                     if (z2) {
-                        FrameSequenceDrawable.this.scheduleSelf(FrameSequenceDrawable.this, FrameSequenceDrawable.this.mNextSwap);
+                        FrameSequenceDrawable frameSequenceDrawable = FrameSequenceDrawable.this;
+                        frameSequenceDrawable.scheduleSelf(frameSequenceDrawable, frameSequenceDrawable.mNextSwap);
                     }
                     if (bitmap != null) {
                         FrameSequenceDrawable.this.mBitmapProvider.a(bitmap);
@@ -168,10 +165,15 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         this.mFrontBitmap = acquireAndValidateBitmap(aVar, width, height);
         this.mBackBitmap = acquireAndValidateBitmap(aVar, width, height);
         this.mSrcRect = new Rect(0, 0, width, height);
-        this.mPaint = new Paint();
-        this.mPaint.setFilterBitmap(true);
-        this.mFrontBitmapShader = new BitmapShader(this.mFrontBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
-        this.mBackBitmapShader = new BitmapShader(this.mBackBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        Paint paint = new Paint();
+        this.mPaint = paint;
+        paint.setFilterBitmap(true);
+        Bitmap bitmap = this.mFrontBitmap;
+        Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+        this.mFrontBitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
+        Bitmap bitmap2 = this.mBackBitmap;
+        Shader.TileMode tileMode2 = Shader.TileMode.CLAMP;
+        this.mBackBitmapShader = new BitmapShader(bitmap2, tileMode2, tileMode2);
         this.mLastSwap = 0L;
         this.mNextFrameToDecode = -1;
         this.mFrameSequenceState.getFrame(0, this.mFrontBitmap, -1);
@@ -182,7 +184,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         this(FrameSequence.decodeStream(inputStream));
     }
 
-    private static Bitmap acquireAndValidateBitmap(a aVar, int i, int i2) {
+    public static Bitmap acquireAndValidateBitmap(a aVar, int i, int i2) {
         Bitmap a2 = aVar.a(i, i2);
         if (a2.getWidth() < i || a2.getHeight() < i2 || a2.getConfig() != Bitmap.Config.ARGB_8888) {
             throw new IllegalArgumentException("Invalid bitmap provided");
@@ -196,13 +198,14 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         }
     }
 
-    private static void initializeDecodingThread() {
+    public static void initializeDecodingThread() {
         synchronized (sLock) {
             if (sDecodingThread != null) {
                 return;
             }
-            sDecodingThread = new HandlerThread("FrameSequence decoding thread", 10);
-            sDecodingThread.start();
+            HandlerThread handlerThread = new HandlerThread("FrameSequence decoding thread", 10);
+            sDecodingThread = handlerThread;
+            handlerThread.start();
             sDecodingThreadHandler = new Handler(sDecodingThread.getLooper());
         }
     }
@@ -214,7 +217,6 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     }
 
     public void destroy() {
-        Bitmap bitmap = null;
         if (this.mBitmapProvider == null) {
             throw new IllegalStateException("BitmapProvider must be non-null");
         }
@@ -222,16 +224,18 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
             if (this.mDestroyed) {
                 return;
             }
-            Bitmap bitmap2 = this.mFrontBitmap;
+            Bitmap bitmap = this.mFrontBitmap;
+            Bitmap bitmap2 = null;
             this.mFrontBitmap = null;
             if (this.mState != 2) {
-                bitmap = this.mBackBitmap;
+                Bitmap bitmap3 = this.mBackBitmap;
                 this.mBackBitmap = null;
+                bitmap2 = bitmap3;
             }
             this.mDestroyed = true;
-            this.mBitmapProvider.a(bitmap2);
-            if (bitmap != null) {
-                this.mBitmapProvider.a(bitmap);
+            this.mBitmapProvider.a(bitmap);
+            if (bitmap2 != null) {
+                this.mBitmapProvider.a(bitmap2);
             }
             this.mFrameSequenceState.destroy();
             this.mFrameSequence.destroy();
@@ -240,7 +244,6 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        boolean z = true;
         synchronized (this.mLock) {
             if (isDestroyed()) {
                 return;
@@ -256,9 +259,11 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                 this.mBackBitmapShader = this.mFrontBitmapShader;
                 this.mFrontBitmapShader = bitmapShader;
                 this.mLastSwap = SystemClock.uptimeMillis();
+                boolean z = true;
                 if (this.mNextFrameToDecode == this.mFrameSequence.getFrameCount() - 1) {
-                    this.mCurrentLoop++;
-                    if ((this.mLoopBehavior == 1 && this.mCurrentLoop == this.mLoopCount) || (this.mLoopBehavior == 3 && this.mCurrentLoop == this.mFrameSequence.getDefaultLoopCount())) {
+                    int i = this.mCurrentLoop + 1;
+                    this.mCurrentLoop = i;
+                    if ((this.mLoopBehavior == 1 && i == this.mLoopCount) || (this.mLoopBehavior == 3 && this.mCurrentLoop == this.mFrameSequence.getDefaultLoopCount())) {
                         z = false;
                     }
                 }
@@ -275,16 +280,17 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
             }
             Rect bounds = getBounds();
             int intrinsicWidth = getIntrinsicWidth();
-            int intrinsicHeight = getIntrinsicHeight();
-            float width = (bounds.width() * 1.0f) / intrinsicWidth;
+            float f2 = intrinsicWidth;
+            float width = (bounds.width() * 1.0f) / f2;
+            float intrinsicHeight = getIntrinsicHeight();
             float height = (bounds.height() * 1.0f) / intrinsicHeight;
             canvas.save();
             canvas.translate(bounds.left, bounds.top);
             canvas.scale(width, height);
             float min = Math.min(bounds.width(), bounds.height());
-            float f = min / width;
-            float f2 = min / height;
-            this.mTempRectF.set((intrinsicWidth - f) / 2.0f, (intrinsicHeight - f2) / 2.0f, (intrinsicWidth + f) / 2.0f, (f2 + intrinsicHeight) / 2.0f);
+            float f3 = min / width;
+            float f4 = min / height;
+            this.mTempRectF.set((f2 - f3) / 2.0f, (intrinsicHeight - f4) / 2.0f, (f2 + f3) / 2.0f, (intrinsicHeight + f4) / 2.0f);
             this.mPaint.setShader(this.mFrontBitmapShader);
             canvas.drawOval(this.mTempRectF, this.mPaint);
             canvas.restore();
@@ -333,9 +339,11 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
 
     @Override // java.lang.Runnable
     public void run() {
-        boolean z = false;
+        boolean z;
         synchronized (this.mLock) {
-            if (this.mNextFrameToDecode >= 0 && this.mState == 3) {
+            if (this.mNextFrameToDecode < 0 || this.mState != 3) {
+                z = false;
+            } else {
                 this.mState = 4;
                 z = true;
             }
@@ -387,10 +395,11 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
             return;
         }
         synchronized (this.mLock) {
-            if (this.mState != 1) {
-                this.mCurrentLoop = 0;
-                scheduleDecodeLocked();
+            if (this.mState == 1) {
+                return;
             }
+            this.mCurrentLoop = 0;
+            scheduleDecodeLocked();
         }
     }
 

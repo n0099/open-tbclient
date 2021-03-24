@@ -3,11 +3,11 @@ package com.baidu.android.pushservice.d;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.a.b;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class b {
     @SuppressLint({"InlinedApi"})
     public static void a(Context context, HashMap<String, String> hashMap) {
@@ -16,9 +16,9 @@ public final class b {
         hashMap.put("expires", (86400 + currentTimeMillis) + "");
         hashMap.put("v", "1");
         try {
-            hashMap.put("vcode", com.baidu.android.pushservice.i.f.a(URLEncoder.encode(currentTimeMillis + "bccs", "UTF-8").getBytes(), false));
-        } catch (UnsupportedEncodingException e) {
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+            hashMap.put("vcode", com.baidu.android.pushservice.j.f.a(URLEncoder.encode(currentTimeMillis + "bccs", "UTF-8").getBytes(), false));
+        } catch (UnsupportedEncodingException e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
         }
     }
 }

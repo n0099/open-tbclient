@@ -2,22 +2,17 @@ package org.apache.http.auth;
 
 import java.security.Principal;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NTCredentials implements Credentials {
     public NTCredentials(String str) {
         throw new RuntimeException("Stub!");
     }
 
-    public NTCredentials(String str, String str2, String str3, String str4) {
+    public boolean equals(Object obj) {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.auth.Credentials
-    public Principal getUserPrincipal() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getUserName() {
+    public String getDomain() {
         throw new RuntimeException("Stub!");
     }
 
@@ -26,7 +21,12 @@ public class NTCredentials implements Credentials {
         throw new RuntimeException("Stub!");
     }
 
-    public String getDomain() {
+    public String getUserName() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.auth.Credentials
+    public Principal getUserPrincipal() {
         throw new RuntimeException("Stub!");
     }
 
@@ -38,11 +38,11 @@ public class NTCredentials implements Credentials {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean equals(Object obj) {
+    public String toString() {
         throw new RuntimeException("Stub!");
     }
 
-    public String toString() {
+    public NTCredentials(String str, String str2, String str3, String str4) {
         throw new RuntimeException("Stub!");
     }
 }

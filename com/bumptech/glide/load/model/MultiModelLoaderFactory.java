@@ -13,68 +13,83 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MultiModelLoaderFactory {
-    private static final Factory DEFAULT_FACTORY = new Factory();
-    private static final ModelLoader<Object, Object> EMPTY_MODEL_LOADER = new EmptyModelLoader();
-    private final Set<Entry<?, ?>> alreadyUsedEntries;
-    private final List<Entry<?, ?>> entries;
-    private final Factory factory;
-    private final Pools.Pool<List<Throwable>> throwableListPool;
+    public static final Factory DEFAULT_FACTORY = new Factory();
+    public static final ModelLoader<Object, Object> EMPTY_MODEL_LOADER = new EmptyModelLoader();
+    public final Set<Entry<?, ?>> alreadyUsedEntries;
+    public final List<Entry<?, ?>> entries;
+    public final Factory factory;
+    public final Pools.Pool<List<Throwable>> throwableListPool;
+
+    /* loaded from: classes5.dex */
+    public static class EmptyModelLoader implements ModelLoader<Object, Object> {
+        @Override // com.bumptech.glide.load.model.ModelLoader
+        @Nullable
+        public ModelLoader.LoadData<Object> buildLoadData(@NonNull Object obj, int i, int i2, @NonNull Options options) {
+            return null;
+        }
+
+        @Override // com.bumptech.glide.load.model.ModelLoader
+        public boolean handles(@NonNull Object obj) {
+            return false;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class Entry<Model, Data> {
+        public final Class<Data> dataClass;
+        public final ModelLoaderFactory<? extends Model, ? extends Data> factory;
+        public final Class<Model> modelClass;
+
+        public Entry(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
+            this.modelClass = cls;
+            this.dataClass = cls2;
+            this.factory = modelLoaderFactory;
+        }
+
+        public boolean handles(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
+            return handles(cls) && this.dataClass.isAssignableFrom(cls2);
+        }
+
+        public boolean handles(@NonNull Class<?> cls) {
+            return this.modelClass.isAssignableFrom(cls);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class Factory {
+        @NonNull
+        public <Model, Data> MultiModelLoader<Model, Data> build(@NonNull List<ModelLoader<Model, Data>> list, @NonNull Pools.Pool<List<Throwable>> pool) {
+            return new MultiModelLoader<>(list, pool);
+        }
+    }
 
     public MultiModelLoaderFactory(@NonNull Pools.Pool<List<Throwable>> pool) {
         this(pool, DEFAULT_FACTORY);
     }
 
-    @VisibleForTesting
-    MultiModelLoaderFactory(@NonNull Pools.Pool<List<Throwable>> pool, @NonNull Factory factory) {
-        this.entries = new ArrayList();
-        this.alreadyUsedEntries = new HashSet();
-        this.throwableListPool = pool;
-        this.factory = factory;
+    private <Model, Data> void add(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory, boolean z) {
+        Entry<?, ?> entry = new Entry<>(cls, cls2, modelLoaderFactory);
+        List<Entry<?, ?>> list = this.entries;
+        list.add(z ? list.size() : 0, entry);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    @NonNull
+    public static <Model, Data> ModelLoader<Model, Data> emptyModelLoader() {
+        return (ModelLoader<Model, Data>) EMPTY_MODEL_LOADER;
+    }
+
+    @NonNull
+    private <Model, Data> ModelLoaderFactory<Model, Data> getFactory(@NonNull Entry<?, ?> entry) {
+        return (ModelLoaderFactory<Model, Data>) entry.factory;
+    }
+
     public synchronized <Model, Data> void append(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
         add(cls, cls2, modelLoaderFactory, true);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized <Model, Data> void prepend(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
-        add(cls, cls2, modelLoaderFactory, false);
-    }
-
-    private <Model, Data> void add(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory, boolean z) {
-        this.entries.add(z ? this.entries.size() : 0, new Entry<>(cls, cls2, modelLoaderFactory));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @NonNull
-    public synchronized <Model, Data> List<ModelLoaderFactory<? extends Model, ? extends Data>> replace(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
-        List<ModelLoaderFactory<? extends Model, ? extends Data>> remove;
-        remove = remove(cls, cls2);
-        append(cls, cls2, modelLoaderFactory);
-        return remove;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @NonNull
-    public synchronized <Model, Data> List<ModelLoaderFactory<? extends Model, ? extends Data>> remove(@NonNull Class<Model> cls, @NonNull Class<Data> cls2) {
-        ArrayList arrayList;
-        arrayList = new ArrayList();
-        Iterator<Entry<?, ?>> it = this.entries.iterator();
-        while (it.hasNext()) {
-            Entry<?, ?> next = it.next();
-            if (next.handles(cls, cls2)) {
-                it.remove();
-                arrayList.add(getFactory(next));
-            }
-        }
-        return arrayList;
-    }
-
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public synchronized <Model> List<ModelLoader<Model, ?>> build(@NonNull Class<Model> cls) {
         ArrayList arrayList;
@@ -94,7 +109,6 @@ public class MultiModelLoaderFactory {
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public synchronized List<Class<?>> getDataClasses(@NonNull Class<?> cls) {
         ArrayList arrayList;
@@ -107,10 +121,44 @@ public class MultiModelLoaderFactory {
         return arrayList;
     }
 
+    public synchronized <Model, Data> void prepend(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
+        add(cls, cls2, modelLoaderFactory, false);
+    }
+
+    @NonNull
+    public synchronized <Model, Data> List<ModelLoaderFactory<? extends Model, ? extends Data>> remove(@NonNull Class<Model> cls, @NonNull Class<Data> cls2) {
+        ArrayList arrayList;
+        arrayList = new ArrayList();
+        Iterator<Entry<?, ?>> it = this.entries.iterator();
+        while (it.hasNext()) {
+            Entry<?, ?> next = it.next();
+            if (next.handles(cls, cls2)) {
+                it.remove();
+                arrayList.add(getFactory(next));
+            }
+        }
+        return arrayList;
+    }
+
+    @NonNull
+    public synchronized <Model, Data> List<ModelLoaderFactory<? extends Model, ? extends Data>> replace(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
+        List<ModelLoaderFactory<? extends Model, ? extends Data>> remove;
+        remove = remove(cls, cls2);
+        append(cls, cls2, modelLoaderFactory);
+        return remove;
+    }
+
+    @VisibleForTesting
+    public MultiModelLoaderFactory(@NonNull Pools.Pool<List<Throwable>> pool, @NonNull Factory factory) {
+        this.entries = new ArrayList();
+        this.alreadyUsedEntries = new HashSet();
+        this.throwableListPool = pool;
+        this.factory = factory;
+    }
+
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     @NonNull
     public synchronized <Model, Data> ModelLoader<Model, Data> build(@NonNull Class<Model> cls, @NonNull Class<Data> cls2) {
-        ModelLoader<Model, Data> emptyModelLoader;
         try {
             ArrayList arrayList = new ArrayList();
             boolean z = false;
@@ -124,11 +172,11 @@ public class MultiModelLoaderFactory {
                 }
             }
             if (arrayList.size() > 1) {
-                emptyModelLoader = this.factory.build(arrayList, this.throwableListPool);
+                return this.factory.build(arrayList, this.throwableListPool);
             } else if (arrayList.size() == 1) {
-                emptyModelLoader = (ModelLoader) arrayList.get(0);
+                return (ModelLoader) arrayList.get(0);
             } else if (z) {
-                emptyModelLoader = emptyModelLoader();
+                return emptyModelLoader();
             } else {
                 throw new Registry.NoModelLoaderAvailableException((Class<?>) cls, (Class<?>) cls2);
             }
@@ -136,71 +184,10 @@ public class MultiModelLoaderFactory {
             this.alreadyUsedEntries.clear();
             throw th;
         }
-        return emptyModelLoader;
-    }
-
-    @NonNull
-    private <Model, Data> ModelLoaderFactory<Model, Data> getFactory(@NonNull Entry<?, ?> entry) {
-        return (ModelLoaderFactory<Model, Data>) entry.factory;
     }
 
     @NonNull
     private <Model, Data> ModelLoader<Model, Data> build(@NonNull Entry<?, ?> entry) {
         return (ModelLoader) Preconditions.checkNotNull(entry.factory.build(this));
-    }
-
-    @NonNull
-    private static <Model, Data> ModelLoader<Model, Data> emptyModelLoader() {
-        return (ModelLoader<Model, Data>) EMPTY_MODEL_LOADER;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
-    public static class Entry<Model, Data> {
-        final Class<Data> dataClass;
-        final ModelLoaderFactory<? extends Model, ? extends Data> factory;
-        private final Class<Model> modelClass;
-
-        public Entry(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
-            this.modelClass = cls;
-            this.dataClass = cls2;
-            this.factory = modelLoaderFactory;
-        }
-
-        public boolean handles(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return handles(cls) && this.dataClass.isAssignableFrom(cls2);
-        }
-
-        public boolean handles(@NonNull Class<?> cls) {
-            return this.modelClass.isAssignableFrom(cls);
-        }
-    }
-
-    /* loaded from: classes14.dex */
-    static class Factory {
-        Factory() {
-        }
-
-        @NonNull
-        public <Model, Data> MultiModelLoader<Model, Data> build(@NonNull List<ModelLoader<Model, Data>> list, @NonNull Pools.Pool<List<Throwable>> pool) {
-            return new MultiModelLoader<>(list, pool);
-        }
-    }
-
-    /* loaded from: classes14.dex */
-    private static class EmptyModelLoader implements ModelLoader<Object, Object> {
-        EmptyModelLoader() {
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoader
-        @Nullable
-        public ModelLoader.LoadData<Object> buildLoadData(@NonNull Object obj, int i, int i2, @NonNull Options options) {
-            return null;
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoader
-        public boolean handles(@NonNull Object obj) {
-            return false;
-        }
     }
 }

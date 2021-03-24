@@ -2,20 +2,21 @@ package com.baidu.fsg.base.b;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
-class b implements ThreadFactory {
+/* loaded from: classes2.dex */
+public class b implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1498a;
-    private final AtomicInteger b = new AtomicInteger(1);
+    public final /* synthetic */ a f5170a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final AtomicInteger f5171b = new AtomicInteger(1);
+
     public b(a aVar) {
-        this.f1498a = aVar;
+        this.f5170a = aVar;
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        return new Thread(runnable, "WalletTask #" + this.b.getAndIncrement());
+        return new Thread(runnable, "WalletTask #" + this.f5171b.getAndIncrement());
     }
 }

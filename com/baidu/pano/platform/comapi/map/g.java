@@ -3,21 +3,18 @@ package com.baidu.pano.platform.comapi.map;
 import android.os.Handler;
 import android.os.Message;
 import java.util.TimerTask;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f2735a;
+    public final /* synthetic */ e f9494a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.f2735a = eVar;
+        this.f9494a = eVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        float f;
         float f2;
         float f3;
         float f4;
@@ -27,66 +24,65 @@ public class g extends TimerTask {
         float f8;
         float f9;
         float f10;
+        float f11;
         Handler handler;
         Handler handler2;
-        float f11;
         float f12;
         float f13;
         float f14;
         float f15;
-        float f16 = 0.0f;
-        f = this.f2735a.i;
-        float f17 = f * 0.1f;
-        f2 = this.f2735a.j;
-        float f18 = f2 * 0.1f;
-        float f19 = 0.005f * 6.0f;
-        float f20 = 6.0f * 0.003f;
-        f3 = this.f2735a.i;
-        if (!Float.isInfinite(Math.abs(f3))) {
-            f4 = this.f2735a.i;
-            if (!Float.isNaN(f4)) {
-                f5 = this.f2735a.j;
-                if (!Float.isInfinite(Math.abs(f5))) {
-                    f6 = this.f2735a.j;
-                    if (!Float.isNaN(f6)) {
-                        f7 = this.f2735a.i;
-                        if (Math.abs(f7) > 40.0f) {
-                            e eVar = this.f2735a;
-                            f14 = this.f2735a.i;
-                            eVar.i = f14 - f17;
-                            f15 = this.f2735a.i;
-                            f8 = f15 * f19;
+        float f16;
+        f2 = this.f9494a.i;
+        float f17 = f2 * 0.1f;
+        f3 = this.f9494a.j;
+        float f18 = f3 * 0.1f;
+        f4 = this.f9494a.i;
+        if (!Float.isInfinite(Math.abs(f4))) {
+            f5 = this.f9494a.i;
+            if (!Float.isNaN(f5)) {
+                f6 = this.f9494a.j;
+                if (!Float.isInfinite(Math.abs(f6))) {
+                    f7 = this.f9494a.j;
+                    if (!Float.isNaN(f7)) {
+                        f8 = this.f9494a.i;
+                        float f19 = 0.0f;
+                        if (Math.abs(f8) > 40.0f) {
+                            e eVar = this.f9494a;
+                            f15 = eVar.i;
+                            eVar.i = f15 - f17;
+                            f16 = this.f9494a.i;
+                            f9 = 0.03f * f16;
                         } else {
-                            f8 = 0.0f;
+                            f9 = 0.0f;
                         }
-                        f9 = this.f2735a.j;
-                        if (Math.abs(f9) > 40.0f) {
-                            e eVar2 = this.f2735a;
-                            f12 = this.f2735a.j;
-                            eVar2.j = f12 - f18;
-                            f13 = this.f2735a.j;
-                            f16 = f13 * f20;
+                        f10 = this.f9494a.j;
+                        if (Math.abs(f10) > 40.0f) {
+                            e eVar2 = this.f9494a;
+                            f13 = eVar2.j;
+                            eVar2.j = f13 - f18;
+                            f14 = this.f9494a.j;
+                            f19 = 0.018f * f14;
                         }
-                        f10 = this.f2735a.i;
-                        if (Math.abs(f10) < 40.0f) {
-                            f11 = this.f2735a.j;
-                            if (Math.abs(f11) < 40.0f) {
-                                this.f2735a.j();
+                        f11 = this.f9494a.i;
+                        if (Math.abs(f11) < 40.0f) {
+                            f12 = this.f9494a.j;
+                            if (Math.abs(f12) < 40.0f) {
+                                this.f9494a.j();
                                 return;
                             }
                         }
-                        handler = this.f2735a.o;
+                        handler = this.f9494a.o;
                         Message obtainMessage = handler.obtainMessage();
                         obtainMessage.what = 1001;
-                        obtainMessage.arg1 = (int) f8;
-                        obtainMessage.arg2 = (int) f16;
-                        handler2 = this.f2735a.o;
+                        obtainMessage.arg1 = (int) f9;
+                        obtainMessage.arg2 = (int) f19;
+                        handler2 = this.f9494a.o;
                         handler2.sendMessage(obtainMessage);
                         return;
                     }
                 }
             }
         }
-        this.f2735a.j();
+        this.f9494a.j();
     }
 }

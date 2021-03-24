@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DistrictResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<DistrictResult> CREATOR = new a();
     public LatLng centerPt;
@@ -20,7 +20,6 @@ public class DistrictResult extends SearchResult implements Parcelable {
         this.cityName = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public DistrictResult(Parcel parcel) {
         super(parcel);
         this.centerPt = null;
@@ -79,9 +78,10 @@ public class DistrictResult extends SearchResult implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
         parcel.writeParcelable(this.centerPt, i);
-        parcel.writeInt(this.polylines == null ? 0 : this.polylines.size());
-        for (List<LatLng> list : this.polylines) {
-            parcel.writeTypedList(list);
+        List<List<LatLng>> list = this.polylines;
+        parcel.writeInt(list == null ? 0 : list.size());
+        for (List<LatLng> list2 : this.polylines) {
+            parcel.writeTypedList(list2);
         }
         parcel.writeInt(this.cityCode);
         parcel.writeString(this.cityName);

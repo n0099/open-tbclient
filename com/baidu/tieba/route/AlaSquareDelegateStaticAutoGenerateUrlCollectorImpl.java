@@ -1,25 +1,13 @@
 package com.baidu.tieba.route;
 
-import com.baidu.adp.framework.a.d;
-import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.adp.framework.cmdRouter.ICmdRouter;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
-public final class AlaSquareDelegateStaticAutoGenerateUrlCollectorImpl implements d {
-    @Override // com.baidu.adp.framework.a.d
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        HashMap hashMap = new HashMap();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("AlaLiveTabMyConcernActivityConfig");
-        arrayList.add("AlaNewSquareSubListActivityConfig");
-        arrayList.add(UrlSchemaHelper.JUMP_TO_VIDEO_SQUARE);
-        arrayList.add("video/square");
-        hashMap.put("com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic", arrayList);
-        return hashMap;
-    }
-
-    @Override // com.baidu.adp.framework.a.d
+/* loaded from: classes5.dex */
+public final class AlaSquareDelegateStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
         HashMap hashMap = new HashMap();
         new ArrayList();
@@ -31,6 +19,18 @@ public final class AlaSquareDelegateStaticAutoGenerateUrlCollectorImpl implement
         hashMap.put("2911008", "com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic");
         hashMap.put("2913033", "com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic");
         hashMap.put("3001000", "com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic");
+        return hashMap;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
+        HashMap hashMap = new HashMap();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("AlaLiveTabMyConcernActivityConfig");
+        arrayList.add("AlaNewSquareSubListActivityConfig");
+        arrayList.add(UrlSchemaHelper.JUMP_TO_VIDEO_SQUARE);
+        arrayList.add("video/square");
+        hashMap.put("com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic", arrayList);
         return hashMap;
     }
 }

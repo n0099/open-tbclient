@@ -1,5 +1,5 @@
 package com.qq.e.comm.constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Sig {
-    public static String ASSET_PLUGIN_SIG = "Z5mBv0ucDhp+6I87DKsM9Ghnw5GuIDM6VfFWEVWJus/4/VDrlcvIXccK/S9xvx/Lrm/MxF9YYujWEriYziBgks5A8N1yOUbQQoY/3z8Pquc6tj8rF4zMDax9DWg9hyqkA1rNUUHXf6XoaoLfTcSRjLBz1Od4HtAUMRghSvNRxEw=";
+    public static String ASSET_PLUGIN_SIG = "JcBRbTj3aUYZerVE7/uJfDf+tIy6Gu0zPfKFSlC2LC2pD3OT7dOaerjBMmlrIGhvflc1GiQY6n6zKOLRPitPrLo55tfTuccacf9DKphAhHcqiO+4Gh6KE+mTx8f42gPsUZ7JXxBcB/fOeTMidk04RYgjJ1XtFeUhW7PU36vcZTs=";
 }

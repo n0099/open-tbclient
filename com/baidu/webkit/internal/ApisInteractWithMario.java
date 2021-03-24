@@ -5,17 +5,12 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class ApisInteractWithMario implements INoProGuard {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static final String TAG = "ApisInteractWithMario";
-    private static final ArrayList<Runnable> mPenddingOps;
-    private static ApisInteractWithMario sInstance;
-
-    static {
-        $assertionsDisabled = !ApisInteractWithMario.class.desiredAssertionStatus();
-        mPenddingOps = new ArrayList<>();
-    }
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public static final String TAG = "ApisInteractWithMario";
+    public static final ArrayList<Runnable> mPenddingOps = new ArrayList<>();
+    public static ApisInteractWithMario sInstance;
 
     public static void clearCrashKey(String str) {
         if (!WebViewFactory.hasProvider()) {
@@ -32,7 +27,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
         }
     }
 
-    private static ApisInteractWithMario getImpl() {
+    public static ApisInteractWithMario getImpl() {
         WebViewFactoryProvider provider;
         if (sInstance == null && (provider = WebViewFactory.getProvider()) != null) {
             Object apisInteractWithMario = provider.getApisInteractWithMario();
@@ -44,9 +39,6 @@ public abstract class ApisInteractWithMario implements INoProGuard {
     }
 
     public static void initialize() {
-        if (!$assertionsDisabled && !WebViewFactory.hasProvider()) {
-            throw new AssertionError();
-        }
         synchronized (mPenddingOps) {
             Iterator<Runnable> it = mPenddingOps.iterator();
             while (it.hasNext()) {
@@ -86,9 +78,9 @@ public abstract class ApisInteractWithMario implements INoProGuard {
         }
     }
 
-    protected abstract void clearCrashKeyImpl(String str);
+    public abstract void clearCrashKeyImpl(String str);
 
-    protected abstract void setCrashKeyValueImpl(String str, String str2);
+    public abstract void setCrashKeyValueImpl(String str, String str2);
 
-    protected abstract void setMessageChannalFunctoinTableImpl(long j);
+    public abstract void setMessageChannalFunctoinTableImpl(long j);
 }

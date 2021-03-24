@@ -14,35 +14,35 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DownloadTask implements Serializable {
-    private static final long serialVersionUID = -7092669850073266500L;
-    private int mAllowedNetworkTypes;
-    protected transient com.kwai.filedownloader.a mBaseDownloadTask;
-    private String mDestinationDir;
-    private String mDestinationFileName;
-    private transient List<c> mDownloadListeners = new ArrayList();
-    private boolean mIsCanceled = false;
-    private int mNotificationVisibility;
-    private Map<String, String> mRequestHeaders;
-    private Serializable mTag;
-    private String mUrl;
-    private boolean mUserPause;
-    private boolean mWakeInstallApk;
+    public static final long serialVersionUID = -7092669850073266500L;
+    public int mAllowedNetworkTypes;
+    public transient com.kwai.filedownloader.a mBaseDownloadTask;
+    public String mDestinationDir;
+    public String mDestinationFileName;
+    public transient List<c> mDownloadListeners = new ArrayList();
+    public boolean mIsCanceled = false;
+    public int mNotificationVisibility;
+    public Map<String, String> mRequestHeaders;
+    public Serializable mTag;
+    public String mUrl;
+    public boolean mUserPause;
+    public boolean mWakeInstallApk;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class DownloadRequest implements Serializable {
-        private static final long serialVersionUID = -3638290207248829674L;
-        private int mAllowedNetworkTypes;
-        private String mDestinationDir;
-        private String mDestinationFileName;
-        private String mDownloadUrl;
-        private Serializable mTag;
-        private final Map<String, String> mRequestHeaders = new HashMap();
-        private boolean mInstallAfterDownload = true;
+        public static final long serialVersionUID = -3638290207248829674L;
+        public int mAllowedNetworkTypes;
+        public String mDestinationDir;
+        public String mDestinationFileName;
+        public String mDownloadUrl;
+        public Serializable mTag;
+        public final Map<String, String> mRequestHeaders = new HashMap();
+        public boolean mInstallAfterDownload = true;
         @Deprecated
-        private boolean mIsPhotoAdDownloadRequest = false;
-        private int mNotificationVisibility = 0;
+        public boolean mIsPhotoAdDownloadRequest = false;
+        public int mNotificationVisibility = 0;
 
         public DownloadRequest(String str) {
             this.mAllowedNetworkTypes = 3;
@@ -51,8 +51,8 @@ public class DownloadTask implements Serializable {
             }
             this.mDestinationDir = b.b().getPath();
             this.mDownloadUrl = str;
-            NetworkInfo c = com.ksad.download.d.b.c(b.a());
-            if (c == null || c.getType() != 0) {
+            NetworkInfo c2 = com.ksad.download.d.b.c(b.a());
+            if (c2 == null || c2.getType() != 0) {
                 this.mAllowedNetworkTypes = 2;
             } else {
                 this.mAllowedNetworkTypes = 3;
@@ -60,17 +60,17 @@ public class DownloadTask implements Serializable {
         }
 
         public DownloadRequest addRequestHeader(String str, String str2) {
-            if (str == null) {
-                throw new NullPointerException("header cannot be null");
+            if (str != null) {
+                if (str.contains(":")) {
+                    throw new IllegalArgumentException("header may not contain ':'");
+                }
+                if (str2 == null) {
+                    str2 = "";
+                }
+                this.mRequestHeaders.put(str, str2);
+                return this;
             }
-            if (str.contains(":")) {
-                throw new IllegalArgumentException("header may not contain ':'");
-            }
-            if (str2 == null) {
-                str2 = "";
-            }
-            this.mRequestHeaders.put(str, str2);
-            return this;
+            throw new NullPointerException("header cannot be null");
         }
 
         public int getAllowedNetworkTypes() {
@@ -183,8 +183,8 @@ public class DownloadTask implements Serializable {
             for (c cVar : this.mDownloadListeners) {
                 cVar.a(this);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -198,8 +198,8 @@ public class DownloadTask implements Serializable {
             e.a().a(getId());
             q.a().a(getId(), this.mBaseDownloadTask.o());
             releaseDownloadTask();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -213,8 +213,8 @@ public class DownloadTask implements Serializable {
             if (this.mWakeInstallApk) {
                 wakeInstallApk();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -223,12 +223,12 @@ public class DownloadTask implements Serializable {
         long j;
         long j2 = i2;
         try {
-            j = new File(this.mDestinationDir).exists() ? com.ksad.download.d.a.a(this.mDestinationDir) : com.ksad.download.d.a.a(Environment.getExternalStorageDirectory().getPath());
-        } catch (Exception e) {
-            e.printStackTrace();
+            j = com.ksad.download.d.a.a(new File(this.mDestinationDir).exists() ? this.mDestinationDir : Environment.getExternalStorageDirectory().getPath());
+        } catch (Exception e2) {
+            e2.printStackTrace();
             j = j2;
         }
-        if (j < i2) {
+        if (j < j2) {
             Intent intent = new Intent(com.kwad.sdk.core.download.a.n);
             intent.putExtra("download.intent.action.EXTRA_TASK_ID", aVar.h());
             b.a().sendBroadcast(intent);
@@ -240,8 +240,8 @@ public class DownloadTask implements Serializable {
                 cVar.a(this, str, z, i, i2);
             }
             notifyDownloadProgress(aVar, false);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
         }
     }
 
@@ -252,8 +252,8 @@ public class DownloadTask implements Serializable {
                 cVar.b(this, i, i2);
             }
             notifyDownloadProgress(this.mBaseDownloadTask, false);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -264,8 +264,8 @@ public class DownloadTask implements Serializable {
                 cVar.a(this, th);
             }
             notifyDownloadProgress(aVar, true);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -274,8 +274,8 @@ public class DownloadTask implements Serializable {
             for (c cVar : this.mDownloadListeners) {
                 cVar.f(this);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -286,8 +286,8 @@ public class DownloadTask implements Serializable {
                 cVar.c(this, i, i2);
             }
             notifyDownloadProgress(aVar, true);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -298,8 +298,8 @@ public class DownloadTask implements Serializable {
                 cVar.a(this, i, i2);
             }
             notifyDownloadPending(aVar);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -309,8 +309,8 @@ public class DownloadTask implements Serializable {
                 cVar.d(this, i, i2);
             }
             notifyDownloadProgress(aVar, true);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -320,8 +320,8 @@ public class DownloadTask implements Serializable {
             for (c cVar : this.mDownloadListeners) {
                 cVar.c(this);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -331,8 +331,8 @@ public class DownloadTask implements Serializable {
             for (c cVar : this.mDownloadListeners) {
                 cVar.d(this);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -357,12 +357,11 @@ public class DownloadTask implements Serializable {
         this.mDownloadListeners.add(cVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void cancel() {
         try {
             onCanceled(this.mBaseDownloadTask);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -370,9 +369,9 @@ public class DownloadTask implements Serializable {
         this.mDownloadListeners.clear();
     }
 
-    int downLoadProgress() {
+    public int downLoadProgress() {
         long s = this.mBaseDownloadTask.s();
-        int q = s != 0 ? (int) ((100.0f * this.mBaseDownloadTask.q()) / ((float) s)) : 0;
+        int q = s != 0 ? (int) ((this.mBaseDownloadTask.q() * 100.0f) / ((float) s)) : 0;
         if (q != 100 || com.ksad.download.d.a.a(new File(this.mBaseDownloadTask.o()))) {
             return q;
         }
@@ -435,65 +434,56 @@ public class DownloadTask implements Serializable {
         return this.mUrl;
     }
 
-    void installApk() {
+    public void installApk() {
         try {
             wakeInstallApk();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
-    void instantiateDownloadTask() {
+    public void instantiateDownloadTask() {
         this.mBaseDownloadTask = q.a().a(this.mUrl).a(true).a(3).a(TextUtils.isEmpty(this.mDestinationFileName) ? this.mDestinationDir : new File(this.mDestinationDir, this.mDestinationFileName).getPath(), TextUtils.isEmpty(this.mDestinationFileName)).a(new i() { // from class: com.ksad.download.DownloadTask.1
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwai.filedownloader.i
             public void a(com.kwai.filedownloader.a aVar) {
                 DownloadTask.this.onStarted(aVar);
             }
 
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwai.filedownloader.i
             public void a(com.kwai.filedownloader.a aVar, int i, int i2) {
                 DownloadTask.this.onPending(aVar, i, i2);
             }
 
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwai.filedownloader.i
             public void a(com.kwai.filedownloader.a aVar, String str, boolean z, int i, int i2) {
                 DownloadTask.this.onConnected(aVar, str, z, i, i2);
             }
 
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwai.filedownloader.i
             public void a(com.kwai.filedownloader.a aVar, Throwable th) {
                 DownloadTask.this.onError(aVar, th);
             }
 
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwai.filedownloader.i
             public void b(com.kwai.filedownloader.a aVar) {
                 DownloadTask.this.onBlockCompleted(aVar);
             }
 
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwai.filedownloader.i
             public void b(com.kwai.filedownloader.a aVar, int i, int i2) {
                 DownloadTask.this.onDownloading(aVar, i, i2);
             }
 
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwai.filedownloader.i
             public void c(com.kwai.filedownloader.a aVar) {
                 DownloadTask.this.onCompleted(aVar);
             }
 
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwai.filedownloader.i
             public void c(com.kwai.filedownloader.a aVar, int i, int i2) {
                 DownloadTask.this.onPause(aVar, i, i2);
             }
 
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwai.filedownloader.i
             public void d(com.kwai.filedownloader.a aVar) {
                 DownloadTask.this.onWarn(aVar);
@@ -529,11 +519,11 @@ public class DownloadTask implements Serializable {
         return this.mBaseDownloadTask.c();
     }
 
-    boolean isUserPause() {
+    public boolean isUserPause() {
         return this.mUserPause;
     }
 
-    void pause() {
+    public void pause() {
         this.mBaseDownloadTask.f();
         notifyDownloadProgress(this.mBaseDownloadTask, true);
     }
@@ -544,7 +534,6 @@ public class DownloadTask implements Serializable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void resume(DownloadRequest downloadRequest) {
         if (com.ksad.download.d.b.a(b.a())) {
             if (downloadRequest != null) {
@@ -561,15 +550,15 @@ public class DownloadTask implements Serializable {
                 }
                 submit();
                 onResume(this.mBaseDownloadTask, this.mBaseDownloadTask.q(), this.mBaseDownloadTask.s());
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
 
     public void setAllowedNetworkTypes(int i) {
         this.mAllowedNetworkTypes = i;
-        this.mBaseDownloadTask.b((this.mAllowedNetworkTypes ^ 2) == 0);
+        this.mBaseDownloadTask.b((i ^ 2) == 0);
     }
 
     public void submit() {
@@ -583,11 +572,10 @@ public class DownloadTask implements Serializable {
         }
     }
 
-    com.kwai.filedownloader.a unwrap() {
+    public com.kwai.filedownloader.a unwrap() {
         return this.mBaseDownloadTask;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void userPause() {
         this.mUserPause = true;
         pause();

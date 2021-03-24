@@ -7,34 +7,38 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.h0.r.f0.m.a;
+/* loaded from: classes5.dex */
 public class OperableVideoErrorView extends LinearLayout {
-    TBSpecificationBtn mMH;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TBSpecificationBtn f20523e;
 
     public OperableVideoErrorView(Context context) {
         super(context);
-        init(context);
+        a(context);
+    }
+
+    public final void a(Context context) {
+        LinearLayout.inflate(context, R.layout.operable_video_error, this);
+        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.retry);
+        this.f20523e = tBSpecificationBtn;
+        tBSpecificationBtn.setTextSize(R.dimen.tbds36);
+        this.f20523e.setText(getResources().getString(R.string.click_retry));
+        this.f20523e.setConfig(new a());
+    }
+
+    public void setOutOnClickListener(View.OnClickListener onClickListener) {
+        this.f20523e.setOnClickListener(onClickListener);
     }
 
     public OperableVideoErrorView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        init(context);
+        a(context);
     }
 
     public OperableVideoErrorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init(context);
-    }
-
-    private void init(Context context) {
-        inflate(context, R.layout.operable_video_error, this);
-        this.mMH = (TBSpecificationBtn) findViewById(R.id.retry);
-        this.mMH.setTextSize(R.dimen.tbds36);
-        this.mMH.setText(getResources().getString(R.string.click_retry));
-        this.mMH.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
-    }
-
-    public void setOutOnClickListener(View.OnClickListener onClickListener) {
-        this.mMH.setOnClickListener(onClickListener);
+        a(context);
     }
 }

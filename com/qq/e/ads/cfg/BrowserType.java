@@ -1,5 +1,5 @@
 package com.qq.e.ads.cfg;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum BrowserType {
     Default(0),
     Inner(1),
@@ -7,13 +7,13 @@ public enum BrowserType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f7499a;
+    public final int f38047a;
 
     BrowserType(int i) {
-        this.f7499a = i;
+        this.f38047a = i;
     }
 
     public final int value() {
-        return this.f7499a;
+        return this.f38047a;
     }
 }

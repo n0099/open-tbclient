@@ -2,9 +2,9 @@ package com.baidu.tieba.faceshop;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class FacePackageDownloadData extends OrmObject implements Serializable {
-    private static final long serialVersionUID = 0;
+    public static final long serialVersionUID = 0;
     public int ctime;
     public String errmsg;
     public int errno;

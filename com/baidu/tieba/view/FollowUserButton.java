@@ -9,13 +9,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
-public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    private a oaa;
-    private int oab;
-    private boolean oac;
+import d.b.h0.r.f0.q.b;
+/* loaded from: classes5.dex */
+public class FollowUserButton extends TBSpecificationBtn implements b {
+    public a s;
+    public int t;
+    public boolean u;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void onClick(View view);
     }
@@ -24,88 +25,89 @@ public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tb
         this(context, null);
     }
 
+    @Override // d.b.h0.r.f0.q.b
+    public void a(boolean z, int i) {
+        if (z) {
+            s(true);
+        } else {
+            s(false);
+        }
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void b(View view) {
+        a aVar = this.s;
+        if (aVar != null) {
+            aVar.onClick(view);
+        }
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void c(View.OnClickListener onClickListener) {
+        setOnClickListener(onClickListener);
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void d(boolean z, int i, boolean z2) {
+        a(z, i);
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void e(int i) {
+    }
+
+    public void r(int i) {
+        k();
+    }
+
+    public void s(boolean z) {
+        if (z) {
+            setVisibility(0);
+            setClickable(this.u);
+            d.b.h0.r.f0.m.b bVar = new d.b.h0.r.f0.m.b();
+            bVar.r(R.color.CAM_X0109);
+            bVar.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
+            setConfig(bVar);
+            setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
+        } else {
+            setVisibility(0);
+            d.b.h0.r.f0.m.b bVar2 = new d.b.h0.r.f0.m.b();
+            bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
+            bVar2.i(this.t, 0, TBSpecificationButtonConfig.IconType.SVG);
+            bVar2.q(R.color.CAM_X0304);
+            setConfig(bVar2);
+            setClickable(true);
+            setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+        }
+        r(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void setClickableUnLike(boolean z) {
+        this.u = z;
+    }
+
+    public void setOnClickEvent(a aVar) {
+        this.s = aVar;
+    }
+
+    public void setSvgIconResId(int i) {
+        this.t = i;
+        k();
+    }
+
     public FollowUserButton(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
     public FollowUserButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oab = 0;
-        this.oac = true;
-        com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        bVar.setIconSize(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
-        bVar.a(this.oab, 0, TBSpecificationButtonConfig.IconType.SVG);
-        bVar.pS(R.color.CAM_X0304);
+        this.t = 0;
+        this.u = true;
+        d.b.h0.r.f0.m.b bVar = new d.b.h0.r.f0.m.b();
+        bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
+        bVar.i(this.t, 0, TBSpecificationButtonConfig.IconType.SVG);
+        bVar.q(R.color.CAM_X0304);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
-    }
-
-    public void aM(boolean z) {
-        if (z) {
-            setVisibility(0);
-            setClickable(this.oac);
-            com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar.pU(R.color.CAM_X0109);
-            bVar.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
-            setConfig(bVar);
-            setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
-        } else {
-            setVisibility(0);
-            com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar2.setIconSize(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
-            bVar2.a(this.oab, 0, TBSpecificationButtonConfig.IconType.SVG);
-            bVar2.pS(R.color.CAM_X0304);
-            setConfig(bVar2);
-            setClickable(true);
-            setText(TbadkCoreApplication.getInst().getString(R.string.attention));
-        }
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void r(boolean z, int i) {
-        if (z) {
-            aM(true);
-        } else {
-            aM(false);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void b(boolean z, int i, boolean z2) {
-        r(z, i);
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void qc(int i) {
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void bG(View view) {
-        if (this.oaa != null) {
-            this.oaa.onClick(view);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void i(View.OnClickListener onClickListener) {
-        setOnClickListener(onClickListener);
-    }
-
-    public void onChangeSkinType(int i) {
-        bus();
-    }
-
-    public void setOnClickEvent(a aVar) {
-        this.oaa = aVar;
-    }
-
-    public void setSvgIconResId(int i) {
-        this.oab = i;
-        bus();
-    }
-
-    public void setClickableUnLike(boolean z) {
-        this.oac = z;
     }
 }

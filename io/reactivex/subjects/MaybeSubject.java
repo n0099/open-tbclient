@@ -1,159 +1,166 @@
 package io.reactivex.subjects;
 
-import io.reactivex.k;
-import io.reactivex.m;
+import f.a.h;
+import f.a.i;
+import f.a.t.b;
+import f.a.x.b.a;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-public final class MaybeSubject<T> extends k<T> implements m<T> {
-    static final MaybeDisposable[] qtD = new MaybeDisposable[0];
-    static final MaybeDisposable[] qtE = new MaybeDisposable[0];
-    Throwable error;
-    T value;
-    final AtomicBoolean once = new AtomicBoolean();
-    final AtomicReference<MaybeDisposable<T>[]> observers = new AtomicReference<>(qtD);
+/* loaded from: classes7.dex */
+public final class MaybeSubject<T> extends h<T> implements i<T> {
+    public static final MaybeDisposable[] i = new MaybeDisposable[0];
+    public static final MaybeDisposable[] j = new MaybeDisposable[0];
 
-    MaybeSubject() {
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public T f68108g;
 
-    @Override // io.reactivex.m
-    public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.observers.get() == qtE) {
-            bVar.dispose();
+    /* renamed from: h  reason: collision with root package name */
+    public Throwable f68109h;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final AtomicBoolean f68107f = new AtomicBoolean();
+
+    /* renamed from: e  reason: collision with root package name */
+    public final AtomicReference<MaybeDisposable<T>[]> f68106e = new AtomicReference<>(i);
+
+    /* loaded from: classes7.dex */
+    public static final class MaybeDisposable<T> extends AtomicReference<MaybeSubject<T>> implements b {
+        public static final long serialVersionUID = -7650903191002190468L;
+        public final i<? super T> actual;
+
+        public MaybeDisposable(i<? super T> iVar, MaybeSubject<T> maybeSubject) {
+            this.actual = iVar;
+            lazySet(maybeSubject);
         }
-    }
 
-    @Override // io.reactivex.m
-    public void onSuccess(T t) {
-        io.reactivex.internal.functions.a.n(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.once.compareAndSet(false, true)) {
-            this.value = t;
-            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(qtE)) {
-                maybeDisposable.actual.onSuccess(t);
+        @Override // f.a.t.b
+        public void dispose() {
+            MaybeSubject<T> andSet = getAndSet(null);
+            if (andSet != null) {
+                andSet.d(this);
             }
         }
-    }
 
-    @Override // io.reactivex.m
-    public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.n(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.once.compareAndSet(false, true)) {
-            this.error = th;
-            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(qtE)) {
-                maybeDisposable.actual.onError(th);
-            }
-            return;
-        }
-        io.reactivex.d.a.onError(th);
-    }
-
-    @Override // io.reactivex.m
-    public void onComplete() {
-        if (this.once.compareAndSet(false, true)) {
-            for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(qtE)) {
-                maybeDisposable.actual.onComplete();
-            }
+        @Override // f.a.t.b
+        public boolean isDisposed() {
+            return get() == null;
         }
     }
 
-    @Override // io.reactivex.k
-    protected void b(m<? super T> mVar) {
-        MaybeDisposable<T> maybeDisposable = new MaybeDisposable<>(mVar, this);
-        mVar.onSubscribe(maybeDisposable);
-        if (a(maybeDisposable)) {
+    @Override // f.a.h
+    public void b(i<? super T> iVar) {
+        MaybeDisposable<T> maybeDisposable = new MaybeDisposable<>(iVar, this);
+        iVar.onSubscribe(maybeDisposable);
+        if (c(maybeDisposable)) {
             if (maybeDisposable.isDisposed()) {
-                b(maybeDisposable);
+                d(maybeDisposable);
                 return;
             }
             return;
         }
-        Throwable th = this.error;
+        Throwable th = this.f68109h;
         if (th != null) {
-            mVar.onError(th);
+            iVar.onError(th);
             return;
         }
-        Object obj = (T) this.value;
+        Object obj = (T) this.f68108g;
         if (obj == null) {
-            mVar.onComplete();
+            iVar.onComplete();
         } else {
-            mVar.onSuccess(obj);
+            iVar.onSuccess(obj);
         }
     }
 
-    boolean a(MaybeDisposable<T> maybeDisposable) {
+    public boolean c(MaybeDisposable<T> maybeDisposable) {
         MaybeDisposable<T>[] maybeDisposableArr;
         MaybeDisposable<T>[] maybeDisposableArr2;
         do {
-            maybeDisposableArr = this.observers.get();
-            if (maybeDisposableArr == qtE) {
+            maybeDisposableArr = this.f68106e.get();
+            if (maybeDisposableArr == j) {
                 return false;
             }
             int length = maybeDisposableArr.length;
             maybeDisposableArr2 = new MaybeDisposable[length + 1];
             System.arraycopy(maybeDisposableArr, 0, maybeDisposableArr2, 0, length);
             maybeDisposableArr2[length] = maybeDisposable;
-        } while (!this.observers.compareAndSet(maybeDisposableArr, maybeDisposableArr2));
+        } while (!this.f68106e.compareAndSet(maybeDisposableArr, maybeDisposableArr2));
         return true;
     }
 
-    void b(MaybeDisposable<T> maybeDisposable) {
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.subjects.MaybeSubject$MaybeDisposable<T>[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void d(MaybeDisposable<T> maybeDisposable) {
         MaybeDisposable<T>[] maybeDisposableArr;
-        MaybeDisposable<T>[] maybeDisposableArr2;
+        MaybeDisposable[] maybeDisposableArr2;
         do {
-            maybeDisposableArr = this.observers.get();
+            maybeDisposableArr = this.f68106e.get();
             int length = maybeDisposableArr.length;
-            if (length != 0) {
-                int i = -1;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= length) {
-                        break;
-                    } else if (maybeDisposableArr[i2] == maybeDisposable) {
-                        i = i2;
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-                if (i >= 0) {
-                    if (length == 1) {
-                        maybeDisposableArr2 = qtD;
-                    } else {
-                        maybeDisposableArr2 = new MaybeDisposable[length - 1];
-                        System.arraycopy(maybeDisposableArr, 0, maybeDisposableArr2, 0, i);
-                        System.arraycopy(maybeDisposableArr, i + 1, maybeDisposableArr2, i, (length - i) - 1);
-                    }
-                } else {
-                    return;
-                }
-            } else {
+            if (length == 0) {
                 return;
             }
-        } while (!this.observers.compareAndSet(maybeDisposableArr, maybeDisposableArr2));
+            int i2 = -1;
+            int i3 = 0;
+            while (true) {
+                if (i3 >= length) {
+                    break;
+                } else if (maybeDisposableArr[i3] == maybeDisposable) {
+                    i2 = i3;
+                    break;
+                } else {
+                    i3++;
+                }
+            }
+            if (i2 < 0) {
+                return;
+            }
+            if (length == 1) {
+                maybeDisposableArr2 = i;
+            } else {
+                MaybeDisposable[] maybeDisposableArr3 = new MaybeDisposable[length - 1];
+                System.arraycopy(maybeDisposableArr, 0, maybeDisposableArr3, 0, i2);
+                System.arraycopy(maybeDisposableArr, i2 + 1, maybeDisposableArr3, i2, (length - i2) - 1);
+                maybeDisposableArr2 = maybeDisposableArr3;
+            }
+        } while (!this.f68106e.compareAndSet(maybeDisposableArr, maybeDisposableArr2));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public static final class MaybeDisposable<T> extends AtomicReference<MaybeSubject<T>> implements io.reactivex.disposables.b {
-        private static final long serialVersionUID = -7650903191002190468L;
-        final m<? super T> actual;
-
-        MaybeDisposable(m<? super T> mVar, MaybeSubject<T> maybeSubject) {
-            this.actual = mVar;
-            lazySet(maybeSubject);
-        }
-
-        @Override // io.reactivex.disposables.b
-        public void dispose() {
-            MaybeSubject<T> andSet = getAndSet(null);
-            if (andSet != null) {
-                andSet.b(this);
+    @Override // f.a.i
+    public void onComplete() {
+        if (this.f68107f.compareAndSet(false, true)) {
+            for (MaybeDisposable<T> maybeDisposable : this.f68106e.getAndSet(j)) {
+                maybeDisposable.actual.onComplete();
             }
         }
+    }
 
-        @Override // io.reactivex.disposables.b
-        public boolean isDisposed() {
-            return get() == null;
+    @Override // f.a.i
+    public void onError(Throwable th) {
+        a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (this.f68107f.compareAndSet(false, true)) {
+            this.f68109h = th;
+            for (MaybeDisposable<T> maybeDisposable : this.f68106e.getAndSet(j)) {
+                maybeDisposable.actual.onError(th);
+            }
+            return;
+        }
+        f.a.a0.a.f(th);
+    }
+
+    @Override // f.a.i
+    public void onSubscribe(b bVar) {
+        if (this.f68106e.get() == j) {
+            bVar.dispose();
+        }
+    }
+
+    @Override // f.a.i
+    public void onSuccess(T t) {
+        a.b(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (this.f68107f.compareAndSet(false, true)) {
+            this.f68108g = t;
+            for (MaybeDisposable<T> maybeDisposable : this.f68106e.getAndSet(j)) {
+                maybeDisposable.actual.onSuccess(t);
+            }
         }
     }
 }

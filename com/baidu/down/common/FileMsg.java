@@ -3,7 +3,7 @@ package com.baidu.down.common;
 import com.baidu.down.common.intercepter.IIntercepter;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class FileMsg {
     public long mCurFilePos;
     public String mDownInfoParams;
@@ -43,6 +43,12 @@ public class FileMsg {
         this.mETag = str5;
     }
 
+    public void addIntercepter(String str, IIntercepter<?> iIntercepter) {
+        if (str != null) {
+            this.mIntercepters.put(str, iIntercepter);
+        }
+    }
+
     public FileMsg(String str, long j, String str2, String str3, String str4, Boolean bool, HashMap<String, String> hashMap, long j2, long j3, String str5) {
         this.mId = -1L;
         this.mId = j;
@@ -55,11 +61,5 @@ public class FileMsg {
         this.mCurFilePos = j2;
         this.mTotalSize = j3;
         this.mETag = str5;
-    }
-
-    public void addIntercepter(String str, IIntercepter<?> iIntercepter) {
-        if (str != null) {
-            this.mIntercepters.put(str, iIntercepter);
-        }
     }
 }

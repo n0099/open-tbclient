@@ -1,681 +1,696 @@
 package rx.internal.operators;
 
+import h.d;
+import h.f;
+import h.j;
+import h.o.d.g;
+import h.o.d.k.f0;
+import h.o.d.k.i;
+import h.o.d.k.r;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicLong;
-import rx.d;
 import rx.exceptions.CompositeException;
 import rx.exceptions.MissingBackpressureException;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.util.ScalarSynchronousObservable;
-import rx.internal.util.a.ae;
 import rx.internal.util.atomic.SpscExactAtomicArrayQueue;
-/* loaded from: classes4.dex */
-public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
-    final boolean delayErrors;
-    final int qAU;
+/* loaded from: classes7.dex */
+public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class a {
-        static final OperatorMerge<Object> qBj = new OperatorMerge<>(true, Integer.MAX_VALUE);
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public final boolean f68188e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class b {
-        static final OperatorMerge<Object> qBj = new OperatorMerge<>(false, Integer.MAX_VALUE);
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public final int f68189f;
 
-    @Override // rx.functions.f
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((rx.j) ((rx.j) obj));
-    }
-
-    public static <T> OperatorMerge<T> CZ(boolean z) {
-        return z ? (OperatorMerge<T>) a.qBj : (OperatorMerge<T>) b.qBj;
-    }
-
-    OperatorMerge(boolean z, int i) {
-        this.delayErrors = z;
-        this.qAU = i;
-    }
-
-    public rx.j<rx.d<? extends T>> call(rx.j<? super T> jVar) {
-        d dVar = new d(jVar, this.delayErrors, this.qAU);
-        MergeProducer<T> mergeProducer = new MergeProducer<>(dVar);
-        dVar.qBn = mergeProducer;
-        jVar.add(dVar);
-        jVar.setProducer(mergeProducer);
-        return dVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class MergeProducer<T> extends AtomicLong implements rx.f {
-        private static final long serialVersionUID = -1214379189873595503L;
-        final d<T> subscriber;
+    /* loaded from: classes7.dex */
+    public static final class MergeProducer<T> extends AtomicLong implements f {
+        public static final long serialVersionUID = -1214379189873595503L;
+        public final d<T> subscriber;
 
         public MergeProducer(d<T> dVar) {
             this.subscriber = dVar;
         }
 
-        @Override // rx.f
-        public void request(long j) {
-            if (j > 0) {
-                if (get() != Long.MAX_VALUE) {
-                    rx.internal.operators.a.e(this, j);
-                    this.subscriber.emit();
-                }
-            } else if (j < 0) {
-                throw new IllegalArgumentException("n >= 0 required");
-            }
-        }
-
         public long produced(int i) {
             return addAndGet(-i);
         }
+
+        @Override // h.f
+        public void request(long j) {
+            if (j <= 0) {
+                if (j < 0) {
+                    throw new IllegalArgumentException("n >= 0 required");
+                }
+            } else if (get() == Long.MAX_VALUE) {
+            } else {
+                h.o.a.a.b(this, j);
+                this.subscriber.d();
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class d<T> extends rx.j<rx.d<? extends T>> {
-        static final c<?>[] qBs = new c[0];
-        final rx.j<? super T> child;
-        final boolean delayErrors;
-        volatile boolean done;
-        boolean emitting;
-        long lastId;
-        int lastIndex;
-        boolean missed;
-        final int qAU;
-        MergeProducer<T> qBn;
-        volatile rx.subscriptions.b qBo;
-        volatile ConcurrentLinkedQueue<Throwable> qBp;
-        final Object qBq = new Object();
-        volatile c<?>[] qBr = qBs;
-        final int qBt;
-        int qBu;
-        volatile Queue<Object> queue;
-        long uniqueId;
+    /* loaded from: classes7.dex */
+    public static final class a {
 
-        public d(rx.j<? super T> jVar, boolean z, int i) {
-            this.child = jVar;
-            this.delayErrors = z;
-            this.qAU = i;
+        /* renamed from: a  reason: collision with root package name */
+        public static final OperatorMerge<Object> f68190a = new OperatorMerge<>(true, Integer.MAX_VALUE);
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final OperatorMerge<Object> f68191a = new OperatorMerge<>(false, Integer.MAX_VALUE);
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c<T> extends j<T> {
+        public static final int j = g.f67930g / 4;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final d<T> f68192e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final long f68193f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public volatile boolean f68194g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public volatile g f68195h;
+        public int i;
+
+        public c(d<T> dVar, long j2) {
+            this.f68192e = dVar;
+            this.f68193f = j2;
+        }
+
+        public void b(long j2) {
+            int i = this.i - ((int) j2);
+            if (i > j) {
+                this.i = i;
+                return;
+            }
+            int i2 = g.f67930g;
+            this.i = i2;
+            int i3 = i2 - i;
+            if (i3 > 0) {
+                request(i3);
+            }
+        }
+
+        @Override // h.e
+        public void onCompleted() {
+            this.f68194g = true;
+            this.f68192e.d();
+        }
+
+        @Override // h.e
+        public void onError(Throwable th) {
+            this.f68194g = true;
+            this.f68192e.j().offer(th);
+            this.f68192e.d();
+        }
+
+        @Override // h.e
+        public void onNext(T t) {
+            this.f68192e.r(this, t);
+        }
+
+        @Override // h.j
+        public void onStart() {
+            int i = g.f67930g;
+            this.i = i;
+            request(i);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d<T> extends j<h.d<? extends T>> {
+        public static final c<?>[] v = new c[0];
+
+        /* renamed from: e  reason: collision with root package name */
+        public final j<? super T> f68196e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final boolean f68197f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final int f68198g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public MergeProducer<T> f68199h;
+        public volatile Queue<Object> i;
+        public volatile h.u.b j;
+        public volatile ConcurrentLinkedQueue<Throwable> k;
+        public volatile boolean l;
+        public boolean m;
+        public boolean n;
+        public final Object o = new Object();
+        public volatile c<?>[] p = v;
+        public long q;
+        public long r;
+        public int s;
+        public final int t;
+        public int u;
+
+        public d(j<? super T> jVar, boolean z, int i) {
+            this.f68196e = jVar;
+            this.f68197f = z;
+            this.f68198g = i;
             if (i == Integer.MAX_VALUE) {
-                this.qBt = Integer.MAX_VALUE;
+                this.t = Integer.MAX_VALUE;
                 request(Long.MAX_VALUE);
                 return;
             }
-            this.qBt = Math.max(1, i >> 1);
+            this.t = Math.max(1, i >> 1);
             request(i);
         }
 
-        Queue<Throwable> eMN() {
-            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.qBp;
-            if (concurrentLinkedQueue == null) {
+        /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.OperatorMerge$c<?>[] */
+        /* JADX WARN: Multi-variable type inference failed */
+        public void b(c<T> cVar) {
+            i().a(cVar);
+            synchronized (this.o) {
+                c<?>[] cVarArr = this.p;
+                int length = cVarArr.length;
+                c<?>[] cVarArr2 = new c[length + 1];
+                System.arraycopy(cVarArr, 0, cVarArr2, 0, length);
+                cVarArr2[length] = cVar;
+                this.p = cVarArr2;
+            }
+        }
+
+        public boolean c() {
+            if (this.f68196e.isUnsubscribed()) {
+                return true;
+            }
+            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.k;
+            if (this.f68197f || concurrentLinkedQueue == null || concurrentLinkedQueue.isEmpty()) {
+                return false;
+            }
+            try {
+                o();
+                return true;
+            } finally {
+                unsubscribe();
+            }
+        }
+
+        public void d() {
+            synchronized (this) {
+                if (this.m) {
+                    this.n = true;
+                    return;
+                }
+                this.m = true;
+                f();
+            }
+        }
+
+        public void e() {
+            int i = this.u + 1;
+            if (i == this.t) {
+                this.u = 0;
+                p(i);
+                return;
+            }
+            this.u = i;
+        }
+
+        public void f() {
+            boolean z;
+            long j;
+            int i;
+            boolean z2;
+            try {
+                j<? super T> jVar = this.f68196e;
+                while (!c()) {
+                    Queue<Object> queue = this.i;
+                    long j2 = this.f68199h.get();
+                    boolean z3 = j2 == Long.MAX_VALUE;
+                    if (queue != null) {
+                        int i2 = 0;
+                        while (true) {
+                            j = j2;
+                            int i3 = 0;
+                            i = i2;
+                            Object obj = null;
+                            while (true) {
+                                if (j <= 0) {
+                                    break;
+                                }
+                                Object poll = queue.poll();
+                                if (c()) {
+                                    return;
+                                }
+                                if (poll == null) {
+                                    obj = poll;
+                                    break;
+                                }
+                                jVar.onNext((Object) NotificationLite.d(poll));
+                                i++;
+                                i3++;
+                                j--;
+                                obj = poll;
+                            }
+                            if (i3 > 0) {
+                                j = z3 ? Long.MAX_VALUE : this.f68199h.produced(i3);
+                            }
+                            if (j == 0 || obj == null) {
+                                break;
+                            }
+                            i2 = i;
+                            j2 = j;
+                        }
+                    } else {
+                        j = j2;
+                        i = 0;
+                    }
+                    boolean z4 = this.l;
+                    Queue<Object> queue2 = this.i;
+                    c<?>[] cVarArr = this.p;
+                    int length = cVarArr.length;
+                    if (z4 && ((queue2 == null || queue2.isEmpty()) && length == 0)) {
+                        ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.k;
+                        if (concurrentLinkedQueue != null && !concurrentLinkedQueue.isEmpty()) {
+                            o();
+                            return;
+                        }
+                        jVar.onCompleted();
+                        return;
+                    }
+                    if (length > 0) {
+                        long j3 = this.r;
+                        int i4 = this.s;
+                        if (length <= i4 || cVarArr[i4].f68193f != j3) {
+                            if (length <= i4) {
+                                i4 = 0;
+                            }
+                            for (int i5 = 0; i5 < length && cVarArr[i4].f68193f != j3; i5++) {
+                                i4++;
+                                if (i4 == length) {
+                                    i4 = 0;
+                                }
+                            }
+                            this.s = i4;
+                            this.r = cVarArr[i4].f68193f;
+                        }
+                        z2 = false;
+                        for (int i6 = 0; i6 < length; i6++) {
+                            if (c()) {
+                                return;
+                            }
+                            c<?> cVar = cVarArr[i4];
+                            Object obj2 = null;
+                            do {
+                                int i7 = 0;
+                                while (j > 0) {
+                                    if (c()) {
+                                        return;
+                                    }
+                                    g gVar = cVar.f68195h;
+                                    if (gVar == null || (obj2 = gVar.i()) == null) {
+                                        break;
+                                    }
+                                    try {
+                                        jVar.onNext((Object) NotificationLite.d(obj2));
+                                        j--;
+                                        i7++;
+                                    }
+                                }
+                                if (i7 > 0) {
+                                    j = !z3 ? this.f68199h.produced(i7) : Long.MAX_VALUE;
+                                    cVar.b(i7);
+                                }
+                                if (j == 0) {
+                                    break;
+                                }
+                            } while (obj2 != null);
+                            boolean z5 = cVar.f68194g;
+                            g gVar2 = cVar.f68195h;
+                            if (z5 && (gVar2 == null || gVar2.e())) {
+                                n(cVar);
+                                if (c()) {
+                                    return;
+                                }
+                                i++;
+                                z2 = true;
+                            }
+                            if (j == 0) {
+                                break;
+                            }
+                            i4++;
+                            if (i4 == length) {
+                                i4 = 0;
+                            }
+                        }
+                        this.s = i4;
+                        this.r = cVarArr[i4].f68193f;
+                    } else {
+                        z2 = false;
+                    }
+                    if (i > 0) {
+                        request(i);
+                    }
+                    if (!z2) {
+                        synchronized (this) {
+                            try {
+                                if (!this.n) {
+                                    try {
+                                        this.m = false;
+                                        return;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        z = true;
+                                        while (true) {
+                                            try {
+                                                break;
+                                            } catch (Throwable th2) {
+                                                th = th2;
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                }
+                                this.n = false;
+                            } catch (Throwable th3) {
+                                th = th3;
+                                z = false;
+                            }
+                        }
+                        try {
+                            break;
+                            throw th;
+                        } catch (Throwable th4) {
+                            th = th4;
+                            if (!z) {
+                                synchronized (this) {
+                                    this.m = false;
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                z = false;
+            }
+        }
+
+        public void g(T t, long j) {
+            try {
+                this.f68196e.onNext(t);
+                if (j != Long.MAX_VALUE) {
+                    this.f68199h.produced(1);
+                }
+                int i = this.u + 1;
+                if (i == this.t) {
+                    this.u = 0;
+                    p(i);
+                } else {
+                    this.u = i;
+                }
                 synchronized (this) {
-                    concurrentLinkedQueue = this.qBp;
-                    if (concurrentLinkedQueue == null) {
-                        concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-                        this.qBp = concurrentLinkedQueue;
+                    try {
+                        if (!this.n) {
+                            this.m = false;
+                            return;
+                        }
+                        this.n = false;
+                        f();
                     }
                 }
             }
-            return concurrentLinkedQueue;
         }
 
-        rx.subscriptions.b eMO() {
-            rx.subscriptions.b bVar = this.qBo;
-            if (bVar == null) {
+        public void h(c<T> cVar, T t, long j) {
+            try {
+                this.f68196e.onNext(t);
+                if (j != Long.MAX_VALUE) {
+                    this.f68199h.produced(1);
+                }
+                cVar.b(1L);
+                synchronized (this) {
+                    try {
+                        if (!this.n) {
+                            this.m = false;
+                            return;
+                        }
+                        this.n = false;
+                        f();
+                    }
+                }
+            }
+        }
+
+        public h.u.b i() {
+            h.u.b bVar;
+            h.u.b bVar2 = this.j;
+            if (bVar2 == null) {
                 boolean z = false;
                 synchronized (this) {
-                    bVar = this.qBo;
+                    bVar = this.j;
                     if (bVar == null) {
-                        bVar = new rx.subscriptions.b();
-                        this.qBo = bVar;
+                        h.u.b bVar3 = new h.u.b();
+                        this.j = bVar3;
+                        bVar = bVar3;
                         z = true;
                     }
                 }
                 if (z) {
                     add(bVar);
                 }
+                return bVar;
             }
-            return bVar;
+            return bVar2;
+        }
+
+        public Queue<Throwable> j() {
+            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.k;
+            if (concurrentLinkedQueue == null) {
+                synchronized (this) {
+                    concurrentLinkedQueue = this.k;
+                    if (concurrentLinkedQueue == null) {
+                        concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+                        this.k = concurrentLinkedQueue;
+                    }
+                }
+            }
+            return concurrentLinkedQueue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: rx.internal.operators.OperatorMerge$d<T> */
+        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: rx.internal.operators.OperatorMerge$d<T> */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // rx.e
-        /* renamed from: d */
-        public void onNext(rx.d<? extends T> dVar) {
-            if (dVar != null) {
-                if (dVar == rx.d.eMr()) {
-                    eMP();
-                } else if (dVar instanceof ScalarSynchronousObservable) {
-                    cc(((ScalarSynchronousObservable) dVar).get());
-                } else {
-                    long j = this.uniqueId;
-                    this.uniqueId = 1 + j;
-                    c cVar = new c(this, j);
-                    a(cVar);
-                    dVar.a((rx.j<? super Object>) cVar);
-                    emit();
-                }
-            }
-        }
-
-        void eMP() {
-            int i = this.qBu + 1;
-            if (i == this.qBt) {
-                this.qBu = 0;
-                requestMore(i);
+        @Override // h.e
+        /* renamed from: k */
+        public void onNext(h.d<? extends T> dVar) {
+            if (dVar == null) {
                 return;
             }
-            this.qBu = i;
-        }
-
-        private void eMQ() {
-            ArrayList arrayList = new ArrayList(this.qBp);
-            if (arrayList.size() == 1) {
-                this.child.onError((Throwable) arrayList.get(0));
+            if (dVar == h.d.f()) {
+                e();
+            } else if (dVar instanceof ScalarSynchronousObservable) {
+                q(((ScalarSynchronousObservable) dVar).M());
             } else {
-                this.child.onError(new CompositeException(arrayList));
+                long j = this.q;
+                this.q = 1 + j;
+                c cVar = new c(this, j);
+                b(cVar);
+                dVar.J(cVar);
+                d();
             }
         }
 
-        @Override // rx.e
-        public void onError(Throwable th) {
-            eMN().offer(th);
-            this.done = true;
-            emit();
-        }
-
-        @Override // rx.e
-        public void onCompleted() {
-            this.done = true;
-            emit();
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.OperatorMerge$c<?>[] */
-        /* JADX WARN: Multi-variable type inference failed */
-        void a(c<T> cVar) {
-            eMO().add(cVar);
-            synchronized (this.qBq) {
-                c<?>[] cVarArr = this.qBr;
-                int length = cVarArr.length;
-                c<?>[] cVarArr2 = new c[length + 1];
-                System.arraycopy(cVarArr, 0, cVarArr2, 0, length);
-                cVarArr2[length] = cVar;
-                this.qBr = cVarArr2;
-            }
-        }
-
-        void b(c<T> cVar) {
-            int i = 0;
-            rx.internal.util.g gVar = cVar.qBl;
-            if (gVar != null) {
-                gVar.release();
-            }
-            this.qBo.a(cVar);
-            synchronized (this.qBq) {
-                c<?>[] cVarArr = this.qBr;
-                int length = cVarArr.length;
-                while (true) {
-                    if (i >= length) {
-                        i = -1;
-                        break;
-                    } else if (cVar.equals(cVarArr[i])) {
-                        break;
+        public void l(T t) {
+            Queue<Object> spscExactAtomicArrayQueue;
+            Queue<Object> queue = this.i;
+            if (queue == null) {
+                int i = this.f68198g;
+                if (i == Integer.MAX_VALUE) {
+                    queue = new h.o.d.j.f<>(g.f67930g);
+                } else {
+                    if (i.a(i)) {
+                        if (f0.b()) {
+                            spscExactAtomicArrayQueue = new r<>(i);
+                        } else {
+                            spscExactAtomicArrayQueue = new h.o.d.j.c<>(i);
+                        }
                     } else {
-                        i++;
+                        spscExactAtomicArrayQueue = new SpscExactAtomicArrayQueue<>(i);
                     }
+                    queue = spscExactAtomicArrayQueue;
                 }
-                if (i >= 0) {
-                    if (length == 1) {
-                        this.qBr = qBs;
-                        return;
-                    }
-                    c<?>[] cVarArr2 = new c[length - 1];
-                    System.arraycopy(cVarArr, 0, cVarArr2, 0, i);
-                    System.arraycopy(cVarArr, i + 1, cVarArr2, i, (length - i) - 1);
-                    this.qBr = cVarArr2;
-                }
+                this.i = queue;
             }
+            if (queue.offer(NotificationLite.g(t))) {
+                return;
+            }
+            unsubscribe();
+            onError(OnErrorThrowable.addValueAsLastCause(new MissingBackpressureException(), t));
         }
 
-        void a(c<T> cVar, T t) {
-            boolean z = false;
-            long j = this.qBn.get();
-            if (j != 0) {
-                synchronized (this) {
-                    j = this.qBn.get();
-                    if (!this.emitting && j != 0) {
-                        this.emitting = true;
-                        z = true;
-                    }
-                }
+        public void m(c<T> cVar, T t) {
+            g gVar = cVar.f68195h;
+            if (gVar == null) {
+                gVar = g.b();
+                cVar.add(gVar);
+                cVar.f68195h = gVar;
             }
-            if (z) {
-                rx.internal.util.g gVar = cVar.qBl;
-                if (gVar == null || gVar.isEmpty()) {
-                    a(cVar, t, j);
+            try {
+                gVar.g(NotificationLite.g(t));
+            } catch (IllegalStateException e2) {
+                if (cVar.isUnsubscribed()) {
                     return;
                 }
-                b((c<c<T>>) cVar, (c<T>) t);
-                emitLoop();
-                return;
-            }
-            b((c<c<T>>) cVar, (c<T>) t);
-            emit();
-        }
-
-        protected void b(c<T> cVar, T t) {
-            rx.internal.util.g gVar = cVar.qBl;
-            if (gVar == null) {
-                gVar = rx.internal.util.g.eNh();
-                cVar.add(gVar);
-                cVar.qBl = gVar;
-            }
-            try {
-                gVar.onNext(NotificationLite.next(t));
-            } catch (IllegalStateException e) {
-                if (!cVar.isUnsubscribed()) {
-                    cVar.unsubscribe();
-                    cVar.onError(e);
-                }
-            } catch (MissingBackpressureException e2) {
                 cVar.unsubscribe();
                 cVar.onError(e2);
+            } catch (MissingBackpressureException e3) {
+                cVar.unsubscribe();
+                cVar.onError(e3);
             }
         }
 
-        protected void a(c<T> cVar, T t, long j) {
-            try {
-                this.child.onNext(t);
-                if (j != Long.MAX_VALUE) {
-                    try {
-                        this.qBn.produced(1);
-                    } catch (Throwable th) {
-                        if (0 == 0) {
-                            synchronized (this) {
-                                this.emitting = false;
-                            }
-                        }
-                        throw th;
+        public void n(c<T> cVar) {
+            g gVar = cVar.f68195h;
+            if (gVar != null) {
+                gVar.j();
+            }
+            this.j.b(cVar);
+            synchronized (this.o) {
+                c<?>[] cVarArr = this.p;
+                int length = cVarArr.length;
+                int i = -1;
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= length) {
+                        break;
+                    } else if (cVar.equals(cVarArr[i2])) {
+                        i = i2;
+                        break;
+                    } else {
+                        i2++;
                     }
                 }
-                cVar.requestMore(1L);
-                synchronized (this) {
-                    if (!this.missed) {
-                        this.emitting = false;
-                        return;
-                    }
-                    this.missed = false;
-                    emitLoop();
+                if (i < 0) {
+                    return;
                 }
+                if (length == 1) {
+                    this.p = v;
+                    return;
+                }
+                c<?>[] cVarArr2 = new c[length - 1];
+                System.arraycopy(cVarArr, 0, cVarArr2, 0, i);
+                System.arraycopy(cVarArr, i + 1, cVarArr2, i, (length - i) - 1);
+                this.p = cVarArr2;
             }
         }
 
-        public void requestMore(long j) {
+        public final void o() {
+            ArrayList arrayList = new ArrayList(this.k);
+            if (arrayList.size() == 1) {
+                this.f68196e.onError((Throwable) arrayList.get(0));
+            } else {
+                this.f68196e.onError(new CompositeException(arrayList));
+            }
+        }
+
+        @Override // h.e
+        public void onCompleted() {
+            this.l = true;
+            d();
+        }
+
+        @Override // h.e
+        public void onError(Throwable th) {
+            j().offer(th);
+            this.l = true;
+            d();
+        }
+
+        public void p(long j) {
             request(j);
         }
 
-        void cc(T t) {
+        public void q(T t) {
+            long j = this.f68199h.get();
             boolean z = false;
-            long j = this.qBn.get();
             if (j != 0) {
                 synchronized (this) {
-                    j = this.qBn.get();
-                    if (!this.emitting && j != 0) {
-                        this.emitting = true;
+                    j = this.f68199h.get();
+                    if (!this.m && j != 0) {
+                        this.m = true;
                         z = true;
                     }
                 }
             }
             if (z) {
-                Queue<Object> queue = this.queue;
-                if (queue == null || queue.isEmpty()) {
-                    b((d<T>) t, j);
+                Queue<Object> queue = this.i;
+                if (queue != null && !queue.isEmpty()) {
+                    l(t);
+                    f();
                     return;
                 }
-                cd(t);
-                emitLoop();
+                g(t, j);
                 return;
             }
-            cd(t);
-            emit();
+            l(t);
+            d();
         }
 
-        protected void cd(T t) {
-            Queue<Object> queue = this.queue;
-            if (queue == null) {
-                int i = this.qAU;
-                if (i == Integer.MAX_VALUE) {
-                    queue = new rx.internal.util.atomic.f<>(rx.internal.util.g.SIZE);
-                } else if (rx.internal.util.a.h.SH(i)) {
-                    if (ae.eNq()) {
-                        queue = new rx.internal.util.a.q<>(i);
-                    } else {
-                        queue = new rx.internal.util.atomic.c<>(i);
-                    }
-                } else {
-                    queue = new SpscExactAtomicArrayQueue<>(i);
-                }
-                this.queue = queue;
-            }
-            if (!queue.offer(NotificationLite.next(t))) {
-                unsubscribe();
-                onError(OnErrorThrowable.addValueAsLastCause(new MissingBackpressureException(), t));
-            }
-        }
-
-        protected void b(T t, long j) {
-            try {
-                this.child.onNext(t);
-                if (j != Long.MAX_VALUE) {
-                    this.qBn.produced(1);
-                }
-                int i = this.qBu + 1;
-                if (i == this.qBt) {
-                    this.qBu = 0;
-                    requestMore(i);
-                } else {
-                    this.qBu = i;
-                }
+        public void r(c<T> cVar, T t) {
+            long j = this.f68199h.get();
+            boolean z = false;
+            if (j != 0) {
                 synchronized (this) {
-                    try {
-                        if (!this.missed) {
-                            this.emitting = false;
-                        } else {
-                            this.missed = false;
-                            emitLoop();
-                        }
+                    j = this.f68199h.get();
+                    if (!this.m && j != 0) {
+                        this.m = true;
+                        z = true;
                     }
                 }
-            } catch (Throwable th) {
-                if (0 == 0) {
-                    synchronized (this) {
-                        this.emitting = false;
-                    }
-                }
-                throw th;
             }
-        }
-
-        void emit() {
-            synchronized (this) {
-                if (this.emitting) {
-                    this.missed = true;
+            if (z) {
+                g gVar = cVar.f68195h;
+                if (gVar != null && !gVar.e()) {
+                    m(cVar, t);
+                    f();
                     return;
                 }
-                this.emitting = true;
-                emitLoop();
+                h(cVar, t, j);
+                return;
             }
-        }
-
-        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        /* JADX WARN: Code restructure failed: missing block: B:98:0x014d, code lost:
-            r20.lastIndex = r10;
-            r20.lastId = r13[r10].id;
-         */
-        /* JADX WARN: Removed duplicated region for block: B:100:0x015b A[Catch: all -> 0x0075, TryCatch #4 {all -> 0x0075, blocks: (B:3:0x0001, B:4:0x0005, B:7:0x000c, B:15:0x002e, B:45:0x0083, B:53:0x00ad, B:25:0x004c, B:28:0x005d, B:31:0x0065, B:33:0x006b, B:54:0x00b6, B:35:0x0071, B:57:0x00be, B:59:0x00ca, B:70:0x00f3, B:72:0x00f9, B:76:0x0103, B:78:0x0109, B:115:0x017f, B:117:0x0185, B:82:0x0113, B:83:0x011b, B:87:0x0129, B:90:0x0131, B:92:0x0137, B:94:0x0142, B:98:0x014d, B:100:0x015b, B:102:0x0163, B:65:0x00d8, B:111:0x0176, B:114:0x017b, B:67:0x00e2, B:103:0x0164, B:105:0x016a, B:106:0x0170, B:134:0x01bb, B:135:0x01bf, B:46:0x0087, B:118:0x0189), top: B:143:0x0001 }] */
-        /* JADX WARN: Removed duplicated region for block: B:141:0x01c8  */
-        /* JADX WARN: Removed duplicated region for block: B:150:0x0163 A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:155:0x0005 A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:57:0x00be A[Catch: all -> 0x0075, TryCatch #4 {all -> 0x0075, blocks: (B:3:0x0001, B:4:0x0005, B:7:0x000c, B:15:0x002e, B:45:0x0083, B:53:0x00ad, B:25:0x004c, B:28:0x005d, B:31:0x0065, B:33:0x006b, B:54:0x00b6, B:35:0x0071, B:57:0x00be, B:59:0x00ca, B:70:0x00f3, B:72:0x00f9, B:76:0x0103, B:78:0x0109, B:115:0x017f, B:117:0x0185, B:82:0x0113, B:83:0x011b, B:87:0x0129, B:90:0x0131, B:92:0x0137, B:94:0x0142, B:98:0x014d, B:100:0x015b, B:102:0x0163, B:65:0x00d8, B:111:0x0176, B:114:0x017b, B:67:0x00e2, B:103:0x0164, B:105:0x016a, B:106:0x0170, B:134:0x01bb, B:135:0x01bf, B:46:0x0087, B:118:0x0189), top: B:143:0x0001 }] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        void emitLoop() {
-            int i;
-            boolean z;
-            int length;
-            boolean z2;
-            int i2;
-            Object obj;
-            try {
-                rx.j<? super T> jVar = this.child;
-                while (!checkTerminate()) {
-                    Queue<Object> queue = this.queue;
-                    long j = this.qBn.get();
-                    boolean z3 = j == Long.MAX_VALUE;
-                    int i3 = 0;
-                    if (queue != null) {
-                        do {
-                            int i4 = 0;
-                            obj = null;
-                            while (j > 0) {
-                                obj = queue.poll();
-                                if (!checkTerminate()) {
-                                    if (obj == null) {
-                                        break;
-                                    }
-                                    jVar.onNext((Object) NotificationLite.getValue(obj));
-                                    i3++;
-                                    i4++;
-                                    j--;
-                                } else {
-                                    return;
-                                }
-                            }
-                            if (i4 > 0) {
-                                if (z3) {
-                                    j = Long.MAX_VALUE;
-                                } else {
-                                    j = this.qBn.produced(i4);
-                                }
-                            }
-                            if (j != 0) {
-                            }
-                        } while (obj != null);
-                        i = i3;
-                        z = this.done;
-                        Queue<Object> queue2 = this.queue;
-                        c<?>[] cVarArr = this.qBr;
-                        length = cVarArr.length;
-                        if (!z && ((queue2 == null || queue2.isEmpty()) && length == 0)) {
-                            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.qBp;
-                            if (concurrentLinkedQueue == null || concurrentLinkedQueue.isEmpty()) {
-                                jVar.onCompleted();
-                                return;
-                            } else {
-                                eMQ();
-                                return;
-                            }
-                        }
-                        boolean z4 = false;
-                        if (length > 0) {
-                            z2 = false;
-                            i2 = i;
-                        } else {
-                            long j2 = this.lastId;
-                            int i5 = this.lastIndex;
-                            if (length <= i5 || cVarArr[i5].id != j2) {
-                                if (length <= i5) {
-                                    i5 = 0;
-                                }
-                                for (int i6 = 0; i6 < length && cVarArr[i5].id != j2; i6++) {
-                                    i5++;
-                                    if (i5 == length) {
-                                        i5 = 0;
-                                    }
-                                }
-                                this.lastIndex = i5;
-                                this.lastId = cVarArr[i5].id;
-                            }
-                            int i7 = 0;
-                            int i8 = i5;
-                            while (true) {
-                                if (i7 >= length) {
-                                    z2 = z4;
-                                    i2 = i;
-                                    break;
-                                } else if (!checkTerminate()) {
-                                    c<?> cVar = cVarArr[i8];
-                                    Object obj2 = null;
-                                    do {
-                                        int i9 = 0;
-                                        while (j > 0) {
-                                            if (!checkTerminate()) {
-                                                rx.internal.util.g gVar = cVar.qBl;
-                                                if (gVar == null || (obj2 = gVar.poll()) == null) {
-                                                    break;
-                                                }
-                                                jVar.onNext((Object) NotificationLite.getValue(obj2));
-                                                j--;
-                                                i9++;
-                                            } else {
-                                                return;
-                                            }
-                                        }
-                                        if (i9 > 0) {
-                                            if (!z3) {
-                                                j = this.qBn.produced(i9);
-                                            } else {
-                                                j = Long.MAX_VALUE;
-                                            }
-                                            cVar.requestMore(i9);
-                                        }
-                                        if (j == 0) {
-                                            break;
-                                        }
-                                    } while (obj2 != null);
-                                    boolean z5 = cVar.done;
-                                    rx.internal.util.g gVar2 = cVar.qBl;
-                                    if (z5 && (gVar2 == null || gVar2.isEmpty())) {
-                                        b(cVar);
-                                        if (!checkTerminate()) {
-                                            i++;
-                                            z4 = true;
-                                        } else {
-                                            return;
-                                        }
-                                    }
-                                    if (j == 0) {
-                                        z2 = z4;
-                                        i2 = i;
-                                        break;
-                                    }
-                                    int i10 = i8 + 1;
-                                    if (i10 == length) {
-                                        i10 = 0;
-                                    }
-                                    i7++;
-                                    i8 = i10;
-                                } else {
-                                    return;
-                                }
-                            }
-                        }
-                        if (i2 > 0) {
-                            request(i2);
-                        }
-                        if (z2) {
-                            synchronized (this) {
-                                if (!this.missed) {
-                                    this.emitting = false;
-                                    return;
-                                }
-                                this.missed = false;
-                            }
-                        }
-                    }
-                    i = i3;
-                    z = this.done;
-                    Queue<Object> queue22 = this.queue;
-                    c<?>[] cVarArr2 = this.qBr;
-                    length = cVarArr2.length;
-                    if (!z) {
-                    }
-                    boolean z42 = false;
-                    if (length > 0) {
-                    }
-                    if (i2 > 0) {
-                    }
-                    if (z2) {
-                    }
-                }
-            } catch (Throwable th) {
-                if (0 == 0) {
-                    synchronized (this) {
-                        this.emitting = false;
-                    }
-                }
-                throw th;
-            }
-        }
-
-        boolean checkTerminate() {
-            if (this.child.isUnsubscribed()) {
-                return true;
-            }
-            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.qBp;
-            if (!this.delayErrors && concurrentLinkedQueue != null && !concurrentLinkedQueue.isEmpty()) {
-                try {
-                    eMQ();
-                    return true;
-                } finally {
-                    unsubscribe();
-                }
-            }
-            return false;
+            m(cVar, t);
+            d();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class c<T> extends rx.j<T> {
-        static final int LIMIT = rx.internal.util.g.SIZE / 4;
-        volatile boolean done;
-        final long id;
-        final d<T> qBk;
-        volatile rx.internal.util.g qBl;
-        int qBm;
+    public OperatorMerge(boolean z, int i) {
+        this.f68188e = z;
+        this.f68189f = i;
+    }
 
-        public c(d<T> dVar, long j) {
-            this.qBk = dVar;
-            this.id = j;
+    public static <T> OperatorMerge<T> b(boolean z) {
+        if (z) {
+            return (OperatorMerge<T>) a.f68190a;
         }
+        return (OperatorMerge<T>) b.f68191a;
+    }
 
-        @Override // rx.j
-        public void onStart() {
-            this.qBm = rx.internal.util.g.SIZE;
-            request(rx.internal.util.g.SIZE);
-        }
-
-        @Override // rx.e
-        public void onNext(T t) {
-            this.qBk.a(this, t);
-        }
-
-        @Override // rx.e
-        public void onError(Throwable th) {
-            this.done = true;
-            this.qBk.eMN().offer(th);
-            this.qBk.emit();
-        }
-
-        @Override // rx.e
-        public void onCompleted() {
-            this.done = true;
-            this.qBk.emit();
-        }
-
-        public void requestMore(long j) {
-            int i = this.qBm - ((int) j);
-            if (i > LIMIT) {
-                this.qBm = i;
-                return;
-            }
-            this.qBm = rx.internal.util.g.SIZE;
-            int i2 = rx.internal.util.g.SIZE - i;
-            if (i2 > 0) {
-                request(i2);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // h.n.f
+    /* renamed from: a */
+    public j<h.d<? extends T>> call(j<? super T> jVar) {
+        d dVar = new d(jVar, this.f68188e, this.f68189f);
+        MergeProducer<T> mergeProducer = new MergeProducer<>(dVar);
+        dVar.f68199h = mergeProducer;
+        jVar.add(dVar);
+        jVar.setProducer(mergeProducer);
+        return dVar;
     }
 }

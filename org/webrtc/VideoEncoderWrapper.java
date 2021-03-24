@@ -3,13 +3,10 @@ package org.webrtc;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.VideoEncoder;
-/* loaded from: classes9.dex */
-class VideoEncoderWrapper {
-    VideoEncoderWrapper() {
-    }
-
+/* loaded from: classes.dex */
+public class VideoEncoderWrapper {
     @CalledByNative
-    static VideoEncoder.Callback createEncoderCallback(final long j) {
+    public static VideoEncoder.Callback createEncoderCallback(final long j) {
         return new VideoEncoder.Callback() { // from class: org.webrtc._$$Lambda$VideoEncoderWrapper$dRHADZXMoanHTOdEf2Act96Dzi0
             @Override // org.webrtc.VideoEncoder.Callback
             public final void onEncodedFrame(EncodedImage encodedImage, VideoEncoder.CodecSpecificInfo codecSpecificInfo) {
@@ -20,21 +17,20 @@ class VideoEncoderWrapper {
 
     @Nullable
     @CalledByNative
-    static Integer getScalingSettingsHigh(VideoEncoder.ScalingSettings scalingSettings) {
+    public static Integer getScalingSettingsHigh(VideoEncoder.ScalingSettings scalingSettings) {
         return scalingSettings.high;
     }
 
     @Nullable
     @CalledByNative
-    static Integer getScalingSettingsLow(VideoEncoder.ScalingSettings scalingSettings) {
+    public static Integer getScalingSettingsLow(VideoEncoder.ScalingSettings scalingSettings) {
         return scalingSettings.low;
     }
 
     @CalledByNative
-    static boolean getScalingSettingsOn(VideoEncoder.ScalingSettings scalingSettings) {
+    public static boolean getScalingSettingsOn(VideoEncoder.ScalingSettings scalingSettings) {
         return scalingSettings.on;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static native void nativeOnEncodedFrame(long j, ByteBuffer byteBuffer, int i, int i2, long j2, int i3, int i4, boolean z, Integer num);
 }

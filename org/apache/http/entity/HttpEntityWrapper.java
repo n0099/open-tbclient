@@ -6,21 +6,26 @@ import java.io.OutputStream;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpEntityWrapper implements HttpEntity {
-    protected HttpEntity wrappedEntity;
+    public HttpEntity wrappedEntity;
 
     public HttpEntityWrapper(HttpEntity httpEntity) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpEntity
-    public boolean isRepeatable() {
+    public void consumeContent() throws IOException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpEntity
-    public boolean isChunked() {
+    public InputStream getContent() throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpEntity
+    public Header getContentEncoding() {
         throw new RuntimeException("Stub!");
     }
 
@@ -35,17 +40,12 @@ public class HttpEntityWrapper implements HttpEntity {
     }
 
     @Override // org.apache.http.HttpEntity
-    public Header getContentEncoding() {
+    public boolean isChunked() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpEntity
-    public InputStream getContent() throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpEntity
-    public void writeTo(OutputStream outputStream) throws IOException {
+    public boolean isRepeatable() {
         throw new RuntimeException("Stub!");
     }
 
@@ -55,7 +55,7 @@ public class HttpEntityWrapper implements HttpEntity {
     }
 
     @Override // org.apache.http.HttpEntity
-    public void consumeContent() throws IOException {
+    public void writeTo(OutputStream outputStream) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class LimitedMemoryCache extends BaseMemoryCache {
-    private static final int MAX_NORMAL_CACHE_SIZE = 16777216;
-    private static final int MAX_NORMAL_CACHE_SIZE_IN_MB = 16;
-    private final int sizeLimit;
-    private final List<DecodedResult> hardCache = Collections.synchronizedList(new LinkedList());
-    private final AtomicInteger cacheSize = new AtomicInteger();
+    public static final int MAX_NORMAL_CACHE_SIZE = 16777216;
+    public static final int MAX_NORMAL_CACHE_SIZE_IN_MB = 16;
+    public final int sizeLimit;
+    public final List<DecodedResult> hardCache = Collections.synchronizedList(new LinkedList());
+    public final AtomicInteger cacheSize = new AtomicInteger();
 
     public LimitedMemoryCache(int i) {
         this.sizeLimit = i;
@@ -28,29 +28,30 @@ public abstract class LimitedMemoryCache extends BaseMemoryCache {
         super.clear();
     }
 
-    protected abstract int getSize(DecodedResult decodedResult);
+    public abstract int getSize(DecodedResult decodedResult);
 
-    protected int getSizeLimit() {
+    public int getSizeLimit() {
         return this.sizeLimit;
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public boolean put(String str, DecodedResult decodedResult) {
-        boolean z = false;
+        boolean z;
         int size = getSize(decodedResult);
         int sizeLimit = getSizeLimit();
         int i = this.cacheSize.get();
         if (size < sizeLimit) {
-            int i2 = i;
-            while (i2 + size > sizeLimit) {
+            while (i + size > sizeLimit) {
                 DecodedResult removeNext = removeNext();
                 if (this.hardCache.remove(removeNext)) {
-                    i2 = this.cacheSize.addAndGet(-getSize(removeNext));
+                    i = this.cacheSize.addAndGet(-getSize(removeNext));
                 }
             }
             this.hardCache.add(decodedResult);
             this.cacheSize.addAndGet(size);
             z = true;
+        } else {
+            z = false;
         }
         super.put(str, decodedResult);
         return z;
@@ -65,5 +66,5 @@ public abstract class LimitedMemoryCache extends BaseMemoryCache {
         return super.remove(str);
     }
 
-    protected abstract DecodedResult removeNext();
+    public abstract DecodedResult removeNext();
 }

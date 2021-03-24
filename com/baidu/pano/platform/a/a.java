@@ -1,19 +1,21 @@
 package com.baidu.pano.platform.a;
 
 import android.content.Intent;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends v {
-    private Intent b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Intent f9312b;
 
     public a() {
     }
 
-    public a(l lVar) {
-        super(lVar);
-    }
-
     @Override // java.lang.Throwable
     public String getMessage() {
-        return this.b != null ? "User needs to (re)enter credentials." : super.getMessage();
+        return this.f9312b != null ? "User needs to (re)enter credentials." : super.getMessage();
+    }
+
+    public a(l lVar) {
+        super(lVar);
     }
 }

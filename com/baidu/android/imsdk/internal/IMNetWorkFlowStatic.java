@@ -1,11 +1,14 @@
 package com.baidu.android.imsdk.internal;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMNetWorkFlowStatic {
-    private static IMNetWorkFlowStatic mStatic = null;
-    private long mMobileFlow;
-    private long mWifiFlow;
+    public static IMNetWorkFlowStatic mStatic;
+    public long mMobileFlow;
+    public long mWifiFlow;
 
-    private IMNetWorkFlowStatic() {
+    public void clear() {
+        IMNetWorkFlowStatic iMNetWorkFlowStatic = mStatic;
+        iMNetWorkFlowStatic.mMobileFlow = 0L;
+        iMNetWorkFlowStatic.mMobileFlow = 0L;
     }
 
     public IMNetWorkFlowStatic getInstance() {
@@ -21,10 +24,5 @@ public class IMNetWorkFlowStatic {
 
     public long getWifiFlow() {
         return mStatic.mWifiFlow;
-    }
-
-    public void clear() {
-        mStatic.mMobileFlow = 0L;
-        mStatic.mMobileFlow = 0L;
     }
 }

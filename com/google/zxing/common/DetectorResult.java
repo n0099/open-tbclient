@@ -1,10 +1,10 @@
 package com.google.zxing.common;
 
 import com.google.zxing.ResultPoint;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DetectorResult {
-    private final BitMatrix bits;
-    private final ResultPoint[] points;
+    public final BitMatrix bits;
+    public final ResultPoint[] points;
 
     public DetectorResult(BitMatrix bitMatrix, ResultPoint[] resultPointArr) {
         this.bits = bitMatrix;

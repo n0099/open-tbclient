@@ -3,7 +3,7 @@ package com.kwad.sdk.collector;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import com.kwad.sdk.core.b.d;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
@@ -11,18 +11,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final long DEFAULT_GRANULARITY = 60000;
     public static final long DEFAULT_START_TIME = 86400000;
-    private static final long serialVersionUID = 3026909056348431027L;
-    private AppStatusInfo data = new AppStatusInfo();
+    public static final long serialVersionUID = 3026909056348431027L;
+    public AppStatusInfo data = new AppStatusInfo();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AppStatusInfo implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = -2403646317801179050L;
-        private Strategy strategy = new Strategy();
-        private ArrayList<Target> target = new ArrayList<>();
+        public static final long serialVersionUID = -2403646317801179050L;
+        public Strategy strategy = new Strategy();
+        public ArrayList<Target> target = new ArrayList<>();
 
         public Strategy getStrategy() {
             return this.strategy;
@@ -37,7 +37,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 return;
             }
             try {
-                JSONObject optJSONObject = jSONObject.optJSONObject(UbcStatConstant.ContentType.UBC_TYPE_STRATEGY);
+                JSONObject optJSONObject = jSONObject.optJSONObject("strategy");
                 JSONArray optJSONArray = jSONObject.optJSONArray("target");
                 this.strategy.parseJson(optJSONObject);
                 int length = optJSONArray != null ? optJSONArray.length() : 0;
@@ -47,8 +47,8 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                     target.parseJson(jSONObject2);
                     this.target.add(target);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
 
@@ -63,18 +63,18 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, UbcStatConstant.ContentType.UBC_TYPE_STRATEGY, this.strategy);
+            o.a(jSONObject, "strategy", this.strategy);
             o.a(jSONObject, "target", this.target);
             return jSONObject;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Strategy implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = -1387498537762043285L;
-        private long historyGranularity = AppStatusRules.DEFAULT_GRANULARITY;
-        private long scanInterval;
-        private long startTime;
+        public static final long serialVersionUID = -1387498537762043285L;
+        public long historyGranularity = 60000;
+        public long scanInterval;
+        public long startTime;
 
         public long getHistoryGranularity() {
             return this.historyGranularity;
@@ -99,8 +99,8 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 if (optInt > 0) {
                     this.historyGranularity = optInt * 1000;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
 
@@ -122,11 +122,11 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Target implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = -4726982809581153390L;
-        private String packageName;
-        private ArrayList<String> paths = new ArrayList<>();
+        public static final long serialVersionUID = -4726982809581153390L;
+        public String packageName;
+        public ArrayList<String> paths = new ArrayList<>();
 
         public String getPackageName() {
             return this.packageName;
@@ -141,7 +141,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 return;
             }
             try {
-                this.packageName = jSONObject.optString("packageName");
+                this.packageName = jSONObject.optString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
                 JSONArray optJSONArray = jSONObject.optJSONArray("paths");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
@@ -149,8 +149,8 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                         this.paths.add(optJSONArray.getString(i));
                     }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
 
@@ -165,7 +165,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "packageName", this.packageName);
+            o.a(jSONObject, InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, this.packageName);
             o.a(jSONObject, "paths", this.paths);
             return jSONObject;
         }
@@ -174,31 +174,38 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
     @NonNull
     public static AppStatusRules createFromJson(String str) {
         AppStatusRules appStatusRules = new AppStatusRules();
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                appStatusRules.parseJson(new JSONObject(str));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (TextUtils.isEmpty(str)) {
+            return appStatusRules;
+        }
+        try {
+            appStatusRules.parseJson(new JSONObject(str));
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         return appStatusRules;
     }
 
     @Nullable
     public ArrayList<Target> getTargetList() {
-        if (this.data == null) {
+        AppStatusInfo appStatusInfo = this.data;
+        if (appStatusInfo == null) {
             return null;
         }
-        return this.data.getTarget();
+        return appStatusInfo.getTarget();
     }
 
     public long obtainHistoryGranularity() {
         Strategy strategy;
-        return (this.data == null || (strategy = this.data.getStrategy()) == null) ? DEFAULT_GRANULARITY : strategy.getHistoryGranularity();
+        AppStatusInfo appStatusInfo = this.data;
+        if (appStatusInfo == null || (strategy = appStatusInfo.getStrategy()) == null) {
+            return 60000L;
+        }
+        return strategy.getHistoryGranularity();
     }
 
     public long obtainScanInterval() {
-        if (this.data == null || this.data.getStrategy() == null) {
+        AppStatusInfo appStatusInfo = this.data;
+        if (appStatusInfo == null || appStatusInfo.getStrategy() == null) {
             return 0L;
         }
         long scanInterval = this.data.getStrategy().getScanInterval();
@@ -206,14 +213,15 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
     }
 
     public long obtainStartTime() {
-        if (this.data == null || this.data.getStrategy() == null) {
+        AppStatusInfo appStatusInfo = this.data;
+        if (appStatusInfo == null || appStatusInfo.getStrategy() == null) {
             return 86400000L;
         }
         long startTime = this.data.getStrategy().getStartTime();
-        if (startTime > 0) {
-            return 1000 * startTime;
+        if (startTime <= 0) {
+            return 86400000L;
         }
-        return 86400000L;
+        return startTime * 1000;
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
@@ -224,8 +232,8 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         }
         try {
             this.data.parseJson(new JSONObject(d.b(jSONObject.optString("data"))));
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 

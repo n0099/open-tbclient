@@ -2,20 +2,20 @@ package org.webrtc;
 
 import java.nio.ByteBuffer;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
-class WrappedNativeI420Buffer implements VideoFrame.I420Buffer {
-    private final ByteBuffer dataU;
-    private final ByteBuffer dataV;
-    private final ByteBuffer dataY;
-    private final int height;
-    private final long nativeBuffer;
-    private final int strideU;
-    private final int strideV;
-    private final int strideY;
-    private final int width;
+/* loaded from: classes7.dex */
+public class WrappedNativeI420Buffer implements VideoFrame.I420Buffer {
+    public final ByteBuffer dataU;
+    public final ByteBuffer dataV;
+    public final ByteBuffer dataY;
+    public final int height;
+    public final long nativeBuffer;
+    public final int strideU;
+    public final int strideV;
+    public final int strideY;
+    public final int width;
 
     @CalledByNative
-    WrappedNativeI420Buffer(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, long j) {
+    public WrappedNativeI420Buffer(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, long j) {
         this.width = i;
         this.height = i2;
         this.dataY = byteBuffer;

@@ -15,11 +15,17 @@ import com.fun.ad.sdk.R;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GDTNativeUnifiedImg2View extends b {
-    public ImageView d;
-    public ImageView e;
-    public float f;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f30767d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f30768e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f30769f;
 
     public GDTNativeUnifiedImg2View(Context context) {
         this(context, null);
@@ -31,17 +37,17 @@ public class GDTNativeUnifiedImg2View extends b {
 
     public GDTNativeUnifiedImg2View(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f = 1.78f;
+        this.f30769f = 1.78f;
     }
 
     @Override // a.a.a.a.r.b.c.b
     public List<View> a() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.c);
-        arrayList.add(((b) this).b);
-        arrayList.add(((b) this).f1003a);
-        arrayList.add(this.e);
-        arrayList.add(this.d);
+        arrayList.add(this.f1292c);
+        arrayList.add(((b) this).f1291b);
+        arrayList.add(((b) this).f1290a);
+        arrayList.add(this.f30768e);
+        arrayList.add(this.f30767d);
         return arrayList;
     }
 
@@ -50,7 +56,7 @@ public class GDTNativeUnifiedImg2View extends b {
         super.a(activity, nativeUnifiedADData);
         Context context = getContext();
         String iconUrl = nativeUnifiedADData.getIconUrl();
-        ImageView imageView = this.d;
+        ImageView imageView = this.f30767d;
         if (context == null) {
             d.b("GlideHelper: context is null when load: " + iconUrl, new Object[0]);
         } else if (context instanceof Activity) {
@@ -64,19 +70,19 @@ public class GDTNativeUnifiedImg2View extends b {
             Glide.with(context).load(iconUrl).into(imageView);
         }
         d.b("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-        this.f = (nativeUnifiedADData.getPictureWidth() * 1.0f) / (nativeUnifiedADData.getPictureHeight() * 1.0f);
+        this.f30769f = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
         Context context2 = getContext();
         String imgUrl = nativeUnifiedADData.getImgUrl();
-        ImageView imageView2 = this.e;
+        ImageView imageView2 = this.f30768e;
         if (context2 == null) {
             d.b("GlideHelper: context is null when load: " + imgUrl, new Object[0]);
         } else if (context2 instanceof Activity) {
             Activity activity3 = (Activity) context2;
-            if (activity3.isFinishing() || (Build.VERSION.SDK_INT > 17 && activity3.isDestroyed())) {
-                d.b("GlideHelper: activity is destroyed when load: " + imgUrl, new Object[0]);
-            } else {
+            if (!activity3.isFinishing() && (Build.VERSION.SDK_INT <= 17 || !activity3.isDestroyed())) {
                 Glide.with(activity3).load(imgUrl).into(imageView2);
+                return;
             }
+            d.b("GlideHelper: activity is destroyed when load: " + imgUrl, new Object[0]);
         } else {
             Glide.with(context2).load(imgUrl).into(imageView2);
         }
@@ -85,17 +91,17 @@ public class GDTNativeUnifiedImg2View extends b {
     @Override // a.a.a.a.r.b.c.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.d = (ImageView) findViewById(R.id.ad_icon);
-        this.e = (ImageView) findViewById(R.id.ad_img);
+        this.f30767d = (ImageView) findViewById(R.id.ad_icon);
+        this.f30768e = (ImageView) findViewById(R.id.ad_img);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30768e.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
-        layoutParams.height = (int) (i5 / this.f);
-        this.e.setLayoutParams(layoutParams);
+        layoutParams.height = (int) (i5 / this.f30769f);
+        this.f30768e.setLayoutParams(layoutParams);
     }
 }

@@ -3,12 +3,12 @@ package com.tencent.mm.opensdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-import java.io.File;
-/* loaded from: classes4.dex */
+import com.tencent.mm.opensdk.utils.d;
+/* loaded from: classes7.dex */
 public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
-    private static final int FILE_SIZE_LIMIT = 10485760;
-    private static final String TAG = "MicroMsg.SDK.WXGameVideoFileObject";
-    private static final int URL_LENGTH_LIMIT = 10240;
+    public static final int FILE_SIZE_LIMIT = 104857600;
+    public static final String TAG = "MicroMsg.SDK.WXGameVideoFileObject";
+    public static final int URL_LENGTH_LIMIT = 10240;
     public String filePath;
     public String thumbUrl;
     public String videoUrl;
@@ -26,33 +26,31 @@ public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
     }
 
     private int getFileSize(String str) {
-        if (str == null || str.length() == 0) {
-            return 0;
-        }
-        File file = new File(str);
-        if (file.exists()) {
-            return (int) file.length();
-        }
-        return 0;
+        return d.getFileSize(str);
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if (this.filePath == null || this.filePath.length() == 0) {
-            Log.e(TAG, "checkArgs fail, filePath is null");
-            return false;
-        } else if (getFileSize(this.filePath) > 10485760) {
-            Log.e(TAG, "checkArgs fail, video file size is too large");
-            return false;
-        } else if (this.videoUrl != null && this.videoUrl.length() > URL_LENGTH_LIMIT) {
-            Log.e(TAG, "checkArgs fail, videoUrl is too long");
-            return false;
-        } else if (this.thumbUrl == null || this.thumbUrl.length() <= URL_LENGTH_LIMIT) {
-            return true;
+        String str;
+        String str2 = this.filePath;
+        if (str2 == null || str2.length() == 0) {
+            str = "checkArgs fail, filePath is null";
+        } else if (getFileSize(this.filePath) > 104857600) {
+            str = "checkArgs fail, video file size is too large";
         } else {
-            Log.e(TAG, "checkArgs fail, thumbUrl is too long");
-            return false;
+            String str3 = this.videoUrl;
+            if (str3 == null || str3.length() <= 10240) {
+                String str4 = this.thumbUrl;
+                if (str4 == null || str4.length() <= 10240) {
+                    return true;
+                }
+                str = "checkArgs fail, thumbUrl is too long";
+            } else {
+                str = "checkArgs fail, videoUrl is too long";
+            }
         }
+        Log.e(TAG, str);
+        return false;
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject

@@ -5,36 +5,44 @@ import android.content.SharedPreferences;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static UUID f2936a;
+    public static UUID f10007a;
 
     public e(Context context) {
+        UUID randomUUID;
         try {
-            if (f2936a == null && context != null) {
-                synchronized (e.class) {
-                    if (f2936a == null && context != null) {
-                        SharedPreferences sharedPreferences = context.getSharedPreferences("bd_plugin_ar_device_id.xml", 0);
-                        String string = sharedPreferences.getString("device_id", null);
-                        if (string != null) {
-                            f2936a = UUID.fromString(string);
-                        } else {
-                            String string2 = Settings.Secure.getString(context.getContentResolver(), "android_id");
-                            try {
-                                if (!"9774d56d682e549c".equals(string2) && !TextUtils.isEmpty(string2)) {
-                                    f2936a = UUID.nameUUIDFromBytes(string2.getBytes("utf8"));
+            if (f10007a != null || context == null) {
+                return;
+            }
+            synchronized (e.class) {
+                if (f10007a == null && context != null) {
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("bd_plugin_ar_device_id.xml", 0);
+                    String string = sharedPreferences.getString(Constants.KEY_DEVICE_ID, null);
+                    if (string != null) {
+                        f10007a = UUID.fromString(string);
+                    } else {
+                        String string2 = Settings.Secure.getString(context.getContentResolver(), "android_id");
+                        try {
+                            if (!"9774d56d682e549c".equals(string2) && !TextUtils.isEmpty(string2)) {
+                                f10007a = UUID.nameUUIDFromBytes(string2.getBytes("utf8"));
+                            } else {
+                                String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                                if (deviceId != null) {
+                                    randomUUID = UUID.nameUUIDFromBytes(deviceId.getBytes("utf8"));
                                 } else {
-                                    String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                                    f2936a = deviceId != null ? UUID.nameUUIDFromBytes(deviceId.getBytes("utf8")) : UUID.randomUUID();
+                                    randomUUID = UUID.randomUUID();
                                 }
-                            } catch (UnsupportedEncodingException e) {
+                                f10007a = randomUUID;
                             }
-                            sharedPreferences.edit().putString("device_id", f2936a.toString()).commit();
+                        } catch (UnsupportedEncodingException unused) {
                         }
+                        sharedPreferences.edit().putString(Constants.KEY_DEVICE_ID, f10007a.toString()).commit();
                     }
                 }
             }
@@ -44,6 +52,6 @@ public final class e {
     }
 
     public UUID a() {
-        return f2936a;
+        return f10007a;
     }
 }

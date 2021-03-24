@@ -5,7 +5,6 @@ import android.net.http.SslError;
 import android.os.Message;
 import android.view.KeyEvent;
 import android.webkit.SslErrorHandler;
-import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.b.a;
 import com.baidu.webkit.internal.b.b;
 import com.baidu.webkit.internal.b.f;
@@ -15,7 +14,7 @@ import com.baidu.webkit.internal.b.i;
 import com.baidu.webkit.internal.b.j;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebViewClient {
     public static final int ERROR_AUTHENTICATION = -4;
     public static final int ERROR_BAD_URL = -12;
@@ -33,12 +32,12 @@ public class WebViewClient {
     public static final int ERROR_UNSUPPORTED_AUTH_SCHEME = -3;
     public static final int ERROR_UNSUPPORTED_SCHEME = -10;
     public static final String LOG_TAG = "WebViewClient";
-    private static final String SCHEMA_HTTP = "http://";
-    private static final String SCHEMA_HTTPS = "https://";
-    private static final String TAG = "WebViewClient";
-    private List<j> mUrlHandlers = new ArrayList();
+    public static final String SCHEMA_HTTP = "http://";
+    public static final String SCHEMA_HTTPS = "https://";
+    public static final String TAG = "WebViewClient";
+    public List<j> mUrlHandlers = new ArrayList();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum InteractionType {
         INPUT,
         CONTENT_CHANGE,
@@ -46,10 +45,10 @@ public class WebViewClient {
         OTHERS
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class SecurityInfo {
-        private WebSiteInfo info;
-        private SecurityLevel level = SecurityLevel.UNCERTAIN;
+        public WebSiteInfo info;
+        public SecurityLevel level = SecurityLevel.UNCERTAIN;
 
         public SecurityLevel getSecurityLevel() {
             return this.level;
@@ -68,7 +67,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum SecurityLevel {
         SECURE,
         DANGEROUS,
@@ -80,10 +79,10 @@ public class WebViewClient {
         DEFAULT
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class WebSiteInfo {
-        private String name;
-        private WebSiteType type;
+        public String name;
+        public WebSiteType type;
 
         public WebSiteInfo(WebSiteType webSiteType, String str) {
             this.type = WebSiteType.UNCERTAIN;
@@ -100,7 +99,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum WebSiteType {
         BANK,
         PAYMENT,
@@ -112,7 +111,7 @@ public class WebViewClient {
         DEFAULT
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface ZeusVideoInfoDelegate {
         void notifyUpdateVideoInfo(String str);
     }
@@ -293,7 +292,7 @@ public class WebViewClient {
     }
 
     public void onPageFinished(WebView webView, String str) {
-        if (webView == null || !webView.getContext().getPackageName().contains(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
+        if (webView == null || !webView.getContext().getPackageName().contains("com.baidu.searchbox")) {
             return;
         }
         webView.getSecureProcessor().c();
@@ -303,7 +302,7 @@ public class WebViewClient {
     }
 
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        if (webView == null || !webView.getContext().getPackageName().contains(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
+        if (webView == null || !webView.getContext().getPackageName().contains("com.baidu.searchbox")) {
             return;
         }
         webView.getSecureProcessor().c();
@@ -376,7 +375,7 @@ public class WebViewClient {
     public void onResumePlugin() {
     }
 
-    public void onScaleChanged(WebView webView, float f, float f2) {
+    public void onScaleChanged(WebView webView, float f2, float f3) {
     }
 
     public void onSearchLandingPageClicked(WebView webView, String str, String str2, long j) {

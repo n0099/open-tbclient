@@ -1,14 +1,11 @@
 package com.baidu.webkit.sdk;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class Log implements INoProGuard {
-    private static boolean sDebugApk;
     public static String LOG_TAG = "ZeusLog";
-    private static int sMinLogLevel = 4;
-
-    private Log() {
-    }
+    public static boolean sDebugApk = false;
+    public static int sMinLogLevel = 4;
 
     public static int d(String str) {
         return printLog(3, LOG_TAG, str, null);
@@ -82,35 +79,37 @@ public final class Log implements INoProGuard {
         return printLog(6, str, str2, th);
     }
 
-    private static int printLog(int i, String str, String str2, Throwable th) {
+    public static int printLog(int i, String str, String str2, Throwable th) {
         if (i < sMinLogLevel) {
             return 0;
         }
         if (str == null) {
             str = LOG_TAG;
         }
-        String str3 = str2 == null ? "" : str2;
+        if (str2 == null) {
+            str2 = "";
+        }
         if (th != null) {
-            str3 = str3 + '\n' + android.util.Log.getStackTraceString(th);
+            str2 = str2 + '\n' + android.util.Log.getStackTraceString(th);
         }
         switch (i) {
             case 2:
-                return android.util.Log.i(str, str3);
+                return android.util.Log.i(str, str2);
             case 3:
-                return android.util.Log.i(str, str3);
+                return android.util.Log.i(str, str2);
             case 4:
-                return android.util.Log.i(str, str3);
+                return android.util.Log.i(str, str2);
             case 5:
-                return android.util.Log.w(str, str3);
+                return android.util.Log.w(str, str2);
             case 6:
             case 7:
-                return android.util.Log.e(str, str3);
+                return android.util.Log.e(str, str2);
             default:
-                return android.util.Log.e(str, str3);
+                return android.util.Log.e(str, str2);
         }
     }
 
-    private static int printLogVargs(int i, String str, String str2, Object... objArr) {
+    public static int printLogVargs(int i, String str, String str2, Object... objArr) {
         if (i < sMinLogLevel) {
             return 0;
         }
@@ -125,7 +124,8 @@ public final class Log implements INoProGuard {
     }
 
     public static void setMinLogLevel(int i, boolean z) {
-        android.util.Log.e(LOG_TAG, "ZeusSDK.ZeusMinLogLevel=" + i + ", sDebugApk=" + z);
+        String str = LOG_TAG;
+        android.util.Log.e(str, "ZeusSDK.ZeusMinLogLevel=" + i + ", sDebugApk=" + z);
         if (i < 2 || i > 7) {
             return;
         }

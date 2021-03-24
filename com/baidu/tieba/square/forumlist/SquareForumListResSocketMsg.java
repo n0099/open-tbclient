@@ -1,15 +1,14 @@
 package com.baidu.tieba.square.forumlist;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SquareForumListResSocketMsg extends SocketResponsedMessage {
-    private GetForumsFromForumClassResIdl mResponseData;
+    public GetForumsFromForumClassResIdl mResponseData;
 
     public SquareForumListResSocketMsg() {
-        super(CmdConfigSocket.CMD_SQUARE_FORUM_LIST);
+        super(309097);
     }
 
     public GetForumsFromForumClassResIdl getResponseData() {
@@ -17,10 +16,11 @@ public class SquareForumListResSocketMsg extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.mResponseData = (GetForumsFromForumClassResIdl) new Wire(new Class[0]).parseFrom(bArr, GetForumsFromForumClassResIdl.class);
-        setError(this.mResponseData.error.errorno.intValue());
+        GetForumsFromForumClassResIdl getForumsFromForumClassResIdl = (GetForumsFromForumClassResIdl) new Wire(new Class[0]).parseFrom(bArr, GetForumsFromForumClassResIdl.class);
+        this.mResponseData = getForumsFromForumClassResIdl;
+        setError(getForumsFromForumClassResIdl.error.errorno.intValue());
         setErrorString(this.mResponseData.error.usermsg);
     }
 }

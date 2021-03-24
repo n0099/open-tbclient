@@ -1,31 +1,28 @@
 package com.baidu.fsg.base.widget;
 
 import android.text.Editable;
-/* loaded from: classes5.dex */
-class h implements Runnable {
+/* loaded from: classes2.dex */
+public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeKeyBoardPopupWindow f1594a;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f5514a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public h(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-        this.f1594a = safeKeyBoardPopupWindow;
+        this.f5514a = safeKeyBoardPopupWindow;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int selectionStart = this.f1594a.mySafeEditText.getSelectionStart();
-        int selectionEnd = this.f1594a.mySafeEditText.getSelectionEnd();
-        Editable text = this.f1594a.mySafeEditText.getText();
+        int selectionStart = this.f5514a.mySafeEditText.getSelectionStart();
+        int selectionEnd = this.f5514a.mySafeEditText.getSelectionEnd();
+        Editable text = this.f5514a.mySafeEditText.getText();
         if (selectionStart >= 0) {
             if (selectionStart < selectionEnd) {
                 text.replace(selectionStart, selectionEnd, "", 0, 0);
-            } else if (selectionStart == selectionEnd) {
-                if (selectionStart > 0) {
-                    text.replace(selectionStart - 1, selectionStart, "", 0, 0);
-                }
-            } else {
+            } else if (selectionStart != selectionEnd) {
                 text.replace(selectionEnd, selectionStart, "", 0, 0);
+            } else if (selectionStart > 0) {
+                text.replace(selectionStart - 1, selectionStart, "", 0, 0);
             }
         }
     }

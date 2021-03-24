@@ -9,18 +9,14 @@ import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.layer.ComponentLayer;
 /* loaded from: classes3.dex */
 public abstract class AbsComponent implements IComponent {
-    protected ComponentLayer mParent;
+    public ComponentLayer mParent;
 
-    public abstract void initComponent();
-
-    @Override // com.baidu.searchbox.player.component.IComponent
-    public void setParent(@NonNull ComponentLayer componentLayer) {
-        this.mParent = componentLayer;
+    public boolean attachToRootAtOnce() {
+        return true;
     }
 
-    @Override // com.baidu.searchbox.player.component.IComponent
-    public void sendEvent(VideoEvent videoEvent) {
-        this.mParent.sendEvent(videoEvent);
+    public void dispatchComponentEvent(VideoEvent videoEvent) {
+        this.mParent.dispatcherEvent(videoEvent);
     }
 
     @Override // com.baidu.searchbox.player.component.IComponent
@@ -33,8 +29,13 @@ public abstract class AbsComponent implements IComponent {
         return this.mParent.getBindPlayer();
     }
 
+    public void handleLayerMessage(Message message) {
+    }
+
+    public abstract void initComponent();
+
     @Override // com.baidu.searchbox.player.component.IComponent
-    public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+    public void onContainerDetach() {
     }
 
     @Override // com.baidu.searchbox.player.component.IComponent
@@ -42,25 +43,24 @@ public abstract class AbsComponent implements IComponent {
     }
 
     @Override // com.baidu.searchbox.player.component.IComponent
-    public void onLayerRelease() {
-    }
-
-    @Override // com.baidu.searchbox.player.component.IComponent
     public void onLayerDetach() {
     }
 
     @Override // com.baidu.searchbox.player.component.IComponent
-    public void onContainerDetach() {
+    public void onLayerRelease() {
     }
 
-    public boolean attachToRootAtOnce() {
-        return true;
+    @Override // com.baidu.searchbox.player.component.IComponent
+    public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
     }
 
-    public void handleLayerMessage(Message message) {
+    @Override // com.baidu.searchbox.player.component.IComponent
+    public void sendEvent(VideoEvent videoEvent) {
+        this.mParent.sendEvent(videoEvent);
     }
 
-    protected void dispatchComponentEvent(VideoEvent videoEvent) {
-        this.mParent.dispatcherEvent(videoEvent);
+    @Override // com.baidu.searchbox.player.component.IComponent
+    public void setParent(@NonNull ComponentLayer componentLayer) {
+        this.mParent = componentLayer;
     }
 }

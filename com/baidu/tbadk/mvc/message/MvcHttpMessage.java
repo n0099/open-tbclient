@@ -1,13 +1,13 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.mvc.b.g;
-import com.baidu.tbadk.mvc.b.j;
-/* loaded from: classes.dex */
-public class MvcHttpMessage<T extends g, D extends j> extends HttpMessage {
-    private boolean isNeedCache;
-    private T requestData;
-    private Class<D> responseDataClass;
+import d.b.h0.g0.b.f;
+import d.b.h0.g0.b.h;
+/* loaded from: classes3.dex */
+public class MvcHttpMessage<T extends f, D extends h> extends HttpMessage {
+    public boolean isNeedCache;
+    public T requestData;
+    public Class<D> responseDataClass;
 
     public MvcHttpMessage(T t, int i) {
         super(i);
@@ -19,16 +19,8 @@ public class MvcHttpMessage<T extends g, D extends j> extends HttpMessage {
         return this.requestData;
     }
 
-    public void setRequestData(T t) {
-        this.requestData = t;
-    }
-
     public Class<D> getResponseDataClass() {
         return this.responseDataClass;
-    }
-
-    public void setResponseDataClass(Class<D> cls) {
-        this.responseDataClass = cls;
     }
 
     public boolean isNeedCache() {
@@ -37,5 +29,13 @@ public class MvcHttpMessage<T extends g, D extends j> extends HttpMessage {
 
     public void setNeedCache(boolean z) {
         this.isNeedCache = z;
+    }
+
+    public void setRequestData(T t) {
+        this.requestData = t;
+    }
+
+    public void setResponseDataClass(Class<D> cls) {
+        this.responseDataClass = cls;
     }
 }

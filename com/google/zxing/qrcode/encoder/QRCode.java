@@ -3,25 +3,21 @@ package com.google.zxing.qrcode.encoder;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Mode;
 import com.google.zxing.qrcode.decoder.Version;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class QRCode {
     public static final int NUM_MASK_PATTERNS = 8;
-    private ErrorCorrectionLevel ecLevel;
-    private int maskPattern = -1;
-    private ByteMatrix matrix;
-    private Mode mode;
-    private Version version;
+    public ErrorCorrectionLevel ecLevel;
+    public int maskPattern = -1;
+    public ByteMatrix matrix;
+    public Mode mode;
+    public Version version;
 
-    public Mode getMode() {
-        return this.mode;
+    public static boolean isValidMaskPattern(int i) {
+        return i >= 0 && i < 8;
     }
 
     public ErrorCorrectionLevel getECLevel() {
         return this.ecLevel;
-    }
-
-    public Version getVersion() {
-        return this.version;
     }
 
     public int getMaskPattern() {
@@ -30,6 +26,34 @@ public final class QRCode {
 
     public ByteMatrix getMatrix() {
         return this.matrix;
+    }
+
+    public Mode getMode() {
+        return this.mode;
+    }
+
+    public Version getVersion() {
+        return this.version;
+    }
+
+    public void setECLevel(ErrorCorrectionLevel errorCorrectionLevel) {
+        this.ecLevel = errorCorrectionLevel;
+    }
+
+    public void setMaskPattern(int i) {
+        this.maskPattern = i;
+    }
+
+    public void setMatrix(ByteMatrix byteMatrix) {
+        this.matrix = byteMatrix;
+    }
+
+    public void setMode(Mode mode) {
+        this.mode = mode;
+    }
+
+    public void setVersion(Version version) {
+        this.version = version;
     }
 
     public String toString() {
@@ -51,29 +75,5 @@ public final class QRCode {
         }
         sb.append(">>\n");
         return sb.toString();
-    }
-
-    public void setMode(Mode mode) {
-        this.mode = mode;
-    }
-
-    public void setECLevel(ErrorCorrectionLevel errorCorrectionLevel) {
-        this.ecLevel = errorCorrectionLevel;
-    }
-
-    public void setVersion(Version version) {
-        this.version = version;
-    }
-
-    public void setMaskPattern(int i) {
-        this.maskPattern = i;
-    }
-
-    public void setMatrix(ByteMatrix byteMatrix) {
-        this.matrix = byteMatrix;
-    }
-
-    public static boolean isValidMaskPattern(int i) {
-        return i >= 0 && i < 8;
     }
 }

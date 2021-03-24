@@ -7,20 +7,14 @@ import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LoadingBar extends TextView {
-    private static final int MAX_PROGRESS = 100;
-    private Handler mHander;
-    private Paint mPaint;
-    private int mProgress;
-    private int mProgressColor;
-    private Runnable mRunnable;
-
-    static /* synthetic */ int access$008(LoadingBar loadingBar) {
-        int i = loadingBar.mProgress;
-        loadingBar.mProgress = i + 1;
-        return i;
-    }
+    public static final int MAX_PROGRESS = 100;
+    public Handler mHander;
+    public Paint mPaint;
+    public int mProgress;
+    public int mProgressColor;
+    public Runnable mRunnable;
 
     public LoadingBar(Context context) {
         super(context);
@@ -28,10 +22,50 @@ public class LoadingBar extends TextView {
             @Override // java.lang.Runnable
             public void run() {
                 LoadingBar.access$008(LoadingBar.this);
-                LoadingBar.this.drawProgress(LoadingBar.this.mProgress);
+                LoadingBar loadingBar = LoadingBar.this;
+                loadingBar.drawProgress(loadingBar.mProgress);
             }
         };
         init(context);
+    }
+
+    public static /* synthetic */ int access$008(LoadingBar loadingBar) {
+        int i = loadingBar.mProgress;
+        loadingBar.mProgress = i + 1;
+        return i;
+    }
+
+    private Rect getRect() {
+        int left = getLeft();
+        int top = getTop();
+        return new Rect(0, 0, (getLeft() + (((getRight() - getLeft()) * this.mProgress) / 100)) - left, getBottom() - top);
+    }
+
+    private void init(Context context) {
+        this.mHander = new Handler();
+        this.mPaint = new Paint();
+        initSkin();
+    }
+
+    public void drawProgress(int i) {
+        if (i < 7) {
+            this.mHander.postDelayed(this.mRunnable, 70L);
+        } else {
+            this.mHander.removeCallbacks(this.mRunnable);
+            this.mProgress = i;
+        }
+        invalidate();
+    }
+
+    public void initSkin() {
+        this.mProgressColor = -11693826;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        this.mPaint.setColor(this.mProgressColor);
+        canvas.drawRect(getRect(), this.mPaint);
     }
 
     public LoadingBar(Context context, AttributeSet attributeSet) {
@@ -40,7 +74,8 @@ public class LoadingBar extends TextView {
             @Override // java.lang.Runnable
             public void run() {
                 LoadingBar.access$008(LoadingBar.this);
-                LoadingBar.this.drawProgress(LoadingBar.this.mProgress);
+                LoadingBar loadingBar = LoadingBar.this;
+                loadingBar.drawProgress(loadingBar.mProgress);
             }
         };
         init(context);
@@ -52,42 +87,10 @@ public class LoadingBar extends TextView {
             @Override // java.lang.Runnable
             public void run() {
                 LoadingBar.access$008(LoadingBar.this);
-                LoadingBar.this.drawProgress(LoadingBar.this.mProgress);
+                LoadingBar loadingBar = LoadingBar.this;
+                loadingBar.drawProgress(loadingBar.mProgress);
             }
         };
         init(context);
-    }
-
-    private void init(Context context) {
-        this.mHander = new Handler();
-        this.mPaint = new Paint();
-        initSkin();
-    }
-
-    public void initSkin() {
-        this.mProgressColor = -11693826;
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        this.mPaint.setColor(this.mProgressColor);
-        canvas.drawRect(getRect(), this.mPaint);
-    }
-
-    private Rect getRect() {
-        int left = getLeft();
-        int top = getTop();
-        return new Rect(0, 0, (getLeft() + (((getRight() - getLeft()) * this.mProgress) / 100)) - left, getBottom() - top);
-    }
-
-    public void drawProgress(int i) {
-        if (i < 7) {
-            this.mHander.postDelayed(this.mRunnable, 70L);
-        } else {
-            this.mHander.removeCallbacks(this.mRunnable);
-            this.mProgress = i;
-        }
-        invalidate();
     }
 }

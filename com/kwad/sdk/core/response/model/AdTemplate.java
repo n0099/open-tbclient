@@ -2,7 +2,6 @@ package com.kwad.sdk.core.response.model;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.live.mode.LiveInfo;
 import com.kwad.sdk.utils.o;
@@ -12,9 +11,9 @@ import java.util.List;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AdTemplate implements com.kwad.sdk.core.b, Serializable {
-    private static final long serialVersionUID = -5413539480595883024L;
+    public static final long serialVersionUID = -5413539480595883024L;
     public int contentType;
     public String extra;
     public String impAdExtra;
@@ -40,7 +39,7 @@ public class AdTemplate implements com.kwad.sdk.core.b, Serializable {
     public int type;
     public List<AdInfo> adInfoList = new ArrayList();
     public PhotoInfo photoInfo = new PhotoInfo();
-    private int positionShow = -1;
+    public int positionShow = -1;
     public String mUniqueId = "";
     public transient int downloadSource = 2;
     public transient String installFrom = "";
@@ -66,8 +65,9 @@ public class AdTemplate implements com.kwad.sdk.core.b, Serializable {
         this.mOriginJString = jSONObject.toString();
         this.posId = jSONObject.optLong("posId");
         this.type = jSONObject.optInt("type");
-        this.contentType = jSONObject.optInt(CameraActivityConfig.KEY_CONTENT_TYPE, 0);
-        this.realShowType = this.contentType;
+        int optInt = jSONObject.optInt("contentType", 0);
+        this.contentType = optInt;
+        this.realShowType = optInt;
         this.needHide = jSONObject.optBoolean("needHide");
         this.impAdExtra = jSONObject.optString("impAdExtra");
         JSONArray optJSONArray = jSONObject.optJSONArray("adInfo");
@@ -82,8 +82,9 @@ public class AdTemplate implements com.kwad.sdk.core.b, Serializable {
             }
         }
         this.photoInfo.parseJson(jSONObject.optJSONObject("photoInfo"));
-        this.mUniqueId = jSONObject.optString("uniqueId");
-        if (TextUtils.isEmpty(this.mUniqueId)) {
+        String optString = jSONObject.optString("uniqueId");
+        this.mUniqueId = optString;
+        if (TextUtils.isEmpty(optString)) {
             this.mUniqueId = String.valueOf(UUID.randomUUID());
         }
     }
@@ -97,7 +98,7 @@ public class AdTemplate implements com.kwad.sdk.core.b, Serializable {
         JSONObject jSONObject = new JSONObject();
         o.a(jSONObject, "posId", this.posId);
         o.a(jSONObject, "type", this.type);
-        o.a(jSONObject, CameraActivityConfig.KEY_CONTENT_TYPE, this.contentType);
+        o.a(jSONObject, "contentType", this.contentType);
         o.a(jSONObject, "adInfo", this.adInfoList);
         o.a(jSONObject, "photoInfo", this.photoInfo);
         o.a(jSONObject, "uniqueId", this.mUniqueId);

@@ -12,8 +12,9 @@ import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.IBinder;
 import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.adp.plugin.a.c;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import d.b.b.h.f.c;
+import d.b.b.h.j.g.d;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
@@ -28,10 +29,8 @@ public abstract class PluginBaseService extends PluginContextWrapper {
     public static final int START_NOT_STICKY = 2;
     public static final int START_REDELIVER_INTENT = 3;
     public static final int START_STICKY = 1;
-    private Service mService;
-    private c mServiceProxy;
-
-    public abstract IBinder onBind(Intent intent);
+    public Service mService;
+    public c mServiceProxy;
 
     public PluginBaseService() {
         super(null);
@@ -44,17 +43,28 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         return this.mServiceProxy.proxyBindService(intent, serviceConnection, i);
     }
 
-    protected void dump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public void dump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         this.mServiceProxy.proxyDump(fileDescriptor, printWriter, strArr);
     }
 
-    protected void finalize() throws Throwable {
+    public void finalize() throws Throwable {
         this.mServiceProxy.proxyFinalize();
         super.finalize();
     }
 
     public final Application getApplication() {
         return PluginCenter.getInstance().getPlugin(getPluginPackageName()).getApplication();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getFileStreamPath(String str) {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Service service = this.mService;
+            return service.getFileStreamPath(pluginPackageName + str);
+        }
+        return this.mService.getFileStreamPath(str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -65,6 +75,19 @@ public abstract class PluginBaseService extends PluginContextWrapper {
     public Service getService() {
         return this.mService;
     }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SharedPreferences getSharedPreferences(String str, int i) {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            c cVar = this.mServiceProxy;
+            return cVar.proxyGetSharedPreferences(pluginPackageName + str, i);
+        }
+        return this.mServiceProxy.proxyGetSharedPreferences(str, i);
+    }
+
+    public abstract IBinder onBind(Intent intent);
 
     public void onConfigurationChanged(Configuration configuration) {
         this.mServiceProxy.proxyOnConfigurationChanged(configuration);
@@ -97,6 +120,44 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         return this.mServiceProxy.proxyOnUnbind(intent);
     }
 
+    @Override // android.content.ContextWrapper, android.content.Context
+    public FileInputStream openFileInput(String str) throws FileNotFoundException {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Service service = this.mService;
+            return service.openFileInput(pluginPackageName + str);
+        }
+        return this.mService.openFileInput(str);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Service service = this.mService;
+            return service.openFileOutput(pluginPackageName + str, i);
+        }
+        return this.mService.openFileOutput(str, i);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Service service = this.mService;
+            return service.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
+        }
+        return this.mService.openOrCreateDatabase(str, i, cursorFactory);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void sendBroadcast(Intent intent) {
+        super.sendBroadcast(intent);
+    }
+
     public void setServiceProxy(c cVar) {
         this.mService = cVar.getService();
         this.mServiceProxy = cVar;
@@ -123,10 +184,6 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         this.mService.stopSelf();
     }
 
-    public final void stopSelf(int i) {
-        this.mService.stopSelf(i);
-    }
-
     public final boolean stopSelfResult(int i) {
         return this.mService.stopSelfResult(i);
     }
@@ -137,47 +194,11 @@ public abstract class PluginBaseService extends PluginContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i) {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mServiceProxy.proxyGetSharedPreferences(str, i) : this.mServiceProxy.proxyGetSharedPreferences(pluginPackageName + str, i);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void sendBroadcast(Intent intent) {
-        super.sendBroadcast(intent);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
     public void sendBroadcast(Intent intent, String str) {
         super.sendBroadcast(intent, str);
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public FileInputStream openFileInput(String str) throws FileNotFoundException {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mService.openFileInput(str) : this.mService.openFileInput(pluginPackageName + str);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mService.openFileOutput(str, i) : this.mService.openFileOutput(pluginPackageName + str, i);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mService.openOrCreateDatabase(str, i, cursorFactory) : this.mService.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public File getFileStreamPath(String str) {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mService.getFileStreamPath(str) : this.mService.getFileStreamPath(pluginPackageName + str);
+    public final void stopSelf(int i) {
+        this.mService.stopSelf(i);
     }
 }

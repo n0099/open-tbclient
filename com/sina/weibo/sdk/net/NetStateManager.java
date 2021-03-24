@@ -11,20 +11,21 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Pair;
 import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NetStateManager {
     public static NetState CUR_NETSTATE = NetState.Mobile;
-    private static Context mContext;
+    public static Context mContext;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum NetState {
         Mobile,
         WIFI,
         NOWAY
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class NetStateReceive extends BroadcastReceiver {
         public NetStateReceive() {
         }
@@ -43,8 +44,10 @@ public class NetStateManager {
     }
 
     public static Pair<String, Integer> getAPN() {
+        Uri parse = Uri.parse("content://telephony/carriers/preferapn");
+        Context context = mContext;
         Pair<String, Integer> pair = null;
-        Cursor query = mContext != null ? mContext.getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null) : null;
+        Cursor query = context != null ? context.getContentResolver().query(parse, null, null, null, null) : null;
         if (query != null && query.moveToFirst()) {
             String string = query.getString(query.getColumnIndex(IMTrack.AckBuilder.PROXY_TYPE));
             if (string != null && string.trim().length() > 0) {
@@ -56,17 +59,16 @@ public class NetStateManager {
     }
 
     public static boolean isNetworkConnected(Context context) {
-        NetworkInfo networkInfo;
         if (context == null) {
             LogUtil.e("Weibosdk", "unexpected null context in isNetworkConnected");
             return false;
-        } else if (context.getPackageManager().checkPermission("android.permission.ACCESS_NETWORK_STATE", context.getPackageName()) != 0) {
+        } else if (context.getPackageManager().checkPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, context.getPackageName()) != 0) {
             return false;
         } else {
+            NetworkInfo networkInfo = null;
             try {
                 networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (NullPointerException e) {
-                networkInfo = null;
+            } catch (NullPointerException unused) {
             }
             return networkInfo != null && networkInfo.isAvailable();
         }

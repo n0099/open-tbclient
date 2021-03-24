@@ -1,12 +1,12 @@
 package com.baidu.platform.comapi.wnplatform.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends com.baidu.platform.comapi.walknavi.a {
-    @Override // com.baidu.platform.comapi.walknavi.a
-    public void release() {
-    }
-
     @Override // com.baidu.platform.comapi.walknavi.a
     public boolean ready() {
         return false;
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.a
+    public void release() {
     }
 }

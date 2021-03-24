@@ -9,51 +9,55 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class RoundFrameLayout extends FrameLayout {
-    private Path ocO;
-    private RectF rectF;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Path f22170e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public RectF f22171f;
 
     public RoundFrameLayout(Context context) {
         super(context);
-        init();
+        a();
     }
 
-    public RoundFrameLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
-    }
-
-    public RoundFrameLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
+    public final void a() {
         setWillNotDraw(false);
-        this.ocO = new Path();
-        this.rectF = new RectF();
-    }
-
-    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        this.rectF.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-        this.ocO.addOval(this.rectF, Path.Direction.CW);
+        this.f22170e = new Path();
+        this.f22171f = new RectF();
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
+    public void dispatchDraw(Canvas canvas) {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setColor(-1);
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
         super.dispatchDraw(canvas);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-        canvas.drawPath(this.ocO, paint);
+        canvas.drawPath(this.f22170e, paint);
         if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
             canvas.restoreToCount(saveLayer);
         }
         paint.setXfermode(null);
+    }
+
+    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        this.f22171f.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        this.f22170e.addOval(this.f22171f, Path.Direction.CW);
+    }
+
+    public RoundFrameLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a();
+    }
+
+    public RoundFrameLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a();
     }
 }

@@ -3,11 +3,11 @@ package com.kwai.filedownloader.exception;
 import android.annotation.TargetApi;
 import com.kwai.filedownloader.f.f;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FileDownloadOutOfSpaceException extends IOException {
-    private long breakpointBytes;
-    private long freeSpaceBytes;
-    private long requiredSpaceBytes;
+    public long breakpointBytes;
+    public long freeSpaceBytes;
+    public long requiredSpaceBytes;
 
     public FileDownloadOutOfSpaceException(long j, long j2, long j3) {
         super(f.a("The file is too large to store, breakpoint in bytes:  %d, required space in bytes: %d, but free space in bytes: %d", Long.valueOf(j3), Long.valueOf(j2), Long.valueOf(j)));

@@ -6,126 +6,61 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.core.view.f;
-import com.baidu.tbadk.util.aa;
-import com.baidu.tieba.frs.am;
 import com.baidu.tieba.homepage.topic.topictab.model.TopicModel;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicListView;
+import d.b.b.e.p.j;
+import d.b.b.j.e.n;
+import d.b.h0.r.f0.f;
+import d.b.h0.z0.b0;
+import d.b.i0.p0.o0;
+import d.b.i0.z0.j.b.a;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
-/* loaded from: classes2.dex */
-public class TopicFragment extends BaseFragment implements f.c, am, a {
-    private boolean kcd = false;
-    private TopicModel ksd;
-    private TopicListView kse;
+/* loaded from: classes4.dex */
+public class TopicFragment extends BaseFragment implements o0, f.g, a {
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.ksd.setPresenter(this);
-        this.ksd.setUniqueId(getUniqueId());
-        this.kse.setPresenter(this);
-        this.kse.setListPullRefreshListener(this);
-        this.kse.setPageUniqueId(getUniqueId());
+    /* renamed from: e  reason: collision with root package name */
+    public TopicModel f17421e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TopicListView f17422f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f17423g = false;
+
+    @Override // d.b.i0.p0.o0
+    public void A() {
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    @Nullable
-    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.kse.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.kse.getParent()).removeView(this.kse);
-        }
-        if (this.kcd) {
-            this.kse.bZr();
-            this.kcd = false;
-        }
-        return this.kse;
+    @Override // d.b.i0.p0.o0
+    public void F() {
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        super.onPrimary();
-        if (isPrimary()) {
-            this.kse.setViewForeground();
-            TiebaStatic.log(new ar("c13349"));
-        }
+    @Override // d.b.i0.p0.o0
+    public void K(b0 b0Var) {
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onLazyLoad() {
-        this.kse.ir(false);
-        this.ksd.cSF();
+    @Override // d.b.i0.p0.o0
+    public void W() {
     }
 
-    @Override // com.baidu.tieba.frs.am
-    public void Uw() {
-        this.kse.reload();
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void bRJ() {
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void bRK() {
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void setRecommendFrsNavigationAnimDispatcher(aa aaVar) {
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void showFloatingView() {
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void bus() {
+    @Override // d.b.i0.p0.o0
+    public void b0() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        this.kse.onChangeSkinType();
+    @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
+    public String getCurrentPageKey() {
+        return "a021";
     }
 
-    @Override // com.baidu.tbadk.core.view.f.c
-    public void onListPullRefresh(boolean z) {
-        this.ksd.cSF();
-    }
-
-    @Override // com.baidu.tieba.homepage.topic.topictab.a
-    public void loadData() {
-        if (j.isNetWorkAvailable()) {
-            this.kse.Xc();
-            this.kse.ir(false);
-            this.ksd.cSF();
-        }
-    }
-
-    @Override // com.baidu.tieba.homepage.topic.topictab.a
-    public void q(int i, List<n> list) {
-        this.kse.hideLoadingView();
-        this.kse.bRO();
-        if (i != 0 || y.isEmpty(list)) {
-            this.kse.qa(false);
-            return;
-        }
-        this.kse.Xc();
-        this.kse.bYu();
-        this.kse.setData(list);
-        this.kse.Xb();
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
         ArrayList arrayList;
         if (super.getCurrentPageSourceKeyList() != null) {
@@ -133,22 +68,93 @@ public class TopicFragment extends BaseFragment implements f.c, am, a {
         } else {
             arrayList = new ArrayList();
         }
-        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(y.getItem(arrayList, arrayList.size() - 1))) {
-            arrayList.add(PageStayDurationConstants.PageName.HOMEPAGE);
+        if (!"a001".equals(ListUtils.getItem(arrayList, arrayList.size() - 1))) {
+            arrayList.add("a001");
         }
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
-    public String getCurrentPageKey() {
-        return "a021";
+    @Override // d.b.i0.z0.j.b.a
+    public void loadData() {
+        if (j.z()) {
+            this.f17422f.e();
+            this.f17422f.l(false);
+            this.f17421e.s();
+        }
+    }
+
+    @Override // d.b.i0.z0.j.b.a
+    public void netCallback(int i, List<n> list) {
+        this.f17422f.d();
+        this.f17422f.p();
+        if (i == 0 && !ListUtils.isEmpty(list)) {
+            this.f17422f.e();
+            this.f17422f.k();
+            this.f17422f.setData(list);
+            this.f17422f.n();
+            return;
+        }
+        this.f17422f.m(false);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        this.f17422f.i();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.f17421e.t(this);
+        this.f17421e.setUniqueId(getUniqueId());
+        this.f17422f.setPresenter(this);
+        this.f17422f.setListPullRefreshListener(this);
+        this.f17422f.setPageUniqueId(getUniqueId());
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    @Nullable
+    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        if (this.f17422f.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.f17422f.getParent()).removeView(this.f17422f);
+        }
+        if (this.f17423g) {
+            this.f17422f.f();
+            this.f17423g = false;
+        }
+        return this.f17422f;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.kse.destroy();
-        this.ksd.onDestroy();
-        this.kcd = true;
+        this.f17422f.c();
+        this.f17421e.onDestroy();
+        this.f17423g = true;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onLazyLoad() {
+        this.f17422f.l(false);
+        this.f17421e.s();
+    }
+
+    @Override // d.b.h0.r.f0.f.g
+    public void onListPullRefresh(boolean z) {
+        this.f17421e.s();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onPrimary() {
+        super.onPrimary();
+        if (isPrimary()) {
+            this.f17422f.setViewForeground();
+            TiebaStatic.log(new StatisticItem("c13349"));
+        }
+    }
+
+    @Override // d.b.i0.p0.o0
+    public void w() {
+        this.f17422f.j();
     }
 }

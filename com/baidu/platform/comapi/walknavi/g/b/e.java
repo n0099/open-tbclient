@@ -1,18 +1,17 @@
 package com.baidu.platform.comapi.walknavi.g.b;
 
 import com.baidu.platform.comapi.walknavi.widget.a;
-/* loaded from: classes4.dex */
-class e implements a.InterfaceC0295a {
+/* loaded from: classes2.dex */
+public class e implements a.InterfaceC0127a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2975a;
+    public final /* synthetic */ c f10093a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.f2975a = cVar;
+        this.f10093a = cVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0295a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0127a
     public void a() {
     }
 }

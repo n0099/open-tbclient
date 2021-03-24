@@ -5,7 +5,7 @@ import aegon.chrome.net.RequestFinishedInfo;
 import aegon.chrome.net.UrlResponseInfo;
 import androidx.annotation.Nullable;
 import java.util.Collection;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RequestFinishedInfoImpl extends RequestFinishedInfo {
     @Nullable
     public final CronetException mException;

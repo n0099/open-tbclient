@@ -7,30 +7,34 @@ import com.kwad.sdk.core.network.d;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.utils.o;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends d {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public f f5944a;
-        public long b;
-        public boolean c;
+        public f f33154a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public long f33155b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f33156c;
 
         public a(f fVar, long j, boolean z) {
-            this.f5944a = fVar;
-            this.b = j;
-            this.c = z;
+            this.f33154a = fVar;
+            this.f33155b = j;
+            this.f33156c = z;
         }
     }
 
     public b(@NonNull a aVar) {
         JSONArray jSONArray = new JSONArray();
-        o.a(jSONArray, aVar.f5944a.toJson());
+        o.a(jSONArray, aVar.f33154a.toJson());
         a("impInfo", jSONArray);
-        a(URLPackage.KEY_TUBE_ID, aVar.b);
-        a("showTrendTube", aVar.c);
+        a(URLPackage.KEY_TUBE_ID, aVar.f33155b);
+        a("showTrendTube", aVar.f33156c);
         a("contentInfo", new c());
     }
 

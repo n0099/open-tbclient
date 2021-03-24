@@ -3,13 +3,13 @@ package com.bytedance.sdk.openadsdk.preload.a;
 public final class n extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final n f5034a = new n();
-
-    public int hashCode() {
-        return n.class.hashCode();
-    }
+    public static final n f30136a = new n();
 
     public boolean equals(Object obj) {
         return this == obj || (obj instanceof n);
+    }
+
+    public int hashCode() {
+        return n.class.hashCode();
     }
 }

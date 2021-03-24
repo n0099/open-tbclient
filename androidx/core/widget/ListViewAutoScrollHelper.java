@@ -2,18 +2,13 @@ package androidx.core.widget;
 
 import android.widget.ListView;
 import androidx.annotation.NonNull;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class ListViewAutoScrollHelper extends AutoScrollHelper {
-    private final ListView mTarget;
+    public final ListView mTarget;
 
     public ListViewAutoScrollHelper(@NonNull ListView listView) {
         super(listView);
         this.mTarget = listView;
-    }
-
-    @Override // androidx.core.widget.AutoScrollHelper
-    public void scrollTargetBy(int i, int i2) {
-        ListViewCompat.scrollListBy(this.mTarget, i2);
     }
 
     @Override // androidx.core.widget.AutoScrollHelper
@@ -43,5 +38,10 @@ public class ListViewAutoScrollHelper extends AutoScrollHelper {
             }
         }
         return true;
+    }
+
+    @Override // androidx.core.widget.AutoScrollHelper
+    public void scrollTargetBy(int i, int i2) {
+        ListViewCompat.scrollListBy(this.mTarget, i2);
     }
 }

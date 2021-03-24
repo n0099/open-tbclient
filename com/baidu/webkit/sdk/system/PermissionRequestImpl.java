@@ -4,15 +4,14 @@ import android.annotation.TargetApi;
 import android.net.Uri;
 import com.baidu.webkit.sdk.PermissionRequest;
 @TargetApi(21)
-/* loaded from: classes14.dex */
-final class PermissionRequestImpl extends PermissionRequest {
-    private final android.webkit.PermissionRequest mRequest;
+/* loaded from: classes5.dex */
+public final class PermissionRequestImpl extends PermissionRequest {
+    public final android.webkit.PermissionRequest mRequest;
 
-    private PermissionRequestImpl(android.webkit.PermissionRequest permissionRequest) {
+    public PermissionRequestImpl(android.webkit.PermissionRequest permissionRequest) {
         this.mRequest = permissionRequest;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static PermissionRequest from(android.webkit.PermissionRequest permissionRequest) {
         if (permissionRequest == null) {
             return null;

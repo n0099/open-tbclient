@@ -4,13 +4,12 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.engine.s;
-/* loaded from: classes3.dex */
-final class c extends b<Drawable> {
-    private c(Drawable drawable) {
+/* loaded from: classes6.dex */
+public final class c extends b<Drawable> {
+    public c(Drawable drawable) {
         super(drawable);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public static s<Drawable> a(@Nullable Drawable drawable) {
         if (drawable != null) {
@@ -23,12 +22,12 @@ final class c extends b<Drawable> {
     @Override // com.kwad.sdk.glide.load.engine.s
     @NonNull
     public Class<Drawable> a() {
-        return this.f6779a.getClass();
+        return this.f35633a.getClass();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return Math.max(1, this.f6779a.getIntrinsicWidth() * this.f6779a.getIntrinsicHeight() * 4);
+        return Math.max(1, this.f35633a.getIntrinsicWidth() * this.f35633a.getIntrinsicHeight() * 4);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s

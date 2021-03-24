@@ -6,38 +6,38 @@ import com.kwai.filedownloader.message.a;
 import com.kwai.filedownloader.message.d;
 import com.kwai.filedownloader.message.h;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f {
-    public static MessageSnapshot a(byte b, com.kwai.filedownloader.d.c cVar, d.a aVar) {
+    public static MessageSnapshot a(byte b2, com.kwai.filedownloader.d.c cVar, d.a aVar) {
+        MessageSnapshot c0447d;
         int a2 = cVar.a();
-        if (b == -4) {
-            throw new IllegalStateException(com.kwai.filedownloader.f.f.a("please use #catchWarn instead %d", Integer.valueOf(a2)));
-        }
-        switch (b) {
-            case -3:
+        if (b2 != -4) {
+            if (b2 == -3) {
                 return cVar.q() ? new d.b(a2, false, cVar.h()) : new h.b(a2, false, (int) cVar.h());
-            case -2:
-            case 0:
-            case 4:
-            default:
-                String a3 = com.kwai.filedownloader.f.f.a("it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b));
-                com.kwai.filedownloader.f.d.d(f.class, "it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b));
-                IllegalStateException illegalStateException = aVar.b() != null ? new IllegalStateException(a3, aVar.b()) : new IllegalStateException(a3);
-                return cVar.q() ? new d.C1180d(a2, cVar.g(), illegalStateException) : new h.d(a2, (int) cVar.g(), illegalStateException);
-            case -1:
-                return cVar.q() ? new d.C1180d(a2, cVar.g(), aVar.b()) : new h.d(a2, (int) cVar.g(), aVar.b());
-            case 1:
+            }
+            if (b2 == -1) {
+                c0447d = cVar.q() ? new d.C0447d(a2, cVar.g(), aVar.b()) : new h.d(a2, (int) cVar.g(), aVar.b());
+            } else if (b2 == 1) {
                 return cVar.q() ? new d.f(a2, cVar.g(), cVar.h()) : new h.f(a2, (int) cVar.g(), (int) cVar.h());
-            case 2:
+            } else if (b2 == 2) {
                 String m = cVar.l() ? cVar.m() : null;
                 return cVar.q() ? new d.c(a2, aVar.a(), cVar.h(), cVar.j(), m) : new h.c(a2, aVar.a(), (int) cVar.h(), cVar.j(), m);
-            case 3:
+            } else if (b2 == 3) {
                 return cVar.q() ? new d.g(a2, cVar.g()) : new h.g(a2, (int) cVar.g());
-            case 5:
-                return cVar.q() ? new d.h(a2, cVar.g(), aVar.b(), aVar.c()) : new h.C1181h(a2, (int) cVar.g(), aVar.b(), aVar.c());
-            case 6:
+            } else if (b2 != 5) {
+                if (b2 != 6) {
+                    String a3 = com.kwai.filedownloader.f.f.a("it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b2));
+                    com.kwai.filedownloader.f.d.d(f.class, "it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b2));
+                    IllegalStateException illegalStateException = aVar.b() != null ? new IllegalStateException(a3, aVar.b()) : new IllegalStateException(a3);
+                    return cVar.q() ? new d.C0447d(a2, cVar.g(), illegalStateException) : new h.d(a2, (int) cVar.g(), illegalStateException);
+                }
                 return new MessageSnapshot.b(a2);
+            } else {
+                c0447d = cVar.q() ? new d.h(a2, cVar.g(), aVar.b(), aVar.c()) : new h.C0448h(a2, (int) cVar.g(), aVar.b(), aVar.c());
+            }
+            return c0447d;
         }
+        throw new IllegalStateException(com.kwai.filedownloader.f.f.a("please use #catchWarn instead %d", Integer.valueOf(a2)));
     }
 
     public static MessageSnapshot a(int i, long j, long j2, boolean z) {
@@ -45,7 +45,7 @@ public class f {
     }
 
     public static MessageSnapshot a(int i, long j, Throwable th) {
-        return j > 2147483647L ? new d.C1180d(i, j, th) : new h.d(i, (int) j, th);
+        return j > 2147483647L ? new d.C0447d(i, j, th) : new h.d(i, (int) j, th);
     }
 
     public static MessageSnapshot a(int i, File file, boolean z) {
@@ -58,9 +58,9 @@ public class f {
     }
 
     public static MessageSnapshot a(MessageSnapshot messageSnapshot) {
-        if (messageSnapshot.b() != -3) {
-            throw new IllegalStateException(com.kwai.filedownloader.f.f.a("take block completed snapshot, must has already be completed. %d %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b())));
+        if (messageSnapshot.b() == -3) {
+            return new a.C0446a(messageSnapshot);
         }
-        return new a.C1179a(messageSnapshot);
+        throw new IllegalStateException(com.kwai.filedownloader.f.f.a("take block completed snapshot, must has already be completed. %d %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b())));
     }
 }

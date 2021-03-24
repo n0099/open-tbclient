@@ -7,7 +7,7 @@ import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.share.e;
+import com.baidu.sapi2.share.d;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
@@ -19,22 +19,30 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FaceLoginService {
-    private static final String b = "FaceLoginService";
-    private static final String c = "face_login_model_v2";
-    private static final String d = "livingunames";
-    private static final int e = 10;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f11390b = "FaceLoginService";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f11391c = "face_login_model_v2";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f11392d = "livingunames";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f11393e = 10;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3427a = SapiAccountManager.getInstance().getConfignation().context;
+    public Context f11394a = SapiAccountManager.getInstance().getConfignation().context;
 
     private String a(Map<String, Long> map) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(d, SapiUtils.map2JsonArray(map, "livinguname", "time"));
+            jSONObject.put(f11392d, SapiUtils.map2JsonArray(map, "livinguname", "time"));
             return jSONObject.toString();
-        } catch (JSONException e2) {
+        } catch (JSONException unused) {
             return null;
         }
     }
@@ -52,7 +60,7 @@ public class FaceLoginService {
         ArrayList arrayList = new ArrayList();
         try {
             if (!TextUtils.isEmpty(str)) {
-                JSONArray optJSONArray = new JSONObject(str).optJSONArray(d);
+                JSONArray optJSONArray = new JSONObject(str).optJSONArray(f11392d);
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("livinguname");
@@ -62,7 +70,7 @@ public class FaceLoginService {
                     }
                 }
             }
-        } catch (Exception e2) {
+        } catch (Exception unused) {
         }
         return arrayList;
     }
@@ -105,30 +113,29 @@ public class FaceLoginService {
     private void a(String str) {
         if (SapiContext.getInstance().getShareCommonStorageEnabel() && !TextUtils.isEmpty(str) && SapiContext.getInstance().shareLivingunameEnable()) {
             ShareStorage shareStorage = new ShareStorage();
-            shareStorage.setSp(c, str);
-            shareStorage.setSd(SecurityUtil.md5(c.getBytes(), false), str);
+            shareStorage.setSp(f11391c, str);
+            shareStorage.setSd(SecurityUtil.md5(f11391c.getBytes(), false), str);
             return;
         }
-        Log.i(b, "setV2ShareFaceUids false");
+        Log.i(f11390b, "setV2ShareFaceUids false");
     }
 
     private Map<String, Long> a(List<a> list) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        if (list == null || list.isEmpty()) {
-            return linkedHashMap;
-        }
-        Collections.sort(list);
-        for (a aVar : list) {
-            if (!linkedHashMap.containsKey(aVar.f3428a)) {
-                linkedHashMap.put(aVar.f3428a, Long.valueOf(aVar.b));
+        if (list != null && !list.isEmpty()) {
+            Collections.sort(list);
+            for (a aVar : list) {
+                if (!linkedHashMap.containsKey(aVar.f11395a)) {
+                    linkedHashMap.put(aVar.f11395a, Long.valueOf(aVar.f11396b));
+                }
             }
-        }
-        if (linkedHashMap.size() > 10) {
-            Iterator it = linkedHashMap.entrySet().iterator();
-            int size = linkedHashMap.size() - 10;
-            for (int i = 0; it.hasNext() && i < size; i++) {
-                it.next();
-                it.remove();
+            if (linkedHashMap.size() > 10) {
+                Iterator it = linkedHashMap.entrySet().iterator();
+                int size = linkedHashMap.size() - 10;
+                for (int i = 0; it.hasNext() && i < size; i++) {
+                    it.next();
+                    it.remove();
+                }
             }
         }
         return linkedHashMap;
@@ -137,15 +144,15 @@ public class FaceLoginService {
     private List<a> a() {
         ArrayList arrayList = new ArrayList();
         if (SapiContext.getInstance().shareLivingunameEnable()) {
-            List<Intent> c2 = e.c(this.f3427a);
-            if (c2.isEmpty()) {
+            List<Intent> a2 = d.a(this.f11394a);
+            if (a2.isEmpty()) {
                 return arrayList;
             }
             ShareStorage shareStorage = new ShareStorage();
-            for (Intent intent : c2) {
-                arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), c)));
+            for (Intent intent : a2) {
+                arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), f11391c)));
             }
-            arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(SecurityUtil.md5(c.getBytes(), false))));
+            arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(SecurityUtil.md5(f11391c.getBytes(), false))));
             return arrayList;
         }
         return arrayList;

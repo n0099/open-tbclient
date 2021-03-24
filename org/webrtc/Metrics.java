@@ -2,12 +2,12 @@ package org.webrtc;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class Metrics {
-    private static final String TAG = "Metrics";
+    public static final String TAG = "Metrics";
     public final Map<String, HistogramInfo> map = new HashMap();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class HistogramInfo {
         public final int bucketCount;
         public final int max;
@@ -28,10 +28,6 @@ public class Metrics {
     }
 
     @CalledByNative
-    Metrics() {
-    }
-
-    @CalledByNative
     private void add(String str, HistogramInfo histogramInfo) {
         this.map.put(str, histogramInfo);
     }
@@ -44,7 +40,7 @@ public class Metrics {
         return nativeGetAndReset();
     }
 
-    private static native void nativeEnable();
+    public static native void nativeEnable();
 
-    private static native Metrics nativeGetAndReset();
+    public static native Metrics nativeGetAndReset();
 }

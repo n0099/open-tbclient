@@ -1,15 +1,13 @@
 package com.baidu.searchbox.floating.widget;
 
-import kotlin.e;
-import kotlin.jvm.a.a;
+import kotlin.Metadata;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
-/* JADX INFO: Access modifiers changed from: package-private */
-@e
-/* loaded from: classes14.dex */
-public final class ViewManager$mContainer$2 extends Lambda implements a<FloatContainer> {
-    final /* synthetic */ ViewManager this$0;
+@Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/searchbox/floating/widget/FloatContainer;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
+/* loaded from: classes2.dex */
+public final class ViewManager$mContainer$2 extends Lambda implements Function0<FloatContainer> {
+    public final /* synthetic */ ViewManager this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ViewManager$mContainer$2(ViewManager viewManager) {
         super(0);
@@ -18,7 +16,7 @@ public final class ViewManager$mContainer$2 extends Lambda implements a<FloatCon
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // kotlin.jvm.a.a
+    @Override // kotlin.jvm.functions.Function0
     public final FloatContainer invoke() {
         return new FloatContainer(this.this$0.getConfig(), this.this$0.getContext(), null, 0, 12, null);
     }

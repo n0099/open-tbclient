@@ -1,89 +1,94 @@
 package io.reactivex.internal.observers;
 
-import io.reactivex.b.g;
+import f.a.o;
+import f.a.t.b;
+import f.a.w.a;
+import f.a.w.g;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.Functions;
-import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-public final class LambdaObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
-    private static final long serialVersionUID = -7251123623727029452L;
-    final io.reactivex.b.a onComplete;
-    final g<? super Throwable> onError;
-    final g<? super T> onNext;
-    final g<? super io.reactivex.disposables.b> onSubscribe;
+/* loaded from: classes7.dex */
+public final class LambdaObserver<T> extends AtomicReference<b> implements o<T>, b {
+    public static final long serialVersionUID = -7251123623727029452L;
+    public final a onComplete;
+    public final g<? super Throwable> onError;
+    public final g<? super T> onNext;
+    public final g<? super b> onSubscribe;
 
-    public LambdaObserver(g<? super T> gVar, g<? super Throwable> gVar2, io.reactivex.b.a aVar, g<? super io.reactivex.disposables.b> gVar3) {
+    public LambdaObserver(g<? super T> gVar, g<? super Throwable> gVar2, a aVar, g<? super b> gVar3) {
         this.onNext = gVar;
         this.onError = gVar2;
         this.onComplete = aVar;
         this.onSubscribe = gVar3;
     }
 
-    @Override // io.reactivex.u
-    public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (DisposableHelper.setOnce(this, bVar)) {
-            try {
-                this.onSubscribe.accept(this);
-            } catch (Throwable th) {
-                io.reactivex.exceptions.a.N(th);
-                bVar.dispose();
-                onError(th);
-            }
-        }
-    }
-
-    @Override // io.reactivex.u
-    public void onNext(T t) {
-        if (!isDisposed()) {
-            try {
-                this.onNext.accept(t);
-            } catch (Throwable th) {
-                io.reactivex.exceptions.a.N(th);
-                get().dispose();
-                onError(th);
-            }
-        }
-    }
-
-    @Override // io.reactivex.u
-    public void onError(Throwable th) {
-        if (!isDisposed()) {
-            lazySet(DisposableHelper.DISPOSED);
-            try {
-                this.onError.accept(th);
-            } catch (Throwable th2) {
-                io.reactivex.exceptions.a.N(th2);
-                io.reactivex.d.a.onError(new CompositeException(th, th2));
-            }
-        }
-    }
-
-    @Override // io.reactivex.u
-    public void onComplete() {
-        if (!isDisposed()) {
-            lazySet(DisposableHelper.DISPOSED);
-            try {
-                this.onComplete.run();
-            } catch (Throwable th) {
-                io.reactivex.exceptions.a.N(th);
-                io.reactivex.d.a.onError(th);
-            }
-        }
-    }
-
-    @Override // io.reactivex.disposables.b
+    @Override // f.a.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // io.reactivex.disposables.b
+    public boolean hasCustomOnError() {
+        return this.onError != Functions.f68022b;
+    }
+
+    @Override // f.a.t.b
     public boolean isDisposed() {
         return get() == DisposableHelper.DISPOSED;
     }
 
-    public boolean hasCustomOnError() {
-        return this.onError != Functions.qoH;
+    @Override // f.a.o
+    public void onComplete() {
+        if (isDisposed()) {
+            return;
+        }
+        lazySet(DisposableHelper.DISPOSED);
+        try {
+            this.onComplete.run();
+        } catch (Throwable th) {
+            f.a.u.a.a(th);
+            f.a.a0.a.f(th);
+        }
+    }
+
+    @Override // f.a.o
+    public void onError(Throwable th) {
+        if (isDisposed()) {
+            return;
+        }
+        lazySet(DisposableHelper.DISPOSED);
+        try {
+            this.onError.accept(th);
+        } catch (Throwable th2) {
+            f.a.u.a.a(th2);
+            f.a.a0.a.f(new CompositeException(th, th2));
+        }
+    }
+
+    @Override // f.a.o
+    public void onNext(T t) {
+        if (isDisposed()) {
+            return;
+        }
+        try {
+            this.onNext.accept(t);
+        } catch (Throwable th) {
+            f.a.u.a.a(th);
+            get().dispose();
+            onError(th);
+        }
+    }
+
+    @Override // f.a.o
+    public void onSubscribe(b bVar) {
+        if (DisposableHelper.setOnce(this, bVar)) {
+            try {
+                this.onSubscribe.accept(this);
+            } catch (Throwable th) {
+                f.a.u.a.a(th);
+                bVar.dispose();
+                onError(th);
+            }
+        }
     }
 }

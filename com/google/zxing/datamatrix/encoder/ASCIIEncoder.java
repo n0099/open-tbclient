@@ -1,12 +1,13 @@
 package com.google.zxing.datamatrix.encoder;
 
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class ASCIIEncoder implements Encoder {
-    @Override // com.google.zxing.datamatrix.encoder.Encoder
-    public int getEncodingMode() {
-        return 0;
+    public static char encodeASCIIDigits(char c2, char c3) {
+        if (HighLevelEncoder.isDigit(c2) && HighLevelEncoder.isDigit(c3)) {
+            return (char) (((c2 - '0') * 10) + (c3 - '0') + IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
+        }
+        throw new IllegalArgumentException("not digits: " + c2 + c3);
     }
 
     @Override // com.google.zxing.datamatrix.encoder.Encoder
@@ -18,45 +19,37 @@ public final class ASCIIEncoder implements Encoder {
         }
         char currentChar = encoderContext.getCurrentChar();
         int lookAheadTest = HighLevelEncoder.lookAheadTest(encoderContext.getMessage(), encoderContext.pos, getEncodingMode());
-        if (lookAheadTest != getEncodingMode()) {
-            switch (lookAheadTest) {
-                case 1:
-                    encoderContext.writeCodeword((char) 230);
-                    encoderContext.signalEncoderChange(1);
-                    return;
-                case 2:
-                    encoderContext.writeCodeword((char) 239);
-                    encoderContext.signalEncoderChange(2);
-                    return;
-                case 3:
-                    encoderContext.writeCodeword((char) 238);
-                    encoderContext.signalEncoderChange(3);
-                    return;
-                case 4:
-                    encoderContext.writeCodeword((char) 240);
-                    encoderContext.signalEncoderChange(4);
-                    return;
-                case 5:
-                    encoderContext.writeCodeword((char) 231);
-                    encoderContext.signalEncoderChange(5);
-                    return;
-                default:
-                    throw new IllegalStateException("Illegal mode: " + lookAheadTest);
+        if (lookAheadTest == getEncodingMode()) {
+            if (HighLevelEncoder.isExtendedASCII(currentChar)) {
+                encoderContext.writeCodeword(HighLevelEncoder.UPPER_SHIFT);
+                encoderContext.writeCodeword((char) ((currentChar - 128) + 1));
+                encoderContext.pos++;
+                return;
             }
-        } else if (HighLevelEncoder.isExtendedASCII(currentChar)) {
-            encoderContext.writeCodeword((char) 235);
-            encoderContext.writeCodeword((char) ((currentChar - 128) + 1));
-            encoderContext.pos++;
-        } else {
             encoderContext.writeCodeword((char) (currentChar + 1));
             encoderContext.pos++;
+        } else if (lookAheadTest == 1) {
+            encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_C40);
+            encoderContext.signalEncoderChange(1);
+        } else if (lookAheadTest == 2) {
+            encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_TEXT);
+            encoderContext.signalEncoderChange(2);
+        } else if (lookAheadTest == 3) {
+            encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_ANSIX12);
+            encoderContext.signalEncoderChange(3);
+        } else if (lookAheadTest == 4) {
+            encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_EDIFACT);
+            encoderContext.signalEncoderChange(4);
+        } else if (lookAheadTest == 5) {
+            encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_BASE256);
+            encoderContext.signalEncoderChange(5);
+        } else {
+            throw new IllegalStateException("Illegal mode: " + lookAheadTest);
         }
     }
 
-    private static char encodeASCIIDigits(char c, char c2) {
-        if (HighLevelEncoder.isDigit(c) && HighLevelEncoder.isDigit(c2)) {
-            return (char) (((c - '0') * 10) + (c2 - '0') + IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
-        }
-        throw new IllegalArgumentException("not digits: " + c + c2);
+    @Override // com.google.zxing.datamatrix.encoder.Encoder
+    public int getEncodingMode() {
+        return 0;
     }
 }

@@ -6,54 +6,38 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [65=4] */
     public static boolean a(String str, File file, c.b bVar) {
-        Throwable th;
         HttpURLConnection httpURLConnection;
-        InputStream inputStream;
-        HttpURLConnection httpURLConnection2;
-        InputStream inputStream2;
+        InputStream inputStream = null;
         try {
-            httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
+            httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
             try {
-                inputStream2 = httpURLConnection2.getInputStream();
-                try {
-                    c.a(inputStream2, file, httpURLConnection2.getContentLength(), bVar);
-                    c.a(inputStream2);
-                    a(httpURLConnection2);
-                    return true;
-                } catch (IOException e) {
-                    c.a(inputStream2);
-                    a(httpURLConnection2);
-                    return false;
-                } catch (Throwable th2) {
-                    th = th2;
-                    httpURLConnection = httpURLConnection2;
-                    inputStream = inputStream2;
-                    c.a(inputStream);
-                    a(httpURLConnection);
-                    throw th;
-                }
-            } catch (IOException e2) {
-                inputStream2 = null;
-            } catch (Throwable th3) {
-                th = th3;
-                httpURLConnection = httpURLConnection2;
-                inputStream = null;
+                inputStream = httpURLConnection.getInputStream();
+                c.a(inputStream, file, httpURLConnection.getContentLength(), bVar);
+                c.a(inputStream);
+                a(httpURLConnection);
+                return true;
+            } catch (IOException unused) {
+                c.a(inputStream);
+                a(httpURLConnection);
+                return false;
+            } catch (Throwable th) {
+                th = th;
+                c.a(inputStream);
+                a(httpURLConnection);
+                throw th;
             }
-        } catch (IOException e3) {
-            httpURLConnection2 = null;
-            inputStream2 = null;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (IOException unused2) {
             httpURLConnection = null;
-            inputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            httpURLConnection = null;
         }
     }
 
-    private static void a(HttpURLConnection httpURLConnection) {
+    public static void a(HttpURLConnection httpURLConnection) {
         if (httpURLConnection != null) {
             httpURLConnection.disconnect();
         }

@@ -7,13 +7,13 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Handler f6142a = new Handler(Looper.getMainLooper());
+    public static final Handler f33764a = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         @MainThread
         void a(int i, String str);
@@ -25,13 +25,12 @@ public class f {
     public static void a(final long j, final com.kwad.sdk.core.g.a.f fVar, final com.kwad.sdk.core.g.a.l lVar, final a aVar) {
         new com.kwad.sdk.core.network.i<com.kwad.sdk.core.g.a, AdResultData>() { // from class: com.kwad.sdk.core.g.f.1
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwad.sdk.core.network.i
             @NonNull
             /* renamed from: a */
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                AdResultData adResultData = new AdResultData(com.kwad.sdk.core.g.a.f.this.f6100a);
+                AdResultData adResultData = new AdResultData(com.kwad.sdk.core.g.a.f.this.f33650a);
                 adResultData.parseJson(jSONObject);
                 return adResultData;
             }
@@ -47,7 +46,7 @@ public class f {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.core.g.a aVar2, final int i, final String str) {
-                f.f6142a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.2
+                f.f33764a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.c("PatchAdRequestManager", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
@@ -59,16 +58,18 @@ public class f {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.core.g.a aVar2, @NonNull final AdResultData adResultData) {
-                if (adResultData.isAdResultDataEmpty()) {
-                    a(aVar2, com.kwad.sdk.core.network.f.c.k, com.kwad.sdk.core.network.f.c.l);
-                } else {
-                    f.f6142a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.1
+                if (!adResultData.isAdResultDataEmpty()) {
+                    f.f33764a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.1
                         @Override // java.lang.Runnable
                         public void run() {
+                            AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
                             a.this.a(j, adResultData.adTemplateList.get(0));
                         }
                     });
+                    return;
                 }
+                com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f33870c;
+                a(aVar2, fVar2.k, fVar2.l);
             }
         });
     }

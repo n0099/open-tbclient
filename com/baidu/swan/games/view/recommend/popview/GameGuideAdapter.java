@@ -9,72 +9,87 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.games.view.recommend.a.e;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
+import d.b.g0.a.f;
+import d.b.g0.a.g;
+import d.b.g0.g.k0.i.b.c;
+import d.b.g0.g.k0.i.b.e;
+import d.b.g0.g.k0.i.f.d;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
-    private com.baidu.swan.games.view.recommend.a.c epm = new com.baidu.swan.games.view.recommend.a.c();
-    private List<RecommendItemModel> epr;
-    private Context mContext;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f12930e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public List<RecommendItemModel> f12931f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public c f12932g = new c();
+
+    /* loaded from: classes3.dex */
+    public class a extends RecyclerView.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public SimpleDraweeView f12933a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public TextView f12934b;
+
+        public a(GameGuideAdapter gameGuideAdapter, View view) {
+            super(view);
+            this.f12933a = (SimpleDraweeView) view.findViewById(f.dv_icon);
+            this.f12934b = (TextView) view.findViewById(f.tv_name);
+        }
+    }
 
     public GameGuideAdapter(Context context, List<RecommendItemModel> list) {
-        this.mContext = context;
-        this.epr = list;
+        this.f12930e = context;
+        this.f12931f = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: h */
-    public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        a aVar = new a(LayoutInflater.from(this.mContext).inflate(a.g.swangame_game_close_guide_item_view, (ViewGroup) null));
-        aVar.itemView.setOnClickListener(this);
-        d.ba(aVar.itemView);
-        return aVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: a */
+    /* renamed from: c */
     public void onBindViewHolder(a aVar, int i) {
-        RecommendItemModel recommendItemModel = this.epr.get(i);
-        if (recommendItemModel != null) {
-            aVar.eps.setController(com.facebook.drawee.a.a.c.etF().ZG(recommendItemModel.getIconUrl()).euw());
-            aVar.textView.setText(recommendItemModel.getAppName());
-            aVar.itemView.setTag(Integer.valueOf(i));
+        RecommendItemModel recommendItemModel = this.f12931f.get(i);
+        if (recommendItemModel == null) {
+            return;
         }
+        aVar.f12933a.setController(Fresco.newDraweeControllerBuilder().setUri(recommendItemModel.getIconUrl()).build());
+        aVar.f12934b.setText(recommendItemModel.getAppName());
+        aVar.itemView.setTag(Integer.valueOf(i));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: d */
+    public a onCreateViewHolder(ViewGroup viewGroup, int i) {
+        a aVar = new a(this, LayoutInflater.from(this.f12930e).inflate(g.swangame_game_close_guide_item_view, (ViewGroup) null));
+        aVar.itemView.setOnClickListener(this);
+        d.a(aVar.itemView);
+        return aVar;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.epr.size();
+        return this.f12931f.size();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int intValue;
-        if (view.getTag() != null && (intValue = ((Integer) view.getTag()).intValue()) < this.epr.size()) {
-            RecommendItemModel recommendItemModel = this.epr.get(intValue);
-            if (!TextUtils.isEmpty(recommendItemModel.getScheme()) && !TextUtils.isEmpty(recommendItemModel.getAppKey())) {
-                SchemeRouter.invokeSchemeForInner(this.mContext, Uri.parse(recommendItemModel.getScheme()));
-                e.aG(4, recommendItemModel.getAppKey());
-                this.epm.c(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
+        if (view.getTag() != null && (intValue = ((Integer) view.getTag()).intValue()) < this.f12931f.size()) {
+            RecommendItemModel recommendItemModel = this.f12931f.get(intValue);
+            if (TextUtils.isEmpty(recommendItemModel.getScheme()) || TextUtils.isEmpty(recommendItemModel.getAppKey())) {
+                return;
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
-    public class a extends RecyclerView.ViewHolder {
-        public SimpleDraweeView eps;
-        public TextView textView;
-
-        public a(View view) {
-            super(view);
-            this.eps = (SimpleDraweeView) view.findViewById(a.f.dv_icon);
-            this.textView = (TextView) view.findViewById(a.f.tv_name);
+            SchemeRouter.invokeSchemeForInner(this.f12930e, Uri.parse(recommendItemModel.getScheme()));
+            e.d(4, recommendItemModel.getAppKey());
+            this.f12932g.b(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
         }
     }
 }

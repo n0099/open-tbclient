@@ -21,8 +21,52 @@ import okhttp3.Response;
 import okhttp3.Route;
 import org.apache.http.auth.AUTH;
 import org.apache.http.client.params.AuthPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HttpClientFactory {
+
+    /* loaded from: classes5.dex */
+    public static class NTLMAuthenticator implements Authenticator {
+        public final String domain;
+        public final NTLMEngineImpl engine;
+        public final String ntlmMsg1;
+        public final String password;
+        public final String username;
+        public final String workstation;
+
+        public NTLMAuthenticator(String str, String str2, String str3, String str4) {
+            NTLMEngineImpl nTLMEngineImpl = new NTLMEngineImpl();
+            this.engine = nTLMEngineImpl;
+            this.domain = str4;
+            this.username = str;
+            this.password = str2;
+            this.workstation = str3;
+            String str5 = null;
+            try {
+                str5 = nTLMEngineImpl.generateType1Msg(null, null);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            this.ntlmMsg1 = str5;
+        }
+
+        @Override // okhttp3.Authenticator
+        public Request authenticate(Route route, Response response) throws IOException {
+            List<String> values = response.headers().values(AUTH.WWW_AUTH);
+            if (values.contains(AuthPolicy.NTLM)) {
+                Request.Builder newBuilder = response.request().newBuilder();
+                return newBuilder.header("Authorization", "NTLM " + this.ntlmMsg1).build();
+            }
+            String str = null;
+            try {
+                str = this.engine.generateType3Msg(this.username, this.password, this.domain, this.workstation, values.get(0).substring(5));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            Request.Builder newBuilder2 = response.request().newBuilder();
+            return newBuilder2.header("Authorization", "NTLM " + str).build();
+        }
+    }
+
     public OkHttpClient createHttpClient(BceClientConfiguration bceClientConfiguration) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(Protocol.HTTP_1_1);
@@ -50,45 +94,5 @@ public class HttpClientFactory {
             }
         }
         return followSslRedirects.build();
-    }
-
-    /* loaded from: classes4.dex */
-    public static class NTLMAuthenticator implements Authenticator {
-        private final String domain;
-        final NTLMEngineImpl engine = new NTLMEngineImpl();
-        private final String ntlmMsg1;
-        private final String password;
-        private final String username;
-        private final String workstation;
-
-        public NTLMAuthenticator(String str, String str2, String str3, String str4) {
-            String str5 = null;
-            this.domain = str4;
-            this.username = str;
-            this.password = str2;
-            this.workstation = str3;
-            try {
-                str5 = this.engine.generateType1Msg(null, null);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.ntlmMsg1 = str5;
-        }
-
-        @Override // okhttp3.Authenticator
-        public Request authenticate(Route route, Response response) throws IOException {
-            String str;
-            List<String> values = response.headers().values(AUTH.WWW_AUTH);
-            if (values.contains(AuthPolicy.NTLM)) {
-                return response.request().newBuilder().header("Authorization", "NTLM " + this.ntlmMsg1).build();
-            }
-            try {
-                str = this.engine.generateType3Msg(this.username, this.password, this.domain, this.workstation, values.get(0).substring(5));
-            } catch (Exception e) {
-                e.printStackTrace();
-                str = null;
-            }
-            return response.request().newBuilder().header("Authorization", "NTLM " + str).build();
-        }
     }
 }

@@ -1,124 +1,40 @@
 package com.baidu.sapi2.share;
-
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import android.os.StatFs;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import com.baidu.mobstat.Config;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.utils.AES;
-import com.baidu.sapi2.utils.Log;
-import com.baidu.sapi2.utils.SapiDataEncryptor;
-import com.baidu.sapi2.utils.k;
-import java.util.HashMap;
-/* loaded from: classes3.dex */
-final class c {
+/* loaded from: classes2.dex */
+public interface c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3423a;
+    public static final String f11368a = "check_share_v2_login_available";
 
-    c() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f11369b = "share_v2_login_not_storage_perm";
 
-    public static String a(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            return new String(new AES(com.baidu.sapi2.utils.e.q, com.baidu.sapi2.utils.e.p).decrypt(SapiDataEncryptor.hexToByte(str), com.baidu.sapi2.utils.e.r, a(context))).trim();
-        } catch (Exception e) {
-            Log.e(e);
-            HashMap hashMap = new HashMap();
-            hashMap.put(Config.DEVICE_PART, Build.MODEL);
-            hashMap.put("device_ver", Build.VERSION.RELEASE);
-            hashMap.put("error_msg", android.util.Log.getStackTraceString(e));
-            k.a("aes_decrypt_error", hashMap);
-            return null;
-        }
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f11370c = "share_v2_login_invoke";
 
-    public static String b(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            return SapiDataEncryptor.byteToHex(new AES(com.baidu.sapi2.utils.e.q, com.baidu.sapi2.utils.e.p).encrypt(str, com.baidu.sapi2.utils.e.r, a(context)));
-        } catch (Exception e) {
-            Log.e(e);
-            HashMap hashMap = new HashMap();
-            hashMap.put(Config.DEVICE_PART, Build.MODEL);
-            hashMap.put("device_ver", Build.VERSION.RELEASE);
-            hashMap.put("error_msg", android.util.Log.getStackTraceString(e));
-            k.a("aes_encrypt_error", hashMap);
-            return null;
-        }
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f11371d = "share_v2_login_success";
 
-    private static String a(Context context) {
-        String str;
-        String str2;
-        String str3 = f3423a;
-        if (str3 == null) {
-            String deviceId = Build.VERSION.SDK_INT < 23 ? ((TelephonyManager) context.getSystemService("phone")).getDeviceId() : null;
-            String str4 = Build.MODEL;
-            if ("mounted".equals(Environment.getExternalStorageState())) {
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                str2 = statFs.getBlockSize() + "";
-                str = statFs.getBlockCount() + "";
-            } else {
-                str = null;
-                str2 = null;
-            }
-            String substring = (!TextUtils.isEmpty(deviceId) ? String.format("%1$s-%2$s-%3$s-%4$s", str4, deviceId, str2, str) : String.format("%1$s-%2$s-%3$s", str4, str2, str)).substring(0, 16);
-            if (TextUtils.isEmpty(substring)) {
-                substring = "----------------";
-            }
-            if (substring.length() < 16) {
-                substring = (substring + "----------------").substring(0, 16);
-            }
-            f3423a = substring;
-            return f3423a;
-        }
-        return str3;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f11372e = "share_v2_login_fail";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static SapiAccount b(Context context, SapiAccount sapiAccount) {
-        if (context != null && sapiAccount != null) {
-            SapiAccount sapiAccount2 = new SapiAccount();
-            sapiAccount2.displayname = b(context, sapiAccount.displayname);
-            sapiAccount2.uid = b(context, sapiAccount.uid);
-            sapiAccount2.username = b(context, sapiAccount.username);
-            sapiAccount2.app = b(context, sapiAccount.app);
-            sapiAccount2.bduss = b(context, sapiAccount.bduss);
-            a.a().c(sapiAccount2, b(context, a.a().b(sapiAccount)));
-            a.a().d(sapiAccount2, b(context, a.a().c(sapiAccount)));
-            a.a().b(sapiAccount2, b(context, a.a().a(sapiAccount)));
-            sapiAccount2.email = b(context, sapiAccount.email);
-            sapiAccount2.phone = b(context, sapiAccount.phone);
-            return sapiAccount2;
-        }
-        return null;
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f11373f = "share_auth_invoked";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static SapiAccount a(Context context, SapiAccount sapiAccount) {
-        if (context != null && sapiAccount != null) {
-            SapiAccount sapiAccount2 = new SapiAccount();
-            sapiAccount2.displayname = a(context, sapiAccount.displayname);
-            sapiAccount2.uid = a(context, sapiAccount.uid);
-            sapiAccount2.username = a(context, sapiAccount.username);
-            sapiAccount2.app = a(context, sapiAccount.app);
-            sapiAccount2.bduss = a(context, sapiAccount.bduss);
-            a.a().c(sapiAccount2, a(context, a.a().b(sapiAccount)));
-            a.a().d(sapiAccount2, a(context, a.a().c(sapiAccount)));
-            a.a().b(sapiAccount2, a(context, a.a().a(sapiAccount)));
-            sapiAccount2.email = a(context, sapiAccount.email);
-            sapiAccount2.phone = a(context, sapiAccount.phone);
-            return sapiAccount2;
-        }
-        return null;
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f11374g = "share_auth_success";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f11375h = "share_auth_fail";
+    public static final String i = "share_auth_expired";
+    public static final String j = "share_auth_expired_login_success";
+    public static final String k = "share_auth_expired_login_fail";
+    public static final String l = "pass";
+    public static final String m = "product";
+    public static final String n = "get_share_from_init_sp";
+    public static final String o = "get_share_but_none_app";
+    public static final String p = "get_share_from_dynamic_sp";
+    public static final String q = "get_share_from_dynamic_sdcard";
+    public static final String r = "get_share_no_sdcard_perm";
+    public static final String s = "get_share_from_cloud";
+    public static final String t = "get_share_from_cloud_cache";
 }

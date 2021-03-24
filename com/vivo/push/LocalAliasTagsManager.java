@@ -12,26 +12,26 @@ import com.vivo.push.model.UnvarnishedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class LocalAliasTagsManager {
     public static final String DEFAULT_LOCAL_REQUEST_ID = "push_cache_sp";
-    private static volatile LocalAliasTagsManager mLocalAliasTagsManager;
-    private Context mContext;
-    private Handler mHandler = new Handler(Looper.getMainLooper());
-    private ISubscribeAppAliasManager mSubscribeAppAliasManager;
-    private ISubscribeAppTagManager mSubscribeAppTagManager;
+    public static volatile LocalAliasTagsManager mLocalAliasTagsManager;
+    public Context mContext;
+    public Handler mHandler = new Handler(Looper.getMainLooper());
+    public ISubscribeAppAliasManager mSubscribeAppAliasManager;
+    public ISubscribeAppTagManager mSubscribeAppTagManager;
     public static final String TAG = "LocalAliasTagsManager";
     public static final ExecutorService WORK_POOL = com.vivo.push.util.e.a(TAG);
-    private static final Object SLOCK = new Object();
+    public static final Object SLOCK = new Object();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes7.dex */
     public interface LocalMessageCallback {
         boolean onNotificationMessageArrived(Context context, UPSNotificationMessage uPSNotificationMessage);
 
         void onTransmissionMessage(Context context, UnvarnishedMessage unvarnishedMessage);
     }
 
-    private LocalAliasTagsManager(Context context) {
+    public LocalAliasTagsManager(Context context) {
         this.mContext = context;
         this.mSubscribeAppTagManager = new com.vivo.push.cache.impl.b(context);
         this.mSubscribeAppAliasManager = new SubscribeAppAliasManagerImpl(context);
@@ -48,12 +48,12 @@ public class LocalAliasTagsManager {
         return mLocalAliasTagsManager;
     }
 
-    public void setSubscribeAppTagManager(ISubscribeAppTagManager iSubscribeAppTagManager) {
-        this.mSubscribeAppTagManager = iSubscribeAppTagManager;
+    public void delLocalAlias(String str) {
+        WORK_POOL.execute(new h(this, str));
     }
 
-    public void setSubscribeAppAliasManager(ISubscribeAppAliasManager iSubscribeAppAliasManager) {
-        this.mSubscribeAppAliasManager = iSubscribeAppAliasManager;
+    public void delLocalTags(ArrayList<String> arrayList) {
+        WORK_POOL.execute(new i(this, arrayList));
     }
 
     public String getLocalAlias() {
@@ -64,58 +64,12 @@ public class LocalAliasTagsManager {
         return null;
     }
 
-    public void setLocalAlias(String str) {
-        WORK_POOL.execute(new d(this, str));
-    }
-
     public List<String> getLocalTags() {
         return this.mSubscribeAppTagManager.getSubscribeTags();
     }
 
-    public void setLocalTags(ArrayList<String> arrayList) {
-        WORK_POOL.execute(new f(this, arrayList));
-    }
-
     public void init() {
         WORK_POOL.execute(new g(this));
-    }
-
-    public void delLocalAlias(String str) {
-        WORK_POOL.execute(new h(this, str));
-    }
-
-    public void delLocalTags(ArrayList<String> arrayList) {
-        WORK_POOL.execute(new i(this, arrayList));
-    }
-
-    public void onReceiverMsg(UnvarnishedMessage unvarnishedMessage, LocalMessageCallback localMessageCallback) {
-        WORK_POOL.execute(new j(this, unvarnishedMessage, localMessageCallback));
-    }
-
-    public boolean onReceiverNotification(UPSNotificationMessage uPSNotificationMessage, LocalMessageCallback localMessageCallback) {
-        int targetType = uPSNotificationMessage.getTargetType();
-        String tragetContent = uPSNotificationMessage.getTragetContent();
-        switch (targetType) {
-            case 3:
-                SubscribeAppInfo subscribeAppInfo = this.mSubscribeAppAliasManager.getSubscribeAppInfo();
-                if (subscribeAppInfo == null || subscribeAppInfo.getTargetStatus() != 1 || !subscribeAppInfo.getName().equals(tragetContent)) {
-                    p.a().b(DEFAULT_LOCAL_REQUEST_ID, tragetContent);
-                    com.vivo.push.util.p.a(TAG, tragetContent + " has ignored ; current Alias is " + subscribeAppInfo);
-                    return true;
-                }
-                break;
-            case 4:
-                List<String> subscribeTags = this.mSubscribeAppTagManager.getSubscribeTags();
-                if (subscribeTags == null || !subscribeTags.contains(tragetContent)) {
-                    ArrayList<String> arrayList = new ArrayList<>();
-                    arrayList.add(tragetContent);
-                    p.a().b(DEFAULT_LOCAL_REQUEST_ID, arrayList);
-                    com.vivo.push.util.p.a(TAG, tragetContent + " has ignored ; current tags is " + subscribeTags);
-                    return true;
-                }
-                break;
-        }
-        return localMessageCallback.onNotificationMessageArrived(this.mContext, uPSNotificationMessage);
     }
 
     public void onDelAlias(List<String> list, String str) {
@@ -130,6 +84,33 @@ public class LocalAliasTagsManager {
         }
     }
 
+    public void onReceiverMsg(UnvarnishedMessage unvarnishedMessage, LocalMessageCallback localMessageCallback) {
+        WORK_POOL.execute(new j(this, unvarnishedMessage, localMessageCallback));
+    }
+
+    public boolean onReceiverNotification(UPSNotificationMessage uPSNotificationMessage, LocalMessageCallback localMessageCallback) {
+        List<String> subscribeTags;
+        int targetType = uPSNotificationMessage.getTargetType();
+        String tragetContent = uPSNotificationMessage.getTragetContent();
+        if (targetType != 3) {
+            if (targetType == 4 && ((subscribeTags = this.mSubscribeAppTagManager.getSubscribeTags()) == null || !subscribeTags.contains(tragetContent))) {
+                ArrayList<String> arrayList = new ArrayList<>();
+                arrayList.add(tragetContent);
+                p.a().b(DEFAULT_LOCAL_REQUEST_ID, arrayList);
+                com.vivo.push.util.p.a(TAG, tragetContent + " has ignored ; current tags is " + subscribeTags);
+                return true;
+            }
+        } else {
+            SubscribeAppInfo subscribeAppInfo = this.mSubscribeAppAliasManager.getSubscribeAppInfo();
+            if (subscribeAppInfo == null || subscribeAppInfo.getTargetStatus() != 1 || !subscribeAppInfo.getName().equals(tragetContent)) {
+                p.a().b(DEFAULT_LOCAL_REQUEST_ID, tragetContent);
+                com.vivo.push.util.p.a(TAG, tragetContent + " has ignored ; current Alias is " + subscribeAppInfo);
+                return true;
+            }
+        }
+        return localMessageCallback.onNotificationMessageArrived(this.mContext, uPSNotificationMessage);
+    }
+
     public void onSetAlias(List<String> list, String str) {
         if (DEFAULT_LOCAL_REQUEST_ID.equals(str)) {
             WORK_POOL.execute(new n(this, list));
@@ -140,5 +121,21 @@ public class LocalAliasTagsManager {
         if (DEFAULT_LOCAL_REQUEST_ID.equals(str)) {
             WORK_POOL.execute(new e(this, list));
         }
+    }
+
+    public void setLocalAlias(String str) {
+        WORK_POOL.execute(new d(this, str));
+    }
+
+    public void setLocalTags(ArrayList<String> arrayList) {
+        WORK_POOL.execute(new f(this, arrayList));
+    }
+
+    public void setSubscribeAppAliasManager(ISubscribeAppAliasManager iSubscribeAppAliasManager) {
+        this.mSubscribeAppAliasManager = iSubscribeAppAliasManager;
+    }
+
+    public void setSubscribeAppTagManager(ISubscribeAppTagManager iSubscribeAppTagManager) {
+        this.mSubscribeAppTagManager = iSubscribeAppTagManager;
     }
 }

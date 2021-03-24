@@ -1,14 +1,16 @@
 package com.ksad.lottie.model.content;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MergePaths implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f5381a;
-    private final MergePathsMode b;
+    public final String f31481a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final MergePathsMode f31482b;
+
+    /* loaded from: classes6.dex */
     public enum MergePathsMode {
         Merge,
         Add,
@@ -17,26 +19,13 @@ public class MergePaths implements b {
         ExcludeIntersections;
 
         public static MergePathsMode forId(int i) {
-            switch (i) {
-                case 1:
-                    return Merge;
-                case 2:
-                    return Add;
-                case 3:
-                    return Subtract;
-                case 4:
-                    return Intersect;
-                case 5:
-                    return ExcludeIntersections;
-                default:
-                    return Merge;
-            }
+            return i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? Merge : ExcludeIntersections : Intersect : Subtract : Add : Merge;
         }
     }
 
     public MergePaths(String str, MergePathsMode mergePathsMode) {
-        this.f5381a = str;
-        this.b = mergePathsMode;
+        this.f31481a = str;
+        this.f31482b = mergePathsMode;
     }
 
     @Override // com.ksad.lottie.model.content.b
@@ -50,14 +39,14 @@ public class MergePaths implements b {
     }
 
     public String a() {
-        return this.f5381a;
+        return this.f31481a;
     }
 
     public MergePathsMode b() {
-        return this.b;
+        return this.f31482b;
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.b + '}';
+        return "MergePaths{mode=" + this.f31482b + '}';
     }
 }

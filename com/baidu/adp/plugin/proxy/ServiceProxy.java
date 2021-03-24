@@ -12,13 +12,48 @@ import android.os.IBinder;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.adp.plugin.a.c;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
+import d.b.b.h.f.c;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
 public class ServiceProxy extends Service implements c {
-    private PluginBaseService mEntity = null;
+    public PluginBaseService mEntity = null;
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
+        if (intent != null) {
+            loadTargetService(intent);
+            PluginBaseService pluginBaseService = this.mEntity;
+            if (pluginBaseService != null) {
+                return pluginBaseService.bindService(intent, serviceConnection, i);
+            }
+        }
+        return false;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public PackageManager getPackageManager() {
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            return pluginBaseService.getPackageManager();
+        }
+        return super.getPackageManager();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Resources getResources() {
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            return pluginBaseService.getResources();
+        }
+        return super.getResources();
+    }
+
+    @Override // d.b.b.h.f.c
+    public Service getService() {
+        return this;
+    }
 
     public void loadTargetService(Intent intent) {
         if (this.mEntity == null) {
@@ -29,40 +64,19 @@ public class ServiceProxy extends Service implements c {
                 return;
             }
             try {
-                this.mEntity = (PluginBaseService) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE)).asSubclass(PluginBaseService.class).newInstance();
-                this.mEntity.setServiceProxy(this);
+                PluginBaseService pluginBaseService = (PluginBaseService) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE)).asSubclass(PluginBaseService.class).newInstance();
+                this.mEntity = pluginBaseService;
+                pluginBaseService.setServiceProxy(this);
                 this.mEntity.setPluginPackageName(stringExtra);
                 this.mEntity.onCreate();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e2) {
+            } catch (ClassNotFoundException e2) {
                 e2.printStackTrace();
-            } catch (InstantiationException e3) {
+            } catch (IllegalAccessException e3) {
                 e3.printStackTrace();
+            } catch (InstantiationException e4) {
+                e4.printStackTrace();
             }
         }
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        if (intent != null) {
-            loadTargetService(intent);
-            if (this.mEntity != null) {
-                return this.mEntity.bindService(intent, serviceConnection, i);
-            }
-            return false;
-        }
-        return false;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public PackageManager getPackageManager() {
-        return this.mEntity != null ? this.mEntity.getPackageManager() : super.getPackageManager();
-    }
-
-    @Override // com.baidu.adp.plugin.a.c
-    public Service getService() {
-        return this;
     }
 
     @Override // android.app.Service
@@ -72,16 +86,18 @@ public class ServiceProxy extends Service implements c {
             return null;
         }
         loadTargetService(intent);
-        if (this.mEntity != null) {
-            return this.mEntity.onBind(intent);
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            return pluginBaseService.onBind(intent);
         }
         return null;
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.mEntity != null) {
-            this.mEntity.onConfigurationChanged(configuration);
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            pluginBaseService.onConfigurationChanged(configuration);
         } else {
             super.onConfigurationChanged(configuration);
         }
@@ -94,8 +110,9 @@ public class ServiceProxy extends Service implements c {
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.mEntity != null) {
-            this.mEntity.onDestroy();
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            pluginBaseService.onDestroy();
         } else {
             super.onDestroy();
         }
@@ -103,8 +120,9 @@ public class ServiceProxy extends Service implements c {
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onLowMemory() {
-        if (this.mEntity != null) {
-            this.mEntity.onLowMemory();
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            pluginBaseService.onLowMemory();
         } else {
             super.onLowMemory();
         }
@@ -114,8 +132,11 @@ public class ServiceProxy extends Service implements c {
     public void onStart(Intent intent, int i) {
         if (intent == null) {
             stopSelf();
-        } else if (this.mEntity != null) {
-            this.mEntity.onStart(intent, i);
+            return;
+        }
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            pluginBaseService.onStart(intent, i);
         } else {
             super.onStart(intent, i);
         }
@@ -128,18 +149,23 @@ public class ServiceProxy extends Service implements c {
             return super.onStartCommand(intent, i, i2);
         }
         loadTargetService(intent);
-        if (this.mEntity != null) {
-            return this.mEntity.onStartCommand(intent, i, i2);
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            return pluginBaseService.onStartCommand(intent, i, i2);
         }
         return super.onStartCommand(intent, i, i2);
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        return this.mEntity != null ? this.mEntity.onUnbind(intent) : super.onUnbind(intent);
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            return pluginBaseService.onUnbind(intent);
+        }
+        return super.onUnbind(intent);
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.remapStartServiceIntent(intent)) {
@@ -148,57 +174,62 @@ public class ServiceProxy extends Service implements c {
         return false;
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         super.dump(fileDescriptor, printWriter, strArr);
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public void proxyFinalize() throws Throwable {
         super.finalize();
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public PackageManager proxyGetPackageManager() {
         return super.getPackageManager();
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
+    public SharedPreferences proxyGetSharedPreferences(String str, int i) {
+        return super.getSharedPreferences(str, i);
+    }
+
+    @Override // d.b.b.h.f.c
     public void proxyOnConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public void proxyOnDestroy() {
         super.onDestroy();
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public void proxyOnLowMemory() {
         super.onLowMemory();
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public void proxyOnRebind(Intent intent) {
         super.onRebind(intent);
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public void proxyOnStart(Intent intent, int i) {
         super.onStart(intent, i);
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public int proxyOnStartCommand(Intent intent, int i, int i2) {
         return super.onStartCommand(intent, i, i2);
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public boolean proxyOnUnbind(Intent intent) {
         return super.onUnbind(intent);
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public void proxyStartActivity(Intent intent) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {
@@ -209,7 +240,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public ComponentName proxyStartService(Intent intent) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {
@@ -218,7 +249,7 @@ public class ServiceProxy extends Service implements c {
         return null;
     }
 
-    @Override // com.baidu.adp.plugin.a.c
+    @Override // d.b.b.h.f.c
     public boolean proxyStopService(Intent intent) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {
@@ -232,8 +263,9 @@ public class ServiceProxy extends Service implements c {
         if (intent != null) {
             intent.addFlags(268435456);
         }
-        if (this.mEntity != null) {
-            this.mEntity.startActivity(intent);
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            pluginBaseService.startActivity(intent);
         } else {
             super.startActivity(intent);
         }
@@ -241,21 +273,19 @@ public class ServiceProxy extends Service implements c {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ComponentName startService(Intent intent) {
-        return this.mEntity != null ? this.mEntity.startService(intent) : super.startService(intent);
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            return pluginBaseService.startService(intent);
+        }
+        return super.startService(intent);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean stopService(Intent intent) {
-        return this.mEntity != null ? this.mEntity.stopService(intent) : super.stopService(intent);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        return this.mEntity != null ? this.mEntity.getResources() : super.getResources();
-    }
-
-    @Override // com.baidu.adp.plugin.a.c
-    public SharedPreferences proxyGetSharedPreferences(String str, int i) {
-        return super.getSharedPreferences(str, i);
+        PluginBaseService pluginBaseService = this.mEntity;
+        if (pluginBaseService != null) {
+            return pluginBaseService.stopService(intent);
+        }
+        return super.stopService(intent);
     }
 }

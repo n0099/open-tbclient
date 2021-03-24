@@ -1,10 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class MotuVideoConfig extends IntentConfig {
     public static final String ACTION_FINISH_VIDEO_ALL_ACTIVITY = "cn.jingling.motu.mv.finish_all";
     public static final String FORUM_ID = "forum_id";
@@ -23,7 +22,7 @@ public class MotuVideoConfig extends IntentConfig {
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra("video_title", str3);
         getIntent().putExtra(LOCAL_VIDEO_OPEN, z);
-        setRequestCode(RequestResponseCode.REQUEST_RECORDER_VIDEO);
+        setRequestCode(13010);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

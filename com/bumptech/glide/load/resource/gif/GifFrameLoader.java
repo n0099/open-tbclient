@@ -27,224 +27,225 @@ import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class GifFrameLoader {
-    private final BitmapPool bitmapPool;
-    private final List<FrameCallback> callbacks;
-    private DelayTarget current;
-    private Bitmap firstFrame;
-    private int firstFrameSize;
-    private final GifDecoder gifDecoder;
-    private final Handler handler;
-    private int height;
-    private boolean isCleared;
-    private boolean isLoadPending;
-    private boolean isRunning;
-    private DelayTarget next;
+    public final BitmapPool bitmapPool;
+    public final List<FrameCallback> callbacks;
+    public DelayTarget current;
+    public Bitmap firstFrame;
+    public int firstFrameSize;
+    public final GifDecoder gifDecoder;
+    public final Handler handler;
+    public int height;
+    public boolean isCleared;
+    public boolean isLoadPending;
+    public boolean isRunning;
+    public DelayTarget next;
     @Nullable
-    private OnEveryFrameListener onEveryFrameListener;
-    private DelayTarget pendingTarget;
-    private RequestBuilder<Bitmap> requestBuilder;
-    final RequestManager requestManager;
-    private boolean startFromFirstFrame;
-    private Transformation<Bitmap> transformation;
-    private int width;
+    public OnEveryFrameListener onEveryFrameListener;
+    public DelayTarget pendingTarget;
+    public RequestBuilder<Bitmap> requestBuilder;
+    public final RequestManager requestManager;
+    public boolean startFromFirstFrame;
+    public Transformation<Bitmap> transformation;
+    public int width;
 
-    /* loaded from: classes14.dex */
+    @VisibleForTesting
+    /* loaded from: classes5.dex */
+    public static class DelayTarget extends CustomTarget<Bitmap> {
+        public final Handler handler;
+        public final int index;
+        public Bitmap resource;
+        public final long targetTime;
+
+        public DelayTarget(Handler handler, int i, long j) {
+            this.handler = handler;
+            this.index = i;
+            this.targetTime = j;
+        }
+
+        public Bitmap getResource() {
+            return this.resource;
+        }
+
+        @Override // com.bumptech.glide.request.target.Target
+        public void onLoadCleared(@Nullable Drawable drawable) {
+            this.resource = null;
+        }
+
+        @Override // com.bumptech.glide.request.target.Target
+        public /* bridge */ /* synthetic */ void onResourceReady(@NonNull Object obj, @Nullable Transition transition) {
+            onResourceReady((Bitmap) obj, (Transition<? super Bitmap>) transition);
+        }
+
+        public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
+            this.resource = bitmap;
+            this.handler.sendMessageAtTime(this.handler.obtainMessage(1, this), this.targetTime);
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public interface FrameCallback {
         void onFrameReady();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes5.dex */
+    public class FrameLoaderCallback implements Handler.Callback {
+        public static final int MSG_CLEAR = 2;
+        public static final int MSG_DELAY = 1;
+
+        public FrameLoaderCallback() {
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            int i = message.what;
+            if (i == 1) {
+                GifFrameLoader.this.onFrameReady((DelayTarget) message.obj);
+                return true;
+            } else if (i == 2) {
+                GifFrameLoader.this.requestManager.clear((DelayTarget) message.obj);
+                return false;
+            } else {
+                return false;
+            }
+        }
+    }
+
     @VisibleForTesting
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface OnEveryFrameListener {
         void onFrameReady();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public GifFrameLoader(Glide glide, GifDecoder gifDecoder, int i, int i2, Transformation<Bitmap> transformation, Bitmap bitmap) {
         this(glide.getBitmapPool(), Glide.with(glide.getContext()), gifDecoder, null, getRequestBuilder(Glide.with(glide.getContext()), i, i2), transformation, bitmap);
     }
 
-    GifFrameLoader(BitmapPool bitmapPool, RequestManager requestManager, GifDecoder gifDecoder, Handler handler, RequestBuilder<Bitmap> requestBuilder, Transformation<Bitmap> transformation, Bitmap bitmap) {
-        this.callbacks = new ArrayList();
-        this.requestManager = requestManager;
-        handler = handler == null ? new Handler(Looper.getMainLooper(), new FrameLoaderCallback()) : handler;
-        this.bitmapPool = bitmapPool;
-        this.handler = handler;
-        this.requestBuilder = requestBuilder;
-        this.gifDecoder = gifDecoder;
-        setFrameTransformation(transformation, bitmap);
+    public static Key getFrameSignature() {
+        return new ObjectKey(Double.valueOf(Math.random()));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setFrameTransformation(Transformation<Bitmap> transformation, Bitmap bitmap) {
-        this.transformation = (Transformation) Preconditions.checkNotNull(transformation);
-        this.firstFrame = (Bitmap) Preconditions.checkNotNull(bitmap);
-        this.requestBuilder = this.requestBuilder.apply((BaseRequestOptions<?>) new RequestOptions().transform(transformation));
-        this.firstFrameSize = Util.getBitmapByteSize(bitmap);
-        this.width = bitmap.getWidth();
-        this.height = bitmap.getHeight();
+    public static RequestBuilder<Bitmap> getRequestBuilder(RequestManager requestManager, int i, int i2) {
+        return requestManager.asBitmap().apply((BaseRequestOptions<?>) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i, i2));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Transformation<Bitmap> getFrameTransformation() {
-        return this.transformation;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Bitmap getFirstFrame() {
-        return this.firstFrame;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void subscribe(FrameCallback frameCallback) {
-        if (this.isCleared) {
-            throw new IllegalStateException("Cannot subscribe to a cleared frame loader");
+    private void loadNextFrame() {
+        if (!this.isRunning || this.isLoadPending) {
+            return;
         }
-        if (this.callbacks.contains(frameCallback)) {
-            throw new IllegalStateException("Cannot subscribe twice in a row");
+        if (this.startFromFirstFrame) {
+            Preconditions.checkArgument(this.pendingTarget == null, "Pending target must be null when starting from the first frame");
+            this.gifDecoder.resetFrameIndex();
+            this.startFromFirstFrame = false;
         }
-        boolean isEmpty = this.callbacks.isEmpty();
-        this.callbacks.add(frameCallback);
-        if (isEmpty) {
-            start();
+        DelayTarget delayTarget = this.pendingTarget;
+        if (delayTarget != null) {
+            this.pendingTarget = null;
+            onFrameReady(delayTarget);
+            return;
         }
+        this.isLoadPending = true;
+        long uptimeMillis = SystemClock.uptimeMillis() + this.gifDecoder.getNextDelay();
+        this.gifDecoder.advance();
+        this.next = new DelayTarget(this.handler, this.gifDecoder.getCurrentFrameIndex(), uptimeMillis);
+        this.requestBuilder.apply((BaseRequestOptions<?>) RequestOptions.signatureOf(getFrameSignature())).load((Object) this.gifDecoder).into((RequestBuilder<Bitmap>) this.next);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void unsubscribe(FrameCallback frameCallback) {
-        this.callbacks.remove(frameCallback);
-        if (this.callbacks.isEmpty()) {
-            stop();
+    private void recycleFirstFrame() {
+        Bitmap bitmap = this.firstFrame;
+        if (bitmap != null) {
+            this.bitmapPool.put(bitmap);
+            this.firstFrame = null;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getWidth() {
-        return this.width;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getHeight() {
-        return this.height;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getSize() {
-        return this.gifDecoder.getByteSize() + this.firstFrameSize;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getCurrentIndex() {
-        if (this.current != null) {
-            return this.current.index;
-        }
-        return -1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ByteBuffer getBuffer() {
-        return this.gifDecoder.getData().asReadOnlyBuffer();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getFrameCount() {
-        return this.gifDecoder.getFrameCount();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getLoopCount() {
-        return this.gifDecoder.getTotalIterationCount();
     }
 
     private void start() {
-        if (!this.isRunning) {
-            this.isRunning = true;
-            this.isCleared = false;
-            loadNextFrame();
+        if (this.isRunning) {
+            return;
         }
+        this.isRunning = true;
+        this.isCleared = false;
+        loadNextFrame();
     }
 
     private void stop() {
         this.isRunning = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void clear() {
         this.callbacks.clear();
         recycleFirstFrame();
         stop();
-        if (this.current != null) {
-            this.requestManager.clear(this.current);
+        DelayTarget delayTarget = this.current;
+        if (delayTarget != null) {
+            this.requestManager.clear(delayTarget);
             this.current = null;
         }
-        if (this.next != null) {
-            this.requestManager.clear(this.next);
+        DelayTarget delayTarget2 = this.next;
+        if (delayTarget2 != null) {
+            this.requestManager.clear(delayTarget2);
             this.next = null;
         }
-        if (this.pendingTarget != null) {
-            this.requestManager.clear(this.pendingTarget);
+        DelayTarget delayTarget3 = this.pendingTarget;
+        if (delayTarget3 != null) {
+            this.requestManager.clear(delayTarget3);
             this.pendingTarget = null;
         }
         this.gifDecoder.clear();
         this.isCleared = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public ByteBuffer getBuffer() {
+        return this.gifDecoder.getData().asReadOnlyBuffer();
+    }
+
     public Bitmap getCurrentFrame() {
-        return this.current != null ? this.current.getResource() : this.firstFrame;
+        DelayTarget delayTarget = this.current;
+        return delayTarget != null ? delayTarget.getResource() : this.firstFrame;
     }
 
-    private void loadNextFrame() {
-        if (this.isRunning && !this.isLoadPending) {
-            if (this.startFromFirstFrame) {
-                Preconditions.checkArgument(this.pendingTarget == null, "Pending target must be null when starting from the first frame");
-                this.gifDecoder.resetFrameIndex();
-                this.startFromFirstFrame = false;
-            }
-            if (this.pendingTarget != null) {
-                DelayTarget delayTarget = this.pendingTarget;
-                this.pendingTarget = null;
-                onFrameReady(delayTarget);
-                return;
-            }
-            this.isLoadPending = true;
-            long nextDelay = this.gifDecoder.getNextDelay() + SystemClock.uptimeMillis();
-            this.gifDecoder.advance();
-            this.next = new DelayTarget(this.handler, this.gifDecoder.getCurrentFrameIndex(), nextDelay);
-            this.requestBuilder.apply((BaseRequestOptions<?>) RequestOptions.signatureOf(getFrameSignature())).load((Object) this.gifDecoder).into((RequestBuilder<Bitmap>) this.next);
+    public int getCurrentIndex() {
+        DelayTarget delayTarget = this.current;
+        if (delayTarget != null) {
+            return delayTarget.index;
         }
+        return -1;
     }
 
-    private void recycleFirstFrame() {
-        if (this.firstFrame != null) {
-            this.bitmapPool.put(this.firstFrame);
-            this.firstFrame = null;
-        }
+    public Bitmap getFirstFrame() {
+        return this.firstFrame;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setNextStartFromFirstFrame() {
-        Preconditions.checkArgument(!this.isRunning, "Can't restart a running animation");
-        this.startFromFirstFrame = true;
-        if (this.pendingTarget != null) {
-            this.requestManager.clear(this.pendingTarget);
-            this.pendingTarget = null;
-        }
+    public int getFrameCount() {
+        return this.gifDecoder.getFrameCount();
+    }
+
+    public Transformation<Bitmap> getFrameTransformation() {
+        return this.transformation;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public int getLoopCount() {
+        return this.gifDecoder.getTotalIterationCount();
+    }
+
+    public int getSize() {
+        return this.gifDecoder.getByteSize() + this.firstFrameSize;
+    }
+
+    public int getWidth() {
+        return this.width;
     }
 
     @VisibleForTesting
-    void setOnEveryFrameReadyListener(@Nullable OnEveryFrameListener onEveryFrameListener) {
-        this.onEveryFrameListener = onEveryFrameListener;
-    }
-
-    @VisibleForTesting
-    void onFrameReady(DelayTarget delayTarget) {
-        if (this.onEveryFrameListener != null) {
-            this.onEveryFrameListener.onFrameReady();
+    public void onFrameReady(DelayTarget delayTarget) {
+        OnEveryFrameListener onEveryFrameListener = this.onEveryFrameListener;
+        if (onEveryFrameListener != null) {
+            onEveryFrameListener.onFrameReady();
         }
         this.isLoadPending = false;
         if (this.isCleared) {
@@ -267,67 +268,61 @@ public class GifFrameLoader {
         }
     }
 
-    /* loaded from: classes14.dex */
-    private class FrameLoaderCallback implements Handler.Callback {
-        static final int MSG_CLEAR = 2;
-        static final int MSG_DELAY = 1;
+    public void setFrameTransformation(Transformation<Bitmap> transformation, Bitmap bitmap) {
+        this.transformation = (Transformation) Preconditions.checkNotNull(transformation);
+        this.firstFrame = (Bitmap) Preconditions.checkNotNull(bitmap);
+        this.requestBuilder = this.requestBuilder.apply((BaseRequestOptions<?>) new RequestOptions().transform(transformation));
+        this.firstFrameSize = Util.getBitmapByteSize(bitmap);
+        this.width = bitmap.getWidth();
+        this.height = bitmap.getHeight();
+    }
 
-        FrameLoaderCallback() {
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            if (message.what == 1) {
-                GifFrameLoader.this.onFrameReady((DelayTarget) message.obj);
-                return true;
-            }
-            if (message.what == 2) {
-                GifFrameLoader.this.requestManager.clear((DelayTarget) message.obj);
-            }
-            return false;
+    public void setNextStartFromFirstFrame() {
+        Preconditions.checkArgument(!this.isRunning, "Can't restart a running animation");
+        this.startFromFirstFrame = true;
+        DelayTarget delayTarget = this.pendingTarget;
+        if (delayTarget != null) {
+            this.requestManager.clear(delayTarget);
+            this.pendingTarget = null;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes14.dex */
-    public static class DelayTarget extends CustomTarget<Bitmap> {
-        private final Handler handler;
-        final int index;
-        private Bitmap resource;
-        private final long targetTime;
+    public void setOnEveryFrameReadyListener(@Nullable OnEveryFrameListener onEveryFrameListener) {
+        this.onEveryFrameListener = onEveryFrameListener;
+    }
 
-        @Override // com.bumptech.glide.request.target.Target
-        public /* bridge */ /* synthetic */ void onResourceReady(@NonNull Object obj, @Nullable Transition transition) {
-            onResourceReady((Bitmap) obj, (Transition<? super Bitmap>) transition);
+    public void subscribe(FrameCallback frameCallback) {
+        if (!this.isCleared) {
+            if (!this.callbacks.contains(frameCallback)) {
+                boolean isEmpty = this.callbacks.isEmpty();
+                this.callbacks.add(frameCallback);
+                if (isEmpty) {
+                    start();
+                    return;
+                }
+                return;
+            }
+            throw new IllegalStateException("Cannot subscribe twice in a row");
         }
+        throw new IllegalStateException("Cannot subscribe to a cleared frame loader");
+    }
 
-        DelayTarget(Handler handler, int i, long j) {
-            this.handler = handler;
-            this.index = i;
-            this.targetTime = j;
-        }
-
-        Bitmap getResource() {
-            return this.resource;
-        }
-
-        public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
-            this.resource = bitmap;
-            this.handler.sendMessageAtTime(this.handler.obtainMessage(1, this), this.targetTime);
-        }
-
-        @Override // com.bumptech.glide.request.target.Target
-        public void onLoadCleared(@Nullable Drawable drawable) {
-            this.resource = null;
+    public void unsubscribe(FrameCallback frameCallback) {
+        this.callbacks.remove(frameCallback);
+        if (this.callbacks.isEmpty()) {
+            stop();
         }
     }
 
-    private static RequestBuilder<Bitmap> getRequestBuilder(RequestManager requestManager, int i, int i2) {
-        return requestManager.asBitmap().apply((BaseRequestOptions<?>) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i, i2));
-    }
-
-    private static Key getFrameSignature() {
-        return new ObjectKey(Double.valueOf(Math.random()));
+    public GifFrameLoader(BitmapPool bitmapPool, RequestManager requestManager, GifDecoder gifDecoder, Handler handler, RequestBuilder<Bitmap> requestBuilder, Transformation<Bitmap> transformation, Bitmap bitmap) {
+        this.callbacks = new ArrayList();
+        this.requestManager = requestManager;
+        handler = handler == null ? new Handler(Looper.getMainLooper(), new FrameLoaderCallback()) : handler;
+        this.bitmapPool = bitmapPool;
+        this.handler = handler;
+        this.requestBuilder = requestBuilder;
+        this.gifDecoder = gifDecoder;
+        setFrameTransformation(transformation, bitmap);
     }
 }

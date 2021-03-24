@@ -17,17 +17,17 @@ import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMDelMsg extends Message {
-    public static final String TAG = IMDelMsg.class.getSimpleName();
-    private int mCategory;
-    private long mClientMaxMsgid;
-    private Context mContext;
-    private boolean mIsZhida;
-    private long[] mMsgIds;
-    private long mPaid;
-    private int mReSendCount = 0;
-    private long mToId;
+    public static final String TAG = "IMDelMsg";
+    public int mCategory;
+    public long mClientMaxMsgid;
+    public Context mContext;
+    public boolean mIsZhida;
+    public long[] mMsgIds;
+    public long mPaid;
+    public int mReSendCount = 0;
+    public long mToId;
 
     public IMDelMsg(Context context, long j, int i, long[] jArr, long j2, boolean z) {
         this.mClientMaxMsgid = -1L;
@@ -43,32 +43,18 @@ public class IMDelMsg extends Message {
         this.mIsZhida = z;
     }
 
-    public void setPaid(long j) {
-        this.mPaid = j;
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
-    public void onMsgSending(Context context) {
-        setSendingState(context);
-    }
-
     public static IMDelMsg newInstance(Context context, Intent intent) {
-        long j;
         if (intent.hasExtra("contacter") && intent.hasExtra("category")) {
             long longExtra = intent.getLongExtra("contacter", -1L);
             int intExtra = intent.getIntExtra("category", -1);
             long[] longArrayExtra = intent.getLongArrayExtra(Constants.EXTRA_DEL_MSG_IDS);
             long longExtra2 = intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
             boolean booleanExtra = intent.getBooleanExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
-            if (!IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid()) {
-                j = -1;
-            } else {
-                j = intent.getLongExtra(Constants.EXTRA_PA_ID, -1L);
-            }
+            long longExtra3 = IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid() ? intent.getLongExtra(Constants.EXTRA_PA_ID, -1L) : -1L;
             if (-1 != longExtra && -1 != intExtra) {
                 IMDelMsg iMDelMsg = new IMDelMsg(context, longExtra, intExtra, longArrayExtra, longExtra2, booleanExtra);
-                iMDelMsg.setPaid(j);
-                saveCmdMessage(context, iMDelMsg, null, iMDelMsg.getPriority());
+                iMDelMsg.setPaid(longExtra3);
+                Message.saveCmdMessage(context, iMDelMsg, null, iMDelMsg.getPriority());
                 return iMDelMsg;
             }
         }
@@ -76,33 +62,39 @@ public class IMDelMsg extends Message {
     }
 
     public static IMDelMsg parseBody(Context context, String str, String str2, String str3) throws Exception {
-        long j;
+        long[] jArr;
         JSONObject jSONObject = new JSONObject(str2);
         int optInt = jSONObject.optInt("category");
         long optLong = jSONObject.optLong("to");
         JSONArray optJSONArray = jSONObject.optJSONArray("msgid");
         long optLong2 = jSONObject.optLong(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
-        long[] jArr = null;
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            jArr = new long[optJSONArray.length()];
+        if (optJSONArray == null || optJSONArray.length() <= 0) {
+            jArr = null;
+        } else {
+            long[] jArr2 = new long[optJSONArray.length()];
             for (int i = 0; i < optJSONArray.length(); i++) {
-                jArr[i] = optJSONArray.getLong(i);
+                jArr2[i] = optJSONArray.getLong(i);
             }
+            jArr = jArr2;
         }
         boolean z = jSONObject.optInt("tpl") == Constants.getTplZhida(context);
-        if (!IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid()) {
-            j = -1;
-        } else {
-            j = jSONObject.getInt("pa_uid");
-        }
+        long j = IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid() ? jSONObject.getInt("pa_uid") : -1L;
         IMDelMsg iMDelMsg = new IMDelMsg(context, optLong, optInt, jArr, optLong2, z);
         iMDelMsg.setPaid(j);
         iMDelMsg.setUUID(str);
         return iMDelMsg;
     }
 
+    private int updateDB(Context context) {
+        long[] jArr = this.mMsgIds;
+        if (jArr != null && jArr.length > 0) {
+            return ChatMessageDBManager.getInstance(context).deleteMsgBatch(new ChatObject(context, this.mCategory, this.mToId, this.mPaid, -1), this.mMsgIds);
+        }
+        return ChatMessageDBManager.getInstance(context).delMsgsOfCertainContacter(new ChatObject(context, this.mCategory, this.mToId, this.mPaid, -1), this.mClientMaxMsgid);
+    }
+
     @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
+    public void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("method", 57);
@@ -128,18 +120,18 @@ public class IMDelMsg extends Message {
                 jSONObject.put("pa_uid", this.mPaid);
             }
             this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            LogUtils.e(TAG, e.getMessage(), e);
+        } catch (JSONException e2) {
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            LogUtils.e(TAG, e2.getMessage(), e2);
         }
-    }
-
-    public long getToUser() {
-        return this.mToId;
     }
 
     public int getCategory() {
         return this.mCategory;
+    }
+
+    public long getToUser() {
+        return this.mToId;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -150,28 +142,35 @@ public class IMDelMsg extends Message {
                     DBManager.getInstance(context).deleteCmdMsg(getUUID());
                     setNeedReSend(false);
                 } else {
-                    if (i == 1004 || i == 1001) {
-                        setNeedReSend(false);
-                        LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
-                    } else if (this.mReSendCount >= 3) {
-                        setNeedReSend(false);
-                        DBManager.getInstance(context).deleteCmdMsg(getUUID());
-                    } else {
-                        this.mReSendCount++;
-                        setNeedReSend(true);
+                    if (i != 1004 && i != 1001) {
+                        if (this.mReSendCount >= 3) {
+                            setNeedReSend(false);
+                            DBManager.getInstance(context).deleteCmdMsg(getUUID());
+                        } else {
+                            this.mReSendCount++;
+                            setNeedReSend(true);
+                        }
+                        DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
                     }
+                    setNeedReSend(false);
+                    LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
                     DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
                 }
             } else if (i == 0) {
                 updateDB(context);
             }
             super.handleMessageResult(context, jSONObject, i, str);
-        } catch (Exception e) {
-            LogUtils.e(TAG, "handle IMDelMsg exception :", e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "handle IMDelMsg exception :", e2);
         }
     }
 
-    private int updateDB(Context context) {
-        return (this.mMsgIds == null || this.mMsgIds.length <= 0) ? ChatMessageDBManager.getInstance(context).delMsgsOfCertainContacter(new ChatObject(context, this.mCategory, this.mToId, this.mPaid, -1), this.mClientMaxMsgid) : ChatMessageDBManager.getInstance(context).deleteMsgBatch(new ChatObject(context, this.mCategory, this.mToId, this.mPaid, -1), this.mMsgIds);
+    @Override // com.baidu.android.imsdk.request.Message
+    public void onMsgSending(Context context) {
+        setSendingState(context);
+    }
+
+    public void setPaid(long j) {
+        this.mPaid = j;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class AtListActivityConfig extends IntentConfig {
     public static final String IS_FOR_BJH = "is_for_bjh";
     public static final String IS_FOR_CHAT = "is_for_chat";
@@ -12,17 +12,17 @@ public class AtListActivityConfig extends IntentConfig {
         super(context);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra("is_need_multiple", z);
+        getIntent().putExtra(IntentConfig.IS_NEED_MULTIPLE, z);
         if (i == 12011) {
-            getIntent().putExtra("keyboard", false);
+            getIntent().putExtra(IntentConfig.SHOW_KEYBOARD, false);
         }
-    }
-
-    public void setIsForChat(boolean z) {
-        getIntent().putExtra(IS_FOR_CHAT, z);
     }
 
     public void setIsForBjh(boolean z) {
         getIntent().putExtra(IS_FOR_BJH, z);
+    }
+
+    public void setIsForChat(boolean z) {
+        getIntent().putExtra(IS_FOR_CHAT, z);
     }
 }

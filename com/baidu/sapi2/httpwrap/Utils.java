@@ -1,33 +1,28 @@
 package com.baidu.sapi2.httpwrap;
 
-import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiConfiguration;
-import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
-class Utils {
-    Utils() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes2.dex */
+public class Utils {
     public static Map<String, String> a() {
         SapiConfiguration confignation;
         HashMap hashMap = new HashMap();
-        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
+        hashMap.put("client", "android");
         ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
         if (isAccountManager != null && (confignation = isAccountManager.getConfignation()) != null) {
-            hashMap.put("cuid", confignation.clientId);
-            hashMap.put("clientid", confignation.clientId);
+            String clientId = SapiUtils.getClientId(confignation.context);
+            hashMap.put("cuid", clientId);
+            hashMap.put("clientid", clientId);
             hashMap.put("zid", isAccountManager.getCurrentZid(confignation.context));
             hashMap.put("clientip", confignation.clientIp);
             hashMap.put("appid", confignation.appId);
             hashMap.put("tpl", confignation.tpl);
             hashMap.put("app_version", SapiUtils.getVersionName(confignation.context));
-            hashMap.put(SapiContext.KEY_SDK_VERSION, isAccountManager.getVersionName());
+            hashMap.put("sdk_version", isAccountManager.getVersionName());
             hashMap.put("sdkversion", isAccountManager.getVersionName());
         }
         return hashMap;

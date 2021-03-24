@@ -1,27 +1,21 @@
 package com.google.vr.dynamite.client;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class c extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f5281a = 1;
+    public final int f31018a = 1;
 
     public c(int i) {
     }
 
     @Override // java.lang.Throwable
     public final String getMessage() {
-        String str;
-        switch (this.f5281a) {
-            case 1:
-                str = "Package not available";
-                break;
-            case 2:
-                str = "Package obsolete";
-                break;
-            default:
-                str = "Unknown error";
-                break;
-        }
-        return new StringBuilder(String.valueOf(str).length() + 17).append("LoaderException{").append(str).append("}").toString();
+        int i = this.f31018a;
+        String str = i != 1 ? i != 2 ? "Unknown error" : "Package obsolete" : "Package not available";
+        StringBuilder sb = new StringBuilder(str.length() + 17);
+        sb.append("LoaderException{");
+        sb.append(str);
+        sb.append("}");
+        return sb.toString();
     }
 }

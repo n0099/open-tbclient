@@ -3,86 +3,133 @@ package com.ss.android.socialbase.appdownloader.e;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import com.ss.android.socialbase.downloader.i.g;
-import java.io.InputStream;
+import d.o.a.e.b.g.d;
+import d.o.a.e.b.l.e;
+import d.o.a.e.b.o.k;
+import java.io.BufferedInputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
 
-    /* renamed from: a  reason: collision with root package name */
-    private static int f7757a = 8;
-    private static volatile c qeR;
-    private a<Integer, Bitmap> qeS;
+    /* renamed from: b  reason: collision with root package name */
+    public static int f38686b = 8;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile c f38687c;
+
+    /* renamed from: a  reason: collision with root package name */
+    public a<Integer, Bitmap> f38688a;
+
+    /* loaded from: classes7.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f7759a;
+        public final int f38689a;
 
         public a(int i, int i2) {
             super(i2, 0.75f, true);
-            this.f7759a = i;
+            this.f38689a = i;
         }
 
         @Override // java.util.LinkedHashMap
-        protected boolean removeEldestEntry(Map.Entry<K, T> entry) {
-            return size() > this.f7759a;
+        public boolean removeEldestEntry(Map.Entry<K, T> entry) {
+            return size() > this.f38689a;
         }
     }
 
-    public static c eFH() {
-        if (qeR == null) {
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f38690e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ int f38691f;
+
+        public b(String str, int i) {
+            this.f38690e = str;
+            this.f38691f = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            BufferedInputStream bufferedInputStream;
+            Throwable th;
+            Exception e2;
+            try {
+                try {
+                    k x = d.x(true, 0, this.f38690e, null);
+                    if (x == null) {
+                        e.C(null);
+                        return;
+                    }
+                    bufferedInputStream = new BufferedInputStream(x.a());
+                    try {
+                        bufferedInputStream.mark(bufferedInputStream.available());
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inJustDecodeBounds = true;
+                        BitmapFactory.decodeStream(bufferedInputStream, null, options);
+                        int c2 = d.o.a.e.a.d.c(d.l(), 44.0f);
+                        options.inSampleSize = c.a(c2, c2, options);
+                        options.inJustDecodeBounds = false;
+                        bufferedInputStream.reset();
+                        c.this.f38688a.put(Integer.valueOf(this.f38691f), BitmapFactory.decodeStream(bufferedInputStream, null, options));
+                        e.C(bufferedInputStream);
+                    } catch (Exception e3) {
+                        e2 = e3;
+                        e2.printStackTrace();
+                        e.C(bufferedInputStream);
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    e.C(bufferedInputStream);
+                    throw th;
+                }
+            } catch (Exception e4) {
+                bufferedInputStream = null;
+                e2 = e4;
+            } catch (Throwable th3) {
+                bufferedInputStream = null;
+                th = th3;
+                e.C(bufferedInputStream);
+                throw th;
+            }
+        }
+    }
+
+    public c() {
+        this.f38688a = null;
+        int i = f38686b;
+        this.f38688a = new a<>(i, i / 2);
+    }
+
+    public static int a(int i, int i2, BitmapFactory.Options options) {
+        if (options.outWidth > i || options.outHeight > i2) {
+            return Math.min(Math.round(options.outWidth / i), Math.round(options.outHeight / i2));
+        }
+        return 1;
+    }
+
+    public static c d() {
+        if (f38687c == null) {
             synchronized (c.class) {
-                if (qeR == null) {
-                    qeR = new c();
+                if (f38687c == null) {
+                    f38687c = new c();
                 }
             }
         }
-        return qeR;
+        return f38687c;
     }
 
-    private c() {
-        this.qeS = null;
-        this.qeS = new a<>(f7757a, f7757a / 2);
+    public Bitmap b(int i) {
+        return this.f38688a.get(Integer.valueOf(i));
     }
 
-    public Bitmap a(int i) {
-        return this.qeS.get(Integer.valueOf(i));
-    }
-
-    public void a(final int i, final String str) {
-        if (!TextUtils.isEmpty(str)) {
-            com.ss.android.socialbase.downloader.downloader.b.uj().submit(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.e.c.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    InputStream inputStream = null;
-                    try {
-                        try {
-                            g b = com.ss.android.socialbase.downloader.downloader.b.b(true, 0, str, null);
-                            if (b != null) {
-                                inputStream = b.a();
-                                c.this.qeS.put(Integer.valueOf(i), BitmapFactory.decodeStream(inputStream));
-                                com.ss.android.socialbase.downloader.m.d.a(inputStream);
-                                return;
-                            }
-                            com.ss.android.socialbase.downloader.m.d.a(null);
-                            return;
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            com.ss.android.socialbase.downloader.m.d.a(inputStream);
-                            return;
-                        }
-                    } catch (Throwable th) {
-                        com.ss.android.socialbase.downloader.m.d.a(inputStream);
-                        throw th;
-                    }
-                    com.ss.android.socialbase.downloader.m.d.a(inputStream);
-                    throw th;
-                }
-            });
+    public void e(int i, String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
         }
+        d.x0().submit(new b(str, i));
     }
 }

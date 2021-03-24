@@ -3,23 +3,9 @@ package com.baidu.tieba.video;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class UserItemData implements Parcelable {
-    public static final Parcelable.Creator<UserItemData> CREATOR = new Parcelable.Creator<UserItemData>() { // from class: com.baidu.tieba.video.UserItemData.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: ah */
-        public UserItemData createFromParcel(Parcel parcel) {
-            return new UserItemData(parcel);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: KA */
-        public UserItemData[] newArray(int i) {
-            return new UserItemData[i];
-        }
-    };
+    public static final Parcelable.Creator<UserItemData> CREATOR = new a();
     public String agree_num;
     public String bjhAvatar;
     public String fans_num;
@@ -35,8 +21,31 @@ public class UserItemData implements Parcelable {
     public String user_name;
     public String video_num;
 
-    public String dSi() {
-        return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
+    /* loaded from: classes5.dex */
+    public static class a implements Parcelable.Creator<UserItemData> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public UserItemData createFromParcel(Parcel parcel) {
+            return new UserItemData(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: b */
+        public UserItemData[] newArray(int i) {
+            return new UserItemData[i];
+        }
+    }
+
+    public UserItemData() {
+    }
+
+    public String a() {
+        if (!TextUtils.isEmpty(this.name_show)) {
+            return this.name_show;
+        }
+        return this.user_name;
     }
 
     @Override // android.os.Parcelable
@@ -62,10 +71,7 @@ public class UserItemData implements Parcelable {
         parcel.writeString(this.bjhAvatar);
     }
 
-    public UserItemData() {
-    }
-
-    protected UserItemData(Parcel parcel) {
+    public UserItemData(Parcel parcel) {
         this.user_id = parcel.readString();
         this.user_name = parcel.readString();
         this.name_show = parcel.readString();

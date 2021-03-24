@@ -1,33 +1,34 @@
 package com.baidu.mapsdkplatform.comapi;
 
 import com.baidu.mapsdkplatform.comapi.NativeLoader;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public /* synthetic */ class d {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f2205a = new int[NativeLoader.a.values().length];
+    public static final /* synthetic */ int[] f7532a;
 
     static {
+        int[] iArr = new int[NativeLoader.a.values().length];
+        f7532a = iArr;
         try {
-            f2205a[NativeLoader.a.ARM64.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[NativeLoader.a.ARM64.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            f2205a[NativeLoader.a.ARMV7.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f7532a[NativeLoader.a.ARMV7.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
         try {
-            f2205a[NativeLoader.a.ARMEABI.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+            f7532a[NativeLoader.a.ARMEABI.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
         }
         try {
-            f2205a[NativeLoader.a.X86_64.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
+            f7532a[NativeLoader.a.X86_64.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
         }
         try {
-            f2205a[NativeLoader.a.X86.ordinal()] = 5;
-        } catch (NoSuchFieldError e5) {
+            f7532a[NativeLoader.a.X86.ordinal()] = 5;
+        } catch (NoSuchFieldError unused5) {
         }
     }
 }

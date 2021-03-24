@@ -3,7 +3,7 @@ package org.apache.http.impl.conn;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.HttpConnection;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class IdleConnectionHandler {
     public IdleConnectionHandler() {
         throw new RuntimeException("Stub!");
@@ -13,11 +13,7 @@ public class IdleConnectionHandler {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean remove(HttpConnection httpConnection) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void removeAll() {
+    public void closeExpiredConnections() {
         throw new RuntimeException("Stub!");
     }
 
@@ -25,7 +21,11 @@ public class IdleConnectionHandler {
         throw new RuntimeException("Stub!");
     }
 
-    public void closeExpiredConnections() {
+    public boolean remove(HttpConnection httpConnection) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void removeAll() {
         throw new RuntimeException("Stub!");
     }
 }

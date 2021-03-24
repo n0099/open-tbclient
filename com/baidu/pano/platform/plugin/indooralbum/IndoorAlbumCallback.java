@@ -2,26 +2,24 @@ package com.baidu.pano.platform.plugin.indooralbum;
 
 import android.view.View;
 import com.baidu.lbsapi.panoramaview.PanoramaView;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IndoorAlbumCallback {
-    View loadAlbumView(PanoramaView panoramaView, EntryInfo entryInfo);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class EntryInfo {
-        private String mExitUid = null;
-        private String mEnterPid = null;
-
-        public String getExitUid() {
-            return this.mExitUid;
-        }
+        public String mExitUid = null;
+        public String mEnterPid = null;
 
         public String getEnterPid() {
             return this.mEnterPid;
         }
 
-        public EntryInfo setExitUid(String str) {
-            this.mExitUid = str;
-            return this;
+        public String getExitUid() {
+            return this.mExitUid;
+        }
+
+        public boolean isCorrect() {
+            return this.mEnterPid != null;
         }
 
         public EntryInfo setEnterPid(String str) {
@@ -29,8 +27,11 @@ public interface IndoorAlbumCallback {
             return this;
         }
 
-        public boolean isCorrect() {
-            return this.mEnterPid != null;
+        public EntryInfo setExitUid(String str) {
+            this.mExitUid = str;
+            return this;
         }
     }
+
+    View loadAlbumView(PanoramaView panoramaView, EntryInfo entryInfo);
 }

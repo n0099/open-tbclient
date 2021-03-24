@@ -6,60 +6,67 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
-class PublishProgressBar extends View {
-    private Rect fkc;
-    private Paint mPaint;
-    private int mProgress;
+/* loaded from: classes3.dex */
+public class PublishProgressBar extends View {
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f13457e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Paint f13458f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Rect f13459g;
 
     public PublishProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mProgress = 0;
-        init(context, attributeSet);
+        this.f13457e = 0;
+        a(context, attributeSet);
+    }
+
+    public final void a(Context context, AttributeSet attributeSet) {
+        this.f13458f = new Paint(1);
+        this.f13459g = new Rect();
+        b();
+    }
+
+    public void b() {
+        int color = SkinManager.getColor(R.color.CAM_X0302);
+        setBackgroundColor(color);
+        getBackground().setAlpha(168);
+        this.f13458f.setColor(color);
+        this.f13458f.setAlpha(168);
+        postInvalidate();
+    }
+
+    public int c(int i) {
+        if (i < 0) {
+            return 0;
+        }
+        if (i > 100) {
+            return 100;
+        }
+        int i2 = this.f13457e;
+        if (i == i2) {
+            return i2;
+        }
+        this.f13457e = i;
+        postInvalidate();
+        return this.f13457e;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        this.f13459g.set(0, 0, (int) (getWidth() * (this.f13457e / 100.0f)), getHeight());
+        canvas.drawRect(this.f13459g, this.f13458f);
     }
 
     public PublishProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mProgress = 0;
-        init(context, attributeSet);
-    }
-
-    public int pF(int i) {
-        if (i < 0) {
-            return 0;
-        }
-        if (i <= 100) {
-            if (i == this.mProgress) {
-                return this.mProgress;
-            }
-            this.mProgress = i;
-            postInvalidate();
-            return this.mProgress;
-        }
-        return 100;
-    }
-
-    public void onChangeSkinType() {
-        int color = ap.getColor(R.color.CAM_X0302);
-        setBackgroundColor(color);
-        getBackground().setAlpha(168);
-        this.mPaint.setColor(color);
-        this.mPaint.setAlpha(168);
-        postInvalidate();
-    }
-
-    private void init(Context context, AttributeSet attributeSet) {
-        this.mPaint = new Paint(1);
-        this.fkc = new Rect();
-        onChangeSkinType();
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        this.fkc.set(0, 0, (int) ((this.mProgress / 100.0f) * getWidth()), getHeight());
-        canvas.drawRect(this.fkc, this.mPaint);
+        this.f13457e = 0;
+        a(context, attributeSet);
     }
 }

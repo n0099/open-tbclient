@@ -15,44 +15,58 @@ import com.kwad.sdk.utils.ao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected TubeProfile f5989a;
-    private a b;
-    private com.kwad.sdk.lib.widget.b<AdTemplate> c;
-    private TrendTubeEpisodeViewPager d;
-    private b e;
-    private View.OnClickListener f;
+    public TubeProfile f33340a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public a f33341b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.kwad.sdk.lib.widget.b<AdTemplate> f33342c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TrendTubeEpisodeViewPager f33343d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public b f33344e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View.OnClickListener f33345f;
+
+    /* loaded from: classes6.dex */
     public interface a {
         void a(AdTemplate adTemplate, int i, View view);
     }
 
-    /* loaded from: classes3.dex */
-    private class b extends PagerAdapter implements ViewPager.OnPageChangeListener {
-        private List<EpisodePhotoView> b;
-        private List<EpisodePhotoView> c;
+    /* loaded from: classes6.dex */
+    public class b extends PagerAdapter implements ViewPager.OnPageChangeListener {
 
-        private b() {
-            this.b = new ArrayList();
-            this.c = new ArrayList();
+        /* renamed from: b  reason: collision with root package name */
+        public List<EpisodePhotoView> f33348b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public List<EpisodePhotoView> f33349c;
+
+        public b() {
+            this.f33348b = new ArrayList();
+            this.f33349c = new ArrayList();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
             if (obj instanceof View) {
                 viewGroup.removeView((View) obj);
-                this.b.add((EpisodePhotoView) obj);
-                this.c.remove(obj);
+                this.f33348b.add((EpisodePhotoView) obj);
+                this.f33349c.remove(obj);
             }
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return TrendTubeScrollView.this.c.size();
+            return TrendTubeScrollView.this.f33342c.size();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -64,24 +78,23 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
         @NonNull
         public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
             EpisodePhotoView episodePhotoView;
-            if (this.b.size() > 0) {
-                EpisodePhotoView remove = this.b.remove(0);
-                remove.l();
-                episodePhotoView = remove;
+            if (this.f33348b.size() > 0) {
+                episodePhotoView = this.f33348b.remove(0);
+                episodePhotoView.l();
             } else {
                 episodePhotoView = (EpisodePhotoView) View.inflate(TrendTubeScrollView.this.getContext(), R.layout.ksad_tube_trend_scroll_view_episode_photo, null);
             }
             viewGroup.addView(episodePhotoView);
-            episodePhotoView.a(i, TrendTubeScrollView.this.f5989a.tubeInfo.tubeId);
-            episodePhotoView.setTemplateData((AdTemplate) TrendTubeScrollView.this.c.get(i));
-            episodePhotoView.setOnClickListener(TrendTubeScrollView.this.f);
-            if (i < 5 || i != getCount() - 1 || TrendTubeScrollView.this.f5989a.tubeInfo.totalEpisodeCount <= 6) {
+            episodePhotoView.a(i, TrendTubeScrollView.this.f33340a.tubeInfo.tubeId);
+            episodePhotoView.setTemplateData((AdTemplate) TrendTubeScrollView.this.f33342c.get(i));
+            episodePhotoView.setOnClickListener(TrendTubeScrollView.this.f33345f);
+            if (i < 5 || i != getCount() - 1 || TrendTubeScrollView.this.f33340a.tubeInfo.totalEpisodeCount <= 6) {
                 episodePhotoView.setLookMoreVisibility(false);
             } else {
                 episodePhotoView.setLookMoreVisibility(true);
             }
             episodePhotoView.setId(i);
-            this.c.add(episodePhotoView);
+            this.f33349c.add(episodePhotoView);
             return episodePhotoView;
         }
 
@@ -95,7 +108,7 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
+        public void onPageScrolled(int i, float f2, int i2) {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -105,8 +118,8 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
 
     public TrendTubeScrollView(Context context) {
         super(context);
-        this.c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
-        this.f = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.view.TrendTubeScrollView.1
+        this.f33342c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
+        this.f33345f = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.view.TrendTubeScrollView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EpisodePhotoView episodePhotoView = (EpisodePhotoView) view;
@@ -117,8 +130,8 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
 
     public TrendTubeScrollView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
-        this.f = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.view.TrendTubeScrollView.1
+        this.f33342c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
+        this.f33345f = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.view.TrendTubeScrollView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EpisodePhotoView episodePhotoView = (EpisodePhotoView) view;
@@ -128,74 +141,74 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
     }
 
     private void b() {
-        this.d = (TrendTubeEpisodeViewPager) findViewById(R.id.ksad_tube_trend_item_viewpager);
-        this.d.setPageMargin(ao.a(getContext(), 4.0f));
-        this.d.setOffscreenPageLimit(3);
+        TrendTubeEpisodeViewPager trendTubeEpisodeViewPager = (TrendTubeEpisodeViewPager) findViewById(R.id.ksad_tube_trend_item_viewpager);
+        this.f33343d = trendTubeEpisodeViewPager;
+        trendTubeEpisodeViewPager.setPageMargin(ao.a(getContext(), 4.0f));
+        this.f33343d.setOffscreenPageLimit(3);
     }
 
-    protected float a(int i, int i2) {
+    public float a(int i, int i2) {
         return 0.29f;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.widget.b
     public void a() {
         super.a();
     }
 
     public void a(TubeProfile tubeProfile) {
-        this.f5989a = tubeProfile;
-        if (this.f5989a == null) {
+        this.f33340a = tubeProfile;
+        if (tubeProfile == null) {
             removeAllViews();
             return;
         }
-        this.c.clear();
-        Iterator<AdTemplate> it = this.f5989a.adTemplateList.iterator();
+        this.f33342c.clear();
+        Iterator<AdTemplate> it = this.f33340a.adTemplateList.iterator();
         int i = 0;
         while (it.hasNext()) {
-            this.c.add(it.next());
-            int i2 = i + 1;
-            if (i2 == 6) {
+            this.f33342c.add(it.next());
+            i++;
+            if (i == 6) {
                 break;
             }
-            i = i2;
         }
         setVisibility(0);
-        this.e = new b();
-        this.d.setAdapter(this.e);
-        this.d.setOnPageChangeListener(this.e);
+        b bVar = new b();
+        this.f33344e = bVar;
+        this.f33343d.setAdapter(bVar);
+        this.f33343d.setOnPageChangeListener(this.f33344e);
     }
 
-    protected void a(AdTemplate adTemplate, int i, View view) {
-        if (this.b == null) {
+    public void a(AdTemplate adTemplate, int i, View view) {
+        a aVar = this.f33341b;
+        if (aVar == null) {
             return;
         }
-        this.b.a(adTemplate, i, view);
+        aVar.a(adTemplate, i, view);
     }
 
-    protected float getRatio() {
+    public float getRatio() {
         return 0.38f;
     }
 
     @Override // android.view.View
-    protected void onFinishInflate() {
+    public void onFinishInflate() {
         super.onFinishInflate();
         b();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.feed.widget.base.b, android.widget.LinearLayout, android.view.View
     public void onMeasure(int i, int i2) {
         float ratio = getRatio();
         if (ratio != 0.0f) {
             int size = View.MeasureSpec.getSize(i);
             com.kwad.sdk.core.d.a.a("TrendTubeScrollView", "ratio = " + ratio + " widthSize=" + size);
-            i2 = View.MeasureSpec.makeMeasureSpec((int) (ratio * size), 1073741824);
+            i2 = View.MeasureSpec.makeMeasureSpec((int) (((float) size) * ratio), 1073741824);
         }
         super.onMeasure(i, i2);
     }
 
     public void setEpisodeItemClickListener(a aVar) {
-        this.b = aVar;
+        this.f33341b = aVar;
     }
 }

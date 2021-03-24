@@ -4,29 +4,30 @@ import com.baidu.util.LogUtil;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.SSLHandshakeException;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ClientUpdater f1361a;
+    public final /* synthetic */ ClientUpdater f4581a;
 
     public c(ClientUpdater clientUpdater) {
-        this.f1361a = clientUpdater;
+        this.f4581a = clientUpdater;
         setName("SDK_ClientUpdater_thread");
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x00d6 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0062 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0087  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00b8  */
-    /* JADX WARN: Removed duplicated region for block: B:51:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r0v12 */
-    /* JADX WARN: Type inference failed for: r0v13 */
-    /* JADX WARN: Type inference failed for: r0v16, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r0v19, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r0v8, types: [java.lang.String] */
+    /* JADX WARN: Can't wrap try/catch for region: R(7:5|(4:(2:7|(8:9|10|11|12|13|14|15|(2:17|18)(1:19)))|14|15|(0)(0))|45|10|11|12|13) */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0095, code lost:
+        r0 = th;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0097, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00ba, code lost:
+        r2.disconnect();
+     */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0089  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00b7 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00ba  */
     @Override // java.lang.Thread, java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -36,116 +37,96 @@ public class c extends Thread {
         boolean z;
         com.baidu.clientupdate.c.a aVar2;
         com.baidu.clientupdate.c.a aVar3;
-        ?? r0;
         String str;
-        Throwable th;
         HttpURLConnection httpURLConnection;
-        Exception exc;
         String str2;
+        HttpURLConnection httpURLConnection2;
         boolean z2;
         com.baidu.clientupdate.c.a aVar4;
-        aVar = this.f1361a.n;
+        aVar = this.f4581a.n;
         if (aVar == null) {
             return;
         }
-        z = this.f1361a.d;
+        z = this.f4581a.f4552d;
         try {
-            try {
-                try {
-                    if (!z) {
-                        z2 = this.f1361a.k;
-                        if (!z2) {
-                            aVar4 = this.f1361a.n;
-                            aVar4.b(false);
-                            this.f1361a.k = false;
-                            ClientUpdater clientUpdater = this.f1361a;
-                            aVar3 = this.f1361a.n;
-                            clientUpdater.c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
-                            r0 = "ClientUpdater";
-                            StringBuilder append = new StringBuilder().append("更新检查请求的完整参数： ");
-                            str = this.f1361a.c;
-                            LogUtil.logE("ClientUpdater", append.append(str).toString());
-                            StringBuilder sb = new StringBuilder();
-                            str2 = this.f1361a.c;
-                            r0 = (HttpURLConnection) new URL(str2).openConnection();
-                            r0.setConnectTimeout(5000);
-                            r0.setReadTimeout(5000);
-                            r0.connect();
-                            this.f1361a.a(r0, null, sb);
-                            if (r0 == 0) {
-                                r0.disconnect();
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    r0.setConnectTimeout(5000);
-                    r0.setReadTimeout(5000);
-                    r0.connect();
-                    this.f1361a.a(r0, null, sb);
-                    if (r0 == 0) {
-                    }
-                } catch (SSLHandshakeException e) {
-                    try {
-                        LogUtil.logE("ClientUpdater", "SSLHandshakeException caught!!!! ");
-                        this.f1361a.c();
-                    } catch (Exception e2) {
-                        this.f1361a.a(e2);
-                    }
-                    if (r0 != 0) {
-                        r0.disconnect();
+            if (!z) {
+                z2 = this.f4581a.k;
+                if (!z2) {
+                    aVar4 = this.f4581a.n;
+                    aVar4.b(false);
+                    this.f4581a.k = false;
+                    ClientUpdater clientUpdater = this.f4581a;
+                    aVar3 = clientUpdater.n;
+                    clientUpdater.f4551c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("更新检查请求的完整参数： ");
+                    str = this.f4581a.f4551c;
+                    sb.append(str);
+                    LogUtil.logE("ClientUpdater", sb.toString());
+                    StringBuilder sb2 = new StringBuilder();
+                    httpURLConnection = null;
+                    str2 = this.f4581a.f4551c;
+                    httpURLConnection2 = (HttpURLConnection) new URL(str2).openConnection();
+                    httpURLConnection2.setConnectTimeout(5000);
+                    httpURLConnection2.setReadTimeout(5000);
+                    httpURLConnection2.connect();
+                    this.f4581a.a(httpURLConnection2, null, sb2);
+                    if (httpURLConnection2 == null) {
+                        httpURLConnection2.disconnect();
                         return;
                     }
                     return;
-                } catch (Exception e3) {
-                    exc = e3;
-                    httpURLConnection = r0;
-                    try {
-                        this.f1361a.a(exc);
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                            return;
-                        }
-                        return;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (httpURLConnection != null) {
-                        }
-                        throw th;
-                    }
                 }
-                str2 = this.f1361a.c;
-                r0 = (HttpURLConnection) new URL(str2).openConnection();
-            } catch (Throwable th3) {
-                th = th3;
-                httpURLConnection = r0;
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                throw th;
             }
-        } catch (SSLHandshakeException e4) {
-            r0 = 0;
-        } catch (Exception e5) {
-            exc = e5;
-            httpURLConnection = null;
-        } catch (Throwable th4) {
-            th = th4;
-            httpURLConnection = null;
+            httpURLConnection2.setConnectTimeout(5000);
+            httpURLConnection2.setReadTimeout(5000);
+            httpURLConnection2.connect();
+            this.f4581a.a(httpURLConnection2, null, sb2);
+            if (httpURLConnection2 == null) {
+            }
+        } catch (SSLHandshakeException unused) {
+            httpURLConnection = httpURLConnection2;
+            try {
+                LogUtil.logE("ClientUpdater", "SSLHandshakeException caught!!!! ");
+                this.f4581a.c();
+            } catch (Exception e2) {
+                this.f4581a.a(e2);
+            }
+            if (httpURLConnection == null) {
+                return;
+            }
+            httpURLConnection.disconnect();
+            return;
+        } catch (Exception e3) {
+            e = e3;
+            httpURLConnection = httpURLConnection2;
+            this.f4581a.a(e);
+            if (httpURLConnection == null) {
+                return;
+            }
+            httpURLConnection.disconnect();
+            return;
+        } catch (Throwable th) {
+            th = th;
+            httpURLConnection = httpURLConnection2;
             if (httpURLConnection != null) {
             }
             throw th;
         }
-        aVar2 = this.f1361a.n;
+        aVar2 = this.f4581a.n;
         aVar2.b(true);
-        this.f1361a.k = false;
-        ClientUpdater clientUpdater2 = this.f1361a;
-        aVar3 = this.f1361a.n;
-        clientUpdater2.c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
-        r0 = "ClientUpdater";
-        StringBuilder append2 = new StringBuilder().append("更新检查请求的完整参数： ");
-        str = this.f1361a.c;
-        LogUtil.logE("ClientUpdater", append2.append(str).toString());
-        StringBuilder sb2 = new StringBuilder();
+        this.f4581a.k = false;
+        ClientUpdater clientUpdater2 = this.f4581a;
+        aVar3 = clientUpdater2.n;
+        clientUpdater2.f4551c = aVar3.b("/lcmanage/index.php?r=InterfaceAction&method=upgrade&contype=client&clientv=3.0");
+        StringBuilder sb3 = new StringBuilder();
+        sb3.append("更新检查请求的完整参数： ");
+        str = this.f4581a.f4551c;
+        sb3.append(str);
+        LogUtil.logE("ClientUpdater", sb3.toString());
+        StringBuilder sb22 = new StringBuilder();
+        httpURLConnection = null;
+        str2 = this.f4581a.f4551c;
+        httpURLConnection2 = (HttpURLConnection) new URL(str2).openConnection();
     }
 }

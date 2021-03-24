@@ -2,48 +2,46 @@ package com.baidu.platform.comapi.wnplatform.walkmap;
 
 import android.graphics.Point;
 import android.os.Bundle;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapsdkplatform.comjni.map.basemap.JNIBaseMap;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.net.BdNetTask;
-import com.yy.mediaframework.base.VideoEncoderConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WNaviBaiduMap {
-    private static long b;
-    private static WNaviBaiduMap c;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static long f10381b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static WNaviBaiduMap f10382c;
 
     /* renamed from: a  reason: collision with root package name */
-    private JNIBaseMap f3091a = new JNIBaseMap();
+    public JNIBaseMap f10383a = new JNIBaseMap();
 
-    public void setId(long j) {
-        b = j;
+    public static void clearOverlay(Overlay overlay) {
+        if (overlay instanceof Marker) {
+            overlay.remove();
+        }
+    }
+
+    public static void clearOverlays() {
     }
 
     public static long getId() {
-        return b;
-    }
-
-    public float getZoomLevel() {
-        return 3.0f;
+        return f10381b;
     }
 
     public static synchronized WNaviBaiduMap getInstance() {
         WNaviBaiduMap wNaviBaiduMap;
         synchronized (WNaviBaiduMap.class) {
-            if (c == null) {
-                c = new WNaviBaiduMap();
+            if (f10382c == null) {
+                f10382c = new WNaviBaiduMap();
             }
-            wNaviBaiduMap = c;
+            wNaviBaiduMap = f10382c;
         }
         return wNaviBaiduMap;
-    }
-
-    public double getZoomUnitsInMeter() {
-        return Math.pow(2.0d, 18.0f - getZoomLevel());
     }
 
     public static int getScaleDis(int i) {
@@ -53,13 +51,13 @@ public class WNaviBaiduMap {
             case 2:
                 return 5000000;
             case 3:
-                return VideoEncoderConfig.SCREEN_RECORD_ENCODE_ULTRA_HIGH_BITRATE;
+                return 2000000;
             case 4:
-                return MessageConfig.BASE_SEGMENT_LENGTH;
+                return 1000000;
             case 5:
                 return 500000;
             case 6:
-                return AlaRecorderLog.ErrCodeSeg.ERROR_BASE_RTMP;
+                return 200000;
             case 7:
                 return 100000;
             case 8:
@@ -97,31 +95,34 @@ public class WNaviBaiduMap {
         }
     }
 
-    public void SetStyleMode(int i) {
-    }
-
-    public void setSatellite(boolean z) {
-    }
-
-    public static void clearOverlays() {
-    }
-
-    public static void clearOverlay(Overlay overlay) {
-        if (overlay instanceof Marker) {
-            overlay.remove();
-        }
+    public static void setCompassPosition(Point point) {
     }
 
     public static void showMapPoi(boolean z) {
     }
 
-    public static void setCompassPosition(Point point) {
+    public void SetStyleMode(int i) {
+    }
+
+    public float getZoomLevel() {
+        return 3.0f;
     }
 
     public float getZoomToBound(Bundle bundle, int i, int i2) {
         bundle.putInt("hasHW", 1);
         bundle.putInt("width", i);
         bundle.putInt("height", i2);
-        return this.f3091a.GetZoomToBound(b, bundle);
+        return this.f10383a.GetZoomToBound(f10381b, bundle);
+    }
+
+    public double getZoomUnitsInMeter() {
+        return Math.pow(2.0d, 18.0f - getZoomLevel());
+    }
+
+    public void setId(long j) {
+        f10381b = j;
+    }
+
+    public void setSatellite(boolean z) {
     }
 }

@@ -5,8 +5,7 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class b implements HostnameVerifier {
     @Override // javax.net.ssl.HostnameVerifier
     public final boolean verify(String str, SSLSession sSLSession) {
@@ -25,8 +24,8 @@ public final class b implements HostnameVerifier {
             }
             verifyHostName = BdNetEngine.verifyHostName(str, x509Certificate);
             return verifyHostName;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return HttpsURLConnection.getDefaultHostnameVerifier().verify(str, sSLSession);
         }
     }

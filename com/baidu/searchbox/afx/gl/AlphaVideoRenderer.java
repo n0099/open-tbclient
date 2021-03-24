@@ -6,118 +6,55 @@ import android.opengl.Matrix;
 import android.util.Log;
 import android.view.Surface;
 import com.baidu.searchbox.afx.gl.GLTextureView;
+import com.baidu.wallet.core.StatusCode;
+import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes4.dex */
-public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListener, GLTextureView.Renderer {
-    private static final String TAG = "AlphaVideoRenderer";
-    private int aPositionHandle;
-    private int aTextureAlphaHandle;
-    private int aTextureColorHandle;
-    private OnSurfacePrepareListener mOnSurfacePrepareListener;
-    private int mProgram;
-    private SurfaceTexture mSurfaceTexture;
-    private int uDismissFlagHandle;
-    private int uFilterFactorHandle;
-    private int uMVPMatrixHandle;
-    private int uSTMatrixHandle;
-    private float[] mMVPMatrix = new float[16];
-    private float[] mSTMatrix = new float[16];
-    private float mFilterFactor = 0.0f;
-    private float mDismissFlag = 0.0f;
-    private volatile boolean clearLastFrame = false;
-    private volatile boolean onPlay = false;
-    private volatile boolean mUpdateSurface = false;
-    private FloatBuffer mTriangleVertices = ByteBuffer.allocateDirect(AlphaVideoCoords.VERTICES.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+/* loaded from: classes2.dex */
+public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTexture.OnFrameAvailableListener {
+    public static final String TAG = "AlphaVideoRenderer";
+    public int aPositionHandle;
+    public int aTextureAlphaHandle;
+    public int aTextureColorHandle;
+    public OnSurfacePrepareListener mOnSurfacePrepareListener;
+    public int mProgram;
+    public SurfaceTexture mSurfaceTexture;
+    public FloatBuffer mTriangleVertices;
+    public int uDismissFlagHandle;
+    public int uFilterFactorHandle;
+    public int uMVPMatrixHandle;
+    public int uSTMatrixHandle;
+    public float[] mMVPMatrix = new float[16];
+    public float[] mSTMatrix = new float[16];
+    public float mFilterFactor = 0.0f;
+    public float mDismissFlag = 0.0f;
+    public volatile boolean clearLastFrame = false;
+    public volatile boolean onPlay = false;
+    public volatile boolean mUpdateSurface = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnSurfacePrepareListener {
         void onSurfacePrepared(Surface surface);
     }
 
     public AlphaVideoRenderer() {
-        this.mTriangleVertices.put(AlphaVideoCoords.VERTICES).position(0);
+        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(AlphaVideoCoords.VERTICES.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.mTriangleVertices = asFloatBuffer;
+        asFloatBuffer.put(AlphaVideoCoords.VERTICES).position(0);
         Matrix.setIdentityM(this.mSTMatrix, 0);
     }
 
-    public void setOnSurfacePrepareListener(OnSurfacePrepareListener onSurfacePrepareListener) {
-        this.mOnSurfacePrepareListener = onSurfacePrepareListener;
-    }
-
-    public void setDarkFilter(float f) {
-        if (f < 0.0f) {
-            this.mFilterFactor = 0.0f;
-        } else if (f > 1.0f) {
-            this.mFilterFactor = 1.0f;
-        } else {
-            this.mFilterFactor = f;
+    private void checkGlError(String str) {
+        int glGetError = GLES20.glGetError();
+        if (glGetError == 0) {
+            return;
         }
-    }
-
-    public synchronized void clearLastFrame() {
-        this.clearLastFrame = true;
-    }
-
-    public synchronized void onPlay() {
-        this.onPlay = true;
-    }
-
-    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        synchronized (this) {
-            this.mUpdateSurface = true;
-            if (this.onPlay) {
-                this.clearLastFrame = false;
-                this.onPlay = false;
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
-    public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-        this.mProgram = createProgram("uniform mat4 uMVPMatrix; \n uniform mat4 uSTMatrix; \n uniform float uFilterFactor; \n uniform float uDismissFlag; \n attribute vec4 aPosition; \n attribute vec4 aTextureAlphaCoord; \n attribute vec4 aTextureColorCoord; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n varying float vFilterFactor; \n varying float vDismissFlag; \n void main() { \n gl_Position = uMVPMatrix * aPosition; \n vTextureAlphaCoord = (uSTMatrix * aTextureAlphaCoord).xy; \n vTextureColorCoord = (uSTMatrix * aTextureColorCoord).xy; \n vFilterFactor = (1.0 - uFilterFactor); \n vDismissFlag = uDismissFlag; \n } \n ", "#extension GL_OES_EGL_image_external : require \n precision highp float; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n uniform samplerExternalOES sTexture; \n varying float vFilterFactor; \n varying float vDismissFlag; \n void main() { \n vec4 alphaColor = texture2D(sTexture, vTextureAlphaCoord); \n vec4 color = texture2D(sTexture, vTextureColorCoord); \n float blendFactor = alphaColor.r; \n if (blendFactor == 0.0) { \n blendFactor = 1.0; \n } \n float alpha = alphaColor.r; \n if (vDismissFlag < 0.0) { \n alpha = 0.0; \n } \n gl_FragColor = vec4(color.r/blendFactor*vFilterFactor,color.g/blendFactor*vFilterFactor,color.b/blendFactor*vFilterFactor,alpha); \n } \n ");
-        if (this.mProgram != 0) {
-            this.aPositionHandle = GLES20.glGetAttribLocation(this.mProgram, "aPosition");
-            checkGlError("glGetAttribLocation aPosition");
-            if (this.aPositionHandle == -1) {
-                throw new RuntimeException("Could not get attrib location for aPosition");
-            }
-            this.aTextureAlphaHandle = GLES20.glGetAttribLocation(this.mProgram, "aTextureAlphaCoord");
-            checkGlError("glGetAttribLocation aTextureAlphaCoord");
-            if (this.aTextureAlphaHandle == -1) {
-                throw new RuntimeException("Could not get attrib alpha location for aTextureAlphaCoord");
-            }
-            this.aTextureColorHandle = GLES20.glGetAttribLocation(this.mProgram, "aTextureColorCoord");
-            checkGlError("glGetAttribLocation aTextureColorCoord");
-            if (this.aTextureColorHandle == -1) {
-                throw new RuntimeException("Could not get attrib color location for aTextureColorCoord");
-            }
-            this.uMVPMatrixHandle = GLES20.glGetUniformLocation(this.mProgram, "uMVPMatrix");
-            checkGlError("glGetUniformLocation uMVPMatrix");
-            if (this.uMVPMatrixHandle == -1) {
-                throw new RuntimeException("Could not get attrib location for uMVPMatrix");
-            }
-            this.uSTMatrixHandle = GLES20.glGetUniformLocation(this.mProgram, "uSTMatrix");
-            checkGlError("glGetUniformLocation uSTMatrix");
-            if (this.uSTMatrixHandle == -1) {
-                throw new RuntimeException("Could not get attrib location for uSTMatrix");
-            }
-            this.uFilterFactorHandle = GLES20.glGetUniformLocation(this.mProgram, "uFilterFactor");
-            checkGlError("glGetUniformLocation uFilterFactor");
-            if (this.uFilterFactorHandle == -1) {
-                throw new RuntimeException("Could not get attrib location for uFilterFactor");
-            }
-            this.uDismissFlagHandle = GLES20.glGetUniformLocation(this.mProgram, "uDismissFlag");
-            checkGlError("glGetUniformLocation uDismissFlag");
-            if (this.uDismissFlagHandle == -1) {
-                throw new RuntimeException("Could not get attrib location for uDismissFlag");
-            }
-            prepareSurface();
-        }
+        Log.e(TAG, str + ": glError " + glGetError);
+        throw new RuntimeException(str + ": glError " + glGetError);
     }
 
     private int createProgram(String str, String str2) {
@@ -158,6 +95,7 @@ public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListen
                 GLES20.glDeleteShader(glCreateShader);
                 return 0;
             }
+            return glCreateShader;
         }
         return glCreateShader;
     }
@@ -171,24 +109,26 @@ public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListen
         checkGlError("glBindTexture textureID");
         GLES20.glTexParameterf(36197, 10241, 9728.0f);
         GLES20.glTexParameterf(36197, 10240, 9729.0f);
-        this.mSurfaceTexture = new SurfaceTexture(i);
-        this.mSurfaceTexture.setOnFrameAvailableListener(this);
+        SurfaceTexture surfaceTexture = new SurfaceTexture(i);
+        this.mSurfaceTexture = surfaceTexture;
+        surfaceTexture.setOnFrameAvailableListener(this);
         Surface surface = new Surface(this.mSurfaceTexture);
-        if (this.mOnSurfacePrepareListener != null) {
-            this.mOnSurfacePrepareListener.onSurfacePrepared(surface);
+        OnSurfacePrepareListener onSurfacePrepareListener = this.mOnSurfacePrepareListener;
+        if (onSurfacePrepareListener != null) {
+            onSurfacePrepareListener.onSurfacePrepared(surface);
         }
         synchronized (this) {
             this.mUpdateSurface = false;
         }
     }
 
-    @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
-    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-        GLES20.glViewport(0, 0, i, i2);
+    public synchronized void clearLastFrame() {
+        this.clearLastFrame = true;
     }
 
     @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
     public void onDrawFrame(GL10 gl10) {
+        float f2;
         synchronized (this) {
             if (this.mUpdateSurface) {
                 this.mSurfaceTexture.updateTexImage();
@@ -198,22 +138,22 @@ public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListen
         }
         GLES20.glClear(16640);
         GLES20.glEnable(3042);
-        GLES20.glBlendFunc(770, 771);
+        GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         GLES20.glUseProgram(this.mProgram);
         checkGlError("glUseProgram");
         this.mTriangleVertices.position(0);
-        GLES20.glVertexAttribPointer(this.aPositionHandle, 3, 5126, false, 28, (Buffer) this.mTriangleVertices);
+        GLES20.glVertexAttribPointer(this.aPositionHandle, 3, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 28, (Buffer) this.mTriangleVertices);
         checkGlError("glVertexAttribPointer maPosition");
         GLES20.glEnableVertexAttribArray(this.aPositionHandle);
         checkGlError("glEnableVertexAttribArray aPositionHandle");
         this.mTriangleVertices.position(3);
-        GLES20.glVertexAttribPointer(this.aTextureAlphaHandle, 2, 5126, false, 28, (Buffer) this.mTriangleVertices);
+        GLES20.glVertexAttribPointer(this.aTextureAlphaHandle, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 28, (Buffer) this.mTriangleVertices);
         checkGlError("glVertexAttribPointer aTextureAlphaHandle");
         GLES20.glEnableVertexAttribArray(this.aTextureAlphaHandle);
         checkGlError("glEnableVertexAttribArray aTextureAlphaHandle");
         this.mTriangleVertices.position(5);
-        GLES20.glVertexAttribPointer(this.aTextureColorHandle, 2, 5126, false, 28, (Buffer) this.mTriangleVertices);
+        GLES20.glVertexAttribPointer(this.aTextureColorHandle, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 28, (Buffer) this.mTriangleVertices);
         checkGlError("glVertexAttribPointer aTextureColorHandle");
         GLES20.glEnableVertexAttribArray(this.aTextureColorHandle);
         checkGlError("glEnableVertexAttribArray aTextureColorHandle");
@@ -224,17 +164,90 @@ public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListen
         GLES20.glDrawArrays(5, 0, 4);
         checkGlError("glDrawArrays");
         synchronized (this) {
-            this.mDismissFlag = this.clearLastFrame ? -1.0f : 0.0f;
+            f2 = this.clearLastFrame ? -1.0f : 0.0f;
+            this.mDismissFlag = f2;
         }
-        GLES20.glUniform1f(this.uDismissFlagHandle, this.mDismissFlag);
+        GLES20.glUniform1f(this.uDismissFlagHandle, f2);
         GLES20.glFinish();
     }
 
-    private void checkGlError(String str) {
-        int glGetError = GLES20.glGetError();
-        if (glGetError != 0) {
-            Log.e(TAG, str + ": glError " + glGetError);
-            throw new RuntimeException(str + ": glError " + glGetError);
+    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+        synchronized (this) {
+            this.mUpdateSurface = true;
+            if (this.onPlay) {
+                this.clearLastFrame = false;
+                this.onPlay = false;
+            }
         }
+    }
+
+    public synchronized void onPlay() {
+        this.onPlay = true;
+    }
+
+    @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
+    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
+        GLES20.glViewport(0, 0, i, i2);
+    }
+
+    @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
+    public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
+        int createProgram = createProgram(AlphaVideoShaders.SHADER_VERTEX, AlphaVideoShaders.SHADER_FRAGMENT);
+        this.mProgram = createProgram;
+        if (createProgram == 0) {
+            return;
+        }
+        this.aPositionHandle = GLES20.glGetAttribLocation(createProgram, "aPosition");
+        checkGlError("glGetAttribLocation aPosition");
+        if (this.aPositionHandle != -1) {
+            this.aTextureAlphaHandle = GLES20.glGetAttribLocation(this.mProgram, "aTextureAlphaCoord");
+            checkGlError("glGetAttribLocation aTextureAlphaCoord");
+            if (this.aTextureAlphaHandle != -1) {
+                this.aTextureColorHandle = GLES20.glGetAttribLocation(this.mProgram, "aTextureColorCoord");
+                checkGlError("glGetAttribLocation aTextureColorCoord");
+                if (this.aTextureColorHandle != -1) {
+                    this.uMVPMatrixHandle = GLES20.glGetUniformLocation(this.mProgram, "uMVPMatrix");
+                    checkGlError("glGetUniformLocation uMVPMatrix");
+                    if (this.uMVPMatrixHandle != -1) {
+                        this.uSTMatrixHandle = GLES20.glGetUniformLocation(this.mProgram, "uSTMatrix");
+                        checkGlError("glGetUniformLocation uSTMatrix");
+                        if (this.uSTMatrixHandle != -1) {
+                            this.uFilterFactorHandle = GLES20.glGetUniformLocation(this.mProgram, "uFilterFactor");
+                            checkGlError("glGetUniformLocation uFilterFactor");
+                            if (this.uFilterFactorHandle != -1) {
+                                this.uDismissFlagHandle = GLES20.glGetUniformLocation(this.mProgram, "uDismissFlag");
+                                checkGlError("glGetUniformLocation uDismissFlag");
+                                if (this.uDismissFlagHandle != -1) {
+                                    prepareSurface();
+                                    return;
+                                }
+                                throw new RuntimeException("Could not get attrib location for uDismissFlag");
+                            }
+                            throw new RuntimeException("Could not get attrib location for uFilterFactor");
+                        }
+                        throw new RuntimeException("Could not get attrib location for uSTMatrix");
+                    }
+                    throw new RuntimeException("Could not get attrib location for uMVPMatrix");
+                }
+                throw new RuntimeException("Could not get attrib color location for aTextureColorCoord");
+            }
+            throw new RuntimeException("Could not get attrib alpha location for aTextureAlphaCoord");
+        }
+        throw new RuntimeException("Could not get attrib location for aPosition");
+    }
+
+    public void setDarkFilter(float f2) {
+        if (f2 < 0.0f) {
+            this.mFilterFactor = 0.0f;
+        } else if (f2 > 1.0f) {
+            this.mFilterFactor = 1.0f;
+        } else {
+            this.mFilterFactor = f2;
+        }
+    }
+
+    public void setOnSurfacePrepareListener(OnSurfacePrepareListener onSurfacePrepareListener) {
+        this.mOnSurfacePrepareListener = onSurfacePrepareListener;
     }
 }

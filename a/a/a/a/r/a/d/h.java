@@ -1,16 +1,18 @@
 package a.a.a.a.r.a.d;
 
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    public final /* synthetic */ g AI;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ g f1183a;
 
     public h(g gVar) {
-        this.AI = gVar;
+        this.f1183a = gVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.AI.e();
+        this.f1183a.e();
     }
 }

@@ -13,58 +13,61 @@ import java.util.concurrent.atomic.AtomicLong;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, Pair<FileLock, AtomicLong>> f5080a = new HashMap();
+    public static final Map<String, Pair<FileLock, AtomicLong>> f30292a = new HashMap();
 
     public static void a(String str) throws Exception {
-        synchronized (f5080a) {
-            Pair<FileLock, AtomicLong> pair = f5080a.get(str);
+        synchronized (f30292a) {
+            Pair<FileLock, AtomicLong> pair = f30292a.get(str);
             if (pair == null) {
-                pair = new Pair<>(FileLock.a(str, Process.myPid()), new AtomicLong(0L));
-                f5080a.put(str, pair);
+                Pair<FileLock, AtomicLong> pair2 = new Pair<>(FileLock.a(str, Process.myPid()), new AtomicLong(0L));
+                f30292a.put(str, pair2);
+                pair = pair2;
             }
             ((AtomicLong) pair.second).incrementAndGet();
         }
     }
 
     public static void b(String str) throws Exception {
-        synchronized (f5080a) {
-            Pair<FileLock, AtomicLong> pair = f5080a.get(str);
-            if (pair == null) {
+        synchronized (f30292a) {
+            Pair<FileLock, AtomicLong> pair = f30292a.get(str);
+            if (pair != null) {
+                long decrementAndGet = ((AtomicLong) pair.second).decrementAndGet();
+                if (decrementAndGet < 0) {
+                    throw new RuntimeException("using.lock count illegal");
+                }
+                if (decrementAndGet == 0) {
+                    ((FileLock) pair.first).a();
+                    f30292a.remove(str);
+                }
+            } else {
                 throw new RuntimeException("using.lock illegal state");
-            }
-            long decrementAndGet = ((AtomicLong) pair.second).decrementAndGet();
-            if (decrementAndGet < 0) {
-                throw new RuntimeException("using.lock count illegal");
-            }
-            if (decrementAndGet == 0) {
-                ((FileLock) pair.first).a();
-                f5080a.remove(str);
             }
         }
     }
 
     public static void c(String str) throws Exception {
-        synchronized (f5080a) {
-            FileLock b = FileLock.b(str);
-            if (b != null) {
-                Pair<FileLock, AtomicLong> pair = f5080a.get(str);
-                if (pair != null && ((AtomicLong) pair.second).get() != 0) {
-                    b.a();
-                    FileLock.a(str, Process.myPid());
-                    return;
-                }
-                File parentFile = new File(str).getParentFile();
-                final File file = new File(parentFile.getAbsolutePath() + "--pending-delete");
-                if (parentFile.renameTo(file)) {
-                    b.a();
-                    b.b();
-                    f.a().execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.g.c.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            d.a(file);
-                        }
-                    });
-                }
+        synchronized (f30292a) {
+            FileLock b2 = FileLock.b(str);
+            if (b2 == null) {
+                return;
+            }
+            Pair<FileLock, AtomicLong> pair = f30292a.get(str);
+            if (pair != null && ((AtomicLong) pair.second).get() != 0) {
+                b2.a();
+                FileLock.a(str, Process.myPid());
+                return;
+            }
+            File parentFile = new File(str).getParentFile();
+            final File file = new File(parentFile.getAbsolutePath() + "--pending-delete");
+            if (parentFile.renameTo(file)) {
+                b2.a();
+                b2.b();
+                f.a().execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.g.c.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        d.a(file);
+                    }
+                });
             }
         }
     }

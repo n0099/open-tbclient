@@ -1,31 +1,37 @@
 package rx.internal.operators;
 
+import h.d;
+import h.j;
+import h.k;
+import h.n.b;
+import h.p.a;
+import h.q.f;
 import java.util.concurrent.atomic.AtomicInteger;
-import rx.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.a<T> {
-    final rx.functions.b<? super rx.k> connection;
-    final int numberOfSubscribers;
-    final rx.observables.a<? extends T> source;
+    public final b<? super k> connection;
+    public final int numberOfSubscribers;
+    public final a<? extends T> source;
 
-    @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((rx.j) ((rx.j) obj));
-    }
-
-    public OnSubscribeAutoConnect(rx.observables.a<? extends T> aVar, int i, rx.functions.b<? super rx.k> bVar) {
-        if (i <= 0) {
-            throw new IllegalArgumentException("numberOfSubscribers > 0 required");
+    public OnSubscribeAutoConnect(a<? extends T> aVar, int i, b<? super k> bVar) {
+        if (i > 0) {
+            this.source = aVar;
+            this.numberOfSubscribers = i;
+            this.connection = bVar;
+            return;
         }
-        this.source = aVar;
-        this.numberOfSubscribers = i;
-        this.connection = bVar;
+        throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    public void call(rx.j<? super T> jVar) {
-        this.source.a(rx.b.f.d(jVar));
+    @Override // h.n.b
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((j) ((j) obj));
+    }
+
+    public void call(j<? super T> jVar) {
+        this.source.J(f.c(jVar));
         if (incrementAndGet() == this.numberOfSubscribers) {
-            this.source.f(this.connection);
+            this.source.K(this.connection);
         }
     }
 }

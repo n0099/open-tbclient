@@ -14,31 +14,20 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class b implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4924a;
-
-    private static ContentResolver e() {
-        try {
-            if (p.a() != null) {
-                return p.a().getContentResolver();
-            }
-        } catch (Throwable th) {
-        }
-        return null;
-    }
+    public Context f29892a;
 
     public static boolean a(String str) {
         if (p.a() == null) {
             return false;
         }
         try {
-            ContentResolver e = e();
-            if (e != null) {
-                return "true".equals(e.getType(Uri.parse(f() + "checkFrequency?rit=" + String.valueOf(str))));
+            ContentResolver e2 = e();
+            if (e2 != null) {
+                return "true".equals(e2.getType(Uri.parse(f() + "checkFrequency?rit=" + String.valueOf(str))));
             }
-            return false;
-        } catch (Throwable th) {
-            return false;
+        } catch (Throwable unused) {
         }
+        return false;
     }
 
     public static boolean c() {
@@ -46,14 +35,13 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
             return false;
         }
         try {
-            ContentResolver e = e();
-            if (e != null) {
-                return "true".equals(e.getType(Uri.parse(f() + "isSilent")));
+            ContentResolver e2 = e();
+            if (e2 != null) {
+                return "true".equals(e2.getType(Uri.parse(f() + "isSilent")));
             }
-            return false;
-        } catch (Throwable th) {
-            return false;
+        } catch (Throwable unused) {
         }
+        return false;
     }
 
     public static String d() {
@@ -61,23 +49,48 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
             return null;
         }
         try {
-            ContentResolver e = e();
-            if (e != null) {
-                return e.getType(Uri.parse(f() + "maxRit"));
+            ContentResolver e2 = e();
+            if (e2 != null) {
+                return e2.getType(Uri.parse(f() + "maxRit"));
+            }
+        } catch (Throwable unused) {
+        }
+        return null;
+    }
+
+    public static ContentResolver e() {
+        try {
+            if (p.a() != null) {
+                return p.a().getContentResolver();
             }
             return null;
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return null;
         }
     }
 
-    private static String f() {
-        return e.b + "/t_frequent/";
+    public static String f() {
+        return e.f29897b + "/t_frequent/";
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
-    public void a(Context context) {
-        this.f4924a = context;
+    public int a(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+        return 0;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.multipro.a
+    public int a(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+        return 0;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.multipro.a
+    public Cursor a(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        return null;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.multipro.a
+    public Uri a(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+        return null;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -88,6 +101,11 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void b() {
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.multipro.a
+    public void a(Context context) {
+        this.f29892a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -103,25 +121,5 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         } else {
             return null;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.multipro.a
-    public Cursor a(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return null;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.multipro.a
-    public Uri a(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return null;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.multipro.a
-    public int a(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return 0;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.multipro.a
-    public int a(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return 0;
     }
 }

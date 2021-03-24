@@ -1,25 +1,25 @@
 package com.baidu.webkit.sdk.plugin;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface ZeusPlugin {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface Callback {
         boolean onCallback(ZeusPlugin zeusPlugin, String str, Object obj);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class Command {
-        private static final int MAX_POOL_SIZE = 50;
-        private static Command sPool;
-        private static int sPoolSize;
-        private static final Object sPoolSync = new Object();
+        public static final int MAX_POOL_SIZE = 50;
+        public static Command sPool;
+        public static int sPoolSize;
+        public static final Object sPoolSync = new Object();
         public int arg1;
         public int arg2;
         public int arg3;
         public int arg4;
         public int arg5;
-        private int flag;
-        private Command next;
+        public int flag;
+        public Command next;
         public Object obj;
         public int ret;
         public String what;

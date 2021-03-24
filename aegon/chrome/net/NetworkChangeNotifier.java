@@ -9,9 +9,9 @@ import android.net.ConnectivityManager;
 import android.os.Build;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class NetworkChangeNotifier {
-    public static final /* synthetic */ boolean $assertionsDisabled = !NetworkChangeNotifier.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     @SuppressLint({"StaticFieldLeak"})
     public static NetworkChangeNotifier sInstance;
     public NetworkChangeNotifierAutoDetect mAutoDetector;
@@ -21,7 +21,7 @@ public class NetworkChangeNotifier {
     public final ConnectivityManager mConnectivityManager = (ConnectivityManager) ContextUtils.sApplicationContext.getSystemService("connectivity");
 
     /* renamed from: aegon.chrome.net.NetworkChangeNotifier$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class AnonymousClass1 implements NetworkChangeNotifierAutoDetect.Observer {
         public AnonymousClass1() {
         }
@@ -35,7 +35,7 @@ public class NetworkChangeNotifier {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface ConnectionTypeObserver {
         void onConnectionTypeChanged(int i);
     }
@@ -92,10 +92,7 @@ public class NetworkChangeNotifier {
     }
 
     public static NetworkChangeNotifier getInstance() {
-        if ($assertionsDisabled || sInstance != null) {
-            return sInstance;
-        }
-        throw new AssertionError();
+        return sInstance;
     }
 
     @CalledByNative
@@ -139,7 +136,7 @@ public class NetworkChangeNotifier {
                 return 0;
             }
             return this.mAutoDetector.getCurrentNetworkState().getConnectionSubtype();
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return 0;
         }
     }
@@ -239,19 +236,20 @@ public class NetworkChangeNotifier {
     public final void setAutoDetectConnectivityStateInternal(boolean z, NetworkChangeNotifierAutoDetect.RegistrationPolicy registrationPolicy) {
         if (z) {
             if (this.mAutoDetector == null) {
-                this.mAutoDetector = new NetworkChangeNotifierAutoDetect(new AnonymousClass1(), registrationPolicy);
-                NetworkChangeNotifierAutoDetect.NetworkState currentNetworkState = this.mAutoDetector.getCurrentNetworkState();
+                NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = new NetworkChangeNotifierAutoDetect(new AnonymousClass1(), registrationPolicy);
+                this.mAutoDetector = networkChangeNotifierAutoDetect;
+                NetworkChangeNotifierAutoDetect.NetworkState currentNetworkState = networkChangeNotifierAutoDetect.getCurrentNetworkState();
                 updateCurrentConnectionType(currentNetworkState.getConnectionType());
                 notifyObserversOfConnectionSubtypeChange(currentNetworkState.getConnectionSubtype());
                 return;
             }
             return;
         }
-        NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.mAutoDetector;
-        if (networkChangeNotifierAutoDetect != null) {
-            networkChangeNotifierAutoDetect.assertOnThread();
-            networkChangeNotifierAutoDetect.mRegistrationPolicy.destroy();
-            networkChangeNotifierAutoDetect.unregister();
+        NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect2 = this.mAutoDetector;
+        if (networkChangeNotifierAutoDetect2 != null) {
+            networkChangeNotifierAutoDetect2.assertOnThread();
+            networkChangeNotifierAutoDetect2.mRegistrationPolicy.destroy();
+            networkChangeNotifierAutoDetect2.unregister();
             this.mAutoDetector = null;
         }
     }

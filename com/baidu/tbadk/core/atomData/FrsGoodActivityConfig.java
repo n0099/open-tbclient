@@ -5,14 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class FrsGoodActivityConfig extends IntentConfig {
     public FrsGoodActivityConfig(Context context) {
         super(context);
-    }
-
-    public FrsGoodActivityConfig createNormalCfg(String str, String str2) {
-        return createBackSpecialCfg(str, str2, false, false);
     }
 
     public FrsGoodActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
@@ -28,5 +24,9 @@ public class FrsGoodActivityConfig extends IntentConfig {
             intent.addFlags(268435456);
         }
         return this;
+    }
+
+    public FrsGoodActivityConfig createNormalCfg(String str, String str2) {
+        return createBackSpecialCfg(str, str2, false, false);
     }
 }

@@ -16,60 +16,19 @@ import android.widget.ImageView;
 public class TTRoundRectImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f4592a;
-    private int b;
-    private int c;
-    private Matrix d;
+    public Paint f28850a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f28851b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f28852c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Matrix f28853d;
 
     public TTRoundRectImageView(Context context) {
         this(context, null);
-    }
-
-    public TTRoundRectImageView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    public TTRoundRectImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.b = 25;
-        this.c = 25;
-        this.f4592a = new Paint();
-        this.f4592a.setAntiAlias(true);
-        this.f4592a.setFilterBitmap(true);
-        this.d = new Matrix();
-    }
-
-    public void setXRound(int i) {
-        this.b = i;
-        postInvalidate();
-    }
-
-    public void setYRound(int i) {
-        this.c = i;
-        postInvalidate();
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        float f = 1.0f;
-        Drawable drawable = getDrawable();
-        if (drawable != null) {
-            Bitmap a2 = a(drawable);
-            if (a2 != null) {
-                BitmapShader bitmapShader = new BitmapShader(a2, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
-                if (a2.getWidth() != getWidth() || a2.getHeight() != getHeight()) {
-                    f = Math.max((getWidth() * 1.0f) / a2.getWidth(), (1.0f * getHeight()) / a2.getHeight());
-                }
-                this.d.setScale(f, f);
-                bitmapShader.setLocalMatrix(this.d);
-                this.f4592a.setShader(bitmapShader);
-                canvas.drawRoundRect(new RectF(0.0f, 0.0f, getWidth(), getHeight()), this.b, this.c, this.f4592a);
-                return;
-            }
-            super.onDraw(canvas);
-            return;
-        }
-        super.onDraw(canvas);
     }
 
     private Bitmap a(Drawable drawable) {
@@ -86,5 +45,54 @@ public class TTRoundRectImageView extends ImageView {
         drawable.setBounds(0, 0, width, height);
         drawable.draw(canvas);
         return createBitmap;
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Drawable drawable = getDrawable();
+        if (drawable != null) {
+            Bitmap a2 = a(drawable);
+            if (a2 != null) {
+                Shader.TileMode tileMode = Shader.TileMode.REPEAT;
+                BitmapShader bitmapShader = new BitmapShader(a2, tileMode, tileMode);
+                float f2 = 1.0f;
+                if (a2.getWidth() != getWidth() || a2.getHeight() != getHeight()) {
+                    f2 = Math.max((getWidth() * 1.0f) / a2.getWidth(), (getHeight() * 1.0f) / a2.getHeight());
+                }
+                this.f28853d.setScale(f2, f2);
+                bitmapShader.setLocalMatrix(this.f28853d);
+                this.f28850a.setShader(bitmapShader);
+                canvas.drawRoundRect(new RectF(0.0f, 0.0f, getWidth(), getHeight()), this.f28851b, this.f28852c, this.f28850a);
+                return;
+            }
+            super.onDraw(canvas);
+            return;
+        }
+        super.onDraw(canvas);
+    }
+
+    public void setXRound(int i) {
+        this.f28851b = i;
+        postInvalidate();
+    }
+
+    public void setYRound(int i) {
+        this.f28852c = i;
+        postInvalidate();
+    }
+
+    public TTRoundRectImageView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public TTRoundRectImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f28851b = 25;
+        this.f28852c = 25;
+        Paint paint = new Paint();
+        this.f28850a = paint;
+        paint.setAntiAlias(true);
+        this.f28850a.setFilterBitmap(true);
+        this.f28853d = new Matrix();
     }
 }

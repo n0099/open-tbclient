@@ -5,24 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class JSONUtils {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "JSONUtils";
-
-    private JSONUtils() {
-    }
-
-    public static JSONObject parseString(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return new JSONObject();
-        }
-        try {
-            return new JSONObject(str);
-        } catch (JSONException e) {
-            return new JSONObject();
-        }
-    }
+    public static final boolean DEBUG = false;
+    public static final String TAG = "JSONUtils";
 
     public static <T> T get(JSONObject jSONObject, String str, Class<T> cls) {
         if (jSONObject == null) {
@@ -35,12 +21,25 @@ public final class JSONUtils {
         return null;
     }
 
-    public static Object get(JSONObject jSONObject, String str) {
-        return get(jSONObject, str, Object.class);
+    public static boolean getBoolean(JSONObject jSONObject, String str, boolean z) {
+        Boolean bool = (Boolean) get(jSONObject, str, Boolean.class);
+        return bool == null ? z : bool.booleanValue();
     }
 
-    public static JSONObject getJSONObjectItem(JSONArray jSONArray, int i) {
-        return (JSONObject) getItem(jSONArray, i, JSONObject.class);
+    public static float getFloat(JSONObject jSONObject, String str, float f2) {
+        return jSONObject == null ? f2 : (float) jSONObject.optDouble(str, f2);
+    }
+
+    public static int getInt(JSONObject jSONObject, String str, int i) {
+        return ((Integer) get(jSONObject, str, Integer.class)) == null ? i : ((Integer) get(jSONObject, str, Integer.class)).intValue();
+    }
+
+    public static String getIntOrString(JSONObject jSONObject, String str) {
+        Integer num = (Integer) get(jSONObject, str, Integer.class);
+        if (num == null) {
+            return (String) get(jSONObject, str, String.class);
+        }
+        return num.toString();
     }
 
     public static <T> T getItem(JSONArray jSONArray, int i, Class<T> cls) {
@@ -59,25 +58,26 @@ public final class JSONUtils {
         return (JSONObject) get(jSONObject, str, JSONObject.class);
     }
 
+    public static JSONObject getJSONObjectItem(JSONArray jSONArray, int i) {
+        return (JSONObject) getItem(jSONArray, i, JSONObject.class);
+    }
+
     public static String getString(JSONObject jSONObject, String str) {
         return (String) get(jSONObject, str, String.class);
     }
 
-    public static int getInt(JSONObject jSONObject, String str, int i) {
-        return ((Integer) get(jSONObject, str, Integer.class)) == null ? i : ((Integer) get(jSONObject, str, Integer.class)).intValue();
+    public static JSONObject parseString(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return new JSONObject();
+        }
+        try {
+            return new JSONObject(str);
+        } catch (JSONException unused) {
+            return new JSONObject();
+        }
     }
 
-    public static boolean getBoolean(JSONObject jSONObject, String str, boolean z) {
-        Boolean bool = (Boolean) get(jSONObject, str, Boolean.class);
-        return bool == null ? z : bool.booleanValue();
-    }
-
-    public static String getIntOrString(JSONObject jSONObject, String str) {
-        Integer num = (Integer) get(jSONObject, str, Integer.class);
-        return num == null ? (String) get(jSONObject, str, String.class) : num.toString();
-    }
-
-    public static float getFloat(JSONObject jSONObject, String str, float f) {
-        return jSONObject == null ? f : (float) jSONObject.optDouble(str, f);
+    public static Object get(JSONObject jSONObject, String str) {
+        return get(jSONObject, str, Object.class);
     }
 }

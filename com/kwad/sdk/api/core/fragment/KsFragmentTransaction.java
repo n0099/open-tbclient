@@ -7,9 +7,9 @@ import androidx.fragment.app.FragmentTransaction;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsFragmentTransaction {
-    private final FragmentTransaction mBase;
+    public final FragmentTransaction mBase;
 
     public KsFragmentTransaction(FragmentTransaction fragmentTransaction) {
         this.mBase = fragmentTransaction;
@@ -95,7 +95,6 @@ public class KsFragmentTransaction {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public FragmentTransaction getBase() {
         return this.mBase;
     }

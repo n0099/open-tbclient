@@ -6,76 +6,129 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 import com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.j;
+import d.b.i0.d1.i.a.a;
+/* loaded from: classes4.dex */
 public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements a {
-    private String jwu;
-    private ForumBroadCastMajorHistoryModel kHu;
-    private com.baidu.tieba.im.forum.broadcast.view.a kHv;
-    private String mForumId;
-    private String mForumName;
-    private View rootView;
+    public String mForumId;
+    public String mForumName;
+    public ForumBroadCastMajorHistoryModel mModel;
+    public d.b.i0.d1.i.a.c.a mView;
+    public String mfrom;
+    public View rootView;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    private void initParamsFromIntent(Bundle bundle) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            this.mForumId = intent.getStringExtra("forum_id");
+            this.mForumName = intent.getStringExtra("forum_name");
+            this.mfrom = intent.getStringExtra("from");
+        } else if (bundle != null) {
+            this.mForumId = bundle.getString("forum_id");
+            this.mForumName = bundle.getString("forum_name");
+            this.mfrom = bundle.getString("from");
+        }
+    }
+
+    @Override // d.b.i0.d1.i.a.a
+    public void loadMore() {
+        ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
+        if (forumBroadCastMajorHistoryModel != null) {
+            forumBroadCastMajorHistoryModel.E();
+        }
+    }
+
+    @Override // d.b.i0.d1.i.a.a
+    public void netCallback(d.b.i0.d1.i.a.b.a aVar) {
+        ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
+        if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.C()) {
+            this.mView.r(getString(R.string.im_error_default), false);
+            return;
+        }
+        d.b.i0.d1.i.a.c.a aVar2 = this.mView;
+        if (aVar2 != null) {
+            aVar2.o(aVar);
+        }
+    }
+
+    @Override // d.b.i0.d1.i.a.a
+    public void netResidueCallback(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
+        this.mView.u(forumBroadcastMajorResidueData);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.mView.m(i);
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        an(bundle);
-        this.kHu = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.mForumId);
+        initParamsFromIntent(bundle);
+        this.mModel = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.mForumId);
         this.rootView = LayoutInflater.from(this).inflate(R.layout.forum_broadcast_history_list, (ViewGroup) null);
-        this.kHv = new com.baidu.tieba.im.forum.broadcast.view.a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.jwu, bundle);
+        this.mView = new d.b.i0.d1.i.a.c.a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.mfrom, bundle);
         setContentView(this.rootView);
-        this.kHu.cWs();
+        this.mModel.B();
         refresh();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        d.b.i0.d1.i.a.c.a aVar = this.mView;
+        if (aVar != null) {
+            aVar.n();
+        }
+        ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
+        if (forumBroadCastMajorHistoryModel != null) {
+            forumBroadCastMajorHistoryModel.F();
+        }
+    }
+
+    @Override // d.b.h0.r.f0.f.g
+    public void onListPullRefresh(boolean z) {
+        refresh();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
+        if (j.z()) {
+            hideNetRefreshView(this.rootView);
+            refresh();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        d.b.i0.d1.i.a.c.a aVar;
+        super.onNewIntent(intent);
+        refresh();
+        if (!ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(intent.getStringExtra("from")) || (aVar = this.mView) == null) {
+            return;
+        }
+        aVar.s();
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
-    private void an(Bundle bundle) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            this.mForumId = intent.getStringExtra("forum_id");
-            this.mForumName = intent.getStringExtra("forum_name");
-            this.jwu = intent.getStringExtra("from");
-        } else if (bundle != null) {
-            this.mForumId = bundle.getString("forum_id");
-            this.mForumName = bundle.getString("forum_name");
-            this.jwu = bundle.getString("from");
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.kHv.onChangeSkinType(i);
-    }
-
-    @Override // com.baidu.tieba.im.forum.broadcast.a
-    public void bRp() {
-        if (this.kHu != null) {
-            this.kHu.bRp();
-        }
-    }
-
-    @Override // com.baidu.tieba.im.forum.broadcast.a
-    public void refresh() {
-        if (this.kHu != null) {
-            this.kHu.refresh();
-        }
-    }
-
-    @Override // com.baidu.tieba.im.forum.broadcast.a
-    public void a(ErrorData errorData) {
+    @Override // d.b.i0.d1.i.a.a
+    public void onServerError(ErrorData errorData) {
         if (errorData != null) {
             if (!StringUtils.isNull(errorData.error_msg)) {
                 showToast(errorData.error_msg);
@@ -83,67 +136,18 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
                 showToast(R.string.im_error_default);
             }
         }
-        if (this.kHu != null && !this.kHu.hasData()) {
-            String str = null;
-            if (errorData != null) {
-                str = getString(R.string.net_error_text, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)});
-            }
-            this.kHv.aQ(str, false);
+        ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
+        if (forumBroadCastMajorHistoryModel == null || forumBroadCastMajorHistoryModel.C()) {
+            return;
         }
+        this.mView.r(errorData != null ? getString(R.string.net_error_text, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)}) : null, false);
     }
 
-    @Override // com.baidu.tieba.im.forum.broadcast.a
-    public void a(com.baidu.tieba.im.forum.broadcast.data.a aVar) {
-        if (this.kHu != null && !this.kHu.hasData()) {
-            this.kHv.aQ(getString(R.string.im_error_default), false);
-        } else if (this.kHv != null) {
-            this.kHv.b(aVar);
+    @Override // d.b.i0.d1.i.a.a
+    public void refresh() {
+        ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
+        if (forumBroadCastMajorHistoryModel != null) {
+            forumBroadCastMajorHistoryModel.H();
         }
-    }
-
-    @Override // android.app.Activity
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        refresh();
-        if ("broadcast_publish_success".equals(intent.getStringExtra("from")) && this.kHv != null) {
-            this.kHv.cWv();
-        }
-    }
-
-    @Override // com.baidu.tieba.im.forum.broadcast.a
-    public void a(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
-        this.kHv.b(forumBroadcastMajorResidueData);
-    }
-
-    @Override // com.baidu.tbadk.core.view.f.c
-    public void onListPullRefresh(boolean z) {
-        refresh();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onNetRefreshButtonClicked() {
-        if (j.isNetWorkAvailable()) {
-            hideNetRefreshView(this.rootView);
-            refresh();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.kHv != null) {
-            this.kHv.onDestory();
-        }
-        if (this.kHu != null) {
-            this.kHu.onDestory();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
     }
 }

@@ -4,24 +4,30 @@ import android.graphics.Rect;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f5728a;
-    private final int b;
-    private final int c;
-    private final int d;
+    public final int f32493a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final int f32494b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final int f32495c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final int f32496d;
 
     public d(int i, int i2) {
         this(i, 0, 0, i2);
     }
 
     public d(int i, int i2, int i3, int i4) {
-        this.d = i;
-        this.f5728a = i2;
-        this.b = i3;
-        this.c = i4;
+        this.f32496d = i;
+        this.f32493a = i2;
+        this.f32494b = i3;
+        this.f32495c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -29,21 +35,23 @@ public class d extends RecyclerView.ItemDecoration {
         int itemCount = recyclerView.getAdapter().getItemCount();
         int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
         int spanIndex = ((StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams()).getSpanIndex();
-        rect.left = this.c / 2;
-        rect.right = this.c / 2;
-        rect.top = this.c;
+        int i = this.f32495c;
+        rect.left = i / 2;
+        rect.right = i / 2;
+        rect.top = i;
         rect.bottom = 0;
         if (spanIndex == 0) {
-            rect.left = this.b;
-        } else if (spanIndex == this.d - 1) {
-            rect.right = this.b;
+            rect.left = this.f32494b;
+        } else if (spanIndex == this.f32496d - 1) {
+            rect.right = this.f32494b;
         }
-        boolean z = childAdapterPosition < this.d;
-        boolean z2 = (itemCount + (-1)) / this.d == childAdapterPosition / this.d;
+        boolean z = childAdapterPosition < this.f32496d;
+        int i2 = this.f32496d;
+        boolean z2 = (itemCount - 1) / i2 == childAdapterPosition / i2;
         if (z) {
-            rect.top = this.f5728a;
+            rect.top = this.f32493a;
         } else if (z2) {
-            rect.bottom = this.f5728a;
+            rect.bottom = this.f32493a;
         }
     }
 }

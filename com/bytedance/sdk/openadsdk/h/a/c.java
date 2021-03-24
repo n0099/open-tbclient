@@ -1,179 +1,228 @@
 package com.bytedance.sdk.openadsdk.h.a;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.widget.ImageView;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
-import com.bytedance.sdk.adnet.core.Request;
-import com.bytedance.sdk.adnet.core.g;
-import com.bytedance.sdk.adnet.core.k;
-import com.bytedance.sdk.adnet.core.o;
-import com.bytedance.sdk.adnet.err.e;
-import com.bytedance.sdk.openadsdk.utils.f;
-import com.bytedance.sdk.openadsdk.utils.u;
+import android.text.TextUtils;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.bytedance.sdk.openadsdk.core.k;
+import com.bytedance.sdk.openadsdk.core.p;
+import com.bytedance.sdk.openadsdk.h.a.c;
+import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.x;
+import com.bytedance.sdk.openadsdk.utils.y;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class c extends Request<byte[]> {
-    private static final Object i = new Object();
-    private final Object c;
-    @Nullable
-    @GuardedBy("mLock")
-    private a d;
-    private final Bitmap.Config e;
-    private final int f;
-    private final int g;
-    private final ImageView.ScaleType h;
+public class c<T extends c> implements a {
 
-    /* loaded from: classes6.dex */
-    public interface a extends o.a<byte[]> {
-        void a(String str, byte[] bArr);
+    /* renamed from: a  reason: collision with root package name */
+    public String f29418a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f29419b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f29420c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f29422e;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f29425h;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f29421d = "3.4.5.5";
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f29423f = System.currentTimeMillis() / 1000;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f29424g = 0;
+    public int i = 0;
+
+    public static c<c> b() {
+        return new c<>();
     }
 
-    public c(String str, a aVar, int i2, int i3, ImageView.ScaleType scaleType, Bitmap.Config config) {
-        super(0, str, aVar);
-        this.c = new Object();
-        setRetryPolicy(new g(1000, 2, 2.0f));
-        this.d = aVar;
-        this.e = config;
-        this.f = i2;
-        this.g = i3;
-        this.h = scaleType;
-        setShouldCache(false);
-    }
-
-    @Override // com.bytedance.sdk.adnet.core.Request
-    public Request.b getPriority() {
-        return Request.b.LOW;
-    }
-
-    private static int a(int i2, int i3, int i4, int i5, ImageView.ScaleType scaleType) {
-        if (i2 == 0 && i3 == 0) {
-            return i4;
+    private JSONObject p() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(IXAdRequestInfo.OS, 1);
+            jSONObject.put("imei", k.d(p.a()));
+            jSONObject.put("oaid", y.a());
+        } catch (Exception unused) {
         }
-        if (scaleType == ImageView.ScaleType.FIT_XY) {
-            return i2 == 0 ? i4 : i2;
-        } else if (i2 == 0) {
-            return (int) ((i3 / i5) * i4);
-        } else {
-            if (i3 != 0) {
-                double d = i5 / i4;
-                if (scaleType == ImageView.ScaleType.CENTER_CROP) {
-                    if (i2 * d < i3) {
-                        return (int) (i3 / d);
-                    }
-                    return i2;
-                } else if (i2 * d > i3) {
-                    return (int) (i3 / d);
-                } else {
-                    return i2;
-                }
+        return jSONObject;
+    }
+
+    private T q() {
+        return this;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.h.a.a
+    public JSONObject a() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            if (!TextUtils.isEmpty(c())) {
+                jSONObject.put("type", c());
             }
-            return i2;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.adnet.core.Request
-    public o<byte[]> a(k kVar) {
-        o<byte[]> c;
-        synchronized (i) {
-            try {
-                c = b(kVar);
-            } catch (OutOfMemoryError e) {
-                u.c("GifRequest", "Caught OOM for byte image", e);
-                c = o.c(new e(e));
+            if (!TextUtils.isEmpty(e())) {
+                jSONObject.put("rit", e());
             }
-        }
-        return c;
-    }
-
-    private o<byte[]> b(k kVar) {
-        Bitmap bitmap;
-        final byte[] bArr = kVar.b;
-        String a2 = com.bytedance.sdk.openadsdk.h.a.a.a().a(getUrl(), this.f, this.g, this.h);
-        if (bArr.length >= 3 && bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70) {
-            try {
-                com.bytedance.sdk.openadsdk.h.a.a.a().a(a2, bArr);
-                if (this.d != null) {
-                    this.b.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.h.a.c.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            if (c.this.d != null) {
-                                c.this.d.a(c.this.getUrl(), bArr);
-                            }
-                        }
-                    });
-                }
-                return o.a(bArr, com.bytedance.sdk.adnet.d.b.c(kVar));
-            } catch (Exception e) {
+            if (!TextUtils.isEmpty(f())) {
+                jSONObject.put("creative_id", f());
             }
-        }
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        if (this.f == 0 && this.g == 0) {
-            options.inPreferredConfig = this.e;
-            bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-        } else {
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
-            int a3 = a(this.f, this.g, i2, i3, this.h);
-            int a4 = a(this.g, this.f, i3, i2, this.h);
-            options.inJustDecodeBounds = false;
-            options.inSampleSize = a(i2, i3, a3, a4);
-            Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-            if (decodeByteArray == null || (decodeByteArray.getWidth() <= a3 && decodeByteArray.getHeight() <= a4)) {
-                bitmap = decodeByteArray;
+            if (!TextUtils.isEmpty(g())) {
+                jSONObject.put("ad_sdk_version", g());
+            }
+            if (!TextUtils.isEmpty(h())) {
+                jSONObject.put("app_version", h());
             } else {
-                bitmap = Bitmap.createScaledBitmap(decodeByteArray, a3, a4, true);
-                decodeByteArray.recycle();
+                jSONObject.put("app_version", ak.g());
             }
+            if (i() > 0) {
+                jSONObject.put("timestamp", i());
+            }
+            if (j() > 0) {
+                jSONObject.put("adtype", j());
+            }
+            if (!TextUtils.isEmpty(k())) {
+                jSONObject.put("req_id", k());
+            }
+            jSONObject.put("error_code", l());
+            if (!TextUtils.isEmpty(m())) {
+                jSONObject.put("error_msg", m());
+            }
+            if (!TextUtils.isEmpty(n())) {
+                jSONObject.put("extra", n());
+            }
+            if (!TextUtils.isEmpty(o())) {
+                jSONObject.put("image_url", o());
+            }
+            if (!TextUtils.isEmpty(d())) {
+                jSONObject.put("event_extra", d());
+            }
+            jSONObject.put("conn_type", x.b(p.a()));
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        if (bitmap == null) {
-            return o.c(new e(kVar));
+        try {
+            jSONObject.put("device_info", p());
+        } catch (Throwable unused) {
         }
-        final byte[] b = f.b(bitmap);
-        com.bytedance.sdk.openadsdk.h.a.a.a().a(a2, b);
-        if (this.d != null) {
-            this.b.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.h.a.c.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    if (c.this.d != null) {
-                        c.this.d.a(c.this.getUrl(), b);
-                    }
-                }
-            });
-        }
-        return o.a(b, com.bytedance.sdk.adnet.d.b.c(kVar));
+        return jSONObject;
     }
 
-    @Override // com.bytedance.sdk.adnet.core.Request
-    public void cancel() {
-        super.cancel();
-        synchronized (this.c) {
-            this.d = null;
-        }
+    public String c() {
+        return this.f29418a;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.adnet.core.Request
-    public void a(o<byte[]> oVar) {
-        a aVar;
-        synchronized (this.c) {
-            aVar = this.d;
-        }
-        if (aVar != null) {
-            aVar.a(oVar);
-        }
+    public String d() {
+        return this.m;
     }
 
-    @VisibleForTesting
-    static int a(int i2, int i3, int i4, int i5) {
-        float f = 1.0f;
-        while (f * 2.0f <= Math.min(i2 / i4, i3 / i5)) {
-            f *= 2.0f;
-        }
-        return (int) f;
+    public String e() {
+        return this.f29419b;
+    }
+
+    public String f() {
+        return this.f29420c;
+    }
+
+    public String g() {
+        return this.f29421d;
+    }
+
+    public String h() {
+        return this.f29422e;
+    }
+
+    public long i() {
+        return this.f29423f;
+    }
+
+    public int j() {
+        return this.f29424g;
+    }
+
+    public String k() {
+        return this.f29425h;
+    }
+
+    public int l() {
+        return this.i;
+    }
+
+    public String m() {
+        return this.j;
+    }
+
+    public String n() {
+        return this.k;
+    }
+
+    public String o() {
+        return this.l;
+    }
+
+    public T b(String str) {
+        this.m = str;
+        return q();
+    }
+
+    public T c(String str) {
+        this.f29419b = str;
+        return q();
+    }
+
+    public T d(String str) {
+        this.f29420c = str;
+        return q();
+    }
+
+    public T e(String str) {
+        this.f29421d = str;
+        return q();
+    }
+
+    public T f(String str) {
+        this.f29425h = str;
+        return q();
+    }
+
+    public T g(String str) {
+        this.j = str;
+        return q();
+    }
+
+    public T h(String str) {
+        this.k = str;
+        return q();
+    }
+
+    public T i(String str) {
+        this.l = str;
+        return q();
+    }
+
+    public T b(int i) {
+        this.i = i;
+        return q();
+    }
+
+    public T c(long j) {
+        this.f29423f = j;
+        return q();
+    }
+
+    public T a(String str) {
+        this.f29418a = str;
+        return q();
+    }
+
+    public T a(int i) {
+        this.f29424g = i;
+        return q();
     }
 }

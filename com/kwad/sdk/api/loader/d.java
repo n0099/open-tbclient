@@ -6,14 +6,14 @@ import androidx.annotation.NonNull;
 import dalvik.system.DexClassLoader;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
-class d {
+/* loaded from: classes6.dex */
+public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final List<String> f5460a = new ArrayList();
+    public static final List<String> f31782a;
 
-    /* loaded from: classes3.dex */
-    private static class a extends DexClassLoader {
+    /* loaded from: classes6.dex */
+    public static class a extends DexClassLoader {
         public a(String str, String str2, String str3, ClassLoader classLoader) {
             super(str, str2, str3, classLoader);
         }
@@ -23,31 +23,32 @@ class d {
         }
 
         @Override // java.lang.ClassLoader
-        protected Class<?> loadClass(String str, boolean z) {
+        public Class<?> loadClass(String str, boolean z) {
             if (a(str)) {
                 return getParent().loadClass(str);
             }
             Class<?> findLoadedClass = findLoadedClass(str);
-            if (findLoadedClass == null) {
-                try {
-                    findLoadedClass = findClass(str);
-                } catch (ClassNotFoundException e) {
-                }
-                return findLoadedClass == null ? super.loadClass(str, z) : findLoadedClass;
+            if (findLoadedClass != null) {
+                return findLoadedClass;
             }
-            return findLoadedClass;
+            try {
+                findLoadedClass = findClass(str);
+            } catch (ClassNotFoundException unused) {
+            }
+            return findLoadedClass != null ? findLoadedClass : super.loadClass(str, z);
         }
     }
 
     static {
-        f5460a.add("com.kwad.sdk");
-        f5460a.add("com.ksad");
-        f5460a.add("com.kwai");
-        f5460a.add("kwad.support");
-        f5460a.add("android.support.rastermill");
+        ArrayList arrayList = new ArrayList();
+        f31782a = arrayList;
+        arrayList.add("com.kwad.sdk");
+        f31782a.add("com.ksad");
+        f31782a.add("com.kwai");
+        f31782a.add("kwad.support");
+        f31782a.add("android.support.rastermill");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public static ClassLoader a(Context context, String str, String str2, String str3) {
         return new a(str, str2, str3, context.getClassLoader());

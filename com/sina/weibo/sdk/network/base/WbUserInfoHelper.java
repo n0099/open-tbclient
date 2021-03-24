@@ -3,16 +3,20 @@ package com.sina.weibo.sdk.network.base;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WbUserInfoHelper {
-    private static WbUserInfoHelper userInfoHelper;
-    private WbUserInfo userInfo;
+    public static WbUserInfoHelper userInfoHelper;
+    public WbUserInfo userInfo;
 
     public static WbUserInfoHelper getInstance() {
         if (userInfoHelper == null) {
             userInfoHelper = new WbUserInfoHelper();
         }
         return userInfoHelper;
+    }
+
+    public void clearUserInfo() {
+        this.userInfo = null;
     }
 
     public WbUserInfo getUserInfo(Context context) {
@@ -29,9 +33,5 @@ public class WbUserInfoHelper {
             }
         }
         return this.userInfo;
-    }
-
-    public void clearUserInfo() {
-        this.userInfo = null;
     }
 }

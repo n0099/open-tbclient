@@ -1,9 +1,9 @@
 package com.baidu.webkit.sdk;
 
 import com.baidu.webkit.sdk.JsResult;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class JsPromptResult extends JsResult {
-    private String mStringResult;
+    public String mStringResult;
 
     public JsPromptResult(JsResult.ResultReceiver resultReceiver) {
         super(resultReceiver);

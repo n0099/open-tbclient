@@ -6,43 +6,56 @@ import com.baidu.turbonet.net.TurbonetEngine;
 import org.json.JSONException;
 /* loaded from: classes5.dex */
 public final class TurbonetContext {
-    private String mAppName;
-    private Context mContext;
-    private String oTK;
-    private TurbonetEngine oTo;
+
+    /* renamed from: a  reason: collision with root package name */
+    public TurbonetEngine f22841a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f22842b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f22843c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f22844d;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
-        this.mContext = context;
-        this.mAppName = str;
-        this.oTK = str2;
+        this.f22842b = context;
+        this.f22843c = str;
+        this.f22844d = str2;
         a(turbonetConfig);
     }
 
-    public TurbonetEngine egV() {
-        return this.oTo;
-    }
-
-    public long egW() {
-        return this.oTo.egq();
-    }
-
-    private void a(TurbonetConfig turbonetConfig) {
-        TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.mContext);
+    public final void a(TurbonetConfig turbonetConfig) {
+        TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f22842b);
         if (turbonetConfig == null) {
-            this.oTo = builder.Xo(this.mAppName).Xn(this.oTK).ehd();
+            builder.r(this.f22843c);
+            builder.q(this.f22844d);
+            this.f22841a = builder.b();
         } else {
-            if (turbonetConfig.egU()) {
-                builder.Xm(turbonetConfig.egT());
+            if (turbonetConfig.h()) {
+                builder.u(turbonetConfig.l());
             }
             try {
-                if (turbonetConfig.egS().has("nq") && turbonetConfig.egS().getJSONObject("nq").getBoolean("network_quality_enabled")) {
-                    builder.S(true, "");
+                if (turbonetConfig.g().has("nq") && turbonetConfig.g().getJSONObject("nq").getBoolean("network_quality_enabled")) {
+                    builder.e(true, "");
                 }
-            } catch (JSONException e) {
-                Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
+            } catch (JSONException e2) {
+                Log.e("cr_TurbonetContext", "JSON expcetion: " + e2);
             }
-            this.oTo = builder.Xo(this.mAppName).Xn(this.oTK).Xp(turbonetConfig.egS().toString()).ehd();
+            builder.r(this.f22843c);
+            builder.q(this.f22844d);
+            builder.a(turbonetConfig.g().toString());
+            this.f22841a = builder.b();
         }
         Log.v("cr_TurbonetContext", "Turbonet init context success.");
+    }
+
+    public TurbonetEngine b() {
+        return this.f22841a;
+    }
+
+    public long c() {
+        return this.f22841a.d();
     }
 }

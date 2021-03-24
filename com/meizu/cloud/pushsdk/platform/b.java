@@ -1,27 +1,26 @@
 package com.meizu.cloud.pushsdk.platform;
 
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a(String str) {
         try {
-            byte[] digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes());
+            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
             StringBuffer stringBuffer = new StringBuffer();
-            for (byte b : digest) {
-                int i = b & 255;
+            for (byte b2 : digest) {
+                int i = b2 & 255;
                 if (i < 16) {
                     stringBuffer.append(0);
                 }
                 stringBuffer.append(Integer.toHexString(i));
             }
             return stringBuffer.toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e2) {
+            e2.printStackTrace();
             return null;
         }
     }
@@ -30,7 +29,9 @@ public class b {
         Set<Map.Entry> entrySet = new TreeMap(map).entrySet();
         StringBuilder sb = new StringBuilder();
         for (Map.Entry entry : entrySet) {
-            sb.append((String) entry.getKey()).append("=").append((String) entry.getValue());
+            sb.append((String) entry.getKey());
+            sb.append("=");
+            sb.append((String) entry.getValue());
         }
         sb.append(str);
         return a(sb.toString());

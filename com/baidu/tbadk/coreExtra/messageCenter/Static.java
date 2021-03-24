@@ -4,33 +4,45 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+import d.b.h0.s.d.b;
+/* loaded from: classes3.dex */
 public class Static {
-    static {
-        b.bxE();
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.METHOD_INVOKE_ACCOUNT_CHANGE, new CustomMessageTask.CustomRunnable<AccountData>() { // from class: com.baidu.tbadk.coreExtra.messageCenter.Static.1
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
-                if (l.isMainThread()) {
-                    b.bxE().bxI();
-                    return null;
-                } else if (TbadkCoreApplication.getInst() != null) {
-                    TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tbadk.coreExtra.messageCenter.Static.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            b.bxE().bxI();
-                        }
-                    });
-                    return null;
-                } else {
-                    return null;
-                }
+
+    /* loaded from: classes3.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<AccountData> {
+
+        /* renamed from: com.baidu.tbadk.coreExtra.messageCenter.Static$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class RunnableC0176a implements Runnable {
+            public RunnableC0176a(a aVar) {
             }
-        });
+
+            @Override // java.lang.Runnable
+            public void run() {
+                b.g0().h();
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
+            if (l.B()) {
+                b.g0().h();
+                return null;
+            } else if (TbadkCoreApplication.getInst() != null) {
+                TbadkCoreApplication.getInst().handler.post(new RunnableC0176a(this));
+                return null;
+            } else {
+                return null;
+            }
+        }
+    }
+
+    static {
+        b.g0();
+        CustomMessageTask customMessageTask = new CustomMessageTask(2005006, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

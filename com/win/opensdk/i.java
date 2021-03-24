@@ -1,12 +1,12 @@
 package com.win.opensdk;
-
-import com.win.opensdk.core.Info;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class i {
-    public Info qkh;
+    public i(j jVar) {
+    }
 
-    public boolean b() {
-        Info info = this.qkh;
-        return info != null && info.isEffective();
+    public void a() {
+    }
+
+    public void b() {
     }
 }

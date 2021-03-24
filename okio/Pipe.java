@@ -1,82 +1,45 @@
 package okio;
 
-import com.baidu.live.tbadk.log.LogConfig;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Pipe {
-    final long maxBufferSize;
-    boolean sinkClosed;
-    boolean sourceClosed;
-    final Buffer buffer = new Buffer();
-    private final Sink sink = new PipeSink();
-    private final Source source = new PipeSource();
+    public final long maxBufferSize;
+    public boolean sinkClosed;
+    public boolean sourceClosed;
+    public final Buffer buffer = new Buffer();
+    public final Sink sink = new PipeSink();
+    public final Source source = new PipeSource();
 
-    public Pipe(long j) {
-        if (j < 1) {
-            throw new IllegalArgumentException("maxBufferSize < 1: " + j);
-        }
-        this.maxBufferSize = j;
-    }
+    /* loaded from: classes7.dex */
+    public final class PipeSink implements Sink {
+        public final Timeout timeout = new Timeout();
 
-    public final Source source() {
-        return this.source;
-    }
-
-    public final Sink sink() {
-        return this.sink;
-    }
-
-    /* loaded from: classes5.dex */
-    final class PipeSink implements Sink {
-        final Timeout timeout = new Timeout();
-
-        PipeSink() {
+        public PipeSink() {
         }
 
-        @Override // okio.Sink
-        public void write(Buffer buffer, long j) throws IOException {
+        @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
+        public void close() throws IOException {
             synchronized (Pipe.this.buffer) {
                 if (Pipe.this.sinkClosed) {
-                    throw new IllegalStateException(LogConfig.TYPE_CLOSED);
+                    return;
                 }
-                while (j > 0) {
-                    if (Pipe.this.sourceClosed) {
-                        throw new IOException("source is closed");
-                    }
-                    long size = Pipe.this.maxBufferSize - Pipe.this.buffer.size();
-                    if (size == 0) {
-                        this.timeout.waitUntilNotified(Pipe.this.buffer);
-                    } else {
-                        long min = Math.min(size, j);
-                        Pipe.this.buffer.write(buffer, min);
-                        j -= min;
-                        Pipe.this.buffer.notifyAll();
-                    }
+                if (Pipe.this.sourceClosed && Pipe.this.buffer.size() > 0) {
+                    throw new IOException("source is closed");
                 }
+                Pipe.this.sinkClosed = true;
+                Pipe.this.buffer.notifyAll();
             }
         }
 
         @Override // okio.Sink, java.io.Flushable
         public void flush() throws IOException {
             synchronized (Pipe.this.buffer) {
-                if (Pipe.this.sinkClosed) {
-                    throw new IllegalStateException(LogConfig.TYPE_CLOSED);
-                }
-                if (Pipe.this.sourceClosed && Pipe.this.buffer.size() > 0) {
-                    throw new IOException("source is closed");
-                }
-            }
-        }
-
-        @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
-        public void close() throws IOException {
-            synchronized (Pipe.this.buffer) {
                 if (!Pipe.this.sinkClosed) {
                     if (Pipe.this.sourceClosed && Pipe.this.buffer.size() > 0) {
                         throw new IOException("source is closed");
                     }
-                    Pipe.this.sinkClosed = true;
-                    Pipe.this.buffer.notifyAll();
+                } else {
+                    throw new IllegalStateException("closed");
                 }
             }
         }
@@ -85,37 +48,37 @@ public final class Pipe {
         public Timeout timeout() {
             return this.timeout;
         }
-    }
 
-    /* loaded from: classes5.dex */
-    final class PipeSource implements Source {
-        final Timeout timeout = new Timeout();
-
-        PipeSource() {
-        }
-
-        @Override // okio.Source
-        public long read(Buffer buffer, long j) throws IOException {
-            long read;
+        @Override // okio.Sink
+        public void write(Buffer buffer, long j) throws IOException {
             synchronized (Pipe.this.buffer) {
-                if (Pipe.this.sourceClosed) {
-                    throw new IllegalStateException(LogConfig.TYPE_CLOSED);
+                if (Pipe.this.sinkClosed) {
+                    throw new IllegalStateException("closed");
                 }
-                while (true) {
-                    if (Pipe.this.buffer.size() == 0) {
-                        if (Pipe.this.sinkClosed) {
-                            read = -1;
-                            break;
+                while (j > 0) {
+                    if (!Pipe.this.sourceClosed) {
+                        long size = Pipe.this.maxBufferSize - Pipe.this.buffer.size();
+                        if (size == 0) {
+                            this.timeout.waitUntilNotified(Pipe.this.buffer);
+                        } else {
+                            long min = Math.min(size, j);
+                            Pipe.this.buffer.write(buffer, min);
+                            j -= min;
+                            Pipe.this.buffer.notifyAll();
                         }
-                        this.timeout.waitUntilNotified(Pipe.this.buffer);
                     } else {
-                        read = Pipe.this.buffer.read(buffer, j);
-                        Pipe.this.buffer.notifyAll();
-                        break;
+                        throw new IOException("source is closed");
                     }
                 }
-                return read;
             }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public final class PipeSource implements Source {
+        public final Timeout timeout = new Timeout();
+
+        public PipeSource() {
         }
 
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
@@ -127,8 +90,42 @@ public final class Pipe {
         }
 
         @Override // okio.Source
+        public long read(Buffer buffer, long j) throws IOException {
+            synchronized (Pipe.this.buffer) {
+                if (!Pipe.this.sourceClosed) {
+                    while (Pipe.this.buffer.size() == 0) {
+                        if (Pipe.this.sinkClosed) {
+                            return -1L;
+                        }
+                        this.timeout.waitUntilNotified(Pipe.this.buffer);
+                    }
+                    long read = Pipe.this.buffer.read(buffer, j);
+                    Pipe.this.buffer.notifyAll();
+                    return read;
+                }
+                throw new IllegalStateException("closed");
+            }
+        }
+
+        @Override // okio.Source
         public Timeout timeout() {
             return this.timeout;
         }
+    }
+
+    public Pipe(long j) {
+        if (j >= 1) {
+            this.maxBufferSize = j;
+            return;
+        }
+        throw new IllegalArgumentException("maxBufferSize < 1: " + j);
+    }
+
+    public Sink sink() {
+        return this.sink;
+    }
+
+    public Source source() {
+        return this.source;
     }
 }

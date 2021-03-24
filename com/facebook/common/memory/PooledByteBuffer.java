@@ -1,22 +1,31 @@
 package com.facebook.common.memory;
 
 import java.io.Closeable;
-/* loaded from: classes4.dex */
+import java.nio.ByteBuffer;
+import javax.annotation.Nullable;
+/* loaded from: classes.dex */
 public interface PooledByteBuffer extends Closeable {
-    byte OZ(int i);
 
-    int c(int i, byte[] bArr, int i2, int i3);
-
-    long esX();
-
-    boolean isClosed();
-
-    int size();
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ClosedException extends RuntimeException {
         public ClosedException() {
             super("Invalid bytebuf. Already closed");
         }
     }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    void close();
+
+    @Nullable
+    ByteBuffer getByteBuffer();
+
+    long getNativePtr();
+
+    boolean isClosed();
+
+    byte read(int i);
+
+    int read(int i, byte[] bArr, int i2, int i3);
+
+    int size();
 }

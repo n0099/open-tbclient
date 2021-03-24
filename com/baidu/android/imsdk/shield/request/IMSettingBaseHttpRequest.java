@@ -6,15 +6,12 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.cookie.SM;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class IMSettingBaseHttpRequest extends BaseHttpRequest {
-    public abstract String getHostUrlParam();
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
-        hashMap.put(SM.COOKIE, "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
+        hashMap.put("Cookie", "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
         return hashMap;
     }
 
@@ -26,27 +23,29 @@ public abstract class IMSettingBaseHttpRequest extends BaseHttpRequest {
         return getHostUrl() + "rest/3.0/im/" + getHostUrlParam();
     }
 
-    protected String getHostUrl() {
-        switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
-            case 0:
-                return "https://pim.baidu.com/";
-            case 1:
-            case 2:
+    public String getHostUrl() {
+        int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
+        if (readIntData != 0) {
+            if (readIntData == 1 || readIntData == 2) {
                 return "http://rd-im-server.bcc-szth.baidu.com:8080/";
-            case 3:
-                return Constants.URL_HTTP_BOX;
-            default:
+            }
+            if (readIntData != 3) {
                 return null;
+            }
+            return Constants.URL_HTTP_BOX;
         }
+        return "https://pim.baidu.com/";
+    }
+
+    public abstract String getHostUrlParam();
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        return "POST";
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public boolean shouldAbort() {
         return false;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        return "POST";
     }
 }

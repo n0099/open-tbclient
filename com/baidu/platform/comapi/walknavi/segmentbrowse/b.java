@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi.segmentbrowse;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public enum b {
     FIRST_GUIDANCE,
     REFRESH_GUIDANCE,

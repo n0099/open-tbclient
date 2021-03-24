@@ -5,70 +5,79 @@ import android.view.ViewGroup;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.card.data.h;
-/* loaded from: classes7.dex */
-public class GodSquareHotGodAdapter extends com.baidu.adp.widget.ListView.a<h, ViewHolder> {
-    private ab hoN;
-    private com.baidu.tieba.godSquare.a.a jZO;
-    private TbPageContext<?> mPageContext;
+import d.b.i0.x.b0;
+import d.b.i0.x.e0.h;
+/* loaded from: classes4.dex */
+public class GodSquareHotGodAdapter extends d.b.b.j.e.a<h, ViewHolder> {
+    public TbPageContext<?> m;
+    public d.b.i0.u0.d.a n;
+    public b0 o;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public GodSquareHotGodAdapter(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.iCn);
-        this.hoN = new ab() { // from class: com.baidu.tieba.godSquare.adapter.GodSquareHotGodAdapter.1
-            @Override // com.baidu.tieba.card.ab
-            public void a(View view, BaseCardInfo baseCardInfo) {
-                if (view != null && GodSquareHotGodAdapter.this.jZO != null && (baseCardInfo instanceof h)) {
-                    h hVar = (h) baseCardInfo;
-                    if (hVar.eTa != null && !StringUtils.isNull(hVar.eTa.getUserId())) {
-                        if (view.getId() != GodSquareHotGodAdapter.this.jZO.jZZ.getId()) {
-                            if (view.getId() == GodSquareHotGodAdapter.this.jZO.getView().getId() || view.getId() == GodSquareHotGodAdapter.this.jZO.jUu.getId()) {
-                                TiebaStatic.log(new ar("c10951").dR("obj_id", hVar.eTa.getUserId()));
-                                return;
-                            }
-                            return;
-                        }
-                        TiebaStatic.log(new ar("c10803").aq("obj_locate", 4).dR("obj_id", hVar.eTa.getUserId()));
-                    }
-                }
+    /* loaded from: classes4.dex */
+    public class ViewHolder extends TypeAdapter.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public d.b.i0.u0.d.a f16939a;
+
+        public ViewHolder(GodSquareHotGodAdapter godSquareHotGodAdapter, d.b.i0.u0.d.a aVar) {
+            super(aVar.m());
+            this.f16939a = aVar;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends b0 {
+        public a() {
+        }
+
+        @Override // d.b.i0.x.b0
+        public void a(View view, BaseCardInfo baseCardInfo) {
+            h hVar;
+            MetaData metaData;
+            if (view == null || GodSquareHotGodAdapter.this.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f62210e) == null || StringUtils.isNull(metaData.getUserId())) {
+                return;
             }
-        };
-        this.mPageContext = tbPageContext;
+            if (view.getId() != GodSquareHotGodAdapter.this.n.m.getId()) {
+                if (view.getId() == GodSquareHotGodAdapter.this.n.m().getId() || view.getId() == GodSquareHotGodAdapter.this.n.o.getId()) {
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f62210e.getUserId()));
+                    return;
+                }
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f62210e.getUserId()));
+        }
+    }
+
+    public GodSquareHotGodAdapter(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), h.f62209h);
+        this.o = new a();
+        this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bO */
-    public ViewHolder e(ViewGroup viewGroup) {
-        this.jZO = new com.baidu.tieba.godSquare.a.a(this.mPageContext);
-        this.jZO.l(this.mPageContext.getUniqueId());
-        this.jZO.c(this.hoN);
-        return new ViewHolder(this.jZO);
+    @Override // d.b.b.j.e.a
+    /* renamed from: i0 */
+    public ViewHolder R(ViewGroup viewGroup) {
+        d.b.i0.u0.d.a aVar = new d.b.i0.u0.d.a(this.m);
+        this.n = aVar;
+        aVar.v(this.m.getUniqueId());
+        this.n.q(this.o);
+        return new ViewHolder(this, this.n);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
-        if (viewHolder == null || viewHolder.jZQ == null) {
+    @Override // d.b.b.j.e.a
+    /* renamed from: j0 */
+    public View X(int i, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
+        d.b.i0.u0.d.a aVar;
+        if (viewHolder == null || (aVar = viewHolder.f16939a) == null) {
             return null;
         }
-        viewHolder.jZQ.a(hVar);
-        return viewHolder.getView();
-    }
-
-    /* loaded from: classes7.dex */
-    public class ViewHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.godSquare.a.a jZQ;
-
-        public ViewHolder(com.baidu.tieba.godSquare.a.a aVar) {
-            super(aVar.getView());
-            this.jZQ = aVar;
-        }
+        aVar.n(hVar);
+        return viewHolder.a();
     }
 }

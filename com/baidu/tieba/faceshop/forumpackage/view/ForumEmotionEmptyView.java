@@ -6,53 +6,63 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ForumEmotionEmptyView extends RelativeLayout {
-    private LinearLayout jcl;
-    private TextView jcm;
-    private ViewGroup jcn;
-    private TextView jco;
-    private NoDataView mNoDataView;
-    private TbPageContext mPageContext;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbPageContext f15856e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public NoDataView f15857f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LinearLayout f15858g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f15859h;
+    public ViewGroup i;
+    public TextView j;
 
     public ForumEmotionEmptyView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.mPageContext = tbPageContext;
-        initView();
+        this.f15856e = tbPageContext;
+        a();
     }
 
-    private void initView() {
+    public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.forum_emotion_empty_layout, this);
-        this.jcm = (TextView) findViewById(R.id.forum_emotion_filter);
-        this.jcn = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
-        this.jco = (TextView) findViewById(R.id.forum_emotion_board_title);
-        this.jcl = (LinearLayout) findViewById(R.id.forum_emotion_no_data_container);
-        this.mNoDataView = NoDataViewFactory.a(this.mPageContext.getPageActivity(), this.jcl, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.d.pA(R.string.invite_friend_no_data_now), null, true);
-        this.mNoDataView.setVisibility(0);
+        this.f15859h = (TextView) findViewById(R.id.forum_emotion_filter);
+        this.i = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
+        this.j = (TextView) findViewById(R.id.forum_emotion_board_title);
+        this.f15858g = (LinearLayout) findViewById(R.id.forum_emotion_no_data_container);
+        NoDataView b2 = NoDataViewFactory.b(this.f15856e.getPageActivity(), this.f15858g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, true);
+        this.f15857f = b2;
+        b2.setVisibility(0);
     }
 
-    public void onChangeSkin(int i) {
-        if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.mPageContext, i);
+    public void b(int i) {
+        NoDataView noDataView = this.f15857f;
+        if (noDataView != null) {
+            noDataView.f(this.f15856e, i);
         }
-        ap.setViewTextColor(this.jcn.getChildAt(0), R.color.CAM_X0107);
-        ap.setBackgroundColor(this.jcn.getChildAt(0), R.color.CAM_X0201);
-        ap.setViewTextColor(this.jcn.getChildAt(1), R.color.CAM_X0107);
-        ap.setBackgroundColor(this.jcn.getChildAt(1), R.color.CAM_X0201);
-        ap.setViewTextColor(this.jco, R.color.CAM_X0107);
-        ap.setViewTextColor(this.jcm, R.color.CAM_X0107);
-        ap.setBackgroundColor(this, R.color.CAM_X0201);
-    }
-
-    public TextView getFilterView() {
-        return this.jcm;
+        SkinManager.setViewTextColor(this.i.getChildAt(0), R.color.CAM_X0107);
+        SkinManager.setBackgroundColor(this.i.getChildAt(0), R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.i.getChildAt(1), R.color.CAM_X0107);
+        SkinManager.setBackgroundColor(this.i.getChildAt(1), R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.j, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f15859h, R.color.CAM_X0107);
+        SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
     }
 
     public ViewGroup getFilterDropDownView() {
-        return this.jcn;
+        return this.i;
+    }
+
+    public TextView getFilterView() {
+        return this.f15859h;
     }
 }

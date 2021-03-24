@@ -4,19 +4,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class InputStreamEntity extends AbstractHttpEntity {
     public InputStreamEntity(InputStream inputStream, long j) {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpEntity
-    public boolean isRepeatable() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpEntity
-    public long getContentLength() {
+    @Override // org.apache.http.entity.AbstractHttpEntity, org.apache.http.HttpEntity
+    public void consumeContent() throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -26,7 +21,12 @@ public class InputStreamEntity extends AbstractHttpEntity {
     }
 
     @Override // org.apache.http.HttpEntity
-    public void writeTo(OutputStream outputStream) throws IOException {
+    public long getContentLength() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpEntity
+    public boolean isRepeatable() {
         throw new RuntimeException("Stub!");
     }
 
@@ -35,8 +35,8 @@ public class InputStreamEntity extends AbstractHttpEntity {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.entity.AbstractHttpEntity, org.apache.http.HttpEntity
-    public void consumeContent() throws IOException {
+    @Override // org.apache.http.HttpEntity
+    public void writeTo(OutputStream outputStream) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

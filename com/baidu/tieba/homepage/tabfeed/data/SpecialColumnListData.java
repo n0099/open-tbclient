@@ -3,100 +3,59 @@ package com.baidu.tieba.homepage.tabfeed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.av;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import d.b.h0.r.q.a2;
+import d.b.h0.r.q.v0;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
-/* loaded from: classes2.dex */
-public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implements Parcelable {
+/* loaded from: classes4.dex */
+public class SpecialColumnListData extends d.b.h0.r.q.a implements Parcelable {
     public static final int MAX_SIZE = 3;
-    private List<SpecialColumnItemData> mListData;
-    private List<SpecialColumnItemData> mResultListData;
+    public List<SpecialColumnItemData> mListData;
+    public List<SpecialColumnItemData> mResultListData;
     public String title;
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final Parcelable.Creator<SpecialColumnListData> CREATOR = new Parcelable.Creator<SpecialColumnListData>() { // from class: com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData.1
+    public static final Parcelable.Creator<SpecialColumnListData> CREATOR = new a();
+
+    /* loaded from: classes4.dex */
+    public static class a implements Parcelable.Creator<SpecialColumnListData> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: aa */
+        /* renamed from: a */
         public SpecialColumnListData createFromParcel(Parcel parcel) {
             return new SpecialColumnListData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ce */
+        /* renamed from: b */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }
-    };
+    }
 
     public SpecialColumnListData() {
         this.mListData = new ArrayList();
         this.mResultListData = new ArrayList();
     }
 
-    public void a(SpecialColumnList specialColumnList) {
-        if (specialColumnList != null) {
-            this.floorPosition = specialColumnList.floor_position.intValue();
-            this.title = specialColumnList.special_column_name;
-            parserProtobuf(specialColumnList.item_list);
-        }
+    public List<SpecialColumnItemData> A() {
+        return this.mResultListData;
     }
 
-    public void parserProtobuf(List<SpecialColumn> list) {
-        if (list != null) {
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < list.size()) {
-                    SpecialColumnItemData specialColumnItemData = new SpecialColumnItemData();
-                    specialColumnItemData.a(list.get(i2));
-                    arrayList.add(specialColumnItemData);
-                    i = i2 + 1;
-                } else {
-                    this.mResultListData.addAll(arrayList);
-                    this.mListData.addAll(y.trimToSize(arrayList, 3));
-                    return;
-                }
-            }
-        }
-    }
-
-    public SpecialColumnListData(Parcel parcel) {
-        this.title = parcel.readString();
-        this.mListData = parcel.createTypedArrayList(SpecialColumnItemData.CREATOR);
-        this.mResultListData = parcel.createTypedArrayList(SpecialColumnItemData.CREATOR);
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
-    public BdUniqueId getType() {
-        return TYPE;
-    }
-
-    @Override // com.baidu.tbadk.core.data.a
-    public cb blp() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.data.a
-    public av blr() {
-        return null;
-    }
-
-    public List<SpecialColumnItemData> cSp() {
-        return this.mListData;
-    }
-
-    public String getTitle() {
+    public String B() {
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bRU() {
-        return this.mResultListData;
+    public void C(SpecialColumnList specialColumnList) {
+        if (specialColumnList == null) {
+            return;
+        }
+        this.floorPosition = specialColumnList.floor_position.intValue();
+        this.title = specialColumnList.special_column_name;
+        parserProtobuf(specialColumnList.item_list);
     }
 
     @Override // android.os.Parcelable
@@ -104,10 +63,48 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
         return 0;
     }
 
+    @Override // d.b.h0.r.q.a
+    public v0 g() {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
+    public BdUniqueId getType() {
+        return TYPE;
+    }
+
+    @Override // d.b.h0.r.q.a
+    public a2 n() {
+        return null;
+    }
+
+    public void parserProtobuf(List<SpecialColumn> list) {
+        if (list != null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                SpecialColumnItemData specialColumnItemData = new SpecialColumnItemData();
+                specialColumnItemData.a(list.get(i));
+                arrayList.add(specialColumnItemData);
+            }
+            this.mResultListData.addAll(arrayList);
+            this.mListData.addAll(ListUtils.trimToSize(arrayList, 3));
+        }
+    }
+
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.title);
         parcel.writeTypedList(this.mListData);
         parcel.writeTypedList(this.mResultListData);
+    }
+
+    public List<SpecialColumnItemData> z() {
+        return this.mListData;
+    }
+
+    public SpecialColumnListData(Parcel parcel) {
+        this.title = parcel.readString();
+        this.mListData = parcel.createTypedArrayList(SpecialColumnItemData.CREATOR);
+        this.mResultListData = parcel.createTypedArrayList(SpecialColumnItemData.CREATOR);
     }
 }

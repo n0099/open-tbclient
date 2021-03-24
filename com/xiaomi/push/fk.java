@@ -1,75 +1,35 @@
 package com.xiaomi.push;
 
-import android.text.TextUtils;
-import com.xiaomi.push.ek;
-import com.xiaomi.push.service.ap;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-class fk {
-    public static void a(ap.b bVar, String str, fs fsVar) {
-        String a2;
-        ek.c cVar = new ek.c();
-        if (!TextUtils.isEmpty(bVar.c)) {
-            cVar.a(bVar.c);
-        }
-        if (!TextUtils.isEmpty(bVar.e)) {
-            cVar.d(bVar.e);
-        }
-        if (!TextUtils.isEmpty(bVar.f)) {
-            cVar.e(bVar.f);
-        }
-        cVar.b(bVar.f861a ? "1" : "0");
-        if (TextUtils.isEmpty(bVar.d)) {
-            cVar.c("XIAOMI-SASL");
-        } else {
-            cVar.c(bVar.d);
-        }
-        fl flVar = new fl();
-        flVar.c(bVar.f862b);
-        flVar.a(Integer.parseInt(bVar.g));
-        flVar.b(bVar.f859a);
-        flVar.a("BIND", (String) null);
-        flVar.a(flVar.e());
-        com.xiaomi.channel.commonutils.logger.b.m58a("[Slim]: bind id=" + flVar.e());
-        HashMap hashMap = new HashMap();
-        hashMap.put("challenge", str);
-        hashMap.put("token", bVar.c);
-        hashMap.put("chid", bVar.g);
-        hashMap.put("from", bVar.f862b);
-        hashMap.put("id", flVar.e());
-        hashMap.put("to", "xiaomi.com");
-        if (bVar.f861a) {
-            hashMap.put("kick", "1");
-        } else {
-            hashMap.put("kick", "0");
-        }
-        if (TextUtils.isEmpty(bVar.e)) {
-            hashMap.put("client_attrs", "");
-        } else {
-            hashMap.put("client_attrs", bVar.e);
-        }
-        if (TextUtils.isEmpty(bVar.f)) {
-            hashMap.put("cloud_attrs", "");
-        } else {
-            hashMap.put("cloud_attrs", bVar.f);
-        }
-        if (bVar.d.equals("XIAOMI-PASS") || bVar.d.equals("XMPUSH-PASS")) {
-            a2 = bd.a(bVar.d, null, hashMap, bVar.h);
-        } else {
-            if (bVar.d.equals("XIAOMI-SASL")) {
-            }
-            a2 = null;
-        }
-        cVar.f(a2);
-        flVar.a(cVar.a(), (String) null);
-        fsVar.b(flVar);
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import java.util.Date;
+/* loaded from: classes7.dex */
+public class fk implements fo {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ fj f40506a;
+
+    public fk(fj fjVar) {
+        this.f40506a = fjVar;
     }
 
-    public static void a(String str, String str2, fs fsVar) {
-        fl flVar = new fl();
-        flVar.c(str2);
-        flVar.a(Integer.parseInt(str));
-        flVar.a("UBND", (String) null);
-        fsVar.b(flVar);
+    @Override // com.xiaomi.push.fo
+    public void a(fl flVar) {
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40506a.f385a.format(new Date()) + " Connection started (" + this.f40506a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+    }
+
+    @Override // com.xiaomi.push.fo
+    public void a(fl flVar, int i, Exception exc) {
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40506a.f385a.format(new Date()) + " Connection closed (" + this.f40506a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+    }
+
+    @Override // com.xiaomi.push.fo
+    public void a(fl flVar, Exception exc) {
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40506a.f385a.format(new Date()) + " Reconnection failed due to an exception (" + this.f40506a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+        exc.printStackTrace();
+    }
+
+    @Override // com.xiaomi.push.fo
+    public void b(fl flVar) {
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40506a.f385a.format(new Date()) + " Connection reconnected (" + this.f40506a.f382a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
     }
 }

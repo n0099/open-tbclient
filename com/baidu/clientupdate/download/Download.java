@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Download implements Serializable {
     public boolean mNotificationShowed;
     public String mUrl = "";
@@ -25,10 +25,16 @@ public class Download implements Serializable {
     public List mRequestHeaders = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    long f1372a = 0;
-    long b = 0;
-    int c = 0;
-    boolean d = true;
+    public long f4609a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f4610b = 0;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f4611c = 0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f4612d = true;
 
     public void addRequestHeader(String str, String str2) {
         if (str == null) {
@@ -48,7 +54,8 @@ public class Download implements Serializable {
     }
 
     public String getDownloadFileName() {
-        return new File(this.mSavedPath, this.mFileName != null ? Uri.encode(this.mFileName) : null).getPath();
+        String str = this.mFileName;
+        return new File(this.mSavedPath, str != null ? Uri.encode(str) : null).getPath();
     }
 
     public String getDownloadUri() {
@@ -72,14 +79,19 @@ public class Download implements Serializable {
     }
 
     public int getProgress() {
-        if (this.mCurrentLength == 0 || this.mFileLength == 0) {
-            return 0;
+        long j = this.mCurrentLength;
+        if (j != 0) {
+            long j2 = this.mFileLength;
+            if (j2 == 0) {
+                return 0;
+            }
+            int i = (int) ((j * 100) / j2);
+            if (i >= 100) {
+                return 99;
+            }
+            return i;
         }
-        int i = (int) ((this.mCurrentLength * 100) / this.mFileLength);
-        if (i >= 100) {
-            return 99;
-        }
-        return i;
+        return 0;
     }
 
     public DownloadState getState() {
@@ -88,7 +100,33 @@ public class Download implements Serializable {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("[mUrl=").append(this.mUrl).append("]").append("[mFileName=").append(this.mFileName).append("]").append("[mSavedPath=").append(this.mSavedPath).append("]").append("[mFileLength=").append(this.mFileLength).append("]").append("[mCurrentLength=").append(this.mCurrentLength).append("]").append("[mState=").append(this.mState.toString()).append("]").append("[mFailReason=").append(this.mFailReason).append("]").append("[mId=").append(this.mId).append("]").append("[mMimeType=").append(this.mMimeType).append("]");
+        stringBuffer.append("[mUrl=");
+        stringBuffer.append(this.mUrl);
+        stringBuffer.append("]");
+        stringBuffer.append("[mFileName=");
+        stringBuffer.append(this.mFileName);
+        stringBuffer.append("]");
+        stringBuffer.append("[mSavedPath=");
+        stringBuffer.append(this.mSavedPath);
+        stringBuffer.append("]");
+        stringBuffer.append("[mFileLength=");
+        stringBuffer.append(this.mFileLength);
+        stringBuffer.append("]");
+        stringBuffer.append("[mCurrentLength=");
+        stringBuffer.append(this.mCurrentLength);
+        stringBuffer.append("]");
+        stringBuffer.append("[mState=");
+        stringBuffer.append(this.mState.toString());
+        stringBuffer.append("]");
+        stringBuffer.append("[mFailReason=");
+        stringBuffer.append(this.mFailReason);
+        stringBuffer.append("]");
+        stringBuffer.append("[mId=");
+        stringBuffer.append(this.mId);
+        stringBuffer.append("]");
+        stringBuffer.append("[mMimeType=");
+        stringBuffer.append(this.mMimeType);
+        stringBuffer.append("]");
         return stringBuffer.toString();
     }
 }

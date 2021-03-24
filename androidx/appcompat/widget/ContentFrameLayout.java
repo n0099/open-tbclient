@@ -10,18 +10,18 @@ import android.widget.FrameLayout;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.ViewCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ContentFrameLayout extends FrameLayout {
-    private OnAttachListener mAttachListener;
-    private final Rect mDecorPadding;
-    private TypedValue mFixedHeightMajor;
-    private TypedValue mFixedHeightMinor;
-    private TypedValue mFixedWidthMajor;
-    private TypedValue mFixedWidthMinor;
-    private TypedValue mMinWidthMajor;
-    private TypedValue mMinWidthMinor;
+    public OnAttachListener mAttachListener;
+    public final Rect mDecorPadding;
+    public TypedValue mFixedHeightMajor;
+    public TypedValue mFixedHeightMinor;
+    public TypedValue mFixedWidthMajor;
+    public TypedValue mFixedWidthMinor;
+    public TypedValue mMinWidthMajor;
+    public TypedValue mMinWidthMinor;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes.dex */
     public interface OnAttachListener {
         void onAttachedFromWindow();
 
@@ -32,162 +32,9 @@ public class ContentFrameLayout extends FrameLayout {
         this(context, null);
     }
 
-    public ContentFrameLayout(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    public ContentFrameLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mDecorPadding = new Rect();
-    }
-
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void dispatchFitSystemWindows(Rect rect) {
         fitSystemWindows(rect);
-    }
-
-    public void setAttachListener(OnAttachListener onAttachListener) {
-        this.mAttachListener = onAttachListener;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void setDecorPadding(int i, int i2, int i3, int i4) {
-        this.mDecorPadding.set(i, i2, i3, i4);
-        if (ViewCompat.isLaidOut(this)) {
-            requestLayout();
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0052  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x008e  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x009a  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00a1  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00ad  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00b4  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00e5  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00e8  */
-    /* JADX WARN: Removed duplicated region for block: B:64:? A[RETURN, SYNTHETIC] */
-    @Override // android.widget.FrameLayout, android.view.View
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    protected void onMeasure(int i, int i2) {
-        boolean z;
-        int measuredWidth;
-        int i3;
-        TypedValue typedValue;
-        int fraction;
-        int fraction2;
-        int fraction3;
-        boolean z2 = false;
-        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
-        boolean z3 = displayMetrics.widthPixels < displayMetrics.heightPixels;
-        int mode = View.MeasureSpec.getMode(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
-        if (mode == Integer.MIN_VALUE) {
-            TypedValue typedValue2 = z3 ? this.mFixedWidthMinor : this.mFixedWidthMajor;
-            if (typedValue2 != null && typedValue2.type != 0) {
-                if (typedValue2.type == 5) {
-                    fraction3 = (int) typedValue2.getDimension(displayMetrics);
-                } else {
-                    fraction3 = typedValue2.type == 6 ? (int) typedValue2.getFraction(displayMetrics.widthPixels, displayMetrics.widthPixels) : 0;
-                }
-                if (fraction3 > 0) {
-                    i = View.MeasureSpec.makeMeasureSpec(Math.min(fraction3 - (this.mDecorPadding.left + this.mDecorPadding.right), View.MeasureSpec.getSize(i)), 1073741824);
-                    z = true;
-                    if (mode2 == Integer.MIN_VALUE) {
-                        TypedValue typedValue3 = z3 ? this.mFixedHeightMajor : this.mFixedHeightMinor;
-                        if (typedValue3 != null && typedValue3.type != 0) {
-                            if (typedValue3.type == 5) {
-                                fraction2 = (int) typedValue3.getDimension(displayMetrics);
-                            } else {
-                                fraction2 = typedValue3.type == 6 ? (int) typedValue3.getFraction(displayMetrics.heightPixels, displayMetrics.heightPixels) : 0;
-                            }
-                            if (fraction2 > 0) {
-                                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(fraction2 - (this.mDecorPadding.top + this.mDecorPadding.bottom), View.MeasureSpec.getSize(i2)), 1073741824);
-                            }
-                        }
-                    }
-                    super.onMeasure(i, i2);
-                    measuredWidth = getMeasuredWidth();
-                    int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
-                    if (!z && mode == Integer.MIN_VALUE) {
-                        typedValue = !z3 ? this.mMinWidthMinor : this.mMinWidthMajor;
-                        if (typedValue != null && typedValue.type != 0) {
-                            if (typedValue.type != 5) {
-                                fraction = (int) typedValue.getDimension(displayMetrics);
-                            } else {
-                                fraction = typedValue.type == 6 ? (int) typedValue.getFraction(displayMetrics.widthPixels, displayMetrics.widthPixels) : 0;
-                            }
-                            if (fraction > 0) {
-                                fraction -= this.mDecorPadding.left + this.mDecorPadding.right;
-                            }
-                            if (measuredWidth < fraction) {
-                                i3 = View.MeasureSpec.makeMeasureSpec(fraction, 1073741824);
-                                z2 = true;
-                                if (z2) {
-                                    super.onMeasure(i3, i2);
-                                    return;
-                                }
-                                return;
-                            }
-                        }
-                    }
-                    i3 = makeMeasureSpec;
-                    if (z2) {
-                    }
-                }
-            }
-        }
-        z = false;
-        if (mode2 == Integer.MIN_VALUE) {
-        }
-        super.onMeasure(i, i2);
-        measuredWidth = getMeasuredWidth();
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
-        if (!z) {
-            if (!z3) {
-            }
-            if (typedValue != null) {
-                if (typedValue.type != 5) {
-                }
-                if (fraction > 0) {
-                }
-                if (measuredWidth < fraction) {
-                }
-            }
-        }
-        i3 = makeMeasureSpec2;
-        if (z2) {
-        }
-    }
-
-    public TypedValue getMinWidthMajor() {
-        if (this.mMinWidthMajor == null) {
-            this.mMinWidthMajor = new TypedValue();
-        }
-        return this.mMinWidthMajor;
-    }
-
-    public TypedValue getMinWidthMinor() {
-        if (this.mMinWidthMinor == null) {
-            this.mMinWidthMinor = new TypedValue();
-        }
-        return this.mMinWidthMinor;
-    }
-
-    public TypedValue getFixedWidthMajor() {
-        if (this.mFixedWidthMajor == null) {
-            this.mFixedWidthMajor = new TypedValue();
-        }
-        return this.mFixedWidthMajor;
-    }
-
-    public TypedValue getFixedWidthMinor() {
-        if (this.mFixedWidthMinor == null) {
-            this.mFixedWidthMinor = new TypedValue();
-        }
-        return this.mFixedWidthMinor;
     }
 
     public TypedValue getFixedHeightMajor() {
@@ -204,19 +51,204 @@ public class ContentFrameLayout extends FrameLayout {
         return this.mFixedHeightMinor;
     }
 
+    public TypedValue getFixedWidthMajor() {
+        if (this.mFixedWidthMajor == null) {
+            this.mFixedWidthMajor = new TypedValue();
+        }
+        return this.mFixedWidthMajor;
+    }
+
+    public TypedValue getFixedWidthMinor() {
+        if (this.mFixedWidthMinor == null) {
+            this.mFixedWidthMinor = new TypedValue();
+        }
+        return this.mFixedWidthMinor;
+    }
+
+    public TypedValue getMinWidthMajor() {
+        if (this.mMinWidthMajor == null) {
+            this.mMinWidthMajor = new TypedValue();
+        }
+        return this.mMinWidthMajor;
+    }
+
+    public TypedValue getMinWidthMinor() {
+        if (this.mMinWidthMinor == null) {
+            this.mMinWidthMinor = new TypedValue();
+        }
+        return this.mMinWidthMinor;
+    }
+
     @Override // android.view.ViewGroup, android.view.View
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.mAttachListener != null) {
-            this.mAttachListener.onAttachedFromWindow();
+        OnAttachListener onAttachListener = this.mAttachListener;
+        if (onAttachListener != null) {
+            onAttachListener.onAttachedFromWindow();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.mAttachListener != null) {
-            this.mAttachListener.onDetachedFromWindow();
+        OnAttachListener onAttachListener = this.mAttachListener;
+        if (onAttachListener != null) {
+            onAttachListener.onDetachedFromWindow();
         }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x004a  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0086  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00ab  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00b8  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00be  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00cc  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00d6  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00de  */
+    /* JADX WARN: Removed duplicated region for block: B:61:? A[RETURN, SYNTHETIC] */
+    @Override // android.widget.FrameLayout, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onMeasure(int i, int i2) {
+        boolean z;
+        int measuredWidth;
+        TypedValue typedValue;
+        int i3;
+        int i4;
+        float fraction;
+        int i5;
+        int i6;
+        float fraction2;
+        int i7;
+        int i8;
+        float fraction3;
+        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
+        boolean z2 = true;
+        boolean z3 = displayMetrics.widthPixels < displayMetrics.heightPixels;
+        int mode = View.MeasureSpec.getMode(i);
+        int mode2 = View.MeasureSpec.getMode(i2);
+        if (mode == Integer.MIN_VALUE) {
+            TypedValue typedValue2 = z3 ? this.mFixedWidthMinor : this.mFixedWidthMajor;
+            if (typedValue2 != null && (i7 = typedValue2.type) != 0) {
+                if (i7 == 5) {
+                    fraction3 = typedValue2.getDimension(displayMetrics);
+                } else if (i7 == 6) {
+                    int i9 = displayMetrics.widthPixels;
+                    fraction3 = typedValue2.getFraction(i9, i9);
+                } else {
+                    i8 = 0;
+                    if (i8 > 0) {
+                        Rect rect = this.mDecorPadding;
+                        i = View.MeasureSpec.makeMeasureSpec(Math.min(i8 - (rect.left + rect.right), View.MeasureSpec.getSize(i)), 1073741824);
+                        z = true;
+                        if (mode2 == Integer.MIN_VALUE) {
+                            TypedValue typedValue3 = z3 ? this.mFixedHeightMajor : this.mFixedHeightMinor;
+                            if (typedValue3 != null && (i5 = typedValue3.type) != 0) {
+                                if (i5 == 5) {
+                                    fraction2 = typedValue3.getDimension(displayMetrics);
+                                } else if (i5 == 6) {
+                                    int i10 = displayMetrics.heightPixels;
+                                    fraction2 = typedValue3.getFraction(i10, i10);
+                                } else {
+                                    i6 = 0;
+                                    if (i6 > 0) {
+                                        Rect rect2 = this.mDecorPadding;
+                                        i2 = View.MeasureSpec.makeMeasureSpec(Math.min(i6 - (rect2.top + rect2.bottom), View.MeasureSpec.getSize(i2)), 1073741824);
+                                    }
+                                }
+                                i6 = (int) fraction2;
+                                if (i6 > 0) {
+                                }
+                            }
+                        }
+                        super.onMeasure(i, i2);
+                        measuredWidth = getMeasuredWidth();
+                        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
+                        if (!z && mode == Integer.MIN_VALUE) {
+                            typedValue = !z3 ? this.mMinWidthMinor : this.mMinWidthMajor;
+                            if (typedValue != null && (i3 = typedValue.type) != 0) {
+                                if (i3 != 5) {
+                                    fraction = typedValue.getDimension(displayMetrics);
+                                } else if (i3 == 6) {
+                                    int i11 = displayMetrics.widthPixels;
+                                    fraction = typedValue.getFraction(i11, i11);
+                                } else {
+                                    i4 = 0;
+                                    if (i4 > 0) {
+                                        Rect rect3 = this.mDecorPadding;
+                                        i4 -= rect3.left + rect3.right;
+                                    }
+                                    if (measuredWidth < i4) {
+                                        makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i4, 1073741824);
+                                        if (z2) {
+                                            super.onMeasure(makeMeasureSpec, i2);
+                                            return;
+                                        }
+                                        return;
+                                    }
+                                }
+                                i4 = (int) fraction;
+                                if (i4 > 0) {
+                                }
+                                if (measuredWidth < i4) {
+                                }
+                            }
+                        }
+                        z2 = false;
+                        if (z2) {
+                        }
+                    }
+                }
+                i8 = (int) fraction3;
+                if (i8 > 0) {
+                }
+            }
+        }
+        z = false;
+        if (mode2 == Integer.MIN_VALUE) {
+        }
+        super.onMeasure(i, i2);
+        measuredWidth = getMeasuredWidth();
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
+        if (!z) {
+            if (!z3) {
+            }
+            if (typedValue != null) {
+                if (i3 != 5) {
+                }
+                i4 = (int) fraction;
+                if (i4 > 0) {
+                }
+                if (measuredWidth < i4) {
+                }
+            }
+        }
+        z2 = false;
+        if (z2) {
+        }
+    }
+
+    public void setAttachListener(OnAttachListener onAttachListener) {
+        this.mAttachListener = onAttachListener;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setDecorPadding(int i, int i2, int i3, int i4) {
+        this.mDecorPadding.set(i, i2, i3, i4);
+        if (ViewCompat.isLaidOut(this)) {
+            requestLayout();
+        }
+    }
+
+    public ContentFrameLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public ContentFrameLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.mDecorPadding = new Rect();
     }
 }

@@ -1,25 +1,25 @@
 package org.webrtc;
 
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class MediaStreamTrack {
     public static final String AUDIO_TRACK_KIND = "audio";
     public static final String VIDEO_TRACK_KIND = "video";
-    private long nativeTrack;
+    public long nativeTrack;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum MediaType {
         MEDIA_TYPE_AUDIO(0),
         MEDIA_TYPE_VIDEO(1);
         
-        private final int nativeIndex;
+        public final int nativeIndex;
 
         MediaType(int i) {
             this.nativeIndex = i;
         }
 
         @CalledByNative("MediaType")
-        static MediaType fromNativeIndex(int i) {
+        public static MediaType fromNativeIndex(int i) {
             MediaType[] values;
             for (MediaType mediaType : values()) {
                 if (mediaType.getNative() == i) {
@@ -30,18 +30,18 @@ public class MediaStreamTrack {
         }
 
         @CalledByNative("MediaType")
-        int getNative() {
+        public int getNative() {
             return this.nativeIndex;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum State {
         LIVE,
         ENDED;
 
         @CalledByNative("State")
-        static State fromNativeIndex(int i) {
+        public static State fromNativeIndex(int i) {
             return values()[i];
         }
     }
@@ -59,7 +59,6 @@ public class MediaStreamTrack {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public static MediaStreamTrack createMediaStreamTrack(long j) {
         if (j == 0) {
@@ -75,15 +74,15 @@ public class MediaStreamTrack {
         return null;
     }
 
-    private static native boolean nativeGetEnabled(long j);
+    public static native boolean nativeGetEnabled(long j);
 
-    private static native String nativeGetId(long j);
+    public static native String nativeGetId(long j);
 
-    private static native String nativeGetKind(long j);
+    public static native String nativeGetKind(long j);
 
-    private static native State nativeGetState(long j);
+    public static native State nativeGetState(long j);
 
-    private static native boolean nativeSetEnabled(long j, boolean z);
+    public static native boolean nativeSetEnabled(long j, boolean z);
 
     public void dispose() {
         checkMediaStreamTrackExists();
@@ -96,7 +95,6 @@ public class MediaStreamTrack {
         return nativeGetEnabled(this.nativeTrack);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public long getNativeMediaStreamTrack() {
         checkMediaStreamTrackExists();
         return this.nativeTrack;

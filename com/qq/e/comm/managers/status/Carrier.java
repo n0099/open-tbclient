@@ -1,5 +1,5 @@
 package com.qq.e.comm.managers.status;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum Carrier {
     UNKNOWN(0),
     CMCC(1),
@@ -8,13 +8,13 @@ public enum Carrier {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7575a;
+    public int f38331a;
 
     Carrier(int i) {
-        this.f7575a = i;
+        this.f38331a = i;
     }
 
     public final int getValue() {
-        return this.f7575a;
+        return this.f38331a;
     }
 }

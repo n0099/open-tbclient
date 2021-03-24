@@ -1,19 +1,19 @@
 package com.baidu.searchbox.unitedscheme.intercept;
 
-import com.baidu.pyramid.a.a;
-import com.baidu.swan.apps.scheme.a.b;
-import com.baidu.swan.apps.scheme.a.c;
+import d.b.d0.a.a;
+import d.b.g0.a.t1.l.b;
+import d.b.g0.a.t1.l.c;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implements a {
-    @Override // com.baidu.pyramid.a.a
+    @Override // d.b.d0.a.a
     public Object get() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new com.baidu.swan.apps.impl.a.b.a());
-        arrayList.add(new com.baidu.swan.apps.scheme.a.a());
+        arrayList.add(new d.b.g0.a.r0.a.e.a());
+        arrayList.add(new d.b.g0.a.t1.l.a());
         arrayList.add(new b());
         arrayList.add(new c());
-        arrayList.add(new com.baidu.swan.games.o.a());
+        arrayList.add(new d.b.g0.g.t.a());
         return arrayList;
     }
 }

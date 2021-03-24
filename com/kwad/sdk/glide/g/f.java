@@ -3,18 +3,21 @@ package com.kwad.sdk.glide.g;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.SystemClock;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final double f6633a;
+    public static final double f35219a;
 
     static {
-        f6633a = Build.VERSION.SDK_INT >= 17 ? 1.0d / Math.pow(10.0d, 6.0d) : 1.0d;
+        f35219a = Build.VERSION.SDK_INT >= 17 ? 1.0d / Math.pow(10.0d, 6.0d) : 1.0d;
     }
 
     public static double a(long j) {
-        return (a() - j) * f6633a;
+        double a2 = a() - j;
+        double d2 = f35219a;
+        Double.isNaN(a2);
+        return a2 * d2;
     }
 
     @TargetApi(17)

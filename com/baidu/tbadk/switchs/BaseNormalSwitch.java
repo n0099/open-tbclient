@@ -1,38 +1,37 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+import d.b.b.e.f.a;
+/* loaded from: classes3.dex */
 public abstract class BaseNormalSwitch extends a {
-    private static final int TYPE_OFF = 0;
-    private static final int TYPE_ON = 1;
+    public static final int TYPE_OFF = 0;
+    public static final int TYPE_ON = 1;
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected abstract String getName();
-
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected void changeSettingByType(int i) {
+    @Override // d.b.b.e.f.a
+    public void changeSettingByType(int i) {
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected String[] getCrashKeys() {
+    @Override // d.b.b.e.f.a
+    public String[] getCrashKeys() {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.featureSwitch.a
+    @Override // d.b.b.e.f.a
     public int getDefaultType() {
         return 1;
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected int getOffType() {
-        return 0;
+    @Override // d.b.b.e.f.a
+    public int getMaxCrashTimes() {
+        return 10;
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected int getMaxCrashTimes() {
-        return 10;
+    @Override // d.b.b.e.f.a
+    public abstract String getName();
+
+    @Override // d.b.b.e.f.a
+    public int getOffType() {
+        return 0;
     }
 
     public boolean isOn() {

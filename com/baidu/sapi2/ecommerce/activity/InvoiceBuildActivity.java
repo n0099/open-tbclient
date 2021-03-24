@@ -3,7 +3,6 @@ package com.baidu.sapi2.ecommerce.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.j.a.a;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.SlideActiviy;
@@ -13,23 +12,25 @@ import com.baidu.sapi2.ecommerce.EcommerceRouter;
 import com.baidu.sapi2.ecommerce.dto.InvoiceBuildDTO;
 import com.baidu.sapi2.ecommerce.result.InvoiceBuildResult;
 import com.baidu.sapi2.utils.Log;
+import d.b.a0.a.f;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
-    private static final String EXTRA_PARAMS_ISCHECK = "isCheck";
-    private static final String EXTRA_PARAMS_ISCHECKTAG = "isCheckTag";
-    private static final String EXTRA_PARAMS_TYPE = "select";
-    private static final String INVOICE_BUILD_ACTIVITY = "InvoiceBuildActivity";
-    private InvoiceBuildDTO invoiceBuildDTO;
-    private InvoiceBuildResult invoiceBuildResult = new InvoiceBuildResult();
+    public static final String EXTRA_PARAMS_ISCHECK = "isCheck";
+    public static final String EXTRA_PARAMS_ISCHECKTAG = "isCheckTag";
+    public static final String EXTRA_PARAMS_TYPE = "select";
+    public static final String INVOICE_BUILD_ACTIVITY = "InvoiceBuildActivity";
+    public InvoiceBuildDTO invoiceBuildDTO;
+    public InvoiceBuildResult invoiceBuildResult = new InvoiceBuildResult();
 
     /* JADX INFO: Access modifiers changed from: private */
     public void back() {
-        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView != null && sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
             return;
         }
@@ -56,7 +57,6 @@ public class InvoiceBuildActivity extends SlideActiviy {
         super.finish();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
         return EcommerceRouter.getInstance().getInvoiceBuildDTO();
@@ -65,8 +65,9 @@ public class InvoiceBuildActivity extends SlideActiviy {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        this.invoiceBuildDTO = EcommerceRouter.getInstance().getInvoiceBuildDTO();
-        if (this.invoiceBuildDTO == null) {
+        InvoiceBuildDTO invoiceBuildDTO = EcommerceRouter.getInstance().getInvoiceBuildDTO();
+        this.invoiceBuildDTO = invoiceBuildDTO;
+        if (invoiceBuildDTO == null) {
             this.invoiceBuildResult.setResultCode(-204);
             finishActivity();
         }
@@ -77,8 +78,8 @@ public class InvoiceBuildActivity extends SlideActiviy {
     }
 
     @Override // com.baidu.sapi2.activity.SlideActiviy
-    protected void loadSlideWebview(String str, String str2, String str3) {
-        if (!"invoice".equals(str) || TextUtils.isEmpty(str2)) {
+    public void loadSlideWebview(String str, String str2, String str3) {
+        if (!SlideActiviy.INVOICE_PAGE_NAME.equals(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         Intent intent = new Intent(this, InvoiceBuildExternalActivity.class);
@@ -86,7 +87,6 @@ public class InvoiceBuildActivity extends SlideActiviy {
         startActivity(intent);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         back();
@@ -96,7 +96,7 @@ public class InvoiceBuildActivity extends SlideActiviy {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -105,13 +105,11 @@ public class InvoiceBuildActivity extends SlideActiviy {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         back();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.SlideActiviy, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
@@ -140,15 +138,15 @@ public class InvoiceBuildActivity extends SlideActiviy {
                         InvoiceBuildActivity.this.invoiceBuildResult.map.put(next, jSONObject.optString(next));
                     }
                     InvoiceBuildActivity.this.invoiceBuildResult.setResultCode(0);
-                } catch (JSONException e) {
-                    Log.e(e);
+                } catch (JSONException e2) {
+                    Log.e(e2);
                     InvoiceBuildActivity.this.invoiceBuildResult.setResultCode(-205);
                 }
                 InvoiceBuildActivity.this.finishActivity();
             }
         });
         ArrayList arrayList = new ArrayList(1);
-        arrayList.add(new PassNameValuePair("slidePage", "1"));
+        arrayList.add(new PassNameValuePair(SlideActiviy.EXTRA_PARAMS_SLIDE_PAGE, "1"));
         InvoiceBuildDTO invoiceBuildDTO = this.invoiceBuildDTO;
         if (invoiceBuildDTO != null) {
             arrayList.add(new PassNameValuePair(EXTRA_PARAMS_TYPE, invoiceBuildDTO.TYPE));

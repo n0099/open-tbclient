@@ -4,31 +4,26 @@ import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import g.a.a.a;
+import g.a.b.b.b;
 import java.nio.ByteBuffer;
-import org.aspectj.a.b.b;
-import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AppleDataRateBox extends AbstractFullBox {
     public static final String TYPE = "rmdr";
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
-    private long dataRate;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
+    public long dataRate;
 
     static {
         ajc$preClinit();
-    }
-
-    private static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("AppleDataRateBox.java", AppleDataRateBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getDataRate", "com.coremedia.iso.boxes.apple.AppleDataRateBox", "", "", "", "long"), 53);
     }
 
     public AppleDataRateBox() {
         super(TYPE);
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    protected long getContentSize() {
-        return 8L;
+    public static /* synthetic */ void ajc$preClinit() {
+        b bVar = new b("AppleDataRateBox.java", AppleDataRateBox.class);
+        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getDataRate", "com.coremedia.iso.boxes.apple.AppleDataRateBox", "", "", "", "long"), 53);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -38,13 +33,18 @@ public class AppleDataRateBox extends AbstractFullBox {
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
-    protected void getContent(ByteBuffer byteBuffer) {
+    public void getContent(ByteBuffer byteBuffer) {
         writeVersionAndFlags(byteBuffer);
         IsoTypeWriter.writeUInt32(byteBuffer, this.dataRate);
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        return 8L;
+    }
+
     public long getDataRate() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this));
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
         return this.dataRate;
     }
 }

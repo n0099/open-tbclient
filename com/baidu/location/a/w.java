@@ -1,59 +1,81 @@
 package com.baidu.location.a;
 
 import android.location.Location;
-import com.baidu.ala.helper.AlaLiveRtcConfig;
+import android.net.wifi.ScanResult;
 import com.baidu.location.Jni;
-import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class w {
-    private int B;
+    public int B;
 
     /* renamed from: a  reason: collision with root package name */
-    long f1939a = 0;
-    private a z;
-    private static ArrayList<String> b = new ArrayList<>();
-    private static ArrayList<String> c = new ArrayList<>();
-    private static ArrayList<String> d = new ArrayList<>();
-    private static String e = com.baidu.location.d.i.f1973a + "/yo.dat";
-    private static final String f = com.baidu.location.d.i.f1973a + "/yoh.dat";
-    private static final String g = com.baidu.location.d.i.f1973a + "/yom.dat";
-    private static final String h = com.baidu.location.d.i.f1973a + "/yol.dat";
-    private static final String i = com.baidu.location.d.i.f1973a + "/yor.dat";
-    private static File j = null;
-    private static int k = 8;
-    private static int l = 8;
-    private static int m = 16;
-    private static int n = 1024;
-    private static double o = 0.0d;
-    private static double p = 0.1d;
-    private static double q = 30.0d;
-    private static double r = 100.0d;
-    private static int s = 0;
-    private static int t = 64;
-    private static int u = 128;
-    private static Location v = null;
-    private static Location w = null;
-    private static Location x = null;
-    private static com.baidu.location.b.h y = null;
-    private static w A = null;
-    private static long C = 0;
+    public long f6594a = 0;
+    public a z;
 
-    /* loaded from: classes4.dex */
-    private class a extends com.baidu.location.d.e {
+    /* renamed from: b  reason: collision with root package name */
+    public static ArrayList<String> f6587b = new ArrayList<>();
+
+    /* renamed from: c  reason: collision with root package name */
+    public static ArrayList<String> f6588c = new ArrayList<>();
+
+    /* renamed from: d  reason: collision with root package name */
+    public static ArrayList<String> f6589d = new ArrayList<>();
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f6590e = com.baidu.location.d.i.f6712a + "/yo.dat";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f6591f = com.baidu.location.d.i.f6712a + "/yoh.dat";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f6592g = com.baidu.location.d.i.f6712a + "/yom.dat";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f6593h = com.baidu.location.d.i.f6712a + "/yol.dat";
+    public static final String i = com.baidu.location.d.i.f6712a + "/yor.dat";
+    public static File j = null;
+    public static int k = 8;
+    public static int l = 8;
+    public static int m = 16;
+    public static int n = 1024;
+    public static double o = 0.0d;
+    public static double p = 0.1d;
+    public static double q = 30.0d;
+    public static double r = 100.0d;
+    public static int s = 0;
+    public static int t = 64;
+    public static int u = 128;
+    public static Location v = null;
+    public static Location w = null;
+    public static Location x = null;
+    public static com.baidu.location.b.h y = null;
+    public static w A = null;
+    public static long C = 0;
+
+    /* loaded from: classes2.dex */
+    public class a extends com.baidu.location.d.e {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f1940a = false;
-        int b = 0;
-        int c = 0;
-        private ArrayList<String> e = new ArrayList<>();
-        private boolean f = true;
+        public boolean f6595a = false;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f6596b = 0;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f6597c = 0;
+
+        /* renamed from: e  reason: collision with root package name */
+        public ArrayList<String> f6599e = new ArrayList<>();
+
+        /* renamed from: f  reason: collision with root package name */
+        public boolean f6600f = true;
 
         public a() {
             this.k = new HashMap();
@@ -61,21 +83,32 @@ public class w {
 
         @Override // com.baidu.location.d.e
         public void a() {
-            this.h = com.baidu.location.d.j.c();
-            if (this.b != 1) {
-                this.h = com.baidu.location.d.j.e();
+            Map<String, Object> map;
+            StringBuilder sb;
+            String str;
+            this.f6705h = com.baidu.location.d.j.c();
+            if (this.f6596b != 1) {
+                this.f6705h = com.baidu.location.d.j.e();
             }
             this.i = 2;
-            if (this.e != null) {
-                for (int i = 0; i < this.e.size(); i++) {
-                    if (this.b == 1) {
-                        this.k.put("cldc[" + i + "]", this.e.get(i));
+            if (this.f6599e != null) {
+                for (int i = 0; i < this.f6599e.size(); i++) {
+                    if (this.f6596b == 1) {
+                        map = this.k;
+                        sb = new StringBuilder();
+                        str = "cldc[";
                     } else {
-                        this.k.put("cltr[" + i + "]", this.e.get(i));
+                        map = this.k;
+                        sb = new StringBuilder();
+                        str = "cltr[";
                     }
+                    sb.append(str);
+                    sb.append(i);
+                    sb.append("]");
+                    map.put(sb.toString(), this.f6599e.get(i));
                 }
                 this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
-                if (this.b != 1) {
+                if (this.f6596b != 1) {
                     this.k.put("qt", "cltrg");
                 }
             }
@@ -84,153 +117,160 @@ public class w {
         @Override // com.baidu.location.d.e
         public void a(boolean z) {
             if (z && this.j != null) {
-                if (this.e != null) {
-                    this.e.clear();
+                ArrayList<String> arrayList = this.f6599e;
+                if (arrayList != null) {
+                    arrayList.clear();
                 }
                 try {
                     JSONObject jSONObject = new JSONObject(this.j);
                     if (jSONObject.has("ison") && jSONObject.getInt("ison") == 0) {
-                        this.f = false;
+                        this.f6600f = false;
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
-            if (this.k != null) {
-                this.k.clear();
+            Map<String, Object> map = this.k;
+            if (map != null) {
+                map.clear();
             }
-            this.f1940a = false;
+            this.f6595a = false;
         }
 
         public synchronized void b() {
-            int i = 0;
-            synchronized (this) {
-                if (!this.f1940a) {
-                    if (p <= 4 || this.c >= p) {
-                        this.c = 0;
-                        this.f1940a = true;
-                        this.b = 0;
-                        try {
-                            if (this.e == null || this.e.size() < 1) {
-                                if (this.e == null) {
-                                    this.e = new ArrayList<>();
-                                }
-                                this.b = 0;
-                                while (true) {
-                                    String b = this.b < 2 ? w.b() : null;
-                                    if (b == null && this.b != 1 && this.f) {
-                                        this.b = 2;
-                                        try {
-                                            b = g.a();
-                                        } catch (Exception e) {
-                                            b = null;
-                                        }
-                                    } else {
-                                        this.b = 1;
-                                    }
-                                    if (b == null) {
-                                        break;
-                                    } else if (!b.contains("err!")) {
-                                        this.e.add(b);
-                                        i += b.length();
-                                        if (i >= com.baidu.location.d.a.i) {
-                                            break;
-                                        }
-                                    }
-                                }
+            if (this.f6595a) {
+                return;
+            }
+            if (com.baidu.location.d.e.p > 4 && this.f6597c < com.baidu.location.d.e.p) {
+                this.f6597c++;
+                return;
+            }
+            this.f6597c = 0;
+            this.f6595a = true;
+            this.f6596b = 0;
+            try {
+                if (this.f6599e == null || this.f6599e.size() < 1) {
+                    if (this.f6599e == null) {
+                        this.f6599e = new ArrayList<>();
+                    }
+                    this.f6596b = 0;
+                    int i = 0;
+                    while (true) {
+                        String str = null;
+                        String b2 = this.f6596b < 2 ? w.b() : null;
+                        if (b2 == null && this.f6596b != 1 && this.f6600f) {
+                            this.f6596b = 2;
+                            try {
+                                str = g.a();
+                            } catch (Exception unused) {
                             }
-                            if (this.e == null || this.e.size() < 1) {
-                                if (this.e != null) {
-                                    this.e.clear();
-                                }
-                                this.f1940a = false;
-                            } else if (this.b != 1) {
-                                b(com.baidu.location.d.j.e());
-                            } else {
-                                b(com.baidu.location.d.j.f);
-                            }
-                        } catch (Exception e2) {
-                            if (this.e != null) {
-                                this.e.clear();
+                        } else {
+                            this.f6596b = 1;
+                            str = b2;
+                        }
+                        if (str == null) {
+                            break;
+                        } else if (!str.contains("err!")) {
+                            this.f6599e.add(str);
+                            i += str.length();
+                            if (i >= com.baidu.location.d.a.i) {
+                                break;
                             }
                         }
-                    } else {
-                        this.c++;
                     }
+                }
+                if (this.f6599e != null && this.f6599e.size() >= 1) {
+                    b(this.f6596b != 1 ? com.baidu.location.d.j.e() : com.baidu.location.d.j.f6719f);
+                    return;
+                }
+                if (this.f6599e != null) {
+                    this.f6599e.clear();
+                }
+                this.f6595a = false;
+            } catch (Exception unused2) {
+                if (this.f6599e != null) {
+                    this.f6599e.clear();
                 }
             }
         }
     }
 
-    private w() {
+    public w() {
         this.z = null;
         this.B = 0;
         this.z = new a();
         this.B = 0;
     }
 
-    private static synchronized int a(List<String> list, int i2) {
-        int i3;
+    public static synchronized int a(List<String> list, int i2) {
         synchronized (w.class) {
             if (list != null && i2 <= 256) {
                 if (i2 >= 0) {
                     try {
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                        i3 = -5;
-                    }
-                    if (j == null) {
-                        j = new File(e);
-                        if (!j.exists()) {
-                            j = null;
-                            i3 = -2;
+                        if (j == null) {
+                            File file = new File(f6590e);
+                            j = file;
+                            if (!file.exists()) {
+                                j = null;
+                                return -2;
+                            }
                         }
-                    }
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(j, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
-                    if (randomAccessFile.length() < 1) {
-                        randomAccessFile.close();
-                        i3 = -3;
-                    } else {
-                        randomAccessFile.seek(i2);
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(j, "rw");
+                        if (randomAccessFile.length() < 1) {
+                            randomAccessFile.close();
+                            return -3;
+                        }
+                        long j2 = i2;
+                        randomAccessFile.seek(j2);
                         int readInt = randomAccessFile.readInt();
                         int readInt2 = randomAccessFile.readInt();
                         int readInt3 = randomAccessFile.readInt();
                         int readInt4 = randomAccessFile.readInt();
                         long readLong = randomAccessFile.readLong();
-                        if (!a(readInt, readInt2, readInt3, readInt4, readLong) || readInt2 < 1) {
-                            randomAccessFile.close();
-                            i3 = -4;
-                        } else {
-                            byte[] bArr = new byte[n];
-                            int i4 = k;
-                            int i5 = readInt2;
-                            while (i4 > 0 && i5 > 0) {
-                                randomAccessFile.seek(((((readInt + i5) - 1) % readInt3) * readInt4) + readLong);
-                                int readInt5 = randomAccessFile.readInt();
-                                if (readInt5 > 0 && readInt5 < readInt4) {
-                                    randomAccessFile.read(bArr, 0, readInt5);
-                                    if (bArr[readInt5 - 1] == 0) {
-                                        list.add(new String(bArr, 0, readInt5 - 1));
+                        long j3 = readLong;
+                        if (a(readInt, readInt2, readInt3, readInt4, readLong)) {
+                            int i3 = 1;
+                            if (readInt2 >= 1) {
+                                byte[] bArr = new byte[n];
+                                int i4 = k;
+                                while (i4 > 0 && readInt2 > 0) {
+                                    byte[] bArr2 = bArr;
+                                    long j4 = j3;
+                                    randomAccessFile.seek(((((readInt + readInt2) - i3) % readInt3) * readInt4) + j4);
+                                    int readInt5 = randomAccessFile.readInt();
+                                    if (readInt5 > 0 && readInt5 < readInt4) {
+                                        randomAccessFile.read(bArr2, 0, readInt5);
+                                        int i5 = readInt5 - 1;
+                                        if (bArr2[i5] == 0) {
+                                            list.add(new String(bArr2, 0, i5));
+                                        }
                                     }
+                                    i4--;
+                                    readInt2--;
+                                    j3 = j4;
+                                    bArr = bArr2;
+                                    i3 = 1;
                                 }
-                                i5--;
-                                i4--;
+                                randomAccessFile.seek(j2);
+                                randomAccessFile.writeInt(readInt);
+                                randomAccessFile.writeInt(readInt2);
+                                randomAccessFile.writeInt(readInt3);
+                                randomAccessFile.writeInt(readInt4);
+                                randomAccessFile.writeLong(j3);
+                                randomAccessFile.close();
+                                return k - i4;
                             }
-                            randomAccessFile.seek(i2);
-                            randomAccessFile.writeInt(readInt);
-                            randomAccessFile.writeInt(i5);
-                            randomAccessFile.writeInt(readInt3);
-                            randomAccessFile.writeInt(readInt4);
-                            randomAccessFile.writeLong(readLong);
-                            randomAccessFile.close();
-                            i3 = k - i4;
                         }
+                        randomAccessFile.close();
+                        return -4;
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                        return -5;
                     }
                 }
             }
-            i3 = -1;
+            return -1;
         }
-        return i3;
     }
 
     public static synchronized w a() {
@@ -244,25 +284,25 @@ public class w {
         return wVar;
     }
 
-    private static String a(int i2) {
+    public static String a(int i2) {
         String str;
         ArrayList<String> arrayList;
-        String str2;
-        String str3 = null;
+        String str2 = null;
         if (i2 == 1) {
-            str = f;
-            arrayList = b;
+            str = f6591f;
+            arrayList = f6587b;
         } else if (i2 == 2) {
-            str = g;
-            arrayList = c;
-        } else if (i2 == 3) {
-            str = h;
-            arrayList = d;
-        } else if (i2 != 4) {
-            return null;
+            str = f6592g;
+            arrayList = f6588c;
         } else {
-            str = i;
-            arrayList = d;
+            if (i2 == 3) {
+                str = f6593h;
+            } else if (i2 != 4) {
+                return null;
+            } else {
+                str = i;
+            }
+            arrayList = f6589d;
         }
         if (arrayList == null) {
             return null;
@@ -273,115 +313,187 @@ public class w {
         synchronized (w.class) {
             int size = arrayList.size();
             if (size > 0) {
+                int i3 = size - 1;
                 try {
-                    str2 = arrayList.get(size - 1);
-                } catch (Exception e2) {
-                }
-                try {
-                    arrayList.remove(size - 1);
-                } catch (Exception e3) {
-                    str3 = str2;
+                    String str3 = arrayList.get(i3);
+                    try {
+                        arrayList.remove(i3);
+                    } catch (Exception unused) {
+                    }
                     str2 = str3;
-                    return str2;
+                } catch (Exception unused2) {
                 }
-            } else {
-                str2 = null;
             }
         }
         return str2;
     }
 
-    private static void a(int i2, boolean z) {
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0011, code lost:
+        if (r15 != false) goto L7;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x001c, code lost:
+        if (r15 != false) goto L45;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0034  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00e1 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00ce A[EDGE_INSN: B:51:0x00ce->B:42:0x00ce ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:56:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(int i2, boolean z) {
         String str;
         ArrayList<String> arrayList;
+        File file;
+        int size;
         int i3;
-        boolean z2;
-        int i4;
-        if (i2 == 1) {
-            str = f;
+        try {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 == 3) {
+                        str = f6593h;
+                    } else if (i2 != 4) {
+                        return;
+                    } else {
+                        str = i;
+                        if (!z) {
+                            return;
+                        }
+                    }
+                    arrayList = f6589d;
+                    file = new File(str);
+                    if (!file.exists()) {
+                        d(str);
+                    }
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                    randomAccessFile.seek(4L);
+                    int readInt = randomAccessFile.readInt();
+                    int readInt2 = randomAccessFile.readInt();
+                    int readInt3 = randomAccessFile.readInt();
+                    int readInt4 = randomAccessFile.readInt();
+                    int readInt5 = randomAccessFile.readInt();
+                    size = arrayList.size();
+                    while (true) {
+                        i3 = 0;
+                        if (size <= l) {
+                            break;
+                        }
+                        if (z) {
+                            readInt5++;
+                        }
+                        if (readInt3 >= readInt) {
+                            if (!z) {
+                                i3 = 1;
+                                break;
+                            }
+                            randomAccessFile.seek((readInt4 * readInt2) + 128);
+                            byte[] bytes = (arrayList.get(0) + (char) 0).getBytes();
+                            randomAccessFile.writeInt(bytes.length);
+                            randomAccessFile.write(bytes, 0, bytes.length);
+                            arrayList.remove(0);
+                            int i4 = readInt4 + 1;
+                            if (i4 <= readInt3) {
+                                i3 = i4;
+                            }
+                            readInt4 = i3;
+                        } else {
+                            randomAccessFile.seek((readInt2 * readInt3) + 128);
+                            byte[] bytes2 = (arrayList.get(0) + (char) 0).getBytes();
+                            randomAccessFile.writeInt(bytes2.length);
+                            randomAccessFile.write(bytes2, 0, bytes2.length);
+                            arrayList.remove(0);
+                            readInt3++;
+                        }
+                        size--;
+                    }
+                    randomAccessFile.seek(12L);
+                    randomAccessFile.writeInt(readInt3);
+                    randomAccessFile.writeInt(readInt4);
+                    randomAccessFile.writeInt(readInt5);
+                    randomAccessFile.close();
+                    if (i3 == 0 || i2 >= 4) {
+                        return;
+                    }
+                    a(i2 + 1, true);
+                    return;
+                }
+                str = f6592g;
+                arrayList = f6588c;
+                file = new File(str);
+                if (!file.exists()) {
+                }
+                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
+                randomAccessFile2.seek(4L);
+                int readInt6 = randomAccessFile2.readInt();
+                int readInt22 = randomAccessFile2.readInt();
+                int readInt32 = randomAccessFile2.readInt();
+                int readInt42 = randomAccessFile2.readInt();
+                int readInt52 = randomAccessFile2.readInt();
+                size = arrayList.size();
+                while (true) {
+                    i3 = 0;
+                    if (size <= l) {
+                    }
+                    size--;
+                }
+                randomAccessFile2.seek(12L);
+                randomAccessFile2.writeInt(readInt32);
+                randomAccessFile2.writeInt(readInt42);
+                randomAccessFile2.writeInt(readInt52);
+                randomAccessFile2.close();
+                if (i3 == 0) {
+                    return;
+                }
+                return;
+            }
+            str = f6591f;
             if (z) {
                 return;
             }
-            arrayList = b;
-        } else if (i2 == 2) {
-            str = g;
-            arrayList = z ? b : c;
-        } else if (i2 == 3) {
-            str = h;
-            arrayList = z ? c : d;
-        } else if (i2 != 4) {
-            return;
-        } else {
-            str = i;
-            if (!z) {
-                return;
-            }
-            arrayList = d;
-        }
-        File file = new File(str);
-        if (!file.exists()) {
-            d(str);
-        }
-        try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
-            randomAccessFile.seek(4L);
-            int readInt = randomAccessFile.readInt();
-            int readInt2 = randomAccessFile.readInt();
-            int readInt3 = randomAccessFile.readInt();
-            int readInt4 = randomAccessFile.readInt();
-            int readInt5 = randomAccessFile.readInt();
-            int size = arrayList.size();
+            RandomAccessFile randomAccessFile22 = new RandomAccessFile(file, "rw");
+            randomAccessFile22.seek(4L);
+            int readInt62 = randomAccessFile22.readInt();
+            int readInt222 = randomAccessFile22.readInt();
+            int readInt322 = randomAccessFile22.readInt();
+            int readInt422 = randomAccessFile22.readInt();
+            int readInt522 = randomAccessFile22.readInt();
+            size = arrayList.size();
             while (true) {
+                i3 = 0;
                 if (size <= l) {
-                    i3 = readInt5;
-                    z2 = false;
-                    break;
-                }
-                if (z) {
-                    readInt5++;
-                }
-                if (readInt3 >= readInt) {
-                    if (!z) {
-                        z2 = true;
-                        i3 = readInt5;
-                        break;
-                    }
-                    randomAccessFile.seek((readInt4 * readInt2) + 128);
-                    byte[] bytes = (arrayList.get(0) + (char) 0).getBytes();
-                    randomAccessFile.writeInt(bytes.length);
-                    randomAccessFile.write(bytes, 0, bytes.length);
-                    arrayList.remove(0);
-                    i4 = readInt4 + 1;
-                    if (i4 > readInt3) {
-                        i4 = 0;
-                    }
-                } else {
-                    randomAccessFile.seek((readInt2 * readInt3) + 128);
-                    byte[] bytes2 = (arrayList.get(0) + (char) 0).getBytes();
-                    randomAccessFile.writeInt(bytes2.length);
-                    randomAccessFile.write(bytes2, 0, bytes2.length);
-                    arrayList.remove(0);
-                    readInt3++;
-                    i4 = readInt4;
                 }
                 size--;
-                readInt4 = i4;
             }
-            randomAccessFile.seek(12L);
-            randomAccessFile.writeInt(readInt3);
-            randomAccessFile.writeInt(readInt4);
-            randomAccessFile.writeInt(i3);
-            randomAccessFile.close();
-            if (!z2 || i2 >= 4) {
-                return;
+            randomAccessFile22.seek(12L);
+            randomAccessFile22.writeInt(readInt322);
+            randomAccessFile22.writeInt(readInt422);
+            randomAccessFile22.writeInt(readInt522);
+            randomAccessFile22.close();
+            if (i3 == 0) {
             }
-            a(i2 + 1, true);
-        } catch (Exception e2) {
+        } catch (Exception unused) {
+            return;
+        }
+        arrayList = f6587b;
+        file = new File(str);
+        if (!file.exists()) {
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00ab  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0114  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x012a  */
+    /* JADX WARN: Removed duplicated region for block: B:79:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:84:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void a(com.baidu.location.b.a aVar, com.baidu.location.b.h hVar, Location location, String str) {
+        StringBuilder sb;
         String a2;
+        StringBuilder sb2;
+        String a3;
         if ((com.baidu.location.d.j.v == 3 && !a(location, hVar) && !a(location, false)) || aVar == null || aVar.c()) {
             return;
         }
@@ -389,9 +501,9 @@ public class w {
             if (!a(location, hVar)) {
                 hVar = null;
             }
-            String a3 = com.baidu.location.d.j.a(aVar, hVar, location, str, 1);
-            if (a3 != null) {
-                a(Jni.encode(a3));
+            String a4 = com.baidu.location.d.j.a(aVar, hVar, location, str, 1);
+            if (a4 != null) {
+                a(Jni.encode(a4));
                 w = location;
                 v = location;
                 if (hVar != null) {
@@ -400,81 +512,125 @@ public class w {
             }
         } else if (hVar != null && hVar.k() && a(location, hVar)) {
             if (!a(location) && !com.baidu.location.b.b.a().d()) {
-                str = "&cfr=1" + str;
-            } else if (!a(location) && com.baidu.location.b.b.a().d()) {
-                str = "&cfr=3" + str;
-            } else if (com.baidu.location.b.b.a().d()) {
-                str = "&cfr=2" + str;
-            }
-            String a4 = com.baidu.location.d.j.a(aVar, hVar, location, str, 2);
-            if (a4 != null) {
-                b(Jni.encode(a4));
-                x = location;
-                v = location;
-                if (hVar != null) {
-                    y = hVar;
+                sb2 = new StringBuilder();
+                sb2.append("&cfr=1");
+            } else if (a(location) || !com.baidu.location.b.b.a().d()) {
+                if (com.baidu.location.b.b.a().d()) {
+                    sb2 = new StringBuilder();
+                    sb2.append("&cfr=2");
                 }
+                a3 = com.baidu.location.d.j.a(aVar, hVar, location, str, 2);
+                if (a3 == null) {
+                    b(Jni.encode(a3));
+                    x = location;
+                    v = location;
+                    if (hVar != null) {
+                        y = hVar;
+                        return;
+                    }
+                    return;
+                }
+                return;
+            } else {
+                sb2 = new StringBuilder();
+                sb2.append("&cfr=3");
+            }
+            sb2.append(str);
+            str = sb2.toString();
+            a3 = com.baidu.location.d.j.a(aVar, hVar, location, str, 2);
+            if (a3 == null) {
             }
         } else {
-            if (!a(location) && !com.baidu.location.b.b.a().d()) {
-                str = "&cfr=1" + str;
-            } else if (!a(location) && com.baidu.location.b.b.a().d()) {
-                str = "&cfr=3" + str;
-            } else if (com.baidu.location.b.b.a().d()) {
-                str = "&cfr=2" + str;
-            }
-            com.baidu.location.b.h hVar2 = a(location, hVar) ? hVar : null;
-            if ((aVar == null && hVar2 == null) || (a2 = com.baidu.location.d.j.a(aVar, hVar2, location, str, 3)) == null) {
+            if (a(location) || com.baidu.location.b.b.a().d()) {
+                if (!a(location) && com.baidu.location.b.b.a().d()) {
+                    str = "&cfr=3" + str;
+                } else if (com.baidu.location.b.b.a().d()) {
+                    sb = new StringBuilder();
+                    sb.append("&cfr=2");
+                }
+                if (!a(location, hVar)) {
+                    hVar = null;
+                }
+                if ((aVar == null || hVar != null) && (a2 = com.baidu.location.d.j.a(aVar, hVar, location, str, 3)) != null) {
+                    c(Jni.encode(a2));
+                    v = location;
+                    if (hVar == null) {
+                        y = hVar;
+                        return;
+                    }
+                    return;
+                }
                 return;
+            }
+            sb = new StringBuilder();
+            sb.append("&cfr=1");
+            sb.append(str);
+            str = sb.toString();
+            if (!a(location, hVar)) {
+            }
+            if (aVar == null) {
             }
             c(Jni.encode(a2));
             v = location;
-            if (hVar2 != null) {
-                y = hVar2;
+            if (hVar == null) {
             }
         }
     }
 
-    private static void a(String str) {
+    public static void a(String str) {
         e(str);
     }
 
-    private static boolean a(int i2, int i3, int i4, int i5, long j2) {
+    public static boolean a(int i2, int i3, int i4, int i5, long j2) {
         return i2 >= 0 && i2 < i4 && i3 >= 0 && i3 <= i4 && i4 >= 0 && i4 <= 1024 && i5 >= 128 && i5 <= 1024;
     }
 
-    private static boolean a(Location location) {
+    public static boolean a(Location location) {
         if (location == null) {
             return false;
         }
-        if (w == null || v == null) {
+        Location location2 = w;
+        if (location2 == null || v == null) {
             w = location;
             return true;
         }
-        double distanceTo = location.distanceTo(w);
-        return ((double) location.distanceTo(v)) > ((distanceTo * ((double) com.baidu.location.d.j.T)) + ((((double) com.baidu.location.d.j.S) * distanceTo) * distanceTo)) + ((double) com.baidu.location.d.j.U);
+        double distanceTo = location.distanceTo(location2);
+        double d2 = com.baidu.location.d.j.S;
+        Double.isNaN(d2);
+        Double.isNaN(distanceTo);
+        Double.isNaN(distanceTo);
+        double d3 = com.baidu.location.d.j.T;
+        Double.isNaN(d3);
+        Double.isNaN(distanceTo);
+        double d4 = com.baidu.location.d.j.U;
+        Double.isNaN(d4);
+        return ((double) location.distanceTo(v)) > (((d2 * distanceTo) * distanceTo) + (d3 * distanceTo)) + d4;
     }
 
-    private static boolean a(Location location, com.baidu.location.b.h hVar) {
-        if (location == null || hVar == null || hVar.f1956a == null || hVar.f1956a.isEmpty() || hVar.b(y)) {
-            return false;
+    public static boolean a(Location location, com.baidu.location.b.h hVar) {
+        List<ScanResult> list;
+        boolean z = false;
+        if (location != null && hVar != null && (list = hVar.f6643a) != null && !list.isEmpty()) {
+            if (hVar.b(y)) {
+                return false;
+            }
+            z = true;
+            if (x == null) {
+                x = location;
+            }
         }
-        if (x == null) {
-            x = location;
-            return true;
-        }
-        return true;
+        return z;
     }
 
     public static boolean a(Location location, boolean z) {
         return com.baidu.location.b.e.a(v, location, z);
     }
 
-    private static boolean a(String str, List<String> list) {
+    public static boolean a(String str, List<String> list) {
         File file = new File(str);
         if (file.exists()) {
             try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(8L);
                 int readInt = randomAccessFile.readInt();
                 int readInt2 = randomAccessFile.readInt();
@@ -491,14 +647,15 @@ public class w {
                         int readInt4 = randomAccessFile.readInt();
                         if (readInt4 > 0 && readInt4 < readInt) {
                             randomAccessFile.read(bArr, 0, readInt4);
-                            if (bArr[readInt4 - 1] == 0) {
-                                list.add(0, new String(bArr, 0, readInt4 - 1));
+                            int i3 = readInt4 - 1;
+                            if (bArr[i3] == 0) {
+                                list.add(0, new String(bArr, 0, i3));
                                 z = true;
                             }
                         }
                         i2--;
                         readInt2--;
-                    } catch (Exception e2) {
+                    } catch (Exception unused) {
                         return z;
                     }
                 }
@@ -507,7 +664,7 @@ public class w {
                 randomAccessFile.writeInt(readInt3);
                 randomAccessFile.close();
                 return z;
-            } catch (Exception e3) {
+            } catch (Exception unused2) {
                 return false;
             }
         }
@@ -518,11 +675,11 @@ public class w {
         return f();
     }
 
-    private static void b(String str) {
+    public static void b(String str) {
         e(str);
     }
 
-    private static void c(String str) {
+    public static void c(String str) {
         e(str);
     }
 
@@ -534,118 +691,135 @@ public class w {
         l = 8;
     }
 
-    private static void d(String str) {
+    public static void d(String str) {
         try {
             File file = new File(str);
             if (file.exists()) {
                 return;
             }
-            File file2 = new File(com.baidu.location.d.i.f1973a);
+            File file2 = new File(com.baidu.location.d.i.f6712a);
             if (!file2.exists()) {
                 file2.mkdirs();
             }
             if (!file.createNewFile()) {
                 file = null;
             }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
             randomAccessFile.seek(0L);
             randomAccessFile.writeInt(32);
             randomAccessFile.writeInt(2048);
-            randomAccessFile.writeInt(AlaLiveRtcConfig.NativeErroCode.ERROR_PROTOCAL_SESSION_ID);
+            randomAccessFile.writeInt(1040);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(0);
             randomAccessFile.close();
-        } catch (Exception e2) {
+        } catch (Exception unused) {
         }
     }
 
     public static String e() {
+        File file = new File(f6592g);
         String str = null;
-        File file = new File(g);
         if (file.exists()) {
             try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(20L);
                 int readInt = randomAccessFile.readInt();
                 if (readInt > 128) {
                     String str2 = "&p1=" + readInt;
-                    randomAccessFile.seek(20L);
-                    randomAccessFile.writeInt(0);
+                    try {
+                        randomAccessFile.seek(20L);
+                        randomAccessFile.writeInt(0);
+                        randomAccessFile.close();
+                        return str2;
+                    } catch (Exception unused) {
+                        str = str2;
+                    }
+                } else {
                     randomAccessFile.close();
-                    return str2;
                 }
-                randomAccessFile.close();
-            } catch (Exception e2) {
+            } catch (Exception unused2) {
             }
         }
-        File file2 = new File(h);
+        File file2 = new File(f6593h);
         if (file2.exists()) {
             try {
-                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file2, "rw");
                 randomAccessFile2.seek(20L);
                 int readInt2 = randomAccessFile2.readInt();
                 if (readInt2 > 256) {
                     String str3 = "&p2=" + readInt2;
-                    randomAccessFile2.seek(20L);
-                    randomAccessFile2.writeInt(0);
+                    try {
+                        randomAccessFile2.seek(20L);
+                        randomAccessFile2.writeInt(0);
+                        randomAccessFile2.close();
+                        return str3;
+                    } catch (Exception unused3) {
+                        str = str3;
+                    }
+                } else {
                     randomAccessFile2.close();
-                    return str3;
                 }
-                randomAccessFile2.close();
-            } catch (Exception e3) {
+            } catch (Exception unused4) {
             }
         }
         File file3 = new File(i);
         if (file3.exists()) {
             try {
-                RandomAccessFile randomAccessFile3 = new RandomAccessFile(file3, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+                RandomAccessFile randomAccessFile3 = new RandomAccessFile(file3, "rw");
                 randomAccessFile3.seek(20L);
                 int readInt3 = randomAccessFile3.readInt();
                 if (readInt3 > 512) {
-                    str = "&p3=" + readInt3;
-                    randomAccessFile3.seek(20L);
-                    randomAccessFile3.writeInt(0);
-                    randomAccessFile3.close();
+                    String str4 = "&p3=" + readInt3;
+                    try {
+                        randomAccessFile3.seek(20L);
+                        randomAccessFile3.writeInt(0);
+                        randomAccessFile3.close();
+                        return str4;
+                    } catch (Exception unused5) {
+                        str = str4;
+                    }
                 } else {
                     randomAccessFile3.close();
                 }
-                return str;
-            } catch (Exception e4) {
-                return str;
+            } catch (Exception unused6) {
             }
         }
-        return null;
+        return str;
     }
 
-    private static synchronized void e(String str) {
+    public static synchronized void e(String str) {
         ArrayList<String> arrayList;
         synchronized (w.class) {
-            if (!str.contains("err!")) {
-                int i2 = com.baidu.location.d.j.q;
-                if (i2 == 1) {
-                    arrayList = b;
-                } else if (i2 == 2) {
-                    arrayList = c;
-                } else if (i2 == 3) {
-                    arrayList = d;
-                }
-                if (arrayList != null) {
-                    if (arrayList.size() <= m) {
-                        arrayList.add(str);
-                    }
-                    if (arrayList.size() >= m) {
-                        a(i2, false);
-                    }
-                    while (arrayList.size() > m) {
-                        arrayList.remove(0);
-                    }
-                }
+            if (str.contains("err!")) {
+                return;
+            }
+            int i2 = com.baidu.location.d.j.q;
+            if (i2 == 1) {
+                arrayList = f6587b;
+            } else if (i2 == 2) {
+                arrayList = f6588c;
+            } else if (i2 != 3) {
+                return;
+            } else {
+                arrayList = f6589d;
+            }
+            if (arrayList == null) {
+                return;
+            }
+            if (arrayList.size() <= m) {
+                arrayList.add(str);
+            }
+            if (arrayList.size() >= m) {
+                a(i2, false);
+            }
+            while (arrayList.size() > m) {
+                arrayList.remove(0);
             }
         }
     }
 
-    private static String f() {
+    public static String f() {
         String str = null;
         for (int i2 = 1; i2 < 5; i2++) {
             str = a(i2);
@@ -653,27 +827,27 @@ public class w {
                 return str;
             }
         }
-        a(d, t);
-        if (d.size() > 0) {
-            str = d.get(0);
-            d.remove(0);
+        a(f6589d, t);
+        if (f6589d.size() > 0) {
+            str = f6589d.get(0);
+            f6589d.remove(0);
         }
-        if (str == null) {
-            a(d, s);
-            if (d.size() > 0) {
-                str = d.get(0);
-                d.remove(0);
-            }
-            if (str == null) {
-                a(d, u);
-                if (d.size() > 0) {
-                    String str2 = d.get(0);
-                    d.remove(0);
-                    return str2;
-                }
-                return str;
-            }
+        if (str != null) {
             return str;
+        }
+        a(f6589d, s);
+        if (f6589d.size() > 0) {
+            str = f6589d.get(0);
+            f6589d.remove(0);
+        }
+        if (str != null) {
+            return str;
+        }
+        a(f6589d, u);
+        if (f6589d.size() > 0) {
+            String str2 = f6589d.get(0);
+            f6589d.remove(0);
+            return str2;
         }
         return str;
     }

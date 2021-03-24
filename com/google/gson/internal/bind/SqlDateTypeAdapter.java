@@ -5,46 +5,49 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.stream.JsonToken;
+import d.g.c.c.a;
+import d.g.c.d.b;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
-    public static final TypeAdapterFactory pUg = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.SqlDateTypeAdapter.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final TypeAdapterFactory f30973b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.SqlDateTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
-        public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.eCa() == Date.class) {
+        public <T> TypeAdapter<T> create(Gson gson, a<T> aVar) {
+            if (aVar.c() == Date.class) {
                 return new SqlDateTypeAdapter();
             }
             return null;
         }
     };
-    private final DateFormat pUI = new SimpleDateFormat("MMM d, yyyy");
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.gson.TypeAdapter
-    /* renamed from: d */
-    public synchronized Date read(com.google.gson.stream.a aVar) throws IOException {
-        Date date;
-        if (aVar.eBD() == JsonToken.NULL) {
-            aVar.eBJ();
-            date = null;
-        } else {
-            try {
-                date = new Date(this.pUI.parse(aVar.eBH()).getTime());
-            } catch (ParseException e) {
-                throw new JsonSyntaxException(e);
-            }
-        }
-        return date;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public final DateFormat f30974a = new SimpleDateFormat("MMM d, yyyy");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     /* renamed from: a */
-    public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
-        bVar.aac(date == null ? null : this.pUI.format((java.util.Date) date));
+    public synchronized Date read(d.g.c.d.a aVar) throws IOException {
+        if (aVar.M() == JsonToken.NULL) {
+            aVar.I();
+            return null;
+        }
+        try {
+            return new Date(this.f30974a.parse(aVar.K()).getTime());
+        } catch (ParseException e2) {
+            throw new JsonSyntaxException(e2);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.gson.TypeAdapter
+    /* renamed from: b */
+    public synchronized void write(b bVar, Date date) throws IOException {
+        bVar.O(date == null ? null : this.f30974a.format((java.util.Date) date));
     }
 }

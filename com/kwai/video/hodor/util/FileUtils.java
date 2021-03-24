@@ -6,8 +6,9 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FileUtils {
     public static long getAvailableBytes(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -19,12 +20,13 @@ public class FileUtils {
             Timber.d("[getAvailableBytes] avilabeBytes new way:%dMB, path:%s", Long.valueOf(availableBytes / 1048576), str);
             return availableBytes;
         }
-        long availableBlocks = statFs.getAvailableBlocks() * statFs.getBlockSize();
-        Timber.d("[getAvailableBytes] avilabeBytes old way:%dMB, path:%s", Long.valueOf(availableBlocks / 1048576), str);
-        return availableBlocks;
+        long blockSize = statFs.getBlockSize() * statFs.getAvailableBlocks();
+        Timber.d("[getAvailableBytes] avilabeBytes old way:%dMB, path:%s", Long.valueOf(blockSize / 1048576), str);
+        return blockSize;
     }
 
     public static File getDefaultCacheDir(@NonNull Context context, boolean z) {
+        String str = StringUtil.NULL_STRING;
         if (z) {
             File filesDir = context.getFilesDir();
             if (isValidDir(filesDir)) {
@@ -32,7 +34,7 @@ public class FileUtils {
                 return filesDir;
             }
             Object[] objArr = new Object[1];
-            objArr[0] = filesDir == null ? "null" : filesDir.getAbsolutePath();
+            objArr[0] = filesDir == null ? StringUtil.NULL_STRING : filesDir.getAbsolutePath();
             Timber.w("[getDefaultCacheDir] getFilesDir:%s is not valid", objArr);
         }
         File externalFilesDir = context.getApplicationContext().getExternalFilesDir(null);
@@ -41,7 +43,7 @@ public class FileUtils {
             return externalFilesDir;
         }
         Object[] objArr2 = new Object[1];
-        objArr2[0] = externalFilesDir == null ? "null" : externalFilesDir.getAbsolutePath();
+        objArr2[0] = externalFilesDir == null ? StringUtil.NULL_STRING : externalFilesDir.getAbsolutePath();
         Timber.w("[getDefaultCacheDir] getExternalFilesDir:%s is not valid", objArr2);
         File externalStorageDirectory = Environment.getExternalStorageDirectory();
         if (isValidDir(externalStorageDirectory)) {
@@ -49,7 +51,7 @@ public class FileUtils {
             return externalStorageDirectory;
         }
         Object[] objArr3 = new Object[1];
-        objArr3[0] = externalStorageDirectory == null ? "null" : externalStorageDirectory.getAbsolutePath();
+        objArr3[0] = externalStorageDirectory == null ? StringUtil.NULL_STRING : externalStorageDirectory.getAbsolutePath();
         Timber.w("[getDefaultCacheDir] externalStorageDir:%s is not valid", objArr3);
         File dir = context.getDir("gdata", 0);
         if (isValidDir(dir)) {
@@ -57,7 +59,10 @@ public class FileUtils {
             return dir;
         }
         Object[] objArr4 = new Object[1];
-        objArr4[0] = dir == null ? "null" : dir.getAbsolutePath();
+        if (dir != null) {
+            str = dir.getAbsolutePath();
+        }
+        objArr4[0] = str;
         Timber.e("[getDefaultCacheDir]AwesomeCache getDir(gdata) fail, Hodor won't work due to no valid cache dir path", objArr4);
         return null;
     }
@@ -71,13 +76,11 @@ public class FileUtils {
                 file.mkdir();
             }
             if (file.exists()) {
-                if (file.canWrite()) {
-                    return true;
-                }
+                return file.canWrite();
             }
             return false;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return file.exists() && file.canWrite();
         }
     }

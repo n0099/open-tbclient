@@ -5,125 +5,104 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class e {
-    private static final String d = e.class.getSimpleName();
-    private static final int[] e = {0, 1, 2, 3};
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f27044d = "e";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int[] f27045e = {0, 1, 2, 3};
     @SuppressLint({"StaticFieldLeak"})
-    private static e f;
-    private static boolean g;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static e f27046f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static boolean f27047g;
 
     /* renamed from: a  reason: collision with root package name */
-    List<Vector<BdNetTask>> f3868a;
-    Vector<BdNetEngine> b;
-    Context c;
+    public List<Vector<BdNetTask>> f27048a;
 
-    private e() {
-        int length = e.length;
-        this.f3868a = new ArrayList(length);
+    /* renamed from: b  reason: collision with root package name */
+    public Vector<BdNetEngine> f27049b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f27050c;
+
+    public e() {
+        int length = f27045e.length;
+        this.f27048a = new ArrayList(length);
         for (int i = 0; i < length; i++) {
-            this.f3868a.add(new Vector<>());
+            this.f27048a.add(new Vector<>());
         }
-        this.b = new Vector<>();
+        this.f27049b = new Vector<>();
     }
 
     public static e a() {
         synchronized (e.class) {
-            if (f == null) {
-                f = new e();
+            if (f27046f == null) {
+                f27046f = new e();
             }
         }
-        return f;
+        return f27046f;
     }
 
     public static boolean b() {
-        return g;
+        return f27047g;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void c() {
-        f = null;
+        f27046f = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x003a, code lost:
-        r4.f3868a.get(r0).add(r5);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public final synchronized void a(BdNetTask bdNetTask, int i) {
-        int i2 = 0;
-        synchronized (this) {
-            if (bdNetTask != null) {
-                if (this.f3868a == null) {
-                    this.f3868a = new ArrayList(e.length);
-                }
-                if (this.f3868a.isEmpty()) {
-                    for (int i3 = 0; i3 < e.length; i3++) {
-                        this.f3868a.add(new Vector<>());
-                    }
-                }
-                int length = e.length;
-                while (true) {
-                    if (i2 >= length) {
-                        break;
-                    } else if (i == e[i2]) {
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
+        if (bdNetTask == null) {
+            return;
+        }
+        if (this.f27048a == null) {
+            this.f27048a = new ArrayList(f27045e.length);
+        }
+        if (this.f27048a.isEmpty()) {
+            for (int i2 = 0; i2 < f27045e.length; i2++) {
+                this.f27048a.add(new Vector<>());
+            }
+        }
+        int length = f27045e.length;
+        for (int i3 = 0; i3 < length; i3++) {
+            if (i == f27045e[i3]) {
+                this.f27048a.get(i3).add(bdNetTask);
+                return;
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Code restructure failed: missing block: B:8:0x0019, code lost:
-        r0 = r0.remove(0);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public final synchronized BdNetTask d() {
-        BdNetTask bdNetTask;
-        int size = this.f3868a.size();
-        int i = 0;
-        while (true) {
-            if (i >= size) {
-                bdNetTask = null;
-                break;
-            }
-            Vector<BdNetTask> vector = this.f3868a.get(i);
+        int size = this.f27048a.size();
+        for (int i = 0; i < size; i++) {
+            Vector<BdNetTask> vector = this.f27048a.get(i);
             if (vector.size() > 0) {
-                break;
+                return vector.remove(0);
             }
-            i++;
         }
-        return bdNetTask;
+        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final synchronized BdNetEngine e() {
-        BdNetEngine bdNetEngine;
-        int size = this.b.size();
-        int i = 0;
-        while (true) {
-            if (i < size) {
-                bdNetEngine = this.b.get(i);
-                if (!bdNetEngine.isWorking() && bdNetEngine.isRecycle()) {
-                    bdNetEngine.allocate();
-                    break;
-                }
-                i++;
-            } else if (size < 6) {
-                bdNetEngine = new BdNetEngine();
+        int size = this.f27049b.size();
+        for (int i = 0; i < size; i++) {
+            BdNetEngine bdNetEngine = this.f27049b.get(i);
+            if (!bdNetEngine.isWorking() && bdNetEngine.isRecycle()) {
                 bdNetEngine.allocate();
-                this.b.add(bdNetEngine);
-            } else {
-                bdNetEngine = null;
+                return bdNetEngine;
             }
         }
-        return bdNetEngine;
+        if (size < 6) {
+            BdNetEngine bdNetEngine2 = new BdNetEngine();
+            bdNetEngine2.allocate();
+            this.f27049b.add(bdNetEngine2);
+            return bdNetEngine2;
+        }
+        return null;
     }
 }

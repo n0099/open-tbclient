@@ -1,14 +1,14 @@
 package com.baidu.megapp.ma;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class MABottomToolBar {
-    private CommonToolBarType mCommonToolBarType = CommonToolBarType.TOOL_BAR_STYLE_NO;
-    private CommonMenuType mCommonMenuType = CommonMenuType.MENU_STYLE_NO;
-    private OnCommonToolBarClickListener mOnCommonToolBarClickListener = null;
-    private OnCommonToolMenuClickListener mOnCommonToolMenuClickListener = null;
-    private OnCommonToolBarItemClickListener mOnCommonToolBarItemClickListener = null;
+    public CommonToolBarType mCommonToolBarType = CommonToolBarType.TOOL_BAR_STYLE_NO;
+    public CommonMenuType mCommonMenuType = CommonMenuType.MENU_STYLE_NO;
+    public OnCommonToolBarClickListener mOnCommonToolBarClickListener = null;
+    public OnCommonToolMenuClickListener mOnCommonToolMenuClickListener = null;
+    public OnCommonToolBarItemClickListener mOnCommonToolBarItemClickListener = null;
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public enum CommonMenuType {
         MENU_STYLE_NO,
         MENU_STYLE_NS_NA,
@@ -16,7 +16,7 @@ public class MABottomToolBar {
         MENU_STYLE_AD_IMMERSIVE_LANDING_PAGE
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public enum CommonToolBarType {
         TOOL_BAR_STYLE_NO,
         TOOL_BAR_STYLE_NS,
@@ -25,12 +25,12 @@ public class MABottomToolBar {
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public interface OnCommonToolBarClickListener {
         void onBackClick();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public interface OnCommonToolBarItemClickListener {
         public static final int TOOL_ITEM_BACK = 1;
         public static final int TOOL_ITEM_SHARE = 2;
@@ -39,23 +39,21 @@ public class MABottomToolBar {
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public interface OnCommonToolMenuClickListener {
         void onRefreshClick();
 
         void onShareClick();
     }
 
-    public void setToolBarStyle(CommonToolBarType commonToolBarType) {
-        this.mCommonToolBarType = commonToolBarType;
+    @Deprecated
+    public OnCommonToolMenuClickListener getOnCommonToolMenuClickListener() {
+        return this.mOnCommonToolMenuClickListener;
     }
 
-    public CommonToolBarType getToolBarStyle() {
-        return this.mCommonToolBarType;
-    }
-
-    public void setOnToolBarItemClickListener(OnCommonToolBarItemClickListener onCommonToolBarItemClickListener) {
-        this.mOnCommonToolBarItemClickListener = onCommonToolBarItemClickListener;
+    @Deprecated
+    public OnCommonToolBarClickListener getOnToolBarClickListener() {
+        return this.mOnCommonToolBarClickListener;
     }
 
     public OnCommonToolBarItemClickListener getOnToolBarItemClickListener() {
@@ -63,23 +61,12 @@ public class MABottomToolBar {
     }
 
     @Deprecated
-    public void setToolBarMenuStyle(CommonMenuType commonMenuType) {
-        this.mCommonMenuType = commonMenuType;
-    }
-
-    @Deprecated
     public CommonMenuType getToolBarMenuStyle() {
         return this.mCommonMenuType;
     }
 
-    @Deprecated
-    public void setOnToolBarClickListener(OnCommonToolBarClickListener onCommonToolBarClickListener) {
-        this.mOnCommonToolBarClickListener = onCommonToolBarClickListener;
-    }
-
-    @Deprecated
-    public OnCommonToolBarClickListener getOnToolBarClickListener() {
-        return this.mOnCommonToolBarClickListener;
+    public CommonToolBarType getToolBarStyle() {
+        return this.mCommonToolBarType;
     }
 
     @Deprecated
@@ -88,8 +75,21 @@ public class MABottomToolBar {
     }
 
     @Deprecated
-    public OnCommonToolMenuClickListener getOnCommonToolMenuClickListener() {
-        return this.mOnCommonToolMenuClickListener;
+    public void setOnToolBarClickListener(OnCommonToolBarClickListener onCommonToolBarClickListener) {
+        this.mOnCommonToolBarClickListener = onCommonToolBarClickListener;
+    }
+
+    public void setOnToolBarItemClickListener(OnCommonToolBarItemClickListener onCommonToolBarItemClickListener) {
+        this.mOnCommonToolBarItemClickListener = onCommonToolBarItemClickListener;
+    }
+
+    @Deprecated
+    public void setToolBarMenuStyle(CommonMenuType commonMenuType) {
+        this.mCommonMenuType = commonMenuType;
+    }
+
+    public void setToolBarStyle(CommonToolBarType commonToolBarType) {
+        this.mCommonToolBarType = commonToolBarType;
     }
 
     public String toString() {
@@ -97,7 +97,10 @@ public class MABottomToolBar {
         sb.append("mCommonToolBarType = " + this.mCommonToolBarType + "\n");
         sb.append("mCommonMenuType = " + this.mCommonMenuType + "\n");
         sb.append("mOnCommonToolBarClickListener = " + this.mOnCommonToolBarClickListener + "\n");
-        sb.append("mOnCommonToolMenuClickListener = " + this.mOnCommonToolMenuClickListener);
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append("mOnCommonToolMenuClickListener = ");
+        sb2.append(this.mOnCommonToolMenuClickListener);
+        sb.append(sb2.toString());
         return sb.toString();
     }
 }

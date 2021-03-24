@@ -2,16 +2,21 @@ package androidx.core.util;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class Pair<F, S> {
     @Nullable
     public final F first;
     @Nullable
     public final S second;
 
-    public Pair(@Nullable F f, @Nullable S s) {
-        this.first = f;
+    public Pair(@Nullable F f2, @Nullable S s) {
+        this.first = f2;
         this.second = s;
+    }
+
+    @NonNull
+    public static <A, B> Pair<A, B> create(@Nullable A a2, @Nullable B b2) {
+        return new Pair<>(a2, b2);
     }
 
     public boolean equals(Object obj) {
@@ -23,15 +28,13 @@ public class Pair<F, S> {
     }
 
     public int hashCode() {
-        return (this.first == null ? 0 : this.first.hashCode()) ^ (this.second != null ? this.second.hashCode() : 0);
+        F f2 = this.first;
+        int hashCode = f2 == null ? 0 : f2.hashCode();
+        S s = this.second;
+        return hashCode ^ (s != null ? s.hashCode() : 0);
     }
 
     public String toString() {
         return "Pair{" + String.valueOf(this.first) + " " + String.valueOf(this.second) + "}";
-    }
-
-    @NonNull
-    public static <A, B> Pair<A, B> create(@Nullable A a2, @Nullable B b) {
-        return new Pair<>(a2, b);
     }
 }

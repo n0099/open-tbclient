@@ -1,6 +1,6 @@
 package org.apache.http.protocol;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class HTTP {
     public static final String ASCII = "ASCII";
     public static final String CHARSET_PARAM = "; charset=";
@@ -33,11 +33,11 @@ public final class HTTP {
     public static final String UTF_16 = "UTF-16";
     public static final String UTF_8 = "UTF-8";
 
-    HTTP() {
+    public HTTP() {
         throw new RuntimeException("Stub!");
     }
 
-    public static boolean isWhitespace(char c) {
+    public static boolean isWhitespace(char c2) {
         throw new RuntimeException("Stub!");
     }
 }

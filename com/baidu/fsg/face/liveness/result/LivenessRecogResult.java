@@ -1,13 +1,12 @@
 package com.baidu.fsg.face.liveness.result;
 
 import android.text.TextUtils;
-import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.fsg.base.utils.ResUtils;
 import com.baidu.fsg.face.base.c.a;
 import com.baidu.fsg.face.base.d.d;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class LivenessRecogResult extends a {
     public static final int ERROR_CODE_CONTRAST_FAIL = -302;
     public static final int ERROR_CODE_FACE_SDK_INIT_FAIL = -303;
@@ -52,8 +51,8 @@ public class LivenessRecogResult extends a {
     public JSONObject toJSONObject() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(BaseJsonData.TAG_ERRNO, getResultCode());
-            jSONObject.put(BaseJsonData.TAG_ERRMSG, getResultMsg());
+            jSONObject.put("errno", getResultCode());
+            jSONObject.put("errmsg", getResultMsg());
             if (this.resultCode == 0) {
                 if (!TextUtils.isEmpty(this.callbackkey)) {
                     jSONObject.put("credentialKey", this.callbackkey);
@@ -62,8 +61,8 @@ public class LivenessRecogResult extends a {
                     jSONObject.put("authsid", this.authSid);
                 }
             }
-        } catch (JSONException e) {
-            d.a(e);
+        } catch (JSONException e2) {
+            d.a(e2);
         }
         return jSONObject;
     }

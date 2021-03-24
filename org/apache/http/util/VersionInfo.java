@@ -2,7 +2,7 @@ package org.apache.http.util;
 
 import java.util.Map;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class VersionInfo {
     public static final String PROPERTY_MODULE = "info.module";
     public static final String PROPERTY_RELEASE = "info.release";
@@ -10,15 +10,27 @@ public class VersionInfo {
     public static final String UNAVAILABLE = "UNAVAILABLE";
     public static final String VERSION_PROPERTY_FILE = "version.properties";
 
-    protected VersionInfo(String str, String str2, String str3, String str4, String str5) {
+    public VersionInfo(String str, String str2, String str3, String str4, String str5) {
         throw new RuntimeException("Stub!");
     }
 
-    public final String getPackage() {
+    public static final VersionInfo fromMap(String str, Map map, ClassLoader classLoader) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public static final VersionInfo[] loadVersionInfo(String[] strArr, ClassLoader classLoader) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final String getClassloader() {
         throw new RuntimeException("Stub!");
     }
 
     public final String getModule() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final String getPackage() {
         throw new RuntimeException("Stub!");
     }
 
@@ -30,23 +42,11 @@ public class VersionInfo {
         throw new RuntimeException("Stub!");
     }
 
-    public final String getClassloader() {
-        throw new RuntimeException("Stub!");
-    }
-
     public String toString() {
         throw new RuntimeException("Stub!");
     }
 
-    public static final VersionInfo[] loadVersionInfo(String[] strArr, ClassLoader classLoader) {
-        throw new RuntimeException("Stub!");
-    }
-
     public static final VersionInfo loadVersionInfo(String str, ClassLoader classLoader) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected static final VersionInfo fromMap(String str, Map map, ClassLoader classLoader) {
         throw new RuntimeException("Stub!");
     }
 }

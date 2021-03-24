@@ -1,11 +1,8 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
-class WebRtcClassLoader {
-    WebRtcClassLoader() {
-    }
-
+/* loaded from: classes7.dex */
+public class WebRtcClassLoader {
     @CalledByNative
-    static Object getClassLoader() {
+    public static Object getClassLoader() {
         return WebRtcClassLoader.class.getClassLoader();
     }
 }

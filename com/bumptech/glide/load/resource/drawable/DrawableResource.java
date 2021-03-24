@@ -7,12 +7,21 @@ import com.bumptech.glide.load.engine.Initializable;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes14.dex */
-public abstract class DrawableResource<T extends Drawable> implements Initializable, Resource<T> {
-    protected final T drawable;
+/* loaded from: classes5.dex */
+public abstract class DrawableResource<T extends Drawable> implements Resource<T>, Initializable {
+    public final T drawable;
 
     public DrawableResource(T t) {
         this.drawable = (T) Preconditions.checkNotNull(t);
+    }
+
+    public void initialize() {
+        T t = this.drawable;
+        if (t instanceof BitmapDrawable) {
+            ((BitmapDrawable) t).getBitmap().prepareToDraw();
+        } else if (t instanceof GifDrawable) {
+            ((GifDrawable) t).getFirstFrame().prepareToDraw();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,15 +29,9 @@ public abstract class DrawableResource<T extends Drawable> implements Initializa
     @NonNull
     public final T get() {
         Drawable.ConstantState constantState = this.drawable.getConstantState();
-        return constantState == null ? this.drawable : (T) constantState.newDrawable();
-    }
-
-    @Override // com.bumptech.glide.load.engine.Initializable
-    public void initialize() {
-        if (this.drawable instanceof BitmapDrawable) {
-            ((BitmapDrawable) this.drawable).getBitmap().prepareToDraw();
-        } else if (this.drawable instanceof GifDrawable) {
-            ((GifDrawable) this.drawable).getFirstFrame().prepareToDraw();
+        if (constantState == null) {
+            return this.drawable;
         }
+        return (T) constantState.newDrawable();
     }
 }

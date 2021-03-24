@@ -2,17 +2,18 @@ package com.baidu.mapapi.search.sug;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.PoiChildrenInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SuggestionResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<SuggestionResult> CREATOR = new a();
-    private ArrayList<SuggestionInfo> suggestionList;
+    public ArrayList<SuggestionInfo> suggestionList;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SuggestionInfo implements Parcelable {
         public static final Parcelable.Creator<SuggestionInfo> CREATOR = new b();
         public String address;
@@ -27,7 +28,6 @@ public class SuggestionResult extends SearchResult implements Parcelable {
         public SuggestionInfo() {
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         public SuggestionInfo(Parcel parcel) {
             this.key = parcel.readString();
             this.city = parcel.readString();
@@ -110,37 +110,41 @@ public class SuggestionResult extends SearchResult implements Parcelable {
 
         public String toString() {
             StringBuffer stringBuffer = new StringBuffer("SuggestionInfo: ");
-            stringBuffer.append("key = ").append(this.key);
-            stringBuffer.append("; city = ").append(this.city);
-            stringBuffer.append("; district = ").append(this.district);
+            stringBuffer.append("key = ");
+            stringBuffer.append(this.key);
+            stringBuffer.append("; city = ");
+            stringBuffer.append(this.city);
+            stringBuffer.append("; district = ");
+            stringBuffer.append(this.district);
             stringBuffer.append("; pt = ");
-            if (this.pt != null) {
-                stringBuffer.append(this.pt.toString());
+            LatLng latLng = this.pt;
+            if (latLng != null) {
+                stringBuffer.append(latLng.toString());
             } else {
-                stringBuffer.append("null");
+                stringBuffer.append(StringUtil.NULL_STRING);
             }
-            stringBuffer.append("; uid = ").append(this.uid);
-            stringBuffer.append("; tag = ").append(this.tag);
-            stringBuffer.append("; address = ").append(this.address);
+            stringBuffer.append("; uid = ");
+            stringBuffer.append(this.uid);
+            stringBuffer.append("; tag = ");
+            stringBuffer.append(this.tag);
+            stringBuffer.append("; address = ");
+            stringBuffer.append(this.address);
             stringBuffer.append("; childrenInfo = ");
-            if (this.poiChildrenInfoList != null && !this.poiChildrenInfoList.isEmpty()) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= this.poiChildrenInfoList.size()) {
-                        break;
-                    }
-                    stringBuffer.append(" ").append(i2).append(" ");
-                    PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i2);
+            List<PoiChildrenInfo> list = this.poiChildrenInfoList;
+            if (list == null || list.isEmpty()) {
+                stringBuffer.append(StringUtil.NULL_STRING);
+            } else {
+                for (int i = 0; i < this.poiChildrenInfoList.size(); i++) {
+                    stringBuffer.append(" ");
+                    stringBuffer.append(i);
+                    stringBuffer.append(" ");
+                    PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i);
                     if (poiChildrenInfo == null) {
-                        stringBuffer.append("null");
+                        stringBuffer.append(StringUtil.NULL_STRING);
                     } else {
                         stringBuffer.append(poiChildrenInfo.toString());
                     }
-                    i = i2 + 1;
                 }
-            } else {
-                stringBuffer.append("null");
             }
             return stringBuffer.toString();
         }
@@ -161,7 +165,6 @@ public class SuggestionResult extends SearchResult implements Parcelable {
     public SuggestionResult() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public SuggestionResult(Parcel parcel) {
         this.suggestionList = parcel.readArrayList(SuggestionInfo.class.getClassLoader());
     }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.mutiprocess.location;
 
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
 import com.baidu.tieba.tbadkCore.location.LocationData;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class LocationEvent extends SerializableEvent {
     public static final int TYPE_GET_LOC_FROM_SOCKET = 1;
     public static final int TYPE_SELECT_LOC = 2;

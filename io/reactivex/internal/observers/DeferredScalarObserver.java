@@ -1,31 +1,24 @@
 package io.reactivex.internal.observers;
 
+import f.a.o;
+import f.a.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
-import io.reactivex.u;
-/* loaded from: classes6.dex */
-public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposable<R> implements u<T> {
-    private static final long serialVersionUID = -266195175408988651L;
-    protected io.reactivex.disposables.b s;
+/* loaded from: classes7.dex */
+public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposable<R> implements o<T> {
+    public static final long serialVersionUID = -266195175408988651L;
+    public b s;
 
-    public DeferredScalarObserver(u<? super R> uVar) {
-        super(uVar);
+    public DeferredScalarObserver(o<? super R> oVar) {
+        super(oVar);
     }
 
-    @Override // io.reactivex.u
-    public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (DisposableHelper.validate(this.s, bVar)) {
-            this.s = bVar;
-            this.actual.onSubscribe(this);
-        }
+    @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+    public void dispose() {
+        super.dispose();
+        this.s.dispose();
     }
 
-    @Override // io.reactivex.u
-    public void onError(Throwable th) {
-        this.value = null;
-        error(th);
-    }
-
-    @Override // io.reactivex.u
+    @Override // f.a.o
     public void onComplete() {
         T t = this.value;
         if (t != null) {
@@ -36,9 +29,20 @@ public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposa
         complete();
     }
 
-    @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.disposables.b
-    public void dispose() {
-        super.dispose();
-        this.s.dispose();
+    @Override // f.a.o
+    public void onError(Throwable th) {
+        this.value = null;
+        error(th);
+    }
+
+    @Override // f.a.o
+    public abstract /* synthetic */ void onNext(T t);
+
+    @Override // f.a.o
+    public void onSubscribe(b bVar) {
+        if (DisposableHelper.validate(this.s, bVar)) {
+            this.s = bVar;
+            this.actual.onSubscribe(this);
+        }
     }
 }

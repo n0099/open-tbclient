@@ -17,19 +17,24 @@ import com.baidu.webkit.sdk.JsResult;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebStorage;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class BdSailorWebChromeClient implements INoProGuard {
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0023, code lost:
+        if ((r2 instanceof android.app.Activity) != false) goto L4;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private Activity getActivityFromContext(BdSailorWebView bdSailorWebView) {
-        if (bdSailorWebView.getContext() instanceof Activity) {
-            return (Activity) bdSailorWebView.getContext();
-        }
-        if (bdSailorWebView.getContext() instanceof MutableContextWrapper) {
-            Context baseContext = ((MutableContextWrapper) bdSailorWebView.getContext()).getBaseContext();
-            if (baseContext instanceof Activity) {
-                return (Activity) baseContext;
+        Context baseContext;
+        if (!(bdSailorWebView.getContext() instanceof Activity)) {
+            if (bdSailorWebView.getContext() instanceof MutableContextWrapper) {
+                baseContext = ((MutableContextWrapper) bdSailorWebView.getContext()).getBaseContext();
             }
+            return null;
         }
-        return null;
+        baseContext = bdSailorWebView.getContext();
+        return (Activity) baseContext;
     }
 
     @Deprecated
@@ -101,7 +106,7 @@ public class BdSailorWebChromeClient implements INoProGuard {
         return false;
     }
 
-    public void onOffsetsForFullscreenChanged(BdSailorWebView bdSailorWebView, float f, float f2, float f3) {
+    public void onOffsetsForFullscreenChanged(BdSailorWebView bdSailorWebView, float f2, float f3, float f4) {
     }
 
     public void onPermissionRequest(BdSailorWebView bdSailorWebView, PermissionRequest permissionRequest) {

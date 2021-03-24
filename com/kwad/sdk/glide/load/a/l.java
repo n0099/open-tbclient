@@ -4,48 +4,54 @@ import android.content.ContentResolver;
 import android.net.Uri;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.bumptech.glide.load.data.LocalUriFetcher;
 import com.kwad.sdk.glide.Priority;
 import com.kwad.sdk.glide.load.DataSource;
 import com.kwad.sdk.glide.load.a.d;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class l<T> implements d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Uri f6652a;
-    private final ContentResolver b;
-    private T c;
+    public final Uri f35269a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final ContentResolver f35270b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public T f35271c;
 
     public l(ContentResolver contentResolver, Uri uri) {
-        this.b = contentResolver;
-        this.f6652a = uri;
+        this.f35270b = contentResolver;
+        this.f35269a = uri;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
     @Override // com.kwad.sdk.glide.load.a.d
     public final void a(@NonNull Priority priority, @NonNull d.a<? super T> aVar) {
         try {
-            this.c = b(this.f6652a, this.b);
-            aVar.a((d.a<? super T>) ((T) this.c));
-        } catch (FileNotFoundException e) {
-            if (Log.isLoggable("LocalUriFetcher", 3)) {
-                Log.d("LocalUriFetcher", "Failed to open Uri", e);
+            T b2 = b(this.f35269a, this.f35270b);
+            this.f35271c = b2;
+            aVar.a((d.a<? super T>) b2);
+        } catch (FileNotFoundException e2) {
+            if (Log.isLoggable(LocalUriFetcher.TAG, 3)) {
+                Log.d(LocalUriFetcher.TAG, "Failed to open Uri", e2);
             }
-            aVar.a((Exception) e);
+            aVar.a((Exception) e2);
         }
     }
 
-    protected abstract void a(T t);
+    public abstract void a(T t);
 
-    protected abstract T b(Uri uri, ContentResolver contentResolver);
+    public abstract T b(Uri uri, ContentResolver contentResolver);
 
     @Override // com.kwad.sdk.glide.load.a.d
     public void b() {
-        if (this.c != null) {
+        T t = this.f35271c;
+        if (t != null) {
             try {
-                a(this.c);
-            } catch (IOException e) {
+                a(t);
+            } catch (IOException unused) {
             }
         }
     }

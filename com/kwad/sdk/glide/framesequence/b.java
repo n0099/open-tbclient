@@ -1,14 +1,14 @@
 package com.kwad.sdk.glide.framesequence;
 
 import com.kwad.sdk.glide.load.engine.s;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b implements s<FrameSequence> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final FrameSequence f6613a;
+    public final FrameSequence f35176a;
 
     public b(FrameSequence frameSequence) {
-        this.f6613a = frameSequence;
+        this.f35176a = frameSequence;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
@@ -20,12 +20,12 @@ public class b implements s<FrameSequence> {
     @Override // com.kwad.sdk.glide.load.engine.s
     /* renamed from: b */
     public FrameSequence e() {
-        return this.f6613a;
+        return this.f35176a;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return this.f6613a.getWidth() * this.f6613a.getHeight() * 4;
+        return this.f35176a.getWidth() * this.f35176a.getHeight() * 4;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s

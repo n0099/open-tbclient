@@ -1,43 +1,43 @@
 package com.kwad.sdk.emotion.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6456a;
+    public String f34686a;
 
     /* renamed from: com.kwad.sdk.emotion.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1130a {
+    /* loaded from: classes6.dex */
+    public static class C0397a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final a f6457a;
+        public final a f34687a;
 
-        private C1130a() {
-            this.f6457a = new a();
+        public C0397a() {
+            this.f34687a = new a();
         }
 
-        public C1130a a(String str) {
-            this.f6457a.f6456a = str;
+        public C0397a a(String str) {
+            this.f34687a.f34686a = str;
             return this;
         }
 
         public a a() {
-            return new a(this.f6457a.f6456a);
+            return new a(this.f34687a.f34686a);
         }
     }
 
-    private a() {
+    public a() {
     }
 
-    private a(String str) {
-        this.f6456a = str;
+    public a(String str) {
+        this.f34686a = str;
     }
 
-    public static C1130a a() {
-        return new C1130a();
+    public static C0397a a() {
+        return new C0397a();
     }
 
     public String b() {
-        return this.f6456a;
+        return this.f34686a;
     }
 }

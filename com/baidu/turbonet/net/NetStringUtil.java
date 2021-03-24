@@ -11,16 +11,16 @@ import java.text.Normalizer;
 /* loaded from: classes5.dex */
 public class NetStringUtil {
     @CalledByNative
-    private static String convertToUnicode(ByteBuffer byteBuffer, String str) {
+    public static String convertToUnicode(ByteBuffer byteBuffer, String str) {
         try {
             return Charset.forName(str).newDecoder().decode(byteBuffer).toString();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }
 
     @CalledByNative
-    private static String convertToUnicodeAndNormalize(ByteBuffer byteBuffer, String str) {
+    public static String convertToUnicodeAndNormalize(ByteBuffer byteBuffer, String str) {
         String convertToUnicode = convertToUnicode(byteBuffer, str);
         if (convertToUnicode == null) {
             return null;
@@ -29,14 +29,14 @@ public class NetStringUtil {
     }
 
     @CalledByNative
-    private static String convertToUnicodeWithSubstitutions(ByteBuffer byteBuffer, String str) {
+    public static String convertToUnicodeWithSubstitutions(ByteBuffer byteBuffer, String str) {
         try {
             CharsetDecoder newDecoder = Charset.forName(str).newDecoder();
             newDecoder.onMalformedInput(CodingErrorAction.REPLACE);
             newDecoder.onUnmappableCharacter(CodingErrorAction.REPLACE);
             newDecoder.replaceWith("�");
             return newDecoder.decode(byteBuffer).toString();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }

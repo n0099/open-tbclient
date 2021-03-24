@@ -4,13 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.g;
 import com.meizu.cloud.pushsdk.notification.c;
 import com.meizu.cloud.pushsdk.util.d;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -22,7 +21,6 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: a */
     public void b(g gVar) {
@@ -30,21 +28,20 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(g gVar, c cVar) {
         String message;
-        File file;
-        com.meizu.cloud.a.a.flush();
-        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + gVar.d().b().a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + gVar.d().b().d() + ".zip";
+        d.j.a.a.a.c();
+        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + gVar.d().b().a() + "_" + gVar.d().b().d() + ".zip";
+        File file = null;
         try {
             new b(str).a(gVar.c());
-            file = new File(str);
+            File file2 = new File(str);
             message = null;
-        } catch (Exception e) {
-            message = e.getMessage();
-            com.meizu.cloud.a.a.e("AbstractMessageHandler", "zip error message " + message);
-            file = null;
+            file = file2;
+        } catch (Exception e2) {
+            message = e2.getMessage();
+            d.j.a.a.a.b("AbstractMessageHandler", "zip error message " + message);
         }
         if (file != null && file.length() / 1024 > gVar.a()) {
             message = "the upload file exceeds the max size";
@@ -53,19 +50,19 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
         }
         com.meizu.cloud.pushsdk.b.a.c<String> a2 = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
         if (a2 == null || !a2.b()) {
-            com.meizu.cloud.a.a.i("AbstractMessageHandler", "upload error code " + a2.c() + a2.a());
+            d.j.a.a.a.d("AbstractMessageHandler", "upload error code " + a2.c() + a2.a());
             return;
         }
         if (file != null) {
             file.delete();
         }
-        com.meizu.cloud.a.a.e("AbstractMessageHandler", "upload success " + a2.a());
+        d.j.a.a.a.b("AbstractMessageHandler", "upload success " + a2.a());
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
         int i;
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start LogUploadMessageHandler match");
+        d.j.a.a.a.d("AbstractMessageHandler", "start LogUploadMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
             com.meizu.cloud.pushsdk.handler.a.b.b a2 = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
@@ -81,7 +78,6 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: j */
     public g c(Intent intent) {

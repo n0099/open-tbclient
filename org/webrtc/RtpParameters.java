@@ -4,25 +4,25 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class RtpParameters {
     public final List<Codec> codecs;
     public final List<Encoding> encodings;
-    private final List<HeaderExtension> headerExtensions;
-    private final Rtcp rtcp;
+    public final List<HeaderExtension> headerExtensions;
+    public final Rtcp rtcp;
     public final String transactionId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class Codec {
         public Integer clockRate;
-        MediaStreamTrack.MediaType kind;
+        public MediaStreamTrack.MediaType kind;
         public String name;
         public Integer numChannels;
         public Map<String, String> parameters;
         public int payloadType;
 
         @CalledByNative("Codec")
-        Codec(int i, String str, MediaStreamTrack.MediaType mediaType, Integer num, Integer num2, Map<String, String> map) {
+        public Codec(int i, String str, MediaStreamTrack.MediaType mediaType, Integer num, Integer num2, Map<String, String> map) {
             this.payloadType = i;
             this.name = str;
             this.kind = mediaType;
@@ -32,37 +32,37 @@ public class RtpParameters {
         }
 
         @CalledByNative("Codec")
-        Integer getClockRate() {
+        public Integer getClockRate() {
             return this.clockRate;
         }
 
         @CalledByNative("Codec")
-        MediaStreamTrack.MediaType getKind() {
+        public MediaStreamTrack.MediaType getKind() {
             return this.kind;
         }
 
         @CalledByNative("Codec")
-        String getName() {
+        public String getName() {
             return this.name;
         }
 
         @CalledByNative("Codec")
-        Integer getNumChannels() {
+        public Integer getNumChannels() {
             return this.numChannels;
         }
 
         @CalledByNative("Codec")
-        Map getParameters() {
+        public Map getParameters() {
             return this.parameters;
         }
 
         @CalledByNative("Codec")
-        int getPayloadType() {
+        public int getPayloadType() {
             return this.payloadType;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static class Encoding {
         public boolean active;
         @Nullable
@@ -76,7 +76,7 @@ public class RtpParameters {
         public Long ssrc;
 
         @CalledByNative("Encoding")
-        Encoding(boolean z, Integer num, Integer num2, Integer num3, Integer num4, Long l) {
+        public Encoding(boolean z, Integer num, Integer num2, Integer num3, Integer num4, Long l) {
             this.active = true;
             this.active = z;
             this.maxBitrateBps = num;
@@ -87,48 +87,48 @@ public class RtpParameters {
         }
 
         @CalledByNative("Encoding")
-        boolean getActive() {
+        public boolean getActive() {
             return this.active;
         }
 
         @Nullable
         @CalledByNative("Encoding")
-        Integer getMaxBitrateBps() {
+        public Integer getMaxBitrateBps() {
             return this.maxBitrateBps;
         }
 
         @Nullable
         @CalledByNative("Encoding")
-        Integer getMaxFramerate() {
+        public Integer getMaxFramerate() {
             return this.maxFramerate;
         }
 
         @Nullable
         @CalledByNative("Encoding")
-        Integer getMinBitrateBps() {
+        public Integer getMinBitrateBps() {
             return this.minBitrateBps;
         }
 
         @Nullable
         @CalledByNative("Encoding")
-        Integer getNumTemporalLayers() {
+        public Integer getNumTemporalLayers() {
             return this.numTemporalLayers;
         }
 
         @CalledByNative("Encoding")
-        Long getSsrc() {
+        public Long getSsrc() {
             return this.ssrc;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class HeaderExtension {
-        private final boolean encrypted;
-        private final int id;
-        private final String uri;
+        public final boolean encrypted;
+        public final int id;
+        public final String uri;
 
         @CalledByNative("HeaderExtension")
-        HeaderExtension(String str, int i, boolean z) {
+        public HeaderExtension(String str, int i, boolean z) {
             this.uri = str;
             this.id = i;
             this.encrypted = z;
@@ -150,13 +150,13 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class Rtcp {
-        private final String cname;
-        private final boolean reducedSize;
+        public final String cname;
+        public final boolean reducedSize;
 
         @CalledByNative("Rtcp")
-        Rtcp(String str, boolean z) {
+        public Rtcp(String str, boolean z) {
             this.cname = str;
             this.reducedSize = z;
         }
@@ -173,7 +173,7 @@ public class RtpParameters {
     }
 
     @CalledByNative
-    RtpParameters(String str, Rtcp rtcp, List<HeaderExtension> list, List<Encoding> list2, List<Codec> list3) {
+    public RtpParameters(String str, Rtcp rtcp, List<HeaderExtension> list, List<Encoding> list2, List<Codec> list3) {
         this.transactionId = str;
         this.rtcp = rtcp;
         this.headerExtensions = list;
@@ -182,12 +182,12 @@ public class RtpParameters {
     }
 
     @CalledByNative
-    List<Codec> getCodecs() {
+    public List<Codec> getCodecs() {
         return this.codecs;
     }
 
     @CalledByNative
-    List<Encoding> getEncodings() {
+    public List<Encoding> getEncodings() {
         return this.encodings;
     }
 
@@ -202,7 +202,7 @@ public class RtpParameters {
     }
 
     @CalledByNative
-    String getTransactionId() {
+    public String getTransactionId() {
         return this.transactionId;
     }
 }

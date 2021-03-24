@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FaceIDVerifyCertInfoDTO extends FaceBaseDTO {
     public String idCardNo;
     public String imageFlag;

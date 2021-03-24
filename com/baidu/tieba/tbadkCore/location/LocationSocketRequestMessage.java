@@ -1,41 +1,40 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.GetPoisByLocation.DataReq;
 import tbclient.GetPoisByLocation.GetPoisByLocationReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class LocationSocketRequestMessage extends TbSocketMessage {
-    private String lat;
-    private String lng;
+    public String lat;
+    public String lng;
 
     public LocationSocketRequestMessage() {
-        super(CmdConfigSocket.CMD_GET_LOCATION);
-    }
-
-    public String getLat() {
-        return this.lat;
-    }
-
-    public void setLat(String str) {
-        this.lat = str;
-    }
-
-    public String getLng() {
-        return this.lng;
-    }
-
-    public void setLng(String str) {
-        this.lng = str;
+        super(303017);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
-    protected Object encode() {
+    public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
         builder.lat = this.lat;
         builder.lng = this.lng;
         GetPoisByLocationReqIdl.Builder builder2 = new GetPoisByLocationReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
+    }
+
+    public String getLat() {
+        return this.lat;
+    }
+
+    public String getLng() {
+        return this.lng;
+    }
+
+    public void setLat(String str) {
+        this.lat = str;
+    }
+
+    public void setLng(String str) {
+        this.lng = str;
     }
 }

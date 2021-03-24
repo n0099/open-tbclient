@@ -10,230 +10,216 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class VideoLoadingProgressView extends View {
-    private float cLk;
-    private int ffn;
-    private int hzj;
-    private float mKg;
-    private int mKh;
-    private float mKi;
-    private int mKj;
-    private float mKk;
-    private int mKl;
-    private float mKm;
-    private float mKn;
-    private int mKo;
-    private a mKp;
-    private ValueAnimator mKq;
-    private ValueAnimator mKr;
-    private ValueAnimator mKs;
-    private ValueAnimator.AnimatorUpdateListener mKt;
-    private AnimatorListenerAdapter mKu;
-    private Paint mPaint;
-    private RectF mRect;
 
-    /* loaded from: classes.dex */
-    public interface a {
+    /* renamed from: e  reason: collision with root package name */
+    public float f20503e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f20504f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f20505g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f20506h;
+    public float i;
+    public int j;
+    public RectF k;
+    public Paint l;
+    public int m;
+    public int n;
+    public float o;
+    public float p;
+    public float q;
+    public int r;
+    public c s;
+    public ValueAnimator t;
+    public ValueAnimator u;
+    public ValueAnimator v;
+    public ValueAnimator.AnimatorUpdateListener w;
+    public AnimatorListenerAdapter x;
+
+    /* loaded from: classes5.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public a() {
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            if (VideoLoadingProgressView.this.r != 1 && VideoLoadingProgressView.this.r != 2) {
+                if (VideoLoadingProgressView.this.r == 3) {
+                    VideoLoadingProgressView.this.q = ((Float) valueAnimator.getAnimatedValue()).floatValue() + 60.0f;
+                }
+            } else {
+                VideoLoadingProgressView videoLoadingProgressView = VideoLoadingProgressView.this;
+                videoLoadingProgressView.p = videoLoadingProgressView.o + ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                VideoLoadingProgressView.this.q = 60.0f;
+            }
+            VideoLoadingProgressView.this.invalidate();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends AnimatorListenerAdapter {
+        public b() {
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            if (VideoLoadingProgressView.this.r == 2) {
+                VideoLoadingProgressView.this.k();
+            } else if (VideoLoadingProgressView.this.r != 3 || VideoLoadingProgressView.this.s == null) {
+            } else {
+                VideoLoadingProgressView.this.s.onAnimationEnd();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
         void onAnimationEnd();
     }
 
     public VideoLoadingProgressView(Context context) {
         super(context);
-        this.mKg = 7200.0f;
-        this.mKh = 10000;
-        this.mKi = 30.0f;
-        this.mKj = 50;
-        this.mKk = 300.0f;
-        this.mKl = 400;
-        this.cLk = -90.0f;
-        this.mKm = this.cLk;
-        this.mKn = 60.0f;
-        this.mKt = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.play.VideoLoadingProgressView.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (VideoLoadingProgressView.this.mKo != 1 && VideoLoadingProgressView.this.mKo != 2) {
-                    if (VideoLoadingProgressView.this.mKo == 3) {
-                        VideoLoadingProgressView.this.mKn = ((Float) valueAnimator.getAnimatedValue()).floatValue() + 60.0f;
-                    }
-                } else {
-                    VideoLoadingProgressView.this.mKm = ((Float) valueAnimator.getAnimatedValue()).floatValue() + VideoLoadingProgressView.this.cLk;
-                    VideoLoadingProgressView.this.mKn = 60.0f;
-                }
-                VideoLoadingProgressView.this.invalidate();
-            }
-        };
-        this.mKu = new AnimatorListenerAdapter() { // from class: com.baidu.tieba.play.VideoLoadingProgressView.2
-            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                if (VideoLoadingProgressView.this.mKo == 2) {
-                    VideoLoadingProgressView.this.dAt();
-                } else if (VideoLoadingProgressView.this.mKo == 3 && VideoLoadingProgressView.this.mKp != null) {
-                    VideoLoadingProgressView.this.mKp.onAnimationEnd();
-                }
-            }
-        };
-        init();
+        this.f20503e = 7200.0f;
+        this.f20504f = 10000;
+        this.f20505g = 30.0f;
+        this.f20506h = 50;
+        this.i = 300.0f;
+        this.j = 400;
+        this.o = -90.0f;
+        this.p = -90.0f;
+        this.q = 60.0f;
+        this.w = new a();
+        this.x = new b();
+        i();
     }
 
-    public VideoLoadingProgressView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mKg = 7200.0f;
-        this.mKh = 10000;
-        this.mKi = 30.0f;
-        this.mKj = 50;
-        this.mKk = 300.0f;
-        this.mKl = 400;
-        this.cLk = -90.0f;
-        this.mKm = this.cLk;
-        this.mKn = 60.0f;
-        this.mKt = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.play.VideoLoadingProgressView.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (VideoLoadingProgressView.this.mKo != 1 && VideoLoadingProgressView.this.mKo != 2) {
-                    if (VideoLoadingProgressView.this.mKo == 3) {
-                        VideoLoadingProgressView.this.mKn = ((Float) valueAnimator.getAnimatedValue()).floatValue() + 60.0f;
-                    }
-                } else {
-                    VideoLoadingProgressView.this.mKm = ((Float) valueAnimator.getAnimatedValue()).floatValue() + VideoLoadingProgressView.this.cLk;
-                    VideoLoadingProgressView.this.mKn = 60.0f;
-                }
-                VideoLoadingProgressView.this.invalidate();
-            }
-        };
-        this.mKu = new AnimatorListenerAdapter() { // from class: com.baidu.tieba.play.VideoLoadingProgressView.2
-            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                if (VideoLoadingProgressView.this.mKo == 2) {
-                    VideoLoadingProgressView.this.dAt();
-                } else if (VideoLoadingProgressView.this.mKo == 3 && VideoLoadingProgressView.this.mKp != null) {
-                    VideoLoadingProgressView.this.mKp.onAnimationEnd();
-                }
-            }
-        };
-        init();
+    public final void g() {
+        ValueAnimator valueAnimator = this.t;
+        if (valueAnimator != null) {
+            valueAnimator.cancel();
+        }
+        ValueAnimator valueAnimator2 = this.u;
+        if (valueAnimator2 != null) {
+            valueAnimator2.cancel();
+        }
+        ValueAnimator valueAnimator3 = this.v;
+        if (valueAnimator3 != null) {
+            valueAnimator3.cancel();
+        }
     }
 
-    public VideoLoadingProgressView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mKg = 7200.0f;
-        this.mKh = 10000;
-        this.mKi = 30.0f;
-        this.mKj = 50;
-        this.mKk = 300.0f;
-        this.mKl = 400;
-        this.cLk = -90.0f;
-        this.mKm = this.cLk;
-        this.mKn = 60.0f;
-        this.mKt = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.play.VideoLoadingProgressView.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (VideoLoadingProgressView.this.mKo != 1 && VideoLoadingProgressView.this.mKo != 2) {
-                    if (VideoLoadingProgressView.this.mKo == 3) {
-                        VideoLoadingProgressView.this.mKn = ((Float) valueAnimator.getAnimatedValue()).floatValue() + 60.0f;
-                    }
-                } else {
-                    VideoLoadingProgressView.this.mKm = ((Float) valueAnimator.getAnimatedValue()).floatValue() + VideoLoadingProgressView.this.cLk;
-                    VideoLoadingProgressView.this.mKn = 60.0f;
-                }
-                VideoLoadingProgressView.this.invalidate();
-            }
-        };
-        this.mKu = new AnimatorListenerAdapter() { // from class: com.baidu.tieba.play.VideoLoadingProgressView.2
-            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                if (VideoLoadingProgressView.this.mKo == 2) {
-                    VideoLoadingProgressView.this.dAt();
-                } else if (VideoLoadingProgressView.this.mKo == 3 && VideoLoadingProgressView.this.mKp != null) {
-                    VideoLoadingProgressView.this.mKp.onAnimationEnd();
-                }
-            }
-        };
-        init();
+    public void h() {
+        g();
+        setVisibility(8);
     }
 
-    private void init() {
-        this.mRect = new RectF();
-        this.mPaint = new Paint(1);
-        this.hzj = getContext().getResources().getColor(R.color.CAM_X0101);
-        this.ffn = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds2);
-        this.mPaint.setColor(this.hzj);
-        this.mPaint.setStrokeWidth(this.ffn);
-        this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setStrokeCap(Paint.Cap.ROUND);
+    public final void i() {
+        this.k = new RectF();
+        this.l = new Paint(1);
+        this.m = getContext().getResources().getColor(R.color.CAM_X0101);
+        this.n = l.g(getContext(), R.dimen.ds2);
+        this.l.setColor(this.m);
+        this.l.setStrokeWidth(this.n);
+        this.l.setStyle(Paint.Style.STROKE);
+        this.l.setStrokeCap(Paint.Cap.ROUND);
     }
 
-    public void startLoading() {
-        dAu();
-        this.mKo = 1;
-        this.mKm = -90.0f;
-        this.cLk = -90.0f;
-        this.mKq = ValueAnimator.ofFloat(this.mKg);
-        this.mKq.setDuration(this.mKh);
-        this.mKq.addListener(this.mKu);
-        this.mKq.addUpdateListener(this.mKt);
-        this.mKq.start();
+    public void j() {
+        g();
+        this.r = 2;
+        this.o = this.p;
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(-this.f20505g);
+        this.u = ofFloat;
+        ofFloat.setDuration(this.f20506h);
+        this.u.addListener(this.x);
+        this.u.addUpdateListener(this.w);
+        this.u.start();
+    }
+
+    public final void k() {
+        g();
+        this.r = 3;
+        this.o = this.p;
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.i);
+        this.v = ofFloat;
+        ofFloat.setDuration(this.j);
+        this.v.addListener(this.x);
+        this.v.addUpdateListener(this.w);
+        this.v.start();
+    }
+
+    public void l() {
+        g();
+        this.r = 1;
+        this.p = -90.0f;
+        this.o = -90.0f;
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f20503e);
+        this.t = ofFloat;
+        ofFloat.setDuration(this.f20504f);
+        this.t.addListener(this.x);
+        this.t.addUpdateListener(this.w);
+        this.t.start();
         setVisibility(0);
         invalidate();
     }
 
-    public void dAp() {
-        dAu();
-        this.mKo = 2;
-        this.cLk = this.mKm;
-        this.mKr = ValueAnimator.ofFloat(-this.mKi);
-        this.mKr.setDuration(this.mKj);
-        this.mKr.addListener(this.mKu);
-        this.mKr.addUpdateListener(this.mKt);
-        this.mKr.start();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dAt() {
-        dAu();
-        this.mKo = 3;
-        this.cLk = this.mKm;
-        this.mKs = ValueAnimator.ofFloat(this.mKk);
-        this.mKs.setDuration(this.mKl);
-        this.mKs.addListener(this.mKu);
-        this.mKs.addUpdateListener(this.mKt);
-        this.mKs.start();
-    }
-
-    public void dAr() {
-        dAu();
-        setVisibility(8);
-    }
-
-    private void dAu() {
-        if (this.mKq != null) {
-            this.mKq.cancel();
-        }
-        if (this.mKr != null) {
-            this.mKr.cancel();
-        }
-        if (this.mKs != null) {
-            this.mKs.cancel();
-        }
-    }
-
-    public void setLoadingAnimationListener(a aVar) {
-        this.mKp = aVar;
-    }
-
     @Override // android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        dAu();
+        g();
     }
 
     @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.mRect.left = 1;
-        this.mRect.top = 1;
-        this.mRect.right = getWidth() - 1;
-        this.mRect.bottom = getHeight() - 1;
-        canvas.drawArc(this.mRect, this.mKm, this.mKn, false, this.mPaint);
+        RectF rectF = this.k;
+        float f2 = 1;
+        rectF.left = f2;
+        rectF.top = f2;
+        rectF.right = getWidth() - 1;
+        this.k.bottom = getHeight() - 1;
+        canvas.drawArc(this.k, this.p, this.q, false, this.l);
+    }
+
+    public void setLoadingAnimationListener(c cVar) {
+        this.s = cVar;
+    }
+
+    public VideoLoadingProgressView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f20503e = 7200.0f;
+        this.f20504f = 10000;
+        this.f20505g = 30.0f;
+        this.f20506h = 50;
+        this.i = 300.0f;
+        this.j = 400;
+        this.o = -90.0f;
+        this.p = -90.0f;
+        this.q = 60.0f;
+        this.w = new a();
+        this.x = new b();
+        i();
+    }
+
+    public VideoLoadingProgressView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f20503e = 7200.0f;
+        this.f20504f = 10000;
+        this.f20505g = 30.0f;
+        this.f20506h = 50;
+        this.i = 300.0f;
+        this.j = 400;
+        this.o = -90.0f;
+        this.p = -90.0f;
+        this.q = 60.0f;
+        this.w = new a();
+        this.x = new b();
+        i();
     }
 }

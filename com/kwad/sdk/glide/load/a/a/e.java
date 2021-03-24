@@ -7,50 +7,59 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.webkit.sdk.LoadErrorCode;
+import com.bumptech.glide.load.data.mediastore.ThumbnailStreamOpener;
 import com.kwad.sdk.glide.load.ImageHeaderParser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes3.dex */
-class e {
+/* loaded from: classes6.dex */
+public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a f6643a = new a();
-    private final a b;
-    private final d c;
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b d;
-    private final ContentResolver e;
-    private final List<ImageHeaderParser> f;
+    public static final a f35239a = new a();
 
-    e(List<ImageHeaderParser> list, a aVar, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
-        this.b = aVar;
-        this.c = dVar;
-        this.d = bVar;
-        this.e = contentResolver;
-        this.f = list;
+    /* renamed from: b  reason: collision with root package name */
+    public final a f35240b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final d f35241c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35242d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final ContentResolver f35243e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final List<ImageHeaderParser> f35244f;
+
+    public e(List<ImageHeaderParser> list, a aVar, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
+        this.f35240b = aVar;
+        this.f35241c = dVar;
+        this.f35242d = bVar;
+        this.f35243e = contentResolver;
+        this.f35244f = list;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public e(List<ImageHeaderParser> list, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
-        this(list, f6643a, dVar, bVar, contentResolver);
+        this(list, f35239a, dVar, bVar, contentResolver);
     }
 
     private boolean a(File file) {
-        return this.b.a(file) && 0 < this.b.b(file);
+        return this.f35240b.a(file) && 0 < this.f35240b.b(file);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     @Nullable
     private String c(@NonNull Uri uri) {
-        String string;
-        Cursor a2 = this.c.a(uri);
+        Cursor a2 = this.f35241c.a(uri);
         if (a2 != null) {
             try {
                 if (a2.moveToFirst()) {
-                    string = a2.getString(0);
-                    return string;
+                    return a2.getString(0);
                 }
             } finally {
                 if (a2 != null) {
@@ -58,57 +67,62 @@ class e {
                 }
             }
         }
-        string = null;
         if (a2 != null) {
             a2.close();
         }
-        return string;
+        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int a(Uri uri) {
         InputStream inputStream = null;
         try {
             try {
-                inputStream = this.e.openInputStream(uri);
-                int b = com.kwad.sdk.glide.load.b.b(this.f, inputStream, this.d);
+                inputStream = this.f35243e.openInputStream(uri);
+                int b2 = com.kwad.sdk.glide.load.b.b(this.f35244f, inputStream, this.f35242d);
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                        return b;
-                    } catch (IOException e) {
-                        return b;
+                    } catch (IOException unused) {
                     }
                 }
-                return b;
-            } finally {
+                return b2;
+            } catch (Throwable th) {
                 if (0 != 0) {
                     try {
                         inputStream.close();
-                    } catch (IOException e2) {
+                    } catch (IOException unused2) {
                     }
                 }
+                throw th;
             }
-        } catch (IOException | NullPointerException e3) {
-            if (Log.isLoggable("ThumbStreamOpener", 3)) {
-                Log.d("ThumbStreamOpener", "Failed to open uri: " + uri, e3);
+        } catch (IOException | NullPointerException e2) {
+            if (Log.isLoggable(ThumbnailStreamOpener.TAG, 3)) {
+                Log.d(ThumbnailStreamOpener.TAG, "Failed to open uri: " + uri, e2);
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                    return -1;
+                } catch (IOException unused3) {
+                    return -1;
+                }
             }
             return -1;
         }
     }
 
     public InputStream b(Uri uri) {
-        String c = c(uri);
-        if (TextUtils.isEmpty(c)) {
+        String c2 = c(uri);
+        if (TextUtils.isEmpty(c2)) {
             return null;
         }
-        File a2 = this.b.a(c);
+        File a2 = this.f35240b.a(c2);
         if (a(a2)) {
             Uri fromFile = Uri.fromFile(a2);
             try {
-                return this.e.openInputStream(fromFile);
-            } catch (NullPointerException e) {
-                throw ((FileNotFoundException) new FileNotFoundException("NPE opening uri: " + uri + " -> " + fromFile).initCause(e));
+                return this.f35243e.openInputStream(fromFile);
+            } catch (NullPointerException e2) {
+                throw ((FileNotFoundException) new FileNotFoundException("NPE opening uri: " + uri + LoadErrorCode.TOKEN_NEXT + fromFile).initCause(e2));
             }
         }
         return null;

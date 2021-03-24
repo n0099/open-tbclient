@@ -16,9 +16,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class CronetUrlRequest extends UrlRequestBase {
-    public static final /* synthetic */ boolean $assertionsDisabled = !CronetUrlRequest.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public final boolean mAllowDirectExecutor;
     public final VersionSafeCallbacks$UrlRequestCallback mCallback;
     public final boolean mDisableCache;
@@ -49,14 +49,14 @@ public final class CronetUrlRequest extends UrlRequestBase {
     public final List<String> mUrlChain = new ArrayList();
     public final HeadersList mRequestHeaders = new HeadersList(null);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class HeadersList extends ArrayList<Map.Entry<String, String>> {
         public /* synthetic */ HeadersList(AnonymousClass1 anonymousClass1) {
         }
     }
 
-    /* loaded from: classes3.dex */
-    private final class OnReadCompletedRunnable implements Runnable {
+    /* loaded from: classes.dex */
+    public final class OnReadCompletedRunnable implements Runnable {
         public ByteBuffer mByteBuffer;
 
         public /* synthetic */ OnReadCompletedRunnable(AnonymousClass1 anonymousClass1) {
@@ -70,20 +70,20 @@ public final class CronetUrlRequest extends UrlRequestBase {
             this.mByteBuffer = null;
             try {
                 synchronized (CronetUrlRequest.this.mUrlRequestAdapterLock) {
-                    if (!CronetUrlRequest.this.isDoneLocked()) {
-                        CronetUrlRequest.this.mWaitingOnRead = true;
-                        VersionSafeCallbacks$UrlRequestCallback versionSafeCallbacks$UrlRequestCallback = CronetUrlRequest.this.mCallback;
-                        versionSafeCallbacks$UrlRequestCallback.mWrappedCallback.onReadCompleted(CronetUrlRequest.this, CronetUrlRequest.this.mResponseInfo, byteBuffer);
+                    if (CronetUrlRequest.this.isDoneLocked()) {
+                        return;
                     }
+                    CronetUrlRequest.this.mWaitingOnRead = true;
+                    VersionSafeCallbacks$UrlRequestCallback versionSafeCallbacks$UrlRequestCallback = CronetUrlRequest.this.mCallback;
+                    versionSafeCallbacks$UrlRequestCallback.mWrappedCallback.onReadCompleted(CronetUrlRequest.this, CronetUrlRequest.this.mResponseInfo, byteBuffer);
                 }
-            } catch (Exception e) {
-                CronetUrlRequest.this.onCallbackException(e);
+            } catch (Exception e2) {
+                CronetUrlRequest.this.onCallbackException(e2);
             }
         }
     }
 
     public CronetUrlRequest(CronetUrlRequestContext cronetUrlRequestContext, String str, int i, UrlRequest.Callback callback, Executor executor, Collection<Object> collection, boolean z, boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, RequestFinishedInfo.Listener listener) {
-        int i4;
         if (str == null) {
             throw new NullPointerException("URL is required");
         }
@@ -97,23 +97,15 @@ public final class CronetUrlRequest extends UrlRequestBase {
         this.mRequestContext = cronetUrlRequestContext;
         this.mInitialUrl = str;
         this.mUrlChain.add(str);
-        switch (i) {
-            case 0:
-                i4 = 1;
-                break;
-            case 1:
-                i4 = 2;
-                break;
-            case 2:
-                i4 = 3;
-                break;
-            case 3:
-            default:
-                i4 = 4;
-                break;
-            case 4:
-                i4 = 5;
-                break;
+        int i4 = 4;
+        if (i == 0) {
+            i4 = 1;
+        } else if (i == 1) {
+            i4 = 2;
+        } else if (i == 2) {
+            i4 = 3;
+        } else if (i == 4) {
+            i4 = 5;
         }
         this.mPriority = i4;
         this.mCallback = new VersionSafeCallbacks$UrlRequestCallback(callback);
@@ -147,8 +139,8 @@ public final class CronetUrlRequest extends UrlRequestBase {
                             versionSafeCallbacks$RequestFinishedInfoListener2.mWrappedListener.onRequestFinished(requestFinishedInfoImpl);
                         }
                     });
-                } catch (RejectedExecutionException e) {
-                    Log.e(CronetUrlRequestContext.LOG_TAG, "Exception posting task to executor", e);
+                } catch (RejectedExecutionException e2) {
+                    Log.e(CronetUrlRequestContext.LOG_TAG, "Exception posting task to executor", e2);
                 }
             }
         }
@@ -187,8 +179,8 @@ public final class CronetUrlRequest extends UrlRequestBase {
                 try {
                     CronetUrlRequest.this.mCallback.mWrappedCallback.onCanceled(CronetUrlRequest.this, CronetUrlRequest.this.mResponseInfo);
                     CronetUrlRequest.access$1300(CronetUrlRequest.this);
-                } catch (Exception e) {
-                    Log.e(CronetUrlRequestContext.LOG_TAG, "Exception in onCanceled method", e);
+                } catch (Exception e2) {
+                    Log.e(CronetUrlRequestContext.LOG_TAG, "Exception in onCanceled method", e2);
                 }
             }
         });
@@ -239,7 +231,8 @@ public final class CronetUrlRequest extends UrlRequestBase {
                 i = 11;
                 break;
             default:
-                Log.e(CronetUrlRequestContext.LOG_TAG, "Unknown error code: " + i, new Object[0]);
+                String str2 = CronetUrlRequestContext.LOG_TAG;
+                Log.e(str2, "Unknown error code: " + i, new Object[0]);
                 break;
         }
         failWithException(new NetworkExceptionImpl("Exception in CronetUrlRequest: " + str, i, i2));
@@ -275,13 +268,13 @@ public final class CronetUrlRequest extends UrlRequestBase {
                         try {
                             CronetUrlRequest.this.mCallback.mWrappedCallback.onFailed(CronetUrlRequest.this, CronetUrlRequest.this.mResponseInfo, CronetUrlRequest.this.mException);
                             CronetUrlRequest.access$1300(CronetUrlRequest.this);
-                        } catch (Exception e) {
-                            Log.e(CronetUrlRequestContext.LOG_TAG, "Exception in onFailed method", e);
+                        } catch (Exception e2) {
+                            Log.e(CronetUrlRequestContext.LOG_TAG, "Exception in onFailed method", e2);
                         }
                     }
                 });
-            } catch (RejectedExecutionException e) {
-                Log.e(CronetUrlRequestContext.LOG_TAG, "Exception posting task to executor", e);
+            } catch (RejectedExecutionException e2) {
+                Log.e(CronetUrlRequestContext.LOG_TAG, "Exception posting task to executor", e2);
             }
         }
     }
@@ -322,8 +315,8 @@ public final class CronetUrlRequest extends UrlRequestBase {
                     try {
                         VersionSafeCallbacks$UrlRequestCallback versionSafeCallbacks$UrlRequestCallback = CronetUrlRequest.this.mCallback;
                         versionSafeCallbacks$UrlRequestCallback.mWrappedCallback.onRedirectReceived(CronetUrlRequest.this, prepareResponseInfoOnNetworkThread, str);
-                    } catch (Exception e) {
-                        CronetUrlRequest.this.onCallbackException(e);
+                    } catch (Exception e2) {
+                        CronetUrlRequest.this.onCallbackException(e2);
                     }
                 }
             }
@@ -349,8 +342,8 @@ public final class CronetUrlRequest extends UrlRequestBase {
                     try {
                         VersionSafeCallbacks$UrlRequestCallback versionSafeCallbacks$UrlRequestCallback = CronetUrlRequest.this.mCallback;
                         versionSafeCallbacks$UrlRequestCallback.mWrappedCallback.onResponseStarted(CronetUrlRequest.this, CronetUrlRequest.this.mResponseInfo);
-                    } catch (Exception e) {
-                        CronetUrlRequest.this.onCallbackException(e);
+                    } catch (Exception e2) {
+                        CronetUrlRequest.this.onCallbackException(e2);
                     }
                 }
             }
@@ -441,8 +434,8 @@ public final class CronetUrlRequest extends UrlRequestBase {
                     try {
                         CronetUrlRequest.this.mCallback.mWrappedCallback.onSucceeded(CronetUrlRequest.this, CronetUrlRequest.this.mResponseInfo);
                         CronetUrlRequest.access$1300(CronetUrlRequest.this);
-                    } catch (Exception e) {
-                        Log.e(CronetUrlRequestContext.LOG_TAG, "Exception in onSucceeded method", e);
+                    } catch (Exception e2) {
+                        Log.e(CronetUrlRequestContext.LOG_TAG, "Exception in onSucceeded method", e2);
                     }
                 }
             }
@@ -476,9 +469,6 @@ public final class CronetUrlRequest extends UrlRequestBase {
     }
 
     public final void destroyRequestAdapterLocked(int i) {
-        if (!$assertionsDisabled && this.mException != null && i != 1) {
-            throw new AssertionError();
-        }
         this.mFinishedReason = i;
         if (this.mUrlRequestAdapter == 0) {
             return;
@@ -492,9 +482,6 @@ public final class CronetUrlRequest extends UrlRequestBase {
         synchronized (this.mUrlRequestAdapterLock) {
             if (isDoneLocked()) {
                 return;
-            }
-            if (!$assertionsDisabled && this.mException != null) {
-                throw new AssertionError();
             }
             this.mException = cronetException;
             destroyRequestAdapterLocked(1);
@@ -534,9 +521,9 @@ public final class CronetUrlRequest extends UrlRequestBase {
     public final void postTaskToExecutor(Runnable runnable) {
         try {
             this.mExecutor.execute(runnable);
-        } catch (RejectedExecutionException e) {
-            Log.e(CronetUrlRequestContext.LOG_TAG, "Exception posting task to executor", e);
-            failWithException(new CronetExceptionImpl("Exception posting task to executor", e));
+        } catch (RejectedExecutionException e2) {
+            Log.e(CronetUrlRequestContext.LOG_TAG, "Exception posting task to executor", e2);
+            failWithException(new CronetExceptionImpl("Exception posting task to executor", e2));
         }
     }
 
@@ -596,32 +583,42 @@ public final class CronetUrlRequest extends UrlRequestBase {
     public void start() {
         SafeNativeFunctionCaller$Supplier safeNativeFunctionCaller$Supplier;
         Object obj;
+        SafeNativeFunctionCaller$Supplier safeNativeFunctionCaller$Supplier2;
         synchronized (this.mUrlRequestAdapterLock) {
             checkNotStarted();
             try {
                 try {
-                    obj = CronetUrlRequest$$Lambda$1.lambdaFactory$(this).get();
-                } catch (UnsatisfiedLinkError e) {
                     try {
-                        obj = safeNativeFunctionCaller$Supplier.get();
-                    } catch (UnsatisfiedLinkError e2) {
-                        obj = safeNativeFunctionCaller$Supplier.get();
+                        obj = CronetUrlRequest$$Lambda$1.lambdaFactory$(this).get();
+                    } catch (UnsatisfiedLinkError unused) {
+                        obj = safeNativeFunctionCaller$Supplier2.get();
                     }
+                } catch (UnsatisfiedLinkError unused2) {
+                    obj = safeNativeFunctionCaller$Supplier.get();
                 }
                 this.mUrlRequestAdapter = ((Long) obj).longValue();
                 this.mRequestContext.onRequestStarted();
                 if (this.mInitialMethod != null && !nativeSetHttpMethod(this.mUrlRequestAdapter, this.mInitialMethod)) {
-                    throw new IllegalArgumentException("Invalid http method " + this.mInitialMethod);
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("Invalid http method ");
+                    sb.append(this.mInitialMethod);
+                    throw new IllegalArgumentException(sb.toString());
                 }
                 boolean z = false;
                 Iterator<Map.Entry<String, String>> it = this.mRequestHeaders.iterator();
                 while (it.hasNext()) {
                     Map.Entry<String, String> next = it.next();
-                    boolean z2 = (!next.getKey().equalsIgnoreCase("Content-Type") || next.getValue().isEmpty()) ? z : true;
-                    if (!nativeAddRequestHeader(this.mUrlRequestAdapter, next.getKey(), next.getValue())) {
-                        throw new IllegalArgumentException("Invalid header " + next.getKey() + "=" + next.getValue());
+                    if (next.getKey().equalsIgnoreCase("Content-Type") && !next.getValue().isEmpty()) {
+                        z = true;
                     }
-                    z = z2;
+                    if (!nativeAddRequestHeader(this.mUrlRequestAdapter, next.getKey(), next.getValue())) {
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append("Invalid header ");
+                        sb2.append(next.getKey());
+                        sb2.append("=");
+                        sb2.append(next.getValue());
+                        throw new IllegalArgumentException(sb2.toString());
+                    }
                 }
                 if (this.mUploadDataStream == null) {
                     this.mStarted = true;
@@ -648,9 +645,9 @@ public final class CronetUrlRequest extends UrlRequestBase {
                         }
                     });
                 }
-            } catch (RuntimeException e3) {
+            } catch (RuntimeException e2) {
                 destroyRequestAdapterLocked(1);
-                throw e3;
+                throw e2;
             }
         }
     }

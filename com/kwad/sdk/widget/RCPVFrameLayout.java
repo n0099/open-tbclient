@@ -5,11 +5,11 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RCPVFrameLayout extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f7160a;
+    public d f36815a;
 
     public RCPVFrameLayout(@NonNull Context context) {
         this(context, null);
@@ -21,33 +21,33 @@ public class RCPVFrameLayout extends a {
 
     public RCPVFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f7160a = new d();
-        this.f7160a.a(context, attributeSet);
+        d dVar = new d();
+        this.f36815a = dVar;
+        dVar.a(context, attributeSet);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        this.f7160a.c(canvas);
+    public void dispatchDraw(Canvas canvas) {
+        this.f36815a.c(canvas);
         super.dispatchDraw(canvas);
-        this.f7160a.d(canvas);
+        this.f36815a.d(canvas);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        this.f7160a.a(canvas);
+        this.f36815a.a(canvas);
         super.draw(canvas);
-        this.f7160a.b(canvas);
+        this.f36815a.b(canvas);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.widget.a, android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.f7160a.a(i, i2);
+        this.f36815a.a(i, i2);
     }
 
-    public void setRadius(float f) {
-        this.f7160a.a(f);
+    public void setRadius(float f2) {
+        this.f36815a.a(f2);
         postInvalidate();
     }
 }

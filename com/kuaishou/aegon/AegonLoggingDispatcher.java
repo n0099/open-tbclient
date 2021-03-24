@@ -1,15 +1,17 @@
 package com.kuaishou.aegon;
 
 import androidx.annotation.Keep;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AegonLoggingDispatcher {
-    public static i pZd;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static d f31607a;
 
     @Keep
     public static void Log(int i, String str, String str2) {
-        i iVar = pZd;
-        if (iVar != null) {
-            iVar.a(i, str, str2);
+        d dVar = f31607a;
+        if (dVar != null) {
+            dVar.a(i, str, str2);
         }
     }
 }

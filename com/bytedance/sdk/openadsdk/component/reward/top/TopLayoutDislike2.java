@@ -12,79 +12,72 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.utils.ac;
+import com.bytedance.sdk.openadsdk.utils.ad;
 /* loaded from: classes6.dex */
 public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike2> {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f4297a;
-    private ImageView b;
-    private TextView c;
-    private boolean d;
-    private l e;
-    private boolean f;
-    private b g;
-    private CharSequence h;
-    private CharSequence i;
+    public View f27842a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f27843b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f27844c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f27845d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public l f27846e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f27847f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public b f27848g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public CharSequence f27849h;
+    public CharSequence i;
 
     public TopLayoutDislike2(@NonNull Context context) {
         this(context, null);
     }
 
-    public TopLayoutDislike2(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    public TopLayoutDislike2(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.h = "";
-        this.i = "";
-    }
-
-    public TopLayoutDislike2 a(boolean z, @NonNull l lVar) {
-        this.d = z;
-        this.e = lVar;
-        LayoutInflater.from(getContext()).inflate(ac.f(getContext(), "tt_top_reward_dislike_2"), (ViewGroup) this, true);
-        this.f4297a = findViewById(ac.e(getContext(), "tt_top_dislike"));
-        this.b = (ImageView) findViewById(ac.e(getContext(), "tt_top_mute"));
-        this.c = (TextView) findViewById(ac.e(getContext(), "tt_top_skip"));
-        this.c.setVisibility(0);
-        this.c.setText("");
-        this.c.setEnabled(false);
-        this.c.setClickable(false);
-        d();
-        return this;
-    }
-
     private void d() {
-        if (this.f4297a != null) {
-            this.f4297a.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.1
+        View view = this.f27842a;
+        if (view != null) {
+            view.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (TopLayoutDislike2.this.g != null) {
-                        TopLayoutDislike2.this.g.c(view);
+                public void onClick(View view2) {
+                    if (TopLayoutDislike2.this.f27848g != null) {
+                        TopLayoutDislike2.this.f27848g.c(view2);
                     }
                 }
             });
         }
-        if (this.b != null) {
-            this.b.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.2
+        ImageView imageView = this.f27843b;
+        if (imageView != null) {
+            imageView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.2
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    TopLayoutDislike2.this.f = !TopLayoutDislike2.this.f;
-                    TopLayoutDislike2.this.b.setImageResource(TopLayoutDislike2.this.f ? ac.d(TopLayoutDislike2.this.getContext(), "tt_mute") : ac.d(TopLayoutDislike2.this.getContext(), "tt_unmute"));
-                    if (TopLayoutDislike2.this.g != null) {
-                        TopLayoutDislike2.this.g.b(view);
+                public void onClick(View view2) {
+                    TopLayoutDislike2 topLayoutDislike2 = TopLayoutDislike2.this;
+                    topLayoutDislike2.f27847f = !topLayoutDislike2.f27847f;
+                    TopLayoutDislike2.this.f27843b.setImageResource(TopLayoutDislike2.this.f27847f ? ad.d(TopLayoutDislike2.this.getContext(), "tt_mute") : ad.d(TopLayoutDislike2.this.getContext(), "tt_unmute"));
+                    if (TopLayoutDislike2.this.f27848g != null) {
+                        TopLayoutDislike2.this.f27848g.b(view2);
                     }
                 }
             });
         }
-        if (this.c != null) {
-            this.c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.3
+        TextView textView = this.f27844c;
+        if (textView != null) {
+            textView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutDislike2.3
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (TopLayoutDislike2.this.g != null) {
-                        TopLayoutDislike2.this.g.a(view);
+                public void onClick(View view2) {
+                    if (TopLayoutDislike2.this.f27848g != null) {
+                        TopLayoutDislike2.this.f27848g.a(view2);
                     }
                 }
             });
@@ -92,36 +85,8 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setShowSkip(boolean z) {
-        if (this.c != null) {
-            if (!z) {
-                this.c.setText("");
-            }
-            if (this.c.getVisibility() != 4) {
-                this.c.setVisibility(z ? 0 : 8);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setSkipEnable(boolean z) {
-        if (this.c != null) {
-            this.c.setEnabled(z);
-            this.c.setClickable(z);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setShowSound(boolean z) {
-        if (this.b != null) {
-            this.b.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setSoundMute(boolean z) {
-        this.f = z;
-        this.b.setImageResource(this.f ? ac.d(getContext(), "tt_mute") : ac.d(getContext(), "tt_unmute"));
+    public void setListener(b bVar) {
+        this.f27848g = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
@@ -129,51 +94,118 @@ public class TopLayoutDislike2 extends FrameLayout implements a<TopLayoutDislike
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void a(CharSequence charSequence, CharSequence charSequence2) {
-        if (!TextUtils.isEmpty(charSequence)) {
-            this.h = charSequence;
-        }
-        if (!TextUtils.isEmpty(charSequence2)) {
-            this.i = charSequence2;
-        }
-        if (this.c != null) {
-            CharSequence charSequence3 = this.h;
-            if (!TextUtils.isEmpty(this.i)) {
-                charSequence3 = ((Object) charSequence3) + " | " + ((Object) this.i);
-            }
-            this.c.setText(charSequence3);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowDislike(boolean z) {
-        if (this.f4297a != null) {
-            this.f4297a.setVisibility(z ? 0 : 8);
+        View view = this.f27842a;
+        if (view != null) {
+            view.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setListener(b bVar) {
-        this.g = bVar;
+    public void setShowSkip(boolean z) {
+        TextView textView = this.f27844c;
+        if (textView != null) {
+            if (!z) {
+                textView.setText("");
+            }
+            if (this.f27844c.getVisibility() == 4) {
+                return;
+            }
+            this.f27844c.setVisibility(z ? 0 : 8);
+        }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void a() {
-        if (this.c != null) {
-            this.c.performClick();
+    public void setShowSound(boolean z) {
+        ImageView imageView = this.f27843b;
+        if (imageView != null) {
+            imageView.setVisibility(z ? 0 : 8);
         }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setSkipEnable(boolean z) {
+        TextView textView = this.f27844c;
+        if (textView != null) {
+            textView.setEnabled(z);
+            this.f27844c.setClickable(z);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setSoundMute(boolean z) {
+        int d2;
+        this.f27847f = z;
+        if (z) {
+            d2 = ad.d(getContext(), "tt_mute");
+        } else {
+            d2 = ad.d(getContext(), "tt_unmute");
+        }
+        this.f27843b.setImageResource(d2);
+    }
+
+    public TopLayoutDislike2(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void b() {
-        if (this.b != null) {
-            this.b.performClick();
+        ImageView imageView = this.f27843b;
+        if (imageView != null) {
+            imageView.performClick();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void c() {
-        this.c.setWidth(20);
-        this.c.setVisibility(4);
+        this.f27844c.setWidth(20);
+        this.f27844c.setVisibility(4);
+    }
+
+    public TopLayoutDislike2(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f27849h = "";
+        this.i = "";
+    }
+
+    public TopLayoutDislike2 a(boolean z, @NonNull l lVar) {
+        this.f27845d = z;
+        this.f27846e = lVar;
+        LayoutInflater.from(getContext()).inflate(ad.f(getContext(), "tt_top_reward_dislike_2"), (ViewGroup) this, true);
+        this.f27842a = findViewById(ad.e(getContext(), "tt_top_dislike"));
+        this.f27843b = (ImageView) findViewById(ad.e(getContext(), "tt_top_mute"));
+        TextView textView = (TextView) findViewById(ad.e(getContext(), "tt_top_skip"));
+        this.f27844c = textView;
+        textView.setVisibility(0);
+        this.f27844c.setText("");
+        this.f27844c.setEnabled(false);
+        this.f27844c.setClickable(false);
+        d();
+        return this;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void a(CharSequence charSequence, CharSequence charSequence2) {
+        if (!TextUtils.isEmpty(charSequence)) {
+            this.f27849h = charSequence;
+        }
+        if (!TextUtils.isEmpty(charSequence2)) {
+            this.i = charSequence2;
+        }
+        if (this.f27844c != null) {
+            CharSequence charSequence3 = this.f27849h;
+            if (!TextUtils.isEmpty(this.i)) {
+                charSequence3 = ((Object) charSequence3) + " | " + ((Object) this.i);
+            }
+            this.f27844c.setText(charSequence3);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void a() {
+        TextView textView = this.f27844c;
+        if (textView != null) {
+            textView.performClick();
+        }
     }
 }

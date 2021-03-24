@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.mobstat.bm;
-import com.baidu.sapi2.utils.SapiUtils;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -24,265 +24,229 @@ import java.util.TimerTask;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LogSender {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LogSender f2550a = new LogSender();
-    private boolean b = false;
-    private int c = 0;
-    private int d = 1;
-    private SendStrategyEnum e = SendStrategyEnum.APP_START;
-    private Timer f;
-    private Handler g;
+    public static LogSender f8812a = new LogSender();
 
-    public static LogSender instance() {
-        return f2550a;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f8813b = false;
 
-    private LogSender() {
+    /* renamed from: c  reason: collision with root package name */
+    public int f8814c = 0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f8815d = 1;
+
+    /* renamed from: e  reason: collision with root package name */
+    public SendStrategyEnum f8816e = SendStrategyEnum.APP_START;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Timer f8817f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Handler f8818g;
+
+    public LogSender() {
         HandlerThread handlerThread = new HandlerThread("LogSenderThread");
         handlerThread.start();
-        this.g = new Handler(handlerThread.getLooper());
+        this.f8818g = new Handler(handlerThread.getLooper());
     }
 
-    public void setLogSenderDelayed(int i) {
-        if (i >= 0 && i <= 30) {
-            this.c = i;
+    private String e(Context context, String str, String str2) throws Exception {
+        HttpURLConnection d2 = bo.d(context, str);
+        d2.setDoOutput(true);
+        d2.setInstanceFollowRedirects(false);
+        d2.setUseCaches(false);
+        d2.setRequestProperty("Content-Type", AsyncHttpClient.ENCODING_GZIP);
+        byte[] a2 = bm.a.a();
+        byte[] b2 = bm.a.b();
+        d2.setRequestProperty("key", bv.a(a2));
+        d2.setRequestProperty("iv", bv.a(b2));
+        byte[] a3 = bm.a.a(a2, b2, str2.getBytes("utf-8"));
+        d2.connect();
+        try {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(d2.getOutputStream());
+            gZIPOutputStream.write(a3);
+            gZIPOutputStream.flush();
+            gZIPOutputStream.close();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(d2.getInputStream()));
+            StringBuilder sb = new StringBuilder();
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine == null) {
+                    break;
+                }
+                sb.append(readLine);
+            }
+            int contentLength = d2.getContentLength();
+            if (d2.getResponseCode() == 200 && contentLength == 0) {
+                return sb.toString();
+            }
+            throw new IOException("http code = " + d2.getResponseCode() + "; contentResponse = " + ((Object) sb));
+        } finally {
+            d2.disconnect();
         }
     }
 
-    public void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i, boolean z) {
-        if (sendStrategyEnum.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
-            if (i > 0 && i <= 24) {
-                this.d = i;
-                this.e = SendStrategyEnum.SET_TIME_INTERVAL;
-                bq.a().a(context, this.e.ordinal());
-                bq.a().b(context, this.d);
-            }
-        } else {
-            this.e = sendStrategyEnum;
-            bq.a().a(context, this.e.ordinal());
-            if (sendStrategyEnum.equals(SendStrategyEnum.ONCE_A_DAY)) {
-                bq.a().b(context, 24);
-            }
-        }
-        this.b = z;
-        bq.a().a(context, this.b);
+    public static LogSender instance() {
+        return f8812a;
     }
 
     public void onSend(final Context context) {
         if (context != null) {
             context = context.getApplicationContext();
         }
-        if (context != null) {
-            this.g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    if (LogSender.this.f != null) {
-                        LogSender.this.f.cancel();
-                        LogSender.this.f = null;
-                    }
-                    LogSender.this.e = SendStrategyEnum.values()[bq.a().b(context)];
-                    LogSender.this.d = bq.a().c(context);
-                    LogSender.this.b = bq.a().d(context);
-                    if (!LogSender.this.e.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
-                        if (LogSender.this.e.equals(SendStrategyEnum.ONCE_A_DAY)) {
-                            LogSender.this.setSendingLogTimer(context);
-                        }
-                    } else {
+        if (context == null) {
+            return;
+        }
+        this.f8818g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.1
+            @Override // java.lang.Runnable
+            public void run() {
+                if (LogSender.this.f8817f != null) {
+                    LogSender.this.f8817f.cancel();
+                    LogSender.this.f8817f = null;
+                }
+                LogSender.this.f8816e = SendStrategyEnum.values()[bq.a().b(context)];
+                LogSender.this.f8815d = bq.a().c(context);
+                LogSender.this.f8813b = bq.a().d(context);
+                if (!LogSender.this.f8816e.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
+                    if (LogSender.this.f8816e.equals(SendStrategyEnum.ONCE_A_DAY)) {
                         LogSender.this.setSendingLogTimer(context);
                     }
-                    LogSender.this.g.postDelayed(new Runnable() { // from class: com.baidu.mobstat.LogSender.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            LogSender.this.a(context);
-                        }
-                    }, LogSender.this.c * 1000);
+                } else {
+                    LogSender.this.setSendingLogTimer(context);
+                }
+                LogSender.this.f8818g.postDelayed(new Runnable() { // from class: com.baidu.mobstat.LogSender.1.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
+                        LogSender.this.a(context);
+                    }
+                }, LogSender.this.f8814c * 1000);
+            }
+        });
+    }
+
+    public void saveLogData(Context context, String str, boolean z) {
+        String str2 = z ? Config.PREFIX_SEND_DATA_FULL : Config.PREFIX_SEND_DATA;
+        bo.a(context, str2 + System.currentTimeMillis(), str, false);
+        if (z) {
+            a(context, Config.FULL_TRACE_LOG_LIMIT, Config.PREFIX_SEND_DATA_FULL);
+        }
+    }
+
+    public void sendEmptyLogData(Context context, final String str) {
+        final Context applicationContext = context.getApplicationContext();
+        this.f8818g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.7
+            @Override // java.lang.Runnable
+            public void run() {
+                String constructLogWithEmptyBody = DataCore.instance().constructLogWithEmptyBody(applicationContext, str);
+                if (TextUtils.isEmpty(constructLogWithEmptyBody)) {
+                    return;
+                }
+                LogSender.this.c(applicationContext, constructLogWithEmptyBody);
+            }
+        });
+    }
+
+    public void sendLogData(Context context, final String str, boolean z) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        final Context applicationContext = context.getApplicationContext();
+        if (z) {
+            b(applicationContext, str);
+        } else {
+            this.f8818g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.6
+                @Override // java.lang.Runnable
+                public void run() {
+                    LogSender.this.b(applicationContext, str);
                 }
             });
         }
     }
 
+    public void setLogSenderDelayed(int i) {
+        if (i < 0 || i > 30) {
+            return;
+        }
+        this.f8814c = i;
+    }
+
+    public void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i, boolean z) {
+        if (!sendStrategyEnum.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
+            this.f8816e = sendStrategyEnum;
+            bq.a().a(context, this.f8816e.ordinal());
+            if (sendStrategyEnum.equals(SendStrategyEnum.ONCE_A_DAY)) {
+                bq.a().b(context, 24);
+            }
+        } else if (i > 0 && i <= 24) {
+            this.f8815d = i;
+            this.f8816e = SendStrategyEnum.SET_TIME_INTERVAL;
+            bq.a().a(context, this.f8816e.ordinal());
+            bq.a().b(context, this.f8815d);
+        }
+        this.f8813b = z;
+        bq.a().a(context, this.f8813b);
+    }
+
     public void setSendingLogTimer(Context context) {
         final Context applicationContext = context.getApplicationContext();
-        long j = this.d * 3600000;
+        long j = this.f8815d * 3600000;
         try {
-            this.f = new Timer();
-            this.f.schedule(new TimerTask() { // from class: com.baidu.mobstat.LogSender.2
+            Timer timer = new Timer();
+            this.f8817f = timer;
+            timer.schedule(new TimerTask() { // from class: com.baidu.mobstat.LogSender.2
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     LogSender.this.a(applicationContext);
                 }
             }, j, j);
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
-    public void saveLogData(Context context, String str, boolean z) {
-        bo.a(context, (z ? Config.PREFIX_SEND_DATA_FULL : Config.PREFIX_SEND_DATA) + System.currentTimeMillis(), str, false);
-        if (z) {
-            a(context, 10485760L, Config.PREFIX_SEND_DATA_FULL);
+    private String d(Context context, String str, String str2) throws IOException {
+        HttpURLConnection d2 = bo.d(context, str);
+        d2.setDoOutput(true);
+        d2.setInstanceFollowRedirects(false);
+        d2.setUseCaches(false);
+        d2.setRequestProperty("Content-Type", AsyncHttpClient.ENCODING_GZIP);
+        try {
+            JSONObject jSONObject = new JSONObject(str2).getJSONObject(Config.HEADER_PART);
+            d2.setRequestProperty("mtj_appkey", jSONObject.getString(Config.APP_KEY));
+            d2.setRequestProperty("mtj_appversion", jSONObject.getString("n"));
+            d2.setRequestProperty("mtj_os", jSONObject.getString(Config.OS));
+            d2.setRequestProperty("mtj_pn", jSONObject.getString(Config.PACKAGE_NAME));
+            d2.setRequestProperty("mtj_tg", jSONObject.getString(Config.SDK_TAG));
+            d2.setRequestProperty("mtj_ii", jSONObject.getString(Config.CUID_SEC));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [181=4] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x004e A[LOOP:0: B:3:0x000f->B:25:0x004e, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x002b A[EDGE_INSN: B:49:0x002b->B:12:0x002b ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void a(Context context, long j, String str) {
-        Throwable th;
-        FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
-        ArrayList<String> a2 = a(context, str);
-        long j2 = 0;
-        int size = a2.size() - 1;
-        FileInputStream fileInputStream3 = null;
-        while (size >= 0) {
-            try {
-                fileInputStream2 = context.openFileInput(a2.get(size));
-                try {
-                    j2 += fileInputStream2.available();
-                } catch (Exception e) {
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (Exception e2) {
-                        }
-                        fileInputStream3 = null;
-                        if (j2 <= j) {
-                        }
-                    }
-                    fileInputStream3 = fileInputStream2;
-                    if (j2 <= j) {
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream = fileInputStream2;
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e3) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception e4) {
-                fileInputStream2 = fileInputStream3;
-            } catch (Throwable th3) {
-                th = th3;
-                fileInputStream = fileInputStream3;
-            }
-            if (fileInputStream2 != null) {
-                try {
-                    fileInputStream2.close();
-                } catch (Exception e5) {
-                }
-                fileInputStream3 = null;
-                if (j2 <= j) {
+        d2.connect();
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new GZIPOutputStream(d2.getOutputStream())));
+            bufferedWriter.write(str2);
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(d2.getInputStream()));
+            StringBuilder sb = new StringBuilder();
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine == null) {
                     break;
                 }
-                size--;
+                sb.append(readLine);
             }
-            fileInputStream3 = fileInputStream2;
-            if (j2 <= j) {
+            int contentLength = d2.getContentLength();
+            if (d2.getResponseCode() == 200 && contentLength == 0) {
+                return sb.toString();
             }
-        }
-        for (int i = 0; i <= size; i++) {
-            bo.b(context, a2.get(i));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<String> a(Context context, final String str) {
-        File filesDir;
-        String[] strArr;
-        ArrayList<String> arrayList = new ArrayList<>();
-        if (context != null && (filesDir = context.getFilesDir()) != null && filesDir.exists()) {
-            try {
-                strArr = filesDir.list(new FilenameFilter() { // from class: com.baidu.mobstat.LogSender.3
-                    @Override // java.io.FilenameFilter
-                    public boolean accept(File file, String str2) {
-                        return str2.startsWith(str);
-                    }
-                });
-            } catch (Exception e) {
-                strArr = null;
-            }
-            if (strArr != null && strArr.length != 0) {
-                try {
-                    Arrays.sort(strArr, new Comparator<String>() { // from class: com.baidu.mobstat.LogSender.4
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // java.util.Comparator
-                        /* renamed from: a */
-                        public int compare(String str2, String str3) {
-                            return str2.compareTo(str3);
-                        }
-                    });
-                } catch (Exception e2) {
-                }
-                for (String str2 : strArr) {
-                    arrayList.add(str2);
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(final Context context) {
-        if (!this.b || bw.q(context)) {
-            this.g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.5
-                @Override // java.lang.Runnable
-                public void run() {
-                    int i;
-                    try {
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.addAll(LogSender.this.a(context, Config.PREFIX_SEND_DATA));
-                        arrayList.addAll(LogSender.this.a(context, Config.PREFIX_SEND_DATA_FULL));
-                        Iterator it = arrayList.iterator();
-                        int i2 = 0;
-                        while (it.hasNext()) {
-                            String str = (String) it.next();
-                            String a2 = bo.a(context, str);
-                            if (!TextUtils.isEmpty(a2)) {
-                                if (!LogSender.this.a(context, a2, str.contains(Config.PREFIX_SEND_DATA_FULL))) {
-                                    LogSender.b(context, str, a2);
-                                    i = i2 + 1;
-                                    if (i >= 5) {
-                                        return;
-                                    }
-                                } else {
-                                    bo.b(context, str);
-                                    i = 0;
-                                }
-                                i2 = i;
-                            } else {
-                                bo.b(context, str);
-                            }
-                        }
-                    } catch (Exception e) {
-                    }
-                }
-            });
-        }
-    }
-
-    public void sendLogData(Context context, final String str, boolean z) {
-        if (context != null && !TextUtils.isEmpty(str)) {
-            final Context applicationContext = context.getApplicationContext();
-            if (z) {
-                b(applicationContext, str);
-            } else {
-                this.g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.6
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        LogSender.this.b(applicationContext, str);
-                    }
-                });
-            }
+            throw new IOException("http code = " + d2.getResponseCode() + "; contentResponse = " + ((Object) sb));
+        } finally {
+            d2.disconnect();
         }
     }
 
@@ -298,47 +262,164 @@ public class LogSender {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, String str, String str2) {
-        JSONObject jSONObject = null;
-        try {
-            jSONObject = new JSONObject(str2);
-        } catch (Exception e) {
-        }
-        if (jSONObject != null) {
-            try {
-                JSONObject jSONObject2 = (JSONObject) jSONObject.get(Config.TRACE_PART);
-                jSONObject2.put(Config.TRACE_FAILED_CNT, jSONObject2.getLong(Config.TRACE_FAILED_CNT) + 1);
-            } catch (Exception e2) {
-            }
-            bo.a(context, str, jSONObject.toString(), false);
-        }
-    }
-
-    public void sendEmptyLogData(Context context, final String str) {
-        final Context applicationContext = context.getApplicationContext();
-        this.g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.7
-            @Override // java.lang.Runnable
-            public void run() {
-                String constructLogWithEmptyBody = DataCore.instance().constructLogWithEmptyBody(applicationContext, str);
-                if (!TextUtils.isEmpty(constructLogWithEmptyBody)) {
-                    LogSender.this.c(applicationContext, constructLogWithEmptyBody);
-                }
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public boolean c(Context context, String str) {
         return a(context, str, false);
     }
 
+    private String c(Context context, String str, String str2) throws Exception {
+        if (!str.startsWith("https://")) {
+            return e(context, str, str2);
+        }
+        return d(context, str, str2);
+    }
+
+    public static void b(Context context, String str, String str2) {
+        JSONObject jSONObject;
+        try {
+            jSONObject = new JSONObject(str2);
+        } catch (Exception unused) {
+            jSONObject = null;
+        }
+        if (jSONObject == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject2 = (JSONObject) jSONObject.get(Config.TRACE_PART);
+            jSONObject2.put(Config.TRACE_FAILED_CNT, jSONObject2.getLong(Config.TRACE_FAILED_CNT) + 1);
+        } catch (Exception unused2) {
+        }
+        bo.a(context, str, jSONObject.toString(), false);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
+        if (r4 == null) goto L7;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x002d, code lost:
+        r4.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:6:0x0020, code lost:
+        if (r4 != null) goto L17;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x003c A[LOOP:1: B:21:0x003a->B:22:0x003c, LOOP_END] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void a(Context context, long j, String str) {
+        ArrayList<String> a2 = a(context, str);
+        int size = a2.size() - 1;
+        long j2 = 0;
+        FileInputStream fileInputStream = null;
+        while (size >= 0) {
+            try {
+                fileInputStream = context.openFileInput(a2.get(size));
+                j2 += fileInputStream.available();
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (Exception unused2) {
+                    }
+                }
+                throw th;
+            }
+        }
+        for (int i = 0; i <= size; i++) {
+            bo.b(context, a2.get(i));
+        }
+        return;
+        fileInputStream = null;
+        if (j2 > j) {
+            while (i <= size) {
+            }
+            return;
+        }
+        size--;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public ArrayList<String> a(Context context, final String str) {
+        File filesDir;
+        ArrayList<String> arrayList = new ArrayList<>();
+        if (context != null && (filesDir = context.getFilesDir()) != null && filesDir.exists()) {
+            FilenameFilter filenameFilter = new FilenameFilter() { // from class: com.baidu.mobstat.LogSender.3
+                @Override // java.io.FilenameFilter
+                public boolean accept(File file, String str2) {
+                    return str2.startsWith(str);
+                }
+            };
+            String[] strArr = null;
+            try {
+                strArr = filesDir.list(filenameFilter);
+            } catch (Exception unused) {
+            }
+            if (strArr != null && strArr.length != 0) {
+                try {
+                    Arrays.sort(strArr, new Comparator<String>() { // from class: com.baidu.mobstat.LogSender.4
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // java.util.Comparator
+                        /* renamed from: a */
+                        public int compare(String str2, String str3) {
+                            return str2.compareTo(str3);
+                        }
+                    });
+                } catch (Exception unused2) {
+                }
+                for (String str2 : strArr) {
+                    arrayList.add(str2);
+                }
+            }
+        }
+        return arrayList;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(final Context context) {
+        if (!this.f8813b || bw.q(context)) {
+            this.f8818g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.5
+                @Override // java.lang.Runnable
+                public void run() {
+                    String str;
+                    try {
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.addAll(LogSender.this.a(context, Config.PREFIX_SEND_DATA));
+                        arrayList.addAll(LogSender.this.a(context, Config.PREFIX_SEND_DATA_FULL));
+                        Iterator it = arrayList.iterator();
+                        while (true) {
+                            int i = 0;
+                            while (it.hasNext()) {
+                                str = (String) it.next();
+                                String a2 = bo.a(context, str);
+                                if (TextUtils.isEmpty(a2)) {
+                                    bo.b(context, str);
+                                } else {
+                                    if (LogSender.this.a(context, a2, str.contains(Config.PREFIX_SEND_DATA_FULL))) {
+                                        break;
+                                    }
+                                    LogSender.b(context, str, a2);
+                                    i++;
+                                    if (i >= 5) {
+                                        return;
+                                    }
+                                }
+                            }
+                            return;
+                            bo.b(context, str);
+                        }
+                    } catch (Exception unused) {
+                    }
+                }
+            });
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(Context context, String str, boolean z) {
-        boolean z2 = false;
         if (!z) {
             bc.c().a("Start send log \n" + str);
         }
-        if (this.b && !bw.q(context)) {
+        boolean z2 = false;
+        if (this.f8813b && !bw.q(context)) {
             bc.c().a("[WARNING] wifi not available, log will be cached, next time will try to resend");
             return false;
         }
@@ -349,86 +430,13 @@ public class LogSender {
         try {
             c(context, str2, str);
             z2 = true;
-        } catch (Exception e) {
-            bc.c().c(e);
+        } catch (Exception e2) {
+            bc.c().c(e2);
         }
         if (!z) {
-            bc.c().a("Send log " + (z2 ? "success" : "failed"));
+            String str3 = z2 ? "success" : com.alipay.sdk.util.e.f1969a;
+            bc.c().a("Send log " + str3);
         }
         return z2;
-    }
-
-    private String c(Context context, String str, String str2) throws Exception {
-        return !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) ? e(context, str, str2) : d(context, str, str2);
-    }
-
-    private String d(Context context, String str, String str2) throws IOException {
-        HttpURLConnection d = bo.d(context, str);
-        d.setDoOutput(true);
-        d.setInstanceFollowRedirects(false);
-        d.setUseCaches(false);
-        d.setRequestProperty("Content-Type", "gzip");
-        try {
-            JSONObject jSONObject = new JSONObject(str2).getJSONObject(Config.HEADER_PART);
-            d.setRequestProperty("mtj_appkey", jSONObject.getString("k"));
-            d.setRequestProperty("mtj_appversion", jSONObject.getString("n"));
-            d.setRequestProperty("mtj_os", jSONObject.getString(Config.OS));
-            d.setRequestProperty("mtj_pn", jSONObject.getString(Config.PACKAGE_NAME));
-            d.setRequestProperty("mtj_tg", jSONObject.getString(Config.SDK_TAG));
-            d.setRequestProperty("mtj_ii", jSONObject.getString(Config.CUID_SEC));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        d.connect();
-        try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new GZIPOutputStream(d.getOutputStream())));
-            bufferedWriter.write(str2);
-            bufferedWriter.flush();
-            bufferedWriter.close();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(d.getInputStream()));
-            StringBuilder sb = new StringBuilder();
-            for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                sb.append(readLine);
-            }
-            int contentLength = d.getContentLength();
-            if (d.getResponseCode() != 200 || contentLength != 0) {
-                throw new IOException("http code = " + d.getResponseCode() + "; contentResponse = " + ((Object) sb));
-            }
-            return sb.toString();
-        } finally {
-            d.disconnect();
-        }
-    }
-
-    private String e(Context context, String str, String str2) throws Exception {
-        HttpURLConnection d = bo.d(context, str);
-        d.setDoOutput(true);
-        d.setInstanceFollowRedirects(false);
-        d.setUseCaches(false);
-        d.setRequestProperty("Content-Type", "gzip");
-        byte[] a2 = bm.a.a();
-        byte[] b = bm.a.b();
-        d.setRequestProperty("key", bv.a(a2));
-        d.setRequestProperty("iv", bv.a(b));
-        byte[] a3 = bm.a.a(a2, b, str2.getBytes("utf-8"));
-        d.connect();
-        try {
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(d.getOutputStream());
-            gZIPOutputStream.write(a3);
-            gZIPOutputStream.flush();
-            gZIPOutputStream.close();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(d.getInputStream()));
-            StringBuilder sb = new StringBuilder();
-            for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                sb.append(readLine);
-            }
-            int contentLength = d.getContentLength();
-            if (d.getResponseCode() != 200 || contentLength != 0) {
-                throw new IOException("http code = " + d.getResponseCode() + "; contentResponse = " + ((Object) sb));
-            }
-            return sb.toString();
-        } finally {
-            d.disconnect();
-        }
     }
 }

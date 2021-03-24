@@ -17,36 +17,36 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.internal.view.SupportMenuItem;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ActionMenuItem implements SupportMenuItem {
-    private static final int CHECKABLE = 1;
-    private static final int CHECKED = 2;
-    private static final int ENABLED = 16;
-    private static final int EXCLUSIVE = 4;
-    private static final int HIDDEN = 8;
-    private static final int NO_ICON = 0;
-    private final int mCategoryOrder;
-    private MenuItem.OnMenuItemClickListener mClickListener;
-    private CharSequence mContentDescription;
-    private Context mContext;
-    private final int mGroup;
-    private Drawable mIconDrawable;
-    private final int mId;
-    private Intent mIntent;
-    private final int mOrdering;
-    private char mShortcutAlphabeticChar;
-    private char mShortcutNumericChar;
-    private CharSequence mTitle;
-    private CharSequence mTitleCondensed;
-    private CharSequence mTooltipText;
-    private int mShortcutNumericModifiers = 4096;
-    private int mShortcutAlphabeticModifiers = 4096;
-    private int mIconResId = 0;
-    private ColorStateList mIconTintList = null;
-    private PorterDuff.Mode mIconTintMode = null;
-    private boolean mHasIconTint = false;
-    private boolean mHasIconTintMode = false;
-    private int mFlags = 16;
+    public static final int CHECKABLE = 1;
+    public static final int CHECKED = 2;
+    public static final int ENABLED = 16;
+    public static final int EXCLUSIVE = 4;
+    public static final int HIDDEN = 8;
+    public static final int NO_ICON = 0;
+    public final int mCategoryOrder;
+    public MenuItem.OnMenuItemClickListener mClickListener;
+    public CharSequence mContentDescription;
+    public Context mContext;
+    public final int mGroup;
+    public Drawable mIconDrawable;
+    public final int mId;
+    public Intent mIntent;
+    public final int mOrdering;
+    public char mShortcutAlphabeticChar;
+    public char mShortcutNumericChar;
+    public CharSequence mTitle;
+    public CharSequence mTitleCondensed;
+    public CharSequence mTooltipText;
+    public int mShortcutNumericModifiers = 4096;
+    public int mShortcutAlphabeticModifiers = 4096;
+    public int mIconResId = 0;
+    public ColorStateList mIconTintList = null;
+    public PorterDuff.Mode mIconTintMode = null;
+    public boolean mHasIconTint = false;
+    public boolean mHasIconTintMode = false;
+    public int mFlags = 16;
 
     public ActionMenuItem(Context context, int i, int i2, int i3, int i4, CharSequence charSequence) {
         this.mContext = context;
@@ -57,14 +57,56 @@ public class ActionMenuItem implements SupportMenuItem {
         this.mTitle = charSequence;
     }
 
+    private void applyIconTint() {
+        if (this.mIconDrawable != null) {
+            if (this.mHasIconTint || this.mHasIconTintMode) {
+                Drawable wrap = DrawableCompat.wrap(this.mIconDrawable);
+                this.mIconDrawable = wrap;
+                Drawable mutate = wrap.mutate();
+                this.mIconDrawable = mutate;
+                if (this.mHasIconTint) {
+                    DrawableCompat.setTintList(mutate, this.mIconTintList);
+                }
+                if (this.mHasIconTintMode) {
+                    DrawableCompat.setTintMode(this.mIconDrawable, this.mIconTintMode);
+                }
+            }
+        }
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public boolean collapseActionView() {
+        return false;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public boolean expandActionView() {
+        return false;
+    }
+
+    @Override // android.view.MenuItem
+    public ActionProvider getActionProvider() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public View getActionView() {
+        return null;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public int getAlphabeticModifiers() {
+        return this.mShortcutAlphabeticModifiers;
+    }
+
     @Override // android.view.MenuItem
     public char getAlphabeticShortcut() {
         return this.mShortcutAlphabeticChar;
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public int getAlphabeticModifiers() {
-        return this.mShortcutAlphabeticModifiers;
+    public CharSequence getContentDescription() {
+        return this.mContentDescription;
     }
 
     @Override // android.view.MenuItem
@@ -75,6 +117,16 @@ public class ActionMenuItem implements SupportMenuItem {
     @Override // android.view.MenuItem
     public Drawable getIcon() {
         return this.mIconDrawable;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public ColorStateList getIconTintList() {
+        return this.mIconTintList;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public PorterDuff.Mode getIconTintMode() {
+        return this.mIconTintMode;
     }
 
     @Override // android.view.MenuItem
@@ -92,14 +144,14 @@ public class ActionMenuItem implements SupportMenuItem {
         return null;
     }
 
-    @Override // android.view.MenuItem
-    public char getNumericShortcut() {
-        return this.mShortcutNumericChar;
-    }
-
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public int getNumericModifiers() {
         return this.mShortcutNumericModifiers;
+    }
+
+    @Override // android.view.MenuItem
+    public char getNumericShortcut() {
+        return this.mShortcutNumericChar;
     }
 
     @Override // android.view.MenuItem
@@ -112,6 +164,11 @@ public class ActionMenuItem implements SupportMenuItem {
         return null;
     }
 
+    @Override // androidx.core.internal.view.SupportMenuItem
+    public androidx.core.view.ActionProvider getSupportActionProvider() {
+        return null;
+    }
+
     @Override // android.view.MenuItem
     public CharSequence getTitle() {
         return this.mTitle;
@@ -119,11 +176,35 @@ public class ActionMenuItem implements SupportMenuItem {
 
     @Override // android.view.MenuItem
     public CharSequence getTitleCondensed() {
-        return this.mTitleCondensed != null ? this.mTitleCondensed : this.mTitle;
+        CharSequence charSequence = this.mTitleCondensed;
+        return charSequence != null ? charSequence : this.mTitle;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public CharSequence getTooltipText() {
+        return this.mTooltipText;
     }
 
     @Override // android.view.MenuItem
     public boolean hasSubMenu() {
+        return false;
+    }
+
+    public boolean invoke() {
+        MenuItem.OnMenuItemClickListener onMenuItemClickListener = this.mClickListener;
+        if (onMenuItemClickListener == null || !onMenuItemClickListener.onMenuItemClick(this)) {
+            Intent intent = this.mIntent;
+            if (intent != null) {
+                this.mContext.startActivity(intent);
+                return true;
+            }
+            return false;
+        }
+        return true;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public boolean isActionViewExpanded() {
         return false;
     }
 
@@ -148,26 +229,19 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setAlphabeticShortcut(char c) {
-        this.mShortcutAlphabeticChar = Character.toLowerCase(c);
-        return this;
+    public MenuItem setActionProvider(ActionProvider actionProvider) {
+        throw new UnsupportedOperationException();
     }
 
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setAlphabeticShortcut(char c, int i) {
-        this.mShortcutAlphabeticChar = Character.toLowerCase(c);
-        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i);
+    @Override // android.view.MenuItem
+    public MenuItem setAlphabeticShortcut(char c2) {
+        this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
         return this;
     }
 
     @Override // android.view.MenuItem
     public MenuItem setCheckable(boolean z) {
         this.mFlags = (z ? 1 : 0) | (this.mFlags & (-2));
-        return this;
-    }
-
-    public ActionMenuItem setExclusiveCheckable(boolean z) {
-        this.mFlags = (z ? 4 : 0) | (this.mFlags & (-5));
         return this;
     }
 
@@ -183,188 +257,17 @@ public class ActionMenuItem implements SupportMenuItem {
         return this;
     }
 
+    public ActionMenuItem setExclusiveCheckable(boolean z) {
+        this.mFlags = (z ? 4 : 0) | (this.mFlags & (-5));
+        return this;
+    }
+
     @Override // android.view.MenuItem
     public MenuItem setIcon(Drawable drawable) {
         this.mIconDrawable = drawable;
         this.mIconResId = 0;
         applyIconTint();
         return this;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setIcon(int i) {
-        this.mIconResId = i;
-        this.mIconDrawable = ContextCompat.getDrawable(this.mContext, i);
-        applyIconTint();
-        return this;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setIntent(Intent intent) {
-        this.mIntent = intent;
-        return this;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setNumericShortcut(char c) {
-        this.mShortcutNumericChar = c;
-        return this;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setNumericShortcut(char c, int i) {
-        this.mShortcutNumericChar = c;
-        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
-        return this;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener onMenuItemClickListener) {
-        this.mClickListener = onMenuItemClickListener;
-        return this;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setShortcut(char c, char c2) {
-        this.mShortcutNumericChar = c;
-        this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
-        return this;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setShortcut(char c, char c2, int i, int i2) {
-        this.mShortcutNumericChar = c;
-        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
-        this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
-        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i2);
-        return this;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setTitle(CharSequence charSequence) {
-        this.mTitle = charSequence;
-        return this;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setTitle(int i) {
-        this.mTitle = this.mContext.getResources().getString(i);
-        return this;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setTitleCondensed(CharSequence charSequence) {
-        this.mTitleCondensed = charSequence;
-        return this;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setVisible(boolean z) {
-        this.mFlags = (z ? 0 : 8) | (this.mFlags & 8);
-        return this;
-    }
-
-    public boolean invoke() {
-        if (this.mClickListener == null || !this.mClickListener.onMenuItemClick(this)) {
-            if (this.mIntent != null) {
-                this.mContext.startActivity(this.mIntent);
-                return true;
-            }
-            return false;
-        }
-        return true;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public void setShowAsAction(int i) {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setActionView(View view) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public View getActionView() {
-        return null;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setActionProvider(ActionProvider actionProvider) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // android.view.MenuItem
-    public ActionProvider getActionProvider() {
-        throw new UnsupportedOperationException();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setActionView(int i) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem
-    public androidx.core.view.ActionProvider getSupportActionProvider() {
-        return null;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem
-    public SupportMenuItem setSupportActionProvider(androidx.core.view.ActionProvider actionProvider) {
-        throw new UnsupportedOperationException();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setShowAsActionFlags(int i) {
-        setShowAsAction(i);
-        return this;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public boolean expandActionView() {
-        return false;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public boolean collapseActionView() {
-        return false;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public boolean isActionViewExpanded() {
-        return false;
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setOnActionExpandListener(MenuItem.OnActionExpandListener onActionExpandListener) {
-        throw new UnsupportedOperationException();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setContentDescription(CharSequence charSequence) {
-        this.mContentDescription = charSequence;
-        return this;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public CharSequence getContentDescription() {
-        return this.mContentDescription;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setTooltipText(CharSequence charSequence) {
-        this.mTooltipText = charSequence;
-        return this;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public CharSequence getTooltipText() {
-        return this.mTooltipText;
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
@@ -376,11 +279,6 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public ColorStateList getIconTintList() {
-        return this.mIconTintList;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public MenuItem setIconTintMode(PorterDuff.Mode mode) {
         this.mIconTintMode = mode;
         this.mHasIconTintMode = true;
@@ -388,23 +286,130 @@ public class ActionMenuItem implements SupportMenuItem {
         return this;
     }
 
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public PorterDuff.Mode getIconTintMode() {
-        return this.mIconTintMode;
+    @Override // android.view.MenuItem
+    public MenuItem setIntent(Intent intent) {
+        this.mIntent = intent;
+        return this;
     }
 
-    private void applyIconTint() {
-        if (this.mIconDrawable != null) {
-            if (this.mHasIconTint || this.mHasIconTintMode) {
-                this.mIconDrawable = DrawableCompat.wrap(this.mIconDrawable);
-                this.mIconDrawable = this.mIconDrawable.mutate();
-                if (this.mHasIconTint) {
-                    DrawableCompat.setTintList(this.mIconDrawable, this.mIconTintList);
-                }
-                if (this.mHasIconTintMode) {
-                    DrawableCompat.setTintMode(this.mIconDrawable, this.mIconTintMode);
-                }
-            }
-        }
+    @Override // android.view.MenuItem
+    public MenuItem setNumericShortcut(char c2) {
+        this.mShortcutNumericChar = c2;
+        return this;
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setOnActionExpandListener(MenuItem.OnActionExpandListener onActionExpandListener) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener onMenuItemClickListener) {
+        this.mClickListener = onMenuItemClickListener;
+        return this;
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setShortcut(char c2, char c3) {
+        this.mShortcutNumericChar = c2;
+        this.mShortcutAlphabeticChar = Character.toLowerCase(c3);
+        return this;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public void setShowAsAction(int i) {
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem
+    public SupportMenuItem setSupportActionProvider(androidx.core.view.ActionProvider actionProvider) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setTitle(CharSequence charSequence) {
+        this.mTitle = charSequence;
+        return this;
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setTitleCondensed(CharSequence charSequence) {
+        this.mTitleCondensed = charSequence;
+        return this;
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setVisible(boolean z) {
+        this.mFlags = (this.mFlags & 8) | (z ? 0 : 8);
+        return this;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setAlphabeticShortcut(char c2, int i) {
+        this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
+        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i);
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public SupportMenuItem setContentDescription(CharSequence charSequence) {
+        this.mContentDescription = charSequence;
+        return this;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setNumericShortcut(char c2, int i) {
+        this.mShortcutNumericChar = c2;
+        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public SupportMenuItem setShowAsActionFlags(int i) {
+        setShowAsAction(i);
+        return this;
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setTitle(int i) {
+        this.mTitle = this.mContext.getResources().getString(i);
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public SupportMenuItem setTooltipText(CharSequence charSequence) {
+        this.mTooltipText = charSequence;
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public SupportMenuItem setActionView(View view) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setShortcut(char c2, char c3, int i, int i2) {
+        this.mShortcutNumericChar = c2;
+        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
+        this.mShortcutAlphabeticChar = Character.toLowerCase(c3);
+        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i2);
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public SupportMenuItem setActionView(int i) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setIcon(int i) {
+        this.mIconResId = i;
+        this.mIconDrawable = ContextCompat.getDrawable(this.mContext, i);
+        applyIconTint();
+        return this;
     }
 }

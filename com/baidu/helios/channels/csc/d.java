@@ -1,11 +1,12 @@
 package com.baidu.helios.channels.csc;
 
+import d.b.q.g.b.b;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
-class d {
+/* loaded from: classes2.dex */
+public class d {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a extends Exception {
         public a(String str) {
             super(str);
@@ -20,7 +21,7 @@ class d {
         }
     }
 
-    private static Class<?> a(Class<?> cls) {
+    public static Class<?> a(Class<?> cls) {
         if (cls == Character.TYPE) {
             return Character.class;
         }
@@ -48,21 +49,21 @@ class d {
         throw new IllegalArgumentException(String.format("Don't know the wrapper type for primitive type %s.", cls));
     }
 
-    public static Object a(Class<?> cls, Object[] objArr) {
-        return (objArr == null || objArr.length <= 0) ? cls.newInstance() : b(cls, objArr);
+    public static Object b(Class<?> cls, Object[] objArr) {
+        return (objArr == null || objArr.length <= 0) ? cls.newInstance() : e(cls, objArr);
     }
 
-    public static String a(byte[] bArr) {
-        return new String(new com.baidu.helios.common.a.b().z(bArr));
+    public static String c(byte[] bArr) {
+        return new String(new b().a(bArr));
     }
 
-    public static Method a(Class<?> cls, String str, Class<?>[] clsArr) {
+    public static Method d(Class<?> cls, String str, Class<?>[] clsArr) {
         Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
         declaredMethod.setAccessible(true);
         return declaredMethod;
     }
 
-    private static Object b(Class<?> cls, Object[] objArr) {
+    public static Object e(Class<?> cls, Object[] objArr) {
         Constructor<?>[] constructors;
         Constructor<?> constructor = null;
         for (Constructor<?> constructor2 : cls.getConstructors()) {
@@ -70,26 +71,25 @@ class d {
             if (parameterTypes.length >= objArr.length) {
                 int i = 0;
                 int i2 = 0;
-                while (i2 < objArr.length) {
-                    Object obj = objArr[i2];
-                    int i3 = i;
-                    while (obj != null && i3 < parameterTypes.length) {
-                        Class<?> cls2 = parameterTypes[i3];
+                while (i < objArr.length) {
+                    Object obj = objArr[i];
+                    while (obj != null && i2 < parameterTypes.length) {
+                        Class<?> cls2 = parameterTypes[i2];
                         if (cls2.isPrimitive()) {
                             cls2 = a(cls2);
                         }
                         if (cls2.isInstance(obj)) {
                             break;
                         }
-                        i3++;
+                        i2++;
                     }
-                    if (i3 == parameterTypes.length) {
+                    if (i2 == parameterTypes.length) {
                         break;
                     }
-                    i = i3 + 1;
                     i2++;
+                    i++;
                 }
-                if (i2 != objArr.length) {
+                if (i != objArr.length) {
                     continue;
                 } else if (constructor == null || parameterTypes.length < constructor.getParameterTypes().length) {
                     constructor = constructor2;

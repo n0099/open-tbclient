@@ -9,12 +9,49 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class DrawableSplashScreen implements SplashScreen {
-    private final long crossfadeDurationInMillis;
-    private final Drawable drawable;
-    private final ImageView.ScaleType scaleType;
-    private DrawableSplashScreenView splashView;
+    public final long crossfadeDurationInMillis;
+    public final Drawable drawable;
+    public final ImageView.ScaleType scaleType;
+    public DrawableSplashScreenView splashView;
+
+    /* loaded from: classes7.dex */
+    public static class DrawableSplashScreenView extends ImageView {
+        public DrawableSplashScreenView(@NonNull Context context) {
+            this(context, null, 0);
+        }
+
+        public void setSplashDrawable(@Nullable Drawable drawable) {
+            setSplashDrawable(drawable, ImageView.ScaleType.FIT_XY);
+        }
+
+        public DrawableSplashScreenView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+            this(context, attributeSet, 0);
+        }
+
+        public void setSplashDrawable(@Nullable Drawable drawable, @NonNull ImageView.ScaleType scaleType) {
+            setScaleType(scaleType);
+            setImageDrawable(drawable);
+        }
+
+        public DrawableSplashScreenView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+            super(context, attributeSet, i);
+        }
+    }
+
+    public DrawableSplashScreen(@NonNull Drawable drawable) {
+        this(drawable, ImageView.ScaleType.FIT_XY, 500L);
+    }
+
+    @Override // io.flutter.embedding.android.SplashScreen
+    @Nullable
+    public View createSplashView(@NonNull Context context, @Nullable Bundle bundle) {
+        DrawableSplashScreenView drawableSplashScreenView = new DrawableSplashScreenView(context);
+        this.splashView = drawableSplashScreenView;
+        drawableSplashScreenView.setSplashDrawable(this.drawable, this.scaleType);
+        return this.splashView;
+    }
 
     @Override // io.flutter.embedding.android.SplashScreen
     public boolean doesSplashViewRememberItsTransition() {
@@ -26,32 +63,16 @@ public final class DrawableSplashScreen implements SplashScreen {
         return SplashScreen$$CC.saveSplashScreenState(this);
     }
 
-    public DrawableSplashScreen(@NonNull Drawable drawable) {
-        this(drawable, ImageView.ScaleType.FIT_XY, 500L);
-    }
-
-    public DrawableSplashScreen(@NonNull Drawable drawable, @NonNull ImageView.ScaleType scaleType, long j) {
-        this.drawable = drawable;
-        this.scaleType = scaleType;
-        this.crossfadeDurationInMillis = j;
-    }
-
-    @Override // io.flutter.embedding.android.SplashScreen
-    @Nullable
-    public View createSplashView(@NonNull Context context, @Nullable Bundle bundle) {
-        this.splashView = new DrawableSplashScreenView(context);
-        this.splashView.setSplashDrawable(this.drawable, this.scaleType);
-        return this.splashView;
-    }
-
     @Override // io.flutter.embedding.android.SplashScreen
     public void transitionToFlutter(@NonNull final Runnable runnable) {
-        if (this.splashView == null) {
+        DrawableSplashScreenView drawableSplashScreenView = this.splashView;
+        if (drawableSplashScreenView == null) {
             runnable.run();
         } else {
-            this.splashView.animate().alpha(0.0f).setDuration(this.crossfadeDurationInMillis).setListener(new Animator.AnimatorListener() { // from class: io.flutter.embedding.android.DrawableSplashScreen.1
+            drawableSplashScreenView.animate().alpha(0.0f).setDuration(this.crossfadeDurationInMillis).setListener(new Animator.AnimatorListener() { // from class: io.flutter.embedding.android.DrawableSplashScreen.1
                 @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator) {
+                public void onAnimationCancel(Animator animator) {
+                    runnable.run();
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -60,38 +81,19 @@ public final class DrawableSplashScreen implements SplashScreen {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationCancel(Animator animator) {
-                    runnable.run();
+                public void onAnimationRepeat(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationRepeat(Animator animator) {
+                public void onAnimationStart(Animator animator) {
                 }
             });
         }
     }
 
-    /* loaded from: classes14.dex */
-    public static class DrawableSplashScreenView extends ImageView {
-        public DrawableSplashScreenView(@NonNull Context context) {
-            this(context, null, 0);
-        }
-
-        public DrawableSplashScreenView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-            this(context, attributeSet, 0);
-        }
-
-        public DrawableSplashScreenView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-            super(context, attributeSet, i);
-        }
-
-        public void setSplashDrawable(@Nullable Drawable drawable) {
-            setSplashDrawable(drawable, ImageView.ScaleType.FIT_XY);
-        }
-
-        public void setSplashDrawable(@Nullable Drawable drawable, @NonNull ImageView.ScaleType scaleType) {
-            setScaleType(scaleType);
-            setImageDrawable(drawable);
-        }
+    public DrawableSplashScreen(@NonNull Drawable drawable, @NonNull ImageView.ScaleType scaleType, long j) {
+        this.drawable = drawable;
+        this.scaleType = scaleType;
+        this.crossfadeDurationInMillis = j;
     }
 }

@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.lang.ref.Reference;
 import java.net.Socket;
 import java.util.ArrayDeque;
@@ -18,175 +17,19 @@ import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class ConnectionPool {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static final Executor executor;
-    private final Runnable cleanupRunnable;
-    boolean cleanupRunning;
-    private final Deque<RealConnection> connections;
-    private final long keepAliveDurationNs;
-    private final int maxIdleConnections;
-    final RouteDatabase routeDatabase;
-
-    static {
-        $assertionsDisabled = !ConnectionPool.class.desiredAssertionStatus();
-        executor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp ConnectionPool", true));
-    }
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public static final Executor executor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp ConnectionPool", true));
+    public final Runnable cleanupRunnable;
+    public boolean cleanupRunning;
+    public final Deque<RealConnection> connections;
+    public final long keepAliveDurationNs;
+    public final int maxIdleConnections;
+    public final RouteDatabase routeDatabase;
 
     public ConnectionPool() {
         this(5, 5L, TimeUnit.MINUTES);
-    }
-
-    public ConnectionPool(int i, long j, TimeUnit timeUnit) {
-        this.cleanupRunnable = new Runnable() { // from class: okhttp3.ConnectionPool.1
-            @Override // java.lang.Runnable
-            public void run() {
-                while (true) {
-                    long cleanup = ConnectionPool.this.cleanup(System.nanoTime());
-                    if (cleanup == -1) {
-                        return;
-                    }
-                    if (cleanup > 0) {
-                        long j2 = cleanup / TimeUtils.NANOS_PER_MS;
-                        long j3 = cleanup - (j2 * TimeUtils.NANOS_PER_MS);
-                        synchronized (ConnectionPool.this) {
-                            try {
-                                ConnectionPool.this.wait(j2, (int) j3);
-                            } catch (InterruptedException e) {
-                            }
-                        }
-                    }
-                }
-            }
-        };
-        this.connections = new ArrayDeque();
-        this.routeDatabase = new RouteDatabase();
-        this.maxIdleConnections = i;
-        this.keepAliveDurationNs = timeUnit.toNanos(j);
-        if (j <= 0) {
-            throw new IllegalArgumentException("keepAliveDuration <= 0: " + j);
-        }
-    }
-
-    public synchronized int idleConnectionCount() {
-        int i;
-        i = 0;
-        for (RealConnection realConnection : this.connections) {
-            i = realConnection.allocations.isEmpty() ? i + 1 : i;
-        }
-        return i;
-    }
-
-    public synchronized int connectionCount() {
-        return this.connections.size();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
-    public RealConnection get(Address address, StreamAllocation streamAllocation, Route route) {
-        if ($assertionsDisabled || Thread.holdsLock(this)) {
-            for (RealConnection realConnection : this.connections) {
-                if (realConnection.isEligible(address, route)) {
-                    streamAllocation.acquire(realConnection, true);
-                    return realConnection;
-                }
-            }
-            return null;
-        }
-        throw new AssertionError();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
-    public Socket deduplicate(Address address, StreamAllocation streamAllocation) {
-        if ($assertionsDisabled || Thread.holdsLock(this)) {
-            for (RealConnection realConnection : this.connections) {
-                if (realConnection.isEligible(address, null) && realConnection.isMultiplexed() && realConnection != streamAllocation.connection()) {
-                    return streamAllocation.releaseAndAcquire(realConnection);
-                }
-            }
-            return null;
-        }
-        throw new AssertionError();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void put(RealConnection realConnection) {
-        if (!$assertionsDisabled && !Thread.holdsLock(this)) {
-            throw new AssertionError();
-        }
-        if (!this.cleanupRunning) {
-            this.cleanupRunning = true;
-            executor.execute(this.cleanupRunnable);
-        }
-        this.connections.add(realConnection);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean connectionBecameIdle(RealConnection realConnection) {
-        if ($assertionsDisabled || Thread.holdsLock(this)) {
-            if (realConnection.noNewStreams || this.maxIdleConnections == 0) {
-                this.connections.remove(realConnection);
-                return true;
-            }
-            notifyAll();
-            return false;
-        }
-        throw new AssertionError();
-    }
-
-    public void evictAll() {
-        ArrayList<RealConnection> arrayList = new ArrayList();
-        synchronized (this) {
-            Iterator<RealConnection> it = this.connections.iterator();
-            while (it.hasNext()) {
-                RealConnection next = it.next();
-                if (next.allocations.isEmpty()) {
-                    next.noNewStreams = true;
-                    arrayList.add(next);
-                    it.remove();
-                }
-            }
-        }
-        for (RealConnection realConnection : arrayList) {
-            Util.closeQuietly(realConnection.socket());
-        }
-    }
-
-    long cleanup(long j) {
-        RealConnection realConnection = null;
-        long j2 = Long.MIN_VALUE;
-        synchronized (this) {
-            int i = 0;
-            int i2 = 0;
-            for (RealConnection realConnection2 : this.connections) {
-                if (pruneAndGetAllocationCount(realConnection2, j) > 0) {
-                    i2++;
-                } else {
-                    i++;
-                    long j3 = j - realConnection2.idleAtNanos;
-                    if (j3 <= j2) {
-                        j3 = j2;
-                        realConnection2 = realConnection;
-                    }
-                    j2 = j3;
-                    realConnection = realConnection2;
-                }
-            }
-            if (j2 >= this.keepAliveDurationNs || i > this.maxIdleConnections) {
-                this.connections.remove(realConnection);
-                Util.closeQuietly(realConnection.socket());
-                return 0L;
-            } else if (i > 0) {
-                return this.keepAliveDurationNs - j2;
-            } else if (i2 > 0) {
-                return this.keepAliveDurationNs;
-            } else {
-                this.cleanupRunning = false;
-                return -1L;
-            }
-        }
     }
 
     private int pruneAndGetAllocationCount(RealConnection realConnection, long j) {
@@ -207,5 +50,142 @@ public final class ConnectionPool {
             }
         }
         return list.size();
+    }
+
+    public long cleanup(long j) {
+        synchronized (this) {
+            RealConnection realConnection = null;
+            long j2 = Long.MIN_VALUE;
+            int i = 0;
+            int i2 = 0;
+            for (RealConnection realConnection2 : this.connections) {
+                if (pruneAndGetAllocationCount(realConnection2, j) > 0) {
+                    i2++;
+                } else {
+                    i++;
+                    long j3 = j - realConnection2.idleAtNanos;
+                    if (j3 > j2) {
+                        realConnection = realConnection2;
+                        j2 = j3;
+                    }
+                }
+            }
+            if (j2 < this.keepAliveDurationNs && i <= this.maxIdleConnections) {
+                if (i > 0) {
+                    return this.keepAliveDurationNs - j2;
+                } else if (i2 > 0) {
+                    return this.keepAliveDurationNs;
+                } else {
+                    this.cleanupRunning = false;
+                    return -1L;
+                }
+            }
+            this.connections.remove(realConnection);
+            Util.closeQuietly(realConnection.socket());
+            return 0L;
+        }
+    }
+
+    public boolean connectionBecameIdle(RealConnection realConnection) {
+        if (!realConnection.noNewStreams && this.maxIdleConnections != 0) {
+            notifyAll();
+            return false;
+        }
+        this.connections.remove(realConnection);
+        return true;
+    }
+
+    public synchronized int connectionCount() {
+        return this.connections.size();
+    }
+
+    @Nullable
+    public Socket deduplicate(Address address, StreamAllocation streamAllocation) {
+        for (RealConnection realConnection : this.connections) {
+            if (realConnection.isEligible(address, null) && realConnection.isMultiplexed() && realConnection != streamAllocation.connection()) {
+                return streamAllocation.releaseAndAcquire(realConnection);
+            }
+        }
+        return null;
+    }
+
+    public void evictAll() {
+        ArrayList<RealConnection> arrayList = new ArrayList();
+        synchronized (this) {
+            Iterator<RealConnection> it = this.connections.iterator();
+            while (it.hasNext()) {
+                RealConnection next = it.next();
+                if (next.allocations.isEmpty()) {
+                    next.noNewStreams = true;
+                    arrayList.add(next);
+                    it.remove();
+                }
+            }
+        }
+        for (RealConnection realConnection : arrayList) {
+            Util.closeQuietly(realConnection.socket());
+        }
+    }
+
+    @Nullable
+    public RealConnection get(Address address, StreamAllocation streamAllocation, Route route) {
+        for (RealConnection realConnection : this.connections) {
+            if (realConnection.isEligible(address, route)) {
+                streamAllocation.acquire(realConnection, true);
+                return realConnection;
+            }
+        }
+        return null;
+    }
+
+    public synchronized int idleConnectionCount() {
+        int i;
+        i = 0;
+        for (RealConnection realConnection : this.connections) {
+            if (realConnection.allocations.isEmpty()) {
+                i++;
+            }
+        }
+        return i;
+    }
+
+    public void put(RealConnection realConnection) {
+        if (!this.cleanupRunning) {
+            this.cleanupRunning = true;
+            executor.execute(this.cleanupRunnable);
+        }
+        this.connections.add(realConnection);
+    }
+
+    public ConnectionPool(int i, long j, TimeUnit timeUnit) {
+        this.cleanupRunnable = new Runnable() { // from class: okhttp3.ConnectionPool.1
+            @Override // java.lang.Runnable
+            public void run() {
+                while (true) {
+                    long cleanup = ConnectionPool.this.cleanup(System.nanoTime());
+                    if (cleanup == -1) {
+                        return;
+                    }
+                    if (cleanup > 0) {
+                        long j2 = cleanup / 1000000;
+                        long j3 = cleanup - (1000000 * j2);
+                        synchronized (ConnectionPool.this) {
+                            try {
+                                ConnectionPool.this.wait(j2, (int) j3);
+                            } catch (InterruptedException unused) {
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        this.connections = new ArrayDeque();
+        this.routeDatabase = new RouteDatabase();
+        this.maxIdleConnections = i;
+        this.keepAliveDurationNs = timeUnit.toNanos(j);
+        if (j > 0) {
+            return;
+        }
+        throw new IllegalArgumentException("keepAliveDuration <= 0: " + j);
     }
 }

@@ -5,20 +5,20 @@ import android.os.Handler;
 import java.util.concurrent.Callable;
 import javax.annotation.Nullable;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class TextureBufferImpl implements VideoFrame.TextureBuffer {
-    private final int height;
-    private final int id;
-    private final RefCountDelegate refCountDelegate;
-    private final Handler toI420Handler;
-    private final Matrix transformMatrix;
-    private final VideoFrame.TextureBuffer.Type type;
-    private final int unscaledHeight;
-    private final int unscaledWidth;
-    private final int width;
-    private final YuvConverter yuvConverter;
+    public final int height;
+    public final int id;
+    public final RefCountDelegate refCountDelegate;
+    public final Handler toI420Handler;
+    public final Matrix transformMatrix;
+    public final VideoFrame.TextureBuffer.Type type;
+    public final int unscaledHeight;
+    public final int unscaledWidth;
+    public final int width;
+    public final YuvConverter yuvConverter;
 
-    private TextureBufferImpl(int i, int i2, int i3, int i4, VideoFrame.TextureBuffer.Type type, int i5, Matrix matrix, Handler handler, YuvConverter yuvConverter, @Nullable Runnable runnable) {
+    public TextureBufferImpl(int i, int i2, int i3, int i4, VideoFrame.TextureBuffer.Type type, int i5, Matrix matrix, Handler handler, YuvConverter yuvConverter, @Nullable Runnable runnable) {
         this.unscaledWidth = i;
         this.unscaledHeight = i2;
         this.width = i3;
@@ -63,7 +63,8 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
     @Override // org.webrtc.VideoFrame.Buffer
     public VideoFrame.Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6) {
         Matrix matrix = new Matrix();
-        matrix.preTranslate(i / this.width, (this.height - (i2 + i4)) / this.height);
+        int i7 = this.height;
+        matrix.preTranslate(i / this.width, (i7 - (i2 + i4)) / i7);
         matrix.preScale(i3 / this.width, i4 / this.height);
         return applyTransformMatrix(matrix, Math.round((this.unscaledWidth * i3) / this.width), Math.round((this.unscaledHeight * i4) / this.height), i5, i6);
     }

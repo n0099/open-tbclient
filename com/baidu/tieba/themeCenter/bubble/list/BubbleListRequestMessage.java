@@ -1,26 +1,26 @@
 package com.baidu.tieba.themeCenter.bubble.list;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetBubbleList.DataReq;
 import tbclient.GetBubbleList.GetBubbleListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class BubbleListRequestMessage extends NetMessage {
-    private int pn;
-    private int rn;
+    public int pn;
+    public int rn;
 
     public BubbleListRequestMessage() {
-        super(1003055, CmdConfigSocket.CMD_BUBBLE_LIST);
+        super(CmdConfigHttp.CMD_BUBBLE_LIST, 309031);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GetBubbleListReqIdl.Builder builder2 = new GetBubbleListReqIdl.Builder();
         builder2.data = builder.build(false);

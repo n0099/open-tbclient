@@ -12,119 +12,83 @@ import java.nio.ByteBuffer;
 import java.nio.channels.NotYetConnectedException;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class cc extends bz implements by, Runnable {
-    static final /* synthetic */ boolean c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final /* synthetic */ boolean f9148c = !cc.class.desiredAssertionStatus();
 
     /* renamed from: a  reason: collision with root package name */
-    private ca f2650a;
-    protected URI b;
-    private InputStream e;
-    private OutputStream f;
-    private Thread h;
-    private cd i;
-    private Map<String, String> j;
-    private int m;
-    private Socket d = null;
-    private Proxy g = Proxy.NO_PROXY;
-    private CountDownLatch k = new CountDownLatch(1);
-    private CountDownLatch l = new CountDownLatch(1);
+    public ca f9149a;
 
-    public abstract void a(int i, String str, boolean z);
+    /* renamed from: b  reason: collision with root package name */
+    public URI f9150b;
 
-    public abstract void a(cz czVar);
+    /* renamed from: e  reason: collision with root package name */
+    public InputStream f9152e;
 
-    public abstract void a(Exception exc);
+    /* renamed from: f  reason: collision with root package name */
+    public OutputStream f9153f;
 
-    public abstract void a(String str);
+    /* renamed from: h  reason: collision with root package name */
+    public Thread f9155h;
+    public cd i;
+    public Map<String, String> j;
+    public int m;
 
-    static {
-        c = !cc.class.desiredAssertionStatus();
+    /* renamed from: d  reason: collision with root package name */
+    public Socket f9151d = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Proxy f9154g = Proxy.NO_PROXY;
+    public CountDownLatch k = new CountDownLatch(1);
+    public CountDownLatch l = new CountDownLatch(1);
+
+    /* loaded from: classes2.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Thread.currentThread().setName("WebsocketWriteThread");
+            while (!Thread.interrupted()) {
+                try {
+                    ByteBuffer take = cc.this.f9149a.f9144d.take();
+                    cc.this.f9153f.write(take.array(), 0, take.limit());
+                    cc.this.f9153f.flush();
+                } catch (IOException unused) {
+                    cc.this.f9149a.b();
+                    return;
+                } catch (InterruptedException unused2) {
+                    return;
+                }
+            }
+        }
     }
 
     public cc(URI uri, cd cdVar, Map<String, String> map, int i) {
-        this.b = null;
-        this.f2650a = null;
+        this.f9150b = null;
+        this.f9149a = null;
         this.m = 0;
         if (uri == null) {
             throw new IllegalArgumentException();
         }
-        if (cdVar == null) {
-            throw new IllegalArgumentException("null as draft is permitted for `WebSocketServer` only!");
+        if (cdVar != null) {
+            this.f9150b = uri;
+            this.i = cdVar;
+            this.j = map;
+            this.m = i;
+            this.f9149a = new ca(this, cdVar);
+            return;
         }
-        this.b = uri;
-        this.i = cdVar;
-        this.j = map;
-        this.m = i;
-        this.f2650a = new ca(this, cdVar);
-    }
-
-    public void b() {
-        if (this.h != null) {
-            throw new IllegalStateException("WebSocketClient objects are not reuseable");
-        }
-        this.h = new Thread(this);
-        this.h.start();
-    }
-
-    public boolean c() throws InterruptedException {
-        b();
-        this.k.await();
-        return this.f2650a.c();
-    }
-
-    public void d() {
-        if (this.h != null) {
-            this.f2650a.a(1000);
-        }
-    }
-
-    public void a(byte[] bArr) throws NotYetConnectedException {
-        this.f2650a.a(bArr);
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        int read;
-        try {
-            if (this.d == null) {
-                this.d = new Socket(this.g);
-            } else if (this.d.isClosed()) {
-                throw new IOException();
-            }
-            if (!this.d.isBound()) {
-                this.d.connect(new InetSocketAddress(this.b.getHost(), h()), this.m);
-            }
-            this.e = this.d.getInputStream();
-            this.f = this.d.getOutputStream();
-            i();
-            this.h = new Thread(new a());
-            this.h.start();
-            byte[] bArr = new byte[ca.b];
-            while (!g() && !f() && (read = this.e.read(bArr)) != -1) {
-                try {
-                    this.f2650a.a(ByteBuffer.wrap(bArr, 0, read));
-                } catch (IOException e) {
-                    this.f2650a.b();
-                } catch (RuntimeException e2) {
-                    a(e2);
-                    this.f2650a.b(1006, e2.getMessage());
-                }
-            }
-            this.f2650a.b();
-            if (!c && !this.d.isClosed()) {
-                throw new AssertionError();
-            }
-        } catch (Exception e3) {
-            a(this.f2650a, e3);
-            this.f2650a.b(-1, e3.getMessage());
-        }
+        throw new IllegalArgumentException("null as draft is permitted for `WebSocketServer` only!");
     }
 
     private int h() {
-        int port = this.b.getPort();
+        int port = this.f9150b.getPort();
         if (port == -1) {
-            String scheme = this.b.getScheme();
+            String scheme = this.f9150b.getScheme();
             if (scheme.equals("wss")) {
                 return Constants.SOCKET_PORT_SSL;
             }
@@ -137,22 +101,128 @@ public abstract class cc extends bz implements by, Runnable {
     }
 
     private void i() throws cj {
-        int h;
-        String rawPath = this.b.getRawPath();
-        String rawQuery = this.b.getRawQuery();
+        String rawPath = this.f9150b.getRawPath();
+        String rawQuery = this.f9150b.getRawQuery();
         rawPath = (rawPath == null || rawPath.length() == 0) ? "/" : "/";
         if (rawQuery != null) {
             rawPath = rawPath + "?" + rawQuery;
         }
+        int h2 = h();
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.f9150b.getHost());
+        sb.append(h2 != 80 ? ":" + h2 : "");
+        String sb2 = sb.toString();
         cv cvVar = new cv();
         cvVar.a(rawPath);
-        cvVar.a("Host", this.b.getHost() + (h() != 80 ? ":" + h : ""));
-        if (this.j != null) {
-            for (Map.Entry<String, String> entry : this.j.entrySet()) {
+        cvVar.a("Host", sb2);
+        Map<String, String> map = this.j;
+        if (map != null) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
                 cvVar.a(entry.getKey(), entry.getValue());
             }
         }
-        this.f2650a.a((ct) cvVar);
+        this.f9149a.a((ct) cvVar);
+    }
+
+    public void a(int i, String str) {
+    }
+
+    public abstract void a(int i, String str, boolean z);
+
+    public abstract void a(cz czVar);
+
+    public abstract void a(Exception exc);
+
+    public abstract void a(String str);
+
+    public void a(ByteBuffer byteBuffer) {
+    }
+
+    public void b(int i, String str, boolean z) {
+    }
+
+    @Override // com.baidu.mobstat.cb
+    public final void b(by byVar) {
+    }
+
+    public void b(cq cqVar) {
+    }
+
+    public boolean c() throws InterruptedException {
+        b();
+        this.k.await();
+        return this.f9149a.c();
+    }
+
+    public void d() {
+        if (this.f9155h != null) {
+            this.f9149a.a(1000);
+        }
+    }
+
+    public boolean e() {
+        return this.f9149a.e();
+    }
+
+    public boolean f() {
+        return this.f9149a.f();
+    }
+
+    public boolean g() {
+        return this.f9149a.d();
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        int read;
+        try {
+            if (this.f9151d == null) {
+                this.f9151d = new Socket(this.f9154g);
+            } else if (this.f9151d.isClosed()) {
+                throw new IOException();
+            }
+            if (!this.f9151d.isBound()) {
+                this.f9151d.connect(new InetSocketAddress(this.f9150b.getHost(), h()), this.m);
+            }
+            this.f9152e = this.f9151d.getInputStream();
+            this.f9153f = this.f9151d.getOutputStream();
+            i();
+            Thread thread = new Thread(new a());
+            this.f9155h = thread;
+            thread.start();
+            byte[] bArr = new byte[ca.f9141b];
+            while (!g() && !f() && (read = this.f9152e.read(bArr)) != -1) {
+                try {
+                    this.f9149a.a(ByteBuffer.wrap(bArr, 0, read));
+                } catch (IOException unused) {
+                    this.f9149a.b();
+                } catch (RuntimeException e2) {
+                    a(e2);
+                    this.f9149a.b(1006, e2.getMessage());
+                }
+            }
+            this.f9149a.b();
+            if (!f9148c && !this.f9151d.isClosed()) {
+                throw new AssertionError();
+            }
+        } catch (Exception e3) {
+            a(this.f9149a, e3);
+            this.f9149a.b(-1, e3.getMessage());
+        }
+    }
+
+    public void a(byte[] bArr) throws NotYetConnectedException {
+        this.f9149a.a(bArr);
+    }
+
+    public void b() {
+        if (this.f9155h == null) {
+            Thread thread = new Thread(this);
+            this.f9155h = thread;
+            thread.start();
+            return;
+        }
+        throw new IllegalStateException("WebSocketClient objects are not reuseable");
     }
 
     @Override // com.baidu.mobstat.cb
@@ -163,6 +233,15 @@ public abstract class cc extends bz implements by, Runnable {
     @Override // com.baidu.mobstat.cb
     public final void a(by byVar, ByteBuffer byteBuffer) {
         a(byteBuffer);
+    }
+
+    @Override // com.baidu.mobstat.cb
+    public InetSocketAddress c(by byVar) {
+        Socket socket = this.f9151d;
+        if (socket != null) {
+            return (InetSocketAddress) socket.getLocalSocketAddress();
+        }
+        return null;
     }
 
     @Override // com.baidu.mobstat.bz, com.baidu.mobstat.cb
@@ -177,16 +256,22 @@ public abstract class cc extends bz implements by, Runnable {
     }
 
     @Override // com.baidu.mobstat.cb
+    public void b(by byVar, int i, String str, boolean z) {
+        b(i, str, z);
+    }
+
+    @Override // com.baidu.mobstat.cb
     public final void a(by byVar, int i, String str, boolean z) {
-        if (this.h != null) {
-            this.h.interrupt();
+        Thread thread = this.f9155h;
+        if (thread != null) {
+            thread.interrupt();
         }
         try {
-            if (this.d != null) {
-                this.d.close();
+            if (this.f9151d != null) {
+                this.f9151d.close();
             }
-        } catch (IOException e) {
-            a(this, e);
+        } catch (IOException e2) {
+            a(this, e2);
         }
         a(i, str, z);
         this.k.countDown();
@@ -199,88 +284,25 @@ public abstract class cc extends bz implements by, Runnable {
     }
 
     @Override // com.baidu.mobstat.cb
-    public final void b(by byVar) {
-    }
-
-    @Override // com.baidu.mobstat.cb
     public void a(by byVar, int i, String str) {
         a(i, str);
     }
 
-    @Override // com.baidu.mobstat.cb
-    public void b(by byVar, int i, String str, boolean z) {
-        b(i, str, z);
-    }
-
-    public void a(int i, String str) {
-    }
-
-    public void b(int i, String str, boolean z) {
-    }
-
-    @Override // com.baidu.mobstat.cb
-    public InetSocketAddress c(by byVar) {
-        if (this.d != null) {
-            return (InetSocketAddress) this.d.getLocalSocketAddress();
-        }
-        return null;
-    }
-
-    public void a(ByteBuffer byteBuffer) {
-    }
-
-    public void b(cq cqVar) {
-    }
-
-    /* loaded from: classes4.dex */
-    class a implements Runnable {
-        private a() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Thread.currentThread().setName("WebsocketWriteThread");
-            while (!Thread.interrupted()) {
-                try {
-                    ByteBuffer take = cc.this.f2650a.d.take();
-                    cc.this.f.write(take.array(), 0, take.limit());
-                    cc.this.f.flush();
-                } catch (IOException e) {
-                    cc.this.f2650a.b();
-                    return;
-                } catch (InterruptedException e2) {
-                    return;
-                }
-            }
-        }
-    }
-
     public void a(Socket socket) {
-        if (this.d != null) {
-            throw new IllegalStateException("socket has already been set");
+        if (this.f9151d == null) {
+            this.f9151d = socket;
+            return;
         }
-        this.d = socket;
-    }
-
-    public boolean e() {
-        return this.f2650a.e();
-    }
-
-    public boolean f() {
-        return this.f2650a.f();
-    }
-
-    public boolean g() {
-        return this.f2650a.d();
+        throw new IllegalStateException("socket has already been set");
     }
 
     @Override // com.baidu.mobstat.by
     public void a(cq cqVar) {
-        this.f2650a.a(cqVar);
+        this.f9149a.a(cqVar);
     }
 
     @Override // com.baidu.mobstat.by
     public InetSocketAddress a() {
-        return this.f2650a.a();
+        return this.f9149a.a();
     }
 }

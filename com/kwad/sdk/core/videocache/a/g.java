@@ -1,21 +1,21 @@
 package com.kwad.sdk.core.videocache.a;
 
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f6286a;
+    public final long f34161a;
 
     public g(long j) {
         if (j <= 0) {
             throw new IllegalArgumentException("Max size must be positive number!");
         }
-        this.f6286a = j;
+        this.f34161a = j;
     }
 
     @Override // com.kwad.sdk.core.videocache.a.e
-    protected boolean a(File file, long j, int i) {
-        return j <= this.f6286a;
+    public boolean a(File file, long j, int i) {
+        return j <= this.f34161a;
     }
 }

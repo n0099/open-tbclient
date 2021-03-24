@@ -17,375 +17,76 @@ import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.Set;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes5.dex */
-class VersionedParcelStream extends VersionedParcel {
-    private static final int TYPE_BOOLEAN = 5;
-    private static final int TYPE_BOOLEAN_ARRAY = 6;
-    private static final int TYPE_DOUBLE = 7;
-    private static final int TYPE_DOUBLE_ARRAY = 8;
-    private static final int TYPE_FLOAT = 13;
-    private static final int TYPE_FLOAT_ARRAY = 14;
-    private static final int TYPE_INT = 9;
-    private static final int TYPE_INT_ARRAY = 10;
-    private static final int TYPE_LONG = 11;
-    private static final int TYPE_LONG_ARRAY = 12;
-    private static final int TYPE_NULL = 0;
-    private static final int TYPE_STRING = 3;
-    private static final int TYPE_STRING_ARRAY = 4;
-    private static final int TYPE_SUB_BUNDLE = 1;
-    private static final int TYPE_SUB_PERSISTABLE_BUNDLE = 2;
-    private static final Charset UTF_16 = Charset.forName("UTF-16");
-    private final SparseArray<InputBuffer> mCachedFields = new SparseArray<>();
-    private DataInputStream mCurrentInput;
-    private DataOutputStream mCurrentOutput;
-    private FieldBuffer mFieldBuffer;
-    private boolean mIgnoreParcelables;
-    private final DataInputStream mMasterInput;
-    private final DataOutputStream mMasterOutput;
+/* loaded from: classes.dex */
+public class VersionedParcelStream extends VersionedParcel {
+    public static final int TYPE_BOOLEAN = 5;
+    public static final int TYPE_BOOLEAN_ARRAY = 6;
+    public static final int TYPE_DOUBLE = 7;
+    public static final int TYPE_DOUBLE_ARRAY = 8;
+    public static final int TYPE_FLOAT = 13;
+    public static final int TYPE_FLOAT_ARRAY = 14;
+    public static final int TYPE_INT = 9;
+    public static final int TYPE_INT_ARRAY = 10;
+    public static final int TYPE_LONG = 11;
+    public static final int TYPE_LONG_ARRAY = 12;
+    public static final int TYPE_NULL = 0;
+    public static final int TYPE_STRING = 3;
+    public static final int TYPE_STRING_ARRAY = 4;
+    public static final int TYPE_SUB_BUNDLE = 1;
+    public static final int TYPE_SUB_PERSISTABLE_BUNDLE = 2;
+    public static final Charset UTF_16 = Charset.forName("UTF-16");
+    public final SparseArray<InputBuffer> mCachedFields = new SparseArray<>();
+    public DataInputStream mCurrentInput;
+    public DataOutputStream mCurrentOutput;
+    public FieldBuffer mFieldBuffer;
+    public boolean mIgnoreParcelables;
+    public final DataInputStream mMasterInput;
+    public final DataOutputStream mMasterOutput;
+
+    /* loaded from: classes.dex */
+    public static class FieldBuffer {
+        public final int mFieldId;
+        public final DataOutputStream mTarget;
+        public final ByteArrayOutputStream mOutput = new ByteArrayOutputStream();
+        public final DataOutputStream mDataStream = new DataOutputStream(this.mOutput);
+
+        public FieldBuffer(int i, DataOutputStream dataOutputStream) {
+            this.mFieldId = i;
+            this.mTarget = dataOutputStream;
+        }
+
+        public void flushField() throws IOException {
+            this.mDataStream.flush();
+            int size = this.mOutput.size();
+            this.mTarget.writeInt((this.mFieldId << 16) | (size >= 65535 ? 65535 : size));
+            if (size >= 65535) {
+                this.mTarget.writeInt(size);
+            }
+            this.mOutput.writeTo(this.mTarget);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class InputBuffer {
+        public final int mFieldId;
+        public final DataInputStream mInputStream;
+        public final int mSize;
+
+        public InputBuffer(int i, int i2, DataInputStream dataInputStream) throws IOException {
+            this.mSize = i2;
+            this.mFieldId = i;
+            byte[] bArr = new byte[i2];
+            dataInputStream.readFully(bArr);
+            this.mInputStream = new DataInputStream(new ByteArrayInputStream(bArr));
+        }
+    }
 
     public VersionedParcelStream(InputStream inputStream, OutputStream outputStream) {
         this.mMasterInput = inputStream != null ? new DataInputStream(inputStream) : null;
-        this.mMasterOutput = outputStream != null ? new DataOutputStream(outputStream) : null;
+        DataOutputStream dataOutputStream = outputStream != null ? new DataOutputStream(outputStream) : null;
+        this.mMasterOutput = dataOutputStream;
         this.mCurrentInput = this.mMasterInput;
-        this.mCurrentOutput = this.mMasterOutput;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public boolean isStream() {
-        return true;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void setSerializationFlags(boolean z, boolean z2) {
-        if (!z) {
-            throw new RuntimeException("Serialization of this object is not allowed");
-        }
-        this.mIgnoreParcelables = z2;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void closeField() {
-        if (this.mFieldBuffer != null) {
-            try {
-                if (this.mFieldBuffer.mOutput.size() != 0) {
-                    this.mFieldBuffer.flushField();
-                }
-                this.mFieldBuffer = null;
-            } catch (IOException e) {
-                throw new VersionedParcel.ParcelException(e);
-            }
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    protected VersionedParcel createSubParcel() {
-        return new VersionedParcelStream(this.mCurrentInput, this.mCurrentOutput);
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public boolean readField(int i) {
-        InputBuffer inputBuffer = this.mCachedFields.get(i);
-        if (inputBuffer != null) {
-            this.mCachedFields.remove(i);
-            this.mCurrentInput = inputBuffer.mInputStream;
-            return true;
-        }
-        while (true) {
-            try {
-                int readInt = this.mMasterInput.readInt();
-                int i2 = readInt & 65535;
-                if (i2 == 65535) {
-                    i2 = this.mMasterInput.readInt();
-                }
-                InputBuffer inputBuffer2 = new InputBuffer((readInt >> 16) & 65535, i2, this.mMasterInput);
-                if (inputBuffer2.mFieldId == i) {
-                    this.mCurrentInput = inputBuffer2.mInputStream;
-                    return true;
-                }
-                this.mCachedFields.put(inputBuffer2.mFieldId, inputBuffer2);
-            } catch (IOException e) {
-                return false;
-            }
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void setOutputField(int i) {
-        closeField();
-        this.mFieldBuffer = new FieldBuffer(i, this.mMasterOutput);
-        this.mCurrentOutput = this.mFieldBuffer.mDataStream;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeByteArray(byte[] bArr) {
-        try {
-            if (bArr != null) {
-                this.mCurrentOutput.writeInt(bArr.length);
-                this.mCurrentOutput.write(bArr);
-                return;
-            }
-            this.mCurrentOutput.writeInt(-1);
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeByteArray(byte[] bArr, int i, int i2) {
-        try {
-            if (bArr != null) {
-                this.mCurrentOutput.writeInt(i2);
-                this.mCurrentOutput.write(bArr, i, i2);
-                return;
-            }
-            this.mCurrentOutput.writeInt(-1);
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeInt(int i) {
-        try {
-            this.mCurrentOutput.writeInt(i);
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeLong(long j) {
-        try {
-            this.mCurrentOutput.writeLong(j);
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeFloat(float f) {
-        try {
-            this.mCurrentOutput.writeFloat(f);
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeDouble(double d) {
-        try {
-            this.mCurrentOutput.writeDouble(d);
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeString(String str) {
-        try {
-            if (str != null) {
-                byte[] bytes = str.getBytes(UTF_16);
-                this.mCurrentOutput.writeInt(bytes.length);
-                this.mCurrentOutput.write(bytes);
-                return;
-            }
-            this.mCurrentOutput.writeInt(-1);
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeBoolean(boolean z) {
-        try {
-            this.mCurrentOutput.writeBoolean(z);
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeStrongBinder(IBinder iBinder) {
-        if (!this.mIgnoreParcelables) {
-            throw new RuntimeException("Binders cannot be written to an OutputStream");
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeParcelable(Parcelable parcelable) {
-        if (!this.mIgnoreParcelables) {
-            throw new RuntimeException("Parcelables cannot be written to an OutputStream");
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeStrongInterface(IInterface iInterface) {
-        if (!this.mIgnoreParcelables) {
-            throw new RuntimeException("Binders cannot be written to an OutputStream");
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public IBinder readStrongBinder() {
-        return null;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public <T extends Parcelable> T readParcelable() {
-        return null;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public int readInt() {
-        try {
-            return this.mCurrentInput.readInt();
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public long readLong() {
-        try {
-            return this.mCurrentInput.readLong();
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public float readFloat() {
-        try {
-            return this.mCurrentInput.readFloat();
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public double readDouble() {
-        try {
-            return this.mCurrentInput.readDouble();
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public String readString() {
-        try {
-            int readInt = this.mCurrentInput.readInt();
-            if (readInt > 0) {
-                byte[] bArr = new byte[readInt];
-                this.mCurrentInput.readFully(bArr);
-                return new String(bArr, UTF_16);
-            }
-            return null;
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public byte[] readByteArray() {
-        try {
-            int readInt = this.mCurrentInput.readInt();
-            if (readInt > 0) {
-                byte[] bArr = new byte[readInt];
-                this.mCurrentInput.readFully(bArr);
-                return bArr;
-            }
-            return null;
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public boolean readBoolean() {
-        try {
-            return this.mCurrentInput.readBoolean();
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeBundle(Bundle bundle) {
-        try {
-            if (bundle != null) {
-                Set<String> keySet = bundle.keySet();
-                this.mCurrentOutput.writeInt(keySet.size());
-                for (String str : keySet) {
-                    writeString(str);
-                    writeObject(bundle.get(str));
-                }
-                return;
-            }
-            this.mCurrentOutput.writeInt(-1);
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public Bundle readBundle() {
-        int readInt = readInt();
-        if (readInt < 0) {
-            return null;
-        }
-        Bundle bundle = new Bundle();
-        for (int i = 0; i < readInt; i++) {
-            readObject(readInt(), readString(), bundle);
-        }
-        return bundle;
-    }
-
-    private void writeObject(Object obj) {
-        if (obj == null) {
-            writeInt(0);
-        } else if (obj instanceof Bundle) {
-            writeInt(1);
-            writeBundle((Bundle) obj);
-        } else if (obj instanceof String) {
-            writeInt(3);
-            writeString((String) obj);
-        } else if (obj instanceof String[]) {
-            writeInt(4);
-            writeArray((String[]) obj);
-        } else if (obj instanceof Boolean) {
-            writeInt(5);
-            writeBoolean(((Boolean) obj).booleanValue());
-        } else if (obj instanceof boolean[]) {
-            writeInt(6);
-            writeBooleanArray((boolean[]) obj);
-        } else if (obj instanceof Double) {
-            writeInt(7);
-            writeDouble(((Double) obj).doubleValue());
-        } else if (obj instanceof double[]) {
-            writeInt(8);
-            writeDoubleArray((double[]) obj);
-        } else if (obj instanceof Integer) {
-            writeInt(9);
-            writeInt(((Integer) obj).intValue());
-        } else if (obj instanceof int[]) {
-            writeInt(10);
-            writeIntArray((int[]) obj);
-        } else if (obj instanceof Long) {
-            writeInt(11);
-            writeLong(((Long) obj).longValue());
-        } else if (obj instanceof long[]) {
-            writeInt(12);
-            writeLongArray((long[]) obj);
-        } else if (obj instanceof Float) {
-            writeInt(13);
-            writeFloat(((Float) obj).floatValue());
-        } else if (obj instanceof float[]) {
-            writeInt(14);
-            writeFloatArray((float[]) obj);
-        } else {
-            throw new IllegalArgumentException("Unsupported type " + obj.getClass());
-        }
+        this.mCurrentOutput = dataOutputStream;
     }
 
     private void readObject(int i, String str, Bundle bundle) {
@@ -440,42 +141,344 @@ class VersionedParcelStream extends VersionedParcel {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
-    public static class FieldBuffer {
-        private final int mFieldId;
-        private final DataOutputStream mTarget;
-        final ByteArrayOutputStream mOutput = new ByteArrayOutputStream();
-        final DataOutputStream mDataStream = new DataOutputStream(this.mOutput);
-
-        FieldBuffer(int i, DataOutputStream dataOutputStream) {
-            this.mFieldId = i;
-            this.mTarget = dataOutputStream;
-        }
-
-        void flushField() throws IOException {
-            this.mDataStream.flush();
-            int size = this.mOutput.size();
-            this.mTarget.writeInt((size >= 65535 ? 65535 : size) | (this.mFieldId << 16));
-            if (size >= 65535) {
-                this.mTarget.writeInt(size);
-            }
-            this.mOutput.writeTo(this.mTarget);
+    private void writeObject(Object obj) {
+        if (obj == null) {
+            writeInt(0);
+        } else if (obj instanceof Bundle) {
+            writeInt(1);
+            writeBundle((Bundle) obj);
+        } else if (obj instanceof String) {
+            writeInt(3);
+            writeString((String) obj);
+        } else if (obj instanceof String[]) {
+            writeInt(4);
+            writeArray((String[]) obj);
+        } else if (obj instanceof Boolean) {
+            writeInt(5);
+            writeBoolean(((Boolean) obj).booleanValue());
+        } else if (obj instanceof boolean[]) {
+            writeInt(6);
+            writeBooleanArray((boolean[]) obj);
+        } else if (obj instanceof Double) {
+            writeInt(7);
+            writeDouble(((Double) obj).doubleValue());
+        } else if (obj instanceof double[]) {
+            writeInt(8);
+            writeDoubleArray((double[]) obj);
+        } else if (obj instanceof Integer) {
+            writeInt(9);
+            writeInt(((Integer) obj).intValue());
+        } else if (obj instanceof int[]) {
+            writeInt(10);
+            writeIntArray((int[]) obj);
+        } else if (obj instanceof Long) {
+            writeInt(11);
+            writeLong(((Long) obj).longValue());
+        } else if (obj instanceof long[]) {
+            writeInt(12);
+            writeLongArray((long[]) obj);
+        } else if (obj instanceof Float) {
+            writeInt(13);
+            writeFloat(((Float) obj).floatValue());
+        } else if (obj instanceof float[]) {
+            writeInt(14);
+            writeFloatArray((float[]) obj);
+        } else {
+            throw new IllegalArgumentException("Unsupported type " + obj.getClass());
         }
     }
 
-    /* loaded from: classes5.dex */
-    private static class InputBuffer {
-        final int mFieldId;
-        final DataInputStream mInputStream;
-        private final int mSize;
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void closeField() {
+        FieldBuffer fieldBuffer = this.mFieldBuffer;
+        if (fieldBuffer != null) {
+            try {
+                if (fieldBuffer.mOutput.size() != 0) {
+                    this.mFieldBuffer.flushField();
+                }
+                this.mFieldBuffer = null;
+            } catch (IOException e2) {
+                throw new VersionedParcel.ParcelException(e2);
+            }
+        }
+    }
 
-        InputBuffer(int i, int i2, DataInputStream dataInputStream) throws IOException {
-            this.mSize = i2;
-            this.mFieldId = i;
-            byte[] bArr = new byte[this.mSize];
-            dataInputStream.readFully(bArr);
-            this.mInputStream = new DataInputStream(new ByteArrayInputStream(bArr));
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public VersionedParcel createSubParcel() {
+        return new VersionedParcelStream(this.mCurrentInput, this.mCurrentOutput);
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public boolean isStream() {
+        return true;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public boolean readBoolean() {
+        try {
+            return this.mCurrentInput.readBoolean();
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public Bundle readBundle() {
+        int readInt = readInt();
+        if (readInt < 0) {
+            return null;
+        }
+        Bundle bundle = new Bundle();
+        for (int i = 0; i < readInt; i++) {
+            readObject(readInt(), readString(), bundle);
+        }
+        return bundle;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public byte[] readByteArray() {
+        try {
+            int readInt = this.mCurrentInput.readInt();
+            if (readInt > 0) {
+                byte[] bArr = new byte[readInt];
+                this.mCurrentInput.readFully(bArr);
+                return bArr;
+            }
+            return null;
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public double readDouble() {
+        try {
+            return this.mCurrentInput.readDouble();
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public boolean readField(int i) {
+        InputBuffer inputBuffer = this.mCachedFields.get(i);
+        if (inputBuffer != null) {
+            this.mCachedFields.remove(i);
+            this.mCurrentInput = inputBuffer.mInputStream;
+            return true;
+        }
+        while (true) {
+            try {
+                int readInt = this.mMasterInput.readInt();
+                int i2 = readInt & 65535;
+                if (i2 == 65535) {
+                    i2 = this.mMasterInput.readInt();
+                }
+                InputBuffer inputBuffer2 = new InputBuffer((readInt >> 16) & 65535, i2, this.mMasterInput);
+                if (inputBuffer2.mFieldId == i) {
+                    this.mCurrentInput = inputBuffer2.mInputStream;
+                    return true;
+                }
+                this.mCachedFields.put(inputBuffer2.mFieldId, inputBuffer2);
+            } catch (IOException unused) {
+                return false;
+            }
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public float readFloat() {
+        try {
+            return this.mCurrentInput.readFloat();
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public int readInt() {
+        try {
+            return this.mCurrentInput.readInt();
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public long readLong() {
+        try {
+            return this.mCurrentInput.readLong();
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public <T extends Parcelable> T readParcelable() {
+        return null;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public String readString() {
+        try {
+            int readInt = this.mCurrentInput.readInt();
+            if (readInt > 0) {
+                byte[] bArr = new byte[readInt];
+                this.mCurrentInput.readFully(bArr);
+                return new String(bArr, UTF_16);
+            }
+            return null;
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public IBinder readStrongBinder() {
+        return null;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void setOutputField(int i) {
+        closeField();
+        FieldBuffer fieldBuffer = new FieldBuffer(i, this.mMasterOutput);
+        this.mFieldBuffer = fieldBuffer;
+        this.mCurrentOutput = fieldBuffer.mDataStream;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void setSerializationFlags(boolean z, boolean z2) {
+        if (z) {
+            this.mIgnoreParcelables = z2;
+            return;
+        }
+        throw new RuntimeException("Serialization of this object is not allowed");
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeBoolean(boolean z) {
+        try {
+            this.mCurrentOutput.writeBoolean(z);
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeBundle(Bundle bundle) {
+        try {
+            if (bundle != null) {
+                Set<String> keySet = bundle.keySet();
+                this.mCurrentOutput.writeInt(keySet.size());
+                for (String str : keySet) {
+                    writeString(str);
+                    writeObject(bundle.get(str));
+                }
+                return;
+            }
+            this.mCurrentOutput.writeInt(-1);
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeByteArray(byte[] bArr) {
+        try {
+            if (bArr != null) {
+                this.mCurrentOutput.writeInt(bArr.length);
+                this.mCurrentOutput.write(bArr);
+                return;
+            }
+            this.mCurrentOutput.writeInt(-1);
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeDouble(double d2) {
+        try {
+            this.mCurrentOutput.writeDouble(d2);
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeFloat(float f2) {
+        try {
+            this.mCurrentOutput.writeFloat(f2);
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeInt(int i) {
+        try {
+            this.mCurrentOutput.writeInt(i);
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeLong(long j) {
+        try {
+            this.mCurrentOutput.writeLong(j);
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeParcelable(Parcelable parcelable) {
+        if (!this.mIgnoreParcelables) {
+            throw new RuntimeException("Parcelables cannot be written to an OutputStream");
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeString(String str) {
+        try {
+            if (str != null) {
+                byte[] bytes = str.getBytes(UTF_16);
+                this.mCurrentOutput.writeInt(bytes.length);
+                this.mCurrentOutput.write(bytes);
+                return;
+            }
+            this.mCurrentOutput.writeInt(-1);
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeStrongBinder(IBinder iBinder) {
+        if (!this.mIgnoreParcelables) {
+            throw new RuntimeException("Binders cannot be written to an OutputStream");
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeStrongInterface(IInterface iInterface) {
+        if (!this.mIgnoreParcelables) {
+            throw new RuntimeException("Binders cannot be written to an OutputStream");
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void writeByteArray(byte[] bArr, int i, int i2) {
+        try {
+            if (bArr != null) {
+                this.mCurrentOutput.writeInt(i2);
+                this.mCurrentOutput.write(bArr, i, i2);
+                return;
+            }
+            this.mCurrentOutput.writeInt(-1);
+        } catch (IOException e2) {
+            throw new VersionedParcel.ParcelException(e2);
         }
     }
 }

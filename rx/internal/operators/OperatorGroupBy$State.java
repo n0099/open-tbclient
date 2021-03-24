@@ -1,0 +1,173 @@
+package rx.internal.operators;
+
+import h.d;
+import h.f;
+import h.j;
+import h.k;
+import h.o.a.a;
+import h.o.a.n;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReference;
+/* loaded from: classes7.dex */
+public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements f, k, d.a<T> {
+    public static final long serialVersionUID = -3852313036005250360L;
+    public final boolean delayError;
+    public volatile boolean done;
+    public Throwable error;
+    public final K key;
+    public final n<?, K, T> parent;
+    public final Queue<Object> queue = new ConcurrentLinkedQueue();
+    public final AtomicBoolean cancelled = new AtomicBoolean();
+    public final AtomicReference<j<? super T>> actual = new AtomicReference<>();
+    public final AtomicBoolean once = new AtomicBoolean();
+    public final AtomicLong requested = new AtomicLong();
+
+    public OperatorGroupBy$State(int i, n<?, K, T> nVar, K k, boolean z) {
+        this.parent = nVar;
+        this.key = k;
+        this.delayError = z;
+    }
+
+    @Override // h.n.b
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((j) ((j) obj));
+    }
+
+    public boolean checkTerminated(boolean z, boolean z2, j<? super T> jVar, boolean z3) {
+        if (this.cancelled.get()) {
+            this.queue.clear();
+            this.parent.b(this.key);
+            throw null;
+        } else if (z) {
+            if (z3) {
+                if (z2) {
+                    Throwable th = this.error;
+                    if (th != null) {
+                        jVar.onError(th);
+                    } else {
+                        jVar.onCompleted();
+                    }
+                    return true;
+                }
+                return false;
+            }
+            Throwable th2 = this.error;
+            if (th2 != null) {
+                this.queue.clear();
+                jVar.onError(th2);
+                return true;
+            } else if (z2) {
+                jVar.onCompleted();
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public void drain() {
+        if (getAndIncrement() != 0) {
+            return;
+        }
+        Queue<Object> queue = this.queue;
+        boolean z = this.delayError;
+        j<? super T> jVar = this.actual.get();
+        int i = 1;
+        while (true) {
+            if (jVar != null) {
+                if (checkTerminated(this.done, queue.isEmpty(), jVar, z)) {
+                    return;
+                }
+                long j = this.requested.get();
+                long j2 = 0;
+                while (j2 != j) {
+                    boolean z2 = this.done;
+                    Object poll = queue.poll();
+                    boolean z3 = poll == null;
+                    if (checkTerminated(z2, z3, jVar, z)) {
+                        return;
+                    }
+                    if (z3) {
+                        break;
+                    }
+                    jVar.onNext((Object) NotificationLite.d(poll));
+                    j2++;
+                }
+                if (j2 != 0) {
+                    if (j != Long.MAX_VALUE) {
+                        a.g(this.requested, j2);
+                    }
+                    this.parent.f67774e.request(j2);
+                }
+            }
+            i = addAndGet(-i);
+            if (i == 0) {
+                return;
+            }
+            if (jVar == null) {
+                jVar = this.actual.get();
+            }
+        }
+    }
+
+    @Override // h.k
+    public boolean isUnsubscribed() {
+        return this.cancelled.get();
+    }
+
+    public void onComplete() {
+        this.done = true;
+        drain();
+    }
+
+    public void onError(Throwable th) {
+        this.error = th;
+        this.done = true;
+        drain();
+    }
+
+    public void onNext(T t) {
+        if (t == null) {
+            this.error = new NullPointerException();
+            this.done = true;
+        } else {
+            this.queue.offer(NotificationLite.g(t));
+        }
+        drain();
+    }
+
+    @Override // h.f
+    public void request(long j) {
+        if (j < 0) {
+            throw new IllegalArgumentException("n >= required but it was " + j);
+        } else if (j != 0) {
+            a.b(this.requested, j);
+            drain();
+        }
+    }
+
+    @Override // h.k
+    public void unsubscribe() {
+        if (this.cancelled.compareAndSet(false, true) && getAndIncrement() == 0) {
+            this.parent.b(this.key);
+            throw null;
+        }
+    }
+
+    public void call(j<? super T> jVar) {
+        if (this.once.compareAndSet(false, true)) {
+            jVar.add(this);
+            jVar.setProducer(this);
+            this.actual.lazySet(jVar);
+            drain();
+            return;
+        }
+        jVar.onError(new IllegalStateException("Only one Subscriber allowed!"));
+    }
+}

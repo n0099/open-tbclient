@@ -1,39 +1,39 @@
 package com.baidu.mapapi.cloud;
 
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes4.dex */
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+/* loaded from: classes2.dex */
 public abstract class BaseSearchInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1994a;
+    public String f6755a;
     public String ak;
     public int geoTableId;
     public String sn;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public String a() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f1994a);
+        sb.append(this.f6755a);
         sb.append("?");
-        if (this.ak == null || this.ak.equals("") || this.ak.length() > 50) {
-            return null;
-        }
-        sb.append("ak");
-        sb.append("=");
-        sb.append(this.ak);
-        if (this.geoTableId != 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
-            sb.append("geotable_id");
+        String str = this.ak;
+        if (str != null && !str.equals("") && this.ak.length() <= 50) {
+            sb.append(ContentUtil.RESULT_KEY_AK);
             sb.append("=");
-            sb.append(this.geoTableId);
-            if (this.sn != null && !this.sn.equals("") && this.sn.length() <= 50) {
-                sb.append(ETAG.ITEM_SEPARATOR);
-                sb.append(IXAdRequestInfo.SN);
+            sb.append(this.ak);
+            if (this.geoTableId != 0) {
+                sb.append("&");
+                sb.append("geotable_id");
                 sb.append("=");
-                sb.append(this.sn);
+                sb.append(this.geoTableId);
+                String str2 = this.sn;
+                if (str2 != null && !str2.equals("") && this.sn.length() <= 50) {
+                    sb.append("&");
+                    sb.append(IXAdRequestInfo.SN);
+                    sb.append("=");
+                    sb.append(this.sn);
+                }
+                return sb.toString();
             }
-            return sb.toString();
         }
         return null;
     }

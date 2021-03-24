@@ -18,54 +18,67 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapsdkplatform.comapi.map.ak;
 import com.baidu.webkit.net.BdNetTask;
-import com.yy.mediaframework.base.VideoEncoderConfig;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MapView extends ViewGroup {
-    private static String b;
-    private int A;
-    private com.baidu.mapsdkplatform.comapi.map.j d;
-    private BaiduMap e;
-    private ImageView f;
-    private Bitmap g;
-    private ak h;
-    private Point i;
-    private Point j;
-    private RelativeLayout k;
-    private TextView l;
-    private TextView m;
-    private ImageView n;
-    private Context o;
-    private int q;
-    private boolean r;
-    private boolean s;
-    private float t;
-    private com.baidu.mapsdkplatform.comapi.map.l u;
-    private int v;
-    private int w;
-    private int x;
-    private int y;
-    private int z;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f6920b;
+    public static final SparseArray<Integer> p;
+    public int A;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.baidu.mapsdkplatform.comapi.map.j f6922d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public BaiduMap f6923e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f6924f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Bitmap f6925g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ak f6926h;
+    public Point i;
+    public Point j;
+    public RelativeLayout k;
+    public TextView l;
+    public TextView m;
+    public ImageView n;
+    public Context o;
+    public int q;
+    public boolean r;
+    public boolean s;
+    public float t;
+    public com.baidu.mapsdkplatform.comapi.map.l u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2032a = MapView.class.getSimpleName();
-    private static int c = 0;
-    private static final SparseArray<Integer> p = new SparseArray<>();
+    public static final String f6919a = MapView.class.getSimpleName();
+
+    /* renamed from: c  reason: collision with root package name */
+    public static int f6921c = 0;
 
     static {
-        p.append(3, Integer.valueOf((int) VideoEncoderConfig.SCREEN_RECORD_ENCODE_ULTRA_HIGH_BITRATE));
-        p.append(4, Integer.valueOf((int) MessageConfig.BASE_SEGMENT_LENGTH));
+        SparseArray<Integer> sparseArray = new SparseArray<>();
+        p = sparseArray;
+        sparseArray.append(3, 2000000);
+        p.append(4, 1000000);
         p.append(5, 500000);
-        p.append(6, Integer.valueOf((int) AlaRecorderLog.ErrCodeSeg.ERROR_BASE_RTMP));
+        p.append(6, 200000);
         p.append(7, 100000);
         p.append(8, Integer.valueOf((int) IMConstants.ERROR_BASE));
         p.append(9, Integer.valueOf((int) BdNetTask.TIMEOUT_READ));
@@ -120,63 +133,78 @@ public final class MapView extends ViewGroup {
         a(context, baiduMapOptions);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0045  */
+    /* JADX WARN: Removed duplicated region for block: B:19:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void a(Context context) {
+        Matrix matrix;
+        float f2;
         int densityDpi = SysOSUtil.getDensityDpi();
         Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(densityDpi < 180 ? "logo_l.png" : "logo_h.png", context);
         if (densityDpi > 480) {
-            Matrix matrix = new Matrix();
-            matrix.postScale(2.0f, 2.0f);
-            this.g = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
+            matrix = new Matrix();
+            f2 = 2.0f;
         } else if (densityDpi <= 320 || densityDpi > 480) {
-            this.g = a2;
+            this.f6925g = a2;
+            if (this.f6925g == null) {
+                ImageView imageView = new ImageView(context);
+                this.f6924f = imageView;
+                imageView.setImageBitmap(this.f6925g);
+                addView(this.f6924f);
+                return;
+            }
+            return;
         } else {
-            Matrix matrix2 = new Matrix();
-            matrix2.postScale(1.5f, 1.5f);
-            this.g = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix2, true);
+            matrix = new Matrix();
+            f2 = 1.5f;
         }
-        if (this.g != null) {
-            this.f = new ImageView(context);
-            this.f.setImageBitmap(this.g);
-            addView(this.f);
+        matrix.postScale(f2, f2);
+        this.f6925g = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
+        if (this.f6925g == null) {
         }
     }
 
     private void a(Context context, BaiduMapOptions baiduMapOptions) {
+        Point point;
+        Point point2;
+        LogoPosition logoPosition;
         this.o = context;
         com.baidu.mapsdkplatform.comapi.map.i.a();
         BMapManager.init();
-        a(context, baiduMapOptions, b, c);
-        this.e = new BaiduMap(this.d);
+        a(context, baiduMapOptions, f6920b, f6921c);
+        this.f6923e = new BaiduMap(this.f6922d);
         a(context);
         b(context);
-        if (baiduMapOptions != null && !baiduMapOptions.h) {
-            this.h.setVisibility(4);
+        if (baiduMapOptions != null && !baiduMapOptions.f6821h) {
+            this.f6926h.setVisibility(4);
         }
         c(context);
         if (baiduMapOptions != null && !baiduMapOptions.i) {
             this.k.setVisibility(4);
         }
-        if (baiduMapOptions != null && baiduMapOptions.j != null) {
-            this.q = baiduMapOptions.j.ordinal();
+        if (baiduMapOptions != null && (logoPosition = baiduMapOptions.j) != null) {
+            this.q = logoPosition.ordinal();
         }
-        if (baiduMapOptions != null && baiduMapOptions.l != null) {
-            this.j = baiduMapOptions.l;
+        if (baiduMapOptions != null && (point2 = baiduMapOptions.l) != null) {
+            this.j = point2;
         }
-        if (baiduMapOptions == null || baiduMapOptions.k == null) {
+        if (baiduMapOptions == null || (point = baiduMapOptions.k) == null) {
             return;
         }
-        this.i = baiduMapOptions.k;
+        this.i = point;
     }
 
     private void a(Context context, BaiduMapOptions baiduMapOptions, String str, int i) {
         if (baiduMapOptions == null) {
-            this.d = new com.baidu.mapsdkplatform.comapi.map.j(context, null, str, i);
+            this.f6922d = new com.baidu.mapsdkplatform.comapi.map.j(context, null, str, i);
         } else {
-            this.d = new com.baidu.mapsdkplatform.comapi.map.j(context, baiduMapOptions.a(), str, i);
+            this.f6922d = new com.baidu.mapsdkplatform.comapi.map.j(context, baiduMapOptions.a(), str, i);
         }
-        addView(this.d);
+        addView(this.f6922d);
         this.u = new k(this);
-        this.d.a().a(this.u);
+        this.f6922d.a().a(this.u);
     }
 
     private void a(View view) {
@@ -192,19 +220,20 @@ public final class MapView extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.h.a()) {
-            float f = this.d.a().E().f2214a;
-            this.h.b(f > this.d.a().b);
-            this.h.a(f < this.d.a().f2221a);
+        if (this.f6926h.a()) {
+            float f2 = this.f6922d.a().E().f7569a;
+            this.f6926h.b(f2 > this.f6922d.a().f7613b);
+            this.f6926h.a(f2 < this.f6922d.a().f7612a);
         }
     }
 
     private void b(Context context) {
-        this.h = new ak(context, false);
-        if (this.h.a()) {
-            this.h.b(new l(this));
-            this.h.a(new m(this));
-            addView(this.h);
+        ak akVar = new ak(context, false);
+        this.f6926h = akVar;
+        if (akVar.a()) {
+            this.f6926h.b(new l(this));
+            this.f6926h.a(new m(this));
+            addView(this.f6926h);
         }
     }
 
@@ -216,7 +245,8 @@ public final class MapView extends ViewGroup {
         layoutParams.addRule(14);
         this.l.setTextColor(Color.parseColor("#FFFFFF"));
         this.l.setTextSize(2, 11.0f);
-        this.l.setTypeface(this.l.getTypeface(), 1);
+        TextView textView = this.l;
+        textView.setTypeface(textView.getTypeface(), 1);
         this.l.setLayoutParams(layoutParams);
         this.l.setId(Integer.MAX_VALUE);
         this.k.addView(this.l);
@@ -251,11 +281,11 @@ public final class MapView extends ViewGroup {
         if (!new File(str).exists()) {
             throw new RuntimeException("please check whether the customMapStylePath file exits");
         }
-        b = str;
+        f6920b = str;
     }
 
     public static void setIconCustom(int i) {
-        c = i;
+        f6921c = i;
     }
 
     public static void setMapCustomEnable(boolean z) {
@@ -270,34 +300,23 @@ public final class MapView extends ViewGroup {
     }
 
     public void cancelRenderMap() {
-        this.d.a().v(false);
-        this.d.a().O().clear();
+        this.f6922d.a().v(false);
+        this.f6922d.a().O().clear();
     }
 
     public final LogoPosition getLogoPosition() {
-        switch (this.q) {
-            case 1:
-                return LogoPosition.logoPostionleftTop;
-            case 2:
-                return LogoPosition.logoPostionCenterBottom;
-            case 3:
-                return LogoPosition.logoPostionCenterTop;
-            case 4:
-                return LogoPosition.logoPostionRightBottom;
-            case 5:
-                return LogoPosition.logoPostionRightTop;
-            default:
-                return LogoPosition.logoPostionleftBottom;
-        }
+        int i = this.q;
+        return i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? LogoPosition.logoPostionleftBottom : LogoPosition.logoPostionRightTop : LogoPosition.logoPostionRightBottom : LogoPosition.logoPostionCenterTop : LogoPosition.logoPostionCenterBottom : LogoPosition.logoPostionleftTop;
     }
 
     public final BaiduMap getMap() {
-        this.e.f2008a = this;
-        return this.e;
+        BaiduMap baiduMap = this.f6923e;
+        baiduMap.f6807a = this;
+        return baiduMap;
     }
 
     public final int getMapLevel() {
-        return p.get((int) this.d.a().E().f2214a).intValue();
+        return p.get((int) this.f6922d.a().E().f7569a).intValue();
     }
 
     public int getScaleControlViewHeight() {
@@ -308,176 +327,196 @@ public final class MapView extends ViewGroup {
         return this.A;
     }
 
-    public boolean handleMultiTouch(float f, float f2, float f3, float f4) {
-        return this.d != null && this.d.a(f, f2, f3, f4);
+    public boolean handleMultiTouch(float f2, float f3, float f4, float f5) {
+        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6922d;
+        return jVar != null && jVar.a(f2, f3, f4, f5);
     }
 
-    public void handleTouchDown(float f, float f2) {
-        if (this.d == null) {
+    public void handleTouchDown(float f2, float f3) {
+        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6922d;
+        if (jVar == null) {
             return;
         }
-        this.d.a(f, f2);
+        jVar.a(f2, f3);
     }
 
-    public boolean handleTouchMove(float f, float f2) {
-        return this.d != null && this.d.c(f, f2);
+    public boolean handleTouchMove(float f2, float f3) {
+        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6922d;
+        return jVar != null && jVar.c(f2, f3);
     }
 
-    public boolean handleTouchUp(float f, float f2) {
-        if (this.d == null) {
+    public boolean handleTouchUp(float f2, float f3) {
+        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6922d;
+        if (jVar == null) {
             return false;
         }
-        return this.d.b(f, f2);
+        return jVar.b(f2, f3);
     }
 
-    public boolean inRangeOfView(float f, float f2) {
-        return this.d != null && this.d.d(f, f2);
+    public boolean inRangeOfView(float f2, float f3) {
+        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6922d;
+        return jVar != null && jVar.d(f2, f3);
     }
 
     public void onCreate(Context context, Bundle bundle) {
+        BaiduMapOptions mapStatus;
         if (bundle == null) {
             return;
         }
-        b = bundle.getString("customMapPath");
+        f6920b = bundle.getString("customMapPath");
         if (bundle == null) {
-            a(context, new BaiduMapOptions());
-            return;
+            mapStatus = new BaiduMapOptions();
+        } else {
+            MapStatus mapStatus2 = (MapStatus) bundle.getParcelable("mapstatus");
+            if (this.i != null) {
+                this.i = (Point) bundle.getParcelable("scalePosition");
+            }
+            if (this.j != null) {
+                this.j = (Point) bundle.getParcelable("zoomPosition");
+            }
+            this.r = bundle.getBoolean("mZoomControlEnabled");
+            this.s = bundle.getBoolean("mScaleControlEnabled");
+            this.q = bundle.getInt("logoPosition");
+            setPadding(bundle.getInt("paddingLeft"), bundle.getInt("paddingTop"), bundle.getInt("paddingRight"), bundle.getInt("paddingBottom"));
+            mapStatus = new BaiduMapOptions().mapStatus(mapStatus2);
         }
-        MapStatus mapStatus = (MapStatus) bundle.getParcelable("mapstatus");
-        if (this.i != null) {
-            this.i = (Point) bundle.getParcelable("scalePosition");
-        }
-        if (this.j != null) {
-            this.j = (Point) bundle.getParcelable("zoomPosition");
-        }
-        this.r = bundle.getBoolean("mZoomControlEnabled");
-        this.s = bundle.getBoolean("mScaleControlEnabled");
-        this.q = bundle.getInt("logoPosition");
-        setPadding(bundle.getInt("paddingLeft"), bundle.getInt("paddingTop"), bundle.getInt("paddingRight"), bundle.getInt("paddingBottom"));
-        a(context, new BaiduMapOptions().mapStatus(mapStatus));
+        a(context, mapStatus);
     }
 
     public final void onDestroy() {
-        if (this.o != null) {
-            this.d.b(this.o.hashCode());
+        Context context = this.o;
+        if (context != null) {
+            this.f6922d.b(context.hashCode());
         }
-        if (this.g != null && !this.g.isRecycled()) {
-            this.g.recycle();
-            this.g = null;
+        Bitmap bitmap = this.f6925g;
+        if (bitmap != null && !bitmap.isRecycled()) {
+            this.f6925g.recycle();
+            this.f6925g = null;
         }
-        if (b != null) {
-            b = null;
+        if (f6920b != null) {
+            f6920b = null;
         }
-        this.h.b();
+        this.f6926h.b();
         BMapManager.destroy();
         com.baidu.mapsdkplatform.comapi.map.i.b();
         this.o = null;
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        float f;
+    public final void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        float f2;
         int measuredHeight;
-        int width;
+        int measuredWidth;
         int childCount = getChildCount();
-        float f2 = 1.0f;
-        a(this.f);
-        if (((getWidth() - this.v) - this.w) - this.f.getMeasuredWidth() <= 0 || ((getHeight() - this.x) - this.y) - this.f.getMeasuredHeight() <= 0) {
+        a(this.f6924f);
+        float f3 = 1.0f;
+        if (((getWidth() - this.v) - this.w) - this.f6924f.getMeasuredWidth() <= 0 || ((getHeight() - this.x) - this.y) - this.f6924f.getMeasuredHeight() <= 0) {
             this.v = 0;
             this.w = 0;
             this.y = 0;
             this.x = 0;
-            f = 1.0f;
+            f2 = 1.0f;
         } else {
-            f2 = ((getWidth() - this.v) - this.w) / getWidth();
-            f = ((getHeight() - this.x) - this.y) / getHeight();
+            f3 = ((getWidth() - this.v) - this.w) / getWidth();
+            f2 = ((getHeight() - this.x) - this.y) / getHeight();
         }
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
             if (childAt != null) {
-                if (childAt == this.d) {
-                    this.d.layout(0, 0, getWidth(), getHeight());
-                } else if (childAt == this.f) {
-                    int i6 = (int) (this.v + (5.0f * f2));
-                    int i7 = (int) (this.w + (5.0f * f2));
-                    int i8 = (int) (this.x + (5.0f * f));
-                    int i9 = (int) (this.y + (5.0f * f));
-                    switch (this.q) {
-                        case 1:
-                            measuredHeight = i8 + this.f.getMeasuredHeight();
-                            width = this.f.getMeasuredWidth() + i6;
-                            break;
-                        case 2:
-                            measuredHeight = getHeight() - i9;
-                            i8 = measuredHeight - this.f.getMeasuredHeight();
-                            i6 = (((getWidth() - this.f.getMeasuredWidth()) + this.v) - this.w) / 2;
-                            width = (((getWidth() + this.f.getMeasuredWidth()) + this.v) - this.w) / 2;
-                            break;
-                        case 3:
-                            measuredHeight = i8 + this.f.getMeasuredHeight();
-                            i6 = (((getWidth() - this.f.getMeasuredWidth()) + this.v) - this.w) / 2;
-                            width = (((getWidth() + this.f.getMeasuredWidth()) + this.v) - this.w) / 2;
-                            break;
-                        case 4:
-                            measuredHeight = getHeight() - i9;
-                            i8 = measuredHeight - this.f.getMeasuredHeight();
-                            width = getWidth() - i7;
-                            i6 = width - this.f.getMeasuredWidth();
-                            break;
-                        case 5:
-                            measuredHeight = i8 + this.f.getMeasuredHeight();
-                            width = getWidth() - i7;
-                            i6 = width - this.f.getMeasuredWidth();
-                            break;
-                        default:
-                            measuredHeight = getHeight() - i9;
-                            width = this.f.getMeasuredWidth() + i6;
-                            i8 = measuredHeight - this.f.getMeasuredHeight();
-                            break;
-                    }
-                    this.f.layout(i6, i8, width, measuredHeight);
-                } else if (childAt == this.h) {
-                    if (this.h.a()) {
-                        a(this.h);
-                        if (this.j == null) {
-                            int height = (int) (((getHeight() - 15) * f) + this.x);
-                            int width2 = (int) (((getWidth() - 15) * f2) + this.v);
-                            int measuredWidth = width2 - this.h.getMeasuredWidth();
-                            int measuredHeight2 = height - this.h.getMeasuredHeight();
-                            if (this.q == 4) {
-                                height -= this.f.getMeasuredHeight();
-                                measuredHeight2 -= this.f.getMeasuredHeight();
-                            }
-                            this.h.layout(measuredWidth, measuredHeight2, width2, height);
-                        } else {
-                            this.h.layout(this.j.x, this.j.y, this.j.x + this.h.getMeasuredWidth(), this.j.y + this.h.getMeasuredHeight());
-                        }
-                    }
-                } else if (childAt == this.k) {
-                    a(this.k);
-                    if (this.i == null) {
-                        this.A = this.k.getMeasuredWidth();
-                        this.z = this.k.getMeasuredHeight();
-                        int i10 = (int) (this.v + (5.0f * f2));
-                        int height2 = (getHeight() - ((int) ((this.y + (5.0f * f)) + 56.0f))) - this.f.getMeasuredHeight();
-                        this.k.layout(i10, height2, this.A + i10, this.z + height2);
-                    } else {
-                        this.k.layout(this.i.x, this.i.y, this.i.x + this.k.getMeasuredWidth(), this.i.y + this.k.getMeasuredHeight());
-                    }
+                com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6922d;
+                if (childAt == jVar) {
+                    jVar.layout(0, 0, getWidth(), getHeight());
                 } else {
-                    ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
-                    if (layoutParams == null) {
-                        Log.e("test", "lp == null");
-                    }
-                    if (layoutParams instanceof MapViewLayoutParams) {
-                        MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.d.a().a(CoordUtil.ll2mc(mapViewLayoutParams.f2033a));
-                        a(childAt);
-                        int measuredWidth2 = childAt.getMeasuredWidth();
-                        int measuredHeight3 = childAt.getMeasuredHeight();
-                        int i11 = (int) (a2.x - (mapViewLayoutParams.d * measuredWidth2));
-                        int i12 = mapViewLayoutParams.f + ((int) (a2.y - (mapViewLayoutParams.e * measuredHeight3)));
-                        childAt.layout(i11, i12, i11 + measuredWidth2, i12 + measuredHeight3);
+                    ImageView imageView = this.f6924f;
+                    if (childAt == imageView) {
+                        float f4 = f3 * 5.0f;
+                        int i6 = (int) (this.v + f4);
+                        int i7 = (int) (this.w + f4);
+                        float f5 = 5.0f * f2;
+                        int i8 = (int) (this.x + f5);
+                        int i9 = (int) (this.y + f5);
+                        int i10 = this.q;
+                        if (i10 != 1) {
+                            if (i10 == 2) {
+                                measuredHeight = getHeight() - i9;
+                                i8 = measuredHeight - this.f6924f.getMeasuredHeight();
+                            } else if (i10 != 3) {
+                                if (i10 == 4) {
+                                    measuredHeight = getHeight() - i9;
+                                    i8 = measuredHeight - this.f6924f.getMeasuredHeight();
+                                } else if (i10 != 5) {
+                                    measuredHeight = getHeight() - i9;
+                                    measuredWidth = this.f6924f.getMeasuredWidth() + i6;
+                                    i8 = measuredHeight - this.f6924f.getMeasuredHeight();
+                                } else {
+                                    measuredHeight = i8 + imageView.getMeasuredHeight();
+                                }
+                                measuredWidth = getWidth() - i7;
+                                i6 = measuredWidth - this.f6924f.getMeasuredWidth();
+                            } else {
+                                measuredHeight = i8 + imageView.getMeasuredHeight();
+                            }
+                            i6 = (((getWidth() - this.f6924f.getMeasuredWidth()) + this.v) - this.w) / 2;
+                            measuredWidth = (((getWidth() + this.f6924f.getMeasuredWidth()) + this.v) - this.w) / 2;
+                        } else {
+                            measuredHeight = imageView.getMeasuredHeight() + i8;
+                            measuredWidth = this.f6924f.getMeasuredWidth() + i6;
+                        }
+                        this.f6924f.layout(i6, i8, measuredWidth, measuredHeight);
+                    } else {
+                        ak akVar = this.f6926h;
+                        if (childAt != akVar) {
+                            RelativeLayout relativeLayout = this.k;
+                            if (childAt == relativeLayout) {
+                                a(relativeLayout);
+                                Point point = this.i;
+                                if (point == null) {
+                                    this.A = this.k.getMeasuredWidth();
+                                    this.z = this.k.getMeasuredHeight();
+                                    int i11 = (int) (this.v + (5.0f * f3));
+                                    int height = (getHeight() - ((int) ((this.y + (f2 * 5.0f)) + 56.0f))) - this.f6924f.getMeasuredHeight();
+                                    this.k.layout(i11, height, this.A + i11, this.z + height);
+                                } else {
+                                    RelativeLayout relativeLayout2 = this.k;
+                                    int i12 = point.x;
+                                    relativeLayout2.layout(i12, point.y, relativeLayout2.getMeasuredWidth() + i12, this.i.y + this.k.getMeasuredHeight());
+                                }
+                            } else {
+                                ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
+                                if (layoutParams == null) {
+                                    Log.e("test", "lp == null");
+                                }
+                                if (layoutParams instanceof MapViewLayoutParams) {
+                                    MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
+                                    Point a2 = mapViewLayoutParams.f6929c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f6928b : this.f6922d.a().a(CoordUtil.ll2mc(mapViewLayoutParams.f6927a));
+                                    a(childAt);
+                                    int measuredWidth2 = childAt.getMeasuredWidth();
+                                    int measuredHeight2 = childAt.getMeasuredHeight();
+                                    float f6 = mapViewLayoutParams.f6930d;
+                                    int i13 = (int) (a2.x - (f6 * measuredWidth2));
+                                    int i14 = ((int) (a2.y - (mapViewLayoutParams.f6931e * measuredHeight2))) + mapViewLayoutParams.f6932f;
+                                    childAt.layout(i13, i14, measuredWidth2 + i13, measuredHeight2 + i14);
+                                }
+                            }
+                        } else if (akVar.a()) {
+                            a(this.f6926h);
+                            Point point2 = this.j;
+                            if (point2 == null) {
+                                int height2 = (int) (((getHeight() - 15) * f2) + this.x);
+                                int width = (int) (((getWidth() - 15) * f3) + this.v);
+                                int measuredWidth3 = width - this.f6926h.getMeasuredWidth();
+                                int measuredHeight3 = height2 - this.f6926h.getMeasuredHeight();
+                                if (this.q == 4) {
+                                    height2 -= this.f6924f.getMeasuredHeight();
+                                    measuredHeight3 -= this.f6924f.getMeasuredHeight();
+                                }
+                                this.f6926h.layout(measuredWidth3, measuredHeight3, width, height2);
+                            } else {
+                                ak akVar2 = this.f6926h;
+                                int i15 = point2.x;
+                                akVar2.layout(i15, point2.y, akVar2.getMeasuredWidth() + i15, this.j.y + this.f6926h.getMeasuredHeight());
+                            }
+                        }
                     }
                 }
             }
@@ -485,23 +524,26 @@ public final class MapView extends ViewGroup {
     }
 
     public final void onPause() {
-        this.d.onPause();
+        this.f6922d.onPause();
     }
 
     public final void onResume() {
-        this.d.onResume();
+        this.f6922d.onResume();
     }
 
     public void onSaveInstanceState(Bundle bundle) {
-        if (bundle == null || this.e == null) {
+        BaiduMap baiduMap;
+        if (bundle == null || (baiduMap = this.f6923e) == null) {
             return;
         }
-        bundle.putParcelable("mapstatus", this.e.getMapStatus());
-        if (this.i != null) {
-            bundle.putParcelable("scalePosition", this.i);
+        bundle.putParcelable("mapstatus", baiduMap.getMapStatus());
+        Point point = this.i;
+        if (point != null) {
+            bundle.putParcelable("scalePosition", point);
         }
-        if (this.j != null) {
-            bundle.putParcelable("zoomPosition", this.j);
+        Point point2 = this.j;
+        if (point2 != null) {
+            bundle.putParcelable("zoomPosition", point2);
         }
         bundle.putBoolean("mZoomControlEnabled", this.r);
         bundle.putBoolean("mScaleControlEnabled", this.s);
@@ -510,19 +552,19 @@ public final class MapView extends ViewGroup {
         bundle.putInt("paddingTop", this.x);
         bundle.putInt("paddingRight", this.w);
         bundle.putInt("paddingBottom", this.y);
-        bundle.putString("customMapPath", b);
+        bundle.putString("customMapPath", f6920b);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
-        if (view == this.f) {
+        if (view == this.f6924f) {
             return;
         }
         super.removeView(view);
     }
 
     public void renderMap() {
-        com.baidu.mapsdkplatform.comapi.map.e a2 = this.d.a();
+        com.baidu.mapsdkplatform.comapi.map.e a2 = this.f6922d.a();
         a2.v(true);
         a2.P();
     }
@@ -544,25 +586,28 @@ public final class MapView extends ViewGroup {
     }
 
     public void setScaleControlPosition(Point point) {
-        if (point != null && point.x >= 0 && point.y >= 0 && point.x <= getWidth() && point.y <= getHeight()) {
+        int i;
+        if (point != null && (i = point.x) >= 0 && point.y >= 0 && i <= getWidth() && point.y <= getHeight()) {
             this.i = point;
             requestLayout();
         }
     }
 
     public void setUpViewEventToMapView(MotionEvent motionEvent) {
-        this.d.onTouchEvent(motionEvent);
+        this.f6922d.onTouchEvent(motionEvent);
     }
 
     public final void setZOrderMediaOverlay(boolean z) {
-        if (this.d == null) {
+        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6922d;
+        if (jVar == null) {
             return;
         }
-        this.d.setZOrderMediaOverlay(z);
+        jVar.setZOrderMediaOverlay(z);
     }
 
     public void setZoomControlsPosition(Point point) {
-        if (point != null && point.x >= 0 && point.y >= 0 && point.x <= getWidth() && point.y <= getHeight()) {
+        int i;
+        if (point != null && (i = point.x) >= 0 && point.y >= 0 && i <= getWidth() && point.y <= getHeight()) {
             this.j = point;
             requestLayout();
         }
@@ -574,8 +619,8 @@ public final class MapView extends ViewGroup {
     }
 
     public void showZoomControls(boolean z) {
-        if (this.h.a()) {
-            this.h.setVisibility(z ? 0 : 8);
+        if (this.f6926h.a()) {
+            this.f6926h.setVisibility(z ? 0 : 8);
             this.r = z;
         }
     }

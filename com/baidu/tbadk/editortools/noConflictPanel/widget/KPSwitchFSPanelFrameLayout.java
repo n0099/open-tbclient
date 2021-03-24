@@ -3,39 +3,41 @@ package com.baidu.tbadk.editortools.noConflictPanel.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import com.baidu.tbadk.editortools.noConflictPanel.a.a;
-import com.baidu.tbadk.editortools.noConflictPanel.b;
-import com.baidu.tbadk.editortools.noConflictPanel.b.d;
-/* loaded from: classes.dex */
+import d.b.h0.w.v.b;
+import d.b.h0.w.v.c.a;
+import d.b.h0.w.v.d.d;
+/* loaded from: classes3.dex */
 public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
-    private a fEV;
+
+    /* renamed from: e  reason: collision with root package name */
+    public a f13876e;
 
     public KPSwitchFSPanelFrameLayout(Context context) {
         super(context);
-        init();
+        b();
+    }
+
+    @Override // d.b.h0.w.v.b
+    public void a(boolean z) {
+        this.f13876e.a(z);
+    }
+
+    public final void b() {
+        this.f13876e = new a(this);
+    }
+
+    @Override // d.b.h0.w.v.b
+    public void refreshHeight(int i) {
+        d.d(this, i);
     }
 
     public KPSwitchFSPanelFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        init();
+        b();
     }
 
     public KPSwitchFSPanelFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
-        this.fEV = new a(this);
-    }
-
-    @Override // com.baidu.tbadk.editortools.noConflictPanel.b
-    public void rb(int i) {
-        d.r(this, i);
-    }
-
-    @Override // com.baidu.tbadk.editortools.noConflictPanel.b
-    public void kT(boolean z) {
-        this.fEV.kT(z);
+        b();
     }
 }

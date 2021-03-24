@@ -5,72 +5,86 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class o implements SensorEventListener {
-    private static o d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static o f6564d;
 
     /* renamed from: a  reason: collision with root package name */
-    private float[] f1931a;
-    private float[] b;
-    private SensorManager c;
-    private float e;
-    private boolean f = false;
-    private boolean g = false;
-    private boolean h = false;
+    public float[] f6565a;
 
-    private o() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public float[] f6566b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public SensorManager f6567c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f6568e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f6569f = false;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f6570g = false;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f6571h = false;
 
     public static synchronized o a() {
         o oVar;
         synchronized (o.class) {
-            if (d == null) {
-                d = new o();
+            if (f6564d == null) {
+                f6564d = new o();
             }
-            oVar = d;
+            oVar = f6564d;
         }
         return oVar;
     }
 
     public void a(boolean z) {
-        this.f = z;
+        this.f6569f = z;
     }
 
     public synchronized void b() {
-        if (!this.h && this.f) {
-            if (this.c == null) {
-                this.c = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+        if (this.f6571h) {
+            return;
+        }
+        if (this.f6569f) {
+            if (this.f6567c == null) {
+                this.f6567c = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.c != null) {
-                Sensor defaultSensor = this.c.getDefaultSensor(11);
-                if (defaultSensor != null && this.f) {
-                    this.c.registerListener(this, defaultSensor, 3);
+            if (this.f6567c != null) {
+                Sensor defaultSensor = this.f6567c.getDefaultSensor(11);
+                if (defaultSensor != null && this.f6569f) {
+                    this.f6567c.registerListener(this, defaultSensor, 3);
                 }
-                Sensor defaultSensor2 = this.c.getDefaultSensor(2);
-                if (defaultSensor2 != null && this.f) {
-                    this.c.registerListener(this, defaultSensor2, 3);
+                Sensor defaultSensor2 = this.f6567c.getDefaultSensor(2);
+                if (defaultSensor2 != null && this.f6569f) {
+                    this.f6567c.registerListener(this, defaultSensor2, 3);
                 }
             }
-            this.h = true;
+            this.f6571h = true;
         }
     }
 
     public synchronized void c() {
-        if (this.h) {
-            if (this.c != null) {
-                this.c.unregisterListener(this);
-                this.c = null;
+        if (this.f6571h) {
+            if (this.f6567c != null) {
+                this.f6567c.unregisterListener(this);
+                this.f6567c = null;
             }
-            this.h = false;
+            this.f6571h = false;
         }
     }
 
     public boolean d() {
-        return this.f;
+        return this.f6569f;
     }
 
     public float e() {
-        return this.e;
+        return this.f6568e;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -80,32 +94,32 @@ public class o implements SensorEventListener {
     @Override // android.hardware.SensorEventListener
     @SuppressLint({"NewApi"})
     public void onSensorChanged(SensorEvent sensorEvent) {
-        switch (sensorEvent.sensor.getType()) {
-            case 2:
-                this.b = (float[]) sensorEvent.values.clone();
-                Math.sqrt((this.b[0] * this.b[0]) + (this.b[1] * this.b[1]) + (this.b[2] * this.b[2]));
-                if (this.b != null) {
-                }
-                return;
-            case 11:
-                this.f1931a = (float[]) sensorEvent.values.clone();
-                if (this.f1931a != null) {
-                    float[] fArr = new float[9];
-                    try {
-                        SensorManager.getRotationMatrixFromVector(fArr, this.f1931a);
-                        float[] fArr2 = new float[3];
-                        SensorManager.getOrientation(fArr, fArr2);
-                        this.e = (float) Math.toDegrees(fArr2[0]);
-                        this.e = (float) Math.floor(this.e >= 0.0f ? this.e : this.e + 360.0f);
-                        return;
-                    } catch (Exception e) {
-                        this.e = 0.0f;
-                        return;
+        int type = sensorEvent.sensor.getType();
+        if (type == 2) {
+            float[] fArr = (float[]) sensorEvent.values.clone();
+            this.f6566b = fArr;
+            Math.sqrt((fArr[0] * fArr[0]) + (fArr[1] * fArr[1]) + (fArr[2] * fArr[2]));
+            float[] fArr2 = this.f6566b;
+        } else if (type != 11) {
+        } else {
+            float[] fArr3 = (float[]) sensorEvent.values.clone();
+            this.f6565a = fArr3;
+            if (fArr3 != null) {
+                float[] fArr4 = new float[9];
+                try {
+                    SensorManager.getRotationMatrixFromVector(fArr4, fArr3);
+                    float[] fArr5 = new float[3];
+                    SensorManager.getOrientation(fArr4, fArr5);
+                    float degrees = (float) Math.toDegrees(fArr5[0]);
+                    this.f6568e = degrees;
+                    if (degrees < 0.0f) {
+                        degrees += 360.0f;
                     }
+                    this.f6568e = (float) Math.floor(degrees);
+                } catch (Exception unused) {
+                    this.f6568e = 0.0f;
                 }
-                return;
-            default:
-                return;
+            }
         }
     }
 }

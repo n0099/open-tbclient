@@ -7,92 +7,27 @@ import com.bytedance.sdk.openadsdk.TTSecAbs;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static s f4514a;
-    private static t b;
-    private volatile boolean c = false;
-    private volatile boolean d;
-    private String e;
+    public static volatile s f28624a;
 
-    private s(String str) {
-        this.d = false;
-        this.e = null;
-        this.e = str;
-        if (c() == null) {
-            b = t.b(str);
-        } else if (!TextUtils.isEmpty(this.e)) {
-            this.d = true;
-            c().NM_setParams(this.e);
+    /* renamed from: b  reason: collision with root package name */
+    public static t f28625b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public volatile boolean f28626c = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f28627d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f28628e = null;
+
+    public s() {
+        if (d() == null) {
+            f28625b = t.b();
         }
     }
 
-    public void a(String str) {
-        if (b != null) {
-            b.a(str);
-        }
-        if (!TextUtils.isEmpty(str)) {
-            if (TextUtils.isEmpty(this.e)) {
-                this.e = str;
-            }
-            if (!this.d && c() != null) {
-                this.d = true;
-                c().NM_setParams(str);
-            }
-        }
-    }
-
-    public static s b(String str) {
-        if (f4514a == null) {
-            synchronized (s.class) {
-                if (f4514a == null) {
-                    f4514a = new s(str);
-                }
-            }
-        }
-        return f4514a;
-    }
-
-    public void c(@NonNull String str) {
-        if (b != null) {
-            b.c(str);
-        }
-        if (!this.c && c() != null) {
-            c().NM_reportNow(str);
-            this.c = true;
-        }
-    }
-
-    public String a() {
-        if (b != null) {
-            String a2 = b.a();
-            if (a2.length() > 100) {
-                return a2;
-            }
-        }
-        return "";
-    }
-
-    public String b() {
-        String str = null;
-        try {
-            if (c() != null) {
-                str = c().NM_pullSg();
-            } else if (b != null) {
-                str = b.b();
-            }
-            if (e(str)) {
-                return str.toUpperCase();
-            }
-            String a2 = com.bytedance.sdk.openadsdk.utils.e.a(p.a());
-            if (e(a2)) {
-                return a2.toUpperCase();
-            }
-            return "";
-        } catch (Exception e) {
-            return "";
-        }
-    }
-
-    private boolean e(String str) {
+    private boolean d(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null || split.length < 20) {
             return false;
@@ -105,7 +40,92 @@ public class s {
         return false;
     }
 
-    public String d(String str) {
+    public void a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        t tVar = f28625b;
+        if (tVar != null) {
+            tVar.a(str);
+        }
+        this.f28627d = str;
+        if (d() != null) {
+            d().NM_setParams(str);
+        }
+    }
+
+    public void b(@NonNull String str) {
+        t tVar = f28625b;
+        if (tVar != null) {
+            tVar.b(str);
+        }
+        if (this.f28626c || d() == null) {
+            return;
+        }
+        d().NM_reportNow(str);
+        this.f28626c = true;
+    }
+
+    public String c() {
+        try {
+            if (!TextUtils.isEmpty(this.f28628e)) {
+                return this.f28628e;
+            }
+            String a2 = i.a("sdk_app_sha1", 2592000000L);
+            this.f28628e = a2;
+            if (!TextUtils.isEmpty(a2)) {
+                return this.f28628e;
+            }
+            if (d() != null) {
+                this.f28628e = d().NM_pullSg();
+            } else if (f28625b != null) {
+                this.f28628e = f28625b.c();
+            }
+            if (d(this.f28628e)) {
+                String upperCase = this.f28628e.toUpperCase();
+                this.f28628e = upperCase;
+                i.a("sdk_app_sha1", upperCase);
+                return this.f28628e;
+            }
+            String a3 = com.bytedance.sdk.openadsdk.utils.e.a(p.a());
+            this.f28628e = a3;
+            if (d(a3)) {
+                String upperCase2 = this.f28628e.toUpperCase();
+                this.f28628e = upperCase2;
+                i.a("sdk_app_sha1", upperCase2);
+                return this.f28628e;
+            }
+            return "";
+        } catch (Exception unused) {
+            return "";
+        }
+    }
+
+    private TTSecAbs d() {
+        return i.d().p();
+    }
+
+    public static s a() {
+        if (f28624a == null) {
+            synchronized (s.class) {
+                if (f28624a == null) {
+                    f28624a = new s();
+                }
+            }
+        }
+        return f28624a;
+    }
+
+    public String b() {
+        t tVar = f28625b;
+        if (tVar != null) {
+            String a2 = tVar.a();
+            return a2.length() > 100 ? a2 : "";
+        }
+        return "";
+    }
+
+    public String c(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -113,16 +133,10 @@ public class s {
         if (TextUtils.isEmpty(a2)) {
             return "";
         }
-        if (c() != null) {
-            return c().NM_pullVer(a2);
+        if (d() != null) {
+            return d().NM_pullVer(a2);
         }
-        if (b != null) {
-            return b.d(str);
-        }
-        return "";
-    }
-
-    private TTSecAbs c() {
-        return i.d().n();
+        t tVar = f28625b;
+        return tVar != null ? tVar.c(str) : "";
     }
 }

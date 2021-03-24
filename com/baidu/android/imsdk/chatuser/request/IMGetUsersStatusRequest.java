@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMGetUsersStatusRequest extends Message {
-    private Context mContext;
-    private int mReSendCount = 0;
-    private JSONArray mToUsers;
+    public Context mContext;
+    public int mReSendCount = 0;
+    public JSONArray mToUsers;
 
     public IMGetUsersStatusRequest(Context context, JSONArray jSONArray) {
         initCommonParameter(context);
@@ -27,8 +27,24 @@ public class IMGetUsersStatusRequest extends Message {
         setType(21);
     }
 
+    public static IMGetUsersStatusRequest newInstance(Context context, Intent intent) {
+        ArrayList arrayList;
+        if (!intent.hasExtra(Constants.EXTRA_LISTENER_ID) || (arrayList = (ArrayList) intent.getExtras().getSerializable(Constants.EXTRA_UIDS)) == null || arrayList.size() < 1) {
+            return null;
+        }
+        JSONArray jSONArray = new JSONArray();
+        if (arrayList != null && arrayList.size() > 0) {
+            for (int i = 0; i < arrayList.size(); i++) {
+                jSONArray.put(arrayList.get(i));
+            }
+        }
+        IMGetUsersStatusRequest iMGetUsersStatusRequest = new IMGetUsersStatusRequest(context, jSONArray);
+        iMGetUsersStatusRequest.setListenerKey(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
+        return iMGetUsersStatusRequest;
+    }
+
     @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
+    public void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("method", getType());
@@ -39,39 +55,21 @@ public class IMGetUsersStatusRequest extends Message {
             jSONObject2.put("rpc_retry_time", this.mReSendCount);
             jSONObject.put("rpc", jSONObject2.toString());
             this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            LogUtils.e(getClass().getSimpleName(), "Exception ", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+        } catch (JSONException e2) {
+            LogUtils.e(IMGetUsersStatusRequest.class.getSimpleName(), "Exception ", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
-    }
-
-    public static IMGetUsersStatusRequest newInstance(Context context, Intent intent) {
-        if (intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
-            ArrayList arrayList = (ArrayList) intent.getExtras().getSerializable(Constants.EXTRA_UIDS);
-            if (arrayList == null || arrayList.size() < 1) {
-                return null;
-            }
-            JSONArray jSONArray = new JSONArray();
-            if (arrayList != null && arrayList.size() > 0) {
-                for (int i = 0; i < arrayList.size(); i++) {
-                    jSONArray.put(arrayList.get(i));
-                }
-            }
-            IMGetUsersStatusRequest iMGetUsersStatusRequest = new IMGetUsersStatusRequest(context, jSONArray);
-            iMGetUsersStatusRequest.setListenerKey(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
-            return iMGetUsersStatusRequest;
-        }
-        return null;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         JSONArray jSONArray;
         if (i != 0) {
-            if (this.mReSendCount >= 3) {
+            int i2 = this.mReSendCount;
+            if (i2 >= 3) {
                 setNeedReSend(false);
             } else {
-                this.mReSendCount++;
+                this.mReSendCount = i2 + 1;
                 setNeedReSend(true);
                 return;
             }
@@ -81,26 +79,16 @@ public class IMGetUsersStatusRequest extends Message {
             try {
                 if (jSONObject.has("user_status") && (jSONArray = jSONObject.getJSONArray("user_status")) != null && jSONArray.length() > 0) {
                     ArrayList<UserStatus> arrayList2 = new ArrayList<>();
-                    int i2 = 0;
-                    while (true) {
+                    for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                         try {
-                            int i3 = i2;
-                            if (i3 >= jSONArray.length()) {
-                                break;
-                            }
                             JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                             if (jSONObject2.has("uid") && jSONObject2.has("status")) {
                                 long j = jSONObject2.getLong("uid");
                                 int i4 = jSONObject2.getInt("status");
-                                long j2 = 0;
-                                if (jSONObject2.has("last_operate_time")) {
-                                    j2 = jSONObject2.getLong("last_operate_time");
-                                }
-                                arrayList2.add(new UserStatus(j, i4 == 1, j2));
+                                arrayList2.add(new UserStatus(j, i4 == 1, jSONObject2.has("last_operate_time") ? jSONObject2.getLong("last_operate_time") : 0L));
                             }
-                            i2 = i3 + 1;
-                        } catch (Exception e) {
-                            e = e;
+                        } catch (Exception e2) {
+                            e = e2;
                             arrayList = arrayList2;
                             LogUtils.e("IMGetUsersStatusRequest", "handleMessageResult :", e);
                             super.handleMessageResult(context, jSONObject, i, str);
@@ -111,8 +99,8 @@ public class IMGetUsersStatusRequest extends Message {
                     }
                     arrayList = arrayList2;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e3) {
+                e = e3;
             }
         }
         super.handleMessageResult(context, jSONObject, i, str);

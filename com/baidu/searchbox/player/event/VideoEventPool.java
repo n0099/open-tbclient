@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.event;
 
 import com.baidu.searchbox.player.pool.SynchronizedFixSizePool;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class VideoEventPool extends SynchronizedFixSizePool<VideoEvent> {
     public VideoEventPool() {
         super(10);

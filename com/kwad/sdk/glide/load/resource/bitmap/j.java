@@ -2,51 +2,52 @@ package com.kwad.sdk.glide.load.resource.bitmap;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.internal.view.SupportMenu;
-import androidx.core.view.InputDeviceCompat;
-import androidx.core.view.MotionEventCompat;
+import com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser;
 import com.kwad.sdk.glide.load.ImageHeaderParser;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class j implements ImageHeaderParser {
 
     /* renamed from: a  reason: collision with root package name */
-    static final byte[] f6788a = "Exif\u0000\u0000".getBytes(Charset.forName("UTF-8"));
-    private static final int[] b = {0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8};
+    public static final byte[] f35662a = DefaultImageHeaderParser.JPEG_EXIF_SEGMENT_PREAMBLE.getBytes(Charset.forName("UTF-8"));
 
-    /* loaded from: classes3.dex */
-    private static final class a implements c {
+    /* renamed from: b  reason: collision with root package name */
+    public static final int[] f35663b = {0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8};
+
+    /* loaded from: classes6.dex */
+    public static final class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f6789a;
+        public final ByteBuffer f35664a;
 
-        a(ByteBuffer byteBuffer) {
-            this.f6789a = byteBuffer;
+        public a(ByteBuffer byteBuffer) {
+            this.f35664a = byteBuffer;
             byteBuffer.order(ByteOrder.BIG_ENDIAN);
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int a() {
-            return ((c() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (c() & 255);
+            return ((c() << 8) & 65280) | (c() & 255);
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int a(byte[] bArr, int i) {
-            int min = Math.min(i, this.f6789a.remaining());
+            int min = Math.min(i, this.f35664a.remaining());
             if (min == 0) {
                 return -1;
             }
-            this.f6789a.get(bArr, 0, min);
+            this.f35664a.get(bArr, 0, min);
             return min;
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public long a(long j) {
-            int min = (int) Math.min(this.f6789a.remaining(), j);
-            this.f6789a.position(this.f6789a.position() + min);
+            int min = (int) Math.min(this.f35664a.remaining(), j);
+            ByteBuffer byteBuffer = this.f35664a;
+            byteBuffer.position(byteBuffer.position() + min);
             return min;
         }
 
@@ -57,53 +58,51 @@ public final class j implements ImageHeaderParser {
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int c() {
-            if (this.f6789a.remaining() < 1) {
+            if (this.f35664a.remaining() < 1) {
                 return -1;
             }
-            return this.f6789a.get();
+            return this.f35664a.get();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f6790a;
+        public final ByteBuffer f35665a;
 
-        b(byte[] bArr, int i) {
-            this.f6790a = (ByteBuffer) ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).limit(i);
+        public b(byte[] bArr, int i) {
+            this.f35665a = (ByteBuffer) ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).limit(i);
         }
 
         private boolean a(int i, int i2) {
-            return this.f6790a.remaining() - i >= i2;
+            return this.f35665a.remaining() - i >= i2;
         }
 
-        int a() {
-            return this.f6790a.remaining();
+        public int a() {
+            return this.f35665a.remaining();
         }
 
-        int a(int i) {
+        public int a(int i) {
             if (a(i, 4)) {
-                return this.f6790a.getInt(i);
+                return this.f35665a.getInt(i);
             }
             return -1;
         }
 
-        void a(ByteOrder byteOrder) {
-            this.f6790a.order(byteOrder);
+        public void a(ByteOrder byteOrder) {
+            this.f35665a.order(byteOrder);
         }
 
-        short b(int i) {
+        public short b(int i) {
             if (a(i, 2)) {
-                return this.f6790a.getShort(i);
+                return this.f35665a.getShort(i);
             }
             return (short) -1;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         int a();
 
@@ -116,26 +115,26 @@ public final class j implements ImageHeaderParser {
         int c();
     }
 
-    /* loaded from: classes3.dex */
-    private static final class d implements c {
+    /* loaded from: classes6.dex */
+    public static final class d implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final InputStream f6791a;
+        public final InputStream f35666a;
 
-        d(InputStream inputStream) {
-            this.f6791a = inputStream;
+        public d(InputStream inputStream) {
+            this.f35666a = inputStream;
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int a() {
-            return ((this.f6791a.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.f6791a.read() & 255);
+            return ((this.f35666a.read() << 8) & 65280) | (this.f35666a.read() & 255);
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int a(byte[] bArr, int i) {
             int i2 = i;
             while (i2 > 0) {
-                int read = this.f6791a.read(bArr, i - i2, i2);
+                int read = this.f35666a.read(bArr, i - i2, i2);
                 if (read == -1) {
                     break;
                 }
@@ -151,53 +150,49 @@ public final class j implements ImageHeaderParser {
             }
             long j2 = j;
             while (j2 > 0) {
-                long skip = this.f6791a.skip(j2);
-                if (skip > 0) {
-                    j2 -= skip;
-                } else if (this.f6791a.read() == -1) {
-                    break;
-                } else {
-                    j2--;
+                long skip = this.f35666a.skip(j2);
+                if (skip <= 0) {
+                    if (this.f35666a.read() == -1) {
+                        break;
+                    }
+                    skip = 1;
                 }
+                j2 -= skip;
             }
             return j - j2;
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public short b() {
-            return (short) (this.f6791a.read() & 255);
+            return (short) (this.f35666a.read() & 255);
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.j.c
         public int c() {
-            return this.f6791a.read();
+            return this.f35666a.read();
         }
     }
 
-    private static int a(int i, int i2) {
+    public static int a(int i, int i2) {
         return i + 2 + (i2 * 12);
     }
 
-    private static int a(b bVar) {
+    public static int a(b bVar) {
         ByteOrder byteOrder;
-        int length = "Exif\u0000\u0000".length();
-        short b2 = bVar.b(length);
-        switch (b2) {
-            case 18761:
-                byteOrder = ByteOrder.LITTLE_ENDIAN;
-                break;
-            case 19789:
-                byteOrder = ByteOrder.BIG_ENDIAN;
-                break;
-            default:
-                if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                    Log.d("DfltImageHeaderParser", "Unknown endianness = " + ((int) b2));
-                }
-                byteOrder = ByteOrder.BIG_ENDIAN;
-                break;
+        StringBuilder sb;
+        String str;
+        String sb2;
+        short b2 = bVar.b(6);
+        if (b2 != 18761) {
+            if (b2 != 19789 && Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                Log.d(DefaultImageHeaderParser.TAG, "Unknown endianness = " + ((int) b2));
+            }
+            byteOrder = ByteOrder.BIG_ENDIAN;
+        } else {
+            byteOrder = ByteOrder.LITTLE_ENDIAN;
         }
         bVar.a(byteOrder);
-        int a2 = length + bVar.a(length + 4);
+        int a2 = bVar.a(10) + 6;
         short b3 = bVar.b(a2);
         for (int i = 0; i < b3; i++) {
             int a3 = a(a2, i);
@@ -207,32 +202,44 @@ public final class j implements ImageHeaderParser {
                 if (b5 >= 1 && b5 <= 12) {
                     int a4 = bVar.a(a3 + 4);
                     if (a4 >= 0) {
-                        if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                            Log.d("DfltImageHeaderParser", "Got tagIndex=" + i + " tagType=" + ((int) b4) + " formatCode=" + ((int) b5) + " componentCount=" + a4);
+                        if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                            Log.d(DefaultImageHeaderParser.TAG, "Got tagIndex=" + i + " tagType=" + ((int) b4) + " formatCode=" + ((int) b5) + " componentCount=" + a4);
                         }
-                        int i2 = a4 + b[b5];
+                        int i2 = a4 + f35663b[b5];
                         if (i2 <= 4) {
                             int i3 = a3 + 8;
                             if (i3 < 0 || i3 > bVar.a()) {
-                                if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                                    Log.d("DfltImageHeaderParser", "Illegal tagValueOffset=" + i3 + " tagType=" + ((int) b4));
+                                if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                                    sb2 = "Illegal tagValueOffset=" + i3 + " tagType=" + ((int) b4);
+                                    Log.d(DefaultImageHeaderParser.TAG, sb2);
                                 }
-                            } else if (i2 >= 0 && i3 + i2 <= bVar.a()) {
+                            } else if (i2 >= 0 && i2 + i3 <= bVar.a()) {
                                 return bVar.b(i3);
                             } else {
-                                if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                                    Log.d("DfltImageHeaderParser", "Illegal number of bytes for TI tag data tagType=" + ((int) b4));
+                                if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                                    sb = new StringBuilder();
+                                    sb.append("Illegal number of bytes for TI tag data tagType=");
+                                    sb.append((int) b4);
                                 }
                             }
-                        } else if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                            Log.d("DfltImageHeaderParser", "Got byte count > 4, not orientation, continuing, formatCode=" + ((int) b5));
+                        } else if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                            sb = new StringBuilder();
+                            str = "Got byte count > 4, not orientation, continuing, formatCode=";
+                            sb.append(str);
+                            sb.append((int) b5);
                         }
-                    } else if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                        Log.d("DfltImageHeaderParser", "Negative tiff component count");
+                    } else if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                        sb2 = "Negative tiff component count";
+                        Log.d(DefaultImageHeaderParser.TAG, sb2);
                     }
-                } else if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                    Log.d("DfltImageHeaderParser", "Got invalid format code = " + ((int) b5));
+                } else if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                    sb = new StringBuilder();
+                    str = "Got invalid format code = ";
+                    sb.append(str);
+                    sb.append((int) b5);
                 }
+                sb2 = sb.toString();
+                Log.d(DefaultImageHeaderParser.TAG, sb2);
             }
         }
         return -1;
@@ -241,17 +248,15 @@ public final class j implements ImageHeaderParser {
     private int a(c cVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
         int a2 = cVar.a();
         if (!a(a2)) {
-            if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                Log.d("DfltImageHeaderParser", "Parser doesn't handle magic number: " + a2);
-                return -1;
+            if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                Log.d(DefaultImageHeaderParser.TAG, "Parser doesn't handle magic number: " + a2);
             }
             return -1;
         }
         int b2 = b(cVar);
         if (b2 == -1) {
-            if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                Log.d("DfltImageHeaderParser", "Failed to parse exif segment length, or exif segment not found");
-                return -1;
+            if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                Log.d(DefaultImageHeaderParser.TAG, "Failed to parse exif segment length, or exif segment not found");
             }
             return -1;
         }
@@ -265,21 +270,19 @@ public final class j implements ImageHeaderParser {
 
     private int a(c cVar, byte[] bArr, int i) {
         int a2 = cVar.a(bArr, i);
-        if (a2 != i) {
-            if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                Log.d("DfltImageHeaderParser", "Unable to read exif segment data, length: " + i + ", actually read: " + a2);
-                return -1;
+        if (a2 == i) {
+            if (a(bArr, i)) {
+                return a(new b(bArr, i));
             }
-            return -1;
-        } else if (a(bArr, i)) {
-            return a(new b(bArr, i));
-        } else {
-            if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                Log.d("DfltImageHeaderParser", "Missing jpeg exif preamble");
-                return -1;
+            if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                Log.d(DefaultImageHeaderParser.TAG, "Missing jpeg exif preamble");
             }
             return -1;
         }
+        if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+            Log.d(DefaultImageHeaderParser.TAG, "Unable to read exif segment data, length: " + i + ", actually read: " + a2);
+        }
+        return -1;
     }
 
     @NonNull
@@ -288,7 +291,7 @@ public final class j implements ImageHeaderParser {
         if (a2 == 65496) {
             return ImageHeaderParser.ImageType.JPEG;
         }
-        int a3 = ((a2 << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & 65535);
+        int a3 = ((a2 << 16) & (-65536)) | (cVar.a() & 65535);
         if (a3 == -1991225785) {
             cVar.a(21L);
             return cVar.c() >= 3 ? ImageHeaderParser.ImageType.PNG_A : ImageHeaderParser.ImageType.PNG;
@@ -299,17 +302,18 @@ public final class j implements ImageHeaderParser {
                 return ImageHeaderParser.ImageType.UNKNOWN;
             }
             cVar.a(4L);
-            if ((((cVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & 65535)) != 1464156752) {
+            if ((((cVar.a() << 16) & (-65536)) | (cVar.a() & 65535)) != 1464156752) {
                 return ImageHeaderParser.ImageType.UNKNOWN;
             }
-            int a4 = ((cVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & 65535);
-            if ((a4 & InputDeviceCompat.SOURCE_ANY) != 1448097792) {
+            int a4 = ((cVar.a() << 16) & (-65536)) | (cVar.a() & 65535);
+            if ((a4 & (-256)) != 1448097792) {
                 return ImageHeaderParser.ImageType.UNKNOWN;
             }
-            if ((a4 & 255) == 88) {
+            int i = a4 & 255;
+            if (i == 88) {
                 cVar.a(4L);
                 return (cVar.c() & 16) != 0 ? ImageHeaderParser.ImageType.WEBP_A : ImageHeaderParser.ImageType.WEBP;
-            } else if ((a4 & 255) == 76) {
+            } else if (i == 76) {
                 cVar.a(4L);
                 return (cVar.c() & 8) != 0 ? ImageHeaderParser.ImageType.WEBP_A : ImageHeaderParser.ImageType.WEBP;
             } else {
@@ -318,16 +322,22 @@ public final class j implements ImageHeaderParser {
         }
     }
 
-    private static boolean a(int i) {
-        return (i & 65496) == 65496 || i == 19789 || i == 18761;
+    public static boolean a(int i) {
+        return (i & DefaultImageHeaderParser.EXIF_MAGIC_NUMBER) == 65496 || i == 19789 || i == 18761;
     }
 
     private boolean a(byte[] bArr, int i) {
-        boolean z = bArr != null && i > f6788a.length;
+        boolean z = bArr != null && i > f35662a.length;
         if (z) {
-            for (int i2 = 0; i2 < f6788a.length; i2++) {
-                if (bArr[i2] != f6788a[i2]) {
+            int i2 = 0;
+            while (true) {
+                byte[] bArr2 = f35662a;
+                if (i2 >= bArr2.length) {
+                    break;
+                } else if (bArr[i2] != bArr2[i2]) {
                     return false;
+                } else {
+                    i2++;
                 }
             }
         }
@@ -338,12 +348,12 @@ public final class j implements ImageHeaderParser {
         short b2;
         short b3;
         int a2;
+        long j;
         long a3;
         do {
             if (cVar.b() != 255) {
-                if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                    Log.d("DfltImageHeaderParser", "Unknown segmentId=" + ((int) b2));
-                    return -1;
+                if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                    Log.d(DefaultImageHeaderParser.TAG, "Unknown segmentId=" + ((int) b2));
                 }
                 return -1;
             }
@@ -352,9 +362,8 @@ public final class j implements ImageHeaderParser {
                 return -1;
             }
             if (b3 == 217) {
-                if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-                    Log.d("DfltImageHeaderParser", "Found MARKER_EOI in exif segment");
-                    return -1;
+                if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+                    Log.d(DefaultImageHeaderParser.TAG, "Found MARKER_EOI in exif segment");
                 }
                 return -1;
             }
@@ -362,11 +371,11 @@ public final class j implements ImageHeaderParser {
             if (b3 == 225) {
                 return a2;
             }
-            a3 = cVar.a(a2);
-        } while (a3 == a2);
-        if (Log.isLoggable("DfltImageHeaderParser", 3)) {
-            Log.d("DfltImageHeaderParser", "Unable to skip enough data, type: " + ((int) b3) + ", wanted to skip: " + a2 + ", but actually skipped: " + a3);
-            return -1;
+            j = a2;
+            a3 = cVar.a(j);
+        } while (a3 == j);
+        if (Log.isLoggable(DefaultImageHeaderParser.TAG, 3)) {
+            Log.d(DefaultImageHeaderParser.TAG, "Unable to skip enough data, type: " + ((int) b3) + ", wanted to skip: " + a2 + ", but actually skipped: " + a3);
         }
         return -1;
     }

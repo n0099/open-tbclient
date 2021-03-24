@@ -9,15 +9,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.i0.v1.b;
+/* loaded from: classes4.dex */
 public class CollectUpdateReceiver extends BroadcastReceiver {
     public static final String ACTION_NAME = "com.baidu.tieba.broadcast.collectupdate";
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if (ACTION_NAME.equals(intent.getAction())) {
-            b.dhF().dhJ();
-            if (com.baidu.tbadk.core.sharedPref.b.brR().getBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            b.b().g();
+            if (d.b.h0.r.d0.b.i().g("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 try {
                     Intent intent2 = new Intent(context, DealIntentService.class);
                     intent2.putExtra(DealIntentService.KEY_CLASS, 33);

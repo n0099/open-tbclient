@@ -2,6 +2,7 @@ package com.kwad.sdk.glide.load.resource.d;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.bumptech.glide.load.resource.gif.StreamGifDecoder;
 import com.kwad.sdk.glide.load.ImageHeaderParser;
 import com.kwad.sdk.glide.load.engine.s;
 import java.io.ByteArrayOutputStream;
@@ -9,21 +10,25 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class j implements com.kwad.sdk.glide.load.f<InputStream, c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<ImageHeaderParser> f6814a;
-    private final com.kwad.sdk.glide.load.f<ByteBuffer, c> b;
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b c;
+    public final List<ImageHeaderParser> f35741a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final com.kwad.sdk.glide.load.f<ByteBuffer, c> f35742b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35743c;
 
     public j(List<ImageHeaderParser> list, com.kwad.sdk.glide.load.f<ByteBuffer, c> fVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f6814a = list;
-        this.b = fVar;
-        this.c = bVar;
+        this.f35741a = list;
+        this.f35742b = fVar;
+        this.f35743c = bVar;
     }
 
-    private static byte[] a(InputStream inputStream) {
+    public static byte[] a(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(16384);
         try {
             byte[] bArr = new byte[16384];
@@ -35,9 +40,10 @@ public class j implements com.kwad.sdk.glide.load.f<InputStream, c> {
                 }
                 byteArrayOutputStream.write(bArr, 0, read);
             }
-        } catch (IOException e) {
-            if (Log.isLoggable("StreamGifDecoder", 5)) {
-                Log.w("StreamGifDecoder", "Error reading data from stream", e);
+        } catch (IOException e2) {
+            if (Log.isLoggable(StreamGifDecoder.TAG, 5)) {
+                Log.w(StreamGifDecoder.TAG, "Error reading data from stream", e2);
+                return null;
             }
             return null;
         }
@@ -50,12 +56,12 @@ public class j implements com.kwad.sdk.glide.load.f<InputStream, c> {
         if (a2 == null) {
             return null;
         }
-        return this.b.a(ByteBuffer.wrap(a2), i, i2, eVar);
+        return this.f35742b.a(ByteBuffer.wrap(a2), i, i2, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(@NonNull InputStream inputStream, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return !((Boolean) eVar.a(i.b)).booleanValue() && com.kwad.sdk.glide.load.b.a(this.f6814a, inputStream, this.c) == ImageHeaderParser.ImageType.GIF;
+        return !((Boolean) eVar.a(i.f35740b)).booleanValue() && com.kwad.sdk.glide.load.b.a(this.f35741a, inputStream, this.f35743c) == ImageHeaderParser.ImageType.GIF;
     }
 }

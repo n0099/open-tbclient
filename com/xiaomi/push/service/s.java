@@ -1,40 +1,37 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import com.xiaomi.push.gd;
-import com.xiaomi.push.ii;
+import com.xiaomi.push.fw;
+import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes5.dex */
-final class s extends XMPushService.i {
+/* loaded from: classes7.dex */
+public final class s extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ii f8580a;
+    public final /* synthetic */ ib f41062a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f929a;
+    public final /* synthetic */ XMPushService f972a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(int i, XMPushService xMPushService, ii iiVar) {
+    public s(int i, XMPushService xMPushService, ib ibVar) {
         super(i);
-        this.f929a = xMPushService;
-        this.f8580a = iiVar;
+        this.f972a = xMPushService;
+        this.f41062a = ibVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public String a() {
-        return "send ack message for obsleted message.";
+        return "send ack message for message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            ii a2 = p.a((Context) this.f929a, this.f8580a);
-            a2.m422a().a("message_obsleted", "1");
-            w.a(this.f929a, a2);
-        } catch (gd e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f929a.a(10, e);
+            y.a(this.f972a, q.a((Context) this.f972a, this.f41062a));
+        } catch (fw e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
+            this.f972a.a(10, e2);
         }
     }
 }

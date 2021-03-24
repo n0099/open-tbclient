@@ -3,16 +3,36 @@ package com.alibaba.fastjson.util;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class ParameterizedTypeImpl implements ParameterizedType {
-    private final Type[] actualTypeArguments;
-    private final Type ownerType;
-    private final Type rawType;
+    public final Type[] actualTypeArguments;
+    public final Type ownerType;
+    public final Type rawType;
 
     public ParameterizedTypeImpl(Type[] typeArr, Type type, Type type2) {
         this.actualTypeArguments = typeArr;
         this.ownerType = type;
         this.rawType = type2;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || ParameterizedTypeImpl.class != obj.getClass()) {
+            return false;
+        }
+        ParameterizedTypeImpl parameterizedTypeImpl = (ParameterizedTypeImpl) obj;
+        if (Arrays.equals(this.actualTypeArguments, parameterizedTypeImpl.actualTypeArguments)) {
+            Type type = this.ownerType;
+            if (type == null ? parameterizedTypeImpl.ownerType == null : type.equals(parameterizedTypeImpl.ownerType)) {
+                Type type2 = this.rawType;
+                Type type3 = parameterizedTypeImpl.rawType;
+                return type2 != null ? type2.equals(type3) : type3 == null;
+            }
+            return false;
+        }
+        return false;
     }
 
     @Override // java.lang.reflect.ParameterizedType
@@ -30,34 +50,12 @@ public class ParameterizedTypeImpl implements ParameterizedType {
         return this.rawType;
     }
 
-    public boolean equals(Object obj) {
-        boolean z = true;
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        ParameterizedTypeImpl parameterizedTypeImpl = (ParameterizedTypeImpl) obj;
-        if (Arrays.equals(this.actualTypeArguments, parameterizedTypeImpl.actualTypeArguments)) {
-            if (this.ownerType != null) {
-                if (!this.ownerType.equals(parameterizedTypeImpl.ownerType)) {
-                    return false;
-                }
-            } else if (parameterizedTypeImpl.ownerType != null) {
-                return false;
-            }
-            if (this.rawType != null) {
-                z = this.rawType.equals(parameterizedTypeImpl.rawType);
-            } else if (parameterizedTypeImpl.rawType != null) {
-                z = false;
-            }
-            return z;
-        }
-        return false;
-    }
-
     public int hashCode() {
-        return (((this.ownerType != null ? this.ownerType.hashCode() : 0) + ((this.actualTypeArguments != null ? Arrays.hashCode(this.actualTypeArguments) : 0) * 31)) * 31) + (this.rawType != null ? this.rawType.hashCode() : 0);
+        Type[] typeArr = this.actualTypeArguments;
+        int hashCode = (typeArr != null ? Arrays.hashCode(typeArr) : 0) * 31;
+        Type type = this.ownerType;
+        int hashCode2 = (hashCode + (type != null ? type.hashCode() : 0)) * 31;
+        Type type2 = this.rawType;
+        return hashCode2 + (type2 != null ? type2.hashCode() : 0);
     }
 }

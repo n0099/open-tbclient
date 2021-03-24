@@ -6,83 +6,88 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.task.b;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
-    private a eYm;
-    private boolean eYn = false;
-    private int eYo = 1;
-    private com.baidu.adp.framework.listener.a eEU = new com.baidu.adp.framework.listener.a(1003070, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED) { // from class: com.baidu.tbadk.core.feedManager.FeedRecModel.1
-        /* JADX WARN: Removed duplicated region for block: B:18:0x0034  */
-        /* JADX WARN: Removed duplicated region for block: B:21:0x004a  */
-        @Override // com.baidu.adp.framework.listener.a
+
+    /* renamed from: e  reason: collision with root package name */
+    public b f13258e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f13259f = 1;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.b.c.g.a f13260g = new a(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+
+    /* loaded from: classes3.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:21:0x003c  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x004e  */
+        @Override // d.b.b.c.g.a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
-            boolean z2 = true;
-            if (responsedMessage != null && FeedRecModel.this.eYm != null) {
-                if (responsedMessage.getOrginalMessage() != null) {
-                    Object extra = responsedMessage.getOrginalMessage().getExtra();
-                    if (extra instanceof FeedRecRequest) {
-                        FeedRecRequest feedRecRequest = (FeedRecRequest) extra;
-                        z = feedRecRequest.getLoadType() == 1;
-                        if (feedRecRequest.getNeedForumlist() != 1) {
-                            z2 = false;
-                        }
-                        if (responsedMessage.getError() == 0) {
-                            FeedRecModel.this.eYm.aJ(responsedMessage.getError(), responsedMessage.getErrorString());
-                            return;
-                        }
-                        DataRes dataRes = null;
-                        if (responsedMessage instanceof RecPersonalizeSocketResponse) {
-                            dataRes = ((RecPersonalizeSocketResponse) responsedMessage).getResultData();
-                        } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
-                            dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
-                        }
-                        BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
-                        FeedRecModel.this.eYm.a(dataRes, z, z2);
+            if (responsedMessage == null || FeedRecModel.this.f13258e == null) {
+                return;
+            }
+            if (responsedMessage.getOrginalMessage() != null) {
+                Object extra = responsedMessage.getOrginalMessage().getExtra();
+                if (extra instanceof FeedRecRequest) {
+                    FeedRecRequest feedRecRequest = (FeedRecRequest) extra;
+                    boolean z2 = feedRecRequest.getLoadType() == 1;
+                    z = feedRecRequest.getNeedForumlist() == 1;
+                    r1 = z2;
+                    if (responsedMessage.getError() == 0) {
+                        FeedRecModel.this.f13258e.a(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
-                }
-                z2 = false;
-                z = false;
-                if (responsedMessage.getError() == 0) {
+                    DataRes dataRes = null;
+                    if (responsedMessage instanceof RecPersonalizeSocketResponse) {
+                        dataRes = ((RecPersonalizeSocketResponse) responsedMessage).getResultData();
+                    } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
+                        dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
+                    }
+                    BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
+                    FeedRecModel.this.f13258e.b(dataRes, r1, z);
+                    return;
                 }
             }
+            z = false;
+            if (responsedMessage.getError() == 0) {
+            }
         }
-    };
+    }
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a(DataRes dataRes, boolean z, boolean z2);
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(int i, String str);
 
-        void aJ(int i, String str);
+        void b(DataRes dataRes, boolean z, boolean z2);
     }
 
     public FeedRecModel() {
         setUniqueId(BdUniqueId.gen());
-        brh();
-        brg();
-        registerListener(this.eEU);
-    }
-
-    public void a(a aVar) {
-        this.eYm = aVar;
+        t();
+        u();
+        registerListener(this.f13260g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         FeedRecRequest feedRecRequest = new FeedRecRequest();
-        int i = this.eYo;
-        this.eYo = i + 1;
+        int i = this.f13259f;
+        this.f13259f = i + 1;
         feedRecRequest.setRequestTime(i);
         feedRecRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
         feedRecRequest.setNetType(NetMessage.NetType.HTTP);
@@ -96,19 +101,23 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void brg() {
-        b bVar = new b(CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED);
-        bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
-        bVar.setNeedAck(true);
-        bVar.setPriority(4);
-        MessageManager.getInstance().registerTask(bVar);
-    }
-
-    private void brh() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003070, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED));
+    public final void t() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, d.b.i0.c3.d0.a.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
         tbHttpMessageTask.setPriority(4);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public final void u() {
+        d.b.h0.v0.b bVar = new d.b.h0.v0.b(309264);
+        bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
+        bVar.g(true);
+        bVar.setPriority(4);
+        MessageManager.getInstance().registerTask(bVar);
+    }
+
+    public void v(b bVar) {
+        this.f13258e = bVar;
     }
 }

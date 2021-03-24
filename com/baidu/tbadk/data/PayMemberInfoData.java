@@ -5,50 +5,62 @@ import org.json.JSONObject;
 import tbclient.PayMemberInfo;
 /* loaded from: classes.dex */
 public class PayMemberInfoData extends OrmObject {
-    private int aUJ;
-    private String expire_remind;
-    private int props_id;
-    private String url;
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.props_id = jSONObject.optInt("props_id");
-            this.aUJ = jSONObject.optInt("end_time", 0);
-            this.url = jSONObject.optString(this.url, "");
-            this.expire_remind = jSONObject.optString("expire_remind");
-        }
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public int f13820e;
 
-    public void a(PayMemberInfo payMemberInfo) {
-        if (payMemberInfo != null) {
-            if (payMemberInfo.props_id != null) {
-                this.props_id = payMemberInfo.props_id.intValue();
-            }
-            if (payMemberInfo.end_time != null) {
-                this.aUJ = payMemberInfo.end_time.intValue();
-            }
-            this.url = payMemberInfo.url;
-            this.expire_remind = payMemberInfo.expire_remind;
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public int f13821f;
 
-    public int bAC() {
-        return this.props_id;
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public String f13822g;
 
-    public int blC() {
-        return this.aUJ;
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public String f13823h;
 
     public String getUrl() {
-        return this.url;
+        return this.f13822g;
     }
 
-    public String bAD() {
-        return this.expire_remind;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        this.f13820e = jSONObject.optInt("props_id");
+        this.f13821f = jSONObject.optInt("end_time", 0);
+        this.f13822g = jSONObject.optString(this.f13822g, "");
+        this.f13823h = jSONObject.optString("expire_remind");
     }
 
-    public void CK(String str) {
-        this.expire_remind = str;
+    public int s() {
+        return this.f13821f;
+    }
+
+    public String t() {
+        return this.f13823h;
+    }
+
+    public int u() {
+        return this.f13820e;
+    }
+
+    public void v(PayMemberInfo payMemberInfo) {
+        if (payMemberInfo == null) {
+            return;
+        }
+        Integer num = payMemberInfo.props_id;
+        if (num != null) {
+            this.f13820e = num.intValue();
+        }
+        Integer num2 = payMemberInfo.end_time;
+        if (num2 != null) {
+            this.f13821f = num2.intValue();
+        }
+        this.f13822g = payMemberInfo.url;
+        this.f13823h = payMemberInfo.expire_remind;
+    }
+
+    public void w(String str) {
+        this.f13823h = str;
     }
 }

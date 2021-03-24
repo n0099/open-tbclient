@@ -2,22 +2,13 @@ package org.apache.http.auth;
 
 import java.security.Principal;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UsernamePasswordCredentials implements Credentials {
     public UsernamePasswordCredentials(String str) {
         throw new RuntimeException("Stub!");
     }
 
-    public UsernamePasswordCredentials(String str, String str2) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.auth.Credentials
-    public Principal getUserPrincipal() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getUserName() {
+    public boolean equals(Object obj) {
         throw new RuntimeException("Stub!");
     }
 
@@ -26,15 +17,24 @@ public class UsernamePasswordCredentials implements Credentials {
         throw new RuntimeException("Stub!");
     }
 
+    public String getUserName() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.auth.Credentials
+    public Principal getUserPrincipal() {
+        throw new RuntimeException("Stub!");
+    }
+
     public int hashCode() {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean equals(Object obj) {
+    public String toString() {
         throw new RuntimeException("Stub!");
     }
 
-    public String toString() {
+    public UsernamePasswordCredentials(String str, String str2) {
         throw new RuntimeException("Stub!");
     }
 }

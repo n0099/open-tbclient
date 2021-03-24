@@ -1,9 +1,9 @@
 package org.webrtc;
 
 import org.webrtc.PeerConnection;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class RtcCertificatePem {
-    private static final long DEFAULT_EXPIRY = 2592000;
+    public static final long DEFAULT_EXPIRY = 2592000;
     public final String certificate;
     public final String privateKey;
 
@@ -29,15 +29,15 @@ public class RtcCertificatePem {
         return nativeGenerateCertificate(keyType, j);
     }
 
-    private static native RtcCertificatePem nativeGenerateCertificate(PeerConnection.KeyType keyType, long j);
+    public static native RtcCertificatePem nativeGenerateCertificate(PeerConnection.KeyType keyType, long j);
 
     @CalledByNative
-    String getCertificate() {
+    public String getCertificate() {
         return this.certificate;
     }
 
     @CalledByNative
-    String getPrivateKey() {
+    public String getPrivateKey() {
         return this.privateKey;
     }
 }

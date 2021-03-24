@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class GroupActivityActivityConfig extends IntentConfig {
     public static final String ACTIVITY_ID = "activity_id";
     public static final String FROM = "from";
@@ -17,8 +17,9 @@ public class GroupActivityActivityConfig extends IntentConfig {
         getIntent().putExtra("activity_id", i);
         getIntent().putExtra("group_id", j);
         getIntent().putExtra("from", i2);
-        if (!(context instanceof Activity)) {
-            getIntent().addFlags(268435456);
+        if (context instanceof Activity) {
+            return;
         }
+        getIntent().addFlags(268435456);
     }
 }

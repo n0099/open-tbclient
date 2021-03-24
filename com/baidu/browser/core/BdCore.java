@@ -2,14 +2,19 @@ package com.baidu.browser.core;
 
 import android.content.Context;
 import com.baidu.browser.core.util.BdLog;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public final class BdCore {
-    private static BdCore agt;
-    private Context mContext;
-    private EditTextType agu = EditTextType.DEFAULT;
-    private boolean mHasInit = false;
 
-    /* loaded from: classes14.dex */
+    /* renamed from: c  reason: collision with root package name */
+    public static BdCore f4303c;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f4304a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f4305b;
+
+    /* loaded from: classes2.dex */
     public enum EditTextType {
         DEFAULT,
         WEB_EDIT,
@@ -18,32 +23,36 @@ public final class BdCore {
         BD_RSS_WEB
     }
 
-    private BdCore() {
+    public BdCore() {
+        EditTextType editTextType = EditTextType.DEFAULT;
+        this.f4305b = false;
     }
 
-    public static synchronized BdCore sv() {
+    public static synchronized BdCore b() {
         BdCore bdCore;
         synchronized (BdCore.class) {
-            if (agt == null) {
-                agt = new BdCore();
+            if (f4303c == null) {
+                f4303c = new BdCore();
             }
-            bdCore = agt;
+            bdCore = f4303c;
         }
         return bdCore;
     }
 
-    public void init(Context context, boolean z) {
-        if (!this.mHasInit) {
-            BdLog.setDebug(z);
-            this.mContext = context.getApplicationContext();
-            this.mHasInit = true;
+    public Context a() {
+        Context context = this.f4304a;
+        if (context != null) {
+            return context;
         }
+        throw new RuntimeException("context is null");
     }
 
-    public Context getContext() {
-        if (this.mContext == null) {
-            throw new RuntimeException("context is null");
+    public void c(Context context, boolean z) {
+        if (this.f4305b) {
+            return;
         }
-        return this.mContext;
+        BdLog.f(z);
+        this.f4304a = context.getApplicationContext();
+        this.f4305b = true;
     }
 }

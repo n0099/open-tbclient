@@ -5,23 +5,42 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.DisplayMetrics;
-import com.fun.ad.sdk.FunAdSdk;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f {
-    private static f j;
+    public static f j;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2724a;
-    private int b;
-    private int c;
-    private int d;
-    private String e = "-1";
-    private String f = "02";
-    private String g = "";
-    private String h = FunAdSdk.PLATFORM_BAIDU;
-    private Context i;
+    public int f9444a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f9445b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f9446c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f9447d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f9448e = "-1";
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f9449f = "02";
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f9450g = "";
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f9451h = "baidu";
+    public Context i;
+
+    public f(Context context) {
+        this.i = context;
+        n();
+        m();
+    }
 
     public static f a(Context context) {
         if (j == null) {
@@ -30,42 +49,8 @@ public class f {
         return j;
     }
 
-    private f(Context context) {
-        this.i = context;
-        n();
-        m();
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        try {
-            sb.append("mb=").append(URLEncoder.encode(a(), "UTF-8"));
-            sb.append("&os=").append(URLEncoder.encode(b(), "UTF-8"));
-            sb.append("&sv=").append(URLEncoder.encode(c(), "UTF-8"));
-            sb.append("&net=").append(URLEncoder.encode(d(), "UTF-8"));
-            sb.append("&resid=").append(URLEncoder.encode(e(), "UTF-8"));
-            sb.append("&cuid=").append(URLEncoder.encode(f(), "UTF-8"));
-            sb.append("&channel=").append(URLEncoder.encode(g(), "UTF-8"));
-            sb.append("&pcn=").append(URLEncoder.encode(h(), "UTF-8"));
-            sb.append("&name=").append(URLEncoder.encode(b(this.i), "UTF-8"));
-            int i = i();
-            sb.append("&screen=").append(URLEncoder.encode("(" + i + ',' + j() + ')', "UTF-8"));
-            int k = k();
-            sb.append("&dpi=").append(URLEncoder.encode("(" + k + ',' + l() + ')', "UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return sb.toString();
-    }
-
-    private String a() {
-        return Build.MODEL;
-    }
-
     private String b() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Android").append(Build.VERSION.SDK_INT);
-        return sb.toString();
+        return "Android" + Build.VERSION.SDK_INT;
     }
 
     private String c() {
@@ -77,24 +62,101 @@ public class f {
     }
 
     private String e() {
-        return "com.baidu.BaiduMap".equals(h()) ? "01" : this.f;
+        return "com.baidu.BaiduMap".equals(h()) ? "01" : this.f9449f;
     }
 
     private String f() {
-        String str = null;
+        String str;
         try {
             str = com.baidu.android.bbalbs.common.util.b.b(this.i);
-        } catch (Exception e) {
+        } catch (Exception unused) {
+            str = null;
         }
         return str == null ? "" : str;
     }
 
     private String g() {
-        return this.h;
+        return this.f9451h;
     }
 
     private String h() {
         return this.i.getPackageName();
+    }
+
+    private int i() {
+        return this.f9444a;
+    }
+
+    private int j() {
+        return this.f9445b;
+    }
+
+    private int k() {
+        return this.f9446c;
+    }
+
+    private int l() {
+        return this.f9447d;
+    }
+
+    private void m() {
+        DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
+        if (displayMetrics != null) {
+            this.f9446c = (int) displayMetrics.xdpi;
+            this.f9447d = (int) displayMetrics.ydpi;
+        }
+    }
+
+    private void n() {
+        DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
+        if (displayMetrics != null) {
+            this.f9444a = displayMetrics.widthPixels;
+            this.f9445b = displayMetrics.heightPixels;
+        }
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        String a2 = a();
+        try {
+            sb.append("mb=");
+            sb.append(URLEncoder.encode(a2, "UTF-8"));
+            String b2 = b();
+            sb.append("&os=");
+            sb.append(URLEncoder.encode(b2, "UTF-8"));
+            String c2 = c();
+            sb.append("&sv=");
+            sb.append(URLEncoder.encode(c2, "UTF-8"));
+            String d2 = d();
+            sb.append("&net=");
+            sb.append(URLEncoder.encode(d2, "UTF-8"));
+            String e2 = e();
+            sb.append("&resid=");
+            sb.append(URLEncoder.encode(e2, "UTF-8"));
+            String f2 = f();
+            sb.append("&cuid=");
+            sb.append(URLEncoder.encode(f2, "UTF-8"));
+            String g2 = g();
+            sb.append("&channel=");
+            sb.append(URLEncoder.encode(g2, "UTF-8"));
+            String h2 = h();
+            sb.append("&pcn=");
+            sb.append(URLEncoder.encode(h2, "UTF-8"));
+            String b3 = b(this.i);
+            sb.append("&name=");
+            sb.append(URLEncoder.encode(b3, "UTF-8"));
+            sb.append("&screen=");
+            sb.append(URLEncoder.encode("(" + i() + ',' + j() + ')', "UTF-8"));
+            sb.append("&dpi=");
+            sb.append(URLEncoder.encode("(" + k() + ',' + l() + ')', "UTF-8"));
+        } catch (UnsupportedEncodingException e3) {
+            e3.printStackTrace();
+        }
+        return sb.toString();
+    }
+
+    private String a() {
+        return Build.MODEL;
     }
 
     private String b(Context context) {
@@ -104,46 +166,11 @@ public class f {
             packageManager = context.getPackageManager();
             try {
                 applicationInfo = packageManager.getApplicationInfo(context.getPackageName(), 0);
-            } catch (PackageManager.NameNotFoundException e) {
+            } catch (PackageManager.NameNotFoundException unused) {
             }
-        } catch (PackageManager.NameNotFoundException e2) {
+        } catch (PackageManager.NameNotFoundException unused2) {
             packageManager = null;
         }
-        if (applicationInfo == null) {
-            return "";
-        }
-        return (String) packageManager.getApplicationLabel(applicationInfo);
-    }
-
-    private int i() {
-        return this.f2724a;
-    }
-
-    private int j() {
-        return this.b;
-    }
-
-    private int k() {
-        return this.c;
-    }
-
-    private int l() {
-        return this.d;
-    }
-
-    private void m() {
-        DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
-        if (displayMetrics != null) {
-            this.c = (int) displayMetrics.xdpi;
-            this.d = (int) displayMetrics.ydpi;
-        }
-    }
-
-    private void n() {
-        DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
-        if (displayMetrics != null) {
-            this.f2724a = displayMetrics.widthPixels;
-            this.b = displayMetrics.heightPixels;
-        }
+        return applicationInfo != null ? (String) packageManager.getApplicationLabel(applicationInfo) : "";
     }
 }

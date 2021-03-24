@@ -2,66 +2,66 @@ package com.baidu.tieba.payment.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class PayResultData extends OrmObject implements Serializable {
-    private static final long serialVersionUID = 955562840790302592L;
-    private UnusualInfo describe;
-    private String pubkey;
-    private PayVcodeInfoData vcode;
-    private int wrongtime;
+    public static final long serialVersionUID = 955562840790302592L;
+    public UnusualInfo describe;
+    public String pubkey;
+    public PayVcodeInfoData vcode;
+    public int wrongtime;
 
-    public PayVcodeInfoData getVcode() {
-        return this.vcode;
-    }
+    /* loaded from: classes4.dex */
+    public static final class UnusualInfo extends OrmObject implements Serializable {
+        public static final long serialVersionUID = 7762965384357134074L;
+        public String url;
+        public String word;
 
-    public void setVcode(PayVcodeInfoData payVcodeInfoData) {
-        this.vcode = payVcodeInfoData;
-    }
+        public String getUrl() {
+            return this.url;
+        }
 
-    public int getWrongtime() {
-        return this.wrongtime;
-    }
+        public String getWord() {
+            return this.word;
+        }
 
-    public void setWrongtime(int i) {
-        this.wrongtime = i;
+        public void setUrl(String str) {
+            this.url = str;
+        }
+
+        public void setWord(String str) {
+            this.word = str;
+        }
     }
 
     public UnusualInfo getDescribe() {
         return this.describe;
     }
 
-    public void setDescribe(UnusualInfo unusualInfo) {
-        this.describe = unusualInfo;
-    }
-
     public String getPubkey() {
         return this.pubkey;
+    }
+
+    public PayVcodeInfoData getVcode() {
+        return this.vcode;
+    }
+
+    public int getWrongtime() {
+        return this.wrongtime;
+    }
+
+    public void setDescribe(UnusualInfo unusualInfo) {
+        this.describe = unusualInfo;
     }
 
     public void setPubkey(String str) {
         this.pubkey = str;
     }
 
-    /* loaded from: classes8.dex */
-    public static final class UnusualInfo extends OrmObject implements Serializable {
-        private static final long serialVersionUID = 7762965384357134074L;
-        private String url;
-        private String word;
+    public void setVcode(PayVcodeInfoData payVcodeInfoData) {
+        this.vcode = payVcodeInfoData;
+    }
 
-        public String getWord() {
-            return this.word;
-        }
-
-        public void setWord(String str) {
-            this.word = str;
-        }
-
-        public String getUrl() {
-            return this.url;
-        }
-
-        public void setUrl(String str) {
-            this.url = str;
-        }
+    public void setWrongtime(int i) {
+        this.wrongtime = i;
     }
 }

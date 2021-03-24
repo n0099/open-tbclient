@@ -8,22 +8,24 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.util.connect.ConnectManager;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class NetworkParam {
     public static final String LAST_NETWORK_TYPE = "last network type";
-    private static final String NET_TYPE_ID_DISCONNECT = "5_0";
-    private static final int UNKOWN_NET_TYPE = 5;
-    private Context mContext = AppRuntime.getAppContext();
-    private static boolean DEBUG = AppConfig.isDebug();
-    private static String TAG = "networkparam";
-    private static HashMap<String, Integer> netType2Id = new HashMap<>();
+    public static final String NET_TYPE_ID_DISCONNECT = "5_0";
+    public static final int UNKOWN_NET_TYPE = 5;
+    public static HashMap<String, Integer> netType2Id;
+    public Context mContext = AppRuntime.getAppContext();
+    public static boolean DEBUG = AppConfig.isDebug();
+    public static String TAG = "networkparam";
 
     static {
-        netType2Id.put("WIFI", 1);
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        netType2Id = hashMap;
+        hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
         netType2Id.put("3GNET", 21);
         netType2Id.put("3GWAP", 22);
         netType2Id.put("CMNET", 31);
@@ -34,50 +36,45 @@ public class NetworkParam {
         netType2Id.put("CTWAP", 43);
     }
 
-    public String getCurrentNetTypeId() {
-        long j;
-        String str;
-        if (!DEBUG) {
-            j = 0;
-        } else {
-            j = SystemClock.uptimeMillis();
-        }
-        ConnectManager connectManager = new ConnectManager(this.mContext);
-        String netType = connectManager.getNetType();
-        int subType = connectManager.getSubType();
-        if (!TextUtils.isEmpty(netType)) {
-            String upperCase = netType.toUpperCase();
-            Integer num = netType2Id.get(upperCase);
-            if (num == null) {
-                num = 5;
-            }
-            str = num + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + subType;
-            netType = upperCase;
-        } else {
-            str = ((Object) 5) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + subType;
-        }
-        if (DEBUG) {
-            Log.i(TAG, "getCurrentNetTypeId cost " + (SystemClock.uptimeMillis() - j) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
-        }
-        return str;
-    }
-
     public String addNetWorkParam(String str, boolean z) {
         if (z) {
             String currentNetTypeId = getCurrentNetTypeId();
             if (TextUtils.equals(currentNetTypeId, NET_TYPE_ID_DISCONNECT)) {
                 return UrlUtil.addParam(str, "network", PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).getString(LAST_NETWORK_TYPE, NET_TYPE_ID_DISCONNECT));
             }
-            if (!TextUtils.isEmpty(currentNetTypeId)) {
-                if (!TextUtils.equals(currentNetTypeId, NET_TYPE_ID_DISCONNECT)) {
-                    SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).edit();
-                    edit.putString(LAST_NETWORK_TYPE, currentNetTypeId);
-                    edit.apply();
-                }
-                return UrlUtil.addParam(str, "network", currentNetTypeId);
+            if (TextUtils.isEmpty(currentNetTypeId)) {
+                return str;
             }
-            return str;
+            if (!TextUtils.equals(currentNetTypeId, NET_TYPE_ID_DISCONNECT)) {
+                SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).edit();
+                edit.putString(LAST_NETWORK_TYPE, currentNetTypeId);
+                edit.apply();
+            }
+            return UrlUtil.addParam(str, "network", currentNetTypeId);
         }
         return UrlUtil.addParam(str, "network", getCurrentNetTypeId());
+    }
+
+    public String getCurrentNetTypeId() {
+        String str;
+        long uptimeMillis = DEBUG ? SystemClock.uptimeMillis() : 0L;
+        ConnectManager connectManager = new ConnectManager(this.mContext);
+        String netType = connectManager.getNetType();
+        int subType = connectManager.getSubType();
+        if (!TextUtils.isEmpty(netType)) {
+            netType = netType.toUpperCase();
+            Integer num = netType2Id.get(netType);
+            if (num == null) {
+                num = 5;
+            }
+            str = num + "_" + subType;
+        } else {
+            str = ((Object) 5) + "_" + subType;
+        }
+        if (DEBUG) {
+            long uptimeMillis2 = SystemClock.uptimeMillis();
+            Log.i(TAG, "getCurrentNetTypeId cost " + (uptimeMillis2 - uptimeMillis) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
+        }
+        return str;
     }
 }

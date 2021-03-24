@@ -8,22 +8,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
-    private List<EmotionImageData> mData;
+    public List<EmotionImageData> mData;
 
     public QueryMatchEmotionResponseMessage(int i) {
         super(i);
-    }
-
-    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
-        int statusCode = getStatusCode();
-        int error = getError();
-        if (statusCode == 200 && error == 0 && jSONObject != null && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.mData = parseImageData(optJSONObject.optJSONArray("memes"));
-        }
     }
 
     private List<EmotionImageData> parseImageData(JSONArray jSONArray) {
@@ -43,12 +33,22 @@ public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
                 emotionImageData.setHeight(jSONObject.optInt("height"));
                 emotionImageData.setMemeContSign(jSONObject.optString("cont_sign"));
                 arrayList.add(emotionImageData);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return arrayList;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
         return arrayList;
+    }
+
+    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
+        int statusCode = getStatusCode();
+        int error = getError();
+        if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+            return;
+        }
+        this.mData = parseImageData(optJSONObject.optJSONArray("memes"));
     }
 
     public List<EmotionImageData> getData() {

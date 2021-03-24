@@ -1,5 +1,5 @@
 package com.baidubce;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum ErrorCode {
     ACCESS_DENIED("AccessDenied"),
     INAPPROPRIATE_JSON("InappropriateJSON"),
@@ -16,18 +16,18 @@ public enum ErrorCode {
     REQUEST_TIME_TOO_SKEWED("RequestTimeTooSkewed"),
     SIGNATURE_DOES_NOT_MATCH("SignatureDoesNotMatch");
     
-    private String code;
+    public String code;
 
     ErrorCode(String str) {
         this.code = str;
     }
 
+    public boolean equals(String str) {
+        return this.code.equals(str);
+    }
+
     @Override // java.lang.Enum
     public String toString() {
         return this.code;
-    }
-
-    public boolean equals(String str) {
-        return this.code.equals(str);
     }
 }

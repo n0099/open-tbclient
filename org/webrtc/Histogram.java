@@ -1,10 +1,9 @@
 package org.webrtc;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class Histogram {
-    private final long handle;
+    public final long handle;
 
-    private Histogram(long j) {
+    public Histogram(long j) {
         this.handle = j;
     }
 
@@ -16,11 +15,11 @@ public class Histogram {
         return new Histogram(nativeCreateEnumeration(str, i));
     }
 
-    private static native void nativeAddSample(long j, int i);
+    public static native void nativeAddSample(long j, int i);
 
-    private static native long nativeCreateCounts(String str, int i, int i2, int i3);
+    public static native long nativeCreateCounts(String str, int i, int i2, int i3);
 
-    private static native long nativeCreateEnumeration(String str, int i);
+    public static native long nativeCreateEnumeration(String str, int i);
 
     public void addSample(int i) {
         nativeAddSample(this.handle, i);

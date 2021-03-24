@@ -4,54 +4,66 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.person.data.c;
-/* loaded from: classes7.dex */
+import d.b.b.j.e.n;
+import d.b.i0.e2.i.c;
+/* loaded from: classes5.dex */
 public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
-    private n YL;
-    private View.OnClickListener mClickListener;
-    private int mSkinType;
-    public ImageView muV;
-    public TextView muW;
-    public View rootView;
+
+    /* renamed from: a  reason: collision with root package name */
+    public View f20215a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f20216b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f20217c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f20218d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public n f20219e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View.OnClickListener f20220f;
 
     public PersonInfoAddUserPicViewHolder(View view) {
         super(view);
-        this.mSkinType = 3;
-        this.rootView = view.findViewById(R.id.add_pic_root);
-        this.muV = (ImageView) view.findViewById(R.id.add_image_view);
-        this.muW = (TextView) view.findViewById(R.id.tip_left_count_view);
+        this.f20218d = 3;
+        this.f20215a = view.findViewById(R.id.add_pic_root);
+        this.f20216b = (ImageView) view.findViewById(R.id.add_image_view);
+        this.f20217c = (TextView) view.findViewById(R.id.tip_left_count_view);
     }
 
-    public void h(n nVar) {
+    public void b(n nVar) {
         if (nVar instanceof c) {
-            this.YL = nVar;
+            this.f20219e = nVar;
             c cVar = (c) nVar;
-            ap.setImageResource(this.muV, R.drawable.icon_mine_pic_add);
-            if (cVar.dwF() > 0) {
-                this.muW.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.dwF())));
+            SkinManager.setImageResource(this.f20216b, R.drawable.icon_mine_pic_add);
+            if (cVar.a() > 0) {
+                this.f20217c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.a())));
             }
-            getView().setOnClickListener(this.mClickListener);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            a().setOnClickListener(this.f20220f);
+            d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            ap.setViewTextColor(this.muW, R.color.CAM_X0110, 1);
-            ap.setBackgroundColor(getView(), R.color.CAM_X0205);
-            this.mSkinType = i;
+    public n c() {
+        return this.f20219e;
+    }
+
+    public void d(int i) {
+        if (this.f20218d != i) {
+            SkinManager.setViewTextColor(this.f20217c, R.color.CAM_X0110, 1);
+            SkinManager.setBackgroundColor(a(), R.color.CAM_X0205);
+            this.f20218d = i;
         }
     }
 
-    public n qv() {
-        return this.YL;
-    }
-
-    public void I(View.OnClickListener onClickListener) {
-        this.mClickListener = onClickListener;
+    public void e(View.OnClickListener onClickListener) {
+        this.f20220f = onClickListener;
     }
 }

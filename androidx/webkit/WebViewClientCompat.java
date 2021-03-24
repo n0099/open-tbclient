@@ -17,13 +17,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.InvocationHandler;
 import org.chromium.support_lib_boundary.WebViewClientBoundaryInterface;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class WebViewClientCompat extends WebViewClient implements WebViewClientBoundaryInterface {
-    private static final String[] sSupportedFeatures = {"VISUAL_STATE_CALLBACK", "RECEIVE_WEB_RESOURCE_ERROR", "RECEIVE_HTTP_ERROR", "SHOULD_OVERRIDE_WITH_REDIRECTS", "SAFE_BROWSING_HIT"};
+    public static final String[] sSupportedFeatures = {"VISUAL_STATE_CALLBACK", "RECEIVE_WEB_RESOURCE_ERROR", "RECEIVE_HTTP_ERROR", "SHOULD_OVERRIDE_WITH_REDIRECTS", "SAFE_BROWSING_HIT"};
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes.dex */
     public @interface SafeBrowsingThreat {
     }
 
@@ -44,22 +44,6 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
         onReceivedError(webView, webResourceRequest, new WebResourceErrorImpl(invocationHandler));
     }
 
-    @Override // android.webkit.WebViewClient
-    @RequiresApi(23)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public final void onReceivedError(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, @NonNull WebResourceError webResourceError) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            onReceivedError(webView, webResourceRequest, new WebResourceErrorImpl(webResourceError));
-        }
-    }
-
-    @RequiresApi(21)
-    public void onReceivedError(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, @NonNull WebResourceErrorCompat webResourceErrorCompat) {
-        if (Build.VERSION.SDK_INT >= 21 && WebViewFeature.isFeatureSupported("WEB_RESOURCE_ERROR_GET_CODE") && WebViewFeature.isFeatureSupported("WEB_RESOURCE_ERROR_GET_DESCRIPTION") && webResourceRequest.isForMainFrame()) {
-            onReceivedError(webView, webResourceErrorCompat.getErrorCode(), webResourceErrorCompat.getDescription().toString(), webResourceRequest.getUrl().toString());
-        }
-    }
-
     @Override // android.webkit.WebViewClient, org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
     public void onReceivedHttpError(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, @NonNull WebResourceResponse webResourceResponse) {
     }
@@ -68,6 +52,25 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i, @NonNull InvocationHandler invocationHandler) {
         onSafeBrowsingHit(webView, webResourceRequest, i, new SafeBrowsingResponseImpl(invocationHandler));
+    }
+
+    @Override // android.webkit.WebViewClient, org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
+    @RequiresApi(21)
+    public boolean shouldOverrideUrlLoading(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest) {
+        if (Build.VERSION.SDK_INT < 21) {
+            return false;
+        }
+        return shouldOverrideUrlLoading(webView, webResourceRequest.getUrl().toString());
+    }
+
+    @Override // android.webkit.WebViewClient
+    @RequiresApi(23)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public final void onReceivedError(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, @NonNull WebResourceError webResourceError) {
+        if (Build.VERSION.SDK_INT < 23) {
+            return;
+        }
+        onReceivedError(webView, webResourceRequest, new WebResourceErrorImpl(webResourceError));
     }
 
     @Override // android.webkit.WebViewClient
@@ -85,12 +88,10 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
         throw WebViewFeatureInternal.getUnsupportedOperationException();
     }
 
-    @Override // android.webkit.WebViewClient, org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
     @RequiresApi(21)
-    public boolean shouldOverrideUrlLoading(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest) {
-        if (Build.VERSION.SDK_INT < 21) {
-            return false;
+    public void onReceivedError(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, @NonNull WebResourceErrorCompat webResourceErrorCompat) {
+        if (Build.VERSION.SDK_INT >= 21 && WebViewFeature.isFeatureSupported("WEB_RESOURCE_ERROR_GET_CODE") && WebViewFeature.isFeatureSupported("WEB_RESOURCE_ERROR_GET_DESCRIPTION") && webResourceRequest.isForMainFrame()) {
+            onReceivedError(webView, webResourceErrorCompat.getErrorCode(), webResourceErrorCompat.getDescription().toString(), webResourceRequest.getUrl().toString());
         }
-        return shouldOverrideUrlLoading(webView, webResourceRequest.getUrl().toString());
     }
 }

@@ -1,142 +1,38 @@
 package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.CommonReq;
 import tbclient.GetTopicRelateThread.DataReq;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class RequestGetTopicRelateThreadMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3591common;
-    private Long last_id;
-    private Integer page_no;
-    private Integer pmy_source;
-    private Long pmy_topic_id;
-    private Integer q_type;
-    private Integer rn;
-    private Double scr_dip;
-    private Integer scr_h;
-    private Integer scr_w;
+    public CommonReq f17617common;
+    public Long last_id;
+    public Integer page_no;
+    public Integer pmy_source;
+    public Long pmy_topic_id;
+    public Integer q_type;
+    public Integer rn;
+    public Double scr_dip;
+    public Integer scr_h;
+    public Integer scr_w;
     public Integer sort_type;
-    private Long topic_id;
-    private String topic_name;
+    public Long topic_id;
+    public String topic_name;
 
     public RequestGetTopicRelateThreadMessage() {
-        super(1003042, CmdConfigSocket.CMD_TOPIC_RELATE_THREAD);
-    }
-
-    public CommonReq getCommon() {
-        return this.f3591common;
-    }
-
-    public void setCommon(CommonReq commonReq) {
-        this.f3591common = commonReq;
-    }
-
-    public Long getTopicId() {
-        return this.topic_id;
-    }
-
-    public void setTopicId(Long l) {
-        this.topic_id = l;
-    }
-
-    public String getTopicName() {
-        return this.topic_name;
-    }
-
-    public void setTopicName(String str) {
-        this.topic_name = str;
-    }
-
-    public Integer getRn() {
-        return this.rn;
-    }
-
-    public void setRn(Integer num) {
-        this.rn = num;
-    }
-
-    public Integer getPageNo() {
-        return this.page_no;
-    }
-
-    public void setPageNo(Integer num) {
-        this.page_no = num;
-    }
-
-    public Long getLastId() {
-        return this.last_id;
-    }
-
-    public void setLastId(Long l) {
-        this.last_id = l;
-    }
-
-    public Integer getScrW() {
-        return this.scr_w;
-    }
-
-    public void setScrW(Integer num) {
-        this.scr_w = num;
-    }
-
-    public Integer getScrH() {
-        return this.scr_h;
-    }
-
-    public void setScrH(Integer num) {
-        this.scr_h = num;
-    }
-
-    public Double getScrDip() {
-        return this.scr_dip;
-    }
-
-    public void setScrDip(Double d) {
-        this.scr_dip = d;
-    }
-
-    public Integer getQType() {
-        return this.q_type;
-    }
-
-    public void setQType(Integer num) {
-        this.q_type = num;
-    }
-
-    public void setPmy_topic_id(Long l) {
-        this.pmy_topic_id = l;
-    }
-
-    public Long getPmy_topic_id() {
-        return this.pmy_topic_id;
-    }
-
-    public void setPmy_source(Integer num) {
-        this.pmy_source = num;
-    }
-
-    public Integer getPmy_source() {
-        return this.pmy_source;
-    }
-
-    public Integer getSort_type() {
-        return this.sort_type;
-    }
-
-    public void setSort_type(Integer num) {
-        this.sort_type = num;
+        super(CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, 309005);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f8824common = getCommon();
+            builder.f68496common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.rn = getRn();
@@ -150,13 +46,117 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
             builder.pmy_source = getPmy_source();
             builder.sort_type = getSort_type();
             if (z) {
-                v.b(builder, true);
+                w.a(builder, true);
             }
             GetTopicRelateThreadReqIdl.Builder builder2 = new GetTopicRelateThreadReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
+    }
+
+    public CommonReq getCommon() {
+        return this.f17617common;
+    }
+
+    public Long getLastId() {
+        return this.last_id;
+    }
+
+    public Integer getPageNo() {
+        return this.page_no;
+    }
+
+    public Integer getPmy_source() {
+        return this.pmy_source;
+    }
+
+    public Long getPmy_topic_id() {
+        return this.pmy_topic_id;
+    }
+
+    public Integer getQType() {
+        return this.q_type;
+    }
+
+    public Integer getRn() {
+        return this.rn;
+    }
+
+    public Double getScrDip() {
+        return this.scr_dip;
+    }
+
+    public Integer getScrH() {
+        return this.scr_h;
+    }
+
+    public Integer getScrW() {
+        return this.scr_w;
+    }
+
+    public Integer getSort_type() {
+        return this.sort_type;
+    }
+
+    public Long getTopicId() {
+        return this.topic_id;
+    }
+
+    public String getTopicName() {
+        return this.topic_name;
+    }
+
+    public void setCommon(CommonReq commonReq) {
+        this.f17617common = commonReq;
+    }
+
+    public void setLastId(Long l) {
+        this.last_id = l;
+    }
+
+    public void setPageNo(Integer num) {
+        this.page_no = num;
+    }
+
+    public void setPmy_source(Integer num) {
+        this.pmy_source = num;
+    }
+
+    public void setPmy_topic_id(Long l) {
+        this.pmy_topic_id = l;
+    }
+
+    public void setQType(Integer num) {
+        this.q_type = num;
+    }
+
+    public void setRn(Integer num) {
+        this.rn = num;
+    }
+
+    public void setScrDip(Double d2) {
+        this.scr_dip = d2;
+    }
+
+    public void setScrH(Integer num) {
+        this.scr_h = num;
+    }
+
+    public void setScrW(Integer num) {
+        this.scr_w = num;
+    }
+
+    public void setSort_type(Integer num) {
+        this.sort_type = num;
+    }
+
+    public void setTopicId(Long l) {
+        this.topic_id = l;
+    }
+
+    public void setTopicName(String str) {
+        this.topic_name = str;
     }
 }

@@ -4,37 +4,42 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.util.Pair;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f<T> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    T f5398a;
+    public T f31557a;
     @Nullable
-    T b;
 
-    private static boolean b(Object obj, Object obj2) {
+    /* renamed from: b  reason: collision with root package name */
+    public T f31558b;
+
+    public static boolean b(Object obj, Object obj2) {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
     public void a(T t, T t2) {
-        this.f5398a = t;
-        this.b = t2;
+        this.f31557a = t;
+        this.f31558b = t2;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof Pair) {
             Pair pair = (Pair) obj;
-            return b(pair.first, this.f5398a) && b(pair.second, this.b);
+            return b(pair.first, this.f31557a) && b(pair.second, this.f31558b);
         }
         return false;
     }
 
     public int hashCode() {
-        return (this.f5398a == null ? 0 : this.f5398a.hashCode()) ^ (this.b != null ? this.b.hashCode() : 0);
+        T t = this.f31557a;
+        int hashCode = t == null ? 0 : t.hashCode();
+        T t2 = this.f31558b;
+        return hashCode ^ (t2 != null ? t2.hashCode() : 0);
     }
 
     public String toString() {
-        return "Pair{" + String.valueOf(this.f5398a) + " " + String.valueOf(this.b) + "}";
+        return "Pair{" + String.valueOf(this.f31557a) + " " + String.valueOf(this.f31558b) + "}";
     }
 }

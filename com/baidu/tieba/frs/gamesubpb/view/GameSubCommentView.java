@@ -5,58 +5,78 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.gamesubpb.a;
-import com.baidu.tieba.frs.gamesubpb.model.d;
-/* loaded from: classes2.dex */
+import d.b.i0.p0.w1.a;
+import d.b.i0.p0.w1.d.d;
+/* loaded from: classes4.dex */
 public class GameSubCommentView {
-    private a.InterfaceC0737a jCL;
-    private SpannableTextView jDB;
-    private View mRootView;
-    private TbPageContext<?> mTbPageContext;
 
-    public GameSubCommentView(TbPageContext<?> tbPageContext) {
-        this.mTbPageContext = tbPageContext;
-        this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.game_sub_comment_view, (ViewGroup) null);
-        this.jDB = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
-        ap.setViewTextColor(this.jDB, R.color.CAM_X0106);
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public View f16424a;
 
-    public void f(final d dVar) {
-        if (dVar != null && dVar.userName != null) {
-            this.jDB.f(dVar);
-            this.jDB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.GameSubCommentView.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (GameSubCommentView.this.jCL != null) {
-                        GameSubCommentView.this.jCL.c(dVar);
-                    }
-                }
-            });
-        }
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public SpannableTextView f16425b;
 
-    public View getRootView() {
-        return this.mRootView;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public a.InterfaceC1443a f16426c;
 
-    public void setClickListener(a.InterfaceC0737a interfaceC0737a) {
-        this.jCL = interfaceC0737a;
-        this.jDB.setClickListener(interfaceC0737a);
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class GameSubCommentViewHolder extends TypeAdapter.ViewHolder {
-        private GameSubCommentView jDD;
+
+        /* renamed from: a  reason: collision with root package name */
+        public GameSubCommentView f16427a;
 
         public GameSubCommentViewHolder(GameSubCommentView gameSubCommentView) {
-            super(gameSubCommentView.getRootView());
-            this.jDD = gameSubCommentView;
+            super(gameSubCommentView.c());
+            this.f16427a = gameSubCommentView;
         }
 
-        public void f(d dVar) {
-            this.jDD.f(dVar);
+        public void b(d dVar) {
+            this.f16427a.b(dVar);
         }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d f16428e;
+
+        public a(d dVar) {
+            this.f16428e = dVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (GameSubCommentView.this.f16426c != null) {
+                GameSubCommentView.this.f16426c.a(this.f16428e);
+            }
+        }
+    }
+
+    public GameSubCommentView(TbPageContext<?> tbPageContext) {
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.game_sub_comment_view, (ViewGroup) null);
+        this.f16424a = inflate;
+        SpannableTextView spannableTextView = (SpannableTextView) inflate.findViewById(R.id.sub_comment_tv);
+        this.f16425b = spannableTextView;
+        SkinManager.setViewTextColor(spannableTextView, R.color.CAM_X0106);
+    }
+
+    public void b(d dVar) {
+        if (dVar == null || dVar.f58691h == null) {
+            return;
+        }
+        this.f16425b.e(dVar);
+        this.f16425b.setOnClickListener(new a(dVar));
+    }
+
+    public View c() {
+        return this.f16424a;
+    }
+
+    public void d(a.InterfaceC1443a interfaceC1443a) {
+        this.f16426c = interfaceC1443a;
+        this.f16425b.setClickListener(interfaceC1443a);
     }
 }

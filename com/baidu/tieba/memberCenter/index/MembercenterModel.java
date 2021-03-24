@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class MembercenterModel extends BdBaseModel<BaseFragmentActivity> {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {

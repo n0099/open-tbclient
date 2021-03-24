@@ -1,5 +1,5 @@
 package com.baidu.pass.http;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class HttpErrorException extends Exception implements com.baidu.pass.a {
     public int statusCode;
 

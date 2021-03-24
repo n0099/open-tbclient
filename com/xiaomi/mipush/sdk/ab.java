@@ -1,20 +1,17 @@
 package com.xiaomi.mipush.sdk;
-
-import android.content.Context;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public final class ab implements Runnable {
+/* loaded from: classes7.dex */
+public class ab implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f8206a;
+    public final /* synthetic */ NotificationClickedActivity f40149a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(Context context) {
-        this.f8206a = context;
+    public ab(NotificationClickedActivity notificationClickedActivity) {
+        this.f40149a = notificationClickedActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        MessageHandleService.c(this.f8206a);
+        com.xiaomi.channel.commonutils.logger.b.m51a("clicked activity finish by timeout.");
+        this.f40149a.finish();
     }
 }

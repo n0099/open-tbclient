@@ -1,9 +1,11 @@
 package a.a.a.a.v.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public abstract class d {
-    public static final f<d> BR = new a();
 
-    /* loaded from: classes4.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public static final f<d> f1371a = new a();
+
+    /* loaded from: classes.dex */
     public static class a extends f<d> {
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // a.a.a.a.v.f.f
@@ -12,15 +14,15 @@ public abstract class d {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
-    public static d hw() {
+    /* JADX WARN: Type inference failed for: r1v4, types: [T, java.lang.Object] */
+    public static d a() {
         d dVar;
-        f<d> fVar = BR;
+        f<d> fVar = f1371a;
         synchronized (fVar) {
-            if (fVar.f1011a == null) {
-                fVar.f1011a = fVar.a();
+            if (fVar.f1378a == null) {
+                fVar.f1378a = fVar.a();
             }
-            dVar = fVar.f1011a;
+            dVar = fVar.f1378a;
         }
         return dVar;
     }

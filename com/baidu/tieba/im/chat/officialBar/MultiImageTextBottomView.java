@@ -9,124 +9,163 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.im.message.chat.a;
-/* loaded from: classes7.dex */
+import d.b.i0.d1.g.d;
+import d.b.i0.d1.l.c.a;
+import d.b.i0.d1.w.c;
+/* loaded from: classes4.dex */
 public class MultiImageTextBottomView extends LinearLayout {
-    private com.baidu.adp.lib.b.b kCw;
-    private TbImageView kEr;
-    private int kEs;
-    private String kEt;
-    private Context mContext;
-    private int mPosition;
-    private TextView mTitle;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f17795e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TbImageView f17796f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f17797g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d.b.b.e.h.b f17798h;
+    public int i;
+    public int j;
+    public String k;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnLongClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view) {
+            if (MultiImageTextBottomView.this.f17798h != null) {
+                MultiImageTextBottomView.this.f17798h.onItemViewLongClick(view, 9, MultiImageTextBottomView.this.i, 0L);
+                return false;
+            }
+            return false;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ a.C1202a f17800e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ TbPageContext f17801f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ int f17802g;
+
+        public b(a.C1202a c1202a, TbPageContext tbPageContext, int i) {
+            this.f17800e = c1202a;
+            this.f17801f = tbPageContext;
+            this.f17802g = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            a.C1202a c1202a = this.f17800e;
+            if (c1202a == null || StringUtils.isNull(c1202a.f53909d)) {
+                return;
+            }
+            UrlManager.getInstance().dealOneLink(this.f17801f, new String[]{this.f17800e.f53909d});
+            if (this.f17802g == 1) {
+                TiebaStatic.eventStat(MultiImageTextBottomView.this.f17795e, "official_msg_ck", PrefetchEvent.STATE_CLICK, 1, "fid", this.f17800e.f53910e);
+                d j = c.j(MultiImageTextBottomView.this.k);
+                if (j != null) {
+                    Context context = MultiImageTextBottomView.this.f17795e;
+                    TiebaStatic.eventStat(context, "message_open_detail", PrefetchEvent.STATE_CLICK, 1, "task_type", j.f53770a, "task_id", j.f53771b, "loc", "" + MultiImageTextBottomView.this.j);
+                    int i = this.f17800e.f53912g;
+                    if ((i == 1 || i == 3) && !"0".equals(j.f53771b)) {
+                        d.b.i0.d1.u.a.c().a(j.f53771b);
+                    }
+                }
+                StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
+                statisticItem.param("msg_id", this.f17800e.f53913h / 100);
+                statisticItem.param("official_id", this.f17800e.i);
+                statisticItem.param("official_type", this.f17800e.j);
+                statisticItem.param("operate_time", System.currentTimeMillis() / 1000);
+                statisticItem.param("task_id", this.f17800e.k);
+                statisticItem.param("obj_params1", this.f17800e.f53909d);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+    }
 
     public MultiImageTextBottomView(Context context) {
         this(context, null);
     }
 
-    public MultiImageTextBottomView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.kCw = null;
-        this.mContext = context;
-        initView();
-        setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MultiImageTextBottomView.1
-            @Override // android.view.View.OnLongClickListener
-            public boolean onLongClick(View view) {
-                if (MultiImageTextBottomView.this.kCw != null) {
-                    MultiImageTextBottomView.this.kCw.onItemViewLongClick(view, 9, MultiImageTextBottomView.this.mPosition, 0L);
-                    return false;
-                }
-                return false;
-            }
-        });
-    }
-
-    private void initView() {
+    public final void f() {
         setOrientation(0);
-        LayoutInflater.from(this.mContext).inflate(R.layout.msg_multi_pic_text_bottom_view, (ViewGroup) this, true);
-        this.kEr = (TbImageView) findViewById(R.id.bottom_content_pic);
-        this.kEr.setAutoChangeStyle(false);
-        this.mTitle = (TextView) findViewById(R.id.bottom_title);
+        LayoutInflater.from(this.f17795e).inflate(R.layout.msg_multi_pic_text_bottom_view, (ViewGroup) this, true);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.bottom_content_pic);
+        this.f17796f = tbImageView;
+        tbImageView.setAutoChangeStyle(false);
+        this.f17797g = (TextView) findViewById(R.id.bottom_title);
     }
 
-    public void setData(final TbPageContext<?> tbPageContext, final a.C0767a c0767a, View view, final int i) {
-        if (c0767a != null) {
-            String str = "";
-            if (!TextUtils.isEmpty(c0767a.title)) {
-                str = c0767a.title;
-            }
-            this.mTitle.setText(str);
-            if (!TextUtils.isEmpty(c0767a.url)) {
-                setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MultiImageTextBottomView.2
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
-                        if (c0767a != null && !StringUtils.isNull(c0767a.url)) {
-                            bf.bsY().b(tbPageContext, new String[]{c0767a.url});
-                            if (i == 1) {
-                                TiebaStatic.eventStat(MultiImageTextBottomView.this.mContext, "official_msg_ck", "click", 1, "fid", c0767a.fid);
-                                com.baidu.tieba.im.data.d Nq = com.baidu.tieba.im.util.c.Nq(MultiImageTextBottomView.this.kEt);
-                                if (Nq != null) {
-                                    TiebaStatic.eventStat(MultiImageTextBottomView.this.mContext, "message_open_detail", "click", 1, "task_type", Nq.kGS, "task_id", Nq.taskId, "loc", "" + MultiImageTextBottomView.this.kEs);
-                                    if ((c0767a.userType == 1 || c0767a.userType == 3) && !"0".equals(Nq.taskId)) {
-                                        com.baidu.tieba.im.b.a.cYk().Nl(Nq.taskId);
-                                    }
-                                }
-                                ar arVar = new ar("official_message_open_detail");
-                                arVar.v("msg_id", c0767a.kLC / 100);
-                                arVar.dR("official_id", c0767a.kLD);
-                                arVar.aq("official_type", c0767a.kLE);
-                                arVar.v("operate_time", System.currentTimeMillis() / 1000);
-                                arVar.v("task_id", c0767a.taskId);
-                                arVar.dR("obj_params1", c0767a.url);
-                                TiebaStatic.log(arVar);
-                            }
-                        }
-                    }
-                });
-            }
-            if (!TextUtils.isEmpty(c0767a.src)) {
-                this.kEr.setTag(c0767a.src);
-                this.kEr.startLoad(c0767a.src, 10, false);
-            }
-        }
-    }
-
-    public void reset() {
-        this.mTitle.setText("");
-        this.kEr.setBackgroundDrawable(null);
-        this.kEr.setImageDrawable(null);
-    }
-
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.kCw = bVar;
-    }
-
-    public void setPosition(int i) {
-        this.mPosition = i;
-    }
-
-    public void setStPosition(int i) {
-        this.kEs = i;
-    }
-
-    public void setTaskInfo(String str) {
-        this.kEt = str;
-    }
-
-    public void sG(boolean z) {
+    public void g(boolean z) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (!z) {
             skinType = 0;
         }
-        this.kEr.setAutoChangeStyle(z);
-        ap.setViewTextColor(this.mTitle, R.color.common_color_10039, 1, skinType);
+        this.f17796f.setAutoChangeStyle(z);
+        SkinManager.setViewTextColor(this.f17797g, R.color.common_color_10039, 1, skinType);
+    }
+
+    public void h() {
+        this.f17797g.setText("");
+        this.f17796f.setBackgroundDrawable(null);
+        this.f17796f.setImageDrawable(null);
+    }
+
+    public void setData(TbPageContext<?> tbPageContext, a.C1202a c1202a, View view, int i) {
+        if (c1202a == null) {
+            return;
+        }
+        this.f17797g.setText(!TextUtils.isEmpty(c1202a.f53906a) ? c1202a.f53906a : "");
+        if (!TextUtils.isEmpty(c1202a.f53909d)) {
+            setOnClickListener(new b(c1202a, tbPageContext, i));
+        }
+        if (TextUtils.isEmpty(c1202a.f53908c)) {
+            return;
+        }
+        this.f17796f.setTag(c1202a.f53908c);
+        this.f17796f.W(c1202a.f53908c, 10, false);
+    }
+
+    public void setOnItemViewLongClickListener(d.b.b.e.h.b bVar) {
+        this.f17798h = bVar;
+    }
+
+    public void setPosition(int i) {
+        this.i = i;
+    }
+
+    public void setStPosition(int i) {
+        this.j = i;
+    }
+
+    public void setTaskInfo(String str) {
+        this.k = str;
+    }
+
+    public MultiImageTextBottomView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f17798h = null;
+        this.f17795e = context;
+        f();
+        setOnLongClickListener(new a());
     }
 }

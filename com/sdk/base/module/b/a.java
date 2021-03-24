@@ -6,26 +6,22 @@ import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.c.g;
 import com.sdk.base.module.manager.SDKManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a<T> extends com.sdk.base.framework.d.a<T> {
     public a(Context context, com.sdk.base.framework.b.a<T> aVar, e eVar) {
         super(context, aVar, eVar);
-        if (!f.d) {
-            this.b = g.b.a();
-            this.c = g.f7632a.a();
+        if (!f.f38521d) {
+            this.f38528b = g.f38524b.a();
+            this.f38529c = g.f38523a.a();
             return;
         }
         String testHost = SDKManager.getTestHost();
         String statisticalTestHost = SDKManager.getStatisticalTestHost();
-        if (c.b(statisticalTestHost).booleanValue()) {
-            this.c = statisticalTestHost;
-        } else {
-            this.c = g.f7632a.a();
-        }
+        this.f38529c = c.b(statisticalTestHost).booleanValue() ? statisticalTestHost : g.f38523a.a();
         if (c.b(testHost).booleanValue()) {
-            this.b = testHost;
+            this.f38528b = testHost;
         } else {
-            this.b = g.b.a();
+            this.f38528b = g.f38524b.a();
         }
     }
 }

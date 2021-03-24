@@ -1,5 +1,5 @@
 package com.baidu.tieba.personPolymeric.constant;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public enum PersonStatus {
     HOST_DEFAULT,
     HOST_BJH,

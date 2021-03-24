@@ -2,14 +2,14 @@ package com.kwad.sdk.emotion.b;
 
 import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.z;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f6455a;
+    public static String f34685a;
 
     public static void a(@NonNull String str) {
         z.a(str);
-        f6455a = str;
+        f34685a = str;
     }
 }

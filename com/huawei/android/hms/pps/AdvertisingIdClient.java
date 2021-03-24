@@ -11,16 +11,16 @@ import com.huawei.android.hms.pps.a.a;
 import com.huawei.android.hms.pps.a.b;
 import java.io.IOException;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AdvertisingIdClient {
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Info {
-        private final String advertisingId;
-        private final boolean limitAdTrackingEnabled;
+        public final String advertisingId;
+        public final boolean limitAdTrackingEnabled;
 
-        Info(String str, boolean z) {
+        public Info(String str, boolean z) {
             this.advertisingId = str;
             this.limitAdTrackingEnabled = z;
         }
@@ -38,7 +38,8 @@ public class AdvertisingIdClient {
 
     @Keep
     public static Info getAdvertisingIdInfo(Context context) {
-        Log.i(getTag(), "getAdvertisingIdInfo " + System.currentTimeMillis());
+        String tag = getTag();
+        Log.i(tag, "getAdvertisingIdInfo " + System.currentTimeMillis());
         if (Looper.myLooper() == Looper.getMainLooper()) {
             Log.w(getTag(), "Cannot be called from the main thread");
             throw new IllegalStateException("Cannot be called from the main thread");
@@ -55,29 +56,31 @@ public class AdvertisingIdClient {
             Log.i(getTag(), "bind ok");
             try {
                 try {
-                    if (aVar.f5291a) {
-                        throw new IllegalStateException();
+                    try {
+                        if (aVar.f31097a) {
+                            throw new IllegalStateException();
+                        }
+                        aVar.f31097a = true;
+                        b.a.C0348a c0348a = new b.a.C0348a(aVar.f31098b.take());
+                        return new Info(c0348a.a(), c0348a.b());
+                    } catch (RemoteException unused) {
+                        Log.e(getTag(), "bind hms service RemoteException");
+                        throw new IOException("bind hms service RemoteException");
                     }
-                    aVar.f5291a = true;
-                    b.a.C1081a c1081a = new b.a.C1081a(aVar.b.take());
-                    return new Info(c1081a.a(), c1081a.b());
-                } catch (RemoteException e) {
-                    Log.e(getTag(), "bind hms service RemoteException");
-                    throw new IOException("bind hms service RemoteException");
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException unused2) {
                     Log.e(getTag(), "bind hms service InterruptedException");
                     throw new IOException("bind hms service InterruptedException");
                 }
             } finally {
                 context.unbindService(aVar);
             }
-        } catch (PackageManager.NameNotFoundException e3) {
+        } catch (PackageManager.NameNotFoundException unused3) {
             Log.w(getTag(), "HMS not found");
             throw new IOException("Service not found");
         }
     }
 
-    private static String getTag() {
+    public static String getTag() {
         return "AdId";
     }
 }

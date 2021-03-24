@@ -4,30 +4,30 @@ import android.content.Context;
 import com.meizu.cloud.pushsdk.a.c;
 import com.meizu.cloud.pushsdk.base.f;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7313a = a.class.getSimpleName();
+    public static final String f37385a = "a";
 
     public static com.meizu.cloud.pushsdk.c.a.c a(Context context) {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
-        c c = c(context);
-        Map<String, String> a2 = c.a();
-        Map<String, String> b = c.b();
-        Map<String, Object> c2 = c.c();
-        Map<String, Object> d = c.d();
+        c c2 = c(context);
+        Map<String, String> a2 = c2.a();
+        Map<String, String> b2 = c2.b();
+        Map<String, Object> c3 = c2.c();
+        Map<String, Object> d2 = c2.d();
         if (a2.size() > 0) {
-            cVar.a(b.f7319a, a2);
+            cVar.a(b.f37402a, a2);
         }
-        if (b.size() > 0) {
-            cVar.a(b.f, b);
+        if (b2.size() > 0) {
+            cVar.a(b.f37407f, b2);
         }
-        if (c2.size() > 0) {
-            cVar.a(b.o, c2);
+        if (c3.size() > 0) {
+            cVar.a(b.o, c3);
         }
-        if (d.size() > 0) {
-            cVar.a(b.v, d);
+        if (d2.size() > 0) {
+            cVar.a(b.v, d2);
         }
         return cVar;
     }
@@ -41,7 +41,7 @@ public class a {
         });
     }
 
-    private static c c(Context context) {
+    public static c c(Context context) {
         return new c.a().a(context).a();
     }
 }

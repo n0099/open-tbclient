@@ -1,14 +1,14 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public enum ResourceType {
     ID("id"),
-    ARRAY(com.baidu.fsg.base.statistics.b.j),
+    ARRAY("array"),
     LAYOUT("layout"),
     STYLE("style"),
     STRING("string"),
     DRAWABLE("drawable");
     
-    private String value;
+    public String value;
 
     ResourceType(String str) {
         this.value = str;

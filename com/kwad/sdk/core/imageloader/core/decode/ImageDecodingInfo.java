@@ -9,19 +9,19 @@ import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ImageDecodingInfo {
-    private final boolean considerExifParams;
-    private final BitmapFactory.Options decodingOptions = new BitmapFactory.Options();
-    private final ImageDownloader downloader;
-    private final Object extraForDownloader;
-    private final String imageKey;
-    private final ImageScaleType imageScaleType;
-    private final String imageUri;
-    private final ImageLoadingListener listener;
-    private final String originalImageUri;
-    private final ImageSize targetSize;
-    private final ViewScaleType viewScaleType;
+    public final boolean considerExifParams;
+    public final BitmapFactory.Options decodingOptions = new BitmapFactory.Options();
+    public final ImageDownloader downloader;
+    public final Object extraForDownloader;
+    public final String imageKey;
+    public final ImageScaleType imageScaleType;
+    public final String imageUri;
+    public final ImageLoadingListener listener;
+    public final String originalImageUri;
+    public final ImageSize targetSize;
+    public final ViewScaleType viewScaleType;
 
     public ImageDecodingInfo(String str, String str2, String str3, ImageSize imageSize, ViewScaleType viewScaleType, ImageDownloader imageDownloader, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener) {
         this.imageKey = str;

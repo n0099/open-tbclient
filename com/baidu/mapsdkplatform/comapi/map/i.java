@@ -14,12 +14,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2224a;
-    private static Context b = BMapManager.getContext();
+    public static int f7632a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Context f7633b = BMapManager.getContext();
 
     static {
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
@@ -34,27 +36,27 @@ public class i {
     }
 
     public static void a() {
-        if (f2224a == 0) {
-            if (b == null) {
+        if (f7632a == 0) {
+            if (f7633b == null) {
                 throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
             VMsg.init();
-            AppEngine.InitEngine(b);
+            AppEngine.InitEngine(f7633b);
             AppEngine.StartSocketProc();
-            NetworkUtil.updateNetworkProxy(b);
+            NetworkUtil.updateNetworkProxy(f7633b);
         }
-        f2224a++;
+        f7632a++;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x015b A[Catch: Exception -> 0x01d2, TryCatch #1 {Exception -> 0x01d2, blocks: (B:10:0x00eb, B:12:0x0114, B:14:0x012b, B:16:0x014e, B:20:0x015b, B:22:0x0161, B:23:0x0164, B:25:0x0195, B:26:0x0198, B:28:0x01bb), top: B:44:0x00eb }] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x01c2 A[LOOP:0: B:30:0x01bf->B:32:0x01c2, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x01da A[LOOP:1: B:38:0x01da->B:40:0x01dd, LOOP_START, PHI: r1 
-      PHI: (r1v1 int) = (r1v0 int), (r1v2 int) binds: [B:37:0x01d8, B:40:0x01dd] A[DONT_GENERATE, DONT_INLINE]] */
-    /* JADX WARN: Removed duplicated region for block: B:50:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x00e5 A[Catch: Exception -> 0x015e, TryCatch #0 {Exception -> 0x015e, blocks: (B:10:0x006a, B:12:0x009f, B:14:0x00b6, B:16:0x00d6, B:21:0x00e5, B:23:0x00eb, B:24:0x00ee, B:26:0x011c, B:27:0x011f, B:29:0x013f), top: B:43:0x006a }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0145 A[LOOP:0: B:31:0x0143->B:32:0x0145, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0151 A[LOOP:1: B:34:0x0151->B:35:0x0153, LOOP_START, PHI: r9 
+      PHI: (r9v3 int) = (r9v2 int), (r9v4 int) binds: [B:33:0x014f, B:35:0x0153] A[DONT_GENERATE, DONT_INLINE]] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x015d A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static void a(Context context) {
+    public static void a(Context context) {
         boolean z;
         int i;
         if (context == null) {
@@ -99,13 +101,13 @@ public class i {
                                     file5.mkdirs();
                                 }
                             }
-                            for (i = 0; i < strArr4.length; i++) {
+                            for (i = 0; i < 1; i++) {
                                 com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr2[i], strArr4[i], context);
                             }
                             if (z) {
                                 return;
                             }
-                            for (int i2 = 0; i2 < strArr3.length; i2++) {
+                            for (int i2 = 0; i2 < 15; i2++) {
                                 com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr[i2], strArr3[i2], context);
                             }
                             return;
@@ -115,15 +117,15 @@ public class i {
                 z = true;
                 if (z) {
                 }
-                while (i < strArr4.length) {
+                while (i < 1) {
                 }
                 if (z) {
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
         }
     }
 
@@ -132,8 +134,9 @@ public class i {
     }
 
     public static void b() {
-        f2224a--;
-        if (f2224a == 0) {
+        int i = f7632a - 1;
+        f7632a = i;
+        if (i == 0) {
             AppEngine.UnInitEngine();
             VMsg.destroy();
         }

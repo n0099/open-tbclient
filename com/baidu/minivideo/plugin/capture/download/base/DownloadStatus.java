@@ -1,7 +1,7 @@
 package com.baidu.minivideo.plugin.capture.download.base;
 
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class DownloadStatus {
     public static final int STATUS_CANCELED = 107;
     public static final int STATUS_COMPLETED = 105;
@@ -11,55 +11,51 @@ public class DownloadStatus {
     public static final int STATUS_PAUSED = 106;
     public static final int STATUS_PROGRESS = 104;
     public static final int STATUS_STARTED = 101;
-    private boolean acceptRanges;
-    private DownloadCallback callBack;
-    private boolean calledCompleted;
-    private DownloadException exception;
-    private long finished;
-    private long length;
-    private int percent;
-    private String savedPath;
-    private int status;
-    private long time;
+    public boolean acceptRanges;
+    public DownloadCallback callBack;
+    public boolean calledCompleted;
+    public DownloadException exception;
+    public long finished;
+    public long length;
+    public int percent;
+    public String savedPath;
+    public int status;
+    public long time;
 
-    public int getStatus() {
-        return this.status;
+    public DownloadCallback getCallBack() {
+        return this.callBack;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public boolean getCalledCompleted() {
+        return this.calledCompleted;
     }
 
-    public long getTime() {
-        return this.time;
-    }
-
-    public void setTime(long j) {
-        this.time = j;
-    }
-
-    public long getLength() {
-        return this.length;
-    }
-
-    public void setLength(long j) {
-        this.length = j;
+    public Exception getException() {
+        return this.exception;
     }
 
     public long getFinished() {
         return this.finished;
     }
 
-    public void setFinished(long j) {
-        this.finished = j;
+    public long getLength() {
+        return this.length;
     }
 
     public int getPercent() {
         return this.percent;
     }
 
-    public void setPercent(int i) {
-        this.percent = i;
+    public String getSavedPath() {
+        return this.savedPath;
+    }
+
+    public int getStatus() {
+        return this.status;
+    }
+
+    public long getTime() {
+        return this.time;
     }
 
     public boolean isAcceptRanges() {
@@ -70,35 +66,39 @@ public class DownloadStatus {
         this.acceptRanges = z;
     }
 
-    public Exception getException() {
-        return this.exception;
-    }
-
-    public void setException(DownloadException downloadException) {
-        this.exception = downloadException;
-    }
-
-    public DownloadCallback getCallBack() {
-        return this.callBack;
-    }
-
     public void setCallBack(DownloadCallback downloadCallback) {
         this.callBack = downloadCallback;
-    }
-
-    public String getSavedPath() {
-        return this.savedPath;
-    }
-
-    public void setSavedPath(String str) {
-        this.savedPath = str;
     }
 
     public void setCalledCompleted(boolean z) {
         this.calledCompleted = z;
     }
 
-    public boolean getCalledCompleted() {
-        return this.calledCompleted;
+    public void setException(DownloadException downloadException) {
+        this.exception = downloadException;
+    }
+
+    public void setFinished(long j) {
+        this.finished = j;
+    }
+
+    public void setLength(long j) {
+        this.length = j;
+    }
+
+    public void setPercent(int i) {
+        this.percent = i;
+    }
+
+    public void setSavedPath(String str) {
+        this.savedPath = str;
+    }
+
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public void setTime(long j) {
+        this.time = j;
     }
 }

@@ -2,12 +2,14 @@ package com.baidu.android.imsdk.group;
 
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class EmojionUtils {
-    private static ArrayList<Integer> emojionlist = new ArrayList<>();
+    public static ArrayList<Integer> emojionlist;
 
     static {
-        emojionlist.add(128515);
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        emojionlist = arrayList;
+        arrayList.add(128515);
         emojionlist.add(128522);
         emojionlist.add(9786);
         emojionlist.add(128521);
@@ -139,7 +141,7 @@ public class EmojionUtils {
         return false;
     }
 
-    private static boolean isEmojiCharacter(char c) {
-        return emojionlist.contains(Character.valueOf(c));
+    public static boolean isEmojiCharacter(char c2) {
+        return emojionlist.contains(Character.valueOf(c2));
     }
 }

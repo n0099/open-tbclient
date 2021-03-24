@@ -1,39 +1,59 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import com.xiaomi.clientreport.processor.IEventProcessor;
-import com.xiaomi.clientreport.processor.IPerfProcessor;
-/* loaded from: classes5.dex */
-public class bi implements Runnable {
+import java.util.LinkedList;
+/* loaded from: classes7.dex */
+public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f8277a;
+    public LinkedList<a> f40284a = new LinkedList<>();
 
-    /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.clientreport.processor.c f126a;
+    /* loaded from: classes7.dex */
+    public static class a {
 
-    public void a(Context context) {
-        this.f8277a = context;
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public static final bi f40285a = new bi();
 
-    public void a(com.xiaomi.clientreport.processor.c cVar) {
-        this.f126a = cVar;
-    }
+        /* renamed from: a  reason: collision with other field name */
+        public int f150a;
 
-    @Override // java.lang.Runnable
-    public void run() {
-        try {
-            if (this.f126a != null) {
-                this.f126a.a();
-            }
-            com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
-            if (this.f126a instanceof IEventProcessor) {
-                bm.a(this.f8277a).m174a("sp_client_report_status", "event_last_upload_time", System.currentTimeMillis());
-            } else if (this.f126a instanceof IPerfProcessor) {
-                bm.a(this.f8277a).m174a("sp_client_report_status", "perf_last_upload_time", System.currentTimeMillis());
-            }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+        /* renamed from: a  reason: collision with other field name */
+        public Object f151a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f152a;
+
+        public a(int i, Object obj) {
+            this.f150a = i;
+            this.f151a = obj;
         }
+    }
+
+    public static bi a() {
+        return a.f40285a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    private void m158a() {
+        if (this.f40284a.size() > 100) {
+            this.f40284a.removeFirst();
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized int m159a() {
+        return this.f40284a.size();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized LinkedList<a> m160a() {
+        LinkedList<a> linkedList;
+        linkedList = this.f40284a;
+        this.f40284a = new LinkedList<>();
+        return linkedList;
+    }
+
+    public synchronized void a(Object obj) {
+        this.f40284a.add(new a(0, obj));
+        m158a();
     }
 }

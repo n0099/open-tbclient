@@ -2,73 +2,62 @@ package com.baidu.pass.biometrics.base.dynamicupdate;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
-import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioDataEncryptor;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.common.SecurityUtil;
-import com.xiaomi.mipush.sdk.Constants;
-import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class LocalConfigOptions {
     public static final int DEFAULT_ILLUM_GRAY = -1;
-    public static final int DEFAULT_ZIP_GRAY_THRESHOLD = 100;
+    public static final int DEFAULT_ILLUM_VALUE = 8;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f9521d = "pass_face_sdk";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f9522e = "illum_gray";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static LocalConfigOptions f9523f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2746a = ".BD_SAPI_CACHE";
-    private static final String b = "pass_face_sdk";
-    private static final String c = "illum_gray";
-    private static LocalConfigOptions d;
-    private String e;
-    private SharedPreferences f;
-    private Context g;
+    public String f9524a;
 
-    private LocalConfigOptions(Context context) {
-        this.g = context.getApplicationContext();
-        this.f = context.getApplicationContext().getSharedPreferences("bio_pass_face_system", 0);
+    /* renamed from: b  reason: collision with root package name */
+    public SharedPreferences f9525b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f9526c;
+
+    public LocalConfigOptions(Context context) {
+        this.f9526c = context.getApplicationContext();
+        this.f9525b = context.getApplicationContext().getSharedPreferences("bio_pass_face_system", 0);
     }
 
     private String a(String str) {
-        return this.f.getString(str, "");
-    }
-
-    public static String getExternalZipPath(String str) {
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + f2746a + "/" + b + "/" + SdkConfigOptions.HOST_VERSION + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".zip";
+        return this.f9525b.getString(str, "");
     }
 
     public static LocalConfigOptions getInstance(Context context) {
-        if (d == null) {
-            d = new LocalConfigOptions(context);
+        if (f9523f == null) {
+            f9523f = new LocalConfigOptions(context);
         }
-        return d;
-    }
-
-    public static String getInternalRootPath(Context context) {
-        return context.getDir(b, 0).getAbsolutePath();
-    }
-
-    public static String getInternalZipPath(Context context, String str) {
-        return new File(getInternalRootPath(context) + File.separator + b + File.separator + SdkConfigOptions.HOST_VERSION + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".zip").getAbsolutePath();
-    }
-
-    public static String getLoadSoPath(Context context) {
-        return new File(getInternalRootPath(context) + File.separator).getAbsolutePath();
+        return f9523f;
     }
 
     public SdkConfigOptions getBioOptions() {
-        String a2 = a(b);
+        String a2 = a(f9521d);
         if (!TextUtils.isEmpty(a2)) {
-            String decryptAccountInfo = PassBioDataEncryptor.decryptAccountInfo(a2, a(this.g));
+            String decryptAccountInfo = PassBioDataEncryptor.decryptAccountInfo(a2, a(this.f9526c));
             if (!TextUtils.isEmpty(decryptAccountInfo)) {
                 try {
                     return SdkConfigOptions.fromLocalJson(new JSONObject(decryptAccountInfo));
-                } catch (JSONException e) {
-                    Log.e(e);
+                } catch (JSONException e2) {
+                    Log.e(e2);
                 }
             }
         }
@@ -76,47 +65,40 @@ public class LocalConfigOptions {
     }
 
     public int getIllumVlaueGray() {
-        return getInt(c, -1);
+        return getInt(f9522e, -1);
     }
 
     public int getInt(String str, int i) {
-        return this.f.getInt(str, i);
+        return this.f9525b.getInt(str, i);
     }
 
     public void put(String str, int i) {
-        if (Build.VERSION.SDK_INT > 8) {
-            this.f.edit().putInt(str, i).apply();
-        } else {
-            this.f.edit().putInt(str, i).commit();
-        }
+        this.f9525b.edit().putInt(str, i).apply();
     }
 
     public void setBioOptions(SdkConfigOptions sdkConfigOptions) {
         if (sdkConfigOptions != null) {
-            a(b, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.g)));
+            Log.e("actions-setBioOptions", sdkConfigOptions);
+            a(f9521d, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.f9526c)));
         }
     }
 
     public void setIllumValueGray(int i) {
-        put(c, i);
+        put(f9522e, i);
     }
 
     private void a(String str, String str2) {
-        if (Build.VERSION.SDK_INT > 8) {
-            this.f.edit().putString(str, str2).apply();
-        } else {
-            this.f.edit().putString(str, str2).commit();
-        }
+        this.f9525b.edit().putString(str, str2).apply();
     }
 
     private String a(Context context) {
-        if (TextUtils.isEmpty(this.e)) {
+        if (TextUtils.isEmpty(this.f9524a)) {
             try {
-                this.e = SecurityUtil.md5((context.getPackageName() + PassBiometricUtil.getPackageSign(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
-            } catch (UnsupportedEncodingException e) {
-                Log.e(e);
+                this.f9524a = SecurityUtil.md5((context.getPackageName() + PassBiometricUtil.getPackageSign(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+            } catch (UnsupportedEncodingException e2) {
+                Log.e(e2);
             }
         }
-        return this.e;
+        return this.f9524a;
     }
 }

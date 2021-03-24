@@ -7,89 +7,102 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.view.a;
 import com.baidu.tieba.R;
+import d.b.h0.w.y.a;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class CommonTabWidgetView extends LinearLayout {
-    private EditorTools ael;
-    private CommonTabHorizonScrollView fGB;
-    private ImageView fGC;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void rj(int i);
+    /* renamed from: e  reason: collision with root package name */
+    public CommonTabHorizonScrollView f13925e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f13926f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public EditorTools f13927g;
+
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (CommonTabWidgetView.this.f13927g != null) {
+                CommonTabWidgetView.this.f13927g.A(new d.b.h0.w.a(3, 3, null));
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        init(context);
+        c(context);
     }
 
-    public CommonTabWidgetView(Context context) {
-        super(context);
-        init(context);
+    public void b(a.b bVar) {
+        this.f13925e.b(bVar);
     }
 
-    public void setEditorTools(EditorTools editorTools) {
-        this.ael = editorTools;
-    }
-
-    private void init(Context context) {
+    public final void c(Context context) {
         setVisibility(8);
         removeAllViews();
         LayoutInflater.from(context).inflate(R.layout.common_tab_widget, (ViewGroup) this, true);
-        this.fGB = (CommonTabHorizonScrollView) findViewById(R.id.privilege_tab_scroll_view);
-        this.fGC = (ImageView) findViewById(R.id.privilege_tab_delete);
-        this.fGC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.view.CommonTabWidgetView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (CommonTabWidgetView.this.ael != null) {
-                    CommonTabWidgetView.this.ael.b(new com.baidu.tbadk.editortools.a(3, 3, null));
-                }
-            }
-        });
+        this.f13925e = (CommonTabHorizonScrollView) findViewById(R.id.privilege_tab_scroll_view);
+        ImageView imageView = (ImageView) findViewById(R.id.privilege_tab_delete);
+        this.f13926f = imageView;
+        imageView.setOnClickListener(new a());
     }
 
-    public void setDatas(ArrayList<com.baidu.tbadk.editortools.view.a> arrayList) {
-        this.fGB.setDatas(arrayList);
-        if (arrayList == null || arrayList.size() <= 1) {
-            setVisibility(8);
-        } else {
-            setVisibility(0);
-        }
+    public void d(int i) {
+        SkinManager.setBackgroundColor(this, R.color.common_color_10223, i);
+        this.f13925e.e(i);
+        SkinManager.setImageResource(this.f13926f, R.drawable.but_face_close, i);
+        SkinManager.setBackgroundColor(this.f13926f, R.color.common_color_10224, i);
     }
 
-    public void c(a.b bVar) {
-        this.fGB.c(bVar);
+    public void e() {
+        this.f13925e.f();
     }
 
     public void setCurrentTab(int i) {
-        this.fGB.setCurrentTab(i);
+        this.f13925e.setCurrentTab(i);
     }
 
-    public void setOnTabSelectedListener(a aVar) {
-        this.fGB.setOnTabSelectedListener(aVar);
+    public void setDatas(ArrayList<d.b.h0.w.y.a> arrayList) {
+        this.f13925e.setDatas(arrayList);
+        if (arrayList != null && arrayList.size() > 1) {
+            setVisibility(0);
+        } else {
+            setVisibility(8);
+        }
     }
 
-    public void reset() {
-        this.fGB.reset();
+    public void setEditorTools(EditorTools editorTools) {
+        this.f13927g = editorTools;
     }
 
-    public void onChangeSkinType(int i) {
-        ap.setBackgroundColor(this, R.color.common_color_10223, i);
-        this.fGB.onChangeSkin(i);
-        ap.setImageResource(this.fGC, R.drawable.but_face_close, i);
-        ap.setBackgroundColor(this.fGC, R.color.common_color_10224, i);
+    public void setOnTabSelectedListener(b bVar) {
+        this.f13925e.setOnTabSelectedListener(bVar);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.fGC.setVisibility(0);
+            this.f13926f.setVisibility(0);
         } else {
-            this.fGC.setVisibility(8);
+            this.f13926f.setVisibility(8);
         }
+    }
+
+    public CommonTabWidgetView(Context context) {
+        super(context);
+        c(context);
     }
 }

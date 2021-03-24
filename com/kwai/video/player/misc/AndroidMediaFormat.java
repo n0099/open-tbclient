@@ -2,9 +2,10 @@ package com.kwai.video.player.misc;
 
 import android.annotation.TargetApi;
 import android.media.MediaFormat;
-/* loaded from: classes3.dex */
+import com.baidu.android.common.others.lang.StringUtil;
+/* loaded from: classes6.dex */
 public class AndroidMediaFormat implements IMediaFormat {
-    private final MediaFormat mMediaFormat;
+    public final MediaFormat mMediaFormat;
 
     public AndroidMediaFormat(MediaFormat mediaFormat) {
         this.mMediaFormat = mediaFormat;
@@ -13,31 +14,30 @@ public class AndroidMediaFormat implements IMediaFormat {
     @Override // com.kwai.video.player.misc.IMediaFormat
     @TargetApi(16)
     public int getInteger(String str) {
-        if (this.mMediaFormat == null) {
+        MediaFormat mediaFormat = this.mMediaFormat;
+        if (mediaFormat == null) {
             return 0;
         }
-        return this.mMediaFormat.getInteger(str);
+        return mediaFormat.getInteger(str);
     }
 
     @Override // com.kwai.video.player.misc.IMediaFormat
     @TargetApi(16)
     public String getString(String str) {
-        if (this.mMediaFormat == null) {
+        MediaFormat mediaFormat = this.mMediaFormat;
+        if (mediaFormat == null) {
             return null;
         }
-        return this.mMediaFormat.getString(str);
+        return mediaFormat.getString(str);
     }
 
     @TargetApi(16)
     public String toString() {
         StringBuilder sb = new StringBuilder(128);
-        sb.append(getClass().getName());
+        sb.append(AndroidMediaFormat.class.getName());
         sb.append('{');
-        if (this.mMediaFormat != null) {
-            sb.append(this.mMediaFormat.toString());
-        } else {
-            sb.append("null");
-        }
+        MediaFormat mediaFormat = this.mMediaFormat;
+        sb.append(mediaFormat != null ? mediaFormat.toString() : StringUtil.NULL_STRING);
         sb.append('}');
         return sb.toString();
     }

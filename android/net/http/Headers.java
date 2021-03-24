@@ -2,7 +2,7 @@ package android.net.http;
 
 import java.util.ArrayList;
 import org.apache.http.util.CharArrayBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public final class Headers {
     public static final String ACCEPT_RANGES = "accept-ranges";
     public static final String CACHE_CONTROL = "cache-control";
@@ -29,7 +29,7 @@ public final class Headers {
     public static final String WWW_AUTHENTICATE = "www-authenticate";
     public static final String X_PERMITTED_CROSS_DOMAIN_POLICIES = "x-permitted-cross-domain-policies";
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes.dex */
     public interface HeaderCallback {
         void header(String str, String str2);
     }
@@ -38,51 +38,7 @@ public final class Headers {
         throw new RuntimeException("Stub!");
     }
 
-    public void parseHeader(CharArrayBuffer charArrayBuffer) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public long getTransferEncoding() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public long getContentLength() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public int getConnectionType() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getContentType() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getContentEncoding() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getLocation() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getWwwAuthenticate() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getProxyAuthenticate() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getContentDisposition() {
-        throw new RuntimeException("Stub!");
-    }
-
     public String getAcceptRanges() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getExpires() {
         throw new RuntimeException("Stub!");
     }
 
@@ -90,7 +46,23 @@ public final class Headers {
         throw new RuntimeException("Stub!");
     }
 
-    public String getLastModified() {
+    public int getConnectionType() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String getContentDisposition() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String getContentEncoding() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public long getContentLength() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String getContentType() {
         throw new RuntimeException("Stub!");
     }
 
@@ -98,7 +70,19 @@ public final class Headers {
         throw new RuntimeException("Stub!");
     }
 
-    public ArrayList<String> getSetCookie() {
+    public String getExpires() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void getHeaders(HeaderCallback headerCallback) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String getLastModified() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String getLocation() {
         throw new RuntimeException("Stub!");
     }
 
@@ -106,11 +90,47 @@ public final class Headers {
         throw new RuntimeException("Stub!");
     }
 
+    public String getProxyAuthenticate() {
+        throw new RuntimeException("Stub!");
+    }
+
     public String getRefresh() {
         throw new RuntimeException("Stub!");
     }
 
+    public ArrayList<String> getSetCookie() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public long getTransferEncoding() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String getWwwAuthenticate() {
+        throw new RuntimeException("Stub!");
+    }
+
     public String getXPermittedCrossDomainPolicies() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void parseHeader(CharArrayBuffer charArrayBuffer) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setAcceptRanges(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setCacheControl(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setContentDisposition(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setContentEncoding(String str) {
         throw new RuntimeException("Stub!");
     }
 
@@ -122,27 +142,7 @@ public final class Headers {
         throw new RuntimeException("Stub!");
     }
 
-    public void setContentEncoding(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setLocation(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setWwwAuthenticate(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setProxyAuthenticate(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setContentDisposition(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setAcceptRanges(String str) {
+    public void setEtag(String str) {
         throw new RuntimeException("Stub!");
     }
 
@@ -150,23 +150,23 @@ public final class Headers {
         throw new RuntimeException("Stub!");
     }
 
-    public void setCacheControl(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
     public void setLastModified(String str) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setEtag(String str) {
+    public void setLocation(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setProxyAuthenticate(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setWwwAuthenticate(String str) {
         throw new RuntimeException("Stub!");
     }
 
     public void setXPermittedCrossDomainPolicies(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void getHeaders(HeaderCallback headerCallback) {
         throw new RuntimeException("Stub!");
     }
 }

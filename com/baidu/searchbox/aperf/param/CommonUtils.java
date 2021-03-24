@@ -6,28 +6,85 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.JsonReader;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.d.c.f;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
+import d.b.l.c.e;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CommonUtils {
-    private static final String SDK_VERSION = "sdkversion";
+    public static final String SDK_VERSION = "sdkversion";
     public static String sAppVersion;
     public static String sCPU;
     public static String sMemory;
     public static String sModel;
     public static String sOSVersion;
-    private static String sPackageName;
-    private static ConcurrentHashMap<String, String> sSDKVersionMap = new ConcurrentHashMap<>();
+    public static String sPackageName;
+    public static ConcurrentHashMap<String, String> sSDKVersionMap = new ConcurrentHashMap<>();
+
+    public static String getAppVersion() {
+        if (sAppVersion == null) {
+            String appVersion = AperfOverlayRuntime.getAperfOverlayContext().getAppVersion();
+            if (!TextUtils.isEmpty(appVersion)) {
+                sAppVersion = appVersion;
+                return appVersion;
+            }
+            try {
+                Context appContext = AppRuntime.getAppContext();
+                String str = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0).versionName;
+                sAppVersion = str;
+                return str;
+            } catch (PackageManager.NameNotFoundException e2) {
+                e2.printStackTrace();
+            }
+        }
+        return sAppVersion;
+    }
+
+    public static String getCPUInfo() {
+        if (sCPU == null) {
+            String str = Build.HARDWARE;
+            String num = Integer.toString(CpuInfoUtils.getNumCores());
+            String f2 = Float.toString(Math.round(CpuInfoUtils.getAveCpuFrequency() * 10.0f) / 10.0f);
+            String arrays = Arrays.toString(Build.VERSION.SDK_INT >= 21 ? Build.SUPPORTED_ABIS : new String[]{Build.CPU_ABI});
+            if (!TextUtils.isEmpty(arrays)) {
+                arrays = arrays.replace("[", "").replace("]", "");
+            }
+            sCPU = str + ";" + num + ";" + f2 + ";" + arrays;
+        }
+        return sCPU;
+    }
+
+    public static String getLogId() {
+        return UUID.randomUUID().toString().replace("-", "");
+    }
+
+    public static String getMemoryInfo() {
+        if (sMemory == null) {
+            String prop = RomUtils.getProp("dalvik.vm.heapstartsize");
+            String prop2 = RomUtils.getProp("dalvik.vm.heapgrowthlimit");
+            String prop3 = RomUtils.getProp("dalvik.vm.heapsize");
+            ActivityManager activityManager = (ActivityManager) AppRuntime.getAppContext().getSystemService("activity");
+            String valueOf = String.valueOf((new ActivityManager.MemoryInfo().totalMem / 1024) / 1024);
+            sMemory = (prop + ";" + prop2 + ";" + prop3 + ";" + valueOf).replace("m", "");
+        }
+        return sMemory;
+    }
+
+    public static String getModel() {
+        if (sModel == null) {
+            sModel = DeviceUtil.BrandInfo.getDeviceModel();
+        }
+        return sModel;
+    }
+
+    public static String getNetwork() {
+        return new e().b();
+    }
 
     public static String getOSVersion() {
         if (sOSVersion == null) {
@@ -36,50 +93,11 @@ public class CommonUtils {
         return sOSVersion;
     }
 
-    public static String getCPUInfo() {
-        if (sCPU == null) {
-            String str = Build.HARDWARE;
-            String num = Integer.toString(CpuInfoUtils.getNumCores());
-            String f = Float.toString(Math.round(CpuInfoUtils.getAveCpuFrequency() * 10.0f) / 10.0f);
-            String arrays = Arrays.toString(Build.VERSION.SDK_INT >= 21 ? Build.SUPPORTED_ABIS : new String[]{Build.CPU_ABI});
-            if (!TextUtils.isEmpty(arrays)) {
-                arrays = arrays.replace("[", "").replace("]", "");
-            }
-            sCPU = str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + num + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + f + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + arrays;
+    public static String getPackageName() {
+        if (sPackageName == null) {
+            sPackageName = AppRuntime.getAppContext().getPackageName();
         }
-        return sCPU;
-    }
-
-    public static String getMemoryInfo() {
-        if (sMemory == null) {
-            String prop = RomUtils.getProp("dalvik.vm.heapstartsize");
-            String prop2 = RomUtils.getProp("dalvik.vm.heapgrowthlimit");
-            String prop3 = RomUtils.getProp("dalvik.vm.heapsize");
-            ActivityManager activityManager = (ActivityManager) AppRuntime.getAppContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
-            String valueOf = String.valueOf((new ActivityManager.MemoryInfo().totalMem / 1024) / 1024);
-            StringBuilder sb = new StringBuilder();
-            sb.append(prop).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR).append(prop2).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR).append(prop3).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR).append(valueOf);
-            sMemory = sb.toString().replace("m", "");
-        }
-        return sMemory;
-    }
-
-    public static String getAppVersion() {
-        if (sAppVersion == null) {
-            String appVersion = AperfOverlayRuntime.getAperfOverlayContext().getAppVersion();
-            if (!TextUtils.isEmpty(appVersion)) {
-                sAppVersion = appVersion;
-                return sAppVersion;
-            }
-            try {
-                Context appContext = AppRuntime.getAppContext();
-                sAppVersion = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0).versionName;
-                return sAppVersion;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-        return sAppVersion;
+        return sPackageName;
     }
 
     public static String getSDKVersion(String str) {
@@ -96,32 +114,10 @@ public class CommonUtils {
                     }
                 }
                 jsonReader.endObject();
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
         return sSDKVersionMap.get(str);
-    }
-
-    public static String getModel() {
-        if (sModel == null) {
-            sModel = DeviceUtil.BrandInfo.getDeviceModel();
-        }
-        return sModel;
-    }
-
-    public static String getNetwork() {
-        return new f().getCurrentNetTypeId();
-    }
-
-    public static String getPackageName() {
-        if (sPackageName == null) {
-            sPackageName = AppRuntime.getAppContext().getPackageName();
-        }
-        return sPackageName;
-    }
-
-    public static String getLogId() {
-        return UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "");
     }
 }

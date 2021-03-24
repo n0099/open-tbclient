@@ -1,9 +1,8 @@
 package com.google.ar.core;
 
 import com.google.ar.core.ArCoreApk;
-/* loaded from: classes14.dex */
-enum f extends ArCoreApk.Availability {
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public enum f extends ArCoreApk.Availability {
     public f(String str, int i, int i2) {
         super(str, 5, 202, null);
     }

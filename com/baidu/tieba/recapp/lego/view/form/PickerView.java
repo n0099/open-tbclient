@@ -18,267 +18,262 @@ import android.widget.TimePicker;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.baidu.tieba.recapp.lego.view.form.FormItemBaseView;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Calendar;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
-public class PickerView extends FormItemBaseView implements DatePickerDialog.OnDateSetListener, DialogInterface.OnClickListener, View.OnClickListener, TimePicker.OnTimeChangedListener {
-    private int Xc;
-    private int Xe;
-    private int Xf;
-    private int Xg;
-    private int Xh;
-    private TextView jqG;
-    private String mContent;
-    private int mType;
-    private ImageView mYG;
-    private String[] mYH;
-    private DialogInterface.OnClickListener mYI;
-    private String mYa;
+/* loaded from: classes5.dex */
+public class PickerView extends FormItemBaseView implements View.OnClickListener, DatePickerDialog.OnDateSetListener, TimePicker.OnTimeChangedListener, DialogInterface.OnClickListener {
+    public int A;
+    public int B;
+    public int C;
+    public int D;
+    public int E;
+    public String[] F;
+    public String G;
+    public String H;
+    public DialogInterface.OnClickListener I;
+    public TextView x;
+    public ImageView y;
+    public int z;
+
+    /* loaded from: classes5.dex */
+    public class a implements DialogInterface.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            PickerView pickerView = PickerView.this;
+            pickerView.H = pickerView.F[i];
+            PickerView.this.x.setText(PickerView.this.H);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public b() {
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            if (!PickerView.this.a()) {
+                PickerView pickerView = PickerView.this;
+                pickerView.c(pickerView, FormItemBaseView.DrawableType.ERROR_FRAME);
+                return;
+            }
+            PickerView pickerView2 = PickerView.this;
+            pickerView2.c(pickerView2, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+        }
+    }
 
     public PickerView(Context context) {
         super(context);
-        this.jqG = null;
-        this.mYG = null;
-        this.mType = -1;
-        this.Xc = 0;
-        this.Xe = 0;
-        this.Xf = 0;
-        this.Xh = 0;
-        this.Xg = 0;
-        this.mYH = null;
-        this.mContent = "";
-        this.mYa = "";
-        this.mYI = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.1
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                PickerView.this.mYa = PickerView.this.mYH[i];
-                PickerView.this.jqG.setText(PickerView.this.mYa);
-            }
-        };
-        init();
+        this.x = null;
+        this.y = null;
+        this.z = -1;
+        this.A = 0;
+        this.B = 0;
+        this.C = 0;
+        this.D = 0;
+        this.E = 0;
+        this.F = null;
+        this.G = "";
+        this.H = "";
+        this.I = new a();
+        l();
     }
 
-    public PickerView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.jqG = null;
-        this.mYG = null;
-        this.mType = -1;
-        this.Xc = 0;
-        this.Xe = 0;
-        this.Xf = 0;
-        this.Xh = 0;
-        this.Xg = 0;
-        this.mYH = null;
-        this.mContent = "";
-        this.mYa = "";
-        this.mYI = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.1
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                PickerView.this.mYa = PickerView.this.mYH[i];
-                PickerView.this.jqG.setText(PickerView.this.mYa);
-            }
-        };
-        init();
-    }
-
-    public PickerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.jqG = null;
-        this.mYG = null;
-        this.mType = -1;
-        this.Xc = 0;
-        this.Xe = 0;
-        this.Xf = 0;
-        this.Xh = 0;
-        this.Xg = 0;
-        this.mYH = null;
-        this.mContent = "";
-        this.mYa = "";
-        this.mYI = new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.1
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i2) {
-                PickerView.this.mYa = PickerView.this.mYH[i2];
-                PickerView.this.jqG.setText(PickerView.this.mYa);
-            }
-        };
-        init();
-    }
-
-    private void init() {
-        Zo();
-        dEj();
-        setOnClickListener(this);
-        a(this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-    }
-
-    private void Zo() {
-        this.jqG = new TextView(this.mContext);
-        this.jqG.setTextSize(0, this.cLA);
-        this.jqG.setTextColor(this.mYy);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(15);
-        layoutParams.addRule(9);
-        addView(this.jqG, layoutParams);
-    }
-
-    private void dEj() {
-        Drawable drawable = this.mResources.getDrawable(R.drawable.form_picker_arrow);
-        this.mYG = new ImageView(this.mContext);
-        this.mYG.setBackgroundDrawable(drawable);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(11);
-        layoutParams.addRule(15);
-        addView(this.mYG, layoutParams);
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.d
+    public boolean a() {
+        return !TextUtils.isEmpty(this.H);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public boolean a(FormCard.b bVar) {
-        if (super.a(bVar)) {
+    public int b() {
+        return this.j;
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
+    public void e() {
+        this.H = "";
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
+    public boolean g(FormCard.b bVar) {
+        if (super.g(bVar)) {
             FormCard.e eVar = (FormCard.e) bVar;
-            this.mType = eVar.type;
-            this.mContent = eVar.content;
-            this.jqG.setText(this.mContent);
-            this.jqG.setTextSize(0, this.cLA);
-            ((ViewGroup.MarginLayoutParams) this.jqG.getLayoutParams()).leftMargin = this.mYr;
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mYG.getLayoutParams();
-            marginLayoutParams.width = this.mYr;
-            marginLayoutParams.rightMargin = this.mYr;
-            switch (this.mType) {
-                case 6:
-                    if (eVar.mVJ != null && eVar.mVJ.length > 0) {
-                        this.mYH = eVar.mVJ;
-                        break;
-                    } else {
-                        return false;
-                    }
-                    break;
-                case 7:
-                    Calendar calendar = Calendar.getInstance();
-                    this.Xc = calendar.get(1);
-                    this.Xe = calendar.get(2);
-                    this.Xf = calendar.get(5);
-                    break;
-                case 8:
-                    Calendar calendar2 = Calendar.getInstance();
-                    this.Xg = calendar2.get(10);
-                    this.Xh = calendar2.get(12);
-                    break;
-                default:
-                    this.Xc = 0;
-                    this.Xe = 0;
-                    this.Xf = 0;
-                    this.Xg = 0;
-                    this.Xh = 0;
+            this.z = eVar.f20730a;
+            String str = eVar.f20731b;
+            this.G = str;
+            this.x.setText(str);
+            this.x.setTextSize(0, this.n);
+            ((ViewGroup.MarginLayoutParams) this.x.getLayoutParams()).leftMargin = this.f20825g;
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.y.getLayoutParams();
+            int i = this.f20825g;
+            marginLayoutParams.width = i;
+            marginLayoutParams.rightMargin = i;
+            int i2 = this.z;
+            if (i2 == 6) {
+                String[] strArr = eVar.f20737d;
+                if (strArr == null || strArr.length <= 0) {
                     return false;
+                }
+                this.F = strArr;
+            } else if (i2 == 7) {
+                Calendar calendar = Calendar.getInstance();
+                this.A = calendar.get(1);
+                this.B = calendar.get(2);
+                this.C = calendar.get(5);
+            } else if (i2 != 8) {
+                this.A = 0;
+                this.B = 0;
+                this.C = 0;
+                this.E = 0;
+                this.D = 0;
+                return false;
+            } else {
+                Calendar calendar2 = Calendar.getInstance();
+                this.E = calendar2.get(10);
+                this.D = calendar2.get(12);
             }
             return true;
         }
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public int dEi() {
-        return this.mYu;
+    public String getResult() {
+        return this.H;
     }
 
-    @Override // android.app.DatePickerDialog.OnDateSetListener
-    public void onDateSet(DatePicker datePicker, int i, int i2, int i3) {
-        this.Xc = datePicker.getYear();
-        this.Xe = datePicker.getMonth();
-        this.Xf = datePicker.getDayOfMonth();
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.Xc).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.Xe + 1).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(this.Xf);
-        this.mYa = sb.toString();
-        this.jqG.setText(this.mYa);
+    public final void l() {
+        n();
+        m();
+        setOnClickListener(this);
+        c(this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
     }
 
-    @Override // android.widget.TimePicker.OnTimeChangedListener
-    public void onTimeChanged(TimePicker timePicker, int i, int i2) {
-        this.mYa = dk(i, i2);
+    public final void m() {
+        Drawable drawable = this.f20824f.getDrawable(R.drawable.form_picker_arrow);
+        ImageView imageView = new ImageView(this.f20823e);
+        this.y = imageView;
+        imageView.setBackgroundDrawable(drawable);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(11);
+        layoutParams.addRule(15);
+        addView(this.y, layoutParams);
+    }
+
+    public final void n() {
+        TextView textView = new TextView(this.f20823e);
+        this.x = textView;
+        textView.setTextSize(0, this.n);
+        this.x.setTextColor(this.m);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(15);
+        layoutParams.addRule(9);
+        addView(this.x, layoutParams);
+    }
+
+    public final void o(Dialog dialog) {
+        dialog.setOnDismissListener(new b());
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == -1) {
-            if (TextUtils.isEmpty(this.mYa)) {
-                this.mYa = dk(this.Xg, this.Xh);
+            if (TextUtils.isEmpty(this.H)) {
+                this.H = p(this.E, this.D);
             }
-            this.jqG.setText(this.mYa);
+            this.x.setText(this.H);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        switch (this.mType) {
-            case 6:
-                if (this.mYH != null && this.mYH.length > 0) {
-                    g(new AlertDialog.Builder(this.mContext).setTitle(this.mContent).setItems(this.mYH, this.mYI).show());
-                    return;
-                }
-                return;
-            case 7:
-                DatePickerDialog datePickerDialog = new DatePickerDialog(this.mContext, this, this.Xc, this.Xe, this.Xf);
-                datePickerDialog.getDatePicker().setDescendantFocusability(393216);
-                datePickerDialog.show();
-                g(datePickerDialog);
-                return;
-            case 8:
-                TimePicker timePicker = new TimePicker(this.mContext);
-                timePicker.setCurrentHour(Integer.valueOf(this.Xg));
-                timePicker.setCurrentMinute(Integer.valueOf(this.Xh));
-                timePicker.setDescendantFocusability(393216);
-                timePicker.setOnTimeChangedListener(this);
-                timePicker.setIs24HourView(true);
-                g(new AlertDialog.Builder(this.mContext).setView(timePicker).setPositiveButton(R.string.dialog_ok, this).setNegativeButton(R.string.dialog_cancel, this).show());
-                return;
-            default:
-                return;
-        }
+    @Override // android.app.DatePickerDialog.OnDateSetListener
+    public void onDateSet(DatePicker datePicker, int i, int i2, int i3) {
+        this.A = datePicker.getYear();
+        this.B = datePicker.getMonth();
+        this.C = datePicker.getDayOfMonth();
+        String str = this.A + "-" + (this.B + 1) + "-" + this.C;
+        this.H = str;
+        this.x.setText(str);
     }
 
-    private void g(Dialog dialog) {
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.recapp.lego.view.form.PickerView.2
-            @Override // android.content.DialogInterface.OnDismissListener
-            public void onDismiss(DialogInterface dialogInterface) {
-                if (!PickerView.this.dDZ()) {
-                    PickerView.this.a(PickerView.this, FormItemBaseView.DrawableType.ERROR_FRAME);
-                } else {
-                    PickerView.this.a(PickerView.this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-                }
-            }
-        });
+    @Override // android.widget.TimePicker.OnTimeChangedListener
+    public void onTimeChanged(TimePicker timePicker, int i, int i2) {
+        this.H = p(i, i2);
     }
 
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean dDZ() {
-        return !TextUtils.isEmpty(this.mYa);
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public String getResult() {
-        return this.mYa;
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    protected void reset() {
-        this.mYa = "";
-    }
-
-    private String dk(int i, int i2) {
-        this.Xg = i;
-        this.Xh = i2;
-        String num = Integer.toString(this.Xh);
-        String num2 = Integer.toString(this.Xg);
+    public final String p(int i, int i2) {
+        this.E = i;
+        this.D = i2;
+        String num = Integer.toString(i2);
+        String num2 = Integer.toString(this.E);
         if (Pattern.matches("\\d", num2)) {
             num2 = "0" + num2;
         }
         if (Pattern.matches("\\d", num)) {
             num = "0" + num;
         }
-        StringBuilder sb = new StringBuilder();
-        sb.append(num2).append(":").append(num);
-        return sb.toString();
+        return num2 + ":" + num;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i = this.z;
+        if (i == 6) {
+            String[] strArr = this.F;
+            if (strArr == null || strArr.length <= 0) {
+                return;
+            }
+            o(new AlertDialog.Builder(this.f20823e).setTitle(this.G).setItems(this.F, this.I).show());
+        } else if (i == 7) {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this.f20823e, this, this.A, this.B, this.C);
+            datePickerDialog.getDatePicker().setDescendantFocusability(393216);
+            datePickerDialog.show();
+            o(datePickerDialog);
+        } else if (i != 8) {
+        } else {
+            TimePicker timePicker = new TimePicker(this.f20823e);
+            timePicker.setCurrentHour(Integer.valueOf(this.E));
+            timePicker.setCurrentMinute(Integer.valueOf(this.D));
+            timePicker.setDescendantFocusability(393216);
+            timePicker.setOnTimeChangedListener(this);
+            timePicker.setIs24HourView(Boolean.TRUE);
+            o(new AlertDialog.Builder(this.f20823e).setView(timePicker).setPositiveButton(R.string.dialog_ok, this).setNegativeButton(R.string.dialog_cancel, this).show());
+        }
+    }
+
+    public PickerView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.x = null;
+        this.y = null;
+        this.z = -1;
+        this.A = 0;
+        this.B = 0;
+        this.C = 0;
+        this.D = 0;
+        this.E = 0;
+        this.F = null;
+        this.G = "";
+        this.H = "";
+        this.I = new a();
+        l();
+    }
+
+    public PickerView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.x = null;
+        this.y = null;
+        this.z = -1;
+        this.A = 0;
+        this.B = 0;
+        this.C = 0;
+        this.D = 0;
+        this.E = 0;
+        this.F = null;
+        this.G = "";
+        this.H = "";
+        this.I = new a();
+        l();
     }
 }

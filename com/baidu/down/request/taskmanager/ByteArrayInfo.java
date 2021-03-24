@@ -3,7 +3,7 @@ package com.baidu.down.request.taskmanager;
 import android.os.Build;
 import android.util.Log;
 import com.baidu.down.request.task.AbstractTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ByteArrayInfo {
     public byte[] mByteArray;
     public int mByteArrayLength;
@@ -19,9 +19,10 @@ public class ByteArrayInfo {
         }
     }
 
-    protected void finalize() throws Throwable {
+    public void finalize() throws Throwable {
         if (!this.mRecycled) {
-            Log.w(ByteArrayInfo.class.getSimpleName(), "### Maybe ByteArrayInfo has not been recycled! last used : " + this.mkey + ", pos=" + this.mFilePos + ", len=" + this.mByteArrayLength);
+            String simpleName = ByteArrayInfo.class.getSimpleName();
+            Log.w(simpleName, "### Maybe ByteArrayInfo has not been recycled! last used : " + this.mkey + ", pos=" + this.mFilePos + ", len=" + this.mByteArrayLength);
         }
         super.finalize();
     }

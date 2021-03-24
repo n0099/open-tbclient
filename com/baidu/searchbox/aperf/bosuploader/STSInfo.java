@@ -1,12 +1,12 @@
 package com.baidu.searchbox.aperf.bosuploader;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class STSInfo {
     public String ak;
     public String bucket;
     public String endpoint;
     public String expired;
     public long expiredAt;
-    private String mOrigin;
+    public String mOrigin;
     public String sk;
     public String token;
 

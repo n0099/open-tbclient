@@ -3,16 +3,14 @@ package com.baidu.ufosdk.ui;
 import android.view.View;
 import android.widget.TextView;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class dy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f3751a;
+    public final /* synthetic */ FeedbackReportActivity f23197a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public dy(FeedbackReportActivity feedbackReportActivity) {
-        this.f3751a = feedbackReportActivity;
+        this.f23197a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,30 +23,30 @@ public final class dy implements View.OnClickListener {
         byte[] bArr2;
         TextView textView;
         List list4;
-        z = this.f3751a.B;
+        z = this.f23197a.B;
         if (z) {
             return;
         }
-        list = this.f3751a.x;
+        list = this.f23197a.x;
         list.remove(((Integer) view.getTag()).intValue());
-        list2 = this.f3751a.x;
+        list2 = this.f23197a.x;
         if (list2.size() == 1) {
-            byte[] b = com.baidu.ufosdk.f.m.b(this.f3751a.getApplicationContext());
-            if (b == null) {
+            byte[] b2 = com.baidu.ufosdk.f.m.b(this.f23197a.getApplicationContext());
+            if (b2 == null) {
                 return;
             }
-            list4 = this.f3751a.x;
-            list4.set(0, b);
+            list4 = this.f23197a.x;
+            list4.set(0, b2);
         }
-        bArr = this.f3751a.j;
+        bArr = this.f23197a.j;
         if (bArr != null) {
-            list3 = this.f3751a.x;
-            bArr2 = this.f3751a.j;
+            list3 = this.f23197a.x;
+            bArr2 = this.f23197a.j;
             if (!list3.contains(bArr2)) {
-                textView = this.f3751a.r;
+                textView = this.f23197a.r;
                 textView.setText("上传截图");
             }
         }
-        this.f3751a.c();
+        this.f23197a.c();
     }
 }

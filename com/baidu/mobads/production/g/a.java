@@ -10,27 +10,27 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.vo.d;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected IXAdProd f2462a;
+    public IXAdProd f8471a;
 
     public a(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, IXAdProd iXAdProd) {
         super(context, activity, slotType);
-        this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
-        this.f2462a = iXAdProd;
+        this.f8625b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.f8471a = iXAdProd;
     }
 
     @Override // com.baidu.mobads.vo.d
-    protected HashMap<String, String> a() {
+    public HashMap<String, String> a() {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "video/mp4,image/jpg,image/gif,image/png");
         hashMap.put("prod", "video");
         hashMap.put(IXAdRequestInfo.FET, "ANTI,HTML,MSSP,VIDEO,NMON");
         hashMap.put("at", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
         hashMap.put("n", "1");
-        if (this.f2462a.getProdBase() == null && getApt() != AdSize.PrerollVideoNative.getValue()) {
+        if (this.f8471a.getProdBase() == null && getApt() != AdSize.PrerollVideoNative.getValue()) {
             hashMap.put(IXAdRequestInfo.QUERY_WIDTH, "640");
             hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, "480");
         }

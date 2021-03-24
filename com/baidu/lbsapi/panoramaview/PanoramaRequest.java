@@ -4,133 +4,92 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.lbsapi.model.BaiduPanoData;
 import com.baidu.lbsapi.model.BaiduPoiPanoData;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.pano.platform.c.c;
 import com.baidu.pano.platform.c.f;
 import com.baidu.pano.platform.c.i;
 import com.baidu.pano.platform.comjni.JNITool;
-import com.baidu.webkit.internal.ETAG;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PanoramaRequest {
-    private static PanoramaRequest b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static PanoramaRequest f6365b;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1889a;
+    public Context f6366a;
 
-    private PanoramaRequest(Context context) {
-        this.f1889a = context;
-    }
-
-    public static PanoramaRequest getInstance(Context context) {
-        if (b == null) {
-            b = new PanoramaRequest(context);
-        }
-        return b;
-    }
-
-    public String getPanoramaByIIdWithJson(String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("The parameter iid can't be null or empty string!");
-        }
-        return c(c.a(this.f1889a).b(i.f2727a + "&iid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.f1889a).toString()));
-    }
-
-    public String getPanoramaRecommendInfo(String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("The parameter pid can't be null or empty string!");
-        }
-        return c.a(this.f1889a).b(i.b + "&sid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.f1889a).toString());
-    }
-
-    public String getPoiInfoByUidWithJson(String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("The parameter uid can't be null or empty string!");
-        }
-        return c.a(this.f1889a).b(i.e + "&action=1&uid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.f1889a).toString());
-    }
-
-    public BaiduPanoData getPanoramaInfoByLatLon(double d, double d2) {
-        return getPanoramaInfoByMercator((int) JNITool.ll2mc(d, d2).x, (int) JNITool.ll2mc(d, d2).y);
-    }
-
-    public BaiduPanoData getPanoramaInfoByMercator(int i, int i2) {
-        return a(c.a(this.f1889a).b(i.d + "&x=" + i + "&y=" + i2 + "&action=1&" + f.a(this.f1889a).toString()));
-    }
-
-    public BaiduPoiPanoData getPanoramaInfoByUid(String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("The parameter uid can't be null or empty string!");
-        }
-        return b(c.a(this.f1889a).b(i.e + "&uid=" + str + "&action=1&" + f.a(this.f1889a).toString()));
+    public PanoramaRequest(Context context) {
+        this.f6366a = context;
     }
 
     private BaiduPanoData a(String str) {
         BaiduPanoData baiduPanoData = new BaiduPanoData();
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.has("content")) {
-                    JSONArray jSONArray = jSONObject.getJSONArray("content");
-                    if (jSONArray.length() > 0) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(0);
-                        String optString = jSONObject2.optString("ID", "");
-                        jSONObject2.optString("Mode", "");
-                        String optString2 = jSONObject2.optString("Rname", "");
-                        int optInt = jSONObject2.optInt("X", 0);
-                        int optInt2 = jSONObject2.optInt("Y", 0);
-                        baiduPanoData.setX(optInt);
-                        baiduPanoData.setY(optInt2);
-                        baiduPanoData.setPid(optString);
-                        baiduPanoData.setName(optString2);
-                    }
+        if (TextUtils.isEmpty(str)) {
+            return baiduPanoData;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.has("content")) {
+                JSONArray jSONArray = jSONObject.getJSONArray("content");
+                if (jSONArray.length() > 0) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(0);
+                    String optString = jSONObject2.optString("ID", "");
+                    jSONObject2.optString("Mode", "");
+                    String optString2 = jSONObject2.optString("Rname", "");
+                    int optInt = jSONObject2.optInt("X", 0);
+                    int optInt2 = jSONObject2.optInt("Y", 0);
+                    baiduPanoData.setX(optInt);
+                    baiduPanoData.setY(optInt2);
+                    baiduPanoData.setPid(optString);
+                    baiduPanoData.setName(optString2);
                 }
-                baiduPanoData.setErrorCode(jSONObject.has("result") ? jSONObject.getJSONObject("result").optInt(BdStatsConstant.StatsType.ERROR, 404) : 404);
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
+            baiduPanoData.setErrorCode(jSONObject.has("result") ? jSONObject.getJSONObject("result").optInt("error", 404) : 404);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return baiduPanoData;
     }
 
     private BaiduPoiPanoData b(String str) {
         BaiduPoiPanoData baiduPoiPanoData = new BaiduPoiPanoData();
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.has("content")) {
-                    JSONArray jSONArray = jSONObject.getJSONArray("content");
-                    if (jSONArray.length() > 0) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(0);
-                        if (jSONObject2.has("poiinfo")) {
-                            JSONObject jSONObject3 = jSONObject2.getJSONObject("poiinfo");
-                            String optString = jSONObject3.optString("IID", "");
-                            String optString2 = jSONObject3.optString("PID", "");
-                            String optString3 = jSONObject3.optString("UID", "");
-                            int optInt = jSONObject3.optInt("X", 0);
-                            int optInt2 = jSONObject3.optInt("Y", 0);
-                            String optString4 = jSONObject3.optString("name", "");
-                            String optString5 = jSONObject3.optString("std_tag", "");
-                            baiduPoiPanoData.setX(optInt);
-                            baiduPoiPanoData.setY(optInt2);
-                            baiduPoiPanoData.setHeading(jSONObject3.optInt("Dir", 0));
-                            baiduPoiPanoData.setPitch(jSONObject3.optInt("Pitch", 0));
-                            baiduPoiPanoData.setPid(optString2);
-                            baiduPoiPanoData.setUid(optString3);
-                            baiduPoiPanoData.setIid(optString);
-                            baiduPoiPanoData.setName(optString4);
-                            baiduPoiPanoData.setPanoTag(optString5);
-                        }
+        if (TextUtils.isEmpty(str)) {
+            return baiduPoiPanoData;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.has("content")) {
+                JSONArray jSONArray = jSONObject.getJSONArray("content");
+                if (jSONArray.length() > 0) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(0);
+                    if (jSONObject2.has("poiinfo")) {
+                        JSONObject jSONObject3 = jSONObject2.getJSONObject("poiinfo");
+                        String optString = jSONObject3.optString("IID", "");
+                        String optString2 = jSONObject3.optString("PID", "");
+                        String optString3 = jSONObject3.optString("UID", "");
+                        int optInt = jSONObject3.optInt("X", 0);
+                        int optInt2 = jSONObject3.optInt("Y", 0);
+                        String optString4 = jSONObject3.optString("name", "");
+                        String optString5 = jSONObject3.optString("std_tag", "");
+                        baiduPoiPanoData.setX(optInt);
+                        baiduPoiPanoData.setY(optInt2);
+                        baiduPoiPanoData.setHeading(jSONObject3.optInt("Dir", 0));
+                        baiduPoiPanoData.setPitch(jSONObject3.optInt("Pitch", 0));
+                        baiduPoiPanoData.setPid(optString2);
+                        baiduPoiPanoData.setUid(optString3);
+                        baiduPoiPanoData.setIid(optString);
+                        baiduPoiPanoData.setName(optString4);
+                        baiduPoiPanoData.setPanoTag(optString5);
                     }
                 }
-                baiduPoiPanoData.setErrorCode(jSONObject.has("result") ? jSONObject.getJSONObject("result").optInt(BdStatsConstant.StatsType.ERROR, 404) : 404);
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
+            baiduPoiPanoData.setErrorCode(jSONObject.has("result") ? jSONObject.getJSONObject("result").optInt("error", 404) : 404);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return baiduPoiPanoData;
     }
@@ -165,5 +124,48 @@ public class PanoramaRequest {
         }
         matcher4.appendTail(stringBuffer4);
         return stringBuffer4.toString();
+    }
+
+    public static PanoramaRequest getInstance(Context context) {
+        if (f6365b == null) {
+            f6365b = new PanoramaRequest(context);
+        }
+        return f6365b;
+    }
+
+    public String getPanoramaByIIdWithJson(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            return c(c.a(this.f6366a).b(i.f9457a + "&iid=" + str + "&" + f.a(this.f6366a).toString()));
+        }
+        throw new IllegalArgumentException("The parameter iid can't be null or empty string!");
+    }
+
+    public BaiduPanoData getPanoramaInfoByLatLon(double d2, double d3) {
+        return getPanoramaInfoByMercator((int) JNITool.ll2mc(d2, d3).x, (int) JNITool.ll2mc(d2, d3).y);
+    }
+
+    public BaiduPanoData getPanoramaInfoByMercator(int i, int i2) {
+        return a(c.a(this.f6366a).b(i.f9460d + "&x=" + i + "&y=" + i2 + "&action=1&" + f.a(this.f6366a).toString()));
+    }
+
+    public BaiduPoiPanoData getPanoramaInfoByUid(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            return b(c.a(this.f6366a).b(i.f9461e + "&uid=" + str + "&action=1&" + f.a(this.f6366a).toString()));
+        }
+        throw new IllegalArgumentException("The parameter uid can't be null or empty string!");
+    }
+
+    public String getPanoramaRecommendInfo(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            return c.a(this.f6366a).b(i.f9458b + "&sid=" + str + "&" + f.a(this.f6366a).toString());
+        }
+        throw new IllegalArgumentException("The parameter pid can't be null or empty string!");
+    }
+
+    public String getPoiInfoByUidWithJson(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            return c.a(this.f6366a).b(i.f9461e + "&action=1&uid=" + str + "&" + f.a(this.f6366a).toString());
+        }
+        throw new IllegalArgumentException("The parameter uid can't be null or empty string!");
     }
 }

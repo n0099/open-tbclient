@@ -6,93 +6,92 @@ import android.os.Build;
 import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.mobstat.Config;
 import com.kwad.sdk.glide.load.b.l;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f6637a = "0123456789abcdef".toCharArray();
-    private static final char[] b = new char[64];
+    public static final char[] f35228a = "0123456789abcdef".toCharArray();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public static final char[] f35229b = new char[64];
+
     /* renamed from: com.kwad.sdk.glide.g.k$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f6638a = new int[Bitmap.Config.values().length];
+        public static final /* synthetic */ int[] f35230a;
 
         static {
+            int[] iArr = new int[Bitmap.Config.values().length];
+            f35230a = iArr;
             try {
-                f6638a[Bitmap.Config.ALPHA_8.ordinal()] = 1;
-            } catch (NoSuchFieldError e) {
+                iArr[Bitmap.Config.ALPHA_8.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
             try {
-                f6638a[Bitmap.Config.RGB_565.ordinal()] = 2;
-            } catch (NoSuchFieldError e2) {
+                f35230a[Bitmap.Config.RGB_565.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
             try {
-                f6638a[Bitmap.Config.ARGB_4444.ordinal()] = 3;
-            } catch (NoSuchFieldError e3) {
+                f35230a[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
             try {
-                f6638a[Bitmap.Config.RGBA_F16.ordinal()] = 4;
-            } catch (NoSuchFieldError e4) {
+                f35230a[Bitmap.Config.RGBA_F16.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
             try {
-                f6638a[Bitmap.Config.ARGB_8888.ordinal()] = 5;
-            } catch (NoSuchFieldError e5) {
+                f35230a[Bitmap.Config.ARGB_8888.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
             }
         }
     }
 
-    public static int a(float f) {
-        return a(f, 17);
+    public static int a(float f2) {
+        return a(f2, 17);
     }
 
-    public static int a(float f, int i) {
-        return b(Float.floatToIntBits(f), i);
+    public static int a(float f2, int i) {
+        return b(Float.floatToIntBits(f2), i);
     }
 
     public static int a(int i, int i2, @Nullable Bitmap.Config config) {
         return i * i2 * a(config);
     }
 
-    private static int a(@Nullable Bitmap.Config config) {
+    public static int a(@Nullable Bitmap.Config config) {
         if (config == null) {
             config = Bitmap.Config.ARGB_8888;
         }
-        switch (AnonymousClass1.f6638a[config.ordinal()]) {
-            case 1:
-                return 1;
-            case 2:
-            case 3:
+        int i = AnonymousClass1.f35230a[config.ordinal()];
+        if (i != 1) {
+            if (i == 2 || i == 3) {
                 return 2;
-            case 4:
-                return 8;
-            default:
-                return 4;
+            }
+            return i != 4 ? 4 : 8;
         }
+        return 1;
     }
 
     @TargetApi(19)
     public static int a(@NonNull Bitmap bitmap) {
-        if (bitmap.isRecycled()) {
-            throw new IllegalStateException("Cannot obtain size for recycled Bitmap: " + bitmap + "[" + bitmap.getWidth() + Config.EVENT_HEAT_X + bitmap.getHeight() + "] " + bitmap.getConfig());
-        }
-        if (Build.VERSION.SDK_INT >= 19) {
-            try {
-                return bitmap.getAllocationByteCount();
-            } catch (NullPointerException e) {
+        if (!bitmap.isRecycled()) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                try {
+                    return bitmap.getAllocationByteCount();
+                } catch (NullPointerException unused) {
+                }
             }
+            return bitmap.getHeight() * bitmap.getRowBytes();
         }
-        return bitmap.getHeight() * bitmap.getRowBytes();
+        throw new IllegalStateException("Cannot obtain size for recycled Bitmap: " + bitmap + "[" + bitmap.getWidth() + "x" + bitmap.getHeight() + "] " + bitmap.getConfig());
     }
 
     public static int a(@Nullable Object obj, int i) {
@@ -106,18 +105,20 @@ public final class k {
     @NonNull
     public static String a(@NonNull byte[] bArr) {
         String a2;
-        synchronized (b) {
-            a2 = a(bArr, b);
+        synchronized (f35229b) {
+            a2 = a(bArr, f35229b);
         }
         return a2;
     }
 
     @NonNull
-    private static String a(@NonNull byte[] bArr, @NonNull char[] cArr) {
+    public static String a(@NonNull byte[] bArr, @NonNull char[] cArr) {
         for (int i = 0; i < bArr.length; i++) {
             int i2 = bArr[i] & 255;
-            cArr[i * 2] = f6637a[i2 >>> 4];
-            cArr[(i * 2) + 1] = f6637a[i2 & 15];
+            int i3 = i * 2;
+            char[] cArr2 = f35228a;
+            cArr[i3] = cArr2[i2 >>> 4];
+            cArr[i3 + 1] = cArr2[i2 & 15];
         }
         return new String(cArr);
     }
@@ -160,7 +161,7 @@ public final class k {
         return Looper.myLooper() == Looper.getMainLooper();
     }
 
-    private static boolean b(int i) {
+    public static boolean b(int i) {
         return i > 0 || i == Integer.MIN_VALUE;
     }
 

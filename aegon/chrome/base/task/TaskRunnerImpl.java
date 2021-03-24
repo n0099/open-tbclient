@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class TaskRunnerImpl implements TaskRunner {
-    public static final /* synthetic */ boolean $assertionsDisabled = !TaskRunnerImpl.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public boolean mIsDestroying;
     public final LifetimeAssert mLifetimeAssert;
     public long mNativeTaskRunnerAndroid;
@@ -28,7 +28,7 @@ public class TaskRunnerImpl implements TaskRunner {
     public final Runnable mRunPreNativeTaskClosure = TaskRunnerImpl$$Lambda$1.lambdaFactory$(this);
 
     public TaskRunnerImpl(TaskTraits taskTraits, String str, int i) {
-        boolean z;
+        boolean z = false;
         this.mLifetimeAssert = !BuildConfig.DCHECK_IS_ON ? null : new LifetimeAssert(new LifetimeAssert.WrappedReference(this, new LifetimeAssert.CreationException(), false));
         this.mPreNativeTasks = new LinkedList<>();
         this.mPreNativeDelayedTasks = new ArrayList();
@@ -39,8 +39,6 @@ public class TaskRunnerImpl implements TaskRunner {
         if (set != null) {
             set.add(this);
             z = true;
-        } else {
-            z = false;
         }
         if (z) {
             return;
@@ -50,7 +48,7 @@ public class TaskRunnerImpl implements TaskRunner {
 
     private native void nativeDestroy(long j);
 
-    private native long nativeInit(int i, boolean z, int i2, boolean z2, boolean z3, byte b, byte[] bArr);
+    private native long nativeInit(int i, boolean z, int i2, boolean z2, boolean z3, byte b2, byte[] bArr);
 
     private native void nativePostDelayedTask(long j, Runnable runnable, long j2);
 
@@ -118,9 +116,6 @@ public class TaskRunnerImpl implements TaskRunner {
     @Override // aegon.chrome.base.task.TaskRunner
     public void postDelayedTask(Runnable runnable, long j) {
         synchronized (this.mLock) {
-            if (!$assertionsDisabled && this.mIsDestroying) {
-                throw new AssertionError();
-            }
             if (this.mPreNativeTasks == null) {
                 postDelayedTaskToNative(runnable, j);
                 return;
@@ -152,13 +147,7 @@ public class TaskRunnerImpl implements TaskRunner {
                 }
                 Runnable poll = this.mPreNativeTasks.poll();
                 int i = this.mTaskTraits.mPriority;
-                if (i == 1) {
-                    Process.setThreadPriority(0);
-                } else if (i != 2) {
-                    Process.setThreadPriority(10);
-                } else {
-                    Process.setThreadPriority(-1);
-                }
+                Process.setThreadPriority(i != 1 ? i != 2 ? 10 : -1 : 0);
                 poll.run();
                 if (scoped != null) {
                     scoped.close();
@@ -169,14 +158,10 @@ public class TaskRunnerImpl implements TaskRunner {
                 throw th;
             } catch (Throwable th2) {
                 if (scoped != null) {
-                    if (th != null) {
-                        try {
-                            scoped.close();
-                        } catch (Throwable th3) {
-                            th.addSuppressed(th3);
-                        }
-                    } else {
+                    try {
                         scoped.close();
+                    } catch (Throwable th3) {
+                        th.addSuppressed(th3);
                     }
                 }
                 throw th2;

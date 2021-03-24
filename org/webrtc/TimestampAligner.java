@@ -1,7 +1,7 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class TimestampAligner {
-    private volatile long nativeTimestampAligner = nativeCreateTimestampAligner();
+    public volatile long nativeTimestampAligner = nativeCreateTimestampAligner();
 
     private void checkNativeAlignerExists() {
         if (this.nativeTimestampAligner == 0) {
@@ -13,13 +13,13 @@ public class TimestampAligner {
         return nativeRtcTimeNanos();
     }
 
-    private static native long nativeCreateTimestampAligner();
+    public static native long nativeCreateTimestampAligner();
 
-    private static native void nativeReleaseTimestampAligner(long j);
+    public static native void nativeReleaseTimestampAligner(long j);
 
-    private static native long nativeRtcTimeNanos();
+    public static native long nativeRtcTimeNanos();
 
-    private static native long nativeTranslateTimestamp(long j, long j2);
+    public static native long nativeTranslateTimestamp(long j, long j2);
 
     public void dispose() {
         checkNativeAlignerExists();

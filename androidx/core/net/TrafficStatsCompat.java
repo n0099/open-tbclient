@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import java.net.DatagramSocket;
 import java.net.Socket;
 import java.net.SocketException;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class TrafficStatsCompat {
     @Deprecated
     public static void clearThreadStatsTag() {
@@ -25,23 +25,8 @@ public final class TrafficStatsCompat {
     }
 
     @Deprecated
-    public static void incrementOperationCount(int i, int i2) {
-        TrafficStats.incrementOperationCount(i, i2);
-    }
-
-    @Deprecated
     public static void setThreadStatsTag(int i) {
         TrafficStats.setThreadStatsTag(i);
-    }
-
-    @Deprecated
-    public static void tagSocket(Socket socket) throws SocketException {
-        TrafficStats.tagSocket(socket);
-    }
-
-    @Deprecated
-    public static void untagSocket(Socket socket) throws SocketException {
-        TrafficStats.untagSocket(socket);
     }
 
     public static void tagDatagramSocket(@NonNull DatagramSocket datagramSocket) throws SocketException {
@@ -54,6 +39,11 @@ public final class TrafficStatsCompat {
         fromDatagramSocket.detachFd();
     }
 
+    @Deprecated
+    public static void tagSocket(Socket socket) throws SocketException {
+        TrafficStats.tagSocket(socket);
+    }
+
     public static void untagDatagramSocket(@NonNull DatagramSocket datagramSocket) throws SocketException {
         if (Build.VERSION.SDK_INT >= 24) {
             TrafficStats.untagDatagramSocket(datagramSocket);
@@ -64,6 +54,13 @@ public final class TrafficStatsCompat {
         fromDatagramSocket.detachFd();
     }
 
-    private TrafficStatsCompat() {
+    @Deprecated
+    public static void untagSocket(Socket socket) throws SocketException {
+        TrafficStats.untagSocket(socket);
+    }
+
+    @Deprecated
+    public static void incrementOperationCount(int i, int i2) {
+        TrafficStats.incrementOperationCount(i, i2);
     }
 }

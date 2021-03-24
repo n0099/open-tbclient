@@ -2,25 +2,21 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class SapiSafeFacade {
     public static final int DEVICE_AUTH_TOKEN_EVENT_ID = 122;
     public static final int GET_ZID_DEFAULT_EVENT_ID = 120;
 
     /* renamed from: a  reason: collision with root package name */
-    private static SapiSafeFacade f3164a;
+    public static SapiSafeFacade f10820a;
 
-    private SapiSafeFacade() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized SapiSafeFacade a() {
         SapiSafeFacade sapiSafeFacade;
         synchronized (SapiSafeFacade.class) {
-            if (f3164a == null) {
-                f3164a = new SapiSafeFacade();
+            if (f10820a == null) {
+                f10820a = new SapiSafeFacade();
             }
-            sapiSafeFacade = f3164a;
+            sapiSafeFacade = f10820a;
         }
         return sapiSafeFacade;
     }
@@ -32,10 +28,10 @@ public final class SapiSafeFacade {
     }
 
     public String getDeviceAuthToken(Context context, String str, int i) {
-        return com.baidu.sapi2.utils.c.a().a(context, SapiAccountManager.getInstance().getSapiConfiguration().tpl, str, i);
+        return com.baidu.sapi2.utils.d.a().a(context, SapiAccountManager.getInstance().getSapiConfiguration().tpl, str, i);
     }
 
     public String getZidAndCheckSafe(Context context, String str, int i) {
-        return com.baidu.sapi2.utils.c.a().a(context, str, i);
+        return com.baidu.sapi2.utils.d.a().a(context, str, i);
     }
 }

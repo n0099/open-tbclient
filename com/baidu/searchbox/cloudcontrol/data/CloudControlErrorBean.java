@@ -1,5 +1,5 @@
 package com.baidu.searchbox.cloudcontrol.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudControlErrorBean {
     public static final int NET_WORK_ERROR = 1;
     public static final int NO_ERROR = 0;
@@ -7,19 +7,19 @@ public class CloudControlErrorBean {
     public static final int SERVER_ERROR = 2;
     public static final int SUB_PARSE_DATA_FORMAT_ERROR = 30;
     public static final int SUB_PARSE_DATA_NO_NODE = 31;
-    private int errorCode;
-    private int subErrorCode;
+    public int errorCode;
+    public int subErrorCode;
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
-    public void setErrorCode(int i) {
-        this.errorCode = i;
-    }
-
     public int getSubErrorCode() {
         return this.subErrorCode;
+    }
+
+    public void setErrorCode(int i) {
+        this.errorCode = i;
     }
 
     public void setSubErrorCode(int i) {

@@ -3,15 +3,15 @@ package com.baidu.webkit.sdk;
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebResourceResponse {
-    private String mEncoding;
-    private boolean mImmutable;
-    private InputStream mInputStream;
-    private String mMimeType;
-    private String mReasonPhrase;
-    private Map<String, String> mResponseHeaders;
-    private int mStatusCode;
+    public String mEncoding;
+    public boolean mImmutable;
+    public InputStream mInputStream;
+    public String mMimeType;
+    public String mReasonPhrase;
+    public Map<String, String> mResponseHeaders;
+    public int mStatusCode;
 
     public WebResourceResponse(String str, String str2, int i, String str3, Map<String, String> map, InputStream inputStream) {
         this(str, str2, inputStream);

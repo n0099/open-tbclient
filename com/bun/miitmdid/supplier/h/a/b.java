@@ -1,5 +1,6 @@
 package com.bun.miitmdid.supplier.h.a;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,58 +8,87 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f3888a;
-    private static boolean b = false;
-    private static b poH = null;
-    private static a poI = null;
-    private static c poJ = null;
-    private static c poK = null;
-    private static c poL = null;
-    private static Object h = new Object();
-    private static HandlerThread i = null;
-    private static Handler j = null;
-    private static String k = null;
-    private static String l = null;
-    private static String m = null;
-    private static String n = null;
+    public static Context f27125a = null;
 
-    private b() {
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f27126b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static b f27127c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static a f27128d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static c f27129e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static c f27130f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static c f27131g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static Object f27132h = new Object();
+    public static HandlerThread i;
+    public static Handler j;
+    public static String k;
+    public static String l;
+    public static String m;
+    public static String n;
+
+    public static b a(Context context) {
+        if (f27127c == null) {
+            f27127c = new b();
+            f27125a = context;
+            f();
+            f27128d = new a(f27125a);
+            c();
+        }
+        return f27127c;
     }
 
     public static String a(String str, String str2) {
         try {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                str2 = (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, "unknown");
-            } catch (Exception e) {
-                e.printStackTrace();
+                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, "unknown");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return str2;
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
+            return str2;
         }
-        return str2;
     }
 
-    private static void a(Context context, int i2, String str) {
-        switch (i2) {
-            case 0:
-                poJ = new c(poH, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, poJ);
-                return;
-            case 1:
-                poK = new c(poH, 1, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, poK);
-                return;
-            case 2:
-                poL = new c(poH, 2, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, poL);
-                return;
-            default:
-                return;
+    public static void a(Context context, int i2, String str) {
+        ContentResolver contentResolver;
+        Uri parse;
+        c cVar;
+        if (i2 == 0) {
+            f27129e = new c(f27127c, 0, null);
+            context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f27129e);
+            return;
         }
+        if (i2 == 1) {
+            f27130f = new c(f27127c, 1, str);
+            contentResolver = context.getContentResolver();
+            parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str);
+            cVar = f27130f;
+        } else if (i2 != 2) {
+            return;
+        } else {
+            f27131g = new c(f27127c, 2, str);
+            contentResolver = context.getContentResolver();
+            parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str);
+            cVar = f27131g;
+        }
+        contentResolver.registerContentObserver(parse, false, cVar);
     }
 
     private void b(int i2, String str) {
@@ -74,12 +104,13 @@ public class b {
     }
 
     public static void c() {
-        b = "1".equals(a("persist.sys.identifierid.supported", "0"));
+        f27126b = "1".equals(a("persist.sys.identifierid.supported", "0"));
     }
 
-    private static void f() {
-        i = new HandlerThread("SqlWorkThread");
-        i.start();
+    public static void f() {
+        HandlerThread handlerThread = new HandlerThread("SqlWorkThread");
+        i = handlerThread;
+        handlerThread.start();
         j = new Handler(i.getLooper()) { // from class: com.bun.miitmdid.supplier.h.a.b.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -88,37 +119,27 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.poI.a(message.getData().getInt("type"), message.getData().getString("appid"));
-                } catch (Exception e) {
+                    String unused = b.k = b.f27128d.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                } catch (Exception e2) {
                     String unused2 = b.k = "";
-                    com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e);
+                    com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e2);
                 }
-                synchronized (b.h) {
-                    b.h.notify();
+                synchronized (b.f27132h) {
+                    b.f27132h.notify();
                 }
             }
         };
     }
 
-    public static b hM(Context context) {
-        if (poH == null) {
-            poH = new b();
-            f3888a = context;
-            f();
-            poI = new a(f3888a);
-            c();
-        }
-        return poH;
-    }
-
     public String a(String str) {
         if (a()) {
-            if (m != null) {
-                return m;
+            String str2 = m;
+            if (str2 != null) {
+                return str2;
             }
             a(1, str);
-            if (poK == null && m != null) {
-                a(f3888a, 1, str);
+            if (f27130f == null && m != null) {
+                a(f27125a, 1, str);
             }
             return m;
         }
@@ -126,57 +147,56 @@ public class b {
     }
 
     public void a(int i2, String str) {
-        synchronized (h) {
+        String str2;
+        String str3;
+        synchronized (f27132h) {
             b(i2, str);
             long uptimeMillis = SystemClock.uptimeMillis();
             try {
-                h.wait(2000L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                f27132h.wait(2000L);
+            } catch (InterruptedException e2) {
+                e2.printStackTrace();
             }
             if (SystemClock.uptimeMillis() - uptimeMillis < 2000) {
-                switch (i2) {
-                    case 0:
-                        l = k;
-                        k = null;
-                        break;
-                    case 1:
-                        if (k == null) {
-                            com.bun.miitmdid.utils.a.b("VMS_IDLG_SDK_Client", "get vaid failed");
-                            break;
-                        } else {
-                            m = k;
-                            k = null;
-                            break;
-                        }
-                    case 2:
-                        if (k == null) {
-                            com.bun.miitmdid.utils.a.b("VMS_IDLG_SDK_Client", "get aaid failed");
-                            break;
-                        } else {
+                if (i2 == 0) {
+                    l = k;
+                } else if (i2 != 1) {
+                    if (i2 == 2) {
+                        if (k != null) {
                             n = k;
-                            k = null;
-                            break;
+                        } else {
+                            str2 = "VMS_IDLG_SDK_Client";
+                            str3 = "get aaid failed";
                         }
+                    }
+                } else if (k != null) {
+                    m = k;
+                } else {
+                    str2 = "VMS_IDLG_SDK_Client";
+                    str3 = "get vaid failed";
                 }
+                k = null;
             } else {
-                com.bun.miitmdid.utils.a.b("VMS_IDLG_SDK_Client", "query timeout");
+                str2 = "VMS_IDLG_SDK_Client";
+                str3 = "query timeout";
             }
+            com.bun.miitmdid.utils.a.b(str2, str3);
         }
     }
 
     public boolean a() {
-        return b;
+        return f27126b;
     }
 
     public String b() {
         if (a()) {
-            if (l != null) {
-                return l;
+            String str = l;
+            if (str != null) {
+                return str;
             }
             a(0, (String) null);
-            if (poJ == null) {
-                a(f3888a, 0, null);
+            if (f27129e == null) {
+                a(f27125a, 0, null);
             }
             return l;
         }
@@ -185,12 +205,13 @@ public class b {
 
     public String b(String str) {
         if (a()) {
-            if (n != null) {
-                return n;
+            String str2 = n;
+            if (str2 != null) {
+                return str2;
             }
             a(2, str);
-            if (poL == null && n != null) {
-                a(f3888a, 2, str);
+            if (f27131g == null && n != null) {
+                a(f27125a, 2, str);
             }
             return n;
         }

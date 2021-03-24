@@ -1,14 +1,14 @@
 package com.sdk.base.framework.bean;
 
-import com.sdk.base.framework.f.d.a;
-/* loaded from: classes4.dex */
+import com.sdk.base.framework.f.c.a;
+/* loaded from: classes6.dex */
 public class SmsInfo {
-    private String content;
-    private Long ctime;
-    private Long ftime;
-    private String mobile;
-    private int opt;
-    private String result;
+    public String content;
+    public Long ctime;
+    public Long ftime;
+    public String mobile;
+    public int opt;
+    public String result;
 
     public SmsInfo() {
     }

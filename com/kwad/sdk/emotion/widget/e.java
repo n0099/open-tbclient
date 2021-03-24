@@ -8,24 +8,29 @@ import android.text.style.ImageSpan;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final WeakReference<TextView> f6465a;
-    private int d = 1;
-    protected boolean b = false;
-    protected boolean c = true;
+    public final WeakReference<TextView> f34704a;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f34707d = 1;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f34705b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f34706c = true;
 
     public e(@NonNull TextView textView) {
-        this.f6465a = new WeakReference<>(textView);
+        this.f34704a = new WeakReference<>(textView);
     }
 
     public abstract void a(Editable editable);
 
-    protected abstract void a(Editable editable, TextView textView, int i, int i2);
+    public abstract void a(Editable editable, TextView textView, int i, int i2);
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void a(CharSequence charSequence) {
         ImageSpan[] imageSpanArr;
         String charSequence2 = charSequence.toString();

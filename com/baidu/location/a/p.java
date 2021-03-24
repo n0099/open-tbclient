@@ -6,11 +6,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.down.utils.Constants;
 import com.baidu.location.Jni;
-import com.baidu.mobstat.Config;
-import com.yy.mediaframework.stat.VideoDataStatistic;
+import com.facebook.common.util.UriUtil;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -21,49 +19,56 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class p extends com.baidu.location.d.e {
-    private static p q = null;
+    public static p q;
 
     /* renamed from: a  reason: collision with root package name */
-    String f1932a = null;
-    String b = null;
-    String c = null;
-    String d = null;
-    int e = 1;
-    Handler f;
+    public String f6572a = null;
 
-    private p() {
-        this.f = null;
-        this.f = new Handler();
+    /* renamed from: b  reason: collision with root package name */
+    public String f6573b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f6574c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f6575d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f6576e = 1;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Handler f6577f;
+
+    public p() {
+        this.f6577f = null;
+        this.f6577f = new Handler();
     }
 
     public static void a(File file, File file2) throws IOException {
         BufferedOutputStream bufferedOutputStream;
-        BufferedInputStream bufferedInputStream;
+        BufferedInputStream bufferedInputStream = null;
         try {
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
+            BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
             try {
                 bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
                 try {
-                    byte[] bArr = new byte[Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION];
+                    byte[] bArr = new byte[5120];
                     while (true) {
-                        int read = bufferedInputStream.read(bArr);
+                        int read = bufferedInputStream2.read(bArr);
                         if (read == -1) {
-                            break;
+                            bufferedOutputStream.flush();
+                            file.delete();
+                            bufferedInputStream2.close();
+                            bufferedOutputStream.close();
+                            return;
                         }
                         bufferedOutputStream.write(bArr, 0, read);
                     }
-                    bufferedOutputStream.flush();
-                    file.delete();
-                    if (bufferedInputStream != null) {
-                        bufferedInputStream.close();
-                    }
-                    if (bufferedOutputStream != null) {
-                        bufferedOutputStream.close();
-                    }
                 } catch (Throwable th) {
                     th = th;
+                    bufferedInputStream = bufferedInputStream2;
                     if (bufferedInputStream != null) {
                         bufferedInputStream.close();
                     }
@@ -79,7 +84,6 @@ public class p extends com.baidu.location.d.e {
         } catch (Throwable th3) {
             th = th3;
             bufferedOutputStream = null;
-            bufferedInputStream = null;
         }
     }
 
@@ -87,17 +91,17 @@ public class p extends com.baidu.location.d.e {
     public boolean a(Context context) {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
-                String a2 = com.baidu.location.b.d.a(com.baidu.location.b.b.a().e());
-                if (!a2.equals("3G")) {
-                    if (a2.equals("4G")) {
-                    }
-                }
+            if (activeNetworkInfo == null || activeNetworkInfo.getType() != 0) {
+                return false;
+            }
+            String a2 = com.baidu.location.b.d.a(com.baidu.location.b.b.a().e());
+            if (a2.equals(com.baidu.apollon.statistics.g.f3873b)) {
                 return true;
             }
-        } catch (Exception e) {
+            return a2.equals("4G");
+        } catch (Exception unused) {
+            return false;
         }
-        return false;
     }
 
     public static boolean a(String str, String str2) {
@@ -126,7 +130,7 @@ public class p extends com.baidu.location.d.e {
             }
             file.renameTo(new File(com.baidu.location.d.j.h() + File.separator + str2));
             return true;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             file.delete();
             return false;
         }
@@ -140,21 +144,21 @@ public class p extends com.baidu.location.d.e {
     }
 
     private Handler f() {
-        return this.f;
+        return this.f6577f;
     }
 
     private void g() {
         try {
             File file = new File(com.baidu.location.d.j.h() + "/grtcfrsa.dat");
             if (!file.exists()) {
-                File file2 = new File(com.baidu.location.d.i.f1973a);
+                File file2 = new File(com.baidu.location.d.i.f6712a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
                 if (!file.createNewFile()) {
                     return;
                 }
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(2L);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.seek(8L);
@@ -167,29 +171,29 @@ public class p extends com.baidu.location.d.e {
                 randomAccessFile.writeBoolean(false);
                 randomAccessFile.close();
             }
-            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(200L);
             randomAccessFile2.writeBoolean(true);
-            if (this.e == 1) {
+            if (this.f6576e == 1) {
                 randomAccessFile2.writeBoolean(true);
             } else {
                 randomAccessFile2.writeBoolean(false);
             }
-            if (this.d != null) {
-                byte[] bytes2 = this.d.getBytes();
+            if (this.f6575d != null) {
+                byte[] bytes2 = this.f6575d.getBytes();
                 randomAccessFile2.writeInt(bytes2.length);
                 randomAccessFile2.write(bytes2);
             } else if (Math.abs(com.baidu.location.f.getFrameVersion() - 7.63f) < 1.0E-8f) {
                 randomAccessFile2.writeInt(0);
             }
             randomAccessFile2.close();
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.f1932a == null) {
+        if (this.f6572a == null) {
             return;
         }
         new t(this).start();
@@ -197,33 +201,39 @@ public class p extends com.baidu.location.d.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean i() {
-        if (this.c == null || new File(com.baidu.location.d.j.h() + File.separator + this.c).exists()) {
+        if (this.f6574c == null) {
             return true;
         }
-        return a("http://" + this.f1932a + "/" + this.c, this.c);
+        if (new File(com.baidu.location.d.j.h() + File.separator + this.f6574c).exists()) {
+            return true;
+        }
+        return a("http://" + this.f6572a + "/" + this.f6574c, this.f6574c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        if (this.b == null) {
+        if (this.f6573b == null) {
             return;
         }
-        File file = new File(com.baidu.location.d.j.h() + File.separator + this.b);
-        if (file.exists() || !a("http://" + this.f1932a + "/" + this.b, this.b)) {
+        File file = new File(com.baidu.location.d.j.h() + File.separator + this.f6573b);
+        if (file.exists()) {
             return;
         }
-        String a2 = com.baidu.location.d.j.a(file, "SHA-256");
-        if (this.d == null || a2 == null || !com.baidu.location.d.j.b(a2, this.d, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
-            return;
-        }
-        File file2 = new File(com.baidu.location.d.j.h() + File.separator + com.baidu.location.f.replaceFileName);
-        if (file2.exists()) {
-            file2.delete();
-        }
-        try {
-            a(file, file2);
-        } catch (Exception e) {
-            file2.delete();
+        if (a("http://" + this.f6572a + "/" + this.f6573b, this.f6573b)) {
+            String a2 = com.baidu.location.d.j.a(file, "SHA-256");
+            String str = this.f6575d;
+            if (str == null || a2 == null || !com.baidu.location.d.j.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
+                return;
+            }
+            File file2 = new File(com.baidu.location.d.j.h() + File.separator + com.baidu.location.f.replaceFileName);
+            if (file2.exists()) {
+                file2.delete();
+            }
+            try {
+                a(file, file2);
+            } catch (Exception unused) {
+                file2.delete();
+            }
         }
     }
 
@@ -231,7 +241,6 @@ public class p extends com.baidu.location.d.e {
     @SuppressLint({"NewApi"})
     public void a() {
         String str;
-        int i = 0;
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&sdk=");
         stringBuffer.append(7.63f);
@@ -239,13 +248,14 @@ public class p extends com.baidu.location.d.e {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.d.b.a().b == null) {
+        if (com.baidu.location.d.b.a().f6682b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.d.b.a().f1964a);
+            str = com.baidu.location.d.b.a().f6681a;
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.d.b.a().b);
+            str = com.baidu.location.d.b.a().f6682b;
         }
+        stringBuffer.append(str);
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
         stringBuffer.append("&sv=");
@@ -254,29 +264,27 @@ public class p extends com.baidu.location.d.e {
             str2 = str2.substring(0, 10);
         }
         stringBuffer.append(str2);
+        String str3 = null;
         try {
             if (Build.VERSION.SDK_INT > 20) {
                 String[] strArr = Build.SUPPORTED_ABIS;
-                str = null;
-                while (i < strArr.length) {
-                    str = i == 0 ? strArr[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : str + strArr[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
-                    i++;
+                String str4 = null;
+                for (int i = 0; i < strArr.length; i++) {
+                    str4 = i == 0 ? strArr[i] + ";" : str4 + strArr[i] + ";";
                 }
+                str3 = str4;
             } else {
-                str = Build.CPU_ABI2;
+                str3 = Build.CPU_ABI2;
             }
-        } catch (Error e) {
-            str = null;
-        } catch (Exception e2) {
-            str = null;
+        } catch (Error | Exception unused) {
         }
-        if (str != null) {
+        if (str3 != null) {
             stringBuffer.append("&cpuabi=");
-            stringBuffer.append(str);
+            stringBuffer.append(str3);
         }
         stringBuffer.append("&pack=");
-        stringBuffer.append(com.baidu.location.d.b.d);
-        this.h = com.baidu.location.d.j.d() + "?&it=" + Jni.en1(stringBuffer.toString());
+        stringBuffer.append(com.baidu.location.d.b.f6676d);
+        this.f6705h = com.baidu.location.d.j.d() + "?&it=" + Jni.en1(stringBuffer.toString());
     }
 
     @Override // com.baidu.location.d.e
@@ -284,24 +292,24 @@ public class p extends com.baidu.location.d.e {
         if (z) {
             try {
                 JSONObject jSONObject = new JSONObject(this.j);
-                if ("up".equals(jSONObject.getString("res"))) {
-                    this.f1932a = jSONObject.getString("upath");
+                if ("up".equals(jSONObject.getString(UriUtil.LOCAL_RESOURCE_SCHEME))) {
+                    this.f6572a = jSONObject.getString("upath");
                     if (jSONObject.has("u1")) {
-                        this.b = jSONObject.getString("u1");
+                        this.f6573b = jSONObject.getString("u1");
                     }
                     if (jSONObject.has("u2")) {
-                        this.c = jSONObject.getString("u2");
+                        this.f6574c = jSONObject.getString("u2");
                     }
                     if (jSONObject.has("u1_rsa")) {
-                        this.d = jSONObject.getString("u1_rsa");
+                        this.f6575d = jSONObject.getString("u1_rsa");
                     }
                     f().post(new s(this));
                 }
                 if (jSONObject.has("ison")) {
-                    this.e = jSONObject.getInt("ison");
+                    this.f6576e = jSONObject.getInt("ison");
                 }
                 g();
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
         com.baidu.location.d.c.a().a(System.currentTimeMillis());

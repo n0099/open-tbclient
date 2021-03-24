@@ -3,18 +3,20 @@ package com.kwad.sdk.core.g.a;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.utils.o;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class l implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f6106a;
-    public long b;
+    public long f33672a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f33673b;
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "photoId", this.f6106a);
-        o.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.b);
+        o.a(jSONObject, "photoId", this.f33672a);
+        o.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f33673b);
         return jSONObject;
     }
 }

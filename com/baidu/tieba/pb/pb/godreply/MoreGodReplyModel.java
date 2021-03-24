@@ -2,166 +2,186 @@ package com.baidu.tieba.pb.pb.godreply;
 
 import android.util.Log;
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.adp.base.f;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.pb.data.s;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.ab;
 import com.baidu.tieba.tbadkCore.data.PostData;
+import d.b.b.a.f;
+import d.b.b.j.e.n;
+import d.b.i0.c2.h.e;
+import d.b.i0.c2.h.s;
+import d.b.i0.c2.k.e.c0;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MoreGodReplyModel extends BdBaseModel<f> {
-    private boolean isLoading;
-    private PbModel lOX;
-    private int lOY;
-    private int lOZ;
-    private ab.a lPa;
-    private final ab.a lPb;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public MoreGodReplyModel(f fVar, PbModel pbModel) {
-        super(fVar);
-        this.isLoading = false;
-        this.lOY = -1;
-        this.lOZ = -1;
-        this.lPb = new ab.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
-            @Override // com.baidu.tieba.pb.pb.main.ab.a
-            public void aj(List<PostData> list) {
-                s dlD;
-                MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.lOX != null && MoreGodReplyModel.this.lOX.getPbData() != null && (dlD = MoreGodReplyModel.this.lOX.getPbData().dlD()) != null) {
-                    List<PostData> list2 = dlD.lNY;
-                    int size = list2.size();
-                    if (!y.isEmpty(list)) {
-                        for (PostData postData : list) {
-                            if (postData != null && !MoreGodReplyModel.a(list2, postData)) {
-                                list2.add(postData);
-                            }
+    /* renamed from: e  reason: collision with root package name */
+    public PbModel f19493e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f19494f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f19495g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f19496h;
+    public c0.b i;
+    public final c0.b j;
+
+    /* loaded from: classes4.dex */
+    public class a implements c0.b {
+        public a() {
+        }
+
+        @Override // d.b.i0.c2.k.e.c0.b
+        public void a(int i, String str, String str2) {
+            MoreGodReplyModel.this.f19494f = false;
+            if (MoreGodReplyModel.this.i != null) {
+                MoreGodReplyModel.this.i.a(i, str, str2);
+            }
+        }
+
+        @Override // d.b.i0.c2.k.e.c0.b
+        public void onSuccess(List<PostData> list) {
+            s P;
+            MoreGodReplyModel.this.f19494f = false;
+            if (MoreGodReplyModel.this.f19493e != null && MoreGodReplyModel.this.f19493e.y0() != null && (P = MoreGodReplyModel.this.f19493e.y0().P()) != null) {
+                List<PostData> list2 = P.f52470a;
+                int size = list2.size();
+                if (!ListUtils.isEmpty(list)) {
+                    for (PostData postData : list) {
+                        if (postData != null && !MoreGodReplyModel.y(list2, postData)) {
+                            list2.add(postData);
                         }
                     }
-                    MoreGodReplyModel.this.lOX.a(MoreGodReplyModel.this.lOX.getPbData(), size);
                 }
-                if (MoreGodReplyModel.this.lOY > 0) {
-                    MoreGodReplyModel.this.lOZ = MoreGodReplyModel.this.lOY;
-                }
-                if (MoreGodReplyModel.this.lPa != null) {
-                    MoreGodReplyModel.this.lPa.aj(list);
-                }
+                MoreGodReplyModel.this.f19493e.z1(MoreGodReplyModel.this.f19493e.y0(), size);
             }
-
-            @Override // com.baidu.tieba.pb.pb.main.ab.a
-            public void n(int i, String str, String str2) {
-                MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.lPa != null) {
-                    MoreGodReplyModel.this.lPa.n(i, str, str2);
-                }
+            if (MoreGodReplyModel.this.f19495g > 0) {
+                MoreGodReplyModel moreGodReplyModel = MoreGodReplyModel.this;
+                moreGodReplyModel.f19496h = moreGodReplyModel.f19495g;
             }
-        };
-        if (pbModel != null) {
-            this.lOX = pbModel;
-            ab dpo = pbModel.dpo();
-            if (dpo != null) {
-                dpo.b(this.lPb);
+            if (MoreGodReplyModel.this.i != null) {
+                MoreGodReplyModel.this.i.onSuccess(list);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static boolean a(List<PostData> list, PostData postData) {
-        if (list != null && postData != null) {
-            for (PostData postData2 : list) {
-                if (postData2 != null) {
-                    if (postData2 == postData) {
-                        return true;
-                    }
-                    if (postData2.getId() != null && postData.getId() != null && postData2.getId().equals(postData.getId())) {
-                        return true;
-                    }
+    public MoreGodReplyModel(f fVar, PbModel pbModel) {
+        super(fVar);
+        this.f19494f = false;
+        this.f19495g = -1;
+        this.f19496h = -1;
+        this.j = new a();
+        if (pbModel == null) {
+            return;
+        }
+        this.f19493e = pbModel;
+        c0 u0 = pbModel.u0();
+        if (u0 != null) {
+            u0.f(this.j);
+        }
+    }
+
+    public static boolean y(List<PostData> list, PostData postData) {
+        if (list == null || postData == null) {
+            return false;
+        }
+        for (PostData postData2 : list) {
+            if (postData2 != null) {
+                if (postData2 == postData) {
+                    return true;
+                }
+                if (postData2.D() != null && postData.D() != null && postData2.D().equals(postData.D())) {
+                    return true;
                 }
             }
         }
         return false;
     }
 
-    public boolean dmF() {
-        s dlD;
-        com.baidu.tieba.pb.data.f pbData = this.lOX.getPbData();
-        if (pbData == null || (dlD = pbData.dlD()) == null) {
+    public PbModel A() {
+        return this.f19493e;
+    }
+
+    public boolean B() {
+        e y0;
+        s P;
+        PbModel pbModel = this.f19493e;
+        if (pbModel == null || (y0 = pbModel.y0()) == null || (P = y0.P()) == null) {
             return false;
         }
-        if (this.lOZ < 0) {
-            this.lOZ = dlD.getCount();
+        if (this.f19496h < 0) {
+            this.f19496h = P.a();
         }
-        List<Long> list = dlD.lNZ;
+        return P.f52471b.size() > this.f19496h && P.f52470a.size() < 100;
+    }
+
+    public boolean C() {
+        return this.f19494f;
+    }
+
+    public boolean D() {
+        s P;
+        e y0 = this.f19493e.y0();
+        if (y0 == null || (P = y0.P()) == null) {
+            return false;
+        }
+        if (this.f19496h < 0) {
+            this.f19496h = P.a();
+        }
+        List<Long> list = P.f52471b;
         int size = list.size();
-        int i = this.lOZ;
-        if (size <= i || dlD.lNY.size() >= 100) {
+        int i = this.f19496h;
+        if (size <= i || P.f52470a.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.lOY = min;
-        this.isLoading = true;
-        this.lOX.dpo().fm(list.subList(i, min));
+        this.f19495g = min;
+        this.f19494f = true;
+        this.f19493e.u0().c(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
 
-    public boolean isLoading() {
-        return this.isLoading;
-    }
-
-    public PbModel dmG() {
-        return this.lOX;
-    }
-
-    public List<n> dmH() {
-        com.baidu.tieba.pb.data.f pbData;
-        if (this.lOX == null || (pbData = this.lOX.getPbData()) == null || pbData.dlD() == null || y.isEmpty(pbData.dlD().lNY)) {
-            return null;
-        }
-        s dlD = pbData.dlD();
-        ArrayList arrayList = new ArrayList();
-        List<PostData> list = dlD.lNY;
-        int size = list.size();
-        int i = 0;
-        while (i < size) {
-            PostData postData = list.get(i);
-            if (postData != null) {
-                arrayList.add(postData);
-                postData.nzM = i < size + (-1);
-            }
-            i++;
-        }
-        return arrayList;
+    public void E(c0.b bVar) {
+        this.i = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.isLoading = false;
+        this.f19494f = false;
         return false;
     }
 
-    public void a(ab.a aVar) {
-        this.lPa = aVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean aHw() {
-        com.baidu.tieba.pb.data.f pbData;
-        s dlD;
-        if (this.lOX == null || (pbData = this.lOX.getPbData()) == null || (dlD = pbData.dlD()) == null) {
-            return false;
+    public List<n> z() {
+        PbModel pbModel = this.f19493e;
+        ArrayList arrayList = null;
+        if (pbModel == null) {
+            return null;
         }
-        if (this.lOZ < 0) {
-            this.lOZ = dlD.getCount();
+        e y0 = pbModel.y0();
+        if (y0 != null && y0.P() != null && !ListUtils.isEmpty(y0.P().f52470a)) {
+            s P = y0.P();
+            arrayList = new ArrayList();
+            List<PostData> list = P.f52470a;
+            int size = list.size();
+            int i = 0;
+            while (i < size) {
+                PostData postData = list.get(i);
+                if (postData != null) {
+                    arrayList.add(postData);
+                    postData.P = i < size + (-1);
+                }
+                i++;
+            }
         }
-        return dlD.lNZ.size() > this.lOZ && dlD.lNY.size() < 100;
+        return arrayList;
     }
 }

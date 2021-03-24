@@ -5,10 +5,10 @@ import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class GetMessageFromWX {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
         public String username;
 
@@ -40,9 +40,9 @@ public final class GetMessageFromWX {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
-        private static final String TAG = "MicroMsg.SDK.GetMessageFromWX.Resp";
+        public static final String TAG = "MicroMsg.SDK.GetMessageFromWX.Resp";
         public WXMediaMessage message;
 
         public Resp() {
@@ -54,11 +54,12 @@ public final class GetMessageFromWX {
 
         @Override // com.tencent.mm.sdk.modelbase.BaseResp
         public boolean checkArgs() {
-            if (this.message == null) {
-                a.a(TAG, "checkArgs fail, message is null");
+            WXMediaMessage wXMediaMessage = this.message;
+            if (wXMediaMessage == null) {
+                a.a("MicroMsg.SDK.GetMessageFromWX.Resp", "checkArgs fail, message is null");
                 return false;
             }
-            return this.message.checkArgs();
+            return wXMediaMessage.checkArgs();
         }
 
         @Override // com.tencent.mm.sdk.modelbase.BaseResp
@@ -77,8 +78,5 @@ public final class GetMessageFromWX {
             super.toBundle(bundle);
             bundle.putAll(WXMediaMessage.Builder.toBundle(this.message));
         }
-    }
-
-    private GetMessageFromWX() {
     }
 }

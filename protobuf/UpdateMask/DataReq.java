@@ -2,7 +2,7 @@ package protobuf.UpdateMask;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_GIDS = "";
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
@@ -14,33 +14,7 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_MASKREMIND = 0;
     public static final Integer DEFAULT_ISADD = 0;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.maskRemind == null) {
-                this.maskRemind = DEFAULT_MASKREMIND;
-            } else {
-                this.maskRemind = builder.maskRemind;
-            }
-            if (builder.gids == null) {
-                this.gids = "";
-            } else {
-                this.gids = builder.gids;
-            }
-            if (builder.isAdd == null) {
-                this.isAdd = DEFAULT_ISADD;
-                return;
-            } else {
-                this.isAdd = builder.isAdd;
-                return;
-            }
-        }
-        this.maskRemind = builder.maskRemind;
-        this.gids = builder.gids;
-        this.isAdd = builder.isAdd;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String gids;
         public Integer isAdd;
@@ -51,11 +25,12 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.maskRemind = dataReq.maskRemind;
-                this.gids = dataReq.gids;
-                this.isAdd = dataReq.isAdd;
+            if (dataReq == null) {
+                return;
             }
+            this.maskRemind = dataReq.maskRemind;
+            this.gids = dataReq.gids;
+            this.isAdd = dataReq.isAdd;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,5 +38,34 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.maskRemind;
+            if (num == null) {
+                this.maskRemind = DEFAULT_MASKREMIND;
+            } else {
+                this.maskRemind = num;
+            }
+            String str = builder.gids;
+            if (str == null) {
+                this.gids = "";
+            } else {
+                this.gids = str;
+            }
+            Integer num2 = builder.isAdd;
+            if (num2 == null) {
+                this.isAdd = DEFAULT_ISADD;
+                return;
+            } else {
+                this.isAdd = num2;
+                return;
+            }
+        }
+        this.maskRemind = builder.maskRemind;
+        this.gids = builder.gids;
+        this.isAdd = builder.isAdd;
     }
 }

@@ -2,9 +2,9 @@ package android.net.http;
 
 import java.io.IOException;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class CertificateChainValidator {
-    CertificateChainValidator() {
+    public CertificateChainValidator() {
         throw new RuntimeException("Stub!");
     }
 
@@ -12,7 +12,7 @@ public class CertificateChainValidator {
         throw new RuntimeException("Stub!");
     }
 
-    public SslError doHandshakeAndValidateServerCertificates(HttpsConnection httpsConnection, SSLSocket sSLSocket, String str) throws IOException {
+    public static void handleTrustStorageUpdate() {
         throw new RuntimeException("Stub!");
     }
 
@@ -20,7 +20,7 @@ public class CertificateChainValidator {
         throw new RuntimeException("Stub!");
     }
 
-    public static void handleTrustStorageUpdate() {
+    public SslError doHandshakeAndValidateServerCertificates(HttpsConnection httpsConnection, SSLSocket sSLSocket, String str) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

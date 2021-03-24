@@ -1,10 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class FrsProfessionIntroActivityConfig extends IntentConfig {
     public static final String KEY_DARK_DARK_COLOR = "key_dark_dark_color";
     public static final String KEY_DARK_LIGHT_COLOR = "key_dark_light_color";
@@ -17,7 +16,7 @@ public class FrsProfessionIntroActivityConfig extends IntentConfig {
 
     public FrsProfessionIntroActivityConfig(Context context) {
         super(context);
-        setRequestCode(RequestResponseCode.REQUEST_DO_PAY);
+        setRequestCode(25041);
         setIntentAction(IntentAction.ActivityForResult);
     }
 

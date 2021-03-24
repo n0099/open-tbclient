@@ -1,5 +1,5 @@
 package com.baidubce.http;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class StatusCodes {
     public static final int BAD_GATEWAY = 502;
     public static final int FORBIDDEN = 403;

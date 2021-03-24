@@ -1,19 +1,20 @@
 package com.baidu.clientupdate.a;
 
 import android.util.Log;
+import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.util.LogUtil;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ byte[] f1358a;
-    final /* synthetic */ d b;
+    public final /* synthetic */ byte[] f4576a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ d f4577b;
+
     public e(d dVar, byte[] bArr) {
-        this.b = dVar;
-        this.f1358a = bArr;
+        this.f4577b = dVar;
+        this.f4576a = bArr;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -21,11 +22,11 @@ public class e extends Thread {
         b bVar;
         super.run();
         try {
-            this.b.a();
-            bVar = this.b.d;
-            bVar.a(this.f1358a);
-        } catch (Exception e) {
-            LogUtil.logE("LogUtils", Log.getStackTraceString(e));
+            this.f4577b.a();
+            bVar = this.f4577b.f4575d;
+            bVar.a(this.f4576a);
+        } catch (Exception e2) {
+            LogUtil.logE(LogUtils.TAG, Log.getStackTraceString(e2));
         }
     }
 }

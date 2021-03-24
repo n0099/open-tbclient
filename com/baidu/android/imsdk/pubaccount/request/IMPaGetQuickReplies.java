@@ -14,15 +14,20 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMPaGetQuickReplies extends PaBaseHttpRequest {
-    private String mKey;
-    private long mPaid;
+    public String mKey;
+    public long mPaid;
 
     public IMPaGetQuickReplies(Context context, long j, String str) {
         this.mContext = context;
         this.mPaid = j;
         this.mKey = str;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
     }
 
     @Override // com.baidu.android.imsdk.pubaccount.request.PaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -45,68 +50,25 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         long appid = AccountManager.getAppid(this.mContext);
         String md5 = getMd5("" + currentTimeMillis + bduss + appid);
-        sb.append("pa_uid=").append(this.mPaid);
-        sb.append("&device_type=").append(this.mOsType);
-        sb.append("&sdk_version=").append(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-        sb.append("&app_version=").append(AccountManagerImpl.getInstance(this.mContext).getAppVersion());
-        sb.append("&cuid=").append(Utility.getIMDeviceId(this.mContext));
-        sb.append("&timestamp=").append(currentTimeMillis);
-        sb.append("&sign=").append(md5);
-        sb.append("&type=").append(1);
-        sb.append("&appid=").append(appid);
+        sb.append("pa_uid=");
+        sb.append(this.mPaid);
+        sb.append("&device_type=");
+        sb.append(this.mOsType);
+        sb.append("&sdk_version=");
+        sb.append(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+        sb.append("&app_version=");
+        sb.append(AccountManagerImpl.getInstance(this.mContext).getAppVersion());
+        sb.append("&cuid=");
+        sb.append(Utility.getIMDeviceId(this.mContext));
+        sb.append("&timestamp=");
+        sb.append(currentTimeMillis);
+        sb.append("&sign=");
+        sb.append(md5);
+        sb.append("&type=");
+        sb.append(1);
+        sb.append("&appid=");
+        sb.append(appid);
         return sb.toString().getBytes();
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return "application/x-www-form-urlencoded";
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        String str;
-        int i2;
-        String str2 = "";
-        try {
-            JSONObject jSONObject = new JSONObject(new String(bArr));
-            i2 = jSONObject.getInt("error_code");
-            jSONObject.optString("error_msg", "");
-            if (i2 == 0) {
-                if (jSONObject.has("response_params")) {
-                    str2 = jSONObject.getString("response_params");
-                } else {
-                    i2 = 1010;
-                }
-            }
-            str = str2;
-        } catch (JSONException e) {
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            str = "";
-            i2 = 1010;
-        }
-        IGetQuickReplyListener iGetQuickReplyListener = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
-        if (i2 == 0) {
-            QuickReply createQuickReply = QuickReply.createQuickReply(str);
-            if (createQuickReply != null) {
-                PaManagerImpl.getInstance(this.mContext).setPaQuickRelies(this.mPaid, str, System.currentTimeMillis());
-                if (iGetQuickReplyListener != null) {
-                    if (createQuickReply.getStatus() == 0) {
-                        iGetQuickReplyListener.onGetQuickReply(createQuickReply, false);
-                    } else {
-                        iGetQuickReplyListener.onGetQuickReply(null, false);
-                    }
-                }
-            } else if (iGetQuickReplyListener != null) {
-                iGetQuickReplyListener.onGetQuickReply(null, false);
-            }
-        } else if (iGetQuickReplyListener != null) {
-            iGetQuickReplyListener.onGetQuickReply(null, false);
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        return false;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -116,5 +78,68 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
         if (iGetQuickReplyListener != null) {
             iGetQuickReplyListener.onGetQuickReply(null, false);
         }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:14:0x004e  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x007d  */
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onSuccess(int i, byte[] bArr) {
+        String str;
+        JSONObject jSONObject;
+        int i2;
+        str = "";
+        String str2 = new String(bArr);
+        int i3 = 1010;
+        try {
+            jSONObject = new JSONObject(str2);
+            i2 = jSONObject.getInt("error_code");
+            jSONObject.optString("error_msg", "");
+        } catch (JSONException e2) {
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+        }
+        if (i2 == 0) {
+            str = jSONObject.has("response_params") ? jSONObject.getString("response_params") : "";
+            String str3 = str;
+            IGetQuickReplyListener iGetQuickReplyListener = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
+            if (i3 == 0) {
+                if (iGetQuickReplyListener != null) {
+                    iGetQuickReplyListener.onGetQuickReply(null, false);
+                    return;
+                }
+                return;
+            }
+            QuickReply createQuickReply = QuickReply.createQuickReply(str3);
+            if (createQuickReply == null) {
+                if (iGetQuickReplyListener != null) {
+                    iGetQuickReplyListener.onGetQuickReply(null, false);
+                    return;
+                }
+                return;
+            }
+            PaManagerImpl.getInstance(this.mContext).setPaQuickRelies(this.mPaid, str3, System.currentTimeMillis());
+            if (iGetQuickReplyListener != null) {
+                if (createQuickReply.getStatus() == 0) {
+                    iGetQuickReplyListener.onGetQuickReply(createQuickReply, false);
+                    return;
+                } else {
+                    iGetQuickReplyListener.onGetQuickReply(null, false);
+                    return;
+                }
+            }
+            return;
+        }
+        i3 = i2;
+        String str32 = str;
+        IGetQuickReplyListener iGetQuickReplyListener2 = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
+        if (i3 == 0) {
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        return false;
     }
 }

@@ -13,84 +13,92 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.c;
-/* loaded from: classes.dex */
+import d.b.i0.c3.c;
+/* loaded from: classes3.dex */
 public class OvalImageView extends ImageView {
-    private static final int gcm = ap.getColor(R.color.CAM_X0306);
-    private int color;
-    private int endColor;
-    private boolean fPJ;
-    private Paint fPM;
-    private float[] fPN;
-    private float[] fPO;
-    private LinearGradient fPP;
-    private PorterDuffXfermode fPv;
-    private PorterDuffXfermode fPw;
-    private boolean gcn;
-    private Drawable mIcon;
-    private Paint mPaint;
-    private Path mPath;
-    private int mSkinType;
-    private int startColor;
+    public static final int t = SkinManager.getColor(R.color.CAM_X0306);
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f14366e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Path f14367f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Paint f14368g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Paint f14369h;
+    public float[] i;
+    public float[] j;
+    public boolean k;
+    public LinearGradient l;
+    public int m;
+    public int n;
+    public int o;
+    public PorterDuffXfermode p;
+    public PorterDuffXfermode q;
+    public Drawable r;
+    public int s;
 
     public OvalImageView(Context context) {
         this(context, null);
     }
 
-    public OvalImageView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+    public final void a(Canvas canvas) {
+        this.f14368g.setXfermode(this.p);
+        canvas.drawPaint(this.f14368g);
+        this.f14368g.setXfermode(this.q);
     }
 
-    public OvalImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.fPJ = true;
-        this.fPN = new float[4];
-        this.fPO = new float[4];
-        this.gcn = true;
-        this.color = gcm;
-        this.fPv = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.fPw = new PorterDuffXfermode(PorterDuff.Mode.SRC);
-        this.mSkinType = 3;
-        init();
-    }
-
-    private void init() {
-        bGj();
-        this.mPaint = new Paint();
-        this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.color);
-        this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setAntiAlias(true);
-        this.fPM = new Paint();
-        this.fPM.setColor(ap.getColor(R.color.CAM_X0101));
-        this.fPM.setStrokeCap(Paint.Cap.ROUND);
-        this.fPM.setAntiAlias(true);
+    public final void b() {
+        c();
+        Paint paint = new Paint();
+        this.f14368g = paint;
+        paint.setAntiAlias(true);
+        this.f14368g.setColor(this.o);
+        this.f14368g.setStyle(Paint.Style.FILL);
+        this.f14368g.setAntiAlias(true);
+        Paint paint2 = new Paint();
+        this.f14369h = paint2;
+        paint2.setColor(SkinManager.getColor(R.color.CAM_X0101));
+        this.f14369h.setStrokeCap(Paint.Cap.ROUND);
+        this.f14369h.setAntiAlias(true);
         setLayerType(1, null);
     }
 
-    private void bGj() {
-        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        if (this.mSkinType == 0) {
-            this.startColor = c.rT("#2bb8ff");
-            this.endColor = c.rT("#2b80ff");
-        } else if (this.mSkinType == 1 || this.mSkinType == 4) {
-            this.startColor = c.rT("#249BD6");
-            this.endColor = c.rT("#246CD6");
+    public final void c() {
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        this.s = skinType;
+        if (skinType == 0) {
+            this.m = c.c("#2bb8ff");
+            this.n = c.c("#2b80ff");
+        } else if (skinType == 1 || skinType == 4) {
+            this.m = c.c("#249BD6");
+            this.n = c.c("#246CD6");
         }
     }
 
-    @Override // android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (z && this.mPath == null) {
-            this.mPath = new Path();
+    public final void d(Canvas canvas) {
+        Drawable drawable = this.r;
+        if (drawable == null) {
+            this.f14369h.setAlpha(255);
+            return;
+        }
+        if (Build.VERSION.SDK_INT < 19 || drawable.getAlpha() > 0) {
+            canvas.save();
+            canvas.rotate(-45.0f, canvas.getWidth() / 2, canvas.getHeight() / 2);
+            this.r.setBounds((getWidth() / 2) - (this.r.getIntrinsicWidth() / 2), (getHeight() / 2) - (this.r.getIntrinsicHeight() / 2), (getWidth() / 2) + (this.r.getIntrinsicWidth() / 2), (getHeight() / 2) + (this.r.getIntrinsicHeight() / 2));
+            this.r.draw(canvas);
+            canvas.restore();
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
+        char c2;
         if (getDrawable() != null) {
             if (getLayerType() != 2) {
                 setLayerType(2, null);
@@ -99,10 +107,10 @@ public class OvalImageView extends ImageView {
             canvas.save();
             canvas.scale(0.7f, 0.7f, canvas.getWidth() / 2, canvas.getHeight() / 2);
             super.onDraw(canvas);
-            if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {
-                canvas.restoreToCount(saveCount);
+            if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
             }
+            canvas.restoreToCount(saveCount);
             return;
         }
         if (getLayerType() != 1) {
@@ -110,136 +118,167 @@ public class OvalImageView extends ImageView {
         }
         int saveCount2 = canvas.getSaveCount();
         canvas.save();
-        clear(canvas);
+        a(canvas);
         canvas.rotate(45.0f, canvas.getWidth() / 2, canvas.getHeight() / 2);
-        if (this.mPath != null) {
-            this.mPath.reset();
+        Path path = this.f14367f;
+        if (path != null) {
+            path.reset();
             float width = canvas.getWidth() * 0.15f;
             float width2 = canvas.getWidth() * 0.85f;
-            float f = (width + width2) / 2.0f;
-            float height = canvas.getHeight() * 0.15f;
+            float f2 = (width + width2) / 2.0f;
+            float height = 0.15f * canvas.getHeight();
             float height2 = canvas.getHeight() * 0.85f;
-            float f2 = (height + height2) / 2.0f;
-            float f3 = (((width2 - width) / 2.0f) * 51.0f) / 65.0f;
-            float f4 = (((height2 - height) / 2.0f) * 51.0f) / 65.0f;
-            this.mPath.moveTo(f, height);
-            this.mPath.cubicTo(f + f3, height, width2, f2 - f4, width2, f2);
-            this.mPath.cubicTo(width2, f2 + f4, f + f3, height2, f, height2);
-            this.mPath.cubicTo(f - f3, height2, width, f2 + f4, width, f2);
-            this.mPath.cubicTo(width, f2 - f4, f - f3, height, f, height);
-            this.mPath.close();
-            if (this.fPJ) {
-                this.fPP = new LinearGradient(width, 0.0f, width2, 0.0f, new int[]{this.startColor, this.endColor}, (float[]) null, Shader.TileMode.CLAMP);
-                this.fPJ = false;
-            }
-            if (this.gcn) {
-                float width3 = 0.054f * canvas.getWidth();
-                float width4 = canvas.getWidth() * 0.0226f;
-                double radians = Math.toRadians(getRotation() - 45.0f);
-                this.mPaint.setShadowLayer(width3, (float) (width4 * Math.cos(radians)), (-1.0f) * ((float) (Math.sin(radians) * width4)), c.l(this.fPP == null ? this.color : this.endColor, 0.83f));
-            }
-            if (this.fPP != null) {
-                this.mPaint.setShader(this.fPP);
+            float f3 = (height + height2) / 2.0f;
+            float f4 = (((width2 - width) / 2.0f) * 51.0f) / 65.0f;
+            float f5 = (((height2 - height) / 2.0f) * 51.0f) / 65.0f;
+            this.f14367f.moveTo(f2, height);
+            float f6 = f2 + f4;
+            float f7 = f3 - f5;
+            this.f14367f.cubicTo(f6, height, width2, f7, width2, f3);
+            float f8 = f3 + f5;
+            this.f14367f.cubicTo(width2, f8, f6, height2, f2, height2);
+            float f9 = f2 - f4;
+            this.f14367f.cubicTo(f9, height2, width, f8, width, f3);
+            this.f14367f.cubicTo(width, f7, f9, height, f2, height);
+            this.f14367f.close();
+            if (this.f14366e) {
+                c2 = 0;
+                this.l = new LinearGradient(width, 0.0f, width2, 0.0f, new int[]{this.m, this.n}, (float[]) null, Shader.TileMode.CLAMP);
+                this.f14366e = false;
             } else {
-                this.mPaint.setColor(this.color);
+                c2 = 0;
             }
-            canvas.drawPath(this.mPath, this.mPaint);
-            this.fPN[0] = ((3.0f * f) + width) / 4.0f;
-            this.fPN[1] = ((3.0f * f2) + height) / 4.0f;
-            this.fPN[2] = ((3.0f * f) + width2) / 4.0f;
-            this.fPN[3] = ((3.0f * f2) + height2) / 4.0f;
-            this.fPO[0] = (width2 + (3.0f * f)) / 4.0f;
-            this.fPO[1] = (height + (3.0f * f2)) / 4.0f;
-            this.fPO[2] = ((3.0f * f) + width) / 4.0f;
-            this.fPO[3] = ((3.0f * f2) + height2) / 4.0f;
-            N(canvas);
-            this.fPM.setStrokeWidth(canvas.getWidth() * 0.032f);
-            canvas.drawLines(this.fPN, this.fPM);
-            canvas.drawLines(this.fPO, this.fPM);
+            if (this.k) {
+                float width3 = canvas.getWidth() * 0.054f;
+                double radians = Math.toRadians(getRotation() - 45.0f);
+                Paint paint = this.f14368g;
+                double width4 = canvas.getWidth() * 0.0226f;
+                double cos = Math.cos(radians);
+                Double.isNaN(width4);
+                float f10 = (float) (cos * width4);
+                double sin = Math.sin(radians);
+                Double.isNaN(width4);
+                paint.setShadowLayer(width3, f10, ((float) (width4 * sin)) * (-1.0f), c.a(this.l == null ? this.o : this.n, 0.83f));
+            }
+            LinearGradient linearGradient = this.l;
+            if (linearGradient != null) {
+                this.f14368g.setShader(linearGradient);
+            } else {
+                this.f14368g.setColor(this.o);
+            }
+            canvas.drawPath(this.f14367f, this.f14368g);
+            float[] fArr = this.i;
+            float f11 = f2 * 3.0f;
+            float f12 = (width + f11) / 4.0f;
+            fArr[c2] = f12;
+            float f13 = f3 * 3.0f;
+            float f14 = (height + f13) / 4.0f;
+            fArr[1] = f14;
+            float f15 = (width2 + f11) / 4.0f;
+            fArr[2] = f15;
+            float f16 = (height2 + f13) / 4.0f;
+            fArr[3] = f16;
+            float[] fArr2 = this.j;
+            fArr2[c2] = f15;
+            fArr2[1] = f14;
+            fArr2[2] = f12;
+            fArr2[3] = f16;
+            d(canvas);
+            this.f14369h.setStrokeWidth(canvas.getWidth() * 0.032f);
+            canvas.drawLines(this.i, this.f14369h);
+            canvas.drawLines(this.j, this.f14369h);
         }
-        if (saveCount2 >= 1 && saveCount2 <= canvas.getSaveCount()) {
-            canvas.restoreToCount(saveCount2);
+        if (saveCount2 < 1 || saveCount2 > canvas.getSaveCount()) {
+            return;
+        }
+        canvas.restoreToCount(saveCount2);
+    }
+
+    @Override // android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (z && this.f14367f == null) {
+            this.f14367f = new Path();
         }
     }
 
-    private void N(Canvas canvas) {
-        if (this.mIcon == null) {
-            this.fPM.setAlpha(255);
+    public void setColor(int i) {
+        this.o = i;
+    }
+
+    public void setCrossFade(float f2) {
+        if (this.r == null) {
             return;
         }
-        if (Build.VERSION.SDK_INT < 19 || this.mIcon.getAlpha() > 0) {
-            canvas.save();
-            canvas.rotate(-45.0f, canvas.getWidth() / 2, canvas.getHeight() / 2);
-            this.mIcon.setBounds((getWidth() / 2) - (this.mIcon.getIntrinsicWidth() / 2), (getHeight() / 2) - (this.mIcon.getIntrinsicHeight() / 2), (getWidth() / 2) + (this.mIcon.getIntrinsicWidth() / 2), (getHeight() / 2) + (this.mIcon.getIntrinsicHeight() / 2));
-            this.mIcon.draw(canvas);
-            canvas.restore();
+        float f3 = f2 > 1.0f ? -0.5f : 0.5f - f2;
+        int i = (int) (255.0f * f3 * 2.0f);
+        if (f3 > 0.0f) {
+            this.r.setAlpha(i);
+            this.f14369h.setAlpha(0);
+        } else {
+            this.f14369h.setAlpha(-i);
+            this.r.setAlpha(0);
         }
+        invalidate();
     }
 
     public void setIconFade(int i) {
         if (i > 0) {
-            this.mIcon = ap.getDrawable(i);
-            if (this.mIcon != null) {
-                this.mIcon.setAlpha(255);
+            Drawable drawable = SkinManager.getDrawable(i);
+            this.r = drawable;
+            if (drawable != null) {
+                drawable.setAlpha(255);
             }
-            this.fPM.setAlpha(0);
+            this.f14369h.setAlpha(0);
         } else {
-            this.mIcon = null;
-            this.fPM.setAlpha(255);
+            this.r = null;
+            this.f14369h.setAlpha(255);
         }
         postInvalidate();
     }
 
-    public void setCrossFade(float f) {
-        if (this.mIcon != null) {
-            float f2 = f > 1.0f ? -0.5f : 0.5f - f;
-            int i = (int) (255.0f * f2 * 2.0f);
-            if (f2 > 0.0f) {
-                this.mIcon.setAlpha(i);
-                this.fPM.setAlpha(0);
-            } else {
-                this.fPM.setAlpha(-i);
-                this.mIcon.setAlpha(0);
-            }
-            invalidate();
-        }
+    public void setNeedShadow(boolean z) {
+        this.k = z;
     }
 
     @Override // android.view.View
-    public void setRotation(float f) {
-        super.setRotation(f);
+    public void setRotation(float f2) {
+        super.setRotation(f2);
         invalidate();
-    }
-
-    private void clear(Canvas canvas) {
-        this.mPaint.setXfermode(this.fPv);
-        canvas.drawPaint(this.mPaint);
-        this.mPaint.setXfermode(this.fPw);
     }
 
     public void setStartAndEndColor(String str, String str2) {
-        this.startColor = c.rT(str);
-        this.endColor = c.rT(str2);
-        this.fPJ = true;
+        this.m = c.c(str);
+        this.n = c.c(str2);
+        this.f14366e = true;
         invalidate();
-    }
-
-    public void setStartAndEndColor(int i, int i2) {
-        this.startColor = i;
-        this.endColor = i2;
-        this.fPJ = true;
-        invalidate();
-    }
-
-    public void setNeedShadow(boolean z) {
-        this.gcn = z;
-    }
-
-    public void setColor(int i) {
-        this.color = i;
     }
 
     public void setStringColor(String str) {
-        this.color = c.rT(str);
+        this.o = c.c(str);
+    }
+
+    public OvalImageView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public OvalImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f14366e = true;
+        this.i = new float[4];
+        this.j = new float[4];
+        this.k = true;
+        this.o = t;
+        this.p = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.q = new PorterDuffXfermode(PorterDuff.Mode.SRC);
+        this.s = 3;
+        b();
+    }
+
+    public void setStartAndEndColor(int i, int i2) {
+        this.m = i;
+        this.n = i2;
+        this.f14366e = true;
+        invalidate();
     }
 }

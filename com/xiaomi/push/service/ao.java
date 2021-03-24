@@ -1,246 +1,392 @@
 package com.xiaomi.push.service;
 
+import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.coremedia.iso.boxes.AuthorBox;
-import com.xiaomi.push.cv;
-import com.xiaomi.push.cz;
-import com.xiaomi.push.di;
-import com.xiaomi.push.ek;
-import com.xiaomi.push.fh;
-import com.xiaomi.push.fl;
-import com.xiaomi.push.ft;
-import com.xiaomi.push.gg;
-import com.xiaomi.push.gh;
-import com.xiaomi.push.gi;
-import com.xiaomi.push.gj;
-import com.xiaomi.push.gx;
-import com.xiaomi.push.hg;
-import com.xiaomi.push.service.ap;
-import java.util.Date;
-/* loaded from: classes5.dex */
+import com.baidu.android.util.io.ActionJsonData;
+import com.xiaomi.push.hk;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.WeakHashMap;
+/* loaded from: classes7.dex */
 public class ao {
 
     /* renamed from: a  reason: collision with root package name */
-    private XMPushService f8520a;
+    public static Context f40951a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(XMPushService xMPushService) {
-        this.f8520a = xMPushService;
+    /* renamed from: a  reason: collision with other field name */
+    public static Object f890a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static WeakHashMap<Integer, ao> f891a = new WeakHashMap<>();
+
+    /* renamed from: a  reason: collision with other field name */
+    public static boolean f892a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public String f893a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f40952b;
+
+    public ao(String str) {
+        this.f893a = str;
     }
 
-    private void a(gg ggVar) {
-        String c = ggVar.c();
-        if (TextUtils.isEmpty(c)) {
-            return;
+    public static int a(String str) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            try {
+                return f40951a.getPackageManager().getPackageUid(str, 0);
+            } catch (Exception unused) {
+                return -1;
+            }
         }
-        String[] split = c.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        cv a2 = cz.a().a(ft.a(), false);
-        if (a2 == null || split.length <= 0) {
-            return;
-        }
-        a2.a(split);
-        this.f8520a.a(20, (Exception) null);
-        this.f8520a.a(true);
+        return -1;
     }
 
-    private void b(gj gjVar) {
-        ap.b a2;
-        String l = gjVar.l();
-        String k = gjVar.k();
-        if (TextUtils.isEmpty(l) || TextUtils.isEmpty(k) || (a2 = ap.a().a(k, l)) == null) {
-            return;
-        }
-        gx.a(this.f8520a, a2.f859a, gx.a(gjVar.m320a()), true, true, System.currentTimeMillis());
+    public static NotificationManager a() {
+        return (NotificationManager) f40951a.getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
-    private void c(fl flVar) {
-        ap.b a2;
-        String g = flVar.g();
-        String num = Integer.toString(flVar.a());
-        if (TextUtils.isEmpty(g) || TextUtils.isEmpty(num) || (a2 = ap.a().a(num, g)) == null) {
-            return;
+    public static ao a(Context context, String str) {
+        a(context);
+        int hashCode = str.hashCode();
+        ao aoVar = f891a.get(Integer.valueOf(hashCode));
+        if (aoVar == null) {
+            ao aoVar2 = new ao(str);
+            f891a.put(Integer.valueOf(hashCode), aoVar2);
+            return aoVar2;
         }
-        gx.a(this.f8520a, a2.f859a, flVar.c(), true, true, System.currentTimeMillis());
+        return aoVar;
     }
 
-    public void a(fl flVar) {
-        if (5 != flVar.a()) {
-            c(flVar);
+    public static <T> T a(Object obj) {
+        if (obj != null) {
+            try {
+                return (T) obj.getClass().getMethod("getList", new Class[0]).invoke(obj, new Object[0]);
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return null;
+    }
+
+    public static Object a(List list) {
+        return Class.forName("android.content.pm.ParceledListSlice").getConstructor(List.class).newInstance(list);
+    }
+
+    public static String a(String str, String str2) {
+        if (TextUtils.isEmpty(str)) {
+            return str;
+        }
+        String a2 = a("mipush|%s|%s", str2, "");
+        return str.startsWith(a2) ? a("mipush_%s_%s", str2, str.replace(a2, "")) : str;
+    }
+
+    public static String a(String str, String str2, String str3) {
+        return TextUtils.isEmpty(str) ? "" : String.format(str, str2, str3);
+    }
+
+    public static void a(Context context) {
+        if (f40951a == null) {
+            f40951a = context.getApplicationContext();
+            NotificationManager a2 = a();
+            Boolean bool = (Boolean) com.xiaomi.push.bh.a((Object) a2, "isSystemConditionProviderEnabled", "xmsf_fake_condition_provider_path");
+            m569a("fwk is support.init:" + bool);
+            boolean booleanValue = bool != null ? bool.booleanValue() : false;
+            f892a = booleanValue;
+            if (booleanValue) {
+                f890a = com.xiaomi.push.bh.a((Object) a2, "getService", new Object[0]);
+            }
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static void m569a(String str) {
+        com.xiaomi.channel.commonutils.logger.b.m51a("NMHelper:" + str);
+    }
+
+    @TargetApi(26)
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m570a() {
+        if (com.xiaomi.push.l.m516a() && aq.a(f40951a).a(hk.NotificationBelongToAppSwitch.a(), true)) {
+            return f892a;
+        }
+        return false;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m571a(Context context) {
+        a(context);
+        return m570a();
+    }
+
+    private String b(String str) {
+        return a(m570a() ? "mipush|%s|%s" : "mipush_%s_%s", this.f893a, str);
+    }
+
+    @TargetApi(26)
+    /* renamed from: a  reason: collision with other method in class */
+    public NotificationChannel m572a(String str) {
+        NotificationChannel notificationChannel = null;
         try {
-            b(flVar);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a("handle Blob chid = " + flVar.a() + " cmd = " + flVar.m284a() + " packetid = " + flVar.e() + " failure ", e);
+            if (m570a()) {
+                List<NotificationChannel> m576a = m576a();
+                if (m576a != null) {
+                    for (NotificationChannel notificationChannel2 : m576a) {
+                        if (str.equals(notificationChannel2.getId())) {
+                            notificationChannel = notificationChannel2;
+                            break;
+                        }
+                    }
+                }
+            } else {
+                notificationChannel = a().getNotificationChannel(str);
+            }
+        } catch (Exception e2) {
+            m569a("getNotificationChannel error" + e2);
+        }
+        return notificationChannel;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public Context m573a() {
+        return f40951a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public String m574a() {
+        return this.f893a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public String m575a(String str) {
+        return TextUtils.isEmpty(str) ? b() : com.xiaomi.push.l.m516a() ? b(str) : str;
+    }
+
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:10:0x0036
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    @android.annotation.TargetApi(26)
+    /* renamed from: a  reason: collision with other method in class */
+    public java.util.List<android.app.NotificationChannel> m576a() {
+        /*
+            r8 = this;
+            java.lang.String r0 = r8.f893a
+            r1 = 0
+            boolean r2 = m570a()     // Catch: java.lang.Exception -> L78
+            if (r2 == 0) goto L3b
+            int r2 = a(r0)     // Catch: java.lang.Exception -> L78
+            r3 = -1
+            if (r2 == r3) goto L39
+            java.lang.Object r3 = com.xiaomi.push.service.ao.f890a     // Catch: java.lang.Exception -> L78
+            java.lang.String r4 = "getNotificationChannelsForPackage"
+            r5 = 3
+            java.lang.Object[] r5 = new java.lang.Object[r5]     // Catch: java.lang.Exception -> L78
+            r6 = 0
+            r5[r6] = r0     // Catch: java.lang.Exception -> L78
+            r6 = 1
+            java.lang.Integer r2 = java.lang.Integer.valueOf(r2)     // Catch: java.lang.Exception -> L78
+            r5[r6] = r2     // Catch: java.lang.Exception -> L78
+            r2 = 2
+            java.lang.Boolean r6 = java.lang.Boolean.FALSE     // Catch: java.lang.Exception -> L78
+            r5[r2] = r6     // Catch: java.lang.Exception -> L78
+            java.lang.Object r2 = com.xiaomi.push.bh.a(r3, r4, r5)     // Catch: java.lang.Exception -> L78
+            java.lang.Object r2 = a(r2)     // Catch: java.lang.Exception -> L78
+            java.util.List r2 = (java.util.List) r2     // Catch: java.lang.Exception -> L78
+            java.lang.String r1 = "mipush|%s|%s"
+            r7 = r2
+            r2 = r1
+            r1 = r7
+            goto L45
+        L36:
+            r0 = move-exception
+            r1 = r2
+            goto L79
+        L39:
+            r2 = r1
+            goto L45
+        L3b:
+            android.app.NotificationManager r2 = a()     // Catch: java.lang.Exception -> L78
+            java.util.List r1 = r2.getNotificationChannels()     // Catch: java.lang.Exception -> L78
+            java.lang.String r2 = "mipush_%s_%s"
+        L45:
+            boolean r3 = com.xiaomi.push.l.m516a()     // Catch: java.lang.Exception -> L78
+            if (r3 == 0) goto L8d
+            if (r1 == 0) goto L8d
+            java.util.ArrayList r3 = new java.util.ArrayList     // Catch: java.lang.Exception -> L78
+            r3.<init>()     // Catch: java.lang.Exception -> L78
+            java.lang.String r4 = ""
+            java.lang.String r0 = a(r2, r0, r4)     // Catch: java.lang.Exception -> L78
+            java.util.Iterator r2 = r1.iterator()     // Catch: java.lang.Exception -> L78
+        L5c:
+            boolean r4 = r2.hasNext()     // Catch: java.lang.Exception -> L78
+            if (r4 == 0) goto L76
+            java.lang.Object r4 = r2.next()     // Catch: java.lang.Exception -> L78
+            android.app.NotificationChannel r4 = (android.app.NotificationChannel) r4     // Catch: java.lang.Exception -> L78
+            java.lang.String r5 = r4.getId()     // Catch: java.lang.Exception -> L78
+            boolean r5 = r5.startsWith(r0)     // Catch: java.lang.Exception -> L78
+            if (r5 == 0) goto L5c
+            r3.add(r4)     // Catch: java.lang.Exception -> L78
+            goto L5c
+        L76:
+            r1 = r3
+            goto L8d
+        L78:
+            r0 = move-exception
+        L79:
+            java.lang.StringBuilder r2 = new java.lang.StringBuilder
+            r2.<init>()
+            java.lang.String r3 = "getNotificationChannels error "
+            r2.append(r3)
+            r2.append(r0)
+            java.lang.String r0 = r2.toString()
+            m569a(r0)
+        L8d:
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.xiaomi.push.service.ao.m576a():java.util.List");
+    }
+
+    public void a(int i) {
+        String str = this.f893a;
+        try {
+            if (!m570a()) {
+                a().cancel(i);
+                return;
+            }
+            int a2 = com.xiaomi.push.i.a();
+            String packageName = m573a().getPackageName();
+            if (Build.VERSION.SDK_INT >= 30) {
+                com.xiaomi.push.bh.b(f890a, "cancelNotificationWithTag", str, packageName, null, Integer.valueOf(i), Integer.valueOf(a2));
+            } else {
+                com.xiaomi.push.bh.b(f890a, "cancelNotificationWithTag", str, null, Integer.valueOf(i), Integer.valueOf(a2));
+            }
+            m569a("cancel succ:" + i);
+        } catch (Exception e2) {
+            m569a("cancel error" + e2);
         }
     }
 
-    public void a(gj gjVar) {
-        if (!"5".equals(gjVar.k())) {
-            b(gjVar);
-        }
-        String k = gjVar.k();
-        if (TextUtils.isEmpty(k)) {
-            k = "1";
-            gjVar.l("1");
-        }
-        if (k.equals("0")) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("Received wrong packet with chid = 0 : " + gjVar.m320a());
-        }
-        if (gjVar instanceof gh) {
-            gg a2 = gjVar.a("kick");
-            if (a2 != null) {
-                String l = gjVar.l();
-                String a3 = a2.a("type");
-                String a4 = a2.a(TiebaInitialize.LogFields.REASON);
-                com.xiaomi.channel.commonutils.logger.b.m58a("kicked by server, chid=" + k + " res=" + ap.b.a(l) + " type=" + a3 + " reason=" + a4);
-                if (!"wait".equals(a3)) {
-                    this.f8520a.a(k, l, 3, a4, a3);
-                    ap.a().m553a(k, l);
+    public void a(int i, Notification notification) {
+        String str = this.f893a;
+        NotificationManager a2 = a();
+        try {
+            int i2 = Build.VERSION.SDK_INT;
+            if (m570a()) {
+                if (i2 >= 19) {
+                    notification.extras.putString("xmsf_target_package", str);
+                }
+                if (i2 >= 29) {
+                    a2.notifyAsPackage(str, null, i, notification);
                     return;
                 }
-                ap.b a5 = ap.a().a(k, l);
-                if (a5 != null) {
-                    this.f8520a.a(a5);
-                    a5.a(ap.c.unbind, 3, 0, a4, a3);
-                    return;
-                }
-                return;
             }
-        } else if (gjVar instanceof gi) {
-            gi giVar = (gi) gjVar;
-            if ("redir".equals(giVar.b())) {
-                gg a6 = giVar.a("hosts");
-                if (a6 != null) {
-                    a(a6);
-                    return;
-                }
-                return;
-            }
+            a2.notify(i, notification);
+        } catch (Exception unused) {
         }
-        this.f8520a.b().a(this.f8520a, k, gjVar);
     }
 
-    public void b(fl flVar) {
-        String m284a = flVar.m284a();
-        switch (flVar.a()) {
-            case 0:
-                if ("PING".equals(m284a)) {
-                    byte[] m288a = flVar.m288a();
-                    if (m288a != null && m288a.length > 0) {
-                        ek.j a2 = ek.j.a(m288a);
-                        if (a2.b()) {
-                            be.a().a(a2.a());
-                        }
-                    }
-                    if (!"com.xiaomi.xmsf".equals(this.f8520a.getPackageName())) {
-                        this.f8520a.m525a();
-                    }
-                    if ("1".equals(flVar.e())) {
-                        com.xiaomi.channel.commonutils.logger.b.m58a("received a server ping");
-                    } else {
-                        hg.b();
-                    }
-                    this.f8520a.m528b();
-                    return;
-                } else if (!"SYNC".equals(m284a)) {
-                    if ("NOTIFY".equals(flVar.m284a())) {
-                        ek.h a3 = ek.h.a(flVar.m288a());
-                        com.xiaomi.channel.commonutils.logger.b.m58a("notify by server err = " + a3.c() + " desc = " + a3.a());
-                        return;
-                    }
-                    return;
-                } else if ("CONF".equals(flVar.m290b())) {
-                    be.a().a(ek.b.a(flVar.m288a()));
-                    return;
-                } else if (TextUtils.equals("U", flVar.m290b())) {
-                    ek.k a4 = ek.k.a(flVar.m288a());
-                    di.a(this.f8520a).a(a4.a(), a4.b(), new Date(a4.a()), new Date(a4.b()), a4.c() * 1024, a4.e());
-                    fl flVar2 = new fl();
-                    flVar2.a(0);
-                    flVar2.a(flVar.m284a(), "UCA");
-                    flVar2.a(flVar.e());
-                    this.f8520a.a(new ba(this.f8520a, flVar2));
-                    return;
-                } else if (TextUtils.equals("P", flVar.m290b())) {
-                    ek.i a5 = ek.i.a(flVar.m288a());
-                    fl flVar3 = new fl();
-                    flVar3.a(0);
-                    flVar3.a(flVar.m284a(), "PCA");
-                    flVar3.a(flVar.e());
-                    ek.i iVar = new ek.i();
-                    if (a5.a()) {
-                        iVar.a(a5.a());
-                    }
-                    flVar3.a(iVar.a(), (String) null);
-                    this.f8520a.a(new ba(this.f8520a, flVar3));
-                    com.xiaomi.channel.commonutils.logger.b.m58a("ACK msgP: id = " + flVar.e());
-                    return;
-                } else {
-                    return;
+    @TargetApi(26)
+    public void a(NotificationChannel notificationChannel) {
+        String str = this.f893a;
+        try {
+            if (m570a()) {
+                int a2 = a(str);
+                if (a2 != -1) {
+                    com.xiaomi.push.bh.b(f890a, "createNotificationChannelsForPackage", str, Integer.valueOf(a2), a(Arrays.asList(notificationChannel)));
                 }
-            default:
-                String num = Integer.toString(flVar.a());
-                if ("SECMSG".equals(flVar.m284a())) {
-                    if (flVar.m287a()) {
-                        com.xiaomi.channel.commonutils.logger.b.m58a("Recv SECMSG errCode = " + flVar.b() + " errStr = " + flVar.m291c());
-                        return;
-                    } else {
-                        this.f8520a.b().a(this.f8520a, num, flVar);
-                        return;
-                    }
-                } else if (!"BIND".equals(m284a)) {
-                    if ("KICK".equals(m284a)) {
-                        ek.g a6 = ek.g.a(flVar.m288a());
-                        String g = flVar.g();
-                        String a7 = a6.a();
-                        String b = a6.b();
-                        com.xiaomi.channel.commonutils.logger.b.m58a("kicked by server, chid=" + num + " res= " + ap.b.a(g) + " type=" + a7 + " reason=" + b);
-                        if (!"wait".equals(a7)) {
-                            this.f8520a.a(num, g, 3, b, a7);
-                            ap.a().m553a(num, g);
-                            return;
-                        }
-                        ap.b a8 = ap.a().a(num, g);
-                        if (a8 != null) {
-                            this.f8520a.a(a8);
-                            a8.a(ap.c.unbind, 3, 0, b, a7);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                } else {
-                    ek.d a9 = ek.d.a(flVar.m288a());
-                    String g2 = flVar.g();
-                    ap.b a10 = ap.a().a(num, g2);
-                    if (a10 != null) {
-                        if (a9.a()) {
-                            com.xiaomi.channel.commonutils.logger.b.m58a("SMACK: channel bind succeeded, chid=" + flVar.a());
-                            a10.a(ap.c.binded, 1, 0, (String) null, (String) null);
-                            return;
-                        }
-                        String a11 = a9.a();
-                        if (AuthorBox.TYPE.equals(a11)) {
-                            if ("invalid-sig".equals(a9.b())) {
-                                com.xiaomi.channel.commonutils.logger.b.m58a("SMACK: bind error invalid-sig token = " + a10.c + " sec = " + a10.h);
-                                hg.a(0, fh.BIND_INVALID_SIG.a(), 1, null, 0);
+            } else {
+                a().createNotificationChannel(notificationChannel);
+            }
+        } catch (Exception e2) {
+            m569a("createNotificationChannel error" + e2);
+        }
+    }
+
+    public void a(NotificationChannel notificationChannel, boolean z) {
+        String str = this.f893a;
+        try {
+            if (z) {
+                int a2 = a(str);
+                if (a2 != -1) {
+                    com.xiaomi.push.bh.b(f890a, "updateNotificationChannelForPackage", str, Integer.valueOf(a2), notificationChannel);
+                }
+            } else {
+                a(notificationChannel);
+            }
+        } catch (Exception e2) {
+            m569a("updateNotificationChannel error " + e2);
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m577a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return str.startsWith(b(""));
+    }
+
+    public String b() {
+        if (TextUtils.isEmpty(this.f40952b)) {
+            this.f40952b = b("default");
+        }
+        return this.f40952b;
+    }
+
+    public String b(String str, String str2) {
+        return m570a() ? str : str2;
+    }
+
+    @TargetApi(23)
+    /* renamed from: b  reason: collision with other method in class */
+    public List<StatusBarNotification> m578b() {
+        String str = this.f893a;
+        NotificationManager a2 = a();
+        ArrayList arrayList = null;
+        try {
+            if (m570a()) {
+                int a3 = com.xiaomi.push.i.a();
+                if (a3 != -1) {
+                    arrayList = (List) a(com.xiaomi.push.bh.a(f890a, "getAppActiveNotifications", str, Integer.valueOf(a3)));
+                }
+            } else {
+                StatusBarNotification[] activeNotifications = a2.getActiveNotifications();
+                boolean m516a = com.xiaomi.push.l.m516a();
+                if (activeNotifications != null && activeNotifications.length > 0) {
+                    ArrayList arrayList2 = new ArrayList();
+                    try {
+                        for (StatusBarNotification statusBarNotification : activeNotifications) {
+                            if (!m516a || str.equals(ap.a(statusBarNotification.getNotification()))) {
+                                arrayList2.add(statusBarNotification);
                             }
-                            a10.a(ap.c.unbind, 1, 5, a9.b(), a11);
-                            ap.a().m553a(num, g2);
-                        } else if ("cancel".equals(a11)) {
-                            a10.a(ap.c.unbind, 1, 7, a9.b(), a11);
-                            ap.a().m553a(num, g2);
-                        } else if ("wait".equals(a11)) {
-                            this.f8520a.a(a10);
-                            a10.a(ap.c.unbind, 1, 7, a9.b(), a11);
                         }
-                        com.xiaomi.channel.commonutils.logger.b.m58a("SMACK: channel bind failed, chid=" + num + " reason=" + a9.b());
-                        return;
+                        arrayList = arrayList2;
+                    } catch (Exception e2) {
+                        e = e2;
+                        arrayList = arrayList2;
+                        m569a("getActiveNotifications error " + e);
+                        return arrayList;
                     }
-                    return;
                 }
+            }
+        } catch (Exception e3) {
+            e = e3;
         }
+        return arrayList;
+    }
+
+    public String toString() {
+        return "NotificationManagerHelper{" + this.f893a + "}";
     }
 }

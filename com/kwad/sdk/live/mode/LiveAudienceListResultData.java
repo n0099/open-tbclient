@@ -9,24 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LiveAudienceListResultData extends BaseResultData {
-    private static final long serialVersionUID = -1400500562354543457L;
+    public static final long serialVersionUID = -1400500562354543457L;
     public List<CurrentWatchingUser> currentWatchingUsers = new ArrayList();
     public String displayWatchingCount;
     public int pendingDuration;
     public int sequenceId;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class CurrentWatchingUser implements b, Serializable {
-        private static final long serialVersionUID = -8900509159435327530L;
+        public static final long serialVersionUID = -8900509159435327530L;
         public List<HeadUrl> headurls = new ArrayList();
         public long user_id;
         public long user_name;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes6.dex */
         public static class HeadUrl implements b, Serializable {
-            private static final long serialVersionUID = -8081450700792739733L;
+            public static final long serialVersionUID = -8081450700792739733L;
             public String cdn;
             public String url;
             public String urlPattern;

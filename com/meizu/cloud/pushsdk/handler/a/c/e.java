@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.ActionJsonData;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -19,7 +19,6 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: a */
     public void b(h hVar) {
@@ -27,12 +26,11 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(h hVar, com.meizu.cloud.pushsdk.notification.c cVar) {
         NotificationManager notificationManager = (NotificationManager) c().getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (notificationManager != null) {
-            com.meizu.cloud.a.a.e("AbstractMessageHandler", "start cancel notification id " + hVar.b());
+            d.j.a.a.a.b("AbstractMessageHandler", "start cancel notification id " + hVar.b());
             notificationManager.cancel(hVar.b());
         }
     }
@@ -40,7 +38,7 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
         int i;
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start WithDrawMessageHandler match");
+        d.j.a.a.a.d("AbstractMessageHandler", "start WithDrawMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
             com.meizu.cloud.pushsdk.handler.a.b.b a2 = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
@@ -56,7 +54,6 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: j */
     public h c(Intent intent) {

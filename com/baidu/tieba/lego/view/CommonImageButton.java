@@ -8,18 +8,66 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+import d.b.i0.i1.m.b;
+import d.b.i0.i1.o.j.a;
+/* loaded from: classes4.dex */
 public class CommonImageButton extends FrameLayout {
-    private TbImageView iQB;
-    private Context mContext;
-    private View mRootView;
-    private TextView mTitle;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f18727e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f18728f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f18729g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TbImageView f18730h;
 
     public CommonImageButton(Context context) {
         this(context, null, 0);
+    }
+
+    public final void a() {
+        View inflate = LayoutInflater.from(this.f18727e).inflate(R.layout.lego_common_button, (ViewGroup) this, true);
+        this.f18728f = inflate;
+        this.f18729g = (TextView) inflate.findViewById(R.id.image_local);
+        this.f18730h = (TbImageView) this.f18728f.findViewById(R.id.image_net);
+    }
+
+    public void b(a aVar) {
+        if (aVar == null) {
+            return;
+        }
+        if (!aVar.j()) {
+            b.a().d(aVar, aVar.h());
+        }
+        if (aVar.a()) {
+            c(aVar);
+        } else {
+            d(aVar);
+        }
+    }
+
+    public final void c(a aVar) {
+        this.f18730h.setVisibility(8);
+        int f2 = aVar.f();
+        if (f2 != 0) {
+            this.f18729g.setVisibility(0);
+            SkinManager.setBackgroundResource(this.f18729g, f2);
+            return;
+        }
+        this.f18729g.setVisibility(8);
+    }
+
+    public final void d(a aVar) {
+        this.f18729g.setVisibility(8);
+        this.f18730h.setVisibility(0);
+        this.f18730h.W(1 == TbadkCoreApplication.getInst().getSkinType() ? aVar.e() : aVar.d(), 10, false);
     }
 
     public CommonImageButton(Context context, AttributeSet attributeSet) {
@@ -28,43 +76,7 @@ public class CommonImageButton extends FrameLayout {
 
     public CommonImageButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mContext = context;
-        init();
-    }
-
-    private void init() {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.lego_common_button, (ViewGroup) this, true);
-        this.mTitle = (TextView) this.mRootView.findViewById(R.id.image_local);
-        this.iQB = (TbImageView) this.mRootView.findViewById(R.id.image_net);
-    }
-
-    public void a(com.baidu.tieba.lego.card.model.a aVar) {
-        if (aVar != null) {
-            if (!aVar.dbT()) {
-                com.baidu.tieba.lego.a.b.dbA().l(aVar, aVar.dbR());
-            }
-            if (aVar.dbV()) {
-                c(aVar);
-            } else {
-                b(aVar);
-            }
-        }
-    }
-
-    private void b(com.baidu.tieba.lego.card.model.a aVar) {
-        this.mTitle.setVisibility(8);
-        this.iQB.setVisibility(0);
-        this.iQB.startLoad(1 == TbadkCoreApplication.getInst().getSkinType() ? aVar.dbW() : aVar.getImageUrl(), 10, false);
-    }
-
-    private void c(com.baidu.tieba.lego.card.model.a aVar) {
-        this.iQB.setVisibility(8);
-        int dbX = aVar.dbX();
-        if (dbX != 0) {
-            this.mTitle.setVisibility(0);
-            ap.setBackgroundResource(this.mTitle, dbX);
-            return;
-        }
-        this.mTitle.setVisibility(8);
+        this.f18727e = context;
+        a();
     }
 }

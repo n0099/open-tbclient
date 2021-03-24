@@ -6,12 +6,12 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LiveEndResultData extends BaseResultData implements b, Serializable {
-    private static final long serialVersionUID = -7751086347399213067L;
+    public static final long serialVersionUID = -7751086347399213067L;
     public QLivePushEndInfo mQLivePushEndInfo = new QLivePushEndInfo();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class QLivePushEndInfo implements b, Serializable {
         public static final String KET_CONFIG_DISPLAY_LIKE_USER_COUNT = "displayLikeUserCount";
         public static final String KET_CONFIG_DISPLAY_WATCHING_USER_COUNT = "displayWatchingUserCount";
@@ -19,7 +19,7 @@ public class LiveEndResultData extends BaseResultData implements b, Serializable
         public static final String KET_CONFIG_LIVE_DURATION = "liveDuration";
         public static final String KET_CONFIG_TOTAL_WATCHING_DURATION = "totalWatchingDuration";
         public static final String KET_CONFIG_WATCHING_USER_COUNT = "watchingUserCount";
-        private static final long serialVersionUID = 7611577990274486211L;
+        public static final long serialVersionUID = 7611577990274486211L;
         public int mLikeUserCount;
         public long mLiveDuration;
         public long mTotalWatchingDuration;

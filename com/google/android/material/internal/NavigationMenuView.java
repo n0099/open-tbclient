@@ -8,10 +8,19 @@ import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class NavigationMenuView extends RecyclerView implements MenuView {
     public NavigationMenuView(Context context) {
         this(context, null);
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView
+    public int getWindowAnimations() {
+        return 0;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView
+    public void initialize(MenuBuilder menuBuilder) {
     }
 
     public NavigationMenuView(Context context, AttributeSet attributeSet) {
@@ -21,14 +30,5 @@ public class NavigationMenuView extends RecyclerView implements MenuView {
     public NavigationMenuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         setLayoutManager(new LinearLayoutManager(context, 1, false));
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView
-    public void initialize(MenuBuilder menuBuilder) {
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView
-    public int getWindowAnimations() {
-        return 0;
     }
 }

@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public final class LiveMarkInfo extends Message {
     public static final String DEFAULT_MARK_NAME = "";
     public static final String DEFAULT_MARK_PIC = "";
@@ -26,57 +26,7 @@ public final class LiveMarkInfo extends Message {
     public static final Long DEFAULT_HEIGHT = 0L;
     public static final Long DEFAULT_WIDTH = 0L;
 
-    private LiveMarkInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.mark_id == null) {
-                this.mark_id = DEFAULT_MARK_ID;
-            } else {
-                this.mark_id = builder.mark_id;
-            }
-            if (builder.mark_name == null) {
-                this.mark_name = "";
-            } else {
-                this.mark_name = builder.mark_name;
-            }
-            if (builder.anchor_user_id == null) {
-                this.anchor_user_id = DEFAULT_ANCHOR_USER_ID;
-            } else {
-                this.anchor_user_id = builder.anchor_user_id;
-            }
-            if (builder.mark_pic == null) {
-                this.mark_pic = "";
-            } else {
-                this.mark_pic = builder.mark_pic;
-            }
-            if (builder.type == null) {
-                this.type = DEFAULT_TYPE;
-            } else {
-                this.type = builder.type;
-            }
-            if (builder.height == null) {
-                this.height = DEFAULT_HEIGHT;
-            } else {
-                this.height = builder.height;
-            }
-            if (builder.width == null) {
-                this.width = DEFAULT_WIDTH;
-                return;
-            } else {
-                this.width = builder.width;
-                return;
-            }
-        }
-        this.mark_id = builder.mark_id;
-        this.mark_name = builder.mark_name;
-        this.anchor_user_id = builder.anchor_user_id;
-        this.mark_pic = builder.mark_pic;
-        this.type = builder.type;
-        this.height = builder.height;
-        this.width = builder.width;
-    }
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<LiveMarkInfo> {
         public Long anchor_user_id;
         public Long height;
@@ -91,15 +41,16 @@ public final class LiveMarkInfo extends Message {
 
         public Builder(LiveMarkInfo liveMarkInfo) {
             super(liveMarkInfo);
-            if (liveMarkInfo != null) {
-                this.mark_id = liveMarkInfo.mark_id;
-                this.mark_name = liveMarkInfo.mark_name;
-                this.anchor_user_id = liveMarkInfo.anchor_user_id;
-                this.mark_pic = liveMarkInfo.mark_pic;
-                this.type = liveMarkInfo.type;
-                this.height = liveMarkInfo.height;
-                this.width = liveMarkInfo.width;
+            if (liveMarkInfo == null) {
+                return;
             }
+            this.mark_id = liveMarkInfo.mark_id;
+            this.mark_name = liveMarkInfo.mark_name;
+            this.anchor_user_id = liveMarkInfo.anchor_user_id;
+            this.mark_pic = liveMarkInfo.mark_pic;
+            this.type = liveMarkInfo.type;
+            this.height = liveMarkInfo.height;
+            this.width = liveMarkInfo.width;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -108,5 +59,62 @@ public final class LiveMarkInfo extends Message {
         public LiveMarkInfo build(boolean z) {
             return new LiveMarkInfo(this, z);
         }
+    }
+
+    public LiveMarkInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.mark_id;
+            if (l == null) {
+                this.mark_id = DEFAULT_MARK_ID;
+            } else {
+                this.mark_id = l;
+            }
+            String str = builder.mark_name;
+            if (str == null) {
+                this.mark_name = "";
+            } else {
+                this.mark_name = str;
+            }
+            Long l2 = builder.anchor_user_id;
+            if (l2 == null) {
+                this.anchor_user_id = DEFAULT_ANCHOR_USER_ID;
+            } else {
+                this.anchor_user_id = l2;
+            }
+            String str2 = builder.mark_pic;
+            if (str2 == null) {
+                this.mark_pic = "";
+            } else {
+                this.mark_pic = str2;
+            }
+            Long l3 = builder.type;
+            if (l3 == null) {
+                this.type = DEFAULT_TYPE;
+            } else {
+                this.type = l3;
+            }
+            Long l4 = builder.height;
+            if (l4 == null) {
+                this.height = DEFAULT_HEIGHT;
+            } else {
+                this.height = l4;
+            }
+            Long l5 = builder.width;
+            if (l5 == null) {
+                this.width = DEFAULT_WIDTH;
+                return;
+            } else {
+                this.width = l5;
+                return;
+            }
+        }
+        this.mark_id = builder.mark_id;
+        this.mark_name = builder.mark_name;
+        this.anchor_user_id = builder.anchor_user_id;
+        this.mark_pic = builder.mark_pic;
+        this.type = builder.type;
+        this.height = builder.height;
+        this.width = builder.width;
     }
 }

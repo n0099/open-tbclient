@@ -1,21 +1,21 @@
 package com.sdk.base.framework.bean;
 
-import com.sdk.base.framework.f.d.a;
-/* loaded from: classes4.dex */
+import com.sdk.base.framework.f.c.a;
+/* loaded from: classes6.dex */
 public class KInfo {
 
     /* renamed from: cn  reason: collision with root package name */
-    private String f7625cn;
-    private String ic;
-    private boolean idfd;
-    private boolean idfs;
-    private String ie;
-    private String is;
-    private String m;
-    private int sid;
+    public String f38501cn;
+    public String ic;
+    public boolean idfd;
+    public boolean idfs;
+    public String ie;
+    public String is;
+    public String m;
+    public int sid;
 
     public String getCn() {
-        return this.f7625cn;
+        return this.f38501cn;
     }
 
     public String getIc() {
@@ -47,7 +47,7 @@ public class KInfo {
     }
 
     public void setCn(String str) {
-        this.f7625cn = str;
+        this.f38501cn = str;
     }
 
     public void setIc(String str) {

@@ -10,62 +10,76 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.sapi2.biometrics.liveness.R;
-import com.thunder.livesdk.system.ThunderNetStateService;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class LivenessCircleProgressView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f1790a;
-    private Paint b;
-    private Paint c;
-    private int d;
-    private RectF e;
-    private int f;
+    public Paint f6086a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Paint f6087b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Paint f6088c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f6089d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RectF f6090e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f6091f;
 
     public LivenessCircleProgressView(@NonNull Context context) {
         super(context);
         a();
     }
 
-    public LivenessCircleProgressView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        a();
-    }
-
     private void a() {
-        this.f = 12;
-        this.f1790a = new Paint();
-        this.f1790a.setColor(Color.argb((int) ThunderNetStateService.NetState.SYSNET_UNKNOWN, 255, 255, 255));
-        this.f1790a.setAntiAlias(true);
-        this.f1790a.setStrokeWidth(this.f);
-        this.f1790a.setStyle(Paint.Style.STROKE);
-        this.b = new Paint();
-        this.b.setColor(Color.argb(255, 255, 255, 255));
-        this.b.setAntiAlias(true);
-        this.b.setStrokeWidth(this.f);
-        this.b.setStyle(Paint.Style.STROKE);
-        this.c = new Paint();
-        this.c.setColor(Color.rgb(255, 255, 255));
-        this.c.setAntiAlias(true);
-        this.c.setTextSize(getResources().getDimensionPixelSize(R.dimen.rim_text_size_20));
-        this.c.setTextAlign(Paint.Align.CENTER);
-        this.e = new RectF();
+        this.f6091f = 12;
+        Paint paint = new Paint();
+        this.f6086a = paint;
+        paint.setColor(Color.argb(127, 255, 255, 255));
+        this.f6086a.setAntiAlias(true);
+        this.f6086a.setStrokeWidth(this.f6091f);
+        this.f6086a.setStyle(Paint.Style.STROKE);
+        Paint paint2 = new Paint();
+        this.f6087b = paint2;
+        paint2.setColor(Color.argb(255, 255, 255, 255));
+        this.f6087b.setAntiAlias(true);
+        this.f6087b.setStrokeWidth(this.f6091f);
+        this.f6087b.setStyle(Paint.Style.STROKE);
+        Paint paint3 = new Paint();
+        this.f6088c = paint3;
+        paint3.setColor(Color.rgb(255, 255, 255));
+        this.f6088c.setAntiAlias(true);
+        this.f6088c.setTextSize(getResources().getDimensionPixelSize(R.dimen.rim_text_size_20));
+        this.f6088c.setTextAlign(Paint.Align.CENTER);
+        this.f6090e = new RectF();
     }
 
     @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f / 2), this.f1790a);
-        this.e.left = this.f / 2;
-        this.e.top = this.f / 2;
-        this.e.right = getWidth() - (this.f / 2);
-        this.e.bottom = getHeight() - (this.f / 2);
-        canvas.drawArc(this.e, -90.0f, 360.0f * (this.d / 100.0f), false, this.b);
-        canvas.drawText(this.d + "%", getWidth() / 2, getHeight() / 2, this.c);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f6091f / 2), this.f6086a);
+        RectF rectF = this.f6090e;
+        int i = this.f6091f;
+        rectF.left = i / 2;
+        rectF.top = i / 2;
+        rectF.right = getWidth() - (this.f6091f / 2);
+        this.f6090e.bottom = getHeight() - (this.f6091f / 2);
+        canvas.drawArc(this.f6090e, -90.0f, (this.f6089d / 100.0f) * 360.0f, false, this.f6087b);
+        canvas.drawText(this.f6089d + "%", getWidth() / 2, getHeight() / 2, this.f6088c);
     }
 
     public void updateProgress(int i) {
-        this.d = i;
+        this.f6089d = i;
         invalidate();
+    }
+
+    public LivenessCircleProgressView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a();
     }
 }

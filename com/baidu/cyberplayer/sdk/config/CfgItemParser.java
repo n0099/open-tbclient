@@ -2,15 +2,15 @@ package com.baidu.cyberplayer.sdk.config;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.util.FieldBuilder;
+import com.baidu.webkit.sdk.VideoCloudSetting;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CfgItemParser {
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum a {
         FAILED,
         AND_NEED_CHECK_NEXT,
@@ -18,59 +18,69 @@ public class CfgItemParser {
         SUCCESS
     }
 
-    /* loaded from: classes4.dex */
-    private static class b {
-        public int e;
-        public boolean c = false;
-        public boolean d = false;
+    /* loaded from: classes2.dex */
+    public static class b {
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f4900e;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f4898c = false;
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f4899d = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f1412a = null;
-        public boolean b = true;
+        public String[] f4896a = null;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f4897b = true;
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str, String str2, String str3) {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            if (str.equals("close_all")) {
-                this.d = true;
-                this.c = false;
-            } else if (str.equals("enable_all")) {
-                this.c = true;
-                this.d = false;
+            if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_CLOSE_ALL)) {
+                this.f4899d = true;
+                this.f4898c = false;
+            } else if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_ENABLE_ALL)) {
+                this.f4898c = true;
+                this.f4899d = false;
             } else if (!str.contains(str2)) {
-                this.f1412a = a(str, str3);
+                this.f4896a = a(str, str3);
             } else {
-                if (str2.endsWith("|")) {
-                    str2 = EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR;
+                if (str2.endsWith(FieldBuilder.SE)) {
+                    str2 = "\\|";
                 }
                 String[] split = str.split(str2);
                 if (split.length == 2) {
-                    this.f1412a = a(split[0], str3);
-                    this.b = c(split[1]);
+                    this.f4896a = a(split[0], str3);
+                    this.f4897b = c(split[1]);
                 } else if (split.length == 1) {
-                    this.f1412a = a(split[0], str3);
+                    this.f4896a = a(split[0], str3);
                 }
             }
         }
 
         private String[] a(String str, String str2) {
-            if (!TextUtils.isEmpty(str)) {
-                if (str.contains(str2)) {
-                    String[] split = str.split(str2);
-                    int length = split.length;
-                    for (int i = 0; i < length; i++) {
-                        if (TextUtils.isEmpty(split[i]) || split[i].equals(".")) {
-                            split[i] = null;
-                        }
-                    }
-                    return split;
-                } else if (!TextUtils.isEmpty(str)) {
-                    return new String[]{str};
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (!str.contains(str2)) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                return new String[]{str};
+            }
+            String[] split = str.split(str2);
+            int length = split.length;
+            for (int i = 0; i < length; i++) {
+                if (TextUtils.isEmpty(split[i]) || split[i].equals(".")) {
+                    split[i] = null;
                 }
             }
-            return null;
+            return split;
         }
 
         private boolean c(String str) {
@@ -78,25 +88,24 @@ public class CfgItemParser {
         }
 
         public void a(int i) {
-            this.e = i;
+            this.f4900e = i;
         }
 
         public boolean a(String str) {
-            if (this.c) {
+            String[] strArr;
+            if (this.f4898c) {
                 return true;
             }
-            if (!TextUtils.isEmpty(str) && this.f1412a != null) {
-                int length = this.f1412a.length;
+            if (!TextUtils.isEmpty(str) && (strArr = this.f4896a) != null) {
+                int length = strArr.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(this.f1412a[i])) {
-                        return true;
+                    if (!str.equals(this.f4896a[i]) && (this.f4900e != 0 || !a(str, this.f4896a[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
+                        if (this.f4900e == 1) {
+                            if (str.contains("." + this.f4896a[i])) {
+                            }
+                        }
                     }
-                    if (this.e == 0 && a(str, this.f1412a[i], "\\.", "*")) {
-                        return true;
-                    }
-                    if (this.e == 1 && str.contains("." + this.f1412a[i])) {
-                        return true;
-                    }
+                    return true;
                 }
             }
             return false;
@@ -122,11 +131,11 @@ public class CfgItemParser {
         }
 
         public a b(String str) {
-            if (this.d) {
+            if (this.f4899d) {
                 return a.FAILED;
             }
             boolean a2 = a(str);
-            return this.b ? a2 ? a.AND_NEED_CHECK_NEXT : a.FAILED : a2 ? a.SUCCESS : a.OR_NEED_CHECK_NEXT;
+            return this.f4897b ? a2 ? a.AND_NEED_CHECK_NEXT : a.FAILED : a2 ? a.SUCCESS : a.OR_NEED_CHECK_NEXT;
         }
     }
 
@@ -146,13 +155,12 @@ public class CfgItemParser {
         return b(Build.DEVICE, arrayList) || b(Build.MODEL, arrayList2);
     }
 
-    private static boolean b(String str, ArrayList<String> arrayList) {
-        if (TextUtils.isEmpty(str) || arrayList == null) {
-            return false;
-        }
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (str.equalsIgnoreCase(arrayList.get(i))) {
-                return true;
+    public static boolean b(String str, ArrayList<String> arrayList) {
+        if (!TextUtils.isEmpty(str) && arrayList != null) {
+            for (int i = 0; i < arrayList.size(); i++) {
+                if (str.equalsIgnoreCase(arrayList.get(i))) {
+                    return true;
+                }
             }
         }
         return false;
@@ -160,10 +168,10 @@ public class CfgItemParser {
 
     @Keep
     public static Boolean versionMatchCheck(String str, String str2) {
-        boolean z = false;
         b bVar = new b();
+        boolean z = false;
         bVar.a(0);
-        bVar.a(str, "|", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        bVar.a(str, FieldBuilder.SE, ";");
         a b2 = bVar.b(str2);
         return Boolean.valueOf((b2 == a.SUCCESS || b2 == a.AND_NEED_CHECK_NEXT) ? true : true);
     }

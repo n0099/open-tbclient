@@ -1,38 +1,21 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
-import com.baidu.tieba.q.l;
-/* loaded from: classes6.dex */
+import d.b.i0.x2.l;
+@Autowired
+/* loaded from: classes3.dex */
 public class LokiRuntime {
-    private static final ILokiIdentityContext EMPTY = new ILokiIdentityContext() { // from class: com.baidu.searchbox.logsystem.basic.upload.LokiRuntime.1
+    public static final ILokiIdentityContext EMPTY = new ILokiIdentityContext() { // from class: com.baidu.searchbox.logsystem.basic.upload.LokiRuntime.1
         @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getZid() {
-            return null;
-        }
-
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getSid() {
+        public String getBDVCInfo() {
             return null;
         }
 
         @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
         public String getC3Aid() {
-            return null;
-        }
-
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getSchemeHeader() {
-            return null;
-        }
-
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getFrom() {
-            return null;
-        }
-
-        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-        public String getBDVCInfo() {
             return null;
         }
 
@@ -45,13 +28,35 @@ public class LokiRuntime {
         public String getDeviceScore() {
             return null;
         }
+
+        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+        public String getFrom() {
+            return null;
+        }
+
+        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+        public String getSchemeHeader() {
+            return null;
+        }
+
+        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+        public String getSid() {
+            return null;
+        }
+
+        @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+        public String getZid() {
+            return null;
+        }
     };
 
+    @Inject(force = false)
     public static ILokiIdentityContext getIdentityContext() {
         return EMPTY;
     }
 
+    @Inject
     public static ILokiIdentityNeedContext getIdentityNeedContext() {
-        return l.dKv();
+        return l.a();
     }
 }

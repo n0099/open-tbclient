@@ -1,9 +1,9 @@
 package com.alibaba.fastjson.parser;
 
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class JSONToken {
     public static final int COLON = 17;
     public static final int COMMA = 16;
@@ -35,7 +35,7 @@ public class JSONToken {
     public static String name(int i) {
         switch (i) {
             case 1:
-                return BdStatsConstant.StatsType.ERROR;
+                return "error";
             case 2:
                 return "int";
             case 3:
@@ -49,15 +49,15 @@ public class JSONToken {
             case 7:
                 return "false";
             case 8:
-                return "null";
+                return StringUtil.NULL_STRING;
             case 9:
                 return "new";
             case 10:
                 return "(";
             case 11:
-                return ")";
+                return SmallTailInfo.EMOTION_SUFFIX;
             case 12:
-                return "{";
+                return StringUtil.ARRAY_START;
             case 13:
                 return "}";
             case 14:
@@ -81,7 +81,7 @@ public class JSONToken {
             case 23:
                 return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
             case 24:
-                return ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+                return ";";
             case 25:
                 return ".";
             case 26:

@@ -2,65 +2,61 @@ package com.kwad.sdk.glide.load.engine;
 
 import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
-import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import com.kwad.sdk.glide.load.engine.g;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class q<Data, ResourceType, Transcode> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Class<Data> f6770a;
-    private final Pools.Pool<List<Throwable>> b;
-    private final List<? extends g<Data, ResourceType, Transcode>> c;
-    private final String d;
+    public final Class<Data> f35595a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Pools.Pool<List<Throwable>> f35596b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final List<? extends g<Data, ResourceType, Transcode>> f35597c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final String f35598d;
 
     public q(Class<Data> cls, Class<ResourceType> cls2, Class<Transcode> cls3, List<g<Data, ResourceType, Transcode>> list, Pools.Pool<List<Throwable>> pool) {
-        this.f6770a = cls;
-        this.b = pool;
-        this.c = (List) com.kwad.sdk.glide.g.j.a(list);
-        this.d = "Failed LoadPath{" + cls.getSimpleName() + PerfFrameTrackUIUtil.SEPERATOR_ARROR + cls2.getSimpleName() + PerfFrameTrackUIUtil.SEPERATOR_ARROR + cls3.getSimpleName() + "}";
+        this.f35595a = cls;
+        this.f35596b = pool;
+        this.f35597c = (List) com.kwad.sdk.glide.g.j.a(list);
+        this.f35598d = "Failed LoadPath{" + cls.getSimpleName() + "->" + cls2.getSimpleName() + "->" + cls3.getSimpleName() + "}";
     }
 
     private s<Transcode> a(com.kwad.sdk.glide.load.a.e<Data> eVar, @NonNull com.kwad.sdk.glide.load.e eVar2, int i, int i2, g.a<ResourceType> aVar, List<Throwable> list) {
-        s<Transcode> sVar;
-        s<Transcode> sVar2 = null;
-        int size = this.c.size();
-        int i3 = 0;
-        while (true) {
-            if (i3 >= size) {
-                sVar = sVar2;
-                break;
-            }
+        int size = this.f35597c.size();
+        s<Transcode> sVar = null;
+        for (int i3 = 0; i3 < size; i3++) {
             try {
-                sVar = this.c.get(i3).a(eVar, i, i2, eVar2, aVar);
-            } catch (GlideException e) {
-                list.add(e);
-                sVar = sVar2;
+                sVar = this.f35597c.get(i3).a(eVar, i, i2, eVar2, aVar);
+            } catch (GlideException e2) {
+                list.add(e2);
             }
             if (sVar != null) {
                 break;
             }
-            i3++;
-            sVar2 = sVar;
         }
-        if (sVar == null) {
-            throw new GlideException(this.d, new ArrayList(list));
+        if (sVar != null) {
+            return sVar;
         }
-        return sVar;
+        throw new GlideException(this.f35598d, new ArrayList(list));
     }
 
     public s<Transcode> a(com.kwad.sdk.glide.load.a.e<Data> eVar, @NonNull com.kwad.sdk.glide.load.e eVar2, int i, int i2, g.a<ResourceType> aVar) {
-        List<Throwable> list = (List) com.kwad.sdk.glide.g.j.a(this.b.acquire());
+        List<Throwable> list = (List) com.kwad.sdk.glide.g.j.a(this.f35596b.acquire());
         try {
             return a(eVar, eVar2, i, i2, aVar, list);
         } finally {
-            this.b.release(list);
+            this.f35596b.release(list);
         }
     }
 
     public String toString() {
-        return "LoadPath{decodePaths=" + Arrays.toString(this.c.toArray()) + '}';
+        return "LoadPath{decodePaths=" + Arrays.toString(this.f35597c.toArray()) + '}';
     }
 }

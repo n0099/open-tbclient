@@ -13,161 +13,165 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class al implements Window.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    private Window.Callback f2583a;
-    private a b;
+    public Window.Callback f8911a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public a f8912b;
+
+    /* loaded from: classes2.dex */
     public interface a {
         void a(KeyEvent keyEvent);
 
         void a(MotionEvent motionEvent);
     }
 
-    public Window.Callback a() {
-        return this.f2583a;
+    public al(Window.Callback callback, a aVar) {
+        this.f8911a = callback;
+        this.f8912b = aVar;
     }
 
-    public al(Window.Callback callback, a aVar) {
-        this.f2583a = callback;
-        this.b = aVar;
+    public Window.Callback a() {
+        return this.f8911a;
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
-        return this.f2583a.dispatchGenericMotionEvent(motionEvent);
+        return this.f8911a.dispatchGenericMotionEvent(motionEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        if (this.b != null) {
-            this.b.a(keyEvent);
+        a aVar = this.f8912b;
+        if (aVar != null) {
+            aVar.a(keyEvent);
         }
-        return this.f2583a.dispatchKeyEvent(keyEvent);
+        return this.f8911a.dispatchKeyEvent(keyEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        return this.f2583a.dispatchKeyShortcutEvent(keyEvent);
+        return this.f8911a.dispatchKeyShortcutEvent(keyEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        return this.f2583a.dispatchPopulateAccessibilityEvent(accessibilityEvent);
+        return this.f8911a.dispatchPopulateAccessibilityEvent(accessibilityEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.b != null) {
-            this.b.a(motionEvent);
+        a aVar = this.f8912b;
+        if (aVar != null) {
+            aVar.a(motionEvent);
         }
-        return this.f2583a.dispatchTouchEvent(motionEvent);
+        return this.f8911a.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        return this.f2583a.dispatchTrackballEvent(motionEvent);
+        return this.f8911a.dispatchTrackballEvent(motionEvent);
     }
 
     @Override // android.view.Window.Callback
     public void onActionModeFinished(ActionMode actionMode) {
-        this.f2583a.onActionModeFinished(actionMode);
+        this.f8911a.onActionModeFinished(actionMode);
     }
 
     @Override // android.view.Window.Callback
     public void onActionModeStarted(ActionMode actionMode) {
-        this.f2583a.onActionModeStarted(actionMode);
+        this.f8911a.onActionModeStarted(actionMode);
     }
 
     @Override // android.view.Window.Callback
     public void onAttachedToWindow() {
-        this.f2583a.onAttachedToWindow();
+        this.f8911a.onAttachedToWindow();
     }
 
     @Override // android.view.Window.Callback
     public void onContentChanged() {
-        this.f2583a.onContentChanged();
+        this.f8911a.onContentChanged();
     }
 
     @Override // android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
-        return this.f2583a.onCreatePanelMenu(i, menu);
+        return this.f8911a.onCreatePanelMenu(i, menu);
     }
 
     @Override // android.view.Window.Callback
     public View onCreatePanelView(int i) {
-        return this.f2583a.onCreatePanelView(i);
+        return this.f8911a.onCreatePanelView(i);
     }
 
     @Override // android.view.Window.Callback
     public void onDetachedFromWindow() {
-        this.f2583a.onDetachedFromWindow();
+        this.f8911a.onDetachedFromWindow();
     }
 
     @Override // android.view.Window.Callback
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        return this.f2583a.onMenuItemSelected(i, menuItem);
+        return this.f8911a.onMenuItemSelected(i, menuItem);
     }
 
     @Override // android.view.Window.Callback
     public boolean onMenuOpened(int i, Menu menu) {
-        return this.f2583a.onMenuOpened(i, menu);
+        return this.f8911a.onMenuOpened(i, menu);
     }
 
     @Override // android.view.Window.Callback
     public void onPanelClosed(int i, Menu menu) {
-        this.f2583a.onPanelClosed(i, menu);
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
-        return this.f2583a.onPreparePanel(i, view, menu);
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onSearchRequested() {
-        return this.f2583a.onSearchRequested();
-    }
-
-    @Override // android.view.Window.Callback
-    @SuppressLint({"NewApi"})
-    public boolean onSearchRequested(SearchEvent searchEvent) {
-        return this.f2583a.onSearchRequested(searchEvent);
-    }
-
-    @Override // android.view.Window.Callback
-    public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
-        this.f2583a.onWindowAttributesChanged(layoutParams);
-    }
-
-    @Override // android.view.Window.Callback
-    public void onWindowFocusChanged(boolean z) {
-        this.f2583a.onWindowFocusChanged(z);
+        this.f8911a.onPanelClosed(i, menu);
     }
 
     @Override // android.view.Window.Callback
     @SuppressLint({"NewApi"})
     public void onPointerCaptureChanged(boolean z) {
-        this.f2583a.onPointerCaptureChanged(z);
+        this.f8911a.onPointerCaptureChanged(z);
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onPreparePanel(int i, View view, Menu menu) {
+        return this.f8911a.onPreparePanel(i, view, menu);
     }
 
     @Override // android.view.Window.Callback
     @SuppressLint({"NewApi"})
     public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
-        this.f2583a.onProvideKeyboardShortcuts(list, menu, i);
+        this.f8911a.onProvideKeyboardShortcuts(list, menu, i);
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onSearchRequested() {
+        return this.f8911a.onSearchRequested();
+    }
+
+    @Override // android.view.Window.Callback
+    public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
+        this.f8911a.onWindowAttributesChanged(layoutParams);
+    }
+
+    @Override // android.view.Window.Callback
+    public void onWindowFocusChanged(boolean z) {
+        this.f8911a.onWindowFocusChanged(z);
     }
 
     @Override // android.view.Window.Callback
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
-        return this.f2583a.onWindowStartingActionMode(callback);
+        return this.f8911a.onWindowStartingActionMode(callback);
+    }
+
+    @Override // android.view.Window.Callback
+    @SuppressLint({"NewApi"})
+    public boolean onSearchRequested(SearchEvent searchEvent) {
+        return this.f8911a.onSearchRequested(searchEvent);
     }
 
     @Override // android.view.Window.Callback
     @SuppressLint({"NewApi"})
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
-        return this.f2583a.onWindowStartingActionMode(callback, i);
+        return this.f8911a.onWindowStartingActionMode(callback, i);
     }
 }

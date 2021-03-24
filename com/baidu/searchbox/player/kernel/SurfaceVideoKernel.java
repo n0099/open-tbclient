@@ -7,26 +7,27 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SurfaceVideoKernel extends AbsVideoCyber {
-    private static final String TAG = "SurfaceVideoKernel";
-    private Surface mCurSurface;
-    private SurfaceView mFullVideoView = new SurfaceView(BDPlayerConfig.getAppContext());
-    private Surface mHalfVideoView;
-    private boolean mIsFullViewCreated;
+    public static final String TAG = "SurfaceVideoKernel";
+    public Surface mCurSurface;
+    public SurfaceView mFullVideoView;
+    public Surface mHalfVideoView;
+    public boolean mIsFullViewCreated;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public SurfaceVideoKernel() {
-        this.mFullVideoView.getHolder().addCallback(new SurfaceHolder.Callback() { // from class: com.baidu.searchbox.player.kernel.SurfaceVideoKernel.1
+        SurfaceView surfaceView = new SurfaceView(BDPlayerConfig.getAppContext());
+        this.mFullVideoView = surfaceView;
+        surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() { // from class: com.baidu.searchbox.player.kernel.SurfaceVideoKernel.1
+            @Override // android.view.SurfaceHolder.Callback
+            public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+                BdVideoLog.d("SurfaceVideoKernel", "surfaceView changed");
+            }
+
             @Override // android.view.SurfaceHolder.Callback
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
                 SurfaceVideoKernel.this.mIsFullViewCreated = true;
                 BdVideoLog.d("SurfaceVideoKernel", "surfaceView created");
-            }
-
-            @Override // android.view.SurfaceHolder.Callback
-            public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-                BdVideoLog.d("SurfaceVideoKernel", "surfaceView changed");
             }
 
             @Override // android.view.SurfaceHolder.Callback
@@ -58,6 +59,29 @@ public class SurfaceVideoKernel extends AbsVideoCyber {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void onPrepared() {
+        super.onPrepared();
+        if (this.mKernelStatus.isPlaying()) {
+            resume();
+        }
+        int i = this.mStorePosition;
+        if (i > 2) {
+            this.mPlayer.seekTo(i - 2);
+            this.mStorePosition = -1;
+        }
+        this.mPlayer.setSurface(this.mCurSurface);
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void play(@NonNull String str) {
+        super.play(str);
+        if (AbsVideoKernel.PRELOAD_PREFIX.equals(this.mVideoUrl)) {
+            return;
+        }
+        start();
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void setLooping(boolean z) {
         this.mPlayer.setLooping(z);
     }
@@ -70,26 +94,5 @@ public class SurfaceVideoKernel extends AbsVideoCyber {
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel, com.baidu.searchbox.player.pool.IPoolItem
     public boolean verify(@NonNull String str) {
         return "SurfaceVideoKernel".equals(str);
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void onPrepared() {
-        super.onPrepared();
-        if (this.mKernelStatus.isPlaying()) {
-            resume();
-        }
-        if (this.mStorePosition > 2) {
-            this.mPlayer.seekTo(this.mStorePosition - 2);
-            this.mStorePosition = -1;
-        }
-        this.mPlayer.setSurface(this.mCurSurface);
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void play(@NonNull String str) {
-        super.play(str);
-        if (!"videoplayer:preload".equals(this.mVideoUrl)) {
-            start();
-        }
     }
 }

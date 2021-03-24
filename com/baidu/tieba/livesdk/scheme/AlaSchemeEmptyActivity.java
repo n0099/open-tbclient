@@ -4,11 +4,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.f;
-import com.baidu.tbadk.core.util.bf;
-/* loaded from: classes9.dex */
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import d.b.h0.a.f;
+/* loaded from: classes2.dex */
 public class AlaSchemeEmptyActivity extends BaseActivity {
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         String uri;
@@ -17,16 +17,17 @@ public class AlaSchemeEmptyActivity extends BaseActivity {
             Uri data = getIntent().getData();
             String host = data.getHost();
             String path = data.getPath();
-            if ("video".equals(host) && path != null && path.startsWith("/live") && (uri = data.toString()) != null) {
-                String replace = uri.replace(f.eEW + "://", "bdtiebalive://");
-                if (!StringUtils.isNull(replace)) {
-                    bf.bsY().b(getPageContext(), new String[]{replace});
-                }
+            if (!"video".equals(host) || path == null || !path.startsWith("/live") || (uri = data.toString()) == null) {
+                return;
             }
+            String replace = uri.replace(f.f49574a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
+            if (StringUtils.isNull(replace)) {
+                return;
+            }
+            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{replace});
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();

@@ -2,21 +2,22 @@ package com.baidu.platform.comapi.walknavi.g.b;
 
 import com.baidu.platform.comapi.walknavi.g.b.c;
 import com.baidu.platform.comapi.walknavi.widget.a;
-/* loaded from: classes4.dex */
-class f implements a.InterfaceC0295a {
+/* loaded from: classes2.dex */
+public class f implements a.InterfaceC0127a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2976a;
-    final /* synthetic */ c b;
+    public final /* synthetic */ String f10094a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ c f10095b;
+
     public f(c cVar, String str) {
-        this.b = cVar;
-        this.f2976a = str;
+        this.f10095b = cVar;
+        this.f10094a = str;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0295a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0127a
     public void a() {
-        this.b.a(this.f2976a, (c.d) null);
+        this.f10095b.a(this.f10094a, (c.d) null);
     }
 }

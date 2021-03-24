@@ -5,11 +5,11 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyActivity;
 import com.kwad.sdk.api.proxy.IActivityProxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsFullScreenLandScapeVideoActivity extends BaseProxyActivity {
     @Override // com.kwad.sdk.api.proxy.BaseProxyActivity
     @NonNull
-    protected IActivityProxy getDelegate(Context context) {
+    public IActivityProxy getDelegate(Context context) {
         return (IActivityProxy) Loader.get().newComponentProxy(context, KsFullScreenLandScapeVideoActivity.class, this);
     }
 }

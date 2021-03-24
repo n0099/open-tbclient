@@ -1,11 +1,13 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class x extends s {
-    private String h;
-    private int i;
-    private int[] j;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f36166h;
+    public int i;
+    public int[] j;
 
     public x(com.kwad.sdk.pngencrypt.k kVar) {
         super("sPLT", kVar);
@@ -13,69 +15,81 @@ public class x extends s {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        int b;
-        int b2;
-        int b3;
-        int b4;
         int i;
-        int i2 = 0;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6 = 0;
+        int i7 = 0;
         while (true) {
-            if (i2 >= dVar.d.length) {
-                i2 = -1;
+            byte[] bArr = dVar.f36142d;
+            if (i7 >= bArr.length) {
+                i7 = -1;
                 break;
-            } else if (dVar.d[i2] == 0) {
+            } else if (bArr[i7] == 0) {
                 break;
             } else {
-                i2++;
+                i7++;
             }
         }
-        if (i2 <= 0 || i2 > dVar.d.length - 2) {
-            throw new PngjException("bad sPLT chunk: no separator found");
-        }
-        this.h = b.a(dVar.d, 0, i2);
-        this.i = com.kwad.sdk.pngencrypt.n.a(dVar.d, i2 + 1);
-        int i3 = i2 + 2;
-        int length = (dVar.d.length - i3) / (this.i == 8 ? 6 : 10);
-        this.j = new int[length * 5];
-        int i4 = 0;
-        int i5 = 0;
-        while (i4 < length) {
-            if (this.i == 8) {
-                int i6 = i3 + 1;
-                b = com.kwad.sdk.pngencrypt.n.a(dVar.d, i3);
-                int i7 = i6 + 1;
-                b2 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i6);
-                int i8 = i7 + 1;
-                b3 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i7);
-                i = i8 + 1;
-                b4 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i8);
-            } else {
-                b = com.kwad.sdk.pngencrypt.n.b(dVar.d, i3);
-                int i9 = i3 + 2;
-                b2 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i9);
-                int i10 = i9 + 2;
-                b3 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i10);
-                int i11 = i10 + 2;
-                b4 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i11);
-                i = i11 + 2;
+        if (i7 > 0) {
+            byte[] bArr2 = dVar.f36142d;
+            if (i7 <= bArr2.length - 2) {
+                this.f36166h = b.a(bArr2, 0, i7);
+                int a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f36142d, i7 + 1);
+                this.i = a2;
+                int i8 = i7 + 2;
+                int length = (dVar.f36142d.length - i8) / (a2 == 8 ? 6 : 10);
+                this.j = new int[length * 5];
+                int i9 = i8;
+                int i10 = 0;
+                while (i6 < length) {
+                    if (this.i == 8) {
+                        int i11 = i9 + 1;
+                        i2 = com.kwad.sdk.pngencrypt.n.a(dVar.f36142d, i9);
+                        int i12 = i11 + 1;
+                        i3 = com.kwad.sdk.pngencrypt.n.a(dVar.f36142d, i11);
+                        int i13 = i12 + 1;
+                        i4 = com.kwad.sdk.pngencrypt.n.a(dVar.f36142d, i12);
+                        i = i13 + 1;
+                        i5 = com.kwad.sdk.pngencrypt.n.a(dVar.f36142d, i13);
+                    } else {
+                        int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.f36142d, i9);
+                        int i14 = i9 + 2;
+                        int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.f36142d, i14);
+                        int i15 = i14 + 2;
+                        int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.f36142d, i15);
+                        int i16 = i15 + 2;
+                        int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.f36142d, i16);
+                        i = i16 + 2;
+                        i2 = b2;
+                        i3 = b3;
+                        i4 = b4;
+                        i5 = b5;
+                    }
+                    int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.f36142d, i);
+                    int[] iArr = this.j;
+                    int i17 = i10 + 1;
+                    iArr[i10] = i2;
+                    int i18 = i17 + 1;
+                    iArr[i17] = i3;
+                    int i19 = i18 + 1;
+                    iArr[i18] = i4;
+                    int i20 = i19 + 1;
+                    iArr[i19] = i5;
+                    iArr[i20] = b6;
+                    i6++;
+                    i10 = i20 + 1;
+                    i9 = i + 2;
+                }
+                return;
             }
-            int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i);
-            int i12 = i5 + 1;
-            this.j[i5] = b;
-            int i13 = i12 + 1;
-            this.j[i12] = b2;
-            int i14 = i13 + 1;
-            this.j[i13] = b3;
-            int i15 = i14 + 1;
-            this.j[i14] = b4;
-            this.j[i15] = b5;
-            i4++;
-            i5 = i15 + 1;
-            i3 = i + 2;
         }
+        throw new PngjException("bad sPLT chunk: no separator found");
     }
 
     public String c() {
-        return this.h;
+        return this.f36166h;
     }
 }

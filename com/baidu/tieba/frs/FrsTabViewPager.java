@@ -6,73 +6,74 @@ import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
+
+    /* loaded from: classes4.dex */
+    public static class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f16100a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f16101b;
+
+        public boolean a() {
+            return this.f16100a;
+        }
+
+        public boolean b() {
+            return this.f16101b;
+        }
+
+        public void c(boolean z) {
+            this.f16100a = z;
+        }
+
+        public void d(boolean z) {
+            this.f16101b = z;
+        }
+    }
+
     public FrsTabViewPager(Context context) {
         this(context, null);
     }
 
-    public FrsTabViewPager(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public final boolean c() {
+        return getCurrentItem() == getAdapter().getCount() - 1;
+    }
+
+    public void d() {
+        e(false);
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                qO(true);
-                break;
-            case 1:
-                qO(false);
-                break;
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            e(true);
+        } else if (action == 1) {
+            e(false);
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
+    public void e(boolean z) {
+        a aVar = new a();
+        aVar.c(c());
+        aVar.d(z);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
+    }
+
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 1:
-                qO(false);
-                break;
+        if (motionEvent.getAction() == 1) {
+            e(false);
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void qO(boolean z) {
-        a aVar = new a();
-        aVar.qP(cEO());
-        aVar.qQ(z);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
-    }
-
-    public void cEN() {
-        qO(false);
-    }
-
-    private boolean cEO() {
-        return getCurrentItem() == getAdapter().getCount() + (-1);
-    }
-
-    /* loaded from: classes2.dex */
-    public static class a {
-        private boolean jmK;
-        private boolean jmL;
-
-        public boolean cEP() {
-            return this.jmK;
-        }
-
-        public void qP(boolean z) {
-            this.jmK = z;
-        }
-
-        public boolean cEQ() {
-            return this.jmL;
-        }
-
-        public void qQ(boolean z) {
-            this.jmL = z;
-        }
+    public FrsTabViewPager(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

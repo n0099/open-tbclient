@@ -5,17 +5,19 @@ import android.util.AttributeSet;
 import android.webkit.WebChromeClient;
 import android.webkit.WebViewClient;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class BridgeWebView extends BaseWebView {
-    protected WebChromeClient chromeClient;
-    protected WebViewClient webViewClient;
+    public WebChromeClient chromeClient;
+    public WebViewClient webViewClient;
 
     public BridgeWebView(Context context) {
         super(context);
     }
 
-    public BridgeWebView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
+    public void setWebChromeClient(WebChromeClient webChromeClient) {
+        this.chromeClient = webChromeClient;
+        super.setWebChromeClient(webChromeClient);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
@@ -24,9 +26,7 @@ public class BridgeWebView extends BaseWebView {
         super.setWebViewClient(webViewClient);
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
-    public void setWebChromeClient(WebChromeClient webChromeClient) {
-        this.chromeClient = webChromeClient;
-        super.setWebChromeClient(webChromeClient);
+    public BridgeWebView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

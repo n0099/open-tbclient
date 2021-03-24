@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class HotSelectActivityConfig extends IntentConfig {
     public static int FROM_PB = 1;
     public static int FROM_POST_THREAD = 2;
@@ -20,7 +20,7 @@ public class HotSelectActivityConfig extends IntentConfig {
     public void setForumExtra(long j, String str, String str2) {
         Intent intent = getIntent();
         intent.putExtra("forum_id", j);
-        intent.putExtra("forum_first_dir", str);
-        intent.putExtra("forum_second_dir", str2);
+        intent.putExtra(IntentConfig.FORUM_FIRST_DIR, str);
+        intent.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
     }
 }

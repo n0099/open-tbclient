@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<MessageSyncMsg> CREATOR = new Parcelable.Creator<MessageSyncMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.MessageSyncMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,25 +23,15 @@ public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard 
             return new MessageSyncMsg[i];
         }
     };
-    private long msgid;
-    private int status;
-    private int updateTime;
+    public long msgid;
+    public int status;
+    public int updateTime;
 
     public MessageSyncMsg() {
         this.status = -1;
         this.updateTime = -1;
         this.msgid = -1L;
         setNotifyCmd(21);
-    }
-
-    public MessageSyncMsg(Parcel parcel) {
-        super(parcel);
-        this.status = -1;
-        this.updateTime = -1;
-        this.msgid = -1L;
-        this.status = parcel.readInt();
-        this.updateTime = parcel.readInt();
-        this.msgid = parcel.readLong();
     }
 
     public long getChangedMsgid() {
@@ -52,14 +42,6 @@ public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard 
         return this.status;
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeInt(this.status);
-        parcel.writeInt(this.updateTime);
-        parcel.writeLong(this.msgid);
-    }
-
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public boolean parseJsonString() {
         try {
@@ -68,9 +50,27 @@ public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard 
             this.updateTime = jSONObject.getInt("update_time");
             this.msgid = jSONObject.getLong("msgid");
             return true;
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "JSONException", e);
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "JSONException", e2);
             return false;
         }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+        parcel.writeInt(this.status);
+        parcel.writeInt(this.updateTime);
+        parcel.writeLong(this.msgid);
+    }
+
+    public MessageSyncMsg(Parcel parcel) {
+        super(parcel);
+        this.status = -1;
+        this.updateTime = -1;
+        this.msgid = -1L;
+        this.status = parcel.readInt();
+        this.updateTime = parcel.readInt();
+        this.msgid = parcel.readLong();
     }
 }

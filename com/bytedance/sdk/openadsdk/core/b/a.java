@@ -11,95 +11,69 @@ import java.util.Queue;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f4359a;
-    private static volatile boolean b;
-    private static volatile long c;
-    private Handler e;
-    private final Queue<C1017a> d = new LinkedList();
-    private final h f = p.h();
+    public static volatile a f28040a;
 
-    private a() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile boolean f28041b;
 
-    public static a a() {
-        if (f4359a == null) {
-            synchronized (a.class) {
-                if (f4359a == null) {
-                    f4359a = new a();
-                }
-            }
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile long f28042c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Handler f28044e;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Queue<C0304a> f28043d = new LinkedList();
+
+    /* renamed from: f  reason: collision with root package name */
+    public final h f28045f = p.h();
+
+    /* renamed from: com.bytedance.sdk.openadsdk.core.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public static class C0304a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final long f28047a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final String f28048b;
+
+        public C0304a(long j, String str) {
+            this.f28047a = j;
+            this.f28048b = str;
         }
-        return f4359a;
     }
 
     private synchronized boolean b(String str) {
-        boolean z;
         long currentTimeMillis = System.currentTimeMillis();
-        int k = this.f.k();
-        long j = this.f.j();
-        if (this.d.size() > 0 && this.d.size() >= k) {
-            long abs = Math.abs(currentTimeMillis - this.d.peek().f4361a);
+        int k = this.f28045f.k();
+        long j = this.f28045f.j();
+        if (this.f28043d.size() > 0 && this.f28043d.size() >= k) {
+            long abs = Math.abs(currentTimeMillis - this.f28043d.peek().f28047a);
             if (abs <= j) {
                 b(j - abs);
-                z = true;
-            } else {
-                this.d.poll();
-                this.d.offer(new C1017a(currentTimeMillis, str));
+                return true;
             }
+            this.f28043d.poll();
+            this.f28043d.offer(new C0304a(currentTimeMillis, str));
         } else {
-            this.d.offer(new C1017a(currentTimeMillis, str));
+            this.f28043d.offer(new C0304a(currentTimeMillis, str));
         }
-        z = false;
-        return z;
-    }
-
-    public synchronized boolean a(String str) {
-        if (b(str)) {
-            a(true);
-            a(c);
-        } else {
-            a(false);
-        }
-        return b;
-    }
-
-    private synchronized void a(long j) {
-        if (this.e == null) {
-            this.e = new Handler(Looper.getMainLooper());
-        }
-        this.e.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.b.a.1
-            @Override // java.lang.Runnable
-            public void run() {
-                a.this.a(false);
-            }
-        }, j);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(boolean z) {
-        b = z;
-    }
-
-    public synchronized boolean b() {
-        return b;
-    }
-
-    private synchronized void b(long j) {
-        c = j;
+        return false;
     }
 
     public synchronized String c() {
         String str;
         HashMap hashMap = new HashMap();
-        for (C1017a c1017a : this.d) {
-            if (hashMap.containsKey(c1017a.b)) {
-                hashMap.put(c1017a.b, Integer.valueOf(((Integer) hashMap.get(c1017a.b)).intValue() + 1));
+        for (C0304a c0304a : this.f28043d) {
+            if (hashMap.containsKey(c0304a.f28048b)) {
+                hashMap.put(c0304a.f28048b, Integer.valueOf(((Integer) hashMap.get(c0304a.f28048b)).intValue() + 1));
             } else {
-                hashMap.put(c1017a.b, 1);
+                hashMap.put(c0304a.f28048b, 1);
             }
         }
-        str = "";
         int i = Integer.MIN_VALUE;
+        str = "";
         for (String str2 : hashMap.keySet()) {
             int intValue = ((Integer) hashMap.get(str2)).intValue();
             if (i < intValue) {
@@ -110,18 +84,49 @@ public class a {
         return str;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.bytedance.sdk.openadsdk.core.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C1017a {
-
-        /* renamed from: a  reason: collision with root package name */
-        private final long f4361a;
-        private final String b;
-
-        private C1017a(long j, String str) {
-            this.f4361a = j;
-            this.b = str;
+    public static a a() {
+        if (f28040a == null) {
+            synchronized (a.class) {
+                if (f28040a == null) {
+                    f28040a = new a();
+                }
+            }
         }
+        return f28040a;
+    }
+
+    public synchronized boolean a(String str) {
+        if (b(str)) {
+            a(true);
+            a(f28042c);
+        } else {
+            a(false);
+        }
+        return f28041b;
+    }
+
+    private synchronized void a(long j) {
+        if (this.f28044e == null) {
+            this.f28044e = new Handler(Looper.getMainLooper());
+        }
+        this.f28044e.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.b.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                a.this.a(false);
+            }
+        }, j);
+    }
+
+    public synchronized boolean b() {
+        return f28041b;
+    }
+
+    private synchronized void b(long j) {
+        f28042c = j;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void a(boolean z) {
+        f28041b = z;
     }
 }

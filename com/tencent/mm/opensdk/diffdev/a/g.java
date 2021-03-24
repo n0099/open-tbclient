@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.diffdev.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public enum g {
     UUID_EXPIRED(402),
     UUID_CANCELED(403),
@@ -8,7 +8,7 @@ public enum g {
     UUID_KEEP_CONNECT(408),
     UUID_ERROR(500);
     
-    private int code;
+    public int code;
 
     g(int i) {
         this.code = i;

@@ -1,47 +1,25 @@
 package com.baidu.tieba.memberCenter.memberTask;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tieba.memberCenter.index.a.r;
 import com.squareup.wire.Wire;
+import d.b.i0.q1.c.b.r;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.Error;
+import tbclient.GetMemberTaskList.DataRes;
 import tbclient.GetMemberTaskList.GetMemberTaskListResIdl;
 import tbclient.GetMemberTaskList.ImgInfo;
+import tbclient.GetMemberTaskList.PointTaskInfo;
 import tbclient.GetMemberTaskList.UserPointInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
     public List<ImgInfo> mImageList;
     public List<r> mTaskList;
     public UserPointInfo mUserPointInfo;
 
     public MemberTaskCenterSocketResMessage() {
-        super(CmdConfigSocket.CMD_MEMBER_TASK);
+        super(309427);
         this.mTaskList = new ArrayList();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetMemberTaskListResIdl getMemberTaskListResIdl = (GetMemberTaskListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMemberTaskListResIdl.class);
-        if (getMemberTaskListResIdl != null) {
-            if (getMemberTaskListResIdl.error != null) {
-                setError(getMemberTaskListResIdl.error.errorno.intValue());
-                setErrorString(getMemberTaskListResIdl.error.errmsg);
-            }
-            if (getMemberTaskListResIdl.data != null) {
-                this.mImageList = getMemberTaskListResIdl.data.img_list;
-                this.mUserPointInfo = getMemberTaskListResIdl.data.user_point_info;
-                if (getMemberTaskListResIdl.data.task_list != null && getMemberTaskListResIdl.data.task_list.size() > 0) {
-                    int size = getMemberTaskListResIdl.data.task_list.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
-                            this.mTaskList.add(new r(getMemberTaskListResIdl.data.task_list.get(i2)));
-                        }
-                    }
-                }
-            }
-        }
     }
 
     public List<ImgInfo> getImageList() {
@@ -54,5 +32,35 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
 
     public UserPointInfo getUserPointInfo() {
         return this.mUserPointInfo;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        GetMemberTaskListResIdl getMemberTaskListResIdl = (GetMemberTaskListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMemberTaskListResIdl.class);
+        if (getMemberTaskListResIdl == null) {
+            return;
+        }
+        Error error = getMemberTaskListResIdl.error;
+        if (error != null) {
+            setError(error.errorno.intValue());
+            setErrorString(getMemberTaskListResIdl.error.errmsg);
+        }
+        DataRes dataRes = getMemberTaskListResIdl.data;
+        if (dataRes == null) {
+            return;
+        }
+        this.mImageList = dataRes.img_list;
+        this.mUserPointInfo = dataRes.user_point_info;
+        List<PointTaskInfo> list = dataRes.task_list;
+        if (list == null || list.size() <= 0) {
+            return;
+        }
+        int size = getMemberTaskListResIdl.data.task_list.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
+                this.mTaskList.add(new r(getMemberTaskListResIdl.data.task_list.get(i2)));
+            }
+        }
     }
 }

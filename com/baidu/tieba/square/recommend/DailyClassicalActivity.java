@@ -1,0 +1,338 @@
+package com.baidu.tieba.square.recommend;
+
+import android.location.Address;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobstat.Config;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.tbadk.ProxyAdkBaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.DailyClassicalActivityConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.R;
+import com.baidubce.auth.NTLMEngineImpl;
+import com.tencent.connect.common.Constants;
+import java.net.URLDecoder;
+@Deprecated
+/* loaded from: classes5.dex */
+public class DailyClassicalActivity extends ProxyAdkBaseActivity implements BaseWebView.d {
+    public static boolean t = false;
+    public static long u;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f21239e = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public RelativeLayout f21240f = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public RelativeLayout f21241g = null;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f21242h = null;
+    public View.OnClickListener i = null;
+    public BaseWebView j = null;
+    public ProgressBar k = null;
+    public LinearLayout l = null;
+    public c m = null;
+    public boolean n = false;
+    public boolean o = true;
+    public TextView p = null;
+    public TextView q = null;
+    public boolean r = false;
+    public String s = "1";
+
+    /* loaded from: classes5.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<DailyClassicalActivityConfig> {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<DailyClassicalActivityConfig> customMessage) {
+            if (customMessage != null && customMessage.getData() != null) {
+                customMessage.getData().startActivity(DailyClassicalActivity.class);
+            }
+            return null;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public b() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            int id = view.getId();
+            if (id == R.id.back) {
+                DailyClassicalActivity.this.finish();
+            } else if (id == R.id.tag_webview_item) {
+                DailyClassicalActivity.this.z();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends BdAsyncTask<Object, Integer, String> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public NetWork f21244a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f21245b;
+
+        public c() {
+            this.f21244a = null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public String doInBackground(Object... objArr) {
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/tag/gettogether");
+            this.f21244a = netWork;
+            netWork.getNetContext().getRequest().getNetWorkParam().mIsJson = false;
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                this.f21244a.addPostData("night_type", "1");
+            }
+            this.f21244a.addPostData(Config.PACKAGE_NAME, DailyClassicalActivity.this.s);
+            this.f21244a.addPostData("_version_more", "1");
+            this.f21244a.addPostData(Constants.PARAM_PLATFORM, "android");
+            if (DailyClassicalActivity.t) {
+                boolean unused = DailyClassicalActivity.t = false;
+                this.f21244a.addPostData("msg_click", "1");
+                this.f21244a.addPostData("message_id", String.valueOf(DailyClassicalActivity.u));
+            }
+            Address h2 = d.b.b.e.i.a.l().h(false);
+            if (h2 != null && DailyClassicalActivity.this.v()) {
+                NetWork netWork2 = this.f21244a;
+                netWork2.addPostData("lbs", String.valueOf(h2.getLatitude()) + "," + String.valueOf(h2.getLongitude()));
+            }
+            try {
+                this.f21245b = this.f21244a.postNetData();
+                if (this.f21244a.isNetSuccess()) {
+                    return this.f21245b;
+                }
+                return null;
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            NetWork netWork = this.f21244a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
+            }
+            DailyClassicalActivity.this.r = false;
+            super.cancel(true);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            DailyClassicalActivity.this.m = null;
+            DailyClassicalActivity.this.l.setOnClickListener(null);
+            NetWork netWork = this.f21244a;
+            if (netWork == null || !netWork.isNetSuccess() || str == null || str.length() <= 0) {
+                DailyClassicalActivity.this.o = false;
+                DailyClassicalActivity.this.p.setVisibility(0);
+                DailyClassicalActivity.this.j.setVisibility(8);
+                DailyClassicalActivity.this.l.setOnClickListener(DailyClassicalActivity.this.i);
+            } else {
+                DailyClassicalActivity.this.j.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.K, "utf-8", "");
+                DailyClassicalActivity.this.p.setVisibility(8);
+                DailyClassicalActivity.this.j.setVisibility(0);
+            }
+            DailyClassicalActivity.this.n = true;
+            DailyClassicalActivity.this.y();
+        }
+
+        public /* synthetic */ c(DailyClassicalActivity dailyClassicalActivity, a aVar) {
+            this();
+        }
+    }
+
+    static {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2902021, new a());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
+    public boolean getGpuSwitch() {
+        return TbadkCoreApplication.getInst().isGpuOpen();
+    }
+
+    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        SkinManager.setBgColor(this.f21240f, i);
+        SkinManager.setTopBarBgImage(this.f21241g, i);
+        SkinManager.setTopBarTitleColor(this.f21242h, i);
+        SkinManager.setTopBarBackBgImage(this.f21239e, i);
+        BaseWebView baseWebView = this.j;
+        if (baseWebView != null) {
+            SkinManager.setBgColor(baseWebView, i);
+            z();
+        }
+    }
+
+    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.day_classical_activity);
+        x();
+    }
+
+    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    public void onResume() {
+        super.onResume();
+    }
+
+    public final void s() {
+        c cVar = this.m;
+        if (cVar != null) {
+            cVar.cancel();
+        }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        if (StringUtils.isNull(str)) {
+            return false;
+        }
+        int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(getPageContext(), new String[]{str});
+        if (dealOneLinkWithOutJumpWebView == 1) {
+            finish();
+            return true;
+        } else if (dealOneLinkWithOutJumpWebView == 0) {
+            return true;
+        } else {
+            if (str.contains("jumptoapp_browser=classic_everyday")) {
+                if (str.contains("pn=")) {
+                    String w = w(str, "pn=");
+                    if (w != null && w.length() >= 0) {
+                        this.s = w;
+                    }
+                } else {
+                    this.s = "1";
+                }
+                z();
+                return true;
+            }
+            d.b.h0.l.a.k(this, str + "&_client_version=" + TbConfig.getVersion());
+            return true;
+        }
+    }
+
+    public final boolean u() {
+        if (this.j == null) {
+            try {
+                if (UtilHelper.webViewIsProbablyCorrupt(this)) {
+                    super.showToast(getString(R.string.web_view_corrupted));
+                    return false;
+                }
+                BaseWebView baseWebView = new BaseWebView(this);
+                this.j = baseWebView;
+                SkinManager.setBgColor(baseWebView, TbadkCoreApplication.getInst().getSkinType());
+                this.j.setOnLoadUrlListener(this);
+                this.j.setHorizontalScrollBarEnabled(false);
+                this.j.setHorizontalScrollbarOverlay(false);
+                this.j.setScrollBarStyle(NTLMEngineImpl.FLAG_REQUEST_VERSION);
+                this.j.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                this.l.addView(this.j);
+                return true;
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean v() {
+        return true;
+    }
+
+    public final String w(String str, String str2) {
+        int indexOf = str.indexOf(str2);
+        if (indexOf != -1) {
+            int length = indexOf + str2.length();
+            int i = length;
+            while (i < str.length() && str.charAt(i) != '&') {
+                i++;
+            }
+            return URLDecoder.decode(str.substring(length, i));
+        }
+        return "";
+    }
+
+    public final void x() {
+        this.f21240f = (RelativeLayout) findViewById(R.id.parent);
+        this.f21241g = (RelativeLayout) findViewById(R.id.title);
+        this.f21242h = (TextView) findViewById(R.id.title_text);
+        this.l = (LinearLayout) findViewById(R.id.tag_webview_item);
+        this.f21239e = (ImageView) findViewById(R.id.back);
+        this.p = (TextView) this.l.findViewById(R.id.webview_fail);
+        this.q = (TextView) this.l.findViewById(R.id.webview_crash_tip);
+        this.k = (ProgressBar) findViewById(R.id.tag_progress);
+        b bVar = new b();
+        this.i = bVar;
+        this.f21239e.setOnClickListener(bVar);
+        if (u()) {
+            this.q.setVisibility(8);
+            z();
+            return;
+        }
+        this.q.setVisibility(0);
+    }
+
+    public final void y() {
+        if (this.n) {
+            if (!this.o) {
+                showToast(getResources().getString(R.string.neterror));
+            }
+            this.r = false;
+            this.k.setVisibility(8);
+        }
+    }
+
+    public void z() {
+        if (TbadkCoreApplication.getInst().getWebviewCrashCount() == 0 && !u()) {
+            this.q.setVisibility(0);
+            return;
+        }
+        this.q.setVisibility(8);
+        if (this.r) {
+            return;
+        }
+        this.r = true;
+        this.k.setVisibility(0);
+        this.n = false;
+        this.o = true;
+        s();
+        c cVar = new c(this, null);
+        this.m = cVar;
+        cVar.setPriority(3);
+        this.m.execute(new Object[0]);
+    }
+}

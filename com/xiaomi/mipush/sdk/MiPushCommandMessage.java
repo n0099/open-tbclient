@@ -4,19 +4,19 @@ import android.os.Bundle;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MiPushCommandMessage implements PushMessageHandler.a {
-    private static final String KEY_CATEGORY = "category";
-    private static final String KEY_COMMAND = "command";
-    private static final String KEY_COMMAND_ARGUMENTS = "commandArguments";
-    private static final String KEY_REASON = "reason";
-    private static final String KEY_RESULT_CODE = "resultCode";
-    private static final long serialVersionUID = 1;
-    private String category;
-    private String command;
-    private List<String> commandArguments;
-    private String reason;
-    private long resultCode;
+    public static final String KEY_CATEGORY = "category";
+    public static final String KEY_COMMAND = "command";
+    public static final String KEY_COMMAND_ARGUMENTS = "commandArguments";
+    public static final String KEY_REASON = "reason";
+    public static final String KEY_RESULT_CODE = "resultCode";
+    public static final long serialVersionUID = 1;
+    public String category;
+    public String command;
+    public List<String> commandArguments;
+    public String reason;
+    public long resultCode;
 
     public static MiPushCommandMessage fromBundle(Bundle bundle) {
         MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
@@ -73,8 +73,9 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         bundle.putString("command", this.command);
         bundle.putLong(KEY_RESULT_CODE, this.resultCode);
         bundle.putString("reason", this.reason);
-        if (this.commandArguments != null) {
-            bundle.putStringArrayList(KEY_COMMAND_ARGUMENTS, (ArrayList) this.commandArguments);
+        List<String> list = this.commandArguments;
+        if (list != null) {
+            bundle.putStringArrayList(KEY_COMMAND_ARGUMENTS, (ArrayList) list);
         }
         bundle.putString("category", this.category);
         return bundle;

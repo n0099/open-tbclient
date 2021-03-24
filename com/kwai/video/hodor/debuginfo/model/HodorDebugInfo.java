@@ -1,5 +1,5 @@
 package com.kwai.video.hodor.debuginfo.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HodorDebugInfo {
     public String dirManagerMediaStatus;
     public String dirManagerResourceStatus;

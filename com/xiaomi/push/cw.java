@@ -1,126 +1,171 @@
 package com.xiaomi.push;
 
+import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.wallet.lightapp.business.LightappBusinessClient;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class cw {
+import java.util.List;
+/* loaded from: classes7.dex */
+public abstract class cw {
 
-    /* renamed from: a  reason: collision with root package name */
-    private String f8309a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private final ArrayList<cv> f185a = new ArrayList<>();
-
-    public cw() {
-    }
-
-    public cw(String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("the host is empty");
+    /* loaded from: classes7.dex */
+    public static class a extends cv {
+        public a() {
+            super(1);
         }
-        this.f8309a = str;
+
+        @Override // com.xiaomi.push.cv
+        public String a(Context context, String str, List<bf> list) {
+            URL url;
+            if (list == null) {
+                url = new URL(str);
+            } else {
+                Uri.Builder buildUpon = Uri.parse(str).buildUpon();
+                for (bf bfVar : list) {
+                    buildUpon.appendQueryParameter(bfVar.a(), bfVar.b());
+                }
+                url = new URL(buildUpon.toString());
+            }
+            return bg.a(context, url);
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x001a, code lost:
-        com.xiaomi.push.cz.a().m223a(r0.a());
-     */
+    public static int a(int i, int i2) {
+        return (((i2 + LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK) / 1448) * 132) + 1080 + i + i2;
+    }
+
+    public static int a(int i, int i2, int i3) {
+        return (((i2 + 200) / 1448) * 132) + 1011 + i2 + i + i3;
+    }
+
+    public static int a(cv cvVar, String str, List<bf> list, String str2) {
+        if (cvVar.a() == 1) {
+            return a(str.length(), a(str2));
+        }
+        if (cvVar.a() == 2) {
+            return a(str.length(), a(list), a(str2));
+        }
+        return -1;
+    }
+
+    public static int a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        try {
+            return str.getBytes("UTF-8").length;
+        } catch (UnsupportedEncodingException unused) {
+            return 0;
+        }
+    }
+
+    public static int a(List<bf> list) {
+        int i = 0;
+        for (bf bfVar : list) {
+            if (!TextUtils.isEmpty(bfVar.a())) {
+                i += bfVar.a().length();
+            }
+            if (!TextUtils.isEmpty(bfVar.b())) {
+                i += bfVar.b().length();
+            }
+        }
+        return i * 2;
+    }
+
+    public static String a(Context context, String str, List<bf> list) {
+        return a(context, str, list, new a(), true);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00aa A[Catch: MalformedURLException -> 0x00c3, TRY_ENTER, TryCatch #4 {MalformedURLException -> 0x00c3, blocks: (B:4:0x000f, B:6:0x0016, B:8:0x0020, B:11:0x0027, B:13:0x002d, B:14:0x0030, B:15:0x0035, B:17:0x003b, B:19:0x0044, B:21:0x004c, B:49:0x00aa, B:50:0x00bc), top: B:64:0x000f }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized cv a() {
-        cv cvVar;
-        int size = this.f185a.size() - 1;
-        while (true) {
-            if (size < 0) {
-                cvVar = null;
-                break;
-            }
-            cvVar = this.f185a.get(size);
-            if (cvVar.m213a()) {
-                break;
-            }
-            size--;
-        }
-        return cvVar;
-    }
-
-    public synchronized cw a(JSONObject jSONObject) {
-        this.f8309a = jSONObject.getString("host");
-        JSONArray jSONArray = jSONObject.getJSONArray("fbs");
-        for (int i = 0; i < jSONArray.length(); i++) {
-            this.f185a.add(new cv(this.f8309a).a(jSONArray.getJSONObject(i)));
-        }
-        return this;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public String m214a() {
-        return this.f8309a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cv> m215a() {
-        return this.f185a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m216a() {
-        JSONObject jSONObject;
-        jSONObject = new JSONObject();
-        jSONObject.put("host", this.f8309a);
-        JSONArray jSONArray = new JSONArray();
-        Iterator<cv> it = this.f185a.iterator();
-        while (it.hasNext()) {
-            jSONArray.put(it.next().m211a());
-        }
-        jSONObject.put("fbs", jSONArray);
-        return jSONObject;
-    }
-
-    public synchronized void a(cv cvVar) {
-        int i;
-        int i2 = 0;
-        while (true) {
-            i = i2;
-            if (i >= this.f185a.size()) {
-                break;
-            } else if (this.f185a.get(i).a(cvVar)) {
-                this.f185a.set(i, cvVar);
-                break;
-            } else {
-                i2 = i + 1;
-            }
-        }
-        if (i >= this.f185a.size()) {
-            this.f185a.add(cvVar);
-        }
-    }
-
-    public synchronized void a(boolean z) {
-        for (int size = this.f185a.size() - 1; size >= 0; size--) {
-            cv cvVar = this.f185a.get(size);
-            if (z) {
-                if (cvVar.c()) {
-                    this.f185a.remove(size);
+    public static String a(Context context, String str, List<bf> list, cv cvVar, boolean z) {
+        co coVar;
+        IOException iOException;
+        String str2;
+        String str3;
+        if (bg.b(context)) {
+            try {
+                ArrayList<String> arrayList = new ArrayList<>();
+                if (z) {
+                    co m210a = cs.a().m210a(str);
+                    if (m210a != null) {
+                        arrayList = m210a.a(str);
+                    }
+                    coVar = m210a;
+                } else {
+                    coVar = null;
                 }
-            } else if (!cvVar.b()) {
-                this.f185a.remove(size);
+                if (!arrayList.contains(str)) {
+                    arrayList.add(str);
+                }
+                Iterator<String> it = arrayList.iterator();
+                String str4 = null;
+                while (it.hasNext()) {
+                    String next = it.next();
+                    ArrayList arrayList2 = list != null ? new ArrayList(list) : null;
+                    long currentTimeMillis = System.currentTimeMillis();
+                    try {
+                    } catch (IOException e2) {
+                        iOException = e2;
+                        str2 = str4;
+                    }
+                    if (!cvVar.m219a(context, next, (List<bf>) arrayList2)) {
+                        return str4;
+                    }
+                    String a2 = cvVar.a(context, next, (List<bf>) arrayList2);
+                    try {
+                    } catch (IOException e3) {
+                        e = e3;
+                        str3 = a2;
+                    }
+                    if (!TextUtils.isEmpty(a2)) {
+                        if (coVar != null) {
+                            try {
+                                coVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(cvVar, next, arrayList2, a2));
+                            } catch (IOException e4) {
+                                iOException = e4;
+                                str2 = a2;
+                                if (coVar != null) {
+                                    coVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(cvVar, next, arrayList2, str2), iOException);
+                                }
+                                iOException.printStackTrace();
+                                str4 = str2;
+                            }
+                        }
+                        return a2;
+                    }
+                    if (coVar != null) {
+                        str3 = a2;
+                        try {
+                            coVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(cvVar, next, arrayList2, a2), null);
+                        } catch (IOException e5) {
+                            e = e5;
+                            String str5 = str3;
+                            iOException = e;
+                            str2 = str5;
+                            if (coVar != null) {
+                            }
+                            iOException.printStackTrace();
+                            str4 = str2;
+                        }
+                    } else {
+                        str3 = a2;
+                    }
+                    str4 = str3;
+                }
+                return str4;
+            } catch (MalformedURLException e6) {
+                e6.printStackTrace();
             }
         }
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.f8309a);
-        sb.append("\n");
-        Iterator<cv> it = this.f185a.iterator();
-        while (it.hasNext()) {
-            sb.append(it.next());
-        }
-        return sb.toString();
+        return null;
     }
 }

@@ -15,116 +15,29 @@ import com.bumptech.glide.load.Option;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class RequestOptions extends BaseRequestOptions<RequestOptions> {
     @Nullable
-    private static RequestOptions centerCropOptions;
+    public static RequestOptions centerCropOptions;
     @Nullable
-    private static RequestOptions centerInsideOptions;
+    public static RequestOptions centerInsideOptions;
     @Nullable
-    private static RequestOptions circleCropOptions;
+    public static RequestOptions circleCropOptions;
     @Nullable
-    private static RequestOptions fitCenterOptions;
+    public static RequestOptions fitCenterOptions;
     @Nullable
-    private static RequestOptions noAnimationOptions;
+    public static RequestOptions noAnimationOptions;
     @Nullable
-    private static RequestOptions noTransformOptions;
+    public static RequestOptions noTransformOptions;
     @Nullable
-    private static RequestOptions skipMemoryCacheFalseOptions;
+    public static RequestOptions skipMemoryCacheFalseOptions;
     @Nullable
-    private static RequestOptions skipMemoryCacheTrueOptions;
+    public static RequestOptions skipMemoryCacheTrueOptions;
 
     @NonNull
     @CheckResult
-    public static RequestOptions sizeMultiplierOf(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return new RequestOptions().sizeMultiplier(f);
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions diskCacheStrategyOf(@NonNull DiskCacheStrategy diskCacheStrategy) {
-        return new RequestOptions().diskCacheStrategy(diskCacheStrategy);
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions priorityOf(@NonNull Priority priority) {
-        return new RequestOptions().priority(priority);
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions placeholderOf(@Nullable Drawable drawable) {
-        return new RequestOptions().placeholder(drawable);
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions placeholderOf(@DrawableRes int i) {
-        return new RequestOptions().placeholder(i);
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions errorOf(@Nullable Drawable drawable) {
-        return new RequestOptions().error(drawable);
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions errorOf(@DrawableRes int i) {
-        return new RequestOptions().error(i);
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions skipMemoryCacheOf(boolean z) {
-        if (z) {
-            if (skipMemoryCacheTrueOptions == null) {
-                skipMemoryCacheTrueOptions = new RequestOptions().skipMemoryCache(true).autoClone();
-            }
-            return skipMemoryCacheTrueOptions;
-        }
-        if (skipMemoryCacheFalseOptions == null) {
-            skipMemoryCacheFalseOptions = new RequestOptions().skipMemoryCache(false).autoClone();
-        }
-        return skipMemoryCacheFalseOptions;
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions overrideOf(int i, int i2) {
-        return new RequestOptions().override(i, i2);
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions overrideOf(int i) {
-        return overrideOf(i, i);
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions signatureOf(@NonNull Key key) {
-        return new RequestOptions().signature(key);
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions fitCenterTransform() {
-        if (fitCenterOptions == null) {
-            fitCenterOptions = new RequestOptions().fitCenter().autoClone();
-        }
-        return fitCenterOptions;
-    }
-
-    @NonNull
-    @CheckResult
-    public static RequestOptions centerInsideTransform() {
-        if (centerInsideOptions == null) {
-            centerInsideOptions = new RequestOptions().centerInside().autoClone();
-        }
-        return centerInsideOptions;
+    public static RequestOptions bitmapTransform(@NonNull Transformation<Bitmap> transformation) {
+        return new RequestOptions().transform(transformation);
     }
 
     @NonNull
@@ -138,6 +51,15 @@ public class RequestOptions extends BaseRequestOptions<RequestOptions> {
 
     @NonNull
     @CheckResult
+    public static RequestOptions centerInsideTransform() {
+        if (centerInsideOptions == null) {
+            centerInsideOptions = new RequestOptions().centerInside().autoClone();
+        }
+        return centerInsideOptions;
+    }
+
+    @NonNull
+    @CheckResult
     public static RequestOptions circleCropTransform() {
         if (circleCropOptions == null) {
             circleCropOptions = new RequestOptions().circleCrop().autoClone();
@@ -147,8 +69,68 @@ public class RequestOptions extends BaseRequestOptions<RequestOptions> {
 
     @NonNull
     @CheckResult
-    public static RequestOptions bitmapTransform(@NonNull Transformation<Bitmap> transformation) {
-        return new RequestOptions().transform(transformation);
+    public static RequestOptions decodeTypeOf(@NonNull Class<?> cls) {
+        return new RequestOptions().decode(cls);
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions diskCacheStrategyOf(@NonNull DiskCacheStrategy diskCacheStrategy) {
+        return new RequestOptions().diskCacheStrategy(diskCacheStrategy);
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions downsampleOf(@NonNull DownsampleStrategy downsampleStrategy) {
+        return new RequestOptions().downsample(downsampleStrategy);
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions encodeFormatOf(@NonNull Bitmap.CompressFormat compressFormat) {
+        return new RequestOptions().encodeFormat(compressFormat);
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions encodeQualityOf(@IntRange(from = 0, to = 100) int i) {
+        return new RequestOptions().encodeQuality(i);
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions errorOf(@Nullable Drawable drawable) {
+        return new RequestOptions().error(drawable);
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions fitCenterTransform() {
+        if (fitCenterOptions == null) {
+            fitCenterOptions = new RequestOptions().fitCenter().autoClone();
+        }
+        return fitCenterOptions;
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions formatOf(@NonNull DecodeFormat decodeFormat) {
+        return new RequestOptions().format(decodeFormat);
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions frameOf(@IntRange(from = 0) long j) {
+        return new RequestOptions().frame(j);
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions noAnimation() {
+        if (noAnimationOptions == null) {
+            noAnimationOptions = new RequestOptions().dontAnimate().autoClone();
+        }
+        return noAnimationOptions;
     }
 
     @NonNull
@@ -168,26 +150,47 @@ public class RequestOptions extends BaseRequestOptions<RequestOptions> {
 
     @NonNull
     @CheckResult
-    public static RequestOptions decodeTypeOf(@NonNull Class<?> cls) {
-        return new RequestOptions().decode(cls);
+    public static RequestOptions overrideOf(int i, int i2) {
+        return new RequestOptions().override(i, i2);
     }
 
     @NonNull
     @CheckResult
-    public static RequestOptions formatOf(@NonNull DecodeFormat decodeFormat) {
-        return new RequestOptions().format(decodeFormat);
+    public static RequestOptions placeholderOf(@Nullable Drawable drawable) {
+        return new RequestOptions().placeholder(drawable);
     }
 
     @NonNull
     @CheckResult
-    public static RequestOptions frameOf(@IntRange(from = 0) long j) {
-        return new RequestOptions().frame(j);
+    public static RequestOptions priorityOf(@NonNull Priority priority) {
+        return new RequestOptions().priority(priority);
     }
 
     @NonNull
     @CheckResult
-    public static RequestOptions downsampleOf(@NonNull DownsampleStrategy downsampleStrategy) {
-        return new RequestOptions().downsample(downsampleStrategy);
+    public static RequestOptions signatureOf(@NonNull Key key) {
+        return new RequestOptions().signature(key);
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions sizeMultiplierOf(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        return new RequestOptions().sizeMultiplier(f2);
+    }
+
+    @NonNull
+    @CheckResult
+    public static RequestOptions skipMemoryCacheOf(boolean z) {
+        if (z) {
+            if (skipMemoryCacheTrueOptions == null) {
+                skipMemoryCacheTrueOptions = new RequestOptions().skipMemoryCache(true).autoClone();
+            }
+            return skipMemoryCacheTrueOptions;
+        }
+        if (skipMemoryCacheFalseOptions == null) {
+            skipMemoryCacheFalseOptions = new RequestOptions().skipMemoryCache(false).autoClone();
+        }
+        return skipMemoryCacheFalseOptions;
     }
 
     @NonNull
@@ -198,22 +201,19 @@ public class RequestOptions extends BaseRequestOptions<RequestOptions> {
 
     @NonNull
     @CheckResult
-    public static RequestOptions encodeQualityOf(@IntRange(from = 0, to = 100) int i) {
-        return new RequestOptions().encodeQuality(i);
+    public static RequestOptions errorOf(@DrawableRes int i) {
+        return new RequestOptions().error(i);
     }
 
     @NonNull
     @CheckResult
-    public static RequestOptions encodeFormatOf(@NonNull Bitmap.CompressFormat compressFormat) {
-        return new RequestOptions().encodeFormat(compressFormat);
+    public static RequestOptions overrideOf(int i) {
+        return overrideOf(i, i);
     }
 
     @NonNull
     @CheckResult
-    public static RequestOptions noAnimation() {
-        if (noAnimationOptions == null) {
-            noAnimationOptions = new RequestOptions().dontAnimate().autoClone();
-        }
-        return noAnimationOptions;
+    public static RequestOptions placeholderOf(@DrawableRes int i) {
+        return new RequestOptions().placeholder(i);
     }
 }

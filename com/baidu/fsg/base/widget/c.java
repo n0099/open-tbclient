@@ -1,24 +1,22 @@
 package com.baidu.fsg.base.widget;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class c implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeKeyBoardEditText f1589a;
+    public final /* synthetic */ SafeKeyBoardEditText f5509a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public c(SafeKeyBoardEditText safeKeyBoardEditText) {
-        this.f1589a = safeKeyBoardEditText;
+        this.f5509a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
         boolean z;
-        z = this.f1589a.p;
+        z = this.f5509a.p;
         if (z) {
-            this.f1589a.requestFocusFromTouch();
+            this.f5509a.requestFocusFromTouch();
             return true;
         }
         return false;

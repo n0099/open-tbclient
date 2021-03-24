@@ -2,31 +2,37 @@ package com.baidu.tieba.memberCenter.memberTask;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
+import tbclient.Error;
+import tbclient.FinishMemberTask.DataRes;
 import tbclient.FinishMemberTask.FinishMemberTaskResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class FinishMemberTaskHttpResMessage extends TbHttpResponsedMessage {
-    private int status;
-
-    public int getStatus() {
-        return this.status;
-    }
+    public int status;
 
     public FinishMemberTaskHttpResMessage(int i) {
         super(i);
     }
 
+    public int getStatus() {
+        return this.status;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         FinishMemberTaskResIdl finishMemberTaskResIdl = (FinishMemberTaskResIdl) new Wire(new Class[0]).parseFrom(bArr, FinishMemberTaskResIdl.class);
-        if (finishMemberTaskResIdl != null) {
-            if (finishMemberTaskResIdl.error != null) {
-                setError(finishMemberTaskResIdl.error.errorno.intValue());
-                setErrorString(finishMemberTaskResIdl.error.errmsg);
-            }
-            if (finishMemberTaskResIdl.data != null) {
-                this.status = finishMemberTaskResIdl.data.status.intValue();
-            }
+        if (finishMemberTaskResIdl == null) {
+            return;
         }
+        Error error = finishMemberTaskResIdl.error;
+        if (error != null) {
+            setError(error.errorno.intValue());
+            setErrorString(finishMemberTaskResIdl.error.errmsg);
+        }
+        DataRes dataRes = finishMemberTaskResIdl.data;
+        if (dataRes == null) {
+            return;
+        }
+        this.status = dataRes.status.intValue();
     }
 }

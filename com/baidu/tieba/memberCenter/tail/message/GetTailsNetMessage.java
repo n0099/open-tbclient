@@ -1,26 +1,26 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetTails.GetTailsReqIdl;
 import tbclient.GetTails.ReqData;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class GetTailsNetMessage extends NetMessage {
-    ReqData.Builder data;
-    GetTailsReqIdl.Builder idl;
+    public ReqData.Builder data;
+    public GetTailsReqIdl.Builder idl;
 
     public GetTailsNetMessage(String str) {
-        super(1003021, CmdConfigSocket.CMD_TAIL_GET);
+        super(CmdConfigHttp.CMD_TAIL_GET, 305001);
         this.data = new ReqData.Builder();
         this.idl = new GetTailsReqIdl.Builder();
         this.data.st_type = str;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         if (z) {
-            v.b(this.data, true);
+            w.a(this.data, true);
         }
         this.idl.data = this.data.build(false);
         return this.idl.build(false);

@@ -4,17 +4,32 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class FaceImageLayout extends FrameLayout {
-    private a lDW;
 
-    /* loaded from: classes8.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public a f19241e;
+
+    /* loaded from: classes4.dex */
     public interface a {
-        void diS();
+        void a();
     }
 
     public FaceImageLayout(Context context) {
         super(context);
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        a aVar = this.f19241e;
+        if (aVar != null) {
+            aVar.a();
+        }
+        return super.onInterceptTouchEvent(motionEvent);
+    }
+
+    public void setListener(a aVar) {
+        this.f19241e = aVar;
     }
 
     public FaceImageLayout(Context context, AttributeSet attributeSet) {
@@ -23,17 +38,5 @@ public class FaceImageLayout extends FrameLayout {
 
     public FaceImageLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.lDW != null) {
-            this.lDW.diS();
-        }
-        return super.onInterceptTouchEvent(motionEvent);
-    }
-
-    public void setListener(a aVar) {
-        this.lDW = aVar;
     }
 }

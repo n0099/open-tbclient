@@ -1,21 +1,27 @@
 package com.sdk.base.framework.a;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f7619a = new g("WAITING", 0, 0);
-    public static final g b = new g("STARTED", 1, 1);
-    public static final g c = new g("LOADING", 2, 2);
-    public static final g d = new g("FAILURE", 3, 3);
-    public static final g e = new g("CANCELLED", 4, 4);
-    public static final g f = new g("SUCCESS", 5, 5);
+    public static final g f38468a = new g("WAITING", 0, 0);
 
-    static {
-        g[] gVarArr = {f7619a, b, c, d, e, f};
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final g f38469b = new g("STARTED", 1, 1);
 
-    private g(String str, int i, int i2) {
+    /* renamed from: c  reason: collision with root package name */
+    public static final g f38470c = new g("LOADING", 2, 2);
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final g f38471d = new g("FAILURE", 3, 3);
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final g f38472e = new g("CANCELLED", 4, 4);
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final g f38473f = new g(com.alipay.security.mobile.module.http.model.c.f2100g, 5, 5);
+
+    public g(String str, int i, int i2) {
     }
 }

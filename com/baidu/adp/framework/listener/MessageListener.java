@@ -1,29 +1,19 @@
 package com.baidu.adp.framework.listener;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.d;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import d.b.b.c.d;
 /* loaded from: classes.dex */
 public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
-    private int mCmd;
-    private boolean mSelfListener;
-    private BdUniqueId mTag;
-
-    public abstract void onMessage(T t);
+    public int mCmd;
+    public boolean mSelfListener;
+    public BdUniqueId mTag;
 
     public MessageListener(int i) {
         this.mCmd = 0;
         this.mTag = null;
         this.mSelfListener = false;
         this.mCmd = i;
-    }
-
-    public MessageListener(int i, boolean z) {
-        this.mCmd = 0;
-        this.mTag = null;
-        this.mSelfListener = false;
-        this.mCmd = i;
-        this.mSelfListener = z;
     }
 
     public int getCmd() {
@@ -34,15 +24,25 @@ public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
         return this.mTag;
     }
 
-    public void setTag(BdUniqueId bdUniqueId) {
-        this.mTag = bdUniqueId;
-    }
-
     public boolean isSelfListener() {
         return this.mSelfListener;
     }
 
+    public abstract void onMessage(T t);
+
     public void setSelfListener(boolean z) {
+        this.mSelfListener = z;
+    }
+
+    public void setTag(BdUniqueId bdUniqueId) {
+        this.mTag = bdUniqueId;
+    }
+
+    public MessageListener(int i, boolean z) {
+        this.mCmd = 0;
+        this.mTag = null;
+        this.mSelfListener = false;
+        this.mCmd = i;
         this.mSelfListener = z;
     }
 }

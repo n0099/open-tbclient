@@ -3,23 +3,22 @@ package com.baidu.android.pushservice.d;
 import android.content.Context;
 import android.os.Build;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class n extends d {
     public n(i iVar, Context context) {
         super(iVar, context);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.pushservice.d.a
-    public void a(HashMap<String, String> hashMap) {
-        super.a(hashMap);
+    public void b(HashMap<String, String> hashMap) {
+        super.b(hashMap);
         hashMap.put("method", "unbind");
-        hashMap.put("model", l.a(this.f1124a) + "");
-        if (com.baidu.android.pushservice.b.d.b(this.f1124a)) {
-            hashMap.put("new_channel_id", com.baidu.android.pushservice.j.a(this.f1124a).c());
+        hashMap.put("model", l.a(((a) this).f2942a) + "");
+        if (com.baidu.android.pushservice.b.d.b(((a) this).f2942a)) {
+            hashMap.put("new_channel_id", com.baidu.android.pushservice.k.a(((a) this).f2942a).c());
         }
-        hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(this.f1124a) ? 1 : 0) + "");
+        hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(((a) this).f2942a) ? 1 : 0) + "");
         hashMap.put("manufacture", Build.MANUFACTURER);
-        hashMap.put("proxy_mode", (com.baidu.android.pushservice.b.d.c(this.f1124a) ? 1 : 0) + "");
+        hashMap.put("proxy_mode", (com.baidu.android.pushservice.b.d.c(((a) this).f2942a) ? 1 : 0) + "");
     }
 }

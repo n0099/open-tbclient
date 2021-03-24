@@ -2,7 +2,7 @@ package androidx.core.os;
 
 import android.os.Build;
 import android.os.Trace;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class TraceCompat {
     public static void beginSection(String str) {
         if (Build.VERSION.SDK_INT >= 18) {
@@ -14,8 +14,5 @@ public final class TraceCompat {
         if (Build.VERSION.SDK_INT >= 18) {
             Trace.endSection();
         }
-    }
-
-    private TraceCompat() {
     }
 }

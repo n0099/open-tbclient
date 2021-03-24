@@ -8,12 +8,12 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.JSONToken;
 import com.vivo.push.PushClientConstants;
 import java.lang.reflect.Type;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class StackTraceElementDeserializer implements ObjectDeserializer {
     public static final StackTraceElementDeserializer instance = new StackTraceElementDeserializer();
 
-    /* JADX WARN: Code restructure failed: missing block: B:139:?, code lost:
-        return (T) new java.lang.StackTraceElement(r3, r2, r1, r0);
+    /* JADX WARN: Code restructure failed: missing block: B:123:0x01d3, code lost:
+        return (T) new java.lang.StackTraceElement(r5, r7, r8, r9);
      */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     /*

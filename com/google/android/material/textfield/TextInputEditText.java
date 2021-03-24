@@ -9,33 +9,19 @@ import android.view.inputmethod.InputConnection;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
 import com.google.android.material.R;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class TextInputEditText extends AppCompatEditText {
     public TextInputEditText(Context context) {
         this(context, null);
     }
 
-    public TextInputEditText(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.editTextStyle);
-    }
-
-    public TextInputEditText(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-    }
-
-    @Override // android.widget.TextView
-    public CharSequence getHint() {
+    @Nullable
+    private CharSequence getHintFromLayout() {
         TextInputLayout textInputLayout = getTextInputLayout();
-        return (textInputLayout == null || !textInputLayout.isProvidingHint()) ? super.getHint() : textInputLayout.getHint();
-    }
-
-    @Override // androidx.appcompat.widget.AppCompatEditText, android.widget.TextView, android.view.View
-    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
-        InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
-        if (onCreateInputConnection != null && editorInfo.hintText == null) {
-            editorInfo.hintText = getHintFromLayout();
+        if (textInputLayout != null) {
+            return textInputLayout.getHint();
         }
-        return onCreateInputConnection;
+        return null;
     }
 
     @Nullable
@@ -48,12 +34,29 @@ public class TextInputEditText extends AppCompatEditText {
         return null;
     }
 
-    @Nullable
-    private CharSequence getHintFromLayout() {
+    @Override // android.widget.TextView
+    public CharSequence getHint() {
         TextInputLayout textInputLayout = getTextInputLayout();
-        if (textInputLayout != null) {
+        if (textInputLayout != null && textInputLayout.isProvidingHint()) {
             return textInputLayout.getHint();
         }
-        return null;
+        return super.getHint();
+    }
+
+    @Override // androidx.appcompat.widget.AppCompatEditText, android.widget.TextView, android.view.View
+    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
+        InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
+        if (onCreateInputConnection != null && editorInfo.hintText == null) {
+            editorInfo.hintText = getHintFromLayout();
+        }
+        return onCreateInputConnection;
+    }
+
+    public TextInputEditText(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, R.attr.editTextStyle);
+    }
+
+    public TextInputEditText(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 }

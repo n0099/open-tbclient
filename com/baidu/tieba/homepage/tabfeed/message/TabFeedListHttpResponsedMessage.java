@@ -2,10 +2,11 @@ package com.baidu.tieba.homepage.tabfeed.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.homepage.tabfeed.data.a;
 import com.squareup.wire.Wire;
+import d.b.i0.z0.i.e.a;
 import tbclient.ActivityPage.ActivityPageResIdl;
-/* loaded from: classes2.dex */
+import tbclient.Error;
+/* loaded from: classes4.dex */
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage {
     public a tabFeedData;
 
@@ -14,18 +15,23 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        String str;
+        Integer num;
         ActivityPageResIdl activityPageResIdl = (ActivityPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ActivityPageResIdl.class);
-        if (activityPageResIdl.error != null && activityPageResIdl.error.errorno != null) {
-            setError(activityPageResIdl.error.errorno.intValue());
+        Error error = activityPageResIdl.error;
+        if (error != null && (num = error.errorno) != null) {
+            setError(num.intValue());
         }
-        if (activityPageResIdl.error != null && activityPageResIdl.error.usermsg != null && activityPageResIdl.error.usermsg.length() > 0) {
+        Error error2 = activityPageResIdl.error;
+        if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
             setErrorString(activityPageResIdl.error.usermsg);
         }
         if (getError() == 0 && activityPageResIdl.data != null) {
-            this.tabFeedData = new a();
-            this.tabFeedData.a(activityPageResIdl.data);
+            a aVar = new a();
+            this.tabFeedData = aVar;
+            aVar.j(activityPageResIdl.data);
         }
     }
 }

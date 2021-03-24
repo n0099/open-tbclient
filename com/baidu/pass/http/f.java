@@ -2,25 +2,29 @@ package com.baidu.pass.http;
 
 import android.util.Log;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2846a = "f";
-    private static final Pattern b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
-    public static boolean c = false;
+    public static final String f9768a = "f";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Pattern f9769b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+
+    /* renamed from: c  reason: collision with root package name */
+    public static boolean f9770c = false;
 
     public static void a(String str, String str2) {
-        if (c) {
+        if (f9770c) {
             Log.e(str, str2);
         }
     }
 
     public static boolean b(String str) {
-        return b.matcher(str).matches();
+        return f9769b.matcher(str).matches();
     }
 
     public static void a(String str) {
-        a(f2846a, str);
+        a(f9768a, str);
     }
 }

@@ -24,6 +24,7 @@ import android.security.NetworkSecurityPolicy;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import com.baidu.android.imsdk.mcast.McastConfig;
+import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.io.FileDescriptor;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -46,14 +47,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AndroidNetworkLibrary {
     public static Boolean sHaveAccessNetworkState;
     public static Boolean sHaveAccessWifiState;
     public static final Set<InetAddress> sAutoDohServers = new HashSet();
     public static final Set<String> sAutoDohDotServers = new HashSet();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class NetworkSecurityPolicyProxy {
         public static NetworkSecurityPolicyProxy sInstance = new NetworkSecurityPolicyProxy();
 
@@ -71,15 +72,15 @@ public class AndroidNetworkLibrary {
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static class SetFileDescriptor {
+    /* loaded from: classes.dex */
+    public static class SetFileDescriptor {
         public static final Method sFileDescriptorSetInt;
 
         static {
             try {
                 sFileDescriptorSetInt = FileDescriptor.class.getMethod("setInt$", Integer.TYPE);
-            } catch (NoSuchMethodException | SecurityException e) {
-                throw new RuntimeException("Unable to get FileDescriptor.setInt$", e);
+            } catch (NoSuchMethodException | SecurityException e2) {
+                throw new RuntimeException("Unable to get FileDescriptor.setInt$", e2);
             }
         }
 
@@ -88,19 +89,19 @@ public class AndroidNetworkLibrary {
                 FileDescriptor fileDescriptor = new FileDescriptor();
                 sFileDescriptorSetInt.invoke(fileDescriptor, Integer.valueOf(i));
                 return fileDescriptor;
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException("FileDescriptor.setInt$() failed", e);
-            } catch (InvocationTargetException e2) {
+            } catch (IllegalAccessException e2) {
                 throw new RuntimeException("FileDescriptor.setInt$() failed", e2);
+            } catch (InvocationTargetException e3) {
+                throw new RuntimeException("FileDescriptor.setInt$() failed", e3);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static class SocketFd extends Socket {
+    /* loaded from: classes.dex */
+    public static class SocketFd extends Socket {
 
-        /* loaded from: classes3.dex */
-        private static class SocketImplFd extends SocketImpl {
+        /* loaded from: classes.dex */
+        public static class SocketImplFd extends SocketImpl {
             public SocketImplFd(FileDescriptor fileDescriptor) {
                 ((SocketImpl) this).fd = fileDescriptor;
             }
@@ -197,8 +198,8 @@ public class AndroidNetworkLibrary {
             sAutoDohDotServers.add("1dot1dot1dot1.cloudflare-dns.com");
             sAutoDohDotServers.add("cloudflare-dns.com");
             sAutoDohDotServers.add("dns.quad9.net");
-        } catch (UnknownHostException e) {
-            throw new RuntimeException("Failed to parse IP addresses", e);
+        } catch (UnknownHostException e2) {
+            throw new RuntimeException("Failed to parse IP addresses", e2);
         }
     }
 
@@ -216,51 +217,57 @@ public class AndroidNetworkLibrary {
     @TargetApi(23)
     public static byte[][] getDnsServers() {
         boolean z;
+        Object newInstance;
         if (sHaveAccessNetworkState == null) {
-            sHaveAccessNetworkState = Boolean.valueOf(ApiCompatibilityUtils.checkPermission(ContextUtils.sApplicationContext, "android.permission.ACCESS_NETWORK_STATE", Process.myPid(), Process.myUid()) == 0);
+            sHaveAccessNetworkState = Boolean.valueOf(ApiCompatibilityUtils.checkPermission(ContextUtils.sApplicationContext, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, Process.myPid(), Process.myUid()) == 0);
         }
-        if (!sHaveAccessNetworkState.booleanValue()) {
-            return (byte[][]) Array.newInstance(Byte.TYPE, 0, 0);
-        }
-        ConnectivityManager connectivityManager = (ConnectivityManager) ContextUtils.sApplicationContext.getSystemService("connectivity");
-        if (connectivityManager == null) {
-            return (byte[][]) Array.newInstance(Byte.TYPE, 0, 0);
-        }
-        Network activeNetwork = ApiHelperForM.getActiveNetwork(connectivityManager);
-        if (activeNetwork == null) {
-            return (byte[][]) Array.newInstance(Byte.TYPE, 0, 0);
-        }
-        LinkProperties linkProperties = connectivityManager.getLinkProperties(activeNetwork);
-        if (linkProperties == null) {
-            return (byte[][]) Array.newInstance(Byte.TYPE, 0, 0);
-        }
-        List<InetAddress> dnsServers = linkProperties.getDnsServers();
-        Iterator<InetAddress> it = dnsServers.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z = false;
-                break;
+        if (sHaveAccessNetworkState.booleanValue()) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) ContextUtils.sApplicationContext.getSystemService("connectivity");
+            if (connectivityManager == null) {
+                newInstance = Array.newInstance(byte.class, 0, 0);
+            } else {
+                Network activeNetwork = ApiHelperForM.getActiveNetwork(connectivityManager);
+                if (activeNetwork == null) {
+                    newInstance = Array.newInstance(byte.class, 0, 0);
+                } else {
+                    LinkProperties linkProperties = connectivityManager.getLinkProperties(activeNetwork);
+                    if (linkProperties == null) {
+                        newInstance = Array.newInstance(byte.class, 0, 0);
+                    } else {
+                        List<InetAddress> dnsServers = linkProperties.getDnsServers();
+                        Iterator<InetAddress> it = dnsServers.iterator();
+                        while (true) {
+                            if (!it.hasNext()) {
+                                z = false;
+                                break;
+                            }
+                            if (sAutoDohServers.contains(it.next())) {
+                                z = true;
+                                break;
+                            }
+                        }
+                        if (!isPrivateDnsActive(linkProperties)) {
+                            RecordHistogram.recordBooleanHistogram("Net.DNS.Android.AutoDohPublic", z);
+                            byte[][] bArr = new byte[dnsServers.size()];
+                            for (int i = 0; i < dnsServers.size(); i++) {
+                                bArr[i] = dnsServers.get(i).getAddress();
+                            }
+                            return bArr;
+                        }
+                        String privateDnsServerName = Build.VERSION.SDK_INT >= 28 ? ApiHelperForM.getPrivateDnsServerName(linkProperties) : null;
+                        if (privateDnsServerName != null) {
+                            z = sAutoDohDotServers.contains(privateDnsServerName.toLowerCase(Locale.US));
+                        }
+                        RecordHistogram.recordBooleanHistogram("Net.DNS.Android.DotExplicit", privateDnsServerName != null);
+                        RecordHistogram.recordBooleanHistogram("Net.DNS.Android.AutoDohPrivate", z);
+                        newInstance = Array.newInstance(byte.class, 1, 1);
+                    }
+                }
             }
-            if (sAutoDohServers.contains(it.next())) {
-                z = true;
-                break;
-            }
+        } else {
+            newInstance = Array.newInstance(byte.class, 0, 0);
         }
-        if (isPrivateDnsActive(linkProperties)) {
-            String privateDnsServerName = Build.VERSION.SDK_INT >= 28 ? ApiHelperForM.getPrivateDnsServerName(linkProperties) : null;
-            if (privateDnsServerName != null) {
-                z = sAutoDohDotServers.contains(privateDnsServerName.toLowerCase(Locale.US));
-            }
-            RecordHistogram.recordBooleanHistogram("Net.DNS.Android.DotExplicit", privateDnsServerName != null);
-            RecordHistogram.recordBooleanHistogram("Net.DNS.Android.AutoDohPrivate", z);
-            return (byte[][]) Array.newInstance(Byte.TYPE, 1, 1);
-        }
-        RecordHistogram.recordBooleanHistogram("Net.DNS.Android.AutoDohPublic", z);
-        byte[][] bArr = new byte[dnsServers.size()];
-        for (int i = 0; i < dnsServers.size(); i++) {
-            bArr[i] = dnsServers.get(i).getAddress();
-        }
-        return bArr;
+        return (byte[][]) newInstance;
     }
 
     @CalledByNative
@@ -268,11 +275,8 @@ public class AndroidNetworkLibrary {
     public static boolean getIsCaptivePortal() {
         ConnectivityManager connectivityManager;
         Network activeNetwork;
-        if (Build.VERSION.SDK_INT < 23 || (connectivityManager = (ConnectivityManager) ContextUtils.sApplicationContext.getSystemService("connectivity")) == null || (activeNetwork = ApiHelperForM.getActiveNetwork(connectivityManager)) == null) {
-            return false;
-        }
-        NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork);
-        return networkCapabilities != null && networkCapabilities.hasCapability(17);
+        NetworkCapabilities networkCapabilities;
+        return (Build.VERSION.SDK_INT < 23 || (connectivityManager = (ConnectivityManager) ContextUtils.sApplicationContext.getSystemService("connectivity")) == null || (activeNetwork = ApiHelperForM.getActiveNetwork(connectivityManager)) == null || (networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)) == null || !networkCapabilities.hasCapability(17)) ? false : true;
     }
 
     @CalledByNative
@@ -330,35 +334,35 @@ public class AndroidNetworkLibrary {
 
     @CalledByNative
     public static String getWifiSSID() {
-        WifiInfo wifiInfo;
         String ssid;
         if (sHaveAccessWifiState == null) {
             sHaveAccessWifiState = Boolean.valueOf(ApiCompatibilityUtils.checkPermission(ContextUtils.sApplicationContext, "android.permission.ACCESS_WIFI_STATE", Process.myPid(), Process.myUid()) == 0);
         }
+        WifiInfo wifiInfo = null;
         if (sHaveAccessWifiState.booleanValue()) {
             wifiInfo = ((WifiManager) ContextUtils.sApplicationContext.getSystemService("wifi")).getConnectionInfo();
         } else {
             Intent registerReceiver = ContextUtils.sApplicationContext.registerReceiver(null, new IntentFilter(McastConfig.ACTION_NETWORK_STATE_CHANGED));
-            wifiInfo = registerReceiver != null ? (WifiInfo) registerReceiver.getParcelableExtra("wifiInfo") : null;
+            if (registerReceiver != null) {
+                wifiInfo = (WifiInfo) registerReceiver.getParcelableExtra("wifiInfo");
+            }
         }
         return (wifiInfo == null || (ssid = wifiInfo.getSSID()) == null || ssid.equals("<unknown ssid>")) ? "" : ssid;
     }
 
     @CalledByNative
     public static int getWifiSignalLevel(int i) {
+        Intent registerReceiver;
         int intExtra;
         int calculateSignalLevel;
         try {
-            Intent registerReceiver = ContextUtils.sApplicationContext.registerReceiver(null, new IntentFilter("android.net.wifi.RSSI_CHANGED"));
-            if (registerReceiver != null && (intExtra = registerReceiver.getIntExtra("newRssi", Integer.MIN_VALUE)) != Integer.MIN_VALUE && (calculateSignalLevel = WifiManager.calculateSignalLevel(intExtra, i)) >= 0 && calculateSignalLevel < i) {
-                return calculateSignalLevel;
-            }
-            return -1;
-        } catch (IllegalArgumentException e) {
-            return -1;
-        } catch (Exception e2) {
-            return -1;
+            registerReceiver = ContextUtils.sApplicationContext.registerReceiver(null, new IntentFilter("android.net.wifi.RSSI_CHANGED"));
+        } catch (IllegalArgumentException | Exception unused) {
         }
+        if (registerReceiver != null && (intExtra = registerReceiver.getIntExtra("newRssi", Integer.MIN_VALUE)) != Integer.MIN_VALUE && (calculateSignalLevel = WifiManager.calculateSignalLevel(intExtra, i)) >= 0 && calculateSignalLevel < i) {
+            return calculateSignalLevel;
+        }
+        return -1;
     }
 
     @CalledByNative
@@ -374,7 +378,7 @@ public class AndroidNetworkLibrary {
                     if (nextElement.isUp() && !nextElement.isLoopback()) {
                         return false;
                     }
-                } catch (SocketException e) {
+                } catch (SocketException unused) {
                 }
             }
             return true;
@@ -388,7 +392,7 @@ public class AndroidNetworkLibrary {
     public static boolean isCleartextPermitted(String str) {
         try {
             return NetworkSecurityPolicyProxy.sInstance.isCleartextTrafficPermitted(str);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException unused) {
             return NetworkSecurityPolicyProxy.sInstance.isCleartextTrafficPermitted();
         }
     }
@@ -436,13 +440,13 @@ public class AndroidNetworkLibrary {
     public static AndroidCertVerifyResult verifyServerCertificates(byte[][] bArr, String str, String str2) {
         try {
             return X509Util.verifyServerCertificates(bArr, str, str2);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException unused) {
             return new AndroidCertVerifyResult(-1);
-        } catch (KeyStoreException e2) {
+        } catch (KeyStoreException unused2) {
             return new AndroidCertVerifyResult(-1);
-        } catch (NoSuchAlgorithmException e3) {
+        } catch (NoSuchAlgorithmException unused3) {
             return new AndroidCertVerifyResult(-1);
-        } catch (Throwable th) {
+        } catch (Throwable unused4) {
             return new AndroidCertVerifyResult(-1);
         }
     }

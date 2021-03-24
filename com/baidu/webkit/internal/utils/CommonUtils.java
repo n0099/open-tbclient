@@ -5,8 +5,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebKitVersionBlink;
 import com.baidu.webkit.sdk.CookieManager;
@@ -15,46 +13,59 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class CommonUtils implements INoProGuard {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "CommonUtils";
-    protected static final String URL_KEY_APP_VERSION = "appversion";
-    protected static final String URL_KEY_BLINK_VER = "zeus_ver";
-    protected static final String URL_KEY_SDK_APP = "app";
-    protected static final String URL_KEY_ZEUS_SDK = "sdk";
-    private static String[] sFiledsSysMemInfo = {"MemTotal:", "MemFree:", "Buffers:", "Cached:", "Active:", "Inactive:", "Dirty:"};
+    public static final boolean DEBUG = false;
+    public static final String TAG = "CommonUtils";
+    public static final String URL_KEY_APP_VERSION = "appversion";
+    public static final String URL_KEY_BLINK_VER = "zeus_ver";
+    public static final String URL_KEY_SDK_APP = "app";
+    public static final String URL_KEY_ZEUS_SDK = "sdk";
+    public static String[] sFiledsSysMemInfo = {"MemTotal:", "MemFree:", "Buffers:", "Cached:", "Active:", "Inactive:", "Dirty:"};
 
-    private static void appendUrlParam(StringBuilder sb, String str, String str2) {
+    public static void appendUrlParam(StringBuilder sb, String str, String str2) {
         if (sb == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         sb.append(str);
         sb.append("=");
         sb.append(str2);
-        sb.append(ETAG.ITEM_SEPARATOR);
+        sb.append("&");
     }
 
     public static boolean checkPermissionGranted(Context context, String str) {
         return str != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0037, code lost:
+        if (checkPermissionGranted(r5, "android.permission.READ_CALL_LOG") != false) goto L24;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x002f  */
+    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static boolean checkPhonePermission(Context context) {
+        boolean z;
+        boolean z2 = false;
         if (context == null) {
             return false;
         }
         try {
-            boolean z = checkPermissionGranted(context, "android.permission.CALL_PHONE") || checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") || checkPermissionGranted(context, "android.permission.READ_PHONE_STATE") || checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS");
-            if (Build.VERSION.SDK_INT >= 16) {
-                if (!z) {
-                    if (!checkPermissionGranted(context, "android.permission.READ_CALL_LOG")) {
-                        return false;
+            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, "android.permission.READ_PHONE_STATE") && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+                z = false;
+                if (Build.VERSION.SDK_INT < 16) {
+                    if (!z) {
                     }
+                    z2 = true;
+                    return z2;
                 }
-                return true;
+                return z;
             }
-            return z;
-        } catch (Throwable th) {
+            z = true;
+            if (Build.VERSION.SDK_INT < 16) {
+            }
+        } catch (Throwable unused) {
             return false;
         }
     }
@@ -68,7 +79,7 @@ public final class CommonUtils implements INoProGuard {
         if (TextUtils.isEmpty(cookie)) {
             return null;
         }
-        String[] split = cookie.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        String[] split = cookie.split(";");
         int length = split.length;
         for (int i = 0; i != length; i++) {
             String[] split2 = split[i].trim().split("=");
@@ -104,27 +115,17 @@ public final class CommonUtils implements INoProGuard {
         try {
             Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
             if (method != null) {
-                long[] jArr = new long[sFiledsSysMemInfo.length];
+                int length = sFiledsSysMemInfo.length;
+                long[] jArr = new long[length];
                 jArr[0] = 30;
                 jArr[1] = -30;
                 method.invoke(null, "/proc/meminfo", sFiledsSysMemInfo, jArr);
-                for (int i = 0; i < jArr.length; i++) {
+                for (int i = 0; i < length; i++) {
                     hashMap.put(sFiledsSysMemInfo[i], Long.valueOf(jArr[i]));
                 }
-                return hashMap;
             }
             return hashMap;
-        } catch (ClassNotFoundException e) {
-            return null;
-        } catch (IllegalAccessException e2) {
-            return null;
-        } catch (IllegalArgumentException e3) {
-            return null;
-        } catch (NoSuchMethodException e4) {
-            return null;
-        } catch (SecurityException e5) {
-            return null;
-        } catch (InvocationTargetException e6) {
+        } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException | InvocationTargetException unused) {
             return null;
         }
     }
@@ -132,8 +133,8 @@ public final class CommonUtils implements INoProGuard {
     public static String getVersionName(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
+        } catch (PackageManager.NameNotFoundException e2) {
+            e2.printStackTrace();
             return "0.8";
         }
     }

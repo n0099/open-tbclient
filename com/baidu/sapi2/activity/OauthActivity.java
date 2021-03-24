@@ -6,14 +6,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.j.a.a;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.sapi2.callback.LoginStatusChangeCallback;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.callback.SsoHashCallback;
 import com.baidu.sapi2.dto.WebLoginDTO;
@@ -27,43 +23,42 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.sapi2.views.LoadingDialog;
 import com.baidu.sapi2.views.ViewUtility;
-import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.constant.WBConstants;
+import d.b.a0.a.f;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OauthActivity extends BaseActivity {
-    private static final String A = "extra_calling_app_id";
-    private static final String B = "extra_oauth_result_json";
-    private static final String C = "extra_redirect_url";
-    private static final String D = "extra_scope";
-    private static final String E = "extra_oauth_type";
-    private static final String F = "extra_qr_code_url";
-    private static final String G = "extra_oauth_sdk_version";
-    private static final String H = "extra_pass_sdk_version";
-    private static final String I = "extra_oauth_state";
-    private static final String J = "2.0.0";
-    private static final int K = -201;
-    private static final int L = -202;
-    private static final int M = -204;
-    private static final int N = -205;
-    private static final int O = -208;
-    private String p;
-    private String q;
-    private String r;
-    private String s;
-    private String t;
-    private String u;
-    private String v;
-    private Dialog w;
-    private int x = 0;
-    private String y;
-    private boolean z;
+    public static final String A = "extra_calling_app_id";
+    public static final String B = "extra_oauth_result_json";
+    public static final String C = "extra_redirect_url";
+    public static final String D = "extra_scope";
+    public static final String E = "extra_oauth_type";
+    public static final String F = "extra_qr_code_url";
+    public static final String G = "extra_oauth_sdk_version";
+    public static final String H = "extra_pass_sdk_version";
+    public static final String I = "extra_oauth_state";
+    public static final String J = "2.0.0";
+    public static final int K = -201;
+    public static final int L = -202;
+    public static final int M = -204;
+    public static final int N = -205;
+    public static final int O = -208;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public Dialog w;
+    public int x = 0;
+    public String y;
+    public boolean z;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
@@ -86,8 +81,9 @@ public class OauthActivity extends BaseActivity {
             finish();
             this.z = true;
         }
-        this.v = intent.getStringExtra(H);
-        if (TextUtils.isEmpty(this.v) || SapiUtils.versionCompareTo(this.v, "8.9.9.3") <= 0) {
+        String stringExtra = intent.getStringExtra(H);
+        this.v = stringExtra;
+        if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.v, "9.2.9.8") <= 0) {
             return;
         }
         setResult(0, a(O));
@@ -95,25 +91,24 @@ public class OauthActivity extends BaseActivity {
         this.z = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             if (b()) {
                 init();
-                if (!this.z) {
-                    setupViews();
+                if (this.z) {
+                    return;
                 }
+                setupViews();
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             setResult(0, a(-201));
             finish();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         if (this.x == 1) {
@@ -140,7 +135,6 @@ public class OauthActivity extends BaseActivity {
         a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
@@ -167,10 +161,7 @@ public class OauthActivity extends BaseActivity {
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onSuccess() {
                 OauthActivity.this.c();
-                LoginStatusChangeCallback loginStatusChangeCallback = CoreViewRouter.getLoginStatusChangeCallback();
-                if (loginStatusChangeCallback != null) {
-                    loginStatusChangeCallback.onChange();
-                }
+                SapiAccountManager.getGlobalCallback().onLoginStatusChange();
             }
         });
         SapiJsCallBacks.BdOauthCallback bdOauthCallback = new SapiJsCallBacks.BdOauthCallback() { // from class: com.baidu.sapi2.activity.OauthActivity.5
@@ -179,14 +170,14 @@ public class OauthActivity extends BaseActivity {
                 Intent intent = new Intent();
                 if (OauthActivity.this.x == 0) {
                     Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str.substring(str.indexOf("#") + 1, str.length()));
-                    if (urlParamsToMap.containsKey(BdStatsConstant.StatsType.ERROR)) {
+                    if (urlParamsToMap.containsKey("error")) {
                         OauthActivity oauthActivity = OauthActivity.this;
-                        oauthActivity.setResult(0, oauthActivity.a(-204, urlParamsToMap.get(BdStatsConstant.StatsType.ERROR)));
+                        oauthActivity.setResult(0, oauthActivity.a(-204, urlParamsToMap.get("error")));
                     } else {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("refreshToken", urlParamsToMap.get(Oauth2AccessToken.KEY_REFRESH_TOKEN));
-                            jSONObject.put("accessToken", urlParamsToMap.get("access_token"));
+                            jSONObject.put("refreshToken", urlParamsToMap.get("refresh_token"));
+                            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, urlParamsToMap.get("access_token"));
                             jSONObject.put("expiresIn", urlParamsToMap.get("expires_in"));
                             jSONObject.put("scope", urlParamsToMap.get("scope"));
                             jSONObject.put("extra", urlParamsToMap.get("extra"));
@@ -194,8 +185,8 @@ public class OauthActivity extends BaseActivity {
                             jSONObject.put("state", urlParamsToMap.get("state"));
                             intent.putExtra(OauthActivity.B, jSONObject.toString());
                             OauthActivity.this.setResult(-1, intent);
-                        } catch (JSONException e) {
-                            Log.e(e);
+                        } catch (JSONException e2) {
+                            Log.e(e2);
                             OauthActivity oauthActivity2 = OauthActivity.this;
                             oauthActivity2.setResult(0, oauthActivity2.a(-201));
                         }
@@ -205,26 +196,26 @@ public class OauthActivity extends BaseActivity {
                         JSONObject jSONObject2 = new JSONObject(str);
                         int optInt = jSONObject2.optInt("errNo");
                         jSONObject2.optInt("msg");
-                        if (optInt == -301) {
-                            OauthActivity.this.setResult(0, OauthActivity.this.a(-205));
-                            OauthActivity.this.finish();
-                            return;
-                        } else if (optInt == 400021 || optInt == 400022) {
+                        if (optInt != -301) {
+                            if (optInt != 400021 && optInt != 400022) {
+                                JSONObject jSONObject3 = new JSONObject();
+                                jSONObject3.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, jSONObject2.optString("access_token"));
+                                jSONObject3.put("openid", jSONObject2.optString("openid"));
+                                jSONObject3.put("expiresIn", jSONObject2.optString("expires_in"));
+                                jSONObject3.put("scope", OauthActivity.this.s);
+                                jSONObject3.put("code", jSONObject2.optString("authorization_code"));
+                                jSONObject2.put("state", jSONObject2.optString("state"));
+                                intent.putExtra(OauthActivity.B, jSONObject3.toString());
+                                OauthActivity.this.setResult(-1, intent);
+                            }
                             OauthActivity.this.d();
                             return;
-                        } else {
-                            JSONObject jSONObject3 = new JSONObject();
-                            jSONObject3.put("accessToken", jSONObject2.optString("access_token"));
-                            jSONObject3.put("openid", jSONObject2.optString("openid"));
-                            jSONObject3.put("expiresIn", jSONObject2.optString("expires_in"));
-                            jSONObject3.put("scope", OauthActivity.this.s);
-                            jSONObject3.put("code", jSONObject2.optString("authorization_code"));
-                            jSONObject2.put("state", jSONObject2.optString("state"));
-                            intent.putExtra(OauthActivity.B, jSONObject3.toString());
-                            OauthActivity.this.setResult(-1, intent);
                         }
-                    } catch (JSONException e2) {
-                        Log.e(e2);
+                        OauthActivity.this.setResult(0, OauthActivity.this.a(-205));
+                        OauthActivity.this.finish();
+                        return;
+                    } catch (JSONException e3) {
+                        Log.e(e3);
                         OauthActivity oauthActivity3 = OauthActivity.this;
                         oauthActivity3.setResult(0, oauthActivity3.a(-201));
                     }
@@ -246,8 +237,8 @@ public class OauthActivity extends BaseActivity {
     }
 
     private boolean b() {
-        if (SapiAccountManager.getInstance().getConfignation() == null && SapiAccountManager.getReceiveShareListener() != null) {
-            SapiAccountManager.getReceiveShareListener().onReceiveShare();
+        if (SapiAccountManager.getInstance().getConfignation() == null) {
+            SapiAccountManager.getGlobalCallback().onNeedInitPassSdk();
         }
         if (SapiAccountManager.getInstance().getConfignation() == null) {
             Log.e("pass sdk have not been initialized", new Object[0]);
@@ -281,7 +272,7 @@ public class OauthActivity extends BaseActivity {
             public void onSuccess(SsoHashResult ssoHashResult) {
                 String str;
                 HashMap hashMap = new HashMap();
-                hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
+                hashMap.put("client", "android");
                 hashMap.put("clientfrom", "native");
                 hashMap.put("suppcheck", "1");
                 if (OauthActivity.this.x == 0) {
@@ -343,10 +334,7 @@ public class OauthActivity extends BaseActivity {
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(WebAuthResult webAuthResult) {
                 OauthActivity.this.c();
-                LoginStatusChangeCallback loginStatusChangeCallback = CoreViewRouter.getLoginStatusChangeCallback();
-                if (loginStatusChangeCallback != null) {
-                    loginStatusChangeCallback.onChange();
-                }
+                SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                 LoginActivity.supportShareLogin = true;
                 SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.sapi2.activity.OauthActivity.6.1
@@ -365,12 +353,18 @@ public class OauthActivity extends BaseActivity {
         }
         Uri parse = Uri.parse(str);
         parse.getHost();
-        for (String str2 : new String[]{Uri.decode(parse.getQueryParameter("sign")), Uri.decode(parse.getQueryParameter("client_id")), Uri.decode(parse.getQueryParameter("cmd")), Uri.decode(parse.getQueryParameter("tpl"))}) {
-            if (TextUtils.isEmpty(str2)) {
+        String[] strArr = {Uri.decode(parse.getQueryParameter("sign")), Uri.decode(parse.getQueryParameter("client_id")), Uri.decode(parse.getQueryParameter("cmd")), Uri.decode(parse.getQueryParameter("tpl"))};
+        for (int i = 0; i < 4; i++) {
+            if (TextUtils.isEmpty(strArr[i])) {
                 return false;
             }
         }
-        return SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap().equals(new StringBuilder().append(parse.getScheme()).append("://").append(parse.getHost()).toString());
+        String wap = SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap();
+        StringBuilder sb = new StringBuilder();
+        sb.append(parse.getScheme());
+        sb.append("://");
+        sb.append(parse.getHost());
+        return wap.equals(sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -393,8 +387,8 @@ public class OauthActivity extends BaseActivity {
             if (!TextUtils.isEmpty(str)) {
                 jSONObject.put("msg", str);
             }
-        } catch (JSONException e) {
-            Log.e(e);
+        } catch (JSONException e2) {
+            Log.e(e2);
         }
         intent.putExtra(B, jSONObject.toString());
         return intent;

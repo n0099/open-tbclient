@@ -9,14 +9,13 @@ import java.util.Random;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.message.BasicHeader;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MultipartEntity implements HttpEntity {
-    private static final char[] MULTIPART_CHARS = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-    private final org.apache.http.Header contentType;
-    private volatile boolean dirty;
-    private long length;
-    private final HttpMultipart multipart;
+    public static final char[] MULTIPART_CHARS = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    public final org.apache.http.Header contentType;
+    public volatile boolean dirty;
+    public long length;
+    public final HttpMultipart multipart;
 
     public MultipartEntity(HttpMultipartMode httpMultipartMode, String str, Charset charset) {
         str = str == null ? generateBoundary() : str;
@@ -25,63 +24,48 @@ public class MultipartEntity implements HttpEntity {
         this.dirty = true;
     }
 
-    public MultipartEntity(HttpMultipartMode httpMultipartMode) {
-        this(httpMultipartMode, null, null);
-    }
-
-    public MultipartEntity() {
-        this(HttpMultipartMode.STRICT, null, null);
-    }
-
-    protected String generateContentType(String str, Charset charset) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("multipart/form-data; boundary=");
-        sb.append(str);
-        if (charset != null) {
-            sb.append(HTTP.CHARSET_PARAM);
-            sb.append(charset.name());
-        }
-        return sb.toString();
-    }
-
-    protected String generateBoundary() {
-        StringBuilder sb = new StringBuilder();
-        Random random = new Random();
-        int nextInt = random.nextInt(11) + 30;
-        for (int i = 0; i < nextInt; i++) {
-            sb.append(MULTIPART_CHARS[random.nextInt(MULTIPART_CHARS.length)]);
-        }
-        return sb.toString();
-    }
-
     public void addPart(FormBodyPart formBodyPart) {
         this.multipart.addBodyPart(formBodyPart);
         this.dirty = true;
     }
 
-    public void addPart(String str, ContentBody contentBody) {
-        addPart(new FormBodyPart(str, contentBody));
-    }
-
     @Override // org.apache.http.HttpEntity
-    public boolean isRepeatable() {
-        Iterator<FormBodyPart> it = this.multipart.getBodyParts().iterator();
-        while (it.hasNext()) {
-            if (it.next().getBody().getContentLength() < 0) {
-                return false;
-            }
+    public void consumeContent() throws IOException, UnsupportedOperationException {
+        if (isStreaming()) {
+            throw new UnsupportedOperationException("Streaming entity does not implement #consumeContent()");
         }
-        return true;
+    }
+
+    public String generateBoundary() {
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        int nextInt = random.nextInt(11) + 30;
+        for (int i = 0; i < nextInt; i++) {
+            char[] cArr = MULTIPART_CHARS;
+            sb.append(cArr[random.nextInt(cArr.length)]);
+        }
+        return sb.toString();
+    }
+
+    public String generateContentType(String str, Charset charset) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("multipart/form-data; boundary=");
+        sb.append(str);
+        if (charset != null) {
+            sb.append("; charset=");
+            sb.append(charset.name());
+        }
+        return sb.toString();
     }
 
     @Override // org.apache.http.HttpEntity
-    public boolean isChunked() {
-        return !isRepeatable();
+    public InputStream getContent() throws IOException, UnsupportedOperationException {
+        throw new UnsupportedOperationException("Multipart form entity does not implement #getContent()");
     }
 
     @Override // org.apache.http.HttpEntity
-    public boolean isStreaming() {
-        return !isRepeatable();
+    public org.apache.http.Header getContentEncoding() {
+        return null;
     }
 
     @Override // org.apache.http.HttpEntity
@@ -99,24 +83,40 @@ public class MultipartEntity implements HttpEntity {
     }
 
     @Override // org.apache.http.HttpEntity
-    public org.apache.http.Header getContentEncoding() {
-        return null;
+    public boolean isChunked() {
+        return !isRepeatable();
     }
 
     @Override // org.apache.http.HttpEntity
-    public void consumeContent() throws IOException, UnsupportedOperationException {
-        if (isStreaming()) {
-            throw new UnsupportedOperationException("Streaming entity does not implement #consumeContent()");
+    public boolean isRepeatable() {
+        Iterator<FormBodyPart> it = this.multipart.getBodyParts().iterator();
+        while (it.hasNext()) {
+            if (it.next().getBody().getContentLength() < 0) {
+                return false;
+            }
         }
+        return true;
     }
 
     @Override // org.apache.http.HttpEntity
-    public InputStream getContent() throws IOException, UnsupportedOperationException {
-        throw new UnsupportedOperationException("Multipart form entity does not implement #getContent()");
+    public boolean isStreaming() {
+        return !isRepeatable();
     }
 
     @Override // org.apache.http.HttpEntity
     public void writeTo(OutputStream outputStream) throws IOException {
         this.multipart.writeTo(outputStream);
+    }
+
+    public void addPart(String str, ContentBody contentBody) {
+        addPart(new FormBodyPart(str, contentBody));
+    }
+
+    public MultipartEntity(HttpMultipartMode httpMultipartMode) {
+        this(httpMultipartMode, null, null);
+    }
+
+    public MultipartEntity() {
+        this(HttpMultipartMode.STRICT, null, null);
     }
 }

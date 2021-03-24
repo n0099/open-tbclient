@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.handler.a.d;
 import android.content.Context;
 import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends com.meizu.cloud.pushsdk.handler.a.a<String> {
     public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -15,7 +15,6 @@ public class b extends com.meizu.cloud.pushsdk.handler.a.a<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(String str, com.meizu.cloud.pushsdk.notification.c cVar) {
         if (b() == null || str == null) {
@@ -26,12 +25,11 @@ public class b extends com.meizu.cloud.pushsdk.handler.a.a<String> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start ReceiveNotifyMessageHandler match");
+        d.j.a.a.a.d("AbstractMessageHandler", "start ReceiveNotifyMessageHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_RESPONSE_NOTIFICATION_MESSAGE.equals(i(intent));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: j */
     public String c(Intent intent) {

@@ -1,23 +1,19 @@
 package com.baidu.fsg.face.base.d;
 
 import android.os.Looper;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1632a;
-    public Runnable b;
+    public String f5647a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Runnable f5648b;
 
     public k(Runnable runnable) {
-        this.f1632a = "EmptyName";
-        this.f1632a = "nullname";
-        this.b = runnable;
-    }
-
-    public k(Runnable runnable, String str) {
-        this.f1632a = "EmptyName";
-        this.f1632a = str;
-        this.b = runnable;
+        this.f5647a = "EmptyName";
+        this.f5647a = "nullname";
+        this.f5648b = runnable;
     }
 
     @Override // java.lang.Runnable
@@ -27,10 +23,16 @@ public class k implements Runnable {
                 Looper.prepare();
             }
             System.currentTimeMillis();
-            this.b.run();
+            this.f5648b.run();
             System.currentTimeMillis();
         } catch (Throwable th) {
             th.printStackTrace();
         }
+    }
+
+    public k(Runnable runnable, String str) {
+        this.f5647a = "EmptyName";
+        this.f5647a = str;
+        this.f5648b = runnable;
     }
 }

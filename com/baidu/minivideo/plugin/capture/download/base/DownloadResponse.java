@@ -1,7 +1,7 @@
 package com.baidu.minivideo.plugin.capture.download.base;
 
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public interface DownloadResponse {
     void onConnectCanceled();
 

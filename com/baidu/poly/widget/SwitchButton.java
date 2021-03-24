@@ -25,389 +25,135 @@ import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
-import com.baidu.poly.b;
-/* loaded from: classes14.dex */
+import d.b.c0.j;
+/* loaded from: classes2.dex */
 public class SwitchButton extends CompoundButton {
-    private static int[] cqO = {16842912, 16842910, 16842919};
-    private static int[] cqP = {-16842912, 16842910, 16842919};
-    private float ab;
-    private float aqt;
-    private Drawable cqQ;
-    private Drawable cqR;
-    private ColorStateList cqS;
-    private ColorStateList cqT;
-    private RectF cqU;
-    private float cqV;
-    private long cqW;
-    private boolean cqX;
-    private int cqY;
-    private int cqZ;
-    private int crA;
-    private int crB;
-    private Paint crC;
-    private CharSequence crD;
-    private CharSequence crE;
-    private TextPaint crF;
-    private Layout crG;
-    private Layout crH;
-    private float crI;
-    private float crJ;
-    private int crK;
-    private int crL;
-    private int crM;
-    private boolean crN;
-    private boolean crO;
-    private boolean crP;
-    private CompoundButton.OnCheckedChangeListener crQ;
-    private int cra;
-    private int crb;
-    private int crd;
-    private int cre;
-    private int crf;
-    private int crg;
-    private int crh;
-    private int cri;
-    private Drawable crj;
-    private Drawable crk;
-    private RectF crl;
-    private RectF crm;
-    private RectF crn;
-    private RectF cro;
-    private RectF crp;
-    private Paint crq;
-    private boolean crr;
-    private boolean crs;
-    private boolean crt;
-    private ObjectAnimator cru;
-    private float crv;
-    private RectF crw;
-    private float crx;
-    private float cry;
-    private float crz;
+    public static int[] j0 = {16842912, 16842910, 16842919};
+    public static int[] k0 = {-16842912, 16842910, 16842919};
+    public RectF A;
+    public RectF B;
+    public RectF C;
+    public RectF D;
+    public RectF E;
+    public Paint F;
+    public boolean G;
+    public boolean H;
+    public boolean I;
+    public ObjectAnimator J;
+    public float K;
+    public RectF L;
+    public float M;
+    public float N;
+    public float O;
+    public int P;
+    public int Q;
+    public Paint R;
+    public CharSequence S;
+    public CharSequence T;
+    public TextPaint U;
+    public Layout V;
+    public Layout W;
+    public float a0;
+    public float b0;
+    public int c0;
+    public int d0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public Drawable f10439e;
+    public int e0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Drawable f10440f;
+    public boolean f0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ColorStateList f10441g;
+    public boolean g0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ColorStateList f10442h;
+    public boolean h0;
+    public float i;
+    public CompoundButton.OnCheckedChangeListener i0;
+    public float j;
+    public RectF k;
+    public float l;
+    public long m;
+    public boolean n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public Drawable y;
+    public Drawable z;
+
+    /* loaded from: classes2.dex */
     public static class a extends View.BaseSavedState {
-        public static final Parcelable.Creator<a> CREATOR = new C0315a();
-        CharSequence crR;
-        CharSequence crS;
+        public static final Parcelable.Creator<a> CREATOR = new C0132a();
+
+        /* renamed from: e  reason: collision with root package name */
+        public CharSequence f10443e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public CharSequence f10444f;
 
         /* renamed from: com.baidu.poly.widget.SwitchButton$a$a  reason: collision with other inner class name */
-        /* loaded from: classes14.dex */
-        static class C0315a implements Parcelable.Creator<a> {
-            C0315a() {
-            }
-
+        /* loaded from: classes2.dex */
+        public static class C0132a implements Parcelable.Creator<a> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: fP */
-            public a[] newArray(int i) {
-                return new a[i];
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            /* renamed from: o */
+            /* renamed from: a */
             public a createFromParcel(Parcel parcel) {
                 return new a(parcel);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            /* renamed from: b */
+            public a[] newArray(int i) {
+                return new a[i];
             }
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            TextUtils.writeToParcel(this.crR, parcel, i);
-            TextUtils.writeToParcel(this.crS, parcel, i);
+            TextUtils.writeToParcel(this.f10443e, parcel, i);
+            TextUtils.writeToParcel(this.f10444f, parcel, i);
         }
 
-        a(Parcelable parcelable) {
+        public a(Parcelable parcelable) {
             super(parcelable);
         }
 
-        private a(Parcel parcel) {
+        public a(Parcel parcel) {
             super(parcel);
-            this.crR = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-            this.crS = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+            this.f10443e = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+            this.f10444f = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
         }
     }
 
     public SwitchButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.crt = false;
-        this.crN = false;
-        this.crO = false;
-        this.crP = false;
-        a(attributeSet);
-    }
-
-    private void a(AttributeSet attributeSet) {
-        this.crA = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-        this.crB = ViewConfiguration.getPressedStateDuration() + ViewConfiguration.getTapTimeout();
-        this.crq = new Paint(1);
-        this.crC = new Paint(1);
-        this.crC.setStyle(Paint.Style.STROKE);
-        this.crC.setStrokeWidth(getResources().getDisplayMetrics().density);
-        this.crF = getPaint();
-        this.crl = new RectF();
-        this.crm = new RectF();
-        this.crn = new RectF();
-        this.cqU = new RectF();
-        this.cro = new RectF();
-        this.crp = new RectF();
-        this.cru = ObjectAnimator.ofFloat(this, "progress", 0.0f, 0.0f).setDuration(250L);
-        this.cru.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.crw = new RectF();
-        Drawable drawable = null;
-        ColorStateList colorStateList = null;
-        float f = getResources().getDisplayMetrics().density * 2.0f;
-        float f2 = 0.0f;
-        float f3 = 0.0f;
-        float f4 = 0.0f;
-        float f5 = 0.0f;
-        float f6 = 0.0f;
-        float f7 = 0.0f;
-        float f8 = -1.0f;
-        float f9 = -1.0f;
-        Drawable drawable2 = null;
-        ColorStateList colorStateList2 = null;
-        float f10 = 1.8f;
-        int i = 250;
-        boolean z = true;
-        int i2 = 0;
-        String str = null;
-        String str2 = null;
-        int i3 = 0;
-        int i4 = 0;
-        int i5 = 0;
-        TypedArray obtainStyledAttributes = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, b.i.SwitchButton);
-        if (obtainStyledAttributes != null) {
-            drawable = obtainStyledAttributes.getDrawable(b.i.SwitchButton_kswThumbDrawable);
-            colorStateList = obtainStyledAttributes.getColorStateList(b.i.SwitchButton_kswThumbColor);
-            float dimension = obtainStyledAttributes.getDimension(b.i.SwitchButton_kswThumbMargin, f);
-            f2 = obtainStyledAttributes.getDimension(b.i.SwitchButton_kswThumbMarginLeft, dimension);
-            f3 = obtainStyledAttributes.getDimension(b.i.SwitchButton_kswThumbMarginRight, dimension);
-            f4 = obtainStyledAttributes.getDimension(b.i.SwitchButton_kswThumbMarginTop, dimension);
-            f5 = obtainStyledAttributes.getDimension(b.i.SwitchButton_kswThumbMarginBottom, dimension);
-            f6 = obtainStyledAttributes.getDimension(b.i.SwitchButton_kswThumbWidth, 0.0f);
-            f7 = obtainStyledAttributes.getDimension(b.i.SwitchButton_kswThumbHeight, 0.0f);
-            f8 = obtainStyledAttributes.getDimension(b.i.SwitchButton_kswThumbRadius, -1.0f);
-            f9 = obtainStyledAttributes.getDimension(b.i.SwitchButton_kswBackRadius, -1.0f);
-            drawable2 = obtainStyledAttributes.getDrawable(b.i.SwitchButton_kswBackDrawable);
-            colorStateList2 = obtainStyledAttributes.getColorStateList(b.i.SwitchButton_kswBackColor);
-            f10 = obtainStyledAttributes.getFloat(b.i.SwitchButton_kswThumbRangeRatio, 1.8f);
-            i = obtainStyledAttributes.getInteger(b.i.SwitchButton_kswAnimationDuration, 250);
-            z = obtainStyledAttributes.getBoolean(b.i.SwitchButton_kswFadeBack, true);
-            i2 = obtainStyledAttributes.getColor(b.i.SwitchButton_kswTintColor, 0);
-            str = obtainStyledAttributes.getString(b.i.SwitchButton_kswTextOn);
-            str2 = obtainStyledAttributes.getString(b.i.SwitchButton_kswTextOff);
-            i3 = obtainStyledAttributes.getDimensionPixelSize(b.i.SwitchButton_kswTextThumbInset, 0);
-            i4 = obtainStyledAttributes.getDimensionPixelSize(b.i.SwitchButton_kswTextExtra, 0);
-            i5 = obtainStyledAttributes.getDimensionPixelSize(b.i.SwitchButton_kswTextAdjust, 0);
-            obtainStyledAttributes.recycle();
-        }
-        int i6 = i5;
-        TypedArray obtainStyledAttributes2 = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, new int[]{16842970, 16842981});
-        if (obtainStyledAttributes2 != null) {
-            boolean z2 = obtainStyledAttributes2.getBoolean(0, true);
-            boolean z3 = obtainStyledAttributes2.getBoolean(1, z2);
-            setFocusable(z2);
-            setClickable(z3);
-            obtainStyledAttributes2.recycle();
-        } else {
-            setFocusable(true);
-            setClickable(true);
-        }
-        this.crD = str;
-        this.crE = str2;
-        this.crK = i3;
-        this.crL = i4;
-        this.crM = i6;
-        this.cqQ = drawable;
-        this.cqT = colorStateList;
-        this.crr = this.cqQ != null;
-        this.cqY = i2;
-        if (this.cqY == 0) {
-            new TypedValue();
-            this.cqY = 3309506;
-        }
-        if (!this.crr && this.cqT == null) {
-            this.cqT = com.baidu.poly.widget.b.fM(this.cqY);
-            this.cre = this.cqT.getDefaultColor();
-        }
-        this.cqZ = j(f6);
-        this.cra = j(f7);
-        this.cqR = drawable2;
-        this.cqS = colorStateList2;
-        this.crs = this.cqR != null;
-        if (!this.crs && this.cqS == null) {
-            this.cqS = com.baidu.poly.widget.b.fN(this.cqY);
-            this.crf = this.cqS.getDefaultColor();
-            this.crg = this.cqS.getColorForState(cqO, this.crf);
-        }
-        this.cqU.set(f2, f4, f3, f5);
-        this.cqV = this.cqU.width() >= 0.0f ? Math.max(f10, 1.0f) : f10;
-        this.ab = f8;
-        this.aqt = f9;
-        this.cqW = i;
-        this.cqX = z;
-        this.cru.setDuration(this.cqW);
-        if (isChecked()) {
-            setProgress(1.0f);
-        }
-    }
-
-    private void adM() {
-        ViewParent parent = getParent();
-        if (parent != null) {
-            parent.requestDisallowInterceptTouchEvent(true);
-        }
-        this.crP = true;
-    }
-
-    private int fJ(int i) {
-        int i2;
-        int size = View.MeasureSpec.getSize(i);
-        int mode = View.MeasureSpec.getMode(i);
-        if (this.cqZ == 0 && this.crr) {
-            this.cqZ = this.cqQ.getIntrinsicWidth();
-        }
-        int j = j(this.crI);
-        if (this.cqV == 0.0f) {
-            this.cqV = 1.8f;
-        }
-        if (mode == 1073741824) {
-            int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
-            if (this.cqZ != 0) {
-                int j2 = j(i2 * this.cqV);
-                RectF rectF = this.cqU;
-                int j3 = (this.crL + j) - ((j2 - this.cqZ) + j(Math.max(rectF.left, rectF.right)));
-                float f = j2;
-                RectF rectF2 = this.cqU;
-                this.crb = j(rectF2.right + rectF2.left + f + Math.max(j3, 0));
-                if (this.crb < 0) {
-                    this.cqZ = 0;
-                }
-                if (f + Math.max(this.cqU.left, 0.0f) + Math.max(this.cqU.right, 0.0f) + Math.max(j3, 0) > paddingLeft) {
-                    this.cqZ = 0;
-                }
-            }
-            if (this.cqZ == 0) {
-                int j4 = j((((size - getPaddingLeft()) - getPaddingRight()) - Math.max(this.cqU.left, 0.0f)) - Math.max(this.cqU.right, 0.0f));
-                if (j4 < 0) {
-                    this.cqZ = 0;
-                    this.crb = 0;
-                    return size;
-                }
-                float f2 = j4;
-                this.cqZ = j(f2 / this.cqV);
-                RectF rectF3 = this.cqU;
-                this.crb = j(f2 + rectF3.left + rectF3.right);
-                if (this.crb < 0) {
-                    this.cqZ = 0;
-                    this.crb = 0;
-                    return size;
-                }
-                int i3 = j + this.crL;
-                int i4 = j4 - this.cqZ;
-                RectF rectF4 = this.cqU;
-                int j5 = i3 - (i4 + j(Math.max(rectF4.left, rectF4.right)));
-                if (j5 > 0) {
-                    this.cqZ -= j5;
-                }
-                if (this.cqZ < 0) {
-                    this.cqZ = 0;
-                    this.crb = 0;
-                    return size;
-                }
-                return size;
-            }
-            return size;
-        }
-        if (this.cqZ == 0) {
-            this.cqZ = j(getResources().getDisplayMetrics().density * 20.0f);
-        }
-        if (this.cqV == 0.0f) {
-            this.cqV = 1.8f;
-        }
-        int j6 = j(this.cqZ * this.cqV);
-        RectF rectF5 = this.cqU;
-        int j7 = j((j + this.crL) - (((j6 - this.cqZ) + Math.max(rectF5.left, rectF5.right)) + this.crK));
-        float f3 = j6;
-        RectF rectF6 = this.cqU;
-        this.crb = j(rectF6.right + rectF6.left + f3 + Math.max(0, j7));
-        if (this.crb < 0) {
-            this.cqZ = 0;
-            this.crb = 0;
-            return size;
-        }
-        int j8 = j(Math.max(0.0f, this.cqU.left) + f3 + Math.max(0.0f, this.cqU.right) + Math.max(0, j7));
-        return Math.max(j8, getPaddingLeft() + j8 + getPaddingRight());
-    }
-
-    private int fK(int i) {
-        int i2;
-        int i3;
-        int i4;
-        int size = View.MeasureSpec.getSize(i);
-        int mode = View.MeasureSpec.getMode(i);
-        if (this.cra == 0 && this.crr) {
-            this.cra = this.cqQ.getIntrinsicHeight();
-        }
-        if (mode == 1073741824) {
-            if (this.cra != 0) {
-                RectF rectF = this.cqU;
-                this.crd = j(i3 + rectF.top + rectF.bottom);
-                this.crd = j(Math.max(this.crd, this.crJ));
-                if ((((this.crd + getPaddingTop()) + getPaddingBottom()) - Math.min(0.0f, this.cqU.top)) - Math.min(0.0f, this.cqU.bottom) > size) {
-                    this.cra = 0;
-                }
-            }
-            if (this.cra == 0) {
-                this.crd = j(((size - getPaddingTop()) - getPaddingBottom()) + Math.min(0.0f, this.cqU.top) + Math.min(0.0f, this.cqU.bottom));
-                if (this.crd < 0) {
-                    this.crd = 0;
-                    this.cra = 0;
-                    return size;
-                }
-                RectF rectF2 = this.cqU;
-                this.cra = j((i4 - rectF2.top) - rectF2.bottom);
-            }
-            if (this.cra < 0) {
-                this.crd = 0;
-                this.cra = 0;
-                return size;
-            }
-            return size;
-        }
-        if (this.cra == 0) {
-            this.cra = j(getResources().getDisplayMetrics().density * 20.0f);
-        }
-        RectF rectF3 = this.cqU;
-        this.crd = j(this.cra + rectF3.top + rectF3.bottom);
-        if (this.crd < 0) {
-            this.crd = 0;
-            this.cra = 0;
-            return size;
-        }
-        int j = j(this.crJ - i2);
-        if (j > 0) {
-            this.crd += j;
-            this.cra = j + this.cra;
-        }
-        int max = Math.max(this.cra, this.crd);
-        return Math.max(Math.max(max, getPaddingTop() + max + getPaddingBottom()), getSuggestedMinimumHeight());
+        this.I = false;
+        this.f0 = false;
+        this.g0 = false;
+        this.h0 = false;
+        c(attributeSet);
     }
 
     private float getProgress() {
-        return this.crv;
+        return this.K;
     }
 
     private boolean getStatusBasedOnPos() {
         return getProgress() > 0.5f;
-    }
-
-    private int j(double d) {
-        return (int) Math.ceil(d);
     }
 
     private void setDrawableState(Drawable drawable) {
@@ -417,381 +163,742 @@ public class SwitchButton extends CompoundButton {
         }
     }
 
-    private void setProgress(float f) {
-        if (f > 1.0f) {
-            f = 1.0f;
-        } else if (f < 0.0f) {
-            f = 0.0f;
+    private void setProgress(float f2) {
+        if (f2 > 1.0f) {
+            f2 = 1.0f;
+        } else if (f2 < 0.0f) {
+            f2 = 0.0f;
         }
-        this.crv = f;
+        this.K = f2;
         invalidate();
     }
 
-    private void setup() {
+    public final Layout a(CharSequence charSequence) {
+        TextPaint textPaint = this.U;
+        return new StaticLayout(charSequence, textPaint, (int) Math.ceil(Layout.getDesiredWidth(charSequence, textPaint)), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+    }
+
+    public void b(float f2, float f3, float f4, float f5) {
+        this.k.set(f2, f3, f4, f5);
+        this.g0 = false;
+        requestLayout();
+    }
+
+    public final void c(AttributeSet attributeSet) {
+        String str;
+        ColorStateList colorStateList;
+        float f2;
         int i;
-        float paddingTop;
-        float paddingLeft;
-        int i2 = this.cqZ;
-        if (i2 != 0 && (i = this.cra) != 0 && this.crb != 0 && this.crd != 0) {
-            if (this.ab == -1.0f) {
-                this.ab = Math.min(i2, i) / 2;
-            }
-            if (this.aqt == -1.0f) {
-                this.aqt = Math.min(this.crb, this.crd) / 2;
-            }
-            int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
-            int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
-            int j = j((this.crb - Math.min(0.0f, this.cqU.left)) - Math.min(0.0f, this.cqU.right));
-            int j2 = j((this.crd - Math.min(0.0f, this.cqU.top)) - Math.min(0.0f, this.cqU.bottom));
-            if (measuredHeight <= j2) {
-                paddingTop = getPaddingTop() + Math.max(0.0f, this.cqU.top);
-            } else {
-                paddingTop = (((measuredHeight - j2) + 1) / 2) + getPaddingTop() + Math.max(0.0f, this.cqU.top);
-            }
-            if (measuredWidth <= this.crb) {
-                paddingLeft = getPaddingLeft() + Math.max(0.0f, this.cqU.left);
-            } else {
-                paddingLeft = (((measuredWidth - j) + 1) / 2) + getPaddingLeft() + Math.max(0.0f, this.cqU.left);
-            }
-            this.crl.set(paddingLeft, paddingTop, this.cqZ + paddingLeft, this.cra + paddingTop);
-            RectF rectF = this.crl;
-            float f = rectF.left;
-            RectF rectF2 = this.cqU;
-            float f2 = f - rectF2.left;
-            RectF rectF3 = this.crm;
-            float f3 = rectF.top;
-            float f4 = rectF2.top;
-            rectF3.set(f2, f3 - f4, this.crb + f2, (f3 - f4) + this.crd);
-            RectF rectF4 = this.crn;
-            RectF rectF5 = this.crl;
-            rectF4.set(rectF5.left, 0.0f, (this.crm.right - this.cqU.right) - rectF5.width(), 0.0f);
-            this.aqt = Math.min(Math.min(this.crm.width(), this.crm.height()) / 2.0f, this.aqt);
-            Drawable drawable = this.cqR;
-            if (drawable != null) {
-                RectF rectF6 = this.crm;
-                drawable.setBounds((int) rectF6.left, (int) rectF6.top, j(rectF6.right), j(this.crm.bottom));
-            }
-            if (this.crG != null) {
-                RectF rectF7 = this.crm;
-                float width = ((((((rectF7.width() + this.crK) - this.cqZ) - this.cqU.right) - this.crG.getWidth()) / 2.0f) + rectF7.left) - this.crM;
-                RectF rectF8 = this.crm;
-                float height = ((rectF8.height() - this.crG.getHeight()) / 2.0f) + rectF8.top;
-                this.cro.set(width, height, this.crG.getWidth() + width, this.crG.getHeight() + height);
-            }
-            if (this.crH != null) {
-                RectF rectF9 = this.crm;
-                float width2 = ((rectF9.right - (((((rectF9.width() + this.crK) - this.cqZ) - this.cqU.left) - this.crH.getWidth()) / 2.0f)) - this.crH.getWidth()) + this.crM;
-                RectF rectF10 = this.crm;
-                float height2 = ((rectF10.height() - this.crH.getHeight()) / 2.0f) + rectF10.top;
-                this.crp.set(width2, height2, this.crH.getWidth() + width2, this.crH.getHeight() + height2);
-            }
-            this.crO = true;
+        int i2;
+        int i3;
+        String str2;
+        int i4;
+        Drawable drawable;
+        float f3;
+        float f4;
+        Drawable drawable2;
+        ColorStateList colorStateList2;
+        float f5;
+        boolean z;
+        float f6;
+        float f7;
+        float f8;
+        float f9;
+        float f10;
+        int i5;
+        float f11;
+        float f12;
+        TypedArray obtainStyledAttributes;
+        ColorStateList colorStateList3;
+        this.P = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.Q = ViewConfiguration.getPressedStateDuration() + ViewConfiguration.getTapTimeout();
+        this.F = new Paint(1);
+        Paint paint = new Paint(1);
+        this.R = paint;
+        paint.setStyle(Paint.Style.STROKE);
+        this.R.setStrokeWidth(getResources().getDisplayMetrics().density);
+        this.U = getPaint();
+        this.A = new RectF();
+        this.B = new RectF();
+        this.C = new RectF();
+        this.k = new RectF();
+        this.D = new RectF();
+        this.E = new RectF();
+        ObjectAnimator duration = ObjectAnimator.ofFloat(this, "progress", 0.0f, 0.0f).setDuration(250L);
+        this.J = duration;
+        duration.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.L = new RectF();
+        float f13 = getResources().getDisplayMetrics().density * 2.0f;
+        TypedArray obtainStyledAttributes2 = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, j.SwitchButton);
+        if (obtainStyledAttributes2 != null) {
+            Drawable drawable3 = obtainStyledAttributes2.getDrawable(j.SwitchButton_kswThumbDrawable);
+            ColorStateList colorStateList4 = obtainStyledAttributes2.getColorStateList(j.SwitchButton_kswThumbColor);
+            float dimension = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMargin, f13);
+            float dimension2 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginLeft, dimension);
+            float dimension3 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginRight, dimension);
+            float dimension4 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginTop, dimension);
+            float dimension5 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbMarginBottom, dimension);
+            float dimension6 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbWidth, 0.0f);
+            float dimension7 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbHeight, 0.0f);
+            float dimension8 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswThumbRadius, -1.0f);
+            float dimension9 = obtainStyledAttributes2.getDimension(j.SwitchButton_kswBackRadius, -1.0f);
+            Drawable drawable4 = obtainStyledAttributes2.getDrawable(j.SwitchButton_kswBackDrawable);
+            ColorStateList colorStateList5 = obtainStyledAttributes2.getColorStateList(j.SwitchButton_kswBackColor);
+            float f14 = obtainStyledAttributes2.getFloat(j.SwitchButton_kswThumbRangeRatio, 1.8f);
+            int integer = obtainStyledAttributes2.getInteger(j.SwitchButton_kswAnimationDuration, 250);
+            boolean z2 = obtainStyledAttributes2.getBoolean(j.SwitchButton_kswFadeBack, true);
+            int color = obtainStyledAttributes2.getColor(j.SwitchButton_kswTintColor, 0);
+            String string = obtainStyledAttributes2.getString(j.SwitchButton_kswTextOn);
+            String string2 = obtainStyledAttributes2.getString(j.SwitchButton_kswTextOff);
+            int dimensionPixelSize = obtainStyledAttributes2.getDimensionPixelSize(j.SwitchButton_kswTextThumbInset, 0);
+            int dimensionPixelSize2 = obtainStyledAttributes2.getDimensionPixelSize(j.SwitchButton_kswTextExtra, 0);
+            int dimensionPixelSize3 = obtainStyledAttributes2.getDimensionPixelSize(j.SwitchButton_kswTextAdjust, 0);
+            obtainStyledAttributes2.recycle();
+            colorStateList = colorStateList4;
+            i5 = integer;
+            z = z2;
+            i2 = dimensionPixelSize2;
+            f8 = f14;
+            drawable2 = drawable3;
+            drawable = drawable4;
+            f4 = dimension4;
+            f7 = dimension8;
+            str2 = string;
+            i = dimensionPixelSize3;
+            str = string2;
+            f10 = dimension2;
+            colorStateList2 = colorStateList5;
+            f3 = dimension6;
+            f2 = dimension3;
+            f5 = dimension7;
+            i4 = color;
+            f9 = dimension5;
+            f6 = dimension9;
+            i3 = dimensionPixelSize;
+        } else {
+            str = null;
+            colorStateList = null;
+            f2 = 0.0f;
+            i = 0;
+            i2 = 0;
+            i3 = 0;
+            str2 = null;
+            i4 = 0;
+            drawable = null;
+            f3 = 0.0f;
+            f4 = 0.0f;
+            drawable2 = null;
+            colorStateList2 = null;
+            f5 = 0.0f;
+            z = true;
+            f6 = -1.0f;
+            f7 = -1.0f;
+            f8 = 1.8f;
+            f9 = 0.0f;
+            f10 = 0.0f;
+            i5 = 250;
+        }
+        if (attributeSet == null) {
+            f11 = f2;
+            f12 = f4;
+            obtainStyledAttributes = null;
+        } else {
+            f11 = f2;
+            f12 = f4;
+            obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{16842970, 16842981});
+        }
+        if (obtainStyledAttributes != null) {
+            colorStateList3 = colorStateList2;
+            boolean z3 = obtainStyledAttributes.getBoolean(0, true);
+            boolean z4 = obtainStyledAttributes.getBoolean(1, z3);
+            setFocusable(z3);
+            setClickable(z4);
+            obtainStyledAttributes.recycle();
+        } else {
+            colorStateList3 = colorStateList2;
+            setFocusable(true);
+            setClickable(true);
+        }
+        this.S = str2;
+        this.T = str;
+        this.c0 = i3;
+        this.d0 = i2;
+        this.e0 = i;
+        this.f10439e = drawable2;
+        this.f10442h = colorStateList;
+        this.G = drawable2 != null;
+        this.o = i4;
+        if (i4 == 0) {
+            new TypedValue();
+            this.o = 3309506;
+        }
+        if (!this.G && this.f10442h == null) {
+            ColorStateList b2 = d.b.c0.p.b.b(this.o);
+            this.f10442h = b2;
+            this.t = b2.getDefaultColor();
+        }
+        this.p = f(f3);
+        this.q = f(f5);
+        this.f10440f = drawable;
+        this.f10441g = colorStateList3;
+        boolean z5 = drawable != null;
+        this.H = z5;
+        if (!z5 && this.f10441g == null) {
+            ColorStateList a2 = d.b.c0.p.b.a(this.o);
+            this.f10441g = a2;
+            int defaultColor = a2.getDefaultColor();
+            this.u = defaultColor;
+            this.v = this.f10441g.getColorForState(j0, defaultColor);
+        }
+        this.k.set(f10, f12, f11, f9);
+        float f15 = f8;
+        this.l = this.k.width() >= 0.0f ? Math.max(f15, 1.0f) : f15;
+        this.i = f7;
+        this.j = f6;
+        long j = i5;
+        this.m = j;
+        this.n = z;
+        this.J.setDuration(j);
+        if (isChecked()) {
+            setProgress(1.0f);
         }
     }
 
-    protected void b(boolean z) {
-        ObjectAnimator objectAnimator = this.cru;
-        if (objectAnimator != null) {
-            if (objectAnimator.isRunning()) {
-                this.cru.cancel();
-            }
-            this.cru.setDuration(this.cqW);
-            if (z) {
-                this.cru.setFloatValues(this.crv, 1.0f);
-            } else {
-                this.cru.setFloatValues(this.crv, 0.0f);
-            }
-            this.cru.start();
-        }
+    public void d(CharSequence charSequence, CharSequence charSequence2) {
+        this.S = charSequence;
+        this.T = charSequence2;
+        this.V = null;
+        this.W = null;
+        this.g0 = false;
+        requestLayout();
+        invalidate();
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
-    protected void drawableStateChanged() {
+    public void drawableStateChanged() {
         ColorStateList colorStateList;
         ColorStateList colorStateList2;
         super.drawableStateChanged();
-        if (!this.crr && (colorStateList2 = this.cqT) != null) {
-            this.cre = colorStateList2.getColorForState(getDrawableState(), this.cre);
+        if (!this.G && (colorStateList2 = this.f10442h) != null) {
+            this.t = colorStateList2.getColorForState(getDrawableState(), this.t);
         } else {
-            setDrawableState(this.cqQ);
+            setDrawableState(this.f10439e);
         }
-        int[] iArr = isChecked() ? cqP : cqO;
+        int[] iArr = isChecked() ? k0 : j0;
         ColorStateList textColors = getTextColors();
         if (textColors != null) {
             int defaultColor = textColors.getDefaultColor();
-            this.crh = textColors.getColorForState(cqO, defaultColor);
-            this.cri = textColors.getColorForState(cqP, defaultColor);
+            this.w = textColors.getColorForState(j0, defaultColor);
+            this.x = textColors.getColorForState(k0, defaultColor);
         }
-        if (!this.crs && (colorStateList = this.cqS) != null) {
-            this.crf = colorStateList.getColorForState(getDrawableState(), this.crf);
-            this.crg = this.cqS.getColorForState(iArr, this.crf);
+        if (!this.H && (colorStateList = this.f10441g) != null) {
+            int colorForState = colorStateList.getColorForState(getDrawableState(), this.u);
+            this.u = colorForState;
+            this.v = this.f10441g.getColorForState(iArr, colorForState);
             return;
         }
-        Drawable drawable = this.cqR;
-        if ((drawable instanceof StateListDrawable) && this.cqX) {
+        Drawable drawable = this.f10440f;
+        if ((drawable instanceof StateListDrawable) && this.n) {
             drawable.setState(iArr);
-            this.crk = this.cqR.getCurrent().mutate();
+            this.z = this.f10440f.getCurrent().mutate();
         } else {
-            this.crk = null;
+            this.z = null;
         }
-        setDrawableState(this.cqR);
-        Drawable drawable2 = this.cqR;
+        setDrawableState(this.f10440f);
+        Drawable drawable2 = this.f10440f;
         if (drawable2 != null) {
-            this.crj = drawable2.getCurrent().mutate();
+            this.y = drawable2.getCurrent().mutate();
         }
+    }
+
+    public void e(boolean z) {
+        ObjectAnimator objectAnimator = this.J;
+        if (objectAnimator == null) {
+            return;
+        }
+        if (objectAnimator.isRunning()) {
+            this.J.cancel();
+        }
+        this.J.setDuration(this.m);
+        if (z) {
+            this.J.setFloatValues(this.K, 1.0f);
+        } else {
+            this.J.setFloatValues(this.K, 0.0f);
+        }
+        this.J.start();
+    }
+
+    public final int f(double d2) {
+        return (int) Math.ceil(d2);
+    }
+
+    public final int g(int i) {
+        int i2;
+        int f2;
+        int f3;
+        int size = View.MeasureSpec.getSize(i);
+        int mode = View.MeasureSpec.getMode(i);
+        if (this.q == 0 && this.G) {
+            this.q = this.f10439e.getIntrinsicHeight();
+        }
+        if (mode == 1073741824) {
+            if (this.q != 0) {
+                RectF rectF = this.k;
+                this.s = f(i2 + rectF.top + rectF.bottom);
+                this.s = f(Math.max(f2, this.b0));
+                if ((((f3 + getPaddingTop()) + getPaddingBottom()) - Math.min(0.0f, this.k.top)) - Math.min(0.0f, this.k.bottom) > size) {
+                    this.q = 0;
+                }
+            }
+            if (this.q == 0) {
+                int f4 = f(((size - getPaddingTop()) - getPaddingBottom()) + Math.min(0.0f, this.k.top) + Math.min(0.0f, this.k.bottom));
+                this.s = f4;
+                if (f4 < 0) {
+                    this.s = 0;
+                    this.q = 0;
+                    return size;
+                }
+                RectF rectF2 = this.k;
+                this.q = f((f4 - rectF2.top) - rectF2.bottom);
+            }
+            if (this.q < 0) {
+                this.s = 0;
+                this.q = 0;
+                return size;
+            }
+            return size;
+        }
+        if (this.q == 0) {
+            this.q = f(getResources().getDisplayMetrics().density * 20.0f);
+        }
+        RectF rectF3 = this.k;
+        int f5 = f(this.q + rectF3.top + rectF3.bottom);
+        this.s = f5;
+        if (f5 < 0) {
+            this.s = 0;
+            this.q = 0;
+            return size;
+        }
+        int f6 = f(this.b0 - f5);
+        if (f6 > 0) {
+            this.s += f6;
+            this.q += f6;
+        }
+        int max = Math.max(this.q, this.s);
+        return Math.max(Math.max(max, getPaddingTop() + max + getPaddingBottom()), getSuggestedMinimumHeight());
     }
 
     public long getAnimationDuration() {
-        return this.cqW;
+        return this.m;
     }
 
     public ColorStateList getBackColor() {
-        return this.cqS;
+        return this.f10441g;
     }
 
     public Drawable getBackDrawable() {
-        return this.cqR;
+        return this.f10440f;
     }
 
     public float getBackRadius() {
-        return this.aqt;
+        return this.j;
     }
 
     public PointF getBackSizeF() {
-        return new PointF(this.crm.width(), this.crm.height());
+        return new PointF(this.B.width(), this.B.height());
     }
 
     public CharSequence getTextOff() {
-        return this.crE;
+        return this.T;
     }
 
     public CharSequence getTextOn() {
-        return this.crD;
+        return this.S;
     }
 
     public ColorStateList getThumbColor() {
-        return this.cqT;
+        return this.f10442h;
     }
 
     public Drawable getThumbDrawable() {
-        return this.cqQ;
+        return this.f10439e;
     }
 
     public float getThumbHeight() {
-        return this.cra;
+        return this.q;
     }
 
     public RectF getThumbMargin() {
-        return this.cqU;
+        return this.k;
     }
 
     public float getThumbRadius() {
-        return this.ab;
+        return this.i;
     }
 
     public float getThumbRangeRatio() {
-        return this.cqV;
+        return this.l;
     }
 
     public float getThumbWidth() {
-        return this.cqZ;
+        return this.p;
     }
 
     public int getTintColor() {
-        return this.cqY;
+        return this.o;
     }
 
-    public void o() {
-        if (this.crQ == null) {
+    public final int h(int i) {
+        int i2;
+        int size = View.MeasureSpec.getSize(i);
+        int mode = View.MeasureSpec.getMode(i);
+        if (this.p == 0 && this.G) {
+            this.p = this.f10439e.getIntrinsicWidth();
+        }
+        int f2 = f(this.a0);
+        if (this.l == 0.0f) {
+            this.l = 1.8f;
+        }
+        if (mode == 1073741824) {
+            int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
+            if (this.p != 0) {
+                int f3 = f(i2 * this.l);
+                RectF rectF = this.k;
+                int f4 = (this.d0 + f2) - ((f3 - this.p) + f(Math.max(rectF.left, rectF.right)));
+                float f5 = f3;
+                RectF rectF2 = this.k;
+                int f6 = f(rectF2.left + f5 + rectF2.right + Math.max(f4, 0));
+                this.r = f6;
+                if (f6 < 0) {
+                    this.p = 0;
+                }
+                if (f5 + Math.max(this.k.left, 0.0f) + Math.max(this.k.right, 0.0f) + Math.max(f4, 0) > paddingLeft) {
+                    this.p = 0;
+                }
+            }
+            if (this.p == 0) {
+                int f7 = f((((size - getPaddingLeft()) - getPaddingRight()) - Math.max(this.k.left, 0.0f)) - Math.max(this.k.right, 0.0f));
+                if (f7 < 0) {
+                    this.p = 0;
+                    this.r = 0;
+                    return size;
+                }
+                float f8 = f7;
+                this.p = f(f8 / this.l);
+                RectF rectF3 = this.k;
+                int f9 = f(f8 + rectF3.left + rectF3.right);
+                this.r = f9;
+                if (f9 < 0) {
+                    this.p = 0;
+                    this.r = 0;
+                    return size;
+                }
+                int i3 = f2 + this.d0;
+                int i4 = f7 - this.p;
+                RectF rectF4 = this.k;
+                int f10 = i3 - (i4 + f(Math.max(rectF4.left, rectF4.right)));
+                if (f10 > 0) {
+                    this.p -= f10;
+                }
+                if (this.p < 0) {
+                    this.p = 0;
+                    this.r = 0;
+                    return size;
+                }
+                return size;
+            }
+            return size;
+        }
+        if (this.p == 0) {
+            this.p = f(getResources().getDisplayMetrics().density * 20.0f);
+        }
+        if (this.l == 0.0f) {
+            this.l = 1.8f;
+        }
+        int f11 = f(this.p * this.l);
+        RectF rectF5 = this.k;
+        int f12 = f((f2 + this.d0) - (((f11 - this.p) + Math.max(rectF5.left, rectF5.right)) + this.c0));
+        float f13 = f11;
+        RectF rectF6 = this.k;
+        int f14 = f(rectF6.left + f13 + rectF6.right + Math.max(0, f12));
+        this.r = f14;
+        if (f14 < 0) {
+            this.p = 0;
+            this.r = 0;
+            return size;
+        }
+        int f15 = f(f13 + Math.max(0.0f, this.k.left) + Math.max(0.0f, this.k.right) + Math.max(0, f12));
+        return Math.max(f15, getPaddingLeft() + f15 + getPaddingRight());
+    }
+
+    public final void i() {
+        ViewParent parent = getParent();
+        if (parent != null) {
+            parent.requestDisallowInterceptTouchEvent(true);
+        }
+        this.h0 = true;
+    }
+
+    public void j() {
+        if (this.i0 == null) {
             toggle();
             return;
         }
         super.setOnCheckedChangeListener(null);
         toggle();
-        super.setOnCheckedChangeListener(this.crQ);
+        super.setOnCheckedChangeListener(this.i0);
+    }
+
+    public final void k() {
+        int i;
+        float paddingTop;
+        float paddingLeft;
+        int i2 = this.p;
+        if (i2 == 0 || (i = this.q) == 0 || this.r == 0 || this.s == 0) {
+            return;
+        }
+        if (this.i == -1.0f) {
+            this.i = Math.min(i2, i) / 2;
+        }
+        if (this.j == -1.0f) {
+            this.j = Math.min(this.r, this.s) / 2;
+        }
+        int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
+        int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
+        int f2 = f((this.r - Math.min(0.0f, this.k.left)) - Math.min(0.0f, this.k.right));
+        int f3 = f((this.s - Math.min(0.0f, this.k.top)) - Math.min(0.0f, this.k.bottom));
+        if (measuredHeight <= f3) {
+            paddingTop = getPaddingTop() + Math.max(0.0f, this.k.top);
+        } else {
+            paddingTop = (((measuredHeight - f3) + 1) / 2) + getPaddingTop() + Math.max(0.0f, this.k.top);
+        }
+        if (measuredWidth <= this.r) {
+            paddingLeft = getPaddingLeft() + Math.max(0.0f, this.k.left);
+        } else {
+            paddingLeft = (((measuredWidth - f2) + 1) / 2) + getPaddingLeft() + Math.max(0.0f, this.k.left);
+        }
+        this.A.set(paddingLeft, paddingTop, this.p + paddingLeft, this.q + paddingTop);
+        RectF rectF = this.A;
+        float f4 = rectF.left;
+        RectF rectF2 = this.k;
+        float f5 = f4 - rectF2.left;
+        RectF rectF3 = this.B;
+        float f6 = rectF.top - rectF2.top;
+        rectF3.set(f5, f6, this.r + f5, this.s + f6);
+        RectF rectF4 = this.C;
+        RectF rectF5 = this.A;
+        rectF4.set(rectF5.left, 0.0f, (this.B.right - this.k.right) - rectF5.width(), 0.0f);
+        this.j = Math.min(Math.min(this.B.width(), this.B.height()) / 2.0f, this.j);
+        Drawable drawable = this.f10440f;
+        if (drawable != null) {
+            RectF rectF6 = this.B;
+            drawable.setBounds((int) rectF6.left, (int) rectF6.top, f(rectF6.right), f(this.B.bottom));
+        }
+        if (this.V != null) {
+            RectF rectF7 = this.B;
+            float width = (rectF7.left + (((((rectF7.width() + this.c0) - this.p) - this.k.right) - this.V.getWidth()) / 2.0f)) - this.e0;
+            RectF rectF8 = this.B;
+            float height = rectF8.top + ((rectF8.height() - this.V.getHeight()) / 2.0f);
+            this.D.set(width, height, this.V.getWidth() + width, this.V.getHeight() + height);
+        }
+        if (this.W != null) {
+            RectF rectF9 = this.B;
+            float width2 = ((rectF9.right - (((((rectF9.width() + this.c0) - this.p) - this.k.left) - this.W.getWidth()) / 2.0f)) - this.W.getWidth()) + this.e0;
+            RectF rectF10 = this.B;
+            float height2 = rectF10.top + ((rectF10.height() - this.W.getHeight()) / 2.0f);
+            this.E.set(width2, height2, this.W.getWidth() + width2, this.W.getHeight() + height2);
+        }
+        this.g0 = true;
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
+        float progress;
         super.onDraw(canvas);
-        if (!this.crO) {
-            setup();
+        if (!this.g0) {
+            k();
         }
-        if (this.crO) {
-            if (this.crs) {
-                if (this.cqX && this.crj != null && this.crk != null) {
-                    Drawable drawable = isChecked() ? this.crj : this.crk;
-                    Drawable drawable2 = isChecked() ? this.crk : this.crj;
-                    int progress = (int) (getProgress() * 255.0f);
-                    drawable.setAlpha(progress);
+        if (this.g0) {
+            if (this.H) {
+                if (this.n && this.y != null && this.z != null) {
+                    Drawable drawable = isChecked() ? this.y : this.z;
+                    Drawable drawable2 = isChecked() ? this.z : this.y;
+                    int progress2 = (int) (getProgress() * 255.0f);
+                    drawable.setAlpha(progress2);
                     drawable.draw(canvas);
-                    drawable2.setAlpha(255 - progress);
+                    drawable2.setAlpha(255 - progress2);
                     drawable2.draw(canvas);
                 } else {
-                    this.cqR.setAlpha(255);
-                    this.cqR.draw(canvas);
+                    this.f10440f.setAlpha(255);
+                    this.f10440f.draw(canvas);
                 }
-            } else if (this.cqX) {
-                int i = isChecked() ? this.crf : this.crg;
-                int i2 = isChecked() ? this.crg : this.crf;
-                int progress2 = (int) (getProgress() * 255.0f);
-                this.crq.setARGB((Color.alpha(i) * progress2) / 255, Color.red(i), Color.green(i), Color.blue(i));
-                RectF rectF = this.crm;
-                float f = this.aqt;
-                canvas.drawRoundRect(rectF, f, f, this.crq);
-                this.crq.setARGB(((255 - progress2) * Color.alpha(i2)) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
-                RectF rectF2 = this.crm;
-                float f2 = this.aqt;
-                canvas.drawRoundRect(rectF2, f2, f2, this.crq);
-                this.crq.setAlpha(255);
+            } else if (this.n) {
+                int i = isChecked() ? this.u : this.v;
+                int i2 = isChecked() ? this.v : this.u;
+                int progress3 = (int) (getProgress() * 255.0f);
+                this.F.setARGB((Color.alpha(i) * progress3) / 255, Color.red(i), Color.green(i), Color.blue(i));
+                RectF rectF = this.B;
+                float f2 = this.j;
+                canvas.drawRoundRect(rectF, f2, f2, this.F);
+                this.F.setARGB((Color.alpha(i2) * (255 - progress3)) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
+                RectF rectF2 = this.B;
+                float f3 = this.j;
+                canvas.drawRoundRect(rectF2, f3, f3, this.F);
+                this.F.setAlpha(255);
             } else {
-                this.crq.setColor(this.crf);
-                RectF rectF3 = this.crm;
-                float f3 = this.aqt;
-                canvas.drawRoundRect(rectF3, f3, f3, this.crq);
+                this.F.setColor(this.u);
+                RectF rectF3 = this.B;
+                float f4 = this.j;
+                canvas.drawRoundRect(rectF3, f4, f4, this.F);
             }
-            Layout layout = ((double) getProgress()) > 0.5d ? this.crG : this.crH;
-            RectF rectF4 = ((double) getProgress()) > 0.5d ? this.cro : this.crp;
+            Layout layout = ((double) getProgress()) > 0.5d ? this.V : this.W;
+            RectF rectF4 = ((double) getProgress()) > 0.5d ? this.D : this.E;
             if (layout != null && rectF4 != null) {
-                int progress3 = (int) ((((double) getProgress()) >= 0.75d ? (getProgress() * 4.0f) - 3.0f : ((double) getProgress()) < 0.25d ? 1.0f - (getProgress() * 4.0f) : 0.0f) * 255.0f);
-                int i3 = ((double) getProgress()) > 0.5d ? this.crh : this.cri;
-                layout.getPaint().setARGB((progress3 * Color.alpha(i3)) / 255, Color.red(i3), Color.green(i3), Color.blue(i3));
+                if (getProgress() >= 0.75d) {
+                    progress = (getProgress() * 4.0f) - 3.0f;
+                } else {
+                    progress = ((double) getProgress()) < 0.25d ? 1.0f - (getProgress() * 4.0f) : 0.0f;
+                }
+                int i3 = (int) (progress * 255.0f);
+                int i4 = ((double) getProgress()) > 0.5d ? this.w : this.x;
+                layout.getPaint().setARGB((Color.alpha(i4) * i3) / 255, Color.red(i4), Color.green(i4), Color.blue(i4));
                 canvas.save();
                 canvas.translate(rectF4.left, rectF4.top);
                 layout.draw(canvas);
                 canvas.restore();
             }
-            this.crw.set(this.crl);
-            this.crw.offset(this.crv * this.crn.width(), 0.0f);
-            if (this.crr) {
-                Drawable drawable3 = this.cqQ;
-                RectF rectF5 = this.crw;
-                drawable3.setBounds((int) rectF5.left, (int) rectF5.top, j(rectF5.right), j(this.crw.bottom));
-                this.cqQ.draw(canvas);
+            this.L.set(this.A);
+            this.L.offset(this.K * this.C.width(), 0.0f);
+            if (this.G) {
+                Drawable drawable3 = this.f10439e;
+                RectF rectF5 = this.L;
+                drawable3.setBounds((int) rectF5.left, (int) rectF5.top, f(rectF5.right), f(this.L.bottom));
+                this.f10439e.draw(canvas);
             } else {
-                this.crq.setColor(this.cre);
-                RectF rectF6 = this.crw;
-                float f4 = this.ab;
-                canvas.drawRoundRect(rectF6, f4, f4, this.crq);
+                this.F.setColor(this.t);
+                RectF rectF6 = this.L;
+                float f5 = this.i;
+                canvas.drawRoundRect(rectF6, f5, f5, this.F);
             }
-            if (this.crt) {
-                this.crC.setColor(Color.parseColor("#AA0000"));
-                canvas.drawRect(this.crm, this.crC);
-                this.crC.setColor(Color.parseColor("#0000FF"));
-                canvas.drawRect(this.crw, this.crC);
-                this.crC.setColor(Color.parseColor("#000000"));
-                RectF rectF7 = this.crn;
-                float f5 = rectF7.left;
-                float f6 = this.crl.top;
-                canvas.drawLine(f5, f6, rectF7.right, f6, this.crC);
-                this.crC.setColor(Color.parseColor("#00CC00"));
-                canvas.drawRect(((double) getProgress()) > 0.5d ? this.cro : this.crp, this.crC);
+            if (this.I) {
+                this.R.setColor(Color.parseColor("#AA0000"));
+                canvas.drawRect(this.B, this.R);
+                this.R.setColor(Color.parseColor("#0000FF"));
+                canvas.drawRect(this.L, this.R);
+                this.R.setColor(Color.parseColor("#000000"));
+                RectF rectF7 = this.C;
+                float f6 = rectF7.left;
+                float f7 = this.A.top;
+                canvas.drawLine(f6, f7, rectF7.right, f7, this.R);
+                this.R.setColor(Color.parseColor("#00CC00"));
+                canvas.drawRect(((double) getProgress()) > 0.5d ? this.D : this.E, this.R);
             }
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    protected void onMeasure(int i, int i2) {
-        if (this.crG == null && !TextUtils.isEmpty(this.crD)) {
-            this.crG = e(this.crD);
+    public void onMeasure(int i, int i2) {
+        if (this.V == null && !TextUtils.isEmpty(this.S)) {
+            this.V = a(this.S);
         }
-        if (this.crH == null && !TextUtils.isEmpty(this.crE)) {
-            this.crH = e(this.crE);
+        if (this.W == null && !TextUtils.isEmpty(this.T)) {
+            this.W = a(this.T);
         }
-        Layout layout = this.crG;
+        Layout layout = this.V;
         float width = layout != null ? layout.getWidth() : 0.0f;
-        Layout layout2 = this.crH;
+        Layout layout2 = this.W;
         float width2 = layout2 != null ? layout2.getWidth() : 0.0f;
         if (width == 0.0f && width2 == 0.0f) {
-            this.crI = 0.0f;
+            this.a0 = 0.0f;
         } else {
-            this.crI = Math.max(width, width2);
+            this.a0 = Math.max(width, width2);
         }
-        Layout layout3 = this.crG;
+        Layout layout3 = this.V;
         float height = layout3 != null ? layout3.getHeight() : 0.0f;
-        Layout layout4 = this.crH;
+        Layout layout4 = this.W;
         float height2 = layout4 != null ? layout4.getHeight() : 0.0f;
         if (height == 0.0f && height2 == 0.0f) {
-            this.crJ = 0.0f;
+            this.b0 = 0.0f;
         } else {
-            this.crJ = Math.max(height, height2);
+            this.b0 = Math.max(height, height2);
         }
-        setMeasuredDimension(fJ(i), fK(i2));
+        setMeasuredDimension(h(i), g(i2));
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
         a aVar = (a) parcelable;
-        a(aVar.crR, aVar.crS);
-        this.crN = true;
+        d(aVar.f10443e, aVar.f10444f);
+        this.f0 = true;
         super.onRestoreInstanceState(aVar.getSuperState());
-        this.crN = false;
+        this.f0 = false;
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     public Parcelable onSaveInstanceState() {
         a aVar = new a(super.onSaveInstanceState());
-        aVar.crR = this.crD;
-        aVar.crS = this.crE;
+        aVar.f10443e = this.S;
+        aVar.f10444f = this.T;
         return aVar;
     }
 
     @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i == i3 && i2 == i4) {
             return;
         }
-        setup();
+        k();
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0034, code lost:
+        if (r0 != 3) goto L16;
+     */
     @Override // android.widget.TextView, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (isEnabled() && isClickable() && isFocusable() && this.crO) {
+        if (isEnabled() && isClickable() && isFocusable() && this.g0) {
             int action = motionEvent.getAction();
-            float x = motionEvent.getX() - this.crx;
-            float y = motionEvent.getY() - this.cry;
-            switch (action) {
-                case 0:
-                    this.crx = motionEvent.getX();
-                    this.cry = motionEvent.getY();
-                    this.crz = this.crx;
-                    setPressed(true);
-                    break;
-                case 1:
-                case 3:
-                    this.crP = false;
-                    setPressed(false);
-                    float eventTime = (float) (motionEvent.getEventTime() - motionEvent.getDownTime());
-                    if (Math.abs(x) < this.crA && Math.abs(y) < this.crA && eventTime < this.crB) {
-                        performClick();
-                        break;
-                    } else {
-                        boolean statusBasedOnPos = getStatusBasedOnPos();
-                        if (statusBasedOnPos != isChecked()) {
-                            playSoundEffect(0);
-                            setChecked(statusBasedOnPos);
-                            break;
-                        } else {
-                            b(statusBasedOnPos);
-                            break;
-                        }
-                    }
-                    break;
-                case 2:
-                    float x2 = motionEvent.getX();
-                    setProgress(getProgress() + ((x2 - this.crz) / this.crn.width()));
-                    if (!this.crP && (Math.abs(x) > this.crA / 2 || Math.abs(y) > this.crA / 2)) {
-                        if (y != 0.0f && Math.abs(x) <= Math.abs(y)) {
-                            if (Math.abs(y) > Math.abs(x)) {
-                                return false;
+            float x = motionEvent.getX() - this.M;
+            float y = motionEvent.getY() - this.N;
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        float x2 = motionEvent.getX();
+                        setProgress(getProgress() + ((x2 - this.O) / this.C.width()));
+                        if (!this.h0 && (Math.abs(x) > this.P / 2 || Math.abs(y) > this.P / 2)) {
+                            if (y != 0.0f && Math.abs(x) <= Math.abs(y)) {
+                                if (Math.abs(y) > Math.abs(x)) {
+                                    return false;
+                                }
+                            } else {
+                                i();
                             }
-                        } else {
-                            adM();
                         }
+                        this.O = x2;
                     }
-                    this.crz = x2;
-                    break;
+                }
+                this.h0 = false;
+                setPressed(false);
+                float eventTime = (float) (motionEvent.getEventTime() - motionEvent.getDownTime());
+                if (Math.abs(x) < this.P && Math.abs(y) < this.P && eventTime < this.Q) {
+                    performClick();
+                } else {
+                    boolean statusBasedOnPos = getStatusBasedOnPos();
+                    if (statusBasedOnPos != isChecked()) {
+                        playSoundEffect(0);
+                        setChecked(statusBasedOnPos);
+                    } else {
+                        e(statusBasedOnPos);
+                    }
+                }
+            } else {
+                this.M = motionEvent.getX();
+                this.N = motionEvent.getY();
+                this.O = this.M;
+                setPressed(true);
             }
             return true;
         }
@@ -804,12 +911,12 @@ public class SwitchButton extends CompoundButton {
     }
 
     public void setAnimationDuration(long j) {
-        this.cqW = j;
+        this.m = j;
     }
 
     public void setBackColor(ColorStateList colorStateList) {
-        this.cqS = colorStateList;
-        if (this.cqS != null) {
+        this.f10441g = colorStateList;
+        if (colorStateList != null) {
             setBackDrawable(null);
         }
         invalidate();
@@ -820,10 +927,10 @@ public class SwitchButton extends CompoundButton {
     }
 
     public void setBackDrawable(Drawable drawable) {
-        this.cqR = drawable;
-        this.crs = this.cqR != null;
+        this.f10440f = drawable;
+        this.H = drawable != null;
         refreshDrawableState();
-        this.crO = false;
+        this.g0 = false;
         requestLayout();
         invalidate();
     }
@@ -832,9 +939,9 @@ public class SwitchButton extends CompoundButton {
         setBackDrawable(getResources().getDrawable(i));
     }
 
-    public void setBackRadius(float f) {
-        this.aqt = f;
-        if (this.crs) {
+    public void setBackRadius(float f2) {
+        this.j = f2;
+        if (this.H) {
             return;
         }
         invalidate();
@@ -843,9 +950,9 @@ public class SwitchButton extends CompoundButton {
     @Override // android.widget.CompoundButton, android.widget.Checkable
     public void setChecked(boolean z) {
         if (isChecked() != z) {
-            b(z);
+            e(z);
         }
-        if (this.crN) {
+        if (this.f0) {
             setCheckedImmediatelyNoEvent(z);
         } else {
             super.setChecked(z);
@@ -854,73 +961,73 @@ public class SwitchButton extends CompoundButton {
 
     public void setCheckedImmediately(boolean z) {
         super.setChecked(z);
-        ObjectAnimator objectAnimator = this.cru;
+        ObjectAnimator objectAnimator = this.J;
         if (objectAnimator != null && objectAnimator.isRunning()) {
-            this.cru.cancel();
+            this.J.cancel();
         }
         setProgress(z ? 1.0f : 0.0f);
         invalidate();
     }
 
     public void setCheckedImmediatelyNoEvent(boolean z) {
-        if (this.crQ == null) {
+        if (this.i0 == null) {
             setCheckedImmediately(z);
             return;
         }
         super.setOnCheckedChangeListener(null);
         setCheckedImmediately(z);
-        super.setOnCheckedChangeListener(this.crQ);
+        super.setOnCheckedChangeListener(this.i0);
     }
 
     public void setCheckedNoEvent(boolean z) {
-        if (this.crQ == null) {
+        if (this.i0 == null) {
             setChecked(z);
             return;
         }
         super.setOnCheckedChangeListener(null);
         setChecked(z);
-        super.setOnCheckedChangeListener(this.crQ);
+        super.setOnCheckedChangeListener(this.i0);
     }
 
     public void setDrawDebugRect(boolean z) {
-        this.crt = z;
+        this.I = z;
         invalidate();
     }
 
     public void setFadeBack(boolean z) {
-        this.cqX = z;
+        this.n = z;
     }
 
     @Override // android.widget.CompoundButton
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
         super.setOnCheckedChangeListener(onCheckedChangeListener);
-        this.crQ = onCheckedChangeListener;
+        this.i0 = onCheckedChangeListener;
     }
 
     public void setTextAdjust(int i) {
-        this.crM = i;
-        this.crO = false;
+        this.e0 = i;
+        this.g0 = false;
         requestLayout();
         invalidate();
     }
 
     public void setTextExtra(int i) {
-        this.crL = i;
-        this.crO = false;
+        this.d0 = i;
+        this.g0 = false;
         requestLayout();
         invalidate();
     }
 
     public void setTextThumbInset(int i) {
-        this.crK = i;
-        this.crO = false;
+        this.c0 = i;
+        this.g0 = false;
         requestLayout();
         invalidate();
     }
 
     public void setThumbColor(ColorStateList colorStateList) {
-        this.cqT = colorStateList;
-        if (this.cqT != null) {
+        this.f10442h = colorStateList;
+        if (colorStateList != null) {
             setThumbDrawable(null);
         }
         invalidate();
@@ -931,10 +1038,10 @@ public class SwitchButton extends CompoundButton {
     }
 
     public void setThumbDrawable(Drawable drawable) {
-        this.cqQ = drawable;
-        this.crr = this.cqQ != null;
+        this.f10439e = drawable;
+        this.G = drawable != null;
         refreshDrawableState();
-        this.crO = false;
+        this.g0 = false;
         requestLayout();
         invalidate();
     }
@@ -945,72 +1052,51 @@ public class SwitchButton extends CompoundButton {
 
     public void setThumbMargin(RectF rectF) {
         if (rectF == null) {
-            a(0.0f, 0.0f, 0.0f, 0.0f);
+            b(0.0f, 0.0f, 0.0f, 0.0f);
         } else {
-            a(rectF.left, rectF.top, rectF.right, rectF.bottom);
+            b(rectF.left, rectF.top, rectF.right, rectF.bottom);
         }
     }
 
-    public void setThumbRadius(float f) {
-        this.ab = f;
-        if (this.crr) {
+    public void setThumbRadius(float f2) {
+        this.i = f2;
+        if (this.G) {
             return;
         }
         invalidate();
     }
 
-    public void setThumbRangeRatio(float f) {
-        this.cqV = f;
-        this.crO = false;
+    public void setThumbRangeRatio(float f2) {
+        this.l = f2;
+        this.g0 = false;
         requestLayout();
     }
 
     public void setTintColor(int i) {
-        this.cqY = i;
-        this.cqT = com.baidu.poly.widget.b.fM(this.cqY);
-        this.cqS = com.baidu.poly.widget.b.fN(this.cqY);
-        this.crs = false;
-        this.crr = false;
+        this.o = i;
+        this.f10442h = d.b.c0.p.b.b(i);
+        this.f10441g = d.b.c0.p.b.a(this.o);
+        this.H = false;
+        this.G = false;
         refreshDrawableState();
         invalidate();
     }
 
     public SwitchButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.crt = false;
-        this.crN = false;
-        this.crO = false;
-        this.crP = false;
-        a(attributeSet);
+        this.I = false;
+        this.f0 = false;
+        this.g0 = false;
+        this.h0 = false;
+        c(attributeSet);
     }
 
     public SwitchButton(Context context) {
         super(context);
-        this.crt = false;
-        this.crN = false;
-        this.crO = false;
-        this.crP = false;
-        a(null);
-    }
-
-    private Layout e(CharSequence charSequence) {
-        TextPaint textPaint = this.crF;
-        return new StaticLayout(charSequence, textPaint, (int) Math.ceil(Layout.getDesiredWidth(charSequence, textPaint)), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
-    }
-
-    public void a(float f, float f2, float f3, float f4) {
-        this.cqU.set(f, f2, f3, f4);
-        this.crO = false;
-        requestLayout();
-    }
-
-    public void a(CharSequence charSequence, CharSequence charSequence2) {
-        this.crD = charSequence;
-        this.crE = charSequence2;
-        this.crG = null;
-        this.crH = null;
-        this.crO = false;
-        requestLayout();
-        invalidate();
+        this.I = false;
+        this.f0 = false;
+        this.g0 = false;
+        this.h0 = false;
+        c(null);
     }
 }

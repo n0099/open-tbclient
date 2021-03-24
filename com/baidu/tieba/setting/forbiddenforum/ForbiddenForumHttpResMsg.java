@@ -3,32 +3,38 @@ package com.baidu.tieba.setting.forbiddenforum;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
+import d.b.i0.u2.a.d;
+import tbclient.Error;
 import tbclient.GetDislikeList.GetDislikeListResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ForbiddenForumHttpResMsg extends HttpResponsedMessage {
-    private d pageData;
-
-    public d getPageData() {
-        return this.pageData;
-    }
+    public d pageData;
 
     public ForbiddenForumHttpResMsg() {
         super(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM);
     }
 
+    public d getPageData() {
+        return this.pageData;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetDislikeListResIdl getDislikeListResIdl = (GetDislikeListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetDislikeListResIdl.class);
-        if (getDislikeListResIdl != null) {
-            if (getDislikeListResIdl.error != null) {
-                if (getDislikeListResIdl.error.errorno != null) {
-                    setError(getDislikeListResIdl.error.errorno.intValue());
-                }
-                setErrorString(getDislikeListResIdl.error.usermsg);
-            }
-            this.pageData = new d();
-            this.pageData.a(getDislikeListResIdl.data);
+        if (getDislikeListResIdl == null) {
+            return;
         }
+        Error error = getDislikeListResIdl.error;
+        if (error != null) {
+            Integer num = error.errorno;
+            if (num != null) {
+                setError(num.intValue());
+            }
+            setErrorString(getDislikeListResIdl.error.usermsg);
+        }
+        d dVar = new d();
+        this.pageData = dVar;
+        dVar.a(getDislikeListResIdl.data);
     }
 }

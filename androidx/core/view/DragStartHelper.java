@@ -3,27 +3,27 @@ package androidx.core.view;
 import android.graphics.Point;
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class DragStartHelper {
-    private boolean mDragging;
-    private int mLastTouchX;
-    private int mLastTouchY;
-    private final OnDragStartListener mListener;
-    private final View.OnLongClickListener mLongClickListener = new View.OnLongClickListener() { // from class: androidx.core.view.DragStartHelper.1
+    public boolean mDragging;
+    public int mLastTouchX;
+    public int mLastTouchY;
+    public final OnDragStartListener mListener;
+    public final View.OnLongClickListener mLongClickListener = new View.OnLongClickListener() { // from class: androidx.core.view.DragStartHelper.1
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             return DragStartHelper.this.onLongClick(view);
         }
     };
-    private final View.OnTouchListener mTouchListener = new View.OnTouchListener() { // from class: androidx.core.view.DragStartHelper.2
+    public final View.OnTouchListener mTouchListener = new View.OnTouchListener() { // from class: androidx.core.view.DragStartHelper.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             return DragStartHelper.this.onTouch(view, motionEvent);
         }
     };
-    private final View mView;
+    public final View mView;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface OnDragStartListener {
         boolean onDragStart(View view, DragStartHelper dragStartHelper);
     }
@@ -43,39 +43,41 @@ public class DragStartHelper {
         this.mView.setOnTouchListener(null);
     }
 
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        int x = (int) motionEvent.getX();
-        int y = (int) motionEvent.getY();
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.mLastTouchX = x;
-                this.mLastTouchY = y;
-                return false;
-            case 1:
-            case 3:
-                this.mDragging = false;
-                return false;
-            case 2:
-                if (!MotionEventCompat.isFromSource(motionEvent, 8194) || (motionEvent.getButtonState() & 1) == 0 || this.mDragging) {
-                    return false;
-                }
-                if (this.mLastTouchX == x && this.mLastTouchY == y) {
-                    return false;
-                }
-                this.mLastTouchX = x;
-                this.mLastTouchY = y;
-                this.mDragging = this.mListener.onDragStart(view, this);
-                return this.mDragging;
-            default:
-                return false;
-        }
+    public void getTouchPosition(Point point) {
+        point.set(this.mLastTouchX, this.mLastTouchY);
     }
 
     public boolean onLongClick(View view) {
         return this.mListener.onDragStart(view, this);
     }
 
-    public void getTouchPosition(Point point) {
-        point.set(this.mLastTouchX, this.mLastTouchY);
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0018, code lost:
+        if (r2 != 3) goto L9;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        int x = (int) motionEvent.getX();
+        int y = (int) motionEvent.getY();
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action == 2) {
+                    if (MotionEventCompat.isFromSource(motionEvent, 8194) && (motionEvent.getButtonState() & 1) != 0 && !this.mDragging && (this.mLastTouchX != x || this.mLastTouchY != y)) {
+                        this.mLastTouchX = x;
+                        this.mLastTouchY = y;
+                        boolean onDragStart = this.mListener.onDragStart(view, this);
+                        this.mDragging = onDragStart;
+                        return onDragStart;
+                    }
+                }
+            }
+            this.mDragging = false;
+        } else {
+            this.mLastTouchX = x;
+            this.mLastTouchY = y;
+        }
+        return false;
     }
 }

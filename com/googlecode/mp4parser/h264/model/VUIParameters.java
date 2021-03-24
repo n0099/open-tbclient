@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.h264.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VUIParameters {
     public AspectRatio aspect_ratio;
     public boolean aspect_ratio_info_present_flag;
@@ -27,7 +27,7 @@ public class VUIParameters {
     public boolean video_full_range_flag;
     public boolean video_signal_type_present_flag;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class BitstreamRestriction {
         public int log2_max_mv_length_horizontal;
         public int log2_max_mv_length_vertical;
@@ -38,16 +38,7 @@ public class VUIParameters {
         public int num_reorder_frames;
 
         public String toString() {
-            StringBuilder sb = new StringBuilder("BitstreamRestriction{");
-            sb.append("motion_vectors_over_pic_boundaries_flag=").append(this.motion_vectors_over_pic_boundaries_flag);
-            sb.append(", max_bytes_per_pic_denom=").append(this.max_bytes_per_pic_denom);
-            sb.append(", max_bits_per_mb_denom=").append(this.max_bits_per_mb_denom);
-            sb.append(", log2_max_mv_length_horizontal=").append(this.log2_max_mv_length_horizontal);
-            sb.append(", log2_max_mv_length_vertical=").append(this.log2_max_mv_length_vertical);
-            sb.append(", num_reorder_frames=").append(this.num_reorder_frames);
-            sb.append(", max_dec_frame_buffering=").append(this.max_dec_frame_buffering);
-            sb.append('}');
-            return sb.toString();
+            return "BitstreamRestriction{motion_vectors_over_pic_boundaries_flag=" + this.motion_vectors_over_pic_boundaries_flag + ", max_bytes_per_pic_denom=" + this.max_bytes_per_pic_denom + ", max_bits_per_mb_denom=" + this.max_bits_per_mb_denom + ", log2_max_mv_length_horizontal=" + this.log2_max_mv_length_horizontal + ", log2_max_mv_length_vertical=" + this.log2_max_mv_length_vertical + ", num_reorder_frames=" + this.num_reorder_frames + ", max_dec_frame_buffering=" + this.max_dec_frame_buffering + '}';
         }
     }
 

@@ -1,25 +1,25 @@
 package com.baidu.tieba.newfaceshop.message;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.s;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.faceshop.CollectEmotionData;
-import com.baidu.tieba.newfaceshop.d;
+import d.b.b.e.p.q;
+import d.b.h0.a0.d;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
-    private List<CollectEmotionData> mCollectEmotionList;
-    private long mCollectUpdateTime;
-    private List<String> mFaceGroupData;
-    private long mFaceGroupUpdateTime;
+    public List<CollectEmotionData> mCollectEmotionList;
+    public long mCollectUpdateTime;
+    public List<String> mFaceGroupData;
+    public long mFaceGroupUpdateTime;
 
     public GetCloudFaceGroupMessage(int i) {
         super(i);
@@ -34,62 +34,79 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void parseData(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.mCollectUpdateTime = jSONObject.optLong("pic_update_time");
-            if (d.getCollectUpdateTime() < this.mCollectUpdateTime) {
-                parseCollectData(jSONObject.optJSONArray("pic_ids"));
-            }
-            this.mFaceGroupUpdateTime = jSONObject.optLong("pkg_update_time");
-            if (d.getFaceGroupUpdateTime() < this.mFaceGroupUpdateTime) {
-                parseFaceGroupData(jSONObject.optString("package_ids"));
-            }
-        }
-    }
-
-    public void parseCollectData(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            this.mCollectEmotionList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    if (jSONObject != null) {
-                        CollectEmotionData collectEmotionData = new CollectEmotionData();
-                        collectEmotionData.pid = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
-                        collectEmotionData.picUrl = jSONObject.optString("pic_url");
-                        collectEmotionData.width = jSONObject.optInt("width");
-                        collectEmotionData.height = jSONObject.optInt("height");
-                        collectEmotionData.thumbnail = jSONObject.optString("thumbnail");
-                        collectEmotionData.uid = TbadkApplication.getCurrentAccount();
-                        collectEmotionData.pkgId = jSONObject.optString("pck_id");
-                        StringBuilder sb = new StringBuilder(com.baidu.tbadk.imageManager.d.SHARP_TEXT_PREFIX_SHORT);
-                        if (TextUtils.isEmpty(collectEmotionData.pkgId)) {
-                            sb.append(collectEmotionData.pkgId).append(",");
-                        } else {
-                            sb.append(collectEmotionData.pkgId).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(collectEmotionData.pid).append(",");
-                        }
-                        sb.append(collectEmotionData.width).append(",");
-                        sb.append(collectEmotionData.height).append(",");
-                        collectEmotionData.sharpText = "#(" + sb.toString() + s.toMd5(sb.toString().replace("collect_", "") + "7S6wbXjEKL9N").toLowerCase() + ")";
-                        this.mCollectEmotionList.add(collectEmotionData);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public void parseFaceGroupData(String str) {
-        this.mFaceGroupData = Arrays.asList(str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS));
+    public List<CollectEmotionData> getCollectEmotionList() {
+        return this.mCollectEmotionList;
     }
 
     public long getCollectUpdateTime() {
         return this.mCollectUpdateTime;
     }
 
+    public List<String> getFaceGroupData() {
+        return this.mFaceGroupData;
+    }
+
     public long getFaceGroupUpdateTime() {
         return this.mFaceGroupUpdateTime;
+    }
+
+    public void parseCollectData(JSONArray jSONArray) {
+        if (jSONArray == null) {
+            return;
+        }
+        this.mCollectEmotionList = new ArrayList();
+        for (int i = 0; i < jSONArray.length(); i++) {
+            try {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                if (jSONObject != null) {
+                    CollectEmotionData collectEmotionData = new CollectEmotionData();
+                    collectEmotionData.pid = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                    collectEmotionData.picUrl = jSONObject.optString("pic_url");
+                    collectEmotionData.width = jSONObject.optInt("width");
+                    collectEmotionData.height = jSONObject.optInt("height");
+                    collectEmotionData.thumbnail = jSONObject.optString("thumbnail");
+                    collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
+                    collectEmotionData.pkgId = jSONObject.optString("pck_id");
+                    StringBuilder sb = new StringBuilder(d.f49684f);
+                    if (TextUtils.isEmpty(collectEmotionData.pkgId)) {
+                        sb.append(collectEmotionData.pkgId);
+                        sb.append(",");
+                    } else {
+                        sb.append(collectEmotionData.pkgId);
+                        sb.append("_");
+                        sb.append(collectEmotionData.pid);
+                        sb.append(",");
+                    }
+                    sb.append(collectEmotionData.width);
+                    sb.append(",");
+                    sb.append(collectEmotionData.height);
+                    sb.append(",");
+                    String lowerCase = q.c(sb.toString().replace("collect_", "") + "7S6wbXjEKL9N").toLowerCase();
+                    collectEmotionData.sharpText = SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX;
+                    this.mCollectEmotionList.add(collectEmotionData);
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void parseData(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        this.mCollectUpdateTime = jSONObject.optLong("pic_update_time");
+        if (d.b.i0.x1.d.k() < this.mCollectUpdateTime) {
+            parseCollectData(jSONObject.optJSONArray("pic_ids"));
+        }
+        this.mFaceGroupUpdateTime = jSONObject.optLong("pkg_update_time");
+        if (d.b.i0.x1.d.l() < this.mFaceGroupUpdateTime) {
+            parseFaceGroupData(jSONObject.optString("package_ids"));
+        }
+    }
+
+    public void parseFaceGroupData(String str) {
+        this.mFaceGroupData = Arrays.asList(str.split("_"));
     }
 
     public void setCollectEmotionList(List<CollectEmotionData> list) {
@@ -98,13 +115,5 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
 
     public void setFaceGroupData(List<String> list) {
         this.mFaceGroupData = list;
-    }
-
-    public List<String> getFaceGroupData() {
-        return this.mFaceGroupData;
-    }
-
-    public List<CollectEmotionData> getCollectEmotionList() {
-        return this.mCollectEmotionList;
     }
 }

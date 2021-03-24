@@ -1,11 +1,11 @@
 package com.baidu.platform.comapi.wnplatform.o;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3074a;
+    public static boolean f10334a;
 
     public static boolean a() {
-        return f3074a;
+        return f10334a;
     }
 }

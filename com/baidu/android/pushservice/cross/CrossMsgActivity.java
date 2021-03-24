@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.i.m;
-/* loaded from: classes5.dex */
+import com.baidu.android.pushservice.j.m;
+/* loaded from: classes2.dex */
 public class CrossMsgActivity extends Activity {
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         Uri data;
         super.onCreate(bundle);
         Intent intent = getIntent();

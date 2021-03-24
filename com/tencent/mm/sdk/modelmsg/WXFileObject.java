@@ -4,11 +4,11 @@ import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WXFileObject implements WXMediaMessage.IMediaObject {
-    private static final int CONTENT_LENGTH_LIMIT = 10485760;
-    private static final String TAG = "MicroMsg.SDK.WXFileObject";
-    private int contentLengthLimit;
+    public static final int CONTENT_LENGTH_LIMIT = 10485760;
+    public static final String TAG = "MicroMsg.SDK.WXFileObject";
+    public int contentLengthLimit;
     public byte[] fileData;
     public String filePath;
 
@@ -41,18 +41,25 @@ public class WXFileObject implements WXMediaMessage.IMediaObject {
 
     @Override // com.tencent.mm.sdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if ((this.fileData == null || this.fileData.length == 0) && (this.filePath == null || this.filePath.length() == 0)) {
-            a.a(TAG, "checkArgs fail, both arguments is null");
-            return false;
-        } else if (this.fileData != null && this.fileData.length > this.contentLengthLimit) {
-            a.a(TAG, "checkArgs fail, fileData is too large");
-            return false;
-        } else if (this.filePath == null || getFileSize(this.filePath) <= this.contentLengthLimit) {
-            return true;
+        String str;
+        String str2;
+        byte[] bArr = this.fileData;
+        if ((bArr == null || bArr.length == 0) && ((str = this.filePath) == null || str.length() == 0)) {
+            str2 = "checkArgs fail, both arguments is null";
         } else {
-            a.a(TAG, "checkArgs fail, fileSize is too large");
-            return false;
+            byte[] bArr2 = this.fileData;
+            if (bArr2 == null || bArr2.length <= this.contentLengthLimit) {
+                String str3 = this.filePath;
+                if (str3 == null || getFileSize(str3) <= this.contentLengthLimit) {
+                    return true;
+                }
+                str2 = "checkArgs fail, fileSize is too large";
+            } else {
+                str2 = "checkArgs fail, fileData is too large";
+            }
         }
+        a.a("MicroMsg.SDK.WXFileObject", str2);
+        return false;
     }
 
     @Override // com.tencent.mm.sdk.modelmsg.WXMediaMessage.IMediaObject

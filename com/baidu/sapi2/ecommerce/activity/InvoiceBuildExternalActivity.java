@@ -3,14 +3,16 @@ package com.baidu.sapi2.ecommerce.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.activity.SlideActiviy;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
+import com.google.protobuf.CodedInputStream;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
-    private static final String TAG = InvoiceBuildExternalActivity.class.getSimpleName();
-    private String url;
+    public static final String TAG = InvoiceBuildExternalActivity.class.getSimpleName();
+    public String url;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void back() {
@@ -23,12 +25,13 @@ public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
 
     @Override // com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity
     public void loadInvoiceUrl(List<PassNameValuePair> list) {
-        this.url = getIntent().getStringExtra("extra_external_url");
-        this.sapiWebView.loadUrl(this.url);
+        String stringExtra = getIntent().getStringExtra("extra_external_url");
+        this.url = stringExtra;
+        this.sapiWebView.loadUrl(stringExtra);
     }
 
     @Override // com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity, com.baidu.sapi2.activity.TitleActivity
-    protected void onBottomBackBtnClick() {
+    public void onBottomBackBtnClick() {
         back();
     }
 
@@ -52,9 +55,9 @@ public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
         this.sapiWebView.setOnSlidePageFinishCallback(new SapiWebView.OnSlidePageFinishCallback() { // from class: com.baidu.sapi2.ecommerce.activity.InvoiceBuildExternalActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnSlidePageFinishCallback
             public void onFinish(String str) {
-                if ("invoice".equals(str)) {
+                if (SlideActiviy.INVOICE_PAGE_NAME.equals(str)) {
                     Intent intent = new Intent(InvoiceBuildExternalActivity.this, InvoiceBuildActivity.class);
-                    intent.setFlags(67108864);
+                    intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                     InvoiceBuildExternalActivity.this.startActivity(intent);
                 }
             }
@@ -62,7 +65,7 @@ public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
     }
 
     @Override // com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    protected void onLeftBtnClick() {
+    public void onLeftBtnClick() {
         back();
     }
 }

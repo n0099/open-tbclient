@@ -13,19 +13,21 @@ import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.contentalliance.detail.a {
-    private int h;
-    private AdTemplate i;
-    private b j;
-    private KsContentPage.SubShowItem k;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f32133h;
+    public AdTemplate i;
+    public b j;
+    public KsContentPage.SubShowItem k;
 
     public void a(b bVar) {
         this.j = bVar;
     }
 
     @Override // com.kwad.sdk.contentalliance.b
-    protected int b() {
+    public int b() {
         return R.layout.ksad_fragment_empty_container;
     }
 
@@ -45,9 +47,9 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
         super.onCreateView(layoutInflater, viewGroup, bundle);
         Bundle arguments = getArguments();
         if (arguments == null) {
-            return this.c;
+            return this.f31885c;
         }
-        this.h = arguments.getInt("KEY_INDEX_IN_VIEW_PAGER");
+        this.f32133h = arguments.getInt("KEY_INDEX_IN_VIEW_PAGER");
         Serializable serializable = getArguments().getSerializable("key_template");
         if (serializable instanceof AdTemplate) {
             this.i = (AdTemplate) serializable;
@@ -55,35 +57,35 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
                 this.j = new b();
             }
             this.k = this.j.a(this.i);
-            this.c.removeAllViews();
-            if (this.k != null) {
-                View instantiateItem = this.k.instantiateItem();
+            this.f31885c.removeAllViews();
+            KsContentPage.SubShowItem subShowItem = this.k;
+            if (subShowItem != null) {
+                View instantiateItem = subShowItem.instantiateItem();
                 if (instantiateItem != null) {
                     if (instantiateItem.getParent() != null) {
                         ((ViewGroup) instantiateItem.getParent()).removeView(instantiateItem);
                     }
-                    this.c.addView(instantiateItem);
+                    this.f31885c.addView(instantiateItem);
                 } else {
                     e.i(this.i);
                 }
             }
-            return this.c;
+            return this.f31885c;
         }
-        return this.c;
+        return this.f31885c;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.b
     /* renamed from: p */
     public com.kwad.sdk.contentalliance.detail.c c() {
         com.kwad.sdk.contentalliance.detail.c cVar = new com.kwad.sdk.contentalliance.detail.c();
         cVar.k = this;
-        cVar.f5600a = this.e;
+        cVar.f32151a = this.f31923e;
         cVar.j = this.i;
-        cVar.i = this.h;
+        cVar.i = this.f32133h;
         cVar.q = this.j;
-        cVar.l = this.d;
+        cVar.l = this.f31922d;
         return cVar;
     }
 }

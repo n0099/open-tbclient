@@ -2,93 +2,107 @@ package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.b.c;
+import com.baidu.tbadk.core.util.httpNet.HttpResponse;
+import d.b.b.e.p.k;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        public String blockUrl;
-        public String errorString;
-        public c fdl;
-        public boolean fqb;
-        public BlockPopInfoData fud;
-        public boolean hasShownForbiddenAlert;
-        public boolean isAttention;
-        public boolean isSucc;
-        public JSONObject resultJson;
-        public String showMsg;
-        public String toUid;
-        public boolean isGod = false;
-        public boolean isShowMessage = false;
-        public int status = 0;
 
-        public void parserJson(String str, boolean z) {
-            boolean z2 = true;
-            if (str != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    this.resultJson = jSONObject;
-                    JSONObject optJSONObject = jSONObject.optJSONObject("info");
-                    if (optJSONObject != null) {
-                        this.status = jSONObject.optInt("status");
-                        boolean z3 = optJSONObject.optInt("is_toast", 0) == 1;
-                        if (!z || !z3) {
-                            z2 = false;
-                        }
-                        this.isShowMessage = z2;
-                        this.showMsg = optJSONObject.optString("toast_text");
-                        parseBlockAnti(optJSONObject);
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f13692a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f13693b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f13694c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f13695d;
+
+        /* renamed from: f  reason: collision with root package name */
+        public HttpResponse f13697f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public JSONObject f13698g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public boolean f13699h;
+        public boolean i;
+        public String j;
+        public BlockPopInfoData k;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f13696e = false;
+        public int l = 0;
+
+        public final void a(JSONObject jSONObject) {
+            if (jSONObject == null) {
+                return;
             }
+            this.j = jSONObject.optString("block_dealurl");
+            String optString = jSONObject.optString("block_content");
+            String optString2 = jSONObject.optString("block_confirm");
+            String optString3 = jSONObject.optString("block_cancel");
+            if (k.isEmpty(optString) || k.isEmpty(this.j) || k.isEmpty(optString2) || k.isEmpty(optString3)) {
+                return;
+            }
+            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+            this.k = blockPopInfoData;
+            blockPopInfoData.block_info = optString;
+            blockPopInfoData.ahead_url = this.j;
+            blockPopInfoData.ahead_info = optString2;
+            blockPopInfoData.ok_info = optString3;
         }
 
-        private void parseBlockAnti(JSONObject jSONObject) {
-            if (jSONObject != null) {
-                this.blockUrl = jSONObject.optString("block_dealurl");
-                String optString = jSONObject.optString("block_content");
-                String optString2 = jSONObject.optString("block_confirm");
-                String optString3 = jSONObject.optString("block_cancel");
-                if (!au.isEmpty(optString) && !au.isEmpty(this.blockUrl) && !au.isEmpty(optString2) && !au.isEmpty(optString3)) {
-                    this.fud = new BlockPopInfoData();
-                    this.fud.block_info = optString;
-                    this.fud.ahead_url = this.blockUrl;
-                    this.fud.ahead_info = optString2;
-                    this.fud.ok_info = optString3;
+        public void b(String str, boolean z) {
+            if (str == null) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.f13698g = jSONObject;
+                JSONObject optJSONObject = jSONObject.optJSONObject("info");
+                if (optJSONObject == null) {
+                    return;
                 }
+                this.l = jSONObject.optInt("status");
+                if (optJSONObject.optInt("is_toast", 0) == 1) {
+                }
+                optJSONObject.optString("toast_text");
+                a(optJSONObject);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
             }
         }
     }
 
     public UpdateAttentionMessage(a aVar) {
-        super(CmdConfigCustom.CMD_UPDATE_ATTENTION, aVar);
-    }
-
-    public boolean isSucc() {
-        if (getData() == null || !(getData() instanceof a)) {
-            return false;
-        }
-        return getData().isSucc;
+        super(2001115, aVar);
     }
 
     public boolean isAttention() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().isAttention;
+        return getData().f13695d;
     }
 
     public boolean isGod() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().isGod;
+        return getData().f13696e;
+    }
+
+    public boolean isSucc() {
+        if (getData() == null || !(getData() instanceof a)) {
+            return false;
+        }
+        return getData().f13692a;
     }
 }

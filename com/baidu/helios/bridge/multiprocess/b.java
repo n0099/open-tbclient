@@ -3,37 +3,40 @@ package com.baidu.helios.bridge.multiprocess;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class b implements Parcelable {
-    public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.baidu.helios.bridge.multiprocess.b.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: bK */
-        public b[] newArray(int i) {
-            return new b[i];
-        }
+    public static final Parcelable.Creator<b> CREATOR = new a();
 
+    /* renamed from: a  reason: collision with root package name */
+    public IBinder f6197a;
+
+    /* loaded from: classes2.dex */
+    public static class a implements Parcelable.Creator<b> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: e */
+        /* renamed from: a */
         public b createFromParcel(Parcel parcel) {
             return new b(parcel);
         }
-    };
 
-    /* renamed from: a  reason: collision with root package name */
-    private IBinder f1830a;
-
-    public b(IBinder iBinder) {
-        this.f1830a = iBinder;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: b */
+        public b[] newArray(int i) {
+            return new b[i];
+        }
     }
 
-    protected b(Parcel parcel) {
-        this.f1830a = parcel.readStrongBinder();
+    public b(IBinder iBinder) {
+        this.f6197a = iBinder;
+    }
+
+    public b(Parcel parcel) {
+        this.f6197a = parcel.readStrongBinder();
     }
 
     public IBinder a() {
-        return this.f1830a;
+        return this.f6197a;
     }
 
     @Override // android.os.Parcelable
@@ -43,6 +46,6 @@ public class b implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeStrongBinder(this.f1830a);
+        parcel.writeStrongBinder(this.f6197a);
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.idl.authority;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class AlgorithmOnMainThreadException extends RuntimeException {
-    private static final long serialVersionUID = 1;
+    public static final long serialVersionUID = 1;
 }

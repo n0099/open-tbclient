@@ -1,5 +1,5 @@
 package com.qq.e.ads.nativ;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface VideoPreloadListener {
     void onVideoCacheFailed(int i, String str);
 

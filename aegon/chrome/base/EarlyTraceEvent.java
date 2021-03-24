@@ -7,18 +7,17 @@ import android.os.Process;
 import android.os.SystemClock;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class EarlyTraceEvent {
     public static List<AsyncEvent> sAsyncEvents;
     public static boolean sCachedBackgroundStartupTracingFlag;
     public static List<Event> sCompletedEvents;
+    public static final Object sLock = new Object();
     public static List<String> sPendingAsyncEvents;
     public static Map<String, Event> sPendingEventByKey;
-    public static final Object sLock = new Object();
-    public static volatile int sState = 0;
+    public static volatile int sState;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class AsyncEvent {
         public final long mId;
         public final boolean mIsStart;
@@ -26,10 +25,9 @@ public class EarlyTraceEvent {
         public final long mTimestampNanos;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Event {
-        public static final /* synthetic */ boolean $assertionsDisabled = !EarlyTraceEvent.class.desiredAssertionStatus();
+        public static final /* synthetic */ boolean $assertionsDisabled = false;
         public long mEndThreadTimeMillis;
         public long mEndTimeNanos;
         public final String mName;
@@ -43,7 +41,7 @@ public class EarlyTraceEvent {
 
         @SuppressLint({"NewApi"})
         public static long elapsedRealtimeNanos() {
-            return Build.VERSION.SDK_INT >= 17 ? SystemClock.elapsedRealtimeNanos() : SystemClock.elapsedRealtime() * com.baidu.searchbox.v8engine.util.TimeUtils.NANOS_PER_MS;
+            return Build.VERSION.SDK_INT >= 17 ? SystemClock.elapsedRealtimeNanos() : SystemClock.elapsedRealtime() * 1000000;
         }
     }
 
@@ -52,10 +50,16 @@ public class EarlyTraceEvent {
             Event event = new Event(str);
             synchronized (sLock) {
                 if (enabled()) {
-                    Event put = sPendingEventByKey.put(str + "@" + Process.myTid(), event);
-                    if (put != null) {
-                        throw new IllegalArgumentException("Multiple pending trace events can't have the same name: " + str);
+                    Map<String, Event> map = sPendingEventByKey;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(str);
+                    sb.append("@");
+                    sb.append(Process.myTid());
+                    Event put = map.put(sb.toString(), event);
+                    if (put == null) {
+                        return;
                     }
+                    throw new IllegalArgumentException("Multiple pending trace events can't have the same name: " + str);
                 }
             }
         }
@@ -78,7 +82,12 @@ public class EarlyTraceEvent {
         if (isActive()) {
             synchronized (sLock) {
                 if (isActive()) {
-                    Event remove = sPendingEventByKey.remove(str + "@" + Process.myTid());
+                    Map<String, Event> map = sPendingEventByKey;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(str);
+                    sb.append("@");
+                    sb.append(Process.myTid());
+                    Event remove = map.remove(sb.toString());
                     if (remove == null) {
                         return;
                     }

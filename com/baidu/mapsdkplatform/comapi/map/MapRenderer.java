@@ -4,26 +4,38 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MapRenderer implements GLSurfaceView.Renderer {
-    private static final String d = MapRenderer.class.getSimpleName();
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f7558d = MapRenderer.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2212a;
-    public int b;
-    public int c;
-    private long e;
-    private a f;
-    private final j g;
+    public int f7559a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public int f7560b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f7561c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f7562e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public a f7563f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final j f7564g;
+
+    /* loaded from: classes2.dex */
     public interface a {
         void f();
     }
 
     public MapRenderer(j jVar, a aVar) {
-        this.f = aVar;
-        this.g = jVar;
+        this.f7563f = aVar;
+        this.f7564g = jVar;
     }
 
     private void a(GL10 gl10) {
@@ -32,7 +44,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     }
 
     private boolean a() {
-        return this.e != 0;
+        return this.f7562e != 0;
     }
 
     public static native void nativeInit(long j);
@@ -42,7 +54,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     public static native void nativeResize(long j, int i, int i2);
 
     public void a(long j) {
-        this.e = j;
+        this.f7562e = j;
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -51,49 +63,51 @@ public class MapRenderer implements GLSurfaceView.Renderer {
             a(gl10);
             return;
         }
-        if (this.c <= 1) {
-            nativeResize(this.e, this.f2212a, this.b);
-            this.c++;
+        if (this.f7561c <= 1) {
+            nativeResize(this.f7562e, this.f7559a, this.f7560b);
+            this.f7561c++;
         }
-        this.f.f();
-        int nativeRender = nativeRender(this.e);
-        if (this.g.a() != null) {
-            if (this.g.a().h != null) {
-                for (l lVar : this.g.a().h) {
-                    if (this.g.a() == null) {
-                        return;
-                    }
-                    ab I = this.g.a().I();
-                    if (lVar != null) {
-                        lVar.a(gl10, I);
-                    }
+        this.f7563f.f();
+        int nativeRender = nativeRender(this.f7562e);
+        if (this.f7564g.a() == null) {
+            return;
+        }
+        if (this.f7564g.a().f7618h != null) {
+            for (l lVar : this.f7564g.a().f7618h) {
+                if (this.f7564g.a() == null) {
+                    return;
+                }
+                ab I = this.f7564g.a().I();
+                if (lVar != null) {
+                    lVar.a(gl10, I);
                 }
             }
-            j jVar = this.g;
-            if (nativeRender == 1) {
-                jVar.requestRender();
-            } else if (this.g.a().b()) {
-                if (jVar.getRenderMode() != 1) {
-                    jVar.setRenderMode(1);
-                }
-            } else if (jVar.getRenderMode() != 0) {
-                jVar.setRenderMode(0);
+        }
+        j jVar = this.f7564g;
+        if (nativeRender == 1) {
+            jVar.requestRender();
+        } else if (jVar.a().b()) {
+            if (jVar.getRenderMode() != 1) {
+                jVar.setRenderMode(1);
             }
+        } else if (jVar.getRenderMode() != 0) {
+            jVar.setRenderMode(0);
         }
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
     public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-        if (this.e != 0) {
-            nativeResize(this.e, i, i2);
+        long j = this.f7562e;
+        if (j != 0) {
+            nativeResize(j, i, i2);
         }
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-        nativeInit(this.e);
+        nativeInit(this.f7562e);
         if (a()) {
-            this.f.f();
+            this.f7563f.f();
         }
     }
 }

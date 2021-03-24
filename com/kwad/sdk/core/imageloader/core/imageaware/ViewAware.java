@@ -9,12 +9,12 @@ import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.utils.L;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class ViewAware implements ImageAware {
     public static final String WARN_CANT_SET_BITMAP = "Can't set a bitmap into view. You should call ImageLoader on UI thread for it.";
     public static final String WARN_CANT_SET_DRAWABLE = "Can't set a drawable into view. You should call ImageLoader on UI thread for it.";
-    protected boolean checkActualViewSize;
-    protected Reference<View> viewRef;
+    public boolean checkActualViewSize;
+    public Reference<View> viewRef;
 
     public ViewAware(View view) {
         this(view, true);
@@ -31,10 +31,13 @@ public abstract class ViewAware implements ImageAware {
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public int getHeight() {
         View view = this.viewRef.get();
+        int i = 0;
         if (view != null) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-            int height = (!this.checkActualViewSize || layoutParams == null || layoutParams.height == -2) ? 0 : view.getHeight();
-            return (height > 0 || layoutParams == null) ? height : layoutParams.height;
+            if (this.checkActualViewSize && layoutParams != null && layoutParams.height != -2) {
+                i = view.getHeight();
+            }
+            return (i > 0 || layoutParams == null) ? i : layoutParams.height;
         }
         return 0;
     }
@@ -53,10 +56,13 @@ public abstract class ViewAware implements ImageAware {
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public int getWidth() {
         View view = this.viewRef.get();
+        int i = 0;
         if (view != null) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-            int width = (!this.checkActualViewSize || layoutParams == null || layoutParams.width == -2) ? 0 : view.getWidth();
-            return (width > 0 || layoutParams == null) ? width : layoutParams.width;
+            if (this.checkActualViewSize && layoutParams != null && layoutParams.width != -2) {
+                i = view.getWidth();
+            }
+            return (i > 0 || layoutParams == null) ? i : layoutParams.width;
         }
         return 0;
     }
@@ -85,7 +91,7 @@ public abstract class ViewAware implements ImageAware {
         return false;
     }
 
-    protected abstract void setImageBitmapInto(Bitmap bitmap, View view);
+    public abstract void setImageBitmapInto(Bitmap bitmap, View view);
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public boolean setImageDrawable(Drawable drawable) {
@@ -101,5 +107,5 @@ public abstract class ViewAware implements ImageAware {
         return false;
     }
 
-    protected abstract void setImageDrawableInto(Drawable drawable, View view);
+    public abstract void setImageDrawableInto(Drawable drawable, View view);
 }

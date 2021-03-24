@@ -5,39 +5,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.ViewTransition;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ViewAnimationFactory<R> implements TransitionFactory<R> {
-    private Transition<R> transition;
-    private final ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory;
+    public Transition<R> transition;
+    public final ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory;
 
-    public ViewAnimationFactory(Animation animation) {
-        this(new ConcreteViewTransitionAnimationFactory(animation));
-    }
+    /* loaded from: classes5.dex */
+    public static class ConcreteViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
+        public final Animation animation;
 
-    public ViewAnimationFactory(int i) {
-        this(new ResourceViewTransitionAnimationFactory(i));
-    }
-
-    ViewAnimationFactory(ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory) {
-        this.viewTransitionAnimationFactory = viewTransitionAnimationFactory;
-    }
-
-    @Override // com.bumptech.glide.request.transition.TransitionFactory
-    public Transition<R> build(DataSource dataSource, boolean z) {
-        if (dataSource == DataSource.MEMORY_CACHE || !z) {
-            return NoTransition.get();
-        }
-        if (this.transition == null) {
-            this.transition = new ViewTransition(this.viewTransitionAnimationFactory);
-        }
-        return this.transition;
-    }
-
-    /* loaded from: classes14.dex */
-    private static class ConcreteViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
-        private final Animation animation;
-
-        ConcreteViewTransitionAnimationFactory(Animation animation) {
+        public ConcreteViewTransitionAnimationFactory(Animation animation) {
             this.animation = animation;
         }
 
@@ -47,11 +24,11 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
         }
     }
 
-    /* loaded from: classes14.dex */
-    private static class ResourceViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
-        private final int animationId;
+    /* loaded from: classes5.dex */
+    public static class ResourceViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
+        public final int animationId;
 
-        ResourceViewTransitionAnimationFactory(int i) {
+        public ResourceViewTransitionAnimationFactory(int i) {
             this.animationId = i;
         }
 
@@ -59,5 +36,28 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
         public Animation build(Context context) {
             return AnimationUtils.loadAnimation(context, this.animationId);
         }
+    }
+
+    public ViewAnimationFactory(Animation animation) {
+        this(new ConcreteViewTransitionAnimationFactory(animation));
+    }
+
+    @Override // com.bumptech.glide.request.transition.TransitionFactory
+    public Transition<R> build(DataSource dataSource, boolean z) {
+        if (dataSource != DataSource.MEMORY_CACHE && z) {
+            if (this.transition == null) {
+                this.transition = new ViewTransition(this.viewTransitionAnimationFactory);
+            }
+            return this.transition;
+        }
+        return NoTransition.get();
+    }
+
+    public ViewAnimationFactory(int i) {
+        this(new ResourceViewTransitionAnimationFactory(i));
+    }
+
+    public ViewAnimationFactory(ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory) {
+        this.viewTransitionAnimationFactory = viewTransitionAnimationFactory;
     }
 }

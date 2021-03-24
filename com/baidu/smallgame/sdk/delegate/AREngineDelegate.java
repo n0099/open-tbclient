@@ -1,16 +1,16 @@
 package com.baidu.smallgame.sdk.delegate;
 
 import android.opengl.GLSurfaceView;
-import com.baidu.mario.a.a;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
-import com.baidu.smallgame.sdk.b.c;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import d.b.e0.a.d.c;
+import d.b.u.c.a;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public interface AREngineDelegate {
     boolean ableToDraw();
 
@@ -66,9 +66,9 @@ public interface AREngineDelegate {
 
     void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener);
 
-    void setGameRecordCallback(com.baidu.mario.a.c cVar);
+    void setGameRecordCallback(d.b.u.c.c cVar);
 
-    void setOnStuckScreenListener(com.baidu.smallgame.sdk.b.a aVar);
+    void setOnStuckScreenListener(d.b.e0.a.d.a aVar);
 
     void setPermissionProxy(PermissionProxy permissionProxy);
 
@@ -98,5 +98,5 @@ public interface AREngineDelegate {
 
     void surfaceDestroyed();
 
-    void updateSurfaceViewSize(float f, float f2);
+    void updateSurfaceViewSize(float f2, float f3);
 }

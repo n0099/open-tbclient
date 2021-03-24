@@ -1,29 +1,35 @@
 package com.pgl.sys.ces;
 
 import android.content.Context;
-import com.pgl.a.b.f;
+import d.m.a.b.f;
 /* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f7485a = 0;
-    public static long b = 3600;
-    public static long c = 0;
+    public static int f38001a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static long f38002b = 3600;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static long f38003c;
 
     public static synchronized void a(Context context) {
         synchronized (d.class) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (currentTimeMillis - c >= b) {
-                b.d = false;
-                f7485a = 0;
-                c = currentTimeMillis;
-                for (int i = 0; i < 3; i++) {
-                    if (!b.d && f7485a < 3) {
+            if (currentTimeMillis - f38003c >= f38002b) {
+                int i = 0;
+                b.f37990d = false;
+                f38001a = 0;
+                f38003c = currentTimeMillis;
+                while (i < 3) {
+                    if (!b.f37990d && f38001a < 3) {
                         b(context);
-                        f7485a++;
+                        f38001a++;
                     }
-                    f.a((i + 1) * 5000);
-                    if (b.d) {
+                    i++;
+                    f.a(i * 5000);
+                    if (b.f37990d) {
                         break;
                     }
                 }
@@ -31,7 +37,7 @@ public class d {
         }
     }
 
-    private static void b(Context context) {
-        new com.pgl.sys.ces.c.b(context, b.d()).d(2, 2, null);
+    public static void b(Context context) {
+        new d.m.b.b.c.b(context, b.d()).d(2, 2, null);
     }
 }

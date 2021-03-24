@@ -1,9 +1,9 @@
 package com.baidubce.services.vod.model;
 
 import com.baidubce.model.AbstractBceResponse;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ProcessMediaResponse extends AbstractBceResponse {
-    private String mediaId;
+    public String mediaId;
 
     public String getMediaId() {
         return this.mediaId;
@@ -14,9 +14,6 @@ public class ProcessMediaResponse extends AbstractBceResponse {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder("ProcessMediaResponse {");
-        sb.append("mediaId='").append(this.mediaId).append('\'');
-        sb.append("}\n");
-        return sb.toString();
+        return "ProcessMediaResponse {mediaId='" + this.mediaId + "'}\n";
     }
 }

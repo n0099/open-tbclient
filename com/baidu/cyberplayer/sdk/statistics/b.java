@@ -9,30 +9,33 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<c> f1470a = new ArrayList<>();
-    private c b;
+    public ArrayList<c> f5067a = new ArrayList<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f5068b;
 
     public b(Context context) {
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(context);
-        this.b = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", n.g()));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
+        c cVar = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
+        this.f5068b = cVar;
+        cVar.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
+        this.f5068b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", n.g()));
+        this.f5068b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
+        this.f5068b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
+        this.f5068b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
     }
 
     private JSONObject a(JSONObject jSONObject) throws JSONException {
-        this.b.a(jSONObject);
+        this.f5068b.a(jSONObject);
         JSONArray jSONArray = new JSONArray();
-        int size = this.f1470a.size();
+        int size = this.f5067a.size();
         for (int i = 0; i < size; i++) {
             JSONObject jSONObject2 = new JSONObject();
-            this.f1470a.get(i).a(jSONObject2);
+            this.f5067a.get(i).a(jSONObject2);
             jSONArray.put(jSONObject2);
         }
         jSONObject.put("data", jSONArray);
@@ -54,13 +57,13 @@ public class b {
 
     public void a(int i, String str, String str2) {
         if (24323 == i) {
-            this.b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
+            this.f5068b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
             return;
         }
         e eVar = new e(i, str, str2);
-        int size = this.f1470a.size();
+        int size = this.f5067a.size();
         for (int i2 = 0; i2 < size; i2++) {
-            c cVar = this.f1470a.get(i2);
+            c cVar = this.f5067a.get(i2);
             if (cVar != null && cVar.a() == i) {
                 cVar.a(eVar);
                 return;
@@ -68,7 +71,7 @@ public class b {
         }
         c cVar2 = new c(i);
         cVar2.a(eVar);
-        this.f1470a.add(cVar2);
+        this.f5067a.add(cVar2);
     }
 
     public void a(int i, HashMap<String, String> hashMap) {
@@ -90,8 +93,8 @@ public class b {
             jSONArray.put(jSONObject2);
             jSONObject.put("items", jSONArray);
             return jSONObject.toString();
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             return null;
         }
     }

@@ -13,16 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.R;
+import androidx.core.view.ViewCompat;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class ColorStateListInflaterCompat {
-    private static final int DEFAULT_COLOR = -65536;
-
-    private ColorStateListInflaterCompat() {
-    }
+    public static final int DEFAULT_COLOR = -65536;
 
     @NonNull
     public static ColorStateList createFromXml(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
@@ -34,69 +32,67 @@ public final class ColorStateListInflaterCompat {
                 break;
             }
         } while (next != 1);
-        if (next != 2) {
-            throw new XmlPullParserException("No start tag found");
+        if (next == 2) {
+            return createFromXmlInner(resources, xmlPullParser, asAttributeSet, theme);
         }
-        return createFromXmlInner(resources, xmlPullParser, asAttributeSet, theme);
+        throw new XmlPullParserException("No start tag found");
     }
 
     @NonNull
     public static ColorStateList createFromXmlInner(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         String name = xmlPullParser.getName();
-        if (!name.equals("selector")) {
-            throw new XmlPullParserException(xmlPullParser.getPositionDescription() + ": invalid color state list tag " + name);
+        if (name.equals("selector")) {
+            return inflate(resources, xmlPullParser, attributeSet, theme);
         }
-        return inflate(resources, xmlPullParser, attributeSet, theme);
+        throw new XmlPullParserException(xmlPullParser.getPositionDescription() + ": invalid color state list tag " + name);
     }
 
-    private static ColorStateList inflate(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
+    public static ColorStateList inflate(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         int depth;
-        int i;
+        int i = 1;
         int depth2 = xmlPullParser.getDepth() + 1;
         int[][] iArr = new int[20];
-        int[] iArr2 = new int[iArr.length];
+        int[] iArr2 = new int[20];
         int i2 = 0;
         while (true) {
             int next = xmlPullParser.next();
-            if (next == 1 || ((depth = xmlPullParser.getDepth()) < depth2 && next == 3)) {
+            if (next == i || ((depth = xmlPullParser.getDepth()) < depth2 && next == 3)) {
                 break;
-            } else if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
+            }
+            if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
                 TypedArray obtainAttributes = obtainAttributes(resources, theme, attributeSet, R.styleable.ColorStateListItem);
                 int color = obtainAttributes.getColor(R.styleable.ColorStateListItem_android_color, -65281);
-                float f = 1.0f;
+                float f2 = 1.0f;
                 if (obtainAttributes.hasValue(R.styleable.ColorStateListItem_android_alpha)) {
-                    f = obtainAttributes.getFloat(R.styleable.ColorStateListItem_android_alpha, 1.0f);
+                    f2 = obtainAttributes.getFloat(R.styleable.ColorStateListItem_android_alpha, 1.0f);
                 } else if (obtainAttributes.hasValue(R.styleable.ColorStateListItem_alpha)) {
-                    f = obtainAttributes.getFloat(R.styleable.ColorStateListItem_alpha, 1.0f);
+                    f2 = obtainAttributes.getFloat(R.styleable.ColorStateListItem_alpha, 1.0f);
                 }
                 obtainAttributes.recycle();
-                int i3 = 0;
                 int attributeCount = attributeSet.getAttributeCount();
                 int[] iArr3 = new int[attributeCount];
-                int i4 = 0;
-                while (i4 < attributeCount) {
+                int i3 = 0;
+                for (int i4 = 0; i4 < attributeCount; i4++) {
                     int attributeNameResource = attributeSet.getAttributeNameResource(i4);
-                    if (attributeNameResource == 16843173 || attributeNameResource == 16843551 || attributeNameResource == R.attr.alpha) {
-                        i = i3;
-                    } else {
+                    if (attributeNameResource != 16843173 && attributeNameResource != 16843551 && attributeNameResource != R.attr.alpha) {
                         int i5 = i3 + 1;
                         if (!attributeSet.getAttributeBooleanValue(i4, false)) {
                             attributeNameResource = -attributeNameResource;
                         }
                         iArr3[i3] = attributeNameResource;
-                        i = i5;
+                        i3 = i5;
                     }
-                    i4++;
-                    i3 = i;
                 }
                 int[] trimStateSet = StateSet.trimStateSet(iArr3, i3);
-                int modulateColorAlpha = modulateColorAlpha(color, f);
-                if (i2 == 0 || trimStateSet.length == 0) {
+                int modulateColorAlpha = modulateColorAlpha(color, f2);
+                if (i2 != 0) {
+                    int length = trimStateSet.length;
                 }
                 iArr2 = GrowingArrayUtils.append(iArr2, i2, modulateColorAlpha);
-                i2++;
                 iArr = (int[][]) GrowingArrayUtils.append(iArr, i2, trimStateSet);
+                i2++;
             }
+            i = 1;
         }
         int[] iArr4 = new int[i2];
         int[][] iArr5 = new int[i2];
@@ -105,12 +101,15 @@ public final class ColorStateListInflaterCompat {
         return new ColorStateList(iArr5, iArr4);
     }
 
-    private static TypedArray obtainAttributes(Resources resources, Resources.Theme theme, AttributeSet attributeSet, int[] iArr) {
-        return theme == null ? resources.obtainAttributes(attributeSet, iArr) : theme.obtainStyledAttributes(attributeSet, iArr, 0, 0);
+    @ColorInt
+    public static int modulateColorAlpha(@ColorInt int i, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        return (i & ViewCompat.MEASURED_SIZE_MASK) | (Math.round(Color.alpha(i) * f2) << 24);
     }
 
-    @ColorInt
-    private static int modulateColorAlpha(@ColorInt int i, @FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return (Math.round(Color.alpha(i) * f) << 24) | (16777215 & i);
+    public static TypedArray obtainAttributes(Resources resources, Resources.Theme theme, AttributeSet attributeSet, int[] iArr) {
+        if (theme == null) {
+            return resources.obtainAttributes(attributeSet, iArr);
+        }
+        return theme.obtainStyledAttributes(attributeSet, iArr, 0, 0);
     }
 }

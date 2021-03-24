@@ -6,19 +6,14 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.cookie.SM;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class GroupBaseHttpRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
-        hashMap.put(SM.COOKIE, "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
+        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        hashMap.put("Cookie", "BDUSS=" + bduss);
         return hashMap;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        return "POST";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -30,17 +25,24 @@ public abstract class GroupBaseHttpRequest extends BaseHttpRequest {
     }
 
     public String getHostUrl() {
-        switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
-            case 0:
-                return "https://pim.baidu.com/";
-            case 1:
-                return "http://rd-im-server.bcc-szth.baidu.com:8080/";
-            case 2:
+        int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
+        if (readIntData != 0) {
+            if (readIntData != 1) {
+                if (readIntData != 2) {
+                    if (readIntData != 3) {
+                        return null;
+                    }
+                    return Constants.URL_HTTP_BOX;
+                }
                 return Constants.URL_HTTP_QA;
-            case 3:
-                return Constants.URL_HTTP_BOX;
-            default:
-                return null;
+            }
+            return "http://rd-im-server.bcc-szth.baidu.com:8080/";
         }
+        return "https://pim.baidu.com/";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        return "POST";
     }
 }

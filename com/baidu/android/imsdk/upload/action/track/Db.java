@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.upload.action.track;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Db {
     public String action;
     public long aliasId;

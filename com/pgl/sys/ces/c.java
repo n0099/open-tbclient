@@ -1,16 +1,15 @@
 package com.pgl.sys.ces;
 
 import android.content.Context;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.security.MessageDigest;
 import java.util.Calendar;
 /* loaded from: classes6.dex */
 public final class c {
     public static String a() {
         try {
-            Context applicationContext = b.a().b != null ? b.a().b : com.pgl.sys.ces.a.a.eDQ().getApplicationContext();
-            return com.pgl.a.b.a.a(MessageDigest.getInstance("SHA1").digest(applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 64).signatures[0].toByteArray())).toUpperCase();
-        } catch (Throwable th) {
+            Context applicationContext = b.a().f37994b != null ? b.a().f37994b : d.m.b.b.a.a.d().getApplicationContext();
+            return d.m.a.b.a.a(MessageDigest.getInstance("SHA1").digest(applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 64).signatures[0].toByteArray())).toUpperCase();
+        } catch (Throwable unused) {
             return "0000000000000000000000000000000000000000";
         }
     }
@@ -18,10 +17,11 @@ public final class c {
     public static String a(String str) {
         int timeInMillis = (int) (Calendar.getInstance().getTimeInMillis() / 1000);
         b.a();
-        String b = b.b();
+        String b2 = b.b();
+        String c2 = b.c();
         try {
-            return com.pgl.a.b.a.a((byte[]) a.meta(601, null, (str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + b.c() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + timeInMillis).getBytes()));
-        } catch (Throwable th) {
+            return d.m.a.b.a.a((byte[]) a.meta(601, null, (str + "_" + b2 + "_" + c2 + "_" + timeInMillis).getBytes()));
+        } catch (Throwable unused) {
             return "";
         }
     }

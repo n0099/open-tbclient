@@ -2,24 +2,24 @@ package org.webrtc.audio;
 
 import android.content.Context;
 import android.media.AudioManager;
-import com.baidu.rtc.b.e;
+import com.baidu.rtc.logreport.SLIReportInterface;
 import org.webrtc.JniCommon;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class JavaAudioDeviceModule implements AudioDeviceModule {
-    private static final String TAG = "JavaAudioDeviceModule";
-    private final WebRtcAudioRecord audioInput;
-    private final AudioManager audioManager;
-    private final WebRtcAudioTrack audioOutput;
-    private final Context context;
-    private long nativeAudioDeviceModule;
-    private final Object nativeLock;
-    private final int sampleRate;
-    private e stuckEvent;
-    private final boolean useStereoInput;
-    private final boolean useStereoOutput;
+    public static final String TAG = "JavaAudioDeviceModule";
+    public final WebRtcAudioRecord audioInput;
+    public final AudioManager audioManager;
+    public final WebRtcAudioTrack audioOutput;
+    public final Context context;
+    public long nativeAudioDeviceModule;
+    public final Object nativeLock;
+    public final int sampleRate;
+    public SLIReportInterface stuckEvent;
+    public final boolean useStereoInput;
+    public final boolean useStereoOutput;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface AudioRecordErrorCallback {
         void onWebRtcAudioRecordError(String str);
 
@@ -28,18 +28,18 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         void onWebRtcAudioRecordStartError(AudioRecordStartErrorCode audioRecordStartErrorCode, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum AudioRecordStartErrorCode {
         AUDIO_RECORD_START_EXCEPTION,
         AUDIO_RECORD_START_STATE_MISMATCH
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class AudioSamples {
-        private final int audioFormat;
-        private final int channelCount;
-        private final byte[] data;
-        private final int sampleRate;
+        public final int audioFormat;
+        public final int channelCount;
+        public final byte[] data;
+        public final int sampleRate;
 
         public AudioSamples(int i, int i2, int i3, byte[] bArr) {
             this.audioFormat = i;
@@ -65,7 +65,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface AudioTrackErrorCallback {
         void onWebRtcAudioTrackError(String str);
 
@@ -74,55 +74,60 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         void onWebRtcAudioTrackStartError(AudioTrackStartErrorCode audioTrackStartErrorCode, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum AudioTrackStartErrorCode {
         AUDIO_TRACK_START_EXCEPTION,
         AUDIO_TRACK_START_STATE_MISMATCH
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
-        private final AudioManager audioManager;
-        private AudioRecordErrorCallback audioRecordErrorCallback;
-        private int audioSource;
-        private AudioTrackErrorCallback audioTrackErrorCallback;
-        private final Context context;
-        private boolean externalRecord;
-        private RemoteSamplesReadyCallback remoteSamplesReadyCallback;
-        private int sampleRate;
-        private SamplesReadyCallback samplesReadyCallback;
-        private boolean useHardwareAcousticEchoCanceler;
-        private boolean useHardwareNoiseSuppressor;
-        private boolean useStereoInput;
-        private boolean useStereoOutput;
+        public final AudioManager audioManager;
+        public AudioRecordErrorCallback audioRecordErrorCallback;
+        public int audioSource;
+        public AudioTrackErrorCallback audioTrackErrorCallback;
+        public final Context context;
+        public boolean externalRecord;
+        public RemoteSamplesReadyCallback remoteSamplesReadyCallback;
+        public int sampleRate;
+        public SamplesReadyCallback samplesReadyCallback;
+        public boolean useHardwareAcousticEchoCanceler;
+        public boolean useHardwareNoiseSuppressor;
+        public boolean useStereoInput;
+        public boolean useStereoOutput;
 
-        private Builder(Context context) {
+        public Builder(Context context) {
             this.audioSource = 7;
             this.useHardwareAcousticEchoCanceler = JavaAudioDeviceModule.isBuiltInAcousticEchoCancelerSupported();
             this.useHardwareNoiseSuppressor = JavaAudioDeviceModule.isBuiltInNoiseSuppressorSupported();
             this.context = context;
-            this.audioManager = (AudioManager) context.getSystemService("audio");
-            this.sampleRate = WebRtcAudioManager.getSampleRate(this.audioManager);
+            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+            this.audioManager = audioManager;
+            this.sampleRate = WebRtcAudioManager.getSampleRate(audioManager);
         }
 
         public AudioDeviceModule createAudioDeviceModule() {
+            String str;
+            String str2;
             Logging.d(JavaAudioDeviceModule.TAG, "createAudioDeviceModule");
             if (this.useHardwareNoiseSuppressor) {
-                Logging.d(JavaAudioDeviceModule.TAG, "HW NS will be used.");
+                str = "HW NS will be used.";
             } else {
                 if (JavaAudioDeviceModule.isBuiltInNoiseSuppressorSupported()) {
                     Logging.d(JavaAudioDeviceModule.TAG, "Overriding default behavior; now using WebRTC NS!");
                 }
-                Logging.d(JavaAudioDeviceModule.TAG, "HW NS will not be used.");
+                str = "HW NS will not be used.";
             }
+            Logging.d(JavaAudioDeviceModule.TAG, str);
             if (this.useHardwareAcousticEchoCanceler) {
-                Logging.d(JavaAudioDeviceModule.TAG, "HW AEC will be used.");
+                str2 = "HW AEC will be used.";
             } else {
                 if (JavaAudioDeviceModule.isBuiltInAcousticEchoCancelerSupported()) {
                     Logging.d(JavaAudioDeviceModule.TAG, "Overriding default behavior; now using WebRTC AEC!");
                 }
-                Logging.d(JavaAudioDeviceModule.TAG, "HW AEC will not be used.");
+                str2 = "HW AEC will not be used.";
             }
+            Logging.d(JavaAudioDeviceModule.TAG, str2);
             return new JavaAudioDeviceModule(this.context, this.audioManager, new WebRtcAudioRecord(this.context, this.audioManager, this.audioSource, this.externalRecord, this.audioRecordErrorCallback, this.samplesReadyCallback, this.useHardwareAcousticEchoCanceler, this.useHardwareNoiseSuppressor), new WebRtcAudioTrack(this.context, this.audioManager, this.remoteSamplesReadyCallback, this.audioTrackErrorCallback), this.sampleRate, this.useStereoInput, this.useStereoOutput);
         }
 
@@ -191,22 +196,22 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface ExternalSamplesReadyCallback {
         void onWebRtcAudioExternalSamplesReady(AudioSamples audioSamples);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface RemoteSamplesReadyCallback {
         void onWebRtcAudioRemoteSamplesReady(AudioSamples audioSamples);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface SamplesReadyCallback {
         void onWebRtcAudioRecordSamplesReady(AudioSamples audioSamples);
     }
 
-    private JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i, boolean z, boolean z2) {
+    public JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i, boolean z, boolean z2) {
         this.nativeLock = new Object();
         this.stuckEvent = null;
         this.context = context;
@@ -230,7 +235,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         return WebRtcAudioEffects.isNoiseSuppressorSupported();
     }
 
-    private static native long nativeCreateAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i, boolean z, boolean z2);
+    public static native long nativeCreateAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i, boolean z, boolean z2);
 
     public ExternalSamplesReadyCallback getExternalSamplesReadyCallback() {
         return this.audioInput.getExternalSamplesCallback();
@@ -274,10 +279,11 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         this.audioOutput.setSpeakerMute(z);
     }
 
-    public void setStuckEventListener(e eVar) {
-        this.stuckEvent = eVar;
-        if (this.audioOutput != null) {
-            this.audioOutput.setStuckEventListener(eVar);
+    public void setStuckEventListener(SLIReportInterface sLIReportInterface) {
+        this.stuckEvent = sLIReportInterface;
+        WebRtcAudioTrack webRtcAudioTrack = this.audioOutput;
+        if (webRtcAudioTrack != null) {
+            webRtcAudioTrack.setStuckEventListener(sLIReportInterface);
         }
     }
 }

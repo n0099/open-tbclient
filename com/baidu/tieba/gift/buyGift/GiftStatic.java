@@ -6,10 +6,8 @@ import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tieba.gift.giftTab.GiftTabActivity;
 import com.baidu.tieba.gift.myGiftList.MyGiftListActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class GiftStatic {
-    public static String Tag = "tag";
-
     static {
         TbadkApplication.getInst().RegisterIntent(MyGiftListActivityConfig.class, MyGiftListActivity.class);
         TbadkApplication.getInst().RegisterIntent(BuyGiftActivityConfig.class, BuyGiftActivity.class);

@@ -7,7 +7,7 @@ import aegon.chrome.net.UrlRequest;
 import androidx.annotation.Nullable;
 import java.util.Collection;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class CronetEngineBase extends ExperimentalCronetEngine {
     public abstract UrlRequestBase createRequest(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, @Nullable RequestFinishedInfo.Listener listener);
 

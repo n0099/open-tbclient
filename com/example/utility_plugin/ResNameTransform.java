@@ -1,10 +1,10 @@
 package com.example.utility_plugin;
 
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class ResNameTransform {
-    private static HashMap<String, String> platformImageNameMap = new HashMap<>();
-    private static HashMap<String, String> assetsImageNameMap = new HashMap<>();
+    public static HashMap<String, String> platformImageNameMap = new HashMap<>();
+    public static HashMap<String, String> assetsImageNameMap = new HashMap<>();
 
     static {
         platformImageNameMap.put("full_screen_loading", "lottie_full_screen_refresh");
@@ -15,14 +15,14 @@ public class ResNameTransform {
         assetsImageNameMap.put("lottie_portrait_live", "live/personcenter_live_bg.json");
     }
 
-    public static String getAndroidNameFromIos(String str) {
-        return platformImageNameMap.containsKey(str) ? platformImageNameMap.get(str) : str;
-    }
-
     public static String getAndroidAssetsNameFromIos(String str) {
         if (assetsImageNameMap.containsKey(str)) {
             return assetsImageNameMap.get(str);
         }
         return null;
+    }
+
+    public static String getAndroidNameFromIos(String str) {
+        return platformImageNameMap.containsKey(str) ? platformImageNameMap.get(str) : str;
     }
 }

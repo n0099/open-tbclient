@@ -4,21 +4,20 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
-    protected static final String DEFAULT_CHARSET = "UTF-8";
-    protected static final int FAILURE_MESSAGE = 1;
-    protected static final int FINISH_MESSAGE = 3;
-    protected static final int START_MESSAGE = 2;
-    protected static final int SUCCESS_MESSAGE = 0;
-    protected boolean executCallbackInChildThread;
-    protected String mDefaultCharset;
+    public static final String DEFAULT_CHARSET = "UTF-8";
+    public static final int FAILURE_MESSAGE = 1;
+    public static final int FINISH_MESSAGE = 3;
+    public static final int START_MESSAGE = 2;
+    public static final int SUCCESS_MESSAGE = 0;
+    public boolean executCallbackInChildThread;
+    public String mDefaultCharset;
 
     public HttpResponseHandler() {
         this("UTF-8");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         if (this.executCallbackInChildThread) {
             onFinish();
@@ -27,7 +26,6 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
         if (this.executCallbackInChildThread) {
             onStart();
@@ -36,7 +34,7 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         }
     }
 
-    void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
+    public void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
         if (this.executCallbackInChildThread) {
             onSuccess(i, bArr == null ? null : new String(bArr), hashMap);
         } else {
@@ -46,39 +44,34 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        switch (message.what) {
-            case 0:
-                Object[] objArr = (Object[]) message.obj;
-                a(((Integer) objArr[0]).intValue(), (HashMap) objArr[1], (byte[]) objArr[2]);
-                return;
-            case 1:
-                Object[] objArr2 = (Object[]) message.obj;
-                a((Throwable) objArr2[0], (String) objArr2[1]);
-                return;
-            case 2:
-                onStart();
-                return;
-            case 3:
-                onFinish();
-                return;
-            default:
-                return;
+        int i = message.what;
+        if (i == 0) {
+            Object[] objArr = (Object[]) message.obj;
+            a(((Integer) objArr[0]).intValue(), (HashMap) objArr[1], (byte[]) objArr[2]);
+        } else if (i == 1) {
+            Object[] objArr2 = (Object[]) message.obj;
+            a((Throwable) objArr2[0], (String) objArr2[1]);
+        } else if (i == 2) {
+            onStart();
+        } else if (i != 3) {
+        } else {
+            onFinish();
         }
     }
 
-    protected void onFailure(Throwable th, String str) {
+    public void onFailure(Throwable th, String str) {
     }
 
-    protected void onFinish() {
+    public void onFinish() {
     }
 
-    protected void onStart() {
+    public void onStart() {
     }
 
-    protected void onSuccess(int i, String str) {
+    public void onSuccess(int i, String str) {
     }
 
-    protected void onSuccess(int i, String str, HashMap<String, String> hashMap) {
+    public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
         onSuccess(i, str);
     }
 
@@ -90,7 +83,10 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         this(looper, false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(int i, HashMap<String, String> hashMap, byte[] bArr) {
+        onSuccess(i, bArr == null ? null : new String(bArr), hashMap);
+    }
+
     public void b(Throwable th, String str) {
         if (this.executCallbackInChildThread) {
             onFailure(th, str);
@@ -105,16 +101,10 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         this.mDefaultCharset = "UTF-8";
     }
 
-    void a(int i, HashMap<String, String> hashMap, byte[] bArr) {
-        onSuccess(i, bArr == null ? null : new String(bArr), hashMap);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Throwable th, String str) {
         onFailure(th, str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b(int i, HashMap<String, String> hashMap, byte[] bArr) {
         if (i == 200) {
             c(i, hashMap, bArr);

@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TubeProfileResultData extends BaseResultData implements b {
-    private static final long serialVersionUID = 4200733339719277993L;
+    public static final long serialVersionUID = 4200733339719277993L;
     public SceneImpl mSceneImpl;
     public TubeProfile tubeProfile = new TubeProfile();
     public List<TubeProfile> trendList = new ArrayList();
@@ -50,8 +50,8 @@ public class TubeProfileResultData extends BaseResultData implements b {
                     this.trendList.add(tubeProfile);
                 }
             }
-        } catch (Exception e) {
-            a.a(e);
+        } catch (Exception e2) {
+            a.a(e2);
         }
     }
 

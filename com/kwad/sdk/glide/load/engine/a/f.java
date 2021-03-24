@@ -1,13 +1,12 @@
 package com.kwad.sdk.glide.load.engine.a;
 
 import android.content.Context;
-import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.kwad.sdk.glide.load.engine.a.d;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class f extends d {
     public f(Context context) {
-        this(context, DiskCache.Factory.DEFAULT_DISK_CACHE_DIR, 262144000L);
+        this(context, "image_manager_disk_cache", 262144000L);
     }
 
     public f(final Context context, final String str, long j) {

@@ -4,9 +4,13 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface ISchemeIoc {
     public static final ISchemeIoc EMPTY = new ISchemeIoc() { // from class: com.baidu.searchbox.unitedscheme.security.ISchemeIoc.1
+        @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+        public void doStatistic(String str, String str2) {
+        }
+
         @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
         public boolean needShowConfirmWindow(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             return false;
@@ -14,10 +18,6 @@ public interface ISchemeIoc {
 
         @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
         public void showConfirmDialog(Context context, UnitedSchemeBaseDispatcher.ConfirmDialogCallback confirmDialogCallback) {
-        }
-
-        @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-        public void doStatistic(String str, String str2) {
         }
 
         @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc

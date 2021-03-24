@@ -2,47 +2,45 @@ package com.baidu.sapi2.views;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.j.a.a;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
+import com.google.protobuf.CodedInputStream;
+import d.b.a0.a.b;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ViewUtility implements NoProguard {
 
-    /* loaded from: classes3.dex */
-    static class a implements View.OnTouchListener {
+    /* loaded from: classes2.dex */
+    public static class a implements View.OnTouchListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ float f3482a;
+        public final /* synthetic */ float f11583a;
 
-        a(float f) {
-            this.f3482a = f;
+        public a(float f2) {
+            this.f11583a = f2;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             int action = motionEvent.getAction();
-            if (action == 0) {
-                if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.f3482a);
-                    return false;
-                }
-                return false;
-            } else if (action != 1) {
-                if (action == 3 && Build.VERSION.SDK_INT >= 11) {
+            if (action != 0) {
+                if ((action == 1 || action == 3) && Build.VERSION.SDK_INT >= 11) {
                     view.setAlpha(1.0f);
                     return false;
                 }
                 return false;
             } else if (Build.VERSION.SDK_INT >= 11) {
-                view.setAlpha(1.0f);
+                view.setAlpha(this.f11583a);
                 return false;
             } else {
                 return false;
@@ -50,7 +48,7 @@ public class ViewUtility implements NoProguard {
         }
     }
 
-    private static boolean a(Activity activity, boolean z) {
+    public static boolean a(Activity activity, boolean z) {
         try {
             WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
             Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
@@ -59,18 +57,18 @@ public class ViewUtility implements NoProguard {
             declaredField2.setAccessible(true);
             int i = declaredField.getInt(null);
             int i2 = declaredField2.getInt(attributes);
-            declaredField2.setInt(attributes, z ? i | i2 : (i ^ (-1)) & i2);
+            declaredField2.setInt(attributes, z ? i2 | i : (i ^ (-1)) & i2);
             activity.getWindow().setAttributes(attributes);
             return true;
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return false;
         }
     }
 
-    private static boolean b(Activity activity, boolean z) {
+    public static boolean b(Activity activity, boolean z) {
         Window window = activity.getWindow();
         window.addFlags(Integer.MIN_VALUE);
-        window.clearFlags(67108864);
+        window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
         window.getDecorView().setSystemUiVisibility(8192);
         Class<?> cls = activity.getWindow().getClass();
         try {
@@ -83,57 +81,102 @@ public class ViewUtility implements NoProguard {
             objArr[1] = Integer.valueOf(i);
             method.invoke(window2, objArr);
             return true;
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return false;
         }
     }
 
     public static void dismissDialog(Activity activity, Dialog dialog) {
         if (activity != null) {
-            if (dialog != null && !activity.isFinishing() && dialog.isShowing()) {
-                try {
-                    dialog.dismiss();
-                    return;
-                } catch (Exception e) {
-                    Log.e(e);
-                    return;
-                }
+            if (dialog == null || activity.isFinishing() || !dialog.isShowing()) {
+                return;
             }
-            return;
+            try {
+                dialog.dismiss();
+                return;
+            } catch (Exception e2) {
+                Log.e(e2);
+                return;
+            }
         }
         throw new IllegalArgumentException("Activity must not be null");
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:17:0x002f A[Catch: Exception -> 0x007c, TryCatch #0 {Exception -> 0x007c, blocks: (B:5:0x0007, B:15:0x002b, B:17:0x002f, B:18:0x003a, B:19:0x0040, B:21:0x0046, B:22:0x0049, B:25:0x0060, B:26:0x006a), top: B:31:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x003a A[Catch: Exception -> 0x007c, TryCatch #0 {Exception -> 0x007c, blocks: (B:5:0x0007, B:15:0x002b, B:17:0x002f, B:18:0x003a, B:19:0x0040, B:21:0x0046, B:22:0x0049, B:25:0x0060, B:26:0x006a), top: B:31:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0046 A[Catch: Exception -> 0x007c, TryCatch #0 {Exception -> 0x007c, blocks: (B:5:0x0007, B:15:0x002b, B:17:0x002f, B:18:0x003a, B:19:0x0040, B:21:0x0046, B:22:0x0049, B:25:0x0060, B:26:0x006a), top: B:31:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x005e  */
+    /* JADX WARN: Removed duplicated region for block: B:32:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void enableStatusBarTint(Activity activity, int i) {
-        int i2;
-        if (Build.VERSION.SDK_INT >= 21) {
-            try {
-                boolean z = SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode;
-                if (!z) {
-                    i2 = i;
-                } else if (Build.VERSION.SDK_INT < 23) {
-                    i2 = activity.getResources().getColor(a.b.sapi_sdk_dark_mode_title_color);
-                } else {
-                    i2 = activity.getColor(a.b.sapi_sdk_dark_mode_title_color);
+        boolean z;
+        if (Build.VERSION.SDK_INT < 21) {
+            return;
+        }
+        try {
+            boolean z2 = SapiAccountManager.getInstance().getConfignation().isNightMode;
+            boolean z3 = SapiAccountManager.getInstance().getConfignation().isDarkMode;
+            if (!z2 && !z3) {
+                z = false;
+                if (z && -1 == i) {
+                    if (Build.VERSION.SDK_INT >= 23) {
+                        i = activity.getResources().getColor(b.sapi_sdk_dark_mode_title_color);
+                    } else {
+                        i = activity.getColor(b.sapi_sdk_dark_mode_title_color);
+                    }
                 }
                 if (!b(activity, true)) {
                     a(activity, true);
                 }
                 Window window = activity.getWindow();
                 window.addFlags(Integer.MIN_VALUE);
-                window.clearFlags(67108864);
-                window.setStatusBarColor(i2);
-                if (Build.VERSION.SDK_INT >= 23) {
+                window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                window.setStatusBarColor(i);
+                if (Build.VERSION.SDK_INT < 23) {
                     if (!z) {
                         window.getDecorView().setSystemUiVisibility(9216);
-                    } else {
-                        window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() & (-8193));
+                        return;
                     }
+                    window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() & (-8193));
+                    return;
                 }
-            } catch (Exception e) {
-                Log.e(e);
+                return;
             }
+            z = true;
+            if (z) {
+                if (Build.VERSION.SDK_INT >= 23) {
+                }
+            }
+            if (!b(activity, true)) {
+            }
+            Window window2 = activity.getWindow();
+            window2.addFlags(Integer.MIN_VALUE);
+            window2.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window2.setStatusBarColor(i);
+            if (Build.VERSION.SDK_INT < 23) {
+            }
+        } catch (Exception e2) {
+            Log.e(e2);
         }
+    }
+
+    public static int getStatusBarHeight(Context context) {
+        int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (identifier > 0) {
+            return context.getResources().getDimensionPixelSize(identifier);
+        }
+        return 0;
+    }
+
+    public static void newLoginStatusBarTint(Activity activity) {
+        activity.getWindow();
+        if (!b(activity, true)) {
+            a(activity, true);
+        }
+        setTranslucentStatus(activity);
+        setRootViewFitsSystemWindows(activity, false);
     }
 
     public static void setOnClickListener(View view, View.OnClickListener onClickListener) {
@@ -143,10 +186,64 @@ public class ViewUtility implements NoProguard {
         view.setOnClickListener(onClickListener);
     }
 
-    public static void setViewClickAlpha(View view, float f) {
+    public static void setOrientationToUndefined(Activity activity) {
+        if (Build.VERSION.SDK_INT != 26) {
+            return;
+        }
+        try {
+            Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+            declaredField.setAccessible(true);
+            ((ActivityInfo) declaredField.get(activity)).screenOrientation = -1;
+            declaredField.setAccessible(false);
+        } catch (Throwable th) {
+            Log.e(th);
+        }
+    }
+
+    public static void setRootViewFitsSystemWindows(Activity activity, boolean z) {
+        ViewGroup viewGroup;
+        if (Build.VERSION.SDK_INT >= 19) {
+            ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
+            if (viewGroup2.getChildCount() <= 0 || (viewGroup = (ViewGroup) viewGroup2.getChildAt(0)) == null) {
+                return;
+            }
+            viewGroup.setFitsSystemWindows(z);
+        }
+    }
+
+    public static void setTranslucentStatus(Activity activity) {
+        int i;
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 < 21) {
+            if (i2 >= 19) {
+                Window window = activity.getWindow();
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
+                window.setAttributes(attributes);
+                return;
+            }
+            return;
+        }
+        Window window2 = activity.getWindow();
+        View decorView = window2.getDecorView();
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!(SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode)) {
+                i = 9472;
+                decorView.setSystemUiVisibility(i);
+                window2.addFlags(Integer.MIN_VALUE);
+                window2.setStatusBarColor(0);
+            }
+        }
+        i = 1280;
+        decorView.setSystemUiVisibility(i);
+        window2.addFlags(Integer.MIN_VALUE);
+        window2.setStatusBarColor(0);
+    }
+
+    public static void setViewClickAlpha(View view, float f2) {
         if (view == null) {
             return;
         }
-        view.setOnTouchListener(new a(f));
+        view.setOnTouchListener(new a(f2));
     }
 }

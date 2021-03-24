@@ -5,26 +5,17 @@ import com.baidu.searchbox.elasticthread.executor.SerialExecutorCell;
 import com.baidu.searchbox.elasticthread.queue.ElasticQueue;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SerialManager implements Recordable {
-    private ElasticQueue mElasticQueue = new ElasticQueue();
-    private BaseExecutorCell mCurrentWorkingExecutor = BaseExecutorCell.build(1, BaseExecutorCell.ExecutorType.SERIAL);
-
-    public void insertTask(Runnable runnable, String str, int i) {
-        this.mElasticQueue.insertTask(runnable, str, i);
-    }
-
-    public boolean scheduleNextTask() {
-        ElasticTask next = this.mElasticQueue.getNext();
-        if (next != null && this.mCurrentWorkingExecutor.execute(next)) {
-            this.mElasticQueue.remove(next);
-            return true;
-        }
-        return false;
-    }
+    public ElasticQueue mElasticQueue = new ElasticQueue();
+    public BaseExecutorCell mCurrentWorkingExecutor = BaseExecutorCell.build(1, BaseExecutorCell.ExecutorType.SERIAL);
 
     public boolean checkBlockAndDredge() {
         return ((SerialExecutorCell) this.mCurrentWorkingExecutor).checkBlockAndDredge();
+    }
+
+    public void insertTask(Runnable runnable, String str, int i) {
+        this.mElasticQueue.insertTask(runnable, str, i);
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
@@ -35,5 +26,14 @@ public class SerialManager implements Recordable {
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
     public void onRecordEnd() {
         this.mCurrentWorkingExecutor.onRecordEnd();
+    }
+
+    public boolean scheduleNextTask() {
+        ElasticTask next = this.mElasticQueue.getNext();
+        if (next != null && this.mCurrentWorkingExecutor.execute(next)) {
+            this.mElasticQueue.remove(next);
+            return true;
+        }
+        return false;
     }
 }

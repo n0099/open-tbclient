@@ -4,102 +4,113 @@ import android.view.View;
 import com.baidu.mobad.feeds.NativeResponse;
 import com.baidu.mobads.interfaces.IXAdContainer;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class XAdVideoResponse implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    NativeResponse f2329a;
-    private IXAdContainer b;
-    private IXAdInstanceInfo c;
+    public NativeResponse f8055a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public IXAdContainer f8056b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public IXAdInstanceInfo f8057c;
 
     public XAdVideoResponse(NativeResponse nativeResponse, IXAdInstanceInfo iXAdInstanceInfo, IXAdContainer iXAdContainer) {
-        this.f2329a = nativeResponse;
-        this.b = iXAdContainer;
-        this.c = iXAdInstanceInfo;
-    }
-
-    public void recordImpression(View view) {
-        if (this.f2329a != null) {
-            this.f2329a.recordImpression(view);
-        }
-    }
-
-    public void handleClick(View view) {
-        if (this.f2329a != null) {
-            this.f2329a.handleClick(view);
-        }
-    }
-
-    public void handleClick(View view, int i) {
-        if (this.f2329a != null) {
-            this.f2329a.handleClick(view, i);
-        }
-    }
-
-    @Override // com.baidu.mobad.nativevideo.e
-    public String getMaterialType() {
-        if (this.f2329a == null) {
-            return "normal";
-        }
-        switch (this.f2329a.getMaterialType()) {
-            case VIDEO:
-                return "video";
-            case NORMAL:
-                if (!this.f2329a.getImageUrl().endsWith(".gif")) {
-                    return "normal";
-                }
-                return "gif";
-            default:
-                return "normal";
-        }
+        this.f8055a = nativeResponse;
+        this.f8056b = iXAdContainer;
+        this.f8057c = iXAdInstanceInfo;
     }
 
     public String getAdLogoUrl() {
-        if (this.f2329a != null) {
-            return this.f2329a.getAdLogoUrl();
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            return nativeResponse.getAdLogoUrl();
         }
         return null;
     }
 
     public String getBaiduLogoUrl() {
-        if (this.f2329a != null) {
-            return this.f2329a.getBaiduLogoUrl();
-        }
-        return null;
-    }
-
-    public String getImageUrl() {
-        if (this.f2329a != null) {
-            return this.f2329a.getImageUrl();
-        }
-        return null;
-    }
-
-    public String getIconUrl() {
-        if (this.f2329a != null) {
-            return this.f2329a.getIconUrl();
-        }
-        return null;
-    }
-
-    public String getTitle() {
-        if (this.f2329a != null) {
-            return this.f2329a.getTitle();
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            return nativeResponse.getBaiduLogoUrl();
         }
         return null;
     }
 
     public String getDesc() {
-        if (this.f2329a != null) {
-            return this.f2329a.getDesc();
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            return nativeResponse.getDesc();
+        }
+        return null;
+    }
+
+    public String getIconUrl() {
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            return nativeResponse.getIconUrl();
+        }
+        return null;
+    }
+
+    public String getImageUrl() {
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            return nativeResponse.getImageUrl();
+        }
+        return null;
+    }
+
+    @Override // com.baidu.mobad.nativevideo.e
+    public String getMaterialType() {
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            int i = f.f8064a[nativeResponse.getMaterialType().ordinal()];
+            if (i == 1) {
+                return "video";
+            }
+            if (i == 2 && this.f8055a.getImageUrl().endsWith(".gif")) {
+                return "gif";
+            }
+        }
+        return "normal";
+    }
+
+    public String getTitle() {
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            return nativeResponse.getTitle();
         }
         return null;
     }
 
     public String getVideoUrl() {
-        if (this.f2329a != null) {
-            return this.f2329a.getVideoUrl();
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            return nativeResponse.getVideoUrl();
         }
         return null;
+    }
+
+    public void handleClick(View view) {
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            nativeResponse.handleClick(view);
+        }
+    }
+
+    public void recordImpression(View view) {
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            nativeResponse.recordImpression(view);
+        }
+    }
+
+    public void handleClick(View view, int i) {
+        NativeResponse nativeResponse = this.f8055a;
+        if (nativeResponse != null) {
+            nativeResponse.handleClick(view, i);
+        }
     }
 }

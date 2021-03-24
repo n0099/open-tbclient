@@ -1,7 +1,7 @@
 package androidx.webkit.internal;
 
 import android.os.Build;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public enum WebViewFeatureInternal {
     VISUAL_STATE_CALLBACK_FEATURE("VISUAL_STATE_CALLBACK", 23),
     OFF_SCREEN_PRERASTER("OFF_SCREEN_PRERASTER", 23),
@@ -33,8 +33,13 @@ public enum WebViewFeatureInternal {
     POST_WEB_MESSAGE("POST_WEB_MESSAGE", 23),
     WEB_MESSAGE_CALLBACK_ON_MESSAGE("WEB_MESSAGE_CALLBACK_ON_MESSAGE", 23);
     
-    private final String mFeatureValue;
-    private final int mOsVersion;
+    public final String mFeatureValue;
+    public final int mOsVersion;
+
+    /* loaded from: classes.dex */
+    public static class LAZY_HOLDER {
+        public static final String[] WEBVIEW_APK_FEATURES = WebViewGlueCommunicator.getFactory().getWebViewFeatures();
+    }
 
     WebViewFeatureInternal(String str, int i) {
         this.mFeatureValue = str;
@@ -51,6 +56,14 @@ public enum WebViewFeatureInternal {
         throw new RuntimeException("Unknown feature " + str);
     }
 
+    public static UnsupportedOperationException getUnsupportedOperationException() {
+        return new UnsupportedOperationException("This method is not supported by the current version of the framework and the current WebView APK");
+    }
+
+    public static String[] getWebViewApkFeaturesForTesting() {
+        return LAZY_HOLDER.WEBVIEW_APK_FEATURES;
+    }
+
     public boolean isSupportedByFramework() {
         return Build.VERSION.SDK_INT >= this.mOsVersion;
     }
@@ -62,21 +75,5 @@ public enum WebViewFeatureInternal {
             }
         }
         return false;
-    }
-
-    /* loaded from: classes5.dex */
-    private static class LAZY_HOLDER {
-        static final String[] WEBVIEW_APK_FEATURES = WebViewGlueCommunicator.getFactory().getWebViewFeatures();
-
-        private LAZY_HOLDER() {
-        }
-    }
-
-    public static String[] getWebViewApkFeaturesForTesting() {
-        return LAZY_HOLDER.WEBVIEW_APK_FEATURES;
-    }
-
-    public static UnsupportedOperationException getUnsupportedOperationException() {
-        return new UnsupportedOperationException("This method is not supported by the current version of the framework and the current WebView APK");
     }
 }

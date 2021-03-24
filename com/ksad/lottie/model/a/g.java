@@ -1,9 +1,8 @@
 package com.ksad.lottie.model.a;
 
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends n<com.ksad.lottie.e.d, com.ksad.lottie.e.d> {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public g() {
         this(new com.ksad.lottie.e.d(1.0f, 1.0f));
     }
@@ -18,7 +17,7 @@ public class g extends n<com.ksad.lottie.e.d, com.ksad.lottie.e.d> {
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<com.ksad.lottie.e.d, com.ksad.lottie.e.d> a() {
-        return new com.ksad.lottie.a.b.k(this.f5377a);
+        return new com.ksad.lottie.a.b.k(this.f31465a);
     }
 
     @Override // com.ksad.lottie.model.a.n

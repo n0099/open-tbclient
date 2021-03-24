@@ -7,57 +7,63 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaConfig;
 import com.baidu.ala.atomdata.AlaPrivilegeListActivityConfig;
 import com.baidu.ala.message.GlobalPushSwitchResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.AlaPersonCenterPrivilegeActivity;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import com.baidu.tieba.frs.ai;
-/* loaded from: classes9.dex */
+import d.b.i0.p0.j0;
+/* loaded from: classes4.dex */
 public class AlaPersonCenterActivityStatic {
-    public static String Tag = "tag";
+
+    /* loaded from: classes4.dex */
+    public static class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if (data instanceof j0) {
+                j0 j0Var = (j0) data;
+                d.b.i0.t.j.a aVar = new d.b.i0.t.j.a();
+                aVar.c(j0Var.d());
+                aVar.d(j0Var.e());
+                aVar.b(j0Var.c());
+                aVar.e(j0Var.f());
+                aVar.a(j0Var);
+            }
+        }
+    }
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaPersonCenterActivityConfig.class, AlaPersonCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaPrivilegeListActivityConfig.class, AlaPersonCenterPrivilegeActivity.class);
-        brh();
-        cmX();
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.ala.personcenter.AlaPersonCenterActivityStatic.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    Object data = customResponsedMessage.getData();
-                    if (data instanceof ai) {
-                        ai aiVar = (ai) data;
-                        a aVar = new a();
-                        aVar.setForumId(aiVar.getForumId());
-                        aVar.setForumName(aiVar.getForumName());
-                        aVar.setForumGameLabel(aiVar.getForumGameLabel());
-                        aVar.Iw(aiVar.cET());
-                        aVar.a(aiVar);
-                    }
-                }
-            }
-        });
+        b();
+        a();
+        MessageManager.getInstance().registerListener(new a(2001616));
     }
 
-    private static final void brh() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_GLOBAL_PUSH_SWITCH, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_GLOBAL_PUSH_SWITCH_URL);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(GlobalPushSwitchResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    private static void cmX() {
+    public static void a() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_ENTER_EFFECT);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setResponsedClass(AlaGetEnterEffectResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public static final void b() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_GLOBAL_PUSH_SWITCH, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_GLOBAL_PUSH_SWITCH_URL);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(GlobalPushSwitchResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 }

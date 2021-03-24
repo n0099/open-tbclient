@@ -3,13 +3,15 @@ package com.baidu.location.a;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.location.Location;
-import android.net.http.Headers;
 import android.os.Handler;
+import com.android.internal.http.multipart.Part;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.location.Jni;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.yy.mediaframework.stat.VideoDataStatistic;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -27,61 +29,76 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
+import kotlin.jvm.internal.ByteCompanionObject;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private Handler I;
-    private static d j = null;
-    public static String f = "0";
-    private int k = 1;
-    private double l = 0.699999988079071d;
-    private String m = "3G|4G";
-    private int n = 1;
-    private int o = 307200;
-    private int p = 15;
-    private int q = 1;
-    private double r = 3.5d;
-    private double s = 3.0d;
-    private double t = 0.5d;
-    private int u = 300;
-    private int v = 60;
-    private int w = 0;
-    private int x = 60;
-    private int y = 0;
-    private long z = 0;
-    private a A = null;
-    private boolean B = false;
-    private boolean C = false;
-    private int D = 0;
-    private float E = 0.0f;
-    private float F = 0.0f;
-    private long G = 0;
-    private int H = 500;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f6480f = "0";
+    public static d j;
+    public Handler I;
+    public int k = 1;
+    public double l = 0.699999988079071d;
+    public String m = "3G|4G";
+    public int n = 1;
+    public int o = 307200;
+    public int p = 15;
+    public int q = 1;
+    public double r = 3.5d;
+    public double s = 3.0d;
+    public double t = 0.5d;
+    public int u = 300;
+    public int v = 60;
+    public int w = 0;
+    public int x = 60;
+    public int y = 0;
+    public long z = 0;
+    public a A = null;
+    public boolean B = false;
+    public boolean C = false;
+    public int D = 0;
+    public float E = 0.0f;
+    public float F = 0.0f;
+    public long G = 0;
+    public int H = 500;
 
     /* renamed from: a  reason: collision with root package name */
-    long f1909a = 0;
-    Location b = null;
-    Location c = null;
-    StringBuilder d = null;
-    long e = 0;
-    private byte[] J = new byte[4];
-    private byte[] K = null;
-    private int L = 0;
-    private List<Byte> M = null;
-    private boolean N = false;
-    int g = 0;
-    double h = 116.22345545d;
-    double i = 40.245667323d;
+    public long f6481a = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public Location f6482b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Location f6483c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public StringBuilder f6484d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f6485e = 0;
+    public byte[] J = new byte[4];
+    public byte[] K = null;
+    public int L = 0;
+    public List<Byte> M = null;
+    public boolean N = false;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f6486g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public double f6487h = 116.22345545d;
+    public double i = 40.245667323d;
+
+    /* loaded from: classes2.dex */
     public class a extends com.baidu.location.d.e {
 
         /* renamed from: a  reason: collision with root package name */
-        String f1910a = null;
+        public String f6488a = null;
 
         public a() {
             this.k = new HashMap();
@@ -89,35 +106,37 @@ public class d {
 
         @Override // com.baidu.location.d.e
         public void a() {
-            this.h = "http://loc.map.baidu.com/cc.php";
-            String encode = Jni.encode(this.f1910a);
-            this.f1910a = null;
+            this.f6705h = "http://loc.map.baidu.com/cc.php";
+            String encode = Jni.encode(this.f6488a);
+            this.f6488a = null;
             this.k.put(IXAdRequestInfo.COST_NAME, encode);
         }
 
         public void a(String str) {
-            this.f1910a = str;
+            this.f6488a = str;
             e();
         }
 
         @Override // com.baidu.location.d.e
         public void a(boolean z) {
-            if (z && this.j != null) {
+            String str;
+            if (z && (str = this.j) != null) {
                 try {
-                    JSONObject jSONObject = new JSONObject(this.j);
-                    jSONObject.put("prod", com.baidu.location.d.b.d);
+                    JSONObject jSONObject = new JSONObject(str);
+                    jSONObject.put("prod", com.baidu.location.d.b.f6676d);
                     jSONObject.put(Config.DEVICE_UPTIME, System.currentTimeMillis());
                     d.this.e(jSONObject.toString());
-                } catch (Exception e) {
+                } catch (Exception unused) {
                 }
             }
-            if (this.k != null) {
-                this.k.clear();
+            Map<String, Object> map = this.k;
+            if (map != null) {
+                map.clear();
             }
         }
     }
 
-    private d() {
+    public d() {
         this.I = null;
         this.I = new Handler();
     }
@@ -140,74 +159,72 @@ public class d {
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setUseCaches(false);
             httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setRequestProperty("Charset", "utf-8");
-            httpURLConnection.setRequestProperty(Headers.CONN_DIRECTIVE, "close");
-            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
-            if (file != null && file.exists()) {
-                OutputStream outputStream = httpURLConnection.getOutputStream();
-                DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append("--");
-                stringBuffer.append(uuid);
-                stringBuffer.append("\r\n");
-                stringBuffer.append("Content-Disposition: form-data; name=\"location_dat\"; filename=\"" + file.getName() + "\"\r\n");
-                stringBuffer.append("Content-Type: application/octet-stream; charset=utf-8\r\n");
-                stringBuffer.append("\r\n");
-                dataOutputStream.write(stringBuffer.toString().getBytes());
-                FileInputStream fileInputStream = new FileInputStream(file);
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    dataOutputStream.write(bArr, 0, read);
-                }
-                fileInputStream.close();
-                dataOutputStream.write("\r\n".getBytes());
-                dataOutputStream.write(("--" + uuid + "--\r\n").getBytes());
-                dataOutputStream.flush();
-                dataOutputStream.close();
-                int responseCode = httpURLConnection.getResponseCode();
-                outputStream.close();
-                httpURLConnection.disconnect();
-                this.y += 400;
-                c(this.y);
-                if (responseCode == 200) {
-                    return "1";
-                }
+            httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "utf-8");
+            httpURLConnection.setRequestProperty("connection", IntentConfig.CLOSE);
+            httpURLConnection.setRequestProperty("Content-Type", IMAudioTransRequest.CONTENT_TYPE + ";boundary=" + uuid);
+            if (file == null || !file.exists()) {
+                return "0";
             }
-        } catch (MalformedURLException e) {
-        } catch (IOException e2) {
+            OutputStream outputStream = httpURLConnection.getOutputStream();
+            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append("--");
+            stringBuffer.append(uuid);
+            stringBuffer.append(Part.CRLF);
+            stringBuffer.append("Content-Disposition: form-data; name=\"location_dat\"; filename=\"" + file.getName() + "\"" + Part.CRLF);
+            StringBuilder sb = new StringBuilder();
+            sb.append("Content-Type: application/octet-stream; charset=utf-8");
+            sb.append(Part.CRLF);
+            stringBuffer.append(sb.toString());
+            stringBuffer.append(Part.CRLF);
+            dataOutputStream.write(stringBuffer.toString().getBytes());
+            FileInputStream fileInputStream = new FileInputStream(file);
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = fileInputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                dataOutputStream.write(bArr, 0, read);
+            }
+            fileInputStream.close();
+            dataOutputStream.write(Part.CRLF.getBytes());
+            dataOutputStream.write(("--" + uuid + "--" + Part.CRLF).getBytes());
+            dataOutputStream.flush();
+            dataOutputStream.close();
+            int responseCode = httpURLConnection.getResponseCode();
+            outputStream.close();
+            httpURLConnection.disconnect();
+            int i = this.y + 400;
+            this.y = i;
+            c(i);
+            return responseCode == 200 ? "1" : "0";
+        } catch (MalformedURLException | IOException unused) {
+            return "0";
         }
-        return "0";
     }
 
     private boolean a(String str, Context context) {
-        boolean z;
-        boolean z2 = false;
+        boolean z = false;
         try {
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses != null) {
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                     if (runningAppProcessInfo.processName.equals(str)) {
                         int i = runningAppProcessInfo.importance;
                         if (i == 200 || i == 100) {
                             z = true;
-                            z2 = z;
                         }
                     }
-                    z = z2;
-                    z2 = z;
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
-        return z2;
+        return z;
     }
 
     private byte[] a(int i) {
-        return new byte[]{(byte) (i & 255), (byte) ((65280 & i) >> 8), (byte) ((16711680 & i) >> 16), (byte) (((-16777216) & i) >> 24)};
+        return new byte[]{(byte) (i & 255), (byte) ((65280 & i) >> 8), (byte) ((16711680 & i) >> 16), (byte) ((i & (-16777216)) >> 24)};
     }
 
     private byte[] a(String str) {
@@ -226,10 +243,8 @@ public class d {
             i++;
             i2++;
         }
-        int i3 = i2 + 1;
         bArr[i2] = nextInt;
-        int i4 = i3 + 1;
-        bArr[i3] = nextInt2;
+        bArr[i2 + 1] = nextInt2;
         return bArr;
     }
 
@@ -256,7 +271,7 @@ public class d {
             return;
         }
         this.N = true;
-        d(com.baidu.location.d.b.d);
+        d(com.baidu.location.d.b.f6676d);
         j();
         d();
     }
@@ -266,16 +281,16 @@ public class d {
             return;
         }
         try {
-            File file = new File(com.baidu.location.d.i.f1973a + "/grtcf.dat");
+            File file = new File(com.baidu.location.d.i.f6712a + "/grtcf.dat");
             if (!file.exists()) {
-                File file2 = new File(com.baidu.location.d.i.f1973a);
+                File file2 = new File(com.baidu.location.d.i.f6712a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
                 if (!file.createNewFile()) {
                     return;
                 }
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(2L);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.seek(8L);
@@ -288,18 +303,18 @@ public class d {
                 randomAccessFile.writeBoolean(false);
                 randomAccessFile.close();
             }
-            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(8L);
             byte[] bytes2 = (b("%d_%02d_%02d") + ":" + i).getBytes();
             randomAccessFile2.writeInt(bytes2.length);
             randomAccessFile2.write(bytes2);
             randomAccessFile2.close();
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
     private void c(Location location) {
-        if (System.currentTimeMillis() - this.f1909a < this.H || location == null) {
+        if (System.currentTimeMillis() - this.f6481a < this.H || location == null) {
             return;
         }
         if (location != null && location.hasSpeed() && location.getSpeed() > this.E) {
@@ -313,7 +328,7 @@ public class d {
             } else {
                 e(location);
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         this.L++;
     }
@@ -368,56 +383,56 @@ public class d {
                     this.z = jSONObject.getLong(Config.DEVICE_UPTIME);
                 }
                 k();
-            } catch (JSONException e) {
+            } catch (JSONException unused) {
             }
         }
     }
 
     private void d() {
-        String[] split = (0 == 0 ? "7.6.3" : null).split("\\.");
+        String[] split = "7.6.3".split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
         int length = split.length;
-        this.J[0] = 0;
-        this.J[1] = 0;
-        this.J[2] = 0;
-        this.J[3] = 0;
+        byte[] bArr = this.J;
+        bArr[0] = 0;
+        bArr[1] = 0;
+        bArr[2] = 0;
+        bArr[3] = 0;
         if (length >= 4) {
             length = 4;
         }
         for (int i = 0; i < length; i++) {
             try {
                 this.J[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
-        this.K = a(com.baidu.location.d.b.d + ":" + com.baidu.location.d.b.a().b);
+        this.K = a(com.baidu.location.d.b.f6676d + ":" + com.baidu.location.d.b.a().f6682b);
     }
 
     private void d(Location location) {
-        this.e = System.currentTimeMillis();
+        byte b2;
+        this.f6485e = System.currentTimeMillis();
         b((int) (location.getTime() / 1000));
         b((int) (location.getLongitude() * 1000000.0d));
         b((int) (location.getLatitude() * 1000000.0d));
-        char c = location.hasBearing() ? (char) 0 : (char) 1;
-        char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
-        if (c > 0) {
-            this.M.add((byte) 32);
+        int i = !location.hasBearing();
+        int i2 = !location.hasSpeed();
+        this.M.add(Byte.valueOf(i > 0 ? (byte) 32 : (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
+        if (i2 > 0) {
+            b2 = ByteCompanionObject.MIN_VALUE;
         } else {
-            this.M.add(Byte.valueOf((byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
+            double speed = location.getSpeed();
+            Double.isNaN(speed);
+            b2 = (byte) (((byte) (((int) ((speed * 3.6d) / 4.0d)) & 255)) & ByteCompanionObject.MAX_VALUE);
         }
-        if (c2 > 0) {
-            this.M.add(Byte.MIN_VALUE);
-        } else {
-            this.M.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
-        }
-        this.b = location;
+        this.M.add(Byte.valueOf(b2));
+        this.f6482b = location;
     }
 
     private void d(String str) {
-        int i = 1;
         try {
-            File file = new File(com.baidu.location.d.i.f1973a + "/grtcf.dat");
+            File file = new File(com.baidu.location.d.i.f6712a + "/grtcf.dat");
             if (file.exists()) {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(2L);
                 int readInt = randomAccessFile.readInt();
                 randomAccessFile.seek(8L);
@@ -425,13 +440,14 @@ public class d {
                 byte[] bArr = new byte[readInt2];
                 randomAccessFile.read(bArr, 0, readInt2);
                 String str2 = new String(bArr);
+                int i = 1;
                 if (str2.contains(b("%d_%02d_%02d")) && str2.contains(":")) {
                     try {
                         String[] split = str2.split(":");
                         if (split.length > 1) {
                             this.y = Integer.valueOf(split[1]).intValue();
                         }
-                    } catch (Exception e) {
+                    } catch (Exception unused) {
                     }
                 }
                 while (true) {
@@ -451,76 +467,84 @@ public class d {
                 }
                 randomAccessFile.close();
             }
-        } catch (Exception e2) {
+        } catch (Exception unused2) {
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0104, code lost:
+        if (r8 > 0) goto L37;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x011a, code lost:
+        if (r8 > 0) goto L37;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x011c, code lost:
+        r2 = (byte) (r2 | kotlin.jvm.internal.ByteCompanionObject.MIN_VALUE);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void e(Location location) {
+        byte bearing;
         if (location == null) {
             return;
         }
-        int longitude = (int) ((location.getLongitude() - this.b.getLongitude()) * 1000000.0d);
-        int latitude = (int) ((location.getLatitude() - this.b.getLatitude()) * 1000000.0d);
-        char c = location.hasBearing() ? (char) 0 : (char) 1;
-        char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
-        char c3 = longitude > 0 ? (char) 0 : (char) 1;
+        int longitude = (int) ((location.getLongitude() - this.f6482b.getLongitude()) * 1000000.0d);
+        int latitude = (int) ((location.getLatitude() - this.f6482b.getLatitude()) * 1000000.0d);
+        int i = !location.hasBearing();
+        int i2 = !location.hasSpeed();
+        char c2 = longitude > 0 ? (char) 0 : (char) 1;
         int abs = Math.abs(longitude);
-        char c4 = latitude > 0 ? (char) 0 : (char) 1;
+        char c3 = latitude > 0 ? (char) 0 : (char) 1;
         int abs2 = Math.abs(latitude);
         if (this.L > 1) {
-            this.c = null;
-            this.c = this.b;
+            this.f6483c = null;
+            this.f6483c = this.f6482b;
         }
-        this.b = location;
-        if (this.b != null && this.c != null && this.b.getTime() > this.c.getTime() && this.b.getTime() - this.c.getTime() < 5000) {
-            long time = this.b.getTime() - this.c.getTime();
+        this.f6482b = location;
+        if (location != null && this.f6483c != null && location.getTime() > this.f6483c.getTime() && this.f6482b.getTime() - this.f6483c.getTime() < 5000) {
+            long time = this.f6482b.getTime() - this.f6483c.getTime();
             float[] fArr = new float[2];
-            Location.distanceBetween(this.b.getAltitude(), this.b.getLongitude(), this.c.getLatitude(), this.c.getLongitude(), fArr);
-            double speed = (2.0f * (fArr[0] - (this.c.getSpeed() * ((float) time)))) / ((float) (time * time));
+            Location.distanceBetween(this.f6482b.getAltitude(), this.f6482b.getLongitude(), this.f6483c.getLatitude(), this.f6483c.getLongitude(), fArr);
+            double speed = ((fArr[0] - (this.f6483c.getSpeed() * ((float) time))) * 2.0f) / ((float) (time * time));
             if (speed > this.F) {
                 this.F = (float) speed;
             }
         }
         this.M.add(Byte.valueOf((byte) (abs & 255)));
-        this.M.add(Byte.valueOf((byte) ((65280 & abs) >> 8)));
+        this.M.add(Byte.valueOf((byte) ((abs & 65280) >> 8)));
         this.M.add(Byte.valueOf((byte) (abs2 & 255)));
-        this.M.add(Byte.valueOf((byte) ((65280 & abs2) >> 8)));
-        if (c > 0) {
-            byte b = c4 > 0 ? (byte) 96 : (byte) 32;
-            if (c3 > 0) {
-                b = (byte) (b | Byte.MIN_VALUE);
-            }
-            this.M.add(Byte.valueOf(b));
+        this.M.add(Byte.valueOf((byte) ((abs2 & 65280) >> 8)));
+        if (i > 0) {
+            bearing = c3 > 0 ? (byte) 96 : (byte) 32;
         } else {
-            byte bearing = (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & 31);
-            if (c4 > 0) {
+            bearing = (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & 31);
+            if (c3 > 0) {
                 bearing = (byte) (bearing | 64);
             }
-            if (c3 > 0) {
-                bearing = (byte) (bearing | Byte.MIN_VALUE);
-            }
-            this.M.add(Byte.valueOf(bearing));
         }
-        if (c2 > 0) {
-            this.M.add(Byte.MIN_VALUE);
-        } else {
-            this.M.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
+        this.M.add(Byte.valueOf(bearing));
+        if (i2 > 0) {
+            this.M.add(Byte.valueOf((byte) ByteCompanionObject.MIN_VALUE));
+            return;
         }
+        double speed2 = location.getSpeed();
+        Double.isNaN(speed2);
+        this.M.add(Byte.valueOf((byte) (((byte) (((int) ((speed2 * 3.6d) / 4.0d)) & 255)) & ByteCompanionObject.MAX_VALUE)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(String str) {
         try {
-            File file = new File(com.baidu.location.d.i.f1973a + "/grtcf.dat");
+            File file = new File(com.baidu.location.d.i.f6712a + "/grtcf.dat");
             if (!file.exists()) {
-                File file2 = new File(com.baidu.location.d.i.f1973a);
+                File file2 = new File(com.baidu.location.d.i.f6712a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
                 if (!file.createNewFile()) {
                     return;
                 }
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(2L);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.seek(8L);
@@ -533,7 +557,7 @@ public class d {
                 randomAccessFile.writeBoolean(false);
                 randomAccessFile.close();
             }
-            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(2L);
             int readInt = randomAccessFile2.readInt();
             int i = 1;
@@ -542,7 +566,7 @@ public class d {
                 int readInt2 = randomAccessFile2.readInt();
                 byte[] bArr = new byte[readInt2];
                 randomAccessFile2.read(bArr, 0, readInt2);
-                if (new String(bArr).contains(com.baidu.location.d.b.d)) {
+                if (new String(bArr).contains(com.baidu.location.d.b.f6676d)) {
                     break;
                 }
                 i++;
@@ -556,134 +580,112 @@ public class d {
             randomAccessFile2.writeInt(bytes2.length);
             randomAccessFile2.write(bytes2);
             randomAccessFile2.close();
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
     private boolean e() {
         RandomAccessFile randomAccessFile;
-        FileChannel fileChannel;
-        FileLock fileLock;
-        FileChannel fileChannel2 = null;
-        FileLock fileLock2 = null;
+        FileChannel channel;
+        FileChannel fileChannel = null;
+        FileLock fileLock = null;
+        fileChannel = null;
+        RandomAccessFile randomAccessFile2 = null;
         boolean z = false;
         try {
-            File file = new File(com.baidu.location.d.j.g() + File.separator + "gflk.dat");
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            if (0 == 0) {
-                randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
-                try {
-                    fileChannel = randomAccessFile.getChannel();
-                } catch (Exception e) {
-                    if (0 != 0) {
-                        try {
-                            fileLock2.release();
-                        } catch (Exception e2) {
-                        }
-                    }
-                    if (0 != 0) {
-                        fileChannel2.close();
-                    }
-                    if (randomAccessFile != null) {
-                        randomAccessFile.close();
-                    }
-                    return z;
-                } catch (Throwable th) {
-                    th = th;
-                    fileChannel = null;
+            try {
+                File file = new File(com.baidu.location.d.j.g() + File.separator + "gflk.dat");
+                if (!file.exists()) {
+                    file.createNewFile();
                 }
+                randomAccessFile = new RandomAccessFile(file, "rw");
+            } catch (Exception unused) {
+            }
+            try {
+                channel = randomAccessFile.getChannel();
+            } catch (Exception unused2) {
+                randomAccessFile2 = randomAccessFile;
+                if (randomAccessFile2 != null) {
+                    randomAccessFile2.close();
+                }
+                return z;
+            } catch (Throwable th) {
+                th = th;
+            }
+        } catch (Exception unused3) {
+        } catch (Throwable th2) {
+            th = th2;
+            randomAccessFile = null;
+        }
+        try {
+            fileLock = channel.tryLock();
+        } catch (Exception unused4) {
+            z = true;
+        } catch (Throwable th3) {
+            th = th3;
+            fileChannel = channel;
+            if (fileChannel != null) {
                 try {
-                    fileLock = fileChannel.tryLock();
-                } catch (Exception e3) {
-                    z = true;
-                    fileLock = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (0 != 0) {
-                        try {
-                            fileLock2.release();
-                        } catch (Exception e4) {
-                            throw th;
-                        }
-                    }
-                    if (fileChannel != null) {
-                        fileChannel.close();
-                    }
-                    if (randomAccessFile != null) {
-                        randomAccessFile.close();
-                    }
+                    fileChannel.close();
+                } catch (Exception unused5) {
                     throw th;
                 }
-            } else {
-                randomAccessFile = null;
-                fileLock = null;
-                fileChannel = null;
-            }
-            if (fileLock != null) {
-                try {
-                    fileLock.release();
-                } catch (Exception e5) {
-                }
-            }
-            if (fileChannel != null) {
-                fileChannel.close();
             }
             if (randomAccessFile != null) {
                 randomAccessFile.close();
             }
-        } catch (Exception e6) {
-            randomAccessFile = null;
-        } catch (Throwable th3) {
-            th = th3;
-            randomAccessFile = null;
-            fileChannel = null;
+            throw th;
+        }
+        if (fileLock != null) {
+            fileLock.release();
+        }
+        if (channel != null) {
+            channel.close();
+        }
+        if (randomAccessFile != null) {
+            randomAccessFile.close();
         }
         return z;
     }
 
     private boolean f() {
         if (this.B) {
-            if (!this.C) {
+            if (this.C) {
                 if (this.E < this.t) {
-                    this.C = true;
+                    int i = this.D + this.p;
+                    this.D = i;
+                    if (i > this.u && System.currentTimeMillis() - this.G <= this.v * 1000) {
+                        return false;
+                    }
+                } else {
                     this.D = 0;
-                    this.D += this.p;
-                    return true;
+                    this.C = false;
                 }
-                return true;
-            } else if (this.E >= this.t) {
+            } else if (this.E < this.t) {
+                this.C = true;
                 this.D = 0;
-                this.C = false;
-                return true;
-            } else {
-                this.D += this.p;
-                if (this.D <= this.u || System.currentTimeMillis() - this.G > this.v * 1000) {
-                    return true;
-                }
+                this.D = 0 + this.p;
             }
         } else if (this.E >= this.r || this.F >= this.s) {
             this.B = true;
-            return true;
-        } else if (this.w == 1 && System.currentTimeMillis() - this.G > this.x * 1000) {
-            return true;
+        } else if (this.w != 1 || System.currentTimeMillis() - this.G <= this.x * 1000) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     private void g() {
         this.M = null;
-        this.e = 0L;
+        this.f6485e = 0L;
         this.L = 0;
-        this.b = null;
-        this.c = null;
+        this.f6482b = null;
+        this.f6483c = null;
         this.E = 0.0f;
         this.F = 0.0f;
     }
 
     private void h() {
-        if (this.e == 0 || System.currentTimeMillis() - this.e < this.p * 1000) {
+        if (this.f6485e == 0 || System.currentTimeMillis() - this.f6485e < this.p * 1000) {
             return;
         }
         if (com.baidu.location.f.getServiceContext().getSharedPreferences("loc_navi_mode", 4).getBoolean("is_navi_on", false)) {
@@ -691,17 +693,18 @@ public class d {
         } else if (this.n == 1 && !f()) {
             g();
         } else {
-            if (com.baidu.location.d.b.d.equals("com.ubercab.driver")) {
+            if (com.baidu.location.d.b.f6676d.equals("com.ubercab.driver")) {
                 if (e()) {
                     g();
                     return;
                 }
-            } else if (!a(com.baidu.location.d.b.d, com.baidu.location.f.getServiceContext())) {
+            } else if (!a(com.baidu.location.d.b.f6676d, com.baidu.location.f.getServiceContext())) {
                 g();
                 return;
             }
-            if (this.M != null) {
-                int size = this.M.size();
+            List<Byte> list = this.M;
+            if (list != null) {
+                int size = list.size();
                 this.M.set(0, Byte.valueOf((byte) (size & 255)));
                 this.M.set(1, Byte.valueOf((byte) ((65280 & size) >> 8)));
                 this.M.set(3, Byte.valueOf((byte) (this.L & 255)));
@@ -724,7 +727,7 @@ public class d {
                         bufferedOutputStream.flush();
                         bufferedOutputStream.close();
                         new f(this).start();
-                    } catch (Exception e) {
+                    } catch (Exception unused) {
                     }
                 }
                 g();
@@ -734,13 +737,18 @@ public class d {
     }
 
     private void i() {
+        List<Byte> list;
+        byte b2;
         this.M.add((byte) 0);
         this.M.add((byte) 0);
-        if (f.equals("0")) {
-            this.M.add((byte) -82);
+        if (f6480f.equals("0")) {
+            list = this.M;
+            b2 = -82;
         } else {
-            this.M.add((byte) -66);
+            list = this.M;
+            b2 = -66;
         }
+        list.add(Byte.valueOf(b2));
         this.M.add((byte) 0);
         this.M.add(Byte.valueOf(this.J[0]));
         this.M.add(Byte.valueOf(this.J[1]));

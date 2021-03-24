@@ -8,49 +8,67 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseService;
-import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.j;
-/* loaded from: classes.dex */
+import d.b.i0.l;
+/* loaded from: classes5.dex */
 public class AsInstallService extends BdBaseService {
-    private static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
-    private static final String SCHEME_PACKAGE_ADDED = "package";
-    private static boolean sIsReceiving;
-    private Handler mHandler;
-    private a mReceiver;
-    private Runnable mStopReceivingRunnable;
-    private VersionData mVersionData;
+    public static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
+    public static final String SCHEME_PACKAGE_ADDED = "package";
+    public static boolean sIsReceiving;
+    public Handler mHandler;
+    public b mReceiver;
+    public Runnable mStopReceivingRunnable;
+    public VersionData mVersionData;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            AsInstallService.this.stopSelf();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends BroadcastReceiver {
+        public b() {
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(PackageChangedReceiver.ACTION_INSTALL)) {
+                String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
+                if (TextUtils.isEmpty(schemeSpecificPart) || !"com.baidu.appsearch".equals(schemeSpecificPart) || AsInstallService.this.mVersionData == null) {
+                    return;
+                }
+                l.b(context, AsInstallService.this.mVersionData);
+                TiebaStatic.log(TbadkCoreStatisticKey.INVOKE_AS);
+            }
+        }
+
+        public /* synthetic */ b(AsInstallService asInstallService, a aVar) {
+            this();
+        }
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mReceiver = new a();
+        this.mReceiver = new b(this, null);
         this.mHandler = new Handler();
-        this.mStopReceivingRunnable = new Runnable() { // from class: com.baidu.tieba.service.AsInstallService.1
-            @Override // java.lang.Runnable
-            public void run() {
-                AsInstallService.this.stopSelf();
-            }
-        };
-    }
-
-    @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
-        if (!sIsReceiving) {
-            sIsReceiving = true;
-            if (intent != null) {
-                this.mVersionData = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
-            }
-            this.mReceiver = new a();
-            IntentFilter intentFilter = new IntentFilter("android.intent.action.PACKAGE_ADDED");
-            intentFilter.addDataScheme(SCHEME_PACKAGE_ADDED);
-            registerReceiver(this.mReceiver, intentFilter);
-            this.mHandler = new Handler();
-            this.mHandler.postDelayed(this.mStopReceivingRunnable, 120000L);
-        }
+        this.mStopReceivingRunnable = new a();
     }
 
     @Override // android.app.Service
@@ -65,24 +83,21 @@ public class AsInstallService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    /* loaded from: classes.dex */
-    private class a extends BroadcastReceiver {
-        private a() {
+    public void onStart(Intent intent, int i) {
+        super.onStart(intent, i);
+        if (sIsReceiving) {
+            return;
         }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
-                String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-                if (!TextUtils.isEmpty(schemeSpecificPart) && "com.baidu.appsearch".equals(schemeSpecificPart) && AsInstallService.this.mVersionData != null) {
-                    j.a(context, AsInstallService.this.mVersionData);
-                    TiebaStatic.log(TbadkCoreStatisticKey.INVOKE_AS);
-                }
-            }
+        sIsReceiving = true;
+        if (intent != null) {
+            this.mVersionData = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
         }
+        this.mReceiver = new b(this, null);
+        IntentFilter intentFilter = new IntentFilter(PackageChangedReceiver.ACTION_INSTALL);
+        intentFilter.addDataScheme("package");
+        registerReceiver(this.mReceiver, intentFilter);
+        Handler handler = new Handler();
+        this.mHandler = handler;
+        handler.postDelayed(this.mStopReceivingRunnable, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
     }
 }

@@ -1,6 +1,5 @@
 package com.qq.e.comm.net;
 
-import android.net.http.Headers;
 import com.qq.e.comm.net.NetworkClient;
 import com.qq.e.comm.net.rr.Request;
 import com.qq.e.comm.net.rr.Response;
@@ -18,31 +17,55 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NetworkClientImpl implements NetworkClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final NetworkClient f7580a = new NetworkClientImpl();
-    private PriorityBlockingQueue<Runnable> c = new PriorityBlockingQueue<>(15);
-    private final ExecutorService b = new ThreadPoolExecutor(5, 10, 180, TimeUnit.SECONDS, this.c);
+    public static final NetworkClient f38348a = new NetworkClientImpl();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* renamed from: c  reason: collision with root package name */
+    public PriorityBlockingQueue<Runnable> f38350c = new PriorityBlockingQueue<>(15);
+
+    /* renamed from: b  reason: collision with root package name */
+    public final ExecutorService f38349b = new ThreadPoolExecutor(5, 10, 180, TimeUnit.SECONDS, this.f38350c);
+
+    /* renamed from: com.qq.e.comm.net.NetworkClientImpl$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f38351a;
+
+        static {
+            int[] iArr = new int[Request.Method.values().length];
+            f38351a = iArr;
+            try {
+                iArr[Request.Method.POST.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f38351a[Request.Method.GET.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public static class NetFutureTask<T> extends FutureTask<T> implements Comparable<NetFutureTask<T>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final NetworkClient.Priority f7582a;
+        public final NetworkClient.Priority f38352a;
 
         public NetFutureTask(Callable<T> callable, NetworkClient.Priority priority) {
             super(callable);
-            this.f7582a = priority;
+            this.f38352a = priority;
         }
 
         public int compareTo(NetFutureTask<T> netFutureTask) {
             if (netFutureTask == null) {
                 return 1;
             }
-            return this.f7582a.value() - netFutureTask.f7582a.value();
+            return this.f38352a.value() - netFutureTask.f38352a.value();
         }
 
         @Override // java.lang.Comparable
@@ -51,43 +74,44 @@ public class NetworkClientImpl implements NetworkClient {
         }
 
         public boolean equals(Object obj) {
-            return obj != null && obj.getClass() == getClass() && compareTo((NetFutureTask) ((NetFutureTask) obj)) == 0;
+            return obj != null && obj.getClass() == NetFutureTask.class && compareTo((NetFutureTask) ((NetFutureTask) obj)) == 0;
         }
 
         public int hashCode() {
-            return this.f7582a.value();
+            return this.f38352a.value();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class TaskCallable implements Callable<Response> {
 
         /* renamed from: a  reason: collision with root package name */
-        private Request f7583a;
-        private NetworkCallBack b;
+        public Request f38353a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public NetworkCallBack f38354b;
 
         public TaskCallable(Request request) {
             this(request, null);
         }
 
         public TaskCallable(Request request, NetworkCallBack networkCallBack) {
-            this.f7583a = request;
-            this.b = networkCallBack;
+            this.f38353a = request;
+            this.f38354b = networkCallBack;
         }
 
         private void a(HttpURLConnection httpURLConnection) {
-            for (Map.Entry<String, String> entry : this.f7583a.getHeaders().entrySet()) {
+            for (Map.Entry<String, String> entry : this.f38353a.getHeaders().entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
             httpURLConnection.setRequestProperty("User-Agent", "GDTADNetClient-[" + System.getProperty("http.agent") + "]");
-            if (this.f7583a.getConnectionTimeOut() > 0) {
-                httpURLConnection.setConnectTimeout(this.f7583a.getConnectionTimeOut());
+            if (this.f38353a.getConnectionTimeOut() > 0) {
+                httpURLConnection.setConnectTimeout(this.f38353a.getConnectionTimeOut());
             } else {
                 httpURLConnection.setConnectTimeout(30000);
             }
-            if (this.f7583a.getSocketTimeOut() > 0) {
-                httpURLConnection.setReadTimeout(this.f7583a.getSocketTimeOut());
+            if (this.f38353a.getSocketTimeOut() > 0) {
+                httpURLConnection.setReadTimeout(this.f38353a.getSocketTimeOut());
             } else {
                 httpURLConnection.setReadTimeout(30000);
             }
@@ -95,58 +119,60 @@ public class NetworkClientImpl implements NetworkClient {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
+        /* JADX WARN: Code restructure failed: missing block: B:20:0x006b, code lost:
+            if (r6.f38353a.isAutoClose() != false) goto L13;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:21:0x006d, code lost:
+            r1.close();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:25:0x007f, code lost:
+            if (r1 != null) goto L13;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:27:0x0082, code lost:
+            return r1;
+         */
         @Override // java.util.concurrent.Callable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public Response call() throws Exception {
             Response response;
+            Exception exc = null;
             try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f7583a.getUrlWithParas()).openConnection();
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f38353a.getUrlWithParas()).openConnection();
                 a(httpURLConnection);
-                switch (this.f7583a.getMethod()) {
-                    case POST:
-                        httpURLConnection.setDoOutput(true);
-                        httpURLConnection.setChunkedStreamingMode(0);
-                        byte[] postData = this.f7583a.getPostData();
-                        if (postData != null && postData.length > 0) {
-                            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
-                            bufferedOutputStream.write(postData);
-                            bufferedOutputStream.flush();
-                            bufferedOutputStream.close();
-                            break;
-                        }
-                        break;
+                if (AnonymousClass1.f38351a[this.f38353a.getMethod().ordinal()] == 1) {
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setChunkedStreamingMode(0);
+                    byte[] postData = this.f38353a.getPostData();
+                    if (postData != null && postData.length > 0) {
+                        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
+                        bufferedOutputStream.write(postData);
+                        bufferedOutputStream.flush();
+                        bufferedOutputStream.close();
+                    }
                 }
-                response = this.f7583a.initResponse(NetworkClientImpl.followRedirect(httpURLConnection));
-                e = null;
-            } catch (Exception e) {
-                e = e;
+                response = this.f38353a.initResponse(NetworkClientImpl.followRedirect(httpURLConnection));
+            } catch (Exception e2) {
                 response = null;
+                exc = e2;
             }
-            if (e == null) {
-                if (this.b != null) {
-                    this.b.onResponse(this.f7583a, response);
+            if (exc == null) {
+                NetworkCallBack networkCallBack = this.f38354b;
+                if (networkCallBack != null) {
+                    networkCallBack.onResponse(this.f38353a, response);
                 }
-                if (this.f7583a.isAutoClose()) {
-                    response.close();
-                }
-            } else if (this.b == null) {
-                throw e;
+            } else if (this.f38354b == null) {
+                throw exc;
             } else {
-                GDTLogger.w("NetworkClientException", e);
-                this.b.onException(e);
-                if (response != null) {
-                    response.close();
-                }
+                GDTLogger.w("NetworkClientException", exc);
+                this.f38354b.onException(exc);
             }
-            return response;
         }
     }
 
-    private NetworkClientImpl() {
-    }
-
     public static HttpURLConnection followRedirect(HttpURLConnection httpURLConnection) throws IOException {
-        String str;
-        HttpURLConnection httpURLConnection2;
+        String str = null;
         if (httpURLConnection == null) {
             return null;
         }
@@ -155,36 +181,32 @@ public class NetworkClientImpl implements NetworkClient {
         int readTimeout = httpURLConnection.getReadTimeout();
         try {
             str = httpURLConnection.getRequestProperty("User-Agent");
-            httpURLConnection2 = httpURLConnection;
-        } catch (Exception e) {
-            str = null;
-            httpURLConnection2 = httpURLConnection;
+        } catch (Exception unused) {
         }
         while (i < 3) {
-            httpURLConnection2.connect();
-            int responseCode = httpURLConnection2.getResponseCode();
+            httpURLConnection.connect();
+            int responseCode = httpURLConnection.getResponseCode();
             if (responseCode != 302 && responseCode != 301 && responseCode != 303) {
                 break;
             }
-            String headerField = httpURLConnection2.getHeaderField(Headers.LOCATION);
-            httpURLConnection2.disconnect();
-            HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(headerField).openConnection();
-            httpURLConnection3.setConnectTimeout(connectTimeout);
-            httpURLConnection3.setReadTimeout(readTimeout);
+            String headerField = httpURLConnection.getHeaderField("location");
+            httpURLConnection.disconnect();
+            httpURLConnection = (HttpURLConnection) new URL(headerField).openConnection();
+            httpURLConnection.setConnectTimeout(connectTimeout);
+            httpURLConnection.setReadTimeout(readTimeout);
             if (str != null) {
-                httpURLConnection3.setRequestProperty("User-Agent", str);
+                httpURLConnection.setRequestProperty("User-Agent", str);
             }
             i++;
-            httpURLConnection2 = httpURLConnection3;
         }
-        if (i == 3) {
-            throw new IOException("HttpURLConnection exceed max redirect 3 " + httpURLConnection2.getURL());
+        if (i != 3) {
+            return httpURLConnection;
         }
-        return httpURLConnection2;
+        throw new IOException("HttpURLConnection exceed max redirect 3 " + httpURLConnection.getURL());
     }
 
     public static NetworkClient getInstance() {
-        return f7580a;
+        return f38348a;
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
@@ -195,8 +217,8 @@ public class NetworkClientImpl implements NetworkClient {
     @Override // com.qq.e.comm.net.NetworkClient
     public Future<Response> submit(Request request, NetworkClient.Priority priority) {
         NetFutureTask netFutureTask = new NetFutureTask(new TaskCallable(request), priority);
-        this.b.execute(netFutureTask);
-        GDTLogger.d("QueueSize:" + this.c.size());
+        this.f38349b.execute(netFutureTask);
+        GDTLogger.d("QueueSize:" + this.f38350c.size());
         return netFutureTask;
     }
 
@@ -207,7 +229,7 @@ public class NetworkClientImpl implements NetworkClient {
 
     @Override // com.qq.e.comm.net.NetworkClient
     public void submit(Request request, NetworkClient.Priority priority, NetworkCallBack networkCallBack) {
-        submit(request, priority, networkCallBack, this.b);
+        submit(request, priority, networkCallBack, this.f38349b);
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
@@ -217,6 +239,6 @@ public class NetworkClientImpl implements NetworkClient {
             return;
         }
         executor.execute(new NetFutureTask(new TaskCallable(request, networkCallBack), priority));
-        GDTLogger.d("QueueSize:" + this.c.size());
+        GDTLogger.d("QueueSize:" + this.f38350c.size());
     }
 }

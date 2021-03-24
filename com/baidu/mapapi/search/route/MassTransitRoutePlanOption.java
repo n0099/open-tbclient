@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.route;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MassTransitRoutePlanOption {
     public PlanNode mFrom = null;
     public PlanNode mTo = null;
@@ -10,7 +10,7 @@ public class MassTransitRoutePlanOption {
     public int mPageSize = 10;
     public int mPageIndex = 1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum TacticsIncity {
         ETRANS_SUGGEST(0),
         ETRANS_LEAST_TRANSFER(1),
@@ -21,19 +21,19 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2136a;
+        public int f7291a;
 
         TacticsIncity(int i) {
-            this.f2136a = 0;
-            this.f2136a = i;
+            this.f7291a = 0;
+            this.f7291a = i;
         }
 
         public int getInt() {
-            return this.f2136a;
+            return this.f7291a;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum TacticsIntercity {
         ETRANS_LEAST_TIME(0),
         ETRANS_START_EARLY(1),
@@ -41,19 +41,19 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2137a;
+        public int f7293a;
 
         TacticsIntercity(int i) {
-            this.f2137a = 0;
-            this.f2137a = i;
+            this.f7293a = 0;
+            this.f7293a = i;
         }
 
         public int getInt() {
-            return this.f2137a;
+            return this.f7293a;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum TransTypeIntercity {
         ETRANS_TRAIN_FIRST(0),
         ETRANS_PLANE_FIRST(1),
@@ -61,15 +61,15 @@ public class MassTransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2138a;
+        public int f7295a;
 
         TransTypeIntercity(int i) {
-            this.f2138a = 0;
-            this.f2138a = i;
+            this.f7295a = 0;
+            this.f7295a = i;
         }
 
         public int getInt() {
-            return this.f2138a;
+            return this.f7295a;
         }
     }
 

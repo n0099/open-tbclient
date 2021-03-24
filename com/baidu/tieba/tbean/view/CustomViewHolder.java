@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbean.view;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.card.b;
-/* loaded from: classes8.dex */
+import d.b.i0.x.b;
+/* loaded from: classes5.dex */
 public class CustomViewHolder<T extends b> extends TypeAdapter.ViewHolder {
 }

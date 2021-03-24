@@ -6,141 +6,149 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
-import com.baidu.adp.plugin.packageManager.pluginServerConfig.d;
-import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.adp.plugin.util.Util;
-import com.baidu.live.adp.framework.MessageConfig;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
+import d.b.b.h.j.g.d;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class Static {
-    static {
-        CustomMessageListener customMessageListener = new CustomMessageListener(0) { // from class: com.baidu.tieba.tbadkCore.tiebaSwitchMsg.Static.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                GroupNewsPojo p;
-                PluginNetConfigInfos parse;
-                int i = 0;
-                if (TbadkCoreApplication.getInst().isMainProcess(true) && c.pX().pU().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
-                    String content = p.getContent();
-                    if (!TextUtils.isEmpty(content)) {
-                        try {
-                            JSONObject jSONObject = new JSONObject(content).getJSONObject(TbEnum.SystemMessage.KEY_USER_MSG);
-                            if (jSONObject != null) {
-                                String string = jSONObject.getString("client_version");
-                                String pG = PluginPackageManager.pv().pG();
-                                if (!TextUtils.isEmpty(pG)) {
-                                    String[] split = pG.split("\\.");
-                                    if (split.length != 0 && split.length != 3) {
-                                        String str = "";
-                                        for (int i2 = 0; i2 < split.length && i2 < 3; i2++) {
-                                            str = str + split[i2] + ".";
-                                        }
-                                        pG = str.substring(0, str.length() - 1);
-                                    }
-                                    if (Util.I(string, pG) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
-                                        PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
-                                        PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.pv().getPluginConfig(pluginConfig.package_name);
-                                        d.pR().pS().addOrUpdateConfig(pluginConfig);
-                                        if (pluginConfig2 == null) {
-                                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_MIS_UPDATE, pluginConfig));
-                                            return;
-                                        }
-                                        if (pluginConfig.enable_version_code != null) {
-                                            pluginConfig2.enable = 1;
-                                            int[] iArr = pluginConfig.enable_version_code;
-                                            int length = iArr.length;
-                                            while (true) {
-                                                if (i < length) {
-                                                    if (iArr[i] != pluginConfig2.version_code) {
-                                                        i++;
-                                                    } else {
-                                                        pluginConfig2.enable = 0;
-                                                        break;
-                                                    }
-                                                } else {
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                        if (pluginConfig.display_name != null) {
-                                            pluginConfig2.display_name = pluginConfig.display_name;
-                                        }
-                                        if (pluginConfig.ext != null) {
-                                            pluginConfig2.ext = pluginConfig.ext;
-                                        }
-                                        if (pluginConfig.forbidden >= 0) {
-                                            pluginConfig2.forbidden = pluginConfig.forbidden;
-                                        }
-                                        if (pluginConfig.forbidden_features != null) {
-                                            pluginConfig2.forbidden_features = pluginConfig.forbidden_features;
-                                        }
-                                        if (pluginConfig.icon != null) {
-                                            pluginConfig2.icon = pluginConfig.icon;
-                                        }
-                                        if (pluginConfig.load_priority >= 0) {
-                                            pluginConfig2.load_priority = pluginConfig.load_priority;
-                                        }
-                                        if (pluginConfig.priority >= 0) {
-                                            pluginConfig2.priority = pluginConfig.priority;
-                                        }
-                                        if (pluginConfig.verbose != null) {
-                                            pluginConfig2.verbose = pluginConfig.verbose;
-                                        }
-                                        if (pluginConfig.version_code > 0) {
-                                            pluginConfig2.version_code = pluginConfig.version_code;
-                                        }
-                                        if (pluginConfig.newest != null) {
-                                            if (pluginConfig2.newest == null) {
-                                                pluginConfig2.newest = new PluginNetConfigInfos.Newest();
-                                            }
-                                            if (pluginConfig.newest.change_log != null) {
-                                                pluginConfig2.newest.change_log = pluginConfig.newest.change_log;
-                                            }
-                                            if (pluginConfig.newest.download_type > 0) {
-                                                pluginConfig2.newest.download_type = pluginConfig.newest.download_type;
-                                            }
-                                            if (pluginConfig.newest.is_force_update > 0) {
-                                                pluginConfig2.newest.is_force_update = pluginConfig.newest.is_force_update;
-                                            }
-                                            if (pluginConfig.newest.md5 != null) {
-                                                pluginConfig2.newest.md5 = pluginConfig.newest.md5;
-                                            }
-                                            if (pluginConfig.newest.newest_ext != null) {
-                                                pluginConfig2.newest.newest_ext = pluginConfig.newest.newest_ext;
-                                            }
-                                            if (pluginConfig.newest.size > 0) {
-                                                pluginConfig2.newest.size = pluginConfig.newest.size;
-                                            }
-                                            if (pluginConfig.newest.url != null) {
-                                                pluginConfig2.newest.url = pluginConfig.newest.url;
-                                            }
-                                            if (pluginConfig.newest.version != null) {
-                                                pluginConfig2.newest.version = pluginConfig.newest.version;
-                                            }
-                                            if (pluginConfig.newest.version_code > 0) {
-                                                pluginConfig2.newest.version_code = pluginConfig.newest.version_code;
-                                            }
-                                        }
-                                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_MIS_UPDATE, pluginConfig2));
-                                    }
-                                }
+
+    /* loaded from: classes5.dex */
+    public static class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            GroupNewsPojo p;
+            PluginNetConfigInfos parse;
+            if (!TbadkCoreApplication.getInst().isMainProcess(true) || d.k().l().getPlugins().size() == 0 || customResponsedMessage == null || !(customResponsedMessage instanceof PushMessage) || (p = ((PushMessage) customResponsedMessage).getP()) == null || TextUtils.isEmpty(p.getCmd())) {
+                return;
+            }
+            String content = p.getContent();
+            if (TextUtils.isEmpty(content)) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(content).getJSONObject(TbEnum.SystemMessage.KEY_USER_MSG);
+                if (jSONObject == null) {
+                    return;
+                }
+                String string = jSONObject.getString("client_version");
+                String M = PluginPackageManager.O().M();
+                if (TextUtils.isEmpty(M)) {
+                    return;
+                }
+                String[] split = M.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                if (split.length != 0 && split.length != 3) {
+                    String str = "";
+                    for (int i = 0; i < split.length && i < 3; i++) {
+                        str = str + split[i] + ".";
+                    }
+                    M = str.substring(0, str.length() - 1);
+                }
+                if (Util.c(string, M) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
+                    PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
+                    PluginNetConfigInfos.PluginConfig R = PluginPackageManager.O().R(pluginConfig.package_name);
+                    d.b.b.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
+                    if (R == null) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
+                        return;
+                    }
+                    if (pluginConfig.enable_version_code != null) {
+                        R.enable = 1;
+                        int[] iArr = pluginConfig.enable_version_code;
+                        int length = iArr.length;
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 >= length) {
+                                break;
+                            } else if (iArr[i2] == R.version_code) {
+                                R.enable = 0;
+                                break;
+                            } else {
+                                i2++;
                             }
-                        } catch (Exception e) {
-                            e.printStackTrace();
                         }
                     }
+                    if (pluginConfig.display_name != null) {
+                        R.display_name = pluginConfig.display_name;
+                    }
+                    if (pluginConfig.ext != null) {
+                        R.ext = pluginConfig.ext;
+                    }
+                    if (pluginConfig.forbidden >= 0) {
+                        R.forbidden = pluginConfig.forbidden;
+                    }
+                    if (pluginConfig.forbidden_features != null) {
+                        R.forbidden_features = pluginConfig.forbidden_features;
+                    }
+                    if (pluginConfig.icon != null) {
+                        R.icon = pluginConfig.icon;
+                    }
+                    if (pluginConfig.load_priority >= 0) {
+                        R.load_priority = pluginConfig.load_priority;
+                    }
+                    if (pluginConfig.priority >= 0) {
+                        R.priority = pluginConfig.priority;
+                    }
+                    if (pluginConfig.verbose != null) {
+                        R.verbose = pluginConfig.verbose;
+                    }
+                    if (pluginConfig.version_code > 0) {
+                        R.version_code = pluginConfig.version_code;
+                    }
+                    if (pluginConfig.newest != null) {
+                        if (R.newest == null) {
+                            R.newest = new PluginNetConfigInfos.Newest();
+                        }
+                        if (pluginConfig.newest.change_log != null) {
+                            R.newest.change_log = pluginConfig.newest.change_log;
+                        }
+                        if (pluginConfig.newest.download_type > 0) {
+                            R.newest.download_type = pluginConfig.newest.download_type;
+                        }
+                        if (pluginConfig.newest.is_force_update > 0) {
+                            R.newest.is_force_update = pluginConfig.newest.is_force_update;
+                        }
+                        if (pluginConfig.newest.md5 != null) {
+                            R.newest.md5 = pluginConfig.newest.md5;
+                        }
+                        if (pluginConfig.newest.newest_ext != null) {
+                            R.newest.newest_ext = pluginConfig.newest.newest_ext;
+                        }
+                        if (pluginConfig.newest.size > 0) {
+                            R.newest.size = pluginConfig.newest.size;
+                        }
+                        if (pluginConfig.newest.url != null) {
+                            R.newest.url = pluginConfig.newest.url;
+                        }
+                        if (pluginConfig.newest.version != null) {
+                            R.newest.version = pluginConfig.newest.version;
+                        }
+                        if (pluginConfig.newest.version_code > 0) {
+                            R.newest.version_code = pluginConfig.newest.version_code;
+                        }
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, R));
                 }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        };
+        }
+    }
+
+    static {
+        a aVar = new a(0);
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_PLUGIN_CONFIG_SYNC);
-            MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_PLUGIN_CONFIG_SYNC, customMessageListener);
+            MessageManager.getInstance().registerStickyMode(2001401);
+            MessageManager.getInstance().registerListener(2001401, aVar);
         }
     }
 }

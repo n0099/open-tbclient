@@ -1,16 +1,13 @@
 package com.bytedance.sdk.adnet.err;
 
-import com.bytedance.sdk.adnet.core.k;
-/* loaded from: classes6.dex */
+import d.c.c.b.d.k;
+/* loaded from: classes5.dex */
 public class e extends VAdError {
-    public e() {
-    }
-
     public e(k kVar) {
         super(kVar);
     }
 
-    public e(Throwable th) {
-        super(th);
+    public e(Throwable th, int i) {
+        super(th, i);
     }
 }

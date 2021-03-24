@@ -3,62 +3,69 @@ package com.baidu.crabsdk.a;
 import android.content.Context;
 import android.os.Build;
 import android.os.Looper;
+import d.b.n.a.h;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private static boolean an = false;
-    private static c apK;
-    private static Context apL;
-    private static ExecutorService apM;
-    public l apI;
-    public p apJ;
 
-    private c(Context context) {
-        apL = context;
-        this.apJ = new p(Looper.getMainLooper().getThread(), a.W);
-        this.apI = new l(new d(this), context);
-        if (apM == null) {
-            apM = Executors.newSingleThreadExecutor();
+    /* renamed from: c  reason: collision with root package name */
+    public static c f4653c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static Context f4654d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static ExecutorService f4655e;
+
+    /* renamed from: a  reason: collision with root package name */
+    public h f4656a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public p f4657b;
+
+    public c(Context context) {
+        f4654d = context;
+        this.f4657b = new p(Looper.getMainLooper().getThread(), a.f4642g);
+        this.f4656a = new h(new d.b.n.a.a(this), context);
+        if (f4655e == null) {
+            f4655e = Executors.newSingleThreadExecutor();
         }
     }
 
-    public static c ac(Context context) {
-        if (apK == null) {
+    public static /* synthetic */ void a(long j, long j2, long j3, long j4) {
+        ArrayList<String> e2 = p.e(j, j2);
+        com.baidu.crabsdk.c.a.c("-BlockCanaryCore- threadStackEntries: size = " + e2.size());
+        if (e2.isEmpty()) {
+            return;
+        }
+        a b2 = a.b();
+        b2.f4649f = e2;
+        b2.a(j, j2, j3, j4);
+    }
+
+    public static c b(Context context) {
+        if (f4653c == null) {
             synchronized (c.class) {
-                if (apK == null) {
-                    apK = new c(context);
+                if (f4653c == null) {
+                    f4653c = new c(context);
                 }
             }
         }
-        return apK;
+        return f4653c;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(long j, long j2, long j3, long j4) {
-        ArrayList<String> f = p.f(j, j2);
-        com.baidu.crabsdk.c.a.v("-BlockCanaryCore- threadStackEntries: size = " + f.size());
-        if (f.isEmpty()) {
-            return;
-        }
-        a uh = a.uh();
-        uh.apE = f;
-        uh.a(j, j2, j3, j4);
-    }
-
-    public static void start() {
-        an = true;
+    public static void e() {
         if (Build.VERSION.SDK_INT >= 16) {
-            e.apO.start();
-            com.baidu.crabsdk.c.a.dw("start FrameMonitor...");
+            d.b.n.a.b.j.c();
+            com.baidu.crabsdk.c.a.b("start FrameMonitor...");
         }
     }
 
-    public static void stop() {
-        an = false;
+    public static void f() {
         if (Build.VERSION.SDK_INT >= 16) {
-            e.apO.stop();
+            d.b.n.a.b.j.d();
         }
     }
 }

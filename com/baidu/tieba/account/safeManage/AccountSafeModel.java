@@ -3,83 +3,84 @@ package com.baidu.tieba.account.safeManage;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
+import d.b.i0.u2.b.a.a;
 import tbclient.SimpleUser;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AccountSafeModel extends BdBaseModel {
-    private boolean fMT;
-    private com.baidu.tieba.setting.im.more.a gig;
-    private String gih;
-    private String gii;
-    private String gij;
-    private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a bLl() {
-        return this.gig;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f14486e;
 
-    public String BV() {
-        return this.gih;
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public a f14487f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f14488g;
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.fMT = false;
-        this.mFinished = false;
+        this.f14486e = false;
+    }
+
+    public void A(boolean z) {
+        this.f14486e = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.fMT = false;
-        this.mFinished = false;
+        this.f14486e = false;
         return false;
     }
 
-    private PrivateInfoNetMessage bLm() {
+    public final PrivateInfoNetMessage s() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean bLn() {
-        if (this.fMT) {
+    public a t() {
+        return this.f14487f;
+    }
+
+    public String u() {
+        return this.f14488g;
+    }
+
+    public final SimpleUser v() {
+        a aVar = this.f14487f;
+        if (aVar == null || aVar.f() == null) {
+            return null;
+        }
+        return this.f14487f.f();
+    }
+
+    public boolean w() {
+        return this.f14486e;
+    }
+
+    public final void x() {
+        SimpleUser v = v();
+        if (v != null) {
+            String str = v.secureemail;
+            String str2 = v.securemobil;
+            this.f14488g = v.ahead_url;
+        }
+    }
+
+    public boolean y() {
+        if (this.f14486e) {
             return false;
         }
-        this.fMT = true;
-        this.mFinished = false;
-        sendMessage(bLm());
+        this.f14486e = true;
+        sendMessage(s());
         return true;
     }
 
-    public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.gig = aVar;
-        bLo();
-    }
-
-    private void bLo() {
-        SimpleUser bLp = bLp();
-        if (bLp != null) {
-            this.gii = bLp.secureemail;
-            this.gij = bLp.securemobil;
-            this.gih = bLp.ahead_url;
-            this.mFinished = true;
-        }
-    }
-
-    private SimpleUser bLp() {
-        if (this.gig == null || this.gig.bLp() == null) {
-            return null;
-        }
-        return this.gig.bLp();
-    }
-
-    public boolean isLoading() {
-        return this.fMT;
-    }
-
-    public void setLoading(boolean z) {
-        this.fMT = z;
+    public void z(a aVar) {
+        this.f14487f = aVar;
+        x();
     }
 }

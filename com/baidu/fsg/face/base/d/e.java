@@ -7,26 +7,35 @@ import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Environment;
-import androidx.core.internal.view.SupportMenu;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    static final int f1625a = 480;
-    static final int b = 480;
-    static final int c = 192;
-    static final int d = 728;
-    static final int e = 750;
-    static final int f = 1335;
-    private static final String g = "LivenessFaceUtil";
+    public static final int f5608a = 480;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f5609b = 480;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final int f5610c = 192;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final int f5611d = 728;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f5612e = 750;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final int f5613f = 1335;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f5614g = "LivenessFaceUtil";
 
     public static void a(int[] iArr, Bitmap bitmap) {
-        Point point;
-        Point point2;
         Canvas canvas = new Canvas(bitmap);
         canvas.drawColor(0, PorterDuff.Mode.CLEAR);
         Paint paint = new Paint();
@@ -36,21 +45,47 @@ public class e {
         paint.setStrokeWidth(3.0f);
         paint.setColor(-16711936);
         for (int i = 0; i < iArr.length / 2; i++) {
-            canvas.drawCircle(iArr[i << 1], iArr[(i << 1) + 1], 2.0f, paint);
+            int i2 = i << 1;
+            canvas.drawCircle(iArr[i2], iArr[i2 + 1], 2.0f, paint);
         }
         Rect a2 = a(iArr);
         canvas.drawRect(a2, paint);
-        new Point().set(a2.centerX(), a2.centerY());
-        paint.setColor(SupportMenu.CATEGORY_MASK);
+        Point point = new Point();
+        point.set(a2.centerX(), a2.centerY());
+        paint.setColor(-65536);
         canvas.drawCircle(point.x, point.y, 5.0f, paint);
-        int[] iArr2 = {bitmap.getWidth(), bitmap.getHeight()};
-        new Point().set(bitmap.getWidth() / 2, (bitmap.getHeight() * d) / f);
-        paint.setColor(SupportMenu.CATEGORY_MASK);
+        bitmap.getWidth();
+        bitmap.getHeight();
+        Point point2 = new Point();
+        point2.set(bitmap.getWidth() / 2, (bitmap.getHeight() * 728) / 1335);
+        paint.setColor(-65536);
         canvas.drawCircle(point2.x, point2.y, 5.0f, paint);
         int width = ((bitmap.getWidth() * 480) / 750) / 2;
-        canvas.drawRect(point2.x - width, point2.y - width, point2.x + width, width + point2.y, paint);
+        int i3 = point2.x;
+        int i4 = point2.y;
+        canvas.drawRect(i3 - width, i4 - width, i3 + width, i4 + width, paint);
         int width2 = ((bitmap.getWidth() * 192) / 750) / 2;
-        canvas.drawRect(point2.x - width2, point2.y - width2, point2.x + width2, width2 + point2.y, paint);
+        int i5 = point2.x;
+        int i6 = point2.y;
+        canvas.drawRect(i5 - width2, i6 - width2, i5 + width2, i6 + width2, paint);
+    }
+
+    public static boolean b(b bVar) {
+        return (bVar == null || bVar.f5601a == null || bVar.f5602b == null) ? false : true;
+    }
+
+    public static boolean c(int[] iArr, b bVar) {
+        if (bVar != null) {
+            return a(iArr).width() < ((int) (((float) a(bVar).width()) / 4.0f));
+        }
+        return false;
+    }
+
+    public static boolean b(int[] iArr, b bVar) {
+        if (b(bVar)) {
+            return a(iArr).width() > ((int) (((float) (a(bVar).width() * 3)) / 5.0f));
+        }
+        return false;
     }
 
     public static boolean a(int[] iArr, b bVar) {
@@ -60,58 +95,47 @@ public class e {
         return a(bVar).contains(a(iArr));
     }
 
-    private static Rect a(b bVar) {
+    public static Rect a(b bVar) {
         Rect rect = new Rect();
         if (b(bVar)) {
-            if (bVar.f1623a.left - bVar.b.left < 0) {
+            int i = bVar.f5601a.left;
+            Rect rect2 = bVar.f5602b;
+            int i2 = rect2.left;
+            if (i - i2 < 0) {
                 rect.left = 0;
             } else {
-                rect.left = (int) (((bVar.f1623a.left - bVar.b.left) / bVar.b.width()) * bVar.d);
+                rect.left = (int) (((i - i2) / rect2.width()) * bVar.f5604d);
             }
-            if (bVar.f1623a.top > bVar.b.top) {
+            int i3 = bVar.f5601a.top;
+            Rect rect3 = bVar.f5602b;
+            int i4 = rect3.top;
+            if (i3 > i4) {
                 rect.top = 0;
             } else {
-                rect.top = (int) (((bVar.b.top - bVar.f1623a.top) / bVar.b.height()) * bVar.c);
+                rect.top = (int) (((i4 - i3) / rect3.height()) * bVar.f5603c);
             }
-            if (bVar.f1623a.right > bVar.b.right) {
-                rect.right = bVar.d;
+            int i5 = bVar.f5601a.right;
+            Rect rect4 = bVar.f5602b;
+            int i6 = rect4.right;
+            if (i5 > i6) {
+                rect.right = bVar.f5604d;
             } else {
-                rect.right = bVar.d - ((int) (((bVar.b.right - bVar.f1623a.right) / bVar.b.width()) * bVar.d));
+                rect.right = bVar.f5604d - ((int) (((i6 - i5) / rect4.width()) * bVar.f5604d));
             }
-            if (bVar.f1623a.bottom > bVar.b.bottom) {
-                rect.bottom = bVar.c;
+            int i7 = bVar.f5601a.bottom;
+            Rect rect5 = bVar.f5602b;
+            int i8 = rect5.bottom;
+            if (i7 > i8) {
+                rect.bottom = bVar.f5603c;
             } else {
-                rect.bottom = bVar.c - ((int) (((bVar.b.bottom - bVar.f1623a.bottom) / bVar.b.height()) * bVar.c));
+                rect.bottom = bVar.f5603c - ((int) (((i8 - i7) / rect5.height()) * bVar.f5603c));
             }
+            return rect;
         }
         return rect;
     }
 
-    private static boolean b(b bVar) {
-        return (bVar == null || bVar.f1623a == null || bVar.b == null) ? false : true;
-    }
-
-    public static boolean b(int[] iArr, b bVar) {
-        if (b(bVar)) {
-            Rect a2 = a(iArr);
-            if (a2.width() > ((int) ((a(bVar).width() * 3) / 5.0f))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean c(int[] iArr, b bVar) {
-        if (bVar != null) {
-            Rect a2 = a(iArr);
-            if (a2.width() < ((int) (a(bVar).width() / 4.0f))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static Rect a(int[] iArr) {
+    public static Rect a(int[] iArr) {
         Point point = new Point();
         Point point2 = new Point();
         if (iArr.length > 2) {
@@ -121,8 +145,9 @@ public class e {
             point2.y = iArr[1];
         }
         for (int i = 0; i < iArr.length / 2; i++) {
-            float f2 = iArr[i << 1];
-            float f3 = iArr[(i << 1) + 1];
+            int i2 = i << 1;
+            float f2 = iArr[i2];
+            float f3 = iArr[i2 + 1];
             if (f2 < point.x) {
                 point.x = (int) f2;
             }
@@ -141,18 +166,17 @@ public class e {
 
     public static void a(Bitmap bitmap) {
         try {
-            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/awe");
+            File externalStorageDirectory = Environment.getExternalStorageDirectory();
+            File file = new File(externalStorageDirectory.getAbsolutePath() + "/awe");
             file.mkdirs();
             File file2 = new File(file, String.format("%d.jpg", Long.valueOf(System.currentTimeMillis())));
             if (file2.exists()) {
                 file2.delete();
             }
             FileOutputStream fileOutputStream = new FileOutputStream(file2);
-            if (fileOutputStream != null) {
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                fileOutputStream.flush();
-                fileOutputStream.close();
-            }
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+            fileOutputStream.flush();
+            fileOutputStream.close();
         } catch (FileNotFoundException e2) {
             e2.printStackTrace();
         } catch (IOException e3) {

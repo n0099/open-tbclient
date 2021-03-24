@@ -12,20 +12,20 @@ import org.apache.http.conn.routing.HttpRoutePlanner;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ProxySelectorRoutePlanner implements HttpRoutePlanner {
-    protected ProxySelector proxySelector;
-    protected SchemeRegistry schemeRegistry;
+    public ProxySelector proxySelector;
+    public SchemeRegistry schemeRegistry;
 
     public ProxySelectorRoutePlanner(SchemeRegistry schemeRegistry, ProxySelector proxySelector) {
         throw new RuntimeException("Stub!");
     }
 
-    public ProxySelector getProxySelector() {
+    public Proxy chooseProxy(List<Proxy> list, HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setProxySelector(ProxySelector proxySelector) {
+    public HttpHost determineProxy(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws HttpException {
         throw new RuntimeException("Stub!");
     }
 
@@ -34,15 +34,15 @@ public class ProxySelectorRoutePlanner implements HttpRoutePlanner {
         throw new RuntimeException("Stub!");
     }
 
-    protected HttpHost determineProxy(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws HttpException {
+    public String getHost(InetSocketAddress inetSocketAddress) {
         throw new RuntimeException("Stub!");
     }
 
-    protected String getHost(InetSocketAddress inetSocketAddress) {
+    public ProxySelector getProxySelector() {
         throw new RuntimeException("Stub!");
     }
 
-    protected Proxy chooseProxy(List<Proxy> list, HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) {
+    public void setProxySelector(ProxySelector proxySelector) {
         throw new RuntimeException("Stub!");
     }
 }

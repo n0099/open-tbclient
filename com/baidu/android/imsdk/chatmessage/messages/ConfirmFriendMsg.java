@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<ConfirmFriendMsg> CREATOR = new Parcelable.Creator<ConfirmFriendMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ConfirmFriendMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,21 +23,27 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
             return new ConfirmFriendMsg[i];
         }
     };
-    private static final String TAG = "ConfirmFriendMsg";
-    private long fromUser;
+    public static final String TAG = "ConfirmFriendMsg";
+    public long fromUser;
 
     public ConfirmFriendMsg() {
         setNotifyCmd(1);
     }
 
-    public ConfirmFriendMsg(Parcel parcel) {
-        super(parcel);
-        this.fromUser = parcel.readLong();
-    }
-
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public long getFromUser() {
         return this.fromUser;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        try {
+            setFromUser(new JSONObject(getJsonContent()).getLong("fromUser"));
+            return true;
+        } catch (JSONException e2) {
+            LogUtils.e(TAG, "parseJsonString", e2);
+            return false;
+        }
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -51,14 +57,8 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
         parcel.writeLong(this.fromUser);
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        try {
-            setFromUser(new JSONObject(getJsonContent()).getLong("fromUser"));
-            return true;
-        } catch (JSONException e) {
-            LogUtils.e(TAG, "parseJsonString", e);
-            return false;
-        }
+    public ConfirmFriendMsg(Parcel parcel) {
+        super(parcel);
+        this.fromUser = parcel.readLong();
     }
 }

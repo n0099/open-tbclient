@@ -7,7 +7,7 @@ import android.os.Parcelable;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.Utility;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AuthInfo implements Parcelable, Serializable {
     public static final Parcelable.Creator<AuthInfo> CREATOR = new Parcelable.Creator<AuthInfo>() { // from class: com.sina.weibo.sdk.auth.AuthInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -24,11 +24,11 @@ public class AuthInfo implements Parcelable, Serializable {
             return new AuthInfo[i];
         }
     };
-    private String mAppKey;
-    private String mKeyHash;
-    private String mPackageName;
-    private String mRedirectUrl;
-    private String mScope;
+    public String mAppKey;
+    public String mKeyHash;
+    public String mPackageName;
+    public String mRedirectUrl;
+    public String mScope;
 
     public AuthInfo(Context context, String str, String str2, String str3) {
         this.mAppKey = "";
@@ -39,28 +39,22 @@ public class AuthInfo implements Parcelable, Serializable {
         this.mAppKey = str;
         this.mRedirectUrl = str2;
         this.mScope = str3;
-        this.mPackageName = context.getPackageName();
-        this.mKeyHash = Utility.getSign(context, this.mPackageName);
+        String packageName = context.getPackageName();
+        this.mPackageName = packageName;
+        this.mKeyHash = Utility.getSign(context, packageName);
+    }
+
+    public static AuthInfo parseBundleData(Context context, Bundle bundle) {
+        return new AuthInfo(context, bundle.getString("appKey"), bundle.getString(WBConstants.SSO_REDIRECT_URL), bundle.getString("scope"));
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
     }
 
     public String getAppKey() {
         return this.mAppKey;
-    }
-
-    public String getRedirectUrl() {
-        return this.mRedirectUrl;
-    }
-
-    public String getScope() {
-        return this.mScope;
-    }
-
-    public String getPackageName() {
-        return this.mPackageName;
-    }
-
-    public String getKeyHash() {
-        return this.mKeyHash;
     }
 
     public Bundle getAuthBundle() {
@@ -73,13 +67,20 @@ public class AuthInfo implements Parcelable, Serializable {
         return bundle;
     }
 
-    public static AuthInfo parseBundleData(Context context, Bundle bundle) {
-        return new AuthInfo(context, bundle.getString("appKey"), bundle.getString(WBConstants.SSO_REDIRECT_URL), bundle.getString("scope"));
+    public String getKeyHash() {
+        return this.mKeyHash;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
+    public String getPackageName() {
+        return this.mPackageName;
+    }
+
+    public String getRedirectUrl() {
+        return this.mRedirectUrl;
+    }
+
+    public String getScope() {
+        return this.mScope;
     }
 
     @Override // android.os.Parcelable
@@ -91,7 +92,7 @@ public class AuthInfo implements Parcelable, Serializable {
         parcel.writeString(this.mKeyHash);
     }
 
-    protected AuthInfo(Parcel parcel) {
+    public AuthInfo(Parcel parcel) {
         this.mAppKey = "";
         this.mRedirectUrl = "";
         this.mScope = "";

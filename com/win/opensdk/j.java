@@ -1,42 +1,30 @@
 package com.win.opensdk;
 
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes14.dex */
-public class j {
-    public static j qki;
+import android.graphics.Bitmap;
+/* loaded from: classes7.dex */
+public class j implements X {
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap f8167a = new ConcurrentHashMap();
+    public final /* synthetic */ Bitmap.CompressFormat f39954a;
 
-    public static String a(String str, String str2, String str3) {
-        if (str.length() > 16) {
-            str = str.substring(0, 16);
-        }
-        return str + str2 + str3;
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ PBSplash f39955b;
+
+    public j(PBSplash pBSplash, Bitmap.CompressFormat compressFormat) {
+        this.f39955b = pBSplash;
+        this.f39954a = compressFormat;
     }
 
-    public static j eIX() {
-        if (qki == null) {
-            synchronized (j.class) {
-                if (qki == null) {
-                    qki = new j();
-                }
-            }
-        }
-        return qki;
+    public void a(int i) {
     }
 
-    public void a(String str, fe feVar) {
-        synchronized (j.class) {
-            this.f8167a.put(str, feVar);
+    public void a(W w) {
+        PBSplash pBSplash = this.f39955b;
+        PBSplashListener pBSplashListener = pBSplash.f39763e;
+        if (pBSplashListener == null || pBSplash.j) {
+            return;
         }
-    }
-
-    public fe abV(String str) {
-        fe feVar;
-        synchronized (j.class) {
-            feVar = (fe) this.f8167a.remove(str);
-        }
-        return feVar;
+        pBSplashListener.onFail(PBError.NO_RESUOURCE);
+        PBSplash.d(this.f39955b, true);
     }
 }

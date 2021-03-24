@@ -3,6 +3,9 @@ package com.kwad.sdk.glide.load.engine;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.bumptech.glide.load.engine.GlideException;
 import com.kwad.sdk.glide.load.DataSource;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -10,28 +13,29 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class GlideException extends Exception {
-    private static final StackTraceElement[] EMPTY_ELEMENTS = new StackTraceElement[0];
-    private static final long serialVersionUID = 1;
-    private final List<Throwable> causes;
-    private Class<?> dataClass;
-    private DataSource dataSource;
-    private String detailMessage;
+    public static final StackTraceElement[] EMPTY_ELEMENTS = new StackTraceElement[0];
+    public static final long serialVersionUID = 1;
+    public final List<Throwable> causes;
+    public Class<?> dataClass;
+    public DataSource dataSource;
+    public String detailMessage;
     @Nullable
-    private Exception exception;
-    private com.kwad.sdk.glide.load.c key;
+    public Exception exception;
+    public com.kwad.sdk.glide.load.c key;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements Appendable {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Appendable f6716a;
-        private boolean b = true;
+        public final Appendable f35402a;
 
-        a(Appendable appendable) {
-            this.f6716a = appendable;
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f35403b = true;
+
+        public a(Appendable appendable) {
+            this.f35402a = appendable;
         }
 
         @NonNull
@@ -40,13 +44,13 @@ public final class GlideException extends Exception {
         }
 
         @Override // java.lang.Appendable
-        public Appendable append(char c) {
-            if (this.b) {
-                this.b = false;
-                this.f6716a.append("  ");
+        public Appendable append(char c2) {
+            if (this.f35403b) {
+                this.f35403b = false;
+                this.f35402a.append(GlideException.IndentedAppendable.INDENT);
             }
-            this.b = c == '\n';
-            this.f6716a.append(c);
+            this.f35403b = c2 == '\n';
+            this.f35402a.append(c2);
             return this;
         }
 
@@ -58,17 +62,17 @@ public final class GlideException extends Exception {
 
         @Override // java.lang.Appendable
         public Appendable append(@Nullable CharSequence charSequence, int i, int i2) {
-            boolean z = false;
             CharSequence a2 = a(charSequence);
-            if (this.b) {
-                this.b = false;
-                this.f6716a.append("  ");
+            boolean z = false;
+            if (this.f35403b) {
+                this.f35403b = false;
+                this.f35402a.append(GlideException.IndentedAppendable.INDENT);
             }
             if (a2.length() > 0 && a2.charAt(i2 - 1) == '\n') {
                 z = true;
             }
-            this.b = z;
-            this.f6716a.append(a2, i, i2);
+            this.f35403b = z;
+            this.f35402a.append(a2, i, i2);
             return this;
         }
     }
@@ -97,31 +101,34 @@ public final class GlideException extends Exception {
         }
     }
 
-    private static void appendCauses(List<Throwable> list, Appendable appendable) {
+    public static void appendCauses(List<Throwable> list, Appendable appendable) {
         try {
             appendCausesWrapped(list, appendable);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException e2) {
+            throw new RuntimeException(e2);
         }
     }
 
-    private static void appendCausesWrapped(List<Throwable> list, Appendable appendable) {
+    public static void appendCausesWrapped(List<Throwable> list, Appendable appendable) {
         int size = list.size();
-        for (int i = 0; i < size; i++) {
-            appendable.append("Cause (").append(String.valueOf(i + 1)).append(" of ").append(String.valueOf(size)).append("): ");
+        int i = 0;
+        while (i < size) {
+            int i2 = i + 1;
+            appendable.append("Cause (").append(String.valueOf(i2)).append(" of ").append(String.valueOf(size)).append("): ");
             Throwable th = list.get(i);
             if (th instanceof GlideException) {
                 ((GlideException) th).printStackTrace(appendable);
             } else {
                 appendExceptionMessage(th, appendable);
             }
+            i = i2;
         }
     }
 
-    private static void appendExceptionMessage(Throwable th, Appendable appendable) {
+    public static void appendExceptionMessage(Throwable th, Appendable appendable) {
         try {
             appendable.append(th.getClass().toString()).append(": ").append(th.getMessage()).append('\n');
-        } catch (IOException e) {
+        } catch (IOException unused) {
             throw new RuntimeException(th);
         }
     }
@@ -142,21 +149,33 @@ public final class GlideException extends Exception {
 
     @Override // java.lang.Throwable
     public String getMessage() {
-        StringBuilder append = new StringBuilder(71).append(this.detailMessage).append(this.dataClass != null ? ", " + this.dataClass : "").append(this.dataSource != null ? ", " + this.dataSource : "").append(this.key != null ? ", " + this.key : "");
+        String str;
+        StringBuilder sb = new StringBuilder(71);
+        sb.append(this.detailMessage);
+        sb.append(this.dataClass != null ? StringUtil.ARRAY_ELEMENT_SEPARATOR + this.dataClass : "");
+        sb.append(this.dataSource != null ? StringUtil.ARRAY_ELEMENT_SEPARATOR + this.dataSource : "");
+        sb.append(this.key != null ? StringUtil.ARRAY_ELEMENT_SEPARATOR + this.key : "");
         List<Throwable> rootCauses = getRootCauses();
         if (rootCauses.isEmpty()) {
-            return append.toString();
+            return sb.toString();
         }
         if (rootCauses.size() == 1) {
-            append.append("\nThere was 1 cause:");
+            str = "\nThere was 1 cause:";
         } else {
-            append.append("\nThere were ").append(rootCauses.size()).append(" causes:");
+            sb.append("\nThere were ");
+            sb.append(rootCauses.size());
+            str = " causes:";
         }
+        sb.append(str);
         for (Throwable th : rootCauses) {
-            append.append('\n').append(th.getClass().getName()).append('(').append(th.getMessage()).append(')');
+            sb.append('\n');
+            sb.append(th.getClass().getName());
+            sb.append('(');
+            sb.append(th.getMessage());
+            sb.append(')');
         }
-        append.append("\n call GlideException#logRootCauses(String) for more detail");
-        return append.toString();
+        sb.append("\n call GlideException#logRootCauses(String) for more detail");
+        return sb.toString();
     }
 
     @Nullable
@@ -173,8 +192,17 @@ public final class GlideException extends Exception {
     public void logRootCauses(String str) {
         List<Throwable> rootCauses = getRootCauses();
         int size = rootCauses.size();
-        for (int i = 0; i < size; i++) {
-            Log.i(str, "Root cause (" + (i + 1) + " of " + size + ")", rootCauses.get(i));
+        int i = 0;
+        while (i < size) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("Root cause (");
+            int i2 = i + 1;
+            sb.append(i2);
+            sb.append(" of ");
+            sb.append(size);
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            Log.i(str, sb.toString(), rootCauses.get(i));
+            i = i2;
         }
     }
 
@@ -193,12 +221,10 @@ public final class GlideException extends Exception {
         printStackTrace((Appendable) printWriter);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setLoggingDetails(com.kwad.sdk.glide.load.c cVar, DataSource dataSource) {
         setLoggingDetails(cVar, dataSource, null);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setLoggingDetails(com.kwad.sdk.glide.load.c cVar, DataSource dataSource, Class<?> cls) {
         this.key = cVar;
         this.dataSource = dataSource;

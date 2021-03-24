@@ -4,7 +4,7 @@ import androidx.constraintlayout.solver.LinearSystem;
 import androidx.constraintlayout.solver.SolverVariable;
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 import com.baidu.webkit.internal.blink.VideoFreeFlowConfigManager;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class ResolutionAnchor extends ResolutionNode {
     public static final int BARRIER_CONNECTION = 5;
     public static final int CENTER_CONNECTION = 2;
@@ -12,159 +12,56 @@ public class ResolutionAnchor extends ResolutionNode {
     public static final int DIRECT_CONNECTION = 1;
     public static final int MATCH_CONNECTION = 3;
     public static final int UNCONNECTED = 0;
-    float computedValue;
-    ConstraintAnchor myAnchor;
-    float offset;
-    private ResolutionAnchor opposite;
-    private float oppositeOffset;
-    float resolvedOffset;
-    ResolutionAnchor resolvedTarget;
-    ResolutionAnchor target;
-    int type = 0;
-    private ResolutionDimension dimension = null;
-    private int dimensionMultiplier = 1;
-    private ResolutionDimension oppositeDimension = null;
-    private int oppositeDimensionMultiplier = 1;
+    public float computedValue;
+    public ConstraintAnchor myAnchor;
+    public float offset;
+    public ResolutionAnchor opposite;
+    public float oppositeOffset;
+    public float resolvedOffset;
+    public ResolutionAnchor resolvedTarget;
+    public ResolutionAnchor target;
+    public int type = 0;
+    public ResolutionDimension dimension = null;
+    public int dimensionMultiplier = 1;
+    public ResolutionDimension oppositeDimension = null;
+    public int oppositeDimensionMultiplier = 1;
 
     public ResolutionAnchor(ConstraintAnchor constraintAnchor) {
         this.myAnchor = constraintAnchor;
     }
 
+    public void addResolvedValue(LinearSystem linearSystem) {
+        SolverVariable solverVariable = this.myAnchor.getSolverVariable();
+        ResolutionAnchor resolutionAnchor = this.resolvedTarget;
+        if (resolutionAnchor == null) {
+            linearSystem.addEquality(solverVariable, (int) (this.resolvedOffset + 0.5f));
+        } else {
+            linearSystem.addEquality(solverVariable, linearSystem.createObjectVariable(resolutionAnchor.myAnchor), (int) (this.resolvedOffset + 0.5f), 6);
+        }
+    }
+
+    public void dependsOn(int i, ResolutionAnchor resolutionAnchor, int i2) {
+        this.type = i;
+        this.target = resolutionAnchor;
+        this.offset = i2;
+        resolutionAnchor.addDependent(this);
+    }
+
+    public float getResolvedValue() {
+        return this.resolvedOffset;
+    }
+
     @Override // androidx.constraintlayout.solver.widgets.ResolutionNode
     public void remove(ResolutionDimension resolutionDimension) {
-        if (this.dimension == resolutionDimension) {
+        ResolutionDimension resolutionDimension2 = this.dimension;
+        if (resolutionDimension2 == resolutionDimension) {
             this.dimension = null;
             this.offset = this.dimensionMultiplier;
-        } else if (this.dimension == this.oppositeDimension) {
+        } else if (resolutionDimension2 == this.oppositeDimension) {
             this.oppositeDimension = null;
             this.oppositeOffset = this.oppositeDimensionMultiplier;
         }
         resolve();
-    }
-
-    public String toString() {
-        if (this.state == 1) {
-            if (this.resolvedTarget == this) {
-                return "[" + this.myAnchor + ", RESOLVED: " + this.resolvedOffset + "]  type: " + sType(this.type);
-            }
-            return "[" + this.myAnchor + ", RESOLVED: " + this.resolvedTarget + ":" + this.resolvedOffset + "] type: " + sType(this.type);
-        }
-        return "{ " + this.myAnchor + " UNRESOLVED} type: " + sType(this.type);
-    }
-
-    public void resolve(ResolutionAnchor resolutionAnchor, float f) {
-        if (this.state == 0 || (this.resolvedTarget != resolutionAnchor && this.resolvedOffset != f)) {
-            this.resolvedTarget = resolutionAnchor;
-            this.resolvedOffset = f;
-            if (this.state == 1) {
-                invalidate();
-            }
-            didResolve();
-        }
-    }
-
-    String sType(int i) {
-        if (i == 1) {
-            return VideoFreeFlowConfigManager.DIRECT;
-        }
-        if (i == 2) {
-            return "CENTER";
-        }
-        if (i == 3) {
-            return "MATCH";
-        }
-        if (i == 4) {
-            return "CHAIN";
-        }
-        if (i == 5) {
-            return "BARRIER";
-        }
-        return "UNCONNECTED";
-    }
-
-    @Override // androidx.constraintlayout.solver.widgets.ResolutionNode
-    public void resolve() {
-        float f;
-        float width;
-        float f2;
-        if (this.state != 1 && this.type != 4) {
-            if (this.dimension != null) {
-                if (this.dimension.state == 1) {
-                    this.offset = this.dimensionMultiplier * this.dimension.value;
-                } else {
-                    return;
-                }
-            }
-            if (this.oppositeDimension != null) {
-                if (this.oppositeDimension.state == 1) {
-                    this.oppositeOffset = this.oppositeDimensionMultiplier * this.oppositeDimension.value;
-                } else {
-                    return;
-                }
-            }
-            if (this.type == 1 && (this.target == null || this.target.state == 1)) {
-                if (this.target == null) {
-                    this.resolvedTarget = this;
-                    this.resolvedOffset = this.offset;
-                } else {
-                    this.resolvedTarget = this.target.resolvedTarget;
-                    this.resolvedOffset = this.target.resolvedOffset + this.offset;
-                }
-                didResolve();
-            } else if (this.type == 2 && this.target != null && this.target.state == 1 && this.opposite != null && this.opposite.target != null && this.opposite.target.state == 1) {
-                if (LinearSystem.getMetrics() != null) {
-                    LinearSystem.getMetrics().centerConnectionResolved++;
-                }
-                this.resolvedTarget = this.target.resolvedTarget;
-                this.opposite.resolvedTarget = this.opposite.target.resolvedTarget;
-                boolean z = this.myAnchor.mType == ConstraintAnchor.Type.RIGHT || this.myAnchor.mType == ConstraintAnchor.Type.BOTTOM;
-                if (z) {
-                    f = this.target.resolvedOffset - this.opposite.target.resolvedOffset;
-                } else {
-                    f = this.opposite.target.resolvedOffset - this.target.resolvedOffset;
-                }
-                if (this.myAnchor.mType == ConstraintAnchor.Type.LEFT || this.myAnchor.mType == ConstraintAnchor.Type.RIGHT) {
-                    width = f - this.myAnchor.mOwner.getWidth();
-                    f2 = this.myAnchor.mOwner.mHorizontalBiasPercent;
-                } else {
-                    width = f - this.myAnchor.mOwner.getHeight();
-                    f2 = this.myAnchor.mOwner.mVerticalBiasPercent;
-                }
-                int margin = this.myAnchor.getMargin();
-                int margin2 = this.opposite.myAnchor.getMargin();
-                if (this.myAnchor.getTarget() == this.opposite.myAnchor.getTarget()) {
-                    f2 = 0.5f;
-                    margin2 = 0;
-                    margin = 0;
-                }
-                float f3 = (width - margin) - margin2;
-                if (z) {
-                    this.opposite.resolvedOffset = margin2 + this.opposite.target.resolvedOffset + (f3 * f2);
-                    this.resolvedOffset = (this.target.resolvedOffset - margin) - ((1.0f - f2) * f3);
-                } else {
-                    this.resolvedOffset = this.target.resolvedOffset + margin + (f3 * f2);
-                    this.opposite.resolvedOffset = (this.opposite.target.resolvedOffset - margin2) - ((1.0f - f2) * f3);
-                }
-                didResolve();
-                this.opposite.didResolve();
-            } else if (this.type == 3 && this.target != null && this.target.state == 1 && this.opposite != null && this.opposite.target != null && this.opposite.target.state == 1) {
-                if (LinearSystem.getMetrics() != null) {
-                    LinearSystem.getMetrics().matchConnectionResolved++;
-                }
-                this.resolvedTarget = this.target.resolvedTarget;
-                this.opposite.resolvedTarget = this.opposite.target.resolvedTarget;
-                this.resolvedOffset = this.target.resolvedOffset + this.offset;
-                this.opposite.resolvedOffset = this.opposite.target.resolvedOffset + this.opposite.offset;
-                didResolve();
-                this.opposite.didResolve();
-            } else if (this.type == 5) {
-                this.myAnchor.mOwner.resolve();
-            }
-        }
-    }
-
-    public void setType(int i) {
-        this.type = i;
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ResolutionNode
@@ -184,45 +81,55 @@ public class ResolutionAnchor extends ResolutionNode {
         this.type = 0;
     }
 
-    public void update() {
-        ConstraintAnchor target = this.myAnchor.getTarget();
-        if (target != null) {
-            if (target.getTarget() == this.myAnchor) {
-                this.type = 4;
-                target.getResolutionNode().type = 4;
+    public void resolve(ResolutionAnchor resolutionAnchor, float f2) {
+        if (this.state == 0 || !(this.resolvedTarget == resolutionAnchor || this.resolvedOffset == f2)) {
+            this.resolvedTarget = resolutionAnchor;
+            this.resolvedOffset = f2;
+            if (this.state == 1) {
+                invalidate();
             }
-            int margin = this.myAnchor.getMargin();
-            if (this.myAnchor.mType == ConstraintAnchor.Type.RIGHT || this.myAnchor.mType == ConstraintAnchor.Type.BOTTOM) {
-                margin = -margin;
-            }
-            dependsOn(target.getResolutionNode(), margin);
+            didResolve();
         }
     }
 
-    public void dependsOn(int i, ResolutionAnchor resolutionAnchor, int i2) {
-        this.type = i;
-        this.target = resolutionAnchor;
-        this.offset = i2;
-        this.target.addDependent(this);
+    public String sType(int i) {
+        return i == 1 ? VideoFreeFlowConfigManager.DIRECT : i == 2 ? "CENTER" : i == 3 ? "MATCH" : i == 4 ? "CHAIN" : i == 5 ? "BARRIER" : "UNCONNECTED";
     }
 
-    public void dependsOn(ResolutionAnchor resolutionAnchor, int i) {
-        this.target = resolutionAnchor;
-        this.offset = i;
-        this.target.addDependent(this);
-    }
-
-    public void dependsOn(ResolutionAnchor resolutionAnchor, int i, ResolutionDimension resolutionDimension) {
-        this.target = resolutionAnchor;
-        this.target.addDependent(this);
-        this.dimension = resolutionDimension;
-        this.dimensionMultiplier = i;
-        this.dimension.addDependent(this);
-    }
-
-    public void setOpposite(ResolutionAnchor resolutionAnchor, float f) {
+    public void setOpposite(ResolutionAnchor resolutionAnchor, float f2) {
         this.opposite = resolutionAnchor;
-        this.oppositeOffset = f;
+        this.oppositeOffset = f2;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public String toString() {
+        if (this.state == 1) {
+            if (this.resolvedTarget == this) {
+                return "[" + this.myAnchor + ", RESOLVED: " + this.resolvedOffset + "]  type: " + sType(this.type);
+            }
+            return "[" + this.myAnchor + ", RESOLVED: " + this.resolvedTarget + ":" + this.resolvedOffset + "] type: " + sType(this.type);
+        }
+        return "{ " + this.myAnchor + " UNRESOLVED} type: " + sType(this.type);
+    }
+
+    public void update() {
+        ConstraintAnchor target = this.myAnchor.getTarget();
+        if (target == null) {
+            return;
+        }
+        if (target.getTarget() == this.myAnchor) {
+            this.type = 4;
+            target.getResolutionNode().type = 4;
+        }
+        int margin = this.myAnchor.getMargin();
+        ConstraintAnchor.Type type = this.myAnchor.mType;
+        if (type == ConstraintAnchor.Type.RIGHT || type == ConstraintAnchor.Type.BOTTOM) {
+            margin = -margin;
+        }
+        dependsOn(target.getResolutionNode(), margin);
     }
 
     public void setOpposite(ResolutionAnchor resolutionAnchor, int i, ResolutionDimension resolutionDimension) {
@@ -231,17 +138,127 @@ public class ResolutionAnchor extends ResolutionNode {
         this.oppositeDimensionMultiplier = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void addResolvedValue(LinearSystem linearSystem) {
-        SolverVariable solverVariable = this.myAnchor.getSolverVariable();
-        if (this.resolvedTarget == null) {
-            linearSystem.addEquality(solverVariable, (int) (this.resolvedOffset + 0.5f));
-        } else {
-            linearSystem.addEquality(solverVariable, linearSystem.createObjectVariable(this.resolvedTarget.myAnchor), (int) (this.resolvedOffset + 0.5f), 6);
+    public void dependsOn(ResolutionAnchor resolutionAnchor, int i) {
+        this.target = resolutionAnchor;
+        this.offset = i;
+        resolutionAnchor.addDependent(this);
+    }
+
+    @Override // androidx.constraintlayout.solver.widgets.ResolutionNode
+    public void resolve() {
+        ResolutionAnchor resolutionAnchor;
+        ResolutionAnchor resolutionAnchor2;
+        ResolutionAnchor resolutionAnchor3;
+        ResolutionAnchor resolutionAnchor4;
+        ResolutionAnchor resolutionAnchor5;
+        ResolutionAnchor resolutionAnchor6;
+        float f2;
+        float f3;
+        ConstraintAnchor constraintAnchor;
+        float width;
+        float f4;
+        ResolutionAnchor resolutionAnchor7;
+        boolean z = true;
+        if (this.state == 1 || this.type == 4) {
+            return;
+        }
+        ResolutionDimension resolutionDimension = this.dimension;
+        if (resolutionDimension != null) {
+            if (resolutionDimension.state != 1) {
+                return;
+            }
+            this.offset = this.dimensionMultiplier * resolutionDimension.value;
+        }
+        ResolutionDimension resolutionDimension2 = this.oppositeDimension;
+        if (resolutionDimension2 != null) {
+            if (resolutionDimension2.state != 1) {
+                return;
+            }
+            this.oppositeOffset = this.oppositeDimensionMultiplier * resolutionDimension2.value;
+        }
+        if (this.type == 1 && ((resolutionAnchor7 = this.target) == null || resolutionAnchor7.state == 1)) {
+            ResolutionAnchor resolutionAnchor8 = this.target;
+            if (resolutionAnchor8 == null) {
+                this.resolvedTarget = this;
+                this.resolvedOffset = this.offset;
+            } else {
+                this.resolvedTarget = resolutionAnchor8.resolvedTarget;
+                this.resolvedOffset = resolutionAnchor8.resolvedOffset + this.offset;
+            }
+            didResolve();
+        } else if (this.type == 2 && (resolutionAnchor4 = this.target) != null && resolutionAnchor4.state == 1 && (resolutionAnchor5 = this.opposite) != null && (resolutionAnchor6 = resolutionAnchor5.target) != null && resolutionAnchor6.state == 1) {
+            if (LinearSystem.getMetrics() != null) {
+                LinearSystem.getMetrics().centerConnectionResolved++;
+            }
+            this.resolvedTarget = this.target.resolvedTarget;
+            ResolutionAnchor resolutionAnchor9 = this.opposite;
+            resolutionAnchor9.resolvedTarget = resolutionAnchor9.target.resolvedTarget;
+            ConstraintAnchor.Type type = this.myAnchor.mType;
+            int i = 0;
+            if (type != ConstraintAnchor.Type.RIGHT && type != ConstraintAnchor.Type.BOTTOM) {
+                z = false;
+            }
+            if (z) {
+                f2 = this.target.resolvedOffset;
+                f3 = this.opposite.target.resolvedOffset;
+            } else {
+                f2 = this.opposite.target.resolvedOffset;
+                f3 = this.target.resolvedOffset;
+            }
+            float f5 = f2 - f3;
+            ConstraintAnchor.Type type2 = this.myAnchor.mType;
+            if (type2 != ConstraintAnchor.Type.LEFT && type2 != ConstraintAnchor.Type.RIGHT) {
+                width = f5 - constraintAnchor.mOwner.getHeight();
+                f4 = this.myAnchor.mOwner.mVerticalBiasPercent;
+            } else {
+                width = f5 - this.myAnchor.mOwner.getWidth();
+                f4 = this.myAnchor.mOwner.mHorizontalBiasPercent;
+            }
+            int margin = this.myAnchor.getMargin();
+            int margin2 = this.opposite.myAnchor.getMargin();
+            if (this.myAnchor.getTarget() == this.opposite.myAnchor.getTarget()) {
+                f4 = 0.5f;
+                margin2 = 0;
+            } else {
+                i = margin;
+            }
+            float f6 = i;
+            float f7 = margin2;
+            float f8 = (width - f6) - f7;
+            if (z) {
+                ResolutionAnchor resolutionAnchor10 = this.opposite;
+                resolutionAnchor10.resolvedOffset = resolutionAnchor10.target.resolvedOffset + f7 + (f8 * f4);
+                this.resolvedOffset = (this.target.resolvedOffset - f6) - (f8 * (1.0f - f4));
+            } else {
+                this.resolvedOffset = this.target.resolvedOffset + f6 + (f8 * f4);
+                ResolutionAnchor resolutionAnchor11 = this.opposite;
+                resolutionAnchor11.resolvedOffset = (resolutionAnchor11.target.resolvedOffset - f7) - (f8 * (1.0f - f4));
+            }
+            didResolve();
+            this.opposite.didResolve();
+        } else if (this.type == 3 && (resolutionAnchor = this.target) != null && resolutionAnchor.state == 1 && (resolutionAnchor2 = this.opposite) != null && (resolutionAnchor3 = resolutionAnchor2.target) != null && resolutionAnchor3.state == 1) {
+            if (LinearSystem.getMetrics() != null) {
+                LinearSystem.getMetrics().matchConnectionResolved++;
+            }
+            ResolutionAnchor resolutionAnchor12 = this.target;
+            this.resolvedTarget = resolutionAnchor12.resolvedTarget;
+            ResolutionAnchor resolutionAnchor13 = this.opposite;
+            ResolutionAnchor resolutionAnchor14 = resolutionAnchor13.target;
+            resolutionAnchor13.resolvedTarget = resolutionAnchor14.resolvedTarget;
+            this.resolvedOffset = resolutionAnchor12.resolvedOffset + this.offset;
+            resolutionAnchor13.resolvedOffset = resolutionAnchor14.resolvedOffset + resolutionAnchor13.offset;
+            didResolve();
+            this.opposite.didResolve();
+        } else if (this.type == 5) {
+            this.myAnchor.mOwner.resolve();
         }
     }
 
-    public float getResolvedValue() {
-        return this.resolvedOffset;
+    public void dependsOn(ResolutionAnchor resolutionAnchor, int i, ResolutionDimension resolutionDimension) {
+        this.target = resolutionAnchor;
+        resolutionAnchor.addDependent(this);
+        this.dimension = resolutionDimension;
+        this.dimensionMultiplier = i;
+        resolutionDimension.addDependent(this);
     }
 }

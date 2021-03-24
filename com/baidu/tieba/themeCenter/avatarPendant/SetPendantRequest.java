@@ -1,51 +1,51 @@
 package com.baidu.tieba.themeCenter.avatarPendant;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.SetPendant.DataReq;
 import tbclient.SetPendant.SetPendantReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class SetPendantRequest extends NetMessage {
-    private int freeUseLevel;
-    private long pendantId;
-    private int type;
+    public int freeUseLevel;
+    public long pendantId;
+    public int type;
 
     public SetPendantRequest() {
-        super(1003179, CmdConfigSocket.CMD_SET_PENDANT);
+        super(CmdConfigHttp.CMD_SET_PENDANT, 309412);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.props_id = Long.valueOf(this.pendantId);
         builder.type = Integer.valueOf(this.type);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         SetPendantReqIdl.Builder builder2 = new SetPendantReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
     }
 
+    public int getFreeUseLevel() {
+        return this.freeUseLevel;
+    }
+
     public long getPendantId() {
         return this.pendantId;
     }
 
-    public void setPendantId(long j) {
-        this.pendantId = j;
+    public int getType() {
+        return this.type;
     }
 
     public void setFreeUseLevel(int i) {
         this.freeUseLevel = i;
     }
 
-    public int getFreeUseLevel() {
-        return this.freeUseLevel;
-    }
-
-    public int getType() {
-        return this.type;
+    public void setPendantId(long j) {
+        this.pendantId = j;
     }
 
     public void setType(int i) {

@@ -10,30 +10,31 @@ import com.kwai.video.player.KsMediaMeta;
 import com.kwai.video.player.misc.IMediaFormat;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+import org.webrtc.HardwareVideoEncoder;
+/* loaded from: classes2.dex */
 public class VideoTrackTranscoder {
-    private static final int DRAIN_STATE_CONSUMED = 2;
-    private static final int DRAIN_STATE_NONE = 0;
-    private static final int DRAIN_STATE_SHOULD_RETRY_IMMEDIATELY = 1;
-    private static final String TAG = "VideoTrackTranscoder";
-    private MediaFormat mActualOutputFormat;
-    private final MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
-    private MediaCodec mDecoder;
-    private ByteBuffer[] mDecoderInputBuffers;
-    private OutputSurface mDecoderOutputSurfaceWrapper;
-    private boolean mDecoderStarted;
-    private MediaCodec mEncoder;
-    private InputSurface mEncoderInputSurfaceWrapper;
-    private ByteBuffer[] mEncoderOutputBuffers;
-    private boolean mEncoderStarted;
-    private final MediaExtractor mExtractor;
-    private boolean mIsDecoderEOS;
-    private boolean mIsEncoderEOS;
-    private boolean mIsExtractorEOS;
-    private final QueuedMuxer mMuxer;
-    private final MediaFormat mOutputFormat;
-    private final int mTrackIndex;
-    private long mWrittenPresentationTimeUs;
+    public static final int DRAIN_STATE_CONSUMED = 2;
+    public static final int DRAIN_STATE_NONE = 0;
+    public static final int DRAIN_STATE_SHOULD_RETRY_IMMEDIATELY = 1;
+    public static final String TAG = "VideoTrackTranscoder";
+    public MediaFormat mActualOutputFormat;
+    public final MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
+    public MediaCodec mDecoder;
+    public ByteBuffer[] mDecoderInputBuffers;
+    public OutputSurface mDecoderOutputSurfaceWrapper;
+    public boolean mDecoderStarted;
+    public MediaCodec mEncoder;
+    public InputSurface mEncoderInputSurfaceWrapper;
+    public ByteBuffer[] mEncoderOutputBuffers;
+    public boolean mEncoderStarted;
+    public final MediaExtractor mExtractor;
+    public boolean mIsDecoderEOS;
+    public boolean mIsEncoderEOS;
+    public boolean mIsExtractorEOS;
+    public final QueuedMuxer mMuxer;
+    public final MediaFormat mOutputFormat;
+    public final int mTrackIndex;
+    public long mWrittenPresentationTimeUs;
 
     public VideoTrackTranscoder(MediaExtractor mediaExtractor, int i, MediaFormat mediaFormat, QueuedMuxer queuedMuxer) {
         this.mExtractor = mediaExtractor;
@@ -42,87 +43,71 @@ public class VideoTrackTranscoder {
         this.mMuxer = queuedMuxer;
     }
 
-    public void setup(Mp4Info mp4Info) throws IOException {
-        this.mExtractor.selectTrack(this.mTrackIndex);
-        this.mEncoder = MediaCodec.createEncoderByType(this.mOutputFormat.getString(IMediaFormat.KEY_MIME));
-        try {
-            this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-            this.mOutputFormat.setInteger("bitrate-mode", 1);
-            this.mOutputFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, mp4Info.getBitrate());
-            this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
+    private int drainDecoder(long j) {
+        if (this.mIsDecoderEOS) {
+            return 0;
         }
-        this.mEncoderInputSurfaceWrapper = new InputSurface(this.mEncoder.createInputSurface());
-        this.mEncoderInputSurfaceWrapper.makeCurrent();
-        this.mEncoder.start();
-        this.mEncoderStarted = true;
-        this.mEncoderOutputBuffers = this.mEncoder.getOutputBuffers();
-        MediaFormat trackFormat = this.mExtractor.getTrackFormat(this.mTrackIndex);
-        if (trackFormat.containsKey("rotation-degrees")) {
-            trackFormat.setInteger("rotation-degrees", 0);
+        int dequeueOutputBuffer = this.mDecoder.dequeueOutputBuffer(this.mBufferInfo, j);
+        if (dequeueOutputBuffer == -3 || dequeueOutputBuffer == -2) {
+            return 1;
         }
-        this.mDecoder = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
-        this.mDecoderOutputSurfaceWrapper = new OutputSurface();
-        this.mDecoder.configure(trackFormat, this.mDecoderOutputSurfaceWrapper.getSurface(), (MediaCrypto) null, 0);
-        this.mDecoder.start();
-        this.mDecoderStarted = true;
-        this.mDecoderInputBuffers = this.mDecoder.getInputBuffers();
-    }
-
-    public MediaFormat getDeterminedFormat() {
-        return this.mActualOutputFormat;
-    }
-
-    public boolean stepPipeline() {
-        int drainDecoder;
-        boolean z = false;
-        while (drainEncoder(0L) != 0) {
-            z = true;
-        }
-        do {
-            drainDecoder = drainDecoder(0L);
-            if (drainDecoder != 0) {
-                z = true;
-                continue;
+        if (dequeueOutputBuffer != -1) {
+            if ((this.mBufferInfo.flags & 4) != 0) {
+                this.mEncoder.signalEndOfInputStream();
+                this.mIsDecoderEOS = true;
+                this.mBufferInfo.size = 0;
             }
-        } while (drainDecoder == 1);
-        while (drainExtractor(0L) != 0) {
-            z = true;
-        }
-        return z;
-    }
-
-    public long getWrittenPresentationTimeUs() {
-        return this.mWrittenPresentationTimeUs;
-    }
-
-    public boolean isFinished() {
-        return this.mIsEncoderEOS;
-    }
-
-    public void release() {
-        if (this.mDecoderOutputSurfaceWrapper != null) {
-            this.mDecoderOutputSurfaceWrapper.release();
-            this.mDecoderOutputSurfaceWrapper = null;
-        }
-        if (this.mEncoderInputSurfaceWrapper != null) {
-            this.mEncoderInputSurfaceWrapper.release();
-            this.mEncoderInputSurfaceWrapper = null;
-        }
-        if (this.mDecoder != null) {
-            if (this.mDecoderStarted) {
-                this.mDecoder.stop();
+            boolean z = this.mBufferInfo.size > 0;
+            this.mDecoder.releaseOutputBuffer(dequeueOutputBuffer, z);
+            if (z) {
+                this.mDecoderOutputSurfaceWrapper.awaitNewImage();
+                this.mDecoderOutputSurfaceWrapper.drawImage();
+                this.mEncoderInputSurfaceWrapper.setPresentationTime(this.mBufferInfo.presentationTimeUs * 1000);
+                this.mEncoderInputSurfaceWrapper.swapBuffers();
+                return 2;
             }
-            this.mDecoder.release();
-            this.mDecoder = null;
+            return 2;
         }
-        if (this.mEncoder != null) {
-            if (this.mEncoderStarted) {
-                this.mEncoder.stop();
+        return 0;
+    }
+
+    private int drainEncoder(long j) {
+        if (this.mIsEncoderEOS) {
+            return 0;
+        }
+        int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, j);
+        if (dequeueOutputBuffer == -3) {
+            this.mEncoderOutputBuffers = this.mEncoder.getOutputBuffers();
+            return 1;
+        } else if (dequeueOutputBuffer == -2) {
+            if (this.mActualOutputFormat == null) {
+                MediaFormat outputFormat = this.mEncoder.getOutputFormat();
+                this.mActualOutputFormat = outputFormat;
+                this.mMuxer.setOutputFormat(QueuedMuxer.SampleType.VIDEO, outputFormat);
+                return 1;
             }
-            this.mEncoder.release();
-            this.mEncoder = null;
+            throw new RuntimeException("Video output format changed twice.");
+        } else if (dequeueOutputBuffer != -1) {
+            if (this.mActualOutputFormat != null) {
+                MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
+                int i = bufferInfo.flags;
+                if ((i & 4) != 0) {
+                    this.mIsEncoderEOS = true;
+                    bufferInfo.set(0, 0, 0L, i);
+                }
+                MediaCodec.BufferInfo bufferInfo2 = this.mBufferInfo;
+                if ((bufferInfo2.flags & 2) != 0) {
+                    this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    return 1;
+                }
+                this.mMuxer.writeSampleData(QueuedMuxer.SampleType.VIDEO, this.mEncoderOutputBuffers[dequeueOutputBuffer], bufferInfo2);
+                this.mWrittenPresentationTimeUs = this.mBufferInfo.presentationTimeUs;
+                this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
+                return 2;
+            }
+            throw new RuntimeException("Could not determine actual output format.");
+        } else {
+            return 0;
         }
     }
 
@@ -145,69 +130,94 @@ public class VideoTrackTranscoder {
         return 0;
     }
 
-    private int drainDecoder(long j) {
-        if (this.mIsDecoderEOS) {
-            return 0;
+    public MediaFormat getDeterminedFormat() {
+        return this.mActualOutputFormat;
+    }
+
+    public long getWrittenPresentationTimeUs() {
+        return this.mWrittenPresentationTimeUs;
+    }
+
+    public boolean isFinished() {
+        return this.mIsEncoderEOS;
+    }
+
+    public void release() {
+        OutputSurface outputSurface = this.mDecoderOutputSurfaceWrapper;
+        if (outputSurface != null) {
+            outputSurface.release();
+            this.mDecoderOutputSurfaceWrapper = null;
         }
-        int dequeueOutputBuffer = this.mDecoder.dequeueOutputBuffer(this.mBufferInfo, j);
-        switch (dequeueOutputBuffer) {
-            case -3:
-            case -2:
-                return 1;
-            case -1:
-                return 0;
-            default:
-                if ((this.mBufferInfo.flags & 4) != 0) {
-                    this.mEncoder.signalEndOfInputStream();
-                    this.mIsDecoderEOS = true;
-                    this.mBufferInfo.size = 0;
-                }
-                boolean z = this.mBufferInfo.size > 0;
-                this.mDecoder.releaseOutputBuffer(dequeueOutputBuffer, z);
-                if (z) {
-                    this.mDecoderOutputSurfaceWrapper.awaitNewImage();
-                    this.mDecoderOutputSurfaceWrapper.drawImage();
-                    this.mEncoderInputSurfaceWrapper.setPresentationTime(this.mBufferInfo.presentationTimeUs * 1000);
-                    this.mEncoderInputSurfaceWrapper.swapBuffers();
-                }
-                return 2;
+        InputSurface inputSurface = this.mEncoderInputSurfaceWrapper;
+        if (inputSurface != null) {
+            inputSurface.release();
+            this.mEncoderInputSurfaceWrapper = null;
+        }
+        MediaCodec mediaCodec = this.mDecoder;
+        if (mediaCodec != null) {
+            if (this.mDecoderStarted) {
+                mediaCodec.stop();
+            }
+            this.mDecoder.release();
+            this.mDecoder = null;
+        }
+        MediaCodec mediaCodec2 = this.mEncoder;
+        if (mediaCodec2 != null) {
+            if (this.mEncoderStarted) {
+                mediaCodec2.stop();
+            }
+            this.mEncoder.release();
+            this.mEncoder = null;
         }
     }
 
-    private int drainEncoder(long j) {
-        if (this.mIsEncoderEOS) {
-            return 0;
+    public void setup(Mp4Info mp4Info) throws IOException {
+        this.mExtractor.selectTrack(this.mTrackIndex);
+        MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.mOutputFormat.getString(IMediaFormat.KEY_MIME));
+        this.mEncoder = createEncoderByType;
+        try {
+            createEncoderByType.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
+        } catch (IllegalStateException e2) {
+            e2.printStackTrace();
+            this.mOutputFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 1);
+            this.mOutputFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, mp4Info.getBitrate());
+            this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
         }
-        int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, j);
-        switch (dequeueOutputBuffer) {
-            case -3:
-                this.mEncoderOutputBuffers = this.mEncoder.getOutputBuffers();
-                return 1;
-            case -2:
-                if (this.mActualOutputFormat != null) {
-                    throw new RuntimeException("Video output format changed twice.");
-                }
-                this.mActualOutputFormat = this.mEncoder.getOutputFormat();
-                this.mMuxer.setOutputFormat(QueuedMuxer.SampleType.VIDEO, this.mActualOutputFormat);
-                return 1;
-            case -1:
-                return 0;
-            default:
-                if (this.mActualOutputFormat == null) {
-                    throw new RuntimeException("Could not determine actual output format.");
-                }
-                if ((this.mBufferInfo.flags & 4) != 0) {
-                    this.mIsEncoderEOS = true;
-                    this.mBufferInfo.set(0, 0, 0L, this.mBufferInfo.flags);
-                }
-                if ((this.mBufferInfo.flags & 2) != 0) {
-                    this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    return 1;
-                }
-                this.mMuxer.writeSampleData(QueuedMuxer.SampleType.VIDEO, this.mEncoderOutputBuffers[dequeueOutputBuffer], this.mBufferInfo);
-                this.mWrittenPresentationTimeUs = this.mBufferInfo.presentationTimeUs;
-                this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                return 2;
+        InputSurface inputSurface = new InputSurface(this.mEncoder.createInputSurface());
+        this.mEncoderInputSurfaceWrapper = inputSurface;
+        inputSurface.makeCurrent();
+        this.mEncoder.start();
+        this.mEncoderStarted = true;
+        this.mEncoderOutputBuffers = this.mEncoder.getOutputBuffers();
+        MediaFormat trackFormat = this.mExtractor.getTrackFormat(this.mTrackIndex);
+        if (trackFormat.containsKey("rotation-degrees")) {
+            trackFormat.setInteger("rotation-degrees", 0);
         }
+        this.mDecoder = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
+        OutputSurface outputSurface = new OutputSurface();
+        this.mDecoderOutputSurfaceWrapper = outputSurface;
+        this.mDecoder.configure(trackFormat, outputSurface.getSurface(), (MediaCrypto) null, 0);
+        this.mDecoder.start();
+        this.mDecoderStarted = true;
+        this.mDecoderInputBuffers = this.mDecoder.getInputBuffers();
+    }
+
+    public boolean stepPipeline() {
+        int drainDecoder;
+        boolean z = false;
+        while (drainEncoder(0L) != 0) {
+            z = true;
+        }
+        do {
+            drainDecoder = drainDecoder(0L);
+            if (drainDecoder != 0) {
+                z = true;
+                continue;
+            }
+        } while (drainDecoder == 1);
+        while (drainExtractor(0L) != 0) {
+            z = true;
+        }
+        return z;
     }
 }

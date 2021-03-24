@@ -1,6 +1,5 @@
 package okio;
 
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
@@ -8,27 +7,21 @@ import java.security.NoSuchAlgorithmException;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public final class HashingSink extends ForwardingSink {
     @Nullable
-    private final Mac mac;
+    public final Mac mac;
     @Nullable
-    private final MessageDigest messageDigest;
+    public final MessageDigest messageDigest;
 
-    public static HashingSink md5(Sink sink) {
-        return new HashingSink(sink, EncryptUtils.ENCRYPT_MD5);
-    }
-
-    public static HashingSink sha1(Sink sink) {
-        return new HashingSink(sink, "SHA-1");
-    }
-
-    public static HashingSink sha256(Sink sink) {
-        return new HashingSink(sink, "SHA-256");
-    }
-
-    public static HashingSink sha512(Sink sink) {
-        return new HashingSink(sink, "SHA-512");
+    public HashingSink(Sink sink, String str) {
+        super(sink);
+        try {
+            this.messageDigest = MessageDigest.getInstance(str);
+            this.mac = null;
+        } catch (NoSuchAlgorithmException unused) {
+            throw new AssertionError();
+        }
     }
 
     public static HashingSink hmacSha1(Sink sink, ByteString byteString) {
@@ -43,38 +36,37 @@ public final class HashingSink extends ForwardingSink {
         return new HashingSink(sink, byteString, "HmacSHA512");
     }
 
-    private HashingSink(Sink sink, String str) {
-        super(sink);
-        try {
-            this.messageDigest = MessageDigest.getInstance(str);
-            this.mac = null;
-        } catch (NoSuchAlgorithmException e) {
-            throw new AssertionError();
-        }
+    public static HashingSink md5(Sink sink) {
+        return new HashingSink(sink, "MD5");
     }
 
-    private HashingSink(Sink sink, ByteString byteString, String str) {
-        super(sink);
-        try {
-            this.mac = Mac.getInstance(str);
-            this.mac.init(new SecretKeySpec(byteString.toByteArray(), str));
-            this.messageDigest = null;
-        } catch (InvalidKeyException e) {
-            throw new IllegalArgumentException(e);
-        } catch (NoSuchAlgorithmException e2) {
-            throw new AssertionError();
-        }
+    public static HashingSink sha1(Sink sink) {
+        return new HashingSink(sink, "SHA-1");
+    }
+
+    public static HashingSink sha256(Sink sink) {
+        return new HashingSink(sink, "SHA-256");
+    }
+
+    public static HashingSink sha512(Sink sink) {
+        return new HashingSink(sink, "SHA-512");
+    }
+
+    public ByteString hash() {
+        MessageDigest messageDigest = this.messageDigest;
+        return ByteString.of(messageDigest != null ? messageDigest.digest() : this.mac.doFinal());
     }
 
     @Override // okio.ForwardingSink, okio.Sink
     public void write(Buffer buffer, long j) throws IOException {
-        long j2 = 0;
         Util.checkOffsetAndCount(buffer.size, 0L, j);
         Segment segment = buffer.head;
+        long j2 = 0;
         while (j2 < j) {
             int min = (int) Math.min(j - j2, segment.limit - segment.pos);
-            if (this.messageDigest != null) {
-                this.messageDigest.update(segment.data, segment.pos, min);
+            MessageDigest messageDigest = this.messageDigest;
+            if (messageDigest != null) {
+                messageDigest.update(segment.data, segment.pos, min);
             } else {
                 this.mac.update(segment.data, segment.pos, min);
             }
@@ -84,7 +76,17 @@ public final class HashingSink extends ForwardingSink {
         super.write(buffer, j);
     }
 
-    public final ByteString hash() {
-        return ByteString.of(this.messageDigest != null ? this.messageDigest.digest() : this.mac.doFinal());
+    public HashingSink(Sink sink, ByteString byteString, String str) {
+        super(sink);
+        try {
+            Mac mac = Mac.getInstance(str);
+            this.mac = mac;
+            mac.init(new SecretKeySpec(byteString.toByteArray(), str));
+            this.messageDigest = null;
+        } catch (InvalidKeyException e2) {
+            throw new IllegalArgumentException(e2);
+        } catch (NoSuchAlgorithmException unused) {
+            throw new AssertionError();
+        }
     }
 }

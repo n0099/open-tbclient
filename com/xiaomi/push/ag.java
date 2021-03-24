@@ -4,9 +4,10 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.yy.mediaframework.stat.VideoDataStatistic;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -14,179 +15,173 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ag {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0061 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v3, types: [java.io.Closeable] */
     public static boolean a(Context context, String str, long j) {
-        FileLock fileLock;
         RandomAccessFile randomAccessFile;
-        boolean z = true;
-        if (Build.VERSION.SDK_INT < 23 || g.c(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+        ?? r2 = 23;
+        if (Build.VERSION.SDK_INT >= 23 && !g.c(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+            return true;
+        }
+        FileLock fileLock = null;
+        try {
             try {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp.lock");
-                y.m594a(file);
-                randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
-            } catch (IOException e) {
-                e = e;
-                fileLock = null;
-                randomAccessFile = null;
-            } catch (Throwable th) {
-                th = th;
-                fileLock = null;
-                randomAccessFile = null;
-            }
-            try {
-                fileLock = randomAccessFile.getChannel().lock();
+                y.m624a(file);
+                randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
-                    try {
-                        z = b(context, str, j);
-                        if (fileLock != null && fileLock.isValid()) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e2) {
-                            }
-                        }
-                        y.a(randomAccessFile);
-                    } catch (IOException e3) {
-                        e = e3;
-                        e.printStackTrace();
-                        if (fileLock != null && fileLock.isValid()) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e4) {
-                            }
-                        }
-                        y.a(randomAccessFile);
-                        return z;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
+                    fileLock = randomAccessFile.getChannel().lock();
+                    boolean b2 = b(context, str, j);
                     if (fileLock != null && fileLock.isValid()) {
                         try {
                             fileLock.release();
-                        } catch (IOException e5) {
+                        } catch (IOException unused) {
                         }
                     }
                     y.a(randomAccessFile);
-                    throw th;
+                    return b2;
+                } catch (IOException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    if (fileLock != null && fileLock.isValid()) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException unused2) {
+                        }
+                    }
+                    y.a(randomAccessFile);
+                    return true;
                 }
-            } catch (IOException e6) {
-                e = e6;
-                fileLock = null;
-            } catch (Throwable th3) {
-                th = th3;
-                fileLock = null;
-                if (fileLock != null) {
-                    fileLock.release();
+            } catch (Throwable th) {
+                th = th;
+                if (0 != 0 && fileLock.isValid()) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException unused3) {
+                    }
                 }
-                y.a(randomAccessFile);
+                y.a((Closeable) r2);
                 throw th;
             }
+        } catch (IOException e3) {
+            e = e3;
+            randomAccessFile = null;
+        } catch (Throwable th2) {
+            th = th2;
+            r2 = 0;
+            if (0 != 0) {
+                fileLock.release();
+            }
+            y.a((Closeable) r2);
+            throw th;
         }
-        return z;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00d1 A[Catch: IOException -> 0x00e1, all -> 0x010b, LOOP:1: B:30:0x00cb->B:32:0x00d1, LOOP_END, TRY_LEAVE, TryCatch #4 {IOException -> 0x00e1, blocks: (B:29:0x00c7, B:30:0x00cb, B:32:0x00d1), top: B:63:0x00c7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00d2 A[Catch: all -> 0x00e6, IOException -> 0x00e9, LOOP:0: B:39:0x00cc->B:41:0x00d2, LOOP_END, TRY_LEAVE, TryCatch #9 {IOException -> 0x00e9, all -> 0x00e6, blocks: (B:38:0x00c8, B:39:0x00cc, B:41:0x00d2), top: B:65:0x00c8 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static boolean b(Context context, String str, long j) {
-        BufferedWriter bufferedWriter;
-        Throwable th;
+    public static boolean b(Context context, String str, long j) {
         BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        BufferedWriter bufferedWriter;
+        BufferedWriter bufferedWriter2;
         File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp");
         ArrayList<String> arrayList = new ArrayList();
         long currentTimeMillis = System.currentTimeMillis();
         String str2 = str + ":" + context.getPackageName() + "," + currentTimeMillis;
         if (file.exists()) {
-            BufferedReader bufferedReader2 = null;
             try {
-                BufferedReader bufferedReader3 = new BufferedReader(new FileReader(file));
+                bufferedReader2 = new BufferedReader(new FileReader(file));
                 while (true) {
                     try {
-                        String readLine = bufferedReader3.readLine();
-                        if (readLine == null) {
-                            y.a(bufferedReader3);
-                            break;
-                        }
-                        String[] split = readLine.split(":");
-                        if (split.length == 2) {
-                            if (TextUtils.equals(split[0], String.valueOf(str))) {
-                                String[] split2 = split[1].split(",");
-                                if (split2.length == 2) {
-                                    long parseLong = Long.parseLong(split2[1]);
-                                    if (!TextUtils.equals(split2[0], context.getPackageName()) && ((float) Math.abs(currentTimeMillis - parseLong)) < ((float) (1000 * j)) * 0.9f) {
-                                        y.a(bufferedReader3);
-                                        return false;
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            String[] split = readLine.split(":");
+                            if (split.length == 2) {
+                                if (TextUtils.equals(split[0], String.valueOf(str))) {
+                                    String[] split2 = split[1].split(",");
+                                    if (split2.length == 2) {
+                                        long parseLong = Long.parseLong(split2[1]);
+                                        if (!TextUtils.equals(split2[0], context.getPackageName()) && ((float) Math.abs(currentTimeMillis - parseLong)) < ((float) (1000 * j)) * 0.9f) {
+                                            y.a(bufferedReader2);
+                                            return false;
+                                        }
                                     }
                                 } else {
-                                    continue;
+                                    arrayList.add(readLine);
                                 }
-                            } else {
-                                arrayList.add(readLine);
                             }
-                        }
-                    } catch (Exception e) {
-                        bufferedReader2 = bufferedReader3;
-                        try {
+                        } catch (Exception unused) {
                             arrayList.clear();
                             y.a(bufferedReader2);
                             arrayList.add(str2);
-                            bufferedWriter = new BufferedWriter(new FileWriter(file));
+                            bufferedWriter2 = new BufferedWriter(new FileWriter(file));
                             try {
+                                while (r0.hasNext()) {
+                                }
+                                y.a(bufferedWriter2);
+                            } catch (IOException e2) {
+                                e = e2;
+                                bufferedWriter = bufferedWriter2;
                                 try {
-                                    while (r2.hasNext()) {
-                                    }
-                                    y.a(bufferedWriter);
-                                } catch (IOException e2) {
-                                    e = e2;
                                     com.xiaomi.channel.commonutils.logger.b.d(e.toString());
                                     y.a(bufferedWriter);
                                     return true;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    y.a(bufferedWriter);
+                                    throw th;
                                 }
-                                return true;
                             } catch (Throwable th2) {
                                 th = th2;
+                                bufferedWriter = bufferedWriter2;
                                 y.a(bufferedWriter);
                                 throw th;
                             }
-                        } catch (Throwable th3) {
-                            th = th3;
-                            bufferedReader = bufferedReader2;
-                            y.a(bufferedReader);
-                            throw th;
+                            return true;
                         }
-                    } catch (Throwable th4) {
-                        th = th4;
-                        bufferedReader = bufferedReader3;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        bufferedReader = bufferedReader2;
                         y.a(bufferedReader);
                         throw th;
                     }
                 }
-            } catch (Exception e3) {
-            } catch (Throwable th5) {
-                th = th5;
+            } catch (Exception unused2) {
+                bufferedReader2 = null;
+            } catch (Throwable th4) {
+                th = th4;
                 bufferedReader = null;
+                y.a(bufferedReader);
+                throw th;
             }
-        } else if (!y.m594a(file)) {
+        } else if (!y.m624a(file)) {
             return true;
         }
         arrayList.add(str2);
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(file));
+            bufferedWriter2 = new BufferedWriter(new FileWriter(file));
             for (String str3 : arrayList) {
-                bufferedWriter.write(str3);
-                bufferedWriter.newLine();
-                bufferedWriter.flush();
+                bufferedWriter2.write(str3);
+                bufferedWriter2.newLine();
+                bufferedWriter2.flush();
             }
-            y.a(bufferedWriter);
-        } catch (IOException e4) {
-            e = e4;
+            y.a(bufferedWriter2);
+        } catch (IOException e3) {
+            e = e3;
             bufferedWriter = null;
-        } catch (Throwable th6) {
-            th = th6;
+        } catch (Throwable th5) {
+            th = th5;
             bufferedWriter = null;
-            y.a(bufferedWriter);
-            throw th;
         }
         return true;
     }

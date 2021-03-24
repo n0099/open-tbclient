@@ -5,81 +5,92 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.data.Config;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.faceshop.emotioncenter.a.b;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
-/* loaded from: classes8.dex */
+import d.b.i0.l0.y.d.b;
+/* loaded from: classes4.dex */
 public class EmotionCenterModel extends BdBaseModel {
-    private final HttpMessageListener jar;
-    private int pn;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f15770e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final HttpMessageListener f15771f;
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            EmotionCenterResponseMessage emotionCenterResponseMessage;
+            Object extra;
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003354 && (httpResponsedMessage instanceof EmotionCenterResponseMessage)) {
+                b bVar = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof b)) {
+                    bVar = (b) extra;
+                }
+                if (bVar == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
+                    return;
+                }
+                if (EmotionCenterModel.this.f15770e == 1) {
+                    bVar.U(emotionCenterResponseMessage.data);
+                } else {
+                    bVar.f(emotionCenterResponseMessage.data);
+                }
+            }
+        }
+    }
 
     public EmotionCenterModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.pn = 1;
-        this.jar = new HttpMessageListener(1003354) { // from class: com.baidu.tieba.faceshop.emotioncenter.model.EmotionCenterModel.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                b bVar;
-                EmotionCenterResponseMessage emotionCenterResponseMessage;
-                Object extra;
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003354 && (httpResponsedMessage instanceof EmotionCenterResponseMessage)) {
-                    if (httpResponsedMessage.getOrginalMessage() == null || (extra = httpResponsedMessage.getOrginalMessage().getExtra()) == null || !(extra instanceof b)) {
-                        bVar = null;
-                    } else {
-                        bVar = (b) extra;
-                    }
-                    if (bVar != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
-                        if (EmotionCenterModel.this.pn == 1) {
-                            bVar.a(emotionCenterResponseMessage.data);
-                        } else {
-                            bVar.b(emotionCenterResponseMessage.data);
-                        }
-                    }
-                }
-            }
-        };
+        this.f15770e = 1;
+        this.f15771f = new a(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
         registerTask();
-        this.jar.setTag(getUniqueId());
-        this.jar.setSelfListener(true);
-        registerListener(this.jar);
-    }
-
-    private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003354, TbConfig.SERVER_ADDRESS + Config.EMOTION_CENTER_SHOP);
-        tbHttpMessageTask.setResponsedClass(EmotionCenterResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public void a(b bVar) {
-        this.pn = 1;
-        HttpMessage httpMessage = new HttpMessage(1003354);
-        httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, 1);
-        httpMessage.addParam("rn", 10);
-        httpMessage.setExtra(bVar);
-        sendMessage(httpMessage);
+        this.f15771f.setTag(getUniqueId());
+        this.f15771f.setSelfListener(true);
+        registerListener(this.f15771f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterTask(1003354);
+        MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
         return true;
     }
 
-    public void b(b bVar) {
-        HttpMessage httpMessage = new HttpMessage(1003354);
-        int i = this.pn + 1;
-        this.pn = i;
-        httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, i);
+    public final void registerTask() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP, TbConfig.SERVER_ADDRESS + "c/e/meme/shop");
+        tbHttpMessageTask.setResponsedClass(EmotionCenterResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public void t(b bVar) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
+        int i = this.f15770e + 1;
+        this.f15770e = i;
+        httpMessage.addParam(Config.PACKAGE_NAME, i);
+        httpMessage.addParam("rn", 10);
+        httpMessage.setExtra(bVar);
+        sendMessage(httpMessage);
+    }
+
+    public void u(b bVar) {
+        this.f15770e = 1;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
+        httpMessage.addParam(Config.PACKAGE_NAME, 1);
         httpMessage.addParam("rn", 10);
         httpMessage.setExtra(bVar);
         sendMessage(httpMessage);

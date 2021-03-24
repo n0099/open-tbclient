@@ -1,6 +1,7 @@
 package com.baidu.ufosdk.f;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.NinePatch;
@@ -12,23 +13,28 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class o {
-    private static int a(byte[] bArr, int i) {
-        return bArr[i + 0] | (bArr[i + 1] << 8) | (bArr[i + 2] << 16) | (bArr[i + 3] << 24);
+    public static int a(byte[] bArr, int i) {
+        byte b2 = bArr[i + 0];
+        byte b3 = bArr[i + 1];
+        byte b4 = bArr[i + 2];
+        return (bArr[i + 3] << 24) | (b3 << 8) | b2 | (b4 << 16);
     }
 
     public static Drawable a(Context context, String str) {
         Bitmap bitmap;
-        InputStream open = context.getAssets().open("ufo_res/" + str);
+        AssetManager assets = context.getAssets();
+        InputStream open = assets.open("ufo_res/" + str);
         Bitmap decodeStream = BitmapFactory.decodeStream(open);
         byte[] a2 = a(decodeStream);
         if (NinePatch.isNinePatchChunk(a2)) {
-            bitmap = Bitmap.createBitmap(decodeStream, 1, 1, decodeStream.getWidth() - 2, decodeStream.getHeight() - 2);
+            Bitmap createBitmap = Bitmap.createBitmap(decodeStream, 1, 1, decodeStream.getWidth() - 2, decodeStream.getHeight() - 2);
             decodeStream.recycle();
-            Field declaredField = bitmap.getClass().getDeclaredField("mNinePatchChunk");
+            Field declaredField = createBitmap.getClass().getDeclaredField("mNinePatchChunk");
             declaredField.setAccessible(true);
-            declaredField.set(bitmap, a2);
+            declaredField.set(createBitmap, a2);
+            bitmap = createBitmap;
         } else {
             bitmap = decodeStream;
         }
@@ -45,13 +51,14 @@ public final class o {
         return new NinePatchDrawable(context.getResources(), bitmap, bitmap.getNinePatchChunk(), rect, null);
     }
 
-    private static void a(Bitmap bitmap, byte[] bArr) {
+    public static void a(Bitmap bitmap, byte[] bArr) {
+        int width = bitmap.getWidth() - 2;
+        int[] iArr = new int[width];
+        bitmap.getPixels(iArr, 0, width, 1, bitmap.getHeight() - 1, width, 1);
         int i = 0;
-        int[] iArr = new int[bitmap.getWidth() - 2];
-        bitmap.getPixels(iArr, 0, iArr.length, 1, bitmap.getHeight() - 1, iArr.length, 1);
         int i2 = 0;
         while (true) {
-            if (i2 >= iArr.length) {
+            if (i2 >= width) {
                 break;
             } else if (-16777216 == iArr[i2]) {
                 a(bArr, 12, i2);
@@ -60,21 +67,22 @@ public final class o {
                 i2++;
             }
         }
-        int length = iArr.length - 1;
+        int i3 = width - 1;
         while (true) {
-            if (length < 0) {
+            if (i3 < 0) {
                 break;
-            } else if (-16777216 == iArr[length]) {
-                a(bArr, 16, (iArr.length - length) - 2);
+            } else if (-16777216 == iArr[i3]) {
+                a(bArr, 16, (width - i3) - 2);
                 break;
             } else {
-                length--;
+                i3--;
             }
         }
-        int[] iArr2 = new int[bitmap.getHeight() - 2];
-        bitmap.getPixels(iArr2, 0, 1, bitmap.getWidth() - 1, 0, 1, iArr2.length);
+        int height = bitmap.getHeight() - 2;
+        int[] iArr2 = new int[height];
+        bitmap.getPixels(iArr2, 0, 1, bitmap.getWidth() - 1, 0, 1, height);
         while (true) {
-            if (i >= iArr2.length) {
+            if (i >= height) {
                 break;
             } else if (-16777216 == iArr2[i]) {
                 a(bArr, 20, i);
@@ -83,89 +91,99 @@ public final class o {
                 i++;
             }
         }
-        for (int length2 = iArr2.length - 1; length2 >= 0; length2--) {
-            if (-16777216 == iArr2[length2]) {
-                a(bArr, 24, (iArr2.length - length2) - 2);
+        for (int i4 = height - 1; i4 >= 0; i4--) {
+            if (-16777216 == iArr2[i4]) {
+                a(bArr, 24, (height - i4) - 2);
                 return;
             }
         }
     }
 
-    private static void a(OutputStream outputStream, int i) {
+    public static void a(OutputStream outputStream, int i) {
         outputStream.write((i >> 0) & 255);
         outputStream.write((i >> 8) & 255);
         outputStream.write((i >> 16) & 255);
         outputStream.write((i >> 24) & 255);
     }
 
-    private static void a(byte[] bArr, int i, int i2) {
+    public static void a(byte[] bArr, int i, int i2) {
         bArr[i + 0] = (byte) (i2 >> 0);
         bArr[i + 1] = (byte) (i2 >> 8);
         bArr[i + 2] = (byte) (i2 >> 16);
         bArr[i + 3] = (byte) (i2 >> 24);
     }
 
-    private static byte[] a(Bitmap bitmap) {
+    public static byte[] a(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         for (int i = 0; i < 32; i++) {
             byteArrayOutputStream.write(0);
         }
-        int[] iArr = new int[width - 2];
-        bitmap.getPixels(iArr, 0, width, 1, 0, width - 2, 1);
+        int i2 = width - 2;
+        int[] iArr = new int[i2];
+        bitmap.getPixels(iArr, 0, width, 1, 0, i2, 1);
         boolean z = iArr[0] == -16777216;
-        boolean z2 = iArr[iArr.length + (-1)] == -16777216;
-        int i2 = 0;
-        int length = iArr.length;
+        boolean z2 = iArr[i2 + (-1)] == -16777216;
         int i3 = 0;
-        for (int i4 = 0; i4 < length; i4++) {
-            if (i2 != iArr[i4]) {
-                i3++;
-                a(byteArrayOutputStream, i4);
-                i2 = iArr[i4];
+        int i4 = 0;
+        for (int i5 = 0; i5 < i2; i5++) {
+            if (i3 != iArr[i5]) {
+                i4++;
+                a(byteArrayOutputStream, i5);
+                i3 = iArr[i5];
             }
         }
         if (z2) {
-            i3++;
-            a(byteArrayOutputStream, length);
+            i4++;
+            a(byteArrayOutputStream, i2);
         }
-        int i5 = i3;
-        int i6 = i5 + 1;
-        int i7 = z ? i6 - 1 : i6;
-        int i8 = z2 ? i7 - 1 : i7;
-        int[] iArr2 = new int[height - 2];
-        bitmap.getPixels(iArr2, 0, 1, 0, 1, 1, height - 2);
+        int i6 = i4 + 1;
+        if (z) {
+            i6--;
+        }
+        if (z2) {
+            i6--;
+        }
+        int i7 = height - 2;
+        int[] iArr2 = new int[i7];
+        bitmap.getPixels(iArr2, 0, 1, 0, 1, 1, i7);
         boolean z3 = iArr2[0] == -16777216;
-        boolean z4 = iArr2[iArr2.length + (-1)] == -16777216;
+        boolean z4 = iArr2[i7 + (-1)] == -16777216;
+        int i8 = 0;
         int i9 = 0;
-        int length2 = iArr2.length;
-        int i10 = 0;
-        for (int i11 = 0; i11 < length2; i11++) {
-            if (i9 != iArr2[i11]) {
-                i10++;
-                a(byteArrayOutputStream, i11);
-                i9 = iArr2[i11];
+        for (int i10 = 0; i10 < i7; i10++) {
+            if (i8 != iArr2[i10]) {
+                i9++;
+                a(byteArrayOutputStream, i10);
+                i8 = iArr2[i10];
             }
         }
         if (z4) {
-            i10++;
-            a(byteArrayOutputStream, length2);
+            i9++;
+            a(byteArrayOutputStream, i7);
         }
-        int i12 = i10 + 1;
-        int i13 = z3 ? i12 - 1 : i12;
+        int i11 = i9 + 1;
+        if (z3) {
+            i11--;
+        }
         if (z4) {
-            i13--;
+            i11--;
         }
-        for (int i14 = 0; i14 < i8 * i13; i14++) {
+        int i12 = 0;
+        while (true) {
+            int i13 = i6 * i11;
+            if (i12 >= i13) {
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArray[0] = 1;
+                byteArray[1] = (byte) i4;
+                byteArray[2] = (byte) i9;
+                byteArray[3] = (byte) i13;
+                a(bitmap, byteArray);
+                return byteArray;
+            }
             a(byteArrayOutputStream, 1);
+            i12++;
         }
-        byte[] byteArray = byteArrayOutputStream.toByteArray();
-        byteArray[0] = 1;
-        byteArray[1] = (byte) i5;
-        byteArray[2] = (byte) i10;
-        byteArray[3] = (byte) (i13 * i8);
-        a(bitmap, byteArray);
-        return byteArray;
     }
 }

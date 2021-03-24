@@ -1,26 +1,26 @@
 package com.baidu.tieba.godSquare.model.req;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetHotGod.DataReq;
 import tbclient.GetHotGod.GetHotGodReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GodSquareRequestMsg extends NetMessage {
-    private static final int rn = 30;
+    public static final int rn = 30;
     public int pn;
 
     public GodSquareRequestMsg() {
-        super(1003099, CmdConfigSocket.CMD_GET_HOT_GOD);
+        super(CmdConfigHttp.CMD_GET_HOT_GOD, 309315);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = 30;
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GetHotGodReqIdl.Builder builder2 = new GetHotGodReqIdl.Builder();
         builder2.data = builder.build(false);

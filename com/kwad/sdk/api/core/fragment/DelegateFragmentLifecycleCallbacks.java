@@ -6,13 +6,11 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.kwad.sdk.api.core.fragment.KsFragmentManager;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DelegateFragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallbacks {
-    private final KsFragmentManager.FragmentLifecycleCallbacks mBase;
-    private final KsFragmentManager mFragmentManager;
+    public final KsFragmentManager.FragmentLifecycleCallbacks mBase;
+    public final KsFragmentManager mFragmentManager;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public DelegateFragmentLifecycleCallbacks(KsFragmentManager ksFragmentManager, KsFragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
         this.mBase = fragmentLifecycleCallbacks;
         this.mFragmentManager = ksFragmentManager;

@@ -2,32 +2,18 @@ package com.baidu.tieba.face;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
+import d.b.i0.k0.c.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.face.data.a mData;
+    public a mData;
 
     public SearchEmotionResponseMessage(int i) {
         super(i);
-    }
-
-    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        int statusCode = getStatusCode();
-        int error = getError();
-        if (statusCode == 200 && error == 0 && jSONObject != null) {
-            this.mData = new com.baidu.tieba.face.data.a();
-            JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            if (optJSONObject != null) {
-                this.mData.setPage(optJSONObject.optInt("current_pn"));
-                this.mData.setHasMore(optJSONObject.optInt("has_more"));
-            }
-            this.mData.cV(parseImageData(jSONObject.optJSONArray("list")));
-        }
     }
 
     private List<EmotionImageData> parseImageData(JSONArray jSONArray) {
@@ -45,15 +31,29 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
                 emotionImageData.setHeight(jSONObject.optInt("height"));
                 emotionImageData.setMemeContSign(jSONObject.optString("cont_sign"));
                 arrayList.add(emotionImageData);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return arrayList;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
         return arrayList;
     }
 
-    public com.baidu.tieba.face.data.a getData() {
+    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        int statusCode = getStatusCode();
+        int error = getError();
+        if (statusCode == 200 && error == 0 && jSONObject != null) {
+            this.mData = new a();
+            JSONObject optJSONObject = jSONObject.optJSONObject("page");
+            if (optJSONObject != null) {
+                this.mData.f(optJSONObject.optInt("current_pn"));
+                this.mData.e(optJSONObject.optInt("has_more"));
+            }
+            this.mData.d(parseImageData(jSONObject.optJSONArray("list")));
+        }
+    }
+
+    public a getData() {
         return this.mData;
     }
 }

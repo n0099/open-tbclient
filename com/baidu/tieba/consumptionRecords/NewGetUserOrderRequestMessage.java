@@ -2,19 +2,38 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.mobstat.Config;
-/* loaded from: classes8.dex */
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.wallet.api.Constants;
+/* loaded from: classes4.dex */
 public class NewGetUserOrderRequestMessage extends HttpMessage {
-    private int orderType;
-    private int pn;
-    private int rn;
-    private int showMember;
+    public int orderType;
+    public int pn;
+    public int rn;
+    public int showMember;
 
     public NewGetUserOrderRequestMessage() {
-        super(1003075);
+        super(CmdConfigHttp.CMD_GET_USER_ORDER);
+    }
+
+    public int getOrderType() {
+        return this.orderType;
     }
 
     public int getPn() {
         return this.pn;
+    }
+
+    public int getRn() {
+        return this.rn;
+    }
+
+    public int getShowMember() {
+        return this.showMember;
+    }
+
+    public void setOrderType(int i) {
+        this.orderType = i;
+        addParam(Constants.ORDERTYPE_FLAG, i);
     }
 
     public void setPn(int i) {
@@ -22,26 +41,9 @@ public class NewGetUserOrderRequestMessage extends HttpMessage {
         addParam(Config.PACKAGE_NAME, i);
     }
 
-    public int getRn() {
-        return this.rn;
-    }
-
     public void setRn(int i) {
         this.rn = i;
         addParam("rn", i);
-    }
-
-    public int getOrderType() {
-        return this.orderType;
-    }
-
-    public void setOrderType(int i) {
-        this.orderType = i;
-        addParam("order_type", i);
-    }
-
-    public int getShowMember() {
-        return this.showMember;
     }
 
     public void setShowMember(int i) {

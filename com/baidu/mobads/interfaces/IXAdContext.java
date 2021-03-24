@@ -5,7 +5,7 @@ import android.widget.RelativeLayout;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAdContext {
     void addEventListener(String str, IOAdEventListener iOAdEventListener);
 
@@ -35,7 +35,7 @@ public interface IXAdContext {
 
     void setAdServerRequestingTimeout(int i);
 
-    void setContentVideoPlayheadTime(double d);
+    void setContentVideoPlayheadTime(double d2);
 
     void setContentVideoScreenMode(IXAdConstants4PDK.ScreenSizeMode screenSizeMode);
 

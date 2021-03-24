@@ -6,10 +6,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RestartableFileInputStream extends RestartableInputStream {
-    private File file;
-    private FileInputStream input;
+    public File file;
+    public FileInputStream input;
 
     public RestartableFileInputStream(File file) throws FileNotFoundException {
         CheckUtils.isNotNull(file, "file should not be null.");
@@ -17,14 +17,9 @@ public class RestartableFileInputStream extends RestartableInputStream {
         this.input = new FileInputStream(file);
     }
 
-    @Override // com.baidubce.internal.RestartableInputStream
-    public void restart() {
-        try {
-            this.input.close();
-            this.input = new FileInputStream(this.file);
-        } catch (IOException e) {
-            throw new BceClientException("Fail to restart.", e);
-        }
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        this.input.close();
     }
 
     @Override // java.io.InputStream
@@ -32,13 +27,18 @@ public class RestartableFileInputStream extends RestartableInputStream {
         return this.input.read(bArr, i, i2);
     }
 
+    @Override // com.baidubce.internal.RestartableInputStream
+    public void restart() {
+        try {
+            this.input.close();
+            this.input = new FileInputStream(this.file);
+        } catch (IOException e2) {
+            throw new BceClientException("Fail to restart.", e2);
+        }
+    }
+
     @Override // java.io.InputStream
     public int read() throws IOException {
         return this.input.read();
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        this.input.close();
     }
 }

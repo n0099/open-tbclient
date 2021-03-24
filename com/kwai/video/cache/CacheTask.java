@@ -1,12 +1,12 @@
 package com.kwai.video.cache;
 
 import com.kwai.video.hodor.anotations.CalledByNative;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CacheTask {
-    private long nativeTask;
-    private CacheTaskListener taskListener;
+    public long nativeTask;
+    public CacheTaskListener taskListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface CacheTaskListener {
         void onCancelled();
 
@@ -30,33 +30,36 @@ public class CacheTask {
 
     @CalledByNative
     private void onCancelled() {
-        if (this.taskListener != null) {
-            this.taskListener.onCancelled();
+        CacheTaskListener cacheTaskListener = this.taskListener;
+        if (cacheTaskListener != null) {
+            cacheTaskListener.onCancelled();
         }
     }
 
     @CalledByNative
     private void onFailed(int i) {
-        if (this.taskListener != null) {
-            this.taskListener.onFailed(i);
+        CacheTaskListener cacheTaskListener = this.taskListener;
+        if (cacheTaskListener != null) {
+            cacheTaskListener.onFailed(i);
         }
     }
 
     @CalledByNative
     private void onProgress(long j, long j2) {
-        if (this.taskListener != null) {
-            this.taskListener.onProgress(j, j2);
+        CacheTaskListener cacheTaskListener = this.taskListener;
+        if (cacheTaskListener != null) {
+            cacheTaskListener.onProgress(j, j2);
         }
     }
 
     @CalledByNative
     private void onSuccessFul() {
-        if (this.taskListener != null) {
-            this.taskListener.onSuccessful();
+        CacheTaskListener cacheTaskListener = this.taskListener;
+        if (cacheTaskListener != null) {
+            cacheTaskListener.onSuccessful();
         }
     }
 
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.kwai.video.cache.CacheTask$1] */
     public synchronized void releaseAsync() {
         final long j = this.nativeTask;
         new Thread() { // from class: com.kwai.video.cache.CacheTask.1
@@ -73,7 +76,6 @@ public class CacheTask {
         nativeRun(this.nativeTask);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void setNativeTask(long j) {
         this.nativeTask = j;
     }

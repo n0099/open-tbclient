@@ -5,77 +5,71 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class y extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ x f1942a;
+    public final /* synthetic */ x f6606a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(x xVar, Looper looper) {
         super(looper);
-        this.f1942a = xVar;
+        this.f6606a = xVar;
     }
 
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:33:0x008d -> B:35:0x0090). Please submit an issue!!! */
     @Override // android.os.Handler
     public void handleMessage(Message message) {
+        com.baidu.location.b.a c2;
+        com.baidu.location.b.h n;
+        Location d2;
+        String a2;
         Handler handler;
         Handler handler2;
-        boolean z = true;
-        switch (message.what) {
-            case 1:
-                Bundle data = message.getData();
-                try {
-                    Location location = (Location) data.getParcelable("loc");
-                    data.getInt("satnum");
-                    if (location != null) {
-                        d.a().a(location);
+        int i = message.what;
+        try {
+            if (i != 1) {
+                if (i == 2) {
+                    c2 = u.c();
+                    n = com.baidu.location.b.i.a().n();
+                    d2 = u.d();
+                    a2 = u.a();
+                } else if (i == 3) {
+                    c2 = u.c();
+                    n = null;
+                    d2 = u.d();
+                    a2 = a.a().c();
+                } else if (i != 4) {
+                    if (i == 7) {
+                        w.a().c();
+                        return;
+                    } else if (i != 8) {
+                        return;
+                    } else {
+                        message.getData();
                         return;
                     }
-                    return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
-                }
-            case 2:
-                w.a(u.c(), com.baidu.location.b.i.a().n(), u.d(), u.a());
-                return;
-            case 3:
-                w.a(u.c(), null, u.d(), a.a().c());
-                return;
-            case 4:
-                boolean i = com.baidu.location.b.i.i();
-                if (!i) {
-                    z = i;
-                } else if (h.a().d() == 1) {
-                    z = false;
-                }
-                if (z) {
-                }
-                try {
-                    handler = this.f1942a.d;
+                } else {
+                    if (com.baidu.location.b.i.i()) {
+                        h.a().d();
+                    }
+                    handler = this.f6606a.f6604d;
                     if (handler != null) {
-                        handler2 = this.f1942a.d;
+                        handler2 = this.f6606a.f6604d;
                         handler2.sendEmptyMessageDelayed(4, com.baidu.location.d.j.Q);
-                        return;
                     }
-                    return;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return;
                 }
-            case 5:
-            case 6:
-            default:
+                w.a(c2, n, d2, a2);
                 return;
-            case 7:
-                w.a().c();
-                return;
-            case 8:
-                message.getData();
-                return;
+            }
+            Bundle data = message.getData();
+            Location location = (Location) data.getParcelable("loc");
+            data.getInt("satnum");
+            if (location != null) {
+                d.a().a(location);
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

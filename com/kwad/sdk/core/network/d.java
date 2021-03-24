@@ -1,15 +1,16 @@
 package com.kwad.sdk.core.network;
 
+import com.baidu.searchbox.live.interfaces.DI;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.g.a.m;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class d extends b {
     @Override // com.kwad.sdk.core.network.b
-    protected void e() {
+    public void e() {
         String a2 = a();
-        if (!com.kwad.sdk.a.b.booleanValue() || a2.contains(com.kwad.sdk.d.d())) {
+        if (!com.kwad.sdk.a.f31642b.booleanValue() || a2.contains(com.kwad.sdk.d.d())) {
             return;
         }
         DevelopMangerPlugin.DevelopValue a3 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_AD_UNIVERSE");
@@ -21,20 +22,20 @@ public abstract class d extends b {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("laneId", a3.getValue().toString());
             a("trace-context", jSONObject.toString());
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
     @Override // com.kwad.sdk.core.network.b
-    protected void f() {
+    public void f() {
         b("protocolVersion", "2.0");
         b("SDKVersion", "3.3.9");
         a("SDKVersionCode", 3030900);
         b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
         a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-        a("sdkType", com.kwad.sdk.d.f6401a);
-        a("appInfo", com.kwad.sdk.core.g.a.b.a());
+        a("sdkType", com.kwad.sdk.d.f34511a);
+        a(DI.APP_INFO_NAME, com.kwad.sdk.core.g.a.b.a());
         a("deviceInfo", com.kwad.sdk.core.g.a.d.a(g()));
         a("networkInfo", com.kwad.sdk.core.g.a.i.a());
         a("geoInfo", com.kwad.sdk.core.g.a.e.a());
@@ -46,7 +47,7 @@ public abstract class d extends b {
         }
     }
 
-    protected boolean g() {
+    public boolean g() {
         return false;
     }
 }

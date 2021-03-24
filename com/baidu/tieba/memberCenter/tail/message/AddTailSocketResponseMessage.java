@@ -2,28 +2,17 @@ package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tieba.memberCenter.tail.data.b;
+import com.baidu.tbadk.core.util.IDataResponseMessage;
 import com.squareup.wire.Wire;
+import d.b.i0.q1.h.a.b;
 import tbclient.AddTail.AddTailResIdl;
-/* loaded from: classes8.dex */
-public class AddTailSocketResponseMessage extends SocketResponsedMessage {
-    private b resultData;
+import tbclient.Error;
+/* loaded from: classes3.dex */
+public class AddTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<b> {
+    public b resultData;
 
     public AddTailSocketResponseMessage() {
-        super(CmdConfigSocket.CMD_TAIL_ADD);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: getResultData */
-    public b m38getResultData() {
-        return this.resultData;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.resultData = getResult(this, i, bArr);
+        super(305101);
     }
 
     public static b getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
@@ -31,15 +20,29 @@ public class AddTailSocketResponseMessage extends SocketResponsedMessage {
         if (addTailResIdl == null) {
             return null;
         }
-        if (addTailResIdl.error != null) {
-            responsedMessage.setError(addTailResIdl.error.errorno.intValue());
+        Error error = addTailResIdl.error;
+        if (error != null) {
+            responsedMessage.setError(error.errorno.intValue());
             responsedMessage.setErrorString(addTailResIdl.error.errmsg);
         }
         if (addTailResIdl.data == null) {
             return null;
         }
         b bVar = new b();
-        bVar.a(addTailResIdl.data);
+        bVar.b(addTailResIdl.data);
         return bVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        this.resultData = getResult(this, i, bArr);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tbadk.core.util.IDataResponseMessage
+    public b getResultData() {
+        return this.resultData;
     }
 }

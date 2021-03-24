@@ -8,22 +8,9 @@ import com.alibaba.fastjson.util.TypeUtils;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
-public class BooleanCodec implements ObjectDeserializer, ObjectSerializer {
+/* loaded from: classes.dex */
+public class BooleanCodec implements ObjectSerializer, ObjectDeserializer {
     public static final BooleanCodec instance = new BooleanCodec();
-
-    @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        SerializeWriter serializeWriter = jSONSerializer.out;
-        Boolean bool = (Boolean) obj;
-        if (bool == null) {
-            serializeWriter.writeNull(SerializerFeature.WriteNullBooleanAsFalse);
-        } else if (bool.booleanValue()) {
-            serializeWriter.write("true");
-        } else {
-            serializeWriter.write("false");
-        }
-    }
 
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
@@ -52,13 +39,26 @@ public class BooleanCodec implements ObjectDeserializer, ObjectSerializer {
                 t = (T) TypeUtils.castToBoolean(parse);
             }
             return type == AtomicBoolean.class ? (T) new AtomicBoolean(((Boolean) t).booleanValue()) : t;
-        } catch (Exception e) {
-            throw new JSONException("parseBoolean error, field : " + obj, e);
+        } catch (Exception e2) {
+            throw new JSONException("parseBoolean error, field : " + obj, e2);
         }
     }
 
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public int getFastMatchToken() {
         return 6;
+    }
+
+    @Override // com.alibaba.fastjson.serializer.ObjectSerializer
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+        SerializeWriter serializeWriter = jSONSerializer.out;
+        Boolean bool = (Boolean) obj;
+        if (bool == null) {
+            serializeWriter.writeNull(SerializerFeature.WriteNullBooleanAsFalse);
+        } else if (bool.booleanValue()) {
+            serializeWriter.write("true");
+        } else {
+            serializeWriter.write("false");
+        }
     }
 }

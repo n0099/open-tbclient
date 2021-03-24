@@ -1,6 +1,5 @@
 package com.baidu.platform.core.f;
 
-import android.net.http.Headers;
 import android.util.Log;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
@@ -10,21 +9,24 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
 import com.baidu.mapapi.search.sug.SuggestionResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.platform.base.d {
-    private static final String b = c.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f10425b = "c";
 
     private LatLng a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
-        double optDouble = jSONObject.optDouble("lat");
-        double optDouble2 = jSONObject.optDouble("lng");
+        double optDouble = jSONObject.optDouble(SuggestAddrField.KEY_LAT);
+        double optDouble2 = jSONObject.optDouble(SuggestAddrField.KEY_LNG);
         return SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(new LatLng(optDouble, optDouble2)) : new LatLng(optDouble, optDouble2);
     }
 
@@ -51,126 +53,94 @@ public class c extends com.baidu.platform.base.d {
     private boolean a(String str, SuggestionResult suggestionResult) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject == null || jSONObject.length() == 0) {
-                suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+            if (jSONObject.length() != 0) {
+                int optInt = jSONObject.optInt("status");
+                if (optInt == 0) {
+                    return a(jSONObject, suggestionResult);
+                }
+                suggestionResult.error = optInt != 1 ? optInt != 2 ? SearchResult.ERRORNO.RESULT_NOT_FOUND : SearchResult.ERRORNO.SEARCH_OPTION_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
                 return false;
             }
-            int optInt = jSONObject.optInt("status");
-            if (optInt == 0) {
-                return a(jSONObject, suggestionResult);
-            }
-            switch (optInt) {
-                case 1:
-                    suggestionResult.error = SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
-                    return false;
-                case 2:
-                    suggestionResult.error = SearchResult.ERRORNO.SEARCH_OPTION_ERROR;
-                    return false;
-                default:
-                    suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-                    return false;
-            }
-        } catch (JSONException e) {
-            Log.e(b, "Parse sug search error", e);
-            suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-            return false;
+        } catch (JSONException e2) {
+            Log.e(f10425b, "Parse sug search error", e2);
         }
+        suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+        return false;
     }
 
     private boolean a(JSONObject jSONObject, SuggestionResult suggestionResult) {
-        int i = 0;
-        if (jSONObject == null || jSONObject.length() == 0) {
-            return false;
-        }
-        suggestionResult.error = SearchResult.ERRORNO.NO_ERROR;
-        JSONArray optJSONArray = jSONObject.optJSONArray("result");
-        if (optJSONArray == null || optJSONArray.length() == 0) {
-            suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-            return false;
-        }
-        ArrayList<SuggestionResult.SuggestionInfo> arrayList = new ArrayList<>();
-        while (true) {
-            int i2 = i;
-            if (i2 >= optJSONArray.length()) {
+        if (jSONObject != null && jSONObject.length() != 0) {
+            suggestionResult.error = SearchResult.ERRORNO.NO_ERROR;
+            JSONArray optJSONArray = jSONObject.optJSONArray("result");
+            if (optJSONArray != null && optJSONArray.length() != 0) {
+                ArrayList<SuggestionResult.SuggestionInfo> arrayList = new ArrayList<>();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
+                    if (jSONObject2 != null && jSONObject2.length() != 0) {
+                        SuggestionResult.SuggestionInfo suggestionInfo = new SuggestionResult.SuggestionInfo();
+                        suggestionInfo.setKey(jSONObject2.optString("name"));
+                        suggestionInfo.setCity(jSONObject2.optString("city"));
+                        suggestionInfo.setDistrict(jSONObject2.optString("district"));
+                        suggestionInfo.setUid(jSONObject2.optString("uid"));
+                        suggestionInfo.setTag(jSONObject2.optString("tag"));
+                        suggestionInfo.setAddress(jSONObject2.optString("address"));
+                        suggestionInfo.setPt(a(jSONObject2.optJSONObject("location")));
+                        JSONArray optJSONArray2 = jSONObject2.optJSONArray("children");
+                        if (optJSONArray2 != null && optJSONArray2.length() != 0) {
+                            suggestionInfo.setPoiChildrenInfoList(a(optJSONArray2));
+                        }
+                        arrayList.add(suggestionInfo);
+                    }
+                }
                 suggestionResult.setSuggestionInfo(arrayList);
                 return true;
             }
-            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
-            if (jSONObject2 != null && jSONObject2.length() != 0) {
-                SuggestionResult.SuggestionInfo suggestionInfo = new SuggestionResult.SuggestionInfo();
-                suggestionInfo.setKey(jSONObject2.optString("name"));
-                suggestionInfo.setCity(jSONObject2.optString("city"));
-                suggestionInfo.setDistrict(jSONObject2.optString("district"));
-                suggestionInfo.setUid(jSONObject2.optString("uid"));
-                suggestionInfo.setTag(jSONObject2.optString("tag"));
-                suggestionInfo.setAddress(jSONObject2.optString("address"));
-                suggestionInfo.setPt(a(jSONObject2.optJSONObject(Headers.LOCATION)));
-                JSONArray optJSONArray2 = jSONObject2.optJSONArray("children");
-                if (optJSONArray2 != null && optJSONArray2.length() != 0) {
-                    suggestionInfo.setPoiChildrenInfoList(a(optJSONArray2));
-                }
-                arrayList.add(suggestionInfo);
-            }
-            i = i2 + 1;
+            suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
         }
+        return false;
     }
 
     @Override // com.baidu.platform.base.d
     public SearchResult a(String str) {
+        SearchResult.ERRORNO errorno;
+        JSONObject jSONObject;
         SuggestionResult suggestionResult = new SuggestionResult();
-        if (str == null || str.isEmpty()) {
-            suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-        } else {
+        if (str != null && !str.isEmpty()) {
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject == null || jSONObject.length() == 0) {
-                    suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-                } else {
-                    if (jSONObject.has("SDK_InnerError")) {
-                        JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
-                        if (!optJSONObject.has("PermissionCheckError")) {
-                            if (optJSONObject.has("httpStateError")) {
-                                String optString = optJSONObject.optString("httpStateError");
-                                char c = 65535;
-                                switch (optString.hashCode()) {
-                                    case -879828873:
-                                        if (optString.equals("NETWORK_ERROR")) {
-                                            c = 0;
-                                            break;
-                                        }
-                                        break;
-                                    case 1470557208:
-                                        if (optString.equals("REQUEST_ERROR")) {
-                                            c = 1;
-                                            break;
-                                        }
-                                        break;
-                                }
-                                switch (c) {
-                                    case 0:
-                                        suggestionResult.error = SearchResult.ERRORNO.NETWORK_ERROR;
-                                        break;
-                                    case 1:
-                                        suggestionResult.error = SearchResult.ERRORNO.REQUEST_ERROR;
-                                        break;
-                                    default:
-                                        suggestionResult.error = SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
-                                        break;
-                                }
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e2) {
+                Log.e(f10425b, "Parse suggestion search result error", e2);
+            }
+            if (jSONObject.length() != 0) {
+                if (jSONObject.has("SDK_InnerError")) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
+                    if (optJSONObject.has("PermissionCheckError")) {
+                        errorno = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
+                        suggestionResult.error = errorno;
+                        return suggestionResult;
+                    } else if (optJSONObject.has("httpStateError")) {
+                        String optString = optJSONObject.optString("httpStateError");
+                        char c2 = 65535;
+                        int hashCode = optString.hashCode();
+                        if (hashCode != -879828873) {
+                            if (hashCode == 1470557208 && optString.equals("REQUEST_ERROR")) {
+                                c2 = 1;
                             }
-                        } else {
-                            suggestionResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
+                        } else if (optString.equals("NETWORK_ERROR")) {
+                            c2 = 0;
                         }
-                    }
-                    if (!a(str, suggestionResult, true)) {
-                        a(str, suggestionResult);
+                        suggestionResult.error = c2 != 0 ? c2 != 1 ? SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR : SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.NETWORK_ERROR;
+                        return suggestionResult;
                     }
                 }
-            } catch (JSONException e) {
-                Log.e(b, "Parse suggestion search result error", e);
-                suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                if (!a(str, suggestionResult, true)) {
+                    a(str, suggestionResult);
+                }
+                return suggestionResult;
             }
         }
+        errorno = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+        suggestionResult.error = errorno;
         return suggestionResult;
     }
 

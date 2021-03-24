@@ -8,78 +8,22 @@ import com.bumptech.glide.load.engine.DataFetcherGenerator;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public class ResourceCacheGenerator implements DataFetcher.DataCallback<Object>, DataFetcherGenerator {
-    private File cacheFile;
-    private final DataFetcherGenerator.FetcherReadyCallback cb;
-    private ResourceCacheKey currentKey;
-    private final DecodeHelper<?> helper;
-    private volatile ModelLoader.LoadData<?> loadData;
-    private int modelLoaderIndex;
-    private List<ModelLoader<File, ?>> modelLoaders;
-    private int resourceClassIndex = -1;
-    private int sourceIdIndex;
-    private Key sourceKey;
+/* loaded from: classes5.dex */
+public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object> {
+    public File cacheFile;
+    public final DataFetcherGenerator.FetcherReadyCallback cb;
+    public ResourceCacheKey currentKey;
+    public final DecodeHelper<?> helper;
+    public volatile ModelLoader.LoadData<?> loadData;
+    public int modelLoaderIndex;
+    public List<ModelLoader<File, ?>> modelLoaders;
+    public int resourceClassIndex = -1;
+    public int sourceIdIndex;
+    public Key sourceKey;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ResourceCacheGenerator(DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
         this.helper = decodeHelper;
         this.cb = fetcherReadyCallback;
-    }
-
-    @Override // com.bumptech.glide.load.engine.DataFetcherGenerator
-    public boolean startNext() {
-        boolean z;
-        List<Key> cacheKeys = this.helper.getCacheKeys();
-        if (cacheKeys.isEmpty()) {
-            return false;
-        }
-        List<Class<?>> registeredResourceClasses = this.helper.getRegisteredResourceClasses();
-        if (registeredResourceClasses.isEmpty()) {
-            if (File.class.equals(this.helper.getTranscodeClass())) {
-                return false;
-            }
-            throw new IllegalStateException("Failed to find any load path from " + this.helper.getModelClass() + " to " + this.helper.getTranscodeClass());
-        }
-        while (true) {
-            if (this.modelLoaders == null || !hasNextModelLoader()) {
-                this.resourceClassIndex++;
-                if (this.resourceClassIndex >= registeredResourceClasses.size()) {
-                    this.sourceIdIndex++;
-                    if (this.sourceIdIndex >= cacheKeys.size()) {
-                        return false;
-                    }
-                    this.resourceClassIndex = 0;
-                }
-                Key key = cacheKeys.get(this.sourceIdIndex);
-                Class<?> cls = registeredResourceClasses.get(this.resourceClassIndex);
-                this.currentKey = new ResourceCacheKey(this.helper.getArrayPool(), key, this.helper.getSignature(), this.helper.getWidth(), this.helper.getHeight(), this.helper.getTransformation(cls), cls, this.helper.getOptions());
-                this.cacheFile = this.helper.getDiskCache().get(this.currentKey);
-                if (this.cacheFile != null) {
-                    this.sourceKey = key;
-                    this.modelLoaders = this.helper.getModelLoaders(this.cacheFile);
-                    this.modelLoaderIndex = 0;
-                }
-            } else {
-                this.loadData = null;
-                boolean z2 = false;
-                while (!z2 && hasNextModelLoader()) {
-                    List<ModelLoader<File, ?>> list = this.modelLoaders;
-                    int i = this.modelLoaderIndex;
-                    this.modelLoaderIndex = i + 1;
-                    this.loadData = list.get(i).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
-                    if (this.loadData == null || !this.helper.hasLoadPath(this.loadData.fetcher.getDataClass())) {
-                        z = z2;
-                    } else {
-                        z = true;
-                        this.loadData.fetcher.loadData(this.helper.getPriority(), this);
-                    }
-                    z2 = z;
-                }
-                return z2;
-            }
-        }
     }
 
     private boolean hasNextModelLoader() {
@@ -102,5 +46,57 @@ public class ResourceCacheGenerator implements DataFetcher.DataCallback<Object>,
     @Override // com.bumptech.glide.load.data.DataFetcher.DataCallback
     public void onLoadFailed(@NonNull Exception exc) {
         this.cb.onDataFetcherFailed(this.currentKey, exc, this.loadData.fetcher, DataSource.RESOURCE_DISK_CACHE);
+    }
+
+    @Override // com.bumptech.glide.load.engine.DataFetcherGenerator
+    public boolean startNext() {
+        List<Key> cacheKeys = this.helper.getCacheKeys();
+        boolean z = false;
+        if (cacheKeys.isEmpty()) {
+            return false;
+        }
+        List<Class<?>> registeredResourceClasses = this.helper.getRegisteredResourceClasses();
+        if (registeredResourceClasses.isEmpty()) {
+            if (File.class.equals(this.helper.getTranscodeClass())) {
+                return false;
+            }
+            throw new IllegalStateException("Failed to find any load path from " + this.helper.getModelClass() + " to " + this.helper.getTranscodeClass());
+        }
+        while (true) {
+            if (this.modelLoaders != null && hasNextModelLoader()) {
+                this.loadData = null;
+                while (!z && hasNextModelLoader()) {
+                    List<ModelLoader<File, ?>> list = this.modelLoaders;
+                    int i = this.modelLoaderIndex;
+                    this.modelLoaderIndex = i + 1;
+                    this.loadData = list.get(i).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
+                    if (this.loadData != null && this.helper.hasLoadPath(this.loadData.fetcher.getDataClass())) {
+                        this.loadData.fetcher.loadData(this.helper.getPriority(), this);
+                        z = true;
+                    }
+                }
+                return z;
+            }
+            int i2 = this.resourceClassIndex + 1;
+            this.resourceClassIndex = i2;
+            if (i2 >= registeredResourceClasses.size()) {
+                int i3 = this.sourceIdIndex + 1;
+                this.sourceIdIndex = i3;
+                if (i3 >= cacheKeys.size()) {
+                    return false;
+                }
+                this.resourceClassIndex = 0;
+            }
+            Key key = cacheKeys.get(this.sourceIdIndex);
+            Class<?> cls = registeredResourceClasses.get(this.resourceClassIndex);
+            this.currentKey = new ResourceCacheKey(this.helper.getArrayPool(), key, this.helper.getSignature(), this.helper.getWidth(), this.helper.getHeight(), this.helper.getTransformation(cls), cls, this.helper.getOptions());
+            File file = this.helper.getDiskCache().get(this.currentKey);
+            this.cacheFile = file;
+            if (file != null) {
+                this.sourceKey = key;
+                this.modelLoaders = this.helper.getModelLoaders(file);
+                this.modelLoaderIndex = 0;
+            }
+        }
     }
 }

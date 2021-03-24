@@ -8,10 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import io.flutter.embedding.android.SplashScreen;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class ViewSplashScreen implements SplashScreen {
-    private final long crossfadeDurationInMillis = 5;
-    private final View splashView;
+    public final View splashView;
 
     public ViewSplashScreen(@NonNull View view) {
         this.splashView = view;
@@ -24,14 +23,26 @@ public final class ViewSplashScreen implements SplashScreen {
     }
 
     @Override // io.flutter.embedding.android.SplashScreen
+    public boolean doesSplashViewRememberItsTransition() {
+        return false;
+    }
+
+    @Override // io.flutter.embedding.android.SplashScreen
+    public Bundle saveSplashScreenState() {
+        return null;
+    }
+
+    @Override // io.flutter.embedding.android.SplashScreen
     @RequiresApi(api = 12)
     public void transitionToFlutter(@NonNull final Runnable runnable) {
-        if (this.splashView == null) {
+        View view = this.splashView;
+        if (view == null) {
             runnable.run();
         } else {
-            this.splashView.animate().alpha(0.0f).setDuration(5L).setListener(new Animator.AnimatorListener() { // from class: com.idlefish.flutterboost.containers.ViewSplashScreen.1
+            view.animate().alpha(0.0f).setDuration(5L).setListener(new Animator.AnimatorListener(this) { // from class: com.idlefish.flutterboost.containers.ViewSplashScreen.1
                 @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator) {
+                public void onAnimationCancel(Animator animator) {
+                    runnable.run();
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -40,24 +51,13 @@ public final class ViewSplashScreen implements SplashScreen {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationCancel(Animator animator) {
-                    runnable.run();
+                public void onAnimationRepeat(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationRepeat(Animator animator) {
+                public void onAnimationStart(Animator animator) {
                 }
             });
         }
-    }
-
-    @Override // io.flutter.embedding.android.SplashScreen
-    public boolean doesSplashViewRememberItsTransition() {
-        return false;
-    }
-
-    @Override // io.flutter.embedding.android.SplashScreen
-    public Bundle saveSplashScreenState() {
-        return null;
     }
 }

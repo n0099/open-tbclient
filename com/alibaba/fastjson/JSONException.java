@@ -1,5 +1,5 @@
 package com.alibaba.fastjson;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class JSONException extends RuntimeException {
     public JSONException() {
     }

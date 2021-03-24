@@ -3,7 +3,7 @@ package com.baidu.megapp.ma;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public abstract class MAListActivity extends ListActivity {
     public Activity getActivity() {
         return this;

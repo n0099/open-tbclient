@@ -3,47 +3,15 @@ package com.baidu.pano.platform.comjni;
 import com.baidu.lbsapi.model.StatisticsEvent;
 import com.baidu.pano.platform.c.g;
 import com.baidu.pano.platform.comapi.map.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MessageProxy {
-    private static b mListener;
+    public static b mListener;
 
-    public static void registerPanoViewListener(b bVar) {
-        mListener = bVar;
-    }
-
-    public static void unRegisterPanoViewListener() {
-        mListener = null;
-    }
-
-    public static void initEngineStart() {
-        g.a("initEngineStart");
+    public static void descriptionLoadEvent(String str, boolean z) {
+        g.a("descriptionLoadEvent:" + str);
         b bVar = mListener;
         if (bVar != null) {
-            bVar.a();
-        }
-    }
-
-    public static void initEngineEnd(boolean z) {
-        g.a("initEngineEnd");
-        b bVar = mListener;
-        if (bVar != null) {
-            bVar.a(z);
-        }
-    }
-
-    public static void thumbLoadStart() {
-        g.a("thumbLoadStart");
-        b bVar = mListener;
-        if (bVar != null) {
-            bVar.b();
-        }
-    }
-
-    public static void thumbLoadEnd(boolean z) {
-        g.a("thumbLoadEnd");
-        b bVar = mListener;
-        if (bVar != null) {
-            bVar.b(z);
+            bVar.a(str, z);
         }
     }
 
@@ -55,27 +23,19 @@ public class MessageProxy {
         }
     }
 
-    public static void descriptionLoadEvent(String str, boolean z) {
-        g.a("descriptionLoadEvent:" + str);
+    public static void initEngineEnd(boolean z) {
+        g.a("initEngineEnd");
         b bVar = mListener;
         if (bVar != null) {
-            bVar.a(str, z);
+            bVar.a(z);
         }
     }
 
-    public static void onMoveStart() {
-        g.a("onMoveStart");
+    public static void initEngineStart() {
+        g.a("initEngineStart");
         b bVar = mListener;
         if (bVar != null) {
-            bVar.d();
-        }
-    }
-
-    public static void onMoveEnd() {
-        g.a("onMoveEnd");
-        b bVar = mListener;
-        if (bVar != null) {
-            bVar.e();
+            bVar.a();
         }
     }
 
@@ -87,11 +47,27 @@ public class MessageProxy {
         }
     }
 
-    public static void onPoiMarkerClick() {
-        g.a(StatisticsEvent.ON_POI_MARKER_CLICK);
+    public static void onMessage(String str, int i, byte[] bArr, int i2) {
+        g.a("onMessage");
         b bVar = mListener;
         if (bVar != null) {
-            bVar.f();
+            bVar.a(str, i, bArr, i2);
+        }
+    }
+
+    public static void onMoveEnd() {
+        g.a("onMoveEnd");
+        b bVar = mListener;
+        if (bVar != null) {
+            bVar.e();
+        }
+    }
+
+    public static void onMoveStart() {
+        g.a("onMoveStart");
+        b bVar = mListener;
+        if (bVar != null) {
+            bVar.d();
         }
     }
 
@@ -103,11 +79,35 @@ public class MessageProxy {
         }
     }
 
-    public static void onMessage(String str, int i, byte[] bArr, int i2) {
-        g.a("onMessage");
+    public static void onPoiMarkerClick() {
+        g.a(StatisticsEvent.ON_POI_MARKER_CLICK);
         b bVar = mListener;
         if (bVar != null) {
-            bVar.a(str, i, bArr, i2);
+            bVar.f();
         }
+    }
+
+    public static void registerPanoViewListener(b bVar) {
+        mListener = bVar;
+    }
+
+    public static void thumbLoadEnd(boolean z) {
+        g.a("thumbLoadEnd");
+        b bVar = mListener;
+        if (bVar != null) {
+            bVar.b(z);
+        }
+    }
+
+    public static void thumbLoadStart() {
+        g.a("thumbLoadStart");
+        b bVar = mListener;
+        if (bVar != null) {
+            bVar.b();
+        }
+    }
+
+    public static void unRegisterPanoViewListener() {
+        mListener = null;
     }
 }

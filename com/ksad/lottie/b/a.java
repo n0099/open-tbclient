@@ -9,70 +9,78 @@ import androidx.annotation.Nullable;
 import com.ksad.lottie.model.f;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private final AssetManager d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final AssetManager f31319d;
     @Nullable
-    private com.ksad.lottie.a e;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.ksad.lottie.a f31320e;
 
     /* renamed from: a  reason: collision with root package name */
-    private final f<String> f5325a = new f<>();
-    private final Map<f<String>, Typeface> b = new HashMap();
-    private final Map<String, Typeface> c = new HashMap();
-    private String f = ".ttf";
+    public final f<String> f31316a = new f<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Map<f<String>, Typeface> f31317b = new HashMap();
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Map<String, Typeface> f31318c = new HashMap();
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f31321f = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.ksad.lottie.a aVar) {
-        this.e = aVar;
+        AssetManager assets;
+        this.f31320e = aVar;
         if (callback instanceof View) {
-            this.d = ((View) callback).getContext().getAssets();
-            return;
+            assets = ((View) callback).getContext().getAssets();
+        } else {
+            Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
+            assets = null;
         }
-        Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
-        this.d = null;
+        this.f31319d = assets;
     }
 
     private Typeface a(Typeface typeface, String str) {
-        int i = 0;
         boolean contains = str.contains("Italic");
         boolean contains2 = str.contains("Bold");
-        if (contains && contains2) {
-            i = 3;
-        } else if (contains) {
-            i = 2;
-        } else if (contains2) {
-            i = 1;
-        }
+        int i = (contains && contains2) ? 3 : contains ? 2 : contains2 ? 1 : 0;
         return typeface.getStyle() == i ? typeface : Typeface.create(typeface, i);
     }
 
     private Typeface a(String str) {
-        String b;
-        Typeface typeface = this.c.get(str);
-        if (typeface == null) {
-            typeface = this.e != null ? this.e.a(str) : null;
-            if (this.e != null && typeface == null && (b = this.e.b(str)) != null) {
-                typeface = Typeface.createFromAsset(this.d, b);
-            }
-            if (typeface == null) {
-                typeface = Typeface.createFromAsset(this.d, "fonts/" + str + this.f);
-            }
-            this.c.put(str, typeface);
+        String b2;
+        Typeface typeface = this.f31318c.get(str);
+        if (typeface != null) {
+            return typeface;
         }
-        return typeface;
+        com.ksad.lottie.a aVar = this.f31320e;
+        Typeface a2 = aVar != null ? aVar.a(str) : null;
+        com.ksad.lottie.a aVar2 = this.f31320e;
+        if (aVar2 != null && a2 == null && (b2 = aVar2.b(str)) != null) {
+            a2 = Typeface.createFromAsset(this.f31319d, b2);
+        }
+        if (a2 == null) {
+            a2 = Typeface.createFromAsset(this.f31319d, "fonts/" + str + this.f31321f);
+        }
+        this.f31318c.put(str, a2);
+        return a2;
     }
 
     public Typeface a(String str, String str2) {
-        this.f5325a.a(str, str2);
-        Typeface typeface = this.b.get(this.f5325a);
+        this.f31316a.a(str, str2);
+        Typeface typeface = this.f31317b.get(this.f31316a);
         if (typeface != null) {
             return typeface;
         }
         Typeface a2 = a(a(str), str2);
-        this.b.put(this.f5325a, a2);
+        this.f31317b.put(this.f31316a, a2);
         return a2;
     }
 
     public void a(@Nullable com.ksad.lottie.a aVar) {
-        this.e = aVar;
+        this.f31320e = aVar;
     }
 }

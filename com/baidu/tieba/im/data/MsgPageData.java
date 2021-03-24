@@ -5,31 +5,31 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MsgPageData extends OrmObject implements Serializable {
-    private static final long serialVersionUID = -7666708726763728750L;
-    private boolean isNewAdd = false;
-    private int newAddNum = 0;
-    private List<ChatMessage> mChatMessages = new ArrayList();
+    public static final long serialVersionUID = -7666708726763728750L;
+    public boolean isNewAdd = false;
+    public int newAddNum = 0;
+    public List<ChatMessage> mChatMessages = new ArrayList();
+
+    public List<ChatMessage> getChatMessages() {
+        return this.mChatMessages;
+    }
 
     public boolean getIsNewAdd() {
         return this.isNewAdd;
     }
 
-    public void setIsNewAdd(boolean z) {
-        this.isNewAdd = z;
-    }
-
-    public List<ChatMessage> getChatMessages() {
-        return this.mChatMessages;
+    public int getNewAddNum() {
+        return this.newAddNum;
     }
 
     public void setChatMessages(List<ChatMessage> list) {
         this.mChatMessages = list;
     }
 
-    public int getNewAddNum() {
-        return this.newAddNum;
+    public void setIsNewAdd(boolean z) {
+        this.isNewAdd = z;
     }
 
     public void setNewAddNum(int i) {

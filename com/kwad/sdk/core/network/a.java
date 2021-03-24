@@ -5,23 +5,23 @@ import com.kwad.sdk.core.network.g;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class a<R extends g> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ExecutorService f6181a = Executors.newFixedThreadPool(5);
-    private Future<?> b;
+    public static final ExecutorService f33858a = Executors.newFixedThreadPool(5);
 
-    protected abstract void a(R r, c cVar);
+    /* renamed from: b  reason: collision with root package name */
+    public Future<?> f33859b;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void a(R r, c cVar);
+
     @NonNull
     public abstract R b();
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void d() {
         try {
-            this.b = f6181a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
+            this.f33859b = f33858a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.f();
@@ -32,13 +32,13 @@ public abstract class a<R extends g> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void e() {
-        if (this.b == null) {
+        Future<?> future = this.f33859b;
+        if (future == null) {
             return;
         }
-        this.b.cancel(true);
+        future.cancel(true);
     }
 
-    protected abstract void f();
+    public abstract void f();
 }

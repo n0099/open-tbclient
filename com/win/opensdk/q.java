@@ -1,36 +1,49 @@
 package com.win.opensdk;
 
-import com.win.opensdk.core.Info;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes14.dex */
-public class q {
-    public static q qkw;
+import android.content.Context;
+import android.view.View;
+/* loaded from: classes7.dex */
+public class q implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap f8171a = new ConcurrentHashMap();
+    public B1 f40015a;
 
-    public static q eIY() {
-        if (qkw == null) {
-            synchronized (q.class) {
-                if (qkw == null) {
-                    qkw = new q();
-                }
+    /* renamed from: b  reason: collision with root package name */
+    public r f40016b;
+
+    public q(Context context, String str) {
+        B1 b1 = new B1(context, str);
+        this.f40015a = b1;
+        b1.f39629f = new p(this);
+    }
+
+    public void a() {
+        try {
+            if (this.f40015a != null) {
+                this.f40015a.a();
+                this.f40015a = null;
             }
-        }
-        return qkw;
-    }
-
-    public void a(String str, Info info) {
-        synchronized (q.class) {
-            this.f8171a.put(str, info);
+            if (this.f40016b != null) {
+                this.f40016b = null;
+            }
+        } catch (Exception unused) {
         }
     }
 
-    public Info abW(String str) {
-        Info info;
-        synchronized (q.class) {
-            info = (Info) this.f8171a.remove(str);
+    public void a(View view, PBMediaView pBMediaView) {
+        B1 b1 = this.f40015a;
+        if (b1 != null) {
+            b1.a(view, pBMediaView);
         }
-        return info;
+    }
+
+    public String b() {
+        B1 b1 = this.f40015a;
+        return (b1 == null || !b1.b()) ? "" : b1.f39626c.getLoad_type();
+    }
+
+    public boolean c() {
+        B1 b1 = this.f40015a;
+        return b1 != null && b1.b();
     }
 }

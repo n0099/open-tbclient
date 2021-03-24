@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,21 +15,34 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NativeLoader {
-    private static Context b;
-    private static NativeLoader e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2184a = NativeLoader.class.getSimpleName();
-    private static final Set<String> c = new HashSet();
-    private static final Set<String> d = new HashSet();
-    private static a f = a.ARMEABI;
-    private static boolean g = false;
-    private static String h = null;
+    public static final String f7453a = "NativeLoader";
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public static Context f7454b;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static NativeLoader f7457e;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final Set<String> f7455c = new HashSet();
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Set<String> f7456d = new HashSet();
+
+    /* renamed from: f  reason: collision with root package name */
+    public static a f7458f = a.ARMEABI;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static boolean f7459g = false;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static String f7460h = null;
+
+    /* loaded from: classes2.dex */
     public enum a {
         ARMEABI("armeabi"),
         ARMV7("armeabi-v7a"),
@@ -36,31 +50,29 @@ public class NativeLoader {
         X86("x86"),
         X86_64("x86_64");
         
-        private String f;
+
+        /* renamed from: f  reason: collision with root package name */
+        public String f7467f;
 
         a(String str) {
-            this.f = str;
+            this.f7467f = str;
         }
 
         public String a() {
-            return this.f;
+            return this.f7467f;
         }
-    }
-
-    private NativeLoader() {
     }
 
     @TargetApi(8)
     private String a() {
-        return 8 <= Build.VERSION.SDK_INT ? b.getPackageCodePath() : "";
+        return 8 <= Build.VERSION.SDK_INT ? f7454b.getPackageCodePath() : "";
     }
 
     private String a(a aVar) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(PluginInstallerService.APK_LIB_DIR_PREFIX).append(aVar.a()).append("/");
-        return sb.toString();
+        return PluginInstallerService.APK_LIB_DIR_PREFIX + aVar.a() + "/";
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     private void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
         byte[] bArr = new byte[4096];
         while (true) {
@@ -70,126 +82,128 @@ public class NativeLoader {
                     break;
                 }
                 fileOutputStream.write(bArr, 0, read);
-            } finally {
+            } catch (Throwable th) {
                 try {
                     inputStream.close();
                 } catch (IOException e2) {
-                    Log.e(f2184a, "Close InputStream error", e2);
+                    Log.e(f7453a, "Close InputStream error", e2);
                 }
                 try {
                     fileOutputStream.close();
                 } catch (IOException e3) {
-                    Log.e(f2184a, "Close OutputStream error", e3);
+                    Log.e(f7453a, "Close OutputStream error", e3);
                 }
+                throw th;
             }
         }
         fileOutputStream.flush();
-    }
-
-    private void a(Throwable th) {
-        Log.e(f2184a, "loadException", th);
-        Iterator<String> it = d.iterator();
-        while (it.hasNext()) {
-            Log.e(f2184a, it.next() + " Failed to load.");
+        try {
+            inputStream.close();
+        } catch (IOException e4) {
+            Log.e(f7453a, "Close InputStream error", e4);
+        }
+        try {
+            fileOutputStream.close();
+        } catch (IOException e5) {
+            Log.e(f7453a, "Close OutputStream error", e5);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    private void a(Throwable th) {
+        Log.e(f7453a, "loadException", th);
+        Iterator<String> it = f7456d.iterator();
+        while (it.hasNext()) {
+            String str = f7453a;
+            Log.e(str, it.next() + " Failed to load.");
+        }
+    }
+
     public static void a(boolean z, String str) {
-        g = z;
-        h = str;
+        f7459g = z;
+        f7460h = str;
     }
 
     private boolean a(String str) {
         try {
-            synchronized (c) {
-                if (!c.contains(str)) {
-                    System.loadLibrary(str);
-                    synchronized (c) {
-                        c.add(str);
-                    }
+            synchronized (f7455c) {
+                if (f7455c.contains(str)) {
+                    return true;
                 }
+                System.loadLibrary(str);
+                synchronized (f7455c) {
+                    f7455c.add(str);
+                }
+                return true;
             }
-            return true;
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return b(str);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00a9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private boolean a(String str, a aVar) {
         ZipFile zipFile;
         File file = new File(b(), str);
-        if (file.exists() && file.length() > 0) {
-            return true;
-        }
-        String str2 = a(aVar) + str;
-        String a2 = !g ? a() : h;
-        if (a2 == null || a2.isEmpty()) {
-            return false;
-        }
-        try {
-            zipFile = new ZipFile(a2);
-            try {
+        if (!file.exists() || file.length() <= 0) {
+            String str2 = a(aVar) + str;
+            ZipFile zipFile2 = null;
+            String a2 = !f7459g ? a() : f7460h;
+            if (a2 != null) {
                 try {
-                    ZipEntry entry = zipFile.getEntry(str2);
-                    if (entry == null) {
-                        if (zipFile != null) {
+                    if (!a2.isEmpty()) {
+                        try {
+                            zipFile = new ZipFile(a2);
+                        } catch (Exception e2) {
+                            e = e2;
+                        }
+                        try {
+                            ZipEntry entry = zipFile.getEntry(str2);
+                            if (entry == null) {
+                                try {
+                                    zipFile.close();
+                                } catch (IOException e3) {
+                                    Log.e(f7453a, "Release file failed", e3);
+                                }
+                                return false;
+                            }
+                            a(zipFile.getInputStream(entry), new FileOutputStream(new File(b(), str)));
                             try {
                                 zipFile.close();
-                            } catch (IOException e2) {
-                                Log.e(f2184a, "Release file failed", e2);
+                            } catch (IOException e4) {
+                                Log.e(f7453a, "Release file failed", e4);
                             }
-                        }
-                        return false;
-                    }
-                    a(zipFile.getInputStream(entry), new FileOutputStream(new File(b(), str)));
-                    if (zipFile != null) {
-                        try {
-                            zipFile.close();
                             return true;
-                        } catch (IOException e3) {
-                            Log.e(f2184a, "Release file failed", e3);
-                            return true;
+                        } catch (Exception e5) {
+                            e = e5;
+                            zipFile2 = zipFile;
+                            Log.e(f7453a, "Copy library file error", e);
+                            if (zipFile2 != null) {
+                                try {
+                                    zipFile2.close();
+                                } catch (IOException e6) {
+                                    Log.e(f7453a, "Release file failed", e6);
+                                }
+                            }
+                            return false;
+                        } catch (Throwable th) {
+                            th = th;
+                            zipFile2 = zipFile;
+                            if (zipFile2 != null) {
+                                try {
+                                    zipFile2.close();
+                                } catch (IOException e7) {
+                                    Log.e(f7453a, "Release file failed", e7);
+                                }
+                            }
+                            throw th;
                         }
                     }
-                    return true;
-                } catch (Exception e4) {
-                    e = e4;
-                    Log.e(f2184a, "Copy library file error", e);
-                    if (zipFile != null) {
-                        try {
-                            zipFile.close();
-                        } catch (IOException e5) {
-                            Log.e(f2184a, "Release file failed", e5);
-                        }
-                    }
-                    return false;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (zipFile != null) {
-                    try {
-                        zipFile.close();
-                    } catch (IOException e6) {
-                        Log.e(f2184a, "Release file failed", e6);
-                    }
-                }
-                throw th;
             }
-        } catch (Exception e7) {
-            e = e7;
-            zipFile = null;
-        } catch (Throwable th2) {
-            th = th2;
-            zipFile = null;
-            if (zipFile != null) {
-            }
-            throw th;
+            return false;
         }
+        return true;
     }
 
     private boolean a(String str, String str2) {
@@ -197,7 +211,7 @@ public class NativeLoader {
     }
 
     private String b() {
-        File file = new File(b.getFilesDir(), "libs");
+        File file = new File(f7454b.getFilesDir(), "libs");
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -206,64 +220,44 @@ public class NativeLoader {
 
     private boolean b(String str) {
         String mapLibraryName = System.mapLibraryName(str);
-        boolean z = false;
-        synchronized (c) {
-            if (c.contains(str)) {
-                z = true;
-            } else {
-                switch (d.f2205a[f.ordinal()]) {
-                    case 1:
-                        z = c(str, mapLibraryName);
-                        break;
-                    case 2:
-                        z = a(str, mapLibraryName);
-                        break;
-                    case 3:
-                        z = b(str, mapLibraryName);
-                        break;
-                    case 4:
-                        z = e(str, mapLibraryName);
-                        break;
-                    case 5:
-                        z = d(str, mapLibraryName);
-                        break;
-                }
-                synchronized (c) {
-                    c.add(str);
-                }
+        synchronized (f7455c) {
+            if (f7455c.contains(str)) {
+                return true;
             }
+            int i = d.f7532a[f7458f.ordinal()];
+            boolean d2 = i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? false : d(str, mapLibraryName) : e(str, mapLibraryName) : b(str, mapLibraryName) : a(str, mapLibraryName) : c(str, mapLibraryName);
+            synchronized (f7455c) {
+                f7455c.add(str);
+            }
+            return d2;
         }
-        return z;
     }
 
     private boolean b(String str, String str2) {
         if (a(str2, a.ARMEABI)) {
             return f(str2, str);
         }
-        Log.e(f2184a, "found lib" + str + ".so error");
+        String str3 = f7453a;
+        Log.e(str3, "found lib" + str + ".so error");
         return false;
     }
 
     @TargetApi(21)
-    private static a c() {
+    public static a c() {
         String str = Build.VERSION.SDK_INT < 21 ? Build.CPU_ABI : Build.SUPPORTED_ABIS[0];
         if (str == null) {
             return a.ARMEABI;
         }
         if (str.contains("arm") && str.contains("v7")) {
-            f = a.ARMV7;
+            f7458f = a.ARMV7;
         }
-        if (str.contains("arm") && str.contains("64")) {
-            f = a.ARM64;
+        if (str.contains("arm") && str.contains(WebKitFactory.OS_64)) {
+            f7458f = a.ARM64;
         }
         if (str.contains("x86")) {
-            if (str.contains("64")) {
-                f = a.X86_64;
-            } else {
-                f = a.X86;
-            }
+            f7458f = str.contains(WebKitFactory.OS_64) ? a.X86_64 : a.X86;
         }
-        return f;
+        return f7458f;
     }
 
     private boolean c(String str, String str2) {
@@ -281,13 +275,13 @@ public class NativeLoader {
     private boolean f(String str, String str2) {
         try {
             System.load(new File(b(), str).getAbsolutePath());
-            synchronized (c) {
-                c.add(str2);
+            synchronized (f7455c) {
+                f7455c.add(str2);
             }
             return true;
         } catch (Throwable th) {
-            synchronized (d) {
-                d.add(str2);
+            synchronized (f7456d) {
+                f7456d.add(str2);
                 a(th);
                 return false;
             }
@@ -297,29 +291,27 @@ public class NativeLoader {
     public static synchronized NativeLoader getInstance() {
         NativeLoader nativeLoader;
         synchronized (NativeLoader.class) {
-            if (e == null) {
-                e = new NativeLoader();
-                f = c();
+            if (f7457e == null) {
+                f7457e = new NativeLoader();
+                f7458f = c();
             }
-            nativeLoader = e;
+            nativeLoader = f7457e;
         }
         return nativeLoader;
     }
 
     public static void setContext(Context context) {
-        b = context;
+        f7454b = context;
     }
 
     public synchronized boolean loadLibrary(String str) {
-        boolean z;
-        if (!g) {
-            z = a(str);
-        } else if (h == null || h.isEmpty()) {
-            Log.e(f2184a, "Given custom so file path is null, please check!");
-            z = false;
+        if (!f7459g) {
+            return a(str);
+        } else if (f7460h == null || f7460h.isEmpty()) {
+            Log.e(f7453a, "Given custom so file path is null, please check!");
+            return false;
         } else {
-            z = b(str);
+            return b(str);
         }
-        return z;
     }
 }

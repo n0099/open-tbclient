@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.dragsort;
 import android.content.Context;
 import android.view.View;
 import android.widget.Checkable;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class DragSortItemViewCheckable extends DragSortItemView implements Checkable {
     public DragSortItemViewCheckable(Context context) {
         super(context);

@@ -6,15 +6,14 @@ import java.security.Principal;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
 @TargetApi(21)
-/* loaded from: classes14.dex */
-final class ClientCertRequestImpl extends ClientCertRequest {
-    private final android.webkit.ClientCertRequest mRequest;
+/* loaded from: classes5.dex */
+public final class ClientCertRequestImpl extends ClientCertRequest {
+    public final android.webkit.ClientCertRequest mRequest;
 
-    private ClientCertRequestImpl(android.webkit.ClientCertRequest clientCertRequest) {
+    public ClientCertRequestImpl(android.webkit.ClientCertRequest clientCertRequest) {
         this.mRequest = clientCertRequest;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static ClientCertRequest from(android.webkit.ClientCertRequest clientCertRequest) {
         if (clientCertRequest == null) {
             return null;

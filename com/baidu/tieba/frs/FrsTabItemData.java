@@ -3,7 +3,7 @@ package com.baidu.tieba.frs;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import tbclient.FrsTabInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class FrsTabItemData extends OrmObject implements Serializable {
     public int isGeneralTab;
     public boolean isSelected;

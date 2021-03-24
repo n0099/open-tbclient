@@ -3,64 +3,65 @@ package com.kwad.sdk.core.f.b;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes3.dex */
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
+/* loaded from: classes6.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private IBinder f6090a;
+        public IBinder f33623a;
 
         public a(IBinder iBinder) {
-            this.f6090a = iBinder;
+            this.f33623a = iBinder;
         }
 
         public String a() {
-            String str = null;
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
-                obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                this.f6090a.transact(1, obtain, obtain2, 0);
-                obtain2.readException();
-                str = obtain2.readString();
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+                try {
+                    obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                    this.f33623a.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readString();
+                } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
+                    obtain.recycle();
+                    obtain2.recycle();
+                    return null;
+                }
             } finally {
                 obtain.recycle();
                 obtain2.recycle();
             }
-            return str;
         }
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f6090a;
+            return this.f33623a;
         }
 
         public boolean b() {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
+            boolean z = false;
             try {
                 try {
-                    obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f6090a.transact(1, obtain, obtain2, 0);
+                    obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                    this.f33623a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
-                    boolean z = obtain2.readInt() == 0;
-                    obtain.recycle();
-                    obtain2.recycle();
-                    return z;
-                } catch (Exception e) {
-                    com.kwad.sdk.core.d.a.a(e);
-                    obtain.recycle();
-                    obtain2.recycle();
-                    return false;
+                    if (obtain2.readInt() == 0) {
+                        z = true;
+                    }
+                } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
                 }
-            } catch (Throwable th) {
+                return z;
+            } finally {
                 obtain.recycle();
                 obtain2.recycle();
-                throw th;
             }
         }
     }

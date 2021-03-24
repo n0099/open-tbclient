@@ -1,306 +1,112 @@
 package com.bytedance.sdk.openadsdk.component.reward;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import android.os.SystemClock;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.bytedance.sdk.adnet.b.b;
-import com.bytedance.sdk.adnet.core.o;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.core.d.t;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.aj;
-import com.bytedance.sdk.openadsdk.utils.u;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import android.os.Handler;
+import android.os.Looper;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 /* loaded from: classes6.dex */
-public class e {
-    @SuppressLint({"StaticFieldLeak"})
+public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.RewardVideoAdListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f4277a;
-    private final Context b;
-    private final h c;
-    private Map<l, Long> d = Collections.synchronizedMap(new HashMap());
+    public final TTAdNative.RewardVideoAdListener f27760a;
 
-    /* loaded from: classes6.dex */
-    interface a<T> {
-        void a(boolean z, T t);
+    /* renamed from: b  reason: collision with root package name */
+    public final TTAdNative.FullScreenVideoAdListener f27761b;
+
+    public e(TTAdNative.RewardVideoAdListener rewardVideoAdListener) {
+        this.f27760a = rewardVideoAdListener;
+        this.f27761b = null;
     }
 
-    public void a(String str) {
-        this.c.d(str);
-    }
-
-    public void a() {
-        File externalCacheDir;
-        File[] listFiles;
-        File file;
-        File[] listFiles2;
-        try {
-            if (Build.VERSION.SDK_INT >= 24) {
-                file = new File(this.b.getDataDir(), "shared_prefs");
-            } else {
-                file = new File(this.b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
-            }
-            if (file.exists() && file.isDirectory() && (listFiles2 = file.listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.1
-                @Override // java.io.FileFilter
-                public boolean accept(File file2) {
-                    if (file2 != null) {
-                        return file2.getName().contains("sp_reward_video");
-                    }
-                    return false;
-                }
-            })) != null) {
-                for (File file2 : listFiles2) {
-                    try {
-                        String replace = file2.getName().replace(".xml", "");
-                        if (Build.VERSION.SDK_INT >= 24) {
-                            this.b.deleteSharedPreferences(replace);
-                        } else {
-                            this.b.getSharedPreferences(replace, 0).edit().clear().apply();
-                            com.bytedance.sdk.openadsdk.utils.l.c(file2);
-                        }
-                    } catch (Throwable th) {
+    @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.a.b
+    public void onError(final int i, final String str) {
+        if (this.f27760a != null) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    TTAdNative.RewardVideoAdListener rewardVideoAdListener = e.this.f27760a;
+                    if (rewardVideoAdListener != null) {
+                        rewardVideoAdListener.onError(i, str);
                     }
                 }
-            }
-        } catch (Throwable th2) {
+            });
         }
-        try {
-            if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.b.getExternalCacheDir() != null) {
-                externalCacheDir = this.b.getExternalCacheDir();
-            } else {
-                externalCacheDir = this.b.getCacheDir();
-            }
-            if (externalCacheDir != null && externalCacheDir.exists() && externalCacheDir.isDirectory() && (listFiles = externalCacheDir.listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.2
-                @Override // java.io.FileFilter
-                public boolean accept(File file3) {
-                    if (file3 != null) {
-                        return file3.getName().contains("reward_video_cache");
-                    }
-                    return false;
-                }
-            })) != null && listFiles.length > 0) {
-                for (File file3 : listFiles) {
-                    try {
-                        com.bytedance.sdk.openadsdk.utils.l.c(file3);
-                    } catch (Throwable th3) {
+        if (this.f27761b != null) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener = e.this.f27761b;
+                    if (fullScreenVideoAdListener != null) {
+                        fullScreenVideoAdListener.onError(i, str);
                     }
                 }
-            }
-        } catch (Throwable th4) {
+            });
         }
     }
 
-    public void a(AdSlot adSlot, l lVar) {
-        a(adSlot);
-        if (lVar != null) {
-            try {
-                this.c.a(adSlot.getCodeId(), lVar.aE().toString());
-            } catch (Throwable th) {
-            }
-        }
-    }
-
-    @Nullable
-    public AdSlot b(String str) {
-        return this.c.e(str);
-    }
-
-    public void a(AdSlot adSlot) {
-        this.c.a(adSlot);
-    }
-
-    public void b(AdSlot adSlot) {
-        this.c.b(adSlot);
-    }
-
-    @Nullable
-    public AdSlot b() {
-        return this.c.a();
-    }
-
-    public static e a(Context context) {
-        if (f4277a == null) {
-            synchronized (e.class) {
-                if (f4277a == null) {
-                    f4277a = new e(context);
-                }
-            }
-        }
-        return f4277a;
-    }
-
-    private e(Context context) {
-        this.b = context == null ? p.a() : context.getApplicationContext();
-        this.c = new h(this.b, "sp_reward_video");
-    }
-
-    public String a(l lVar) {
-        if (lVar == null || lVar.R() == null || TextUtils.isEmpty(lVar.R().i())) {
-            return null;
-        }
-        return a(lVar.R().i(), lVar.R().l(), String.valueOf(aj.d(lVar.aj())));
-    }
-
-    public String a(String str, String str2, String str3) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        if (TextUtils.isEmpty(str2)) {
-            str2 = com.bytedance.sdk.openadsdk.utils.j.a(str);
-        }
-        File a2 = a(this.b, a(String.valueOf(str3), com.bytedance.sdk.openadsdk.multipro.b.b()), str2);
-        if (a2 != null && a2.exists() && a2.isFile()) {
-            return a2.getAbsolutePath();
-        }
-        return null;
-    }
-
-    public l c(String str) {
-        l a2;
-        long b = this.c.b(str);
-        boolean c = this.c.c(str);
-        if ((System.currentTimeMillis() - b < Constants.SYNC_MSG_DELAY_TIME) && !c) {
-            try {
-                String a3 = this.c.a(str);
-                if (!TextUtils.isEmpty(a3) && (a2 = com.bytedance.sdk.openadsdk.core.c.a(new JSONObject(a3))) != null) {
-                    if (!a2.D()) {
-                        if (a2.R() != null) {
-                            t R = a2.R();
-                            if (!TextUtils.isEmpty(a(R.i(), R.l(), str))) {
-                                return a2;
-                            }
-                        }
-                    } else {
-                        return a2;
+    @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+    public void onFullScreenVideoAdLoad(final TTFullScreenVideoAd tTFullScreenVideoAd) {
+        if (this.f27761b != null) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener = e.this.f27761b;
+                    if (fullScreenVideoAdListener != null) {
+                        fullScreenVideoAdListener.onFullScreenVideoAdLoad(tTFullScreenVideoAd);
                     }
                 }
-            } catch (Exception e) {
-            }
+            });
         }
-        return null;
     }
 
-    private String a(String str, boolean z) {
-        if (z) {
-            return "reward_video_cache_" + str + "/";
-        }
-        return "/reward_video_cache_" + str + "/";
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z, l lVar, long j, @Nullable o oVar) {
-        Long remove = this.d.remove(lVar);
-        long elapsedRealtime = remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue();
-        String str = z ? "load_video_success" : "load_video_error";
-        String str2 = null;
-        if (!z && oVar != null && oVar.pxT != null) {
-            str2 = oVar.pxT.getMessage();
-        }
-        com.bytedance.sdk.openadsdk.c.d.f(this.b, lVar, "rewarded_video", str, aj.a(z, lVar, elapsedRealtime, j, str2));
-    }
-
-    public void a(final l lVar, final a<Object> aVar) {
-        this.d.put(lVar, Long.valueOf(SystemClock.elapsedRealtime()));
-        if (lVar == null || lVar.R() == null || TextUtils.isEmpty(lVar.R().i())) {
-            if (aVar != null) {
-                aVar.a(false, null);
-            }
-            a(false, lVar, -1L, null);
-            return;
-        }
-        String i = lVar.R().i();
-        final String l = lVar.R().l();
-        if (TextUtils.isEmpty(l)) {
-            l = com.bytedance.sdk.openadsdk.utils.j.a(i);
-        }
-        int d = aj.d(lVar.aj());
-        String a2 = a(String.valueOf(d), com.bytedance.sdk.openadsdk.multipro.b.b());
-        u.f("wzj", "ritId:" + d + ",cacheDirPath=" + a2);
-        final File a3 = a(this.b, a2, l);
-        u.b("splashLoadAd", "RewardVideoCache downloadVideo target.getPath() " + a3.getPath());
-        com.bytedance.sdk.openadsdk.h.d.a(this.b).a(i, new b.a() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.3
-            @Override // com.bytedance.sdk.adnet.b.b.a
-            public File a(String str) {
-                try {
-                    File parentFile = a3.getParentFile();
-                    if (parentFile != null && parentFile.exists()) {
-                        return com.bytedance.sdk.openadsdk.core.i.d().p().a(l, parentFile);
+    @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+    public void onFullScreenVideoCached() {
+        if (this.f27761b != null) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.4
+                @Override // java.lang.Runnable
+                public void run() {
+                    TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener = e.this.f27761b;
+                    if (fullScreenVideoAdListener != null) {
+                        fullScreenVideoAdListener.onFullScreenVideoCached();
                     }
-                } catch (IOException e) {
-                    u.f("RewardVideoCache", "datastoreGet throw IOException : " + e.toString());
                 }
-                return null;
-            }
+            });
+        }
+    }
 
-            @Override // com.bytedance.sdk.adnet.b.b.a
-            public void a(String str, File file) {
-                if (file != null) {
-                    e.this.a(file);
-                }
-            }
-
-            @Override // com.bytedance.sdk.adnet.b.b.a
-            public File b(String str) {
-                return a3;
-            }
-
-            @Override // com.bytedance.sdk.adnet.b.c.a
-            public void a(long j, long j2) {
-            }
-
-            @Override // com.bytedance.sdk.adnet.core.o.a
-            public void a(o<File> oVar) {
-                if (oVar != null && oVar.f4049a != null) {
-                    if (aVar != null) {
-                        aVar.a(true, null);
+    @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
+    public void onRewardVideoAdLoad(final TTRewardVideoAd tTRewardVideoAd) {
+        if (this.f27760a != null) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.5
+                @Override // java.lang.Runnable
+                public void run() {
+                    TTAdNative.RewardVideoAdListener rewardVideoAdListener = e.this.f27760a;
+                    if (rewardVideoAdListener != null) {
+                        rewardVideoAdListener.onRewardVideoAdLoad(tTRewardVideoAd);
                     }
-                    e.this.a(true, lVar, 0L, oVar);
-                    return;
                 }
-                if (aVar != null) {
-                    aVar.a(false, null);
-                }
-                e.this.a(false, lVar, oVar == null ? -3L : oVar.h, oVar);
-            }
-
-            @Override // com.bytedance.sdk.adnet.core.o.a
-            public void b(o<File> oVar) {
-                if (aVar != null) {
-                    aVar.a(false, null);
-                }
-                e.this.a(false, lVar, oVar == null ? -2L : oVar.h, oVar);
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(File file) {
-        try {
-            com.bytedance.sdk.openadsdk.core.i.d().p().a(file);
-        } catch (IOException e) {
-            u.f("RewardVideoCache", "trimFileCache IOException:" + e.toString());
+            });
         }
     }
 
-    private File a(Context context, String str, String str2) {
-        if (p.h().B() == 1) {
-            u.f("splashLoadAd", "RewardVideoCache getDiskCacheDir 视频存储使用内部存储");
-            return com.bytedance.sdk.openadsdk.utils.l.b(context, com.bytedance.sdk.openadsdk.multipro.b.b(), str, str2);
+    @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
+    public void onRewardVideoCached() {
+        if (this.f27760a != null) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.6
+                @Override // java.lang.Runnable
+                public void run() {
+                    TTAdNative.RewardVideoAdListener rewardVideoAdListener = e.this.f27760a;
+                    if (rewardVideoAdListener != null) {
+                        rewardVideoAdListener.onRewardVideoCached();
+                    }
+                }
+            });
         }
-        u.f("splashLoadAd", "RewardVideoCache getDiskCacheDir 视频存储使用外存储");
-        return com.bytedance.sdk.openadsdk.utils.l.a(context, com.bytedance.sdk.openadsdk.multipro.b.b(), str, str2);
+    }
+
+    public e(TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener) {
+        this.f27760a = null;
+        this.f27761b = fullScreenVideoAdListener;
     }
 }

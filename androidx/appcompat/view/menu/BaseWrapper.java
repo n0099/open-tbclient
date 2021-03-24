@@ -1,14 +1,14 @@
 package androidx.appcompat.view.menu;
-/* loaded from: classes5.dex */
-class BaseWrapper<T> {
-    final T mWrappedObject;
+/* loaded from: classes.dex */
+public class BaseWrapper<T> {
+    public final T mWrappedObject;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public BaseWrapper(T t) {
-        if (t == null) {
-            throw new IllegalArgumentException("Wrapped Object can not be null.");
+        if (t != null) {
+            this.mWrappedObject = t;
+            return;
         }
-        this.mWrappedObject = t;
+        throw new IllegalArgumentException("Wrapped Object can not be null.");
     }
 
     public T getWrappedObject() {

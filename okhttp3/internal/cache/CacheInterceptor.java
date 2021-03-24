@@ -22,128 +22,64 @@ import okio.Source;
 import okio.Timeout;
 import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class CacheInterceptor implements Interceptor {
-    final InternalCache cache;
+    public final InternalCache cache;
 
     public CacheInterceptor(InternalCache internalCache) {
         this.cache = internalCache;
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        Response response = this.cache != null ? this.cache.get(chain.request()) : null;
-        CacheStrategy cacheStrategy = new CacheStrategy.Factory(System.currentTimeMillis(), chain.request(), response).get();
-        Request request = cacheStrategy.networkRequest;
-        Response response2 = cacheStrategy.cacheResponse;
-        if (this.cache != null) {
-            this.cache.trackResponse(cacheStrategy);
-        }
-        if (response != null && response2 == null) {
-            Util.closeQuietly(response.body());
-        }
-        if (request == null && response2 == null) {
-            return new Response.Builder().request(chain.request()).protocol(Protocol.HTTP_1_1).code(504).message("Unsatisfiable Request (only-if-cached)").body(Util.EMPTY_RESPONSE).sentRequestAtMillis(-1L).receivedResponseAtMillis(System.currentTimeMillis()).build();
-        }
-        if (request == null) {
-            return response2.newBuilder().cacheResponse(stripBody(response2)).build();
-        }
-        try {
-            Response proceed = chain.proceed(request);
-            if (proceed == null && response != null) {
-                Util.closeQuietly(response.body());
-            }
-            if (response2 != null) {
-                if (proceed.code() == 304) {
-                    Response build = response2.newBuilder().headers(combine(response2.headers(), proceed.headers())).sentRequestAtMillis(proceed.sentRequestAtMillis()).receivedResponseAtMillis(proceed.receivedResponseAtMillis()).cacheResponse(stripBody(response2)).networkResponse(stripBody(proceed)).build();
-                    proceed.body().close();
-                    this.cache.trackConditionalCacheHit();
-                    this.cache.update(response2, build);
-                    return build;
-                }
-                Util.closeQuietly(response2.body());
-            }
-            Response build2 = proceed.newBuilder().cacheResponse(stripBody(response2)).networkResponse(stripBody(proceed)).build();
-            if (this.cache != null) {
-                if (HttpHeaders.hasBody(build2) && CacheStrategy.isCacheable(build2, request)) {
-                    return cacheWritingResponse(this.cache.put(build2), build2);
-                }
-                if (HttpMethod.invalidatesCache(request.method())) {
-                    try {
-                        this.cache.remove(request);
-                        return build2;
-                    } catch (IOException e) {
-                        return build2;
-                    }
-                }
-                return build2;
-            }
-            return build2;
-        } catch (Throwable th) {
-            if (0 == 0 && response != null) {
-                Util.closeQuietly(response.body());
-            }
-            throw th;
-        }
-    }
-
-    private static Response stripBody(Response response) {
-        if (response == null || response.body() == null) {
-            return response;
-        }
-        return response.newBuilder().body(null).build();
-    }
-
     private Response cacheWritingResponse(final CacheRequest cacheRequest, Response response) throws IOException {
         Sink body;
-        if (cacheRequest != null && (body = cacheRequest.body()) != null) {
-            final BufferedSource source = response.body().source();
-            final BufferedSink buffer = Okio.buffer(body);
-            return response.newBuilder().body(new RealResponseBody(response.header("Content-Type"), response.body().contentLength(), Okio.buffer(new Source() { // from class: okhttp3.internal.cache.CacheInterceptor.1
-                boolean cacheRequestClosed;
+        if (cacheRequest == null || (body = cacheRequest.body()) == null) {
+            return response;
+        }
+        final BufferedSource source = response.body().source();
+        final BufferedSink buffer = Okio.buffer(body);
+        return response.newBuilder().body(new RealResponseBody(response.header("Content-Type"), response.body().contentLength(), Okio.buffer(new Source() { // from class: okhttp3.internal.cache.CacheInterceptor.1
+            public boolean cacheRequestClosed;
 
-                @Override // okio.Source
-                public long read(Buffer buffer2, long j) throws IOException {
-                    try {
-                        long read = source.read(buffer2, j);
-                        if (read == -1) {
-                            if (!this.cacheRequestClosed) {
-                                this.cacheRequestClosed = true;
-                                buffer.close();
-                            }
-                            return -1L;
-                        }
-                        buffer2.copyTo(buffer.buffer(), buffer2.size() - read, read);
-                        buffer.emitCompleteSegments();
-                        return read;
-                    } catch (IOException e) {
+            @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
+            public void close() throws IOException {
+                if (!this.cacheRequestClosed && !Util.discard(this, 100, TimeUnit.MILLISECONDS)) {
+                    this.cacheRequestClosed = true;
+                    cacheRequest.abort();
+                }
+                source.close();
+            }
+
+            @Override // okio.Source
+            public long read(Buffer buffer2, long j) throws IOException {
+                try {
+                    long read = source.read(buffer2, j);
+                    if (read == -1) {
                         if (!this.cacheRequestClosed) {
                             this.cacheRequestClosed = true;
-                            cacheRequest.abort();
+                            buffer.close();
                         }
-                        throw e;
+                        return -1L;
                     }
-                }
-
-                @Override // okio.Source
-                public Timeout timeout() {
-                    return source.timeout();
-                }
-
-                @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
-                public void close() throws IOException {
-                    if (!this.cacheRequestClosed && !Util.discard(this, 100, TimeUnit.MILLISECONDS)) {
+                    buffer2.copyTo(buffer.buffer(), buffer2.size() - read, read);
+                    buffer.emitCompleteSegments();
+                    return read;
+                } catch (IOException e2) {
+                    if (!this.cacheRequestClosed) {
                         this.cacheRequestClosed = true;
                         cacheRequest.abort();
                     }
-                    source.close();
+                    throw e2;
                 }
-            }))).build();
-        }
-        return response;
+            }
+
+            @Override // okio.Source
+            public Timeout timeout() {
+                return source.timeout();
+            }
+        }))).build();
     }
 
-    private static Headers combine(Headers headers, Headers headers2) {
+    public static Headers combine(Headers headers, Headers headers2) {
         Headers.Builder builder = new Headers.Builder();
         int size = headers.size();
         for (int i = 0; i < size; i++) {
@@ -163,11 +99,69 @@ public final class CacheInterceptor implements Interceptor {
         return builder.build();
     }
 
-    static boolean isEndToEnd(String str) {
+    public static boolean isContentSpecificHeader(String str) {
+        return "Content-Length".equalsIgnoreCase(str) || "Content-Encoding".equalsIgnoreCase(str) || "Content-Type".equalsIgnoreCase(str);
+    }
+
+    public static boolean isEndToEnd(String str) {
         return (HTTP.CONN_DIRECTIVE.equalsIgnoreCase(str) || HTTP.CONN_KEEP_ALIVE.equalsIgnoreCase(str) || AUTH.PROXY_AUTH.equalsIgnoreCase(str) || AUTH.PROXY_AUTH_RESP.equalsIgnoreCase(str) || "TE".equalsIgnoreCase(str) || "Trailers".equalsIgnoreCase(str) || "Transfer-Encoding".equalsIgnoreCase(str) || "Upgrade".equalsIgnoreCase(str)) ? false : true;
     }
 
-    static boolean isContentSpecificHeader(String str) {
-        return "Content-Length".equalsIgnoreCase(str) || "Content-Encoding".equalsIgnoreCase(str) || "Content-Type".equalsIgnoreCase(str);
+    public static Response stripBody(Response response) {
+        return (response == null || response.body() == null) ? response : response.newBuilder().body(null).build();
+    }
+
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InternalCache internalCache = this.cache;
+        Response response = internalCache != null ? internalCache.get(chain.request()) : null;
+        CacheStrategy cacheStrategy = new CacheStrategy.Factory(System.currentTimeMillis(), chain.request(), response).get();
+        Request request = cacheStrategy.networkRequest;
+        Response response2 = cacheStrategy.cacheResponse;
+        InternalCache internalCache2 = this.cache;
+        if (internalCache2 != null) {
+            internalCache2.trackResponse(cacheStrategy);
+        }
+        if (response != null && response2 == null) {
+            Util.closeQuietly(response.body());
+        }
+        if (request == null && response2 == null) {
+            return new Response.Builder().request(chain.request()).protocol(Protocol.HTTP_1_1).code(504).message("Unsatisfiable Request (only-if-cached)").body(Util.EMPTY_RESPONSE).sentRequestAtMillis(-1L).receivedResponseAtMillis(System.currentTimeMillis()).build();
+        }
+        if (request == null) {
+            return response2.newBuilder().cacheResponse(stripBody(response2)).build();
+        }
+        try {
+            Response proceed = chain.proceed(request);
+            if (proceed == null && response != null) {
+            }
+            if (response2 != null) {
+                if (proceed.code() == 304) {
+                    Response build = response2.newBuilder().headers(combine(response2.headers(), proceed.headers())).sentRequestAtMillis(proceed.sentRequestAtMillis()).receivedResponseAtMillis(proceed.receivedResponseAtMillis()).cacheResponse(stripBody(response2)).networkResponse(stripBody(proceed)).build();
+                    proceed.body().close();
+                    this.cache.trackConditionalCacheHit();
+                    this.cache.update(response2, build);
+                    return build;
+                }
+                Util.closeQuietly(response2.body());
+            }
+            Response build2 = proceed.newBuilder().cacheResponse(stripBody(response2)).networkResponse(stripBody(proceed)).build();
+            if (this.cache != null) {
+                if (HttpHeaders.hasBody(build2) && CacheStrategy.isCacheable(build2, request)) {
+                    return cacheWritingResponse(this.cache.put(build2), build2);
+                }
+                if (HttpMethod.invalidatesCache(request.method())) {
+                    try {
+                        this.cache.remove(request);
+                    } catch (IOException unused) {
+                    }
+                }
+            }
+            return build2;
+        } finally {
+            if (response != null) {
+                Util.closeQuietly(response.body());
+            }
+        }
     }
 }

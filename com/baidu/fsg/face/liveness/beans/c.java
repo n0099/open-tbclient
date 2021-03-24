@@ -10,45 +10,65 @@ import com.baidu.fsg.base.utils.SharedPreferencesUtils;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
 import java.util.HashMap;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1751a = "request_data";
-    private static c b = null;
-    private static final String d = "RIM_LIVENESS_VIDEO_PREFERENCE";
-    private static final String e = "RIM_LIVENESS_VIDEO_VIDEOENCODINGBITRATE";
-    private HashMap<String, SapiBiometricDto> c = new HashMap<>();
+    public static final String f5884a = "request_data";
 
-    private c() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static c f5885b = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f5886d = "RIM_LIVENESS_VIDEO_PREFERENCE";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f5887e = "RIM_LIVENESS_VIDEO_VIDEOENCODINGBITRATE";
+
+    /* renamed from: c  reason: collision with root package name */
+    public HashMap<String, SapiBiometricDto> f5888c = new HashMap<>();
 
     public static c a() {
-        if (b == null) {
-            b = new c();
+        if (f5885b == null) {
+            f5885b = new c();
         }
-        return b;
+        return f5885b;
+    }
+
+    public void b() {
+        HashMap<String, SapiBiometricDto> hashMap = this.f5888c;
+        if (hashMap != null) {
+            hashMap.clear();
+            this.f5888c = null;
+        }
     }
 
     public SapiBiometricDto a(String str) {
-        if (this.c != null) {
-            return this.c.get(str);
+        HashMap<String, SapiBiometricDto> hashMap = this.f5888c;
+        if (hashMap != null) {
+            return hashMap.get(str);
         }
         return null;
     }
 
-    public void a(String str, SapiBiometricDto sapiBiometricDto) {
-        if (this.c == null) {
-            this.c = new HashMap<>();
+    public int b(Context context) {
+        String localDecryptProxy = RimArmor.getInstance().localDecryptProxy((String) SharedPreferencesUtils.getParam(context, f5886d, f5887e, ""));
+        try {
+            if (TextUtils.isEmpty(localDecryptProxy)) {
+                return 1048576;
+            }
+            return Integer.parseInt(localDecryptProxy);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return 1048576;
         }
-        this.c.put(str, sapiBiometricDto);
     }
 
-    public void b() {
-        if (this.c != null) {
-            this.c.clear();
-            this.c = null;
+    public void a(String str, SapiBiometricDto sapiBiometricDto) {
+        if (this.f5888c == null) {
+            this.f5888c = new HashMap<>();
         }
+        this.f5888c.put(str, sapiBiometricDto);
     }
 
     public GetFPResponse.LivenessConfig a(Context context) {
@@ -68,19 +88,7 @@ public class c {
 
     public void a(Context context, int i) {
         if (i > 0) {
-            SharedPreferencesUtils.setParam(context, d, e, RimArmor.getInstance().localEncryptProxy(String.valueOf(i)));
+            SharedPreferencesUtils.setParam(context, f5886d, f5887e, RimArmor.getInstance().localEncryptProxy(String.valueOf(i)));
         }
-    }
-
-    public int b(Context context) {
-        String localDecryptProxy = RimArmor.getInstance().localDecryptProxy((String) SharedPreferencesUtils.getParam(context, d, e, ""));
-        try {
-            if (!TextUtils.isEmpty(localDecryptProxy)) {
-                return Integer.parseInt(localDecryptProxy);
-            }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        return 1048576;
     }
 }

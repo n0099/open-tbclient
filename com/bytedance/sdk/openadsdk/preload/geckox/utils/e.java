@@ -3,10 +3,9 @@ package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f5104a = false;
+    public static boolean f30343a = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a() {
-        return f5104a;
+        return f30343a;
     }
 }

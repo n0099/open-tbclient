@@ -2,7 +2,7 @@ package protobuf.GetMaskInfo;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class UserInfo extends Message {
     public static final String DEFAULT_NAME = "";
     public static final String DEFAULT_NAMESHOW = "";
@@ -17,39 +17,7 @@ public final class UserInfo extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long uid;
 
-    private UserInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.name == null) {
-                this.name = "";
-            } else {
-                this.name = builder.name;
-            }
-            if (builder.portrait == null) {
-                this.portrait = "";
-            } else {
-                this.portrait = builder.portrait;
-            }
-            if (builder.uid == null) {
-                this.uid = DEFAULT_UID;
-            } else {
-                this.uid = builder.uid;
-            }
-            if (builder.nameShow == null) {
-                this.nameShow = "";
-                return;
-            } else {
-                this.nameShow = builder.nameShow;
-                return;
-            }
-        }
-        this.name = builder.name;
-        this.portrait = builder.portrait;
-        this.uid = builder.uid;
-        this.nameShow = builder.nameShow;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<UserInfo> {
         public String name;
         public String nameShow;
@@ -61,12 +29,13 @@ public final class UserInfo extends Message {
 
         public Builder(UserInfo userInfo) {
             super(userInfo);
-            if (userInfo != null) {
-                this.name = userInfo.name;
-                this.portrait = userInfo.portrait;
-                this.uid = userInfo.uid;
-                this.nameShow = userInfo.nameShow;
+            if (userInfo == null) {
+                return;
             }
+            this.name = userInfo.name;
+            this.portrait = userInfo.portrait;
+            this.uid = userInfo.uid;
+            this.nameShow = userInfo.nameShow;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,5 +43,41 @@ public final class UserInfo extends Message {
         public UserInfo build(boolean z) {
             return new UserInfo(this, z);
         }
+    }
+
+    public UserInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            String str = builder.name;
+            if (str == null) {
+                this.name = "";
+            } else {
+                this.name = str;
+            }
+            String str2 = builder.portrait;
+            if (str2 == null) {
+                this.portrait = "";
+            } else {
+                this.portrait = str2;
+            }
+            Long l = builder.uid;
+            if (l == null) {
+                this.uid = DEFAULT_UID;
+            } else {
+                this.uid = l;
+            }
+            String str3 = builder.nameShow;
+            if (str3 == null) {
+                this.nameShow = "";
+                return;
+            } else {
+                this.nameShow = str3;
+                return;
+            }
+        }
+        this.name = builder.name;
+        this.portrait = builder.portrait;
+        this.uid = builder.uid;
+        this.nameShow = builder.nameShow;
     }
 }

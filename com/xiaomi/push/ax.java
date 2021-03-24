@@ -1,24 +1,94 @@
 package com.xiaomi.push;
 
-import java.util.HashMap;
+import android.content.Context;
+import android.text.TextUtils;
 import java.util.Map;
-/* loaded from: classes5.dex */
-public class ax {
+/* loaded from: classes7.dex */
+public class ax implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f8265a;
+    public static volatile ax f40252a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f115a;
+    public int f134a = aw.f40251a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, String> f116a = new HashMap();
+    public ar f135a;
 
-    public String a() {
-        return this.f115a;
+    public ax(Context context) {
+        this.f135a = aw.a(context);
+        com.xiaomi.channel.commonutils.logger.b.m51a("create id manager is: " + this.f134a);
     }
 
-    public String toString() {
-        return String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.f8265a), this.f116a.toString(), this.f115a);
+    public static ax a(Context context) {
+        if (f40252a == null) {
+            synchronized (ax.class) {
+                if (f40252a == null) {
+                    f40252a = new ax(context.getApplicationContext());
+                }
+            }
+        }
+        return f40252a;
+    }
+
+    private String a(String str) {
+        return str == null ? "" : str;
+    }
+
+    private String b(String str) {
+        return TextUtils.isEmpty(str) ? "" : str.length() > 5 ? str.substring(str.length() - 5) : str;
+    }
+
+    @Override // com.xiaomi.push.ar
+    public String a() {
+        return a(this.f135a.a());
+    }
+
+    public void a(Map<String, String> map) {
+        if (map == null) {
+            return;
+        }
+        String a2 = a();
+        if (!TextUtils.isEmpty(a2)) {
+            map.put("udid", a2);
+        }
+        String mo130b = mo130b();
+        if (!TextUtils.isEmpty(mo130b)) {
+            map.put("oaid", mo130b);
+        }
+        String c2 = c();
+        if (!TextUtils.isEmpty(c2)) {
+            map.put("vaid", c2);
+        }
+        String d2 = d();
+        if (!TextUtils.isEmpty(d2)) {
+            map.put("aaid", d2);
+        }
+        map.put("oaid_type", String.valueOf(this.f134a));
+    }
+
+    @Override // com.xiaomi.push.ar
+    public boolean a() {
+        return this.f135a.m132a();
+    }
+
+    @Override // com.xiaomi.push.ar
+    /* renamed from: b */
+    public String mo130b() {
+        return a(this.f135a.mo130b());
+    }
+
+    @Override // com.xiaomi.push.ar
+    public String c() {
+        return a(this.f135a.c());
+    }
+
+    @Override // com.xiaomi.push.ar
+    public String d() {
+        return a(this.f135a.d());
+    }
+
+    public String e() {
+        return "t:" + this.f134a + " s:" + a() + " d:" + b(a()) + " | " + b(mo130b()) + " | " + b(c()) + " | " + b(d());
     }
 }

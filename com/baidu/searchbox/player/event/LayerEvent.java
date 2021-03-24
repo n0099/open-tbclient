@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LayerEvent extends VideoEvent {
     public static final String ACTION_ADJUST_LIGHT = "layer_event_adjust_light";
     public static final String ACTION_ADJUST_VOLUME = "layer_event_adjust_volume";
@@ -93,12 +93,12 @@ public class LayerEvent extends VideoEvent {
     public static final int KEY_SPEED_CHANGED = 26;
     public static final int KEY_SWITCH_CONTROL_LAYER_VISIBLE = 18;
 
-    protected LayerEvent(String str) {
+    public LayerEvent(String str) {
         super(str);
     }
 
     @PublicMethod
     public static VideoEvent obtainEvent(@NonNull String str) {
-        return obtain(str, 3);
+        return VideoEvent.obtain(str, 3);
     }
 }

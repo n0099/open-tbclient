@@ -15,20 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsFragmentManager {
     @Keep
     public static final int POP_BACK_STACK_INCLUSIVE = 1;
-    private final FragmentManager mBase;
+    public final FragmentManager mBase;
 
     @KsAdSdkDynamicApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static abstract class FragmentLifecycleCallbacks {
-        private FragmentManager.FragmentLifecycleCallbacks mBase;
+        public FragmentManager.FragmentLifecycleCallbacks mBase;
 
         @Keep
-        FragmentManager.FragmentLifecycleCallbacks getBase() {
+        public FragmentManager.FragmentLifecycleCallbacks getBase() {
             return this.mBase;
         }
 
@@ -103,12 +103,11 @@ public class KsFragmentManager {
         }
 
         @Keep
-        void setBase(FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
+        public void setBase(FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
             this.mBase = fragmentLifecycleCallbacks;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Keep
     public KsFragmentManager(FragmentManager fragmentManager) {
         this.mBase = fragmentManager;
@@ -145,10 +144,10 @@ public class KsFragmentManager {
         if (findFragmentById instanceof IDelegateFragment) {
             return ((IDelegateFragment) findFragmentById).getBase();
         }
-        if (findFragmentById != null) {
-            throw new RuntimeException(findFragmentById + " is not a DelegateFragment");
+        if (findFragmentById == null) {
+            return null;
         }
-        return null;
+        throw new RuntimeException(findFragmentById + " is not a DelegateFragment");
     }
 
     @KsAdSdkDynamicApi
@@ -158,10 +157,10 @@ public class KsFragmentManager {
         if (findFragmentByTag instanceof IDelegateFragment) {
             return ((IDelegateFragment) findFragmentByTag).getBase();
         }
-        if (findFragmentByTag != null) {
-            throw new RuntimeException(findFragmentByTag + " is not a DelegateFragment");
+        if (findFragmentByTag == null) {
+            return null;
         }
-        return null;
+        throw new RuntimeException(findFragmentByTag + " is not a DelegateFragment");
     }
 
     @KsAdSdkDynamicApi
@@ -170,7 +169,6 @@ public class KsFragmentManager {
         return this.mBase.getBackStackEntryCount();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Keep
     public FragmentManager getBase() {
         return this.mBase;
@@ -183,10 +181,10 @@ public class KsFragmentManager {
         if (fragment instanceof IDelegateFragment) {
             return ((IDelegateFragment) fragment).getBase();
         }
-        if (fragment != null) {
-            throw new RuntimeException(fragment + " is not a DelegateFragment or DelegateDialogFragment");
+        if (fragment == null) {
+            return null;
         }
-        return null;
+        throw new RuntimeException(fragment + " is not a DelegateFragment or DelegateDialogFragment");
     }
 
     @KsAdSdkDynamicApi

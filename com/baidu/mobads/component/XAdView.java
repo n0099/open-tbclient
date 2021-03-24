@@ -4,12 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.KeyEvent;
 import android.widget.RelativeLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class XAdView extends RelativeLayout {
     public static final String TAG = "BDAdView";
-    private Listener mListener;
+    public Listener mListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface Listener {
         void onAttachedToWindow();
 
@@ -29,56 +29,63 @@ public class XAdView extends RelativeLayout {
         super(context);
     }
 
-    public void setListener(Listener listener) {
-        this.mListener = listener;
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (z && this.mListener != null) {
-            this.mListener.onLayoutComplete(getWidth(), getHeight());
-        }
-    }
-
     @Override // android.view.ViewGroup, android.view.View
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.mListener != null) {
-            this.mListener.onAttachedToWindow();
+        Listener listener = this.mListener;
+        if (listener != null) {
+            listener.onAttachedToWindow();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.mListener != null) {
-            this.mListener.onDetachedFromWindow();
-        }
-    }
-
-    @Override // android.view.View
-    protected void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        if (this.mListener != null) {
-            this.mListener.onWindowVisibilityChanged(i);
-        }
-    }
-
-    @Override // android.view.View
-    public void onWindowFocusChanged(boolean z) {
-        super.onWindowFocusChanged(z);
-        if (this.mListener != null) {
-            this.mListener.onWindowFocusChanged(z);
+        Listener listener = this.mListener;
+        if (listener != null) {
+            listener.onDetachedFromWindow();
         }
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.mListener != null) {
-            return this.mListener.onKeyDown(i, keyEvent);
+        Listener listener = this.mListener;
+        if (listener != null) {
+            return listener.onKeyDown(i, keyEvent);
         }
         super.onKeyDown(i, keyEvent);
         return false;
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Listener listener;
+        super.onLayout(z, i, i2, i3, i4);
+        if (!z || (listener = this.mListener) == null) {
+            return;
+        }
+        listener.onLayoutComplete(getWidth(), getHeight());
+    }
+
+    @Override // android.view.View
+    public void onWindowFocusChanged(boolean z) {
+        super.onWindowFocusChanged(z);
+        Listener listener = this.mListener;
+        if (listener != null) {
+            listener.onWindowFocusChanged(z);
+        }
+    }
+
+    @Override // android.view.View
+    public void onWindowVisibilityChanged(int i) {
+        super.onWindowVisibilityChanged(i);
+        Listener listener = this.mListener;
+        if (listener != null) {
+            listener.onWindowVisibilityChanged(i);
+        }
+    }
+
+    public void setListener(Listener listener) {
+        this.mListener = listener;
     }
 }

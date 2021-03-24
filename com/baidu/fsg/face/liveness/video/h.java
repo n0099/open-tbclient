@@ -2,54 +2,61 @@ package com.baidu.fsg.face.liveness.video;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public abstract class h implements c {
-    public static final int f = 24;
-    public static final int g = 1;
-    public static final int h = 1048576;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final int f6016f = 24;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final int f6017g = 1;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final int f6018h = 1048576;
     public volatile boolean i;
-    protected b j;
-    protected long m;
-    protected long n;
-    protected volatile boolean k = false;
-    protected ExecutorService l = Executors.newSingleThreadExecutor();
-    protected VideoInfo o = new VideoInfo();
-    protected volatile boolean p = false;
-    protected int q = 24;
-    protected int r = 1;
-    protected int s = 1048576;
-
-    protected abstract boolean a();
-
-    protected abstract void b();
-
-    protected abstract void c();
-
-    protected abstract void d();
+    public b j;
+    public long m;
+    public long n;
+    public volatile boolean k = false;
+    public ExecutorService l = Executors.newSingleThreadExecutor();
+    public VideoInfo o = new VideoInfo();
+    public volatile boolean p = false;
+    public int q = 24;
+    public int r = 1;
+    public int s = 1048576;
 
     public h(b bVar) {
         this.j = bVar;
     }
 
+    public abstract boolean a();
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
+
     @Override // com.baidu.fsg.face.liveness.video.c
     public void g() {
-        if (this.i && !this.p) {
-            b();
-            d();
+        if (!this.i || this.p) {
+            return;
         }
+        b();
+        d();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void h() {
-        if (this.j != null) {
-            this.j.a(this);
+        b bVar = this.j;
+        if (bVar != null) {
+            bVar.a(this);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void i() {
-        if (this.j != null) {
-            this.j.b(this);
+        b bVar = this.j;
+        if (bVar != null) {
+            bVar.b(this);
         }
     }
 }

@@ -1,24 +1,25 @@
 package com.vivo.push.c;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.security.PublicKey;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public abstract class ab extends com.vivo.push.v {
-    protected PushMessageCallback b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public PushMessageCallback f39408b;
+
     public ab(com.vivo.push.y yVar) {
         super(yVar);
     }
 
     public final void a(PushMessageCallback pushMessageCallback) {
-        this.b = pushMessageCallback;
+        this.f39408b = pushMessageCallback;
     }
 
     public final boolean a(PublicKey publicKey, String str, String str2) {
-        boolean z = true;
         if (!com.vivo.push.p.a().d()) {
             com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify is not support , vertify is ignore");
             return true;
@@ -33,14 +34,14 @@ public abstract class ab extends com.vivo.push.v {
                 com.vivo.push.util.p.d("OnVerifyCallBackCommand", str.hashCode() + " = " + str2);
                 if (com.vivo.push.util.t.a(str.getBytes("UTF-8"), publicKey, Base64.decode(str2, 2))) {
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify id is success");
-                } else {
-                    com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);
-                    com.vivo.push.util.p.c(this.f8089a, "vertify fail srcDigest is " + str);
-                    z = false;
+                    return true;
                 }
-                return z;
-            } catch (Exception e) {
-                e.printStackTrace();
+                com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);
+                Context context = this.f39588a;
+                com.vivo.push.util.p.c(context, "vertify fail srcDigest is " + str);
+                return false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify exception");
                 return false;
             }

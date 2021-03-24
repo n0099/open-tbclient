@@ -1,12 +1,11 @@
 package com.baidu.platform.core.b;
 
-import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f extends com.baidu.platform.base.e {
     public f(ReverseGeoCodeOption reverseGeoCodeOption) {
         a(reverseGeoCodeOption);
@@ -18,16 +17,17 @@ public class f extends com.baidu.platform.base.e {
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.gcjToBaidu(latLng);
             }
-            this.f2867a.a(Headers.LOCATION, latLng.latitude + "," + latLng.longitude);
+            com.baidu.platform.util.a aVar = this.f9820a;
+            aVar.a("location", latLng.latitude + "," + latLng.longitude);
         }
-        this.f2867a.a("coordtype", "bd09ll");
-        this.f2867a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
-        this.f2867a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
-        this.f2867a.a("pois", "1");
-        this.f2867a.a("output", "json");
-        this.f2867a.a("from", "android_map_sdk");
-        this.f2867a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
-        this.f2867a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
+        this.f9820a.a("coordtype", "bd09ll");
+        this.f9820a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
+        this.f9820a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
+        this.f9820a.a("pois", "1");
+        this.f9820a.a("output", "json");
+        this.f9820a.a("from", "android_map_sdk");
+        this.f9820a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
+        this.f9820a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
     }
 
     @Override // com.baidu.platform.base.e

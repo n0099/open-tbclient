@@ -1,4 +1,4 @@
 package com.kwai.video.player.annotations;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public @interface RuntimePlayerConfig {
 }

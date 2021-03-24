@@ -1,25 +1,46 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.util.v;
-import com.baidu.tieba.person.b;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.b.e.p.l;
+import d.b.h0.r.k;
+import d.b.h0.z0.w;
+import d.b.i0.e2.b;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PersonPolymericReqMsg extends NetMessage {
-    private int pn;
-    private long uid;
+    public int pn;
+    public long uid;
 
     public PersonPolymericReqMsg() {
-        super(1003181, CmdConfigSocket.CMD_PERSON_POLYMERIC);
+        super(CmdConfigHttp.CMD_PERSON_POLYMERIC, 309408);
     }
 
-    public void setUid(long j) {
-        this.uid = j;
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.uid = Long.valueOf(this.uid);
+        builder.pn = Integer.valueOf(this.pn);
+        builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst().getApp()));
+        builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst().getApp()));
+        builder.q_type = Integer.valueOf(k.c().e());
+        builder.scr_dip = Double.valueOf(l.h(TbadkCoreApplication.getInst().getApp()));
+        if (z) {
+            w.a(builder, true);
+        }
+        PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
+        builder2.data = builder.build(false);
+        return builder2.build(false);
+    }
+
+    public b getPersonCenterData() {
+        return null;
+    }
+
+    public int getPn() {
+        return this.pn;
     }
 
     public long getUid() {
@@ -30,28 +51,7 @@ public class PersonPolymericReqMsg extends NetMessage {
         this.pn = i;
     }
 
-    public int getPn() {
-        return this.pn;
-    }
-
-    public b getPersonCenterData() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.uid = Long.valueOf(this.uid);
-        builder.pn = Integer.valueOf(this.pn);
-        builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
-        builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
-        builder.q_type = Integer.valueOf(k.bkV().getViewImageQuality());
-        builder.scr_dip = Double.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp()));
-        if (z) {
-            v.b(builder, true);
-        }
-        PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+    public void setUid(long j) {
+        this.uid = j;
     }
 }

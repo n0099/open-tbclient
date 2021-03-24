@@ -4,10 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
-import com.baidu.ar.constants.HttpConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<DeviceLoginMsg> CREATOR = new Parcelable.Creator<DeviceLoginMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DeviceLoginMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -24,17 +23,32 @@ public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
             return new DeviceLoginMsg[i];
         }
     };
-    private String deviceType;
-    private long time;
+    public String deviceType;
+    public long time;
 
     public DeviceLoginMsg() {
         setNotifyCmd(50);
     }
 
-    public DeviceLoginMsg(Parcel parcel) {
-        super(parcel);
-        this.time = parcel.readLong();
-        this.deviceType = parcel.readString();
+    public String getDeviceType() {
+        return this.deviceType;
+    }
+
+    public long getTime() {
+        return this.time;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        try {
+            JSONObject jSONObject = new JSONObject(getMsgContent());
+            this.time = jSONObject.optLong("time");
+            this.deviceType = jSONObject.optString("device_type");
+            return true;
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            return false;
+        }
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -44,24 +58,9 @@ public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
         parcel.writeString(this.deviceType);
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        try {
-            JSONObject jSONObject = new JSONObject(getMsgContent());
-            this.time = jSONObject.optLong("time");
-            this.deviceType = jSONObject.optString(HttpConstants.DEVICE_TYPE);
-            return true;
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-            return false;
-        }
-    }
-
-    public long getTime() {
-        return this.time;
-    }
-
-    public String getDeviceType() {
-        return this.deviceType;
+    public DeviceLoginMsg(Parcel parcel) {
+        super(parcel);
+        this.time = parcel.readLong();
+        this.deviceType = parcel.readString();
     }
 }

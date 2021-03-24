@@ -1,67 +1,120 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-/* loaded from: classes5.dex */
-public class ea extends ed {
+import com.baidu.android.common.others.lang.StringUtil;
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public final class ea {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8333a;
+    public static volatile ea f40434a;
 
-    public ea(Context context, int i, String str) {
-        super(context, i);
-        this.f8333a = str;
+    /* renamed from: a  reason: collision with other field name */
+    public int f308a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Context f309a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public ee f310a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public String f311a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public HashMap<ec, ed> f312a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f40435b;
+
+    public ea(Context context) {
+        HashMap<ec, ed> hashMap = new HashMap<>();
+        this.f312a = hashMap;
+        this.f309a = context;
+        hashMap.put(ec.SERVICE_ACTION, new eg());
+        this.f312a.put(ec.SERVICE_COMPONENT, new eh());
+        this.f312a.put(ec.ACTIVITY, new dy());
+        this.f312a.put(ec.PROVIDER, new ef());
     }
 
-    private String[] a() {
-        if (!TextUtils.isEmpty(this.f8333a)) {
-            String b = bc.b(this.f8333a);
-            if (!TextUtils.isEmpty(b)) {
-                return b.contains(",") ? b.split(",") : new String[]{b};
-            }
-        }
-        return null;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public int mo170a() {
-        return 24;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public ho mo170a() {
-        return ho.AppIsInstalled;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public String mo170a() {
-        String[] a2 = a();
-        if (a2 == null || a2.length <= 0) {
-            return null;
-        }
-        PackageManager packageManager = this.f231a.getPackageManager();
-        StringBuilder sb = new StringBuilder();
-        for (String str : a2) {
-            try {
-                PackageInfo packageInfo = packageManager.getPackageInfo(str, 16384);
-                if (packageInfo != null) {
-                    if (sb.length() > 0) {
-                        sb.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                    }
-                    sb.append(packageInfo.applicationInfo.loadLabel(packageManager).toString()).append(",").append(packageInfo.packageName).append(",").append(packageInfo.versionName).append(",").append(packageInfo.versionCode).append(",").append(packageInfo.firstInstallTime);
+    public static ea a(Context context) {
+        if (f40434a == null) {
+            synchronized (ea.class) {
+                if (f40434a == null) {
+                    f40434a = new ea(context);
                 }
-            } catch (Exception e) {
             }
         }
-        if (sb.length() > 0) {
-            return sb.toString();
+        return f40434a;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(ec ecVar, Context context, dz dzVar) {
+        this.f312a.get(ecVar).a(context, dzVar);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m263a(Context context) {
+        return com.xiaomi.push.service.ac.m555a(context, context.getPackageName());
+    }
+
+    public int a() {
+        return this.f308a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public ee m264a() {
+        return this.f310a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public String m265a() {
+        return this.f311a;
+    }
+
+    public void a(int i) {
+        this.f308a = i;
+    }
+
+    public void a(Context context, String str, int i, String str2, String str3) {
+        if (context != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+            a(i);
+            ai.a(this.f309a).a(new eb(this, str, context, str2, str3));
+            return;
         }
-        return null;
+        dw.a(context, "" + str, 1008, "A receive a incorrect message");
+    }
+
+    public void a(ec ecVar, Context context, Intent intent, String str) {
+        if (ecVar != null) {
+            this.f312a.get(ecVar).a(context, intent, str);
+        } else {
+            dw.a(context, StringUtil.NULL_STRING, 1008, "A receive a incorrect message with empty type");
+        }
+    }
+
+    public void a(ee eeVar) {
+        this.f310a = eeVar;
+    }
+
+    public void a(String str) {
+        this.f311a = str;
+    }
+
+    public void a(String str, String str2, int i, ee eeVar) {
+        a(str);
+        b(str2);
+        a(i);
+        a(eeVar);
+    }
+
+    public String b() {
+        return this.f40435b;
+    }
+
+    public void b(String str) {
+        this.f40435b = str;
     }
 }

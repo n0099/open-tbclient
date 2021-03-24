@@ -2,24 +2,26 @@ package com.kwad.sdk.core.report;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.core.response.model.TrendInfo;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f6246a = false;
+    public static boolean f34039a = false;
 
     public static void a() {
-        if (f6246a) {
+        if (f34039a) {
             return;
         }
-        f6246a = true;
+        f34039a = true;
         g.a(new a(8L));
     }
 
@@ -92,7 +94,7 @@ public class e {
 
     public static void a(@NonNull AdTemplate adTemplate, long j) {
         a aVar = new a(2L, adTemplate);
-        aVar.f = j;
+        aVar.f33998f = j;
         aVar.b();
         g.a(aVar);
     }
@@ -101,13 +103,13 @@ public class e {
         a aVar = new a(18L, adTemplate);
         com.kwad.sdk.core.d.a.a("BatchReportManager", "stayDuration=" + j2 + " seenCount=" + j);
         aVar.z = j;
-        aVar.g = j2;
+        aVar.f33999g = j2;
         g.a(aVar);
     }
 
     public static void a(@NonNull AdTemplate adTemplate, long j, long j2, int i) {
         a aVar = new a(10203L, adTemplate);
-        aVar.e = j;
+        aVar.f33997e = j;
         aVar.i = j2;
         aVar.j = i;
         g.a(aVar);
@@ -141,36 +143,37 @@ public class e {
 
     public static void a(@NonNull com.kwad.sdk.core.response.model.a aVar) {
         a aVar2 = new a(19L);
-        aVar2.w = aVar.e;
-        if (aVar.k != null && aVar.k.size() > 0) {
-            aVar2.b = aVar.k.get(0).mAdScene;
+        aVar2.w = aVar.f34068e;
+        List<AdTemplate> list = aVar.k;
+        if (list != null && list.size() > 0) {
+            aVar2.f33994b = aVar.k.get(0).mAdScene;
         }
         g.a(aVar2);
     }
 
     public static void a(@NonNull SceneImpl sceneImpl) {
         a aVar = new a(43L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         g.a(aVar);
     }
 
     public static void a(@NonNull SceneImpl sceneImpl, int i) {
         a aVar = new a(46L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         aVar.F = i;
         g.a(aVar);
     }
 
     public static void a(@NonNull SceneImpl sceneImpl, long j) {
         a aVar = new a(28L);
-        aVar.b = sceneImpl;
-        aVar.h = j;
+        aVar.f33994b = sceneImpl;
+        aVar.f34000h = j;
         g.a(aVar);
     }
 
     public static void a(@NonNull SceneImpl sceneImpl, long j, String str) {
         a aVar = new a(41L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         aVar.C = j;
         aVar.D = str;
         g.a(aVar);
@@ -179,18 +182,18 @@ public class e {
     public static void a(SceneImpl sceneImpl, @NonNull AdTemplate adTemplate, long j) {
         a aVar = new a(5L, adTemplate);
         aVar.b();
-        aVar.b = sceneImpl;
-        aVar.d = j;
+        aVar.f33994b = sceneImpl;
+        aVar.f33996d = j;
         g.a(aVar);
     }
 
     public static void a(SceneImpl sceneImpl, @NonNull AdTemplate adTemplate, long j, int i, long j2, long j3, int i2) {
         a aVar = new a(4L, adTemplate);
         aVar.b();
-        aVar.b = sceneImpl;
-        aVar.e = j;
+        aVar.f33994b = sceneImpl;
+        aVar.f33997e = j;
         aVar.p = i;
-        aVar.g = j2;
+        aVar.f33999g = j2;
         aVar.i = j3;
         aVar.j = i2;
         g.c(aVar);
@@ -198,7 +201,7 @@ public class e {
 
     public static void a(@NonNull SceneImpl sceneImpl, String str) {
         a aVar = new a(36L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         aVar.B = str;
         g.a(aVar);
     }
@@ -210,7 +213,7 @@ public class e {
     }
 
     public static void a(String str, String str2) {
-        a aVar = new a(10006L);
+        a aVar = new a(LightappBusinessClient.SVC_ID_H5_SECURITCENTER);
         aVar.H = str;
         aVar.I = str2;
         g.a(aVar);
@@ -235,7 +238,7 @@ public class e {
         g.a(aVar);
     }
 
-    private static JSONArray b(@NonNull List<AdTemplate> list) {
+    public static JSONArray b(@NonNull List<AdTemplate> list) {
         JSONArray jSONArray = new JSONArray();
         for (AdTemplate adTemplate : list) {
             if (adTemplate != null) {
@@ -271,27 +274,23 @@ public class e {
     }
 
     public static void b(@NonNull AdTemplate adTemplate, int i, int i2) {
-        a aVar = new a(10002L, adTemplate);
+        a aVar = new a(LightappBusinessClient.SVC_ID_H5_BALANCE, adTemplate);
         aVar.b();
-        if (com.kwad.sdk.core.response.b.c.c(adTemplate)) {
-            aVar.H = com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.j(adTemplate));
-        } else {
-            aVar.H = com.kwad.sdk.core.response.b.c.l(adTemplate);
-        }
+        aVar.H = com.kwad.sdk.core.response.b.c.c(adTemplate) ? com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.j(adTemplate)) : com.kwad.sdk.core.response.b.c.l(adTemplate);
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("what", i);
             jSONObject.put("extra", i2);
             aVar.I = jSONObject.toString();
-        } catch (JSONException e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (JSONException e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
         g.a(aVar);
     }
 
     public static void b(AdTemplate adTemplate, int i, String str) {
         a aVar = new a(10109L);
-        aVar.f6228a = adTemplate;
+        aVar.f33993a = adTemplate;
         aVar.Q = i;
         aVar.S = str;
         g.a(aVar);
@@ -323,20 +322,20 @@ public class e {
     public static void b(@NonNull SceneImpl sceneImpl) {
         com.kwad.sdk.core.scene.a.a().a(sceneImpl);
         a aVar = new a(27L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         g.a(aVar);
     }
 
     public static void b(@NonNull SceneImpl sceneImpl, int i) {
         a aVar = new a(52L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         aVar.M = i;
         g.a(aVar);
     }
 
     public static void b(@NonNull SceneImpl sceneImpl, long j, String str) {
         a aVar = new a(42L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         aVar.C = j;
         aVar.D = str;
         g.a(aVar);
@@ -352,8 +351,9 @@ public class e {
 
     public static void c(@NonNull AdTemplate adTemplate, int i) {
         a aVar = new a(25L, adTemplate);
-        aVar.D = adTemplate.photoInfo.trendInfo.name;
-        aVar.C = adTemplate.photoInfo.trendInfo.trendId;
+        TrendInfo trendInfo = adTemplate.photoInfo.trendInfo;
+        aVar.D = trendInfo.name;
+        aVar.C = trendInfo.trendId;
         aVar.E = i;
         g.a(aVar);
     }
@@ -375,7 +375,7 @@ public class e {
     }
 
     public static void c(@NonNull AdTemplate adTemplate, String str, String str2) {
-        a aVar = new a(10001L, adTemplate);
+        a aVar = new a(LightappBusinessClient.SVC_ID_H5_HOMEPAGE, adTemplate);
         aVar.H = str;
         aVar.I = str2;
         g.a(aVar);
@@ -384,13 +384,13 @@ public class e {
     public static void c(@NonNull SceneImpl sceneImpl) {
         com.kwad.sdk.core.scene.a.a().a(sceneImpl);
         a aVar = new a(29L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         g.a(aVar);
     }
 
     public static void c(@NonNull SceneImpl sceneImpl, long j, String str) {
         a aVar = new a(44L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         aVar.C = j;
         aVar.D = str;
         g.a(aVar);
@@ -403,7 +403,7 @@ public class e {
     public static void d(AdTemplate adTemplate, int i) {
         a aVar = new a(10108L);
         aVar.Q = i;
-        aVar.f6228a = adTemplate;
+        aVar.f33993a = adTemplate;
         g.a(aVar);
     }
 
@@ -414,7 +414,7 @@ public class e {
     }
 
     public static void d(@NonNull AdTemplate adTemplate, String str, String str2) {
-        a aVar = new a(10003L, adTemplate);
+        a aVar = new a(LightappBusinessClient.SVC_ID_H5_TRANSERECORD, adTemplate);
         aVar.H = str;
         aVar.I = str2;
         g.a(aVar);
@@ -422,13 +422,13 @@ public class e {
 
     public static void d(@NonNull SceneImpl sceneImpl) {
         a aVar = new a(35L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         g.a(aVar);
     }
 
     public static void d(@NonNull SceneImpl sceneImpl, long j, String str) {
         a aVar = new a(45L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         aVar.C = j;
         aVar.D = str;
         g.a(aVar);
@@ -446,12 +446,8 @@ public class e {
     }
 
     public static void e(@NonNull AdTemplate adTemplate, String str, String str2) {
-        a aVar = new a(10005L, adTemplate);
-        if (com.kwad.sdk.core.response.b.c.c(adTemplate)) {
-            aVar.H = com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.j(adTemplate));
-        } else {
-            aVar.H = com.kwad.sdk.core.response.b.c.l(adTemplate);
-        }
+        a aVar = new a(LightappBusinessClient.SVC_ID_H5_MYBANKCARD, adTemplate);
+        aVar.H = com.kwad.sdk.core.response.b.c.c(adTemplate) ? com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.j(adTemplate)) : com.kwad.sdk.core.response.b.c.l(adTemplate);
         aVar.H = str;
         aVar.I = str2;
         g.a(aVar);
@@ -459,7 +455,7 @@ public class e {
 
     public static void e(@NonNull SceneImpl sceneImpl) {
         a aVar = new a(37L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         g.a(aVar);
     }
 
@@ -476,7 +472,7 @@ public class e {
 
     public static void f(@NonNull SceneImpl sceneImpl) {
         a aVar = new a(38L);
-        aVar.b = sceneImpl;
+        aVar.f33994b = sceneImpl;
         g.a(aVar);
     }
 
@@ -494,8 +490,9 @@ public class e {
 
     public static void j(@NonNull AdTemplate adTemplate) {
         a aVar = new a(24L, adTemplate);
-        aVar.D = adTemplate.photoInfo.trendInfo.name;
-        aVar.C = adTemplate.photoInfo.trendInfo.trendId;
+        TrendInfo trendInfo = adTemplate.photoInfo.trendInfo;
+        aVar.D = trendInfo.name;
+        aVar.C = trendInfo.trendId;
         g.a(aVar);
     }
 
@@ -508,7 +505,7 @@ public class e {
     }
 
     public static void m(@NonNull AdTemplate adTemplate) {
-        g.a(new a(10007L, adTemplate));
+        g.a(new a(LightappBusinessClient.SVC_ID_H5_CASHBACK, adTemplate));
     }
 
     public static void n(@NonNull AdTemplate adTemplate) {

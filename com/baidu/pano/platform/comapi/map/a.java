@@ -3,19 +3,18 @@ package com.baidu.pano.platform.comapi.map;
 import android.opengl.GLSurfaceView;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes4.dex */
-class a implements GLSurfaceView.Renderer {
+/* loaded from: classes2.dex */
+public class a implements GLSurfaceView.Renderer {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaseGLMapView f2730a;
+    public final /* synthetic */ BaseGLMapView f9482a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public a(BaseGLMapView baseGLMapView) {
-        this.f2730a = baseGLMapView;
+        this.f9482a = baseGLMapView;
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
-    public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
+    public void onDrawFrame(GL10 gl10) {
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -23,6 +22,6 @@ class a implements GLSurfaceView.Renderer {
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
-    public void onDrawFrame(GL10 gl10) {
+    public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
     }
 }

@@ -9,124 +9,106 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class GoOnAnimView extends LinearLayout {
-    private Handler mHandler;
-    private ImageView nHh;
-    private ImageView nHi;
-    private ImageView nHj;
-    private int tag;
 
-    static /* synthetic */ int e(GoOnAnimView goOnAnimView) {
-        int i = goOnAnimView.tag;
-        goOnAnimView.tag = i + 1;
-        return i;
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f21562e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f21563f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView f21564g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f21565h;
+    public Handler i;
+
+    /* loaded from: classes5.dex */
+    public class a extends Handler {
+        public a() {
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            super.handleMessage(message);
+            GoOnAnimView.this.f21565h %= 4;
+            int i = GoOnAnimView.this.f21565h;
+            if (i == 0) {
+                GoOnAnimView.this.f21562e.setImageResource(R.drawable.pic_startpage1_next_3);
+                GoOnAnimView.this.f21563f.setImageResource(R.drawable.pic_startpage1_next_2);
+                GoOnAnimView.this.f21564g.setImageResource(R.drawable.pic_startpage1_next_1);
+            } else if (i == 1) {
+                GoOnAnimView.this.f21562e.setImageResource(R.drawable.pic_startpage1_next_2);
+                GoOnAnimView.this.f21563f.setImageResource(R.drawable.pic_startpage1_next_1);
+                GoOnAnimView.this.f21564g.setImageResource(R.drawable.pic_startpage1_next_3);
+            } else if (i == 2) {
+                GoOnAnimView.this.f21562e.setImageResource(R.drawable.pic_startpage1_next_1);
+                GoOnAnimView.this.f21563f.setImageResource(R.drawable.pic_startpage1_next_3);
+                GoOnAnimView.this.f21564g.setImageResource(R.drawable.pic_startpage1_next_2);
+            } else if (i == 3) {
+                GoOnAnimView.this.f21562e.setImageResource(R.drawable.pic_startpage1_next_2);
+                GoOnAnimView.this.f21563f.setImageResource(R.drawable.pic_startpage1_next_2);
+                GoOnAnimView.this.f21564g.setImageResource(R.drawable.pic_startpage1_next_2);
+            }
+            GoOnAnimView.c(GoOnAnimView.this);
+            GoOnAnimView.this.i.removeMessages(0);
+            GoOnAnimView.this.i.sendEmptyMessageDelayed(0, 300L);
+        }
     }
 
     public GoOnAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mHandler = new Handler() { // from class: com.baidu.tieba.tblauncherInterestGuide.view.GoOnAnimView.1
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                super.handleMessage(message);
-                GoOnAnimView.this.tag %= 4;
-                switch (GoOnAnimView.this.tag) {
-                    case 0:
-                        GoOnAnimView.this.nHh.setImageResource(R.drawable.pic_startpage1_next_3);
-                        GoOnAnimView.this.nHi.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.nHj.setImageResource(R.drawable.pic_startpage1_next_1);
-                        break;
-                    case 1:
-                        GoOnAnimView.this.nHh.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.nHi.setImageResource(R.drawable.pic_startpage1_next_1);
-                        GoOnAnimView.this.nHj.setImageResource(R.drawable.pic_startpage1_next_3);
-                        break;
-                    case 2:
-                        GoOnAnimView.this.nHh.setImageResource(R.drawable.pic_startpage1_next_1);
-                        GoOnAnimView.this.nHi.setImageResource(R.drawable.pic_startpage1_next_3);
-                        GoOnAnimView.this.nHj.setImageResource(R.drawable.pic_startpage1_next_2);
-                        break;
-                    case 3:
-                        GoOnAnimView.this.nHh.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.nHi.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.nHj.setImageResource(R.drawable.pic_startpage1_next_2);
-                        break;
-                }
-                GoOnAnimView.e(GoOnAnimView.this);
-                GoOnAnimView.this.mHandler.removeMessages(0);
-                GoOnAnimView.this.mHandler.sendEmptyMessageDelayed(0, 300L);
-            }
-        };
-        init(context);
+        this.i = new a();
+        h(context);
+    }
+
+    public static /* synthetic */ int c(GoOnAnimView goOnAnimView) {
+        int i = goOnAnimView.f21565h;
+        goOnAnimView.f21565h = i + 1;
+        return i;
+    }
+
+    public final void h(Context context) {
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.go_on_anim, (ViewGroup) null, false);
+        this.f21562e = (ImageView) linearLayout.findViewById(R.id.tip_go_on_1);
+        this.f21563f = (ImageView) linearLayout.findViewById(R.id.tip_go_on_2);
+        this.f21564g = (ImageView) linearLayout.findViewById(R.id.tip_go_on_3);
+        this.f21562e.setImageResource(R.drawable.pic_startpage1_next_3);
+        this.f21563f.setImageResource(R.drawable.pic_startpage1_next_2);
+        this.f21564g.setImageResource(R.drawable.pic_startpage1_next_1);
+        addView(linearLayout);
+    }
+
+    public void i() {
+        this.i.removeMessages(0);
+        ImageView imageView = this.f21562e;
+        if (imageView != null) {
+            imageView.setImageDrawable(null);
+        }
+        ImageView imageView2 = this.f21563f;
+        if (imageView2 != null) {
+            imageView2.setImageDrawable(null);
+        }
+        ImageView imageView3 = this.f21564g;
+        if (imageView3 != null) {
+            imageView3.setImageDrawable(null);
+        }
+    }
+
+    public void j() {
+        this.i.removeMessages(0);
+        this.i.sendEmptyMessage(0);
+    }
+
+    public void k() {
+        this.i.removeMessages(0);
     }
 
     public GoOnAnimView(Context context) {
         super(context);
-        this.mHandler = new Handler() { // from class: com.baidu.tieba.tblauncherInterestGuide.view.GoOnAnimView.1
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                super.handleMessage(message);
-                GoOnAnimView.this.tag %= 4;
-                switch (GoOnAnimView.this.tag) {
-                    case 0:
-                        GoOnAnimView.this.nHh.setImageResource(R.drawable.pic_startpage1_next_3);
-                        GoOnAnimView.this.nHi.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.nHj.setImageResource(R.drawable.pic_startpage1_next_1);
-                        break;
-                    case 1:
-                        GoOnAnimView.this.nHh.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.nHi.setImageResource(R.drawable.pic_startpage1_next_1);
-                        GoOnAnimView.this.nHj.setImageResource(R.drawable.pic_startpage1_next_3);
-                        break;
-                    case 2:
-                        GoOnAnimView.this.nHh.setImageResource(R.drawable.pic_startpage1_next_1);
-                        GoOnAnimView.this.nHi.setImageResource(R.drawable.pic_startpage1_next_3);
-                        GoOnAnimView.this.nHj.setImageResource(R.drawable.pic_startpage1_next_2);
-                        break;
-                    case 3:
-                        GoOnAnimView.this.nHh.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.nHi.setImageResource(R.drawable.pic_startpage1_next_2);
-                        GoOnAnimView.this.nHj.setImageResource(R.drawable.pic_startpage1_next_2);
-                        break;
-                }
-                GoOnAnimView.e(GoOnAnimView.this);
-                GoOnAnimView.this.mHandler.removeMessages(0);
-                GoOnAnimView.this.mHandler.sendEmptyMessageDelayed(0, 300L);
-            }
-        };
-        init(context);
-    }
-
-    private void init(Context context) {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.go_on_anim, (ViewGroup) null, false);
-        this.nHh = (ImageView) linearLayout.findViewById(R.id.tip_go_on_1);
-        this.nHi = (ImageView) linearLayout.findViewById(R.id.tip_go_on_2);
-        this.nHj = (ImageView) linearLayout.findViewById(R.id.tip_go_on_3);
-        this.nHh.setImageResource(R.drawable.pic_startpage1_next_3);
-        this.nHi.setImageResource(R.drawable.pic_startpage1_next_2);
-        this.nHj.setImageResource(R.drawable.pic_startpage1_next_1);
-        addView(linearLayout);
-    }
-
-    public void onStart() {
-        this.mHandler.removeMessages(0);
-        this.mHandler.sendEmptyMessage(0);
-    }
-
-    public void onStop() {
-        this.mHandler.removeMessages(0);
-    }
-
-    public void onDestroy() {
-        this.mHandler.removeMessages(0);
-        if (this.nHh != null) {
-            this.nHh.setImageDrawable(null);
-        }
-        if (this.nHi != null) {
-            this.nHi.setImageDrawable(null);
-        }
-        if (this.nHj != null) {
-            this.nHj.setImageDrawable(null);
-        }
+        this.i = new a();
+        h(context);
     }
 }

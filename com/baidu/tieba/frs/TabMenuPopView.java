@@ -8,319 +8,174 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
+import d.b.i0.p0.c0;
+import d.b.i0.p0.e1;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class TabMenuPopView extends LinearLayout implements View.OnClickListener {
-    private com.baidu.adp.lib.d.b<TextView> fZb;
-    private int jnq;
-    private int jnr;
-    private int jns;
-    private int jnt;
-    private a jnu;
-    private bc jnv;
-    private Context mContext;
-    private List<bc> mDataList;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a(View view, bc bcVar);
+    /* renamed from: e  reason: collision with root package name */
+    public int f16117e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f16118f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f16119g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f16120h;
+    public c i;
+    public List<e1> j;
+    public d.b.b.e.k.b<TextView> k;
+    public Context l;
+    public e1 m;
+
+    /* loaded from: classes4.dex */
+    public class a implements d.b.b.e.k.c<TextView> {
+        public a() {
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // d.b.b.e.k.c
+        public /* bridge */ /* synthetic */ TextView a(TextView textView) {
+            TextView textView2 = textView;
+            e(textView2);
+            return textView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // d.b.b.e.k.c
+        public /* bridge */ /* synthetic */ TextView c(TextView textView) {
+            TextView textView2 = textView;
+            h(textView2);
+            return textView2;
+        }
+
+        public TextView e(TextView textView) {
+            if (textView != null) {
+                SkinManager.setBackgroundResource(textView, R.drawable.bg_tab_meun);
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
+            }
+            return textView;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.b.e.k.c
+        /* renamed from: f */
+        public void b(TextView textView) {
+            if (textView != null) {
+                textView.setText("");
+                textView.setTag(null);
+                textView.setSelected(false);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.b.e.k.c
+        /* renamed from: g */
+        public TextView d() {
+            TextView textView = new TextView(TabMenuPopView.this.l);
+            textView.setTextSize(0, l.g(TabMenuPopView.this.l, R.dimen.fontsize28));
+            SkinManager.setBackgroundResource(textView, R.drawable.bg_tab_meun);
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
+            textView.setGravity(17);
+            textView.setOnClickListener(TabMenuPopView.this);
+            return textView;
+        }
+
+        public TextView h(TextView textView) {
+            if (textView != null) {
+                textView.setText("");
+                textView.setTag(null);
+                textView.setSelected(false);
+            }
+            return textView;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements ViewGroup.OnHierarchyChangeListener {
+        public b() {
+        }
+
+        @Override // android.view.ViewGroup.OnHierarchyChangeListener
+        public void onChildViewAdded(View view, View view2) {
+        }
+
+        @Override // android.view.ViewGroup.OnHierarchyChangeListener
+        public void onChildViewRemoved(View view, View view2) {
+            if (view2 instanceof TextView) {
+                TabMenuPopView.this.k.e((TextView) view2);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface c {
+        void a(View view, e1 e1Var);
     }
 
     public TabMenuPopView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jnq = 2;
-        this.jnr = 2;
-        this.jns = 4;
-        this.jnt = 5;
+        this.f16117e = 2;
+        this.f16118f = 2;
+        this.f16119g = 4;
+        this.f16120h = 5;
         setOrientation(1);
-        this.mContext = context;
-        this.jnr = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds20);
-        this.fZb = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TextView>() { // from class: com.baidu.tieba.frs.TabMenuPopView.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bIy */
-            public TextView makeObject() {
-                TextView textView = new TextView(TabMenuPopView.this.mContext);
-                textView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(TabMenuPopView.this.mContext, R.dimen.fontsize28));
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(textView, R.drawable.bg_tab_meun);
-                com.baidu.tbadk.core.util.ap.setViewTextColor(textView, R.color.CAM_X0106, 1);
-                textView.setGravity(17);
-                textView.setOnClickListener(TabMenuPopView.this);
-                return textView;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.d.c
-            /* renamed from: i */
-            public void destroyObject(TextView textView) {
-                if (textView != null) {
-                    textView.setText("");
-                    textView.setTag(null);
-                    textView.setSelected(false);
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.d.c
-            /* renamed from: j */
-            public TextView activateObject(TextView textView) {
-                if (textView != null) {
-                    com.baidu.tbadk.core.util.ap.setBackgroundResource(textView, R.drawable.bg_tab_meun);
-                    com.baidu.tbadk.core.util.ap.setViewTextColor(textView, R.color.CAM_X0106, 1);
-                }
-                return textView;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.d.c
-            /* renamed from: k */
-            public TextView passivateObject(TextView textView) {
-                if (textView != null) {
-                    textView.setText("");
-                    textView.setTag(null);
-                    textView.setSelected(false);
-                }
-                return textView;
-            }
-        }, 17, 0);
-        setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.TabMenuPopView.2
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewRemoved(View view, View view2) {
-                if (view2 instanceof TextView) {
-                    TabMenuPopView.this.fZb.returnObject((TextView) view2);
-                }
-            }
-
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewAdded(View view, View view2) {
-            }
-        });
+        this.l = context;
+        this.f16118f = l.g(context, R.dimen.ds20);
+        this.k = new d.b.b.e.k.b<>(new a(), 17, 0);
+        setOnHierarchyChangeListener(new b());
     }
 
-    @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        if (getChildCount() > 0) {
-            setMeasuredDimension(getMeasuredWidth(), cp((getChildAt(0).getMeasuredHeight() * this.jnt) + (this.jnr * (this.jnt - 1)) + (this.jnr * 2), i2));
+    private void setData(List<e1> list) {
+        if (list == null) {
+            return;
         }
-    }
-
-    private int cp(int i, int i2) {
-        int mode = View.MeasureSpec.getMode(i2);
-        int size = View.MeasureSpec.getSize(i2);
-        switch (mode) {
-            case Integer.MIN_VALUE:
-                return size <= i ? size : i;
-            case 0:
-            default:
-                return i;
-            case 1073741824:
-                return size;
-        }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int i5;
-        int i6;
-        int i7;
-        int childCount = getChildCount();
-        if (childCount > 0) {
-            int measuredWidth = getMeasuredWidth();
-            int measuredWidth2 = getChildAt(0).getMeasuredWidth();
-            if (this.jns > 1) {
-                this.jnq = (measuredWidth - (measuredWidth2 * this.jns)) / (this.jns - 1);
-            }
-            int[] iArr = new int[this.jnt + 1];
-            int i8 = 1;
-            int i9 = 0;
-            int i10 = 0;
-            int i11 = 0;
-            while (i11 < childCount) {
-                View childAt = getChildAt(i11);
-                int measuredWidth3 = childAt.getMeasuredWidth();
-                int measuredHeight = childAt.getMeasuredHeight();
-                int i12 = i10 + measuredWidth3;
-                int i13 = i9 + measuredHeight;
-                if (this.jnv != null && i11 == 0) {
-                    i5 = 0;
-                    i7 = i13 + (this.jnr * 2);
-                    if (measuredHeight > iArr[i8]) {
-                        iArr[i8] = measuredHeight;
-                    }
-                    i8++;
-                    i6 = i9;
-                } else if (i12 > i3) {
-                    if (measuredHeight > iArr[i8]) {
-                        iArr[i8] = measuredHeight;
-                    }
-                    i10 = 0;
-                    int i14 = iArr[i8] + i9 + this.jnr;
-                    i12 = 0 + measuredWidth3;
-                    i13 = i14 + measuredHeight;
-                    i5 = i12 + this.jnq;
-                    i8++;
-                    i6 = i14;
-                    i7 = i14;
-                } else {
-                    if (measuredHeight > iArr[i8]) {
-                        iArr[i8] = measuredHeight;
-                    }
-                    i5 = i12 + this.jnq;
-                    i6 = i9;
-                    i7 = i9;
-                }
-                if (i12 > i3) {
-                    i12 = i3;
-                }
-                childAt.layout(i10, i6, i12, i13);
-                i11++;
-                i10 = i5;
-                i9 = i7;
-            }
-        }
-    }
-
-    private void setData(List<bc> list) {
-        int i = 0;
-        if (list != null) {
-            removeAllViews();
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds150), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60));
-            if (this.jnv != null) {
-                if (dk(list)) {
-                    this.jnv.isSelected = false;
-                } else {
-                    this.jnv.isSelected = true;
-                }
-                this.jnt = ((int) Math.ceil(list.size() / this.jns)) + 1;
-                a(this.jnv, layoutParams);
+        removeAllViews();
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds150), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60));
+        if (this.m != null) {
+            if (f(list)) {
+                this.m.f57403c = false;
             } else {
-                this.jnt = (int) Math.ceil(list.size() / this.jns);
+                this.m.f57403c = true;
             }
-            this.mDataList = list;
-            while (true) {
-                int i2 = i;
-                if (i2 < list.size()) {
-                    a(list.get(i2), layoutParams);
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
+            this.f16120h = ((int) Math.ceil(list.size() / this.f16119g)) + 1;
+            c(this.m, layoutParams);
+        } else {
+            this.f16120h = (int) Math.ceil(list.size() / this.f16119g);
         }
-    }
-
-    private boolean dk(List<bc> list) {
+        this.j = list;
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).isSelected) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private void a(bc bcVar, LinearLayout.LayoutParams layoutParams) {
-        if (bcVar != null && layoutParams != null) {
-            TextView borrowObject = this.fZb.borrowObject();
-            borrowObject.setText(bcVar.name);
-            borrowObject.setSelected(bcVar.isSelected);
-            borrowObject.setTag(bcVar);
-            addView(borrowObject, layoutParams);
+            c(list.get(i), layoutParams);
         }
     }
 
-    public void setData(List<ab> list, ab abVar, int i) {
-        if (list != null) {
-            ArrayList arrayList = new ArrayList();
-            int i2 = 0;
-            while (true) {
-                int i3 = i2;
-                if (i3 >= list.size()) {
-                    break;
-                }
-                if (list.get(i3) != null) {
-                    bc bcVar = new bc();
-                    bcVar.jmD = list.get(i3).jmD;
-                    bcVar.name = list.get(i3).name;
-                    if (i == list.get(i3).jmD) {
-                        bcVar.isSelected = true;
-                    }
-                    arrayList.add(bcVar);
-                }
-                i2 = i3 + 1;
-            }
-            bc bcVar2 = null;
-            if (abVar != null) {
-                bcVar2 = new bc();
-                bcVar2.jmD = abVar.jmD;
-                bcVar2.name = abVar.name;
-                if (i == abVar.jmD) {
-                    bcVar2.isSelected = true;
-                }
-            }
-            setData(arrayList, bcVar2);
+    public final void c(e1 e1Var, LinearLayout.LayoutParams layoutParams) {
+        if (e1Var == null || layoutParams == null) {
+            return;
         }
+        TextView b2 = this.k.b();
+        b2.setText(e1Var.f57401a);
+        b2.setSelected(e1Var.f57403c);
+        b2.setTag(e1Var);
+        addView(b2, layoutParams);
     }
 
-    public void setData(List<bc> list, bc bcVar) {
-        this.jnv = bcVar;
-        setData(list);
-    }
-
-    public void setViewVerticalMargin(int i) {
-        this.jnr = i;
-    }
-
-    public void setPerLineViewNum(int i) {
-        if (i > 0) {
-            this.jns = i;
-        }
-    }
-
-    public void setOnItemClickCallBack(a aVar) {
-        this.jnu = aVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getTag() instanceof bc) {
-            cFe();
-            bc bcVar = (bc) view.getTag();
-            setItemSelectState(bcVar, true);
-            view.setSelected(true);
-            if (this.jnu != null) {
-                this.jnu.a(view, bcVar);
-            }
-        }
-    }
-
-    public void cFe() {
-        if (this.mDataList != null && getChildCount() > 0) {
-            if (this.jnv != null) {
-                this.jnv.isSelected = false;
-            }
-            for (bc bcVar : this.mDataList) {
-                bcVar.isSelected = false;
-            }
-            for (int i = 0; i < getChildCount(); i++) {
-                getChildAt(i).setSelected(false);
-            }
-        }
-    }
-
-    public void setItemSelectState(bc bcVar, boolean z) {
-        if (bcVar != null && this.mDataList != null) {
-            if (this.jnv != null && this.jnv.jmD == bcVar.jmD) {
-                this.jnv.isSelected = z;
-                return;
-            }
-            for (bc bcVar2 : this.mDataList) {
-                if (bcVar.jmD == bcVar2.jmD) {
-                    bcVar.isSelected = z;
-                    return;
-                }
+    public void d() {
+        SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+        for (int i = 0; i < getChildCount(); i++) {
+            if (getChildAt(i) instanceof TextView) {
+                TextView textView = (TextView) getChildAt(i);
+                SkinManager.setBackgroundResource(textView, R.drawable.bg_tab_meun);
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
             }
         }
     }
@@ -330,21 +185,200 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void bus() {
-        com.baidu.tbadk.core.util.ap.setBackgroundColor(this, R.color.CAM_X0201);
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < getChildCount()) {
-                if (getChildAt(i2) instanceof TextView) {
-                    TextView textView = (TextView) getChildAt(i2);
-                    com.baidu.tbadk.core.util.ap.setBackgroundResource(textView, R.drawable.bg_tab_meun);
-                    com.baidu.tbadk.core.util.ap.setViewTextColor(textView, R.color.CAM_X0106, 1);
+    public final int e(int i, int i2) {
+        int mode = View.MeasureSpec.getMode(i2);
+        int size = View.MeasureSpec.getSize(i2);
+        if (mode != Integer.MIN_VALUE) {
+            if (mode != 1073741824) {
+                return i;
+            }
+        } else if (size > i) {
+            return i;
+        }
+        return size;
+    }
+
+    public final boolean f(List<e1> list) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).f57403c) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void h() {
+        if (this.j == null || getChildCount() <= 0) {
+            return;
+        }
+        e1 e1Var = this.m;
+        if (e1Var != null) {
+            e1Var.f57403c = false;
+        }
+        for (e1 e1Var2 : this.j) {
+            e1Var2.f57403c = false;
+        }
+        for (int i = 0; i < getChildCount(); i++) {
+            getChildAt(i).setSelected(false);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view.getTag() instanceof e1) {
+            h();
+            e1 e1Var = (e1) view.getTag();
+            setItemSelectState(e1Var, true);
+            view.setSelected(true);
+            c cVar = this.i;
+            if (cVar != null) {
+                cVar.a(view, e1Var);
+            }
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        int childCount = getChildCount();
+        if (childCount <= 0) {
+            return;
+        }
+        int measuredWidth = getMeasuredWidth();
+        int measuredWidth2 = getChildAt(0).getMeasuredWidth();
+        int i9 = this.f16119g;
+        int i10 = 1;
+        if (i9 > 1) {
+            this.f16117e = (measuredWidth - (measuredWidth2 * i9)) / (i9 - 1);
+        }
+        int[] iArr = new int[this.f16120h + 1];
+        int i11 = 0;
+        int i12 = 0;
+        int i13 = 0;
+        while (i11 < childCount) {
+            View childAt = getChildAt(i11);
+            int measuredWidth3 = childAt.getMeasuredWidth();
+            int measuredHeight = childAt.getMeasuredHeight();
+            int i14 = i12 + measuredWidth3;
+            int i15 = i13 + measuredHeight;
+            if (this.m != null && i11 == 0) {
+                i8 = (this.f16118f * 2) + i15;
+                if (measuredHeight > iArr[i10]) {
+                    iArr[i10] = measuredHeight;
                 }
-                i = i2 + 1;
+                i5 = i13;
+                i6 = i10 + 1;
+                i7 = i12;
+                i12 = 0;
+            } else if (i14 > i3) {
+                if (measuredHeight > iArr[i10]) {
+                    iArr[i10] = measuredHeight;
+                }
+                int i16 = i13 + iArr[i10] + this.f16118f;
+                i14 = measuredWidth3 + 0;
+                i15 = i16 + measuredHeight;
+                i12 = this.f16117e + i14;
+                i8 = i16;
+                i5 = i8;
+                i6 = i10 + 1;
+                i7 = 0;
             } else {
+                if (measuredHeight > iArr[i10]) {
+                    iArr[i10] = measuredHeight;
+                }
+                i5 = i13;
+                i6 = i10;
+                i7 = i12;
+                i12 = this.f16117e + i14;
+                i8 = i5;
+            }
+            if (i14 > i3) {
+                i14 = i3;
+            }
+            childAt.layout(i7, i5, i14, i15);
+            i11++;
+            i10 = i6;
+            i13 = i8;
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        if (getChildCount() > 0) {
+            int measuredHeight = getChildAt(0).getMeasuredHeight();
+            int i3 = this.f16120h;
+            int i4 = this.f16118f;
+            setMeasuredDimension(getMeasuredWidth(), e((measuredHeight * i3) + ((i3 - 1) * i4) + (i4 * 2), i2));
+        }
+    }
+
+    public void setItemSelectState(e1 e1Var, boolean z) {
+        if (e1Var == null || this.j == null) {
+            return;
+        }
+        e1 e1Var2 = this.m;
+        if (e1Var2 != null && e1Var2.f57402b == e1Var.f57402b) {
+            e1Var2.f57403c = z;
+            return;
+        }
+        for (e1 e1Var3 : this.j) {
+            if (e1Var.f57402b == e1Var3.f57402b) {
+                e1Var.f57403c = z;
                 return;
             }
         }
+    }
+
+    public void setOnItemClickCallBack(c cVar) {
+        this.i = cVar;
+    }
+
+    public void setPerLineViewNum(int i) {
+        if (i <= 0) {
+            return;
+        }
+        this.f16119g = i;
+    }
+
+    public void setViewVerticalMargin(int i) {
+        this.f16118f = i;
+    }
+
+    public void setData(List<c0> list, c0 c0Var, int i) {
+        if (list == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            if (list.get(i2) != null) {
+                e1 e1Var = new e1();
+                e1Var.f57402b = list.get(i2).f57361b;
+                e1Var.f57401a = list.get(i2).f57360a;
+                if (i == list.get(i2).f57361b) {
+                    e1Var.f57403c = true;
+                }
+                arrayList.add(e1Var);
+            }
+        }
+        e1 e1Var2 = null;
+        if (c0Var != null) {
+            e1Var2 = new e1();
+            int i3 = c0Var.f57361b;
+            e1Var2.f57402b = i3;
+            e1Var2.f57401a = c0Var.f57360a;
+            if (i == i3) {
+                e1Var2.f57403c = true;
+            }
+        }
+        setData(arrayList, e1Var2);
+    }
+
+    public void setData(List<e1> list, e1 e1Var) {
+        this.m = e1Var;
+        setData(list);
     }
 }

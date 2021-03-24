@@ -6,20 +6,20 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f8194a;
+    public a f40135a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<BaseService> f8195a;
+        public WeakReference<BaseService> f40136a;
 
         public a(WeakReference<BaseService> weakReference) {
-            this.f8195a = weakReference;
+            this.f40136a = weakReference;
         }
 
         public void a() {
@@ -31,28 +31,23 @@ public abstract class BaseService extends Service {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
+            WeakReference<BaseService> weakReference;
             BaseService baseService;
-            switch (message.what) {
-                case 1001:
-                    if (this.f8195a == null || (baseService = this.f8195a.get()) == null) {
-                        return;
-                    }
-                    com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
-                    if (!baseService.mo76a()) {
-                        baseService.stopSelf();
-                        return;
-                    }
-                    com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler has job");
-                    sendEmptyMessageDelayed(1001, 1000L);
-                    return;
-                default:
-                    return;
+            if (message.what != 1001 || (weakReference = this.f40136a) == null || (baseService = weakReference.get()) == null) {
+                return;
             }
+            com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
+            if (!baseService.mo70a()) {
+                baseService.stopSelf();
+                return;
+            }
+            com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler has job");
+            sendEmptyMessageDelayed(1001, 1000L);
         }
     }
 
     /* renamed from: a */
-    protected abstract boolean mo76a();
+    public abstract boolean mo70a();
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -62,9 +57,9 @@ public abstract class BaseService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.f8194a == null) {
-            this.f8194a = new a(new WeakReference(this));
+        if (this.f40135a == null) {
+            this.f40135a = new a(new WeakReference(this));
         }
-        this.f8194a.a();
+        this.f40135a.a();
     }
 }

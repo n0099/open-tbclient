@@ -7,6 +7,10 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.video.VideoItemData;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -14,63 +18,80 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class VideoPlayModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_FRS = "client_frs";
     public static final String TYPE_CALL_FROM_INDEX = "client_index";
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
-    private String jOM;
-    private String mFrom;
-    private String mLocate;
-    private int mPn;
-    private String mStType;
-    private VideoPlayActivity nXX;
-    private a nXY;
-    private VideoItemData nXZ;
-    private HttpMessageListener nYa;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void A(List<VideoItemData> list, boolean z);
+    /* renamed from: e  reason: collision with root package name */
+    public VideoPlayActivity f21987e;
 
-        void B(List<VideoItemData> list, boolean z);
+    /* renamed from: f  reason: collision with root package name */
+    public b f21988f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f21989g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f21990h;
+    public String i;
+    public boolean j;
+    public VideoItemData k;
+    public String l;
+    public String m;
+    public HttpMessageListener n;
+
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage instanceof ResponseGetNaniVideoMessage) {
+                ResponseGetNaniVideoMessage responseGetNaniVideoMessage = (ResponseGetNaniVideoMessage) httpResponsedMessage;
+                if (responseGetNaniVideoMessage.getError() == 0) {
+                    TbSingleton.getInstance().clearVideoRecord();
+                    if (VideoPlayModel.this.f21988f != null) {
+                        if (VideoPlayModel.this.f21989g == 1) {
+                            VideoPlayModel.this.f21988f.b(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                        } else {
+                            VideoPlayModel.this.f21988f.a(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                        }
+                    }
+                    VideoPlayModel.u(VideoPlayModel.this);
+                }
+            }
+        }
     }
 
-    static /* synthetic */ int c(VideoPlayModel videoPlayModel) {
-        int i = videoPlayModel.mPn;
-        videoPlayModel.mPn = i + 1;
-        return i;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(List<VideoItemData> list, boolean z);
+
+        void b(List<VideoItemData> list, boolean z);
     }
 
     public VideoPlayModel(VideoPlayActivity videoPlayActivity) {
         super(videoPlayActivity.getPageContext());
-        this.jOM = "client_other";
-        this.nYa = new HttpMessageListener(1003399) { // from class: com.baidu.tieba.videoplay.VideoPlayModel.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage instanceof ResponseGetNaniVideoMessage) {
-                    ResponseGetNaniVideoMessage responseGetNaniVideoMessage = (ResponseGetNaniVideoMessage) httpResponsedMessage;
-                    if (responseGetNaniVideoMessage.getError() == 0) {
-                        TbSingleton.getInstance().clearVideoRecord();
-                        if (VideoPlayModel.this.nXY != null) {
-                            if (VideoPlayModel.this.mPn == 1) {
-                                VideoPlayModel.this.nXY.A(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
-                            } else {
-                                VideoPlayModel.this.nXY.B(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
-                            }
-                        }
-                        VideoPlayModel.c(VideoPlayModel.this);
-                    }
-                }
-            }
-        };
-        this.nXX = videoPlayActivity;
-        registerListener(this.nYa);
+        this.m = "client_other";
+        a aVar = new a(CmdConfigHttp.CMD_GET_NANI_VIDEO);
+        this.n = aVar;
+        this.f21987e = videoPlayActivity;
+        registerListener(aVar);
+    }
+
+    public static /* synthetic */ int u(VideoPlayModel videoPlayModel) {
+        int i = videoPlayModel.f21989g;
+        videoPlayModel.f21989g = i + 1;
+        return i;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -79,83 +100,88 @@ public class VideoPlayModel extends BdBaseModel {
         return false;
     }
 
-    public void a(VideoItemData videoItemData, String str, String str2) {
-        this.mPn = 1;
-        if (videoItemData != null) {
-            this.mStType = str;
-            this.mLocate = str2;
-            this.nXZ = videoItemData;
-            HttpMessage httpMessage = new HttpMessage(1003399);
-            httpMessage.addParam("tid", videoItemData.thread_id);
-            httpMessage.addParam("st_type", str);
-            httpMessage.addParam("yuelaou_locate", str2);
-            httpMessage.addParam("is_vertical", "1");
-            httpMessage.addParam(Config.PACKAGE_NAME, this.mPn);
-            httpMessage.addParam("user_view_data", cMy());
-            if ("frs".equals(this.mFrom)) {
-                this.jOM = "client_frs";
-            } else if ("index".equals(this.mFrom)) {
-                this.jOM = "client_index";
-            } else {
-                this.jOM = "client_other";
-            }
-            httpMessage.addParam("call_from", this.jOM);
-            if (videoItemData.baijiahaoData != null) {
-                httpMessage.addParam("ori_ugc_nid", videoItemData.baijiahaoData.oriUgcNid);
-                httpMessage.addParam("ori_ugc_type", videoItemData.baijiahaoData.oriUgcType);
-                httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
-                httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
-            }
-            sendMessage(httpMessage);
-        }
-    }
-
-    public void b(VideoItemData videoItemData) {
-        if (this.nXZ != null) {
-            HttpMessage httpMessage = new HttpMessage(1003399);
-            httpMessage.addParam("tid", this.nXZ.thread_id);
-            httpMessage.addParam("st_type", this.mStType);
-            httpMessage.addParam("yuelaou_locate", this.mLocate);
-            httpMessage.addParam("is_vertical", "1");
-            httpMessage.addParam(Config.PACKAGE_NAME, this.mPn);
-            httpMessage.addParam("user_view_data", cMy());
-            if (videoItemData.baijiahaoData != null) {
-                httpMessage.addParam("ori_ugc_nid", videoItemData.baijiahaoData.oriUgcNid);
-                httpMessage.addParam("ori_ugc_type", videoItemData.baijiahaoData.oriUgcType);
-                httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
-                httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
-            }
-            sendMessage(httpMessage);
-        }
-    }
-
     public void setFrom(String str) {
-        this.mFrom = str;
+        this.l = str;
     }
 
-    private String cMy() {
+    public final String v() {
         JSONArray jSONArray = new JSONArray();
-        LinkedList<com.baidu.tbadk.d.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+        LinkedList<d.b.h0.g.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {
             try {
                 if (videoRecordList.size() > 0) {
-                    Iterator<com.baidu.tbadk.d.a> it = videoRecordList.iterator();
+                    Iterator<d.b.h0.g.a> it = videoRecordList.iterator();
                     while (it.hasNext()) {
-                        com.baidu.tbadk.d.a next = it.next();
+                        d.b.h0.g.a next = it.next();
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("tid", next.getKey());
-                        jSONObject.put("duration", next.getValue());
+                        jSONObject.put("tid", next.a());
+                        jSONObject.put("duration", next.b());
                         jSONArray.put(jSONObject);
                     }
                 }
-            } catch (JSONException e) {
-                BdLog.e(e);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
             }
         }
         return jSONArray.toString();
     }
 
-    public void a(a aVar) {
-        this.nXY = aVar;
+    public void w(VideoItemData videoItemData) {
+        if (this.k == null) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
+        httpMessage.addParam("tid", this.k.thread_id);
+        httpMessage.addParam("st_type", this.f21990h);
+        httpMessage.addParam("yuelaou_locate", this.i);
+        httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, this.j ? "1" : "0");
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f21989g);
+        httpMessage.addParam("user_view_data", v());
+        BaijiahaoData baijiahaoData = videoItemData.baijiahaoData;
+        if (baijiahaoData != null) {
+            httpMessage.addParam("ori_ugc_nid", baijiahaoData.oriUgcNid);
+            httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, videoItemData.baijiahaoData.oriUgcType);
+            httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
+            httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
+        }
+        sendMessage(httpMessage);
+    }
+
+    public void x(VideoItemData videoItemData, String str, String str2, boolean z) {
+        this.f21989g = 1;
+        if (videoItemData == null) {
+            return;
+        }
+        this.f21990h = str;
+        this.i = str2;
+        this.j = z;
+        this.k = videoItemData;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
+        httpMessage.addParam("tid", videoItemData.thread_id);
+        httpMessage.addParam("st_type", str);
+        httpMessage.addParam("yuelaou_locate", str2);
+        httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, z ? "1" : "0");
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f21989g);
+        httpMessage.addParam("user_view_data", v());
+        if ("frs".equals(this.l)) {
+            this.m = "client_frs";
+        } else if ("index".equals(this.l)) {
+            this.m = "client_index";
+        } else {
+            this.m = "client_other";
+        }
+        httpMessage.addParam(IntentConfig.CALL_FROM, this.m);
+        BaijiahaoData baijiahaoData = videoItemData.baijiahaoData;
+        if (baijiahaoData != null) {
+            httpMessage.addParam("ori_ugc_nid", baijiahaoData.oriUgcNid);
+            httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, videoItemData.baijiahaoData.oriUgcType);
+            httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
+            httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
+        }
+        sendMessage(httpMessage);
+    }
+
+    public void y(b bVar) {
+        this.f21988f = bVar;
     }
 }

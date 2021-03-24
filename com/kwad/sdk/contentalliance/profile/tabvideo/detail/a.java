@@ -4,47 +4,47 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static List<AdTemplate> f5867a;
-    private static volatile a b;
+    public static List<AdTemplate> f32939a;
 
-    private a() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile a f32940b;
 
     public static a a() {
-        if (b == null) {
+        if (f32940b == null) {
             synchronized (a.class) {
-                if (b == null) {
-                    b = new a();
+                if (f32940b == null) {
+                    f32940b = new a();
                 }
             }
         }
-        return b;
+        return f32940b;
     }
 
     public void a(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (f5867a == null) {
-            f5867a = new ArrayList();
+        if (f32939a == null) {
+            f32939a = new ArrayList();
         }
-        f5867a.clear();
-        f5867a.addAll(list);
+        f32939a.clear();
+        f32939a.addAll(list);
     }
 
     @Nullable
     public List<AdTemplate> b() {
-        return f5867a;
+        return f32939a;
     }
 
     public void c() {
-        if (f5867a != null) {
-            f5867a.clear();
+        List<AdTemplate> list = f32939a;
+        if (list != null) {
+            list.clear();
         }
-        f5867a = null;
+        f32939a = null;
     }
 }

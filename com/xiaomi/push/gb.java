@@ -1,32 +1,354 @@
 package com.xiaomi.push;
 
-import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes5.dex */
-class gb extends XMPushService.i {
+import android.os.Bundle;
+import android.text.TextUtils;
+/* loaded from: classes7.dex */
+public class gb extends gc {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ fz f8381a;
+    public boolean f40547a;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Exception f383a;
-    final /* synthetic */ int b;
+    /* renamed from: b  reason: collision with root package name */
+    public String f40548b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gb(fz fzVar, int i, int i2, Exception exc) {
-        super(i);
-        this.f8381a = fzVar;
-        this.b = i2;
-        this.f383a = exc;
+    /* renamed from: b  reason: collision with other field name */
+    public boolean f422b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f40549c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f40550d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f40551e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f40552f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f40553g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f40554h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+
+    public gb() {
+        this.f40548b = null;
+        this.f40549c = null;
+        this.f40547a = false;
+        this.i = "";
+        this.j = "";
+        this.k = "";
+        this.l = "";
+        this.f422b = false;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
+    public gb(Bundle bundle) {
+        super(bundle);
+        this.f40548b = null;
+        this.f40549c = null;
+        this.f40547a = false;
+        this.i = "";
+        this.j = "";
+        this.k = "";
+        this.l = "";
+        this.f422b = false;
+        this.f40548b = bundle.getString("ext_msg_type");
+        this.f40550d = bundle.getString("ext_msg_lang");
+        this.f40549c = bundle.getString("ext_msg_thread");
+        this.f40551e = bundle.getString("ext_msg_sub");
+        this.f40552f = bundle.getString("ext_msg_body");
+        this.f40553g = bundle.getString("ext_body_encode");
+        this.f40554h = bundle.getString("ext_msg_appid");
+        this.f40547a = bundle.getBoolean("ext_msg_trans", false);
+        this.f422b = bundle.getBoolean("ext_msg_encrypt", false);
+        this.i = bundle.getString("ext_msg_seq");
+        this.j = bundle.getString("ext_msg_mseq");
+        this.k = bundle.getString("ext_msg_fseq");
+        this.l = bundle.getString("ext_msg_status");
+    }
+
+    @Override // com.xiaomi.push.gc
+    public Bundle a() {
+        Bundle a2 = super.a();
+        if (!TextUtils.isEmpty(this.f40548b)) {
+            a2.putString("ext_msg_type", this.f40548b);
+        }
+        String str = this.f40550d;
+        if (str != null) {
+            a2.putString("ext_msg_lang", str);
+        }
+        String str2 = this.f40551e;
+        if (str2 != null) {
+            a2.putString("ext_msg_sub", str2);
+        }
+        String str3 = this.f40552f;
+        if (str3 != null) {
+            a2.putString("ext_msg_body", str3);
+        }
+        if (!TextUtils.isEmpty(this.f40553g)) {
+            a2.putString("ext_body_encode", this.f40553g);
+        }
+        String str4 = this.f40549c;
+        if (str4 != null) {
+            a2.putString("ext_msg_thread", str4);
+        }
+        String str5 = this.f40554h;
+        if (str5 != null) {
+            a2.putString("ext_msg_appid", str5);
+        }
+        if (this.f40547a) {
+            a2.putBoolean("ext_msg_trans", true);
+        }
+        if (!TextUtils.isEmpty(this.i)) {
+            a2.putString("ext_msg_seq", this.i);
+        }
+        if (!TextUtils.isEmpty(this.j)) {
+            a2.putString("ext_msg_mseq", this.j);
+        }
+        if (!TextUtils.isEmpty(this.k)) {
+            a2.putString("ext_msg_fseq", this.k);
+        }
+        if (this.f422b) {
+            a2.putBoolean("ext_msg_encrypt", true);
+        }
+        if (!TextUtils.isEmpty(this.l)) {
+            a2.putString("ext_msg_status", this.l);
+        }
+        return a2;
+    }
+
+    @Override // com.xiaomi.push.gc
     public String a() {
-        return "shutdown the connection. " + this.b + ", " + this.f383a;
+        gg m324a;
+        StringBuilder sb = new StringBuilder();
+        sb.append("<message");
+        if (p() != null) {
+            sb.append(" xmlns=\"");
+            sb.append(p());
+            sb.append("\"");
+        }
+        if (this.f40550d != null) {
+            sb.append(" xml:lang=\"");
+            sb.append(h());
+            sb.append("\"");
+        }
+        if (j() != null) {
+            sb.append(" id=\"");
+            sb.append(j());
+            sb.append("\"");
+        }
+        if (l() != null) {
+            sb.append(" to=\"");
+            sb.append(gn.a(l()));
+            sb.append("\"");
+        }
+        if (!TextUtils.isEmpty(d())) {
+            sb.append(" seq=\"");
+            sb.append(d());
+            sb.append("\"");
+        }
+        if (!TextUtils.isEmpty(e())) {
+            sb.append(" mseq=\"");
+            sb.append(e());
+            sb.append("\"");
+        }
+        if (!TextUtils.isEmpty(f())) {
+            sb.append(" fseq=\"");
+            sb.append(f());
+            sb.append("\"");
+        }
+        if (!TextUtils.isEmpty(g())) {
+            sb.append(" status=\"");
+            sb.append(g());
+            sb.append("\"");
+        }
+        if (m() != null) {
+            sb.append(" from=\"");
+            sb.append(gn.a(m()));
+            sb.append("\"");
+        }
+        if (k() != null) {
+            sb.append(" chid=\"");
+            sb.append(gn.a(k()));
+            sb.append("\"");
+        }
+        if (this.f40547a) {
+            sb.append(" transient=\"true\"");
+        }
+        if (!TextUtils.isEmpty(this.f40554h)) {
+            sb.append(" appid=\"");
+            sb.append(c());
+            sb.append("\"");
+        }
+        if (!TextUtils.isEmpty(this.f40548b)) {
+            sb.append(" type=\"");
+            sb.append(this.f40548b);
+            sb.append("\"");
+        }
+        if (this.f422b) {
+            sb.append(" s=\"1\"");
+        }
+        sb.append(">");
+        if (this.f40551e != null) {
+            sb.append("<subject>");
+            sb.append(gn.a(this.f40551e));
+            sb.append("</subject>");
+        }
+        if (this.f40552f != null) {
+            sb.append("<body");
+            if (!TextUtils.isEmpty(this.f40553g)) {
+                sb.append(" encode=\"");
+                sb.append(this.f40553g);
+                sb.append("\"");
+            }
+            sb.append(">");
+            sb.append(gn.a(this.f40552f));
+            sb.append("</body>");
+        }
+        if (this.f40549c != null) {
+            sb.append("<thread>");
+            sb.append(this.f40549c);
+            sb.append("</thread>");
+        }
+        if ("error".equalsIgnoreCase(this.f40548b) && (m324a = m324a()) != null) {
+            sb.append(m324a.m328a());
+        }
+        sb.append(o());
+        sb.append("</message>");
+        return sb.toString();
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        this.f8381a.b.a(this.b, this.f383a);
+    @Override // com.xiaomi.push.gc
+    public void a(String str) {
+        this.f40554h = str;
+    }
+
+    @Override // com.xiaomi.push.gc
+    public void a(String str, String str2) {
+        this.f40552f = str;
+        this.f40553g = str2;
+    }
+
+    public void a(boolean z) {
+        this.f40547a = z;
+    }
+
+    @Override // com.xiaomi.push.gc
+    public String b() {
+        return this.f40548b;
+    }
+
+    public void b(String str) {
+        this.i = str;
+    }
+
+    public void b(boolean z) {
+        this.f422b = z;
+    }
+
+    public String c() {
+        return this.f40554h;
+    }
+
+    public void c(String str) {
+        this.j = str;
+    }
+
+    public String d() {
+        return this.i;
+    }
+
+    public void d(String str) {
+        this.k = str;
+    }
+
+    public String e() {
+        return this.j;
+    }
+
+    public void e(String str) {
+        this.l = str;
+    }
+
+    @Override // com.xiaomi.push.gc
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || gb.class != obj.getClass()) {
+            return false;
+        }
+        gb gbVar = (gb) obj;
+        if (super.equals(gbVar)) {
+            String str = this.f40552f;
+            if (str == null ? gbVar.f40552f == null : str.equals(gbVar.f40552f)) {
+                String str2 = this.f40550d;
+                if (str2 == null ? gbVar.f40550d == null : str2.equals(gbVar.f40550d)) {
+                    String str3 = this.f40551e;
+                    if (str3 == null ? gbVar.f40551e == null : str3.equals(gbVar.f40551e)) {
+                        String str4 = this.f40549c;
+                        if (str4 == null ? gbVar.f40549c == null : str4.equals(gbVar.f40549c)) {
+                            return this.f40548b == gbVar.f40548b;
+                        }
+                        return false;
+                    }
+                    return false;
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public String f() {
+        return this.k;
+    }
+
+    public void f(String str) {
+        this.f40548b = str;
+    }
+
+    public String g() {
+        return this.l;
+    }
+
+    public void g(String str) {
+        this.f40551e = str;
+    }
+
+    public String h() {
+        return this.f40550d;
+    }
+
+    public void h(String str) {
+        this.f40552f = str;
+    }
+
+    @Override // com.xiaomi.push.gc
+    public int hashCode() {
+        String str = this.f40548b;
+        int hashCode = (str != null ? str.hashCode() : 0) * 31;
+        String str2 = this.f40552f;
+        int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+        String str3 = this.f40549c;
+        int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
+        String str4 = this.f40550d;
+        int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
+        String str5 = this.f40551e;
+        return hashCode4 + (str5 != null ? str5.hashCode() : 0);
+    }
+
+    public void i(String str) {
+        this.f40549c = str;
+    }
+
+    public void j(String str) {
+        this.f40550d = str;
     }
 }

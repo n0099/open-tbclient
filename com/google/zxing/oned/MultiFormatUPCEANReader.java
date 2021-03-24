@@ -9,9 +9,9 @@ import com.google.zxing.common.BitArray;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class MultiFormatUPCEANReader extends OneDReader {
-    private final UPCEANReader[] readers;
+    public final UPCEANReader[] readers;
 
     public MultiFormatUPCEANReader(Map<DecodeHintType, ?> map) {
         Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
@@ -40,19 +40,20 @@ public final class MultiFormatUPCEANReader extends OneDReader {
     @Override // com.google.zxing.oned.OneDReader
     public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
         int[] findStartGuardPattern = UPCEANReader.findStartGuardPattern(bitArray);
+        boolean z = false;
         for (UPCEANReader uPCEANReader : this.readers) {
             try {
                 Result decodeRow = uPCEANReader.decodeRow(i, bitArray, findStartGuardPattern, map);
-                boolean z = decodeRow.getBarcodeFormat() == BarcodeFormat.EAN_13 && decodeRow.getText().charAt(0) == '0';
+                boolean z2 = decodeRow.getBarcodeFormat() == BarcodeFormat.EAN_13 && decodeRow.getText().charAt(0) == '0';
                 Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
-                boolean z2 = collection == null || collection.contains(BarcodeFormat.UPC_A);
-                if (z && z2) {
+                z = (collection == null || collection.contains(BarcodeFormat.UPC_A)) ? true : true;
+                if (z2 && z) {
                     Result result = new Result(decodeRow.getText().substring(1), decodeRow.getRawBytes(), decodeRow.getResultPoints(), BarcodeFormat.UPC_A);
                     result.putAllMetadata(decodeRow.getResultMetadata());
                     return result;
                 }
                 return decodeRow;
-            } catch (ReaderException e) {
+            } catch (ReaderException unused) {
             }
         }
         throw NotFoundException.getNotFoundInstance();

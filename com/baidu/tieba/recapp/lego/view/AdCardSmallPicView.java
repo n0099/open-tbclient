@@ -6,46 +6,48 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
-    private XfremodeRoundLayout mXk;
-    private TbImageView mXl;
+    public TbImageView A;
+    public XfremodeRoundLayout z;
 
     public AdCardSmallPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    protected int getCustomLayout() {
+    public void S(AdCard adCard) {
+        AdCard.d[] dVarArr;
+        if (adCard != null && (dVarArr = adCard.threadPicList) != null && dVarArr.length >= 1) {
+            String str = dVarArr[0].f20706a;
+            if (!TextUtils.isEmpty(str)) {
+                this.t.setVisibility(0);
+                this.A.W(str, 17, false);
+                return;
+            }
+            this.t.setVisibility(8);
+            return;
+        }
+        this.t.setVisibility(8);
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
+    public void U(View view) {
+        float dimensionPixelSize = this.m.getResources().getDimensionPixelSize(R.dimen.tbds10);
+        this.z = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+        TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);
+        this.A = tbImageView;
+        tbImageView.setPlaceHolder(3);
+        this.z.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
+    public int getCustomLayout() {
         return R.layout.ad_card_small_pic_view;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    protected void ea(View view) {
-        float dimensionPixelSize = this.eWx.getResources().getDimensionPixelSize(R.dimen.tbds10);
-        this.mXk = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
-        this.mXl = (TbImageView) view.findViewById(R.id.ad_img);
-        this.mXl.setPlaceHolder(3);
-        this.mXk.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    protected void a(AdCard adCard) {
-        if (adCard == null || adCard.threadPicList == null || adCard.threadPicList.length < 1) {
-            this.mVP.setVisibility(8);
-            return;
-        }
-        String str = adCard.threadPicList[0].pic;
-        if (!TextUtils.isEmpty(str)) {
-            this.mVP.setVisibility(0);
-            this.mXl.startLoad(str, 17, false);
-            return;
-        }
-        this.mVP.setVisibility(8);
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    protected int getLayout() {
+    public int getLayout() {
         return R.layout.card_small_pic_ad;
     }
 }

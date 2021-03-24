@@ -3,33 +3,37 @@ package com.baidu.tieba.aiapps.apps.permission;
 import android.app.Activity;
 import android.os.Bundle;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+import d.b.i0.s.b.j.a;
+/* loaded from: classes4.dex */
 public class PermissionActivity extends Activity {
+    public static final int PERMISSION_REQUEST_CODE = 999;
+
+    private void init() {
+        setContentView(R.layout.activity_permission);
+        a.d(this);
+    }
+
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         init();
     }
 
     @Override // android.app.Activity
-    protected void onStart() {
-        super.onStart();
-    }
-
-    private void init() {
-        setContentView(R.layout.activity_permission);
-        a.fM(this);
-    }
-
-    @Override // android.app.Activity
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        if (!a.a(this, i, strArr, iArr)) {
-            super.onRequestPermissionsResult(i, strArr, iArr);
+        if (a.b(this, i, strArr, iArr)) {
+            return;
         }
+        super.onRequestPermissionsResult(i, strArr, iArr);
+    }
+
+    @Override // android.app.Activity
+    public void onStart() {
+        super.onStart();
     }
 }

@@ -4,15 +4,14 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
-/* loaded from: classes7.dex */
-final class f implements View.OnClickListener {
+/* loaded from: classes5.dex */
+public final class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScreenCapEditActivity f3635a;
+    public final /* synthetic */ ScreenCapEditActivity f22983a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public f(ScreenCapEditActivity screenCapEditActivity) {
-        this.f3635a = screenCapEditActivity;
+        this.f22983a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,12 +19,12 @@ final class f implements View.OnClickListener {
         ImageView imageView;
         Bitmap bitmap;
         Handler handler;
-        imageView = this.f3635a.e;
+        imageView = this.f22983a.f22967e;
         if (imageView != null) {
-            bitmap = this.f3635a.g;
+            bitmap = this.f22983a.f22969g;
             if (bitmap != null) {
-                this.f3635a.a(true);
-                handler = this.f3635a.N;
+                this.f22983a.a(true);
+                handler = this.f22983a.N;
                 handler.obtainMessage(0).sendToTarget();
             }
         }

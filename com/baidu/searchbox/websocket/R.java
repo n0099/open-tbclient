@@ -1,6 +1,4 @@
 package com.baidu.searchbox.websocket;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class R {
-    private R() {
-    }
 }

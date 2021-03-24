@@ -1,7 +1,7 @@
 package com.coremedia.iso.boxes;
 
 import com.googlecode.mp4parser.AbstractContainerBox;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MediaBox extends AbstractContainerBox {
     public static final String TYPE = "mdia";
 
@@ -9,10 +9,10 @@ public class MediaBox extends AbstractContainerBox {
         super(TYPE);
     }
 
-    public MediaInformationBox getMediaInformationBox() {
+    public HandlerBox getHandlerBox() {
         for (Box box : getBoxes()) {
-            if (box instanceof MediaInformationBox) {
-                return (MediaInformationBox) box;
+            if (box instanceof HandlerBox) {
+                return (HandlerBox) box;
             }
         }
         return null;
@@ -27,10 +27,10 @@ public class MediaBox extends AbstractContainerBox {
         return null;
     }
 
-    public HandlerBox getHandlerBox() {
+    public MediaInformationBox getMediaInformationBox() {
         for (Box box : getBoxes()) {
-            if (box instanceof HandlerBox) {
-                return (HandlerBox) box;
+            if (box instanceof MediaInformationBox) {
+                return (MediaInformationBox) box;
             }
         }
         return null;

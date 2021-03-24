@@ -6,13 +6,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static void a(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (IOException e) {
+            } catch (IOException unused) {
             }
         }
     }

@@ -1,5 +1,5 @@
 package com.tencent.tauth;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class UiError {
     public int errorCode;
     public String errorDetail;

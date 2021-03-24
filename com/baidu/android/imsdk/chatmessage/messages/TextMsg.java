@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TextMsg extends NormalMsg {
     public static final Parcelable.Creator<TextMsg> CREATOR = new Parcelable.Creator<TextMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TextMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,40 +23,61 @@ public class TextMsg extends NormalMsg {
             return new TextMsg[i];
         }
     };
-    private long castId;
-    private long priority;
+    public long castId;
+    public long priority;
     public String text;
 
-    public TextMsg(String str) {
-        setMsgType(0);
-        this.text = str;
-        setText(this.text);
+    private String getTextJson(String str) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("text", str);
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "getTextJson", e2);
+        }
+        return jSONObject.toString();
     }
 
-    public TextMsg() {
-        setMsgType(0);
+    public long getCastId() {
+        return this.castId;
     }
 
-    private TextMsg(Parcel parcel) {
-        super(parcel);
-        this.text = parcel.readString();
-        this.castId = parcel.readLong();
-        this.priority = parcel.readLong();
+    public long getPriority() {
+        return this.priority;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
+    public String getRecommendDescription() {
+        return getText();
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
         String jsonContent = getJsonContent();
-        if (TextUtils.isEmpty(jsonContent)) {
-            return false;
+        if (!TextUtils.isEmpty(jsonContent)) {
+            try {
+                this.text = new JSONObject(jsonContent).optString("text");
+                return true;
+            } catch (JSONException e2) {
+                LogUtils.e("TextMsg", "parse json err!", e2);
+            }
         }
-        try {
-            this.text = new JSONObject(jsonContent).optString("text");
-            return true;
-        } catch (JSONException e) {
-            LogUtils.e("TextMsg", "parse json err!", e);
-            return false;
-        }
+        return false;
+    }
+
+    public void setCastId(long j) {
+        this.castId = j;
+    }
+
+    public void setPriority(long j) {
+        this.priority = j;
+    }
+
+    public void setText(String str) {
+        setMsgContent(getTextJson(str));
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -67,42 +88,20 @@ public class TextMsg extends NormalMsg {
         parcel.writeLong(this.priority);
     }
 
-    public void setText(String str) {
-        setMsgContent(getTextJson(str));
+    public TextMsg(String str) {
+        setMsgType(0);
+        this.text = str;
+        setText(str);
     }
 
-    private String getTextJson(String str) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("text", str);
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "getTextJson", e);
-        }
-        return jSONObject.toString();
+    public TextMsg() {
+        setMsgType(0);
     }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void setCastId(long j) {
-        this.castId = j;
-    }
-
-    public long getCastId() {
-        return this.castId;
-    }
-
-    public void setPriority(long j) {
-        this.priority = j;
-    }
-
-    public long getPriority() {
-        return this.priority;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        return getText();
+    public TextMsg(Parcel parcel) {
+        super(parcel);
+        this.text = parcel.readString();
+        this.castId = parcel.readLong();
+        this.priority = parcel.readLong();
     }
 }

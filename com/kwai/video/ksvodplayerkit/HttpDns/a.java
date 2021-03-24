@@ -3,48 +3,58 @@ package com.kwai.video.ksvodplayerkit.HttpDns;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a implements Comparable<a> {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f7263a;
+    public final String f37195a;
     @NonNull
-    public final String b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final String f37196b;
     @Nullable
-    public final f c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final f f37197c;
     @Nullable
-    public final Map<String, String> d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Map<String, String> f37198d;
     @NonNull
-    public String e;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f37199e;
 
     public a(@NonNull String str, @NonNull String str2, @Nullable f fVar) {
         this(str, str2, fVar, (Map<String, String>) null);
     }
 
     public a(@NonNull String str, @NonNull String str2, @Nullable f fVar, Map<String, String> map) {
-        this.f7263a = str;
-        this.b = str2;
-        this.c = fVar;
-        this.d = map;
+        this.f37195a = str;
+        this.f37196b = str2;
+        this.f37197c = fVar;
+        this.f37198d = map;
     }
 
     public a(@NonNull String str, @NonNull String str2, @NonNull String str3, @Nullable f fVar) {
-        this.f7263a = str;
-        this.b = str3;
-        this.c = fVar;
-        this.e = str2;
-        this.d = null;
+        this.f37195a = str;
+        this.f37196b = str3;
+        this.f37197c = fVar;
+        this.f37199e = str2;
+        this.f37198d = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(a aVar) {
-        if (this.c == null || aVar.c == null) {
+        f fVar;
+        f fVar2 = this.f37197c;
+        if (fVar2 == null || (fVar = aVar.f37197c) == null) {
             return 0;
         }
-        return (int) (this.c.e - aVar.c.e);
+        return (int) (fVar2.f37215e - fVar.f37215e);
     }
 
     public boolean equals(Object obj) {
@@ -52,8 +62,9 @@ public class a implements Comparable<a> {
             return true;
         }
         if (obj instanceof a) {
-            a aVar = (a) obj;
-            return this.b != null ? this.b.equals(aVar.b) : aVar.b == null;
+            String str = this.f37196b;
+            String str2 = ((a) obj).f37196b;
+            return str != null ? str.equals(str2) : str2 == null;
         }
         return false;
     }

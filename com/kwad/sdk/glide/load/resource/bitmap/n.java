@@ -7,7 +7,7 @@ import com.kwad.sdk.glide.load.ImageHeaderParser;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 @RequiresApi(27)
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class n implements ImageHeaderParser {
     @Override // com.kwad.sdk.glide.load.ImageHeaderParser
     public int a(@NonNull InputStream inputStream, @NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {

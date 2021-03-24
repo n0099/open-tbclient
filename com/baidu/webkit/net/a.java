@@ -3,28 +3,23 @@ package com.baidu.webkit.net;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdNet f3866a;
+    public final /* synthetic */ BdNet f27042a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(BdNet bdNet, Looper looper) {
         super(looper);
-        this.f3866a = bdNet;
+        this.f27042a = bdNet;
     }
 
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
-        switch (message.what) {
-            case 1:
-                this.f3866a.onStartError((BdNetTask) message.obj);
-                return;
-            default:
-                return;
+        if (message.what != 1) {
+            return;
         }
+        this.f27042a.onStartError((BdNetTask) message.obj);
     }
 }

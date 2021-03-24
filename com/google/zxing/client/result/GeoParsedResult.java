@@ -1,18 +1,42 @@
 package com.google.zxing.client.result;
-/* loaded from: classes4.dex */
-public final class GeoParsedResult extends ParsedResult {
-    private final double altitude;
-    private final double latitude;
-    private final double longitude;
-    private final String query;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public GeoParsedResult(double d, double d2, double d3, String str) {
+import com.baidu.android.common.others.lang.StringUtil;
+/* loaded from: classes6.dex */
+public final class GeoParsedResult extends ParsedResult {
+    public final double altitude;
+    public final double latitude;
+    public final double longitude;
+    public final String query;
+
+    public GeoParsedResult(double d2, double d3, double d4, String str) {
         super(ParsedResultType.GEO);
-        this.latitude = d;
-        this.longitude = d2;
-        this.altitude = d3;
+        this.latitude = d2;
+        this.longitude = d3;
+        this.altitude = d4;
         this.query = str;
+    }
+
+    public double getAltitude() {
+        return this.altitude;
+    }
+
+    @Override // com.google.zxing.client.result.ParsedResult
+    public String getDisplayResult() {
+        StringBuilder sb = new StringBuilder(20);
+        sb.append(this.latitude);
+        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+        sb.append(this.longitude);
+        if (this.altitude > 0.0d) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(this.altitude);
+            sb.append('m');
+        }
+        if (this.query != null) {
+            sb.append(" (");
+            sb.append(this.query);
+            sb.append(')');
+        }
+        return sb.toString();
     }
 
     public String getGeoURI() {
@@ -40,30 +64,7 @@ public final class GeoParsedResult extends ParsedResult {
         return this.longitude;
     }
 
-    public double getAltitude() {
-        return this.altitude;
-    }
-
     public String getQuery() {
         return this.query;
-    }
-
-    @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
-        StringBuilder sb = new StringBuilder(20);
-        sb.append(this.latitude);
-        sb.append(", ");
-        sb.append(this.longitude);
-        if (this.altitude > 0.0d) {
-            sb.append(", ");
-            sb.append(this.altitude);
-            sb.append('m');
-        }
-        if (this.query != null) {
-            sb.append(" (");
-            sb.append(this.query);
-            sb.append(')');
-        }
-        return sb.toString();
     }
 }

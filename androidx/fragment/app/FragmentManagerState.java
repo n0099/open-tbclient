@@ -2,8 +2,7 @@ package androidx.fragment.app;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public final class FragmentManagerState implements Parcelable {
     public static final Parcelable.Creator<FragmentManagerState> CREATOR = new Parcelable.Creator<FragmentManagerState>() { // from class: androidx.fragment.app.FragmentManagerState.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -20,23 +19,14 @@ public final class FragmentManagerState implements Parcelable {
             return new FragmentManagerState[i];
         }
     };
-    FragmentState[] mActive;
-    int[] mAdded;
-    BackStackState[] mBackStack;
-    int mNextFragmentIndex;
-    int mPrimaryNavActiveIndex;
+    public FragmentState[] mActive;
+    public int[] mAdded;
+    public BackStackState[] mBackStack;
+    public int mNextFragmentIndex;
+    public int mPrimaryNavActiveIndex;
 
     public FragmentManagerState() {
         this.mPrimaryNavActiveIndex = -1;
-    }
-
-    public FragmentManagerState(Parcel parcel) {
-        this.mPrimaryNavActiveIndex = -1;
-        this.mActive = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
-        this.mAdded = parcel.createIntArray();
-        this.mBackStack = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
-        this.mPrimaryNavActiveIndex = parcel.readInt();
-        this.mNextFragmentIndex = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -51,5 +41,14 @@ public final class FragmentManagerState implements Parcelable {
         parcel.writeTypedArray(this.mBackStack, i);
         parcel.writeInt(this.mPrimaryNavActiveIndex);
         parcel.writeInt(this.mNextFragmentIndex);
+    }
+
+    public FragmentManagerState(Parcel parcel) {
+        this.mPrimaryNavActiveIndex = -1;
+        this.mActive = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
+        this.mAdded = parcel.createIntArray();
+        this.mBackStack = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
+        this.mPrimaryNavActiveIndex = parcel.readInt();
+        this.mNextFragmentIndex = parcel.readInt();
     }
 }

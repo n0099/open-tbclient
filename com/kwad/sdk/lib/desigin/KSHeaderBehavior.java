@@ -11,38 +11,39 @@ import androidx.annotation.Keep;
 import androidx.core.math.MathUtils;
 import androidx.core.view.ViewCompat;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehavior<V> {
-    private static final int INVALID_POINTER = -1;
-    private int mActivePointerId;
-    private Runnable mFlingRunnable;
-    private boolean mIsBeingDragged;
-    private int mLastMotionY;
-    OverScroller mScroller;
-    private int mTouchSlop;
-    private VelocityTracker mVelocityTracker;
+    public static final int INVALID_POINTER = -1;
+    public int mActivePointerId;
+    public Runnable mFlingRunnable;
+    public boolean mIsBeingDragged;
+    public int mLastMotionY;
+    public OverScroller mScroller;
+    public int mTouchSlop;
+    public VelocityTracker mVelocityTracker;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class FlingRunnable implements Runnable {
-        private final V mLayout;
-        private final KSCoordinatorLayout mParent;
+        public final V mLayout;
+        public final KSCoordinatorLayout mParent;
 
-        FlingRunnable(KSCoordinatorLayout kSCoordinatorLayout, V v) {
+        public FlingRunnable(KSCoordinatorLayout kSCoordinatorLayout, V v) {
             this.mParent = kSCoordinatorLayout;
             this.mLayout = v;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.mLayout == null || KSHeaderBehavior.this.mScroller == null) {
+            OverScroller overScroller;
+            if (this.mLayout == null || (overScroller = KSHeaderBehavior.this.mScroller) == null) {
                 return;
             }
-            if (!KSHeaderBehavior.this.mScroller.computeScrollOffset()) {
+            if (!overScroller.computeScrollOffset()) {
                 KSHeaderBehavior.this.onFlingFinished(this.mParent, this.mLayout);
                 return;
             }
-            KSHeaderBehavior.this.setHeaderTopBottomOffset(this.mParent, this.mLayout, KSHeaderBehavior.this.mScroller.getCurrY());
+            KSHeaderBehavior kSHeaderBehavior = KSHeaderBehavior.this;
+            kSHeaderBehavior.setHeaderTopBottomOffset(this.mParent, this.mLayout, kSHeaderBehavior.mScroller.getCurrY());
             ViewCompat.postOnAnimation(this.mLayout, this);
         }
     }
@@ -64,25 +65,27 @@ public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehav
         }
     }
 
-    boolean canDragView(V v) {
+    public boolean canDragView(V v) {
         return false;
     }
 
-    final boolean fling(KSCoordinatorLayout kSCoordinatorLayout, V v, int i, int i2, float f) {
-        if (this.mFlingRunnable != null) {
-            v.removeCallbacks(this.mFlingRunnable);
+    public final boolean fling(KSCoordinatorLayout kSCoordinatorLayout, V v, int i, int i2, float f2) {
+        Runnable runnable = this.mFlingRunnable;
+        if (runnable != null) {
+            v.removeCallbacks(runnable);
             this.mFlingRunnable = null;
         }
         if (this.mScroller == null) {
             this.mScroller = new OverScroller(v.getContext());
         }
-        this.mScroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f), 0, 0, i, i2);
+        this.mScroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f2), 0, 0, i, i2);
         if (!this.mScroller.computeScrollOffset()) {
             onFlingFinished(kSCoordinatorLayout, v);
             return false;
         }
-        this.mFlingRunnable = new FlingRunnable(kSCoordinatorLayout, v);
-        ViewCompat.postOnAnimation(v, this.mFlingRunnable);
+        FlingRunnable flingRunnable = new FlingRunnable(kSCoordinatorLayout, v);
+        this.mFlingRunnable = flingRunnable;
+        ViewCompat.postOnAnimation(v, flingRunnable);
         return true;
     }
 
@@ -90,18 +93,24 @@ public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehav
         return -v.getHeight();
     }
 
-    int getScrollRangeForDragFling(V v) {
+    public int getScrollRangeForDragFling(V v) {
         return v.getHeight();
     }
 
-    int getTopBottomOffsetForScrollingSibling() {
+    public int getTopBottomOffsetForScrollingSibling() {
         return getTopAndBottomOffset();
     }
 
-    void onFlingFinished(KSCoordinatorLayout kSCoordinatorLayout, V v) {
+    public void onFlingFinished(KSCoordinatorLayout kSCoordinatorLayout, V v) {
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x002c, code lost:
+        if (r0 != 3) goto L17;
+     */
     @Override // com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean onInterceptTouchEvent(KSCoordinatorLayout kSCoordinatorLayout, V v, MotionEvent motionEvent) {
         int findPointerIndex;
         if (this.mTouchSlop < 0) {
@@ -110,48 +119,47 @@ public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehav
         if (motionEvent.getAction() == 2 && this.mIsBeingDragged) {
             return true;
         }
-        switch (motionEvent.getActionMasked()) {
-            case 0:
-                this.mIsBeingDragged = false;
-                int x = (int) motionEvent.getX();
-                int y = (int) motionEvent.getY();
-                if (canDragView(v) && kSCoordinatorLayout.isPointInChildBounds(v, x, y)) {
-                    this.mLastMotionY = y;
-                    this.mActivePointerId = motionEvent.getPointerId(0);
-                    ensureVelocityTracker();
-                    break;
-                }
-                break;
-            case 1:
-            case 3:
-                this.mIsBeingDragged = false;
-                this.mActivePointerId = -1;
-                if (this.mVelocityTracker != null) {
-                    this.mVelocityTracker.recycle();
-                    this.mVelocityTracker = null;
-                    break;
-                }
-                break;
-            case 2:
-                int i = this.mActivePointerId;
-                if (i != -1 && (findPointerIndex = motionEvent.findPointerIndex(i)) != -1) {
-                    int y2 = (int) motionEvent.getY(findPointerIndex);
-                    if (Math.abs(y2 - this.mLastMotionY) > this.mTouchSlop) {
-                        this.mIsBeingDragged = true;
-                        this.mLastMotionY = y2;
-                        break;
+        int actionMasked = motionEvent.getActionMasked();
+        if (actionMasked != 0) {
+            if (actionMasked != 1) {
+                if (actionMasked == 2) {
+                    int i = this.mActivePointerId;
+                    if (i != -1 && (findPointerIndex = motionEvent.findPointerIndex(i)) != -1) {
+                        int y = (int) motionEvent.getY(findPointerIndex);
+                        if (Math.abs(y - this.mLastMotionY) > this.mTouchSlop) {
+                            this.mIsBeingDragged = true;
+                            this.mLastMotionY = y;
+                        }
                     }
                 }
-                break;
+            }
+            this.mIsBeingDragged = false;
+            this.mActivePointerId = -1;
+            VelocityTracker velocityTracker = this.mVelocityTracker;
+            if (velocityTracker != null) {
+                velocityTracker.recycle();
+                this.mVelocityTracker = null;
+            }
+        } else {
+            this.mIsBeingDragged = false;
+            int x = (int) motionEvent.getX();
+            int y2 = (int) motionEvent.getY();
+            if (canDragView(v) && kSCoordinatorLayout.isPointInChildBounds(v, x, y2)) {
+                this.mLastMotionY = y2;
+                this.mActivePointerId = motionEvent.getPointerId(0);
+                ensureVelocityTracker();
+            }
         }
-        if (this.mVelocityTracker != null) {
-            this.mVelocityTracker.addMovement(motionEvent);
+        VelocityTracker velocityTracker2 = this.mVelocityTracker;
+        if (velocityTracker2 != null) {
+            velocityTracker2.addMovement(motionEvent);
         }
         return this.mIsBeingDragged;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00ad  */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0021, code lost:
+        if (r0 != 3) goto L15;
+     */
     @Override // com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -160,58 +168,55 @@ public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehav
         if (this.mTouchSlop < 0) {
             this.mTouchSlop = ViewConfiguration.get(kSCoordinatorLayout.getContext()).getScaledTouchSlop();
         }
-        switch (motionEvent.getActionMasked()) {
-            case 0:
-                int y = (int) motionEvent.getY();
-                if (kSCoordinatorLayout.isPointInChildBounds(v, (int) motionEvent.getX(), y) && canDragView(v)) {
-                    this.mLastMotionY = y;
-                    this.mActivePointerId = motionEvent.getPointerId(0);
-                    ensureVelocityTracker();
-                    break;
-                } else {
-                    return false;
-                }
-                break;
-            case 1:
-                if (this.mVelocityTracker != null) {
-                    this.mVelocityTracker.addMovement(motionEvent);
+        int actionMasked = motionEvent.getActionMasked();
+        if (actionMasked != 0) {
+            if (actionMasked == 1) {
+                VelocityTracker velocityTracker = this.mVelocityTracker;
+                if (velocityTracker != null) {
+                    velocityTracker.addMovement(motionEvent);
                     this.mVelocityTracker.computeCurrentVelocity(1000);
                     fling(kSCoordinatorLayout, v, -getScrollRangeForDragFling(v), 0, this.mVelocityTracker.getYVelocity(this.mActivePointerId));
                 }
-                this.mIsBeingDragged = false;
-                this.mActivePointerId = -1;
-                if (this.mVelocityTracker != null) {
-                    this.mVelocityTracker.recycle();
-                    this.mVelocityTracker = null;
-                    break;
-                }
-                break;
-            case 2:
+            } else if (actionMasked == 2) {
                 int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
                 if (findPointerIndex == -1) {
                     return false;
                 }
-                int y2 = (int) motionEvent.getY(findPointerIndex);
-                int i = this.mLastMotionY - y2;
-                if (!this.mIsBeingDragged && Math.abs(i) > this.mTouchSlop) {
-                    this.mIsBeingDragged = true;
-                    i = i > 0 ? i - this.mTouchSlop : i + this.mTouchSlop;
+                int y = (int) motionEvent.getY(findPointerIndex);
+                int i = this.mLastMotionY - y;
+                if (!this.mIsBeingDragged) {
+                    int abs = Math.abs(i);
+                    int i2 = this.mTouchSlop;
+                    if (abs > i2) {
+                        this.mIsBeingDragged = true;
+                        i = i > 0 ? i - i2 : i + i2;
+                    }
                 }
+                int i3 = i;
                 if (this.mIsBeingDragged) {
-                    this.mLastMotionY = y2;
-                    scroll(kSCoordinatorLayout, v, i, getMaxDragOffset(v), 0);
-                    break;
+                    this.mLastMotionY = y;
+                    scroll(kSCoordinatorLayout, v, i3, getMaxDragOffset(v), 0);
                 }
-                break;
-            case 3:
-                this.mIsBeingDragged = false;
-                this.mActivePointerId = -1;
-                if (this.mVelocityTracker != null) {
-                }
-                break;
+            }
+            this.mIsBeingDragged = false;
+            this.mActivePointerId = -1;
+            VelocityTracker velocityTracker2 = this.mVelocityTracker;
+            if (velocityTracker2 != null) {
+                velocityTracker2.recycle();
+                this.mVelocityTracker = null;
+            }
+        } else {
+            int y2 = (int) motionEvent.getY();
+            if (!kSCoordinatorLayout.isPointInChildBounds(v, (int) motionEvent.getX(), y2) || !canDragView(v)) {
+                return false;
+            }
+            this.mLastMotionY = y2;
+            this.mActivePointerId = motionEvent.getPointerId(0);
+            ensureVelocityTracker();
         }
-        if (this.mVelocityTracker != null) {
-            this.mVelocityTracker.addMovement(motionEvent);
+        VelocityTracker velocityTracker3 = this.mVelocityTracker;
+        if (velocityTracker3 != null) {
+            velocityTracker3.addMovement(motionEvent);
         }
         return true;
     }
@@ -224,7 +229,7 @@ public abstract class KSHeaderBehavior<V extends View> extends KSViewOffsetBehav
         return setHeaderTopBottomOffset(kSCoordinatorLayout, v, i, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    int setHeaderTopBottomOffset(KSCoordinatorLayout kSCoordinatorLayout, V v, int i, int i2, int i3) {
+    public int setHeaderTopBottomOffset(KSCoordinatorLayout kSCoordinatorLayout, V v, int i, int i2, int i3) {
         int clamp;
         int topAndBottomOffset = getTopAndBottomOffset();
         if (i2 == 0 || topAndBottomOffset < i2 || topAndBottomOffset > i3 || topAndBottomOffset == (clamp = MathUtils.clamp(i, i2, i3))) {

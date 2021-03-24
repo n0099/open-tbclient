@@ -22,41 +22,277 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes14.dex */
-final class AccessibilityViewEmbedder {
-    private static final String TAG = "AccessibilityBridge";
-    private int nextFlutterId;
-    private final View rootAccessibilityView;
-    private final ReflectionAccessors reflectionAccessors = new ReflectionAccessors();
-    private final SparseArray<ViewAndId> flutterIdToOrigin = new SparseArray<>();
-    private final Map<ViewAndId, Integer> originToFlutterId = new HashMap();
-    private final Map<View, Rect> embeddedViewToDisplayBounds = new HashMap();
+/* loaded from: classes7.dex */
+public final class AccessibilityViewEmbedder {
+    public static final String TAG = "AccessibilityBridge";
+    public int nextFlutterId;
+    public final View rootAccessibilityView;
+    public final ReflectionAccessors reflectionAccessors = new ReflectionAccessors();
+    public final SparseArray<ViewAndId> flutterIdToOrigin = new SparseArray<>();
+    public final Map<ViewAndId, Integer> originToFlutterId = new HashMap();
+    public final Map<View, Rect> embeddedViewToDisplayBounds = new HashMap();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes7.dex */
+    public static class ReflectionAccessors {
+        @Nullable
+        public final Field childNodeIdsField;
+        @Nullable
+        public final Method getChildId;
+        @Nullable
+        public final Method getParentNodeId;
+        @Nullable
+        public final Method getRecordSourceNodeId;
+        @Nullable
+        public final Method getSourceNodeId;
+        @Nullable
+        public final Method longArrayGetIndex;
+
+        /* JADX INFO: Access modifiers changed from: private */
+        @Nullable
+        public Long getChildId(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, int i) {
+            if (this.getChildId == null && (this.childNodeIdsField == null || this.longArrayGetIndex == null)) {
+                return null;
+            }
+            Method method = this.getChildId;
+            if (method != null) {
+                try {
+                    return (Long) method.invoke(accessibilityNodeInfo, Integer.valueOf(i));
+                } catch (IllegalAccessException e2) {
+                    Log.w("AccessibilityBridge", e2);
+                } catch (InvocationTargetException e3) {
+                    Log.w("AccessibilityBridge", e3);
+                }
+            } else {
+                try {
+                    return Long.valueOf(((Long) this.longArrayGetIndex.invoke(this.childNodeIdsField.get(accessibilityNodeInfo), Integer.valueOf(i))).longValue());
+                } catch (ArrayIndexOutOfBoundsException e4) {
+                    e = e4;
+                    Log.w("AccessibilityBridge", e);
+                    return null;
+                } catch (IllegalAccessException e5) {
+                    Log.w("AccessibilityBridge", e5);
+                } catch (InvocationTargetException e6) {
+                    e = e6;
+                    Log.w("AccessibilityBridge", e);
+                    return null;
+                }
+            }
+            return null;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        @Nullable
+        public Long getParentNodeId(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
+            Method method = this.getParentNodeId;
+            if (method != null) {
+                try {
+                    return Long.valueOf(((Long) method.invoke(accessibilityNodeInfo, new Object[0])).longValue());
+                } catch (IllegalAccessException e2) {
+                    Log.w("AccessibilityBridge", e2);
+                } catch (InvocationTargetException e3) {
+                    Log.w("AccessibilityBridge", e3);
+                }
+            }
+            return yoinkParentIdFromParcel(accessibilityNodeInfo);
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        @Nullable
+        public Long getRecordSourceNodeId(@NonNull AccessibilityRecord accessibilityRecord) {
+            Method method = this.getRecordSourceNodeId;
+            if (method == null) {
+                return null;
+            }
+            try {
+                return (Long) method.invoke(accessibilityRecord, new Object[0]);
+            } catch (IllegalAccessException e2) {
+                Log.w("AccessibilityBridge", e2);
+                return null;
+            } catch (InvocationTargetException e3) {
+                Log.w("AccessibilityBridge", e3);
+                return null;
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        @Nullable
+        public Long getSourceNodeId(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
+            Method method = this.getSourceNodeId;
+            if (method == null) {
+                return null;
+            }
+            try {
+                return (Long) method.invoke(accessibilityNodeInfo, new Object[0]);
+            } catch (IllegalAccessException e2) {
+                Log.w("AccessibilityBridge", e2);
+                return null;
+            } catch (InvocationTargetException e3) {
+                Log.w("AccessibilityBridge", e3);
+                return null;
+            }
+        }
+
+        public static int getVirtualNodeId(long j) {
+            return (int) (j >> 32);
+        }
+
+        public static boolean isBitSet(long j, int i) {
+            return (j & (1 << i)) != 0;
+        }
+
+        @Nullable
+        public static Long yoinkParentIdFromParcel(AccessibilityNodeInfo accessibilityNodeInfo) {
+            if (Build.VERSION.SDK_INT < 26) {
+                Log.w("AccessibilityBridge", "Unexpected Android version. Unable to find the parent ID.");
+                return null;
+            }
+            AccessibilityNodeInfo obtain = AccessibilityNodeInfo.obtain(accessibilityNodeInfo);
+            Parcel obtain2 = Parcel.obtain();
+            obtain2.setDataPosition(0);
+            obtain.writeToParcel(obtain2, 0);
+            obtain2.setDataPosition(0);
+            long readLong = obtain2.readLong();
+            if (isBitSet(readLong, 0)) {
+                obtain2.readInt();
+            }
+            if (isBitSet(readLong, 1)) {
+                obtain2.readLong();
+            }
+            if (isBitSet(readLong, 2)) {
+                obtain2.readInt();
+            }
+            Long valueOf = isBitSet(readLong, 3) ? Long.valueOf(obtain2.readLong()) : null;
+            obtain2.recycle();
+            return valueOf;
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r2v11, resolved type: java.lang.reflect.Method */
+        /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: java.lang.reflect.Method */
+        /* JADX WARN: Multi-variable type inference failed */
+        @SuppressLint({"PrivateApi"})
+        public ReflectionAccessors() {
+            Method method;
+            Method method2;
+            Method method3;
+            Field field;
+            Field declaredField;
+            Method method4;
+            Method method5;
+            Field field2;
+            Method method6 = null;
+            try {
+                method = AccessibilityNodeInfo.class.getMethod("getSourceNodeId", new Class[0]);
+            } catch (NoSuchMethodException unused) {
+                Log.w("AccessibilityBridge", "can't invoke AccessibilityNodeInfo#getSourceNodeId with reflection");
+                method = null;
+            }
+            try {
+                method2 = AccessibilityRecord.class.getMethod("getSourceNodeId", new Class[0]);
+            } catch (NoSuchMethodException unused2) {
+                Log.w("AccessibilityBridge", "can't invoke AccessibiiltyRecord#getSourceNodeId with reflection");
+                method2 = null;
+            }
+            if (Build.VERSION.SDK_INT <= 26) {
+                try {
+                    method5 = AccessibilityNodeInfo.class.getMethod("getParentNodeId", new Class[0]);
+                } catch (NoSuchMethodException unused3) {
+                    Log.w("AccessibilityBridge", "can't invoke getParentNodeId with reflection");
+                    method5 = null;
+                }
+                try {
+                    method3 = AccessibilityNodeInfo.class.getMethod("getChildId", Integer.TYPE);
+                    field2 = null;
+                } catch (NoSuchMethodException unused4) {
+                    Log.w("AccessibilityBridge", "can't invoke getChildId with reflection");
+                    method3 = null;
+                    field2 = null;
+                }
+                method6 = method5;
+                field = field2;
+            } else {
+                try {
+                    declaredField = AccessibilityNodeInfo.class.getDeclaredField("mChildNodeIds");
+                    declaredField.setAccessible(true);
+                    method4 = Class.forName("android.util.LongArray").getMethod("get", Integer.TYPE);
+                    method3 = null;
+                } catch (ClassNotFoundException | NoSuchFieldException | NoSuchMethodException | NullPointerException unused5) {
+                    Log.w("AccessibilityBridge", "can't access childNodeIdsField with reflection");
+                    method3 = null;
+                    field = null;
+                }
+                this.getSourceNodeId = method;
+                this.getParentNodeId = method6;
+                this.getRecordSourceNodeId = method2;
+                this.getChildId = method3;
+                this.childNodeIdsField = declaredField;
+                this.longArrayGetIndex = method4;
+            }
+            declaredField = field;
+            method4 = field;
+            this.getSourceNodeId = method;
+            this.getParentNodeId = method6;
+            this.getRecordSourceNodeId = method2;
+            this.getChildId = method3;
+            this.childNodeIdsField = declaredField;
+            this.longArrayGetIndex = method4;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class ViewAndId {
+        public final int id;
+        public final View view;
+
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof ViewAndId) {
+                ViewAndId viewAndId = (ViewAndId) obj;
+                return this.id == viewAndId.id && this.view.equals(viewAndId.view);
+            }
+            return false;
+        }
+
+        public int hashCode() {
+            return ((this.view.hashCode() + 31) * 31) + this.id;
+        }
+
+        public ViewAndId(View view, int i) {
+            this.view = view;
+            this.id = i;
+        }
+    }
+
     public AccessibilityViewEmbedder(@NonNull View view, int i) {
         this.rootAccessibilityView = view;
         this.nextFlutterId = i;
     }
 
-    public AccessibilityNodeInfo getRootNode(@NonNull View view, int i, @NonNull Rect rect) {
-        AccessibilityNodeInfo createAccessibilityNodeInfo = view.createAccessibilityNodeInfo();
-        Long sourceNodeId = this.reflectionAccessors.getSourceNodeId(createAccessibilityNodeInfo);
-        if (sourceNodeId == null) {
-            return null;
+    private void addChildrenToFlutterNode(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, @NonNull View view, @NonNull AccessibilityNodeInfo accessibilityNodeInfo2) {
+        int i;
+        for (int i2 = 0; i2 < accessibilityNodeInfo.getChildCount(); i2++) {
+            Long childId = this.reflectionAccessors.getChildId(accessibilityNodeInfo, i2);
+            if (childId != null) {
+                int virtualNodeId = ReflectionAccessors.getVirtualNodeId(childId.longValue());
+                ViewAndId viewAndId = new ViewAndId(view, virtualNodeId);
+                if (this.originToFlutterId.containsKey(viewAndId)) {
+                    i = this.originToFlutterId.get(viewAndId).intValue();
+                } else {
+                    int i3 = this.nextFlutterId;
+                    this.nextFlutterId = i3 + 1;
+                    cacheVirtualIdMappings(view, virtualNodeId, i3);
+                    i = i3;
+                }
+                accessibilityNodeInfo2.addChild(this.rootAccessibilityView, i);
+            }
         }
-        this.embeddedViewToDisplayBounds.put(view, rect);
-        cacheVirtualIdMappings(view, ReflectionAccessors.getVirtualNodeId(sourceNodeId.longValue()), i);
-        return convertToFlutterNode(createAccessibilityNodeInfo, i, view);
     }
 
-    @Nullable
-    public AccessibilityNodeInfo createAccessibilityNodeInfo(int i) {
-        AccessibilityNodeInfo createAccessibilityNodeInfo;
-        ViewAndId viewAndId = this.flutterIdToOrigin.get(i);
-        if (viewAndId != null && this.embeddedViewToDisplayBounds.containsKey(viewAndId.view) && viewAndId.view.getAccessibilityNodeProvider() != null && (createAccessibilityNodeInfo = viewAndId.view.getAccessibilityNodeProvider().createAccessibilityNodeInfo(viewAndId.id)) != null) {
-            return convertToFlutterNode(createAccessibilityNodeInfo, i, viewAndId.view);
-        }
-        return null;
+    private void cacheVirtualIdMappings(@NonNull View view, int i, int i2) {
+        ViewAndId viewAndId = new ViewAndId(view, i);
+        this.originToFlutterId.put(viewAndId, Integer.valueOf(i2));
+        this.flutterIdToOrigin.put(i2, viewAndId);
     }
 
     @NonNull
@@ -70,58 +306,6 @@ final class AccessibilityViewEmbedder {
         addChildrenToFlutterNode(accessibilityNodeInfo, view, obtain);
         setFlutterNodeParent(accessibilityNodeInfo, view, obtain);
         return obtain;
-    }
-
-    private void setFlutterNodeParent(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, @NonNull View view, @NonNull AccessibilityNodeInfo accessibilityNodeInfo2) {
-        Long parentNodeId = this.reflectionAccessors.getParentNodeId(accessibilityNodeInfo);
-        if (parentNodeId == null) {
-            return;
-        }
-        Integer num = this.originToFlutterId.get(new ViewAndId(view, ReflectionAccessors.getVirtualNodeId(parentNodeId.longValue())));
-        if (num != null) {
-            accessibilityNodeInfo2.setParent(this.rootAccessibilityView, num.intValue());
-        }
-    }
-
-    private void addChildrenToFlutterNode(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, @NonNull View view, @NonNull AccessibilityNodeInfo accessibilityNodeInfo2) {
-        int i;
-        int i2 = 0;
-        while (true) {
-            int i3 = i2;
-            if (i3 >= accessibilityNodeInfo.getChildCount()) {
-                return;
-            }
-            Long childId = this.reflectionAccessors.getChildId(accessibilityNodeInfo, i3);
-            if (childId != null) {
-                int virtualNodeId = ReflectionAccessors.getVirtualNodeId(childId.longValue());
-                ViewAndId viewAndId = new ViewAndId(view, virtualNodeId);
-                if (this.originToFlutterId.containsKey(viewAndId)) {
-                    i = this.originToFlutterId.get(viewAndId).intValue();
-                } else {
-                    i = this.nextFlutterId;
-                    this.nextFlutterId = i + 1;
-                    cacheVirtualIdMappings(view, virtualNodeId, i);
-                }
-                accessibilityNodeInfo2.addChild(this.rootAccessibilityView, i);
-            }
-            i2 = i3 + 1;
-        }
-    }
-
-    private void cacheVirtualIdMappings(@NonNull View view, int i, int i2) {
-        ViewAndId viewAndId = new ViewAndId(view, i);
-        this.originToFlutterId.put(viewAndId, Integer.valueOf(i2));
-        this.flutterIdToOrigin.put(i2, viewAndId);
-    }
-
-    private void setFlutterNodesTranslateBounds(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, @NonNull Rect rect, @NonNull AccessibilityNodeInfo accessibilityNodeInfo2) {
-        Rect rect2 = new Rect();
-        accessibilityNodeInfo.getBoundsInParent(rect2);
-        accessibilityNodeInfo2.setBoundsInParent(rect2);
-        Rect rect3 = new Rect();
-        accessibilityNodeInfo.getBoundsInScreen(rect3);
-        rect3.offset(rect.left, rect.top);
-        accessibilityNodeInfo2.setBoundsInScreen(rect3);
     }
 
     private void copyAccessibilityFields(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, @NonNull AccessibilityNodeInfo accessibilityNodeInfo2) {
@@ -172,6 +356,87 @@ final class AccessibilityViewEmbedder {
         }
     }
 
+    private void setFlutterNodeParent(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, @NonNull View view, @NonNull AccessibilityNodeInfo accessibilityNodeInfo2) {
+        Long parentNodeId = this.reflectionAccessors.getParentNodeId(accessibilityNodeInfo);
+        if (parentNodeId == null) {
+            return;
+        }
+        Integer num = this.originToFlutterId.get(new ViewAndId(view, ReflectionAccessors.getVirtualNodeId(parentNodeId.longValue())));
+        if (num != null) {
+            accessibilityNodeInfo2.setParent(this.rootAccessibilityView, num.intValue());
+        }
+    }
+
+    private void setFlutterNodesTranslateBounds(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, @NonNull Rect rect, @NonNull AccessibilityNodeInfo accessibilityNodeInfo2) {
+        Rect rect2 = new Rect();
+        accessibilityNodeInfo.getBoundsInParent(rect2);
+        accessibilityNodeInfo2.setBoundsInParent(rect2);
+        Rect rect3 = new Rect();
+        accessibilityNodeInfo.getBoundsInScreen(rect3);
+        rect3.offset(rect.left, rect.top);
+        accessibilityNodeInfo2.setBoundsInScreen(rect3);
+    }
+
+    @Nullable
+    public AccessibilityNodeInfo createAccessibilityNodeInfo(int i) {
+        AccessibilityNodeInfo createAccessibilityNodeInfo;
+        ViewAndId viewAndId = this.flutterIdToOrigin.get(i);
+        if (viewAndId == null || !this.embeddedViewToDisplayBounds.containsKey(viewAndId.view) || viewAndId.view.getAccessibilityNodeProvider() == null || (createAccessibilityNodeInfo = viewAndId.view.getAccessibilityNodeProvider().createAccessibilityNodeInfo(viewAndId.id)) == null) {
+            return null;
+        }
+        return convertToFlutterNode(createAccessibilityNodeInfo, i, viewAndId.view);
+    }
+
+    @Nullable
+    public Integer getRecordFlutterId(@NonNull View view, @NonNull AccessibilityRecord accessibilityRecord) {
+        Long recordSourceNodeId = this.reflectionAccessors.getRecordSourceNodeId(accessibilityRecord);
+        if (recordSourceNodeId == null) {
+            return null;
+        }
+        return this.originToFlutterId.get(new ViewAndId(view, ReflectionAccessors.getVirtualNodeId(recordSourceNodeId.longValue())));
+    }
+
+    public AccessibilityNodeInfo getRootNode(@NonNull View view, int i, @NonNull Rect rect) {
+        AccessibilityNodeInfo createAccessibilityNodeInfo = view.createAccessibilityNodeInfo();
+        Long sourceNodeId = this.reflectionAccessors.getSourceNodeId(createAccessibilityNodeInfo);
+        if (sourceNodeId == null) {
+            return null;
+        }
+        this.embeddedViewToDisplayBounds.put(view, rect);
+        cacheVirtualIdMappings(view, ReflectionAccessors.getVirtualNodeId(sourceNodeId.longValue()), i);
+        return convertToFlutterNode(createAccessibilityNodeInfo, i, view);
+    }
+
+    public boolean onAccessibilityHoverEvent(int i, @NonNull MotionEvent motionEvent) {
+        ViewAndId viewAndId = this.flutterIdToOrigin.get(i);
+        if (viewAndId == null) {
+            return false;
+        }
+        Rect rect = this.embeddedViewToDisplayBounds.get(viewAndId.view);
+        int pointerCount = motionEvent.getPointerCount();
+        MotionEvent.PointerProperties[] pointerPropertiesArr = new MotionEvent.PointerProperties[pointerCount];
+        MotionEvent.PointerCoords[] pointerCoordsArr = new MotionEvent.PointerCoords[pointerCount];
+        for (int i2 = 0; i2 < motionEvent.getPointerCount(); i2++) {
+            pointerPropertiesArr[i2] = new MotionEvent.PointerProperties();
+            motionEvent.getPointerProperties(i2, pointerPropertiesArr[i2]);
+            MotionEvent.PointerCoords pointerCoords = new MotionEvent.PointerCoords();
+            motionEvent.getPointerCoords(i2, pointerCoords);
+            pointerCoordsArr[i2] = new MotionEvent.PointerCoords(pointerCoords);
+            pointerCoordsArr[i2].x -= rect.left;
+            pointerCoordsArr[i2].y -= rect.top;
+        }
+        return viewAndId.view.dispatchGenericMotionEvent(MotionEvent.obtain(motionEvent.getDownTime(), motionEvent.getEventTime(), motionEvent.getAction(), motionEvent.getPointerCount(), pointerPropertiesArr, pointerCoordsArr, motionEvent.getMetaState(), motionEvent.getButtonState(), motionEvent.getXPrecision(), motionEvent.getYPrecision(), motionEvent.getDeviceId(), motionEvent.getEdgeFlags(), motionEvent.getSource(), motionEvent.getFlags()));
+    }
+
+    public boolean performAction(int i, int i2, @Nullable Bundle bundle) {
+        AccessibilityNodeProvider accessibilityNodeProvider;
+        ViewAndId viewAndId = this.flutterIdToOrigin.get(i);
+        if (viewAndId == null || (accessibilityNodeProvider = viewAndId.view.getAccessibilityNodeProvider()) == null) {
+            return false;
+        }
+        return accessibilityNodeProvider.performAction(viewAndId.id, i2, bundle);
+    }
+
     public boolean requestSendAccessibilityEvent(@NonNull View view, @NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
         AccessibilityEvent obtain = AccessibilityEvent.obtain(accessibilityEvent);
         Long recordSourceNodeId = this.reflectionAccessors.getRecordSourceNodeId(accessibilityEvent);
@@ -202,264 +467,5 @@ final class AccessibilityViewEmbedder {
             record.setSource(this.rootAccessibilityView, this.originToFlutterId.get(viewAndId).intValue());
         }
         return this.rootAccessibilityView.getParent().requestSendAccessibilityEvent(view2, obtain);
-    }
-
-    public boolean performAction(int i, int i2, @Nullable Bundle bundle) {
-        AccessibilityNodeProvider accessibilityNodeProvider;
-        ViewAndId viewAndId = this.flutterIdToOrigin.get(i);
-        if (viewAndId != null && (accessibilityNodeProvider = viewAndId.view.getAccessibilityNodeProvider()) != null) {
-            return accessibilityNodeProvider.performAction(viewAndId.id, i2, bundle);
-        }
-        return false;
-    }
-
-    @Nullable
-    public Integer getRecordFlutterId(@NonNull View view, @NonNull AccessibilityRecord accessibilityRecord) {
-        Long recordSourceNodeId = this.reflectionAccessors.getRecordSourceNodeId(accessibilityRecord);
-        if (recordSourceNodeId == null) {
-            return null;
-        }
-        return this.originToFlutterId.get(new ViewAndId(view, ReflectionAccessors.getVirtualNodeId(recordSourceNodeId.longValue())));
-    }
-
-    public boolean onAccessibilityHoverEvent(int i, @NonNull MotionEvent motionEvent) {
-        ViewAndId viewAndId = this.flutterIdToOrigin.get(i);
-        if (viewAndId == null) {
-            return false;
-        }
-        Rect rect = this.embeddedViewToDisplayBounds.get(viewAndId.view);
-        int pointerCount = motionEvent.getPointerCount();
-        MotionEvent.PointerProperties[] pointerPropertiesArr = new MotionEvent.PointerProperties[pointerCount];
-        MotionEvent.PointerCoords[] pointerCoordsArr = new MotionEvent.PointerCoords[pointerCount];
-        for (int i2 = 0; i2 < motionEvent.getPointerCount(); i2++) {
-            pointerPropertiesArr[i2] = new MotionEvent.PointerProperties();
-            motionEvent.getPointerProperties(i2, pointerPropertiesArr[i2]);
-            MotionEvent.PointerCoords pointerCoords = new MotionEvent.PointerCoords();
-            motionEvent.getPointerCoords(i2, pointerCoords);
-            pointerCoordsArr[i2] = new MotionEvent.PointerCoords(pointerCoords);
-            pointerCoordsArr[i2].x -= rect.left;
-            pointerCoordsArr[i2].y -= rect.top;
-        }
-        return viewAndId.view.dispatchGenericMotionEvent(MotionEvent.obtain(motionEvent.getDownTime(), motionEvent.getEventTime(), motionEvent.getAction(), motionEvent.getPointerCount(), pointerPropertiesArr, pointerCoordsArr, motionEvent.getMetaState(), motionEvent.getButtonState(), motionEvent.getXPrecision(), motionEvent.getYPrecision(), motionEvent.getDeviceId(), motionEvent.getEdgeFlags(), motionEvent.getSource(), motionEvent.getFlags()));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
-    public static class ViewAndId {
-        final int id;
-        final View view;
-
-        private ViewAndId(View view, int i) {
-            this.view = view;
-            this.id = i;
-        }
-
-        public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof ViewAndId) {
-                ViewAndId viewAndId = (ViewAndId) obj;
-                return this.id == viewAndId.id && this.view.equals(viewAndId.view);
-            }
-            return false;
-        }
-
-        public int hashCode() {
-            return ((this.view.hashCode() + 31) * 31) + this.id;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
-    public static class ReflectionAccessors {
-        @Nullable
-        private final Field childNodeIdsField;
-        @Nullable
-        private final Method getChildId;
-        @Nullable
-        private final Method getParentNodeId;
-        @Nullable
-        private final Method getRecordSourceNodeId;
-        @Nullable
-        private final Method getSourceNodeId;
-        @Nullable
-        private final Method longArrayGetIndex;
-
-        @SuppressLint({"PrivateApi"})
-        private ReflectionAccessors() {
-            Method method;
-            Method method2;
-            Method method3;
-            Field field;
-            Method method4;
-            Method method5;
-            try {
-                method = AccessibilityNodeInfo.class.getMethod("getSourceNodeId", new Class[0]);
-            } catch (NoSuchMethodException e) {
-                Log.w(AccessibilityViewEmbedder.TAG, "can't invoke AccessibilityNodeInfo#getSourceNodeId with reflection");
-                method = null;
-            }
-            try {
-                method2 = AccessibilityRecord.class.getMethod("getSourceNodeId", new Class[0]);
-            } catch (NoSuchMethodException e2) {
-                Log.w(AccessibilityViewEmbedder.TAG, "can't invoke AccessibiiltyRecord#getSourceNodeId with reflection");
-                method2 = null;
-            }
-            if (Build.VERSION.SDK_INT <= 26) {
-                try {
-                    method5 = AccessibilityNodeInfo.class.getMethod("getParentNodeId", new Class[0]);
-                } catch (NoSuchMethodException e3) {
-                    Log.w(AccessibilityViewEmbedder.TAG, "can't invoke getParentNodeId with reflection");
-                    method5 = null;
-                }
-                try {
-                    method4 = AccessibilityNodeInfo.class.getMethod("getChildId", Integer.TYPE);
-                    method3 = null;
-                    field = null;
-                } catch (NoSuchMethodException e4) {
-                    Log.w(AccessibilityViewEmbedder.TAG, "can't invoke getChildId with reflection");
-                    method3 = null;
-                    field = null;
-                    method4 = null;
-                }
-            } else {
-                try {
-                    field = AccessibilityNodeInfo.class.getDeclaredField("mChildNodeIds");
-                    field.setAccessible(true);
-                    method3 = Class.forName("android.util.LongArray").getMethod("get", Integer.TYPE);
-                    method4 = null;
-                    method5 = null;
-                } catch (ClassNotFoundException | NoSuchFieldException | NoSuchMethodException | NullPointerException e5) {
-                    Log.w(AccessibilityViewEmbedder.TAG, "can't access childNodeIdsField with reflection");
-                    method3 = null;
-                    field = null;
-                    method4 = null;
-                    method5 = null;
-                }
-            }
-            this.getSourceNodeId = method;
-            this.getParentNodeId = method5;
-            this.getRecordSourceNodeId = method2;
-            this.getChildId = method4;
-            this.childNodeIdsField = field;
-            this.longArrayGetIndex = method3;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public static int getVirtualNodeId(long j) {
-            return (int) (j >> 32);
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        @Nullable
-        public Long getSourceNodeId(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
-            if (this.getSourceNodeId == null) {
-                return null;
-            }
-            try {
-                return (Long) this.getSourceNodeId.invoke(accessibilityNodeInfo, new Object[0]);
-            } catch (IllegalAccessException e) {
-                Log.w(AccessibilityViewEmbedder.TAG, e);
-                return null;
-            } catch (InvocationTargetException e2) {
-                Log.w(AccessibilityViewEmbedder.TAG, e2);
-                return null;
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        @Nullable
-        public Long getChildId(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, int i) {
-            if (this.getChildId == null && (this.childNodeIdsField == null || this.longArrayGetIndex == null)) {
-                return null;
-            }
-            if (this.getChildId != null) {
-                try {
-                    return (Long) this.getChildId.invoke(accessibilityNodeInfo, Integer.valueOf(i));
-                } catch (IllegalAccessException e) {
-                    Log.w(AccessibilityViewEmbedder.TAG, e);
-                } catch (InvocationTargetException e2) {
-                    Log.w(AccessibilityViewEmbedder.TAG, e2);
-                }
-            } else {
-                try {
-                    return Long.valueOf(((Long) this.longArrayGetIndex.invoke(this.childNodeIdsField.get(accessibilityNodeInfo), Integer.valueOf(i))).longValue());
-                } catch (ArrayIndexOutOfBoundsException e3) {
-                    e = e3;
-                    Log.w(AccessibilityViewEmbedder.TAG, e);
-                    return null;
-                } catch (IllegalAccessException e4) {
-                    Log.w(AccessibilityViewEmbedder.TAG, e4);
-                } catch (InvocationTargetException e5) {
-                    e = e5;
-                    Log.w(AccessibilityViewEmbedder.TAG, e);
-                    return null;
-                }
-            }
-            return null;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        @Nullable
-        public Long getParentNodeId(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
-            if (this.getParentNodeId != null) {
-                try {
-                    return Long.valueOf(((Long) this.getParentNodeId.invoke(accessibilityNodeInfo, new Object[0])).longValue());
-                } catch (IllegalAccessException e) {
-                    Log.w(AccessibilityViewEmbedder.TAG, e);
-                } catch (InvocationTargetException e2) {
-                    Log.w(AccessibilityViewEmbedder.TAG, e2);
-                }
-            }
-            return yoinkParentIdFromParcel(accessibilityNodeInfo);
-        }
-
-        @Nullable
-        private static Long yoinkParentIdFromParcel(AccessibilityNodeInfo accessibilityNodeInfo) {
-            if (Build.VERSION.SDK_INT < 26) {
-                Log.w(AccessibilityViewEmbedder.TAG, "Unexpected Android version. Unable to find the parent ID.");
-            } else {
-                AccessibilityNodeInfo obtain = AccessibilityNodeInfo.obtain(accessibilityNodeInfo);
-                Parcel obtain2 = Parcel.obtain();
-                obtain2.setDataPosition(0);
-                obtain.writeToParcel(obtain2, 0);
-                obtain2.setDataPosition(0);
-                long readLong = obtain2.readLong();
-                if (isBitSet(readLong, 0)) {
-                    obtain2.readInt();
-                }
-                if (isBitSet(readLong, 1)) {
-                    obtain2.readLong();
-                }
-                if (isBitSet(readLong, 2)) {
-                    obtain2.readInt();
-                }
-                r0 = isBitSet(readLong, 3) ? Long.valueOf(obtain2.readLong()) : null;
-                obtain2.recycle();
-            }
-            return r0;
-        }
-
-        private static boolean isBitSet(long j, int i) {
-            return ((1 << i) & j) != 0;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        @Nullable
-        public Long getRecordSourceNodeId(@NonNull AccessibilityRecord accessibilityRecord) {
-            if (this.getRecordSourceNodeId == null) {
-                return null;
-            }
-            try {
-                return (Long) this.getRecordSourceNodeId.invoke(accessibilityRecord, new Object[0]);
-            } catch (IllegalAccessException e) {
-                Log.w(AccessibilityViewEmbedder.TAG, e);
-                return null;
-            } catch (InvocationTargetException e2) {
-                Log.w(AccessibilityViewEmbedder.TAG, e2);
-                return null;
-            }
-        }
     }
 }

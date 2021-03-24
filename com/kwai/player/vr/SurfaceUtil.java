@@ -3,17 +3,17 @@ package com.kwai.player.vr;
 import android.graphics.SurfaceTexture;
 import android.util.Log;
 import android.view.Surface;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SurfaceUtil {
-    private static final String TAG = "SurfaceUtil";
+    public static final String TAG = "SurfaceUtil";
 
     public static Surface create(SurfaceTexture surfaceTexture) {
         try {
             Surface surface = new Surface(surfaceTexture);
             Log.i(TAG, "create " + surface);
             return surface;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return null;
         }
     }
@@ -23,8 +23,8 @@ public class SurfaceUtil {
             try {
                 surface.release();
                 Log.i(TAG, "release " + surface);
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NotifyType implements Parcelable {
     public static final Parcelable.Creator<NotifyType> CREATOR = new Parcelable.Creator<NotifyType>() { // from class: com.meizu.cloud.pushsdk.notification.model.NotifyType.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -27,9 +27,9 @@ public class NotifyType implements Parcelable {
     public static final String SOUND = "s";
     public static final String TAG = "notify_type";
     public static final String VIBRATE = "v";
-    boolean lights;
-    boolean sound;
-    boolean vibrate;
+    public boolean lights;
+    public boolean sound;
+    public boolean vibrate;
 
     public NotifyType() {
     }
@@ -45,8 +45,8 @@ public class NotifyType implements Parcelable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e("notify_type", "parse json string error " + e.getMessage());
+            } catch (JSONException e2) {
+                d.j.a.a.a.b("notify_type", "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -55,9 +55,11 @@ public class NotifyType implements Parcelable {
     }
 
     public static NotifyType parse(JSONObject jSONObject) {
+        String str;
         NotifyType notifyType = new NotifyType();
         if (jSONObject != null) {
             try {
+                boolean z = true;
                 if (!jSONObject.isNull("v")) {
                     notifyType.setVibrate(jSONObject.getInt("v") != 0);
                 }
@@ -65,14 +67,18 @@ public class NotifyType implements Parcelable {
                     notifyType.setLights(jSONObject.getInt("l") != 0);
                 }
                 if (!jSONObject.isNull("s")) {
-                    notifyType.setSound(jSONObject.getInt("s") != 0);
+                    if (jSONObject.getInt("s") == 0) {
+                        z = false;
+                    }
+                    notifyType.setSound(z);
                 }
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e("notify_type", "parse json obj error " + e.getMessage());
+            } catch (JSONException e2) {
+                str = "parse json obj error " + e2.getMessage();
             }
-        } else {
-            com.meizu.cloud.a.a.e("notify_type", "no such tag notify_type");
+            return notifyType;
         }
+        str = "no such tag notify_type";
+        d.j.a.a.a.b("notify_type", str);
         return notifyType;
     }
 
@@ -111,8 +117,8 @@ public class NotifyType implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte((byte) (this.vibrate ? 1 : 0));
-        parcel.writeByte((byte) (this.lights ? 1 : 0));
-        parcel.writeByte((byte) (this.sound ? 1 : 0));
+        parcel.writeByte(this.vibrate ? (byte) 1 : (byte) 0);
+        parcel.writeByte(this.lights ? (byte) 1 : (byte) 0);
+        parcel.writeByte(this.sound ? (byte) 1 : (byte) 0);
     }
 }

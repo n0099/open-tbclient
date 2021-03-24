@@ -1,131 +1,134 @@
 package com.cmic.sso.sdk.d;
 
 import android.content.Context;
+import android.os.Build;
+import android.security.KeyPairGeneratorSpec;
+import android.security.keystore.KeyGenParameterSpec;
 import android.text.TextUtils;
-import com.cmic.sso.sdk.c.c.d;
-import com.cmic.sso.sdk.e.c;
-import com.cmic.sso.sdk.e.f;
-import com.cmic.sso.sdk.e.h;
-import com.cmic.sso.sdk.e.j;
-import com.cmic.sso.sdk.e.k;
-import com.cmic.sso.sdk.e.n;
-import com.cmic.sso.sdk.e.o;
-import com.cmic.sso.sdk.e.q;
-import com.sina.weibo.sdk.statistic.LogBuilder;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes14.dex */
+import android.util.Base64;
+import java.math.BigInteger;
+import java.security.KeyPairGenerator;
+import java.security.KeyStore;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.util.Calendar;
+import javax.crypto.Cipher;
+import javax.security.auth.x500.X500Principal;
+/* loaded from: classes6.dex */
 public class b {
-    private com.cmic.sso.sdk.a pyU;
-
-    private static void a(a aVar, com.cmic.sso.sdk.a aVar2) {
-        if (aVar != null && aVar2 != null) {
-            aVar.a(aVar2.b("appid", ""));
-            aVar.e(h.a() ? "1" : "0");
-            aVar.f(n.a());
-            aVar.i(aVar2.b("interfaceType", ""));
-            aVar.h(aVar2.b("interfaceCode", ""));
-            aVar.g(aVar2.b("interfaceElasped", ""));
-            aVar.l(aVar2.b("timeOut"));
-            aVar.t(aVar2.b("traceId"));
-            aVar.v(aVar2.b("networkClass"));
-            aVar.o(aVar2.b("simCardNum"));
-            aVar.p(aVar2.b("operatortype"));
-            aVar.q(n.b());
-            aVar.r(n.c());
-            aVar.y("quick_login_android_9.2.0.2");
-            aVar.z(String.valueOf(aVar2.b("networktype", 0)));
-            aVar.u(aVar2.b(LogBuilder.KEY_START_TIME));
-            aVar.w(aVar2.b(LogBuilder.KEY_END_TIME));
-            aVar.m(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
-            aVar.c(aVar2.b("imsiState"));
-            aVar.A(k.b("AID", ""));
-            aVar.XT(j.erL().f());
-            c.a("SendLog", "traceId" + aVar2.b("traceId"));
-        }
-    }
-
-    public void b(Context context, String str, com.cmic.sso.sdk.a aVar) {
+    public static boolean a(Context context, boolean z) {
         try {
-            a aVar2 = new a();
-            String b = f.b(context);
-            aVar2.d(str);
-            aVar2.x(aVar.b("loginMethod", ""));
-            if (aVar.b("isCacheScrip", false)) {
-                aVar2.s("scrip");
-            } else {
-                aVar2.s("pgw");
+            KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+            keyStore.load(null);
+            if (keyStore.getCertificate("CMCC_SDK") != null) {
+                return true;
             }
-            aVar2.j(f.a(context));
-            if (TextUtils.isEmpty(b)) {
-                b = "";
-            }
-            aVar2.k(b);
-            aVar2.b(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
-            a(aVar2, aVar);
-            JSONArray jSONArray = null;
-            if (a.pzC.size() > 0) {
-                JSONArray jSONArray2 = new JSONArray();
-                Iterator<Throwable> it = a.pzC.iterator();
-                while (it.hasNext()) {
-                    Throwable next = it.next();
-                    StringBuffer stringBuffer = new StringBuffer();
-                    JSONObject jSONObject = new JSONObject();
-                    for (StackTraceElement stackTraceElement : next.getStackTrace()) {
-                        stringBuffer.append("\n").append(stackTraceElement.toString());
-                    }
-                    jSONObject.put("message", next.toString());
-                    jSONObject.put("stack", stringBuffer.toString());
-                    jSONArray2.put(jSONObject);
-                }
-                a.pzC.clear();
-                jSONArray = jSONArray2;
-            }
-            if (jSONArray != null && jSONArray.length() > 0) {
-                aVar2.a(jSONArray);
-            }
-            c.a("SendLog", "登录日志");
-            a(aVar2.b(), aVar);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
+        if (z) {
+            return a(context);
+        }
+        return false;
     }
 
-    private void a(final JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
-        this.pyU = aVar;
-        o.a(new o.a() { // from class: com.cmic.sso.sdk.d.b.1
-            @Override // com.cmic.sso.sdk.e.o.a
-            protected void a() {
-                b.this.a(jSONObject);
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(JSONObject jSONObject) {
-        if (q.m() == 0 || q.l() == 0 || System.currentTimeMillis() > k.a("logCloseTime", 0L) + q.m()) {
-            com.cmic.sso.sdk.c.c.a.erG().a(jSONObject, this.pyU, new d() { // from class: com.cmic.sso.sdk.d.b.2
-                @Override // com.cmic.sso.sdk.c.c.d
-                public void i(String str, String str2, JSONObject jSONObject2) {
-                    if (!str.equals("103000")) {
-                        if (q.m() != 0 && q.l() != 0) {
-                            int a2 = k.a("logFailTimes", 0) + 1;
-                            k.a erM = k.erM();
-                            if (a2 >= q.l()) {
-                                erM.a("logFailTimes", 0);
-                                erM.a("logCloseTime", System.currentTimeMillis());
-                            } else {
-                                erM.a("logFailTimes", a2);
-                            }
-                            erM.b();
+    public static synchronized byte[] b(Context context) {
+        synchronized (b.class) {
+            byte[] bArr = null;
+            try {
+                KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+                keyStore.load(null);
+                if (TextUtils.isEmpty(b())) {
+                    if (!a(context, false)) {
+                        return null;
+                    }
+                    byte[] a2 = a();
+                    PublicKey publicKey = keyStore.getCertificate("CMCC_SDK").getPublicKey();
+                    Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                    cipher.init(1, publicKey);
+                    a(Base64.encodeToString(cipher.doFinal(a2), 0));
+                    bArr = a2;
+                } else {
+                    String b2 = b();
+                    if (!TextUtils.isEmpty(b2)) {
+                        byte[] decode = Base64.decode(b2, 0);
+                        PrivateKey privateKey = (PrivateKey) keyStore.getKey("CMCC_SDK", null);
+                        if (privateKey == null) {
+                            return null;
                         }
-                        c.a("SendLog", "request failed , url : " + q.g() + ">>>>>errorMsg : " + jSONObject2.toString());
-                        return;
+                        Cipher cipher2 = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                        cipher2.init(2, privateKey);
+                        bArr = cipher2.doFinal(decode);
                     }
-                    c.b("SendLog", "request success , url : " + q.g() + ">>>>result : " + jSONObject2.toString());
                 }
-            });
+                return bArr;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
+    }
+
+    public static boolean a(Context context) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            try {
+                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
+                keyPairGenerator.initialize(new KeyGenParameterSpec.Builder("CMCC_SDK", 3).setDigests("SHA-256", "SHA-512").setEncryptionPaddings("PKCS1Padding").setKeySize(2048).build());
+                Thread.sleep(1000L);
+                keyPairGenerator.generateKeyPair();
+                return true;
+            } catch (Exception e2) {
+                c.a("KeystoreUtil", e2.getMessage());
+                return false;
+            }
+        }
+        Calendar calendar = Calendar.getInstance();
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.add(1, 30);
+        try {
+            if (Build.VERSION.SDK_INT >= 18) {
+                KeyPairGeneratorSpec build = new KeyPairGeneratorSpec.Builder(context).setAlias("CMCC_SDK").setSubject(new X500Principal("CN=CMCC_SDK")).setSerialNumber(BigInteger.TEN).setStartDate(calendar.getTime()).setEndDate(calendar2.getTime()).build();
+                KeyPairGenerator keyPairGenerator2 = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
+                keyPairGenerator2.initialize(build);
+                Thread.sleep(1000L);
+                keyPairGenerator2.generateKeyPair();
+                return true;
+            }
+            return false;
+        } catch (Exception e3) {
+            c.a("KeystoreUtil", e3.getMessage());
+            return false;
+        }
+    }
+
+    public static String b(Context context, String str) {
+        byte[] b2;
+        if (TextUtils.isEmpty(str) || (b2 = b(context)) == null) {
+            return null;
+        }
+        return a.b(b2, str);
+    }
+
+    public static String b() {
+        return k.b("AES_KEY", "");
+    }
+
+    public static byte[] a() {
+        byte[] bArr = new byte[16];
+        new SecureRandom().nextBytes(bArr);
+        return bArr;
+    }
+
+    public static String a(Context context, String str) {
+        byte[] b2 = b(context);
+        if (b2 != null) {
+            return a.a(b2, str);
+        }
+        return null;
+    }
+
+    public static void a(String str) {
+        k.a("AES_KEY", str);
     }
 }

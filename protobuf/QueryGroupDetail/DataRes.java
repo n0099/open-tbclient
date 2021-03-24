@@ -8,7 +8,7 @@ import protobuf.ActivityInfo;
 import protobuf.GroupInfo;
 import protobuf.Photo;
 import protobuf.UserInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataRes extends Message {
     @ProtoField(tag = 12)
     public final ActivityInfo activity;
@@ -45,78 +45,7 @@ public final class DataRes extends Message {
     public static final Integer DEFAULT_ALREADYCREATENUM = 0;
     public static final Integer DEFAULT_LEFTCREATENUM = 0;
 
-    private DataRes(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            this.group = builder.group;
-            if (builder.photo == null) {
-                this.photo = DEFAULT_PHOTO;
-            } else {
-                this.photo = immutableCopyOf(builder.photo);
-            }
-            if (builder.member == null) {
-                this.member = DEFAULT_MEMBER;
-            } else {
-                this.member = immutableCopyOf(builder.member);
-            }
-            if (builder.joinGroupNum == null) {
-                this.joinGroupNum = DEFAULT_JOINGROUPNUM;
-            } else {
-                this.joinGroupNum = builder.joinGroupNum;
-            }
-            if (builder.canJoinGroupNum == null) {
-                this.canJoinGroupNum = DEFAULT_CANJOINGROUPNUM;
-            } else {
-                this.canJoinGroupNum = builder.canJoinGroupNum;
-            }
-            if (builder.isJoin == null) {
-                this.isJoin = DEFAULT_ISJOIN;
-            } else {
-                this.isJoin = builder.isJoin;
-            }
-            if (builder.isGroupManager == null) {
-                this.isGroupManager = DEFAULT_ISGROUPMANAGER;
-            } else {
-                this.isGroupManager = builder.isGroupManager;
-            }
-            if (builder.hideRecommendGroup == null) {
-                this.hideRecommendGroup = DEFAULT_HIDERECOMMENDGROUP;
-            } else {
-                this.hideRecommendGroup = builder.hideRecommendGroup;
-            }
-            if (builder.canCreateMember == null) {
-                this.canCreateMember = DEFAULT_CANCREATEMEMBER;
-            } else {
-                this.canCreateMember = builder.canCreateMember;
-            }
-            if (builder.alreadyCreateNum == null) {
-                this.alreadyCreateNum = DEFAULT_ALREADYCREATENUM;
-            } else {
-                this.alreadyCreateNum = builder.alreadyCreateNum;
-            }
-            if (builder.leftCreateNum == null) {
-                this.leftCreateNum = DEFAULT_LEFTCREATENUM;
-            } else {
-                this.leftCreateNum = builder.leftCreateNum;
-            }
-            this.activity = builder.activity;
-            return;
-        }
-        this.group = builder.group;
-        this.photo = immutableCopyOf(builder.photo);
-        this.member = immutableCopyOf(builder.member);
-        this.joinGroupNum = builder.joinGroupNum;
-        this.canJoinGroupNum = builder.canJoinGroupNum;
-        this.isJoin = builder.isJoin;
-        this.isGroupManager = builder.isGroupManager;
-        this.hideRecommendGroup = builder.hideRecommendGroup;
-        this.canCreateMember = builder.canCreateMember;
-        this.alreadyCreateNum = builder.alreadyCreateNum;
-        this.leftCreateNum = builder.leftCreateNum;
-        this.activity = builder.activity;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public ActivityInfo activity;
         public Integer alreadyCreateNum;
@@ -136,20 +65,21 @@ public final class DataRes extends Message {
 
         public Builder(DataRes dataRes) {
             super(dataRes);
-            if (dataRes != null) {
-                this.group = dataRes.group;
-                this.photo = DataRes.copyOf(dataRes.photo);
-                this.member = DataRes.copyOf(dataRes.member);
-                this.joinGroupNum = dataRes.joinGroupNum;
-                this.canJoinGroupNum = dataRes.canJoinGroupNum;
-                this.isJoin = dataRes.isJoin;
-                this.isGroupManager = dataRes.isGroupManager;
-                this.hideRecommendGroup = dataRes.hideRecommendGroup;
-                this.canCreateMember = dataRes.canCreateMember;
-                this.alreadyCreateNum = dataRes.alreadyCreateNum;
-                this.leftCreateNum = dataRes.leftCreateNum;
-                this.activity = dataRes.activity;
+            if (dataRes == null) {
+                return;
             }
+            this.group = dataRes.group;
+            this.photo = Message.copyOf(dataRes.photo);
+            this.member = Message.copyOf(dataRes.member);
+            this.joinGroupNum = dataRes.joinGroupNum;
+            this.canJoinGroupNum = dataRes.canJoinGroupNum;
+            this.isJoin = dataRes.isJoin;
+            this.isGroupManager = dataRes.isGroupManager;
+            this.hideRecommendGroup = dataRes.hideRecommendGroup;
+            this.canCreateMember = dataRes.canCreateMember;
+            this.alreadyCreateNum = dataRes.alreadyCreateNum;
+            this.leftCreateNum = dataRes.leftCreateNum;
+            this.activity = dataRes.activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,5 +87,86 @@ public final class DataRes extends Message {
         public DataRes build(boolean z) {
             return new DataRes(this, z);
         }
+    }
+
+    public DataRes(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.group = builder.group;
+            List<Photo> list = builder.photo;
+            if (list == null) {
+                this.photo = DEFAULT_PHOTO;
+            } else {
+                this.photo = Message.immutableCopyOf(list);
+            }
+            List<UserInfo> list2 = builder.member;
+            if (list2 == null) {
+                this.member = DEFAULT_MEMBER;
+            } else {
+                this.member = Message.immutableCopyOf(list2);
+            }
+            Integer num = builder.joinGroupNum;
+            if (num == null) {
+                this.joinGroupNum = DEFAULT_JOINGROUPNUM;
+            } else {
+                this.joinGroupNum = num;
+            }
+            Integer num2 = builder.canJoinGroupNum;
+            if (num2 == null) {
+                this.canJoinGroupNum = DEFAULT_CANJOINGROUPNUM;
+            } else {
+                this.canJoinGroupNum = num2;
+            }
+            Integer num3 = builder.isJoin;
+            if (num3 == null) {
+                this.isJoin = DEFAULT_ISJOIN;
+            } else {
+                this.isJoin = num3;
+            }
+            Integer num4 = builder.isGroupManager;
+            if (num4 == null) {
+                this.isGroupManager = DEFAULT_ISGROUPMANAGER;
+            } else {
+                this.isGroupManager = num4;
+            }
+            Integer num5 = builder.hideRecommendGroup;
+            if (num5 == null) {
+                this.hideRecommendGroup = DEFAULT_HIDERECOMMENDGROUP;
+            } else {
+                this.hideRecommendGroup = num5;
+            }
+            Integer num6 = builder.canCreateMember;
+            if (num6 == null) {
+                this.canCreateMember = DEFAULT_CANCREATEMEMBER;
+            } else {
+                this.canCreateMember = num6;
+            }
+            Integer num7 = builder.alreadyCreateNum;
+            if (num7 == null) {
+                this.alreadyCreateNum = DEFAULT_ALREADYCREATENUM;
+            } else {
+                this.alreadyCreateNum = num7;
+            }
+            Integer num8 = builder.leftCreateNum;
+            if (num8 == null) {
+                this.leftCreateNum = DEFAULT_LEFTCREATENUM;
+            } else {
+                this.leftCreateNum = num8;
+            }
+            this.activity = builder.activity;
+            return;
+        }
+        this.group = builder.group;
+        this.photo = Message.immutableCopyOf(builder.photo);
+        this.member = Message.immutableCopyOf(builder.member);
+        this.joinGroupNum = builder.joinGroupNum;
+        this.canJoinGroupNum = builder.canJoinGroupNum;
+        this.isJoin = builder.isJoin;
+        this.isGroupManager = builder.isGroupManager;
+        this.hideRecommendGroup = builder.hideRecommendGroup;
+        this.canCreateMember = builder.canCreateMember;
+        this.alreadyCreateNum = builder.alreadyCreateNum;
+        this.leftCreateNum = builder.leftCreateNum;
+        this.activity = builder.activity;
     }
 }

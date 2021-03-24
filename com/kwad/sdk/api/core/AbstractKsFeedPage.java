@@ -7,7 +7,7 @@ import com.kwad.sdk.api.KsFeedPage;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractKsFeedPage implements KsFeedPage {
     @Override // com.kwad.sdk.api.KsFeedPage
     @NonNull
@@ -20,5 +20,5 @@ public abstract class AbstractKsFeedPage implements KsFeedPage {
     @NonNull
     @KsAdSdkDynamicApi
     @Keep
-    protected abstract KsFragment getFragment2();
+    public abstract KsFragment getFragment2();
 }

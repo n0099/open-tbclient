@@ -9,74 +9,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMDatabase {
-    private static DbOpenHelper mDbHelper = null;
+    public static DbOpenHelper mDbHelper;
 
-    public static synchronized SQLiteDatabase getWritableDb(Context context, String str, long j) {
-        SQLiteDatabase sQLiteDatabase = null;
-        synchronized (IMDatabase.class) {
-            DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j);
-            if (dBOpenHelper != null) {
-                try {
-                    sQLiteDatabase = dBOpenHelper.getWritableDatabase();
-                } catch (Exception e) {
-                    mDbHelper = null;
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
-                }
-            }
-        }
-        return sQLiteDatabase;
-    }
-
-    public static synchronized SQLiteDatabase getReadableDb(Context context, String str, long j) {
-        SQLiteDatabase sQLiteDatabase = null;
-        synchronized (IMDatabase.class) {
-            DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j);
-            if (dBOpenHelper != null) {
-                try {
-                    sQLiteDatabase = dBOpenHelper.getReadableDatabase();
-                } catch (SQLException e) {
-                    mDbHelper = null;
-                    LogUtils.e("IMDatabase", "Exception ", e);
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
-                }
-            }
-        }
-        return sQLiteDatabase;
-    }
-
-    private static synchronized DbOpenHelper getDBOpenHelper(Context context, String str, long j) {
-        String str2;
-        DbOpenHelper dbOpenHelper;
-        synchronized (IMDatabase.class) {
-            String path = context.getDatabasePath(TableDefine.DB_NAME_PREFIX + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + ".db").getPath();
-            if (mDbHelper == null) {
-                mDbHelper = new DbOpenHelper(context, path, 49);
-            } else {
-                try {
-                    str2 = mDbHelper.getReadableDatabase().getPath();
-                } catch (SQLiteException e) {
-                    LogUtils.e("IMDatabase", "", e);
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
-                    str2 = "";
-                }
-                if (!str2.equals(path)) {
-                    mDbHelper.close();
-                    mDbHelper = null;
-                    mDbHelper = new DbOpenHelper(context, path, 49);
-                }
-            }
-            dbOpenHelper = mDbHelper;
-        }
-        return dbOpenHelper;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
-        private Context mContext;
+        public Context mContext;
 
         public DbOpenHelper(Context context, String str, int i) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, i);
@@ -89,14 +28,74 @@ public class IMDatabase {
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            DBVersionManager.getInstance(this.mContext).onUpgrade(sQLiteDatabase, i, i2);
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
         @TargetApi(11)
         public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             DBVersionManager.getInstance(this.mContext).onDowngrade(sQLiteDatabase, i, i2);
+        }
+
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            DBVersionManager.getInstance(this.mContext).onUpgrade(sQLiteDatabase, i, i2);
+        }
+    }
+
+    public static synchronized DbOpenHelper getDBOpenHelper(Context context, String str, long j) {
+        String path;
+        DbOpenHelper dbOpenHelper;
+        synchronized (IMDatabase.class) {
+            String path2 = context.getDatabasePath(TableDefine.DB_NAME_PREFIX + str + "_" + j + ".db").getPath();
+            if (mDbHelper == null) {
+                mDbHelper = new DbOpenHelper(context, path2, 49);
+            } else {
+                try {
+                    path = mDbHelper.getReadableDatabase().getPath();
+                } catch (SQLiteException e2) {
+                    LogUtils.e("IMDatabase", "", e2);
+                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                }
+                if (!path.equals(path2)) {
+                    mDbHelper.close();
+                    mDbHelper = null;
+                    mDbHelper = new DbOpenHelper(context, path2, 49);
+                }
+            }
+            dbOpenHelper = mDbHelper;
+        }
+        return dbOpenHelper;
+    }
+
+    public static synchronized SQLiteDatabase getReadableDb(Context context, String str, long j) {
+        synchronized (IMDatabase.class) {
+            DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j);
+            SQLiteDatabase sQLiteDatabase = null;
+            if (dBOpenHelper == null) {
+                return null;
+            }
+            try {
+                sQLiteDatabase = dBOpenHelper.getReadableDatabase();
+            } catch (SQLException e2) {
+                mDbHelper = null;
+                LogUtils.e("IMDatabase", "Exception ", e2);
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+            }
+            return sQLiteDatabase;
+        }
+    }
+
+    public static synchronized SQLiteDatabase getWritableDb(Context context, String str, long j) {
+        synchronized (IMDatabase.class) {
+            DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j);
+            SQLiteDatabase sQLiteDatabase = null;
+            if (dBOpenHelper == null) {
+                return null;
+            }
+            try {
+                sQLiteDatabase = dBOpenHelper.getWritableDatabase();
+            } catch (Exception e2) {
+                mDbHelper = null;
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+            }
+            return sQLiteDatabase;
         }
     }
 }

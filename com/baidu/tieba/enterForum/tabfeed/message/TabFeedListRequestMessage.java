@@ -1,13 +1,13 @@
 package com.baidu.tieba.enterForum.tabfeed.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.v;
+import d.b.b.e.p.l;
+import d.b.h0.z0.w;
 import tbclient.Tabfeedlist.DataReq;
 import tbclient.Tabfeedlist.TabfeedlistReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TabFeedListRequestMessage extends NetMessage {
     public static final int LOAD_RN = 30;
     public static final int LOAD_TYPE_LOADMORE = 2;
@@ -22,7 +22,7 @@ public class TabFeedListRequestMessage extends NetMessage {
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.load_type = Integer.valueOf(this.loadType);
@@ -30,16 +30,16 @@ public class TabFeedListRequestMessage extends NetMessage {
             builder.rn = 30;
             builder.tab_name = this.tabName;
             builder.tab_code = this.tabCode;
-            builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
-            builder.scr_d = Integer.valueOf((int) l.getEquipmentDensity(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
+            builder.scr_d = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
             if (z) {
-                v.b(builder, true);
+                w.a(builder, true);
             }
             TabfeedlistReqIdl.Builder builder2 = new TabfeedlistReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }

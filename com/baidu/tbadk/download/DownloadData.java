@@ -1,8 +1,9 @@
 package com.baidu.tbadk.download;
 
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
+import d.b.h0.v.c;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;
     public static final int FILE_DOWNLOAD_STATUS_DOWNLOADING = 1;
@@ -24,73 +25,33 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_NOVEL = 15;
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     public static final int FILE_DOWNLOAD_TYPE_PENDANT = 18;
-    private static final long serialVersionUID = 1402749061179345930L;
-    private String action;
-    private String app_icon;
-    private transient c callback;
-    private String check;
-    private String description;
-    private DownloadStaticsData downloadStaticsData;
-    private int errorCode;
-    private int height;
-    private String id;
-    private boolean isForceDownload;
-    private boolean isNeedInvokeApk;
-    private boolean isNeedNotify;
-    private long length;
-    private Object mExtraData;
-    private String name;
-    private int notifyId;
-    private String path;
-    private int position;
-    private long size;
-    private int status;
-    private String statusMsg;
-    private String[] tag;
-    private int type;
-    private String url;
-    private String user_name;
-    private int width;
-
-    public DownloadStaticsData getDownloadStaticsData() {
-        return this.downloadStaticsData;
-    }
-
-    public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
-        this.downloadStaticsData = downloadStaticsData;
-    }
-
-    public Object getExtra() {
-        return this.mExtraData;
-    }
-
-    public void setExtra(Object obj) {
-        this.mExtraData = obj;
-    }
-
-    public String getApp_icon() {
-        return this.app_icon;
-    }
-
-    public void setApp_icon(String str) {
-        this.app_icon = str;
-    }
-
-    public String getAction() {
-        return this.action;
-    }
-
-    public void setAction(String str) {
-        this.action = str;
-    }
-
-    public String[] getTag() {
-        return this.tag;
-    }
-
-    public void setTag(String[] strArr) {
-        this.tag = strArr;
-    }
+    public static final long serialVersionUID = 1402749061179345930L;
+    public String action;
+    public String app_icon;
+    public transient c callback;
+    public String check;
+    public String description;
+    public DownloadStaticsData downloadStaticsData;
+    public int errorCode;
+    public int height;
+    public String id;
+    public boolean isForceDownload;
+    public boolean isNeedInvokeApk;
+    public boolean isNeedNotify;
+    public long length;
+    public Object mExtraData;
+    public String name;
+    public int notifyId;
+    public String path;
+    public int position;
+    public long size;
+    public int status;
+    public String statusMsg;
+    public String[] tag;
+    public int type;
+    public String url;
+    public String user_name;
+    public int width;
 
     public DownloadData() {
         this.status = 5;
@@ -106,6 +67,230 @@ public class DownloadData implements Serializable, Cloneable {
         this.isNeedInvokeApk = true;
         this.isForceDownload = false;
         this.isNeedNotify = true;
+    }
+
+    public Object clone() {
+        try {
+            return (DownloadData) super.clone();
+        } catch (CloneNotSupportedException e2) {
+            e2.printStackTrace();
+            return null;
+        }
+    }
+
+    public String getAction() {
+        return this.action;
+    }
+
+    public String getApp_icon() {
+        return this.app_icon;
+    }
+
+    public c getCallback() {
+        return this.callback;
+    }
+
+    public String getCheck() {
+        return this.check;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public DownloadStaticsData getDownloadStaticsData() {
+        return this.downloadStaticsData;
+    }
+
+    public int getErrorCode() {
+        return this.errorCode;
+    }
+
+    public Object getExtra() {
+        return this.mExtraData;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public long getLength() {
+        return this.length;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getNotifyId() {
+        return this.notifyId;
+    }
+
+    public String getPath() {
+        return this.path;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public int getProcess() {
+        if (getLength() > 0 && getSize() > 0) {
+            return (int) ((getLength() * 100) / getSize());
+        }
+        return 0;
+    }
+
+    public long getSize() {
+        return this.size;
+    }
+
+    public int getStatus() {
+        return this.status;
+    }
+
+    public String getStatusMsg() {
+        return this.statusMsg;
+    }
+
+    public String[] getTag() {
+        return this.tag;
+    }
+
+    public int getType() {
+        return this.type;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public String getUser_name() {
+        return this.user_name;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public boolean isForceDownload() {
+        return this.isForceDownload;
+    }
+
+    public boolean isNeedInvokeApk() {
+        return this.isNeedInvokeApk;
+    }
+
+    public boolean isNeedNotify() {
+        return this.isNeedNotify;
+    }
+
+    public void setAction(String str) {
+        this.action = str;
+    }
+
+    public void setApp_icon(String str) {
+        this.app_icon = str;
+    }
+
+    public void setCallback(c cVar) {
+        this.callback = cVar;
+    }
+
+    public void setCheck(String str) {
+        this.check = str;
+    }
+
+    public void setDescription(String str) {
+        this.description = str;
+    }
+
+    public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
+        this.downloadStaticsData = downloadStaticsData;
+    }
+
+    public void setErrorCode(int i) {
+        this.errorCode = i;
+    }
+
+    public void setExtra(Object obj) {
+        this.mExtraData = obj;
+    }
+
+    public void setForceDownload(boolean z) {
+        this.isForceDownload = z;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public void setId(String str) {
+        this.id = str;
+    }
+
+    public void setLength(long j) {
+        this.length = j;
+    }
+
+    public void setName(String str) {
+        this.name = str;
+    }
+
+    public void setNeedInvokeApk(boolean z) {
+        this.isNeedInvokeApk = z;
+    }
+
+    public void setNeedNotify(boolean z) {
+        this.isNeedNotify = z;
+    }
+
+    public void setNotifyId(int i) {
+        this.notifyId = i;
+    }
+
+    public void setPath(String str) {
+        this.path = str;
+    }
+
+    public void setPosition(int i) {
+        this.position = i;
+    }
+
+    public void setSize(long j) {
+        this.size = j;
+    }
+
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public void setStatusMsg(String str) {
+        this.statusMsg = str;
+    }
+
+    public void setTag(String[] strArr) {
+        this.tag = strArr;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
+    public void setUser_name(String str) {
+        this.user_name = str;
+    }
+
+    public void setWidth(int i) {
+        this.width = i;
     }
 
     public DownloadData(String str) {
@@ -162,189 +347,5 @@ public class DownloadData implements Serializable, Cloneable {
         this.url = str3;
         this.callback = cVar;
         this.status = 5;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String str) {
-        this.id = str;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String str) {
-        this.name = str;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String str) {
-        this.description = str;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
-
-    public String getPath() {
-        return this.path;
-    }
-
-    public void setPath(String str) {
-        this.path = str;
-    }
-
-    public int getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(int i) {
-        this.status = i;
-    }
-
-    public int getType() {
-        return this.type;
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public long getLength() {
-        return this.length;
-    }
-
-    public void setLength(long j) {
-        this.length = j;
-    }
-
-    public long getSize() {
-        return this.size;
-    }
-
-    public void setSize(long j) {
-        this.size = j;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public void setWidth(int i) {
-        this.width = i;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public String getCheck() {
-        return this.check;
-    }
-
-    public void setCheck(String str) {
-        this.check = str;
-    }
-
-    public c getCallback() {
-        return this.callback;
-    }
-
-    public void setCallback(c cVar) {
-        this.callback = cVar;
-    }
-
-    public String getStatusMsg() {
-        return this.statusMsg;
-    }
-
-    public void setStatusMsg(String str) {
-        this.statusMsg = str;
-    }
-
-    public int getPosition() {
-        return this.position;
-    }
-
-    public void setPosition(int i) {
-        this.position = i;
-    }
-
-    public int getNotifyId() {
-        return this.notifyId;
-    }
-
-    public void setNotifyId(int i) {
-        this.notifyId = i;
-    }
-
-    public int getErrorCode() {
-        return this.errorCode;
-    }
-
-    public void setErrorCode(int i) {
-        this.errorCode = i;
-    }
-
-    public int getProcess() {
-        if (getLength() > 0 && getSize() > 0) {
-            return (int) ((getLength() * 100) / getSize());
-        }
-        return 0;
-    }
-
-    public boolean isNeedInvokeApk() {
-        return this.isNeedInvokeApk;
-    }
-
-    public void setNeedInvokeApk(boolean z) {
-        this.isNeedInvokeApk = z;
-    }
-
-    public boolean isForceDownload() {
-        return this.isForceDownload;
-    }
-
-    public void setForceDownload(boolean z) {
-        this.isForceDownload = z;
-    }
-
-    public boolean isNeedNotify() {
-        return this.isNeedNotify;
-    }
-
-    public void setNeedNotify(boolean z) {
-        this.isNeedNotify = z;
-    }
-
-    public String getUser_name() {
-        return this.user_name;
-    }
-
-    public void setUser_name(String str) {
-        this.user_name = str;
-    }
-
-    public Object clone() {
-        try {
-            return (DownloadData) super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 }

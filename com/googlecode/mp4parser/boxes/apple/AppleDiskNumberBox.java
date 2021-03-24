@@ -1,72 +1,74 @@
 package com.googlecode.mp4parser.boxes.apple;
 
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import g.a.a.a;
+import g.a.b.b.b;
 import java.nio.ByteBuffer;
-import org.aspectj.a.b.b;
-import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AppleDiskNumberBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_3 = null;
 
     /* renamed from: a  reason: collision with root package name */
-    int f5283a;
-    short b;
+    public int f31061a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public short f31062b;
 
     static {
         ajc$preClinit();
-    }
-
-    private static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("AppleDiskNumberBox.java", AppleDiskNumberBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getA", "com.googlecode.mp4parser.boxes.apple.AppleDiskNumberBox", "", "", "", "int"), 16);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setA", "com.googlecode.mp4parser.boxes.apple.AppleDiskNumberBox", "int", "a", "", "void"), 20);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getB", "com.googlecode.mp4parser.boxes.apple.AppleDiskNumberBox", "", "", "", "short"), 24);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setB", "com.googlecode.mp4parser.boxes.apple.AppleDiskNumberBox", "short", com.baidu.pass.biometrics.face.liveness.d.b.f2804a, "", "void"), 28);
     }
 
     public AppleDiskNumberBox() {
         super("disk", 0);
     }
 
-    public int getA() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this));
-        return this.f5283a;
+    public static /* synthetic */ void ajc$preClinit() {
+        b bVar = new b("AppleDiskNumberBox.java", AppleDiskNumberBox.class);
+        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getA", "com.googlecode.mp4parser.boxes.apple.AppleDiskNumberBox", "", "", "", "int"), 16);
+        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "setA", "com.googlecode.mp4parser.boxes.apple.AppleDiskNumberBox", "int", "a", "", "void"), 20);
+        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "getB", "com.googlecode.mp4parser.boxes.apple.AppleDiskNumberBox", "", "", "", "short"), 24);
+        ajc$tjp_3 = bVar.g("method-execution", bVar.f("1", "setB", "com.googlecode.mp4parser.boxes.apple.AppleDiskNumberBox", "short", "b", "", "void"), 28);
     }
 
-    public void setA(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Sw(i)));
-        this.f5283a = i;
+    public int getA() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
+        return this.f31061a;
     }
 
     public short getB() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this));
-        return this.b;
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
+        return this.f31062b;
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
+    public int getDataLength() {
+        return 6;
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
+    public void parseData(ByteBuffer byteBuffer) {
+        this.f31061a = byteBuffer.getInt();
+        this.f31062b = byteBuffer.getShort();
+    }
+
+    public void setA(int i) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
+        this.f31061a = i;
     }
 
     public void setB(short s) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.m(s)));
-        this.b = s;
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.g(s)));
+        this.f31062b = s;
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    protected byte[] writeData() {
+    public byte[] writeData() {
         ByteBuffer allocate = ByteBuffer.allocate(6);
-        allocate.putInt(this.f5283a);
-        allocate.putShort(this.b);
+        allocate.putInt(this.f31061a);
+        allocate.putShort(this.f31062b);
         return allocate.array();
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    protected void parseData(ByteBuffer byteBuffer) {
-        this.f5283a = byteBuffer.getInt();
-        this.b = byteBuffer.getShort();
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    protected int getDataLength() {
-        return 6;
     }
 }

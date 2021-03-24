@@ -7,16 +7,21 @@ import android.widget.FrameLayout;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.FitWindowsViewGroup;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class FitWindowsFrameLayout extends FrameLayout implements FitWindowsViewGroup {
-    private FitWindowsViewGroup.OnFitSystemWindowsListener mListener;
+    public FitWindowsViewGroup.OnFitSystemWindowsListener mListener;
 
     public FitWindowsFrameLayout(Context context) {
         super(context);
     }
 
-    public FitWindowsFrameLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    @Override // android.view.View
+    public boolean fitSystemWindows(Rect rect) {
+        FitWindowsViewGroup.OnFitSystemWindowsListener onFitSystemWindowsListener = this.mListener;
+        if (onFitSystemWindowsListener != null) {
+            onFitSystemWindowsListener.onFitSystemWindows(rect);
+        }
+        return super.fitSystemWindows(rect);
     }
 
     @Override // androidx.appcompat.widget.FitWindowsViewGroup
@@ -24,11 +29,7 @@ public class FitWindowsFrameLayout extends FrameLayout implements FitWindowsView
         this.mListener = onFitSystemWindowsListener;
     }
 
-    @Override // android.view.View
-    protected boolean fitSystemWindows(Rect rect) {
-        if (this.mListener != null) {
-            this.mListener.onFitSystemWindows(rect);
-        }
-        return super.fitSystemWindows(rect);
+    public FitWindowsFrameLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

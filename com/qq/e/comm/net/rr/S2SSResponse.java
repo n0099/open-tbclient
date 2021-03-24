@@ -3,7 +3,7 @@ package com.qq.e.comm.net.rr;
 import com.qq.e.comm.net.rr.a;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class S2SSResponse extends AbstractResponse {
     public S2SSResponse(HttpURLConnection httpURLConnection) {
         super(httpURLConnection);
@@ -13,8 +13,8 @@ public class S2SSResponse extends AbstractResponse {
     public byte[] getBytesContent() throws IllegalStateException, IOException {
         try {
             return a.b(super.getBytesContent());
-        } catch (a.b e) {
-            e.printStackTrace();
+        } catch (a.b e2) {
+            e2.printStackTrace();
             return null;
         }
     }

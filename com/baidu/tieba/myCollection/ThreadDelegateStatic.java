@@ -7,49 +7,60 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
-public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    @Override // com.baidu.tbadk.mainTab.b
-    public boolean isAvailable() {
-        return true;
-    }
+import d.b.h0.e0.b;
+import d.b.h0.e0.c;
+/* loaded from: classes4.dex */
+public class ThreadDelegateStatic extends b {
 
-    @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
-        com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.frag = ThreadFragment.dhQ();
-        cVar.type = 1;
-        cVar.textResId = R.string.collect_thread;
-        return cVar;
-    }
+    /* loaded from: classes4.dex */
+    public static class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
 
-    @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
-        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        return this.mIndicator;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            c fragmentTabStructure;
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof d.b.h0.q.a)) {
+                d.b.h0.q.a aVar = (d.b.h0.q.a) customResponsedMessage.getData();
+                ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
+                aVar.a(threadDelegateStatic);
+                if (aVar.b() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
+                    return;
+                }
+                fragmentTabStructure.f50154a.setArguments(new Bundle());
+            }
+        }
     }
 
     static {
-        CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.myCollection.ThreadDelegateStatic.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.tbadk.mainTab.c fragmentTabStructure;
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.collectTab.a)) {
-                    com.baidu.tbadk.collectTab.a aVar = (com.baidu.tbadk.collectTab.a) customResponsedMessage.getData();
-                    ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-                    aVar.a(threadDelegateStatic);
-                    if (aVar.getContext() != null && (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) != null) {
-                        fragmentTabStructure.frag.setArguments(new Bundle());
-                    }
-                }
-            }
-        };
-        customMessageListener.setPriority(1);
-        MessageManager.getInstance().registerListener(customMessageListener);
+        a aVar = new a(2016207);
+        aVar.setPriority(1);
+        MessageManager.getInstance().registerListener(aVar);
+    }
+
+    @Override // d.b.h0.e0.b
+    public c createFragmentTabStructure() {
+        c cVar = new c();
+        cVar.f50154a = ThreadFragment.T0();
+        cVar.f50158e = 1;
+        cVar.f50155b = R.string.collect_thread;
+        return cVar;
+    }
+
+    @Override // d.b.h0.e0.b
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.mIndicator = fragmentTabIndicator;
+        return fragmentTabIndicator;
+    }
+
+    @Override // d.b.h0.e0.b
+    public boolean isAvailable() {
+        return true;
     }
 }

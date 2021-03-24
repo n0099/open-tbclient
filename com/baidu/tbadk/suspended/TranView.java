@@ -6,22 +6,54 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Scroller;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TranView extends View {
-    private a fNu;
-    private Scroller mScroller;
 
-    /* loaded from: classes.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public Scroller f14014e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public a f14015f;
+
+    /* loaded from: classes3.dex */
     public interface a {
-        void bES();
-    }
-
-    public void setScrollCallBack(a aVar) {
-        this.fNu = aVar;
+        void a();
     }
 
     public TranView(Context context) {
         super(context);
+    }
+
+    @Override // android.view.View
+    public void computeScroll() {
+        super.computeScroll();
+        Scroller scroller = this.f14014e;
+        if (scroller == null) {
+            return;
+        }
+        if (scroller.computeScrollOffset()) {
+            int currY = this.f14014e.getCurrY();
+            ViewGroup.LayoutParams layoutParams = getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.height = currY;
+                setLayoutParams(layoutParams);
+                return;
+            }
+            return;
+        }
+        a aVar = this.f14015f;
+        if (aVar != null) {
+            aVar.a();
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        canvas.drawColor(0);
+    }
+
+    public void setScrollCallBack(a aVar) {
+        this.f14015f = aVar;
     }
 
     public TranView(Context context, AttributeSet attributeSet) {
@@ -30,27 +62,5 @@ public class TranView extends View {
 
     public TranView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        canvas.drawColor(0);
-    }
-
-    @Override // android.view.View
-    public void computeScroll() {
-        super.computeScroll();
-        if (this.mScroller != null) {
-            if (this.mScroller.computeScrollOffset()) {
-                int currY = this.mScroller.getCurrY();
-                ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                if (layoutParams != null) {
-                    layoutParams.height = currY;
-                    setLayoutParams(layoutParams);
-                }
-            } else if (this.fNu != null) {
-                this.fNu.bES();
-            }
-        }
     }
 }

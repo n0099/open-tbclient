@@ -4,11 +4,12 @@ import android.annotation.TargetApi;
 import android.media.MediaFormat;
 import android.media.MediaPlayer;
 import android.os.Build;
-/* loaded from: classes3.dex */
+import com.baidu.android.common.others.lang.StringUtil;
+/* loaded from: classes6.dex */
 public class AndroidTrackInfo implements ITrackInfo {
-    private final MediaPlayer.TrackInfo mTrackInfo;
+    public final MediaPlayer.TrackInfo mTrackInfo;
 
-    private AndroidTrackInfo(MediaPlayer.TrackInfo trackInfo) {
+    public AndroidTrackInfo(MediaPlayer.TrackInfo trackInfo) {
         this.mTrackInfo = trackInfo;
     }
 
@@ -19,7 +20,7 @@ public class AndroidTrackInfo implements ITrackInfo {
         return null;
     }
 
-    private static AndroidTrackInfo[] fromTrackInfo(MediaPlayer.TrackInfo[] trackInfoArr) {
+    public static AndroidTrackInfo[] fromTrackInfo(MediaPlayer.TrackInfo[] trackInfoArr) {
         if (trackInfoArr == null) {
             return null;
         }
@@ -34,7 +35,8 @@ public class AndroidTrackInfo implements ITrackInfo {
     @TargetApi(19)
     public IMediaFormat getFormat() {
         MediaFormat format;
-        if (this.mTrackInfo == null || Build.VERSION.SDK_INT < 19 || (format = this.mTrackInfo.getFormat()) == null) {
+        MediaPlayer.TrackInfo trackInfo = this.mTrackInfo;
+        if (trackInfo == null || Build.VERSION.SDK_INT < 19 || (format = trackInfo.getFormat()) == null) {
             return null;
         }
         return new AndroidMediaFormat(format);
@@ -43,34 +45,34 @@ public class AndroidTrackInfo implements ITrackInfo {
     @Override // com.kwai.video.player.misc.ITrackInfo
     @TargetApi(16)
     public String getInfoInline() {
-        return this.mTrackInfo != null ? this.mTrackInfo.toString() : "null";
+        MediaPlayer.TrackInfo trackInfo = this.mTrackInfo;
+        return trackInfo != null ? trackInfo.toString() : StringUtil.NULL_STRING;
     }
 
     @Override // com.kwai.video.player.misc.ITrackInfo
     @TargetApi(16)
     public String getLanguage() {
-        return this.mTrackInfo == null ? "und" : this.mTrackInfo.getLanguage();
+        MediaPlayer.TrackInfo trackInfo = this.mTrackInfo;
+        return trackInfo == null ? "und" : trackInfo.getLanguage();
     }
 
     @Override // com.kwai.video.player.misc.ITrackInfo
     @TargetApi(16)
     public int getTrackType() {
-        if (this.mTrackInfo == null) {
+        MediaPlayer.TrackInfo trackInfo = this.mTrackInfo;
+        if (trackInfo == null) {
             return 0;
         }
-        return this.mTrackInfo.getTrackType();
+        return trackInfo.getTrackType();
     }
 
     @TargetApi(16)
     public String toString() {
         StringBuilder sb = new StringBuilder(128);
-        sb.append(getClass().getSimpleName());
+        sb.append(AndroidTrackInfo.class.getSimpleName());
         sb.append('{');
-        if (this.mTrackInfo != null) {
-            sb.append(this.mTrackInfo.toString());
-        } else {
-            sb.append("null");
-        }
+        MediaPlayer.TrackInfo trackInfo = this.mTrackInfo;
+        sb.append(trackInfo != null ? trackInfo.toString() : StringUtil.NULL_STRING);
         sb.append('}');
         return sb.toString();
     }

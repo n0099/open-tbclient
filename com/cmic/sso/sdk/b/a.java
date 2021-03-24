@@ -1,347 +1,78 @@
 package com.cmic.sso.sdk.b;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Handler;
-import android.os.SystemClock;
 import android.text.TextUtils;
-import com.cmic.sso.sdk.e.g;
-import com.cmic.sso.sdk.e.h;
-import com.cmic.sso.sdk.e.j;
-import com.cmic.sso.sdk.e.k;
-import com.cmic.sso.sdk.e.n;
-import com.cmic.sso.sdk.e.o;
-import com.cmic.sso.sdk.e.p;
-import com.cmic.sso.sdk.e.q;
-import com.cmic.sso.sdk.e.s;
-import com.cmic.sso.sdk.e.t;
-import com.sina.weibo.sdk.statistic.LogBuilder;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes14.dex */
+import com.cmic.sso.sdk.b.b.d;
+import com.cmic.sso.sdk.b.b.g;
+import com.cmic.sso.sdk.b.c.c;
+import com.cmic.sso.sdk.b.d.b;
+import com.cmic.sso.sdk.d.s;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes6.dex */
 public class a {
-    @SuppressLint({"StaticFieldLeak"})
-    private static a pyQ = null;
-    private Context mContext;
-    private Handler mHandler;
-    private final Object mObject;
-    private c pyP;
-    private long pyR;
-    private String pyS;
 
-    private a(Context context) {
-        this.pyR = 8000L;
-        this.mObject = new Object();
-        this.mContext = context.getApplicationContext();
-        this.mHandler = new Handler(this.mContext.getMainLooper());
-        this.pyP = c.ie(this.mContext);
-        t.m54if(this.mContext);
-        k.a(this.mContext);
-        j.a(this.mContext);
-        o.a(new o.a() { // from class: com.cmic.sso.sdk.b.a.1
-            @Override // com.cmic.sso.sdk.e.o.a
-            protected void a() {
-                String b = k.b("AID", "");
-                com.cmic.sso.sdk.e.c.b("AuthnHelper", "aid = " + b);
-                if (TextUtils.isEmpty(b)) {
-                    a.this.erE();
-                }
-                if (com.cmic.sso.sdk.e.b.a(a.this.mContext, true)) {
-                    com.cmic.sso.sdk.e.c.b("AuthnHelper", "生成androidkeystore成功");
+    /* renamed from: a  reason: collision with root package name */
+    public String f30579a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f30580b;
+
+    public c a(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
+        List<String> list;
+        Map<String, List<String>> b2 = bVar.b();
+        if (TextUtils.isEmpty(this.f30579a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
+            this.f30579a = list.get(0);
+        }
+        s.b(aVar, String.valueOf(bVar.a()));
+        List<String> list2 = b2.get("Location");
+        if (list2 == null || list2.isEmpty()) {
+            list2 = b2.get("Location".toLowerCase());
+        }
+        if (list2 != null && list2.size() > 0) {
+            String str = list2.get(0);
+            this.f30580b = str;
+            if (!TextUtils.isEmpty(str)) {
+                String b3 = aVar.b("operatortype", "0");
+                if ("2".equals(b3)) {
+                    s.a(aVar, "getUnicomMobile");
+                } else if ("3".equals(b3)) {
+                    s.a(aVar, "getTelecomMobile");
                 } else {
-                    com.cmic.sso.sdk.e.c.b("AuthnHelper", "生成androidkeystore失败");
-                }
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void erE() {
-        String str = "%" + s.a();
-        com.cmic.sso.sdk.e.c.b("AuthnHelper", "generate aid = " + str);
-        k.a erM = k.erM();
-        erM.a("AID", str);
-        erM.b();
-    }
-
-    private a(Context context, String str) {
-        this(context);
-        this.pyS = str;
-    }
-
-    public static a ic(Context context) {
-        if (pyQ == null) {
-            synchronized (a.class) {
-                if (pyQ == null) {
-                    pyQ = new a(context);
+                    s.a(aVar, "NONE");
                 }
             }
         }
-        return pyQ;
+        c a2 = a(this.f30580b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
+        a2.a(cVar.h());
+        return a2;
     }
 
-    public static a bw(Context context, String str) {
-        if (pyQ == null) {
-            synchronized (a.class) {
-                if (pyQ == null) {
-                    pyQ = new a(context, str);
-                }
-            }
-        }
-        return pyQ;
-    }
-
-    public void a(final String str, final String str2, final b bVar) {
-        final com.cmic.sso.sdk.a a2 = a(bVar);
-        o.a(new o.a(this.mContext, a2) { // from class: com.cmic.sso.sdk.b.a.2
-            @Override // com.cmic.sso.sdk.e.o.a
-            protected void a() {
-                if (a.this.a(a2, str, str2, "loginAuth", 1, bVar)) {
-                    a.this.a(a2);
-                }
-            }
-        });
-    }
-
-    public void b(final String str, final String str2, final b bVar) {
-        final com.cmic.sso.sdk.a a2 = a(bVar);
-        o.a(new o.a(this.mContext, a2) { // from class: com.cmic.sso.sdk.b.a.3
-            @Override // com.cmic.sso.sdk.e.o.a
-            protected void a() {
-                if (a.this.a(a2, str, str2, "mobileAuth", 0, bVar)) {
-                    a.this.a(a2);
-                }
-            }
-        });
-    }
-
-    public void c(final String str, final String str2, final b bVar) {
-        final com.cmic.sso.sdk.a a2 = a(bVar);
-        o.a(new o.a(this.mContext, a2) { // from class: com.cmic.sso.sdk.b.a.4
-            @Override // com.cmic.sso.sdk.e.o.a
-            protected void a() {
-                if (a.this.a(a2, str, str2, "preGetMobile", 3, bVar)) {
-                    a.this.a(a2);
-                }
-            }
-        });
-    }
-
-    private com.cmic.sso.sdk.a a(b bVar) {
-        com.cmic.sso.sdk.a aVar = new com.cmic.sso.sdk.a(64);
-        String b = s.b();
-        aVar.a("traceId", b);
-        if (bVar != null) {
-            com.cmic.sso.sdk.e.e.a(b, bVar);
-        }
-        return aVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public class RunnableC1054a implements Runnable {
-        private com.cmic.sso.sdk.a pzb;
-
-        RunnableC1054a(com.cmic.sso.sdk.a aVar) {
-            this.pzb = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            JSONObject a2;
-            if (!t.m54if(a.this.mContext).a() && this.pzb.b("doNetworkSwitch", false)) {
-                a2 = e.a("102508", "数据网络切换失败");
-            } else {
-                a2 = e.a("200023", "登录超时");
-            }
-            a.this.a(a2.optString("resultCode", "200023"), a2.optString("resultString", "登录超时"), this.pzb, a2);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.cmic.sso.sdk.a aVar) {
-        final RunnableC1054a runnableC1054a = new RunnableC1054a(aVar);
-        this.mHandler.postDelayed(runnableC1054a, this.pyR);
-        this.pyP.a(aVar, new d() { // from class: com.cmic.sso.sdk.b.a.5
-            @Override // com.cmic.sso.sdk.b.d
-            public void b(String str, String str2, com.cmic.sso.sdk.a aVar2, JSONObject jSONObject) {
-                a.this.mHandler.removeCallbacks(runnableC1054a);
-                a.this.a(str, str2, aVar2, jSONObject);
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(com.cmic.sso.sdk.a aVar, String str, String str2, String str3, int i, b bVar) {
-        boolean z;
-        aVar.a("CLOSE_CERT_VERIFY", q.h());
-        aVar.a("use2048PublicKey", "rsa2048".equals(this.pyS));
-        aVar.a("systemStartTime", SystemClock.elapsedRealtime());
-        aVar.a(LogBuilder.KEY_START_TIME, p.a());
-        aVar.a("loginMethod", str3);
-        aVar.a("appkey", str2);
-        aVar.a("appid", str);
-        aVar.a("timeOut", String.valueOf(this.pyR));
-        boolean z2 = false;
-        if (g.a(this.mContext, "android.permission.READ_PHONE_STATE")) {
-            z2 = true;
-        }
-        com.cmic.sso.sdk.e.c.a("AuthnHelper", "有READ_PHONE_STATE权限？" + z2);
-        aVar.a("hsaReadPhoneStatePermission", z2);
-        com.cmic.sso.sdk.a.b.erC().a(this.mContext, z2);
-        aVar.a("networkClass", com.cmic.sso.sdk.a.b.erC().a(this.mContext));
-        aVar.a("simCardNum", String.valueOf(com.cmic.sso.sdk.a.b.erC().erD().i()));
-        String b = j.erL().b();
-        String Bd = j.erL().Bd(z2);
-        String e = j.e();
-        String a2 = j.erL().a(false);
-        aVar.a("imsi", b);
-        aVar.a("imei", Bd);
-        aVar.a("operatortype", a2);
-        aVar.a("iccid", e);
-        aVar.a("logintype", i);
-        com.cmic.sso.sdk.e.c.b("AuthnHelper", "iccid=" + e);
-        com.cmic.sso.sdk.e.c.b("AuthnHelper", "imsi=" + b);
-        if (TextUtils.isEmpty(b)) {
-            com.cmic.sso.sdk.e.c.a("AuthnHelper", "使用iccid作为缓存key");
-            aVar.a("keyIsSimKeyICCID", true);
-        }
-        int a3 = n.a(this.mContext, a2);
-        aVar.a("networktype", a3);
-        synchronized (this.mObject) {
-            boolean c = h.c(aVar);
-            if (c) {
-                aVar.a("securityphone", k.b("securityphone", ""));
-                if (3 != i && a3 != 0) {
-                    String a4 = h.a(this.mContext);
-                    if (!TextUtils.isEmpty(a4)) {
-                        aVar.a("sourceid", k.b("sourceid", ""));
-                        aVar.a("phonescrip", a4);
-                    } else {
-                        c = false;
-                    }
-                    h.a(true, false);
-                    z = c;
-                    aVar.a("isCacheScrip", z);
-                    com.cmic.sso.sdk.e.c.b("AuthnHelper", "isCachePhoneScrip = " + z);
-                }
-            }
-            z = c;
-            aVar.a("isCacheScrip", z);
-            com.cmic.sso.sdk.e.c.b("AuthnHelper", "isCachePhoneScrip = " + z);
-        }
-        if (bVar == null) {
-            a("102203", "listener不能为空", aVar, null);
-            return false;
-        } else if (q.d()) {
-            a("200082", "服务器繁忙，请稍后重试", aVar, null);
-            return false;
+    public c b(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
+        String b2 = aVar.b("operatortype", "0");
+        if ("2".equals(b2)) {
+            s.a(aVar, "getNewUnicomPhoneNumberNotify");
+        } else if ("3".equals(b2)) {
+            s.a(aVar, "getNewTelecomPhoneNumberNotify");
         } else {
-            if (TextUtils.isEmpty(str == null ? "" : str.trim())) {
-                a("102203", "appId 不能为空", aVar, null);
-                return false;
-            }
-            if (TextUtils.isEmpty(str2 == null ? "" : str2.trim())) {
-                a("102203", "appkey不能为空", aVar, null);
-                return false;
-            } else if (a3 == 0) {
-                a("102101", "未检测到网络", aVar, null);
-                return false;
-            } else if (TextUtils.isEmpty(a2)) {
-                aVar.a("authtype", String.valueOf(0));
-                a("200010", "无法识别sim卡或没有sim卡", aVar, null);
-                return false;
-            } else if (a3 == 2 && !z) {
-                a("102103", "无数据网络", aVar, null);
-                return false;
-            } else if ("2".equals(a2) && q.i()) {
-                a("200082", "服务器繁忙，请稍后重试", aVar, null);
-                return false;
-            } else if ("3".equals(a2) && q.j()) {
-                a("200082", "服务器繁忙，请稍后重试", aVar, null);
-                return false;
-            } else {
-                return true;
-            }
+            s.a(aVar, "NONE");
         }
+        s.b(aVar, String.valueOf(bVar.a()));
+        d dVar = new d(cVar.k().a(), "1.0", bVar.c());
+        c a2 = a("http://www.cmpassport.com/unisdk" + this.f30579a, cVar.f(), "POST", dVar);
+        a2.a(cVar.h());
+        this.f30579a = null;
+        return a2;
     }
 
-    public void a(String str, String str2, final com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {
-        final JSONObject c;
-        try {
-            String b = aVar.b("traceId");
-            if (!com.cmic.sso.sdk.e.e.a(b)) {
-                synchronized (this) {
-                    final b Zq = com.cmic.sso.sdk.e.e.Zq(b);
-                    com.cmic.sso.sdk.e.e.b(b);
-                    if (Zq != null) {
-                        aVar.a("systemEndTime", SystemClock.elapsedRealtime());
-                        aVar.a(LogBuilder.KEY_END_TIME, p.a());
-                        int b2 = aVar.b("logintype", -1);
-                        if (jSONObject == null) {
-                            jSONObject = e.a(str, str2);
-                        }
-                        if (b2 == 3) {
-                            c = e.a(str, aVar, jSONObject);
-                        } else {
-                            c = e.c(str, str2, aVar, jSONObject);
-                        }
-                        this.mHandler.post(new Runnable() { // from class: com.cmic.sso.sdk.b.a.6
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Zq.onGetTokenComplete(c);
-                            }
-                        });
-                        a(this.mContext, str, aVar);
-                        if (aVar.b("isNeedToGetCert", false) || q.a()) {
-                            o.a(new o.a() { // from class: com.cmic.sso.sdk.b.a.7
-                                @Override // com.cmic.sso.sdk.e.o.a
-                                protected void a() {
-                                    q.b(aVar);
-                                }
-                            });
-                        }
-                    } else {
-                        return;
-                    }
-                }
-            }
-            if (com.cmic.sso.sdk.e.e.a()) {
-                t.m54if(this.mContext).b();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    private c a(String str, String str2, String str3, g gVar) {
+        c cVar = new c(str, gVar, str3, str2);
+        if (str3.equals("GET")) {
+            cVar.a("Content-Type", "application/x-www-form-urlencoded");
         }
+        return cVar;
     }
 
-    private void a(Context context, String str, com.cmic.sso.sdk.a aVar) {
-        if (!q.k()) {
-            new com.cmic.sso.sdk.d.b().b(context, str, aVar);
-        }
-    }
-
-    public void iz(long j) {
-        this.pyR = j;
-    }
-
-    public JSONObject id(Context context) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            com.cmic.sso.sdk.a.b.erC().a(context, g.a(context, "android.permission.READ_PHONE_STATE"));
-            String a2 = j.erL().a(true);
-            int a3 = n.a(context, a2);
-            jSONObject.put("operatortype", a2);
-            jSONObject.put("networktype", a3 + "");
-            com.cmic.sso.sdk.e.c.b("AuthnHelper", "网络类型: " + a3);
-            com.cmic.sso.sdk.e.c.b("AuthnHelper", "运营商类型: " + a2);
-        } catch (Exception e) {
-            try {
-                jSONObject.put("errorDes", "发生未知错误");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-        return jSONObject;
+    public String a() {
+        return this.f30579a;
     }
 }

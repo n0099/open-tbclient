@@ -8,92 +8,109 @@ import android.graphics.Path;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.barselect.a.d;
-/* loaded from: classes7.dex */
+import d.b.i0.v.e.d;
+/* loaded from: classes4.dex */
 public class VoteStatusView extends View {
-    private boolean ivZ;
-    public int iwa;
-    public int iwb;
-    public int iwc;
-    private Path iwd;
-    private Path iwe;
-    private Path iwf;
-    private Path iwg;
-    private Path iwh;
-    private Paint mPaint;
-    private Shader mShader;
-    private int status;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f15218e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f15219f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Paint f15220g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Shader f15221h;
+    public int i;
+    public int j;
+    public int k;
+    public Path l;
+    public Path m;
+    public Path n;
+    public Path o;
+    public Path p;
 
     public VoteStatusView(Context context) {
         this(context, null);
     }
 
-    public VoteStatusView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.status = -1;
-        this.ivZ = true;
-        initUI();
+    public final void a() {
+        this.k = SkinManager.getColor(R.color.CAM_X0204);
+        this.i = SkinManager.getColor(R.color.CAM_X0303);
+        this.j = SkinManager.getColor(R.color.CAM_X0302);
+        Paint paint = new Paint();
+        this.f15220g = paint;
+        paint.setAntiAlias(true);
+        this.f15220g.setStyle(Paint.Style.FILL);
+        this.f15220g.setColor(this.k);
+        this.l = new Path();
+        this.m = new Path();
+        this.n = new Path();
+        this.o = new Path();
+        this.p = new Path();
     }
 
-    private void initUI() {
-        this.iwc = ap.getColor(R.color.CAM_X0204);
-        this.iwa = ap.getColor(R.color.CAM_X0303);
-        this.iwb = ap.getColor(R.color.CAM_X0302);
-        this.mPaint = new Paint();
-        this.mPaint.setAntiAlias(true);
-        this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(this.iwc);
-        this.iwd = new Path();
-        this.iwe = new Path();
-        this.iwf = new Path();
-        this.iwg = new Path();
-        this.iwh = new Path();
-    }
-
-    public void setStatus(int i) {
-        this.status = i;
+    public void b(int i) {
+        this.i = SkinManager.getColor(i, R.color.CAM_X0303);
+        this.j = SkinManager.getColor(i, R.color.CAM_X0302);
+        this.k = SkinManager.getColor(i, R.color.CAM_X0204);
+        this.f15219f = true;
         invalidate();
     }
 
     @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         int height = (canvas.getHeight() - getPaddingBottom()) - getPaddingTop();
         int width = (canvas.getWidth() - getPaddingLeft()) - getPaddingRight();
-        int i = height * 6 >= width ? width / 6 : height;
-        this.iwd.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
-        this.iwe.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
-        this.iwf.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
-        this.iwg.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
-        this.iwh.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
-        this.mPaint.setColor(this.iwc);
-        this.mPaint.setShader(null);
-        if (this.mShader == null || this.ivZ) {
-            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.iwa, this.iwb, Shader.TileMode.CLAMP);
-            this.ivZ = false;
+        if (height * 6 >= width) {
+            height = width / 6;
         }
-        if (this.status == d.ivi) {
-            this.mPaint.setShader(this.mShader);
+        int i = height / 2;
+        float f2 = i;
+        this.l.addCircle(f2, f2, f2, Path.Direction.CW);
+        float f3 = width / 2;
+        this.m.addCircle(f3, f2, f2, Path.Direction.CW);
+        float f4 = width - i;
+        this.n.addCircle(f4, f2, f2, Path.Direction.CW);
+        float f5 = (height * 9) / 26;
+        float f6 = (height * 17) / 26;
+        this.o.addRect(f2, f5, f3, f6, Path.Direction.CW);
+        this.p.addRect(f3, f5, f4, f6, Path.Direction.CW);
+        this.f15220g.setColor(this.k);
+        this.f15220g.setShader(null);
+        if (this.f15221h == null || this.f15219f) {
+            this.f15221h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.i, this.j, Shader.TileMode.CLAMP);
+            this.f15219f = false;
         }
-        canvas.drawPath(this.iwh, this.mPaint);
-        canvas.drawPath(this.iwf, this.mPaint);
-        if (this.status == d.ivh) {
-            this.mPaint.setShader(this.mShader);
+        if (this.f15218e == d.f61960c) {
+            this.f15220g.setShader(this.f15221h);
         }
-        canvas.drawPath(this.iwg, this.mPaint);
-        canvas.drawPath(this.iwe, this.mPaint);
-        if (this.status == d.ivg) {
-            this.mPaint.setShader(this.mShader);
+        canvas.drawPath(this.p, this.f15220g);
+        canvas.drawPath(this.n, this.f15220g);
+        if (this.f15218e == d.f61959b) {
+            this.f15220g.setShader(this.f15221h);
         }
-        canvas.drawPath(this.iwd, this.mPaint);
+        canvas.drawPath(this.o, this.f15220g);
+        canvas.drawPath(this.m, this.f15220g);
+        if (this.f15218e == d.f61958a) {
+            this.f15220g.setShader(this.f15221h);
+        }
+        canvas.drawPath(this.l, this.f15220g);
     }
 
-    public void uw(int i) {
-        this.iwa = ap.getColor(i, R.color.CAM_X0303);
-        this.iwb = ap.getColor(i, R.color.CAM_X0302);
-        this.iwc = ap.getColor(i, R.color.CAM_X0204);
-        this.ivZ = true;
+    public void setStatus(int i) {
+        this.f15218e = i;
         invalidate();
+    }
+
+    public VoteStatusView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f15218e = -1;
+        this.f15219f = true;
+        a();
     }
 }

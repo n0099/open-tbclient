@@ -2,25 +2,16 @@ package com.baidubce.model;
 
 import com.baidubce.auth.BceCredentials;
 import okhttp3.Call;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractBceRequest {
-    private Call call;
-    private boolean canceled = false;
-    private BceCredentials credentials;
-
-    public abstract AbstractBceRequest withRequestCredentials(BceCredentials bceCredentials);
-
-    public BceCredentials getRequestCredentials() {
-        return this.credentials;
-    }
-
-    public void setRequestCredentials(BceCredentials bceCredentials) {
-        this.credentials = bceCredentials;
-    }
+    public Call call;
+    public boolean canceled = false;
+    public BceCredentials credentials;
 
     public void cancel() {
-        if (this.call != null) {
-            this.call.cancel();
+        Call call = this.call;
+        if (call != null) {
+            call.cancel();
         }
         this.canceled = true;
     }
@@ -29,11 +20,25 @@ public abstract class AbstractBceRequest {
         return this.canceled;
     }
 
+    public BceCredentials getRequestCredentials() {
+        return this.credentials;
+    }
+
     public boolean isCanceled() {
-        return this.call == null ? this.canceled : this.call.isCanceled();
+        Call call = this.call;
+        if (call == null) {
+            return this.canceled;
+        }
+        return call.isCanceled();
     }
 
     public void setCall(Call call) {
         this.call = call;
     }
+
+    public void setRequestCredentials(BceCredentials bceCredentials) {
+        this.credentials = bceCredentials;
+    }
+
+    public abstract AbstractBceRequest withRequestCredentials(BceCredentials bceCredentials);
 }

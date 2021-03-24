@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MessageV3 implements Parcelable {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV3.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -32,27 +32,27 @@ public class MessageV3 implements Parcelable {
             return new MessageV3[i];
         }
     };
-    private static final String TAG = "Message_V3";
-    private String activity;
-    private int clickType;
-    private String content;
-    private String deviceId;
-    private boolean isDiscard;
-    private AdvanceSetting mAdvanceSetting;
-    private AppIconSetting mAppIconSetting;
-    private NotificationStyle mNotificationStyle;
-    private TimeDisplaySetting mTimeDisplaySetting;
-    private String notificationMessage;
-    private String packageName;
-    private Map<String, String> paramsMap;
-    private String pushTimestamp;
-    private String seqId;
-    private String taskId;
-    private String throughMessage;
-    private String title;
-    private String uploadDataPackageName;
-    private String uriPackageName;
-    private String webUrl;
+    public static final String TAG = "Message_V3";
+    public String activity;
+    public int clickType;
+    public String content;
+    public String deviceId;
+    public boolean isDiscard;
+    public AdvanceSetting mAdvanceSetting;
+    public AppIconSetting mAppIconSetting;
+    public NotificationStyle mNotificationStyle;
+    public TimeDisplaySetting mTimeDisplaySetting;
+    public String notificationMessage;
+    public String packageName;
+    public Map<String, String> paramsMap;
+    public String pushTimestamp;
+    public String seqId;
+    public String taskId;
+    public String throughMessage;
+    public String title;
+    public String uploadDataPackageName;
+    public String uriPackageName;
+    public String webUrl;
 
     public MessageV3() {
         this.paramsMap = new HashMap();
@@ -90,14 +90,14 @@ public class MessageV3 implements Parcelable {
                 String next = keys.next();
                 hashMap.put(next, jSONObject.getString(next));
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return hashMap;
     }
 
     public static MessageV3 parse(String str, String str2, String str3, MPushMessage mPushMessage) {
-        com.meizu.cloud.a.a.e(TAG, "V2 message " + mPushMessage);
+        d.j.a.a.a.b(TAG, "V2 message " + mPushMessage);
         MessageV3 messageV3 = new MessageV3();
         messageV3.setPackageName(str);
         messageV3.setUploadDataPackageName(str);
@@ -110,7 +110,7 @@ public class MessageV3 implements Parcelable {
         for (Map.Entry<String, String> entry : mPushMessage.getExtra().entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
-            if (PushConstants.INTENT_ACTIVITY_NAME.equals(key)) {
+            if ("activity".equals(key)) {
                 messageV3.setActivity(value);
             }
             if ("url".equals(key)) {
@@ -134,11 +134,11 @@ public class MessageV3 implements Parcelable {
         }
         messageV3.setParamsMap(mPushMessage.getParams());
         String jSONObject = e.a((Map) mPushMessage.getExtra()).toString();
-        com.meizu.cloud.a.a.e(TAG, "MessageV2 extra json is " + jSONObject);
+        d.j.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
         if (!TextUtils.isEmpty(jSONObject)) {
             messageV3.setNotificationMessage(jSONObject);
         }
-        com.meizu.cloud.a.a.i(TAG, "parase V2 message to V3 message " + messageV3);
+        d.j.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
         return messageV3;
     }
 
@@ -176,14 +176,14 @@ public class MessageV3 implements Parcelable {
                 if (!jSONObject2.isNull(TimeDisplaySetting.TIME_DISPLAY_SETTING)) {
                     messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(jSONObject2.getJSONObject(TimeDisplaySetting.TIME_DISPLAY_SETTING)));
                 }
-                if (!jSONObject2.isNull(PushConstants.INTENT_ACTIVITY_NAME)) {
-                    messageV3.setActivity(jSONObject2.getString(PushConstants.INTENT_ACTIVITY_NAME));
+                if (!jSONObject2.isNull("activity")) {
+                    messageV3.setActivity(jSONObject2.getString("activity"));
                 }
                 if (!jSONObject2.isNull("url")) {
                     messageV3.setWebUrl(jSONObject2.getString("url"));
                 }
                 if (!jSONObject2.isNull("task_id") && TextUtils.isEmpty(str3)) {
-                    com.meizu.cloud.a.a.e(TAG, "Flyme 4 notification message by through message or taskId is null");
+                    d.j.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
                     messageV3.setTaskId(jSONObject2.getString("task_id"));
                 }
                 if (!jSONObject2.isNull("pk")) {
@@ -193,8 +193,8 @@ public class MessageV3 implements Parcelable {
                     messageV3.setParamsMap(getParamsMap(jSONObject2.getJSONObject(PushConstants.PARAMS)));
                 }
             }
-        } catch (JSONException e) {
-            com.meizu.cloud.a.a.e(TAG, "parse message error " + e.getMessage());
+        } catch (JSONException e2) {
+            d.j.a.a.a.b(TAG, "parse message error " + e2.getMessage());
         }
         return messageV3;
     }
@@ -390,7 +390,7 @@ public class MessageV3 implements Parcelable {
         parcel.writeString(this.content);
         parcel.writeString(this.packageName);
         parcel.writeInt(this.clickType);
-        parcel.writeByte((byte) (this.isDiscard ? 1 : 0));
+        parcel.writeByte(this.isDiscard ? (byte) 1 : (byte) 0);
         parcel.writeString(this.activity);
         parcel.writeString(this.webUrl);
         parcel.writeString(this.uriPackageName);

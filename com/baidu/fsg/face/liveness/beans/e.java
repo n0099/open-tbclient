@@ -11,22 +11,27 @@ import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class e extends l {
-    private String b;
-    private String c;
 
-    public void a(String str) {
-        this.b = str;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public String f5892b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f5893c;
 
     public e(Context context) {
         super(context);
-        this.c = "1";
+        this.f5893c = "1";
     }
 
-    public void a(boolean z) {
-        this.c = z ? "1" : "0";
+    public void a(String str) {
+        this.f5892b = str;
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public void execBean() {
+        execBean(String.class);
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
@@ -38,15 +43,15 @@ public class e extends l {
             arrayList.add(new RestNameValuePair("processid", livenessRecogDTO.processid));
             arrayList.add(new RestNameValuePair("exuid", livenessRecogDTO.exUid));
         }
-        arrayList.add(new RestNameValuePair("imgdigests", this.b));
+        arrayList.add(new RestNameValuePair("imgdigests", this.f5892b));
         String randomString = RandomUtils.getRandomString(4096);
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f1755a, randomString).getBytes("UTF-8"))));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f5919a, randomString).getBytes("UTF-8"))));
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
         }
         arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
-        arrayList.add(new RestNameValuePair("last", this.c));
+        arrayList.add(new RestNameValuePair("last", this.f5893c));
         return arrayList;
     }
 
@@ -60,9 +65,9 @@ public class e extends l {
         return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f.n;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public void execBean() {
-        execBean(String.class);
+    @Override // com.baidu.fsg.base.restnet.beans.business.BaseBean
+    public boolean needCheckClientSign() {
+        return true;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
@@ -70,8 +75,7 @@ public class e extends l {
         return String.class;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.business.BaseBean
-    public boolean needCheckClientSign() {
-        return true;
+    public void a(boolean z) {
+        this.f5893c = z ? "1" : "0";
     }
 }

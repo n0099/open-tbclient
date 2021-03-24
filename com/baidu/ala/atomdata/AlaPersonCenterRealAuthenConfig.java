@@ -2,7 +2,7 @@ package com.baidu.ala.atomdata;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class AlaPersonCenterRealAuthenConfig extends IntentConfig {
     public static final String REAL_AUTHEN_CERTIFY_STATUS = "real_authen_certify_status";
     public static final String REAL_AUTHEN_USER_ID = "real_authen_user_id";

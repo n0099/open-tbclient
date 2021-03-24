@@ -1,5 +1,5 @@
 package com.baidu.mobads.interfaces.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAdConstants {
     String deviceNetworkTypeCdma();
 

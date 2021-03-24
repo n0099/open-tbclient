@@ -5,56 +5,61 @@ import com.kwad.sdk.contentalliance.b.b;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayTouchViewPager;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.contentalliance.home.viewpager.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends c {
-    private int b;
-    private int c;
-    private SlidePlayViewPager d;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: b  reason: collision with root package name */
+    public int f32841b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f32842c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public SlidePlayViewPager f32843d;
+
     @Override // com.kwad.sdk.contentalliance.home.viewpager.c, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f5842a.c;
-        this.d.a(new ViewPager.OnPageChangeListener() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.b.1
+        SlidePlayViewPager slidePlayViewPager = ((c) this).f32848a.f32851c;
+        this.f32843d = slidePlayViewPager;
+        slidePlayViewPager.a(new ViewPager.OnPageChangeListener() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.b.1
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrolled(int i, float f, int i2) {
+            public void onPageScrolled(int i, float f2, int i2) {
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                b.this.c = i;
-                if (b.this.d.getAdapter() != null) {
-                    b.this.d.getAdapter().a(i, false);
+                b.this.f32842c = i;
+                if (b.this.f32843d.getAdapter() != null) {
+                    b.this.f32843d.getAdapter().a(i, false);
                 }
-                b.this.d.a(i > b.this.c ? SlidePlayTouchViewPager.TargetBoundUpdatedType.ON_MOVE_TO_NEXT : SlidePlayTouchViewPager.TargetBoundUpdatedType.ON_MOVE_TO_PRE);
+                b.this.f32843d.a(i > b.this.f32842c ? SlidePlayTouchViewPager.TargetBoundUpdatedType.ON_MOVE_TO_NEXT : SlidePlayTouchViewPager.TargetBoundUpdatedType.ON_MOVE_TO_PRE);
             }
         });
-        this.d.setOnPageScrollEndListener(new b.f() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.b.2
+        this.f32843d.setOnPageScrollEndListener(new b.f() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.b.2
             @Override // com.kwad.sdk.contentalliance.b.b.f
             public void a() {
-                int currentItem = b.this.f5842a.c.getCurrentItem();
-                if (b.this.b == currentItem) {
+                int currentItem = ((c) b.this).f32848a.f32851c.getCurrentItem();
+                if (b.this.f32841b == currentItem) {
                     return;
                 }
-                b.this.b = currentItem;
-                if (b.this.d.getAdapter() != null) {
-                    b.this.d.getAdapter().a(currentItem, true);
+                b.this.f32841b = currentItem;
+                if (b.this.f32843d.getAdapter() != null) {
+                    b.this.f32843d.getAdapter().a(currentItem, true);
                 }
             }
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
-        if (this.d.getAdapter() != null) {
-            this.d.getAdapter().a(true);
+        if (this.f32843d.getAdapter() != null) {
+            this.f32843d.getAdapter().a(true);
         }
     }
 }

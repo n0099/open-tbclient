@@ -6,10 +6,10 @@ import com.kwad.sdk.core.network.i;
 import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.emotion.model.EmotionResponse;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(int i, String str);
 
@@ -19,7 +19,6 @@ public class e {
     public static void a(@Nullable final a aVar) {
         new i<com.kwad.sdk.emotion.a, EmotionResponse>() { // from class: com.kwad.sdk.emotion.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwad.sdk.core.network.i
             @NonNull
             /* renamed from: a */
@@ -31,12 +30,11 @@ public class e {
             }
 
             @Override // com.kwad.sdk.core.network.i
-            protected boolean a_() {
+            public boolean a_() {
                 return false;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwad.sdk.core.network.a
             @NonNull
             /* renamed from: c */
@@ -54,8 +52,9 @@ public class e {
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.emotion.a aVar2, int i, String str) {
                 super.a((AnonymousClass2) aVar2, i, str);
-                if (a.this != null) {
-                    a.this.a(i, str);
+                a aVar3 = a.this;
+                if (aVar3 != null) {
+                    aVar3.a(i, str);
                 }
             }
 
@@ -63,8 +62,9 @@ public class e {
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.emotion.a aVar2, @NonNull EmotionResponse emotionResponse) {
                 super.a((AnonymousClass2) aVar2, (com.kwad.sdk.emotion.a) emotionResponse);
-                if (a.this != null) {
-                    a.this.a(emotionResponse);
+                a aVar3 = a.this;
+                if (aVar3 != null) {
+                    aVar3.a(emotionResponse);
                 }
             }
         });

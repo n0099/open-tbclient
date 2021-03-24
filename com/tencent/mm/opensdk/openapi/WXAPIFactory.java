@@ -2,20 +2,20 @@ package com.tencent.mm.opensdk.openapi;
 
 import android.content.Context;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WXAPIFactory {
-    private static final String TAG = "MicroMsg.PaySdk.WXFactory";
+    public static final String TAG = "MicroMsg.PaySdk.WXFactory";
 
-    private WXAPIFactory() {
-        throw new RuntimeException(getClass().getSimpleName() + " should not be instantiated");
+    public WXAPIFactory() {
+        throw new RuntimeException(WXAPIFactory.class.getSimpleName() + " should not be instantiated");
     }
 
     public static IWXAPI createWXAPI(Context context, String str) {
-        return createWXAPI(context, str, false);
+        return createWXAPI(context, str, true);
     }
 
     public static IWXAPI createWXAPI(Context context, String str, boolean z) {
-        Log.d(TAG, "createWXAPI, appId = " + str + ", checkSignature = " + z);
+        Log.d("MicroMsg.PaySdk.WXFactory", "createWXAPI, appId = " + str + ", checkSignature = " + z);
         return new WXApiImplV10(context, str, z);
     }
 }

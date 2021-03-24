@@ -11,78 +11,103 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
+import d.b.i0.g1.b.a;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class LabelItemView extends LinearLayout {
-    private boolean laj;
-    private int lak;
-    private int lal;
-    private Paint mPaint;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f18492e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f18493f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f18494g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Paint f18495h;
 
     public LabelItemView(Context context) {
         super(context);
-        init();
+        b();
     }
 
-    public LabelItemView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
+    public final TextView a() {
+        return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.label_recommend_column_item, (ViewGroup) this, false);
     }
 
-    public LabelItemView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
+    public final void b() {
         setWeightSum(3.0f);
         setOrientation(0);
-        this.mPaint = new Paint();
-        this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setColor(ap.getColor(R.color.CAM_X0204));
-        this.mPaint.setStrokeWidth(1.0f);
-        this.lal = l.getDimens(getContext(), R.dimen.ds46);
+        Paint paint = new Paint();
+        this.f18495h = paint;
+        paint.setStyle(Paint.Style.STROKE);
+        this.f18495h.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f18495h.setStrokeWidth(1.0f);
+        this.f18494g = l.g(getContext(), R.dimen.ds46);
         for (int i = 0; i < 3; i++) {
-            addView(dbb());
+            addView(a());
         }
     }
 
-    public void setData(List<com.baidu.tieba.interestlabel.b.a> list, boolean z) {
-        if (!y.isEmpty(list)) {
-            this.laj = z;
-            this.lak = Math.min(list.size(), 3);
-            for (int i = 0; i < this.lak; i++) {
-                com.baidu.tieba.interestlabel.b.a aVar = list.get(i);
-                if (aVar != null && (getChildAt(i) instanceof TextView)) {
-                    TextView textView = (TextView) getChildAt(i);
-                    textView.setVisibility(0);
-                    String str = aVar.labelName;
-                    if (!StringUtils.isNull(aVar.labelName) && aVar.labelName.length() > 4) {
-                        str = aVar.labelName.substring(0, 3) + StringHelper.STRING_MORE;
-                    }
-                    textView.setText(str);
-                    ap.setViewTextColor(textView, R.drawable.color_lable_selector);
-                    textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                    textView.setSelected(aVar.isFollow);
-                    textView.setTag(aVar);
-                }
-            }
-            for (int i2 = this.lak; i2 < getChildCount(); i2++) {
-                View childAt = getChildAt(i2);
-                if (childAt != null) {
-                    childAt.setVisibility(8);
-                }
-            }
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+        int width = getWidth() / 3;
+        int height = getHeight();
+        for (int i = 1; i < this.f18493f; i++) {
+            int i2 = width * i;
+            int i3 = this.f18494g;
+            canvas.drawLine(i2, (height - i3) / 2, i2 + 1, (i3 + height) / 2, this.f18495h);
         }
+        if (this.f18492e) {
+            return;
+        }
+        canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f18495h);
     }
 
-    private TextView dbb() {
-        return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.label_recommend_column_item, (ViewGroup) this, false);
+    public void setData(List<a> list, boolean z) {
+        int i;
+        if (ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.f18492e = z;
+        this.f18493f = Math.min(list.size(), 3);
+        int i2 = 0;
+        while (true) {
+            i = this.f18493f;
+            if (i2 >= i) {
+                break;
+            }
+            a aVar = list.get(i2);
+            if (aVar != null && (getChildAt(i2) instanceof TextView)) {
+                TextView textView = (TextView) getChildAt(i2);
+                textView.setVisibility(0);
+                String str = aVar.f54922b;
+                if (!StringUtils.isNull(str) && aVar.f54922b.length() > 4) {
+                    str = aVar.f54922b.substring(0, 3) + StringHelper.STRING_MORE;
+                }
+                textView.setText(str);
+                SkinManager.setViewTextColor(textView, R.drawable.color_lable_selector);
+                textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
+                textView.setSelected(aVar.f54923c);
+                textView.setTag(aVar);
+            }
+            i2++;
+        }
+        while (i < getChildCount()) {
+            View childAt = getChildAt(i);
+            if (childAt != null) {
+                childAt.setVisibility(8);
+            }
+            i++;
+        }
     }
 
     @Override // android.view.View
@@ -97,22 +122,13 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        int width = getWidth() / 3;
-        int height = getHeight();
-        int i = 1;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.lak) {
-                break;
-            }
-            canvas.drawLine(width * i2, (height - this.lal) / 2, (width * i2) + 1, (this.lal + height) / 2, this.mPaint);
-            i = i2 + 1;
-        }
-        if (!this.laj) {
-            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.mPaint);
-        }
+    public LabelItemView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        b();
+    }
+
+    public LabelItemView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        b();
     }
 }

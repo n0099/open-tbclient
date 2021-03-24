@@ -1,12 +1,11 @@
 package com.bytedance.sdk.openadsdk.downloadnew.a.a;
 
 import android.content.Context;
-import android.net.http.Headers;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.ss.android.socialbase.downloader.i.g;
-import com.ss.android.socialbase.downloader.i.h;
+import com.baidu.down.loopj.android.http.AsyncHttpClient;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import d.o.a.e.b.o.k;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
@@ -18,85 +17,84 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
-public class f implements h {
+public class f implements d.o.a.e.b.o.a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final WeakReference<Context> f4713a;
+    public final WeakReference<Context> f29207a;
 
     public f(Context context) {
-        this.f4713a = new WeakReference<>(context);
+        this.f29207a = new WeakReference<>(context);
     }
 
-    @Override // com.ss.android.socialbase.downloader.i.h
-    public g a(int i, String str, List<com.ss.android.socialbase.downloader.g.e> list) throws IOException {
+    @Nullable
+    private HttpURLConnection a(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
+        HttpURLConnection httpURLConnection;
+        HttpURLConnection httpURLConnection2;
+        HttpURLConnection httpURLConnection3 = null;
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+        } catch (Exception unused) {
+        }
+        try {
+            httpURLConnection.setInstanceFollowRedirects(false);
+            httpURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
+            httpURLConnection.setRequestProperty("connection", HTTP.CONN_KEEP_ALIVE);
+            if (list != null && !list.isEmpty()) {
+                for (com.ss.android.socialbase.downloader.model.c cVar : list) {
+                    httpURLConnection.setRequestProperty(cVar.a(), cVar.b());
+                }
+            }
+            httpURLConnection.connect();
+            int responseCode = httpURLConnection.getResponseCode();
+            return ((responseCode < 200 || responseCode >= 300) && responseCode >= 300 && responseCode < 400) ? a(httpURLConnection.getHeaderField("Location"), list) : httpURLConnection;
+        } catch (Exception unused2) {
+            httpURLConnection3 = httpURLConnection2;
+            return httpURLConnection3;
+        }
+    }
+
+    @Override // d.o.a.e.b.o.a
+    public k downloadWithConnection(int i, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
         final int responseCode;
         final HttpURLConnection a2 = a(str, list);
         if (a2 != null && (responseCode = a2.getResponseCode()) >= 200 && responseCode < 300) {
             final Map<String, String> a3 = a(a2);
             InputStream inputStream = a2.getInputStream();
             String contentEncoding = a2.getContentEncoding();
-            final InputStream gZIPInputStream = (TextUtils.isEmpty(contentEncoding) || !contentEncoding.contains("gzip")) ? inputStream : new GZIPInputStream(inputStream);
-            return new g() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.f.1
-                @Override // com.ss.android.socialbase.downloader.i.g
+            final GZIPInputStream gZIPInputStream = (TextUtils.isEmpty(contentEncoding) || !contentEncoding.contains(AsyncHttpClient.ENCODING_GZIP)) ? inputStream : new GZIPInputStream(inputStream);
+            return new k() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.f.1
+                @Override // d.o.a.e.b.o.k
                 public InputStream a() {
                     return gZIPInputStream;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.i.e
-                public String a(String str2) {
-                    return (String) a3.get(str2);
-                }
-
-                @Override // com.ss.android.socialbase.downloader.i.e
+                @Override // d.o.a.e.b.o.i
                 public int b() {
                     return responseCode;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.i.e
+                @Override // d.o.a.e.b.o.i
                 public void c() {
                 }
 
-                @Override // com.ss.android.socialbase.downloader.i.g
+                @Override // d.o.a.e.b.o.k
                 public void d() {
                     try {
                         a2.disconnect();
-                    } catch (Exception e) {
+                    } catch (Exception unused) {
                     }
+                }
+
+                @Override // d.o.a.e.b.o.i
+                public String a(String str2) {
+                    return (String) a3.get(str2);
                 }
             };
         }
         return null;
-    }
-
-    @Nullable
-    private HttpURLConnection a(String str, List<com.ss.android.socialbase.downloader.g.e> list) {
-        HttpURLConnection httpURLConnection;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
-            try {
-                httpURLConnection2.setInstanceFollowRedirects(false);
-                httpURLConnection2.setRequestProperty(UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET, "*/*");
-                httpURLConnection2.setRequestProperty(Headers.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                if (list != null && !list.isEmpty()) {
-                    for (com.ss.android.socialbase.downloader.g.e eVar : list) {
-                        httpURLConnection2.setRequestProperty(eVar.a(), eVar.b());
-                    }
-                }
-                httpURLConnection2.connect();
-                int responseCode = httpURLConnection2.getResponseCode();
-                if ((responseCode < 200 || responseCode >= 300) && responseCode >= 300 && responseCode < 400) {
-                    return a(httpURLConnection2.getHeaderField(com.baidubce.http.Headers.LOCATION), list);
-                }
-                return httpURLConnection2;
-            } catch (Exception e) {
-                return httpURLConnection;
-            }
-        } catch (Exception e2) {
-            return null;
-        }
     }
 
     private Map<String, String> a(HttpURLConnection httpURLConnection) {

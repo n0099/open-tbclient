@@ -11,14 +11,14 @@ import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.c.e;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d extends c {
     public d(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);
     }
 
     @Override // com.meizu.cloud.pushsdk.notification.a
-    protected void a(Notification.Builder builder, MessageV3 messageV3) {
+    public void a(Notification.Builder builder, MessageV3 messageV3) {
         if (MinSdkChecker.isSupportNotificationBuild()) {
             Notification.BigTextStyle bigTextStyle = new Notification.BigTextStyle();
             bigTextStyle.setBigContentTitle(messageV3.getTitle());
@@ -27,23 +27,25 @@ public class d extends c {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.notification.a
     public void a(Notification notification, MessageV3 messageV3) {
         super.a(notification, messageV3);
         MessageV4 parse = MessageV4.parse(messageV3);
-        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f7437a))) {
-            com.meizu.cloud.a.a.e("AbstractPushNotification", "only wifi can download act");
+        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f37839a))) {
+            d.j.a.a.a.b("AbstractPushNotification", "only wifi can download act");
             return;
         }
         final String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdkAct/" + messageV3.getUploadDataPackageName();
         String valueOf = String.valueOf(System.currentTimeMillis());
         String actUrl = parse.getActVideoSetting().getActUrl();
         if (!TextUtils.isEmpty(actUrl) && com.meizu.cloud.pushsdk.b.a.a(actUrl, str, valueOf).a().c().b()) {
-            com.meizu.cloud.a.a.i("AbstractPushNotification", "down load " + actUrl + " success");
+            d.j.a.a.a.d("AbstractPushNotification", "down load " + actUrl + " success");
             String str2 = str + File.separator + "ACT-" + valueOf;
             boolean a2 = new e(str + File.separator + valueOf, str2).a();
-            com.meizu.cloud.a.a.i("AbstractPushNotification", "zip file " + a2);
+            StringBuilder sb = new StringBuilder();
+            sb.append("zip file ");
+            sb.append(a2);
+            d.j.a.a.a.d("AbstractPushNotification", sb.toString());
             if (a2) {
                 Bundle bundle = new Bundle();
                 bundle.putString("path", str2);
@@ -57,10 +59,10 @@ public class d extends c {
         com.meizu.cloud.pushsdk.c.b.a.b.a(new Runnable() { // from class: com.meizu.cloud.pushsdk.notification.a.d.1
             @Override // java.lang.Runnable
             public void run() {
-                File[] b;
+                File[] b2;
                 for (File file : com.meizu.cloud.pushsdk.notification.c.a.b(str, String.valueOf(System.currentTimeMillis() - 86400000))) {
                     com.meizu.cloud.pushsdk.notification.c.a.b(file.getPath());
-                    com.meizu.cloud.a.a.i("AbstractPushNotification", "Delete file directory " + file.getName() + "\n");
+                    d.j.a.a.a.d("AbstractPushNotification", "Delete file directory " + file.getName() + "\n");
                 }
             }
         });

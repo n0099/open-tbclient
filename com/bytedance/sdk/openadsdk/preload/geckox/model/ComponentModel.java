@@ -8,20 +8,24 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class ComponentModel {
     @c(a = "packages")
-    private Map<String, List<UpdatePackage>> packages;
+    public Map<String, List<UpdatePackage>> packages;
     @c(a = "universal_strategies")
-    private Map<String, b> universalStrategies;
+    public Map<String, b> universalStrategies;
 
     /* loaded from: classes6.dex */
     public static class a {
         @c(a = "c")
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5093a;
+        public String f30312a;
         @c(a = "clean_type")
-        public int b;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f30313b;
         @c(a = "version")
-        public List<Long> c;
+
+        /* renamed from: c  reason: collision with root package name */
+        public List<Long> f30314c;
     }
 
     /* loaded from: classes6.dex */
@@ -29,7 +33,7 @@ public class ComponentModel {
         @c(a = "specified_clean")
 
         /* renamed from: a  reason: collision with root package name */
-        public List<a> f5094a;
+        public List<a> f30315a;
     }
 
     public Map<String, List<UpdatePackage>> getPackages() {

@@ -19,266 +19,37 @@ import java.lang.reflect.Field;
 public class b extends com.bytedance.sdk.openadsdk.core.video.d.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final MediaPlayer f4534a;
-    private final a b;
-    private com.bytedance.sdk.openadsdk.core.video.a.b c;
-    private Surface d;
-    private final Object e = new Object();
-    private boolean f;
+    public final MediaPlayer f28671a;
 
-    public b() {
-        synchronized (this.e) {
-            this.f4534a = new MediaPlayer();
-        }
-        a(this.f4534a);
-        try {
-            this.f4534a.setAudioStreamType(3);
-        } catch (Throwable th) {
-            u.c("AndroidMediaPlayer", "setAudioStreamType error: ", th);
-        }
-        this.b = new a(this);
-        n();
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public final a f28672b;
 
-    private void a(MediaPlayer mediaPlayer) {
-        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 28) {
-            try {
-                Class<?> cls = Class.forName("android.media.MediaTimeProvider");
-                Class<?> cls2 = Class.forName("android.media.SubtitleController");
-                Class<?> cls3 = Class.forName("android.media.SubtitleController$Anchor");
-                Object newInstance = cls2.getConstructor(Context.class, cls, Class.forName("android.media.SubtitleController$Listener")).newInstance(p.a(), null, null);
-                Field declaredField = cls2.getDeclaredField("mHandler");
-                declaredField.setAccessible(true);
-                declaredField.set(newInstance, new Handler());
-                declaredField.setAccessible(false);
-                mediaPlayer.getClass().getMethod("setSubtitleAnchor", cls2, cls3).invoke(mediaPlayer, newInstance, null);
-            } catch (Throwable th) {
-                u.c("AndroidMediaPlayer", "setSubtitleController error: ", th);
-            }
-        }
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public com.bytedance.sdk.openadsdk.video.a.a f28673c;
 
-    public MediaPlayer e() {
-        return this.f4534a;
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public Surface f28674d;
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void a(SurfaceHolder surfaceHolder) throws Throwable {
-        synchronized (this.e) {
-            if (!this.f) {
-                this.f4534a.setDisplay(surfaceHolder);
-            }
-        }
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public final Object f28675e;
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    @TargetApi(14)
-    public void a(Surface surface) {
-        o();
-        this.d = surface;
-        this.f4534a.setSurface(surface);
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f28676f;
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void a(String str) throws Throwable {
-        Uri parse = Uri.parse(str);
-        String scheme = parse.getScheme();
-        if (!TextUtils.isEmpty(scheme) && scheme.equalsIgnoreCase("file")) {
-            this.f4534a.setDataSource(parse.getPath());
-        } else {
-            this.f4534a.setDataSource(str);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void a(FileDescriptor fileDescriptor) throws Throwable {
-        this.f4534a.setDataSource(fileDescriptor);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    @RequiresApi(api = 23)
-    public void a(String str, String str2) {
-        if (TextUtils.isEmpty(str2)) {
-            str2 = com.bytedance.sdk.openadsdk.i.g.b.a(str);
-        }
-        this.c = com.bytedance.sdk.openadsdk.core.video.a.a.a(str2);
-        if (this.c == null) {
-            this.c = new com.bytedance.sdk.openadsdk.core.video.a.b(p.a(), str, str2);
-            if (this.c.a()) {
-                com.bytedance.sdk.openadsdk.core.video.a.a.a(str2, this.c);
-            }
-        }
-        this.f4534a.setDataSource(this.c);
-    }
-
-    private void m() {
-        if (Build.VERSION.SDK_INT >= 23 && this.c != null) {
-            try {
-                this.c.close();
-            } catch (Throwable th) {
-                u.c("AndroidMediaPlayer", "releaseMediaDataSource error: ", th);
-            }
-            this.c = null;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void f() throws Throwable {
-        this.f4534a.start();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void g() throws Throwable {
-        this.f4534a.stop();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void h() throws Throwable {
-        this.f4534a.pause();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void a(boolean z) throws Throwable {
-        this.f4534a.setScreenOnWhilePlaying(z);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void a(long j) throws Throwable {
-        this.f4534a.seekTo((int) j);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public long i() {
-        try {
-            return this.f4534a.getCurrentPosition();
-        } catch (Throwable th) {
-            u.c("AndroidMediaPlayer", "getCurrentPosition error: ", th);
-            return 0L;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public long j() {
-        try {
-            return this.f4534a.getDuration();
-        } catch (Throwable th) {
-            u.c("AndroidMediaPlayer", "getDuration error: ", th);
-            return 0L;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void k() throws Throwable {
-        this.f = true;
-        this.f4534a.release();
-        o();
-        m();
-        a();
-        n();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void l() throws Throwable {
-        try {
-            this.f4534a.reset();
-        } catch (Throwable th) {
-            u.c("AndroidMediaPlayer", "reset error: ", th);
-        }
-        m();
-        a();
-        n();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void b(boolean z) throws Throwable {
-        this.f4534a.setLooping(z);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void a(float f, float f2) throws Throwable {
-        this.f4534a.setVolume(f, f2);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public void a(Context context, int i) throws Throwable {
-        this.f4534a.setWakeMode(context, i);
-    }
-
-    private void n() {
-        this.f4534a.setOnPreparedListener(this.b);
-        this.f4534a.setOnBufferingUpdateListener(this.b);
-        this.f4534a.setOnCompletionListener(this.b);
-        this.f4534a.setOnSeekCompleteListener(this.b);
-        this.f4534a.setOnVideoSizeChangedListener(this.b);
-        this.f4534a.setOnErrorListener(this.b);
-        this.f4534a.setOnInfoListener(this.b);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener {
-        private final WeakReference<b> b;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final WeakReference<b> f28678b;
 
         public a(b bVar) {
-            this.b = new WeakReference<>(bVar);
-        }
-
-        @Override // android.media.MediaPlayer.OnInfoListener
-        public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
-            try {
-                if (this.b.get() != null) {
-                    if (b.this.b(i, i2)) {
-                        return true;
-                    }
-                }
-                return false;
-            } catch (Throwable th) {
-                u.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onInfo error: ", th);
-                return false;
-            }
-        }
-
-        @Override // android.media.MediaPlayer.OnErrorListener
-        public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-            try {
-                if (this.b.get() != null) {
-                    if (b.this.a(i, i2)) {
-                        return true;
-                    }
-                }
-                return false;
-            } catch (Throwable th) {
-                u.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onError error: ", th);
-                return false;
-            }
-        }
-
-        @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
-        public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-            try {
-                if (this.b.get() != null) {
-                    b.this.a(i, i2, 1, 1);
-                }
-            } catch (Throwable th) {
-                u.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onVideoSizeChanged error: ", th);
-            }
-        }
-
-        @Override // android.media.MediaPlayer.OnSeekCompleteListener
-        public void onSeekComplete(MediaPlayer mediaPlayer) {
-            try {
-                if (this.b.get() != null) {
-                    b.this.d();
-                }
-            } catch (Throwable th) {
-                u.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onSeekComplete error: ", th);
-            }
+            this.f28678b = new WeakReference<>(bVar);
         }
 
         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
         public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
             try {
-                if (this.b.get() != null) {
+                if (this.f28678b.get() != null) {
                     b.this.a(i);
                 }
             } catch (Throwable th) {
@@ -289,7 +60,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.d.a {
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             try {
-                if (this.b.get() != null) {
+                if (this.f28678b.get() != null) {
                     b.this.c();
                 }
             } catch (Throwable th) {
@@ -297,30 +68,273 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.d.a {
             }
         }
 
+        @Override // android.media.MediaPlayer.OnErrorListener
+        public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
+            try {
+                if (this.f28678b.get() != null) {
+                    return b.this.a(i, i2);
+                }
+                return false;
+            } catch (Throwable th) {
+                u.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onError error: ", th);
+                return false;
+            }
+        }
+
+        @Override // android.media.MediaPlayer.OnInfoListener
+        public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
+            try {
+                if (this.f28678b.get() != null) {
+                    return b.this.b(i, i2);
+                }
+                return false;
+            } catch (Throwable th) {
+                u.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onInfo error: ", th);
+                return false;
+            }
+        }
+
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             try {
-                if (this.b.get() != null) {
+                if (this.f28678b.get() != null) {
                     b.this.b();
                 }
             } catch (Throwable th) {
                 u.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onPrepared error: ", th);
             }
         }
+
+        @Override // android.media.MediaPlayer.OnSeekCompleteListener
+        public void onSeekComplete(MediaPlayer mediaPlayer) {
+            try {
+                if (this.f28678b.get() != null) {
+                    b.this.d();
+                }
+            } catch (Throwable th) {
+                u.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onSeekComplete error: ", th);
+            }
+        }
+
+        @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
+        public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
+            try {
+                if (this.f28678b.get() != null) {
+                    b.this.a(i, i2, 1, 1);
+                }
+            } catch (Throwable th) {
+                u.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onVideoSizeChanged error: ", th);
+            }
+        }
     }
 
-    protected void finalize() throws Throwable {
-        super.finalize();
-        o();
+    public b() {
+        MediaPlayer mediaPlayer;
+        Object obj = new Object();
+        this.f28675e = obj;
+        synchronized (obj) {
+            mediaPlayer = new MediaPlayer();
+            this.f28671a = mediaPlayer;
+        }
+        a(mediaPlayer);
+        try {
+            this.f28671a.setAudioStreamType(3);
+        } catch (Throwable th) {
+            u.c("AndroidMediaPlayer", "setAudioStreamType error: ", th);
+        }
+        this.f28672b = new a(this);
+        n();
+    }
+
+    private void a(MediaPlayer mediaPlayer) {
+        int i = Build.VERSION.SDK_INT;
+        if (i < 19 || i >= 28) {
+            return;
+        }
+        try {
+            Class<?> cls = Class.forName("android.media.MediaTimeProvider");
+            Class<?> cls2 = Class.forName("android.media.SubtitleController");
+            Class<?> cls3 = Class.forName("android.media.SubtitleController$Anchor");
+            Object newInstance = cls2.getConstructor(Context.class, cls, Class.forName("android.media.SubtitleController$Listener")).newInstance(p.a(), null, null);
+            Field declaredField = cls2.getDeclaredField("mHandler");
+            declaredField.setAccessible(true);
+            declaredField.set(newInstance, new Handler());
+            declaredField.setAccessible(false);
+            mediaPlayer.getClass().getMethod("setSubtitleAnchor", cls2, cls3).invoke(mediaPlayer, newInstance, null);
+        } catch (Throwable th) {
+            u.c("AndroidMediaPlayer", "setSubtitleController error: ", th);
+        }
+    }
+
+    private void m() {
+        com.bytedance.sdk.openadsdk.video.a.a aVar;
+        if (Build.VERSION.SDK_INT < 23 || (aVar = this.f28673c) == null) {
+            return;
+        }
+        try {
+            aVar.close();
+        } catch (Throwable th) {
+            u.c("AndroidMediaPlayer", "releaseMediaDataSource error: ", th);
+        }
+        this.f28673c = null;
+    }
+
+    private void n() {
+        this.f28671a.setOnPreparedListener(this.f28672b);
+        this.f28671a.setOnBufferingUpdateListener(this.f28672b);
+        this.f28671a.setOnCompletionListener(this.f28672b);
+        this.f28671a.setOnSeekCompleteListener(this.f28672b);
+        this.f28671a.setOnVideoSizeChangedListener(this.f28672b);
+        this.f28671a.setOnErrorListener(this.f28672b);
+        this.f28671a.setOnInfoListener(this.f28672b);
     }
 
     private void o() {
         try {
-            if (this.d != null) {
-                this.d.release();
-                this.d = null;
+            if (this.f28674d != null) {
+                this.f28674d.release();
+                this.f28674d = null;
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void b(boolean z) throws Throwable {
+        this.f28671a.setLooping(z);
+    }
+
+    public MediaPlayer e() {
+        return this.f28671a;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void f() throws Throwable {
+        this.f28671a.start();
+    }
+
+    public void finalize() throws Throwable {
+        super.finalize();
+        o();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void g() throws Throwable {
+        this.f28671a.stop();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void h() throws Throwable {
+        this.f28671a.pause();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public long i() {
+        try {
+            return this.f28671a.getCurrentPosition();
+        } catch (Throwable th) {
+            u.c("AndroidMediaPlayer", "getCurrentPosition error: ", th);
+            return 0L;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public long j() {
+        try {
+            return this.f28671a.getDuration();
+        } catch (Throwable th) {
+            u.c("AndroidMediaPlayer", "getDuration error: ", th);
+            return 0L;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void k() throws Throwable {
+        this.f28676f = true;
+        this.f28671a.release();
+        o();
+        m();
+        a();
+        n();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void l() throws Throwable {
+        try {
+            this.f28671a.reset();
+        } catch (Throwable th) {
+            u.c("AndroidMediaPlayer", "reset error: ", th);
+        }
+        m();
+        a();
+        n();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void a(SurfaceHolder surfaceHolder) throws Throwable {
+        synchronized (this.f28675e) {
+            if (!this.f28676f) {
+                this.f28671a.setDisplay(surfaceHolder);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    @TargetApi(14)
+    public void a(Surface surface) {
+        o();
+        this.f28674d = surface;
+        this.f28671a.setSurface(surface);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void a(String str) throws Throwable {
+        Uri parse = Uri.parse(str);
+        String scheme = parse.getScheme();
+        if (!TextUtils.isEmpty(scheme) && scheme.equalsIgnoreCase("file")) {
+            this.f28671a.setDataSource(parse.getPath());
+        } else {
+            this.f28671a.setDataSource(str);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void a(FileDescriptor fileDescriptor) throws Throwable {
+        this.f28671a.setDataSource(fileDescriptor);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    @RequiresApi(api = 23)
+    public synchronized void a(String str, String str2) {
+        if (TextUtils.isEmpty(str2)) {
+            str2 = com.bytedance.sdk.openadsdk.k.g.b.a(str);
+        }
+        u.b("AndroidMediaPlayer", "setDataSource: ", str2);
+        com.bytedance.sdk.openadsdk.video.b.a aVar = new com.bytedance.sdk.openadsdk.video.b.a();
+        aVar.a(str);
+        aVar.b(str2);
+        this.f28673c = com.bytedance.sdk.openadsdk.video.a.a.a(p.a(), aVar);
+        com.bytedance.sdk.openadsdk.video.a.b.a.b(p.a(), aVar);
+        this.f28671a.setDataSource(this.f28673c);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void a(boolean z) throws Throwable {
+        this.f28671a.setScreenOnWhilePlaying(z);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void a(long j) throws Throwable {
+        this.f28671a.seekTo((int) j);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void a(float f2, float f3) throws Throwable {
+        this.f28671a.setVolume(f2, f3);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public void a(Context context, int i) throws Throwable {
+        this.f28671a.setWakeMode(context, i);
     }
 }

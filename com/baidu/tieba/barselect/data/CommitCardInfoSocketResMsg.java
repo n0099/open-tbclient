@@ -3,14 +3,14 @@ package com.baidu.tieba.barselect.data;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.CommitCardInfo.CommitCardInfoResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class CommitCardInfoSocketResMsg extends TbSocketReponsedMessage {
     public CommitCardInfoSocketResMsg() {
         super(309643);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         CommitCardInfoResIdl commitCardInfoResIdl = (CommitCardInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, CommitCardInfoResIdl.class);
         if (commitCardInfoResIdl != null) {

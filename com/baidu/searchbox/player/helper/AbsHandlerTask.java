@@ -6,15 +6,30 @@ import android.os.Message;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 /* loaded from: classes3.dex */
 public abstract class AbsHandlerTask implements ITimerTask {
-    private static final int REFRESH_ACTION = 1;
-    PrivateHandler mHandler = new PrivateHandler(Looper.getMainLooper());
-    private int mInterval = 500;
+    public static final int REFRESH_ACTION = 1;
+    public PrivateHandler mHandler = new PrivateHandler(Looper.getMainLooper());
+    public int mInterval = 500;
+
+    /* loaded from: classes3.dex */
+    public class PrivateHandler extends Handler {
+        public PrivateHandler(Looper looper) {
+            super(looper);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            if (message.what != 1) {
+                return;
+            }
+            AbsHandlerTask.this.doTask();
+            sendMessageDelayed(obtainMessage(1), AbsHandlerTask.this.mInterval);
+        }
+    }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
     @PublicMethod
-    public void start() {
-        cancel();
-        this.mHandler.obtainMessage(1).sendToTarget();
+    public void cancel() {
+        this.mHandler.removeMessages(1);
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
@@ -27,27 +42,8 @@ public abstract class AbsHandlerTask implements ITimerTask {
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
     @PublicMethod
-    public void cancel() {
-        this.mHandler.removeMessages(1);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public class PrivateHandler extends Handler {
-        public PrivateHandler(Looper looper) {
-            super(looper);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            switch (message.what) {
-                case 1:
-                    AbsHandlerTask.this.doTask();
-                    sendMessageDelayed(obtainMessage(1), AbsHandlerTask.this.mInterval);
-                    return;
-                default:
-                    return;
-            }
-        }
+    public void start() {
+        cancel();
+        this.mHandler.obtainMessage(1).sendToTarget();
     }
 }

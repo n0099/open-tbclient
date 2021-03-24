@@ -1,18 +1,13 @@
 package androidx.webkit;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class WebMessageCompat {
-    private String mData;
-    private WebMessagePortCompat[] mPorts;
+    public String mData;
+    public WebMessagePortCompat[] mPorts;
 
     public WebMessageCompat(@Nullable String str) {
         this.mData = str;
-    }
-
-    public WebMessageCompat(@Nullable String str, @Nullable WebMessagePortCompat[] webMessagePortCompatArr) {
-        this.mData = str;
-        this.mPorts = webMessagePortCompatArr;
     }
 
     @Nullable
@@ -23,5 +18,10 @@ public class WebMessageCompat {
     @Nullable
     public WebMessagePortCompat[] getPorts() {
         return this.mPorts;
+    }
+
+    public WebMessageCompat(@Nullable String str, @Nullable WebMessagePortCompat[] webMessagePortCompatArr) {
+        this.mData = str;
+        this.mPorts = webMessagePortCompatArr;
     }
 }

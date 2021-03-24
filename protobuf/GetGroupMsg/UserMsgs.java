@@ -5,27 +5,13 @@ import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 import protobuf.MsgInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class UserMsgs extends Message {
     public static final List<MsgInfo> DEFAULT_MSGS = Collections.emptyList();
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<MsgInfo> msgs;
 
-    private UserMsgs(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.msgs == null) {
-                this.msgs = DEFAULT_MSGS;
-                return;
-            } else {
-                this.msgs = immutableCopyOf(builder.msgs);
-                return;
-            }
-        }
-        this.msgs = immutableCopyOf(builder.msgs);
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<UserMsgs> {
         public List<MsgInfo> msgs;
 
@@ -34,9 +20,10 @@ public final class UserMsgs extends Message {
 
         public Builder(UserMsgs userMsgs) {
             super(userMsgs);
-            if (userMsgs != null) {
-                this.msgs = UserMsgs.copyOf(userMsgs.msgs);
+            if (userMsgs == null) {
+                return;
             }
+            this.msgs = Message.copyOf(userMsgs.msgs);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,5 +31,20 @@ public final class UserMsgs extends Message {
         public UserMsgs build(boolean z) {
             return new UserMsgs(this, z);
         }
+    }
+
+    public UserMsgs(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            List<MsgInfo> list = builder.msgs;
+            if (list == null) {
+                this.msgs = DEFAULT_MSGS;
+                return;
+            } else {
+                this.msgs = Message.immutableCopyOf(list);
+                return;
+            }
+        }
+        this.msgs = Message.immutableCopyOf(builder.msgs);
     }
 }

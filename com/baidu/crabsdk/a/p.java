@@ -1,49 +1,56 @@
 package com.baidu.crabsdk.a;
 
+import com.android.internal.http.multipart.Part;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> aqf = new LinkedHashMap<>();
-    private int X;
-    private Thread aqg;
 
-    private p(Thread thread, int i, long j) {
+    /* renamed from: f  reason: collision with root package name */
+    public static final LinkedHashMap<Long, String> f4663f = new LinkedHashMap<>();
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f4664d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Thread f4665e;
+
+    public p(Thread thread, int i, long j) {
         super(j);
-        this.X = a.X;
-        this.aqg = thread;
-        this.X = i;
+        this.f4664d = a.f4643h;
+        this.f4665e = thread;
+        this.f4664d = i;
     }
 
     public p(Thread thread, long j) {
-        this(thread, a.X, j);
+        this(thread, a.f4643h, j);
     }
 
-    public static ArrayList<String> f(long j, long j2) {
+    public static ArrayList<String> e(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (aqf) {
-            for (Long l : aqf.keySet()) {
+        synchronized (f4663f) {
+            for (Long l : f4663f.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(aqf.get(l));
+                    arrayList.add(f4663f.get(l));
                 }
             }
         }
-        com.baidu.crabsdk.c.a.dw("result : " + arrayList.toString());
+        com.baidu.crabsdk.c.a.b("result : " + arrayList.toString());
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.crabsdk.a.n
-    public final void o() {
+    public final void b() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.aqg.getStackTrace()) {
-            sb.append(stackTraceElement.toString()).append("\r\n");
+        for (StackTraceElement stackTraceElement : this.f4665e.getStackTrace()) {
+            sb.append(stackTraceElement.toString());
+            sb.append(Part.CRLF);
         }
-        synchronized (aqf) {
-            if (aqf.size() == this.X && this.X > 0) {
-                aqf.remove(aqf.keySet().iterator().next());
+        synchronized (f4663f) {
+            if (f4663f.size() == this.f4664d && this.f4664d > 0) {
+                f4663f.remove(f4663f.keySet().iterator().next());
             }
-            aqf.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            f4663f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

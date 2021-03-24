@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.xiaomi.push.hz;
-import com.xiaomi.push.ip;
+import com.xiaomi.push.hs;
+import com.xiaomi.push.ii;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PushMessageHelper {
     public static final String ERROR_MESSAGE = "error_message";
     public static final String ERROR_TYPE = "error_type";
@@ -22,7 +22,7 @@ public class PushMessageHelper {
     public static final String MESSAGE_TYPE = "message_type";
     public static final int PUSH_MODE_BROADCAST = 2;
     public static final int PUSH_MODE_CALLBACK = 1;
-    private static int pushMode = 0;
+    public static int pushMode;
 
     public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j, String str2, String str3) {
         MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
@@ -34,68 +34,64 @@ public class PushMessageHelper {
         return miPushCommandMessage;
     }
 
-    public static MiPushMessage generateMessage(ip ipVar, hz hzVar, boolean z) {
+    public static MiPushMessage generateMessage(ii iiVar, hs hsVar, boolean z) {
         MiPushMessage miPushMessage = new MiPushMessage();
-        miPushMessage.setMessageId(ipVar.m457a());
-        if (!TextUtils.isEmpty(ipVar.d())) {
+        miPushMessage.setMessageId(iiVar.m467a());
+        if (!TextUtils.isEmpty(iiVar.d())) {
             miPushMessage.setMessageType(1);
-            miPushMessage.setAlias(ipVar.d());
-        } else if (!TextUtils.isEmpty(ipVar.c())) {
+            miPushMessage.setAlias(iiVar.d());
+        } else if (!TextUtils.isEmpty(iiVar.c())) {
             miPushMessage.setMessageType(2);
-            miPushMessage.setTopic(ipVar.c());
-        } else if (TextUtils.isEmpty(ipVar.f())) {
+            miPushMessage.setTopic(iiVar.c());
+        } else if (TextUtils.isEmpty(iiVar.f())) {
             miPushMessage.setMessageType(0);
         } else {
             miPushMessage.setMessageType(3);
-            miPushMessage.setUserAccount(ipVar.f());
+            miPushMessage.setUserAccount(iiVar.f());
         }
-        miPushMessage.setCategory(ipVar.e());
-        if (ipVar.a() != null) {
-            miPushMessage.setContent(ipVar.a().c());
+        miPushMessage.setCategory(iiVar.e());
+        if (iiVar.a() != null) {
+            miPushMessage.setContent(iiVar.a().c());
         }
-        if (hzVar != null) {
+        if (hsVar != null) {
             if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                miPushMessage.setMessageId(hzVar.m381a());
+                miPushMessage.setMessageId(hsVar.m388a());
             }
             if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                miPushMessage.setTopic(hzVar.m386b());
+                miPushMessage.setTopic(hsVar.m393b());
             }
-            miPushMessage.setDescription(hzVar.d());
-            miPushMessage.setTitle(hzVar.m389c());
-            miPushMessage.setNotifyType(hzVar.a());
-            miPushMessage.setNotifyId(hzVar.c());
-            miPushMessage.setPassThrough(hzVar.b());
-            miPushMessage.setExtra(hzVar.m382a());
+            miPushMessage.setDescription(hsVar.d());
+            miPushMessage.setTitle(hsVar.m396c());
+            miPushMessage.setNotifyType(hsVar.a());
+            miPushMessage.setNotifyId(hsVar.c());
+            miPushMessage.setPassThrough(hsVar.b());
+            miPushMessage.setExtra(hsVar.m389a());
         }
         miPushMessage.setNotified(z);
         return miPushMessage;
     }
 
-    public static hz generateMessage(MiPushMessage miPushMessage) {
-        hz hzVar = new hz();
-        hzVar.a(miPushMessage.getMessageId());
-        hzVar.b(miPushMessage.getTopic());
-        hzVar.d(miPushMessage.getDescription());
-        hzVar.c(miPushMessage.getTitle());
-        hzVar.c(miPushMessage.getNotifyId());
-        hzVar.a(miPushMessage.getNotifyType());
-        hzVar.b(miPushMessage.getPassThrough());
-        hzVar.a(miPushMessage.getExtra());
-        return hzVar;
+    public static hs generateMessage(MiPushMessage miPushMessage) {
+        hs hsVar = new hs();
+        hsVar.a(miPushMessage.getMessageId());
+        hsVar.b(miPushMessage.getTopic());
+        hsVar.d(miPushMessage.getDescription());
+        hsVar.c(miPushMessage.getTitle());
+        hsVar.c(miPushMessage.getNotifyId());
+        hsVar.a(miPushMessage.getNotifyType());
+        hsVar.b(miPushMessage.getPassThrough());
+        hsVar.a(miPushMessage.getExtra());
+        return hsVar;
     }
 
     public static int getPushMode(Context context) {
         if (pushMode == 0) {
-            if (isUseCallbackPushMode(context)) {
-                setPushMode(1);
-            } else {
-                setPushMode(2);
-            }
+            setPushMode(isUseCallbackPushMode(context) ? 1 : 2);
         }
         return pushMode;
     }
 
-    private static boolean isIntentAvailable(Context context, Intent intent) {
+    public static boolean isIntentAvailable(Context context, Intent intent) {
         try {
             List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 32);
             if (queryBroadcastReceivers != null) {
@@ -104,7 +100,7 @@ public class PushMessageHelper {
                 }
             }
             return false;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return true;
         }
     }
@@ -130,7 +126,7 @@ public class PushMessageHelper {
         new PushServiceReceiver().onReceive(context, intent);
     }
 
-    private static void setPushMode(int i) {
+    public static void setPushMode(int i) {
         pushMode = i;
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.widget.TextView;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends TextView {
     public c(Context context) {
         super(context);
@@ -12,13 +12,13 @@ public class c extends TextView {
     }
 
     @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         Drawable drawable;
         Drawable[] compoundDrawables = getCompoundDrawables();
         if (compoundDrawables != null && compoundDrawables.length > 3 && (drawable = compoundDrawables[2]) != null) {
-            float intrinsicWidth = drawable.getIntrinsicWidth() + getPaint().measureText(getText().toString()) + getCompoundDrawablePadding();
-            setPadding(0, 0, (int) (getWidth() - intrinsicWidth), 0);
-            canvas.translate((getWidth() - intrinsicWidth) / 2.0f, 0.0f);
+            float measureText = getPaint().measureText(getText().toString()) + drawable.getIntrinsicWidth() + getCompoundDrawablePadding();
+            setPadding(0, 0, (int) (getWidth() - measureText), 0);
+            canvas.translate((getWidth() - measureText) / 2.0f, 0.0f);
         }
         super.onDraw(canvas);
     }

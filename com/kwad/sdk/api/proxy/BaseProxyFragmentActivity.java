@@ -13,20 +13,21 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.api.core.fragment.KsFragmentActivity;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
-    private IFragmentActivityProxy mDelegate;
+    public IFragmentActivityProxy mDelegate;
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
-    protected void attachBaseContext(Context context) {
+    public void attachBaseContext(Context context) {
         super.attachBaseContext(Wrapper.wrapContextIfNeed(context));
-        this.mDelegate = getDelegate(context);
-        this.mDelegate.setProxyFragmentActivity(this);
+        IFragmentActivityProxy delegate = getDelegate(context);
+        this.mDelegate = delegate;
+        delegate.setProxyFragmentActivity(this);
         this.mDelegate.setActivity(this);
     }
 
     @NonNull
-    protected abstract IFragmentActivityProxy getDelegate(Context context);
+    public abstract IFragmentActivityProxy getDelegate(Context context);
 
     @Override // android.app.Activity
     public Intent getIntent() {
@@ -39,7 +40,6 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         return super.getIntent();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
@@ -47,7 +47,7 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper
-    protected void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
+    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         super.onApplyThemeResource(theme, i, z);
         this.mDelegate.onApplyThemeResource(theme, i, z);
     }
@@ -64,7 +64,7 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     }
 
     @Override // android.app.Activity
-    protected void onChildTitleChanged(Activity activity, CharSequence charSequence) {
+    public void onChildTitleChanged(Activity activity, CharSequence charSequence) {
         super.onChildTitleChanged(activity, charSequence);
         this.mDelegate.onChildTitleChanged(activity, charSequence);
     }
@@ -75,7 +75,6 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         this.mDelegate.onConfigurationChanged(configuration);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         this.mDelegate.onPreCreate(bundle);
@@ -84,7 +83,7 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    protected void onDestroy() {
+    public void onDestroy() {
         this.mDelegate.onPreDestroy();
         super.onDestroy();
         this.mDelegate.onDestroy();
@@ -105,14 +104,12 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         return this.mDelegate.onKeyUp(i, keyEvent);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         this.mDelegate.onNewIntent(intent);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         this.mDelegate.onPrePause();
@@ -121,12 +118,11 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     }
 
     @Override // android.app.Activity
-    protected void onPostCreate(@Nullable Bundle bundle) {
+    public void onPostCreate(@Nullable Bundle bundle) {
         super.onPostCreate(bundle);
         this.mDelegate.onPostCreate(bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPostResume() {
         super.onPostResume();
@@ -134,18 +130,17 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     }
 
     @Override // android.app.Activity
-    protected void onRestart() {
+    public void onRestart() {
         super.onRestart();
         this.mDelegate.onRestart();
     }
 
     @Override // android.app.Activity
-    protected void onRestoreInstanceState(@NonNull Bundle bundle) {
+    public void onRestoreInstanceState(@NonNull Bundle bundle) {
         super.onRestoreInstanceState(bundle);
         this.mDelegate.onRestoreInstanceState(bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         this.mDelegate.onPreResume();
@@ -153,7 +148,6 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         this.mDelegate.onResume();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         this.mDelegate.onPreSaveInstanceState(bundle);
@@ -161,7 +155,6 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         this.mDelegate.onSaveInstanceState(bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         this.mDelegate.onPreStart();
@@ -169,7 +162,6 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         this.mDelegate.onStart();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         this.mDelegate.onPreStop();
@@ -178,13 +170,13 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     }
 
     @Override // android.app.Activity
-    protected void onTitleChanged(CharSequence charSequence, int i) {
+    public void onTitleChanged(CharSequence charSequence, int i) {
         super.onTitleChanged(charSequence, i);
         this.mDelegate.onTitleChanged(charSequence, i);
     }
 
     @Override // android.app.Activity
-    protected void onUserLeaveHint() {
+    public void onUserLeaveHint() {
         super.onUserLeaveHint();
         this.mDelegate.onUserLeaveHint();
     }

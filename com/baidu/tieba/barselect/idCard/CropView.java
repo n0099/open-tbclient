@@ -14,312 +14,309 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.WindowManager;
+import com.baidu.wallet.qrcodescanner.beans.QRCodeScannerBeanFactory;
+import d.b.i0.v.e.c;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class CropView extends View {
-    private Bitmap bitmap;
-    private GestureDetector gestureDetector;
-    private float itO;
-    private float itP;
-    private float[] itQ;
-    private ScaleGestureDetector itR;
-    private ScaleGestureDetector.OnScaleGestureListener itS;
-    private Rect itT;
-    private Matrix matrix;
-    int rotation;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f15166e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f15167f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float[] f15168g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Matrix f15169h;
+    public Bitmap i;
+    public GestureDetector j;
+    public ScaleGestureDetector k;
+    public ScaleGestureDetector.OnScaleGestureListener l;
+    public Rect m;
+
+    /* loaded from: classes4.dex */
+    public class a implements ScaleGestureDetector.OnScaleGestureListener {
+        public a() {
+        }
+
+        @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
+        public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            CropView.this.h(scaleGestureDetector);
+            return true;
+        }
+
+        @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
+        public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
+            return true;
+        }
+
+        @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
+        public void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
+            float scaleFactor = scaleGestureDetector.getScaleFactor();
+            CropView.this.f15169h.postScale(scaleFactor, scaleFactor);
+            CropView.this.invalidate();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements GestureDetector.OnGestureListener {
+        public b() {
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onDown(MotionEvent motionEvent) {
+            return true;
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            return false;
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public void onLongPress(MotionEvent motionEvent) {
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            CropView.this.i(f2, f3);
+            return true;
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public void onShowPress(MotionEvent motionEvent) {
+        }
+
+        @Override // android.view.GestureDetector.OnGestureListener
+        public boolean onSingleTapUp(MotionEvent motionEvent) {
+            return false;
+        }
+    }
 
     public CropView(Context context) {
         super(context);
-        this.itO = 0.2f;
-        this.itP = 4.0f;
-        this.itQ = new float[9];
-        this.matrix = new Matrix();
-        this.itS = new ScaleGestureDetector.OnScaleGestureListener() { // from class: com.baidu.tieba.barselect.idCard.CropView.1
-            @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-            public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-                CropView.this.a(scaleGestureDetector);
-                return true;
-            }
-
-            @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-            public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-                return true;
-            }
-
-            @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-            public void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-                float scaleFactor = scaleGestureDetector.getScaleFactor();
-                CropView.this.matrix.postScale(scaleFactor, scaleFactor);
-                CropView.this.invalidate();
-            }
-        };
-        this.rotation = 0;
-        init();
+        this.f15166e = 0.2f;
+        this.f15167f = 4.0f;
+        this.f15168g = new float[9];
+        this.f15169h = new Matrix();
+        this.l = new a();
+        f();
     }
 
-    public CropView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.itO = 0.2f;
-        this.itP = 4.0f;
-        this.itQ = new float[9];
-        this.matrix = new Matrix();
-        this.itS = new ScaleGestureDetector.OnScaleGestureListener() { // from class: com.baidu.tieba.barselect.idCard.CropView.1
-            @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-            public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-                CropView.this.a(scaleGestureDetector);
-                return true;
-            }
-
-            @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-            public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-                return true;
-            }
-
-            @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-            public void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-                float scaleFactor = scaleGestureDetector.getScaleFactor();
-                CropView.this.matrix.postScale(scaleFactor, scaleFactor);
-                CropView.this.invalidate();
-            }
-        };
-        this.rotation = 0;
-        init();
+    private Rect getRestrictedBound() {
+        return this.m;
     }
 
-    public CropView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.itO = 0.2f;
-        this.itP = 4.0f;
-        this.itQ = new float[9];
-        this.matrix = new Matrix();
-        this.itS = new ScaleGestureDetector.OnScaleGestureListener() { // from class: com.baidu.tieba.barselect.idCard.CropView.1
-            @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-            public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-                CropView.this.a(scaleGestureDetector);
-                return true;
-            }
-
-            @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-            public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-                return true;
-            }
-
-            @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
-            public void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-                float scaleFactor = scaleGestureDetector.getScaleFactor();
-                CropView.this.matrix.postScale(scaleFactor, scaleFactor);
-                CropView.this.invalidate();
-            }
-        };
-        this.rotation = 0;
-        init();
-    }
-
-    public void setFilePath(String str) {
-        if (this.bitmap != null && !this.bitmap.isRecycled()) {
-            this.bitmap.recycle();
+    private float getScale() {
+        this.f15169h.getValues(this.f15168g);
+        float f2 = this.f15168g[0];
+        if (Math.abs(f2) <= 0.1d) {
+            f2 = this.f15168g[1];
         }
-        if (str != null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
-            try {
-                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
-                Matrix matrix = new Matrix();
-                int wV = com.baidu.tieba.barselect.a.c.wV(attributeInt);
-                if (attributeInt != 0.0f) {
-                    matrix.preRotate(wV);
-                }
-                int min = Math.min(Math.min(options.outWidth, options.outHeight), 2560);
-                Point point = new Point();
-                ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getSize(point);
-                int min2 = Math.min(min, (point.x * 2) / 3);
-                options.inSampleSize = com.baidu.tieba.barselect.a.c.calculateInSampleSize(options, min2, min2);
-                options.inScaled = true;
-                options.inDensity = options.outWidth;
-                options.inTargetDensity = min2 * options.inSampleSize;
-                options.inPreferredConfig = Bitmap.Config.RGB_565;
-                options.inJustDecodeBounds = false;
-                this.bitmap = BitmapFactory.decodeFile(str, options);
-            } catch (IOException e) {
-                e.printStackTrace();
-                this.bitmap = decodeFile;
-            } catch (NullPointerException e2) {
-                e2.printStackTrace();
-            }
-            setBitmap(this.bitmap);
-        }
+        return Math.abs(f2);
     }
 
     private void setBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
-        this.matrix.reset();
-        cd(getWidth(), getHeight());
-        this.rotation = 0;
+        this.i = bitmap;
+        this.f15169h.reset();
+        d(getWidth(), getHeight());
         invalidate();
     }
 
-    @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        cd(i, i2);
+    public final void d(int i, int i2) {
+        Bitmap bitmap;
+        if (i <= 0 || i2 <= 0 || (bitmap = this.i) == null) {
+            return;
+        }
+        float min = Math.min((i2 * 1.0f) / bitmap.getHeight(), (i * 1.0f) / this.i.getWidth());
+        this.f15169h.setTranslate(0.0f, 0.0f);
+        this.f15169h.setScale(min, min, this.i.getWidth() / 2, this.i.getHeight() / 2);
+        this.f15169h.postTranslate((i - this.i.getWidth()) / 2, (i2 - this.i.getHeight()) / 2);
         invalidate();
     }
 
-    public Bitmap d(Rect rect) {
+    public Bitmap e(Rect rect) {
         float scale = getScale();
         float[] fArr = {rect.left, rect.top};
         float[] fArr2 = {0.0f, 0.0f};
         Matrix matrix = new Matrix();
-        this.matrix.invert(matrix);
+        this.f15169h.invert(matrix);
         matrix.mapPoints(fArr2, fArr);
         Matrix matrix2 = new Matrix();
         Bitmap createBitmap = Bitmap.createBitmap((int) (rect.width() / scale), (int) (rect.height() / scale), Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(createBitmap);
-        Bitmap bitmap = this.bitmap;
+        Bitmap bitmap = this.i;
         matrix2.postTranslate(-fArr2[0], -fArr2[1]);
         canvas.drawBitmap(bitmap, matrix2, null);
         return createBitmap;
     }
 
-    public void setMinimumScale(float f) {
-        this.itO = f;
+    public final void f() {
+        this.k = new ScaleGestureDetector(getContext(), this.l);
+        this.j = new GestureDetector(getContext(), new b());
     }
 
-    public void setMaximumScale(float f) {
-        this.itP = f;
-    }
-
-    private void init() {
-        this.itR = new ScaleGestureDetector(getContext(), this.itS);
-        this.gestureDetector = new GestureDetector(getContext(), new GestureDetector.OnGestureListener() { // from class: com.baidu.tieba.barselect.idCard.CropView.2
-            @Override // android.view.GestureDetector.OnGestureListener
-            public boolean onDown(MotionEvent motionEvent) {
-                return true;
-            }
-
-            @Override // android.view.GestureDetector.OnGestureListener
-            public void onShowPress(MotionEvent motionEvent) {
-            }
-
-            @Override // android.view.GestureDetector.OnGestureListener
-            public boolean onSingleTapUp(MotionEvent motionEvent) {
-                return false;
-            }
-
-            @Override // android.view.GestureDetector.OnGestureListener
-            public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                CropView.this.E(f, f2);
-                return true;
-            }
-
-            @Override // android.view.GestureDetector.OnGestureListener
-            public void onLongPress(MotionEvent motionEvent) {
-            }
-
-            @Override // android.view.GestureDetector.OnGestureListener
-            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                return false;
-            }
-        });
-    }
-
-    public void rotate(int i) {
-        if (this.bitmap != null) {
-            Matrix matrix = new Matrix();
-            int width = this.bitmap.getWidth() / 2;
-            int height = this.bitmap.getHeight() / 2;
-            matrix.postTranslate(-width, -height);
-            matrix.postRotate(i);
-            matrix.postTranslate(height, width);
-            Bitmap bitmap = this.bitmap;
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.RGB_565);
-            new Canvas(createBitmap).drawBitmap(this.bitmap, matrix, null);
-            this.bitmap.recycle();
-            this.bitmap = createBitmap;
-            cd(getWidth(), getHeight());
-            invalidate();
+    public void g(int i) {
+        if (this.i == null) {
+            return;
         }
+        Matrix matrix = new Matrix();
+        int width = this.i.getWidth() / 2;
+        int height = this.i.getHeight() / 2;
+        matrix.postTranslate(-width, -height);
+        matrix.postRotate(i);
+        matrix.postTranslate(height, width);
+        Bitmap bitmap = this.i;
+        Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.RGB_565);
+        new Canvas(createBitmap).drawBitmap(this.i, matrix, null);
+        this.i.recycle();
+        this.i = createBitmap;
+        d(getWidth(), getHeight());
+        invalidate();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void E(float f, float f2) {
-        this.matrix.getValues(this.itQ);
-        float f3 = this.itQ[2];
-        float f4 = this.itQ[5];
+    public final void h(ScaleGestureDetector scaleGestureDetector) {
+        float scaleFactor = scaleGestureDetector.getScaleFactor();
+        float scale = getScale();
+        float f2 = this.f15166e;
+        if (scale * scaleFactor < f2) {
+            scaleFactor = f2 / scale;
+        }
+        float f3 = this.f15167f;
+        if (scale * scaleFactor > f3) {
+            scaleFactor = f3 / scale;
+        }
+        this.f15169h.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+        invalidate();
+    }
+
+    public final void i(float f2, float f3) {
+        this.f15169h.getValues(this.f15168g);
+        float[] fArr = this.f15168g;
+        float f4 = fArr[2];
+        float f5 = fArr[5];
         Rect restrictedBound = getRestrictedBound();
         if (restrictedBound != null) {
             float scale = getScale();
-            float width = ((int) (this.bitmap.getWidth() / scale)) + f3;
-            float height = ((int) (this.bitmap.getHeight() / scale)) + f4;
-            if (f3 - f > restrictedBound.left) {
-                f = f3 - restrictedBound.left;
+            float width = ((int) (this.i.getWidth() / scale)) + f4;
+            float height = ((int) (this.i.getHeight() / scale)) + f5;
+            int i = restrictedBound.left;
+            if (f4 - f2 > i) {
+                f2 = f4 - i;
             }
-            if (f4 - f2 > restrictedBound.top) {
-                f2 = f4 - restrictedBound.top;
+            int i2 = restrictedBound.top;
+            if (f5 - f3 > i2) {
+                f3 = f5 - i2;
             }
-            if (f > 0.0f && width - f < restrictedBound.right) {
-                f = width - restrictedBound.right;
+            if (f2 > 0.0f) {
+                int i3 = restrictedBound.right;
+                if (width - f2 < i3) {
+                    f2 = width - i3;
+                }
             }
-            if (f2 > 0.0f && height - f2 < restrictedBound.bottom) {
-                f2 = height - restrictedBound.bottom;
+            if (f3 > 0.0f) {
+                int i4 = restrictedBound.bottom;
+                if (height - f3 < i4) {
+                    f3 = height - i4;
+                }
             }
         }
-        this.matrix.postTranslate(-f, -f2);
+        this.f15169h.postTranslate(-f2, -f3);
         invalidate();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(ScaleGestureDetector scaleGestureDetector) {
-        float scaleFactor = scaleGestureDetector.getScaleFactor();
-        float scale = getScale();
-        if (scale * scaleFactor < this.itO) {
-            scaleFactor = this.itO / scale;
-        }
-        if (scale * scaleFactor > this.itP) {
-            scaleFactor = this.itP / scale;
-        }
-        this.matrix.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
-        invalidate();
-    }
-
-    private void cd(int i, int i2) {
-        if (i > 0 && i2 > 0 && this.bitmap != null) {
-            float min = Math.min((i2 * 1.0f) / this.bitmap.getHeight(), (i * 1.0f) / this.bitmap.getWidth());
-            this.matrix.setTranslate(0.0f, 0.0f);
-            this.matrix.setScale(min, min, this.bitmap.getWidth() / 2, this.bitmap.getHeight() / 2);
-            this.matrix.postTranslate((i - this.bitmap.getWidth()) / 2, (i2 - this.bitmap.getHeight()) / 2);
-            invalidate();
-        }
-    }
-
-    private float getScale() {
-        this.matrix.getValues(this.itQ);
-        float f = this.itQ[0];
-        if (Math.abs(f) <= 0.1d) {
-            f = this.itQ[1];
-        }
-        return Math.abs(f);
     }
 
     @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.bitmap != null) {
-            canvas.drawBitmap(this.bitmap, this.matrix, null);
+        Bitmap bitmap = this.i;
+        if (bitmap != null) {
+            canvas.drawBitmap(bitmap, this.f15169h, null);
         }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        d(i, i2);
+        invalidate();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return (this.gestureDetector.onTouchEvent(motionEvent) || this.itR.onTouchEvent(motionEvent)) || super.onTouchEvent(motionEvent);
+        return (this.j.onTouchEvent(motionEvent) || this.k.onTouchEvent(motionEvent)) || super.onTouchEvent(motionEvent);
     }
 
-    private Rect getRestrictedBound() {
-        return this.itT;
+    public void setFilePath(String str) {
+        Bitmap bitmap = this.i;
+        if (bitmap != null && !bitmap.isRecycled()) {
+            this.i.recycle();
+        }
+        if (str == null) {
+            return;
+        }
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
+        try {
+            int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+            Matrix matrix = new Matrix();
+            int b2 = c.b(attributeInt);
+            if (attributeInt != 0.0f) {
+                matrix.preRotate(b2);
+            }
+            int min = Math.min(Math.min(options.outWidth, options.outHeight), (int) QRCodeScannerBeanFactory.QRCODE_WHITE_LIST);
+            Point point = new Point();
+            ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getSize(point);
+            int min2 = Math.min(min, (point.x * 2) / 3);
+            int a2 = c.a(options, min2, min2);
+            options.inSampleSize = a2;
+            options.inScaled = true;
+            options.inDensity = options.outWidth;
+            options.inTargetDensity = min2 * a2;
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            options.inJustDecodeBounds = false;
+            this.i = BitmapFactory.decodeFile(str, options);
+        } catch (IOException e2) {
+            e2.printStackTrace();
+            this.i = decodeFile;
+        } catch (NullPointerException e3) {
+            e3.printStackTrace();
+        }
+        setBitmap(this.i);
+    }
+
+    public void setMaximumScale(float f2) {
+        this.f15167f = f2;
+    }
+
+    public void setMinimumScale(float f2) {
+        this.f15166e = f2;
     }
 
     public void setRestrictBound(Rect rect) {
-        this.itT = rect;
+        this.m = rect;
+    }
+
+    public CropView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f15166e = 0.2f;
+        this.f15167f = 4.0f;
+        this.f15168g = new float[9];
+        this.f15169h = new Matrix();
+        this.l = new a();
+        f();
+    }
+
+    public CropView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f15166e = 0.2f;
+        this.f15167f = 4.0f;
+        this.f15168g = new float[9];
+        this.f15169h = new Matrix();
+        this.l = new a();
+        f();
     }
 }

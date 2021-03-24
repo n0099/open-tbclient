@@ -2,59 +2,60 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.ao.ah;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
-/* loaded from: classes8.dex */
+import d.b.g0.a.c;
+import d.b.g0.a.e;
+import d.b.g0.a.i2.h0;
+import d.b.g0.a.w0.a;
+/* loaded from: classes3.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    private int dzK;
-    private boolean dzL;
-    public boolean isInited;
+    public boolean r;
+    public boolean s;
 
     public HeaderRefreshIndicator(Context context) {
         this(context, null);
     }
 
-    public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.isInited = false;
-        this.dzK = -1;
-        this.dzL = false;
-    }
-
-    public void aeu() {
-        if (!this.isInited) {
-            this.isInited = true;
-            this.dzL = com.baidu.swan.apps.t.a.axv().ail();
-            aHk();
-            setTextSize(1, 11.0f);
-            setCompoundDrawablePadding(ah.dip2px(getContext(), 5.0f));
-            iy(0);
+    public void i() {
+        if (this.r) {
+            return;
         }
+        this.r = true;
+        this.s = a.z().a();
+        j();
+        setTextSize(1, 11.0f);
+        setCompoundDrawablePadding(h0.e(getContext(), 5.0f));
+        b(0);
     }
 
-    public void aHj() {
-        boolean ail = com.baidu.swan.apps.t.a.axv().ail();
-        if (this.dzL != ail) {
-            aHk();
-            this.dzL = ail;
+    public void j() {
+        setBackground(getResources().getDrawable(e.aiapps_pull_refresh_success_tip_bg));
+        setTextColor(getResources().getColor(c.aiapps_pull_refresh_result_text_color));
+        c(getResources().getDrawable(e.aiapps_pull_refresh_success_tip_icon), 0, h0.e(getContext(), 11.0f), h0.e(getContext(), 11.0f));
+    }
+
+    public void k() {
+        boolean a2 = a.z().a();
+        if (this.s != a2) {
+            j();
+            this.s = a2;
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    protected void onMeasure(int i, int i2) {
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        k();
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
     }
 
-    @Override // android.widget.TextView, android.view.View
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        aHj();
-    }
-
-    public void aHk() {
-        setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
-        setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
-        a(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, ah.dip2px(getContext(), 11.0f), ah.dip2px(getContext(), 11.0f));
+    public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.r = false;
+        this.s = false;
     }
 }

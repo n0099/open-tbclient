@@ -12,6 +12,7 @@ import com.baidu.ar.plugin.helper.NativeLibraryHelperCompat;
 import com.baidu.ar.plugin.helper.Utils;
 import com.baidu.ar.plugin.reflect.FieldUtils;
 import com.baidu.ar.plugin.reflect.MethodUtils;
+import com.baidu.ar.session.XRSessionAnchor;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -21,23 +22,16 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class PluginManager {
-    private Context mContext;
-    private Map<String, PluginPackageParser> mPluginCache = Collections.synchronizedMap(new HashMap(1));
-    private static PluginManager sPluginManager = null;
-    private static Map<String, ClassLoader> sPluginClassLoaderCache = new WeakHashMap(1);
-    private static Map<String, Object> sPluginLoadedApkCache = new WeakHashMap(1);
+    public static Map<String, ClassLoader> sPluginClassLoaderCache = new WeakHashMap(1);
+    public static Map<String, Object> sPluginLoadedApkCache = new WeakHashMap(1);
+    public static PluginManager sPluginManager;
+    public Context mContext;
+    public Map<String, PluginPackageParser> mPluginCache = Collections.synchronizedMap(new HashMap(1));
 
-    PluginManager(Context context) {
+    public PluginManager(Context context) {
         this.mContext = context;
-    }
-
-    public static PluginManager getPluginManagerInstance(Context context) {
-        if (sPluginManager == null) {
-            sPluginManager = new PluginManager(context);
-        }
-        return sPluginManager;
     }
 
     private int copyNativeLibs(Context context, String str, ApplicationInfo applicationInfo) throws Exception {
@@ -48,27 +42,11 @@ public class PluginManager {
         return NativeLibraryHelperCompat.copyNativeBinaries(new File(str), new File(pluginNativeLibraryDir));
     }
 
-    private void saveSignatures(PackageInfo packageInfo) {
-        if (packageInfo != null && packageInfo.signatures != null) {
-            Signature[] signatureArr = packageInfo.signatures;
-            int length = signatureArr.length;
-            int i = 0;
-            int i2 = 0;
-            while (i < length) {
-                Signature signature = signatureArr[i];
-                File file = new File(PluginDirHelper.getPluginSignatureFile(this.mContext, packageInfo.packageName, i2));
-                try {
-                    Utils.writeToFile(file, signature.toByteArray());
-                    i++;
-                    i2++;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    file.delete();
-                    Utils.deleteDir(PluginDirHelper.getPluginSignatureDir(this.mContext, packageInfo.packageName));
-                    return;
-                }
-            }
+    public static PluginManager getPluginManagerInstance(Context context) {
+        if (sPluginManager == null) {
+            sPluginManager = new PluginManager(context);
         }
+        return sPluginManager;
     }
 
     private void hookPackageManager(PluginPackageParser pluginPackageParser) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
@@ -79,8 +57,6 @@ public class PluginManager {
     }
 
     private void preLoadAPK(String str, ApplicationInfo applicationInfo) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
-        String str2;
-        DexClassLoader dexClassLoader;
         synchronized (sPluginLoadedApkCache) {
             Object currentActivityThread = ActivityThreadCompat.currentActivityThread();
             if (currentActivityThread != null) {
@@ -93,19 +69,17 @@ public class PluginManager {
                     sPluginLoadedApkCache.put(str, invokeMethod2);
                     String pluginDalvikCacheDir = PluginDirHelper.getPluginDalvikCacheDir(this.mContext, str);
                     String pluginNativeLibraryDir = PluginDirHelper.getPluginNativeLibraryDir(this.mContext, str);
-                    String str3 = applicationInfo.publicSourceDir;
-                    if (TextUtils.isEmpty(str3)) {
-                        applicationInfo.publicSourceDir = PluginDirHelper.getPluginApkFile(this.mContext, str);
-                        str2 = applicationInfo.publicSourceDir;
-                    } else {
-                        str2 = str3;
+                    String str2 = applicationInfo.publicSourceDir;
+                    if (TextUtils.isEmpty(str2)) {
+                        str2 = PluginDirHelper.getPluginApkFile(this.mContext, str);
+                        applicationInfo.publicSourceDir = str2;
                     }
                     if (str2 != null) {
+                        DexClassLoader dexClassLoader = null;
                         try {
                             dexClassLoader = new DexClassLoader(str2, pluginDalvikCacheDir, pluginNativeLibraryDir, this.mContext.getClassLoader().getParent());
-                        } catch (Exception e) {
+                        } catch (Exception unused) {
                             Log.i("andrew", "load classloader exeception!!!!");
-                            dexClassLoader = null;
                         }
                         if (dexClassLoader == null) {
                             PluginDirHelper.cleanOptimizedDirectory(pluginDalvikCacheDir);
@@ -124,6 +98,26 @@ public class PluginManager {
         }
     }
 
+    private void saveSignatures(PackageInfo packageInfo) {
+        Signature[] signatureArr;
+        if (packageInfo == null || (signatureArr = packageInfo.signatures) == null) {
+            return;
+        }
+        int i = 0;
+        for (Signature signature : signatureArr) {
+            File file = new File(PluginDirHelper.getPluginSignatureFile(this.mContext, packageInfo.packageName, i));
+            try {
+                Utils.writeToFile(file, signature.toByteArray());
+                i++;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                file.delete();
+                Utils.deleteDir(PluginDirHelper.getPluginSignatureDir(this.mContext, packageInfo.packageName));
+                return;
+            }
+        }
+    }
+
     public int installPackage(String str, boolean z) {
         String pluginApkFile;
         try {
@@ -136,29 +130,30 @@ public class PluginManager {
                     return -1;
                 }
                 pluginApkFile = PluginDirHelper.getPluginApkFile(this.mContext, packageArchiveInfo.packageName);
-            } else if (this.mPluginCache.containsKey("com.google.ar.core")) {
+            } else if (this.mPluginCache.containsKey(XRSessionAnchor.apkinfo)) {
                 return -1;
             } else {
-                pluginApkFile = PluginDirHelper.getPluginApkFile(this.mContext, "com.google.ar.core");
+                pluginApkFile = PluginDirHelper.getPluginApkFile(this.mContext, XRSessionAnchor.apkinfo);
             }
-            if (!new File(pluginApkFile).exists()) {
-                Utils.copyFile(str, pluginApkFile, z, this.mContext);
+            String str2 = pluginApkFile;
+            if (!new File(str2).exists()) {
+                Utils.copyFile(str, str2, z, this.mContext);
             }
-            PluginPackageParser pluginPackageParser = new PluginPackageParser(this.mContext, new File(pluginApkFile));
+            PluginPackageParser pluginPackageParser = new PluginPackageParser(this.mContext, new File(str2));
             ApplicationInfo applicationInfo = pluginPackageParser.getApplicationInfo(0);
-            if (copyNativeLibs(this.mContext, pluginApkFile, applicationInfo) < 0) {
-                new File(pluginApkFile).delete();
+            if (copyNativeLibs(this.mContext, str2, applicationInfo) < 0) {
+                new File(str2).delete();
                 return -3;
             }
             preLoadAPK(pluginPackageParser.getPackageName(), applicationInfo);
             hookPackageManager(pluginPackageParser);
             this.mPluginCache.put(pluginPackageParser.getPackageName(), pluginPackageParser);
             return 1;
-        } catch (Exception e) {
+        } catch (Exception e2) {
             if (0 != 0) {
                 new File((String) null).delete();
             }
-            e.printStackTrace();
+            e2.printStackTrace();
             return -110;
         }
     }

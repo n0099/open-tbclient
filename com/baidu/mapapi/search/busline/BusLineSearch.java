@@ -4,15 +4,14 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
 import com.baidu.platform.core.busline.IBusLineSearch;
 import com.baidu.platform.core.busline.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BusLineSearch extends l {
-    private boolean b = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f7136b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    IBusLineSearch f2094a = new c();
-
-    BusLineSearch() {
-    }
+    public IBusLineSearch f7135a = new c();
 
     public static BusLineSearch newInstance() {
         BMapManager.init();
@@ -20,31 +19,33 @@ public class BusLineSearch extends l {
     }
 
     public void destroy() {
-        if (this.b) {
+        if (this.f7136b) {
             return;
         }
-        this.b = true;
-        this.f2094a.a();
+        this.f7136b = true;
+        this.f7135a.a();
         BMapManager.destroy();
     }
 
     public boolean searchBusLine(BusLineSearchOption busLineSearchOption) {
-        if (this.f2094a == null) {
-            throw new IllegalStateException("searcher is null, please call newInstance first.");
+        IBusLineSearch iBusLineSearch = this.f7135a;
+        if (iBusLineSearch != null) {
+            if (busLineSearchOption == null || busLineSearchOption.mCity == null || busLineSearchOption.mUid == null) {
+                throw new IllegalArgumentException("option or city or uid can not be null");
+            }
+            return iBusLineSearch.a(busLineSearchOption);
         }
-        if (busLineSearchOption == null || busLineSearchOption.mCity == null || busLineSearchOption.mUid == null) {
-            throw new IllegalArgumentException("option or city or uid can not be null");
-        }
-        return this.f2094a.a(busLineSearchOption);
+        throw new IllegalStateException("searcher is null, please call newInstance first.");
     }
 
     public void setOnGetBusLineSearchResultListener(OnGetBusLineSearchResultListener onGetBusLineSearchResultListener) {
-        if (this.f2094a == null) {
+        IBusLineSearch iBusLineSearch = this.f7135a;
+        if (iBusLineSearch == null) {
             throw new IllegalStateException("searcher is null, please call newInstance first.");
         }
         if (onGetBusLineSearchResultListener == null) {
             throw new IllegalArgumentException("listener can not be null");
         }
-        this.f2094a.a(onGetBusLineSearchResultListener);
+        iBusLineSearch.a(onGetBusLineSearchResultListener);
     }
 }

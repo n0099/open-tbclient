@@ -5,7 +5,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudSearchResult extends BaseSearchResult {
     public List<CloudPoiInfo> poiList;
 
@@ -17,14 +17,15 @@ public class CloudSearchResult extends BaseSearchResult {
         }
         this.poiList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("contents");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    CloudPoiInfo cloudPoiInfo = new CloudPoiInfo();
-                    cloudPoiInfo.a(optJSONObject);
-                    this.poiList.add(cloudPoiInfo);
-                }
+        if (optJSONArray == null) {
+            return;
+        }
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                CloudPoiInfo cloudPoiInfo = new CloudPoiInfo();
+                cloudPoiInfo.a(optJSONObject);
+                this.poiList.add(cloudPoiInfo);
             }
         }
     }

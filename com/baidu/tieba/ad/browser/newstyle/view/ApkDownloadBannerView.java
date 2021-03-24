@@ -9,129 +9,157 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+import d.b.i0.o.c.e.b;
+/* loaded from: classes4.dex */
 public class ApkDownloadBannerView extends LinearLayout implements b {
-    private int dXJ;
-    private BannerDownloadProgressBar giK;
-    private BannerDownloadStateBar giL;
-    private BannerDownloadStateBar giM;
-    private int giN;
-    private View mRootView;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f14508e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f14509f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public BannerDownloadProgressBar f14510g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public BannerDownloadStateBar f14511h;
+    public BannerDownloadStateBar i;
+    public int j;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f14512a;
+
+        static {
+            int[] iArr = new int[DownloadStatus.values().length];
+            f14512a = iArr;
+            try {
+                iArr[DownloadStatus.STATUS_NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f14512a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f14512a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f14512a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f14512a[DownloadStatus.STATUS_PAUSED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+        }
+    }
 
     public ApkDownloadBannerView(Context context) {
         this(context, null);
+    }
+
+    @Override // d.b.i0.o.c.e.b
+    public void a(int i) {
+        this.f14510g.setProgress(i);
+    }
+
+    @Override // d.b.i0.o.c.e.b
+    public boolean b(View view) {
+        return false;
+    }
+
+    @Override // d.b.i0.o.c.e.b
+    public void c(@NonNull DownloadStatus downloadStatus) {
+        getActionBar().setState(f(downloadStatus));
+    }
+
+    @Override // d.b.i0.o.c.e.b
+    public void d(DownloadStatus downloadStatus, int i) {
+        int i2 = a.f14512a[downloadStatus.ordinal()];
+        if (i2 == 1) {
+            a(0);
+            this.f14510g.setText("");
+        } else if (i2 == 2 || i2 == 3) {
+            a(this.f14508e);
+            this.f14510g.setText("");
+        } else if (i2 != 4 && i2 != 5) {
+            a(0);
+            this.f14510g.setText("");
+        } else {
+            a(i);
+        }
+        c(downloadStatus);
+    }
+
+    public final void e(Context context) {
+        this.f14509f = LayoutInflater.from(context).inflate(R.layout.ad_apk_download_banner_view, (ViewGroup) this, true);
+        setOrientation(0);
+        setGravity(16);
+        int e2 = l.e(getContext(), 22.0f);
+        setPadding(e2, 0, e2, 0);
+        this.f14510g = (BannerDownloadProgressBar) this.f14509f.findViewById(R.id.apk_download_progress);
+        this.f14511h = (BannerDownloadStateBar) this.f14509f.findViewById(R.id.apk_download_state_left);
+        this.i = (BannerDownloadStateBar) this.f14509f.findViewById(R.id.apk_download_state_right);
+        this.f14510g.setTextColor(Color.parseColor("#999999"));
+    }
+
+    public final int f(DownloadStatus downloadStatus) {
+        int i = a.f14512a[downloadStatus.ordinal()];
+        if (i != 2) {
+            if (i != 3) {
+                if (i != 4) {
+                    return i != 5 ? 0 : 2;
+                }
+                return 1;
+            }
+            return 4;
+        }
+        return 3;
+    }
+
+    @Override // d.b.i0.o.c.e.b
+    @NonNull
+    public View getRealView() {
+        return this;
+    }
+
+    public void setDownloadStateBarPosition(int i) {
+        this.j = i;
+        if (i == 0) {
+            this.f14511h.setVisibility(0);
+            this.i.setVisibility(8);
+        } else if (i != 1) {
+            this.f14511h.setVisibility(0);
+            this.i.setVisibility(8);
+        } else {
+            this.f14511h.setVisibility(8);
+            this.i.setVisibility(0);
+        }
     }
 
     public ApkDownloadBannerView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.i0.o.c.e.b
+    public BannerDownloadStateBar getActionBar() {
+        return this.f14511h.getVisibility() == 0 ? this.f14511h : this.i;
+    }
+
     public ApkDownloadBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dXJ = 100;
-        this.giN = 1;
-        initView(context);
+        this.f14508e = 100;
+        this.j = 1;
+        e(context);
         setDownloadStateBarPosition(1);
-    }
-
-    private void initView(Context context) {
-        this.mRootView = LayoutInflater.from(context).inflate(R.layout.ad_apk_download_banner_view, (ViewGroup) this, true);
-        setOrientation(0);
-        setGravity(16);
-        int dip2px = l.dip2px(getContext(), 22.0f);
-        setPadding(dip2px, 0, dip2px, 0);
-        this.giK = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
-        this.giL = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
-        this.giM = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
-        this.giK.setTextColor(Color.parseColor("#999999"));
-    }
-
-    public void setDownloadStateBarPosition(int i) {
-        this.giN = i;
-        switch (this.giN) {
-            case 0:
-                this.giL.setVisibility(0);
-                this.giM.setVisibility(8);
-                return;
-            case 1:
-                this.giL.setVisibility(8);
-                this.giM.setVisibility(0);
-                return;
-            default:
-                this.giL.setVisibility(0);
-                this.giM.setVisibility(8);
-                return;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ad.download.mvp.b
-    public BannerDownloadStateBar getActionBar() {
-        return this.giL.getVisibility() == 0 ? this.giL : this.giM;
-    }
-
-    @Override // com.baidu.tieba.ad.download.mvp.b
-    public boolean ce(View view) {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.ad.download.mvp.b
-    public void a(@NonNull DownloadStatus downloadStatus) {
-        getActionBar().setState(b(downloadStatus));
-    }
-
-    @Override // com.baidu.tieba.ad.download.mvp.b
-    public void fo(int i) {
-        this.giK.setProgress(i);
-    }
-
-    @Override // com.baidu.tieba.ad.download.mvp.b
-    public void a(DownloadStatus downloadStatus, int i) {
-        switch (downloadStatus) {
-            case STATUS_NONE:
-                fo(0);
-                this.giK.setText("");
-                break;
-            case STATUS_SUCCESS:
-            case STATUS_INSTALL_SUCCESS:
-                fo(this.dXJ);
-                this.giK.setText("");
-                break;
-            case STATUS_DOWNLOADING:
-            case STATUS_PAUSED:
-                fo(i);
-                break;
-            default:
-                fo(0);
-                this.giK.setText("");
-                break;
-        }
-        a(downloadStatus);
-    }
-
-    @Override // com.baidu.tieba.ad.download.mvp.b
-    @NonNull
-    public View getRealView() {
-        return this;
-    }
-
-    private int b(DownloadStatus downloadStatus) {
-        switch (downloadStatus) {
-            case STATUS_NONE:
-            default:
-                return 0;
-            case STATUS_SUCCESS:
-                return 3;
-            case STATUS_INSTALL_SUCCESS:
-                return 4;
-            case STATUS_DOWNLOADING:
-                return 1;
-            case STATUS_PAUSED:
-                return 2;
-        }
     }
 }

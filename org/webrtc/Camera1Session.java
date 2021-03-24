@@ -4,7 +4,6 @@ import android.content.Context;
 import android.hardware.Camera;
 import android.os.Handler;
 import android.os.SystemClock;
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -12,35 +11,32 @@ import java.util.concurrent.TimeUnit;
 import org.webrtc.Camera1Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class Camera1Session implements CameraSession {
-    private static final int NUMBER_OF_CAPTURE_BUFFERS = 3;
-    private static final String TAG = "Camera1Session";
-    private final Context applicationContext;
-    private final Camera camera;
-    private final int cameraId;
-    private final Handler cameraThreadHandler;
-    private final CameraEnumerationAndroid.CaptureFormat captureFormat;
-    private final boolean captureToTexture;
-    private final long constructionTimeNs;
-    private final CameraSession.Events events;
-    private boolean firstFrameReported;
-    private final Camera.CameraInfo info;
-    private SessionState state;
-    private final SurfaceTextureHelper surfaceTextureHelper;
-    private static final Histogram camera1StartTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera1.StartTimeMs", 1, 10000, 50);
-    private static final Histogram camera1StopTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera1.StopTimeMs", 1, 10000, 50);
-    private static final Histogram camera1ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera1.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
+    public static final int NUMBER_OF_CAPTURE_BUFFERS = 3;
+    public static final String TAG = "Camera1Session";
+    public final Context applicationContext;
+    public final Camera camera;
+    public final int cameraId;
+    public final Handler cameraThreadHandler;
+    public final CameraEnumerationAndroid.CaptureFormat captureFormat;
+    public final boolean captureToTexture;
+    public final long constructionTimeNs;
+    public final CameraSession.Events events;
+    public boolean firstFrameReported;
+    public final Camera.CameraInfo info;
+    public SessionState state;
+    public final SurfaceTextureHelper surfaceTextureHelper;
+    public static final Histogram camera1StartTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera1.StartTimeMs", 1, 10000, 50);
+    public static final Histogram camera1StopTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera1.StopTimeMs", 1, 10000, 50);
+    public static final Histogram camera1ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera1.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.Camera1Session$2  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public class AnonymousClass2 implements Camera.PreviewCallback {
-        AnonymousClass2() {
+        public AnonymousClass2() {
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public static /* synthetic */ void lambda$null$0(AnonymousClass2 anonymousClass2, byte[] bArr) {
             if (Camera1Session.this.state == SessionState.RUNNING) {
                 Camera1Session.this.camera.addCallbackBuffer(bArr);
@@ -77,14 +73,13 @@ public class Camera1Session implements CameraSession {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum SessionState {
         RUNNING,
         STOPPED
     }
 
-    private Camera1Session(CameraSession.Events events, boolean z, Context context, SurfaceTextureHelper surfaceTextureHelper, int i, Camera camera, Camera.CameraInfo cameraInfo, CameraEnumerationAndroid.CaptureFormat captureFormat, long j) {
+    public Camera1Session(CameraSession.Events events, boolean z, Context context, SurfaceTextureHelper surfaceTextureHelper, int i, Camera camera, Camera.CameraInfo cameraInfo, CameraEnumerationAndroid.CaptureFormat captureFormat, long j) {
         Logging.d(TAG, "Create new camera1 session on camera " + i);
         this.cameraThreadHandler = new Handler();
         this.events = events;
@@ -134,20 +129,20 @@ public class Camera1Session implements CameraSession {
                     }
                     open.setDisplayOrientation(0);
                     createSessionCallback.onDone(new Camera1Session(events, z, context, surfaceTextureHelper, i, open, cameraInfo, findClosestCaptureFormat, nanoTime));
-                } catch (RuntimeException e) {
+                } catch (RuntimeException e2) {
                     open.release();
-                    createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e.getMessage());
+                    createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e2.getMessage());
                 }
-            } catch (IOException | RuntimeException e2) {
+            } catch (IOException | RuntimeException e3) {
                 open.release();
-                createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e2.getMessage());
+                createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e3.getMessage());
             }
-        } catch (RuntimeException e3) {
-            createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e3.getMessage());
+        } catch (RuntimeException e4) {
+            createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e4.getMessage());
         }
     }
 
-    private static CameraEnumerationAndroid.CaptureFormat findClosestCaptureFormat(Camera.Parameters parameters, int i, int i2, int i3) {
+    public static CameraEnumerationAndroid.CaptureFormat findClosestCaptureFormat(Camera.Parameters parameters, int i, int i2, int i3) {
         List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates = Camera1Enumerator.convertFramerates(parameters.getSupportedPreviewFpsRange());
         Logging.d(TAG, "Available fps ranges: " + convertFramerates);
         CameraEnumerationAndroid.CaptureFormat.FramerateRange closestSupportedFramerateRange = CameraEnumerationAndroid.getClosestSupportedFramerateRange(convertFramerates, i3);
@@ -156,7 +151,7 @@ public class Camera1Session implements CameraSession {
         return new CameraEnumerationAndroid.CaptureFormat(closestSupportedSize.width, closestSupportedSize.height, closestSupportedFramerateRange);
     }
 
-    private static Size findClosestPictureSize(Camera.Parameters parameters, int i, int i2) {
+    public static Size findClosestPictureSize(Camera.Parameters parameters, int i, int i2) {
         return CameraEnumerationAndroid.getClosestSupportedSize(Camera1Enumerator.convertSizes(parameters.getSupportedPictureSizes()), i, i2);
     }
 
@@ -166,10 +161,9 @@ public class Camera1Session implements CameraSession {
         if (this.info.facing == 0) {
             deviceOrientation = 360 - deviceOrientation;
         }
-        return (deviceOrientation + this.info.orientation) % EncoderTextureDrawer.X264_WIDTH;
+        return (this.info.orientation + deviceOrientation) % 360;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void lambda$listenForTextureFrames$0(Camera1Session camera1Session, VideoFrame videoFrame) {
         camera1Session.checkIsOnCameraThread();
         if (camera1Session.state != SessionState.RUNNING) {
@@ -227,31 +221,36 @@ public class Camera1Session implements CameraSession {
         }
         try {
             this.camera.startPreview();
-        } catch (RuntimeException e) {
+        } catch (RuntimeException e2) {
             stopInternal();
-            this.events.onCameraError(this, e.getMessage());
+            this.events.onCameraError(this, e2.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stopInternal() {
+        String str;
         Logging.d(TAG, "Stop internal");
         checkIsOnCameraThread();
-        if (this.state == SessionState.STOPPED) {
-            Logging.d(TAG, "Camera is already stopped");
-            return;
+        SessionState sessionState = this.state;
+        SessionState sessionState2 = SessionState.STOPPED;
+        if (sessionState == sessionState2) {
+            str = "Camera is already stopped";
+        } else {
+            this.state = sessionState2;
+            this.surfaceTextureHelper.stopListening();
+            this.camera.stopPreview();
+            this.camera.release();
+            this.events.onCameraClosed(this);
+            str = "Stop done";
         }
-        this.state = SessionState.STOPPED;
-        this.surfaceTextureHelper.stopListening();
-        this.camera.stopPreview();
-        this.camera.release();
-        this.events.onCameraClosed(this);
-        Logging.d(TAG, "Stop done");
+        Logging.d(TAG, str);
     }
 
-    private static void updateCameraParameters(Camera camera, Camera.Parameters parameters, CameraEnumerationAndroid.CaptureFormat captureFormat, Size size, boolean z) {
+    public static void updateCameraParameters(Camera camera, Camera.Parameters parameters, CameraEnumerationAndroid.CaptureFormat captureFormat, Size size, boolean z) {
         List<String> supportedFocusModes = parameters.getSupportedFocusModes();
-        parameters.setPreviewFpsRange(captureFormat.framerate.min, captureFormat.framerate.max);
+        CameraEnumerationAndroid.CaptureFormat.FramerateRange framerateRange = captureFormat.framerate;
+        parameters.setPreviewFpsRange(framerateRange.min, framerateRange.max);
         parameters.setPreviewSize(captureFormat.width, captureFormat.height);
         parameters.setPictureSize(size.width, size.height);
         if (!z) {

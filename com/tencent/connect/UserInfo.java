@@ -7,7 +7,7 @@ import com.tencent.connect.common.BaseApi;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.e;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class UserInfo extends BaseApi {
     public static final String GRAPH_OPEN_ID = "oauth2.0/m_me";
 
@@ -15,15 +15,15 @@ public class UserInfo extends BaseApi {
         super(qQToken);
     }
 
-    public UserInfo(Context context, c cVar, QQToken qQToken) {
-        super(cVar, qQToken);
+    public void getOpenId(IUiListener iUiListener) {
+        HttpUtils.requestAsync(this.f39097b, e.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(iUiListener));
     }
 
     public void getUserInfo(IUiListener iUiListener) {
-        HttpUtils.requestAsync(this.b, e.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(iUiListener));
+        HttpUtils.requestAsync(this.f39097b, e.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(iUiListener));
     }
 
-    public void getOpenId(IUiListener iUiListener) {
-        HttpUtils.requestAsync(this.b, e.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(iUiListener));
+    public UserInfo(Context context, c cVar, QQToken qQToken) {
+        super(cVar, qQToken);
     }
 }

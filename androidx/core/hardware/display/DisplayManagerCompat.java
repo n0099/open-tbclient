@@ -8,13 +8,13 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.WeakHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class DisplayManagerCompat {
     public static final String DISPLAY_CATEGORY_PRESENTATION = "android.hardware.display.category.PRESENTATION";
-    private static final WeakHashMap<Context, DisplayManagerCompat> sInstances = new WeakHashMap<>();
-    private final Context mContext;
+    public static final WeakHashMap<Context, DisplayManagerCompat> sInstances = new WeakHashMap<>();
+    public final Context mContext;
 
-    private DisplayManagerCompat(Context context) {
+    public DisplayManagerCompat(Context context) {
         this.mContext = context;
     }
 
@@ -37,18 +37,15 @@ public final class DisplayManagerCompat {
             return ((DisplayManager) this.mContext.getSystemService("display")).getDisplay(i);
         }
         Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
-        if (defaultDisplay.getDisplayId() != i) {
-            return null;
+        if (defaultDisplay.getDisplayId() == i) {
+            return defaultDisplay;
         }
-        return defaultDisplay;
+        return null;
     }
 
     @NonNull
     public Display[] getDisplays() {
-        if (Build.VERSION.SDK_INT >= 17) {
-            return ((DisplayManager) this.mContext.getSystemService("display")).getDisplays();
-        }
-        return new Display[]{((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay()};
+        return Build.VERSION.SDK_INT >= 17 ? ((DisplayManager) this.mContext.getSystemService("display")).getDisplays() : new Display[]{((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay()};
     }
 
     @NonNull
@@ -56,9 +53,6 @@ public final class DisplayManagerCompat {
         if (Build.VERSION.SDK_INT >= 17) {
             return ((DisplayManager) this.mContext.getSystemService("display")).getDisplays(str);
         }
-        if (str == null) {
-            return new Display[0];
-        }
-        return new Display[]{((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay()};
+        return str == null ? new Display[0] : new Display[]{((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay()};
     }
 }

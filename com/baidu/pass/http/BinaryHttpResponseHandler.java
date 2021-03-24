@@ -1,30 +1,28 @@
 package com.baidu.pass.http;
 
 import android.os.Looper;
-import com.baidu.down.manage.DownloadConstants;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class BinaryHttpResponseHandler extends HttpResponseHandler implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String[] f2836a;
+    public String[] f9742a;
 
     public BinaryHttpResponseHandler(Looper looper) {
         super(looper);
-        this.f2836a = new String[]{"image/png", "image/jpeg", "image/jpg", DownloadConstants.MIMETYPE_GIF};
+        this.f9742a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
     }
 
     @Override // com.baidu.pass.http.HttpResponseHandler
-    void a(int i, HashMap<String, String> hashMap, byte[] bArr) {
-        boolean z;
+    public void a(int i, HashMap<String, String> hashMap, byte[] bArr) {
         if (hashMap != null && hashMap.get("Content-Type") != null) {
             String str = hashMap.get("Content-Type");
-            String[] strArr = this.f2836a;
+            String[] strArr = this.f9742a;
             int length = strArr.length;
+            boolean z = false;
             int i2 = 0;
             while (true) {
                 if (i2 >= length) {
-                    z = false;
                     break;
                 } else if (strArr[i2].equalsIgnoreCase(str)) {
                     z = true;
@@ -45,7 +43,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
     }
 
     @Override // com.baidu.pass.http.HttpResponseHandler
-    void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
+    public void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
         if (this.executCallbackInChildThread) {
             a(i, hashMap, bArr);
         } else {
@@ -53,7 +51,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
         }
     }
 
-    protected void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
     }
 
     public BinaryHttpResponseHandler(Looper looper, String[] strArr) {
@@ -62,8 +60,8 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
 
     public BinaryHttpResponseHandler(Looper looper, String[] strArr, boolean z) {
         super(looper);
-        this.f2836a = new String[]{"image/png", "image/jpeg", "image/jpg", DownloadConstants.MIMETYPE_GIF};
-        this.f2836a = strArr;
+        this.f9742a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
+        this.f9742a = strArr;
         this.executCallbackInChildThread = z;
     }
 }

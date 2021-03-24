@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class RecordVideoTipDialog extends Dialog implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f1812a;
+    public a f6153a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
 
@@ -22,27 +22,30 @@ public class RecordVideoTipDialog extends Dialog implements View.OnClickListener
         void c();
     }
 
-    public void setMenuItemClickListener(a aVar) {
-        this.f1812a = aVar;
-    }
-
     public RecordVideoTipDialog(Context context) {
         super(context);
         a();
     }
 
-    public RecordVideoTipDialog(Context context, int i) {
-        super(context, i);
-        a();
+    private void a() {
+        requestWindowFeature(1);
     }
 
-    protected RecordVideoTipDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
-        super(context, z, onCancelListener);
-        a();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.f6153a != null) {
+            if (view.getId() == R.id.liveness_again_btn) {
+                this.f6153a.a();
+            } else if (view.getId() == R.id.start_record_btn) {
+                this.f6153a.b();
+            } else if (view.getId() == R.id.record_video_close_iv) {
+                this.f6153a.c();
+            }
+        }
     }
 
     @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.layout_sapi_liveness_record_video_tip_dialog);
         findViewById(R.id.liveness_again_btn).setOnClickListener(this);
@@ -57,20 +60,17 @@ public class RecordVideoTipDialog extends Dialog implements View.OnClickListener
         getWindow().setBackgroundDrawableResource(R.color.sapi_liveness_transparent);
     }
 
-    private void a() {
-        requestWindowFeature(1);
+    public void setMenuItemClickListener(a aVar) {
+        this.f6153a = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.f1812a != null) {
-            if (view.getId() == R.id.liveness_again_btn) {
-                this.f1812a.a();
-            } else if (view.getId() == R.id.start_record_btn) {
-                this.f1812a.b();
-            } else if (view.getId() == R.id.record_video_close_iv) {
-                this.f1812a.c();
-            }
-        }
+    public RecordVideoTipDialog(Context context, int i) {
+        super(context, i);
+        a();
+    }
+
+    public RecordVideoTipDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
+        super(context, z, onCancelListener);
+        a();
     }
 }

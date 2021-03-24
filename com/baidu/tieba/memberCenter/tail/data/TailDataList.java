@@ -3,10 +3,10 @@ package com.baidu.tieba.memberCenter.tail.data;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class TailDataList implements Serializable {
-    private static final long serialVersionUID = 5535689487690791648L;
-    private List<TailData> mTails;
+    public static final long serialVersionUID = 5535689487690791648L;
+    public List<TailData> mTails;
 
     public TailDataList(List<TailData> list) {
         if (list != null) {

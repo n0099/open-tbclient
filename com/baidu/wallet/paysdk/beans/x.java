@@ -1,0 +1,133 @@
+package com.baidu.wallet.paysdk.beans;
+
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.apollon.armor.SafePay;
+import com.baidu.apollon.restnet.RestNameValuePair;
+import com.baidu.wallet.api.Constants;
+import com.baidu.wallet.base.controllers.PasswordController;
+import com.baidu.wallet.core.domain.DomainConfig;
+import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
+import com.baidu.wallet.paysdk.datamodel.ErrorContentResponse;
+import com.baidu.wallet.paysdk.datamodel.PwdRequest;
+import com.baidu.wallet.paysdk.storage.PayRequestCache;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class x extends PayBaseBean<Object> {
+
+    /* renamed from: a  reason: collision with root package name */
+    public PwdRequest f25538a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f25539b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f25540c;
+
+    public <T> x(Context context) {
+        super(context);
+        this.f25538a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+    }
+
+    private void a(List<RestNameValuePair> list) {
+        if (!this.f25540c || TextUtils.isEmpty(this.f25539b)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(this.f25539b);
+            jSONObject.remove(Constants.HALF_SCREEN_PWD_VERIFY);
+            Iterator<String> keys = jSONObject.keys();
+            if (keys != null) {
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    Object opt = jSONObject.opt(next);
+                    list.add(new RestNameValuePair(next, opt != null ? String.valueOf(opt) : ""));
+                }
+            }
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    @Override // com.baidu.apollon.beans.ApollonBean
+    public void execBean() {
+        super.execBean(String.class, ErrorContentResponse.class);
+    }
+
+    @Override // com.baidu.wallet.core.beans.NetworkBean
+    public List<RestNameValuePair> generateRequestParam() {
+        ArrayList arrayList = new ArrayList();
+        String seed = PasswordController.getSeed();
+        String encryptProxy = SafePay.getInstance().encryptProxy(seed);
+        int i = this.f25538a.mRequestType;
+        if (i != 2 && i != 1) {
+            String encryptProxy2 = SafePay.getInstance().encryptProxy(PasswordController.handlePwdSimple(this.f25538a.mConfirmPayPass));
+            String handlePwd = PasswordController.handlePwd(this.f25538a.mConfirmPayPass, seed);
+            String str = SafePay.getInstance().getpwProxy();
+            arrayList.add(new RestNameValuePair("new_mobile_pwd", encryptProxy2));
+            arrayList.add(new RestNameValuePair("confirm_new_mobile_pwd", handlePwd));
+            arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f25538a.mConfirmPayPass)));
+            arrayList.add(new RestNameValuePair("key_no", str));
+            arrayList.add(new RestNameValuePair("sess_key", this.f25538a.mSessionKey));
+        } else {
+            if (!TextUtils.isEmpty(this.f25538a.mPayPass)) {
+                String handlePwd2 = PasswordController.handlePwd(this.f25538a.mPayPass, seed);
+                String str2 = SafePay.getInstance().getpwProxy();
+                arrayList.add(new RestNameValuePair("mobile_pwd", handlePwd2));
+                arrayList.add(new RestNameValuePair("key", str2));
+            }
+            a(arrayList);
+        }
+        arrayList.add(new RestNameValuePair("seed", encryptProxy));
+        PwdRequest pwdRequest = this.f25538a;
+        if (pwdRequest.mRequestType == 2 && TextUtils.equals(pwdRequest.fromType, BeanConstants.FROM_BIND)) {
+            BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
+            arrayList.add(new RestNameValuePair("scenario", "bindcard"));
+            arrayList.add(new RestNameValuePair("source_flag", "3"));
+            if (bindFastRequest != null) {
+                arrayList.add(new RestNameValuePair("request_type", bindFastRequest.getCardRequestType()));
+            } else {
+                arrayList.add(new RestNameValuePair("request_type", BindFastRequest.getCardRequestType(1)));
+            }
+            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25538a.serviceType));
+        }
+        return arrayList;
+    }
+
+    @Override // com.baidu.apollon.beans.ApollonBean
+    public int getBeanId() {
+        int i = this.f25538a.mRequestType;
+        if (i == 2) {
+            return 257;
+        }
+        return i == 3 ? PayBeanFactory.BEAN_ID_MODIFY_MOBILE_PWD : PayBeanFactory.BEAN_ID_CHECK_MOBILE_PWD;
+    }
+
+    @Override // com.baidu.apollon.beans.ApollonBean
+    public String getUrl() {
+        int i = this.f25538a.mRequestType;
+        if (i == 2) {
+            String str = PayRequestCache.getInstance().isPaying() ? BeanConstants.API_VERIFY_PAY_PWD : BeanConstants.API_VERIFY_MOBILE_PWD_NEW;
+            return DomainConfig.getInstance().getAppPayHost() + str;
+        } else if (i == 1) {
+            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_CHECK_MOBILE_PWD;
+        } else if (i == 3) {
+            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_MODIFY_MOBILE_PWD;
+        } else {
+            return "";
+        }
+    }
+
+    public void a(String str) {
+        this.f25539b = str;
+    }
+
+    public void a(boolean z) {
+        this.f25540c = z;
+    }
+}

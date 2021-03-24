@@ -8,33 +8,20 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.swan.apps.scheme.actions.k.j;
+import d.b.g0.a.k;
+import d.b.g0.a.t1.k.p0.j;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class PrefetchEvent extends SwanAppIPCData {
-    public static final Parcelable.Creator<PrefetchEvent> CREATOR = new Parcelable.Creator<PrefetchEvent>() { // from class: com.baidu.swan.apps.core.prefetch.PrefetchEvent.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: q */
-        public PrefetchEvent createFromParcel(Parcel parcel) {
-            return new PrefetchEvent(parcel);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: hb */
-        public PrefetchEvent[] newArray(int i) {
-            return new PrefetchEvent[i];
-        }
-    };
-    private static final String EVENT_KEY_APP_CONFIG = "appConfig";
-    private static final String EVENT_KEY_APP_KEY = "appKey";
-    private static final String EVENT_KEY_APP_PATH = "appPath";
-    private static final String EVENT_KEY_PAGE_URL = "pageUrl";
-    private static final String EVENT_KEY_SCENE = "scene";
-    private static final String EVENT_KEY_SCHEMA = "schema";
-    private static final String EVENT_KEY_STATE = "state";
+    public static final Parcelable.Creator<PrefetchEvent> CREATOR = new a();
+    public static final String EVENT_KEY_APP_CONFIG = "appConfig";
+    public static final String EVENT_KEY_APP_KEY = "appKey";
+    public static final String EVENT_KEY_APP_PATH = "appPath";
+    public static final String EVENT_KEY_PAGE_URL = "pageUrl";
+    public static final String EVENT_KEY_SCENE = "scene";
+    public static final String EVENT_KEY_SCHEMA = "schema";
+    public static final String EVENT_KEY_STATE = "state";
     public static final String STATE_CLICK = "click";
     public static final String STATE_SHOW = "show";
     public String appConfig;
@@ -45,32 +32,111 @@ public class PrefetchEvent extends SwanAppIPCData {
     public String schema;
     public String state;
 
-    public PrefetchEvent() {
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<PrefetchEvent> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public PrefetchEvent createFromParcel(Parcel parcel) {
+            return new PrefetchEvent(parcel, null);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: b */
+        public PrefetchEvent[] newArray(int i) {
+            return new PrefetchEvent[i];
+        }
     }
 
-    private PrefetchEvent(Parcel parcel) {
-        this.appId = parcel.readString();
-        this.schema = parcel.readString();
-        this.state = parcel.readString();
-        this.appPath = parcel.readString();
-        this.scene = parcel.readString();
+    /* loaded from: classes3.dex */
+    public static class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public PrefetchEvent f12182a = new PrefetchEvent();
+
+        public b a(@NonNull String str) {
+            this.f12182a.appId = str;
+            return this;
+        }
+
+        public PrefetchEvent b() {
+            return this.f12182a;
+        }
+
+        public b c(@NonNull String str) {
+            this.f12182a.scene = str;
+            return this;
+        }
+
+        public b d(@NonNull String str) {
+            this.f12182a.schema = str;
+            return this;
+        }
+
+        public b e(String str) {
+            this.f12182a.state = str;
+            return this;
+        }
     }
 
-    public boolean isValid() {
-        return (TextUtils.isEmpty(this.appId) || TextUtils.isEmpty(this.schema) || !isStateValid()) ? false : true;
+    /* loaded from: classes3.dex */
+    public static class c extends d.b.g0.a.k0.b.b {
+        public c(@Nullable Map<String, String> map, String str) {
+            super(str, map);
+        }
     }
 
-    private boolean isStateValid() {
-        return TextUtils.equals(this.state, "click") || TextUtils.equals(this.state, "show");
+    public /* synthetic */ PrefetchEvent(Parcel parcel, a aVar) {
+        this(parcel);
     }
 
-    public String toString() {
-        return "PrefetchEvent{appId='" + this.appId + "', pageUrl='" + this.pageUrl + "', schema='" + this.schema + "', state='" + this.state + "', appPath='" + this.appPath + "', scene='" + this.scene + "'}";
+    public static c a(@NonNull PrefetchEvent prefetchEvent, Bundle bundle) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("appKey", prefetchEvent.appId);
+        hashMap.put("schema", prefetchEvent.schema);
+        hashMap.put("state", prefetchEvent.state);
+        if (!TextUtils.isEmpty(prefetchEvent.appPath)) {
+            hashMap.put(EVENT_KEY_APP_PATH, prefetchEvent.appPath);
+        }
+        if (!TextUtils.isEmpty(prefetchEvent.scene)) {
+            hashMap.put("scene", prefetchEvent.scene);
+        }
+        if (!TextUtils.isEmpty(prefetchEvent.appConfig)) {
+            hashMap.put(EVENT_KEY_APP_CONFIG, prefetchEvent.appConfig);
+        }
+        d.b.g0.a.l1.g.b.a(hashMap, "prefetch event");
+        if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
+            hashMap.put("pageUrl", prefetchEvent.pageUrl);
+            j.a(prefetchEvent.pageUrl, hashMap);
+        } else if (k.f45050a) {
+            Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
+        }
+        String str = "preload";
+        if (bundle != null) {
+            String string = bundle.getString("swan_app_prefetch_event_name");
+            if (!TextUtils.isEmpty(string)) {
+                str = string;
+            }
+        }
+        return new c(hashMap, str);
+    }
+
+    public final boolean b() {
+        return TextUtils.equals(this.state, STATE_CLICK) || TextUtils.equals(this.state, "show");
+    }
+
+    public boolean c() {
+        return (TextUtils.isEmpty(this.appId) || TextUtils.isEmpty(this.schema) || !b()) ? false : true;
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
+    }
+
+    public String toString() {
+        return "PrefetchEvent{appId='" + this.appId + "', pageUrl='" + this.pageUrl + "', schema='" + this.schema + "', state='" + this.state + "', appPath='" + this.appPath + "', scene='" + this.scene + "'}";
     }
 
     @Override // android.os.Parcelable
@@ -82,70 +148,14 @@ public class PrefetchEvent extends SwanAppIPCData {
         parcel.writeString(this.scene);
     }
 
-    public static b a(@NonNull PrefetchEvent prefetchEvent, Bundle bundle) {
-        HashMap hashMap = new HashMap();
-        hashMap.put("appKey", prefetchEvent.appId);
-        hashMap.put(EVENT_KEY_SCHEMA, prefetchEvent.schema);
-        hashMap.put("state", prefetchEvent.state);
-        if (!TextUtils.isEmpty(prefetchEvent.appPath)) {
-            hashMap.put(EVENT_KEY_APP_PATH, prefetchEvent.appPath);
-        }
-        if (!TextUtils.isEmpty(prefetchEvent.scene)) {
-            hashMap.put("scene", prefetchEvent.scene);
-        }
-        if (!TextUtils.isEmpty(prefetchEvent.appConfig)) {
-            hashMap.put(EVENT_KEY_APP_CONFIG, prefetchEvent.appConfig);
-        }
-        com.baidu.swan.apps.ac.g.b.c(hashMap, "prefetch event");
-        if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
-            hashMap.put(EVENT_KEY_PAGE_URL, prefetchEvent.pageUrl);
-            j.e(prefetchEvent.pageUrl, hashMap);
-        } else if (com.baidu.swan.apps.b.DEBUG) {
-            Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
-        }
-        String str = "preload";
-        if (bundle != null) {
-            str = bundle.getString("swan_app_prefetch_event_name");
-            if (TextUtils.isEmpty(str)) {
-                str = "preload";
-            }
-        }
-        return new b(hashMap, str);
+    public PrefetchEvent() {
     }
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        private PrefetchEvent cXy = new PrefetchEvent();
-
-        public a nd(@NonNull String str) {
-            this.cXy.appId = str;
-            return this;
-        }
-
-        public a ne(@NonNull String str) {
-            this.cXy.schema = str;
-            return this;
-        }
-
-        public a nf(String str) {
-            this.cXy.state = str;
-            return this;
-        }
-
-        public a ng(@NonNull String str) {
-            this.cXy.scene = str;
-            return this;
-        }
-
-        public PrefetchEvent arm() {
-            return this.cXy;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b extends com.baidu.swan.apps.event.a.b {
-        b(@Nullable Map<String, String> map, String str) {
-            super(str, map);
-        }
+    public PrefetchEvent(Parcel parcel) {
+        this.appId = parcel.readString();
+        this.schema = parcel.readString();
+        this.state = parcel.readString();
+        this.appPath = parcel.readString();
+        this.scene = parcel.readString();
     }
 }

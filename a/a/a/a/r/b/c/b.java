@@ -12,13 +12,17 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public abstract class b extends NativeAdContainer {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f1003a;
-    public TextView b;
-    public Button c;
+    public TextView f1290a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f1291b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Button f1292c;
 
     public b(Context context) {
         this(context, null);
@@ -34,50 +38,55 @@ public abstract class b extends NativeAdContainer {
 
     public List<View> a() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.c);
-        arrayList.add(this.b);
-        arrayList.add(this.f1003a);
+        arrayList.add(this.f1292c);
+        arrayList.add(this.f1291b);
+        arrayList.add(this.f1290a);
         return arrayList;
     }
 
     public void a(Activity activity, NativeUnifiedADData nativeUnifiedADData) {
-        this.b.setText(nativeUnifiedADData.getTitle());
-        this.f1003a.setText(nativeUnifiedADData.getDesc());
+        this.f1291b.setText(nativeUnifiedADData.getTitle());
+        this.f1290a.setText(nativeUnifiedADData.getDesc());
         nativeUnifiedADData.bindAdToView(getContext(), this, null, a());
         a(nativeUnifiedADData);
     }
 
     public void a(NativeUnifiedADData nativeUnifiedADData) {
+        Button button;
+        int i;
         if (nativeUnifiedADData.isAppAd()) {
             int appStatus = nativeUnifiedADData.getAppStatus();
             if (appStatus == 0) {
-                this.c.setText(R.string.ad_interaction_type_download);
-                return;
+                button = this.f1292c;
+                i = R.string.ad_interaction_type_download;
             } else if (appStatus == 1) {
-                this.c.setText(R.string.ad_interaction_type_start);
-                return;
+                button = this.f1292c;
+                i = R.string.ad_interaction_type_start;
             } else if (appStatus == 2) {
-                this.c.setText(R.string.ad_interaction_type_update);
-                return;
+                button = this.f1292c;
+                i = R.string.ad_interaction_type_update;
             } else if (appStatus == 4) {
-                this.c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
+                this.f1292c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
                 return;
             } else if (appStatus == 8) {
-                this.c.setText(R.string.ad_interaction_type_install);
-                return;
+                button = this.f1292c;
+                i = R.string.ad_interaction_type_install;
             } else if (appStatus == 16) {
-                this.c.setText(R.string.ad_interaction_type_redownload);
-                return;
+                button = this.f1292c;
+                i = R.string.ad_interaction_type_redownload;
             }
+            button.setText(i);
         }
-        this.c.setText(R.string.ad_interaction_type_view);
+        button = this.f1292c;
+        i = R.string.ad_interaction_type_view;
+        button.setText(i);
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f1003a = (TextView) findViewById(R.id.ad_description);
-        this.b = (TextView) findViewById(R.id.ad_title);
-        this.c = (Button) findViewById(R.id.ad_creative);
+        this.f1290a = (TextView) findViewById(R.id.ad_description);
+        this.f1291b = (TextView) findViewById(R.id.ad_title);
+        this.f1292c = (Button) findViewById(R.id.ad_creative);
     }
 }

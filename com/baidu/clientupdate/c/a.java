@@ -11,17 +11,13 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.android.common.util.CommonParam;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.apollon.statistics.g;
 import com.baidu.clientupdate.a.d;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
 import com.baidu.clientupdate.d.j;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.util.LogUtil;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.tencent.open.SocialConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,52 +27,67 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class a {
-    private static StringBuilder A;
+    public static StringBuilder A;
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1362a;
-    private static Context b;
-    private static String c;
-    private static String d;
-    private static String f;
-    private static String g;
-    private static String l;
-    private static String m;
-    private static String n;
-    private static String w;
-    private static String x;
-    private d B;
-    private String e;
-    private String h;
-    private String j;
-    private String o;
-    private String p;
-    private String q;
-    private String r;
-    private ActivityManager s;
-    private String t;
-    private String u;
-    private String v;
-    private String y;
-    private boolean i = false;
-    private Map k = new HashMap();
-    private Boolean z = false;
+    public static a f4582a;
 
-    private a(Context context) {
-        b = context.getApplicationContext();
-        this.B = d.a(b);
+    /* renamed from: b  reason: collision with root package name */
+    public static Context f4583b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f4584c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f4585d;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f4586f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f4587g;
+    public static String l;
+    public static String m;
+    public static String n;
+    public static String w;
+    public static String x;
+    public d B;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f4588e;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f4589h;
+    public String j;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public ActivityManager s;
+    public String t;
+    public String u;
+    public String v;
+    public String y;
+    public boolean i = false;
+    public Map k = new HashMap();
+    public Boolean z = Boolean.FALSE;
+
+    public a(Context context) {
+        Context applicationContext = context.getApplicationContext();
+        f4583b = applicationContext;
+        this.B = d.a(applicationContext);
         d();
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1362a == null) {
-                f1362a = new a(context);
+            if (f4582a == null) {
+                f4582a = new a(context);
             }
-            aVar = f1362a;
+            aVar = f4582a;
         }
         return aVar;
     }
@@ -86,19 +97,16 @@ public final class a {
         int i = displayMetrics.widthPixels;
         int i2 = displayMetrics.heightPixels;
         int i3 = displayMetrics.densityDpi;
-        String str = HttpConstants.OS_TYPE_VALUE;
-        if (!TextUtils.isEmpty(this.v)) {
-            str = this.v;
-        }
+        String str = !TextUtils.isEmpty(this.v) ? this.v : "android";
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(i);
-        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append("_");
         stringBuffer.append(i2);
-        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append("_");
         stringBuffer.append(str);
-        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(c);
-        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append("_");
+        stringBuffer.append(f4584c);
+        stringBuffer.append("_");
         stringBuffer.append(i3);
         String stringBuffer2 = stringBuffer.toString();
         LogUtil.logD("BaiduParamManager", "ua = " + stringBuffer2);
@@ -114,7 +122,7 @@ public final class a {
             return "WF";
         }
         int subtype = activeNetworkInfo.getSubtype();
-        return (subtype == 7 || subtype == 5 || subtype == 6 || subtype == 8 || subtype == 10 || subtype == 9 || subtype == 3 || subtype == 14 || subtype == 12 || subtype == 15) ? "3G" : subtype == 13 ? "4G" : "2G";
+        return (subtype == 7 || subtype == 5 || subtype == 6 || subtype == 8 || subtype == 10 || subtype == 9 || subtype == 3 || subtype == 14 || subtype == 12 || subtype == 15) ? g.f3873b : subtype == 13 ? "4G" : "2G";
     }
 
     public static boolean c(String str) {
@@ -122,111 +130,95 @@ public final class a {
     }
 
     private void d() {
-        this.e = b.getPackageName();
-        this.s = (ActivityManager) b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        this.f4588e = f4583b.getPackageName();
+        this.s = (ActivityManager) f4583b.getSystemService("activity");
         try {
-            PackageInfo packageInfo = b.getPackageManager().getPackageInfo(this.e, 64);
-            c = packageInfo.versionName;
-            d = String.valueOf(packageInfo.versionCode);
+            PackageInfo packageInfo = f4583b.getPackageManager().getPackageInfo(this.f4588e, 64);
+            f4584c = packageInfo.versionName;
+            f4585d = String.valueOf(packageInfo.versionCode);
             x = new File(packageInfo.applicationInfo.publicSourceDir).length() + "";
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
+        } catch (PackageManager.NameNotFoundException e2) {
+            e2.printStackTrace();
         }
-        w = j.a(b, this.e);
-        f = g();
-        this.h = f();
-        g = b(b);
+        w = j.a(f4583b, this.f4588e);
+        f4586f = g();
+        this.f4589h = f();
+        f4587g = b(f4583b);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0084 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0071 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v1, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.FileInputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private void e() {
         FileInputStream fileInputStream;
         File file = new File(Environment.getExternalStorageDirectory(), "clientupdate_server.cfg");
-        ?? exists = file.exists();
-        if (exists == 0) {
+        if (!file.exists()) {
             LogUtil.logD("BaiduParamManager", "not found config file");
             return;
         }
         Properties properties = new Properties();
+        FileInputStream fileInputStream2 = null;
         try {
             try {
-                fileInputStream = new FileInputStream(file);
                 try {
-                    properties.load(fileInputStream);
-                    if (properties.getProperty("server") != null) {
-                        this.u = String.valueOf(properties.getProperty("server"));
-                    }
-                    LogUtil.logD("BaiduParamManager", "设置server:" + this.u);
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
+                    fileInputStream = new FileInputStream(file);
+                } catch (Throwable th) {
+                    th = th;
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (exists != 0) {
+            } catch (Exception e2) {
+                e = e2;
+            }
+            try {
+                properties.load(fileInputStream);
+                if (properties.getProperty("server") != null) {
+                    this.u = String.valueOf(properties.getProperty("server"));
+                }
+                LogUtil.logD("BaiduParamManager", "设置server:" + this.u);
+                fileInputStream.close();
+            } catch (Exception e3) {
+                e = e3;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
                     try {
-                        exists.close();
+                        fileInputStream2.close();
                     } catch (IOException e4) {
                         e4.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (Exception e5) {
-            e = e5;
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            exists = 0;
-            if (exists != 0) {
-            }
-            throw th;
+        } catch (IOException e5) {
+            e5.printStackTrace();
         }
     }
 
     private String f() {
         String str = Build.MODEL;
         String str2 = Build.VERSION.RELEASE;
-        String str3 = str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.VERSION.SDK_INT + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.MANUFACTURER.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-        LogUtil.logD("BaiduParamManager", "get ut : " + str3);
-        return str3;
+        int i = Build.VERSION.SDK_INT;
+        String str3 = Build.MANUFACTURER;
+        String str4 = str.replace("_", "-") + "_" + str2.replace("_", "-") + "_" + i + "_" + str3.replace("_", "-");
+        LogUtil.logD("BaiduParamManager", "get ut : " + str4);
+        return str4;
     }
 
     private String g() {
         String str;
-        if (TextUtils.isEmpty(f)) {
+        if (TextUtils.isEmpty(f4586f)) {
             try {
-                str = CommonParam.getCUID(b);
-            } catch (Exception e) {
-                e.printStackTrace();
+                str = CommonParam.getCUID(f4583b);
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 str = System.currentTimeMillis() + "";
             }
             LogUtil.logD("BaiduParamManager", "new generated uid " + str);
             return str;
         }
-        return f;
+        return f4586f;
     }
 
     private String h() {
@@ -235,7 +227,7 @@ public final class a {
             return null;
         }
         StringBuilder sb = new StringBuilder(j);
-        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        sb.append("_");
         sb.append(i());
         return sb.reverse().toString();
     }
@@ -250,11 +242,8 @@ public final class a {
     private String j() {
         if (Build.VERSION.SDK_INT >= 16) {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
-            if (memoryInfo != null) {
-                return Long.toHexString(memoryInfo.totalMem);
-            }
-            return null;
+            ((ActivityManager) f4583b.getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return Long.toHexString(memoryInfo.totalMem);
         }
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
@@ -271,14 +260,13 @@ public final class a {
                         return Long.toHexString(Integer.valueOf(split[1]).intValue() * 1024);
                     }
                     return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
             return null;
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e3) {
+            e3.printStackTrace();
             return null;
         }
     }
@@ -287,14 +275,17 @@ public final class a {
         if (this.z.booleanValue()) {
             LogUtil.logE("BaiduParamManager", "读取手机根目录cfg文件");
             e();
-            return this.u != null ? this.u : "https://update.baidu.com";
+            String str = this.u;
+            if (str != null) {
+                return str;
+            }
         }
         return "https://update.baidu.com";
     }
 
     public void a(String str) {
         this.v = str;
-        g = b(b);
+        f4587g = b(f4583b);
     }
 
     public void a(String str, String str2) {
@@ -306,18 +297,27 @@ public final class a {
     }
 
     public String b() {
-        A = new StringBuilder();
-        A.append("{\"cid\":\"" + f + "\",");
-        A.append("\"pl\":\"" + l + "\",");
-        A.append("\"os\":\"" + g + "\",");
-        A.append("\"ot\":\"" + m + "\",");
-        A.append("\"cl\":\"" + n + "\",");
-        A.append("\"cvn\":\"" + c + "\",");
-        A.append("\"cvc\":\"" + d + "\",");
-        A.append("\"csz\":\"" + x + "\",");
-        A.append("\"cmd5\":\"" + w + "\",");
-        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(b).a();
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(b).b();
+        StringBuilder sb = new StringBuilder();
+        A = sb;
+        sb.append("{\"cid\":\"" + f4586f + "\",");
+        StringBuilder sb2 = A;
+        sb2.append("\"pl\":\"" + l + "\",");
+        StringBuilder sb3 = A;
+        sb3.append("\"os\":\"" + f4587g + "\",");
+        StringBuilder sb4 = A;
+        sb4.append("\"ot\":\"" + m + "\",");
+        StringBuilder sb5 = A;
+        sb5.append("\"cl\":\"" + n + "\",");
+        StringBuilder sb6 = A;
+        sb6.append("\"cvn\":\"" + f4584c + "\",");
+        StringBuilder sb7 = A;
+        sb7.append("\"cvc\":\"" + f4585d + "\",");
+        StringBuilder sb8 = A;
+        sb8.append("\"csz\":\"" + x + "\",");
+        StringBuilder sb9 = A;
+        sb9.append("\"cmd5\":\"" + w + "\",");
+        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f4583b).a();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4583b).b();
         if (a2 == null || b2 == null) {
             A.append("\"ug\":\"\",");
             A.append("\"vn\":\"\",");
@@ -325,11 +325,16 @@ public final class a {
             A.append("\"sz\":\"\",");
             A.append("\"md5\":\"\",");
         } else {
-            A.append("\"ug\":\"" + b2.mUpgradeid + "\",");
-            A.append("\"vn\":\"" + a2.mVername + "\",");
-            A.append("\"vc\":\"" + a2.mVercode + "\",");
-            A.append("\"sz\":\"" + a2.mSize + "\",");
-            A.append("\"md5\":\"" + a2.mApkMd5 + "\",");
+            StringBuilder sb10 = A;
+            sb10.append("\"ug\":\"" + b2.mUpgradeid + "\",");
+            StringBuilder sb11 = A;
+            sb11.append("\"vn\":\"" + a2.mVername + "\",");
+            StringBuilder sb12 = A;
+            sb12.append("\"vc\":\"" + a2.mVercode + "\",");
+            StringBuilder sb13 = A;
+            sb13.append("\"sz\":\"" + a2.mSize + "\",");
+            StringBuilder sb14 = A;
+            sb14.append("\"md5\":\"" + a2.mApkMd5 + "\",");
         }
         LogUtil.logE("BaiduParamManager", A.toString());
         return A.toString();
@@ -338,24 +343,26 @@ public final class a {
     public String b(String str) {
         try {
             b bVar = new b(a() + str);
-            bVar.a("versioncode", d);
-            bVar.a("versionname", c);
-            bVar.a("pkgname", this.e);
-            bVar.a("cuid", f);
-            bVar.a(com.baidu.fsg.base.statistics.j.c, g);
-            bVar.a("ut", this.h);
+            bVar.a("versioncode", f4585d);
+            bVar.a("versionname", f4584c);
+            bVar.a("pkgname", this.f4588e);
+            bVar.a("cuid", f4586f);
+            bVar.a("ua", f4587g);
+            bVar.a("ut", this.f4589h);
             bVar.a("auto", String.valueOf(this.i));
-            this.j = c(b);
-            bVar.a("network", this.j);
-            this.t = h();
-            if (this.t != null) {
-                bVar.a("utm", this.t);
+            String c2 = c(f4583b);
+            this.j = c2;
+            bVar.a("network", c2);
+            String h2 = h();
+            this.t = h2;
+            if (h2 != null) {
+                bVar.a("utm", h2);
             }
             bVar.a("osname", l);
             bVar.a(SocialConstants.PARAM_TYPE_ID, m);
             bVar.a("from", n);
             bVar.a("osbranch", this.o);
-            bVar.a(BdStatsConstant.StatsKey.CURRENT_CHANNEL, this.p);
+            bVar.a("cfrom", this.p);
             bVar.a("ignore", this.q);
             bVar.a("time", this.r);
             for (Map.Entry entry : this.k.entrySet()) {
@@ -364,15 +371,22 @@ public final class a {
             if (!TextUtils.isEmpty(w)) {
                 bVar.a("usermd5", w);
             }
-            this.y = j.a(b, "com.baidu.appsearch");
-            if (!TextUtils.isEmpty(this.y)) {
+            String a2 = j.a(f4583b, "com.baidu.appsearch");
+            this.y = a2;
+            if (!TextUtils.isEmpty(a2)) {
                 bVar.a("appsearchmd5", this.y);
             }
-            this.B.a(c(), "0", b(), "a2", "0", (System.currentTimeMillis() / 1000) + "", "", "SDKParamManager", "");
+            d dVar = this.B;
+            String c3 = c();
+            String b2 = b();
+            dVar.a(c3, "0", b2, "a2", "0", (System.currentTimeMillis() / 1000) + "", "", "SDKParamManager", "");
             return bVar.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            this.B.a(c(), "0", b(), "a2", "1", (System.currentTimeMillis() / 1000) + "", "", "SDKParamManager", e.toString());
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            d dVar2 = this.B;
+            String c4 = c();
+            String b3 = b();
+            dVar2.a(c4, "0", b3, "a2", "1", (System.currentTimeMillis() / 1000) + "", "", "SDKParamManager", e2.toString());
             return "";
         }
     }
@@ -382,16 +396,16 @@ public final class a {
     }
 
     public String c() {
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(b).b();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4583b).b();
         return b2 != null ? b2.mUpgradeid : "-1";
     }
 
     public void d(String str) {
-        c = str;
+        f4584c = str;
     }
 
     public void e(String str) {
-        d = str;
+        f4585d = str;
     }
 
     public void f(String str) {

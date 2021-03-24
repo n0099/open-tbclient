@@ -1,29 +1,33 @@
 package com.baidu.cyberplayer.sdk.statistics;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1473a;
-    private String b;
-    private String c;
+    public int f5074a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f5075b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f5076c;
 
     public e(int i, String str, long j) {
-        this.f1473a = i;
-        this.b = str;
-        this.c = Long.toString(j);
+        this.f5074a = i;
+        this.f5075b = str;
+        this.f5076c = Long.toString(j);
     }
 
     public e(int i, String str, String str2) {
-        this.f1473a = i;
-        this.b = str;
-        this.c = str2;
+        this.f5074a = i;
+        this.f5075b = str;
+        this.f5076c = str2;
     }
 
     public String a() {
-        return this.b;
+        return this.f5075b;
     }
 
     public String b() {
-        return this.c;
+        return this.f5076c;
     }
 }

@@ -6,28 +6,38 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.swan.apps.ao.w;
-import com.baidu.swan.bdprivate.b;
-/* loaded from: classes8.dex */
+import d.b.g0.a.i2.w;
+import d.b.g0.b.e;
+/* loaded from: classes3.dex */
 public class AccountSmsLoginView extends SmsLoginView {
-    private Context mContext;
+    public Context s;
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            w.a(AccountSmsLoginView.this.s, ((FragmentActivity) AccountSmsLoginView.this.s).getWindow().getDecorView().getWindowToken());
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public b() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            w.b(AccountSmsLoginView.this.s, false);
+        }
+    }
 
     public AccountSmsLoginView(Context context) {
         super(context);
-        this.mContext = context;
-        aPG();
-    }
-
-    public AccountSmsLoginView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mContext = context;
-        aPG();
-    }
-
-    public AccountSmsLoginView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mContext = context;
-        aPG();
+        this.s = context;
+        n();
     }
 
     @Override // com.baidu.sapi2.views.SmsLoginView
@@ -38,21 +48,23 @@ public class AccountSmsLoginView extends SmsLoginView {
     @Override // com.baidu.sapi2.views.SmsLoginView
     public void close() {
         super.close();
-        new Handler().postDelayed(new Runnable() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.AccountSmsLoginView.1
-            @Override // java.lang.Runnable
-            public void run() {
-                w.forceHiddenSoftInput(AccountSmsLoginView.this.mContext, ((FragmentActivity) AccountSmsLoginView.this.mContext).getWindow().getDecorView().getWindowToken());
-            }
-        }, 100L);
+        new Handler().postDelayed(new a(), 100L);
     }
 
-    public void aPG() {
-        ((EditText) findViewById(b.e.phone)).requestFocus();
-        new Handler().postDelayed(new Runnable() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.AccountSmsLoginView.2
-            @Override // java.lang.Runnable
-            public void run() {
-                w.forceToggleSoftInput(AccountSmsLoginView.this.mContext, false);
-            }
-        }, 100L);
+    public void n() {
+        ((EditText) findViewById(e.phone)).requestFocus();
+        new Handler().postDelayed(new b(), 100L);
+    }
+
+    public AccountSmsLoginView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.s = context;
+        n();
+    }
+
+    public AccountSmsLoginView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.s = context;
+        n();
     }
 }

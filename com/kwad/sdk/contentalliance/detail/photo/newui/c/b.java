@@ -9,18 +9,22 @@ import com.kwad.sdk.contentalliance.trends.view.c;
 import com.kwad.sdk.contentalliance.trends.view.d;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.contentalliance.detail.b {
-    private LinearLayout b;
-    private c c = new d() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.c.b.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinearLayout f32422b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c f32423c = new d() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.c.b.1
         @Override // com.kwad.sdk.contentalliance.trends.view.d, com.kwad.sdk.contentalliance.trends.view.c
         public void a() {
-            b.this.b.setVisibility(4);
+            b.this.f32422b.setVisibility(4);
         }
 
         @Override // com.kwad.sdk.contentalliance.trends.view.d, com.kwad.sdk.contentalliance.trends.view.c
         public void b() {
-            b.this.b.setVisibility(0);
+            b.this.f32422b.setVisibility(0);
         }
     };
 
@@ -43,30 +47,27 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        if (com.kwad.sdk.core.response.b.c.B(this.f5594a.j)) {
-            this.f5594a.a(this.c);
-            if (this.f5594a.f5600a.l) {
-                this.b.setVisibility(4);
+        if (com.kwad.sdk.core.response.b.c.B(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j)) {
+            ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.a(this.f32423c);
+            if (((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32151a.l) {
+                this.f32422b.setVisibility(4);
             }
         }
-        this.b.setPadding(0, 0, 0, ao.a(o(), 0.0f));
+        this.f32422b.setPadding(0, 0, 0, ao.a(o(), 0.0f));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f5594a.b(this.c);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.b(this.f32423c);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = (LinearLayout) b(R.id.ksad_photo_detail_bottom_toolbar);
+        this.f32422b = (LinearLayout) b(R.id.ksad_photo_detail_bottom_toolbar);
     }
 }

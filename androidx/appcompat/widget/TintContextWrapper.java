@@ -10,12 +10,33 @@ import androidx.annotation.RestrictTo;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class TintContextWrapper extends ContextWrapper {
-    private static final Object CACHE_LOCK = new Object();
-    private static ArrayList<WeakReference<TintContextWrapper>> sCache;
-    private final Resources mResources;
-    private final Resources.Theme mTheme;
+    public static final Object CACHE_LOCK = new Object();
+    public static ArrayList<WeakReference<TintContextWrapper>> sCache;
+    public final Resources mResources;
+    public final Resources.Theme mTheme;
+
+    public TintContextWrapper(@NonNull Context context) {
+        super(context);
+        if (VectorEnabledTintResources.shouldBeUsed()) {
+            VectorEnabledTintResources vectorEnabledTintResources = new VectorEnabledTintResources(this, context.getResources());
+            this.mResources = vectorEnabledTintResources;
+            Resources.Theme newTheme = vectorEnabledTintResources.newTheme();
+            this.mTheme = newTheme;
+            newTheme.setTo(context.getTheme());
+            return;
+        }
+        this.mResources = new TintResources(this, context.getResources());
+        this.mTheme = null;
+    }
+
+    public static boolean shouldWrap(@NonNull Context context) {
+        if ((context instanceof TintContextWrapper) || (context.getResources() instanceof TintResources) || (context.getResources() instanceof VectorEnabledTintResources)) {
+            return false;
+        }
+        return Build.VERSION.SDK_INT < 21 || VectorEnabledTintResources.shouldBeUsed();
+    }
 
     public static Context wrap(@NonNull Context context) {
         if (shouldWrap(context)) {
@@ -45,37 +66,9 @@ public class TintContextWrapper extends ContextWrapper {
         return context;
     }
 
-    private static boolean shouldWrap(@NonNull Context context) {
-        if ((context instanceof TintContextWrapper) || (context.getResources() instanceof TintResources) || (context.getResources() instanceof VectorEnabledTintResources)) {
-            return false;
-        }
-        return Build.VERSION.SDK_INT < 21 || VectorEnabledTintResources.shouldBeUsed();
-    }
-
-    private TintContextWrapper(@NonNull Context context) {
-        super(context);
-        if (VectorEnabledTintResources.shouldBeUsed()) {
-            this.mResources = new VectorEnabledTintResources(this, context.getResources());
-            this.mTheme = this.mResources.newTheme();
-            this.mTheme.setTo(context.getTheme());
-            return;
-        }
-        this.mResources = new TintResources(this, context.getResources());
-        this.mTheme = null;
-    }
-
     @Override // android.content.ContextWrapper, android.content.Context
-    public Resources.Theme getTheme() {
-        return this.mTheme == null ? super.getTheme() : this.mTheme;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i) {
-        if (this.mTheme == null) {
-            super.setTheme(i);
-        } else {
-            this.mTheme.applyStyle(i, true);
-        }
+    public AssetManager getAssets() {
+        return this.mResources.getAssets();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -84,7 +77,18 @@ public class TintContextWrapper extends ContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public AssetManager getAssets() {
-        return this.mResources.getAssets();
+    public Resources.Theme getTheme() {
+        Resources.Theme theme = this.mTheme;
+        return theme == null ? super.getTheme() : theme;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void setTheme(int i) {
+        Resources.Theme theme = this.mTheme;
+        if (theme == null) {
+            super.setTheme(i);
+        } else {
+            theme.applyStyle(i, true);
+        }
     }
 }

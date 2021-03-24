@@ -8,23 +8,39 @@ import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class a extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1512a = "/risk/init/v2/config";
-    public static final int b = 1;
-    private Context c;
-    private String d;
+    public static final String f5213a = "/risk/init/v2/config";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f5214b = 1;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f5215c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f5216d;
 
     public a(Context context) {
         super(context);
-        this.c = context;
-        BdWalletUtils.cleanExps(this.c);
+        this.f5215c = context;
+        BdWalletUtils.cleanExps(context);
     }
 
     public void a(String str) {
-        this.d = str;
+        this.f5216d = str;
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
+    public List<RestNameValuePair> generateRequestParam() {
+        ArrayList arrayList = new ArrayList();
+        if (!TextUtils.isEmpty(this.f5216d)) {
+            setSpParameter(this.f5216d);
+        }
+        arrayList.add(new RestNameValuePair("confSign", BdWalletUtils.getRimAllConfigChangesign(this.f5215c)));
+        return arrayList;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
@@ -32,19 +48,9 @@ public class a extends BaseBean {
         return 1;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
-    public List<RestNameValuePair> generateRequestParam() {
-        ArrayList arrayList = new ArrayList();
-        if (!TextUtils.isEmpty(this.d)) {
-            setSpParameter(this.d);
-        }
-        arrayList.add(new RestNameValuePair("confSign", BdWalletUtils.getRimAllConfigChangesign(this.c)));
-        return arrayList;
-    }
-
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
-        return EnvConfig.getInstance(this.c).getRimHttpsHost() + f1512a;
+        return EnvConfig.getInstance(this.f5215c).getRimHttpsHost() + f5213a;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean

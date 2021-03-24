@@ -3,59 +3,71 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes8.dex */
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+/* loaded from: classes5.dex */
 public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
-    private com.baidu.adp.framework.listener.a jdE = new com.baidu.adp.framework.listener.a(1003035, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GET) { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewModel.1
-        @Override // com.baidu.adp.framework.listener.a
+
+    /* renamed from: e  reason: collision with root package name */
+    public DressItemData f21616e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f21617f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f21618g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public b f21619h;
+    public d.b.b.c.g.a i = new a(CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
+
+    /* loaded from: classes5.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage != null) {
-                if ((responsedMessage instanceof BackgroundGetHttpResponseMessage) || (responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
-                    if (responsedMessage.getError() == 0) {
-                        if (responsedMessage instanceof BackgroundGetHttpResponseMessage) {
-                            BackgroundPreviewModel.this.mBgItem = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
-                        } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
-                            BackgroundPreviewModel.this.mBgItem = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
-                        }
+            if (responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof BackgroundGetHttpResponseMessage;
+            if (z || (responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
+                if (responsedMessage.getError() == 0) {
+                    if (z) {
+                        BackgroundPreviewModel.this.f21616e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
+                    } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
+                        BackgroundPreviewModel.this.f21616e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                     }
-                    if (BackgroundPreviewModel.this.nJS != null) {
-                        if (BackgroundPreviewModel.this.mBgItem != null) {
-                            BackgroundPreviewModel.this.mBgItem.setPropsId(BackgroundPreviewModel.this.nJn);
-                            BackgroundPreviewModel.this.mBgItem.setInUse(BackgroundPreviewModel.this.nJH == 1);
-                        }
-                        BackgroundPreviewModel.this.nJS.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.mBgItem);
+                }
+                if (BackgroundPreviewModel.this.f21619h != null) {
+                    if (BackgroundPreviewModel.this.f21616e != null) {
+                        BackgroundPreviewModel.this.f21616e.setPropsId(BackgroundPreviewModel.this.f21617f);
+                        BackgroundPreviewModel.this.f21616e.setInUse(BackgroundPreviewModel.this.f21618g == 1);
                     }
+                    BackgroundPreviewModel.this.f21619h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.f21616e);
                 }
             }
         }
-    };
-    private DressItemData mBgItem;
-    private int nJH;
-    private a nJS;
-    private int nJn;
+    }
 
-    /* loaded from: classes8.dex */
-    public interface a {
+    /* loaded from: classes5.dex */
+    public interface b {
         void a(int i, String str, DressItemData dressItemData);
     }
 
     public BackgroundPreviewModel(int i, int i2) {
-        this.nJn = i;
-        this.nJH = i2;
+        this.f21617f = i;
+        this.f21618g = i2;
         registerTask();
-        registerListener(this.jdE);
-    }
-
-    private void registerTask() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GET, BackgroundGetSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GET, 1003035, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+        registerListener(this.i);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-        backgroundGetRequestMessage.setPropId(this.nJn);
+        backgroundGetRequestMessage.setPropId(this.f21617f);
         sendMessage(backgroundGetRequestMessage);
         return false;
     }
@@ -65,11 +77,16 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
         return false;
     }
 
-    public void a(a aVar) {
-        this.nJS = aVar;
+    public void destroy() {
+        MessageManager.getInstance().unRegisterListener(this.i);
     }
 
-    public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.jdE);
+    public final void registerTask() {
+        d.b.i0.c3.d0.a.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+    }
+
+    public void x(b bVar) {
+        this.f21619h = bVar;
     }
 }

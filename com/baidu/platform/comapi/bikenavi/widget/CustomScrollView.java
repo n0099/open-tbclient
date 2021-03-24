@@ -17,156 +17,101 @@ import android.widget.ScrollView;
 import android.widget.Scroller;
 import com.baidu.tieba.R;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CustomScrollView extends ScrollView {
     public static final Object TAG = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private VelocityTracker f2884a;
-    private int b;
+    public VelocityTracker f9849a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f9850b;
     public int bottom;
-    private int c;
-    private b d;
-    private b e;
-    private GestureDetector f;
-    private GestureDetector g;
-    private int h;
-    private int i;
-    private LinearLayout j;
-    private View k;
-    private LinearLayout l;
-    private boolean m;
-    private com.baidu.platform.comapi.wnplatform.n.b n;
-    protected Field scrollerField;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f9851c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b f9852d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public b f9853e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public GestureDetector f9854f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public GestureDetector f9855g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f9856h;
+    public int i;
+    public LinearLayout j;
+    public View k;
+    public LinearLayout l;
+    public boolean m;
+    public com.baidu.platform.comapi.wnplatform.n.b n;
+    public Field scrollerField;
     public int top;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
+    public class a extends GestureDetector.SimpleOnGestureListener {
+        public a() {
+        }
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            return f3 > 0.0f;
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public interface b {
         void a(int i);
 
         void a(com.baidu.platform.comapi.wnplatform.n.b bVar, com.baidu.platform.comapi.wnplatform.n.b bVar2);
     }
 
+    /* loaded from: classes2.dex */
+    public class c extends GestureDetector.SimpleOnGestureListener {
+        public c() {
+        }
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            return Math.abs(f3) > Math.abs(f2);
+        }
+    }
+
     public CustomScrollView(Context context) {
         this(context, null);
     }
 
-    public CustomScrollView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.h = 0;
-        this.i = 0;
-        this.m = false;
-        this.n = com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
-        initView(context);
-    }
-
-    public CustomScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.h = 0;
-        this.i = 0;
-        this.m = false;
-        this.n = com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
-        initView(context);
-    }
-
-    private void initView(Context context) {
-        setTag(TAG);
-        this.f = new GestureDetector(context, new c());
-        this.g = new GestureDetector(context, new a());
-        setFadingEdgeLength(0);
-        setVerticalScrollBarEnabled(false);
-        this.top = com.baidu.platform.comapi.wnplatform.o.g.c(context) - com.baidu.platform.comapi.wnplatform.o.g.d(context);
-        this.bottom = 0;
-        this.c = 3;
-        com.baidu.platform.comapi.wnplatform.o.a.a.a((Activity) getContext(), R.array.Mask_X006, this);
-        this.j = (LinearLayout) findViewById(R.dimen.abc_action_bar_default_height_material);
-        this.l = (LinearLayout) findViewById(R.dimen.abc_action_bar_content_inset_with_nav);
-        this.l.setMinimumHeight(this.top);
-    }
-
-    public void setStatusHeight(int i, int i2) {
-        this.l.setMinimumHeight(i);
-        this.top = i;
-        this.bottom = i2;
-        this.c = 3;
-    }
-
-    public void setBlankHeight(int i) {
-        this.j.removeAllViews();
-        this.k = new View(getContext());
-        this.k.setLayoutParams(new AbsListView.LayoutParams(0, i));
-        this.j.addView(this.k);
-    }
-
-    public void addContentView(View view) {
-        this.l.addView(view);
-    }
-
-    public void removeContentView(View view) {
-        if (this.l != null) {
-            this.l.removeView(view);
+    private void acquireVelocityTracker(MotionEvent motionEvent) {
+        if (this.f9849a == null) {
+            this.f9849a = VelocityTracker.obtain();
         }
-    }
-
-    @Override // android.widget.ScrollView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        ViewConfiguration.get(getContext());
-        this.b = ViewConfiguration.getMaximumFlingVelocity();
-        if ((this.k == null ? false : canMoveMap(motionEvent, this.k)) && this.n == com.baidu.platform.comapi.wnplatform.n.b.BOTTOM) {
-            return false;
-        }
-        acquireVelocityTracker(motionEvent);
-        switch (motionEvent.getAction()) {
-            case 1:
-                VelocityTracker velocityTracker = this.f2884a;
-                velocityTracker.computeCurrentVelocity(1000, this.b);
-                com.baidu.platform.comapi.wnplatform.n.b calculateNextStatus = calculateNextStatus((int) velocityTracker.getYVelocity(), getScrollY());
-                if (calculateNextStatus != com.baidu.platform.comapi.wnplatform.n.b.NULL) {
-                    updateStatus(calculateNextStatus, true);
-                    return true;
-                }
-                break;
-        }
-        try {
-            return super.onTouchEvent(motionEvent);
-        } catch (IllegalArgumentException e) {
-            return false;
-        }
+        this.f9849a.addMovement(motionEvent);
     }
 
     private com.baidu.platform.comapi.wnplatform.n.b calculateNextStatus(int i, int i2) {
-        switch (this.n) {
-            case BOTTOM:
-                if ((i < 0 && Math.abs(i) > 1000) || i2 > this.c) {
-                    return com.baidu.platform.comapi.wnplatform.n.b.TOP;
-                }
-                return com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
-            case TOP:
-                if (i > 1000 || i2 < this.c) {
-                    return com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
-                }
+        int i3 = f.f9875a[this.n.ordinal()];
+        if (i3 == 1) {
+            if ((i < 0 && Math.abs(i) > 1000) || i2 > this.f9851c) {
+                return com.baidu.platform.comapi.wnplatform.n.b.TOP;
+            }
+            return com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
+        } else if (i3 != 2) {
+            return com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
+        } else {
+            if (i <= 1000 && i2 >= this.f9851c) {
                 if (i2 > this.top) {
                     return com.baidu.platform.comapi.wnplatform.n.b.NULL;
                 }
                 return com.baidu.platform.comapi.wnplatform.n.b.TOP;
-            default:
-                return com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
+            }
+            return com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
         }
-    }
-
-    @Override // android.widget.ScrollView, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            stopAnim();
-        }
-        return super.onInterceptTouchEvent(motionEvent) && this.f.onTouchEvent(motionEvent);
-    }
-
-    private void acquireVelocityTracker(MotionEvent motionEvent) {
-        if (this.f2884a == null) {
-            this.f2884a = VelocityTracker.obtain();
-        }
-        this.f2884a.addMovement(motionEvent);
     }
 
     private boolean canMoveMap(MotionEvent motionEvent, View view) {
@@ -184,102 +129,38 @@ public class CustomScrollView extends ScrollView {
         return this.m && isPointInsideView && motionEvent.getAction() != 1;
     }
 
-    private boolean isPointInsideView(float f, View view) {
-        Rect rect = new Rect();
-        view.getHitRect(rect);
-        return f > ((float) rect.top) && f < ((float) (rect.bottom - getScrollY()));
-    }
-
-    public void updateStatus(com.baidu.platform.comapi.wnplatform.n.b bVar, boolean z) {
-        if (this.d != null) {
-            this.d.a(this.n, bVar);
-        }
-        if (this.e != null) {
-            this.e.a(this.n, bVar);
-        }
-        this.n = bVar;
-        switch (bVar) {
-            case BOTTOM:
-                if (z) {
-                    smoothScrollTo(0, this.bottom);
-                    return;
-                } else {
-                    scrollTo(0, this.bottom);
-                    return;
-                }
-            case TOP:
-                if (z) {
-                    smoothScrollTo(0, this.top);
-                    return;
-                } else {
-                    scrollTo(0, this.top);
-                    return;
-                }
-            default:
-                return;
-        }
-    }
-
-    public com.baidu.platform.comapi.wnplatform.n.b getStatus() {
-        return this.n;
-    }
-
-    public void setOnScrollChangeListener(b bVar) {
-        this.d = bVar;
-    }
-
-    public void setCustomOnScrollChangeListener(b bVar) {
-        this.e = bVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public class c extends GestureDetector.SimpleOnGestureListener {
-        c() {
-        }
-
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            return Math.abs(f2) > Math.abs(f);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public class a extends GestureDetector.SimpleOnGestureListener {
-        a() {
-        }
-
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            return f2 > 0.0f;
-        }
-    }
-
-    @Override // android.view.View
-    protected void onScrollChanged(int i, int i2, int i3, int i4) {
-        if (this.d != null) {
-            this.d.a(i2);
-        }
-        if (this.e != null) {
-            this.e.a(i2);
-        }
-        boolean z = this.h - this.i == i2;
-        if (i2 == 0 || z) {
+    public static Field getDeclaredField(Object obj, String str) {
+        for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
             try {
-                if (this.scrollerField == null) {
-                    this.scrollerField = getDeclaredField(this, "mScroller");
-                }
-                Object obj = this.scrollerField.get(this);
-                if (obj != null && (obj instanceof Scroller)) {
-                    ((Scroller) obj).abortAnimation();
-                } else {
-                    return;
-                }
-            } catch (Exception e) {
+                Field declaredField = cls.getDeclaredField(str);
+                declaredField.setAccessible(true);
+                return declaredField;
+            } catch (Exception unused) {
             }
         }
-        super.onScrollChanged(i, i2, i3, i4);
+        return null;
+    }
+
+    private void initView(Context context) {
+        setTag(TAG);
+        this.f9854f = new GestureDetector(context, new c());
+        this.f9855g = new GestureDetector(context, new a());
+        setFadingEdgeLength(0);
+        setVerticalScrollBarEnabled(false);
+        this.top = com.baidu.platform.comapi.wnplatform.o.g.c(context) - com.baidu.platform.comapi.wnplatform.o.g.d(context);
+        this.bottom = 0;
+        this.f9851c = 3;
+        com.baidu.platform.comapi.wnplatform.o.a.a.a((Activity) getContext(), R.array.Mask_X006, this);
+        this.j = (LinearLayout) findViewById(R.dimen.abc_action_bar_content_inset_with_nav);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.dimen.abc_action_bar_content_inset_material);
+        this.l = linearLayout;
+        linearLayout.setMinimumHeight(this.top);
+    }
+
+    private boolean isPointInsideView(float f2, View view) {
+        Rect rect = new Rect();
+        view.getHitRect(rect);
+        return f2 > ((float) rect.top) && f2 < ((float) (rect.bottom - getScrollY()));
     }
 
     private void stopAnim() {
@@ -288,43 +169,175 @@ public class CustomScrollView extends ScrollView {
                 this.scrollerField = getDeclaredField(this, "mScroller");
             }
             Object obj = this.scrollerField.get(this);
-            if (obj != null) {
-                obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
+            if (obj == null) {
+                return;
             }
-        } catch (Exception e) {
+            obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
+        } catch (Exception unused) {
         }
     }
 
+    public void addContentView(View view) {
+        this.l.addView(view);
+    }
+
     @Override // android.widget.ScrollView, android.view.View
-    protected int computeVerticalScrollRange() {
-        this.h = super.computeVerticalScrollRange();
-        return this.h;
+    public int computeVerticalScrollRange() {
+        int computeVerticalScrollRange = super.computeVerticalScrollRange();
+        this.f9856h = computeVerticalScrollRange;
+        return computeVerticalScrollRange;
+    }
+
+    public com.baidu.platform.comapi.wnplatform.n.b getStatus() {
+        return this.n;
+    }
+
+    @Override // android.widget.ScrollView, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 0) {
+            stopAnim();
+        }
+        return super.onInterceptTouchEvent(motionEvent) && this.f9854f.onTouchEvent(motionEvent);
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
             this.i = i4 - i2;
         }
     }
 
+    @Override // android.view.View
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        b bVar = this.f9852d;
+        if (bVar != null) {
+            bVar.a(i2);
+        }
+        b bVar2 = this.f9853e;
+        if (bVar2 != null) {
+            bVar2.a(i2);
+        }
+        boolean z = this.f9856h - this.i == i2;
+        if (i2 == 0 || z) {
+            try {
+                if (this.scrollerField == null) {
+                    this.scrollerField = getDeclaredField(this, "mScroller");
+                }
+                Object obj = this.scrollerField.get(this);
+                if (obj != null && (obj instanceof Scroller)) {
+                    ((Scroller) obj).abortAnimation();
+                }
+                return;
+            } catch (Exception unused) {
+            }
+        }
+        super.onScrollChanged(i, i2, i3, i4);
+    }
+
+    @Override // android.widget.ScrollView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        ViewConfiguration.get(getContext());
+        this.f9850b = ViewConfiguration.getMaximumFlingVelocity();
+        View view = this.k;
+        if ((view == null ? false : canMoveMap(motionEvent, view)) && this.n == com.baidu.platform.comapi.wnplatform.n.b.BOTTOM) {
+            return false;
+        }
+        acquireVelocityTracker(motionEvent);
+        if (motionEvent.getAction() == 1) {
+            VelocityTracker velocityTracker = this.f9849a;
+            velocityTracker.computeCurrentVelocity(1000, this.f9850b);
+            com.baidu.platform.comapi.wnplatform.n.b calculateNextStatus = calculateNextStatus((int) velocityTracker.getYVelocity(), getScrollY());
+            if (calculateNextStatus != com.baidu.platform.comapi.wnplatform.n.b.NULL) {
+                updateStatus(calculateNextStatus, true);
+                return true;
+            }
+        }
+        try {
+            return super.onTouchEvent(motionEvent);
+        } catch (IllegalArgumentException unused) {
+            return false;
+        }
+    }
+
+    public void removeContentView(View view) {
+        LinearLayout linearLayout = this.l;
+        if (linearLayout != null) {
+            linearLayout.removeView(view);
+        }
+    }
+
     @Override // android.widget.ScrollView, android.view.ViewGroup, android.view.ViewParent
     public void requestChildFocus(View view, View view2) {
-        if (view2 == null || (!(view2 instanceof WebView) && !(view2 instanceof ListView) && !(view2 instanceof ScrollView))) {
+        if (view2 == null || !((view2 instanceof WebView) || (view2 instanceof ListView) || (view2 instanceof ScrollView))) {
             super.requestChildFocus(view, view2);
         }
     }
 
-    public static Field getDeclaredField(Object obj, String str) {
-        for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
-            try {
-                Field declaredField = cls.getDeclaredField(str);
-                declaredField.setAccessible(true);
-                return declaredField;
-            } catch (Exception e) {
+    public void setBlankHeight(int i) {
+        this.j.removeAllViews();
+        this.k = new View(getContext());
+        this.k.setLayoutParams(new AbsListView.LayoutParams(0, i));
+        this.j.addView(this.k);
+    }
+
+    public void setCustomOnScrollChangeListener(b bVar) {
+        this.f9853e = bVar;
+    }
+
+    public void setOnScrollChangeListener(b bVar) {
+        this.f9852d = bVar;
+    }
+
+    public void setStatusHeight(int i, int i2) {
+        this.l.setMinimumHeight(i);
+        this.top = i;
+        this.bottom = i2;
+        this.f9851c = 3;
+    }
+
+    public void updateStatus(com.baidu.platform.comapi.wnplatform.n.b bVar, boolean z) {
+        b bVar2 = this.f9852d;
+        if (bVar2 != null) {
+            bVar2.a(this.n, bVar);
+        }
+        b bVar3 = this.f9853e;
+        if (bVar3 != null) {
+            bVar3.a(this.n, bVar);
+        }
+        this.n = bVar;
+        int i = f.f9875a[bVar.ordinal()];
+        if (i == 1) {
+            if (z) {
+                smoothScrollTo(0, this.bottom);
+            } else {
+                scrollTo(0, this.bottom);
+            }
+        } else if (i != 2) {
+        } else {
+            if (z) {
+                smoothScrollTo(0, this.top);
+            } else {
+                scrollTo(0, this.top);
             }
         }
-        return null;
+    }
+
+    public CustomScrollView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f9856h = 0;
+        this.i = 0;
+        this.m = false;
+        this.n = com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
+        initView(context);
+    }
+
+    public CustomScrollView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f9856h = 0;
+        this.i = 0;
+        this.m = false;
+        this.n = com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
+        initView(context);
     }
 }

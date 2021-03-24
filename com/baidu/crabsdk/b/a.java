@@ -6,126 +6,157 @@ import android.app.Application;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.view.View;
+import com.baidu.crabsdk.c.b;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class a {
-    private static Activity aqh;
-    private static long aqk;
-    private static com.baidu.crabsdk.c.b<List> aqi = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
-    private static boolean aqj = false;
-    private static boolean aQ = true;
-    private static int aql = 0;
-    private static int aT = 0;
-    private static int aqm = 0;
-    private static boolean aqn = false;
 
+    /* renamed from: a  reason: collision with root package name */
+    public static Activity f4666a;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static long f4669d;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static b<List> f4667b = new b<>(com.baidu.crabsdk.a.f4638e);
+
+    /* renamed from: c  reason: collision with root package name */
+    public static boolean f4668c = true;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static int f4670e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static int f4671f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static int f4672g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static boolean f4673h = false;
+
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x005c, code lost:
+        if ((((java.util.Date) com.baidu.crabsdk.b.a.f4667b.get(r5 - 1).get(1)).getTime() - ((java.util.Date) r3.get(2)).getTime()) > com.baidu.crabsdk.a.l) goto L10;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void a(Activity activity) {
-        aqj = true;
-        aqh = activity;
+        f4666a = activity;
         ArrayList arrayList = new ArrayList(3);
         arrayList.add(activity.getClass().getName());
         arrayList.add(new Date());
-        aqi.add(arrayList);
-        int size = aqi.size();
+        f4667b.add(arrayList);
+        int size = f4667b.size();
         if (size >= 2) {
-            List list = aqi.get(size - 2);
-            if (list.size() == 3 && ((Date) aqi.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
-                aql++;
+            List list = f4667b.get(size - 2);
+            if (list.size() == 3) {
             }
-        } else {
-            aql++;
+            f4671f = (f4671f + 1) % 100;
         }
-        aT = (aT + 1) % 100;
+        f4670e++;
+        f4671f = (f4671f + 1) % 100;
     }
 
     @SuppressLint({"NewApi"})
-    public static void a(Application application) {
-        if (aQ) {
-            aQ = false;
-            aqk = System.currentTimeMillis();
+    public static void b(Application application) {
+        if (f4668c) {
+            f4668c = false;
+            f4669d = System.currentTimeMillis();
             if (Build.VERSION.SDK_INT >= 14) {
-                application.registerActivityLifecycleCallbacks(new b());
+                application.registerActivityLifecycleCallbacks(new d.b.n.b.a());
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Activity activity) {
-        if (aqh != null && activity != null && aqh.hashCode() == activity.hashCode()) {
-            aqh = null;
+    public static void c(Activity activity) {
+        Activity activity2 = f4666a;
+        if (activity2 != null && activity != null && activity2.hashCode() == activity.hashCode()) {
+            f4666a = null;
         }
-        int i = aT - aqm;
-        int size = aqi.size();
+        int i = f4671f - f4672g;
+        int size = f4667b.size();
         if (i < 0) {
             i += 100;
         }
         if (i > 0 && size >= i) {
-            List list = aqi.get(size - i);
+            List list = f4667b.get(size - i);
             if (list.size() == 2) {
                 list.add(new Date());
             }
         }
-        aqm = (aqm + 1) % 100;
+        f4672g = (f4672g + 1) % 100;
     }
 
-    public static void doActivityStart(Activity activity) {
+    public static void e(Activity activity) {
         if (Build.VERSION.SDK_INT < 14) {
             a(activity);
         }
     }
 
-    public static void doActivityStop(Activity activity) {
+    public static void f(Activity activity) {
         if (Build.VERSION.SDK_INT < 14) {
-            b(activity);
+            c(activity);
         }
     }
 
-    public static long p() {
-        return aqk;
+    public static long g() {
+        return f4669d;
     }
 
-    public static String q() {
+    public static String h() {
+        String str;
         StringBuilder sb = new StringBuilder();
-        int size = aqi.size();
+        int size = f4667b.size();
         for (int i = 0; i < size; i++) {
-            List list = aqi.get((size - i) - 1);
+            List list = f4667b.get((size - i) - 1);
             if (list.size() == 3) {
-                sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.a((Date) list.get(1))).append(" to ").append(com.baidu.crabsdk.c.c.a((Date) list.get(2))).append("\n");
+                sb.append((String) list.get(0));
+                sb.append(" from ");
+                sb.append(com.baidu.crabsdk.c.c.a((Date) list.get(1)));
+                sb.append(" to ");
+                sb.append(com.baidu.crabsdk.c.c.a((Date) list.get(2)));
+                str = "\n";
             } else if (list.size() == 2) {
-                sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.a((Date) list.get(1))).append(" to ...\n");
+                sb.append((String) list.get(0));
+                sb.append(" from ");
+                sb.append(com.baidu.crabsdk.c.c.a((Date) list.get(1)));
+                str = " to ...\n";
             }
+            sb.append(str);
         }
         return sb.toString();
     }
 
-    public static String r() {
-        if (aqh == null) {
-            com.baidu.crabsdk.c.a.dw("cur Page info is null!");
+    public static String i() {
+        Activity activity = f4666a;
+        if (activity == null) {
+            com.baidu.crabsdk.c.a.b("cur Page info is null!");
             return "N/A";
         }
-        return aqh.getClass().getName();
+        return activity.getClass().getName();
     }
 
-    public static byte[] un() {
-        if (aqh == null) {
+    public static byte[] j() {
+        if (f4666a == null) {
             return new byte[0];
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            View decorView = aqh.getWindow().getDecorView();
+            View decorView = f4666a.getWindow().getDecorView();
             decorView.setDrawingCacheEnabled(true);
             Bitmap drawingCache = decorView.getDrawingCache();
             if (drawingCache != null) {
                 drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
             } else {
-                com.baidu.crabsdk.c.a.dw("getScreenshot failed, curActivity " + aqh.getClass().getName());
+                com.baidu.crabsdk.c.a.b("getScreenshot failed, curActivity " + f4666a.getClass().getName());
             }
             decorView.setDrawingCacheEnabled(false);
-        } catch (RuntimeException e) {
-            com.baidu.crabsdk.c.a.a("getScreenshot failed, curActivity " + aqh.getClass().getName(), e);
+        } catch (RuntimeException e2) {
+            com.baidu.crabsdk.c.a.a("getScreenshot failed, curActivity " + f4666a.getClass().getName(), e2);
         }
         return byteArrayOutputStream.toByteArray();
     }

@@ -6,7 +6,7 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class WeakHashtable extends Hashtable {
     public WeakHashtable() {
         throw new RuntimeException("Stub!");
@@ -32,13 +32,18 @@ public final class WeakHashtable extends Hashtable {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // java.util.Hashtable, java.util.Dictionary
-    public Enumeration keys() {
+    @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
+    public boolean isEmpty() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // java.util.Hashtable, java.util.Map
     public Set keySet() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // java.util.Hashtable, java.util.Dictionary
+    public Enumeration keys() {
         throw new RuntimeException("Stub!");
     }
 
@@ -52,18 +57,13 @@ public final class WeakHashtable extends Hashtable {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // java.util.Hashtable, java.util.Map
-    public Collection values() {
+    @Override // java.util.Hashtable
+    public void rehash() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
     public Object remove(Object obj) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
-    public boolean isEmpty() {
         throw new RuntimeException("Stub!");
     }
 
@@ -77,8 +77,8 @@ public final class WeakHashtable extends Hashtable {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // java.util.Hashtable
-    protected void rehash() {
+    @Override // java.util.Hashtable, java.util.Map
+    public Collection values() {
         throw new RuntimeException("Stub!");
     }
 }

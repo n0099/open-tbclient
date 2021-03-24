@@ -7,22 +7,36 @@ import com.baidu.android.bbalbs.common.util.CommonParam;
 import com.baidu.location.a.n;
 import com.tencent.connect.common.Constants;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f1964a = null;
-    public String b = null;
-    public String c = null;
-    private boolean j = false;
-    private static b i = null;
-    public static String d = null;
-    public static String e = null;
-    public static String f = null;
-    public static String g = null;
-    public static int h = 0;
+    /* renamed from: d  reason: collision with root package name */
+    public static String f6676d;
 
-    private b() {
+    /* renamed from: e  reason: collision with root package name */
+    public static String f6677e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f6678f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f6679g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static int f6680h;
+    public static b i;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f6681a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f6682b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f6683c = null;
+    public boolean j = false;
+
+    public b() {
         if (com.baidu.location.f.getServiceContext() != null) {
             a(com.baidu.location.f.getServiceContext());
         }
@@ -39,20 +53,30 @@ public class b {
         return a(z, (String) null);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00c1  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00ec  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0102  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0131  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public String a(boolean z, String str) {
+        String b2;
+        float d2;
+        String str2;
         StringBuffer stringBuffer = new StringBuffer(256);
         stringBuffer.append("&sdk=");
         stringBuffer.append(7.63f);
         if (z) {
-            if (j.g.equals("all")) {
+            if (j.f6720g.equals("all")) {
                 stringBuffer.append("&addr=allj");
             }
             if (j.i) {
                 stringBuffer.append("&adtp=n2");
             }
-            if (j.h || j.k || j.l || j.j) {
+            if (j.f6721h || j.k || j.l || j.j) {
                 stringBuffer.append("&sema=");
-                if (j.h) {
+                if (j.f6721h) {
                     stringBuffer.append("aptag|");
                 }
                 if (j.j) {
@@ -68,57 +92,75 @@ public class b {
         }
         if (z) {
             if (str == null) {
-                stringBuffer.append("&coor=gcj02");
+                str = "&coor=gcj02";
             } else {
                 stringBuffer.append("&coor=");
-                stringBuffer.append(str);
             }
+            stringBuffer.append(str);
             String j = com.baidu.location.b.e.j();
             if (j != null) {
                 stringBuffer.append(j);
             }
         }
-        if (this.b == null) {
-            stringBuffer.append("&im=");
-            stringBuffer.append(this.f1964a);
-        } else {
+        if (this.f6682b != null) {
             stringBuffer.append("&cu=");
-            stringBuffer.append(this.b);
-            if (this.f1964a != null && !this.f1964a.equals("NULL") && !this.b.contains(new StringBuffer(this.f1964a).reverse().toString())) {
-                stringBuffer.append("&Aim=");
-                stringBuffer.append(this.f1964a);
+            stringBuffer.append(this.f6682b);
+            String str3 = this.f6681a;
+            str2 = (str3 == null || str3.equals("NULL") || this.f6682b.contains(new StringBuffer(this.f6681a).reverse().toString())) ? "&Aim=" : "&Aim=";
+            if (this.f6683c != null) {
+                stringBuffer.append("&Aid=");
+                stringBuffer.append(this.f6683c);
             }
+            stringBuffer.append("&fw=");
+            stringBuffer.append(com.baidu.location.f.getFrameVersion());
+            stringBuffer.append("&lt=1");
+            stringBuffer.append("&mb=");
+            stringBuffer.append(Build.MODEL);
+            b2 = j.b();
+            if (b2 != null) {
+                stringBuffer.append("&laip=");
+                stringBuffer.append(b2);
+            }
+            d2 = n.a().d();
+            if (d2 != 0.0f) {
+                stringBuffer.append("&altv=");
+                stringBuffer.append(String.format(Locale.US, "%.5f", Float.valueOf(d2)));
+            }
+            stringBuffer.append("&resid=");
+            stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
+            stringBuffer.append("&os=A");
+            stringBuffer.append(Build.VERSION.SDK);
+            if (z) {
+                stringBuffer.append("&sv=");
+                String str4 = Build.VERSION.RELEASE;
+                if (str4 != null && str4.length() > 6) {
+                    str4 = str4.substring(0, 6);
+                }
+                stringBuffer.append(str4);
+            }
+            return stringBuffer.toString();
         }
-        if (this.c != null) {
-            stringBuffer.append("&Aid=");
-            stringBuffer.append(this.c);
+        str2 = "&im=";
+        stringBuffer.append(str2);
+        stringBuffer.append(this.f6681a);
+        if (this.f6683c != null) {
         }
         stringBuffer.append("&fw=");
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&lt=1");
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
-        String b = j.b();
-        if (b != null) {
-            stringBuffer.append("&laip=");
-            stringBuffer.append(b);
+        b2 = j.b();
+        if (b2 != null) {
         }
-        float d2 = n.a().d();
+        d2 = n.a().d();
         if (d2 != 0.0f) {
-            stringBuffer.append("&altv=");
-            stringBuffer.append(String.format(Locale.US, "%.5f", Float.valueOf(d2)));
         }
         stringBuffer.append("&resid=");
         stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
         stringBuffer.append("&os=A");
         stringBuffer.append(Build.VERSION.SDK);
         if (z) {
-            stringBuffer.append("&sv=");
-            String str2 = Build.VERSION.RELEASE;
-            if (str2 != null && str2.length() > 6) {
-                str2 = str2.substring(0, 6);
-            }
-            stringBuffer.append(str2);
         }
         return stringBuffer.toString();
     }
@@ -128,31 +170,31 @@ public class b {
             return;
         }
         try {
-            this.f1964a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-        } catch (Exception e2) {
-            this.f1964a = "NULL";
+            this.f6681a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        } catch (Exception unused) {
+            this.f6681a = "NULL";
         }
         try {
-            this.b = CommonParam.a(context);
-        } catch (Exception e3) {
-            this.b = null;
+            this.f6682b = CommonParam.a(context);
+        } catch (Exception unused2) {
+            this.f6682b = null;
         }
         try {
-            this.c = com.baidu.android.bbalbs.common.util.b.c(context);
-        } catch (Exception e4) {
-            this.c = null;
+            this.f6683c = com.baidu.android.bbalbs.common.util.b.c(context);
+        } catch (Exception unused3) {
+            this.f6683c = null;
         }
         try {
-            d = context.getPackageName();
-        } catch (Exception e5) {
-            d = null;
+            f6676d = context.getPackageName();
+        } catch (Exception unused4) {
+            f6676d = null;
         }
-        j.o = "" + this.b;
+        j.o = "" + this.f6682b;
         this.j = true;
     }
 
     public void a(String str, String str2) {
-        e = str;
-        d = str2;
+        f6677e = str;
+        f6676d = str2;
     }
 }

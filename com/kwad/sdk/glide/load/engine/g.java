@@ -3,74 +3,83 @@ package com.kwad.sdk.glide.load.engine;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
-import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
+import com.bumptech.glide.load.engine.DecodePath;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g<DataType, ResourceType, Transcode> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Class<DataType> f6754a;
-    private final List<? extends com.kwad.sdk.glide.load.f<DataType, ResourceType>> b;
-    private final com.kwad.sdk.glide.load.resource.e.e<ResourceType, Transcode> c;
-    private final Pools.Pool<List<Throwable>> d;
-    private final String e;
+    public final Class<DataType> f35530a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final List<? extends com.kwad.sdk.glide.load.f<DataType, ResourceType>> f35531b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final com.kwad.sdk.glide.load.resource.e.e<ResourceType, Transcode> f35532c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Pools.Pool<List<Throwable>> f35533d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final String f35534e;
+
+    /* loaded from: classes6.dex */
     public interface a<ResourceType> {
         @NonNull
         s<ResourceType> a(@NonNull s<ResourceType> sVar);
     }
 
     public g(Class<DataType> cls, Class<ResourceType> cls2, Class<Transcode> cls3, List<? extends com.kwad.sdk.glide.load.f<DataType, ResourceType>> list, com.kwad.sdk.glide.load.resource.e.e<ResourceType, Transcode> eVar, Pools.Pool<List<Throwable>> pool) {
-        this.f6754a = cls;
-        this.b = list;
-        this.c = eVar;
-        this.d = pool;
-        this.e = "Failed DecodePath{" + cls.getSimpleName() + PerfFrameTrackUIUtil.SEPERATOR_ARROR + cls2.getSimpleName() + PerfFrameTrackUIUtil.SEPERATOR_ARROR + cls3.getSimpleName() + "}";
+        this.f35530a = cls;
+        this.f35531b = list;
+        this.f35532c = eVar;
+        this.f35533d = pool;
+        this.f35534e = "Failed DecodePath{" + cls.getSimpleName() + "->" + cls2.getSimpleName() + "->" + cls3.getSimpleName() + "}";
     }
 
     @NonNull
     private s<ResourceType> a(com.kwad.sdk.glide.load.a.e<DataType> eVar, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar2) {
-        List<Throwable> list = (List) com.kwad.sdk.glide.g.j.a(this.d.acquire());
+        List<Throwable> list = (List) com.kwad.sdk.glide.g.j.a(this.f35533d.acquire());
         try {
             return a(eVar, i, i2, eVar2, list);
         } finally {
-            this.d.release(list);
+            this.f35533d.release(list);
         }
     }
 
     @NonNull
     private s<ResourceType> a(com.kwad.sdk.glide.load.a.e<DataType> eVar, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar2, List<Throwable> list) {
+        int size = this.f35531b.size();
         s<ResourceType> sVar = null;
-        int size = this.b.size();
         for (int i3 = 0; i3 < size; i3++) {
-            com.kwad.sdk.glide.load.f<DataType, ResourceType> fVar = this.b.get(i3);
+            com.kwad.sdk.glide.load.f<DataType, ResourceType> fVar = this.f35531b.get(i3);
             try {
-                sVar = fVar.a(eVar.a(), eVar2) ? fVar.a(eVar.a(), i, i2, eVar2) : sVar;
-            } catch (IOException | OutOfMemoryError | RuntimeException e) {
-                if (Log.isLoggable("DecodePath", 2)) {
-                    Log.v("DecodePath", "Failed to decode data for " + fVar, e);
+                if (fVar.a(eVar.a(), eVar2)) {
+                    sVar = fVar.a(eVar.a(), i, i2, eVar2);
                 }
-                list.add(e);
+            } catch (IOException | OutOfMemoryError | RuntimeException e2) {
+                if (Log.isLoggable(DecodePath.TAG, 2)) {
+                    Log.v(DecodePath.TAG, "Failed to decode data for " + fVar, e2);
+                }
+                list.add(e2);
             }
             if (sVar != null) {
                 break;
             }
         }
-        if (sVar == null) {
-            throw new GlideException(this.e, new ArrayList(list));
+        if (sVar != null) {
+            return sVar;
         }
-        return sVar;
+        throw new GlideException(this.f35534e, new ArrayList(list));
     }
 
     public s<Transcode> a(com.kwad.sdk.glide.load.a.e<DataType> eVar, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar2, a<ResourceType> aVar) {
-        return this.c.a(aVar.a(a(eVar, i, i2, eVar2)), eVar2);
+        return this.f35532c.a(aVar.a(a(eVar, i, i2, eVar2)), eVar2);
     }
 
     public String toString() {
-        return "DecodePath{ dataClass=" + this.f6754a + ", decoders=" + this.b + ", transcoder=" + this.c + '}';
+        return "DecodePath{ dataClass=" + this.f35530a + ", decoders=" + this.f35531b + ", transcoder=" + this.f35532c + '}';
     }
 }

@@ -11,87 +11,103 @@ import java.lang.ref.WeakReference;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends RecyclerView.Adapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f6894a;
-    private final a b;
-    private RecyclerView.Adapter c;
-    private final RecyclerView.AdapterDataObserver d;
-    private RecyclerView.AdapterDataObserver e;
-    private RecyclerView.AdapterDataObserver f;
-    private RecyclerView.Adapter g;
-    private RecyclerView.Adapter h;
-    private int i;
-    private int j;
-    private boolean k;
-    private int l;
-    private boolean m;
-    private boolean n;
-    private Set<WeakReference<b>> o;
-    private boolean p;
+    public final a f36015a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final a f36016b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RecyclerView.Adapter f36017c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final RecyclerView.AdapterDataObserver f36018d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RecyclerView.AdapterDataObserver f36019e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public RecyclerView.AdapterDataObserver f36020f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public RecyclerView.Adapter f36021g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public RecyclerView.Adapter f36022h;
+    public int i;
+    public int j;
+    public boolean k;
+    public int l;
+    public boolean m;
+    public boolean n;
+    public Set<WeakReference<b>> o;
+    public boolean p;
+
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final SparseArray<View> f6898a;
-        public int b;
+        public final SparseArray<View> f36028a;
 
-        a() {
+        /* renamed from: b  reason: collision with root package name */
+        public int f36029b;
+
+        public a() {
             this(null);
         }
 
-        a(List<View> list) {
-            this.f6898a = new SparseArray<>();
-            this.b = 0;
+        public a(List<View> list) {
+            this.f36028a = new SparseArray<>();
+            this.f36029b = 0;
             if (list != null) {
                 for (View view : list) {
-                    SparseArray<View> sparseArray = this.f6898a;
-                    int i = this.b;
-                    this.b = i + 1;
+                    SparseArray<View> sparseArray = this.f36028a;
+                    int i = this.f36029b;
+                    this.f36029b = i + 1;
                     sparseArray.put(i, view);
                 }
             }
         }
 
-        int a() {
-            return this.f6898a.size();
+        public int a() {
+            return this.f36028a.size();
         }
 
-        View a(int i) {
-            return this.f6898a.get(i);
+        public View a(int i) {
+            return this.f36028a.get(i);
         }
 
-        boolean a(View view) {
-            return this.f6898a.indexOfValue(view) >= 0;
+        public boolean a(View view) {
+            return this.f36028a.indexOfValue(view) >= 0;
         }
 
-        int b(int i) {
-            if (i < 0 || i >= this.f6898a.size()) {
+        public int b(int i) {
+            if (i < 0 || i >= this.f36028a.size()) {
                 return -1;
             }
-            return this.f6898a.keyAt(i);
+            return this.f36028a.keyAt(i);
         }
 
-        boolean b(View view) {
+        public boolean b(View view) {
             if (a(view)) {
                 return false;
             }
-            SparseArray<View> sparseArray = this.f6898a;
-            int i = this.b;
-            this.b = i + 1;
+            SparseArray<View> sparseArray = this.f36028a;
+            int i = this.f36029b;
+            this.f36029b = i + 1;
             sparseArray.put(i, view);
             return true;
         }
 
-        boolean c(View view) {
-            int indexOfValue = this.f6898a.indexOfValue(view);
+        public boolean c(View view) {
+            int indexOfValue = this.f36028a.indexOfValue(view);
             if (indexOfValue < 0) {
                 return false;
             }
-            this.f6898a.removeAt(indexOfValue);
+            this.f36028a.removeAt(indexOfValue);
             return true;
         }
     }
@@ -107,10 +123,10 @@ public class d extends RecyclerView.Adapter {
         this.m = false;
         this.n = true;
         this.o = new HashSet();
-        this.c = adapter;
-        this.f6894a = new a(list);
-        this.b = new a(list2);
-        this.d = new RecyclerView.AdapterDataObserver() { // from class: com.kwad.sdk.lib.widget.recycler.d.1
+        this.f36017c = adapter;
+        this.f36015a = new a(list);
+        this.f36016b = new a(list2);
+        RecyclerView.AdapterDataObserver adapterDataObserver = new RecyclerView.AdapterDataObserver() { // from class: com.kwad.sdk.lib.widget.recycler.d.1
             private void a(int i) {
                 try {
                     int i2 = d.this.l;
@@ -126,7 +142,7 @@ public class d extends RecyclerView.Adapter {
                         d.this.notifyItemRangeChanged(a2, i);
                         d.this.notifyItemRangeRemoved(a2 + i, i2 - i);
                     }
-                } catch (Exception e) {
+                } catch (Exception unused) {
                 }
                 d.this.l = i;
             }
@@ -137,19 +153,16 @@ public class d extends RecyclerView.Adapter {
                 if (d.this.m) {
                     d.this.notifyDataSetChanged();
                 } else if (d.this.p) {
-                    a(d.this.c.getItemCount());
+                    a(d.this.f36017c.getItemCount());
                 } else {
-                    int itemCount = d.this.c.getItemCount();
-                    if (d.this.l == -1 || (itemCount != 0 && itemCount == d.this.l)) {
-                        try {
+                    int itemCount = d.this.f36017c.getItemCount();
+                    try {
+                        if (d.this.l == -1 || (itemCount != 0 && itemCount == d.this.l)) {
                             d.this.notifyItemRangeChanged(d.this.a(), itemCount);
-                        } catch (Exception e) {
-                        }
-                    } else {
-                        try {
+                        } else {
                             d.this.notifyDataSetChanged();
-                        } catch (Exception e2) {
                         }
+                    } catch (Exception unused) {
                     }
                     d.this.l = itemCount;
                 }
@@ -157,50 +170,54 @@ public class d extends RecyclerView.Adapter {
 
             @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
             public void onItemRangeChanged(int i, int i2) {
-                d.this.l = d.this.c.getItemCount();
+                d dVar = d.this;
+                dVar.l = dVar.f36017c.getItemCount();
                 try {
-                    d.this.notifyItemRangeChanged(d.this.a() + i, i2);
-                } catch (Exception e) {
+                    d.this.notifyItemRangeChanged(i + d.this.a(), i2);
+                } catch (Exception unused) {
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
             public void onItemRangeChanged(int i, int i2, Object obj) {
-                d.this.l = d.this.c.getItemCount();
+                d dVar = d.this;
+                dVar.l = dVar.f36017c.getItemCount();
                 try {
-                    d.this.notifyItemRangeChanged(d.this.a() + i, i2, obj);
-                } catch (Exception e) {
+                    d.this.notifyItemRangeChanged(i + d.this.a(), i2, obj);
+                } catch (Exception unused) {
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
             public void onItemRangeInserted(int i, int i2) {
-                d.this.l = d.this.c.getItemCount();
+                d dVar = d.this;
+                dVar.l = dVar.f36017c.getItemCount();
                 try {
-                    d.this.notifyItemRangeInserted(d.this.a() + i, i2);
-                } catch (Exception e) {
+                    d.this.notifyItemRangeInserted(i + d.this.a(), i2);
+                } catch (Exception unused) {
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
             public void onItemRangeMoved(int i, int i2, int i3) {
                 try {
-                    d.this.notifyItemMoved(d.this.a() + i, d.this.a() + i2);
-                } catch (Exception e) {
+                    d.this.notifyItemMoved(i + d.this.a(), i2 + d.this.a());
+                } catch (Exception unused) {
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
             public void onItemRangeRemoved(int i, int i2) {
                 try {
-                    d.this.notifyItemRangeRemoved(d.this.a() + i, i2);
-                } catch (Exception e) {
+                    d.this.notifyItemRangeRemoved(i + d.this.a(), i2);
+                } catch (Exception unused) {
                 }
             }
         };
-        this.e = this.d;
-        this.f = this.d;
-        this.c.registerAdapterDataObserver(this.d);
+        this.f36018d = adapterDataObserver;
+        this.f36019e = adapterDataObserver;
+        this.f36020f = adapterDataObserver;
+        this.f36017c.registerAdapterDataObserver(adapterDataObserver);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -216,29 +233,32 @@ public class d extends RecyclerView.Adapter {
     private void e() {
         try {
             notifyDataSetChanged();
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
     private RecyclerView.ViewHolder f(View view) {
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        int i = layoutParams == null ? -1 : layoutParams.width;
-        int i2 = layoutParams == null ? -2 : layoutParams.height;
+        StaggeredGridLayoutManager.LayoutParams layoutParams;
+        ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
+        int i = layoutParams2 == null ? -1 : layoutParams2.width;
+        int i2 = layoutParams2 == null ? -2 : layoutParams2.height;
         if (this.n) {
             if (this.k) {
-                StaggeredGridLayoutManager.LayoutParams layoutParams2 = new StaggeredGridLayoutManager.LayoutParams(i, i2);
-                layoutParams2.setFullSpan(true);
-                view.setLayoutParams(layoutParams2);
+                StaggeredGridLayoutManager.LayoutParams layoutParams3 = new StaggeredGridLayoutManager.LayoutParams(i, i2);
+                layoutParams3.setFullSpan(true);
+                layoutParams = layoutParams3;
             } else {
-                view.setLayoutParams(new RecyclerView.LayoutParams(i, i2));
+                layoutParams = new RecyclerView.LayoutParams(i, i2);
             }
+            view.setLayoutParams(layoutParams);
         }
         return new RecyclerView.ViewHolder(view) { // from class: com.kwad.sdk.lib.widget.recycler.d.2
         };
     }
 
     public int a() {
-        return this.g != null ? this.g.getItemCount() : this.f6894a.a();
+        RecyclerView.Adapter adapter = this.f36021g;
+        return adapter != null ? adapter.getItemCount() : this.f36015a.a();
     }
 
     public void a(View view, @Nullable ViewGroup.LayoutParams layoutParams) {
@@ -248,7 +268,7 @@ public class d extends RecyclerView.Adapter {
         if (layoutParams != null) {
             view.setLayoutParams(layoutParams);
         }
-        if (this.f6894a.b(view)) {
+        if (this.f36015a.b(view)) {
             e();
         }
         d();
@@ -267,8 +287,9 @@ public class d extends RecyclerView.Adapter {
                     if (d.this.a(i) || d.this.b(i)) {
                         return gridLayoutManager.getSpanCount();
                     }
-                    if (spanSizeLookup != null) {
-                        return spanSizeLookup.getSpanSize(i);
+                    GridLayoutManager.SpanSizeLookup spanSizeLookup2 = spanSizeLookup;
+                    if (spanSizeLookup2 != null) {
+                        return spanSizeLookup2.getSpanSize(i);
                     }
                     return 1;
                 }
@@ -284,15 +305,16 @@ public class d extends RecyclerView.Adapter {
     }
 
     public boolean a(View view) {
-        boolean c = this.b.c(view);
-        if (c) {
+        boolean c2 = this.f36016b.c(view);
+        if (c2) {
             e();
         }
-        return c;
+        return c2;
     }
 
     public int b() {
-        return this.h != null ? this.h.getItemCount() : this.b.a();
+        RecyclerView.Adapter adapter = this.f36022h;
+        return adapter != null ? adapter.getItemCount() : this.f36016b.a();
     }
 
     public void b(View view) {
@@ -303,23 +325,23 @@ public class d extends RecyclerView.Adapter {
         if (view == null) {
             throw new IllegalArgumentException("the view to add must not be null!");
         }
-        if ((view.getParent() instanceof ViewGroup) && view.getParent() != this.b) {
+        if ((view.getParent() instanceof ViewGroup) && view.getParent() != this.f36016b) {
             ((ViewGroup) view.getParent()).removeView(view);
         }
         if (layoutParams != null) {
             view.setLayoutParams(layoutParams);
         }
-        if (this.b.b(view)) {
+        if (this.f36016b.b(view)) {
             e();
         }
     }
 
     public boolean b(int i) {
-        return i >= a() + this.c.getItemCount();
+        return i >= a() + this.f36017c.getItemCount();
     }
 
     public RecyclerView.Adapter c() {
-        return this.c;
+        return this.f36017c;
     }
 
     public void c(View view) {
@@ -335,7 +357,7 @@ public class d extends RecyclerView.Adapter {
     }
 
     public boolean d(View view) {
-        return this.b.a(view);
+        return this.f36016b.a(view);
     }
 
     public int e(int i) {
@@ -343,7 +365,7 @@ public class d extends RecyclerView.Adapter {
     }
 
     public boolean e(View view) {
-        return this.f6894a.a(view);
+        return this.f36015a.a(view);
     }
 
     public int f(int i) {
@@ -352,134 +374,170 @@ public class d extends RecyclerView.Adapter {
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return b() + a() + this.c.getItemCount();
+        return b() + a() + this.f36017c.getItemCount();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public long getItemId(int i) {
-        return a(i) ? this.g != null ? this.g.getItemId(i) : getItemViewType(i) : b(i) ? this.h != null ? this.h.getItemId(i) : getItemViewType(i) : this.c.getItemId(i);
+        if (a(i)) {
+            RecyclerView.Adapter adapter = this.f36021g;
+            return adapter != null ? adapter.getItemId(i) : getItemViewType(i);
+        } else if (b(i)) {
+            RecyclerView.Adapter adapter2 = this.f36022h;
+            return adapter2 != null ? adapter2.getItemId(i) : getItemViewType(i);
+        } else {
+            return this.f36017c.getItemId(i);
+        }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
         if (a(i)) {
-            int itemViewType = (this.g != null ? this.g.getItemViewType(i) : this.f6894a.b(i)) - 1024;
+            RecyclerView.Adapter adapter = this.f36021g;
+            int itemViewType = (adapter != null ? adapter.getItemViewType(i) : this.f36015a.b(i)) - 1024;
             this.j = Math.max(itemViewType, this.j);
             return itemViewType;
         } else if (b(i)) {
-            int itemCount = (i - this.c.getItemCount()) - a();
-            int itemViewType2 = (this.h != null ? this.h.getItemViewType(itemCount) : this.b.b(itemCount)) - 2048;
+            int itemCount = (i - this.f36017c.getItemCount()) - a();
+            RecyclerView.Adapter adapter2 = this.f36022h;
+            int itemViewType2 = (adapter2 != null ? adapter2.getItemViewType(itemCount) : this.f36016b.b(itemCount)) - 2048;
             this.i = Math.max(itemViewType2, this.i);
             return itemViewType2;
         } else {
-            return this.c.getItemViewType(i - a());
+            return this.f36017c.getItemViewType(i - a());
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
-        if (this.c.hasObservers()) {
-            this.c.unregisterAdapterDataObserver(this.d);
+        if (this.f36017c.hasObservers()) {
+            this.f36017c.unregisterAdapterDataObserver(this.f36018d);
         }
-        this.c.registerAdapterDataObserver(this.d);
-        this.c.onAttachedToRecyclerView(recyclerView);
-        if (this.g != null) {
-            this.g.onAttachedToRecyclerView(recyclerView);
-            this.g.unregisterAdapterDataObserver(this.e);
-            this.g.registerAdapterDataObserver(this.e);
+        this.f36017c.registerAdapterDataObserver(this.f36018d);
+        this.f36017c.onAttachedToRecyclerView(recyclerView);
+        RecyclerView.Adapter adapter = this.f36021g;
+        if (adapter != null) {
+            adapter.onAttachedToRecyclerView(recyclerView);
+            this.f36021g.unregisterAdapterDataObserver(this.f36019e);
+            this.f36021g.registerAdapterDataObserver(this.f36019e);
         }
-        if (this.h != null) {
-            this.h.onAttachedToRecyclerView(recyclerView);
-            this.h.unregisterAdapterDataObserver(this.f);
-            this.h.registerAdapterDataObserver(this.f);
+        RecyclerView.Adapter adapter2 = this.f36022h;
+        if (adapter2 != null) {
+            adapter2.onAttachedToRecyclerView(recyclerView);
+            this.f36022h.unregisterAdapterDataObserver(this.f36020f);
+            this.f36022h.registerAdapterDataObserver(this.f36020f);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
-        if (i >= a() && i < a() + this.c.getItemCount()) {
-            this.c.onBindViewHolder(viewHolder, i - a());
-        } else if (i < a() && this.g != null) {
-            this.g.onBindViewHolder(viewHolder, i);
-        } else if (i < a() + this.c.getItemCount() || this.h == null) {
-        } else {
-            this.h.onBindViewHolder(viewHolder, (i - a()) - this.c.getItemCount());
+        RecyclerView.Adapter adapter;
+        if (i >= a() && i < a() + this.f36017c.getItemCount()) {
+            this.f36017c.onBindViewHolder(viewHolder, i - a());
+            return;
         }
+        if (i >= a() || (adapter = this.f36021g) == null) {
+            if (i < a() + this.f36017c.getItemCount() || (adapter = this.f36022h) == null) {
+                return;
+            }
+            i = (i - a()) - this.f36017c.getItemCount();
+        }
+        adapter.onBindViewHolder(viewHolder, i);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i, List list) {
+        RecyclerView.Adapter adapter;
         if (list.isEmpty()) {
             onBindViewHolder(viewHolder, i);
-        } else if (i >= a() && i < a() + this.c.getItemCount()) {
-            this.c.onBindViewHolder(viewHolder, i - a(), list);
-        } else if (i < a() && this.g != null) {
-            this.g.onBindViewHolder(viewHolder, i, list);
-        } else if (i < a() + this.c.getItemCount() || this.h == null) {
+        } else if (i >= a() && i < a() + this.f36017c.getItemCount()) {
+            this.f36017c.onBindViewHolder(viewHolder, i - a(), list);
         } else {
-            this.h.onBindViewHolder(viewHolder, (i - a()) - this.c.getItemCount(), list);
+            if (i >= a() || (adapter = this.f36021g) == null) {
+                if (i < a() + this.f36017c.getItemCount() || (adapter = this.f36022h) == null) {
+                    return;
+                }
+                i = (i - a()) - this.f36017c.getItemCount();
+            }
+            adapter.onBindViewHolder(viewHolder, i, list);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         if (c(i)) {
-            int f = f(i);
-            return this.g == null ? f(this.f6894a.a(f)) : this.g.onCreateViewHolder(viewGroup, f);
+            int f2 = f(i);
+            RecyclerView.Adapter adapter = this.f36021g;
+            return adapter == null ? f(this.f36015a.a(f2)) : adapter.onCreateViewHolder(viewGroup, f2);
         } else if (d(i)) {
-            int e = e(i);
-            return this.h == null ? f(this.b.a(e)) : this.h.onCreateViewHolder(viewGroup, e);
+            int e2 = e(i);
+            RecyclerView.Adapter adapter2 = this.f36022h;
+            return adapter2 == null ? f(this.f36016b.a(e2)) : adapter2.onCreateViewHolder(viewGroup, e2);
         } else {
-            return this.c.onCreateViewHolder(viewGroup, i);
+            return this.f36017c.onCreateViewHolder(viewGroup, i);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
         super.onDetachedFromRecyclerView(recyclerView);
-        if (this.c.hasObservers()) {
-            this.c.unregisterAdapterDataObserver(this.d);
+        if (this.f36017c.hasObservers()) {
+            this.f36017c.unregisterAdapterDataObserver(this.f36018d);
         }
-        this.c.onDetachedFromRecyclerView(recyclerView);
-        if (this.g != null) {
-            this.g.onDetachedFromRecyclerView(recyclerView);
-            this.g.unregisterAdapterDataObserver(this.e);
+        this.f36017c.onDetachedFromRecyclerView(recyclerView);
+        RecyclerView.Adapter adapter = this.f36021g;
+        if (adapter != null) {
+            adapter.onDetachedFromRecyclerView(recyclerView);
+            this.f36021g.unregisterAdapterDataObserver(this.f36019e);
         }
-        if (this.h != null) {
-            this.h.onDetachedFromRecyclerView(recyclerView);
-            this.h.unregisterAdapterDataObserver(this.f);
+        RecyclerView.Adapter adapter2 = this.f36022h;
+        if (adapter2 != null) {
+            adapter2.onDetachedFromRecyclerView(recyclerView);
+            this.f36022h.unregisterAdapterDataObserver(this.f36020f);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onViewAttachedToWindow(RecyclerView.ViewHolder viewHolder) {
+        RecyclerView.Adapter adapter;
         super.onViewAttachedToWindow(viewHolder);
         int itemViewType = viewHolder.getItemViewType();
         if (c(itemViewType)) {
-            if (this.g != null) {
-                this.g.onViewAttachedToWindow(viewHolder);
+            adapter = this.f36021g;
+            if (adapter == null) {
+                return;
             }
-        } else if (!d(itemViewType)) {
-            this.c.onViewAttachedToWindow(viewHolder);
-        } else if (this.h != null) {
-            this.h.onViewAttachedToWindow(viewHolder);
+        } else if (d(itemViewType)) {
+            adapter = this.f36022h;
+            if (adapter == null) {
+                return;
+            }
+        } else {
+            adapter = this.f36017c;
         }
+        adapter.onViewAttachedToWindow(viewHolder);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onViewDetachedFromWindow(RecyclerView.ViewHolder viewHolder) {
+        RecyclerView.Adapter adapter;
         super.onViewDetachedFromWindow(viewHolder);
         int itemViewType = viewHolder.getItemViewType();
         if (c(itemViewType)) {
-            if (this.g != null) {
-                this.g.onViewDetachedFromWindow(viewHolder);
+            adapter = this.f36021g;
+            if (adapter == null) {
+                return;
             }
-        } else if (!d(itemViewType)) {
-            this.c.onViewDetachedFromWindow(viewHolder);
-        } else if (this.h != null) {
-            this.h.onViewDetachedFromWindow(viewHolder);
+        } else if (d(itemViewType)) {
+            adapter = this.f36022h;
+            if (adapter == null) {
+                return;
+            }
+        } else {
+            adapter = this.f36017c;
         }
+        adapter.onViewDetachedFromWindow(viewHolder);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

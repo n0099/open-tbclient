@@ -1,7 +1,7 @@
 package io.reactivex.parallel;
 
-import io.reactivex.b.c;
-/* loaded from: classes6.dex */
+import f.a.w.c;
+/* loaded from: classes7.dex */
 public enum ParallelFailureHandling implements c<Long, Throwable, ParallelFailureHandling> {
     STOP,
     ERROR,
@@ -9,7 +9,7 @@ public enum ParallelFailureHandling implements c<Long, Throwable, ParallelFailur
     RETRY;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.b.c
+    @Override // f.a.w.c
     public ParallelFailureHandling apply(Long l, Throwable th) {
         return this;
     }

@@ -13,12 +13,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawable> {
-    private static final String TAG = "StreamGifDecoder";
-    private final ArrayPool byteArrayPool;
-    private final ResourceDecoder<ByteBuffer, GifDrawable> byteBufferDecoder;
-    private final List<ImageHeaderParser> parsers;
+    public static final String TAG = "StreamGifDecoder";
+    public final ArrayPool byteArrayPool;
+    public final ResourceDecoder<ByteBuffer, GifDrawable> byteBufferDecoder;
+    public final List<ImageHeaderParser> parsers;
 
     public StreamGifDecoder(List<ImageHeaderParser> list, ResourceDecoder<ByteBuffer, GifDrawable> resourceDecoder, ArrayPool arrayPool) {
         this.parsers = list;
@@ -26,23 +26,7 @@ public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawabl
         this.byteArrayPool = arrayPool;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(@NonNull InputStream inputStream, @NonNull Options options) throws IOException {
-        return !((Boolean) options.get(GifOptions.DISABLE_ANIMATION)).booleanValue() && ImageHeaderParserUtils.getType(this.parsers, inputStream, this.byteArrayPool) == ImageHeaderParser.ImageType.GIF;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<GifDrawable> decode(@NonNull InputStream inputStream, int i, int i2, @NonNull Options options) throws IOException {
-        byte[] inputStreamToBytes = inputStreamToBytes(inputStream);
-        if (inputStreamToBytes == null) {
-            return null;
-        }
-        return this.byteBufferDecoder.decode(ByteBuffer.wrap(inputStreamToBytes), i, i2, options);
-    }
-
-    private static byte[] inputStreamToBytes(InputStream inputStream) {
+    public static byte[] inputStreamToBytes(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(16384);
         try {
             byte[] bArr = new byte[16384];
@@ -55,11 +39,28 @@ public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawabl
                     return byteArrayOutputStream.toByteArray();
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException e2) {
             if (Log.isLoggable(TAG, 5)) {
-                Log.w(TAG, "Error reading data from stream", e);
+                Log.w(TAG, "Error reading data from stream", e2);
+                return null;
             }
             return null;
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.ResourceDecoder
+    public Resource<GifDrawable> decode(@NonNull InputStream inputStream, int i, int i2, @NonNull Options options) throws IOException {
+        byte[] inputStreamToBytes = inputStreamToBytes(inputStream);
+        if (inputStreamToBytes == null) {
+            return null;
+        }
+        return this.byteBufferDecoder.decode(ByteBuffer.wrap(inputStreamToBytes), i, i2, options);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.ResourceDecoder
+    public boolean handles(@NonNull InputStream inputStream, @NonNull Options options) throws IOException {
+        return !((Boolean) options.get(GifOptions.DISABLE_ANIMATION)).booleanValue() && ImageHeaderParserUtils.getType(this.parsers, inputStream, this.byteArrayPool) == ImageHeaderParser.ImageType.GIF;
     }
 }

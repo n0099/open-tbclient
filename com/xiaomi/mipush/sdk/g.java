@@ -1,26 +1,32 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes5.dex */
-/* synthetic */ class g {
+
+import android.content.Context;
+import com.xiaomi.push.hk;
+import com.xiaomi.push.service.aq;
+/* loaded from: classes7.dex */
+public class g extends aq.a {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f8230a = new int[d.values().length];
+    public final /* synthetic */ f f40193a;
 
-    static {
-        try {
-            f8230a[d.ASSEMBLE_PUSH_HUAWEI.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            f8230a[d.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            f8230a[d.ASSEMBLE_PUSH_COS.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
-        try {
-            f8230a[d.ASSEMBLE_PUSH_FTOS.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(f fVar, int i, String str) {
+        super(i, str);
+        this.f40193a = fVar;
+    }
+
+    @Override // com.xiaomi.push.service.aq.a
+    public void onCallback() {
+        Context context;
+        boolean z;
+        Context context2;
+        context = this.f40193a.f86a;
+        boolean a2 = com.xiaomi.push.service.aq.a(context).a(hk.AggregatePushSwitch.a(), true);
+        z = this.f40193a.f89a;
+        if (z != a2) {
+            this.f40193a.f89a = a2;
+            context2 = this.f40193a.f86a;
+            i.b(context2);
         }
     }
 }

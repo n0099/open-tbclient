@@ -1,357 +1,196 @@
 package com.bytedance.sdk.openadsdk.d;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
+import android.webkit.WebResourceResponse;
+import com.bytedance.sdk.openadsdk.c.d;
 import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.downloadnew.core.a;
-import com.bytedance.sdk.openadsdk.downloadnew.core.b;
-import com.bytedance.sdk.openadsdk.utils.aj;
+import com.bytedance.sdk.openadsdk.core.i;
+import com.bytedance.sdk.openadsdk.core.k;
+import com.bytedance.sdk.openadsdk.core.p;
+import com.bytedance.sdk.openadsdk.l.e;
+import com.bytedance.sdk.openadsdk.preload.geckox.a.a.a;
+import com.bytedance.sdk.openadsdk.preload.geckox.b;
+import com.bytedance.sdk.openadsdk.preload.geckox.h.b;
+import com.bytedance.sdk.openadsdk.preload.geckox.model.CheckRequestBodyModel;
+import com.bytedance.sdk.openadsdk.utils.j;
 import com.bytedance.sdk.openadsdk.utils.u;
+import java.io.File;
+import java.io.InputStream;
+import java.util.AbstractMap;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
+import java.util.Random;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class a implements c {
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final l f4656a;
-    private final b b;
-    private final Map<String, com.bytedance.sdk.openadsdk.downloadnew.core.b> c = new HashMap();
+    public static String[] f29072a = {"gecko-pangle-lf.snssdk.com", "gecko-pangle-hl.snssdk.com", "gecko-pangle-lq.snssdk.com"};
 
-    private a(b bVar, l lVar) {
-        this.b = bVar;
-        this.f4656a = lVar;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public File f29073b;
 
-    public static a a(b bVar, l lVar) {
-        return new a(bVar, lVar);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.d.c
-    public void a() {
-        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.c.values()) {
-            if (bVar != null) {
-                bVar.b();
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.d.c
-    public void b() {
-        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.c.values()) {
-            if (bVar != null) {
-                bVar.c();
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.d.c
-    public void c() {
-        b();
-        for (com.bytedance.sdk.openadsdk.downloadnew.core.b bVar : this.c.values()) {
-            if (bVar != null) {
-                bVar.d();
-            }
-        }
-        this.c.clear();
-    }
-
-    private l a(JSONObject jSONObject, String str) {
-        if (jSONObject == null) {
-            return null;
-        }
-        l lVar = new l();
-        lVar.c(jSONObject);
-        if (!TextUtils.isEmpty(str)) {
-            lVar.m(str);
-        }
-        if (this.f4656a == null) {
-            return lVar;
-        }
-        String b = lVar.ah() != null ? lVar.ah().b() : null;
-        if (TextUtils.isEmpty(b)) {
-            return this.f4656a;
-        }
-        return (this.f4656a.ah() == null || !b.equals(this.f4656a.ah().b())) ? lVar : this.f4656a;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.d.c
-    public void a(Context context, JSONObject jSONObject, String str, int i, boolean z) {
-        JSONObject optJSONObject;
-        if (context != null && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            a(context, a(optJSONObject, str), optJSONObject, i, z);
-        }
-    }
-
-    private void a(Context context, l lVar, JSONObject jSONObject, int i, boolean z) {
-        if (context != null && lVar != null && lVar.ah() != null && jSONObject != null && this.b != null && this.c.get(lVar.ah().b()) == null) {
-            String a2 = aj.a(i);
-            if (!TextUtils.isEmpty(a2)) {
-                this.c.put(lVar.ah().b(), a(context, lVar, jSONObject, a2, z));
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.d.c
-    public void a(Context context, JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (context != null && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            a(context, a(optJSONObject, (String) null));
-        }
-    }
-
-    private void a(Context context, l lVar) {
-        if (context != null && lVar != null && lVar.ah() != null) {
-            final String ag = lVar.ag();
-            com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.c.get(lVar.ah().b());
-            if (bVar != null) {
-                bVar.g();
-                bVar.a(new TTAppDownloadListener() { // from class: com.bytedance.sdk.openadsdk.d.a.1
-                    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                    public void onIdle() {
-                        C1028a.a(ag, 1, 0);
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                    public void onDownloadActive(long j, long j2, String str, String str2) {
-                        if (j > 0) {
-                            C1028a.a(ag, 3, (int) ((100 * j2) / j));
-                        }
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                    public void onDownloadPaused(long j, long j2, String str, String str2) {
-                        if (j > 0) {
-                            C1028a.a(ag, 2, (int) ((100 * j2) / j));
-                        }
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                    public void onDownloadFailed(long j, long j2, String str, String str2) {
-                        if (j > 0) {
-                            C1028a.a(ag, 4, (int) ((100 * j2) / j));
-                        }
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                    public void onDownloadFinished(long j, String str, String str2) {
-                        C1028a.a(ag, 5, 100);
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-                    public void onInstalled(String str, String str2) {
-                        C1028a.a(ag, 6, 100);
-                    }
-                });
-            }
-            if (context instanceof com.bytedance.sdk.openadsdk.core.video.c.b) {
-                ((com.bytedance.sdk.openadsdk.core.video.c.b) context).U();
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.d.c
-    public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            a(a(optJSONObject, (String) null), optJSONObject);
-        }
-    }
-
-    private void a(l lVar, JSONObject jSONObject) {
-        if (this.b != null && lVar != null && lVar.ah() != null) {
-            String b = lVar.ah().b();
-            if (this.c.containsKey(b)) {
-                this.c.remove(b);
-                try {
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("message", "success");
-                    jSONObject2.put("status", "unsubscribed");
-                    jSONObject2.put("appad", jSONObject);
-                    this.b.a("app_ad_event", jSONObject2);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.d.c
-    public void b(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject != null && this.b != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            com.bytedance.sdk.openadsdk.downloadnew.core.b bVar = this.c.get(a(optJSONObject, (String) null).ah().b());
-            if (bVar != null) {
-                bVar.f();
-            }
-        }
-    }
-
-    private com.bytedance.sdk.openadsdk.downloadnew.core.b a(@NonNull final Context context, @NonNull final l lVar, @NonNull final JSONObject jSONObject, @NonNull String str, final boolean z) {
-        com.bytedance.sdk.openadsdk.downloadnew.core.b b = com.bytedance.sdk.openadsdk.downloadnew.a.b(context, lVar, str);
-        b.a(new TTAppDownloadListener() { // from class: com.bytedance.sdk.openadsdk.d.a.2
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onIdle() {
-                a("status", "idle");
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadActive(long j, long j2, String str2, String str3) {
-                a("status", "download_active", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadPaused(long j, long j2, String str2, String str3) {
-                a("status", "download_paused", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadFailed(long j, long j2, String str2, String str3) {
-                a("status", "download_failed", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j2));
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadFinished(long j, String str2, String str3) {
-                a("status", "download_finished", "total_bytes", String.valueOf(j), DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, String.valueOf(j));
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onInstalled(String str2, String str3) {
-                a("status", "installed");
-            }
-
-            private void a(String... strArr) {
-                if (strArr != null && strArr.length % 2 == 0) {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("message", "success");
-                        jSONObject2.put("appad", jSONObject);
-                        for (int i = 0; i < strArr.length; i += 2) {
-                            jSONObject2.put(strArr[i], strArr[i + 1]);
-                        }
-                        a.this.b.a("app_ad_event", jSONObject2);
-                    } catch (JSONException e) {
-                        u.b("JsAppAdDownloadManager", "JSONException");
-                    }
-                }
-            }
-        });
-        b.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.d.a.3
-        });
-        b.a(3, new a.InterfaceC1029a() { // from class: com.bytedance.sdk.openadsdk.d.a.4
-            @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1029a
-            public boolean a(int i, l lVar2, String str2, String str3, Object obj) {
-                boolean z2 = false;
-                if (i != 3 || lVar2 == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                    return true;
-                }
-                if (!z) {
-                    char c = 65535;
-                    switch (str3.hashCode()) {
-                        case -1297985154:
-                            if (str3.equals("click_continue")) {
-                                c = 3;
-                                break;
-                            }
-                            break;
-                        case -777040223:
-                            if (str3.equals("click_open")) {
-                                c = 4;
-                                break;
-                            }
-                            break;
-                        case 565370917:
-                            if (str3.equals("click_start_detail")) {
-                                c = 0;
-                                break;
-                            }
-                            break;
-                        case 1682049151:
-                            if (str3.equals("click_pause")) {
-                                c = 2;
-                                break;
-                            }
-                            break;
-                        case 1685366507:
-                            if (str3.equals("click_start")) {
-                                c = 1;
-                                break;
-                            }
-                            break;
-                    }
-                    switch (c) {
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                            break;
-                        default:
-                            z2 = true;
-                            break;
-                    }
-                    return z2;
-                } else if (str3.equals("click_start")) {
-                    com.bytedance.sdk.openadsdk.c.d.a(context, lVar, str2, "click_start_detail", (JSONObject) null);
-                    return true;
-                } else {
-                    return true;
-                }
-            }
-        });
-        return b;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public Map.Entry<String, JSONObject> f29074c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1028a {
+    public static class C0316a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static ConcurrentHashMap<String, JSONObject> f4661a = new ConcurrentHashMap<>();
+        public static a f29077a = new a();
+    }
 
-        public static synchronized JSONObject a(String str) {
-            JSONObject jSONObject;
-            synchronized (C1028a.class) {
-                if (TextUtils.isEmpty(str)) {
-                    jSONObject = new JSONObject();
-                } else if (f4661a == null) {
-                    jSONObject = new JSONObject();
-                } else {
-                    jSONObject = f4661a.get(str);
-                    if (jSONObject == null) {
-                        jSONObject = new JSONObject();
-                    }
-                }
-            }
-            return jSONObject;
+    public static a a() {
+        return C0316a.f29077a;
+    }
+
+    private String c() {
+        String[] G = p.h().G();
+        StringBuilder sb = new StringBuilder();
+        sb.append("GeckoLog:get gecko hosts from settings ");
+        sb.append(G == null ? 0 : G.length);
+        u.b("GeckoHub", sb.toString());
+        if (G == null) {
+            G = f29072a;
         }
+        String str = G[new Random().nextInt(G.length)];
+        if (TextUtils.isEmpty(str)) {
+            str = f29072a[new Random().nextInt(f29072a.length)];
+        }
+        u.b("GeckoHub", "GeckoLog:random host " + str);
+        return str;
+    }
 
-        public static synchronized void a(String str, int i, int i2) {
-            synchronized (C1028a.class) {
-                if (!TextUtils.isEmpty(str)) {
-                    if (f4661a == null) {
-                        f4661a = new ConcurrentHashMap<>();
-                    }
-                    JSONObject jSONObject = f4661a.get(str);
-                    if (jSONObject == null) {
-                        jSONObject = new JSONObject();
-                        f4661a.put(str, jSONObject);
-                    }
-                    try {
-                        jSONObject.put("downloadStatus", i);
-                        jSONObject.put("downloadProcessRate", i2);
-                        jSONObject.put("code", 0);
-                        jSONObject.put("codeMsg", "get ad_down_load_id success");
-                    } catch (Exception e) {
-                        e.printStackTrace();
+    public com.bytedance.sdk.openadsdk.preload.falconx.a.a b() {
+        try {
+            return new com.bytedance.sdk.openadsdk.preload.falconx.a.a(p.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f29073b);
+        } catch (Throwable th) {
+            u.c("GeckoHub", "getGeckoResLoader error", th);
+            return null;
+        }
+    }
+
+    public a() {
+        this.f29073b = new File(p.a().getCacheDir() + File.separator + "gecko");
+        if (i.d().w()) {
+            b.a();
+        }
+    }
+
+    public void a(final Map<String, l> map) {
+        String a2 = k.a(p.a());
+        if (TextUtils.isEmpty(a2)) {
+            u.b("GeckoHub", "no did so don't preload");
+            return;
+        }
+        com.bytedance.sdk.openadsdk.preload.geckox.a a3 = com.bytedance.sdk.openadsdk.preload.geckox.a.a(new b.a(p.a()).b("4ab312f7094810afa84659d3dc6cf0fe").a("4ab312f7094810afa84659d3dc6cf0fe").a(Long.parseLong("1371")).b(a2).a("9999999.0.0").a(new a.C0333a().a(20).a(com.bytedance.sdk.openadsdk.preload.geckox.a.a.b.f30204c).a()).a(this.f29073b).a(false).c(c()).b(e.a()).a(e.a()).a(new com.bytedance.sdk.openadsdk.preload.geckox.statistic.a() { // from class: com.bytedance.sdk.openadsdk.d.a.1
+            @Override // com.bytedance.sdk.openadsdk.preload.geckox.statistic.a
+            public void a(String str, JSONObject jSONObject) {
+                if ("geckosdk_update_stats".equals(str)) {
+                    l lVar = (l) map.get(jSONObject.optString("channel"));
+                    if (lVar != null) {
+                        d.a.a(str, jSONObject, lVar);
                     }
                 }
             }
+        }).a());
+        HashMap hashMap = new HashMap();
+        LinkedList linkedList = new LinkedList();
+        for (String str : map.keySet()) {
+            linkedList.add(new CheckRequestBodyModel.TargetChannel(str));
+        }
+        hashMap.put("4ab312f7094810afa84659d3dc6cf0fe", linkedList);
+        a3.a(hashMap);
+    }
+
+    private InputStream b(com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar, String str, String str2) throws Exception {
+        String str3 = str + File.separator + str2;
+        if (aVar.b(str3)) {
+            return aVar.a(str3);
+        }
+        return null;
+    }
+
+    private String a(String str) {
+        if (str == null) {
+            return null;
+        }
+        int indexOf = str.indexOf("?");
+        return indexOf == -1 ? str : str.substring(0, indexOf);
+    }
+
+    private JSONObject a(String str, String str2) {
+        if (str != null && str2 != null) {
+            try {
+                if (this.f29074c == null || !str.equals(this.f29074c.getKey())) {
+                    u.b("GeckoHub", "refresh cache manifest");
+                    com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar = new com.bytedance.sdk.openadsdk.preload.falconx.a.a(p.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f29073b);
+                    String a2 = com.bytedance.sdk.openadsdk.k.g.a.a(aVar.a(str + "/manifest.json"));
+                    if (TextUtils.isEmpty(a2)) {
+                        u.f("GeckoHub", "getFileInfoInManifest error null");
+                        return null;
+                    }
+                    this.f29074c = new AbstractMap.SimpleEntry(str, new JSONObject(a2));
+                }
+                JSONObject value = this.f29074c.getValue();
+                String a3 = j.a(str2);
+                if (value.has(a3)) {
+                    return value.getJSONObject(a3);
+                }
+                String a4 = a(str2);
+                if (a4 == null) {
+                    return null;
+                }
+                String a5 = j.a(a4);
+                if (value.has(a5)) {
+                    return value.getJSONObject(a5);
+                }
+                return null;
+            } catch (Throwable th) {
+                u.c("GeckoHub", "getFileInfoInManifest error", th);
+            }
+        }
+        return null;
+    }
+
+    public void a(com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar) {
+        if (aVar != null) {
+            try {
+                aVar.a();
+            } catch (Throwable th) {
+                u.c("GeckoHub", "releaseGeckoResLoader error", th);
+            }
+        }
+    }
+
+    public WebResourceResponse a(com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar, String str, String str2) {
+        String optString;
+        InputStream b2;
+        if (aVar == null) {
+            return null;
+        }
+        try {
+            JSONObject a2 = a(str, str2);
+            if (a2 == null || (optString = a2.optString("fileName", null)) == null) {
+                return null;
+            }
+            JSONObject jSONObject = a2.has("respHeader") ? a2.getJSONObject("respHeader") : null;
+            if (jSONObject == null || (b2 = b(aVar, str, optString)) == null) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                hashMap.put(next, jSONObject.getString(next));
+            }
+            return com.bytedance.sdk.openadsdk.preload.falconx.b.a.a(b2, hashMap);
+        } catch (Throwable th) {
+            u.c("GeckoHub", "findRes error", th);
+            return null;
         }
     }
 }

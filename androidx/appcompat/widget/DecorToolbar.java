@@ -15,7 +15,7 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public interface DecorToolbar {
     void animateToVisibility(int i);
 

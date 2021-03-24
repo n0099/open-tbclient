@@ -2,7 +2,7 @@ package com.fun.ad.sdk;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class FunAdConfig {
     public static final int TITLE_BAR_THEME_DARK = 1;
     public static final int TITLE_BAR_THEME_LIGHT = 0;
@@ -19,7 +19,7 @@ public final class FunAdConfig {
     public final int titleBarTheme;
     public final String userId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public Context appContext;
         public String appId;

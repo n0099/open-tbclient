@@ -2,76 +2,84 @@ package com.baidu.tieba.frs.entelechy.adapter;
 
 import android.view.View;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.frs.entelechy.view.a;
-/* loaded from: classes2.dex */
-public class FrsCardVideoViewHolder<T extends com.baidu.tieba.frs.entelechy.view.a> extends CardViewHolder<T> implements com.baidu.tieba.play.e {
+import d.b.i0.i2.e;
+import d.b.i0.p0.n1.g.a;
+/* loaded from: classes4.dex */
+public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> implements e {
     public FrsCardVideoViewHolder(T t) {
         super(t);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.holder.CardViewHolder
-    /* renamed from: cGD */
-    public T cto() {
-        return (T) this.iDP;
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlayStarted() {
-        if (this.iDP == 0) {
-            return false;
-        }
-        return ((com.baidu.tieba.frs.entelechy.view.a) this.iDP).isPlayStarted();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlaying() {
-        if (this.iDP == 0) {
-            return false;
-        }
-        return ((com.baidu.tieba.frs.entelechy.view.a) this.iDP).isPlaying();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isFullScreen() {
+    @Override // d.b.i0.i2.e
+    public boolean D() {
         return false;
     }
 
-    @Override // com.baidu.tieba.play.e
-    public void startPlay() {
-        if (this.iDP != 0) {
-            ((com.baidu.tieba.frs.entelechy.view.a) this.iDP).startPlay();
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.holder.CardViewHolder
+    /* renamed from: c */
+    public T b() {
+        return (T) this.f15282e;
     }
 
-    @Override // com.baidu.tieba.play.e
-    public void stopPlay() {
-        if (this.iDP != 0) {
-            ((com.baidu.tieba.frs.entelechy.view.a) this.iDP).stopPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public View getVideoContainer() {
-        if (this.iDP == 0) {
-            return null;
-        }
-        return ((com.baidu.tieba.frs.entelechy.view.a) this.iDP).getVideoContainer();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public String getPlayUrl() {
-        if (this.iDP == 0) {
-            return null;
-        }
-        return ((com.baidu.tieba.frs.entelechy.view.a) this.iDP).getPlayUrl();
-    }
-
-    @Override // com.baidu.tieba.play.e
+    @Override // d.b.i0.i2.e
     public int getCurrentPosition() {
-        if (this.iDP == 0) {
+        T t = this.f15282e;
+        if (t == 0) {
             return 0;
         }
-        return ((com.baidu.tieba.frs.entelechy.view.a) this.iDP).getCurrentPosition();
+        return ((a) t).getCurrentPosition();
+    }
+
+    @Override // d.b.i0.i2.e
+    public String getPlayUrl() {
+        T t = this.f15282e;
+        if (t == 0) {
+            return null;
+        }
+        return ((a) t).O();
+    }
+
+    @Override // d.b.i0.i2.e
+    public View getVideoContainer() {
+        T t = this.f15282e;
+        if (t == 0) {
+            return null;
+        }
+        return ((a) t).P();
+    }
+
+    @Override // d.b.i0.i2.e
+    public boolean isPlayStarted() {
+        T t = this.f15282e;
+        if (t == 0) {
+            return false;
+        }
+        return ((a) t).Y();
+    }
+
+    @Override // d.b.i0.i2.e
+    public boolean isPlaying() {
+        T t = this.f15282e;
+        if (t == 0) {
+            return false;
+        }
+        return ((a) t).isPlaying();
+    }
+
+    @Override // d.b.i0.i2.e
+    public void startPlay() {
+        T t = this.f15282e;
+        if (t != 0) {
+            ((a) t).startPlay();
+        }
+    }
+
+    @Override // d.b.i0.i2.e
+    public void stopPlay() {
+        T t = this.f15282e;
+        if (t != 0) {
+            ((a) t).stopPlay();
+        }
     }
 }

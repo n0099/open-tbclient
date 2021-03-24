@@ -5,85 +5,56 @@ import com.baidubce.http.HttpMethodName;
 import com.baidubce.model.AbstractBceRequest;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GeneratePresignedUrlRequest extends AbstractBceRequest {
-    private String bucketName;
-    private String contentMd5;
-    private String contentType;
-    private int expirationInSeconds;
-    private String key;
-    private HttpMethodName method;
-    private Map<String, String> requestHeaders;
-    private Map<String, String> requestParameters;
-    private ResponseHeaderOverrides responseHeaders;
+    public String bucketName;
+    public String contentMd5;
+    public String contentType;
+    public int expirationInSeconds;
+    public String key;
+    public HttpMethodName method;
+    public Map<String, String> requestHeaders;
+    public Map<String, String> requestParameters;
+    public ResponseHeaderOverrides responseHeaders;
 
     public GeneratePresignedUrlRequest(String str, String str2) {
         this(str, str2, HttpMethodName.GET);
     }
 
-    public GeneratePresignedUrlRequest(String str, String str2, HttpMethodName httpMethodName) {
-        this.expirationInSeconds = -1;
-        this.requestParameters = new HashMap();
-        this.requestHeaders = new HashMap();
-        this.bucketName = str;
-        this.key = str2;
-        this.method = httpMethodName;
+    public void addRequestHeaders(String str, String str2) {
+        this.requestHeaders.put(str, str2);
     }
 
-    public HttpMethodName getMethod() {
-        return this.method;
-    }
-
-    public void setMethod(HttpMethodName httpMethodName) {
-        this.method = httpMethodName;
-    }
-
-    public GeneratePresignedUrlRequest withMethod(HttpMethodName httpMethodName) {
-        setMethod(httpMethodName);
-        return this;
+    public void addRequestParameter(String str, String str2) {
+        this.requestParameters.put(str, str2);
     }
 
     public String getBucketName() {
         return this.bucketName;
     }
 
-    public void setBucketName(String str) {
-        this.bucketName = str;
+    public String getContentMd5() {
+        return this.contentMd5;
     }
 
-    public GeneratePresignedUrlRequest withBucketName(String str) {
-        setBucketName(str);
-        return this;
-    }
-
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String str) {
-        this.key = str;
-    }
-
-    public GeneratePresignedUrlRequest withKey(String str) {
-        setKey(str);
-        return this;
+    public String getContentType() {
+        return this.contentType;
     }
 
     public int getExpiration() {
         return this.expirationInSeconds;
     }
 
-    public void setExpiration(int i) {
-        this.expirationInSeconds = i;
+    public String getKey() {
+        return this.key;
     }
 
-    public GeneratePresignedUrlRequest withExpiration(int i) {
-        setExpiration(i);
-        return this;
+    public HttpMethodName getMethod() {
+        return this.method;
     }
 
-    public void addRequestParameter(String str, String str2) {
-        this.requestParameters.put(str, str2);
+    public Map<String, String> getRequestHeaders() {
+        return this.requestHeaders;
     }
 
     public Map<String, String> getRequestParameters() {
@@ -94,29 +65,42 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
         return this.responseHeaders;
     }
 
-    public void setResponseHeaders(ResponseHeaderOverrides responseHeaderOverrides) {
-        this.responseHeaders = responseHeaderOverrides;
+    public void setBucketName(String str) {
+        this.bucketName = str;
     }
 
-    public GeneratePresignedUrlRequest withResponseHeaders(ResponseHeaderOverrides responseHeaderOverrides) {
-        setResponseHeaders(responseHeaderOverrides);
-        return this;
-    }
-
-    public void addRequestHeaders(String str, String str2) {
-        this.requestHeaders.put(str, str2);
-    }
-
-    public Map<String, String> getRequestHeaders() {
-        return this.requestHeaders;
-    }
-
-    public String getContentType() {
-        return this.contentType;
+    public void setContentMd5(String str) {
+        this.contentMd5 = str;
     }
 
     public void setContentType(String str) {
         this.contentType = str;
+    }
+
+    public void setExpiration(int i) {
+        this.expirationInSeconds = i;
+    }
+
+    public void setKey(String str) {
+        this.key = str;
+    }
+
+    public void setMethod(HttpMethodName httpMethodName) {
+        this.method = httpMethodName;
+    }
+
+    public void setResponseHeaders(ResponseHeaderOverrides responseHeaderOverrides) {
+        this.responseHeaders = responseHeaderOverrides;
+    }
+
+    public GeneratePresignedUrlRequest withBucketName(String str) {
+        setBucketName(str);
+        return this;
+    }
+
+    public GeneratePresignedUrlRequest withContentMd5(String str) {
+        this.contentMd5 = str;
+        return this;
     }
 
     public GeneratePresignedUrlRequest withContentType(String str) {
@@ -124,17 +108,33 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
         return this;
     }
 
-    public String getContentMd5() {
-        return this.contentMd5;
-    }
-
-    public void setContentMd5(String str) {
-        this.contentMd5 = str;
-    }
-
-    public GeneratePresignedUrlRequest withContentMd5(String str) {
-        this.contentMd5 = str;
+    public GeneratePresignedUrlRequest withExpiration(int i) {
+        setExpiration(i);
         return this;
+    }
+
+    public GeneratePresignedUrlRequest withKey(String str) {
+        setKey(str);
+        return this;
+    }
+
+    public GeneratePresignedUrlRequest withMethod(HttpMethodName httpMethodName) {
+        setMethod(httpMethodName);
+        return this;
+    }
+
+    public GeneratePresignedUrlRequest withResponseHeaders(ResponseHeaderOverrides responseHeaderOverrides) {
+        setResponseHeaders(responseHeaderOverrides);
+        return this;
+    }
+
+    public GeneratePresignedUrlRequest(String str, String str2, HttpMethodName httpMethodName) {
+        this.expirationInSeconds = -1;
+        this.requestParameters = new HashMap();
+        this.requestHeaders = new HashMap();
+        this.bucketName = str;
+        this.key = str2;
+        this.method = httpMethodName;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

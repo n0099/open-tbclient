@@ -1,20 +1,23 @@
 package com.sdk.base.framework.c;
 
 import android.content.Context;
-import android.os.Build;
 import com.sdk.base.framework.bean.AInfo;
 import com.sdk.base.framework.bean.KInfo;
 import com.sdk.base.framework.bean.PInfo;
 import com.sdk.base.framework.bean.SInfo;
 import com.sdk.base.module.config.BaseConfig;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f7627a = false;
-    private static String b = "";
-    private static String c = "";
+    public static boolean f38505a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f38506b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f38507c = "";
 
     public static AInfo a(Context context) {
         AInfo aInfo = new AInfo();
@@ -26,25 +29,22 @@ public final class a {
         return aInfo;
     }
 
-    public static SInfo a() {
+    public static ArrayList<KInfo> a() {
+        return new ArrayList<>();
+    }
+
+    public static SInfo b() {
         SInfo sInfo = new SInfo();
         sInfo.setN(BaseConfig.n);
-        sInfo.setC(BaseConfig.c);
+        sInfo.setC(BaseConfig.f38575c);
         sInfo.setV(BaseConfig.v);
         sInfo.setCm(BaseConfig.cm);
         return sInfo;
     }
 
-    public static ArrayList<KInfo> b(Context context) {
-        return com.sdk.base.framework.f.c.a.a(context);
-    }
-
-    public static PInfo c(Context context) {
+    public static PInfo c() {
         PInfo pInfo = new PInfo();
-        pInfo.setN(Build.MODEL);
         pInfo.setOs("Android");
-        pInfo.setC(Build.VERSION.RELEASE);
-        pInfo.setImei(com.sdk.base.framework.f.c.b.a(context));
         return pInfo;
     }
 }

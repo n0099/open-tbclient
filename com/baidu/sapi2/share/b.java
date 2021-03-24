@@ -1,89 +1,52 @@
 package com.baidu.sapi2.share;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.dto.PassNameValuePair;
-import com.baidu.sapi2.utils.TPRunnable;
-import com.baidu.sapi2.utils.ThreadPoolService;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class b {
+import com.baidu.sapi2.result.SapiResult;
+/* loaded from: classes2.dex */
+public class b extends SapiResult {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3420a = "extra_trace_id";
-    public static final String b = "extra_session_id";
-    public static final String c = "login_type_share";
-    public static final String d = "V2_FACE_LOGIN_UIDS_TIMES";
-    public static final String e = "FACE_LOGIN_MODEL";
-    public static final String f = "PKG";
-    public static final String g = "SDK_VERSION";
-    public static final int h = 20001;
-    public static final int i = 190;
-    public static final String j = "choice_share";
-    public static final String k = "choice_share_v2";
-    public static c l;
+    public static final String f11360a = "您已取消%s授权登录";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f11361b = "互通登录失败，该应用暂未授权";
 
-        /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ int f3421a;
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f11362c = "网络请求失败，请稍后再试";
 
-        a(int i) {
-            this.f3421a = i;
-        }
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f11363d = "互通登录失败，请换种登录方式";
 
-        @Override // java.lang.Runnable
-        public void run() {
-            new ShareStorage().a(this.f3421a);
-            e.c();
-            SapiAccountManager.getInstance().getAccountService().refreshOpenidToUid();
-        }
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f11364e = "互通请求失败，请换种登录方式";
 
-    /* renamed from: com.baidu.sapi2.share.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static abstract class AbstractC0335b {
-        public void onFailed(int i, String str) {
-        }
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f11365f = "系统错误，请换种登录方式";
 
-        public abstract void onSuccess();
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f11366g = "互通失败";
 
-    /* loaded from: classes3.dex */
-    public static class c {
-        public static final String e = "index";
-        public static final String f = "account_tpl";
-        public static final String g = "account_app";
-        public static final String h = "share_version";
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f11367h = "登录态失效，被调起方登录失败";
+    public static final String i = "目标APP已被卸载";
+    public static final int j = -3001;
+    public static final int k = -3002;
+    public static final int l = -3003;
+    public static final int m = -3004;
+    public static final int n = -3005;
+    public static final int o = -3006;
+    public static final int p = -3007;
+    public static final int q = -3008;
+    public static final int r = -4004;
 
-        /* renamed from: a  reason: collision with root package name */
-        public int f3422a;
-        public String b;
-        public String c;
-        public String d;
-    }
-
-    public boolean a(Context context, String str) {
-        return e.a(context, str);
-    }
-
-    public void a(int i2) {
-        ThreadPoolService.getInstance().run(new TPRunnable(new a(i2)));
-    }
-
-    public void a(Activity activity, String str, String str2, String str3, String str4, List<PassNameValuePair> list) {
-        a(activity, str, str2, str3, str4, list, SapiShareClient.SHARE_ACCOUNT_NEW_VERSION);
-    }
-
-    public void a(Activity activity, String str, String str2, String str3, String str4, List<PassNameValuePair> list, String str5) {
-        e.a(activity, str, str2, str3, str4, list, str5);
-    }
-
-    public void a(AbstractC0335b abstractC0335b, int i2, int i3, Intent intent, List<PassNameValuePair> list) {
-        e.a(abstractC0335b, i2, i3, intent, this, list);
+    public b() {
+        this.msgMap.put(j, f11360a);
+        this.msgMap.put(k, f11361b);
+        this.msgMap.put(l, f11362c);
+        this.msgMap.put(m, f11363d);
+        this.msgMap.put(n, f11364e);
+        this.msgMap.put(o, f11365f);
+        this.msgMap.put(p, f11366g);
+        this.msgMap.put(q, f11367h);
+        this.msgMap.put(r, i);
     }
 }

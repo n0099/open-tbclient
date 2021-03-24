@@ -8,18 +8,18 @@ import android.net.Uri;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.ar.constants.HttpConstants;
+import com.facebook.common.util.UriUtil;
 import com.kwad.sdk.glide.load.engine.s;
 import com.kwad.sdk.glide.load.f;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d implements f<Uri, Drawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f6780a;
+    public final Context f35634a;
 
     public d(Context context) {
-        this.f6780a = context.getApplicationContext();
+        this.f35634a = context.getApplicationContext();
     }
 
     @DrawableRes
@@ -38,23 +38,23 @@ public class d implements f<Uri, Drawable> {
     private int a(Uri uri) {
         try {
             return Integer.parseInt(uri.getPathSegments().get(0));
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Unrecognized Uri format: " + uri, e);
+        } catch (NumberFormatException e2) {
+            throw new IllegalArgumentException("Unrecognized Uri format: " + uri, e2);
         }
     }
 
     @NonNull
     private Context a(Uri uri, String str) {
-        if (str.equals(this.f6780a.getPackageName())) {
-            return this.f6780a;
+        if (str.equals(this.f35634a.getPackageName())) {
+            return this.f35634a;
         }
         try {
-            return this.f6780a.createPackageContext(str, 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            if (str.contains(this.f6780a.getPackageName())) {
-                return this.f6780a;
+            return this.f35634a.createPackageContext(str, 0);
+        } catch (PackageManager.NameNotFoundException e2) {
+            if (str.contains(this.f35634a.getPackageName())) {
+                return this.f35634a;
             }
-            throw new IllegalArgumentException("Failed to obtain context or unrecognized Uri format for: " + uri, e);
+            throw new IllegalArgumentException("Failed to obtain context or unrecognized Uri format for: " + uri, e2);
         }
     }
 
@@ -65,11 +65,13 @@ public class d implements f<Uri, Drawable> {
         String str = pathSegments.get(0);
         String str2 = pathSegments.get(1);
         int identifier = context.getResources().getIdentifier(str2, str, authority);
-        int identifier2 = identifier == 0 ? Resources.getSystem().getIdentifier(str2, str, HttpConstants.OS_TYPE_VALUE) : identifier;
-        if (identifier2 == 0) {
-            throw new IllegalArgumentException("Failed to find resource id for: " + uri);
+        if (identifier == 0) {
+            identifier = Resources.getSystem().getIdentifier(str2, str, "android");
         }
-        return identifier2;
+        if (identifier != 0) {
+            return identifier;
+        }
+        throw new IllegalArgumentException("Failed to find resource id for: " + uri);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,12 +79,12 @@ public class d implements f<Uri, Drawable> {
     @Nullable
     public s<Drawable> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
         Context a2 = a(uri, uri.getAuthority());
-        return c.a(a.a(this.f6780a, a2, a(a2, uri)));
+        return c.a(a.a(this.f35634a, a2, a(a2, uri)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(@NonNull Uri uri, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return uri.getScheme().equals("android.resource");
+        return uri.getScheme().equals(UriUtil.QUALIFIED_RESOURCE_SCHEME);
     }
 }

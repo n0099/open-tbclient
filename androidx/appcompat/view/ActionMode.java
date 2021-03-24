@@ -5,12 +5,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.annotation.RestrictTo;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public abstract class ActionMode {
-    private Object mTag;
-    private boolean mTitleOptionalHint;
+    public Object mTag;
+    public boolean mTitleOptionalHint;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes.dex */
     public interface Callback {
         boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem);
 
@@ -31,35 +31,17 @@ public abstract class ActionMode {
 
     public abstract CharSequence getSubtitle();
 
-    public abstract CharSequence getTitle();
-
-    public abstract void invalidate();
-
-    public abstract void setCustomView(View view);
-
-    public abstract void setSubtitle(int i);
-
-    public abstract void setSubtitle(CharSequence charSequence);
-
-    public abstract void setTitle(int i);
-
-    public abstract void setTitle(CharSequence charSequence);
-
-    public void setTag(Object obj) {
-        this.mTag = obj;
-    }
-
     public Object getTag() {
         return this.mTag;
     }
 
-    public void setTitleOptionalHint(boolean z) {
-        this.mTitleOptionalHint = z;
-    }
+    public abstract CharSequence getTitle();
 
     public boolean getTitleOptionalHint() {
         return this.mTitleOptionalHint;
     }
+
+    public abstract void invalidate();
 
     public boolean isTitleOptional() {
         return false;
@@ -68,5 +50,23 @@ public abstract class ActionMode {
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean isUiFocusable() {
         return true;
+    }
+
+    public abstract void setCustomView(View view);
+
+    public abstract void setSubtitle(int i);
+
+    public abstract void setSubtitle(CharSequence charSequence);
+
+    public void setTag(Object obj) {
+        this.mTag = obj;
+    }
+
+    public abstract void setTitle(int i);
+
+    public abstract void setTitle(CharSequence charSequence);
+
+    public void setTitleOptionalHint(boolean z) {
+        this.mTitleOptionalHint = z;
     }
 }

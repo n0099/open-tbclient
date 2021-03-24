@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ManifestInfo {
     public int mBgColor;
     public int mDisplay;
@@ -11,7 +11,7 @@ public final class ManifestInfo {
     public String mStartUrl;
     public int mThemeColor;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class IconInfo {
         public int mHeight1;
         public int mHeight2;
@@ -38,33 +38,32 @@ public final class ManifestInfo {
         int length = strArr.length;
         this.mIcons = new IconInfo[length];
         int i5 = 0;
-        int i6 = 0;
-        while (i5 < length) {
-            if (this.mIcons[i5] == null) {
-                this.mIcons[i5] = new IconInfo();
+        for (int i6 = 0; i6 < length; i6++) {
+            IconInfo[] iconInfoArr = this.mIcons;
+            if (iconInfoArr[i6] == null) {
+                iconInfoArr[i6] = new IconInfo();
             }
-            this.mIcons[i5].mIconUrl = strArr[i5];
-            this.mIcons[i5].mIconType = strArr2[i5];
-            int min = Math.min(iArr2[i5], 3);
+            IconInfo[] iconInfoArr2 = this.mIcons;
+            iconInfoArr2[i6].mIconUrl = strArr[i6];
+            iconInfoArr2[i6].mIconType = strArr2[i6];
+            int min = Math.min(iArr2[i6], 3);
             for (int i7 = 0; i7 < min; i7++) {
-                int i8 = (i6 + i7) * 2;
-                switch (i7) {
-                    case 0:
-                        this.mIcons[i5].mWidth1 = iArr[i8];
-                        this.mIcons[i5].mHeight1 = iArr[i8 + 1];
-                        break;
-                    case 1:
-                        this.mIcons[i5].mWidth2 = iArr[i8];
-                        this.mIcons[i5].mHeight2 = iArr[i8 + 1];
-                        break;
-                    case 2:
-                        this.mIcons[i5].mWidth3 = iArr[i8];
-                        this.mIcons[i5].mHeight3 = iArr[i8 + 1];
-                        break;
+                int i8 = (i5 + i7) * 2;
+                if (i7 == 0) {
+                    IconInfo[] iconInfoArr3 = this.mIcons;
+                    iconInfoArr3[i6].mWidth1 = iArr[i8];
+                    iconInfoArr3[i6].mHeight1 = iArr[i8 + 1];
+                } else if (i7 == 1) {
+                    IconInfo[] iconInfoArr4 = this.mIcons;
+                    iconInfoArr4[i6].mWidth2 = iArr[i8];
+                    iconInfoArr4[i6].mHeight2 = iArr[i8 + 1];
+                } else if (i7 == 2) {
+                    IconInfo[] iconInfoArr5 = this.mIcons;
+                    iconInfoArr5[i6].mWidth3 = iArr[i8];
+                    iconInfoArr5[i6].mHeight3 = iArr[i8 + 1];
                 }
             }
-            i5++;
-            i6 = iArr2[i5] + i6;
+            i5 += iArr2[i6];
         }
     }
 }

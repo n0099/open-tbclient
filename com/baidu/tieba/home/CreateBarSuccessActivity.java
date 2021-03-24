@@ -11,47 +11,30 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.CreateBarTipSwitch;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
+    public static final String BAR_NAME_STRING = "barname";
     public NavigationBar mNavigationBar;
-    private String kaH = null;
-    private TextView mTextView = null;
-    private TextView kaW = null;
-    LinearLayout mContainer = null;
-
-    public static void aS(Context context, String str) {
-        if (str != null && str.length() > 0) {
-            Intent intent = new Intent(context, CreateBarSuccessActivity.class);
-            intent.putExtra("barname", str);
-            if (!(context instanceof Activity)) {
-                intent.addFlags(268435456);
-            }
-            context.startActivity(intent);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.create_bar_success_activity);
-        initData();
-        cOP();
-    }
+    public String mBarName = null;
+    public TextView mTextView = null;
+    public TextView mTextViewMore = null;
+    public LinearLayout mContainer = null;
 
     private void initData() {
-        this.kaH = getIntent().getStringExtra("barname");
-        if (this.kaH == null) {
-            this.kaH = "";
+        String stringExtra = getIntent().getStringExtra("barname");
+        this.mBarName = stringExtra;
+        if (stringExtra == null) {
+            this.mBarName = "";
         }
     }
 
-    private void cOP() {
+    private void initUi() {
         this.mContainer = (LinearLayout) findViewById(R.id.container);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.title);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -59,26 +42,63 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
             relativeLayout.setLayoutParams(layoutParams);
         }
-        this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(R.string.create_bar));
         this.mTextView = (TextView) findViewById(R.id.text);
-        this.kaW = (TextView) findViewById(R.id.text_more);
+        this.mTextViewMore = (TextView) findViewById(R.id.text_more);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public static void startActivity(Context context, String str) {
+        if (str == null || str.length() <= 0) {
+            return;
+        }
+        Intent intent = new Intent(context, CreateBarSuccessActivity.class);
+        intent.putExtra("barname", str);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
+        context.startActivity(intent);
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
+        StringBuilder sb;
+        TbPageContext<CreateBarSuccessActivity> pageContext;
+        int i2;
         super.onChangeSkinType(i);
-        getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.mContainer);
+        getLayoutMode().k(i == 1);
+        getLayoutMode().j(this.mContainer);
         boolean isOn = new CreateBarTipSwitch().isOn();
-        String string = isOn ? getPageContext().getString(R.string.create_bar_new_tip) : getPageContext().getString(R.string.create_bar_info1);
+        String string = getPageContext().getString(isOn ? R.string.create_bar_new_tip : R.string.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(isOn ? string + this.kaH + getPageContext().getString(R.string.create_bar_new_tip2) : string + this.kaH + getPageContext().getString(R.string.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(ap.getColor(R.color.common_color_10252)), length, this.kaH.length() + length, 33);
+        if (isOn) {
+            sb = new StringBuilder();
+            sb.append(string);
+            sb.append(this.mBarName);
+            pageContext = getPageContext();
+            i2 = R.string.create_bar_new_tip2;
+        } else {
+            sb = new StringBuilder();
+            sb.append(string);
+            sb.append(this.mBarName);
+            pageContext = getPageContext();
+            i2 = R.string.create_bar_info2;
+        }
+        sb.append(pageContext.getString(i2));
+        SpannableString spannableString = new SpannableString(sb.toString());
+        spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10252)), length, this.mBarName.length() + length, 33);
         this.mTextView.setText(spannableString);
-        this.kaW.setVisibility(isOn ? 0 : 8);
+        this.mTextViewMore.setVisibility(isOn ? 0 : 8);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.create_bar_success_activity);
+        initData();
+        initUi();
     }
 }

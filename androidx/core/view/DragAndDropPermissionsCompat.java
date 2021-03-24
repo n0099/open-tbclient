@@ -6,11 +6,11 @@ import android.view.DragAndDropPermissions;
 import android.view.DragEvent;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class DragAndDropPermissionsCompat {
-    private Object mDragAndDropPermissions;
+    public Object mDragAndDropPermissions;
 
-    private DragAndDropPermissionsCompat(Object obj) {
+    public DragAndDropPermissionsCompat(Object obj) {
         this.mDragAndDropPermissions = obj;
     }
 

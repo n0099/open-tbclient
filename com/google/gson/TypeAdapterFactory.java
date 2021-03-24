@@ -1,7 +1,7 @@
 package com.google.gson;
 
-import com.google.gson.b.a;
-/* loaded from: classes4.dex */
+import d.g.c.c.a;
+/* loaded from: classes6.dex */
 public interface TypeAdapterFactory {
     <T> TypeAdapter<T> create(Gson gson, a<T> aVar);
 }

@@ -1,29 +1,47 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.bg;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
-class bh implements Runnable {
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class bh implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f8544a;
+    public final /* synthetic */ ServiceClient f41001a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(bg bgVar) {
-        this.f8544a = bgVar;
+    public bh(ServiceClient serviceClient) {
+        this.f41001a = serviceClient;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ConcurrentHashMap concurrentHashMap;
-        try {
-            concurrentHashMap = this.f8544a.f891a;
-            for (bg.a aVar : concurrentHashMap.values()) {
-                aVar.run();
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        List<Message> list;
+        List list2;
+        Messenger messenger;
+        synchronized (this.f41001a) {
+            this.f41001a.f832b = new Messenger(iBinder);
+            this.f41001a.f833b = false;
+            list = this.f41001a.f830a;
+            for (Message message : list) {
+                try {
+                    messenger = this.f41001a.f832b;
+                    messenger.send(message);
+                } catch (RemoteException e2) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                }
             }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("Sync job exception :" + e.getMessage());
+            list2 = this.f41001a.f830a;
+            list2.clear();
         }
-        this.f8544a.f892a = false;
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        this.f41001a.f832b = null;
+        this.f41001a.f833b = false;
     }
 }

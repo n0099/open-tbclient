@@ -9,30 +9,35 @@ import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
 public class c extends IFullScreenVideoAdInteractionListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    private TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f4896a;
-    private Handler b = new Handler(Looper.getMainLooper());
+    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f29830a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Handler f29831b = new Handler(Looper.getMainLooper());
 
     public c(TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
-        this.f4896a = fullScreenVideoAdInteractionListener;
-    }
-
-    private void a() {
-        this.f4896a = null;
-        this.b = null;
+        this.f29830a = fullScreenVideoAdInteractionListener;
     }
 
     private Handler b() {
-        if (this.b == null) {
-            Handler handler = new Handler(Looper.getMainLooper());
-            this.b = handler;
-            return handler;
+        Handler handler = this.f29831b;
+        if (handler == null) {
+            Handler handler2 = new Handler(Looper.getMainLooper());
+            this.f29831b = handler2;
+            return handler2;
         }
-        return this.b;
+        return handler;
     }
 
     @Override // com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener
-    public void onDestroy() throws RemoteException {
-        a();
+    public void onAdClose() throws RemoteException {
+        b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.3
+            @Override // java.lang.Runnable
+            public void run() {
+                if (c.this.f29830a != null) {
+                    c.this.f29830a.onAdClose();
+                }
+            }
+        });
     }
 
     @Override // com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener
@@ -40,8 +45,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f4896a != null) {
-                    c.this.f4896a.onAdShow();
+                if (c.this.f29830a != null) {
+                    c.this.f29830a.onAdShow();
                 }
             }
         });
@@ -52,20 +57,25 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.2
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f4896a != null) {
-                    c.this.f4896a.onAdVideoBarClick();
+                if (c.this.f29830a != null) {
+                    c.this.f29830a.onAdVideoBarClick();
                 }
             }
         });
     }
 
     @Override // com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener
-    public void onAdClose() throws RemoteException {
-        b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.3
+    public void onDestroy() throws RemoteException {
+        a();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener
+    public void onSkippedVideo() throws RemoteException {
+        b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.5
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f4896a != null) {
-                    c.this.f4896a.onAdClose();
+                if (c.this.f29830a != null) {
+                    c.this.f29830a.onSkippedVideo();
                 }
             }
         });
@@ -76,22 +86,15 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.4
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f4896a != null) {
-                    c.this.f4896a.onVideoComplete();
+                if (c.this.f29830a != null) {
+                    c.this.f29830a.onVideoComplete();
                 }
             }
         });
     }
 
-    @Override // com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener
-    public void onSkippedVideo() throws RemoteException {
-        b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.5
-            @Override // java.lang.Runnable
-            public void run() {
-                if (c.this.f4896a != null) {
-                    c.this.f4896a.onSkippedVideo();
-                }
-            }
-        });
+    private void a() {
+        this.f29830a = null;
+        this.f29831b = null;
     }
 }

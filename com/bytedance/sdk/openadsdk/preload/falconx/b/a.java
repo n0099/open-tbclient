@@ -1,6 +1,5 @@
 package com.bytedance.sdk.openadsdk.preload.falconx.b;
 
-import android.net.http.Headers;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
@@ -12,34 +11,31 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
     public static WebResourceResponse a(InputStream inputStream, Map<String, String> map) {
-        Map<String, String> hashMap;
         if (inputStream != null) {
             if (map == null) {
                 try {
-                    hashMap = new HashMap<>();
+                    map = new HashMap<>();
                 } catch (Throwable th) {
                     Log.e("WebResourceUtils", "getResponseWithHeaders error", th);
                 }
-            } else {
-                hashMap = map;
             }
-            String str = hashMap.get(Headers.CONTENT_TYPE);
-            String str2 = TextUtils.isEmpty(str) ? hashMap.get("Content-Type") : str;
-            boolean z = false;
-            if (str2 != null) {
-                z = str2.contains("font/ttf");
+            Map<String, String> map2 = map;
+            String str = map2.get("content-type");
+            if (TextUtils.isEmpty(str)) {
+                str = map2.get("Content-Type");
             }
-            if (Build.VERSION.SDK_INT >= 21 && z) {
-                return new WebResourceResponse(null, null, 200, "OK", hashMap, inputStream);
+            boolean contains = str != null ? str.contains("font/ttf") : false;
+            if (Build.VERSION.SDK_INT >= 21 && contains) {
+                return new WebResourceResponse(null, null, 200, "OK", map2, inputStream);
             }
             WebResourceResponse webResourceResponse = new WebResourceResponse(null, null, inputStream);
             if (Build.VERSION.SDK_INT >= 21) {
-                webResourceResponse.setResponseHeaders(hashMap);
+                webResourceResponse.setResponseHeaders(map2);
                 return webResourceResponse;
             }
             Field field = webResourceResponse.getClass().getField("mResponseHeaders");
             field.setAccessible(true);
-            field.set(webResourceResponse, hashMap);
+            field.set(webResourceResponse, map2);
             return webResourceResponse;
         }
         return null;

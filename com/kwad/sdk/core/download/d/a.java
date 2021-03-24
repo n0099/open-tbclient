@@ -4,23 +4,24 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import androidx.annotation.Nullable;
+import com.baidu.nps.utils.Constant;
 import com.ksad.download.DownloadTask;
 import com.kwad.sdk.core.download.DownloadParams;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import com.kwad.sdk.utils.t;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a implements AdDownloadProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6067a;
+    public boolean f33586a;
 
     public a(boolean z) {
-        this.f6067a = z;
+        this.f33586a = z;
     }
 
     private String a(String str) {
-        return t.a(str) + ".apk";
+        return t.a(str) + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
     }
 
     @Override // com.kwad.sdk.export.proxy.AdDownloadProxy
@@ -51,11 +52,7 @@ public class a implements AdDownloadProxy {
         DownloadTask.DownloadRequest downloadRequest = new DownloadTask.DownloadRequest(downloadParams.mFileUrl);
         downloadRequest.setDestinationFileName(a(downloadParams.mFileUrl));
         downloadRequest.setTag(downloadParams);
-        if (this.f6067a) {
-            downloadRequest.setNotificationVisibility(3);
-        } else {
-            downloadRequest.setNotificationVisibility(0);
-        }
+        downloadRequest.setNotificationVisibility(this.f33586a ? 3 : 0);
         com.ksad.download.a.a.a(context, str, downloadRequest);
     }
 }

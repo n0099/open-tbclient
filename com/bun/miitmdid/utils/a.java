@@ -1,12 +1,24 @@
 package com.bun.miitmdid.utils;
 
 import android.util.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private static a poO;
-    private int b = -1;
 
-    private a() {
+    /* renamed from: a  reason: collision with root package name */
+    public static a f27145a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f27146b = -1;
+
+    public static a a() {
+        if (f27145a == null) {
+            synchronized (a.class) {
+                if (f27145a == null) {
+                    f27145a = new a();
+                }
+            }
+        }
+        return f27145a;
     }
 
     public static void a(String str, String str2) {
@@ -22,7 +34,7 @@ public class a {
     }
 
     public static void a(boolean z) {
-        enB().b = z ? 1 : 0;
+        a().f27146b = z ? 1 : 0;
     }
 
     public static void b(String str, String str2) {
@@ -38,17 +50,6 @@ public class a {
     }
 
     public static boolean b() {
-        return enB().b == 1;
-    }
-
-    public static a enB() {
-        if (poO == null) {
-            synchronized (a.class) {
-                if (poO == null) {
-                    poO = new a();
-                }
-            }
-        }
-        return poO;
+        return a().f27146b == 1;
     }
 }

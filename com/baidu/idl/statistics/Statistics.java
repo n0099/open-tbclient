@@ -4,12 +4,10 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.idl.license.License;
 import com.baidu.idl.util.FileUtil;
 import com.baidu.idl.util.NetUtil;
 import com.baidu.idl.util.StuLogEx;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -19,138 +17,49 @@ import java.util.Map;
 import java.util.Properties;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class Statistics {
-    private static final String AS_FILE_NAME = "as";
-    private static final int MESSAGE_INSTANT_SYNC_FILE = 1;
-    private static final int MESSAGE_INTERVAL_SYNC_FILE = 2;
-    private static final String SERVER_URL = "http://sdkss.shitu.baidu.com/cgi-bin/sdkstat.py";
-    private static final long SYNC_FILE_DELAY_TIME = 3000;
-    private static final String TAG = "AuthenticationStatistics";
-    private String al_version;
-    private Context app;
-    private String appId;
-    private final Properties as;
-    private File asFile;
-    private String au_version;
-    private boolean isInit;
-    private String userId;
-    private Handler workerHandler;
-    private HandlerThread workerThread;
+    public static final String AS_FILE_NAME = "as";
+    public static final int MESSAGE_INSTANT_SYNC_FILE = 1;
+    public static final int MESSAGE_INTERVAL_SYNC_FILE = 2;
+    public static final String SERVER_URL = "http://sdkss.shitu.baidu.com/cgi-bin/sdkstat.py";
+    public static final long SYNC_FILE_DELAY_TIME = 3000;
+    public static final String TAG = "AuthenticationStatistics";
+    public String al_version;
+    public Context app;
+    public String appId;
+    public final Properties as;
+    public File asFile;
+    public String au_version;
+    public boolean isInit;
+    public String userId;
+    public Handler workerHandler;
+    public HandlerThread workerThread;
 
-    public boolean init(Context context, String str) {
-        if (this.isInit) {
-            return true;
-        }
-        if (context == null || str == null || "".equals(str)) {
-            throw new IllegalArgumentException("The params is invalid!");
-        }
-        this.app = context;
-        this.appId = str;
-        try {
-            this.userId = "0000";
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        }
-        this.al_version = License.getAlgorithmVersion();
-        this.au_version = License.getAuthorityVersion();
-        this.workerThread = new HandlerThread("workerThread");
-        this.workerThread.start();
-        this.workerHandler = new Handler(this.workerThread.getLooper()) { // from class: com.baidu.idl.statistics.Statistics.1
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                if (message.what == 1 || message.what == 2) {
-                    FileUtil.savePropertiesFile(Statistics.this.asFile, Statistics.this.as);
-                }
-            }
-        };
-        if (!initFile()) {
-            return false;
-        }
-        if (NetUtil.isConnected(context) && this.as.size() > 0) {
-            final Properties properties = (Properties) this.as.clone();
-            this.as.clear();
-            new Thread(new Runnable() { // from class: com.baidu.idl.statistics.Statistics.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    NetUtil.uploadData(new NetUtil.RequestAdapter<StatisticsResult>() { // from class: com.baidu.idl.statistics.Statistics.2.1
-                        @Override // com.baidu.idl.util.NetUtil.RequestAdapter
-                        public String getURL() {
-                            return Statistics.SERVER_URL;
-                        }
+    /* loaded from: classes2.dex */
+    public static final class Holder {
+        public static final Statistics instance = new Statistics();
+    }
 
-                        @Override // com.baidu.idl.util.NetUtil.RequestAdapter
-                        public String getRequestString() {
-                            StringBuilder sb = new StringBuilder();
-                            for (Map.Entry entry : properties.entrySet()) {
-                                String str2 = (String) entry.getKey();
-                                String[] split = ((String) entry.getValue()).split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                for (String str3 : split) {
-                                    sb.append(Statistics.this.appId).append(" ");
-                                    sb.append(Statistics.this.userId).append(" ");
-                                    sb.append(str2).append(" ");
-                                    sb.append(str3).append(" ");
-                                    sb.append(Statistics.this.au_version).append(" ");
-                                    sb.append(Statistics.this.al_version);
-                                    sb.append("\n");
-                                }
-                            }
-                            return sb.toString();
-                        }
+    /* loaded from: classes2.dex */
+    public static final class StatisticsResult {
+        public String errmsg;
+        public int errno;
 
-                        /* JADX DEBUG: Method merged with bridge method */
-                        /* JADX WARN: Can't rename method to resolve collision */
-                        @Override // com.baidu.idl.util.NetUtil.RequestAdapter
-                        public StatisticsResult parseResponse(InputStream inputStream) throws IOException, JSONException {
-                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                            byte[] bArr = new byte[1024];
-                            while (true) {
-                                try {
-                                    int read = inputStream.read(bArr);
-                                    if (read <= 0) {
-                                        break;
-                                    }
-                                    byteArrayOutputStream.write(bArr, 0, read);
-                                } finally {
-                                    if (byteArrayOutputStream != null) {
-                                        try {
-                                            byteArrayOutputStream.close();
-                                        } catch (IOException e2) {
-                                        }
-                                    }
-                                }
-                            }
-                            byteArrayOutputStream.flush();
-                            JSONObject jSONObject = new JSONObject(new String(byteArrayOutputStream.toByteArray(), "UTF-8"));
-                            return new StatisticsResult(jSONObject.getInt(BaseJsonData.TAG_ERRNO), jSONObject.getString("errnmsg"));
-                        }
-
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.idl.util.NetUtil.RequestAdapter
-                        public void onResponse(int i, StatisticsResult statisticsResult, Exception exc) {
-                            if (i != 0) {
-                                StuLogEx.e(Statistics.TAG, exc.getMessage(), exc);
-                            } else if (statisticsResult.errno != 0) {
-                                StuLogEx.e(Statistics.TAG, statisticsResult.errmsg);
-                            } else {
-                                properties.clear();
-                            }
-                            Statistics.this.merge(properties);
-                        }
-                    });
-                }
-            }).start();
+        public StatisticsResult(int i, String str) {
+            this.errno = i;
+            this.errmsg = str;
         }
-        this.isInit = true;
-        return true;
+    }
+
+    public static Statistics getInstance() {
+        return Holder.instance;
     }
 
     private boolean initFile() {
-        this.asFile = new File(this.app.getFilesDir(), "as");
-        return FileUtil.createFile(this.asFile) && FileUtil.loadPropertiesFile(this.asFile, this.as);
-    }
-
-    public synchronized void triggerEvent(String str) {
+        File file = new File(this.app.getFilesDir(), "as");
+        this.asFile = file;
+        return FileUtil.createFile(file) && FileUtil.loadPropertiesFile(this.asFile, this.as);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -177,7 +86,129 @@ public class Statistics {
         this.workerHandler.sendEmptyMessageDelayed(2, 3000L);
     }
 
-    private Statistics() {
+    public boolean init(Context context, String str) {
+        if (this.isInit) {
+            return true;
+        }
+        if (context != null && str != null && !"".equals(str)) {
+            this.app = context;
+            this.appId = str;
+            try {
+                this.userId = "0000";
+            } catch (SecurityException e2) {
+                e2.printStackTrace();
+            }
+            this.al_version = License.getAlgorithmVersion();
+            this.au_version = License.getAuthorityVersion();
+            HandlerThread handlerThread = new HandlerThread("workerThread");
+            this.workerThread = handlerThread;
+            handlerThread.start();
+            this.workerHandler = new Handler(this.workerThread.getLooper()) { // from class: com.baidu.idl.statistics.Statistics.1
+                @Override // android.os.Handler
+                public void handleMessage(Message message) {
+                    int i = message.what;
+                    if (i == 1 || i == 2) {
+                        FileUtil.savePropertiesFile(Statistics.this.asFile, Statistics.this.as);
+                    }
+                }
+            };
+            if (initFile()) {
+                if (NetUtil.isConnected(context) && this.as.size() > 0) {
+                    final Properties properties = (Properties) this.as.clone();
+                    this.as.clear();
+                    new Thread(new Runnable() { // from class: com.baidu.idl.statistics.Statistics.2
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            NetUtil.uploadData(new NetUtil.RequestAdapter<StatisticsResult>() { // from class: com.baidu.idl.statistics.Statistics.2.1
+                                @Override // com.baidu.idl.util.NetUtil.RequestAdapter
+                                public String getRequestString() {
+                                    String[] split;
+                                    StringBuilder sb = new StringBuilder();
+                                    for (Map.Entry entry : properties.entrySet()) {
+                                        String str2 = (String) entry.getKey();
+                                        for (String str3 : ((String) entry.getValue()).split("-")) {
+                                            sb.append(Statistics.this.appId);
+                                            sb.append(" ");
+                                            sb.append(Statistics.this.userId);
+                                            sb.append(" ");
+                                            sb.append(str2);
+                                            sb.append(" ");
+                                            sb.append(str3);
+                                            sb.append(" ");
+                                            sb.append(Statistics.this.au_version);
+                                            sb.append(" ");
+                                            sb.append(Statistics.this.al_version);
+                                            sb.append("\n");
+                                        }
+                                    }
+                                    return sb.toString();
+                                }
+
+                                @Override // com.baidu.idl.util.NetUtil.RequestAdapter
+                                public String getURL() {
+                                    return Statistics.SERVER_URL;
+                                }
+
+                                /* JADX DEBUG: Method merged with bridge method */
+                                @Override // com.baidu.idl.util.NetUtil.RequestAdapter
+                                public void onResponse(int i, StatisticsResult statisticsResult, Exception exc) {
+                                    if (i != 0) {
+                                        StuLogEx.e(Statistics.TAG, exc.getMessage(), exc);
+                                    } else if (statisticsResult.errno != 0) {
+                                        StuLogEx.e(Statistics.TAG, statisticsResult.errmsg);
+                                    } else {
+                                        properties.clear();
+                                    }
+                                    AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
+                                    Statistics.this.merge(properties);
+                                }
+
+                                /* JADX DEBUG: Method merged with bridge method */
+                                /* JADX WARN: Can't rename method to resolve collision */
+                                @Override // com.baidu.idl.util.NetUtil.RequestAdapter
+                                public StatisticsResult parseResponse(InputStream inputStream) throws IOException, JSONException {
+                                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                    byte[] bArr = new byte[1024];
+                                    while (true) {
+                                        try {
+                                            int read = inputStream.read(bArr);
+                                            if (read <= 0) {
+                                                break;
+                                            }
+                                            byteArrayOutputStream.write(bArr, 0, read);
+                                        } catch (Throwable th) {
+                                            try {
+                                                byteArrayOutputStream.close();
+                                            } catch (IOException unused) {
+                                            }
+                                            throw th;
+                                        }
+                                    }
+                                    byteArrayOutputStream.flush();
+                                    JSONObject jSONObject = new JSONObject(new String(byteArrayOutputStream.toByteArray(), "UTF-8"));
+                                    StatisticsResult statisticsResult = new StatisticsResult(jSONObject.getInt("errno"), jSONObject.getString("errnmsg"));
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (IOException unused2) {
+                                    }
+                                    return statisticsResult;
+                                }
+                            });
+                        }
+                    }).start();
+                }
+                this.isInit = true;
+                return true;
+            }
+            return false;
+        }
+        throw new IllegalArgumentException("The params is invalid!");
+    }
+
+    public synchronized void triggerEvent(String str) {
+    }
+
+    public Statistics() {
         this.app = null;
         this.appId = null;
         this.userId = null;
@@ -188,29 +219,5 @@ public class Statistics {
         this.as = new Properties();
         this.workerThread = null;
         this.workerHandler = null;
-    }
-
-    public static Statistics getInstance() {
-        return Holder.instance;
-    }
-
-    /* loaded from: classes14.dex */
-    private static final class Holder {
-        private static final Statistics instance = new Statistics();
-
-        private Holder() {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
-    public static final class StatisticsResult {
-        public String errmsg;
-        public int errno;
-
-        public StatisticsResult(int i, String str) {
-            this.errno = i;
-            this.errmsg = str;
-        }
     }
 }

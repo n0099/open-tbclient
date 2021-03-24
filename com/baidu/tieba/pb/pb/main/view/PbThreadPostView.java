@@ -8,58 +8,64 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.data.f;
-/* loaded from: classes2.dex */
+import d.b.i0.c2.h.e;
+/* loaded from: classes4.dex */
 public class PbThreadPostView extends LinearLayout {
-    private f lQH;
-    private Context mContext;
-    private View.OnClickListener mOnClickListener;
-    public View mhS;
-    public TextView mhT;
-    public TextView mhU;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f19840e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f19841f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f19842g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f19843h;
+    public View.OnClickListener i;
 
     public PbThreadPostView(Context context) {
         this(context, null);
     }
 
-    public PbThreadPostView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        initUI();
+    public final void a() {
+        this.f19841f = findViewById(R.id.pb_thread_post_container);
+        this.f19842g = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.f19843h = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
-    private void initUI() {
-        this.mContext = getContext();
+    public final void b() {
+        this.f19840e = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
-        tz();
+        a();
     }
 
-    private void tz() {
-        this.mhS = findViewById(R.id.pb_thread_post_container);
-        this.mhT = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.mhU = (TextView) findViewById(R.id.pb_thread_post_button);
-    }
-
-    public void setData(f fVar) {
-        this.lQH = fVar;
-        uw(TbadkCoreApplication.getInst().getSkinType());
+    public void c(int i) {
+        SkinManager.setBackgroundColor(this.f19841f, R.color.CAM_X0205, i);
+        SkinManager.setViewTextColor(this.f19842g, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f19843h, R.color.CAM_X0302);
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
-        if (this.mOnClickListener == null) {
-            this.mOnClickListener = onClickListener;
-            this.mhU.setOnClickListener(this.mOnClickListener);
+        if (this.i == null) {
+            this.i = onClickListener;
+            this.f19843h.setOnClickListener(onClickListener);
         }
     }
 
-    public void uw(int i) {
-        ap.setBackgroundColor(this.mhS, R.color.CAM_X0205, i);
-        ap.setViewTextColor(this.mhT, R.color.CAM_X0107);
-        ap.setViewTextColor(this.mhU, R.color.CAM_X0302);
+    public void setData(e eVar) {
+        c(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public PbThreadPostView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        b();
     }
 }

@@ -5,13 +5,13 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ContextUtils {
-    public static final /* synthetic */ boolean $assertionsDisabled = !ContextUtils.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static Context sApplicationContext;
 
-    /* loaded from: classes3.dex */
-    private static class Holder {
+    /* loaded from: classes.dex */
+    public static class Holder {
         public static SharedPreferences sSharedPreferences = PreferenceManager.getDefaultSharedPreferences(ContextUtils.sApplicationContext);
     }
 
@@ -20,13 +20,6 @@ public class ContextUtils {
     }
 
     public static void initApplicationContext(Context context) {
-        Context context2;
-        if (!$assertionsDisabled && (context2 = sApplicationContext) != null && context2 != context && ((ContextWrapper) context2).getBaseContext() != context) {
-            throw new AssertionError();
-        }
-        if (!$assertionsDisabled && context == null) {
-            throw new AssertionError();
-        }
         if (BuildConfig.DCHECK_IS_ON && (context instanceof Application)) {
             context = new ContextWrapper(context);
         }

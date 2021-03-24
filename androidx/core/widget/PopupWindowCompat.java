@@ -9,17 +9,116 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class PopupWindowCompat {
-    private static final String TAG = "PopupWindowCompatApi21";
-    private static Method sGetWindowLayoutTypeMethod;
-    private static boolean sGetWindowLayoutTypeMethodAttempted;
-    private static Field sOverlapAnchorField;
-    private static boolean sOverlapAnchorFieldAttempted;
-    private static Method sSetWindowLayoutTypeMethod;
-    private static boolean sSetWindowLayoutTypeMethodAttempted;
+    public static final String TAG = "PopupWindowCompatApi21";
+    public static Method sGetWindowLayoutTypeMethod;
+    public static boolean sGetWindowLayoutTypeMethodAttempted;
+    public static Field sOverlapAnchorField;
+    public static boolean sOverlapAnchorFieldAttempted;
+    public static Method sSetWindowLayoutTypeMethod;
+    public static boolean sSetWindowLayoutTypeMethodAttempted;
 
-    private PopupWindowCompat() {
+    public static boolean getOverlapAnchor(@NonNull PopupWindow popupWindow) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 23) {
+            return popupWindow.getOverlapAnchor();
+        }
+        if (i >= 21) {
+            if (!sOverlapAnchorFieldAttempted) {
+                try {
+                    Field declaredField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
+                    sOverlapAnchorField = declaredField;
+                    declaredField.setAccessible(true);
+                } catch (NoSuchFieldException e2) {
+                    Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e2);
+                }
+                sOverlapAnchorFieldAttempted = true;
+            }
+            Field field = sOverlapAnchorField;
+            if (field != null) {
+                try {
+                    return ((Boolean) field.get(popupWindow)).booleanValue();
+                } catch (IllegalAccessException e3) {
+                    Log.i(TAG, "Could not get overlap anchor field in PopupWindow", e3);
+                    return false;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public static int getWindowLayoutType(@NonNull PopupWindow popupWindow) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            return popupWindow.getWindowLayoutType();
+        }
+        if (!sGetWindowLayoutTypeMethodAttempted) {
+            try {
+                Method declaredMethod = PopupWindow.class.getDeclaredMethod("getWindowLayoutType", new Class[0]);
+                sGetWindowLayoutTypeMethod = declaredMethod;
+                declaredMethod.setAccessible(true);
+            } catch (Exception unused) {
+            }
+            sGetWindowLayoutTypeMethodAttempted = true;
+        }
+        Method method = sGetWindowLayoutTypeMethod;
+        if (method != null) {
+            try {
+                return ((Integer) method.invoke(popupWindow, new Object[0])).intValue();
+            } catch (Exception unused2) {
+            }
+        }
+        return 0;
+    }
+
+    public static void setOverlapAnchor(@NonNull PopupWindow popupWindow, boolean z) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 23) {
+            popupWindow.setOverlapAnchor(z);
+        } else if (i >= 21) {
+            if (!sOverlapAnchorFieldAttempted) {
+                try {
+                    Field declaredField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
+                    sOverlapAnchorField = declaredField;
+                    declaredField.setAccessible(true);
+                } catch (NoSuchFieldException e2) {
+                    Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e2);
+                }
+                sOverlapAnchorFieldAttempted = true;
+            }
+            Field field = sOverlapAnchorField;
+            if (field != null) {
+                try {
+                    field.set(popupWindow, Boolean.valueOf(z));
+                } catch (IllegalAccessException e3) {
+                    Log.i(TAG, "Could not set overlap anchor field in PopupWindow", e3);
+                }
+            }
+        }
+    }
+
+    public static void setWindowLayoutType(@NonNull PopupWindow popupWindow, int i) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            popupWindow.setWindowLayoutType(i);
+            return;
+        }
+        if (!sSetWindowLayoutTypeMethodAttempted) {
+            try {
+                Method declaredMethod = PopupWindow.class.getDeclaredMethod("setWindowLayoutType", Integer.TYPE);
+                sSetWindowLayoutTypeMethod = declaredMethod;
+                declaredMethod.setAccessible(true);
+            } catch (Exception unused) {
+            }
+            sSetWindowLayoutTypeMethodAttempted = true;
+        }
+        Method method = sSetWindowLayoutTypeMethod;
+        if (method != null) {
+            try {
+                method.invoke(popupWindow, Integer.valueOf(i));
+            } catch (Exception unused2) {
+            }
+        }
     }
 
     public static void showAsDropDown(@NonNull PopupWindow popupWindow, @NonNull View view, int i, int i2, int i3) {
@@ -31,95 +130,5 @@ public final class PopupWindowCompat {
             i -= popupWindow.getWidth() - view.getWidth();
         }
         popupWindow.showAsDropDown(view, i, i2);
-    }
-
-    public static void setOverlapAnchor(@NonNull PopupWindow popupWindow, boolean z) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            popupWindow.setOverlapAnchor(z);
-        } else if (Build.VERSION.SDK_INT >= 21) {
-            if (!sOverlapAnchorFieldAttempted) {
-                try {
-                    sOverlapAnchorField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
-                    sOverlapAnchorField.setAccessible(true);
-                } catch (NoSuchFieldException e) {
-                    Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e);
-                }
-                sOverlapAnchorFieldAttempted = true;
-            }
-            if (sOverlapAnchorField != null) {
-                try {
-                    sOverlapAnchorField.set(popupWindow, Boolean.valueOf(z));
-                } catch (IllegalAccessException e2) {
-                    Log.i(TAG, "Could not set overlap anchor field in PopupWindow", e2);
-                }
-            }
-        }
-    }
-
-    public static boolean getOverlapAnchor(@NonNull PopupWindow popupWindow) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            return popupWindow.getOverlapAnchor();
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            if (!sOverlapAnchorFieldAttempted) {
-                try {
-                    sOverlapAnchorField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
-                    sOverlapAnchorField.setAccessible(true);
-                } catch (NoSuchFieldException e) {
-                    Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e);
-                }
-                sOverlapAnchorFieldAttempted = true;
-            }
-            if (sOverlapAnchorField != null) {
-                try {
-                    return ((Boolean) sOverlapAnchorField.get(popupWindow)).booleanValue();
-                } catch (IllegalAccessException e2) {
-                    Log.i(TAG, "Could not get overlap anchor field in PopupWindow", e2);
-                }
-            }
-        }
-        return false;
-    }
-
-    public static void setWindowLayoutType(@NonNull PopupWindow popupWindow, int i) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            popupWindow.setWindowLayoutType(i);
-            return;
-        }
-        if (!sSetWindowLayoutTypeMethodAttempted) {
-            try {
-                sSetWindowLayoutTypeMethod = PopupWindow.class.getDeclaredMethod("setWindowLayoutType", Integer.TYPE);
-                sSetWindowLayoutTypeMethod.setAccessible(true);
-            } catch (Exception e) {
-            }
-            sSetWindowLayoutTypeMethodAttempted = true;
-        }
-        if (sSetWindowLayoutTypeMethod != null) {
-            try {
-                sSetWindowLayoutTypeMethod.invoke(popupWindow, Integer.valueOf(i));
-            } catch (Exception e2) {
-            }
-        }
-    }
-
-    public static int getWindowLayoutType(@NonNull PopupWindow popupWindow) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            return popupWindow.getWindowLayoutType();
-        }
-        if (!sGetWindowLayoutTypeMethodAttempted) {
-            try {
-                sGetWindowLayoutTypeMethod = PopupWindow.class.getDeclaredMethod("getWindowLayoutType", new Class[0]);
-                sGetWindowLayoutTypeMethod.setAccessible(true);
-            } catch (Exception e) {
-            }
-            sGetWindowLayoutTypeMethodAttempted = true;
-        }
-        if (sGetWindowLayoutTypeMethod != null) {
-            try {
-                return ((Integer) sGetWindowLayoutTypeMethod.invoke(popupWindow, new Object[0])).intValue();
-            } catch (Exception e2) {
-            }
-        }
-        return 0;
     }
 }

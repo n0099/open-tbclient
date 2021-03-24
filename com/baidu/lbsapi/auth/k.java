@@ -1,23 +1,23 @@
 package com.baidu.lbsapi.auth;
 
 import com.baidu.lbsapi.auth.c;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class k implements c.a<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1883a;
-    final /* synthetic */ LBSAuthManager b;
+    public final /* synthetic */ String f6343a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ LBSAuthManager f6344b;
+
     public k(LBSAuthManager lBSAuthManager, String str) {
-        this.b = lBSAuthManager;
-        this.f1883a = str;
+        this.f6344b = lBSAuthManager;
+        this.f6343a = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.lbsapi.auth.c.a
     public void a(String str) {
-        this.b.a(str, this.f1883a);
+        this.f6344b.a(str, this.f6343a);
     }
 }

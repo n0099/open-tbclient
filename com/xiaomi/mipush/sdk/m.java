@@ -1,76 +1,28 @@
 package com.xiaomi.mipush.sdk;
-
-import android.content.ComponentName;
-import android.content.Context;
-import android.text.TextUtils;
-import com.xiaomi.push.ba;
-/* loaded from: classes5.dex */
-public class m {
+/* loaded from: classes7.dex */
+public /* synthetic */ class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f8237a = -1;
+    public static final /* synthetic */ int[] f40201a;
 
-    public static ah a(Context context) {
+    static {
+        int[] iArr = new int[e.values().length];
+        f40201a = iArr;
         try {
-            return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? ah.OTHER : ah.HUAWEI;
-        } catch (Exception e) {
-            return ah.OTHER;
+            iArr[e.ASSEMBLE_PUSH_HUAWEI.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
-    }
-
-    private static boolean a() {
         try {
-            String str = (String) ba.a("android.os.SystemProperties", "get", "ro.build.hw_emui_api_level", "");
-            if (!TextUtils.isEmpty(str)) {
-                if (Integer.parseInt(str) >= 9) {
-                    return true;
-                }
-            }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+            f40201a[e.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
-        return false;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static boolean m122a(Context context) {
-        Object a2 = ba.a(ba.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
-        Object a3 = ba.a("com.google.android.gms.common.ConnectionResult", "SUCCESS");
-        if (a3 == null || !(a3 instanceof Integer)) {
-            com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
-            f8237a = 0;
-            return false;
+        try {
+            f40201a[e.ASSEMBLE_PUSH_COS.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
         }
-        int intValue = ((Integer) Integer.class.cast(a3)).intValue();
-        if (a2 != null) {
-            if (a2 instanceof Integer) {
-                f8237a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
-            } else {
-                f8237a = 0;
-                com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
-            }
+        try {
+            f40201a[e.ASSEMBLE_PUSH_FTOS.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
         }
-        com.xiaomi.channel.commonutils.logger.b.c("is google service can be used" + (f8237a > 0));
-        return f8237a > 0;
-    }
-
-    public static boolean b(Context context) {
-        boolean z = false;
-        Object a2 = ba.a("com.xiaomi.assemble.control.COSPushManager", "isSupportPush", context);
-        if (a2 != null && (a2 instanceof Boolean)) {
-            z = ((Boolean) Boolean.class.cast(a2)).booleanValue();
-        }
-        com.xiaomi.channel.commonutils.logger.b.c("color os push  is avaliable ? :" + z);
-        return z;
-    }
-
-    public static boolean c(Context context) {
-        boolean z = false;
-        Object a2 = ba.a("com.xiaomi.assemble.control.FTOSPushManager", "isSupportPush", context);
-        if (a2 != null && (a2 instanceof Boolean)) {
-            z = ((Boolean) Boolean.class.cast(a2)).booleanValue();
-        }
-        com.xiaomi.channel.commonutils.logger.b.c("fun touch os push  is avaliable ? :" + z);
-        return z;
     }
 }

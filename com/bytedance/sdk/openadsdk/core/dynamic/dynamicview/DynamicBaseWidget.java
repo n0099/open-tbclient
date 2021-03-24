@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.e;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.core.dynamic.d.a;
-import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.al;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,24 +18,36 @@ import java.util.List;
 public abstract class DynamicBaseWidget extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    protected float f4420a;
-    protected float b;
-    protected float c;
-    protected float d;
-    protected int e;
-    protected int f;
-    protected int g;
-    protected int h;
-    protected Context i;
-    protected e j;
-    protected f k;
-    protected List<DynamicBaseWidget> l;
-    protected DynamicRootView m;
-    protected View n;
-    protected boolean o;
-    private boolean p;
+    public float f28299a;
 
-    abstract boolean b();
+    /* renamed from: b  reason: collision with root package name */
+    public float f28300b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f28301c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f28302d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f28303e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f28304f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f28305g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f28306h;
+    public Context i;
+    public e j;
+    public f k;
+    public List<DynamicBaseWidget> l;
+    public DynamicRootView m;
+    public View n;
+    public boolean o;
+    public boolean p;
 
     public DynamicBaseWidget(Context context, @NonNull DynamicRootView dynamicRootView, @NonNull f fVar) {
         super(context);
@@ -43,74 +55,63 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         this.i = context;
         this.m = dynamicRootView;
         this.k = fVar;
-        this.f4420a = fVar.a();
-        this.b = fVar.b();
-        this.c = fVar.c();
-        this.d = fVar.d();
-        this.g = (int) ak.a(this.i, this.f4420a);
-        this.h = (int) ak.a(this.i, this.b);
-        this.e = (int) ak.a(this.i, this.c);
-        this.f = (int) ak.a(this.i, this.d);
-        this.j = new e(fVar.e());
-        this.o = this.j.k() > 0;
-    }
-
-    public void setLayoutUnit(f fVar) {
-        this.k = fVar;
+        this.f28299a = fVar.a();
+        this.f28300b = fVar.b();
+        this.f28301c = fVar.c();
+        this.f28302d = fVar.d();
+        this.f28305g = (int) al.a(this.i, this.f28299a);
+        this.f28306h = (int) al.a(this.i, this.f28300b);
+        this.f28303e = (int) al.a(this.i, this.f28301c);
+        this.f28304f = (int) al.a(this.i, this.f28302d);
+        e eVar = new e(fVar.e());
+        this.j = eVar;
+        this.o = eVar.k() > 0;
     }
 
     public void a(DynamicBaseWidget dynamicBaseWidget) {
         if (this.l == null) {
             this.l = new ArrayList();
         }
-        if (dynamicBaseWidget != null) {
-            dynamicBaseWidget.setShouldInvisible(this.o);
-            this.l.add(dynamicBaseWidget);
+        if (dynamicBaseWidget == null) {
+            return;
         }
+        dynamicBaseWidget.setShouldInvisible(this.o);
+        this.l.add(dynamicBaseWidget);
     }
 
-    public void setShouldInvisible(boolean z) {
-        this.o = z;
-    }
+    public abstract boolean b();
 
-    public boolean a() {
-        boolean d = d();
-        boolean c = c();
-        if (!d || !c) {
-            this.p = false;
-        }
-        if (this.l != null) {
-            for (DynamicBaseWidget dynamicBaseWidget : this.l) {
-                if (!dynamicBaseWidget.a()) {
-                    this.p = false;
-                }
-            }
-        }
-        return this.p;
-    }
-
-    protected boolean c() {
+    public boolean c() {
         return true;
     }
 
-    protected boolean d() {
-        boolean b = b();
+    public boolean d() {
+        boolean b2 = b();
         try {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.e, this.f);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f28303e, this.f28304f);
             u.f("DynamicBaseWidget", "widget mDynamicView:" + this.n);
-            u.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f4420a + "," + this.b + "," + this.e + "," + this.f);
-            layoutParams.topMargin = this.h;
-            layoutParams.leftMargin = this.g;
+            u.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f28299a + "," + this.f28300b + "," + this.f28303e + "," + this.f28304f);
+            layoutParams.topMargin = this.f28306h;
+            layoutParams.leftMargin = this.f28305g;
             this.m.addView(this, layoutParams);
-            return b;
-        } catch (Exception e) {
+            return b2;
+        } catch (Exception unused) {
             return false;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public boolean e() {
-        return (this.j == null || this.j.p() == 0) ? false : true;
+        e eVar = this.j;
+        return (eVar == null || eVar.p() == 0) ? false : true;
+    }
+
+    public Drawable getBackgroundDrawable() {
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setShape(0);
+        gradientDrawable.setCornerRadius(al.a(this.i, this.j.l()));
+        gradientDrawable.setColor(this.j.q());
+        gradientDrawable.setStroke((int) al.a(this.i, this.j.n()), this.j.m());
+        return gradientDrawable;
     }
 
     public int getClickArea() {
@@ -121,13 +122,28 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         return this.m.getDynamicClickListener();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Drawable getBackgroundDrawable() {
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setShape(0);
-        gradientDrawable.setCornerRadius(ak.a(this.i, this.j.l()));
-        gradientDrawable.setColor(this.j.q());
-        gradientDrawable.setStroke((int) ak.a(this.i, this.j.n()), this.j.m());
-        return gradientDrawable;
+    public void setLayoutUnit(f fVar) {
+        this.k = fVar;
+    }
+
+    public void setShouldInvisible(boolean z) {
+        this.o = z;
+    }
+
+    public boolean a() {
+        boolean d2 = d();
+        boolean c2 = c();
+        if (!d2 || !c2) {
+            this.p = false;
+        }
+        List<DynamicBaseWidget> list = this.l;
+        if (list != null) {
+            for (DynamicBaseWidget dynamicBaseWidget : list) {
+                if (!dynamicBaseWidget.a()) {
+                    this.p = false;
+                }
+            }
+        }
+        return this.p;
     }
 }

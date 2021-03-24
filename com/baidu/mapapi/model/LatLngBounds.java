@@ -2,63 +2,72 @@ package com.baidu.mapapi.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+import com.baidu.android.common.others.lang.StringUtil;
+/* loaded from: classes2.dex */
 public final class LatLngBounds implements Parcelable {
     public static final Parcelable.Creator<LatLngBounds> CREATOR = new b();
     public final LatLng northeast;
     public final LatLng southwest;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private double f2087a;
-        private double b;
-        private double c;
-        private double d;
-        private boolean e = true;
+        public double f7110a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public double f7111b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public double f7112c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public double f7113d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f7114e = true;
 
         public LatLngBounds build() {
-            return new LatLngBounds(new LatLng(this.b, this.d), new LatLng(this.f2087a, this.c));
+            return new LatLngBounds(new LatLng(this.f7111b, this.f7113d), new LatLng(this.f7110a, this.f7112c));
         }
 
         public Builder include(LatLng latLng) {
-            if (latLng != null) {
-                if (this.e) {
-                    this.e = false;
-                    double d = latLng.latitude;
-                    this.f2087a = d;
-                    this.b = d;
-                    double d2 = latLng.longitude;
-                    this.c = d2;
-                    this.d = d2;
-                }
-                double d3 = latLng.latitude;
-                double d4 = latLng.longitude;
-                if (d3 < this.f2087a) {
-                    this.f2087a = d3;
-                }
-                if (d3 > this.b) {
-                    this.b = d3;
-                }
-                if (d4 < this.c) {
-                    this.c = d4;
-                }
-                if (d4 > this.d) {
-                    this.d = d4;
-                }
+            if (latLng == null) {
+                return this;
+            }
+            if (this.f7114e) {
+                this.f7114e = false;
+                double d2 = latLng.latitude;
+                this.f7110a = d2;
+                this.f7111b = d2;
+                double d3 = latLng.longitude;
+                this.f7112c = d3;
+                this.f7113d = d3;
+            }
+            double d4 = latLng.latitude;
+            double d5 = latLng.longitude;
+            if (d4 < this.f7110a) {
+                this.f7110a = d4;
+            }
+            if (d4 > this.f7111b) {
+                this.f7111b = d4;
+            }
+            if (d5 < this.f7112c) {
+                this.f7112c = d5;
+            }
+            if (d5 > this.f7113d) {
+                this.f7113d = d5;
             }
             return this;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public LatLngBounds(Parcel parcel) {
         this.northeast = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
         this.southwest = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
     }
 
-    LatLngBounds(LatLng latLng, LatLng latLng2) {
+    public LatLngBounds(LatLng latLng, LatLng latLng2) {
         this.northeast = latLng;
         this.southwest = latLng2;
     }
@@ -67,13 +76,15 @@ public final class LatLngBounds implements Parcelable {
         if (latLng == null) {
             return false;
         }
-        double d = this.southwest.latitude;
-        double d2 = this.northeast.latitude;
-        double d3 = this.southwest.longitude;
-        double d4 = this.northeast.longitude;
-        double d5 = latLng.latitude;
-        double d6 = latLng.longitude;
-        return d5 >= d && d5 <= d2 && d6 >= d3 && d6 <= d4;
+        LatLng latLng2 = this.southwest;
+        double d2 = latLng2.latitude;
+        LatLng latLng3 = this.northeast;
+        double d3 = latLng3.latitude;
+        double d4 = latLng2.longitude;
+        double d5 = latLng3.longitude;
+        double d6 = latLng.latitude;
+        double d7 = latLng.longitude;
+        return d6 >= d2 && d6 <= d3 && d7 >= d4 && d7 <= d5;
     }
 
     @Override // android.os.Parcelable
@@ -82,11 +93,18 @@ public final class LatLngBounds implements Parcelable {
     }
 
     public LatLng getCenter() {
-        return new LatLng(((this.northeast.latitude - this.southwest.latitude) / 2.0d) + this.southwest.latitude, ((this.northeast.longitude - this.southwest.longitude) / 2.0d) + this.southwest.longitude);
+        LatLng latLng = this.northeast;
+        double d2 = latLng.latitude;
+        LatLng latLng2 = this.southwest;
+        double d3 = latLng2.latitude;
+        double d4 = ((d2 - d3) / 2.0d) + d3;
+        double d5 = latLng.longitude;
+        double d6 = latLng2.longitude;
+        return new LatLng(d4, ((d5 - d6) / 2.0d) + d6);
     }
 
     public String toString() {
-        return "southwest: " + this.southwest.latitude + ", " + this.southwest.longitude + "\nnortheast: " + this.northeast.latitude + ", " + this.northeast.longitude;
+        return "southwest: " + this.southwest.latitude + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.southwest.longitude + "\nnortheast: " + this.northeast.latitude + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.northeast.longitude;
     }
 
     @Override // android.os.Parcelable

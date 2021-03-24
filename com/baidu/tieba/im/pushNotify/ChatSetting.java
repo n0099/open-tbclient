@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.pushNotify;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ChatSetting extends OrmObject {
-    protected String draft;
-    protected boolean isAcceptNotify;
+    public String draft;
+    public boolean isAcceptNotify;
 
-    public void setAcceptNotify(boolean z) {
-        this.isAcceptNotify = z;
+    public String getDraft() {
+        return this.draft;
     }
 
     public boolean isAcceptNotify() {
         return this.isAcceptNotify;
     }
 
-    public String getDraft() {
-        return this.draft;
+    public void setAcceptNotify(boolean z) {
+        this.isAcceptNotify = z;
     }
 
     public void setDraft(String str) {

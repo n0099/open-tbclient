@@ -10,7 +10,8 @@ import android.view.View;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.internal.utils.CommonUtils;
 import com.baidu.webkit.sdk.GeolocationPermissions;
 import com.baidu.webkit.sdk.WebStorage;
@@ -22,33 +23,33 @@ import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebChromeClient {
     public static final String DEFAULT_ERROR_IMAGE_PATH = "file:///android_asset/webkit/errorpage/images/error_page.png";
-    protected static final int ERROR_CODE_FUNCTION_CALL_FAILED = 100;
-    protected static final int ERROR_CODE_FUNCTION_NOT_FOUND = 102;
-    protected static final int ERROR_CODE_INTERFACE_NOT_FOUND = 101;
-    protected static final int ERROR_CODE_OK = 0;
-    protected static final String JIS_NAME = "FLYFLOW-JSI:";
-    protected static final String JIS_NAME_NEW = "flyflow://";
-    protected static final String KEY_ARG_ARRAY = "args";
-    protected static final String KEY_ARG_CALLBACK = "callback";
-    protected static final String KEY_FUNCTION_NAME = "func";
-    protected static final String KEY_INTERFACE_NAME = "obj";
-    private static final String MSG_METHOD_GETVERSION = "getVersion";
-    protected static final String PARAM_SEPARATOR = "\\|";
-    private WebView mWebView;
-    private static final boolean DEBUG = Log.isDebug();
-    private static final String LOG_TAG = WebChromeClient.class.getSimpleName();
-    protected static final String MSG_PROMPT_HEADER = "BdboxApp:";
-    protected static final String MSG_PROMPT_HEADER_IMPACT = MSG_PROMPT_HEADER.toLowerCase();
+    public static final int ERROR_CODE_FUNCTION_CALL_FAILED = 100;
+    public static final int ERROR_CODE_FUNCTION_NOT_FOUND = 102;
+    public static final int ERROR_CODE_INTERFACE_NOT_FOUND = 101;
+    public static final int ERROR_CODE_OK = 0;
+    public static final String JIS_NAME = "FLYFLOW-JSI:";
+    public static final String JIS_NAME_NEW = "flyflow://";
+    public static final String KEY_ARG_ARRAY = "args";
+    public static final String KEY_ARG_CALLBACK = "callback";
+    public static final String KEY_FUNCTION_NAME = "func";
+    public static final String KEY_INTERFACE_NAME = "obj";
+    public static final String MSG_METHOD_GETVERSION = "getVersion";
+    public static final String PARAM_SEPARATOR = "\\|";
+    public WebView mWebView;
+    public static final boolean DEBUG = Log.isDebug();
+    public static final String LOG_TAG = WebChromeClient.class.getSimpleName();
+    public static final String MSG_PROMPT_HEADER = "BdboxApp:";
+    public static final String MSG_PROMPT_HEADER_IMPACT = MSG_PROMPT_HEADER.toLowerCase();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface CustomViewCallback {
         void onCustomViewHidden();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static abstract class FileChooserParams {
         public static final int MODE_OPEN = 0;
         public static final int MODE_OPEN_FOLDER = 2;
@@ -72,72 +73,56 @@ public class WebChromeClient {
         public abstract boolean isCaptureEnabled();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0020  */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0042  */
-    /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private void doJsCheckIfNeeded(BdJsCallInfo bdJsCallInfo) {
-        BdJsCheckPolicy bdJsCheckPolicy;
         if (bdJsCallInfo == null) {
             return;
         }
-        BdJsCheckPolicy bdJsCheckPolicy2 = null;
+        BdJsCheckPolicy bdJsCheckPolicy = null;
         try {
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
-        } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:" + th);
-        }
-        if (WebViewFactory.hasProvider()) {
-            Object staticWebSeting = WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_JS_CHECK_POLICY);
-            if (staticWebSeting instanceof BdJsCheckPolicy) {
-                bdJsCheckPolicy = (BdJsCheckPolicy) staticWebSeting;
-                bdJsCheckPolicy2 = bdJsCheckPolicy;
-                if (DEBUG) {
-                    Log.d(LOG_TAG, "doJsCheckIfNeeded() jsCallInfo: " + bdJsCallInfo + " ,policy:" + bdJsCheckPolicy2);
+            if (WebViewFactory.hasProvider()) {
+                Object staticWebSeting = WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_JS_CHECK_POLICY);
+                if (staticWebSeting instanceof BdJsCheckPolicy) {
+                    bdJsCheckPolicy = (BdJsCheckPolicy) staticWebSeting;
                 }
-                if (bdJsCheckPolicy2 == null) {
-                    if (bdJsCallInfo.hasFinishedPermissionCheck()) {
-                        bdJsCheckPolicy2.onJsCheckFinished(bdJsCallInfo);
-                        return;
-                    } else {
-                        bdJsCheckPolicy2.onJsCheckUnFinished(bdJsCallInfo);
-                        return;
-                    }
-                }
-                return;
             }
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
+        } catch (Throwable th) {
+            String str = Log.LOG_TAG;
+            Log.e(str, "setDefaultEnableJsPromptSailor error:" + th);
         }
-        bdJsCheckPolicy = null;
-        bdJsCheckPolicy2 = bdJsCheckPolicy;
         if (DEBUG) {
+            String str2 = LOG_TAG;
+            Log.d(str2, "doJsCheckIfNeeded() jsCallInfo: " + bdJsCallInfo + " ,policy:" + bdJsCheckPolicy);
         }
-        if (bdJsCheckPolicy2 == null) {
+        if (bdJsCheckPolicy != null) {
+            if (bdJsCallInfo.hasFinishedPermissionCheck()) {
+                bdJsCheckPolicy.onJsCheckFinished(bdJsCallInfo);
+            } else {
+                bdJsCheckPolicy.onJsCheckUnFinished(bdJsCallInfo);
+            }
         }
     }
 
     private Method getBdJsCallMethod(Object obj, String str, Class[] clsArr) {
         Class<?>[] clsArr2;
-        if (obj == null || TextUtils.isEmpty(str)) {
-            return null;
-        }
-        if (clsArr != null) {
-            clsArr2 = new Class[clsArr.length + 1];
-            System.arraycopy(clsArr, 0, clsArr2, 1, clsArr.length);
-        } else {
-            clsArr2 = new Class[1];
-        }
-        clsArr2[0] = BdJsCallInfo.class;
-        try {
-            return obj.getClass().getMethod(str, clsArr2);
-        } catch (Exception e) {
-            if (DEBUG) {
-                Log.e(LOG_TAG, e.toString());
+        if (obj != null && !TextUtils.isEmpty(str)) {
+            if (clsArr != null) {
+                clsArr2 = new Class[clsArr.length + 1];
+                System.arraycopy(clsArr, 0, clsArr2, 1, clsArr.length);
+            } else {
+                clsArr2 = new Class[1];
             }
-            return null;
+            clsArr2[0] = BdJsCallInfo.class;
+            try {
+                return obj.getClass().getMethod(str, clsArr2);
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    Log.e(LOG_TAG, e2.toString());
+                }
+            }
         }
+        return null;
     }
 
     private Class getClassFromJsonObject(Object obj) {
@@ -148,48 +133,56 @@ public class WebChromeClient {
     private String getReturnValueInJSON(int i, String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(BdStatsConstant.StatsType.ERROR, i);
+            jSONObject.put("error", i);
             if (!TextUtils.isEmpty(str)) {
                 jSONObject.put("msg", str);
             }
             if (i == 0 && str2 != null) {
                 jSONObject.put("result", str2);
             }
-        } catch (JSONException e) {
+        } catch (JSONException e2) {
             if (DEBUG) {
-                Log.e(LOG_TAG, e.toString());
+                Log.e(LOG_TAG, e2.toString());
             }
         }
         return jSONObject.toString();
     }
 
     private boolean handleGetVersionMessage(String str) {
-        if (TextUtils.isEmpty(str) || !str.startsWith(MSG_PROMPT_HEADER)) {
-            return false;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str.substring(9));
-            String optString = jSONObject.optString(KEY_FUNCTION_NAME);
-            String optString2 = jSONObject.optString("callback");
-            if (!MSG_METHOD_GETVERSION.equals(optString) || TextUtils.isEmpty(optString2) || this.mWebView == null) {
-                return false;
+        if (!TextUtils.isEmpty(str) && str.startsWith(MSG_PROMPT_HEADER)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str.substring(9));
+                String optString = jSONObject.optString(KEY_FUNCTION_NAME);
+                String optString2 = jSONObject.optString("callback");
+                if (MSG_METHOD_GETVERSION.equals(optString) && !TextUtils.isEmpty(optString2) && this.mWebView != null) {
+                    WebView webView = this.mWebView;
+                    webView.execJavaScriptExt(optString2 + "(" + CommonUtils.getVersionName(this.mWebView.getContext()) + SmallTailInfo.EMOTION_SUFFIX, new String[0]);
+                    return true;
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            this.mWebView.execJavaScriptExt(optString2 + "(" + CommonUtils.getVersionName(this.mWebView.getContext()) + ")", new String[0]);
-            return true;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return false;
         }
+        return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:90:0x024e  */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x026f  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0153  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0156 A[Catch: InvocationTargetException -> 0x017b, IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, TryCatch #2 {IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, InvocationTargetException -> 0x017b, blocks: (B:33:0x00cb, B:35:0x00d1, B:37:0x00dc, B:39:0x00e6, B:41:0x00ea, B:44:0x00f4, B:45:0x010d, B:48:0x0113, B:51:0x0145, B:59:0x015a, B:61:0x015e, B:63:0x0173, B:64:0x0177, B:58:0x0156, B:49:0x013f), top: B:96:0x00cb }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x015e A[Catch: InvocationTargetException -> 0x017b, IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, TryCatch #2 {IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, InvocationTargetException -> 0x017b, blocks: (B:33:0x00cb, B:35:0x00d1, B:37:0x00dc, B:39:0x00e6, B:41:0x00ea, B:44:0x00f4, B:45:0x010d, B:48:0x0113, B:51:0x0145, B:59:0x015a, B:61:0x015e, B:63:0x0173, B:64:0x0177, B:58:0x0156, B:49:0x013f), top: B:96:0x00cb }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0173 A[Catch: InvocationTargetException -> 0x017b, IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, TryCatch #2 {IllegalAccessException -> 0x018a, IllegalArgumentException -> 0x0196, NoSuchMethodException -> 0x01c1, InvocationTargetException -> 0x017b, blocks: (B:33:0x00cb, B:35:0x00d1, B:37:0x00dc, B:39:0x00e6, B:41:0x00ea, B:44:0x00f4, B:45:0x010d, B:48:0x0113, B:51:0x0145, B:59:0x015a, B:61:0x015e, B:63:0x0173, B:64:0x0177, B:58:0x0156, B:49:0x013f), top: B:96:0x00cb }] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x01a4  */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x01bd  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean invokeJSInterfaceMethod(WebView webView, JsPromptResult jsPromptResult, boolean z, String str, String str2, Object[] objArr) {
+        Class<?>[] clsArr;
+        String str3;
+        String invocationTargetException;
+        boolean z2;
         Object invoke;
+        boolean z3;
         Object obj = webView.getSecureProcessor().d().get(str);
         if (obj == null) {
             if (DEBUG) {
@@ -212,7 +205,6 @@ public class WebChromeClient {
             }
             return true;
         } else {
-            Class<?>[] clsArr = null;
             int length = objArr != null ? objArr.length : 0;
             if (length > 0) {
                 clsArr = new Class[length];
@@ -222,13 +214,16 @@ public class WebChromeClient {
                         Log.d(LOG_TAG, "type:" + clsArr[i].getName());
                     }
                 }
+            } else {
+                clsArr = null;
             }
-            boolean z2 = true;
             try {
                 Method bdJsCallMethod = getBdJsCallMethod(obj, str2, clsArr);
                 if (bdJsCallMethod == null) {
-                    z2 = false;
                     bdJsCallMethod = obj.getClass().getMethod(str2, clsArr);
+                    z2 = false;
+                } else {
+                    z2 = true;
                 }
                 if (((JavascriptInterface) bdJsCallMethod.getAnnotation(JavascriptInterface.class)) == null) {
                     if (DEBUG) {
@@ -249,25 +244,37 @@ public class WebChromeClient {
                     bdJsCallInfo.setJsInterfaceName(str);
                     bdJsCallInfo.setJsMethodName(str2);
                     bdJsCallInfo.setJsMethodDeclaration(bdJsCallMethod.toString());
-                    Object invokeBdJsCallMethod = invokeBdJsCallMethod(bdJsCallMethod, obj, bdJsCallInfo, objArr);
+                    invoke = invokeBdJsCallMethod(bdJsCallMethod, obj, bdJsCallInfo, objArr);
                     doJsCheckIfNeeded(bdJsCallInfo);
-                    invoke = invokeBdJsCallMethod;
                 } else {
                     invoke = bdJsCallMethod.invoke(obj, objArr);
                 }
-                String obj2 = invoke == null || invoke.getClass() == Void.TYPE ? "" : invoke.toString();
+                if (invoke != null && invoke.getClass() != Void.TYPE) {
+                    z3 = false;
+                    String obj2 = !z3 ? "" : invoke.toString();
+                    if (DEBUG) {
+                        Log.d(LOG_TAG, "called ok: " + obj2);
+                    }
+                    if (z) {
+                        obj2 = getReturnValueInJSON(0, null, obj2);
+                    }
+                    jsPromptResult.confirm(obj2);
+                    return true;
+                }
+                z3 = true;
+                if (!z3) {
+                }
                 if (DEBUG) {
-                    Log.d(LOG_TAG, "called ok: " + obj2);
                 }
                 if (z) {
-                    jsPromptResult.confirm(getReturnValueInJSON(0, null, obj2));
-                } else {
-                    jsPromptResult.confirm(obj2);
                 }
+                jsPromptResult.confirm(obj2);
                 return true;
-            } catch (IllegalAccessException e) {
+            } catch (IllegalAccessException e2) {
                 if (DEBUG) {
-                    Log.e(LOG_TAG, e.toString());
+                    str3 = LOG_TAG;
+                    invocationTargetException = e2.toString();
+                    Log.e(str3, invocationTargetException);
                     return false;
                 }
                 if (z) {
@@ -276,15 +283,17 @@ public class WebChromeClient {
                     jsPromptResult.cancel();
                 }
                 return true;
-            } catch (IllegalArgumentException e2) {
+            } catch (IllegalArgumentException e3) {
                 if (DEBUG) {
-                    Log.e(LOG_TAG, e2.toString());
+                    str3 = LOG_TAG;
+                    invocationTargetException = e3.toString();
+                    Log.e(str3, invocationTargetException);
                     return false;
                 }
                 if (z) {
                 }
                 return true;
-            } catch (NoSuchMethodException e3) {
+            } catch (NoSuchMethodException unused) {
                 if (DEBUG) {
                     StringBuilder sb = new StringBuilder(str2);
                     sb.append("(");
@@ -298,7 +307,7 @@ public class WebChromeClient {
                             sb.append("'");
                         }
                     }
-                    sb.append(")");
+                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
                     Log.e(LOG_TAG, "obj has no function:" + sb.toString());
                 }
                 if (z) {
@@ -309,7 +318,9 @@ public class WebChromeClient {
                 return true;
             } catch (InvocationTargetException e4) {
                 if (DEBUG) {
-                    Log.e(LOG_TAG, e4.toString());
+                    str3 = LOG_TAG;
+                    invocationTargetException = e4.toString();
+                    Log.e(str3, invocationTargetException);
                     return false;
                 }
                 if (z) {
@@ -342,10 +353,11 @@ public class WebChromeClient {
     public boolean handleJavascriptInterface(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         String substring;
         boolean z;
-        Object[] objArr = null;
         if (DEBUG) {
-            Log.d(LOG_TAG, "handle url: " + str);
-            Log.i(LOG_TAG, "handle msg: " + str2);
+            String str4 = LOG_TAG;
+            Log.d(str4, "handle url: " + str);
+            String str5 = LOG_TAG;
+            Log.i(str5, "handle msg: " + str2);
         }
         if (TextUtils.isEmpty(str2)) {
             return false;
@@ -361,9 +373,10 @@ public class WebChromeClient {
         }
         try {
             JSONObject jSONObject = new JSONObject(substring);
-            String string = jSONObject.getString(KEY_INTERFACE_NAME);
+            String string = jSONObject.getString("obj");
+            Object[] objArr = null;
             String optString = jSONObject.optString(KEY_FUNCTION_NAME, null);
-            JSONArray optJSONArray = jSONObject.optJSONArray(KEY_ARG_ARRAY);
+            JSONArray optJSONArray = jSONObject.optJSONArray("args");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
                 objArr = new Object[length];
@@ -372,7 +385,10 @@ public class WebChromeClient {
                 }
                 if (DEBUG) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(string).append(".").append(optString).append("(");
+                    sb.append(string);
+                    sb.append(".");
+                    sb.append(optString);
+                    sb.append("(");
                     if (length > 0) {
                         sb.append("\"");
                         sb.append(objArr[0]);
@@ -383,14 +399,15 @@ public class WebChromeClient {
                             sb.append("\"");
                         }
                     }
-                    sb.append(")");
-                    Log.d(LOG_TAG, "call: " + sb.toString());
+                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                    String str6 = LOG_TAG;
+                    Log.d(str6, "call: " + sb.toString());
                 }
             }
             return invokeJSInterfaceMethod(webView, jsPromptResult, z, string, optString, objArr);
-        } catch (JSONException e) {
+        } catch (JSONException e2) {
             if (DEBUG) {
-                Log.e(LOG_TAG, e.toString());
+                Log.e(LOG_TAG, e2.toString());
                 return false;
             }
             jsPromptResult.cancel();
@@ -434,8 +451,7 @@ public class WebChromeClient {
 
     @Deprecated
     public void onConsoleMessage(String str, int i, String str2) {
-        if (handleGetVersionMessage(str)) {
-        }
+        handleGetVersionMessage(str);
     }
 
     public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
@@ -479,7 +495,8 @@ public class WebChromeClient {
     }
 
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        Log.d(LOG_TAG, "onJsPrompt url = " + str + ", " + str2 + ", " + str3);
+        String str4 = LOG_TAG;
+        Log.d(str4, "onJsPrompt url = " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str3);
         return !TextUtils.isEmpty(str2) && handleJavascriptInterface(webView, str, str2, str3, jsPromptResult);
     }
 
@@ -494,7 +511,7 @@ public class WebChromeClient {
     public void onNativeElementExitFullScreen() {
     }
 
-    public void onOffsetsForFullscreenChanged(float f, float f2, float f3) {
+    public void onOffsetsForFullscreenChanged(float f2, float f3, float f4) {
     }
 
     public void onPermissionRequest(PermissionRequest permissionRequest) {

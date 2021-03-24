@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.d.l;
 /* loaded from: classes6.dex */
 public abstract class e extends a {
-    protected abstract void a_(View view, int i, int i2, int i3, int i4);
-
     public e(@NonNull Context context, @NonNull l lVar, @NonNull String str, int i) {
         super(context, lVar, str, i);
     }
@@ -17,4 +15,6 @@ public abstract class e extends a {
         a_(view, i, i2, i3, i4);
         super.a(view, i, i2, i3, i4);
     }
+
+    public abstract void a_(View view, int i, int i2, int i3, int i4);
 }

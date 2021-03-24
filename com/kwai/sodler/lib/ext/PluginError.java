@@ -1,5 +1,5 @@
 package com.kwai.sodler.lib.ext;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class PluginError extends Exception {
     public static final int ERROR_INS_CAPACITY = 3005;
     public static final int ERROR_INS_INSTALL = 3004;
@@ -17,7 +17,7 @@ public abstract class PluginError extends Exception {
     public static final int ERROR_LOA_SO_DIR = 4003;
     public static final int ERROR_LOA_SO_INSTALL = 4004;
     public static final int ERROR_LOA_SO_MD5_CHECK = 4008;
-    private static final int ERROR_OVER_RETRY = 1001;
+    public static final int ERROR_OVER_RETRY = 1001;
     public static final int ERROR_UPD_CANCELED = 2001;
     public static final int ERROR_UPD_CAPACITY = 2005;
     public static final int ERROR_UPD_DOWNLOAD = 2002;
@@ -25,16 +25,16 @@ public abstract class PluginError extends Exception {
     public static final int ERROR_UPD_NOT_WIFI_DOWNLOAD = 2007;
     public static final int ERROR_UPD_NO_TEMP = 2003;
     public static final int ERROR_UPD_REQUEST = 2006;
-    private final int mCode;
+    public final int mCode;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class CancelError extends PluginError {
         public CancelError(int i) {
             super("Operation was canceled.", i);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class InstallError extends PluginError {
         public InstallError(String str, int i) {
             super(str, i);
@@ -45,7 +45,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class LoadError extends PluginError {
         public LoadError(String str, int i) {
             super(str, i);
@@ -57,7 +57,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class NotWifiDownloadError extends PluginError {
         public NotWifiDownloadError(String str, int i) {
             super(str, i);
@@ -69,14 +69,14 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class RetryError extends PluginError {
         public RetryError() {
             super("Reach max retry.", 1001);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class UpdateError extends PluginError {
         public UpdateError(String str, int i) {
             super(str, i);

@@ -5,42 +5,23 @@ import android.os.Build;
 import android.view.View;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.R;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
-    static final ItemTouchUIUtil INSTANCE = new ItemTouchUIUtilImpl();
+    public static final ItemTouchUIUtil INSTANCE = new ItemTouchUIUtilImpl();
 
-    ItemTouchUIUtilImpl() {
-    }
-
-    @Override // androidx.recyclerview.widget.ItemTouchUIUtil
-    public void onDraw(Canvas canvas, RecyclerView recyclerView, View view, float f, float f2, int i, boolean z) {
-        if (Build.VERSION.SDK_INT >= 21 && z && view.getTag(R.id.item_touch_helper_previous_elevation) == null) {
-            Float valueOf = Float.valueOf(ViewCompat.getElevation(view));
-            ViewCompat.setElevation(view, 1.0f + findMaxElevation(recyclerView, view));
-            view.setTag(R.id.item_touch_helper_previous_elevation, valueOf);
-        }
-        view.setTranslationX(f);
-        view.setTranslationY(f2);
-    }
-
-    private static float findMaxElevation(RecyclerView recyclerView, View view) {
+    public static float findMaxElevation(RecyclerView recyclerView, View view) {
         int childCount = recyclerView.getChildCount();
-        float f = 0.0f;
+        float f2 = 0.0f;
         for (int i = 0; i < childCount; i++) {
             View childAt = recyclerView.getChildAt(i);
             if (childAt != view) {
                 float elevation = ViewCompat.getElevation(childAt);
-                if (elevation > f) {
-                    f = elevation;
+                if (elevation > f2) {
+                    f2 = elevation;
                 }
             }
         }
-        return f;
-    }
-
-    @Override // androidx.recyclerview.widget.ItemTouchUIUtil
-    public void onDrawOver(Canvas canvas, RecyclerView recyclerView, View view, float f, float f2, int i, boolean z) {
+        return f2;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchUIUtil
@@ -54,6 +35,21 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
         }
         view.setTranslationX(0.0f);
         view.setTranslationY(0.0f);
+    }
+
+    @Override // androidx.recyclerview.widget.ItemTouchUIUtil
+    public void onDraw(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i, boolean z) {
+        if (Build.VERSION.SDK_INT >= 21 && z && view.getTag(R.id.item_touch_helper_previous_elevation) == null) {
+            Float valueOf = Float.valueOf(ViewCompat.getElevation(view));
+            ViewCompat.setElevation(view, findMaxElevation(recyclerView, view) + 1.0f);
+            view.setTag(R.id.item_touch_helper_previous_elevation, valueOf);
+        }
+        view.setTranslationX(f2);
+        view.setTranslationY(f3);
+    }
+
+    @Override // androidx.recyclerview.widget.ItemTouchUIUtil
+    public void onDrawOver(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i, boolean z) {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchUIUtil

@@ -8,26 +8,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseProxyService extends Service {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private IServiceProxy mDelegate;
-
-    static {
-        $assertionsDisabled = !BaseProxyService.class.desiredAssertionStatus();
-    }
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public IServiceProxy mDelegate;
 
     @Override // android.app.Service, android.content.ContextWrapper
-    protected void attachBaseContext(Context context) {
+    public void attachBaseContext(Context context) {
         super.attachBaseContext(Wrapper.wrapContextIfNeed(context));
         this.mDelegate = getDelegate(context);
-        if (!$assertionsDisabled && this.mDelegate == null) {
-            throw new AssertionError();
-        }
     }
 
     @NonNull
-    protected abstract IServiceProxy getDelegate(Context context);
+    public abstract IServiceProxy getDelegate(Context context);
 
     @Override // android.app.Service
     @Nullable

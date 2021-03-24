@@ -4,56 +4,60 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class PercentSizeView extends View {
-    private float mMV;
-    private float mMW;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f20533e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f20534f;
 
     public PercentSizeView(Context context) {
         super(context);
-        this.mMV = 1.0f;
-        this.mMW = 1.0f;
-    }
-
-    public PercentSizeView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mMV = 1.0f;
-        this.mMW = 1.0f;
-    }
-
-    public PercentSizeView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mMV = 1.0f;
-        this.mMW = 1.0f;
-    }
-
-    public void setHeightPercent(float f) {
-        if (f > 0.0f) {
-            this.mMV = f;
-        }
-    }
-
-    public void setWidthPercent(float f) {
-        if (f > 0.0f) {
-            this.mMW = f;
-        }
+        this.f20533e = 1.0f;
+        this.f20534f = 1.0f;
     }
 
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
+    public void onMeasure(int i, int i2) {
         int measuredWidth;
         int measuredHeight;
         super.onMeasure(i, i2);
         if (View.MeasureSpec.getMode(i) == 1073741824) {
             measuredWidth = View.MeasureSpec.getSize(i);
         } else {
-            measuredWidth = (int) (getMeasuredWidth() * this.mMW);
+            measuredWidth = (int) (getMeasuredWidth() * this.f20534f);
         }
         if (View.MeasureSpec.getMode(i2) == 1073741824) {
             measuredHeight = View.MeasureSpec.getSize(i2);
         } else {
-            measuredHeight = (int) (getMeasuredHeight() * this.mMV);
+            measuredHeight = (int) (getMeasuredHeight() * this.f20533e);
         }
         setMeasuredDimension(measuredWidth, measuredHeight);
+    }
+
+    public void setHeightPercent(float f2) {
+        if (f2 > 0.0f) {
+            this.f20533e = f2;
+        }
+    }
+
+    public void setWidthPercent(float f2) {
+        if (f2 > 0.0f) {
+            this.f20534f = f2;
+        }
+    }
+
+    public PercentSizeView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f20533e = 1.0f;
+        this.f20534f = 1.0f;
+    }
+
+    public PercentSizeView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f20533e = 1.0f;
+        this.f20534f = 1.0f;
     }
 }

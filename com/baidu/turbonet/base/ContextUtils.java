@@ -2,36 +2,43 @@ package com.baidu.turbonet.base;
 
 import android.content.Context;
 import com.baidu.turbonet.base.annotations.JNINamespace;
+import d.b.j0.a.a;
 @JNINamespace
 /* loaded from: classes5.dex */
 public class ContextUtils {
-    private static Context sApplicationContext;
 
-    private static native void nativeInitNativeSideApplicationContext(Context context);
+    /* renamed from: a  reason: collision with root package name */
+    public static Context f22642a;
 
-    public static Context getApplicationContext() {
-        return sApplicationContext;
+    public static Context a() {
+        return f22642a;
     }
 
-    public static void initApplicationContext(Context context) {
-        if (sApplicationContext != null && sApplicationContext != context) {
-            a.d("ContextUtils", "Multiple contexts detected, ignoring new application context.");
+    public static void b(Context context) {
+        Context context2 = f22642a;
+        if (context2 != null && context2 != context) {
+            a.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
         } else {
-            hj(context);
+            d(context);
         }
     }
 
-    public static void egh() {
-        if (sApplicationContext == null) {
-            throw new RuntimeException("Cannot have native global application context be null.");
+    public static void c() {
+        Context context = f22642a;
+        if (context != null) {
+            nativeInitNativeSideApplicationContext(context);
+            return;
         }
-        nativeInitNativeSideApplicationContext(sApplicationContext);
+        throw new RuntimeException("Cannot have native global application context be null.");
     }
 
-    private static void hj(Context context) {
-        if (context == null) {
-            throw new RuntimeException("Global application context cannot be set to null.");
+    public static void d(Context context) {
+        if (context != null) {
+            f22642a = context;
+            return;
         }
-        sApplicationContext = context;
+        throw new RuntimeException("Global application context cannot be set to null.");
     }
+
+    public static native void nativeInitNativeSideApplicationContext(Context context);
 }

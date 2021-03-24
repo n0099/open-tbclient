@@ -6,7 +6,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class Info implements Serializable {
     public String btndesc;
     public int cache;
@@ -20,7 +20,9 @@ public class Info implements Serializable {
     public int dl_vsc;
     public String dpl;
     public String events;
-    public int h;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f39913h;
     public boolean ho_c_sw;
     public String icon;
     public String id;
@@ -112,15 +114,15 @@ public class Info implements Serializable {
                         sparseArray.put(optJSONObject.optInt("type", 0), optJSONObject.optString("urls"));
                     }
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
         return sparseArray;
     }
 
     public int getH() {
-        return this.h;
+        return this.f39913h;
     }
 
     public String getIcon() {
@@ -312,7 +314,7 @@ public class Info implements Serializable {
     }
 
     public void setH(int i) {
-        this.h = i;
+        this.f39913h = i;
     }
 
     public void setHo_c_sw(boolean z) {
@@ -375,8 +377,8 @@ public class Info implements Serializable {
         this.isShown = z;
     }
 
-    public void setSper(double d) {
-        this.sper = d;
+    public void setSper(double d2) {
+        this.sper = d2;
     }
 
     public void setSpet(long j) {

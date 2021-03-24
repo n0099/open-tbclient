@@ -11,66 +11,20 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SerialExecutorCell extends BaseExecutorCell {
-    private static final int SERIAL_MAX_THREAD_NUM = 1;
-    private int dredgeCountInRecordLifeCycle;
+    public static final int SERIAL_MAX_THREAD_NUM = 1;
+    public int dredgeCountInRecordLifeCycle;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public SerialExecutorCell(int i) {
         super(i);
         this.dredgeCountInRecordLifeCycle = 0;
         if (i != 1) {
-            Log.w(getTag(), "You are creating a SerialExecutorCell with maxThreadNum " + i + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.");
+            String tag = getTag();
+            Log.w(tag, "You are creating a SerialExecutorCell with maxThreadNum " + i + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.");
             this.maxThreadNum = 1;
         }
         this.mExecutor = new ThreadPoolExecutor(1, 1, ElasticConfig.EXECUTOR_CONFIG_KEEP_ALIVE_TIME, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
-    protected boolean available() {
-        return getWorkingThreadNum() < 1;
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
-    protected String getTag() {
-        return "SerialElasticExecutorCell";
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
-    protected synchronized void onTaskEnd(ElasticTask elasticTask) {
-        super.onTaskEnd(elasticTask);
-        ElasticTaskScheduler.getInstance().postSerialSchedule();
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
-    protected synchronized void onTaskBegin(ElasticTask elasticTask) {
-        super.onTaskBegin(elasticTask);
-        if (ElasticConfig.ENABLE_SERIAL_DREDGE) {
-            ElasticTaskScheduler.getInstance().postSerialDredgeDelay(ElasticConfig.SERIAL_BLOCK_TIME_THRESHOLD + 10);
-        }
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell, com.baidu.searchbox.elasticthread.statistic.Recordable
-    public void onRecordBegin() {
-        super.onRecordBegin();
-        this.dredgeCountInRecordLifeCycle = 0;
-    }
-
-    public synchronized boolean checkBlockAndDredge() {
-        ElasticTask currentWorkingTask;
-        boolean z = false;
-        synchronized (this) {
-            if (ElasticConfig.ENABLE_SERIAL_DREDGE && (currentWorkingTask = getCurrentWorkingTask()) != null && currentWorkingTask.getRawWorkTime() >= ElasticConfig.SERIAL_BLOCK_TIME_THRESHOLD) {
-                applyDredge(currentWorkingTask);
-                z = true;
-            }
-        }
-        return z;
-    }
-
-    private synchronized ElasticTask getCurrentWorkingTask() {
-        return this.mWorkingTasks.isEmpty() ? null : this.mWorkingTasks.get(0);
     }
 
     private void applyDredge(ElasticTask elasticTask) {
@@ -95,8 +49,60 @@ public class SerialExecutorCell extends BaseExecutorCell {
             jSONObject2.put("block_task", elasticTask.getName());
             jSONObject.put("warning_data", jSONObject2);
             return jSONObject;
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
             return null;
         }
+    }
+
+    private synchronized ElasticTask getCurrentWorkingTask() {
+        if (this.mWorkingTasks.isEmpty()) {
+            return null;
+        }
+        return this.mWorkingTasks.get(0);
+    }
+
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
+    public boolean available() {
+        return getWorkingThreadNum() < 1;
+    }
+
+    public synchronized boolean checkBlockAndDredge() {
+        if (ElasticConfig.ENABLE_SERIAL_DREDGE) {
+            ElasticTask currentWorkingTask = getCurrentWorkingTask();
+            if (currentWorkingTask == null) {
+                return false;
+            }
+            if (currentWorkingTask.getRawWorkTime() >= ElasticConfig.SERIAL_BLOCK_TIME_THRESHOLD) {
+                applyDredge(currentWorkingTask);
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
+    public String getTag() {
+        return "SerialElasticExecutorCell";
+    }
+
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell, com.baidu.searchbox.elasticthread.statistic.Recordable
+    public void onRecordBegin() {
+        super.onRecordBegin();
+        this.dredgeCountInRecordLifeCycle = 0;
+    }
+
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
+    public synchronized void onTaskBegin(ElasticTask elasticTask) {
+        super.onTaskBegin(elasticTask);
+        if (ElasticConfig.ENABLE_SERIAL_DREDGE) {
+            ElasticTaskScheduler.getInstance().postSerialDredgeDelay(ElasticConfig.SERIAL_BLOCK_TIME_THRESHOLD + 10);
+        }
+    }
+
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
+    public synchronized void onTaskEnd(ElasticTask elasticTask) {
+        super.onTaskEnd(elasticTask);
+        ElasticTaskScheduler.getInstance().postSerialSchedule();
     }
 }

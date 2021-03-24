@@ -1,15 +1,14 @@
 package com.baidu.webkit.sdk.system;
 
 import com.baidu.webkit.sdk.HttpAuthHandler;
-/* loaded from: classes14.dex */
-final class HttpAuthHandlerImpl extends HttpAuthHandler {
-    private final android.webkit.HttpAuthHandler mHandler;
+/* loaded from: classes5.dex */
+public final class HttpAuthHandlerImpl extends HttpAuthHandler {
+    public final android.webkit.HttpAuthHandler mHandler;
 
-    private HttpAuthHandlerImpl(android.webkit.HttpAuthHandler httpAuthHandler) {
+    public HttpAuthHandlerImpl(android.webkit.HttpAuthHandler httpAuthHandler) {
         this.mHandler = httpAuthHandler;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static HttpAuthHandler from(android.webkit.HttpAuthHandler httpAuthHandler) {
         if (httpAuthHandler == null) {
             return null;

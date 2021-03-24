@@ -6,8 +6,50 @@ import android.content.pm.PackageInfo;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAdPackageUtils {
+
+    /* loaded from: classes2.dex */
+    public static class ApkInfo {
+
+        /* renamed from: a  reason: collision with root package name */
+        public PackageInfo f8353a;
+        public final String appName = "";
+        public final String packageName;
+        public final int versionCode;
+        public final String versionName;
+
+        public ApkInfo(Context context, PackageInfo packageInfo) {
+            this.f8353a = packageInfo;
+            this.packageName = packageInfo.packageName;
+            this.versionName = packageInfo.versionName;
+            this.versionCode = packageInfo.versionCode;
+        }
+
+        public JSONObject toJSONObject() {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("p", this.packageName);
+                jSONObject.put("v", this.versionName);
+                jSONObject.put("c", this.versionCode);
+                jSONObject.put("s", new File(this.f8353a.applicationInfo.sourceDir).lastModified());
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+
+        public JSONObject toRecentJSONObject() {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("p", this.packageName);
+                jSONObject.put("v", this.versionName);
+                jSONObject.put("c", this.versionCode);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+    }
+
     int getAppVersion(Context context);
 
     Intent getInstallIntent(String str);
@@ -27,45 +69,4 @@ public interface IXAdPackageUtils {
     void sendAPOIsSuccess(Context context, boolean z, int i, String str, String str2);
 
     void sendDialerIsSuccess(Context context, boolean z, int i, String str);
-
-    /* loaded from: classes4.dex */
-    public static class ApkInfo {
-
-        /* renamed from: a  reason: collision with root package name */
-        private PackageInfo f2416a;
-        public final String appName = "";
-        public final String packageName;
-        public final int versionCode;
-        public final String versionName;
-
-        public ApkInfo(Context context, PackageInfo packageInfo) {
-            this.f2416a = packageInfo;
-            this.packageName = packageInfo.packageName;
-            this.versionName = packageInfo.versionName;
-            this.versionCode = packageInfo.versionCode;
-        }
-
-        public JSONObject toJSONObject() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("p", this.packageName);
-                jSONObject.put("v", this.versionName);
-                jSONObject.put("c", this.versionCode);
-                jSONObject.put("s", new File(this.f2416a.applicationInfo.sourceDir).lastModified());
-            } catch (JSONException e) {
-            }
-            return jSONObject;
-        }
-
-        public JSONObject toRecentJSONObject() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("p", this.packageName);
-                jSONObject.put("v", this.versionName);
-                jSONObject.put("c", this.versionCode);
-            } catch (JSONException e) {
-            }
-            return jSONObject;
-        }
-    }
 }

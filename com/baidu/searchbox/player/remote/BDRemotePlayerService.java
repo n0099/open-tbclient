@@ -4,12 +4,11 @@ import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
 import com.baidu.searchbox.player.remote.BDPlayerServiceProxyWrapper;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BDRemotePlayerService extends RemotePlayerService {
-    @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService, android.app.Service
-    public IBinder onBind(Intent intent) {
-        BDPlayerServiceProxyWrapper.Impl.get().onServiceBind(this);
-        return super.onBind(intent);
+    @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
+    public long getKernelNetHandle() {
+        return BDPlayerServiceProxyWrapper.Impl.get().getNetHandle();
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
@@ -17,8 +16,9 @@ public class BDRemotePlayerService extends RemotePlayerService {
         return BDPlayerServiceProxyWrapper.Impl.get().getNetHandle();
     }
 
-    @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
-    public long getKernelNetHandle() {
-        return BDPlayerServiceProxyWrapper.Impl.get().getNetHandle();
+    @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService, android.app.Service
+    public IBinder onBind(Intent intent) {
+        BDPlayerServiceProxyWrapper.Impl.get().onServiceBind(this);
+        return super.onBind(intent);
     }
 }

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.view.KeyEvent;
 import android.view.View;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAdContainer {
     void destroy();
 

@@ -2,12 +2,12 @@ package androidx.cursoradapter.widget;
 
 import android.database.Cursor;
 import android.widget.Filter;
-/* loaded from: classes4.dex */
-class CursorFilter extends Filter {
-    CursorFilterClient mClient;
+/* loaded from: classes.dex */
+public class CursorFilter extends Filter {
+    public CursorFilterClient mClient;
 
-    /* loaded from: classes4.dex */
-    interface CursorFilterClient {
+    /* loaded from: classes.dex */
+    public interface CursorFilterClient {
         void changeCursor(Cursor cursor);
 
         CharSequence convertToString(Cursor cursor);
@@ -17,7 +17,6 @@ class CursorFilter extends Filter {
         Cursor runQueryOnBackgroundThread(CharSequence charSequence);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public CursorFilter(CursorFilterClient cursorFilterClient) {
         this.mClient = cursorFilterClient;
     }
@@ -28,7 +27,7 @@ class CursorFilter extends Filter {
     }
 
     @Override // android.widget.Filter
-    protected Filter.FilterResults performFiltering(CharSequence charSequence) {
+    public Filter.FilterResults performFiltering(CharSequence charSequence) {
         Cursor runQueryOnBackgroundThread = this.mClient.runQueryOnBackgroundThread(charSequence);
         Filter.FilterResults filterResults = new Filter.FilterResults();
         if (runQueryOnBackgroundThread != null) {
@@ -42,10 +41,12 @@ class CursorFilter extends Filter {
     }
 
     @Override // android.widget.Filter
-    protected void publishResults(CharSequence charSequence, Filter.FilterResults filterResults) {
+    public void publishResults(CharSequence charSequence, Filter.FilterResults filterResults) {
         Cursor cursor = this.mClient.getCursor();
-        if (filterResults.values != null && filterResults.values != cursor) {
-            this.mClient.changeCursor((Cursor) filterResults.values);
+        Object obj = filterResults.values;
+        if (obj == null || obj == cursor) {
+            return;
         }
+        this.mClient.changeCursor((Cursor) obj);
     }
 }

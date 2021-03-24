@@ -8,43 +8,48 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final List<com.meizu.cloud.pushsdk.c.a.b> f7408a;
-    protected final long b;
-    protected final String c;
+    public final List<com.meizu.cloud.pushsdk.c.a.b> f37721a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final long f37722b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final String f37723c;
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static abstract class AbstractC1188a<T extends AbstractC1188a<T>> {
+    /* loaded from: classes6.dex */
+    public static abstract class AbstractC0455a<T extends AbstractC0455a<T>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private List<com.meizu.cloud.pushsdk.c.a.b> f7409a = new LinkedList();
-        private long b = System.currentTimeMillis();
-        private String c = e.b();
+        public List<com.meizu.cloud.pushsdk.c.a.b> f37724a = new LinkedList();
 
-        /* JADX INFO: Access modifiers changed from: protected */
+        /* renamed from: b  reason: collision with root package name */
+        public long f37725b = System.currentTimeMillis();
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f37726c = e.b();
+
         public abstract T a();
 
         public T a(long j) {
-            this.b = j;
+            this.f37725b = j;
             return a();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public a(AbstractC1188a<?> abstractC1188a) {
-        d.a(((AbstractC1188a) abstractC1188a).f7409a);
-        d.a(((AbstractC1188a) abstractC1188a).c);
-        d.a(!((AbstractC1188a) abstractC1188a).c.isEmpty(), "eventId cannot be empty");
-        this.f7408a = ((AbstractC1188a) abstractC1188a).f7409a;
-        this.b = ((AbstractC1188a) abstractC1188a).b;
-        this.c = ((AbstractC1188a) abstractC1188a).c;
+    public a(AbstractC0455a<?> abstractC0455a) {
+        d.a(abstractC0455a.f37724a);
+        d.a(abstractC0455a.f37726c);
+        d.a(!abstractC0455a.f37726c.isEmpty(), "eventId cannot be empty");
+        this.f37721a = abstractC0455a.f37724a;
+        this.f37722b = abstractC0455a.f37725b;
+        this.f37723c = abstractC0455a.f37726c;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public c a(c cVar) {
         cVar.a(NotificationStyle.EXPANDABLE_IMAGE_URL, c());
         cVar.a(TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.toString(b()));
@@ -52,14 +57,14 @@ public class a {
     }
 
     public List<com.meizu.cloud.pushsdk.c.a.b> a() {
-        return new ArrayList(this.f7408a);
+        return new ArrayList(this.f37721a);
     }
 
     public long b() {
-        return this.b;
+        return this.f37722b;
     }
 
     public String c() {
-        return this.c;
+        return this.f37723c;
     }
 }

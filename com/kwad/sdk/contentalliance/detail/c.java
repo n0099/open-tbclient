@@ -11,13 +11,17 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f5600a;
-    public boolean g;
-    public boolean h;
+    public h f32151a;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f32157g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f32158h;
     public int i;
     @NonNull
     public AdTemplate j;
@@ -32,41 +36,56 @@ public class c extends com.kwad.sdk.core.e.b {
     public com.kwad.sdk.contentalliance.detail.b.b q;
     @Nullable
     public com.kwad.sdk.live.slide.detail.a.a r;
-    public List<com.kwad.sdk.contentalliance.a.a> b = new LinkedList();
-    public List<com.kwad.sdk.contentalliance.a.c> c = new ArrayList();
-    public List<e> d = new ArrayList();
-    public List<com.kwad.sdk.contentalliance.home.swipe.a> e = new LinkedList();
-    public List<f.a> f = new ArrayList();
+
+    /* renamed from: b  reason: collision with root package name */
+    public List<com.kwad.sdk.contentalliance.a.a> f32152b = new LinkedList();
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<com.kwad.sdk.contentalliance.a.c> f32153c = new ArrayList();
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<e> f32154d = new ArrayList();
+
+    /* renamed from: e  reason: collision with root package name */
+    public List<com.kwad.sdk.contentalliance.home.swipe.a> f32155e = new LinkedList();
+
+    /* renamed from: f  reason: collision with root package name */
+    public List<f.a> f32156f = new ArrayList();
     public boolean n = false;
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        if (this.m != null) {
-            this.m.i();
+        com.kwad.sdk.contentalliance.detail.video.b bVar = this.m;
+        if (bVar != null) {
+            bVar.i();
         }
-        if (this.r != null) {
-            this.r.a();
+        com.kwad.sdk.live.slide.detail.a.a aVar = this.r;
+        if (aVar != null) {
+            aVar.a();
         }
-        if (this.o != null) {
-            this.o.f();
+        com.kwad.sdk.core.download.b.b bVar2 = this.o;
+        if (bVar2 != null) {
+            bVar2.f();
         }
     }
 
     public void a(com.kwad.sdk.contentalliance.trends.view.c cVar) {
-        if (!com.kwad.sdk.core.response.b.c.B(this.j) || this.f5600a == null) {
+        h hVar;
+        if (!com.kwad.sdk.core.response.b.c.B(this.j) || (hVar = this.f32151a) == null) {
             return;
         }
-        this.f5600a.e.add(cVar);
+        hVar.f32792e.add(cVar);
     }
 
     public void b(com.kwad.sdk.contentalliance.trends.view.c cVar) {
-        if (!com.kwad.sdk.core.response.b.c.B(this.j) || this.f5600a == null) {
+        h hVar;
+        if (!com.kwad.sdk.core.response.b.c.B(this.j) || (hVar = this.f32151a) == null) {
             return;
         }
-        this.f5600a.e.remove(cVar);
+        hVar.f32792e.remove(cVar);
     }
 
     public boolean b() {
-        return this.g;
+        return this.f32157g;
     }
 }

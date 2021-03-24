@@ -1,11 +1,11 @@
 package com.baidu.platform.comapi.wnplatform.o.b.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3077a;
+    public String f10350a;
 
     public String a() {
-        return this.f3077a;
+        return this.f10350a;
     }
 }

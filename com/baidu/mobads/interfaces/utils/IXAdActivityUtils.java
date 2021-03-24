@@ -2,7 +2,7 @@ package com.baidu.mobads.interfaces.utils;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAdActivityUtils {
     Boolean isFullScreen(Activity activity);
 

@@ -10,70 +10,92 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
-    private String lXb;
-    private CustomMessageListener lnc;
-    private LinearLayout mContainer;
-    private ProgressBar mProgressBar;
-    private View mRoot;
-    private TextView mTextView;
+
+    /* renamed from: a  reason: collision with root package name */
+    public View f19723a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinearLayout f19724b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f19725c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ProgressBar f19726d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f19727e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public CustomMessageListener f19728f;
+
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+                return;
+            }
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                PbLoadMoreItemViewHolder.this.f();
+            } else {
+                PbLoadMoreItemViewHolder.this.b();
+            }
+        }
+    }
 
     public PbLoadMoreItemViewHolder(View view, BdUniqueId bdUniqueId) {
         super(view);
-        this.lnc = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                    if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        PbLoadMoreItemViewHolder.this.startLoadData();
-                    } else {
-                        PbLoadMoreItemViewHolder.this.endLoadData();
-                    }
-                }
-            }
-        };
-        this.mRoot = view;
-        this.mContainer = (LinearLayout) view.findViewById(R.id.pb_more_view);
-        this.mTextView = (TextView) view.findViewById(R.id.pb_more_text);
-        this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
-        this.mContainer.setVisibility(0);
-        this.lnc.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.lnc);
-        onChangeSkinType();
+        this.f19728f = new a(2921471);
+        this.f19723a = view;
+        this.f19724b = (LinearLayout) view.findViewById(R.id.pb_more_view);
+        this.f19725c = (TextView) view.findViewById(R.id.pb_more_text);
+        this.f19726d = (ProgressBar) view.findViewById(R.id.progress);
+        this.f19724b.setVisibility(0);
+        this.f19728f.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f19728f);
+        c();
     }
 
-    public void setText(String str, int i) {
-        this.lXb = str;
-        this.mTextView.setText(str);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
+    public void b() {
+        this.f19726d.setVisibility(8);
+        String str = this.f19727e;
+        if (str != null) {
+            this.f19725c.setText(str);
+        } else {
+            this.f19725c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
+        }
+    }
+
+    public void c() {
+        this.f19725c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.CAM_X0109));
+        this.f19724b.setBackgroundResource(R.drawable.pb_foot_more_trans_selector);
+    }
+
+    public void d(View.OnClickListener onClickListener) {
+        this.f19723a.setOnClickListener(onClickListener);
+    }
+
+    public void e(String str, int i) {
+        this.f19727e = str;
+        this.f19725c.setText(str);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f19724b.getLayoutParams();
         layoutParams.height = i;
         layoutParams.bottomMargin = 0;
-        this.mContainer.setLayoutParams(layoutParams);
+        this.f19724b.setLayoutParams(layoutParams);
     }
 
-    public void onChangeSkinType() {
-        this.mTextView.setTextColor(com.baidu.tbadk.core.util.ap.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.CAM_X0109));
-        this.mContainer.setBackgroundResource(R.drawable.pb_foot_more_trans_selector);
-    }
-
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.mRoot.setOnClickListener(onClickListener);
-    }
-
-    public void startLoadData() {
-        this.mProgressBar.setVisibility(0);
-        this.mTextView.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.loading));
-    }
-
-    public void endLoadData() {
-        this.mProgressBar.setVisibility(8);
-        if (this.lXb != null) {
-            this.mTextView.setText(this.lXb);
-        } else {
-            this.mTextView.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
-        }
+    public void f() {
+        this.f19726d.setVisibility(0);
+        this.f19725c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.loading));
     }
 }

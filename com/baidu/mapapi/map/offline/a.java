@@ -3,15 +3,14 @@ package com.baidu.mapapi.map.offline;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mapsdkplatform.comapi.map.v;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
-class a implements v {
+/* loaded from: classes2.dex */
+public class a implements v {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MKOfflineMap f2074a;
+    public final /* synthetic */ MKOfflineMap f7089a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public a(MKOfflineMap mKOfflineMap) {
-        this.f2074a = mKOfflineMap;
+        this.f7089a = mKOfflineMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.v
@@ -19,43 +18,39 @@ class a implements v {
         MKOfflineMapListener mKOfflineMapListener;
         MKOfflineMapListener mKOfflineMapListener2;
         MKOfflineMapListener mKOfflineMapListener3;
-        MKOfflineMapListener mKOfflineMapListener4;
         r rVar;
-        switch (i) {
-            case 4:
-                ArrayList<MKOLUpdateElement> allUpdateInfo = this.f2074a.getAllUpdateInfo();
-                if (allUpdateInfo != null) {
-                    for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
-                        if (mKOLUpdateElement.update) {
-                            mKOfflineMapListener3 = this.f2074a.c;
-                            mKOfflineMapListener3.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
-                        }
+        if (i == 4) {
+            ArrayList<MKOLUpdateElement> allUpdateInfo = this.f7089a.getAllUpdateInfo();
+            if (allUpdateInfo != null) {
+                for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
+                    if (mKOLUpdateElement.update) {
+                        mKOfflineMapListener = this.f7089a.f7088c;
+                        mKOfflineMapListener.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
                     }
-                    return;
                 }
                 return;
-            case 5:
-            case 7:
-            case 9:
-            case 11:
-            default:
-                return;
-            case 6:
-                mKOfflineMapListener4 = this.f2074a.c;
-                mKOfflineMapListener4.onGetOfflineMapState(6, i2);
-                return;
-            case 8:
-                mKOfflineMapListener2 = this.f2074a.c;
-                mKOfflineMapListener2.onGetOfflineMapState(0, i2 >> 8);
-                return;
-            case 10:
-                mKOfflineMapListener = this.f2074a.c;
-                mKOfflineMapListener.onGetOfflineMapState(2, i2);
-                return;
-            case 12:
-                rVar = this.f2074a.b;
-                rVar.a(true, false);
-                return;
+            }
+            return;
         }
+        int i3 = 6;
+        if (i == 6) {
+            mKOfflineMapListener2 = this.f7089a.f7088c;
+        } else if (i == 8) {
+            int i4 = i2 >> 8;
+            mKOfflineMapListener3 = this.f7089a.f7088c;
+            mKOfflineMapListener3.onGetOfflineMapState(0, i4);
+            return;
+        } else if (i != 10) {
+            if (i != 12) {
+                return;
+            }
+            rVar = this.f7089a.f7087b;
+            rVar.a(true, false);
+            return;
+        } else {
+            mKOfflineMapListener2 = this.f7089a.f7088c;
+            i3 = 2;
+        }
+        mKOfflineMapListener2.onGetOfflineMapState(i3, i2);
     }
 }

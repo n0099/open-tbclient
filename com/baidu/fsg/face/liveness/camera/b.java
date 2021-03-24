@@ -10,111 +10,87 @@ import android.util.Log;
 import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.WindowManager;
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.face.base.d.d;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.base.d.g;
 import com.baidu.fsg.face.liveness.video.e;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1763a = 1;
-    public static final int b = 2;
-    public static final int c = 3;
-    public static final int d = 480;
-    public static final int e = 640;
+    public static final int f5962a = 1;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f5963b = 2;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final int f5964c = 3;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final int f5965d = 480;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f5966e = 640;
     public static int i = 0;
-    private static final String j = "CameraInterface";
-    private static final float k = 0.2f;
-    private static int o = -1;
-    Camera f;
-    MediaRecorder g;
-    SurfaceHolder h;
-    private a l;
-    private String m = "off";
-    private boolean n = false;
-    private boolean p = true;
-    private int q = 2;
-    private boolean r = true;
-    private boolean s = false;
-    private com.baidu.fsg.face.liveness.video.a t;
-    private e u;
-    private boolean v;
+    public static final String j = "CameraInterface";
+    public static final float k = 0.2f;
+    public static int o = -1;
 
-    public void a(boolean z) {
-        this.v = z;
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public Camera f5967f;
 
-    public boolean a(Activity activity, int i2) {
-        LogUtil.d("调用 doOpenCamera");
-        this.q = i2;
-        if (this.f != null) {
-            this.f.stopPreview();
-            this.f.release();
-            this.f = null;
-        }
-        if (a() == 1) {
-            this.p = false;
-        }
-        if (this.p) {
-            o = 1;
-        } else {
-            o = 0;
-        }
-        try {
-            this.f = Camera.open(o);
-            a(activity);
-            return true;
-        } catch (Throwable th) {
-            d.a(th);
-            if (this.f != null) {
-                this.f.release();
-                this.f = null;
-            }
-            return false;
-        }
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public MediaRecorder f5968g;
 
-    public void a(Activity activity, SurfaceHolder surfaceHolder) {
-        LogUtil.d("调用 doStartPreview");
-        if (this.f != null) {
-            try {
-                this.h = surfaceHolder;
-                this.f.setPreviewDisplay(surfaceHolder);
-                this.f.startPreview();
-            } catch (Throwable th) {
-                d.a(th);
-            }
-            this.n = true;
-        }
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public SurfaceHolder f5969h;
+    public a l;
+    public String m = "off";
+    public boolean n = false;
+    public boolean p = true;
+    public int q = 2;
+    public boolean r = true;
+    public boolean s = false;
+    public com.baidu.fsg.face.liveness.video.a t;
+    public e u;
+    public boolean v;
 
-    public int a() {
-        return Camera.getNumberOfCameras();
+    /* loaded from: classes2.dex */
+    public static class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f5971a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f5972b;
+
+        public a(int i, int i2) {
+            this.f5971a = i;
+            this.f5972b = i2;
+        }
     }
 
     public void b() {
-        if (this.f != null) {
-            this.f.startPreview();
+        Camera camera = this.f5967f;
+        if (camera != null) {
+            camera.startPreview();
         }
     }
 
     public void c() {
         LogUtil.d("调用 stopPreview");
-        if (this.f != null) {
+        if (this.f5967f != null) {
             if (this.v && this.s) {
                 f();
             }
-            this.f.stopPreview();
+            this.f5967f.stopPreview();
         }
     }
 
@@ -124,15 +100,15 @@ public class b {
             if (this.v && this.s) {
                 f();
             }
-            if (this.h != null && Build.VERSION.SDK_INT >= 14) {
-                this.h.getSurface().release();
+            if (this.f5969h != null && Build.VERSION.SDK_INT >= 14) {
+                this.f5969h.getSurface().release();
             }
-            if (this.f != null) {
-                this.f.setPreviewCallback(null);
-                this.f.stopPreview();
-                this.f.release();
+            if (this.f5967f != null) {
+                this.f5967f.setPreviewCallback(null);
+                this.f5967f.stopPreview();
+                this.f5967f.release();
                 this.n = false;
-                this.f = null;
+                this.f5967f = null;
             }
             this.p = true;
         } catch (Exception e2) {
@@ -144,349 +120,26 @@ public class b {
         return this.s;
     }
 
-    public void a(byte[] bArr) {
-        if (this.v && this.u != null && this.s) {
-            this.u.a(bArr, System.nanoTime() / 1000);
-        }
-    }
-
     public void f() {
         LogUtil.d("调用 stopRecordVideo");
         this.s = false;
-        if (this.t != null) {
-            this.t.g();
+        com.baidu.fsg.face.liveness.video.a aVar = this.t;
+        if (aVar != null) {
+            aVar.g();
             this.t = null;
-        }
-    }
-
-    public void a(Context context) {
-        LogUtil.d("调用 startRecordVideo");
-        if (!this.s) {
-            this.s = true;
-            com.baidu.fsg.face.liveness.video.b bVar = new com.baidu.fsg.face.liveness.video.b() { // from class: com.baidu.fsg.face.liveness.camera.b.1
-                @Override // com.baidu.fsg.face.liveness.video.b
-                public void a(e eVar) {
-                    b.this.u = eVar;
-                }
-
-                @Override // com.baidu.fsg.face.liveness.video.b
-                public void b(e eVar) {
-                    b.this.u = null;
-                }
-
-                @Override // com.baidu.fsg.face.liveness.video.b
-                public int a() {
-                    return b.this.l.f1765a;
-                }
-
-                @Override // com.baidu.fsg.face.liveness.video.b
-                public int b() {
-                    return b.this.l.b;
-                }
-
-                @Override // com.baidu.fsg.face.liveness.video.b
-                public int c() {
-                    return 270;
-                }
-            };
-            String c2 = g.c(context);
-            File file = new File(c2);
-            try {
-                g.a(file);
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-            } catch (IOException e2) {
-                e2.printStackTrace();
-                Log.e(j, "创建保存视频路径失败:", e2);
-            }
-            this.t = new com.baidu.fsg.face.liveness.video.a(c2, bVar);
-            this.t.f();
-        }
-    }
-
-    public void a(Activity activity) {
-        int i2 = 0;
-        if (this.f != null) {
-            Camera.Parameters parameters = this.f.getParameters();
-            parameters.setPictureFormat(256);
-            parameters.setPreviewFormat(17);
-            a(parameters, a(activity, parameters, false));
-            switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
-                case 1:
-                    i2 = 90;
-                    break;
-                case 2:
-                    i2 = 180;
-                    break;
-                case 3:
-                    i2 = 270;
-                    break;
-            }
-            if (Build.VERSION.SDK_INT >= 9) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(o, cameraInfo);
-                if (cameraInfo.facing == 1) {
-                    i = (i2 + cameraInfo.orientation) % EncoderTextureDrawer.X264_WIDTH;
-                    i = (360 - i) % EncoderTextureDrawer.X264_WIDTH;
-                } else {
-                    i = ((cameraInfo.orientation - i2) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
-                }
-                this.f.setDisplayOrientation(i);
-            } else if (Build.VERSION.SDK_INT == 8) {
-                i = ((90 - i2) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
-                this.f.setDisplayOrientation(i);
-            } else {
-                i = ((90 - i2) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
-                try {
-                    Method method = this.f.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
-                    if (method != null) {
-                        method.invoke(this.f, Integer.valueOf(i));
-                    }
-                } catch (Exception e2) {
-                    d.a(e2);
-                }
-            }
-            if (parameters.getSupportedFocusModes().contains("continuous-video")) {
-                parameters.setFocusMode("continuous-video");
-            }
-            if (parameters.getSupportedFlashModes() != null) {
-                if (this.p) {
-                    this.m = "off";
-                    parameters.setFlashMode(this.m);
-                } else {
-                    parameters.setFlashMode(this.m);
-                }
-            } else {
-                this.m = "off";
-            }
-            this.f.setParameters(parameters);
-        }
-    }
-
-    public boolean b(Activity activity) {
-        try {
-            if (this.f == null) {
-                a(activity, 1);
-            }
-            if (this.f == null) {
-                this.r = false;
-                return false;
-            }
-            if (this.g == null) {
-                this.g = new MediaRecorder();
-            } else {
-                this.g.reset();
-            }
-            Camera.Parameters parameters = this.f.getParameters();
-            a a2 = a(activity, parameters, this.l);
-            Camera camera = this.f;
-            camera.getClass();
-            Camera.Size size = new Camera.Size(camera, a2.f1765a, a2.b);
-            List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
-            if (supportedPreviewSizes != null && supportedPreviewSizes.contains(size)) {
-                parameters.setPreviewSize(a2.f1765a, a2.b);
-            }
-            this.f.setParameters(parameters);
-            this.f.unlock();
-            this.g.setCamera(this.f);
-            this.g.setVideoSource(1);
-            this.g.setAudioSource(1);
-            this.g.setOutputFormat(2);
-            this.g.setVideoEncodingBitRate(1048576);
-            this.g.setVideoEncoder(2);
-            this.g.setAudioEncoder(3);
-            this.g.setVideoSize(a2.f1765a, a2.b);
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(o, cameraInfo);
-            this.g.setOrientationHint(cameraInfo.orientation);
-            File file = new File(g.a(activity));
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            this.g.setOutputFile(new File(g.b(activity)).getAbsolutePath());
-            this.g.prepare();
-            this.g.start();
-            this.r = true;
-            return true;
-        } catch (Exception e2) {
-            d.a(e2);
-            if (this.f != null) {
-            }
-            g();
-            this.r = false;
-            return false;
         }
     }
 
     public synchronized void g() {
         try {
-            if (this.g != null && this.r) {
-                this.g.stop();
-                this.g.reset();
-                this.g.release();
-                this.g = null;
-            }
-            if (this.f != null) {
+            if (this.f5968g != null && this.r) {
+                this.f5968g.stop();
+                this.f5968g.reset();
+                this.f5968g.release();
+                this.f5968g = null;
             }
         } catch (Exception e2) {
             d.a(e2);
-        }
-    }
-
-    private a a(Context context, Camera.Parameters parameters, a aVar) {
-        List<Camera.Size> supportedVideoSizes = parameters.getSupportedVideoSizes();
-        List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
-        if (supportedVideoSizes == null || supportedVideoSizes.size() == 0) {
-            return aVar;
-        }
-        if (supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
-            return aVar;
-        }
-        float f = aVar.b / aVar.f1765a;
-        a aVar2 = new a(0, 0);
-        a aVar3 = new a(0, 0);
-        a aVar4 = new a(0, 0);
-        a aVar5 = new a(0, 0);
-        int i2 = 0;
-        while (true) {
-            int i3 = i2;
-            a aVar6 = aVar2;
-            if (i3 >= supportedVideoSizes.size()) {
-                return aVar5.f1765a > 0 ? aVar5 : aVar6.f1765a <= 0 ? aVar4 : aVar6;
-            }
-            Camera.Size size = supportedVideoSizes.get(i3);
-            aVar3.f1765a = size.width;
-            aVar3.b = size.height;
-            if (aVar3.f1765a == aVar.f1765a && aVar3.b == aVar.b) {
-                aVar6.f1765a = aVar3.f1765a;
-                aVar6.b = aVar3.b;
-                return aVar6;
-            }
-            int i4 = 0;
-            while (true) {
-                int i5 = i4;
-                if (i5 >= supportedPreviewSizes.size()) {
-                    break;
-                }
-                Camera.Size size2 = supportedPreviewSizes.get(i5);
-                aVar4.f1765a = size2.width;
-                aVar4.b = size2.height;
-                if (aVar3.f1765a == aVar4.f1765a && aVar3.b == aVar4.b && aVar3.f1765a * aVar3.b >= aVar5.f1765a * aVar5.b && aVar3.f1765a * aVar3.b <= 921600) {
-                    aVar5.f1765a = aVar3.f1765a;
-                    aVar5.b = aVar3.b;
-                }
-                i4 = i5 + 1;
-            }
-            aVar2 = (Math.abs((((float) size.width) / ((float) size.height)) - f) >= 0.01f || aVar3.f1765a < aVar6.f1765a || aVar3.b < aVar6.b || aVar3.f1765a * aVar3.b > 921600) ? aVar6 : aVar3;
-            i2 = i3 + 1;
-        }
-    }
-
-    private List<a> a(Activity activity, Camera.Parameters parameters) {
-        int i2;
-        List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
-        if (supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
-            return null;
-        }
-        Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-        a aVar = new a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
-        int i3 = 153600;
-        if ((aVar.f1765a * aVar.b) / 4 <= 921600) {
-            i2 = 921600;
-        } else {
-            i3 = (aVar.f1765a * aVar.b) / 8;
-            i2 = 2073600;
-        }
-        ArrayList arrayList = new ArrayList();
-        RimStatisticsUtil.onEventWithValue(com.baidu.fsg.face.liveness.d.F, i3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + i2);
-        ArrayList arrayList2 = new ArrayList();
-        arrayList2.add(aVar.f1765a + "*" + aVar.b);
-        StringBuilder sb = new StringBuilder();
-        for (int i4 = 0; i4 < supportedPreviewSizes.size(); i4++) {
-            Camera.Size size = supportedPreviewSizes.get(i4);
-            sb.append(size.width);
-            sb.append("*");
-            sb.append(size.height);
-            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-            if (size.width * size.height >= i3 && size.width * size.height <= i2) {
-                arrayList.add(new a(size.width, size.height));
-            }
-        }
-        arrayList2.add(sb.length() > 1 ? sb.substring(0, sb.length() - 1) : "");
-        RimStatisticsUtil.onEventWithValues(com.baidu.fsg.face.liveness.d.E, arrayList2);
-        return arrayList;
-    }
-
-    private a b(Activity activity, Camera.Parameters parameters) {
-        if (this.l != null) {
-            return this.l;
-        }
-        List<a> a2 = a(activity, parameters);
-        this.l = new a(640, 480);
-        if (a2 == null || a2.size() == 0) {
-            return this.l;
-        }
-        Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-        a aVar = new a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
-        float f = aVar.b / aVar.f1765a;
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(aVar.f1765a + "*" + aVar.b);
-        arrayList.add(f + "");
-        StringBuilder sb = new StringBuilder();
-        float f2 = this.l.f1765a / this.l.b;
-        for (int i2 = 0; i2 < a2.size(); i2++) {
-            a aVar2 = a2.get(i2);
-            float f3 = aVar2.f1765a / aVar2.b;
-            sb.append(aVar2.f1765a);
-            sb.append("*");
-            sb.append(aVar2.b);
-            sb.append("*");
-            sb.append(f3);
-            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-            float abs = Math.abs(f3 - f);
-            if (abs < f2) {
-                this.l = aVar2;
-                f2 = abs;
-            }
-        }
-        arrayList.add(sb.length() > 1 ? sb.substring(0, sb.length() - 1) : "");
-        RimStatisticsUtil.onEventWithValues(com.baidu.fsg.face.liveness.d.G, arrayList);
-        return this.l;
-    }
-
-    public a a(Activity activity, Camera.Parameters parameters, boolean z) {
-        a b2 = b(activity, parameters);
-        parameters.setPreviewSize(b2.f1765a, b2.b);
-        LogUtil.d("cameraSize.width:" + b2.f1765a + ",cameraSize.height:" + b2.b);
-        return b2;
-    }
-
-    public void a(Camera.Parameters parameters, a aVar) {
-        float f = aVar != null ? aVar.f1765a / aVar.b : 0.0f;
-        List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
-        if (supportedPictureSizes != null) {
-            int size = supportedPictureSizes.size();
-            int i2 = 0;
-            Camera.Size size2 = null;
-            Camera.Size size3 = null;
-            while (i2 < size) {
-                Camera.Size size4 = supportedPictureSizes.get(i2);
-                if (size3 == null) {
-                    size3 = size4;
-                } else if (size4.width >= size3.width && size4.height >= size3.height && size4.width * size4.height < 5000000) {
-                    size3 = size4;
-                }
-                if (f <= 0.0f || Math.abs((size4.width / size4.height) - f) >= 0.15f || size4.width * size4.height >= 7000000 || (size2 != null && (size4.width <= size2.width || size4.height <= size2.height))) {
-                    size4 = size2;
-                }
-                i2++;
-                size2 = size4;
-            }
-            if (size2 == null) {
-                size2 = size3;
-            }
-            parameters.setPictureSize(size2.width, size2.height);
         }
     }
 
@@ -501,23 +154,415 @@ public class b {
         return this.l;
     }
 
-    public void a(Camera.PreviewCallback previewCallback) {
-        if (this.f != null) {
-            this.f.setPreviewCallbackWithBuffer(previewCallback);
-            this.f.addCallbackBuffer(new byte[((i().f1765a * i().b) * ImageFormat.getBitsPerPixel(this.f.getParameters().getPreviewFormat())) / 8]);
+    public void a(boolean z) {
+        this.v = z;
+    }
+
+    public boolean b(Activity activity) {
+        try {
+            if (this.f5967f == null) {
+                a(activity, 1);
+            }
+            if (this.f5967f == null) {
+                this.r = false;
+                return false;
+            }
+            if (this.f5968g == null) {
+                this.f5968g = new MediaRecorder();
+            } else {
+                this.f5968g.reset();
+            }
+            Camera.Parameters parameters = this.f5967f.getParameters();
+            a a2 = a(activity, parameters, this.l);
+            Camera camera = this.f5967f;
+            camera.getClass();
+            Camera.Size size = new Camera.Size(camera, a2.f5971a, a2.f5972b);
+            List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
+            if (supportedPreviewSizes != null && supportedPreviewSizes.contains(size)) {
+                parameters.setPreviewSize(a2.f5971a, a2.f5972b);
+            }
+            this.f5967f.setParameters(parameters);
+            this.f5967f.unlock();
+            this.f5968g.setCamera(this.f5967f);
+            this.f5968g.setVideoSource(1);
+            this.f5968g.setAudioSource(1);
+            this.f5968g.setOutputFormat(2);
+            this.f5968g.setVideoEncodingBitRate(1048576);
+            this.f5968g.setVideoEncoder(2);
+            this.f5968g.setAudioEncoder(3);
+            this.f5968g.setVideoSize(a2.f5971a, a2.f5972b);
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(o, cameraInfo);
+            this.f5968g.setOrientationHint(cameraInfo.orientation);
+            File file = new File(g.a(activity));
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            this.f5968g.setOutputFile(new File(g.b(activity)).getAbsolutePath());
+            this.f5968g.prepare();
+            this.f5968g.start();
+            this.r = true;
+            return true;
+        } catch (Exception e2) {
+            d.a(e2);
+            g();
+            this.r = false;
+            return false;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class a {
+    public boolean a(Activity activity, int i2) {
+        LogUtil.d("调用 doOpenCamera");
+        this.q = i2;
+        Camera camera = this.f5967f;
+        if (camera != null) {
+            camera.stopPreview();
+            this.f5967f.release();
+            this.f5967f = null;
+        }
+        if (a() == 1) {
+            this.p = false;
+        }
+        if (this.p) {
+            o = 1;
+        } else {
+            o = 0;
+        }
+        try {
+            this.f5967f = Camera.open(o);
+            a(activity);
+            return true;
+        } catch (Throwable th) {
+            d.a(th);
+            Camera camera2 = this.f5967f;
+            if (camera2 != null) {
+                camera2.release();
+                this.f5967f = null;
+            }
+            return false;
+        }
+    }
 
-        /* renamed from: a  reason: collision with root package name */
-        public int f1765a;
-        public int b;
+    public void a(Activity activity, SurfaceHolder surfaceHolder) {
+        LogUtil.d("调用 doStartPreview");
+        Camera camera = this.f5967f;
+        if (camera != null) {
+            try {
+                this.f5969h = surfaceHolder;
+                camera.setPreviewDisplay(surfaceHolder);
+                this.f5967f.startPreview();
+            } catch (Throwable th) {
+                d.a(th);
+            }
+            this.n = true;
+        }
+    }
 
-        public a(int i, int i2) {
-            this.f1765a = i;
-            this.b = i2;
+    public int a() {
+        return Camera.getNumberOfCameras();
+    }
+
+    public void a(byte[] bArr) {
+        if (this.v && this.u != null && this.s) {
+            this.u.a(bArr, System.nanoTime() / 1000);
+        }
+    }
+
+    public void a(Context context) {
+        LogUtil.d("调用 startRecordVideo");
+        if (this.s) {
+            return;
+        }
+        this.s = true;
+        com.baidu.fsg.face.liveness.video.b bVar = new com.baidu.fsg.face.liveness.video.b() { // from class: com.baidu.fsg.face.liveness.camera.b.1
+            @Override // com.baidu.fsg.face.liveness.video.b
+            public void a(e eVar) {
+                b.this.u = eVar;
+            }
+
+            @Override // com.baidu.fsg.face.liveness.video.b
+            public void b(e eVar) {
+                b.this.u = null;
+            }
+
+            @Override // com.baidu.fsg.face.liveness.video.b
+            public int c() {
+                return 270;
+            }
+
+            @Override // com.baidu.fsg.face.liveness.video.b
+            public int a() {
+                return b.this.l.f5971a;
+            }
+
+            @Override // com.baidu.fsg.face.liveness.video.b
+            public int b() {
+                return b.this.l.f5972b;
+            }
+        };
+        String c2 = g.c(context);
+        File file = new File(c2);
+        try {
+            g.a(file);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        } catch (IOException e2) {
+            e2.printStackTrace();
+            Log.e("CameraInterface", "创建保存视频路径失败:", e2);
+        }
+        com.baidu.fsg.face.liveness.video.a aVar = new com.baidu.fsg.face.liveness.video.a(c2, bVar);
+        this.t = aVar;
+        aVar.f();
+    }
+
+    private a b(Activity activity, Camera.Parameters parameters) {
+        a aVar = this.l;
+        if (aVar != null) {
+            return aVar;
+        }
+        List<a> a2 = a(activity, parameters);
+        this.l = new a(640, 480);
+        if (a2 != null && a2.size() != 0) {
+            Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
+            a aVar2 = new a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
+            float f2 = aVar2.f5972b / aVar2.f5971a;
+            a aVar3 = this.l;
+            float f3 = aVar3.f5971a / aVar3.f5972b;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(aVar2.f5971a + "*" + aVar2.f5972b);
+            StringBuilder sb = new StringBuilder();
+            sb.append(f2);
+            sb.append("");
+            arrayList.add(sb.toString());
+            StringBuilder sb2 = new StringBuilder();
+            for (int i2 = 0; i2 < a2.size(); i2++) {
+                a aVar4 = a2.get(i2);
+                int i3 = aVar4.f5971a;
+                float f4 = i3 / aVar4.f5972b;
+                sb2.append(i3);
+                sb2.append("*");
+                sb2.append(aVar4.f5972b);
+                sb2.append("*");
+                sb2.append(f4);
+                sb2.append("-");
+                float abs = Math.abs(f4 - f2);
+                if (abs < f3) {
+                    this.l = aVar4;
+                    f3 = abs;
+                }
+            }
+            arrayList.add(sb2.length() > 1 ? sb2.substring(0, sb2.length() - 1) : "");
+            RimStatisticsUtil.onEventWithValues(com.baidu.fsg.face.liveness.d.G, arrayList);
+            return this.l;
+        }
+        return this.l;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0043  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0070  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00bc  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00c7  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00d7  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(Activity activity) {
+        int i2;
+        int i3;
+        Camera camera = this.f5967f;
+        if (camera != null) {
+            Camera.Parameters parameters = camera.getParameters();
+            parameters.setPictureFormat(256);
+            parameters.setPreviewFormat(17);
+            a(parameters, a(activity, parameters, false));
+            int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+            if (rotation != 0) {
+                if (rotation == 1) {
+                    i2 = 90;
+                } else if (rotation == 2) {
+                    i2 = 180;
+                } else if (rotation == 3) {
+                    i2 = 270;
+                }
+                i3 = Build.VERSION.SDK_INT;
+                if (i3 < 9) {
+                    Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                    Camera.getCameraInfo(o, cameraInfo);
+                    if (cameraInfo.facing == 1) {
+                        int i4 = (cameraInfo.orientation + i2) % 360;
+                        i = i4;
+                        i = (360 - i4) % 360;
+                    } else {
+                        i = ((cameraInfo.orientation - i2) + 360) % 360;
+                    }
+                    this.f5967f.setDisplayOrientation(i);
+                } else if (i3 == 8) {
+                    int i5 = ((90 - i2) + 360) % 360;
+                    i = i5;
+                    this.f5967f.setDisplayOrientation(i5);
+                } else {
+                    i = ((90 - i2) + 360) % 360;
+                    try {
+                        Method method = this.f5967f.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
+                        if (method != null) {
+                            method.invoke(this.f5967f, Integer.valueOf(i));
+                        }
+                    } catch (Exception e2) {
+                        d.a(e2);
+                    }
+                }
+                if (parameters.getSupportedFocusModes().contains("continuous-video")) {
+                    parameters.setFocusMode("continuous-video");
+                }
+                if (parameters.getSupportedFlashModes() == null) {
+                    if (this.p) {
+                        this.m = "off";
+                        parameters.setFlashMode("off");
+                    } else {
+                        parameters.setFlashMode(this.m);
+                    }
+                } else {
+                    this.m = "off";
+                }
+                this.f5967f.setParameters(parameters);
+            }
+            i2 = 0;
+            i3 = Build.VERSION.SDK_INT;
+            if (i3 < 9) {
+            }
+            if (parameters.getSupportedFocusModes().contains("continuous-video")) {
+            }
+            if (parameters.getSupportedFlashModes() == null) {
+            }
+            this.f5967f.setParameters(parameters);
+        }
+    }
+
+    private a a(Context context, Camera.Parameters parameters, a aVar) {
+        int i2;
+        int i3;
+        int i4;
+        List<Camera.Size> supportedVideoSizes = parameters.getSupportedVideoSizes();
+        List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
+        if (supportedVideoSizes == null || supportedVideoSizes.size() == 0 || supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
+            return aVar;
+        }
+        float f2 = aVar.f5972b / aVar.f5971a;
+        a aVar2 = new a(0, 0);
+        a aVar3 = new a(0, 0);
+        a aVar4 = new a(0, 0);
+        a aVar5 = new a(0, 0);
+        for (int i5 = 0; i5 < supportedVideoSizes.size(); i5++) {
+            Camera.Size size = supportedVideoSizes.get(i5);
+            int i6 = size.width;
+            aVar3.f5971a = i6;
+            int i7 = size.height;
+            aVar3.f5972b = i7;
+            if (i6 == aVar.f5971a && i7 == aVar.f5972b) {
+                aVar2.f5971a = i6;
+                aVar2.f5972b = i7;
+                return aVar2;
+            }
+            for (int i8 = 0; i8 < supportedPreviewSizes.size(); i8++) {
+                Camera.Size size2 = supportedPreviewSizes.get(i8);
+                int i9 = size2.width;
+                aVar4.f5971a = i9;
+                int i10 = size2.height;
+                aVar4.f5972b = i10;
+                int i11 = aVar3.f5971a;
+                if (i11 == i9 && (i4 = aVar3.f5972b) == i10 && i11 * i4 >= aVar5.f5971a * aVar5.f5972b && i11 * i4 <= 921600) {
+                    aVar5.f5971a = i11;
+                    aVar5.f5972b = i4;
+                }
+            }
+            if (Math.abs((size.width / size.height) - f2) < 0.01f && (i2 = aVar3.f5971a) >= aVar2.f5971a && (i3 = aVar3.f5972b) >= aVar2.f5972b) {
+                if (i2 * i3 <= 921600) {
+                    aVar2 = aVar3;
+                }
+            }
+        }
+        return aVar5.f5971a > 0 ? aVar5 : aVar2.f5971a > 0 ? aVar2 : aVar4;
+    }
+
+    private List<a> a(Activity activity, Camera.Parameters parameters) {
+        List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
+        if (supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
+            return null;
+        }
+        Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
+        a aVar = new a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
+        int i2 = 153600;
+        int i3 = 921600;
+        int i4 = aVar.f5971a;
+        int i5 = aVar.f5972b;
+        if ((i4 * i5) / 4 > 921600) {
+            i3 = 2073600;
+            i2 = (i4 * i5) / 8;
+        }
+        ArrayList arrayList = new ArrayList();
+        RimStatisticsUtil.onEventWithValue(com.baidu.fsg.face.liveness.d.F, i2 + "-" + i3);
+        ArrayList arrayList2 = new ArrayList();
+        arrayList2.add(aVar.f5971a + "*" + aVar.f5972b);
+        StringBuilder sb = new StringBuilder();
+        for (int i6 = 0; i6 < supportedPreviewSizes.size(); i6++) {
+            Camera.Size size = supportedPreviewSizes.get(i6);
+            sb.append(size.width);
+            sb.append("*");
+            sb.append(size.height);
+            sb.append("-");
+            int i7 = size.width;
+            int i8 = size.height;
+            if (i7 * i8 >= i2 && i7 * i8 <= i3) {
+                arrayList.add(new a(i7, i8));
+            }
+        }
+        arrayList2.add(sb.length() > 1 ? sb.substring(0, sb.length() - 1) : "");
+        RimStatisticsUtil.onEventWithValues(com.baidu.fsg.face.liveness.d.E, arrayList2);
+        return arrayList;
+    }
+
+    public a a(Activity activity, Camera.Parameters parameters, boolean z) {
+        a b2 = b(activity, parameters);
+        parameters.setPreviewSize(b2.f5971a, b2.f5972b);
+        LogUtil.d("cameraSize.width:" + b2.f5971a + ",cameraSize.height:" + b2.f5972b);
+        return b2;
+    }
+
+    public void a(Camera.Parameters parameters, a aVar) {
+        int i2;
+        int i3;
+        float f2 = aVar != null ? aVar.f5971a / aVar.f5972b : 0.0f;
+        List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
+        if (supportedPictureSizes == null) {
+            return;
+        }
+        int size = supportedPictureSizes.size();
+        Camera.Size size2 = null;
+        Camera.Size size3 = null;
+        for (int i4 = 0; i4 < size; i4++) {
+            Camera.Size size4 = supportedPictureSizes.get(i4);
+            if (size3 == null || ((i2 = size4.width) >= size3.width && (i3 = size4.height) >= size3.height && i2 * i3 < 5000000)) {
+                size3 = size4;
+            }
+            if (f2 > 0.0f && Math.abs((size4.width / size4.height) - f2) < 0.15f) {
+                int i5 = size4.width;
+                int i6 = size4.height;
+                if (i5 * i6 < 7000000 && (size2 == null || (i5 > size2.width && i6 > size2.height))) {
+                    size2 = size4;
+                }
+            }
+        }
+        if (size2 == null) {
+            size2 = size3;
+        }
+        parameters.setPictureSize(size2.width, size2.height);
+    }
+
+    public void a(Camera.PreviewCallback previewCallback) {
+        if (this.f5967f != null) {
+            this.f5967f.setPreviewCallbackWithBuffer(previewCallback);
+            this.f5967f.addCallbackBuffer(new byte[((i().f5971a * i().f5972b) * ImageFormat.getBitsPerPixel(this.f5967f.getParameters().getPreviewFormat())) / 8]);
         }
     }
 }

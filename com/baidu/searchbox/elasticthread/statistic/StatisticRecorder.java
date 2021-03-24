@@ -1,6 +1,7 @@
 package com.baidu.searchbox.elasticthread.statistic;
 
 import android.os.SystemClock;
+import com.alipay.sdk.app.statistic.c;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.elasticthread.ElasticConfig;
 import com.baidu.searchbox.elasticthread.ElasticDataUploader;
@@ -14,71 +15,14 @@ import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class StatisticRecorder implements Recordable {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "ElasticRecord";
+    public static final boolean DEBUG = false;
+    public static final String TAG = "ElasticRecord";
     public static final long UPLOAD_DATA_TIME_THRESHOLD = 30000;
-    private volatile Recordable.RecordStatus mRecordStatus = Recordable.RecordStatus.UNINITIATED;
-    private volatile long lastRecordBeginTime = 0;
-    private volatile long lastRecordEndTime = 0;
-
-    public long getRecordElapseTime() {
-        if (this.mRecordStatus == Recordable.RecordStatus.RECORD_END) {
-            return this.lastRecordEndTime - this.lastRecordBeginTime;
-        }
-        return -1L;
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
-    public void onRecordBegin() {
-        this.mRecordStatus = Recordable.RecordStatus.RECORDING;
-        this.lastRecordBeginTime = SystemClock.elapsedRealtime();
-        this.lastRecordEndTime = 0L;
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
-    public void onRecordEnd() {
-        this.mRecordStatus = Recordable.RecordStatus.RECORD_END;
-        this.lastRecordEndTime = SystemClock.elapsedRealtime();
-    }
-
-    public Recordable.RecordStatus getRecordStatus() {
-        return this.mRecordStatus;
-    }
-
-    public void uploadData() {
-        if (this.mRecordStatus == Recordable.RecordStatus.RECORD_END) {
-            try {
-                ElasticTaskScheduler elasticTaskScheduler = ElasticTaskScheduler.getInstance();
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("record_time", getRecordElapseTime());
-                JSONObject jSONObject2 = new JSONObject();
-                JSONObject jSONObject3 = new JSONObject();
-                ArteryManager arteryManager = elasticTaskScheduler.getArteryManager();
-                jSONObject3.put(Config.TRACE_VISIT_FIRST, loadArteryExecutorData(arteryManager.getUserRelatedArteryExecutor()));
-                jSONObject3.put("second", loadArteryExecutorData(arteryManager.getInTimeArteryExecutor()));
-                jSONObject3.put("third", loadArteryExecutorData(arteryManager.getBackgroundArteryExecutor()));
-                jSONObject2.put("artery", jSONObject3);
-                JSONObject jSONObject4 = new JSONObject();
-                DredgeManager dredgeManager = elasticTaskScheduler.getDredgeManager();
-                jSONObject4.put(Config.TRACE_VISIT_FIRST, loadDredgeExecutorData(dredgeManager.getFirstDredgeExecutor(), ElasticConfig.DREDGE_CONFIG_FIRST_CORE_POOL_SIZE));
-                jSONObject4.put("second", loadDredgeExecutorData(dredgeManager.getSecondDredgeExecutor(), ElasticConfig.DREDGE_CONFIG_SECOND_CORE_POOL_SIZE));
-                jSONObject4.put("disaster", loadDredgeExecutorData(dredgeManager.getDisasterDredgeExecutor(), ElasticConfig.DREDGE_CONFIG_DISASTER_MAX_POOL_SIZE));
-                jSONObject2.put("dredge", jSONObject4);
-                jSONObject.put("executor", jSONObject2);
-                JSONObject jSONObject5 = new JSONObject();
-                QueueManager queueManager = elasticTaskScheduler.getQueueManager();
-                jSONObject5.put("immediate", loadSingleQueueData(queueManager.getQueue(0)));
-                jSONObject5.put(Config.TRACE_VISIT_FIRST, loadSingleQueueData(queueManager.getQueue(1)));
-                jSONObject5.put("second", loadSingleQueueData(queueManager.getQueue(2)));
-                jSONObject5.put("third", loadSingleQueueData(queueManager.getQueue(3)));
-                jSONObject.put("queue", jSONObject5);
-                ElasticDataUploader.getInstance().uploadStatisticData(jSONObject);
-            } catch (Exception e) {
-            }
-        }
-    }
+    public volatile Recordable.RecordStatus mRecordStatus = Recordable.RecordStatus.UNINITIATED;
+    public volatile long lastRecordBeginTime = 0;
+    public volatile long lastRecordEndTime = 0;
 
     private JSONObject loadArteryExecutorData(BaseExecutorCell baseExecutorCell) throws JSONException {
         JSONObject jSONObject = new JSONObject();
@@ -107,5 +51,63 @@ public class StatisticRecorder implements Recordable {
         jSONObject.put("waitingTime", elasticQueue.getWaitingTimeInRecordLifeCycle());
         jSONObject.put("outputTaskCount", elasticQueue.getOutputTaskNumInRecordLifeCycle());
         return jSONObject;
+    }
+
+    public long getRecordElapseTime() {
+        if (this.mRecordStatus == Recordable.RecordStatus.RECORD_END) {
+            return this.lastRecordEndTime - this.lastRecordBeginTime;
+        }
+        return -1L;
+    }
+
+    public Recordable.RecordStatus getRecordStatus() {
+        return this.mRecordStatus;
+    }
+
+    @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
+    public void onRecordBegin() {
+        this.mRecordStatus = Recordable.RecordStatus.RECORDING;
+        this.lastRecordBeginTime = SystemClock.elapsedRealtime();
+        this.lastRecordEndTime = 0L;
+    }
+
+    @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
+    public void onRecordEnd() {
+        this.mRecordStatus = Recordable.RecordStatus.RECORD_END;
+        this.lastRecordEndTime = SystemClock.elapsedRealtime();
+    }
+
+    public void uploadData() {
+        if (this.mRecordStatus != Recordable.RecordStatus.RECORD_END) {
+            return;
+        }
+        try {
+            ElasticTaskScheduler elasticTaskScheduler = ElasticTaskScheduler.getInstance();
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("record_time", getRecordElapseTime());
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            ArteryManager arteryManager = elasticTaskScheduler.getArteryManager();
+            jSONObject3.put(Config.TRACE_VISIT_FIRST, loadArteryExecutorData(arteryManager.getUserRelatedArteryExecutor()));
+            jSONObject3.put("second", loadArteryExecutorData(arteryManager.getInTimeArteryExecutor()));
+            jSONObject3.put(c.f1839e, loadArteryExecutorData(arteryManager.getBackgroundArteryExecutor()));
+            jSONObject2.put("artery", jSONObject3);
+            JSONObject jSONObject4 = new JSONObject();
+            DredgeManager dredgeManager = elasticTaskScheduler.getDredgeManager();
+            jSONObject4.put(Config.TRACE_VISIT_FIRST, loadDredgeExecutorData(dredgeManager.getFirstDredgeExecutor(), ElasticConfig.DREDGE_CONFIG_FIRST_CORE_POOL_SIZE));
+            jSONObject4.put("second", loadDredgeExecutorData(dredgeManager.getSecondDredgeExecutor(), ElasticConfig.DREDGE_CONFIG_SECOND_CORE_POOL_SIZE));
+            jSONObject4.put("disaster", loadDredgeExecutorData(dredgeManager.getDisasterDredgeExecutor(), ElasticConfig.DREDGE_CONFIG_DISASTER_MAX_POOL_SIZE));
+            jSONObject2.put("dredge", jSONObject4);
+            jSONObject.put("executor", jSONObject2);
+            JSONObject jSONObject5 = new JSONObject();
+            QueueManager queueManager = elasticTaskScheduler.getQueueManager();
+            jSONObject5.put("immediate", loadSingleQueueData(queueManager.getQueue(0)));
+            jSONObject5.put(Config.TRACE_VISIT_FIRST, loadSingleQueueData(queueManager.getQueue(1)));
+            jSONObject5.put("second", loadSingleQueueData(queueManager.getQueue(2)));
+            jSONObject5.put(c.f1839e, loadSingleQueueData(queueManager.getQueue(3)));
+            jSONObject.put("queue", jSONObject5);
+            ElasticDataUploader.getInstance().uploadStatisticData(jSONObject);
+        } catch (Exception unused) {
+        }
     }
 }

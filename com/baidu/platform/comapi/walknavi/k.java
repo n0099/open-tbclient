@@ -1,22 +1,20 @@
 package com.baidu.platform.comapi.walknavi;
 
 import android.content.Context;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f3023a;
+    public final /* synthetic */ j f10153a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f3023a = jVar;
+        this.f10153a = jVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        context = this.f3023a.f3022a.y;
-        com.baidu.platform.comapi.wnplatform.o.h.a(context, com.baidu.platform.comapi.walknavi.b.a.f2902a);
+        context = this.f10153a.f10152a.y;
+        com.baidu.platform.comapi.wnplatform.o.h.a(context, com.baidu.platform.comapi.walknavi.b.a.f9902a);
     }
 }

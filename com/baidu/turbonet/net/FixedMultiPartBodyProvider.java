@@ -3,31 +3,36 @@ package com.baidu.turbonet.net;
 import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class FixedMultiPartBodyProvider extends UploadDataProvider {
-    private String mContent;
-    private int mOffset;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f22750e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f22751f;
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
-    public long getLength() {
-        return this.mContent.getBytes().length;
+    public long n() {
+        return this.f22750e.getBytes().length;
     }
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
-    public void a(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
-        if (!byteBuffer.hasRemaining()) {
-            throw new IllegalStateException("Cronet passed a buffer with no bytes remaining");
+    public void o(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+        if (byteBuffer.hasRemaining()) {
+            if (byteBuffer.remaining() >= this.f22750e.length() - this.f22751f) {
+                byteBuffer.put(this.f22750e.getBytes(), this.f22751f, this.f22750e.getBytes().length - this.f22751f);
+            } else {
+                byteBuffer.put(this.f22750e.getBytes(), this.f22751f, byteBuffer.remaining());
+                this.f22751f += byteBuffer.remaining();
+            }
+            uploadDataSink.c(false);
+            return;
         }
-        if (byteBuffer.remaining() >= this.mContent.length() - this.mOffset) {
-            byteBuffer.put(this.mContent.getBytes(), this.mOffset, this.mContent.getBytes().length - this.mOffset);
-        } else {
-            byteBuffer.put(this.mContent.getBytes(), this.mOffset, byteBuffer.remaining());
-            this.mOffset += byteBuffer.remaining();
-        }
-        uploadDataSink.onReadSucceeded(false);
+        throw new IllegalStateException("Cronet passed a buffer with no bytes remaining");
     }
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
-    public void a(UploadDataSink uploadDataSink) {
-        this.mOffset = 0;
-        uploadDataSink.onRewindSucceeded();
+    public void p(UploadDataSink uploadDataSink) {
+        this.f22751f = 0;
+        uploadDataSink.b();
     }
 }

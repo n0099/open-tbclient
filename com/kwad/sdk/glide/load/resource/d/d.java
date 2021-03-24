@@ -2,11 +2,12 @@ package com.kwad.sdk.glide.load.resource.d;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.bumptech.glide.load.resource.gif.GifDrawableEncoder;
 import com.kwad.sdk.glide.load.EncodeStrategy;
 import com.kwad.sdk.glide.load.engine.s;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d implements com.kwad.sdk.glide.load.g<c> {
     @Override // com.kwad.sdk.glide.load.g
     @NonNull
@@ -20,9 +21,9 @@ public class d implements com.kwad.sdk.glide.load.g<c> {
         try {
             com.kwad.sdk.glide.g.a.a(sVar.e().c(), file);
             return true;
-        } catch (IOException e) {
-            if (Log.isLoggable("GifEncoder", 5)) {
-                Log.w("GifEncoder", "Failed to encode GIF drawable data", e);
+        } catch (IOException e2) {
+            if (Log.isLoggable(GifDrawableEncoder.TAG, 5)) {
+                Log.w(GifDrawableEncoder.TAG, "Failed to encode GIF drawable data", e2);
             }
             return false;
         }

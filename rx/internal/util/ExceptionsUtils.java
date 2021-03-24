@@ -3,11 +3,11 @@ package rx.internal.util;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public enum ExceptionsUtils {
     ;
     
-    private static final Throwable TERMINATED = new Throwable("Terminated");
+    public static final Throwable TERMINATED = new Throwable("Terminated");
 
     public static boolean addThrowable(AtomicReference<Throwable> atomicReference, Throwable th) {
         Throwable th2;
@@ -30,16 +30,14 @@ public enum ExceptionsUtils {
         return true;
     }
 
-    public static Throwable terminate(AtomicReference<Throwable> atomicReference) {
-        Throwable th = atomicReference.get();
-        if (th != TERMINATED) {
-            return atomicReference.getAndSet(TERMINATED);
-        }
-        return th;
-    }
-
     public static boolean isTerminated(AtomicReference<Throwable> atomicReference) {
         return isTerminated(atomicReference.get());
+    }
+
+    public static Throwable terminate(AtomicReference<Throwable> atomicReference) {
+        Throwable th = atomicReference.get();
+        Throwable th2 = TERMINATED;
+        return th != th2 ? atomicReference.getAndSet(th2) : th;
     }
 
     public static boolean isTerminated(Throwable th) {

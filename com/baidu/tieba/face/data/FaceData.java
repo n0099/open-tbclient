@@ -2,8 +2,8 @@ package com.baidu.tieba.face.data;
 
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.Serializable;
-/* loaded from: classes.dex */
-public class FaceData implements Serializable, Comparable<FaceData> {
+/* loaded from: classes4.dex */
+public class FaceData implements Comparable<FaceData>, Serializable {
     public static final int TYPE_ADD_ICON = 4;
     public static final int TYPE_ALBUM = 3;
     public static final int TYPE_COLLECT = 1;

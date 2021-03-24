@@ -6,105 +6,132 @@ import android.graphics.RectF;
 import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
+import com.ksad.lottie.model.layer.Layer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends a {
     @Nullable
-    private com.ksad.lottie.a.b.a<Float, Float> e;
-    private final List<a> f;
-    private final RectF g;
-    private final RectF h;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.ksad.lottie.a.b.a<Float, Float> f31579e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final List<a> f31580f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final RectF f31581g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final RectF f31582h;
+
+    /* renamed from: com.ksad.lottie.model.layer.b$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f31583a;
+
+        static {
+            int[] iArr = new int[Layer.MatteType.values().length];
+            f31583a = iArr;
+            try {
+                iArr[Layer.MatteType.Add.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f31583a[Layer.MatteType.Invert.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
 
     public b(com.ksad.lottie.f fVar, Layer layer, List<Layer> list, com.ksad.lottie.d dVar) {
         super(fVar, layer);
+        int i;
         a aVar;
-        a aVar2;
-        this.f = new ArrayList();
-        this.g = new RectF();
-        this.h = new RectF();
+        this.f31580f = new ArrayList();
+        this.f31581g = new RectF();
+        this.f31582h = new RectF();
         com.ksad.lottie.model.a.b u = layer.u();
         if (u != null) {
-            this.e = u.a();
-            a(this.e);
-            this.e.a(this);
+            com.ksad.lottie.a.b.a<Float, Float> a2 = u.a();
+            this.f31579e = a2;
+            a(a2);
+            this.f31579e.a(this);
         } else {
-            this.e = null;
+            this.f31579e = null;
         }
         LongSparseArray longSparseArray = new LongSparseArray(dVar.g().size());
         int size = list.size() - 1;
-        a aVar3 = null;
-        while (size >= 0) {
-            a a2 = a.a(list.get(size), fVar, dVar);
-            if (a2 == null) {
-                aVar2 = aVar3;
-            } else {
-                longSparseArray.put(a2.b().e(), a2);
-                if (aVar3 != null) {
-                    aVar3.a(a2);
+        a aVar2 = null;
+        while (true) {
+            if (size < 0) {
+                break;
+            }
+            Layer layer2 = list.get(size);
+            a a3 = a.a(layer2, fVar, dVar);
+            if (a3 != null) {
+                longSparseArray.put(a3.b().e(), a3);
+                if (aVar2 != null) {
+                    aVar2.a(a3);
                     aVar2 = null;
                 } else {
-                    this.f.add(0, a2);
-                    switch (r0.l()) {
-                        case Add:
-                        case Invert:
-                            aVar2 = a2;
-                            continue;
-                        default:
-                            aVar2 = aVar3;
-                            continue;
+                    this.f31580f.add(0, a3);
+                    int i2 = AnonymousClass1.f31583a[layer2.l().ordinal()];
+                    if (i2 == 1 || i2 == 2) {
+                        aVar2 = a3;
                     }
                 }
             }
             size--;
-            aVar3 = aVar2;
         }
-        for (int i = 0; i < longSparseArray.size(); i++) {
-            a aVar4 = (a) longSparseArray.get(longSparseArray.keyAt(i));
-            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.b().m())) != null) {
-                aVar4.b(aVar);
+        for (i = 0; i < longSparseArray.size(); i++) {
+            a aVar3 = (a) longSparseArray.get(longSparseArray.keyAt(i));
+            if (aVar3 != null && (aVar = (a) longSparseArray.get(aVar3.b().m())) != null) {
+                aVar3.b(aVar);
             }
         }
     }
 
     @Override // com.ksad.lottie.model.layer.a
-    public void a(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        super.a(f);
-        if (this.e != null) {
-            f = (this.e.e().floatValue() * 1000.0f) / this.b.r().c();
+    public void a(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        super.a(f2);
+        if (this.f31579e != null) {
+            f2 = (this.f31579e.e().floatValue() * 1000.0f) / this.f31568b.r().c();
         }
-        if (this.c.b() != 0.0f) {
-            f /= this.c.b();
+        if (this.f31569c.b() != 0.0f) {
+            f2 /= this.f31569c.b();
         }
-        float c = f - this.c.c();
-        for (int size = this.f.size() - 1; size >= 0; size--) {
-            this.f.get(size).a(c);
+        float c2 = f2 - this.f31569c.c();
+        for (int size = this.f31580f.size() - 1; size >= 0; size--) {
+            this.f31580f.get(size).a(c2);
         }
     }
 
     @Override // com.ksad.lottie.model.layer.a, com.ksad.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.g.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.f.size() - 1; size >= 0; size--) {
-            this.f.get(size).a(this.g, this.f5400a);
+        this.f31581g.set(0.0f, 0.0f, 0.0f, 0.0f);
+        for (int size = this.f31580f.size() - 1; size >= 0; size--) {
+            this.f31580f.get(size).a(this.f31581g, this.f31567a);
             if (rectF.isEmpty()) {
-                rectF.set(this.g);
+                rectF.set(this.f31581g);
             } else {
-                rectF.set(Math.min(rectF.left, this.g.left), Math.min(rectF.top, this.g.top), Math.max(rectF.right, this.g.right), Math.max(rectF.bottom, this.g.bottom));
+                rectF.set(Math.min(rectF.left, this.f31581g.left), Math.min(rectF.top, this.f31581g.top), Math.max(rectF.right, this.f31581g.right), Math.max(rectF.bottom, this.f31581g.bottom));
             }
         }
     }
 
     @Override // com.ksad.lottie.model.layer.a
-    void b(Canvas canvas, Matrix matrix, int i) {
+    public void b(Canvas canvas, Matrix matrix, int i) {
         com.ksad.lottie.c.c("CompositionLayer#draw");
         canvas.save();
-        this.h.set(0.0f, 0.0f, this.c.h(), this.c.i());
-        matrix.mapRect(this.h);
-        for (int size = this.f.size() - 1; size >= 0; size--) {
-            if (this.h.isEmpty() ? true : canvas.clipRect(this.h)) {
-                this.f.get(size).a(canvas, matrix, i);
+        this.f31582h.set(0.0f, 0.0f, this.f31569c.h(), this.f31569c.i());
+        matrix.mapRect(this.f31582h);
+        for (int size = this.f31580f.size() - 1; size >= 0; size--) {
+            if (!this.f31582h.isEmpty() ? canvas.clipRect(this.f31582h) : true) {
+                this.f31580f.get(size).a(canvas, matrix, i);
             }
         }
         canvas.restore();

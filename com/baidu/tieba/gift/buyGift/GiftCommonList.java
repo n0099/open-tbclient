@@ -3,115 +3,31 @@ package com.baidu.tieba.gift.buyGift;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.Error;
+import tbclient.GetGiftCommonList.DataRes;
 import tbclient.GetGiftCommonList.GetGiftCommonListResIdl;
 import tbclient.GetGiftCommonList.GiftList;
 import tbclient.GetGiftCommonList.Item;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class GiftCommonList implements Serializable {
-    private static final long serialVersionUID = 1719387618953489739L;
-    private String errmsg;
-    private int errorno;
-    private GiftInfo gift_info;
-    private String usermsg;
+    public static final long serialVersionUID = 1719387618953489739L;
+    public String errmsg;
+    public int errorno;
+    public GiftInfo gift_info;
+    public String usermsg;
 
-    public void setErrorNo(int i) {
-        this.errorno = i;
-    }
-
-    public int getErrorNo() {
-        return this.errorno;
-    }
-
-    public void setErrMsg(String str) {
-        this.errmsg = str;
-    }
-
-    public String getErrMsg() {
-        return this.errmsg;
-    }
-
-    public void setUserMsg(String str) {
-        this.usermsg = str;
-    }
-
-    public String getUserMsg() {
-        return this.usermsg;
-    }
-
-    public void setGiftInfo(GiftInfo giftInfo) {
-        this.gift_info = giftInfo;
-    }
-
-    public GiftInfo getGiftInfo() {
-        return this.gift_info;
-    }
-
-    public void parseProto(GetGiftCommonListResIdl getGiftCommonListResIdl) {
-        tbclient.GetGiftCommonList.GiftInfo giftInfo;
-        if (getGiftCommonListResIdl != null) {
-            if (getGiftCommonListResIdl.error != null) {
-                this.errmsg = getGiftCommonListResIdl.error.errmsg;
-                this.errorno = getGiftCommonListResIdl.error.errorno.intValue();
-                this.usermsg = getGiftCommonListResIdl.error.usermsg;
-            }
-            if (this.errorno == 0 && getGiftCommonListResIdl.data != null && (giftInfo = getGiftCommonListResIdl.data.gift_info) != null) {
-                this.gift_info = new GiftInfo();
-                List<GiftList> list = giftInfo.list;
-                if (list != null) {
-                    ArrayList arrayList = new ArrayList();
-                    for (GiftList giftList : list) {
-                        TypeInfo typeInfo = new TypeInfo();
-                        typeInfo.setTypeId(giftList.type_id.intValue());
-                        typeInfo.setTypeName(giftList.type_name);
-                        if (giftList.item != null) {
-                            ArrayList arrayList2 = new ArrayList();
-                            for (Item item : giftList.item) {
-                                GiftItem giftItem = new GiftItem();
-                                giftItem.setName(item.name);
-                                giftItem.setPrice(item.price.intValue());
-                                giftItem.setGiftId(item.gift_id.intValue());
-                                giftItem.setPlayUrl(item.play_url);
-                                giftItem.setThumbnailUrl(item.thumbnail_url);
-                                arrayList2.add(giftItem);
-                            }
-                            typeInfo.setGiftItems(arrayList2);
-                        }
-                        arrayList.add(typeInfo);
-                    }
-                    this.gift_info.setTypeInfo(arrayList);
-                }
-                List<tbclient.GetGiftCommonList.NumInfo> list2 = giftInfo.num_info;
-                if (list2 != null) {
-                    ArrayList arrayList3 = new ArrayList();
-                    for (tbclient.GetGiftCommonList.NumInfo numInfo : list2) {
-                        NumInfo numInfo2 = new NumInfo();
-                        numInfo2.setName(numInfo.name);
-                        numInfo2.setNum(numInfo.num.intValue());
-                        arrayList3.add(numInfo2);
-                    }
-                    this.gift_info.setNumInfo(arrayList3);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class GiftInfo implements Serializable {
-        private static final long serialVersionUID = 4908690864725277352L;
-        private List<TypeInfo> list;
-        private List<NumInfo> num_info;
-        private int version;
+        public static final long serialVersionUID = 4908690864725277352L;
+        public List<TypeInfo> list;
+        public List<NumInfo> num_info;
+        public int version;
 
-        public void setVersion(int i) {
-            this.version = i;
-        }
-
-        public int getVersion() {
-            return this.version;
-        }
-
-        public void setTypeInfo(List<TypeInfo> list) {
-            this.list = list;
+        public List<NumInfo> getNumInfo() {
+            if (this.num_info == null) {
+                this.num_info = new ArrayList();
+            }
+            return this.num_info;
         }
 
         public List<TypeInfo> getTypeInfo() {
@@ -121,61 +37,81 @@ public class GiftCommonList implements Serializable {
             return this.list;
         }
 
+        public int getVersion() {
+            return this.version;
+        }
+
         public void setNumInfo(List<NumInfo> list) {
             this.num_info = list;
         }
 
-        public List<NumInfo> getNumInfo() {
-            if (this.num_info == null) {
-                this.num_info = new ArrayList();
-            }
-            return this.num_info;
+        public void setTypeInfo(List<TypeInfo> list) {
+            this.list = list;
+        }
+
+        public void setVersion(int i) {
+            this.version = i;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static class TypeInfo implements Serializable {
-        private static final long serialVersionUID = -8689340701873734582L;
-        private List<GiftItem> item;
-        private int type_id;
-        private String type_name;
+    /* loaded from: classes4.dex */
+    public static class GiftItem implements Serializable {
+        public static final long serialVersionUID = -628875343878681499L;
+        public int gift_id;
+        public String name;
+        public String play_url;
+        public int price;
+        public String thumbnail_url;
 
-        public void setTypeId(int i) {
-            this.type_id = i;
+        public int getGiftId() {
+            return this.gift_id;
         }
 
-        public int getTypeId() {
-            return this.type_id;
+        public String getName() {
+            return this.name;
         }
 
-        public void setTypeName(String str) {
-            this.type_name = str;
+        public String getPlayUrl() {
+            return this.play_url;
         }
 
-        public String getTypeName() {
-            return this.type_name;
+        public int getPrice() {
+            return this.price;
         }
 
-        public void setGiftItems(List<GiftItem> list) {
-            this.item = list;
+        public String getThumbnailUrl() {
+            return this.thumbnail_url;
         }
 
-        public List<GiftItem> getGiftItems() {
-            if (this.item == null) {
-                this.item = new ArrayList();
-            }
-            return this.item;
+        public void setGiftId(int i) {
+            this.gift_id = i;
+        }
+
+        public void setName(String str) {
+            this.name = str;
+        }
+
+        public void setPlayUrl(String str) {
+            this.play_url = str;
+        }
+
+        public void setPrice(int i) {
+            this.price = i;
+        }
+
+        public void setThumbnailUrl(String str) {
+            this.thumbnail_url = str;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class NumInfo implements Serializable {
-        private static final long serialVersionUID = 6308284942592196517L;
-        private String name;
-        private int num;
+        public static final long serialVersionUID = 6308284942592196517L;
+        public String name;
+        public int num;
 
-        public void setNum(int i) {
-            this.num = i;
+        public String getName() {
+            return this.name;
         }
 
         public int getNum() {
@@ -186,58 +122,128 @@ public class GiftCommonList implements Serializable {
             this.name = str;
         }
 
-        public String getName() {
-            return this.name;
+        public void setNum(int i) {
+            this.num = i;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static class GiftItem implements Serializable {
-        private static final long serialVersionUID = -628875343878681499L;
-        private int gift_id;
-        private String name;
-        private String play_url;
-        private int price;
-        private String thumbnail_url;
+    /* loaded from: classes4.dex */
+    public static class TypeInfo implements Serializable {
+        public static final long serialVersionUID = -8689340701873734582L;
+        public List<GiftItem> item;
+        public int type_id;
+        public String type_name;
 
-        public void setName(String str) {
-            this.name = str;
+        public List<GiftItem> getGiftItems() {
+            if (this.item == null) {
+                this.item = new ArrayList();
+            }
+            return this.item;
         }
 
-        public String getName() {
-            return this.name;
+        public int getTypeId() {
+            return this.type_id;
         }
 
-        public void setGiftId(int i) {
-            this.gift_id = i;
+        public String getTypeName() {
+            return this.type_name;
         }
 
-        public int getGiftId() {
-            return this.gift_id;
+        public void setGiftItems(List<GiftItem> list) {
+            this.item = list;
         }
 
-        public void setPrice(int i) {
-            this.price = i;
+        public void setTypeId(int i) {
+            this.type_id = i;
         }
 
-        public int getPrice() {
-            return this.price;
+        public void setTypeName(String str) {
+            this.type_name = str;
         }
+    }
 
-        public void setThumbnailUrl(String str) {
-            this.thumbnail_url = str;
-        }
+    public String getErrMsg() {
+        return this.errmsg;
+    }
 
-        public String getThumbnailUrl() {
-            return this.thumbnail_url;
-        }
+    public int getErrorNo() {
+        return this.errorno;
+    }
 
-        public void setPlayUrl(String str) {
-            this.play_url = str;
-        }
+    public GiftInfo getGiftInfo() {
+        return this.gift_info;
+    }
 
-        public String getPlayUrl() {
-            return this.play_url;
+    public String getUserMsg() {
+        return this.usermsg;
+    }
+
+    public void parseProto(GetGiftCommonListResIdl getGiftCommonListResIdl) {
+        DataRes dataRes;
+        tbclient.GetGiftCommonList.GiftInfo giftInfo;
+        if (getGiftCommonListResIdl == null) {
+            return;
         }
+        Error error = getGiftCommonListResIdl.error;
+        if (error != null) {
+            this.errmsg = error.errmsg;
+            this.errorno = error.errorno.intValue();
+            this.usermsg = getGiftCommonListResIdl.error.usermsg;
+        }
+        if (this.errorno != 0 || (dataRes = getGiftCommonListResIdl.data) == null || (giftInfo = dataRes.gift_info) == null) {
+            return;
+        }
+        this.gift_info = new GiftInfo();
+        List<GiftList> list = giftInfo.list;
+        if (list != null) {
+            ArrayList arrayList = new ArrayList();
+            for (GiftList giftList : list) {
+                TypeInfo typeInfo = new TypeInfo();
+                typeInfo.setTypeId(giftList.type_id.intValue());
+                typeInfo.setTypeName(giftList.type_name);
+                if (giftList.item != null) {
+                    ArrayList arrayList2 = new ArrayList();
+                    for (Item item : giftList.item) {
+                        GiftItem giftItem = new GiftItem();
+                        giftItem.setName(item.name);
+                        giftItem.setPrice(item.price.intValue());
+                        giftItem.setGiftId(item.gift_id.intValue());
+                        giftItem.setPlayUrl(item.play_url);
+                        giftItem.setThumbnailUrl(item.thumbnail_url);
+                        arrayList2.add(giftItem);
+                    }
+                    typeInfo.setGiftItems(arrayList2);
+                }
+                arrayList.add(typeInfo);
+            }
+            this.gift_info.setTypeInfo(arrayList);
+        }
+        List<tbclient.GetGiftCommonList.NumInfo> list2 = giftInfo.num_info;
+        if (list2 != null) {
+            ArrayList arrayList3 = new ArrayList();
+            for (tbclient.GetGiftCommonList.NumInfo numInfo : list2) {
+                NumInfo numInfo2 = new NumInfo();
+                numInfo2.setName(numInfo.name);
+                numInfo2.setNum(numInfo.num.intValue());
+                arrayList3.add(numInfo2);
+            }
+            this.gift_info.setNumInfo(arrayList3);
+        }
+    }
+
+    public void setErrMsg(String str) {
+        this.errmsg = str;
+    }
+
+    public void setErrorNo(int i) {
+        this.errorno = i;
+    }
+
+    public void setGiftInfo(GiftInfo giftInfo) {
+        this.gift_info = giftInfo;
+    }
+
+    public void setUserMsg(String str) {
+        this.usermsg = str;
     }
 }

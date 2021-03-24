@@ -1,7 +1,7 @@
 package com.google.android.material.resources;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class TextAppearanceConfig {
-    private static boolean shouldLoadFontSynchronously;
+    public static boolean shouldLoadFontSynchronously;
 
     public static void setShouldLoadFontSynchronously(boolean z) {
         shouldLoadFontSynchronously = z;

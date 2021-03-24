@@ -8,51 +8,56 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class LineView extends View {
-    private Paint paint;
-    private Path path;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Paint f14229e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Path f14230f;
 
     public LineView(Context context) {
         super(context);
-        init();
+        a();
+    }
+
+    public final void a() {
+        Paint paint = new Paint();
+        this.f14229e = paint;
+        paint.setAntiAlias(true);
+        this.f14229e.setColor(SkinManager.getColor(R.color.CAM_X0203));
+        this.f14229e.setStyle(Paint.Style.STROKE);
+        this.f14229e.setStrokeWidth(l.g(getContext(), R.dimen.tbds2));
+        this.f14229e.setPathEffect(new DashPathEffect(new float[]{l.g(getContext(), R.dimen.tbds8), l.g(getContext(), R.dimen.tbds8)}, 0.0f));
+        this.f14230f = new Path();
+    }
+
+    public void b() {
+        this.f14229e.setColor(SkinManager.getColor(R.color.CAM_X0203));
+        invalidate();
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        this.f14230f.reset();
+        float height = getHeight() / 2;
+        this.f14230f.moveTo(0.0f, height);
+        this.f14230f.lineTo(getWidth(), height);
+        canvas.drawPath(this.f14230f, this.f14229e);
     }
 
     public LineView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        init();
+        a();
     }
 
     public LineView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
-        this.paint = new Paint();
-        this.paint.setAntiAlias(true);
-        this.paint.setColor(ap.getColor(R.color.CAM_X0203));
-        this.paint.setStyle(Paint.Style.STROKE);
-        this.paint.setStrokeWidth(l.getDimens(getContext(), R.dimen.tbds2));
-        this.paint.setPathEffect(new DashPathEffect(new float[]{l.getDimens(getContext(), R.dimen.tbds8), l.getDimens(getContext(), R.dimen.tbds8)}, 0.0f));
-        this.path = new Path();
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        int height = getHeight() / 2;
-        this.path.reset();
-        this.path.moveTo(0.0f, height);
-        this.path.lineTo(getWidth(), height);
-        canvas.drawPath(this.path, this.paint);
-    }
-
-    public void onChangeSkinType() {
-        this.paint.setColor(ap.getColor(R.color.CAM_X0203));
-        invalidate();
+        a();
     }
 }

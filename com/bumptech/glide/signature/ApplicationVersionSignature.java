@@ -11,10 +11,28 @@ import com.bumptech.glide.load.Key;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ApplicationVersionSignature {
-    private static final ConcurrentMap<String, Key> PACKAGE_NAME_TO_KEY = new ConcurrentHashMap();
-    private static final String TAG = "AppVersionSignature";
+    public static final ConcurrentMap<String, Key> PACKAGE_NAME_TO_KEY = new ConcurrentHashMap();
+    public static final String TAG = "AppVersionSignature";
+
+    @Nullable
+    public static PackageInfo getPackageInfo(@NonNull Context context) {
+        try {
+            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e2) {
+            Log.e(TAG, "Cannot resolve info for" + context.getPackageName(), e2);
+            return null;
+        }
+    }
+
+    @NonNull
+    public static String getVersionCode(@Nullable PackageInfo packageInfo) {
+        if (packageInfo != null) {
+            return String.valueOf(packageInfo.versionCode);
+        }
+        return UUID.randomUUID().toString();
+    }
 
     @NonNull
     public static Key obtain(@NonNull Context context) {
@@ -28,34 +46,13 @@ public final class ApplicationVersionSignature {
         return key;
     }
 
-    @VisibleForTesting
-    static void reset() {
-        PACKAGE_NAME_TO_KEY.clear();
-    }
-
     @NonNull
-    private static Key obtainVersionSignature(@NonNull Context context) {
+    public static Key obtainVersionSignature(@NonNull Context context) {
         return new ObjectKey(getVersionCode(getPackageInfo(context)));
     }
 
-    @NonNull
-    private static String getVersionCode(@Nullable PackageInfo packageInfo) {
-        if (packageInfo != null) {
-            return String.valueOf(packageInfo.versionCode);
-        }
-        return UUID.randomUUID().toString();
-    }
-
-    @Nullable
-    private static PackageInfo getPackageInfo(@NonNull Context context) {
-        try {
-            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.e(TAG, "Cannot resolve info for" + context.getPackageName(), e);
-            return null;
-        }
-    }
-
-    private ApplicationVersionSignature() {
+    @VisibleForTesting
+    public static void reset() {
+        PACKAGE_NAME_TO_KEY.clear();
     }
 }

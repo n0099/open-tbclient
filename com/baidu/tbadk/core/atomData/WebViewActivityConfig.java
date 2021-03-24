@@ -4,15 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.k;
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_AD_EXT_INFO = "tag_ad_ext_info";
     public static final String TAG_COOKIE = "tag_cookie";
@@ -32,55 +32,35 @@ public class WebViewActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public WebViewActivityConfig(Context context, String str, String str2, boolean z) {
-        super(context);
-        getIntent().putExtra("tag_title", str);
-        getIntent().putExtra("tag_url", addTiebaParams(str2));
-        getIntent().putExtra("tag_cookie", z);
-        getIntent().putExtra("tag_enable_js", true);
-        getIntent().putExtra("tag_navigation_bar", true);
-        getIntent().putExtra("tag_style_immersive_sticky", true);
-        addPageIdParams(context);
-        if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(268435456);
+    public void addPageIdParams(Context context) {
+        BdUniqueId uniqueId;
+        if (getIntent() == null || !(context instanceof TbPageContextSupport) || (uniqueId = ((TbPageContextSupport) context).getPageContext().getUniqueId()) == null) {
+            return;
         }
-        setIntentAction(IntentAction.Activity);
+        getIntent().putExtra(IntentConfig.PRE_PAGE_ID, uniqueId.getId());
     }
 
-    public WebViewActivityConfig(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
-        super(context);
-        getIntent().putExtra("tag_title", str);
-        getIntent().putExtra("tag_url", addTiebaParams(str2));
-        getIntent().putExtra("tag_navigation_bar", z);
-        getIntent().putExtra("tag_cookie", z2);
-        getIntent().putExtra("tag_enable_js", z3);
-        getIntent().putExtra("tag_style_immersive_sticky", true);
-        addPageIdParams(context);
-        if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(268435456);
+    public String addTiebaParams(String str) {
+        if (k.isEmpty(str)) {
+            return str;
         }
-        setIntentAction(IntentAction.Activity);
-    }
-
-    public WebViewActivityConfig(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        super(context);
-        getIntent().putExtra("tag_title", str);
-        getIntent().putExtra("tag_url", addTiebaParams(str2));
-        getIntent().putExtra("tag_navigation_bar", z);
-        getIntent().putExtra("tag_cookie", z2);
-        getIntent().putExtra("tag_enable_js", z3);
-        getIntent().putExtra("tag_style_immersive_sticky", z4);
-        addPageIdParams(context);
-        if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(268435456);
+        if (str.indexOf("_client_version=") < 0) {
+            if (k.isEmpty(Uri.parse(str).getQuery())) {
+                str = str + "?_client_version=" + TbConfig.getVersion();
+            } else {
+                str = str + "&_client_version=" + TbConfig.getVersion();
+            }
         }
-        setIntentAction(IntentAction.Activity);
+        if (str.indexOf("nohead=1") < 0) {
+            return str + "&nohead=1";
+        }
+        return str;
     }
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean isValid() {
         if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-            l.showToast(getContext(), getContext().getString(R.string.web_view_corrupted));
+            l.L(getContext(), getContext().getString(R.string.web_view_corrupted));
             return false;
         }
         return true;
@@ -88,13 +68,13 @@ public class WebViewActivityConfig extends IntentConfig {
 
     public void setFixTitle(boolean z) {
         if (getIntent() != null) {
-            getIntent().putExtra("tag_fix_title", z);
+            getIntent().putExtra(TAG_FIX_TITLE, z);
         }
     }
 
-    public void setNoShare(boolean z) {
+    public void setLoadType(boolean z) {
         if (getIntent() != null) {
-            getIntent().putExtra(TAG_NO_SHARE, z);
+            getIntent().putExtra(TAG_LOAD_BY_WEB_CLIENT, z);
         }
     }
 
@@ -104,39 +84,60 @@ public class WebViewActivityConfig extends IntentConfig {
         }
     }
 
+    public void setNoShare(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(TAG_NO_SHARE, z);
+        }
+    }
+
     public void setPageTranslucent(String str) {
         if (getIntent() != null) {
             getIntent().putExtra(TAG_PAGE_TRANSLUCENT, str);
         }
     }
 
-    public void addPageIdParams(Context context) {
-        BdUniqueId uniqueId;
-        if (getIntent() != null && (context instanceof TbPageContextSupport) && (uniqueId = ((TbPageContextSupport) context).getPageContext().getUniqueId()) != null) {
-            getIntent().putExtra(IntentConfig.PRE_PAGE_ID, uniqueId.getId());
+    public WebViewActivityConfig(Context context, String str, String str2, boolean z) {
+        super(context);
+        getIntent().putExtra(TAG_TITLE, str);
+        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
+        getIntent().putExtra(TAG_COOKIE, z);
+        getIntent().putExtra(TAG_ENABLE_JS, true);
+        getIntent().putExtra(TAG_NAV_BAR, true);
+        getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
+        addPageIdParams(context);
+        if (!(getContext() instanceof Activity)) {
+            getIntent().addFlags(268435456);
         }
+        setIntentAction(IntentAction.Activity);
     }
 
-    public String addTiebaParams(String str) {
-        if (!au.isEmpty(str)) {
-            if (str.indexOf("_client_version=") < 0) {
-                if (au.isEmpty(Uri.parse(str).getQuery())) {
-                    str = str + "?_client_version=" + TbConfig.getVersion();
-                } else {
-                    str = str + "&_client_version=" + TbConfig.getVersion();
-                }
-            }
-            if (str.indexOf("nohead=1") < 0) {
-                return str + "&nohead=1";
-            }
-            return str;
+    public WebViewActivityConfig(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
+        super(context);
+        getIntent().putExtra(TAG_TITLE, str);
+        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
+        getIntent().putExtra(TAG_NAV_BAR, z);
+        getIntent().putExtra(TAG_COOKIE, z2);
+        getIntent().putExtra(TAG_ENABLE_JS, z3);
+        getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
+        addPageIdParams(context);
+        if (!(getContext() instanceof Activity)) {
+            getIntent().addFlags(268435456);
         }
-        return str;
+        setIntentAction(IntentAction.Activity);
     }
 
-    public void setLoadType(boolean z) {
-        if (getIntent() != null) {
-            getIntent().putExtra(TAG_LOAD_BY_WEB_CLIENT, z);
+    public WebViewActivityConfig(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
+        super(context);
+        getIntent().putExtra(TAG_TITLE, str);
+        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
+        getIntent().putExtra(TAG_NAV_BAR, z);
+        getIntent().putExtra(TAG_COOKIE, z2);
+        getIntent().putExtra(TAG_ENABLE_JS, z3);
+        getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z4);
+        addPageIdParams(context);
+        if (!(getContext() instanceof Activity)) {
+            getIntent().addFlags(268435456);
         }
+        setIntentAction(IntentAction.Activity);
     }
 }

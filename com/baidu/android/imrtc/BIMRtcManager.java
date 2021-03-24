@@ -38,8 +38,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
-import com.baidu.g.a;
+import d.b.r.a;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -51,22 +50,22 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMRtcManager {
-    private static final String TAG = "BIMRtcManager";
-    private static Context mContext;
-    private static volatile BIMRtcManager mInstance;
-    private Handler mRtcHandler;
     public static int BIM_RTC_ACTION_SYNC_SEQID_MAX = 100;
-    public static int BIM_RTC_CALL_TIMEOUT_INTERNAL = 35000;
     public static int BIM_RTC_ANSWER_TIMEOUT_INTERNAL = 30000;
-    private static List<BIMRtcListener> mRtcListeners = Collections.synchronizedList(new ArrayList());
-    private static volatile Map<Long, BIMRtcSendMsg> msgList = new LinkedHashMap();
-    private static Timer mCallTimeoutTimer = new Timer();
-    private static volatile Map<String, Integer> mActionSyncSeqIdMap = new ConcurrentHashMap();
-    private static volatile AtomicInteger RTC_HEART_BEAT_FAILED_COUNT = new AtomicInteger(0);
+    public static int BIM_RTC_CALL_TIMEOUT_INTERNAL = 35000;
+    public static final String TAG = "BIMRtcManager";
+    public static Context mContext;
+    public static volatile BIMRtcManager mInstance;
+    public Handler mRtcHandler;
+    public static List<BIMRtcListener> mRtcListeners = Collections.synchronizedList(new ArrayList());
+    public static volatile Map<Long, BIMRtcSendMsg> msgList = new LinkedHashMap();
+    public static Timer mCallTimeoutTimer = new Timer();
+    public static volatile Map<String, Integer> mActionSyncSeqIdMap = new ConcurrentHashMap();
+    public static volatile AtomicInteger RTC_HEART_BEAT_FAILED_COUNT = new AtomicInteger(0);
     public static volatile BIMRtcEvent mBIMRtcEvent = new BIMRtcEvent();
-    private Runnable trackRequestRunnable = new Runnable() { // from class: com.baidu.android.imrtc.BIMRtcManager.2
+    public Runnable trackRequestRunnable = new Runnable() { // from class: com.baidu.android.imrtc.BIMRtcManager.2
         @Override // java.lang.Runnable
         public void run() {
             BIMRtcManager.this.mRtcHandler.removeCallbacks(BIMRtcManager.this.trackRequestRunnable);
@@ -74,19 +73,50 @@ public class BIMRtcManager {
             BIMRtcManager.this.mRtcHandler.postDelayed(BIMRtcManager.this.trackRequestRunnable, RtcConstants.RTC_TRACK_UPLOAD_DURATION);
         }
     };
-    private Runnable heartBeatRunnable = new Runnable() { // from class: com.baidu.android.imrtc.BIMRtcManager.3
+    public Runnable heartBeatRunnable = new Runnable() { // from class: com.baidu.android.imrtc.BIMRtcManager.3
         @Override // java.lang.Runnable
         public void run() {
-            if (RtcConstants.IM_RTC_SDK_SEQ_ID.get() > 0) {
-                BIMRtcManager.this.heartBeat(new IStatusListener() { // from class: com.baidu.android.imrtc.BIMRtcManager.3.1
-                    @Override // com.baidu.android.imrtc.utils.IStatusListener
-                    public void onResult(int i, String str) {
-                        LogUtils.d(BIMRtcManager.TAG, "heartBeat responseCode :" + i + ", msg :" + str);
-                    }
-                });
+            if (RtcConstants.IM_RTC_SDK_SEQ_ID.get() <= 0) {
+                return;
             }
+            BIMRtcManager.this.heartBeat(new IStatusListener() { // from class: com.baidu.android.imrtc.BIMRtcManager.3.1
+                @Override // com.baidu.android.imrtc.utils.IStatusListener
+                public void onResult(int i, String str) {
+                    LogUtils.d(BIMRtcManager.TAG, "heartBeat responseCode :" + i + ", msg :" + str);
+                }
+            });
         }
     };
+
+    public BIMRtcManager(Context context) {
+        mContext = context.getApplicationContext();
+        HandlerThread handlerThread = new HandlerThread("RTC_HANDLER");
+        handlerThread.start();
+        this.mRtcHandler = new Handler(handlerThread.getLooper());
+        mActionSyncSeqIdMap.clear();
+        Class<?>[] clsArr = {BIMRtcSendMsg.class};
+        int[] iArr = {RtcConstants.METHOD_IM_RTC_MSG};
+        for (int i = 0; i < 1; i++) {
+            MessageFactory.getInstance().addType(iArr[i], clsArr[i]);
+        }
+        RtcUtility.setIMUK(context, Utility.getUK(mContext));
+        RtcUtility.setCuid(context, Utility.getDeviceId(mContext));
+        RtcUtility.setAppId(context, AccountManager.getAppid(mContext));
+        RtcUtility.setBduid(context, AccountManager.getUid(mContext));
+    }
+
+    private void ackEvent(BIMRtcInfo bIMRtcInfo) {
+        LogUtils.i(TAG, "ackEvent :" + bIMRtcInfo.toString());
+        BIMAckRtcInfo bIMAckRtcInfo = new BIMAckRtcInfo();
+        bIMAckRtcInfo.setAckSeqId(bIMRtcInfo.getSeq());
+        bIMAckRtcInfo.setSyncAction(bIMRtcInfo.getAction());
+        bIMAckRtcInfo.setImUK(Utility.getUK(mContext));
+        rtcSendEvent(bIMAckRtcInfo, 102, null);
+    }
+
+    public static void checkServerSeqId(BIMRtcInfo bIMRtcInfo) {
+        RtcConstants.IM_RTC_SERVER_SEQ_ID = bIMRtcInfo.getSeq();
+    }
 
     public static BIMRtcManager getInstance(@NonNull Context context) {
         if (mInstance == null) {
@@ -99,162 +129,12 @@ public class BIMRtcManager {
         return mInstance;
     }
 
-    private BIMRtcManager(Context context) {
-        mContext = context.getApplicationContext();
-        HandlerThread handlerThread = new HandlerThread("RTC_HANDLER");
-        handlerThread.start();
-        this.mRtcHandler = new Handler(handlerThread.getLooper());
-        mActionSyncSeqIdMap.clear();
-        Class<?>[] clsArr = {BIMRtcSendMsg.class};
-        int[] iArr = {RtcConstants.METHOD_IM_RTC_MSG};
-        for (int i = 0; i < clsArr.length; i++) {
-            MessageFactory.getInstance().addType(iArr[i], clsArr[i]);
-        }
-        RtcUtility.setIMUK(context, Utility.getUK(mContext));
-        RtcUtility.setCuid(context, Utility.getDeviceId(mContext));
-        RtcUtility.setAppId(context, AccountManager.getAppid(mContext));
-        RtcUtility.setBduid(context, AccountManager.getUid(mContext));
-    }
-
-    public void createRoom(String str, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
-        trackRequest("room/create", "c_client_request", -1, "");
-        mBIMRtcEvent.requestAction = -10;
-        mBIMRtcEvent.requestRoomId = "room/create";
-        BIMRtcCreateRoomRequest bIMRtcCreateRoomRequest = new BIMRtcCreateRoomRequest(mContext, str, bIMRtcTokenListener);
-        HttpExecutor.getInstance().execute(bIMRtcCreateRoomRequest, bIMRtcCreateRoomRequest);
-    }
-
-    public void generateToken(String str, String str2, long j, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
-        trackRequest("room/get_rtc_token", "c_client_request", -1, "");
-        BIMRtcGetTokenRequest bIMRtcGetTokenRequest = new BIMRtcGetTokenRequest(mContext, str, str2, j, bIMRtcTokenListener);
-        HttpExecutor.getInstance().execute(bIMRtcGetTokenRequest, bIMRtcGetTokenRequest);
-    }
-
-    public void join(String str, IStatusListener iStatusListener) {
-        rtcSendEvent(new BIMRtcInfo(str), 92, iStatusListener);
-    }
-
-    public void cancelCall(@NonNull BIMCancelRtcInfo bIMCancelRtcInfo, IStatusListener iStatusListener) {
-        rtcSendEvent(bIMCancelRtcInfo, 94, iStatusListener);
-    }
-
-    public void invite(@NonNull final BIMInviteRtcInfo bIMInviteRtcInfo, IStatusListener iStatusListener) {
-        if (mCallTimeoutTimer != null) {
-            mCallTimeoutTimer.cancel();
-            mCallTimeoutTimer = null;
-        }
-        mCallTimeoutTimer = new Timer();
-        try {
-            mCallTimeoutTimer.schedule(new TimerTask() { // from class: com.baidu.android.imrtc.BIMRtcManager.1
-                @Override // java.util.TimerTask, java.lang.Runnable
-                public void run() {
-                    Timer unused = BIMRtcManager.mCallTimeoutTimer = null;
-                    for (BIMRtcListener bIMRtcListener : BIMRtcManager.mRtcListeners) {
-                        if (bIMRtcListener != null) {
-                            bIMRtcListener.roomCallerInviteTimeoutByCallee(bIMInviteRtcInfo);
-                        }
-                    }
-                }
-            }, BIM_RTC_CALL_TIMEOUT_INTERNAL);
-        } catch (Exception e) {
-            LogUtils.e(TAG, "invite timer exception", e);
-        }
-        rtcSendEvent(bIMInviteRtcInfo, 80, iStatusListener);
-    }
-
-    public void ring(String str, IStatusListener iStatusListener) {
-        rtcSendEvent(new BIMRtcInfo(str), 82, iStatusListener);
-    }
-
-    public void answer(@NonNull BIMAnswerRtcInfo bIMAnswerRtcInfo, IStatusListener iStatusListener) {
-        rtcSendEvent(bIMAnswerRtcInfo, 84, iStatusListener);
-    }
-
-    public void hangout(String str, IStatusListener iStatusListener) {
-        rtcSendEvent(new BIMRtcInfo(str), 86, iStatusListener);
-    }
-
-    public void hangout(BIMRtcInfo bIMRtcInfo, IStatusListener iStatusListener) {
-        rtcSendEvent(bIMRtcInfo, 86, iStatusListener);
-    }
-
-    public void closeRoom(@NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
-        rtcSendEvent(bIMCloseRoomRtcInfo, 88, iStatusListener);
-    }
-
-    public void fetchRtcRoomState(String str, IStatusListener iStatusListener) {
-        rtcSendEvent(new BIMRtcInfo(str), 90, iStatusListener);
-    }
-
-    public void fetchRtcRoomSignaling(String str, IStatusListener iStatusListener) {
-        rtcSendEvent(new BIMRtcInfo(str), 91, iStatusListener);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void heartBeat(IStatusListener iStatusListener) {
-        rtcSendEvent(new BIMRtcInfo(), 100, iStatusListener);
-    }
-
-    public void kickoff(@NonNull BIMKickRequestRtcInfo bIMKickRequestRtcInfo, IStatusListener iStatusListener) {
-        BIMUser bIMUser = new BIMUser();
-        bIMUser.thirdUserId = RtcUtility.getBduid(mContext);
-        bIMUser.cuid = RtcUtility.getCuid(mContext);
-        bIMUser.appId = RtcUtility.getAppId(mContext);
-        bIMUser.uk = RtcUtility.getIMUK(mContext);
-        bIMKickRequestRtcInfo.setBIMKickUser(bIMUser);
-        rtcSendEvent(bIMKickRequestRtcInfo, 104, iStatusListener);
-    }
-
-    private void kickoffResponse(@NonNull BIMKickResponseRtcInfo bIMKickResponseRtcInfo, IStatusListener iStatusListener) {
-        rtcSendEvent(bIMKickResponseRtcInfo, 106, iStatusListener);
-    }
-
-    private void rtcSendEvent(@NonNull BIMRtcInfo bIMRtcInfo, int i, IStatusListener iStatusListener) {
-        LogUtils.d(TAG, "rtcSendEvent action :" + i);
-        if (i != 100 && i != 102) {
-            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_client_request", -1);
-        }
-        bIMRtcInfo.setAction(i);
-        bIMRtcInfo.setRtcDeviceId(RtcUtility.getCuid(mContext));
-        if (i != 100 && i != 102) {
-            mBIMRtcEvent.requestAction = i;
-            mBIMRtcEvent.requestRoomId = bIMRtcInfo.getRtcRoomId();
-        }
-        if (TextUtils.isEmpty(bIMRtcInfo.getRtcRoomId())) {
-            bIMRtcInfo.setRtcRoomId(RtcUtility.getRtcRoomId(mContext));
-        }
-        try {
-            String addListener = ListenerManager.getInstance().addListener(iStatusListener);
-            Intent creatMethodIntent = Utility.creatMethodIntent(mContext, RtcConstants.METHOD_IM_RTC_MSG);
-            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-            creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_INFO, bIMRtcInfo.toRtcInfoString());
-            creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_ACTION_ID, i);
-            creatMethodIntent.putExtra("rtc_room_id", bIMRtcInfo.getRtcRoomId());
-            a.an(mContext).e(mContext, creatMethodIntent);
-            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_send_request", -1);
-            mBIMRtcEvent.sdkAction = i;
-            mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();
-            mBIMRtcEvent.sdkRoomId = RtcUtility.getRtcRoomId(mContext);
-        } catch (Exception e) {
-            if (iStatusListener != null) {
-                iStatusListener.onResult(-1, "rtcSendEvent exception");
-                trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_send_response exception", -1, e.getMessage());
-            }
-        }
-    }
-
-    public void onRtcRequestResult(int i, BIMRtcInfo bIMRtcInfo, int i2, String str, String str2) {
-        IMListener removeListener = ListenerManager.getInstance().removeListener(str2);
-        if (removeListener instanceof IStatusListener) {
-            ((IStatusListener) removeListener).onResult(i2, str);
-            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_client_response", i2);
-        }
-        handleRtcResult(i, bIMRtcInfo, i2);
-        mBIMRtcEvent.sdkAction = i;
-        mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();
-        mBIMRtcEvent.sdkRoomId = RtcUtility.getRtcRoomId(mContext);
-    }
-
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004b, code lost:
+        if (r5 != 94) goto L27;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void handleRtcResult(int i, BIMRtcInfo bIMRtcInfo, int i2) {
         if (i == 100) {
             checkServerSeqId(bIMRtcInfo);
@@ -264,87 +144,135 @@ public class BIMRtcManager {
             } else {
                 RTC_HEART_BEAT_FAILED_COUNT.getAndIncrement();
             }
-            if (RtcConstants.RTC_HEART_BEAT_STATUS == 1 && RTC_HEART_BEAT_FAILED_COUNT.get() < RtcConstants.RTC_HEART_BEAT_RETRY_TIME) {
-                this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
+            if (RtcConstants.RTC_HEART_BEAT_STATUS != 1 || RTC_HEART_BEAT_FAILED_COUNT.get() >= RtcConstants.RTC_HEART_BEAT_RETRY_TIME) {
+                return;
             }
+            this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
         } else if (i2 == 0) {
-            switch (i) {
-                case 84:
-                    if (((BIMAnswerRtcInfo) bIMRtcInfo).getAnswerType() != 1) {
-                        RtcConstants.IM_RTC_SDK_SEQ_ID.set(-1L);
-                        RtcConstants.RTC_TRACK_UPLOAD_DURATION = 0L;
-                        break;
-                    } else {
+            if (i != 84) {
+                if (i != 86 && i != 88) {
+                    if (i == 92) {
                         this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
                         this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
-                        break;
                     }
-                case 86:
-                case 88:
-                case 94:
-                    RtcConstants.IM_RTC_SDK_SEQ_ID.set(-1L);
-                    mActionSyncSeqIdMap.clear();
-                    this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
-                    break;
-                case 92:
-                    this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
-                    this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
-                    break;
+                }
+                RtcConstants.IM_RTC_SDK_SEQ_ID.set(-1L);
+                mActionSyncSeqIdMap.clear();
+                this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
+            } else if (((BIMAnswerRtcInfo) bIMRtcInfo).getAnswerType() != 1) {
+                RtcConstants.IM_RTC_SDK_SEQ_ID.set(-1L);
+                RtcConstants.RTC_TRACK_UPLOAD_DURATION = 0L;
+            } else {
+                this.mRtcHandler.removeCallbacks(this.heartBeatRunnable);
+                this.mRtcHandler.postDelayed(this.heartBeatRunnable, RtcConstants.RTC_HEART_BEAT_TIME);
             }
             notifyRtcActionAndInfo(false, i, bIMRtcInfo);
         }
     }
 
-    private static void trackRequest(BIMRtcInfo bIMRtcInfo, int i, int i2, String str, int i3, String str2) {
-        if (i2 != 100) {
-            new BIMRtcTrack.RequestBuilder(mContext).method("" + i).requestId("" + i2).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i3).ext(trackExt(bIMRtcInfo, str, str2)).build();
-        }
-    }
-
-    private static void trackRequest(String str, String str2, int i, String str3) {
-        new BIMRtcTrack.RequestBuilder(mContext).method(str).requestId("-1").requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i).ext(trackExt(null, str2, str3)).build();
-    }
-
-    private static void trackRequest(BIMRtcInfo bIMRtcInfo, int i, int i2, String str, int i3) {
-        if (i2 != 100) {
-            trackRequest(bIMRtcInfo, i, i2, str, i3, "");
-        }
-    }
-
-    private static String trackExt(BIMRtcInfo bIMRtcInfo, String str, String str2) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("app_id", RtcUtility.getAppId(mContext));
-            jSONObject.put("rtc_room_id", bIMRtcInfo == null ? "-1" : bIMRtcInfo.getRtcRoomId());
-            jSONObject.put("my_uk", Utility.getUK(mContext));
-            StringBuilder sb = new StringBuilder();
-            if (bIMRtcInfo instanceof BIMInviteRtcInfo) {
-                for (BIMInviteRtcInfo.BIMInviteUser bIMInviteUser : ((BIMInviteRtcInfo) bIMRtcInfo).getBIMInviteUsers()) {
-                    if (bIMInviteUser != null) {
-                        sb.append(bIMInviteUser.uk).append(",");
-                    }
-                }
-            }
-            jSONObject.put("other_uks", sb.toString());
-            jSONObject.put("cseq_id", RtcConstants.IM_RTC_SDK_SEQ_ID.get());
-            long j = RtcConstants.IM_RTC_SERVER_SEQ_ID;
-            if (bIMRtcInfo != null) {
-                j = bIMRtcInfo instanceof BIMAckRtcInfo ? ((BIMAckRtcInfo) bIMRtcInfo).getAckSeqId() : bIMRtcInfo.getSeq();
-            }
-            jSONObject.put("sseq_id", j);
-            jSONObject.put("step", str);
-            if (TextUtils.isEmpty(str2)) {
-                str2 = bIMRtcInfo instanceof BIMAckRtcInfo ? "" + ((BIMAckRtcInfo) bIMRtcInfo).getSyncAction() : "-1";
-            }
-            jSONObject.put("ext", str2);
-            return jSONObject.toString();
-        } catch (Exception e) {
-            return "trackExt :" + str;
-        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void heartBeat(IStatusListener iStatusListener) {
+        rtcSendEvent(new BIMRtcInfo(), 100, iStatusListener);
     }
 
     public static void imRtcReport(String str, String str2) {
         trackRequest("231", str, -1, str2);
+    }
+
+    public static boolean isOthers(BIMRtcInfo bIMRtcInfo) {
+        long initiatorUk;
+        long uk = Utility.getUK(mContext);
+        if (bIMRtcInfo instanceof BIMInviteSyncRtcInfo) {
+            initiatorUk = ((BIMInviteSyncRtcInfo) bIMRtcInfo).getInitiatorUk();
+        } else if (!(bIMRtcInfo instanceof BIMSyncRtcInfo)) {
+            return false;
+        } else {
+            initiatorUk = ((BIMSyncRtcInfo) bIMRtcInfo).getInitiatorUk();
+        }
+        return uk != initiatorUk;
+    }
+
+    private void kickoffResponse(@NonNull BIMKickResponseRtcInfo bIMKickResponseRtcInfo, IStatusListener iStatusListener) {
+        rtcSendEvent(bIMKickResponseRtcInfo, 106, iStatusListener);
+    }
+
+    public static void notifyEvent(@NonNull BIMRtcInfo bIMRtcInfo, @NonNull BIMRtcListener bIMRtcListener) {
+        LogUtils.e(TAG, "notifyEvent info :" + bIMRtcInfo.getAction());
+        int action = bIMRtcInfo.getAction();
+        if (action == 81) {
+            if (isOthers(bIMRtcInfo)) {
+                bIMRtcListener.roomCalleeInviteFromCaller(bIMRtcInfo);
+                getInstance(mContext).ring(bIMRtcInfo.getRtcRoomId(), new IStatusListener() { // from class: com.baidu.android.imrtc.BIMRtcManager.4
+                    @Override // com.baidu.android.imrtc.utils.IStatusListener
+                    public void onResult(int i, String str) {
+                        LogUtils.d(BIMRtcManager.TAG, "rtcRing responseCode :" + i + ", msg :" + str);
+                    }
+                });
+            }
+        } else if (action == 83) {
+            if (isOthers(bIMRtcInfo)) {
+                bIMRtcListener.roomEventSyncByOthers(RtcConstants.RoomEventType.CALLEE_RING, bIMRtcInfo);
+            }
+        } else if (action == 85) {
+            Timer timer = mCallTimeoutTimer;
+            if (timer != null) {
+                timer.cancel();
+                mCallTimeoutTimer = null;
+            }
+            int answerType = ((BIMSyncRtcInfo) bIMRtcInfo).getAnswerType();
+            if (isOthers(bIMRtcInfo)) {
+                bIMRtcListener.roomCallerGetAnswerSyncByCallee(answerType, bIMRtcInfo);
+            } else if (TextUtils.isEmpty(bIMRtcInfo.getRtcDeviceId())) {
+            } else {
+                String str = bIMRtcInfo.getRtcDeviceId().split("\\|")[0];
+                if (answerType == 1 && !RtcUtility.getCuid(mContext).equals(str)) {
+                    bIMRtcListener.roomCalleeAnswerByFromOtherCallee(answerType, bIMRtcInfo);
+                } else if (answerType == 3 && RtcUtility.getCuid(mContext).equals(str)) {
+                    bIMRtcListener.roomCalleeAnswerTimeOutFromMyself(bIMRtcInfo);
+                }
+            }
+        } else if (action == 87) {
+            if (isOthers(bIMRtcInfo)) {
+                bIMRtcListener.roomEventSyncByOthers(RtcConstants.RoomEventType.EXIT_ROOM, bIMRtcInfo);
+            } else {
+                bIMRtcListener.roomEventByMySelf(RtcConstants.RoomEventType.EXIT_ROOM, bIMRtcInfo);
+            }
+        } else if (action == 93) {
+            if (isOthers(bIMRtcInfo)) {
+                bIMRtcListener.roomEventSyncByOthers(RtcConstants.RoomEventType.JOIN_ROOM, bIMRtcInfo);
+            } else {
+                bIMRtcListener.roomEventByMySelf(RtcConstants.RoomEventType.JOIN_ROOM, bIMRtcInfo);
+            }
+        } else if (action == 95) {
+            Timer timer2 = mCallTimeoutTimer;
+            if (timer2 != null) {
+                timer2.cancel();
+                mCallTimeoutTimer = null;
+            }
+            if (isOthers(bIMRtcInfo)) {
+                bIMRtcListener.roomCalleeInviteCancelFromCaller(bIMRtcInfo);
+            }
+        } else if (action != 105) {
+            if (action == 107) {
+                bIMRtcListener.roomEventKickedStatusByKickedUser((BIMKickResSyncRtcInfo) bIMRtcInfo);
+            } else if (action == 90) {
+                bIMRtcListener.fetchRoomState(isOthers(bIMRtcInfo), bIMRtcInfo);
+            } else if (action != 91) {
+            } else {
+                bIMRtcListener.fetchRoomSignal(isOthers(bIMRtcInfo), bIMRtcInfo);
+            }
+        } else {
+            BIMKickReqSyncRtcInfo bIMKickReqSyncRtcInfo = (BIMKickReqSyncRtcInfo) bIMRtcInfo;
+            int roomKickedUserFromKickerSync = bIMRtcListener.roomKickedUserFromKickerSync(bIMKickReqSyncRtcInfo);
+            if (roomKickedUserFromKickerSync == 0) {
+                return;
+            }
+            BIMKickResponseRtcInfo bIMKickResponseRtcInfo = new BIMKickResponseRtcInfo();
+            bIMKickResponseRtcInfo.setBIMKickedStatus(roomKickedUserFromKickerSync);
+            bIMKickResponseRtcInfo.setBIMKickUser(bIMKickReqSyncRtcInfo.getBIMKickUsers());
+            bIMKickResponseRtcInfo.setBIMKickedUser(bIMKickReqSyncRtcInfo.getBIMKickedUsers());
+            getInstance(mContext).kickoffResponse(bIMKickResponseRtcInfo, null);
+        }
     }
 
     public static void notifyParse(@NonNull JSONObject jSONObject) {
@@ -397,58 +325,14 @@ public class BIMRtcManager {
             }
             mActionSyncSeqIdMap.put(str, Integer.valueOf(parseJson.getAction()));
             LogUtils.d(TAG, ">100 put, " + str2);
-        } catch (Exception e) {
-            LogUtils.e(TAG, "mActionSyncSeqIdMap exception ", e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "mActionSyncSeqIdMap exception ", e2);
             mBIMRtcEvent.notifyAction = -4;
             mBIMRtcEvent.notifySeqId = -4L;
         }
     }
 
-    private void ackEvent(BIMRtcInfo bIMRtcInfo) {
-        LogUtils.i(TAG, "ackEvent :" + bIMRtcInfo.toString());
-        BIMAckRtcInfo bIMAckRtcInfo = new BIMAckRtcInfo();
-        bIMAckRtcInfo.setAckSeqId(bIMRtcInfo.getSeq());
-        bIMAckRtcInfo.setSyncAction(bIMRtcInfo.getAction());
-        bIMAckRtcInfo.setImUK(Utility.getUK(mContext));
-        rtcSendEvent(bIMAckRtcInfo, 102, null);
-    }
-
-    private static boolean isOthers(BIMRtcInfo bIMRtcInfo) {
-        long initiatorUk;
-        long uk = Utility.getUK(mContext);
-        if (bIMRtcInfo instanceof BIMInviteSyncRtcInfo) {
-            initiatorUk = ((BIMInviteSyncRtcInfo) bIMRtcInfo).getInitiatorUk();
-        } else if (!(bIMRtcInfo instanceof BIMSyncRtcInfo)) {
-            return false;
-        } else {
-            initiatorUk = ((BIMSyncRtcInfo) bIMRtcInfo).getInitiatorUk();
-        }
-        return uk != initiatorUk;
-    }
-
-    private static void checkServerSeqId(BIMRtcInfo bIMRtcInfo) {
-        RtcConstants.IM_RTC_SERVER_SEQ_ID = bIMRtcInfo.getSeq();
-    }
-
-    public void registerRtcListener(@NonNull BIMRtcListener bIMRtcListener) {
-        if (!mRtcListeners.contains(bIMRtcListener)) {
-            mRtcListeners.add(bIMRtcListener);
-        }
-        if (this.mRtcHandler != null) {
-            this.mRtcHandler.removeCallbacks(this.trackRequestRunnable);
-            this.mRtcHandler.postDelayed(this.trackRequestRunnable, RtcConstants.RTC_TRACK_UPLOAD_DURATION);
-        }
-    }
-
-    public void unRegisterRtcListener(@NonNull BIMRtcListener bIMRtcListener) {
-        mRtcListeners.remove(bIMRtcListener);
-        if (this.mRtcHandler != null) {
-            this.mRtcHandler.removeCallbacks(this.trackRequestRunnable);
-            BIMRtcTrackManager.uploadRtcActionData(mContext);
-        }
-    }
-
-    private static void notifyRtcActionAndInfo(boolean z, int i, BIMRtcInfo bIMRtcInfo) {
+    public static void notifyRtcActionAndInfo(boolean z, int i, BIMRtcInfo bIMRtcInfo) {
         for (BIMRtcListener bIMRtcListener : mRtcListeners) {
             if (bIMRtcListener != null) {
                 bIMRtcListener.onRtcResult(i, bIMRtcInfo);
@@ -465,103 +349,181 @@ public class BIMRtcManager {
         }
     }
 
-    private static void notifyEvent(@NonNull BIMRtcInfo bIMRtcInfo, @NonNull BIMRtcListener bIMRtcListener) {
-        LogUtils.e(TAG, "notifyEvent info :" + bIMRtcInfo.getAction());
-        switch (bIMRtcInfo.getAction()) {
-            case 81:
-                if (isOthers(bIMRtcInfo)) {
-                    bIMRtcListener.roomCalleeInviteFromCaller(bIMRtcInfo);
-                    getInstance(mContext).ring(bIMRtcInfo.getRtcRoomId(), new IStatusListener() { // from class: com.baidu.android.imrtc.BIMRtcManager.4
-                        @Override // com.baidu.android.imrtc.utils.IStatusListener
-                        public void onResult(int i, String str) {
-                            LogUtils.d(BIMRtcManager.TAG, "rtcRing responseCode :" + i + ", msg :" + str);
-                        }
-                    });
-                    return;
-                }
-                return;
-            case 83:
-                if (isOthers(bIMRtcInfo)) {
-                    bIMRtcListener.roomEventSyncByOthers(RtcConstants.RoomEventType.CALLEE_RING, bIMRtcInfo);
-                    return;
-                }
-                return;
-            case 85:
-                if (mCallTimeoutTimer != null) {
-                    mCallTimeoutTimer.cancel();
-                    mCallTimeoutTimer = null;
-                }
-                int answerType = ((BIMSyncRtcInfo) bIMRtcInfo).getAnswerType();
-                if (isOthers(bIMRtcInfo)) {
-                    bIMRtcListener.roomCallerGetAnswerSyncByCallee(answerType, bIMRtcInfo);
-                    return;
-                } else if (!TextUtils.isEmpty(bIMRtcInfo.getRtcDeviceId())) {
-                    String str = bIMRtcInfo.getRtcDeviceId().split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR)[0];
-                    if (answerType == 1 && !RtcUtility.getCuid(mContext).equals(str)) {
-                        bIMRtcListener.roomCalleeAnswerByFromOtherCallee(answerType, bIMRtcInfo);
-                        return;
-                    } else if (answerType == 3 && RtcUtility.getCuid(mContext).equals(str)) {
-                        bIMRtcListener.roomCalleeAnswerTimeOutFromMyself(bIMRtcInfo);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            case 87:
-                if (isOthers(bIMRtcInfo)) {
-                    bIMRtcListener.roomEventSyncByOthers(RtcConstants.RoomEventType.EXIT_ROOM, bIMRtcInfo);
-                    return;
-                } else {
-                    bIMRtcListener.roomEventByMySelf(RtcConstants.RoomEventType.EXIT_ROOM, bIMRtcInfo);
-                    return;
-                }
-            case 90:
-                bIMRtcListener.fetchRoomState(isOthers(bIMRtcInfo), bIMRtcInfo);
-                return;
-            case 91:
-                bIMRtcListener.fetchRoomSignal(isOthers(bIMRtcInfo), bIMRtcInfo);
-                return;
-            case 93:
-                if (isOthers(bIMRtcInfo)) {
-                    bIMRtcListener.roomEventSyncByOthers(RtcConstants.RoomEventType.JOIN_ROOM, bIMRtcInfo);
-                    return;
-                } else {
-                    bIMRtcListener.roomEventByMySelf(RtcConstants.RoomEventType.JOIN_ROOM, bIMRtcInfo);
-                    return;
-                }
-            case 95:
-                if (mCallTimeoutTimer != null) {
-                    mCallTimeoutTimer.cancel();
-                    mCallTimeoutTimer = null;
-                }
-                if (isOthers(bIMRtcInfo)) {
-                    bIMRtcListener.roomCalleeInviteCancelFromCaller(bIMRtcInfo);
-                    return;
-                }
-                return;
-            case 105:
-                int roomKickedUserFromKickerSync = bIMRtcListener.roomKickedUserFromKickerSync((BIMKickReqSyncRtcInfo) bIMRtcInfo);
-                if (roomKickedUserFromKickerSync != 0) {
-                    BIMKickResponseRtcInfo bIMKickResponseRtcInfo = new BIMKickResponseRtcInfo();
-                    bIMKickResponseRtcInfo.setBIMKickedStatus(roomKickedUserFromKickerSync);
-                    bIMKickResponseRtcInfo.setBIMKickUser(((BIMKickReqSyncRtcInfo) bIMRtcInfo).getBIMKickUsers());
-                    bIMKickResponseRtcInfo.setBIMKickedUser(((BIMKickReqSyncRtcInfo) bIMRtcInfo).getBIMKickedUsers());
-                    getInstance(mContext).kickoffResponse(bIMKickResponseRtcInfo, null);
-                    return;
-                }
-                return;
-            case 107:
-                bIMRtcListener.roomEventKickedStatusByKickedUser((BIMKickResSyncRtcInfo) bIMRtcInfo);
-                return;
-            default:
-                return;
+    private void rtcSendEvent(@NonNull BIMRtcInfo bIMRtcInfo, int i, IStatusListener iStatusListener) {
+        LogUtils.d(TAG, "rtcSendEvent action :" + i);
+        if (i != 100 && i != 102) {
+            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_client_request", -1);
+        }
+        bIMRtcInfo.setAction(i);
+        bIMRtcInfo.setRtcDeviceId(RtcUtility.getCuid(mContext));
+        if (i != 100 && i != 102) {
+            mBIMRtcEvent.requestAction = i;
+            mBIMRtcEvent.requestRoomId = bIMRtcInfo.getRtcRoomId();
+        }
+        if (TextUtils.isEmpty(bIMRtcInfo.getRtcRoomId())) {
+            bIMRtcInfo.setRtcRoomId(RtcUtility.getRtcRoomId(mContext));
+        }
+        try {
+            String addListener = ListenerManager.getInstance().addListener(iStatusListener);
+            Intent creatMethodIntent = Utility.creatMethodIntent(mContext, RtcConstants.METHOD_IM_RTC_MSG);
+            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+            creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_INFO, bIMRtcInfo.toRtcInfoString());
+            creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_ACTION_ID, i);
+            creatMethodIntent.putExtra("rtc_room_id", bIMRtcInfo.getRtcRoomId());
+            a.e(mContext).d(mContext, creatMethodIntent);
+            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_send_request", -1);
+            mBIMRtcEvent.sdkAction = i;
+            mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();
+            mBIMRtcEvent.sdkRoomId = RtcUtility.getRtcRoomId(mContext);
+        } catch (Exception e2) {
+            if (iStatusListener != null) {
+                iStatusListener.onResult(-1, "rtcSendEvent exception");
+                trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_send_response exception", -1, e2.getMessage());
+            }
         }
     }
 
-    public void setRtcDebugEnv(Context context, boolean z) {
-        RtcUtility.setRtcDebug(context, z);
+    public static String trackExt(BIMRtcInfo bIMRtcInfo, String str, String str2) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(com.xiaomi.mipush.sdk.Constants.APP_ID, RtcUtility.getAppId(mContext));
+            jSONObject.put("rtc_room_id", bIMRtcInfo == null ? "-1" : bIMRtcInfo.getRtcRoomId());
+            jSONObject.put("my_uk", Utility.getUK(mContext));
+            StringBuilder sb = new StringBuilder();
+            if (bIMRtcInfo instanceof BIMInviteRtcInfo) {
+                for (BIMInviteRtcInfo.BIMInviteUser bIMInviteUser : ((BIMInviteRtcInfo) bIMRtcInfo).getBIMInviteUsers()) {
+                    if (bIMInviteUser != null) {
+                        sb.append(bIMInviteUser.uk);
+                        sb.append(",");
+                    }
+                }
+            }
+            jSONObject.put("other_uks", sb.toString());
+            jSONObject.put("cseq_id", RtcConstants.IM_RTC_SDK_SEQ_ID.get());
+            long j = RtcConstants.IM_RTC_SERVER_SEQ_ID;
+            if (bIMRtcInfo != null) {
+                j = bIMRtcInfo instanceof BIMAckRtcInfo ? ((BIMAckRtcInfo) bIMRtcInfo).getAckSeqId() : bIMRtcInfo.getSeq();
+            }
+            jSONObject.put("sseq_id", j);
+            jSONObject.put("step", str);
+            if (TextUtils.isEmpty(str2)) {
+                str2 = bIMRtcInfo instanceof BIMAckRtcInfo ? "" + ((BIMAckRtcInfo) bIMRtcInfo).getSyncAction() : "-1";
+            }
+            jSONObject.put("ext", str2);
+            return jSONObject.toString();
+        } catch (Exception unused) {
+            return "trackExt :" + str;
+        }
+    }
+
+    public static void trackRequest(BIMRtcInfo bIMRtcInfo, int i, int i2, String str, int i3, String str2) {
+        if (i2 == 100) {
+            return;
+        }
+        BIMRtcTrack.RequestBuilder requestBuilder = new BIMRtcTrack.RequestBuilder(mContext);
+        BIMRtcTrack.RequestBuilder method = requestBuilder.method("" + i);
+        method.requestId("" + i2).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i3).ext(trackExt(bIMRtcInfo, str, str2)).build();
+    }
+
+    public void answer(@NonNull BIMAnswerRtcInfo bIMAnswerRtcInfo, IStatusListener iStatusListener) {
+        rtcSendEvent(bIMAnswerRtcInfo, 84, iStatusListener);
+    }
+
+    public void cancelCall(@NonNull BIMCancelRtcInfo bIMCancelRtcInfo, IStatusListener iStatusListener) {
+        rtcSendEvent(bIMCancelRtcInfo, 94, iStatusListener);
+    }
+
+    public void closeRoom(@NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
+        rtcSendEvent(bIMCloseRoomRtcInfo, 88, iStatusListener);
+    }
+
+    public void createRoom(String str, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
+        trackRequest("room/create", "c_client_request", -1, "");
+        mBIMRtcEvent.requestAction = -10;
+        mBIMRtcEvent.requestRoomId = "room/create";
+        BIMRtcCreateRoomRequest bIMRtcCreateRoomRequest = new BIMRtcCreateRoomRequest(mContext, str, bIMRtcTokenListener);
+        HttpExecutor.getInstance().execute(bIMRtcCreateRoomRequest, bIMRtcCreateRoomRequest);
+    }
+
+    public void fetchRtcRoomSignaling(String str, IStatusListener iStatusListener) {
+        rtcSendEvent(new BIMRtcInfo(str), 91, iStatusListener);
+    }
+
+    public void fetchRtcRoomState(String str, IStatusListener iStatusListener) {
+        rtcSendEvent(new BIMRtcInfo(str), 90, iStatusListener);
+    }
+
+    public void generateToken(String str, String str2, long j, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
+        trackRequest("room/get_rtc_token", "c_client_request", -1, "");
+        BIMRtcGetTokenRequest bIMRtcGetTokenRequest = new BIMRtcGetTokenRequest(mContext, str, str2, j, bIMRtcTokenListener);
+        HttpExecutor.getInstance().execute(bIMRtcGetTokenRequest, bIMRtcGetTokenRequest);
+    }
+
+    public void hangout(String str, IStatusListener iStatusListener) {
+        rtcSendEvent(new BIMRtcInfo(str), 86, iStatusListener);
+    }
+
+    public void invite(@NonNull final BIMInviteRtcInfo bIMInviteRtcInfo, IStatusListener iStatusListener) {
+        Timer timer = mCallTimeoutTimer;
+        if (timer != null) {
+            timer.cancel();
+            mCallTimeoutTimer = null;
+        }
+        Timer timer2 = new Timer();
+        mCallTimeoutTimer = timer2;
+        try {
+            timer2.schedule(new TimerTask() { // from class: com.baidu.android.imrtc.BIMRtcManager.1
+                @Override // java.util.TimerTask, java.lang.Runnable
+                public void run() {
+                    Timer unused = BIMRtcManager.mCallTimeoutTimer = null;
+                    for (BIMRtcListener bIMRtcListener : BIMRtcManager.mRtcListeners) {
+                        if (bIMRtcListener != null) {
+                            bIMRtcListener.roomCallerInviteTimeoutByCallee(bIMInviteRtcInfo);
+                        }
+                    }
+                }
+            }, BIM_RTC_CALL_TIMEOUT_INTERNAL);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "invite timer exception", e2);
+        }
+        rtcSendEvent(bIMInviteRtcInfo, 80, iStatusListener);
+    }
+
+    public void join(String str, IStatusListener iStatusListener) {
+        rtcSendEvent(new BIMRtcInfo(str), 92, iStatusListener);
+    }
+
+    public void kickoff(@NonNull BIMKickRequestRtcInfo bIMKickRequestRtcInfo, IStatusListener iStatusListener) {
+        BIMUser bIMUser = new BIMUser();
+        bIMUser.thirdUserId = RtcUtility.getBduid(mContext);
+        bIMUser.cuid = RtcUtility.getCuid(mContext);
+        bIMUser.appId = RtcUtility.getAppId(mContext);
+        bIMUser.uk = RtcUtility.getIMUK(mContext);
+        bIMKickRequestRtcInfo.setBIMKickUser(bIMUser);
+        rtcSendEvent(bIMKickRequestRtcInfo, 104, iStatusListener);
+    }
+
+    public void onRtcRequestResult(int i, BIMRtcInfo bIMRtcInfo, int i2, String str, String str2) {
+        IMListener removeListener = ListenerManager.getInstance().removeListener(str2);
+        if (removeListener instanceof IStatusListener) {
+            ((IStatusListener) removeListener).onResult(i2, str);
+            trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_client_response", i2);
+        }
+        handleRtcResult(i, bIMRtcInfo, i2);
+        mBIMRtcEvent.sdkAction = i;
+        mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();
+        mBIMRtcEvent.sdkRoomId = RtcUtility.getRtcRoomId(mContext);
+    }
+
+    public void registerRtcListener(@NonNull BIMRtcListener bIMRtcListener) {
+        if (!mRtcListeners.contains(bIMRtcListener)) {
+            mRtcListeners.add(bIMRtcListener);
+        }
+        Handler handler = this.mRtcHandler;
+        if (handler != null) {
+            handler.removeCallbacks(this.trackRequestRunnable);
+            this.mRtcHandler.postDelayed(this.trackRequestRunnable, RtcConstants.RTC_TRACK_UPLOAD_DURATION);
+        }
     }
 
     public String report() {
@@ -570,5 +532,37 @@ public class BIMRtcManager {
             return "event is null.";
         }
         return mBIMRtcEvent.toString();
+    }
+
+    public void ring(String str, IStatusListener iStatusListener) {
+        rtcSendEvent(new BIMRtcInfo(str), 82, iStatusListener);
+    }
+
+    public void setRtcDebugEnv(Context context, boolean z) {
+        RtcUtility.setRtcDebug(context, z);
+    }
+
+    public void unRegisterRtcListener(@NonNull BIMRtcListener bIMRtcListener) {
+        mRtcListeners.remove(bIMRtcListener);
+        Handler handler = this.mRtcHandler;
+        if (handler != null) {
+            handler.removeCallbacks(this.trackRequestRunnable);
+            BIMRtcTrackManager.uploadRtcActionData(mContext);
+        }
+    }
+
+    public void hangout(BIMRtcInfo bIMRtcInfo, IStatusListener iStatusListener) {
+        rtcSendEvent(bIMRtcInfo, 86, iStatusListener);
+    }
+
+    public static void trackRequest(String str, String str2, int i, String str3) {
+        new BIMRtcTrack.RequestBuilder(mContext).method(str).requestId("-1").requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i).ext(trackExt(null, str2, str3)).build();
+    }
+
+    public static void trackRequest(BIMRtcInfo bIMRtcInfo, int i, int i2, String str, int i3) {
+        if (i2 == 100) {
+            return;
+        }
+        trackRequest(bIMRtcInfo, i, i2, str, i3, "");
     }
 }

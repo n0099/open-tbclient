@@ -4,14 +4,65 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.pool.IPoolItem;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FIFOPool<T extends IPoolItem> implements IPool<T> {
-    private static final int INVALID_INDEX = -1;
-    private static final String TAG = "FIFOPool";
-    private int mActive = 0;
-    private int mMaxSize;
-    private final Object[] mPool;
-    private int mPoolSize;
+    public static final int INVALID_INDEX = -1;
+    public static final String TAG = "FIFOPool";
+    public int mActive = 0;
+    public int mMaxSize;
+    public final Object[] mPool;
+    public int mPoolSize;
+
+    public FIFOPool(int i) {
+        if (i > 0) {
+            this.mMaxSize = i;
+            this.mPool = new Object[i];
+            return;
+        }
+        throw new IllegalArgumentException("The max pool size must be > 0");
+    }
+
+    private void addElement(T t) {
+        if (isInPool(t)) {
+            return;
+        }
+        int i = this.mPoolSize;
+        Object[] objArr = this.mPool;
+        if (i < objArr.length) {
+            objArr[i] = t;
+            this.mPoolSize = i + 1;
+            return;
+        }
+        int i2 = 0;
+        while (true) {
+            Object[] objArr2 = this.mPool;
+            if (i2 < objArr2.length - 1) {
+                int i3 = i2 + 1;
+                objArr2[i2] = objArr2[i3];
+                i2 = i3;
+            } else {
+                objArr2[this.mPoolSize - 1] = t;
+                return;
+            }
+        }
+    }
+
+    private boolean isInPool(T t) {
+        for (int i = 0; i < this.mPoolSize; i++) {
+            if (this.mPool[i] == t) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void add(T t) {
+        if (isInPool(t)) {
+            return;
+        }
+        addElement(t);
+        t.onInit();
+    }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.player.pool.FIFOPool<T extends com.baidu.searchbox.player.pool.IPoolItem> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -20,12 +71,13 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
         release((FIFOPool<T>) ((IPoolItem) obj));
     }
 
-    public FIFOPool(int i) {
-        if (i <= 0) {
-            throw new IllegalArgumentException("The max pool size must be > 0");
+    public void release(@NonNull T t) {
+        if (isInPool(t)) {
+            return;
         }
-        this.mMaxSize = i;
-        this.mPool = new Object[i];
+        addElement(t);
+        this.mActive--;
+        t.onRelease();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,10 +88,12 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
             if (this.mActive >= this.mMaxSize) {
                 BdVideoLog.e("active player is overSize : " + this.mMaxSize);
             }
-            int i = this.mPoolSize - 1;
-            T t = (T) this.mPool[i];
-            this.mPool[i] = null;
-            this.mPoolSize--;
+            int i = this.mPoolSize;
+            int i2 = i - 1;
+            Object[] objArr = this.mPool;
+            T t = (T) objArr[i2];
+            objArr[i2] = null;
+            this.mPoolSize = i - 1;
             this.mActive++;
             t.onInit();
             return t;
@@ -63,58 +117,25 @@ public class FIFOPool<T extends IPoolItem> implements IPool<T> {
             }
             if (i != -1) {
                 this.mActive++;
-                T t = (T) this.mPool[i];
-                this.mPool[i] = null;
-                while (i < this.mPoolSize - 1) {
-                    this.mPool[i] = this.mPool[i + 1];
-                    i++;
+                Object[] objArr = this.mPool;
+                T t = (T) objArr[i];
+                objArr[i] = null;
+                while (true) {
+                    int i3 = this.mPoolSize;
+                    if (i < i3 - 1) {
+                        Object[] objArr2 = this.mPool;
+                        int i4 = i + 1;
+                        objArr2[i] = objArr2[i4];
+                        i = i4;
+                    } else {
+                        this.mPool[i3 - 1] = null;
+                        this.mPoolSize = i3 - 1;
+                        t.onInit();
+                        return t;
+                    }
                 }
-                this.mPool[this.mPoolSize - 1] = null;
-                this.mPoolSize--;
-                t.onInit();
-                return t;
             }
-            return null;
         }
         return null;
-    }
-
-    public void release(@NonNull T t) {
-        if (!isInPool(t)) {
-            addElement(t);
-            this.mActive--;
-            t.onRelease();
-        }
-    }
-
-    private boolean isInPool(T t) {
-        for (int i = 0; i < this.mPoolSize; i++) {
-            if (this.mPool[i] == t) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void add(T t) {
-        if (!isInPool(t)) {
-            addElement(t);
-            t.onInit();
-        }
-    }
-
-    private void addElement(T t) {
-        if (!isInPool(t)) {
-            if (this.mPoolSize < this.mPool.length) {
-                this.mPool[this.mPoolSize] = t;
-                this.mPoolSize++;
-                return;
-            }
-            for (int i = 0; i < this.mPool.length - 1; i++) {
-                this.mPool[i] = this.mPool[i + 1];
-            }
-            this.mPool[this.mPoolSize - 1] = t;
-        }
     }
 }

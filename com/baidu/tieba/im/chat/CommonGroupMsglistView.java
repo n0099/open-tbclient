@@ -1,17 +1,17 @@
 package com.baidu.tieba.im.chat;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class CommonGroupMsglistView extends AbsMsglistView {
     public CommonGroupMsglistView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
-    protected void setNeedShowName() {
-        this.mNeedShowName = true;
+    public boolean isPersonal() {
+        return false;
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
-    protected boolean isPersonal() {
-        return false;
+    public void setNeedShowName() {
+        this.mNeedShowName = true;
     }
 }

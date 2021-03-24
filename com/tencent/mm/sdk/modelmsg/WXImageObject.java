@@ -6,12 +6,12 @@ import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WXImageObject implements WXMediaMessage.IMediaObject {
-    private static final int CONTENT_LENGTH_LIMIT = 10485760;
-    private static final int PATH_LENGTH_LIMIT = 10240;
-    private static final String TAG = "MicroMsg.SDK.WXImageObject";
-    private static final int URL_LENGTH_LIMIT = 10240;
+    public static final int CONTENT_LENGTH_LIMIT = 10485760;
+    public static final int PATH_LENGTH_LIMIT = 10240;
+    public static final String TAG = "MicroMsg.SDK.WXImageObject";
+    public static final int URL_LENGTH_LIMIT = 10240;
     public byte[] imageData;
     public String imagePath;
     public String imageUrl;
@@ -25,8 +25,8 @@ public class WXImageObject implements WXMediaMessage.IMediaObject {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 85, byteArrayOutputStream);
             this.imageData = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -47,24 +47,36 @@ public class WXImageObject implements WXMediaMessage.IMediaObject {
 
     @Override // com.tencent.mm.sdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if ((this.imageData == null || this.imageData.length == 0) && ((this.imagePath == null || this.imagePath.length() == 0) && (this.imageUrl == null || this.imageUrl.length() == 0))) {
-            a.a(TAG, "checkArgs fail, all arguments are null");
-            return false;
-        } else if (this.imageData != null && this.imageData.length > 10485760) {
-            a.a(TAG, "checkArgs fail, content is too large");
-            return false;
-        } else if (this.imagePath != null && this.imagePath.length() > 10240) {
-            a.a(TAG, "checkArgs fail, path is invalid");
-            return false;
-        } else if (this.imagePath != null && getFileSize(this.imagePath) > 10485760) {
-            a.a(TAG, "checkArgs fail, image content is too large");
-            return false;
-        } else if (this.imageUrl == null || this.imageUrl.length() <= 10240) {
-            return true;
+        String str;
+        String str2;
+        String str3;
+        byte[] bArr = this.imageData;
+        if ((bArr == null || bArr.length == 0) && (((str = this.imagePath) == null || str.length() == 0) && ((str2 = this.imageUrl) == null || str2.length() == 0))) {
+            str3 = "checkArgs fail, all arguments are null";
         } else {
-            a.a(TAG, "checkArgs fail, url is invalid");
-            return false;
+            byte[] bArr2 = this.imageData;
+            if (bArr2 == null || bArr2.length <= 10485760) {
+                String str4 = this.imagePath;
+                if (str4 == null || str4.length() <= 10240) {
+                    String str5 = this.imagePath;
+                    if (str5 == null || getFileSize(str5) <= 10485760) {
+                        String str6 = this.imageUrl;
+                        if (str6 == null || str6.length() <= 10240) {
+                            return true;
+                        }
+                        str3 = "checkArgs fail, url is invalid";
+                    } else {
+                        str3 = "checkArgs fail, image content is too large";
+                    }
+                } else {
+                    str3 = "checkArgs fail, path is invalid";
+                }
+            } else {
+                str3 = "checkArgs fail, content is too large";
+            }
         }
+        a.a("MicroMsg.SDK.WXImageObject", str3);
+        return false;
     }
 
     @Override // com.tencent.mm.sdk.modelmsg.WXMediaMessage.IMediaObject

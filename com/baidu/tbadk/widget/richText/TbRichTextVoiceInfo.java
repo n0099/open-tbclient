@@ -3,49 +3,59 @@ package com.baidu.tbadk.widget.richText;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import org.json.JSONObject;
 import tbclient.PbContent;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TbRichTextVoiceInfo extends OrmObject {
-    private int duration;
-    private int fZM;
-    private Object fZN;
-    private String md5;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f14331e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f14332f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f14333g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Object f14334h;
 
     public TbRichTextVoiceInfo() {
     }
 
+    public int getDuration() {
+        return this.f14332f;
+    }
+
+    public int s() {
+        return this.f14333g;
+    }
+
+    public String t() {
+        return this.f14331e;
+    }
+
+    public Object u() {
+        return this.f14334h;
+    }
+
+    public void v(Object obj) {
+        this.f14334h = obj;
+    }
+
     public TbRichTextVoiceInfo(PbContent pbContent) {
-        if (pbContent != null) {
-            this.md5 = pbContent.voice_md5;
-            this.duration = pbContent.during_time.intValue() / 1000;
-            this.fZM = pbContent.is_sub.intValue();
+        if (pbContent == null) {
+            return;
         }
+        this.f14331e = pbContent.voice_md5;
+        this.f14332f = pbContent.during_time.intValue() / 1000;
+        this.f14333g = pbContent.is_sub.intValue();
     }
 
     public TbRichTextVoiceInfo(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.md5 = jSONObject.optString("voice_md5");
-            this.duration = jSONObject.optInt("during_time") / 1000;
-            this.fZM = jSONObject.optInt("is_sub");
+        if (jSONObject == null) {
+            return;
         }
-    }
-
-    public String getMd5() {
-        return this.md5;
-    }
-
-    public int getDuration() {
-        return this.duration;
-    }
-
-    public int bIA() {
-        return this.fZM;
-    }
-
-    public Object bIB() {
-        return this.fZN;
-    }
-
-    public void aB(Object obj) {
-        this.fZN = obj;
+        this.f14331e = jSONObject.optString("voice_md5");
+        this.f14332f = jSONObject.optInt("during_time") / 1000;
+        this.f14333g = jSONObject.optInt("is_sub");
     }
 }

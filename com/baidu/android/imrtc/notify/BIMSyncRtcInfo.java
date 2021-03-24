@@ -4,31 +4,31 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMSyncRtcInfo extends BIMRtcInfo {
-    private static final String TAG = "IMSyncRtcInfo";
-    protected long mInitiatorUk;
-    private int mAnswerType = -1;
-    protected int mInviteId = -1;
+    public static final String TAG = "IMSyncRtcInfo";
+    public long mInitiatorUk;
+    public int mAnswerType = -1;
+    public int mInviteId = -1;
+
+    public int getAnswerType() {
+        return this.mAnswerType;
+    }
 
     public long getInitiatorUk() {
         return this.mInitiatorUk;
     }
 
-    public void setInitiatorUk(long j) {
-        this.mInitiatorUk = j;
-    }
-
-    public int getAnswerType() {
-        return this.mAnswerType;
+    public int getInviteId() {
+        return this.mInviteId;
     }
 
     public void setAnswerType(int i) {
         this.mAnswerType = i;
     }
 
-    public int getInviteId() {
-        return this.mInviteId;
+    public void setInitiatorUk(long j) {
+        this.mInitiatorUk = j;
     }
 
     public void setInviteId(int i) {
@@ -48,8 +48,8 @@ public class BIMSyncRtcInfo extends BIMRtcInfo {
                 jSONObject.put("invite_id", this.mInviteId);
             }
             return jSONObject.toString();
-        } catch (Exception e) {
-            LogUtils.e(TAG, "IMSyncRtcInfo Exception ", e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "IMSyncRtcInfo Exception ", e2);
             return "";
         }
     }

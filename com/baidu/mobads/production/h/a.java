@@ -6,9 +6,9 @@ import com.baidu.mobads.AdSize;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.production.b.e;
 import com.baidu.mobads.vo.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends e {
-    private com.baidu.mobads.production.g.a z;
+    public com.baidu.mobads.production.g.a z;
 
     public a(Context context, String str) {
         super(context);
@@ -16,8 +16,9 @@ public class a extends e {
         setActivity(context);
         setAdSlotBase(null);
         this.o = IXAdConstants4PDK.SlotType.SLOT_TYPE_PREROLL;
-        this.z = new com.baidu.mobads.production.g.a(getApplicationContext(), getActivity(), IXAdConstants4PDK.SlotType.SLOT_TYPE_PREROLL, this);
-        this.z.f(AdSize.PrerollVideoNative.getValue());
+        com.baidu.mobads.production.g.a aVar = new com.baidu.mobads.production.g.a(getApplicationContext(), getActivity(), IXAdConstants4PDK.SlotType.SLOT_TYPE_PREROLL, this);
+        this.z = aVar;
+        aVar.f(AdSize.PrerollVideoNative.getValue());
         this.z.d(str);
     }
 
@@ -25,10 +26,11 @@ public class a extends e {
     public void a(RequestParameters requestParameters) {
         int width = requestParameters.getWidth();
         int height = requestParameters.getHeight();
-        if (width > 0 && height > 0) {
-            this.z.d(width);
-            this.z.e(height);
+        if (width <= 0 || height <= 0) {
+            return;
         }
+        this.z.d(width);
+        this.z.e(height);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

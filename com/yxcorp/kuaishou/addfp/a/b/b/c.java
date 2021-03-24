@@ -4,47 +4,65 @@ import android.content.Context;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
-public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
+import d.q.a.a.a.a.a;
+import d.q.a.a.a.b.b;
+/* loaded from: classes7.dex */
+public final class c implements b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f8598a;
-    private String b = "";
-    private String c = "";
-    private String d = "";
-    private boolean e = false;
-    private com.yxcorp.kuaishou.addfp.a.a.a f;
-    private a g;
+    public Context f41084a;
 
-    public c(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f8598a = context;
-        this.f = aVar;
-        this.g = new a(context);
+    /* renamed from: b  reason: collision with root package name */
+    public String f41085b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f41086c = "";
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f41087d = "";
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f41088e = false;
+
+    /* renamed from: f  reason: collision with root package name */
+    public a f41089f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.q.a.a.a.b.c.a f41090g;
+
+    public c(Context context, a aVar) {
+        this.f41084a = context;
+        this.f41089f = aVar;
+        this.f41090g = new d.q.a.a.a.b.c.a(context);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
         try {
-            this.b = ((d) iInterface).a();
-            if (!TextUtils.isEmpty(this.b)) {
-                this.e = true;
-                if (this.f != null) {
-                    this.f.a(this.e, this);
+            String a2 = ((d) iInterface).a();
+            this.f41085b = a2;
+            if (TextUtils.isEmpty(a2)) {
+                if (this.f41089f != null) {
+                    this.f41089f.a(false, null);
+                    return;
                 }
-            } else if (this.f != null) {
-                this.f.a(false, null);
+                return;
+            }
+            this.f41088e = true;
+            if (this.f41089f != null) {
+                this.f41089f.a(true, this);
             }
         } catch (Throwable th) {
-            com.yxcorp.kuaishou.addfp.android.b.b.a(th);
+            d.q.a.a.c.b.b.c(th);
         }
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
-    public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.g.a(this);
+    @Override // d.q.a.a.a.b.b
+    public final void a(a aVar) {
+        this.f41090g.d(this);
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final boolean a() {
         return false;
     }
@@ -54,27 +72,29 @@ public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         return null;
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final String b() {
-        return this.b;
+        return this.f41085b;
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final boolean c() {
-        return this.e;
+        return this.f41088e;
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final void d() {
-        if (this.g != null) {
-            this.g.a();
+        d.q.a.a.a.b.c.a aVar = this.f41090g;
+        if (aVar != null) {
+            aVar.c();
         }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f != null) {
-            this.f.a(false, this);
+        a aVar = this.f41089f;
+        if (aVar != null) {
+            aVar.a(false, this);
         }
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RedNotifyMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<RedNotifyMsg> CREATOR = new Parcelable.Creator<RedNotifyMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.RedNotifyMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,86 +25,17 @@ public class RedNotifyMsg extends NotifyMsg implements Parcelable, NoProGuard {
             return new RedNotifyMsg[i];
         }
     };
-    private long mGrabTime;
-    private int mIsLast;
-    private String mLogoUrl;
-    private String mOrderId;
-    private String mReceiveName;
-    private String mReceveId;
-    private String mSendId;
-    private String mSendName;
+    public long mGrabTime;
+    public int mIsLast;
+    public String mLogoUrl;
+    public String mOrderId;
+    public String mReceiveName;
+    public String mReceveId;
+    public String mSendId;
+    public String mSendName;
 
     public RedNotifyMsg() {
         setMsgType(2010);
-    }
-
-    public RedNotifyMsg(Parcel parcel) {
-        super(parcel);
-        this.mOrderId = parcel.readString();
-        this.mSendId = parcel.readString();
-        this.mSendName = parcel.readString();
-        this.mReceveId = parcel.readString();
-        this.mReceiveName = parcel.readString();
-        this.mIsLast = parcel.readInt();
-        this.mGrabTime = parcel.readLong();
-        this.mLogoUrl = parcel.readString();
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeString(this.mOrderId);
-        parcel.writeString(this.mSendId);
-        parcel.writeString(this.mSendName);
-        parcel.writeString(this.mReceveId);
-        parcel.writeString(this.mReceiveName);
-        parcel.writeInt(this.mIsLast);
-        parcel.writeLong(this.mGrabTime);
-        parcel.writeString(this.mLogoUrl);
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        LogUtils.d("", "FDEBUG parseJsonString");
-        try {
-            JSONObject jSONObject = new JSONObject(getMsgContent());
-            this.mOrderId = jSONObject.optString("redpack_id");
-            this.mSendId = jSONObject.optString("redpack_send_uid");
-            this.mSendName = jSONObject.optString("redpack_send_name");
-            this.mReceveId = jSONObject.optString("redpack_recv_uid");
-            this.mReceiveName = jSONObject.optString("redpack_recv_name");
-            this.mIsLast = jSONObject.optInt("last");
-            this.mGrabTime = jSONObject.optLong("redpack_get_ts");
-            this.mLogoUrl = jSONObject.optString("logo");
-            return true;
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-            return false;
-        }
-    }
-
-    public String getOrderId() {
-        return this.mOrderId;
-    }
-
-    public String getSendId() {
-        return this.mSendId;
-    }
-
-    public String getSendName() {
-        return this.mSendName;
-    }
-
-    public String getReceveId() {
-        return this.mReceveId;
-    }
-
-    public String getRecvName() {
-        return this.mReceiveName;
-    }
-
-    public int isLast() {
-        return this.mIsLast;
     }
 
     public long getGrabTime() {
@@ -113,6 +44,14 @@ public class RedNotifyMsg extends NotifyMsg implements Parcelable, NoProGuard {
 
     public String getLogo() {
         return this.mLogoUrl;
+    }
+
+    public String getOrderId() {
+        return this.mOrderId;
+    }
+
+    public String getReceveId() {
+        return this.mReceveId;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -134,5 +73,66 @@ public class RedNotifyMsg extends NotifyMsg implements Parcelable, NoProGuard {
         } else {
             return this.mReceiveName + "领取了" + this.mSendName + "的红包";
         }
+    }
+
+    public String getRecvName() {
+        return this.mReceiveName;
+    }
+
+    public String getSendId() {
+        return this.mSendId;
+    }
+
+    public String getSendName() {
+        return this.mSendName;
+    }
+
+    public int isLast() {
+        return this.mIsLast;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        LogUtils.d("", "FDEBUG parseJsonString");
+        try {
+            JSONObject jSONObject = new JSONObject(getMsgContent());
+            this.mOrderId = jSONObject.optString("redpack_id");
+            this.mSendId = jSONObject.optString("redpack_send_uid");
+            this.mSendName = jSONObject.optString("redpack_send_name");
+            this.mReceveId = jSONObject.optString("redpack_recv_uid");
+            this.mReceiveName = jSONObject.optString("redpack_recv_name");
+            this.mIsLast = jSONObject.optInt("last");
+            this.mGrabTime = jSONObject.optLong("redpack_get_ts");
+            this.mLogoUrl = jSONObject.optString("logo");
+            return true;
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            return false;
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+        parcel.writeString(this.mOrderId);
+        parcel.writeString(this.mSendId);
+        parcel.writeString(this.mSendName);
+        parcel.writeString(this.mReceveId);
+        parcel.writeString(this.mReceiveName);
+        parcel.writeInt(this.mIsLast);
+        parcel.writeLong(this.mGrabTime);
+        parcel.writeString(this.mLogoUrl);
+    }
+
+    public RedNotifyMsg(Parcel parcel) {
+        super(parcel);
+        this.mOrderId = parcel.readString();
+        this.mSendId = parcel.readString();
+        this.mSendName = parcel.readString();
+        this.mReceveId = parcel.readString();
+        this.mReceiveName = parcel.readString();
+        this.mIsLast = parcel.readInt();
+        this.mGrabTime = parcel.readLong();
+        this.mLogoUrl = parcel.readString();
     }
 }

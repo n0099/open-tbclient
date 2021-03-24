@@ -2,67 +2,66 @@ package com.kwai.video.player.kwai_player;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.kwai.video.hodor.util.Timber;
 import com.kwai.video.player.PlayerSettingConstants;
 import com.kwai.video.player.kwai_player.KwaiPlayerBaseBuilder;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class KwaiPlayerBaseBuilder<T extends KwaiPlayerBaseBuilder<T>> {
     public static final String HEVC_DECODER_NAME_KS265 = "libks265dec";
     public static final String HEVC_DECODER_NAME_KVC = "libkvcdec";
     public static final String HEVC_DECODER_NAME_QY265 = "libqy265dec";
-    private Context mContext;
-    private ProductContext mProductContext;
-    private boolean mUseOpenSLES = false;
+    public Context mContext;
+    public ProductContext mProductContext;
+    public boolean mUseOpenSLES = false;
     @PlayerSettingConstants.OverlayFormat
-    private Integer mOverlayFormat = null;
-    private String mOverlayFormatString = null;
-    private boolean mUseMediaCodecDummySurface = false;
+    public Integer mOverlayFormat = null;
+    public String mOverlayFormatString = null;
+    public boolean mUseMediaCodecDummySurface = false;
     @PlayerSettingConstants.UseHardwareDecoderFlag
-    private int mUseHardwareDcoderFlag = 0;
-    private boolean mUseLibfdkForAac = false;
-    private String mHevcDcoderName = HEVC_DECODER_NAME_QY265;
-    private boolean mStartOnPrepared = true;
-    private boolean mAsyncStreamComponentOpen = false;
-    private boolean mEnableVodAdaptive = false;
-    protected boolean mUseNatvieCache = false;
-    protected boolean mEnableSegmentCache = false;
-    private int mVideoPictureQueueSize = 3;
-    private boolean mEnableSoftwareDecodeLimit = false;
-    private int mSoftwareDecodeWidthLimit = -1;
-    private int mSoftwareDecodeHeightLimit = -1;
-    private int mSoftwareDecodeFpsLimit = -1;
-    private int mMediaCodecMaxNum = -1;
-    private int mMediaCodecAvcHeightLimit = -1;
-    private int mMediaCodecHevcHeightLimit = -1;
-    private int mMediaCodecAvcWidthLimit = -1;
-    private int mMediaCodecHevcWidthLimit = -1;
-    private boolean mUseMediaCodecByteBuffer = false;
-    private int mMaxBufferSizeMb = -1;
-    private int mMaxBufferTimeMs = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
-    private int mMaxBufferTimeBspMs = -1;
-    private int mFFmpegConnectionTimeoutSec = 5;
-    private int mFFmpegDataReadTimeoutSec = 30;
-    private int mFFmpegSocketSendBufferSize = -1;
-    private int mFFmpegSocketRecvBufferSize = -1;
-    private int mFadeinEndTimeMs = 0;
-    private String mKs265DecExtraParams = null;
-    private boolean mEnableModifyBlock = false;
-    private boolean mEnableAvSyncOpt = false;
-    private boolean mIsVR = false;
-    private int mInteractiveMode = 0;
-    private int mStereoType = 0;
-    private int mAudioChannelMode = 0;
+    public int mUseHardwareDcoderFlag = 0;
+    public boolean mUseLibfdkForAac = false;
+    public String mHevcDcoderName = HEVC_DECODER_NAME_QY265;
+    public boolean mStartOnPrepared = true;
+    public boolean mAsyncStreamComponentOpen = false;
+    public boolean mEnableVodAdaptive = false;
+    public boolean mUseNatvieCache = false;
+    public boolean mEnableSegmentCache = false;
+    public int mVideoPictureQueueSize = 3;
+    public boolean mEnableSoftwareDecodeLimit = false;
+    public int mSoftwareDecodeWidthLimit = -1;
+    public int mSoftwareDecodeHeightLimit = -1;
+    public int mSoftwareDecodeFpsLimit = -1;
+    public int mMediaCodecMaxNum = -1;
+    public int mMediaCodecAvcHeightLimit = -1;
+    public int mMediaCodecHevcHeightLimit = -1;
+    public int mMediaCodecAvcWidthLimit = -1;
+    public int mMediaCodecHevcWidthLimit = -1;
+    public boolean mUseMediaCodecByteBuffer = false;
+    public int mMaxBufferSizeMb = -1;
+    public int mMaxBufferTimeMs = 120000;
+    public int mMaxBufferTimeBspMs = -1;
+    public int mFFmpegConnectionTimeoutSec = 5;
+    public int mFFmpegDataReadTimeoutSec = 30;
+    public int mFFmpegSocketSendBufferSize = -1;
+    public int mFFmpegSocketRecvBufferSize = -1;
+    public int mFadeinEndTimeMs = 0;
+    public String mKs265DecExtraParams = null;
+    public boolean mEnableModifyBlock = false;
+    public boolean mEnableAvSyncOpt = false;
+    public boolean mIsVR = false;
+    public int mInteractiveMode = 0;
+    public int mStereoType = 0;
+    public int mAudioChannelMode = 0;
 
     public KwaiPlayerBaseBuilder(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void applyTo(KwaiMediaPlayer kwaiMediaPlayer) {
         Timber.d("applyTo", new Object[0]);
-        if (this.mContext != null) {
-            kwaiMediaPlayer._setQy265Context(this.mContext);
+        Context context = this.mContext;
+        if (context != null) {
+            kwaiMediaPlayer._setQy265Context(context);
             kwaiMediaPlayer.setContext(this.mContext);
         }
         kwaiMediaPlayer.setupAspectNativeCache(this.mUseNatvieCache);
@@ -70,58 +69,75 @@ public abstract class KwaiPlayerBaseBuilder<T extends KwaiPlayerBaseBuilder<T>> 
         kwaiMediaPlayer.setOption(4, "opensles", this.mUseOpenSLES ? 1L : 0L);
         kwaiMediaPlayer.setOption(4, "start-on-prepared", this.mStartOnPrepared ? 1L : 0L);
         kwaiMediaPlayer.setOption(4, "async-stream-component-open", this.mAsyncStreamComponentOpen ? 1L : 0L);
-        if (this.mVideoPictureQueueSize > 3 && this.mVideoPictureQueueSize <= 16) {
-            kwaiMediaPlayer.setOption(4, "video-pictq-size", this.mVideoPictureQueueSize);
+        int i = this.mVideoPictureQueueSize;
+        if (i > 3 && i <= 16) {
+            kwaiMediaPlayer.setOption(4, "video-pictq-size", i);
         }
-        if (this.mMediaCodecMaxNum > 0) {
-            kwaiMediaPlayer.setOption(4, "mediacodec-max-cnt", this.mMediaCodecMaxNum);
+        int i2 = this.mMediaCodecMaxNum;
+        if (i2 > 0) {
+            kwaiMediaPlayer.setOption(4, "mediacodec-max-cnt", i2);
         }
-        if (this.mMediaCodecAvcHeightLimit > 0) {
-            kwaiMediaPlayer.setOption(4, "mediacodec-avc-height-limit", this.mMediaCodecAvcHeightLimit);
+        int i3 = this.mMediaCodecAvcHeightLimit;
+        if (i3 > 0) {
+            kwaiMediaPlayer.setOption(4, "mediacodec-avc-height-limit", i3);
         }
-        if (this.mMediaCodecHevcHeightLimit > 0) {
-            kwaiMediaPlayer.setOption(4, "mediacodec-hevc-height-limit", this.mMediaCodecHevcHeightLimit);
+        int i4 = this.mMediaCodecHevcHeightLimit;
+        if (i4 > 0) {
+            kwaiMediaPlayer.setOption(4, "mediacodec-hevc-height-limit", i4);
         }
-        if (this.mMediaCodecAvcWidthLimit > 0) {
-            kwaiMediaPlayer.setOption(4, "mediacodec-avc-width-limit", this.mMediaCodecAvcWidthLimit);
+        int i5 = this.mMediaCodecAvcWidthLimit;
+        if (i5 > 0) {
+            kwaiMediaPlayer.setOption(4, "mediacodec-avc-width-limit", i5);
         }
-        if (this.mMediaCodecHevcWidthLimit > 0) {
-            kwaiMediaPlayer.setOption(4, "mediacodec-hevc-width-limit", this.mMediaCodecHevcWidthLimit);
+        int i6 = this.mMediaCodecHevcWidthLimit;
+        if (i6 > 0) {
+            kwaiMediaPlayer.setOption(4, "mediacodec-hevc-width-limit", i6);
         }
         if (this.mUseMediaCodecByteBuffer) {
             kwaiMediaPlayer.setOption(4, "use-mediacodec-bytebuffer", 1L);
         }
         if (this.mEnableSoftwareDecodeLimit) {
             kwaiMediaPlayer.setOption(4, "enable-software-decode-limitation", 1L);
-            if (this.mSoftwareDecodeWidthLimit > 0) {
-                kwaiMediaPlayer.setOption(4, "software-decode-width-limit", this.mSoftwareDecodeWidthLimit);
+            int i7 = this.mSoftwareDecodeWidthLimit;
+            if (i7 > 0) {
+                kwaiMediaPlayer.setOption(4, "software-decode-width-limit", i7);
             }
-            if (this.mSoftwareDecodeHeightLimit > 0) {
-                kwaiMediaPlayer.setOption(4, "software-decode-height-limit", this.mSoftwareDecodeHeightLimit);
+            int i8 = this.mSoftwareDecodeHeightLimit;
+            if (i8 > 0) {
+                kwaiMediaPlayer.setOption(4, "software-decode-height-limit", i8);
             }
-            if (this.mSoftwareDecodeFpsLimit > 0) {
-                kwaiMediaPlayer.setOption(4, "software-decode-fps-limit", this.mSoftwareDecodeFpsLimit);
+            int i9 = this.mSoftwareDecodeFpsLimit;
+            if (i9 > 0) {
+                kwaiMediaPlayer.setOption(4, "software-decode-fps-limit", i9);
             }
         }
-        if (this.mOverlayFormat != null) {
-            kwaiMediaPlayer.setOption(4, "overlay-format", this.mOverlayFormat.intValue());
-        } else if (this.mOverlayFormatString != null) {
-            kwaiMediaPlayer.setOption(4, "overlay-format", this.mOverlayFormatString);
+        Integer num = this.mOverlayFormat;
+        if (num != null) {
+            kwaiMediaPlayer.setOption(4, "overlay-format", num.intValue());
+        } else {
+            String str = this.mOverlayFormatString;
+            if (str != null) {
+                kwaiMediaPlayer.setOption(4, "overlay-format", str);
+            }
         }
-        if (this.mProductContext != null && !this.mProductContext.productContextJson.isEmpty()) {
+        ProductContext productContext = this.mProductContext;
+        if (productContext != null && !productContext.productContextJson.isEmpty()) {
             kwaiMediaPlayer.setOption(1, "product-context", this.mProductContext.productContextJson);
         }
         if (this.mUseLibfdkForAac) {
             kwaiMediaPlayer.setOption(4, "aac-libfdk", 1L);
         }
-        if (this.mFadeinEndTimeMs > 0) {
-            kwaiMediaPlayer.setOption(4, "fade-in-end-time-ms", this.mFadeinEndTimeMs);
+        int i10 = this.mFadeinEndTimeMs;
+        if (i10 > 0) {
+            kwaiMediaPlayer.setOption(4, "fade-in-end-time-ms", i10);
         }
-        if (this.mEnableModifyBlock) {
-            kwaiMediaPlayer.setOption(4, "enable-modify-block", this.mEnableModifyBlock ? 1L : 0L);
+        boolean z = this.mEnableModifyBlock;
+        if (z) {
+            kwaiMediaPlayer.setOption(4, "enable-modify-block", z ? 1L : 0L);
         }
-        if (this.mEnableAvSyncOpt) {
-            kwaiMediaPlayer.setOption(4, "enable-av-sync-opt", this.mEnableAvSyncOpt ? 1L : 0L);
+        boolean z2 = this.mEnableAvSyncOpt;
+        if (z2) {
+            kwaiMediaPlayer.setOption(4, "enable-av-sync-opt", z2 ? 1L : 0L);
         }
         kwaiMediaPlayer.setHevcCodecName(this.mHevcDcoderName);
         kwaiMediaPlayer.setCodecFlag(this.mUseHardwareDcoderFlag);
@@ -131,20 +147,24 @@ public abstract class KwaiPlayerBaseBuilder<T extends KwaiPlayerBaseBuilder<T>> 
         if (!TextUtils.isEmpty(this.mKs265DecExtraParams)) {
             kwaiMediaPlayer.setOption(2, "ks265_params", this.mKs265DecExtraParams);
         }
-        if (this.mMaxBufferSizeMb > 0) {
-            kwaiMediaPlayer._setBufferSize(this.mMaxBufferSizeMb);
+        int i11 = this.mMaxBufferSizeMb;
+        if (i11 > 0) {
+            kwaiMediaPlayer._setBufferSize(i11);
         }
         kwaiMediaPlayer.setOption(4, "max-buffer-dur-ms", this.mMaxBufferTimeMs);
-        if (this.mMaxBufferTimeBspMs > 0) {
-            kwaiMediaPlayer.setOption(4, "dcc.max-buffer-dur-bsp-ms", this.mMaxBufferTimeBspMs);
+        int i12 = this.mMaxBufferTimeBspMs;
+        if (i12 > 0) {
+            kwaiMediaPlayer.setOption(4, "dcc.max-buffer-dur-bsp-ms", i12);
         }
         kwaiMediaPlayer._setConnectionTimeout(this.mFFmpegConnectionTimeoutSec);
         kwaiMediaPlayer._setTimeout(this.mFFmpegDataReadTimeoutSec);
-        if (this.mFFmpegSocketRecvBufferSize > 0) {
-            kwaiMediaPlayer.setOption(1, "recv_buffer_size", this.mFFmpegSocketRecvBufferSize);
+        int i13 = this.mFFmpegSocketRecvBufferSize;
+        if (i13 > 0) {
+            kwaiMediaPlayer.setOption(1, "recv_buffer_size", i13);
         }
-        if (this.mFFmpegSocketSendBufferSize > 0) {
-            kwaiMediaPlayer.setOption(1, "send_buffer_size", this.mFFmpegSocketSendBufferSize);
+        int i14 = this.mFFmpegSocketSendBufferSize;
+        if (i14 > 0) {
+            kwaiMediaPlayer.setOption(1, "send_buffer_size", i14);
         }
         if (this.mIsVR) {
             kwaiMediaPlayer.setInteractiveMode(this.mInteractiveMode);
@@ -159,7 +179,7 @@ public abstract class KwaiPlayerBaseBuilder<T extends KwaiPlayerBaseBuilder<T>> 
         return self();
     }
 
-    protected abstract T self();
+    public abstract T self();
 
     public T setAsyncStreamOpen(boolean z) {
         this.mAsyncStreamComponentOpen = z;

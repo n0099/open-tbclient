@@ -1,23 +1,22 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.meizu.cloud.a.a;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import d.j.a.a.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SubTagsStatus extends BasicPushStatus {
-    private String pushId;
-    private List<Tag> tagList;
+    public String pushId;
+    public List<Tag> tagList;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class Tag implements Serializable {
-        private int tagId;
-        private String tagName;
+        public int tagId;
+        public String tagName;
 
         public Tag() {
         }
@@ -60,8 +59,8 @@ public class SubTagsStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public void parseValueData(JSONObject jSONObject) throws JSONException {
-        if (!jSONObject.isNull(PushConstants.KEY_PUSH_ID)) {
-            setPushId(jSONObject.getString(PushConstants.KEY_PUSH_ID));
+        if (!jSONObject.isNull("pushId")) {
+            setPushId(jSONObject.getString("pushId"));
         }
         if (jSONObject.isNull(CommandMessage.TYPE_TAGS)) {
             return;
@@ -79,7 +78,7 @@ public class SubTagsStatus extends BasicPushStatus {
             }
             arrayList.add(tag);
         }
-        a.e(BasicPushStatus.TAG, "tags " + arrayList);
+        a.b(BasicPushStatus.TAG, "tags " + arrayList);
         setTagList(arrayList);
     }
 

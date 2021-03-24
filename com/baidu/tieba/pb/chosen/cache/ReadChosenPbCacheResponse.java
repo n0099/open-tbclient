@@ -1,17 +1,17 @@
 package com.baidu.tieba.pb.chosen.cache;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes7.dex */
-public class ReadChosenPbCacheResponse extends CustomResponsedMessage<com.baidu.tieba.pb.chosen.net.a> {
-    private com.baidu.tieba.pb.chosen.net.a chosenData;
+import d.b.i0.c2.g.c.a;
+/* loaded from: classes4.dex */
+public class ReadChosenPbCacheResponse extends CustomResponsedMessage<a> {
+    public a chosenData;
 
-    public ReadChosenPbCacheResponse(com.baidu.tieba.pb.chosen.net.a aVar) {
-        super(CmdConfigCustom.CMD_CHOSEN_PB_READ_CACHE);
+    public ReadChosenPbCacheResponse(a aVar) {
+        super(2001314);
         this.chosenData = aVar;
     }
 
-    public com.baidu.tieba.pb.chosen.net.a getChosenData() {
+    public a getChosenData() {
         return this.chosenData;
     }
 }

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GoodsMsg extends NormalMsg {
     public static final Parcelable.Creator<GoodsMsg> CREATOR = new Parcelable.Creator<GoodsMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GoodsMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,16 +22,16 @@ public class GoodsMsg extends NormalMsg {
             return new GoodsMsg[i];
         }
     };
-    private static final String TAG = "GoodsMsg";
-    private double mCoupon;
-    private int mId;
-    private String mImage;
-    private String mJumpName;
-    private double mPrice;
-    private int mSales;
-    private String mSchema;
-    private String mShopName;
-    private String mTitle;
+    public static final String TAG = "GoodsMsg";
+    public double mCoupon;
+    public int mId;
+    public String mImage;
+    public String mJumpName;
+    public double mPrice;
+    public int mSales;
+    public String mSchema;
+    public String mShopName;
+    public String mTitle;
 
     public GoodsMsg() {
         this.mSales = -1;
@@ -39,23 +39,60 @@ public class GoodsMsg extends NormalMsg {
         setMsgType(29);
     }
 
-    public GoodsMsg(Parcel parcel) {
-        super(parcel);
-        this.mSales = -1;
-        this.mCoupon = -1.0d;
-        this.mTitle = parcel.readString();
-        this.mImage = parcel.readString();
-        this.mPrice = parcel.readDouble();
-        this.mSales = parcel.readInt();
-        this.mCoupon = parcel.readDouble();
-        this.mSchema = parcel.readString();
-        this.mShopName = parcel.readString();
-        this.mId = parcel.readInt();
-        this.mJumpName = parcel.readString();
+    private double getCouponFromJson(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return -1.0d;
+        }
+        try {
+            return new JSONObject(jSONObject.optString("coupons")).optDouble("salePrice", -1.0d);
+        } catch (Exception unused) {
+            return -1.0d;
+        }
+    }
+
+    public double getCoupon() {
+        return this.mCoupon;
+    }
+
+    public int getId() {
+        return this.mId;
+    }
+
+    public String getImage() {
+        return this.mImage;
+    }
+
+    public String getJumpName() {
+        return this.mJumpName;
+    }
+
+    public double getPrice() {
+        return this.mPrice;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
+    public String getRecommendDescription() {
+        return "好货来袭，快来看看吧！";
+    }
+
+    public int getSales() {
+        return this.mSales;
+    }
+
+    public String getSchema() {
+        return this.mSchema;
+    }
+
+    public String getShopName() {
+        return this.mShopName;
+    }
+
+    public String getTitle() {
+        return this.mTitle;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
         try {
             JSONObject jSONObject = new JSONObject(getJsonContent());
             LogUtils.d(TAG, "parse goods msg " + getJsonContent());
@@ -69,26 +106,10 @@ public class GoodsMsg extends NormalMsg {
             this.mId = jSONObject.optInt("num_id");
             this.mJumpName = jSONObject.optString("des_source");
             return true;
-        } catch (JSONException e) {
-            LogUtils.e(TAG, "parseJsonString JSONException", e);
+        } catch (JSONException e2) {
+            LogUtils.e(TAG, "parseJsonString JSONException", e2);
             return false;
         }
-    }
-
-    private double getCouponFromJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return -1.0d;
-        }
-        try {
-            return new JSONObject(jSONObject.optString("coupons")).optDouble("salePrice", -1.0d);
-        } catch (Exception e) {
-            return -1.0d;
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        return "好货来袭，快来看看吧！";
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -105,39 +126,18 @@ public class GoodsMsg extends NormalMsg {
         parcel.writeString(this.mJumpName);
     }
 
-    public String getTitle() {
-        return this.mTitle;
-    }
-
-    public String getImage() {
-        return this.mImage;
-    }
-
-    public double getPrice() {
-        return this.mPrice;
-    }
-
-    public int getSales() {
-        return this.mSales;
-    }
-
-    public double getCoupon() {
-        return this.mCoupon;
-    }
-
-    public String getSchema() {
-        return this.mSchema;
-    }
-
-    public String getShopName() {
-        return this.mShopName;
-    }
-
-    public int getId() {
-        return this.mId;
-    }
-
-    public String getJumpName() {
-        return this.mJumpName;
+    public GoodsMsg(Parcel parcel) {
+        super(parcel);
+        this.mSales = -1;
+        this.mCoupon = -1.0d;
+        this.mTitle = parcel.readString();
+        this.mImage = parcel.readString();
+        this.mPrice = parcel.readDouble();
+        this.mSales = parcel.readInt();
+        this.mCoupon = parcel.readDouble();
+        this.mSchema = parcel.readString();
+        this.mShopName = parcel.readString();
+        this.mId = parcel.readInt();
+        this.mJumpName = parcel.readString();
     }
 }

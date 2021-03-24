@@ -1,10 +1,10 @@
 package com.baidu.android.pushservice.d;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class l {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public enum a {
         MODEL_O(1),
         MODEL_C(2),
@@ -14,22 +14,39 @@ public class l {
         MODEL_OP(6),
         MODEL_VI(7);
         
-        private int h;
+
+        /* renamed from: h  reason: collision with root package name */
+        public int f2978h;
 
         a(int i2) {
-            this.h = i2;
+            this.f2978h = i2;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.h;
+            return this.f2978h;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static int a(Context context) {
+        a aVar;
         int a2 = a.MODEL_O.a();
-        int b = com.baidu.android.pushservice.b.d.a(context).b();
-        return com.baidu.android.pushservice.b.d.l(context) ? a.MODEL_HW.a() : com.baidu.android.pushservice.b.d.k(context) ? a.MODEL_XM.a() : com.baidu.android.pushservice.b.d.m(context) ? a.MODEL_OP.a() : com.baidu.android.pushservice.b.d.n(context) ? a.MODEL_VI.a() : com.baidu.android.pushservice.b.d.j(context) ? a.MODEL_MZ.a() : (b == 2 || b == 4 || b == 3) ? a.MODEL_C.a() : a2;
+        int b2 = com.baidu.android.pushservice.b.d.a(context).b();
+        if (com.baidu.android.pushservice.b.d.l(context)) {
+            aVar = a.MODEL_HW;
+        } else if (com.baidu.android.pushservice.b.d.k(context)) {
+            aVar = a.MODEL_XM;
+        } else if (com.baidu.android.pushservice.b.d.m(context)) {
+            aVar = a.MODEL_OP;
+        } else if (com.baidu.android.pushservice.b.d.n(context)) {
+            aVar = a.MODEL_VI;
+        } else if (com.baidu.android.pushservice.b.d.j(context)) {
+            aVar = a.MODEL_MZ;
+        } else if (b2 != 2 && b2 != 4 && b2 != 3) {
+            return a2;
+        } else {
+            aVar = a.MODEL_C;
+        }
+        return aVar.a();
     }
 }

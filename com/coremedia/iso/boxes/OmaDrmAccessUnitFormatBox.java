@@ -4,91 +4,93 @@ import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import g.a.a.a;
+import g.a.b.b.b;
 import java.nio.ByteBuffer;
-import org.aspectj.a.b.b;
-import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+import kotlin.jvm.internal.ByteCompanionObject;
+/* loaded from: classes6.dex */
 public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
     public static final String TYPE = "odaf";
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_5 = null;
-    private byte allBits;
-    private int initVectorLength;
-    private int keyIndicatorLength;
-    private boolean selectiveEncryption;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_5 = null;
+    public byte allBits;
+    public int initVectorLength;
+    public int keyIndicatorLength;
+    public boolean selectiveEncryption;
 
     static {
         ajc$preClinit();
-    }
-
-    private static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("OmaDrmAccessUnitFormatBox.java", OmaDrmAccessUnitFormatBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "isSelectiveEncryption", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "boolean"), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getKeyIndicatorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "int"), 50);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getInitVectorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "int"), 54);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setInitVectorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "int", "initVectorLength", "", "void"), 58);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "setKeyIndicatorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "int", "keyIndicatorLength", "", "void"), 62);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setAllBits", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "byte", "allBits", "", "void"), 66);
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    protected long getContentSize() {
-        return 7L;
     }
 
     public OmaDrmAccessUnitFormatBox() {
         super(TYPE);
     }
 
-    public boolean isSelectiveEncryption() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this));
-        return this.selectiveEncryption;
-    }
-
-    public int getKeyIndicatorLength() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this));
-        return this.keyIndicatorLength;
-    }
-
-    public int getInitVectorLength() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this));
-        return this.initVectorLength;
-    }
-
-    public void setInitVectorLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Sw(i)));
-        this.initVectorLength = i;
-    }
-
-    public void setKeyIndicatorLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Sw(i)));
-        this.keyIndicatorLength = i;
-    }
-
-    public void setAllBits(byte b) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.i(b)));
-        this.allBits = b;
-        this.selectiveEncryption = (b & 128) == 128;
+    public static /* synthetic */ void ajc$preClinit() {
+        b bVar = new b("OmaDrmAccessUnitFormatBox.java", OmaDrmAccessUnitFormatBox.class);
+        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "isSelectiveEncryption", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "boolean"), 46);
+        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "getKeyIndicatorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "int"), 50);
+        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "getInitVectorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "int"), 54);
+        ajc$tjp_3 = bVar.g("method-execution", bVar.f("1", "setInitVectorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "int", "initVectorLength", "", "void"), 58);
+        ajc$tjp_4 = bVar.g("method-execution", bVar.f("1", "setKeyIndicatorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "int", "keyIndicatorLength", "", "void"), 62);
+        ajc$tjp_5 = bVar.g("method-execution", bVar.f("1", "setAllBits", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "byte", "allBits", "", "void"), 66);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
         parseVersionAndFlags(byteBuffer);
-        this.allBits = (byte) IsoTypeReader.readUInt8(byteBuffer);
-        this.selectiveEncryption = (this.allBits & 128) == 128;
+        byte readUInt8 = (byte) IsoTypeReader.readUInt8(byteBuffer);
+        this.allBits = readUInt8;
+        this.selectiveEncryption = (readUInt8 & ByteCompanionObject.MIN_VALUE) == 128;
         this.keyIndicatorLength = IsoTypeReader.readUInt8(byteBuffer);
         this.initVectorLength = IsoTypeReader.readUInt8(byteBuffer);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
-    protected void getContent(ByteBuffer byteBuffer) {
+    public void getContent(ByteBuffer byteBuffer) {
         writeVersionAndFlags(byteBuffer);
         IsoTypeWriter.writeUInt8(byteBuffer, this.allBits);
         IsoTypeWriter.writeUInt8(byteBuffer, this.keyIndicatorLength);
         IsoTypeWriter.writeUInt8(byteBuffer, this.initVectorLength);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        return 7L;
+    }
+
+    public int getInitVectorLength() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
+        return this.initVectorLength;
+    }
+
+    public int getKeyIndicatorLength() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_1, this, this));
+        return this.keyIndicatorLength;
+    }
+
+    public boolean isSelectiveEncryption() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
+        return this.selectiveEncryption;
+    }
+
+    public void setAllBits(byte b2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.b(b2)));
+        this.allBits = b2;
+        this.selectiveEncryption = (b2 & ByteCompanionObject.MIN_VALUE) == 128;
+    }
+
+    public void setInitVectorLength(int i) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
+        this.initVectorLength = i;
+    }
+
+    public void setKeyIndicatorLength(int i) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_4, this, this, g.a.b.a.a.e(i)));
+        this.keyIndicatorLength = i;
     }
 }

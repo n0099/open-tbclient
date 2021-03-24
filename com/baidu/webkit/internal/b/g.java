@@ -10,19 +10,20 @@ import android.text.TextUtils;
 import com.baidu.webkit.internal.utils.CommonUtils;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class g extends j {
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0040  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x006f  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x007f  */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x006e, code lost:
+        if (r4.versionCode < r6) goto L36;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0044  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0073  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0079  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String b(Context context, String str) {
+    public static String b(Context context, String str) {
         Intent intent;
-        boolean z;
-        PackageInfo packageInfo = null;
         String queryParameter = CommonUtils.getQueryParameter(str, "weburl");
         if (!TextUtils.isEmpty(queryParameter)) {
             queryParameter = URLDecoder.decode(queryParameter);
@@ -31,6 +32,8 @@ public final class g extends j {
         if (!TextUtils.isEmpty(queryParameter2)) {
             queryParameter2 = URLDecoder.decode(queryParameter2);
         }
+        boolean z = true;
+        PackageInfo packageInfo = null;
         if (TextUtils.isEmpty(queryParameter2)) {
             intent = null;
         } else {
@@ -40,17 +43,17 @@ public final class g extends j {
                     intent.addCategory("android.intent.category.BROWSABLE");
                     intent.setComponent(null);
                     intent.setSelector(null);
-                } catch (URISyntaxException e) {
-                    e = e;
+                } catch (URISyntaxException e2) {
+                    e = e2;
                     e.printStackTrace();
                     if (intent != null) {
                     }
                     z = false;
-                    if (z) {
+                    if (!z) {
                     }
                 }
-            } catch (URISyntaxException e2) {
-                e = e2;
+            } catch (URISyntaxException e3) {
+                e = e3;
                 intent = null;
             }
         }
@@ -61,36 +64,32 @@ public final class g extends j {
                 if (str2 != null && intExtra > 0) {
                     try {
                         packageInfo = context.getPackageManager().getPackageInfo(str2, 0);
-                    } catch (PackageManager.NameNotFoundException e3) {
-                        e3.printStackTrace();
+                    } catch (PackageManager.NameNotFoundException e4) {
+                        e4.printStackTrace();
                     }
-                    if (packageInfo != null && packageInfo.versionCode < intExtra) {
-                        z = false;
-                        if (z) {
-                            return (queryParameter == null || queryParameter.length() == 0) ? str : queryParameter;
-                        }
-                        context.startActivity(intent);
-                        return "";
+                    if (packageInfo != null) {
                     }
                 }
-                z = true;
-                if (z) {
+                if (!z) {
+                    return (queryParameter == null || queryParameter.length() == 0) ? str : queryParameter;
                 }
+                context.startActivity(intent);
+                return "";
             }
         }
         z = false;
-        if (z) {
+        if (!z) {
         }
     }
 
     @Override // com.baidu.webkit.internal.b.j
     public final boolean a(Context context, String str) {
         if (str != null && !TextUtils.isEmpty(str) && str.startsWith("bds://") && "openurl".equals(Uri.parse(str).getHost())) {
-            String b = b(context, str);
-            if (TextUtils.isEmpty(b)) {
+            String b2 = b(context, str);
+            if (TextUtils.isEmpty(b2)) {
                 return true;
             }
-            return new h().a(context, b);
+            return new h().a(context, b2);
         }
         return false;
     }

@@ -4,12 +4,29 @@ import androidx.annotation.NonNull;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PlayerEventTrigger extends AbsEventTrigger {
-    private ArrayList<Integer> mAttentionEventArray = new ArrayList<>(9);
+    public ArrayList<Integer> mAttentionEventArray = new ArrayList<>(9);
 
     public PlayerEventTrigger() {
         initAttentionArray();
+    }
+
+    private boolean filterOnInfoEvent(int i) {
+        return this.mAttentionEventArray.contains(Integer.valueOf(i));
+    }
+
+    private void initAttentionArray() {
+        this.mAttentionEventArray.add(904);
+        this.mAttentionEventArray.add(701);
+        this.mAttentionEventArray.add(702);
+        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_EXTEND_VIDEO_CACHE_PROGRESS));
+        this.mAttentionEventArray.add(924);
+        this.mAttentionEventArray.add(5000);
+        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_STREAM_RECONNECED));
+        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_STREAM_RECONNECTING));
+        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_LOOP_REPLAYED));
+        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_RESTART_PLAYED));
     }
 
     public void onBufferingUpdate(int i) {
@@ -42,20 +59,20 @@ public class PlayerEventTrigger extends AbsEventTrigger {
         return false;
     }
 
-    public void onPrepared() {
-        triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_ON_PREPARED));
-    }
-
-    public void onSeekComplete() {
-        triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_SEEK_COMPLETE));
+    public void onPlayerAttach() {
+        triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_PLAYER_ATTACH));
     }
 
     public void onPlayerDetach() {
         triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_PLAYER_DETACH));
     }
 
-    public void onPlayerAttach() {
-        triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_PLAYER_ATTACH));
+    public void onPrepared() {
+        triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_ON_PREPARED));
+    }
+
+    public void onSeekComplete() {
+        triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_SEEK_COMPLETE));
     }
 
     public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
@@ -68,22 +85,5 @@ public class PlayerEventTrigger extends AbsEventTrigger {
     @Override // com.baidu.searchbox.player.event.AbsEventTrigger, com.baidu.searchbox.player.event.IEventTrigger
     public void triggerEvent(@NonNull VideoEvent videoEvent) {
         super.triggerEvent(videoEvent);
-    }
-
-    private void initAttentionArray() {
-        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL));
-        this.mAttentionEventArray.add(701);
-        this.mAttentionEventArray.add(702);
-        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_EXTEND_VIDEO_CACHE_PROGRESS));
-        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_EXTEND_VIDEO_DOWNLOAD_SPEED));
-        this.mAttentionEventArray.add(5000);
-        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_STREAM_RECONNECED));
-        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_STREAM_RECONNECTING));
-        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_LOOP_REPLAYED));
-        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_RESTART_PLAYED));
-    }
-
-    private boolean filterOnInfoEvent(int i) {
-        return this.mAttentionEventArray.contains(Integer.valueOf(i));
     }
 }

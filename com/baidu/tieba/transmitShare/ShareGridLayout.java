@@ -4,99 +4,115 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class ShareGridLayout extends ViewGroup {
-    public static final int nLB = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-    private int dlK;
-    private int fUZ;
-    private Context mContext;
-    private int mItemWidth;
-    private int nLC;
+    public static final int j = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f21674e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f21675f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f21676g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f21677h;
+    public int i;
 
     public ShareGridLayout(Context context) {
         super(context);
-        init(context);
+        a(context);
     }
 
-    public ShareGridLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context);
+    public final void a(Context context) {
+        this.f21674e = context;
+        b(0, l.k(context) - (j * 2));
     }
 
-    public ShareGridLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(context);
+    public final void b(int i, int i2) {
+        int i3 = i2 - i;
+        if (l.k(TbadkCoreApplication.getInst()) > 800 && this.f21675f * 5 <= i3) {
+            this.f21677h = 5;
+        } else {
+            this.f21677h = 4;
+        }
+        int i4 = this.f21675f;
+        int i5 = this.f21677h;
+        double d2 = i3 - (i4 * i5);
+        if (d2 <= 0.0d) {
+            this.i = 0;
+        } else if (i5 == 5) {
+            Double.isNaN(d2);
+            this.i = (int) Math.floor(d2 / 10.0d);
+        } else {
+            Double.isNaN(d2);
+            this.i = (int) Math.floor(d2 / 8.0d);
+        }
     }
 
-    public void setItemParams(int i, int i2) {
-        this.mItemWidth = i;
-        this.dlK = i2;
-        requestLayout();
-    }
-
-    private void init(Context context) {
-        this.mContext = context;
-        dx(0, l.getEquipmentWidth(this.mContext) - (nLB * 2));
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        b(i, i3);
+        int i5 = this.i;
+        int childCount = getChildCount();
+        int i6 = 0;
+        int i7 = 0;
+        int i8 = 0;
+        while (i6 < childCount) {
+            getChildAt(i6).layout(i5, i7, this.f21675f + i5, this.f21676g + i7);
+            i8++;
+            int i9 = i5 + this.f21675f;
+            int i10 = this.i;
+            i5 = i9 + (i10 * 2);
+            if (i8 >= this.f21677h) {
+                i5 = i10;
+                i8 = 0;
+            }
+            i6++;
+            i7 = (i6 / this.f21677h) * this.f21676g;
+        }
     }
 
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mItemWidth, Integer.MIN_VALUE);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.dlK, Integer.MIN_VALUE);
+    public void onMeasure(int i, int i2) {
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f21675f, Integer.MIN_VALUE);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.f21676g, Integer.MIN_VALUE);
         int childCount = getChildCount();
         for (int i3 = 0; i3 < childCount; i3++) {
             getChildAt(i3).measure(makeMeasureSpec, makeMeasureSpec2);
         }
-        if (childCount <= this.nLC) {
-            setMeasuredDimension(resolveSize((this.mItemWidth * this.nLC) + (this.fUZ * 2 * this.nLC), i), resolveSize(this.dlK, i2));
+        int i4 = this.f21677h;
+        if (childCount <= i4) {
+            setMeasuredDimension(ViewGroup.resolveSize((this.f21675f * i4) + (this.i * 2 * i4), i), ViewGroup.resolveSize(this.f21676g, i2));
             return;
         }
-        int i4 = childCount / this.nLC;
-        if (childCount % this.nLC > 0) {
-            i4++;
+        int i5 = childCount / i4;
+        if (childCount % i4 > 0) {
+            i5++;
         }
-        setMeasuredDimension(resolveSize((this.mItemWidth * this.nLC) + (this.fUZ * 2 * this.nLC), i), resolveSize(i4 * this.dlK, i2));
+        int i6 = this.f21675f;
+        int i7 = this.f21677h;
+        setMeasuredDimension(ViewGroup.resolveSize((i6 * i7) + (this.i * 2 * i7), i), ViewGroup.resolveSize(this.f21676g * i5, i2));
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        dx(i, i3);
-        int i5 = this.fUZ;
-        int childCount = getChildCount();
-        int i6 = 0;
-        int i7 = 0;
-        for (int i8 = 0; i8 < childCount; i8++) {
-            getChildAt(i8).layout(i5, i7, this.mItemWidth + i5, this.dlK + i7);
-            i6++;
-            i5 = i5 + this.mItemWidth + (this.fUZ * 2);
-            if (i6 >= this.nLC) {
-                i5 = this.fUZ;
-                i6 = 0;
-            }
-            i7 = ((i8 + 1) / this.nLC) * this.dlK;
-        }
+    public void setItemParams(int i, int i2) {
+        this.f21675f = i;
+        this.f21676g = i2;
+        requestLayout();
     }
 
-    private void dx(int i, int i2) {
-        int i3 = i2 - i;
-        if (l.getEquipmentWidth(TbadkCoreApplication.getInst()) > 800 && this.mItemWidth * 5 <= i3) {
-            this.nLC = 5;
-        } else {
-            this.nLC = 4;
-        }
-        double d = i3 - (this.mItemWidth * this.nLC);
-        if (d > 0.0d) {
-            if (this.nLC == 5) {
-                this.fUZ = (int) Math.floor(d / 10.0d);
-                return;
-            } else {
-                this.fUZ = (int) Math.floor(d / 8.0d);
-                return;
-            }
-        }
-        this.fUZ = 0;
+    public ShareGridLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a(context);
+    }
+
+    public ShareGridLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a(context);
     }
 }

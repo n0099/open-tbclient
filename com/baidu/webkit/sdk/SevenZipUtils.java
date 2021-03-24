@@ -16,7 +16,6 @@ import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import com.baidu.webkit.internal.utils.ZipUtils;
 import com.baidu.webkit.sdk.LoadErrorCode;
-import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -28,28 +27,28 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class SevenZipUtils {
-    private static final String ASSETS_NAME_PREFIX = "file:///android_assets";
-    private static final int BUF_SIZE = 512;
-    private static final boolean DEBUG = false;
-    private static final String FILE_NAME_DEST = "libzeuswebviewchromium.so";
-    private static final String FILE_NAME_LOCK = "lock";
-    private static final String FILE_NAME_LZMA = "lzma";
-    private static final String FILE_NAME_META = "meta";
-    private static final String FILE_NAME_TEMP = "temp";
-    private static final String FILE_SEP = "##";
-    private static final int FILE_SEP_LEN = 2;
-    private static final String FILE_TIMESTAMP_PREFIX = "zeus_lib_timestamp-";
-    private static final String LZMA_META_KEY_COUNT = "count";
-    private static final String LZMA_META_KEY_FILE = "file";
-    private static final String LZMA_META_KEY_LOADABLE = "loadable";
-    private static final String LZMA_META_KEY_MEMSZ = "memsz";
-    private static final String LZMA_META_KEY_OFFSET = "offsets";
-    private static final String LZMA_META_KEY_PHNUM = "phnum";
-    private static final String LZMA_META_KEY_SZ_OFFSET = "szoffsets";
-    private static final String LZMA_META_KEY_TOTAL = "total";
-    private static final String LZMA_META_KEY_VADDR = "vaddr";
+    public static final String ASSETS_NAME_PREFIX = "file:///android_assets";
+    public static final int BUF_SIZE = 512;
+    public static final boolean DEBUG = false;
+    public static final String FILE_NAME_DEST = "libzeuswebviewchromium.so";
+    public static final String FILE_NAME_LOCK = "lock";
+    public static final String FILE_NAME_LZMA = "lzma";
+    public static final String FILE_NAME_META = "meta";
+    public static final String FILE_NAME_TEMP = "temp";
+    public static final String FILE_SEP = "##";
+    public static final int FILE_SEP_LEN = 2;
+    public static final String FILE_TIMESTAMP_PREFIX = "zeus_lib_timestamp-";
+    public static final String LZMA_META_KEY_COUNT = "count";
+    public static final String LZMA_META_KEY_FILE = "file";
+    public static final String LZMA_META_KEY_LOADABLE = "loadable";
+    public static final String LZMA_META_KEY_MEMSZ = "memsz";
+    public static final String LZMA_META_KEY_OFFSET = "offsets";
+    public static final String LZMA_META_KEY_PHNUM = "phnum";
+    public static final String LZMA_META_KEY_SZ_OFFSET = "szoffsets";
+    public static final String LZMA_META_KEY_TOTAL = "total";
+    public static final String LZMA_META_KEY_VADDR = "vaddr";
     public static final int SZ_ERROR_CLOSE_META = 96;
     public static final int SZ_ERROR_CREATE_LIB_PATH = 98;
     public static final int SZ_ERROR_DELETE_SO = 93;
@@ -62,35 +61,35 @@ public class SevenZipUtils {
     public static final int SZ_ERROR_OTHER = 90;
     public static final int SZ_ERROR_READ_META = 97;
     public static final int SZ_OK = 0;
-    private static final String TAG = "SevenZipUtils";
-    private static SevenZipUtils mInstance;
-    private static boolean sLibraryLoaded;
-    int m7zCount;
-    String m7zFile;
-    int[] m7zOffsets;
-    int[] m7zSizes;
-    int[] m7zSzOffsets;
-    int m7zTotal;
-    private FileChannel mChannel;
-    Context mContext;
-    String mDestPath;
-    boolean mEnableApiHook = true;
-    private int mErrorCode;
-    boolean mHooked;
-    JSONObject mJson_elf;
-    JSONObject mJson_meta;
-    private FileLock mLock;
-    private File mLockFile;
-    private RandomAccessFile mLockRAFile;
-    int mMaxAddr;
-    int mMinAddr;
-    int mOffset_7z;
-    int mOffset_elf;
-    int mOffset_meta;
-    boolean mPrepared;
-    String mSrcPath;
-    String mTempPath;
-    private String mTimeStamp;
+    public static final String TAG = "SevenZipUtils";
+    public static SevenZipUtils mInstance;
+    public static boolean sLibraryLoaded;
+    public int m7zCount;
+    public String m7zFile;
+    public int[] m7zOffsets;
+    public int[] m7zSizes;
+    public int[] m7zSzOffsets;
+    public int m7zTotal;
+    public FileChannel mChannel;
+    public Context mContext;
+    public String mDestPath;
+    public boolean mEnableApiHook = true;
+    public int mErrorCode;
+    public boolean mHooked;
+    public JSONObject mJson_elf;
+    public JSONObject mJson_meta;
+    public FileLock mLock;
+    public File mLockFile;
+    public RandomAccessFile mLockRAFile;
+    public int mMaxAddr;
+    public int mMinAddr;
+    public int mOffset_7z;
+    public int mOffset_elf;
+    public int mOffset_meta;
+    public boolean mPrepared;
+    public String mSrcPath;
+    public String mTempPath;
+    public String mTimeStamp;
 
     static {
         try {
@@ -101,43 +100,37 @@ public class SevenZipUtils {
         }
     }
 
-    private SevenZipUtils() {
-    }
-
-    private static void LogI(String str) {
+    public static void LogI(String str) {
     }
 
     private synchronized int createDir(String str) {
-        int i = 98;
-        synchronized (this) {
-            File file = new File(str);
-            if (file.exists() || file.mkdirs()) {
-                while (file != null && file.setExecutable(true, false)) {
-                    file = file.getParentFile();
-                }
-                File file2 = new File(this.mTempPath);
-                if (file2.exists()) {
-                    if (!FileUtils.deleteDir(file2, file2)) {
-                        Log.e(TAG, "Unable to remove files in directory " + this.mTempPath);
-                    }
-                    i = 0;
-                } else {
-                    if (!file2.mkdirs()) {
-                        Log.e(TAG, "Unable to create directory " + this.mTempPath);
-                    }
-                    i = 0;
-                }
+        File file = new File(str);
+        if (file.exists() || file.mkdirs()) {
+            while (file != null && file.setExecutable(true, false)) {
+                file = file.getParentFile();
             }
+            File file2 = new File(this.mTempPath);
+            if (file2.exists()) {
+                if (!FileUtils.deleteDir(file2, file2)) {
+                    Log.e(TAG, "Unable to remove files in directory " + this.mTempPath);
+                    return 98;
+                }
+            } else if (!file2.mkdirs()) {
+                Log.e(TAG, "Unable to create directory " + this.mTempPath);
+                return 98;
+            }
+            return 0;
         }
-        return i;
+        return 98;
     }
 
     private int decode() {
+        int i = 0;
         if (this.m7zCount <= 0 || this.m7zTotal <= 0) {
             return 0;
         }
         this.mContext.getResources().getAssets();
-        int i = this.m7zCount;
+        int i2 = this.m7zCount;
         final String str = this.m7zFile;
         final int[] iArr = this.m7zSizes;
         final int[] iArr2 = this.m7zOffsets;
@@ -146,18 +139,26 @@ public class SevenZipUtils {
             this.mMinAddr = 0;
             this.mMaxAddr = this.m7zTotal;
         }
-        int doInit = doInit(this.mTempPath, this.mDestPath + "libzeuswebviewchromium.so", this.m7zTotal, this.mMinAddr, this.mMaxAddr, this.mHooked ? 1 : 0);
+        String str2 = this.mTempPath;
+        int doInit = doInit(str2, this.mDestPath + "libzeuswebviewchromium.so", this.m7zTotal, this.mMinAddr, this.mMaxAddr, this.mHooked ? 1 : 0);
         if (doInit != 0) {
             return doInit;
         }
-        ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(i);
-        for (final int i2 = 0; i2 < i; i2++) {
+        ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(i2);
+        while (i < i2) {
+            final int i3 = i;
             newFixedThreadPool.submit(new Runnable() { // from class: com.baidu.webkit.sdk.SevenZipUtils.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    SevenZipUtils.this.decodeAndMerge(null, str, iArr2[i2], iArr[i2], iArr3[i2]);
+                    SevenZipUtils sevenZipUtils = SevenZipUtils.this;
+                    String str3 = str;
+                    int[] iArr4 = iArr2;
+                    int i4 = i3;
+                    sevenZipUtils.decodeAndMerge(null, str3, iArr4[i4], iArr[i4], iArr3[i4]);
                 }
             });
+            i++;
+            i2 = i2;
         }
         shutdownAndAwaitTermination(newFixedThreadPool);
         return !this.mHooked ? submit() : doInit;
@@ -172,8 +173,9 @@ public class SevenZipUtils {
         if (sLibraryLoaded) {
             try {
                 return init(str, str2, i, i2, i3, i4);
-            } catch (UnsatisfiedLinkError e) {
-                LoadErrorCode.getInstance().trace("512:" + e.toString());
+            } catch (UnsatisfiedLinkError e2) {
+                LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+                loadErrorCode.trace("512:" + e2.toString());
                 return 0;
             }
         }
@@ -195,7 +197,10 @@ public class SevenZipUtils {
 
     private String getNativeLibraryDir() {
         String str = this.mContext.getApplicationContext().getApplicationInfo().nativeLibraryDir;
-        return str == null ? this.mContext.getFilesDir().getParent() + "/lib" : str;
+        if (str == null) {
+            return this.mContext.getFilesDir().getParent() + "/lib";
+        }
+        return str;
     }
 
     private native int init(String str, String str2, int i, int i2, int i3, int i4);
@@ -204,8 +209,8 @@ public class SevenZipUtils {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return ((long) statFs.getBlockSize()) * ((long) statFs.getAvailableBlocks()) > j;
-        } catch (Exception e) {
-            Log.i(TAG, "[WARNING]get available blocks failed : " + e.toString());
+        } catch (Exception e2) {
+            Log.i(TAG, "[WARNING]get available blocks failed : " + e2.toString());
             return true;
         }
     }
@@ -214,25 +219,27 @@ public class SevenZipUtils {
 
     private int readMeta() {
         try {
-            this.m7zCount = this.mJson_meta.getInt("count");
-            this.m7zSizes = new int[this.m7zCount];
-            this.m7zOffsets = new int[this.m7zCount];
-            this.m7zSzOffsets = new int[this.m7zCount];
+            int i = this.mJson_meta.getInt("count");
+            this.m7zCount = i;
+            this.m7zSizes = new int[i];
+            this.m7zOffsets = new int[i];
+            this.m7zSzOffsets = new int[i];
             this.m7zFile = getNativeLibraryDir() + "/" + this.mJson_meta.getString("file");
             JSONArray jSONArray = this.mJson_meta.getJSONArray(LZMA_META_KEY_OFFSET);
             JSONArray jSONArray2 = this.mJson_meta.getJSONArray(LZMA_META_KEY_SZ_OFFSET);
             this.m7zOffsets[0] = 0;
-            for (int i = 0; i < this.m7zCount; i++) {
-                this.m7zSizes[i] = jSONArray.getInt(i);
-                if (i > 0) {
-                    this.m7zOffsets[i] = this.m7zOffsets[i - 1] + this.m7zSizes[i - 1];
+            for (int i2 = 0; i2 < this.m7zCount; i2++) {
+                this.m7zSizes[i2] = jSONArray.getInt(i2);
+                if (i2 > 0) {
+                    int i3 = i2 - 1;
+                    this.m7zOffsets[i2] = this.m7zOffsets[i3] + this.m7zSizes[i3];
                 }
-                this.m7zSzOffsets[i] = jSONArray2.getInt(i) + this.mOffset_7z;
+                this.m7zSzOffsets[i2] = jSONArray2.getInt(i2) + this.mOffset_7z;
             }
             this.m7zTotal = this.mJson_meta.getInt("total");
             return 0;
-        } catch (Exception e) {
-            Log.e(TAG, "[FAIL]read meta failed : " + e.toString());
+        } catch (Exception e2) {
+            Log.e(TAG, "[FAIL]read meta failed : " + e2.toString());
             return 97;
         }
     }
@@ -248,7 +255,7 @@ public class SevenZipUtils {
                 return;
             }
             Log.e(TAG, "Pool did not terminate");
-        } catch (InterruptedException e) {
+        } catch (InterruptedException unused) {
             executorService.shutdownNow();
             Thread.currentThread().interrupt();
         }
@@ -264,14 +271,18 @@ public class SevenZipUtils {
             return false;
         }
         try {
-            this.mLockFile = new File(file, FILE_NAME_LOCK);
-            this.mLockRAFile = new RandomAccessFile(this.mLockFile, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
-            this.mChannel = this.mLockRAFile.getChannel();
-            this.mLock = this.mChannel.tryLock();
-            return this.mLock != null;
-        } catch (Exception e) {
-            e.printStackTrace();
-            LoadErrorCode.getInstance().trace("504:" + e.toString());
+            this.mLockFile = new File(file, "lock");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(this.mLockFile, "rw");
+            this.mLockRAFile = randomAccessFile;
+            FileChannel channel = randomAccessFile.getChannel();
+            this.mChannel = channel;
+            FileLock tryLock = channel.tryLock();
+            this.mLock = tryLock;
+            return tryLock != null;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+            loadErrorCode.trace("504:" + e2.toString());
             return false;
         }
     }
@@ -283,8 +294,9 @@ public class SevenZipUtils {
                 this.mLock.release();
                 this.mLock = null;
             }
-        } catch (Exception e) {
-            LoadErrorCode.getInstance().trace("505:" + e.toString());
+        } catch (Exception e2) {
+            LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+            loadErrorCode.trace("505:" + e2.toString());
         }
     }
 
@@ -318,8 +330,8 @@ public class SevenZipUtils {
         if (this.mTimeStamp != null) {
             try {
                 new File(this.mDestPath, this.mTimeStamp).createNewFile();
-            } catch (IOException e) {
-                Log.e(TAG, "[FAIL]create timestamp failed : " + e.toString());
+            } catch (IOException e2) {
+                Log.e(TAG, "[FAIL]create timestamp failed : " + e2.toString());
             }
         }
     }
@@ -340,14 +352,16 @@ public class SevenZipUtils {
                     int i;
                     try {
                         i = SevenZipUtils.this.submit();
-                    } catch (UnsatisfiedLinkError e) {
-                        LoadErrorCode.getInstance().trace("512:" + e.toString());
+                    } catch (UnsatisfiedLinkError e2) {
+                        LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+                        loadErrorCode.trace("512:" + e2.toString());
                         i = 89;
                     }
                     if (i == 0) {
                         SevenZipUtils.this.createTimestamp();
                     } else {
-                        LoadErrorCode.getInstance().set(101, "write back: " + i);
+                        LoadErrorCode loadErrorCode2 = LoadErrorCode.getInstance();
+                        loadErrorCode2.set(101, "write back: " + i);
                         LoadErrorCode.Statistics.record();
                     }
                     SevenZipUtils.this.unLock();
@@ -371,176 +385,179 @@ public class SevenZipUtils {
                 if (doHook(Build.VERSION.SDK_INT, z) > 0) {
                     this.mHooked = true;
                 }
-            } catch (UnsatisfiedLinkError e) {
-                LoadErrorCode.getInstance().trace("512:" + e.toString());
+            } catch (UnsatisfiedLinkError e2) {
+                LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+                loadErrorCode.trace("512:" + e2.toString());
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:78:0x0212 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public synchronized boolean prepare(Context context, String str, String str2) {
         FileInputStream fileInputStream;
-        boolean z;
         if (str == null) {
-            z = false;
-        } else {
-            this.mContext = context.getApplicationContext();
-            if (tryLock(str2)) {
-                this.mTempPath = str2 + FILE_NAME_TEMP;
-                File file = new File(this.mTempPath);
-                if (file.exists()) {
-                    FileUtils.deleteDir(file, null);
+            return false;
+        }
+        this.mContext = context.getApplicationContext();
+        if (tryLock(str2)) {
+            this.mTempPath = str2 + FILE_NAME_TEMP;
+            File file = new File(this.mTempPath);
+            FileInputStream fileInputStream2 = null;
+            if (file.exists()) {
+                FileUtils.deleteDir(file, null);
+            }
+            String downloadLibPath = UtilsBlink.getDownloadLibPath(WebKitFactory.getContext());
+            File file2 = new File(downloadLibPath + "libzeuswebviewchromium.so");
+            String checkTimestamp = checkTimestamp(this.mContext, str2);
+            this.mTimeStamp = checkTimestamp;
+            if (checkTimestamp == null && file2.exists() && !EngineManager.getInstance().isInstallBreak()) {
+                unLock();
+                LoadErrorCode.getInstance().trace(506);
+                return false;
+            }
+            String nativeLibraryDir = getNativeLibraryDir();
+            File file3 = new File(nativeLibraryDir);
+            if (!file3.exists()) {
+                LoadErrorCode.getInstance().trace(507);
+                file3.mkdir();
+                ZipUtils.getInstance().unZip(this.mContext, this.mContext.getApplicationInfo().sourceDir, nativeLibraryDir.toString(), nativeLibraryDir.contains("arm64") ? "lib/arm64-v8a/" : "lib/armeabi/", false);
+                ReflectUtils.expandPathList(nativeLibraryDir, SevenZipUtils.class);
+                System.loadLibrary(FILE_NAME_LZMA);
+                sLibraryLoaded = true;
+            }
+            if (new File(str).exists()) {
+                EngineManager.getInstance().resetZeus();
+                EngineManager.getInstance().removeUnusedFiles(context);
+                EngineManager.getInstance().removeOldStatisticsFiles(context);
+            }
+            this.mErrorCode = 0;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(str);
+                } catch (Exception e2) {
+                    e = e2;
                 }
-                File file2 = new File(UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()) + "libzeuswebviewchromium.so");
-                this.mTimeStamp = checkTimestamp(this.mContext, str2);
-                if (this.mTimeStamp == null && file2.exists() && !EngineManager.getInstance().isInstallBreak()) {
-                    unLock();
-                    LoadErrorCode.getInstance().trace(506);
-                    z = false;
-                } else {
-                    String nativeLibraryDir = getNativeLibraryDir();
-                    File file3 = new File(nativeLibraryDir);
-                    if (!file3.exists()) {
-                        LoadErrorCode.getInstance().trace(507);
-                        file3.mkdir();
-                        ZipUtils.getInstance().unZip(this.mContext, this.mContext.getApplicationInfo().sourceDir, nativeLibraryDir.toString(), nativeLibraryDir.contains("arm64") ? "lib/arm64-v8a/" : "lib/armeabi/", false);
-                        ReflectUtils.expandPathList(nativeLibraryDir, SevenZipUtils.class);
-                        System.loadLibrary(FILE_NAME_LZMA);
-                        sLibraryLoaded = true;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] bArr = new byte[512];
+                fileInputStream.read(bArr);
+                String str3 = new String(bArr, "UTF-8");
+                int indexOf = str3.indexOf(FILE_SEP) + 2;
+                this.mOffset_meta = indexOf;
+                int indexOf2 = str3.indexOf(FILE_SEP, indexOf) + 2;
+                this.mOffset_elf = indexOf2;
+                this.mOffset_7z = str3.indexOf(FILE_SEP, indexOf2) + 2;
+                this.mJson_meta = new JSONObject(str3.substring(this.mOffset_meta, this.mOffset_elf - 2));
+                JSONObject jSONObject = new JSONObject(str3.substring(this.mOffset_elf, this.mOffset_7z - 2));
+                this.mJson_elf = jSONObject;
+                int i = Integer.MAX_VALUE;
+                JSONArray jSONArray = jSONObject.getJSONArray(LZMA_META_KEY_LOADABLE);
+                int i2 = 0;
+                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                    int i4 = jSONObject2.getInt(LZMA_META_KEY_VADDR);
+                    int i5 = jSONObject2.getInt(LZMA_META_KEY_MEMSZ);
+                    if (i4 < i) {
+                        i = i4;
                     }
-                    if (new File(str).exists()) {
-                        EngineManager.getInstance().resetZeus();
-                        EngineManager.getInstance().removeUnusedFiles(context);
-                        EngineManager.getInstance().removeOldStatisticsFiles(context);
-                    }
-                    this.mErrorCode = 0;
-                    try {
-                        fileInputStream = new FileInputStream(str);
-                    } catch (Exception e) {
-                        e = e;
-                        fileInputStream = null;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileInputStream = null;
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (Exception e2) {
-                                Log.e(TAG, "[FAIL]close input stream failed : " + e2.toString());
-                            }
-                        }
-                        throw th;
-                    }
-                    try {
-                        try {
-                            byte[] bArr = new byte[512];
-                            fileInputStream.read(bArr);
-                            String str3 = new String(bArr, "UTF-8");
-                            this.mOffset_meta = str3.indexOf(FILE_SEP) + 2;
-                            this.mOffset_elf = str3.indexOf(FILE_SEP, this.mOffset_meta) + 2;
-                            this.mOffset_7z = str3.indexOf(FILE_SEP, this.mOffset_elf) + 2;
-                            this.mJson_meta = new JSONObject(str3.substring(this.mOffset_meta, this.mOffset_elf - 2));
-                            this.mJson_elf = new JSONObject(str3.substring(this.mOffset_elf, this.mOffset_7z - 2));
-                            int i = Integer.MAX_VALUE;
-                            JSONArray jSONArray = this.mJson_elf.getJSONArray(LZMA_META_KEY_LOADABLE);
-                            int i2 = 0;
-                            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                                JSONObject jSONObject = jSONArray.getJSONObject(i3);
-                                int i4 = jSONObject.getInt(LZMA_META_KEY_VADDR);
-                                int i5 = jSONObject.getInt(LZMA_META_KEY_MEMSZ);
-                                if (i4 < i) {
-                                    i = i4;
-                                }
-                                if (i4 + i5 > i2) {
-                                    i2 = i4 + i5;
-                                }
-                            }
-                            this.mMinAddr = i;
-                            this.mMaxAddr = i2;
-                            this.mPrepared = true;
-                            try {
-                                fileInputStream.close();
-                            } catch (Exception e3) {
-                                Log.e(TAG, "[FAIL]close input stream failed : " + e3.toString());
-                            }
-                            z = true;
-                        } catch (Exception e4) {
-                            e = e4;
-                            unLock();
-                            LoadErrorCode.getInstance().trace("501:" + e);
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e5) {
-                                    Log.e(TAG, "[FAIL]close input stream failed : " + e5.toString());
-                                }
-                            }
-                            z = false;
-                            return z;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (fileInputStream != null) {
-                        }
-                        throw th;
+                    int i6 = i4 + i5;
+                    if (i6 > i2) {
+                        i2 = i6;
                     }
                 }
-            } else {
-                z = false;
+                this.mMinAddr = i;
+                this.mMaxAddr = i2;
+                this.mPrepared = true;
+                try {
+                    fileInputStream.close();
+                } catch (Exception e3) {
+                    Log.e(TAG, "[FAIL]close input stream failed : " + e3.toString());
+                }
+                return true;
+            } catch (Exception e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                unLock();
+                LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+                loadErrorCode.trace("501:" + e);
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception e5) {
+                        Log.e(TAG, "[FAIL]close input stream failed : " + e5.toString());
+                    }
+                }
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception e6) {
+                        Log.e(TAG, "[FAIL]close input stream failed : " + e6.toString());
+                    }
+                }
+                throw th;
             }
         }
-        return z;
+        return false;
     }
 
     public void unzip(String str, String str2) {
+        int i;
         if (this.mErrorCode != 0) {
             return;
         }
-        if (!sLibraryLoaded) {
-            this.mErrorCode = 92;
-            return;
-        }
-        File file = new File(str2);
-        if (!file.exists() || !file.isDirectory()) {
-            file.mkdirs();
-        }
-        try {
-            int i = Build.VERSION.SDK_INT;
-            if (i == 19 && Build.VERSION.RELEASE.contains("4.4.3")) {
-                i = 20;
+        if (sLibraryLoaded) {
+            File file = new File(str2);
+            if (!file.exists() || !file.isDirectory()) {
+                file.mkdirs();
             }
-            if (extract(str, str2, this.mOffset_7z, i) == 0) {
-                return;
+            try {
+                int i2 = Build.VERSION.SDK_INT;
+                if (i2 == 19 && Build.VERSION.RELEASE.contains("4.4.3")) {
+                    i2 = 20;
+                }
+                if (extract(str, str2, this.mOffset_7z, i2) == 0) {
+                    return;
+                }
+            } catch (Throwable th) {
+                Log.e(TAG, "failed to extract " + str + ": " + th);
             }
-        } catch (Throwable th) {
-            Log.e(TAG, "failed to extract " + str + ": " + th);
+            i = 91;
+        } else {
+            i = 92;
         }
-        this.mErrorCode = 91;
+        this.mErrorCode = i;
     }
 
     public synchronized void unzipWithMeta(String str, String str2) {
         if (this.mErrorCode == 0 && this.mPrepared) {
             this.mSrcPath = str;
             this.mDestPath = str2;
-            if (isEnoughSpace(this.m7zTotal)) {
-                int createDir = createDir(str2);
-                this.mErrorCode = createDir;
-                if (createDir == 0) {
-                    int readMeta = readMeta();
-                    this.mErrorCode = readMeta;
-                    if (readMeta == 0) {
-                        int decode = decode();
-                        this.mErrorCode = decode;
-                        if (decode == 0 && !this.mHooked) {
-                            createTimestamp();
-                        }
-                    }
-                }
-            } else {
+            if (!isEnoughSpace(this.m7zTotal)) {
                 this.mErrorCode = 94;
+                return;
+            }
+            int createDir = createDir(str2);
+            this.mErrorCode = createDir;
+            if (createDir != 0) {
+                return;
+            }
+            int readMeta = readMeta();
+            this.mErrorCode = readMeta;
+            if (readMeta != 0) {
+                return;
+            }
+            int decode = decode();
+            this.mErrorCode = decode;
+            if (decode != 0) {
+                return;
+            }
+            if (!this.mHooked) {
+                createTimestamp();
             }
         }
     }

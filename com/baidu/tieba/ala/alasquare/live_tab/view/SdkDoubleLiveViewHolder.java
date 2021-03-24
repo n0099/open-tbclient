@@ -1,12 +1,15 @@
 package com.baidu.tieba.ala.alasquare.live_tab.view;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes9.dex */
+import d.b.i0.t.d.c.h.f;
+/* loaded from: classes4.dex */
 public class SdkDoubleLiveViewHolder extends TypeAdapter.ViewHolder {
-    public f gCE;
+
+    /* renamed from: a  reason: collision with root package name */
+    public f f14808a;
 
     public SdkDoubleLiveViewHolder(f fVar) {
-        super(fVar.getView());
-        this.gCE = fVar;
+        super(fVar.m());
+        this.f14808a = fVar;
     }
 }

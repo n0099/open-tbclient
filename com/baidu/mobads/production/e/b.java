@@ -16,21 +16,17 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.mobads.production.a implements a {
-    protected final IXAdLogger A;
-    private d B;
-    private AdSize C;
-    private boolean D;
-    private boolean E;
-    private Activity F;
-    private RelativeLayout G;
-    private Boolean H;
+    public final IXAdLogger A;
+    public d B;
+    public AdSize C;
+    public boolean D;
+    public boolean E;
+    public Activity F;
+    public RelativeLayout G;
+    public Boolean H;
     public final String z;
-
-    @Override // com.baidu.mobads.production.a
-    public void c() {
-    }
 
     public b(Context context, RelativeLayout relativeLayout, Boolean bool, String str) {
         super(context);
@@ -45,23 +41,50 @@ public class b extends com.baidu.mobads.production.a implements a {
         this.H = bool;
         this.C = AdSize.InterstitialGame;
         XAdSDKFoundationFacade.getInstance().getAdConstants();
-        this.B = new d(getApplicationContext(), getActivity(), this.o, true);
-        this.B.d(str);
+        d dVar = new d(getApplicationContext(), getActivity(), this.o, Boolean.TRUE);
+        this.B = dVar;
+        dVar.d(str);
         this.B.f(AdSize.InterstitialGame.getValue());
         com.baidu.mobads.vo.b bVar = (com.baidu.mobads.vo.b) this.B.d();
         JSONObject attribute = bVar.getAttribute();
         attribute = attribute == null ? new JSONObject() : attribute;
         try {
             attribute.put("ABILITY", "PAUSE,");
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
         bVar.a(attribute);
         d(str);
     }
 
+    @Override // com.baidu.mobads.production.e.a
+    public void a(int i, int i2) {
+    }
+
+    @Override // com.baidu.mobads.production.e.a
+    public void a(Activity activity, RelativeLayout relativeLayout) {
+    }
+
     @Override // com.baidu.mobads.production.a
-    protected void d() {
+    public void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void b(IXAdResponseInfo iXAdResponseInfo) {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void c() {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void d() {
         this.m = 8000;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        s();
+        this.E = false;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProd
@@ -69,14 +92,39 @@ public class b extends com.baidu.mobads.production.a implements a {
         super.a(this.B);
     }
 
-    @Override // com.baidu.mobads.production.a
-    protected void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
-        pVar.a(bVar, "{'ad':[{'id':99999999,'url':'" + this.B.b() + "', type='" + IXAdInstanceInfo.CreativeType.HTML.getValue() + "'}],'n':1}");
+    public void s() {
+        Activity activity = this.F;
+        if (activity == null) {
+            return;
+        }
+        activity.runOnUiThread(new c(this));
     }
 
     @Override // com.baidu.mobads.production.a, com.baidu.mobads.interfaces.IXAdProd
     public void start() {
         super.start();
+    }
+
+    @Override // com.baidu.mobads.production.e.a
+    public boolean v() {
+        return this.D;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public ViewGroup b(Context context) {
+        return (ViewGroup) ((Activity) context).getWindow().getDecorView();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    /* renamed from: b */
+    public com.baidu.mobads.vo.d getAdRequestInfo() {
+        return this.B;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
+        pVar.a(bVar, "{'ad':[{'id':99999999,'url':'" + this.B.b() + "', type='" + IXAdInstanceInfo.CreativeType.HTML.getValue() + "'}],'n':1}");
     }
 
     @Override // com.baidu.mobads.production.e.a
@@ -88,79 +136,37 @@ public class b extends com.baidu.mobads.production.a implements a {
             start();
             Rect rect = new Rect();
             activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-            this.e.setBackgroundColor(0);
+            this.f8437e.setBackgroundColor(0);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.topMargin = rect.top;
-            ViewGroup b = b(activity);
-            this.G = new RelativeLayout(activity);
-            this.G.addView(this.e, layoutParams);
-            b.addView(this.G, new RelativeLayout.LayoutParams(-1, -1));
-            this.e.setFocusableInTouchMode(true);
-            this.e.setFocusable(true);
-            this.e.requestFocus();
+            ViewGroup b2 = b(activity);
+            RelativeLayout relativeLayout = new RelativeLayout(activity);
+            this.G = relativeLayout;
+            relativeLayout.addView(this.f8437e, layoutParams);
+            b2.addView(this.G, new RelativeLayout.LayoutParams(-1, -1));
+            this.f8437e.setFocusableInTouchMode(true);
+            this.f8437e.setFocusable(true);
+            this.f8437e.requestFocus();
         } else if (this.E) {
             this.A.w("interstitial ad is showing now");
-        } else if (!this.D) {
+        } else if (this.D) {
+        } else {
             this.A.w("interstitial ad is not ready");
         }
     }
 
-    @Override // com.baidu.mobads.production.e.a
-    public void a(Activity activity, RelativeLayout relativeLayout) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public ViewGroup b(Context context) {
-        return (ViewGroup) ((Activity) context).getWindow().getDecorView();
-    }
-
     @Override // com.baidu.mobads.production.a
-    protected void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+    public void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
         Object obj;
         this.D = true;
-        if (hashMap == null || (obj = hashMap.get("type")) == null || ((String) obj).equals("video")) {
+        if (hashMap == null || (obj = hashMap.get("type")) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    /* renamed from: b */
-    public com.baidu.mobads.vo.d getAdRequestInfo() {
-        return this.B;
-    }
-
-    public void s() {
-        if (this.F != null) {
-            this.F.runOnUiThread(new c(this));
-        }
-    }
-
-    @Override // com.baidu.mobads.production.e.a
-    public boolean v() {
-        return this.D;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.mobads.production.a
-    public void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-        s();
-        this.E = false;
+        ((String) obj).equals("video");
     }
 
     @Override // com.baidu.mobads.production.e.a
     public void a() {
         load();
-    }
-
-    @Override // com.baidu.mobads.production.e.a
-    public void a(int i, int i2) {
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public void b(IXAdResponseInfo iXAdResponseInfo) {
     }
 }

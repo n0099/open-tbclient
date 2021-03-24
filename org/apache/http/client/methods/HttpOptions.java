@@ -4,7 +4,7 @@ import java.net.URI;
 import java.util.Set;
 import org.apache.http.HttpResponse;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpOptions extends HttpRequestBase {
     public static final String METHOD_NAME = "OPTIONS";
 
@@ -12,11 +12,7 @@ public class HttpOptions extends HttpRequestBase {
         throw new RuntimeException("Stub!");
     }
 
-    public HttpOptions(URI uri) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public HttpOptions(String str) {
+    public Set<String> getAllowedMethods(HttpResponse httpResponse) {
         throw new RuntimeException("Stub!");
     }
 
@@ -25,7 +21,11 @@ public class HttpOptions extends HttpRequestBase {
         throw new RuntimeException("Stub!");
     }
 
-    public Set<String> getAllowedMethods(HttpResponse httpResponse) {
+    public HttpOptions(URI uri) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public HttpOptions(String str) {
         throw new RuntimeException("Stub!");
     }
 }

@@ -3,24 +3,32 @@ package com.alibaba.fastjson.util;
 import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.asm.ClassReader;
 import com.alibaba.fastjson.asm.TypeCollector;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.common.others.IStringUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class ASMUtils {
-    public static final String JAVA_VM_NAME = System.getProperty("java.vm.name");
-    public static final boolean IS_ANDROID = isAndroid(JAVA_VM_NAME);
+    public static final boolean IS_ANDROID;
+    public static final String JAVA_VM_NAME;
 
-    public static boolean isAndroid(String str) {
-        if (str == null) {
-            return false;
+    static {
+        String property = System.getProperty("java.vm.name");
+        JAVA_VM_NAME = property;
+        IS_ANDROID = isAndroid(property);
+    }
+
+    public static boolean checkName(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            char charAt = str.charAt(i);
+            if (charAt < 1 || charAt > 127 || charAt == '.') {
+                return false;
+            }
         }
-        String lowerCase = str.toLowerCase();
-        return lowerCase.contains("dalvik") || lowerCase.contains("lemur");
+        return true;
     }
 
     public static String desc(Method method) {
@@ -35,24 +43,12 @@ public class ASMUtils {
         return sb.toString();
     }
 
-    public static String desc(Class<?> cls) {
-        if (cls.isPrimitive()) {
-            return getPrimitiveLetter(cls);
+    public static Type getMethodType(Class<?> cls, String str) {
+        try {
+            return cls.getMethod(str, new Class[0]).getGenericReturnType();
+        } catch (Exception unused) {
+            return null;
         }
-        if (cls.isArray()) {
-            return "[" + desc(cls.getComponentType());
-        }
-        return "L" + type(cls) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
-    }
-
-    public static String type(Class<?> cls) {
-        if (cls.isArray()) {
-            return "[" + desc(cls.getComponentType());
-        }
-        if (!cls.isPrimitive()) {
-            return cls.getName().replace('.', '/');
-        }
-        return getPrimitiveLetter(cls);
     }
 
     public static String getPrimitiveLetter(Class<?> cls) {
@@ -86,22 +82,12 @@ public class ASMUtils {
         throw new IllegalStateException("Type: " + cls.getCanonicalName() + " is not a primitive type");
     }
 
-    public static Type getMethodType(Class<?> cls, String str) {
-        try {
-            return cls.getMethod(str, new Class[0]).getGenericReturnType();
-        } catch (Exception e) {
-            return null;
+    public static boolean isAndroid(String str) {
+        if (str == null) {
+            return false;
         }
-    }
-
-    public static boolean checkName(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
-            if (charAt < 1 || charAt > 127 || charAt == '.') {
-                return false;
-            }
-        }
-        return true;
+        String lowerCase = str.toLowerCase();
+        return lowerCase.contains("dalvik") || lowerCase.contains("lemur");
     }
 
     public static String[] lookupParameterNames(AccessibleObject accessibleObject) {
@@ -129,19 +115,40 @@ public class ASMUtils {
         if (classLoader == null) {
             classLoader = ClassLoader.getSystemClassLoader();
         }
-        InputStream resourceAsStream = classLoader.getResourceAsStream(declaringClass.getName().replace('.', '/') + ".class");
-        if (resourceAsStream == null) {
-            return new String[0];
-        }
+        String name = declaringClass.getName();
+        InputStream resourceAsStream = classLoader.getResourceAsStream(name.replace(IStringUtil.EXTENSION_SEPARATOR, '/') + ".class");
         try {
+            if (resourceAsStream == null) {
+                return new String[0];
+            }
             ClassReader classReader = new ClassReader(resourceAsStream);
             TypeCollector typeCollector = new TypeCollector(str, parameterTypes);
             classReader.accept(typeCollector);
             return typeCollector.getParameterNamesForMethod();
-        } catch (IOException e) {
+        } catch (IOException unused) {
             return new String[0];
         } finally {
             IOUtils.close(resourceAsStream);
         }
+    }
+
+    public static String type(Class<?> cls) {
+        if (cls.isArray()) {
+            return "[" + desc(cls.getComponentType());
+        } else if (!cls.isPrimitive()) {
+            return cls.getName().replace(IStringUtil.EXTENSION_SEPARATOR, '/');
+        } else {
+            return getPrimitiveLetter(cls);
+        }
+    }
+
+    public static String desc(Class<?> cls) {
+        if (cls.isPrimitive()) {
+            return getPrimitiveLetter(cls);
+        }
+        if (cls.isArray()) {
+            return "[" + desc(cls.getComponentType());
+        }
+        return "L" + type(cls) + ";";
     }
 }

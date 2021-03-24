@@ -1,21 +1,21 @@
 package rx.internal.util.atomic;
 
+import h.o.d.k.i;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-import rx.internal.util.a.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> implements Queue<T> {
-    private static final long serialVersionUID = 6210984603741293445L;
-    final int capacitySkip;
-    final AtomicLong consumerIndex;
-    final int mask;
-    final AtomicLong producerIndex;
+    public static final long serialVersionUID = 6210984603741293445L;
+    public final int capacitySkip;
+    public final AtomicLong consumerIndex;
+    public final int mask;
+    public final AtomicLong producerIndex;
 
     public SpscExactAtomicArrayQueue(int i) {
-        super(h.So(i));
+        super(i.b(i));
         int length = length();
         this.mask = length - 1;
         this.capacitySkip = length - i;
@@ -23,37 +23,14 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
         this.consumerIndex = new AtomicLong();
     }
 
-    @Override // java.util.Queue
-    public boolean offer(T t) {
-        if (t == null) {
-            throw new NullPointerException();
-        }
-        long j = this.producerIndex.get();
-        int i = this.mask;
-        if (get(((int) (this.capacitySkip + j)) & i) != null) {
-            return false;
-        }
-        this.producerIndex.lazySet(j + 1);
-        lazySet(i & ((int) j), t);
-        return true;
+    @Override // java.util.Queue, java.util.Collection
+    public boolean add(T t) {
+        throw new UnsupportedOperationException();
     }
 
-    @Override // java.util.Queue
-    public T poll() {
-        long j = this.consumerIndex.get();
-        int i = this.mask & ((int) j);
-        T t = get(i);
-        if (t == null) {
-            return null;
-        }
-        this.consumerIndex.lazySet(j + 1);
-        lazySet(i, null);
-        return t;
-    }
-
-    @Override // java.util.Queue
-    public T peek() {
-        return get(((int) this.consumerIndex.get()) & this.mask);
+    @Override // java.util.Collection
+    public boolean addAll(Collection<? extends T> collection) {
+        throw new UnsupportedOperationException();
     }
 
     @Override // java.util.Collection
@@ -66,8 +43,76 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     }
 
     @Override // java.util.Collection
+    public boolean contains(Object obj) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // java.util.Collection
+    public boolean containsAll(Collection<?> collection) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // java.util.Queue
+    public T element() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // java.util.Collection
     public boolean isEmpty() {
         return this.producerIndex == this.consumerIndex;
+    }
+
+    @Override // java.util.Collection, java.lang.Iterable
+    public Iterator<T> iterator() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // java.util.Queue
+    public boolean offer(T t) {
+        if (t != null) {
+            long j = this.producerIndex.get();
+            int i = this.mask;
+            if (get(((int) (this.capacitySkip + j)) & i) != null) {
+                return false;
+            }
+            this.producerIndex.lazySet(j + 1);
+            lazySet(i & ((int) j), t);
+            return true;
+        }
+        throw null;
+    }
+
+    @Override // java.util.Queue
+    public T peek() {
+        return get(this.mask & ((int) this.consumerIndex.get()));
+    }
+
+    @Override // java.util.Queue
+    public T poll() {
+        long j = this.consumerIndex.get();
+        int i = ((int) j) & this.mask;
+        T t = get(i);
+        if (t == null) {
+            return null;
+        }
+        this.consumerIndex.lazySet(j + 1);
+        lazySet(i, null);
+        return t;
+    }
+
+    @Override // java.util.Collection
+    public boolean remove(Object obj) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // java.util.Collection
+    public boolean removeAll(Collection<?> collection) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // java.util.Collection
+    public boolean retainAll(Collection<?> collection) {
+        throw new UnsupportedOperationException();
     }
 
     @Override // java.util.Collection
@@ -84,52 +129,7 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     }
 
     @Override // java.util.Collection
-    public boolean contains(Object obj) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Collection, java.lang.Iterable
-    public Iterator<T> iterator() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Collection
     public Object[] toArray() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Collection
-    public <E> E[] toArray(E[] eArr) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Collection
-    public boolean remove(Object obj) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Collection
-    public boolean containsAll(Collection<?> collection) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Collection
-    public boolean addAll(Collection<? extends T> collection) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Collection
-    public boolean removeAll(Collection<?> collection) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Collection
-    public boolean retainAll(Collection<?> collection) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Queue, java.util.Collection
-    public boolean add(T t) {
         throw new UnsupportedOperationException();
     }
 
@@ -138,8 +138,8 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
         throw new UnsupportedOperationException();
     }
 
-    @Override // java.util.Queue
-    public T element() {
+    @Override // java.util.Collection
+    public <E> E[] toArray(E[] eArr) {
         throw new UnsupportedOperationException();
     }
 }

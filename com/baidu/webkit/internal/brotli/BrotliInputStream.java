@@ -3,11 +3,12 @@ package com.baidu.webkit.internal.brotli;
 import com.baidu.webkit.internal.INoProGuard;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class BrotliInputStream extends InputStream implements INoProGuard {
-    private static final int DEFAULT_BUFFER_SIZE = 16384;
-    private final Decoder decoder;
+    public static final int DEFAULT_BUFFER_SIZE = 16384;
+    public final Decoder decoder;
 
     public BrotliInputStream(InputStream inputStream) throws IOException {
         this(inputStream, 16384);
@@ -19,8 +20,9 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
 
     @Override // java.io.InputStream
     public int available() {
-        if (this.decoder.buffer != null) {
-            return this.decoder.buffer.remaining();
+        ByteBuffer byteBuffer = this.decoder.buffer;
+        if (byteBuffer != null) {
+            return byteBuffer.remaining();
         }
         return 0;
     }
@@ -54,16 +56,13 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
         return read(bArr, 0, bArr.length);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x001d  */
     @Override // java.io.InputStream
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        if (this.decoder.closed) {
+        Decoder decoder = this.decoder;
+        if (decoder.closed) {
             throw new IOException("read after close");
         }
-        if (this.decoder.decode() == -1) {
+        if (decoder.decode() == -1) {
             return -1;
         }
         int i3 = 0;
@@ -73,10 +72,10 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
             i += min;
             i2 -= min;
             i3 += min;
-            if (!this.decoder.buffer.hasRemaining() || this.decoder.decode() == -1) {
-                return i3;
-            }
-            while (i2 > 0) {
+            if (!this.decoder.buffer.hasRemaining()) {
+                break;
+            } else if (this.decoder.decode() == -1) {
+                break;
             }
         }
         return i3;
@@ -91,8 +90,9 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
         while (j > 0 && this.decoder.decode() != -1) {
             int min = (int) Math.min(j, this.decoder.buffer.remaining());
             this.decoder.discard(min);
-            j2 += min;
-            j -= min;
+            long j3 = min;
+            j2 += j3;
+            j -= j3;
         }
         return j2;
     }

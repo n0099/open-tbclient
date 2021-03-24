@@ -14,142 +14,151 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class BubbleView extends RelativeLayout {
-    private ViewGroup lnA;
-    private TbImageView lnB;
-    private TextView lnC;
-    private TextView lnD;
-    private boolean lnE;
-    private ViewGroup lnq;
-    private TbImageView lnr;
-    private ImageView lns;
-    private ImageView lnt;
-    private ImageView lnu;
-    private ImageView lnv;
-    private ImageView lnw;
-    private ImageView lnx;
-    private View lny;
-    private ViewGroup lnz;
-    private Context mContext;
 
-    public void setShowName(boolean z) {
-        this.lnE = z;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public Context f18892e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ViewGroup f18893f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbImageView f18894g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ImageView f18895h;
+    public ImageView i;
+    public ImageView j;
+    public ImageView k;
+    public ImageView l;
+    public ImageView m;
+    public View n;
+    public ViewGroup o;
+    public ViewGroup p;
+    public TbImageView q;
+    public TextView r;
+    public TextView s;
+    public boolean t;
 
     public BubbleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mContext = context;
-        init();
+        this.f18892e = context;
+        b();
     }
 
-    public BubbleView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mContext = context;
-        init();
+    public void a(TbPageContext<?> tbPageContext) {
+        tbPageContext.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+        tbPageContext.getLayoutMode().j(this);
     }
 
-    public BubbleView(Context context) {
-        super(context);
-        this.mContext = context;
-        init();
-    }
-
-    private void init() {
-        View inflate = LayoutInflater.from(this.mContext).inflate(getXmlLayoutResId(), this);
-        this.lnq = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
-        this.lnr = (TbImageView) inflate.findViewById(R.id.bubble_image);
-        this.lns = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
-        this.lnt = (ImageView) inflate.findViewById(R.id.free_tip);
-        this.lnu = (ImageView) inflate.findViewById(R.id.defualt_tip);
-        this.lnv = (ImageView) inflate.findViewById(R.id.bubble_notuse_iamge);
-        this.lnw = (ImageView) inflate.findViewById(R.id.bubble_round_up);
-        this.lnx = (ImageView) inflate.findViewById(R.id.bubble_round_full);
-        this.lny = inflate.findViewById(R.id.bubble_center_line);
-        this.lnz = (ViewGroup) inflate.findViewById(R.id.bubble_bottom_layout);
-        this.lnA = (ViewGroup) inflate.findViewById(R.id.has_icon_name);
-        this.lnB = (TbImageView) inflate.findViewById(R.id.icon_iamge);
-        this.lnC = (TextView) inflate.findViewById(R.id.bubble_name);
-        this.lnD = (TextView) inflate.findViewById(R.id.no_icon_name);
+    public final void b() {
+        View inflate = LayoutInflater.from(this.f18892e).inflate(getXmlLayoutResId(), this);
+        this.f18893f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
+        this.f18894g = (TbImageView) inflate.findViewById(R.id.bubble_image);
+        this.f18895h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
+        this.i = (ImageView) inflate.findViewById(R.id.free_tip);
+        this.j = (ImageView) inflate.findViewById(R.id.defualt_tip);
+        this.k = (ImageView) inflate.findViewById(R.id.bubble_notuse_iamge);
+        this.l = (ImageView) inflate.findViewById(R.id.bubble_round_up);
+        this.m = (ImageView) inflate.findViewById(R.id.bubble_round_full);
+        this.n = inflate.findViewById(R.id.bubble_center_line);
+        this.o = (ViewGroup) inflate.findViewById(R.id.bubble_bottom_layout);
+        this.p = (ViewGroup) inflate.findViewById(R.id.has_icon_name);
+        this.q = (TbImageView) inflate.findViewById(R.id.icon_iamge);
+        this.r = (TextView) inflate.findViewById(R.id.bubble_name);
+        this.s = (TextView) inflate.findViewById(R.id.no_icon_name);
     }
 
     public int getXmlLayoutResId() {
         return R.layout.bubbleview;
     }
 
-    public void setData(BubbleListData.BubbleData bubbleData, boolean z) {
-        if (bubbleData != null) {
-            if (bubbleData.getBcode() == 0) {
-                setCurrentNotUse();
-                this.lnu.setVisibility(z ? 0 : 8);
-                this.lns.setVisibility(z ? 0 : 8);
-                return;
-            }
-            this.lnq.setVisibility(0);
-            this.lnv.setVisibility(8);
-            if (bubbleData.isDef()) {
-                this.lns.setVisibility(0);
-                this.lnu.setVisibility(0);
-            } else {
-                this.lns.setVisibility(8);
-                this.lnu.setVisibility(8);
-            }
-            if (bubbleData.isFree()) {
-                this.lnt.setVisibility(0);
-            } else {
-                this.lnt.setVisibility(8);
-            }
-            if (!TextUtils.isEmpty(bubbleData.getB_url())) {
-                this.lnr.setTag(bubbleData.getB_url());
-                this.lnr.startLoad(bubbleData.getB_url(), 10, false);
-            }
-            if (!this.lnE) {
-                this.lny.setVisibility(8);
-                this.lnz.setVisibility(8);
-                this.lnw.setVisibility(8);
-                this.lnx.setVisibility(0);
-                return;
-            }
-            this.lny.setVisibility(0);
-            this.lnz.setVisibility(0);
-            this.lnw.setVisibility(0);
-            this.lnx.setVisibility(8);
-            if (!TextUtils.isEmpty(bubbleData.getIcon_url())) {
-                this.lnA.setVisibility(0);
-                this.lnD.setVisibility(8);
-                this.lnC.setText(bubbleData.getBname());
-                this.lnB.setTag(bubbleData.getIcon_url());
-                this.lnB.startLoad(bubbleData.getIcon_url(), 10, false);
-                return;
-            }
-            this.lnA.setVisibility(8);
-            this.lnD.setVisibility(0);
-            this.lnD.setText(bubbleData.getBname());
-        }
-    }
-
     public void setCurrentNotUse() {
-        this.lnq.setVisibility(8);
-        this.lnv.setVisibility(0);
-        this.lnt.setVisibility(8);
-        if (!this.lnE) {
-            this.lny.setVisibility(8);
-            this.lnz.setVisibility(8);
-            this.lnw.setVisibility(8);
-            this.lnx.setVisibility(0);
+        this.f18893f.setVisibility(8);
+        this.k.setVisibility(0);
+        this.i.setVisibility(8);
+        if (!this.t) {
+            this.n.setVisibility(8);
+            this.o.setVisibility(8);
+            this.l.setVisibility(8);
+            this.m.setVisibility(0);
             return;
         }
-        this.lny.setVisibility(0);
-        this.lnz.setVisibility(0);
-        this.lnw.setVisibility(0);
-        this.lnx.setVisibility(8);
-        this.lnA.setVisibility(8);
-        this.lnD.setVisibility(0);
-        this.lnD.setText(this.mContext.getString(R.string.bubble_notuse_text));
+        this.n.setVisibility(0);
+        this.o.setVisibility(0);
+        this.l.setVisibility(0);
+        this.m.setVisibility(8);
+        this.p.setVisibility(8);
+        this.s.setVisibility(0);
+        this.s.setText(this.f18892e.getString(R.string.bubble_notuse_text));
     }
 
-    public void D(TbPageContext<?> tbPageContext) {
-        tbPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().onModeChanged(this);
+    public void setData(BubbleListData.BubbleData bubbleData, boolean z) {
+        if (bubbleData == null) {
+            return;
+        }
+        if (bubbleData.getBcode() == 0) {
+            setCurrentNotUse();
+            this.j.setVisibility(z ? 0 : 8);
+            this.f18895h.setVisibility(z ? 0 : 8);
+            return;
+        }
+        this.f18893f.setVisibility(0);
+        this.k.setVisibility(8);
+        if (bubbleData.isDef()) {
+            this.f18895h.setVisibility(0);
+            this.j.setVisibility(0);
+        } else {
+            this.f18895h.setVisibility(8);
+            this.j.setVisibility(8);
+        }
+        if (bubbleData.isFree()) {
+            this.i.setVisibility(0);
+        } else {
+            this.i.setVisibility(8);
+        }
+        if (!TextUtils.isEmpty(bubbleData.getB_url())) {
+            this.f18894g.setTag(bubbleData.getB_url());
+            this.f18894g.W(bubbleData.getB_url(), 10, false);
+        }
+        if (!this.t) {
+            this.n.setVisibility(8);
+            this.o.setVisibility(8);
+            this.l.setVisibility(8);
+            this.m.setVisibility(0);
+            return;
+        }
+        this.n.setVisibility(0);
+        this.o.setVisibility(0);
+        this.l.setVisibility(0);
+        this.m.setVisibility(8);
+        if (!TextUtils.isEmpty(bubbleData.getIcon_url())) {
+            this.p.setVisibility(0);
+            this.s.setVisibility(8);
+            this.r.setText(bubbleData.getBname());
+            this.q.setTag(bubbleData.getIcon_url());
+            this.q.W(bubbleData.getIcon_url(), 10, false);
+            return;
+        }
+        this.p.setVisibility(8);
+        this.s.setVisibility(0);
+        this.s.setText(bubbleData.getBname());
+    }
+
+    public void setShowName(boolean z) {
+        this.t = z;
+    }
+
+    public BubbleView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f18892e = context;
+        b();
+    }
+
+    public BubbleView(Context context) {
+        super(context);
+        this.f18892e = context;
+        b();
     }
 }

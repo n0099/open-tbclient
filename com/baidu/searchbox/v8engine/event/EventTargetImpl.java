@@ -11,70 +11,27 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class EventTargetImpl implements EventTarget {
-    private static final boolean DEBUG = false;
-    private static final String EVENT_TYPE = "type";
-    private static final String TAG = "EventTargetImpl";
-    private JSRuntime mJSRuntime;
-    private final Lock mLock = new ReentrantLock();
-    private Map<String, List<JsFunction>> mTargets;
+    public static final boolean DEBUG = false;
+    public static final String EVENT_TYPE = "type";
+    public static final String TAG = "EventTargetImpl";
+    public JSRuntime mJSRuntime;
+    public final Lock mLock = new ReentrantLock();
+    public Map<String, List<JsFunction>> mTargets;
 
     public EventTargetImpl(JSRuntime jSRuntime) {
         this.mJSRuntime = jSRuntime;
     }
 
-    @Override // com.baidu.searchbox.v8engine.event.EventTarget
-    public boolean dispatchEvent(final JSEvent jSEvent) {
-        if (!JSEvent.isValid(jSEvent)) {
-            return false;
-        }
-        this.mJSRuntime.runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.event.EventTargetImpl.1
-            @Override // java.lang.Runnable
-            public void run() {
-                try {
-                    EventTargetImpl.this.mLock.lock();
-                    for (JsFunction jsFunction : new ArrayList(EventTargetImpl.this.getEventListeners(jSEvent.type))) {
-                        if (jsFunction != null) {
-                            jsFunction.call(EventTargetImpl.this, jSEvent.data, false);
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    EventTargetImpl.this.mLock.unlock();
-                }
-            }
-        });
-        return true;
+    /* JADX INFO: Access modifiers changed from: private */
+    public List<JsFunction> getEventListeners(String str) {
+        List<JsFunction> list = getTargetMap().get(str);
+        return list == null ? new ArrayList() : list;
     }
 
-    @Override // com.baidu.searchbox.v8engine.event.EventTarget
-    @JavascriptInterface
-    public boolean dispatchEvent(final JsObject jsObject) {
-        final String parseEventType = parseEventType(jsObject);
-        if (TextUtils.isEmpty(parseEventType)) {
-            return false;
-        }
-        this.mJSRuntime.runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.event.EventTargetImpl.2
-            @Override // java.lang.Runnable
-            public void run() {
-                try {
-                    EventTargetImpl.this.mLock.lock();
-                    for (JsFunction jsFunction : new ArrayList(EventTargetImpl.this.getEventListeners(parseEventType))) {
-                        if (jsFunction != null) {
-                            jsFunction.call(EventTargetImpl.this, jsObject, false);
-                        }
-                    }
-                    jsObject.release();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    EventTargetImpl.this.mLock.unlock();
-                }
-            }
-        });
-        return true;
+    private boolean isArgumentsInvalid(String str, JsFunction jsFunction) {
+        return TextUtils.isEmpty(str) || jsFunction == null;
     }
 
     private String parseEventType(JsObject jsObject) {
@@ -86,6 +43,61 @@ public class EventTargetImpl implements EventTarget {
     }
 
     @Override // com.baidu.searchbox.v8engine.event.EventTarget
+    @JavascriptInterface
+    public void addEventListener(String str, JsFunction jsFunction) {
+        if (isArgumentsInvalid(str, jsFunction)) {
+            return;
+        }
+        try {
+            this.mLock.lock();
+            List<JsFunction> eventListeners = getEventListeners(str);
+            if (!eventListeners.contains(jsFunction)) {
+                jsFunction.setReleaseMode(false);
+                eventListeners.add(jsFunction);
+            }
+            if (!getTargetMap().containsKey(str)) {
+                getTargetMap().put(str, eventListeners);
+            }
+        } finally {
+            this.mLock.unlock();
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.event.EventTarget
+    public boolean dispatchEvent(final JSEvent jSEvent) {
+        if (JSEvent.isValid(jSEvent)) {
+            this.mJSRuntime.runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.event.EventTargetImpl.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    try {
+                        try {
+                            EventTargetImpl.this.mLock.lock();
+                            for (JsFunction jsFunction : new ArrayList(EventTargetImpl.this.getEventListeners(jSEvent.type))) {
+                                if (jsFunction != null) {
+                                    jsFunction.call(EventTargetImpl.this, jSEvent.data, false);
+                                }
+                            }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    } finally {
+                        EventTargetImpl.this.mLock.unlock();
+                    }
+                }
+            });
+            return true;
+        }
+        return false;
+    }
+
+    public Map<String, List<JsFunction>> getTargetMap() {
+        if (this.mTargets == null) {
+            this.mTargets = new TreeMap();
+        }
+        return this.mTargets;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.event.EventTarget
     public boolean hasEventListener(String... strArr) {
         if (strArr == null) {
             return false;
@@ -94,6 +106,7 @@ public class EventTargetImpl implements EventTarget {
             this.mLock.lock();
             for (String str : strArr) {
                 if (getTargetMap().containsKey(str) && !getTargetMap().get(str).isEmpty()) {
+                    this.mLock.unlock();
                     return true;
                 }
             }
@@ -105,31 +118,10 @@ public class EventTargetImpl implements EventTarget {
 
     @Override // com.baidu.searchbox.v8engine.event.EventTarget
     @JavascriptInterface
-    public void addEventListener(String str, JsFunction jsFunction) {
-        if (!isArgumentsInvalid(str, jsFunction)) {
-            try {
-                this.mLock.lock();
-                List<JsFunction> eventListeners = getEventListeners(str);
-                if (!eventListeners.contains(jsFunction)) {
-                    jsFunction.setReleaseMode(false);
-                    eventListeners.add(jsFunction);
-                }
-                if (!getTargetMap().containsKey(str)) {
-                    getTargetMap().put(str, eventListeners);
-                }
-            } finally {
-                this.mLock.unlock();
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.event.EventTarget
-    @JavascriptInterface
     public void removeEventListener(String str) {
         removeEventListener(str, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [248=4] */
     @Override // com.baidu.searchbox.v8engine.event.EventTarget
     @JavascriptInterface
     public void removeEventListener(String str, JsFunction jsFunction) {
@@ -150,36 +142,48 @@ public class EventTargetImpl implements EventTarget {
                         getTargetMap().remove(str);
                     }
                 }
-                return;
-            }
-            List<JsFunction> eventListeners2 = getEventListeners(str);
-            if (eventListeners2 == null || !eventListeners2.contains(jsFunction)) {
-                return;
-            }
-            eventListeners2.remove(jsFunction);
-            jsFunction.release();
-            if (eventListeners2.isEmpty() && getTargetMap().containsKey(str)) {
-                getTargetMap().remove(str);
+            } else {
+                List<JsFunction> eventListeners2 = getEventListeners(str);
+                if (eventListeners2 != null && eventListeners2.contains(jsFunction)) {
+                    eventListeners2.remove(jsFunction);
+                    jsFunction.release();
+                    if (eventListeners2.isEmpty() && getTargetMap().containsKey(str)) {
+                        getTargetMap().remove(str);
+                    }
+                }
             }
         } finally {
             this.mLock.unlock();
         }
     }
 
-    private boolean isArgumentsInvalid(String str, JsFunction jsFunction) {
-        return TextUtils.isEmpty(str) || jsFunction == null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public List<JsFunction> getEventListeners(String str) {
-        List<JsFunction> list = getTargetMap().get(str);
-        return list == null ? new ArrayList() : list;
-    }
-
-    public Map<String, List<JsFunction>> getTargetMap() {
-        if (this.mTargets == null) {
-            this.mTargets = new TreeMap();
+    @Override // com.baidu.searchbox.v8engine.event.EventTarget
+    @JavascriptInterface
+    public boolean dispatchEvent(final JsObject jsObject) {
+        final String parseEventType = parseEventType(jsObject);
+        if (TextUtils.isEmpty(parseEventType)) {
+            return false;
         }
-        return this.mTargets;
+        this.mJSRuntime.runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.event.EventTargetImpl.2
+            @Override // java.lang.Runnable
+            public void run() {
+                try {
+                    try {
+                        EventTargetImpl.this.mLock.lock();
+                        for (JsFunction jsFunction : new ArrayList(EventTargetImpl.this.getEventListeners(parseEventType))) {
+                            if (jsFunction != null) {
+                                jsFunction.call(EventTargetImpl.this, jsObject, false);
+                            }
+                        }
+                        jsObject.release();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                } finally {
+                    EventTargetImpl.this.mLock.unlock();
+                }
+            }
+        });
+        return true;
     }
 }

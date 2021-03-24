@@ -1,7 +1,7 @@
 package org.java_websocket.exceptions;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class NotSendableException extends RuntimeException {
-    private static final long serialVersionUID = -6468967874576651628L;
+    public static final long serialVersionUID = -6468967874576651628L;
 
     public NotSendableException(String str) {
         super(str);

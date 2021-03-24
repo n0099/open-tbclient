@@ -3,22 +3,53 @@ package androidx.transition;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class SidePropagation extends VisibilityPropagation {
-    private float mPropagationSpeed = 3.0f;
-    private int mSide = 80;
+    public float mPropagationSpeed = 3.0f;
+    public int mSide = 80;
 
-    public void setSide(int i) {
-        this.mSide = i;
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0017, code lost:
+        r0 = 3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0026, code lost:
+        if ((androidx.core.view.ViewCompat.getLayoutDirection(r7) == 1) != false) goto L24;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:8:0x0013, code lost:
+        if ((androidx.core.view.ViewCompat.getLayoutDirection(r7) == 1) != false) goto L7;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0015, code lost:
+        r0 = 5;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private int distance(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+        int i9 = this.mSide;
+        if (i9 != 8388611) {
+            if (i9 == 8388613) {
+            }
+        }
+        if (i9 != 3) {
+            if (i9 != 5) {
+                if (i9 != 48) {
+                    if (i9 != 80) {
+                        return 0;
+                    }
+                    return (i2 - i6) + Math.abs(i3 - i);
+                }
+                return (i8 - i2) + Math.abs(i3 - i);
+            }
+            return (i - i5) + Math.abs(i4 - i2);
+        }
+        return (i7 - i) + Math.abs(i4 - i2);
     }
 
-    public void setPropagationSpeed(float f) {
-        if (f == 0.0f) {
-            throw new IllegalArgumentException("propagationSpeed may not be 0");
+    private int getMaxDistance(ViewGroup viewGroup) {
+        int i = this.mSide;
+        if (i != 3 && i != 5 && i != 8388611 && i != 8388613) {
+            return viewGroup.getHeight();
         }
-        this.mPropagationSpeed = f;
+        return viewGroup.getWidth();
     }
 
     @Override // androidx.transition.TransitionPropagation
@@ -26,18 +57,19 @@ public class SidePropagation extends VisibilityPropagation {
         int i;
         int i2;
         int i3;
-        if (transitionValues == null && transitionValues2 == null) {
+        TransitionValues transitionValues3 = transitionValues;
+        if (transitionValues3 == null && transitionValues2 == null) {
             return 0L;
         }
         Rect epicenter = transition.getEpicenter();
-        if (transitionValues2 != null && getViewVisibility(transitionValues) != 0) {
-            i = 1;
-        } else {
-            transitionValues2 = transitionValues;
+        if (transitionValues2 == null || getViewVisibility(transitionValues3) == 0) {
             i = -1;
+        } else {
+            transitionValues3 = transitionValues2;
+            i = 1;
         }
-        int viewX = getViewX(transitionValues2);
-        int viewY = getViewY(transitionValues2);
+        int viewX = getViewX(transitionValues3);
+        int viewY = getViewY(transitionValues3);
         int[] iArr = new int[2];
         viewGroup.getLocationOnScreen(iArr);
         int round = iArr[0] + Math.round(viewGroup.getTranslationX());
@@ -59,40 +91,15 @@ public class SidePropagation extends VisibilityPropagation {
         return Math.round((((float) (duration * i)) / this.mPropagationSpeed) * distance);
     }
 
-    private int distance(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-        int i9 = 5;
-        if (this.mSide == 8388611) {
-            if (!(ViewCompat.getLayoutDirection(view) == 1)) {
-                i9 = 3;
-            }
-        } else if (this.mSide == 8388613) {
-            i9 = ViewCompat.getLayoutDirection(view) == 1 ? 3 : 5;
-        } else {
-            i9 = this.mSide;
+    public void setPropagationSpeed(float f2) {
+        if (f2 != 0.0f) {
+            this.mPropagationSpeed = f2;
+            return;
         }
-        switch (i9) {
-            case 3:
-                return (i7 - i) + Math.abs(i4 - i2);
-            case 5:
-                return (i - i5) + Math.abs(i4 - i2);
-            case 48:
-                return (i8 - i2) + Math.abs(i3 - i);
-            case 80:
-                return (i2 - i6) + Math.abs(i3 - i);
-            default:
-                return 0;
-        }
+        throw new IllegalArgumentException("propagationSpeed may not be 0");
     }
 
-    private int getMaxDistance(ViewGroup viewGroup) {
-        switch (this.mSide) {
-            case 3:
-            case 5:
-            case GravityCompat.START /* 8388611 */:
-            case GravityCompat.END /* 8388613 */:
-                return viewGroup.getWidth();
-            default:
-                return viewGroup.getHeight();
-        }
+    public void setSide(int i) {
+        this.mSide = i;
     }
 }

@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.ActionProvider;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public interface SupportMenuItem extends MenuItem {
     public static final int SHOW_AS_ACTION_ALWAYS = 2;
     public static final int SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW = 8;
@@ -54,7 +54,7 @@ public interface SupportMenuItem extends MenuItem {
     MenuItem setActionView(View view);
 
     @Override // android.view.MenuItem
-    MenuItem setAlphabeticShortcut(char c, int i);
+    MenuItem setAlphabeticShortcut(char c2, int i);
 
     @Override // android.view.MenuItem
     SupportMenuItem setContentDescription(CharSequence charSequence);
@@ -66,10 +66,10 @@ public interface SupportMenuItem extends MenuItem {
     MenuItem setIconTintMode(PorterDuff.Mode mode);
 
     @Override // android.view.MenuItem
-    MenuItem setNumericShortcut(char c, int i);
+    MenuItem setNumericShortcut(char c2, int i);
 
     @Override // android.view.MenuItem
-    MenuItem setShortcut(char c, char c2, int i, int i2);
+    MenuItem setShortcut(char c2, char c3, int i, int i2);
 
     @Override // android.view.MenuItem
     void setShowAsAction(int i);

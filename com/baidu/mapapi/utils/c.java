@@ -5,30 +5,28 @@ import android.os.RemoteException;
 import android.util.Log;
 import com.baidu.mapframework.open.aidl.IComOpenClient;
 import com.baidu.mapframework.open.aidl.b;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class c extends b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f2164a;
+    public final /* synthetic */ int f7399a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public c(int i) {
-        this.f2164a = i;
+        this.f7399a = i;
     }
 
     @Override // com.baidu.mapframework.open.aidl.b
     public void a(IBinder iBinder) throws RemoteException {
         String str;
         IComOpenClient iComOpenClient;
-        str = b.c;
+        str = b.f7393c;
         Log.d(str, "onClientReady");
-        iComOpenClient = b.e;
+        iComOpenClient = b.f7395e;
         if (iComOpenClient != null) {
-            IComOpenClient unused = b.e = null;
+            IComOpenClient unused = b.f7395e = null;
         }
-        IComOpenClient unused2 = b.e = IComOpenClient.a.a(iBinder);
-        b.a(this.f2164a);
+        IComOpenClient unused2 = b.f7395e = IComOpenClient.a.a(iBinder);
+        b.a(this.f7399a);
         boolean unused3 = b.t = true;
     }
 }

@@ -2,7 +2,7 @@ package org.apache.http.conn.params;
 
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ConnManagerParams implements ConnManagerPNames {
     public static final int DEFAULT_MAX_TOTAL_CONNECTIONS = 20;
 
@@ -10,11 +10,15 @@ public final class ConnManagerParams implements ConnManagerPNames {
         throw new RuntimeException("Stub!");
     }
 
-    public static long getTimeout(HttpParams httpParams) {
+    public static ConnPerRoute getMaxConnectionsPerRoute(HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
-    public static void setTimeout(HttpParams httpParams, long j) {
+    public static int getMaxTotalConnections(HttpParams httpParams) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public static long getTimeout(HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
@@ -22,15 +26,11 @@ public final class ConnManagerParams implements ConnManagerPNames {
         throw new RuntimeException("Stub!");
     }
 
-    public static ConnPerRoute getMaxConnectionsPerRoute(HttpParams httpParams) {
-        throw new RuntimeException("Stub!");
-    }
-
     public static void setMaxTotalConnections(HttpParams httpParams, int i) {
         throw new RuntimeException("Stub!");
     }
 
-    public static int getMaxTotalConnections(HttpParams httpParams) {
+    public static void setTimeout(HttpParams httpParams, long j) {
         throw new RuntimeException("Stub!");
     }
 }

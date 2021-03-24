@@ -2,10 +2,11 @@ package com.baidu.tieba.pb.pb.main.adapter;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import d.b.i0.c2.h.b;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.pb.data.b mData;
+    public b mData;
 
     public PbAdCardGiftItemResponseMessage() {
         super(CmdConfigHttp.CMD_GET_CARD_GIFT_REQ);
@@ -17,13 +18,13 @@ public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
             if (this.mData == null) {
-                this.mData = new com.baidu.tieba.pb.data.b();
+                this.mData = new b();
             }
-            this.mData.parseJson(optJSONObject);
+            this.mData.c(optJSONObject);
         }
     }
 
-    public com.baidu.tieba.pb.data.b getData() {
+    public b getData() {
         return this.mData;
     }
 }

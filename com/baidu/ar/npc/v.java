@@ -1,22 +1,24 @@
 package com.baidu.ar.npc;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1303a;
-    final /* synthetic */ int b;
-    final /* synthetic */ ArBridge c;
+    public final /* synthetic */ int f4219a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ int f4220b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ ArBridge f4221c;
+
     public v(ArBridge arBridge, int i, int i2) {
-        this.c = arBridge;
-        this.f1303a = i;
-        this.b = i2;
+        this.f4221c = arBridge;
+        this.f4219a = i;
+        this.f4220b = i2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.c.nativeSetSize(this.f1303a, this.b);
+        this.f4221c.nativeSetSize(this.f4219a, this.f4220b);
     }
 }

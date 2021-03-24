@@ -3,75 +3,78 @@ package com.baidu.tbadk.editortools.noConflictPanel.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import com.baidu.tbadk.editortools.noConflictPanel.a;
-import com.baidu.tbadk.editortools.noConflictPanel.b;
-/* loaded from: classes.dex */
-public class KPSwitchPanelFrameLayout extends FrameLayout implements a, b {
-    private com.baidu.tbadk.editortools.noConflictPanel.a.b fEW;
+import d.b.h0.w.v.a;
+import d.b.h0.w.v.b;
+/* loaded from: classes3.dex */
+public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.h0.w.v.c.b f13877e;
 
     public KPSwitchPanelFrameLayout(Context context) {
         super(context);
-        init(null);
+        c(null);
     }
 
-    public KPSwitchPanelFrameLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(attributeSet);
+    @Override // d.b.h0.w.v.b
+    public void a(boolean z) {
+        this.f13877e.f(z);
     }
 
-    public KPSwitchPanelFrameLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(attributeSet);
+    @Override // d.b.h0.w.v.a
+    public boolean b() {
+        return this.f13877e.b();
     }
 
-    private void init(AttributeSet attributeSet) {
-        this.fEW = new com.baidu.tbadk.editortools.noConflictPanel.a.b(this, attributeSet);
+    public final void c(AttributeSet attributeSet) {
+        this.f13877e = new d.b.h0.w.v.c.b(this, attributeSet);
+    }
+
+    @Override // d.b.h0.w.v.a
+    public void handleHide() {
+        this.f13877e.handleHide();
+    }
+
+    @Override // d.b.h0.w.v.a
+    public void handleShow() {
+        super.setVisibility(0);
+    }
+
+    @Override // d.b.h0.w.v.a
+    public boolean isVisible() {
+        return this.f13877e.isVisible();
+    }
+
+    @Override // android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        int[] c2 = this.f13877e.c(i, i2);
+        super.onMeasure(c2[0], c2[1]);
+    }
+
+    @Override // d.b.h0.w.v.b
+    public void refreshHeight(int i) {
+        this.f13877e.d(i);
+    }
+
+    public void setIgnoreRecommendHeight(boolean z) {
+        this.f13877e.e(z);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.fEW.fZ(i)) {
-            super.setVisibility(i);
+        if (this.f13877e.a(i)) {
+            return;
         }
+        super.setVisibility(i);
     }
 
-    @Override // android.widget.FrameLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        int[] V = this.fEW.V(i, i2);
-        super.onMeasure(V[0], V[1]);
+    public KPSwitchPanelFrameLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        c(attributeSet);
     }
 
-    @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public boolean bBJ() {
-        return this.fEW.bBJ();
-    }
-
-    @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public boolean isVisible() {
-        return this.fEW.isVisible();
-    }
-
-    @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public void afI() {
-        super.setVisibility(0);
-    }
-
-    @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public void afJ() {
-        this.fEW.afJ();
-    }
-
-    public void setIgnoreRecommendHeight(boolean z) {
-        this.fEW.setIgnoreRecommendHeight(z);
-    }
-
-    @Override // com.baidu.tbadk.editortools.noConflictPanel.b
-    public void rb(int i) {
-        this.fEW.rc(i);
-    }
-
-    @Override // com.baidu.tbadk.editortools.noConflictPanel.b
-    public void kT(boolean z) {
-        this.fEW.kU(z);
+    public KPSwitchPanelFrameLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        c(attributeSet);
     }
 }

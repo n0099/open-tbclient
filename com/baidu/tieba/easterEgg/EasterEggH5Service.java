@@ -13,133 +13,142 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.b.g;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.httpNet.NetWorkParam;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.easterEgg.d;
 import com.google.gson.Gson;
+import d.b.b.e.p.k;
+import d.b.i0.g0.d;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class EasterEggH5Service extends Service {
-    private static String KEY_URL = "url";
-    private EasterEggBridge eggBridge;
-    private com.baidu.tieba.tbadkCore.e.a jsBridge;
-    private com.baidu.tieba.easterEgg.c.a mHttpRule;
-    private com.baidu.tieba.easterEgg.c.b mSocketRule;
-    private BaseWebView mWebView;
-    private d model;
-    private String mUrl = null;
-    private BdUniqueId mTag = BdUniqueId.gen();
-    private Gson gson = new Gson();
-    private c onHitEventListener = new c() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.1
-        @Override // com.baidu.tieba.easterEgg.c
-        public void aE(String str, String str2, String str3) {
+    public static String KEY_URL = "url";
+    public EasterEggBridge eggBridge;
+    public d.b.i0.c3.l0.a jsBridge;
+    public d.b.i0.g0.g.a mHttpRule;
+    public d.b.i0.g0.g.b mSocketRule;
+    public BaseWebView mWebView;
+    public d.b.i0.g0.d model;
+    public String mUrl = null;
+    public BdUniqueId mTag = BdUniqueId.gen();
+    public Gson gson = new Gson();
+    public d.b.i0.g0.c onHitEventListener = new a();
+    public CustomMessageListener onSearchEventListener = new b(2921345);
+    public CustomMessageListener onWriteReadListener = new c(2921344);
+
+    /* loaded from: classes4.dex */
+    public class a implements d.b.i0.g0.c {
+        public a() {
+        }
+
+        @Override // d.b.i0.g0.c
+        public void a(String str, String str2, String str3) {
             if (EasterEggH5Service.this.mWebView != null) {
-                EasterEggH5Service.this.loadJsUrl(EasterEggH5Service.this.mWebView, "receiveEvent", str2, str3);
+                EasterEggH5Service easterEggH5Service = EasterEggH5Service.this;
+                easterEggH5Service.loadJsUrl(easterEggH5Service.mWebView, "receiveEvent", str2, str3);
             }
         }
-    };
-    private CustomMessageListener onSearchEventListener = new CustomMessageListener(CmdConfigCustom.CMD_TURN_TAB_LOC) { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.2
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            String str;
             if (customResponsedMessage.getData() instanceof String) {
-                if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.Jm("reindeer_search");
-                } else {
-                    str = null;
-                }
-                if (str != null) {
+                String a2 = EasterEggH5Service.this.mHttpRule != null ? EasterEggH5Service.this.mHttpRule.a("reindeer_search") : null;
+                if (a2 != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("content", customResponsedMessage.getData());
-                        EasterEggH5Service.this.onHitEventListener.aE("reindeer_search", EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(jSONObject.toString()));
-                    } catch (JSONException e) {
+                        EasterEggH5Service.this.onHitEventListener.a("reindeer_search", EasterEggH5Service.this.gson.toJson(a2), EasterEggH5Service.this.gson.toJson(jSONObject.toString()));
+                    } catch (JSONException unused) {
                     }
                 }
             }
         }
-    };
-    private CustomMessageListener onWriteReadListener = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.3
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends CustomMessageListener {
+        public c(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            String str;
-            if (customResponsedMessage.getData() instanceof g) {
-                g gVar = (g) customResponsedMessage.getData();
-                if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.Jm(gVar.mUrl);
-                } else {
-                    str = null;
-                }
-                if (str != null) {
+            if (customResponsedMessage.getData() instanceof NetWorkParam) {
+                NetWorkParam netWorkParam = (NetWorkParam) customResponsedMessage.getData();
+                String a2 = EasterEggH5Service.this.mHttpRule != null ? EasterEggH5Service.this.mHttpRule.a(netWorkParam.mUrl) : null;
+                if (a2 != null) {
                     HashMap hashMap = new HashMap();
-                    if (!y.isEmpty(gVar.mPostData)) {
-                        int i = 0;
-                        while (true) {
-                            int i2 = i;
-                            if (i2 >= gVar.mPostData.size()) {
-                                break;
+                    if (!ListUtils.isEmpty(netWorkParam.mPostData)) {
+                        for (int i = 0; i < netWorkParam.mPostData.size(); i++) {
+                            if (netWorkParam.mPostData.get(i) != null) {
+                                hashMap.put(netWorkParam.mPostData.get(i).getName(), netWorkParam.mPostData.get(i).getValue());
                             }
-                            if (gVar.mPostData.get(i2) != null) {
-                                hashMap.put(gVar.mPostData.get(i2).getName(), gVar.mPostData.get(i2).getValue());
-                            }
-                            i = i2 + 1;
                         }
                     }
-                    EasterEggH5Service.this.onHitEventListener.aE(gVar.mUrl, EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(EasterEggH5Service.this.gson.toJson(hashMap)));
+                    EasterEggH5Service.this.onHitEventListener.a(netWorkParam.mUrl, EasterEggH5Service.this.gson.toJson(a2), EasterEggH5Service.this.gson.toJson(EasterEggH5Service.this.gson.toJson(hashMap)));
                 }
             }
         }
-    };
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
     }
 
-    @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        if (intent != null) {
-            this.mUrl = intent.getStringExtra(KEY_URL);
-            if (!au.isEmpty(this.mUrl)) {
-                this.mWebView.loadUrl(this.mUrl);
-            }
+    /* loaded from: classes4.dex */
+    public class d implements d.b {
+        public d() {
         }
-        return super.onStartCommand(intent, i, i2);
-    }
 
-    @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-        initWebView();
-        initListenerAndRule();
-        this.model = new d();
-        this.model.a(new d.a() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.4
-            @Override // com.baidu.tieba.easterEgg.d.a
-            public void a(boolean z, com.baidu.tieba.easterEgg.a.a aVar) {
-                if (z && aVar != null && !au.isEmpty(aVar.cuK()) && aVar.isOpen()) {
-                    if (EasterEggH5Service.this.mWebView != null) {
-                        EasterEggH5Service.this.mWebView.loadUrl(aVar.cuK());
-                    }
-                    HashMap<String, String> cuJ = aVar.cuJ();
-                    if (cuJ != null) {
-                        EasterEggH5Service.this.mHttpRule.G(cuJ);
-                        EasterEggH5Service.this.mSocketRule.G(cuJ);
-                        return;
-                    }
+        @Override // d.b.i0.g0.d.b
+        public void a(boolean z, d.b.i0.g0.e.a aVar) {
+            if (z && aVar != null && !k.isEmpty(aVar.a()) && aVar.c()) {
+                if (EasterEggH5Service.this.mWebView != null) {
+                    EasterEggH5Service.this.mWebView.loadUrl(aVar.a());
+                }
+                HashMap<String, String> b2 = aVar.b();
+                if (b2 != null) {
+                    EasterEggH5Service.this.mHttpRule.d(b2);
+                    EasterEggH5Service.this.mSocketRule.d(b2);
                     return;
                 }
-                EasterEggH5Service.this.stopSelf();
+                return;
             }
-        });
-        this.model.startLoad();
+            EasterEggH5Service.this.stopSelf();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e extends WebViewClient {
+        public e() {
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+            if (sslErrorHandler != null) {
+                sslErrorHandler.cancel();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class f implements d.b.i0.c3.l0.c {
+        public f() {
+        }
+
+        @Override // d.b.i0.c3.l0.c
+        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
+            return EasterEggH5Service.this.jsBridge != null && EasterEggH5Service.this.jsBridge.b(EasterEggH5Service.this.mWebView, str, jsPromptResult);
+        }
     }
 
     private void initListenerAndRule() {
@@ -147,40 +156,31 @@ public class EasterEggH5Service extends Service {
         MessageManager.getInstance().registerListener(this.onSearchEventListener);
         this.onWriteReadListener.setTag(this.mTag);
         MessageManager.getInstance().registerListener(this.onWriteReadListener);
-        this.mHttpRule = new com.baidu.tieba.easterEgg.c.a(0);
-        this.mHttpRule.a(this.onHitEventListener);
+        d.b.i0.g0.g.a aVar = new d.b.i0.g0.g.a(0);
+        this.mHttpRule = aVar;
+        aVar.c(this.onHitEventListener);
         MessageManager.getInstance().addMessageRule(this.mHttpRule);
-        this.mSocketRule = new com.baidu.tieba.easterEgg.c.b(0);
-        this.mSocketRule.a(this.onHitEventListener);
+        d.b.i0.g0.g.b bVar = new d.b.i0.g0.g.b(0);
+        this.mSocketRule = bVar;
+        bVar.c(this.onHitEventListener);
         MessageManager.getInstance().addMessageRule(this.mSocketRule);
     }
 
     private void initWebView() {
         try {
             this.mWebView = new BaseWebView(this);
-            this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
+            this.jsBridge = new d.b.i0.c3.l0.a();
             this.mWebView.initCommonJsBridge(this);
             if (Build.VERSION.SDK_INT >= 21) {
                 this.mWebView.getSettings().setMixedContentMode(0);
             }
-            this.mWebView.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.5
-                @Override // android.webkit.WebViewClient
-                public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-                    if (sslErrorHandler != null) {
-                        sslErrorHandler.cancel();
-                    }
-                }
-            });
-            this.eggBridge = new EasterEggBridge();
-            this.jsBridge.a(this.eggBridge);
-            this.mWebView.setOnJsPromptCallback(new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.6
-                @Override // com.baidu.tieba.tbadkCore.e.c
-                public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                    return EasterEggH5Service.this.jsBridge != null && EasterEggH5Service.this.jsBridge.a(EasterEggH5Service.this.mWebView, str, jsPromptResult);
-                }
-            });
+            this.mWebView.setWebViewClient(new e());
+            EasterEggBridge easterEggBridge = new EasterEggBridge();
+            this.eggBridge = easterEggBridge;
+            this.jsBridge.a(easterEggBridge);
+            this.mWebView.setOnJsPromptCallback(new f());
         } catch (Throwable th) {
-            com.baidu.tbadk.core.d.a.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
+            d.b.h0.r.z.a.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
             TbadkCoreApplication.getInst().onLowMemory();
             stopSelf();
         }
@@ -188,36 +188,67 @@ public class EasterEggH5Service extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadJsUrl(WebView webView, String str, String... strArr) {
-        if (!au.isEmpty(str)) {
-            String str2 = "javascript:" + str + "(";
-            if (strArr != null) {
-                for (int i = 0; i < strArr.length; i++) {
-                    str2 = str2 + strArr[i];
-                    if (i != strArr.length - 1) {
-                        str2 = str2 + ",";
-                    }
+        if (k.isEmpty(str)) {
+            return;
+        }
+        String str2 = "javascript:" + str + "(";
+        if (strArr != null) {
+            for (int i = 0; i < strArr.length; i++) {
+                str2 = str2 + strArr[i];
+                if (i != strArr.length - 1) {
+                    str2 = str2 + ",";
                 }
             }
-            String str3 = str2 + ")";
-            if (Build.VERSION.SDK_INT >= 19) {
-                webView.evaluateJavascript(str3, null);
-            } else {
-                webView.loadUrl(str3);
-            }
+        }
+        String str3 = str2 + SmallTailInfo.EMOTION_SUFFIX;
+        if (Build.VERSION.SDK_INT >= 19) {
+            webView.evaluateJavascript(str3, null);
+        } else {
+            webView.loadUrl(str3);
         }
     }
 
     @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @Override // android.app.Service
+    public void onCreate() {
+        super.onCreate();
+        initWebView();
+        initListenerAndRule();
+        d.b.i0.g0.d dVar = new d.b.i0.g0.d();
+        this.model = dVar;
+        dVar.d(new d());
+        this.model.e();
+    }
+
+    @Override // android.app.Service
     public void onDestroy() {
-        if (this.model != null) {
-            this.model.onDestroy();
+        d.b.i0.g0.d dVar = this.model;
+        if (dVar != null) {
+            dVar.c();
         }
-        if (this.eggBridge != null) {
-            this.eggBridge.clearListener();
+        EasterEggBridge easterEggBridge = this.eggBridge;
+        if (easterEggBridge != null) {
+            easterEggBridge.clearListener();
         }
         MessageManager.getInstance().removeMessageRule(this.mHttpRule);
         MessageManager.getInstance().removeMessageRule(this.mSocketRule);
         MessageManager.getInstance().unRegisterListener(this.mTag);
         super.onDestroy();
+    }
+
+    @Override // android.app.Service
+    public int onStartCommand(Intent intent, int i, int i2) {
+        if (intent != null) {
+            String stringExtra = intent.getStringExtra(KEY_URL);
+            this.mUrl = stringExtra;
+            if (!k.isEmpty(stringExtra)) {
+                this.mWebView.loadUrl(this.mUrl);
+            }
+        }
+        return super.onStartCommand(intent, i, i2);
     }
 }

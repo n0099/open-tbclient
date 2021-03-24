@@ -2,15 +2,42 @@ package com.baidu.android.util.io;
 
 import java.text.DecimalFormat;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ByteUnitConverter {
     public static final int GB = 1073741824;
     public static final int KB = 1024;
     public static final int MB = 1048576;
-    private static final int UNIT = 1024;
-    private String convertStr;
+    public static final int UNIT = 1024;
+    public String convertStr;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: com.baidu.android.util.io.ByteUnitConverter$1  reason: invalid class name */
+    /* loaded from: classes2.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS;
+
+        static {
+            int[] iArr = new int[UNITS.values().length];
+            $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS = iArr;
+            try {
+                iArr[UNITS.B.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS[UNITS.KB.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS[UNITS.MB.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS[UNITS.GB.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public enum UNITS {
         B,
         KB,
@@ -18,61 +45,57 @@ public class ByteUnitConverter {
         GB
     }
 
-    private void convertByte(double d) {
+    public ByteUnitConverter(double d2) {
+        this(d2, UNITS.B);
+    }
+
+    private void convertByte(double d2) {
+        float f2;
         String str;
-        float f;
-        if (d < 1024.0d) {
+        if (d2 < 1024.0d) {
+            f2 = (float) d2;
             str = "B";
-            f = (float) d;
-        } else if (d < 1048576.0d) {
+        } else if (d2 < 1048576.0d) {
+            f2 = ((float) d2) / 1024.0f;
             str = "KB";
-            f = ((float) d) / 1024.0f;
-        } else if (d < 1.073741824E9d) {
+        } else if (d2 < 1.073741824E9d) {
+            f2 = ((float) d2) / 1048576.0f;
             str = "MB";
-            f = ((float) d) / 1048576.0f;
         } else {
+            f2 = ((float) d2) / 1.0737418E9f;
             str = "GB";
-            f = ((float) d) / 1.0737418E9f;
         }
-        this.convertStr = new DecimalFormat("0.00").format(f) + str;
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        this.convertStr = decimalFormat.format(f2) + str;
     }
 
-    private void convertKiloByte(double d) {
-        convertByte(1024.0d * d);
+    private void convertGigaByte(double d2) {
+        convertMegaByte(d2 * 1024.0d);
     }
 
-    private void convertMegaByte(double d) {
-        convertKiloByte(1024.0d * d);
+    private void convertKiloByte(double d2) {
+        convertByte(d2 * 1024.0d);
     }
 
-    private void convertGigaByte(double d) {
-        convertMegaByte(1024.0d * d);
-    }
-
-    public ByteUnitConverter(double d) {
-        this(d, UNITS.B);
-    }
-
-    public ByteUnitConverter(double d, UNITS units) {
-        switch (units) {
-            case B:
-                convertByte(d);
-                return;
-            case KB:
-                convertKiloByte(d);
-                return;
-            case MB:
-                convertMegaByte(d);
-                return;
-            case GB:
-                convertGigaByte(d);
-                return;
-            default:
-                return;
-        }
+    private void convertMegaByte(double d2) {
+        convertKiloByte(d2 * 1024.0d);
     }
 
     public String toString() {
         return this.convertStr;
+    }
+
+    public ByteUnitConverter(double d2, UNITS units) {
+        int i = AnonymousClass1.$SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS[units.ordinal()];
+        if (i == 1) {
+            convertByte(d2);
+        } else if (i == 2) {
+            convertKiloByte(d2);
+        } else if (i == 3) {
+            convertMegaByte(d2);
+        } else if (i != 4) {
+        } else {
+            convertGigaByte(d2);
+        }
     }
 }

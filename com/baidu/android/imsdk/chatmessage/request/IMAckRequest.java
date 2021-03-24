@@ -8,10 +8,8 @@ import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.request.NewAckMessage;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
-import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.sapi2.SapiContext;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,24 +18,23 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
-import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMAckRequest extends BaseHttpRequest {
-    private static final String TAG = "IMAckRequest";
-    private JSONArray mAckList = new JSONArray();
-    private long mBeginid;
-    private int mCategory;
-    private long mContacter;
-    private int mCount;
-    private long mEndid;
-    private boolean mIsReliable;
-    private String mKey;
-    private ArrayList<ChatMsg> mMsgList;
-    private long mTriggerId;
-    private long mUk;
+    public static final String TAG = "IMAckRequest";
+    public JSONArray mAckList = new JSONArray();
+    public long mBeginid;
+    public int mCategory;
+    public long mContacter;
+    public int mCount;
+    public long mEndid;
+    public boolean mIsReliable;
+    public String mKey;
+    public ArrayList<ChatMsg> mMsgList;
+    public long mTriggerId;
+    public long mUk;
 
     public IMAckRequest(Context context, String str, long j, long j2, int i, int i2, long j3, long j4, boolean z, ArrayList<ChatMsg> arrayList) {
         this.mContext = context;
@@ -50,42 +47,24 @@ public class IMAckRequest extends BaseHttpRequest {
         this.mEndid = j4;
         this.mIsReliable = z;
         this.mMsgList = arrayList;
-        this.mTriggerId = Utility.getTriggerId(this.mContext);
+        this.mTriggerId = Utility.getTriggerId(context);
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        LogUtils.d(TAG, "errorCode：" + i + ", resultContent: " + new String(bArr));
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        LogUtils.d(TAG, "errorCode：" + i + ", resultContent: " + new String(bArr));
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("appid", Utility.readAppId(this.mContext));
-            jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-            jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-            jSONObject.put("uk", this.mUk);
-            jSONObject.put(Constants.KEY_TRIGGER_ID, this.mTriggerId);
-            jSONObject.put("device_id", Utility.getDeviceId(this.mContext));
-            jSONObject.put("timestamp", System.currentTimeMillis() / 1000);
-            LogUtils.d(TAG, "mMsgList.size:" + this.mMsgList.size());
-            getShortAckMsgs(this.mMsgList);
-            jSONObject.put("msgs", this.mAckList == null ? "" : this.mAckList.toString());
-            jSONObject.put("sign", generateSign(jSONObject));
-        } catch (JSONException e) {
-            LogUtils.d(TAG, "getRequestParameter error：" + e.toString());
+    private void getShortAckMsgs(ArrayList<ChatMsg> arrayList) {
+        LogUtils.d(TAG, "getShortAckMsgs begin~~~");
+        new LinkedList();
+        List<NewAckMessage.Tripule> handleAck = MessageParser.handleAck(this.mContext, arrayList, false, false);
+        if (handleAck == null || handleAck.size() <= 0) {
+            return;
         }
-        LogUtils.d(TAG, "IMAckRequest getRequestParameter:" + jSONObject);
-        return jSONObject.toString().getBytes();
+        Context context = this.mContext;
+        NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), this.mTriggerId, this.mIsReliable);
+        newAckMessage.addTriples(handleAck);
+        this.mAckList = newAckMessage.getJsonArray();
+        LogUtils.d(TAG, "ack msgs: " + this.mAckList);
     }
 
-    protected String generateSign(JSONObject jSONObject) throws NoSuchAlgorithmException {
+    public String generateSign(JSONObject jSONObject) throws NoSuchAlgorithmException {
         if (jSONObject == null) {
             return "";
         }
@@ -104,16 +83,22 @@ public class IMAckRequest extends BaseHttpRequest {
         return getMd5(sb.toString());
     }
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/json";
+    }
+
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
-        hashMap.put(SM.COOKIE, "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
+        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        hashMap.put("Cookie", "BDUSS=" + bduss);
         return hashMap;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        return false;
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getHost() {
+        return BaseHttpRequest.getHostUrl(this.mContext) + "imsapi/1.0/im_msg_ack/liveshow";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -122,24 +107,41 @@ public class IMAckRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getHost() {
-        return getHostUrl(this.mContext) + "imsapi/1.0/im_msg_ack/liveshow";
+    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("appid", Utility.readAppId(this.mContext));
+            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
+            jSONObject.put("uk", this.mUk);
+            jSONObject.put(Constants.KEY_TRIGGER_ID, this.mTriggerId);
+            jSONObject.put(Constants.KEY_DEVICE_ID, Utility.getDeviceId(this.mContext));
+            jSONObject.put("timestamp", System.currentTimeMillis() / 1000);
+            LogUtils.d(TAG, "mMsgList.size:" + this.mMsgList.size());
+            getShortAckMsgs(this.mMsgList);
+            jSONObject.put("msgs", this.mAckList == null ? "" : this.mAckList.toString());
+            jSONObject.put("sign", generateSign(jSONObject));
+        } catch (JSONException e2) {
+            LogUtils.d(TAG, "getRequestParameter error：" + e2.toString());
+        }
+        LogUtils.d(TAG, "IMAckRequest getRequestParameter:" + jSONObject);
+        return jSONObject.toString().getBytes();
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        String str = new String(bArr);
+        LogUtils.d(TAG, "errorCode：" + i + ", resultContent: " + str);
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onSuccess(int i, byte[] bArr) {
+        String str = new String(bArr);
+        LogUtils.d(TAG, "errorCode：" + i + ", resultContent: " + str);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return HttpHelper.CONTENT_JSON;
-    }
-
-    private void getShortAckMsgs(ArrayList<ChatMsg> arrayList) {
-        LogUtils.d(TAG, "getShortAckMsgs begin~~~");
-        new LinkedList();
-        List<NewAckMessage.Tripule> handleAck = MessageParser.handleAck(this.mContext, arrayList, false, false);
-        if (handleAck != null && handleAck.size() > 0) {
-            NewAckMessage newAckMessage = new NewAckMessage(this.mContext, IMSDK.getInstance(this.mContext).getUk(), this.mTriggerId, this.mIsReliable);
-            newAckMessage.addTriples(handleAck);
-            this.mAckList = newAckMessage.getJsonArray();
-            LogUtils.d(TAG, "ack msgs: " + this.mAckList);
-        }
+    public boolean shouldAbort() {
+        return false;
     }
 }

@@ -1,29 +1,31 @@
 package com.baidu.pano.platform.a;
 
 import com.baidu.pano.platform.a.w;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2711a;
-    final /* synthetic */ long b;
-    final /* synthetic */ n c;
+    public final /* synthetic */ String f9396a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ long f9397b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ n f9398c;
+
     public o(n nVar, String str, long j) {
-        this.c = nVar;
-        this.f2711a = str;
-        this.b = j;
+        this.f9398c = nVar;
+        this.f9396a = str;
+        this.f9397b = j;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         w.a aVar;
         w.a aVar2;
-        aVar = this.c.f2709a;
-        aVar.a(this.f2711a, this.b);
-        aVar2 = this.c.f2709a;
+        aVar = this.f9398c.f9383a;
+        aVar.a(this.f9396a, this.f9397b);
+        aVar2 = this.f9398c.f9383a;
         aVar2.a(toString());
     }
 }

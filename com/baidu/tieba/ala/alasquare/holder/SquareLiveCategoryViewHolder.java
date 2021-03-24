@@ -2,12 +2,14 @@ package com.baidu.tieba.ala.alasquare.holder;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class SquareLiveCategoryViewHolder extends TypeAdapter.ViewHolder {
-    public View mView;
+
+    /* renamed from: a  reason: collision with root package name */
+    public View f14716a;
 
     public SquareLiveCategoryViewHolder(View view) {
         super(view);
-        this.mView = view;
+        this.f14716a = view;
     }
 }

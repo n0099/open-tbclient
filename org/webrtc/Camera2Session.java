@@ -12,7 +12,7 @@ import android.hardware.camera2.CaptureRequest;
 import android.os.Handler;
 import android.util.Range;
 import android.view.Surface;
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -20,42 +20,41 @@ import javax.annotation.Nullable;
 import org.webrtc.Camera2Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
-/* JADX INFO: Access modifiers changed from: package-private */
 @TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class Camera2Session implements CameraSession {
-    private static final String TAG = "Camera2Session";
-    private final Context applicationContext;
-    private final CameraSession.CreateSessionCallback callback;
-    private CameraCharacteristics cameraCharacteristics;
+    public static final String TAG = "Camera2Session";
+    public final Context applicationContext;
+    public final CameraSession.CreateSessionCallback callback;
+    public CameraCharacteristics cameraCharacteristics;
     @Nullable
-    private CameraDevice cameraDevice;
-    private final String cameraId;
-    private final CameraManager cameraManager;
-    private int cameraOrientation;
-    private final Handler cameraThreadHandler;
-    private CameraEnumerationAndroid.CaptureFormat captureFormat;
+    public CameraDevice cameraDevice;
+    public final String cameraId;
+    public final CameraManager cameraManager;
+    public int cameraOrientation;
+    public final Handler cameraThreadHandler;
+    public CameraEnumerationAndroid.CaptureFormat captureFormat;
     @Nullable
-    private CameraCaptureSession captureSession;
-    private final long constructionTimeNs;
-    private final CameraSession.Events events;
-    private boolean firstFrameReported;
-    private int fpsUnitFactor;
-    private final int framerate;
-    private final int height;
-    private boolean isCameraFrontFacing;
-    private SessionState state = SessionState.RUNNING;
+    public CameraCaptureSession captureSession;
+    public final long constructionTimeNs;
+    public final CameraSession.Events events;
+    public boolean firstFrameReported;
+    public int fpsUnitFactor;
+    public final int framerate;
+    public final int height;
+    public boolean isCameraFrontFacing;
+    public SessionState state = SessionState.RUNNING;
     @Nullable
-    private Surface surface;
-    private final SurfaceTextureHelper surfaceTextureHelper;
-    private final int width;
-    private static final Histogram camera2StartTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera2.StartTimeMs", 1, 10000, 50);
-    private static final Histogram camera2StopTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera2.StopTimeMs", 1, 10000, 50);
-    private static final Histogram camera2ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera2.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
+    public Surface surface;
+    public final SurfaceTextureHelper surfaceTextureHelper;
+    public final int width;
+    public static final Histogram camera2StartTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera2.StartTimeMs", 1, 10000, 50);
+    public static final Histogram camera2StopTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera2.StopTimeMs", 1, 10000, 50);
+    public static final Histogram camera2ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera2.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
 
-    /* loaded from: classes9.dex */
-    private static class CameraCaptureCallback extends CameraCaptureSession.CaptureCallback {
-        private CameraCaptureCallback() {
+    /* loaded from: classes7.dex */
+    public static class CameraCaptureCallback extends CameraCaptureSession.CaptureCallback {
+        public CameraCaptureCallback() {
         }
 
         @Override // android.hardware.camera2.CameraCaptureSession.CaptureCallback
@@ -64,27 +63,28 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public class CameraStateCallback extends CameraDevice.StateCallback {
-        private CameraStateCallback() {
+        public CameraStateCallback() {
         }
 
         private String getErrorDescription(int i) {
-            switch (i) {
-                case 1:
-                    return "Camera device is in use already.";
-                case 2:
-                    return "Camera device could not be opened because there are too many other open camera devices.";
-                case 3:
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                return "Unknown camera error: " + i;
+                            }
+                            return "Camera service has encountered a fatal error.";
+                        }
+                        return "Camera device has encountered a fatal error.";
+                    }
                     return "Camera device could not be opened due to a device policy.";
-                case 4:
-                    return "Camera device has encountered a fatal error.";
-                case 5:
-                    return "Camera service has encountered a fatal error.";
-                default:
-                    return "Unknown camera error: " + i;
+                }
+                return "Camera device could not be opened because there are too many other open camera devices.";
             }
+            return "Camera device is in use already.";
         }
 
         @Override // android.hardware.camera2.CameraDevice.StateCallback
@@ -122,54 +122,70 @@ public class Camera2Session implements CameraSession {
             Camera2Session.this.surface = new Surface(Camera2Session.this.surfaceTextureHelper.getSurfaceTexture());
             try {
                 cameraDevice.createCaptureSession(Arrays.asList(Camera2Session.this.surface), new CaptureSessionCallback(), Camera2Session.this.cameraThreadHandler);
-            } catch (CameraAccessException e) {
+            } catch (CameraAccessException e2) {
                 Camera2Session camera2Session = Camera2Session.this;
-                camera2Session.reportError("Failed to create capture session. " + e);
+                camera2Session.reportError("Failed to create capture session. " + e2);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public class CaptureSessionCallback extends CameraCaptureSession.StateCallback {
-        private CaptureSessionCallback() {
+        public CaptureSessionCallback() {
         }
 
         private void chooseFocusMode(CaptureRequest.Builder builder) {
-            for (int i : (int[]) Camera2Session.this.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AF_AVAILABLE_MODES)) {
-                if (i == 3) {
+            String str;
+            int[] iArr = (int[]) Camera2Session.this.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AF_AVAILABLE_MODES);
+            int length = iArr.length;
+            int i = 0;
+            while (true) {
+                if (i >= length) {
+                    str = "Auto-focus is not available.";
+                    break;
+                } else if (iArr[i] == 3) {
                     builder.set(CaptureRequest.CONTROL_AF_MODE, 3);
-                    Logging.d(Camera2Session.TAG, "Using continuous video auto-focus.");
-                    return;
+                    str = "Using continuous video auto-focus.";
+                    break;
+                } else {
+                    i++;
                 }
             }
-            Logging.d(Camera2Session.TAG, "Auto-focus is not available.");
+            Logging.d(Camera2Session.TAG, str);
         }
 
         private void chooseStabilizationMode(CaptureRequest.Builder builder) {
+            String str;
             int[] iArr = (int[]) Camera2Session.this.cameraCharacteristics.get(CameraCharacteristics.LENS_INFO_AVAILABLE_OPTICAL_STABILIZATION);
+            int i = 0;
             if (iArr != null) {
-                for (int i : iArr) {
-                    if (i == 1) {
+                for (int i2 : iArr) {
+                    if (i2 == 1) {
                         builder.set(CaptureRequest.LENS_OPTICAL_STABILIZATION_MODE, 1);
                         builder.set(CaptureRequest.CONTROL_VIDEO_STABILIZATION_MODE, 0);
-                        Logging.d(Camera2Session.TAG, "Using optical stabilization.");
-                        return;
+                        str = "Using optical stabilization.";
+                        break;
                     }
                 }
             }
-            for (int i2 : (int[]) Camera2Session.this.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AVAILABLE_VIDEO_STABILIZATION_MODES)) {
-                if (i2 == 1) {
+            int[] iArr2 = (int[]) Camera2Session.this.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AVAILABLE_VIDEO_STABILIZATION_MODES);
+            int length = iArr2.length;
+            while (true) {
+                if (i >= length) {
+                    str = "Stabilization not available.";
+                    break;
+                } else if (iArr2[i] == 1) {
                     builder.set(CaptureRequest.CONTROL_VIDEO_STABILIZATION_MODE, 1);
                     builder.set(CaptureRequest.LENS_OPTICAL_STABILIZATION_MODE, 0);
-                    Logging.d(Camera2Session.TAG, "Using video stabilization.");
-                    return;
+                    str = "Using video stabilization.";
+                    break;
+                } else {
+                    i++;
                 }
             }
-            Logging.d(Camera2Session.TAG, "Stabilization not available.");
+            Logging.d(Camera2Session.TAG, str);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public static /* synthetic */ void lambda$onConfigured$0(CaptureSessionCallback captureSessionCallback, VideoFrame videoFrame) {
             Camera2Session.this.checkIsOnCameraThread();
             if (Camera2Session.this.state != SessionState.RUNNING) {
@@ -201,7 +217,7 @@ public class Camera2Session implements CameraSession {
                 CaptureRequest.Builder createCaptureRequest = Camera2Session.this.cameraDevice.createCaptureRequest(3);
                 createCaptureRequest.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, new Range(Integer.valueOf(Camera2Session.this.captureFormat.framerate.min / Camera2Session.this.fpsUnitFactor), Integer.valueOf(Camera2Session.this.captureFormat.framerate.max / Camera2Session.this.fpsUnitFactor)));
                 createCaptureRequest.set(CaptureRequest.CONTROL_AE_MODE, 1);
-                createCaptureRequest.set(CaptureRequest.CONTROL_AE_LOCK, false);
+                createCaptureRequest.set(CaptureRequest.CONTROL_AE_LOCK, Boolean.FALSE);
                 chooseStabilizationMode(createCaptureRequest);
                 chooseFocusMode(createCaptureRequest);
                 createCaptureRequest.addTarget(Camera2Session.this.surface);
@@ -214,21 +230,20 @@ public class Camera2Session implements CameraSession {
                 });
                 Logging.d(Camera2Session.TAG, "Camera device successfully started.");
                 Camera2Session.this.callback.onDone(Camera2Session.this);
-            } catch (CameraAccessException e) {
+            } catch (CameraAccessException e2) {
                 Camera2Session camera2Session = Camera2Session.this;
-                camera2Session.reportError("Failed to start capture request. " + e);
+                camera2Session.reportError("Failed to start capture request. " + e2);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum SessionState {
         RUNNING,
         STOPPED
     }
 
-    private Camera2Session(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
+    public Camera2Session(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
         Logging.d(TAG, "Create new camera2 session on camera " + str);
         this.constructionTimeNs = System.nanoTime();
         this.cameraThreadHandler = new Handler();
@@ -258,8 +273,9 @@ public class Camera2Session implements CameraSession {
     private void findCaptureFormat() {
         checkIsOnCameraThread();
         Range[] rangeArr = (Range[]) this.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES);
-        this.fpsUnitFactor = Camera2Enumerator.getFpsUnitFactor(rangeArr);
-        List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates = Camera2Enumerator.convertFramerates(rangeArr, this.fpsUnitFactor);
+        int fpsUnitFactor = Camera2Enumerator.getFpsUnitFactor(rangeArr);
+        this.fpsUnitFactor = fpsUnitFactor;
+        List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates = Camera2Enumerator.convertFramerates(rangeArr, fpsUnitFactor);
         List<Size> supportedSizes = Camera2Enumerator.getSupportedSizes(this.cameraCharacteristics);
         Logging.d(TAG, "Available preview sizes: " + supportedSizes);
         Logging.d(TAG, "Available fps ranges: " + convertFramerates);
@@ -280,7 +296,7 @@ public class Camera2Session implements CameraSession {
         if (!this.isCameraFrontFacing) {
             deviceOrientation = 360 - deviceOrientation;
         }
-        return (deviceOrientation + this.cameraOrientation) % EncoderTextureDrawer.X264_WIDTH;
+        return (this.cameraOrientation + deviceOrientation) % 360;
     }
 
     private void openCamera() {
@@ -289,8 +305,8 @@ public class Camera2Session implements CameraSession {
         this.events.onCameraOpening();
         try {
             this.cameraManager.openCamera(this.cameraId, new CameraStateCallback(), this.cameraThreadHandler);
-        } catch (CameraAccessException e) {
-            reportError("Failed to open camera: " + e);
+        } catch (CameraAccessException e2) {
+            reportError("Failed to open camera: " + e2);
         }
     }
 
@@ -310,15 +326,16 @@ public class Camera2Session implements CameraSession {
 
     private void start() {
         checkIsOnCameraThread();
-        Logging.d(TAG, "start");
+        Logging.d(TAG, IntentConfig.START);
         try {
-            this.cameraCharacteristics = this.cameraManager.getCameraCharacteristics(this.cameraId);
-            this.cameraOrientation = ((Integer) this.cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION)).intValue();
+            CameraCharacteristics cameraCharacteristics = this.cameraManager.getCameraCharacteristics(this.cameraId);
+            this.cameraCharacteristics = cameraCharacteristics;
+            this.cameraOrientation = ((Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION)).intValue();
             this.isCameraFrontFacing = ((Integer) this.cameraCharacteristics.get(CameraCharacteristics.LENS_FACING)).intValue() == 0;
             findCaptureFormat();
             openCamera();
-        } catch (CameraAccessException e) {
-            reportError("getCameraCharacteristics(): " + e.getMessage());
+        } catch (CameraAccessException e2) {
+            reportError("getCameraCharacteristics(): " + e2.getMessage());
         }
     }
 
@@ -327,16 +344,19 @@ public class Camera2Session implements CameraSession {
         Logging.d(TAG, "Stop internal");
         checkIsOnCameraThread();
         this.surfaceTextureHelper.stopListening();
-        if (this.captureSession != null) {
-            this.captureSession.close();
+        CameraCaptureSession cameraCaptureSession = this.captureSession;
+        if (cameraCaptureSession != null) {
+            cameraCaptureSession.close();
             this.captureSession = null;
         }
-        if (this.surface != null) {
-            this.surface.release();
+        Surface surface = this.surface;
+        if (surface != null) {
+            surface.release();
             this.surface = null;
         }
-        if (this.cameraDevice != null) {
-            this.cameraDevice.close();
+        CameraDevice cameraDevice = this.cameraDevice;
+        if (cameraDevice != null) {
+            cameraDevice.close();
             this.cameraDevice = null;
         }
         Logging.d(TAG, "Stop done");

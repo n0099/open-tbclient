@@ -5,54 +5,55 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
-/* loaded from: classes8.dex */
+import d.b.g0.a.k;
+/* loaded from: classes3.dex */
 public class SelectorTextView extends TextView {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean dxX;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final boolean f12473f = k.f45050a;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f12474e;
 
     public SelectorTextView(Context context) {
         super(context);
-        this.dxX = false;
-    }
-
-    public SelectorTextView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.dxX = false;
-    }
-
-    public SelectorTextView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.dxX = false;
-    }
-
-    public void setMode(boolean z) {
-        this.dxX = z;
+        this.f12474e = false;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (isEnabled()) {
-            switch (motionEvent.getAction()) {
-                case 0:
-                    if (DEBUG) {
-                        Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    }
-                    if (this.dxX) {
-                        setAlpha(0.5f);
-                        break;
-                    } else {
-                        setAlpha(0.4f);
-                        break;
-                    }
-                case 1:
-                case 3:
-                    if (DEBUG) {
-                        Log.d("ACTION_UP", "ACTION_UP");
-                    }
-                    setAlpha(1.0f);
-                    break;
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                if (f12473f) {
+                    Log.d("ACTION_DOWN", "ACTION_DOWN");
+                }
+                if (this.f12474e) {
+                    setAlpha(0.5f);
+                } else {
+                    setAlpha(0.4f);
+                }
+            } else if (action == 1 || action == 3) {
+                if (f12473f) {
+                    Log.d("ACTION_UP", "ACTION_UP");
+                }
+                setAlpha(1.0f);
             }
         }
         return super.onTouchEvent(motionEvent);
+    }
+
+    public void setMode(boolean z) {
+        this.f12474e = z;
+    }
+
+    public SelectorTextView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f12474e = false;
+    }
+
+    public SelectorTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f12474e = false;
     }
 }

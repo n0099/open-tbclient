@@ -1,10 +1,12 @@
 package com.alibaba.fastjson.asm;
-/* loaded from: classes4.dex */
+
+import com.baidu.android.common.others.IStringUtil;
+/* loaded from: classes.dex */
 public class Type {
-    private final char[] buf;
-    private final int len;
-    private final int off;
-    protected final int sort;
+    public final char[] buf;
+    public final int len;
+    public final int off;
+    public final int sort;
     public static final Type VOID_TYPE = new Type(0, null, 1443168256, 1);
     public static final Type BOOLEAN_TYPE = new Type(1, null, 1509950721, 1);
     public static final Type CHAR_TYPE = new Type(2, null, 1124075009, 1);
@@ -15,15 +17,47 @@ public class Type {
     public static final Type LONG_TYPE = new Type(7, null, 1241579778, 1);
     public static final Type DOUBLE_TYPE = new Type(8, null, 1141048066, 1);
 
-    private Type(int i, char[] cArr, int i2, int i3) {
+    public Type(int i, char[] cArr, int i2, int i3) {
         this.sort = i;
         this.buf = cArr;
         this.off = i2;
         this.len = i3;
     }
 
-    public static Type getType(String str) {
-        return getType(str.toCharArray(), 0);
+    public static Type[] getArgumentTypes(String str) {
+        char[] charArray = str.toCharArray();
+        int i = 1;
+        int i2 = 1;
+        int i3 = 0;
+        while (true) {
+            int i4 = i2 + 1;
+            char c2 = charArray[i2];
+            if (c2 == ')') {
+                break;
+            } else if (c2 == 'L') {
+                while (true) {
+                    i2 = i4 + 1;
+                    if (charArray[i4] == ';') {
+                        break;
+                    }
+                    i4 = i2;
+                }
+                i3++;
+            } else {
+                if (c2 != '[') {
+                    i3++;
+                }
+                i2 = i4;
+            }
+        }
+        Type[] typeArr = new Type[i3];
+        int i5 = 0;
+        while (charArray[i] != ')') {
+            typeArr[i5] = getType(charArray, i);
+            i += typeArr[i5].len + (typeArr[i5].sort == 10 ? 2 : 0);
+            i5++;
+        }
+        return typeArr;
     }
 
     public static int getArgumentsAndReturnSizes(String str) {
@@ -38,80 +72,26 @@ public class Type {
                 break;
             } else if (charAt == 'L') {
                 while (true) {
-                    int i5 = i;
-                    i = i5 + 1;
-                    if (str.charAt(i5) == ';') {
+                    i3 = i + 1;
+                    if (str.charAt(i) == ';') {
                         break;
                     }
+                    i = i3;
                 }
                 i4++;
-                i3 = i;
-            } else if (charAt == 'D' || charAt == 'J') {
-                i4 += 2;
-                i3 = i;
             } else {
-                i4++;
+                i4 = (charAt == 'D' || charAt == 'J') ? i4 + 2 : i4 + 1;
                 i3 = i;
             }
         }
         char charAt2 = str.charAt(i);
-        int i6 = i4 << 2;
+        int i5 = i4 << 2;
         if (charAt2 == 'V') {
             i2 = 0;
         } else if (charAt2 == 'D' || charAt2 == 'J') {
             i2 = 2;
         }
-        return i6 | i2;
-    }
-
-    private static Type getType(char[] cArr, int i) {
-        int i2 = 1;
-        switch (cArr[i]) {
-            case 'B':
-                return BYTE_TYPE;
-            case 'C':
-                return CHAR_TYPE;
-            case 'D':
-                return DOUBLE_TYPE;
-            case 'F':
-                return FLOAT_TYPE;
-            case 'I':
-                return INT_TYPE;
-            case 'J':
-                return LONG_TYPE;
-            case 'S':
-                return SHORT_TYPE;
-            case 'V':
-                return VOID_TYPE;
-            case 'Z':
-                return BOOLEAN_TYPE;
-            case '[':
-                while (cArr[i + i2] == '[') {
-                    i2++;
-                }
-                if (cArr[i + i2] == 'L') {
-                    while (true) {
-                        i2++;
-                        if (cArr[i + i2] != ';') {
-                        }
-                    }
-                }
-                return new Type(9, cArr, i, i2 + 1);
-            default:
-                while (cArr[i + i2] != ';') {
-                    i2++;
-                }
-                return new Type(10, cArr, i + 1, i2 - 1);
-        }
-    }
-
-    public String getInternalName() {
-        return new String(this.buf, this.off, this.len);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String getDescriptor() {
-        return new String(this.buf, this.off, this.len);
+        return i5 | i2;
     }
 
     private int getDimensions() {
@@ -122,45 +102,10 @@ public class Type {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Type[] getArgumentTypes(String str) {
-        int i = 1;
-        char[] charArray = str.toCharArray();
-        int i2 = 0;
-        int i3 = 1;
-        while (true) {
-            int i4 = i3 + 1;
-            char c = charArray[i3];
-            if (c == ')') {
-                break;
-            } else if (c == 'L') {
-                while (true) {
-                    int i5 = i4;
-                    i4 = i5 + 1;
-                    if (charArray[i5] == ';') {
-                        break;
-                    }
-                }
-                i2++;
-                i3 = i4;
-            } else if (c != '[') {
-                i2++;
-                i3 = i4;
-            } else {
-                i3 = i4;
-            }
-        }
-        Type[] typeArr = new Type[i2];
-        int i6 = 0;
-        while (charArray[i] != ')') {
-            typeArr[i6] = getType(charArray, i);
-            i += (typeArr[i6].sort == 10 ? 2 : 0) + typeArr[i6].len;
-            i6++;
-        }
-        return typeArr;
+    public static Type getType(String str) {
+        return getType(str.toCharArray(), 0);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public String getClassName() {
         switch (this.sort) {
             case 0:
@@ -188,7 +133,69 @@ public class Type {
                 }
                 return stringBuffer.toString();
             default:
-                return new String(this.buf, this.off, this.len).replace('/', '.');
+                return new String(this.buf, this.off, this.len).replace('/', IStringUtil.EXTENSION_SEPARATOR);
         }
+    }
+
+    public String getDescriptor() {
+        return new String(this.buf, this.off, this.len);
+    }
+
+    public String getInternalName() {
+        return new String(this.buf, this.off, this.len);
+    }
+
+    public static Type getType(char[] cArr, int i) {
+        int i2;
+        char c2 = cArr[i];
+        if (c2 != 'F') {
+            if (c2 != 'S') {
+                if (c2 != 'V') {
+                    if (c2 != 'I') {
+                        if (c2 != 'J') {
+                            if (c2 != 'Z') {
+                                if (c2 != '[') {
+                                    switch (c2) {
+                                        case 'B':
+                                            return BYTE_TYPE;
+                                        case 'C':
+                                            return CHAR_TYPE;
+                                        case 'D':
+                                            return DOUBLE_TYPE;
+                                        default:
+                                            int i3 = 1;
+                                            while (cArr[i + i3] != ';') {
+                                                i3++;
+                                            }
+                                            return new Type(10, cArr, i + 1, i3 - 1);
+                                    }
+                                }
+                                int i4 = 1;
+                                while (true) {
+                                    i2 = i + i4;
+                                    if (cArr[i2] != '[') {
+                                        break;
+                                    }
+                                    i4++;
+                                }
+                                if (cArr[i2] == 'L') {
+                                    do {
+                                        i4++;
+                                    } while (cArr[i + i4] != ';');
+                                    return new Type(9, cArr, i, i4 + 1);
+                                }
+                                return new Type(9, cArr, i, i4 + 1);
+                            }
+                            return BOOLEAN_TYPE;
+                        }
+                        return LONG_TYPE;
+                    }
+                    return INT_TYPE;
+                }
+                return VOID_TYPE;
+            }
+            return SHORT_TYPE;
+        }
+        return FLOAT_TYPE;
     }
 }

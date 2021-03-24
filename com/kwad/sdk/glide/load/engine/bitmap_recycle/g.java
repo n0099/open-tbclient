@@ -1,5 +1,7 @@
 package com.kwad.sdk.glide.load.engine.bitmap_recycle;
-/* loaded from: classes3.dex */
+
+import com.bumptech.glide.load.engine.bitmap_recycle.ByteArrayAdapter;
+/* loaded from: classes6.dex */
 public final class g implements a<byte[]> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.a
@@ -9,7 +11,7 @@ public final class g implements a<byte[]> {
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.a
     public String a() {
-        return "ByteArrayPool";
+        return ByteArrayAdapter.TAG;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.a

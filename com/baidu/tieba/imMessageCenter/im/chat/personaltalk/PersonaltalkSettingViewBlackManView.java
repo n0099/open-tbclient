@@ -5,39 +5,37 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
-    private TextView kQW;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f18228e;
 
     public PersonaltalkSettingViewBlackManView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        initUI();
+        a();
     }
 
-    public PersonaltalkSettingViewBlackManView(Context context) {
-        super(context);
-        initUI();
-    }
-
-    private void initUI() {
-        inflate(getContext(), R.layout.p2ptalk_setting_black_man_view, this);
+    public final void a() {
+        LinearLayout.inflate(getContext(), R.layout.p2ptalk_setting_black_man_view, this);
         setOrientation(1);
-        this.kQW = (TextView) findViewById(R.id.black_man_text);
+        this.f18228e = (TextView) findViewById(R.id.black_man_text);
     }
 
     public void setSex(int i) {
         String string;
-        switch (i) {
-            case 1:
-                string = getResources().getString(R.string.he);
-                break;
-            case 2:
-                string = getResources().getString(R.string.she);
-                break;
-            default:
-                string = getResources().getString(R.string.ta);
-                break;
+        if (i == 1) {
+            string = getResources().getString(R.string.he);
+        } else if (i != 2) {
+            string = getResources().getString(R.string.ta);
+        } else {
+            string = getResources().getString(R.string.she);
         }
-        this.kQW.setText(getResources().getString(R.string.in_black_desc_1, string));
+        this.f18228e.setText(getResources().getString(R.string.in_black_desc_1, string));
+    }
+
+    public PersonaltalkSettingViewBlackManView(Context context) {
+        super(context);
+        a();
     }
 }

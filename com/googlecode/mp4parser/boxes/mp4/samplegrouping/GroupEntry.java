@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.boxes.mp4.samplegrouping;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class GroupEntry {
     public abstract ByteBuffer get();
 

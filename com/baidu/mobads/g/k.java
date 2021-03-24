@@ -1,21 +1,21 @@
 package com.baidu.mobads.g;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class k extends com.baidu.mobads.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ boolean f2393a;
-    final /* synthetic */ g c;
+    public final /* synthetic */ boolean f8288a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ g f8289c;
+
     public k(g gVar, boolean z) {
-        this.c = gVar;
-        this.f2393a = z;
+        this.f8289c = gVar;
+        this.f8288a = z;
     }
 
     @Override // com.baidu.mobads.f.a
-    protected Object a() {
-        this.c.c(this.f2393a);
+    public Object a() {
+        this.f8289c.c(this.f8288a);
         return null;
     }
 }

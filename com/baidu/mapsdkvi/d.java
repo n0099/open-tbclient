@@ -1,32 +1,34 @@
 package com.baidu.mapsdkvi;
 
 import android.net.NetworkInfo;
-/* loaded from: classes4.dex */
-/* synthetic */ class d {
+/* loaded from: classes2.dex */
+public /* synthetic */ class d {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f2300a = new int[NetworkInfo.State.values().length];
+    public static final /* synthetic */ int[] f7918a;
 
     static {
+        int[] iArr = new int[NetworkInfo.State.values().length];
+        f7918a = iArr;
         try {
-            f2300a[NetworkInfo.State.CONNECTED.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[NetworkInfo.State.CONNECTED.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            f2300a[NetworkInfo.State.CONNECTING.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f7918a[NetworkInfo.State.CONNECTING.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
         try {
-            f2300a[NetworkInfo.State.DISCONNECTED.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+            f7918a[NetworkInfo.State.DISCONNECTED.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
         }
         try {
-            f2300a[NetworkInfo.State.DISCONNECTING.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
+            f7918a[NetworkInfo.State.DISCONNECTING.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
         }
         try {
-            f2300a[NetworkInfo.State.SUSPENDED.ordinal()] = 5;
-        } catch (NoSuchFieldError e5) {
+            f7918a[NetworkInfo.State.SUSPENDED.ordinal()] = 5;
+        } catch (NoSuchFieldError unused5) {
         }
     }
 }

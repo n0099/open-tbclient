@@ -6,93 +6,127 @@ import android.database.DataSetObserver;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tbadk.h.g;
-import com.baidu.tbadk.widget.extend.a.b;
-/* loaded from: classes.dex */
+import d.b.h0.m.g;
+/* loaded from: classes3.dex */
 public abstract class AdapterLayout extends ViewGroup {
-    protected b fTB;
-    private boolean fTC;
-    protected DataSetObserver mObserver;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.h0.b1.f.a.b f14119e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public DataSetObserver f14120f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f14121g;
+
+    /* loaded from: classes3.dex */
+    public class a extends g {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f14122e;
+
+        public a(Context context) {
+            this.f14122e = context;
+        }
+
+        @Override // d.b.h0.m.g, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            DataSetObserver dataSetObserver;
+            if (activity == this.f14122e) {
+                AdapterLayout adapterLayout = AdapterLayout.this;
+                d.b.h0.b1.f.a.b bVar = adapterLayout.f14119e;
+                if (bVar != null && (dataSetObserver = adapterLayout.f14120f) != null) {
+                    bVar.e(dataSetObserver);
+                    AdapterLayout adapterLayout2 = AdapterLayout.this;
+                    adapterLayout2.f14119e = null;
+                    adapterLayout2.f14120f = null;
+                }
+                ((Activity) this.f14122e).getApplication().unregisterActivityLifecycleCallbacks(this);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends DataSetObserver {
+        public b() {
+        }
+
+        @Override // android.database.DataSetObserver
+        public void onChanged() {
+            AdapterLayout.this.b();
+        }
+    }
 
     public AdapterLayout(Context context) {
         this(context, null);
+    }
+
+    public final void a() {
+        DataSetObserver dataSetObserver;
+        d.b.h0.b1.f.a.b bVar = this.f14119e;
+        if (bVar == null || (dataSetObserver = this.f14120f) == null || this.f14121g) {
+            return;
+        }
+        bVar.d(dataSetObserver);
+        this.f14121g = true;
+    }
+
+    public void b() {
+        if (this.f14119e == null) {
+            return;
+        }
+        removeAllViews();
+        int a2 = this.f14119e.a();
+        for (int i = 0; i < a2; i++) {
+            View b2 = this.f14119e.b(i, this);
+            b2.setFocusable(true);
+            addView(b2);
+        }
+    }
+
+    public final void c() {
+        DataSetObserver dataSetObserver;
+        d.b.h0.b1.f.a.b bVar = this.f14119e;
+        if (bVar == null || (dataSetObserver = this.f14120f) == null || !this.f14121g) {
+            return;
+        }
+        this.f14121g = false;
+        bVar.e(dataSetObserver);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        a();
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        c();
+        super.onDetachedFromWindow();
+    }
+
+    public void setAdapter(d.b.h0.b1.f.a.b bVar) {
+        c();
+        if (bVar != null) {
+            this.f14119e = bVar;
+            this.f14120f = new b();
+            a();
+            b();
+            return;
+        }
+        throw new NullPointerException("FlowBaseAdapter is null");
     }
 
     public AdapterLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public AdapterLayout(final Context context, AttributeSet attributeSet, int i) {
+    public AdapterLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fTC = false;
+        this.f14121g = false;
         if (context instanceof Activity) {
-            ((Activity) context).getApplication().registerActivityLifecycleCallbacks(new g() { // from class: com.baidu.tbadk.widget.extend.AdapterLayout.1
-                @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityDestroyed(Activity activity) {
-                    if (activity == context) {
-                        if (AdapterLayout.this.fTB != null && AdapterLayout.this.mObserver != null) {
-                            AdapterLayout.this.fTB.unregisterDataSetObserver(AdapterLayout.this.mObserver);
-                            AdapterLayout.this.fTB = null;
-                            AdapterLayout.this.mObserver = null;
-                        }
-                        ((Activity) context).getApplication().unregisterActivityLifecycleCallbacks(this);
-                    }
-                }
-            });
-        }
-    }
-
-    public void setAdapter(b bVar) {
-        bGR();
-        if (bVar == null) {
-            throw new NullPointerException("FlowBaseAdapter is null");
-        }
-        this.fTB = bVar;
-        this.mObserver = new DataSetObserver() { // from class: com.baidu.tbadk.widget.extend.AdapterLayout.2
-            @Override // android.database.DataSetObserver
-            public void onChanged() {
-                AdapterLayout.this.bGT();
-            }
-        };
-        bGS();
-        bGT();
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
-        bGR();
-        super.onDetachedFromWindow();
-    }
-
-    private void bGR() {
-        if (this.fTB != null && this.mObserver != null && this.fTC) {
-            this.fTC = false;
-            this.fTB.unregisterDataSetObserver(this.mObserver);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        bGS();
-    }
-
-    private void bGS() {
-        if (this.fTB != null && this.mObserver != null && !this.fTC) {
-            this.fTB.registerDataSetObserver(this.mObserver);
-            this.fTC = true;
-        }
-    }
-
-    protected void bGT() {
-        if (this.fTB != null) {
-            removeAllViews();
-            int count = this.fTB.getCount();
-            for (int i = 0; i < count; i++) {
-                View view = this.fTB.getView(i, this);
-                view.setFocusable(true);
-                addView(view);
-            }
+            ((Activity) context).getApplication().registerActivityLifecycleCallbacks(new a(context));
         }
     }
 }

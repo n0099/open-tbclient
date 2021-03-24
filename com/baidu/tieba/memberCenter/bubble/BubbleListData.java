@@ -4,81 +4,69 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class BubbleListData extends OrmObject implements Serializable, Cloneable {
-    private static final long serialVersionUID = -4612117445868668894L;
-    private List<BubbleData> b_info = new ArrayList();
-    private String error_code;
-    private String error_msg;
+    public static final long serialVersionUID = -4612117445868668894L;
+    public List<BubbleData> b_info = new ArrayList();
+    public String error_code;
+    public String error_msg;
 
-    public String getError_code() {
-        return this.error_code;
-    }
-
-    public String getError_msg() {
-        return this.error_msg;
-    }
-
-    public List<BubbleData> getB_info() {
-        return this.b_info;
-    }
-
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static class BubbleData extends OrmObject implements Serializable {
-        private static final long serialVersionUID = 1540726255641451917L;
-        private String b_url;
-        private int bcode;
-        private String bg_url;
-        private String bname;
-        private int can_use;
-        private String icon_url;
-        private int is_def;
-        private int is_free;
-        private String level_name;
-        private int time_interval;
+        public static final long serialVersionUID = 1540726255641451917L;
+        public String b_url;
+        public int bcode;
+        public String bg_url;
+        public String bname;
+        public int can_use;
+        public String icon_url;
+        public int is_def;
+        public int is_free;
+        public String level_name;
+        public int time_interval;
 
-        public int getBcode() {
-            return this.bcode;
-        }
-
-        public void setBcode(int i) {
-            this.bcode = i;
+        public boolean canUse() {
+            return this.can_use == 1;
         }
 
         public String getB_url() {
             return this.b_url;
         }
 
+        public int getBcode() {
+            return this.bcode;
+        }
+
         public String getBg_url() {
             return this.bg_url;
         }
 
-        public String getIcon_url() {
-            return this.icon_url;
+        public String getBname() {
+            return this.bname;
         }
 
         public int getCan_use() {
             return this.can_use;
         }
 
-        public void setCan_use(int i) {
-            this.can_use = i;
+        public String getIcon_url() {
+            return this.icon_url;
         }
 
         public int getIs_def() {
             return this.is_def;
         }
 
-        public void setIs_def(int i) {
-            this.is_def = i;
-        }
-
         public int getIs_free() {
             return this.is_free;
         }
 
-        public boolean canUse() {
-            return this.can_use == 1;
+        public String getLevel_name() {
+            return this.level_name;
+        }
+
+        public int getTime_interval() {
+            return this.time_interval;
         }
 
         public boolean isDef() {
@@ -89,30 +77,39 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
             return this.is_free == 1;
         }
 
-        public String getBname() {
-            return this.bname;
+        public void setBcode(int i) {
+            this.bcode = i;
         }
 
-        public String getLevel_name() {
-            return this.level_name;
+        public void setCan_use(int i) {
+            this.can_use = i;
         }
 
-        public int getTime_interval() {
-            return this.time_interval;
+        public void setIs_def(int i) {
+            this.is_def = i;
         }
+    }
+
+    public List<BubbleData> getB_info() {
+        return this.b_info;
+    }
+
+    public String getError_code() {
+        return this.error_code;
+    }
+
+    public String getError_msg() {
+        return this.error_msg;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BubbleListData m36clone() {
+    public BubbleListData m27clone() {
         try {
             Object clone = super.clone();
-            if (clone instanceof BubbleListData) {
-                return (BubbleListData) clone;
-            }
-            return this;
-        } catch (Exception e) {
-            e.printStackTrace();
+            return clone instanceof BubbleListData ? (BubbleListData) clone : this;
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return this;
         }
     }

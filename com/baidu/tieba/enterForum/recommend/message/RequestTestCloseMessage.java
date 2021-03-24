@@ -2,45 +2,45 @@ package com.baidu.tieba.enterForum.recommend.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.v;
+import d.b.h0.z0.w;
 import tbclient.CommonReq;
 import tbclient.TestClose.DataReq;
 import tbclient.TestClose.TestCloseReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RequestTestCloseMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3585common;
-    private long fromPage;
-    private long testId;
+    public CommonReq f15489common;
+    public long fromPage;
+    public long testId;
 
     public RequestTestCloseMessage() {
         super(CmdConfigHttp.CMD_RECOMMEND_TEST_CLOSE, 309633);
     }
 
-    public void setCommon(CommonReq commonReq) {
-        this.f3585common = commonReq;
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.f68632common = this.f15489common;
+        builder.test_id = Long.valueOf(this.testId);
+        builder.from_page = Long.valueOf(this.fromPage);
+        if (z) {
+            w.a(builder, true);
+        }
+        TestCloseReqIdl.Builder builder2 = new TestCloseReqIdl.Builder();
+        builder2.data = builder.build(false);
+        return builder2.build(false);
     }
 
-    public void setTestId(long j) {
-        this.testId = j;
+    public void setCommon(CommonReq commonReq) {
+        this.f15489common = commonReq;
     }
 
     public void setFromPage(long j) {
         this.fromPage = j;
     }
 
-    @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.f8954common = this.f3585common;
-        builder.test_id = Long.valueOf(this.testId);
-        builder.from_page = Long.valueOf(this.fromPage);
-        if (z) {
-            v.b(builder, true);
-        }
-        TestCloseReqIdl.Builder builder2 = new TestCloseReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+    public void setTestId(long j) {
+        this.testId = j;
     }
 }

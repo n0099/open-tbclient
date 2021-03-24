@@ -7,31 +7,43 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class j implements h {
-    private final Map<String, List<i>> c;
-    private volatile Map<String, String> d;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: c  reason: collision with root package name */
+    public final Map<String, List<i>> f35314c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public volatile Map<String, String> f35315d;
+
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f6678a = b();
-        private static final Map<String, List<i>> b;
-        private boolean c = true;
-        private Map<String, List<i>> d = b;
-        private boolean e = true;
+        public static final String f35316a = b();
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final Map<String, List<i>> f35317b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f35318c = true;
+
+        /* renamed from: d  reason: collision with root package name */
+        public Map<String, List<i>> f35319d = f35317b;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f35320e = true;
 
         static {
             HashMap hashMap = new HashMap(2);
-            if (!TextUtils.isEmpty(f6678a)) {
-                hashMap.put("User-Agent", Collections.singletonList(new b(f6678a)));
+            if (!TextUtils.isEmpty(f35316a)) {
+                hashMap.put("User-Agent", Collections.singletonList(new b(f35316a)));
             }
-            b = Collections.unmodifiableMap(hashMap);
+            f35317b = Collections.unmodifiableMap(hashMap);
         }
 
         @VisibleForTesting
-        static String b() {
+        public static String b() {
             String property = System.getProperty("http.agent");
             if (TextUtils.isEmpty(property)) {
                 return property;
@@ -40,55 +52,54 @@ public final class j implements h {
             StringBuilder sb = new StringBuilder(property.length());
             for (int i = 0; i < length; i++) {
                 char charAt = property.charAt(i);
-                if ((charAt > 31 || charAt == '\t') && charAt < 127) {
-                    sb.append(charAt);
-                } else {
-                    sb.append('?');
+                if ((charAt <= 31 && charAt != '\t') || charAt >= 127) {
+                    charAt = '?';
                 }
+                sb.append(charAt);
             }
             return sb.toString();
         }
 
         public j a() {
-            this.c = true;
-            return new j(this.d);
+            this.f35318c = true;
+            return new j(this.f35319d);
         }
     }
 
-    /* loaded from: classes3.dex */
-    static final class b implements i {
+    /* loaded from: classes6.dex */
+    public static final class b implements i {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f6679a;
+        public final String f35321a;
 
-        b(@NonNull String str) {
-            this.f6679a = str;
+        public b(@NonNull String str) {
+            this.f35321a = str;
         }
 
         @Override // com.kwad.sdk.glide.load.b.i
         public String a() {
-            return this.f6679a;
+            return this.f35321a;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof b) {
-                return this.f6679a.equals(((b) obj).f6679a);
+                return this.f35321a.equals(((b) obj).f35321a);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f6679a.hashCode();
+            return this.f35321a.hashCode();
         }
 
         public String toString() {
-            return "StringHeaderFactory{value='" + this.f6679a + "'}";
+            return "StringHeaderFactory{value='" + this.f35321a + "'}";
         }
     }
 
-    j(Map<String, List<i>> map) {
-        this.c = Collections.unmodifiableMap(map);
+    public j(Map<String, List<i>> map) {
+        this.f35314c = Collections.unmodifiableMap(map);
     }
 
     @NonNull
@@ -109,7 +120,7 @@ public final class j implements h {
 
     private Map<String, String> b() {
         HashMap hashMap = new HashMap();
-        for (Map.Entry<String, List<i>> entry : this.c.entrySet()) {
+        for (Map.Entry<String, List<i>> entry : this.f35314c.entrySet()) {
             String a2 = a(entry.getValue());
             if (!TextUtils.isEmpty(a2)) {
                 hashMap.put(entry.getKey(), a2);
@@ -120,28 +131,28 @@ public final class j implements h {
 
     @Override // com.kwad.sdk.glide.load.b.h
     public Map<String, String> a() {
-        if (this.d == null) {
+        if (this.f35315d == null) {
             synchronized (this) {
-                if (this.d == null) {
-                    this.d = Collections.unmodifiableMap(b());
+                if (this.f35315d == null) {
+                    this.f35315d = Collections.unmodifiableMap(b());
                 }
             }
         }
-        return this.d;
+        return this.f35315d;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof j) {
-            return this.c.equals(((j) obj).c);
+            return this.f35314c.equals(((j) obj).f35314c);
         }
         return false;
     }
 
     public int hashCode() {
-        return this.c.hashCode();
+        return this.f35314c.hashCode();
     }
 
     public String toString() {
-        return "LazyHeaders{headers=" + this.c + '}';
+        return "LazyHeaders{headers=" + this.f35314c + '}';
     }
 }

@@ -1,20 +1,15 @@
 package com.baidu.tieba.imMessageCenter;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryUserInfos.DataReq;
 import protobuf.QueryUserInfos.QueryUserInfosReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RequestQueryUserInfoMessage extends TbSocketMessage {
-    DataReq.Builder dataBuilder;
+    public DataReq.Builder dataBuilder;
 
     public RequestQueryUserInfoMessage() {
-        super(CmdConfigSocket.CMD_QUERY_USER_INFO);
+        super(205003);
         this.dataBuilder = new DataReq.Builder();
-    }
-
-    public void setReqUserId(long j) {
-        this.dataBuilder.reqUserId = Long.valueOf(j);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -23,8 +18,12 @@ public class RequestQueryUserInfoMessage extends TbSocketMessage {
             QueryUserInfosReqIdl.Builder builder = new QueryUserInfosReqIdl.Builder();
             builder.data = this.dataBuilder.build(false);
             return builder.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
+    }
+
+    public void setReqUserId(long j) {
+        this.dataBuilder.reqUserId = Long.valueOf(j);
     }
 }

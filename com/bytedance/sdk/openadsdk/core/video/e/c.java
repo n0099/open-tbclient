@@ -4,11 +4,15 @@ import android.os.Build;
 import com.bytedance.sdk.openadsdk.core.p;
 /* loaded from: classes6.dex */
 public class c {
-    public static void a(com.bytedance.sdk.openadsdk.i.f.b bVar) {
+    public static void a(com.bytedance.sdk.openadsdk.k.f.b bVar) {
         if (Build.VERSION.SDK_INT >= 23) {
-            new com.bytedance.sdk.openadsdk.core.video.a.b.a(p.a(), bVar.f4840a, bVar.c, bVar.b).b();
-        } else {
-            com.bytedance.sdk.openadsdk.i.f.a.a().a(bVar);
+            com.bytedance.sdk.openadsdk.video.b.a aVar = new com.bytedance.sdk.openadsdk.video.b.a();
+            aVar.b(bVar.f29682c);
+            aVar.a(bVar.f29680a);
+            aVar.a(bVar.f29681b);
+            com.bytedance.sdk.openadsdk.video.a.b.a.a(p.a(), aVar);
+            return;
         }
+        com.bytedance.sdk.openadsdk.k.f.a.a().a(bVar);
     }
 }

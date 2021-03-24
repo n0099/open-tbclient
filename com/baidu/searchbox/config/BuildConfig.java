@@ -1,5 +1,5 @@
 package com.baidu.searchbox.config;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.config";
     public static final String APPLICATION_ID_SUFF = ".unknown";

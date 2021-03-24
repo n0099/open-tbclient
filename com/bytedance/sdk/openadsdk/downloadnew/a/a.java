@@ -5,7 +5,7 @@ import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.downloadnew.core.b;
 /* loaded from: classes6.dex */
 public class a extends b implements com.bytedance.sdk.openadsdk.downloadnew.core.b {
-    private b.a k;
+    public b.a k;
 
     public a(Context context, l lVar, String str) {
         super(context, lVar, str);

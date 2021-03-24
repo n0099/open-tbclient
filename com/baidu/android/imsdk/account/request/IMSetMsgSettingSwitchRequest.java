@@ -8,28 +8,54 @@ import com.baidu.android.imsdk.account.ISetMsgSettingSwitchListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
-import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.utils.SapiUtils;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
-    private static final String TAG = "IMSetMsgSettingSwitchRequest";
-    private ISetMsgSettingSwitchListener mListener;
-    private int mStatus;
-    private int mSwitchCategory;
+    public static final String TAG = "IMSetMsgSettingSwitchRequest";
+    public ISetMsgSettingSwitchListener mListener;
+    public int mStatus;
+    public int mSwitchCategory;
 
     public IMSetMsgSettingSwitchRequest(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
         this.mContext = context;
         this.mSwitchCategory = i;
         this.mStatus = i2;
         this.mListener = iSetMsgSettingSwitchListener;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/json";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public Map<String, String> getHeaders() {
+        return new HashMap();
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getHost() {
+        String replace;
+        int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
+        if (readIntData != 0) {
+            replace = readIntData != 1 ? readIntData != 2 ? readIntData != 3 ? null : Constants.URL_HTTP_BOX : "http://10.232.27.22:8090/" : "http://rd-im-server.bcc-szth.baidu.com:8080/";
+        } else {
+            replace = Utility.isPeakTime() ? "https://pim.baidu.com/".replace("https://", "http://") : "https://pim.baidu.com/";
+        }
+        if (TextUtils.isEmpty(replace)) {
+            return replace;
+        }
+        return replace + "rest/3.0/im/set_user_setting";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        return "POST";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -42,9 +68,9 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
             jSONObject.put("appid", appid);
             jSONObject.put("uk", uk);
             jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-            jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-            jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+            jSONObject.put("device_type", 2);
             jSONObject.put("timestamp", currentTimeMillis);
             jSONObject.put("sign", getMd5("" + currentTimeMillis + uk + appid));
             jSONObject.put("account_type", AccountManager.isCuidLogin(this.mContext) ? 1 : 0);
@@ -55,14 +81,18 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
             }
             LogUtils.d(TAG, "IMSetMsgSettingSwitchRequest getRequestParameter :" + jSONObject.toString());
             return jSONObject.toString().getBytes();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return HttpHelper.CONTENT_JSON;
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+        ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener = this.mListener;
+        if (iSetMsgSettingSwitchListener != null) {
+            iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
+        }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -75,61 +105,19 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str2);
             i2 = jSONObject.getInt("error_code");
             str = jSONObject.optString("error_msg", "");
-        } catch (JSONException e) {
-            LogUtils.e(TAG, "JSONException", e);
+        } catch (JSONException e2) {
+            LogUtils.e(TAG, "JSONException", e2);
             i2 = 1010;
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
         }
-        if (this.mListener != null) {
-            this.mListener.onSetMsgSettingSwitch(i2, str);
+        ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener = this.mListener;
+        if (iSetMsgSettingSwitchListener != null) {
+            iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(i2, str);
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-        if (this.mListener != null) {
-            this.mListener.onSetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getHost() {
-        String str = null;
-        switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
-            case 0:
-                if (!Utility.isPeakTime()) {
-                    str = "https://pim.baidu.com/";
-                    break;
-                } else {
-                    str = "https://pim.baidu.com/".replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "http://");
-                    break;
-                }
-            case 1:
-                str = "http://rd-im-server.bcc-szth.baidu.com:8080/";
-                break;
-            case 2:
-                str = "http://10.232.27.22:8090/";
-                break;
-            case 3:
-                str = Constants.URL_HTTP_BOX;
-                break;
-        }
-        return TextUtils.isEmpty(str) ? str : str + "rest/3.0/im/set_user_setting";
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
-        return new HashMap();
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public boolean shouldAbort() {
         return false;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        return "POST";
     }
 }

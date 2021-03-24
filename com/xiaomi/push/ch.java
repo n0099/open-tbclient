@@ -1,22 +1,50 @@
 package com.xiaomi.push;
 
-import android.os.Build;
-import android.system.Os;
-import java.io.File;
-/* loaded from: classes5.dex */
-public class ch {
-    public static long a(String str) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            try {
-                if (new File(str).exists()) {
-                    return Os.stat(str).st_size;
+import com.xiaomi.push.ai;
+import com.xiaomi.push.cg;
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
+public class ch extends ai.a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ cg f40318a;
+
+    public ch(cg cgVar) {
+        this.f40318a = cgVar;
+    }
+
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public String mo165a() {
+        return "100957";
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        ArrayList arrayList5;
+        ArrayList<cg.a> arrayList6;
+        arrayList = this.f40318a.f172a;
+        synchronized (arrayList) {
+            arrayList2 = this.f40318a.f172a;
+            if (arrayList2.size() > 0) {
+                arrayList3 = this.f40318a.f172a;
+                if (arrayList3.size() > 1) {
+                    cg cgVar = this.f40318a;
+                    arrayList6 = this.f40318a.f172a;
+                    cgVar.a(arrayList6);
+                } else {
+                    cg cgVar2 = this.f40318a;
+                    arrayList4 = this.f40318a.f172a;
+                    cgVar2.b((cg.a) arrayList4.get(0));
                 }
-                return 0L;
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                return 0L;
+                arrayList5 = this.f40318a.f172a;
+                arrayList5.clear();
+                System.gc();
             }
         }
-        return 0L;
     }
 }

@@ -1,7 +1,6 @@
 package com.google.ar.core;
-/* loaded from: classes14.dex */
-final class ab extends Exception {
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public final class ab extends Exception {
     public ab() {
         super("InstallService not bound");
     }

@@ -3,13 +3,21 @@ package com.baidu.android.imsdk.internal;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SocketState {
-    Integer mSocketId = null;
-    Boolean mSocketCreateOk = false;
-    Boolean mSocketEnvOk = false;
-    Socket mSocket = null;
-    InputStream mInputStream = null;
-    OutputStream mOutputStream = null;
+    public InputStream mInputStream;
+    public OutputStream mOutputStream;
+    public Socket mSocket;
+    public Boolean mSocketCreateOk;
+    public Boolean mSocketEnvOk;
+    public Integer mSocketId = null;
+
+    public SocketState() {
+        Boolean bool = Boolean.FALSE;
+        this.mSocketCreateOk = bool;
+        this.mSocketEnvOk = bool;
+        this.mSocket = null;
+        this.mInputStream = null;
+        this.mOutputStream = null;
+    }
 }

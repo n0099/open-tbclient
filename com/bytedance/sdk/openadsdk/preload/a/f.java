@@ -1,5 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
+import com.bumptech.glide.load.engine.GlideException;
+import com.google.gson.Gson;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;
@@ -19,106 +21,54 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
 /* loaded from: classes6.dex */
 public final class f {
-    private static final com.bytedance.sdk.openadsdk.preload.a.c.a<?> r = com.bytedance.sdk.openadsdk.preload.a.c.a.b(Object.class);
+    public static final com.bytedance.sdk.openadsdk.preload.a.c.a<?> r = com.bytedance.sdk.openadsdk.preload.a.c.a.b(Object.class);
 
     /* renamed from: a  reason: collision with root package name */
-    final List<w> f5026a;
-    final com.bytedance.sdk.openadsdk.preload.a.b.d b;
-    final e c;
-    final Map<Type, h<?>> d;
-    final boolean e;
-    final boolean f;
-    final boolean g;
-    final boolean h;
-    final boolean i;
-    final boolean j;
-    final boolean k;
-    final String l;
-    final int m;
-    final int n;
-    final u o;
-    final List<w> p;
-    final List<w> q;
-    private final ThreadLocal<Map<com.bytedance.sdk.openadsdk.preload.a.c.a<?>, a<?>>> s;
-    private final Map<com.bytedance.sdk.openadsdk.preload.a.c.a<?>, v<?>> t;
-    private final com.bytedance.sdk.openadsdk.preload.a.b.c u;
-    private final com.bytedance.sdk.openadsdk.preload.a.b.a.d v;
+    public final List<w> f30114a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final com.bytedance.sdk.openadsdk.preload.a.b.d f30115b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final e f30116c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Map<Type, h<?>> f30117d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final boolean f30118e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final boolean f30119f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final boolean f30120g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final boolean f30121h;
+    public final boolean i;
+    public final boolean j;
+    public final boolean k;
+    public final String l;
+    public final int m;
+    public final int n;
+    public final u o;
+    public final List<w> p;
+    public final List<w> q;
+    public final ThreadLocal<Map<com.bytedance.sdk.openadsdk.preload.a.c.a<?>, a<?>>> s;
+    public final Map<com.bytedance.sdk.openadsdk.preload.a.c.a<?>, v<?>> t;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.c u;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.a.d v;
 
     public f() {
-        this(com.bytedance.sdk.openadsdk.preload.a.b.d.f5005a, d.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, u.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(com.bytedance.sdk.openadsdk.preload.a.b.d dVar, e eVar, Map<Type, h<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, u uVar, String str, int i, int i2, List<w> list, List<w> list2, List<w> list3) {
-        this.s = new ThreadLocal<>();
-        this.t = new ConcurrentHashMap();
-        this.b = dVar;
-        this.c = eVar;
-        this.d = map;
-        this.u = new com.bytedance.sdk.openadsdk.preload.a.b.c(map);
-        this.e = z;
-        this.f = z2;
-        this.g = z3;
-        this.h = z4;
-        this.i = z5;
-        this.j = z6;
-        this.k = z7;
-        this.o = uVar;
-        this.l = str;
-        this.m = i;
-        this.n = i2;
-        this.p = list;
-        this.q = list2;
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.Y);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.h.f4963a);
-        arrayList.add(dVar);
-        arrayList.addAll(list3);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.D);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.m);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.g);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.i);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.k);
-        v<Number> a2 = a(uVar);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(Long.TYPE, Long.class, a2));
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(Double.TYPE, Double.class, a(z7)));
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(Float.TYPE, Float.class, b(z7)));
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.x);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.o);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.q);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(AtomicLong.class, a(a2)));
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(AtomicLongArray.class, b(a2)));
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.s);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.z);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.F);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.H);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(BigDecimal.class, com.bytedance.sdk.openadsdk.preload.a.b.a.n.B));
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(BigInteger.class, com.bytedance.sdk.openadsdk.preload.a.b.a.n.C));
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.J);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.L);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.P);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.R);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.W);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.N);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.d);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.c.f4958a);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.U);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.k.f4969a);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.j.f4968a);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.S);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.a.f4954a);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.b);
-        arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.b(this.u));
-        arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.g(this.u, z2));
-        this.v = new com.bytedance.sdk.openadsdk.preload.a.b.a.d(this.u);
-        arrayList.add(this.v);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.Z);
-        arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.i(this.u, eVar, dVar, this.v));
-        this.f5026a = Collections.unmodifiableList(arrayList);
+        this(com.bytedance.sdk.openadsdk.preload.a.b.d.f30031a, d.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, u.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
     }
 
     private v<Number> a(boolean z) {
-        return z ? com.bytedance.sdk.openadsdk.preload.a.b.a.n.v : new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.f.1
+        if (z) {
+            return com.bytedance.sdk.openadsdk.preload.a.b.a.n.v;
+        }
+        return new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
@@ -144,7 +94,10 @@ public final class f {
     }
 
     private v<Number> b(boolean z) {
-        return z ? com.bytedance.sdk.openadsdk.preload.a.b.a.n.u : new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.f.2
+        if (z) {
+            return com.bytedance.sdk.openadsdk.preload.a.b.a.n.u;
+        }
+        return new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
             /* renamed from: a */
@@ -169,55 +122,51 @@ public final class f {
         };
     }
 
-    static void a(double d) {
-        if (Double.isNaN(d) || Double.isInfinite(d)) {
-            throw new IllegalArgumentException(d + " is not a valid double value as per JSON specification. To override this behavior, use GsonBuilder.serializeSpecialFloatingPointValues() method.");
+    public String toString() {
+        return "{serializeNulls:" + this.f30118e + ",factories:" + this.f30114a + ",instanceCreators:" + this.u + "}";
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a<T> extends v<T> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public v<T> f30126a;
+
+        public void a(v<T> vVar) {
+            if (this.f30126a == null) {
+                this.f30126a = vVar;
+                return;
+            }
+            throw new AssertionError();
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.preload.a.v
+        public T b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
+            v<T> vVar = this.f30126a;
+            if (vVar != null) {
+                return vVar.b(aVar);
+            }
+            throw new IllegalStateException();
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.preload.a.v
+        public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
+            v<T> vVar = this.f30126a;
+            if (vVar != null) {
+                vVar.a(cVar, t);
+                return;
+            }
+            throw new IllegalStateException();
         }
     }
 
-    private static v<Number> a(u uVar) {
-        return uVar == u.DEFAULT ? com.bytedance.sdk.openadsdk.preload.a.b.a.n.t : new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.f.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.preload.a.v
-            /* renamed from: a */
-            public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
-                    aVar.j();
-                    return null;
-                }
-                return Long.valueOf(aVar.l());
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.preload.a.v
-            public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Number number) throws IOException {
-                if (number == null) {
-                    cVar.f();
-                } else {
-                    cVar.b(number.toString());
-                }
-            }
-        };
+    public static void a(double d2) {
+        if (Double.isNaN(d2) || Double.isInfinite(d2)) {
+            throw new IllegalArgumentException(d2 + " is not a valid double value as per JSON specification. To override this behavior, use GsonBuilder.serializeSpecialFloatingPointValues() method.");
+        }
     }
 
-    private static v<AtomicLong> a(final v<Number> vVar) {
-        return new v<AtomicLong>() { // from class: com.bytedance.sdk.openadsdk.preload.a.f.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.preload.a.v
-            public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, AtomicLong atomicLong) throws IOException {
-                v.this.a(cVar, Long.valueOf(atomicLong.get()));
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.preload.a.v
-            /* renamed from: a */
-            public AtomicLong b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-                return new AtomicLong(((Number) v.this.b(aVar)).longValue());
-            }
-        }.a();
-    }
-
-    private static v<AtomicLongArray> b(final v<Number> vVar) {
+    public static v<AtomicLongArray> b(final v<Number> vVar) {
         return new v<AtomicLongArray>() { // from class: com.bytedance.sdk.openadsdk.preload.a.f.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -250,63 +199,172 @@ public final class f {
         }.a();
     }
 
-    public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
-        Map<com.bytedance.sdk.openadsdk.preload.a.c.a<?>, a<?>> map;
-        v<T> vVar = (v<T>) this.t.get(aVar == null ? r : aVar);
-        if (vVar == null) {
-            Map<com.bytedance.sdk.openadsdk.preload.a.c.a<?>, a<?>> map2 = this.s.get();
-            boolean z = false;
-            if (map2 == null) {
-                map = new HashMap<>();
-                this.s.set(map);
-                z = true;
-            } else {
-                map = map2;
+    public static v<Number> a(u uVar) {
+        if (uVar == u.DEFAULT) {
+            return com.bytedance.sdk.openadsdk.preload.a.b.a.n.t;
+        }
+        return new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.f.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.bytedance.sdk.openadsdk.preload.a.v
+            /* renamed from: a */
+            public Number b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
+                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.NULL) {
+                    aVar.j();
+                    return null;
+                }
+                return Long.valueOf(aVar.l());
             }
-            vVar = map.get(aVar);
-            if (vVar == null) {
-                try {
-                    a<?> aVar2 = new a<>();
-                    map.put(aVar, aVar2);
-                    for (w wVar : this.f5026a) {
-                        vVar = wVar.a(this, aVar);
-                        if (vVar != null) {
-                            aVar2.a((v<?>) vVar);
-                            this.t.put(aVar, vVar);
-                            map.remove(aVar);
-                            if (z) {
-                                this.s.remove();
-                            }
-                        }
-                    }
-                    throw new IllegalArgumentException("GSON (pangle-v3200) cannot handle " + aVar);
-                } catch (Throwable th) {
-                    map.remove(aVar);
-                    if (z) {
-                        this.s.remove();
-                    }
-                    throw th;
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.bytedance.sdk.openadsdk.preload.a.v
+            public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Number number) throws IOException {
+                if (number == null) {
+                    cVar.f();
+                } else {
+                    cVar.b(number.toString());
                 }
             }
+        };
+    }
+
+    public f(com.bytedance.sdk.openadsdk.preload.a.b.d dVar, e eVar, Map<Type, h<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, u uVar, String str, int i, int i2, List<w> list, List<w> list2, List<w> list3) {
+        this.s = new ThreadLocal<>();
+        this.t = new ConcurrentHashMap();
+        this.f30115b = dVar;
+        this.f30116c = eVar;
+        this.f30117d = map;
+        this.u = new com.bytedance.sdk.openadsdk.preload.a.b.c(map);
+        this.f30118e = z;
+        this.f30119f = z2;
+        this.f30120g = z3;
+        this.f30121h = z4;
+        this.i = z5;
+        this.j = z6;
+        this.k = z7;
+        this.o = uVar;
+        this.l = str;
+        this.m = i;
+        this.n = i2;
+        this.p = list;
+        this.q = list2;
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.Y);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.h.f29930a);
+        arrayList.add(dVar);
+        arrayList.addAll(list3);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.D);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.m);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29974g);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.i);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.k);
+        v<Number> a2 = a(uVar);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(Long.TYPE, Long.class, a2));
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(Double.TYPE, Double.class, a(z7)));
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(Float.TYPE, Float.class, b(z7)));
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.x);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.o);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.q);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(AtomicLong.class, a(a2)));
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(AtomicLongArray.class, b(a2)));
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.s);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.z);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.F);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.H);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(BigDecimal.class, com.bytedance.sdk.openadsdk.preload.a.b.a.n.B));
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(BigInteger.class, com.bytedance.sdk.openadsdk.preload.a.b.a.n.C));
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.J);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.L);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.P);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.R);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.W);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.N);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29971d);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.c.f29910a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.U);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.k.f29950a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.j.f29948a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.S);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.a.f29903a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f29969b);
+        arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.b(this.u));
+        arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.g(this.u, z2));
+        com.bytedance.sdk.openadsdk.preload.a.b.a.d dVar2 = new com.bytedance.sdk.openadsdk.preload.a.b.a.d(this.u);
+        this.v = dVar2;
+        arrayList.add(dVar2);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.Z);
+        arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.i(this.u, eVar, dVar, this.v));
+        this.f30114a = Collections.unmodifiableList(arrayList);
+    }
+
+    public static v<AtomicLong> a(final v<Number> vVar) {
+        return new v<AtomicLong>() { // from class: com.bytedance.sdk.openadsdk.preload.a.f.4
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.bytedance.sdk.openadsdk.preload.a.v
+            public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, AtomicLong atomicLong) throws IOException {
+                v.this.a(cVar, Long.valueOf(atomicLong.get()));
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.bytedance.sdk.openadsdk.preload.a.v
+            /* renamed from: a */
+            public AtomicLong b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
+                return new AtomicLong(((Number) v.this.b(aVar)).longValue());
+            }
+        }.a();
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: java.util.Map<com.bytedance.sdk.openadsdk.preload.a.c.a<?>, com.bytedance.sdk.openadsdk.preload.a.v<?>> */
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: com.bytedance.sdk.openadsdk.preload.a.v<T>, com.bytedance.sdk.openadsdk.preload.a.v<?> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
+        v<T> vVar = (v<T>) this.t.get(aVar == null ? r : aVar);
+        if (vVar != null) {
+            return vVar;
         }
-        return vVar;
+        Map<com.bytedance.sdk.openadsdk.preload.a.c.a<?>, a<?>> map = this.s.get();
+        boolean z = false;
+        if (map == null) {
+            map = new HashMap<>();
+            this.s.set(map);
+            z = true;
+        }
+        a<?> aVar2 = map.get(aVar);
+        if (aVar2 != null) {
+            return aVar2;
+        }
+        try {
+            a<?> aVar3 = new a<>();
+            map.put(aVar, aVar3);
+            for (w wVar : this.f30114a) {
+                v vVar2 = (v<T>) wVar.a(this, aVar);
+                if (vVar2 != null) {
+                    aVar3.a((v<?>) vVar2);
+                    this.t.put(aVar, vVar2);
+                    return vVar2;
+                }
+            }
+            throw new IllegalArgumentException("GSON (pangle-v3200) cannot handle " + aVar);
+        } finally {
+            map.remove(aVar);
+            if (z) {
+                this.s.remove();
+            }
+        }
     }
 
     public <T> v<T> a(w wVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
-        if (!this.f5026a.contains(wVar)) {
+        if (!this.f30114a.contains(wVar)) {
             wVar = this.v;
         }
         boolean z = false;
-        for (w wVar2 : this.f5026a) {
-            if (!z) {
-                if (wVar2 == wVar) {
-                    z = true;
-                }
-            } else {
+        for (w wVar2 : this.f30114a) {
+            if (z) {
                 v<T> a2 = wVar2.a(this, aVar);
                 if (a2 != null) {
                     return a2;
                 }
+            } else if (wVar2 == wVar) {
+                z = true;
             }
         }
         throw new IllegalArgumentException("GSON cannot serialize " + aVar);
@@ -317,7 +375,10 @@ public final class f {
     }
 
     public String a(Object obj) {
-        return obj == null ? a((l) n.f5034a) : a(obj, obj.getClass());
+        if (obj == null) {
+            return a((l) n.f30136a);
+        }
+        return a(obj, obj.getClass());
     }
 
     public String a(Object obj, Type type) {
@@ -329,34 +390,32 @@ public final class f {
     public void a(Object obj, Type type, Appendable appendable) throws m {
         try {
             a(obj, type, a(com.bytedance.sdk.openadsdk.preload.a.b.l.a(appendable)));
-        } catch (IOException e) {
-            throw new m(e);
+        } catch (IOException e2) {
+            throw new m(e2);
         }
     }
 
     public void a(Object obj, Type type, com.bytedance.sdk.openadsdk.preload.a.d.c cVar) throws m {
         v a2 = a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(type));
-        boolean g = cVar.g();
+        boolean g2 = cVar.g();
         cVar.b(true);
-        boolean h = cVar.h();
-        cVar.c(this.h);
+        boolean h2 = cVar.h();
+        cVar.c(this.f30121h);
         boolean i = cVar.i();
-        cVar.d(this.e);
+        cVar.d(this.f30118e);
         try {
             try {
-                try {
-                    a2.a(cVar, obj);
-                } catch (IOException e) {
-                    throw new m(e);
-                }
-            } catch (AssertionError e2) {
-                AssertionError assertionError = new AssertionError("AssertionError (GSON pangle-v3200): " + e2.getMessage());
-                assertionError.initCause(e2);
+                a2.a(cVar, obj);
+            } catch (IOException e2) {
+                throw new m(e2);
+            } catch (AssertionError e3) {
+                AssertionError assertionError = new AssertionError("AssertionError (GSON pangle-v3200): " + e3.getMessage());
+                assertionError.initCause(e3);
                 throw assertionError;
             }
         } finally {
-            cVar.b(g);
-            cVar.c(h);
+            cVar.b(g2);
+            cVar.c(h2);
             cVar.d(i);
         }
     }
@@ -370,20 +429,20 @@ public final class f {
     public void a(l lVar, Appendable appendable) throws m {
         try {
             a(lVar, a(com.bytedance.sdk.openadsdk.preload.a.b.l.a(appendable)));
-        } catch (IOException e) {
-            throw new m(e);
+        } catch (IOException e2) {
+            throw new m(e2);
         }
     }
 
     public com.bytedance.sdk.openadsdk.preload.a.d.c a(Writer writer) throws IOException {
-        if (this.g) {
-            writer.write(")]}'\n");
+        if (this.f30120g) {
+            writer.write(Gson.JSON_NON_EXECUTABLE_PREFIX);
         }
         com.bytedance.sdk.openadsdk.preload.a.d.c cVar = new com.bytedance.sdk.openadsdk.preload.a.d.c(writer);
         if (this.i) {
-            cVar.c("  ");
+            cVar.c(GlideException.IndentedAppendable.INDENT);
         }
-        cVar.d(this.e);
+        cVar.d(this.f30118e);
         return cVar;
     }
 
@@ -394,25 +453,25 @@ public final class f {
     }
 
     public void a(l lVar, com.bytedance.sdk.openadsdk.preload.a.d.c cVar) throws m {
-        boolean g = cVar.g();
+        boolean g2 = cVar.g();
         cVar.b(true);
-        boolean h = cVar.h();
-        cVar.c(this.h);
+        boolean h2 = cVar.h();
+        cVar.c(this.f30121h);
         boolean i = cVar.i();
-        cVar.d(this.e);
+        cVar.d(this.f30118e);
         try {
             try {
                 com.bytedance.sdk.openadsdk.preload.a.b.l.a(lVar, cVar);
-            } catch (IOException e) {
-                throw new m(e);
-            } catch (AssertionError e2) {
-                AssertionError assertionError = new AssertionError("AssertionError (GSON pangle-v3200): " + e2.getMessage());
-                assertionError.initCause(e2);
+            } catch (IOException e2) {
+                throw new m(e2);
+            } catch (AssertionError e3) {
+                AssertionError assertionError = new AssertionError("AssertionError (GSON pangle-v3200): " + e3.getMessage());
+                assertionError.initCause(e3);
                 throw assertionError;
             }
         } finally {
-            cVar.b(g);
-            cVar.c(h);
+            cVar.b(g2);
+            cVar.c(h2);
             cVar.d(i);
         }
     }
@@ -431,89 +490,52 @@ public final class f {
         return t;
     }
 
-    private static void a(Object obj, com.bytedance.sdk.openadsdk.preload.a.d.a aVar) {
+    public static void a(Object obj, com.bytedance.sdk.openadsdk.preload.a.d.a aVar) {
         if (obj != null) {
             try {
-                if (aVar.f() != com.bytedance.sdk.openadsdk.preload.a.d.b.END_DOCUMENT) {
-                    throw new m("JSON document was not fully consumed.");
+                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.END_DOCUMENT) {
+                    return;
                 }
-            } catch (com.bytedance.sdk.openadsdk.preload.a.d.d e) {
-                throw new t(e);
-            } catch (IOException e2) {
-                throw new m(e2);
+                throw new m("JSON document was not fully consumed.");
+            } catch (com.bytedance.sdk.openadsdk.preload.a.d.d e2) {
+                throw new t(e2);
+            } catch (IOException e3) {
+                throw new m(e3);
             }
         }
     }
 
     public <T> T a(com.bytedance.sdk.openadsdk.preload.a.d.a aVar, Type type) throws m, t {
-        boolean z = true;
         boolean q = aVar.q();
+        boolean z = true;
         aVar.a(true);
         try {
             try {
                 try {
                     aVar.f();
                     z = false;
-                    T b = a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(type)).b(aVar);
+                    T b2 = a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(type)).b(aVar);
                     aVar.a(q);
-                    return b;
-                } catch (IOException e) {
-                    throw new t(e);
-                } catch (IllegalStateException e2) {
-                    throw new t(e2);
-                }
-            } catch (EOFException e3) {
-                if (!z) {
+                    return b2;
+                } catch (AssertionError e2) {
+                    AssertionError assertionError = new AssertionError("AssertionError (GSON pangle-v3200): " + e2.getMessage());
+                    assertionError.initCause(e2);
+                    throw assertionError;
+                } catch (IllegalStateException e3) {
                     throw new t(e3);
                 }
-                aVar.a(q);
-                return null;
-            } catch (AssertionError e4) {
-                AssertionError assertionError = new AssertionError("AssertionError (GSON pangle-v3200): " + e4.getMessage());
-                assertionError.initCause(e4);
-                throw assertionError;
+            } catch (EOFException e4) {
+                if (z) {
+                    aVar.a(q);
+                    return null;
+                }
+                throw new t(e4);
+            } catch (IOException e5) {
+                throw new t(e5);
             }
         } catch (Throwable th) {
             aVar.a(q);
             throw th;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public static class a<T> extends v<T> {
-
-        /* renamed from: a  reason: collision with root package name */
-        private v<T> f5031a;
-
-        a() {
-        }
-
-        public void a(v<T> vVar) {
-            if (this.f5031a != null) {
-                throw new AssertionError();
-            }
-            this.f5031a = vVar;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.preload.a.v
-        public T b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
-            if (this.f5031a == null) {
-                throw new IllegalStateException();
-            }
-            return this.f5031a.b(aVar);
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.preload.a.v
-        public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
-            if (this.f5031a == null) {
-                throw new IllegalStateException();
-            }
-            this.f5031a.a(cVar, t);
-        }
-    }
-
-    public String toString() {
-        return "{serializeNulls:" + this.e + ",factories:" + this.f5026a + ",instanceCreators:" + this.u + "}";
     }
 }

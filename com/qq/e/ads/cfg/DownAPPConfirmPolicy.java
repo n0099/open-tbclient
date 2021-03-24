@@ -1,18 +1,18 @@
 package com.qq.e.ads.cfg;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum DownAPPConfirmPolicy {
     Default(0),
     NOConfirm(2);
     
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f7500a;
+    public final int f38049a;
 
     DownAPPConfirmPolicy(int i) {
-        this.f7500a = i;
+        this.f38049a = i;
     }
 
     public final int value() {
-        return this.f7500a;
+        return this.f38049a;
     }
 }

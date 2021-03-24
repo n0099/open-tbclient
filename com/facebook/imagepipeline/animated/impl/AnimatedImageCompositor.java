@@ -5,15 +5,50 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AnimatedImageCompositor {
-    private final com.facebook.imagepipeline.animated.base.a pHG;
-    private final a pHI;
-    private final Paint pJk = new Paint();
+    public final AnimatedDrawableBackend mAnimatedDrawableBackend;
+    public final Callback mCallback;
+    public final Paint mTransparentFillPaint;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* renamed from: com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult;
+
+        static {
+            int[] iArr = new int[FrameNeededResult.values().length];
+            $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult = iArr;
+            try {
+                iArr[FrameNeededResult.REQUIRED.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[FrameNeededResult.NOT_REQUIRED.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[FrameNeededResult.ABORT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[FrameNeededResult.SKIP.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public interface Callback {
+        CloseableReference<Bitmap> getCachedBitmap(int i);
+
+        void onIntermediateResult(int i, Bitmap bitmap);
+    }
+
+    /* loaded from: classes6.dex */
     public enum FrameNeededResult {
         REQUIRED,
         NOT_REQUIRED,
@@ -21,87 +56,30 @@ public class AnimatedImageCompositor {
         ABORT
     }
 
-    /* loaded from: classes14.dex */
-    public interface a {
-        com.facebook.common.references.a<Bitmap> PC(int i);
-
-        void d(int i, Bitmap bitmap);
+    public AnimatedImageCompositor(AnimatedDrawableBackend animatedDrawableBackend, Callback callback) {
+        this.mAnimatedDrawableBackend = animatedDrawableBackend;
+        this.mCallback = callback;
+        Paint paint = new Paint();
+        this.mTransparentFillPaint = paint;
+        paint.setColor(0);
+        this.mTransparentFillPaint.setStyle(Paint.Style.FILL);
+        this.mTransparentFillPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
     }
 
-    public AnimatedImageCompositor(com.facebook.imagepipeline.animated.base.a aVar, a aVar2) {
-        this.pHG = aVar;
-        this.pHI = aVar2;
-        this.pJk.setColor(0);
-        this.pJk.setStyle(Paint.Style.FILL);
-        this.pJk.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
+    private void disposeToBackground(Canvas canvas, AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
+        int i = animatedDrawableFrameInfo.xOffset;
+        int i2 = animatedDrawableFrameInfo.yOffset;
+        canvas.drawRect(i, i2, i + animatedDrawableFrameInfo.width, i2 + animatedDrawableFrameInfo.height, this.mTransparentFillPaint);
     }
 
-    public void e(int i, Bitmap bitmap) {
-        Canvas canvas = new Canvas(bitmap);
-        canvas.drawColor(0, PorterDuff.Mode.SRC);
-        for (int e = !PI(i) ? e(i - 1, canvas) : i; e < i; e++) {
-            AnimatedDrawableFrameInfo OT = this.pHG.OT(e);
-            AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = OT.pIM;
-            if (disposalMethod != AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS) {
-                if (OT.pIL == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
-                    a(canvas, OT);
-                }
-                this.pHG.d(e, canvas);
-                this.pHI.d(e, bitmap);
-                if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
-                    a(canvas, OT);
-                }
-            }
-        }
-        AnimatedDrawableFrameInfo OT2 = this.pHG.OT(i);
-        if (OT2.pIL == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
-            a(canvas, OT2);
-        }
-        this.pHG.d(i, canvas);
-    }
-
-    private int e(int i, Canvas canvas) {
-        for (int i2 = i; i2 >= 0; i2--) {
-            switch (PH(i2)) {
-                case REQUIRED:
-                    AnimatedDrawableFrameInfo OT = this.pHG.OT(i2);
-                    com.facebook.common.references.a<Bitmap> PC = this.pHI.PC(i2);
-                    if (PC != null) {
-                        try {
-                            canvas.drawBitmap(PC.get(), 0.0f, 0.0f, (Paint) null);
-                            if (OT.pIM == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
-                                a(canvas, OT);
-                            }
-                            return i2 + 1;
-                        } finally {
-                            PC.close();
-                        }
-                    } else if (!PI(i2)) {
-                        break;
-                    } else {
-                        return i2;
-                    }
-                case NOT_REQUIRED:
-                    return i2 + 1;
-                case ABORT:
-                    return i2;
-            }
-        }
-        return 0;
-    }
-
-    private void a(Canvas canvas, AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
-        canvas.drawRect(animatedDrawableFrameInfo.pIK, animatedDrawableFrameInfo.iyR, animatedDrawableFrameInfo.pIK + animatedDrawableFrameInfo.width, animatedDrawableFrameInfo.iyR + animatedDrawableFrameInfo.height, this.pJk);
-    }
-
-    private FrameNeededResult PH(int i) {
-        AnimatedDrawableFrameInfo OT = this.pHG.OT(i);
-        AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = OT.pIM;
+    private FrameNeededResult isFrameNeededForRendering(int i) {
+        AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
+        AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = frameInfo.disposalMethod;
         if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT) {
             return FrameNeededResult.REQUIRED;
         }
         if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
-            if (a(OT)) {
+            if (isFullFrame(frameInfo)) {
                 return FrameNeededResult.NOT_REQUIRED;
             }
             return FrameNeededResult.REQUIRED;
@@ -112,19 +90,74 @@ public class AnimatedImageCompositor {
         }
     }
 
-    private boolean PI(int i) {
+    private boolean isFullFrame(AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
+        return animatedDrawableFrameInfo.xOffset == 0 && animatedDrawableFrameInfo.yOffset == 0 && animatedDrawableFrameInfo.width == this.mAnimatedDrawableBackend.getRenderedWidth() && animatedDrawableFrameInfo.height == this.mAnimatedDrawableBackend.getRenderedHeight();
+    }
+
+    private boolean isKeyFrame(int i) {
         if (i == 0) {
             return true;
         }
-        AnimatedDrawableFrameInfo OT = this.pHG.OT(i);
-        AnimatedDrawableFrameInfo OT2 = this.pHG.OT(i - 1);
-        if (OT.pIL == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND && a(OT)) {
+        AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
+        AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i - 1);
+        if (frameInfo.blendOperation == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND && isFullFrame(frameInfo)) {
             return true;
         }
-        return OT2.pIM == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND && a(OT2);
+        return frameInfo2.disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND && isFullFrame(frameInfo2);
     }
 
-    private boolean a(AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
-        return animatedDrawableFrameInfo.pIK == 0 && animatedDrawableFrameInfo.iyR == 0 && animatedDrawableFrameInfo.width == this.pHG.evM() && animatedDrawableFrameInfo.height == this.pHG.evN();
+    private int prepareCanvasWithClosestCachedFrame(int i, Canvas canvas) {
+        while (i >= 0) {
+            int i2 = AnonymousClass1.$SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[isFrameNeededForRendering(i).ordinal()];
+            if (i2 == 1) {
+                AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
+                CloseableReference<Bitmap> cachedBitmap = this.mCallback.getCachedBitmap(i);
+                if (cachedBitmap != null) {
+                    try {
+                        canvas.drawBitmap(cachedBitmap.get(), 0.0f, 0.0f, (Paint) null);
+                        if (frameInfo.disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
+                            disposeToBackground(canvas, frameInfo);
+                        }
+                        return i + 1;
+                    } finally {
+                        cachedBitmap.close();
+                    }
+                } else if (isKeyFrame(i)) {
+                    return i;
+                }
+            } else if (i2 == 2) {
+                return i + 1;
+            } else {
+                if (i2 == 3) {
+                    return i;
+                }
+            }
+            i--;
+        }
+        return 0;
+    }
+
+    public void renderFrame(int i, Bitmap bitmap) {
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(0, PorterDuff.Mode.SRC);
+        for (int prepareCanvasWithClosestCachedFrame = !isKeyFrame(i) ? prepareCanvasWithClosestCachedFrame(i - 1, canvas) : i; prepareCanvasWithClosestCachedFrame < i; prepareCanvasWithClosestCachedFrame++) {
+            AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(prepareCanvasWithClosestCachedFrame);
+            AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = frameInfo.disposalMethod;
+            if (disposalMethod != AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS) {
+                if (frameInfo.blendOperation == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
+                    disposeToBackground(canvas, frameInfo);
+                }
+                this.mAnimatedDrawableBackend.renderFrame(prepareCanvasWithClosestCachedFrame, canvas);
+                this.mCallback.onIntermediateResult(prepareCanvasWithClosestCachedFrame, bitmap);
+                if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
+                    disposeToBackground(canvas, frameInfo);
+                }
+            }
+        }
+        AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i);
+        if (frameInfo2.blendOperation == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
+            disposeToBackground(canvas, frameInfo2);
+        }
+        this.mAnimatedDrawableBackend.renderFrame(i, canvas);
     }
 }

@@ -8,60 +8,47 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private static volatile Map<String, c> c = new HashMap();
+
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile Map<String, c> f8386c = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    private Class<?> f2430a;
-    private Method[] b;
+    public Class<?> f8387a;
 
-    public static c a(Context context, String str) {
-        if (!c.containsKey(str) || c.get(str).f2430a == null) {
-            synchronized (c.class) {
-                if (!c.containsKey(str) || c.get(str).f2430a == null) {
-                    c.put(str, new c(context, str));
-                }
-            }
-        }
-        return c.get(str);
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public Method[] f8388b;
 
-    private c(Context context, String str) {
-        this.b = null;
+    public c(Context context, String str) {
+        this.f8388b = null;
         try {
-            DexClassLoader d = com.baidu.mobads.g.b.d();
-            if (d == null) {
-                this.f2430a = b(context, str);
+            DexClassLoader d2 = com.baidu.mobads.g.b.d();
+            if (d2 == null) {
+                this.f8387a = b(context, str);
             } else {
-                this.f2430a = Class.forName(str, true, d);
+                this.f8387a = Class.forName(str, true, d2);
             }
-            this.b = this.f2430a.getMethods();
+            this.f8388b = this.f8387a.getMethods();
         } catch (Throwable th) {
             q.a().d(th);
         }
     }
 
-    public Object a(Class<?>[] clsArr, Object... objArr) {
-        Constructor<?> constructor;
-        if (objArr != null) {
-            try {
-                if (objArr.length != 0) {
-                    constructor = this.f2430a.getConstructor(clsArr);
-                    return constructor.newInstance(objArr);
+    public static c a(Context context, String str) {
+        if (!f8386c.containsKey(str) || f8386c.get(str).f8387a == null) {
+            synchronized (c.class) {
+                if (!f8386c.containsKey(str) || f8386c.get(str).f8387a == null) {
+                    f8386c.put(str, new c(context, str));
                 }
-            } catch (Throwable th) {
-                q.a().d(th);
-                return null;
             }
         }
-        constructor = this.f2430a.getConstructor(new Class[0]);
-        return constructor.newInstance(objArr);
+        return f8386c.get(str);
     }
 
     public Class<?> b(Context context, String str) {
-        Class<?> cls = null;
         q a2 = q.a();
+        Class<?> cls = null;
         try {
             cls = Class.forName(str, true, new DexClassLoader(g.a(context), context.getFilesDir().getAbsolutePath(), null, c.class.getClass().getClassLoader()));
         } catch (Throwable th) {
@@ -71,63 +58,87 @@ public class c {
         return cls;
     }
 
-    public void a(Object obj, String str, Object... objArr) {
-        try {
-            Method a2 = a(str);
-            if (a2 != null) {
-                if (objArr == null || objArr.length == 0) {
-                    a2.invoke(obj, new Object[0]);
-                } else {
-                    a2.invoke(obj, objArr);
-                }
-            }
-        } catch (Throwable th) {
-            q.a().d(th);
-        }
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:13:0x0020 -> B:8:0x0012). Please submit an issue!!! */
-    public Object b(Object obj, String str, Object... objArr) {
-        try {
-            Method a2 = a(str);
-            if (a2 != null) {
-                if (objArr == null || objArr.length == 0) {
-                    return a2.invoke(obj, new Object[0]);
-                }
-                return a2.invoke(obj, objArr);
-            }
-        } catch (Throwable th) {
-            q.a().d(th);
-        }
-        return null;
-    }
-
+    /* JADX WARN: Removed duplicated region for block: B:12:0x001c A[Catch: all -> 0x001f, TRY_LEAVE, TryCatch #0 {all -> 0x001f, blocks: (B:2:0x0000, B:5:0x0008, B:8:0x000c, B:10:0x0018, B:12:0x001c, B:9:0x0011), top: B:18:0x0000 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public String c(Object obj, String str, Object... objArr) {
         Object invoke;
         try {
             Method a2 = a(str);
-            if (a2 != null) {
-                if (objArr == null || objArr.length == 0) {
-                    invoke = a2.invoke(obj, new Object[0]);
-                } else {
-                    invoke = a2.invoke(obj, objArr);
-                }
+            if (a2 == null) {
+                return null;
+            }
+            if (objArr != null && objArr.length != 0) {
+                invoke = a2.invoke(obj, objArr);
                 if (invoke instanceof String) {
-                    return (String) invoke;
+                    return null;
                 }
+                return (String) invoke;
+            }
+            invoke = a2.invoke(obj, new Object[0]);
+            if (invoke instanceof String) {
+            }
+        } catch (Throwable th) {
+            q.a().d(th);
+            return null;
+        }
+    }
+
+    public Object a(Class<?>[] clsArr, Object... objArr) {
+        Constructor<?> constructor;
+        if (objArr != null) {
+            try {
+                if (objArr.length != 0) {
+                    constructor = this.f8387a.getConstructor(clsArr);
+                    return constructor.newInstance(objArr);
+                }
+            } catch (Throwable th) {
+                q.a().d(th);
+                return null;
+            }
+        }
+        constructor = this.f8387a.getConstructor(new Class[0]);
+        return constructor.newInstance(objArr);
+    }
+
+    public Object b(Object obj, String str, Object... objArr) {
+        try {
+            Method a2 = a(str);
+            if (a2 != null) {
+                if (objArr != null && objArr.length != 0) {
+                    return a2.invoke(obj, objArr);
+                }
+                return a2.invoke(obj, new Object[0]);
+            }
+            return null;
+        } catch (Throwable th) {
+            q.a().d(th);
+            return null;
+        }
+    }
+
+    public void a(Object obj, String str, Object... objArr) {
+        try {
+            Method a2 = a(str);
+            if (a2 != null) {
+                if (objArr != null && objArr.length != 0) {
+                    a2.invoke(obj, objArr);
+                }
+                a2.invoke(obj, new Object[0]);
             }
         } catch (Throwable th) {
             q.a().d(th);
         }
-        return null;
     }
 
     private Method a(String str) {
-        Method[] methodArr;
-        if (this.b == null) {
+        Method[] methodArr = this.f8388b;
+        if (methodArr == null) {
             return null;
         }
-        for (Method method : this.b) {
+        for (Method method : methodArr) {
             if (method.getName().equals(str)) {
                 method.setAccessible(true);
                 return method;

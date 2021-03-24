@@ -1,31 +1,37 @@
 package io.reactivex.internal.schedulers;
 
+import f.a.t.b;
 import io.reactivex.internal.functions.Functions;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-abstract class AbstractDirectTask extends AtomicReference<Future<?>> implements io.reactivex.disposables.b {
-    private static final long serialVersionUID = 1811839108042568751L;
-    protected final Runnable runnable;
-    protected Thread runner;
-    protected static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.qoD, null);
-    protected static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.qoD, null);
+/* loaded from: classes7.dex */
+public abstract class AbstractDirectTask extends AtomicReference<Future<?>> implements b {
+    public static final long serialVersionUID = 1811839108042568751L;
+    public final Runnable runnable;
+    public Thread runner;
+    public static final FutureTask<Void> FINISHED = new FutureTask<>(Functions.f68021a, null);
+    public static final FutureTask<Void> DISPOSED = new FutureTask<>(Functions.f68021a, null);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public AbstractDirectTask(Runnable runnable) {
         this.runnable = runnable;
     }
 
-    @Override // io.reactivex.disposables.b
+    @Override // f.a.t.b
     public final void dispose() {
+        FutureTask<Void> futureTask;
         Future<?> future = get();
-        if (future != FINISHED && future != DISPOSED && compareAndSet(future, DISPOSED) && future != null) {
-            future.cancel(this.runner != Thread.currentThread());
+        if (future == FINISHED || future == (futureTask = DISPOSED) || !compareAndSet(future, futureTask) || future == null) {
+            return;
         }
+        future.cancel(this.runner != Thread.currentThread());
     }
 
-    @Override // io.reactivex.disposables.b
+    public Runnable getWrappedRunnable() {
+        return this.runnable;
+    }
+
+    @Override // f.a.t.b
     public final boolean isDisposed() {
         Future<?> future = get();
         return future == FINISHED || future == DISPOSED;
@@ -35,18 +41,13 @@ abstract class AbstractDirectTask extends AtomicReference<Future<?>> implements 
         Future<?> future2;
         do {
             future2 = get();
-            if (future2 != FINISHED) {
-                if (future2 == DISPOSED) {
-                    future.cancel(this.runner != Thread.currentThread());
-                    return;
-                }
-            } else {
+            if (future2 == FINISHED) {
+                return;
+            }
+            if (future2 == DISPOSED) {
+                future.cancel(this.runner != Thread.currentThread());
                 return;
             }
         } while (!compareAndSet(future2, future));
-    }
-
-    public Runnable getWrappedRunnable() {
-        return this.runnable;
     }
 }

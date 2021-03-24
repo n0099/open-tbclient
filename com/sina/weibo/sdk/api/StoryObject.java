@@ -2,7 +2,7 @@ package com.sina.weibo.sdk.api;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class StoryObject implements Parcelable {
     public static final Parcelable.Creator<StoryObject> CREATOR = new Parcelable.Creator<StoryObject>() { // from class: com.sina.weibo.sdk.api.StoryObject.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,6 +25,10 @@ public class StoryObject implements Parcelable {
     public String sourcePath;
     public int sourceType;
 
+    public StoryObject() {
+        this.callbackAction = "com.sina.weibo.sdk.action.ACTION_SDK_REQ_STORY";
+    }
+
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
@@ -39,11 +43,7 @@ public class StoryObject implements Parcelable {
         parcel.writeString(this.callbackAction);
     }
 
-    public StoryObject() {
-        this.callbackAction = "com.sina.weibo.sdk.action.ACTION_SDK_REQ_STORY";
-    }
-
-    protected StoryObject(Parcel parcel) {
+    public StoryObject(Parcel parcel) {
         this.callbackAction = "com.sina.weibo.sdk.action.ACTION_SDK_REQ_STORY";
         this.sourcePath = parcel.readString();
         this.sourceType = parcel.readInt();

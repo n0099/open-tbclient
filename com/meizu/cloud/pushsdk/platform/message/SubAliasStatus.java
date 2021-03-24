@@ -1,13 +1,11 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
-import com.heytap.mcssdk.mode.CommandMessage;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SubAliasStatus extends BasicPushStatus {
-    private String alias;
-    private String pushId;
+    public String alias;
+    public String pushId;
 
     public SubAliasStatus() {
     }
@@ -26,13 +24,13 @@ public class SubAliasStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public void parseValueData(JSONObject jSONObject) throws JSONException {
-        if (!jSONObject.isNull(PushConstants.KEY_PUSH_ID)) {
-            setPushId(jSONObject.getString(PushConstants.KEY_PUSH_ID));
+        if (!jSONObject.isNull("pushId")) {
+            setPushId(jSONObject.getString("pushId"));
         }
-        if (jSONObject.isNull(CommandMessage.TYPE_ALIAS)) {
+        if (jSONObject.isNull("alias")) {
             return;
         }
-        setAlias(jSONObject.getString(CommandMessage.TYPE_ALIAS));
+        setAlias(jSONObject.getString("alias"));
     }
 
     public void setAlias(String str) {

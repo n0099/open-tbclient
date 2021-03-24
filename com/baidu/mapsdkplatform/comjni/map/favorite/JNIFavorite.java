@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comjni.map.favorite;
 
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class JNIFavorite {
     public native boolean Add(long j, String str, String str2);
 

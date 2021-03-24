@@ -2,12 +2,11 @@ package android.net.http;
 
 import android.content.Context;
 import org.apache.http.HttpHost;
-/* loaded from: classes5.dex */
-abstract class Connection {
-    protected SslCertificate mCertificate;
-    protected AndroidHttpClientConnection mHttpClientConnection;
+/* loaded from: classes.dex */
+public abstract class Connection {
+    public SslCertificate mCertificate;
+    public AndroidHttpClientConnection mHttpClientConnection;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public Connection(Context context, HttpHost httpHost, RequestFeeder requestFeeder) {
         throw new RuntimeException("Stub!");
     }

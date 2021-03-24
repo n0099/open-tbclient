@@ -10,17 +10,17 @@ import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.client.AuthenticationHandler;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractAuthenticationHandler implements AuthenticationHandler {
     public AbstractAuthenticationHandler() {
         throw new RuntimeException("Stub!");
     }
 
-    protected Map<String, Header> parseChallenges(Header[] headerArr) throws MalformedChallengeException {
+    public List<String> getAuthPreferences() {
         throw new RuntimeException("Stub!");
     }
 
-    protected List<String> getAuthPreferences() {
+    public Map<String, Header> parseChallenges(Header[] headerArr) throws MalformedChallengeException {
         throw new RuntimeException("Stub!");
     }
 

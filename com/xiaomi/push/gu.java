@@ -1,120 +1,26 @@
 package com.xiaomi.push;
 
-import com.baidu.webkit.internal.ETAG;
-import java.util.Random;
-/* loaded from: classes5.dex */
-public class gu {
-
-    /* renamed from: a  reason: collision with other field name */
-    private static final char[] f406a = "&quot;".toCharArray();
-    private static final char[] b = "&apos;".toCharArray();
-    private static final char[] c = "&amp;".toCharArray();
-    private static final char[] d = "&lt;".toCharArray();
-    private static final char[] e = "&gt;".toCharArray();
+import com.xiaomi.push.service.av;
+/* loaded from: classes7.dex */
+public /* synthetic */ class gu {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Random f8397a = new Random();
-    private static char[] f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    public static final /* synthetic */ int[] f40608a;
 
-    public static String a(int i) {
-        if (i < 1) {
-            return null;
+    static {
+        int[] iArr = new int[av.c.values().length];
+        f40608a = iArr;
+        try {
+            iArr[av.c.unbind.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
-        char[] cArr = new char[i];
-        for (int i2 = 0; i2 < cArr.length; i2++) {
-            cArr[i2] = f[f8397a.nextInt(71)];
+        try {
+            f40608a[av.c.binding.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
-        return new String(cArr);
-    }
-
-    public static String a(String str) {
-        if (str == null) {
-            return null;
+        try {
+            f40608a[av.c.binded.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
         }
-        char[] charArray = str.toCharArray();
-        int length = charArray.length;
-        StringBuilder sb = new StringBuilder((int) (length * 1.3d));
-        int i = 0;
-        int i2 = 0;
-        while (i2 < length) {
-            char c2 = charArray[i2];
-            if (c2 <= '>') {
-                if (c2 == '<') {
-                    if (i2 > i) {
-                        sb.append(charArray, i, i2 - i);
-                    }
-                    i = i2 + 1;
-                    sb.append(d);
-                } else if (c2 == '>') {
-                    if (i2 > i) {
-                        sb.append(charArray, i, i2 - i);
-                    }
-                    i = i2 + 1;
-                    sb.append(e);
-                } else if (c2 == '&') {
-                    if (i2 > i) {
-                        sb.append(charArray, i, i2 - i);
-                    }
-                    if (length <= i2 + 5 || charArray[i2 + 1] != '#' || !Character.isDigit(charArray[i2 + 2]) || !Character.isDigit(charArray[i2 + 3]) || !Character.isDigit(charArray[i2 + 4]) || charArray[i2 + 5] != ';') {
-                        i = i2 + 1;
-                        sb.append(c);
-                    }
-                } else if (c2 == '\"') {
-                    if (i2 > i) {
-                        sb.append(charArray, i, i2 - i);
-                    }
-                    i = i2 + 1;
-                    sb.append(f406a);
-                } else if (c2 == '\'') {
-                    if (i2 > i) {
-                        sb.append(charArray, i, i2 - i);
-                    }
-                    i = i2 + 1;
-                    sb.append(b);
-                }
-            }
-            i2++;
-        }
-        if (i != 0) {
-            if (i2 > i) {
-                sb.append(charArray, i, i2 - i);
-            }
-            return sb.toString();
-        }
-        return str;
-    }
-
-    public static final String a(String str, String str2, String str3) {
-        if (str == null) {
-            return null;
-        }
-        int indexOf = str.indexOf(str2, 0);
-        if (indexOf < 0) {
-            return str;
-        }
-        char[] charArray = str.toCharArray();
-        char[] charArray2 = str3.toCharArray();
-        int length = str2.length();
-        StringBuilder sb = new StringBuilder(charArray.length);
-        sb.append(charArray, 0, indexOf).append(charArray2);
-        int i = indexOf + length;
-        while (true) {
-            int i2 = i;
-            int indexOf2 = str.indexOf(str2, i);
-            if (indexOf2 <= 0) {
-                sb.append(charArray, i2, charArray.length - i2);
-                return sb.toString();
-            }
-            sb.append(charArray, i2, indexOf2 - i2).append(charArray2);
-            i = indexOf2 + length;
-        }
-    }
-
-    public static String a(byte[] bArr) {
-        return String.valueOf(bc.a(bArr));
-    }
-
-    public static final String b(String str) {
-        return a(a(a(a(a(str, "&lt;", "<"), "&gt;", ">"), "&quot;", "\""), "&apos;", "'"), "&amp;", ETAG.ITEM_SEPARATOR);
     }
 }

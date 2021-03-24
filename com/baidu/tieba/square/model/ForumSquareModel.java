@@ -4,77 +4,213 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.a;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
-import com.baidu.tieba.square.d;
-import com.baidu.tieba.square.data.b;
-import com.baidu.tieba.square.data.c;
 import com.baidu.tieba.square.message.ForumSquareHttpResponsedMessage;
 import com.baidu.tieba.square.message.ForumSquareRequestMessage;
 import com.baidu.tieba.square.message.ForumSquareSocketResponsedMessage;
-import com.baidu.tieba.tbadkCore.writeModel.e;
+import d.b.b.j.e.n;
+import d.b.i0.c3.q0.e;
+import d.b.i0.z2.d;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ForumSquareModel extends BdBaseModel {
-    private a eEU;
-    private CustomMessageListener fpa;
-    private boolean isLoading;
-    private CustomMessageListener mLikeForumListener;
-    private d nuk;
-    private final HashMap<String, c> nul;
-    private final List<String> nun;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void s(long j, boolean z) {
-        for (Map.Entry<String, c> entry : this.nul.entrySet()) {
-            c value = entry.getValue();
-            if (value != null && !y.isEmpty(value.getDataList())) {
-                for (n nVar : value.getDataList()) {
-                    if (nVar instanceof b) {
-                        b bVar = (b) nVar;
-                        if (bVar.forumId == j) {
-                            bVar.eRl = z;
-                        }
-                    }
-                }
+    /* renamed from: e  reason: collision with root package name */
+    public d f21232e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f21233f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final HashMap<String, d.b.i0.z2.f.c> f21234g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final List<String> f21235h;
+    public CustomMessageListener i;
+    public CustomMessageListener j;
+    public d.b.b.c.g.a k;
+
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e)) {
+                return;
+            }
+            e eVar = (e) customResponsedMessage.getData();
+            if (eVar.f53594b) {
+                ForumSquareModel.this.L(eVar.f53593a, true);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.tieba.square.data.d dVar) {
-        String str = dVar.className;
-        if (TextUtils.isEmpty(str)) {
-            str = (String) y.getItem(this.nun, 0);
-            dVar.className = str;
+    /* loaded from: classes5.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
         }
-        String str2 = str;
-        c cVar = this.nul.get(str2);
-        if (cVar == null) {
-            cVar = new c();
-            this.nul.put(str2, cVar);
-        }
-        cVar.a(dVar);
-        if (this.nuk != null) {
-            this.nuk.d(str2, this.nun, cVar.getDataList());
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e)) {
+                return;
+            }
+            e eVar = (e) customResponsedMessage.getData();
+            if (eVar.f53594b) {
+                ForumSquareModel.this.L(eVar.f53593a, false);
+            }
         }
     }
 
-    public int w(List<n> list, int i) {
-        int count = y.getCount(list);
+    /* loaded from: classes5.dex */
+    public class c extends d.b.b.c.g.a {
+        public c(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            String str;
+            d.b.i0.z2.f.d data;
+            ForumSquareModel.this.f21233f = false;
+            if (responsedMessage == null) {
+                return;
+            }
+            ForumSquareModel.this.mErrorCode = responsedMessage.getError();
+            ForumSquareModel.this.mErrorString = responsedMessage.getErrorString();
+            if (!StringUtils.isNull(ForumSquareModel.this.mErrorString)) {
+                str = ForumSquareModel.this.mErrorString;
+            } else {
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
+            }
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(ForumSquareModel.this.mErrorCode);
+            errorData.setError_msg(str);
+            if (responsedMessage instanceof ForumSquareHttpResponsedMessage) {
+                data = ((ForumSquareHttpResponsedMessage) responsedMessage).getData();
+            } else {
+                data = responsedMessage instanceof ForumSquareSocketResponsedMessage ? ((ForumSquareSocketResponsedMessage) responsedMessage).getData() : null;
+            }
+            Object extra = responsedMessage.getOrginalMessage().getExtra();
+            String str2 = extra instanceof ForumSquareRequestMessage ? ((ForumSquareRequestMessage) extra).className : null;
+            ForumSquareModel.this.I(data);
+            if (ListUtils.isEmpty(ForumSquareModel.this.f21235h)) {
+                if (ForumSquareModel.this.f21232e != null) {
+                    ForumSquareModel.this.f21232e.c(errorData);
+                }
+            } else if (ForumSquareModel.this.mErrorCode != 0 || data == null) {
+                if (ForumSquareModel.this.f21232e != null) {
+                    ForumSquareModel.this.f21232e.b(str2, errorData);
+                }
+            } else {
+                ForumSquareModel.this.J(data);
+            }
+        }
+    }
+
+    public ForumSquareModel(Context context, d dVar) {
+        super(UtilHelper.getTbPageContext(context));
+        this.f21233f = false;
+        this.f21234g = new HashMap<>();
+        this.f21235h = new ArrayList();
+        this.i = new a(2001437);
+        this.j = new b(2001438);
+        c cVar = new c(CmdConfigHttp.CMD_FORUM_SQUARE, 309653);
+        this.k = cVar;
+        this.f21232e = dVar;
+        cVar.getHttpMessageListener().setSelfListener(true);
+        this.k.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.k);
+        registerListener(this.i);
+        registerListener(this.j);
+    }
+
+    public d.b.i0.z2.f.c E(String str) {
+        if (str == null) {
+            return null;
+        }
+        return this.f21234g.get(str);
+    }
+
+    public boolean F(String str) {
+        d.b.i0.z2.f.c cVar;
+        if (TextUtils.isEmpty(str) || (cVar = this.f21234g.get(str)) == null) {
+            return false;
+        }
+        return cVar.f63481d;
+    }
+
+    public boolean G() {
+        return this.f21233f;
+    }
+
+    public void H(String str) {
+        d.b.i0.z2.f.c cVar;
+        ForumSquareRequestMessage forumSquareRequestMessage = new ForumSquareRequestMessage();
+        forumSquareRequestMessage.className = str;
+        if (TextUtils.isEmpty(str)) {
+            cVar = new d.b.i0.z2.f.c();
+        } else {
+            d.b.i0.z2.f.c cVar2 = this.f21234g.get(str);
+            if (cVar2 == null) {
+                cVar2 = new d.b.i0.z2.f.c();
+                this.f21234g.put(str, cVar2);
+            }
+            cVar = cVar2;
+        }
+        forumSquareRequestMessage.pn = cVar.f63482e + 1;
+        this.f21233f = true;
+        sendMessage(forumSquareRequestMessage);
+    }
+
+    public final void I(d.b.i0.z2.f.d dVar) {
+        if (!ListUtils.isEmpty(this.f21235h) || dVar == null || ListUtils.isEmpty(dVar.f63486b)) {
+            return;
+        }
+        for (String str : dVar.f63486b) {
+            if (!TextUtils.isEmpty(str) && !this.f21235h.contains(str)) {
+                this.f21235h.add(str);
+            }
+        }
+    }
+
+    public final void J(d.b.i0.z2.f.d dVar) {
+        String str = dVar.f63488d;
+        if (TextUtils.isEmpty(str)) {
+            str = (String) ListUtils.getItem(this.f21235h, 0);
+            dVar.f63488d = str;
+        }
+        d.b.i0.z2.f.c cVar = this.f21234g.get(str);
+        if (cVar == null) {
+            cVar = new d.b.i0.z2.f.c();
+            this.f21234g.put(str, cVar);
+        }
+        cVar.b(dVar);
+        d dVar2 = this.f21232e;
+        if (dVar2 != null) {
+            dVar2.a(str, this.f21235h, cVar.a());
+        }
+    }
+
+    public int K(List<n> list, int i) {
+        int count = ListUtils.getCount(list);
         if (count <= i) {
             return 0;
         }
@@ -84,136 +220,28 @@ public class ForumSquareModel extends BdBaseModel {
         if (i2 <= 20 || i3 >= count - 20) {
             return 0;
         }
-        y.removeSubList(list, i2, i3);
+        ListUtils.removeSubList(list, i2, i3);
         return max;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(com.baidu.tieba.square.data.d dVar) {
-        if (y.isEmpty(this.nun) && dVar != null && !y.isEmpty(dVar.nsm)) {
-            for (String str : dVar.nsm) {
-                if (!TextUtils.isEmpty(str) && !this.nun.contains(str)) {
-                    this.nun.add(str);
-                }
-            }
-        }
-    }
-
-    public ForumSquareModel(Context context, d dVar) {
-        super(UtilHelper.getTbPageContext(context));
-        this.isLoading = false;
-        this.nul = new HashMap<>();
-        this.nun = new ArrayList();
-        this.mLikeForumListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tieba.square.model.ForumSquareModel.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
-                    e eVar = (e) customResponsedMessage.getData();
-                    if (eVar.isSuccess) {
-                        ForumSquareModel.this.s(eVar.forumId, true);
-                    }
-                }
-            }
-        };
-        this.fpa = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM) { // from class: com.baidu.tieba.square.model.ForumSquareModel.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
-                    e eVar = (e) customResponsedMessage.getData();
-                    if (eVar.isSuccess) {
-                        ForumSquareModel.this.s(eVar.forumId, false);
-                    }
-                }
-            }
-        };
-        this.eEU = new a(CmdConfigHttp.CMD_FORUM_SQUARE, 309653) { // from class: com.baidu.tieba.square.model.ForumSquareModel.3
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                String str;
-                com.baidu.tieba.square.data.d data;
-                ForumSquareModel.this.isLoading = false;
-                if (responsedMessage != null) {
-                    ForumSquareModel.this.mErrorCode = responsedMessage.getError();
-                    ForumSquareModel.this.mErrorString = responsedMessage.getErrorString();
-                    if (!StringUtils.isNull(ForumSquareModel.this.mErrorString)) {
-                        str = ForumSquareModel.this.mErrorString;
-                    } else {
-                        str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
-                    }
-                    ErrorData errorData = new ErrorData();
-                    errorData.setError_code(ForumSquareModel.this.mErrorCode);
-                    errorData.setError_msg(str);
-                    if (responsedMessage instanceof ForumSquareHttpResponsedMessage) {
-                        data = ((ForumSquareHttpResponsedMessage) responsedMessage).getData();
-                    } else {
-                        data = responsedMessage instanceof ForumSquareSocketResponsedMessage ? ((ForumSquareSocketResponsedMessage) responsedMessage).getData() : null;
-                    }
-                    Object extra = responsedMessage.getOrginalMessage().getExtra();
-                    String str2 = extra instanceof ForumSquareRequestMessage ? ((ForumSquareRequestMessage) extra).className : null;
-                    ForumSquareModel.this.c(data);
-                    if (y.isEmpty(ForumSquareModel.this.nun)) {
-                        if (ForumSquareModel.this.nuk != null) {
-                            ForumSquareModel.this.nuk.e(errorData);
+    public final void L(long j, boolean z) {
+        for (Map.Entry<String, d.b.i0.z2.f.c> entry : this.f21234g.entrySet()) {
+            d.b.i0.z2.f.c value = entry.getValue();
+            if (value != null && !ListUtils.isEmpty(value.a())) {
+                for (n nVar : value.a()) {
+                    if (nVar instanceof d.b.i0.z2.f.b) {
+                        d.b.i0.z2.f.b bVar = (d.b.i0.z2.f.b) nVar;
+                        if (bVar.f63474e == j) {
+                            bVar.f63477h = z;
                         }
-                    } else if (ForumSquareModel.this.mErrorCode != 0 || data == null) {
-                        if (ForumSquareModel.this.nuk != null) {
-                            ForumSquareModel.this.nuk.a(str2, errorData);
-                        }
-                    } else {
-                        ForumSquareModel.this.b(data);
                     }
                 }
             }
-        };
-        this.nuk = dVar;
-        this.eEU.getHttpMessageListener().setSelfListener(true);
-        this.eEU.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.eEU);
-        registerListener(this.mLikeForumListener);
-        registerListener(this.fpa);
-    }
-
-    public c Tc(String str) {
-        if (str == null) {
-            return null;
         }
-        return this.nul.get(str);
-    }
-
-    public void Td(String str) {
-        c cVar;
-        ForumSquareRequestMessage forumSquareRequestMessage = new ForumSquareRequestMessage();
-        forumSquareRequestMessage.className = str;
-        if (TextUtils.isEmpty(str)) {
-            cVar = new c();
-        } else {
-            cVar = this.nul.get(str);
-            if (cVar == null) {
-                cVar = new c();
-                this.nul.put(str, cVar);
-            }
-        }
-        forumSquareRequestMessage.pn = cVar.pn + 1;
-        this.isLoading = true;
-        sendMessage(forumSquareRequestMessage);
-    }
-
-    public boolean isLoading() {
-        return this.isLoading;
-    }
-
-    public boolean Te(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        c cVar = this.nul.get(str);
-        return cVar != null ? cVar.hasMore : false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -226,6 +254,6 @@ public class ForumSquareModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.isLoading = false;
+        this.f21233f = false;
     }
 }

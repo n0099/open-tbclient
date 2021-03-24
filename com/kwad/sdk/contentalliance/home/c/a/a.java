@@ -1,6 +1,6 @@
 package com.kwad.sdk.contentalliance.home.c.a;
 
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.lib.widget.recycler.b.b<AdTemplate, b> {
 }

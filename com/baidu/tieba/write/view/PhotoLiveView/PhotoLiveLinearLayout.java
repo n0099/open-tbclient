@@ -3,39 +3,42 @@ package com.baidu.tieba.write.view.PhotoLiveView;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PhotoLiveLinearLayout extends LinearLayout {
-    private a okq;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public a f22371e;
+
+    /* loaded from: classes5.dex */
     public interface a {
-        void dXR();
+        void a();
     }
 
     public PhotoLiveLinearLayout(Context context) {
         super(context);
-        this.okq = null;
-    }
-
-    public PhotoLiveLinearLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.okq = null;
+        this.f22371e = null;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
     }
 
     @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.okq != null) {
-            this.okq.dXR();
+        a aVar = this.f22371e;
+        if (aVar != null) {
+            aVar.a();
         }
     }
 
     public void setOnChangeLayoutListener(a aVar) {
-        this.okq = aVar;
+        this.f22371e = aVar;
+    }
+
+    public PhotoLiveLinearLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f22371e = null;
     }
 }

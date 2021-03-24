@@ -6,89 +6,101 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActivity> {
-    private a iEC;
-    private ArrayList<com.baidu.tieba.consumptionRecords.a> orderList;
-    private b recommendData;
-    private int currentPage = 0;
-    private int type = 1;
-    private int showMember = 1;
-    private boolean hasMore = false;
-    private HttpMessageListener mHttpMessageListener = new HttpMessageListener(1003075) { // from class: com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.1
+
+    /* renamed from: h  reason: collision with root package name */
+    public ArrayList<d.b.i0.a0.a> f15292h;
+    public d.b.i0.a0.b i;
+    public b k;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f15289e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f15290f = 1;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f15291g = 1;
+    public boolean j = false;
+    public HttpMessageListener l = new a(CmdConfigHttp.CMD_GET_USER_ORDER);
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetUserOrderHttpResponseMessage)) {
-                if (httpResponsedMessage.getError() != 0) {
-                    ConsumptionRecordsModel.a(ConsumptionRecordsModel.this);
-                    if (ConsumptionRecordsModel.this.iEC != null) {
-                        ConsumptionRecordsModel.this.iEC.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.orderList, ConsumptionRecordsModel.this.recommendData, ConsumptionRecordsModel.this.hasMore);
+            boolean z;
+            if (httpResponsedMessage != null && ((z = httpResponsedMessage instanceof GetUserOrderHttpResponseMessage))) {
+                if (httpResponsedMessage.getError() == 0) {
+                    if (z) {
+                        GetUserOrderHttpResponseMessage getUserOrderHttpResponseMessage = (GetUserOrderHttpResponseMessage) httpResponsedMessage;
+                        ConsumptionRecordsModel.this.A(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
+                    }
+                    if (ConsumptionRecordsModel.this.k != null) {
+                        ConsumptionRecordsModel.this.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.f15292h, ConsumptionRecordsModel.this.i, ConsumptionRecordsModel.this.j);
                         return;
                     }
                     return;
                 }
-                if (httpResponsedMessage instanceof GetUserOrderHttpResponseMessage) {
-                    GetUserOrderHttpResponseMessage getUserOrderHttpResponseMessage = (GetUserOrderHttpResponseMessage) httpResponsedMessage;
-                    ConsumptionRecordsModel.this.a(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
-                }
-                if (ConsumptionRecordsModel.this.iEC != null) {
-                    ConsumptionRecordsModel.this.iEC.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.orderList, ConsumptionRecordsModel.this.recommendData, ConsumptionRecordsModel.this.hasMore);
+                ConsumptionRecordsModel.s(ConsumptionRecordsModel.this);
+                if (ConsumptionRecordsModel.this.k != null) {
+                    ConsumptionRecordsModel.this.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.f15292h, ConsumptionRecordsModel.this.i, ConsumptionRecordsModel.this.j);
                 }
             }
         }
-    };
-
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(int i, String str, ArrayList<com.baidu.tieba.consumptionRecords.a> arrayList, b bVar, boolean z);
-
-        void ctB();
     }
 
-    static /* synthetic */ int a(ConsumptionRecordsModel consumptionRecordsModel) {
-        int i = consumptionRecordsModel.currentPage;
-        consumptionRecordsModel.currentPage = i - 1;
-        return i;
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(int i, String str, ArrayList<d.b.i0.a0.a> arrayList, d.b.i0.a0.b bVar, boolean z);
+
+        void b();
     }
 
     public ConsumptionRecordsModel(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
         registerTask();
-        this.mHttpMessageListener.setSelfListener(true);
-        registerListener(this.mHttpMessageListener);
+        this.l.setSelfListener(true);
+        registerListener(this.l);
     }
 
-    private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003075, TbConfig.SERVER_ADDRESS + TbConfig.GET_USER_ORDER);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(GetUserOrderHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public static /* synthetic */ int s(ConsumptionRecordsModel consumptionRecordsModel) {
+        int i = consumptionRecordsModel.f15289e;
+        consumptionRecordsModel.f15289e = i - 1;
+        return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(ArrayList<com.baidu.tieba.consumptionRecords.a> arrayList, b bVar, boolean z) {
+    public final void A(ArrayList<d.b.i0.a0.a> arrayList, d.b.i0.a0.b bVar, boolean z) {
         if (bVar != null) {
-            this.recommendData = bVar;
+            this.i = bVar;
         }
-        this.hasMore = z;
-        if (arrayList != null) {
-            if (this.orderList == null) {
-                this.orderList = new ArrayList<>();
-            }
-            if (this.currentPage == 1) {
-                this.orderList.clear();
-            }
-            this.orderList.addAll(arrayList);
+        this.j = z;
+        if (arrayList == null) {
+            return;
         }
+        if (this.f15292h == null) {
+            this.f15292h = new ArrayList<>();
+        }
+        if (this.f15289e == 1) {
+            this.f15292h.clear();
+        }
+        this.f15292h.addAll(arrayList);
+    }
+
+    public void B(b bVar) {
+        this.k = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -99,45 +111,51 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
 
     public void destroy() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.mHttpMessageListener);
+        MessageManager.getInstance().unRegisterListener(this.l);
     }
 
-    public void ctz() {
+    public final void registerTask() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_USER_ORDER, TbConfig.SERVER_ADDRESS + TbConfig.GET_USER_ORDER);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(GetUserOrderHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public void setShowMember(int i) {
+        this.f15291g = i;
+    }
+
+    public void setType(int i) {
+        this.f15290f = i;
+    }
+
+    public void y() {
         NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-        this.currentPage = 1;
-        newGetUserOrderRequestMessage.setPn(this.currentPage);
+        this.f15289e = 1;
+        newGetUserOrderRequestMessage.setPn(1);
         newGetUserOrderRequestMessage.setRn(10);
-        newGetUserOrderRequestMessage.setOrderType(this.type);
-        newGetUserOrderRequestMessage.setShowMember(this.showMember);
+        newGetUserOrderRequestMessage.setOrderType(this.f15290f);
+        newGetUserOrderRequestMessage.setShowMember(this.f15291g);
         sendMessage(newGetUserOrderRequestMessage);
     }
 
-    public void ctA() {
-        if (!this.hasMore) {
-            if (this.iEC != null) {
-                this.iEC.ctB();
+    public void z() {
+        if (!this.j) {
+            b bVar = this.k;
+            if (bVar != null) {
+                bVar.b();
                 return;
             }
             return;
         }
-        this.currentPage++;
+        this.f15289e++;
         NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-        newGetUserOrderRequestMessage.setPn(this.currentPage);
+        newGetUserOrderRequestMessage.setPn(this.f15289e);
         newGetUserOrderRequestMessage.setRn(10);
-        newGetUserOrderRequestMessage.setOrderType(this.type);
-        newGetUserOrderRequestMessage.setShowMember(this.showMember);
+        newGetUserOrderRequestMessage.setOrderType(this.f15290f);
+        newGetUserOrderRequestMessage.setShowMember(this.f15291g);
         sendMessage(newGetUserOrderRequestMessage);
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public void setShowMember(int i) {
-        this.showMember = i;
-    }
-
-    public void a(a aVar) {
-        this.iEC = aVar;
     }
 }

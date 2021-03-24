@@ -1,23 +1,29 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface TTFeedAd extends TTNativeAd {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface CustomizeVideo {
         String getVideoUrl();
+
+        void reportVideoAutoStart();
 
         void reportVideoBreak(long j);
 
         void reportVideoContinue(long j);
+
+        void reportVideoError(long j, int i, int i2);
 
         void reportVideoFinish();
 
         void reportVideoPause(long j);
 
         void reportVideoStart();
+
+        void reportVideoStartError(int i, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface VideoAdListener {
         void onProgressUpdate(long j, long j2);
 

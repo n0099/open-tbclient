@@ -1,12 +1,21 @@
 package com.googlecode.mp4parser.h264.model;
 
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ScalingMatrix {
     public ScalingList[] ScalingList4x4;
     public ScalingList[] ScalingList8x8;
 
     public String toString() {
-        return "ScalingMatrix{ScalingList4x4=" + (this.ScalingList4x4 == null ? null : Arrays.asList(this.ScalingList4x4)) + "\n, ScalingList8x8=" + (this.ScalingList8x8 != null ? Arrays.asList(this.ScalingList8x8) : null) + "\n}";
+        StringBuilder sb = new StringBuilder("ScalingMatrix{ScalingList4x4=");
+        ScalingList[] scalingListArr = this.ScalingList4x4;
+        sb.append(scalingListArr == null ? null : Arrays.asList(scalingListArr));
+        sb.append("\n");
+        sb.append(", ScalingList8x8=");
+        ScalingList[] scalingListArr2 = this.ScalingList8x8;
+        sb.append(scalingListArr2 != null ? Arrays.asList(scalingListArr2) : null);
+        sb.append("\n");
+        sb.append('}');
+        return sb.toString();
     }
 }

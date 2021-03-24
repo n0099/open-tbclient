@@ -8,9 +8,6 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
@@ -25,9 +22,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.tbadkCore.writeModel.b;
-import com.baidu.tieba.tbadkCore.writeModel.c;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+import d.b.i0.c3.q0.a;
+import d.b.i0.c3.q0.b;
+import d.b.i0.c3.q0.c;
+/* loaded from: classes3.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
     public static final String CAN_GOODS = "can_goods";
@@ -74,37 +73,106 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String VIDEO_INFO = "video_info";
     public static final String VIDEO_TITLE = "video_title";
 
-    public static boolean isAsyncWriting() {
-        return isAsyncWriting(true);
+    public WriteActivityConfig(Context context) {
+        super(context);
+        setIntentAction(IntentAction.ActivityForResult);
+        setRequestCode(13003);
     }
 
-    public static boolean isAsyncWriting(boolean z) {
-        Activity currentActivity;
-        boolean isAsyncWriting = com.baidu.tieba.tbadkCore.writeModel.a.dPl().isAsyncWriting();
-        b.d("发帖阻拦状态 = " + isAsyncWriting);
-        if (isAsyncWriting && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-            l.showToast(currentActivity, "正在发布，请稍后");
-        }
-        return isAsyncWriting;
+    public static boolean isAsyncWriting() {
+        return isAsyncWriting(true);
     }
 
     public static WriteActivityConfig newInstance(@NonNull Context context) {
         return new WriteActivityConfig(context);
     }
 
-    private WriteActivityConfig(Context context) {
-        super(context);
-        setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(RequestResponseCode.REQUEST_WRITE_NEW);
+    public void send() {
+        c.f53587g = new Intent(getIntent());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
     }
 
-    public WriteActivityConfig setFrom(String str) {
-        getIntent().putExtra("from", str);
+    public WriteActivityConfig setAdditionData(AdditionData additionData) {
+        if (additionData != null) {
+            getIntent().putExtra("addition_data", additionData);
+        }
         return this;
     }
 
-    public WriteActivityConfig setType(int i) {
-        getIntent().putExtra("type", i);
+    public WriteActivityConfig setAlbumThread(int i) {
+        getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
+        return this;
+    }
+
+    public WriteActivityConfig setAntiData(AntiData antiData) {
+        if (antiData != null) {
+            getIntent().putExtra(ENABLE_AUDIO, antiData.isIfvoice());
+            getIntent().putExtra(DISABLE_AUDIO_MESSAGE, antiData.getVoice_message());
+            getIntent().putExtra(CAN_GOODS, antiData.getCanGoods());
+        }
+        return this;
+    }
+
+    public WriteActivityConfig setCallFrom(String str) {
+        getIntent().putExtra("KEY_CALL_FROM", str);
+        return this;
+    }
+
+    public WriteActivityConfig setCanGoods(boolean z) {
+        getIntent().putExtra(CAN_GOODS, z);
+        return this;
+    }
+
+    public WriteActivityConfig setCategoryId(int i) {
+        getIntent().putExtra("category_id", i);
+        return this;
+    }
+
+    public WriteActivityConfig setContent(String str) {
+        getIntent().putExtra("write_content", str);
+        return this;
+    }
+
+    public WriteActivityConfig setFeedBack(boolean z) {
+        getIntent().putExtra(FEED_BACK, z);
+        return this;
+    }
+
+    public WriteActivityConfig setFloorId(String str) {
+        getIntent().putExtra(FLOOR_ID, str);
+        return this;
+    }
+
+    public WriteActivityConfig setFloorNum(int i) {
+        getIntent().putExtra("floor_num", i);
+        return this;
+    }
+
+    public WriteActivityConfig setForumData(ForumData forumData) {
+        if (forumData != null) {
+            setForumId(forumData.getId() != null ? forumData.getId() : "0");
+            setForumName(forumData.getName());
+            setPrefixData(forumData.getPrefixData());
+            setPrivateThread(forumData.getIsPrivateForum());
+            setForumDir(forumData.getFirst_class(), forumData.getSecond_class());
+        } else {
+            setForumId("0");
+            setForumDir("", "");
+        }
+        return this;
+    }
+
+    public WriteActivityConfig setForumDir(@Nullable String str, @Nullable String str2) {
+        Intent intent = getIntent();
+        if (str == null) {
+            str = "";
+        }
+        intent.putExtra(IntentConfig.FORUM_FIRST_DIR, str);
+        Intent intent2 = getIntent();
+        if (str2 == null) {
+            str2 = "";
+        }
+        intent2.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
         return this;
     }
 
@@ -122,105 +190,10 @@ public class WriteActivityConfig extends IntentConfig {
         return this;
     }
 
-    public WriteActivityConfig setIsReplySubPb(boolean z) {
-        getIntent().putExtra(REPLY_SUB_PB, z);
-        return this;
-    }
-
-    public WriteActivityConfig setAntiData(AntiData antiData) {
-        if (antiData != null) {
-            getIntent().putExtra(ENABLE_AUDIO, antiData.isIfvoice());
-            getIntent().putExtra(DISABLE_AUDIO_MESSAGE, antiData.getVoice_message());
-            getIntent().putExtra(CAN_GOODS, antiData.getCanGoods());
-        }
-        return this;
-    }
-
-    public WriteActivityConfig setFeedBack(boolean z) {
-        getIntent().putExtra(FEED_BACK, z);
-        return this;
-    }
-
-    public WriteActivityConfig setThreadId(String str) {
-        getIntent().putExtra("thread_id", str);
-        return this;
-    }
-
-    public WriteActivityConfig setFloorId(String str) {
-        getIntent().putExtra(FLOOR_ID, str);
-        return this;
-    }
-
-    public WriteActivityConfig setFloorNum(int i) {
-        getIntent().putExtra("floor_num", i);
-        return this;
-    }
-
-    public WriteActivityConfig setSubUserName(String str) {
-        getIntent().putExtra(SUB_USER_NAME, str);
-        return this;
-    }
-
-    public WriteActivityConfig setAdditionData(AdditionData additionData) {
-        if (additionData != null) {
-            getIntent().putExtra("addition_data", additionData);
-        }
-        return this;
-    }
-
-    public WriteActivityConfig setPrefixData(PostPrefixData postPrefixData) {
-        if (postPrefixData != null) {
-            getIntent().putExtra("prefix_data", postPrefixData);
-        }
-        return this;
-    }
-
-    public WriteActivityConfig setForumDir(@Nullable String str, @Nullable String str2) {
-        Intent intent = getIntent();
-        if (str == null) {
-            str = "";
-        }
-        intent.putExtra("forum_first_dir", str);
-        Intent intent2 = getIntent();
-        if (str2 == null) {
-            str2 = "";
-        }
-        intent2.putExtra("forum_second_dir", str2);
-        return this;
-    }
-
-    public WriteActivityConfig setCanGoods(boolean z) {
-        getIntent().putExtra(CAN_GOODS, z);
-        return this;
-    }
-
-    public WriteActivityConfig setHotTopicInfo(PostTopicData postTopicData) {
-        getIntent().putExtra("hot_topic", postTopicData);
-        return this;
-    }
-
-    public WriteActivityConfig setCategoryId(int i) {
-        getIntent().putExtra("category_id", i);
-        return this;
-    }
-
-    public WriteActivityConfig setForumData(ForumData forumData) {
-        if (forumData != null) {
-            setForumId(forumData.getId() == null ? "0" : forumData.getId());
-            setForumName(forumData.getName());
-            setPrefixData(forumData.getPrefixData());
-            setPrivateThread(forumData.getIsPrivateForum());
-            setForumDir(forumData.getFirst_class(), forumData.getSecond_class());
-        } else {
-            setForumId("0");
-            setForumDir("", "");
-        }
-        return this;
-    }
-
     public WriteActivityConfig setForumWriteData(ForumWriteData forumWriteData) {
         if (forumWriteData != null) {
-            setForumId(forumWriteData.forumId == null ? "0" : forumWriteData.forumId);
+            String str = forumWriteData.forumId;
+            setForumId(str != null ? str : "0");
             setForumName(forumWriteData.forumName);
             setAntiData(forumWriteData.antiData);
             setPrefixData(forumWriteData.prefixData);
@@ -239,92 +212,8 @@ public class WriteActivityConfig extends IntentConfig {
         return this;
     }
 
-    public WriteActivityConfig setTitle(String str) {
-        getIntent().putExtra("write_title", str);
-        return this;
-    }
-
-    public WriteActivityConfig setIsSaveDraft(boolean z) {
-        getIntent().putExtra("need_save_draft", z);
-        return this;
-    }
-
-    public WriteActivityConfig setIsVcodeFeedBack() {
-        getIntent().putExtra(VCODE_FEED_BACK, true);
-        return this;
-    }
-
-    public WriteActivityConfig setPrivateThread(int i) {
-        getIntent().putExtra("private_thread", i);
-        return this;
-    }
-
-    public WriteActivityConfig setAlbumThread(int i) {
-        getIntent().putExtra("album_thread", i);
-        return this;
-    }
-
-    public WriteActivityConfig setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        if (writeImagesInfo != null) {
-            getIntent().putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
-        }
-        return this;
-    }
-
-    public WriteActivityConfig setProfessionZone(int i) {
-        getIntent().putExtra(KEY_PROFESSION_ZONE, i);
-        return this;
-    }
-
-    public WriteActivityConfig setTopicId(String str) {
-        getIntent().putExtra(HOT_TOPIC_ID, str);
-        return this;
-    }
-
-    public WriteActivityConfig setContent(String str) {
-        getIntent().putExtra("write_content", str);
-        return this;
-    }
-
-    public WriteActivityConfig setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
-        getIntent().putExtra("tab_list", frsTabInfoData);
-        return this;
-    }
-
-    public WriteActivityConfig setShowHomepageTestBtn(boolean z) {
-        getIntent().putExtra(KEY_SHOW_HOMEPAGE_TEST_BTN, z);
-        return this;
-    }
-
-    public WriteActivityConfig setShowVoteData(WriteVoteData writeVoteData) {
-        getIntent().putExtra(IntentConfig.WRITE_VOTE_DATA, writeVoteData);
-        return this;
-    }
-
-    public WriteActivityConfig setVideoInfo(VideoInfo videoInfo) {
-        getIntent().putExtra(VIDEO_INFO, videoInfo);
-        return this;
-    }
-
-    public WriteActivityConfig setGoodsList(String str) {
-        if (!StringUtils.isNull(str)) {
-            getIntent().putExtra("goods_list", str);
-        }
-        return this;
-    }
-
-    public WriteActivityConfig setItemIsSchool(boolean z) {
-        getIntent().putExtra("item_is_school", z);
-        return this;
-    }
-
-    public WriteActivityConfig setScoreItemInfo(SerializableItemInfo serializableItemInfo) {
-        getIntent().putExtra("item_info", serializableItemInfo);
-        return this;
-    }
-
-    public WriteActivityConfig setStarCount(int i) {
-        getIntent().putExtra(STAR_COUNT, i);
+    public WriteActivityConfig setFrom(String str) {
+        getIntent().putExtra("from", str);
         return this;
     }
 
@@ -333,13 +222,20 @@ public class WriteActivityConfig extends IntentConfig {
         return this;
     }
 
-    public WriteActivityConfig setCallFrom(String str) {
-        getIntent().putExtra("KEY_CALL_FROM", str);
+    public WriteActivityConfig setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
+        getIntent().putExtra("tab_list", frsTabInfoData);
         return this;
     }
 
-    public WriteActivityConfig setStatisticFrom(int i) {
-        getIntent().putExtra(KEY_STATISTIS_FROM, i);
+    public WriteActivityConfig setGoodsList(String str) {
+        if (!StringUtils.isNull(str)) {
+            getIntent().putExtra(GOODS_LIST, str);
+        }
+        return this;
+    }
+
+    public WriteActivityConfig setHotTopicInfo(PostTopicData postTopicData) {
+        getIntent().putExtra("hot_topic", postTopicData);
         return this;
     }
 
@@ -353,8 +249,112 @@ public class WriteActivityConfig extends IntentConfig {
         return this;
     }
 
-    public void send() {
-        c.nDr = new Intent(getIntent());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, this));
+    public WriteActivityConfig setIsReplySubPb(boolean z) {
+        getIntent().putExtra(REPLY_SUB_PB, z);
+        return this;
+    }
+
+    public WriteActivityConfig setIsSaveDraft(boolean z) {
+        getIntent().putExtra("need_save_draft", z);
+        return this;
+    }
+
+    public WriteActivityConfig setIsVcodeFeedBack() {
+        getIntent().putExtra(VCODE_FEED_BACK, true);
+        return this;
+    }
+
+    public WriteActivityConfig setItemIsSchool(boolean z) {
+        getIntent().putExtra("item_is_school", z);
+        return this;
+    }
+
+    public WriteActivityConfig setPrefixData(PostPrefixData postPrefixData) {
+        if (postPrefixData != null) {
+            getIntent().putExtra("prefix_data", postPrefixData);
+        }
+        return this;
+    }
+
+    public WriteActivityConfig setPrivateThread(int i) {
+        getIntent().putExtra("private_thread", i);
+        return this;
+    }
+
+    public WriteActivityConfig setProfessionZone(int i) {
+        getIntent().putExtra(KEY_PROFESSION_ZONE, i);
+        return this;
+    }
+
+    public WriteActivityConfig setScoreItemInfo(SerializableItemInfo serializableItemInfo) {
+        getIntent().putExtra("item_info", serializableItemInfo);
+        return this;
+    }
+
+    public WriteActivityConfig setShowHomepageTestBtn(boolean z) {
+        getIntent().putExtra(KEY_SHOW_HOMEPAGE_TEST_BTN, z);
+        return this;
+    }
+
+    public WriteActivityConfig setShowVoteData(WriteVoteData writeVoteData) {
+        getIntent().putExtra(IntentConfig.WRITE_VOTE_DATA, writeVoteData);
+        return this;
+    }
+
+    public WriteActivityConfig setStarCount(int i) {
+        getIntent().putExtra(STAR_COUNT, i);
+        return this;
+    }
+
+    public WriteActivityConfig setStatisticFrom(int i) {
+        getIntent().putExtra(KEY_STATISTIS_FROM, i);
+        return this;
+    }
+
+    public WriteActivityConfig setSubUserName(String str) {
+        getIntent().putExtra(SUB_USER_NAME, str);
+        return this;
+    }
+
+    public WriteActivityConfig setThreadId(String str) {
+        getIntent().putExtra("thread_id", str);
+        return this;
+    }
+
+    public WriteActivityConfig setTitle(String str) {
+        getIntent().putExtra("write_title", str);
+        return this;
+    }
+
+    public WriteActivityConfig setTopicId(String str) {
+        getIntent().putExtra(HOT_TOPIC_ID, str);
+        return this;
+    }
+
+    public WriteActivityConfig setType(int i) {
+        getIntent().putExtra("type", i);
+        return this;
+    }
+
+    public WriteActivityConfig setVideoInfo(VideoInfo videoInfo) {
+        getIntent().putExtra(VIDEO_INFO, videoInfo);
+        return this;
+    }
+
+    public WriteActivityConfig setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
+        if (writeImagesInfo != null) {
+            getIntent().putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
+        }
+        return this;
+    }
+
+    public static boolean isAsyncWriting(boolean z) {
+        Activity currentActivity;
+        boolean l = a.f().l();
+        b.a("发帖阻拦状态 = " + l);
+        if (l && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
+            l.L(currentActivity, "正在发布，请稍后");
+        }
+        return l;
     }
 }

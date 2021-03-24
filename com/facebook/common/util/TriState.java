@@ -1,11 +1,90 @@
 package com.facebook.common.util;
 
 import com.facebook.infer.annotation.Functional;
-/* loaded from: classes4.dex */
+import javax.annotation.Nullable;
+/* loaded from: classes.dex */
 public enum TriState {
     YES,
     NO,
     UNSET;
+
+    /* renamed from: com.facebook.common.util.TriState$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$util$TriState;
+
+        static {
+            int[] iArr = new int[TriState.values().length];
+            $SwitchMap$com$facebook$common$util$TriState = iArr;
+            try {
+                iArr[TriState.YES.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$facebook$common$util$TriState[TriState.NO.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$facebook$common$util$TriState[TriState.UNSET.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    @Functional
+    public static TriState fromDbValue(int i) {
+        if (i != 1) {
+            if (i != 2) {
+                return UNSET;
+            }
+            return NO;
+        }
+        return YES;
+    }
+
+    @Functional
+    public boolean asBoolean() {
+        int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    throw new IllegalStateException("Unrecognized TriState value: " + this);
+                }
+                throw new IllegalStateException("No boolean equivalent for UNSET");
+            }
+            return false;
+        }
+        return true;
+    }
+
+    @Nullable
+    @Functional
+    public Boolean asBooleanObject() {
+        int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i == 3) {
+                    return null;
+                }
+                throw new IllegalStateException("Unrecognized TriState value: " + this);
+            }
+            return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
+    }
+
+    @Functional
+    public int getDbValue() {
+        int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+        int i2 = 1;
+        if (i != 1) {
+            i2 = 2;
+            if (i != 2) {
+                return 3;
+            }
+        }
+        return i2;
+    }
 
     @Functional
     public boolean isSet() {
@@ -23,68 +102,17 @@ public enum TriState {
     }
 
     @Functional
-    public boolean asBoolean() {
-        switch (this) {
-            case YES:
-                return true;
-            case NO:
-                return false;
-            case UNSET:
-                throw new IllegalStateException("No boolean equivalent for UNSET");
-            default:
-                throw new IllegalStateException("Unrecognized TriState value: " + this);
-        }
-    }
-
-    @Functional
     public boolean asBoolean(boolean z) {
-        switch (this) {
-            case YES:
-                return true;
-            case NO:
-                return false;
-            case UNSET:
-                return z;
-            default:
+        int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i == 3) {
+                    return z;
+                }
                 throw new IllegalStateException("Unrecognized TriState value: " + this);
+            }
+            return false;
         }
-    }
-
-    @Functional
-    public Boolean asBooleanObject() {
-        switch (this) {
-            case YES:
-                return Boolean.TRUE;
-            case NO:
-                return Boolean.FALSE;
-            case UNSET:
-                return null;
-            default:
-                throw new IllegalStateException("Unrecognized TriState value: " + this);
-        }
-    }
-
-    @Functional
-    public int getDbValue() {
-        switch (this) {
-            case YES:
-                return 1;
-            case NO:
-                return 2;
-            default:
-                return 3;
-        }
-    }
-
-    @Functional
-    public static TriState fromDbValue(int i) {
-        switch (i) {
-            case 1:
-                return YES;
-            case 2:
-                return NO;
-            default:
-                return UNSET;
-        }
+        return true;
     }
 }

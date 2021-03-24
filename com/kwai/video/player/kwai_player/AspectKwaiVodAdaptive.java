@@ -1,11 +1,11 @@
 package com.kwai.video.player.kwai_player;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AspectKwaiVodAdaptive {
     @NonNull
-    private final KwaiMediaPlayer mPlayer;
-    private String mRateConfig;
+    public final KwaiMediaPlayer mPlayer;
+    public String mRateConfig;
 
     public AspectKwaiVodAdaptive(@NonNull KwaiMediaPlayer kwaiMediaPlayer, boolean z) {
         this.mPlayer = kwaiMediaPlayer;

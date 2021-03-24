@@ -9,6 +9,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import androidx.annotation.WorkerThread;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.ksad.lottie.c.t;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,14 +19,14 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, k<d>> f5344a = new HashMap();
+    public static final Map<String, k<d>> f31372a = new HashMap();
 
     @Nullable
-    private static g a(d dVar, String str) {
+    public static g a(d dVar, String str) {
         for (g gVar : dVar.j().values()) {
             if (gVar.b().equals(str)) {
                 return gVar;
@@ -40,7 +41,7 @@ public class e {
     }
 
     @WorkerThread
-    private static j<d> a(InputStream inputStream, @Nullable String str, boolean z) {
+    public static j<d> a(InputStream inputStream, @Nullable String str, boolean z) {
         try {
             return b(new JsonReader(new InputStreamReader(inputStream)), str);
         } finally {
@@ -86,7 +87,7 @@ public class e {
         });
     }
 
-    private static k<d> a(@Nullable final String str, Callable<j<d>> callable) {
+    public static k<d> a(@Nullable final String str, Callable<j<d>> callable) {
         final d a2 = com.ksad.lottie.model.e.a().a(str);
         if (a2 != null) {
             return new k<>(new Callable<j<d>>() { // from class: com.ksad.lottie.e.5
@@ -99,8 +100,8 @@ public class e {
                 }
             });
         }
-        if (f5344a.containsKey(str)) {
-            return f5344a.get(str);
+        if (f31372a.containsKey(str)) {
+            return f31372a.get(str);
         }
         k<d> kVar = new k<>(callable);
         kVar.a(new h<d>() { // from class: com.ksad.lottie.e.6
@@ -110,21 +111,21 @@ public class e {
                 if (str != null) {
                     com.ksad.lottie.model.e.a().a(str, dVar);
                 }
-                e.f5344a.remove(str);
+                e.f31372a.remove(str);
             }
         });
         kVar.c(new h<Throwable>() { // from class: com.ksad.lottie.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ksad.lottie.h
             public void a(Throwable th) {
-                e.f5344a.remove(str);
+                e.f31372a.remove(str);
             }
         });
-        f5344a.put(str, kVar);
+        f31372a.put(str, kVar);
         return kVar;
     }
 
-    private static String a(@RawRes int i) {
+    public static String a(@RawRes int i) {
         return "rawRes_" + i;
     }
 
@@ -132,8 +133,8 @@ public class e {
     public static j<d> b(Context context, @RawRes int i) {
         try {
             return a(context.getResources().openRawResource(i), a(i));
-        } catch (Resources.NotFoundException e) {
-            return new j<>(e);
+        } catch (Resources.NotFoundException e2) {
+            return new j<>(e2);
         }
     }
 
@@ -143,53 +144,48 @@ public class e {
             d a2 = t.a(jsonReader);
             com.ksad.lottie.model.e.a().a(str, a2);
             return new j<>(a2);
-        } catch (Exception e) {
-            return new j<>(e);
+        } catch (Exception e2) {
+            return new j<>(e2);
         }
     }
 
     @WorkerThread
-    private static j<d> b(ZipInputStream zipInputStream, @Nullable String str) {
-        d dVar;
-        String[] split;
+    public static j<d> b(ZipInputStream zipInputStream, @Nullable String str) {
         HashMap hashMap = new HashMap();
         try {
             ZipEntry nextEntry = zipInputStream.getNextEntry();
-            d dVar2 = null;
+            d dVar = null;
             while (nextEntry != null) {
-                if (nextEntry.getName().contains("__MACOSX")) {
-                    zipInputStream.closeEntry();
-                    dVar = dVar2;
-                } else if (nextEntry.getName().contains(".json")) {
-                    dVar = a(zipInputStream, str, false).a();
-                } else if (nextEntry.getName().contains(".png")) {
-                    hashMap.put(nextEntry.getName().split("/")[split.length - 1], BitmapFactory.decodeStream(zipInputStream));
-                    dVar = dVar2;
-                } else {
-                    zipInputStream.closeEntry();
-                    dVar = dVar2;
+                if (!nextEntry.getName().contains("__MACOSX")) {
+                    if (nextEntry.getName().contains(".json")) {
+                        dVar = a(zipInputStream, str, false).a();
+                    } else if (nextEntry.getName().contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)) {
+                        String[] split = nextEntry.getName().split("/");
+                        hashMap.put(split[split.length - 1], BitmapFactory.decodeStream(zipInputStream));
+                    }
+                    nextEntry = zipInputStream.getNextEntry();
                 }
+                zipInputStream.closeEntry();
                 nextEntry = zipInputStream.getNextEntry();
-                dVar2 = dVar;
             }
-            if (dVar2 == null) {
+            if (dVar == null) {
                 return new j<>(new IllegalArgumentException("Unable to parse composition"));
             }
             for (Map.Entry entry : hashMap.entrySet()) {
-                g a2 = a(dVar2, (String) entry.getKey());
+                g a2 = a(dVar, (String) entry.getKey());
                 if (a2 != null) {
                     a2.a((Bitmap) entry.getValue());
                 }
             }
-            for (Map.Entry<String, g> entry2 : dVar2.j().entrySet()) {
+            for (Map.Entry<String, g> entry2 : dVar.j().entrySet()) {
                 if (entry2.getValue().c() == null) {
                     return new j<>(new IllegalStateException("There is no image for " + entry2.getValue().b()));
                 }
             }
-            com.ksad.lottie.model.e.a().a(str, dVar2);
-            return new j<>(dVar2);
-        } catch (IOException e) {
-            return new j<>(e);
+            com.ksad.lottie.model.e.a().a(str, dVar);
+            return new j<>(dVar);
+        } catch (IOException e2) {
+            return new j<>(e2);
         }
     }
 
@@ -210,8 +206,8 @@ public class e {
         try {
             String str2 = "asset_" + str;
             return str.endsWith(".zip") ? a(new ZipInputStream(context.getAssets().open(str)), str2) : a(context.getAssets().open(str), str2);
-        } catch (IOException e) {
-            return new j<>(e);
+        } catch (IOException e2) {
+            return new j<>(e2);
         }
     }
 }

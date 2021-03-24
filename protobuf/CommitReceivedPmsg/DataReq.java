@@ -2,7 +2,7 @@ package protobuf.CommitReceivedPmsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long groupId;
@@ -20,45 +20,7 @@ public final class DataReq extends Message {
     public static final Long DEFAULT_MSGID = 0L;
     public static final Integer DEFAULT_TOUSERTYPE = 0;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-            } else {
-                this.groupId = builder.groupId;
-            }
-            if (builder.toUid == null) {
-                this.toUid = DEFAULT_TOUID;
-            } else {
-                this.toUid = builder.toUid;
-            }
-            if (builder.msgType == null) {
-                this.msgType = DEFAULT_MSGTYPE;
-            } else {
-                this.msgType = builder.msgType;
-            }
-            if (builder.msgId == null) {
-                this.msgId = DEFAULT_MSGID;
-            } else {
-                this.msgId = builder.msgId;
-            }
-            if (builder.toUserType == null) {
-                this.toUserType = DEFAULT_TOUSERTYPE;
-                return;
-            } else {
-                this.toUserType = builder.toUserType;
-                return;
-            }
-        }
-        this.groupId = builder.groupId;
-        this.toUid = builder.toUid;
-        this.msgType = builder.msgType;
-        this.msgId = builder.msgId;
-        this.toUserType = builder.toUserType;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long groupId;
         public Long msgId;
@@ -71,13 +33,14 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.groupId = dataReq.groupId;
-                this.toUid = dataReq.toUid;
-                this.msgType = dataReq.msgType;
-                this.msgId = dataReq.msgId;
-                this.toUserType = dataReq.toUserType;
+            if (dataReq == null) {
+                return;
             }
+            this.groupId = dataReq.groupId;
+            this.toUid = dataReq.toUid;
+            this.msgType = dataReq.msgType;
+            this.msgId = dataReq.msgId;
+            this.toUserType = dataReq.toUserType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -85,5 +48,48 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.groupId;
+            if (l == null) {
+                this.groupId = DEFAULT_GROUPID;
+            } else {
+                this.groupId = l;
+            }
+            Long l2 = builder.toUid;
+            if (l2 == null) {
+                this.toUid = DEFAULT_TOUID;
+            } else {
+                this.toUid = l2;
+            }
+            Integer num = builder.msgType;
+            if (num == null) {
+                this.msgType = DEFAULT_MSGTYPE;
+            } else {
+                this.msgType = num;
+            }
+            Long l3 = builder.msgId;
+            if (l3 == null) {
+                this.msgId = DEFAULT_MSGID;
+            } else {
+                this.msgId = l3;
+            }
+            Integer num2 = builder.toUserType;
+            if (num2 == null) {
+                this.toUserType = DEFAULT_TOUSERTYPE;
+                return;
+            } else {
+                this.toUserType = num2;
+                return;
+            }
+        }
+        this.groupId = builder.groupId;
+        this.toUid = builder.toUid;
+        this.msgType = builder.msgType;
+        this.msgId = builder.msgId;
+        this.toUserType = builder.toUserType;
     }
 }

@@ -5,12 +5,22 @@ import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
 /* loaded from: classes5.dex */
 public class LibraryLoader {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static volatile LibraryLoader oRA;
-    private static final Object sLock;
-    private final int oRB;
 
-    private static native boolean nativeForkAndPrefetchNativeLibrary();
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile LibraryLoader f22664b;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final int f22665a;
+
+    @CalledByNative
+    public static int getLibraryProcessType() {
+        if (f22664b == null) {
+            return 0;
+        }
+        return f22664b.f22665a;
+    }
+
+    public static native boolean nativeForkAndPrefetchNativeLibrary();
 
     private native String nativeGetVersionNumber();
 
@@ -18,7 +28,7 @@ public class LibraryLoader {
 
     private native boolean nativeLibraryLoaded();
 
-    private static native int nativePercentageOfResidentNativeLibraryCode();
+    public static native int nativePercentageOfResidentNativeLibraryCode();
 
     private native void nativeRecordChromiumAndroidLinkerBrowserHistogram(boolean z, boolean z2, int i, long j);
 
@@ -27,17 +37,4 @@ public class LibraryLoader {
     private native void nativeRegisterChromiumAndroidLinkerRendererHistogram(boolean z, boolean z2, long j);
 
     private native void nativeRegisterLibraryPreloaderRendererHistogram(int i);
-
-    static {
-        $assertionsDisabled = !LibraryLoader.class.desiredAssertionStatus();
-        sLock = new Object();
-    }
-
-    @CalledByNative
-    public static int getLibraryProcessType() {
-        if (oRA == null) {
-            return 0;
-        }
-        return oRA.oRB;
-    }
 }

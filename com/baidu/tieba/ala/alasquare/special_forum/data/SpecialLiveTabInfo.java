@@ -7,51 +7,49 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class SpecialLiveTabInfo implements Parcelable {
-    public static final Parcelable.Creator<SpecialLiveTabInfo> CREATOR = new Parcelable.Creator<SpecialLiveTabInfo>() { // from class: com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveTabInfo.1
+    public static final Parcelable.Creator<SpecialLiveTabInfo> CREATOR = new a();
+    public List<String> sortTypeList;
+    public int tabId;
+    public String tabName;
+    public int tabType;
+
+    /* loaded from: classes4.dex */
+    public static class a implements Parcelable.Creator<SpecialLiveTabInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: W */
+        /* renamed from: a */
         public SpecialLiveTabInfo createFromParcel(Parcel parcel) {
             return new SpecialLiveTabInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: tR */
+        /* renamed from: b */
         public SpecialLiveTabInfo[] newArray(int i) {
             return new SpecialLiveTabInfo[i];
         }
-    };
-    public List<String> sortTypeList;
-    public int tabId;
-    public String tabName;
-    public int tabType;
+    }
 
     public SpecialLiveTabInfo() {
     }
 
-    public SpecialLiveTabInfo(Parcel parcel) {
-        this.tabId = parcel.readInt();
-        this.tabName = parcel.readString();
-        this.tabType = parcel.readInt();
-        this.sortTypeList = parcel.createStringArrayList();
-    }
-
-    public void parse(JSONObject jSONObject) throws JSONException {
-        if (jSONObject != null) {
-            this.tabId = jSONObject.optInt("tab_id");
-            this.tabName = jSONObject.optString("tab_name");
-            this.tabType = jSONObject.optInt("icon_type");
-            JSONArray optJSONArray = jSONObject.optJSONArray("live_tab_type");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                int length = optJSONArray.length();
-                this.sortTypeList = new ArrayList(length);
-                for (int i = 0; i < length; i++) {
-                    this.sortTypeList.add(optJSONArray.optString(i));
-                }
-            }
+    public void a(JSONObject jSONObject) throws JSONException {
+        if (jSONObject == null) {
+            return;
+        }
+        this.tabId = jSONObject.optInt("tab_id");
+        this.tabName = jSONObject.optString("tab_name");
+        this.tabType = jSONObject.optInt("icon_type");
+        JSONArray optJSONArray = jSONObject.optJSONArray("live_tab_type");
+        if (optJSONArray == null || optJSONArray.length() <= 0) {
+            return;
+        }
+        int length = optJSONArray.length();
+        this.sortTypeList = new ArrayList(length);
+        for (int i = 0; i < length; i++) {
+            this.sortTypeList.add(optJSONArray.optString(i));
         }
     }
 
@@ -66,5 +64,12 @@ public class SpecialLiveTabInfo implements Parcelable {
         parcel.writeString(this.tabName);
         parcel.writeInt(this.tabType);
         parcel.writeStringList(this.sortTypeList);
+    }
+
+    public SpecialLiveTabInfo(Parcel parcel) {
+        this.tabId = parcel.readInt();
+        this.tabName = parcel.readString();
+        this.tabType = parcel.readInt();
+        this.sortTypeList = parcel.createStringArrayList();
     }
 }

@@ -1,18 +1,20 @@
 package com.meizu.cloud.pushsdk.c.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum b {
     OFF(0),
     ERROR(1),
     DEBUG(2),
     VERBOSE(3);
     
-    private int e;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f37792e;
 
     b(int i) {
-        this.e = i;
+        this.f37792e = i;
     }
 
     public int a() {
-        return this.e;
+        return this.f37792e;
     }
 }

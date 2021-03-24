@@ -1,68 +1,79 @@
 package com.kwad.sdk.api.loader;
 
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-class a {
+/* loaded from: classes6.dex */
+public class a {
 
     /* renamed from: com.kwad.sdk.api.loader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    static class C1087a {
+    /* loaded from: classes6.dex */
+    public static class C0354a {
 
         /* renamed from: a  reason: collision with root package name */
-        int f5457a;
-        String b;
-        String c;
-        long d;
-        String e;
-        transient File f;
+        public int f31772a;
 
-        C1087a() {
-        }
+        /* renamed from: b  reason: collision with root package name */
+        public String f31773b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f31774c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public long f31775d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public String f31776e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public transient File f31777f;
 
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f5457a = jSONObject.optInt("dynamicType");
-            this.b = jSONObject.optString("dynamicUrl");
-            this.c = jSONObject.optString("md5");
-            this.d = jSONObject.optLong("interval");
-            this.e = jSONObject.optString(CommandMessage.SDK_VERSION);
+            this.f31772a = jSONObject.optInt("dynamicType");
+            this.f31773b = jSONObject.optString("dynamicUrl");
+            this.f31774c = jSONObject.optString(PackageTable.MD5);
+            this.f31775d = jSONObject.optLong("interval");
+            this.f31776e = jSONObject.optString(CommandMessage.SDK_VERSION);
         }
 
         public boolean a() {
-            return this.f5457a == 1;
+            return this.f31772a == 1;
         }
 
         public boolean b() {
-            return this.f5457a == -1;
+            return this.f31772a == -1;
         }
     }
 
-    /* loaded from: classes3.dex */
-    static class b {
+    /* loaded from: classes6.dex */
+    public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        long f5458a;
-        String b;
-        C1087a c;
+        public long f31778a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f31779b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public C0354a f31780c;
 
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f5458a = jSONObject.optLong("result");
-            this.b = jSONObject.optString(TiebaInitialize.LogFields.ERROR_MESSAGE);
-            this.c = new C1087a();
-            this.c.a(jSONObject.optJSONObject("data"));
+            this.f31778a = jSONObject.optLong("result");
+            this.f31779b = jSONObject.optString("errorMsg");
+            C0354a c0354a = new C0354a();
+            this.f31780c = c0354a;
+            c0354a.a(jSONObject.optJSONObject("data"));
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public boolean a() {
-            return this.f5458a == 1 && this.c != null;
+            return this.f31778a == 1 && this.f31780c != null;
         }
     }
 }

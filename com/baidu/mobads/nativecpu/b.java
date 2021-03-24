@@ -2,21 +2,22 @@ package com.baidu.mobads.nativecpu;
 
 import com.baidu.mobads.nativecpu.NativeCPUManager;
 import java.util.List;
-/* loaded from: classes4.dex */
-class b implements Runnable {
+/* loaded from: classes2.dex */
+public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f2431a;
-    final /* synthetic */ NativeCPUManager.a b;
+    public final /* synthetic */ List f8389a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ NativeCPUManager.a f8390b;
+
     public b(NativeCPUManager.a aVar, List list) {
-        this.b = aVar;
-        this.f2431a = list;
+        this.f8390b = aVar;
+        this.f8389a = list;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        NativeCPUManager.this.b.onAdLoaded(this.f2431a);
+        NativeCPUManager.this.f8374b.onAdLoaded(this.f8389a);
     }
 }

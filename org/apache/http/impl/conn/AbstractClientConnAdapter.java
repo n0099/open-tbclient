@@ -14,85 +14,31 @@ import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.ManagedClientConnection;
 import org.apache.http.conn.OperatedClientConnection;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractClientConnAdapter implements ManagedClientConnection {
-    /* JADX INFO: Access modifiers changed from: protected */
     public AbstractClientConnAdapter(ClientConnectionManager clientConnectionManager, OperatedClientConnection operatedClientConnection) {
         throw new RuntimeException("Stub!");
     }
 
-    protected void detach() {
+    @Override // org.apache.http.conn.ConnectionReleaseTrigger
+    public void abortConnection() {
         throw new RuntimeException("Stub!");
     }
 
-    protected OperatedClientConnection getWrappedConnection() {
+    public final void assertNotAborted() throws InterruptedIOException {
         throw new RuntimeException("Stub!");
     }
 
-    protected ClientConnectionManager getManager() {
+    public final void assertValid(OperatedClientConnection operatedClientConnection) {
         throw new RuntimeException("Stub!");
     }
 
-    protected final void assertNotAborted() throws InterruptedIOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected final void assertValid(OperatedClientConnection operatedClientConnection) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpConnection
-    public boolean isOpen() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpConnection
-    public boolean isStale() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpConnection
-    public void setSocketTimeout(int i) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpConnection
-    public int getSocketTimeout() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpConnection
-    public HttpConnectionMetrics getMetrics() {
+    public void detach() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpClientConnection
     public void flush() throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpClientConnection
-    public boolean isResponseAvailable(int i) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpClientConnection
-    public void receiveResponseEntity(HttpResponse httpResponse) throws HttpException, IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpClientConnection
-    public HttpResponse receiveResponseHeader() throws HttpException, IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpClientConnection
-    public void sendRequestEntity(HttpEntityEnclosingRequest httpEntityEnclosingRequest) throws HttpException, IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpClientConnection
-    public void sendRequestHeader(HttpRequest httpRequest) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -103,6 +49,15 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
 
     @Override // org.apache.http.HttpInetConnection
     public int getLocalPort() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public ClientConnectionManager getManager() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpConnection
+    public HttpConnectionMetrics getMetrics() {
         throw new RuntimeException("Stub!");
     }
 
@@ -117,22 +72,16 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
     }
 
     @Override // org.apache.http.conn.ManagedClientConnection
-    public boolean isSecure() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.conn.ManagedClientConnection
     public SSLSession getSSLSession() {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.conn.ManagedClientConnection
-    public void markReusable() {
+    @Override // org.apache.http.HttpConnection
+    public int getSocketTimeout() {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.conn.ManagedClientConnection
-    public void unmarkReusable() {
+    public OperatedClientConnection getWrappedConnection() {
         throw new RuntimeException("Stub!");
     }
 
@@ -141,8 +90,38 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
         throw new RuntimeException("Stub!");
     }
 
+    @Override // org.apache.http.HttpConnection
+    public boolean isOpen() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpClientConnection
+    public boolean isResponseAvailable(int i) throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
     @Override // org.apache.http.conn.ManagedClientConnection
-    public void setIdleDuration(long j, TimeUnit timeUnit) {
+    public boolean isSecure() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpConnection
+    public boolean isStale() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.conn.ManagedClientConnection
+    public void markReusable() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpClientConnection
+    public void receiveResponseEntity(HttpResponse httpResponse) throws HttpException, IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpClientConnection
+    public HttpResponse receiveResponseHeader() throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -151,8 +130,28 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.conn.ConnectionReleaseTrigger
-    public void abortConnection() {
+    @Override // org.apache.http.HttpClientConnection
+    public void sendRequestEntity(HttpEntityEnclosingRequest httpEntityEnclosingRequest) throws HttpException, IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpClientConnection
+    public void sendRequestHeader(HttpRequest httpRequest) throws HttpException, IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.conn.ManagedClientConnection
+    public void setIdleDuration(long j, TimeUnit timeUnit) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpConnection
+    public void setSocketTimeout(int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.conn.ManagedClientConnection
+    public void unmarkReusable() {
         throw new RuntimeException("Stub!");
     }
 }

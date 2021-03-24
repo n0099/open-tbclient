@@ -7,21 +7,18 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotRanklistActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.atomData.RelateTopicForumActivityConfig;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tbadk.util.al;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import com.baidu.tieba.frs.g;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
 import com.baidu.tieba.hottopic.frs.FrsHottopicFragment;
@@ -33,128 +30,159 @@ import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.tieba.newlist.HotTopicListActivity;
+import d.b.h0.r.q.a2;
+import d.b.h0.z0.n0;
+import d.b.i0.p0.g;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class HotTopicStatic {
+
+    /* loaded from: classes4.dex */
+    public static class a implements UrlManager.UrlDealListener {
+        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+            String lowerCase;
+            if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null || (lowerCase = strArr[0].toLowerCase()) == null || d.b.h0.p0.b.c(tbPageContext, false, true) || !(lowerCase.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC) || lowerCase.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW) || lowerCase.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC) || lowerCase.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW))) {
+                return 3;
+            }
+            String c2 = n0.c(lowerCase, "topic_id=");
+            String c3 = n0.c(lowerCase, "topic_name=");
+            if (!StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
+                tbPageContext.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(c2, c3, (strArr == null || strArr.length <= 1 || StringUtils.isNull(strArr[1])) ? "" : strArr[1])));
+                return 1;
+            }
+            return 3;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new d.b.i0.b1.d.c(null, a2.o3));
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements UrlManager.UrlSchemaHandler {
+        @Override // com.baidu.tbadk.core.util.UrlManager.UrlSchemaHandler
+        public void deal(TbPageContext<?> tbPageContext, Map<String, String> map) {
+            if (tbPageContext == null || map == null) {
+                return;
+            }
+            new HotRanklistActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(map.get(IntentConfig.CALL_FROM), map.get(IntentConfig.LIST_TYPE)).start();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d extends CustomMessageListener {
+
+        /* loaded from: classes4.dex */
+        public class a extends d.b.h0.e0.b {
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ g f17557a;
+
+            public a(d dVar, g gVar) {
+                this.f17557a = gVar;
+            }
+
+            @Override // d.b.h0.e0.b
+            public d.b.h0.e0.c createFragmentTabStructure() {
+                FrsHottopicFragment frsHottopicFragment = new FrsHottopicFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("fid", this.f17557a.b());
+                bundle.putString("from", this.f17557a.d());
+                frsHottopicFragment.setArguments(bundle);
+                d.b.h0.e0.c cVar = new d.b.h0.e0.c();
+                cVar.f50154a = frsHottopicFragment;
+                cVar.f50158e = 401;
+                cVar.f50161h = d.b.h0.e0.c.j;
+                return cVar;
+            }
+
+            @Override // d.b.h0.e0.b
+            public TbFragmentTabIndicator getTabIndicator(Context context) {
+                return null;
+            }
+
+            @Override // d.b.h0.e0.b
+            public boolean isAvailable() {
+                return true;
+            }
+        }
+
+        public d(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof g)) {
+                return;
+            }
+            g gVar = (g) customResponsedMessage.getData();
+            gVar.a(new a(this, gVar));
+        }
+    }
+
     static {
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicActivityConfig.class, HotTopicDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(RelateTopicForumActivityConfig.class, RelateTopicForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(HotRanklistActivityConfig.class, HotTopicListActivity.class);
-        cTh();
-        cTi();
-        cTj();
-        cwh();
-        cTk();
-        cTl();
-        cTm();
-        bRg();
+        f();
+        h();
+        c();
+        b();
+        a();
+        e();
+        g();
+        d();
     }
 
-    private static void cTh() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_HOT_TOPIC, ResponseSocketHotTopicMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_HOT_TOPIC, 1003041, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+    public static void a() {
+        MessageManager.getInstance().registerListener(new b(2003008));
     }
 
-    private static void cTi() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_RELATE_THREAD, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_RELATE_THREAD, 1003042, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+    public static void b() {
+        UrlManager.getInstance().addListener(new a());
     }
 
-    private static void cTj() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_BLESS, BlessSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_BLESS, 1003065, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+    public static void c() {
+        d.b.i0.c3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
-    private static void cwh() {
-        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.1
-            @Override // com.baidu.tbadk.core.util.bf.a
-            public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-                String lowerCase;
-                if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null || (lowerCase = strArr[0].toLowerCase()) == null || com.baidu.tbadk.plugins.b.a(tbPageContext, false, true)) {
-                    return 3;
-                }
-                if (lowerCase.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC) || lowerCase.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW) || lowerCase.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC) || lowerCase.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW)) {
-                    String matchStringFromURL = al.getMatchStringFromURL(lowerCase, "topic_id=");
-                    String matchStringFromURL2 = al.getMatchStringFromURL(lowerCase, "topic_name=");
-                    if (StringUtils.isNull(matchStringFromURL) || StringUtils.isNull(matchStringFromURL2, true)) {
-                        return 3;
-                    }
-                    String str = "";
-                    if (strArr != null && strArr.length > 1 && !StringUtils.isNull(strArr[1])) {
-                        str = strArr[1];
-                    }
-                    tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(matchStringFromURL, matchStringFromURL2, str)));
-                    return 1;
-                }
-                return 3;
-            }
-        });
+    public static void d() {
+        d dVar = new d(2001623);
+        dVar.setPriority(1);
+        MessageManager.getInstance().registerListener(dVar);
     }
 
-    private static void cTk() {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new com.baidu.tieba.hottopic.frs.c(null, cb.eSv));
-                }
-            }
-        });
+    public static void e() {
+        d.b.i0.c3.d0.a.h(309289, ResponseSocketHotRanklistMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309289, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
     }
 
-    private static void cTl() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST, ResponseSocketHotRanklistMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST, 1003078, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
+    public static void f() {
+        d.b.i0.c3.d0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
     }
 
-    private static void cTm() {
-        bf.bsY().a(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST, new bf.b() { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.3
-            @Override // com.baidu.tbadk.core.util.bf.b
-            public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
-                if (tbPageContext != null && map != null) {
-                    new HotRanklistActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(map.get("call_from"), map.get("list_type")).start();
-                }
-            }
-        });
+    public static void g() {
+        UrlManager.getInstance().registerSchema(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST, new c());
     }
 
-    private static void bRg() {
-        CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_TAB) { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof g)) {
-                    final g gVar = (g) customResponsedMessage.getData();
-                    gVar.b(new com.baidu.tbadk.mainTab.b() { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.4.1
-                        @Override // com.baidu.tbadk.mainTab.b
-                        public boolean isAvailable() {
-                            return true;
-                        }
-
-                        @Override // com.baidu.tbadk.mainTab.b
-                        public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
-                            FrsHottopicFragment frsHottopicFragment = new FrsHottopicFragment();
-                            Bundle bundle = new Bundle();
-                            bundle.putString("fid", gVar.getForumId());
-                            bundle.putString("from", gVar.getFrom());
-                            frsHottopicFragment.setArguments(bundle);
-                            com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-                            cVar.frag = frsHottopicFragment;
-                            cVar.type = 401;
-                            cVar.showIconType = com.baidu.tbadk.mainTab.c.SHOWTEXT;
-                            return cVar;
-                        }
-
-                        @Override // com.baidu.tbadk.mainTab.b
-                        public TbFragmentTabIndicator getTabIndicator(Context context) {
-                            return null;
-                        }
-                    });
-                }
-            }
-        };
-        customMessageListener.setPriority(1);
-        MessageManager.getInstance().registerListener(customMessageListener);
+    public static void h() {
+        d.b.i0.c3.d0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
     }
 }

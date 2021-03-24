@@ -17,97 +17,437 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.FlipLoadingLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.RotateLoadingLayout;
-import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import com.baidu.tieba.R$styleable;
+/* loaded from: classes3.dex */
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
-    private Interpolator bNV;
-    T dAF;
-    private FrameLayout dAG;
-    private State fWR;
-    private Mode fWS;
-    private Mode fWT;
-    private boolean fWU;
-    private boolean fWV;
-    private boolean fWW;
-    private boolean fWX;
-    private boolean fWY;
-    private AnimationStyle fWZ;
-    private LoadingLayout fXa;
-    private LoadingLayout fXb;
-    private b<T> fXc;
-    private c<T> fXd;
-    private a<T> fXe;
-    private PullToRefreshBase<T>.e fXf;
-    private float mInitialMotionX;
-    private float mInitialMotionY;
-    private boolean mIsBeingDragged;
-    private float mLastMotionX;
-    private float mLastMotionY;
-    private int mTouchSlop;
+    public PullToRefreshBase<T>.h A;
 
-    /* loaded from: classes.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public int f14259e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f14260f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f14261g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f14262h;
+    public float i;
+    public boolean j;
+    public State k;
+    public Mode l;
+    public Mode m;
+    public T n;
+    public FrameLayout o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public boolean s;
+    public Interpolator t;
+    public AnimationStyle u;
+    public LoadingLayout v;
+    public LoadingLayout w;
+    public f<T> x;
+    public e<T> y;
+    public d<T> z;
+
+    /* loaded from: classes3.dex */
+    public enum AnimationStyle {
+        ROTATE,
+        FLIP;
+
+        public static AnimationStyle getDefault() {
+            return ROTATE;
+        }
+
+        public static AnimationStyle mapIntToValue(int i) {
+            if (i != 1) {
+                return ROTATE;
+            }
+            return FLIP;
+        }
+
+        public LoadingLayout createLoadingLayout(Context context, Mode mode, Orientation orientation, TypedArray typedArray) {
+            if (c.f14268d[ordinal()] != 2) {
+                return new RotateLoadingLayout(context, mode, orientation, typedArray);
+            }
+            return new FlipLoadingLayout(context, mode, orientation, typedArray);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public enum Mode {
+        DISABLED(0),
+        PULL_FROM_START(1),
+        PULL_FROM_END(2),
+        BOTH(3),
+        MANUAL_REFRESH_ONLY(4);
+        
+        public static Mode PULL_DOWN_TO_REFRESH;
+        public static Mode PULL_UP_TO_REFRESH;
+        public int mIntValue;
+
+        static {
+            Mode mode = PULL_FROM_START;
+            Mode mode2 = PULL_FROM_END;
+            PULL_DOWN_TO_REFRESH = mode;
+            PULL_UP_TO_REFRESH = mode2;
+        }
+
+        Mode(int i) {
+            this.mIntValue = i;
+        }
+
+        public static Mode getDefault() {
+            return PULL_FROM_START;
+        }
+
+        public static Mode mapIntToValue(int i) {
+            Mode[] values;
+            for (Mode mode : values()) {
+                if (i == mode.getIntValue()) {
+                    return mode;
+                }
+            }
+            return getDefault();
+        }
+
+        public int getIntValue() {
+            return this.mIntValue;
+        }
+
+        public boolean permitsPullToRefresh() {
+            return (this == DISABLED || this == MANUAL_REFRESH_ONLY) ? false : true;
+        }
+
+        public boolean showFooterLoadingLayout() {
+            return this == PULL_FROM_END || this == BOTH || this == MANUAL_REFRESH_ONLY;
+        }
+
+        public boolean showHeaderLoadingLayout() {
+            return this == PULL_FROM_START || this == BOTH;
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public enum Orientation {
         VERTICAL,
         HORIZONTAL
     }
 
-    /* loaded from: classes.dex */
-    public interface a<V extends View> {
+    /* loaded from: classes3.dex */
+    public enum State {
+        RESET(0),
+        PULL_TO_REFRESH(1),
+        RELEASE_TO_REFRESH(2),
+        REFRESHING(8),
+        MANUAL_REFRESHING(9),
+        OVERSCROLLING(16);
+        
+        public int mIntValue;
+
+        State(int i) {
+            this.mIntValue = i;
+        }
+
+        public static State mapIntToValue(int i) {
+            State[] values;
+            for (State state : values()) {
+                if (i == state.getIntValue()) {
+                    return state;
+                }
+            }
+            return RESET;
+        }
+
+        public int getIntValue() {
+            return this.mIntValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements g {
+        public a() {
+        }
+
+        @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.g
+        public void a() {
+            PullToRefreshBase.this.f();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public b() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            PullToRefreshBase.this.requestLayout();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class c {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f14265a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final /* synthetic */ int[] f14266b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final /* synthetic */ int[] f14267c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final /* synthetic */ int[] f14268d;
+
+        static {
+            int[] iArr = new int[AnimationStyle.values().length];
+            f14268d = iArr;
+            try {
+                iArr[AnimationStyle.ROTATE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f14268d[AnimationStyle.FLIP.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            int[] iArr2 = new int[Mode.values().length];
+            f14267c = iArr2;
+            try {
+                iArr2[Mode.PULL_FROM_END.ordinal()] = 1;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f14267c[Mode.PULL_FROM_START.ordinal()] = 2;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f14267c[Mode.MANUAL_REFRESH_ONLY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                f14267c[Mode.BOTH.ordinal()] = 4;
+            } catch (NoSuchFieldError unused6) {
+            }
+            int[] iArr3 = new int[State.values().length];
+            f14266b = iArr3;
+            try {
+                iArr3[State.RESET.ordinal()] = 1;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                f14266b[State.PULL_TO_REFRESH.ordinal()] = 2;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                f14266b[State.RELEASE_TO_REFRESH.ordinal()] = 3;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                f14266b[State.REFRESHING.ordinal()] = 4;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                f14266b[State.MANUAL_REFRESHING.ordinal()] = 5;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                f14266b[State.OVERSCROLLING.ordinal()] = 6;
+            } catch (NoSuchFieldError unused12) {
+            }
+            int[] iArr4 = new int[Orientation.values().length];
+            f14265a = iArr4;
+            try {
+                iArr4[Orientation.HORIZONTAL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused13) {
+            }
+            try {
+                f14265a[Orientation.VERTICAL.ordinal()] = 2;
+            } catch (NoSuchFieldError unused14) {
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface d<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase, State state, Mode mode);
     }
 
-    /* loaded from: classes.dex */
-    public interface b<V extends View> {
-        void c(PullToRefreshBase<V> pullToRefreshBase);
+    /* loaded from: classes3.dex */
+    public interface e<V extends View> {
+        void a(PullToRefreshBase<V> pullToRefreshBase);
+
+        void b(PullToRefreshBase<V> pullToRefreshBase);
     }
 
-    /* loaded from: classes.dex */
-    public interface c<V extends View> {
-        void d(PullToRefreshBase<V> pullToRefreshBase);
-
-        void e(PullToRefreshBase<V> pullToRefreshBase);
+    /* loaded from: classes3.dex */
+    public interface f<V extends View> {
+        void a(PullToRefreshBase<V> pullToRefreshBase);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public interface d {
-        void UV();
+    /* loaded from: classes3.dex */
+    public interface g {
+        void a();
     }
 
-    protected abstract boolean bHv();
+    /* loaded from: classes3.dex */
+    public final class h implements Runnable {
 
-    protected abstract boolean bHw();
+        /* renamed from: e  reason: collision with root package name */
+        public final Interpolator f14269e;
 
-    protected abstract T createRefreshableView(Context context, AttributeSet attributeSet);
+        /* renamed from: f  reason: collision with root package name */
+        public final int f14270f;
 
-    public abstract Orientation getPullToRefreshScrollDirection();
+        /* renamed from: g  reason: collision with root package name */
+        public final int f14271g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final long f14272h;
+        public g i;
+        public boolean j = true;
+        public long k = -1;
+        public int l = -1;
+
+        public h(int i, int i2, long j, g gVar) {
+            this.f14271g = i;
+            this.f14270f = i2;
+            this.f14269e = PullToRefreshBase.this.t;
+            this.f14272h = j;
+            this.i = gVar;
+        }
+
+        public void a() {
+            this.j = false;
+            PullToRefreshBase.this.removeCallbacks(this);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (this.k == -1) {
+                this.k = System.currentTimeMillis();
+            } else {
+                int round = this.f14271g - Math.round((this.f14271g - this.f14270f) * this.f14269e.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.k) * 1000) / this.f14272h, 1000L), 0L)) / 1000.0f));
+                this.l = round;
+                PullToRefreshBase.this.setHeaderScroll(round);
+            }
+            if (this.j && this.f14270f != this.l) {
+                d.b.h0.b1.l.a.c.b.a(PullToRefreshBase.this, this);
+                return;
+            }
+            g gVar = this.i;
+            if (gVar != null) {
+                gVar.a();
+            }
+        }
+    }
 
     public PullToRefreshBase(Context context) {
         super(context);
-        this.mIsBeingDragged = false;
-        this.fWR = State.RESET;
-        this.fWS = Mode.getDefault();
-        this.fWU = true;
-        this.fWV = false;
-        this.fWW = true;
-        this.fWX = true;
-        this.fWY = true;
-        this.fWZ = AnimationStyle.getDefault();
-        init(context, null);
+        this.j = false;
+        this.k = State.RESET;
+        this.l = Mode.getDefault();
+        this.p = true;
+        this.q = false;
+        this.r = true;
+        this.s = true;
+        this.u = AnimationStyle.getDefault();
+        l(context, null);
     }
 
-    public PullToRefreshBase(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mIsBeingDragged = false;
-        this.fWR = State.RESET;
-        this.fWS = Mode.getDefault();
-        this.fWU = true;
-        this.fWV = false;
-        this.fWW = true;
-        this.fWX = true;
-        this.fWY = true;
-        this.fWZ = AnimationStyle.getDefault();
-        init(context, attributeSet);
+    private LinearLayout.LayoutParams getLoadingLayoutLayoutParams() {
+        if (c.f14265a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+            return new LinearLayout.LayoutParams(-1, -2);
+        }
+        return new LinearLayout.LayoutParams(-2, -1);
+    }
+
+    private int getMaximumPullScroll() {
+        if (c.f14265a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+            return Math.round(getHeight() / 2.0f);
+        }
+        return Math.round(getWidth() / 2.0f);
+    }
+
+    public final void A(State state, boolean... zArr) {
+        this.k = state;
+        int i = c.f14266b[state.ordinal()];
+        if (i == 1) {
+            w();
+        } else if (i == 2) {
+            t();
+        } else if (i == 3) {
+            v();
+        } else if (i == 4 || i == 5) {
+            u(zArr[0]);
+        }
+        d<T> dVar = this.z;
+        if (dVar != null) {
+            dVar.a(this, this.k, this.m);
+        }
+    }
+
+    public final void B(int i) {
+        C(i, getPullToRefreshScrollDuration());
+    }
+
+    public final void C(int i, long j) {
+        D(i, j, 0L, null);
+    }
+
+    public final void D(int i, long j, long j2, g gVar) {
+        int scrollX;
+        PullToRefreshBase<T>.h hVar = this.A;
+        if (hVar != null) {
+            hVar.a();
+        }
+        if (c.f14265a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+            scrollX = getScrollY();
+        } else {
+            scrollX = getScrollX();
+        }
+        int i2 = scrollX;
+        if (i2 != i) {
+            if (this.t == null) {
+                this.t = new DecelerateInterpolator();
+            }
+            PullToRefreshBase<T>.h hVar2 = new h(i2, i, j, gVar);
+            this.A = hVar2;
+            if (j2 > 0) {
+                postDelayed(hVar2, j2);
+            } else {
+                post(hVar2);
+            }
+        }
+    }
+
+    public final void E(int i, g gVar) {
+        D(i, getPullToRefreshScrollDuration(), 0L, gVar);
+    }
+
+    public void F() {
+        LinearLayout.LayoutParams loadingLayoutLayoutParams = getLoadingLayoutLayoutParams();
+        if (this == this.v.getParent()) {
+            removeView(this.v);
+        }
+        if (this.l.showHeaderLoadingLayout()) {
+            d(this.v, 0, loadingLayoutLayoutParams);
+        }
+        if (this == this.w.getParent()) {
+            removeView(this.w);
+        }
+        if (this.l.showFooterLoadingLayout()) {
+            e(this.w, loadingLayoutLayoutParams);
+        }
+        y();
+        Mode mode = this.l;
+        if (mode == Mode.BOTH) {
+            mode = Mode.PULL_FROM_START;
+        }
+        this.m = mode;
     }
 
     @Override // android.view.ViewGroup
@@ -120,161 +460,333 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         throw new UnsupportedOperationException("Refreshable View is not a ViewGroup so can't addView");
     }
 
+    public final void c(Context context, T t) {
+        FrameLayout frameLayout = new FrameLayout(context);
+        this.o = frameLayout;
+        frameLayout.addView(t, -1, -1);
+        e(this.o, new LinearLayout.LayoutParams(-1, -1));
+    }
+
+    public final void d(View view, int i, ViewGroup.LayoutParams layoutParams) {
+        super.addView(view, i, layoutParams);
+    }
+
+    public final void e(View view, ViewGroup.LayoutParams layoutParams) {
+        super.addView(view, -1, layoutParams);
+    }
+
+    public final void f() {
+        f<T> fVar = this.x;
+        if (fVar != null) {
+            fVar.a(this);
+            return;
+        }
+        e<T> eVar = this.y;
+        if (eVar != null) {
+            Mode mode = this.m;
+            if (mode == Mode.PULL_FROM_START) {
+                eVar.b(this);
+            } else if (mode == Mode.PULL_FROM_END) {
+                eVar.a(this);
+            }
+        }
+    }
+
+    public LoadingLayout g(Context context, Mode mode, TypedArray typedArray) {
+        LoadingLayout createLoadingLayout = this.u.createLoadingLayout(context, mode, getPullToRefreshScrollDirection(), typedArray);
+        createLoadingLayout.setVisibility(4);
+        return createLoadingLayout;
+    }
+
     public final Mode getCurrentMode() {
-        return this.fWT;
+        return this.m;
     }
 
     public final boolean getFilterTouchEvents() {
-        return this.fWW;
+        return this.r;
     }
 
-    public final com.baidu.tbadk.widget.pulltorefresh.library.a getLoadingLayoutProxy() {
-        return E(true, true);
+    public final LoadingLayout getFooterLayout() {
+        return this.w;
     }
 
-    public final com.baidu.tbadk.widget.pulltorefresh.library.a E(boolean z, boolean z2) {
-        return F(z, z2);
+    public final int getFooterSize() {
+        return this.w.getContentSize();
+    }
+
+    public final LoadingLayout getHeaderLayout() {
+        return this.v;
+    }
+
+    public final int getHeaderSize() {
+        return this.v.getContentSize();
+    }
+
+    public final d.b.h0.b1.l.a.a getLoadingLayoutProxy() {
+        return j(true, true);
     }
 
     public final Mode getMode() {
-        return this.fWS;
+        return this.l;
+    }
+
+    public abstract Orientation getPullToRefreshScrollDirection();
+
+    public int getPullToRefreshScrollDuration() {
+        return 200;
+    }
+
+    public int getPullToRefreshScrollDurationLonger() {
+        return 325;
     }
 
     public final T getRefreshableView() {
-        return this.dAF;
+        return this.n;
+    }
+
+    public FrameLayout getRefreshableViewWrapper() {
+        return this.o;
     }
 
     public final boolean getShowViewWhileRefreshing() {
-        return this.fWU;
+        return this.p;
     }
 
     public final State getState() {
-        return this.fWR;
+        return this.k;
     }
 
-    public final boolean bHu() {
-        return this.fWS.permitsPullToRefresh();
+    public d.b.h0.b1.l.a.b h(boolean z, boolean z2) {
+        d.b.h0.b1.l.a.b bVar = new d.b.h0.b1.l.a.b();
+        if (z && this.l.showHeaderLoadingLayout()) {
+            bVar.a(this.v);
+        }
+        if (z2 && this.l.showFooterLoadingLayout()) {
+            bVar.a(this.w);
+        }
+        return bVar;
     }
 
-    public final boolean isRefreshing() {
-        return this.fWR == State.REFRESHING || this.fWR == State.MANUAL_REFRESHING;
+    public abstract T i(Context context, AttributeSet attributeSet);
+
+    public final d.b.h0.b1.l.a.a j(boolean z, boolean z2) {
+        return h(z, z2);
     }
+
+    public void k(TypedArray typedArray) {
+    }
+
+    public final void l(Context context, AttributeSet attributeSet) {
+        if (c.f14265a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+            setOrientation(1);
+        } else {
+            setOrientation(0);
+        }
+        setGravity(17);
+        this.f14259e = ViewConfiguration.get(context).getScaledTouchSlop();
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.PullToRefresh);
+        if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrMode)) {
+            this.l = Mode.mapIntToValue(obtainStyledAttributes.getInteger(R$styleable.PullToRefresh_tb_ptrMode, 0));
+        }
+        if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrAnimationStyle)) {
+            this.u = AnimationStyle.mapIntToValue(obtainStyledAttributes.getInteger(R$styleable.PullToRefresh_tb_ptrAnimationStyle, 0));
+        }
+        T i = i(context, attributeSet);
+        this.n = i;
+        c(context, i);
+        this.v = g(context, Mode.PULL_FROM_START, obtainStyledAttributes);
+        this.w = g(context, Mode.PULL_FROM_END, obtainStyledAttributes);
+        if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrRefreshableViewBackground)) {
+            Drawable drawable = obtainStyledAttributes.getDrawable(R$styleable.PullToRefresh_tb_ptrRefreshableViewBackground);
+            if (drawable != null) {
+                this.n.setBackgroundDrawable(drawable);
+            }
+        } else if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrAdapterViewBackground)) {
+            d.b.h0.b1.l.a.c.a.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
+            Drawable drawable2 = obtainStyledAttributes.getDrawable(R$styleable.PullToRefresh_tb_ptrAdapterViewBackground);
+            if (drawable2 != null) {
+                this.n.setBackgroundDrawable(drawable2);
+            }
+        }
+        if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrOverScroll)) {
+            obtainStyledAttributes.getBoolean(R$styleable.PullToRefresh_tb_ptrOverScroll, true);
+        }
+        if (obtainStyledAttributes.hasValue(R$styleable.PullToRefresh_tb_ptrScrollingWhileRefreshingEnabled)) {
+            this.q = obtainStyledAttributes.getBoolean(R$styleable.PullToRefresh_tb_ptrScrollingWhileRefreshingEnabled, false);
+        }
+        k(obtainStyledAttributes);
+        obtainStyledAttributes.recycle();
+        F();
+    }
+
+    public final boolean m() {
+        return this.l.permitsPullToRefresh();
+    }
+
+    public final boolean n() {
+        int i = c.f14267c[this.l.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 4) {
+                    return false;
+                }
+                return o() || p();
+            }
+            return p();
+        }
+        return o();
+    }
+
+    public abstract boolean o();
 
     @Override // android.view.ViewGroup
     public final boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        float f;
         float f2;
-        if (bHu()) {
+        float f3;
+        if (m()) {
             int action = motionEvent.getAction();
-            if (action == 3 || action == 1) {
-                this.mIsBeingDragged = false;
-                return false;
-            } else if (action == 0 || !this.mIsBeingDragged) {
-                switch (action) {
-                    case 0:
-                        if (bHz()) {
-                            float y = motionEvent.getY();
-                            this.mInitialMotionY = y;
-                            this.mLastMotionY = y;
-                            float x = motionEvent.getX();
-                            this.mInitialMotionX = x;
-                            this.mLastMotionX = x;
-                            this.mIsBeingDragged = false;
-                            break;
-                        }
-                        break;
-                    case 2:
-                        if (!this.fWV && isRefreshing()) {
-                            return true;
-                        }
-                        if (bHz()) {
-                            float y2 = motionEvent.getY();
-                            float x2 = motionEvent.getX();
-                            switch (getPullToRefreshScrollDirection()) {
-                                case HORIZONTAL:
-                                    f = x2 - this.mLastMotionX;
-                                    f2 = y2 - this.mLastMotionY;
-                                    break;
-                                default:
-                                    f = y2 - this.mLastMotionY;
-                                    f2 = x2 - this.mLastMotionX;
-                                    break;
+            if (action != 3 && action != 1) {
+                if (action == 0 || !this.j) {
+                    if (action != 0) {
+                        if (action == 2) {
+                            if (!this.q && q()) {
+                                return true;
                             }
-                            float abs = Math.abs(f);
-                            if (abs > this.mTouchSlop && (!this.fWW || abs > Math.abs(f2))) {
-                                if (this.fWS.showHeaderLoadingLayout() && f >= 1.0f && bHw()) {
-                                    this.mLastMotionY = y2;
-                                    this.mLastMotionX = x2;
-                                    this.mIsBeingDragged = true;
-                                    if (this.fWS == Mode.BOTH) {
-                                        this.fWT = Mode.PULL_FROM_START;
-                                        break;
-                                    }
-                                } else if (this.fWS.showFooterLoadingLayout() && f <= -1.0f && bHv()) {
-                                    this.mLastMotionY = y2;
-                                    this.mLastMotionX = x2;
-                                    this.mIsBeingDragged = true;
-                                    if (this.fWS == Mode.BOTH) {
-                                        this.fWT = Mode.PULL_FROM_END;
-                                        break;
+                            if (n()) {
+                                float y = motionEvent.getY();
+                                float x = motionEvent.getX();
+                                if (c.f14265a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+                                    f2 = y - this.f14261g;
+                                    f3 = x - this.f14260f;
+                                } else {
+                                    f2 = x - this.f14260f;
+                                    f3 = y - this.f14261g;
+                                }
+                                float abs = Math.abs(f2);
+                                if (abs > this.f14259e && (!this.r || abs > Math.abs(f3))) {
+                                    if (this.l.showHeaderLoadingLayout() && f2 >= 1.0f && p()) {
+                                        this.f14261g = y;
+                                        this.f14260f = x;
+                                        this.j = true;
+                                        if (this.l == Mode.BOTH) {
+                                            this.m = Mode.PULL_FROM_START;
+                                        }
+                                    } else if (this.l.showFooterLoadingLayout() && f2 <= -1.0f && o()) {
+                                        this.f14261g = y;
+                                        this.f14260f = x;
+                                        this.j = true;
+                                        if (this.l == Mode.BOTH) {
+                                            this.m = Mode.PULL_FROM_END;
+                                        }
                                     }
                                 }
                             }
                         }
-                        break;
+                    } else if (n()) {
+                        float y2 = motionEvent.getY();
+                        this.i = y2;
+                        this.f14261g = y2;
+                        float x2 = motionEvent.getX();
+                        this.f14262h = x2;
+                        this.f14260f = x2;
+                        this.j = false;
+                    }
+                    return this.j;
                 }
-                return this.mIsBeingDragged;
-            } else {
                 return true;
             }
+            this.j = false;
+            return false;
         }
         return false;
     }
 
     @Override // android.view.View
+    public final void onRestoreInstanceState(Parcelable parcelable) {
+        if (parcelable instanceof Bundle) {
+            Bundle bundle = (Bundle) parcelable;
+            setMode(Mode.mapIntToValue(bundle.getInt("ptr_mode", 0)));
+            this.m = Mode.mapIntToValue(bundle.getInt("ptr_current_mode", 0));
+            this.q = bundle.getBoolean("ptr_disable_scrolling", false);
+            this.p = bundle.getBoolean("ptr_show_refreshing_view", true);
+            super.onRestoreInstanceState(bundle.getParcelable("ptr_super"));
+            State mapIntToValue = State.mapIntToValue(bundle.getInt("ptr_state", 0));
+            if (mapIntToValue == State.REFRESHING || mapIntToValue == State.MANUAL_REFRESHING) {
+                A(mapIntToValue, true);
+            }
+            r(bundle);
+            return;
+        }
+        super.onRestoreInstanceState(parcelable);
+    }
+
+    @Override // android.view.View
+    public final Parcelable onSaveInstanceState() {
+        Bundle bundle = new Bundle();
+        s(bundle);
+        bundle.putInt("ptr_state", this.k.getIntValue());
+        bundle.putInt("ptr_mode", this.l.getIntValue());
+        bundle.putInt("ptr_current_mode", this.m.getIntValue());
+        bundle.putBoolean("ptr_disable_scrolling", this.q);
+        bundle.putBoolean("ptr_show_refreshing_view", this.p);
+        bundle.putParcelable("ptr_super", super.onSaveInstanceState());
+        return bundle;
+    }
+
+    @Override // android.view.View
+    public final void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        y();
+        z(i, i2);
+        post(new b());
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x002d, code lost:
+        if (r0 != 3) goto L22;
+     */
+    @Override // android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final boolean onTouchEvent(MotionEvent motionEvent) {
-        if (bHu()) {
-            if (this.fWV || !isRefreshing()) {
+        if (m()) {
+            if (this.q || !q()) {
                 if (motionEvent.getAction() != 0 || motionEvent.getEdgeFlags() == 0) {
-                    switch (motionEvent.getAction()) {
-                        case 0:
-                            if (bHz()) {
-                                float y = motionEvent.getY();
-                                this.mInitialMotionY = y;
-                                this.mLastMotionY = y;
-                                float x = motionEvent.getX();
-                                this.mInitialMotionX = x;
-                                this.mLastMotionX = x;
-                                return true;
-                            }
-                            return false;
-                        case 1:
-                        case 3:
-                            if (this.mIsBeingDragged) {
-                                this.mIsBeingDragged = false;
-                                if (this.fWR == State.RELEASE_TO_REFRESH && (this.fXc != null || this.fXd != null)) {
-                                    a(State.REFRESHING, true);
-                                    return true;
-                                } else if (isRefreshing()) {
-                                    iK(0);
-                                    return true;
-                                } else {
-                                    a(State.RESET, new boolean[0]);
+                    int action = motionEvent.getAction();
+                    if (action != 0) {
+                        if (action != 1) {
+                            if (action == 2) {
+                                if (this.j) {
+                                    this.f14261g = motionEvent.getY();
+                                    this.f14260f = motionEvent.getX();
+                                    x();
                                     return true;
                                 }
                             }
-                            return false;
-                        case 2:
-                            if (this.mIsBeingDragged) {
-                                this.mLastMotionY = motionEvent.getY();
-                                this.mLastMotionX = motionEvent.getX();
-                                bHA();
+                        }
+                        if (this.j) {
+                            this.j = false;
+                            if (this.k == State.RELEASE_TO_REFRESH && (this.x != null || this.y != null)) {
+                                A(State.REFRESHING, true);
+                                return true;
+                            } else if (q()) {
+                                B(0);
+                                return true;
+                            } else {
+                                A(State.RESET, new boolean[0]);
                                 return true;
                             }
-                            return false;
-                        default:
-                            return false;
+                        }
+                    } else if (n()) {
+                        float y = motionEvent.getY();
+                        this.i = y;
+                        this.f14261g = y;
+                        float x = motionEvent.getX();
+                        this.f14262h = x;
+                        this.f14260f = x;
+                        return true;
                     }
+                    return false;
                 }
                 return false;
             }
@@ -283,8 +795,17 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return false;
     }
 
-    public final void setScrollingWhileRefreshingEnabled(boolean z) {
-        this.fWV = z;
+    public abstract boolean p();
+
+    public final boolean q() {
+        State state = this.k;
+        return state == State.REFRESHING || state == State.MANUAL_REFRESHING;
+    }
+
+    public void r(Bundle bundle) {
+    }
+
+    public void s(Bundle bundle) {
     }
 
     public void setDisableScrollingWhileRefreshing(boolean z) {
@@ -292,7 +813,29 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public final void setFilterTouchEvents(boolean z) {
-        this.fWW = z;
+        this.r = z;
+    }
+
+    public final void setHeaderScroll(int i) {
+        int maximumPullScroll = getMaximumPullScroll();
+        int min = Math.min(maximumPullScroll, Math.max(-maximumPullScroll, i));
+        if (this.s) {
+            if (min < 0) {
+                this.v.setVisibility(0);
+            } else if (min > 0) {
+                this.w.setVisibility(0);
+            } else {
+                this.v.setVisibility(4);
+                this.w.setVisibility(4);
+            }
+        }
+        int i2 = c.f14265a[getPullToRefreshScrollDirection().ordinal()];
+        if (i2 == 1) {
+            scrollTo(min, 0);
+        } else if (i2 != 2) {
+        } else {
+            scrollTo(0, min);
+        }
     }
 
     public void setLastUpdatedLabel(CharSequence charSequence) {
@@ -303,42 +846,29 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         getLoadingLayoutProxy().setLoadingDrawable(drawable);
     }
 
-    public void setLoadingDrawable(Drawable drawable, Mode mode) {
-        E(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setLoadingDrawable(drawable);
-    }
-
     @Override // android.view.View
     public void setLongClickable(boolean z) {
         getRefreshableView().setLongClickable(z);
     }
 
     public final void setMode(Mode mode) {
-        if (mode != this.fWS) {
-            this.fWS = mode;
-            bHx();
+        if (mode != this.l) {
+            this.l = mode;
+            F();
         }
     }
 
-    public void setOnPullEventListener(a<T> aVar) {
-        this.fXe = aVar;
+    public void setOnPullEventListener(d<T> dVar) {
+        this.z = dVar;
     }
 
-    public final void setOnRefreshListener(b<T> bVar) {
-        this.fXc = bVar;
-        this.fXd = null;
-    }
-
-    public final void setOnRefreshListener(c<T> cVar) {
-        this.fXd = cVar;
-        this.fXc = null;
+    public final void setOnRefreshListener(f<T> fVar) {
+        this.x = fVar;
+        this.y = null;
     }
 
     public void setPullLabel(CharSequence charSequence) {
         getLoadingLayoutProxy().setPullLabel(charSequence);
-    }
-
-    public void setPullLabel(CharSequence charSequence, Mode mode) {
-        E(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setPullLabel(charSequence);
     }
 
     public final void setPullToRefreshEnabled(boolean z) {
@@ -346,671 +876,211 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public final void setPullToRefreshOverScrollEnabled(boolean z) {
-        this.fWX = z;
     }
 
     public final void setRefreshing() {
         setRefreshing(true);
     }
 
-    public final void setRefreshing(boolean z) {
-        if (!isRefreshing()) {
-            a(State.MANUAL_REFRESHING, z);
-        }
-    }
-
     public void setRefreshingLabel(CharSequence charSequence) {
         getLoadingLayoutProxy().setRefreshingLabel(charSequence);
-    }
-
-    public void setRefreshingLabel(CharSequence charSequence, Mode mode) {
-        E(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setRefreshingLabel(charSequence);
     }
 
     public void setReleaseLabel(CharSequence charSequence) {
         setReleaseLabel(charSequence, Mode.BOTH);
     }
 
-    public void setReleaseLabel(CharSequence charSequence, Mode mode) {
-        E(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setReleaseLabel(charSequence);
+    public void setScrollAnimationInterpolator(Interpolator interpolator) {
+        this.t = interpolator;
     }
 
-    public void setScrollAnimationInterpolator(Interpolator interpolator) {
-        this.bNV = interpolator;
+    public final void setScrollingWhileRefreshingEnabled(boolean z) {
+        this.q = z;
     }
 
     public final void setShowViewWhileRefreshing(boolean z) {
-        this.fWU = z;
+        this.p = z;
     }
 
-    final void a(State state, boolean... zArr) {
-        this.fWR = state;
-        switch (this.fWR) {
-            case RESET:
-                onReset();
-                break;
-            case PULL_TO_REFRESH:
-                onPullToRefresh();
-                break;
-            case RELEASE_TO_REFRESH:
-                onReleaseToRefresh();
-                break;
-            case REFRESHING:
-            case MANUAL_REFRESHING:
-                lI(zArr[0]);
-                break;
-        }
-        if (this.fXe != null) {
-            this.fXe.a(this, this.fWR, this.fWT);
+    public void t() {
+        int i = c.f14267c[this.m.ordinal()];
+        if (i == 1) {
+            this.w.d();
+        } else if (i != 2) {
+        } else {
+            this.v.d();
         }
     }
 
-    protected final void a(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        super.addView(view, i, layoutParams);
-    }
-
-    protected final void d(View view, ViewGroup.LayoutParams layoutParams) {
-        super.addView(view, -1, layoutParams);
-    }
-
-    protected LoadingLayout a(Context context, Mode mode, TypedArray typedArray) {
-        LoadingLayout createLoadingLayout = this.fWZ.createLoadingLayout(context, mode, getPullToRefreshScrollDirection(), typedArray);
-        createLoadingLayout.setVisibility(4);
-        return createLoadingLayout;
-    }
-
-    protected com.baidu.tbadk.widget.pulltorefresh.library.b F(boolean z, boolean z2) {
-        com.baidu.tbadk.widget.pulltorefresh.library.b bVar = new com.baidu.tbadk.widget.pulltorefresh.library.b();
-        if (z && this.fWS.showHeaderLoadingLayout()) {
-            bVar.a(this.fXa);
+    public void u(boolean z) {
+        if (this.l.showHeaderLoadingLayout()) {
+            this.v.f();
         }
-        if (z2 && this.fWS.showFooterLoadingLayout()) {
-            bVar.a(this.fXb);
-        }
-        return bVar;
-    }
-
-    protected final LoadingLayout getFooterLayout() {
-        return this.fXb;
-    }
-
-    protected final int getFooterSize() {
-        return this.fXb.getContentSize();
-    }
-
-    protected final LoadingLayout getHeaderLayout() {
-        return this.fXa;
-    }
-
-    protected final int getHeaderSize() {
-        return this.fXa.getContentSize();
-    }
-
-    protected int getPullToRefreshScrollDuration() {
-        return 200;
-    }
-
-    protected int getPullToRefreshScrollDurationLonger() {
-        return 325;
-    }
-
-    protected FrameLayout getRefreshableViewWrapper() {
-        return this.dAG;
-    }
-
-    protected void a(TypedArray typedArray) {
-    }
-
-    protected void af(Bundle bundle) {
-    }
-
-    protected void ag(Bundle bundle) {
-    }
-
-    protected void onPullToRefresh() {
-        switch (this.fWT) {
-            case PULL_FROM_END:
-                this.fXb.pullToRefresh();
-                return;
-            case PULL_FROM_START:
-                this.fXa.pullToRefresh();
-                return;
-            default:
-                return;
-        }
-    }
-
-    protected void lI(boolean z) {
-        if (this.fWS.showHeaderLoadingLayout()) {
-            this.fXa.refreshing();
-        }
-        if (this.fWS.showFooterLoadingLayout()) {
-            this.fXb.refreshing();
+        if (this.l.showFooterLoadingLayout()) {
+            this.w.f();
         }
         if (z) {
-            if (this.fWU) {
-                d dVar = new d() { // from class: com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.1
-                    @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.d
-                    public void UV() {
-                        PullToRefreshBase.this.bHy();
-                    }
-                };
-                switch (this.fWT) {
-                    case PULL_FROM_END:
-                    case MANUAL_REFRESH_ONLY:
-                        a(getFooterSize(), dVar);
-                        return;
-                    case PULL_FROM_START:
-                    default:
-                        a(-getHeaderSize(), dVar);
-                        return;
+            if (this.p) {
+                a aVar = new a();
+                int i = c.f14267c[this.m.ordinal()];
+                if (i != 1 && i != 3) {
+                    E(-getHeaderSize(), aVar);
+                    return;
+                } else {
+                    E(getFooterSize(), aVar);
+                    return;
                 }
             }
-            iK(0);
+            B(0);
             return;
         }
-        bHy();
+        f();
     }
 
-    protected void onReleaseToRefresh() {
-        switch (this.fWT) {
-            case PULL_FROM_END:
-                this.fXb.releaseToRefresh();
-                return;
-            case PULL_FROM_START:
-                this.fXa.releaseToRefresh();
-                return;
-            default:
-                return;
+    public void v() {
+        int i = c.f14267c[this.m.ordinal()];
+        if (i == 1) {
+            this.w.h();
+        } else if (i != 2) {
+        } else {
+            this.v.h();
         }
     }
 
-    protected void onReset() {
-        this.mIsBeingDragged = false;
-        this.fWY = true;
-        this.fXa.reset();
-        this.fXb.reset();
-        iK(0);
+    public void w() {
+        this.j = false;
+        this.s = true;
+        this.v.j();
+        this.w.j();
+        B(0);
     }
 
-    @Override // android.view.View
-    protected final void onRestoreInstanceState(Parcelable parcelable) {
-        if (parcelable instanceof Bundle) {
-            Bundle bundle = (Bundle) parcelable;
-            setMode(Mode.mapIntToValue(bundle.getInt("ptr_mode", 0)));
-            this.fWT = Mode.mapIntToValue(bundle.getInt("ptr_current_mode", 0));
-            this.fWV = bundle.getBoolean("ptr_disable_scrolling", false);
-            this.fWU = bundle.getBoolean("ptr_show_refreshing_view", true);
-            super.onRestoreInstanceState(bundle.getParcelable("ptr_super"));
-            State mapIntToValue = State.mapIntToValue(bundle.getInt("ptr_state", 0));
-            if (mapIntToValue == State.REFRESHING || mapIntToValue == State.MANUAL_REFRESHING) {
-                a(mapIntToValue, true);
-            }
-            af(bundle);
+    public final void x() {
+        float f2;
+        float f3;
+        int round;
+        int footerSize;
+        if (c.f14265a[getPullToRefreshScrollDirection().ordinal()] != 1) {
+            f2 = this.i;
+            f3 = this.f14261g;
+        } else {
+            f2 = this.f14262h;
+            f3 = this.f14260f;
+        }
+        if (c.f14267c[this.m.ordinal()] != 1) {
+            round = Math.round(Math.min(f2 - f3, 0.0f) / 2.0f);
+            footerSize = getHeaderSize();
+        } else {
+            round = Math.round(Math.max(f2 - f3, 0.0f) / 2.0f);
+            footerSize = getFooterSize();
+        }
+        setHeaderScroll(round);
+        if (round == 0 || q()) {
             return;
         }
-        super.onRestoreInstanceState(parcelable);
+        float abs = Math.abs(round) / footerSize;
+        if (c.f14267c[this.m.ordinal()] != 1) {
+            this.v.b(abs);
+        } else {
+            this.w.b(abs);
+        }
+        if (this.k != State.PULL_TO_REFRESH && footerSize >= Math.abs(round)) {
+            A(State.PULL_TO_REFRESH, new boolean[0]);
+        } else if (this.k != State.PULL_TO_REFRESH || footerSize >= Math.abs(round)) {
+        } else {
+            A(State.RELEASE_TO_REFRESH, new boolean[0]);
+        }
     }
 
-    @Override // android.view.View
-    protected final Parcelable onSaveInstanceState() {
-        Bundle bundle = new Bundle();
-        ag(bundle);
-        bundle.putInt("ptr_state", this.fWR.getIntValue());
-        bundle.putInt("ptr_mode", this.fWS.getIntValue());
-        bundle.putInt("ptr_current_mode", this.fWT.getIntValue());
-        bundle.putBoolean("ptr_disable_scrolling", this.fWV);
-        bundle.putBoolean("ptr_show_refreshing_view", this.fWU);
-        bundle.putParcelable("ptr_super", super.onSaveInstanceState());
-        return bundle;
-    }
-
-    @Override // android.view.View
-    protected final void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        aHq();
-        refreshRefreshableViewSize(i, i2);
-        post(new Runnable() { // from class: com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.2
-            @Override // java.lang.Runnable
-            public void run() {
-                PullToRefreshBase.this.requestLayout();
-            }
-        });
-    }
-
-    protected final void aHq() {
-        int i;
-        int i2;
+    public final void y() {
         int maximumPullScroll = (int) (getMaximumPullScroll() * 1.2f);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int paddingRight = getPaddingRight();
         int paddingBottom = getPaddingBottom();
-        switch (getPullToRefreshScrollDirection()) {
-            case HORIZONTAL:
-                if (this.fWS.showHeaderLoadingLayout()) {
-                    this.fXa.setWidth(maximumPullScroll);
-                    i2 = -maximumPullScroll;
-                } else {
-                    i2 = 0;
-                }
-                if (!this.fWS.showFooterLoadingLayout()) {
-                    paddingRight = 0;
-                    paddingLeft = i2;
-                    break;
-                } else {
-                    this.fXb.setWidth(maximumPullScroll);
-                    paddingRight = -maximumPullScroll;
-                    paddingLeft = i2;
-                    break;
-                }
-            case VERTICAL:
-                if (this.fWS.showHeaderLoadingLayout()) {
-                    this.fXa.setHeight(maximumPullScroll);
-                    i = -maximumPullScroll;
-                } else {
-                    i = 0;
-                }
-                if (!this.fWS.showFooterLoadingLayout()) {
-                    paddingBottom = 0;
-                    paddingTop = i;
-                    break;
-                } else {
-                    this.fXb.setHeight(maximumPullScroll);
-                    paddingBottom = -maximumPullScroll;
-                    paddingTop = i;
-                    break;
-                }
+        int i = c.f14265a[getPullToRefreshScrollDirection().ordinal()];
+        if (i == 1) {
+            if (this.l.showHeaderLoadingLayout()) {
+                this.v.setWidth(maximumPullScroll);
+                paddingLeft = -maximumPullScroll;
+            } else {
+                paddingLeft = 0;
+            }
+            if (this.l.showFooterLoadingLayout()) {
+                this.w.setWidth(maximumPullScroll);
+                paddingRight = -maximumPullScroll;
+            } else {
+                paddingRight = 0;
+            }
+        } else if (i == 2) {
+            if (this.l.showHeaderLoadingLayout()) {
+                this.v.setHeight(maximumPullScroll);
+                paddingTop = -maximumPullScroll;
+            } else {
+                paddingTop = 0;
+            }
+            if (this.l.showFooterLoadingLayout()) {
+                this.w.setHeight(maximumPullScroll);
+                paddingBottom = -maximumPullScroll;
+            } else {
+                paddingBottom = 0;
+            }
         }
         setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
     }
 
-    protected final void refreshRefreshableViewSize(int i, int i2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dAG.getLayoutParams();
-        switch (getPullToRefreshScrollDirection()) {
-            case HORIZONTAL:
-                if (layoutParams.width != i) {
-                    layoutParams.width = i;
-                    this.dAG.requestLayout();
-                    return;
-                }
-                return;
-            case VERTICAL:
-                if (layoutParams.height != i2) {
-                    layoutParams.height = i2;
-                    this.dAG.requestLayout();
-                    return;
-                }
-                return;
-            default:
-                return;
-        }
-    }
-
-    protected final void setHeaderScroll(int i) {
-        int maximumPullScroll = getMaximumPullScroll();
-        int min = Math.min(maximumPullScroll, Math.max(-maximumPullScroll, i));
-        if (this.fWY) {
-            if (min < 0) {
-                this.fXa.setVisibility(0);
-            } else if (min > 0) {
-                this.fXb.setVisibility(0);
-            } else {
-                this.fXa.setVisibility(4);
-                this.fXb.setVisibility(4);
+    public final void z(int i, int i2) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
+        int i3 = c.f14265a[getPullToRefreshScrollDirection().ordinal()];
+        if (i3 != 1) {
+            if (i3 == 2 && layoutParams.height != i2) {
+                layoutParams.height = i2;
+                this.o.requestLayout();
             }
-        }
-        switch (getPullToRefreshScrollDirection()) {
-            case HORIZONTAL:
-                scrollTo(min, 0);
-                return;
-            case VERTICAL:
-                scrollTo(0, min);
-                return;
-            default:
-                return;
+        } else if (layoutParams.width != i) {
+            layoutParams.width = i;
+            this.o.requestLayout();
         }
     }
 
-    protected final void iK(int i) {
-        v(i, getPullToRefreshScrollDuration());
+    public void setLoadingDrawable(Drawable drawable, Mode mode) {
+        j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setLoadingDrawable(drawable);
     }
 
-    protected final void a(int i, d dVar) {
-        a(i, getPullToRefreshScrollDuration(), 0L, dVar);
+    public void setPullLabel(CharSequence charSequence, Mode mode) {
+        j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setPullLabel(charSequence);
     }
 
-    protected void bHx() {
-        LinearLayout.LayoutParams loadingLayoutLayoutParams = getLoadingLayoutLayoutParams();
-        if (this == this.fXa.getParent()) {
-            removeView(this.fXa);
+    public final void setRefreshing(boolean z) {
+        if (q()) {
+            return;
         }
-        if (this.fWS.showHeaderLoadingLayout()) {
-            a(this.fXa, 0, loadingLayoutLayoutParams);
-        }
-        if (this == this.fXb.getParent()) {
-            removeView(this.fXb);
-        }
-        if (this.fWS.showFooterLoadingLayout()) {
-            d(this.fXb, loadingLayoutLayoutParams);
-        }
-        aHq();
-        this.fWT = this.fWS != Mode.BOTH ? this.fWS : Mode.PULL_FROM_START;
+        A(State.MANUAL_REFRESHING, z);
     }
 
-    private void addRefreshableView(Context context, T t) {
-        this.dAG = new FrameLayout(context);
-        this.dAG.addView(t, -1, -1);
-        d(this.dAG, new LinearLayout.LayoutParams(-1, -1));
+    public void setRefreshingLabel(CharSequence charSequence, Mode mode) {
+        j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setRefreshingLabel(charSequence);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bHy() {
-        if (this.fXc != null) {
-            this.fXc.c(this);
-        } else if (this.fXd != null) {
-            if (this.fWT == Mode.PULL_FROM_START) {
-                this.fXd.d(this);
-            } else if (this.fWT == Mode.PULL_FROM_END) {
-                this.fXd.e(this);
-            }
-        }
+    public void setReleaseLabel(CharSequence charSequence, Mode mode) {
+        j(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setReleaseLabel(charSequence);
     }
 
-    private void init(Context context, AttributeSet attributeSet) {
-        switch (getPullToRefreshScrollDirection()) {
-            case HORIZONTAL:
-                setOrientation(0);
-                break;
-            default:
-                setOrientation(1);
-                break;
-        }
-        setGravity(17);
-        this.mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.PullToRefresh);
-        if (obtainStyledAttributes.hasValue(R.styleable.PullToRefresh_tb_ptrMode)) {
-            this.fWS = Mode.mapIntToValue(obtainStyledAttributes.getInteger(R.styleable.PullToRefresh_tb_ptrMode, 0));
-        }
-        if (obtainStyledAttributes.hasValue(R.styleable.PullToRefresh_tb_ptrAnimationStyle)) {
-            this.fWZ = AnimationStyle.mapIntToValue(obtainStyledAttributes.getInteger(R.styleable.PullToRefresh_tb_ptrAnimationStyle, 0));
-        }
-        this.dAF = createRefreshableView(context, attributeSet);
-        addRefreshableView(context, this.dAF);
-        this.fXa = a(context, Mode.PULL_FROM_START, obtainStyledAttributes);
-        this.fXb = a(context, Mode.PULL_FROM_END, obtainStyledAttributes);
-        if (obtainStyledAttributes.hasValue(R.styleable.PullToRefresh_tb_ptrRefreshableViewBackground)) {
-            Drawable drawable = obtainStyledAttributes.getDrawable(R.styleable.PullToRefresh_tb_ptrRefreshableViewBackground);
-            if (drawable != null) {
-                this.dAF.setBackgroundDrawable(drawable);
-            }
-        } else if (obtainStyledAttributes.hasValue(R.styleable.PullToRefresh_tb_ptrAdapterViewBackground)) {
-            com.baidu.tbadk.widget.pulltorefresh.library.internal.a.ea("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
-            Drawable drawable2 = obtainStyledAttributes.getDrawable(R.styleable.PullToRefresh_tb_ptrAdapterViewBackground);
-            if (drawable2 != null) {
-                this.dAF.setBackgroundDrawable(drawable2);
-            }
-        }
-        if (obtainStyledAttributes.hasValue(R.styleable.PullToRefresh_tb_ptrOverScroll)) {
-            this.fWX = obtainStyledAttributes.getBoolean(R.styleable.PullToRefresh_tb_ptrOverScroll, true);
-        }
-        if (obtainStyledAttributes.hasValue(R.styleable.PullToRefresh_tb_ptrScrollingWhileRefreshingEnabled)) {
-            this.fWV = obtainStyledAttributes.getBoolean(R.styleable.PullToRefresh_tb_ptrScrollingWhileRefreshingEnabled, false);
-        }
-        a(obtainStyledAttributes);
-        obtainStyledAttributes.recycle();
-        bHx();
+    public final void setOnRefreshListener(e<T> eVar) {
+        this.y = eVar;
+        this.x = null;
     }
 
-    private boolean bHz() {
-        switch (this.fWS) {
-            case PULL_FROM_END:
-                return bHv();
-            case PULL_FROM_START:
-                return bHw();
-            case MANUAL_REFRESH_ONLY:
-            default:
-                return false;
-            case BOTH:
-                return bHv() || bHw();
-        }
-    }
-
-    private void bHA() {
-        float f;
-        float f2;
-        int round;
-        int footerSize;
-        switch (getPullToRefreshScrollDirection()) {
-            case HORIZONTAL:
-                f = this.mInitialMotionX;
-                f2 = this.mLastMotionX;
-                break;
-            default:
-                f = this.mInitialMotionY;
-                f2 = this.mLastMotionY;
-                break;
-        }
-        switch (this.fWT) {
-            case PULL_FROM_END:
-                round = Math.round(Math.max(f - f2, 0.0f) / 2.0f);
-                footerSize = getFooterSize();
-                break;
-            default:
-                round = Math.round(Math.min(f - f2, 0.0f) / 2.0f);
-                footerSize = getHeaderSize();
-                break;
-        }
-        setHeaderScroll(round);
-        if (round != 0 && !isRefreshing()) {
-            float abs = Math.abs(round) / footerSize;
-            switch (this.fWT) {
-                case PULL_FROM_END:
-                    this.fXb.onPull(abs);
-                    break;
-                default:
-                    this.fXa.onPull(abs);
-                    break;
-            }
-            if (this.fWR != State.PULL_TO_REFRESH && footerSize >= Math.abs(round)) {
-                a(State.PULL_TO_REFRESH, new boolean[0]);
-            } else if (this.fWR == State.PULL_TO_REFRESH && footerSize < Math.abs(round)) {
-                a(State.RELEASE_TO_REFRESH, new boolean[0]);
-            }
-        }
-    }
-
-    private LinearLayout.LayoutParams getLoadingLayoutLayoutParams() {
-        switch (getPullToRefreshScrollDirection()) {
-            case HORIZONTAL:
-                return new LinearLayout.LayoutParams(-2, -1);
-            default:
-                return new LinearLayout.LayoutParams(-1, -2);
-        }
-    }
-
-    private int getMaximumPullScroll() {
-        switch (getPullToRefreshScrollDirection()) {
-            case HORIZONTAL:
-                return Math.round(getWidth() / 2.0f);
-            default:
-                return Math.round(getHeight() / 2.0f);
-        }
-    }
-
-    private final void v(int i, long j) {
-        a(i, j, 0L, null);
-    }
-
-    private final void a(int i, long j, long j2, d dVar) {
-        int scrollX;
-        if (this.fXf != null) {
-            this.fXf.stop();
-        }
-        switch (getPullToRefreshScrollDirection()) {
-            case HORIZONTAL:
-                scrollX = getScrollX();
-                break;
-            default:
-                scrollX = getScrollY();
-                break;
-        }
-        if (scrollX != i) {
-            if (this.bNV == null) {
-                this.bNV = new DecelerateInterpolator();
-            }
-            this.fXf = new e(scrollX, i, j, dVar);
-            if (j2 > 0) {
-                postDelayed(this.fXf, j2);
-            } else {
-                post(this.fXf);
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public enum AnimationStyle {
-        ROTATE,
-        FLIP;
-
-        static AnimationStyle getDefault() {
-            return ROTATE;
-        }
-
-        static AnimationStyle mapIntToValue(int i) {
-            switch (i) {
-                case 1:
-                    return FLIP;
-                default:
-                    return ROTATE;
-            }
-        }
-
-        LoadingLayout createLoadingLayout(Context context, Mode mode, Orientation orientation, TypedArray typedArray) {
-            switch (this) {
-                case FLIP:
-                    return new FlipLoadingLayout(context, mode, orientation, typedArray);
-                default:
-                    return new RotateLoadingLayout(context, mode, orientation, typedArray);
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public enum Mode {
-        DISABLED(0),
-        PULL_FROM_START(1),
-        PULL_FROM_END(2),
-        BOTH(3),
-        MANUAL_REFRESH_ONLY(4);
-        
-        private int mIntValue;
-        public static Mode PULL_DOWN_TO_REFRESH = PULL_FROM_START;
-        public static Mode PULL_UP_TO_REFRESH = PULL_FROM_END;
-
-        static Mode mapIntToValue(int i) {
-            Mode[] values;
-            for (Mode mode : values()) {
-                if (i == mode.getIntValue()) {
-                    return mode;
-                }
-            }
-            return getDefault();
-        }
-
-        static Mode getDefault() {
-            return PULL_FROM_START;
-        }
-
-        Mode(int i) {
-            this.mIntValue = i;
-        }
-
-        boolean permitsPullToRefresh() {
-            return (this == DISABLED || this == MANUAL_REFRESH_ONLY) ? false : true;
-        }
-
-        public boolean showHeaderLoadingLayout() {
-            return this == PULL_FROM_START || this == BOTH;
-        }
-
-        public boolean showFooterLoadingLayout() {
-            return this == PULL_FROM_END || this == BOTH || this == MANUAL_REFRESH_ONLY;
-        }
-
-        int getIntValue() {
-            return this.mIntValue;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public enum State {
-        RESET(0),
-        PULL_TO_REFRESH(1),
-        RELEASE_TO_REFRESH(2),
-        REFRESHING(8),
-        MANUAL_REFRESHING(9),
-        OVERSCROLLING(16);
-        
-        private int mIntValue;
-
-        static State mapIntToValue(int i) {
-            State[] values;
-            for (State state : values()) {
-                if (i == state.getIntValue()) {
-                    return state;
-                }
-            }
-            return RESET;
-        }
-
-        State(int i) {
-            this.mIntValue = i;
-        }
-
-        int getIntValue() {
-            return this.mIntValue;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public final class e implements Runnable {
-        private final int bOg;
-        private final int bOh;
-        private d fXl;
-        private final long mDuration;
-        private final Interpolator mInterpolator;
-        private boolean bOj = true;
-        private long mStartTime = -1;
-        private int bOk = -1;
-
-        public e(int i, int i2, long j, d dVar) {
-            this.bOh = i;
-            this.bOg = i2;
-            this.mInterpolator = PullToRefreshBase.this.bNV;
-            this.mDuration = j;
-            this.fXl = dVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (this.mStartTime == -1) {
-                this.mStartTime = System.currentTimeMillis();
-            } else {
-                this.bOk = this.bOh - Math.round(this.mInterpolator.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.mStartTime) * 1000) / this.mDuration, 1000L), 0L)) / 1000.0f) * (this.bOh - this.bOg));
-                PullToRefreshBase.this.setHeaderScroll(this.bOk);
-            }
-            if (this.bOj && this.bOg != this.bOk) {
-                com.baidu.tbadk.widget.pulltorefresh.library.internal.b.postOnAnimation(PullToRefreshBase.this, this);
-            } else if (this.fXl != null) {
-                this.fXl.UV();
-            }
-        }
-
-        public void stop() {
-            this.bOj = false;
-            PullToRefreshBase.this.removeCallbacks(this);
-        }
+    public PullToRefreshBase(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.j = false;
+        this.k = State.RESET;
+        this.l = Mode.getDefault();
+        this.p = true;
+        this.q = false;
+        this.r = true;
+        this.s = true;
+        this.u = AnimationStyle.getDefault();
+        l(context, attributeSet);
     }
 }

@@ -4,7 +4,7 @@ import android.view.Surface;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.rtc.CyberCaptureManager;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class CaptureManagerProvider {
     public abstract void destroySurface();
 
@@ -24,17 +24,17 @@ public abstract class CaptureManagerProvider {
 
     public abstract void resume();
 
-    public abstract void setBeautyBlure(float f);
+    public abstract void setBeautyBlure(float f2);
 
-    public abstract void setBeautyWhite(float f);
+    public abstract void setBeautyWhite(float f2);
 
     public abstract void setCameraFace(boolean z);
 
     public abstract void setCaptureReadyCallback(CyberCaptureManager.OnCaptureReadyCallback onCaptureReadyCallback);
 
-    public abstract void setCheekThin(float f);
+    public abstract void setCheekThin(float f2);
 
-    public abstract void setEnlargeEye(float f);
+    public abstract void setEnlargeEye(float f2);
 
     public abstract void setFlip(boolean z);
 

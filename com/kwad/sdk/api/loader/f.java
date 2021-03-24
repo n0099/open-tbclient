@@ -2,31 +2,34 @@ package com.kwad.sdk.api.loader;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
-class f {
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+/* loaded from: classes6.dex */
+public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    static String f5463a = "newversion";
-    static String b = "curversion";
-    static String c = "apiversion";
-    static String d = "_enable";
+    public static String f31788a = "newversion";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public static String f31789b = "curversion";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f31790c = "apiversion";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f31791d = "_enable";
+
     public static String a(Context context) {
-        return a(context, c);
+        return a(context, f31790c);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(Context context, String str) {
         return q.b(context, str, "");
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2) {
         q.a(context, str, str2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -35,8 +38,8 @@ class f {
             return false;
         }
         if (TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
-            String[] split = str.split("\\.");
-            String[] split2 = str2.split("\\.");
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             for (int i = 0; i < split.length && i < split2.length; i++) {
                 try {
                     int parseInt = Integer.parseInt(split[i]) - Integer.parseInt(split2[i]);
@@ -46,7 +49,7 @@ class f {
                     if (parseInt < 0) {
                         return false;
                     }
-                } catch (NumberFormatException e) {
+                } catch (NumberFormatException unused) {
                     return false;
                 }
             }
@@ -55,8 +58,7 @@ class f {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(Context context, String str) {
-        a(context, c, str);
+        a(context, f31790c, str);
     }
 }

@@ -1,12 +1,12 @@
 package com.android.internal.http.multipart;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public abstract class PartBase extends Part {
     public PartBase(String str, String str2, String str3, String str4) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // com.android.internal.http.multipart.Part
-    public String getName() {
+    public String getCharSet() {
         throw new RuntimeException("Stub!");
     }
 
@@ -16,7 +16,7 @@ public abstract class PartBase extends Part {
     }
 
     @Override // com.android.internal.http.multipart.Part
-    public String getCharSet() {
+    public String getName() {
         throw new RuntimeException("Stub!");
     }
 

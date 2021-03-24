@@ -1,16 +1,16 @@
 package com.baidu.tieba.usermute.response;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
+import tbclient.Error;
 import tbclient.UserMuteCheck.DataRes;
 import tbclient.UserMuteCheck.UserMuteCheckResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class UserMuteCheckSocketResponsedMessage extends SocketResponsedMessage {
-    private DataRes mResult;
+    public DataRes mResult;
 
     public UserMuteCheckSocketResponsedMessage() {
-        super(CmdConfigSocket.CMD_USER_MUTE_CHECK);
+        super(303040);
     }
 
     public DataRes getResult() {
@@ -18,15 +18,17 @@ public class UserMuteCheckSocketResponsedMessage extends SocketResponsedMessage 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
         UserMuteCheckResIdl userMuteCheckResIdl = (UserMuteCheckResIdl) new Wire(new Class[0]).parseFrom(bArr, UserMuteCheckResIdl.class);
-        if (userMuteCheckResIdl.error != null) {
-            setError(userMuteCheckResIdl.error.errorno.intValue());
+        Error error = userMuteCheckResIdl.error;
+        if (error != null) {
+            setError(error.errorno.intValue());
             setErrorString(userMuteCheckResIdl.error.usermsg);
         }
-        if (getError() == 0 && userMuteCheckResIdl.data != null) {
-            this.mResult = userMuteCheckResIdl.data;
+        if (getError() == 0 && (dataRes = userMuteCheckResIdl.data) != null) {
+            this.mResult = dataRes;
         }
     }
 }

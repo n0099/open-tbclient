@@ -1,36 +1,116 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import com.xiaomi.push.cb;
-import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
-public class bu implements Runnable {
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.xiaomi.push.ai;
+import com.xiaomi.push.cg;
+/* loaded from: classes7.dex */
+public class bu {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8287a;
+    public static volatile bu f40291a;
 
     /* renamed from: a  reason: collision with other field name */
-    private WeakReference<Context> f143a;
+    public Context f157a;
 
-    public bu(String str, WeakReference<Context> weakReference) {
-        this.f8287a = str;
-        this.f143a = weakReference;
+    /* renamed from: a  reason: collision with other field name */
+    public cj f159a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public ck f160a;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f40295e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f40296f;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final String f161a = "push_stat_sp";
+
+    /* renamed from: b  reason: collision with other field name */
+    public final String f162b = "upload_time";
+
+    /* renamed from: c  reason: collision with other field name */
+    public final String f163c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final String f40294d = "check_time";
+
+    /* renamed from: a  reason: collision with other field name */
+    public ai.a f158a = new bv(this);
+
+    /* renamed from: b  reason: collision with root package name */
+    public ai.a f40292b = new bw(this);
+
+    /* renamed from: c  reason: collision with root package name */
+    public ai.a f40293c = new bx(this);
+
+    public bu(Context context) {
+        this.f157a = context;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Context context;
-        if (this.f143a == null || (context = this.f143a.get()) == null) {
-            return;
+    public static bu a(Context context) {
+        if (f40291a == null) {
+            synchronized (bu.class) {
+                if (f40291a == null) {
+                    f40291a = new bu(context);
+                }
+            }
         }
-        if (ch.a(this.f8287a) <= bt.f141a) {
-            com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
-            return;
+        return f40291a;
+    }
+
+    private boolean a() {
+        return com.xiaomi.push.service.aq.a(this.f157a).a(hk.StatDataSwitch.a(), true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(String str) {
+        SharedPreferences.Editor edit = this.f157a.getSharedPreferences("push_stat_sp", 0).edit();
+        edit.putLong(str, System.currentTimeMillis());
+        r.a(edit);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String c() {
+        return this.f157a.getDatabasePath(by.f165a).getAbsolutePath();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public String m173a() {
+        return this.f40295e;
+    }
+
+    public void a(cg.a aVar) {
+        cg.a(this.f157a).a(aVar);
+    }
+
+    public void a(hj hjVar) {
+        if (a() && com.xiaomi.push.service.bm.a(hjVar.e())) {
+            a(cd.a(this.f157a, c(), hjVar));
         }
-        bx a2 = bx.a(this.f8287a);
-        bw a3 = bw.a(this.f8287a);
-        a2.a(a3);
-        a3.a(bv.a(context, this.f8287a, 1000));
-        cb.a(context).a((cb.a) a2);
+    }
+
+    public void a(String str) {
+        if (a() && !TextUtils.isEmpty(str)) {
+            a(cl.a(this.f157a, str));
+        }
+    }
+
+    public void a(String str, String str2, Boolean bool) {
+        if (this.f159a != null) {
+            if (bool.booleanValue()) {
+                this.f159a.a(this.f157a, str2, str);
+            } else {
+                this.f159a.b(this.f157a, str2, str);
+            }
+        }
+    }
+
+    public String b() {
+        return this.f40296f;
     }
 }

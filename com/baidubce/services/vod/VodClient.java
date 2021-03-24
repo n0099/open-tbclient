@@ -20,47 +20,19 @@ import com.baidubce.util.CheckUtils;
 import com.baidubce.util.HttpUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VodClient extends AbstractBceClient {
-    private static final int MAX_SOURCE_EXTENSION_LENGTH = 10;
-    private static final String PARA_APPLY = "apply";
-    private static final String PARA_MODE = "mode";
-    private static final String PARA_PROCESS = "process";
-    private static final String PATH_MEDIA = "media";
-    private static final String VALID_EXTENSION_PATTERN = "[0-9a-zA-Z]{0,10}";
-    private static final String VERSION = "v1";
-    private static final HttpResponseHandler[] responseHandlers = {new BceMetadataResponseHandler(), new BceErrorResponseHandler(), new VodJsonResponseHandler()};
+    public static final int MAX_SOURCE_EXTENSION_LENGTH = 10;
+    public static final String PARA_APPLY = "apply";
+    public static final String PARA_MODE = "mode";
+    public static final String PARA_PROCESS = "process";
+    public static final String PATH_MEDIA = "media";
+    public static final String VALID_EXTENSION_PATTERN = "[0-9a-zA-Z]{0,10}";
+    public static final String VERSION = "v1";
+    public static final HttpResponseHandler[] responseHandlers = {new BceMetadataResponseHandler(), new BceErrorResponseHandler(), new VodJsonResponseHandler()};
 
     public VodClient(BceClientConfiguration bceClientConfiguration) {
         super(bceClientConfiguration, responseHandlers);
-    }
-
-    public ProcessMediaResponse processMedia(ProcessMediaRequest processMediaRequest) {
-        InternalRequest createRequest = createRequest(HttpMethodName.POST, processMediaRequest, PATH_MEDIA, processMediaRequest.getMediaId());
-        createRequest.addParameter(PARA_PROCESS, null);
-        return (ProcessMediaResponse) invokeHttpClient(createRequest, ProcessMediaResponse.class);
-    }
-
-    public GenerateMediaIdResponse applyMedia() {
-        InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), PATH_MEDIA);
-        createRequest.addParameter("apply", null);
-        return (GenerateMediaIdResponse) invokeHttpClient(createRequest, GenerateMediaIdResponse.class);
-    }
-
-    public GenerateMediaIdResponse applyMediaForSpecificMode(String str) {
-        InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), PATH_MEDIA);
-        createRequest.addParameter("apply", null);
-        createRequest.addParameter("mode", str);
-        return (GenerateMediaIdResponse) invokeHttpClient(createRequest, GenerateMediaIdResponse.class);
-    }
-
-    public GetMediaResourceResponse getMediaResource(String str) {
-        return getMediaResource(new GetMediaResourceRequest().withMediaId(str));
-    }
-
-    public GetMediaResourceResponse getMediaResource(GetMediaResourceRequest getMediaResourceRequest) {
-        CheckUtils.checkArgument((getMediaResourceRequest.getMediaId() == null || getMediaResourceRequest.getMediaId().equals("")) ? false : true, "Media ID should not be null or empty!");
-        return (GetMediaResourceResponse) invokeHttpClient(createRequest(HttpMethodName.GET, getMediaResourceRequest, PATH_MEDIA, getMediaResourceRequest.getMediaId()), GetMediaResourceResponse.class);
     }
 
     private InternalRequest createRequest(HttpMethodName httpMethodName, VodBceRequest vodBceRequest, String... strArr) {
@@ -86,24 +58,52 @@ public class VodClient extends AbstractBceClient {
             internalRequest.addHeader("Content-Type", AbstractBceClient.DEFAULT_CONTENT_TYPE);
             internalRequest.setContent(RestartableInputStream.wrap(bytes));
             return internalRequest;
-        } catch (UnsupportedEncodingException e) {
-            throw new BceClientException("Unsupported encode.", e);
+        } catch (UnsupportedEncodingException e2) {
+            throw new BceClientException("Unsupported encode.", e2);
         }
     }
 
     private String getFileExtension(String str) {
-        if (str == null || str.lastIndexOf(".") == -1) {
-            return null;
+        if (str != null && str.lastIndexOf(".") != -1) {
+            String substring = str.substring(str.lastIndexOf(".") + 1);
+            if (substring.length() <= 0 || substring.length() > 10 || !substring.matches(VALID_EXTENSION_PATTERN)) {
+                return null;
+            }
+            return substring;
         }
-        String substring = str.substring(str.lastIndexOf(".") + 1);
-        if (substring.length() <= 0 || substring.length() > 10 || !substring.matches(VALID_EXTENSION_PATTERN)) {
-            return null;
-        }
-        return substring;
+        return null;
+    }
+
+    public GenerateMediaIdResponse applyMedia() {
+        InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), PATH_MEDIA);
+        createRequest.addParameter("apply", null);
+        return (GenerateMediaIdResponse) invokeHttpClient(createRequest, GenerateMediaIdResponse.class);
+    }
+
+    public GenerateMediaIdResponse applyMediaForSpecificMode(String str) {
+        InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), PATH_MEDIA);
+        createRequest.addParameter("apply", null);
+        createRequest.addParameter("mode", str);
+        return (GenerateMediaIdResponse) invokeHttpClient(createRequest, GenerateMediaIdResponse.class);
+    }
+
+    public GetMediaResourceResponse getMediaResource(String str) {
+        return getMediaResource(new GetMediaResourceRequest().withMediaId(str));
     }
 
     @Override // com.baidubce.AbstractBceClient
     public boolean isRegionSupported() {
         return false;
+    }
+
+    public ProcessMediaResponse processMedia(ProcessMediaRequest processMediaRequest) {
+        InternalRequest createRequest = createRequest(HttpMethodName.POST, processMediaRequest, PATH_MEDIA, processMediaRequest.getMediaId());
+        createRequest.addParameter(PARA_PROCESS, null);
+        return (ProcessMediaResponse) invokeHttpClient(createRequest, ProcessMediaResponse.class);
+    }
+
+    public GetMediaResourceResponse getMediaResource(GetMediaResourceRequest getMediaResourceRequest) {
+        CheckUtils.checkArgument((getMediaResourceRequest.getMediaId() == null || getMediaResourceRequest.getMediaId().equals("")) ? false : true, "Media ID should not be null or empty!");
+        return (GetMediaResourceResponse) invokeHttpClient(createRequest(HttpMethodName.GET, getMediaResourceRequest, PATH_MEDIA, getMediaResourceRequest.getMediaId()), GetMediaResourceResponse.class);
     }
 }

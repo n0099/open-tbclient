@@ -1,8 +1,10 @@
 package com.qq.e.comm.pi;
 
 import android.app.Activity;
-/* loaded from: classes4.dex */
-public interface RVADI2 {
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
+import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
+/* loaded from: classes6.dex */
+public interface RVADI2 extends ApkDownloadComplianceInterface {
     void destroy();
 
     String getECPMLevel();
@@ -16,6 +18,8 @@ public interface RVADI2 {
     boolean isVideoCached();
 
     void loadAD();
+
+    void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions);
 
     void setVolumeOn(boolean z);
 

@@ -12,7 +12,7 @@ import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
-import com.baidu.mobstat.Config;
+import com.bumptech.glide.load.resource.bitmap.TransformationUtils;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,21 +20,26 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class t {
-    private static final Paint c;
-    private static final Lock e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Paint f6799a = new Paint(6);
-    private static final Paint b = new Paint(7);
-    private static final Set<String> d = new HashSet(Arrays.asList("XT1085", "XT1092", "XT1093", "XT1094", "XT1095", "XT1096", "XT1097", "XT1098", "XT1031", "XT1028", "XT937C", "XT1032", "XT1008", "XT1033", "XT1035", "XT1034", "XT939G", "XT1039", "XT1040", "XT1042", "XT1045", "XT1063", "XT1064", "XT1068", "XT1069", "XT1072", "XT1077", "XT1078", "XT1079"));
+    public static final Paint f35691a = new Paint(6);
 
-    /* loaded from: classes3.dex */
-    private static final class a implements Lock {
-        a() {
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public static final Paint f35692b = new Paint(7);
 
+    /* renamed from: c  reason: collision with root package name */
+    public static final Paint f35693c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Set<String> f35694d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final Lock f35695e;
+
+    /* loaded from: classes6.dex */
+    public static final class a implements Lock {
         @Override // java.util.concurrent.locks.Lock
         public void lock() {
         }
@@ -65,9 +70,12 @@ public final class t {
     }
 
     static {
-        e = d.contains(Build.MODEL) ? new ReentrantLock() : new a();
-        c = new Paint(7);
-        c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        HashSet hashSet = new HashSet(Arrays.asList("XT1085", "XT1092", "XT1093", "XT1094", "XT1095", "XT1096", "XT1097", "XT1098", "XT1031", "XT1028", "XT937C", "XT1032", "XT1008", "XT1033", "XT1035", "XT1034", "XT939G", "XT1039", "XT1040", "XT1042", "XT1045", "XT1063", "XT1064", "XT1068", "XT1069", "XT1072", "XT1077", "XT1078", "XT1079"));
+        f35694d = hashSet;
+        f35695e = hashSet.contains(Build.MODEL) ? new ReentrantLock() : new a();
+        Paint paint = new Paint(7);
+        f35693c = paint;
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
     public static int a(int i) {
@@ -87,11 +95,11 @@ public final class t {
     }
 
     @NonNull
-    private static Bitmap.Config a(@NonNull Bitmap bitmap) {
+    public static Bitmap.Config a(@NonNull Bitmap bitmap) {
         return (Build.VERSION.SDK_INT < 26 || !Bitmap.Config.RGBA_F16.equals(bitmap.getConfig())) ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGBA_F16;
     }
 
-    private static Bitmap a(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull Bitmap bitmap) {
+    public static Bitmap a(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull Bitmap bitmap) {
         Bitmap.Config a2 = a(bitmap);
         if (a2.equals(bitmap.getConfig())) {
             return bitmap;
@@ -119,22 +127,21 @@ public final class t {
     public static Bitmap a(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull Bitmap bitmap, int i, int i2) {
         float width;
         float height;
-        float f;
         if (bitmap.getWidth() == i && bitmap.getHeight() == i2) {
             return bitmap;
         }
         Matrix matrix = new Matrix();
+        float f2 = 0.0f;
         if (bitmap.getWidth() * i2 > bitmap.getHeight() * i) {
             width = i2 / bitmap.getHeight();
-            f = (i - (bitmap.getWidth() * width)) * 0.5f;
+            f2 = (i - (bitmap.getWidth() * width)) * 0.5f;
             height = 0.0f;
         } else {
             width = i / bitmap.getWidth();
             height = (i2 - (bitmap.getHeight() * width)) * 0.5f;
-            f = 0.0f;
         }
         matrix.setScale(width, width);
-        matrix.postTranslate((int) (f + 0.5f), (int) (height + 0.5f));
+        matrix.postTranslate((int) (f2 + 0.5f), (int) (height + 0.5f));
         Bitmap a2 = eVar.a(i, i2, b(bitmap));
         a(bitmap, a2);
         a(bitmap, a2, matrix);
@@ -142,11 +149,11 @@ public final class t {
     }
 
     public static Lock a() {
-        return e;
+        return f35695e;
     }
 
     @VisibleForTesting
-    static void a(int i, Matrix matrix) {
+    public static void a(int i, Matrix matrix) {
         switch (i) {
             case 2:
                 matrix.setScale(-1.0f, 1.0f);
@@ -156,56 +163,53 @@ public final class t {
                 return;
             case 4:
                 matrix.setRotate(180.0f);
-                matrix.postScale(-1.0f, 1.0f);
-                return;
+                break;
             case 5:
                 matrix.setRotate(90.0f);
-                matrix.postScale(-1.0f, 1.0f);
-                return;
+                break;
             case 6:
                 matrix.setRotate(90.0f);
                 return;
             case 7:
                 matrix.setRotate(-90.0f);
-                matrix.postScale(-1.0f, 1.0f);
-                return;
+                break;
             case 8:
                 matrix.setRotate(-90.0f);
                 return;
             default:
                 return;
         }
+        matrix.postScale(-1.0f, 1.0f);
     }
 
     public static void a(Bitmap bitmap, Bitmap bitmap2) {
         bitmap2.setHasAlpha(bitmap.hasAlpha());
     }
 
-    private static void a(@NonNull Bitmap bitmap, @NonNull Bitmap bitmap2, Matrix matrix) {
-        e.lock();
+    public static void a(@NonNull Bitmap bitmap, @NonNull Bitmap bitmap2, Matrix matrix) {
+        f35695e.lock();
         try {
             Canvas canvas = new Canvas(bitmap2);
-            canvas.drawBitmap(bitmap, matrix, f6799a);
+            canvas.drawBitmap(bitmap, matrix, f35691a);
             a(canvas);
         } finally {
-            e.unlock();
+            f35695e.unlock();
         }
     }
 
-    private static void a(Canvas canvas) {
+    public static void a(Canvas canvas) {
         canvas.setBitmap(null);
     }
 
     @NonNull
-    private static Bitmap.Config b(@NonNull Bitmap bitmap) {
+    public static Bitmap.Config b(@NonNull Bitmap bitmap) {
         return bitmap.getConfig() != null ? bitmap.getConfig() : Bitmap.Config.ARGB_8888;
     }
 
     public static Bitmap b(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull Bitmap bitmap, int i, int i2) {
         if (bitmap.getWidth() == i && bitmap.getHeight() == i2) {
-            if (Log.isLoggable("TransformationUtils", 2)) {
-                Log.v("TransformationUtils", "requested target size matches input, returning input");
-                return bitmap;
+            if (Log.isLoggable(TransformationUtils.TAG, 2)) {
+                Log.v(TransformationUtils.TAG, "requested target size matches input, returning input");
             }
             return bitmap;
         }
@@ -213,19 +217,21 @@ public final class t {
         int round = Math.round(bitmap.getWidth() * min);
         int round2 = Math.round(bitmap.getHeight() * min);
         if (bitmap.getWidth() == round && bitmap.getHeight() == round2) {
-            if (Log.isLoggable("TransformationUtils", 2)) {
-                Log.v("TransformationUtils", "adjusted target size matches input, returning input");
-                return bitmap;
+            if (Log.isLoggable(TransformationUtils.TAG, 2)) {
+                Log.v(TransformationUtils.TAG, "adjusted target size matches input, returning input");
             }
             return bitmap;
         }
         Bitmap a2 = eVar.a((int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), b(bitmap));
         a(bitmap, a2);
-        if (Log.isLoggable("TransformationUtils", 2)) {
-            Log.v("TransformationUtils", "request: " + i + Config.EVENT_HEAT_X + i2);
-            Log.v("TransformationUtils", "toFit:   " + bitmap.getWidth() + Config.EVENT_HEAT_X + bitmap.getHeight());
-            Log.v("TransformationUtils", "toReuse: " + a2.getWidth() + Config.EVENT_HEAT_X + a2.getHeight());
-            Log.v("TransformationUtils", "minPct:   " + min);
+        if (Log.isLoggable(TransformationUtils.TAG, 2)) {
+            Log.v(TransformationUtils.TAG, "request: " + i + "x" + i2);
+            Log.v(TransformationUtils.TAG, "toFit:   " + bitmap.getWidth() + "x" + bitmap.getHeight());
+            Log.v(TransformationUtils.TAG, "toReuse: " + a2.getWidth() + "x" + a2.getHeight());
+            StringBuilder sb = new StringBuilder();
+            sb.append("minPct:   ");
+            sb.append(min);
+            Log.v(TransformationUtils.TAG, sb.toString());
         }
         Matrix matrix = new Matrix();
         matrix.setScale(min, min);
@@ -250,45 +256,45 @@ public final class t {
 
     public static Bitmap c(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull Bitmap bitmap, int i, int i2) {
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            if (Log.isLoggable("TransformationUtils", 2)) {
-                Log.v("TransformationUtils", "requested target size too big for input, fit centering instead");
+            if (Log.isLoggable(TransformationUtils.TAG, 2)) {
+                Log.v(TransformationUtils.TAG, "requested target size too big for input, fit centering instead");
             }
             return b(eVar, bitmap, i, i2);
-        } else if (Log.isLoggable("TransformationUtils", 2)) {
-            Log.v("TransformationUtils", "requested target size larger or equal to input, returning input");
-            return bitmap;
-        } else {
-            return bitmap;
         }
+        if (Log.isLoggable(TransformationUtils.TAG, 2)) {
+            Log.v(TransformationUtils.TAG, "requested target size larger or equal to input, returning input");
+        }
+        return bitmap;
     }
 
     public static Bitmap d(@NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, @NonNull Bitmap bitmap, int i, int i2) {
         int min = Math.min(i, i2);
-        float f = min / 2.0f;
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        float max = Math.max(min / width, min / height);
-        float f2 = width * max;
-        float f3 = height * max;
-        float f4 = (min - f2) / 2.0f;
-        float f5 = (min - f3) / 2.0f;
-        RectF rectF = new RectF(f4, f5, f2 + f4, f3 + f5);
+        float f2 = min;
+        float f3 = f2 / 2.0f;
+        float width = bitmap.getWidth();
+        float height = bitmap.getHeight();
+        float max = Math.max(f2 / width, f2 / height);
+        float f4 = width * max;
+        float f5 = max * height;
+        float f6 = (f2 - f4) / 2.0f;
+        float f7 = (f2 - f5) / 2.0f;
+        RectF rectF = new RectF(f6, f7, f4 + f6, f5 + f7);
         Bitmap a2 = a(eVar, bitmap);
         Bitmap a3 = eVar.a(min, min, a(bitmap));
         a3.setHasAlpha(true);
-        e.lock();
+        f35695e.lock();
         try {
             Canvas canvas = new Canvas(a3);
-            canvas.drawCircle(f, f, f, b);
-            canvas.drawBitmap(a2, (Rect) null, rectF, c);
+            canvas.drawCircle(f3, f3, f3, f35692b);
+            canvas.drawBitmap(a2, (Rect) null, rectF, f35693c);
             a(canvas);
-            e.unlock();
+            f35695e.unlock();
             if (!a2.equals(bitmap)) {
                 eVar.a(a2);
             }
             return a3;
         } catch (Throwable th) {
-            e.unlock();
+            f35695e.unlock();
             throw th;
         }
     }

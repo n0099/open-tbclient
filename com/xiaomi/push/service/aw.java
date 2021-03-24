@@ -1,58 +1,29 @@
 package com.xiaomi.push.service;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Build;
-import android.provider.Settings;
-import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes5.dex */
-public class aw {
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.av;
+/* loaded from: classes7.dex */
+public class aw implements av.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static aw f8531a;
+    public final /* synthetic */ av.b f40976a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private int f869a = 0;
-
-    /* renamed from: a  reason: collision with other field name */
-    private Context f870a;
-
-    private aw(Context context) {
-        this.f870a = context.getApplicationContext();
+    public aw(av.b bVar) {
+        this.f40976a = bVar;
     }
 
-    public static aw a(Context context) {
-        if (f8531a == null) {
-            f8531a = new aw(context);
+    @Override // com.xiaomi.push.service.av.b.a
+    public void a(av.c cVar, av.c cVar2, int i) {
+        XMPushService.b bVar;
+        XMPushService.b bVar2;
+        if (cVar2 == av.c.binding) {
+            XMPushService xMPushService = this.f40976a.f904a;
+            bVar2 = this.f40976a.f903a;
+            xMPushService.a(bVar2, 60000L);
+            return;
         }
-        return f8531a;
-    }
-
-    @SuppressLint({"NewApi"})
-    public int a() {
-        if (this.f869a != 0) {
-            return this.f869a;
-        }
-        if (Build.VERSION.SDK_INT >= 17) {
-            try {
-                this.f869a = Settings.Global.getInt(this.f870a.getContentResolver(), "device_provisioned", 0);
-            } catch (Exception e) {
-            }
-            return this.f869a;
-        }
-        this.f869a = Settings.Secure.getInt(this.f870a.getContentResolver(), "device_provisioned", 0);
-        return this.f869a;
-    }
-
-    @SuppressLint({"NewApi"})
-    /* renamed from: a  reason: collision with other method in class */
-    public Uri m556a() {
-        return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m557a() {
-        return com.xiaomi.push.ab.f91a.contains("xmsf") || com.xiaomi.push.ab.f91a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f91a.contains("miui");
+        XMPushService xMPushService2 = this.f40976a.f904a;
+        bVar = this.f40976a.f903a;
+        xMPushService2.b(bVar);
     }
 }

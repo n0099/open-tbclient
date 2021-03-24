@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.adlanding.download.model;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public enum SwanAdDownloadState {
     NOT_START(0),
     DOWNLOADING(1),
@@ -11,29 +11,24 @@ public enum SwanAdDownloadState {
     PREPARE_DOWNLOAD(7),
     WAIT(8);
     
-    private int state;
+    public int state;
 
     SwanAdDownloadState(int i) {
         this.state = i;
     }
 
-    public int value() {
-        return this.state;
-    }
-
     public static SwanAdDownloadState convert(int i) {
+        SwanAdDownloadState[] values;
         SwanAdDownloadState swanAdDownloadState = NOT_START;
-        SwanAdDownloadState[] values = values();
-        int length = values.length;
-        int i2 = 0;
-        while (i2 < length) {
-            SwanAdDownloadState swanAdDownloadState2 = values[i2];
-            if (swanAdDownloadState2.state != i) {
-                swanAdDownloadState2 = swanAdDownloadState;
+        for (SwanAdDownloadState swanAdDownloadState2 : values()) {
+            if (swanAdDownloadState2.state == i) {
+                swanAdDownloadState = swanAdDownloadState2;
             }
-            i2++;
-            swanAdDownloadState = swanAdDownloadState2;
         }
         return swanAdDownloadState;
+    }
+
+    public int value() {
+        return this.state;
     }
 }

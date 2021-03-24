@@ -1,22 +1,22 @@
 package com.baidu.tieba.ala.livecard.models;
 
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.frs.ba;
+import d.b.b.j.e.n;
+import d.b.h0.r.q.a2;
+import d.b.i0.p0.c1;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
     public ArrayList<n> mAltList;
     public ArrayList<n> mThreadList;
-    public ba pageInfo;
+    public c1 pageInfo;
 
     public FrsPageAlaTabResponseMessage(int i) {
         super(i);
@@ -26,40 +26,42 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
-        if (statusCode == 200 && error >= 0 && jSONObject != null) {
-            this.errCode = jSONObject.optInt("error_code");
-            this.errMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
-            this.alaLiveCount = jSONObject.optInt("ala_live_count");
-            JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            this.pageInfo = new ba();
-            this.pageInfo.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.pageInfo.pn = optJSONObject.optInt(Config.PACKAGE_NAME);
-            if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
-                FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
-                this.pageInfo.forumName = frsPageAlaTabRequestMessage.getForumName();
-                this.pageInfo.forumId = frsPageAlaTabRequestMessage.getForumId();
+        if (statusCode != 200 || error < 0 || jSONObject == null) {
+            return;
+        }
+        this.errCode = jSONObject.optInt("error_code");
+        this.errMsg = jSONObject.optString("errmsg");
+        this.alaLiveCount = jSONObject.optInt("ala_live_count");
+        JSONObject optJSONObject = jSONObject.optJSONObject("page");
+        c1 c1Var = new c1();
+        this.pageInfo = c1Var;
+        c1Var.f57364g = optJSONObject.optInt("has_more") == 1;
+        this.pageInfo.f58780c = optJSONObject.optInt(Config.PACKAGE_NAME);
+        if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
+            FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
+            this.pageInfo.f58778a = frsPageAlaTabRequestMessage.getForumName();
+            this.pageInfo.f58779b = frsPageAlaTabRequestMessage.getForumId();
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
+        if (optJSONArray.length() > 0) {
+            this.mThreadList = new ArrayList<>();
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                a2 a2Var = new a2();
+                a2Var.A3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                a2Var.P2(jSONObject2);
+                this.mThreadList.add(a2Var);
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
-            if (optJSONArray.length() > 0) {
-                this.mThreadList = new ArrayList<>();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    cb cbVar = new cb();
-                    cbVar.An("frs_live_play");
-                    cbVar.parserJson(jSONObject2);
-                    this.mThreadList.add(cbVar);
-                }
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
-            if (optJSONArray2.length() > 0) {
-                this.mAltList = new ArrayList<>();
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
-                    cb cbVar2 = new cb();
-                    cbVar2.An("frs_live_play");
-                    cbVar2.parserJson(jSONObject3);
-                    this.mAltList.add(cbVar2);
-                }
+        }
+        JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
+        if (optJSONArray2.length() > 0) {
+            this.mAltList = new ArrayList<>();
+            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
+                a2 a2Var2 = new a2();
+                a2Var2.A3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                a2Var2.P2(jSONObject3);
+                this.mAltList.add(a2Var2);
             }
         }
     }

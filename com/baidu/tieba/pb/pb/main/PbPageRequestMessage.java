@@ -2,70 +2,73 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.AdExtParam;
 import com.squareup.wire.Wire;
+import d.b.h0.z0.w;
+import d.b.i0.r2.a0.a;
+import d.b.i0.r2.b0.b;
 import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PbPageRequestMessage extends NetMessage {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private Integer arround;
-    private Integer back;
-    private Integer banner;
-    private String cacheKey;
-    private Context context;
-    private int floor_rn;
-    private Long forumId;
-    private Integer fromSmartFrs;
-    private int from_push;
-    private boolean isFromMark;
-    private boolean isJumpFloor;
-    private Integer isReqAd;
-    private boolean isSubPostDataReverse;
-    private int jumpFloorNum;
-    private long kz;
-    private Integer last;
-    private String lastids;
-    private int loadCount;
-    private Integer lz;
-    private int mAfterAdThreadCount;
-    private int mFloorSortType;
-    private String mLocate;
-    private String mSchemeUrl;
-    private Integer mark;
-    private String message_click;
-    private Integer message_id;
-    private Integer needRepostRecommendForum;
-    private String objParam1;
+    public Integer arround;
+    public Integer back;
+    public Integer banner;
+    public String cacheKey;
+    public Context context;
+    public int floor_rn;
+    public Long forumId;
+    public Integer fromSmartFrs;
+    public int from_push;
+    public boolean isFromMark;
+    public boolean isJumpFloor;
+    public Integer isReqAd;
+    public boolean isSubPostDataReverse;
+    public int jumpFloorNum;
+    public long kz;
+    public Integer last;
+    public String lastids;
+    public int loadCount;
+    public Integer lz;
+    public int mAfterAdThreadCount;
+    public int mFloorSortType;
+    public String mLocate;
+    public String mSchemeUrl;
+    public Integer mark;
+    public String message_click;
+    public Integer message_id;
+    public Integer needRepostRecommendForum;
+    public String objParam1;
     public String obj_source;
-    private long officialBarMsgId;
-    private long opMessageID;
-    private int opStat;
-    private String opType;
-    private String opUrl;
-    private String oriUgcNid;
-    private String oriUgcTid;
-    private int oriUgcType;
-    private String oriUgcVid;
-    private long pid;
-    private Integer pn;
-    private Integer q_type;
-    private Integer r;
-    private int refreshCount;
-    private Integer rn;
-    private double scr_dip;
-    private Integer scr_h;
-    private Integer scr_w;
-    private int sourceType;
-    private String st_type;
-    private Integer thread_type;
-    private int updateType;
-    private Integer with_floor;
+    public long officialBarMsgId;
+    public long opMessageID;
+    public int opStat;
+    public String opType;
+    public String opUrl;
+    public String oriUgcNid;
+    public String oriUgcTid;
+    public int oriUgcType;
+    public String oriUgcVid;
+    public long pid;
+    public Integer pn;
+    public Integer q_type;
+    public Integer r;
+    public int refreshCount;
+    public Integer rn;
+    public double scr_dip;
+    public Integer scr_h;
+    public Integer scr_w;
+    public int sourceType;
+    public String st_type;
+    public Integer thread_type;
+    public int updateType;
+    public Integer with_floor;
 
     public PbPageRequestMessage() {
-        super(1001801, CmdConfigSocket.CMD_PB_PAGE);
+        super(CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001);
         this.isSubPostDataReverse = false;
         this.isJumpFloor = false;
         this.jumpFloorNum = 0;
@@ -77,242 +80,6 @@ public class PbPageRequestMessage extends NetMessage {
         this.isReqAd = 0;
         this.mSchemeUrl = "";
         this.sourceType = 2;
-    }
-
-    public void setRefreshCount(int i) {
-        this.refreshCount = i;
-    }
-
-    public void setLoadCount(int i) {
-        this.loadCount = i;
-    }
-
-    public void setFloor_rn(int i) {
-        this.floor_rn = i;
-    }
-
-    public Context getContext() {
-        return this.context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
-    public void set_message_click(String str) {
-        this.message_click = str;
-    }
-
-    public void set_last(Integer num) {
-        this.last = num;
-    }
-
-    public void set_mark(Integer num) {
-        this.mark = num;
-    }
-
-    public void set_back(Integer num) {
-        this.back = num;
-    }
-
-    public long get_kz() {
-        return this.kz;
-    }
-
-    public void set_kz(long j) {
-        this.kz = j;
-    }
-
-    public void set_lz(Integer num) {
-        this.lz = num;
-    }
-
-    public void set_r(Integer num) {
-        this.r = num;
-    }
-
-    public void set_pid(long j) {
-        this.pid = j;
-    }
-
-    public void set_with_floor(Integer num) {
-        this.with_floor = num;
-    }
-
-    public void set_message_id(Integer num) {
-        this.message_id = num;
-    }
-
-    public void setOpType(String str) {
-        this.opType = str;
-    }
-
-    public void setOpUrl(String str) {
-        this.opUrl = str;
-    }
-
-    public void setOpStat(int i) {
-        this.opStat = i;
-    }
-
-    public void setOpMessageID(long j) {
-        this.opMessageID = j;
-    }
-
-    public void set_rn(Integer num) {
-        this.rn = num;
-    }
-
-    public void set_scr_w(Integer num) {
-        this.scr_w = num;
-    }
-
-    public void set_scr_h(Integer num) {
-        this.scr_h = num;
-    }
-
-    public void set_scr_dip(double d) {
-        this.scr_dip = d;
-    }
-
-    public void set_q_type(Integer num) {
-        this.q_type = num;
-    }
-
-    public void set_pn(Integer num) {
-        this.pn = num;
-    }
-
-    public void set_st_type(String str) {
-        this.st_type = str;
-    }
-
-    public void setLocate(String str) {
-        this.mLocate = str;
-    }
-
-    public void set_thread_type(Integer num) {
-        this.thread_type = num;
-    }
-
-    public void set_banner(Integer num) {
-        this.banner = num;
-    }
-
-    public void set_arround(Integer num) {
-        this.arround = num;
-    }
-
-    public int getUpdateType() {
-        return this.updateType;
-    }
-
-    public void setUpdateType(int i) {
-        this.updateType = i;
-    }
-
-    public String getCacheKey() {
-        return this.cacheKey;
-    }
-
-    public void setCacheKey(String str) {
-        this.cacheKey = str;
-    }
-
-    public boolean getIsFromMark() {
-        return this.isFromMark;
-    }
-
-    public void setIsFromMark(Boolean bool) {
-        this.isFromMark = bool.booleanValue();
-    }
-
-    public void setLastids(String str) {
-        this.lastids = str;
-    }
-
-    public void setIsSubPostDataReverse(boolean z) {
-        this.isSubPostDataReverse = z;
-    }
-
-    public void setIsJumpFloor(boolean z) {
-        this.isJumpFloor = z;
-    }
-
-    public void setJumpFloorNum(int i) {
-        this.jumpFloorNum = i;
-    }
-
-    public void setObjParam1(String str) {
-        this.objParam1 = str;
-    }
-
-    public void setFromSmartFrs(int i) {
-        this.fromSmartFrs = Integer.valueOf(i);
-    }
-
-    public void setForumId(String str) {
-        this.forumId = Long.valueOf(com.baidu.adp.lib.f.b.toLong(str, 0L));
-    }
-
-    public void setNeedRepostRecommendForum(boolean z) {
-        this.needRepostRecommendForum = Integer.valueOf(z ? 1 : 0);
-    }
-
-    public void setIsReqAd(int i) {
-        this.isReqAd = Integer.valueOf(i);
-    }
-
-    public void setOriUgcNid(String str) {
-        this.oriUgcNid = str;
-    }
-
-    public void setOriUgcTid(String str) {
-        this.oriUgcTid = str;
-    }
-
-    public void setOriUgcType(int i) {
-        this.oriUgcType = i;
-    }
-
-    public void setOriUgcVid(String str) {
-        this.oriUgcVid = str;
-    }
-
-    public void setAfterAdThreadCount(int i) {
-        this.mAfterAdThreadCount = i;
-    }
-
-    public Integer getR() {
-        return this.r;
-    }
-
-    public Integer getPn() {
-        return this.pn;
-    }
-
-    public String getSchemeUrl() {
-        return this.mSchemeUrl;
-    }
-
-    public void setSchemeUrl(String str) {
-        this.mSchemeUrl = str;
-    }
-
-    public void setFrom_push(int i) {
-        this.from_push = i;
-    }
-
-    public void setOfficialBarMsgId(long j) {
-        this.officialBarMsgId = j;
-    }
-
-    public void setFloorSortType(int i) {
-        this.mFloorSortType = i;
-    }
-
-    public void setSourceType(int i) {
-        this.sourceType = i;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -359,7 +126,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.c.a.dEu().dEy();
+            builder.app_pos = a.e().a();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
@@ -372,17 +139,255 @@ public class PbPageRequestMessage extends NetMessage {
             builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
             builder.ori_ugc_vid = this.oriUgcVid;
             builder.after_ad_thread_count = Integer.valueOf(this.mAfterAdThreadCount);
-            builder.ad_context_list = com.baidu.tieba.recapp.report.b.dEB().RX("PB");
+            builder.ad_context_list = b.f().d("PB");
             builder.up_schema = this.mSchemeUrl;
             builder.from_push = Integer.valueOf(this.from_push);
-            builder.ad_ext_params = AdExtParam.a.bEY().rD(this.updateType).bEZ();
+            AdExtParam.a b2 = AdExtParam.a.b();
+            b2.h(this.updateType);
+            builder.ad_ext_params = b2.a();
             builder.source_type = Integer.valueOf(this.sourceType);
-            com.baidu.tbadk.util.v.a(builder, true, false, true);
+            w.c(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
+    }
+
+    public String getCacheKey() {
+        return this.cacheKey;
+    }
+
+    public Context getContext() {
+        return this.context;
+    }
+
+    public boolean getIsFromMark() {
+        return this.isFromMark;
+    }
+
+    public Integer getPn() {
+        return this.pn;
+    }
+
+    public Integer getR() {
+        return this.r;
+    }
+
+    public String getSchemeUrl() {
+        return this.mSchemeUrl;
+    }
+
+    public int getUpdateType() {
+        return this.updateType;
+    }
+
+    public long get_kz() {
+        return this.kz;
+    }
+
+    public void setAfterAdThreadCount(int i) {
+        this.mAfterAdThreadCount = i;
+    }
+
+    public void setCacheKey(String str) {
+        this.cacheKey = str;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public void setFloorSortType(int i) {
+        this.mFloorSortType = i;
+    }
+
+    public void setFloor_rn(int i) {
+        this.floor_rn = i;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = Long.valueOf(d.b.b.e.m.b.f(str, 0L));
+    }
+
+    public void setFromSmartFrs(int i) {
+        this.fromSmartFrs = Integer.valueOf(i);
+    }
+
+    public void setFrom_push(int i) {
+        this.from_push = i;
+    }
+
+    public void setIsFromMark(Boolean bool) {
+        this.isFromMark = bool.booleanValue();
+    }
+
+    public void setIsJumpFloor(boolean z) {
+        this.isJumpFloor = z;
+    }
+
+    public void setIsReqAd(int i) {
+        this.isReqAd = Integer.valueOf(i);
+    }
+
+    public void setIsSubPostDataReverse(boolean z) {
+        this.isSubPostDataReverse = z;
+    }
+
+    public void setJumpFloorNum(int i) {
+        this.jumpFloorNum = i;
+    }
+
+    public void setLastids(String str) {
+        this.lastids = str;
+    }
+
+    public void setLoadCount(int i) {
+        this.loadCount = i;
+    }
+
+    public void setLocate(String str) {
+        this.mLocate = str;
+    }
+
+    public void setNeedRepostRecommendForum(boolean z) {
+        this.needRepostRecommendForum = Integer.valueOf(z ? 1 : 0);
+    }
+
+    public void setObjParam1(String str) {
+        this.objParam1 = str;
+    }
+
+    public void setOfficialBarMsgId(long j) {
+        this.officialBarMsgId = j;
+    }
+
+    public void setOpMessageID(long j) {
+        this.opMessageID = j;
+    }
+
+    public void setOpStat(int i) {
+        this.opStat = i;
+    }
+
+    public void setOpType(String str) {
+        this.opType = str;
+    }
+
+    public void setOpUrl(String str) {
+        this.opUrl = str;
+    }
+
+    public void setOriUgcNid(String str) {
+        this.oriUgcNid = str;
+    }
+
+    public void setOriUgcTid(String str) {
+        this.oriUgcTid = str;
+    }
+
+    public void setOriUgcType(int i) {
+        this.oriUgcType = i;
+    }
+
+    public void setOriUgcVid(String str) {
+        this.oriUgcVid = str;
+    }
+
+    public void setRefreshCount(int i) {
+        this.refreshCount = i;
+    }
+
+    public void setSchemeUrl(String str) {
+        this.mSchemeUrl = str;
+    }
+
+    public void setSourceType(int i) {
+        this.sourceType = i;
+    }
+
+    public void setUpdateType(int i) {
+        this.updateType = i;
+    }
+
+    public void set_arround(Integer num) {
+        this.arround = num;
+    }
+
+    public void set_back(Integer num) {
+        this.back = num;
+    }
+
+    public void set_banner(Integer num) {
+        this.banner = num;
+    }
+
+    public void set_kz(long j) {
+        this.kz = j;
+    }
+
+    public void set_last(Integer num) {
+        this.last = num;
+    }
+
+    public void set_lz(Integer num) {
+        this.lz = num;
+    }
+
+    public void set_mark(Integer num) {
+        this.mark = num;
+    }
+
+    public void set_message_click(String str) {
+        this.message_click = str;
+    }
+
+    public void set_message_id(Integer num) {
+        this.message_id = num;
+    }
+
+    public void set_pid(long j) {
+        this.pid = j;
+    }
+
+    public void set_pn(Integer num) {
+        this.pn = num;
+    }
+
+    public void set_q_type(Integer num) {
+        this.q_type = num;
+    }
+
+    public void set_r(Integer num) {
+        this.r = num;
+    }
+
+    public void set_rn(Integer num) {
+        this.rn = num;
+    }
+
+    public void set_scr_dip(double d2) {
+        this.scr_dip = d2;
+    }
+
+    public void set_scr_h(Integer num) {
+        this.scr_h = num;
+    }
+
+    public void set_scr_w(Integer num) {
+        this.scr_w = num;
+    }
+
+    public void set_st_type(String str) {
+        this.st_type = str;
+    }
+
+    public void set_thread_type(Integer num) {
+        this.thread_type = num;
+    }
+
+    public void set_with_floor(Integer num) {
+        this.with_floor = num;
     }
 }

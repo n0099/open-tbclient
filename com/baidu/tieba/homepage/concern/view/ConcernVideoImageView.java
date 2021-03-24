@@ -6,44 +6,48 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ConcernVideoImageView extends RelativeLayout {
-    private TbImageView eKF;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbImageView f17052e;
 
     public ConcernVideoImageView(Context context) {
         super(context);
-        init();
+        a();
+    }
+
+    public final void a() {
+        LayoutInflater.from(getContext()).inflate(R.layout.concern_video_img_layout, (ViewGroup) this, true);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.concern_video_img);
+        this.f17052e = tbImageView;
+        tbImageView.setDefaultBgResource(R.color.CAM_X0205);
+        int k = l.k(getContext()) - l.g(getContext(), R.dimen.ds68);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f17052e.getLayoutParams();
+        layoutParams.height = (k * 9) / 16;
+        layoutParams.width = k;
+    }
+
+    public void setData(List<MediaData> list) {
+        if (ListUtils.isEmpty(list) || StringUtils.isNull(list.get(0).getPicUrl())) {
+            return;
+        }
+        this.f17052e.W(list.get(0).getPicUrl(), 10, false);
     }
 
     public ConcernVideoImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init();
+        a();
     }
 
     public ConcernVideoImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        init();
-    }
-
-    private void init() {
-        LayoutInflater.from(getContext()).inflate(R.layout.concern_video_img_layout, (ViewGroup) this, true);
-        this.eKF = (TbImageView) findViewById(R.id.concern_video_img);
-        this.eKF.setDefaultBgResource(R.color.CAM_X0205);
-        int equipmentWidth = l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.ds68);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eKF.getLayoutParams();
-        layoutParams.height = (equipmentWidth * 9) / 16;
-        layoutParams.width = equipmentWidth;
-    }
-
-    public void setData(List<MediaData> list) {
-        if (!y.isEmpty(list) && !StringUtils.isNull(list.get(0).getPicUrl())) {
-            this.eKF.startLoad(list.get(0).getPicUrl(), 10, false);
-        }
+        a();
     }
 }

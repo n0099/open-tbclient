@@ -4,18 +4,18 @@ import android.graphics.Bitmap;
 import android.os.Looper;
 import android.webkit.WebIconDatabase;
 import com.baidu.webkit.sdk.WebIconDatabase;
-/* loaded from: classes14.dex */
-final class WebIconDatabaseImpl extends WebIconDatabase {
+/* loaded from: classes5.dex */
+public final class WebIconDatabaseImpl extends WebIconDatabase {
 
-    /* loaded from: classes14.dex */
-    private static class IconWrapper implements WebIconDatabase.IconListener {
-        private final WebIconDatabase.IconListener mListener;
+    /* loaded from: classes5.dex */
+    public static class IconWrapper implements WebIconDatabase.IconListener {
+        public final WebIconDatabase.IconListener mListener;
 
-        private IconWrapper(WebIconDatabase.IconListener iconListener) {
+        public IconWrapper(WebIconDatabase.IconListener iconListener) {
             this.mListener = iconListener;
         }
 
-        static WebIconDatabase.IconListener from(WebIconDatabase.IconListener iconListener) {
+        public static WebIconDatabase.IconListener from(WebIconDatabase.IconListener iconListener) {
             if (iconListener == null) {
                 return null;
             }

@@ -6,30 +6,20 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes14.dex */
-class CardViewApi21Impl implements CardViewImpl {
-    @Override // androidx.cardview.widget.CardViewImpl
-    public void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f, float f2, float f3) {
-        cardViewDelegate.setCardBackground(new RoundRectDrawable(colorStateList, f));
-        View cardView = cardViewDelegate.getCardView();
-        cardView.setClipToOutline(true);
-        cardView.setElevation(f2);
-        setMaxElevation(cardViewDelegate, f3);
+/* loaded from: classes.dex */
+public class CardViewApi21Impl implements CardViewImpl {
+    private RoundRectDrawable getCardBackground(CardViewDelegate cardViewDelegate) {
+        return (RoundRectDrawable) cardViewDelegate.getCardBackground();
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setRadius(CardViewDelegate cardViewDelegate, float f) {
-        getCardBackground(cardViewDelegate).setRadius(f);
+    public ColorStateList getBackgroundColor(CardViewDelegate cardViewDelegate) {
+        return getCardBackground(cardViewDelegate).getColor();
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void initStatic() {
-    }
-
-    @Override // androidx.cardview.widget.CardViewImpl
-    public void setMaxElevation(CardViewDelegate cardViewDelegate, float f) {
-        getCardBackground(cardViewDelegate).setPadding(f, cardViewDelegate.getUseCompatPadding(), cardViewDelegate.getPreventCornerOverlap());
-        updatePadding(cardViewDelegate);
+    public float getElevation(CardViewDelegate cardViewDelegate) {
+        return cardViewDelegate.getCardView().getElevation();
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
@@ -38,12 +28,12 @@ class CardViewApi21Impl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public float getMinWidth(CardViewDelegate cardViewDelegate) {
+    public float getMinHeight(CardViewDelegate cardViewDelegate) {
         return getRadius(cardViewDelegate) * 2.0f;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public float getMinHeight(CardViewDelegate cardViewDelegate) {
+    public float getMinWidth(CardViewDelegate cardViewDelegate) {
         return getRadius(cardViewDelegate) * 2.0f;
     }
 
@@ -53,26 +43,16 @@ class CardViewApi21Impl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setElevation(CardViewDelegate cardViewDelegate, float f) {
-        cardViewDelegate.getCardView().setElevation(f);
+    public void initStatic() {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public float getElevation(CardViewDelegate cardViewDelegate) {
-        return cardViewDelegate.getCardView().getElevation();
-    }
-
-    @Override // androidx.cardview.widget.CardViewImpl
-    public void updatePadding(CardViewDelegate cardViewDelegate) {
-        if (!cardViewDelegate.getUseCompatPadding()) {
-            cardViewDelegate.setShadowPadding(0, 0, 0, 0);
-            return;
-        }
-        float maxElevation = getMaxElevation(cardViewDelegate);
-        float radius = getRadius(cardViewDelegate);
-        int ceil = (int) Math.ceil(RoundRectDrawableWithShadow.calculateHorizontalPadding(maxElevation, radius, cardViewDelegate.getPreventCornerOverlap()));
-        int ceil2 = (int) Math.ceil(RoundRectDrawableWithShadow.calculateVerticalPadding(maxElevation, radius, cardViewDelegate.getPreventCornerOverlap()));
-        cardViewDelegate.setShadowPadding(ceil, ceil2, ceil, ceil2);
+    public void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f2, float f3, float f4) {
+        cardViewDelegate.setCardBackground(new RoundRectDrawable(colorStateList, f2));
+        View cardView = cardViewDelegate.getCardView();
+        cardView.setClipToOutline(true);
+        cardView.setElevation(f3);
+        setMaxElevation(cardViewDelegate, f4);
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
@@ -91,11 +71,31 @@ class CardViewApi21Impl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public ColorStateList getBackgroundColor(CardViewDelegate cardViewDelegate) {
-        return getCardBackground(cardViewDelegate).getColor();
+    public void setElevation(CardViewDelegate cardViewDelegate, float f2) {
+        cardViewDelegate.getCardView().setElevation(f2);
     }
 
-    private RoundRectDrawable getCardBackground(CardViewDelegate cardViewDelegate) {
-        return (RoundRectDrawable) cardViewDelegate.getCardBackground();
+    @Override // androidx.cardview.widget.CardViewImpl
+    public void setMaxElevation(CardViewDelegate cardViewDelegate, float f2) {
+        getCardBackground(cardViewDelegate).setPadding(f2, cardViewDelegate.getUseCompatPadding(), cardViewDelegate.getPreventCornerOverlap());
+        updatePadding(cardViewDelegate);
+    }
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public void setRadius(CardViewDelegate cardViewDelegate, float f2) {
+        getCardBackground(cardViewDelegate).setRadius(f2);
+    }
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public void updatePadding(CardViewDelegate cardViewDelegate) {
+        if (!cardViewDelegate.getUseCompatPadding()) {
+            cardViewDelegate.setShadowPadding(0, 0, 0, 0);
+            return;
+        }
+        float maxElevation = getMaxElevation(cardViewDelegate);
+        float radius = getRadius(cardViewDelegate);
+        int ceil = (int) Math.ceil(RoundRectDrawableWithShadow.calculateHorizontalPadding(maxElevation, radius, cardViewDelegate.getPreventCornerOverlap()));
+        int ceil2 = (int) Math.ceil(RoundRectDrawableWithShadow.calculateVerticalPadding(maxElevation, radius, cardViewDelegate.getPreventCornerOverlap()));
+        cardViewDelegate.setShadowPadding(ceil, ceil2, ceil, ceil2);
     }
 }

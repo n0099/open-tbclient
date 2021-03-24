@@ -3,31 +3,37 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import org.json.JSONObject;
 import tbclient.VipCloseAd;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class CloseAdData extends OrmObject {
     public static final int ERROR_CODE_NOT_MEMBER = 1990043;
-    private int fBt = 1;
-    private int fBu;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f13810e = 1;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f13811f;
 
     public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.fBt = jSONObject.optInt("is_open");
-            this.fBu = jSONObject.optInt("vip_close");
+        if (jSONObject == null) {
+            return;
         }
+        this.f13810e = jSONObject.optInt("is_open");
+        this.f13811f = jSONObject.optInt("vip_close");
     }
 
-    public void a(VipCloseAd vipCloseAd) {
-        if (vipCloseAd != null) {
-            this.fBt = vipCloseAd.is_open.intValue();
-            this.fBu = vipCloseAd.vip_close.intValue();
+    public int s() {
+        return this.f13810e;
+    }
+
+    public int t() {
+        return this.f13811f;
+    }
+
+    public void u(VipCloseAd vipCloseAd) {
+        if (vipCloseAd == null) {
+            return;
         }
-    }
-
-    public int bAz() {
-        return this.fBt;
-    }
-
-    public int bAA() {
-        return this.fBu;
+        this.f13810e = vipCloseAd.is_open.intValue();
+        this.f13811f = vipCloseAd.vip_close.intValue();
     }
 }

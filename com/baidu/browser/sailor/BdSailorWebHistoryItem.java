@@ -4,11 +4,10 @@ import android.graphics.Bitmap;
 import android.graphics.Picture;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebHistoryItem;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class BdSailorWebHistoryItem implements INoProGuard {
-    private WebHistoryItem mItem;
+    public WebHistoryItem mItem;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public BdSailorWebHistoryItem(WebHistoryItem webHistoryItem) {
         this.mItem = webHistoryItem;
     }

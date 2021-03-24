@@ -2,51 +2,50 @@ package com.baidu.mapapi.cloud;
 
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes4.dex */
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+/* loaded from: classes2.dex */
 public class DetailSearchInfo extends BaseSearchInfo {
     public String poiId;
     public int uid;
 
     public DetailSearchInfo() {
-        if (HttpClient.isHttpsEnable) {
-            this.f1994a = "https://api.map.baidu.com/geosearch/v2/detail/";
-        } else {
-            this.f1994a = "http://api.map.baidu.com/geosearch/v2/detail/";
-        }
+        this.f6755a = HttpClient.isHttpsEnable ? "https://api.map.baidu.com/geosearch/v2/detail/" : "http://api.map.baidu.com/geosearch/v2/detail/";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.cloud.BaseSearchInfo
     public String a() {
-        if (this.uid == 0 && (this.poiId == null || this.poiId.equals(""))) {
+        String str;
+        if (this.uid == 0 && ((str = this.poiId) == null || str.equals(""))) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f1994a);
-        if (this.poiId == null || this.poiId.equals("")) {
-            sb.append(this.uid).append('?');
+        sb.append(this.f6755a);
+        String str2 = this.poiId;
+        if (str2 == null || str2.equals("")) {
+            sb.append(this.uid);
         } else {
-            sb.append(this.poiId).append('?');
+            sb.append(this.poiId);
         }
-        if (this.ak == null || this.ak.equals("") || this.ak.length() > 50) {
-            return null;
-        }
-        sb.append("ak");
-        sb.append("=");
-        sb.append(this.ak);
-        if (this.geoTableId != 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
-            sb.append("geotable_id");
+        sb.append('?');
+        String str3 = this.ak;
+        if (str3 != null && !str3.equals("") && this.ak.length() <= 50) {
+            sb.append(ContentUtil.RESULT_KEY_AK);
             sb.append("=");
-            sb.append(this.geoTableId);
-            if (this.sn != null && !this.sn.equals("") && this.sn.length() <= 50) {
-                sb.append(ETAG.ITEM_SEPARATOR);
-                sb.append(IXAdRequestInfo.SN);
+            sb.append(this.ak);
+            if (this.geoTableId != 0) {
+                sb.append("&");
+                sb.append("geotable_id");
                 sb.append("=");
-                sb.append(this.sn);
+                sb.append(this.geoTableId);
+                String str4 = this.sn;
+                if (str4 != null && !str4.equals("") && this.sn.length() <= 50) {
+                    sb.append("&");
+                    sb.append(IXAdRequestInfo.SN);
+                    sb.append("=");
+                    sb.append(this.sn);
+                }
+                return sb.toString();
             }
-            return sb.toString();
         }
         return null;
     }

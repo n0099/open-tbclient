@@ -1,19 +1,20 @@
 package com.baidu.tieba.video.editvideo;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.video.VideoTitleData;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
-    private List<VideoTitleData> mAllVideoTitleList;
-    private VideoTitleData mVideoTitleData;
+    public List<VideoTitleData> mAllVideoTitleList;
+    public VideoTitleData mVideoTitleData;
 
     public ResponseGetVideoActivityMessage() {
-        super(1003376);
+        super(CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -26,32 +27,26 @@ public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
                 this.mVideoTitleData = (VideoTitleData) OrmObject.objectWithJson(optJSONObject2, VideoTitleData.class);
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("act_info_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                if (this.mAllVideoTitleList == null) {
-                    this.mAllVideoTitleList = new ArrayList();
-                }
-                this.mAllVideoTitleList.clear();
-                int i2 = 0;
-                while (true) {
-                    int i3 = i2;
-                    if (i3 < optJSONArray.length()) {
-                        if (optJSONArray.getJSONObject(i3) != null) {
-                            this.mAllVideoTitleList.add((VideoTitleData) OrmObject.objectWithJson(optJSONArray.getJSONObject(i3), VideoTitleData.class));
-                        }
-                        i2 = i3 + 1;
-                    } else {
-                        return;
-                    }
+            if (optJSONArray == null || optJSONArray.length() <= 0) {
+                return;
+            }
+            if (this.mAllVideoTitleList == null) {
+                this.mAllVideoTitleList = new ArrayList();
+            }
+            this.mAllVideoTitleList.clear();
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                if (optJSONArray.getJSONObject(i2) != null) {
+                    this.mAllVideoTitleList.add((VideoTitleData) OrmObject.objectWithJson(optJSONArray.getJSONObject(i2), VideoTitleData.class));
                 }
             }
         }
     }
 
-    public VideoTitleData getVideoTitleData() {
-        return this.mVideoTitleData;
-    }
-
     public List<VideoTitleData> getAllVideoTitleList() {
         return this.mAllVideoTitleList;
+    }
+
+    public VideoTitleData getVideoTitleData() {
+        return this.mVideoTitleData;
     }
 }

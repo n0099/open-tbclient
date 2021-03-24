@@ -7,43 +7,63 @@ import android.os.Build;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes3.dex */
+import com.bumptech.glide.load.engine.cache.MemorySizeCalculator;
+/* loaded from: classes6.dex */
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f6728a;
-    private final int b;
-    private final Context c;
-    private final int d;
+    public final int f35432a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final int f35433b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Context f35434c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final int f35435d;
+
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final int f6729a;
-        final Context b;
-        ActivityManager c;
-        c d;
-        float f;
-        float e = 2.0f;
-        float g = 0.4f;
-        float h = 0.33f;
-        int i = 4194304;
+        public static final int f35436a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final Context f35437b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public ActivityManager f35438c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public c f35439d;
+
+        /* renamed from: f  reason: collision with root package name */
+        public float f35441f;
+
+        /* renamed from: e  reason: collision with root package name */
+        public float f35440e = 2.0f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public float f35442g = 0.4f;
+
+        /* renamed from: h  reason: collision with root package name */
+        public float f35443h = 0.33f;
+        public int i = 4194304;
 
         static {
-            f6729a = Build.VERSION.SDK_INT < 26 ? 4 : 1;
+            f35436a = Build.VERSION.SDK_INT < 26 ? 4 : 1;
         }
 
         public a(Context context) {
-            this.f = f6729a;
-            this.b = context;
-            this.c = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
-            this.d = new b(context.getResources().getDisplayMetrics());
-            if (Build.VERSION.SDK_INT < 26 || !i.a(this.c)) {
+            this.f35441f = f35436a;
+            this.f35437b = context;
+            this.f35438c = (ActivityManager) context.getSystemService("activity");
+            this.f35439d = new b(context.getResources().getDisplayMetrics());
+            if (Build.VERSION.SDK_INT < 26 || !i.a(this.f35438c)) {
                 return;
             }
-            this.f = 0.0f;
+            this.f35441f = 0.0f;
         }
 
         public i a() {
@@ -51,70 +71,89 @@ public final class i {
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static final class b implements c {
+    /* loaded from: classes6.dex */
+    public static final class b implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final DisplayMetrics f6730a;
+        public final DisplayMetrics f35444a;
 
-        b(DisplayMetrics displayMetrics) {
-            this.f6730a = displayMetrics;
+        public b(DisplayMetrics displayMetrics) {
+            this.f35444a = displayMetrics;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.a.i.c
         public int a() {
-            return this.f6730a.widthPixels;
+            return this.f35444a.widthPixels;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.a.i.c
         public int b() {
-            return this.f6730a.heightPixels;
+            return this.f35444a.heightPixels;
         }
     }
 
-    /* loaded from: classes3.dex */
-    interface c {
+    /* loaded from: classes6.dex */
+    public interface c {
         int a();
 
         int b();
     }
 
-    i(a aVar) {
-        this.c = aVar.b;
-        this.d = a(aVar.c) ? aVar.i / 2 : aVar.i;
-        int a2 = a(aVar.c, aVar.g, aVar.h);
-        int a3 = aVar.d.a() * aVar.d.b() * 4;
-        int round = Math.round(a3 * aVar.f);
-        int round2 = Math.round(a3 * aVar.e);
-        int i = a2 - this.d;
-        if (round2 + round <= i) {
-            this.b = round2;
-            this.f6728a = round;
+    public i(a aVar) {
+        this.f35434c = aVar.f35437b;
+        this.f35435d = a(aVar.f35438c) ? aVar.i / 2 : aVar.i;
+        int a2 = a(aVar.f35438c, aVar.f35442g, aVar.f35443h);
+        float a3 = aVar.f35439d.a() * aVar.f35439d.b() * 4;
+        int round = Math.round(aVar.f35441f * a3);
+        int round2 = Math.round(a3 * aVar.f35440e);
+        int i = a2 - this.f35435d;
+        int i2 = round2 + round;
+        if (i2 <= i) {
+            this.f35433b = round2;
+            this.f35432a = round;
         } else {
-            float f = i / (aVar.f + aVar.e);
-            this.b = Math.round(aVar.e * f);
-            this.f6728a = Math.round(f * aVar.f);
+            float f2 = i;
+            float f3 = aVar.f35441f;
+            float f4 = aVar.f35440e;
+            float f5 = f2 / (f3 + f4);
+            this.f35433b = Math.round(f4 * f5);
+            this.f35432a = Math.round(f5 * aVar.f35441f);
         }
-        if (Log.isLoggable("MemorySizeCalculator", 3)) {
-            Log.d("MemorySizeCalculator", "Calculation complete, Calculated memory cache size: " + a(this.b) + ", pool size: " + a(this.f6728a) + ", byte array size: " + a(this.d) + ", memory class limited? " + (round2 + round > a2) + ", max size: " + a(a2) + ", memoryClass: " + aVar.c.getMemoryClass() + ", isLowMemoryDevice: " + a(aVar.c));
+        if (Log.isLoggable(MemorySizeCalculator.TAG, 3)) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("Calculation complete, Calculated memory cache size: ");
+            sb.append(a(this.f35433b));
+            sb.append(", pool size: ");
+            sb.append(a(this.f35432a));
+            sb.append(", byte array size: ");
+            sb.append(a(this.f35435d));
+            sb.append(", memory class limited? ");
+            sb.append(i2 > a2);
+            sb.append(", max size: ");
+            sb.append(a(a2));
+            sb.append(", memoryClass: ");
+            sb.append(aVar.f35438c.getMemoryClass());
+            sb.append(", isLowMemoryDevice: ");
+            sb.append(a(aVar.f35438c));
+            Log.d(MemorySizeCalculator.TAG, sb.toString());
         }
     }
 
-    private static int a(ActivityManager activityManager, float f, float f2) {
+    public static int a(ActivityManager activityManager, float f2, float f3) {
         boolean a2 = a(activityManager);
         float memoryClass = activityManager.getMemoryClass() * 1024 * 1024;
-        if (!a2) {
-            f2 = f;
+        if (a2) {
+            f2 = f3;
         }
         return Math.round(memoryClass * f2);
     }
 
     private String a(int i) {
-        return Formatter.formatFileSize(this.c, i);
+        return Formatter.formatFileSize(this.f35434c, i);
     }
 
     @TargetApi(19)
-    static boolean a(ActivityManager activityManager) {
+    public static boolean a(ActivityManager activityManager) {
         if (Build.VERSION.SDK_INT >= 19) {
             return activityManager.isLowRamDevice();
         }
@@ -122,14 +161,14 @@ public final class i {
     }
 
     public int a() {
-        return this.b;
+        return this.f35433b;
     }
 
     public int b() {
-        return this.f6728a;
+        return this.f35432a;
     }
 
     public int c() {
-        return this.d;
+        return this.f35435d;
     }
 }

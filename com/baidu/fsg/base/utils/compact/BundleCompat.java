@@ -4,7 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import com.baidu.fsg.base.utils.reflect.MethodUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class BundleCompat {
     public static IBinder getBinder(Bundle bundle, String str) {
         if (Build.VERSION.SDK_INT >= 18) {
@@ -12,8 +12,8 @@ public class BundleCompat {
         }
         try {
             return (IBinder) MethodUtils.invokeMethod(bundle, "getIBinder", str);
-        } catch (Exception e) {
-            throw new RuntimeException("Bundle putIBinder exception:", e);
+        } catch (Exception e2) {
+            throw new RuntimeException("Bundle putIBinder exception:", e2);
         }
     }
 
@@ -24,8 +24,8 @@ public class BundleCompat {
         }
         try {
             MethodUtils.invokeMethod(bundle, "putIBinder", str, iBinder);
-        } catch (Exception e) {
-            throw new RuntimeException("Bundle putIBinder exception:", e);
+        } catch (Exception e2) {
+            throw new RuntimeException("Bundle putIBinder exception:", e2);
         }
     }
 }

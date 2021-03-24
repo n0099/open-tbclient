@@ -9,19 +9,19 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsDialogFragment extends KsFragment implements IDialogFragmentLifecycle {
-    private DelegateDialogFragment mBase;
+    public DelegateDialogFragment mBase;
 
     @KsAdSdkDynamicApi
     @Keep
     public KsDialogFragment() {
         super(null);
-        this.mBase = new ResDialogFragment(this);
-        setBase(this.mBase);
+        ResDialogFragment resDialogFragment = new ResDialogFragment(this);
+        this.mBase = resDialogFragment;
+        setBase(resDialogFragment);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Keep
     public KsDialogFragment(DelegateDialogFragment delegateDialogFragment) {
         super(delegateDialogFragment);

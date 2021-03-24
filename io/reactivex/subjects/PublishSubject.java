@@ -1,174 +1,60 @@
 package io.reactivex.subjects;
 
-import io.reactivex.u;
+import f.a.d0.a;
+import f.a.o;
+import f.a.t.b;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-public final class PublishSubject<T> extends b<T> {
-    static final PublishDisposable[] qtF = new PublishDisposable[0];
-    static final PublishDisposable[] qtG = new PublishDisposable[0];
-    Throwable error;
-    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(qtG);
+/* loaded from: classes7.dex */
+public final class PublishSubject<T> extends a<T> {
 
-    public static <T> PublishSubject<T> eKD() {
-        return new PublishSubject<>();
-    }
+    /* loaded from: classes7.dex */
+    public static final class PublishDisposable<T> extends AtomicBoolean implements b {
+        public static final long serialVersionUID = 3562861878281475070L;
+        public final o<? super T> actual;
+        public final PublishSubject<T> parent;
 
-    PublishSubject() {
-    }
-
-    @Override // io.reactivex.q
-    public void a(u<? super T> uVar) {
-        PublishDisposable<T> publishDisposable = new PublishDisposable<>(uVar, this);
-        uVar.onSubscribe(publishDisposable);
-        if (a(publishDisposable)) {
-            if (publishDisposable.isDisposed()) {
-                b(publishDisposable);
-                return;
-            }
-            return;
-        }
-        Throwable th = this.error;
-        if (th != null) {
-            uVar.onError(th);
-        } else {
-            uVar.onComplete();
-        }
-    }
-
-    boolean a(PublishDisposable<T> publishDisposable) {
-        PublishDisposable<T>[] publishDisposableArr;
-        PublishDisposable<T>[] publishDisposableArr2;
-        do {
-            publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr == qtF) {
-                return false;
-            }
-            int length = publishDisposableArr.length;
-            publishDisposableArr2 = new PublishDisposable[length + 1];
-            System.arraycopy(publishDisposableArr, 0, publishDisposableArr2, 0, length);
-            publishDisposableArr2[length] = publishDisposable;
-        } while (!this.subscribers.compareAndSet(publishDisposableArr, publishDisposableArr2));
-        return true;
-    }
-
-    void b(PublishDisposable<T> publishDisposable) {
-        PublishDisposable<T>[] publishDisposableArr;
-        PublishDisposable<T>[] publishDisposableArr2;
-        do {
-            publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr != qtF && publishDisposableArr != qtG) {
-                int length = publishDisposableArr.length;
-                int i = -1;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= length) {
-                        break;
-                    } else if (publishDisposableArr[i2] == publishDisposable) {
-                        i = i2;
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-                if (i >= 0) {
-                    if (length == 1) {
-                        publishDisposableArr2 = qtG;
-                    } else {
-                        publishDisposableArr2 = new PublishDisposable[length - 1];
-                        System.arraycopy(publishDisposableArr, 0, publishDisposableArr2, 0, i);
-                        System.arraycopy(publishDisposableArr, i + 1, publishDisposableArr2, i, (length - i) - 1);
-                    }
-                } else {
-                    return;
-                }
-            } else {
-                return;
-            }
-        } while (!this.subscribers.compareAndSet(publishDisposableArr, publishDisposableArr2));
-    }
-
-    @Override // io.reactivex.u
-    public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.subscribers.get() == qtF) {
-            bVar.dispose();
-        }
-    }
-
-    @Override // io.reactivex.u
-    public void onNext(T t) {
-        io.reactivex.internal.functions.a.n(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != qtF) {
-            for (PublishDisposable<T> publishDisposable : this.subscribers.get()) {
-                publishDisposable.onNext(t);
-            }
-        }
-    }
-
-    @Override // io.reactivex.u
-    public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.n(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == qtF) {
-            io.reactivex.d.a.onError(th);
-            return;
-        }
-        this.error = th;
-        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(qtF)) {
-            publishDisposable.onError(th);
-        }
-    }
-
-    @Override // io.reactivex.u
-    public void onComplete() {
-        if (this.subscribers.get() != qtF) {
-            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(qtF)) {
-                publishDisposable.onComplete();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public static final class PublishDisposable<T> extends AtomicBoolean implements io.reactivex.disposables.b {
-        private static final long serialVersionUID = 3562861878281475070L;
-        final u<? super T> actual;
-        final PublishSubject<T> parent;
-
-        PublishDisposable(u<? super T> uVar, PublishSubject<T> publishSubject) {
-            this.actual = uVar;
+        public PublishDisposable(o<? super T> oVar, PublishSubject<T> publishSubject) {
+            this.actual = oVar;
             this.parent = publishSubject;
         }
 
-        public void onNext(T t) {
-            if (!get()) {
-                this.actual.onNext(t);
+        @Override // f.a.t.b
+        public void dispose() {
+            if (compareAndSet(false, true)) {
+                this.parent.c(this);
+                throw null;
             }
+        }
+
+        @Override // f.a.t.b
+        public boolean isDisposed() {
+            return get();
+        }
+
+        public void onComplete() {
+            if (get()) {
+                return;
+            }
+            this.actual.onComplete();
         }
 
         public void onError(Throwable th) {
             if (get()) {
-                io.reactivex.d.a.onError(th);
+                f.a.a0.a.f(th);
             } else {
                 this.actual.onError(th);
             }
         }
 
-        public void onComplete() {
-            if (!get()) {
-                this.actual.onComplete();
+        public void onNext(T t) {
+            if (get()) {
+                return;
             }
+            this.actual.onNext(t);
         }
+    }
 
-        @Override // io.reactivex.disposables.b
-        public void dispose() {
-            if (compareAndSet(false, true)) {
-                this.parent.b(this);
-            }
-        }
-
-        @Override // io.reactivex.disposables.b
-        public boolean isDisposed() {
-            return get();
-        }
+    public void c(PublishDisposable<T> publishDisposable) {
+        throw null;
     }
 }

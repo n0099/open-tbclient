@@ -2,7 +2,7 @@ package com.baidu.tbadk.BdToken;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class NewUserGetMoneyResMsg extends JsonHttpResponsedMessage {
     public NewUserGetMoneyResMsg(int i) {
         super(i);

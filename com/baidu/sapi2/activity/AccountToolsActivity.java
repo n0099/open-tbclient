@@ -11,28 +11,32 @@ import com.baidu.sapi2.dto.AccountCenterDTO;
 import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.result.AccountToolsResult;
 import com.baidu.sapi2.utils.ParamsUtil;
-import com.baidu.sapi2.utils.f;
+import com.baidu.sapi2.utils.h;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AccountToolsActivity extends Activity {
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
+    public static final String EXTRA_SWEEP_LIGHT_LOADING = "sweepLightLoading";
 
     /* renamed from: a  reason: collision with root package name */
-    private AccountToolsResult f3220a = new AccountToolsResult();
-    private AccountToolsCallback b;
+    public AccountToolsResult f10914a = new AccountToolsResult();
+
+    /* renamed from: b  reason: collision with root package name */
+    public AccountToolsCallback f10915b;
 
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-        this.b = CoreViewRouter.getInstance().getAccountToolsCallback();
+        this.f10915b = CoreViewRouter.getInstance().getAccountToolsCallback();
         AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
         accountCenterDTO.accountToolsUrl = a(intExtra);
+        accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
         CoreViewRouter.getInstance().loadAccountCenter(new AccountCenterCallback() { // from class: com.baidu.sapi2.activity.AccountToolsActivity.1
             @Override // com.baidu.sapi2.callback.AccountCenterCallback
             public void onFinish(AccountCenterResult accountCenterResult) {
-                AccountToolsActivity.this.f3220a.setResultCode(accountCenterResult.getResultCode());
-                AccountToolsActivity.this.f3220a.setResultMsg(accountCenterResult.getResultMsg());
+                AccountToolsActivity.this.f10914a.setResultCode(accountCenterResult.getResultCode());
+                AccountToolsActivity.this.f10914a.setResultMsg(accountCenterResult.getResultMsg());
                 AccountToolsActivity.this.a();
             }
 
@@ -44,33 +48,27 @@ public class AccountToolsActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        this.b.onFinish(this.f3220a);
+        this.f10915b.onFinish(this.f10914a);
         finish();
     }
 
     private String a(int i) {
         String str;
         HashMap hashMap = new HashMap();
-        switch (i) {
-            case 1:
-                str = "/wp/v3/ucenter/accountfreezeapply";
-                break;
-            case 2:
-                str = "/wp/v3/ucenter/findaccback";
-                break;
-            case 3:
-                str = "/wp/v3/ucenter/accountcancelpage";
-                break;
-            case 4:
-                str = "/v4/appeal/";
-                break;
-            case 5:
-                str = "/wp/wappassword";
-                hashMap.put("u", f.a(f.l) + "?__wp-action=modify-pwd");
-                hashMap.put("banner", "1");
-                break;
-            default:
-                throw new RuntimeException("account tools type is not support");
+        if (i == 1) {
+            str = "/wp/v3/ucenter/accountfreezeapply";
+        } else if (i == 2) {
+            str = "/wp/v3/ucenter/findaccback";
+        } else if (i == 3) {
+            str = "/wp/v3/ucenter/accountcancelpage";
+        } else if (i == 4) {
+            str = "/v4/appeal/";
+        } else if (i == 5) {
+            hashMap.put("u", h.a(h.l) + "?__wp-action=modify-pwd");
+            hashMap.put("banner", "1");
+            str = "/wp/wappassword";
+        } else {
+            throw new RuntimeException("account tools type is not support");
         }
         SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
         String str2 = sapiConfiguration.environment.getWap() + str + "?" + ParamsUtil.buildH5CommonParams(sapiConfiguration);

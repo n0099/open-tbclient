@@ -1,9 +1,9 @@
 package com.faceunity.wrapper;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class faceunity {
-    private static boolean isDebug = false;
-    static int[] pRa = new int[2];
-    static int[] pRb = new int[1];
+    static {
+        System.loadLibrary("nama");
+    }
 
     @Deprecated
     public static native int fuAvatarBindItems(int i, int[] iArr, int[] iArr2);
@@ -69,7 +69,7 @@ public class faceunity {
 
     public static native byte[] fuItemGetParamu8v(int i, String str);
 
-    public static native int fuItemSetParam(int i, String str, double d);
+    public static native int fuItemSetParam(int i, String str, double d2);
 
     public static native int fuItemSetParam(int i, String str, String str2);
 
@@ -139,11 +139,11 @@ public class faceunity {
 
     public static native void fuSetExpressionCalibration(int i);
 
-    public static native void fuSetFocalLengthScale(float f);
+    public static native void fuSetFocalLengthScale(float f2);
 
     public static native int fuSetMaxFaces(int i);
 
-    public static native void fuSetQualityTradeoff(float f);
+    public static native void fuSetQualityTradeoff(float f2);
 
     public static native void fuSetStrictTracking(int i);
 
@@ -154,8 +154,4 @@ public class faceunity {
     public static native int fuUnBindItems(int i, int[] iArr);
 
     public static native int fuUnbindAllItems(int i);
-
-    static {
-        System.loadLibrary("nama");
-    }
 }

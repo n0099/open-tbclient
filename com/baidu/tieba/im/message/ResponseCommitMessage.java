@@ -2,46 +2,49 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class ResponseCommitMessage extends SocketResponsedMessage {
-    private String groupId;
-    private BlockPopInfoData mBlockPopInfoData;
-    private long msgId;
-    private long recordId;
+    public String groupId;
+    public BlockPopInfoData mBlockPopInfoData;
+    public long msgId;
+    public long recordId;
 
     public ResponseCommitMessage(int i) {
         super(i);
     }
 
-    public long getMsgId() {
-        return this.msgId;
-    }
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 
-    public void setMsgId(long j) {
-        this.msgId = j;
-    }
-
-    public long getRecordId() {
-        return this.recordId;
-    }
-
-    public void setRecordId(long j) {
-        this.recordId = j;
+    public BlockPopInfoData getBlockPopInfoData() {
+        return this.mBlockPopInfoData;
     }
 
     public String getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(String str) {
-        this.groupId = str;
+    public long getMsgId() {
+        return this.msgId;
+    }
+
+    public long getRecordId() {
+        return this.recordId;
     }
 
     public void setBlockPopInfoData(BlockPopInfoData blockPopInfoData) {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public BlockPopInfoData getBlockPopInfoData() {
-        return this.mBlockPopInfoData;
+    public void setGroupId(String str) {
+        this.groupId = str;
+    }
+
+    public void setMsgId(long j) {
+        this.msgId = j;
+    }
+
+    public void setRecordId(long j) {
+        this.recordId = j;
     }
 }

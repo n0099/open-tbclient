@@ -7,8 +7,8 @@ import android.os.Looper;
 public enum AsyncService {
     INSTANCE;
     
-    private Handler mHandler;
-    private Looper mLooper;
+    public Handler mHandler;
+    public Looper mLooper;
 
     AsyncService() {
         HandlerThread handlerThread = new HandlerThread("BdAsyncService");
@@ -17,21 +17,26 @@ public enum AsyncService {
         this.mHandler = new Handler(this.mLooper);
     }
 
-    public void sendRunnable(Runnable runnable) {
-        if (this.mHandler != null && runnable != null) {
-            this.mHandler.post(runnable);
+    public void release() {
+        Looper looper = this.mLooper;
+        if (looper != null) {
+            looper.quit();
         }
     }
 
     public void removeRunnable(Runnable runnable) {
-        if (this.mHandler != null && runnable != null) {
-            this.mHandler.removeCallbacks(runnable);
+        Handler handler = this.mHandler;
+        if (handler == null || runnable == null) {
+            return;
         }
+        handler.removeCallbacks(runnable);
     }
 
-    public void release() {
-        if (this.mLooper != null) {
-            this.mLooper.quit();
+    public void sendRunnable(Runnable runnable) {
+        Handler handler = this.mHandler;
+        if (handler == null || runnable == null) {
+            return;
         }
+        handler.post(runnable);
     }
 }

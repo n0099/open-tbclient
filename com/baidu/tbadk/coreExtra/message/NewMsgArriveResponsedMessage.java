@@ -1,8 +1,7 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class NewMsgArriveResponsedMessage extends CustomResponsedMessage<Integer> {
     public static final int TYPE_GROUP = 1;
     public static final int TYPE_OFFICIAL = 4;
@@ -10,6 +9,6 @@ public class NewMsgArriveResponsedMessage extends CustomResponsedMessage<Integer
     public static final int TYPE_REPLY_OR_AT = 2;
 
     public NewMsgArriveResponsedMessage(int i) {
-        super(CmdConfigCustom.MSG_NEW, Integer.valueOf(i));
+        super(2012111, Integer.valueOf(i));
     }
 }

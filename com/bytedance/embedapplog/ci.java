@@ -1,32 +1,99 @@
 package com.bytedance.embedapplog;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
-public class ci extends ch {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ci() {
-        super(true, false);
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
+/* loaded from: classes5.dex */
+public interface ci extends IInterface {
+
+    /* loaded from: classes5.dex */
+    public static abstract class a extends Binder implements ci {
+
+        /* renamed from: com.bytedance.embedapplog.ci$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public static class C0290a implements ci {
+
+            /* renamed from: a  reason: collision with root package name */
+            public IBinder f27155a;
+
+            public C0290a(IBinder iBinder) {
+                this.f27155a = iBinder;
+            }
+
+            @Override // com.bytedance.embedapplog.ci
+            public String a() {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                    this.f27155a.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readString();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.os.IInterface
+            public IBinder asBinder() {
+                return this.f27155a;
+            }
+
+            @Override // com.bytedance.embedapplog.ci
+            public boolean b() {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                    this.f27155a.transact(2, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt() != 0;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+        }
+
+        public static ci a(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+            if (queryLocalInterface != null && (queryLocalInterface instanceof ci)) {
+                return (ci) queryLocalInterface;
+            }
+            return new C0290a(iBinder);
+        }
+
+        @Override // android.os.Binder
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+            if (i == 1) {
+                parcel.enforceInterface(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                String a2 = a();
+                parcel2.writeNoException();
+                parcel2.writeString(a2);
+                return true;
+            } else if (i != 2) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                return true;
+            } else {
+                parcel.enforceInterface(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                boolean b2 = b();
+                parcel2.writeNoException();
+                parcel2.writeInt(b2 ? 1 : 0);
+                return true;
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.embedapplog.ch
-    @SuppressLint({"MissingPermission"})
-    public boolean a(JSONObject jSONObject) {
-        jSONObject.put("os", "Android");
-        jSONObject.put("os_version", Build.VERSION.RELEASE);
-        jSONObject.put("os_api", Build.VERSION.SDK_INT);
-        jSONObject.put("device_model", Build.MODEL);
-        jSONObject.put("device_brand", Build.BRAND);
-        jSONObject.put("device_manufacturer", Build.MANUFACTURER);
-        jSONObject.put("cpu_abi", Build.CPU_ABI);
-        jSONObject.put("build_serial", Build.SERIAL);
-        if (Build.VERSION.SDK_INT >= 26) {
-            jSONObject.put("build_serial", Build.getSerial());
-            return true;
-        }
-        return true;
-    }
+    String a();
+
+    boolean b();
 }

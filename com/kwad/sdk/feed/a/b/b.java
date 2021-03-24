@@ -6,11 +6,15 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.lib.widget.recycler.e;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.lib.a.a.b<AdResultData, AdTemplate> {
 
     /* renamed from: a  reason: collision with root package name */
-    public SceneImpl f6506a;
-    public com.kwad.sdk.core.i.a b;
-    public Map<String, e.a> c = new LinkedHashMap();
+    public SceneImpl f34854a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public com.kwad.sdk.core.i.a f34855b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Map<String, e.a> f34856c = new LinkedHashMap();
 }

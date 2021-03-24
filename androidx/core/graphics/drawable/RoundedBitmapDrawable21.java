@@ -7,9 +7,8 @@ import android.graphics.Rect;
 import android.view.Gravity;
 import androidx.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes14.dex */
-class RoundedBitmapDrawable21 extends RoundedBitmapDrawable {
-    /* JADX INFO: Access modifiers changed from: protected */
+/* loaded from: classes.dex */
+public class RoundedBitmapDrawable21 extends RoundedBitmapDrawable {
     public RoundedBitmapDrawable21(Resources resources, Bitmap bitmap) {
         super(resources, bitmap);
     }
@@ -21,20 +20,22 @@ class RoundedBitmapDrawable21 extends RoundedBitmapDrawable {
     }
 
     @Override // androidx.core.graphics.drawable.RoundedBitmapDrawable
-    public void setMipMap(boolean z) {
-        if (this.mBitmap != null) {
-            this.mBitmap.setHasMipMap(z);
-            invalidateSelf();
-        }
+    public void gravityCompatApply(int i, int i2, int i3, Rect rect, Rect rect2) {
+        Gravity.apply(i, i2, i3, rect, rect2, 0);
     }
 
     @Override // androidx.core.graphics.drawable.RoundedBitmapDrawable
     public boolean hasMipMap() {
-        return this.mBitmap != null && this.mBitmap.hasMipMap();
+        Bitmap bitmap = this.mBitmap;
+        return bitmap != null && bitmap.hasMipMap();
     }
 
     @Override // androidx.core.graphics.drawable.RoundedBitmapDrawable
-    void gravityCompatApply(int i, int i2, int i3, Rect rect, Rect rect2) {
-        Gravity.apply(i, i2, i3, rect, rect2, 0);
+    public void setMipMap(boolean z) {
+        Bitmap bitmap = this.mBitmap;
+        if (bitmap != null) {
+            bitmap.setHasMipMap(z);
+            invalidateSelf();
+        }
     }
 }

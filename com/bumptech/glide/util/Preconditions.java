@@ -4,15 +4,20 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.Collection;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class Preconditions {
-    private Preconditions() {
-    }
-
     public static void checkArgument(boolean z, @NonNull String str) {
         if (!z) {
             throw new IllegalArgumentException(str);
         }
+    }
+
+    @NonNull
+    public static String checkNotEmpty(@Nullable String str) {
+        if (TextUtils.isEmpty(str)) {
+            throw new IllegalArgumentException("Must not be null or empty");
+        }
+        return str;
     }
 
     @NonNull
@@ -22,18 +27,10 @@ public final class Preconditions {
 
     @NonNull
     public static <T> T checkNotNull(@Nullable T t, @NonNull String str) {
-        if (t == null) {
-            throw new NullPointerException(str);
+        if (t != null) {
+            return t;
         }
-        return t;
-    }
-
-    @NonNull
-    public static String checkNotEmpty(@Nullable String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("Must not be null or empty");
-        }
-        return str;
+        throw new NullPointerException(str);
     }
 
     @NonNull

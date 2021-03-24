@@ -2,38 +2,41 @@ package com.baidu.platform.comjni.map.cloud;
 
 import android.os.Handler;
 import com.baidu.mapapi.http.HttpClient;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends HttpClient.ProtoResultCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3097a;
+    public final /* synthetic */ a f10401a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f3097a = aVar;
+        this.f10401a = aVar;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
+        a aVar;
+        int i;
         if (httpStateError == HttpClient.HttpStateError.NETWORK_ERROR) {
-            this.f3097a.a(-3);
+            aVar = this.f10401a;
+            i = -3;
         } else {
-            this.f3097a.a(1);
+            aVar = this.f10401a;
+            i = 1;
         }
+        aVar.a(i);
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onSuccess(String str) {
         boolean a2;
         Handler handler;
-        this.f3097a.h = str;
-        a2 = this.f3097a.a();
+        this.f10401a.f10400h = str;
+        a2 = this.f10401a.a();
         if (a2) {
-            this.f3097a.f(str);
+            this.f10401a.f(str);
             return;
         }
-        handler = this.f3097a.g;
+        handler = this.f10401a.f10399g;
         handler.post(new c(this, str));
     }
 }

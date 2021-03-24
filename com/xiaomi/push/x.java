@@ -2,18 +2,20 @@ package com.xiaomi.push;
 
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final HashMap<String, String> f8591a = new HashMap<>();
+    public static final HashMap<String, String> f41074a;
 
     static {
-        f8591a.put("FFD8FF", "jpg");
-        f8591a.put("89504E47", "png");
-        f8591a.put("47494638", "gif");
-        f8591a.put("474946", "gif");
-        f8591a.put("424D", "bmp");
+        HashMap<String, String> hashMap = new HashMap<>();
+        f41074a = hashMap;
+        hashMap.put("FFD8FF", "jpg");
+        f41074a.put("89504E47", "png");
+        f41074a.put("47494638", "gif");
+        f41074a.put("474946", "gif");
+        f41074a.put("424D", "bmp");
     }
 
     public static long a(File file) {
@@ -23,8 +25,8 @@ public class x {
             for (int i = 0; i < listFiles.length; i++) {
                 j += listFiles[i].isDirectory() ? a(listFiles[i]) : listFiles[i].length();
             }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
         }
         return j;
     }

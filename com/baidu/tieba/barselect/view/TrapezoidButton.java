@@ -9,41 +9,47 @@ import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class TrapezoidButton extends LinearLayout {
-    private Paint mPaint;
-    private Path mPath;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Paint f15210e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Path f15211f;
 
     public TrapezoidButton(Context context) {
         this(context, null);
     }
 
-    public TrapezoidButton(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
-    }
-
-    private void init() {
-        this.mPath = new Path();
-        this.mPaint = new Paint();
-        this.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.mPaint.setColor(-1);
-        this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setAntiAlias(true);
+    public final void a() {
+        this.f15211f = new Path();
+        Paint paint = new Paint();
+        this.f15210e = paint;
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f15210e.setColor(-1);
+        this.f15210e.setStyle(Paint.Style.FILL);
+        this.f15210e.setAntiAlias(true);
         setLayerType(1, null);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
+    public void dispatchDraw(Canvas canvas) {
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
         super.dispatchDraw(canvas);
         int height = canvas.getHeight();
-        this.mPath.reset();
-        this.mPath.moveTo(0.0f, 0.0f);
-        this.mPath.lineTo(0.0f, height);
-        this.mPath.lineTo(height * 0.45f, 0.0f);
-        this.mPath.close();
-        canvas.drawPath(this.mPath, this.mPaint);
+        this.f15211f.reset();
+        this.f15211f.moveTo(0.0f, 0.0f);
+        float f2 = height;
+        this.f15211f.lineTo(0.0f, f2);
+        this.f15211f.lineTo(f2 * 0.45f, 0.0f);
+        this.f15211f.close();
+        canvas.drawPath(this.f15211f, this.f15210e);
         canvas.restoreToCount(saveLayer);
+    }
+
+    public TrapezoidButton(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a();
     }
 }

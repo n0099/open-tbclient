@@ -9,59 +9,66 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.model.message.AddPollPostHttpResponseMessage;
 import com.baidu.tieba.model.message.AddPollPostRequestNetMessage;
 import com.baidu.tieba.model.message.AddPollPostSocketResponseMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class AddPollPostModel extends BdBaseModel {
-    private long eDZ;
-    private a lwa;
-    private com.baidu.adp.framework.listener.a lwb;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void aL(int i, String str);
+    /* renamed from: e  reason: collision with root package name */
+    public b f19028e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f19029f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.b.c.g.a f19030g;
+
+    /* loaded from: classes3.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            String str;
+            if (responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && AddPollPostModel.this.f19029f == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
+                boolean z = responsedMessage instanceof AddPollPostHttpResponseMessage;
+                if (z || (responsedMessage instanceof AddPollPostSocketResponseMessage)) {
+                    AddPollPostHttpResponseMessage addPollPostHttpResponseMessage = z ? (AddPollPostHttpResponseMessage) responsedMessage : null;
+                    AddPollPostSocketResponseMessage addPollPostSocketResponseMessage = responsedMessage instanceof AddPollPostSocketResponseMessage ? (AddPollPostSocketResponseMessage) responsedMessage : null;
+                    int i = 0;
+                    if (responsedMessage.getError() != 0) {
+                        i = responsedMessage.getError();
+                        str = responsedMessage.getErrorString();
+                    } else if (addPollPostHttpResponseMessage != null && addPollPostHttpResponseMessage.getIdl() != null && addPollPostHttpResponseMessage.getIdl().data != null && addPollPostHttpResponseMessage.getIdl().data.error_code.intValue() != 0) {
+                        i = addPollPostHttpResponseMessage.getIdl().data.error_code.intValue();
+                        str = addPollPostHttpResponseMessage.getIdl().data.error_msg;
+                    } else if (addPollPostSocketResponseMessage == null || addPollPostSocketResponseMessage.getIdl() == null || addPollPostSocketResponseMessage.getIdl().data == null || addPollPostSocketResponseMessage.getIdl().data.error_code.intValue() == 0) {
+                        str = "";
+                    } else {
+                        i = addPollPostSocketResponseMessage.getIdl().data.error_code.intValue();
+                        str = addPollPostSocketResponseMessage.getIdl().data.error_msg;
+                    }
+                    if (AddPollPostModel.this.f19028e != null) {
+                        AddPollPostModel.this.f19028e.a(i, str);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(int i, String str);
     }
 
     public AddPollPostModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.lwb = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006) { // from class: com.baidu.tieba.model.AddPollPostModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                String str;
-                int i;
-                if (responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && AddPollPostModel.this.eDZ == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
-                    if ((responsedMessage instanceof AddPollPostHttpResponseMessage) || (responsedMessage instanceof AddPollPostSocketResponseMessage)) {
-                        AddPollPostHttpResponseMessage addPollPostHttpResponseMessage = responsedMessage instanceof AddPollPostHttpResponseMessage ? (AddPollPostHttpResponseMessage) responsedMessage : null;
-                        AddPollPostSocketResponseMessage addPollPostSocketResponseMessage = responsedMessage instanceof AddPollPostSocketResponseMessage ? (AddPollPostSocketResponseMessage) responsedMessage : null;
-                        if (responsedMessage.getError() != 0) {
-                            i = responsedMessage.getError();
-                            str = responsedMessage.getErrorString();
-                        } else if (addPollPostHttpResponseMessage != null && addPollPostHttpResponseMessage.getIdl() != null && addPollPostHttpResponseMessage.getIdl().data != null && addPollPostHttpResponseMessage.getIdl().data.error_code.intValue() != 0) {
-                            int intValue = addPollPostHttpResponseMessage.getIdl().data.error_code.intValue();
-                            str = addPollPostHttpResponseMessage.getIdl().data.error_msg;
-                            i = intValue;
-                        } else if (addPollPostSocketResponseMessage == null || addPollPostSocketResponseMessage.getIdl() == null || addPollPostSocketResponseMessage.getIdl().data == null || addPollPostSocketResponseMessage.getIdl().data.error_code.intValue() == 0) {
-                            str = "";
-                            i = 0;
-                        } else {
-                            i = addPollPostSocketResponseMessage.getIdl().data.error_code.intValue();
-                            str = addPollPostSocketResponseMessage.getIdl().data.error_msg;
-                        }
-                        if (AddPollPostModel.this.lwa != null) {
-                            AddPollPostModel.this.lwa.aL(i, str);
-                        }
-                    }
-                }
-            }
-        };
-        cOI();
-    }
-
-    private void cOI() {
-        com.baidu.tieba.tbadkCore.a.a.a(309006, AddPollPostSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
+        this.f19030g = new a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
+        v();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -71,26 +78,31 @@ public class AddPollPostModel extends BdBaseModel {
     }
 
     public void registerListener() {
-        registerListener(this.lwb);
+        registerListener(this.f19030g);
     }
 
-    public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.lwb);
-    }
-
-    public void a(a aVar) {
-        this.lwa = aVar;
-    }
-
-    public void setTid(long j) {
-        this.eDZ = j;
-    }
-
-    public void l(String str, String str2, long j) {
+    public void u(String str, String str2, long j) {
         AddPollPostRequestNetMessage addPollPostRequestNetMessage = new AddPollPostRequestNetMessage();
-        addPollPostRequestNetMessage.setThreadId(com.baidu.adp.lib.f.b.toLong(str, 0L));
+        addPollPostRequestNetMessage.setThreadId(d.b.b.e.m.b.f(str, 0L));
         addPollPostRequestNetMessage.setOptions(str2);
         addPollPostRequestNetMessage.setForumId(j);
         sendMessage(addPollPostRequestNetMessage);
+    }
+
+    public void unRegisterListener() {
+        MessageManager.getInstance().unRegisterListener(this.f19030g);
+    }
+
+    public final void v() {
+        d.b.i0.c3.d0.a.h(309006, AddPollPostSocketResponseMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
+    }
+
+    public void w(b bVar) {
+        this.f19028e = bVar;
+    }
+
+    public void x(long j) {
+        this.f19029f = j;
     }
 }

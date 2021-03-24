@@ -1,173 +1,157 @@
 package com.xiaomi.push.service;
-
-import android.content.SharedPreferences;
-import com.xiaomi.push.al;
-import com.xiaomi.push.ej;
-import com.xiaomi.push.ek;
-import com.xiaomi.push.gv;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class be {
 
     /* renamed from: a  reason: collision with root package name */
-    private static be f8540a = new be();
+    public static int f40992a = 8;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f40995d = -666;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f883a;
+    public byte[] f922a = new byte[256];
 
-    /* renamed from: a  reason: collision with other field name */
-    private al.b f884a;
+    /* renamed from: c  reason: collision with root package name */
+    public int f40994c = 0;
 
-    /* renamed from: a  reason: collision with other field name */
-    private ej.a f885a;
+    /* renamed from: b  reason: collision with root package name */
+    public int f40993b = 0;
 
-    /* renamed from: a  reason: collision with other field name */
-    private List<a> f886a = new ArrayList();
+    public static int a(byte b2) {
+        return b2 >= 0 ? b2 : b2 + 256;
+    }
 
-    /* loaded from: classes5.dex */
-    public static abstract class a {
-        public void a(ej.a aVar) {
+    private void a() {
+        this.f40994c = 0;
+        this.f40993b = 0;
+    }
+
+    private void a(int i, byte[] bArr, boolean z) {
+        int length = bArr.length;
+        for (int i2 = 0; i2 < 256; i2++) {
+            this.f922a[i2] = (byte) i2;
         }
-
-        public void a(ek.b bVar) {
-        }
-    }
-
-    private be() {
-    }
-
-    public static be a() {
-        return f8540a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m563a() {
-        String str;
-        synchronized (be.class) {
-            if (f883a == null) {
-                SharedPreferences sharedPreferences = com.xiaomi.push.t.m587a().getSharedPreferences("XMPushServiceConfig", 0);
-                f883a = sharedPreferences.getString("DeviceUUID", null);
-                if (f883a == null) {
-                    f883a = com.xiaomi.push.i.a(com.xiaomi.push.t.m587a(), false);
-                    if (f883a != null) {
-                        sharedPreferences.edit().putString("DeviceUUID", f883a).commit();
-                    }
-                }
+        this.f40994c = 0;
+        this.f40993b = 0;
+        while (true) {
+            int i3 = this.f40993b;
+            if (i3 >= i) {
+                break;
             }
-            str = f883a;
+            int a2 = ((this.f40994c + a(this.f922a[i3])) + a(bArr[this.f40993b % length])) % 256;
+            this.f40994c = a2;
+            a(this.f922a, this.f40993b, a2);
+            this.f40993b++;
         }
-        return str;
-    }
-
-    private void b() {
-        if (this.f885a == null) {
-            d();
+        if (i != 256) {
+            this.f40995d = ((this.f40994c + a(this.f922a[i])) + a(bArr[i % length])) % 256;
         }
-    }
-
-    private void c() {
-        if (this.f884a != null) {
-            return;
-        }
-        this.f884a = new bf(this);
-        gv.a(this.f884a);
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x0025  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void d() {
-        BufferedInputStream bufferedInputStream;
-        try {
-            try {
-                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.t.m587a().openFileInput("XMCloudCfg"));
-                try {
-                    this.f885a = ej.a.b(com.xiaomi.push.b.a(bufferedInputStream));
-                    bufferedInputStream.close();
-                    com.xiaomi.push.y.a(bufferedInputStream);
-                } catch (Exception e) {
-                    e = e;
-                    com.xiaomi.channel.commonutils.logger.b.m58a("load config failure: " + e.getMessage());
-                    com.xiaomi.push.y.a(bufferedInputStream);
-                    if (this.f885a != null) {
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                com.xiaomi.push.y.a(bufferedInputStream);
-                throw th;
+        if (z) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("S_");
+            int i4 = i - 1;
+            sb.append(i4);
+            sb.append(":");
+            for (int i5 = 0; i5 <= i; i5++) {
+                sb.append(" ");
+                sb.append(a(this.f922a[i5]));
             }
-        } catch (Exception e2) {
-            e = e2;
-            bufferedInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedInputStream = null;
-            com.xiaomi.push.y.a(bufferedInputStream);
-            throw th;
-        }
-        if (this.f885a != null) {
-            this.f885a = new ej.a();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        try {
-            if (this.f885a != null) {
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.t.m587a().openFileOutput("XMCloudCfg", 0));
-                com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
-                this.f885a.a(a2);
-                a2.m180a();
-                bufferedOutputStream.close();
+            sb.append("   j_");
+            sb.append(i4);
+            sb.append("=");
+            sb.append(this.f40994c);
+            sb.append("   j_");
+            sb.append(i);
+            sb.append("=");
+            sb.append(this.f40995d);
+            sb.append("   S_");
+            sb.append(i4);
+            sb.append("[j_");
+            sb.append(i4);
+            sb.append("]=");
+            sb.append(a(this.f922a[this.f40994c]));
+            sb.append("   S_");
+            sb.append(i4);
+            sb.append("[j_");
+            sb.append(i);
+            sb.append("]=");
+            sb.append(a(this.f922a[this.f40995d]));
+            if (this.f922a[1] != 0) {
+                sb.append("   S[1]!=0");
             }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("save config failure: " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m51a(sb.toString());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    private void a(byte[] bArr) {
+        a(256, bArr, false);
+    }
+
+    public static void a(byte[] bArr, int i, int i2) {
+        byte b2 = bArr[i];
+        bArr[i] = bArr[i2];
+        bArr[i2] = b2;
+    }
+
+    public static byte[] a(String str, String str2) {
+        byte[] m161a = com.xiaomi.push.bj.m161a(str);
+        byte[] bytes = str2.getBytes();
+        byte[] bArr = new byte[m161a.length + 1 + bytes.length];
+        for (int i = 0; i < m161a.length; i++) {
+            bArr[i] = m161a[i];
+        }
+        bArr[m161a.length] = 95;
+        for (int i2 = 0; i2 < bytes.length; i2++) {
+            bArr[m161a.length + 1 + i2] = bytes[i2];
+        }
+        return bArr;
+    }
+
+    public static byte[] a(byte[] bArr, String str) {
+        return a(bArr, com.xiaomi.push.bj.m161a(str));
+    }
+
+    public static byte[] a(byte[] bArr, byte[] bArr2) {
+        byte[] bArr3 = new byte[bArr2.length];
+        be beVar = new be();
+        beVar.a(bArr);
+        beVar.a();
+        for (int i = 0; i < bArr2.length; i++) {
+            bArr3[i] = (byte) (bArr2[i] ^ beVar.m591a());
+        }
+        return bArr3;
+    }
+
+    public static byte[] a(byte[] bArr, byte[] bArr2, boolean z, int i, int i2) {
+        byte[] bArr3;
+        int i3;
+        if (i < 0 || i > bArr2.length || i + i2 > bArr2.length) {
+            throw new IllegalArgumentException("start = " + i + " len = " + i2);
+        }
+        if (z) {
+            bArr3 = bArr2;
+            i3 = i;
+        } else {
+            bArr3 = new byte[i2];
+            i3 = 0;
+        }
+        be beVar = new be();
+        beVar.a(bArr);
+        beVar.a();
+        for (int i4 = 0; i4 < i2; i4++) {
+            bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ beVar.m591a());
+        }
+        return bArr3;
+    }
+
     /* renamed from: a  reason: collision with other method in class */
-    public int m566a() {
-        b();
-        if (this.f885a != null) {
-            return this.f885a.c();
-        }
-        return 0;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public ej.a m567a() {
-        b();
-        return this.f885a;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m568a() {
-        this.f886a.clear();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(ek.b bVar) {
-        a[] aVarArr;
-        if (bVar.m254d() && bVar.d() > m566a()) {
-            c();
-        }
-        synchronized (this) {
-            aVarArr = (a[]) this.f886a.toArray(new a[this.f886a.size()]);
-        }
-        for (a aVar : aVarArr) {
-            aVar.a(bVar);
-        }
-    }
-
-    public synchronized void a(a aVar) {
-        this.f886a.add(aVar);
+    public byte m591a() {
+        int i = (this.f40993b + 1) % 256;
+        this.f40993b = i;
+        int a2 = (this.f40994c + a(this.f922a[i])) % 256;
+        this.f40994c = a2;
+        a(this.f922a, this.f40993b, a2);
+        byte[] bArr = this.f922a;
+        return bArr[(a(bArr[this.f40993b]) + a(this.f922a[this.f40994c])) % 256];
     }
 }

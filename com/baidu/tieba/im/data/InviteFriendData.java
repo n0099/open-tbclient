@@ -3,30 +3,34 @@ package com.baidu.tieba.im.data;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public class InviteFriendData extends AbstractImageProvider implements TbCheckBox.b {
-    private String kGN;
-    private boolean mIsChecked = false;
+/* loaded from: classes4.dex */
+public class InviteFriendData extends AbstractImageProvider implements TbCheckBox.c {
 
-    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
+    /* renamed from: e  reason: collision with root package name */
+    public String f17906e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f17907f = false;
+
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getImageUrl() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(this.kGN);
+        arrayList.add(this.f17906e);
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.b
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public boolean isChecked() {
-        return this.mIsChecked;
+        return this.f17907f;
     }
 
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.b
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public void setChecked(boolean z) {
-        this.mIsChecked = z;
+        this.f17907f = z;
     }
 }

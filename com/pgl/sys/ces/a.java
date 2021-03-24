@@ -6,8 +6,8 @@ public final class a {
     static {
         try {
             System.loadLibrary("nms");
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -16,7 +16,7 @@ public final class a {
     public static Object njss(int i, Object obj) {
         try {
             return b.a().a(i, obj);
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return null;
         }
     }

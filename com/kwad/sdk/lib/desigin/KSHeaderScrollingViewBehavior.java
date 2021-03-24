@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.Keep;
 import androidx.core.math.MathUtils;
 import androidx.core.view.GravityCompat;
@@ -11,14 +12,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.kwad.sdk.lib.desigin.KSCoordinatorLayout;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class KSHeaderScrollingViewBehavior extends KSViewOffsetBehavior<View> {
-    private int mOverlayTop;
-    final Rect mTempRect1;
-    final Rect mTempRect2;
-    private int mVerticalLayoutGap;
+    public int mOverlayTop;
+    public final Rect mTempRect1;
+    public final Rect mTempRect2;
+    public int mVerticalLayoutGap;
 
     public KSHeaderScrollingViewBehavior() {
         this.mTempRect1 = new Rect();
@@ -33,24 +33,25 @@ public abstract class KSHeaderScrollingViewBehavior extends KSViewOffsetBehavior
         this.mVerticalLayoutGap = 0;
     }
 
-    private static int resolveGravity(int i) {
+    public static int resolveGravity(int i) {
         if (i == 0) {
             return 8388659;
         }
         return i;
     }
 
-    abstract View findFirstDependency(List<View> list);
+    public abstract View findFirstDependency(List<View> list);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final int getOverlapPixelsForOffset(View view) {
         if (this.mOverlayTop == 0) {
             return 0;
         }
-        return MathUtils.clamp((int) (getOverlapRatioForOffset(view) * this.mOverlayTop), 0, this.mOverlayTop);
+        float overlapRatioForOffset = getOverlapRatioForOffset(view);
+        int i = this.mOverlayTop;
+        return MathUtils.clamp((int) (overlapRatioForOffset * i), 0, i);
     }
 
-    float getOverlapRatioForOffset(View view) {
+    public float getOverlapRatioForOffset(View view) {
         return 1.0f;
     }
 
@@ -58,38 +59,37 @@ public abstract class KSHeaderScrollingViewBehavior extends KSViewOffsetBehavior
         return this.mOverlayTop;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int getScrollRange(View view) {
         return view.getMeasuredHeight();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final int getVerticalLayoutGap() {
         return this.mVerticalLayoutGap;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.lib.desigin.KSViewOffsetBehavior
     public void layoutChild(KSCoordinatorLayout kSCoordinatorLayout, View view, int i) {
+        int i2;
         View findFirstDependency = findFirstDependency(kSCoordinatorLayout.getDependencies(view));
-        if (findFirstDependency == null) {
+        if (findFirstDependency != null) {
+            KSCoordinatorLayout.LayoutParams layoutParams = (KSCoordinatorLayout.LayoutParams) view.getLayoutParams();
+            Rect rect = this.mTempRect1;
+            rect.set(kSCoordinatorLayout.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin, findFirstDependency.getBottom() + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin, (kSCoordinatorLayout.getWidth() - kSCoordinatorLayout.getPaddingRight()) - ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin, ((kSCoordinatorLayout.getHeight() + findFirstDependency.getBottom()) - kSCoordinatorLayout.getPaddingBottom()) - ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin);
+            WindowInsetsCompat lastWindowInsets = kSCoordinatorLayout.getLastWindowInsets();
+            if (lastWindowInsets != null && ViewCompat.getFitsSystemWindows(kSCoordinatorLayout) && !ViewCompat.getFitsSystemWindows(view)) {
+                rect.left += lastWindowInsets.getSystemWindowInsetLeft();
+                rect.right -= lastWindowInsets.getSystemWindowInsetRight();
+            }
+            Rect rect2 = this.mTempRect2;
+            GravityCompat.apply(resolveGravity(layoutParams.gravity), view.getMeasuredWidth(), view.getMeasuredHeight(), rect, rect2, i);
+            int overlapPixelsForOffset = getOverlapPixelsForOffset(findFirstDependency);
+            view.layout(rect2.left, rect2.top - overlapPixelsForOffset, rect2.right, rect2.bottom - overlapPixelsForOffset);
+            i2 = rect2.top - findFirstDependency.getBottom();
+        } else {
             super.layoutChild(kSCoordinatorLayout, view, i);
-            this.mVerticalLayoutGap = 0;
-            return;
+            i2 = 0;
         }
-        KSCoordinatorLayout.LayoutParams layoutParams = (KSCoordinatorLayout.LayoutParams) view.getLayoutParams();
-        Rect rect = this.mTempRect1;
-        rect.set(kSCoordinatorLayout.getPaddingLeft() + layoutParams.leftMargin, findFirstDependency.getBottom() + layoutParams.topMargin, (kSCoordinatorLayout.getWidth() - kSCoordinatorLayout.getPaddingRight()) - layoutParams.rightMargin, ((kSCoordinatorLayout.getHeight() + findFirstDependency.getBottom()) - kSCoordinatorLayout.getPaddingBottom()) - layoutParams.bottomMargin);
-        WindowInsetsCompat lastWindowInsets = kSCoordinatorLayout.getLastWindowInsets();
-        if (lastWindowInsets != null && ViewCompat.getFitsSystemWindows(kSCoordinatorLayout) && !ViewCompat.getFitsSystemWindows(view)) {
-            rect.left += lastWindowInsets.getSystemWindowInsetLeft();
-            rect.right -= lastWindowInsets.getSystemWindowInsetRight();
-        }
-        Rect rect2 = this.mTempRect2;
-        GravityCompat.apply(resolveGravity(layoutParams.gravity), view.getMeasuredWidth(), view.getMeasuredHeight(), rect, rect2, i);
-        int overlapPixelsForOffset = getOverlapPixelsForOffset(findFirstDependency);
-        view.layout(rect2.left, rect2.top - overlapPixelsForOffset, rect2.right, rect2.bottom - overlapPixelsForOffset);
-        this.mVerticalLayoutGap = rect2.top - findFirstDependency.getBottom();
+        this.mVerticalLayoutGap = i2;
     }
 
     @Override // com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
@@ -108,7 +108,7 @@ public abstract class KSHeaderScrollingViewBehavior extends KSViewOffsetBehavior
             if (size == 0) {
                 size = kSCoordinatorLayout.getHeight();
             }
-            kSCoordinatorLayout.onMeasureChild(view, i, i2, View.MeasureSpec.makeMeasureSpec(getScrollRange(findFirstDependency) + (size - findFirstDependency.getMeasuredHeight()), i5 == -1 ? 1073741824 : Integer.MIN_VALUE), i4);
+            kSCoordinatorLayout.onMeasureChild(view, i, i2, View.MeasureSpec.makeMeasureSpec((size - findFirstDependency.getMeasuredHeight()) + getScrollRange(findFirstDependency), i5 == -1 ? 1073741824 : Integer.MIN_VALUE), i4);
             return true;
         }
         return false;

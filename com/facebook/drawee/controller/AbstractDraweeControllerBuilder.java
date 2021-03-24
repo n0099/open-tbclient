@@ -2,266 +2,356 @@ package com.facebook.drawee.controller;
 
 import android.content.Context;
 import android.graphics.drawable.Animatable;
-import com.facebook.common.internal.g;
-import com.facebook.common.internal.j;
-import com.facebook.datasource.f;
+import com.facebook.common.internal.Objects;
+import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.Supplier;
+import com.facebook.datasource.DataSource;
+import com.facebook.datasource.DataSources;
+import com.facebook.datasource.FirstAvailableDataSourceSupplier;
+import com.facebook.datasource.IncreasingQualityDataSourceSupplier;
 import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
+import com.facebook.drawee.gestures.GestureDetector;
+import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder;
+import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
-public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>, REQUEST, IMAGE, INFO> implements com.facebook.drawee.d.d {
-    private static final c<Object> pEm = new b<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
-        @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
-        public void a(String str, @Nullable Object obj, @Nullable Animatable animatable) {
+/* loaded from: classes.dex */
+public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>, REQUEST, IMAGE, INFO> implements SimpleDraweeControllerBuilder {
+    public boolean mAutoPlayAnimations;
+    public final Set<ControllerListener> mBoundControllerListeners;
+    @Nullable
+    public Object mCallerContext;
+    public String mContentDescription;
+    public final Context mContext;
+    @Nullable
+    public ControllerListener<? super INFO> mControllerListener;
+    @Nullable
+    public ControllerViewportVisibilityListener mControllerViewportVisibilityListener;
+    @Nullable
+    public Supplier<DataSource<IMAGE>> mDataSourceSupplier;
+    @Nullable
+    public REQUEST mImageRequest;
+    @Nullable
+    public REQUEST mLowResImageRequest;
+    @Nullable
+    public REQUEST[] mMultiImageRequests;
+    @Nullable
+    public DraweeController mOldController;
+    public boolean mRetainImageOnFailure;
+    public boolean mTapToRetryEnabled;
+    public boolean mTryCacheOnlyFirst;
+    public static final ControllerListener<Object> sAutoPlayAnimationsListener = new BaseControllerListener<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
+        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
+        public void onFinalImageSet(String str, @Nullable Object obj, @Nullable Animatable animatable) {
             if (animatable != null) {
                 animatable.start();
             }
         }
     };
-    private static final NullPointerException pEn = new NullPointerException("No image request was specified!");
-    private static final AtomicLong pEu = new AtomicLong();
-    private final Context mContext;
-    @Nullable
-    private j<com.facebook.datasource.b<IMAGE>> pCY;
-    private boolean pDR;
-    @Nullable
-    private c<? super INFO> pDY;
-    @Nullable
-    private d pDZ;
-    private final Set<c> pDg;
-    @Nullable
-    private Object pDn;
-    private boolean pEf;
-    private String pEg;
-    @Nullable
-    private REQUEST pEo;
-    @Nullable
-    private REQUEST pEp;
-    @Nullable
-    private REQUEST[] pEq;
-    private boolean pEr;
-    private boolean pEs;
-    @Nullable
-    private com.facebook.drawee.d.a pEt;
+    public static final NullPointerException NO_REQUEST_EXCEPTION = new NullPointerException("No image request was specified!");
+    public static final AtomicLong sIdCounter = new AtomicLong();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum CacheLevel {
         FULL_FETCH,
         DISK_CACHE,
         BITMAP_MEMORY_CACHE
     }
 
-    protected abstract com.facebook.datasource.b<IMAGE> a(com.facebook.drawee.d.a aVar, String str, REQUEST request, Object obj, CacheLevel cacheLevel);
-
-    @ReturnsOwnership
-    protected abstract a etR();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AbstractDraweeControllerBuilder(Context context, Set<c> set) {
+    public AbstractDraweeControllerBuilder(Context context, Set<ControllerListener> set) {
         this.mContext = context;
-        this.pDg = set;
+        this.mBoundControllerListeners = set;
         init();
     }
 
+    public static String generateUniqueControllerId() {
+        return String.valueOf(sIdCounter.getAndIncrement());
+    }
+
     private void init() {
-        this.pDn = null;
-        this.pEo = null;
-        this.pEp = null;
-        this.pEq = null;
-        this.pEr = true;
-        this.pDY = null;
-        this.pDZ = null;
-        this.pDR = false;
-        this.pEs = false;
-        this.pEt = null;
-        this.pEg = null;
+        this.mCallerContext = null;
+        this.mImageRequest = null;
+        this.mLowResImageRequest = null;
+        this.mMultiImageRequests = null;
+        this.mTryCacheOnlyFirst = true;
+        this.mControllerListener = null;
+        this.mControllerViewportVisibilityListener = null;
+        this.mTapToRetryEnabled = false;
+        this.mAutoPlayAnimations = false;
+        this.mOldController = null;
+        this.mContentDescription = null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.drawee.d.d
-    /* renamed from: bp */
-    public BUILDER br(Object obj) {
-        this.pDn = obj;
-        return euv();
+    public AbstractDraweeController buildController() {
+        if (FrescoSystrace.isTracing()) {
+            FrescoSystrace.beginSection("AbstractDraweeControllerBuilder#buildController");
+        }
+        AbstractDraweeController obtainController = obtainController();
+        obtainController.setRetainImageOnFailure(getRetainImageOnFailure());
+        obtainController.setContentDescription(getContentDescription());
+        obtainController.setControllerViewportVisibilityListener(getControllerViewportVisibilityListener());
+        maybeBuildAndSetRetryManager(obtainController);
+        maybeAttachListeners(obtainController);
+        if (FrescoSystrace.isTracing()) {
+            FrescoSystrace.endSection();
+        }
+        return obtainController;
+    }
+
+    public boolean getAutoPlayAnimations() {
+        return this.mAutoPlayAnimations;
     }
 
     @Nullable
-    public Object eum() {
-        return this.pDn;
-    }
-
-    public BUILDER bq(REQUEST request) {
-        this.pEo = request;
-        return euv();
+    public Object getCallerContext() {
+        return this.mCallerContext;
     }
 
     @Nullable
-    public REQUEST eun() {
-        return this.pEo;
+    public String getContentDescription() {
+        return this.mContentDescription;
     }
 
-    public boolean euo() {
-        return this.pEf;
-    }
-
-    public BUILDER Bk(boolean z) {
-        this.pEs = z;
-        return euv();
-    }
-
-    public BUILDER c(c<? super INFO> cVar) {
-        this.pDY = cVar;
-        return euv();
+    public Context getContext() {
+        return this.mContext;
     }
 
     @Nullable
-    public d eup() {
-        return this.pDZ;
+    public ControllerListener<? super INFO> getControllerListener() {
+        return this.mControllerListener;
     }
 
     @Nullable
-    public String euq() {
-        return this.pEg;
+    public ControllerViewportVisibilityListener getControllerViewportVisibilityListener() {
+        return this.mControllerViewportVisibilityListener;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.drawee.d.d
-    /* renamed from: b */
-    public BUILDER c(@Nullable com.facebook.drawee.d.a aVar) {
-        this.pEt = aVar;
-        return euv();
-    }
+    public abstract DataSource<IMAGE> getDataSourceForRequest(DraweeController draweeController, String str, REQUEST request, Object obj, CacheLevel cacheLevel);
 
     @Nullable
-    public com.facebook.drawee.d.a eur() {
-        return this.pEt;
+    public Supplier<DataSource<IMAGE>> getDataSourceSupplier() {
+        return this.mDataSourceSupplier;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.drawee.d.d
-    /* renamed from: eus */
-    public a euw() {
-        validate();
-        if (this.pEo == null && this.pEq == null && this.pEp != null) {
-            this.pEo = this.pEp;
-            this.pEp = null;
-        }
-        return eut();
+    public Supplier<DataSource<IMAGE>> getDataSourceSupplierForRequest(DraweeController draweeController, String str, REQUEST request) {
+        return getDataSourceSupplierForRequest(draweeController, str, request, CacheLevel.FULL_FETCH);
     }
 
-    protected void validate() {
-        boolean z = false;
-        g.checkState(this.pEq == null || this.pEo == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
-        if (this.pCY == null || (this.pEq == null && this.pEo == null && this.pEp == null)) {
-            z = true;
-        }
-        g.checkState(z, "Cannot specify DataSourceSupplier with other ImageRequests! Use one or the other.");
-    }
-
-    protected a eut() {
-        a etR = etR();
-        etR.Bj(euo());
-        etR.ZK(euq());
-        etR.a(eup());
-        b(etR);
-        a(etR);
-        return etR;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static String euu() {
-        return String.valueOf(pEu.getAndIncrement());
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public j<com.facebook.datasource.b<IMAGE>> a(com.facebook.drawee.d.a aVar, String str) {
-        if (this.pCY != null) {
-            return this.pCY;
-        }
-        j<com.facebook.datasource.b<IMAGE>> jVar = null;
-        if (this.pEo != null) {
-            jVar = a(aVar, str, this.pEo);
-        } else if (this.pEq != null) {
-            jVar = a(aVar, str, this.pEq, this.pEr);
-        }
-        if (jVar != null && this.pEp != null) {
-            ArrayList arrayList = new ArrayList(2);
-            arrayList.add(jVar);
-            arrayList.add(a(aVar, str, this.pEp));
-            jVar = f.D(arrayList, false);
-        }
-        if (jVar == null) {
-            return com.facebook.datasource.c.y(pEn);
-        }
-        return jVar;
-    }
-
-    protected j<com.facebook.datasource.b<IMAGE>> a(com.facebook.drawee.d.a aVar, String str, REQUEST[] requestArr, boolean z) {
+    public Supplier<DataSource<IMAGE>> getFirstAvailableDataSourceSupplier(DraweeController draweeController, String str, REQUEST[] requestArr, boolean z) {
         ArrayList arrayList = new ArrayList(requestArr.length * 2);
         if (z) {
             for (REQUEST request : requestArr) {
-                arrayList.add(a(aVar, str, (String) request, CacheLevel.BITMAP_MEMORY_CACHE));
+                arrayList.add(getDataSourceSupplierForRequest(draweeController, str, request, CacheLevel.BITMAP_MEMORY_CACHE));
             }
         }
         for (REQUEST request2 : requestArr) {
-            arrayList.add(a(aVar, str, request2));
+            arrayList.add(getDataSourceSupplierForRequest(draweeController, str, request2));
         }
-        return com.facebook.datasource.e.gI(arrayList);
+        return FirstAvailableDataSourceSupplier.create(arrayList);
     }
 
-    protected j<com.facebook.datasource.b<IMAGE>> a(com.facebook.drawee.d.a aVar, String str, REQUEST request) {
-        return a(aVar, str, (String) request, CacheLevel.FULL_FETCH);
+    @Nullable
+    public REQUEST[] getFirstAvailableImageRequests() {
+        return this.mMultiImageRequests;
     }
 
-    protected j<com.facebook.datasource.b<IMAGE>> a(final com.facebook.drawee.d.a aVar, final String str, final REQUEST request, final CacheLevel cacheLevel) {
-        final Object eum = eum();
-        return new j<com.facebook.datasource.b<IMAGE>>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.2
+    @Nullable
+    public REQUEST getImageRequest() {
+        return this.mImageRequest;
+    }
+
+    @Nullable
+    public REQUEST getLowResImageRequest() {
+        return this.mLowResImageRequest;
+    }
+
+    @Nullable
+    public DraweeController getOldController() {
+        return this.mOldController;
+    }
+
+    public boolean getRetainImageOnFailure() {
+        return this.mRetainImageOnFailure;
+    }
+
+    public boolean getTapToRetryEnabled() {
+        return this.mTapToRetryEnabled;
+    }
+
+    public final BUILDER getThis() {
+        return this;
+    }
+
+    public void maybeAttachListeners(AbstractDraweeController abstractDraweeController) {
+        Set<ControllerListener> set = this.mBoundControllerListeners;
+        if (set != null) {
+            for (ControllerListener controllerListener : set) {
+                abstractDraweeController.addControllerListener(controllerListener);
+            }
+        }
+        ControllerListener<? super INFO> controllerListener2 = this.mControllerListener;
+        if (controllerListener2 != null) {
+            abstractDraweeController.addControllerListener(controllerListener2);
+        }
+        if (this.mAutoPlayAnimations) {
+            abstractDraweeController.addControllerListener(sAutoPlayAnimationsListener);
+        }
+    }
+
+    public void maybeBuildAndSetGestureDetector(AbstractDraweeController abstractDraweeController) {
+        if (abstractDraweeController.getGestureDetector() == null) {
+            abstractDraweeController.setGestureDetector(GestureDetector.newInstance(this.mContext));
+        }
+    }
+
+    public void maybeBuildAndSetRetryManager(AbstractDraweeController abstractDraweeController) {
+        if (this.mTapToRetryEnabled) {
+            abstractDraweeController.getRetryManager().setTapToRetryEnabled(this.mTapToRetryEnabled);
+            maybeBuildAndSetGestureDetector(abstractDraweeController);
+        }
+    }
+
+    @ReturnsOwnership
+    public abstract AbstractDraweeController obtainController();
+
+    public Supplier<DataSource<IMAGE>> obtainDataSourceSupplier(DraweeController draweeController, String str) {
+        Supplier<DataSource<IMAGE>> supplier = this.mDataSourceSupplier;
+        if (supplier != null) {
+            return supplier;
+        }
+        Supplier<DataSource<IMAGE>> supplier2 = null;
+        REQUEST request = this.mImageRequest;
+        if (request != null) {
+            supplier2 = getDataSourceSupplierForRequest(draweeController, str, request);
+        } else {
+            REQUEST[] requestArr = this.mMultiImageRequests;
+            if (requestArr != null) {
+                supplier2 = getFirstAvailableDataSourceSupplier(draweeController, str, requestArr, this.mTryCacheOnlyFirst);
+            }
+        }
+        if (supplier2 != null && this.mLowResImageRequest != null) {
+            ArrayList arrayList = new ArrayList(2);
+            arrayList.add(supplier2);
+            arrayList.add(getDataSourceSupplierForRequest(draweeController, str, this.mLowResImageRequest));
+            supplier2 = IncreasingQualityDataSourceSupplier.create(arrayList, false);
+        }
+        return supplier2 == null ? DataSources.getFailedDataSourceSupplier(NO_REQUEST_EXCEPTION) : supplier2;
+    }
+
+    public BUILDER reset() {
+        init();
+        return getThis();
+    }
+
+    public BUILDER setAutoPlayAnimations(boolean z) {
+        this.mAutoPlayAnimations = z;
+        return getThis();
+    }
+
+    public BUILDER setContentDescription(String str) {
+        this.mContentDescription = str;
+        return getThis();
+    }
+
+    public BUILDER setControllerListener(@Nullable ControllerListener<? super INFO> controllerListener) {
+        this.mControllerListener = controllerListener;
+        return getThis();
+    }
+
+    public BUILDER setControllerViewportVisibilityListener(@Nullable ControllerViewportVisibilityListener controllerViewportVisibilityListener) {
+        this.mControllerViewportVisibilityListener = controllerViewportVisibilityListener;
+        return getThis();
+    }
+
+    public BUILDER setDataSourceSupplier(@Nullable Supplier<DataSource<IMAGE>> supplier) {
+        this.mDataSourceSupplier = supplier;
+        return getThis();
+    }
+
+    public BUILDER setFirstAvailableImageRequests(REQUEST[] requestArr) {
+        return setFirstAvailableImageRequests(requestArr, true);
+    }
+
+    public BUILDER setImageRequest(REQUEST request) {
+        this.mImageRequest = request;
+        return getThis();
+    }
+
+    public BUILDER setLowResImageRequest(REQUEST request) {
+        this.mLowResImageRequest = request;
+        return getThis();
+    }
+
+    public BUILDER setRetainImageOnFailure(boolean z) {
+        this.mRetainImageOnFailure = z;
+        return getThis();
+    }
+
+    public BUILDER setTapToRetryEnabled(boolean z) {
+        this.mTapToRetryEnabled = z;
+        return getThis();
+    }
+
+    public void validate() {
+        boolean z = false;
+        Preconditions.checkState(this.mMultiImageRequests == null || this.mImageRequest == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
+        if (this.mDataSourceSupplier == null || (this.mMultiImageRequests == null && this.mImageRequest == null && this.mLowResImageRequest == null)) {
+            z = true;
+        }
+        Preconditions.checkState(z, "Cannot specify DataSourceSupplier with other ImageRequests! Use one or the other.");
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
+    public AbstractDraweeController build() {
+        REQUEST request;
+        validate();
+        if (this.mImageRequest == null && this.mMultiImageRequests == null && (request = this.mLowResImageRequest) != null) {
+            this.mImageRequest = request;
+            this.mLowResImageRequest = null;
+        }
+        return buildController();
+    }
+
+    public Supplier<DataSource<IMAGE>> getDataSourceSupplierForRequest(final DraweeController draweeController, final String str, final REQUEST request, final CacheLevel cacheLevel) {
+        final Object callerContext = getCallerContext();
+        return new Supplier<DataSource<IMAGE>>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.2
+            public String toString() {
+                return Objects.toStringHelper(this).add("request", request.toString()).toString();
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.facebook.drawee.controller.AbstractDraweeControllerBuilder */
             /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.facebook.common.internal.j
-            /* renamed from: etu */
-            public com.facebook.datasource.b<IMAGE> get() {
-                return AbstractDraweeControllerBuilder.this.a(aVar, str, request, eum, cacheLevel);
-            }
-
-            public String toString() {
-                return com.facebook.common.internal.f.bd(this).G("request", request.toString()).toString();
+            @Override // com.facebook.common.internal.Supplier
+            public DataSource<IMAGE> get() {
+                return AbstractDraweeControllerBuilder.this.getDataSourceForRequest(draweeController, str, request, callerContext, cacheLevel);
             }
         };
     }
 
-    protected void a(a aVar) {
-        if (this.pDg != null) {
-            for (c cVar : this.pDg) {
-                aVar.a(cVar);
-            }
-        }
-        if (this.pDY != null) {
-            aVar.a(this.pDY);
-        }
-        if (this.pEs) {
-            aVar.a(pEm);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
+    public BUILDER setCallerContext(Object obj) {
+        this.mCallerContext = obj;
+        return getThis();
     }
 
-    protected void b(a aVar) {
-        if (this.pDR) {
-            aVar.euf().Bi(this.pDR);
-            c(aVar);
-        }
+    public BUILDER setFirstAvailableImageRequests(REQUEST[] requestArr, boolean z) {
+        Preconditions.checkArgument(requestArr == null || requestArr.length > 0, "No requests specified!");
+        this.mMultiImageRequests = requestArr;
+        this.mTryCacheOnlyFirst = z;
+        return getThis();
     }
 
-    protected void c(a aVar) {
-        if (aVar.eug() == null) {
-            aVar.a(com.facebook.drawee.c.a.ih(this.mContext));
-        }
-    }
-
-    protected final BUILDER euv() {
-        return this;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
+    public BUILDER setOldController(@Nullable DraweeController draweeController) {
+        this.mOldController = draweeController;
+        return getThis();
     }
 }

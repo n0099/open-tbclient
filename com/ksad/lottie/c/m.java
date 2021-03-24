@@ -2,81 +2,74 @@ package com.ksad.lottie.c;
 
 import android.graphics.Path;
 import android.util.JsonReader;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import androidx.appcompat.widget.SearchView;
 import com.baidu.mobstat.Config;
 import com.ksad.lottie.model.content.GradientType;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class m {
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static com.ksad.lottie.model.content.d a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        char c;
-        boolean z;
+        char c2;
+        char c3;
+        String str = null;
+        GradientType gradientType = null;
         Path.FillType fillType = null;
+        com.ksad.lottie.model.a.c cVar = null;
+        com.ksad.lottie.model.a.d dVar2 = null;
         com.ksad.lottie.model.a.f fVar = null;
         com.ksad.lottie.model.a.f fVar2 = null;
-        GradientType gradientType = null;
-        com.ksad.lottie.model.a.d dVar2 = null;
-        com.ksad.lottie.model.a.c cVar = null;
-        String str = null;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            switch (nextName.hashCode()) {
-                case 101:
-                    if (nextName.equals("e")) {
-                        c = 5;
+            int hashCode = nextName.hashCode();
+            if (hashCode == 101) {
+                if (nextName.equals("e")) {
+                    c2 = 5;
+                }
+                c2 = 65535;
+            } else if (hashCode == 103) {
+                if (nextName.equals("g")) {
+                    c2 = 1;
+                }
+                c2 = 65535;
+            } else if (hashCode == 111) {
+                if (nextName.equals(Config.OS)) {
+                    c2 = 2;
+                }
+                c2 = 65535;
+            } else if (hashCode != 3519) {
+                switch (hashCode) {
+                    case 114:
+                        if (nextName.equals(com.baidu.mapsdkplatform.comapi.map.r.f7663a)) {
+                            c2 = 6;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c = 65535;
-                    break;
-                case 103:
-                    if (nextName.equals(IXAdRequestInfo.GPS)) {
-                        c = 1;
+                    case 115:
+                        if (nextName.equals("s")) {
+                            c2 = 4;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c = 65535;
-                    break;
-                case 111:
-                    if (nextName.equals(Config.OS)) {
-                        c = 2;
+                    case 116:
+                        if (nextName.equals("t")) {
+                            c2 = 3;
+                            break;
+                        }
+                        c2 = 65535;
                         break;
-                    }
-                    c = 65535;
-                    break;
-                case 114:
-                    if (nextName.equals("r")) {
-                        c = 6;
+                    default:
+                        c2 = 65535;
                         break;
-                    }
-                    c = 65535;
-                    break;
-                case 115:
-                    if (nextName.equals("s")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 116:
-                    if (nextName.equals("t")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3519:
-                    if (nextName.equals("nm")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+                }
+            } else {
+                if (nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {
+                    c2 = 0;
+                }
+                c2 = 65535;
             }
-            switch (c) {
+            switch (c2) {
                 case 0:
                     str = jsonReader.nextString();
                     break;
@@ -85,35 +78,24 @@ public class m {
                     int i = -1;
                     while (jsonReader.hasNext()) {
                         String nextName2 = jsonReader.nextName();
-                        switch (nextName2.hashCode()) {
-                            case 107:
-                                if (nextName2.equals("k")) {
-                                    z = true;
-                                    break;
-                                }
-                                z = true;
-                                break;
-                            case 112:
-                                if (nextName2.equals("p")) {
-                                    z = false;
-                                    break;
-                                }
-                                z = true;
-                                break;
-                            default:
-                                z = true;
-                                break;
+                        int hashCode2 = nextName2.hashCode();
+                        if (hashCode2 != 107) {
+                            if (hashCode2 == 112 && nextName2.equals("p")) {
+                                c3 = 0;
+                            }
+                            c3 = 65535;
+                        } else {
+                            if (nextName2.equals(Config.APP_KEY)) {
+                                c3 = 1;
+                            }
+                            c3 = 65535;
                         }
-                        switch (z) {
-                            case false:
-                                i = jsonReader.nextInt();
-                                break;
-                            case true:
-                                cVar = d.a(jsonReader, dVar, i);
-                                break;
-                            default:
-                                jsonReader.skipValue();
-                                break;
+                        if (c3 == 0) {
+                            i = jsonReader.nextInt();
+                        } else if (c3 != 1) {
+                            jsonReader.skipValue();
+                        } else {
+                            cVar = d.a(jsonReader, dVar, i);
                         }
                     }
                     jsonReader.endObject();
@@ -122,32 +104,22 @@ public class m {
                     dVar2 = d.b(jsonReader, dVar);
                     break;
                 case 3:
-                    if (jsonReader.nextInt() != 1) {
-                        gradientType = GradientType.Radial;
-                        break;
-                    } else {
-                        gradientType = GradientType.Linear;
-                        break;
-                    }
-                case 4:
-                    fVar2 = d.c(jsonReader, dVar);
+                    gradientType = jsonReader.nextInt() == 1 ? GradientType.Linear : GradientType.Radial;
                     break;
-                case 5:
+                case 4:
                     fVar = d.c(jsonReader, dVar);
                     break;
+                case 5:
+                    fVar2 = d.c(jsonReader, dVar);
+                    break;
                 case 6:
-                    if (jsonReader.nextInt() != 1) {
-                        fillType = Path.FillType.EVEN_ODD;
-                        break;
-                    } else {
-                        fillType = Path.FillType.WINDING;
-                        break;
-                    }
+                    fillType = jsonReader.nextInt() == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD;
+                    break;
                 default:
                     jsonReader.skipValue();
                     break;
             }
         }
-        return new com.ksad.lottie.model.content.d(str, gradientType, fillType, cVar, dVar2, fVar2, fVar, null, null);
+        return new com.ksad.lottie.model.content.d(str, gradientType, fillType, cVar, dVar2, fVar, fVar2, null, null);
     }
 }

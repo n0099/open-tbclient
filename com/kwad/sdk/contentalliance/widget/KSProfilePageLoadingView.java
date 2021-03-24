@@ -13,14 +13,20 @@ import com.kwad.sdk.contentalliance.widget.KSPageLoadingView;
 import com.kwad.sdk.utils.p;
 import com.kwad.sdk.utils.q;
 import com.kwad.sdk.utils.v;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KSProfilePageLoadingView extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f5997a;
-    private TextView b;
-    private LottieAnimationView c;
-    private KSPageLoadingView.a d;
+    public TextView f33371a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f33372b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LottieAnimationView f33373c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public KSPageLoadingView.a f33374d;
 
     public KSProfilePageLoadingView(@NonNull Context context) {
         this(context, null);
@@ -36,28 +42,30 @@ public class KSProfilePageLoadingView extends FrameLayout implements View.OnClic
     }
 
     private void a(AttributeSet attributeSet) {
-        inflate(getContext(), R.layout.ksad_profile_page_loading, this);
-        this.f5997a = (TextView) findViewById(R.id.ksad_error_title);
-        this.f5997a.setOnClickListener(this);
-        this.b = (TextView) findViewById(R.id.ksad_error_sub_title);
+        FrameLayout.inflate(getContext(), R.layout.ksad_profile_page_loading, this);
+        TextView textView = (TextView) findViewById(R.id.ksad_error_title);
+        this.f33371a = textView;
+        textView.setOnClickListener(this);
+        this.f33372b = (TextView) findViewById(R.id.ksad_error_sub_title);
         int i = R.raw.ksad_detail_loading_amin_new;
-        this.c = (LottieAnimationView) findViewById(R.id.ksad_loading_anim);
-        this.c.setRepeatMode(1);
-        this.c.setRepeatCount(-1);
-        this.c.setAnimation(i);
+        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.ksad_loading_anim);
+        this.f33373c = lottieAnimationView;
+        lottieAnimationView.setRepeatMode(1);
+        this.f33373c.setRepeatCount(-1);
+        this.f33373c.setAnimation(i);
         setOnClickListener(this);
     }
 
     private void e() {
-        if (!this.c.c()) {
-            this.c.d();
+        if (!this.f33373c.c()) {
+            this.f33373c.d();
         }
-        this.c.setVisibility(8);
+        this.f33373c.setVisibility(8);
     }
 
     private void f() {
-        this.f5997a.setVisibility(8);
-        this.b.setVisibility(8);
+        this.f33371a.setVisibility(8);
+        this.f33372b.setVisibility(8);
     }
 
     public void a() {
@@ -66,29 +74,29 @@ public class KSProfilePageLoadingView extends FrameLayout implements View.OnClic
 
     public void b() {
         f();
-        this.c.setVisibility(0);
-        if (!this.c.c()) {
-            this.c.b();
+        this.f33373c.setVisibility(0);
+        if (!this.f33373c.c()) {
+            this.f33373c.b();
         }
         setVisibility(0);
     }
 
     public void c() {
         e();
-        this.f5997a.setText(q.d(getContext()));
-        this.f5997a.setVisibility(0);
-        this.b.setText(q.e(getContext()));
-        this.b.setVisibility(0);
+        this.f33371a.setText(q.d(getContext()));
+        this.f33371a.setVisibility(0);
+        this.f33372b.setText(q.e(getContext()));
+        this.f33372b.setVisibility(0);
         p.a(getContext());
         setVisibility(0);
     }
 
     public void d() {
         e();
-        this.f5997a.setText(q.g(getContext()));
-        this.f5997a.setVisibility(0);
-        this.b.setText(q.h(getContext()));
-        this.b.setVisibility(0);
+        this.f33371a.setText(q.g(getContext()));
+        this.f33371a.setVisibility(0);
+        this.f33372b.setText(q.h(getContext()));
+        this.f33372b.setVisibility(0);
         p.b(getContext());
         setVisibility(0);
     }
@@ -97,12 +105,15 @@ public class KSProfilePageLoadingView extends FrameLayout implements View.OnClic
     public void onClick(View view) {
         if (!v.a(getContext())) {
             c();
-        } else if (this.d != null) {
-            this.d.a();
+            return;
+        }
+        KSPageLoadingView.a aVar = this.f33374d;
+        if (aVar != null) {
+            aVar.a();
         }
     }
 
     public void setRetryClickListener(KSPageLoadingView.a aVar) {
-        this.d = aVar;
+        this.f33374d = aVar;
     }
 }

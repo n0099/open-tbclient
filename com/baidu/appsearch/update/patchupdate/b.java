@@ -1,7 +1,7 @@
 package com.baidu.appsearch.update.patchupdate;
 
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends IOException {
     public b() {
     }

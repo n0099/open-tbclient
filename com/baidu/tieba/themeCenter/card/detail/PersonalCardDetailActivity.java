@@ -3,164 +3,180 @@ package com.baidu.tieba.themeCenter.card.detail;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.util.MemberPayStatistic;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tbadk.getUserInfo.b;
-import com.baidu.tbadk.m.d;
-import com.baidu.tieba.themeCenter.c;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailModel;
 import com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel;
-/* loaded from: classes8.dex */
+import d.b.h0.k0.d;
+/* loaded from: classes5.dex */
 public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailActivity> {
-    private com.baidu.tieba.themeCenter.a cardData;
-    private SetPersonalCardModel nKI;
-    private PersonalCardDetailModel nKW;
-    private a nKX;
-    private long nKY;
-    private PersonalCardDetailModel.a nKZ = new PersonalCardDetailModel.a() { // from class: com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailActivity.1
-        @Override // com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailModel.a
-        public void b(int i, String str, com.baidu.tieba.themeCenter.a aVar) {
-            PersonalCardDetailActivity.this.hideLoadingView(PersonalCardDetailActivity.this.nKX.getRootView());
+    public d.b.i0.i3.a cardData;
+    public long mCardId;
+    public PersonalCardDetailModel mModel;
+    public SetPersonalCardModel mSetCardModel;
+    public d.b.i0.i3.g.b.a mView;
+    public PersonalCardDetailModel.b mCallback = new a();
+    public SetPersonalCardModel.b mSetCardCallback = new b();
+    public View.OnClickListener mClickListener = new c();
+
+    /* loaded from: classes5.dex */
+    public class a implements PersonalCardDetailModel.b {
+        public a() {
+        }
+
+        @Override // com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailModel.b
+        public void a(int i, String str, d.b.i0.i3.a aVar) {
+            PersonalCardDetailActivity personalCardDetailActivity = PersonalCardDetailActivity.this;
+            personalCardDetailActivity.hideLoadingView(personalCardDetailActivity.mView.c());
             if (i != 0) {
                 PersonalCardDetailActivity.this.showToast(str);
             }
             PersonalCardDetailActivity.this.cardData = aVar;
-            PersonalCardDetailActivity.this.nKX.a(i, aVar);
+            PersonalCardDetailActivity.this.mView.h(i, aVar);
         }
-    };
-    private SetPersonalCardModel.a nKK = new SetPersonalCardModel.a() { // from class: com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailActivity.2
-        @Override // com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel.a
-        public void b(boolean z, long j, int i, String str, int i2) {
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements SetPersonalCardModel.b {
+        public b() {
+        }
+
+        @Override // com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel.b
+        public void a(boolean z, long j, int i, String str, int i2) {
             if (z) {
-                if (j == PersonalCardDetailActivity.this.nKY) {
+                if (j != PersonalCardDetailActivity.this.mCardId) {
                     if (i == 1) {
-                        PersonalCardDetailActivity.this.cardData.Ki(1);
-                    } else if (i == 2) {
-                        PersonalCardDetailActivity.this.cardData.Ki(0);
+                        PersonalCardDetailActivity.this.cardData.s(0);
+                        PersonalCardDetailActivity.this.mView.i(PersonalCardDetailActivity.this.cardData);
+                        return;
                     }
-                    PersonalCardDetailActivity.this.nKX.c(PersonalCardDetailActivity.this.cardData);
-                    return;
-                } else if (i == 1) {
-                    PersonalCardDetailActivity.this.cardData.Ki(0);
-                    PersonalCardDetailActivity.this.nKX.c(PersonalCardDetailActivity.this.cardData);
-                    return;
-                } else {
                     return;
                 }
+                if (i == 1) {
+                    PersonalCardDetailActivity.this.cardData.s(1);
+                } else if (i == 2) {
+                    PersonalCardDetailActivity.this.cardData.s(0);
+                }
+                PersonalCardDetailActivity.this.mView.i(PersonalCardDetailActivity.this.cardData);
+                return;
             }
-            PersonalCardDetailActivity.this.a(i2, str, PersonalCardDetailActivity.this.cardData);
+            PersonalCardDetailActivity personalCardDetailActivity = PersonalCardDetailActivity.this;
+            personalCardDetailActivity.showErrorDialog(i2, str, personalCardDetailActivity.cardData);
         }
-    };
-    private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailActivity.3
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public c() {
+        }
+
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != null && view == PersonalCardDetailActivity.this.nKX.dRC()) {
+            if (view != null && view == PersonalCardDetailActivity.this.mView.d()) {
                 if (TbadkCoreApplication.isLogin()) {
-                    if (PersonalCardDetailActivity.this.nKI == null) {
-                        PersonalCardDetailActivity.this.nKI = new SetPersonalCardModel();
+                    if (PersonalCardDetailActivity.this.mSetCardModel == null) {
+                        PersonalCardDetailActivity.this.mSetCardModel = new SetPersonalCardModel();
                     }
-                    if (PersonalCardDetailActivity.this.cardData.dRi() == 1) {
-                        PersonalCardDetailActivity.this.nKI.J(PersonalCardDetailActivity.this.nKY, 2);
+                    if (PersonalCardDetailActivity.this.cardData.g() == 1) {
+                        PersonalCardDetailActivity.this.mSetCardModel.y(PersonalCardDetailActivity.this.mCardId, 2);
                         return;
                     } else {
-                        PersonalCardDetailActivity.this.nKI.J(PersonalCardDetailActivity.this.nKY, 1);
+                        PersonalCardDetailActivity.this.mSetCardModel.y(PersonalCardDetailActivity.this.mCardId, 1);
                         return;
                     }
                 }
-                bh.skipToLoginActivity(PersonalCardDetailActivity.this.getPageContext().getPageActivity());
-            }
-        }
-    };
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.nKY = getIntent().getLongExtra(PersonalCardDetailActivityConfig.CARD_ID, 0L);
-        this.nKX = new a(this, this.mClickListener);
-        this.nKW = new PersonalCardDetailModel();
-        this.nKW.a(this.nKZ);
-        this.nKI = new SetPersonalCardModel();
-        this.nKI.a(this.nKK);
-        showLoadingView(this.nKX.getRootView(), false);
-        this.nKW.hz(this.nKY);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onUserChanged(boolean z) {
-        super.onUserChanged(z);
-        if (z) {
-            b.bCL().bCM();
-            showLoadingView(this.nKX.getRootView(), false);
-            this.nKW.hz(this.nKY);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.nKW != null) {
-            this.nKW.onDestroy();
-        }
-        if (this.nKI != null) {
-            this.nKI.onDestroy();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (this.nKX != null) {
-            this.nKX.bus();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onNetRefreshButtonClicked() {
-        if (this.nKW != null && this.nKX != null) {
-            showLoadingView(this.nKX.getRootView(), false);
-            this.nKW.hz(this.nKY);
-        }
-    }
-
-    public void a(int i, String str, com.baidu.tieba.themeCenter.a aVar) {
-        int i2;
-        if (aVar != null) {
-            if (aVar.getFreeUserLevel() == 101) {
-                i2 = 9;
-            } else {
-                i2 = 0;
-            }
-            if (!StringUtils.isNull(str)) {
-                if (i == c.nIi) {
-                    com.baidu.tieba.themeCenter.b.a(getPageContext(), 6, str, i2, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-                } else if (i == c.nIj) {
-                    com.baidu.tieba.themeCenter.b.a(getPageContext(), 6, str, i2);
-                }
+                ViewHelper.skipToLoginActivity(PersonalCardDetailActivity.this.getPageContext().getPageActivity());
             }
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
     public String getCurrentPageKey() {
-        return PageStayDurationConstants.PageName.CARD_DETAIL;
+        return "b013";
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.isRouteStat = true;
-            pageStayDurationItem.objID = String.valueOf(this.nKY);
+            pageStayDurationItem.f50238a = true;
+            pageStayDurationItem.i = String.valueOf(this.mCardId);
         }
         return pageStayDurationItem;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        d.b.i0.i3.g.b.a aVar = this.mView;
+        if (aVar != null) {
+            aVar.a();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.mCardId = getIntent().getLongExtra(PersonalCardDetailActivityConfig.CARD_ID, 0L);
+        this.mView = new d.b.i0.i3.g.b.a(this, this.mClickListener);
+        PersonalCardDetailModel personalCardDetailModel = new PersonalCardDetailModel();
+        this.mModel = personalCardDetailModel;
+        personalCardDetailModel.w(this.mCallback);
+        SetPersonalCardModel setPersonalCardModel = new SetPersonalCardModel();
+        this.mSetCardModel = setPersonalCardModel;
+        setPersonalCardModel.x(this.mSetCardCallback);
+        showLoadingView(this.mView.c(), false);
+        this.mModel.v(this.mCardId);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        PersonalCardDetailModel personalCardDetailModel = this.mModel;
+        if (personalCardDetailModel != null) {
+            personalCardDetailModel.onDestroy();
+        }
+        SetPersonalCardModel setPersonalCardModel = this.mSetCardModel;
+        if (setPersonalCardModel != null) {
+            setPersonalCardModel.onDestroy();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
+        d.b.i0.i3.g.b.a aVar;
+        if (this.mModel == null || (aVar = this.mView) == null) {
+            return;
+        }
+        showLoadingView(aVar.c(), false);
+        this.mModel.v(this.mCardId);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onUserChanged(boolean z) {
+        super.onUserChanged(z);
+        if (z) {
+            d.b.h0.z.b.a().d();
+            showLoadingView(this.mView.c(), false);
+            this.mModel.v(this.mCardId);
+        }
+    }
+
+    public void showErrorDialog(int i, String str, d.b.i0.i3.a aVar) {
+        if (aVar == null) {
+            return;
+        }
+        int i2 = aVar.f() == 101 ? 9 : 0;
+        if (StringUtils.isNull(str)) {
+            return;
+        }
+        if (i == d.b.i0.i3.c.f56218a) {
+            d.b.i0.i3.b.d(getPageContext(), 6, str, i2, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
+        } else if (i == d.b.i0.i3.c.f56219b) {
+            d.b.i0.i3.b.c(getPageContext(), 6, str, i2);
+        }
     }
 }

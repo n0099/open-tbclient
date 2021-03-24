@@ -5,48 +5,36 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BoundaryInterfaceReflectionUtil {
-    public static Method dupeMethod(Method method, ClassLoader classLoader) throws ClassNotFoundException, NoSuchMethodException {
-        return Class.forName(method.getDeclaringClass().getName(), true, classLoader).getDeclaredMethod(method.getName(), method.getParameterTypes());
-    }
-
-    public static <T> T castToSuppLibClass(Class<T> cls, InvocationHandler invocationHandler) {
-        return cls.cast(Proxy.newProxyInstance(BoundaryInterfaceReflectionUtil.class.getClassLoader(), new Class[]{cls}, invocationHandler));
-    }
 
     @TargetApi(19)
-    public static InvocationHandler createInvocationHandlerFor(Object obj) {
-        return new InvocationHandlerWithDelegateGetter(obj);
-    }
-
-    public static Object getDelegateFromInvocationHandler(InvocationHandler invocationHandler) {
-        return ((InvocationHandlerWithDelegateGetter) invocationHandler).getDelegate();
-    }
-
-    @TargetApi(19)
-    /* loaded from: classes5.dex */
-    private static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
-        private final Object mDelegate;
+    /* loaded from: classes7.dex */
+    public static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
+        public final Object mDelegate;
 
         public InvocationHandlerWithDelegateGetter(Object obj) {
             this.mDelegate = obj;
+        }
+
+        public Object getDelegate() {
+            return this.mDelegate;
         }
 
         @Override // java.lang.reflect.InvocationHandler
         public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
             try {
                 return BoundaryInterfaceReflectionUtil.dupeMethod(method, this.mDelegate.getClass().getClassLoader()).invoke(this.mDelegate, objArr);
-            } catch (InvocationTargetException e) {
-                throw e.getTargetException();
-            } catch (ReflectiveOperationException e2) {
-                throw new RuntimeException("Reflection failed for method " + method, e2);
+            } catch (InvocationTargetException e2) {
+                throw e2.getTargetException();
+            } catch (ReflectiveOperationException e3) {
+                throw new RuntimeException("Reflection failed for method " + method, e3);
             }
         }
+    }
 
-        public Object getDelegate() {
-            return this.mDelegate;
-        }
+    public static <T> T castToSuppLibClass(Class<T> cls, InvocationHandler invocationHandler) {
+        return cls.cast(Proxy.newProxyInstance(BoundaryInterfaceReflectionUtil.class.getClassLoader(), new Class[]{cls}, invocationHandler));
     }
 
     public static boolean containsFeature(String[] strArr, String str) {
@@ -56,5 +44,18 @@ public class BoundaryInterfaceReflectionUtil {
             }
         }
         return false;
+    }
+
+    @TargetApi(19)
+    public static InvocationHandler createInvocationHandlerFor(Object obj) {
+        return new InvocationHandlerWithDelegateGetter(obj);
+    }
+
+    public static Method dupeMethod(Method method, ClassLoader classLoader) throws ClassNotFoundException, NoSuchMethodException {
+        return Class.forName(method.getDeclaringClass().getName(), true, classLoader).getDeclaredMethod(method.getName(), method.getParameterTypes());
+    }
+
+    public static Object getDelegateFromInvocationHandler(InvocationHandler invocationHandler) {
+        return ((InvocationHandlerWithDelegateGetter) invocationHandler).getDelegate();
     }
 }

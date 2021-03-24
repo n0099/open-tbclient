@@ -1,21 +1,22 @@
 package com.baidu.mobads.c;
 
 import android.graphics.Bitmap;
-/* loaded from: classes4.dex */
-class d implements Runnable {
+/* loaded from: classes2.dex */
+public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Bitmap f2364a;
-    final /* synthetic */ c b;
+    public final /* synthetic */ Bitmap f8178a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ c f8179b;
+
     public d(c cVar, Bitmap bitmap) {
-        this.b = cVar;
-        this.f2364a = bitmap;
+        this.f8179b = cVar;
+        this.f8178a = bitmap;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.b.setImageBitmap(this.f2364a);
+        this.f8179b.f8176b.setImageBitmap(this.f8178a);
     }
 }

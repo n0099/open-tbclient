@@ -1,0 +1,41 @@
+package io.reactivex.internal.operators.flowable;
+
+import f.a.x.e.a.i;
+import f.a.x.i.b;
+import g.d.c;
+import g.d.d;
+import io.reactivex.internal.subscriptions.SubscriptionHelper;
+import java.util.concurrent.atomic.AtomicLong;
+/* loaded from: classes7.dex */
+public final class FlowablePublishMulticast$MulticastSubscription<T> extends AtomicLong implements d {
+    public static final long serialVersionUID = 8664815189257569791L;
+    public final c<? super T> actual;
+    public final i<T> parent;
+
+    public FlowablePublishMulticast$MulticastSubscription(c<? super T> cVar, i<T> iVar) {
+        this.actual = cVar;
+        this.parent = iVar;
+    }
+
+    @Override // g.d.d
+    public void cancel() {
+        if (getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
+            return;
+        }
+        this.parent.e(this);
+        throw null;
+    }
+
+    public boolean isCancelled() {
+        return get() == Long.MIN_VALUE;
+    }
+
+    @Override // g.d.d
+    public void request(long j) {
+        if (SubscriptionHelper.validate(j)) {
+            b.b(this, j);
+            this.parent.d();
+            throw null;
+        }
+    }
+}

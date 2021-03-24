@@ -3,7 +3,7 @@ package org.apache.http.conn.params;
 import java.util.Map;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ConnPerRouteBean implements ConnPerRoute {
     public static final int DEFAULT_MAX_CONNECTIONS_PER_ROUTE = 2;
 
@@ -11,11 +11,12 @@ public final class ConnPerRouteBean implements ConnPerRoute {
         throw new RuntimeException("Stub!");
     }
 
-    public ConnPerRouteBean() {
+    public int getDefaultMax() {
         throw new RuntimeException("Stub!");
     }
 
-    public int getDefaultMax() {
+    @Override // org.apache.http.conn.params.ConnPerRoute
+    public int getMaxForRoute(HttpRoute httpRoute) {
         throw new RuntimeException("Stub!");
     }
 
@@ -27,12 +28,11 @@ public final class ConnPerRouteBean implements ConnPerRoute {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.conn.params.ConnPerRoute
-    public int getMaxForRoute(HttpRoute httpRoute) {
+    public void setMaxForRoutes(Map<HttpRoute, Integer> map) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setMaxForRoutes(Map<HttpRoute, Integer> map) {
+    public ConnPerRouteBean() {
         throw new RuntimeException("Stub!");
     }
 }

@@ -2,7 +2,7 @@ package com.kwad.sdk.glide.g;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.yy.mediaframework.stat.VideoDataStatistic;
+import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,33 +11,35 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicReference<byte[]> f6622a = new AtomicReference<>();
+    public static final AtomicReference<byte[]> f35199a = new AtomicReference<>();
 
     /* renamed from: com.kwad.sdk.glide.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static class C1141a extends InputStream {
+    /* loaded from: classes6.dex */
+    public static class C0408a extends InputStream {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f6623a;
-        private int b = -1;
+        public final ByteBuffer f35200a;
 
-        C1141a(@NonNull ByteBuffer byteBuffer) {
-            this.f6623a = byteBuffer;
+        /* renamed from: b  reason: collision with root package name */
+        public int f35201b = -1;
+
+        public C0408a(@NonNull ByteBuffer byteBuffer) {
+            this.f35200a = byteBuffer;
         }
 
         @Override // java.io.InputStream
         public int available() {
-            return this.f6623a.remaining();
+            return this.f35200a.remaining();
         }
 
         @Override // java.io.InputStream
         public synchronized void mark(int i) {
-            this.b = this.f6623a.position();
+            this.f35201b = this.f35200a.position();
         }
 
         @Override // java.io.InputStream
@@ -47,17 +49,17 @@ public final class a {
 
         @Override // java.io.InputStream
         public int read() {
-            if (this.f6623a.hasRemaining()) {
-                return this.f6623a.get();
+            if (this.f35200a.hasRemaining()) {
+                return this.f35200a.get();
             }
             return -1;
         }
 
         @Override // java.io.InputStream
         public int read(@NonNull byte[] bArr, int i, int i2) {
-            if (this.f6623a.hasRemaining()) {
+            if (this.f35200a.hasRemaining()) {
                 int min = Math.min(i2, available());
-                this.f6623a.get(bArr, i, min);
+                this.f35200a.get(bArr, i, min);
                 return min;
             }
             return -1;
@@ -65,156 +67,140 @@ public final class a {
 
         @Override // java.io.InputStream
         public synchronized void reset() {
-            if (this.b == -1) {
+            if (this.f35201b == -1) {
                 throw new IOException("Cannot reset to unset mark position");
             }
-            this.f6623a.position(this.b);
+            this.f35200a.position(this.f35201b);
         }
 
         @Override // java.io.InputStream
         public long skip(long j) {
-            if (this.f6623a.hasRemaining()) {
+            if (this.f35200a.hasRemaining()) {
                 long min = Math.min(j, available());
-                this.f6623a.position((int) (this.f6623a.position() + min));
+                ByteBuffer byteBuffer = this.f35200a;
+                byteBuffer.position((int) (byteBuffer.position() + min));
                 return min;
             }
             return -1L;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f6626a;
-        final int b;
-        final byte[] c;
+        public final int f35206a;
 
-        b(@NonNull byte[] bArr, int i, int i2) {
-            this.c = bArr;
-            this.f6626a = i;
-            this.b = i2;
+        /* renamed from: b  reason: collision with root package name */
+        public final int f35207b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final byte[] f35208c;
+
+        public b(@NonNull byte[] bArr, int i, int i2) {
+            this.f35208c = bArr;
+            this.f35206a = i;
+            this.f35207b = i2;
         }
     }
 
     @NonNull
     public static ByteBuffer a(@NonNull File file) {
-        Throwable th;
-        FileChannel fileChannel;
         RandomAccessFile randomAccessFile;
+        FileChannel fileChannel = null;
         try {
             long length = file.length();
-            if (length > 2147483647L) {
-                throw new IOException("File too large to map into memory");
-            }
-            if (length == 0) {
-                throw new IOException("File unsuitable for memory mapping");
-            }
-            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "r");
-            try {
-                FileChannel channel = randomAccessFile2.getChannel();
-                try {
-                    MappedByteBuffer load = channel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();
-                    if (channel != null) {
-                        try {
-                            channel.close();
-                        } catch (IOException e) {
+            if (length <= 2147483647L) {
+                if (length != 0) {
+                    randomAccessFile = new RandomAccessFile(file, r.f7663a);
+                    try {
+                        fileChannel = randomAccessFile.getChannel();
+                        MappedByteBuffer load = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();
+                        if (fileChannel != null) {
+                            try {
+                                fileChannel.close();
+                            } catch (IOException unused) {
+                            }
                         }
-                    }
-                    if (randomAccessFile2 != null) {
-                        try {
-                            randomAccessFile2.close();
-                        } catch (IOException e2) {
-                        }
-                    }
-                    return load;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileChannel = channel;
-                    randomAccessFile = randomAccessFile2;
-                    if (fileChannel != null) {
-                        try {
-                            fileChannel.close();
-                        } catch (IOException e3) {
-                        }
-                    }
-                    if (randomAccessFile != null) {
                         try {
                             randomAccessFile.close();
-                        } catch (IOException e4) {
+                        } catch (IOException unused2) {
                         }
+                        return load;
+                    } catch (Throwable th) {
+                        th = th;
+                        if (fileChannel != null) {
+                            try {
+                                fileChannel.close();
+                            } catch (IOException unused3) {
+                            }
+                        }
+                        if (randomAccessFile != null) {
+                            try {
+                                randomAccessFile.close();
+                            } catch (IOException unused4) {
+                            }
+                        }
+                        throw th;
                     }
-                    throw th;
                 }
-            } catch (Throwable th3) {
-                th = th3;
-                fileChannel = null;
-                randomAccessFile = randomAccessFile2;
+                throw new IOException("File unsuitable for memory mapping");
             }
-        } catch (Throwable th4) {
-            th = th4;
-            fileChannel = null;
+            throw new IOException("File too large to map into memory");
+        } catch (Throwable th2) {
+            th = th2;
             randomAccessFile = null;
         }
     }
 
     public static void a(@NonNull ByteBuffer byteBuffer, @NonNull File file) {
-        FileChannel fileChannel;
         RandomAccessFile randomAccessFile;
         byteBuffer.position(0);
+        FileChannel fileChannel = null;
         try {
-            randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+            randomAccessFile = new RandomAccessFile(file, "rw");
             try {
                 fileChannel = randomAccessFile.getChannel();
-                try {
-                    fileChannel.write(byteBuffer);
-                    fileChannel.force(false);
-                    fileChannel.close();
-                    randomAccessFile.close();
-                    if (fileChannel != null) {
-                        try {
-                            fileChannel.close();
-                        } catch (IOException e) {
-                        }
+                fileChannel.write(byteBuffer);
+                fileChannel.force(false);
+                fileChannel.close();
+                randomAccessFile.close();
+                if (fileChannel != null) {
+                    try {
+                        fileChannel.close();
+                    } catch (IOException unused) {
                     }
-                    if (randomAccessFile != null) {
-                        try {
-                            randomAccessFile.close();
-                        } catch (IOException e2) {
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    if (fileChannel != null) {
-                        try {
-                            fileChannel.close();
-                        } catch (IOException e3) {
-                        }
-                    }
-                    if (randomAccessFile != null) {
-                        try {
-                            randomAccessFile.close();
-                        } catch (IOException e4) {
-                        }
-                    }
-                    throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                fileChannel = null;
+                try {
+                    randomAccessFile.close();
+                } catch (IOException unused2) {
+                }
+            } catch (Throwable th) {
+                th = th;
+                if (fileChannel != null) {
+                    try {
+                        fileChannel.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                if (randomAccessFile != null) {
+                    try {
+                        randomAccessFile.close();
+                    } catch (IOException unused4) {
+                    }
+                }
+                throw th;
             }
-        } catch (Throwable th3) {
-            th = th3;
-            fileChannel = null;
+        } catch (Throwable th2) {
+            th = th2;
             randomAccessFile = null;
         }
     }
 
     @NonNull
     public static byte[] a(@NonNull ByteBuffer byteBuffer) {
-        b c = c(byteBuffer);
-        if (c != null && c.f6626a == 0 && c.b == c.c.length) {
+        b c2 = c(byteBuffer);
+        if (c2 != null && c2.f35206a == 0 && c2.f35207b == c2.f35208c.length) {
             return byteBuffer.array();
         }
         ByteBuffer asReadOnlyBuffer = byteBuffer.asReadOnlyBuffer();
@@ -226,11 +212,11 @@ public final class a {
 
     @NonNull
     public static InputStream b(@NonNull ByteBuffer byteBuffer) {
-        return new C1141a(byteBuffer);
+        return new C0408a(byteBuffer);
     }
 
     @Nullable
-    private static b c(@NonNull ByteBuffer byteBuffer) {
+    public static b c(@NonNull ByteBuffer byteBuffer) {
         if (byteBuffer.isReadOnly() || !byteBuffer.hasArray()) {
             return null;
         }

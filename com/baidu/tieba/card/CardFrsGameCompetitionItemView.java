@@ -11,125 +11,140 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetitionSubNode;
-/* loaded from: classes2.dex */
+import d.b.b.a.j;
+/* loaded from: classes4.dex */
 public class CardFrsGameCompetitionItemView extends LinearLayout {
-    private RelativeLayout iwV;
-    private TbImageView iwW;
-    private LinearLayout iwX;
-    private ClickableHeaderImageView iwY;
-    private TextView iwZ;
-    private RelativeLayout ixa;
-    private TextView ixb;
-    private ClickableHeaderImageView ixc;
-    private TextView ixd;
-    private ClickableHeaderImageView ixe;
-    private TextView ixf;
-    private TextView ixg;
-    private String mForumId;
-    public int mSkinType;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RelativeLayout f15227e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TbImageView f15228f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LinearLayout f15229g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ClickableHeaderImageView f15230h;
+    public TextView i;
+    public RelativeLayout j;
+    public TextView k;
+    public ClickableHeaderImageView l;
+    public TextView m;
+    public ClickableHeaderImageView n;
+    public TextView o;
+    public TextView p;
+    public String q;
+    public int r;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (view.getTag() instanceof String) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 7).param("fid", CardFrsGameCompetitionItemView.this.q));
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(CardFrsGameCompetitionItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+            }
+        }
+    }
 
     public CardFrsGameCompetitionItemView(Context context) {
         super(context);
-        this.mSkinType = 3;
-        init(context);
+        this.r = 3;
+        c(context);
+    }
+
+    public void b(FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
+        this.f15230h.W(featureCardCompetitionSubNode.competition_logo, 10, false);
+        this.f15228f.W(featureCardCompetitionSubNode.competition_image, 10, false);
+        this.i.setText(featureCardCompetitionSubNode.title);
+        this.l.W(featureCardCompetitionSubNode.team1_image, 10, false);
+        this.m.setText(featureCardCompetitionSubNode.team1_name);
+        this.n.W(featureCardCompetitionSubNode.team2_image, 10, false);
+        this.o.setText(featureCardCompetitionSubNode.team2_name);
+    }
+
+    public final void c(Context context) {
+        LayoutInflater.from(context).inflate(R.layout.card_frs_game_competition_view_item, (ViewGroup) this, true);
+        this.f15227e = (RelativeLayout) findViewById(R.id.card_competition_layout);
+        this.f15228f = (TbImageView) findViewById(R.id.card_competition_bg);
+        this.f15229g = (LinearLayout) findViewById(R.id.card_competition_title_layout);
+        this.f15230h = (ClickableHeaderImageView) findViewById(R.id.card_competition_title_header);
+        this.i = (TextView) findViewById(R.id.card_competition_title);
+        this.j = (RelativeLayout) findViewById(R.id.card_competition_content_layout);
+        this.k = (TextView) findViewById(R.id.card_competition_vs);
+        this.l = (ClickableHeaderImageView) findViewById(R.id.card_competition_left_img);
+        this.m = (TextView) findViewById(R.id.card_competition_left_name);
+        this.n = (ClickableHeaderImageView) findViewById(R.id.card_competition_right_img);
+        this.o = (TextView) findViewById(R.id.card_competition_right_name);
+        this.p = (TextView) findViewById(R.id.card_competition_btn_discuss);
+        int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
+        int i = (dimensionPixelSize * 21) / 9;
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f15228f.getLayoutParams();
+        layoutParams.height = dimensionPixelSize;
+        layoutParams.width = i;
+        this.f15228f.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f15227e.getLayoutParams();
+        layoutParams2.height = dimensionPixelSize;
+        layoutParams2.width = i;
+        this.f15227e.setLayoutParams(layoutParams2);
+        this.f15228f.setDefaultBgResource(R.drawable.icon_morenpic);
+        this.f15230h.setDrawBorder(true);
+        this.f15230h.setDrawerType(1);
+        this.f15230h.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
+        this.f15230h.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f15230h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+        this.f15230h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.l.setDefaultResource(17170445);
+        this.l.setDefaultBgResource(R.color.CAM_X0205);
+        this.l.setIsRound(true);
+        this.l.setDrawBorder(true);
+        this.l.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+        this.l.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.n.setDefaultResource(17170445);
+        this.n.setDefaultBgResource(R.color.CAM_X0205);
+        this.n.setIsRound(true);
+        this.n.setDrawBorder(true);
+        this.n.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+        this.n.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        setOnClickListener(new a());
+    }
+
+    public void d(int i) {
+        if (this.r != i) {
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor(this.m, R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor(this.o, R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor(this.p, R.color.CAM_X0101, 1);
+        }
+        this.r = i;
+    }
+
+    public void setForumId(String str) {
+        this.q = str;
     }
 
     public CardFrsGameCompetitionItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mSkinType = 3;
-        init(context);
+        this.r = 3;
+        c(context);
     }
 
     public CardFrsGameCompetitionItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mSkinType = 3;
-        init(context);
-    }
-
-    private void init(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.card_frs_game_competition_view_item, (ViewGroup) this, true);
-        this.iwV = (RelativeLayout) findViewById(R.id.card_competition_layout);
-        this.iwW = (TbImageView) findViewById(R.id.card_competition_bg);
-        this.iwX = (LinearLayout) findViewById(R.id.card_competition_title_layout);
-        this.iwY = (ClickableHeaderImageView) findViewById(R.id.card_competition_title_header);
-        this.iwZ = (TextView) findViewById(R.id.card_competition_title);
-        this.ixa = (RelativeLayout) findViewById(R.id.card_competition_content_layout);
-        this.ixb = (TextView) findViewById(R.id.card_competition_vs);
-        this.ixc = (ClickableHeaderImageView) findViewById(R.id.card_competition_left_img);
-        this.ixd = (TextView) findViewById(R.id.card_competition_left_name);
-        this.ixe = (ClickableHeaderImageView) findViewById(R.id.card_competition_right_img);
-        this.ixf = (TextView) findViewById(R.id.card_competition_right_name);
-        this.ixg = (TextView) findViewById(R.id.card_competition_btn_discuss);
-        int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-        int i = (dimensionPixelSize * 21) / 9;
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iwW.getLayoutParams();
-        layoutParams.height = dimensionPixelSize;
-        layoutParams.width = i;
-        this.iwW.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.iwV.getLayoutParams();
-        layoutParams2.height = dimensionPixelSize;
-        layoutParams2.width = i;
-        this.iwV.setLayoutParams(layoutParams2);
-        this.iwW.setDefaultBgResource(R.drawable.icon_morenpic);
-        this.iwY.setDrawBorder(true);
-        this.iwY.setDrawerType(1);
-        this.iwY.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
-        this.iwY.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.iwY.setBorderColor(ap.getColor(R.color.common_color_10043));
-        this.iwY.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
-        this.ixc.setDefaultResource(17170445);
-        this.ixc.setDefaultBgResource(R.color.CAM_X0205);
-        this.ixc.setIsRound(true);
-        this.ixc.setDrawBorder(true);
-        this.ixc.setBorderColor(ap.getColor(R.color.common_color_10043));
-        this.ixc.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
-        this.ixe.setDefaultResource(17170445);
-        this.ixe.setDefaultBgResource(R.color.CAM_X0205);
-        this.ixe.setIsRound(true);
-        this.ixe.setDrawBorder(true);
-        this.ixe.setBorderColor(ap.getColor(R.color.common_color_10043));
-        this.ixe.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.CardFrsGameCompetitionItemView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new ar("c13047").aq("obj_locate", 7).dR("fid", CardFrsGameCompetitionItemView.this.mForumId));
-                    bf.bsY().a((TbPageContext) com.baidu.adp.base.j.J(CardFrsGameCompetitionItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
-                }
-            }
-        });
-    }
-
-    public void setForumId(String str) {
-        this.mForumId = str;
-    }
-
-    public void a(FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
-        this.iwY.startLoad(featureCardCompetitionSubNode.competition_logo, 10, false);
-        this.iwW.startLoad(featureCardCompetitionSubNode.competition_image, 10, false);
-        this.iwZ.setText(featureCardCompetitionSubNode.title);
-        this.ixc.startLoad(featureCardCompetitionSubNode.team1_image, 10, false);
-        this.ixd.setText(featureCardCompetitionSubNode.team1_name);
-        this.ixe.startLoad(featureCardCompetitionSubNode.team2_image, 10, false);
-        this.ixf.setText(featureCardCompetitionSubNode.team2_name);
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            ap.setViewTextColor(this.iwZ, R.color.CAM_X0101, 1);
-            ap.setViewTextColor(this.ixb, R.color.CAM_X0101, 1);
-            ap.setViewTextColor(this.ixd, R.color.CAM_X0101, 1);
-            ap.setViewTextColor(this.ixf, R.color.CAM_X0101, 1);
-            ap.setViewTextColor(this.ixg, R.color.CAM_X0101, 1);
-        }
-        this.mSkinType = i;
+        this.r = 3;
+        c(context);
     }
 }

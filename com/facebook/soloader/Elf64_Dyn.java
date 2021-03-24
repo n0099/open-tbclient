@@ -1,0 +1,6 @@
+package com.facebook.soloader;
+/* loaded from: classes6.dex */
+public final class Elf64_Dyn {
+    public static final int d_tag = 0;
+    public static final int d_un = 8;
+}

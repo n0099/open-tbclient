@@ -2,97 +2,109 @@ package com.kwad.sdk.glide.load.engine;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.bumptech.glide.load.engine.SourceGenerator;
 import com.kwad.sdk.glide.load.DataSource;
 import com.kwad.sdk.glide.load.a.d;
 import com.kwad.sdk.glide.load.b.n;
 import com.kwad.sdk.glide.load.engine.e;
 import java.util.Collections;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class w implements d.a<Object>, e, e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final f<?> f6774a;
-    private final e.a b;
-    private int c;
-    private b d;
-    private Object e;
-    private volatile n.a<?> f;
-    private c g;
+    public final f<?> f35621a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final e.a f35622b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f35623c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b f35624d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Object f35625e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public volatile n.a<?> f35626f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public c f35627g;
+
     public w(f<?> fVar, e.a aVar) {
-        this.f6774a = fVar;
-        this.b = aVar;
+        this.f35621a = fVar;
+        this.f35622b = aVar;
     }
 
     private void b(Object obj) {
         long a2 = com.kwad.sdk.glide.g.f.a();
         try {
-            com.kwad.sdk.glide.load.a<X> a3 = this.f6774a.a((f<?>) obj);
-            d dVar = new d(a3, obj, this.f6774a.e());
-            this.g = new c(this.f.f6686a, this.f6774a.f());
-            this.f6774a.b().a(this.g, dVar);
-            if (Log.isLoggable("SourceGenerator", 2)) {
-                Log.v("SourceGenerator", "Finished encoding source to cache, key: " + this.g + ", data: " + obj + ", encoder: " + a3 + ", duration: " + com.kwad.sdk.glide.g.f.a(a2));
+            com.kwad.sdk.glide.load.a<X> a3 = this.f35621a.a((f<?>) obj);
+            d dVar = new d(a3, obj, this.f35621a.e());
+            this.f35627g = new c(this.f35626f.f35333a, this.f35621a.f());
+            this.f35621a.b().a(this.f35627g, dVar);
+            if (Log.isLoggable(SourceGenerator.TAG, 2)) {
+                Log.v(SourceGenerator.TAG, "Finished encoding source to cache, key: " + this.f35627g + ", data: " + obj + ", encoder: " + a3 + ", duration: " + com.kwad.sdk.glide.g.f.a(a2));
             }
-            this.f.c.b();
-            this.d = new b(Collections.singletonList(this.f.f6686a), this.f6774a, this);
+            this.f35626f.f35335c.b();
+            this.f35624d = new b(Collections.singletonList(this.f35626f.f35333a), this.f35621a, this);
         } catch (Throwable th) {
-            this.f.c.b();
+            this.f35626f.f35335c.b();
             throw th;
         }
     }
 
     private boolean d() {
-        return this.c < this.f6774a.n().size();
+        return this.f35623c < this.f35621a.n().size();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.e.a
     public void a(com.kwad.sdk.glide.load.c cVar, Exception exc, com.kwad.sdk.glide.load.a.d<?> dVar, DataSource dataSource) {
-        this.b.a(cVar, exc, dVar, this.f.c.d());
+        this.f35622b.a(cVar, exc, dVar, this.f35626f.f35335c.d());
     }
 
     @Override // com.kwad.sdk.glide.load.engine.e.a
     public void a(com.kwad.sdk.glide.load.c cVar, Object obj, com.kwad.sdk.glide.load.a.d<?> dVar, DataSource dataSource, com.kwad.sdk.glide.load.c cVar2) {
-        this.b.a(cVar, obj, dVar, this.f.c.d(), cVar);
+        this.f35622b.a(cVar, obj, dVar, this.f35626f.f35335c.d(), cVar);
     }
 
     @Override // com.kwad.sdk.glide.load.a.d.a
     public void a(@NonNull Exception exc) {
-        this.b.a(this.g, exc, this.f.c, this.f.c.d());
+        this.f35622b.a(this.f35627g, exc, this.f35626f.f35335c, this.f35626f.f35335c.d());
     }
 
     @Override // com.kwad.sdk.glide.load.a.d.a
     public void a(Object obj) {
-        h c = this.f6774a.c();
-        if (obj == null || !c.a(this.f.c.d())) {
-            this.b.a(this.f.f6686a, obj, this.f.c, this.f.c.d(), this.g);
+        h c2 = this.f35621a.c();
+        if (obj == null || !c2.a(this.f35626f.f35335c.d())) {
+            this.f35622b.a(this.f35626f.f35333a, obj, this.f35626f.f35335c, this.f35626f.f35335c.d(), this.f35627g);
             return;
         }
-        this.e = obj;
-        this.b.c();
+        this.f35625e = obj;
+        this.f35622b.c();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.e
     public boolean a() {
-        if (this.e != null) {
-            Object obj = this.e;
-            this.e = null;
+        Object obj = this.f35625e;
+        if (obj != null) {
+            this.f35625e = null;
             b(obj);
         }
-        if (this.d == null || !this.d.a()) {
-            this.d = null;
-            this.f = null;
+        b bVar = this.f35624d;
+        if (bVar == null || !bVar.a()) {
+            this.f35624d = null;
+            this.f35626f = null;
             boolean z = false;
             while (!z && d()) {
-                List<n.a<?>> n = this.f6774a.n();
-                int i = this.c;
-                this.c = i + 1;
-                this.f = n.get(i);
-                if (this.f != null && (this.f6774a.c().a(this.f.c.d()) || this.f6774a.a(this.f.c.a()))) {
-                    this.f.c.a(this.f6774a.d(), this);
+                List<n.a<?>> n = this.f35621a.n();
+                int i = this.f35623c;
+                this.f35623c = i + 1;
+                this.f35626f = n.get(i);
+                if (this.f35626f != null && (this.f35621a.c().a(this.f35626f.f35335c.d()) || this.f35621a.a(this.f35626f.f35335c.a()))) {
+                    this.f35626f.f35335c.a(this.f35621a.d(), this);
                     z = true;
                 }
             }
@@ -103,9 +115,9 @@ public class w implements d.a<Object>, e, e.a {
 
     @Override // com.kwad.sdk.glide.load.engine.e
     public void b() {
-        n.a<?> aVar = this.f;
+        n.a<?> aVar = this.f35626f;
         if (aVar != null) {
-            aVar.c.c();
+            aVar.f35335c.c();
         }
     }
 

@@ -2,7 +2,6 @@ package com.baidu.cyberplayer.sdk.a;
 
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.n;
@@ -15,10 +14,10 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(String str, long j);
 
@@ -29,67 +28,76 @@ public class b {
         void b(String str, long j);
     }
 
-    private static long a(String str, OutputStream outputStream, a aVar) throws Exception {
-        InputStream inputStream;
+    public static long a(String str, OutputStream outputStream, a aVar) throws Exception {
+        Throwable th;
         HttpURLConnection httpURLConnection;
+        int i;
+        byte[] bArr;
         long currentTimeMillis = System.currentTimeMillis();
         if (Looper.myLooper() == Looper.getMainLooper()) {
             throw new RuntimeException("Unable to execute downloads on the UI thread.");
         }
+        InputStream inputStream = null;
         try {
             httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
             try {
                 httpURLConnection.setConnectTimeout(8000);
-                httpURLConnection.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+                httpURLConnection.setReadTimeout(15000);
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.connect();
                 int responseCode = httpURLConnection.getResponseCode();
-                if (responseCode == 200 || responseCode == 206) {
-                    long contentLength = httpURLConnection.getContentLength();
-                    if (contentLength <= 0) {
-                        throw new RuntimeException("the file that you start has a wrong size ... ");
-                    }
+                if (responseCode != 200 && responseCode != 206) {
+                    throw new RuntimeException("url that you conneted has error ...");
+                }
+                long contentLength = httpURLConnection.getContentLength();
+                if (contentLength > 0) {
                     if (aVar != null) {
                         aVar.a(str, contentLength);
                     }
                     InputStream inputStream2 = httpURLConnection.getInputStream();
                     try {
-                        byte[] bArr = new byte[com.baidu.fsg.base.statistics.b.c];
-                        int i = 0;
+                        byte[] bArr2 = new byte[51200];
+                        int i2 = 0;
+                        int i3 = 0;
                         while (true) {
-                            int read = inputStream2.read(bArr);
+                            int read = inputStream2.read(bArr2);
                             if (read == -1) {
                                 break;
                             }
-                            int i2 = i + read;
-                            outputStream.write(bArr, 0, read);
+                            int i4 = i3 + read;
+                            outputStream.write(bArr2, i2, read);
                             if (aVar != null) {
-                                aVar.a(str, i2, contentLength);
-                                i = i2;
+                                i = i4;
+                                bArr = bArr2;
+                                aVar.a(str, i4, contentLength);
                             } else {
-                                i = i2;
+                                i = i4;
+                                bArr = bArr2;
                             }
+                            bArr2 = bArr;
+                            i3 = i;
+                            i2 = 0;
                         }
                         CyberLog.d("Downloader", "download finished. use time=" + (System.currentTimeMillis() - currentTimeMillis));
                         if (inputStream2 != null) {
                             try {
                                 inputStream2.close();
-                            } catch (Exception e) {
-                                CyberLog.d("Downloader", "disconnect Exception:" + e.toString());
+                            } catch (Exception e2) {
+                                CyberLog.d("Downloader", "disconnect Exception:" + e2.toString());
                             }
                         }
                         if (httpURLConnection != null) {
                             httpURLConnection.disconnect();
                         }
                         return contentLength;
-                    } catch (Throwable th) {
-                        th = th;
+                    } catch (Throwable th2) {
+                        th = th2;
                         inputStream = inputStream2;
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (Exception e2) {
-                                CyberLog.d("Downloader", "disconnect Exception:" + e2.toString());
+                            } catch (Exception e3) {
+                                CyberLog.d("Downloader", "disconnect Exception:" + e3.toString());
                                 throw th;
                             }
                         }
@@ -99,14 +107,12 @@ public class b {
                         throw th;
                     }
                 }
-                throw new RuntimeException("url that you conneted has error ...");
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = null;
+                throw new RuntimeException("the file that you start has a wrong size ... ");
+            } catch (Throwable th3) {
+                th = th3;
             }
-        } catch (Throwable th3) {
-            th = th3;
-            inputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
             httpURLConnection = null;
         }
     }
@@ -133,87 +139,71 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static byte[] a(HashMap<String, String> hashMap) {
-        Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
-        ByteArrayOutputStream byteArrayOutputStream2;
-        byte[] bArr;
         String str = hashMap.get("url");
+        byte[] bArr = null;
+        bArr = null;
+        bArr = null;
+        ByteArrayOutputStream byteArrayOutputStream2 = null;
+        try {
+            try {
+            } catch (Throwable th) {
+                th = th;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+            }
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
         if (str == null) {
             return null;
         }
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
-        } catch (Exception e) {
-            byteArrayOutputStream2 = null;
-        } catch (Throwable th2) {
-            th = th2;
-            byteArrayOutputStream = null;
-        }
-        try {
-            a(str, byteArrayOutputStream, (a) null);
-            bArr = byteArrayOutputStream.toByteArray();
-            if (byteArrayOutputStream != null) {
-                try {
-                    byteArrayOutputStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        } catch (Exception e3) {
-            byteArrayOutputStream2 = byteArrayOutputStream;
             try {
+                a(str, byteArrayOutputStream, (a) null);
+                bArr = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+            } catch (Exception unused) {
                 CyberLog.w("Downloader", "download failed. IOException");
-                if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                        bArr = null;
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                        bArr = null;
-                    }
-                } else {
-                    bArr = null;
+                if (byteArrayOutputStream != null) {
+                    byteArrayOutputStream.close();
                 }
                 return bArr;
-            } catch (Throwable th3) {
-                th = th3;
-                byteArrayOutputStream = byteArrayOutputStream2;
-                if (byteArrayOutputStream != null) {
-                    try {
-                        byteArrayOutputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
             }
-        } catch (Throwable th4) {
-            th = th4;
-            if (byteArrayOutputStream != null) {
+        } catch (Exception unused2) {
+            byteArrayOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (byteArrayOutputStream2 != null) {
+                try {
+                    byteArrayOutputStream2.close();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                }
             }
             throw th;
         }
         return bArr;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:33:0x004b -> B:35:0x004e). Please submit an issue!!! */
     public static void b(String str, String str2, a aVar) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.createNewFile();
+                try {
+                    File file = new File(str);
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
-                fileOutputStream = new FileOutputStream(file);
-            } catch (Exception e) {
-                e = e;
+            } catch (Exception e3) {
+                e = e3;
             }
         } catch (Throwable th) {
             th = th;
@@ -223,29 +213,19 @@ public class b {
             if (aVar != null) {
                 aVar.b(str2, a2);
             }
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        } catch (Exception e3) {
-            e = e3;
+            fileOutputStream.close();
+        } catch (Exception e4) {
             fileOutputStream2 = fileOutputStream;
+            e = e4;
             if (aVar != null) {
                 aVar.a(str2, 0L, e.toString());
             }
             if (fileOutputStream2 != null) {
-                try {
-                    fileOutputStream2.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
-                }
+                fileOutputStream2.close();
             }
         } catch (Throwable th2) {
-            th = th2;
             fileOutputStream2 = fileOutputStream;
+            th = th2;
             if (fileOutputStream2 != null) {
                 try {
                     fileOutputStream2.close();

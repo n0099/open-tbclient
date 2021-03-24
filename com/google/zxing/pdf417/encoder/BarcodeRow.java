@@ -1,24 +1,13 @@
 package com.google.zxing.pdf417.encoder;
-/* loaded from: classes4.dex */
-final class BarcodeRow {
-    private int currentLocation = 0;
-    private final byte[] row;
+/* loaded from: classes6.dex */
+public final class BarcodeRow {
+    public int currentLocation = 0;
+    public final byte[] row;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public BarcodeRow(int i) {
         this.row = new byte[i];
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void set(int i, byte b) {
-        this.row[i] = b;
-    }
-
-    private void set(int i, boolean z) {
-        this.row[i] = (byte) (z ? 1 : 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void addBar(boolean z, int i) {
         for (int i2 = 0; i2 < i; i2++) {
             int i3 = this.currentLocation;
@@ -27,12 +16,20 @@ final class BarcodeRow {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public byte[] getScaledRow(int i) {
-        byte[] bArr = new byte[this.row.length * i];
-        for (int i2 = 0; i2 < bArr.length; i2++) {
+        int length = this.row.length * i;
+        byte[] bArr = new byte[length];
+        for (int i2 = 0; i2 < length; i2++) {
             bArr[i2] = this.row[i2 / i];
         }
         return bArr;
+    }
+
+    public void set(int i, byte b2) {
+        this.row[i] = b2;
+    }
+
+    private void set(int i, boolean z) {
+        this.row[i] = z ? (byte) 1 : (byte) 0;
     }
 }

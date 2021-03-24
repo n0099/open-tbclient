@@ -1,6 +1,6 @@
 package a.a.a.a.r.a.d;
 
-import a.a.a.a.a.e;
+import a.a.a.a.s.e;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
@@ -11,45 +11,51 @@ import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
 import com.qq.e.comm.util.AdError;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
-public class o extends a.a.a.a.c<UnifiedInterstitialAD> {
+/* loaded from: classes.dex */
+public class o extends a.a.a.a.b<UnifiedInterstitialAD> {
     public final HashMap<UnifiedInterstitialAD, String> m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public class a implements UnifiedInterstitialADListener {
-        public final /* synthetic */ FunAdSlot AP;
-        public final /* synthetic */ UnifiedInterstitialAD[] AW;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f989a;
-        public boolean b;
+        public boolean f1205a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f1206b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ UnifiedInterstitialAD[] f1207c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ FunAdSlot f1208d;
 
         public a(UnifiedInterstitialAD[] unifiedInterstitialADArr, FunAdSlot funAdSlot) {
-            this.AW = unifiedInterstitialADArr;
-            this.AP = funAdSlot;
+            this.f1207c = unifiedInterstitialADArr;
+            this.f1208d = funAdSlot;
         }
 
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
         public void onADClicked() {
             a.a.a.a.v.d.a();
-            o.this.zk.a(this.b);
-            this.b = true;
+            o.this.f1010g.a(this.f1206b);
+            this.f1206b = true;
             o.this.e();
         }
 
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
         public void onADClosed() {
             a.a.a.a.v.d.a();
-            o.this.zk.d();
+            o.this.f1010g.d();
             o.this.f();
         }
 
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
         public void onADExposure() {
             a.a.a.a.v.d.a();
-            o.this.zk.b(this.f989a);
-            UnifiedInterstitialAD unifiedInterstitialAD = this.AW[0];
-            this.f989a = true;
+            o.this.f1010g.b(this.f1205a);
+            UnifiedInterstitialAD unifiedInterstitialAD = this.f1207c[0];
+            this.f1205a = true;
             o oVar = o.this;
             oVar.a((o) unifiedInterstitialAD, oVar.m.remove(unifiedInterstitialAD));
         }
@@ -57,7 +63,7 @@ public class o extends a.a.a.a.c<UnifiedInterstitialAD> {
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
         public void onADLeftApplication() {
             a.a.a.a.v.d.a();
-            o.this.zk.a();
+            o.this.f1010g.a();
         }
 
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
@@ -68,26 +74,26 @@ public class o extends a.a.a.a.c<UnifiedInterstitialAD> {
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
         public void onADReceive() {
             a.a.a.a.v.d.a();
-            o.this.zk.b();
-            UnifiedInterstitialAD unifiedInterstitialAD = this.AW[0];
-            o.this.m.put(unifiedInterstitialAD, this.AP.getSid());
+            o.this.f1010g.b();
+            UnifiedInterstitialAD unifiedInterstitialAD = this.f1207c[0];
+            o.this.m.put(unifiedInterstitialAD, this.f1208d.getSid());
             o oVar = o.this;
             oVar.a((o) unifiedInterstitialAD);
             oVar.h();
-            o.this.zm.b(unifiedInterstitialAD, this.AP.getSid());
+            o.this.k.b(unifiedInterstitialAD, this.f1208d.getSid());
         }
 
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
         public void onNoAD(AdError adError) {
             a.a.a.a.v.d.b("onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-            o.this.zk.a(Integer.valueOf(adError.getErrorCode()));
+            o.this.f1010g.a(Integer.valueOf(adError.getErrorCode()));
             o.this.b(adError.getErrorCode(), adError.getErrorMsg());
         }
 
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
         public void onVideoCached() {
             a.a.a.a.v.d.a();
-            o.this.zk.c();
+            o.this.f1010g.c();
         }
     }
 
@@ -96,56 +102,56 @@ public class o extends a.a.a.a.c<UnifiedInterstitialAD> {
         this.m = new HashMap<>();
     }
 
-    @Override // a.a.a.a.c
-    public a.a.a.a.c.a a(e.a aVar) {
-        return new a.a.a.a.c.l(aVar);
+    @Override // a.a.a.a.b
+    public a.a.a.a.u.a a(e.a aVar) {
+        return new a.a.a.a.u.l(aVar);
     }
 
     public void a(Activity activity, UnifiedInterstitialAD unifiedInterstitialAD) {
         unifiedInterstitialAD.show(activity);
     }
 
-    @Override // a.a.a.a.c
-    public void a(Context context, FunAdSlot funAdSlot) {
-        if (!(context instanceof Activity)) {
-            b(0, "NotActivity");
-            return;
-        }
-        UnifiedInterstitialAD unifiedInterstitialAD = new UnifiedInterstitialAD((Activity) context, this.zl.c, new a(r0, funAdSlot));
-        UnifiedInterstitialAD[] unifiedInterstitialADArr = {unifiedInterstitialAD};
-        unifiedInterstitialAD.setVideoOption(new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(false).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build());
-        unifiedInterstitialAD.setMinVideoDuration(0);
-        unifiedInterstitialAD.setMaxVideoDuration(0);
-        unifiedInterstitialAD.setVideoPlayPolicy(1);
-        this.zk.a(funAdSlot, this.zl);
-        h(unifiedInterstitialAD);
-        g();
+    public void a(UnifiedInterstitialAD unifiedInterstitialAD) {
+        unifiedInterstitialAD.loadAD();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public boolean a(Activity activity, ViewGroup viewGroup, String str, UnifiedInterstitialAD unifiedInterstitialAD) {
         UnifiedInterstitialAD unifiedInterstitialAD2 = unifiedInterstitialAD;
-        this.zk.g();
+        this.f1010g.g();
         this.m.put(unifiedInterstitialAD2, str);
         a(activity, unifiedInterstitialAD2);
         return true;
     }
 
+    @Override // a.a.a.a.b
+    public void b(Context context, FunAdSlot funAdSlot) {
+        if (!(context instanceof Activity)) {
+            b(0, "NotActivity");
+            return;
+        }
+        UnifiedInterstitialAD unifiedInterstitialAD = new UnifiedInterstitialAD((Activity) context, this.f1011h.f1334c, new a(r2, funAdSlot));
+        UnifiedInterstitialAD[] unifiedInterstitialADArr = {unifiedInterstitialAD};
+        unifiedInterstitialAD.setVideoOption(new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(false).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build());
+        unifiedInterstitialAD.setMinVideoDuration(0);
+        unifiedInterstitialAD.setMaxVideoDuration(0);
+        unifiedInterstitialAD.setVideoPlayPolicy(1);
+        this.f1010g.a(funAdSlot, this.f1011h);
+        a(unifiedInterstitialAD);
+        g();
+    }
+
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public void b(UnifiedInterstitialAD unifiedInterstitialAD) {
         UnifiedInterstitialAD unifiedInterstitialAD2 = unifiedInterstitialAD;
         this.m.remove(unifiedInterstitialAD2);
         if (unifiedInterstitialAD2 != null) {
             try {
                 unifiedInterstitialAD2.destroy();
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
-    }
-
-    public void h(UnifiedInterstitialAD unifiedInterstitialAD) {
-        unifiedInterstitialAD.loadAD();
     }
 }

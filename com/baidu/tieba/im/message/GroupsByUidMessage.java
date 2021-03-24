@@ -1,62 +1,21 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupsByUid.DataReq;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GroupsByUidMessage extends TbSocketMessage {
-    private long friendUid;
-    private int height;
-    private int isFriend;
-    private int width;
+    public long friendUid;
+    public int height;
+    public int isFriend;
+    public int width;
 
     public GroupsByUidMessage(int i, int i2) {
-        super(CmdConfigSocket.CMD_QUERY_GROUP_BY_UID);
+        super(103003);
         this.width = i;
         this.height = i2;
         this.friendUid = 0L;
         this.isFriend = 0;
-    }
-
-    public GroupsByUidMessage(long j, int i, int i2) {
-        super(CmdConfigSocket.CMD_QUERY_GROUP_BY_UID);
-        this.width = i;
-        this.height = i2;
-        this.friendUid = j;
-        this.isFriend = 1;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public void setWidth(int i) {
-        this.width = i;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public long getFriendUid() {
-        return this.friendUid;
-    }
-
-    public void setFriendUid(long j) {
-        this.friendUid = j;
-    }
-
-    public int getIsFriend() {
-        return this.isFriend;
-    }
-
-    public void setIsGuest(int i) {
-        this.isFriend = i;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -71,5 +30,45 @@ public class GroupsByUidMessage extends TbSocketMessage {
         QueryGroupsByUidReqIdl.Builder builder2 = new QueryGroupsByUidReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
+    }
+
+    public long getFriendUid() {
+        return this.friendUid;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public int getIsFriend() {
+        return this.isFriend;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public void setFriendUid(long j) {
+        this.friendUid = j;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public void setIsGuest(int i) {
+        this.isFriend = i;
+    }
+
+    public void setWidth(int i) {
+        this.width = i;
+    }
+
+    public GroupsByUidMessage(long j, int i, int i2) {
+        super(103003);
+        this.width = i;
+        this.height = i2;
+        this.friendUid = j;
+        this.isFriend = 1;
     }
 }

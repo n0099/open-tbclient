@@ -2,13 +2,12 @@ package com.kwad.sdk.core.imageloader.core.download;
 
 import java.io.InputStream;
 import java.util.Locale;
-import org.apache.http.HttpHost;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface ImageDownloader {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum Scheme {
-        HTTP(HttpHost.DEFAULT_SCHEME_NAME),
+        HTTP("http"),
         HTTPS("https"),
         FILE("file"),
         CONTENT("content"),
@@ -16,8 +15,8 @@ public interface ImageDownloader {
         DRAWABLE("drawable"),
         UNKNOWN("");
         
-        private String scheme;
-        private String uriPrefix;
+        public String scheme;
+        public String uriPrefix;
 
         Scheme(String str) {
             this.scheme = str;

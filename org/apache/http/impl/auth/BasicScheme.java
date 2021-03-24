@@ -6,19 +6,19 @@ import org.apache.http.auth.AuthenticationException;
 import org.apache.http.auth.Credentials;
 import org.apache.http.auth.MalformedChallengeException;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicScheme extends RFC2617Scheme {
     public BasicScheme() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.auth.AuthScheme
-    public String getSchemeName() {
+    public Header authenticate(Credentials credentials, HttpRequest httpRequest) throws AuthenticationException {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.impl.auth.AuthSchemeBase, org.apache.http.auth.AuthScheme
-    public void processChallenge(Header header) throws MalformedChallengeException {
+    @Override // org.apache.http.auth.AuthScheme
+    public String getSchemeName() {
         throw new RuntimeException("Stub!");
     }
 
@@ -32,8 +32,8 @@ public class BasicScheme extends RFC2617Scheme {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.auth.AuthScheme
-    public Header authenticate(Credentials credentials, HttpRequest httpRequest) throws AuthenticationException {
+    @Override // org.apache.http.impl.auth.AuthSchemeBase, org.apache.http.auth.AuthScheme
+    public void processChallenge(Header header) throws MalformedChallengeException {
         throw new RuntimeException("Stub!");
     }
 

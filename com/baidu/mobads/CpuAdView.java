@@ -9,67 +9,38 @@ import android.widget.RelativeLayout;
 import com.baidu.mobads.CpuInfoManager;
 import com.baidu.mobads.component.XAdView;
 import com.baidu.mobads.production.cpu.CPUWebAdRequestParam;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class CpuAdView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mobads.production.cpu.c f2349a;
+    public com.baidu.mobads.production.cpu.c f8135a;
 
     public CpuAdView(Context context) {
         super(context);
     }
 
-    public CpuAdView(Context context, String str, String str2, CpuInfoManager.UrlListener urlListener) {
-        this(context, str, str2, urlListener, null);
-    }
-
-    public CpuAdView(Context context, String str, String str2, CpuInfoManager.UrlListener urlListener, CPUWebAdRequestParam cPUWebAdRequestParam) {
-        super(context);
-        XAdView xAdView = new XAdView(context);
-        this.f2349a = new com.baidu.mobads.production.cpu.c(context, xAdView, str, str2, cPUWebAdRequestParam);
-        this.f2349a.request();
-        addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
-    }
-
-    public CpuAdView(Context context, String str, int i) {
-        this(context, str, i, (CPUWebAdRequestParam) null);
-    }
-
-    public CpuAdView(Context context, String str, int i, CPUWebAdRequestParam cPUWebAdRequestParam) {
-        super(context);
-        XAdView xAdView = new XAdView(context);
-        this.f2349a = new com.baidu.mobads.production.cpu.c(context, xAdView, str, i, cPUWebAdRequestParam);
-        this.f2349a.request();
-        addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
-    }
-
-    public void onResume() {
+    public boolean canGoBack() {
         try {
-            View adView = this.f2349a.h.getAdView();
-            if (adView instanceof WebView) {
-                ((WebView) adView).onResume();
-            }
-        } catch (Throwable th) {
+            return ((WebView) this.f8135a.f8440h.getAdView()).canGoBack();
+        } catch (Throwable unused) {
+            return false;
         }
     }
 
-    public void onPause() {
+    public void goBack() {
         try {
-            View adView = this.f2349a.h.getAdView();
-            if (adView instanceof WebView) {
-                ((WebView) adView).onPause();
-            }
-        } catch (Throwable th) {
+            ((WebView) this.f8135a.f8440h.getAdView()).goBack();
+        } catch (Throwable unused) {
         }
     }
 
     public void onDestroy() {
         try {
-            View adView = this.f2349a.h.getAdView();
+            View adView = this.f8135a.f8440h.getAdView();
             if (adView instanceof WebView) {
                 ((WebView) adView).destroy();
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
     }
 
@@ -81,18 +52,49 @@ public final class CpuAdView extends RelativeLayout {
         return false;
     }
 
-    protected boolean canGoBack() {
+    public void onPause() {
         try {
-            return ((WebView) this.f2349a.h.getAdView()).canGoBack();
-        } catch (Throwable th) {
-            return false;
+            View adView = this.f8135a.f8440h.getAdView();
+            if (adView instanceof WebView) {
+                ((WebView) adView).onPause();
+            }
+        } catch (Throwable unused) {
         }
     }
 
-    protected void goBack() {
+    public void onResume() {
         try {
-            ((WebView) this.f2349a.h.getAdView()).goBack();
-        } catch (Throwable th) {
+            View adView = this.f8135a.f8440h.getAdView();
+            if (adView instanceof WebView) {
+                ((WebView) adView).onResume();
+            }
+        } catch (Throwable unused) {
         }
+    }
+
+    public CpuAdView(Context context, String str, String str2, CpuInfoManager.UrlListener urlListener) {
+        this(context, str, str2, urlListener, null);
+    }
+
+    public CpuAdView(Context context, String str, String str2, CpuInfoManager.UrlListener urlListener, CPUWebAdRequestParam cPUWebAdRequestParam) {
+        super(context);
+        XAdView xAdView = new XAdView(context);
+        com.baidu.mobads.production.cpu.c cVar = new com.baidu.mobads.production.cpu.c(context, xAdView, str, str2, cPUWebAdRequestParam);
+        this.f8135a = cVar;
+        cVar.request();
+        addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
+    }
+
+    public CpuAdView(Context context, String str, int i) {
+        this(context, str, i, (CPUWebAdRequestParam) null);
+    }
+
+    public CpuAdView(Context context, String str, int i, CPUWebAdRequestParam cPUWebAdRequestParam) {
+        super(context);
+        XAdView xAdView = new XAdView(context);
+        com.baidu.mobads.production.cpu.c cVar = new com.baidu.mobads.production.cpu.c(context, xAdView, str, i, cPUWebAdRequestParam);
+        this.f8135a = cVar;
+        cVar.request();
+        addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }
 }

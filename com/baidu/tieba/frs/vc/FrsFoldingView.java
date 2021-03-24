@@ -12,20 +12,139 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
+import d.b.i0.p0.q2.e;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrsFoldingView extends LinearLayout {
-    private int jLQ;
-    private boolean jLR;
-    private LinearLayout.LayoutParams jLS;
-    private LinearLayout jLT;
-    private FrameLayout jLU;
-    private FrameLayout jLV;
-    private ImageView jLW;
-    private View mRootView;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f16615e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f16616f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LinearLayout.LayoutParams f16617g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public LinearLayout f16618h;
+    public FrameLayout i;
+    public FrameLayout j;
+    public ImageView k;
+    public View l;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (FrsFoldingView.this.f16616f) {
+                FrsFoldingView.this.n();
+                FrsFoldingView.this.f16616f = false;
+                return;
+            }
+            FrsFoldingView.this.m();
+            FrsFoldingView.this.f16616f = true;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements ValueAnimator.AnimatorUpdateListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ValueAnimator f16620e;
+
+        public b(ValueAnimator valueAnimator) {
+            this.f16620e = valueAnimator;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            float floatValue = ((Float) this.f16620e.getAnimatedValue()).floatValue();
+            FrsFoldingView.this.f16617g.height = (int) (FrsFoldingView.this.f16615e * floatValue);
+            FrsFoldingView.this.j.setLayoutParams(FrsFoldingView.this.f16617g);
+            FrsFoldingView.this.j.setAlpha(floatValue);
+            FrsFoldingView.this.k.setRotation((-floatValue) * 180.0f);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements ValueAnimator.AnimatorUpdateListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ValueAnimator f16622e;
+
+        public c(ValueAnimator valueAnimator) {
+            this.f16622e = valueAnimator;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            float floatValue = ((Float) this.f16622e.getAnimatedValue()).floatValue();
+            FrsFoldingView.this.f16617g.height = (int) (FrsFoldingView.this.f16615e * floatValue);
+            FrsFoldingView.this.j.setLayoutParams(FrsFoldingView.this.f16617g);
+            FrsFoldingView.this.j.setAlpha(floatValue);
+            FrsFoldingView.this.k.setRotation((-floatValue) * 180.0f);
+        }
+    }
 
     public FrsFoldingView(Context context) {
         this(context, null);
+    }
+
+    public final void i() {
+        j();
+        l();
+    }
+
+    public final void j() {
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.folding_view_layout, (ViewGroup) this, true);
+        this.l = inflate;
+        this.f16618h = (LinearLayout) inflate.findViewById(R.id.folding_root_layout);
+        this.i = (FrameLayout) this.l.findViewById(R.id.permanent_layout);
+        this.j = (FrameLayout) this.l.findViewById(R.id.collapsible_layout);
+        this.k = (ImageView) this.l.findViewById(R.id.folding_arrow);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+    }
+
+    public void k() {
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+    }
+
+    public final void l() {
+        this.l.findViewById(R.id.folding_arrow).setOnClickListener(new a());
+    }
+
+    public final void m() {
+        this.f16617g = (LinearLayout.LayoutParams) this.j.getLayoutParams();
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
+        ofFloat.addUpdateListener(new c(ofFloat));
+        ofFloat.setDuration(300L);
+        ofFloat.start();
+    }
+
+    public final void n() {
+        this.f16617g = (LinearLayout.LayoutParams) this.j.getLayoutParams();
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        ofFloat.addUpdateListener(new b(ofFloat));
+        ofFloat.setDuration(300L);
+        ofFloat.start();
+    }
+
+    public void setViews(List<View> list, List<e> list2) {
+        this.i.removeAllViews();
+        this.i.addView(list.get(0));
+        if (list.size() > 1) {
+            this.k.setVisibility(0);
+            this.j.removeAllViews();
+            this.j.addView(list.get(1));
+            this.f16615e = list2.get(1).getCount() * l.g(getContext().getApplicationContext(), R.dimen.tbds93);
+            return;
+        }
+        this.k.setVisibility(8);
     }
 
     public FrsFoldingView(Context context, @Nullable AttributeSet attributeSet) {
@@ -34,90 +153,8 @@ public class FrsFoldingView extends LinearLayout {
 
     public FrsFoldingView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jLQ = 0;
-        this.jLR = true;
-        init();
-    }
-
-    private void init() {
-        initView();
-        setupListener();
-    }
-
-    private void initView() {
-        this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.folding_view_layout, (ViewGroup) this, true);
-        this.jLT = (LinearLayout) this.mRootView.findViewById(R.id.folding_root_layout);
-        this.jLU = (FrameLayout) this.mRootView.findViewById(R.id.permanent_layout);
-        this.jLV = (FrameLayout) this.mRootView.findViewById(R.id.collapsible_layout);
-        this.jLW = (ImageView) this.mRootView.findViewById(R.id.folding_arrow);
-        SvgManager.bsU().a(this.jLW, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-    }
-
-    private void setupListener() {
-        this.mRootView.findViewById(R.id.folding_arrow).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (FrsFoldingView.this.jLR) {
-                    FrsFoldingView.this.cLa();
-                    FrsFoldingView.this.jLR = false;
-                    return;
-                }
-                FrsFoldingView.this.cLb();
-                FrsFoldingView.this.jLR = true;
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cLa() {
-        this.jLS = (LinearLayout.LayoutParams) this.jLV.getLayoutParams();
-        final ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.2
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                float floatValue = ((Float) ofFloat.getAnimatedValue()).floatValue();
-                FrsFoldingView.this.jLS.height = (int) (FrsFoldingView.this.jLQ * floatValue);
-                FrsFoldingView.this.jLV.setLayoutParams(FrsFoldingView.this.jLS);
-                FrsFoldingView.this.jLV.setAlpha(floatValue);
-                FrsFoldingView.this.jLW.setRotation((-floatValue) * 180.0f);
-            }
-        });
-        ofFloat.setDuration(300L);
-        ofFloat.start();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cLb() {
-        this.jLS = (LinearLayout.LayoutParams) this.jLV.getLayoutParams();
-        final ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
-        ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.3
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                float floatValue = ((Float) ofFloat.getAnimatedValue()).floatValue();
-                FrsFoldingView.this.jLS.height = (int) (FrsFoldingView.this.jLQ * floatValue);
-                FrsFoldingView.this.jLV.setLayoutParams(FrsFoldingView.this.jLS);
-                FrsFoldingView.this.jLV.setAlpha(floatValue);
-                FrsFoldingView.this.jLW.setRotation((-floatValue) * 180.0f);
-            }
-        });
-        ofFloat.setDuration(300L);
-        ofFloat.start();
-    }
-
-    public void setViews(List<View> list, List<com.baidu.tieba.frs.view.e> list2) {
-        this.jLU.removeAllViews();
-        this.jLU.addView(list.get(0));
-        if (list.size() > 1) {
-            this.jLW.setVisibility(0);
-            this.jLV.removeAllViews();
-            this.jLV.addView(list.get(1));
-            this.jLQ = list2.get(1).getCount() * com.baidu.adp.lib.util.l.getDimens(getContext().getApplicationContext(), R.dimen.tbds93);
-            return;
-        }
-        this.jLW.setVisibility(8);
-    }
-
-    public void onChangeSkinType() {
-        SvgManager.bsU().a(this.jLW, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.f16615e = 0;
+        this.f16616f = true;
+        i();
     }
 }

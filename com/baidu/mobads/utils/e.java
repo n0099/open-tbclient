@@ -7,18 +7,17 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import android.webkit.WebView;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.io.PrintStream;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static WebView a(Activity activity, Context context) {
-        String str;
         if (Build.VERSION.SDK_INT >= 28) {
+            String str = null;
             try {
-                Iterator<ActivityManager.RunningAppProcessInfo> it = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses().iterator();
+                Iterator<ActivityManager.RunningAppProcessInfo> it = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses().iterator();
                 while (true) {
                     if (!it.hasNext()) {
-                        str = null;
                         break;
                     }
                     ActivityManager.RunningAppProcessInfo next = it.next();
@@ -28,7 +27,8 @@ public class e {
                     }
                 }
                 if (!TextUtils.isEmpty(str) && !TextUtils.equals(context.getApplicationInfo().packageName, str)) {
-                    System.out.println("proxy add data " + str);
+                    PrintStream printStream = System.out;
+                    printStream.println("proxy add data " + str);
                     WebView.setDataDirectorySuffix(str);
                 }
             } catch (Throwable th) {

@@ -8,7 +8,7 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class PlayerProvider {
     public abstract void changeProxyDynamic(String str, boolean z);
 
@@ -97,11 +97,11 @@ public abstract class PlayerProvider {
 
     public abstract void setScreenOnWhilePlaying(boolean z);
 
-    public abstract void setSpeed(float f);
+    public abstract void setSpeed(float f2);
 
     public abstract void setSurface(Surface surface);
 
-    public abstract void setVolume(float f, float f2);
+    public abstract void setVolume(float f2, float f3);
 
     public abstract void setWakeMode(Context context, int i);
 

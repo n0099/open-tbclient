@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.mzproxy;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,32 +11,41 @@ import com.baidu.android.pushservice.f;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class MzNotifyActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1252a;
-    private String b;
-    private String c;
-    private String d;
-    private String e;
+    public String f3488a;
 
-    private static String a(Context context, String str) {
+    /* renamed from: b  reason: collision with root package name */
+    public String f3489b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f3490c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f3491d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f3492e;
+
+    public static String a(Context context, String str) {
         Intent intent = new Intent();
         intent.setAction("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.LAUNCHER");
         intent.setPackage(str);
         for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 0)) {
-            if (resolveInfo.activityInfo != null) {
-                return resolveInfo.activityInfo.name;
+            ActivityInfo activityInfo = resolveInfo.activityInfo;
+            if (activityInfo != null) {
+                return activityInfo.name;
             }
         }
         return null;
     }
 
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
-        Intent intent;
+    public void onCreate(Bundle bundle) {
+        Intent parseUri;
         JSONArray jSONArray;
         super.onCreate(bundle);
         try {
@@ -46,51 +56,49 @@ public class MzNotifyActivity extends Activity {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                         if (!jSONObject2.isNull("Msgid")) {
-                            this.f1252a = jSONObject2.getString("Msgid");
+                            this.f3488a = jSONObject2.getString("Msgid");
                         }
                         if (!jSONObject2.isNull("msgBody")) {
-                            this.c = jSONObject2.getString("msgBody");
+                            this.f3490c = jSONObject2.getString("msgBody");
                         }
                     }
-                    if (!TextUtils.isEmpty(this.c)) {
-                        JSONObject jSONObject3 = new JSONObject(this.c);
+                    if (!TextUtils.isEmpty(this.f3490c)) {
+                        JSONObject jSONObject3 = new JSONObject(this.f3490c);
                         if (!jSONObject3.isNull("custom_content")) {
-                            this.d = jSONObject3.getString("custom_content");
+                            this.f3491d = jSONObject3.getString("custom_content");
                         }
                         if (!jSONObject3.isNull("pkg_content")) {
-                            this.e = jSONObject3.getString("pkg_content");
+                            this.f3492e = jSONObject3.getString("pkg_content");
                         }
                         if (!jSONObject3.isNull("mzpri_signinfo")) {
-                            this.b = jSONObject3.getString("mzpri_signinfo");
+                            this.f3489b = jSONObject3.getString("mzpri_signinfo");
                         }
                     }
                 }
-                if (f.a(this, this.b, (this.f1252a + this.d).replaceAll("\\\\", ""))) {
-                    if (TextUtils.isEmpty(this.e)) {
-                        Intent intent2 = new Intent();
-                        intent2.setClassName(getPackageName(), a(this, getPackageName()));
-                        intent2.setFlags(268435456);
-                        intent = intent2;
+                if (f.a(this, this.f3489b, (this.f3488a + this.f3491d).replaceAll("\\\\", ""))) {
+                    if (TextUtils.isEmpty(this.f3492e)) {
+                        parseUri = new Intent();
+                        parseUri.setClassName(getPackageName(), a(this, getPackageName()));
+                        parseUri.setFlags(268435456);
                     } else {
-                        Intent parseUri = Intent.parseUri(this.e, 0);
+                        parseUri = Intent.parseUri(this.f3492e, 0);
                         parseUri.setPackage(getPackageName());
                         parseUri.addFlags(268435456);
-                        intent = parseUri;
                     }
-                    if (!TextUtils.isEmpty(this.d)) {
-                        JSONObject jSONObject4 = new JSONObject(this.d);
+                    if (!TextUtils.isEmpty(this.f3491d)) {
+                        JSONObject jSONObject4 = new JSONObject(this.f3491d);
                         Iterator<String> keys = jSONObject4.keys();
                         while (keys.hasNext()) {
                             String next = keys.next();
-                            intent.putExtra(next, jSONObject4.optString(next));
+                            parseUri.putExtra(next, jSONObject4.optString(next));
                         }
                     }
-                    if (getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
-                        startActivity(intent);
+                    if (getPackageManager().queryIntentActivities(parseUri, 0).size() > 0) {
+                        startActivity(parseUri);
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         finish();
     }

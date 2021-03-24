@@ -6,57 +6,66 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static TelephonyManager f3608a;
-    private static ConnectivityManager b;
+    public static TelephonyManager f22910a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static ConnectivityManager f22911b;
 
     public static String a(Context context) {
         NetworkInfo activeNetworkInfo;
+        String str = "\n";
         StringBuilder sb = new StringBuilder();
         try {
-            if (b == null) {
-                b = (ConnectivityManager) context.getSystemService("connectivity");
+            if (f22911b == null) {
+                f22911b = (ConnectivityManager) context.getSystemService("connectivity");
             }
-            activeNetworkInfo = b.getActiveNetworkInfo();
-        } catch (Exception e) {
-            com.baidu.ufosdk.f.c.a("NetworkCollector: Couldn't get NetworkInfo : " + context.getPackageName(), e);
+            activeNetworkInfo = f22911b.getActiveNetworkInfo();
+        } catch (Exception e2) {
+            com.baidu.ufosdk.f.c.a("NetworkCollector: Couldn't get NetworkInfo : " + context.getPackageName(), e2);
         }
         if (activeNetworkInfo == null) {
             com.baidu.ufosdk.f.c.d("NetworkCollector: Couldn't get NetworkInfo : " + context.getPackageName());
             return "N/A";
         }
         if (activeNetworkInfo.isConnected()) {
-            sb.append("type: ").append(activeNetworkInfo.getTypeName()).append("\n");
+            sb.append("type: ");
+            sb.append(activeNetworkInfo.getTypeName());
+            sb.append("\n");
             if (activeNetworkInfo.getType() == 0) {
-                sb.append(" subType: ").append(activeNetworkInfo.getSubtypeName()).append("\n");
-                if (f3608a == null) {
-                    f3608a = (TelephonyManager) context.getSystemService("phone");
+                sb.append(" subType: ");
+                sb.append(activeNetworkInfo.getSubtypeName());
+                sb.append("\n");
+                if (f22910a == null) {
+                    f22910a = (TelephonyManager) context.getSystemService("phone");
                 }
-                sb.append(" isRoaming: ").append(f3608a.isNetworkRoaming() ? "yes" : "no").append("\n");
+                sb.append(" isRoaming: ");
+                sb.append(f22910a.isNetworkRoaming() ? "yes" : "no");
             }
-        } else {
-            sb.append("type: none\n");
+            return sb.toString();
         }
+        str = "type: none\n";
+        sb.append(str);
         return sb.toString();
     }
 
     @SuppressLint({"DefaultLocale"})
     public static String b(Context context) {
         try {
-            if (b == null) {
-                b = (ConnectivityManager) context.getSystemService("connectivity");
+            if (f22911b == null) {
+                f22911b = (ConnectivityManager) context.getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = b.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = f22911b.getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
                 return !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
             }
             com.baidu.ufosdk.f.c.d("getNetworkType fail, getActiveNetworkInfo() is null.");
             return RomUtils.UNKNOWN;
-        } catch (Exception e) {
-            com.baidu.ufosdk.f.c.a("getNetworkType fail,", e);
+        } catch (Exception e2) {
+            com.baidu.ufosdk.f.c.a("getNetworkType fail,", e2);
             return RomUtils.UNKNOWN;
         }
     }

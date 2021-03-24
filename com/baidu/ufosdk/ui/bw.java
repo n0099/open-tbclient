@@ -2,16 +2,14 @@ package com.baidu.ufosdk.ui;
 
 import android.view.MotionEvent;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class bw implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3696a;
+    public final /* synthetic */ FeedbackInputActivity f23102a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public bw(FeedbackInputActivity feedbackInputActivity) {
-        this.f3696a = feedbackInputActivity;
+        this.f23102a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnTouchListener

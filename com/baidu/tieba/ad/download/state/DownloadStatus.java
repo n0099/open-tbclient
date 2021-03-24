@@ -1,5 +1,5 @@
 package com.baidu.tieba.ad.download.state;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public enum DownloadStatus {
     STATUS_NONE(0),
     STATUS_DOWNLOADING(1),

@@ -1,5 +1,6 @@
 package okhttp3;
 
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.io.IOException;
 import java.security.Principal;
 import java.security.cert.Certificate;
@@ -10,14 +11,14 @@ import javax.annotation.Nullable;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import okhttp3.internal.Util;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class Handshake {
-    private final CipherSuite cipherSuite;
-    private final List<Certificate> localCertificates;
-    private final List<Certificate> peerCertificates;
-    private final TlsVersion tlsVersion;
+    public final CipherSuite cipherSuite;
+    public final List<Certificate> localCertificates;
+    public final List<Certificate> peerCertificates;
+    public final TlsVersion tlsVersion;
 
-    private Handshake(TlsVersion tlsVersion, CipherSuite cipherSuite, List<Certificate> list, List<Certificate> list2) {
+    public Handshake(TlsVersion tlsVersion, CipherSuite cipherSuite, List<Certificate> list, List<Certificate> list2) {
         this.tlsVersion = tlsVersion;
         this.cipherSuite = cipherSuite;
         this.peerCertificates = list;
@@ -29,80 +30,42 @@ public final class Handshake {
         List emptyList;
         List emptyList2;
         String cipherSuite = sSLSession.getCipherSuite();
-        if (cipherSuite == null) {
-            throw new IllegalStateException("cipherSuite == null");
-        }
-        if ("SSL_NULL_WITH_NULL_NULL".equals(cipherSuite)) {
+        if (cipherSuite != null) {
+            if (!"SSL_NULL_WITH_NULL_NULL".equals(cipherSuite)) {
+                CipherSuite forJavaName = CipherSuite.forJavaName(cipherSuite);
+                String protocol = sSLSession.getProtocol();
+                if (protocol != null) {
+                    if (!"NONE".equals(protocol)) {
+                        TlsVersion forJavaName2 = TlsVersion.forJavaName(protocol);
+                        try {
+                            certificateArr = sSLSession.getPeerCertificates();
+                        } catch (SSLPeerUnverifiedException unused) {
+                            certificateArr = null;
+                        }
+                        if (certificateArr != null) {
+                            emptyList = Util.immutableList(certificateArr);
+                        } else {
+                            emptyList = Collections.emptyList();
+                        }
+                        Certificate[] localCertificates = sSLSession.getLocalCertificates();
+                        if (localCertificates != null) {
+                            emptyList2 = Util.immutableList(localCertificates);
+                        } else {
+                            emptyList2 = Collections.emptyList();
+                        }
+                        return new Handshake(forJavaName2, forJavaName, emptyList, emptyList2);
+                    }
+                    throw new IOException("tlsVersion == NONE");
+                }
+                throw new IllegalStateException("tlsVersion == null");
+            }
             throw new IOException("cipherSuite == SSL_NULL_WITH_NULL_NULL");
         }
-        CipherSuite forJavaName = CipherSuite.forJavaName(cipherSuite);
-        String protocol = sSLSession.getProtocol();
-        if (protocol == null) {
-            throw new IllegalStateException("tlsVersion == null");
-        }
-        if ("NONE".equals(protocol)) {
-            throw new IOException("tlsVersion == NONE");
-        }
-        TlsVersion forJavaName2 = TlsVersion.forJavaName(protocol);
-        try {
-            certificateArr = sSLSession.getPeerCertificates();
-        } catch (SSLPeerUnverifiedException e) {
-            certificateArr = null;
-        }
-        if (certificateArr != null) {
-            emptyList = Util.immutableList(certificateArr);
-        } else {
-            emptyList = Collections.emptyList();
-        }
-        Certificate[] localCertificates = sSLSession.getLocalCertificates();
-        if (localCertificates != null) {
-            emptyList2 = Util.immutableList(localCertificates);
-        } else {
-            emptyList2 = Collections.emptyList();
-        }
-        return new Handshake(forJavaName2, forJavaName, emptyList, emptyList2);
-    }
-
-    public static Handshake get(TlsVersion tlsVersion, CipherSuite cipherSuite, List<Certificate> list, List<Certificate> list2) {
-        if (tlsVersion == null) {
-            throw new NullPointerException("tlsVersion == null");
-        }
-        if (cipherSuite == null) {
-            throw new NullPointerException("cipherSuite == null");
-        }
-        return new Handshake(tlsVersion, cipherSuite, Util.immutableList(list), Util.immutableList(list2));
-    }
-
-    public TlsVersion tlsVersion() {
-        return this.tlsVersion;
+        throw new IllegalStateException("cipherSuite == null");
     }
 
     public CipherSuite cipherSuite() {
         return this.cipherSuite;
-    }
-
-    public List<Certificate> peerCertificates() {
-        return this.peerCertificates;
-    }
-
-    @Nullable
-    public Principal peerPrincipal() {
-        if (!this.peerCertificates.isEmpty()) {
-            return ((X509Certificate) this.peerCertificates.get(0)).getSubjectX500Principal();
-        }
-        return null;
-    }
-
-    public List<Certificate> localCertificates() {
-        return this.localCertificates;
-    }
-
-    @Nullable
-    public Principal localPrincipal() {
-        if (!this.localCertificates.isEmpty()) {
-            return ((X509Certificate) this.localCertificates.get(0)).getSubjectX500Principal();
-        }
-        return null;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -114,6 +77,44 @@ public final class Handshake {
     }
 
     public int hashCode() {
-        return ((((((this.tlsVersion.hashCode() + 527) * 31) + this.cipherSuite.hashCode()) * 31) + this.peerCertificates.hashCode()) * 31) + this.localCertificates.hashCode();
+        return ((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.tlsVersion.hashCode()) * 31) + this.cipherSuite.hashCode()) * 31) + this.peerCertificates.hashCode()) * 31) + this.localCertificates.hashCode();
+    }
+
+    public List<Certificate> localCertificates() {
+        return this.localCertificates;
+    }
+
+    @Nullable
+    public Principal localPrincipal() {
+        if (this.localCertificates.isEmpty()) {
+            return null;
+        }
+        return ((X509Certificate) this.localCertificates.get(0)).getSubjectX500Principal();
+    }
+
+    public List<Certificate> peerCertificates() {
+        return this.peerCertificates;
+    }
+
+    @Nullable
+    public Principal peerPrincipal() {
+        if (this.peerCertificates.isEmpty()) {
+            return null;
+        }
+        return ((X509Certificate) this.peerCertificates.get(0)).getSubjectX500Principal();
+    }
+
+    public TlsVersion tlsVersion() {
+        return this.tlsVersion;
+    }
+
+    public static Handshake get(TlsVersion tlsVersion, CipherSuite cipherSuite, List<Certificate> list, List<Certificate> list2) {
+        if (tlsVersion != null) {
+            if (cipherSuite != null) {
+                return new Handshake(tlsVersion, cipherSuite, Util.immutableList(list), Util.immutableList(list2));
+            }
+            throw new NullPointerException("cipherSuite == null");
+        }
+        throw new NullPointerException("tlsVersion == null");
     }
 }

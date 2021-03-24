@@ -6,22 +6,22 @@ import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 import java.io.StreamCorruptedException;
-/* loaded from: classes4.dex */
-final class MessageSerializedForm<M extends Message<M, B>, B extends Message.a<M, B>> implements Serializable {
-    private static final long serialVersionUID = 0;
-    private final byte[] bytes;
-    private final Class<M> messageClass;
+/* loaded from: classes6.dex */
+public final class MessageSerializedForm<M extends Message<M, B>, B extends Message.a<M, B>> implements Serializable {
+    public static final long serialVersionUID = 0;
+    public final byte[] bytes;
+    public final Class<M> messageClass;
 
     public MessageSerializedForm(byte[] bArr, Class<M> cls) {
         this.bytes = bArr;
         this.messageClass = cls;
     }
 
-    Object readResolve() throws ObjectStreamException {
+    public Object readResolve() throws ObjectStreamException {
         try {
             return ProtoAdapter.get(this.messageClass).decode(this.bytes);
-        } catch (IOException e) {
-            throw new StreamCorruptedException(e.getMessage());
+        } catch (IOException e2) {
+            throw new StreamCorruptedException(e2.getMessage());
         }
     }
 }

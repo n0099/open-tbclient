@@ -1,24 +1,22 @@
 package com.xiaomi.clientreport.manager;
 
-import com.xiaomi.push.bg;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+import com.xiaomi.push.bn;
+/* loaded from: classes7.dex */
 public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f8190a;
+    public final /* synthetic */ a f40131a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ bg f20a;
+    public final /* synthetic */ bn f37a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(a aVar, bg bgVar) {
-        this.f8190a = aVar;
-        this.f20a = bgVar;
+    public h(a aVar, bn bnVar) {
+        this.f40131a = aVar;
+        this.f37a = bnVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f20a.run();
+        this.f37a.run();
     }
 }

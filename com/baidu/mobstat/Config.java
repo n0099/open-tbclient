@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
 import android.os.Build;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Config {
     public static final String APPKEY_META_NAME = "BaiduMobAd_STAT_ID";
     public static final String APP_KEY = "k";
@@ -224,14 +224,14 @@ public class Config {
     public static final String TRACE_VISIT_SESSION_TODAY_COUNT = "session_today_cnt";
     public static final String WIFI_LOCATION = "wl2";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class AppLaunchType {
         public static final int AppCall = 1;
         public static final int DirectCall = 0;
         public static final int PushCall = 2;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class CrashChannel {
         public static final int SYS_TRACK = 0;
         public static final int USER_UPLOAD_ERROR = 12;
@@ -239,7 +239,30 @@ public class Config {
         public static final int USER_UPLOAD_OTHER = 13;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
+    public enum EventViewType {
+        EDIT(0),
+        BUTTON(1);
+        
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f8772a;
+
+        EventViewType(int i) {
+            this.f8772a = i;
+        }
+
+        public int getValue() {
+            return this.f8772a;
+        }
+
+        @Override // java.lang.Enum
+        public String toString() {
+            return String.valueOf(this.f8772a);
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public static class SessionInvokeCategory {
         public static final int ActivityInvoke = 1;
         public static final int ApiInvoke = 0;
@@ -247,13 +270,13 @@ public class Config {
         public static final int FragmentInvoke = 2;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class StartType {
         public static final int NORMAL_START = 0;
         public static final int QUICK_START = 1;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class TraceType {
         public static final int AUTO_TRACE = 1;
         public static final int CODE_TRACE = 0;
@@ -271,28 +294,5 @@ public class Config {
         LAST_AP_INFO_FILE_NAME = RES_PREFIX + "ap_info_cache.json";
         STAT_CACHE_FILE_NAME = RES_PREFIX + "stat_cache.json";
         STAT_FULL_CACHE_FILE_NAME = RES_PREFIX + "stat_full_cache.json";
-    }
-
-    /* loaded from: classes4.dex */
-    public enum EventViewType {
-        EDIT(0),
-        BUTTON(1);
-        
-
-        /* renamed from: a  reason: collision with root package name */
-        private int f2540a;
-
-        EventViewType(int i) {
-            this.f2540a = i;
-        }
-
-        @Override // java.lang.Enum
-        public String toString() {
-            return String.valueOf(this.f2540a);
-        }
-
-        public int getValue() {
-            return this.f2540a;
-        }
     }
 }

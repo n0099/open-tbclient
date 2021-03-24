@@ -20,11 +20,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMSyncDialog extends Message {
     public static final String TAG = IMDelMsg.class.getSimpleName();
-    private Context mContext;
-    private long mMaxMsgid;
+    public Context mContext;
+    public long mMaxMsgid;
 
     public IMSyncDialog(Context context, long j) {
         this.mMaxMsgid = 0L;
@@ -40,7 +40,7 @@ public class IMSyncDialog extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
+    public void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("method", 94);
@@ -48,30 +48,24 @@ public class IMSyncDialog extends Message {
             jSONObject.put("uk", this.mUk);
             jSONObject.put("msgid", this.mMaxMsgid);
             this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            LogUtils.e(TAG, e.getMessage(), e);
+        } catch (JSONException e2) {
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            LogUtils.e(TAG, e2.getMessage(), e2);
         }
     }
 
-    /* JADX WARN: Type inference failed for: r2v6, types: [T, java.lang.Long] */
+    /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Long] */
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        long j;
-        ArrayList arrayList = null;
-        long j2 = -1;
+        long j = -1;
         if (i == 0 && jSONObject != null) {
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray("dialogue");
                 int length = jSONArray.length();
-                if (length > 0) {
-                    arrayList = new ArrayList();
-                }
+                r3 = length > 0 ? new ArrayList() : null;
                 Type type = new Type();
                 type.t = 0L;
-                int i2 = 0;
-                long j3 = -1;
-                while (i2 < length) {
+                for (int i2 = 0; i2 < length; i2++) {
                     try {
                         ChatMsg parserMessage = MessageParser.parserMessage(context, jSONArray.getJSONObject(i2).getJSONObject(TableDefine.SessionColumns.COLUMN_LAST_MSG), type, false);
                         if (parserMessage != null) {
@@ -84,43 +78,32 @@ public class IMSyncDialog extends Message {
                                         GroupInfoDAOImpl.quitGroup(this.mContext, valueOf);
                                         DialogRecordDBManager.getInstance(this.mContext).delete(1, groupMemberQuitMsg.getContacter());
                                         ConversationManagerImpl.getInstance(this.mContext).deleteConversation(1, valueOf);
-                                        j = j3;
-                                    } catch (Exception e) {
-                                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                                    } catch (Exception e2) {
+                                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                                         LogUtils.d(TAG, "handleQuitGroupMsg exception, this is normal for device sync logic");
-                                        j = j3;
                                     }
-                                    i2++;
-                                    j3 = j;
                                 }
                             } else {
-                                if (arrayList != null) {
-                                    arrayList.add(parserMessage);
+                                if (r3 != null) {
+                                    r3.add(parserMessage);
                                 }
-                                if (((Long) type.t).longValue() > j3) {
+                                if (((Long) type.t).longValue() > j) {
                                     j = ((Long) type.t).longValue();
-                                    i2++;
-                                    j3 = j;
                                 }
                             }
                         }
-                        j = j3;
-                        i2++;
-                        j3 = j;
-                    } catch (Exception e2) {
-                        e = e2;
-                        j2 = j3;
+                    } catch (Exception e3) {
+                        e = e3;
                         LogUtils.e(TAG, "handle IMSyncMsg exception :", e);
                         super.handleMessageResult(context, jSONObject, i, str);
-                        ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j2, arrayList);
+                        ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j, r3);
                     }
                 }
-                j2 = j3;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e4) {
+                e = e4;
             }
         }
         super.handleMessageResult(context, jSONObject, i, str);
-        ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j2, arrayList);
+        ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j, r3);
     }
 }

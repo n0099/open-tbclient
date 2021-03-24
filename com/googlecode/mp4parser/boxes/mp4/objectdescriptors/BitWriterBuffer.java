@@ -1,17 +1,12 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
-import androidx.core.view.InputDeviceCompat;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BitWriterBuffer {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private ByteBuffer buffer;
-    int initialPos;
-    int position = 0;
-
-    static {
-        $assertionsDisabled = !BitWriterBuffer.class.desiredAssertionStatus();
-    }
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public ByteBuffer buffer;
+    public int initialPos;
+    public int position = 0;
 
     public BitWriterBuffer(ByteBuffer byteBuffer) {
         this.buffer = byteBuffer;
@@ -19,28 +14,29 @@ public class BitWriterBuffer {
     }
 
     public void writeBits(int i, int i2) {
-        if (!$assertionsDisabled && i > (1 << i2) - 1) {
-            throw new AssertionError(String.format("Trying to write a value bigger (%s) than the number bits (%s) allows. Please mask the value before writing it and make your code is really working as intended.", Integer.valueOf(i), Integer.valueOf((1 << i2) - 1)));
-        }
-        int i3 = 8 - (this.position % 8);
-        if (i2 <= i3) {
-            int i4 = this.buffer.get(this.initialPos + (this.position / 8));
-            if (i4 < 0) {
-                i4 += 256;
+        int i3 = this.position;
+        int i4 = 8 - (i3 % 8);
+        if (i2 <= i4) {
+            int i5 = this.buffer.get(this.initialPos + (i3 / 8));
+            if (i5 < 0) {
+                i5 += 256;
             }
-            int i5 = i4 + (i << (i3 - i2));
+            int i6 = i5 + (i << (i4 - i2));
             ByteBuffer byteBuffer = this.buffer;
-            int i6 = this.initialPos + (this.position / 8);
-            if (i5 > 127) {
-                i5 += InputDeviceCompat.SOURCE_ANY;
+            int i7 = this.initialPos + (this.position / 8);
+            if (i6 > 127) {
+                i6 -= 256;
             }
-            byteBuffer.put(i6, (byte) i5);
+            byteBuffer.put(i7, (byte) i6);
             this.position += i2;
         } else {
-            int i7 = i2 - i3;
-            writeBits(i >> i7, i3);
-            writeBits(((1 << i7) - 1) & i, i7);
+            int i8 = i2 - i4;
+            writeBits(i >> i8, i4);
+            writeBits(i & ((1 << i8) - 1), i8);
         }
-        this.buffer.position((this.position % 8 > 0 ? 1 : 0) + (this.position / 8) + this.initialPos);
+        ByteBuffer byteBuffer2 = this.buffer;
+        int i9 = this.initialPos;
+        int i10 = this.position;
+        byteBuffer2.position(i9 + (i10 / 8) + (i10 % 8 <= 0 ? 0 : 1));
     }
 }

@@ -1,45 +1,59 @@
 package com.baidu.pass.biometrics.face.liveness.d;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import com.baidu.pass.biometrics.base.debug.Log;
-import com.baidu.pass.biometrics.face.liveness.d.b;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public class a implements SensorEventListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b.a f2803a;
-    final /* synthetic */ b b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(b bVar, b.a aVar) {
-        this.b = bVar;
-        this.f2803a = aVar;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+/* loaded from: classes2.dex */
+public class a {
+    public static Bitmap a(byte[] bArr, int i, int i2) {
+        YuvImage yuvImage = new YuvImage(bArr, 17, i, i2, null);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        yuvImage.compressToJpeg(new Rect(0, 0, i, i2), 80, byteArrayOutputStream);
+        Bitmap decodeByteArray = BitmapFactory.decodeByteArray(byteArrayOutputStream.toByteArray(), 0, byteArrayOutputStream.size());
+        Matrix matrix = new Matrix();
+        matrix.reset();
+        matrix.setRotate(-90.0f);
+        matrix.postScale(-1.0f, 1.0f);
+        Bitmap copy = Bitmap.createBitmap(decodeByteArray, 0, 0, decodeByteArray.getWidth(), decodeByteArray.getHeight(), matrix, true).copy(Bitmap.Config.RGB_565, true);
+        try {
+            byteArrayOutputStream.close();
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+        return copy;
     }
 
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
-        Log.w(b.f2804a, "onAccuracyChanged" + i);
+    public static byte[] a(Bitmap bitmap, int i) {
+        if (bitmap == null) {
+            return null;
+        }
+        Matrix matrix = new Matrix();
+        matrix.setScale(0.5f, 0.5f);
+        Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        createBitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+        return byteArrayOutputStream.toByteArray();
     }
 
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        float f;
-        Log.w(b.f2804a, "onSensorChanged() time:" + System.currentTimeMillis());
-        float[] fArr = sensorEvent.values;
-        if (fArr != null && fArr.length > 0) {
-            this.b.h = fArr[0];
-            String str = b.f2804a;
-            StringBuilder append = new StringBuilder().append("onSensorChanged() event.values[0]:");
-            f = this.b.h;
-            Log.w(str, append.append(f).toString());
+    public static Bitmap a(Bitmap bitmap, float f2) {
+        if (bitmap == null) {
+            return null;
         }
-        this.b.g = System.currentTimeMillis();
-        b.a aVar = this.f2803a;
-        if (aVar != null) {
-            aVar.a(this.b.a());
-        }
+        Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+        Paint paint = new Paint();
+        Canvas canvas = new Canvas(createBitmap);
+        ColorMatrix colorMatrix = new ColorMatrix();
+        colorMatrix.setScale(f2, f2, f2, 1.0f);
+        paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+        canvas.drawBitmap(bitmap, new Matrix(), paint);
+        return createBitmap;
     }
 }

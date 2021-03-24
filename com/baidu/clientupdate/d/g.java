@@ -1,26 +1,26 @@
 package com.baidu.clientupdate.d;
 
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static char[] f1369a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static char[] f4603a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String a(File file) {
         return a(file, 131072);
     }
 
     public static String a(File file, int i) {
-        MessageDigest messageDigest = null;
+        MessageDigest messageDigest;
         try {
-            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-        } catch (NoSuchAlgorithmException e) {
+            messageDigest = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException unused) {
+            messageDigest = null;
         }
         if (messageDigest == null) {
             return "";
@@ -41,13 +41,13 @@ public class g {
         }
     }
 
-    private static String a(byte[] bArr) {
+    public static String a(byte[] bArr) {
         return a(bArr, 0, bArr.length);
     }
 
-    private static String a(byte[] bArr, int i, int i2) {
+    public static String a(byte[] bArr, int i, int i2) {
         StringBuffer stringBuffer = new StringBuffer(i2 * 2);
-        int i3 = i + i2;
+        int i3 = i2 + i;
         while (i < i3) {
             a(bArr[i], stringBuffer);
             i++;
@@ -55,10 +55,11 @@ public class g {
         return stringBuffer.toString();
     }
 
-    private static void a(byte b, StringBuffer stringBuffer) {
-        char c = f1369a[(b & 240) >> 4];
-        char c2 = f1369a[b & 15];
-        stringBuffer.append(c);
+    public static void a(byte b2, StringBuffer stringBuffer) {
+        char[] cArr = f4603a;
+        char c2 = cArr[(b2 & 240) >> 4];
+        char c3 = cArr[b2 & 15];
         stringBuffer.append(c2);
+        stringBuffer.append(c3);
     }
 }

@@ -7,131 +7,138 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lego.card.c;
-import com.baidu.tieba.recapp.k;
-import com.baidu.tieba.recapp.lego.a.a;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.n;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
-/* loaded from: classes7.dex */
+import d.b.h0.r.q.d;
+import d.b.i0.i1.o.c;
+import d.b.i0.r2.k;
+import d.b.i0.r2.n;
+/* loaded from: classes5.dex */
 public class AdCardVideoView extends AdCardBaseView implements n {
-    public DistributeVideoView mTZ;
-    private TbPageContext mTbPageContext;
-    private int mVideoHeight;
-    private int mVideoWidth;
-    private int mXq;
-    private int mXr;
+    public DistributeVideoView m0;
+    public TbPageContext n0;
+    public int o0;
+    public int p0;
+    public int q0;
+    public int r0;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            int jump2DownloadDetailPage = AdCardVideoView.this.m0.jump2DownloadDetailPage();
+            if (AdCardVideoView.this.o != null) {
+                AdCardVideoView.this.o.a(jump2DownloadDetailPage, null);
+            }
+        }
+    }
 
     public AdCardVideoView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.mTbPageContext = tbPageContext;
+        this.n0 = tbPageContext;
+    }
+
+    private String getPageTypeByBusiness() {
+        int businessType = getBusinessType();
+        return businessType != 1 ? (businessType == 2 || businessType == 3) ? "NEWINDEX" : businessType != 4 ? "unknown" : "PB_BANNER" : "FRS";
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected int getCustomLayout() {
+    public void A0(AdCard adCard) {
+        if (adCard == null || adCard.videoInfo == null) {
+            return;
+        }
+        g1(adCard);
+        this.m0.setPageContext(this.n0);
+        this.m0.setVideoTailFrameData(adCard.tailFrame);
+        this.m0.setData(adCard.videoInfo, adCard.verticalVideoStyle, this.o0, this.p0, this.q0, this.r0);
+        this.m0.setChargeInfo(adCard.chargeInfo);
+        this.m0.setScheme(adCard.getScheme());
+        this.m0.setAdInfo(adCard);
+        this.m0.setVideoScalingMode(0);
+        AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
+        this.m0.updateTailFrameView(advertAppInfo);
+        if (advertAppInfo != null) {
+            int i = -1;
+            String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.c4) ? getPageTypeByBusiness() : advertAppInfo.c4;
+            d dVar = advertAppInfo.Y3;
+            if (dVar != null) {
+                i = dVar.f50749b;
+                pageTypeByBusiness = dVar.f50748a;
+            }
+            this.m0.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
+        }
+        this.m0.setOnClickListener(new a());
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
+    public void G0(View view) {
+        if (view == null) {
+            return;
+        }
+        float B0 = B0(R.string.J_X05);
+        XfremodeRoundLayout xfremodeRoundLayout = (XfremodeRoundLayout) view;
+        xfremodeRoundLayout.setRoundLayoutRadius(new float[]{B0, B0, B0, B0, B0, B0, B0, B0});
+        xfremodeRoundLayout.setLayerType(2, null);
+        DistributeVideoView distributeVideoView = (DistributeVideoView) view.findViewById(R.id.advert_video);
+        this.m0 = distributeVideoView;
+        distributeVideoView.setHolderView(view);
+    }
+
+    public boolean f1(AdCard adCard) {
+        AdCard.f fVar;
+        return adCard != null && adCard.goodsStyle == 14 && (fVar = adCard.verticalVideoStyle) != null && fVar.a();
+    }
+
+    public final void g1(AdCard adCard) {
+        if (adCard.goodsStyle == 14) {
+            int i = this.G / 2;
+            this.o0 = i;
+            this.p0 = d.b.i0.r2.z.b.a.b(i);
+        } else {
+            int i2 = this.G;
+            this.o0 = i2;
+            this.p0 = d.b.i0.r2.z.b.a.a(i2);
+        }
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m0.getLayoutParams();
+        layoutParams.height = this.p0;
+        layoutParams.width = this.o0;
+        if (adCard.goodsStyle == 14 && !f1(adCard)) {
+            int i3 = this.G / 2;
+            this.q0 = i3;
+            this.r0 = d.b.i0.r2.z.b.a.b(i3);
+        } else {
+            int i4 = this.G;
+            this.q0 = i4;
+            this.r0 = d.b.i0.r2.z.b.a.a(i4);
+        }
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.t.getLayoutParams();
+        layoutParams2.width = this.q0;
+        layoutParams2.height = this.r0;
+        this.t.requestLayout();
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
+    public int getCustomLayout() {
         return R.layout.ad_card_video_view;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void ea(View view) {
-        if (view != null) {
-            float HW = HW(R.string.J_X05);
-            ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{HW, HW, HW, HW, HW, HW, HW, HW});
-            ((XfremodeRoundLayout) view).setLayerType(2, null);
-            this.mTZ = (DistributeVideoView) view.findViewById(R.id.advert_video);
-            this.mTZ.setHolderView(view);
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void a(AdCard adCard) {
-        if (adCard != null && adCard.videoInfo != null) {
-            h(adCard);
-            this.mTZ.setPageContext(this.mTbPageContext);
-            this.mTZ.setVideoTailFrameData(adCard.tailFrame);
-            this.mTZ.setData(adCard.videoInfo, adCard.verticalVideoStyle, this.mVideoWidth, this.mVideoHeight, this.mXq, this.mXr);
-            this.mTZ.setChargeInfo(adCard.chargeInfo);
-            this.mTZ.setScheme(adCard.getScheme());
-            this.mTZ.setAdInfo(adCard);
-            this.mTZ.setVideoScalingMode(0);
-            AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            this.mTZ.updateTailFrameView(advertAppInfo);
-            if (advertAppInfo != null) {
-                int i = -1;
-                String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.page) ? getPageTypeByBusiness() : advertAppInfo.page;
-                if (advertAppInfo.advertAppContext != null) {
-                    i = advertAppInfo.advertAppContext.pn;
-                    pageTypeByBusiness = advertAppInfo.advertAppContext.page;
-                }
-                this.mTZ.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
-            }
-            this.mTZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardVideoView.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    int jump2DownloadDetailPage = AdCardVideoView.this.mTZ.jump2DownloadDetailPage();
-                    if (AdCardVideoView.this.leD != null) {
-                        AdCardVideoView.this.leD.d(jump2DownloadDetailPage, null);
-                    }
-                }
-            });
-        }
-    }
-
-    private void h(AdCard adCard) {
-        if (adCard.goodsStyle == 14) {
-            this.mVideoWidth = this.mMaxWidth / 2;
-            this.mVideoHeight = a.HT(this.mVideoWidth);
-        } else {
-            this.mVideoWidth = this.mMaxWidth;
-            this.mVideoHeight = a.HV(this.mVideoWidth);
-        }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mTZ.getLayoutParams();
-        layoutParams.height = this.mVideoHeight;
-        layoutParams.width = this.mVideoWidth;
-        if (adCard.goodsStyle == 14 && !i(adCard)) {
-            this.mXq = this.mMaxWidth / 2;
-            this.mXr = a.HT(this.mXq);
-        } else {
-            this.mXq = this.mMaxWidth;
-            this.mXr = a.HV(this.mXq);
-        }
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mVP.getLayoutParams();
-        layoutParams2.width = this.mXq;
-        layoutParams2.height = this.mXr;
-        this.mVP.requestLayout();
-    }
-
-    private String getPageTypeByBusiness() {
-        switch (getBusinessType()) {
-            case 1:
-                return "FRS";
-            case 2:
-            case 3:
-                return "NEWINDEX";
-            case 4:
-                return "PB_BANNER";
-            default:
-                return "unknown";
-        }
-    }
-
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
-    public void setDownloadAppCallback(c cVar) {
-        super.setDownloadAppCallback(cVar);
-        this.mTZ.setDownloadCallback(cVar);
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected int getLayout() {
+    public int getLayout() {
         return R.layout.card_ad;
     }
 
-    @Override // com.baidu.tieba.recapp.n
+    @Override // d.b.i0.r2.n
     public k getVideoOrVrView() {
-        return this.mTZ;
+        return this.m0;
     }
 
-    public boolean i(AdCard adCard) {
-        return adCard != null && adCard.goodsStyle == 14 && adCard.verticalVideoStyle != null && adCard.verticalVideoStyle.isValid();
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, d.b.i0.i1.o.l.e
+    public void setDownloadAppCallback(c cVar) {
+        super.setDownloadAppCallback(cVar);
+        this.m0.setDownloadCallback(cVar);
     }
 }

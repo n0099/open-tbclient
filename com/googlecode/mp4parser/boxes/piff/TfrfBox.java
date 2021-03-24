@@ -1,31 +1,46 @@
 package com.googlecode.mp4parser.boxes.piff;
 
-import com.baidu.live.adp.lib.util.FieldUtil;
+import androidx.exifinterface.media.ExifInterface;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import g.a.a.a;
+import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-import org.aspectj.a.b.b;
-import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+import kotlin.jvm.internal.ByteCompanionObject;
+/* loaded from: classes6.dex */
 public class TfrfBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
     public List<Entry> entries;
+
+    /* loaded from: classes6.dex */
+    public class Entry {
+        public long fragmentAbsoluteDuration;
+        public long fragmentAbsoluteTime;
+
+        public Entry() {
+        }
+
+        public long getFragmentAbsoluteDuration() {
+            return this.fragmentAbsoluteDuration;
+        }
+
+        public long getFragmentAbsoluteTime() {
+            return this.fragmentAbsoluteTime;
+        }
+
+        public String toString() {
+            return "Entry{fragmentAbsoluteTime=" + this.fragmentAbsoluteTime + ", fragmentAbsoluteDuration=" + this.fragmentAbsoluteDuration + '}';
+        }
+    }
 
     static {
         ajc$preClinit();
-    }
-
-    private static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("TfrfBox.java", TfrfBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getFragmentCount", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "long"), 91);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getEntries", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.util.List"), 95);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", FieldUtil.TYPE_STRING), 100);
     }
 
     public TfrfBox() {
@@ -33,29 +48,11 @@ public class TfrfBox extends AbstractFullBox {
         this.entries = new ArrayList();
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public byte[] getUserType() {
-        return new byte[]{-44, Byte.MIN_VALUE, 126, -14, -54, 57, 70, -107, -114, 84, 38, -53, -98, 70, -89, -97};
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    protected long getContentSize() {
-        return ((getVersion() == 1 ? 16 : 8) * this.entries.size()) + 5;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    protected void getContent(ByteBuffer byteBuffer) {
-        writeVersionAndFlags(byteBuffer);
-        IsoTypeWriter.writeUInt8(byteBuffer, this.entries.size());
-        for (Entry entry : this.entries) {
-            if (getVersion() == 1) {
-                IsoTypeWriter.writeUInt64(byteBuffer, entry.fragmentAbsoluteTime);
-                IsoTypeWriter.writeUInt64(byteBuffer, entry.fragmentAbsoluteDuration);
-            } else {
-                IsoTypeWriter.writeUInt32(byteBuffer, entry.fragmentAbsoluteTime);
-                IsoTypeWriter.writeUInt32(byteBuffer, entry.fragmentAbsoluteDuration);
-            }
-        }
+    public static /* synthetic */ void ajc$preClinit() {
+        b bVar = new b("TfrfBox.java", TfrfBox.class);
+        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getFragmentCount", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "long"), 91);
+        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "getEntries", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.util.List"), 95);
+        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "toString", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.lang.String"), 100);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -75,48 +72,43 @@ public class TfrfBox extends AbstractFullBox {
         }
     }
 
-    public long getFragmentCount() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this));
-        return this.entries.size();
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        writeVersionAndFlags(byteBuffer);
+        IsoTypeWriter.writeUInt8(byteBuffer, this.entries.size());
+        for (Entry entry : this.entries) {
+            if (getVersion() == 1) {
+                IsoTypeWriter.writeUInt64(byteBuffer, entry.fragmentAbsoluteTime);
+                IsoTypeWriter.writeUInt64(byteBuffer, entry.fragmentAbsoluteDuration);
+            } else {
+                IsoTypeWriter.writeUInt32(byteBuffer, entry.fragmentAbsoluteTime);
+                IsoTypeWriter.writeUInt32(byteBuffer, entry.fragmentAbsoluteDuration);
+            }
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        return (this.entries.size() * (getVersion() == 1 ? 16 : 8)) + 5;
     }
 
     public List<Entry> getEntries() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this));
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_1, this, this));
         return this.entries;
     }
 
-    public String toString() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this));
-        StringBuilder sb = new StringBuilder();
-        sb.append("TfrfBox");
-        sb.append("{entries=").append(this.entries);
-        sb.append('}');
-        return sb.toString();
+    public long getFragmentCount() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
+        return this.entries.size();
     }
 
-    /* loaded from: classes5.dex */
-    public class Entry {
-        long fragmentAbsoluteDuration;
-        long fragmentAbsoluteTime;
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public byte[] getUserType() {
+        return new byte[]{-44, ByteCompanionObject.MIN_VALUE, 126, -14, ExifInterface.MARKER_SOF10, 57, 70, -107, -114, 84, 38, ExifInterface.MARKER_SOF11, -98, 70, -89, -97};
+    }
 
-        public Entry() {
-        }
-
-        public long getFragmentAbsoluteTime() {
-            return this.fragmentAbsoluteTime;
-        }
-
-        public long getFragmentAbsoluteDuration() {
-            return this.fragmentAbsoluteDuration;
-        }
-
-        public String toString() {
-            StringBuilder sb = new StringBuilder();
-            sb.append("Entry");
-            sb.append("{fragmentAbsoluteTime=").append(this.fragmentAbsoluteTime);
-            sb.append(", fragmentAbsoluteDuration=").append(this.fragmentAbsoluteDuration);
-            sb.append('}');
-            return sb.toString();
-        }
+    public String toString() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
+        return "TfrfBox{entries=" + this.entries + '}';
     }
 }

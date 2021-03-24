@@ -5,24 +5,9 @@ import org.apache.http.io.HttpTransportMetrics;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
     public LoggingSessionOutputBuffer(SessionOutputBuffer sessionOutputBuffer, Wire wire) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(int i) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(byte[] bArr) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -32,7 +17,22 @@ public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
+    public HttpTransportMetrics getMetrics() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.io.SessionOutputBuffer
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.io.SessionOutputBuffer
     public void writeLine(CharArrayBuffer charArrayBuffer) throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.io.SessionOutputBuffer
+    public void write(int i) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -42,7 +42,7 @@ public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public HttpTransportMetrics getMetrics() {
+    public void write(byte[] bArr) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

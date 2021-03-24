@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.SocketException;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BosObjectInputStream extends FilterInputStream {
-    private Response httpResponse;
+    public Response httpResponse;
 
     public BosObjectInputStream(InputStream inputStream, Response response) {
         super(inputStream);
@@ -18,7 +18,7 @@ public class BosObjectInputStream extends FilterInputStream {
     public void close() throws IOException {
         try {
             super.close();
-        } catch (SocketException e) {
+        } catch (SocketException unused) {
         }
     }
 }

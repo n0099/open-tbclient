@@ -3,16 +3,16 @@ package com.baidu.browser.sailor.feature;
 import android.content.Context;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static final String TAG = "BdSailorFeature";
-    private Map<String, b> mClientsMap = new HashMap();
-    protected Context mContext;
-    private Enum<EnumC0090a> mStatus;
+    public static final String TAG = "BdSailorFeature";
+    public Map<String, d.b.h.b.c.a> mClientsMap = new HashMap();
+    public Context mContext;
+    public Enum<EnumC0064a> mStatus;
 
     /* renamed from: com.baidu.browser.sailor.feature.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    enum EnumC0090a {
+    /* loaded from: classes2.dex */
+    public enum EnumC0064a {
         ENABLE,
         DISABLE
     }
@@ -24,20 +24,20 @@ public class a {
         this.mContext = null;
         try {
             this.mClientsMap.clear();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
     public void disable() {
-        this.mStatus = EnumC0090a.DISABLE;
+        this.mStatus = EnumC0064a.DISABLE;
     }
 
     public void enable() {
-        this.mStatus = EnumC0090a.ENABLE;
+        this.mStatus = EnumC0064a.ENABLE;
     }
 
-    public b getListenerFromActivity(String str) {
+    public d.b.h.b.c.a getListenerFromActivity(String str) {
         return this.mClientsMap.get(str);
     }
 
@@ -46,14 +46,14 @@ public class a {
     }
 
     public boolean isEnable() {
-        return this.mStatus == EnumC0090a.ENABLE;
+        return this.mStatus == EnumC0064a.ENABLE;
     }
 
-    public void regActivityResultCallback(String str, b bVar) {
+    public void regActivityResultCallback(String str, d.b.h.b.c.a aVar) {
         if (this.mClientsMap.containsKey(str)) {
             return;
         }
-        this.mClientsMap.put(str, bVar);
+        this.mClientsMap.put(str, aVar);
     }
 
     public void unregActivityResultCallback(String str) {

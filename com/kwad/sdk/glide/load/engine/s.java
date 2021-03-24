@@ -1,7 +1,7 @@
 package com.kwad.sdk.glide.load.engine;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface s<Z> {
     @NonNull
     Class<Z> a();

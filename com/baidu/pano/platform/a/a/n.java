@@ -1,22 +1,25 @@
 package com.baidu.pano.platform.a.a;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.http.AndroidHttpClient;
 import android.os.Build;
 import com.baidu.pano.platform.a.p;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class n {
     public static p a(Context context, i iVar, int i) {
+        String str;
         p pVar;
-        String packageName;
         com.baidu.pano.platform.c.b.a().a(context);
         File file = new File(com.baidu.pano.platform.c.b.b());
-        String str = "baidu_pano/0";
         try {
-            str = context.getPackageName() + "/" + context.getPackageManager().getPackageInfo(packageName, 0).versionCode;
-        } catch (PackageManager.NameNotFoundException e) {
+            String packageName = context.getPackageName();
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 0);
+            str = packageName + "/" + packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException unused) {
+            str = "baidu_pano/0";
         }
         if (iVar == null) {
             if (Build.VERSION.SDK_INT >= 9) {

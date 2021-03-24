@@ -10,78 +10,91 @@ import com.kwad.sdk.core.network.i;
 import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.internal.api.SceneImpl;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private a b;
-    private i<com.kwad.sdk.contentalliance.tube.b.b, TubeProfileResultData> c;
-    private long e;
-    private SceneImpl f;
-    private boolean d = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public a f33312b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public i<com.kwad.sdk.contentalliance.tube.b.b, TubeProfileResultData> f33313c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f33315e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SceneImpl f33316f;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f33314d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f5982a = new Handler(Looper.getMainLooper());
+    public Handler f33311a = new Handler(Looper.getMainLooper());
 
     public c(SceneImpl sceneImpl, long j, a aVar) {
-        this.e = j;
-        this.b = aVar;
-        this.f = sceneImpl;
+        this.f33315e = j;
+        this.f33312b = aVar;
+        this.f33316f = sceneImpl;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str) {
         com.kwad.sdk.core.d.a.c("TubeProfileDataFetcher", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
         b(i, str);
-        this.d = false;
+        this.f33314d = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(TubeProfileResultData tubeProfileResultData) {
         b(tubeProfileResultData);
         d();
-        this.d = false;
+        this.f33314d = false;
     }
 
     private void b(int i, String str) {
-        if (this.b != null) {
-            this.b.a(i, str);
+        a aVar = this.f33312b;
+        if (aVar != null) {
+            aVar.a(i, str);
         }
     }
 
     private void b(TubeProfileResultData tubeProfileResultData) {
-        if (this.b != null) {
-            this.b.a(tubeProfileResultData);
+        a aVar = this.f33312b;
+        if (aVar != null) {
+            aVar.a(tubeProfileResultData);
         }
     }
 
     private void c() {
-        if (this.b != null) {
-            this.b.a();
+        a aVar = this.f33312b;
+        if (aVar != null) {
+            aVar.a();
         }
     }
 
     private void d() {
-        if (this.b != null) {
-            this.b.b();
+        a aVar = this.f33312b;
+        if (aVar != null) {
+            aVar.b();
         }
     }
 
     public void a() {
-        if (this.d) {
+        if (this.f33314d) {
             return;
         }
         c();
-        f fVar = new f(this.f);
-        fVar.b = this.f.getPageScene();
-        final b.a aVar = new b.a(fVar, this.e, true);
-        this.c = new i<com.kwad.sdk.contentalliance.tube.b.b, TubeProfileResultData>() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.1
+        f fVar = new f(this.f33316f);
+        fVar.f33651b = this.f33316f.getPageScene();
+        final b.a aVar = new b.a(fVar, this.f33315e, true);
+        i<com.kwad.sdk.contentalliance.tube.b.b, TubeProfileResultData> iVar = new i<com.kwad.sdk.contentalliance.tube.b.b, TubeProfileResultData>() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwad.sdk.core.network.i
             @NonNull
             /* renamed from: a */
             public TubeProfileResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                TubeProfileResultData tubeProfileResultData = new TubeProfileResultData(c.this.f);
+                TubeProfileResultData tubeProfileResultData = new TubeProfileResultData(c.this.f33316f);
                 tubeProfileResultData.parseJson(jSONObject);
                 return tubeProfileResultData;
             }
@@ -94,11 +107,12 @@ public class c {
                 return new com.kwad.sdk.contentalliance.tube.b.b(aVar);
             }
         };
-        this.c.a(new j<com.kwad.sdk.contentalliance.tube.b.b, TubeProfileResultData>() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.2
+        this.f33313c = iVar;
+        iVar.a(new j<com.kwad.sdk.contentalliance.tube.b.b, TubeProfileResultData>() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.contentalliance.tube.b.b bVar, final int i, final String str) {
-                c.this.f5982a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.2.2
+                c.this.f33311a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.a(i, str);
@@ -109,7 +123,7 @@ public class c {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.contentalliance.tube.b.b bVar, @NonNull final TubeProfileResultData tubeProfileResultData) {
-                c.this.f5982a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.2.1
+                c.this.f33311a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.profile.c.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.a(tubeProfileResultData);
@@ -120,10 +134,11 @@ public class c {
     }
 
     public void b() {
-        if (this.c != null) {
-            this.c.e();
+        i<com.kwad.sdk.contentalliance.tube.b.b, TubeProfileResultData> iVar = this.f33313c;
+        if (iVar != null) {
+            iVar.e();
         }
-        this.b = null;
-        this.f5982a.removeCallbacksAndMessages(null);
+        this.f33312b = null;
+        this.f33311a.removeCallbacksAndMessages(null);
     }
 }

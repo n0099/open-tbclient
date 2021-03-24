@@ -12,13 +12,17 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.refreshview.RefreshLayout;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsAdHotShootRefreshView extends RelativeLayout implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float f5872a = ao.a(KsAdSDKImpl.get().getContext(), 10.0f);
-    private LottieAnimationView b;
-    private RefreshLayout.b c;
+    public static final float f32949a = ao.a(KsAdSDKImpl.get().getContext(), 10.0f);
+
+    /* renamed from: b  reason: collision with root package name */
+    public LottieAnimationView f32950b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RefreshLayout.b f32951c;
 
     public KsAdHotShootRefreshView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -29,18 +33,20 @@ public class KsAdHotShootRefreshView extends RelativeLayout implements d {
     }
 
     @Override // com.kwad.sdk.contentalliance.refreshview.d
-    public void a(float f, float f2) {
-        if (f >= f5872a) {
-            if (!this.b.c()) {
-                this.b.b();
+    public void a(float f2, float f3) {
+        if (f2 < f32949a) {
+            setAlpha(0.0f);
+            if (this.f32950b.c()) {
+                this.f32950b.d();
+                return;
             }
-            setAlpha(Math.min(1.0f, (f - f5872a) / (f5872a * 2.0f)));
             return;
         }
-        setAlpha(0.0f);
-        if (this.b.c()) {
-            this.b.d();
+        if (!this.f32950b.c()) {
+            this.f32950b.b();
         }
+        float f4 = f32949a;
+        setAlpha(Math.min(1.0f, (f2 - f4) / (f4 * 2.0f)));
     }
 
     @Override // com.kwad.sdk.contentalliance.refreshview.d
@@ -56,12 +62,12 @@ public class KsAdHotShootRefreshView extends RelativeLayout implements d {
         });
         ofInt.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.refreshview.KsAdHotShootRefreshView.2
             private void a() {
-                if (KsAdHotShootRefreshView.this.b != null) {
-                    KsAdHotShootRefreshView.this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.refreshview.KsAdHotShootRefreshView.2.1
+                if (KsAdHotShootRefreshView.this.f32950b != null) {
+                    KsAdHotShootRefreshView.this.f32950b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.refreshview.KsAdHotShootRefreshView.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (KsAdHotShootRefreshView.this.c != null) {
-                                KsAdHotShootRefreshView.this.c.a();
+                            if (KsAdHotShootRefreshView.this.f32951c != null) {
+                                KsAdHotShootRefreshView.this.f32951c.a();
                             }
                         }
                     });
@@ -70,8 +76,8 @@ public class KsAdHotShootRefreshView extends RelativeLayout implements d {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (KsAdHotShootRefreshView.this.c != null) {
-                    KsAdHotShootRefreshView.this.c.a();
+                if (KsAdHotShootRefreshView.this.f32951c != null) {
+                    KsAdHotShootRefreshView.this.f32951c.a();
                 } else {
                     a();
                 }
@@ -103,19 +109,20 @@ public class KsAdHotShootRefreshView extends RelativeLayout implements d {
     }
 
     @Override // android.view.View
-    protected void onFinishInflate() {
+    public void onFinishInflate() {
         super.onFinishInflate();
-        this.b = (LottieAnimationView) findViewById(R.id.ksad_pull_to_refresh_animation_view);
+        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.ksad_pull_to_refresh_animation_view);
+        this.f32950b = lottieAnimationView;
         int i = R.raw.ksad_detail_loading_amin_new;
-        this.b.setVisibility(0);
-        this.b.setAnimation(i);
-        this.b.setRepeatMode(1);
-        this.b.setRepeatCount(-1);
-        this.b.setAnimation(i);
+        lottieAnimationView.setVisibility(0);
+        this.f32950b.setAnimation(i);
+        this.f32950b.setRepeatMode(1);
+        this.f32950b.setRepeatCount(-1);
+        this.f32950b.setAnimation(i);
     }
 
     public void setOnRefreshListener(RefreshLayout.b bVar) {
-        this.c = bVar;
+        this.f32951c = bVar;
     }
 
     @Override // android.view.View

@@ -8,21 +8,37 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class DescendantOffsetUtils {
-    private static final ThreadLocal<Matrix> matrix = new ThreadLocal<>();
-    private static final ThreadLocal<RectF> rectF = new ThreadLocal<>();
+    public static final ThreadLocal<Matrix> matrix = new ThreadLocal<>();
+    public static final ThreadLocal<RectF> rectF = new ThreadLocal<>();
+
+    public static void getDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
+        rect.set(0, 0, view.getWidth(), view.getHeight());
+        offsetDescendantRect(viewGroup, view, rect);
+    }
+
+    public static void offsetDescendantMatrix(ViewParent viewParent, View view, Matrix matrix2) {
+        ViewParent parent = view.getParent();
+        if ((parent instanceof View) && parent != viewParent) {
+            View view2 = (View) parent;
+            offsetDescendantMatrix(viewParent, view2, matrix2);
+            matrix2.preTranslate(-view2.getScrollX(), -view2.getScrollY());
+        }
+        matrix2.preTranslate(view.getLeft(), view.getTop());
+        if (view.getMatrix().isIdentity()) {
+            return;
+        }
+        matrix2.preConcat(view.getMatrix());
+    }
 
     public static void offsetDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
-        Matrix matrix2;
-        Matrix matrix3 = matrix.get();
-        if (matrix3 == null) {
-            Matrix matrix4 = new Matrix();
-            matrix.set(matrix4);
-            matrix2 = matrix4;
+        Matrix matrix2 = matrix.get();
+        if (matrix2 == null) {
+            matrix2 = new Matrix();
+            matrix.set(matrix2);
         } else {
-            matrix3.reset();
-            matrix2 = matrix3;
+            matrix2.reset();
         }
         offsetDescendantMatrix(viewGroup, view, matrix2);
         RectF rectF2 = rectF.get();
@@ -33,23 +49,5 @@ public class DescendantOffsetUtils {
         rectF2.set(rect);
         matrix2.mapRect(rectF2);
         rect.set((int) (rectF2.left + 0.5f), (int) (rectF2.top + 0.5f), (int) (rectF2.right + 0.5f), (int) (rectF2.bottom + 0.5f));
-    }
-
-    public static void getDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
-        rect.set(0, 0, view.getWidth(), view.getHeight());
-        offsetDescendantRect(viewGroup, view, rect);
-    }
-
-    private static void offsetDescendantMatrix(ViewParent viewParent, View view, Matrix matrix2) {
-        ViewParent parent = view.getParent();
-        if ((parent instanceof View) && parent != viewParent) {
-            View view2 = (View) parent;
-            offsetDescendantMatrix(viewParent, view2, matrix2);
-            matrix2.preTranslate(-view2.getScrollX(), -view2.getScrollY());
-        }
-        matrix2.preTranslate(view.getLeft(), view.getTop());
-        if (!view.getMatrix().isIdentity()) {
-            matrix2.preConcat(view.getMatrix());
-        }
     }
 }

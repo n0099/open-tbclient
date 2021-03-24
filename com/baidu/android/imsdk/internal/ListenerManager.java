@@ -1,14 +1,15 @@
 package com.baidu.android.imsdk.internal;
 
 import com.baidu.android.imsdk.IMListener;
+import com.baidu.mobstat.Config;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ListenerManager {
-    private static ListenerManager sInstance;
-    private Map<String, IMListener> mMap = new HashMap();
-    private AtomicInteger mOpenCounter = new AtomicInteger();
+    public static ListenerManager sInstance;
+    public Map<String, IMListener> mMap = new HashMap();
+    public AtomicInteger mOpenCounter = new AtomicInteger();
 
     public static synchronized ListenerManager getInstance() {
         ListenerManager listenerManager;
@@ -21,19 +22,40 @@ public class ListenerManager {
         return listenerManager;
     }
 
+    private synchronized String getKey() {
+        return Config.APP_KEY + System.currentTimeMillis() + this.mOpenCounter.incrementAndGet();
+    }
+
+    public synchronized boolean addListener(String str, IMListener iMListener) {
+        if (str == null || iMListener == null) {
+            return false;
+        }
+        this.mMap.put(str, iMListener);
+        return true;
+    }
+
     public synchronized void clearListener() {
         this.mMap.clear();
     }
 
-    public synchronized boolean addListener(String str, IMListener iMListener) {
-        boolean z;
-        if (str == null || iMListener == null) {
-            z = false;
-        } else {
-            this.mMap.put(str, iMListener);
-            z = true;
+    public synchronized IMListener getListener(String str) {
+        if (str == null) {
+            return null;
         }
-        return z;
+        if (this.mMap.containsKey(str)) {
+            return this.mMap.get(str);
+        }
+        return null;
+    }
+
+    public synchronized IMListener removeListener(String str) {
+        if (str == null) {
+            return null;
+        }
+        if (this.mMap.containsKey(str)) {
+            return this.mMap.remove(str);
+        }
+        return null;
     }
 
     public synchronized String addListener(IMListener iMListener) {
@@ -44,33 +66,5 @@ public class ListenerManager {
             this.mMap.put(str, iMListener);
         }
         return str;
-    }
-
-    public synchronized IMListener getListener(String str) {
-        IMListener iMListener = null;
-        synchronized (this) {
-            if (str != null) {
-                if (this.mMap.containsKey(str)) {
-                    iMListener = this.mMap.get(str);
-                }
-            }
-        }
-        return iMListener;
-    }
-
-    public synchronized IMListener removeListener(String str) {
-        IMListener iMListener = null;
-        synchronized (this) {
-            if (str != null) {
-                if (this.mMap.containsKey(str)) {
-                    iMListener = this.mMap.remove(str);
-                }
-            }
-        }
-        return iMListener;
-    }
-
-    private synchronized String getKey() {
-        return "k" + System.currentTimeMillis() + this.mOpenCounter.incrementAndGet();
     }
 }

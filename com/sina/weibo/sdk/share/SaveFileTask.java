@@ -9,18 +9,30 @@ import com.sina.weibo.sdk.api.StoryMessage;
 import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SaveFileTask extends AsyncTask<StoryMessage, Object, StoryObject> {
-    private TransResourceCallback mCallback;
-    private WeakReference<Context> mReference;
+    public TransResourceCallback mCallback;
+    public WeakReference<Context> mReference;
 
     public SaveFileTask(Context context, TransResourceCallback transResourceCallback) {
         this.mReference = new WeakReference<>(context);
         this.mCallback = transResourceCallback;
     }
 
+    private StoryObject copyFileToWeiboTem(Context context, Uri uri, int i) {
+        String copyFileToWeiboTem = ShareUtils.copyFileToWeiboTem(context, uri, i);
+        if (TextUtils.isEmpty(copyFileToWeiboTem)) {
+            return null;
+        }
+        StoryObject storyObject = new StoryObject();
+        storyObject.sourcePath = copyFileToWeiboTem;
+        storyObject.sourceType = i;
+        storyObject.appId = WbSdk.getAuthInfo().getAppKey();
+        storyObject.appPackage = context.getPackageName();
+        return storyObject;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public StoryObject doInBackground(StoryMessage... storyMessageArr) {
         StoryMessage storyMessage = storyMessageArr[0];
@@ -42,26 +54,13 @@ public class SaveFileTask extends AsyncTask<StoryMessage, Object, StoryObject> {
         return copyFileToWeiboTem(context, videoUri, 0);
     }
 
-    private StoryObject copyFileToWeiboTem(Context context, Uri uri, int i) {
-        String copyFileToWeiboTem = ShareUtils.copyFileToWeiboTem(context, uri, i);
-        if (TextUtils.isEmpty(copyFileToWeiboTem)) {
-            return null;
-        }
-        StoryObject storyObject = new StoryObject();
-        storyObject.sourcePath = copyFileToWeiboTem;
-        storyObject.sourceType = i;
-        storyObject.appId = WbSdk.getAuthInfo().getAppKey();
-        storyObject.appPackage = context.getPackageName();
-        return storyObject;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public void onPostExecute(StoryObject storyObject) {
         super.onPostExecute((SaveFileTask) storyObject);
-        if (this.mCallback != null) {
-            this.mCallback.onTransFinish(storyObject);
+        TransResourceCallback transResourceCallback = this.mCallback;
+        if (transResourceCallback != null) {
+            transResourceCallback.onTransFinish(storyObject);
         }
     }
 }

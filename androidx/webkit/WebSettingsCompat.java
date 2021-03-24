@@ -10,29 +10,30 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class WebSettingsCompat {
 
     @Target({ElementType.PARAMETER, ElementType.METHOD})
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes.dex */
     public @interface MenuItemFlags {
     }
 
-    private WebSettingsCompat() {
+    public static WebSettingsAdapter getAdapter(WebSettings webSettings) {
+        return WebViewGlueCommunicator.getCompatConverter().convertSettings(webSettings);
     }
 
     @SuppressLint({"NewApi"})
-    public static void setOffscreenPreRaster(WebSettings webSettings, boolean z) {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("OFF_SCREEN_PRERASTER");
+    public static int getDisabledActionModeMenuItems(WebSettings webSettings) {
+        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("DISABLED_ACTION_MODE_MENU_ITEMS");
         if (feature.isSupportedByFramework()) {
-            webSettings.setOffscreenPreRaster(z);
-        } else if (feature.isSupportedByWebView()) {
-            getAdapter(webSettings).setOffscreenPreRaster(z);
-        } else {
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
+            return webSettings.getDisabledActionModeMenuItems();
         }
+        if (feature.isSupportedByWebView()) {
+            return getAdapter(webSettings).getDisabledActionModeMenuItems();
+        }
+        throw WebViewFeatureInternal.getUnsupportedOperationException();
     }
 
     @SuppressLint({"NewApi"})
@@ -45,18 +46,6 @@ public class WebSettingsCompat {
             return getAdapter(webSettings).getOffscreenPreRaster();
         }
         throw WebViewFeatureInternal.getUnsupportedOperationException();
-    }
-
-    @SuppressLint({"NewApi"})
-    public static void setSafeBrowsingEnabled(WebSettings webSettings, boolean z) {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_ENABLE");
-        if (feature.isSupportedByFramework()) {
-            webSettings.setSafeBrowsingEnabled(z);
-        } else if (feature.isSupportedByWebView()) {
-            getAdapter(webSettings).setSafeBrowsingEnabled(z);
-        } else {
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
-        }
     }
 
     @SuppressLint({"NewApi"})
@@ -84,18 +73,26 @@ public class WebSettingsCompat {
     }
 
     @SuppressLint({"NewApi"})
-    public static int getDisabledActionModeMenuItems(WebSettings webSettings) {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("DISABLED_ACTION_MODE_MENU_ITEMS");
+    public static void setOffscreenPreRaster(WebSettings webSettings, boolean z) {
+        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("OFF_SCREEN_PRERASTER");
         if (feature.isSupportedByFramework()) {
-            return webSettings.getDisabledActionModeMenuItems();
+            webSettings.setOffscreenPreRaster(z);
+        } else if (feature.isSupportedByWebView()) {
+            getAdapter(webSettings).setOffscreenPreRaster(z);
+        } else {
+            throw WebViewFeatureInternal.getUnsupportedOperationException();
         }
-        if (feature.isSupportedByWebView()) {
-            return getAdapter(webSettings).getDisabledActionModeMenuItems();
-        }
-        throw WebViewFeatureInternal.getUnsupportedOperationException();
     }
 
-    private static WebSettingsAdapter getAdapter(WebSettings webSettings) {
-        return WebViewGlueCommunicator.getCompatConverter().convertSettings(webSettings);
+    @SuppressLint({"NewApi"})
+    public static void setSafeBrowsingEnabled(WebSettings webSettings, boolean z) {
+        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_ENABLE");
+        if (feature.isSupportedByFramework()) {
+            webSettings.setSafeBrowsingEnabled(z);
+        } else if (feature.isSupportedByWebView()) {
+            getAdapter(webSettings).setSafeBrowsingEnabled(z);
+        } else {
+            throw WebViewFeatureInternal.getUnsupportedOperationException();
+        }
     }
 }

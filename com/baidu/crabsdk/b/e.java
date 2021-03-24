@@ -4,74 +4,66 @@ import android.os.Process;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class e {
-    public static String x() {
-        Throwable th;
-        BufferedReader bufferedReader;
+    public static String a() {
         FileReader fileReader;
-        BufferedReader bufferedReader2;
         StringBuilder sb = new StringBuilder();
+        BufferedReader bufferedReader = null;
         try {
-            fileReader = new FileReader("/proc/" + Process.myPid() + "/stat");
             try {
-                bufferedReader2 = new BufferedReader(fileReader, 8192);
-                while (true) {
-                    try {
-                        String readLine = bufferedReader2.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine).append("\n");
-                    } catch (Exception e) {
-                        if (bufferedReader2 != null) {
-                            try {
-                                bufferedReader2.close();
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
-                            }
-                        }
-                        if (fileReader != null) {
-                            fileReader.close();
-                        }
-                        return sb.toString();
-                    } catch (Throwable th2) {
-                        th = th2;
-                        bufferedReader = bufferedReader2;
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                                throw th;
-                            }
-                        }
-                        if (fileReader != null) {
-                            fileReader.close();
-                        }
-                        throw th;
-                    }
-                }
-                bufferedReader2.close();
-                fileReader.close();
+                fileReader = new FileReader("/proc/" + Process.myPid() + "/stat");
                 try {
+                    BufferedReader bufferedReader2 = new BufferedReader(fileReader, 8192);
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            sb.append(readLine);
+                            sb.append("\n");
+                        } catch (Exception unused) {
+                            bufferedReader = bufferedReader2;
+                            if (bufferedReader != null) {
+                                bufferedReader.close();
+                            }
+                            if (fileReader != null) {
+                                fileReader.close();
+                            }
+                            return sb.toString();
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader = bufferedReader2;
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                    throw th;
+                                }
+                            }
+                            if (fileReader != null) {
+                                fileReader.close();
+                            }
+                            throw th;
+                        }
+                    }
                     bufferedReader2.close();
                     fileReader.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
+                    bufferedReader2.close();
+                    fileReader.close();
+                } catch (Exception unused2) {
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (Exception e5) {
-                bufferedReader2 = null;
-            } catch (Throwable th3) {
-                th = th3;
-                bufferedReader = null;
+            } catch (IOException e3) {
+                e3.printStackTrace();
             }
-        } catch (Exception e6) {
-            bufferedReader2 = null;
+        } catch (Exception unused3) {
             fileReader = null;
-        } catch (Throwable th4) {
-            th = th4;
-            bufferedReader = null;
+        } catch (Throwable th3) {
+            th = th3;
             fileReader = null;
         }
         return sb.toString();

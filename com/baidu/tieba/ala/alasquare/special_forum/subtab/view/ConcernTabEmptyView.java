@@ -6,50 +6,58 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.alasquare.special_forum.data.e;
-/* loaded from: classes9.dex */
-public class ConcernTabEmptyView extends com.baidu.tieba.card.b<e> {
-    private ViewHolder gJU;
+import d.b.i0.t.d.f.c.e;
+import d.b.i0.x.b;
+/* loaded from: classes4.dex */
+public class ConcernTabEmptyView extends b<e> {
+    public ViewHolder m;
+
+    /* loaded from: classes4.dex */
+    public static class ViewHolder extends TypeAdapter.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public View f14910a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public TextView f14911b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public View f14912c;
+
+        public ViewHolder(View view) {
+            super(view);
+            this.f14910a = view;
+            this.f14911b = (TextView) view.findViewById(R.id.tv_empty);
+            this.f14912c = this.f14910a.findViewById(R.id.devider_line);
+        }
+    }
 
     public ConcernTabEmptyView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gJU = new ViewHolder(getView());
-        onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.m = new ViewHolder(m());
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.card.b
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.gJU.textView, R.color.CAM_X0109);
-        ap.setBackgroundColor(this.gJU.bUO, R.color.CAM_X0204);
-    }
-
-    @Override // com.baidu.tieba.card.b
-    public int getLayout() {
+    @Override // d.b.i0.x.b
+    public int h() {
         return R.layout.special_bar_concern_empty;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.b
-    public void a(e eVar) {
+    @Override // d.b.i0.x.b
+    public void o(TbPageContext<?> tbPageContext, int i) {
+        SkinManager.setViewTextColor(this.m.f14911b, R.color.CAM_X0109);
+        SkinManager.setBackgroundColor(this.m.f14912c, R.color.CAM_X0204);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
     }
 
-    /* loaded from: classes9.dex */
-    public static class ViewHolder extends TypeAdapter.ViewHolder {
-        public View bUO;
-        public View eoR;
-        public TextView textView;
-
-        public ViewHolder(View view) {
-            super(view);
-            this.eoR = view;
-            this.textView = (TextView) this.eoR.findViewById(R.id.tv_empty);
-            this.bUO = this.eoR.findViewById(R.id.devider_line);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.i0.x.b
+    /* renamed from: u */
+    public void n(e eVar) {
     }
 }

@@ -11,166 +11,184 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
-public class FoldedGridView extends BdGridView implements AdapterView.OnItemClickListener, e {
-    private static final int jAa = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds48);
-    private View jAb;
-    private int jAc;
-    private int jAd;
-    private boolean jAe;
-    private com.baidu.tieba.frs.game.strategy.view.a jAf;
-    private a jAg;
-    private int jAh;
-    private Drawable jAi;
+import d.b.i0.p0.s1.a.e.e;
+/* loaded from: classes4.dex */
+public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemClickListener {
+    public static final int m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds48);
 
-    /* loaded from: classes2.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public View f16339e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f16340f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f16341g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f16342h;
+    public d.b.i0.p0.s1.a.e.a i;
+    public a j;
+    public int k;
+    public Drawable l;
+
+    /* loaded from: classes4.dex */
     public interface a {
-        void l(int i, Object obj);
+        void a(int i, Object obj);
     }
 
     public FoldedGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jAc = 0;
-        this.jAd = 0;
-        this.jAe = true;
-        this.jAh = 0;
-        init();
+        this.f16340f = 0;
+        this.f16341g = 0;
+        this.f16342h = true;
+        this.k = 0;
+        c();
     }
 
-    public FoldedGridView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.jAc = 0;
-        this.jAd = 0;
-        this.jAe = true;
-        this.jAh = 0;
-        init();
-    }
-
-    public FoldedGridView(Context context) {
-        super(context);
-        this.jAc = 0;
-        this.jAd = 0;
-        this.jAe = true;
-        this.jAh = 0;
-        init();
-    }
-
-    private void init() {
-        setSelector(new ColorDrawable(0));
-        setOnItemClickListener(this);
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.jAb != null) {
-            cX(this.jAb);
-        }
-        if (this.jAh != 0) {
-            this.jAi = ap.getDrawable(i, this.jAh);
-        }
-    }
-
-    public void setArrowResouceId(int i, int i2) {
-        this.jAc = i;
-        this.jAd = i2;
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public void setExpandedBottomShadeResourceId(int i) {
-        this.jAh = i;
-        if (this.jAh == 0) {
-            this.jAi = ap.getDrawable(i);
-        } else {
-            this.jAi = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.game.strategy.view.e
-    public View getArrowView() {
-        if (this.jAb == null) {
-            FrameLayout frameLayout = new FrameLayout(getContext());
-            ImageView imageView = new ImageView(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 21;
-            frameLayout.addView(imageView, layoutParams);
-            this.jAb = frameLayout;
-        }
-        return this.jAb;
-    }
-
-    @Override // com.baidu.tieba.frs.game.strategy.view.e
-    public void cX(View view) {
+    @Override // d.b.i0.p0.s1.a.e.e
+    public void a(View view) {
         if (view instanceof FrameLayout) {
             FrameLayout frameLayout = (FrameLayout) view;
-            if (frameLayout.getChildCount() > 0 && (frameLayout.getChildAt(0) instanceof ImageView)) {
-                ImageView imageView = (ImageView) frameLayout.getChildAt(0);
-                if (this.jAe) {
-                    imageView.setImageDrawable(ap.getDrawable(this.jAc));
-                } else {
-                    imageView.setImageDrawable(ap.getDrawable(this.jAd));
-                }
+            if (frameLayout.getChildCount() <= 0 || !(frameLayout.getChildAt(0) instanceof ImageView)) {
+                return;
+            }
+            ImageView imageView = (ImageView) frameLayout.getChildAt(0);
+            if (this.f16342h) {
+                imageView.setImageDrawable(SkinManager.getDrawable(this.f16340f));
+            } else {
+                imageView.setImageDrawable(SkinManager.getDrawable(this.f16341g));
             }
         }
     }
 
-    @Override // com.baidu.tieba.frs.game.strategy.view.e
-    public boolean cIg() {
+    @Override // d.b.i0.p0.s1.a.e.e
+    public boolean b() {
         return getNumColumns() > 0;
     }
 
-    @Override // com.baidu.tieba.frs.game.strategy.view.e
+    public final void c() {
+        setSelector(new ColorDrawable(0));
+        setOnItemClickListener(this);
+    }
+
+    public void d(int i) {
+        View view = this.f16339e;
+        if (view != null) {
+            a(view);
+        }
+        int i2 = this.k;
+        if (i2 != 0) {
+            this.l = SkinManager.getDrawable(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Drawable drawable;
+        super.dispatchDraw(canvas);
+        int height = getHeight();
+        if (this.f16342h || (drawable = this.l) == null) {
+            return;
+        }
+        drawable.setBounds(0, (height - m) - getPaddingBottom(), getWidth(), height - getPaddingBottom());
+        this.l.draw(canvas);
+    }
+
+    public final void e() {
+        this.f16342h = !this.f16342h;
+        a(this.f16339e);
+        d.b.i0.p0.s1.a.e.a aVar = this.i;
+        if (aVar != null) {
+            aVar.k(this.f16342h);
+            this.i.notifyDataSetChanged();
+            invalidate();
+        }
+    }
+
+    @Override // d.b.i0.p0.s1.a.e.e
     public int getArrowIndex() {
-        if (cIg()) {
+        if (b()) {
             return getNumColumns() - 1;
         }
         return -1;
     }
 
-    public void setFoldAdapter(com.baidu.tieba.frs.game.strategy.view.a aVar) {
-        this.jAf = aVar;
-        if (aVar != null) {
-            aVar.a(this);
+    @Override // d.b.i0.p0.s1.a.e.e
+    public View getArrowView() {
+        if (this.f16339e == null) {
+            FrameLayout frameLayout = new FrameLayout(getContext());
+            ImageView imageView = new ImageView(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 21;
+            frameLayout.addView(imageView, layoutParams);
+            this.f16339e = frameLayout;
         }
-        setAdapter((ListAdapter) aVar);
+        return this.f16339e;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (view == this.jAb) {
-            if (this.jAf != null && this.jAf.cIi()) {
-                cIh();
+        d.b.i0.p0.s1.a.e.a aVar;
+        if (view == this.f16339e) {
+            d.b.i0.p0.s1.a.e.a aVar2 = this.i;
+            if (aVar2 == null || !aVar2.h()) {
+                return;
             }
-        } else if (this.jAg != null && this.jAf != null) {
-            int zN = this.jAf.zN(i);
-            this.jAf.zM(zN);
-            this.jAg.l(zN, this.jAf.getItem(i));
+            e();
+        } else if (this.j == null || (aVar = this.i) == null) {
+        } else {
+            int f2 = aVar.f(i);
+            this.i.j(f2);
+            this.j.a(f2, this.i.getItem(i));
         }
     }
 
-    private void cIh() {
-        this.jAe = !this.jAe;
-        cX(this.jAb);
-        if (this.jAf != null) {
-            this.jAf.rl(this.jAe);
-            this.jAf.notifyDataSetChanged();
-            invalidate();
+    public void setArrowResouceId(int i, int i2) {
+        this.f16340f = i;
+        this.f16341g = i2;
+        d(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void setExpandedBottomShadeResourceId(int i) {
+        this.k = i;
+        if (i == 0) {
+            this.l = SkinManager.getDrawable(i);
+        } else {
+            this.l = null;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        int height = getHeight();
-        if (!this.jAe && this.jAi != null) {
-            this.jAi.setBounds(0, (height - jAa) - getPaddingBottom(), getWidth(), height - getPaddingBottom());
-            this.jAi.draw(canvas);
+    public void setFoldAdapter(d.b.i0.p0.s1.a.e.a aVar) {
+        this.i = aVar;
+        if (aVar != null) {
+            aVar.i(this);
         }
+        setAdapter((ListAdapter) aVar);
     }
 
     public void setFoldGridViewOnItemClickListener(a aVar) {
-        this.jAg = aVar;
+        this.j = aVar;
+    }
+
+    public FoldedGridView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f16340f = 0;
+        this.f16341g = 0;
+        this.f16342h = true;
+        this.k = 0;
+        c();
+    }
+
+    public FoldedGridView(Context context) {
+        super(context);
+        this.f16340f = 0;
+        this.f16341g = 0;
+        this.f16342h = true;
+        this.k = 0;
+        c();
     }
 }

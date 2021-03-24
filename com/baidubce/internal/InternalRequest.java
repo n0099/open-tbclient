@@ -7,17 +7,17 @@ import com.baidubce.model.AbstractBceRequest;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class InternalRequest<T extends AbstractBceRequest> {
-    private RestartableInputStream content;
-    private BceCredentials credentials;
-    private boolean expectContinueEnabled;
-    private HttpMethodName httpMethod;
-    private T request;
-    private SignOptions signOptions;
-    private URI uri;
-    private Map<String, String> parameters = new HashMap();
-    private Map<String, String> headers = new HashMap();
+    public RestartableInputStream content;
+    public BceCredentials credentials;
+    public boolean expectContinueEnabled;
+    public HttpMethodName httpMethod;
+    public T request;
+    public SignOptions signOptions;
+    public URI uri;
+    public Map<String, String> parameters = new HashMap();
+    public Map<String, String> headers = new HashMap();
 
     public InternalRequest(HttpMethodName httpMethodName, URI uri) {
         this.httpMethod = httpMethodName;
@@ -28,32 +28,56 @@ public class InternalRequest<T extends AbstractBceRequest> {
         this.headers.put(str, str2);
     }
 
-    public Map<String, String> getHeaders() {
-        return this.headers;
-    }
-
     public void addParameter(String str, String str2) {
         this.parameters.put(str, str2);
-    }
-
-    public Map<String, String> getParameters() {
-        return this.parameters;
-    }
-
-    public HttpMethodName getHttpMethod() {
-        return this.httpMethod;
-    }
-
-    public URI getUri() {
-        return this.uri;
     }
 
     public RestartableInputStream getContent() {
         return this.content;
     }
 
+    public BceCredentials getCredentials() {
+        return this.credentials;
+    }
+
+    public Map<String, String> getHeaders() {
+        return this.headers;
+    }
+
+    public HttpMethodName getHttpMethod() {
+        return this.httpMethod;
+    }
+
+    public Map<String, String> getParameters() {
+        return this.parameters;
+    }
+
+    public T getRequest() {
+        return this.request;
+    }
+
+    public SignOptions getSignOptions() {
+        return this.signOptions;
+    }
+
+    public URI getUri() {
+        return this.uri;
+    }
+
+    public boolean isExpectContinueEnabled() {
+        return this.expectContinueEnabled;
+    }
+
     public void setContent(RestartableInputStream restartableInputStream) {
         this.content = restartableInputStream;
+    }
+
+    public void setCredentials(BceCredentials bceCredentials) {
+        this.credentials = bceCredentials;
+    }
+
+    public void setExpectContinueEnabled(boolean z) {
+        this.expectContinueEnabled = z;
     }
 
     public void setHeaders(Map<String, String> map) {
@@ -66,36 +90,12 @@ public class InternalRequest<T extends AbstractBceRequest> {
         this.parameters.putAll(map);
     }
 
-    public BceCredentials getCredentials() {
-        return this.credentials;
-    }
-
-    public void setCredentials(BceCredentials bceCredentials) {
-        this.credentials = bceCredentials;
-    }
-
-    public SignOptions getSignOptions() {
-        return this.signOptions;
+    public void setRequest(T t) {
+        this.request = t;
     }
 
     public void setSignOptions(SignOptions signOptions) {
         this.signOptions = signOptions;
-    }
-
-    public boolean isExpectContinueEnabled() {
-        return this.expectContinueEnabled;
-    }
-
-    public void setExpectContinueEnabled(boolean z) {
-        this.expectContinueEnabled = z;
-    }
-
-    public T getRequest() {
-        return this.request;
-    }
-
-    public void setRequest(T t) {
-        this.request = t;
     }
 
     public String toString() {

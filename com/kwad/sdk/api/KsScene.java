@@ -7,19 +7,21 @@ import java.io.Serializable;
 import org.json.JSONObject;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
-        private KsScene scene = (KsScene) Loader.get().newInstance(KsScene.class);
+        public KsScene scene;
 
         @KsAdSdkApi
         @Keep
         public Builder(long j) {
-            this.scene.setPosId(j);
+            KsScene ksScene = (KsScene) Loader.get().newInstance(KsScene.class);
+            this.scene = ksScene;
+            ksScene.setPosId(j);
         }
 
         @KsAdSdkApi

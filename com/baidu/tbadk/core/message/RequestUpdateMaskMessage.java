@@ -1,19 +1,18 @@
 package com.baidu.tbadk.core.message;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.UpdateMask.DataReq;
 import protobuf.UpdateMask.UpdateMaskReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class RequestUpdateMaskMessage extends TbSocketMessage {
-    private static final int FALSE = 0;
-    private static final int TRUE = 1;
-    private String gids;
-    private int isAdd;
-    private int isMask;
+    public static final int FALSE = 0;
+    public static final int TRUE = 1;
+    public String gids;
+    public int isAdd;
+    public int isMask;
 
     public RequestUpdateMaskMessage() {
-        super(CmdConfigSocket.CMD_UPDATE_MASK);
+        super(104101);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -27,8 +26,8 @@ public class RequestUpdateMaskMessage extends TbSocketMessage {
         return builder2.build(false);
     }
 
-    public void setSettingMask(boolean z) {
-        this.isMask = !z ? 1 : 0;
+    public boolean isAdd() {
+        return this.isAdd == 0;
     }
 
     public boolean isSettingMask() {
@@ -43,7 +42,7 @@ public class RequestUpdateMaskMessage extends TbSocketMessage {
         this.isAdd = !z ? 1 : 0;
     }
 
-    public boolean isAdd() {
-        return this.isAdd == 0;
+    public void setSettingMask(boolean z) {
+        this.isMask = !z ? 1 : 0;
     }
 }

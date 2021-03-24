@@ -1,22 +1,24 @@
 package com.baidu.tieba.model.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.CheckRealName.CheckRealNameResIdl;
-/* loaded from: classes.dex */
+import tbclient.Error;
+/* loaded from: classes3.dex */
 public class CheckRealNameSocketResponseMessage extends SocketResponsedMessage {
     public CheckRealNameSocketResponseMessage() {
-        super(CmdConfigSocket.CMD_CHECK_REAL_NAME);
+        super(309456);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        Error error;
         CheckRealNameResIdl checkRealNameResIdl = (CheckRealNameResIdl) new Wire(new Class[0]).parseFrom(bArr, CheckRealNameResIdl.class);
-        if (bArr != null && checkRealNameResIdl.error != null) {
-            setError(checkRealNameResIdl.error.errorno.intValue());
-            setErrorString(checkRealNameResIdl.error.errmsg);
+        if (bArr == null || (error = checkRealNameResIdl.error) == null) {
+            return;
         }
+        setError(error.errorno.intValue());
+        setErrorString(checkRealNameResIdl.error.errmsg);
     }
 }

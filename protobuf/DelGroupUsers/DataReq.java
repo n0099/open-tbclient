@@ -11,27 +11,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String userIds;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-            } else {
-                this.groupId = builder.groupId;
-            }
-            if (builder.userIds == null) {
-                this.userIds = "";
-                return;
-            } else {
-                this.userIds = builder.userIds;
-                return;
-            }
-        }
-        this.groupId = builder.groupId;
-        this.userIds = builder.userIds;
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long groupId;
         public String userIds;
@@ -41,10 +21,11 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.groupId = dataReq.groupId;
-                this.userIds = dataReq.userIds;
+            if (dataReq == null) {
+                return;
             }
+            this.groupId = dataReq.groupId;
+            this.userIds = dataReq.userIds;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,5 +33,27 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.groupId;
+            if (l == null) {
+                this.groupId = DEFAULT_GROUPID;
+            } else {
+                this.groupId = l;
+            }
+            String str = builder.userIds;
+            if (str == null) {
+                this.userIds = "";
+                return;
+            } else {
+                this.userIds = str;
+                return;
+            }
+        }
+        this.groupId = builder.groupId;
+        this.userIds = builder.userIds;
     }
 }

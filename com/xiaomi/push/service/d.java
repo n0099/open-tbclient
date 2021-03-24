@@ -1,210 +1,38 @@
 package com.xiaomi.push.service;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Message;
-import android.os.RemoteException;
-import android.text.TextUtils;
-import com.xiaomi.push.fl;
-import com.xiaomi.push.gh;
-import com.xiaomi.push.gi;
-import com.xiaomi.push.gj;
-import com.xiaomi.push.gl;
-import com.xiaomi.push.service.ap;
-import java.util.Collection;
-import java.util.Iterator;
-/* loaded from: classes5.dex */
+import com.xiaomi.push.ie;
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private p f8562a = new p();
+    public static a f41025a;
 
-    public static String a(ap.b bVar) {
-        return !"9".equals(bVar.g) ? bVar.f859a + ".permission.MIPUSH_RECEIVE" : bVar.f859a + ".permission.MIMC_RECEIVE";
+    /* renamed from: a  reason: collision with other field name */
+    public static b f946a;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        boolean a(ie ieVar);
     }
 
-    private static void a(Context context, Intent intent, ap.b bVar) {
-        if ("com.xiaomi.xmsf".equals(context.getPackageName())) {
-            context.sendBroadcast(intent);
+    /* loaded from: classes7.dex */
+    public interface b {
+    }
+
+    public static void a(b bVar) {
+        f946a = bVar;
+    }
+
+    public static boolean a(ie ieVar) {
+        String str;
+        if (f41025a == null || ieVar == null) {
+            str = "rc params is null, not cpra";
+        } else if (com.xiaomi.push.l.m517a(com.xiaomi.push.t.m617a())) {
+            return f41025a.a(ieVar);
         } else {
-            context.sendBroadcast(intent, a(bVar));
+            str = "rc app not permission to cpra";
         }
-    }
-
-    ap.b a(fl flVar) {
-        Collection<ap.b> m549a = ap.a().m549a(Integer.toString(flVar.a()));
-        if (m549a.isEmpty()) {
-            return null;
-        }
-        Iterator<ap.b> it = m549a.iterator();
-        if (m549a.size() == 1) {
-            return it.next();
-        }
-        String g = flVar.g();
-        while (it.hasNext()) {
-            ap.b next = it.next();
-            if (TextUtils.equals(g, next.f862b)) {
-                return next;
-            }
-        }
-        return null;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0035  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    ap.b a(gj gjVar) {
-        Collection<ap.b> m549a = ap.a().m549a(gjVar.k());
-        if (m549a.isEmpty()) {
-            return null;
-        }
-        Iterator<ap.b> it = m549a.iterator();
-        if (m549a.size() == 1) {
-            return it.next();
-        }
-        String m = gjVar.m();
-        String l = gjVar.l();
-        while (it.hasNext()) {
-            ap.b next = it.next();
-            if (TextUtils.equals(m, next.f862b) || TextUtils.equals(l, next.f862b)) {
-                return next;
-            }
-            while (it.hasNext()) {
-            }
-        }
-        return null;
-    }
-
-    @SuppressLint({"WrongConstant"})
-    public void a(Context context) {
-        Intent intent = new Intent();
-        intent.setAction("com.xiaomi.push.service_started");
-        if (com.xiaomi.push.l.c()) {
-            intent.addFlags(16777216);
-        }
-        context.sendBroadcast(intent);
-    }
-
-    public void a(Context context, ap.b bVar, int i) {
-        if ("5".equalsIgnoreCase(bVar.g)) {
-            return;
-        }
-        Intent intent = new Intent();
-        intent.setAction("com.xiaomi.push.channel_closed");
-        intent.setPackage(bVar.f859a);
-        intent.putExtra(at.r, bVar.g);
-        intent.putExtra("ext_reason", i);
-        intent.putExtra(at.p, bVar.f862b);
-        intent.putExtra(at.C, bVar.i);
-        if (bVar.f853a == null || !"9".equals(bVar.g)) {
-            a(context, intent, bVar);
-            return;
-        }
-        try {
-            bVar.f853a.send(Message.obtain(null, 17, intent));
-        } catch (RemoteException e) {
-            bVar.f853a = null;
-            com.xiaomi.channel.commonutils.logger.b.m58a("peer may died: " + bVar.f862b.substring(bVar.f862b.lastIndexOf(64)));
-        }
-    }
-
-    public void a(Context context, ap.b bVar, String str, String str2) {
-        if ("5".equalsIgnoreCase(bVar.g)) {
-            com.xiaomi.channel.commonutils.logger.b.d("mipush kicked by server");
-            return;
-        }
-        Intent intent = new Intent();
-        intent.setAction("com.xiaomi.push.kicked");
-        intent.setPackage(bVar.f859a);
-        intent.putExtra("ext_kick_type", str);
-        intent.putExtra("ext_kick_reason", str2);
-        intent.putExtra("ext_chid", bVar.g);
-        intent.putExtra(at.p, bVar.f862b);
-        intent.putExtra(at.C, bVar.i);
-        a(context, intent, bVar);
-    }
-
-    public void a(Context context, ap.b bVar, boolean z, int i, String str) {
-        if ("5".equalsIgnoreCase(bVar.g)) {
-            this.f8562a.a(context, bVar, z, i, str);
-            return;
-        }
-        Intent intent = new Intent();
-        intent.setAction("com.xiaomi.push.channel_opened");
-        intent.setPackage(bVar.f859a);
-        intent.putExtra("ext_succeeded", z);
-        if (!z) {
-            intent.putExtra("ext_reason", i);
-        }
-        if (!TextUtils.isEmpty(str)) {
-            intent.putExtra("ext_reason_msg", str);
-        }
-        intent.putExtra("ext_chid", bVar.g);
-        intent.putExtra(at.p, bVar.f862b);
-        intent.putExtra(at.C, bVar.i);
-        a(context, intent, bVar);
-    }
-
-    public void a(XMPushService xMPushService, String str, fl flVar) {
-        ap.b a2 = a(flVar);
-        if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.d("error while notify channel closed! channel " + str + " not registered");
-        } else if ("5".equalsIgnoreCase(str)) {
-            this.f8562a.a(xMPushService, flVar, a2);
-        } else {
-            String str2 = a2.f859a;
-            Intent intent = new Intent();
-            intent.setAction("com.xiaomi.push.new_msg");
-            intent.setPackage(str2);
-            intent.putExtra("ext_chid", str);
-            intent.putExtra("ext_raw_packet", flVar.m289a(a2.h));
-            intent.putExtra(at.C, a2.i);
-            intent.putExtra(at.v, a2.h);
-            if (a2.f853a != null) {
-                try {
-                    a2.f853a.send(Message.obtain(null, 17, intent));
-                    return;
-                } catch (RemoteException e) {
-                    a2.f853a = null;
-                    com.xiaomi.channel.commonutils.logger.b.m58a("peer may died: " + a2.f862b.substring(a2.f862b.lastIndexOf(64)));
-                }
-            }
-            if ("com.xiaomi.xmsf".equals(str2)) {
-                return;
-            }
-            a(xMPushService, intent, a2);
-        }
-    }
-
-    public void a(XMPushService xMPushService, String str, gj gjVar) {
-        String str2;
-        ap.b a2 = a(gjVar);
-        if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.d("error while notify channel closed! channel " + str + " not registered");
-        } else if ("5".equalsIgnoreCase(str)) {
-            this.f8562a.a(xMPushService, gjVar, a2);
-        } else {
-            String str3 = a2.f859a;
-            if (gjVar instanceof gi) {
-                str2 = "com.xiaomi.push.new_msg";
-            } else if (gjVar instanceof gh) {
-                str2 = "com.xiaomi.push.new_iq";
-            } else if (!(gjVar instanceof gl)) {
-                com.xiaomi.channel.commonutils.logger.b.d("unknown packet type, drop it");
-                return;
-            } else {
-                str2 = "com.xiaomi.push.new_pres";
-            }
-            Intent intent = new Intent();
-            intent.setAction(str2);
-            intent.setPackage(str3);
-            intent.putExtra("ext_chid", str);
-            intent.putExtra("ext_packet", gjVar.a());
-            intent.putExtra(at.C, a2.i);
-            intent.putExtra(at.v, a2.h);
-            a(xMPushService, intent, a2);
-        }
+        com.xiaomi.channel.commonutils.logger.b.m51a(str);
+        return false;
     }
 }

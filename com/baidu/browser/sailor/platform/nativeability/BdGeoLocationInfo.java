@@ -3,19 +3,19 @@ package com.baidu.browser.sailor.platform.nativeability;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import com.baidu.browser.core.INoProGuard;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class BdGeoLocationInfo implements INoProGuard {
     public static final String COOR_TYPE_GCJ = "gcj02";
-    private double mLongitude = 0.0d;
-    private double mLatitude = 0.0d;
-    private double mRadius = 100.0d;
-    private long mTime = 0;
-    private String mProvince = "";
-    private String mCity = "";
-    private String mDistrict = "";
-    private String mStreet = "";
-    private String mStreetNumber = "";
-    private String mCityCode = "";
+    public double mLongitude = 0.0d;
+    public double mLatitude = 0.0d;
+    public double mRadius = 100.0d;
+    public long mTime = 0;
+    public String mProvince = "";
+    public String mCity = "";
+    public String mDistrict = "";
+    public String mStreet = "";
+    public String mStreetNumber = "";
+    public String mCityCode = "";
 
     public String getCity() {
         return this.mCity;
@@ -82,12 +82,12 @@ public class BdGeoLocationInfo implements INoProGuard {
         this.mDistrict = str;
     }
 
-    public void setLatitude(double d) {
-        this.mLatitude = d;
+    public void setLatitude(double d2) {
+        this.mLatitude = d2;
     }
 
-    public void setLongitude(double d) {
-        this.mLongitude = d;
+    public void setLongitude(double d2) {
+        this.mLongitude = d2;
     }
 
     public void setProvince(String str) {
@@ -97,8 +97,8 @@ public class BdGeoLocationInfo implements INoProGuard {
         this.mProvince = str;
     }
 
-    public void setRadius(double d) {
-        this.mRadius = d;
+    public void setRadius(double d2) {
+        this.mRadius = d2;
     }
 
     public void setStreet(String str) {

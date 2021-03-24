@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.request.Type;
@@ -14,12 +15,36 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class NotifyMessageHandler {
-    private static final String TAG = "NotifyMessageHandler";
+    public static final String TAG = "NotifyMessageHandler";
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0045  */
-    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r2v4, types: [T, java.lang.Long] */
+    public static void handleConfigMessage(Context context, JSONObject jSONObject) throws JSONException {
+        ArrayList<ChatMsg> arrayList;
+        LogUtils.i(TAG, "handleMessage Config:" + jSONObject.toString());
+        JSONArray jSONArray = new JSONArray();
+        try {
+            JSONArray jSONArray2 = jSONObject.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
+            for (int i = 0; i < jSONArray2.length(); i++) {
+                jSONArray.put(jSONArray2.getJSONObject(i));
+            }
+        } catch (JSONException e2) {
+            LogUtils.e(TAG, "Exception ", e2);
+            arrayList = null;
+        }
+        if (jSONArray.length() == 0) {
+            return;
+        }
+        Type type = new Type();
+        type.t = 0L;
+        arrayList = MessageParser.parserMessage(context, jSONArray, type, true, true);
+        ChatMsgManagerImpl.getInstance(context).persisConfigMsgIds(arrayList);
+        ChatMsgManagerImpl.getInstance(context).deliverConfigMessage(arrayList);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0089  */
+    /* JADX WARN: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -31,8 +56,8 @@ public abstract class NotifyMessageHandler {
         if (i == 0 && jSONObject.has("msgid")) {
             try {
                 j = jSONObject.getLong("msgid");
-            } catch (JSONException e) {
-                LogUtils.i(TAG, "JSONException:" + e.getMessage());
+            } catch (JSONException e2) {
+                LogUtils.i(TAG, "JSONException:" + e2.getMessage());
             }
             if (i != 0 || i == 2) {
                 generate = Generator.generate(context, 5);
@@ -80,43 +105,22 @@ public abstract class NotifyMessageHandler {
         });
     }
 
-    /* JADX WARN: Type inference failed for: r3v2, types: [T, java.lang.Long] */
-    public static void handleConfigMessage(Context context, JSONObject jSONObject) throws JSONException {
-        LogUtils.i(TAG, "handleMessage Config:" + jSONObject.toString());
-        JSONArray jSONArray = new JSONArray();
-        ArrayList<ChatMsg> arrayList = null;
-        try {
-            JSONArray jSONArray2 = jSONObject.getJSONArray("messages");
-            for (int i = 0; i < jSONArray2.length(); i++) {
-                jSONArray.put(jSONArray2.getJSONObject(i));
-            }
-        } catch (JSONException e) {
-            LogUtils.e(TAG, "Exception ", e);
-        }
-        if (jSONArray.length() != 0) {
-            Type type = new Type();
-            type.t = 0L;
-            arrayList = MessageParser.parserMessage(context, jSONArray, type, true, true);
-            ChatMsgManagerImpl.getInstance(context).persisConfigMsgIds(arrayList);
-            ChatMsgManagerImpl.getInstance(context).deliverConfigMessage(arrayList);
-        }
-    }
-
     public static void handleMediaNotifyMessage(Context context, JSONObject jSONObject) {
         ChatMsgManagerImpl.getInstance(context).handleMediaNotifyMessage(jSONObject);
     }
 
     public static void handleRtcNotifyMessage(Context context, JSONObject jSONObject) {
-        if (context == null || jSONObject == null) {
-            LogUtils.i(TAG, "handleRtcNotifyMessage context == null || msgobj == null ");
-            return;
+        if (context != null && jSONObject != null) {
+            try {
+                LogUtils.i(TAG, "handleRtcNotifyMessage context ！= null && msgobj ！= null ");
+                Class<?> cls = Class.forName("com.baidu.android.imrtc.BIMRtcManager");
+                cls.getMethod("notifyParse", JSONObject.class).invoke(cls, jSONObject);
+                return;
+            } catch (Throwable th) {
+                LogUtils.e(TAG, "handleRtcNotifyMessage ClassNotFoundException BIMRtcManager...", th);
+                return;
+            }
         }
-        try {
-            LogUtils.i(TAG, "handleRtcNotifyMessage context ！= null && msgobj ！= null ");
-            Class<?> cls = Class.forName("com.baidu.android.imrtc.BIMRtcManager");
-            cls.getMethod("notifyParse", JSONObject.class).invoke(cls, jSONObject);
-        } catch (Throwable th) {
-            LogUtils.e(TAG, "handleRtcNotifyMessage ClassNotFoundException BIMRtcManager...", th);
-        }
+        LogUtils.i(TAG, "handleRtcNotifyMessage context == null || msgobj == null ");
     }
 }

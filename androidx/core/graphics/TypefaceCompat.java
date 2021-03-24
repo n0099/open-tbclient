@@ -13,20 +13,20 @@ import androidx.collection.LruCache;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.provider.FontsContractCompat;
-import com.xiaomi.mipush.sdk.Constants;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class TypefaceCompat {
-    private static final String TAG = "TypefaceCompat";
-    private static final LruCache<String, Typeface> sTypefaceCache;
-    private static final TypefaceCompatBaseImpl sTypefaceCompatImpl;
+    public static final String TAG = "TypefaceCompat";
+    public static final LruCache<String, Typeface> sTypefaceCache;
+    public static final TypefaceCompatBaseImpl sTypefaceCompatImpl;
 
     static {
-        if (Build.VERSION.SDK_INT >= 28) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 28) {
             sTypefaceCompatImpl = new TypefaceCompatApi28Impl();
-        } else if (Build.VERSION.SDK_INT >= 26) {
+        } else if (i >= 26) {
             sTypefaceCompatImpl = new TypefaceCompatApi26Impl();
-        } else if (Build.VERSION.SDK_INT >= 24 && TypefaceCompatApi24Impl.isUsable()) {
+        } else if (i >= 24 && TypefaceCompatApi24Impl.isUsable()) {
             sTypefaceCompatImpl = new TypefaceCompatApi24Impl();
         } else if (Build.VERSION.SDK_INT >= 21) {
             sTypefaceCompatImpl = new TypefaceCompatApi21Impl();
@@ -36,30 +36,19 @@ public class TypefaceCompat {
         sTypefaceCache = new LruCache<>(16);
     }
 
-    private TypefaceCompat() {
-    }
-
     @Nullable
-    public static Typeface findFromCache(@NonNull Resources resources, int i, int i2) {
-        return sTypefaceCache.get(createResourceUid(resources, i, i2));
-    }
-
-    private static String createResourceUid(Resources resources, int i, int i2) {
-        return resources.getResourcePackageName(i) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + i + Constants.ACCEPT_TIME_SEPARATOR_SERVER + i2;
+    public static Typeface createFromFontInfo(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+        return sTypefaceCompatImpl.createFromFontInfo(context, cancellationSignal, fontInfoArr, i);
     }
 
     @Nullable
     public static Typeface createFromResourcesFamilyXml(@NonNull Context context, @NonNull FontResourcesParserCompat.FamilyResourceEntry familyResourceEntry, @NonNull Resources resources, int i, int i2, @Nullable ResourcesCompat.FontCallback fontCallback, @Nullable Handler handler, boolean z) {
         Typeface createFromFontFamilyFilesResourceEntry;
-        boolean z2 = true;
         if (familyResourceEntry instanceof FontResourcesParserCompat.ProviderResourceEntry) {
             FontResourcesParserCompat.ProviderResourceEntry providerResourceEntry = (FontResourcesParserCompat.ProviderResourceEntry) familyResourceEntry;
-            if (z) {
-                if (providerResourceEntry.getFetchStrategy() != 0) {
-                    z2 = false;
-                }
-            } else if (fontCallback != null) {
-                z2 = false;
+            boolean z2 = false;
+            if (!z ? fontCallback == null : providerResourceEntry.getFetchStrategy() == 0) {
+                z2 = true;
             }
             createFromFontFamilyFilesResourceEntry = FontsContractCompat.getFontSync(context, providerResourceEntry.getRequest(), fontCallback, handler, z2, z ? providerResourceEntry.getTimeout() : -1, i2);
         } else {
@@ -87,8 +76,12 @@ public class TypefaceCompat {
         return createFromResourcesFontFile;
     }
 
+    public static String createResourceUid(Resources resources, int i, int i2) {
+        return resources.getResourcePackageName(i) + "-" + i + "-" + i2;
+    }
+
     @Nullable
-    public static Typeface createFromFontInfo(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
-        return sTypefaceCompatImpl.createFromFontInfo(context, cancellationSignal, fontInfoArr, i);
+    public static Typeface findFromCache(@NonNull Resources resources, int i, int i2) {
+        return sTypefaceCache.get(createResourceUid(resources, i, i2));
     }
 }

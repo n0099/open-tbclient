@@ -1,12 +1,12 @@
 package com.kwai.video.cache;
 
 import com.kwai.video.hodor.anotations.CalledByNative;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class OfflineCacheTask {
-    private long nativeTask = 0;
-    private OfflineCacheTaskListener taskListener;
+    public long nativeTask = 0;
+    public OfflineCacheTaskListener taskListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OfflineCacheTaskListener {
         void onCancelled();
 
@@ -34,47 +34,52 @@ public class OfflineCacheTask {
 
     @CalledByNative
     private void onCancelled() {
-        if (this.taskListener != null) {
-            this.taskListener.onCancelled();
+        OfflineCacheTaskListener offlineCacheTaskListener = this.taskListener;
+        if (offlineCacheTaskListener != null) {
+            offlineCacheTaskListener.onCancelled();
         }
     }
 
     @CalledByNative
     private void onFailed(int i) {
-        if (this.taskListener != null) {
-            this.taskListener.onFailed(i);
+        OfflineCacheTaskListener offlineCacheTaskListener = this.taskListener;
+        if (offlineCacheTaskListener != null) {
+            offlineCacheTaskListener.onFailed(i);
         }
     }
 
     @CalledByNative
     private void onProgress(long j, long j2) {
-        if (this.taskListener != null) {
-            this.taskListener.onProgress(j, j2);
+        OfflineCacheTaskListener offlineCacheTaskListener = this.taskListener;
+        if (offlineCacheTaskListener != null) {
+            offlineCacheTaskListener.onProgress(j, j2);
         }
     }
 
     @CalledByNative
     private void onStarted(long j, long j2, long j3) {
-        if (this.taskListener != null) {
-            this.taskListener.onStarted(j, j2, j3);
+        OfflineCacheTaskListener offlineCacheTaskListener = this.taskListener;
+        if (offlineCacheTaskListener != null) {
+            offlineCacheTaskListener.onStarted(j, j2, j3);
         }
     }
 
     @CalledByNative
     private void onStopped(long j, long j2, String str) {
-        if (this.taskListener != null) {
-            this.taskListener.onStopped(j, j2, str);
+        OfflineCacheTaskListener offlineCacheTaskListener = this.taskListener;
+        if (offlineCacheTaskListener != null) {
+            offlineCacheTaskListener.onStopped(j, j2, str);
         }
     }
 
     @CalledByNative
     private void onSuccessFul() {
-        if (this.taskListener != null) {
-            this.taskListener.onSuccessful();
+        OfflineCacheTaskListener offlineCacheTaskListener = this.taskListener;
+        if (offlineCacheTaskListener != null) {
+            offlineCacheTaskListener.onSuccessful();
         }
     }
 
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.kwai.video.cache.OfflineCacheTask$1] */
     public synchronized void releaseAsync() {
         final long j = this.nativeTask;
         new Thread() { // from class: com.kwai.video.cache.OfflineCacheTask.1
@@ -91,7 +96,6 @@ public class OfflineCacheTask {
         nativeRun(this.nativeTask);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void setNativeTask(long j) {
         this.nativeTask = j;
     }

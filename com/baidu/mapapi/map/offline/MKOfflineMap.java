@@ -3,11 +3,12 @@ package com.baidu.mapapi.map.offline;
 import com.baidu.mapsdkplatform.comapi.map.i;
 import com.baidu.mapsdkplatform.comapi.map.q;
 import com.baidu.mapsdkplatform.comapi.map.r;
+import com.baidu.mapsdkplatform.comapi.map.t;
 import com.baidu.mapsdkplatform.comapi.map.u;
 import com.baidu.mapsdkplatform.comapi.map.v;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MKOfflineMap {
     public static final int TYPE_DOWNLOAD_UPDATE = 0;
     public static final int TYPE_NETWORK_ERROR = 2;
@@ -15,24 +16,28 @@ public class MKOfflineMap {
     public static final int TYPE_VER_UPDATE = 4;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2073a = MKOfflineMap.class.getSimpleName();
-    private r b;
-    private MKOfflineMapListener c;
+    public static final String f7086a = "MKOfflineMap";
+
+    /* renamed from: b  reason: collision with root package name */
+    public r f7087b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public MKOfflineMapListener f7088c;
 
     public void destroy() {
-        this.b.d(0);
-        this.b.b((v) null);
-        this.b.b();
+        this.f7087b.d(0);
+        this.f7087b.b((v) null);
+        this.f7087b.b();
         i.b();
     }
 
     public ArrayList<MKOLUpdateElement> getAllUpdateInfo() {
-        ArrayList<u> e = this.b.e();
-        if (e == null) {
+        ArrayList<u> e2 = this.f7087b.e();
+        if (e2 == null) {
             return null;
         }
         ArrayList<MKOLUpdateElement> arrayList = new ArrayList<>();
-        Iterator<u> it = e.iterator();
+        Iterator<u> it = e2.iterator();
         while (it.hasNext()) {
             arrayList.add(OfflineMapUtil.getUpdatElementFromLocalMapElement(it.next().a()));
         }
@@ -40,12 +45,12 @@ public class MKOfflineMap {
     }
 
     public ArrayList<MKOLSearchRecord> getHotCityList() {
-        ArrayList<q> c = this.b.c();
-        if (c == null) {
+        ArrayList<q> c2 = this.f7087b.c();
+        if (c2 == null) {
             return null;
         }
         ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
-        Iterator<q> it = c.iterator();
+        Iterator<q> it = c2.iterator();
         while (it.hasNext()) {
             arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo(it.next()));
         }
@@ -53,12 +58,12 @@ public class MKOfflineMap {
     }
 
     public ArrayList<MKOLSearchRecord> getOfflineCityList() {
-        ArrayList<q> d = this.b.d();
-        if (d == null) {
+        ArrayList<q> d2 = this.f7087b.d();
+        if (d2 == null) {
             return null;
         }
         ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
-        Iterator<q> it = d.iterator();
+        Iterator<q> it = d2.iterator();
         while (it.hasNext()) {
             arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo(it.next()));
         }
@@ -66,11 +71,11 @@ public class MKOfflineMap {
     }
 
     public MKOLUpdateElement getUpdateInfo(int i) {
-        u g = this.b.g(i);
-        if (g == null) {
+        u g2 = this.f7087b.g(i);
+        if (g2 == null) {
             return null;
         }
-        return OfflineMapUtil.getUpdatElementFromLocalMapElement(g.a());
+        return OfflineMapUtil.getUpdatElementFromLocalMapElement(g2.a());
     }
 
     @Deprecated
@@ -81,45 +86,44 @@ public class MKOfflineMap {
     @Deprecated
     public int importOfflineData(boolean z) {
         int i;
-        int i2;
-        ArrayList<u> e = this.b.e();
-        if (e != null) {
-            int size = e.size();
-            i = size;
-            i2 = size;
+        ArrayList<u> e2 = this.f7087b.e();
+        int i2 = 0;
+        if (e2 != null) {
+            i2 = e2.size();
+            i = i2;
         } else {
             i = 0;
-            i2 = 0;
         }
-        this.b.a(z, true);
-        ArrayList<u> e2 = this.b.e();
-        if (e2 != null) {
-            i = e2.size();
+        this.f7087b.a(z, true);
+        ArrayList<u> e3 = this.f7087b.e();
+        if (e3 != null) {
+            i = e3.size();
         }
         return i - i2;
     }
 
     public boolean init(MKOfflineMapListener mKOfflineMapListener) {
         i.a();
-        this.b = r.a();
-        if (this.b == null) {
+        r a2 = r.a();
+        this.f7087b = a2;
+        if (a2 == null) {
             return false;
         }
-        this.b.a(new a(this));
-        this.c = mKOfflineMapListener;
+        a2.a(new a(this));
+        this.f7088c = mKOfflineMapListener;
         return true;
     }
 
     public boolean pause(int i) {
-        return this.b.c(i);
+        return this.f7087b.c(i);
     }
 
     public boolean remove(int i) {
-        return this.b.e(i);
+        return this.f7087b.e(i);
     }
 
     public ArrayList<MKOLSearchRecord> searchCity(String str) {
-        ArrayList<q> a2 = this.b.a(str);
+        ArrayList<q> a2 = this.f7087b.a(str);
         if (a2 == null) {
             return null;
         }
@@ -132,37 +136,39 @@ public class MKOfflineMap {
     }
 
     public boolean start(int i) {
-        if (this.b == null) {
+        int i2;
+        r rVar = this.f7087b;
+        if (rVar == null) {
             return false;
         }
-        if (this.b.e() != null) {
-            Iterator<u> it = this.b.e().iterator();
+        if (rVar.e() != null) {
+            Iterator<u> it = this.f7087b.e().iterator();
             while (it.hasNext()) {
-                u next = it.next();
-                if (next.f2233a.f2232a == i) {
-                    if (next.f2233a.j || next.f2233a.l == 2 || next.f2233a.l == 3 || next.f2233a.l == 6) {
-                        return this.b.b(i);
+                t tVar = it.next().f7677a;
+                if (tVar.f7669a == i) {
+                    if (tVar.j || (i2 = tVar.l) == 2 || i2 == 3 || i2 == 6) {
+                        return this.f7087b.b(i);
                     }
                     return false;
                 }
             }
         }
-        return this.b.a(i);
+        return this.f7087b.a(i);
     }
 
     public boolean update(int i) {
-        if (this.b == null) {
-            return false;
-        }
-        if (this.b.e() != null) {
-            Iterator<u> it = this.b.e().iterator();
-            while (it.hasNext()) {
-                u next = it.next();
-                if (next.f2233a.f2232a == i) {
-                    if (next.f2233a.j) {
-                        return this.b.f(i);
+        r rVar = this.f7087b;
+        if (rVar != null && rVar.e() != null) {
+            Iterator<u> it = this.f7087b.e().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                t tVar = it.next().f7677a;
+                if (tVar.f7669a == i) {
+                    if (tVar.j) {
+                        return this.f7087b.f(i);
                     }
-                    return false;
                 }
             }
         }

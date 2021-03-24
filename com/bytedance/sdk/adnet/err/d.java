@@ -1,10 +1,7 @@
 package com.bytedance.sdk.adnet.err;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends c {
-    public d() {
-    }
-
-    public d(Throwable th) {
-        super(th);
+    public d(Throwable th, int i) {
+        super(th, i);
     }
 }

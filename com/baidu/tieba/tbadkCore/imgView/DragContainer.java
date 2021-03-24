@@ -9,75 +9,85 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap bm;
-    private final int delay;
-    private Scroller mScroller;
-    private Rect mTempRect;
-    private View view;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Scroller f21347e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Rect f21348f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f21349g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Bitmap f21350h;
 
     public DragContainer(Context context) {
         super(context);
-        this.mTempRect = new Rect();
-        this.delay = 16;
-        init(context);
+        this.f21348f = new Rect();
+        e(context);
     }
 
-    public DragContainer(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mTempRect = new Rect();
-        this.delay = 16;
-        init(context);
-    }
-
-    private void init(Context context) {
-        this.mScroller = new Scroller(context);
-    }
-
-    public void ei(View view) {
-        this.view = view;
+    public void c(View view) {
+        this.f21349g = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.bm = Bitmap.createBitmap(drawingCache);
+            this.f21350h = Bitmap.createBitmap(drawingCache);
         }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
-        view.getDrawingRect(this.mTempRect);
-        offsetDescendantRectToMyCoords(view, this.mTempRect);
-        this.mScroller.startScroll(this.mTempRect.top, 0, getHeight() - this.mTempRect.top, 0, 800);
+        view.getDrawingRect(this.f21348f);
+        offsetDescendantRectToMyCoords(view, this.f21348f);
+        int height = getHeight();
+        Scroller scroller = this.f21347e;
+        int i = this.f21348f.top;
+        scroller.startScroll(i, 0, height - i, 0, 800);
         invalidate();
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
+    public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.view != null) {
-            if (this.mScroller.computeScrollOffset() && this.bm != null) {
+        if (this.f21349g != null) {
+            if (this.f21347e.computeScrollOffset() && this.f21350h != null) {
                 canvas.save();
-                canvas.drawBitmap(this.bm, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.f21350h, this.f21348f.left, this.f21347e.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.bm != null) {
-                this.bm.recycle();
+            Bitmap bitmap = this.f21350h;
+            if (bitmap != null) {
+                bitmap.recycle();
             }
-            this.bm = null;
-            this.view = null;
+            this.f21350h = null;
+            this.f21349g = null;
         }
     }
 
+    public final void e(Context context) {
+        this.f21347e = new Scroller(context);
+    }
+
     @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.mScroller.forceFinished(true);
-        if (this.bm != null) {
-            this.bm.recycle();
+        this.f21347e.forceFinished(true);
+        Bitmap bitmap = this.f21350h;
+        if (bitmap != null) {
+            bitmap.recycle();
         }
-        this.bm = null;
-        this.view = null;
+        this.f21350h = null;
+        this.f21349g = null;
+    }
+
+    public DragContainer(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f21348f = new Rect();
+        e(context);
     }
 }

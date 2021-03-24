@@ -7,69 +7,84 @@ import android.os.Build;
 import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.WindowManager;
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioDisplayUtil;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class a {
 
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f9642g = "CameraInterface";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final int f9643h = 3;
+    public static final int i = 480;
+    public static final int j = 640;
+    public static final float k = 0.2f;
+    public static int l = -1;
+
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2799a = "CameraInterface";
-    public static final int b = 3;
-    public static final int c = 480;
-    public static final int d = 640;
-    private static final float e = 0.2f;
-    private static int f = -1;
-    Camera g;
-    SurfaceHolder h;
-    private C0279a i;
-    private int k;
-    private String j = "off";
-    private boolean l = true;
+    public Camera f9644a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SurfaceHolder f9645b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public C0115a f9646c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f9648e;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f9647d = "off";
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f9649f = true;
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public static class C0279a {
+    /* loaded from: classes2.dex */
+    public static class C0115a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2800a;
-        public int b;
+        public int f9650a;
 
-        public C0279a(int i, int i2) {
-            this.f2800a = i;
-            this.b = i2;
+        /* renamed from: b  reason: collision with root package name */
+        public int f9651b;
+
+        public C0115a(int i, int i2) {
+            this.f9650a = i;
+            this.f9651b = i2;
         }
     }
 
     @TargetApi(9)
-    public boolean a(Activity activity, int i) {
-        Camera camera = this.g;
+    public boolean a(Activity activity, int i2) {
+        Camera camera = this.f9644a;
         if (camera != null) {
             camera.stopPreview();
-            this.g.release();
-            this.g = null;
+            this.f9644a.release();
+            this.f9644a = null;
         }
         if (b() == 1) {
-            this.l = false;
+            this.f9649f = false;
         }
-        if (this.l) {
-            f = 1;
+        if (this.f9649f) {
+            l = 1;
         } else {
-            f = 0;
+            l = 0;
         }
         try {
-            this.g = Camera.open(f);
+            this.f9644a = Camera.open(l);
             a(activity);
             return true;
         } catch (Throwable th) {
             Log.e(th);
-            Camera camera2 = this.g;
+            Camera camera2 = this.f9644a;
             if (camera2 != null) {
                 camera2.release();
-                this.g = null;
+                this.f9644a = null;
             }
             return false;
         }
@@ -80,77 +95,69 @@ public class a {
         return Camera.getNumberOfCameras();
     }
 
-    public C0279a c() {
-        if (this.i == null) {
-            this.i = new C0279a(640, 480);
+    public C0115a c() {
+        if (this.f9646c == null) {
+            this.f9646c = new C0115a(640, 480);
         }
-        return this.i;
+        return this.f9646c;
     }
 
     public boolean d() {
         if (b() == 1) {
-            this.l = false;
+            this.f9649f = false;
         }
-        return this.l;
+        return this.f9649f;
     }
 
     public void e() {
-        Camera camera = this.g;
+        Camera camera = this.f9644a;
         if (camera != null) {
             camera.startPreview();
         }
     }
 
     public void f() {
-        Camera camera = this.g;
+        Camera camera = this.f9644a;
         if (camera != null) {
             camera.stopPreview();
         }
     }
 
     @TargetApi(5)
-    private List<C0279a> b(Activity activity, Camera.Parameters parameters) {
-        int i;
+    private List<C0115a> b(Activity activity, Camera.Parameters parameters) {
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
-        if (supportedPreviewSizes != null && supportedPreviewSizes.size() != 0) {
-            Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-            C0279a c0279a = new C0279a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
-            int i2 = 153600;
-            int i3 = c0279a.f2800a;
-            int i4 = c0279a.b;
-            if ((i3 * i4) / 4 > 921600) {
-                i2 = (i4 * i3) / 8;
-                i = 2073600;
-            } else {
-                i = 921600;
-            }
-            ArrayList arrayList = new ArrayList();
-            int i5 = 0;
-            while (true) {
-                int i6 = i5;
-                if (i6 >= supportedPreviewSizes.size()) {
-                    return arrayList;
-                }
-                Camera.Size size = supportedPreviewSizes.get(i6);
-                int i7 = size.width;
-                int i8 = size.height;
-                if (i7 * i8 >= i2 && i7 * i8 <= i) {
-                    arrayList.add(new C0279a(i7, i8));
-                }
-                i5 = i6 + 1;
-            }
-        } else {
+        if (supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
             return null;
         }
+        Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
+        C0115a c0115a = new C0115a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
+        int i2 = 153600;
+        int i3 = 921600;
+        int i4 = c0115a.f9650a * c0115a.f9651b;
+        if (i4 / 4 > 921600) {
+            i3 = 2073600;
+            i2 = i4 / 8;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (int i5 = 0; i5 < supportedPreviewSizes.size(); i5++) {
+            Camera.Size size = supportedPreviewSizes.get(i5);
+            int i6 = size.width;
+            int i7 = size.height;
+            int i8 = i6 * i7;
+            if (i8 >= i2 && i8 <= i3) {
+                arrayList.add(new C0115a(i6, i7));
+            }
+        }
+        return arrayList;
     }
 
     public void a(Activity activity, SurfaceHolder surfaceHolder) {
-        Camera camera = this.g;
+        Camera camera = this.f9644a;
         if (camera != null) {
             try {
-                this.h = surfaceHolder;
+                this.f9645b = surfaceHolder;
                 camera.setPreviewDisplay(surfaceHolder);
-                this.g.startPreview();
+                this.f9644a.startPreview();
             } catch (Throwable th) {
                 Log.e(th);
             }
@@ -159,164 +166,167 @@ public class a {
 
     public synchronized void a() {
         try {
-            if (this.h != null && Build.VERSION.SDK_INT >= 14) {
-                this.h.getSurface().release();
+            if (this.f9645b != null && Build.VERSION.SDK_INT >= 14) {
+                this.f9645b.getSurface().release();
             }
-            if (this.g != null) {
-                this.g.setPreviewCallback(null);
-                this.g.stopPreview();
-                this.g.release();
-                this.g = null;
+            if (this.f9644a != null) {
+                this.f9644a.setPreviewCallback(null);
+                this.f9644a.stopPreview();
+                this.f9644a.release();
+                this.f9644a = null;
             }
-            this.l = true;
+            this.f9649f = true;
         } catch (Exception e2) {
             Log.e(e2);
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0044  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0071  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00bd  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00c8  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00d8  */
     @TargetApi(8)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void a(Activity activity) {
-        int i = 0;
-        Camera camera = this.g;
+        int i2;
+        int i3;
+        Camera camera = this.f9644a;
         if (camera != null) {
             Camera.Parameters parameters = camera.getParameters();
             parameters.setPictureFormat(256);
             parameters.setPreviewFormat(17);
             a(parameters, a(activity, parameters, false));
-            switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
-                case 1:
-                    i = 90;
-                    break;
-                case 2:
-                    i = 180;
-                    break;
-                case 3:
-                    i = 270;
-                    break;
-            }
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 9) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(f, cameraInfo);
-                if (cameraInfo.facing == 1) {
-                    this.k = (i + cameraInfo.orientation) % EncoderTextureDrawer.X264_WIDTH;
-                    this.k = (360 - this.k) % EncoderTextureDrawer.X264_WIDTH;
-                } else {
-                    this.k = ((cameraInfo.orientation - i) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
+            int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+            if (rotation != 0) {
+                if (rotation == 1) {
+                    i2 = 90;
+                } else if (rotation == 2) {
+                    i2 = 180;
+                } else if (rotation == 3) {
+                    i2 = 270;
                 }
-                this.g.setDisplayOrientation(this.k);
-            } else if (i2 == 8) {
-                this.k = ((90 - i) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
-                this.g.setDisplayOrientation(this.k);
-            } else {
-                this.k = ((90 - i) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
-                try {
-                    Method method = this.g.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
-                    if (method != null) {
-                        method.invoke(this.g, Integer.valueOf(this.k));
+                i3 = Build.VERSION.SDK_INT;
+                if (i3 < 9) {
+                    Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                    Camera.getCameraInfo(l, cameraInfo);
+                    if (cameraInfo.facing == 1) {
+                        int i4 = (cameraInfo.orientation + i2) % 360;
+                        this.f9648e = i4;
+                        this.f9648e = (360 - i4) % 360;
+                    } else {
+                        this.f9648e = ((cameraInfo.orientation - i2) + 360) % 360;
                     }
-                } catch (Exception e2) {
-                    Log.e(e2);
+                    this.f9644a.setDisplayOrientation(this.f9648e);
+                } else if (i3 == 8) {
+                    int i5 = ((90 - i2) + 360) % 360;
+                    this.f9648e = i5;
+                    this.f9644a.setDisplayOrientation(i5);
+                } else {
+                    this.f9648e = ((90 - i2) + 360) % 360;
+                    try {
+                        Method method = this.f9644a.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
+                        if (method != null) {
+                            method.invoke(this.f9644a, Integer.valueOf(this.f9648e));
+                        }
+                    } catch (Exception e2) {
+                        Log.e(e2);
+                    }
                 }
+                if (parameters.getSupportedFocusModes().contains("continuous-video")) {
+                    parameters.setFocusMode("continuous-video");
+                }
+                if (parameters.getSupportedFlashModes() == null) {
+                    if (this.f9649f) {
+                        this.f9647d = "off";
+                        parameters.setFlashMode("off");
+                    } else {
+                        parameters.setFlashMode(this.f9647d);
+                    }
+                } else {
+                    this.f9647d = "off";
+                }
+                this.f9644a.setParameters(parameters);
+            }
+            i2 = 0;
+            i3 = Build.VERSION.SDK_INT;
+            if (i3 < 9) {
             }
             if (parameters.getSupportedFocusModes().contains("continuous-video")) {
-                parameters.setFocusMode("continuous-video");
             }
-            if (parameters.getSupportedFlashModes() != null) {
-                if (this.l) {
-                    this.j = "off";
-                    parameters.setFlashMode(this.j);
-                } else {
-                    parameters.setFlashMode(this.j);
-                }
-            } else {
-                this.j = "off";
+            if (parameters.getSupportedFlashModes() == null) {
             }
-            this.g.setParameters(parameters);
+            this.f9644a.setParameters(parameters);
         }
     }
 
-    private C0279a a(Activity activity, Camera.Parameters parameters) {
-        C0279a c0279a = this.i;
-        if (c0279a == null) {
-            List<C0279a> b2 = b(activity, parameters);
-            this.i = new C0279a(640, 480);
-            if (b2 != null && b2.size() != 0) {
-                Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-                C0279a c0279a2 = new C0279a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
-                float f2 = c0279a2.b / c0279a2.f2800a;
-                C0279a c0279a3 = this.i;
-                float f3 = c0279a3.f2800a / c0279a3.b;
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 < b2.size()) {
-                        C0279a c0279a4 = b2.get(i2);
-                        float abs = Math.abs((c0279a4.f2800a / c0279a4.b) - f2);
-                        if (abs < f3) {
-                            this.i = c0279a4;
-                            f3 = abs;
-                        }
-                        i = i2 + 1;
-                    } else {
-                        return this.i;
-                    }
-                }
-            } else {
-                return this.i;
-            }
-        } else {
-            return c0279a;
+    private C0115a a(Activity activity, Camera.Parameters parameters) {
+        C0115a c0115a = this.f9646c;
+        if (c0115a != null) {
+            return c0115a;
         }
+        List<C0115a> b2 = b(activity, parameters);
+        this.f9646c = new C0115a(640, 480);
+        if (b2 != null && b2.size() != 0) {
+            Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
+            C0115a c0115a2 = new C0115a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
+            float f2 = c0115a2.f9651b / c0115a2.f9650a;
+            C0115a c0115a3 = this.f9646c;
+            float f3 = c0115a3.f9650a / c0115a3.f9651b;
+            for (int i2 = 0; i2 < b2.size(); i2++) {
+                C0115a c0115a4 = b2.get(i2);
+                float abs = Math.abs((c0115a4.f9650a / c0115a4.f9651b) - f2);
+                if (abs < f3) {
+                    this.f9646c = c0115a4;
+                    f3 = abs;
+                }
+            }
+            return this.f9646c;
+        }
+        return this.f9646c;
     }
 
-    public C0279a a(Activity activity, Camera.Parameters parameters, boolean z) {
-        C0279a a2 = a(activity, parameters);
-        parameters.setPreviewSize(a2.f2800a, a2.b);
+    public C0115a a(Activity activity, Camera.Parameters parameters, boolean z) {
+        C0115a a2 = a(activity, parameters);
+        parameters.setPreviewSize(a2.f9650a, a2.f9651b);
         return a2;
     }
 
     @TargetApi(5)
-    public void a(Camera.Parameters parameters, C0279a c0279a) {
-        int i;
+    public void a(Camera.Parameters parameters, C0115a c0115a) {
         int i2;
-        float f2 = c0279a != null ? c0279a.f2800a / c0279a.b : 0.0f;
+        int i3;
+        float f2 = c0115a != null ? c0115a.f9650a / c0115a.f9651b : 0.0f;
         List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
-        if (supportedPictureSizes != null) {
-            int size = supportedPictureSizes.size();
-            int i3 = 0;
-            Camera.Size size2 = null;
-            Camera.Size size3 = null;
-            while (i3 < size) {
-                Camera.Size size4 = supportedPictureSizes.get(i3);
-                if (size3 == null || ((i = size4.width) >= size3.width && (i2 = size4.height) >= size3.height && i * i2 < 5000000)) {
-                    size3 = size4;
-                }
-                if (f2 > 0.0f && Math.abs((size4.width / size4.height) - f2) < 0.15f) {
-                    int i4 = size4.width;
-                    int i5 = size4.height;
-                    if (i4 * i5 < 7000000) {
-                        if (size2 != null) {
-                            if (i4 > size2.width && i5 > size2.height) {
-                            }
-                        }
-                        i3++;
-                        size2 = size4;
-                    }
-                }
-                size4 = size2;
-                i3++;
-                size2 = size4;
-            }
-            if (size2 == null) {
-                size2 = size3;
-            }
-            parameters.setPictureSize(size2.width, size2.height);
+        if (supportedPictureSizes == null) {
+            return;
         }
+        int size = supportedPictureSizes.size();
+        Camera.Size size2 = null;
+        Camera.Size size3 = null;
+        for (int i4 = 0; i4 < size; i4++) {
+            Camera.Size size4 = supportedPictureSizes.get(i4);
+            if (size3 == null || ((i2 = size4.width) >= size3.width && (i3 = size4.height) >= size3.height && i2 * i3 < 5000000)) {
+                size3 = size4;
+            }
+            if (f2 > 0.0f && Math.abs((size4.width / size4.height) - f2) < 0.15f) {
+                int i5 = size4.width;
+                int i6 = size4.height;
+                if (i5 * i6 < 7000000 && (size2 == null || (i5 > size2.width && i6 > size2.height))) {
+                    size2 = size4;
+                }
+            }
+        }
+        if (size2 == null) {
+            size2 = size3;
+        }
+        parameters.setPictureSize(size2.width, size2.height);
     }
 
     public void a(Camera.PreviewCallback previewCallback) {
-        Camera camera = this.g;
+        Camera camera = this.f9644a;
         if (camera != null) {
             camera.setPreviewCallback(previewCallback);
         }

@@ -17,241 +17,276 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.design.TbTabLayout;
 import com.baidu.tbadk.core.message.EvaluateRelevanceItemSearchMessage;
 import com.baidu.tbadk.core.message.EvaluateRelevanceItemUpdatedMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment;
+import d.b.b.e.p.l;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class RelevanceItemSearchView implements ViewPager.OnPageChangeListener, com.baidu.tbadk.suspended.a {
-    private final LinearLayout fzw;
-    private final NavigationBar glw;
-    private ImageView iSA;
-    private final RelevanceItemSearchActivity opn;
-    private TbTabLayout opo;
-    private CustomViewPager opp;
-    private FragmentAdapter opq;
-    private View opr;
-    private EditText ops;
-    private String[] opm = {"游戏", "数码"};
-    private List<a> opu = new ArrayList();
-    private CustomMessageListener oom = new CustomMessageListener(2921522) { // from class: com.baidu.tieba.write.write.relevance.RelevanceItemSearchView.1
+/* loaded from: classes5.dex */
+public class RelevanceItemSearchView implements d.b.h0.t0.a, ViewPager.OnPageChangeListener {
+
+    /* renamed from: f  reason: collision with root package name */
+    public final LinearLayout f22570f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final NavigationBar f22571g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final RelevanceItemSearchActivity f22572h;
+    public TbTabLayout i;
+    public CustomViewPager j;
+    public FragmentAdapter k;
+    public View l;
+    public EditText m;
+    public ImageView n;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String[] f22569e = {"游戏", "数码"};
+    public List<c> o = new ArrayList();
+    public CustomMessageListener p = new a(2921522);
+
+    /* loaded from: classes5.dex */
+    public static class FragmentAdapter extends FragmentPagerAdapter {
+
+        /* renamed from: a  reason: collision with root package name */
+        public List<c> f22573a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public Long f22574b;
+
+        public FragmentAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+            this.f22573a = new ArrayList();
+        }
+
+        public void c(List<c> list) {
+            this.f22574b = Long.valueOf(System.currentTimeMillis());
+            this.f22573a.clear();
+            if (!ListUtils.isEmpty(list)) {
+                this.f22573a.addAll(list);
+            }
+            notifyDataSetChanged();
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public int getCount() {
+            return this.f22573a.size();
+        }
+
+        @Override // androidx.fragment.app.FragmentPagerAdapter
+        public Fragment getItem(int i) {
+            c cVar = this.f22573a.get(i);
+            if (cVar != null) {
+                return cVar.f22577a;
+            }
+            return null;
+        }
+
+        @Override // androidx.fragment.app.FragmentPagerAdapter
+        public long getItemId(int i) {
+            return super.getItemId(i) + this.f22574b.longValue();
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        @Nullable
+        public CharSequence getPageTitle(int i) {
+            c cVar = this.f22573a.get(i);
+            return cVar != null ? cVar.f22578b : "";
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemUpdatedMessage)) {
-                EvaluateRelevanceItemUpdatedMessage evaluateRelevanceItemUpdatedMessage = (EvaluateRelevanceItemUpdatedMessage) customResponsedMessage;
-                RelevanceItemSearchView.this.opn.hideLoadingView(RelevanceItemSearchView.this.fzw);
-                if (!y.isEmpty(evaluateRelevanceItemUpdatedMessage.tabs)) {
-                    String[] strArr = (String[]) evaluateRelevanceItemUpdatedMessage.tabs.toArray(new String[0]);
-                    if (!Arrays.equals(RelevanceItemSearchView.this.opm, strArr)) {
-                        RelevanceItemSearchView.this.opm = strArr;
-                        RelevanceItemSearchView.this.initData();
-                    }
-                }
+            if (customResponsedMessage == null || !(customResponsedMessage instanceof EvaluateRelevanceItemUpdatedMessage)) {
+                return;
             }
+            EvaluateRelevanceItemUpdatedMessage evaluateRelevanceItemUpdatedMessage = (EvaluateRelevanceItemUpdatedMessage) customResponsedMessage;
+            RelevanceItemSearchView.this.f22572h.hideLoadingView(RelevanceItemSearchView.this.f22570f);
+            if (ListUtils.isEmpty(evaluateRelevanceItemUpdatedMessage.tabs)) {
+                return;
+            }
+            String[] strArr = (String[]) evaluateRelevanceItemUpdatedMessage.tabs.toArray(new String[0]);
+            if (Arrays.equals(RelevanceItemSearchView.this.f22569e, strArr)) {
+                return;
+            }
+            RelevanceItemSearchView.this.f22569e = strArr;
+            RelevanceItemSearchView.this.i();
         }
-    };
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements TextWatcher {
+        public b() {
+        }
+
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            RelevanceItemSearchView.this.g();
+        }
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c {
+
+        /* renamed from: a  reason: collision with root package name */
+        public RelevanceItemListFragment f22577a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f22578b;
+
+        public c(RelevanceItemSearchView relevanceItemSearchView) {
+        }
+    }
 
     public RelevanceItemSearchView(RelevanceItemSearchActivity relevanceItemSearchActivity, LinearLayout linearLayout, NavigationBar navigationBar) {
-        this.fzw = linearLayout;
-        this.glw = navigationBar;
-        this.opn = relevanceItemSearchActivity;
-        initUI();
-        initListener();
-        initData();
+        this.f22570f = linearLayout;
+        this.f22571g = navigationBar;
+        this.f22572h = relevanceItemSearchActivity;
+        n();
+        j();
+        i();
     }
 
-    private void initListener() {
-        MessageManager.getInstance().registerListener(this.oom);
+    public final void g() {
+        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSearchMessage(this.m.getText().toString()));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void initData() {
-        String[] strArr;
-        this.opu.clear();
-        this.opo.removeAllTabs();
-        for (String str : this.opm) {
-            this.opo.a(this.opo.qL());
-            a aVar = new a();
-            aVar.opx = new RelevanceItemListFragment();
-            aVar.opx.setCategory(str);
-            aVar.title = str;
-            this.opu.add(aVar);
-        }
-        this.opq.setData(this.opu);
-    }
-
-    private void initUI() {
-        LayoutInflater.from(this.fzw.getContext()).inflate(R.layout.relevance_item_search_view, (ViewGroup) this.fzw, true);
-        this.opn.showLoadingView(this.fzw);
-        dZS();
-        bEP();
-        cQZ();
-        initViewPager();
-    }
-
-    private void dZS() {
-        this.opr = this.fzw.findViewById(R.id.search_container);
-        this.iSA = (ImageView) this.fzw.findViewById(R.id.search_icon);
-        this.ops = (EditText) this.fzw.findViewById(R.id.search_text);
-        this.ops.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.relevance.RelevanceItemSearchView.2
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable editable) {
-                RelevanceItemSearchView.this.dZT();
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dZT() {
-        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSearchMessage(this.ops.getText().toString()));
-    }
-
-    private void initViewPager() {
-        this.opp = (CustomViewPager) this.fzw.findViewById(R.id.viewpager);
-        this.opp.addOnPageChangeListener(this);
-        this.opp.setViewPagerScroll(0);
-        this.opq = new FragmentAdapter(this.opn.getSupportFragmentManager());
-        this.opp.setAdapter(this.opq);
-        this.opo.setupWithViewPager(this.opp);
-    }
-
-    private void cQZ() {
-        this.opo = (TbTabLayout) this.fzw.findViewById(R.id.tablayout);
-        this.opo.setTabTextSize(l.getDimens(this.opn, R.dimen.tbds46));
-        this.opo.setSelectedTabTextSize(l.getDimens(this.opn, R.dimen.tbds52));
-        this.opo.setSelectedIndicatorBottomMargin(l.getDimens(this.opn, R.dimen.tbds11));
-    }
-
-    private void bEP() {
-        this.glw.setCenterTextTitle(this.fzw.getResources().getString(R.string.releavance_item_category));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.glw.getLayoutParams();
-        layoutParams.height = l.getDimens(this.fzw.getContext(), R.dimen.tbds60);
-        layoutParams.topMargin = l.getDimens(this.fzw.getContext(), R.dimen.tbds15);
-    }
-
-    public EditText dZU() {
-        return this.ops;
-    }
-
-    @Override // com.baidu.tbadk.suspended.a
-    public boolean bEL() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.suspended.a
-    public boolean bEM() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.suspended.a
-    public void rz(int i) {
-        SvgManager.bsU().a(this.iSA, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-        ap.setViewTextColor(this.ops, R.color.CAM_X0109);
-        ap.setBackgroundResource(this.opr, R.drawable.enter_forum_search_bg);
-        SvgManager.bsU().a(this.iSA, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-        if (i == 2) {
-            this.ops.setHintTextColor(ap.getColor(R.color.s_navbar_title_color));
-        } else {
-            this.ops.setHintTextColor(ap.getColor(R.color.CAM_X0110));
-        }
-        ap.setNavbarTitleColor(this.ops, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        this.opo.setTabTextColors(ap.getColor(R.color.CAM_X0108), ap.getColor(R.color.CAM_X0105));
-        this.opo.setSelectedTabTextBlod(true);
-        this.opo.setSelectedTabIndicatorColor(ap.getColor(R.color.CAM_X0302));
-    }
-
-    @Override // com.baidu.tbadk.suspended.a
-    public Intent bEN() {
+    @Override // d.b.h0.t0.a
+    public Intent getResultIntent() {
         return null;
     }
 
-    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    public EditText h() {
+        return this.m;
     }
 
-    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    public final void i() {
+        String[] strArr;
+        this.o.clear();
+        this.i.B();
+        for (String str : this.f22569e) {
+            this.i.d(this.i.z());
+            c cVar = new c(this);
+            RelevanceItemListFragment relevanceItemListFragment = new RelevanceItemListFragment();
+            cVar.f22577a = relevanceItemListFragment;
+            relevanceItemListFragment.J0(str);
+            cVar.f22578b = str;
+            this.o.add(cVar);
+        }
+        this.k.c(this.o);
+    }
+
+    @Override // d.b.h0.t0.a
+    public boolean isOnViewCancel() {
+        return true;
+    }
+
+    @Override // d.b.h0.t0.a
+    public boolean isOnViewTop() {
+        return false;
+    }
+
+    public final void j() {
+        MessageManager.getInstance().registerListener(this.p);
+    }
+
+    public final void k() {
+        this.f22571g.setCenterTextTitle(this.f22570f.getResources().getString(R.string.releavance_item_category));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f22571g.getLayoutParams();
+        layoutParams.height = l.g(this.f22570f.getContext(), R.dimen.tbds60);
+        layoutParams.topMargin = l.g(this.f22570f.getContext(), R.dimen.tbds15);
+    }
+
+    public final void l() {
+        this.l = this.f22570f.findViewById(R.id.search_container);
+        this.n = (ImageView) this.f22570f.findViewById(R.id.search_icon);
+        EditText editText = (EditText) this.f22570f.findViewById(R.id.search_text);
+        this.m = editText;
+        editText.addTextChangedListener(new b());
+    }
+
+    public final void m() {
+        TbTabLayout tbTabLayout = (TbTabLayout) this.f22570f.findViewById(R.id.tablayout);
+        this.i = tbTabLayout;
+        tbTabLayout.setTabTextSize(l.g(this.f22572h, R.dimen.tbds46));
+        this.i.setSelectedTabTextSize(l.g(this.f22572h, R.dimen.tbds52));
+        this.i.setSelectedIndicatorBottomMargin(l.g(this.f22572h, R.dimen.tbds11));
+    }
+
+    public final void n() {
+        LayoutInflater.from(this.f22570f.getContext()).inflate(R.layout.relevance_item_search_view, (ViewGroup) this.f22570f, true);
+        this.f22572h.showLoadingView(this.f22570f);
+        l();
+        k();
+        m();
+        o();
+    }
+
+    public final void o() {
+        CustomViewPager customViewPager = (CustomViewPager) this.f22570f.findViewById(R.id.viewpager);
+        this.j = customViewPager;
+        customViewPager.addOnPageChangeListener(this);
+        this.j.setViewPagerScroll(0);
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(this.f22572h.getSupportFragmentManager());
+        this.k = fragmentAdapter;
+        this.j.setAdapter(fragmentAdapter);
+        this.i.setupWithViewPager(this.j);
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
     }
 
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.oom);
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f2, int i2) {
     }
 
-    /* loaded from: classes7.dex */
-    public static class FragmentAdapter extends FragmentPagerAdapter {
-        private List<a> gzV;
-        private Long opw;
-
-        public FragmentAdapter(FragmentManager fragmentManager) {
-            super(fragmentManager);
-            this.gzV = new ArrayList();
-        }
-
-        public void setData(List<a> list) {
-            this.opw = Long.valueOf(System.currentTimeMillis());
-            this.gzV.clear();
-            if (!y.isEmpty(list)) {
-                this.gzV.addAll(list);
-            }
-            notifyDataSetChanged();
-        }
-
-        @Override // androidx.fragment.app.FragmentPagerAdapter
-        public Fragment getItem(int i) {
-            a aVar = this.gzV.get(i);
-            if (aVar != null) {
-                return aVar.opx;
-            }
-            return null;
-        }
-
-        @Override // androidx.viewpager.widget.PagerAdapter
-        public int getCount() {
-            return this.gzV.size();
-        }
-
-        @Override // androidx.viewpager.widget.PagerAdapter
-        @Nullable
-        public CharSequence getPageTitle(int i) {
-            a aVar = this.gzV.get(i);
-            return aVar != null ? aVar.title : "";
-        }
-
-        @Override // androidx.fragment.app.FragmentPagerAdapter
-        public long getItemId(int i) {
-            return super.getItemId(i) + this.opw.longValue();
-        }
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
     }
 
-    /* loaded from: classes7.dex */
-    public class a {
-        public RelevanceItemListFragment opx;
-        public String title;
-
-        public a() {
+    @Override // d.b.h0.t0.a
+    public void onViewChangeSkinType(int i) {
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.m, R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(this.l, R.drawable.enter_forum_search_bg);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        if (i == 2) {
+            this.m.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
+        } else {
+            this.m.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
         }
+        SkinManager.setNavbarTitleColor(this.m, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        this.i.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
+        this.i.setSelectedTabTextBlod(true);
+        this.i.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
+    }
+
+    public void p() {
+        MessageManager.getInstance().unRegisterListener(this.p);
     }
 }

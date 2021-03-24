@@ -2,15 +2,14 @@ package com.baidu.mapapi.search.sug;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SuggestionSearch extends l {
-    private boolean b = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f7339b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.platform.core.f.a f2149a = new com.baidu.platform.core.f.b();
-
-    private SuggestionSearch() {
-    }
+    public com.baidu.platform.core.f.a f7338a = new com.baidu.platform.core.f.b();
 
     public static SuggestionSearch newInstance() {
         BMapManager.init();
@@ -18,31 +17,33 @@ public class SuggestionSearch extends l {
     }
 
     public void destroy() {
-        if (this.b) {
+        if (this.f7339b) {
             return;
         }
-        this.b = true;
-        this.f2149a.a();
+        this.f7339b = true;
+        this.f7338a.a();
         BMapManager.destroy();
     }
 
     public boolean requestSuggestion(SuggestionSearchOption suggestionSearchOption) {
-        if (this.f2149a == null) {
-            throw new IllegalStateException("suggestionsearch is null, please call newInstance() first.");
+        com.baidu.platform.core.f.a aVar = this.f7338a;
+        if (aVar != null) {
+            if (suggestionSearchOption == null || suggestionSearchOption.mKeyword == null || suggestionSearchOption.mCity == null) {
+                throw new IllegalArgumentException("option or keyword or city can not be null");
+            }
+            return aVar.a(suggestionSearchOption);
         }
-        if (suggestionSearchOption == null || suggestionSearchOption.mKeyword == null || suggestionSearchOption.mCity == null) {
-            throw new IllegalArgumentException("option or keyword or city can not be null");
-        }
-        return this.f2149a.a(suggestionSearchOption);
+        throw new IllegalStateException("suggestionsearch is null, please call newInstance() first.");
     }
 
     public void setOnGetSuggestionResultListener(OnGetSuggestionResultListener onGetSuggestionResultListener) {
-        if (this.f2149a == null) {
+        com.baidu.platform.core.f.a aVar = this.f7338a;
+        if (aVar == null) {
             throw new IllegalStateException("suggestionsearch is null, please call newInstance() first.");
         }
         if (onGetSuggestionResultListener == null) {
             throw new IllegalArgumentException("listener can not be null");
         }
-        this.f2149a.a(onGetSuggestionResultListener);
+        aVar.a(onGetSuggestionResultListener);
     }
 }

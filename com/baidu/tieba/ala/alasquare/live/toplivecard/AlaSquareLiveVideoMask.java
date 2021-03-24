@@ -13,131 +13,146 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+import d.b.h0.r.q.a2;
+/* loaded from: classes4.dex */
 public class AlaSquareLiveVideoMask extends FrameLayout {
-    private Animation cjy;
-    private TextView eKp;
-    private ImageView fVx;
-    private TbImageView gBD;
-    private View gBE;
-    private HeadImageView gBF;
-    private TextView gBG;
-    private TextView gBH;
-    private TextView gBI;
-    private NoActiveStopAlaPlayAnimationView gBJ;
-    private ProgressBar gBK;
-    private FrameLayout gBL;
-    private boolean gBM;
-    private Context mContext;
-    private View mRootView;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f14731e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f14732f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbImageView f14733g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public View f14734h;
+    public HeadImageView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public ImageView n;
+    public NoActiveStopAlaPlayAnimationView o;
+    public ProgressBar p;
+    public FrameLayout q;
+    public Animation r;
+    public boolean s;
 
     public AlaSquareLiveVideoMask(Context context) {
         super(context);
-        this.gBM = false;
-        init(context);
+        this.s = false;
+        a(context);
+    }
+
+    public final void a(Context context) {
+        this.f14731e = context;
+        this.r = AnimationUtils.loadAnimation(context, R.anim.video_cover_fade_out);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.new_square_top_live_card_mask, this);
+        this.f14732f = inflate;
+        this.q = (FrameLayout) inflate.findViewById(R.id.fade_out_view_root);
+        TbImageView tbImageView = (TbImageView) this.f14732f.findViewById(R.id.live_cover);
+        this.f14733g = tbImageView;
+        tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+        this.f14733g.setAutoChangeStyle(false);
+        View findViewById = this.f14732f.findViewById(R.id.head_root_view);
+        this.f14734h = findViewById;
+        findViewById.setBackgroundResource(R.drawable.round_host_header_bg_n);
+        this.i = (HeadImageView) this.f14732f.findViewById(R.id.hostheader_image);
+        this.j = (TextView) this.f14732f.findViewById(R.id.hostheader_name);
+        this.k = (TextView) this.f14732f.findViewById(R.id.hostheader_id);
+        this.i.setIsRound(true);
+        this.i.setAutoChangeStyle(false);
+        this.l = (TextView) this.f14732f.findViewById(R.id.tvSquareTitle);
+        this.m = (TextView) this.f14732f.findViewById(R.id.tvLiveCount);
+        this.n = (ImageView) this.f14732f.findViewById(R.id.image_video_play);
+        NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.f14732f.findViewById(R.id.ala_play);
+        this.o = noActiveStopAlaPlayAnimationView;
+        noActiveStopAlaPlayAnimationView.setFromSpecialForum(this.s);
+        SkinManager.setImageResource(this.n, R.drawable.btn_icon_play_live_on_n);
+        this.p = (ProgressBar) this.f14732f.findViewById(R.id.auto_video_loading_progress);
+        b();
+    }
+
+    public void b() {
+        SkinManager.setViewTextColor(this.m, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.j, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.l, R.color.CAM_X0101);
+    }
+
+    public void c() {
+        if (!this.s) {
+            this.o.c();
+        }
+        this.q.clearAnimation();
+    }
+
+    public void d() {
+        if (this.s) {
+            this.n.setVisibility(8);
+            this.p.setVisibility(8);
+            this.o.setVisibility(8);
+        }
+        this.q.startAnimation(this.r);
+    }
+
+    public void e() {
+        if (this.s) {
+            return;
+        }
+        this.o.b();
+    }
+
+    public void f() {
+        this.q.clearAnimation();
+    }
+
+    public void setData(a2 a2Var) {
+        if (a2Var == null || a2Var.q1() == null || a2Var.T() == null) {
+            return;
+        }
+        AlaInfoData q1 = a2Var.q1();
+        this.f14733g.W(q1.cover, 10, false);
+        AlaUserInfoData alaUserInfoData = q1.user_info;
+        if (alaUserInfoData != null && !StringUtils.isNull(alaUserInfoData.portrait) && alaUserInfoData.ala_id > 0) {
+            this.f14734h.setVisibility(0);
+            this.i.W(alaUserInfoData.portrait, 10, false);
+            this.j.setText(a2Var.T().getName_show());
+            this.k.setText(String.format(this.f14731e.getString(R.string.square_recommend_top_card_ala_host_id), String.valueOf(alaUserInfoData.ala_id)));
+        } else {
+            this.f14734h.setVisibility(8);
+        }
+        this.l.setText(a2Var.x1());
+        this.m.setText(this.f14731e.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(q1.audience_count)));
+        if (this.s) {
+            return;
+        }
+        this.o.b();
+    }
+
+    public void setFromSpecialForum(boolean z) {
+        this.s = z;
+        this.n.setVisibility(8);
+        this.p.setVisibility(8);
+        this.o.setVisibility(8);
+        this.o.setFromSpecialForum(this.s);
     }
 
     public AlaSquareLiveVideoMask(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gBM = false;
-        init(context);
+        this.s = false;
+        a(context);
     }
 
     public AlaSquareLiveVideoMask(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gBM = false;
-        init(context);
-    }
-
-    public void setFromSpecialForum(boolean z) {
-        this.gBM = z;
-        this.fVx.setVisibility(8);
-        this.gBK.setVisibility(8);
-        this.gBJ.setVisibility(8);
-        this.gBJ.setFromSpecialForum(this.gBM);
-    }
-
-    private void init(Context context) {
-        this.mContext = context;
-        this.cjy = AnimationUtils.loadAnimation(this.mContext, R.anim.video_cover_fade_out);
-        this.mRootView = LayoutInflater.from(context).inflate(R.layout.new_square_top_live_card_mask, this);
-        this.gBL = (FrameLayout) this.mRootView.findViewById(R.id.fade_out_view_root);
-        this.gBD = (TbImageView) this.mRootView.findViewById(R.id.live_cover);
-        this.gBD.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        this.gBD.setAutoChangeStyle(false);
-        this.gBE = this.mRootView.findViewById(R.id.head_root_view);
-        this.gBE.setBackgroundResource(R.drawable.round_host_header_bg_n);
-        this.gBF = (HeadImageView) this.mRootView.findViewById(R.id.hostheader_image);
-        this.eKp = (TextView) this.mRootView.findViewById(R.id.hostheader_name);
-        this.gBG = (TextView) this.mRootView.findViewById(R.id.hostheader_id);
-        this.gBF.setIsRound(true);
-        this.gBF.setAutoChangeStyle(false);
-        this.gBH = (TextView) this.mRootView.findViewById(R.id.tvSquareTitle);
-        this.gBI = (TextView) this.mRootView.findViewById(R.id.tvLiveCount);
-        this.fVx = (ImageView) this.mRootView.findViewById(R.id.image_video_play);
-        this.gBJ = (NoActiveStopAlaPlayAnimationView) this.mRootView.findViewById(R.id.ala_play);
-        this.gBJ.setFromSpecialForum(this.gBM);
-        ap.setImageResource(this.fVx, R.drawable.btn_icon_play_live_on_n);
-        this.gBK = (ProgressBar) this.mRootView.findViewById(R.id.auto_video_loading_progress);
-        bzq();
-    }
-
-    public void setData(cb cbVar) {
-        if (cbVar != null && cbVar.bol() != null && cbVar.bnS() != null) {
-            AlaInfoData bol = cbVar.bol();
-            this.gBD.startLoad(bol.cover, 10, false);
-            AlaUserInfoData alaUserInfoData = bol.user_info;
-            if (alaUserInfoData != null && !StringUtils.isNull(alaUserInfoData.portrait) && alaUserInfoData.ala_id > 0) {
-                this.gBE.setVisibility(0);
-                this.gBF.startLoad(alaUserInfoData.portrait, 10, false);
-                this.eKp.setText(cbVar.bnS().getName_show());
-                this.gBG.setText(String.format(this.mContext.getString(R.string.square_recommend_top_card_ala_host_id), String.valueOf(alaUserInfoData.ala_id)));
-            } else {
-                this.gBE.setVisibility(8);
-            }
-            this.gBH.setText(cbVar.getTitle());
-            this.gBI.setText(this.mContext.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(bol.audience_count)));
-            if (!this.gBM) {
-                this.gBJ.startPlayAnimation();
-            }
-        }
-    }
-
-    public void bzq() {
-        ap.setViewTextColor(this.gBI, R.color.CAM_X0101);
-        ap.setViewTextColor(this.eKp, R.color.CAM_X0101);
-        ap.setViewTextColor(this.gBG, R.color.CAM_X0101);
-        ap.setViewTextColor(this.gBH, R.color.CAM_X0101);
-    }
-
-    public void bRs() {
-        if (this.gBM) {
-            this.fVx.setVisibility(8);
-            this.gBK.setVisibility(8);
-            this.gBJ.setVisibility(8);
-        }
-        this.gBL.startAnimation(this.cjy);
-    }
-
-    public void bRt() {
-        this.gBL.clearAnimation();
-    }
-
-    public void bRu() {
-        if (!this.gBM) {
-            this.gBJ.startPlayAnimation();
-        }
-    }
-
-    public void onDestroy() {
-        if (!this.gBM) {
-            this.gBJ.Ui();
-        }
-        this.gBL.clearAnimation();
+        this.s = false;
+        a(context);
     }
 }

@@ -1,27 +1,27 @@
 package com.kwai.player.vr;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KwaiPlayerStereoMesh {
-    private static final String TAG = "KwaiPlayerStereoMesh";
-    private KwaiBaseMesh mKwaiBaseMesh;
+    public static final String TAG = "KwaiPlayerStereoMesh";
+    public KwaiBaseMesh mKwaiBaseMesh;
 
     public KwaiPlayerStereoMesh(int i) {
         genKwaiMesh(i);
     }
 
     public void genKwaiMesh(int i) {
-        switch (i) {
-            case 1:
-                this.mKwaiBaseMesh = new KwaiSphereMesh();
-                break;
+        if (i == 1) {
+            this.mKwaiBaseMesh = new KwaiSphereMesh();
         }
-        if (this.mKwaiBaseMesh != null) {
-            this.mKwaiBaseMesh.genKwaiMesh();
+        KwaiBaseMesh kwaiBaseMesh = this.mKwaiBaseMesh;
+        if (kwaiBaseMesh != null) {
+            kwaiBaseMesh.genKwaiMesh();
         }
     }
 
     public KwaiMesh getKwaiMesh() {
-        if (this.mKwaiBaseMesh != null) {
-            return this.mKwaiBaseMesh.getKwaiMesh();
+        KwaiBaseMesh kwaiBaseMesh = this.mKwaiBaseMesh;
+        if (kwaiBaseMesh != null) {
+            return kwaiBaseMesh.getKwaiMesh();
         }
         return null;
     }

@@ -1,11 +1,12 @@
 package com.baidu.tieba.likedForum;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.i0.c3.d0.a;
+/* loaded from: classes4.dex */
 public class LikedForumStatic {
     static {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_BOTTLE_FORUM_LIST, GetBottleForumListSocketResMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_BOTTLE_FORUM_LIST, 1003316, TbConfig.CMD_GET_BOTTLE_FORUM_LIST, GetBottleForumListHttpResMessage.class, false, false, true, false);
+        a.h(309440, GetBottleForumListSocketResMessage.class, false, false);
+        a.c(309440, CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, TbConfig.CMD_GET_BOTTLE_FORUM_LIST, GetBottleForumListHttpResMessage.class, false, false, true, false);
     }
 }

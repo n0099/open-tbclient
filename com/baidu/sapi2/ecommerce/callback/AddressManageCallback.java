@@ -2,10 +2,10 @@ package com.baidu.sapi2.ecommerce.callback;
 
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.ecommerce.result.AddressManageResult;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class AddressManageCallback implements NoProguard {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class VoiceRecognitionResult {
         public static final int ERROR_CODE_VOICE_RECOGNITION_CANCEL = -500;
         public static final int ERROR_CODE_VOICE_RECOGNITION_INIT_FAIL = -502;

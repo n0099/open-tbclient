@@ -3,35 +3,33 @@ package com.baidu.pyramid.runtime.multiprocess;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class BindlerHolder implements Parcelable {
-    public static final Parcelable.Creator<BindlerHolder> CREATOR = new Parcelable.Creator<BindlerHolder>() { // from class: com.baidu.pyramid.runtime.multiprocess.BindlerHolder.1
+    public static final Parcelable.Creator<BindlerHolder> CREATOR = new a();
+    public IBinder mBinder;
+
+    /* loaded from: classes2.dex */
+    public static class a implements Parcelable.Creator<BindlerHolder> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: p */
+        /* renamed from: a */
         public BindlerHolder createFromParcel(Parcel parcel) {
             return new BindlerHolder(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fQ */
+        /* renamed from: b */
         public BindlerHolder[] newArray(int i) {
             return new BindlerHolder[i];
         }
-    };
-    private IBinder mBinder;
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public BindlerHolder(IBinder iBinder) {
         this.mBinder = iBinder;
     }
 
-    protected BindlerHolder(Parcel parcel) {
-        this.mBinder = parcel.readStrongBinder();
-    }
-
-    public IBinder aeh() {
+    public IBinder a() {
         return this.mBinder;
     }
 
@@ -43,5 +41,9 @@ public class BindlerHolder implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeStrongBinder(this.mBinder);
+    }
+
+    public BindlerHolder(Parcel parcel) {
+        this.mBinder = parcel.readStrongBinder();
     }
 }

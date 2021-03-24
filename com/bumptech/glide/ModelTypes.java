@@ -10,8 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes14.dex */
-interface ModelTypes<T> {
+/* loaded from: classes5.dex */
+public interface ModelTypes<T> {
     @NonNull
     @CheckResult
     T load(@Nullable Bitmap bitmap);

@@ -9,11 +9,11 @@ import com.baidu.searchbox.elasticthread.scheduler.DredgeManager;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RealTimeStatusPrinter {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "ElasticRealTimeStatus";
-    private static volatile RealTimeStatusPrinter sInstance = null;
+    public static final boolean DEBUG = false;
+    public static final String TAG = "ElasticRealTimeStatus";
+    public static volatile RealTimeStatusPrinter sInstance;
 
     public static RealTimeStatusPrinter getInstance() {
         if (sInstance == null) {
@@ -24,6 +24,33 @@ public class RealTimeStatusPrinter {
             }
         }
         return sInstance;
+    }
+
+    private JSONObject loadArteryExecutorData(BaseExecutorCell baseExecutorCell) throws JSONException {
+        JSONObject jSONObject = new JSONObject();
+        if (baseExecutorCell != null) {
+            jSONObject.put("Status", "working");
+            jSONObject.put("WorkingThreadNum", baseExecutorCell.getWorkingThreadNum());
+            jSONObject.put("MaxThreadNum", baseExecutorCell.getMaxThreadNum());
+        }
+        return jSONObject;
+    }
+
+    private JSONObject loadDredgeExecutorData(BaseDredgeExecutorCell baseDredgeExecutorCell) throws JSONException {
+        JSONObject jSONObject = new JSONObject();
+        if (baseDredgeExecutorCell != null) {
+            jSONObject.put("Status", baseDredgeExecutorCell.isOpen() ? "working" : "shutdown");
+            jSONObject.put("WorkingThreadNum", baseDredgeExecutorCell.getWorkingThreadNum());
+            jSONObject.put("MaxThreadNum", baseDredgeExecutorCell.getMaxThreadNum());
+        }
+        return jSONObject;
+    }
+
+    private JSONObject loadSingleQueueData(ElasticQueue elasticQueue) throws JSONException {
+        JSONObject jSONObject = new JSONObject();
+        jSONObject.put("TaskNum", elasticQueue.getTaskNum());
+        jSONObject.put("WaitingTime", elasticQueue.getCurrentWaitingTime());
+        return jSONObject;
     }
 
     public void printRealTimeData() {
@@ -52,38 +79,7 @@ public class RealTimeStatusPrinter {
             jSONObject5.put("Third", loadSingleQueueData(queueManager.getQueue(3)));
             jSONObject.put("Queue", jSONObject5);
             new JSONObject().put("ElasticRealTimeData", jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
-    }
-
-    private JSONObject loadArteryExecutorData(BaseExecutorCell baseExecutorCell) throws JSONException {
-        JSONObject jSONObject = new JSONObject();
-        if (baseExecutorCell != null) {
-            jSONObject.put("Status", "working");
-            jSONObject.put("WorkingThreadNum", baseExecutorCell.getWorkingThreadNum());
-            jSONObject.put("MaxThreadNum", baseExecutorCell.getMaxThreadNum());
-        }
-        return jSONObject;
-    }
-
-    private JSONObject loadDredgeExecutorData(BaseDredgeExecutorCell baseDredgeExecutorCell) throws JSONException {
-        JSONObject jSONObject = new JSONObject();
-        if (baseDredgeExecutorCell != null) {
-            String str = "shutdown";
-            if (baseDredgeExecutorCell.isOpen()) {
-                str = "working";
-            }
-            jSONObject.put("Status", str);
-            jSONObject.put("WorkingThreadNum", baseDredgeExecutorCell.getWorkingThreadNum());
-            jSONObject.put("MaxThreadNum", baseDredgeExecutorCell.getMaxThreadNum());
-        }
-        return jSONObject;
-    }
-
-    private JSONObject loadSingleQueueData(ElasticQueue elasticQueue) throws JSONException {
-        JSONObject jSONObject = new JSONObject();
-        jSONObject.put("TaskNum", elasticQueue.getTaskNum());
-        jSONObject.put("WaitingTime", elasticQueue.getCurrentWaitingTime());
-        return jSONObject;
     }
 }

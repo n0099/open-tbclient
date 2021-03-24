@@ -5,28 +5,39 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.core.e.b {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public KsNativeAd.AdInteractionListener f5426a;
+    public KsNativeAd.AdInteractionListener f31665a;
     @NonNull
-    public KsNativeAd.VideoPlayListener b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public KsNativeAd.VideoPlayListener f31666b;
     @NonNull
-    public AdBaseFrameLayout c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdBaseFrameLayout f31667c;
     @NonNull
-    public AdTemplate d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public AdTemplate f31668d;
     @Nullable
-    public com.kwad.sdk.core.download.b.b e;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.core.download.b.b f31669e;
     @NonNull
-    public com.kwad.sdk.a.c.a f;
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.kwad.sdk.a.c.a f31670f;
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        if (this.e != null) {
-            this.e.f();
+        com.kwad.sdk.core.download.b.b bVar = this.f31669e;
+        if (bVar != null) {
+            bVar.f();
         }
-        this.f.e();
+        this.f31670f.e();
     }
 }

@@ -1,21 +1,12 @@
 package com.baidu.mobads;
-/* loaded from: classes4.dex */
-class n implements InterstitialAdListener {
+/* loaded from: classes2.dex */
+public class n implements InterstitialAdListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ InterstitialAd f2421a;
+    public final /* synthetic */ InterstitialAd f8365a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public n(InterstitialAd interstitialAd) {
-        this.f2421a = interstitialAd;
-    }
-
-    @Override // com.baidu.mobads.InterstitialAdListener
-    public void onAdReady() {
-    }
-
-    @Override // com.baidu.mobads.InterstitialAdListener
-    public void onAdPresent() {
+        this.f8365a = interstitialAd;
     }
 
     @Override // com.baidu.mobads.InterstitialAdListener
@@ -28,5 +19,13 @@ class n implements InterstitialAdListener {
 
     @Override // com.baidu.mobads.InterstitialAdListener
     public void onAdFailed(String str) {
+    }
+
+    @Override // com.baidu.mobads.InterstitialAdListener
+    public void onAdPresent() {
+    }
+
+    @Override // com.baidu.mobads.InterstitialAdListener
+    public void onAdReady() {
     }
 }

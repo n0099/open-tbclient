@@ -6,172 +6,207 @@ import android.view.View;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.f;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gift.myGiftList.MyGiftListModel;
-/* loaded from: classes8.dex */
+import d.b.b.e.p.l;
+import d.b.h0.r.f0.f;
+/* loaded from: classes4.dex */
 public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
-    private MyGiftListModel jYw;
-    private c jYx;
-    private boolean mIsHost;
-    private String nameShow;
-    private String st_type;
+    public boolean mIsHost;
+    public MyGiftListModel mModel;
+    public d.b.i0.t0.c.c mMyGiftListView;
+    public String nameShow;
+    public String st_type;
     public int userType;
-    private String username;
-    private String jYy = null;
-    private int sex = 0;
-    private long mUserId = 0;
-    private MyGiftListModel.a jYz = new MyGiftListModel.a() { // from class: com.baidu.tieba.gift.myGiftList.MyGiftListActivity.1
-        @Override // com.baidu.tieba.gift.myGiftList.MyGiftListModel.a
-        public void a(int i, String str, boolean z, a aVar) {
+    public String username;
+    public String suid = null;
+    public int sex = 0;
+    public long mUserId = 0;
+    public MyGiftListModel.b mLoadDataCallback = new a();
+    public NoNetworkView.b mNetworkChangeListener = new d();
+    public final CustomMessageListener mSendGiftSucceedListener = new e(2001232);
+    public BdListView.p scrollToBottomListener = new f();
+
+    /* loaded from: classes4.dex */
+    public class a implements MyGiftListModel.b {
+        public a() {
+        }
+
+        @Override // com.baidu.tieba.gift.myGiftList.MyGiftListModel.b
+        public void a(int i, String str, boolean z, d.b.i0.t0.c.a aVar) {
             MyGiftListActivity.this.closeLoadingDialog();
-            MyGiftListActivity.this.jYx.cOs().setVisibility(8);
-            MyGiftListActivity.this.jYx.cOt();
+            MyGiftListActivity.this.mMyGiftListView.n().setVisibility(8);
+            MyGiftListActivity.this.mMyGiftListView.m();
             if (i == 0) {
-                MyGiftListActivity.this.jYx.b(aVar);
+                MyGiftListActivity.this.mMyGiftListView.v(aVar);
                 return;
             }
             MyGiftListActivity.this.showToast(str);
             if (z) {
-                MyGiftListActivity.this.jYx.b(aVar);
+                MyGiftListActivity.this.mMyGiftListView.v(aVar);
             } else {
-                MyGiftListActivity.this.jYx.aQ(str, true);
+                MyGiftListActivity.this.mMyGiftListView.x(str, true);
             }
         }
-    };
-    private NoNetworkView.a gzW = new NoNetworkView.a() { // from class: com.baidu.tieba.gift.myGiftList.MyGiftListActivity.4
-        @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-        public void onNetworkChange(boolean z) {
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements f.g {
+        public b() {
+        }
+
+        @Override // d.b.h0.r.f0.f.g
+        public void onListPullRefresh(boolean z) {
+            if (!l.C()) {
+                MyGiftListActivity.this.mMyGiftListView.m();
+                MyGiftListActivity.this.mMyGiftListView.x(MyGiftListActivity.this.getString(R.string.neterror), true);
+                return;
+            }
+            d.b.h0.s.d.b.g0().n();
+            MyGiftListActivity.this.mModel.E(false);
+            MyGiftListActivity.this.mModel.LoadData();
+            d.b.h0.s.d.b.g0().d0(0);
+            MyGiftListActivity.this.mMyGiftListView.o();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements View.OnClickListener {
+        public c() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (MyGiftListActivity.this.mIsHost) {
+                return;
+            }
+            if (l.C()) {
+                long uid = MyGiftListActivity.this.mModel.getUid();
+                if (uid == 0) {
+                    return;
+                }
+                TiebaStatic.log("gift_list_btn");
+                GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(MyGiftListActivity.this.getPageContext().getPageActivity(), uid, MyGiftListActivity.this.username, MyGiftListActivity.this.nameShow);
+                giftTabActivityConfig.getIntent().putExtra("account_type", MyGiftListActivity.this.userType);
+                giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_GIFT_WALLS, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
+                MyGiftListActivity.this.sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
+                return;
+            }
+            MyGiftListActivity.this.showToast(R.string.neterror);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements NoNetworkView.b {
+        public d() {
+        }
+
+        @Override // com.baidu.tbadk.core.view.NoNetworkView.b
+        public void b(boolean z) {
             if (z) {
-                MyGiftListActivity.this.jYw.rT(false);
-                MyGiftListActivity.this.jYw.LoadData();
+                MyGiftListActivity.this.mModel.E(false);
+                MyGiftListActivity.this.mModel.LoadData();
             }
         }
-    };
-    private final CustomMessageListener jYA = new CustomMessageListener(CmdConfigCustom.CMD_GET_GIFT_SUCCEED) { // from class: com.baidu.tieba.gift.myGiftList.MyGiftListActivity.5
+    }
+
+    /* loaded from: classes4.dex */
+    public class e extends CustomMessageListener {
+        public e(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Long l;
-            if (customResponsedMessage != null && (l = (Long) customResponsedMessage.getData()) != null && !MyGiftListActivity.this.mIsHost && MyGiftListActivity.this.mUserId == l.longValue()) {
-                MyGiftListActivity.this.jYw.rT(false);
-                MyGiftListActivity.this.jYw.LoadData();
-            }
-        }
-    };
-    private BdListView.e gXO = new BdListView.e() { // from class: com.baidu.tieba.gift.myGiftList.MyGiftListActivity.6
-        @Override // com.baidu.adp.widget.ListView.BdListView.e
-        public void onScrollToBottom() {
-            if (MyGiftListActivity.this.jYw.isHasMore()) {
-                MyGiftListActivity.this.jYw.rT(true);
-                MyGiftListActivity.this.jYw.LoadData();
-                MyGiftListActivity.this.jYx.cOs().setVisibility(0);
+            if (customResponsedMessage == null || (l = (Long) customResponsedMessage.getData()) == null || MyGiftListActivity.this.mIsHost || MyGiftListActivity.this.mUserId != l.longValue()) {
                 return;
             }
-            MyGiftListActivity.this.jYx.cOs().setVisibility(8);
+            MyGiftListActivity.this.mModel.E(false);
+            MyGiftListActivity.this.mModel.LoadData();
         }
-    };
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* loaded from: classes4.dex */
+    public class f implements BdListView.p {
+        public f() {
+        }
+
+        @Override // com.baidu.adp.widget.ListView.BdListView.p
+        public void onScrollToBottom() {
+            if (MyGiftListActivity.this.mModel.A()) {
+                MyGiftListActivity.this.mModel.E(true);
+                MyGiftListActivity.this.mModel.LoadData();
+                MyGiftListActivity.this.mMyGiftListView.n().setVisibility(0);
+                return;
+            }
+            MyGiftListActivity.this.mMyGiftListView.n().setVisibility(8);
+        }
+    }
+
+    private void addNetWorkChangeListener() {
+        this.mMyGiftListView.k(this.mNetworkChangeListener);
+    }
+
+    private void initUI() {
+        d.b.i0.t0.c.c cVar = new d.b.i0.t0.c.c(this, this.scrollToBottomListener, this.mIsHost);
+        this.mMyGiftListView = cVar;
+        cVar.w(new b());
+        addNetWorkChangeListener();
+    }
+
+    public View.OnClickListener getSendGiftClickListener() {
+        return new c();
+    }
+
+    public String getUserSex() {
+        return this.sex == 2 ? getPageContext().getString(R.string.she) : getPageContext().getString(R.string.he);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.mMyGiftListView.onChangeSkinType(i);
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tbadk.coreExtra.messageCenter.b.bxE().bxV();
+        d.b.h0.s.d.b.g0().n();
         Intent intent = getIntent();
         if (intent != null) {
-            this.jYy = intent.getStringExtra("id");
+            this.suid = intent.getStringExtra("id");
             this.st_type = intent.getStringExtra("st_type");
             this.sex = intent.getIntExtra("sex", 0);
             this.username = intent.getStringExtra("user_name");
             this.nameShow = intent.getStringExtra("name_show");
             this.userType = intent.getIntExtra("user_type", 0);
         }
-        if (this.jYy != null) {
-            this.mUserId = com.baidu.adp.lib.f.b.toLong(this.jYy, 0L);
+        String str = this.suid;
+        if (str != null) {
+            this.mUserId = d.b.b.e.m.b.f(str, 0L);
         }
-        this.jYw = new MyGiftListModel(getPageContext(), this.st_type);
-        this.jYw.mUserType = this.userType;
-        this.jYw.setUid(this.mUserId);
-        this.mIsHost = this.jYw.getIsSelf();
-        this.jYw.a(this.jYz);
+        MyGiftListModel myGiftListModel = new MyGiftListModel(getPageContext(), this.st_type);
+        this.mModel = myGiftListModel;
+        myGiftListModel.mUserType = this.userType;
+        myGiftListModel.setUid(this.mUserId);
+        this.mIsHost = this.mModel.y();
+        this.mModel.C(this.mLoadDataCallback);
         initUI();
-        registerListener(this.jYA);
-        this.jYw.rT(false);
-        if (l.isNetOk()) {
-            this.jYx.startPullRefresh();
+        registerListener(this.mSendGiftSucceedListener);
+        this.mModel.E(false);
+        if (l.C()) {
+            this.mMyGiftListView.y();
         } else {
-            this.jYx.aQ(getString(R.string.neterror), true);
+            this.mMyGiftListView.x(getString(R.string.neterror), true);
         }
-        com.baidu.tbadk.coreExtra.messageCenter.b.bxE().setMsgGiftNum(0);
-    }
-
-    private void initUI() {
-        this.jYx = new c(this, this.gXO, this.mIsHost);
-        this.jYx.a(new f.c() { // from class: com.baidu.tieba.gift.myGiftList.MyGiftListActivity.2
-            @Override // com.baidu.tbadk.core.view.f.c
-            public void onListPullRefresh(boolean z) {
-                if (!l.isNetOk()) {
-                    MyGiftListActivity.this.jYx.cOt();
-                    MyGiftListActivity.this.jYx.aQ(MyGiftListActivity.this.getString(R.string.neterror), true);
-                    return;
-                }
-                com.baidu.tbadk.coreExtra.messageCenter.b.bxE().bxV();
-                MyGiftListActivity.this.jYw.rT(false);
-                MyGiftListActivity.this.jYw.LoadData();
-                com.baidu.tbadk.coreExtra.messageCenter.b.bxE().setMsgGiftNum(0);
-                MyGiftListActivity.this.jYx.Xc();
-            }
-        });
-        cOo();
-    }
-
-    public View.OnClickListener cOn() {
-        return new View.OnClickListener() { // from class: com.baidu.tieba.gift.myGiftList.MyGiftListActivity.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (!MyGiftListActivity.this.mIsHost) {
-                    if (l.isNetOk()) {
-                        long uid = MyGiftListActivity.this.jYw.getUid();
-                        if (uid != 0) {
-                            TiebaStatic.log("gift_list_btn");
-                            GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(MyGiftListActivity.this.getPageContext().getPageActivity(), uid, MyGiftListActivity.this.username, MyGiftListActivity.this.nameShow);
-                            giftTabActivityConfig.getIntent().putExtra("account_type", MyGiftListActivity.this.userType);
-                            giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_GIFT_WALLS, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
-                            MyGiftListActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, giftTabActivityConfig));
-                            return;
-                        }
-                        return;
-                    }
-                    MyGiftListActivity.this.showToast(R.string.neterror);
-                }
-            }
-        };
-    }
-
-    private void cOo() {
-        this.jYx.h(this.gzW);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.jYx.onChangeSkinType(i);
-    }
-
-    public String cOp() {
-        String string = getPageContext().getString(R.string.he);
-        if (this.sex == 2) {
-            return getPageContext().getString(R.string.she);
-        }
-        return string;
+        d.b.h0.s.d.b.g0().d0(0);
     }
 }

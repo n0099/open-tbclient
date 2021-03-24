@@ -2,15 +2,15 @@ package com.baidu.ufosdk.f;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class e extends LinkedList {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f3621a = 2000;
+    public final int f22948a = 2000;
 
     @Override // java.util.LinkedList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List, java.util.Deque, java.util.Queue
     public final boolean add(Object obj) {
-        if (size() == this.f3621a) {
+        if (size() == this.f22948a) {
             removeFirst();
         }
         return super.add(obj);
@@ -19,7 +19,7 @@ public final class e extends LinkedList {
     @Override // java.util.AbstractCollection
     public final String toString() {
         StringBuilder sb = new StringBuilder();
-        Iterator it = iterator();
+        Iterator<E> it = iterator();
         while (it.hasNext()) {
             sb.append(it.next().toString());
         }

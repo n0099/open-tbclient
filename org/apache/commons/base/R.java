@@ -1,14 +1,9 @@
 package org.apache.commons.base;
-/* loaded from: classes.dex */
+/* loaded from: classes7.dex */
 public final class R {
-    private R() {
-    }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class string {
-        public static final int app_name = 0x7f0f04b7;
-
-        private string() {
-        }
+        public static final int app_name = 0x7f0f02af;
     }
 }

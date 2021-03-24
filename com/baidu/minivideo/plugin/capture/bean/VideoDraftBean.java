@@ -1,62 +1,180 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class VideoDraftBean implements Jsonable, Serializable, Cloneable, Comparable<VideoDraftBean> {
-    private int mBackUpType;
-    private String mCoverPath;
-    private String mDraftName;
-    private String mEffectData;
-    private String mFilterValue;
-    private String mFollowData;
-    private String mLocalAlbumData;
-    private String mLocalAlbumThemeData;
-    private String mLocation;
-    private String mMainTitle;
-    private String mMusicData;
-    private String mPreProcessVideoPath;
-    private int mResumePage;
-    private int mResumeRoute;
-    private String mSubTitle;
-    private long mTimeStamp;
-    private String mTopicData;
-    private String mUserID;
-    private String mVideoPath;
-    private String mVideoTempData;
-    private int mVisibility;
-    private float mOriginMusicVolume = 1.0f;
-    private boolean mSelected = false;
+/* loaded from: classes2.dex */
+public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Serializable, Cloneable {
+    public int mBackUpType;
+    public String mCoverPath;
+    public String mDraftName;
+    public String mEffectData;
+    public String mFilterValue;
+    public String mFollowData;
+    public String mLocalAlbumData;
+    public String mLocalAlbumThemeData;
+    public String mLocation;
+    public String mMainTitle;
+    public String mMusicData;
+    public String mPreProcessVideoPath;
+    public int mResumePage;
+    public int mResumeRoute;
+    public String mSubTitle;
+    public long mTimeStamp;
+    public String mTopicData;
+    public String mUserID;
+    public String mVideoPath;
+    public String mVideoTempData;
+    public int mVisibility;
+    public float mOriginMusicVolume = 1.0f;
+    public boolean mSelected = false;
 
-    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
-    public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("mDraftName", this.mDraftName);
-            jSONObject.put("mUserID", this.mUserID);
-            jSONObject.put("mVideoTempData", this.mVideoTempData);
-            jSONObject.put("mVideoPath", this.mVideoPath);
-            jSONObject.put("mMusicData", this.mMusicData);
-            jSONObject.put("mMainTitle", this.mMainTitle);
-            jSONObject.put("mSubTitle", this.mSubTitle);
-            jSONObject.put("mTopicData", this.mTopicData);
-            jSONObject.put("mVisibility", this.mVisibility);
-            jSONObject.put("mResumeRoute", this.mResumeRoute);
-            jSONObject.put("mTimeStamp", this.mTimeStamp);
-            jSONObject.put("mResumePage", this.mResumePage);
-            jSONObject.put("mBackUpType", this.mBackUpType);
-            jSONObject.put("mEffectData", this.mEffectData);
-            jSONObject.put("mCoverPath", this.mCoverPath);
-            jSONObject.put("mLocation", this.mLocation);
-            jSONObject.put("mPreProcessVideoPath", this.mPreProcessVideoPath);
-            jSONObject.put("mFollowData", this.mFollowData);
-            jSONObject.put("mOriginMusicVolume", this.mOriginMusicVolume);
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public VideoDraftBean(String str, String str2, long j, int i) {
+        this.mDraftName = str;
+        this.mUserID = str2;
+        this.mTimeStamp = j;
+        this.mResumeRoute = i;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
         }
-        return jSONObject;
+        if (obj != null && VideoDraftBean.class == obj.getClass()) {
+            VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
+            if (this.mDraftName.equals(videoDraftBean.getDraftName()) && ((this.mVideoTempData != null && videoDraftBean.getVideoTempData() != null && this.mVideoTempData.equals(videoDraftBean.getVideoTempData())) || this.mResumeRoute == 1)) {
+                if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
+                    int indexOf = this.mMusicData.indexOf(ContentUtil.RESULT_KEY_SK);
+                    return this.mMusicData.substring(indexOf).equals(videoDraftBean.getMusicData().substring(indexOf));
+                } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean equalsMusic(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj != null && VideoDraftBean.class == obj.getClass()) {
+            VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
+            if (this.mDraftName.equals(videoDraftBean.getDraftName())) {
+                if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
+                    int indexOf = this.mMusicData.indexOf(ContentUtil.RESULT_KEY_SK);
+                    if (indexOf == -1 || indexOf >= videoDraftBean.getMusicData().length()) {
+                        return false;
+                    }
+                    String substring = this.mMusicData.substring(indexOf);
+                    if (indexOf >= videoDraftBean.getMusicData().length()) {
+                        return false;
+                    }
+                    return substring.equals(videoDraftBean.getMusicData().substring(indexOf));
+                } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public int getBackupType() {
+        return this.mBackUpType;
+    }
+
+    public String getCoverPath() {
+        return this.mCoverPath;
+    }
+
+    public String getDraftName() {
+        return this.mDraftName;
+    }
+
+    public boolean getDraftSelectedStatus() {
+        return this.mSelected;
+    }
+
+    public String getEffectData() {
+        return this.mEffectData;
+    }
+
+    public String getFilterValue() {
+        return this.mFilterValue;
+    }
+
+    public String getFollowData() {
+        return this.mFollowData;
+    }
+
+    public String getLocalAlbumData() {
+        return this.mLocalAlbumData;
+    }
+
+    public String getLocalAlbumThemeData() {
+        return this.mLocalAlbumThemeData;
+    }
+
+    public String getLocation() {
+        return this.mLocation;
+    }
+
+    public String getMainTitle() {
+        return this.mMainTitle;
+    }
+
+    public String getMusicData() {
+        return this.mMusicData;
+    }
+
+    public float getOriginMusicVolume() {
+        return this.mOriginMusicVolume;
+    }
+
+    public String getPreProcessVideoPath() {
+        return this.mPreProcessVideoPath;
+    }
+
+    public int getResumePage() {
+        return this.mResumePage;
+    }
+
+    public int getResumeRoute() {
+        return this.mResumeRoute;
+    }
+
+    public String getSubTitle() {
+        return this.mSubTitle;
+    }
+
+    public long getTimeStamp() {
+        return this.mTimeStamp;
+    }
+
+    public String getTopicData() {
+        return this.mTopicData;
+    }
+
+    public String getUserID() {
+        return this.mUserID;
+    }
+
+    public String getVideoPath() {
+        return this.mVideoPath;
+    }
+
+    public String getVideoTempData() {
+        return this.mVideoTempData;
+    }
+
+    public int getVisibility() {
+        return this.mVisibility;
+    }
+
+    public int hashCode() {
+        return this.mDraftName.hashCode() + (this.mMusicData.hashCode() * 31) + (this.mVideoTempData.hashCode() * 31);
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
@@ -83,203 +201,141 @@ public class VideoDraftBean implements Jsonable, Serializable, Cloneable, Compar
             this.mFollowData = jSONObject.optString("mFollowData");
             this.mOriginMusicVolume = (float) jSONObject.optDouble("mOriginMusicVolume");
             return true;
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
             return false;
         }
-    }
-
-    public VideoDraftBean(String str, String str2, long j, int i) {
-        this.mDraftName = str;
-        this.mUserID = str2;
-        this.mTimeStamp = j;
-        this.mResumeRoute = i;
-    }
-
-    public VideoDraftBean() {
-    }
-
-    public String getDraftName() {
-        return this.mDraftName;
-    }
-
-    public void setDraftName(String str) {
-        this.mDraftName = str;
-    }
-
-    public String getUserID() {
-        return this.mUserID;
-    }
-
-    public void setUserID(String str) {
-        this.mUserID = str;
-    }
-
-    public String getVideoTempData() {
-        return this.mVideoTempData;
-    }
-
-    public void setVideoTempData(String str) {
-        this.mVideoTempData = str;
-    }
-
-    public String getVideoPath() {
-        return this.mVideoPath;
-    }
-
-    public void setVideoPath(String str) {
-        this.mVideoPath = str;
-    }
-
-    public String getMusicData() {
-        return this.mMusicData;
-    }
-
-    public void setMusicData(String str) {
-        this.mMusicData = str;
-    }
-
-    public String getMainTitle() {
-        return this.mMainTitle;
-    }
-
-    public void setMainTitle(String str) {
-        this.mMainTitle = str;
-    }
-
-    public String getSubTitle() {
-        return this.mSubTitle;
-    }
-
-    public void setSubTitle(String str) {
-        this.mSubTitle = str;
-    }
-
-    public String getTopicData() {
-        return this.mTopicData;
-    }
-
-    public void setTopicData(String str) {
-        this.mTopicData = str;
-    }
-
-    public int getVisibility() {
-        return this.mVisibility;
-    }
-
-    public void setVisibility(int i) {
-        this.mVisibility = i;
-    }
-
-    public int getResumeRoute() {
-        return this.mResumeRoute;
-    }
-
-    public void setResumeRoute(int i) {
-        this.mResumeRoute = i;
-    }
-
-    public long getTimeStamp() {
-        return this.mTimeStamp;
-    }
-
-    public void setTimeStamp(long j) {
-        this.mTimeStamp = j;
-    }
-
-    public void setDraftSelected(boolean z) {
-        this.mSelected = z;
-    }
-
-    public boolean getDraftSelectedStatus() {
-        return this.mSelected;
     }
 
     public void setBackUpType(int i) {
         this.mBackUpType = i;
     }
 
-    public int getBackupType() {
-        return this.mBackUpType;
+    public void setCoverPath(String str) {
+        this.mCoverPath = str;
     }
 
-    public int getResumePage() {
-        return this.mResumePage;
+    public void setDraftName(String str) {
+        this.mDraftName = str;
     }
 
-    public void setResumePage(int i) {
-        this.mResumePage = i;
-    }
-
-    public String getEffectData() {
-        return this.mEffectData;
+    public void setDraftSelected(boolean z) {
+        this.mSelected = z;
     }
 
     public void setEffectData(String str) {
         this.mEffectData = str;
     }
 
-    public String getCoverPath() {
-        return this.mCoverPath;
-    }
-
-    public void setCoverPath(String str) {
-        this.mCoverPath = str;
-    }
-
-    public String getLocation() {
-        return this.mLocation;
-    }
-
-    public void setLocation(String str) {
-        this.mLocation = str;
-    }
-
-    public String getPreProcessVideoPath() {
-        return this.mPreProcessVideoPath;
-    }
-
-    public void setPreProcessVideoPath(String str) {
-        this.mPreProcessVideoPath = str;
-    }
-
-    public String getFollowData() {
-        return this.mFollowData;
+    public void setFilterValue(String str) {
+        this.mFilterValue = str;
     }
 
     public void setFollowData(String str) {
         this.mFollowData = str;
     }
 
-    public float getOriginMusicVolume() {
-        return this.mOriginMusicVolume;
-    }
-
-    public void setOriginMusicVolume(float f) {
-        this.mOriginMusicVolume = f;
-    }
-
-    public String getFilterValue() {
-        return this.mFilterValue;
-    }
-
-    public void setFilterValue(String str) {
-        this.mFilterValue = str;
-    }
-
-    public String getLocalAlbumData() {
-        return this.mLocalAlbumData;
-    }
-
     public void setLocalAlbumData(String str) {
         this.mLocalAlbumData = str;
     }
 
-    public String getLocalAlbumThemeData() {
-        return this.mLocalAlbumThemeData;
-    }
-
     public void setLocalAlbumThemeData(String str) {
         this.mLocalAlbumThemeData = str;
+    }
+
+    public void setLocation(String str) {
+        this.mLocation = str;
+    }
+
+    public void setMainTitle(String str) {
+        this.mMainTitle = str;
+    }
+
+    public void setMusicData(String str) {
+        this.mMusicData = str;
+    }
+
+    public void setOriginMusicVolume(float f2) {
+        this.mOriginMusicVolume = f2;
+    }
+
+    public void setPreProcessVideoPath(String str) {
+        this.mPreProcessVideoPath = str;
+    }
+
+    public void setResumePage(int i) {
+        this.mResumePage = i;
+    }
+
+    public void setResumeRoute(int i) {
+        this.mResumeRoute = i;
+    }
+
+    public void setSubTitle(String str) {
+        this.mSubTitle = str;
+    }
+
+    public void setTimeStamp(long j) {
+        this.mTimeStamp = j;
+    }
+
+    public void setTopicData(String str) {
+        this.mTopicData = str;
+    }
+
+    public void setUserID(String str) {
+        this.mUserID = str;
+    }
+
+    public void setVideoPath(String str) {
+        this.mVideoPath = str;
+    }
+
+    public void setVideoTempData(String str) {
+        this.mVideoTempData = str;
+    }
+
+    public void setVisibility(int i) {
+        this.mVisibility = i;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
+    public JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("mDraftName", this.mDraftName);
+            jSONObject.put("mUserID", this.mUserID);
+            jSONObject.put("mVideoTempData", this.mVideoTempData);
+            jSONObject.put("mVideoPath", this.mVideoPath);
+            jSONObject.put("mMusicData", this.mMusicData);
+            jSONObject.put("mMainTitle", this.mMainTitle);
+            jSONObject.put("mSubTitle", this.mSubTitle);
+            jSONObject.put("mTopicData", this.mTopicData);
+            jSONObject.put("mVisibility", this.mVisibility);
+            jSONObject.put("mResumeRoute", this.mResumeRoute);
+            jSONObject.put("mTimeStamp", this.mTimeStamp);
+            jSONObject.put("mResumePage", this.mResumePage);
+            jSONObject.put("mBackUpType", this.mBackUpType);
+            jSONObject.put("mEffectData", this.mEffectData);
+            jSONObject.put("mCoverPath", this.mCoverPath);
+            jSONObject.put("mLocation", this.mLocation);
+            jSONObject.put("mPreProcessVideoPath", this.mPreProcessVideoPath);
+            jSONObject.put("mFollowData", this.mFollowData);
+            jSONObject.put("mOriginMusicVolume", this.mOriginMusicVolume);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        return jSONObject;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public VideoDraftBean m12clone() {
+        try {
+            return (VideoDraftBean) super.clone();
+        } catch (CloneNotSupportedException e2) {
+            e2.printStackTrace();
+            return null;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -288,70 +344,14 @@ public class VideoDraftBean implements Jsonable, Serializable, Cloneable, Compar
         if (videoDraftBean == null) {
             return -1;
         }
-        if (this.mTimeStamp > videoDraftBean.mTimeStamp) {
+        long j = this.mTimeStamp;
+        long j2 = videoDraftBean.mTimeStamp;
+        if (j > j2) {
             return 1;
         }
-        return this.mTimeStamp >= videoDraftBean.mTimeStamp ? 0 : -1;
+        return j < j2 ? -1 : 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public VideoDraftBean m24clone() {
-        try {
-            return (VideoDraftBean) super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public int hashCode() {
-        return this.mDraftName.hashCode() + (this.mMusicData.hashCode() * 31) + (this.mVideoTempData.hashCode() * 31);
-    }
-
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
-        if (this.mDraftName.equals(videoDraftBean.getDraftName())) {
-            if ((this.mVideoTempData == null || videoDraftBean.getVideoTempData() == null || !this.mVideoTempData.equals(videoDraftBean.getVideoTempData())) && this.mResumeRoute != 1) {
-                return false;
-            }
-            if (this.mMusicData == null || videoDraftBean.getMusicData() == null) {
-                return this.mMusicData == null && videoDraftBean.getMusicData() == null;
-            }
-            int indexOf = this.mMusicData.indexOf("sk");
-            return this.mMusicData.substring(indexOf).equals(videoDraftBean.getMusicData().substring(indexOf));
-        }
-        return false;
-    }
-
-    public boolean equalsMusic(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
-        if (this.mDraftName.equals(videoDraftBean.getDraftName())) {
-            if (this.mMusicData == null || videoDraftBean.getMusicData() == null) {
-                return this.mMusicData == null && videoDraftBean.getMusicData() == null;
-            }
-            int indexOf = this.mMusicData.indexOf("sk");
-            if (indexOf == -1 || indexOf >= videoDraftBean.getMusicData().length()) {
-                return false;
-            }
-            String substring = this.mMusicData.substring(indexOf);
-            if (indexOf >= videoDraftBean.getMusicData().length()) {
-                return false;
-            }
-            return substring.equals(videoDraftBean.getMusicData().substring(indexOf));
-        }
-        return false;
+    public VideoDraftBean() {
     }
 }

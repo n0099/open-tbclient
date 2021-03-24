@@ -1,74 +1,73 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class RequestApplyLocalMessage extends CustomResponsedMessage<Object> {
-    private String content;
-    private long friendId;
-    private long id;
-    private String message;
-    private String name;
-    private String portrait;
-    private long uid;
+    public String content;
+    public long friendId;
+    public long id;
+    public String message;
+    public String name;
+    public String portrait;
+    public long uid;
 
-    public long getUid() {
-        return this.uid;
-    }
-
-    public void setUid(long j) {
-        this.uid = j;
-    }
-
-    public long getFriendId() {
-        return this.friendId;
-    }
-
-    public void setFriendId(long j) {
-        this.friendId = j;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    public void setMessage(String str) {
-        this.message = str;
-    }
-
-    public long getId() {
-        return this.id;
-    }
-
-    public void setId(long j) {
-        this.id = j;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String str) {
-        this.name = str;
-    }
-
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public void setPortrait(String str) {
-        this.portrait = str;
+    public RequestApplyLocalMessage() {
+        super(2001216);
     }
 
     public String getContent() {
         return this.content;
     }
 
+    public long getFriendId() {
+        return this.friendId;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getPortrait() {
+        return this.portrait;
+    }
+
+    public long getUid() {
+        return this.uid;
+    }
+
     public void setContent(String str) {
         this.content = str;
     }
 
-    public RequestApplyLocalMessage() {
-        super(CmdConfigCustom.CMD_APPLY_MESSAGE);
+    public void setFriendId(long j) {
+        this.friendId = j;
+    }
+
+    public void setId(long j) {
+        this.id = j;
+    }
+
+    public void setMessage(String str) {
+        this.message = str;
+    }
+
+    public void setName(String str) {
+        this.name = str;
+    }
+
+    public void setPortrait(String str) {
+        this.portrait = str;
+    }
+
+    public void setUid(long j) {
+        this.uid = j;
     }
 }

@@ -5,47 +5,51 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.BaseFragment;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
-    private int[] gYH;
-    private ArrayList<BaseFragment> mxW;
 
-    protected abstract BaseFragment dxt();
+    /* renamed from: a  reason: collision with root package name */
+    public int[] f20274a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ArrayList<BaseFragment> f20275b;
 
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
-        this.mxW = new ArrayList<>();
+        this.f20275b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment dxt = dxt();
-        dxt.setArguments(bundle);
-        this.mxW.add(dxt);
-        if (!z) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("page_type", 1);
-            BaseFragment dxt2 = dxt();
-            dxt2.setArguments(bundle2);
-            this.mxW.add(dxt2);
-            this.gYH = new int[]{0, 1};
+        BaseFragment e2 = e();
+        e2.setArguments(bundle);
+        this.f20275b.add(e2);
+        if (z) {
+            this.f20274a = new int[]{0};
             return;
         }
-        this.gYH = new int[]{0};
+        Bundle bundle2 = new Bundle();
+        bundle2.putInt("page_type", 1);
+        BaseFragment e3 = e();
+        e3.setArguments(bundle2);
+        this.f20275b.add(e3);
+        this.f20274a = new int[]{0, 1};
+    }
+
+    public abstract BaseFragment e();
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        return this.f20274a.length;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= this.gYH.length || i < 0) {
+        if (i >= this.f20274a.length || i < 0) {
             return null;
         }
-        return this.mxW.get(i);
+        return this.f20275b.get(i);
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        return this.gYH.length;
-    }
-
-    public int Dm(int i) {
-        return this.gYH[i];
+    public int i(int i) {
+        return this.f20274a[i];
     }
 }

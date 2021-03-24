@@ -29,22 +29,22 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
-    private static final String LOGTAG = "WebViewSystemFactoryProvider";
-    private static WebViewSystemFactoryProvider mInstance;
-    private CookieManagerImpl mCookieManager;
-    private CookieSyncManagerImpl mCookieSyncManager;
-    private GeolocationPermissionsImpl mGeolocationPermissions;
-    private final Object mLock = new Object();
-    private MimeTypeMapImpl mMimeTypeMap;
-    private ServiceWorkerControllerImpl mServiceWorkerController;
-    private TracingControllerImpl mTracingController;
-    private WebIconDatabaseImpl mWebIconDatabase;
-    private WebStorageImpl mWebStorage;
-    private WebViewDatabaseImpl mWebViewDatabase;
+    public static final String LOGTAG = "WebViewSystemFactoryProvider";
+    public static WebViewSystemFactoryProvider mInstance;
+    public CookieManagerImpl mCookieManager;
+    public CookieSyncManagerImpl mCookieSyncManager;
+    public GeolocationPermissionsImpl mGeolocationPermissions;
+    public final Object mLock = new Object();
+    public MimeTypeMapImpl mMimeTypeMap;
+    public ServiceWorkerControllerImpl mServiceWorkerController;
+    public TracingControllerImpl mTracingController;
+    public WebIconDatabaseImpl mWebIconDatabase;
+    public WebStorageImpl mWebStorage;
+    public WebViewDatabaseImpl mWebViewDatabase;
 
-    private WebViewSystemFactoryProvider() {
+    public WebViewSystemFactoryProvider() {
         if (this.mStaticWebSettings == null) {
             this.mStaticWebSettings = new HashMap<>(16);
         }
@@ -998,10 +998,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
                     return WebChromeClient.FileChooserParams.parseResult(i, intent);
                 }
                 Uri data = (intent == null || i != -1) ? null : intent.getData();
-                if (data != null) {
-                    return new Uri[]{data};
+                if (data == null) {
+                    return null;
                 }
-                return null;
+                return new Uri[]{data};
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics

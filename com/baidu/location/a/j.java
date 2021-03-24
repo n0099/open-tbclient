@@ -5,24 +5,34 @@ import android.util.Log;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class j implements LBSAuthManagerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f1919a = new Object();
-    private static j b = null;
-    private int c = 0;
-    private Context d = null;
-    private long e = 0;
-    private String f = null;
+    public static Object f6526a = new Object();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static j f6527b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f6528c = 0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f6529d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f6530e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f6531f = null;
 
     public static j a() {
         j jVar;
-        synchronized (f1919a) {
-            if (b == null) {
-                b = new j();
+        synchronized (f6526a) {
+            if (f6527b == null) {
+                f6527b = new j();
             }
-            jVar = b;
+            jVar = f6527b;
         }
         return jVar;
     }
@@ -30,8 +40,8 @@ public class j implements LBSAuthManagerListener {
     public static String b(Context context) {
         try {
             return LBSAuthManager.getInstance(context).getPublicKey(context);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return null;
         }
     }
@@ -39,33 +49,26 @@ public class j implements LBSAuthManagerListener {
     public static String c(Context context) {
         try {
             return LBSAuthManager.getInstance(context).getMCode();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return null;
         }
     }
 
     public void a(Context context) {
-        this.d = context;
-        LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", null, this);
-        this.e = System.currentTimeMillis();
+        this.f6529d = context;
+        LBSAuthManager.getInstance(context).authenticate(false, "lbs_locsdk", null, this);
+        this.f6530e = System.currentTimeMillis();
     }
 
     public boolean b() {
-        boolean z = true;
-        if (this.c != 0 && this.c != 602 && this.c != 601 && this.c != -10 && this.c != -11) {
-            z = false;
-        }
-        if (this.d != null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.e;
-            if (z) {
-                if (currentTimeMillis > 86400000) {
-                    LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", null, this);
-                    this.e = System.currentTimeMillis();
-                }
-            } else if (currentTimeMillis < 0 || currentTimeMillis > 10000) {
-                LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", null, this);
-                this.e = System.currentTimeMillis();
+        int i = this.f6528c;
+        boolean z = i == 0 || i == 602 || i == 601 || i == -10 || i == -11;
+        if (this.f6529d != null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.f6530e;
+            if (!z ? currentTimeMillis < 0 || currentTimeMillis > 10000 : currentTimeMillis > 86400000) {
+                LBSAuthManager.getInstance(this.f6529d).authenticate(false, "lbs_locsdk", null, this);
+                this.f6530e = System.currentTimeMillis();
             }
         }
         return z;
@@ -73,21 +76,21 @@ public class j implements LBSAuthManagerListener {
 
     @Override // com.baidu.lbsapi.auth.LBSAuthManagerListener
     public void onAuthResult(int i, String str) {
-        this.c = i;
-        if (this.c == 0) {
-            Log.i(com.baidu.location.d.a.f1963a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
+        this.f6528c = i;
+        if (i == 0) {
+            Log.i(com.baidu.location.d.a.f6668a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
         } else {
-            Log.i(com.baidu.location.d.a.f1963a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
+            String str2 = com.baidu.location.d.a.f6668a;
+            Log.i(str2, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
         }
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject == null || jSONObject.getString("token") == null) {
-                    return;
+                if (jSONObject.getString("token") != null) {
+                    this.f6531f = jSONObject.getString("token");
                 }
-                this.f = jSONObject.getString("token");
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }

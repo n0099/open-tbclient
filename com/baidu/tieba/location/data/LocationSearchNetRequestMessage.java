@@ -1,24 +1,24 @@
 package com.baidu.tieba.location.data;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetSuggestionByAddrName.DataReq;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class LocationSearchNetRequestMessage extends NetMessage {
-    private String addrName;
+    public String addrName;
 
     public LocationSearchNetRequestMessage() {
-        super(1003002, CmdConfigSocket.CMD_GET_SUGGESTLOCSTION_BY_NAME);
+        super(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, 303018);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.addr_name = this.addrName;
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GetSuggestionByAddrNameReqIdl.Builder builder2 = new GetSuggestionByAddrNameReqIdl.Builder();
         builder2.data = builder.build(false);

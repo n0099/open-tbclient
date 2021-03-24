@@ -2,8 +2,7 @@ package com.baidu.pass.biometrics.base.http.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
+import com.alipay.sdk.encrypt.a;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
 import com.baidu.pass.biometrics.base.utils.Crypto;
 import java.nio.charset.Charset;
@@ -13,11 +12,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes6.dex */
+import kotlin.text.Typography;
+/* loaded from: classes2.dex */
 public class HttpUtils {
     public static String getNonce(Context context, List<RestNameValuePair> list) {
         String str;
-        MessageDigest messageDigest;
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list);
         Collections.sort(arrayList, new Comparator<RestNameValuePair>() { // from class: com.baidu.pass.biometrics.base.http.utils.HttpUtils.1
@@ -29,19 +28,19 @@ public class HttpUtils {
         });
         RestNameValuePair restNameValuePair = new RestNameValuePair();
         restNameValuePair.setName("key");
+        MessageDigest messageDigest = null;
         try {
             str = Crypto.sha1(context.getPackageName());
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             str = null;
         }
         restNameValuePair.setValue(str);
         arrayList.add(restNameValuePair);
         try {
-            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-        } catch (NoSuchAlgorithmException e2) {
-            e2.printStackTrace();
-            messageDigest = null;
+            messageDigest = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e3) {
+            e3.printStackTrace();
         }
         if (messageDigest == null) {
             return "";
@@ -55,9 +54,11 @@ public class HttpUtils {
                     value = "";
                 }
                 StringBuilder sb = new StringBuilder();
-                sb.append(name).append('=').append(value);
+                sb.append(name);
+                sb.append(a.f1897h);
+                sb.append(value);
                 if (i != arrayList.size() - 1) {
-                    sb.append('&');
+                    sb.append(Typography.amp);
                 }
                 if (!TextUtils.isEmpty(sb)) {
                     messageDigest.update(sb.toString().getBytes(Charset.forName("UTF-8")));
@@ -66,8 +67,8 @@ public class HttpUtils {
         }
         byte[] digest = messageDigest.digest();
         StringBuilder sb2 = new StringBuilder();
-        for (byte b : digest) {
-            sb2.append(Integer.toHexString((b & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
+        for (byte b2 : digest) {
+            sb2.append(Integer.toHexString((b2 & 255) | (-256)).substring(6));
         }
         return sb2.toString();
     }

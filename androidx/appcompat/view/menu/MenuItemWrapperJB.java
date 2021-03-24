@@ -9,27 +9,30 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuItemWrapperICS;
 import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.view.ActionProvider;
-/* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(16)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class MenuItemWrapperJB extends MenuItemWrapperICS {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MenuItemWrapperJB(Context context, SupportMenuItem supportMenuItem) {
-        super(context, supportMenuItem);
-    }
 
-    @Override // androidx.appcompat.view.menu.MenuItemWrapperICS
-    MenuItemWrapperICS.ActionProviderWrapper createActionProviderWrapper(ActionProvider actionProvider) {
-        return new ActionProviderWrapperJB(this.mContext, actionProvider);
-    }
-
-    /* loaded from: classes5.dex */
-    class ActionProviderWrapperJB extends MenuItemWrapperICS.ActionProviderWrapper implements ActionProvider.VisibilityListener {
-        ActionProvider.VisibilityListener mListener;
+    /* loaded from: classes.dex */
+    public class ActionProviderWrapperJB extends MenuItemWrapperICS.ActionProviderWrapper implements ActionProvider.VisibilityListener {
+        public ActionProvider.VisibilityListener mListener;
 
         public ActionProviderWrapperJB(Context context, android.view.ActionProvider actionProvider) {
             super(context, actionProvider);
+        }
+
+        @Override // androidx.core.view.ActionProvider
+        public boolean isVisible() {
+            return this.mInner.isVisible();
+        }
+
+        @Override // android.view.ActionProvider.VisibilityListener
+        public void onActionProviderVisibilityChanged(boolean z) {
+            ActionProvider.VisibilityListener visibilityListener = this.mListener;
+            if (visibilityListener != null) {
+                visibilityListener.onActionProviderVisibilityChanged(z);
+            }
         }
 
         @Override // androidx.core.view.ActionProvider
@@ -43,11 +46,6 @@ public class MenuItemWrapperJB extends MenuItemWrapperICS {
         }
 
         @Override // androidx.core.view.ActionProvider
-        public boolean isVisible() {
-            return this.mInner.isVisible();
-        }
-
-        @Override // androidx.core.view.ActionProvider
         public void refreshVisibility() {
             this.mInner.refreshVisibility();
         }
@@ -55,18 +53,16 @@ public class MenuItemWrapperJB extends MenuItemWrapperICS {
         @Override // androidx.core.view.ActionProvider
         public void setVisibilityListener(ActionProvider.VisibilityListener visibilityListener) {
             this.mListener = visibilityListener;
-            android.view.ActionProvider actionProvider = this.mInner;
-            if (visibilityListener == null) {
-                this = null;
-            }
-            actionProvider.setVisibilityListener(this);
+            this.mInner.setVisibilityListener(visibilityListener != null ? this : null);
         }
+    }
 
-        @Override // android.view.ActionProvider.VisibilityListener
-        public void onActionProviderVisibilityChanged(boolean z) {
-            if (this.mListener != null) {
-                this.mListener.onActionProviderVisibilityChanged(z);
-            }
-        }
+    public MenuItemWrapperJB(Context context, SupportMenuItem supportMenuItem) {
+        super(context, supportMenuItem);
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuItemWrapperICS
+    public MenuItemWrapperICS.ActionProviderWrapper createActionProviderWrapper(android.view.ActionProvider actionProvider) {
+        return new ActionProviderWrapperJB(this.mContext, actionProvider);
     }
 }

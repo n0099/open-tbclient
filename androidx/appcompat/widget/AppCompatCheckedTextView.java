@@ -9,47 +9,21 @@ import android.widget.CheckedTextView;
 import androidx.annotation.DrawableRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.widget.TextViewCompat;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class AppCompatCheckedTextView extends CheckedTextView {
-    private static final int[] TINT_ATTRS = {16843016};
-    private final AppCompatTextHelper mTextHelper;
+    public static final int[] TINT_ATTRS = {16843016};
+    public final AppCompatTextHelper mTextHelper;
 
     public AppCompatCheckedTextView(Context context) {
         this(context, null);
     }
 
-    public AppCompatCheckedTextView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 16843720);
-    }
-
-    public AppCompatCheckedTextView(Context context, AttributeSet attributeSet, int i) {
-        super(TintContextWrapper.wrap(context), attributeSet, i);
-        this.mTextHelper = new AppCompatTextHelper(this);
-        this.mTextHelper.loadFromAttributes(attributeSet, i);
-        this.mTextHelper.applyCompoundDrawablesTints();
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, TINT_ATTRS, i, 0);
-        setCheckMarkDrawable(obtainStyledAttributes.getDrawable(0));
-        obtainStyledAttributes.recycle();
-    }
-
-    @Override // android.widget.CheckedTextView
-    public void setCheckMarkDrawable(@DrawableRes int i) {
-        setCheckMarkDrawable(AppCompatResources.getDrawable(getContext(), i));
-    }
-
-    @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i) {
-        super.setTextAppearance(context, i);
-        if (this.mTextHelper != null) {
-            this.mTextHelper.onSetTextAppearance(context, i);
-        }
-    }
-
     @Override // android.widget.CheckedTextView, android.widget.TextView, android.view.View
-    protected void drawableStateChanged() {
+    public void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.mTextHelper != null) {
-            this.mTextHelper.applyCompoundDrawablesTints();
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            appCompatTextHelper.applyCompoundDrawablesTints();
         }
     }
 
@@ -58,8 +32,37 @@ public class AppCompatCheckedTextView extends CheckedTextView {
         return AppCompatHintHelper.onCreateInputConnection(super.onCreateInputConnection(editorInfo), editorInfo, this);
     }
 
+    @Override // android.widget.CheckedTextView
+    public void setCheckMarkDrawable(@DrawableRes int i) {
+        setCheckMarkDrawable(AppCompatResources.getDrawable(getContext(), i));
+    }
+
     @Override // android.widget.TextView
     public void setCustomSelectionActionModeCallback(ActionMode.Callback callback) {
         super.setCustomSelectionActionModeCallback(TextViewCompat.wrapCustomSelectionActionModeCallback(this, callback));
+    }
+
+    @Override // android.widget.TextView
+    public void setTextAppearance(Context context, int i) {
+        super.setTextAppearance(context, i);
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            appCompatTextHelper.onSetTextAppearance(context, i);
+        }
+    }
+
+    public AppCompatCheckedTextView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 16843720);
+    }
+
+    public AppCompatCheckedTextView(Context context, AttributeSet attributeSet, int i) {
+        super(TintContextWrapper.wrap(context), attributeSet, i);
+        AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
+        this.mTextHelper = appCompatTextHelper;
+        appCompatTextHelper.loadFromAttributes(attributeSet, i);
+        this.mTextHelper.applyCompoundDrawablesTints();
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, TINT_ATTRS, i, 0);
+        setCheckMarkDrawable(obtainStyledAttributes.getDrawable(0));
+        obtainStyledAttributes.recycle();
     }
 }

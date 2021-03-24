@@ -1,10 +1,15 @@
 package com.bytedance.sdk.openadsdk;
 
+import android.app.Activity;
 import android.content.Context;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface TTAdManager {
     TTAdNative createAdNative(Context context);
+
+    String getBiddingToken(AdSlot adSlot);
+
+    String getBiddingToken(AdSlot adSlot, boolean z, int i);
 
     @Deprecated
     TTGlobalAppDownloadController getGlobalAppDownloadController(Context context);
@@ -63,5 +68,5 @@ public interface TTAdManager {
     @Deprecated
     TTAdManager setTitleBarTheme(int i);
 
-    boolean tryShowInstallDialogWhenExit(Context context, ExitInstallListener exitInstallListener);
+    boolean tryShowInstallDialogWhenExit(Activity activity, ExitInstallListener exitInstallListener);
 }

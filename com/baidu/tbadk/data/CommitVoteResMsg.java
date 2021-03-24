@@ -3,9 +3,9 @@ package com.baidu.tbadk.data;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class CommitVoteResMsg extends JsonHttpResponsedMessage {
-    private AuthTokenData tokenData;
+    public AuthTokenData tokenData;
 
     public CommitVoteResMsg(int i) {
         super(i);
@@ -16,9 +16,10 @@ public class CommitVoteResMsg extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         int statusCode = getStatusCode();
         int error = getError();
-        if (statusCode == 200 && error >= 0 && jSONObject != null) {
-            this.tokenData = AuthTokenData.parse(jSONObject);
+        if (statusCode != 200 || error < 0 || jSONObject == null) {
+            return;
         }
+        this.tokenData = AuthTokenData.parse(jSONObject);
     }
 
     public AuthTokenData getTokenData() {

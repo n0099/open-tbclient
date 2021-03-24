@@ -6,52 +6,62 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes4.dex */
-class m extends SQLiteOpenHelper {
+/* loaded from: classes2.dex */
+public class m extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2676a;
-    private SQLiteDatabase b;
+    public String f9243a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SQLiteDatabase f9244b;
 
     public m(Context context, String str) throws SQLiteException {
         super(context, ".confd", (SQLiteDatabase.CursorFactory) null, 1);
-        this.f2676a = str;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        this.b = sQLiteDatabase;
+        this.f9243a = str;
     }
 
     public synchronized boolean a() {
         boolean z;
-        boolean z2 = true;
-        synchronized (this) {
-            if (this.b == null) {
-                z = true;
-            } else {
-                z = !this.b.isOpen();
-            }
-            if (z) {
-                try {
-                    this.b = getWritableDatabase();
-                } catch (NullPointerException e) {
-                    throw new NullPointerException("db path is null");
-                }
-            }
-            if (this.b == null || !this.b.isOpen()) {
-                z2 = false;
+        z = false;
+        if (this.f9244b == null || !this.f9244b.isOpen()) {
+            try {
+                this.f9244b = getWritableDatabase();
+            } catch (NullPointerException unused) {
+                throw new NullPointerException("db path is null");
             }
         }
-        return z2;
+        if (this.f9244b != null && this.f9244b.isOpen()) {
+            z = true;
+        }
+        return z;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    public final int b() {
+        Cursor cursor = null;
+        try {
+            SQLiteDatabase sQLiteDatabase = this.f9244b;
+            cursor = sQLiteDatabase.rawQuery("SELECT COUNT(*) FROM " + this.f9243a, null);
+            if (cursor == null || !cursor.moveToNext()) {
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return 0;
+            }
+            return cursor.getInt(0);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
     public synchronized void close() {
         super.close();
-        if (this.b != null) {
-            this.b.close();
-            this.b = null;
+        if (this.f9244b != null) {
+            this.f9244b.close();
+            this.f9244b = null;
         }
     }
 
@@ -63,6 +73,11 @@ class m extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public synchronized SQLiteDatabase getWritableDatabase() {
         return super.getWritableDatabase();
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        this.f9244b = sQLiteDatabase;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -78,34 +93,15 @@ class m extends SQLiteOpenHelper {
         getWritableDatabase().execSQL(str);
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    public final int b() {
-        Cursor cursor = null;
-        int i = 0;
-        try {
-            cursor = this.b.rawQuery("SELECT COUNT(*) FROM " + this.f2676a, null);
-            if (cursor != null && cursor.moveToNext()) {
-                i = cursor.getInt(0);
-            } else if (cursor != null) {
-                cursor.close();
-            }
-            return i;
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
-    }
-
     public Cursor a(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4, String str5) {
-        return this.b.query(this.f2676a, strArr, str, strArr2, str2, str3, str4, str5);
+        return this.f9244b.query(this.f9243a, strArr, str, strArr2, str2, str3, str4, str5);
     }
 
     public long a(String str, ContentValues contentValues) {
-        return this.b.insert(this.f2676a, str, contentValues);
+        return this.f9244b.insert(this.f9243a, str, contentValues);
     }
 
     public int a(String str, String[] strArr) {
-        return this.b.delete(this.f2676a, str, strArr);
+        return this.f9244b.delete(this.f9243a, str, strArr);
     }
 }

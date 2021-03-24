@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ThreadExpressionActivityConfig extends IntentConfig {
     public static final String IS_HOST = "is_host";
     public static final String IS_LIKED = "is_liked";
@@ -13,7 +13,7 @@ public class ThreadExpressionActivityConfig extends IntentConfig {
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
         getIntent().putExtra("thread_id", str);
-        getIntent().putExtra("is_host", z);
+        getIntent().putExtra(IS_HOST, z);
         getIntent().putExtra(IS_LIKED, z2);
         getIntent().putExtra("portrait", str3);
         getIntent().putExtra("user_id", str2);

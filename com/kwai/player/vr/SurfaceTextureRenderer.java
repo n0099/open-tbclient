@@ -10,6 +10,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.Surface;
+import com.baidu.wallet.core.StatusCode;
 import com.kwai.player.vr.BaseConfigChooser;
 import com.kwai.video.player.R;
 import com.kwai.video.player.kwai_player.KwaiMediaPlayer;
@@ -22,96 +23,97 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
-/* loaded from: classes3.dex */
+import org.webrtc.EglBase10;
+/* loaded from: classes6.dex */
 public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableListener {
-    private static final int MSG_DESTROYSURFACE = 2002;
-    private static final int MSG_INIT = 1000;
-    private static final int MSG_RENDER = 1001;
-    private static final int MSG_RENDER_LOOP = 1004;
-    private static final int MSG_RESIZE_VIDEO = 1002;
-    private static final int MSG_RESIZE_WINDOW = 1003;
-    private static final int MSG_UPDATESURFACE = 2001;
-    private static final String TAG = "SurfaceTextureRenderer";
-    private static final int VERTICES_DATA_POS_SIZE = 3;
-    private static final int VERTICES_DATA_UV_SIZE = 2;
-    private static final int mLoopDuration = 40;
-    private static final int maxDelayDuration = 60;
-    private int fragmentShader;
-    private String fragmentShaderSource;
-    protected KwaiMesh kwaiMesh;
-    private Object mBindedNativeWindow;
-    private Context mContext;
-    private BaseConfigChooser.SimpleEGLConfigChooser mEGLConfigChooser;
-    private boolean mEGLInited;
-    private EGLConfig mEglConfig;
-    private EGLSurface mEglSurface;
-    private HandlerThread mHandlerThread;
-    private KwaiMediaPlayer.IHeadTrackerListener mHeadTrackerListener;
-    private int mHeight;
-    private KwaiVR mKwaiVR;
-    private volatile long mLastDisplayFrameTime;
-    private RenderHandler mRenderHandler;
-    private Surface mSurface;
-    private int mTexName;
-    private SurfaceTexture mTexSurfaceTexture;
-    private int mWidth;
-    private int mWindowHeight;
-    private int mWindowWidth;
-    private int program;
-    private int vertexShader;
-    private String vertexShaderSource;
-    private volatile boolean mLoopEnd = false;
-    private float[] mTransformMatrix = new float[16];
-    private boolean mFirstRender = true;
-    private EGL10 mEgl = null;
-    private EGLDisplay mEglDisplay = EGL10.EGL_NO_DISPLAY;
-    private EGLContext mEglContext = EGL10.EGL_NO_CONTEXT;
-    private int mEGLContextClientVersion = 2;
-    private final HashMap<String, Integer> handleMap = new HashMap<>();
-    private FpsStatistic mFpsStatistic = new FpsStatistic();
-    private Object mGlRenderSync = new Object();
-    private volatile boolean mWindowSizeChanged = false;
+    public static final int MSG_DESTROYSURFACE = 2002;
+    public static final int MSG_INIT = 1000;
+    public static final int MSG_RENDER = 1001;
+    public static final int MSG_RENDER_LOOP = 1004;
+    public static final int MSG_RESIZE_VIDEO = 1002;
+    public static final int MSG_RESIZE_WINDOW = 1003;
+    public static final int MSG_UPDATESURFACE = 2001;
+    public static final String TAG = "SurfaceTextureRenderer";
+    public static final int VERTICES_DATA_POS_SIZE = 3;
+    public static final int VERTICES_DATA_UV_SIZE = 2;
+    public static final int mLoopDuration = 40;
+    public static final int maxDelayDuration = 60;
+    public int fragmentShader;
+    public String fragmentShaderSource;
+    public KwaiMesh kwaiMesh;
+    public Object mBindedNativeWindow;
+    public Context mContext;
+    public BaseConfigChooser.SimpleEGLConfigChooser mEGLConfigChooser;
+    public boolean mEGLInited;
+    public EGLConfig mEglConfig;
+    public EGLSurface mEglSurface;
+    public HandlerThread mHandlerThread;
+    public KwaiMediaPlayer.IHeadTrackerListener mHeadTrackerListener;
+    public int mHeight;
+    public KwaiVR mKwaiVR;
+    public volatile long mLastDisplayFrameTime;
+    public RenderHandler mRenderHandler;
+    public Surface mSurface;
+    public int mTexName;
+    public SurfaceTexture mTexSurfaceTexture;
+    public int mWidth;
+    public int mWindowHeight;
+    public int mWindowWidth;
+    public int program;
+    public int vertexShader;
+    public String vertexShaderSource;
+    public volatile boolean mLoopEnd = false;
+    public float[] mTransformMatrix = new float[16];
+    public boolean mFirstRender = true;
+    public EGL10 mEgl = null;
+    public EGLDisplay mEglDisplay = EGL10.EGL_NO_DISPLAY;
+    public EGLContext mEglContext = EGL10.EGL_NO_CONTEXT;
+    public int mEGLContextClientVersion = 2;
+    public final HashMap<String, Integer> handleMap = new HashMap<>();
+    public FpsStatistic mFpsStatistic = new FpsStatistic();
+    public Object mGlRenderSync = new Object();
+    public volatile boolean mWindowSizeChanged = false;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class RenderHandler extends Handler {
-        private WeakReference<SurfaceTextureRenderer> mWeakObj;
+        public WeakReference<SurfaceTextureRenderer> mWeakObj;
 
         public RenderHandler(SurfaceTextureRenderer surfaceTextureRenderer, Looper looper) {
             super(looper);
             this.mWeakObj = new WeakReference<>(surfaceTextureRenderer);
         }
 
-        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             SurfaceTextureRenderer surfaceTextureRenderer = this.mWeakObj.get();
             if (surfaceTextureRenderer == null) {
                 return;
             }
-            switch (message.what) {
-                case 1000:
-                    surfaceTextureRenderer.initEGL();
-                    return;
-                case 1001:
-                    surfaceTextureRenderer.syncDrawFrame();
-                    return;
-                case 1002:
-                    surfaceTextureRenderer.resizeVideoImpl(message.arg1, message.arg2);
-                    return;
-                case 1003:
-                    surfaceTextureRenderer.resizeWindowImpl(message.arg1, message.arg2);
-                    break;
-                case 1004:
-                    surfaceTextureRenderer.timerDrawFrameLoop();
-                    return;
-                case 2001:
-                    break;
-                case 2002:
+            int i = message.what;
+            if (i != 2001) {
+                if (i == 2002) {
                     surfaceTextureRenderer.destroySurfaceImpl();
                     return;
-                default:
-                    return;
+                }
+                switch (i) {
+                    case 1000:
+                        surfaceTextureRenderer.initEGL();
+                        return;
+                    case 1001:
+                        surfaceTextureRenderer.syncDrawFrame();
+                        return;
+                    case 1002:
+                        surfaceTextureRenderer.resizeVideoImpl(message.arg1, message.arg2);
+                        return;
+                    case 1003:
+                        surfaceTextureRenderer.resizeWindowImpl(message.arg1, message.arg2);
+                        break;
+                    case 1004:
+                        surfaceTextureRenderer.timerDrawFrameLoop();
+                        return;
+                    default:
+                        return;
+                }
             }
             surfaceTextureRenderer.updateSurfaceTextureImpl();
         }
@@ -183,15 +185,19 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
                 return;
             }
             if (this.mWindowSizeChanged) {
-                if (this.mKwaiVR != null) {
-                    this.mKwaiVR.setViewport(this.mWindowWidth, this.mWindowHeight);
+                KwaiVR kwaiVR = this.mKwaiVR;
+                if (kwaiVR != null) {
+                    kwaiVR.setViewport(this.mWindowWidth, this.mWindowHeight);
                 }
                 if (!updateSurfaceTextureImpl()) {
                     Log.e(TAG, "updateSurfaceTextureImpl failed");
                     return;
                 }
             } else {
-                this.mEgl.eglMakeCurrent(this.mEglDisplay, this.mEglSurface, this.mEglSurface, this.mEglContext);
+                EGL10 egl10 = this.mEgl;
+                EGLDisplay eGLDisplay = this.mEglDisplay;
+                EGLSurface eGLSurface = this.mEglSurface;
+                egl10.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.mEglContext);
             }
             try {
                 if (this.mTexSurfaceTexture != null) {
@@ -208,7 +214,7 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
                     }
                 }
                 this.mEgl.eglSwapBuffers(this.mEglDisplay, this.mEglSurface);
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
             if (this.mWindowSizeChanged) {
                 this.mWindowSizeChanged = false;
@@ -219,22 +225,27 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
     /* JADX INFO: Access modifiers changed from: private */
     public void initEGL() {
         Log.i(TAG, "initEGL in");
-        this.mEgl = (EGL10) EGLContext.getEGL();
-        this.mEglDisplay = this.mEgl.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-        if (this.mEglDisplay == EGL10.EGL_NO_DISPLAY) {
+        EGL10 egl10 = (EGL10) EGLContext.getEGL();
+        this.mEgl = egl10;
+        EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+        this.mEglDisplay = eglGetDisplay;
+        if (eglGetDisplay == EGL10.EGL_NO_DISPLAY) {
             Log.e(TAG, "initEGL eglGetDisplay failed! " + this.mEgl.eglGetError());
-        } else if (!this.mEgl.eglInitialize(this.mEglDisplay, new int[2])) {
+        } else if (!this.mEgl.eglInitialize(eglGetDisplay, new int[2])) {
             Log.e(TAG, "initEGL eglInitialize failed! " + this.mEgl.eglGetError());
         } else {
-            this.mEGLConfigChooser = new BaseConfigChooser.SimpleEGLConfigChooser(true, this.mEGLContextClientVersion);
-            this.mEglConfig = this.mEGLConfigChooser.chooseConfig(this.mEgl, this.mEglDisplay);
-            this.mEglContext = this.mEgl.eglCreateContext(this.mEglDisplay, this.mEglConfig, EGL10.EGL_NO_CONTEXT, new int[]{12440, this.mEGLContextClientVersion, 12344});
-            if (this.mEglDisplay == EGL10.EGL_NO_DISPLAY || this.mEglContext == EGL10.EGL_NO_CONTEXT) {
-                Log.e(TAG, "initEGL eglCreateContext fail failed! " + this.mEgl.eglGetError());
+            BaseConfigChooser.SimpleEGLConfigChooser simpleEGLConfigChooser = new BaseConfigChooser.SimpleEGLConfigChooser(true, this.mEGLContextClientVersion);
+            this.mEGLConfigChooser = simpleEGLConfigChooser;
+            EGLConfig chooseConfig = simpleEGLConfigChooser.chooseConfig(this.mEgl, this.mEglDisplay);
+            this.mEglConfig = chooseConfig;
+            EGLContext eglCreateContext = this.mEgl.eglCreateContext(this.mEglDisplay, chooseConfig, EGL10.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, this.mEGLContextClientVersion, 12344});
+            this.mEglContext = eglCreateContext;
+            if (this.mEglDisplay != EGL10.EGL_NO_DISPLAY && eglCreateContext != EGL10.EGL_NO_CONTEXT) {
+                this.mEGLInited = true;
+                Log.i(TAG, "initEGL out");
                 return;
             }
-            this.mEGLInited = true;
-            Log.i(TAG, "initEGL out");
+            Log.e(TAG, "initEGL eglCreateContext fail failed! " + this.mEgl.eglGetError());
         }
     }
 
@@ -250,18 +261,21 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
 
     private void releaseImpl() {
         Log.i(TAG, "SurfaceTextureRenderer releaseImpl in");
-        if (this.mRenderHandler != null) {
-            this.mRenderHandler.removeMessages(1000);
+        RenderHandler renderHandler = this.mRenderHandler;
+        if (renderHandler != null) {
+            renderHandler.removeMessages(1000);
             this.mRenderHandler.removeMessages(1001);
             stopDrawFrameLoop();
             this.mRenderHandler = null;
         }
-        if (this.mHandlerThread != null) {
-            this.mHandlerThread.quit();
+        HandlerThread handlerThread = this.mHandlerThread;
+        if (handlerThread != null) {
+            handlerThread.quit();
             this.mHandlerThread = null;
         }
         destroyEgl();
-        if (this.mSurface != null && this.mSurface.isValid()) {
+        Surface surface = this.mSurface;
+        if (surface != null && surface.isValid()) {
             Log.i(TAG, "Surface.release() in" + this.mSurface);
             this.mSurface.release();
             this.mSurface = null;
@@ -292,10 +306,11 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
             this.vertexShaderSource = EglUtil.readTextFileFromRaw(this.mContext, R.raw.kwaiplayer_vertex_shader);
             this.fragmentShaderSource = EglUtil.readTextFileFromRaw(this.mContext, R.raw.kwaiplayer_fragment_shader);
             this.vertexShader = EglUtil.loadShader(this.vertexShaderSource, 35633);
-            this.fragmentShader = EglUtil.loadShader(this.fragmentShaderSource, 35632);
-            this.program = EglUtil.createProgram(this.vertexShader, this.fragmentShader);
-        } catch (Exception e) {
-            Log.e(TAG, "throw setupEgl failed" + e.getMessage());
+            int loadShader = EglUtil.loadShader(this.fragmentShaderSource, 35632);
+            this.fragmentShader = loadShader;
+            this.program = EglUtil.createProgram(this.vertexShader, loadShader);
+        } catch (Exception e2) {
+            Log.e(TAG, "throw setupEgl failed" + e2.getMessage());
         }
         Log.i(TAG, "setupEgl out");
     }
@@ -323,34 +338,37 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized boolean updateSurfaceTextureImpl() {
-        boolean z = false;
-        synchronized (this) {
-            if (this.mEgl == null || this.mEglDisplay == null || this.mEglConfig == null) {
-                Log.d(TAG, "updateSurfaceTextureImpl: failed");
-            } else {
-                destroySurfaceImpl();
-                if (this.mBindedNativeWindow != null) {
-                    try {
-                        this.mEglSurface = this.mEgl.eglCreateWindowSurface(this.mEglDisplay, this.mEglConfig, this.mBindedNativeWindow, null);
-                        if (this.mEglSurface == null || this.mEglSurface == EGL10.EGL_NO_SURFACE) {
-                            Log.e(TAG, "eglCreateWindowSurface error " + this.mEgl.eglGetError());
-                        } else if (this.mEgl.eglMakeCurrent(this.mEglDisplay, this.mEglSurface, this.mEglSurface, this.mEglContext)) {
-                            setupEgl();
-                            z = true;
-                        }
-                    } catch (Exception e) {
-                        Log.e(TAG, "throw eglCreateWindowSurface failed" + e.getMessage());
+        if (this.mEgl != null && this.mEglDisplay != null && this.mEglConfig != null) {
+            destroySurfaceImpl();
+            if (this.mBindedNativeWindow == null) {
+                return false;
+            }
+            try {
+                EGLSurface eglCreateWindowSurface = this.mEgl.eglCreateWindowSurface(this.mEglDisplay, this.mEglConfig, this.mBindedNativeWindow, null);
+                this.mEglSurface = eglCreateWindowSurface;
+                if (eglCreateWindowSurface != null && eglCreateWindowSurface != EGL10.EGL_NO_SURFACE) {
+                    if (this.mEgl.eglMakeCurrent(this.mEglDisplay, eglCreateWindowSurface, eglCreateWindowSurface, this.mEglContext)) {
+                        setupEgl();
+                        return true;
                     }
+                    return false;
                 }
+                Log.e(TAG, "eglCreateWindowSurface error " + this.mEgl.eglGetError());
+                return false;
+            } catch (Exception e2) {
+                Log.e(TAG, "throw eglCreateWindowSurface failed" + e2.getMessage());
+                return false;
             }
         }
-        return z;
+        Log.d(TAG, "updateSurfaceTextureImpl: failed");
+        return false;
     }
 
     public SurfaceTexture createTexture() {
         this.mTexName = createTextureObject();
-        this.mTexSurfaceTexture = new SurfaceTexture(this.mTexName);
-        this.mTexSurfaceTexture.setOnFrameAvailableListener(this);
+        SurfaceTexture surfaceTexture = new SurfaceTexture(this.mTexName);
+        this.mTexSurfaceTexture = surfaceTexture;
+        surfaceTexture.setOnFrameAvailableListener(this);
         return this.mTexSurfaceTexture;
     }
 
@@ -369,30 +387,31 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
         GLES20.glUniformMatrix4fv(getHandle("uMVPMatrix"), 1, false, fArr, 0);
         GLES20.glUniformMatrix4fv(getHandle("uSTMatrix"), 1, false, fArr2, 0);
         FloatBuffer verticesBuffer = this.kwaiMesh.getVerticesBuffer(0);
-        if (verticesBuffer != null) {
-            verticesBuffer.position(0);
-            GLES20.glEnableVertexAttribArray(getHandle("aPosition"));
-            GLES20.glVertexAttribPointer(getHandle("aPosition"), 3, 5126, false, 0, (Buffer) verticesBuffer);
-            FloatBuffer texCoordinateBuffer = this.kwaiMesh.getTexCoordinateBuffer(0);
-            if (texCoordinateBuffer == null) {
-                Log.d(TAG, "getTexCoordinateBuffer is null");
-                return;
-            }
-            texCoordinateBuffer.position(0);
-            GLES20.glEnableVertexAttribArray(getHandle("aTextureCoord"));
-            GLES20.glVertexAttribPointer(getHandle("aTextureCoord"), 2, 5126, false, 0, (Buffer) texCoordinateBuffer);
-            GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(36197, i);
-            GLES20.glUniform1i(getHandle("texture"), 0);
-            if (this.kwaiMesh.getIndicesBuffer() != null) {
-                this.kwaiMesh.getIndicesBuffer().position(0);
-                GLES20.glDrawElements(4, this.kwaiMesh.getNumIndices(), 5123, this.kwaiMesh.getIndicesBuffer());
-            }
-            GLES20.glDisableVertexAttribArray(getHandle("aPosition"));
-            GLES20.glDisableVertexAttribArray(getHandle("aTextureCoord"));
-            GLES20.glBindBuffer(34962, 0);
-            GLES20.glBindTexture(3553, 0);
+        if (verticesBuffer == null) {
+            return;
         }
+        verticesBuffer.position(0);
+        GLES20.glEnableVertexAttribArray(getHandle("aPosition"));
+        GLES20.glVertexAttribPointer(getHandle("aPosition"), 3, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) verticesBuffer);
+        FloatBuffer texCoordinateBuffer = this.kwaiMesh.getTexCoordinateBuffer(0);
+        if (texCoordinateBuffer == null) {
+            Log.d(TAG, "getTexCoordinateBuffer is null");
+            return;
+        }
+        texCoordinateBuffer.position(0);
+        GLES20.glEnableVertexAttribArray(getHandle("aTextureCoord"));
+        GLES20.glVertexAttribPointer(getHandle("aTextureCoord"), 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) texCoordinateBuffer);
+        GLES20.glActiveTexture(33984);
+        GLES20.glBindTexture(36197, i);
+        GLES20.glUniform1i(getHandle("texture"), 0);
+        if (this.kwaiMesh.getIndicesBuffer() != null) {
+            this.kwaiMesh.getIndicesBuffer().position(0);
+            GLES20.glDrawElements(4, this.kwaiMesh.getNumIndices(), 5123, this.kwaiMesh.getIndicesBuffer());
+        }
+        GLES20.glDisableVertexAttribArray(getHandle("aPosition"));
+        GLES20.glDisableVertexAttribArray(getHandle("aTextureCoord"));
+        GLES20.glBindBuffer(34962, 0);
+        GLES20.glBindTexture(3553, 0);
     }
 
     public int eglGetSurfaceHeight() {
@@ -433,7 +452,7 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
         return this.mFpsStatistic.getFps();
     }
 
-    protected final int getHandle(String str) {
+    public final int getHandle(String str) {
         Integer num = this.handleMap.get(str);
         if (num != null) {
             return num.intValue();
@@ -450,24 +469,32 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
     }
 
     public Surface getSurface() {
+        SurfaceTexture surfaceTexture;
         if (this.mSurface == null) {
             this.mSurface = SurfaceUtil.create(getTexture());
         }
         if (!this.mSurface.isValid()) {
             SurfaceUtil.release(this.mSurface);
-            if (Build.VERSION.SDK_INT >= 21 && this.mTexSurfaceTexture != null) {
-                this.mTexSurfaceTexture.setOnFrameAvailableListener(null);
+            if (Build.VERSION.SDK_INT >= 21 && (surfaceTexture = this.mTexSurfaceTexture) != null) {
+                surfaceTexture.setOnFrameAvailableListener(null);
                 this.mTexSurfaceTexture.release();
                 this.mTexSurfaceTexture = null;
             }
             this.mSurface = SurfaceUtil.create(getTexture());
         }
-        if (this.mSurface == null || !this.mSurface.isValid()) {
-            Log.d(TAG, "getSurface: Surface invalid mSurface:" + this.mSurface + ",valid:" + (this.mSurface != null ? this.mSurface.isValid() : false));
-            throw new RuntimeException("getSurface invalid");
+        Surface surface = this.mSurface;
+        if (surface != null && surface.isValid()) {
+            Log.d(TAG, "create surface" + this.mSurface);
+            return this.mSurface;
         }
-        Log.d(TAG, "create surface" + this.mSurface);
-        return this.mSurface;
+        StringBuilder sb = new StringBuilder();
+        sb.append("getSurface: Surface invalid mSurface:");
+        sb.append(this.mSurface);
+        sb.append(",valid:");
+        Surface surface2 = this.mSurface;
+        sb.append(surface2 != null ? surface2.isValid() : false);
+        Log.d(TAG, sb.toString());
+        throw new RuntimeException("getSurface invalid");
     }
 
     public SurfaceTexture getTexture() {
@@ -479,8 +506,9 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
 
     public void init() {
         if (this.mHandlerThread == null) {
-            this.mHandlerThread = new HandlerThread("Renderer Thread");
-            this.mHandlerThread.start();
+            HandlerThread handlerThread = new HandlerThread("Renderer Thread");
+            this.mHandlerThread = handlerThread;
+            handlerThread.start();
         }
         if (this.mRenderHandler == null) {
             this.mRenderHandler = new RenderHandler(this, this.mHandlerThread.getLooper());
@@ -490,11 +518,12 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
 
     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+        KwaiVR kwaiVR;
         sendMsg(1001, 0, 0);
-        if (!this.mFirstRender || this.mKwaiVR == null) {
+        if (!this.mFirstRender || (kwaiVR = this.mKwaiVR) == null) {
             return;
         }
-        this.mKwaiVR.setInteractiveValid();
+        kwaiVR.setInteractiveValid();
     }
 
     public void release() {
@@ -538,15 +567,17 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
     }
 
     public void sendMsg(int i, int i2, int i3) {
-        if (this.mRenderHandler != null) {
-            this.mRenderHandler.removeMessages(i);
+        RenderHandler renderHandler = this.mRenderHandler;
+        if (renderHandler != null) {
+            renderHandler.removeMessages(i);
         }
         Message message = new Message();
         message.what = i;
         message.arg1 = i2;
         message.arg2 = i3;
-        if (this.mRenderHandler != null) {
-            this.mRenderHandler.sendMessage(message);
+        RenderHandler renderHandler2 = this.mRenderHandler;
+        if (renderHandler2 != null) {
+            renderHandler2.sendMessage(message);
         }
     }
 
@@ -556,8 +587,8 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
 
     public void setKwaiVR(KwaiVR kwaiVR) {
         this.mKwaiVR = kwaiVR;
-        if (this.mKwaiVR != null) {
-            this.kwaiMesh = this.mKwaiVR.getKwaiMesh();
+        if (kwaiVR != null) {
+            this.kwaiMesh = kwaiVR.getKwaiMesh();
         }
     }
 
@@ -580,13 +611,13 @@ public class SurfaceTextureRenderer implements SurfaceTexture.OnFrameAvailableLi
 
     public synchronized void updateNativeWindow(Object obj) {
         this.mBindedNativeWindow = obj;
-        if (this.mBindedNativeWindow != null) {
+        if (obj != null) {
             Log.i(TAG, "SurfaceTextureRenderer updateNativeWindow " + obj);
         }
         sendMsg(2001, 0, 0);
     }
 
-    protected final void useProgram() {
+    public final void useProgram() {
         GLES20.glUseProgram(this.program);
     }
 }

@@ -5,17 +5,19 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.webkit.WebResourceResponse;
-import com.bytedance.sdk.adnet.b.b;
-import com.bytedance.sdk.adnet.core.o;
+import com.bytedance.sdk.adnet.err.VAdError;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.h.d;
-import com.bytedance.sdk.openadsdk.j.e;
-import com.bytedance.sdk.openadsdk.utils.am;
+import com.bytedance.sdk.openadsdk.l.e;
+import com.bytedance.sdk.openadsdk.l.g;
+import com.bytedance.sdk.openadsdk.utils.an;
 import com.bytedance.sdk.openadsdk.utils.j;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.bytedance.sdk.openadsdk.utils.w;
+import d.c.c.b.b.b;
+import d.c.c.b.d.k;
+import d.c.c.b.d.o;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Arrays;
@@ -26,102 +28,211 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
-import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f4439a;
-    private String b;
-    private Map<l, b> c = Collections.synchronizedMap(new HashMap());
-    private Map<String, JSONObject> d = Collections.synchronizedMap(new HashMap());
-    private AtomicBoolean e = new AtomicBoolean(false);
-    private Set<String> f = Collections.synchronizedSet(new HashSet());
-    private Handler g = new Handler(Looper.getMainLooper());
+    public static volatile a f28359a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f28360b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Map<l, b> f28361c = Collections.synchronizedMap(new HashMap());
+
+    /* renamed from: d  reason: collision with root package name */
+    public Map<String, JSONObject> f28362d = Collections.synchronizedMap(new HashMap());
+
+    /* renamed from: e  reason: collision with root package name */
+    public AtomicBoolean f28363e = new AtomicBoolean(false);
+
+    /* renamed from: f  reason: collision with root package name */
+    public Set<String> f28364f = Collections.synchronizedSet(new HashSet());
+
+    /* renamed from: g  reason: collision with root package name */
+    public Handler f28365g = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1020a {
+    public interface InterfaceC0307a {
         void a(boolean z);
     }
 
+    /* loaded from: classes6.dex */
+    public static class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public long f28381a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public long f28382b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public long f28383c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public long f28384d;
+
+        public b() {
+        }
+
+        public long a() {
+            return this.f28382b - this.f28381a;
+        }
+
+        public long b() {
+            return this.f28384d - this.f28383c;
+        }
+
+        public b c(long j) {
+            this.f28383c = j;
+            return this;
+        }
+
+        public b d(long j) {
+            this.f28384d = j;
+            return this;
+        }
+
+        public b a(long j) {
+            this.f28381a = j;
+            return this;
+        }
+
+        public b b(long j) {
+            this.f28382b = j;
+            return this;
+        }
+    }
+
+    private boolean c(File file) {
+        String[] list;
+        if (file == null || !file.isDirectory() || (list = file.list()) == null || list.length <= 0) {
+            return false;
+        }
+        return Arrays.asList(list).contains("index.html");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String d() {
+        File externalCacheDir;
+        if (TextUtils.isEmpty(this.f28360b)) {
+            try {
+                if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && p.a().getExternalCacheDir() != null) {
+                    externalCacheDir = p.a().getExternalCacheDir();
+                } else {
+                    externalCacheDir = p.a().getCacheDir();
+                }
+                File file = new File(externalCacheDir, "playable");
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                this.f28360b = file.getAbsolutePath();
+            } catch (Throwable th) {
+                u.f("PlayableCache", "init root path error: " + th);
+            }
+        }
+        return this.f28360b;
+    }
+
+    public void b() {
+        if (this.f28363e.get()) {
+            return;
+        }
+        e.a(new g("PlayableCache") { // from class: com.bytedance.sdk.openadsdk.core.g.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                File[] listFiles;
+                try {
+                    String c2 = a.this.c();
+                    if (!TextUtils.isEmpty(c2)) {
+                        File file = new File(c2);
+                        if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                            for (File file2 : listFiles) {
+                                try {
+                                    a.this.a(new File(file2, "tt_open_ad_sdk_check_res.dat"), true);
+                                } catch (Throwable unused) {
+                                }
+                            }
+                        }
+                    }
+                } catch (Throwable unused2) {
+                }
+                a.this.f28363e.set(true);
+            }
+        }, 5);
+    }
+
+    private void b(File file) {
+        try {
+            if (file.exists()) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (file.setLastModified(currentTimeMillis)) {
+                    return;
+                }
+                file.renameTo(file);
+                if (file.lastModified() < currentTimeMillis) {
+                    u.d("PlayableCache", "Last modified date " + new Date(file.lastModified()) + " is not set for file " + file.getAbsolutePath());
+                }
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
     public static a a() {
-        if (f4439a == null) {
+        if (f28359a == null) {
             synchronized (a.class) {
-                if (f4439a == null) {
-                    f4439a = new a();
+                if (f28359a == null) {
+                    f28359a = new a();
                 }
             }
         }
-        return f4439a;
+        return f28359a;
     }
 
-    private a() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public String c() {
+        File file = new File(d(), "games");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        return file.getAbsolutePath();
     }
 
     public boolean a(l lVar) {
-        if (this.e.get()) {
-            if (lVar == null || lVar.R() == null || lVar.R().k() == null) {
-                return false;
-            }
+        if (this.f28363e.get() && lVar != null && lVar.X() != null && lVar.X().k() != null) {
             try {
-                String a2 = j.a(lVar.R().k());
-                if (this.d.get(a2) == null) {
+                String a2 = j.a(lVar.X().k());
+                if (this.f28362d.get(a2) == null) {
                     return false;
                 }
                 return c(new File(c(), a2));
-            } catch (Throwable th) {
-                return false;
+            } catch (Throwable unused) {
             }
         }
         return false;
     }
 
-    public void b() {
-        if (!this.e.get()) {
-            e.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.g.a.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    File[] listFiles;
-                    try {
-                        String c = a.this.c();
-                        if (!TextUtils.isEmpty(c)) {
-                            File file = new File(c);
-                            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                                for (File file2 : listFiles) {
-                                    try {
-                                        a.this.a(new File(file2, "tt_open_ad_sdk_check_res.dat"), true);
-                                    } catch (Throwable th) {
-                                    }
-                                }
-                            }
-                        }
-                    } catch (Throwable th2) {
-                    }
-                    a.this.e.set(true);
-                }
-            }, 5);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public JSONObject a(File file, boolean z) {
-        byte[] d;
+        byte[] d2;
         if (file != null) {
             try {
-                if (file.exists() && file.isFile() && file.canRead() && (d = com.bytedance.sdk.openadsdk.utils.l.d(file)) != null && d.length > 0) {
-                    String b2 = com.bytedance.sdk.openadsdk.core.a.b(new String(d), com.bytedance.sdk.openadsdk.core.b.d());
-                    if (!TextUtils.isEmpty(b2)) {
-                        JSONObject jSONObject = new JSONObject(b2);
-                        if (z && jSONObject.length() > 0) {
-                            this.d.put(file.getParentFile().getName(), jSONObject);
-                            return jSONObject;
-                        }
-                        return jSONObject;
+                if (file.exists() && file.isFile() && file.canRead() && (d2 = com.bytedance.sdk.openadsdk.utils.l.d(file)) != null && d2.length > 0) {
+                    String b2 = com.bytedance.sdk.openadsdk.core.a.b(new String(d2), com.bytedance.sdk.openadsdk.core.b.d());
+                    if (TextUtils.isEmpty(b2)) {
+                        return null;
                     }
+                    JSONObject jSONObject = new JSONObject(b2);
+                    if (z && jSONObject.length() > 0) {
+                        this.f28362d.put(file.getParentFile().getName(), jSONObject);
+                    }
+                    return jSONObject;
                 }
-            } catch (Throwable th) {
+                return null;
+            } catch (Throwable unused) {
+                return null;
             }
         }
         return null;
@@ -129,47 +240,45 @@ public class a {
 
     public WebResourceResponse a(String str, String str2, String str3) {
         try {
-            if (!this.e.get() || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            try {
-                if (str3.startsWith(HttpHost.DEFAULT_SCHEME_NAME) && str3.contains("?")) {
-                    str3 = str3.split("\\?")[0];
-                    if (str3.endsWith("/")) {
-                        str3 = str3.substring(0, str3.length() - 1);
-                    }
-                }
-            } catch (Throwable th) {
-            }
-            String a2 = w.a(p.a(), str3);
-            if (TextUtils.isEmpty(a2)) {
-                return null;
-            }
-            String a3 = j.a(str);
-            if (TextUtils.isEmpty(a3)) {
-                return null;
-            }
-            File file = new File(c(), a3);
-            if (c(file)) {
-                String a4 = a(str2);
-                if (TextUtils.isEmpty(a4)) {
-                    return null;
-                }
-                String replace = str3.replace(a4, "");
-                if (TextUtils.isEmpty(replace)) {
-                    return null;
-                }
-                File file2 = new File(file, replace);
-                if (a(a3, replace, file2)) {
-                    return new WebResourceResponse(a2, "utf-8", new FileInputStream(file2));
-                }
-                return null;
-            }
-            return null;
-        } catch (Throwable th2) {
-            u.c("PlayableCache", "playable intercept error: ", th2);
+        } catch (Throwable th) {
+            u.c("PlayableCache", "playable intercept error: ", th);
+        }
+        if (!this.f28363e.get() || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return null;
         }
+        try {
+            if (str3.startsWith("http") && str3.contains("?")) {
+                str3 = str3.split("\\?")[0];
+                if (str3.endsWith("/")) {
+                    str3 = str3.substring(0, str3.length() - 1);
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        String a2 = w.a(p.a(), str3);
+        if (TextUtils.isEmpty(a2)) {
+            return null;
+        }
+        String a3 = j.a(str);
+        if (TextUtils.isEmpty(a3)) {
+            return null;
+        }
+        File file = new File(c(), a3);
+        if (c(file)) {
+            String a4 = a(str2);
+            if (TextUtils.isEmpty(a4)) {
+                return null;
+            }
+            String replace = str3.replace(a4, "");
+            if (TextUtils.isEmpty(replace)) {
+                return null;
+            }
+            File file2 = new File(file, replace);
+            if (a(a3, replace, file2)) {
+                return new WebResourceResponse(a2, "utf-8", new FileInputStream(file2));
+            }
+        }
+        return null;
     }
 
     private String a(String str) {
@@ -189,85 +298,69 @@ public class a {
     }
 
     private boolean a(String str, String str2, File file) {
-        if (file == null || !file.exists()) {
-            return false;
-        }
-        JSONObject jSONObject = this.d.get(str);
-        if (jSONObject == null) {
-            return false;
-        }
-        String optString = jSONObject.optString(str2);
-        return optString != null && optString.equalsIgnoreCase(j.a(file));
+        JSONObject jSONObject;
+        String optString;
+        return (file == null || !file.exists() || (jSONObject = this.f28362d.get(str)) == null || (optString = jSONObject.optString(str2)) == null || !optString.equalsIgnoreCase(j.a(file))) ? false : true;
     }
 
-    public void a(final l lVar, final InterfaceC1020a interfaceC1020a) {
-        if (lVar == null || lVar.R() == null || TextUtils.isEmpty(lVar.R().k())) {
-            com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -701, (String) null);
-            a(interfaceC1020a, false);
-            return;
-        }
-        final String k = lVar.R().k();
-        if (!this.f.contains(k)) {
-            this.c.put(lVar, new b().a(System.currentTimeMillis()));
+    public void a(final l lVar, final InterfaceC0307a interfaceC0307a) {
+        if (lVar != null && lVar.X() != null && !TextUtils.isEmpty(lVar.X().k())) {
+            final String k = lVar.X().k();
+            if (this.f28364f.contains(k)) {
+                return;
+            }
+            this.f28361c.put(lVar, new b().a(System.currentTimeMillis()));
             com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar);
             final String a2 = j.a(k);
             final File file = new File(c(), a2);
             if (c(file)) {
                 com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -702, (String) null);
                 b(file);
-                this.c.remove(lVar);
-                a(interfaceC1020a, true);
+                this.f28361c.remove(lVar);
+                a(interfaceC0307a, true);
                 return;
             }
             try {
                 com.bytedance.sdk.openadsdk.utils.l.c(file);
-            } catch (Throwable th) {
+            } catch (Throwable unused) {
             }
-            this.f.add(k);
-            d.a(p.a()).a(k, new b.a() { // from class: com.bytedance.sdk.openadsdk.core.g.a.2
-                @Override // com.bytedance.sdk.adnet.b.b.a
+            this.f28364f.add(k);
+            com.bytedance.sdk.openadsdk.i.e.c().a(k, new b.InterfaceC1795b() { // from class: com.bytedance.sdk.openadsdk.core.g.a.2
+                @Override // d.c.c.b.b.b.InterfaceC1795b
                 public File a(String str) {
                     return null;
                 }
 
-                @Override // com.bytedance.sdk.adnet.b.b.a
-                public void a(String str, File file2) {
-                }
-
-                @Override // com.bytedance.sdk.adnet.b.b.a
-                public File b(String str) {
-                    return new File(a.this.d(), a2 + ".zip");
-                }
-
-                @Override // com.bytedance.sdk.adnet.b.c.a
+                @Override // d.c.c.b.b.c.a
                 public void a(long j, long j2) {
                 }
 
-                @Override // com.bytedance.sdk.adnet.core.o.a
+                @Override // d.c.c.b.d.o.a
                 public void a(final o<File> oVar) {
-                    a.this.f.remove(k);
-                    final b bVar = (b) a.this.c.remove(lVar);
+                    a.this.f28364f.remove(k);
+                    final b bVar = (b) a.this.f28361c.remove(lVar);
                     if (bVar != null) {
                         bVar.b(System.currentTimeMillis());
                     }
-                    if (oVar != null && oVar.f4049a != null) {
-                        e.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.g.a.2.1
+                    if (oVar != null && oVar.f65738a != null) {
+                        e.a(new g("downloadZip") { // from class: com.bytedance.sdk.openadsdk.core.g.a.2.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                boolean z;
                                 long j;
                                 long j2;
+                                boolean z = true;
                                 try {
                                     if (bVar != null) {
                                         bVar.c(System.currentTimeMillis());
                                     }
-                                    am.a(((File) oVar.f4049a).getAbsolutePath(), a.this.c());
+                                    an.a(((File) oVar.f65738a).getAbsolutePath(), a.this.c());
                                     if (bVar != null) {
                                         bVar.d(System.currentTimeMillis());
                                     }
                                     if (bVar != null) {
-                                        j2 = bVar.a();
+                                        long a3 = bVar.a();
                                         j = bVar.b();
+                                        j2 = a3;
                                     } else {
                                         j = 0;
                                         j2 = 0;
@@ -276,66 +369,90 @@ public class a {
                                     a.this.a(file);
                                     try {
                                         a.this.a(new File(file, "tt_open_ad_sdk_check_res.dat"), true);
-                                    } catch (Throwable th2) {
+                                    } catch (Throwable unused2) {
                                     }
-                                    z = true;
-                                } catch (Throwable th3) {
-                                    u.c("PlayableCache", "unzip error: ", th3);
-                                    com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -704, th3.getMessage());
+                                } catch (Throwable th) {
+                                    u.c("PlayableCache", "unzip error: ", th);
+                                    com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -704, th.getMessage());
                                     z = false;
                                 }
                                 try {
-                                    ((File) oVar.f4049a).delete();
-                                } catch (Throwable th4) {
+                                    ((File) oVar.f65738a).delete();
+                                } catch (Throwable unused3) {
                                 }
-                                a.this.a(interfaceC1020a, z);
+                                AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
+                                a.this.a(interfaceC0307a, z);
                             }
                         }, 5);
                         return;
                     }
                     int i = -700;
-                    if (oVar != null && oVar.h != 0) {
-                        i = Long.valueOf(oVar.h).intValue();
+                    if (oVar != null) {
+                        long j = oVar.f65745h;
+                        if (j != 0) {
+                            i = Long.valueOf(j).intValue();
+                        }
                     }
                     com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, i, (String) null);
-                    a.this.a(interfaceC1020a, false);
+                    a.this.a(interfaceC0307a, false);
                 }
 
-                @Override // com.bytedance.sdk.adnet.core.o.a
+                @Override // d.c.c.b.b.b.InterfaceC1795b
+                public void a(String str, File file2) {
+                }
+
+                @Override // d.c.c.b.b.b.InterfaceC1795b
+                public File b(String str) {
+                    String d2 = a.this.d();
+                    return new File(d2, a2 + ".zip");
+                }
+
+                @Override // d.c.c.b.d.o.a
                 public void b(o<File> oVar) {
-                    a.this.f.remove(k);
-                    a.this.c.remove(lVar);
-                    int i = -700;
+                    k kVar;
+                    int i;
+                    a.this.f28364f.remove(k);
+                    a.this.f28361c.remove(lVar);
+                    int i2 = -700;
                     String str = null;
                     if (oVar != null) {
-                        if (oVar.h != 0) {
-                            i = Long.valueOf(oVar.h).intValue();
-                        } else if (oVar.pxT != null && oVar.pxT.networkResponse != null && oVar.pxT.networkResponse.f4046a != 0) {
-                            i = oVar.pxT.networkResponse.f4046a;
+                        long j = oVar.f65745h;
+                        if (j != 0) {
+                            i2 = Long.valueOf(j).intValue();
+                        } else {
+                            VAdError vAdError = oVar.f65740c;
+                            if (vAdError != null && (kVar = vAdError.networkResponse) != null && (i = kVar.f65722a) != 0) {
+                                i2 = i;
+                            }
                         }
-                        if (oVar.pxT != null) {
-                            str = oVar.pxT.getMessage();
+                        VAdError vAdError2 = oVar.f65740c;
+                        if (vAdError2 != null) {
+                            str = vAdError2.getMessage();
                         }
                     }
-                    com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, i, str);
-                    a.this.a(interfaceC1020a, false);
+                    com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, i2, str);
+                    a.this.a(interfaceC0307a, false);
                 }
             });
+            return;
         }
+        com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -701, (String) null);
+        a(interfaceC0307a, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final InterfaceC1020a interfaceC1020a, final boolean z) {
+    public void a(final InterfaceC0307a interfaceC0307a, final boolean z) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            if (interfaceC1020a != null) {
-                interfaceC1020a.a(z);
+            if (interfaceC0307a != null) {
+                interfaceC0307a.a(z);
             }
-        } else if (interfaceC1020a != null) {
-            this.g.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.g.a.3
+        } else if (interfaceC0307a != null) {
+            this.f28365g.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.g.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (interfaceC1020a != null) {
-                        interfaceC1020a.a(z);
+                    InterfaceC0307a interfaceC0307a2 = interfaceC0307a;
+                    if (interfaceC0307a2 != null) {
+                        interfaceC0307a2.a(z);
                     }
                 }
             });
@@ -346,103 +463,8 @@ public class a {
     public void a(File file) {
         b(file);
         try {
-            i.d().r().a(file);
-        } catch (Throwable th) {
-        }
-    }
-
-    private void b(File file) {
-        try {
-            if (file.exists()) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (!file.setLastModified(currentTimeMillis)) {
-                    file.renameTo(file);
-                    if (file.lastModified() < currentTimeMillis) {
-                        u.d("PlayableCache", "Last modified date " + new Date(file.lastModified()) + " is not set for file " + file.getAbsolutePath());
-                    }
-                }
-            }
-        } catch (Throwable th) {
-        }
-    }
-
-    private boolean c(File file) {
-        String[] list;
-        if (file == null || !file.isDirectory() || (list = file.list()) == null || list.length <= 0) {
-            return false;
-        }
-        return Arrays.asList(list).contains("index.html");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String c() {
-        File file = new File(d(), "games");
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        return file.getAbsolutePath();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String d() {
-        File externalCacheDir;
-        if (TextUtils.isEmpty(this.b)) {
-            try {
-                if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && p.a().getExternalCacheDir() != null) {
-                    externalCacheDir = p.a().getExternalCacheDir();
-                } else {
-                    externalCacheDir = p.a().getCacheDir();
-                }
-                File file = new File(externalCacheDir, "playable");
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                this.b = file.getAbsolutePath();
-            } catch (Throwable th) {
-                u.f("PlayableCache", "init root path error: " + th);
-            }
-        }
-        return this.b;
-    }
-
-    /* loaded from: classes6.dex */
-    private static class b {
-
-        /* renamed from: a  reason: collision with root package name */
-        long f4445a;
-        long b;
-        long c;
-        long d;
-
-        private b() {
-        }
-
-        public long a() {
-            return this.b - this.f4445a;
-        }
-
-        public long b() {
-            return this.d - this.c;
-        }
-
-        public b a(long j) {
-            this.f4445a = j;
-            return this;
-        }
-
-        public b b(long j) {
-            this.b = j;
-            return this;
-        }
-
-        public b c(long j) {
-            this.c = j;
-            return this;
-        }
-
-        public b d(long j) {
-            this.d = j;
-            return this;
+            i.d().s().a(file);
+        } catch (Throwable unused) {
         }
     }
 }

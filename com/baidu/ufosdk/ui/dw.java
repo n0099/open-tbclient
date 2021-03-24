@@ -3,36 +3,36 @@ package com.baidu.ufosdk.ui;
 import android.content.Context;
 import android.os.Handler;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes7.dex */
-final class dw implements Runnable {
+/* loaded from: classes5.dex */
+public final class dw implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f3749a;
+    public final /* synthetic */ FeedbackReportActivity f23195a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public dw(FeedbackReportActivity feedbackReportActivity) {
-        this.f3749a = feedbackReportActivity;
+        this.f23195a = feedbackReportActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Handler handler;
+        int i;
         Handler handler2;
-        Handler handler3;
-        com.baidu.ufosdk.e.a.a(this.f3749a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f23195a.getApplicationContext());
         if (UfoSDK.clientid.length() != 0) {
-            handler3 = this.f3749a.K;
-            handler3.obtainMessage(1, null).sendToTarget();
+            handler = this.f23195a.K;
+            i = 1;
         } else {
-            handler = this.f3749a.K;
-            handler.obtainMessage(4, null).sendToTarget();
+            handler = this.f23195a.K;
+            i = 4;
         }
-        Context applicationContext = this.f3749a.getApplicationContext();
+        handler.obtainMessage(i, null).sendToTarget();
+        Context applicationContext = this.f23195a.getApplicationContext();
         String str = UfoSDK.clientid;
-        String c = com.baidu.ufosdk.e.a.c(applicationContext);
-        if (c != null) {
-            handler2 = this.f3749a.K;
-            handler2.obtainMessage(0, c).sendToTarget();
+        String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
+        if (c2 != null) {
+            handler2 = this.f23195a.K;
+            handler2.obtainMessage(0, c2).sendToTarget();
         }
     }
 }

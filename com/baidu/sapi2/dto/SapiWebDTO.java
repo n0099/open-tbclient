@@ -1,9 +1,12 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes3.dex */
+
+import com.baidu.sapi2.enums.LoginTypes;
+/* loaded from: classes2.dex */
 public class SapiWebDTO extends SapiDTO {
-    public boolean sweepLightLoading;
+    public LoginTypes excludeTypes;
     public int openEnterAnimId = 0;
     public int closeExitAnimId = 0;
     public int openExitAnimId = 0;
     public int closeEnterAnimId = 0;
+    public boolean sweepLightLoading = true;
 }

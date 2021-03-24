@@ -1,10 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class AlaPersonCardActivityConfig extends IntentConfig {
     public static final String PERSON_APP_ID = "PERSON_APP_ID";
     public static final String PERSON_DESCRIPTION = "PERSON_DESCRIPTION";
@@ -25,47 +24,47 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
 
     public AlaPersonCardActivityConfig(Context context, String str) {
         super(context);
-        getIntent().putExtra("PERSON_USER_ID", str);
+        getIntent().putExtra(PERSON_USER_ID, str);
         setIntentAction(IntentAction.Activity);
     }
 
     public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, long j, long j2, long j3, int i3, String str6, String str7, boolean z, String str8, String str9) {
         super(context);
-        getIntent().putExtra("PERSON_USER_ID", str);
-        getIntent().putExtra("PERSON_USER_NAME", str2);
-        getIntent().putExtra("PERSON_PORTRAIT_URL", str3);
-        getIntent().putExtra("PERSON_SEX", i);
-        getIntent().putExtra("PERSON_LEVEL", i2);
-        getIntent().putExtra("PERSON_LOCATION", str4);
-        getIntent().putExtra("PERSON_DESCRIPTION", str5);
-        getIntent().putExtra("PERSON_SEND_COUNT", j);
-        getIntent().putExtra("PERSON_FANS_COUNT", j2);
-        getIntent().putExtra("PERSON_FOLLOWS_COUNT", j3);
-        getIntent().putExtra("PERSON_FOLLOW_STATUS", i3);
-        getIntent().putExtra("PERSON_GROUP_ID", str6);
-        getIntent().putExtra("PERSON_LIVE_ID", str7);
-        getIntent().putExtra("PERSON_LIVE_OWNER_FLAG", z);
-        getIntent().putExtra("PERSON_LIVE_OWNER_UID", str8);
-        getIntent().putExtra("PERSON_APP_ID", str9);
-        setRequestCode(RequestResponseCode.REQUEST_ALA_PERSON_CARD);
+        getIntent().putExtra(PERSON_USER_ID, str);
+        getIntent().putExtra(PERSON_USER_NAME, str2);
+        getIntent().putExtra(PERSON_PORTRAIT_URL, str3);
+        getIntent().putExtra(PERSON_SEX, i);
+        getIntent().putExtra(PERSON_LEVEL, i2);
+        getIntent().putExtra(PERSON_LOCATION, str4);
+        getIntent().putExtra(PERSON_DESCRIPTION, str5);
+        getIntent().putExtra(PERSON_SEND_COUNT, j);
+        getIntent().putExtra(PERSON_FANS_COUNT, j2);
+        getIntent().putExtra(PERSON_FOLLOWS_COUNT, j3);
+        getIntent().putExtra(PERSON_FOLLOW_STATUS, i3);
+        getIntent().putExtra(PERSON_GROUP_ID, str6);
+        getIntent().putExtra(PERSON_LIVE_ID, str7);
+        getIntent().putExtra(PERSON_LIVE_OWNER_FLAG, z);
+        getIntent().putExtra(PERSON_LIVE_OWNER_UID, str8);
+        getIntent().putExtra(PERSON_APP_ID, str9);
+        setRequestCode(25014);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
     public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, long j, long j2, long j3, int i3, String str6) {
         super(context);
-        getIntent().putExtra("PERSON_USER_ID", str);
-        getIntent().putExtra("PERSON_USER_NAME", str2);
-        getIntent().putExtra("PERSON_PORTRAIT_URL", str3);
-        getIntent().putExtra("PERSON_SEX", i);
-        getIntent().putExtra("PERSON_LEVEL", i2);
-        getIntent().putExtra("PERSON_LOCATION", str4);
-        getIntent().putExtra("PERSON_DESCRIPTION", str5);
-        getIntent().putExtra("PERSON_SEND_COUNT", j);
-        getIntent().putExtra("PERSON_FANS_COUNT", j2);
-        getIntent().putExtra("PERSON_FOLLOWS_COUNT", j3);
-        getIntent().putExtra("PERSON_FOLLOW_STATUS", i3);
-        getIntent().putExtra("PERSON_APP_ID", str6);
-        setRequestCode(RequestResponseCode.REQUEST_ALA_PERSON_CARD);
+        getIntent().putExtra(PERSON_USER_ID, str);
+        getIntent().putExtra(PERSON_USER_NAME, str2);
+        getIntent().putExtra(PERSON_PORTRAIT_URL, str3);
+        getIntent().putExtra(PERSON_SEX, i);
+        getIntent().putExtra(PERSON_LEVEL, i2);
+        getIntent().putExtra(PERSON_LOCATION, str4);
+        getIntent().putExtra(PERSON_DESCRIPTION, str5);
+        getIntent().putExtra(PERSON_SEND_COUNT, j);
+        getIntent().putExtra(PERSON_FANS_COUNT, j2);
+        getIntent().putExtra(PERSON_FOLLOWS_COUNT, j3);
+        getIntent().putExtra(PERSON_FOLLOW_STATUS, i3);
+        getIntent().putExtra(PERSON_APP_ID, str6);
+        setRequestCode(25014);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

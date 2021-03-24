@@ -3,19 +3,14 @@ package com.bumptech.glide.load.engine;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.load.Key;
 import java.security.MessageDigest;
-/* loaded from: classes14.dex */
-final class DataCacheKey implements Key {
-    private final Key signature;
-    private final Key sourceKey;
+/* loaded from: classes5.dex */
+public final class DataCacheKey implements Key {
+    public final Key signature;
+    public final Key sourceKey;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public DataCacheKey(Key key, Key key2) {
         this.sourceKey = key;
         this.signature = key2;
-    }
-
-    Key getSourceKey() {
-        return this.sourceKey;
     }
 
     @Override // com.bumptech.glide.load.Key
@@ -25,6 +20,10 @@ final class DataCacheKey implements Key {
             return this.sourceKey.equals(dataCacheKey.sourceKey) && this.signature.equals(dataCacheKey.signature);
         }
         return false;
+    }
+
+    public Key getSourceKey() {
+        return this.sourceKey;
     }
 
     @Override // com.bumptech.glide.load.Key

@@ -1,8 +1,41 @@
 package com.baidu.mobads.openad.interfaces.download;
 
 import java.util.Observer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IOAdDownloader {
+
+    /* loaded from: classes2.dex */
+    public enum DownloadStatus {
+        NONE(-1, "未开始"),
+        INITING(0, "下载准备中"),
+        DOWNLOADING(1, "正在下载"),
+        CANCELLED(2, "已取消下载"),
+        COMPLETED(3, "下载完成"),
+        ERROR(4, "下载失败"),
+        COMPLETE_BUT_FILE_REMOVED(5, "下载完但文件异常"),
+        PAUSED(6, "已暂停下载");
+        
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f8430a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f8431b;
+
+        DownloadStatus(int i, String str) {
+            this.f8430a = i;
+            this.f8431b = str;
+        }
+
+        public int getCode() {
+            return this.f8430a;
+        }
+
+        public String getMessage() {
+            return this.f8431b;
+        }
+    }
+
     void addObserver(Observer observer);
 
     void cancel();
@@ -34,34 +67,4 @@ public interface IOAdDownloader {
     void setPausedManually(boolean z);
 
     void start();
-
-    /* loaded from: classes4.dex */
-    public enum DownloadStatus {
-        NONE(-1, "未开始"),
-        INITING(0, "下载准备中"),
-        DOWNLOADING(1, "正在下载"),
-        CANCELLED(2, "已取消下载"),
-        COMPLETED(3, "下载完成"),
-        ERROR(4, "下载失败"),
-        COMPLETE_BUT_FILE_REMOVED(5, "下载完但文件异常"),
-        PAUSED(6, "已暂停下载");
-        
-
-        /* renamed from: a  reason: collision with root package name */
-        private int f2443a;
-        private String b;
-
-        DownloadStatus(int i, String str) {
-            this.f2443a = i;
-            this.b = str;
-        }
-
-        public int getCode() {
-            return this.f2443a;
-        }
-
-        public String getMessage() {
-            return this.b;
-        }
-    }
 }

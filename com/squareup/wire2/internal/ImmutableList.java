@@ -7,18 +7,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes4.dex */
-final class ImmutableList<T> extends AbstractList<T> implements Serializable, RandomAccess {
-    private final ArrayList<T> list;
+/* loaded from: classes6.dex */
+public final class ImmutableList<T> extends AbstractList<T> implements RandomAccess, Serializable {
+    public final ArrayList<T> list;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ImmutableList(List<T> list) {
         this.list = new ArrayList<>(list);
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public int size() {
-        return this.list.size();
+    private Object writeReplace() throws ObjectStreamException {
+        return Collections.unmodifiableList(this.list);
     }
 
     @Override // java.util.AbstractList, java.util.List
@@ -27,11 +25,12 @@ final class ImmutableList<T> extends AbstractList<T> implements Serializable, Ra
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public Object[] toArray() {
-        return this.list.toArray();
+    public int size() {
+        return this.list.size();
     }
 
-    private Object writeReplace() throws ObjectStreamException {
-        return Collections.unmodifiableList(this.list);
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public Object[] toArray() {
+        return this.list.toArray();
     }
 }

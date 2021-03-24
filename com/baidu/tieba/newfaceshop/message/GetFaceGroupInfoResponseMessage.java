@@ -1,18 +1,20 @@
 package com.baidu.tieba.newfaceshop.message;
 
 import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.newfaceshop.b.a;
-import com.baidu.tieba.newfaceshop.b.b;
 import com.tencent.open.SocialConstants;
+import d.b.i0.x1.f.a;
+import d.b.i0.x1.f.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
-    private a mData;
+    public a mData;
 
     public GetFaceGroupInfoResponseMessage(int i) {
         super(i);
@@ -27,24 +29,29 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    public a getData() {
+        return this.mData;
+    }
+
     public a parseData(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         a aVar = new a();
-        aVar.id = jSONObject.optString("id");
-        if (TextUtils.isEmpty(aVar.id)) {
+        String optString = jSONObject.optString("id");
+        aVar.f62367a = optString;
+        if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        aVar.name = jSONObject.optString("name");
-        aVar.type = jSONObject.optInt("type");
-        aVar.authorId = jSONObject.optString("owner");
-        aVar.authorName = jSONObject.optString("author");
-        aVar.createTime = jSONObject.optString("timestamp");
-        aVar.cover = jSONObject.optString("cover");
-        aVar.covername = jSONObject.optString("covername");
-        aVar.url = jSONObject.optString("url");
-        aVar.pics = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+        aVar.f62368b = jSONObject.optString("name");
+        jSONObject.optInt("type");
+        jSONObject.optString("owner");
+        jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
+        jSONObject.optString("timestamp");
+        jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+        aVar.f62369c = jSONObject.optString("covername");
+        aVar.f62370d = jSONObject.optString("url");
+        aVar.f62371e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
         return aVar;
     }
 
@@ -57,23 +64,18 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 b bVar = new b();
-                bVar.id = jSONObject.optString("id");
-                bVar.url = jSONObject.optString("url");
-                bVar.thumbnail = jSONObject.optString("thumbnail");
-                bVar.name = jSONObject.optString("name");
-                bVar.lCO = jSONObject.optString("thumbname");
-                bVar.width = jSONObject.optInt("width");
-                bVar.height = jSONObject.optInt("height");
+                bVar.f62373f = jSONObject.optString("id");
+                jSONObject.optString("url");
+                jSONObject.optString("thumbnail");
+                bVar.f62374g = jSONObject.optString("name");
+                bVar.f62375h = jSONObject.optString("thumbname");
+                bVar.j = jSONObject.optInt("width");
+                bVar.i = jSONObject.optInt("height");
                 arrayList.add(bVar);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return arrayList;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
         return arrayList;
-    }
-
-    public a getData() {
-        return this.mData;
     }
 }

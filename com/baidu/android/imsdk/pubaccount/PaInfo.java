@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PaInfo implements Parcelable {
     public static final Parcelable.Creator<PaInfo> CREATOR = new Parcelable.Creator<PaInfo>() { // from class: com.baidu.android.imsdk.pubaccount.PaInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -21,281 +21,165 @@ public class PaInfo implements Parcelable {
             return new PaInfo[i];
         }
     };
-    private boolean acceptPush;
-    private String avatar;
-    private String classavatar;
-    private int classshow;
-    private String classtitle;
-    private int classtype;
-    private String description;
-    private String detail;
-    private int disturb;
-    private boolean mMsgNotify;
-    private int mRejectMenu;
-    private String mRepliesStr;
-    private int markTop;
-    private long markTopTime;
-    private String name;
-    private String nickName;
-    private String paExt;
-    private long paId;
-    private int status;
-    private long subcribeTime;
-    private int subtype;
-    private long tpl;
-    private String url;
-    private int subsetType = 0;
-    private long mLastRefreshTime = -1;
-    private String mVipId = "";
-    private String vPortrait = "";
-    private int mHasIdentity = 0;
-    private int mShield = 0;
-    private long mShieldTime = 0;
-    private String mIdentity = "";
-    private int mSubscribe = 0;
-    private String mThirdExt = "";
-    private String mSchema = "";
+    public boolean acceptPush;
+    public String avatar;
+    public String classavatar;
+    public int classshow;
+    public String classtitle;
+    public int classtype;
+    public String description;
+    public String detail;
+    public int disturb;
+    public boolean mMsgNotify;
+    public int mRejectMenu;
+    public String mRepliesStr;
+    public int markTop;
+    public long markTopTime;
+    public String name;
+    public String nickName;
+    public String paExt;
+    public long paId;
+    public int status;
+    public long subcribeTime;
+    public int subtype;
+    public long tpl;
+    public String url;
+    public int subsetType = 0;
+    public long mLastRefreshTime = -1;
+    public String mVipId = "";
+    public String vPortrait = "";
+    public int mHasIdentity = 0;
+    public int mShield = 0;
+    public long mShieldTime = 0;
+    public String mIdentity = "";
+    public int mSubscribe = 0;
+    public String mThirdExt = "";
+    public String mSchema = "";
 
-    public void setSchema(String str) {
-        this.mSchema = str;
+    public static PaInfo readFromParcel(Parcel parcel) {
+        PaInfo paInfo = new PaInfo();
+        paInfo.setPaId(parcel.readLong());
+        paInfo.setNickName(parcel.readString());
+        paInfo.setAvatar(parcel.readString());
+        paInfo.setAcceptPush(parcel.readInt() == 1);
+        paInfo.setDescription(parcel.readString());
+        paInfo.setUrl(parcel.readString());
+        paInfo.setSubcribeTime(parcel.readLong());
+        paInfo.setDetail(parcel.readString());
+        paInfo.setUsername(parcel.readString());
+        paInfo.setTPL(parcel.readLong());
+        paInfo.setDisturb(parcel.readInt());
+        paInfo.setSubtype(parcel.readInt());
+        paInfo.setClassType(parcel.readInt());
+        paInfo.setClasstitle(parcel.readString());
+        paInfo.setClassAvatar(parcel.readString());
+        paInfo.setStatus(parcel.readInt());
+        paInfo.setMsgNotify(parcel.readInt() == 1);
+        paInfo.setMarkTop(parcel.readInt());
+        paInfo.setMarkTopTime(parcel.readLong());
+        paInfo.setRepliesStr(parcel.readString());
+        paInfo.setLastRefreshTime(parcel.readLong());
+        paInfo.setSubsetType(parcel.readInt());
+        paInfo.setPaExt(parcel.readString());
+        paInfo.setVPortrait(parcel.readString());
+        paInfo.setVipId(parcel.readString());
+        paInfo.setHasIdentity(parcel.readInt());
+        paInfo.setShield(parcel.readInt());
+        paInfo.setShieldTime(parcel.readLong());
+        paInfo.setIdentity(parcel.readString());
+        paInfo.setSubscribe(parcel.readInt());
+        paInfo.setThirdExt(parcel.readString());
+        paInfo.setSchema(parcel.readString());
+        paInfo.setRejectMenu(parcel.readInt());
+        return paInfo;
     }
 
-    public String getSchema() {
-        if (TextUtils.isEmpty(this.mSchema) && !TextUtils.isEmpty(this.mThirdExt)) {
-            try {
-                this.mSchema = new JSONObject(this.mThirdExt).optString("homepage", "");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return this.mSchema;
-    }
-
-    public String getThirdId() {
-        if (!TextUtils.isEmpty(this.mThirdExt)) {
-            try {
-                return new JSONObject(this.mThirdExt).optString("third_id", "");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return "";
-    }
-
-    public void setIdentity(String str) {
-        this.mIdentity = str;
-    }
-
-    public String getIdentity() {
-        return this.mIdentity;
-    }
-
-    public long getMarkTopTime() {
-        return this.markTopTime;
-    }
-
-    public void setMarkTopTime(long j) {
-        this.markTopTime = j;
-    }
-
-    public int getMarkTop() {
-        return this.markTop;
-    }
-
-    public void setMarkTop(int i) {
-        this.markTop = i;
-    }
-
-    public boolean isMsgNotify() {
-        return this.mMsgNotify;
-    }
-
-    public void setMsgNotify(boolean z) {
-        this.mMsgNotify = z;
-    }
-
-    public int getSubsetType() {
-        return this.subsetType;
-    }
-
-    public void setSubsetType(int i) {
-        this.subsetType = i;
-    }
-
-    public void setPaExt(String str) {
-        this.paExt = str;
-    }
-
-    public String getPaExt() {
-        return this.paExt;
-    }
-
-    public int getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(int i) {
-        this.status = i;
-    }
-
-    public int getSubtype() {
-        return this.subtype;
-    }
-
-    public void setSubtype(int i) {
-        this.subtype = i;
-    }
-
-    public long getPaId() {
-        return this.paId;
-    }
-
-    public void setPaId(long j) {
-        this.paId = j;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
-
-    public String getNickName() {
-        return this.nickName;
-    }
-
-    public void setNickName(String str) {
-        this.nickName = str;
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
     }
 
     public String getAvatar() {
         return this.avatar;
     }
 
-    public void setAvatar(String str) {
-        this.avatar = str;
-    }
-
-    public boolean isAcceptPush() {
-        return this.acceptPush;
-    }
-
-    public void setAcceptPush(boolean z) {
-        this.acceptPush = z;
-    }
-
-    public int getDisturb() {
-        return this.disturb;
-    }
-
-    public void setDisturb(int i) {
-        this.disturb = i;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String str) {
-        this.description = str;
-    }
-
-    public long getSubcribeTime() {
-        return this.subcribeTime;
-    }
-
-    public void setSubcribeTime(long j) {
-        this.subcribeTime = j;
-    }
-
-    public void setDetail(String str) {
-        this.detail = str;
-    }
-
-    public String getDetail() {
-        return this.detail;
-    }
-
-    public void setUsername(String str) {
-        this.name = str;
-    }
-
-    public String getUsername() {
-        return this.name;
-    }
-
-    public void setTPL(long j) {
-        this.tpl = j;
-    }
-
-    public long getTPL() {
-        return this.tpl;
-    }
-
-    public void setClassType(int i) {
-        this.classtype = i;
+    public String getClassTitle() {
+        return this.classtitle;
     }
 
     public int getClassType() {
         return this.classtype;
     }
 
-    public void setClasstitle(String str) {
-        this.classtitle = str;
-    }
-
-    public String getClassTitle() {
-        return this.classtitle;
-    }
-
-    public void setClassAvatar(String str) {
-        this.classavatar = str;
-    }
-
     public String getClassavatar() {
         return this.classavatar;
-    }
-
-    public void setClassshow(int i) {
-        this.classshow = i;
     }
 
     public int getClassshow() {
         return this.classshow;
     }
 
-    public String getRepliesStr() {
-        return this.mRepliesStr;
+    public String getDescription() {
+        return this.description;
     }
 
-    public void setRepliesStr(String str) {
-        this.mRepliesStr = str;
+    public String getDetail() {
+        return this.detail;
+    }
+
+    public int getDisturb() {
+        return this.disturb;
+    }
+
+    public int getHasIdentity() {
+        return this.mHasIdentity;
+    }
+
+    public String getIdentity() {
+        return this.mIdentity;
     }
 
     public long getLastRefreshTime() {
         return this.mLastRefreshTime;
     }
 
-    public void setLastRefreshTime(long j) {
-        this.mLastRefreshTime = j;
+    public int getMarkTop() {
+        return this.markTop;
     }
 
-    public String getVPortrait() {
-        return this.vPortrait;
+    public long getMarkTopTime() {
+        return this.markTopTime;
     }
 
-    public String getVipId() {
-        return this.mVipId;
+    public String getNickName() {
+        return this.nickName;
     }
 
-    public void setVipId(String str) {
-        this.mVipId = str;
+    public String getPaExt() {
+        return this.paExt;
     }
 
-    public int getHasIdentity() {
-        return this.mHasIdentity;
+    public long getPaId() {
+        return this.paId;
+    }
+
+    public int getRejectMenu() {
+        return this.mRejectMenu;
+    }
+
+    public String getRepliesStr() {
+        return this.mRepliesStr;
+    }
+
+    public String getSchema() {
+        if (TextUtils.isEmpty(this.mSchema) && !TextUtils.isEmpty(this.mThirdExt)) {
+            try {
+                this.mSchema = new JSONObject(this.mThirdExt).optString("homepage", "");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        return this.mSchema;
     }
 
     public int getShield() {
@@ -306,12 +190,151 @@ public class PaInfo implements Parcelable {
         return this.mShieldTime;
     }
 
-    public void setVPortrait(String str) {
-        this.vPortrait = str;
+    public int getStatus() {
+        return this.status;
+    }
+
+    public long getSubcribeTime() {
+        return this.subcribeTime;
+    }
+
+    public int getSubscribe() {
+        return this.mSubscribe;
+    }
+
+    public int getSubsetType() {
+        return this.subsetType;
+    }
+
+    public int getSubtype() {
+        return this.subtype;
+    }
+
+    public long getTPL() {
+        return this.tpl;
+    }
+
+    public String getThirdExt() {
+        return this.mThirdExt;
+    }
+
+    public String getThirdId() {
+        if (!TextUtils.isEmpty(this.mThirdExt)) {
+            try {
+                return new JSONObject(this.mThirdExt).optString("third_id", "");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        return "";
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public String getUsername() {
+        return this.name;
+    }
+
+    public String getVPortrait() {
+        return this.vPortrait;
+    }
+
+    public String getVipId() {
+        return this.mVipId;
+    }
+
+    public boolean isAcceptPush() {
+        return this.acceptPush;
+    }
+
+    public boolean isMsgNotify() {
+        return this.mMsgNotify;
+    }
+
+    public void setAcceptPush(boolean z) {
+        this.acceptPush = z;
+    }
+
+    public void setAvatar(String str) {
+        this.avatar = str;
+    }
+
+    public void setClassAvatar(String str) {
+        this.classavatar = str;
+    }
+
+    public void setClassType(int i) {
+        this.classtype = i;
+    }
+
+    public void setClassshow(int i) {
+        this.classshow = i;
+    }
+
+    public void setClasstitle(String str) {
+        this.classtitle = str;
+    }
+
+    public void setDescription(String str) {
+        this.description = str;
+    }
+
+    public void setDetail(String str) {
+        this.detail = str;
+    }
+
+    public void setDisturb(int i) {
+        this.disturb = i;
     }
 
     public void setHasIdentity(int i) {
         this.mHasIdentity = i;
+    }
+
+    public void setIdentity(String str) {
+        this.mIdentity = str;
+    }
+
+    public void setLastRefreshTime(long j) {
+        this.mLastRefreshTime = j;
+    }
+
+    public void setMarkTop(int i) {
+        this.markTop = i;
+    }
+
+    public void setMarkTopTime(long j) {
+        this.markTopTime = j;
+    }
+
+    public void setMsgNotify(boolean z) {
+        this.mMsgNotify = z;
+    }
+
+    public void setNickName(String str) {
+        this.nickName = str;
+    }
+
+    public void setPaExt(String str) {
+        this.paExt = str;
+    }
+
+    public void setPaId(long j) {
+        this.paId = j;
+    }
+
+    public void setRejectMenu(int i) {
+        this.mRejectMenu = i;
+    }
+
+    public void setRepliesStr(String str) {
+        this.mRepliesStr = str;
+    }
+
+    public void setSchema(String str) {
+        this.mSchema = str;
     }
 
     public void setShield(int i) {
@@ -322,40 +345,60 @@ public class PaInfo implements Parcelable {
         this.mShieldTime = j;
     }
 
-    public int getSubscribe() {
-        return this.mSubscribe;
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public void setSubcribeTime(long j) {
+        this.subcribeTime = j;
     }
 
     public void setSubscribe(int i) {
         this.mSubscribe = i;
     }
 
-    public String getThirdExt() {
-        return this.mThirdExt;
+    public void setSubsetType(int i) {
+        this.subsetType = i;
+    }
+
+    public void setSubtype(int i) {
+        this.subtype = i;
+    }
+
+    public void setTPL(long j) {
+        this.tpl = j;
     }
 
     public void setThirdExt(String str) {
         this.mThirdExt = str;
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                setSchema(new JSONObject(str).optString("homepage", ""));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            setSchema(new JSONObject(str).optString("homepage", ""));
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
-    public void setRejectMenu(int i) {
-        this.mRejectMenu = i;
+    public void setUrl(String str) {
+        this.url = str;
     }
 
-    public int getRejectMenu() {
-        return this.mRejectMenu;
+    public void setUsername(String str) {
+        this.name = str;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
+    public void setVPortrait(String str) {
+        this.vPortrait = str;
+    }
+
+    public void setVipId(String str) {
+        this.mVipId = str;
+    }
+
+    public String toString() {
+        return "PaInfo [pdId=" + this.paId + " nickName=" + this.nickName + " disturb= " + this.disturb + " description=" + this.description + " acceptPush=" + this.acceptPush + " url=" + this.url + " subscribeTime" + this.subcribeTime + " classtype= " + this.classtype + "  classtitle= " + this.classtitle + " markTop= " + this.markTop + " markTopTime= " + this.markTopTime + "  classavatar= " + this.classavatar + " mMsgNotify= " + this.mMsgNotify + " mRepliesStr= " + this.mRepliesStr + " mLastRefreshTime= " + this.mLastRefreshTime + " subsetType= " + this.subsetType + " paExt= " + this.paExt + " vPortrait= " + this.vPortrait + " mHasIdentity= " + this.mHasIdentity + " mShield= " + this.mShield + " mShieldTime " + this.mShieldTime + " mIdentity= " + this.mIdentity + " mVipId= " + this.mVipId + ", schema=" + this.mSchema + ", mSubscribe=" + this.mSubscribe + ", mThirdExt=" + this.mThirdExt + ", mRejectMenu=" + this.mRejectMenu + "  ]";
     }
 
     @Override // android.os.Parcelable
@@ -393,48 +436,5 @@ public class PaInfo implements Parcelable {
         parcel.writeString(this.mSchema);
         parcel.writeInt(this.mSubscribe);
         parcel.writeInt(this.mRejectMenu);
-    }
-
-    public String toString() {
-        return "PaInfo [pdId=" + this.paId + " nickName=" + this.nickName + " disturb= " + this.disturb + " description=" + this.description + " acceptPush=" + this.acceptPush + " url=" + this.url + " subscribeTime" + this.subcribeTime + " classtype= " + this.classtype + "  classtitle= " + this.classtitle + " markTop= " + this.markTop + " markTopTime= " + this.markTopTime + "  classavatar= " + this.classavatar + " mMsgNotify= " + this.mMsgNotify + " mRepliesStr= " + this.mRepliesStr + " mLastRefreshTime= " + this.mLastRefreshTime + " subsetType= " + this.subsetType + " paExt= " + this.paExt + " vPortrait= " + this.vPortrait + " mHasIdentity= " + this.mHasIdentity + " mShield= " + this.mShield + " mShieldTime " + this.mShieldTime + " mIdentity= " + this.mIdentity + " mVipId= " + this.mVipId + ", schema=" + this.mSchema + ", mSubscribe=" + this.mSubscribe + ", mThirdExt=" + this.mThirdExt + ", mRejectMenu=" + this.mRejectMenu + "  ]";
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static PaInfo readFromParcel(Parcel parcel) {
-        PaInfo paInfo = new PaInfo();
-        paInfo.setPaId(parcel.readLong());
-        paInfo.setNickName(parcel.readString());
-        paInfo.setAvatar(parcel.readString());
-        paInfo.setAcceptPush(parcel.readInt() == 1);
-        paInfo.setDescription(parcel.readString());
-        paInfo.setUrl(parcel.readString());
-        paInfo.setSubcribeTime(parcel.readLong());
-        paInfo.setDetail(parcel.readString());
-        paInfo.setUsername(parcel.readString());
-        paInfo.setTPL(parcel.readLong());
-        paInfo.setDisturb(parcel.readInt());
-        paInfo.setSubtype(parcel.readInt());
-        paInfo.setClassType(parcel.readInt());
-        paInfo.setClasstitle(parcel.readString());
-        paInfo.setClassAvatar(parcel.readString());
-        paInfo.setStatus(parcel.readInt());
-        paInfo.setMsgNotify(parcel.readInt() == 1);
-        paInfo.setMarkTop(parcel.readInt());
-        paInfo.setMarkTopTime(parcel.readLong());
-        paInfo.setRepliesStr(parcel.readString());
-        paInfo.setLastRefreshTime(parcel.readLong());
-        paInfo.setSubsetType(parcel.readInt());
-        paInfo.setPaExt(parcel.readString());
-        paInfo.setVPortrait(parcel.readString());
-        paInfo.setVipId(parcel.readString());
-        paInfo.setHasIdentity(parcel.readInt());
-        paInfo.setShield(parcel.readInt());
-        paInfo.setShieldTime(parcel.readLong());
-        paInfo.setIdentity(parcel.readString());
-        paInfo.setSubscribe(parcel.readInt());
-        paInfo.setThirdExt(parcel.readString());
-        paInfo.setSchema(parcel.readString());
-        paInfo.setRejectMenu(parcel.readInt());
-        return paInfo;
     }
 }

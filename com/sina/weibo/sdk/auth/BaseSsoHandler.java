@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.WeiboAppManager;
@@ -24,18 +23,17 @@ import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.AuthWebViewRequestParam;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BaseSsoHandler {
     public static final String OAUTH2_BASE_URL = "https://open.weibo.cn/oauth2/authorize?";
-    private static final String TAG = "BaseSsoHandler";
-    protected WbAuthListener authListener;
-    protected Context mAuthActivity;
-    protected final int SSO_TYPE_INVALID = 3;
-    protected int ssoRequestCode = -1;
-    protected int ssoRequestType = 3;
+    public static final String TAG = "BaseSsoHandler";
+    public WbAuthListener authListener;
+    public Context mAuthActivity;
+    public final int SSO_TYPE_INVALID = 3;
+    public int ssoRequestCode = -1;
+    public int ssoRequestType = 3;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum AuthType {
         ALL,
         SsoOnly,
@@ -47,13 +45,44 @@ public class BaseSsoHandler {
         WeiboSsoManager.getInstance().init(activity, WbSdk.getAuthInfo().getAppKey());
     }
 
-    public BaseSsoHandler(Context context) {
-        this.mAuthActivity = context;
-        WeiboSsoManager.getInstance().init(context, WbSdk.getAuthInfo().getAppKey());
-    }
-
     public void authorize(WbAuthListener wbAuthListener) {
         authorize(WbAuthConstants.REQUEST_CODE_SSO_AUTH, wbAuthListener, AuthType.ALL);
+    }
+
+    public void authorizeCallBack(int i, int i2, Intent intent) {
+        if (32973 == i) {
+            if (i2 != -1) {
+                if (i2 == 0) {
+                    this.authListener.cancel();
+                    return;
+                }
+                return;
+            }
+            Context context = this.mAuthActivity;
+            if (!SecurityHelper.checkResponseAppLegal(context, WeiboAppManager.getInstance(context).getWbAppInfo(), intent)) {
+                this.authListener.onFailure(new WbConnectErrorMessage(WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE, WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE));
+                return;
+            }
+            String safeString = Utility.safeString(intent.getStringExtra("error"));
+            String safeString2 = Utility.safeString(intent.getStringExtra(PushMessageHelper.ERROR_TYPE));
+            String safeString3 = Utility.safeString(intent.getStringExtra("error_description"));
+            LogUtil.d(TAG, "error: " + safeString + ", error_type: " + safeString2 + ", error_description: " + safeString3);
+            if (TextUtils.isEmpty(safeString) && TextUtils.isEmpty(safeString2) && TextUtils.isEmpty(safeString3)) {
+                Oauth2AccessToken parseAccessToken = Oauth2AccessToken.parseAccessToken(intent.getExtras());
+                if (parseAccessToken == null || !parseAccessToken.isSessionValid()) {
+                    return;
+                }
+                LogUtil.d(TAG, "Login Success! " + parseAccessToken.toString());
+                AccessTokenKeeper.writeAccessToken(this.mAuthActivity, parseAccessToken);
+                this.authListener.onSuccess(parseAccessToken);
+            } else if (!"access_denied".equals(safeString) && !"OAuthAccessDeniedException".equals(safeString)) {
+                LogUtil.d(TAG, "Login failed: " + safeString);
+                this.authListener.onFailure(new WbConnectErrorMessage(safeString2, safeString3));
+            } else {
+                LogUtil.d(TAG, "Login canceled by user.");
+                this.authListener.cancel();
+            }
+        }
     }
 
     public void authorizeClientSso(WbAuthListener wbAuthListener) {
@@ -64,31 +93,19 @@ public class BaseSsoHandler {
         authorize(WbAuthConstants.REQUEST_CODE_SSO_AUTH, wbAuthListener, AuthType.WebOnly);
     }
 
-    private void authorize(int i, WbAuthListener wbAuthListener, AuthType authType) {
-        resetIntentFillData();
-        if (wbAuthListener == null) {
-            throw new RuntimeException("please set auth listener");
-        }
-        this.authListener = wbAuthListener;
-        if (authType == AuthType.WebOnly) {
-            startWebAuth();
-            return;
-        }
-        boolean z = false;
-        if (authType == AuthType.SsoOnly) {
-            z = true;
-        }
-        WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo();
-        if (isWbAppInstalled() && wbAppInfo != null) {
-            startClientAuth(i);
-        } else if (z) {
-            this.authListener.onFailure(new WbConnectErrorMessage());
-        } else {
-            startWebAuth();
-        }
+    public void fillExtraIntent(Intent intent, int i) {
     }
 
-    protected void startClientAuth(int i) {
+    @Deprecated
+    public boolean isWbAppInstalled() {
+        return WbSdk.isWbInstall(this.mAuthActivity);
+    }
+
+    public void resetIntentFillData() {
+        this.ssoRequestCode = WbAuthConstants.REQUEST_CODE_SSO_AUTH;
+    }
+
+    public void startClientAuth(int i) {
         try {
             WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo();
             Intent intent = new Intent();
@@ -99,30 +116,22 @@ public class BaseSsoHandler {
             intent.putExtra("aid", Utility.getAid(this.mAuthActivity, WbSdk.getAuthInfo().getAppKey()));
             if (!SecurityHelper.validateAppSignatureForIntent(this.mAuthActivity, intent)) {
                 this.authListener.onFailure(new WbConnectErrorMessage(WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE, WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE));
-            } else {
-                fillExtraIntent(intent, i);
-                try {
-                    ((Activity) this.mAuthActivity).startActivityForResult(intent, this.ssoRequestCode);
-                } catch (Exception e) {
-                    if (this.authListener != null) {
-                        this.authListener.onFailure(new WbConnectErrorMessage());
-                    }
+                return;
+            }
+            fillExtraIntent(intent, i);
+            try {
+                ((Activity) this.mAuthActivity).startActivityForResult(intent, this.ssoRequestCode);
+            } catch (Exception unused) {
+                if (this.authListener != null) {
+                    this.authListener.onFailure(new WbConnectErrorMessage());
                 }
             }
-        } catch (Exception e2) {
+        } catch (Exception unused2) {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void fillExtraIntent(Intent intent, int i) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void resetIntentFillData() {
-        this.ssoRequestCode = WbAuthConstants.REQUEST_CODE_SSO_AUTH;
-    }
-
-    protected void startWebAuth() {
+    public void startWebAuth() {
+        String str;
         AuthInfo authInfo = WbSdk.getAuthInfo();
         WeiboParameters weiboParameters = new WeiboParameters(authInfo.getAppKey());
         weiboParameters.put("client_id", authInfo.getAppKey());
@@ -143,18 +152,20 @@ public class BaseSsoHandler {
         }
         weiboParameters.put("packagename", authInfo.getPackageName());
         weiboParameters.put("key_hash", authInfo.getKeyHash());
-        String str = OAUTH2_BASE_URL + weiboParameters.encodeUrl();
+        String str2 = OAUTH2_BASE_URL + weiboParameters.encodeUrl();
         if (!NetworkHelper.hasInternetPermission(this.mAuthActivity)) {
             UIUtils.showAlert(this.mAuthActivity, V8ExceptionInfo.V8_EXCEPTION_ERROR, "Application requires permission to access the Internet");
             return;
         }
-        String str2 = null;
         if (this.authListener != null) {
             WeiboCallbackManager weiboCallbackManager = WeiboCallbackManager.getInstance();
-            str2 = weiboCallbackManager.genCallbackKey();
-            weiboCallbackManager.setWeiboAuthListener(str2, this.authListener);
+            String genCallbackKey = weiboCallbackManager.genCallbackKey();
+            weiboCallbackManager.setWeiboAuthListener(genCallbackKey, this.authListener);
+            str = genCallbackKey;
+        } else {
+            str = null;
         }
-        AuthWebViewRequestParam authWebViewRequestParam = new AuthWebViewRequestParam(authInfo, WebRequestType.AUTH, str2, "微博登录", str, this.mAuthActivity);
+        AuthWebViewRequestParam authWebViewRequestParam = new AuthWebViewRequestParam(authInfo, WebRequestType.AUTH, str, "微博登录", str2, this.mAuthActivity);
         Intent intent = new Intent(this.mAuthActivity, WeiboSdkWebActivity.class);
         Bundle bundle = new Bundle();
         authWebViewRequestParam.fillBundle(bundle);
@@ -162,39 +173,32 @@ public class BaseSsoHandler {
         this.mAuthActivity.startActivity(intent);
     }
 
-    public void authorizeCallBack(int i, int i2, Intent intent) {
-        if (32973 == i) {
-            if (i2 == -1) {
-                if (!SecurityHelper.checkResponseAppLegal(this.mAuthActivity, WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo(), intent)) {
-                    this.authListener.onFailure(new WbConnectErrorMessage(WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE, WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE));
-                    return;
-                }
-                String safeString = Utility.safeString(intent.getStringExtra(BdStatsConstant.StatsType.ERROR));
-                String safeString2 = Utility.safeString(intent.getStringExtra(PushMessageHelper.ERROR_TYPE));
-                String safeString3 = Utility.safeString(intent.getStringExtra("error_description"));
-                LogUtil.d(TAG, "error: " + safeString + ", error_type: " + safeString2 + ", error_description: " + safeString3);
-                if (TextUtils.isEmpty(safeString) && TextUtils.isEmpty(safeString2) && TextUtils.isEmpty(safeString3)) {
-                    Oauth2AccessToken parseAccessToken = Oauth2AccessToken.parseAccessToken(intent.getExtras());
-                    if (parseAccessToken != null && parseAccessToken.isSessionValid()) {
-                        LogUtil.d(TAG, "Login Success! " + parseAccessToken.toString());
-                        AccessTokenKeeper.writeAccessToken(this.mAuthActivity, parseAccessToken);
-                        this.authListener.onSuccess(parseAccessToken);
-                    }
-                } else if ("access_denied".equals(safeString) || "OAuthAccessDeniedException".equals(safeString)) {
-                    LogUtil.d(TAG, "Login canceled by user.");
-                    this.authListener.cancel();
-                } else {
-                    LogUtil.d(TAG, "Login failed: " + safeString);
-                    this.authListener.onFailure(new WbConnectErrorMessage(safeString2, safeString3));
-                }
-            } else if (i2 == 0) {
-                this.authListener.cancel();
+    private void authorize(int i, WbAuthListener wbAuthListener, AuthType authType) {
+        resetIntentFillData();
+        if (wbAuthListener != null) {
+            this.authListener = wbAuthListener;
+            if (authType == AuthType.WebOnly) {
+                startWebAuth();
+                return;
+            }
+            boolean z = authType == AuthType.SsoOnly;
+            WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo();
+            if (isWbAppInstalled() && wbAppInfo != null) {
+                startClientAuth(i);
+                return;
+            } else if (z) {
+                this.authListener.onFailure(new WbConnectErrorMessage());
+                return;
+            } else {
+                startWebAuth();
+                return;
             }
         }
+        throw new RuntimeException("please set auth listener");
     }
 
-    @Deprecated
-    public boolean isWbAppInstalled() {
-        return WbSdk.isWbInstall(this.mAuthActivity);
+    public BaseSsoHandler(Context context) {
+        this.mAuthActivity = context;
+        WeiboSsoManager.getInstance().init(context, WbSdk.getAuthInfo().getAppKey());
     }
 }

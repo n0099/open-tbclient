@@ -10,29 +10,54 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class AppWidgetTarget extends CustomTarget<Bitmap> {
-    private final ComponentName componentName;
-    private final Context context;
-    private final RemoteViews remoteViews;
-    private final int viewId;
-    private final int[] widgetIds;
+    public final ComponentName componentName;
+    public final Context context;
+    public final RemoteViews remoteViews;
+    public final int viewId;
+    public final int[] widgetIds;
+
+    public AppWidgetTarget(Context context, int i, int i2, int i3, RemoteViews remoteViews, int... iArr) {
+        super(i, i2);
+        if (iArr.length != 0) {
+            this.context = (Context) Preconditions.checkNotNull(context, "Context can not be null!");
+            this.remoteViews = (RemoteViews) Preconditions.checkNotNull(remoteViews, "RemoteViews object can not be null!");
+            this.widgetIds = (int[]) Preconditions.checkNotNull(iArr, "WidgetIds can not be null!");
+            this.viewId = i3;
+            this.componentName = null;
+            return;
+        }
+        throw new IllegalArgumentException("WidgetIds must have length > 0");
+    }
+
+    private void setBitmap(@Nullable Bitmap bitmap) {
+        this.remoteViews.setImageViewBitmap(this.viewId, bitmap);
+        update();
+    }
+
+    private void update() {
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this.context);
+        ComponentName componentName = this.componentName;
+        if (componentName != null) {
+            appWidgetManager.updateAppWidget(componentName, this.remoteViews);
+        } else {
+            appWidgetManager.updateAppWidget(this.widgetIds, this.remoteViews);
+        }
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public void onLoadCleared(@Nullable Drawable drawable) {
+        setBitmap(null);
+    }
 
     @Override // com.bumptech.glide.request.target.Target
     public /* bridge */ /* synthetic */ void onResourceReady(@NonNull Object obj, @Nullable Transition transition) {
         onResourceReady((Bitmap) obj, (Transition<? super Bitmap>) transition);
     }
 
-    public AppWidgetTarget(Context context, int i, int i2, int i3, RemoteViews remoteViews, int... iArr) {
-        super(i, i2);
-        if (iArr.length == 0) {
-            throw new IllegalArgumentException("WidgetIds must have length > 0");
-        }
-        this.context = (Context) Preconditions.checkNotNull(context, "Context can not be null!");
-        this.remoteViews = (RemoteViews) Preconditions.checkNotNull(remoteViews, "RemoteViews object can not be null!");
-        this.widgetIds = (int[]) Preconditions.checkNotNull(iArr, "WidgetIds can not be null!");
-        this.viewId = i3;
-        this.componentName = null;
+    public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
+        setBitmap(bitmap);
     }
 
     public AppWidgetTarget(Context context, int i, RemoteViews remoteViews, int... iArr) {
@@ -50,28 +75,5 @@ public class AppWidgetTarget extends CustomTarget<Bitmap> {
 
     public AppWidgetTarget(Context context, int i, RemoteViews remoteViews, ComponentName componentName) {
         this(context, Integer.MIN_VALUE, Integer.MIN_VALUE, i, remoteViews, componentName);
-    }
-
-    private void update() {
-        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this.context);
-        if (this.componentName != null) {
-            appWidgetManager.updateAppWidget(this.componentName, this.remoteViews);
-        } else {
-            appWidgetManager.updateAppWidget(this.widgetIds, this.remoteViews);
-        }
-    }
-
-    public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
-        setBitmap(bitmap);
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    public void onLoadCleared(@Nullable Drawable drawable) {
-        setBitmap(null);
-    }
-
-    private void setBitmap(@Nullable Bitmap bitmap) {
-        this.remoteViews.setImageViewBitmap(this.viewId, bitmap);
-        update();
     }
 }

@@ -15,17 +15,17 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMSetNickNameRequest extends GroupBaseHttpRequest {
-    private static final String TAG = IMSetNickNameRequest.class.getSimpleName();
-    private long mAppid;
-    private long mBuid;
-    private String mGroupId;
-    private String mKey;
-    private String mNickName;
+    public static final String TAG = "IMSetNickNameRequest";
+    public long mAppid;
+    public long mBuid;
+    public String mGroupId;
+    public String mKey;
+    public String mNickName;
 
-    /* loaded from: classes3.dex */
-    class Mytask extends TaskManager.Task {
+    /* loaded from: classes2.dex */
+    public class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);
         }
@@ -34,38 +34,33 @@ public class IMSetNickNameRequest extends GroupBaseHttpRequest {
         public void run() {
             int i;
             String str;
-            IMListener removeListener;
-            int i2;
-            String optString;
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
-                i2 = jSONObject.getInt("error_code");
-                optString = jSONObject.optString("error_msg", "");
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "IMSetNickNameRequest JSONException", e);
-                i = 1010;
-                new IMTrack.CrashBuilder(IMSetNickNameRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
-                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            }
-            if (i2 == 0) {
-                i = GroupInfoDAOImpl.updateMemberNickName(IMSetNickNameRequest.this.mContext, IMSetNickNameRequest.this.mGroupId, String.valueOf(IMSetNickNameRequest.this.mBuid), IMSetNickNameRequest.this.mNickName);
-                if (i < 0) {
-                    LogUtils.d(IMSetNickNameRequest.TAG, "updateMemberNickName error " + i);
-                    optString = "update local db error";
-                    str = optString;
-                    removeListener = ListenerManager.getInstance().removeListener(IMSetNickNameRequest.this.mKey);
-                    if (removeListener == null && (removeListener instanceof BIMValueCallBack)) {
-                        ((BIMValueCallBack) removeListener).onResult(i, str, IMSetNickNameRequest.this.mGroupId);
-                        return;
+                i = jSONObject.getInt("error_code");
+                str = jSONObject.optString("error_msg", "");
+                if (i == 0) {
+                    int updateMemberNickName = GroupInfoDAOImpl.updateMemberNickName(IMSetNickNameRequest.this.mContext, IMSetNickNameRequest.this.mGroupId, String.valueOf(IMSetNickNameRequest.this.mBuid), IMSetNickNameRequest.this.mNickName);
+                    if (updateMemberNickName < 0) {
+                        String str2 = IMSetNickNameRequest.TAG;
+                        LogUtils.d(str2, "updateMemberNickName error " + updateMemberNickName);
+                        str = "update local db error";
+                        i = updateMemberNickName;
+                    } else {
+                        String str3 = IMSetNickNameRequest.TAG;
+                        LogUtils.d(str3, "updateMemberNickName successful " + updateMemberNickName);
                     }
                 }
-                LogUtils.d(IMSetNickNameRequest.TAG, "updateMemberNickName successful " + i);
+            } catch (JSONException e2) {
+                LogUtils.e(LogUtils.TAG, "IMSetNickNameRequest JSONException", e2);
+                i = 1010;
+                new IMTrack.CrashBuilder(IMSetNickNameRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
+                str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-            i = i2;
-            str = optString;
-            removeListener = ListenerManager.getInstance().removeListener(IMSetNickNameRequest.this.mKey);
-            if (removeListener == null) {
+            IMListener removeListener = ListenerManager.getInstance().removeListener(IMSetNickNameRequest.this.mKey);
+            if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
+                return;
             }
+            ((BIMValueCallBack) removeListener).onResult(i, str, IMSetNickNameRequest.this.mGroupId);
         }
     }
 
@@ -78,44 +73,38 @@ public class IMSetNickNameRequest extends GroupBaseHttpRequest {
         this.mNickName = str3;
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
-        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        StringBuilder sb = new StringBuilder();
-        sb.append("method=set_member_name");
-        sb.append("&appid=").append(this.mAppid);
-        sb.append("&group_id=").append(this.mGroupId);
-        sb.append("&member_id=").append(this.mBuid);
-        sb.append("&name=").append(this.mNickName);
-        sb.append("&timestamp=").append(currentTimeMillis);
-        sb.append("&sign=").append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
-        return sb.toString().getBytes();
-    }
-
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
         return "application/x-www-form-urlencoded";
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        return false;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        String str = new String(bArr);
-        LogUtils.d(TAG, "json is groupid " + this.mGroupId + str);
-        TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this.mKey, str));
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
+        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        return ("method=set_member_name&appid=" + this.mAppid + "&group_id=" + this.mGroupId + "&member_id=" + this.mBuid + "&name=" + this.mNickName + "&timestamp=" + currentTimeMillis + "&sign=" + getMd5("" + currentTimeMillis + bduss + this.mAppid)).getBytes();
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
-            ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mGroupId);
+        if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
+            return;
         }
+        ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mGroupId);
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onSuccess(int i, byte[] bArr) {
+        String str = new String(bArr);
+        String str2 = TAG;
+        LogUtils.d(str2, "json is groupid " + this.mGroupId + str);
+        TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this.mKey, str));
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        return false;
     }
 }

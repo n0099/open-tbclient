@@ -7,18 +7,18 @@ import java.text.MessageFormat;
 import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
-/* loaded from: classes4.dex */
-class SimpleFormatter extends Formatter {
-    private static String format = "{0,date} {0,time}";
-    private MessageFormat formatter;
-    Date dat = new Date();
-    private Object[] args = new Object[1];
+/* loaded from: classes2.dex */
+public class SimpleFormatter extends Formatter {
+    public static String format = "{0,date} {0,time}";
+    public MessageFormat formatter;
+    public Date dat = new Date();
+    public Object[] args = new Object[1];
 
     @Override // java.util.logging.Formatter
     public synchronized String format(LogRecord logRecord) {
-        int i;
         String str;
         String str2;
+        int i;
         StringBuffer stringBuffer;
         StackTraceElement[] stackTrace = new Throwable().getStackTrace();
         int length = stackTrace.length;
@@ -26,26 +26,24 @@ class SimpleFormatter extends Formatter {
         boolean z = false;
         while (true) {
             if (i2 >= length) {
-                i = 0;
                 str = null;
                 str2 = null;
+                i = 0;
                 break;
             }
             StackTraceElement stackTraceElement = stackTrace[i2];
             if (stackTraceElement.getClassName().startsWith(Log.class.getName())) {
                 z = true;
             } else if (z) {
-                String className = stackTraceElement.getClassName();
-                String methodName = stackTraceElement.getMethodName();
+                str = stackTraceElement.getClassName();
+                str2 = stackTraceElement.getMethodName();
                 i = stackTraceElement.getLineNumber();
-                str = methodName;
-                str2 = className;
                 break;
             }
             i2++;
         }
-        logRecord.setSourceClassName(str2);
-        logRecord.setSourceMethodName(str);
+        logRecord.setSourceClassName(str);
+        logRecord.setSourceMethodName(str2);
         stringBuffer = new StringBuffer();
         this.dat.setTime(logRecord.getMillis());
         this.args[0] = this.dat;
@@ -81,8 +79,8 @@ class SimpleFormatter extends Formatter {
                 logRecord.getThrown().printStackTrace(printWriter);
                 printWriter.close();
                 stringBuffer.append(stringWriter.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
         return stringBuffer.toString();

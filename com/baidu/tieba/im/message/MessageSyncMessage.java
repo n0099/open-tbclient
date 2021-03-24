@@ -1,121 +1,32 @@
 package com.baidu.tieba.im.message;
 
 import androidx.collection.LongSparseArray;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.im.push.c;
+import d.b.i0.d1.o.c;
 import java.util.ArrayList;
 import protobuf.GetGroupMsg.DataReq;
 import protobuf.GetGroupMsg.GetGroupMsgReqIdl;
 import protobuf.GroupLastId;
 import protobuf.NewpushRepair;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MessageSyncMessage extends TbSocketMessage {
-    private int height;
-    private boolean isForTimer;
-    private LongSparseArray<Long> mMids;
-    private NewpushRepair newpushRepire;
-    private String notifyMaxTime;
-    private String notifyMinTime;
-    private String processType;
-    private String pushTimes;
-    private int smallHeight;
-    private int smallWidth;
-    private String syncTypeString;
-    private int width;
+    public int height;
+    public boolean isForTimer;
+    public LongSparseArray<Long> mMids;
+    public NewpushRepair newpushRepire;
+    public String notifyMaxTime;
+    public String notifyMinTime;
+    public String processType;
+    public String pushTimes;
+    public int smallHeight;
+    public int smallWidth;
+    public String syncTypeString;
+    public int width;
 
     public MessageSyncMessage() {
-        super(CmdConfigSocket.CMD_MESSAGE_SYNC);
+        super(202003);
         this.mMids = null;
-    }
-
-    public String getNotifyMinTime() {
-        return this.notifyMinTime;
-    }
-
-    public void setNotifyMinTime(String str) {
-        this.notifyMinTime = str;
-    }
-
-    public String getNotifyMaxTime() {
-        return this.notifyMaxTime;
-    }
-
-    public void setNotifyMaxTime(String str) {
-        this.notifyMaxTime = str;
-    }
-
-    public String getSyncTypeString() {
-        return this.syncTypeString;
-    }
-
-    public void setSyncTypeString(String str) {
-        this.syncTypeString = str;
-    }
-
-    public NewpushRepair getNewpushRepire() {
-        return this.newpushRepire;
-    }
-
-    public void setNewpushRepire(NewpushRepair newpushRepair) {
-        this.newpushRepire = newpushRepair;
-    }
-
-    public String getProcessType() {
-        return this.processType;
-    }
-
-    public void setProcessType(String str) {
-        this.processType = str;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public void setWidth(int i) {
-        this.width = i;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public int getSmallWidth() {
-        return this.smallWidth;
-    }
-
-    public void setSmallWidth(int i) {
-        this.smallWidth = i;
-    }
-
-    public int getSmallHeight() {
-        return this.smallHeight;
-    }
-
-    public void setSmallHeight(int i) {
-        this.smallHeight = i;
-    }
-
-    public String getPushTimes() {
-        return this.pushTimes;
-    }
-
-    public void setPushTimes(String str) {
-        this.pushTimes = str;
-    }
-
-    public void setGroupMids(LongSparseArray<Long> longSparseArray) {
-        this.mMids = longSparseArray;
-    }
-
-    public LongSparseArray<Long> getGroupMids() {
-        return this.mMids;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -133,7 +44,7 @@ public class MessageSyncMessage extends TbSocketMessage {
         if (builder.groupMids == null) {
             builder.groupMids = new ArrayList();
         }
-        long gid = c.cXG().getGid();
+        long d2 = c.e().d();
         boolean z = false;
         for (int i = 0; i < this.mMids.size(); i++) {
             long keyAt = this.mMids.keyAt(i);
@@ -142,18 +53,18 @@ public class MessageSyncMessage extends TbSocketMessage {
                 GroupLastId.Builder builder2 = new GroupLastId.Builder();
                 builder2.groupId = Long.valueOf(keyAt);
                 builder2.lastMsgId = valueAt;
-                if (gid == keyAt) {
+                if (d2 == keyAt) {
+                    builder2.excludeMid = c.e().g();
                     z = true;
-                    builder2.excludeMid = c.cXG().cXI();
                 }
                 builder.groupMids.add(builder2.build(false));
             }
         }
-        if (!z && c.cXG().cXK()) {
+        if (!z && c.e().i()) {
             GroupLastId.Builder builder3 = new GroupLastId.Builder();
-            builder3.groupId = Long.valueOf(gid);
-            builder3.lastMsgId = c.cXG().cXH();
-            builder3.excludeMid = c.cXG().cXI();
+            builder3.groupId = Long.valueOf(d2);
+            builder3.lastMsgId = c.e().f();
+            builder3.excludeMid = c.e().g();
             builder.groupMids.add(builder3.build(false));
         }
         builder.newpushRepire = getNewpushRepire();
@@ -163,11 +74,99 @@ public class MessageSyncMessage extends TbSocketMessage {
         return builder4.build(false);
     }
 
+    public LongSparseArray<Long> getGroupMids() {
+        return this.mMids;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public NewpushRepair getNewpushRepire() {
+        return this.newpushRepire;
+    }
+
+    public String getNotifyMaxTime() {
+        return this.notifyMaxTime;
+    }
+
+    public String getNotifyMinTime() {
+        return this.notifyMinTime;
+    }
+
+    public String getProcessType() {
+        return this.processType;
+    }
+
+    public String getPushTimes() {
+        return this.pushTimes;
+    }
+
+    public int getSmallHeight() {
+        return this.smallHeight;
+    }
+
+    public int getSmallWidth() {
+        return this.smallWidth;
+    }
+
+    public String getSyncTypeString() {
+        return this.syncTypeString;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
     public boolean isForTimer() {
         return this.isForTimer;
     }
 
     public void setForTimer(boolean z) {
         this.isForTimer = z;
+    }
+
+    public void setGroupMids(LongSparseArray<Long> longSparseArray) {
+        this.mMids = longSparseArray;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public void setNewpushRepire(NewpushRepair newpushRepair) {
+        this.newpushRepire = newpushRepair;
+    }
+
+    public void setNotifyMaxTime(String str) {
+        this.notifyMaxTime = str;
+    }
+
+    public void setNotifyMinTime(String str) {
+        this.notifyMinTime = str;
+    }
+
+    public void setProcessType(String str) {
+        this.processType = str;
+    }
+
+    public void setPushTimes(String str) {
+        this.pushTimes = str;
+    }
+
+    public void setSmallHeight(int i) {
+        this.smallHeight = i;
+    }
+
+    public void setSmallWidth(int i) {
+        this.smallWidth = i;
+    }
+
+    public void setSyncTypeString(String str) {
+        this.syncTypeString = str;
+    }
+
+    public void setWidth(int i) {
+        this.width = i;
     }
 }

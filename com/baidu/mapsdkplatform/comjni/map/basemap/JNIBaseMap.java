@@ -1,11 +1,11 @@
 package com.baidu.mapsdkplatform.comjni.map.basemap;
 
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class JNIBaseMap {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2290a;
+    public long f7896a;
 
     public static native int MapProc(long j, int i, int i2, int i3);
 

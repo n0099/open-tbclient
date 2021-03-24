@@ -5,50 +5,15 @@ import java.math.BigDecimal;
 public final class g extends Number {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f5009a;
+    public final String f30046a;
 
     public g(String str) {
-        this.f5009a = str;
-    }
-
-    @Override // java.lang.Number
-    public int intValue() {
-        try {
-            return Integer.parseInt(this.f5009a);
-        } catch (NumberFormatException e) {
-            try {
-                return (int) Long.parseLong(this.f5009a);
-            } catch (NumberFormatException e2) {
-                return new BigDecimal(this.f5009a).intValue();
-            }
-        }
-    }
-
-    @Override // java.lang.Number
-    public long longValue() {
-        try {
-            return Long.parseLong(this.f5009a);
-        } catch (NumberFormatException e) {
-            return new BigDecimal(this.f5009a).longValue();
-        }
-    }
-
-    @Override // java.lang.Number
-    public float floatValue() {
-        return Float.parseFloat(this.f5009a);
+        this.f30046a = str;
     }
 
     @Override // java.lang.Number
     public double doubleValue() {
-        return Double.parseDouble(this.f5009a);
-    }
-
-    public String toString() {
-        return this.f5009a;
-    }
-
-    public int hashCode() {
-        return this.f5009a.hashCode();
+        return Double.parseDouble(this.f30046a);
     }
 
     public boolean equals(Object obj) {
@@ -56,9 +21,45 @@ public final class g extends Number {
             return true;
         }
         if (obj instanceof g) {
-            g gVar = (g) obj;
-            return this.f5009a == gVar.f5009a || this.f5009a.equals(gVar.f5009a);
+            String str = this.f30046a;
+            String str2 = ((g) obj).f30046a;
+            return str == str2 || str.equals(str2);
         }
         return false;
+    }
+
+    @Override // java.lang.Number
+    public float floatValue() {
+        return Float.parseFloat(this.f30046a);
+    }
+
+    public int hashCode() {
+        return this.f30046a.hashCode();
+    }
+
+    @Override // java.lang.Number
+    public int intValue() {
+        try {
+            try {
+                return Integer.parseInt(this.f30046a);
+            } catch (NumberFormatException unused) {
+                return (int) Long.parseLong(this.f30046a);
+            }
+        } catch (NumberFormatException unused2) {
+            return new BigDecimal(this.f30046a).intValue();
+        }
+    }
+
+    @Override // java.lang.Number
+    public long longValue() {
+        try {
+            return Long.parseLong(this.f30046a);
+        } catch (NumberFormatException unused) {
+            return new BigDecimal(this.f30046a).longValue();
+        }
+    }
+
+    public String toString() {
+        return this.f30046a;
     }
 }

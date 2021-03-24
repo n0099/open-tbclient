@@ -2,7 +2,7 @@ package com.baidu.mapsdkplatform.comjni.engine;
 
 import android.content.Context;
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AppEngine {
     public static void InitClass() {
         JNIEngine.initClass(new Bundle(), 0);

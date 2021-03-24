@@ -5,56 +5,56 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
-public class AlaFrsLiveListGatherNoDataTitleView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.a> {
-    private TextView gYc;
-    private TextView gYd;
-    private int mSkinType;
-    private TbPageContext mTbPageContext;
+import d.b.i0.t.e.b.a;
+import d.b.i0.x.b;
+/* loaded from: classes4.dex */
+public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
+    public TextView m;
+    public TextView n;
+    public TbPageContext o;
+    public int p;
 
-    public AlaFrsLiveListGatherNoDataTitleView(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        this.mSkinType = 3;
-        this.mTbPageContext = tbPageContext;
-        View view = getView();
-        this.gYc = (TextView) view.findViewById(R.id.frs_game_live_recommand1);
-        this.gYd = (TextView) view.findViewById(R.id.frs_game_live_recommand2);
-        onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tieba.card.b
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.mSkinType != i) {
-            ap.setViewTextColor(this.gYc, R.color.CAM_X0109);
-            ap.setViewTextColor(this.gYd, R.color.CAM_X0109);
-            this.mSkinType = i;
+    /* loaded from: classes4.dex */
+    public static class AlaFrsLiveListNoDataViewHolder extends TypeAdapter.ViewHolder {
+        public AlaFrsLiveListNoDataViewHolder(AlaFrsLiveListGatherNoDataTitleView alaFrsLiveListGatherNoDataTitleView) {
+            super(alaFrsLiveListGatherNoDataTitleView.m());
         }
     }
 
-    @Override // com.baidu.tieba.card.b
-    public int getLayout() {
+    public AlaFrsLiveListGatherNoDataTitleView(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        this.p = 3;
+        this.o = tbPageContext;
+        View m = m();
+        this.m = (TextView) m.findViewById(R.id.frs_game_live_recommand1);
+        this.n = (TextView) m.findViewById(R.id.frs_game_live_recommand2);
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // d.b.i0.x.b
+    public int h() {
         return R.layout.ala_frs_game_live_no_data_view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.b
-    public void a(com.baidu.tieba.ala.frsgamelive.b.a aVar) {
-        onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
+    @Override // d.b.i0.x.b
+    public void o(TbPageContext<?> tbPageContext, int i) {
+        if (this.p != i) {
+            SkinManager.setViewTextColor(this.m, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
+            this.p = i;
+        }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
     }
 
-    /* loaded from: classes9.dex */
-    public static class AlaFrsLiveListNoDataViewHolder extends TypeAdapter.ViewHolder {
-        public AlaFrsLiveListGatherNoDataTitleView gYe;
-
-        public AlaFrsLiveListNoDataViewHolder(AlaFrsLiveListGatherNoDataTitleView alaFrsLiveListGatherNoDataTitleView) {
-            super(alaFrsLiveListGatherNoDataTitleView.getView());
-            this.gYe = alaFrsLiveListGatherNoDataTitleView;
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.i0.x.b
+    /* renamed from: u */
+    public void n(a aVar) {
+        o(this.o, TbadkCoreApplication.getInst().getSkinType());
     }
 }

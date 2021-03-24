@@ -1,41 +1,40 @@
 package com.xiaomi.push;
 
-import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-/* loaded from: classes5.dex */
-public class dl implements LoggerInterface {
-
-    /* renamed from: a  reason: collision with root package name */
-    private LoggerInterface f8324a;
-    private LoggerInterface b;
-
-    public dl(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
-        this.f8324a = null;
-        this.b = null;
-        this.f8324a = loggerInterface;
-        this.b = loggerInterface2;
-    }
-
-    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
-    public void log(String str) {
-        if (this.f8324a != null) {
-            this.f8324a.log(str);
-        }
-        if (this.b != null) {
-            this.b.log(str);
+import android.content.Context;
+import android.os.Build;
+/* loaded from: classes7.dex */
+public class dl {
+    public static void a(byte[] bArr) {
+        if (bArr.length >= 2) {
+            bArr[0] = 99;
+            bArr[1] = 100;
         }
     }
 
-    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
-    public void log(String str, Throwable th) {
-        if (this.f8324a != null) {
-            this.f8324a.log(str, th);
+    public static boolean a(Context context, String str, long j) {
+        if (com.xiaomi.push.service.aq.a(context).a(hk.DCJobMutualSwitch.a(), false)) {
+            return (Build.VERSION.SDK_INT < 29 || context.getApplicationInfo().targetSdkVersion < 29) && !ag.a(context, str, j);
         }
-        if (this.b != null) {
-            this.b.log(str, th);
+        return false;
+    }
+
+    public static byte[] a(String str, byte[] bArr) {
+        byte[] m161a = bj.m161a(str);
+        try {
+            a(m161a);
+            return h.a(m161a, bArr);
+        } catch (Exception unused) {
+            return null;
         }
     }
 
-    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
-    public void setTag(String str) {
+    public static byte[] b(String str, byte[] bArr) {
+        byte[] m161a = bj.m161a(str);
+        try {
+            a(m161a);
+            return h.b(m161a, bArr);
+        } catch (Exception unused) {
+            return null;
+        }
     }
 }

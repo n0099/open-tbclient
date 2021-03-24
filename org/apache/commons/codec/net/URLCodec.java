@@ -9,21 +9,13 @@ import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes5.dex */
-public class URLCodec implements BinaryDecoder, BinaryEncoder, StringDecoder, StringEncoder {
-    protected static byte ESCAPE_CHAR;
-    protected static final BitSet WWW_FORM_URL = null;
-    protected String charset;
+/* loaded from: classes7.dex */
+public class URLCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, StringDecoder {
+    public static byte ESCAPE_CHAR;
+    public static final BitSet WWW_FORM_URL = null;
+    public String charset;
 
     public URLCodec() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public URLCodec(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public static final byte[] encodeUrl(BitSet bitSet, byte[] bArr) {
         throw new RuntimeException("Stub!");
     }
 
@@ -31,8 +23,7 @@ public class URLCodec implements BinaryDecoder, BinaryEncoder, StringDecoder, St
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.commons.codec.BinaryEncoder
-    public byte[] encode(byte[] bArr) {
+    public static final byte[] encodeUrl(BitSet bitSet, byte[] bArr) {
         throw new RuntimeException("Stub!");
     }
 
@@ -41,31 +32,12 @@ public class URLCodec implements BinaryDecoder, BinaryEncoder, StringDecoder, St
         throw new RuntimeException("Stub!");
     }
 
-    public String encode(String str, String str2) throws UnsupportedEncodingException {
+    @Override // org.apache.commons.codec.BinaryEncoder
+    public byte[] encode(byte[] bArr) {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.commons.codec.StringEncoder
-    public String encode(String str) throws EncoderException {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String decode(String str, String str2) throws DecoderException, UnsupportedEncodingException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.commons.codec.StringDecoder
-    public String decode(String str) throws DecoderException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.commons.codec.Encoder
-    public Object encode(Object obj) throws EncoderException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.commons.codec.Decoder
-    public Object decode(Object obj) throws DecoderException {
+    public String getDefaultCharset() {
         throw new RuntimeException("Stub!");
     }
 
@@ -74,7 +46,35 @@ public class URLCodec implements BinaryDecoder, BinaryEncoder, StringDecoder, St
         throw new RuntimeException("Stub!");
     }
 
-    public String getDefaultCharset() {
+    public URLCodec(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String decode(String str, String str2) throws DecoderException, UnsupportedEncodingException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String encode(String str, String str2) throws UnsupportedEncodingException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.commons.codec.StringDecoder
+    public String decode(String str) throws DecoderException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.commons.codec.StringEncoder
+    public String encode(String str) throws EncoderException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.commons.codec.Decoder
+    public Object decode(Object obj) throws DecoderException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.commons.codec.Encoder
+    public Object encode(Object obj) throws EncoderException {
         throw new RuntimeException("Stub!");
     }
 }

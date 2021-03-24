@@ -1,5 +1,6 @@
 package okhttp3.internal.http;
 
+import com.alipay.sdk.data.a;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -12,20 +13,20 @@ import okhttp3.Response;
 import okhttp3.internal.Util;
 import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.StreamAllocation;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class RealInterceptorChain implements Interceptor.Chain {
-    private final Call call;
-    private int calls;
-    private final int connectTimeout;
-    private final RealConnection connection;
-    private final EventListener eventListener;
-    private final HttpCodec httpCodec;
-    private final int index;
-    private final List<Interceptor> interceptors;
-    private final int readTimeout;
-    private final Request request;
-    private final StreamAllocation streamAllocation;
-    private final int writeTimeout;
+    public final Call call;
+    public int calls;
+    public final int connectTimeout;
+    public final RealConnection connection;
+    public final EventListener eventListener;
+    public final HttpCodec httpCodec;
+    public final int index;
+    public final List<Interceptor> interceptors;
+    public final int readTimeout;
+    public final Request request;
+    public final StreamAllocation streamAllocation;
+    public final int writeTimeout;
 
     public RealInterceptorChain(List<Interceptor> list, StreamAllocation streamAllocation, HttpCodec httpCodec, RealConnection realConnection, int i, Request request, Call call, EventListener eventListener, int i2, int i3, int i4) {
         this.interceptors = list;
@@ -42,8 +43,8 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     }
 
     @Override // okhttp3.Interceptor.Chain
-    public Connection connection() {
-        return this.connection;
+    public Call call() {
+        return this.call;
     }
 
     @Override // okhttp3.Interceptor.Chain
@@ -52,8 +53,21 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     }
 
     @Override // okhttp3.Interceptor.Chain
-    public Interceptor.Chain withConnectTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration("timeout", i, timeUnit), this.readTimeout, this.writeTimeout);
+    public Connection connection() {
+        return this.connection;
+    }
+
+    public EventListener eventListener() {
+        return this.eventListener;
+    }
+
+    public HttpCodec httpStream() {
+        return this.httpCodec;
+    }
+
+    @Override // okhttp3.Interceptor.Chain
+    public Response proceed(Request request) throws IOException {
+        return proceed(request, this.streamAllocation, this.httpCodec, this.connection);
     }
 
     @Override // okhttp3.Interceptor.Chain
@@ -62,8 +76,27 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     }
 
     @Override // okhttp3.Interceptor.Chain
+    public Request request() {
+        return this.request;
+    }
+
+    public StreamAllocation streamAllocation() {
+        return this.streamAllocation;
+    }
+
+    @Override // okhttp3.Interceptor.Chain
+    public Interceptor.Chain withConnectTimeout(int i, TimeUnit timeUnit) {
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration(a.i, i, timeUnit), this.readTimeout, this.writeTimeout);
+    }
+
+    @Override // okhttp3.Interceptor.Chain
     public Interceptor.Chain withReadTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration("timeout", i, timeUnit), this.writeTimeout);
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration(a.i, i, timeUnit), this.writeTimeout);
+    }
+
+    @Override // okhttp3.Interceptor.Chain
+    public Interceptor.Chain withWriteTimeout(int i, TimeUnit timeUnit) {
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration(a.i, i, timeUnit));
     }
 
     @Override // okhttp3.Interceptor.Chain
@@ -71,61 +104,29 @@ public final class RealInterceptorChain implements Interceptor.Chain {
         return this.writeTimeout;
     }
 
-    @Override // okhttp3.Interceptor.Chain
-    public Interceptor.Chain withWriteTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration("timeout", i, timeUnit));
-    }
-
-    public StreamAllocation streamAllocation() {
-        return this.streamAllocation;
-    }
-
-    public HttpCodec httpStream() {
-        return this.httpCodec;
-    }
-
-    @Override // okhttp3.Interceptor.Chain
-    public Call call() {
-        return this.call;
-    }
-
-    public EventListener eventListener() {
-        return this.eventListener;
-    }
-
-    @Override // okhttp3.Interceptor.Chain
-    public Request request() {
-        return this.request;
-    }
-
-    @Override // okhttp3.Interceptor.Chain
-    public Response proceed(Request request) throws IOException {
-        return proceed(request, this.streamAllocation, this.httpCodec, this.connection);
-    }
-
     public Response proceed(Request request, StreamAllocation streamAllocation, HttpCodec httpCodec, RealConnection realConnection) throws IOException {
-        if (this.index >= this.interceptors.size()) {
-            throw new AssertionError();
+        if (this.index < this.interceptors.size()) {
+            this.calls++;
+            if (this.httpCodec != null && !this.connection.supportsUrl(request.url())) {
+                throw new IllegalStateException("network interceptor " + this.interceptors.get(this.index - 1) + " must retain the same host and port");
+            } else if (this.httpCodec != null && this.calls > 1) {
+                throw new IllegalStateException("network interceptor " + this.interceptors.get(this.index - 1) + " must call proceed() exactly once");
+            } else {
+                RealInterceptorChain realInterceptorChain = new RealInterceptorChain(this.interceptors, streamAllocation, httpCodec, realConnection, this.index + 1, request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, this.writeTimeout);
+                Interceptor interceptor = this.interceptors.get(this.index);
+                Response intercept = interceptor.intercept(realInterceptorChain);
+                if (httpCodec != null && this.index + 1 < this.interceptors.size() && realInterceptorChain.calls != 1) {
+                    throw new IllegalStateException("network interceptor " + interceptor + " must call proceed() exactly once");
+                } else if (intercept != null) {
+                    if (intercept.body() != null) {
+                        return intercept;
+                    }
+                    throw new IllegalStateException("interceptor " + interceptor + " returned a response with no body");
+                } else {
+                    throw new NullPointerException("interceptor " + interceptor + " returned null");
+                }
+            }
         }
-        this.calls++;
-        if (this.httpCodec != null && !this.connection.supportsUrl(request.url())) {
-            throw new IllegalStateException("network interceptor " + this.interceptors.get(this.index - 1) + " must retain the same host and port");
-        }
-        if (this.httpCodec != null && this.calls > 1) {
-            throw new IllegalStateException("network interceptor " + this.interceptors.get(this.index - 1) + " must call proceed() exactly once");
-        }
-        RealInterceptorChain realInterceptorChain = new RealInterceptorChain(this.interceptors, streamAllocation, httpCodec, realConnection, this.index + 1, request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, this.writeTimeout);
-        Interceptor interceptor = this.interceptors.get(this.index);
-        Response intercept = interceptor.intercept(realInterceptorChain);
-        if (httpCodec != null && this.index + 1 < this.interceptors.size() && realInterceptorChain.calls != 1) {
-            throw new IllegalStateException("network interceptor " + interceptor + " must call proceed() exactly once");
-        }
-        if (intercept == null) {
-            throw new NullPointerException("interceptor " + interceptor + " returned null");
-        }
-        if (intercept.body() == null) {
-            throw new IllegalStateException("interceptor " + interceptor + " returned a response with no body");
-        }
-        return intercept;
+        throw new AssertionError();
     }
 }

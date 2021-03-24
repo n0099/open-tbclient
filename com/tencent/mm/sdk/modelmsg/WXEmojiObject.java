@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WXEmojiObject implements WXMediaMessage.IMediaObject {
-    private static final int CONTENT_LENGTH_LIMIT = 10485760;
-    private static final String TAG = "MicroMsg.SDK.WXEmojiObject";
+    public static final int CONTENT_LENGTH_LIMIT = 10485760;
+    public static final String TAG = "MicroMsg.SDK.WXEmojiObject";
     public byte[] emojiData;
     public String emojiPath;
 
@@ -37,18 +37,25 @@ public class WXEmojiObject implements WXMediaMessage.IMediaObject {
 
     @Override // com.tencent.mm.sdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if ((this.emojiData == null || this.emojiData.length == 0) && (this.emojiPath == null || this.emojiPath.length() == 0)) {
-            a.a(TAG, "checkArgs fail, both arguments is null");
-            return false;
-        } else if (this.emojiData != null && this.emojiData.length > 10485760) {
-            a.a(TAG, "checkArgs fail, emojiData is too large");
-            return false;
-        } else if (this.emojiPath == null || getFileSize(this.emojiPath) <= 10485760) {
-            return true;
+        String str;
+        String str2;
+        byte[] bArr = this.emojiData;
+        if ((bArr == null || bArr.length == 0) && ((str = this.emojiPath) == null || str.length() == 0)) {
+            str2 = "checkArgs fail, both arguments is null";
         } else {
-            a.a(TAG, "checkArgs fail, emojiSize is too large");
-            return false;
+            byte[] bArr2 = this.emojiData;
+            if (bArr2 == null || bArr2.length <= 10485760) {
+                String str3 = this.emojiPath;
+                if (str3 == null || getFileSize(str3) <= 10485760) {
+                    return true;
+                }
+                str2 = "checkArgs fail, emojiSize is too large";
+            } else {
+                str2 = "checkArgs fail, emojiData is too large";
+            }
         }
+        a.a("MicroMsg.SDK.WXEmojiObject", str2);
+        return false;
     }
 
     @Override // com.tencent.mm.sdk.modelmsg.WXMediaMessage.IMediaObject

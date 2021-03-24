@@ -1,15 +1,15 @@
 package com.baidu.tieba.chosen.unlike;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
+import tbclient.Unlike.DataRes;
 import tbclient.Unlike.UnlikeResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class UnlikeSocketReponse extends TbSocketReponsedMessage {
-    private long threadId;
+    public long threadId;
 
     public UnlikeSocketReponse(int i) {
-        super(CmdConfigSocket.CMD_HOT_THREAD_UNLIKE);
+        super(307007);
     }
 
     public long getThreadId() {
@@ -17,13 +17,16 @@ public class UnlikeSocketReponse extends TbSocketReponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
+        Long l;
         UnlikeResIdl unlikeResIdl = (UnlikeResIdl) new Wire(new Class[0]).parseFrom(bArr, UnlikeResIdl.class);
         setError(unlikeResIdl.error.errorno.intValue());
         setErrorString(unlikeResIdl.error.usermsg);
-        if (getError() == 0 && unlikeResIdl.data != null && unlikeResIdl.data.thread_id != null) {
-            this.threadId = unlikeResIdl.data.thread_id.longValue();
+        if (getError() != 0 || (dataRes = unlikeResIdl.data) == null || (l = dataRes.thread_id) == null) {
+            return;
         }
+        this.threadId = l.longValue();
     }
 }

@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetObjectResponse extends BosResponse {
-    private BosObject object;
+    public BosObject object;
 
     public BosObject getObject() {
         return this.object;

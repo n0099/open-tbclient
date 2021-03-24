@@ -1,0 +1,61 @@
+package com.baidu.crabsdk.lite.a;
+
+import android.content.Context;
+import android.net.wifi.WifiManager;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+/* loaded from: classes2.dex */
+public final class g {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f4730a;
+
+    public static String a(String str, Context context) {
+        Object obj;
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4714a.get(str);
+        if ((hashMap == null || (obj = hashMap.get("sdk_imei")) == null) ? true : ((Boolean) obj).booleanValue()) {
+            String str2 = f4730a;
+            if (str2 != null) {
+                return str2;
+            }
+            try {
+                f4730a = b(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
+            } catch (Exception e2) {
+                com.baidu.crabsdk.lite.b.a.c(str, "getCUID fail," + e2);
+                f4730a = "N/A";
+            }
+            return f4730a;
+        }
+        return "N/A";
+    }
+
+    public static String b(String str) {
+        byte b2;
+        MessageDigest messageDigest = null;
+        try {
+            messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.reset();
+            messageDigest.update(str.getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
+        } catch (NoSuchAlgorithmException unused) {
+            System.out.println("NoSuchAlgorithmException caught!");
+        }
+        byte[] digest = messageDigest.digest();
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < digest.length; i++) {
+            if (Integer.toHexString(digest[i] & 255).length() == 1) {
+                stringBuffer.append("0");
+                b2 = digest[i];
+            } else {
+                b2 = digest[i];
+            }
+            stringBuffer.append(Integer.toHexString(b2 & 255));
+        }
+        return stringBuffer.toString();
+    }
+}

@@ -2,20 +2,27 @@ package com.baidu.searchbox.player.pool;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.pool.IPoolItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SynchronizedFIFOPool<T extends IPoolItem> extends FIFOPool<T> {
-    private final Object mLock;
+    public final Object mLock;
+
+    public SynchronizedFIFOPool(int i) {
+        super(i);
+        this.mLock = new Object();
+    }
+
+    @Override // com.baidu.searchbox.player.pool.FIFOPool
+    public void add(T t) {
+        synchronized (this.mLock) {
+            super.add(t);
+        }
+    }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.player.pool.SynchronizedFIFOPool<T extends com.baidu.searchbox.player.pool.IPoolItem> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.searchbox.player.pool.FIFOPool, com.baidu.searchbox.player.pool.IPool
     public /* bridge */ /* synthetic */ void release(@NonNull Object obj) {
         release((SynchronizedFIFOPool<T>) ((IPoolItem) obj));
-    }
-
-    public SynchronizedFIFOPool(int i) {
-        super(i);
-        this.mLock = new Object();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,13 +39,6 @@ public class SynchronizedFIFOPool<T extends IPoolItem> extends FIFOPool<T> {
     public void release(@NonNull T t) {
         synchronized (this.mLock) {
             super.release((SynchronizedFIFOPool<T>) t);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.pool.FIFOPool
-    public void add(T t) {
-        synchronized (this.mLock) {
-            super.add(t);
         }
     }
 }

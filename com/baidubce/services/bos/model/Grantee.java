@@ -1,21 +1,45 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Grantee {
-    private String id;
+    public String id;
 
     public Grantee() {
     }
 
-    public Grantee(String str) {
-        setId(str);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj != null && Grantee.class == obj.getClass()) {
+            Grantee grantee = (Grantee) obj;
+            String str = this.id;
+            if (str == null) {
+                if (grantee.id != null) {
+                    return false;
+                }
+            } else if (!str.equals(grantee.id)) {
+                return false;
+            }
+            return true;
+        }
+        return false;
     }
 
     public String getId() {
         return this.id;
     }
 
+    public int hashCode() {
+        String str = this.id;
+        return 31 + (str == null ? 0 : str.hashCode());
+    }
+
     public void setId(String str) {
         this.id = str;
+    }
+
+    public String toString() {
+        return "Grantee [id=" + this.id + "]";
     }
 
     public Grantee withId(String str) {
@@ -23,22 +47,7 @@ public class Grantee {
         return this;
     }
 
-    public int hashCode() {
-        return (this.id == null ? 0 : this.id.hashCode()) + 31;
-    }
-
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj != null && getClass() == obj.getClass()) {
-            Grantee grantee = (Grantee) obj;
-            return this.id == null ? grantee.id == null : this.id.equals(grantee.id);
-        }
-        return false;
-    }
-
-    public String toString() {
-        return "Grantee [id=" + this.id + "]";
+    public Grantee(String str) {
+        setId(str);
     }
 }

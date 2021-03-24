@@ -8,16 +8,21 @@ import android.text.TextUtils;
 import androidx.annotation.CallSuper;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
-import com.bytedance.sdk.adnet.core.o;
-import com.bytedance.sdk.adnet.core.q;
-import com.bytedance.sdk.adnet.e.b;
 import com.bytedance.sdk.adnet.err.VAdError;
+import d.c.c.b.d.g;
+import d.c.c.b.d.k;
+import d.c.c.b.d.n;
+import d.c.c.b.d.o;
+import d.c.c.b.d.q;
+import d.c.c.b.f.b;
+import d.c.c.b.f.e;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+import kotlin.text.Typography;
+/* loaded from: classes5.dex */
 public abstract class Request<T> implements Comparable<Request<T>> {
     public static final int METHOD_DELETE = 3;
     public static final int METHOD_DEPRECATED_GET_OR_POST = -1;
@@ -32,41 +37,69 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     @GuardedBy("mLock")
 
     /* renamed from: a  reason: collision with root package name */
-    protected o.a<T> f4030a;
-    protected Handler b;
-    private final q.a c;
-    private final int d;
-    private String e;
-    private String f;
-    private final int g;
-    private final Object h;
-    private Integer i;
-    private n j;
-    private boolean k;
-    @GuardedBy("mLock")
-    private boolean l;
-    @GuardedBy("mLock")
-    private boolean m;
-    private boolean n;
-    private com.bytedance.sdk.adnet.e.e o;
-    private b.a p;
-    private Object q;
-    private long r;
-    private long s;
-    private boolean t;
-    private String u;
-    private Map<String, Object> v;
-    @GuardedBy("mLock")
-    private a w;
+    public o.a<T> f27213a;
 
-    /* loaded from: classes6.dex */
-    interface a {
-        void a(Request<?> request, o<?> oVar);
+    /* renamed from: b  reason: collision with root package name */
+    public Handler f27214b;
 
-        void b(Request<?> request);
+    /* renamed from: c  reason: collision with root package name */
+    public final q.a f27215c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final int f27216d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f27217e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f27218f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final int f27219g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final Object f27220h;
+    public Integer i;
+    public n j;
+    public boolean k;
+    @GuardedBy("mLock")
+    public boolean l;
+    @GuardedBy("mLock")
+    public boolean m;
+    public boolean n;
+    public e o;
+    public b.a p;
+    public Object q;
+    public long r;
+    public long s;
+    public boolean t;
+    public String u;
+    public Map<String, Object> v;
+    @GuardedBy("mLock")
+    public c w;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f27221e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ long f27222f;
+
+        public a(String str, long j) {
+            this.f27221e = str;
+            this.f27222f = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Request.this.f27215c.c(this.f27221e, this.f27222f);
+            Request.this.f27215c.b(Request.this.toString());
+        }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum b {
         LOW,
         NORMAL,
@@ -74,15 +107,11 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         IMMEDIATE
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract o<T> a(k kVar);
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(Request<?> request);
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void a(o<T> oVar);
-
-    @Override // java.lang.Comparable
-    public /* bridge */ /* synthetic */ int compareTo(Object obj) {
-        return compareTo((Request) ((Request) obj));
+        void b(Request<?> request, o<?> oVar);
     }
 
     @Deprecated
@@ -90,25 +119,29 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         this(-1, str, aVar);
     }
 
-    public Request(int i, String str, @Nullable o.a aVar) {
-        this.c = q.a.f4051a ? new q.a() : null;
-        this.f = "VADNetAgent/0";
-        this.h = new Object();
-        this.k = true;
-        this.l = false;
-        this.m = false;
-        this.n = false;
-        this.p = null;
-        this.r = 0L;
-        this.s = 0L;
-        this.t = true;
-        this.b = new Handler(Looper.getMainLooper());
-        this.d = i;
-        this.e = str;
-        this.f4030a = aVar;
-        setRetryPolicy(new g());
-        this.g = b(str);
+    public static int b(String str) {
+        Uri parse;
+        String host;
+        try {
+            if (TextUtils.isEmpty(str) || (parse = Uri.parse(str)) == null || (host = parse.getHost()) == null) {
+                return 0;
+            }
+            return host.hashCode();
+        } catch (Throwable unused) {
+            return 0;
+        }
     }
+
+    public VAdError a(VAdError vAdError) {
+        return vAdError;
+    }
+
+    public abstract o<T> a(k kVar);
+
+    public void a(long j, long j2) {
+    }
+
+    public abstract void a(o<T> oVar);
 
     public Request addExtra(String str, Object obj) {
         if (!TextUtils.isEmpty(str) && obj != null) {
@@ -120,208 +153,111 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return this;
     }
 
-    public Map<String, Object> getExtra() {
-        return this.v;
+    public void addMarker(String str) {
+        if (q.a.f65748c) {
+            this.f27215c.c(str, Thread.currentThread().getId());
+        }
     }
 
-    public long getStartTime() {
-        return this.r;
+    public void build(n nVar) {
+        if (nVar != null) {
+            nVar.a(this);
+        }
     }
 
-    public void setStartTime() {
-        this.r = SystemClock.elapsedRealtime();
+    public Map<String, String> c() throws com.bytedance.sdk.adnet.err.a {
+        return null;
     }
 
-    public long getNetDuration() {
-        return this.s;
+    @CallSuper
+    public void cancel() {
+        synchronized (this.f27220h) {
+            this.l = true;
+            this.f27213a = null;
+        }
     }
 
-    public void setNetDuration(long j) {
-        this.s = j;
+    @Override // java.lang.Comparable
+    public /* bridge */ /* synthetic */ int compareTo(Object obj) {
+        return compareTo((Request) ((Request) obj));
     }
 
-    public boolean isResponseOnMain() {
-        return this.t;
+    public String d() {
+        return "UTF-8";
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public Request<?> setResponseOnMain(boolean z) {
-        this.t = z;
-        return this;
+    public void deliverError(o<T> oVar) {
+        o.a<T> aVar;
+        synchronized (this.f27220h) {
+            aVar = this.f27213a;
+        }
+        if (aVar != null) {
+            aVar.b(oVar);
+        }
     }
 
-    public int getMethod() {
-        return this.d;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public Request<?> setTag(Object obj) {
-        this.q = obj;
-        return this;
-    }
-
-    public Object getTag() {
-        return this.q;
+    public void e() {
+        c cVar;
+        synchronized (this.f27220h) {
+            cVar = this.w;
+        }
+        if (cVar != null) {
+            cVar.a(this);
+        }
     }
 
     @Nullable
     public o.a getBaseListener() {
         o.a<T> aVar;
-        synchronized (this.h) {
-            aVar = this.f4030a;
+        synchronized (this.f27220h) {
+            aVar = this.f27213a;
         }
         return aVar;
     }
 
-    public int getTrafficStatsTag() {
-        return this.g;
-    }
-
-    private static int b(String str) {
-        Uri parse;
-        String host;
-        try {
-            if (!TextUtils.isEmpty(str) && (parse = Uri.parse(str)) != null && (host = parse.getHost()) != null) {
-                return host.hashCode();
-            }
-        } catch (Throwable th) {
+    public byte[] getBody() throws com.bytedance.sdk.adnet.err.a {
+        Map<String, String> c2 = c();
+        if (c2 == null || c2.size() <= 0) {
+            return null;
         }
-        return 0;
+        return a(c2, d());
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public Request<?> setRetryPolicy(com.bytedance.sdk.adnet.e.e eVar) {
-        this.o = eVar;
-        return this;
-    }
-
-    public void addMarker(String str) {
-        if (q.a.f4051a) {
-            this.c.a(str, Thread.currentThread().getId());
-        }
-    }
-
-    public String getUserAgent() {
-        return this.f;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public Request<?> setUserAgent(String str) {
-        this.f = str;
-        return this;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(final String str) {
-        if (this.j != null) {
-            this.j.k(this);
-        }
-        if (q.a.f4051a) {
-            final long id = Thread.currentThread().getId();
-            if (Looper.myLooper() != Looper.getMainLooper()) {
-                this.b.post(new Runnable() { // from class: com.bytedance.sdk.adnet.core.Request.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Request.this.c.a(str, id);
-                        Request.this.c.a(Request.this.toString());
-                    }
-                });
-                return;
-            }
-            this.c.a(str, id);
-            this.c.a(toString());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(int i) {
-        if (this.j != null) {
-            this.j.a(this, i);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public Request<?> setRequestQueue(n nVar) {
-        this.j = nVar;
-        return this;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final Request<?> setSequence(int i) {
-        this.i = Integer.valueOf(i);
-        return this;
-    }
-
-    public final n getRequestQueue() {
-        return this.j;
-    }
-
-    public final int getSequence() {
-        if (this.i == null) {
-            throw new IllegalStateException("getSequence called before setSequence");
-        }
-        return this.i.intValue();
-    }
-
-    public String getUrl() {
-        return this.e;
-    }
-
-    public void setUrl(String str) {
-        this.e = str;
-    }
-
-    public String getCacheKey() {
-        String url = getUrl();
-        int method = getMethod();
-        return (method == 0 || method == -1) ? url : Integer.toString(method) + '-' + url;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public Request<?> setCacheEntry(b.a aVar) {
-        this.p = aVar;
-        return this;
+    public String getBodyContentType() {
+        return "application/x-www-form-urlencoded; charset=" + d();
     }
 
     public b.a getCacheEntry() {
         return this.p;
     }
 
-    @CallSuper
-    public void cancel() {
-        synchronized (this.h) {
-            this.l = true;
-            this.f4030a = null;
+    public String getCacheKey() {
+        String url = getUrl();
+        int method = getMethod();
+        if (method == 0 || method == -1) {
+            return url;
         }
+        return Integer.toString(method) + '-' + url;
     }
 
-    public boolean isCanceled() {
-        boolean z;
-        synchronized (this.h) {
-            z = this.l;
-        }
-        return z;
+    public Map<String, Object> getExtra() {
+        return this.v;
     }
 
     public Map<String, String> getHeaders() throws com.bytedance.sdk.adnet.err.a {
         return Collections.emptyMap();
     }
 
-    @Deprecated
-    protected Map<String, String> a() throws com.bytedance.sdk.adnet.err.a {
-        return c();
+    public String getIpAddrStr() {
+        return this.u;
     }
 
-    @Deprecated
-    protected String b() {
-        return d();
+    public int getMethod() {
+        return this.f27216d;
+    }
+
+    public long getNetDuration() {
+        return this.s;
     }
 
     @Deprecated
@@ -333,42 +269,117 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return a(a2, b());
     }
 
-    protected Map<String, String> c() throws com.bytedance.sdk.adnet.err.a {
-        return null;
+    public b getPriority() {
+        return b.NORMAL;
     }
 
-    protected String d() {
-        return "UTF-8";
+    public final n getRequestQueue() {
+        return this.j;
     }
 
-    public String getBodyContentType() {
-        return "application/x-www-form-urlencoded; charset=" + d();
+    public e getRetryPolicy() {
+        return this.o;
     }
 
-    public byte[] getBody() throws com.bytedance.sdk.adnet.err.a {
-        Map<String, String> c = c();
-        if (c == null || c.size() <= 0) {
-            return null;
+    public final int getSequence() {
+        Integer num = this.i;
+        if (num != null) {
+            return num.intValue();
         }
-        return a(c, d());
+        throw new IllegalStateException("getSequence called before setSequence");
     }
 
-    private byte[] a(Map<String, String> map, String str) {
-        StringBuilder sb = new StringBuilder();
-        try {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                if (entry.getKey() == null || entry.getValue() == null) {
-                    throw new IllegalArgumentException(String.format("Request#getParams() or Request#getPostParams() returned a map containing a null key or value: (%s, %s). All keys and values must be non-null.", entry.getKey(), entry.getValue()));
-                }
-                sb.append(URLEncoder.encode(entry.getKey(), str));
-                sb.append('=');
-                sb.append(URLEncoder.encode(entry.getValue(), str));
-                sb.append('&');
-            }
-            return sb.toString().getBytes(str);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("Encoding not supported: " + str, e);
+    public long getStartTime() {
+        return this.r;
+    }
+
+    public Object getTag() {
+        return this.q;
+    }
+
+    public final int getTimeoutMs() {
+        return getRetryPolicy().a();
+    }
+
+    public int getTrafficStatsTag() {
+        return this.f27219g;
+    }
+
+    public String getUrl() {
+        return this.f27217e;
+    }
+
+    public String getUserAgent() {
+        return this.f27218f;
+    }
+
+    public boolean hasHadResponseDelivered() {
+        boolean z;
+        synchronized (this.f27220h) {
+            z = this.m;
         }
+        return z;
+    }
+
+    public boolean isCanceled() {
+        boolean z;
+        synchronized (this.f27220h) {
+            z = this.l;
+        }
+        return z;
+    }
+
+    public boolean isResponseOnMain() {
+        return this.t;
+    }
+
+    public void markDelivered() {
+        synchronized (this.f27220h) {
+            this.m = true;
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public Request<?> setCacheEntry(b.a aVar) {
+        this.p = aVar;
+        return this;
+    }
+
+    public void setIpAddrStr(String str) {
+        this.u = str;
+    }
+
+    public void setNetDuration(long j) {
+        this.s = j;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public Request<?> setRequestQueue(n nVar) {
+        this.j = nVar;
+        return this;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public Request<?> setResponseOnMain(boolean z) {
+        this.t = z;
+        return this;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public Request<?> setRetryPolicy(e eVar) {
+        this.o = eVar;
+        return this;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final Request<?> setSequence(int i) {
+        this.i = Integer.valueOf(i);
+        return this;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
@@ -378,10 +389,6 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return this;
     }
 
-    public final boolean shouldCache() {
-        return this.k;
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
     /* JADX WARN: Multi-variable type inference failed */
     public final Request<?> setShouldRetryServerErrors(boolean z) {
@@ -389,94 +396,83 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return this;
     }
 
+    public void setStartTime() {
+        this.r = SystemClock.elapsedRealtime();
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public Request<?> setTag(Object obj) {
+        this.q = obj;
+        return this;
+    }
+
+    public void setUrl(String str) {
+        this.f27217e = str;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.bytedance.sdk.adnet.core.Request<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public Request<?> setUserAgent(String str) {
+        this.f27218f = str;
+        return this;
+    }
+
+    public final boolean shouldCache() {
+        return this.k;
+    }
+
     public final boolean shouldRetryServerErrors() {
         return this.n;
     }
 
-    public b getPriority() {
-        return b.NORMAL;
+    public String toString() {
+        String str = "0x" + Integer.toHexString(getTrafficStatsTag());
+        StringBuilder sb = new StringBuilder();
+        sb.append(isCanceled() ? "[X] " : "[ ] ");
+        sb.append(getUrl());
+        sb.append(" ");
+        sb.append(str);
+        sb.append(" ");
+        sb.append(getPriority());
+        sb.append(" ");
+        sb.append(this.i);
+        return sb.toString();
     }
 
-    public final int getTimeoutMs() {
-        return getRetryPolicy().a();
+    public Request(int i, String str, @Nullable o.a aVar) {
+        this.f27215c = q.a.f65748c ? new q.a() : null;
+        this.f27218f = "VADNetAgent/0";
+        this.f27220h = new Object();
+        this.k = true;
+        this.l = false;
+        this.m = false;
+        this.n = false;
+        this.p = null;
+        this.r = 0L;
+        this.s = 0L;
+        this.t = true;
+        this.f27214b = new Handler(Looper.getMainLooper());
+        this.f27216d = i;
+        this.f27217e = str;
+        this.f27213a = aVar;
+        setRetryPolicy(new g());
+        this.f27219g = b(str);
     }
 
-    public com.bytedance.sdk.adnet.e.e getRetryPolicy() {
-        return this.o;
-    }
-
-    public void markDelivered() {
-        synchronized (this.h) {
-            this.m = true;
-        }
-    }
-
-    public boolean hasHadResponseDelivered() {
-        boolean z;
-        synchronized (this.h) {
-            z = this.m;
-        }
-        return z;
-    }
-
-    public void build(n nVar) {
+    public void a(String str) {
+        n nVar = this.j;
         if (nVar != null) {
-            nVar.j(this);
+            nVar.g(this);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public VAdError a(VAdError vAdError) {
-        return vAdError;
-    }
-
-    protected void a(long j, long j2) {
-    }
-
-    public void deliverError(o<T> oVar) {
-        o.a<T> aVar;
-        synchronized (this.h) {
-            aVar = this.f4030a;
-        }
-        if (aVar != null) {
-            aVar.b(oVar);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a aVar) {
-        synchronized (this.h) {
-            this.w = aVar;
-        }
-    }
-
-    public String getIpAddrStr() {
-        return this.u;
-    }
-
-    public void setIpAddrStr(String str) {
-        this.u = str;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(o<?> oVar) {
-        a aVar;
-        synchronized (this.h) {
-            aVar = this.w;
-        }
-        if (aVar != null) {
-            aVar.a(this, oVar);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void e() {
-        a aVar;
-        synchronized (this.h) {
-            aVar = this.w;
-        }
-        if (aVar != null) {
-            aVar.b(this);
+        if (q.a.f65748c) {
+            long id = Thread.currentThread().getId();
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                this.f27214b.post(new a(str, id));
+                return;
+            }
+            this.f27215c.c(str, id);
+            this.f27215c.b(toString());
         }
     }
 
@@ -486,7 +482,55 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return priority == priority2 ? this.i.intValue() - request.i.intValue() : priority2.ordinal() - priority.ordinal();
     }
 
-    public String toString() {
-        return (isCanceled() ? "[X] " : "[ ] ") + getUrl() + " " + ("0x" + Integer.toHexString(getTrafficStatsTag())) + " " + getPriority() + " " + this.i;
+    @Deprecated
+    public String b() {
+        return d();
+    }
+
+    public void b(o<?> oVar) {
+        c cVar;
+        synchronized (this.f27220h) {
+            cVar = this.w;
+        }
+        if (cVar != null) {
+            cVar.b(this, oVar);
+        }
+    }
+
+    public void a(int i) {
+        n nVar = this.j;
+        if (nVar != null) {
+            nVar.c(this, i);
+        }
+    }
+
+    @Deprecated
+    public Map<String, String> a() throws com.bytedance.sdk.adnet.err.a {
+        return c();
+    }
+
+    private byte[] a(Map<String, String> map, String str) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                if (entry.getKey() != null && entry.getValue() != null) {
+                    sb.append(URLEncoder.encode(entry.getKey(), str));
+                    sb.append(com.alipay.sdk.encrypt.a.f1897h);
+                    sb.append(URLEncoder.encode(entry.getValue(), str));
+                    sb.append(Typography.amp);
+                } else {
+                    throw new IllegalArgumentException(String.format("Request#getParams() or Request#getPostParams() returned a map containing a null key or value: (%s, %s). All keys and values must be non-null.", entry.getKey(), entry.getValue()));
+                }
+            }
+            return sb.toString().getBytes(str);
+        } catch (UnsupportedEncodingException e2) {
+            throw new RuntimeException("Encoding not supported: " + str, e2);
+        }
+    }
+
+    public void a(c cVar) {
+        synchronized (this.f27220h) {
+            this.w = cVar;
+        }
     }
 }

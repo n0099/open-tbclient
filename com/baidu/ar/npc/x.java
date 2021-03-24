@@ -1,21 +1,20 @@
 package com.baidu.ar.npc;
 
 import com.baidu.ar.npc.BaiduArView;
-/* loaded from: classes4.dex */
-class x implements Runnable {
+/* loaded from: classes2.dex */
+public class x implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduArView f1305a;
+    public final /* synthetic */ BaiduArView f4224a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public x(BaiduArView baiduArView) {
-        this.f1305a = baiduArView;
+        this.f4224a = baiduArView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         BaiduArView.g gVar;
-        gVar = this.f1305a.v;
+        gVar = this.f4224a.v;
         gVar.a((BaiduArView.b) null);
     }
 }

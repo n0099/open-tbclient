@@ -4,24 +4,26 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.route.IndoorRoutePlanOption;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.core.util.FieldBuilder;
+/* loaded from: classes2.dex */
 public class g extends com.baidu.platform.base.e {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public g(IndoorRoutePlanOption indoorRoutePlanOption) {
         a(indoorRoutePlanOption);
     }
 
     private void a(IndoorRoutePlanOption indoorRoutePlanOption) {
-        this.f2867a.a("qt", "indoornavi");
-        this.f2867a.a("rp_format", "json");
-        this.f2867a.a("version", "1");
+        this.f9820a.a("qt", "indoornavi");
+        this.f9820a.a("rp_format", "json");
+        this.f9820a.a("version", "1");
         GeoPoint ll2mc = CoordUtil.ll2mc(indoorRoutePlanOption.mFrom.getLocation());
         if (ll2mc != null) {
-            this.f2867a.a(IXAdRequestInfo.SN, (String.format("%f,%f", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6())) + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
+            String format = String.format("%f,%f", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6()));
+            this.f9820a.a(IXAdRequestInfo.SN, (format + FieldBuilder.SE + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
         }
         GeoPoint ll2mc2 = CoordUtil.ll2mc(indoorRoutePlanOption.mTo.getLocation());
         if (ll2mc2 != null) {
-            this.f2867a.a(com.baidu.fsg.base.statistics.h.f1535a, (String.format("%f,%f", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6())) + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
+            String format2 = String.format("%f,%f", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6()));
+            this.f9820a.a("en", (format2 + FieldBuilder.SE + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
         }
     }
 

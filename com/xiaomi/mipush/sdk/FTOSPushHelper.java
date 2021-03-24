@@ -4,19 +4,19 @@ import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FTOSPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f8197a = 0;
+    public static long f40138a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f25a = false;
+    public static volatile boolean f42a = false;
 
-    private static void a(Context context) {
-        AbstractPushManager a2 = e.a(context).a(d.ASSEMBLE_PUSH_FTOS);
+    public static void a(Context context) {
+        AbstractPushManager a2 = f.a(context).a(e.ASSEMBLE_PUSH_FTOS);
         if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("ASSEMBLE_PUSH :  register fun touch os when network change!");
+            com.xiaomi.channel.commonutils.logger.b.m51a("ASSEMBLE_PUSH :  register fun touch os when network change!");
             a2.register();
         }
     }
@@ -24,19 +24,20 @@ public class FTOSPushHelper {
     public static void doInNetworkChange(Context context) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (getNeedRegister()) {
-            if (f8197a <= 0 || f8197a + 300000 <= elapsedRealtime) {
-                f8197a = elapsedRealtime;
+            long j = f40138a;
+            if (j <= 0 || j + 300000 <= elapsedRealtime) {
+                f40138a = elapsedRealtime;
                 a(context);
             }
         }
     }
 
     public static boolean getNeedRegister() {
-        return f25a;
+        return f42a;
     }
 
     public static boolean hasNetwork(Context context) {
-        return h.m118a(context);
+        return i.m113a(context);
     }
 
     public static void notifyFTOSNotificationClicked(Context context, Map<String, String> map) {
@@ -45,10 +46,10 @@ public class FTOSPushHelper {
             return;
         }
         String str = map.get("pushMsg");
-        if (TextUtils.isEmpty(str) || (a2 = h.a(context)) == null) {
+        if (TextUtils.isEmpty(str) || (a2 = i.a(context)) == null) {
             return;
         }
-        MiPushMessage a3 = h.a(str);
+        MiPushMessage a3 = i.a(str);
         if (a3.getExtra().containsKey("notify_effect")) {
             return;
         }
@@ -56,10 +57,10 @@ public class FTOSPushHelper {
     }
 
     public static void setNeedRegister(boolean z) {
-        f25a = z;
+        f42a = z;
     }
 
     public static void uploadToken(Context context, String str) {
-        h.a(context, d.ASSEMBLE_PUSH_FTOS, str);
+        i.a(context, e.ASSEMBLE_PUSH_FTOS, str);
     }
 }

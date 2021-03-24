@@ -9,86 +9,107 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrsRedpackRunView extends RelativeLayout {
-    private AutoScrollTextView jTg;
-    private TBLottieAnimationView jTh;
-    private String mContent;
-    private Context mContext;
-    private View rootView;
+
+    /* renamed from: e  reason: collision with root package name */
+    public AutoScrollTextView f16751e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TBLottieAnimationView f16752f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f16753g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Context f16754h;
+
+    /* loaded from: classes4.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public a() {
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            if (valueAnimator.isRunning() && valueAnimator.getAnimatedFraction() > 0.5d) {
+                FrsRedpackRunView.this.f16751e.d(valueAnimator.getAnimatedFraction());
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Animator.AnimatorListener {
+        public b() {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            FrsRedpackRunView.this.f16751e.a(((Activity) FrsRedpackRunView.this.f16754h).getWindowManager());
+            FrsRedpackRunView.this.f16751e.c();
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+        }
+    }
 
     public FrsRedpackRunView(Context context) {
         super(context);
-        this.mContext = context;
-        initUI(context);
+        this.f16754h = context;
+        d(context);
+    }
+
+    public void c() {
+    }
+
+    public final void d(Context context) {
+        this.f16753g = LayoutInflater.from(context).inflate(R.layout.frs_main_redpack_run_view, this);
+        this.f16751e = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
+        this.f16752f = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
+    }
+
+    public void e() {
+        SkinManager.setLottieAnimation(this.f16752f, R.raw.lottie_redpack_run);
+        this.f16752f.setImageAssetsFolder("lottie_redpack_runscoll");
+        this.f16752f.addAnimatorUpdateListener(new a());
+        this.f16752f.addAnimatorListener(new b());
+        this.f16752f.playAnimation();
+    }
+
+    public void setClickliner(View.OnClickListener onClickListener) {
+        View view = this.f16753g;
+        if (view != null) {
+            view.setOnClickListener(onClickListener);
+        }
+        AutoScrollTextView autoScrollTextView = this.f16751e;
+        if (autoScrollTextView != null) {
+            autoScrollTextView.setClickliner(onClickListener);
+        }
+    }
+
+    public void settextTitle(String str) {
+        AutoScrollTextView autoScrollTextView = this.f16751e;
+        if (autoScrollTextView != null) {
+            autoScrollTextView.setText(str);
+            this.f16751e.a(((Activity) this.f16754h).getWindowManager());
+            e();
+        }
     }
 
     public FrsRedpackRunView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mContext = context;
-        initUI(context);
-    }
-
-    private void initUI(Context context) {
-        this.rootView = LayoutInflater.from(context).inflate(R.layout.frs_main_redpack_run_view, this);
-        this.jTg = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
-        this.jTh = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
-    }
-
-    public void settextTitle(String str) {
-        if (this.jTg != null) {
-            this.mContent = str;
-            this.jTg.setText(str);
-            this.jTg.b(((Activity) this.mContext).getWindowManager());
-            show();
-        }
-    }
-
-    public void show() {
-        ap.a(this.jTh, R.raw.lottie_redpack_run);
-        this.jTh.setImageAssetsFolder("lottie_redpack_runscoll");
-        this.jTh.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (valueAnimator.isRunning() && valueAnimator.getAnimatedFraction() > 0.5d) {
-                    FrsRedpackRunView.this.jTg.aP(valueAnimator.getAnimatedFraction());
-                }
-            }
-        });
-        this.jTh.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.2
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                FrsRedpackRunView.this.jTg.b(((Activity) FrsRedpackRunView.this.mContext).getWindowManager());
-                FrsRedpackRunView.this.jTg.cFw();
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-        this.jTh.playAnimation();
-    }
-
-    public void hide() {
-    }
-
-    public void setClickliner(View.OnClickListener onClickListener) {
-        if (this.rootView != null) {
-            this.rootView.setOnClickListener(onClickListener);
-        }
-        if (this.jTg != null) {
-            this.jTg.setClickliner(onClickListener);
-        }
+        this.f16754h = context;
+        d(context);
     }
 }

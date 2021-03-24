@@ -1,5 +1,6 @@
 package okhttp3;
 
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.util.List;
@@ -9,98 +10,55 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSocketFactory;
 import okhttp3.HttpUrl;
 import okhttp3.internal.Util;
-import org.apache.http.HttpHost;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class Address {
     @Nullable
-    final CertificatePinner certificatePinner;
-    final List<ConnectionSpec> connectionSpecs;
-    final Dns dns;
+    public final CertificatePinner certificatePinner;
+    public final List<ConnectionSpec> connectionSpecs;
+    public final Dns dns;
     @Nullable
-    final HostnameVerifier hostnameVerifier;
-    final List<Protocol> protocols;
+    public final HostnameVerifier hostnameVerifier;
+    public final List<Protocol> protocols;
     @Nullable
-    final Proxy proxy;
-    final Authenticator proxyAuthenticator;
-    final ProxySelector proxySelector;
-    final SocketFactory socketFactory;
+    public final Proxy proxy;
+    public final Authenticator proxyAuthenticator;
+    public final ProxySelector proxySelector;
+    public final SocketFactory socketFactory;
     @Nullable
-    final SSLSocketFactory sslSocketFactory;
-    final HttpUrl url;
+    public final SSLSocketFactory sslSocketFactory;
+    public final HttpUrl url;
 
     public Address(String str, int i, Dns dns, SocketFactory socketFactory, @Nullable SSLSocketFactory sSLSocketFactory, @Nullable HostnameVerifier hostnameVerifier, @Nullable CertificatePinner certificatePinner, Authenticator authenticator, @Nullable Proxy proxy, List<Protocol> list, List<ConnectionSpec> list2, ProxySelector proxySelector) {
-        this.url = new HttpUrl.Builder().scheme(sSLSocketFactory != null ? "https" : HttpHost.DEFAULT_SCHEME_NAME).host(str).port(i).build();
-        if (dns == null) {
-            throw new NullPointerException("dns == null");
-        }
-        this.dns = dns;
-        if (socketFactory == null) {
+        this.url = new HttpUrl.Builder().scheme(sSLSocketFactory != null ? "https" : "http").host(str).port(i).build();
+        if (dns != null) {
+            this.dns = dns;
+            if (socketFactory != null) {
+                this.socketFactory = socketFactory;
+                if (authenticator != null) {
+                    this.proxyAuthenticator = authenticator;
+                    if (list != null) {
+                        this.protocols = Util.immutableList(list);
+                        if (list2 != null) {
+                            this.connectionSpecs = Util.immutableList(list2);
+                            if (proxySelector != null) {
+                                this.proxySelector = proxySelector;
+                                this.proxy = proxy;
+                                this.sslSocketFactory = sSLSocketFactory;
+                                this.hostnameVerifier = hostnameVerifier;
+                                this.certificatePinner = certificatePinner;
+                                return;
+                            }
+                            throw new NullPointerException("proxySelector == null");
+                        }
+                        throw new NullPointerException("connectionSpecs == null");
+                    }
+                    throw new NullPointerException("protocols == null");
+                }
+                throw new NullPointerException("proxyAuthenticator == null");
+            }
             throw new NullPointerException("socketFactory == null");
         }
-        this.socketFactory = socketFactory;
-        if (authenticator == null) {
-            throw new NullPointerException("proxyAuthenticator == null");
-        }
-        this.proxyAuthenticator = authenticator;
-        if (list == null) {
-            throw new NullPointerException("protocols == null");
-        }
-        this.protocols = Util.immutableList(list);
-        if (list2 == null) {
-            throw new NullPointerException("connectionSpecs == null");
-        }
-        this.connectionSpecs = Util.immutableList(list2);
-        if (proxySelector == null) {
-            throw new NullPointerException("proxySelector == null");
-        }
-        this.proxySelector = proxySelector;
-        this.proxy = proxy;
-        this.sslSocketFactory = sSLSocketFactory;
-        this.hostnameVerifier = hostnameVerifier;
-        this.certificatePinner = certificatePinner;
-    }
-
-    public HttpUrl url() {
-        return this.url;
-    }
-
-    public Dns dns() {
-        return this.dns;
-    }
-
-    public SocketFactory socketFactory() {
-        return this.socketFactory;
-    }
-
-    public Authenticator proxyAuthenticator() {
-        return this.proxyAuthenticator;
-    }
-
-    public List<Protocol> protocols() {
-        return this.protocols;
-    }
-
-    public List<ConnectionSpec> connectionSpecs() {
-        return this.connectionSpecs;
-    }
-
-    public ProxySelector proxySelector() {
-        return this.proxySelector;
-    }
-
-    @Nullable
-    public Proxy proxy() {
-        return this.proxy;
-    }
-
-    @Nullable
-    public SSLSocketFactory sslSocketFactory() {
-        return this.sslSocketFactory;
-    }
-
-    @Nullable
-    public HostnameVerifier hostnameVerifier() {
-        return this.hostnameVerifier;
+        throw new NullPointerException("dns == null");
     }
 
     @Nullable
@@ -108,27 +66,89 @@ public final class Address {
         return this.certificatePinner;
     }
 
+    public List<ConnectionSpec> connectionSpecs() {
+        return this.connectionSpecs;
+    }
+
+    public Dns dns() {
+        return this.dns;
+    }
+
     public boolean equals(@Nullable Object obj) {
-        return (obj instanceof Address) && this.url.equals(((Address) obj).url) && equalsNonHost((Address) obj);
+        if (obj instanceof Address) {
+            Address address = (Address) obj;
+            if (this.url.equals(address.url) && equalsNonHost(address)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public int hashCode() {
-        return (((this.hostnameVerifier != null ? this.hostnameVerifier.hashCode() : 0) + (((this.sslSocketFactory != null ? this.sslSocketFactory.hashCode() : 0) + (((this.proxy != null ? this.proxy.hashCode() : 0) + ((((((((((((this.url.hashCode() + 527) * 31) + this.dns.hashCode()) * 31) + this.proxyAuthenticator.hashCode()) * 31) + this.protocols.hashCode()) * 31) + this.connectionSpecs.hashCode()) * 31) + this.proxySelector.hashCode()) * 31)) * 31)) * 31)) * 31) + (this.certificatePinner != null ? this.certificatePinner.hashCode() : 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean equalsNonHost(Address address) {
         return this.dns.equals(address.dns) && this.proxyAuthenticator.equals(address.proxyAuthenticator) && this.protocols.equals(address.protocols) && this.connectionSpecs.equals(address.connectionSpecs) && this.proxySelector.equals(address.proxySelector) && Util.equal(this.proxy, address.proxy) && Util.equal(this.sslSocketFactory, address.sslSocketFactory) && Util.equal(this.hostnameVerifier, address.hostnameVerifier) && Util.equal(this.certificatePinner, address.certificatePinner) && url().port() == address.url().port();
     }
 
+    public int hashCode() {
+        int hashCode = (((((((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.url.hashCode()) * 31) + this.dns.hashCode()) * 31) + this.proxyAuthenticator.hashCode()) * 31) + this.protocols.hashCode()) * 31) + this.connectionSpecs.hashCode()) * 31) + this.proxySelector.hashCode()) * 31;
+        Proxy proxy = this.proxy;
+        int hashCode2 = (hashCode + (proxy != null ? proxy.hashCode() : 0)) * 31;
+        SSLSocketFactory sSLSocketFactory = this.sslSocketFactory;
+        int hashCode3 = (hashCode2 + (sSLSocketFactory != null ? sSLSocketFactory.hashCode() : 0)) * 31;
+        HostnameVerifier hostnameVerifier = this.hostnameVerifier;
+        int hashCode4 = (hashCode3 + (hostnameVerifier != null ? hostnameVerifier.hashCode() : 0)) * 31;
+        CertificatePinner certificatePinner = this.certificatePinner;
+        return hashCode4 + (certificatePinner != null ? certificatePinner.hashCode() : 0);
+    }
+
+    @Nullable
+    public HostnameVerifier hostnameVerifier() {
+        return this.hostnameVerifier;
+    }
+
+    public List<Protocol> protocols() {
+        return this.protocols;
+    }
+
+    @Nullable
+    public Proxy proxy() {
+        return this.proxy;
+    }
+
+    public Authenticator proxyAuthenticator() {
+        return this.proxyAuthenticator;
+    }
+
+    public ProxySelector proxySelector() {
+        return this.proxySelector;
+    }
+
+    public SocketFactory socketFactory() {
+        return this.socketFactory;
+    }
+
+    @Nullable
+    public SSLSocketFactory sslSocketFactory() {
+        return this.sslSocketFactory;
+    }
+
     public String toString() {
-        StringBuilder append = new StringBuilder().append("Address{").append(this.url.host()).append(":").append(this.url.port());
+        StringBuilder sb = new StringBuilder();
+        sb.append("Address{");
+        sb.append(this.url.host());
+        sb.append(":");
+        sb.append(this.url.port());
         if (this.proxy != null) {
-            append.append(", proxy=").append(this.proxy);
+            sb.append(", proxy=");
+            sb.append(this.proxy);
         } else {
-            append.append(", proxySelector=").append(this.proxySelector);
+            sb.append(", proxySelector=");
+            sb.append(this.proxySelector);
         }
-        append.append("}");
-        return append.toString();
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public HttpUrl url() {
+        return this.url;
     }
 }

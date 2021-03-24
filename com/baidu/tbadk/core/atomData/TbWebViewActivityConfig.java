@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TbWebViewActivityConfig extends WebViewActivityConfig {
     public static String GOD_INVITE_JUMP_URL = "http://c.tieba.baidu.com/mo/q/god/inviteGod";
     public static final String INTENT_KEY_IS_FROM_PUSH_NOTIFY = "is_from_push";
@@ -20,6 +20,20 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
         super(context);
     }
 
+    public void setIsFromSchema(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_IS_FROM_SCHEMA, z);
+        }
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
+    }
+
     public TbWebViewActivityConfig(Context context, String str, String str2, boolean z) {
         super(context, str, str2, z);
     }
@@ -30,19 +44,5 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
 
     public TbWebViewActivityConfig(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         super(context, str, str2, z, z2, z3, z4);
-    }
-
-    public void setUri(Uri uri) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(IntentConfig.KEY_URI, uri);
-        }
-    }
-
-    public void setIsFromSchema(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_IS_FROM_SCHEMA, z);
-        }
     }
 }

@@ -10,9 +10,9 @@ import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DefaultClientConnectionOperator implements ClientConnectionOperator {
-    protected SchemeRegistry schemeRegistry;
+    public SchemeRegistry schemeRegistry;
 
     public DefaultClientConnectionOperator(SchemeRegistry schemeRegistry) {
         throw new RuntimeException("Stub!");
@@ -28,12 +28,12 @@ public class DefaultClientConnectionOperator implements ClientConnectionOperator
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.conn.ClientConnectionOperator
-    public void updateSecureConnection(OperatedClientConnection operatedClientConnection, HttpHost httpHost, HttpContext httpContext, HttpParams httpParams) throws IOException {
+    public void prepareSocket(Socket socket, HttpContext httpContext, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
-    protected void prepareSocket(Socket socket, HttpContext httpContext, HttpParams httpParams) throws IOException {
+    @Override // org.apache.http.conn.ClientConnectionOperator
+    public void updateSecureConnection(OperatedClientConnection operatedClientConnection, HttpHost httpHost, HttpContext httpContext, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

@@ -9,43 +9,55 @@ import com.kwad.sdk.contentalliance.trends.a.b.c;
 import com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout;
 import com.kwad.sdk.core.response.model.TrendInfo;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends e {
-    private TrendsPanelLayout c;
-    private com.kwad.sdk.contentalliance.trends.a d;
-    private TrendsPanelLayout.a e = new TrendsPanelLayout.a() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.1
+
+    /* renamed from: c  reason: collision with root package name */
+    public TrendsPanelLayout f33033c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.trends.a f33034d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TrendsPanelLayout.a f33035e = new TrendsPanelLayout.a() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.1
         @Override // com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.a
         public void a(int i) {
-            com.kwad.sdk.core.report.e.a(b.this.f5821a.e, i);
+            com.kwad.sdk.core.report.e.a(((e) b.this).f32768a.f32773e, i);
             b.this.e();
         }
     };
-    private TrendsPanelLayout.b f = new TrendsPanelLayout.b() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.2
+
+    /* renamed from: f  reason: collision with root package name */
+    public TrendsPanelLayout.b f33036f = new TrendsPanelLayout.b() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.2
         @Override // com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.b
         public void a(View view, TrendInfo trendInfo, int i) {
             if (trendInfo == null) {
                 return;
             }
             com.kwad.sdk.core.d.a.a("PhotoTrendsPanelPresenter", "onItemClick position=" + i + " trendInfo=" + trendInfo.toJson());
-            b.this.f5821a.i = trendInfo;
+            ((e) b.this).f32768a.i = trendInfo;
             b.this.a(view, trendInfo, i);
-            com.kwad.sdk.core.report.e.d(b.this.f5821a.e, trendInfo.trendId, trendInfo.name);
-            if (b.this.d != null) {
-                b.this.d.b(trendInfo);
+            com.kwad.sdk.core.report.e.d(((e) b.this).f32768a.f32773e, trendInfo.trendId, trendInfo.name);
+            if (b.this.f33034d != null) {
+                b.this.f33034d.b(trendInfo);
             }
         }
     };
-    private c.a g = new c.a() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.3
+
+    /* renamed from: g  reason: collision with root package name */
+    public c.a f33037g = new c.a() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.3
         @Override // com.kwad.sdk.contentalliance.trends.a.b.c.a
         public void a(@NonNull List<TrendInfo> list) {
             b.this.a(list);
         }
     };
-    View.OnKeyListener b = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.4
+
+    /* renamed from: b  reason: collision with root package name */
+    public View.OnKeyListener f33032b = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.trends.a.b.b.4
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i, KeyEvent keyEvent) {
             if (i == 4 && keyEvent.getAction() == 1) {
-                b.this.c.a(5);
+                b.this.f33033c.a(5);
                 return true;
             }
             return false;
@@ -54,75 +66,75 @@ public class b extends e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, TrendInfo trendInfo, int i) {
-        for (com.kwad.sdk.contentalliance.trends.view.c cVar : this.f5821a.o) {
+        for (com.kwad.sdk.contentalliance.trends.view.c cVar : ((e) this).f32768a.o) {
             cVar.a(view, trendInfo, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull List<TrendInfo> list) {
-        long j = 0;
-        if (this.f5821a.i != null) {
-            j = this.f5821a.i.trendId;
-            String str = this.f5821a.i.name;
+        long j;
+        TrendInfo trendInfo = ((e) this).f32768a.i;
+        if (trendInfo != null) {
+            j = trendInfo.trendId;
+            String str = trendInfo.name;
+        } else {
+            j = 0;
         }
-        this.c.a(new com.kwad.sdk.contentalliance.trends.view.b(list, j, this.f5821a.e));
-        this.c.a();
-        com.kwad.sdk.core.report.e.a(this.f5821a.e);
-        this.c.setFocusableInTouchMode(true);
-        this.c.requestFocus();
-        this.c.setOnKeyListener(this.b);
-        this.f5821a.f.l = true;
+        this.f33033c.a(new com.kwad.sdk.contentalliance.trends.view.b(list, j, ((e) this).f32768a.f32773e));
+        this.f33033c.a();
+        com.kwad.sdk.core.report.e.a(((e) this).f32768a.f32773e);
+        this.f33033c.setFocusableInTouchMode(true);
+        this.f33033c.requestFocus();
+        this.f33033c.setOnKeyListener(this.f33032b);
+        ((e) this).f32768a.f32774f.l = true;
         f();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.c.setFocusableInTouchMode(false);
-        this.c.setOnKeyListener(null);
-        this.f5821a.f.l = false;
+        this.f33033c.setFocusableInTouchMode(false);
+        this.f33033c.setOnKeyListener(null);
+        ((e) this).f32768a.f32774f.l = false;
         g();
     }
 
     private void f() {
-        for (com.kwad.sdk.contentalliance.trends.view.c cVar : this.f5821a.o) {
+        for (com.kwad.sdk.contentalliance.trends.view.c cVar : ((e) this).f32768a.o) {
             cVar.a();
         }
     }
 
     private void g() {
-        for (com.kwad.sdk.contentalliance.trends.view.c cVar : this.f5821a.o) {
+        for (com.kwad.sdk.contentalliance.trends.view.c cVar : ((e) this).f32768a.o) {
             cVar.b();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.a.b c = this.f5821a.b.c();
-        if (c instanceof com.kwad.sdk.contentalliance.trends.a) {
-            this.d = (com.kwad.sdk.contentalliance.trends.a) c;
+        com.kwad.sdk.contentalliance.home.a.b c2 = ((e) this).f32768a.f32770b.c();
+        if (c2 instanceof com.kwad.sdk.contentalliance.trends.a) {
+            this.f33034d = (com.kwad.sdk.contentalliance.trends.a) c2;
         }
-        this.f5821a.n.add(this.g);
-        this.c.setItemClickListener(this.f);
-        this.c.setCloseListener(this.e);
+        ((e) this).f32768a.n.add(this.f33037g);
+        this.f33033c.setItemClickListener(this.f33036f);
+        this.f33033c.setCloseListener(this.f33035e);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
         e();
-        this.c.setCloseListener(null);
-        this.c.setItemClickListener(null);
-        this.c.c();
+        this.f33033c.setCloseListener(null);
+        this.f33033c.setItemClickListener(null);
+        this.f33033c.c();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.c = (TrendsPanelLayout) b(R.id.ksad_trend_list_panel);
+        this.f33033c = (TrendsPanelLayout) b(R.id.ksad_trend_list_panel);
     }
 }

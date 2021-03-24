@@ -2,7 +2,7 @@ package com.bumptech.glide.request.target;
 
 import android.graphics.Bitmap;
 import android.widget.ImageView;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class BitmapImageViewTarget extends ImageViewTarget<Bitmap> {
     public BitmapImageViewTarget(ImageView imageView) {
         super(imageView);
@@ -14,7 +14,6 @@ public class BitmapImageViewTarget extends ImageViewTarget<Bitmap> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bumptech.glide.request.target.ImageViewTarget
     public void setResource(Bitmap bitmap) {
         ((ImageView) this.view).setImageBitmap(bitmap);

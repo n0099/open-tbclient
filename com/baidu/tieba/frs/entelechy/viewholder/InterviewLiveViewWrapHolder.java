@@ -3,67 +3,79 @@ package com.baidu.tieba.frs.entelechy.viewholder;
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.frs.entelechy.adapter.FrsCardVideoViewHolder;
-import com.baidu.tieba.play.e;
-/* loaded from: classes2.dex */
+import d.b.i0.i2.e;
+/* loaded from: classes4.dex */
 public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implements e {
-    private FrsCardVideoViewHolder jvp;
 
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlayStarted() {
-        if (this.jvp == null) {
+    /* renamed from: e  reason: collision with root package name */
+    public FrsCardVideoViewHolder f16254e;
+
+    @Override // d.b.i0.i2.e
+    public boolean D() {
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        if (frsCardVideoViewHolder == null) {
             return false;
         }
-        return this.jvp.isPlayStarted();
+        return frsCardVideoViewHolder.D();
     }
 
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlaying() {
-        if (this.jvp == null) {
-            return false;
-        }
-        return this.jvp.isPlaying();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isFullScreen() {
-        if (this.jvp == null) {
-            return false;
-        }
-        return this.jvp.isFullScreen();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public void startPlay() {
-        if (this.jvp != null) {
-            this.jvp.startPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public void stopPlay() {
-        if (this.jvp != null) {
-            this.jvp.stopPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public View getVideoContainer() {
-        if (this.jvp == null) {
-            return null;
-        }
-        return this.jvp.getVideoContainer();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public String getPlayUrl() {
-        return this.jvp == null ? "" : this.jvp.getPlayUrl();
-    }
-
-    @Override // com.baidu.tieba.play.e
+    @Override // d.b.i0.i2.e
     public int getCurrentPosition() {
-        if (this.jvp == null) {
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        if (frsCardVideoViewHolder == null) {
             return 0;
         }
-        return this.jvp.getCurrentPosition();
+        return frsCardVideoViewHolder.getCurrentPosition();
+    }
+
+    @Override // d.b.i0.i2.e
+    public String getPlayUrl() {
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        return frsCardVideoViewHolder == null ? "" : frsCardVideoViewHolder.getPlayUrl();
+    }
+
+    @Override // d.b.i0.i2.e
+    public View getVideoContainer() {
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        if (frsCardVideoViewHolder == null) {
+            return null;
+        }
+        return frsCardVideoViewHolder.getVideoContainer();
+    }
+
+    @Override // d.b.i0.i2.e
+    public boolean isPlayStarted() {
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        if (frsCardVideoViewHolder == null) {
+            return false;
+        }
+        return frsCardVideoViewHolder.isPlayStarted();
+    }
+
+    @Override // d.b.i0.i2.e
+    public boolean isPlaying() {
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        if (frsCardVideoViewHolder == null) {
+            return false;
+        }
+        return frsCardVideoViewHolder.isPlaying();
+    }
+
+    @Override // d.b.i0.i2.e
+    public void startPlay() {
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        if (frsCardVideoViewHolder == null) {
+            return;
+        }
+        frsCardVideoViewHolder.startPlay();
+    }
+
+    @Override // d.b.i0.i2.e
+    public void stopPlay() {
+        FrsCardVideoViewHolder frsCardVideoViewHolder = this.f16254e;
+        if (frsCardVideoViewHolder == null) {
+            return;
+        }
+        frsCardVideoViewHolder.stopPlay();
     }
 }

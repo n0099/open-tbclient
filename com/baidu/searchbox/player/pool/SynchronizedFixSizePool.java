@@ -2,20 +2,20 @@ package com.baidu.searchbox.player.pool;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.pool.IPoolItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class SynchronizedFixSizePool<T extends IPoolItem> extends FixSizePool<T> {
-    private final Object mLock;
+    public final Object mLock;
+
+    public SynchronizedFixSizePool(int i) {
+        super(i);
+        this.mLock = new Object();
+    }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.player.pool.SynchronizedFixSizePool<T extends com.baidu.searchbox.player.pool.IPoolItem> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.searchbox.player.pool.FixSizePool, com.baidu.searchbox.player.pool.IPool
     public /* bridge */ /* synthetic */ void release(@NonNull Object obj) {
         release((SynchronizedFixSizePool<T>) ((IPoolItem) obj));
-    }
-
-    public SynchronizedFixSizePool(int i) {
-        super(i);
-        this.mLock = new Object();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

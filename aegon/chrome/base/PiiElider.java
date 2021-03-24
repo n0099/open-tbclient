@@ -2,17 +2,17 @@ package aegon.chrome.base;
 
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
-import com.baidu.android.common.others.java.Patterns;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PiiElider {
     public static final String[] APP_NAMESPACE;
     public static final String[] SYSTEM_NAMESPACE;
     public static final Pattern IP_ADDRESS = Pattern.compile("((25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[0-9]))");
-    public static final Pattern DOMAIN_NAME = Pattern.compile("(([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]{0,61}[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]){0,1}\\.)+[a-zA-Z -\ud7ff豈-﷏ﷰ-\uffef]{2,63}|" + IP_ADDRESS + ")");
+    public static final Pattern DOMAIN_NAME = Pattern.compile("(([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]{0,61}[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]){0,1}\\.)+[a-zA-Z -\ud7ff豈-﷏ﷰ-\uffef]{2,63}|" + IP_ADDRESS + SmallTailInfo.EMOTION_SUFFIX);
     public static final Pattern LIKELY_EXCEPTION_LOG = Pattern.compile("\\sat\\sorg\\.chromium\\.[^ ]+.");
-    public static final Pattern WEB_URL = Pattern.compile("(?:\\b|^)((?:(http|https|Http|Https|rtsp|Rtsp):\\/\\/(?:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,64}(?:\\:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,25})?\\@)?)?(?:" + DOMAIN_NAME + ")(?:\\:\\d{1,5})?)(\\/(?:(?:[" + Patterns.GOOD_IRI_CHAR + "\\;\\/\\?\\:\\@\\&\\=\\#\\~\\-\\.\\+\\!\\*\\'\\(\\)\\,\\_])|(?:\\%[a-fA-F0-9]{2}))*)?(?:\\b|$)");
+    public static final Pattern WEB_URL = Pattern.compile("(?:\\b|^)((?:(http|https|Http|Https|rtsp|Rtsp):\\/\\/(?:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,64}(?:\\:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,25})?\\@)?)?(?:" + DOMAIN_NAME + ")(?:\\:\\d{1,5})?)(\\/(?:(?:[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\;\\/\\?\\:\\@\\&\\=\\#\\~\\-\\.\\+\\!\\*\\'\\(\\)\\,\\_])|(?:\\%[a-fA-F0-9]{2}))*)?(?:\\b|$)");
 
     static {
         Pattern.compile("([0-9a-fA-F]{2}[-:]+){5}[0-9a-fA-F]{2}");
@@ -32,43 +32,44 @@ public class PiiElider {
         int i = 0;
         while (matcher.find(i)) {
             int start = matcher.start();
-            i = matcher.end();
-            String substring = sb.substring(start, i);
+            int end = matcher.end();
+            String substring = sb.substring(start, end);
             String[] strArr = APP_NAMESPACE;
             int length = strArr.length;
             int i2 = 0;
             while (true) {
+                z = true;
                 if (i2 >= length) {
-                    z = false;
+                    z2 = false;
                     break;
                 } else if (substring.startsWith(strArr[i2])) {
-                    z = true;
+                    z2 = true;
                     break;
                 } else {
                     i2++;
                 }
             }
-            if (!z) {
+            if (!z2) {
                 String[] strArr2 = SYSTEM_NAMESPACE;
                 int length2 = strArr2.length;
                 int i3 = 0;
                 while (true) {
                     if (i3 >= length2) {
-                        z2 = false;
+                        z = false;
                         break;
                     } else if (substring.startsWith(strArr2[i3])) {
-                        z2 = true;
                         break;
                     } else {
                         i3++;
                     }
                 }
-                if (!z2) {
-                    sb.replace(start, i, "HTTP://WEBADDRESS.ELIDED");
+                if (!z) {
+                    sb.replace(start, end, "HTTP://WEBADDRESS.ELIDED");
                     i = start + 24;
                     matcher = WEB_URL.matcher(sb);
                 }
             }
+            i = end;
         }
         return sb.toString();
     }

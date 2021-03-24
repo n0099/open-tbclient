@@ -3,7 +3,7 @@ package com.baidu.ala.atomdata;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
     public static final String PACKAGE_NAME_QQ = "com.tencent.mobileqq";
     public static final String PACKAGE_NAME_SINA_WEIBO = "com.sina.weibo";
@@ -21,13 +21,13 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
 
     public AlaSDKShareEmptyActivityConfig(Context context, ShareItem shareItem, int i, int i2) {
         super(context);
-        getIntent().putExtra("title", shareItem.title);
-        getIntent().putExtra("content", shareItem.content);
-        getIntent().putExtra(SHARE_ALA_SDK_IMAGEURI_KEY, shareItem.imageUrl);
-        getIntent().putExtra(SHARE_ALA_SDK_LINKURL_KEY, shareItem.linkUrl);
+        getIntent().putExtra("title", shareItem.r);
+        getIntent().putExtra("content", shareItem.s);
+        getIntent().putExtra(SHARE_ALA_SDK_IMAGEURI_KEY, shareItem.w);
+        getIntent().putExtra(SHARE_ALA_SDK_LINKURL_KEY, shareItem.t);
         getIntent().putExtra("channel", i);
         getIntent().putExtra("action", i2);
-        getIntent().putExtra(SHARE_ALA_SDK_LIVE_ID, shareItem.extData);
-        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.extLiveInfo);
+        getIntent().putExtra(SHARE_ALA_SDK_LIVE_ID, shareItem.q);
+        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.i0);
     }
 }

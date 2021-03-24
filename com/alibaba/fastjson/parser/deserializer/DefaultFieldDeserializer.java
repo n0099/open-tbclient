@@ -6,6 +6,7 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.ParseContext;
 import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.util.FieldInfo;
+import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,12 +14,21 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class DefaultFieldDeserializer extends FieldDeserializer {
-    protected ObjectDeserializer fieldValueDeserilizer;
+    public ObjectDeserializer fieldValueDeserilizer;
 
     public DefaultFieldDeserializer(ParserConfig parserConfig, Class<?> cls, FieldInfo fieldInfo) {
         super(cls, fieldInfo);
+    }
+
+    @Override // com.alibaba.fastjson.parser.deserializer.FieldDeserializer
+    public int getFastMatchToken() {
+        ObjectDeserializer objectDeserializer = this.fieldValueDeserilizer;
+        if (objectDeserializer != null) {
+            return objectDeserializer.getFastMatchToken();
+        }
+        return 2;
     }
 
     public ObjectDeserializer getFieldValueDeserilizer(ParserConfig parserConfig) {
@@ -27,11 +37,12 @@ public class DefaultFieldDeserializer extends FieldDeserializer {
             if (annotation != null && annotation.deserializeUsing() != Void.class) {
                 try {
                     this.fieldValueDeserilizer = (ObjectDeserializer) annotation.deserializeUsing().newInstance();
-                } catch (Exception e) {
-                    throw new JSONException("create deserializeUsing ObjectDeserializer error", e);
+                } catch (Exception e2) {
+                    throw new JSONException("create deserializeUsing ObjectDeserializer error", e2);
                 }
             } else {
-                this.fieldValueDeserilizer = parserConfig.getDeserializer(this.fieldInfo.fieldClass, this.fieldInfo.fieldType);
+                FieldInfo fieldInfo = this.fieldInfo;
+                this.fieldValueDeserilizer = parserConfig.getDeserializer(fieldInfo.fieldClass, fieldInfo.fieldType);
             }
         }
         return this.fieldValueDeserilizer;
@@ -40,6 +51,8 @@ public class DefaultFieldDeserializer extends FieldDeserializer {
     @Override // com.alibaba.fastjson.parser.deserializer.FieldDeserializer
     public void parseField(DefaultJSONParser defaultJSONParser, Object obj, Type type, Map<String, Object> map) {
         byte[] deserialze;
+        FieldInfo fieldInfo;
+        int i;
         if (this.fieldValueDeserilizer == null) {
             getFieldValueDeserilizer(defaultJSONParser.getConfig());
         }
@@ -55,14 +68,19 @@ public class DefaultFieldDeserializer extends FieldDeserializer {
                 objectDeserializer = defaultJSONParser.getConfig().getDeserializer(type2);
             }
         }
-        if ((objectDeserializer instanceof JavaBeanDeserializer) && this.fieldInfo.parserFeatures != 0) {
-            deserialze = ((JavaBeanDeserializer) objectDeserializer).deserialze(defaultJSONParser, type2, this.fieldInfo.name, this.fieldInfo.parserFeatures);
-        } else if (this.fieldInfo.format != null && (objectDeserializer instanceof ContextObjectDeserializer)) {
-            deserialze = ((ContextObjectDeserializer) objectDeserializer).deserialze(defaultJSONParser, type2, this.fieldInfo.name, this.fieldInfo.format, this.fieldInfo.parserFeatures);
+        Type type3 = type2;
+        if ((objectDeserializer instanceof JavaBeanDeserializer) && (i = (fieldInfo = this.fieldInfo).parserFeatures) != 0) {
+            deserialze = ((JavaBeanDeserializer) objectDeserializer).deserialze(defaultJSONParser, type3, fieldInfo.name, i);
         } else {
-            deserialze = objectDeserializer.deserialze(defaultJSONParser, type2, this.fieldInfo.name);
+            FieldInfo fieldInfo2 = this.fieldInfo;
+            String str = fieldInfo2.format;
+            if (str != null && (objectDeserializer instanceof ContextObjectDeserializer)) {
+                deserialze = ((ContextObjectDeserializer) objectDeserializer).deserialze(defaultJSONParser, type3, fieldInfo2.name, str, fieldInfo2.parserFeatures);
+            } else {
+                deserialze = objectDeserializer.deserialze(defaultJSONParser, type3, this.fieldInfo.name);
+            }
         }
-        if ((deserialze instanceof byte[]) && ("gzip".equals(this.fieldInfo.format) || "gzip,base64".equals(this.fieldInfo.format))) {
+        if ((deserialze instanceof byte[]) && (AsyncHttpClient.ENCODING_GZIP.equals(this.fieldInfo.format) || "gzip,base64".equals(this.fieldInfo.format))) {
             try {
                 GZIPInputStream gZIPInputStream = new GZIPInputStream(new ByteArrayInputStream((byte[]) deserialze));
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -76,8 +94,8 @@ public class DefaultFieldDeserializer extends FieldDeserializer {
                     }
                 }
                 deserialze = byteArrayOutputStream.toByteArray();
-            } catch (IOException e) {
-                throw new JSONException("unzip bytes error.", e);
+            } catch (IOException e2) {
+                throw new JSONException("unzip bytes error.", e2);
             }
         }
         if (defaultJSONParser.getResolveStatus() == 1) {
@@ -90,14 +108,6 @@ public class DefaultFieldDeserializer extends FieldDeserializer {
         } else {
             setValue(obj, deserialze);
         }
-    }
-
-    @Override // com.alibaba.fastjson.parser.deserializer.FieldDeserializer
-    public int getFastMatchToken() {
-        if (this.fieldValueDeserilizer != null) {
-            return this.fieldValueDeserilizer.getFastMatchToken();
-        }
-        return 2;
     }
 
     public void parseFieldUnwrapped(DefaultJSONParser defaultJSONParser, Object obj, Type type, Map<String, Object> map) {

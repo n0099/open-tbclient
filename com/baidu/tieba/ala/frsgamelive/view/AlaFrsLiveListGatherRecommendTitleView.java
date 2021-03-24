@@ -5,58 +5,57 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
-public class AlaFrsLiveListGatherRecommendTitleView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.b> {
-    private View gYf;
-    private TextView gYg;
-    private View gYh;
-    private int mSkinType;
-    private TbPageContext mTbPageContext;
+import d.b.i0.x.b;
+/* loaded from: classes4.dex */
+public class AlaFrsLiveListGatherRecommendTitleView extends b<d.b.i0.t.e.b.b> {
+    public View m;
+    public TextView n;
+    public View o;
+    public TbPageContext p;
+    public int q;
 
-    public AlaFrsLiveListGatherRecommendTitleView(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        this.mSkinType = 3;
-        View view = getView();
-        this.gYf = view.findViewById(R.id.frs_game_live_recommand_line1);
-        this.gYg = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
-        this.gYh = view.findViewById(R.id.frs_game_live_recommand_line2);
-        onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tieba.card.b
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.mSkinType != i) {
-            ap.setBackgroundResource(this.gYf, R.color.CAM_X0204);
-            ap.setViewTextColor(this.gYg, R.color.CAM_X0109);
-            ap.setBackgroundResource(this.gYh, R.color.CAM_X0204);
-            this.mSkinType = i;
+    /* loaded from: classes4.dex */
+    public static class AlaFrsLiveListGatherRecommendTitleViewHolder extends TypeAdapter.ViewHolder {
+        public AlaFrsLiveListGatherRecommendTitleViewHolder(AlaFrsLiveListGatherRecommendTitleView alaFrsLiveListGatherRecommendTitleView) {
+            super(alaFrsLiveListGatherRecommendTitleView.m());
         }
     }
 
-    @Override // com.baidu.tieba.card.b
-    public int getLayout() {
+    public AlaFrsLiveListGatherRecommendTitleView(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        this.q = 3;
+        View m = m();
+        this.m = m.findViewById(R.id.frs_game_live_recommand_line1);
+        this.n = (TextView) m.findViewById(R.id.frs_game_live_recommand3);
+        this.o = m.findViewById(R.id.frs_game_live_recommand_line2);
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // d.b.i0.x.b
+    public int h() {
         return R.layout.ala_frs_game_live_recommend_title_view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.b
-    public void a(com.baidu.tieba.ala.frsgamelive.b.b bVar) {
-        onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
+    @Override // d.b.i0.x.b
+    public void o(TbPageContext<?> tbPageContext, int i) {
+        if (this.q != i) {
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0204);
+            this.q = i;
+        }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
     }
 
-    /* loaded from: classes9.dex */
-    public static class AlaFrsLiveListGatherRecommendTitleViewHolder extends TypeAdapter.ViewHolder {
-        public AlaFrsLiveListGatherRecommendTitleView gYi;
-
-        public AlaFrsLiveListGatherRecommendTitleViewHolder(AlaFrsLiveListGatherRecommendTitleView alaFrsLiveListGatherRecommendTitleView) {
-            super(alaFrsLiveListGatherRecommendTitleView.getView());
-            this.gYi = alaFrsLiveListGatherRecommendTitleView;
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.i0.x.b
+    /* renamed from: u */
+    public void n(d.b.i0.t.e.b.b bVar) {
+        o(this.p, TbadkCoreApplication.getInst().getSkinType());
     }
 }

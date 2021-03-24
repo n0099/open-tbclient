@@ -8,32 +8,30 @@ import android.os.Looper;
 import android.webkit.ValueCallback;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes14.dex */
-final class CookieManagerImpl extends CookieManager {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private HandlerThread cookieThread;
-
-    static {
-        $assertionsDisabled = !CookieManagerImpl.class.desiredAssertionStatus();
-    }
+/* loaded from: classes5.dex */
+public final class CookieManagerImpl extends CookieManager {
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public HandlerThread cookieThread;
 
     @TargetApi(18)
     private void postCookieThreadTask(Runnable runnable) {
         try {
             if (this.cookieThread == null) {
-                this.cookieThread = new HandlerThread("T7@cookie_manager_impl");
-                this.cookieThread.start();
+                HandlerThread handlerThread = new HandlerThread("T7@cookie_manager_impl");
+                this.cookieThread = handlerThread;
+                handlerThread.start();
             }
             new Handler(this.cookieThread.getLooper()).post(runnable);
-        } catch (Throwable th) {
-            if (this.cookieThread != null) {
+        } catch (Throwable unused) {
+            HandlerThread handlerThread2 = this.cookieThread;
+            if (handlerThread2 != null) {
                 try {
                     if (Build.VERSION.SDK_INT >= 18) {
-                        this.cookieThread.quitSafely();
+                        handlerThread2.quitSafely();
                     } else {
-                        this.cookieThread.quit();
+                        handlerThread2.quit();
                     }
-                } catch (Throwable th2) {
+                } catch (Throwable unused2) {
                 }
             }
             this.cookieThread = null;
@@ -51,14 +49,10 @@ final class CookieManagerImpl extends CookieManager {
         if (Build.VERSION.SDK_INT < 21 || webView == null) {
             return false;
         }
-        if ($assertionsDisabled || (webView.getWebViewProvider() instanceof android.webkit.WebView)) {
-            android.webkit.CookieManager.getInstance().acceptThirdPartyCookies((android.webkit.WebView) webView.getWebViewProvider());
-            return false;
-        }
-        throw new AssertionError();
+        android.webkit.CookieManager.getInstance().acceptThirdPartyCookies((android.webkit.WebView) webView.getWebViewProvider());
+        return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.webkit.sdk.CookieManager
     public final boolean allowFileSchemeCookiesImpl() {
         if (Build.VERSION.SDK_INT >= 12) {
@@ -67,7 +61,6 @@ final class CookieManagerImpl extends CookieManager {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.webkit.sdk.CookieManager
     public final Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException("doesn't implement Cloneable");
@@ -122,8 +115,9 @@ final class CookieManagerImpl extends CookieManager {
                 @Override // java.lang.Runnable
                 public void run() {
                     CookieManagerImpl.this.removeAllCookie();
-                    if (valueCallback != null) {
-                        valueCallback.onReceiveValue(true);
+                    ValueCallback valueCallback2 = valueCallback;
+                    if (valueCallback2 != null) {
+                        valueCallback2.onReceiveValue(Boolean.TRUE);
                     }
                 }
             });
@@ -149,8 +143,9 @@ final class CookieManagerImpl extends CookieManager {
                 @Override // java.lang.Runnable
                 public void run() {
                     CookieManagerImpl.this.removeSessionCookie();
-                    if (valueCallback != null) {
-                        valueCallback.onReceiveValue(true);
+                    ValueCallback valueCallback2 = valueCallback;
+                    if (valueCallback2 != null) {
+                        valueCallback2.onReceiveValue(Boolean.TRUE);
                     }
                 }
             });
@@ -162,7 +157,6 @@ final class CookieManagerImpl extends CookieManager {
         android.webkit.CookieManager.getInstance().setAcceptCookie(z);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.webkit.sdk.CookieManager
     public final void setAcceptFileSchemeCookiesImpl(boolean z) {
         if (Build.VERSION.SDK_INT >= 12) {
@@ -174,9 +168,6 @@ final class CookieManagerImpl extends CookieManager {
     public final void setAcceptThirdPartyCookies(WebView webView, boolean z) {
         if (Build.VERSION.SDK_INT < 21 || webView == null) {
             return;
-        }
-        if (!$assertionsDisabled && !(webView.getWebViewProvider() instanceof android.webkit.WebView)) {
-            throw new AssertionError();
         }
         android.webkit.CookieManager.getInstance().setAcceptThirdPartyCookies((android.webkit.WebView) webView.getWebViewProvider(), z);
     }
@@ -195,8 +186,9 @@ final class CookieManagerImpl extends CookieManager {
                 @Override // java.lang.Runnable
                 public void run() {
                     CookieManagerImpl.this.setCookie(str, str2);
-                    if (valueCallback != null) {
-                        valueCallback.onReceiveValue(true);
+                    ValueCallback valueCallback2 = valueCallback;
+                    if (valueCallback2 != null) {
+                        valueCallback2.onReceiveValue(Boolean.TRUE);
                     }
                 }
             });

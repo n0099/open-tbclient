@@ -7,98 +7,130 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.f.e;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel;
-import com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a;
-import com.baidu.tieba.newfaceshop.nativemotionmanager.view.f;
+import d.b.b.e.m.e;
+import d.b.i0.x1.h.f.f;
 import java.util.List;
-/* loaded from: classes8.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements a.InterfaceC0821a<List<EmotionPackageData>> {
-    private CustomMessageListener iZz = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH_SINGLE_THREAD_EMOTION_PACKAGE) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment.1
+/* loaded from: classes4.dex */
+public class SingleThreadEmotionFragment extends BaseFragment implements d.b.i0.x1.h.e.a.a<List<EmotionPackageData>> {
+
+    /* renamed from: e  reason: collision with root package name */
+    public f f19278e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SingleThreadEmotionModel f19279f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public CustomMessageListener f19280g = new a(2921314);
+
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (SingleThreadEmotionFragment.this.lFe != null) {
-                SingleThreadEmotionFragment.this.lFe.loadData();
+            if (SingleThreadEmotionFragment.this.f19279f != null) {
+                SingleThreadEmotionFragment.this.f19279f.y();
             }
         }
-    };
-    private f lFd;
-    private SingleThreadEmotionModel lFe;
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.lFd = new f(getPageContext());
-        this.lFe = new SingleThreadEmotionModel();
-        this.lFe.a(this);
-        registerListener(this.iZz);
-        dji();
-        return this.lFd.getView();
     }
 
-    private void dji() {
-        if (this.lFe != null) {
-            this.lFe.loadData();
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ List f19282e;
+
+        public b(List list) {
+            this.f19282e = list;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (SingleThreadEmotionFragment.this.f19278e != null) {
+                SingleThreadEmotionFragment.this.f19278e.j(this.f19282e);
+                SingleThreadEmotionFragment.this.I0();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+        public c() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (SingleThreadEmotionFragment.this.f19278e != null) {
+                SingleThreadEmotionFragment.this.f19278e.i();
+            }
+        }
+    }
+
+    public final void H0() {
+        SingleThreadEmotionModel singleThreadEmotionModel = this.f19279f;
+        if (singleThreadEmotionModel != null) {
+            singleThreadEmotionModel.y();
+        }
+    }
+
+    public final void I0() {
+        f fVar = this.f19278e;
+        if (fVar != null) {
+            fVar.c();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a.InterfaceC0821a
-    /* renamed from: aj */
-    public void onSuccess(final List<EmotionPackageData> list) {
-        e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment.2
-            @Override // java.lang.Runnable
-            public void run() {
-                if (SingleThreadEmotionFragment.this.lFd != null) {
-                    SingleThreadEmotionFragment.this.lFd.fa(list);
-                    SingleThreadEmotionFragment.this.djk();
-                }
-            }
-        });
+    @Override // d.b.i0.x1.h.e.a.a
+    /* renamed from: J0 */
+    public void onSuccess(List<EmotionPackageData> list) {
+        e.a().post(new b(list));
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.iZz != null) {
-            MessageManager.getInstance().unRegisterListener(this.iZz);
-        }
-        if (this.lFe != null) {
-            this.lFe.djs();
-        }
-    }
-
-    @Override // com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a.InterfaceC0821a
-    public void onFail() {
-        e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment.3
-            @Override // java.lang.Runnable
-            public void run() {
-                if (SingleThreadEmotionFragment.this.lFd != null) {
-                    SingleThreadEmotionFragment.this.lFd.showNoDataView();
-                }
-            }
-        });
+    @Override // d.b.i0.x1.h.e.a.a
+    public void O() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.lFd != null) {
-            this.lFd.onChangeSkinType(i);
+        f fVar = this.f19278e;
+        if (fVar != null) {
+            fVar.e(i);
         }
     }
 
-    @Override // com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a.InterfaceC0821a
-    public void djj() {
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.f19278e = new f(getPageContext());
+        SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
+        this.f19279f = singleThreadEmotionModel;
+        singleThreadEmotionModel.B(this);
+        registerListener(this.f19280g);
+        H0();
+        return this.f19278e.a();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void djk() {
-        if (this.lFd != null) {
-            this.lFd.hideLoadingView();
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.f19280g != null) {
+            MessageManager.getInstance().unRegisterListener(this.f19280g);
         }
+        SingleThreadEmotionModel singleThreadEmotionModel = this.f19279f;
+        if (singleThreadEmotionModel != null) {
+            singleThreadEmotionModel.z();
+        }
+    }
+
+    @Override // d.b.i0.x1.h.e.a.a
+    public void onFail() {
+        e.a().post(new c());
     }
 }

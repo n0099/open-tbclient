@@ -2,22 +2,25 @@ package com.baidu.tieba.barselect;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-/* loaded from: classes7.dex */
+import d.b.i0.v.b.f;
+/* loaded from: classes4.dex */
 public class VoteViewHolder extends RecyclerView.ViewHolder {
-    private VoteCandidateCard ise;
+
+    /* renamed from: a  reason: collision with root package name */
+    public VoteCandidateCard f15136a;
 
     public VoteViewHolder(View view) {
         super(view);
         if (view instanceof VoteCandidateCard) {
-            this.ise = (VoteCandidateCard) view;
+            this.f15136a = (VoteCandidateCard) view;
         }
     }
 
-    public void setData(int i, f fVar) {
-        if (this.ise != null) {
-            this.ise.setData(i, fVar);
+    public void a(int i, f fVar) {
+        VoteCandidateCard voteCandidateCard = this.f15136a;
+        if (voteCandidateCard != null) {
+            voteCandidateCard.setData(i, fVar);
         }
     }
 }

@@ -1,24 +1,64 @@
 package com.facebook.animated.gif;
 
-import com.facebook.common.internal.d;
-import com.facebook.common.internal.g;
+import com.facebook.common.internal.DoNotStrip;
+import com.facebook.common.internal.Preconditions;
 import com.facebook.common.soloader.SoLoaderShim;
-import com.facebook.imagepipeline.animated.a.c;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
-import com.facebook.imagepipeline.animated.base.b;
+import com.facebook.imagepipeline.animated.base.AnimatedImage;
+import com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder;
 import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
+@DoNotStrip
 @ThreadSafe
-@d
-/* loaded from: classes4.dex */
-public class GifImage implements c, b {
-    private static volatile boolean pAd;
-    @d
-    private long mNativeContext;
+/* loaded from: classes6.dex */
+public class GifImage implements AnimatedImage, AnimatedImageDecoder {
+    public static final int LOOP_COUNT_FOREVER = 0;
+    public static final int LOOP_COUNT_MISSING = -1;
+    public static volatile boolean sInitialized;
+    @DoNotStrip
+    public long mNativeContext;
 
-    private static native GifImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
+    @DoNotStrip
+    public GifImage() {
+    }
 
-    private static native GifImage nativeCreateFromNativeMemory(long j, int i);
+    public static GifImage create(byte[] bArr) {
+        ensure();
+        Preconditions.checkNotNull(bArr);
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr.length);
+        allocateDirect.put(bArr);
+        allocateDirect.rewind();
+        return nativeCreateFromDirectByteBuffer(allocateDirect);
+    }
+
+    public static synchronized void ensure() {
+        synchronized (GifImage.class) {
+            if (!sInitialized) {
+                sInitialized = true;
+                SoLoaderShim.loadLibrary("gifimage");
+            }
+        }
+    }
+
+    public static AnimatedDrawableFrameInfo.DisposalMethod fromGifDisposalMethod(int i) {
+        if (i == 0) {
+            return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
+        }
+        if (i == 1) {
+            return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
+        }
+        if (i == 2) {
+            return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND;
+        }
+        if (i == 3) {
+            return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS;
+        }
+        return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
+    }
+
+    public static native GifImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
+
+    public static native GifImage nativeCreateFromNativeMemory(long j, int i);
 
     private native void nativeDispose();
 
@@ -40,112 +80,91 @@ public class GifImage implements c, b {
 
     private native int nativeGetWidth();
 
-    private static synchronized void esa() {
-        synchronized (GifImage.class) {
-            if (!pAd) {
-                pAd = true;
-                SoLoaderShim.loadLibrary("gifimage");
-            }
-        }
+    @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
+    public AnimatedImage decode(long j, int i) {
+        return create(j, i);
     }
 
-    public static GifImage L(long j, int i) {
-        esa();
-        g.checkArgument(j != 0);
-        return nativeCreateFromNativeMemory(j, i);
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public void dispose() {
+        nativeDispose();
     }
 
-    @Override // com.facebook.imagepipeline.animated.a.c
-    public b M(long j, int i) {
-        return L(j, i);
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public boolean doesRenderSupportScaling() {
+        return false;
     }
 
-    @d
-    public GifImage() {
-    }
-
-    @d
-    GifImage(long j) {
-        this.mNativeContext = j;
-    }
-
-    protected void finalize() {
+    public void finalize() {
         nativeFinalize();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
-    public int getWidth() {
-        return nativeGetWidth();
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getDuration() {
+        return nativeGetDuration();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
-    public int getHeight() {
-        return nativeGetHeight();
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.b
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public int getFrameCount() {
         return nativeGetFrameCount();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public int[] getFrameDurations() {
         return nativeGetFrameDurations();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
-    public int getLoopCount() {
-        int nativeGetLoopCount = nativeGetLoopCount();
-        switch (nativeGetLoopCount) {
-            case -1:
-                return 1;
-            case 0:
-                return 0;
-            default:
-                return nativeGetLoopCount + 1;
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public AnimatedDrawableFrameInfo getFrameInfo(int i) {
+        GifFrame frame = getFrame(i);
+        try {
+            return new AnimatedDrawableFrameInfo(i, frame.getXOffset(), frame.getYOffset(), frame.getWidth(), frame.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, fromGifDisposalMethod(frame.getDisposalMode()));
+        } finally {
+            frame.dispose();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: OS */
-    public GifFrame OV(int i) {
-        return nativeGetFrame(i);
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getHeight() {
+        return nativeGetHeight();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean esb() {
-        return false;
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getLoopCount() {
+        int nativeGetLoopCount = nativeGetLoopCount();
+        if (nativeGetLoopCount != -1) {
+            if (nativeGetLoopCount != 0) {
+                return nativeGetLoopCount + 1;
+            }
+            return 0;
+        }
+        return 1;
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public int getSizeInBytes() {
         return nativeGetSizeInBytes();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo OT(int i) {
-        GifFrame OV = OV(i);
-        try {
-            return new AnimatedDrawableFrameInfo(i, OV.getXOffset(), OV.getYOffset(), OV.getWidth(), OV.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, OU(OV.erZ()));
-        } finally {
-            OV.dispose();
-        }
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getWidth() {
+        return nativeGetWidth();
     }
 
-    private static AnimatedDrawableFrameInfo.DisposalMethod OU(int i) {
-        if (i == 0) {
-            return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
-        }
-        if (i == 1) {
-            return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
-        }
-        if (i == 2) {
-            return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND;
-        }
-        if (i == 3) {
-            return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS;
-        }
-        return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
+    @DoNotStrip
+    public GifImage(long j) {
+        this.mNativeContext = j;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public GifFrame getFrame(int i) {
+        return nativeGetFrame(i);
+    }
+
+    public static GifImage create(long j, int i) {
+        ensure();
+        Preconditions.checkArgument(j != 0);
+        return nativeCreateFromNativeMemory(j, i);
     }
 }

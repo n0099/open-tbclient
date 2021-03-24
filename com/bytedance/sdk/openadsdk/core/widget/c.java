@@ -8,26 +8,39 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.live.tbadk.pay.PayHelper;
-import com.bytedance.sdk.openadsdk.utils.ac;
+import com.bytedance.sdk.openadsdk.utils.ad;
 /* loaded from: classes6.dex */
 public class c extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f4606a;
-    private ImageView b;
-    private TextView c;
-    private TextView d;
-    private Button e;
-    private Button f;
-    private View g;
-    private Context h;
-    private String i;
-    private String j;
-    private String k;
-    private String l;
-    private int m;
-    private boolean n;
+    public a f28888a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f28889b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f28890c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f28891d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Button f28892e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Button f28893f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f28894g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Context f28895h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public int m;
+    public boolean n;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -37,40 +50,28 @@ public class c extends Dialog {
     }
 
     public c(Context context) {
-        super(context, ac.g(context, "tt_custom_dialog"));
+        super(context, ad.g(context, "tt_custom_dialog"));
         this.m = -1;
         this.n = false;
-        this.h = context;
-    }
-
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(ac.f(this.h, "tt_custom_dailog_layout"));
-        setCanceledOnTouchOutside(false);
-        c();
-        b();
-        a();
-    }
-
-    @Override // android.app.Dialog
-    public void onBackPressed() {
+        this.f28895h = context;
     }
 
     private void a() {
-        this.f.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.c.1
+        this.f28893f.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.f4606a != null) {
-                    c.this.f4606a.a();
+                a aVar = c.this.f28888a;
+                if (aVar != null) {
+                    aVar.a();
                 }
             }
         });
-        this.e.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.c.2
+        this.f28892e.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.f4606a != null) {
-                    c.this.f4606a.b();
+                a aVar = c.this.f28888a;
+                if (aVar != null) {
+                    aVar.b();
                 }
             }
         });
@@ -78,37 +79,61 @@ public class c extends Dialog {
 
     private void b() {
         if (!TextUtils.isEmpty(this.j)) {
-            this.c.setText(this.j);
-            this.c.setVisibility(0);
+            this.f28890c.setText(this.j);
+            this.f28890c.setVisibility(0);
         } else {
-            this.c.setVisibility(8);
+            this.f28890c.setVisibility(8);
         }
         if (!TextUtils.isEmpty(this.i)) {
-            this.d.setText(this.i);
+            this.f28891d.setText(this.i);
         }
         if (!TextUtils.isEmpty(this.k)) {
-            this.f.setText(this.k);
+            this.f28893f.setText(this.k);
         } else {
-            this.f.setText("确定");
+            this.f28893f.setText("确定");
         }
         if (!TextUtils.isEmpty(this.l)) {
-            this.e.setText(this.l);
+            this.f28892e.setText(this.l);
         } else {
-            this.e.setText(PayHelper.STATUS_CANCEL_DESC);
+            this.f28892e.setText("取消");
         }
-        if (this.m != -1) {
-            this.b.setImageResource(this.m);
-            this.b.setVisibility(0);
+        int i = this.m;
+        if (i != -1) {
+            this.f28889b.setImageResource(i);
+            this.f28889b.setVisibility(0);
         } else {
-            this.b.setVisibility(8);
+            this.f28889b.setVisibility(8);
         }
         if (this.n) {
-            this.g.setVisibility(8);
-            this.e.setVisibility(8);
+            this.f28894g.setVisibility(8);
+            this.f28892e.setVisibility(8);
             return;
         }
-        this.e.setVisibility(0);
-        this.g.setVisibility(0);
+        this.f28892e.setVisibility(0);
+        this.f28894g.setVisibility(0);
+    }
+
+    private void c() {
+        this.f28892e = (Button) findViewById(ad.e(this.f28895h, "tt_negtive"));
+        this.f28893f = (Button) findViewById(ad.e(this.f28895h, "tt_positive"));
+        this.f28890c = (TextView) findViewById(ad.e(this.f28895h, "tt_title"));
+        this.f28891d = (TextView) findViewById(ad.e(this.f28895h, "tt_message"));
+        this.f28889b = (ImageView) findViewById(ad.e(this.f28895h, "tt_image"));
+        this.f28894g = findViewById(ad.e(this.f28895h, "tt_column_line"));
+    }
+
+    @Override // android.app.Dialog
+    public void onBackPressed() {
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(ad.f(this.f28895h, "tt_custom_dailog_layout"));
+        setCanceledOnTouchOutside(false);
+        c();
+        b();
+        a();
     }
 
     @Override // android.app.Dialog
@@ -117,17 +142,8 @@ public class c extends Dialog {
         b();
     }
 
-    private void c() {
-        this.e = (Button) findViewById(ac.e(this.h, "tt_negtive"));
-        this.f = (Button) findViewById(ac.e(this.h, "tt_positive"));
-        this.c = (TextView) findViewById(ac.e(this.h, "tt_title"));
-        this.d = (TextView) findViewById(ac.e(this.h, "tt_message"));
-        this.b = (ImageView) findViewById(ac.e(this.h, "tt_image"));
-        this.g = findViewById(ac.e(this.h, "tt_column_line"));
-    }
-
     public c a(a aVar) {
-        this.f4606a = aVar;
+        this.f28888a = aVar;
         return this;
     }
 
@@ -136,13 +152,13 @@ public class c extends Dialog {
         return this;
     }
 
-    public c b(String str) {
-        this.k = str;
+    public c c(String str) {
+        this.l = str;
         return this;
     }
 
-    public c c(String str) {
-        this.l = str;
+    public c b(String str) {
+        this.k = str;
         return this;
     }
 }

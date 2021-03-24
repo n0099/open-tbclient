@@ -3,20 +3,20 @@ package com.kwad.sdk.glide.load.resource;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.glide.g.j;
 import com.kwad.sdk.glide.load.engine.s;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a<T> implements s<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final T f6775a;
+    public final T f35628a;
 
     public a(@NonNull T t) {
-        this.f6775a = (T) j.a(t);
+        this.f35628a = (T) j.a(t);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     @NonNull
     public Class<T> a() {
-        return (Class<T>) this.f6775a.getClass();
+        return (Class<T>) this.f35628a.getClass();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
@@ -31,6 +31,6 @@ public class a<T> implements s<T> {
     @Override // com.kwad.sdk.glide.load.engine.s
     @NonNull
     public final T e() {
-        return this.f6775a;
+        return this.f35628a;
     }
 }

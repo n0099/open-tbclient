@@ -1,53 +1,59 @@
 package com.baidu.audiorecorder.lib.voice;
-/* loaded from: classes7.dex */
+
+import d.b.f.a.a.d;
+/* loaded from: classes2.dex */
 public class BdSoundGate {
-    private static BdSoundGate adX;
-    private int adW = -1;
-    private int blockSize;
 
-    private native void close(int i);
+    /* renamed from: c  reason: collision with root package name */
+    public static BdSoundGate f4231c;
 
-    private native int getChanger(int i, float f, float f2, float f3);
+    /* renamed from: a  reason: collision with root package name */
+    public int f4232a = -1;
 
-    private native int through(int i, short[] sArr, short[] sArr2);
-
-    private native int throughMono(int i, short[] sArr, short[] sArr2);
+    /* renamed from: b  reason: collision with root package name */
+    public int f4233b;
 
     static {
         System.loadLibrary("sound_gate");
     }
 
-    public static BdSoundGate rN() {
-        if (adX == null) {
-            adX = new BdSoundGate();
+    public static BdSoundGate b() {
+        if (f4231c == null) {
+            f4231c = new BdSoundGate();
         }
-        return adX;
+        return f4231c;
     }
 
-    private BdSoundGate() {
+    private native void close(int i);
+
+    private native int getChanger(int i, float f2, float f3, float f4);
+
+    private native int through(int i, short[] sArr, short[] sArr2);
+
+    private native int throughMono(int i, short[] sArr, short[] sArr2);
+
+    public int a() {
+        return this.f4233b;
     }
 
-    public void init(int i, int i2) {
-        rN().a(i, 0.0f, d.bm(i2), 0.0f);
+    public void c(int i, float f2, float f3, float f4) {
+        this.f4233b = i;
+        this.f4232a = getChanger(i, f2, f3, f4);
     }
 
-    public void a(int i, float f, float f2, float f3) {
-        this.blockSize = i;
-        this.adW = getChanger(i, f, f2, f3);
+    public void d(int i, int i2) {
+        b().c(i, 0.0f, d.a(i2), 0.0f);
     }
 
-    public int getBlockSize() {
-        return this.blockSize;
-    }
-
-    public void release() {
-        if (this.adW > 0) {
-            close(this.adW);
-            this.adW = -1;
+    public void e() {
+        int i = this.f4232a;
+        if (i > 0) {
+            close(i);
+            this.f4232a = -1;
         }
     }
 
-    public void a(short[] sArr, short[] sArr2) {
-        throughMono(this.adW, sArr, sArr2);
+    public void f(short[] sArr, short[] sArr2) {
+        throughMono(this.f4232a, sArr, sArr2);
     }
 }

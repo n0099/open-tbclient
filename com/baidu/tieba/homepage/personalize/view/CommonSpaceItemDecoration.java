@@ -4,16 +4,22 @@ import android.graphics.Rect;
 import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
-    private int Zx;
-    private int Zy;
-    private int mEnd;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f17284a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f17285b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f17286c;
 
     public CommonSpaceItemDecoration(int i, int i2, int i3) {
-        this.Zx = i;
-        this.Zy = i2;
-        this.mEnd = i3;
+        this.f17284a = i;
+        this.f17285b = i2;
+        this.f17286c = i3;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -22,23 +28,23 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.Zx;
+                rect.top = this.f17284a;
             } else {
-                rect.top = this.Zy;
+                rect.top = this.f17285b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.bottom = this.mEnd;
+                rect.bottom = this.f17286c;
                 return;
             }
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.Zx;
+            rect.left = this.f17284a;
         } else {
-            rect.left = this.Zy;
+            rect.left = this.f17285b;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-            rect.right = this.mEnd;
+            rect.right = this.f17286c;
         }
     }
 }

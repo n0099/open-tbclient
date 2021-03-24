@@ -3,12 +3,12 @@ package com.baidu.webkit.sdk.system;
 import android.annotation.TargetApi;
 import android.os.Build;
 import com.baidu.webkit.sdk.ServiceWorkerWebSettings;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettings {
     @TargetApi(24)
-    android.webkit.ServiceWorkerWebSettings mSettings;
+    public android.webkit.ServiceWorkerWebSettings mSettings;
 
-    private ServiceWorkerWebSettingsImpl(android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings) {
+    public ServiceWorkerWebSettingsImpl(android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings) {
         if (Build.VERSION.SDK_INT >= 24) {
             this.mSettings = serviceWorkerWebSettings;
         }
@@ -23,65 +23,73 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettings {
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerWebSettings
     public boolean getAllowContentAccess() {
-        if (Build.VERSION.SDK_INT < 24 || this.mSettings == null) {
+        android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings;
+        if (Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
             return false;
         }
-        return this.mSettings.getAllowContentAccess();
+        return serviceWorkerWebSettings.getAllowContentAccess();
     }
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerWebSettings
     public boolean getAllowFileAccess() {
-        if (Build.VERSION.SDK_INT < 24 || this.mSettings == null) {
+        android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings;
+        if (Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
             return false;
         }
-        return this.mSettings.getAllowFileAccess();
+        return serviceWorkerWebSettings.getAllowFileAccess();
     }
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerWebSettings
     public boolean getBlockNetworkLoads() {
-        if (Build.VERSION.SDK_INT < 24 || this.mSettings == null) {
+        android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings;
+        if (Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
             return false;
         }
-        return this.mSettings.getBlockNetworkLoads();
+        return serviceWorkerWebSettings.getBlockNetworkLoads();
     }
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerWebSettings
     public int getCacheMode() {
-        if (Build.VERSION.SDK_INT < 24 || this.mSettings == null) {
+        android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings;
+        if (Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
             return -1;
         }
-        return this.mSettings.getCacheMode();
+        return serviceWorkerWebSettings.getCacheMode();
     }
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerWebSettings
     public void setAllowContentAccess(boolean z) {
-        if (Build.VERSION.SDK_INT < 24 || this.mSettings == null) {
+        android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings;
+        if (Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
             return;
         }
-        this.mSettings.setAllowContentAccess(z);
+        serviceWorkerWebSettings.setAllowContentAccess(z);
     }
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerWebSettings
     public void setAllowFileAccess(boolean z) {
-        if (Build.VERSION.SDK_INT < 24 || this.mSettings == null) {
+        android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings;
+        if (Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
             return;
         }
-        this.mSettings.setAllowFileAccess(z);
+        serviceWorkerWebSettings.setAllowFileAccess(z);
     }
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerWebSettings
     public void setBlockNetworkLoads(boolean z) {
-        if (Build.VERSION.SDK_INT < 24 || this.mSettings == null) {
+        android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings;
+        if (Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
             return;
         }
-        this.mSettings.setBlockNetworkLoads(z);
+        serviceWorkerWebSettings.setBlockNetworkLoads(z);
     }
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerWebSettings
     public void setCacheMode(int i) {
-        if (Build.VERSION.SDK_INT < 24 || this.mSettings == null) {
+        android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings;
+        if (Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
             return;
         }
-        this.mSettings.setCacheMode(i);
+        serviceWorkerWebSettings.setCacheMode(i);
     }
 }

@@ -7,39 +7,50 @@ import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class k implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Bitmap.Config f6747a = Bitmap.Config.ARGB_8888;
-    private final l b;
-    private final Set<Bitmap.Config> c;
-    private final long d;
-    private final a e;
-    private long f;
-    private long g;
-    private int h;
-    private int i;
-    private int j;
-    private int k;
+    public static final Bitmap.Config f35493a = Bitmap.Config.ARGB_8888;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final l f35494b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Set<Bitmap.Config> f35495c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final long f35496d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final a f35497e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f35498f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f35499g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f35500h;
+    public int i;
+    public int j;
+    public int k;
+
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Bitmap bitmap);
 
         void b(Bitmap bitmap);
     }
 
-    /* loaded from: classes3.dex */
-    private static final class b implements a {
-        b() {
-        }
-
+    /* loaded from: classes6.dex */
+    public static final class b implements a {
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.k.a
         public void a(Bitmap bitmap) {
         }
@@ -53,41 +64,30 @@ public class k implements e {
         this(j, f(), g());
     }
 
-    k(long j, l lVar, Set<Bitmap.Config> set) {
-        this.d = j;
-        this.f = j;
-        this.b = lVar;
-        this.c = set;
-        this.e = new b();
+    public k(long j, l lVar, Set<Bitmap.Config> set) {
+        this.f35496d = j;
+        this.f35498f = j;
+        this.f35494b = lVar;
+        this.f35495c = set;
+        this.f35497e = new b();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0025, code lost:
-        r7.g = 0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:8:0x0017, code lost:
-        if (android.util.Log.isLoggable("LruBitmapPool", 5) == false) goto L17;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x0019, code lost:
-        android.util.Log.w("LruBitmapPool", "Size mismatch, resetting");
-        e();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private synchronized void a(long j) {
-        while (true) {
-            if (this.g <= j) {
-                break;
-            }
-            Bitmap a2 = this.b.a();
+        while (this.f35499g > j) {
+            Bitmap a2 = this.f35494b.a();
             if (a2 == null) {
-                break;
+                if (Log.isLoggable(LruBitmapPool.TAG, 5)) {
+                    Log.w(LruBitmapPool.TAG, "Size mismatch, resetting");
+                    e();
+                }
+                this.f35499g = 0L;
+                return;
             }
-            this.e.b(a2);
-            this.g -= this.b.c(a2);
+            this.f35497e.b(a2);
+            this.f35499g -= this.f35494b.c(a2);
             this.k++;
-            if (Log.isLoggable("LruBitmapPool", 3)) {
-                Log.d("LruBitmapPool", "Evicting bitmap=" + this.b.b(a2));
+            if (Log.isLoggable(LruBitmapPool.TAG, 3)) {
+                Log.d(LruBitmapPool.TAG, "Evicting bitmap=" + this.f35494b.b(a2));
             }
             d();
             a2.recycle();
@@ -95,31 +95,31 @@ public class k implements e {
     }
 
     @TargetApi(26)
-    private static void a(Bitmap.Config config) {
+    public static void a(Bitmap.Config config) {
         if (Build.VERSION.SDK_INT >= 26 && config == Bitmap.Config.HARDWARE) {
             throw new IllegalArgumentException("Cannot create a mutable Bitmap with config: " + config + ". Consider setting Downsampler#ALLOW_HARDWARE_CONFIG to false in your RequestOptions and/or in GlideBuilder.setDefaultRequestOptions");
         }
     }
 
-    private static void b(Bitmap bitmap) {
+    public static void b(Bitmap bitmap) {
         bitmap.setHasAlpha(true);
         c(bitmap);
     }
 
     @NonNull
-    private static Bitmap c(int i, int i2, @Nullable Bitmap.Config config) {
+    public static Bitmap c(int i, int i2, @Nullable Bitmap.Config config) {
         if (config == null) {
-            config = f6747a;
+            config = f35493a;
         }
         return Bitmap.createBitmap(i, i2, config);
     }
 
     private void c() {
-        a(this.f);
+        a(this.f35498f);
     }
 
     @TargetApi(19)
-    private static void c(Bitmap bitmap) {
+    public static void c(Bitmap bitmap) {
         if (Build.VERSION.SDK_INT >= 19) {
             bitmap.setPremultiplied(true);
         }
@@ -129,41 +129,41 @@ public class k implements e {
     private synchronized Bitmap d(int i, int i2, @Nullable Bitmap.Config config) {
         Bitmap a2;
         a(config);
-        a2 = this.b.a(i, i2, config != null ? config : f6747a);
+        a2 = this.f35494b.a(i, i2, config != null ? config : f35493a);
         if (a2 == null) {
-            if (Log.isLoggable("LruBitmapPool", 3)) {
-                Log.d("LruBitmapPool", "Missing bitmap=" + this.b.b(i, i2, config));
+            if (Log.isLoggable(LruBitmapPool.TAG, 3)) {
+                Log.d(LruBitmapPool.TAG, "Missing bitmap=" + this.f35494b.b(i, i2, config));
             }
             this.i++;
         } else {
-            this.h++;
-            this.g -= this.b.c(a2);
-            this.e.b(a2);
+            this.f35500h++;
+            this.f35499g -= this.f35494b.c(a2);
+            this.f35497e.b(a2);
             b(a2);
         }
-        if (Log.isLoggable("LruBitmapPool", 2)) {
-            Log.v("LruBitmapPool", "Get bitmap=" + this.b.b(i, i2, config));
+        if (Log.isLoggable(LruBitmapPool.TAG, 2)) {
+            Log.v(LruBitmapPool.TAG, "Get bitmap=" + this.f35494b.b(i, i2, config));
         }
         d();
         return a2;
     }
 
     private void d() {
-        if (Log.isLoggable("LruBitmapPool", 2)) {
+        if (Log.isLoggable(LruBitmapPool.TAG, 2)) {
             e();
         }
     }
 
     private void e() {
-        Log.v("LruBitmapPool", "Hits=" + this.h + ", misses=" + this.i + ", puts=" + this.j + ", evictions=" + this.k + ", currentSize=" + this.g + ", maxSize=" + this.f + "\nStrategy=" + this.b);
+        Log.v(LruBitmapPool.TAG, "Hits=" + this.f35500h + ", misses=" + this.i + ", puts=" + this.j + ", evictions=" + this.k + ", currentSize=" + this.f35499g + ", maxSize=" + this.f35498f + "\nStrategy=" + this.f35494b);
     }
 
-    private static l f() {
+    public static l f() {
         return Build.VERSION.SDK_INT >= 19 ? new n() : new c();
     }
 
     @TargetApi(26)
-    private static Set<Bitmap.Config> g() {
+    public static Set<Bitmap.Config> g() {
         HashSet hashSet = new HashSet(Arrays.asList(Bitmap.Config.values()));
         if (Build.VERSION.SDK_INT >= 19) {
             hashSet.add(null);
@@ -177,18 +177,18 @@ public class k implements e {
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.e
     @NonNull
     public Bitmap a(int i, int i2, Bitmap.Config config) {
-        Bitmap d = d(i, i2, config);
-        if (d != null) {
-            d.eraseColor(0);
-            return d;
+        Bitmap d2 = d(i, i2, config);
+        if (d2 != null) {
+            d2.eraseColor(0);
+            return d2;
         }
         return c(i, i2, config);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.e
     public void a() {
-        if (Log.isLoggable("LruBitmapPool", 3)) {
-            Log.d("LruBitmapPool", "clearMemory");
+        if (Log.isLoggable(LruBitmapPool.TAG, 3)) {
+            Log.d(LruBitmapPool.TAG, "clearMemory");
         }
         a(0L);
     }
@@ -196,8 +196,8 @@ public class k implements e {
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.e
     @SuppressLint({"InlinedApi"})
     public void a(int i) {
-        if (Log.isLoggable("LruBitmapPool", 3)) {
-            Log.d("LruBitmapPool", "trimMemory, level=" + i);
+        if (Log.isLoggable(LruBitmapPool.TAG, 3)) {
+            Log.d(LruBitmapPool.TAG, "trimMemory, level=" + i);
         }
         if (i >= 40) {
             a();
@@ -208,39 +208,43 @@ public class k implements e {
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.e
     public synchronized void a(Bitmap bitmap) {
-        if (bitmap == null) {
-            throw new NullPointerException("Bitmap must not be null");
-        }
-        if (bitmap.isRecycled()) {
-            throw new IllegalStateException("Cannot pool recycled bitmap");
-        }
-        if (bitmap.isMutable() && this.b.c(bitmap) <= this.f && this.c.contains(bitmap.getConfig())) {
-            int c = this.b.c(bitmap);
-            this.b.a(bitmap);
-            this.e.a(bitmap);
-            this.j++;
-            this.g = c + this.g;
-            if (Log.isLoggable("LruBitmapPool", 2)) {
-                Log.v("LruBitmapPool", "Put bitmap in pool=" + this.b.b(bitmap));
+        try {
+            if (bitmap == null) {
+                throw new NullPointerException("Bitmap must not be null");
             }
-            d();
-            c();
-        } else {
-            if (Log.isLoggable("LruBitmapPool", 2)) {
-                Log.v("LruBitmapPool", "Reject bitmap from pool, bitmap: " + this.b.b(bitmap) + ", is mutable: " + bitmap.isMutable() + ", is allowed config: " + this.c.contains(bitmap.getConfig()));
+            if (bitmap.isRecycled()) {
+                throw new IllegalStateException("Cannot pool recycled bitmap");
+            }
+            if (bitmap.isMutable() && this.f35494b.c(bitmap) <= this.f35498f && this.f35495c.contains(bitmap.getConfig())) {
+                int c2 = this.f35494b.c(bitmap);
+                this.f35494b.a(bitmap);
+                this.f35497e.a(bitmap);
+                this.j++;
+                this.f35499g += c2;
+                if (Log.isLoggable(LruBitmapPool.TAG, 2)) {
+                    Log.v(LruBitmapPool.TAG, "Put bitmap in pool=" + this.f35494b.b(bitmap));
+                }
+                d();
+                c();
+                return;
+            }
+            if (Log.isLoggable(LruBitmapPool.TAG, 2)) {
+                Log.v(LruBitmapPool.TAG, "Reject bitmap from pool, bitmap: " + this.f35494b.b(bitmap) + ", is mutable: " + bitmap.isMutable() + ", is allowed config: " + this.f35495c.contains(bitmap.getConfig()));
             }
             bitmap.recycle();
+        } catch (Throwable th) {
+            throw th;
         }
     }
 
     public long b() {
-        return this.f;
+        return this.f35498f;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.e
     @NonNull
     public Bitmap b(int i, int i2, Bitmap.Config config) {
-        Bitmap d = d(i, i2, config);
-        return d == null ? c(i, i2, config) : d;
+        Bitmap d2 = d(i, i2, config);
+        return d2 == null ? c(i, i2, config) : d2;
     }
 }

@@ -9,51 +9,61 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4385a;
-    private int b;
-    private String c;
-    private List<l> d = new ArrayList();
-    private String e;
-    private long f;
+    public String f28099a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f28100b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f28101c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<l> f28102d = new ArrayList();
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f28103e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f28104f;
 
     public String a() {
-        return this.f4385a;
-    }
-
-    public void a(String str) {
-        this.f4385a = str;
+        return this.f28099a;
     }
 
     public int b() {
-        return this.b;
-    }
-
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public void b(String str) {
-        this.c = str;
+        return this.f28100b;
     }
 
     public List<l> c() {
-        return this.d;
-    }
-
-    public void a(l lVar) {
-        this.d.add(lVar);
+        return this.f28102d;
     }
 
     public String d() {
-        return this.e;
+        return this.f28103e;
+    }
+
+    public void a(String str) {
+        this.f28099a = str;
+    }
+
+    public void b(String str) {
+        this.f28101c = str;
     }
 
     public void c(String str) {
-        this.e = str;
+        this.f28103e = str;
+    }
+
+    public void a(int i) {
+        this.f28100b = i;
+    }
+
+    public void a(l lVar) {
+        this.f28102d.add(lVar);
     }
 
     public void a(long j) {
-        this.f = j;
+        this.f28104f = j;
     }
 
     public static Map<String, l> a(a aVar) {
@@ -62,8 +72,8 @@ public class a {
         }
         HashMap hashMap = new HashMap();
         for (l lVar : aVar.c()) {
-            if (!TextUtils.isEmpty(lVar.Y())) {
-                hashMap.put(lVar.Y(), lVar);
+            if (!TextUtils.isEmpty(lVar.ae())) {
+                hashMap.put(lVar.ae(), lVar);
             }
         }
         if (hashMap.size() != 0) {

@@ -5,78 +5,27 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.fsg.base.ApollonConstants;
-import com.baidu.webkit.internal.ETAG;
 import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class CheckUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1547a = "CheckUtils";
-    private static final int b = 3;
-    private static final int c = 12;
-    private static final int d = 4;
-    private static long e;
+    public static final String f5340a = "CheckUtils";
 
-    private CheckUtils() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f5341b = 3;
 
-    public static final String stripUrlParams(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        int indexOf = str.indexOf("?");
-        if (indexOf > 0) {
-            return str.substring(0, indexOf);
-        }
-        return str;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public static final int f5342c = 12;
 
-    public static boolean isIDcardAvailable(String str) {
-        return Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$").matcher(str).matches();
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public static final int f5343d = 4;
 
-    public static boolean isUserNameAvailable(String str) {
-        return str != null && str.length() >= 2 && str.length() <= 40;
-    }
-
-    public static boolean isBandCardAvailable(String str) {
-        return Pattern.compile("^\\d{15,20}$").matcher(str).matches();
-    }
-
-    public static boolean isBandCardEndAvailable(String str) {
-        return str != null && str.length() == 3;
-    }
-
-    public static boolean isYearValid(String str) {
-        return Pattern.compile("^\\d{2}$").matcher(str).matches();
-    }
-
-    public static boolean isMonthValid(String str) {
-        try {
-            int intValue = Integer.valueOf(str).intValue();
-            if (intValue > 12 || intValue < 1) {
-                return false;
-            }
-            return Pattern.compile("^\\d{2}$").matcher(str).matches();
-        } catch (Exception e2) {
-            return false;
-        }
-    }
-
-    public static boolean isPayPasswordAvailable(String str) {
-        return Pattern.compile("[~!@#$%^&*()+-=\\[\\]\\{}|;':\",./<>?0-9a-zA-z]*").matcher(str).matches();
-    }
-
-    public static boolean isMobileAvailable(String str) {
-        return Pattern.compile("^1[0-9]{10}$").matcher(str).matches();
-    }
-
-    public static boolean isVodeAvailable(String str) {
-        return !TextUtils.isEmpty(str) && str.length() >= 4;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public static long f5344e;
 
     @SuppressLint({"DefaultLocale"})
     public static boolean checkParams(String str) {
@@ -114,7 +63,7 @@ public final class CheckUtils {
             return false;
         }
         try {
-            for (String str31 : str.toUpperCase().split(ETAG.ITEM_SEPARATOR)) {
+            for (String str31 : str.toUpperCase().split("&")) {
                 String[] split = str31.split("=");
                 if (split != null && !TextUtils.isEmpty(split[0])) {
                     if ("CURRENCY".equals(split[0])) {
@@ -239,17 +188,25 @@ public final class CheckUtils {
                 }
             }
             return true;
-        } catch (Exception e2) {
+        } catch (Exception unused) {
             return false;
         }
     }
 
-    public static boolean isShowExitDialog(int i) {
-        return false;
+    public static boolean isBandCardAvailable(String str) {
+        return Pattern.compile("^\\d{15,20}$").matcher(str).matches();
     }
 
+    public static boolean isBandCardEndAvailable(String str) {
+        return str != null && str.length() == 3;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0048  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static boolean isExternalStorageWriteable() {
-        boolean z = false;
+        boolean z;
         long currentTimeMillis = System.currentTimeMillis();
         if (TextUtils.equals("mounted", Environment.getExternalStorageState())) {
             File externalStorageDirectory = Environment.getExternalStorageDirectory();
@@ -260,30 +217,82 @@ public final class CheckUtils {
                 } else {
                     try {
                         z = file.createNewFile();
-                    } catch (IOException e2) {
+                    } catch (IOException unused) {
                         if (ApollonConstants.DEBUG) {
-                            Log.w(f1547a, "isExternalStorageWriteable() can't create test file.");
+                            Log.w("CheckUtils", "isExternalStorageWriteable() can't create test file.");
                         }
                     }
                 }
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (ApollonConstants.DEBUG) {
+                    Log.i("CheckUtils", "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.");
+                }
+                return z;
             }
         }
-        long currentTimeMillis2 = System.currentTimeMillis();
+        z = false;
+        long currentTimeMillis22 = System.currentTimeMillis();
         if (ApollonConstants.DEBUG) {
-            Log.i(f1547a, "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.");
         }
         return z;
     }
 
     public static boolean isFastDoubleClick() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - e;
+        long j = currentTimeMillis - f5344e;
         LogUtil.logd("timeD=" + j);
         if (0 < j && j < 500) {
             LogUtil.logd("点的太快了 timeD=" + j);
             return true;
         }
-        e = currentTimeMillis;
+        f5344e = currentTimeMillis;
         return false;
+    }
+
+    public static boolean isIDcardAvailable(String str) {
+        return Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$").matcher(str).matches();
+    }
+
+    public static boolean isMobileAvailable(String str) {
+        return Pattern.compile("^1[0-9]{10}$").matcher(str).matches();
+    }
+
+    public static boolean isMonthValid(String str) {
+        try {
+            int intValue = Integer.valueOf(str).intValue();
+            if (intValue <= 12 && intValue >= 1) {
+                return Pattern.compile("^\\d{2}$").matcher(str).matches();
+            }
+        } catch (Exception unused) {
+        }
+        return false;
+    }
+
+    public static boolean isPayPasswordAvailable(String str) {
+        return Pattern.compile("[~!@#$%^&*()+-=\\[\\]\\{}|;':\",./<>?0-9a-zA-z]*").matcher(str).matches();
+    }
+
+    public static boolean isShowExitDialog(int i) {
+        return false;
+    }
+
+    public static boolean isUserNameAvailable(String str) {
+        return str != null && str.length() >= 2 && str.length() <= 40;
+    }
+
+    public static boolean isVodeAvailable(String str) {
+        return !TextUtils.isEmpty(str) && str.length() >= 4;
+    }
+
+    public static boolean isYearValid(String str) {
+        return Pattern.compile("^\\d{2}$").matcher(str).matches();
+    }
+
+    public static final String stripUrlParams(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return "";
+        }
+        int indexOf = str.indexOf("?");
+        return indexOf > 0 ? str.substring(0, indexOf) : str;
     }
 }

@@ -1,59 +1,98 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
-import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
-import com.baidu.android.pushservice.message.k;
-/* loaded from: classes5.dex */
-public class e extends b {
+import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.message.PublicMsg;
+/* loaded from: classes2.dex */
+public class e extends d {
+
+    /* renamed from: com.baidu.android.pushservice.message.a.e$1  reason: invalid class name */
+    /* loaded from: classes2.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f3433a;
+
+        static {
+            int[] iArr = new int[com.baidu.android.pushservice.a.c.values().length];
+            f3433a = iArr;
+            try {
+                iArr[com.baidu.android.pushservice.a.c.PUSH_CLIENT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+        }
+    }
+
     public e(Context context) {
         super(context);
     }
 
-    @Override // com.baidu.android.pushservice.message.a.b
-    public com.baidu.android.pushservice.message.g a(k kVar, byte[] bArr) {
-        int i;
-        String b = kVar.b();
-        String e = kVar.e();
-        int f = kVar.f();
-        byte[] h = kVar.h();
-        String c = kVar.c();
-        String str = new String(bArr);
-        com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.f1237a, b);
-        if (TextUtils.isEmpty(c) || !m.b(this.f1237a, c)) {
-            c = a2.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a2.f1081a.b() : null;
+    public static PublicMsg a(Context context, String str, String str2, byte[] bArr, byte[] bArr2) {
+        if (m.a(context, bArr, str2, bArr2)) {
+            PublicMsg a2 = j.a(context, str2, str, bArr2);
+            a2.mPkgName = context.getPackageName();
+            if (TextUtils.isEmpty(a2.mTitle)) {
+                a2.mTitle = context.getPackageManager().getApplicationLabel(context.getApplicationInfo()).toString();
+            }
+            return a2;
         }
-        switch (a2.a()) {
-            case PUSH_CLIENT:
-                String a3 = a(c);
-                try {
-                    this.f1237a.getPackageManager().getPackageInfo(a3, 128);
-                    Intent intent = new Intent();
-                    intent.putExtra("app_id", b);
-                    intent.putExtra("msg_id", e);
-                    intent.putExtra("message", bArr);
-                    intent.putExtra("message_string", str);
-                    intent.putExtra("message_id", e);
-                    intent.putExtra("baidu_message_type", f);
-                    intent.putExtra("baidu_message_body", bArr);
-                    intent.putExtra("baidu_message_secur_info", h);
-                    i = m.a(this.f1237a, intent, "com.baidu.android.pushservice.action.MESSAGE", a3);
-                    m.a(">>> Deliver message to client: " + a2.f1081a.b() + " result: " + i, this.f1237a);
-                    break;
-                } catch (PackageManager.NameNotFoundException e2) {
-                    m.a(">>> NOT deliver to app: " + a2.f1081a.b() + ", package has been uninstalled.", this.f1237a);
-                    new b.c(this.f1237a).a(Log.getStackTraceString(e2)).a();
-                    i = 7;
-                    break;
+        return null;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0061  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x006a  */
+    @Override // com.baidu.android.pushservice.message.a.d
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
+        int i;
+        String c2 = kVar.c();
+        String f2 = kVar.f();
+        int g2 = kVar.g();
+        int a2 = kVar.a();
+        byte[] i2 = kVar.i();
+        String d2 = kVar.d();
+        PublicMsg a3 = j.a(this.f3432a, f2, c2, bArr);
+        if (a3 == null || TextUtils.isEmpty(a3.mDescription)) {
+            m.a("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.f3432a);
+            i = 2;
+        } else {
+            com.baidu.android.pushservice.a.d a4 = com.baidu.android.pushservice.a.d.a(this.f3432a, c2);
+            if (TextUtils.isEmpty(d2) || !m.b(this.f3432a, d2)) {
+                if (a4.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT) {
+                    d2 = a4.f2687a.b();
                 }
-            default:
-                m.a(">>> Don't found app  in OldPrivateMessage " + str, this.f1237a);
-                i = 7;
-                break;
+                m.a(this.f3432a, a3);
+                i = 1;
+                if (AnonymousClass1.f3433a[a4.a().ordinal()] == 1) {
+                    m.a("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.f3432a);
+                    i = 7;
+                } else {
+                    PackageManager packageManager = this.f3432a.getPackageManager();
+                    try {
+                        ApplicationInfo applicationInfo = packageManager.getApplicationInfo(a3.mPkgName, 128);
+                        if (TextUtils.isEmpty(a3.mTitle)) {
+                            a3.mTitle = packageManager.getApplicationLabel(applicationInfo).toString();
+                        }
+                        f.a(this.f3432a, a3, f2, c2, g2, i2, bArr, a2);
+                        m.a(f2 + " is showing Notification!", this.f3432a);
+                    } catch (PackageManager.NameNotFoundException e2) {
+                        new b.c(this.f3432a).a(Log.getStackTraceString(e2)).a();
+                        i = 8;
+                    }
+                }
+            }
+            a3.mPkgName = d2;
+            m.a(this.f3432a, a3);
+            i = 1;
+            if (AnonymousClass1.f3433a[a4.a().ordinal()] == 1) {
+            }
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
         gVar.a(i);

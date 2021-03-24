@@ -5,7 +5,7 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class NoLocalModeSQLiteOpenHelper extends SQLiteOpenHelper {
     public NoLocalModeSQLiteOpenHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
         super(new NoLocalModeContextWrapper(context), str, cursorFactory, i);

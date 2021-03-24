@@ -7,92 +7,100 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-import com.baidu.tieba.enterForum.hotuserrank.a.b;
-/* loaded from: classes2.dex */
+import d.b.b.e.p.l;
+import d.b.i0.i0.i.c.b;
+/* loaded from: classes4.dex */
 public class UserHeadCoverView extends FrameLayout {
-    private ImageView hkl;
-    private View iNm;
-    private ImageView iNn;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f15464e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f15465f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView f15466g;
 
     public UserHeadCoverView(@NonNull Context context) {
         super(context);
-        init(context);
+        a(context);
+    }
+
+    public final void a(Context context) {
+        this.f15464e = new ImageView(context);
+        int g2 = l.g(context, R.dimen.tbds78);
+        addView(this.f15464e, new FrameLayout.LayoutParams(g2, g2));
+        this.f15465f = new View(context);
+        int g3 = l.g(context, R.dimen.tbds158);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g3, g3);
+        int g4 = l.g(context, R.dimen.tbds26);
+        layoutParams.leftMargin = g4;
+        layoutParams.topMargin = g4;
+        addView(this.f15465f, layoutParams);
+        this.f15466g = new ImageView(context);
+        int g5 = l.g(context, R.dimen.tbds36);
+        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(g5, g5);
+        layoutParams2.gravity = 85;
+        addView(this.f15466g, layoutParams2);
+    }
+
+    public void setData(b bVar) {
+        if (bVar == null) {
+            return;
+        }
+        String str = bVar.f55599a;
+        if (str != null) {
+            if (!str.equals("1") && !bVar.f55599a.equals("2") && !bVar.f55599a.equals("3")) {
+                this.f15464e.setVisibility(8);
+                this.f15465f.setVisibility(8);
+            } else {
+                this.f15464e.setVisibility(0);
+                this.f15465f.setVisibility(0);
+                if (bVar.f55599a.equals("1")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f15464e, R.drawable.svg_icon_mask_first30, null);
+                    this.f15465f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_yellow_circle));
+                } else if (bVar.f55599a.equals("2")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f15464e, R.drawable.svg_icon_mask_second30, null);
+                    this.f15465f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_gray_circle));
+                } else if (bVar.f55599a.equals("3")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f15464e, R.drawable.svg_icon_mask_third30, null);
+                    this.f15465f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_brown_circle));
+                }
+            }
+        } else {
+            this.f15464e.setVisibility(8);
+            this.f15465f.setVisibility(8);
+        }
+        if (bVar.f55605g) {
+            int g2 = l.g(TbadkApplication.getInst(), R.dimen.tbds36);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g2, g2);
+            layoutParams.gravity = 85;
+            this.f15466g.setLayoutParams(layoutParams);
+            this.f15466g.setVisibility(0);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f15466g, R.drawable.ic_icon_mask_v14_n_svg, null);
+        } else if (bVar.f55606h) {
+            int g3 = l.g(TbadkApplication.getInst(), R.dimen.tbds40);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(g3, g3);
+            layoutParams2.gravity = 85;
+            this.f15466g.setLayoutParams(layoutParams2);
+            this.f15466g.setVisibility(0);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f15466g, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+        } else {
+            this.f15466g.setVisibility(8);
+        }
     }
 
     public UserHeadCoverView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        init(context);
+        a(context);
     }
 
     public UserHeadCoverView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init(context);
-    }
-
-    private void init(Context context) {
-        this.hkl = new ImageView(context);
-        int dimens = l.getDimens(context, R.dimen.tbds78);
-        addView(this.hkl, new FrameLayout.LayoutParams(dimens, dimens));
-        this.iNm = new View(context);
-        int dimens2 = l.getDimens(context, R.dimen.tbds158);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens2, dimens2);
-        int dimens3 = l.getDimens(context, R.dimen.tbds26);
-        layoutParams.leftMargin = dimens3;
-        layoutParams.topMargin = dimens3;
-        addView(this.iNm, layoutParams);
-        this.iNn = new ImageView(context);
-        int dimens4 = l.getDimens(context, R.dimen.tbds36);
-        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(dimens4, dimens4);
-        layoutParams2.gravity = 85;
-        addView(this.iNn, layoutParams2);
-    }
-
-    public void setData(b bVar) {
-        if (bVar != null) {
-            if (bVar.rankNum != null) {
-                if (bVar.rankNum.equals("1") || bVar.rankNum.equals("2") || bVar.rankNum.equals("3")) {
-                    this.hkl.setVisibility(0);
-                    this.iNm.setVisibility(0);
-                    if (bVar.rankNum.equals("1")) {
-                        SvgManager.bsU().a(this.hkl, R.drawable.svg_icon_mask_first30, (SvgManager.SvgResourceStateType) null);
-                        this.iNm.setBackground(ap.getDrawable(R.drawable.shape_hot_user_yellow_circle));
-                    } else if (bVar.rankNum.equals("2")) {
-                        SvgManager.bsU().a(this.hkl, R.drawable.svg_icon_mask_second30, (SvgManager.SvgResourceStateType) null);
-                        this.iNm.setBackground(ap.getDrawable(R.drawable.shape_hot_user_gray_circle));
-                    } else if (bVar.rankNum.equals("3")) {
-                        SvgManager.bsU().a(this.hkl, R.drawable.svg_icon_mask_third30, (SvgManager.SvgResourceStateType) null);
-                        this.iNm.setBackground(ap.getDrawable(R.drawable.shape_hot_user_brown_circle));
-                    }
-                } else {
-                    this.hkl.setVisibility(8);
-                    this.iNm.setVisibility(8);
-                }
-            } else {
-                this.hkl.setVisibility(8);
-                this.iNm.setVisibility(8);
-            }
-            if (bVar.iNf) {
-                int dimens = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens, dimens);
-                layoutParams.gravity = 85;
-                this.iNn.setLayoutParams(layoutParams);
-                this.iNn.setVisibility(0);
-                SvgManager.bsU().a(this.iNn, R.drawable.ic_icon_mask_v14_n_svg, (SvgManager.SvgResourceStateType) null);
-            } else if (bVar.iMU) {
-                int dimens2 = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds40);
-                FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(dimens2, dimens2);
-                layoutParams2.gravity = 85;
-                this.iNn.setLayoutParams(layoutParams2);
-                this.iNn.setVisibility(0);
-                SvgManager.bsU().a(this.iNn, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
-            } else {
-                this.iNn.setVisibility(8);
-            }
-        }
+        a(context);
     }
 }

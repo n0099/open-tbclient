@@ -12,40 +12,38 @@ import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BaseImageDecoder implements ImageDecoder {
-    protected static final String ERROR_CANT_DECODE_IMAGE = "Image can't be decoded [%s]";
-    protected static final String ERROR_NO_IMAGE_STREAM = "No stream for image [%s]";
-    protected static final String LOG_FLIP_IMAGE = "Flip image horizontally [%s]";
-    protected static final String LOG_ROTATE_IMAGE = "Rotate image on %1$d° [%2$s]";
-    protected static final String LOG_SCALE_IMAGE = "Scale subsampled image (%1$s) to %2$s (scale = %3$.5f) [%4$s]";
-    protected static final String LOG_SUBSAMPLE_IMAGE = "Subsample original image (%1$s) to %2$s (scale = %3$d) [%4$s]";
-    protected final boolean loggingEnabled;
+    public static final String ERROR_CANT_DECODE_IMAGE = "Image can't be decoded [%s]";
+    public static final String ERROR_NO_IMAGE_STREAM = "No stream for image [%s]";
+    public static final String LOG_FLIP_IMAGE = "Flip image horizontally [%s]";
+    public static final String LOG_ROTATE_IMAGE = "Rotate image on %1$d° [%2$s]";
+    public static final String LOG_SCALE_IMAGE = "Scale subsampled image (%1$s) to %2$s (scale = %3$.5f) [%4$s]";
+    public static final String LOG_SUBSAMPLE_IMAGE = "Subsample original image (%1$s) to %2$s (scale = %3$d) [%4$s]";
+    public final boolean loggingEnabled;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ExifInfo {
         public final boolean flipHorizontal;
         public final int rotation;
 
-        protected ExifInfo() {
+        public ExifInfo() {
             this.rotation = 0;
             this.flipHorizontal = false;
         }
 
-        protected ExifInfo(int i, boolean z) {
+        public ExifInfo(int i, boolean z) {
             this.rotation = i;
             this.flipHorizontal = z;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ImageFileInfo {
         public final ExifInfo exif;
         public final ImageSize imageSize;
 
-        protected ImageFileInfo(ImageSize imageSize, ExifInfo exifInfo) {
+        public ImageFileInfo(ImageSize imageSize, ExifInfo exifInfo) {
             this.imageSize = imageSize;
             this.exif = exifInfo;
         }
@@ -59,7 +57,7 @@ public class BaseImageDecoder implements ImageDecoder {
         return "image/jpeg".equalsIgnoreCase(str2) && ImageDownloader.Scheme.ofUri(str) == ImageDownloader.Scheme.FILE;
     }
 
-    protected Bitmap considerExactScaleAndOrientatiton(Bitmap bitmap, ImageDecodingInfo imageDecodingInfo, int i, boolean z) {
+    public Bitmap considerExactScaleAndOrientatiton(Bitmap bitmap, ImageDecodingInfo imageDecodingInfo, int i, boolean z) {
         Matrix matrix = new Matrix();
         ImageScaleType imageScaleType = imageDecodingInfo.getImageScaleType();
         if (imageScaleType == ImageScaleType.EXACTLY || imageScaleType == ImageScaleType.EXACTLY_STRETCHED) {
@@ -96,76 +94,84 @@ public class BaseImageDecoder implements ImageDecoder {
         DecodedResult decodedResult = new DecodedResult();
         InputStream imageStream = getImageStream(imageDecodingInfo);
         if (imageStream == null) {
-            L.e(ERROR_NO_IMAGE_STREAM, imageDecodingInfo.getImageKey());
+            L.e("No stream for image [%s]", imageDecodingInfo.getImageKey());
             return null;
         }
         try {
-            if (imageDecodingInfo.getLoadListener() != null && imageDecodingInfo.getLoadListener().onDecode(imageDecodingInfo.getImageUri(), imageStream, decodedResult)) {
+            if (imageDecodingInfo.getLoadListener() == null || !imageDecodingInfo.getLoadListener().onDecode(imageDecodingInfo.getImageUri(), imageStream, decodedResult)) {
+                ImageFileInfo defineImageSizeAndRotation = defineImageSizeAndRotation(imageStream, imageDecodingInfo);
+                imageStream = resetStream(imageStream, imageDecodingInfo);
+                decodedResult.mBitmap = BitmapFactory.decodeStream(imageStream, null, prepareDecodingOptions(defineImageSizeAndRotation.imageSize, imageDecodingInfo));
                 IoUtils.closeSilently(imageStream);
+                if (decodedResult.mBitmap == null && decodedResult.mFrameSequence == null) {
+                    L.e(ERROR_CANT_DECODE_IMAGE, imageDecodingInfo.getImageKey());
+                } else {
+                    Bitmap bitmap = decodedResult.mBitmap;
+                    ExifInfo exifInfo = defineImageSizeAndRotation.exif;
+                    decodedResult.mBitmap = considerExactScaleAndOrientatiton(bitmap, imageDecodingInfo, exifInfo.rotation, exifInfo.flipHorizontal);
+                }
                 return decodedResult;
             }
-            ImageFileInfo defineImageSizeAndRotation = defineImageSizeAndRotation(imageStream, imageDecodingInfo);
-            imageStream = resetStream(imageStream, imageDecodingInfo);
-            decodedResult.mBitmap = BitmapFactory.decodeStream(imageStream, null, prepareDecodingOptions(defineImageSizeAndRotation.imageSize, imageDecodingInfo));
-            IoUtils.closeSilently(imageStream);
-            if (decodedResult.mBitmap == null && decodedResult.mFrameSequence == null) {
-                L.e(ERROR_CANT_DECODE_IMAGE, imageDecodingInfo.getImageKey());
-            } else {
-                decodedResult.mBitmap = considerExactScaleAndOrientatiton(decodedResult.mBitmap, imageDecodingInfo, defineImageSizeAndRotation.exif.rotation, defineImageSizeAndRotation.exif.flipHorizontal);
-            }
             return decodedResult;
-        } catch (Throwable th) {
+        } finally {
             IoUtils.closeSilently(imageStream);
-            throw th;
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: boolean */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    protected ExifInfo defineExifOrientation(String str) {
-        int i;
-        boolean z = true;
+    /* JADX WARN: Multi-variable type inference failed */
+    public ExifInfo defineExifOrientation(String str) {
+        int i = 0;
+        boolean z = 1;
         try {
-        } catch (IOException e) {
+        } catch (IOException unused) {
             L.w("Can't read EXIF tags from file [%s]", str);
         }
         switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1)) {
             case 1:
-                z = false;
-                i = 0;
+            default:
+                z = 0;
                 break;
             case 2:
-                i = 0;
                 break;
             case 3:
-                z = false;
+                z = i;
                 i = 180;
                 break;
             case 4:
+                i = 1;
+                z = i;
                 i = 180;
                 break;
             case 5:
+                i = 1;
+                z = i;
                 i = 270;
                 break;
             case 6:
-                z = false;
+                z = i;
                 i = 90;
                 break;
             case 7:
+                i = 1;
+                z = i;
                 i = 90;
                 break;
             case 8:
-                z = false;
+                z = i;
                 i = 270;
-                break;
-            default:
-                z = false;
-                i = 0;
                 break;
         }
         return new ExifInfo(i, z);
     }
 
-    protected ImageFileInfo defineImageSizeAndRotation(InputStream inputStream, ImageDecodingInfo imageDecodingInfo) {
+    public ImageFileInfo defineImageSizeAndRotation(InputStream inputStream, ImageDecodingInfo imageDecodingInfo) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(inputStream, null, options);
@@ -178,7 +184,7 @@ public class BaseImageDecoder implements ImageDecoder {
         return imageDecodingInfo.getDownloader().getStream(imageDecodingInfo.getImageUri(), imageDecodingInfo.getExtraForDownloader());
     }
 
-    protected BitmapFactory.Options prepareDecodingOptions(ImageSize imageSize, ImageDecodingInfo imageDecodingInfo) {
+    public BitmapFactory.Options prepareDecodingOptions(ImageSize imageSize, ImageDecodingInfo imageDecodingInfo) {
         int computeImageSampleSize;
         ImageScaleType imageScaleType = imageDecodingInfo.getImageScaleType();
         if (imageScaleType == ImageScaleType.NONE) {
@@ -196,12 +202,12 @@ public class BaseImageDecoder implements ImageDecoder {
         return decodingOptions;
     }
 
-    protected InputStream resetStream(InputStream inputStream, ImageDecodingInfo imageDecodingInfo) {
+    public InputStream resetStream(InputStream inputStream, ImageDecodingInfo imageDecodingInfo) {
         if (inputStream.markSupported()) {
             try {
                 inputStream.reset();
                 return inputStream;
-            } catch (IOException e) {
+            } catch (IOException unused) {
             }
         }
         IoUtils.closeSilently(inputStream);

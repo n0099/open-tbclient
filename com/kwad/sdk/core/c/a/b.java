@@ -2,22 +2,22 @@ package com.kwad.sdk.core.c.a;
 
 import com.kwad.sdk.core.webview.jshandler.a;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class b implements com.kwad.sdk.core.c<a.C1127a> {
+/* loaded from: classes6.dex */
+public class b implements com.kwad.sdk.core.c<a.C0394a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject a(a.C1127a c1127a) {
+    public JSONObject a(a.C0394a c0394a) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "clickActionButton", c1127a.f6332a);
+        com.kwad.sdk.utils.o.a(jSONObject, "clickActionButton", c0394a.f34317a);
         return jSONObject;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(a.C1127a c1127a, JSONObject jSONObject) {
+    public void a(a.C0394a c0394a, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        c1127a.f6332a = jSONObject.optBoolean("clickActionButton");
+        c0394a.f34317a = jSONObject.optBoolean("clickActionButton");
     }
 }

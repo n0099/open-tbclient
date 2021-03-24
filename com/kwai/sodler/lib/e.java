@@ -7,17 +7,17 @@ import androidx.annotation.NonNull;
 import com.kwai.sodler.lib.a.g;
 import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e implements com.kwai.sodler.lib.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f7255a;
-    private g.a b;
+    public final Context f37158a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public g.a f37159b;
+
     public e(Context context) {
-        this.f7255a = context.getApplicationContext();
+        this.f37158a = context.getApplicationContext();
     }
 
     @TargetApi(11)
@@ -32,18 +32,18 @@ public class e implements com.kwai.sodler.lib.a.g {
             return;
         }
         a.a("Sodler.update", "Using online plugin.");
-        com.kwai.sodler.lib.b.b a2 = f.a(this.f7255a, fVar);
+        com.kwai.sodler.lib.b.b a2 = f.a(this.f37158a, fVar);
         if (a2 == null) {
             a.a("Sodler.update", "No available plugin, abort.");
             fVar.a(-3);
             return;
         }
-        a.a("Sodler.update", "Download new plugin, version = " + a2.b + ", url = " + a2.c);
+        a.a("Sodler.update", "Download new plugin, version = " + a2.f37144b + ", url = " + a2.f37145c);
         fVar.a(3);
-        fVar.g(a2.c);
-        fVar.a(a2.d);
-        fVar.f(a2.f);
-        fVar.b(a2.b);
+        fVar.g(a2.f37145c);
+        fVar.a(a2.f37146d);
+        fVar.f(a2.f37148f);
+        fVar.b(a2.f37144b);
     }
 
     private void a(com.kwai.sodler.lib.a.f fVar, PluginError.UpdateError updateError) {
@@ -55,10 +55,11 @@ public class e implements com.kwai.sodler.lib.a.g {
     }
 
     private void a(com.kwai.sodler.lib.a.f fVar, File file) {
-        if (this.b == null) {
+        g.a aVar = this.f37159b;
+        if (aVar == null) {
             throw new RuntimeException("not yet supported!");
         }
-        this.b.a(fVar, file);
+        aVar.a(fVar, file);
     }
 
     private void c(com.kwai.sodler.lib.a.f fVar) {
@@ -85,49 +86,12 @@ public class e implements com.kwai.sodler.lib.a.g {
         b(fVar);
         if (fVar.f()) {
             d(fVar);
-        } else if (fVar.c() == 2) {
-            try {
-                fVar.b().e().a();
-                try {
-                    File d = fVar.b().e().d(fVar.i());
-                    int i = 0;
-                    fVar.b(fVar.b().b().a());
-                    while (true) {
-                        if (fVar.f()) {
-                            d(fVar);
-                            break;
-                        }
-                        try {
-                            com.kwai.sodler.lib.c.a.a(this.f7255a, fVar.o(), d);
-                            a.a("Sodler.update", "Extract plugin from assets success.");
-                            fVar.d(d.getAbsolutePath());
-                            fVar.a(1);
-                            e(fVar);
-                            break;
-                        } catch (Throwable th) {
-                            a.a("Sodler.update", th);
-                            try {
-                                fVar.h();
-                                int i2 = i + 1;
-                                a.a("Sodler.update", "Extract fail, retry " + i);
-                                fVar.c("Retry extract " + i2);
-                                i = i2;
-                            } catch (PluginError.RetryError e) {
-                                a.a("Sodler.update", "Extract plugin from assets fail, error = " + th.toString());
-                                a(fVar, new PluginError.UpdateError(th, 2004));
-                            }
-                        }
-                    }
-                } catch (Throwable th2) {
-                    a.a("Sodler.update", "Can not get temp file, error = " + th2.getLocalizedMessage());
-                    a.a("Sodler.update", th2);
-                    a(fVar, new PluginError.UpdateError(th2, 2003));
-                }
-            } catch (Throwable th3) {
-                a.a("Sodler.update", th3);
-                a(fVar, new PluginError.UpdateError(th3, 2005));
+            return fVar;
+        } else if (fVar.c() != 2) {
+            if (fVar.c() != 3) {
+                e(fVar);
+                return fVar;
             }
-        } else if (fVar.c() == 3) {
             try {
                 fVar.b().e().a();
                 try {
@@ -138,36 +102,84 @@ public class e implements com.kwai.sodler.lib.a.g {
                         fVar.d(d2.getAbsolutePath());
                         fVar.a(1);
                         e(fVar);
-                    } catch (PluginError.CancelError e2) {
+                        return fVar;
+                    } catch (PluginError.CancelError unused) {
                         d(fVar);
-                    } catch (PluginError.UpdateError e3) {
-                        a.a("Sodler.update", "Download plugin fail, error = " + e3.getLocalizedMessage());
-                        a.a("Sodler.update", e3);
-                        fVar.a((Throwable) e3);
-                        a(fVar, e3);
+                        return fVar;
+                    } catch (PluginError.UpdateError e2) {
+                        a.a("Sodler.update", "Download plugin fail, error = " + e2.getLocalizedMessage());
+                        a.a("Sodler.update", e2);
+                        fVar.a((Throwable) e2);
+                        a(fVar, e2);
+                        return fVar;
                     }
+                } catch (Throwable th) {
+                    a.a("Sodler.update", "Can not get temp file, error = " + th.getLocalizedMessage());
+                    a.a("Sodler.update", th);
+                    a(fVar, new PluginError.UpdateError(th, 2003));
+                    return fVar;
+                }
+            } catch (Throwable th2) {
+                a.a("Sodler.update", th2);
+                a(fVar, new PluginError.UpdateError(th2, 2005));
+                return fVar;
+            }
+        } else {
+            try {
+                fVar.b().e().a();
+                try {
+                    File d3 = fVar.b().e().d(fVar.i());
+                    int i = 0;
+                    fVar.b(fVar.b().b().a());
+                    while (!fVar.f()) {
+                        try {
+                            com.kwai.sodler.lib.c.a.a(this.f37158a, fVar.o(), d3);
+                            a.a("Sodler.update", "Extract plugin from assets success.");
+                            fVar.d(d3.getAbsolutePath());
+                            fVar.a(1);
+                            e(fVar);
+                            return fVar;
+                        } catch (Throwable th3) {
+                            a.a("Sodler.update", th3);
+                            try {
+                                fVar.h();
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("Extract fail, retry ");
+                                int i2 = i + 1;
+                                sb.append(i);
+                                a.a("Sodler.update", sb.toString());
+                                fVar.c("Retry extract " + i2);
+                                i = i2;
+                            } catch (PluginError.RetryError unused2) {
+                                a.a("Sodler.update", "Extract plugin from assets fail, error = " + th3.toString());
+                                a(fVar, new PluginError.UpdateError(th3, 2004));
+                                return fVar;
+                            }
+                        }
+                    }
+                    d(fVar);
+                    return fVar;
                 } catch (Throwable th4) {
                     a.a("Sodler.update", "Can not get temp file, error = " + th4.getLocalizedMessage());
                     a.a("Sodler.update", th4);
                     a(fVar, new PluginError.UpdateError(th4, 2003));
+                    return fVar;
                 }
             } catch (Throwable th5) {
                 a.a("Sodler.update", th5);
                 a(fVar, new PluginError.UpdateError(th5, 2005));
+                return fVar;
             }
-        } else {
-            e(fVar);
         }
-        return fVar;
     }
 
     @Override // com.kwai.sodler.lib.a.g
     public com.kwai.sodler.lib.a.g a(g.a aVar) {
-        this.b = aVar;
+        this.f37159b = aVar;
         return this;
     }
 
-    com.kwai.sodler.lib.a.f b(com.kwai.sodler.lib.a.f fVar) {
+    public com.kwai.sodler.lib.a.f b(com.kwai.sodler.lib.a.f fVar) {
         a.b("Sodler.update", "Request remote plugin info.");
         if (fVar.j()) {
             fVar.b().e().c(fVar.i());
@@ -176,19 +188,19 @@ public class e implements com.kwai.sodler.lib.a.g {
             if (!fVar.n() && fVar.s() == null) {
                 fVar.b().f().a(fVar);
             }
-            if (TextUtils.isEmpty(fVar.i())) {
-                a(-1, fVar);
-            } else {
-                a(0, fVar);
-            }
-        } catch (Exception e) {
-            a.e("Sodler.update", "Request remote plugin info fail, error = " + e.toString());
-            a.a("Sodler.update", e);
+        } catch (Exception e2) {
+            a.e("Sodler.update", "Request remote plugin info fail, error = " + e2.toString());
+            a.a("Sodler.update", e2);
             fVar.a(-2);
-            PluginError.UpdateError updateError = new PluginError.UpdateError(e, 2006);
+            PluginError.UpdateError updateError = new PluginError.UpdateError(e2, 2006);
             fVar.a((Throwable) updateError);
             fVar.a(updateError);
         }
+        if (TextUtils.isEmpty(fVar.i())) {
+            a(-1, fVar);
+            return fVar;
+        }
+        a(0, fVar);
         return fVar;
     }
 }

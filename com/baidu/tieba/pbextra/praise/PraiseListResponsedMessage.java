@@ -1,16 +1,17 @@
 package com.baidu.tieba.pbextra.praise;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import d.b.i0.d2.c.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
-    private int mErrCode;
-    private String mErrMsg;
-    private int mTotalNum;
-    private List<a> mZanItemDataList;
+    public int mErrCode;
+    public String mErrMsg;
+    public int mTotalNum;
+    public List<a> mZanItemDataList;
 
     public PraiseListResponsedMessage(int i) {
         super(i);
@@ -18,22 +19,6 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
         this.mErrMsg = "";
         this.mTotalNum = 0;
         this.mZanItemDataList = null;
-    }
-
-    public int getErrNo() {
-        return this.mErrCode;
-    }
-
-    public String getErrMsg() {
-        return this.mErrMsg;
-    }
-
-    public int getTotalNum() {
-        return this.mTotalNum;
-    }
-
-    public List<a> getmZanItemDataList() {
-        return this.mZanItemDataList;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -49,9 +34,25 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
                 this.mZanItemDataList = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    this.mZanItemDataList.add(new a(jSONObject2.optString("id"), jSONObject2.optString("name"), jSONObject2.optString("portrait"), jSONObject2.optString("name_show"), jSONObject2.optLong("zan_time") * 1000));
+                    this.mZanItemDataList.add(new a(jSONObject2.optString("id"), jSONObject2.optString("name"), jSONObject2.optString("portrait"), jSONObject2.optString("name_show"), 1000 * jSONObject2.optLong("zan_time")));
                 }
             }
         }
+    }
+
+    public String getErrMsg() {
+        return this.mErrMsg;
+    }
+
+    public int getErrNo() {
+        return this.mErrCode;
+    }
+
+    public int getTotalNum() {
+        return this.mTotalNum;
+    }
+
+    public List<a> getmZanItemDataList() {
+        return this.mZanItemDataList;
     }
 }

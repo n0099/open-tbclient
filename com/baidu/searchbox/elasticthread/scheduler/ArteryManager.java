@@ -4,22 +4,27 @@ import com.baidu.searchbox.elasticthread.ElasticConfig;
 import com.baidu.searchbox.elasticthread.executor.BaseExecutorCell;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ArteryManager implements Recordable {
-    private BaseExecutorCell mUserRelatedArteryExecutor = BaseExecutorCell.build(ElasticConfig.ARTERY_CONFIG_UI_CORE_POOL_SIZE, BaseExecutorCell.ExecutorType.ARTERY);
-    private BaseExecutorCell mInTimeArteryExecutor = BaseExecutorCell.build(ElasticConfig.ARTERY_CONFIG_INTIME_CORE_POOL_SIZE, BaseExecutorCell.ExecutorType.ARTERY);
-    private BaseExecutorCell mBackgroundArteryExecutor = BaseExecutorCell.build(ElasticConfig.ARTERY_CONFIG_BACKGROUND_CORE_POOL_SIZE, BaseExecutorCell.ExecutorType.ARTERY);
+    public BaseExecutorCell mUserRelatedArteryExecutor = BaseExecutorCell.build(ElasticConfig.ARTERY_CONFIG_UI_CORE_POOL_SIZE, BaseExecutorCell.ExecutorType.ARTERY);
+    public BaseExecutorCell mInTimeArteryExecutor = BaseExecutorCell.build(ElasticConfig.ARTERY_CONFIG_INTIME_CORE_POOL_SIZE, BaseExecutorCell.ExecutorType.ARTERY);
+    public BaseExecutorCell mBackgroundArteryExecutor = BaseExecutorCell.build(ElasticConfig.ARTERY_CONFIG_BACKGROUND_CORE_POOL_SIZE, BaseExecutorCell.ExecutorType.ARTERY);
 
-    public BaseExecutorCell getUserRelatedArteryExecutor() {
-        return this.mUserRelatedArteryExecutor;
+    public boolean execute(ElasticTask elasticTask) {
+        int priority = elasticTask.getPriority();
+        return (priority == 0 || priority == 1) ? this.mUserRelatedArteryExecutor.execute(elasticTask) || this.mInTimeArteryExecutor.execute(elasticTask) || this.mBackgroundArteryExecutor.execute(elasticTask) : priority == 2 ? this.mInTimeArteryExecutor.execute(elasticTask) || this.mBackgroundArteryExecutor.execute(elasticTask) : priority == 3 && this.mBackgroundArteryExecutor.execute(elasticTask);
+    }
+
+    public BaseExecutorCell getBackgroundArteryExecutor() {
+        return this.mBackgroundArteryExecutor;
     }
 
     public BaseExecutorCell getInTimeArteryExecutor() {
         return this.mInTimeArteryExecutor;
     }
 
-    public BaseExecutorCell getBackgroundArteryExecutor() {
-        return this.mBackgroundArteryExecutor;
+    public BaseExecutorCell getUserRelatedArteryExecutor() {
+        return this.mUserRelatedArteryExecutor;
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
@@ -34,10 +39,5 @@ public class ArteryManager implements Recordable {
         this.mUserRelatedArteryExecutor.onRecordEnd();
         this.mInTimeArteryExecutor.onRecordEnd();
         this.mBackgroundArteryExecutor.onRecordEnd();
-    }
-
-    public boolean execute(ElasticTask elasticTask) {
-        int priority = elasticTask.getPriority();
-        return (priority == 0 || priority == 1) ? this.mUserRelatedArteryExecutor.execute(elasticTask) || this.mInTimeArteryExecutor.execute(elasticTask) || this.mBackgroundArteryExecutor.execute(elasticTask) : priority == 2 ? this.mInTimeArteryExecutor.execute(elasticTask) || this.mBackgroundArteryExecutor.execute(elasticTask) : priority == 3 && this.mBackgroundArteryExecutor.execute(elasticTask);
     }
 }

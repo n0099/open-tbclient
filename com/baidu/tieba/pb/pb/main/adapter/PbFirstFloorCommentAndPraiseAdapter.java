@@ -5,156 +5,175 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.data.e;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.data.p;
-import com.baidu.tieba.pb.pb.main.l;
+import d.b.b.e.p.l;
+import d.b.h0.r.q.a2;
+import d.b.h0.r.q.e;
+import d.b.i0.c2.h.p;
+import d.b.i0.c2.k.e.m;
+import d.b.i0.c2.k.e.w0.c;
+import d.b.i0.c2.o.b;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
-public class PbFirstFloorCommentAndPraiseAdapter extends l<p, PbFirstFloorCommentAndPraiseViewHolder> {
-    private static int aLy;
-    private View.OnClickListener fjZ;
-    private boolean lNR;
-    private c mdP;
-    private final LinkedList<PbFirstFloorCommentAndPraiseViewHolder> mdQ;
+/* loaded from: classes4.dex */
+public class PbFirstFloorCommentAndPraiseAdapter extends m<p, PbFirstFloorCommentAndPraiseViewHolder> {
+    public static int w;
+    public View.OnClickListener s;
+    public c t;
+    public final LinkedList<PbFirstFloorCommentAndPraiseViewHolder> u;
+    public boolean v;
 
-    public PbFirstFloorCommentAndPraiseAdapter(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
-        super(bVar, bdUniqueId);
-        this.mdQ = new LinkedList<>();
-        this.lNR = false;
-        if (bVar != null && bVar.dmG() != null) {
-            aLy = bVar.dmG().dpu();
+    /* loaded from: classes4.dex */
+    public static class PbFirstFloorCommentAndPraiseViewHolder extends TypeAdapter.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public PbThreadCommentAndPraiseInfoLayout f19775a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public View f19776b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f19777c;
+
+        public PbFirstFloorCommentAndPraiseViewHolder(View view) {
+            super(view);
+            if (view == null) {
+                return;
+            }
+            this.f19775a = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
+            e eVar = new e();
+            eVar.f50762b = 4;
+            eVar.f50768h = 7;
+            eVar.f50763c = this.f19777c;
+            eVar.f50766f = PbFirstFloorCommentAndPraiseAdapter.w;
+            this.f19775a.setAgreeStatisticData(eVar);
+            View findViewById = view.findViewById(R.id.bottom_divider_line);
+            this.f19776b = findViewById;
+            findViewById.setVisibility(0);
         }
-        this.mdP = new c(bVar);
+
+        public void b(p pVar) {
+            if (pVar != null && pVar.f() != null) {
+                a2 f2 = pVar.f();
+                if (f2.L() != null) {
+                    f2.L().postId = f2.f0();
+                }
+                this.f19775a.W(f2, pVar.e());
+                this.f19776b.setVisibility(pVar.j() ? 0 : 8);
+                if (f2.y2() && f2.u1() != null) {
+                    this.f19777c = 2;
+                } else {
+                    this.f19777c = 1;
+                }
+                if (pVar.f52458f) {
+                    a().setPadding(0, 0, 0, l.g(a().getContext(), R.dimen.tbds32));
+                }
+                this.f19775a.showOperationMaskView(pVar.k());
+            }
+            c();
+        }
+
+        public void c() {
+            SkinManager.setBackgroundColor(this.f19776b, R.color.CAM_X0203);
+            this.f19775a.onChangeSkinType();
+        }
+    }
+
+    public PbFirstFloorCommentAndPraiseAdapter(b bVar, BdUniqueId bdUniqueId) {
+        super(bVar, bdUniqueId);
+        this.u = new LinkedList<>();
+        this.v = false;
+        if (bVar != null && bVar.L() != null) {
+            w = bVar.L().x0();
+        }
+        this.t = new c(bVar);
+    }
+
+    @Override // d.b.i0.c2.k.e.m, d.b.b.j.e.a
+    public /* bridge */ /* synthetic */ View X(int i, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        r0(i, view, viewGroup, (p) obj, (PbFirstFloorCommentAndPraiseViewHolder) viewHolder);
+        return view;
+    }
+
+    public void l0(String str) {
+        PbThreadCommentAndPraiseInfoLayout pbThreadCommentAndPraiseInfoLayout;
+        if (this.u.size() > 0) {
+            Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.u.iterator();
+            while (it.hasNext()) {
+                PbFirstFloorCommentAndPraiseViewHolder next = it.next();
+                if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.f19775a) != null) {
+                    pbThreadCommentAndPraiseInfoLayout.S(str);
+                }
+            }
+        } else if (n0() == null) {
+        } else {
+            this.t.b(n0().L());
+        }
+    }
+
+    public final String m0() {
+        return this.m.L() != null ? this.m.L().getForumId() : "";
+    }
+
+    public final a2 n0() {
+        if (this.m.L() == null || this.m.L().y0() == null) {
+            return null;
+        }
+        return this.m.L().y0().L();
+    }
+
+    public final String o0() {
+        a2 n0 = n0();
+        return n0 != null ? n0.f0() : "";
+    }
+
+    public void onDestroy() {
+        q0();
+        c cVar = this.t;
+        if (cVar != null) {
+            cVar.d();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cC */
-    public PbFirstFloorCommentAndPraiseViewHolder e(ViewGroup viewGroup) {
-        PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
-        this.mdQ.add(pbFirstFloorCommentAndPraiseViewHolder);
+    @Override // d.b.b.j.e.a
+    /* renamed from: p0 */
+    public PbFirstFloorCommentAndPraiseViewHolder R(ViewGroup viewGroup) {
+        PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
+        this.u.add(pbFirstFloorCommentAndPraiseViewHolder);
         return pbFirstFloorCommentAndPraiseViewHolder;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, p pVar, PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder) {
-        super.a(i, view, viewGroup, (ViewGroup) pVar, (p) pbFirstFloorCommentAndPraiseViewHolder);
+    public final void q0() {
+        PbThreadCommentAndPraiseInfoLayout pbThreadCommentAndPraiseInfoLayout;
+        Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.u.iterator();
+        while (it.hasNext()) {
+            PbFirstFloorCommentAndPraiseViewHolder next = it.next();
+            if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.f19775a) != null) {
+                pbThreadCommentAndPraiseInfoLayout.onDestroy();
+            }
+        }
+    }
+
+    public View r0(int i, View view, ViewGroup viewGroup, p pVar, PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder) {
+        super.X(i, view, viewGroup, pVar, pbFirstFloorCommentAndPraiseViewHolder);
         if (pVar != null && pbFirstFloorCommentAndPraiseViewHolder != null) {
-            pbFirstFloorCommentAndPraiseViewHolder.mdR.setOnClickOutListener(this.fjZ);
-            pbFirstFloorCommentAndPraiseViewHolder.mdR.setPostId(getPostId());
-            pbFirstFloorCommentAndPraiseViewHolder.mdR.setForumId(getForumId());
-            pVar.uI(this.lNR);
+            pbFirstFloorCommentAndPraiseViewHolder.f19775a.setOnClickOutListener(this.s);
+            pbFirstFloorCommentAndPraiseViewHolder.f19775a.setPostId(o0());
+            pbFirstFloorCommentAndPraiseViewHolder.f19775a.setForumId(m0());
+            pVar.n(this.v);
             pbFirstFloorCommentAndPraiseViewHolder.b(pVar);
         }
         return view;
     }
 
-    public void onDestroy() {
-        dsb();
-        if (this.mdP != null) {
-            this.mdP.onDestroy();
-        }
+    public void s0(boolean z) {
+        this.v = z;
     }
 
-    private void dsb() {
-        Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.mdQ.iterator();
-        while (it.hasNext()) {
-            PbFirstFloorCommentAndPraiseViewHolder next = it.next();
-            if (next != null && next.mdR != null) {
-                next.mdR.onDestroy();
-            }
-        }
-    }
-
-    public void BL(String str) {
-        if (this.mdQ.size() > 0) {
-            Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.mdQ.iterator();
-            while (it.hasNext()) {
-                PbFirstFloorCommentAndPraiseViewHolder next = it.next();
-                if (next != null && next.mdR != null) {
-                    next.mdR.BL(str);
-                }
-            }
-        } else if (dsc() != null) {
-            this.mdP.e(dsc().bpL());
-        }
-    }
-
-    private String getPostId() {
-        cb dsc = dsc();
-        return dsc != null ? dsc.boi() : "";
-    }
-
-    private String getForumId() {
-        return this.lSl.dmG() != null ? this.lSl.dmG().getForumId() : "";
-    }
-
-    private cb dsc() {
-        if (this.lSl.dmG() == null || this.lSl.dmG().getPbData() == null) {
-            return null;
-        }
-        return this.lSl.dmG().getPbData().dlp();
-    }
-
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.fjZ = onClickListener;
-    }
-
-    public void vS(boolean z) {
-        this.lNR = z;
-    }
-
-    /* loaded from: classes2.dex */
-    public static class PbFirstFloorCommentAndPraiseViewHolder extends TypeAdapter.ViewHolder {
-        public PbThreadCommentAndPraiseInfoLayout mdR;
-        public View mdS;
-        private int mdT;
-
-        public PbFirstFloorCommentAndPraiseViewHolder(View view) {
-            super(view);
-            if (view != null) {
-                this.mdR = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
-                e eVar = new e();
-                eVar.eNB = 4;
-                eVar.eNH = 7;
-                eVar.eNC = this.mdT;
-                eVar.eNF = PbFirstFloorCommentAndPraiseAdapter.aLy;
-                this.mdR.setAgreeStatisticData(eVar);
-                this.mdS = view.findViewById(R.id.bottom_divider_line);
-                this.mdS.setVisibility(0);
-            }
-        }
-
-        public void b(p pVar) {
-            if (pVar != null && pVar.blp() != null) {
-                cb blp = pVar.blp();
-                if (blp.bpL() != null) {
-                    blp.bpL().postId = blp.boi();
-                }
-                this.mdR.a(blp, pVar.getAnti());
-                this.mdS.setVisibility(pVar.dmk() ? 0 : 8);
-                if (blp.bmx() && blp.boj() != null) {
-                    this.mdT = 2;
-                } else {
-                    this.mdT = 1;
-                }
-                if (pVar.lNQ) {
-                    getView().setPadding(0, 0, 0, com.baidu.adp.lib.util.l.getDimens(getView().getContext(), R.dimen.tbds32));
-                }
-                this.mdR.showOperationMaskView(pVar.dml());
-            }
-            onChangeSkinType();
-        }
-
-        public void onChangeSkinType() {
-            ap.setBackgroundColor(this.mdS, R.color.CAM_X0203);
-            this.mdR.onChangeSkinType();
-        }
+    public void t0(View.OnClickListener onClickListener) {
+        this.s = onClickListener;
     }
 }

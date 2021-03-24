@@ -1,17 +1,14 @@
 package com.kwad.sdk.core.response.model;
 
 import androidx.annotation.Nullable;
-import com.baidu.ala.helper.AlaConstants;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.live.mode.LiveInfo;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
-    private static final long serialVersionUID = -4483350806354759008L;
+    public static final long serialVersionUID = -4483350806354759008L;
     public BaseInfo baseInfo = new BaseInfo();
     public VideoInfo videoInfo = new VideoInfo();
     public CoverInfo coverInfo = new CoverInfo();
@@ -21,9 +18,9 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
     public LiveInfo liveInfo = new LiveInfo();
     public TubeEpisode tubeEpisode = new TubeEpisode();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AuthorInfo implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 3647144332352243129L;
+        public static final long serialVersionUID = 3647144332352243129L;
         public String authorGender;
         public String authorIcon;
         public String authorIconGuide;
@@ -59,9 +56,9 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class BaseInfo implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 2257669583403371065L;
+        public static final long serialVersionUID = 2257669583403371065L;
         public long commentCount;
         public long createTime;
         public long likeCount;
@@ -109,9 +106,9 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class CoverInfo implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 9136122984250063738L;
+        public static final long serialVersionUID = 9136122984250063738L;
         public String blurBackgroundUrl;
         public String blurCoverUrl;
         public String coverUrl;
@@ -144,9 +141,9 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class PhotoAd implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 3907193550069150451L;
+        public static final long serialVersionUID = 3907193550069150451L;
         public boolean requestPatchAd;
 
         public void parseJson(@Nullable JSONObject jSONObject) {
@@ -164,9 +161,9 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class TubeEpisode implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = -2087412525733788061L;
+        public static final long serialVersionUID = -2087412525733788061L;
         public String episodeName;
         public long playCount;
         public String tubeName;
@@ -195,9 +192,9 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class VideoInfo implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 1395696168725754442L;
+        public static final long serialVersionUID = 1395696168725754442L;
         public long duration;
         public String firstFrame;
         public int height;
@@ -216,7 +213,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
             this.videoUrl = jSONObject.optString("videoUrl");
             this.firstFrame = jSONObject.optString("firstFrame");
             this.duration = jSONObject.optLong("duration");
-            this.size = jSONObject.optInt(TiebaInitialize.LogFields.SIZE);
+            this.size = jSONObject.optInt("size");
             this.width = jSONObject.optInt("width");
             this.height = jSONObject.optInt("height");
             this.leftRatio = jSONObject.optDouble("leftRatio", 0.0d);
@@ -231,7 +228,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
             o.a(jSONObject, "videoUrl", this.videoUrl);
             o.a(jSONObject, "firstFrame", this.firstFrame);
             o.a(jSONObject, "duration", this.duration);
-            o.a(jSONObject, TiebaInitialize.LogFields.SIZE, this.size);
+            o.a(jSONObject, "size", this.size);
             o.a(jSONObject, "width", this.width);
             o.a(jSONObject, "height", this.height);
             o.a(jSONObject, "leftRatio", this.leftRatio);
@@ -247,12 +244,12 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
             return;
         }
         this.baseInfo.parseJson(jSONObject.optJSONObject("baseInfo"));
-        this.videoInfo.parseJson(jSONObject.optJSONObject(AlaConstants.STAT_VIDEO_INFO));
+        this.videoInfo.parseJson(jSONObject.optJSONObject("videoInfo"));
         this.coverInfo.parseJson(jSONObject.optJSONObject("coverInfo"));
         this.authorInfo.parseJson(jSONObject.optJSONObject("authorInfo"));
         this.trendInfo.parseJson(jSONObject.optJSONObject("trendInfo"));
         this.photoAd.parseJson(jSONObject.optJSONObject("photoAd"));
-        this.liveInfo.parseJson(jSONObject.optJSONObject(UbcStatConstant.Value.VALUE_HEADLINE_FROM_SERVER));
+        this.liveInfo.parseJson(jSONObject.optJSONObject("liveInfo"));
         this.tubeEpisode.parseJson(jSONObject.optJSONObject("tubeEpisode"));
     }
 
@@ -260,12 +257,12 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         o.a(jSONObject, "baseInfo", this.baseInfo);
-        o.a(jSONObject, AlaConstants.STAT_VIDEO_INFO, this.videoInfo);
+        o.a(jSONObject, "videoInfo", this.videoInfo);
         o.a(jSONObject, "coverInfo", this.coverInfo);
         o.a(jSONObject, "authorInfo", this.authorInfo);
         o.a(jSONObject, "trendInfo", this.trendInfo);
         o.a(jSONObject, "photoAd", this.photoAd);
-        o.a(jSONObject, UbcStatConstant.Value.VALUE_HEADLINE_FROM_SERVER, this.liveInfo);
+        o.a(jSONObject, "liveInfo", this.liveInfo);
         o.a(jSONObject, "tubeEpisode", this.tubeEpisode);
         return jSONObject;
     }

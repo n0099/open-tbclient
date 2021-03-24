@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.kwad.sdk.R;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e extends RefreshLayout {
     public e(Context context) {
         this(context, null);
@@ -22,14 +22,16 @@ public class e extends RefreshLayout {
     }
 
     @Override // com.kwad.sdk.contentalliance.refreshview.RefreshLayout
-    protected void a(AttributeSet attributeSet) {
+    public void a(AttributeSet attributeSet) {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_shoot_refresh_view, (ViewGroup) this, true);
-        this.d = findViewById(R.id.ksad_slide_shoot_refresh_view);
-        this.d.setVisibility(8);
-        if (!(this.d instanceof d)) {
+        View findViewById = findViewById(R.id.ksad_slide_shoot_refresh_view);
+        this.f32958d = findViewById;
+        findViewById.setVisibility(8);
+        View view = this.f32958d;
+        if (!(view instanceof d)) {
             throw new ClassCastException("the refreshView must implement the interface IRefreshStatus");
         }
-        this.e = (d) this.d;
+        this.f32959e = (d) view;
     }
 
     public void a(MotionEvent motionEvent) {
@@ -40,12 +42,12 @@ public class e extends RefreshLayout {
     }
 
     @Override // com.kwad.sdk.contentalliance.refreshview.RefreshLayout
-    protected View b(AttributeSet attributeSet) {
+    public View b(AttributeSet attributeSet) {
         return null;
     }
 
     @Override // com.kwad.sdk.contentalliance.refreshview.RefreshLayout
-    protected b b() {
+    public b b() {
         return new a(getContext());
     }
 

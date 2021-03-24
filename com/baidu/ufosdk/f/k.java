@@ -3,7 +3,7 @@ package com.baidu.ufosdk.f;
 import android.annotation.SuppressLint;
 import android.util.Base64;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
+import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -12,13 +12,13 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 @SuppressLint({"InlinedApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class k {
-    private static String a() {
+    public static String a() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(a(ExifInterface.LONGITUDE_WEST, false));
-        stringBuffer.append(a("9", true));
+        stringBuffer.append(a(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, true));
         stringBuffer.append(random.nextInt(1) + 1);
         stringBuffer.append(a("Y", true));
         stringBuffer.append("abe");
@@ -29,9 +29,9 @@ public final class k {
 
     @SuppressLint({"TrulyRandom"})
     public static String a(String str) {
-        byte[] bArr = null;
+        byte[] bArr;
         try {
-            Key d = d(a());
+            Key d2 = d(a());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -41,24 +41,25 @@ public final class k {
             }
             byte[] bArr2 = new byte[length];
             System.arraycopy(bytes, 0, bArr2, 0, bytes.length);
-            cipher.init(1, d, new IvParameterSpec(b().getBytes()));
+            cipher.init(1, d2, new IvParameterSpec(b().getBytes()));
             bArr = cipher.doFinal(bArr2);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            bArr = null;
         }
         return new String(Base64.encodeToString(bArr, 0));
     }
 
-    private static String a(String str, boolean z) {
+    public static String a(String str, boolean z) {
         char[] charArray = str.toCharArray();
         StringBuffer stringBuffer = new StringBuffer();
-        for (char c : charArray) {
-            stringBuffer.append(Integer.toHexString(c));
+        for (char c2 : charArray) {
+            stringBuffer.append(Integer.toHexString(c2));
         }
         return z ? stringBuffer.reverse().toString() : stringBuffer.toString();
     }
 
-    private static String b() {
+    public static String b() {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i < 9; i++) {
             sb.append(String.valueOf(i));
@@ -69,12 +70,12 @@ public final class k {
 
     public static String b(String str) {
         try {
-            Key d = d(a());
+            Key d2 = d(a());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            cipher.init(2, d, new IvParameterSpec(b().getBytes()));
+            cipher.init(2, d2, new IvParameterSpec(b().getBytes()));
             return new String(cipher.doFinal(Base64.decode(str, 0))).trim();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return null;
         }
     }
@@ -82,9 +83,9 @@ public final class k {
     public static String c(String str) {
         MessageDigest messageDigest;
         try {
-            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            messageDigest = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e2) {
+            e2.printStackTrace();
             messageDigest = null;
         }
         if (messageDigest != null) {
@@ -92,20 +93,20 @@ public final class k {
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             StringBuilder sb = new StringBuilder();
-            for (byte b : digest) {
-                sb.append(Integer.toHexString(b & 255));
+            for (byte b2 : digest) {
+                sb.append(Integer.toHexString(b2 & 255));
             }
             return sb.toString();
         }
         return "";
     }
 
-    private static Key d(String str) {
+    public static Key d(String str) {
         try {
-            return new SecretKeySpec(str.getBytes(), com.baidu.sapi2.utils.e.q);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
+            return new SecretKeySpec(str.getBytes(), "AES");
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            throw e2;
         }
     }
 }

@@ -5,24 +5,21 @@ import android.app.Application;
 import android.os.Bundle;
 import java.util.Iterator;
 import java.util.Stack;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    private Stack<Activity> f3196a;
+    public Stack<Activity> f10888a;
 
-    /* loaded from: classes3.dex */
-    private static class b {
+    /* loaded from: classes2.dex */
+    public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f3197a = new a();
-
-        private b() {
-        }
+        public static a f10889a = new a();
     }
 
     public static a e() {
-        return b.f3197a;
+        return b.f10889a;
     }
 
     public void a(Application application) {
@@ -34,11 +31,11 @@ public class a implements Application.ActivityLifecycleCallbacks {
     }
 
     public boolean c(Activity activity) {
-        return this.f3196a.remove(activity);
+        return this.f10888a.remove(activity);
     }
 
     public int d(Activity activity) {
-        return this.f3196a.search(activity);
+        return this.f10888a.search(activity);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -71,29 +68,29 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityStopped(Activity activity) {
     }
 
-    private a() {
-        this.f3196a = new Stack<>();
+    public a() {
+        this.f10888a = new Stack<>();
     }
 
     public void a(Activity activity) {
-        this.f3196a.add(activity);
+        this.f10888a.add(activity);
     }
 
     public Activity b() {
-        if (this.f3196a.isEmpty() || this.f3196a.size() < 2) {
+        if (this.f10888a.isEmpty() || this.f10888a.size() < 2) {
             return null;
         }
-        Stack<Activity> stack = this.f3196a;
+        Stack<Activity> stack = this.f10888a;
         return stack.get(stack.size() - 2);
     }
 
     public Activity c() {
-        int size = this.f3196a.size();
+        int size = this.f10888a.size();
         if (size < 2) {
             return d();
         }
         for (int i = size - 1; i >= 0; i--) {
-            Activity activity = this.f3196a.get(i);
+            Activity activity = this.f10888a.get(i);
             if (activity != null && !activity.isFinishing()) {
                 return activity;
             }
@@ -102,15 +99,15 @@ public class a implements Application.ActivityLifecycleCallbacks {
     }
 
     public Activity d() {
-        if (this.f3196a.isEmpty()) {
+        if (this.f10888a.isEmpty()) {
             return null;
         }
-        return this.f3196a.lastElement();
+        return this.f10888a.lastElement();
     }
 
     public void a(Class<Activity> cls) {
         if (cls != null) {
-            Iterator<Activity> it = this.f3196a.iterator();
+            Iterator<Activity> it = this.f10888a.iterator();
             while (it.hasNext()) {
                 Activity next = it.next();
                 if (next.getClass().equals(cls)) {
@@ -122,12 +119,12 @@ public class a implements Application.ActivityLifecycleCallbacks {
     }
 
     public void b(Activity activity) {
-        this.f3196a.pop().finish();
+        this.f10888a.pop().finish();
     }
 
     public void a() {
-        while (!this.f3196a.isEmpty()) {
-            this.f3196a.pop().finish();
+        while (!this.f10888a.isEmpty()) {
+            this.f10888a.pop().finish();
         }
     }
 }

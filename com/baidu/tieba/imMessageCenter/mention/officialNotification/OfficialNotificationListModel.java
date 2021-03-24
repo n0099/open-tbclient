@@ -3,80 +3,90 @@ package com.baidu.tieba.imMessageCenter.mention.officialNotification;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.util.ae;
-import com.baidu.tbadk.util.af;
-import com.baidu.tieba.im.chat.c;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.MsgPageData;
-import com.baidu.tieba.im.db.l;
 import com.baidu.tieba.im.message.LoadHistoryMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
+import d.b.h0.z0.f0;
+import d.b.h0.z0.h0;
+import d.b.i0.d1.f.c;
+import d.b.i0.d1.h.l;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
-    private CustomMessageListener mCustomMessageListener = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.mention.officialNotification.OfficialNotificationListModel.2
+
+    /* renamed from: e  reason: collision with root package name */
+    public CustomMessageListener f18362e = new b(0);
+
+    /* loaded from: classes4.dex */
+    public class a extends f0<Boolean> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ChatMessage f18363a;
+
+        public a(ChatMessage chatMessage) {
+            this.f18363a = chatMessage;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // d.b.h0.z0.f0
+        public Boolean doInBackground() {
+            return Boolean.valueOf(l.t().c(String.valueOf(OfficialNotificationListModel.this.mUser.getUserId()), String.valueOf(this.f18363a.getMsgId())));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                if (customResponsedMessage.getCmd() == 2012123) {
-                    OfficialNotificationListModel.this.processServerMsg(customResponsedMessage);
-                } else if (customResponsedMessage.getCmd() == 2001147) {
-                    OfficialNotificationListModel.this.processHistory(customResponsedMessage);
-                }
+            if (customResponsedMessage == null) {
+                return;
+            }
+            if (customResponsedMessage.getCmd() == 2012123) {
+                OfficialNotificationListModel.this.processServerMsg(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2001147) {
+                OfficialNotificationListModel.this.processHistory(customResponsedMessage);
             }
         }
-    };
-    private TbPageContext mPageContext;
+    }
 
     public OfficialNotificationListModel(TbPageContext tbPageContext) {
         this.mDatas = new MsgPageData();
-        this.mPageContext = tbPageContext;
         registerListener();
         this.customGroupType = 4;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(c cVar) {
-        if (this.mUser == null) {
-            return false;
+    public void deleteMsg(ChatMessage chatMessage) {
+        if (this.mUser == null || chatMessage == null) {
+            return;
         }
-        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.limit = 20;
-        aVar.kLu = null;
-        aVar.kLv = null;
-        aVar.id = this.mUser.getUserIdLong() + "";
-        super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
-        return true;
+        h0.c(new a(chatMessage), null);
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadPrepage() {
-        long j;
-        long j2;
-        if (this.mUser == null) {
-            return false;
-        }
-        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.limit = 20;
-        if (this.mDatas == null || this.mDatas.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
-            j = 0;
-            j2 = 0;
-        } else {
-            long msgId = this.mDatas.getChatMessages().get(0).getMsgId();
-            j = this.mDatas.getChatMessages().get(0).getRecordId();
-            j2 = msgId;
-        }
-        aVar.kLu = String.valueOf(j2);
-        aVar.kLv = String.valueOf(j);
-        aVar.id = this.mUser.getUserIdLong() + "";
-        super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
-        return true;
+    public ChatMessage genChatMessage() {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public MsglistModel.CacheInfo getCacheInfo() {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public long getMaxMid() {
+        return 0L;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
@@ -85,41 +95,44 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean saveDraftContent(String str) {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    protected ChatMessage genChatMessage() {
-        return null;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    protected long getMaxMid() {
-        return 0L;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    protected void deleteMsg(final ChatMessage chatMessage) {
-        if (this.mUser != null && chatMessage != null) {
-            af.b(new ae<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.mention.officialNotification.OfficialNotificationListModel.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ae
-                public Boolean doInBackground() {
-                    return Boolean.valueOf(l.cVX().ft(String.valueOf(OfficialNotificationListModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
-                }
-            }, null);
+    public boolean loadFirst(c cVar) {
+        if (this.mUser == null) {
+            return false;
         }
+        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
+        aVar.f18041c = 20;
+        aVar.f18039a = null;
+        aVar.f18040b = null;
+        aVar.f18042d = this.mUser.getUserIdLong() + "";
+        super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
+        return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected void markDeleteMsg(ChatMessage chatMessage) {
+    public boolean loadPrepage() {
+        long j;
+        if (this.mUser == null) {
+            return false;
+        }
+        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
+        aVar.f18041c = 20;
+        MsgPageData msgPageData = this.mDatas;
+        long j2 = 0;
+        if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
+            j = 0;
+        } else {
+            j2 = this.mDatas.getChatMessages().get(0).getMsgId();
+            j = this.mDatas.getChatMessages().get(0).getRecordId();
+        }
+        aVar.f18039a = String.valueOf(j2);
+        aVar.f18040b = String.valueOf(j);
+        aVar.f18042d = this.mUser.getUserIdLong() + "";
+        super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
+        return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected MsglistModel.CacheInfo getCacheInfo() {
-        return null;
+    public void markDeleteMsg(ChatMessage chatMessage) {
     }
 
     @Override // com.baidu.tieba.im.model.CommonPersonalMsglistModel, com.baidu.tieba.im.model.MsglistModel
@@ -128,17 +141,7 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
         unRegisterListener();
     }
 
-    private void registerListener() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD, this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LOAD_HISTORY_OFFICICAL, this.mCustomMessageListener);
-    }
-
-    private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.mCustomMessageListener);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void processServerMsg(CustomResponsedMessage<?> customResponsedMessage) {
+    public final void processServerMsg(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof GroupMsgData) {
             GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage;
             if (getUser() != null) {
@@ -156,5 +159,19 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
                 processMsgFromServerCommon(linkedList);
             }
         }
+    }
+
+    public final void registerListener() {
+        MessageManager.getInstance().registerListener(2012123, this.f18362e);
+        MessageManager.getInstance().registerListener(2001147, this.f18362e);
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public boolean saveDraftContent(String str) {
+        return false;
+    }
+
+    public final void unRegisterListener() {
+        MessageManager.getInstance().unRegisterListener(this.f18362e);
     }
 }

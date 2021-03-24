@@ -3,21 +3,16 @@ package com.baidubce;
 import com.baidubce.util.CheckUtils;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum Region {
     CN_N1("bj");
     
-    private List<String> regionIds;
+    public List<String> regionIds;
 
     Region(String... strArr) {
         CheckUtils.isNotNull(strArr, "regionIds should not be null.");
         CheckUtils.checkArgument(strArr.length > 0, "regionIds should not be empty");
         this.regionIds = Arrays.asList(strArr);
-    }
-
-    @Override // java.lang.Enum
-    public String toString() {
-        return this.regionIds.get(0);
     }
 
     public static Region fromValue(String str) {
@@ -30,5 +25,10 @@ public enum Region {
             }
         }
         throw new IllegalArgumentException("Cannot create region from " + str);
+    }
+
+    @Override // java.lang.Enum
+    public String toString() {
+        return this.regionIds.get(0);
     }
 }

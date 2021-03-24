@@ -1,19 +1,28 @@
 package com.kuaishou.aegon;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final /* synthetic */ class e implements Runnable {
-    private final boolean pZc;
 
-    private e(boolean z) {
-        this.pZc = z;
+    /* renamed from: a  reason: collision with root package name */
+    public final SignalStrengthListener f31615a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final int f31616b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final int f31617c;
+
+    public e(SignalStrengthListener signalStrengthListener, int i, int i2) {
+        this.f31615a = signalStrengthListener;
+        this.f31616b = i;
+        this.f31617c = i2;
     }
 
-    public static Runnable BD(boolean z) {
-        return new e(z);
+    public static Runnable a(SignalStrengthListener signalStrengthListener, int i, int i2) {
+        return new e(signalStrengthListener, i, i2);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Aegon.nativeSetDebug(this.pZc);
+        this.f31615a.nativeOnSignalStrengthValueUpdate(this.f31616b, this.f31617c);
     }
 }

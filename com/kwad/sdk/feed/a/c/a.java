@@ -6,27 +6,33 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.lib.widget.recycler.d;
 import com.kwad.sdk.lib.widget.recycler.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.feed.a.b.a {
-    private RecyclerView c;
-    private com.kwad.sdk.lib.widget.recycler.c<AdTemplate, ?> d;
-    private RecyclerView.OnScrollListener e = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.feed.a.c.a.1
+
+    /* renamed from: c  reason: collision with root package name */
+    public RecyclerView f34860c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.lib.widget.recycler.c<AdTemplate, ?> f34861d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RecyclerView.OnScrollListener f34862e = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.feed.a.c.a.1
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             RecyclerView.Adapter adapter;
             int i3;
             super.onScrolled(recyclerView, i, i2);
-            if (a.this.c == null || a.this.d == null || (adapter = a.this.c.getAdapter()) == null || adapter.getItemCount() == 0) {
+            if (a.this.f34860c == null || a.this.f34861d == null || (adapter = a.this.f34860c.getAdapter()) == null || adapter.getItemCount() == 0) {
                 return;
             }
-            int a2 = e.a(a.this.c);
-            int b = e.b(a.this.c);
-            if (-1 == a2 || -1 == b) {
+            int a2 = e.a(a.this.f34860c);
+            int b2 = e.b(a.this.f34860c);
+            if (-1 == a2 || -1 == b2) {
                 return;
             }
-            com.kwad.sdk.core.d.a.a("FeedHomeItemVisiblePresenter", "firstVisible=" + a2 + "--lastVisible=" + b);
-            RecyclerView.LayoutManager layoutManager = a.this.c.getLayoutManager();
-            while (a2 <= b) {
+            com.kwad.sdk.core.d.a.a("FeedHomeItemVisiblePresenter", "firstVisible=" + a2 + "--lastVisible=" + b2);
+            RecyclerView.LayoutManager layoutManager = a.this.f34860c.getLayoutManager();
+            while (a2 <= b2) {
                 if (adapter instanceof d) {
                     d dVar = (d) adapter;
                     if (a.this.a(a2, dVar)) {
@@ -37,7 +43,7 @@ public class a extends com.kwad.sdk.feed.a.b.a {
                 } else {
                     i3 = a2;
                 }
-                AdTemplate adTemplate = (AdTemplate) a.this.d.c(i3);
+                AdTemplate adTemplate = (AdTemplate) a.this.f34861d.c(i3);
                 if (adTemplate != null) {
                     View findViewByPosition = layoutManager.findViewByPosition(a2);
                     Rect rect = new Rect();
@@ -51,10 +57,10 @@ public class a extends com.kwad.sdk.feed.a.b.a {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(AdTemplate adTemplate, float f) {
-        e.a aVar = this.f6505a.c.get(adTemplate.mUniqueId);
+    public void a(AdTemplate adTemplate, float f2) {
+        e.a aVar = ((com.kwad.sdk.feed.a.b.a) this).f34853a.f34856c.get(adTemplate.mUniqueId);
         if (aVar != null) {
-            aVar.a(adTemplate, f);
+            aVar.a(adTemplate, f2);
         }
     }
 
@@ -63,20 +69,20 @@ public class a extends com.kwad.sdk.feed.a.b.a {
         return i < dVar.a() || i >= dVar.a() + dVar.getItemCount();
     }
 
-    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: com.kwad.sdk.lib.widget.recycler.c<MODEL, ?>, com.kwad.sdk.lib.widget.recycler.c<com.kwad.sdk.core.response.model.AdTemplate, ?> */
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: com.kwad.sdk.lib.widget.recycler.c<MODEL, ?>, com.kwad.sdk.lib.widget.recycler.c<com.kwad.sdk.core.response.model.AdTemplate, ?> */
     @Override // com.kwad.sdk.feed.a.b.a, com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f6505a.h;
-        this.c = this.f6505a.f;
-        this.c.addOnScrollListener(this.e);
+        com.kwad.sdk.feed.a.b.b bVar = ((com.kwad.sdk.feed.a.b.a) this).f34853a;
+        this.f34861d = bVar.f35906h;
+        RecyclerView recyclerView = bVar.f35904f;
+        this.f34860c = recyclerView;
+        recyclerView.addOnScrollListener(this.f34862e);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.c.clearOnScrollListeners();
+        this.f34860c.clearOnScrollListeners();
     }
 }

@@ -1,186 +1,64 @@
 package com.xiaomi.push;
 
-import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.down.manage.DownloadConstants;
-import java.net.UnknownHostException;
-/* loaded from: classes5.dex */
-final class hc {
-
-    /* loaded from: classes5.dex */
-    static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        fh f8407a;
-
-        /* renamed from: a  reason: collision with other field name */
-        String f422a;
-
-        a() {
+import android.content.Context;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class hc {
+    public static HashMap<String, ArrayList<hj>> a(Context context, List<hj> list) {
+        if (list == null || list.size() == 0) {
+            return null;
         }
+        HashMap<String, ArrayList<hj>> hashMap = new HashMap<>();
+        for (hj hjVar : list) {
+            a(context, hjVar);
+            ArrayList<hj> arrayList = hashMap.get(hjVar.c());
+            if (arrayList == null) {
+                arrayList = new ArrayList<>();
+                hashMap.put(hjVar.c(), arrayList);
+            }
+            arrayList.add(hjVar);
+        }
+        return hashMap;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static a a(Exception exc) {
-        m336a(exc);
-        boolean z = exc instanceof gd;
-        Exception exc2 = exc;
-        if (z) {
-            Throwable a2 = ((gd) exc).a();
-            exc2 = exc;
-            if (a2 != null) {
-                exc2 = ((gd) exc).a();
-            }
-        }
-        a aVar = new a();
-        String message = exc2.getMessage();
-        if (exc2.getCause() != null) {
-            message = exc2.getCause().getMessage();
-        }
-        String str = exc2.getClass().getSimpleName() + ":" + message;
-        int a3 = fu.a(exc2);
-        if (a3 != 0) {
-            aVar.f8407a = fh.a(a3 + fh.GSLB_REQUEST_SUCCESS.a());
-        }
-        if (aVar.f8407a == null) {
-            aVar.f8407a = fh.GSLB_TCP_ERR_OTHER;
-        }
-        if (aVar.f8407a == fh.GSLB_TCP_ERR_OTHER) {
-            aVar.f422a = str;
-        }
-        return aVar;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    private static void m336a(Exception exc) {
-        if (exc == null) {
-            throw new NullPointerException();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static a b(Exception exc) {
-        Throwable cause;
-        m336a(exc);
-        boolean z = exc instanceof gd;
-        Exception exc2 = exc;
-        if (z) {
-            Throwable a2 = ((gd) exc).a();
-            exc2 = exc;
-            if (a2 != null) {
-                exc2 = ((gd) exc).a();
-            }
-        }
-        a aVar = new a();
-        String message = exc2.getMessage();
-        if (exc2.getCause() != null) {
-            message = exc2.getCause().getMessage();
-        }
-        int a3 = fu.a(exc2);
-        String str = exc2.getClass().getSimpleName() + ":" + message;
-        if (a3 != 0) {
-            aVar.f8407a = fh.a(a3 + fh.CONN_SUCCESS.a());
-            if (aVar.f8407a == fh.CONN_BOSH_ERR && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
-                aVar.f8407a = fh.CONN_BOSH_UNKNOWNHOST;
-            }
-        } else {
-            aVar.f8407a = fh.CONN_XMPP_ERR;
-        }
-        if (aVar.f8407a == fh.CONN_TCP_ERR_OTHER || aVar.f8407a == fh.CONN_XMPP_ERR || aVar.f8407a == fh.CONN_BOSH_ERR) {
-            aVar.f422a = str;
-        }
-        return aVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static a c(Exception exc) {
-        m336a(exc);
-        boolean z = exc instanceof gd;
-        Exception exc2 = exc;
-        if (z) {
-            Throwable a2 = ((gd) exc).a();
-            exc2 = exc;
-            if (a2 != null) {
-                exc2 = ((gd) exc).a();
-            }
-        }
-        a aVar = new a();
-        String message = exc2.getMessage();
-        if (exc2.getCause() != null) {
-            message = exc2.getCause().getMessage();
-        }
-        String str = exc2.getClass().getSimpleName() + ":" + message;
-        switch (fu.a(exc2)) {
-            case 105:
-                aVar.f8407a = fh.BIND_TCP_READ_TIMEOUT;
-                break;
-            case 109:
-                aVar.f8407a = fh.BIND_TCP_CONNRESET;
-                break;
-            case 110:
-                aVar.f8407a = fh.BIND_TCP_BROKEN_PIPE;
-                break;
-            case Opcodes.IFNONNULL /* 199 */:
-                aVar.f8407a = fh.BIND_TCP_ERR;
-                break;
-            case DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR /* 499 */:
-                aVar.f8407a = fh.BIND_BOSH_ERR;
-                if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
-                    aVar.f8407a = fh.BIND_BOSH_ITEM_NOT_FOUND;
-                    break;
+    public static void a(Context context, he heVar, HashMap<String, ArrayList<hj>> hashMap) {
+        for (Map.Entry<String, ArrayList<hj>> entry : hashMap.entrySet()) {
+            try {
+                ArrayList<hj> value = entry.getValue();
+                if (value != null && value.size() != 0) {
+                    heVar.a(value, value.get(0).e(), entry.getKey());
                 }
-                break;
-            default:
-                aVar.f8407a = fh.BIND_XMPP_ERR;
-                break;
-        }
-        if (aVar.f8407a == fh.BIND_TCP_ERR || aVar.f8407a == fh.BIND_XMPP_ERR || aVar.f8407a == fh.BIND_BOSH_ERR) {
-            aVar.f422a = str;
-        }
-        return aVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static a d(Exception exc) {
-        m336a(exc);
-        boolean z = exc instanceof gd;
-        Exception exc2 = exc;
-        if (z) {
-            Throwable a2 = ((gd) exc).a();
-            exc2 = exc;
-            if (a2 != null) {
-                exc2 = ((gd) exc).a();
+            } catch (Exception unused) {
             }
         }
-        a aVar = new a();
-        String message = exc2.getMessage();
-        String str = exc2.getClass().getSimpleName() + ":" + message;
-        switch (fu.a(exc2)) {
-            case 105:
-                aVar.f8407a = fh.CHANNEL_TCP_READTIMEOUT;
-                break;
-            case 109:
-                aVar.f8407a = fh.CHANNEL_TCP_CONNRESET;
-                break;
-            case 110:
-                aVar.f8407a = fh.CHANNEL_TCP_BROKEN_PIPE;
-                break;
-            case Opcodes.IFNONNULL /* 199 */:
-                aVar.f8407a = fh.CHANNEL_TCP_ERR;
-                break;
-            case DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR /* 499 */:
-                aVar.f8407a = fh.CHANNEL_BOSH_EXCEPTION;
-                if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
-                    aVar.f8407a = fh.CHANNEL_BOSH_ITEMNOTFIND;
-                    break;
-                }
-                break;
-            default:
-                aVar.f8407a = fh.CHANNEL_XMPPEXCEPTION;
-                break;
+    }
+
+    public static void a(Context context, he heVar, List<hj> list) {
+        HashMap<String, ArrayList<hj>> a2 = a(context, list);
+        if (a2 != null && a2.size() != 0) {
+            a(context, heVar, a2);
+            return;
         }
-        if (aVar.f8407a == fh.CHANNEL_TCP_ERR || aVar.f8407a == fh.CHANNEL_XMPPEXCEPTION || aVar.f8407a == fh.CHANNEL_BOSH_EXCEPTION) {
-            aVar.f422a = str;
+        com.xiaomi.channel.commonutils.logger.b.m51a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+    }
+
+    public static void a(Context context, hj hjVar) {
+        if (hjVar.f481a) {
+            hjVar.a("push_sdk_channel");
         }
-        return aVar;
+        if (TextUtils.isEmpty(hjVar.d())) {
+            hjVar.f(com.xiaomi.push.service.bm.a());
+        }
+        hjVar.b(System.currentTimeMillis());
+        if (TextUtils.isEmpty(hjVar.e())) {
+            hjVar.e(context.getPackageName());
+        }
+        if (TextUtils.isEmpty(hjVar.c())) {
+            hjVar.e(hjVar.e());
+        }
     }
 }

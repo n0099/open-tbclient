@@ -4,12 +4,12 @@ import android.content.Context;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.module.manager.SDKManager;
 import com.sdk.mobile.b.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UiOauthManagerCtc extends SDKManager {
-    private static volatile UiOauthManagerCtc manager;
-    private Context mContext;
+    public static volatile UiOauthManagerCtc manager;
+    public Context mContext;
 
-    private UiOauthManagerCtc(Context context) {
+    public UiOauthManagerCtc(Context context) {
         this.mContext = context;
     }
 

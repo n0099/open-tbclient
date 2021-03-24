@@ -1,16 +1,16 @@
 package com.baidu.adp.framework.message;
 
-import com.baidu.adp.lib.network.http.e;
+import d.b.b.e.j.a.e;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
-    private String contentEncoding;
-    private String contentLength;
-    private String contentType;
-    private Map<String, List<String>> mHeader;
-    private int mStatusCode;
+    public String contentEncoding;
+    public String contentLength;
+    public String contentType;
+    public Map<String, List<String>> mHeader;
+    public int mStatusCode;
 
     public HttpResponsedMessage(int i) {
         super(i);
@@ -21,40 +21,30 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         this.contentLength = "";
     }
 
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
+
     public String getContentEncoding() {
         return this.contentEncoding;
-    }
-
-    public void setContentEncoding(String str) {
-        this.contentEncoding = str;
-    }
-
-    public String getContentType() {
-        return this.contentType;
-    }
-
-    public void setContentType(String str) {
-        this.contentType = str;
     }
 
     public String getContentLength() {
         return this.contentLength;
     }
 
-    public void setContentLength(String str) {
-        this.contentLength = str;
-    }
-
-    public synchronized void setHeader(Map<String, List<String>> map) {
-        this.mHeader = map;
+    public String getContentType() {
+        return this.contentType;
     }
 
     public synchronized List<String> getHeader(String str) {
-        return this.mHeader != null ? Collections.unmodifiableList(this.mHeader.get(str)) : null;
+        if (this.mHeader != null) {
+            return Collections.unmodifiableList(this.mHeader.get(str));
+        }
+        return null;
     }
 
-    public boolean isSuccess() {
-        return this.mStatusCode == 200 || this.mStatusCode / 100 == 3;
+    public int getStatusCode() {
+        return this.mStatusCode;
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
@@ -62,18 +52,36 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         return !isSuccess();
     }
 
-    public int getStatusCode() {
-        return this.mStatusCode;
+    public boolean isSuccess() {
+        int i = this.mStatusCode;
+        return i == 200 || i / 100 == 3;
+    }
+
+    public void logStatInBackground(int i, e eVar) {
+    }
+
+    public void setContentEncoding(String str) {
+        this.contentEncoding = str;
+    }
+
+    public void setContentLength(String str) {
+        this.contentLength = str;
+    }
+
+    public void setContentType(String str) {
+        this.contentType = str;
+    }
+
+    public synchronized void setHeader(Map<String, List<String>> map) {
+        this.mHeader = map;
     }
 
     public void setStatusCode(int i, String str) {
         this.mStatusCode = i;
-        if (!isSuccess()) {
-            setError(-1);
-            setErrorString(str);
+        if (isSuccess()) {
+            return;
         }
-    }
-
-    public void logStatInBackground(int i, e eVar) {
+        setError(-1);
+        setErrorString(str);
     }
 }

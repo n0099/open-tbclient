@@ -15,36 +15,52 @@ import android.view.WindowManager;
 import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
-/* loaded from: classes14.dex */
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+/* loaded from: classes7.dex */
 public class C0 extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8093a;
-    public boolean c;
-    public boolean e;
-    public Handler f;
-    public long g;
-    public long h;
+    public Context f39642a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public F0 f39643b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f39644c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public K0 f39645d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f39646e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Handler f39647f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f39648g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f39649h;
     public boolean i;
     public final Runnable j;
     public long k;
     public boolean l;
     public int m;
-    public t qkq;
-    public K0 qkr;
-    public o qks;
-    public ag qkt;
-    public be qku;
+    public D0 n;
+    public J0 o;
+    public R0 p;
 
     public C0(Context context, AttributeSet attributeSet, int i, K0 k0) {
         super(context.getApplicationContext(), attributeSet, i);
-        this.f = new Handler(Looper.getMainLooper());
-        this.g = 1000L;
-        this.h = 200L;
-        this.j = new fd(this);
-        this.qks = new e(this);
-        this.qkr = k0;
-        this.f8093a = context;
+        this.f39647f = new Handler(Looper.getMainLooper());
+        this.f39648g = 1000L;
+        this.f39649h = 200L;
+        this.j = new z0(this);
+        this.n = new A0(this);
+        this.f39645d = k0;
+        this.f39642a = context;
         setHorizontalScrollbarOverlay(false);
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollbarOverlay(false);
@@ -79,85 +95,92 @@ public class C0 extends WebView {
         if (Build.VERSION.SDK_INT >= 17) {
             getSettings().setMediaPlaybackRequiresUserGesture(false);
         }
-        this.qkq = new ad(this);
-        setWebViewClient(new ap(this, this.qkq));
-        setWebChromeClient(new am(this, this.qkq));
+        this.f39643b = new I0(this);
+        setWebViewClient(new N0(this, this.f39643b));
+        setWebChromeClient(new M0(this, this.f39643b));
     }
 
     public void a() {
-        boolean g;
-        boolean z = true;
-        if (!(System.currentTimeMillis() - this.k < this.h)) {
-            int[] iArr = new int[2];
-            getLocationOnScreen(iArr);
-            Rect rect = new Rect();
-            getGlobalVisibleRect(rect);
-            int i = iArr[0];
-            int width = iArr[0] + getWidth();
-            int i2 = iArr[1];
-            int height = iArr[1] + getHeight();
-            rect.height();
-            rect.width();
-            getHeight();
-            getWidth();
-            int[] iL = v.iL(getViewContext());
-            if (width <= 0 || i >= iL[0] || height <= 0 || i2 >= iL[1]) {
-                z = false;
-            }
-            this.l = z;
-            t tVar = this.qkq;
-            if (tVar != null) {
-                ad adVar = (ad) tVar;
-                C0 c0 = adVar.qkf;
-                if (c0 != null && adVar.d != (g = c0.g())) {
-                    adVar.a(g);
-                }
-                t tVar2 = this.qkq;
-                int width2 = getWidth();
-                int height2 = getHeight();
-                ad adVar2 = (ad) tVar2;
-                if (adVar2.qkf != null) {
-                    try {
-                        int[] iArr2 = new int[4];
-                        if (iArr2[0] != i || iArr2[1] != i2 || iArr2[2] != width2 || iArr2[3] != height2) {
-                            iArr2[0] = i;
-                            iArr2[1] = i2;
-                            iArr2[2] = width2;
-                            iArr2[3] = height2;
-                            int[] iArr3 = {i, i2 - (adVar2.qkf.getViewContext() instanceof Activity ? ((Activity) adVar2.qkf.getViewContext()).getWindow().findViewById(16908290).getTop() : 0), width2, height2};
-                            v.b(adVar2.qkf.getViewContext(), iArr3);
-                            int i3 = iArr3[0];
-                            int i4 = iArr3[1];
-                            int i5 = iArr3[2];
-                            int i6 = iArr3[3];
-                            v.a(adVar2.qkf, "javascript:window.mraidbridge.setCurrentPosition(" + i3 + "," + i4 + "," + i5 + "," + i6 + ")");
-                            v.a(adVar2.qkf, "javascript:window.mraidbridge.notifySizeChangeEvent(" + i5 + "," + i6 + ")");
-                        }
-                    } catch (Exception e) {
-                    }
-                }
-                int i7 = getViewContext().getResources().getConfiguration().orientation;
-                if (this.m != i7) {
-                    this.m = i7;
-                    ((ad) this.qkq).b();
-                    ((ad) this.qkq).c();
-                }
-            }
-            this.k = System.currentTimeMillis();
+        boolean g2;
+        if (System.currentTimeMillis() - this.k < this.f39649h) {
+            return;
         }
+        int[] iArr = new int[2];
+        getLocationOnScreen(iArr);
+        Rect rect = new Rect();
+        getGlobalVisibleRect(rect);
+        int i = iArr[0];
+        int width = getWidth() + iArr[0];
+        int i2 = iArr[1];
+        int height = getHeight() + iArr[1];
+        rect.height();
+        rect.width();
+        getHeight();
+        getWidth();
+        int[] d2 = G.d(getViewContext());
+        this.l = width > 0 && i < d2[0] && height > 0 && i2 < d2[1];
+        F0 f0 = this.f39643b;
+        if (f0 != null) {
+            I0 i0 = (I0) f0;
+            C0 c0 = i0.f39678a;
+            if (c0 != null && i0.f39681d != (g2 = c0.g())) {
+                i0.a(g2);
+            }
+            F0 f02 = this.f39643b;
+            int width2 = getWidth();
+            int height2 = getHeight();
+            I0 i02 = (I0) f02;
+            if (i02.f39678a != null) {
+                try {
+                    int[] iArr2 = new int[4];
+                    if (iArr2[0] != i || iArr2[1] != i2 || iArr2[2] != width2 || iArr2[3] != height2) {
+                        iArr2[0] = i;
+                        iArr2[1] = i2;
+                        iArr2[2] = width2;
+                        iArr2[3] = height2;
+                        int[] iArr3 = {i, i2 - (i02.f39678a.getViewContext() instanceof Activity ? ((Activity) i02.f39678a.getViewContext()).getWindow().findViewById(16908290).getTop() : 0), width2, height2};
+                        G.a(i02.f39678a.getViewContext(), iArr3);
+                        int i3 = iArr3[0];
+                        int i4 = iArr3[1];
+                        int i5 = iArr3[2];
+                        int i6 = iArr3[3];
+                        C0 c02 = i02.f39678a;
+                        G.a(c02, "javascript:window.mraidbridge.setCurrentPosition(" + i3 + "," + i4 + "," + i5 + "," + i6 + SmallTailInfo.EMOTION_SUFFIX);
+                        C0 c03 = i02.f39678a;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("javascript:window.mraidbridge.notifySizeChangeEvent(");
+                        sb.append(i5);
+                        sb.append(",");
+                        sb.append(i6);
+                        sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                        G.a(c03, sb.toString());
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            int i7 = getViewContext().getResources().getConfiguration().orientation;
+            if (this.m != i7) {
+                this.m = i7;
+                ((I0) this.f39643b).b();
+                ((I0) this.f39643b).c();
+            }
+        }
+        this.k = System.currentTimeMillis();
     }
 
     public void a(int i, int i2) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getLayoutParams());
-        if (i2 == -1) {
-        }
         if (i2 != -1) {
-            i2 = (int) ((i2 * displayMetrics.density) + 0.5d);
+            double d2 = i2 * displayMetrics.density;
+            Double.isNaN(d2);
+            i2 = (int) (d2 + 0.5d);
         }
         if (i != -1) {
-            i = (int) ((displayMetrics.density * i) + 0.5d);
+            double d3 = i * displayMetrics.density;
+            Double.isNaN(d3);
+            i = (int) (d3 + 0.5d);
         }
         layoutParams.height = i2;
         layoutParams.width = i;
@@ -165,15 +188,33 @@ public class C0 extends WebView {
         setLayoutParams(layoutParams);
     }
 
-    public void a(be beVar) {
-        this.qku = beVar;
+    public void a(R0 r0) {
+        this.p = r0;
     }
 
     public void a(String str) {
-        loadDataWithBaseURL("http://mr.hiking.com", str, "text/html", "utf-8", null);
+        loadDataWithBaseURL("http://mr.hiking.com", str, SapiWebView.K, "utf-8", null);
     }
 
     public void b() {
+    }
+
+    public final void b(int i, int i2) {
+        boolean g2;
+        if (i == 0 && i2 == 0) {
+            this.f39644c = true;
+            h();
+        } else {
+            this.f39644c = false;
+            this.f39646e = true;
+            this.f39647f.removeCallbacks(this.j);
+        }
+        I0 i0 = (I0) this.f39643b;
+        C0 c0 = i0.f39678a;
+        if (c0 == null || i0.f39681d == (g2 = c0.g())) {
+            return;
+        }
+        i0.a(g2);
     }
 
     public void b(String str) {
@@ -190,28 +231,33 @@ public class C0 extends WebView {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getLayoutParams());
-        float f = displayMetrics.density;
-        layoutParams.height = (int) ((i2 * f) + 0.5d);
-        layoutParams.width = (int) ((f * i) + 0.5d);
+        float f2 = displayMetrics.density;
+        double d2 = i2 * f2;
+        Double.isNaN(d2);
+        int i3 = (int) (d2 + 0.5d);
+        double d3 = i * f2;
+        Double.isNaN(d3);
+        layoutParams.height = i3;
+        layoutParams.width = (int) (d3 + 0.5d);
         layoutParams.gravity = 17;
         setLayoutParams(layoutParams);
     }
 
     public boolean d() {
-        return this.qkr == K0.INTERSTITIAL;
+        return this.f39645d == K0.INTERSTITIAL;
     }
 
     @Override // android.webkit.WebView
     public void destroy() {
         try {
-            if (this.f != null) {
-                this.f.removeCallbacksAndMessages(null);
+            if (this.f39647f != null) {
+                this.f39647f.removeCallbacksAndMessages(null);
             }
-            this.e = true;
-            this.f.removeCallbacks(this.j);
+            this.f39646e = true;
+            this.f39647f.removeCallbacks(this.j);
             removeAllViews();
             stopLoading();
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         super.destroy();
     }
@@ -221,23 +267,23 @@ public class C0 extends WebView {
     }
 
     public boolean f() {
-        return this.qkr == K0.Video;
+        return this.f39645d == K0.Video;
     }
 
     public boolean g() {
-        return this.l && this.c;
+        return this.l && this.f39644c;
     }
 
-    public be getAttachView() {
-        return this.qku;
+    public R0 getAttachView() {
+        return this.p;
     }
 
-    public o getDispatcher() {
-        return this.qks;
+    public D0 getDispatcher() {
+        return this.n;
     }
 
     public K0 getMraidMideaType() {
-        return this.qkr;
+        return this.f39645d;
     }
 
     public L0 getMraidState() {
@@ -245,18 +291,18 @@ public class C0 extends WebView {
     }
 
     public Context getViewContext() {
-        if (this.f8093a == null) {
-            this.f8093a = getContext();
+        if (this.f39642a == null) {
+            this.f39642a = getContext();
         }
-        Context context = this.f8093a;
+        Context context = this.f39642a;
         return context instanceof MutableContextWrapper ? ((MutableContextWrapper) context).getBaseContext() : context;
     }
 
     public final void h() {
-        if (this.c) {
-            this.e = false;
-            this.f.removeCallbacks(this.j);
-            this.f.post(this.j);
+        if (this.f39644c) {
+            this.f39646e = false;
+            this.f39647f.removeCallbacks(this.j);
+            this.f39647f.post(this.j);
         }
     }
 
@@ -279,28 +325,10 @@ public class C0 extends WebView {
     }
 
     public void setMRAIDUseCustomClose(boolean z) {
-        ((e) this.qks).a(z);
+        ((A0) this.n).a(z);
     }
 
-    public void setMraidListener(ag agVar) {
-        this.qkt = agVar;
-    }
-
-    public final void b(int i, int i2) {
-        boolean g;
-        if (i == 0 && i2 == 0) {
-            this.c = true;
-            h();
-        } else {
-            this.c = false;
-            this.e = true;
-            this.f.removeCallbacks(this.j);
-        }
-        ad adVar = (ad) this.qkq;
-        C0 c0 = adVar.qkf;
-        if (c0 == null || adVar.d == (g = c0.g())) {
-            return;
-        }
-        adVar.a(g);
+    public void setMraidListener(J0 j0) {
+        this.o = j0;
     }
 }

@@ -1,8 +1,11 @@
 package com.baidu.searchbox.ruka;
 
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.impl.ANRMonitor_Factory;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
-/* loaded from: classes6.dex */
+@Autowired
+/* loaded from: classes3.dex */
 public class ANRProvider {
     public static final IANRMonitor EMPTY = new IANRMonitor() { // from class: com.baidu.searchbox.ruka.ANRProvider.1
         @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor
@@ -11,11 +14,11 @@ public class ANRProvider {
         }
 
         @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor
-        public void startANRMonitor(int i) {
+        public void startANRMonitor() {
         }
 
         @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor
-        public void startANRMonitor() {
+        public void startANRMonitor(int i) {
         }
 
         @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor
@@ -23,6 +26,7 @@ public class ANRProvider {
         }
     };
 
+    @Inject(force = false)
     public static IANRMonitor getANRMonitor() {
         return ANRMonitor_Factory.get();
     }

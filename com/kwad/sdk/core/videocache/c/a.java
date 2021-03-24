@@ -1,23 +1,25 @@
 package com.kwad.sdk.core.videocache.c;
 
 import android.content.Context;
+import com.baidu.searchbox.bddownload.core.download.DownloadStrategy;
 import com.kwad.sdk.core.videocache.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f6288a;
+    public static f f34167a;
 
     public static f a(Context context) {
-        if (f6288a == null) {
-            f b = b(context);
-            f6288a = b;
-            return b;
+        f fVar = f34167a;
+        if (fVar == null) {
+            f b2 = b(context);
+            f34167a = b2;
+            return b2;
         }
-        return f6288a;
+        return fVar;
     }
 
-    private static f b(Context context) {
-        return new f.a(context).a(104857600L).a();
+    public static f b(Context context) {
+        return new f.a(context).a(DownloadStrategy.FOUR_CONNECTION_UPPER_LIMIT).a();
     }
 }

@@ -32,70 +32,90 @@ import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.widget.KsLogoView;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.reward.d {
-    private static String b = "RewardMiddleEndCardPresenter";
-    private View c;
-    private KsLogoView d;
-    private ImageView e;
-    private DetailVideoView f;
-    private View g;
-    private FrameLayout h;
-    private FrameLayout i;
-    private com.kwad.sdk.c.b j;
-    private Animator k;
-    private Animator l;
-    private com.kwad.sdk.contentalliance.detail.video.e m = new f() { // from class: com.kwad.sdk.reward.b.b.1
-        private boolean b = false;
-        private int c = -1;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f36236b = "RewardMiddleEndCardPresenter";
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f36237c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public KsLogoView f36238d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f36239e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public DetailVideoView f36240f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f36241g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public FrameLayout f36242h;
+    public FrameLayout i;
+    public com.kwad.sdk.c.b j;
+    public Animator k;
+    public Animator l;
+    public com.kwad.sdk.contentalliance.detail.video.e m = new f() { // from class: com.kwad.sdk.reward.b.b.1
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f36244b = false;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f36245c = -1;
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(long j, long j2) {
-            if (this.c <= 0) {
-                this.c = com.kwad.sdk.core.config.c.W();
+            if (this.f36245c <= 0) {
+                this.f36245c = com.kwad.sdk.core.config.c.W();
             }
-            if (this.c > 0) {
-                int i = this.c * 1000;
-                if (this.b || j2 <= i) {
+            int i = this.f36245c;
+            if (i > 0) {
+                int i2 = i * 1000;
+                if (this.f36244b || j2 <= i2) {
                     return;
                 }
                 b.this.f();
-                this.b = true;
+                this.f36244b = true;
             }
         }
     };
-    private a.b n = new a.b() { // from class: com.kwad.sdk.reward.b.b.5
+    public a.b n = new a.b() { // from class: com.kwad.sdk.reward.b.b.5
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
-            b.this.f7028a.b.a();
+            ((com.kwad.sdk.reward.d) b.this).f36457a.f36217b.a();
         }
     };
 
     private int a(int i) {
-        int dimensionPixelOffset = o().getResources().getDimensionPixelOffset(R.dimen.ksad_reward_middle_end_card_logo_view_height);
-        return (int) (dimensionPixelOffset + (ao.d(m()) - i) + o().getResources().getDimensionPixelOffset(R.dimen.ksad_reward_middle_end_card_logo_view_margin_bottom));
+        return (int) ((ao.d(m()) - i) + o().getResources().getDimensionPixelOffset(R.dimen.ksad_reward_middle_end_card_logo_view_height) + o().getResources().getDimensionPixelOffset(R.dimen.ksad_reward_middle_end_card_logo_view_margin_bottom));
     }
 
     private Animator a(int i, int i2) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.c, "translationY", 0.0f, -i);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.d, "alpha", 0.0f, 255.0f);
-        this.f.getWidth();
-        final ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-        final ViewGroup.LayoutParams layoutParams2 = this.e.getLayoutParams();
-        ValueAnimator ofInt = ValueAnimator.ofInt(this.f.getHeight(), i2);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f36237c, "translationY", 0.0f, -i);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f36238d, "alpha", 0.0f, 255.0f);
+        this.f36240f.getWidth();
+        final ViewGroup.LayoutParams layoutParams = this.f36240f.getLayoutParams();
+        final ViewGroup.LayoutParams layoutParams2 = this.f36239e.getLayoutParams();
+        ValueAnimator ofInt = ValueAnimator.ofInt(this.f36240f.getHeight(), i2);
         ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.b.b.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 int i3 = (int) (intValue / 1.7777778f);
-                if (layoutParams != null) {
-                    layoutParams.height = intValue;
-                    layoutParams.width = i3;
-                    b.this.f.setLayoutParams(layoutParams);
+                ViewGroup.LayoutParams layoutParams3 = layoutParams;
+                if (layoutParams3 != null) {
+                    layoutParams3.height = intValue;
+                    layoutParams3.width = i3;
+                    b.this.f36240f.setLayoutParams(layoutParams);
                 }
-                if (layoutParams2 != null) {
-                    layoutParams2.height = intValue;
-                    b.this.e.setLayoutParams(layoutParams2);
+                ViewGroup.LayoutParams layoutParams4 = layoutParams2;
+                if (layoutParams4 != null) {
+                    layoutParams4.height = intValue;
+                    b.this.f36239e.setLayoutParams(layoutParams2);
                 }
             }
         });
@@ -111,8 +131,8 @@ public class b extends com.kwad.sdk.reward.d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.e.setVisibility(0);
-        ImageLoader.getInstance().displayImage(str, this.e, new SimpleImageLoadingListener() { // from class: com.kwad.sdk.reward.b.b.2
+        this.f36239e.setVisibility(0);
+        ImageLoader.getInstance().displayImage(str, this.f36239e, new SimpleImageLoadingListener() { // from class: com.kwad.sdk.reward.b.b.2
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public boolean onDecode(String str2, InputStream inputStream, DecodedResult decodedResult) {
                 decodedResult.mBitmap = BlurUtils.stackBlur(BitmapFactory.decodeStream(inputStream), 50, false);
@@ -126,11 +146,13 @@ public class b extends com.kwad.sdk.reward.d {
     }
 
     private void a(boolean z) {
-        if (this.i != null) {
-            this.i.setVisibility(z ? 8 : 0);
+        FrameLayout frameLayout = this.i;
+        if (frameLayout != null) {
+            frameLayout.setVisibility(z ? 8 : 0);
         }
-        if (this.h != null) {
-            this.h.setVisibility(z ? 0 : 8);
+        FrameLayout frameLayout2 = this.f36242h;
+        if (frameLayout2 != null) {
+            frameLayout2.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -141,20 +163,22 @@ public class b extends com.kwad.sdk.reward.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        boolean d = this.j.d();
-        a(d);
-        if (!d) {
+        boolean d2 = this.j.d();
+        a(d2);
+        if (!d2) {
             View p = p();
             this.i.removeAllViews();
             this.i.addView(p);
         }
-        int h = h();
-        int a2 = a(h);
-        this.k = a(a2, h);
-        this.k.start();
-        this.l = g();
-        this.l.start();
-        ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
+        int h2 = h();
+        int a2 = a(h2);
+        Animator a3 = a(a2, h2);
+        this.k = a3;
+        a3.start();
+        Animator g2 = g();
+        this.l = g2;
+        g2.start();
+        ViewGroup.LayoutParams layoutParams = this.f36237c.getLayoutParams();
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
             layoutParams2.height = a2;
@@ -164,11 +188,11 @@ public class b extends com.kwad.sdk.reward.d {
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, a2);
         layoutParams3.height = a2;
         layoutParams3.bottomMargin = -a2;
-        this.c.setLayoutParams(layoutParams3);
+        this.f36237c.setLayoutParams(layoutParams3);
     }
 
     private Animator g() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.g, "alpha", 255.0f, 0.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f36241g, "alpha", 255.0f, 0.0f);
         ofFloat.setInterpolator(PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f));
         ofFloat.setDuration(200L);
         return ofFloat;
@@ -179,10 +203,13 @@ public class b extends com.kwad.sdk.reward.d {
     }
 
     private View p() {
-        AdInfo j = com.kwad.sdk.core.response.b.c.j(this.f7028a.f);
-        Context context = this.c.getContext();
-        com.kwad.sdk.reward.widget.tailframe.a tailFramePortraitVertical = this.f7028a.e == 0 ? a(j) ? new TailFramePortraitVertical(context) : new TailFramePortraitHorizontal(context) : a(j) ? new TailFrameLandscapeVertical(context) : new TailFrameLandscapeHorizontal(context);
-        tailFramePortraitVertical.a(this.f7028a.f, this.f7028a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.b.4
+        AdInfo j = com.kwad.sdk.core.response.b.c.j(((com.kwad.sdk.reward.d) this).f36457a.f36221f);
+        Context context = this.f36237c.getContext();
+        int i = ((com.kwad.sdk.reward.d) this).f36457a.f36220e;
+        boolean a2 = a(j);
+        com.kwad.sdk.reward.widget.tailframe.a tailFramePortraitVertical = i == 0 ? a2 ? new TailFramePortraitVertical(context) : new TailFramePortraitHorizontal(context) : a2 ? new TailFrameLandscapeVertical(context) : new TailFrameLandscapeHorizontal(context);
+        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f36457a;
+        tailFramePortraitVertical.a(aVar.f36221f, aVar.f36219d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.b.4
             @Override // com.kwad.sdk.reward.widget.tailframe.b
             public void a() {
                 b.this.q();
@@ -193,70 +220,76 @@ public class b extends com.kwad.sdk.reward.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        com.kwad.sdk.core.report.b.a(this.f7028a.f, 2, this.f7028a.h.getTouchCoords(), this.f7028a.d);
-        this.f7028a.b.a();
+        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f36457a;
+        com.kwad.sdk.core.report.b.a(aVar.f36221f, 2, aVar.f36223h.getTouchCoords(), ((com.kwad.sdk.reward.d) this).f36457a.f36219d);
+        ((com.kwad.sdk.reward.d) this).f36457a.f36217b.a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f7028a.i.a(this.m);
-        this.j = this.f7028a.m;
-        if (this.j != null) {
-            this.j.a(e());
-            AdTemplate adTemplate = this.f7028a.f;
+        ((com.kwad.sdk.reward.d) this).f36457a.i.a(this.m);
+        com.kwad.sdk.c.b bVar = ((com.kwad.sdk.reward.d) this).f36457a.m;
+        this.j = bVar;
+        if (bVar != null) {
+            bVar.a(e());
+            AdTemplate adTemplate = ((com.kwad.sdk.reward.d) this).f36457a.f36221f;
             this.j.a(this.n);
-            this.j.a(this.h, this.f7028a.h, adTemplate, this.f7028a.j, this.f7028a.e);
-            this.j.a(this.f7028a.g);
+            com.kwad.sdk.c.b bVar2 = this.j;
+            FrameLayout frameLayout = this.f36242h;
+            com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f36457a;
+            bVar2.a(frameLayout, aVar.f36223h, adTemplate, aVar.j, aVar.f36220e);
+            this.j.a(((com.kwad.sdk.reward.d) this).f36457a.f36222g);
             this.j.g();
             if (adTemplate.adInfoList.size() > 0) {
                 a(com.kwad.sdk.core.response.b.a.f(adTemplate.adInfoList.get(0)));
             }
         }
-        this.d.a(this.f7028a.f);
+        this.f36238d.a(((com.kwad.sdk.reward.d) this).f36457a.f36221f);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f7028a.i.b(this.m);
-        if (this.j != null) {
-            this.j.i();
+        ((com.kwad.sdk.reward.d) this).f36457a.i.b(this.m);
+        com.kwad.sdk.c.b bVar = this.j;
+        if (bVar != null) {
+            bVar.i();
         }
-        if (this.l != null) {
-            this.l.cancel();
+        Animator animator = this.l;
+        if (animator != null) {
+            animator.cancel();
         }
-        if (this.k != null) {
-            this.k.cancel();
+        Animator animator2 = this.k;
+        if (animator2 != null) {
+            animator2.cancel();
         }
         this.l = null;
         this.k = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.c = b(R.id.ksad_middle_end_card);
-        this.f = (DetailVideoView) b(R.id.ksad_video_player);
-        this.d = (KsLogoView) b(R.id.ksad_splash_logo_container);
-        this.e = (ImageView) b(R.id.ksad_blur_video_cover);
-        this.g = b(R.id.ksad_play_web_card_webView);
-        this.h = (FrameLayout) b(R.id.ksad_middle_end_card_webview_container);
+        this.f36237c = b(R.id.ksad_middle_end_card);
+        this.f36240f = (DetailVideoView) b(R.id.ksad_video_player);
+        this.f36238d = (KsLogoView) b(R.id.ksad_splash_logo_container);
+        this.f36239e = (ImageView) b(R.id.ksad_blur_video_cover);
+        this.f36241g = b(R.id.ksad_play_web_card_webView);
+        this.f36242h = (FrameLayout) b(R.id.ksad_middle_end_card_webview_container);
         this.i = (FrameLayout) b(R.id.ksad_middle_end_card_native);
     }
 
-    protected String e() {
+    public String e() {
         if (o() != null) {
-            File f = com.kwad.sdk.core.config.c.f(o());
-            if (f.exists()) {
-                return Uri.fromFile(f).toString();
+            File f2 = com.kwad.sdk.core.config.c.f(o());
+            if (f2.exists()) {
+                return Uri.fromFile(f2).toString();
             }
             if (com.kwad.sdk.core.config.c.M() != null) {
                 return com.kwad.sdk.core.config.c.M().h5Url;
             }
+            return null;
         }
         return null;
     }

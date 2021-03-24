@@ -8,24 +8,32 @@ import android.graphics.Rect;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.swan.apps.a;
-/* loaded from: classes8.dex */
+import d.b.g0.a.c;
+import d.b.g0.a.d;
+/* loaded from: classes3.dex */
 public class ListRecommendDivider extends RecyclerView.ItemDecoration {
-    private int epc;
-    private int mDividerHeight;
-    private Paint mDividerPaint;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f12912a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f12913b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Paint f12914c;
 
     public ListRecommendDivider(@NonNull Context context) {
         Resources resources = context.getResources();
-        this.mDividerHeight = resources.getDimensionPixelSize(a.d.swangame_recommend_dialog_list_divider_height);
-        this.epc = resources.getDimensionPixelSize(a.d.swangame_recommend_dialog_list_divider_margin);
-        this.mDividerPaint = new Paint();
-        this.mDividerPaint.setColor(resources.getColor(a.c.swangame_recommend_dialog_list_divider));
+        this.f12912a = resources.getDimensionPixelSize(d.swangame_recommend_dialog_list_divider_height);
+        this.f12913b = resources.getDimensionPixelSize(d.swangame_recommend_dialog_list_divider_margin);
+        Paint paint = new Paint();
+        this.f12914c = paint;
+        paint.setColor(resources.getColor(c.swangame_recommend_dialog_list_divider));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-        rect.set(0, 0, 0, this.mDividerHeight);
+        rect.set(0, 0, 0, this.f12912a);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -34,7 +42,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
         for (int i = 0; i < itemCount; i++) {
             View childAt = recyclerView.getChildAt(i);
             if (childAt != null && recyclerView.getChildAdapterPosition(childAt) != itemCount - 1) {
-                canvas.drawRect(this.epc, childAt.getBottom(), childAt.getWidth() - this.epc, childAt.getBottom() + this.mDividerHeight, this.mDividerPaint);
+                canvas.drawRect(this.f12913b, childAt.getBottom(), childAt.getWidth() - this.f12913b, childAt.getBottom() + this.f12912a, this.f12914c);
             }
         }
     }

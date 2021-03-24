@@ -2,7 +2,10 @@ package com.bytedance.sdk.a.b;
 
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.swan.apps.model.SwanTaskDeadEvent;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import d.c.c.a.a.c;
+import d.c.c.a.b.a.e;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -10,250 +13,65 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.apache.http.HttpHost;
-/* loaded from: classes6.dex */
+import kotlin.text.Typography;
+/* loaded from: classes5.dex */
 public final class s {
-    private static final char[] d = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final char[] i = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /* renamed from: a  reason: collision with root package name */
-    final String f4008a;
-    final String b;
-    final int c;
-    private final String e;
-    private final String f;
-    private final List<String> g;
-    private final List<String> h;
-    private final String i;
-    private final String j;
+    public final String f27185a;
 
-    s(a aVar) {
-        this.f4008a = aVar.f4009a;
-        this.e = a(aVar.b, false);
-        this.f = a(aVar.c, false);
-        this.b = aVar.d;
-        this.c = aVar.a();
-        this.g = a(aVar.f, false);
-        this.h = aVar.g != null ? a(aVar.g, true) : null;
-        this.i = aVar.h != null ? a(aVar.h, false) : null;
-        this.j = aVar.toString();
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public final String f27186b;
 
-    public URI eql() {
-        String aVar = eqn().eqo().toString();
-        try {
-            return new URI(aVar);
-        } catch (URISyntaxException e) {
-            try {
-                return URI.create(aVar.replaceAll("[\\u0000-\\u001F\\u007F-\\u009F\\p{javaWhitespace}]", ""));
-            } catch (Exception e2) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public final String f27187c;
 
-    public String b() {
-        return this.f4008a;
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public final String f27188d;
 
-    public boolean c() {
-        return this.f4008a.equals("https");
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public final int f27189e;
 
-    public String d() {
-        if (this.e.isEmpty()) {
-            return "";
-        }
-        int length = this.f4008a.length() + 3;
-        return this.j.substring(length, com.bytedance.sdk.a.b.a.c.a(this.j, length, this.j.length(), ":@"));
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public final List<String> f27190f;
 
-    public String e() {
-        if (this.f.isEmpty()) {
-            return "";
-        }
-        int indexOf = this.j.indexOf(64);
-        return this.j.substring(this.j.indexOf(58, this.f4008a.length() + 3) + 1, indexOf);
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public final String f27191g;
 
-    public String f() {
-        return this.b;
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public final String f27192h;
 
-    public int g() {
-        return this.c;
-    }
-
-    public static int a(String str) {
-        if (str.equals(HttpHost.DEFAULT_SCHEME_NAME)) {
-            return 80;
-        }
-        if (str.equals("https")) {
-            return Constants.SOCKET_PORT_SSL;
-        }
-        return -1;
-    }
-
-    public String h() {
-        int indexOf = this.j.indexOf(47, this.f4008a.length() + 3);
-        return this.j.substring(indexOf, com.bytedance.sdk.a.b.a.c.a(this.j, indexOf, this.j.length(), "?#"));
-    }
-
-    static void a(StringBuilder sb, List<String> list) {
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            sb.append('/');
-            sb.append(list.get(i));
-        }
-    }
-
-    public List<String> eqm() {
-        int indexOf = this.j.indexOf(47, this.f4008a.length() + 3);
-        int a2 = com.bytedance.sdk.a.b.a.c.a(this.j, indexOf, this.j.length(), "?#");
-        ArrayList arrayList = new ArrayList();
-        while (indexOf < a2) {
-            int i = indexOf + 1;
-            indexOf = com.bytedance.sdk.a.b.a.c.a(this.j, i, a2, '/');
-            arrayList.add(this.j.substring(i, indexOf));
-        }
-        return arrayList;
-    }
-
-    public String j() {
-        if (this.h == null) {
-            return null;
-        }
-        int indexOf = this.j.indexOf(63) + 1;
-        return this.j.substring(indexOf, com.bytedance.sdk.a.b.a.c.a(this.j, indexOf, this.j.length(), '#'));
-    }
-
-    static void b(StringBuilder sb, List<String> list) {
-        int size = list.size();
-        for (int i = 0; i < size; i += 2) {
-            String str = list.get(i);
-            String str2 = list.get(i + 1);
-            if (i > 0) {
-                sb.append('&');
-            }
-            sb.append(str);
-            if (str2 != null) {
-                sb.append('=');
-                sb.append(str2);
-            }
-        }
-    }
-
-    static List<String> b(String str) {
-        ArrayList arrayList = new ArrayList();
-        int i = 0;
-        while (i <= str.length()) {
-            int indexOf = str.indexOf(38, i);
-            if (indexOf == -1) {
-                indexOf = str.length();
-            }
-            int indexOf2 = str.indexOf(61, i);
-            if (indexOf2 == -1 || indexOf2 > indexOf) {
-                arrayList.add(str.substring(i, indexOf));
-                arrayList.add(null);
-            } else {
-                arrayList.add(str.substring(i, indexOf2));
-                arrayList.add(str.substring(indexOf2 + 1, indexOf));
-            }
-            i = indexOf + 1;
-        }
-        return arrayList;
-    }
-
-    public String k() {
-        if (this.h == null) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        b(sb, this.h);
-        return sb.toString();
-    }
-
-    public String l() {
-        if (this.i == null) {
-            return null;
-        }
-        return this.j.substring(this.j.indexOf(35) + 1);
-    }
-
-    public String m() {
-        return Za("/...").Zd("").Ze("").eqp().toString();
-    }
-
-    public s YZ(String str) {
-        a Za = Za(str);
-        if (Za != null) {
-            return Za.eqp();
-        }
-        return null;
-    }
-
-    public a eqn() {
-        a aVar = new a();
-        aVar.f4009a = this.f4008a;
-        aVar.b = d();
-        aVar.c = e();
-        aVar.d = this.b;
-        aVar.e = this.c != a(this.f4008a) ? this.c : -1;
-        aVar.f.clear();
-        aVar.f.addAll(eqm());
-        aVar.Zf(j());
-        aVar.h = l();
-        return aVar;
-    }
-
-    public a Za(String str) {
-        a aVar = new a();
-        if (aVar.b(this, str) == a.EnumC1005a.SUCCESS) {
-            return aVar;
-        }
-        return null;
-    }
-
-    public static s Zb(String str) {
-        a aVar = new a();
-        if (aVar.b(null, str) == a.EnumC1005a.SUCCESS) {
-            return aVar.eqp();
-        }
-        return null;
-    }
-
-    public static s d(URL url) {
-        return Zb(url.toString());
-    }
-
-    public boolean equals(Object obj) {
-        return (obj instanceof s) && ((s) obj).j.equals(this.j);
-    }
-
-    public int hashCode() {
-        return this.j.hashCode();
-    }
-
-    public String toString() {
-        return this.j;
-    }
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f4009a;
-        String d;
-        List<String> g;
-        String h;
-        String b = "";
-        String c = "";
-        int e = -1;
-        final List<String> f = new ArrayList();
+        public String f27193a;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
+        /* renamed from: d  reason: collision with root package name */
+        public String f27196d;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final List<String> f27198f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public List<String> f27199g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public String f27200h;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f27194b = "";
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f27195c = "";
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f27197e = -1;
+
         /* renamed from: com.bytedance.sdk.a.b.s$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public enum EnumC1005a {
+        /* loaded from: classes5.dex */
+        public enum EnumC0295a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -262,309 +80,40 @@ public final class s {
         }
 
         public a() {
-            this.f.add("");
+            ArrayList arrayList = new ArrayList();
+            this.f27198f = arrayList;
+            arrayList.add("");
         }
 
-        public a Zc(String str) {
-            if (str == null) {
-                throw new NullPointerException("scheme == null");
-            }
-            if (str.equalsIgnoreCase(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.f4009a = HttpHost.DEFAULT_SCHEME_NAME;
-            } else if (str.equalsIgnoreCase("https")) {
-                this.f4009a = "https";
-            } else {
-                throw new IllegalArgumentException("unexpected scheme: " + str);
-            }
-            return this;
-        }
-
-        public a Zd(String str) {
-            if (str == null) {
-                throw new NullPointerException("username == null");
-            }
-            this.b = s.a(str, " \"':;<=>@[]^`{}|/\\?#", false, false, false, true);
-            return this;
-        }
-
-        public a Ze(String str) {
-            if (str == null) {
-                throw new NullPointerException("password == null");
-            }
-            this.c = s.a(str, " \"':;<=>@[]^`{}|/\\?#", false, false, false, true);
-            return this;
-        }
-
-        public a Za(String str) {
-            if (str == null) {
-                throw new NullPointerException("host == null");
-            }
-            String e = e(str, 0, str.length());
-            if (e == null) {
-                throw new IllegalArgumentException("unexpected host: " + str);
-            }
-            this.d = e;
-            return this;
-        }
-
-        public a OL(int i) {
-            if (i <= 0 || i > 65535) {
-                throw new IllegalArgumentException("unexpected port: " + i);
-            }
-            this.e = i;
-            return this;
-        }
-
-        int a() {
-            return this.e != -1 ? this.e : s.a(this.f4009a);
-        }
-
-        public a Zf(String str) {
-            this.g = str != null ? s.b(s.a(str, " \"'<>#", true, false, true, true)) : null;
-            return this;
-        }
-
-        a eqo() {
-            int size = this.f.size();
-            for (int i = 0; i < size; i++) {
-                this.f.set(i, s.a(this.f.get(i), "[]", true, true, false, true));
-            }
-            if (this.g != null) {
-                int size2 = this.g.size();
-                for (int i2 = 0; i2 < size2; i2++) {
-                    String str = this.g.get(i2);
-                    if (str != null) {
-                        this.g.set(i2, s.a(str, "\\^`{|}", true, true, true, true));
-                    }
-                }
-            }
-            if (this.h != null) {
-                this.h = s.a(this.h, " \"#<>\\^`{|}", true, true, false, false);
-            }
-            return this;
-        }
-
-        public s eqp() {
-            if (this.f4009a == null) {
-                throw new IllegalStateException("scheme == null");
-            }
-            if (this.d == null) {
-                throw new IllegalStateException("host == null");
-            }
-            return new s(this);
-        }
-
-        public String toString() {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.f4009a);
-            sb.append("://");
-            if (!this.b.isEmpty() || !this.c.isEmpty()) {
-                sb.append(this.b);
-                if (!this.c.isEmpty()) {
-                    sb.append(':');
-                    sb.append(this.c);
-                }
-                sb.append('@');
-            }
-            if (this.d.indexOf(58) != -1) {
-                sb.append('[');
-                sb.append(this.d);
-                sb.append(']');
-            } else {
-                sb.append(this.d);
-            }
-            int a2 = a();
-            if (a2 != s.a(this.f4009a)) {
-                sb.append(':');
-                sb.append(a2);
-            }
-            s.a(sb, this.f);
-            if (this.g != null) {
-                sb.append('?');
-                s.b(sb, this.g);
-            }
-            if (this.h != null) {
-                sb.append('#');
-                sb.append(this.h);
-            }
-            return sb.toString();
-        }
-
-        EnumC1005a b(s sVar, String str) {
-            int i;
-            int a2 = com.bytedance.sdk.a.b.a.c.a(str, 0, str.length());
-            int b = com.bytedance.sdk.a.b.a.c.b(str, a2, str.length());
-            if (b(str, a2, b) != -1) {
-                if (str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTPS, 0, 6)) {
-                    this.f4009a = "https";
-                    a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTPS.length();
-                } else if (str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    this.f4009a = HttpHost.DEFAULT_SCHEME_NAME;
-                    a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTP.length();
-                } else {
-                    return EnumC1005a.UNSUPPORTED_SCHEME;
-                }
-            } else if (sVar != null) {
-                this.f4009a = sVar.f4008a;
-            } else {
-                return EnumC1005a.MISSING_SCHEME;
-            }
-            int c = c(str, a2, b);
-            if (c >= 2 || sVar == null || !sVar.f4008a.equals(this.f4009a)) {
-                int i2 = c + a2;
-                boolean z = false;
-                boolean z2 = false;
-                while (true) {
-                    int a3 = com.bytedance.sdk.a.b.a.c.a(str, i2, b, "@/\\?#");
-                    switch (a3 != b ? str.charAt(a3) : (char) 65535) {
-                        case 65535:
-                        case '#':
-                        case '/':
-                        case '?':
-                        case '\\':
-                            int d = d(str, i2, a3);
-                            if (d + 1 < a3) {
-                                this.d = e(str, i2, d);
-                                this.e = F(str, d + 1, a3);
-                                if (this.e == -1) {
-                                    return EnumC1005a.INVALID_PORT;
-                                }
-                            } else {
-                                this.d = e(str, i2, d);
-                                this.e = s.a(this.f4009a);
-                            }
-                            if (this.d != null) {
-                                a2 = a3;
-                                break;
-                            } else {
-                                return EnumC1005a.INVALID_HOST;
-                            }
-                        case '@':
-                            if (!z) {
-                                int a4 = com.bytedance.sdk.a.b.a.c.a(str, i2, a3, ':');
-                                String a5 = s.a(str, i2, a4, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
-                                if (z2) {
-                                    a5 = this.b + "%40" + a5;
-                                }
-                                this.b = a5;
-                                if (a4 != a3) {
-                                    z = true;
-                                    this.c = s.a(str, a4 + 1, a3, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
-                                }
-                                z2 = true;
-                            } else {
-                                this.c += "%40" + s.a(str, i2, a3, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
-                            }
-                            i2 = a3 + 1;
-                            break;
-                    }
-                    z = z;
-                    z2 = z2;
-                }
-            } else {
-                this.b = sVar.d();
-                this.c = sVar.e();
-                this.d = sVar.b;
-                this.e = sVar.c;
-                this.f.clear();
-                this.f.addAll(sVar.eqm());
-                if (a2 == b || str.charAt(a2) == '#') {
-                    Zf(sVar.j());
-                }
-            }
-            int a6 = com.bytedance.sdk.a.b.a.c.a(str, a2, b, "?#");
-            a(str, a2, a6);
-            if (a6 >= b || str.charAt(a6) != '?') {
-                i = a6;
-            } else {
-                i = com.bytedance.sdk.a.b.a.c.a(str, a6, b, '#');
-                this.g = s.b(s.a(str, a6 + 1, i, " \"'<>#", true, false, true, true, null));
-            }
-            if (i < b && str.charAt(i) == '#') {
-                this.h = s.a(str, i + 1, b, "", true, false, false, false, null);
-            }
-            return EnumC1005a.SUCCESS;
-        }
-
-        private void a(String str, int i, int i2) {
-            if (i != i2) {
-                char charAt = str.charAt(i);
-                if (charAt == '/' || charAt == '\\') {
-                    this.f.clear();
-                    this.f.add("");
-                    i++;
-                } else {
-                    this.f.set(this.f.size() - 1, "");
-                }
-                int i3 = i;
-                while (i3 < i2) {
-                    int a2 = com.bytedance.sdk.a.b.a.c.a(str, i3, i2, "/\\");
-                    boolean z = a2 < i2;
-                    a(str, i3, a2, z, true);
-                    if (z) {
-                        a2++;
-                    }
-                    i3 = a2;
-                }
-            }
-        }
-
-        private void a(String str, int i, int i2, boolean z, boolean z2) {
-            String a2 = s.a(str, i, i2, " \"<>^`{}|/\\?#", z2, false, false, true, null);
-            if (!f(a2)) {
-                if (g(a2)) {
-                    d();
-                    return;
-                }
-                if (this.f.get(this.f.size() - 1).isEmpty()) {
-                    this.f.set(this.f.size() - 1, a2);
-                } else {
-                    this.f.add(a2);
-                }
-                if (z) {
-                    this.f.add("");
-                }
-            }
-        }
-
-        private boolean f(String str) {
-            return str.equals(".") || str.equalsIgnoreCase("%2e");
-        }
-
-        private boolean g(String str) {
-            return str.equals(IStringUtil.TOP_PATH) || str.equalsIgnoreCase("%2e.") || str.equalsIgnoreCase(".%2e") || str.equalsIgnoreCase("%2e%2e");
-        }
-
-        private void d() {
-            if (this.f.remove(this.f.size() - 1).isEmpty() && !this.f.isEmpty()) {
-                this.f.set(this.f.size() - 1, "");
-            } else {
-                this.f.add("");
-            }
-        }
-
-        private static int b(String str, int i, int i2) {
+        public static int g(String str, int i, int i2) {
             if (i2 - i < 2) {
                 return -1;
             }
             char charAt = str.charAt(i);
-            if ((charAt < 'a' || charAt > 'z') && (charAt < 'A' || charAt > 'Z')) {
-                return -1;
-            }
-            for (int i3 = i + 1; i3 < i2; i3++) {
-                char charAt2 = str.charAt(i3);
-                if ((charAt2 < 'a' || charAt2 > 'z') && ((charAt2 < 'A' || charAt2 > 'Z') && ((charAt2 < '0' || charAt2 > '9') && charAt2 != '+' && charAt2 != '-' && charAt2 != '.'))) {
-                    if (charAt2 == ':') {
-                        return i3;
-                    } else {
-                        return -1;
+            if ((charAt >= 'a' && charAt <= 'z') || (charAt >= 'A' && charAt <= 'Z')) {
+                while (true) {
+                    i++;
+                    if (i >= i2) {
+                        break;
+                    }
+                    char charAt2 = str.charAt(i);
+                    if (charAt2 < 'a' || charAt2 > 'z') {
+                        if (charAt2 < 'A' || charAt2 > 'Z') {
+                            if (charAt2 < '0' || charAt2 > '9') {
+                                if (charAt2 != '+' && charAt2 != '-' && charAt2 != '.') {
+                                    if (charAt2 == ':') {
+                                        return i;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
             return -1;
         }
 
-        private static int c(String str, int i, int i2) {
+        public static int j(String str, int i, int i2) {
             int i3 = 0;
             while (i < i2) {
                 char charAt = str.charAt(i);
@@ -577,146 +126,695 @@ public final class s {
             return i3;
         }
 
-        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        private static int d(String str, int i, int i2) {
-            int i3 = i;
-            while (i3 < i2) {
-                switch (str.charAt(i3)) {
-                    case ':':
-                        return i3;
-                    case '[':
-                        break;
-                    default:
-                        i3++;
+        public static int m(String str, int i, int i2) {
+            while (i < i2) {
+                char charAt = str.charAt(i);
+                if (charAt == ':') {
+                    return i;
                 }
-                do {
-                    i3++;
-                    if (i3 < i2) {
-                    }
-                    i3++;
-                } while (str.charAt(i3) != ']');
-                i3++;
+                if (charAt == '[') {
+                    do {
+                        i++;
+                        if (i < i2) {
+                        }
+                    } while (str.charAt(i) != ']');
+                }
+                i++;
             }
             return i2;
         }
 
-        private static String e(String str, int i, int i2) {
-            return com.bytedance.sdk.a.b.a.c.a(s.a(str, i, i2, false));
+        public static String q(String str, int i, int i2) {
+            return e.i(s.d(str, i, i2, false));
         }
 
-        private static int F(String str, int i, int i2) {
+        public static int r(String str, int i, int i2) {
+            int parseInt;
             try {
-                int parseInt = Integer.parseInt(s.a(str, i, i2, "", false, false, false, true, null));
-                if (parseInt <= 0 || parseInt > 65535) {
-                    return -1;
-                }
-                return parseInt;
-            } catch (NumberFormatException e) {
+                parseInt = Integer.parseInt(s.c(str, i, i2, "", false, false, false, true, null));
+            } catch (NumberFormatException unused) {
+            }
+            if (parseInt <= 0 || parseInt > 65535) {
                 return -1;
+            }
+            return parseInt;
+        }
+
+        public int a() {
+            int i = this.f27197e;
+            return i != -1 ? i : s.a(this.f27193a);
+        }
+
+        public EnumC0295a b(s sVar, String str) {
+            int d2;
+            int i;
+            int b2 = e.b(str, 0, str.length());
+            int z = e.z(str, b2, str.length());
+            if (g(str, b2, z) != -1) {
+                if (str.regionMatches(true, b2, UrlSchemaHelper.SCHEMA_TYPE_HTTPS, 0, 6)) {
+                    this.f27193a = "https";
+                    b2 += 6;
+                } else if (str.regionMatches(true, b2, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
+                    this.f27193a = "http";
+                    b2 += 5;
+                } else {
+                    return EnumC0295a.UNSUPPORTED_SCHEME;
+                }
+            } else if (sVar != null) {
+                this.f27193a = sVar.f27185a;
+            } else {
+                return EnumC0295a.MISSING_SCHEME;
+            }
+            int j = j(str, b2, z);
+            char c2 = '?';
+            char c3 = SwanTaskDeadEvent.SEPARATOR;
+            if (j < 2 && sVar != null && sVar.f27185a.equals(this.f27193a)) {
+                this.f27194b = sVar.s();
+                this.f27195c = sVar.u();
+                this.f27196d = sVar.f27188d;
+                this.f27197e = sVar.f27189e;
+                this.f27198f.clear();
+                this.f27198f.addAll(sVar.y());
+                if (b2 == z || str.charAt(b2) == '#') {
+                    p(sVar.z());
+                }
+            } else {
+                int i2 = b2 + j;
+                boolean z2 = false;
+                boolean z3 = false;
+                while (true) {
+                    d2 = e.d(str, i2, z, "@/\\?#");
+                    char charAt = d2 != z ? str.charAt(d2) : (char) 65535;
+                    if (charAt == 65535 || charAt == c3 || charAt == '/' || charAt == '\\' || charAt == c2) {
+                        break;
+                    }
+                    if (charAt == '@') {
+                        if (!z2) {
+                            int c4 = e.c(str, i2, d2, ':');
+                            i = d2;
+                            String c5 = s.c(str, i2, c4, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
+                            if (z3) {
+                                c5 = this.f27194b + "%40" + c5;
+                            }
+                            this.f27194b = c5;
+                            if (c4 != i) {
+                                this.f27195c = s.c(str, c4 + 1, i, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
+                                z2 = true;
+                            }
+                            z3 = true;
+                        } else {
+                            i = d2;
+                            this.f27195c += "%40" + s.c(str, i2, i, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
+                        }
+                        i2 = i + 1;
+                    }
+                    c2 = '?';
+                    c3 = SwanTaskDeadEvent.SEPARATOR;
+                }
+                int m = m(str, i2, d2);
+                int i3 = m + 1;
+                if (i3 < d2) {
+                    this.f27196d = q(str, i2, m);
+                    int r = r(str, i3, d2);
+                    this.f27197e = r;
+                    if (r == -1) {
+                        return EnumC0295a.INVALID_PORT;
+                    }
+                } else {
+                    this.f27196d = q(str, i2, m);
+                    this.f27197e = s.a(this.f27193a);
+                }
+                if (this.f27196d == null) {
+                    return EnumC0295a.INVALID_HOST;
+                }
+                b2 = d2;
+            }
+            int d3 = e.d(str, b2, z, "?#");
+            e(str, b2, d3);
+            if (d3 < z && str.charAt(d3) == '?') {
+                int c6 = e.c(str, d3, z, SwanTaskDeadEvent.SEPARATOR);
+                this.f27199g = s.n(s.c(str, d3 + 1, c6, " \"'<>#", true, false, true, true, null));
+                d3 = c6;
+            }
+            if (d3 < z && str.charAt(d3) == '#') {
+                this.f27200h = s.c(str, 1 + d3, z, "", true, false, false, false, null);
+            }
+            return EnumC0295a.SUCCESS;
+        }
+
+        public a c(int i) {
+            if (i > 0 && i <= 65535) {
+                this.f27197e = i;
+                return this;
+            }
+            throw new IllegalArgumentException("unexpected port: " + i);
+        }
+
+        public a d(String str) {
+            if (str != null) {
+                if (str.equalsIgnoreCase("http")) {
+                    this.f27193a = "http";
+                } else if (str.equalsIgnoreCase("https")) {
+                    this.f27193a = "https";
+                } else {
+                    throw new IllegalArgumentException("unexpected scheme: " + str);
+                }
+                return this;
+            }
+            throw new NullPointerException("scheme == null");
+        }
+
+        /*  JADX ERROR: JadxOverflowException in pass: RegionMakerVisitor
+            jadx.core.utils.exceptions.JadxOverflowException: Regions count limit reached
+            	at jadx.core.utils.ErrorsCounter.addError(ErrorsCounter.java:56)
+            	at jadx.core.utils.ErrorsCounter.error(ErrorsCounter.java:30)
+            	at jadx.core.dex.attributes.nodes.NotificationAttrNode.addError(NotificationAttrNode.java:18)
+            */
+        /* JADX WARN: Removed duplicated region for block: B:13:0x002c  */
+        /* JADX WARN: Removed duplicated region for block: B:21:0x0044 A[SYNTHETIC] */
+        /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0041 -> B:11:0x0029). Please submit an issue!!! */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final void e(java.lang.String r11, int r12, int r13) {
+            /*
+                r10 = this;
+                if (r12 != r13) goto L3
+                return
+            L3:
+                char r0 = r11.charAt(r12)
+                r1 = 47
+                java.lang.String r2 = ""
+                r3 = 1
+                if (r0 == r1) goto L1e
+                r1 = 92
+                if (r0 != r1) goto L13
+                goto L1e
+            L13:
+                java.util.List<java.lang.String> r0 = r10.f27198f
+                int r1 = r0.size()
+                int r1 = r1 - r3
+                r0.set(r1, r2)
+                goto L29
+            L1e:
+                java.util.List<java.lang.String> r0 = r10.f27198f
+                r0.clear()
+                java.util.List<java.lang.String> r0 = r10.f27198f
+                r0.add(r2)
+                goto L41
+            L29:
+                r6 = r12
+                if (r6 >= r13) goto L44
+                java.lang.String r12 = "/\\"
+                int r12 = d.c.c.a.b.a.e.d(r11, r6, r13, r12)
+                if (r12 >= r13) goto L36
+                r0 = 1
+                goto L37
+            L36:
+                r0 = 0
+            L37:
+                r9 = 1
+                r4 = r10
+                r5 = r11
+                r7 = r12
+                r8 = r0
+                r4.f(r5, r6, r7, r8, r9)
+                if (r0 == 0) goto L29
+            L41:
+                int r12 = r12 + 1
+                goto L29
+            L44:
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.bytedance.sdk.a.b.s.a.e(java.lang.String, int, int):void");
+        }
+
+        public final void f(String str, int i, int i2, boolean z, boolean z2) {
+            String c2 = s.c(str, i, i2, " \"<>^`{}|/\\?#", z2, false, false, true, null);
+            if (s(c2)) {
+                return;
+            }
+            if (t(c2)) {
+                o();
+                return;
+            }
+            List<String> list = this.f27198f;
+            if (list.get(list.size() - 1).isEmpty()) {
+                List<String> list2 = this.f27198f;
+                list2.set(list2.size() - 1, c2);
+            } else {
+                this.f27198f.add(c2);
+            }
+            if (z) {
+                this.f27198f.add("");
+            }
+        }
+
+        public a h() {
+            int size = this.f27198f.size();
+            for (int i = 0; i < size; i++) {
+                this.f27198f.set(i, s.e(this.f27198f.get(i), "[]", true, true, false, true));
+            }
+            List<String> list = this.f27199g;
+            if (list != null) {
+                int size2 = list.size();
+                for (int i2 = 0; i2 < size2; i2++) {
+                    String str = this.f27199g.get(i2);
+                    if (str != null) {
+                        this.f27199g.set(i2, s.e(str, "\\^`{|}", true, true, true, true));
+                    }
+                }
+            }
+            String str2 = this.f27200h;
+            if (str2 != null) {
+                this.f27200h = s.e(str2, " \"#<>\\^`{|}", true, true, false, false);
+            }
+            return this;
+        }
+
+        public a i(String str) {
+            if (str != null) {
+                this.f27194b = s.e(str, " \"':;<=>@[]^`{}|/\\?#", false, false, false, true);
+                return this;
+            }
+            throw new NullPointerException("username == null");
+        }
+
+        public a k(String str) {
+            if (str != null) {
+                this.f27195c = s.e(str, " \"':;<=>@[]^`{}|/\\?#", false, false, false, true);
+                return this;
+            }
+            throw new NullPointerException("password == null");
+        }
+
+        public s l() {
+            if (this.f27193a != null) {
+                if (this.f27196d != null) {
+                    return new s(this);
+                }
+                throw new IllegalStateException("host == null");
+            }
+            throw new IllegalStateException("scheme == null");
+        }
+
+        public a n(String str) {
+            if (str != null) {
+                String q = q(str, 0, str.length());
+                if (q != null) {
+                    this.f27196d = q;
+                    return this;
+                }
+                throw new IllegalArgumentException("unexpected host: " + str);
+            }
+            throw new NullPointerException("host == null");
+        }
+
+        public final void o() {
+            List<String> list = this.f27198f;
+            if (list.remove(list.size() - 1).isEmpty() && !this.f27198f.isEmpty()) {
+                List<String> list2 = this.f27198f;
+                list2.set(list2.size() - 1, "");
+                return;
+            }
+            this.f27198f.add("");
+        }
+
+        public a p(String str) {
+            this.f27199g = str != null ? s.n(s.e(str, " \"'<>#", true, false, true, true)) : null;
+            return this;
+        }
+
+        public final boolean s(String str) {
+            return str.equals(".") || str.equalsIgnoreCase("%2e");
+        }
+
+        public final boolean t(String str) {
+            return str.equals(IStringUtil.TOP_PATH) || str.equalsIgnoreCase("%2e.") || str.equalsIgnoreCase(".%2e") || str.equalsIgnoreCase("%2e%2e");
+        }
+
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.f27193a);
+            sb.append("://");
+            if (!this.f27194b.isEmpty() || !this.f27195c.isEmpty()) {
+                sb.append(this.f27194b);
+                if (!this.f27195c.isEmpty()) {
+                    sb.append(':');
+                    sb.append(this.f27195c);
+                }
+                sb.append('@');
+            }
+            if (this.f27196d.indexOf(58) != -1) {
+                sb.append('[');
+                sb.append(this.f27196d);
+                sb.append(']');
+            } else {
+                sb.append(this.f27196d);
+            }
+            int a2 = a();
+            if (a2 != s.a(this.f27193a)) {
+                sb.append(':');
+                sb.append(a2);
+            }
+            s.k(sb, this.f27198f);
+            if (this.f27199g != null) {
+                sb.append('?');
+                s.o(sb, this.f27199g);
+            }
+            if (this.f27200h != null) {
+                sb.append(SwanTaskDeadEvent.SEPARATOR);
+                sb.append(this.f27200h);
+            }
+            return sb.toString();
+        }
+    }
+
+    public s(a aVar) {
+        this.f27185a = aVar.f27193a;
+        this.f27186b = f(aVar.f27194b, false);
+        this.f27187c = f(aVar.f27195c, false);
+        this.f27188d = aVar.f27196d;
+        this.f27189e = aVar.a();
+        h(aVar.f27198f, false);
+        List<String> list = aVar.f27199g;
+        this.f27190f = list != null ? h(list, true) : null;
+        String str = aVar.f27200h;
+        this.f27191g = str != null ? f(str, false) : null;
+        this.f27192h = aVar.toString();
+    }
+
+    public static int a(String str) {
+        if (str.equals("http")) {
+            return 80;
+        }
+        if (str.equals("https")) {
+            return Constants.SOCKET_PORT_SSL;
+        }
+        return -1;
+    }
+
+    public static s b(URL url) {
+        return t(url.toString());
+    }
+
+    public static String c(String str, int i2, int i3, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
+        int i4 = i2;
+        while (i4 < i3) {
+            int codePointAt = str.codePointAt(i4);
+            if (codePointAt >= 32 && codePointAt != 127 && (codePointAt < 128 || !z4)) {
+                if (str2.indexOf(codePointAt) == -1 && ((codePointAt != 37 || (z && (!z2 || l(str, i4, i3)))) && (codePointAt != 43 || !z3))) {
+                    i4 += Character.charCount(codePointAt);
+                }
+            }
+            c cVar = new c();
+            cVar.q(str, i2, i4);
+            i(cVar, str, i4, i3, str2, z, z2, z3, z4, charset);
+            return cVar.J();
+        }
+        return str.substring(i2, i3);
+    }
+
+    public static String d(String str, int i2, int i3, boolean z) {
+        for (int i4 = i2; i4 < i3; i4++) {
+            char charAt = str.charAt(i4);
+            if (charAt == '%' || (charAt == '+' && z)) {
+                c cVar = new c();
+                cVar.q(str, i2, i4);
+                j(cVar, str, i4, i3, z);
+                return cVar.J();
+            }
+        }
+        return str.substring(i2, i3);
+    }
+
+    public static String e(String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
+        return c(str, 0, str.length(), str2, z, z2, z3, z4, null);
+    }
+
+    public static String f(String str, boolean z) {
+        return d(str, 0, str.length(), z);
+    }
+
+    public static void i(c cVar, String str, int i2, int i3, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
+        c cVar2 = null;
+        while (i2 < i3) {
+            int codePointAt = str.codePointAt(i2);
+            if (!z || (codePointAt != 9 && codePointAt != 10 && codePointAt != 12 && codePointAt != 13)) {
+                if (codePointAt == 43 && z3) {
+                    cVar.p(z ? "+" : "%2B");
+                } else if (codePointAt >= 32 && codePointAt != 127 && ((codePointAt < 128 || !z4) && str2.indexOf(codePointAt) == -1 && (codePointAt != 37 || (z && (!z2 || l(str, i2, i3)))))) {
+                    cVar.m(codePointAt);
+                } else {
+                    if (cVar2 == null) {
+                        cVar2 = new c();
+                    }
+                    if (charset != null && !charset.equals(e.j)) {
+                        cVar2.r(str, i2, Character.charCount(codePointAt) + i2, charset);
+                    } else {
+                        cVar2.m(codePointAt);
+                    }
+                    while (!cVar2.e()) {
+                        int h2 = cVar2.h() & 255;
+                        cVar.w(37);
+                        cVar.w(i[(h2 >> 4) & 15]);
+                        cVar.w(i[h2 & 15]);
+                    }
+                }
+            }
+            i2 += Character.charCount(codePointAt);
+        }
+    }
+
+    public static void j(c cVar, String str, int i2, int i3, boolean z) {
+        int i4;
+        while (i2 < i3) {
+            int codePointAt = str.codePointAt(i2);
+            if (codePointAt == 37 && (i4 = i2 + 2) < i3) {
+                int a2 = e.a(str.charAt(i2 + 1));
+                int a3 = e.a(str.charAt(i4));
+                if (a2 != -1 && a3 != -1) {
+                    cVar.w((a2 << 4) + a3);
+                    i2 = i4;
+                }
+                cVar.m(codePointAt);
+            } else {
+                if (codePointAt == 43 && z) {
+                    cVar.w(32);
+                }
+                cVar.m(codePointAt);
+            }
+            i2 += Character.charCount(codePointAt);
+        }
+    }
+
+    public static void k(StringBuilder sb, List<String> list) {
+        int size = list.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            sb.append('/');
+            sb.append(list.get(i2));
+        }
+    }
+
+    public static boolean l(String str, int i2, int i3) {
+        int i4 = i2 + 2;
+        return i4 < i3 && str.charAt(i2) == '%' && e.a(str.charAt(i2 + 1)) != -1 && e.a(str.charAt(i4)) != -1;
+    }
+
+    public static List<String> n(String str) {
+        ArrayList arrayList = new ArrayList();
+        int i2 = 0;
+        while (i2 <= str.length()) {
+            int indexOf = str.indexOf(38, i2);
+            if (indexOf == -1) {
+                indexOf = str.length();
+            }
+            int indexOf2 = str.indexOf(61, i2);
+            if (indexOf2 != -1 && indexOf2 <= indexOf) {
+                arrayList.add(str.substring(i2, indexOf2));
+                arrayList.add(str.substring(indexOf2 + 1, indexOf));
+            } else {
+                arrayList.add(str.substring(i2, indexOf));
+                arrayList.add(null);
+            }
+            i2 = indexOf + 1;
+        }
+        return arrayList;
+    }
+
+    public static void o(StringBuilder sb, List<String> list) {
+        int size = list.size();
+        for (int i2 = 0; i2 < size; i2 += 2) {
+            String str = list.get(i2);
+            String str2 = list.get(i2 + 1);
+            if (i2 > 0) {
+                sb.append(Typography.amp);
+            }
+            sb.append(str);
+            if (str2 != null) {
+                sb.append(com.alipay.sdk.encrypt.a.f1897h);
+                sb.append(str2);
             }
         }
     }
 
-    static String a(String str, boolean z) {
-        return a(str, 0, str.length(), z);
+    public static s t(String str) {
+        a aVar = new a();
+        if (aVar.b(null, str) == a.EnumC0295a.SUCCESS) {
+            return aVar.l();
+        }
+        return null;
     }
 
-    private List<String> a(List<String> list, boolean z) {
+    public String A() {
+        if (this.f27190f == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        o(sb, this.f27190f);
+        return sb.toString();
+    }
+
+    public String B() {
+        if (this.f27191g == null) {
+            return null;
+        }
+        return this.f27192h.substring(this.f27192h.indexOf(35) + 1);
+    }
+
+    public String C() {
+        a r = r("/...");
+        r.i("");
+        r.k("");
+        return r.l().toString();
+    }
+
+    public a D() {
+        a aVar = new a();
+        aVar.f27193a = this.f27185a;
+        aVar.f27194b = s();
+        aVar.f27195c = u();
+        aVar.f27196d = this.f27188d;
+        aVar.f27197e = this.f27189e != a(this.f27185a) ? this.f27189e : -1;
+        aVar.f27198f.clear();
+        aVar.f27198f.addAll(y());
+        aVar.p(z());
+        aVar.f27200h = B();
+        return aVar;
+    }
+
+    public boolean equals(Object obj) {
+        return (obj instanceof s) && ((s) obj).f27192h.equals(this.f27192h);
+    }
+
+    public URI g() {
+        a D = D();
+        D.h();
+        String aVar = D.toString();
+        try {
+            return new URI(aVar);
+        } catch (URISyntaxException e2) {
+            try {
+                return URI.create(aVar.replaceAll("[\\u0000-\\u001F\\u007F-\\u009F\\p{javaWhitespace}]", ""));
+            } catch (Exception unused) {
+                throw new RuntimeException(e2);
+            }
+        }
+    }
+
+    public final List<String> h(List<String> list, boolean z) {
         int size = list.size();
         ArrayList arrayList = new ArrayList(size);
-        for (int i = 0; i < size; i++) {
-            String str = list.get(i);
-            arrayList.add(str != null ? a(str, z) : null);
+        for (int i2 = 0; i2 < size; i2++) {
+            String str = list.get(i2);
+            arrayList.add(str != null ? f(str, z) : null);
         }
         return Collections.unmodifiableList(arrayList);
     }
 
-    static String a(String str, int i, int i2, boolean z) {
-        for (int i3 = i; i3 < i2; i3++) {
-            char charAt = str.charAt(i3);
-            if (charAt == '%' || (charAt == '+' && z)) {
-                com.bytedance.sdk.a.a.c cVar = new com.bytedance.sdk.a.a.c();
-                cVar.B(str, i, i3);
-                a(cVar, str, i3, i2, z);
-                return cVar.o();
-            }
+    public int hashCode() {
+        return this.f27192h.hashCode();
+    }
+
+    public String m() {
+        return this.f27185a;
+    }
+
+    public s p(String str) {
+        a r = r(str);
+        if (r != null) {
+            return r.l();
         }
-        return str.substring(i, i2);
+        return null;
     }
 
-    static void a(com.bytedance.sdk.a.a.c cVar, String str, int i, int i2, boolean z) {
-        int i3 = i;
-        while (i3 < i2) {
-            int codePointAt = str.codePointAt(i3);
-            if (codePointAt == 37 && i3 + 2 < i2) {
-                int a2 = com.bytedance.sdk.a.b.a.c.a(str.charAt(i3 + 1));
-                int a3 = com.bytedance.sdk.a.b.a.c.a(str.charAt(i3 + 2));
-                if (a2 != -1 && a3 != -1) {
-                    cVar.OF((a2 << 4) + a3);
-                    i3 += 2;
-                }
-                cVar.Ox(codePointAt);
-            } else {
-                if (codePointAt == 43 && z) {
-                    cVar.OF(32);
-                }
-                cVar.Ox(codePointAt);
-            }
-            i3 += Character.charCount(codePointAt);
+    public boolean q() {
+        return this.f27185a.equals("https");
+    }
+
+    public a r(String str) {
+        a aVar = new a();
+        if (aVar.b(this, str) == a.EnumC0295a.SUCCESS) {
+            return aVar;
         }
+        return null;
     }
 
-    static boolean a(String str, int i, int i2) {
-        return i + 2 < i2 && str.charAt(i) == '%' && com.bytedance.sdk.a.b.a.c.a(str.charAt(i + 1)) != -1 && com.bytedance.sdk.a.b.a.c.a(str.charAt(i + 2)) != -1;
-    }
-
-    static String a(String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
-        int i3 = i;
-        while (i3 < i2) {
-            int codePointAt = str.codePointAt(i3);
-            if (codePointAt >= 32 && codePointAt != 127 && ((codePointAt < 128 || !z4) && str2.indexOf(codePointAt) == -1 && ((codePointAt != 37 || (z && (!z2 || a(str, i3, i2)))) && (codePointAt != 43 || !z3)))) {
-                i3 += Character.charCount(codePointAt);
-            } else {
-                com.bytedance.sdk.a.a.c cVar = new com.bytedance.sdk.a.a.c();
-                cVar.B(str, i, i3);
-                a(cVar, str, i3, i2, str2, z, z2, z3, z4, charset);
-                return cVar.o();
-            }
+    public String s() {
+        if (this.f27186b.isEmpty()) {
+            return "";
         }
-        return str.substring(i, i2);
+        int length = this.f27185a.length() + 3;
+        String str = this.f27192h;
+        return this.f27192h.substring(length, e.d(str, length, str.length(), ":@"));
     }
 
-    static void a(com.bytedance.sdk.a.a.c cVar, String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
-        com.bytedance.sdk.a.a.c cVar2 = null;
-        while (i < i2) {
-            int codePointAt = str.codePointAt(i);
-            if (!z || (codePointAt != 9 && codePointAt != 10 && codePointAt != 12 && codePointAt != 13)) {
-                if (codePointAt == 43 && z3) {
-                    cVar.YT(z ? "+" : "%2B");
-                } else if (codePointAt < 32 || codePointAt == 127 || ((codePointAt >= 128 && z4) || str2.indexOf(codePointAt) != -1 || (codePointAt == 37 && (!z || (z2 && !a(str, i, i2)))))) {
-                    if (cVar2 == null) {
-                        cVar2 = new com.bytedance.sdk.a.a.c();
-                    }
-                    if (charset == null || charset.equals(com.bytedance.sdk.a.b.a.c.prF)) {
-                        cVar2.Ox(codePointAt);
-                    } else {
-                        cVar2.a(str, i, Character.charCount(codePointAt) + i, charset);
-                    }
-                    while (!cVar2.e()) {
-                        int eoJ = cVar2.eoJ() & 255;
-                        cVar.OF(37);
-                        cVar.OF(d[(eoJ >> 4) & 15]);
-                        cVar.OF(d[eoJ & 15]);
-                    }
-                } else {
-                    cVar.Ox(codePointAt);
-                }
-            }
-            i += Character.charCount(codePointAt);
+    public String toString() {
+        return this.f27192h;
+    }
+
+    public String u() {
+        if (this.f27187c.isEmpty()) {
+            return "";
         }
+        int indexOf = this.f27192h.indexOf(64);
+        return this.f27192h.substring(this.f27192h.indexOf(58, this.f27185a.length() + 3) + 1, indexOf);
     }
 
-    static String a(String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        return a(str, 0, str.length(), str2, z, z2, z3, z4, null);
+    public String v() {
+        return this.f27188d;
+    }
+
+    public int w() {
+        return this.f27189e;
+    }
+
+    public String x() {
+        int indexOf = this.f27192h.indexOf(47, this.f27185a.length() + 3);
+        String str = this.f27192h;
+        return this.f27192h.substring(indexOf, e.d(str, indexOf, str.length(), "?#"));
+    }
+
+    public List<String> y() {
+        int indexOf = this.f27192h.indexOf(47, this.f27185a.length() + 3);
+        String str = this.f27192h;
+        int d2 = e.d(str, indexOf, str.length(), "?#");
+        ArrayList arrayList = new ArrayList();
+        while (indexOf < d2) {
+            int i2 = indexOf + 1;
+            int c2 = e.c(this.f27192h, i2, d2, '/');
+            arrayList.add(this.f27192h.substring(i2, c2));
+            indexOf = c2;
+        }
+        return arrayList;
+    }
+
+    public String z() {
+        if (this.f27190f == null) {
+            return null;
+        }
+        int indexOf = this.f27192h.indexOf(63) + 1;
+        String str = this.f27192h;
+        return this.f27192h.substring(indexOf, e.c(str, indexOf, str.length(), SwanTaskDeadEvent.SEPARATOR));
     }
 }

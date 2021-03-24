@@ -1,26 +1,26 @@
 package com.baidu.webkit.internal.daemon;
 
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class NetProbeThreadPoolUtil implements INoProGuard {
-    private static final String LOG_TAG = "NetProbeThreadPoolUtil";
-    private static final int THREAD_POOL_KEEP_ALIVE_TIME = 60;
-    private static final int THREAD_POOL_MAX = 2;
-    private static final int THREAD_POOL_MIN = 2;
-    private static ThreadPoolExecutor mExecutor;
+    public static final String LOG_TAG = "NetProbeThreadPoolUtil";
+    public static final int THREAD_POOL_KEEP_ALIVE_TIME = 60;
+    public static final int THREAD_POOL_MAX = 2;
+    public static final int THREAD_POOL_MIN = 2;
+    public static ThreadPoolExecutor mExecutor;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class a implements ThreadFactory {
-        private a() {
+        public a() {
         }
 
-        /* synthetic */ a(byte b) {
+        public /* synthetic */ a(byte b2) {
             this();
         }
 
@@ -33,7 +33,7 @@ public class NetProbeThreadPoolUtil implements INoProGuard {
         }
     }
 
-    private static void doExecute(Runnable runnable) {
+    public static void doExecute(Runnable runnable) {
         try {
             if (mExecutor == null) {
                 start();
@@ -69,7 +69,7 @@ public class NetProbeThreadPoolUtil implements INoProGuard {
     }
 
     public static void start() {
-        Log.d(LOG_TAG, "start");
+        Log.d(LOG_TAG, IntentConfig.START);
         try {
             synchronized (NetProbeThreadPoolUtil.class) {
                 if (mExecutor == null) {
@@ -78,8 +78,8 @@ public class NetProbeThreadPoolUtil implements INoProGuard {
                     threadPoolExecutor.allowCoreThreadTimeOut(true);
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

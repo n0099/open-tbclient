@@ -1,46 +1,52 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.xiaomi.push.hm;
+import com.xiaomi.push.fw;
+import com.xiaomi.push.hf;
+import com.xiaomi.push.hp;
 import com.xiaomi.push.hw;
-import com.xiaomi.push.il;
-import com.xiaomi.push.iw;
-import com.xiaomi.push.service.bg;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public final class x extends bg.a {
+import com.xiaomi.push.ib;
+import com.xiaomi.push.ie;
+import com.xiaomi.push.service.XMPushService;
+/* loaded from: classes7.dex */
+public final class x extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f8584a;
+    public final /* synthetic */ ib f41068a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ k f935a;
+    public final /* synthetic */ ie f979a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ XMPushService f980a;
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(String str, long j, XMPushService xMPushService, k kVar) {
-        super(str, j);
-        this.f8584a = xMPushService;
-        this.f935a = kVar;
+    public x(int i, ie ieVar, ib ibVar, XMPushService xMPushService) {
+        super(i);
+        this.f979a = ieVar;
+        this.f41068a = ibVar;
+        this.f980a = xMPushService;
     }
 
-    @Override // com.xiaomi.push.service.bg.a
-    void a(bg bgVar) {
-        String a2 = bgVar.a("GAID", "gaid");
-        String b = com.xiaomi.push.i.b((Context) this.f8584a);
-        com.xiaomi.channel.commonutils.logger.b.c("gaid :" + b);
-        if (TextUtils.isEmpty(b) || TextUtils.equals(a2, b)) {
-            return;
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "send ack message for clear push message.";
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        try {
+            hw hwVar = new hw();
+            hwVar.c(hp.CancelPushMessageACK.f506a);
+            hwVar.a(this.f979a.m446a());
+            hwVar.a(this.f979a.a());
+            hwVar.b(this.f979a.b());
+            hwVar.e(this.f979a.c());
+            hwVar.a(0L);
+            hwVar.d("success clear push message.");
+            y.a(this.f980a, y.b(this.f41068a.b(), this.f41068a.m432a(), hwVar, hf.Notification));
+        } catch (fw e2) {
+            com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e2);
+            this.f980a.a(10, e2);
         }
-        bgVar.a("GAID", "gaid", b);
-        il ilVar = new il();
-        ilVar.b(this.f935a.d);
-        ilVar.c(hw.ClientInfoUpdate.f476a);
-        ilVar.a(an.a());
-        ilVar.a(new HashMap());
-        ilVar.m437a().put("gaid", b);
-        this.f8584a.a(this.f8584a.getPackageName(), iw.a(w.a(this.f8584a.getPackageName(), this.f935a.d, ilVar, hm.Notification)), true);
     }
 }

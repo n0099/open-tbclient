@@ -7,48 +7,54 @@ import java.net.UnknownServiceException;
 import java.security.cert.CertificateException;
 import java.util.Arrays;
 import java.util.List;
-import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLProtocolException;
 import javax.net.ssl.SSLSocket;
 import okhttp3.ConnectionSpec;
 import okhttp3.internal.Internal;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class ConnectionSpecSelector {
-    private final List<ConnectionSpec> connectionSpecs;
-    private boolean isFallback;
-    private boolean isFallbackPossible;
-    private int nextModeIndex = 0;
+    public final List<ConnectionSpec> connectionSpecs;
+    public boolean isFallback;
+    public boolean isFallbackPossible;
+    public int nextModeIndex = 0;
 
     public ConnectionSpecSelector(List<ConnectionSpec> list) {
         this.connectionSpecs = list;
+    }
+
+    private boolean isFallbackPossible(SSLSocket sSLSocket) {
+        for (int i = this.nextModeIndex; i < this.connectionSpecs.size(); i++) {
+            if (this.connectionSpecs.get(i).isCompatible(sSLSocket)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ConnectionSpec configureSecureSocket(SSLSocket sSLSocket) throws IOException {
         ConnectionSpec connectionSpec;
         int i = this.nextModeIndex;
         int size = this.connectionSpecs.size();
-        int i2 = i;
         while (true) {
-            if (i2 >= size) {
+            if (i >= size) {
                 connectionSpec = null;
                 break;
             }
-            connectionSpec = this.connectionSpecs.get(i2);
-            if (!connectionSpec.isCompatible(sSLSocket)) {
-                i2++;
-            } else {
-                this.nextModeIndex = i2 + 1;
+            connectionSpec = this.connectionSpecs.get(i);
+            if (connectionSpec.isCompatible(sSLSocket)) {
+                this.nextModeIndex = i + 1;
                 break;
             }
+            i++;
         }
-        if (connectionSpec == null) {
-            throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.isFallback + ", modes=" + this.connectionSpecs + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
+        if (connectionSpec != null) {
+            this.isFallbackPossible = isFallbackPossible(sSLSocket);
+            Internal.instance.apply(connectionSpec, sSLSocket, this.isFallback);
+            return connectionSpec;
         }
-        this.isFallbackPossible = isFallbackPossible(sSLSocket);
-        Internal.instance.apply(connectionSpec, sSLSocket, this.isFallback);
-        return connectionSpec;
+        throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.isFallback + ", modes=" + this.connectionSpecs + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
     }
 
     public boolean connectionFailed(IOException iOException) {
@@ -56,25 +62,10 @@ public final class ConnectionSpecSelector {
         if (!this.isFallbackPossible || (iOException instanceof ProtocolException) || (iOException instanceof InterruptedIOException)) {
             return false;
         }
-        if (((iOException instanceof SSLHandshakeException) && (iOException.getCause() instanceof CertificateException)) || (iOException instanceof SSLPeerUnverifiedException)) {
+        boolean z = iOException instanceof SSLHandshakeException;
+        if ((z && (iOException.getCause() instanceof CertificateException)) || (iOException instanceof SSLPeerUnverifiedException)) {
             return false;
         }
-        return (iOException instanceof SSLHandshakeException) || (iOException instanceof SSLProtocolException) || (iOException instanceof SSLException);
-    }
-
-    private boolean isFallbackPossible(SSLSocket sSLSocket) {
-        int i = this.nextModeIndex;
-        while (true) {
-            int i2 = i;
-            if (i2 < this.connectionSpecs.size()) {
-                if (!this.connectionSpecs.get(i2).isCompatible(sSLSocket)) {
-                    i = i2 + 1;
-                } else {
-                    return true;
-                }
-            } else {
-                return false;
-            }
-        }
+        return z || (iOException instanceof SSLProtocolException);
     }
 }

@@ -10,35 +10,36 @@ import java.util.concurrent.Callable;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class SurfaceTextureHelper {
-    private static final String TAG = "SurfaceTextureHelper";
-    private final EglBase eglBase;
-    private int frameRotation;
-    private final Handler handler;
-    private boolean hasPendingTexture;
-    private boolean isQuitting;
-    private volatile boolean isTextureInUse;
+    public static final String TAG = "SurfaceTextureHelper";
+    public final EglBase eglBase;
+    public int frameRotation;
+    public final Handler handler;
+    public boolean hasPendingTexture;
+    public boolean isQuitting;
+    public volatile boolean isTextureInUse;
     @Nullable
-    private VideoSink listener;
-    private final int oesTextureId;
+    public VideoSink listener;
+    public final int oesTextureId;
     @Nullable
-    private VideoSink pendingListener;
-    final Runnable setListenerRunnable;
-    private final SurfaceTexture surfaceTexture;
-    private int textureHeight;
-    private int textureWidth;
+    public VideoSink pendingListener;
+    public final Runnable setListenerRunnable;
+    public final SurfaceTexture surfaceTexture;
+    public int textureHeight;
+    public int textureWidth;
     @Nullable
-    private final TimestampAligner timestampAligner;
-    private final YuvConverter yuvConverter;
+    public final TimestampAligner timestampAligner;
+    public final YuvConverter yuvConverter;
 
-    private SurfaceTextureHelper(EglBase.Context context, Handler handler, boolean z) {
+    public SurfaceTextureHelper(EglBase.Context context, Handler handler, boolean z) {
         this.yuvConverter = new YuvConverter();
         this.setListenerRunnable = new Runnable() { // from class: org.webrtc.SurfaceTextureHelper.2
             @Override // java.lang.Runnable
             public void run() {
                 Logging.d(SurfaceTextureHelper.TAG, "Setting listener to " + SurfaceTextureHelper.this.pendingListener);
-                SurfaceTextureHelper.this.listener = SurfaceTextureHelper.this.pendingListener;
+                SurfaceTextureHelper surfaceTextureHelper = SurfaceTextureHelper.this;
+                surfaceTextureHelper.listener = surfaceTextureHelper.pendingListener;
                 SurfaceTextureHelper.this.pendingListener = null;
                 if (SurfaceTextureHelper.this.hasPendingTexture) {
                     SurfaceTextureHelper.this.updateTexImage();
@@ -51,22 +52,24 @@ public class SurfaceTextureHelper {
         }
         this.handler = handler;
         this.timestampAligner = z ? new TimestampAligner() : null;
-        this.eglBase = EglBase_CC.create(context, EglBase.CONFIG_PIXEL_BUFFER);
+        EglBase create = EglBase_CC.create(context, EglBase.CONFIG_PIXEL_BUFFER);
+        this.eglBase = create;
         try {
-            this.eglBase.createDummyPbufferSurface();
+            create.createDummyPbufferSurface();
             this.eglBase.makeCurrent();
             this.oesTextureId = GlUtil.generateTexture(36197);
-            this.surfaceTexture = new SurfaceTexture(this.oesTextureId);
-            setOnFrameAvailableListener(this.surfaceTexture, new SurfaceTexture.OnFrameAvailableListener() { // from class: org.webrtc._$$Lambda$SurfaceTextureHelper$7YTfC0byyd0o_zI7mNhfP12Gm0Q
+            SurfaceTexture surfaceTexture = new SurfaceTexture(this.oesTextureId);
+            this.surfaceTexture = surfaceTexture;
+            setOnFrameAvailableListener(surfaceTexture, new SurfaceTexture.OnFrameAvailableListener() { // from class: org.webrtc._$$Lambda$SurfaceTextureHelper$7YTfC0byyd0o_zI7mNhfP12Gm0Q
                 @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-                public final void onFrameAvailable(SurfaceTexture surfaceTexture) {
-                    SurfaceTextureHelper.lambda$new$0(SurfaceTextureHelper.this, surfaceTexture);
+                public final void onFrameAvailable(SurfaceTexture surfaceTexture2) {
+                    SurfaceTextureHelper.lambda$new$0(SurfaceTextureHelper.this, surfaceTexture2);
                 }
             }, handler);
-        } catch (RuntimeException e) {
+        } catch (RuntimeException e2) {
             this.eglBase.release();
             handler.getLooper().quit();
-            throw e;
+            throw e2;
         }
     }
 
@@ -85,15 +88,14 @@ public class SurfaceTextureHelper {
             public SurfaceTextureHelper call() {
                 try {
                     return new SurfaceTextureHelper(EglBase.Context.this, handler, z);
-                } catch (RuntimeException e) {
-                    Logging.e(SurfaceTextureHelper.TAG, str + " create failure", e);
+                } catch (RuntimeException e2) {
+                    Logging.e(SurfaceTextureHelper.TAG, str + " create failure", e2);
                     return null;
                 }
             }
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void lambda$dispose$5(SurfaceTextureHelper surfaceTextureHelper) {
         surfaceTextureHelper.isQuitting = true;
         if (surfaceTextureHelper.isTextureInUse) {
@@ -102,13 +104,11 @@ public class SurfaceTextureHelper {
         surfaceTextureHelper.release();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void lambda$new$0(SurfaceTextureHelper surfaceTextureHelper, SurfaceTexture surfaceTexture) {
         surfaceTextureHelper.hasPendingTexture = true;
         surfaceTextureHelper.tryDeliverTextureFrame();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void lambda$returnTextureFrame$4(SurfaceTextureHelper surfaceTextureHelper) {
         surfaceTextureHelper.isTextureInUse = false;
         if (surfaceTextureHelper.isQuitting) {
@@ -118,13 +118,11 @@ public class SurfaceTextureHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void lambda$setTextureSize$2(SurfaceTextureHelper surfaceTextureHelper, int i, int i2) {
         surfaceTextureHelper.textureWidth = i;
         surfaceTextureHelper.textureHeight = i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void lambda$stopListening$1(SurfaceTextureHelper surfaceTextureHelper) {
         surfaceTextureHelper.listener = null;
         surfaceTextureHelper.pendingListener = null;
@@ -142,8 +140,9 @@ public class SurfaceTextureHelper {
         this.surfaceTexture.release();
         this.eglBase.release();
         this.handler.getLooper().quit();
-        if (this.timestampAligner != null) {
-            this.timestampAligner.dispose();
+        TimestampAligner timestampAligner = this.timestampAligner;
+        if (timestampAligner != null) {
+            timestampAligner.dispose();
         }
     }
 
@@ -158,7 +157,7 @@ public class SurfaceTextureHelper {
     }
 
     @TargetApi(21)
-    private static void setOnFrameAvailableListener(SurfaceTexture surfaceTexture, SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener, Handler handler) {
+    public static void setOnFrameAvailableListener(SurfaceTexture surfaceTexture, SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener, Handler handler) {
         if (Build.VERSION.SDK_INT >= 21) {
             surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener, handler);
         } else {
@@ -167,6 +166,7 @@ public class SurfaceTextureHelper {
     }
 
     private void tryDeliverTextureFrame() {
+        int i;
         if (this.handler.getLooper().getThread() != Thread.currentThread()) {
             throw new IllegalStateException("Wrong thread.");
         }
@@ -179,16 +179,20 @@ public class SurfaceTextureHelper {
         float[] fArr = new float[16];
         this.surfaceTexture.getTransformMatrix(fArr);
         long timestamp = this.surfaceTexture.getTimestamp();
-        long translateTimestamp = this.timestampAligner != null ? this.timestampAligner.translateTimestamp(timestamp) : timestamp;
-        if (this.textureWidth == 0 || this.textureHeight == 0) {
+        TimestampAligner timestampAligner = this.timestampAligner;
+        if (timestampAligner != null) {
+            timestamp = timestampAligner.translateTimestamp(timestamp);
+        }
+        int i2 = this.textureWidth;
+        if (i2 == 0 || (i = this.textureHeight) == 0) {
             throw new RuntimeException("Texture size has not been set.");
         }
-        VideoFrame videoFrame = new VideoFrame(new TextureBufferImpl(this.textureWidth, this.textureHeight, VideoFrame.TextureBuffer.Type.OES, this.oesTextureId, RendererCommon.convertMatrixToAndroidGraphicsMatrix(fArr), this.handler, this.yuvConverter, new Runnable() { // from class: org.webrtc._$$Lambda$SurfaceTextureHelper$f5MmHIrjRN2jF8_ug65BMPrG30U
+        VideoFrame videoFrame = new VideoFrame(new TextureBufferImpl(i2, i, VideoFrame.TextureBuffer.Type.OES, this.oesTextureId, RendererCommon.convertMatrixToAndroidGraphicsMatrix(fArr), this.handler, this.yuvConverter, new Runnable() { // from class: org.webrtc._$$Lambda$SurfaceTextureHelper$f5MmHIrjRN2jF8_ug65BMPrG30U
             @Override // java.lang.Runnable
             public final void run() {
                 SurfaceTextureHelper.this.returnTextureFrame();
             }
-        }), this.frameRotation, translateTimestamp);
+        }), this.frameRotation, timestamp);
         this.listener.onFrame(videoFrame);
         videoFrame.release();
     }

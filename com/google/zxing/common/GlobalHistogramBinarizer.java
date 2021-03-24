@@ -3,14 +3,14 @@ package com.google.zxing.common;
 import com.google.zxing.Binarizer;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.NotFoundException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GlobalHistogramBinarizer extends Binarizer {
-    private static final byte[] EMPTY = new byte[0];
-    private static final int LUMINANCE_BITS = 5;
-    private static final int LUMINANCE_BUCKETS = 32;
-    private static final int LUMINANCE_SHIFT = 3;
-    private final int[] buckets;
-    private byte[] luminances;
+    public static final byte[] EMPTY = new byte[0];
+    public static final int LUMINANCE_BITS = 5;
+    public static final int LUMINANCE_BUCKETS = 32;
+    public static final int LUMINANCE_SHIFT = 3;
+    public final int[] buckets;
+    public byte[] luminances;
 
     public GlobalHistogramBinarizer(LuminanceSource luminanceSource) {
         super(luminanceSource);
@@ -18,85 +18,51 @@ public class GlobalHistogramBinarizer extends Binarizer {
         this.buckets = new int[32];
     }
 
-    @Override // com.google.zxing.Binarizer
-    public BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException {
-        int i2 = 1;
-        LuminanceSource luminanceSource = getLuminanceSource();
-        int width = luminanceSource.getWidth();
-        if (bitArray == null || bitArray.getSize() < width) {
-            bitArray = new BitArray(width);
-        } else {
-            bitArray.clear();
+    public static int estimateBlackPoint(int[] iArr) throws NotFoundException {
+        int length = iArr.length;
+        int i = 0;
+        int i2 = 0;
+        int i3 = 0;
+        for (int i4 = 0; i4 < length; i4++) {
+            if (iArr[i4] > i) {
+                i = iArr[i4];
+                i3 = i4;
+            }
+            if (iArr[i4] > i2) {
+                i2 = iArr[i4];
+            }
         }
-        initArrays(width);
-        byte[] row = luminanceSource.getRow(i, this.luminances);
-        int[] iArr = this.buckets;
-        for (int i3 = 0; i3 < width; i3++) {
-            int i4 = (row[i3] & 255) >> 3;
-            iArr[i4] = iArr[i4] + 1;
+        int i5 = 0;
+        int i6 = 0;
+        for (int i7 = 0; i7 < length; i7++) {
+            int i8 = i7 - i3;
+            int i9 = iArr[i7] * i8 * i8;
+            if (i9 > i6) {
+                i5 = i7;
+                i6 = i9;
+            }
         }
-        int estimateBlackPoint = estimateBlackPoint(iArr);
-        if (width < 3) {
-            for (int i5 = 0; i5 < width; i5++) {
-                if ((row[i5] & 255) < estimateBlackPoint) {
-                    bitArray.set(i5);
+        if (i3 <= i5) {
+            int i10 = i3;
+            i3 = i5;
+            i5 = i10;
+        }
+        if (i3 - i5 > length / 16) {
+            int i11 = i3 - 1;
+            int i12 = i11;
+            int i13 = -1;
+            while (i11 > i5) {
+                int i14 = i11 - i5;
+                int i15 = i14 * i14 * (i3 - i11) * (i2 - iArr[i11]);
+                if (i15 > i13) {
+                    i12 = i11;
+                    i13 = i15;
                 }
+                i11--;
             }
-        } else {
-            int i6 = row[0] & 255;
-            int i7 = row[1] & 255;
-            int i8 = i6;
-            while (i2 < width - 1) {
-                int i9 = row[i2 + 1] & 255;
-                if ((((i7 << 2) - i8) - i9) / 2 < estimateBlackPoint) {
-                    bitArray.set(i2);
-                }
-                i2++;
-                i8 = i7;
-                i7 = i9;
-            }
+            return i12 << 3;
         }
-        return bitArray;
-    }
-
-    @Override // com.google.zxing.Binarizer
-    public BitMatrix getBlackMatrix() throws NotFoundException {
-        LuminanceSource luminanceSource = getLuminanceSource();
-        int width = luminanceSource.getWidth();
-        int height = luminanceSource.getHeight();
-        BitMatrix bitMatrix = new BitMatrix(width, height);
-        initArrays(width);
-        int[] iArr = this.buckets;
-        int i = 1;
-        while (true) {
-            int i2 = i;
-            if (i2 >= 5) {
-                break;
-            }
-            byte[] row = luminanceSource.getRow((height * i2) / 5, this.luminances);
-            int i3 = (width << 2) / 5;
-            for (int i4 = width / 5; i4 < i3; i4++) {
-                int i5 = (row[i4] & 255) >> 3;
-                iArr[i5] = iArr[i5] + 1;
-            }
-            i = i2 + 1;
-        }
-        int estimateBlackPoint = estimateBlackPoint(iArr);
-        byte[] matrix = luminanceSource.getMatrix();
-        for (int i6 = 0; i6 < height; i6++) {
-            int i7 = i6 * width;
-            for (int i8 = 0; i8 < width; i8++) {
-                if ((matrix[i7 + i8] & 255) < estimateBlackPoint) {
-                    bitMatrix.set(i8, i6);
-                }
-            }
-        }
-        return bitMatrix;
-    }
-
-    @Override // com.google.zxing.Binarizer
-    public Binarizer createBinarizer(LuminanceSource luminanceSource) {
-        return new GlobalHistogramBinarizer(luminanceSource);
+        throw NotFoundException.getNotFoundInstance();
     }
 
     private void initArrays(int i) {
@@ -108,60 +74,79 @@ public class GlobalHistogramBinarizer extends Binarizer {
         }
     }
 
-    private static int estimateBlackPoint(int[] iArr) throws NotFoundException {
-        int i;
-        int i2;
-        int length = iArr.length;
-        int i3 = 0;
-        int i4 = 0;
-        int i5 = 0;
-        for (int i6 = 0; i6 < length; i6++) {
-            if (iArr[i6] > i3) {
-                i3 = iArr[i6];
-                i4 = i6;
-            }
-            if (iArr[i6] > i5) {
-                i5 = iArr[i6];
+    @Override // com.google.zxing.Binarizer
+    public Binarizer createBinarizer(LuminanceSource luminanceSource) {
+        return new GlobalHistogramBinarizer(luminanceSource);
+    }
+
+    @Override // com.google.zxing.Binarizer
+    public BitMatrix getBlackMatrix() throws NotFoundException {
+        LuminanceSource luminanceSource = getLuminanceSource();
+        int width = luminanceSource.getWidth();
+        int height = luminanceSource.getHeight();
+        BitMatrix bitMatrix = new BitMatrix(width, height);
+        initArrays(width);
+        int[] iArr = this.buckets;
+        for (int i = 1; i < 5; i++) {
+            byte[] row = luminanceSource.getRow((height * i) / 5, this.luminances);
+            int i2 = (width << 2) / 5;
+            for (int i3 = width / 5; i3 < i2; i3++) {
+                int i4 = (row[i3] & 255) >> 3;
+                iArr[i4] = iArr[i4] + 1;
             }
         }
-        int i7 = 0;
-        int i8 = 0;
-        int i9 = 0;
-        while (i7 < length) {
-            int i10 = i7 - i4;
-            int i11 = i10 * iArr[i7] * i10;
-            if (i11 > i8) {
-                i9 = i7;
-            } else {
-                i11 = i8;
+        int estimateBlackPoint = estimateBlackPoint(iArr);
+        byte[] matrix = luminanceSource.getMatrix();
+        for (int i5 = 0; i5 < height; i5++) {
+            int i6 = i5 * width;
+            for (int i7 = 0; i7 < width; i7++) {
+                if ((matrix[i6 + i7] & 255) < estimateBlackPoint) {
+                    bitMatrix.set(i7, i5);
+                }
             }
-            i7++;
-            i8 = i11;
         }
-        if (i4 > i9) {
-            i = i4;
-            i2 = i9;
+        return bitMatrix;
+    }
+
+    @Override // com.google.zxing.Binarizer
+    public BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException {
+        LuminanceSource luminanceSource = getLuminanceSource();
+        int width = luminanceSource.getWidth();
+        if (bitArray != null && bitArray.getSize() >= width) {
+            bitArray.clear();
         } else {
-            i = i9;
-            i2 = i4;
+            bitArray = new BitArray(width);
         }
-        if (i - i2 <= length / 16) {
-            throw NotFoundException.getNotFoundInstance();
+        initArrays(width);
+        byte[] row = luminanceSource.getRow(i, this.luminances);
+        int[] iArr = this.buckets;
+        for (int i2 = 0; i2 < width; i2++) {
+            int i3 = (row[i2] & 255) >> 3;
+            iArr[i3] = iArr[i3] + 1;
         }
-        int i12 = i - 1;
-        int i13 = -1;
-        int i14 = i - 1;
-        while (i14 > i2) {
-            int i15 = i14 - i2;
-            int i16 = i15 * i15 * (i - i14) * (i5 - iArr[i14]);
-            if (i16 > i13) {
-                i12 = i14;
-            } else {
-                i16 = i13;
+        int estimateBlackPoint = estimateBlackPoint(iArr);
+        if (width < 3) {
+            for (int i4 = 0; i4 < width; i4++) {
+                if ((row[i4] & 255) < estimateBlackPoint) {
+                    bitArray.set(i4);
+                }
             }
-            i14--;
-            i13 = i16;
+        } else {
+            int i5 = row[1] & 255;
+            int i6 = 1;
+            int i7 = row[0] & 255;
+            int i8 = i5;
+            while (i6 < width - 1) {
+                int i9 = i6 + 1;
+                int i10 = row[i9] & 255;
+                if ((((i8 << 2) - i7) - i10) / 2 < estimateBlackPoint) {
+                    bitArray.set(i6);
+                }
+                i7 = i8;
+                i6 = i9;
+                i8 = i10;
+            }
         }
-        return i12 << 3;
+        return bitArray;
     }
 }

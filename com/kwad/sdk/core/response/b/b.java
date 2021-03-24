@@ -3,10 +3,9 @@ package com.kwad.sdk.core.response.b;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.IMConnection;
 import com.kwad.sdk.core.response.model.AdStyleInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static AdStyleInfo.PlayDetailInfo.PatchAdInfo a(@NonNull AdTemplate adTemplate) {
         return q(adTemplate).playDetailInfo.patchAdInfo;
@@ -26,7 +25,10 @@ public class b {
 
     public static long e(@Nullable AdTemplate adTemplate) {
         long j = adTemplate != null ? q(adTemplate).playDetailInfo.actionBarInfo.translateBtnShowTime : 0L;
-        return j > 0 ? j : IMConnection.RETRY_DELAY_TIMES;
+        if (j > 0) {
+            return j;
+        }
+        return 3000L;
     }
 
     public static long f(@Nullable AdTemplate adTemplate) {
@@ -92,24 +94,24 @@ public class b {
 
     public static boolean o(@Nullable AdTemplate adTemplate) {
         if (adTemplate != null && c.c(adTemplate)) {
-            AdStyleInfo q = q(adTemplate);
-            if (q.playDetailInfo.type != 0) {
-                AdStyleInfo.PlayDetailInfo.DetailWebCardInfo detailWebCardInfo = q.playDetailInfo.detailWebCardInfo;
-                return !TextUtils.isEmpty(detailWebCardInfo.cardUrl) && com.kwad.sdk.core.config.a.a(detailWebCardInfo.cardUrl);
+            AdStyleInfo.PlayDetailInfo playDetailInfo = q(adTemplate).playDetailInfo;
+            if (playDetailInfo.type == 0) {
+                return false;
             }
-            return false;
+            AdStyleInfo.PlayDetailInfo.DetailWebCardInfo detailWebCardInfo = playDetailInfo.detailWebCardInfo;
+            return !TextUtils.isEmpty(detailWebCardInfo.cardUrl) && com.kwad.sdk.core.config.a.a(detailWebCardInfo.cardUrl);
         }
         return false;
     }
 
     public static boolean p(@Nullable AdTemplate adTemplate) {
         if (adTemplate != null && c.c(adTemplate)) {
-            AdStyleInfo q = q(adTemplate);
-            if (q.playEndInfo.type != 0) {
-                AdStyleInfo.PlayEndInfo.AdWebCardInfo adWebCardInfo = q.playEndInfo.adWebCardInfo;
-                return !TextUtils.isEmpty(adWebCardInfo.cardUrl) && com.kwad.sdk.core.config.a.a(adWebCardInfo.cardUrl);
+            AdStyleInfo.PlayEndInfo playEndInfo = q(adTemplate).playEndInfo;
+            if (playEndInfo.type == 0) {
+                return false;
             }
-            return false;
+            AdStyleInfo.PlayEndInfo.AdWebCardInfo adWebCardInfo = playEndInfo.adWebCardInfo;
+            return !TextUtils.isEmpty(adWebCardInfo.cardUrl) && com.kwad.sdk.core.config.a.a(adWebCardInfo.cardUrl);
         }
         return false;
     }

@@ -4,23 +4,34 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwipeLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5827a;
-    private float b;
-    private float c;
-    private int d;
-    private d e;
-    private List<a> f;
+    public int f32796a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public float f32797b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f32798c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f32799d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d f32800e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public List<a> f32801f;
+
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -29,152 +40,192 @@ public class SwipeLayout extends FrameLayout {
 
     public SwipeLayout(@NonNull Context context) {
         super(context);
-        this.d = 0;
-        this.f = new ArrayList();
+        this.f32799d = 0;
+        this.f32801f = new ArrayList();
         a(context);
     }
 
     public SwipeLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.d = 0;
-        this.f = new ArrayList();
+        this.f32799d = 0;
+        this.f32801f = new ArrayList();
         a(context);
     }
 
     public SwipeLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.d = 0;
-        this.f = new ArrayList();
+        this.f32799d = 0;
+        this.f32801f = new ArrayList();
         a(context);
     }
 
     private void a(Context context) {
-        this.f5827a = ViewConfiguration.get(context).getScaledPagingTouchSlop();
+        this.f32796a = ViewConfiguration.get(context).getScaledPagingTouchSlop();
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0084 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private boolean a(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.b = motionEvent.getX();
-                this.c = motionEvent.getY();
-                this.d = 0;
-                com.kwad.sdk.core.d.a.a("SwipeLayout", "onInterceptTouchEvent ACTION_DOWN mInitialMotionX=" + this.b);
-                break;
-            case 1:
-                this.d = 0;
-                com.kwad.sdk.core.d.a.a("SwipeLayout", "onInterceptTouchEvent ACTION_UP");
-                break;
-            case 2:
-                float x = motionEvent.getX() - this.b;
-                float abs = Math.abs(x);
-                float abs2 = Math.abs(motionEvent.getY() - this.c);
-                if (abs > this.f5827a && abs > abs2) {
-                    if (x > 0.0f) {
-                        this.d = 1;
-                    } else {
-                        this.d = 2;
-                    }
+        StringBuilder sb;
+        float f2;
+        String str;
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            this.f32797b = motionEvent.getX();
+            this.f32798c = motionEvent.getY();
+            this.f32799d = 0;
+            sb = new StringBuilder();
+            sb.append("onInterceptTouchEvent ACTION_DOWN mInitialMotionX=");
+            f2 = this.f32797b;
+        } else if (action == 1) {
+            this.f32799d = 0;
+            str = "onInterceptTouchEvent ACTION_UP";
+            com.kwad.sdk.core.d.a.a("SwipeLayout", str);
+            if (this.f32799d != 0) {
+            }
+        } else if (action != 2) {
+            if (action == 3) {
+                this.f32799d = 0;
+            }
+            return this.f32799d != 0;
+        } else {
+            f2 = motionEvent.getX() - this.f32797b;
+            float abs = Math.abs(f2);
+            float abs2 = Math.abs(motionEvent.getY() - this.f32798c);
+            if (abs > this.f32796a && abs > abs2) {
+                if (f2 > 0.0f) {
+                    this.f32799d = 1;
+                } else {
+                    this.f32799d = 2;
                 }
-                com.kwad.sdk.core.d.a.a("SwipeLayout", "onInterceptTouchEvent ACTION_MOVE mDragState=" + this.d + "--dx=" + x);
-                break;
-            case 3:
-                this.d = 0;
-                break;
+            }
+            sb = new StringBuilder();
+            sb.append("onInterceptTouchEvent ACTION_MOVE mDragState=");
+            sb.append(this.f32799d);
+            sb.append("--dx=");
         }
-        return this.d != 0;
+        sb.append(f2);
+        str = sb.toString();
+        com.kwad.sdk.core.d.a.a("SwipeLayout", str);
+        if (this.f32799d != 0) {
+        }
     }
 
     private synchronized void b() {
-        for (a aVar : this.f) {
+        for (a aVar : this.f32801f) {
             aVar.b();
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:8:0x0010, code lost:
+        if (r0 != 3) goto L9;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00a6 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:38:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private boolean b(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                com.kwad.sdk.core.d.a.a("SwipeLayout", "onTouchEvent ACTION_DOWN mInitialMotionX=" + this.b);
-                break;
-            case 1:
-                com.kwad.sdk.core.d.a.a("SwipeLayout", "onTouchEvent ACTION_UP mDragState=" + this.d);
-                if (this.f != null && !this.f.isEmpty() && this.d != 0) {
-                    if (this.d == 1) {
+        StringBuilder sb;
+        float f2;
+        int i;
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action == 1) {
+                com.kwad.sdk.core.d.a.a("SwipeLayout", "onTouchEvent ACTION_UP mDragState=" + this.f32799d);
+                List<a> list = this.f32801f;
+                if (list != null && !list.isEmpty() && (i = this.f32799d) != 0) {
+                    if (i == 1) {
                         c();
-                    } else if (this.d == 2) {
+                    } else if (i == 2) {
                         b();
                     }
                 }
-                this.d = 0;
-                break;
-            case 2:
-                float x = motionEvent.getX() - this.b;
-                float abs = Math.abs(x);
-                float abs2 = Math.abs(motionEvent.getY() - this.c);
-                if (this.d == 0 && abs > this.f5827a && abs > abs2) {
-                    if (x > 0.0f) {
-                        this.d = 1;
+            } else if (action == 2) {
+                f2 = motionEvent.getX() - this.f32797b;
+                float abs = Math.abs(f2);
+                float abs2 = Math.abs(motionEvent.getY() - this.f32798c);
+                if (this.f32799d == 0 && abs > this.f32796a && abs > abs2) {
+                    if (f2 > 0.0f) {
+                        this.f32799d = 1;
                     } else {
-                        this.d = 2;
+                        this.f32799d = 2;
                     }
                 }
-                com.kwad.sdk.core.d.a.a("SwipeLayout", "onTouchEvent ACTION_MOVE mDragState=" + this.d + "--dx=" + x);
-                break;
-            case 3:
-                this.d = 0;
-                break;
+                sb = new StringBuilder();
+                sb.append("onTouchEvent ACTION_MOVE mDragState=");
+                sb.append(this.f32799d);
+                sb.append("--dx=");
+            }
+            this.f32799d = 0;
+            return this.f32799d == 0;
         }
-        return this.d != 0;
+        sb = new StringBuilder();
+        sb.append("onTouchEvent ACTION_DOWN mInitialMotionX=");
+        f2 = this.f32797b;
+        sb.append(f2);
+        com.kwad.sdk.core.d.a.a("SwipeLayout", sb.toString());
+        if (this.f32799d == 0) {
+        }
     }
 
     private synchronized void c() {
-        for (a aVar : this.f) {
+        for (a aVar : this.f32801f) {
             aVar.a();
         }
     }
 
     public synchronized void a() {
-        this.f.clear();
+        this.f32801f.clear();
     }
 
     public synchronized void a(@NonNull a aVar) {
-        this.f.add(aVar);
+        this.f32801f.add(aVar);
     }
 
     public synchronized boolean b(a aVar) {
-        return this.f.contains(aVar);
+        return this.f32801f.contains(aVar);
     }
 
     public synchronized void c(a aVar) {
-        this.f.remove(aVar);
+        this.f32801f.remove(aVar);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.e != null) {
-            this.e.d(this, motionEvent);
+        ViewParent parent;
+        d dVar = this.f32800e;
+        if (dVar != null) {
+            dVar.d(this, motionEvent);
         }
-        if (this.f != null && !this.f.isEmpty()) {
-            switch (motionEvent.getAction()) {
-                case 0:
-                    getParent().requestDisallowInterceptTouchEvent(true);
-                    break;
-                case 1:
-                case 3:
-                    getParent().requestDisallowInterceptTouchEvent(false);
-                    break;
+        List<a> list = this.f32801f;
+        if (list != null && !list.isEmpty()) {
+            int action = motionEvent.getAction();
+            boolean z = true;
+            if (action == 0) {
+                parent = getParent();
+            } else if (action == 1 || action == 3) {
+                parent = getParent();
+                z = false;
             }
+            parent.requestDisallowInterceptTouchEvent(z);
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     public synchronized List<a> getOnSwipedListeners() {
-        return this.f;
+        return this.f32801f;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.e == null || !this.e.e(this, motionEvent)) {
-            return (this.f == null || this.f.isEmpty()) ? super.onInterceptTouchEvent(motionEvent) : a(motionEvent);
+        d dVar = this.f32800e;
+        if (dVar == null || !dVar.e(this, motionEvent)) {
+            List<a> list = this.f32801f;
+            return (list == null || list.isEmpty()) ? super.onInterceptTouchEvent(motionEvent) : a(motionEvent);
         }
         com.kwad.sdk.core.d.a.a("SwipeLayout", "onInterceptTouchEvent true");
         return true;
@@ -182,14 +233,16 @@ public class SwipeLayout extends FrameLayout {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.e == null || !this.e.f(this, motionEvent)) {
-            return (this.f == null || this.f.isEmpty()) ? super.onTouchEvent(motionEvent) : b(motionEvent);
+        d dVar = this.f32800e;
+        if (dVar == null || !dVar.f(this, motionEvent)) {
+            List<a> list = this.f32801f;
+            return (list == null || list.isEmpty()) ? super.onTouchEvent(motionEvent) : b(motionEvent);
         }
         com.kwad.sdk.core.d.a.a("SwipeLayout", "handlerTouchEvent true");
         return true;
     }
 
     public void setTouchDetector(d dVar) {
-        this.e = dVar;
+        this.f32800e = dVar;
     }
 }

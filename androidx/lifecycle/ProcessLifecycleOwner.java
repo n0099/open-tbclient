@@ -9,37 +9,37 @@ import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ReportFragment;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class ProcessLifecycleOwner implements LifecycleOwner {
     @VisibleForTesting
-    static final long TIMEOUT_MS = 700;
-    private static final ProcessLifecycleOwner sInstance = new ProcessLifecycleOwner();
-    private Handler mHandler;
-    private int mStartedCounter = 0;
-    private int mResumedCounter = 0;
-    private boolean mPauseSent = true;
-    private boolean mStopSent = true;
-    private final LifecycleRegistry mRegistry = new LifecycleRegistry(this);
-    private Runnable mDelayedPauseRunnable = new Runnable() { // from class: androidx.lifecycle.ProcessLifecycleOwner.1
+    public static final long TIMEOUT_MS = 700;
+    public static final ProcessLifecycleOwner sInstance = new ProcessLifecycleOwner();
+    public Handler mHandler;
+    public int mStartedCounter = 0;
+    public int mResumedCounter = 0;
+    public boolean mPauseSent = true;
+    public boolean mStopSent = true;
+    public final LifecycleRegistry mRegistry = new LifecycleRegistry(this);
+    public Runnable mDelayedPauseRunnable = new Runnable() { // from class: androidx.lifecycle.ProcessLifecycleOwner.1
         @Override // java.lang.Runnable
         public void run() {
             ProcessLifecycleOwner.this.dispatchPauseIfNeeded();
             ProcessLifecycleOwner.this.dispatchStopIfNeeded();
         }
     };
-    ReportFragment.ActivityInitializationListener mInitializationListener = new ReportFragment.ActivityInitializationListener() { // from class: androidx.lifecycle.ProcessLifecycleOwner.2
+    public ReportFragment.ActivityInitializationListener mInitializationListener = new ReportFragment.ActivityInitializationListener() { // from class: androidx.lifecycle.ProcessLifecycleOwner.2
         @Override // androidx.lifecycle.ReportFragment.ActivityInitializationListener
         public void onCreate() {
         }
 
         @Override // androidx.lifecycle.ReportFragment.ActivityInitializationListener
-        public void onStart() {
-            ProcessLifecycleOwner.this.activityStarted();
+        public void onResume() {
+            ProcessLifecycleOwner.this.activityResumed();
         }
 
         @Override // androidx.lifecycle.ReportFragment.ActivityInitializationListener
-        public void onResume() {
-            ProcessLifecycleOwner.this.activityResumed();
+        public void onStart() {
+            ProcessLifecycleOwner.this.activityStarted();
         }
     };
 
@@ -47,22 +47,22 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
         return sInstance;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void init(Context context) {
         sInstance.attach(context);
     }
 
-    void activityStarted() {
-        this.mStartedCounter++;
-        if (this.mStartedCounter == 1 && this.mStopSent) {
-            this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START);
-            this.mStopSent = false;
+    public void activityPaused() {
+        int i = this.mResumedCounter - 1;
+        this.mResumedCounter = i;
+        if (i == 0) {
+            this.mHandler.postDelayed(this.mDelayedPauseRunnable, 700L);
         }
     }
 
-    void activityResumed() {
-        this.mResumedCounter++;
-        if (this.mResumedCounter == 1) {
+    public void activityResumed() {
+        int i = this.mResumedCounter + 1;
+        this.mResumedCounter = i;
+        if (i == 1) {
             if (this.mPauseSent) {
                 this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME);
                 this.mPauseSent = false;
@@ -72,36 +72,21 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
         }
     }
 
-    void activityPaused() {
-        this.mResumedCounter--;
-        if (this.mResumedCounter == 0) {
-            this.mHandler.postDelayed(this.mDelayedPauseRunnable, TIMEOUT_MS);
+    public void activityStarted() {
+        int i = this.mStartedCounter + 1;
+        this.mStartedCounter = i;
+        if (i == 1 && this.mStopSent) {
+            this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START);
+            this.mStopSent = false;
         }
     }
 
-    void activityStopped() {
+    public void activityStopped() {
         this.mStartedCounter--;
         dispatchStopIfNeeded();
     }
 
-    void dispatchPauseIfNeeded() {
-        if (this.mResumedCounter == 0) {
-            this.mPauseSent = true;
-            this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_PAUSE);
-        }
-    }
-
-    void dispatchStopIfNeeded() {
-        if (this.mStartedCounter == 0 && this.mPauseSent) {
-            this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
-            this.mStopSent = true;
-        }
-    }
-
-    private ProcessLifecycleOwner() {
-    }
-
-    void attach(Context context) {
+    public void attach(Context context) {
         this.mHandler = new Handler();
         this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
         ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new EmptyActivityLifecycleCallbacks() { // from class: androidx.lifecycle.ProcessLifecycleOwner.3
@@ -120,6 +105,20 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                 ProcessLifecycleOwner.this.activityStopped();
             }
         });
+    }
+
+    public void dispatchPauseIfNeeded() {
+        if (this.mResumedCounter == 0) {
+            this.mPauseSent = true;
+            this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_PAUSE);
+        }
+    }
+
+    public void dispatchStopIfNeeded() {
+        if (this.mStartedCounter == 0 && this.mPauseSent) {
+            this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
+            this.mStopSent = true;
+        }
     }
 
     @Override // androidx.lifecycle.LifecycleOwner

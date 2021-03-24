@@ -1,22 +1,22 @@
 package org.webrtc;
 
 import java.util.IdentityHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class VideoTrack extends MediaStreamTrack {
-    private final IdentityHashMap<VideoSink, Long> sinks;
+    public final IdentityHashMap<VideoSink, Long> sinks;
 
     public VideoTrack(long j) {
         super(j);
         this.sinks = new IdentityHashMap<>();
     }
 
-    private static native void nativeAddSink(long j, long j2);
+    public static native void nativeAddSink(long j, long j2);
 
-    private static native void nativeFreeSink(long j);
+    public static native void nativeFreeSink(long j);
 
-    private static native void nativeRemoveSink(long j, long j2);
+    public static native void nativeRemoveSink(long j, long j2);
 
-    private static native long nativeWrapSink(VideoSink videoSink);
+    public static native long nativeWrapSink(VideoSink videoSink);
 
     public void addSink(VideoSink videoSink) {
         if (videoSink == null) {
@@ -41,7 +41,6 @@ public class VideoTrack extends MediaStreamTrack {
         super.dispose();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public long getNativeVideoTrack() {
         return getNativeMediaStreamTrack();
     }

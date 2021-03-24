@@ -3,9 +3,9 @@ package com.baidu.tieba.faceshop;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class FacePurchasePackageData extends AbstractImageProvider implements Serializable {
-    private static final long serialVersionUID = 0;
+    public static final long serialVersionUID = 0;
     public String cover_url;
     public String pack_url;
     public String pdesc;
@@ -14,11 +14,12 @@ public class FacePurchasePackageData extends AbstractImageProvider implements Se
     public String price;
     public long puy_time;
 
-    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getImageUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        if (this.cover_url != null) {
-            arrayList.add(this.cover_url);
+        String str = this.cover_url;
+        if (str != null) {
+            arrayList.add(str);
         }
         return arrayList;
     }

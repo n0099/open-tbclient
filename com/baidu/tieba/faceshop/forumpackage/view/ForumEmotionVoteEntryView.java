@@ -9,65 +9,75 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ForumEmotionVoteEntryView extends RelativeLayout {
-    private View izp;
-    private int jct;
-    private int jcu;
-    private LinearLayout jcv;
-    private TextView title;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f15872e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f15873f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LinearLayout f15874g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f15875h;
+    public View i;
 
     public ForumEmotionVoteEntryView(Context context) {
         super(context);
-        init(context);
+        a(context);
     }
 
-    public ForumEmotionVoteEntryView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context);
-    }
-
-    public ForumEmotionVoteEntryView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(context);
-    }
-
-    private void init(Context context) {
+    public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.forum_emotion_vote_entry_view, this);
-        this.jcv = (LinearLayout) findViewById(R.id.forum_vote_avatars);
-        this.jct = context.getResources().getDimensionPixelSize(R.dimen.ds40);
-        this.jcu = context.getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.title = (TextView) findViewById(R.id.forum_emotion_vote_title);
-        this.izp = findViewById(R.id.forum_vote_bottom_line);
+        this.f15874g = (LinearLayout) findViewById(R.id.forum_vote_avatars);
+        this.f15872e = context.getResources().getDimensionPixelSize(R.dimen.ds40);
+        this.f15873f = context.getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.f15875h = (TextView) findViewById(R.id.forum_emotion_vote_title);
+        this.i = findViewById(R.id.forum_vote_bottom_line);
+    }
+
+    public void b(int i) {
+        SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f15874g, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.f15875h, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.i, R.color.common_color_10312);
     }
 
     public void setAvatarList(List<String> list) {
-        this.jcv.removeAllViews();
-        if (list != null && !list.isEmpty()) {
-            for (String str : list) {
-                if (!StringUtils.isNull(str)) {
-                    TbImageView tbImageView = new TbImageView(getContext());
-                    tbImageView.setDrawerType(1);
-                    tbImageView.setIsRound(true);
-                    tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.jct, this.jct);
-                    layoutParams.leftMargin = this.jcu;
-                    layoutParams.gravity = 17;
-                    tbImageView.startLoad(str, 10, false);
-                    this.jcv.addView(tbImageView, layoutParams);
-                }
+        this.f15874g.removeAllViews();
+        if (list == null || list.isEmpty()) {
+            return;
+        }
+        for (String str : list) {
+            if (!StringUtils.isNull(str)) {
+                TbImageView tbImageView = new TbImageView(getContext());
+                tbImageView.setDrawerType(1);
+                tbImageView.setIsRound(true);
+                tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                int i = this.f15872e;
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
+                layoutParams.leftMargin = this.f15873f;
+                layoutParams.gravity = 17;
+                tbImageView.W(str, 10, false);
+                this.f15874g.addView(tbImageView, layoutParams);
             }
         }
     }
 
-    public void onChangeSkin(int i) {
-        ap.setBackgroundColor(this, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.jcv, R.color.CAM_X0201);
-        ap.setViewTextColor(this.title, R.color.CAM_X0105);
-        ap.setBackgroundColor(this.izp, R.color.common_color_10312);
+    public ForumEmotionVoteEntryView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a(context);
+    }
+
+    public ForumEmotionVoteEntryView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a(context);
     }
 }

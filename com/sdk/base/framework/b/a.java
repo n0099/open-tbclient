@@ -1,5 +1,5 @@
 package com.sdk.base.framework.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface a<T> {
     void a(int i, int i2, String str);
 

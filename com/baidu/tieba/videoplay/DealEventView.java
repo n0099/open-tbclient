@@ -6,26 +6,99 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class DealEventView extends FrameLayout {
-    private boolean gcG;
-    private float mLastX;
-    private float mLastY;
-    private long nWK;
-    private a nWL;
-    private boolean nWM;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void bIW();
+    /* renamed from: e  reason: collision with root package name */
+    public long f21926e;
 
-        void bIX();
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f21927f;
 
-        void dVv();
+    /* renamed from: g  reason: collision with root package name */
+    public b f21928g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f21929h;
+    public float i;
+    public boolean j;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (DealEventView.this.f21927f || !DealEventView.this.j || DealEventView.this.f21928g == null) {
+                return;
+            }
+            DealEventView.this.f21928g.k();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a();
+
+        void k();
+
+        void l();
     }
 
     public DealEventView(Context context) {
         this(context, null);
+    }
+
+    public final void d() {
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        b bVar;
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            this.f21929h = motionEvent.getX();
+            this.i = motionEvent.getY();
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.f21926e < 300) {
+                this.f21927f = true;
+                b bVar2 = this.f21928g;
+                if (bVar2 != null) {
+                    bVar2.a();
+                }
+            } else {
+                this.f21927f = false;
+            }
+            this.f21926e = currentTimeMillis;
+        } else if (action != 1) {
+            if (action == 2 && this.f21929h - motionEvent.getX() > 60.0f && (this.f21929h - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.i) && !this.f21927f && (bVar = this.f21928g) != null) {
+                bVar.l();
+            }
+        } else {
+            if (this.f21929h - motionEvent.getX() < 10.0f && this.i - motionEvent.getY() < 10.0f) {
+                this.j = true;
+            } else {
+                this.j = false;
+            }
+            postDelayed(new a(), 300L);
+        }
+        return true;
+    }
+
+    @Override // android.view.ViewGroup
+    public void removeAllViews() {
+        for (int i = 0; i < getChildCount(); i++) {
+            View childAt = getChildAt(i);
+            if (childAt.getTag() instanceof AnimatorSet) {
+                ((AnimatorSet) childAt.getTag()).cancel();
+            }
+        }
+        super.removeAllViews();
+    }
+
+    public void setOnViewClickListener(b bVar) {
+        this.f21928g = bVar;
     }
 
     public DealEventView(Context context, AttributeSet attributeSet) {
@@ -34,73 +107,6 @@ public class DealEventView extends FrameLayout {
 
     public DealEventView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.mLastX = motionEvent.getX();
-                this.mLastY = motionEvent.getY();
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.nWK < 300) {
-                    this.gcG = true;
-                    if (this.nWL != null) {
-                        this.nWL.dVv();
-                    }
-                } else {
-                    this.gcG = false;
-                }
-                this.nWK = currentTimeMillis;
-                break;
-            case 1:
-                if (this.mLastX - motionEvent.getX() < 10.0f && this.mLastY - motionEvent.getY() < 10.0f) {
-                    this.nWM = true;
-                } else {
-                    this.nWM = false;
-                }
-                postDelayed(new Runnable() { // from class: com.baidu.tieba.videoplay.DealEventView.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        if (!DealEventView.this.gcG && DealEventView.this.nWM && DealEventView.this.nWL != null) {
-                            DealEventView.this.nWL.bIW();
-                        }
-                    }
-                }, 300L);
-                break;
-            case 2:
-                if (this.mLastX - motionEvent.getX() > 60.0f && (this.mLastX - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.mLastY) && !this.gcG && this.nWL != null) {
-                    this.nWL.bIX();
-                    break;
-                }
-                break;
-        }
-        return true;
-    }
-
-    @Override // android.view.ViewGroup
-    public void removeAllViews() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < getChildCount()) {
-                View childAt = getChildAt(i2);
-                if (childAt.getTag() instanceof AnimatorSet) {
-                    ((AnimatorSet) childAt.getTag()).cancel();
-                }
-                i = i2 + 1;
-            } else {
-                super.removeAllViews();
-                return;
-            }
-        }
-    }
-
-    public void setOnViewClickListener(a aVar) {
-        this.nWL = aVar;
+        d();
     }
 }

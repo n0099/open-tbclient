@@ -1,20 +1,34 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2260a;
-    private String b;
-    private String c;
-    private b d;
-    private int e;
-    private int f;
-    private a g;
-    private String h;
-    private String i;
-    private int j;
+    public String f7784a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public String f7785b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f7786c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b f7787d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f7788e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f7789f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public a f7790g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f7791h;
+    public String i;
+    public int j;
+
+    /* loaded from: classes2.dex */
     public enum a {
         GPS,
         COMMON,
@@ -22,55 +36,55 @@ public final class f {
         BD09MC
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum b {
         DRIVING,
         RIDING
     }
 
     public f() {
-        this.d = b.DRIVING;
-        this.f = 15;
-        this.g = a.BD09LL;
-        this.d = b.DRIVING;
-        this.g = a.BD09LL;
-        this.f = 15;
+        this.f7787d = b.DRIVING;
+        this.f7789f = 15;
+        this.f7790g = a.BD09LL;
+        this.f7787d = b.DRIVING;
+        this.f7790g = a.BD09LL;
+        this.f7789f = 15;
     }
 
     public String a() {
-        return this.f2260a;
+        return this.f7784a;
     }
 
     public void a(int i) {
-        this.e = i;
+        this.f7788e = i;
     }
 
     public void a(String str) {
-        this.f2260a = str;
+        this.f7784a = str;
     }
 
     public String b() {
-        return this.b;
+        return this.f7785b;
     }
 
     public void b(String str) {
-        this.b = str;
+        this.f7785b = str;
     }
 
     public String c() {
-        return this.c;
+        return this.f7786c;
     }
 
     public void c(String str) {
-        this.c = str;
+        this.f7786c = str;
     }
 
     public String d() {
-        return this.h;
+        return this.f7791h;
     }
 
     public void d(String str) {
-        this.h = str;
+        this.f7791h = str;
     }
 
     public String e() {
@@ -82,19 +96,19 @@ public final class f {
     }
 
     public a f() {
-        return this.g;
+        return this.f7790g;
     }
 
     public b g() {
-        return this.d;
+        return this.f7787d;
     }
 
     public int h() {
-        return this.e;
+        return this.f7788e;
     }
 
     public int i() {
-        return this.f;
+        return this.f7789f;
     }
 
     public int j() {

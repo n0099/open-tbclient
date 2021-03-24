@@ -8,90 +8,106 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.poly.b;
-import com.baidu.poly.widget.coupon.a;
-import com.xiaomi.mipush.sdk.Constants;
+import d.b.c0.c;
+import d.b.c0.f;
+import d.b.c0.g;
+import d.b.c0.k.d.b;
+import d.b.c0.p.a.a;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class CouponEntranceView extends FrameLayout {
-    private ImageView crZ;
-    private TextView csa;
-    private TextView csb;
-    private TextView csc;
-    private View csd;
-    private a cse;
-    private a.C0318a csf;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f10452e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f10453f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f10454g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f10455h;
+    public View i;
+    public a j;
+    public a.C0572a k;
 
     public CouponEntranceView(Context context) {
         this(context, null);
     }
 
-    private void c(Context context) {
-        LayoutInflater.from(context).inflate(b.f.coupon_entrance, (ViewGroup) this, true);
-        this.crZ = (ImageView) findViewById(b.e.coupon_icon);
-        this.csc = (TextView) findViewById(b.e.coupon_text);
-        this.csa = (TextView) findViewById(b.e.coupon_title);
-        this.csb = (TextView) findViewById(b.e.coupon_subtitle);
-        this.csd = findViewById(b.e.icon_more);
+    public final String a(long j) {
+        double d2 = j;
+        Double.isNaN(d2);
+        return new DecimalFormat("0.00").format((d2 * 1.0d) / 100.0d);
     }
 
-    public void a(a aVar) {
-        this.cse = aVar;
-        h();
+    public void b(a aVar) {
+        this.j = aVar;
+        d();
     }
 
-    public a.C0318a getSelectedItem() {
-        return this.csf;
+    public final void c(Context context) {
+        LayoutInflater.from(context).inflate(g.coupon_entrance, (ViewGroup) this, true);
+        this.f10452e = (ImageView) findViewById(f.coupon_icon);
+        this.f10455h = (TextView) findViewById(f.coupon_text);
+        this.f10453f = (TextView) findViewById(f.coupon_title);
+        this.f10454g = (TextView) findViewById(f.coupon_subtitle);
+        this.i = findViewById(f.icon_more);
     }
 
-    public void h() {
+    public void d() {
         String str;
-        List<a.C0318a> list;
-        this.csf = null;
-        a aVar = this.cse;
-        if (!((aVar == null || (list = aVar.csh) == null || list.size() <= 0) ? false : true)) {
+        List<a.C0572a> list;
+        this.k = null;
+        a aVar = this.j;
+        if (!((aVar == null || (list = aVar.f42684b) == null || list.size() <= 0) ? false : true)) {
             setVisibility(8);
             return;
         }
-        Iterator<a.C0318a> it = this.cse.csh.iterator();
+        Iterator<a.C0572a> it = this.j.f42684b.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            a.C0318a next = it.next();
-            if (next.csl == 1) {
-                this.csf = next;
+            a.C0572a next = it.next();
+            if (next.f42691g == 1) {
+                this.k = next;
                 break;
             }
         }
-        if (this.csf == null) {
+        if (this.k == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        com.baidu.poly.a.d.b.ads().b(this.crZ, this.csf.icon);
-        this.csa.setText(this.csf.csi);
-        a.C0318a c0318a = this.csf;
-        if (c0318a.type == -1) {
-            str = c0318a.csj;
-            this.csb.setVisibility(8);
+        b.c().b(this.f10452e, this.k.f42689e);
+        this.f10453f.setText(this.k.f42686b);
+        a.C0572a c0572a = this.k;
+        if (c0572a.f42685a == -1) {
+            str = c0572a.f42687c;
+            this.f10454g.setVisibility(8);
         } else {
-            str = Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.csf.csk.longValue()) + "元";
-            this.csb.setVisibility(0);
-            this.csb.setText(this.csf.csj);
+            str = "-" + a(this.k.f42690f.longValue()) + "元";
+            this.f10454g.setVisibility(0);
+            this.f10454g.setText(this.k.f42687c);
         }
-        this.csc.setText(str);
-        if (this.cse.csg) {
-            this.csc.setTextColor(getResources().getColor(b.C0313b.coupon_description));
-            this.csd.setVisibility(0);
+        this.f10455h.setText(str);
+        if (this.j.f42683a) {
+            this.f10455h.setTextColor(getResources().getColor(c.coupon_description));
+            this.i.setVisibility(0);
             setEnabled(true);
             return;
         }
-        this.csc.setTextColor(getResources().getColor(b.C0313b.black));
-        this.csd.setVisibility(8);
+        this.f10455h.setTextColor(getResources().getColor(c.black));
+        this.i.setVisibility(8);
         setEnabled(false);
+    }
+
+    public a.C0572a getSelectedItem() {
+        return this.k;
     }
 
     public CouponEntranceView(Context context, AttributeSet attributeSet) {
@@ -101,9 +117,5 @@ public class CouponEntranceView extends FrameLayout {
     public CouponEntranceView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         c(context);
-    }
-
-    private String a(long j) {
-        return new DecimalFormat("0.00").format((j * 1.0d) / 100.0d);
     }
 }

@@ -1,110 +1,125 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class NewsRemindMessage extends CustomResponsedMessage<Object> {
-    private a mData;
+    public a mData;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class a {
-        private int msgCount = 0;
-        private boolean fus = false;
-        private int fuL = 0;
-        private int fuM = 0;
-        private int fuN = 0;
-        private int fuO = 0;
-        private int fuP = 0;
-        private boolean fuu = false;
-        private int fuQ = 0;
-        private boolean fuR = false;
 
-        public a() {
+        /* renamed from: a  reason: collision with root package name */
+        public int f13700a = 0;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f13701b = false;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f13702c = 0;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f13703d = 0;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f13704e = 0;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f13705f = 0;
+
+        /* renamed from: g  reason: collision with root package name */
+        public int f13706g = 0;
+
+        /* renamed from: h  reason: collision with root package name */
+        public boolean f13707h = false;
+        public int i = 0;
+        public boolean j = false;
+
+        public a(NewsRemindMessage newsRemindMessage) {
         }
     }
 
     public NewsRemindMessage() {
-        super(CmdConfigCustom.CMD_MESSAGE_REMIND);
-        this.mData = new a();
-    }
-
-    public int getMsgFansCount() {
-        return this.mData.fuO;
-    }
-
-    public void setMsgFansCount(int i) {
-        this.mData.fuO = i;
-    }
-
-    public int getMsgCount() {
-        return this.mData.msgCount;
-    }
-
-    public void setMsgCount(int i) {
-        this.mData.msgCount = i;
-    }
-
-    public boolean hasMsgRemind() {
-        return this.mData.fus;
-    }
-
-    public void setHasMsgRemind(boolean z) {
-        this.mData.fus = z;
-    }
-
-    public int getMsgAgreeCount() {
-        return this.mData.fuL;
-    }
-
-    public void setMsgAgreeCount(int i) {
-        this.mData.fuL = i;
-    }
-
-    public int getMsgReplyCount() {
-        return this.mData.fuM;
-    }
-
-    public void setMsgReplyCount(int i) {
-        this.mData.fuM = i;
-    }
-
-    public int getMsgAtCount() {
-        return this.mData.fuN;
-    }
-
-    public void setMsgAtCount(int i) {
-        this.mData.fuN = i;
+        super(2001626);
+        this.mData = new a(this);
     }
 
     public int getChatCount() {
-        return this.mData.fuP;
+        return this.mData.f13706g;
     }
 
-    public void setChatCount(int i) {
-        this.mData.fuP = i;
+    public int getMsgAgreeCount() {
+        return this.mData.f13702c;
     }
 
-    public boolean hasChatRemind() {
-        return this.mData.fuu;
+    public int getMsgAtCount() {
+        return this.mData.f13704e;
     }
 
-    public void setHasChatRemind(boolean z) {
-        this.mData.fuu = z;
+    public int getMsgCount() {
+        return this.mData.f13700a;
+    }
+
+    public int getMsgFansCount() {
+        return this.mData.f13705f;
+    }
+
+    public int getMsgReplyCount() {
+        return this.mData.f13703d;
     }
 
     public int getNotificationCount() {
-        return this.mData.fuQ;
+        return this.mData.i;
     }
 
-    public void setNotificationCount(int i) {
-        this.mData.fuQ = i;
+    public boolean hasChatRemind() {
+        return this.mData.f13707h;
+    }
+
+    public boolean hasMsgRemind() {
+        return this.mData.f13701b;
     }
 
     public boolean hasNotificationRemind() {
-        return this.mData.fuR;
+        return this.mData.j;
+    }
+
+    public void setChatCount(int i) {
+        this.mData.f13706g = i;
+    }
+
+    public void setHasChatRemind(boolean z) {
+        this.mData.f13707h = z;
+    }
+
+    public void setHasMsgRemind(boolean z) {
+        this.mData.f13701b = z;
     }
 
     public void setHasNotificationRemind(boolean z) {
-        this.mData.fuR = z;
+        this.mData.j = z;
+    }
+
+    public void setMsgAgreeCount(int i) {
+        this.mData.f13702c = i;
+    }
+
+    public void setMsgAtCount(int i) {
+        this.mData.f13704e = i;
+    }
+
+    public void setMsgCount(int i) {
+        this.mData.f13700a = i;
+    }
+
+    public void setMsgFansCount(int i) {
+        this.mData.f13705f = i;
+    }
+
+    public void setMsgReplyCount(int i) {
+        this.mData.f13703d = i;
+    }
+
+    public void setNotificationCount(int i) {
+        this.mData.i = i;
     }
 }

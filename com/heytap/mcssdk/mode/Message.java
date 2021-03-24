@@ -1,5 +1,5 @@
 package com.heytap.mcssdk.mode;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class Message {
     public static final String APP_ID = "appID";
     public static final String APP_PACKAGE = "appPackage";
@@ -35,9 +35,9 @@ public abstract class Message {
     public static final String TIME_RANGES = "timeRanges";
     public static final String TITLE = "title";
     public static final String TYPE = "type";
-    private String mAppPackage;
-    private int mMessageID;
-    private String mTaskID = "";
+    public String mAppPackage;
+    public int mMessageID;
+    public String mTaskID = "";
 
     public String getAppPackage() {
         return this.mAppPackage;

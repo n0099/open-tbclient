@@ -1,43 +1,41 @@
 package io.reactivex.internal.subscribers;
 
+import f.a.g;
+import f.a.x.i.b;
+import g.d.c;
+import g.d.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
-import org.a.d;
-/* loaded from: classes6.dex */
-public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong implements j<T>, d {
-    static final long COMPLETE_MASK = Long.MIN_VALUE;
-    static final long REQUEST_MASK = Long.MAX_VALUE;
-    private static final long serialVersionUID = 7917814472626990048L;
-    protected final org.a.c<? super R> actual;
-    protected long produced;
-    protected d s;
-    protected R value;
+/* loaded from: classes7.dex */
+public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong implements g<T>, d {
+    public static final long COMPLETE_MASK = Long.MIN_VALUE;
+    public static final long REQUEST_MASK = Long.MAX_VALUE;
+    public static final long serialVersionUID = 7917814472626990048L;
+    public final c<? super R> actual;
+    public long produced;
+    public d s;
+    public R value;
 
-    public SinglePostCompleteSubscriber(org.a.c<? super R> cVar) {
+    public SinglePostCompleteSubscriber(c<? super R> cVar) {
         this.actual = cVar;
     }
 
-    @Override // io.reactivex.j, org.a.c
-    public void onSubscribe(d dVar) {
-        if (SubscriptionHelper.validate(this.s, dVar)) {
-            this.s = dVar;
-            this.actual.onSubscribe(this);
-        }
+    @Override // g.d.d
+    public void cancel() {
+        this.s.cancel();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void complete(R r) {
         long j = this.produced;
         if (j != 0) {
-            io.reactivex.internal.util.b.c(this, j);
+            b.e(this, j);
         }
         while (true) {
             long j2 = get();
             if ((j2 & Long.MIN_VALUE) != 0) {
                 onDrop(r);
                 return;
-            } else if ((j2 & REQUEST_MASK) != 0) {
+            } else if ((j2 & Long.MAX_VALUE) != 0) {
                 lazySet(-9223372036854775807L);
                 this.actual.onNext(r);
                 this.actual.onComplete();
@@ -52,11 +50,25 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
         }
     }
 
-    protected void onDrop(R r) {
+    public abstract /* synthetic */ void onComplete();
+
+    public void onDrop(R r) {
     }
 
-    /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: R, ? super R */
-    @Override // org.a.d
+    public abstract /* synthetic */ void onError(Throwable th);
+
+    public abstract /* synthetic */ void onNext(T t);
+
+    @Override // f.a.g, g.d.c
+    public void onSubscribe(d dVar) {
+        if (SubscriptionHelper.validate(this.s, dVar)) {
+            this.s = dVar;
+            this.actual.onSubscribe(this);
+        }
+    }
+
+    /* JADX DEBUG: Type inference failed for r11v0. Raw type applied. Possible types: R, ? super R */
+    @Override // g.d.d
     public final void request(long j) {
         long j2;
         if (SubscriptionHelper.validate(j)) {
@@ -70,13 +82,8 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
                     }
                     return;
                 }
-            } while (!compareAndSet(j2, io.reactivex.internal.util.b.X(j2, j)));
+            } while (!compareAndSet(j2, b.c(j2, j)));
             this.s.request(j);
         }
-    }
-
-    @Override // org.a.d
-    public void cancel() {
-        this.s.cancel();
     }
 }

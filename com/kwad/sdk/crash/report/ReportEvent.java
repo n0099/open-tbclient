@@ -1,23 +1,21 @@
 package com.kwad.sdk.crash.report;
 
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
-    private static final long serialVersionUID = 8652448382850235426L;
+    public static final long serialVersionUID = 8652448382850235426L;
     public long clientIncrementId;
     public long clientTimeStamp;
     public String sessionId;
     public StatPackage statPackage;
     public String timeZone;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ExceptionEvent implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 5177557263564436344L;
+        public static final long serialVersionUID = 5177557263564436344L;
         public String flag;
         public String message;
         public int type;
@@ -30,7 +28,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
             this.type = jSONObject.optInt("type");
             this.message = jSONObject.optString("message");
             this.urlPackage.parseJson(jSONObject.optJSONObject("urlPackage"));
-            this.flag = jSONObject.optString(FrsActivityConfig.FLAG);
+            this.flag = jSONObject.optString("flag");
         }
 
         @Override // com.kwad.sdk.core.b
@@ -39,14 +37,14 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
             o.a(jSONObject, "type", this.type);
             o.a(jSONObject, "message", this.message);
             o.a(jSONObject, "urlPackage", this.urlPackage);
-            o.a(jSONObject, FrsActivityConfig.FLAG, this.flag);
+            o.a(jSONObject, "flag", this.flag);
             return jSONObject;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class StatPackage implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = -6225392281821567840L;
+        public static final long serialVersionUID = -6225392281821567840L;
         public ExceptionEvent exceptionEvent;
 
         public void parseJson(@Nullable JSONObject jSONObject) {
@@ -64,9 +62,9 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class UrlPackage implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 2535768638193007414L;
+        public static final long serialVersionUID = 2535768638193007414L;
         public String identity;
         public String page;
         public int pageType;
@@ -79,7 +77,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
             this.page = jSONObject.optString("page");
             this.params = jSONObject.optString("params");
             this.identity = jSONObject.optString("identity");
-            this.pageType = jSONObject.optInt(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE);
+            this.pageType = jSONObject.optInt("pageType");
         }
 
         @Override // com.kwad.sdk.core.b
@@ -88,7 +86,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
             o.a(jSONObject, "page", this.page);
             o.a(jSONObject, "params", this.params);
             o.a(jSONObject, "identity", this.identity);
-            o.a(jSONObject, InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, this.pageType);
+            o.a(jSONObject, "pageType", this.pageType);
             return jSONObject;
         }
     }

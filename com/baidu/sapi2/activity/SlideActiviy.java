@@ -1,9 +1,7 @@
 package com.baidu.sapi2.activity;
 
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
@@ -13,35 +11,36 @@ import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.a;
 import com.baidu.sapi2.utils.Log;
+import com.baidu.sapi2.views.ViewUtility;
 import com.baidu.searchbox.widget.OnTranslucentListener;
 import com.baidu.searchbox.widget.SlideHelper;
 import com.baidu.searchbox.widget.SlideInterceptor;
 import com.baidu.searchbox.widget.SlideUtil;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
+import com.google.protobuf.CodedInputStream;
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SlideActiviy extends BaseActivity {
-    protected static final String ACCOUNT_CENTER_PAGE_NAME = "accountCenter";
-    protected static final String ADDRESS_PAGE_NAME = "address";
-    protected static final String EXTRAS_ACTION = "action";
-    protected static final String EXTRA_PARAMS_SLIDE_PAGE = "slidePage";
-    protected static final String INVOICE_PAGE_NAME = "invoice";
-    protected static final String SLIDE_ACTION_QUIT = "quit";
-    private static final String w = "SlideActivity";
-    private static final boolean x = true;
+    public static final String ACCOUNT_CENTER_PAGE_NAME = "accountCenter";
+    public static final String ADDRESS_PAGE_NAME = "address";
+    public static final String EXTRAS_ACTION = "action";
+    public static final String EXTRA_PARAMS_SLIDE_PAGE = "slidePage";
+    public static final String INVOICE_PAGE_NAME = "invoice";
+    public static final String SLIDE_ACTION_QUIT = "quit";
+    public static final String w = "SlideActivity";
+    public static final boolean x = true;
     public SlideHelper mSlideHelper;
-    private SlideInterceptor s;
-    private SlidingPaneLayout.PanelSlideListener t;
-    private WeakReference<Activity> v;
-    private boolean p = false;
-    private boolean q = false;
-    private boolean r = false;
-    private boolean u = true;
+    public SlideInterceptor s;
+    public SlidingPaneLayout.PanelSlideListener t;
+    public WeakReference<Activity> v;
+    public boolean p = false;
+    public boolean q = false;
+    public boolean r = false;
+    public boolean u = true;
 
-    /* loaded from: classes3.dex */
-    private class PassSlideInterceptor implements SlideInterceptor {
-        private PassSlideInterceptor() {
+    /* loaded from: classes2.dex */
+    public class PassSlideInterceptor implements SlideInterceptor {
+        public PassSlideInterceptor() {
         }
 
         @Override // com.baidu.searchbox.widget.SlideInterceptor
@@ -58,7 +57,7 @@ public class SlideActiviy extends BaseActivity {
         this.r = z;
     }
 
-    protected void loadSlideWebview(String str, String str2, String str3) {
+    public void loadSlideWebview(String str, String str2, String str3) {
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -71,12 +70,9 @@ public class SlideActiviy extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        if (Build.VERSION.SDK_INT == 26) {
-            b();
-        }
+        ViewUtility.setOrientationToUndefined(this);
         super.onCreate(bundle);
         if (this.configuration.supportGestureSlide) {
             this.p = true;
@@ -92,19 +88,18 @@ public class SlideActiviy extends BaseActivity {
     }
 
     @Override // android.app.Activity
-    protected void onPostCreate(Bundle bundle) {
+    public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
         Log.d(w, "onPostCreate");
         a();
     }
 
     @Override // android.app.Activity
-    protected void onPostResume() {
+    public void onPostResume() {
         super.onPostResume();
         Log.d(w, "onPostResume: ");
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
@@ -112,7 +107,7 @@ public class SlideActiviy extends BaseActivity {
     }
 
     @Override // android.app.Activity
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         Log.d(w, "onStart: ");
     }
@@ -137,7 +132,6 @@ public class SlideActiviy extends BaseActivity {
         this.t = panelSlideListener;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
@@ -165,17 +159,6 @@ public class SlideActiviy extends BaseActivity {
         });
     }
 
-    private void b() {
-        try {
-            Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-            declaredField.setAccessible(true);
-            ((ActivityInfo) declaredField.get(this)).screenOrientation = -1;
-            declaredField.setAccessible(false);
-        } catch (Throwable th) {
-            Log.e(th);
-        }
-    }
-
     public void setEnableSliding(boolean z, SlideInterceptor slideInterceptor) {
         this.p = z;
         this.s = slideInterceptor;
@@ -187,13 +170,14 @@ public class SlideActiviy extends BaseActivity {
             if (!this.q && isTaskRoot()) {
                 z = false;
             }
-            if ((getWindow().getAttributes().flags & 67108864) == 0) {
+            if ((getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
                 Log.e(w, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             final int i = displayMetrics != null ? displayMetrics.widthPixels : 0;
-            this.mSlideHelper = new SlideHelper();
-            this.mSlideHelper.attachSlideActivity(this);
+            SlideHelper slideHelper = new SlideHelper();
+            this.mSlideHelper = slideHelper;
+            slideHelper.attachSlideActivity(this);
             this.mSlideHelper.setCanSlide(z);
             this.mSlideHelper.forceActivityTransparent(this.r);
             this.mSlideHelper.setSlideInterceptor(this.s);
@@ -218,35 +202,38 @@ public class SlideActiviy extends BaseActivity {
                 }
 
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-                public void onPanelSlide(View view, float f) {
+                public void onPanelSlide(View view, float f2) {
                     View maskView = SlideActiviy.this.mSlideHelper.getMaskView();
                     if (maskView != null) {
-                        float f2 = 1.0f - f;
-                        maskView.setAlpha(f2 >= 0.0f ? f2 : 0.0f);
+                        float f3 = 1.0f - f2;
+                        if (f3 < 0.0f) {
+                            f3 = 0.0f;
+                        }
+                        maskView.setAlpha(f3);
                     }
                     if (SlideActiviy.this.t != null) {
-                        SlideActiviy.this.t.onPanelSlide(view, f);
+                        SlideActiviy.this.t.onPanelSlide(view, f2);
                     }
-                    float f3 = i >> 2;
-                    SlideActiviy.this.a((f * f3) - f3);
+                    float f4 = i >> 2;
+                    SlideActiviy.this.a((f2 * f4) - f4);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(float f) {
+    public void a(float f2) {
         try {
             if (this.v == null || this.v.get() == null) {
                 this.v = new WeakReference<>(a.e().b());
             }
             if (this.v.get() != null) {
-                Activity c = a.e().c();
+                Activity c2 = a.e().c();
                 Activity activity = this.v.get();
-                if (c != null && activity != null && c.getLocalClassName().equals(activity.getLocalClassName())) {
+                if (c2 != null && activity != null && c2.getLocalClassName().equals(activity.getLocalClassName())) {
                     a(activity, 0.0f);
                 } else {
-                    a(activity, f);
+                    a(activity, f2);
                 }
             }
         } catch (Throwable th) {
@@ -254,11 +241,11 @@ public class SlideActiviy extends BaseActivity {
         }
     }
 
-    private void a(Activity activity, float f) {
+    private void a(Activity activity, float f2) {
         ViewGroup viewGroup;
         if (activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null || (viewGroup = (ViewGroup) activity.getWindow().getDecorView().findViewById(16908290)) == null) {
             return;
         }
-        viewGroup.setX(f);
+        viewGroup.setX(f2);
     }
 }

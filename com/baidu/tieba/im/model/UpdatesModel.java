@@ -2,119 +2,54 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.live.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.util.ae;
-import com.baidu.tbadk.util.af;
-import com.baidu.tbadk.util.m;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.data.UpdatesItemData;
-import com.baidu.tieba.im.db.d;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import d.b.h0.z0.f0;
+import d.b.h0.z0.h0;
+import d.b.h0.z0.n;
+import d.b.i0.d1.h.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class UpdatesModel {
-    private List<UpdatesItemData> dataToDelete = new ArrayList();
+    public List<UpdatesItemData> dataToDelete = new ArrayList();
 
-    public static void updateUpdatesData(m<Boolean> mVar, UpdatesItemData... updatesItemDataArr) {
-        if (updatesItemDataArr != null) {
-            final LinkedList linkedList = new LinkedList();
-            for (UpdatesItemData updatesItemData : updatesItemDataArr) {
-                linkedList.add(updatesItemData.toGroupNewsPojo());
-            }
-            af.b(new ae<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ae
-                public Boolean doInBackground() {
-                    return d.cVH().m(linkedList);
-                }
-            }, mVar);
-        }
-    }
-
-    public static void deleteUpdatesData(final UpdatesItemData updatesItemData, m<Boolean> mVar) {
-        if (updatesItemData != null) {
-            af.b(new ae<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ae
-                public Boolean doInBackground() {
-                    return Boolean.valueOf(d.cVH().MS(UpdatesItemData.this.getNotice_id()));
-                }
-            }, mVar);
-        }
-    }
-
-    public void deleteDatas(m<Boolean> mVar) {
-        af.b(new ae<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.ae
-            public Boolean doInBackground() {
-                return Boolean.valueOf(d.cVH().eu(UpdatesModel.this.dataToDelete));
-            }
-        }, mVar);
-    }
-
-    public String deleteDatasIds() {
-        StringBuffer stringBuffer = new StringBuffer();
-        if (this.dataToDelete == null || this.dataToDelete.size() == 0) {
+    public static UpdatesItemData convertToUpdatesItem(GroupNewsPojo groupNewsPojo) {
+        String content = groupNewsPojo.getContent();
+        if (TextUtils.isEmpty(content)) {
             return null;
         }
-        int size = this.dataToDelete.size();
-        for (int i = 0; i < size; i++) {
-            UpdatesItemData updatesItemData = this.dataToDelete.get(i);
-            if (updatesItemData != null && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
-                stringBuffer.append(Long.parseLong(updatesItemData.getNotice_id()) / 100);
-                if (i < size - 1) {
-                    stringBuffer.append(",");
+        try {
+            JSONObject jSONObject = new JSONObject(content);
+            if (true == jSONObject.isNull("notice_id")) {
+                UpdatesItemData updatesItemData = new UpdatesItemData();
+                updatesItemData.setNotice_id(groupNewsPojo.getNotice_id());
+                updatesItemData.setContent(jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG));
+                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+                if (optJSONObject == null) {
+                    return null;
                 }
+                updatesItemData.setUpdatesType(groupNewsPojo.getCmd());
+                updatesItemData.setGroupHeadUrl(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_IMAGE));
+                updatesItemData.setGroupId(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID));
+                updatesItemData.setGroupName(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME));
+                updatesItemData.setAuthorId(optJSONObject.optString("                                                                                                                                                                   "));
+                updatesItemData.setAuthorName(optJSONObject.optString("authorName"));
+                updatesItemData.setTime(groupNewsPojo.getTime());
+                updatesItemData.setTitle(optJSONObject.optString("title"));
+                updatesItemData.setEventLink(optJSONObject.optString("eventLink"));
+                updatesItemData.setGroupActivityId(optJSONObject.optString("activityId"));
+                return updatesItemData;
             }
+            return (UpdatesItemData) OrmObject.objectWithJsonStr(content, UpdatesItemData.class);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return null;
         }
-        return stringBuffer.toString();
-    }
-
-    public void clearSelect() {
-        this.dataToDelete.clear();
-    }
-
-    public void destory() {
-        clearSelect();
-    }
-
-    public void addSelect(UpdatesItemData updatesItemData) {
-        this.dataToDelete.add(updatesItemData);
-    }
-
-    public void cancelSelect(UpdatesItemData updatesItemData) {
-        this.dataToDelete.remove(updatesItemData);
-    }
-
-    public int getDeleteSize() {
-        return this.dataToDelete.size();
-    }
-
-    public void calculateSelects(List<UpdatesItemData> list) {
-        if (list != null) {
-            for (UpdatesItemData updatesItemData : list) {
-                if (updatesItemData.isSelected()) {
-                    this.dataToDelete.add(updatesItemData);
-                }
-            }
-        }
-    }
-
-    public static void requestUpdatesDataFromDB(m<LinkedList<GroupNewsPojo>> mVar) {
-        af.b(new ae<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.ae
-            public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.cVH().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
-            }
-        }, mVar);
     }
 
     public static List<UpdatesItemData> convertToUpdatesItemData(LinkedList<GroupNewsPojo> linkedList) {
@@ -132,40 +67,106 @@ public class UpdatesModel {
         return linkedList2;
     }
 
-    public static UpdatesItemData convertToUpdatesItem(GroupNewsPojo groupNewsPojo) {
-        UpdatesItemData updatesItemData;
-        String content = groupNewsPojo.getContent();
-        if (TextUtils.isEmpty(content)) {
-            return null;
+    public static void deleteUpdatesData(final UpdatesItemData updatesItemData, n<Boolean> nVar) {
+        if (updatesItemData == null) {
+            return;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(content);
-            if (true == jSONObject.isNull("notice_id")) {
-                updatesItemData = new UpdatesItemData();
-                updatesItemData.setNotice_id(groupNewsPojo.getNotice_id());
-                updatesItemData.setContent(jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG));
-                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
-                if (optJSONObject == null) {
-                    updatesItemData = null;
-                } else {
-                    updatesItemData.setUpdatesType(groupNewsPojo.getCmd());
-                    updatesItemData.setGroupHeadUrl(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_IMAGE));
-                    updatesItemData.setGroupId(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID));
-                    updatesItemData.setGroupName(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME));
-                    updatesItemData.setAuthorId(optJSONObject.optString("                                                                                                                                                                   "));
-                    updatesItemData.setAuthorName(optJSONObject.optString("authorName"));
-                    updatesItemData.setTime(groupNewsPojo.getTime());
-                    updatesItemData.setTitle(optJSONObject.optString("title"));
-                    updatesItemData.setEventLink(optJSONObject.optString("eventLink"));
-                    updatesItemData.setGroupActivityId(optJSONObject.optString("activityId"));
-                }
-            } else {
-                updatesItemData = (UpdatesItemData) OrmObject.objectWithJsonStr(content, UpdatesItemData.class);
+        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // d.b.h0.z0.f0
+            public Boolean doInBackground() {
+                return Boolean.valueOf(d.f().a(UpdatesItemData.this.getNotice_id()));
             }
-            return updatesItemData;
-        } catch (Exception e) {
-            e.printStackTrace();
+        }, nVar);
+    }
+
+    public static void requestUpdatesDataFromDB(n<LinkedList<GroupNewsPojo>> nVar) {
+        h0.c(new f0<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // d.b.h0.z0.f0
+            public LinkedList<GroupNewsPojo> doInBackground() {
+                return d.f().c(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+            }
+        }, nVar);
+    }
+
+    public static void updateUpdatesData(n<Boolean> nVar, UpdatesItemData... updatesItemDataArr) {
+        if (updatesItemDataArr == null) {
+            return;
+        }
+        final LinkedList linkedList = new LinkedList();
+        for (UpdatesItemData updatesItemData : updatesItemDataArr) {
+            linkedList.add(updatesItemData.toGroupNewsPojo());
+        }
+        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // d.b.h0.z0.f0
+            public Boolean doInBackground() {
+                return d.f().n(linkedList);
+            }
+        }, nVar);
+    }
+
+    public void addSelect(UpdatesItemData updatesItemData) {
+        this.dataToDelete.add(updatesItemData);
+    }
+
+    public void calculateSelects(List<UpdatesItemData> list) {
+        if (list == null) {
+            return;
+        }
+        for (UpdatesItemData updatesItemData : list) {
+            if (updatesItemData.isSelected()) {
+                this.dataToDelete.add(updatesItemData);
+            }
+        }
+    }
+
+    public void cancelSelect(UpdatesItemData updatesItemData) {
+        this.dataToDelete.remove(updatesItemData);
+    }
+
+    public void clearSelect() {
+        this.dataToDelete.clear();
+    }
+
+    public void deleteDatas(n<Boolean> nVar) {
+        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // d.b.h0.z0.f0
+            public Boolean doInBackground() {
+                return Boolean.valueOf(d.f().b(UpdatesModel.this.dataToDelete));
+            }
+        }, nVar);
+    }
+
+    public String deleteDatasIds() {
+        StringBuffer stringBuffer = new StringBuffer();
+        List<UpdatesItemData> list = this.dataToDelete;
+        if (list == null || list.size() == 0) {
             return null;
         }
+        int size = this.dataToDelete.size();
+        for (int i = 0; i < size; i++) {
+            UpdatesItemData updatesItemData = this.dataToDelete.get(i);
+            if (updatesItemData != null && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
+                stringBuffer.append(Long.parseLong(updatesItemData.getNotice_id()) / 100);
+                if (i < size - 1) {
+                    stringBuffer.append(",");
+                }
+            }
+        }
+        return stringBuffer.toString();
+    }
+
+    public void destory() {
+        clearSelect();
+    }
+
+    public int getDeleteSize() {
+        return this.dataToDelete.size();
     }
 }

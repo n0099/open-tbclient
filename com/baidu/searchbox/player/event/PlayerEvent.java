@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PlayerEvent extends VideoEvent {
     public static final String ACTION_BUFFER_UPDATE = "player_event_buffer_update";
     public static final String ACTION_EVENT_AD_SHOW = "layer_event_ad_show";
@@ -25,6 +25,6 @@ public class PlayerEvent extends VideoEvent {
 
     @PublicMethod
     public static VideoEvent obtainEvent(@NonNull String str) {
-        return obtain(str, 4);
+        return VideoEvent.obtain(str, 4);
     }
 }

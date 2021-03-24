@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
-import android.net.http.Headers;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -14,51 +13,65 @@ import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.bbalbs.common.util.CommonParam;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
-import com.baidu.webkit.internal.ETAG;
-import com.fun.ad.sdk.FunAdSdk;
 import com.tencent.open.SocialOperation;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f {
-    static String b;
-    static String c;
-    static String d;
-    static String e;
-    static int f;
-    static int g;
-    static int h;
-    static int i;
-    static int j;
-    static int k;
-    static String l;
-    static String m;
-    static String s;
-    static String t;
+    public static final String A = "f";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f7886b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f7887c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f7888d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f7889e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static int f7890f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static int f7891g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static int f7892h;
+    public static int i;
+    public static int j;
+    public static int k;
+    public static String l;
+    public static String m;
+    public static String s;
+    public static String t;
     public static Context w;
     public static String z;
-    private static final String A = f.class.getSimpleName();
-    private static com.baidu.mapsdkplatform.comjni.util.a B = new com.baidu.mapsdkplatform.comjni.util.a();
+    public static com.baidu.mapsdkplatform.comjni.util.a B = new com.baidu.mapsdkplatform.comjni.util.a();
 
     /* renamed from: a  reason: collision with root package name */
-    static String f2287a = "02";
-    static String n = FunAdSdk.PLATFORM_BAIDU;
-    static String o = FunAdSdk.PLATFORM_BAIDU;
-    static String p = "";
-    static String q = "";
-    static String r = "";
-    static String u = "-1";
-    static String v = "-1";
+    public static String f7885a = "02";
+    public static String n = "baidu";
+    public static String o = "baidu";
+    public static String p = "";
+    public static String q = "";
+    public static String r = "";
+    public static String u = "-1";
+    public static String v = "-1";
     public static final int x = Integer.parseInt(Build.VERSION.SDK);
     public static float y = 1.0f;
-    private static boolean C = true;
-    private static int D = 0;
-    private static int E = 0;
-    private static Map<String, String> F = new HashMap();
+    public static boolean C = true;
+    public static int D = 0;
+    public static int E = 0;
+    public static Map<String, String> F = new HashMap();
 
     public static void a() {
         d();
@@ -87,13 +100,13 @@ public class f {
     public static Bundle b() {
         Bundle bundle = new Bundle();
         bundle.putString("cpu", p);
-        bundle.putString("resid", f2287a);
+        bundle.putString("resid", f7885a);
         bundle.putString("channel", n);
         bundle.putString("glr", q);
         bundle.putString("glv", r);
         bundle.putString("mb", g());
         bundle.putString("sv", i());
-        bundle.putString("os", k());
+        bundle.putString(IXAdRequestInfo.OS, k());
         bundle.putInt("dpi_x", l());
         bundle.putInt("dpi_y", l());
         bundle.putString("net", l);
@@ -102,33 +115,29 @@ public class f {
         bundle.putString("pcn", w.getPackageName());
         bundle.putInt("screen_x", h());
         bundle.putInt("screen_y", j());
-        if (B != null) {
-            B.a(bundle);
+        com.baidu.mapsdkplatform.comjni.util.a aVar = B;
+        if (aVar != null) {
+            aVar.a(bundle);
             Log.d("phoneInfo", "mAppSysOSAPI not null");
         }
         Log.d("phoneInfo", bundle.toString());
         return bundle;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0053 */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v4, resolved type: java.util.Map<java.lang.String, java.lang.String> */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v4, resolved type: java.util.Map<java.lang.String, java.lang.String> */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0 */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v11 */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v10 */
-    /* JADX WARN: Type inference failed for: r2v11 */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /* JADX WARN: Type inference failed for: r2v9 */
     public static void b(Context context) {
-        ?? r1 = 1;
-        r1 = 1;
-        ?? r2 = 0;
-        r2 = 0;
+        Map<String, String> map;
+        String format;
+        String str = "pcn";
+        Object obj = "cuid";
+        String str2 = "dpi";
+        String str3 = IXAdRequestInfo.OS;
+        Object obj2 = "sv";
+        String str4 = "mb";
+        String str5 = "channel";
+        String str6 = "resid";
         w = context;
         if (context.getFilesDir() != null) {
             s = context.getFilesDir().getAbsolutePath();
@@ -136,115 +145,135 @@ public class f {
         if (context.getCacheDir() != null) {
             t = context.getCacheDir().getAbsolutePath();
         }
-        c = Build.MODEL;
-        d = "Android" + Build.VERSION.SDK;
-        b = context.getPackageName();
+        f7887c = Build.MODEL;
+        f7888d = "Android" + Build.VERSION.SDK;
+        f7886b = context.getPackageName();
         c(context);
         d(context);
         e(context);
         f(context);
         try {
             try {
-                LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
+                LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 D = locationManager.isProviderEnabled("gps") ? 1 : 0;
                 E = locationManager.isProviderEnabled("network") ? 1 : 0;
-                F.put("resid", AppMD5.encodeUrlParamsValue(f2287a));
-                F.put("channel", AppMD5.encodeUrlParamsValue(m()));
-                F.put("mb", AppMD5.encodeUrlParamsValue(g()));
-                F.put("sv", AppMD5.encodeUrlParamsValue(i()));
-                F.put("os", AppMD5.encodeUrlParamsValue(k()));
-                F.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
-                F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
-                F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
-                Map<String, String> map = F;
-                Integer valueOf = Integer.valueOf(j());
-                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(h()), valueOf));
-                map.put("screen", encodeUrlParamsValue);
-                r1 = encodeUrlParamsValue;
-                r2 = valueOf;
-            } catch (Exception e2) {
-                Log.w("baidumapsdk", "LocationManager error");
-                F.put("resid", AppMD5.encodeUrlParamsValue(f2287a));
-                F.put("channel", AppMD5.encodeUrlParamsValue(m()));
-                F.put("mb", AppMD5.encodeUrlParamsValue(g()));
-                F.put("sv", AppMD5.encodeUrlParamsValue(i()));
-                F.put("os", AppMD5.encodeUrlParamsValue(k()));
-                F.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
-                F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
-                F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
+                F.put("resid", AppMD5.encodeUrlParamsValue(f7885a));
                 Map<String, String> map2 = F;
-                Integer valueOf2 = Integer.valueOf(j());
-                String encodeUrlParamsValue2 = AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(h()), valueOf2));
-                map2.put("screen", encodeUrlParamsValue2);
-                r1 = encodeUrlParamsValue2;
-                r2 = valueOf2;
+                str6 = AppMD5.encodeUrlParamsValue(m());
+                map2.put("channel", str6);
+                Map<String, String> map3 = F;
+                str5 = AppMD5.encodeUrlParamsValue(g());
+                map3.put("mb", str5);
+                Map<String, String> map4 = F;
+                str4 = AppMD5.encodeUrlParamsValue(i());
+                map4.put("sv", str4);
+                F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
+                Map<String, String> map5 = F;
+                obj2 = Integer.valueOf(l());
+                str3 = AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), obj2));
+                map5.put("dpi", str3);
+                Map<String, String> map6 = F;
+                str2 = AppMD5.encodeUrlParamsValue(o());
+                map6.put("cuid", str2);
+                F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
+                map = F;
+                obj = Integer.valueOf(j());
+                format = String.format("%d,%d", Integer.valueOf(h()), obj);
+            } catch (Exception unused) {
+                Log.w("baidumapsdk", "LocationManager error");
+                F.put("resid", AppMD5.encodeUrlParamsValue(f7885a));
+                Map<String, String> map7 = F;
+                str6 = AppMD5.encodeUrlParamsValue(m());
+                map7.put("channel", str6);
+                Map<String, String> map8 = F;
+                str5 = AppMD5.encodeUrlParamsValue(g());
+                map8.put("mb", str5);
+                Map<String, String> map9 = F;
+                str4 = AppMD5.encodeUrlParamsValue(i());
+                map9.put("sv", str4);
+                F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
+                Map<String, String> map10 = F;
+                obj2 = Integer.valueOf(l());
+                str3 = AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), obj2));
+                map10.put("dpi", str3);
+                Map<String, String> map11 = F;
+                str2 = AppMD5.encodeUrlParamsValue(o());
+                map11.put("cuid", str2);
+                F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
+                map = F;
+                obj = Integer.valueOf(j());
+                format = String.format("%d,%d", Integer.valueOf(h()), obj);
             }
-            if (B != null) {
-                B.a();
+            str = AppMD5.encodeUrlParamsValue(format);
+            map.put("screen", str);
+            com.baidu.mapsdkplatform.comjni.util.a aVar = B;
+            if (aVar != null) {
+                aVar.a();
             }
         } catch (Throwable th) {
-            F.put("resid", AppMD5.encodeUrlParamsValue(f2287a));
-            F.put("channel", AppMD5.encodeUrlParamsValue(m()));
-            F.put("mb", AppMD5.encodeUrlParamsValue(g()));
-            F.put("sv", AppMD5.encodeUrlParamsValue(i()));
-            F.put("os", AppMD5.encodeUrlParamsValue(k()));
-            Map<String, String> map3 = F;
-            Object[] objArr = new Object[2];
-            objArr[r2] = Integer.valueOf(l());
-            objArr[r1] = Integer.valueOf(l());
-            map3.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", objArr)));
-            F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
-            F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
-            Map<String, String> map4 = F;
-            Object[] objArr2 = new Object[2];
-            objArr2[r2] = Integer.valueOf(h());
-            objArr2[r1] = Integer.valueOf(j());
-            map4.put("screen", AppMD5.encodeUrlParamsValue(String.format("%d,%d", objArr2)));
+            F.put(str6, AppMD5.encodeUrlParamsValue(f7885a));
+            F.put(str5, AppMD5.encodeUrlParamsValue(m()));
+            F.put(str4, AppMD5.encodeUrlParamsValue(g()));
+            F.put(obj2, AppMD5.encodeUrlParamsValue(i()));
+            F.put(str3, AppMD5.encodeUrlParamsValue(k()));
+            F.put(str2, AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
+            F.put(obj, AppMD5.encodeUrlParamsValue(o()));
+            F.put(str, AppMD5.encodeUrlParamsValue(w.getPackageName()));
+            F.put("screen", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(h()), Integer.valueOf(j()))));
             throw th;
         }
     }
 
     public static String c() {
+        Date date;
         if (F == null) {
             return null;
         }
-        Date date = new Date();
-        long seconds = (date.getSeconds() * 1000) + date.getTime();
-        F.put("ctm", AppMD5.encodeUrlParamsValue(String.format("%f", Double.valueOf(((seconds % 1000) / 1000.0d) + (seconds / 1000)))));
+        long time = new Date().getTime() + (date.getSeconds() * 1000);
+        double d2 = time / 1000;
+        double d3 = time % 1000;
+        Double.isNaN(d3);
+        Double.isNaN(d2);
+        F.put("ctm", AppMD5.encodeUrlParamsValue(String.format("%f", Double.valueOf(d2 + (d3 / 1000.0d)))));
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : F.entrySet()) {
-            sb.append(ETAG.ITEM_SEPARATOR).append(entry.getKey()).append("=").append(entry.getValue());
+            sb.append("&");
+            sb.append(entry.getKey());
+            sb.append("=");
+            sb.append(entry.getValue());
         }
         return sb.toString();
     }
 
-    private static void c(Context context) {
+    public static void c(Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            e = VersionInfo.getApiVersion();
-            if (e != null && !e.equals("")) {
-                e = e.replace('_', '.');
+            String apiVersion = VersionInfo.getApiVersion();
+            f7889e = apiVersion;
+            if (apiVersion != null && !apiVersion.equals("")) {
+                f7889e = f7889e.replace('_', IStringUtil.EXTENSION_SEPARATOR);
             }
-            f = packageInfo.versionCode;
-        } catch (PackageManager.NameNotFoundException e2) {
-            e = BuildConfig.VERSION_NAME;
-            f = 1;
+            f7890f = packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException unused) {
+            f7889e = BuildConfig.VERSION_NAME;
+            f7890f = 1;
         }
     }
 
     public static void d() {
-        if (B != null) {
-            B.b();
+        com.baidu.mapsdkplatform.comjni.util.a aVar = B;
+        if (aVar != null) {
+            aVar.b();
         }
     }
 
-    private static void d(Context context) {
+    public static void d(Context context) {
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         DisplayMetrics displayMetrics = new DisplayMetrics();
         Display defaultDisplay = windowManager != null ? windowManager.getDefaultDisplay() : null;
         if (defaultDisplay != null) {
-            g = defaultDisplay.getWidth();
-            h = defaultDisplay.getHeight();
+            f7891g = defaultDisplay.getWidth();
+            f7892h = defaultDisplay.getHeight();
             defaultDisplay.getMetrics(displayMetrics);
         }
         y = displayMetrics.density;
@@ -264,7 +293,7 @@ public class f {
         return l;
     }
 
-    private static void e(Context context) {
+    public static void e(Context context) {
         m = Settings.Secure.getString(context.getContentResolver(), "android_id");
     }
 
@@ -277,13 +306,13 @@ public class f {
         }
         Bundle bundle = new Bundle();
         bundle.putString("cpu", p);
-        bundle.putString("resid", f2287a);
+        bundle.putString("resid", f7885a);
         bundle.putString("channel", n);
         bundle.putString("glr", q);
         bundle.putString("glv", r);
         bundle.putString("mb", g());
         bundle.putString("sv", i());
-        bundle.putString("os", k());
+        bundle.putString(IXAdRequestInfo.OS, k());
         bundle.putInt("dpi_x", l());
         bundle.putInt("dpi_y", l());
         bundle.putString("net", l);
@@ -300,28 +329,28 @@ public class f {
         SysUpdateObservable.getInstance().updatePhoneInfo();
     }
 
-    private static void f(Context context) {
+    public static void f(Context context) {
         l = "0";
     }
 
     public static String g() {
-        return c;
+        return f7887c;
     }
 
     public static int h() {
-        return g;
+        return f7891g;
     }
 
     public static String i() {
-        return e;
+        return f7889e;
     }
 
     public static int j() {
-        return h;
+        return f7892h;
     }
 
     public static String k() {
-        return d;
+        return f7888d;
     }
 
     public static int l() {
@@ -340,7 +369,7 @@ public class f {
         String str;
         try {
             str = CommonParam.a(w);
-        } catch (Exception e2) {
+        } catch (Exception unused) {
             str = "";
         }
         return str == null ? "" : str;

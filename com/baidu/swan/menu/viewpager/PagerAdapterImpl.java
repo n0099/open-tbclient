@@ -5,29 +5,24 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-/* loaded from: classes4.dex */
+import d.b.g0.i.r.c;
+/* loaded from: classes3.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
-    private c<View> euO = new c<>(5);
-    private SparseArray<View> dmc = new SparseArray<>();
 
-    /* loaded from: classes4.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public c<View> f13011a = new c<>(5);
+
+    /* renamed from: b  reason: collision with root package name */
+    public SparseArray<View> f13012b = new SparseArray<>();
+
+    /* loaded from: classes3.dex */
     public interface a {
         void recycle();
     }
 
-    protected abstract View j(ViewGroup viewGroup, int i);
+    public abstract void a(View view, int i);
 
-    protected abstract void k(View view, int i);
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        return 0;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
+    public abstract View b(ViewGroup viewGroup, int i);
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
@@ -36,20 +31,30 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             ((a) view).recycle();
         }
         viewGroup.removeView(view);
-        this.euO.al(view);
-        this.dmc.remove(i);
+        this.f13011a.b(view);
+        this.f13012b.remove(i);
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        return 0;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.euO.get();
-        if (view == null) {
-            view = j(viewGroup, i);
+        View a2 = this.f13011a.a();
+        if (a2 == null) {
+            a2 = b(viewGroup, i);
         }
-        this.dmc.put(i, view);
-        viewGroup.addView(view);
-        k(view, i);
-        return view;
+        this.f13012b.put(i, a2);
+        viewGroup.addView(a2);
+        a(a2, i);
+        return a2;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter

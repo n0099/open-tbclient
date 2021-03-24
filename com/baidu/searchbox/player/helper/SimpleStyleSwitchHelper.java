@@ -9,11 +9,17 @@ import com.baidu.searchbox.player.utils.BdActivityUtils;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
 /* loaded from: classes3.dex */
 public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
-    private ViewGroup mOriginPlayerContainer;
-    private UniversalPlayer mPlayer;
+    public ViewGroup mOriginPlayerContainer;
+    public UniversalPlayer mPlayer;
 
     public SimpleStyleSwitchHelper(@NonNull UniversalPlayer universalPlayer) {
         this.mPlayer = universalPlayer;
+    }
+
+    private void setKeepScreenOn(@Nullable Activity activity) {
+        if (activity != null) {
+            activity.getWindow().addFlags(128);
+        }
     }
 
     @Override // com.baidu.searchbox.player.helper.IPlayerStyleSwitchHelper
@@ -28,19 +34,14 @@ public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
 
     @Override // com.baidu.searchbox.player.helper.IPlayerStyleSwitchHelper
     public void switchToNormalStyle() {
-        if (this.mOriginPlayerContainer != null) {
-            this.mOriginPlayerContainer = this.mPlayer.getAttachedContainer();
-            this.mPlayer.setIsFullMode(false);
-            BdActivityUtils.requestPortrait(this.mPlayer.getActivity());
-            BdViewOpUtils.removeView(this.mPlayer.getLayerContainer());
-            BdViewOpUtils.removeChilds(this.mPlayer.getAttachedContainer());
-            BdViewOpUtils.attachView(this.mPlayer.getLayerContainer(), this.mOriginPlayerContainer);
+        if (this.mOriginPlayerContainer == null) {
+            return;
         }
-    }
-
-    private void setKeepScreenOn(@Nullable Activity activity) {
-        if (activity != null) {
-            activity.getWindow().addFlags(128);
-        }
+        this.mOriginPlayerContainer = this.mPlayer.getAttachedContainer();
+        this.mPlayer.setIsFullMode(false);
+        BdActivityUtils.requestPortrait(this.mPlayer.getActivity());
+        BdViewOpUtils.removeView(this.mPlayer.getLayerContainer());
+        BdViewOpUtils.removeChilds(this.mPlayer.getAttachedContainer());
+        BdViewOpUtils.attachView(this.mPlayer.getLayerContainer(), this.mOriginPlayerContainer);
     }
 }

@@ -3,9 +3,6 @@ package com.baidu.tieba.im.message.chat;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.data.IconData;
@@ -13,49 +10,52 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
+import d.b.b.c.e.c.a;
+import d.b.b.e.m.b;
+import d.b.b.j.e.n;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage implements com.baidu.adp.framework.client.socket.a, n {
-    private long bornTime;
-    private transient MsgCacheData cacheData;
-    private String content;
-    private int customGroupType;
-    private int followStatus;
-    private GifInfo gifInfo;
-    private String groupId;
-    private boolean hasRead;
+/* loaded from: classes4.dex */
+public abstract class ChatMessage extends TbSocketMessage implements a, n {
+    public long bornTime;
+    public transient MsgCacheData cacheData;
+    public String content;
+    public int customGroupType;
+    public int followStatus;
+    public GifInfo gifInfo;
+    public String groupId;
+    public boolean hasRead;
     public boolean hasRepeat;
-    private int height;
-    private int isFriend;
-    private boolean isGifLoadSuccess;
-    private boolean isUploading;
-    private String link;
-    private MsgLocalData localData;
-    private long logTime;
-    private boolean mIsPushForOperateAccount;
-    private LinkedList<IconData> mTShowIconInfo;
-    private long mToUserId;
-    private long msgId;
-    private int msgType;
-    private Object objContent;
-    private int progressValue;
-    private int readCountPv;
-    private long recordId;
-    private long serviceId;
-    private long sid;
-    private String st_type;
-    private String stat;
-    private long statisticsServiceId;
-    private long statisticsTaskId;
-    private long taskId;
-    private long time;
-    private UserData toUserInfo;
-    private long userId;
-    private UserData userInfo;
-    private int width;
+    public int height;
+    public int isFriend;
+    public boolean isGifLoadSuccess;
+    public boolean isUploading;
+    public String link;
+    public MsgLocalData localData;
+    public long logTime;
+    public boolean mIsPushForOperateAccount;
+    public LinkedList<IconData> mTShowIconInfo;
+    public long mToUserId;
+    public long msgId;
+    public int msgType;
+    public Object objContent;
+    public int progressValue;
+    public int readCountPv;
+    public long recordId;
+    public long serviceId;
+    public long sid;
+    public String st_type;
+    public String stat;
+    public long statisticsServiceId;
+    public long statisticsTaskId;
+    public long taskId;
+    public long time;
+    public UserData toUserInfo;
+    public long userId;
+    public UserData userInfo;
+    public int width;
     public static final BdUniqueId TYPE_MSG_LEFT = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_RIGHT = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_MID = BdUniqueId.gen();
@@ -75,338 +75,227 @@ public abstract class ChatMessage extends TbSocketMessage implements com.baidu.a
         this.isUploading = false;
     }
 
-    public boolean isPushForOperateAccount() {
-        return this.mIsPushForOperateAccount;
-    }
-
-    public void setIsPushForOperateAccount(boolean z) {
-        this.mIsPushForOperateAccount = z;
-    }
-
-    public String getGroupId() {
-        return this.groupId;
-    }
-
-    public void setGroupId(String str) {
-        this.groupId = str;
-    }
-
     public long getBornTime() {
         return this.bornTime;
-    }
-
-    public void setBornTime(long j) {
-        this.bornTime = j;
-    }
-
-    public long getToUserId() {
-        return this.mToUserId;
-    }
-
-    public void setToUserId(long j) {
-        this.mToUserId = j;
-    }
-
-    public int getReadCountPv() {
-        return this.readCountPv;
-    }
-
-    public void setReadCountPv(int i) {
-        this.readCountPv = i;
-    }
-
-    public GifInfo getGifInfo() {
-        JSONObject jSONObject;
-        if (this.gifInfo != null) {
-            return this.gifInfo;
-        }
-        String str = this.content;
-        try {
-            JSONArray jSONArray = new JSONArray(str);
-            jSONObject = jSONArray.length() > 0 ? jSONArray.getJSONObject(0) : null;
-        } catch (JSONException e) {
-            try {
-                jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                jSONObject = null;
-            }
-        }
-        if (jSONObject != null) {
-            String optString = jSONObject.optString("face_name");
-            String optString2 = jSONObject.optString("url_s");
-            String optString3 = jSONObject.optString("url_d");
-            String optString4 = jSONObject.optString("pid");
-            String optString5 = jSONObject.optString("packet_name");
-            String optString6 = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-            int optInt = jSONObject.optInt("size_width");
-            int optInt2 = jSONObject.optInt("size_height");
-            GifInfo gifInfo = new GifInfo();
-            gifInfo.mLoadFailed = false;
-            gifInfo.mSharpText = optString;
-            gifInfo.mStaticUrl = optString2;
-            gifInfo.mDynamicUrl = optString3;
-            gifInfo.mGid = optString4;
-            gifInfo.mGifWidth = optInt;
-            gifInfo.mGifHeight = optInt2;
-            gifInfo.mPackageName = optString5;
-            gifInfo.mIcon = optString6;
-            this.gifInfo = gifInfo;
-            return gifInfo;
-        }
-        return null;
-    }
-
-    public String getSt_type() {
-        return this.st_type;
-    }
-
-    public void setSt_type(String str) {
-        this.st_type = str;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String str) {
-        this.link = str;
-    }
-
-    public String getStat() {
-        return this.stat;
-    }
-
-    public void setStat(String str) {
-        this.stat = str;
-    }
-
-    public long getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(long j) {
-        this.taskId = j;
-    }
-
-    public long getServiceId() {
-        return this.serviceId;
-    }
-
-    public void setServiceId(long j) {
-        this.serviceId = j;
-    }
-
-    public void setTShowInfo(LinkedList<IconData> linkedList) {
-        this.mTShowIconInfo = linkedList;
-    }
-
-    public LinkedList<IconData> getTShowInfo() {
-        return this.mTShowIconInfo;
-    }
-
-    public boolean getIsUploading() {
-        return this.isUploading;
-    }
-
-    public void setIsUploading(boolean z) {
-        this.isUploading = z;
-    }
-
-    public int getProgressValue() {
-        return this.progressValue;
-    }
-
-    public void setProgressValue(int i) {
-        this.progressValue = i;
-    }
-
-    public Object getObjContent() {
-        return this.objContent;
-    }
-
-    public void setObjContent(Object obj) {
-        this.objContent = obj;
-    }
-
-    public UserData getUserInfo() {
-        return this.userInfo;
-    }
-
-    public void setUserInfo(UserData userData) {
-        this.userInfo = userData;
-    }
-
-    public UserData getToUserInfo() {
-        return this.toUserInfo;
-    }
-
-    public void setToUserInfo(UserData userData) {
-        this.toUserInfo = userData;
-    }
-
-    public int getMsgType() {
-        return this.msgType;
-    }
-
-    public void setMsgType(int i) {
-        this.msgType = i;
-    }
-
-    public long getRecordId() {
-        return this.recordId;
-    }
-
-    public void setRecordId(long j) {
-        this.recordId = j;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String str) {
-        this.content = str;
-    }
-
-    public long getMsgId() {
-        return this.msgId;
-    }
-
-    public void setMsgId(long j) {
-        this.msgId = j;
-    }
-
-    public long getSid() {
-        return this.sid;
-    }
-
-    public void setSid(long j) {
-        this.sid = j;
-    }
-
-    public long getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(long j) {
-        this.userId = j;
-    }
-
-    public MsgLocalData getLocalData() {
-        return this.localData;
-    }
-
-    public void setLocalData(MsgLocalData msgLocalData) {
-        this.localData = msgLocalData;
     }
 
     public MsgCacheData getCacheData() {
         return this.cacheData;
     }
 
-    public void setCacheData(MsgCacheData msgCacheData) {
-        this.cacheData = msgCacheData;
-    }
-
-    public long getTime() {
-        return this.time;
-    }
-
-    public void setTime(long j) {
-        this.time = j;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public void setWidth(int i) {
-        this.width = i;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public boolean isGifLoadSuccess() {
-        return this.isGifLoadSuccess;
-    }
-
-    public void setGifLoadSuccess(boolean z) {
-        this.isGifLoadSuccess = z;
-    }
-
-    public long getLogTime() {
-        return this.logTime;
-    }
-
-    public void setLogTime(long j) {
-        this.logTime = j;
-    }
-
-    public int getIsFriend() {
-        return this.isFriend;
-    }
-
-    public void setIsFriend(int i) {
-        this.isFriend = i;
-    }
-
-    public void setFollowStatus(int i) {
-        this.followStatus = i;
-    }
-
-    public int getFollowStatus() {
-        return this.followStatus;
+    public String getContent() {
+        return this.content;
     }
 
     public int getCustomGroupType() {
         return this.customGroupType;
     }
 
-    public void setCustomGroupType(int i) {
-        this.customGroupType = i;
+    public int getFollowStatus() {
+        return this.followStatus;
     }
 
-    public boolean isHasRead() {
-        return this.hasRead;
-    }
-
-    public void setHasRead(boolean z) {
-        this.hasRead = z;
-    }
-
-    @Override // com.baidu.adp.framework.client.socket.a
-    public boolean onFindMessage(SocketMessage socketMessage) {
-        if (socketMessage != null && (socketMessage instanceof ChatMessage)) {
-            ChatMessage chatMessage = (ChatMessage) socketMessage;
-            return chatMessage.getGroupId() != null && chatMessage.getRecordId() == this.recordId && chatMessage.getGroupId().equals(this.groupId) && chatMessage.getToUserId() == this.mToUserId;
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0023  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x006d A[RETURN] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public GifInfo getGifInfo() {
+        JSONObject jSONObject;
+        JSONArray jSONArray;
+        GifInfo gifInfo = this.gifInfo;
+        if (gifInfo != null) {
+            return gifInfo;
         }
-        return false;
+        String str = this.content;
+        try {
+            try {
+                jSONArray = new JSONArray(str);
+            } catch (JSONException unused) {
+                jSONObject = new JSONObject(str);
+            }
+        } catch (JSONException unused2) {
+        }
+        if (jSONArray.length() > 0) {
+            jSONObject = jSONArray.getJSONObject(0);
+            if (jSONObject == null) {
+                String optString = jSONObject.optString("face_name");
+                String optString2 = jSONObject.optString("url_s");
+                String optString3 = jSONObject.optString("url_d");
+                String optString4 = jSONObject.optString("pid");
+                String optString5 = jSONObject.optString("packet_name");
+                String optString6 = jSONObject.optString("icon");
+                int optInt = jSONObject.optInt("size_width");
+                int optInt2 = jSONObject.optInt("size_height");
+                GifInfo gifInfo2 = new GifInfo();
+                gifInfo2.mLoadFailed = false;
+                gifInfo2.mSharpText = optString;
+                gifInfo2.mStaticUrl = optString2;
+                gifInfo2.mDynamicUrl = optString3;
+                gifInfo2.mGid = optString4;
+                gifInfo2.mGifWidth = optInt;
+                gifInfo2.mGifHeight = optInt2;
+                gifInfo2.mPackageName = optString5;
+                gifInfo2.mIcon = optString6;
+                this.gifInfo = gifInfo2;
+                return gifInfo2;
+            }
+            return null;
+        }
+        jSONObject = null;
+        if (jSONObject == null) {
+        }
     }
 
-    @Override // com.baidu.adp.widget.ListView.n
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public int getIsFriend() {
+        return this.isFriend;
+    }
+
+    public boolean getIsUploading() {
+        return this.isUploading;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public MsgLocalData getLocalData() {
+        return this.localData;
+    }
+
+    public long getLogTime() {
+        return this.logTime;
+    }
+
+    public long getMsgId() {
+        return this.msgId;
+    }
+
+    public int getMsgType() {
+        return this.msgType;
+    }
+
+    public Object getObjContent() {
+        return this.objContent;
+    }
+
+    public int getProgressValue() {
+        return this.progressValue;
+    }
+
+    public int getReadCountPv() {
+        return this.readCountPv;
+    }
+
+    public long getRecordId() {
+        return this.recordId;
+    }
+
+    public long getServiceId() {
+        return this.serviceId;
+    }
+
+    public long getSid() {
+        return this.sid;
+    }
+
+    public String getSt_type() {
+        return this.st_type;
+    }
+
+    public String getStat() {
+        return this.stat;
+    }
+
+    public long getStatTaskId() {
+        long j = this.statisticsTaskId;
+        if (j != -1) {
+            return j;
+        }
+        if (!TextUtils.isEmpty(this.content)) {
+            try {
+                JSONArray jSONArray = new JSONArray(this.content);
+                if (jSONArray.length() > 0) {
+                    this.statisticsTaskId = b.f(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                }
+            } catch (Exception unused) {
+            }
+        }
+        if (this.statisticsTaskId <= 0) {
+            long j2 = this.taskId;
+            this.statisticsTaskId = j2 >= 0 ? j2 : 0L;
+        }
+        return this.statisticsTaskId;
+    }
+
+    public long getStatisticsServiceId() {
+        long j = this.statisticsServiceId;
+        if (j != -1) {
+            return j;
+        }
+        if (!TextUtils.isEmpty(this.content)) {
+            try {
+                JSONArray jSONArray = new JSONArray(this.content);
+                if (jSONArray.length() > 0) {
+                    this.statisticsServiceId = b.f(jSONArray.optJSONObject(0).optString("service_id"), 0L);
+                }
+            } catch (Exception unused) {
+            }
+        }
+        if (this.statisticsServiceId <= 0) {
+            long j2 = this.serviceId;
+            this.statisticsServiceId = j2 >= 0 ? j2 : 0L;
+        }
+        return this.statisticsServiceId;
+    }
+
+    public LinkedList<IconData> getTShowInfo() {
+        return this.mTShowIconInfo;
+    }
+
+    public long getTaskId() {
+        return this.taskId;
+    }
+
+    public long getTime() {
+        return this.time;
+    }
+
+    public long getToUserId() {
+        return this.mToUserId;
+    }
+
+    public UserData getToUserInfo() {
+        return this.toUserInfo;
+    }
+
+    @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
-        if (this.msgType == 11) {
+        int i = this.msgType;
+        if (i == 11) {
             return TYPE_MSG_MID;
         }
-        if (this.msgType == 12) {
+        if (i == 12) {
             return TYPE_MSG_TOPIC;
         }
-        if (this.msgType == 6) {
+        if (i == 6) {
             return TYPE_MSG_GROUP_ACTIVITY;
         }
-        if (this.msgType == 7) {
+        if (i == 7) {
             return TYPE_MSG_MULTI_PIC_TEXT;
         }
-        if (this.msgType == 23) {
+        if (i == 23) {
             return TYPE_MSG_REPLY_CARD;
         }
-        if (this.msgType == 25) {
+        if (i == 25) {
             return TYPE_MSG_PHOTOLIVE;
         }
         if (getUserInfo() != null && getUserInfo().getUserId() != null) {
@@ -418,41 +307,168 @@ public abstract class ChatMessage extends TbSocketMessage implements com.baidu.a
         return TYPE_MSG_LEFT;
     }
 
-    public long getStatTaskId() {
-        if (this.statisticsTaskId != -1) {
-            return this.statisticsTaskId;
-        }
-        if (!TextUtils.isEmpty(this.content)) {
-            try {
-                JSONArray jSONArray = new JSONArray(this.content);
-                if (jSONArray.length() > 0) {
-                    this.statisticsTaskId = com.baidu.adp.lib.f.b.toLong(jSONArray.optJSONObject(0).optString("task_id"), 0L);
-                }
-            } catch (Exception e) {
-            }
-        }
-        if (this.statisticsTaskId <= 0) {
-            this.statisticsTaskId = this.taskId >= 0 ? this.taskId : 0L;
-        }
-        return this.statisticsTaskId;
+    public long getUserId() {
+        return this.userId;
     }
 
-    public long getStatisticsServiceId() {
-        if (this.statisticsServiceId != -1) {
-            return this.statisticsServiceId;
+    public UserData getUserInfo() {
+        return this.userInfo;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public boolean isGifLoadSuccess() {
+        return this.isGifLoadSuccess;
+    }
+
+    public boolean isHasRead() {
+        return this.hasRead;
+    }
+
+    public boolean isPushForOperateAccount() {
+        return this.mIsPushForOperateAccount;
+    }
+
+    @Override // d.b.b.c.e.c.a
+    public boolean onFindMessage(SocketMessage socketMessage) {
+        if (socketMessage != null && (socketMessage instanceof ChatMessage)) {
+            ChatMessage chatMessage = (ChatMessage) socketMessage;
+            return chatMessage.getGroupId() != null && chatMessage.getRecordId() == this.recordId && chatMessage.getGroupId().equals(this.groupId) && chatMessage.getToUserId() == this.mToUserId;
         }
-        if (!TextUtils.isEmpty(this.content)) {
-            try {
-                JSONArray jSONArray = new JSONArray(this.content);
-                if (jSONArray.length() > 0) {
-                    this.statisticsServiceId = com.baidu.adp.lib.f.b.toLong(jSONArray.optJSONObject(0).optString(Constants.EXTRA_SERVICE), 0L);
-                }
-            } catch (Exception e) {
-            }
-        }
-        if (this.statisticsServiceId <= 0) {
-            this.statisticsServiceId = this.serviceId >= 0 ? this.serviceId : 0L;
-        }
-        return this.statisticsServiceId;
+        return false;
+    }
+
+    public void setBornTime(long j) {
+        this.bornTime = j;
+    }
+
+    public void setCacheData(MsgCacheData msgCacheData) {
+        this.cacheData = msgCacheData;
+    }
+
+    public void setContent(String str) {
+        this.content = str;
+    }
+
+    public void setCustomGroupType(int i) {
+        this.customGroupType = i;
+    }
+
+    public void setFollowStatus(int i) {
+        this.followStatus = i;
+    }
+
+    public void setGifLoadSuccess(boolean z) {
+        this.isGifLoadSuccess = z;
+    }
+
+    public void setGroupId(String str) {
+        this.groupId = str;
+    }
+
+    public void setHasRead(boolean z) {
+        this.hasRead = z;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public void setIsFriend(int i) {
+        this.isFriend = i;
+    }
+
+    public void setIsPushForOperateAccount(boolean z) {
+        this.mIsPushForOperateAccount = z;
+    }
+
+    public void setIsUploading(boolean z) {
+        this.isUploading = z;
+    }
+
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public void setLocalData(MsgLocalData msgLocalData) {
+        this.localData = msgLocalData;
+    }
+
+    public void setLogTime(long j) {
+        this.logTime = j;
+    }
+
+    public void setMsgId(long j) {
+        this.msgId = j;
+    }
+
+    public void setMsgType(int i) {
+        this.msgType = i;
+    }
+
+    public void setObjContent(Object obj) {
+        this.objContent = obj;
+    }
+
+    public void setProgressValue(int i) {
+        this.progressValue = i;
+    }
+
+    public void setReadCountPv(int i) {
+        this.readCountPv = i;
+    }
+
+    public void setRecordId(long j) {
+        this.recordId = j;
+    }
+
+    public void setServiceId(long j) {
+        this.serviceId = j;
+    }
+
+    public void setSid(long j) {
+        this.sid = j;
+    }
+
+    public void setSt_type(String str) {
+        this.st_type = str;
+    }
+
+    public void setStat(String str) {
+        this.stat = str;
+    }
+
+    public void setTShowInfo(LinkedList<IconData> linkedList) {
+        this.mTShowIconInfo = linkedList;
+    }
+
+    public void setTaskId(long j) {
+        this.taskId = j;
+    }
+
+    public void setTime(long j) {
+        this.time = j;
+    }
+
+    public void setToUserId(long j) {
+        this.mToUserId = j;
+    }
+
+    public void setToUserInfo(UserData userData) {
+        this.toUserInfo = userData;
+    }
+
+    public void setUserId(long j) {
+        this.userId = j;
+    }
+
+    public void setUserInfo(UserData userData) {
+        this.userInfo = userData;
+    }
+
+    public void setWidth(int i) {
+        this.width = i;
     }
 }

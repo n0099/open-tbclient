@@ -6,146 +6,166 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
-/* loaded from: classes.dex */
+import d.b.h0.b1.e.c;
+import d.b.h0.b1.e.d;
+/* loaded from: classes3.dex */
 public class SimpleDragSortListView extends BdListView {
-    private c fTv;
-    private AttributeSet fTw;
-    private final d fTx;
+    public c K;
+    public AttributeSet L;
+    public final d M;
 
-    public SimpleDragSortListView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.fTx = new d() { // from class: com.baidu.tbadk.widget.dragsort.SimpleDragSortListView.1
-            @Override // com.baidu.tbadk.widget.dragsort.d
-            public void setAdapter(ListAdapter listAdapter) {
-                SimpleDragSortListView.super.setAdapter(listAdapter);
-            }
+    /* loaded from: classes3.dex */
+    public class a implements d {
+        public a() {
+        }
 
-            @Override // com.baidu.tbadk.widget.dragsort.d
-            public void dispatchDraw(Canvas canvas) {
-                SimpleDragSortListView.super.dispatchDraw(canvas);
-            }
+        @Override // d.b.h0.b1.e.d
+        public void a() {
+            SimpleDragSortListView.super.layoutChildren();
+        }
 
-            @Override // com.baidu.tbadk.widget.dragsort.d
-            public void onDraw(Canvas canvas) {
-                SimpleDragSortListView.super.onDraw(canvas);
-            }
+        @Override // d.b.h0.b1.e.d
+        public void b(Canvas canvas) {
+            SimpleDragSortListView.super.dispatchDraw(canvas);
+        }
 
-            @Override // com.baidu.tbadk.widget.dragsort.d
-            public boolean onTouchEvent(MotionEvent motionEvent) {
-                return SimpleDragSortListView.super.onTouchEvent(motionEvent);
-            }
+        @Override // d.b.h0.b1.e.d
+        public void c(ListAdapter listAdapter) {
+            SimpleDragSortListView.super.setAdapter(listAdapter);
+        }
 
-            @Override // com.baidu.tbadk.widget.dragsort.d
-            public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-                return SimpleDragSortListView.super.onInterceptTouchEvent(motionEvent);
-            }
+        @Override // d.b.h0.b1.e.d
+        public void onDraw(Canvas canvas) {
+            SimpleDragSortListView.super.onDraw(canvas);
+        }
 
-            @Override // com.baidu.tbadk.widget.dragsort.d
-            public void onSizeChanged(int i, int i2, int i3, int i4) {
-                SimpleDragSortListView.super.onSizeChanged(i, i2, i3, i4);
-            }
+        @Override // d.b.h0.b1.e.d
+        public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+            return SimpleDragSortListView.super.onInterceptTouchEvent(motionEvent);
+        }
 
-            @Override // com.baidu.tbadk.widget.dragsort.d
-            public void requestLayout() {
-                SimpleDragSortListView.super.requestLayout();
-            }
+        @Override // d.b.h0.b1.e.d
+        public void onMeasure(int i, int i2) {
+            SimpleDragSortListView.super.onMeasure(i, i2);
+        }
 
-            @Override // com.baidu.tbadk.widget.dragsort.d
-            public void onMeasure(int i, int i2) {
-                SimpleDragSortListView.super.onMeasure(i, i2);
-            }
+        @Override // d.b.h0.b1.e.d
+        public void onSizeChanged(int i, int i2, int i3, int i4) {
+            SimpleDragSortListView.super.onSizeChanged(i, i2, i3, i4);
+        }
 
-            @Override // com.baidu.tbadk.widget.dragsort.d
-            public void layoutChildren() {
-                SimpleDragSortListView.super.layoutChildren();
-            }
-        };
-        this.fTw = attributeSet;
-    }
+        @Override // d.b.h0.b1.e.d
+        public boolean onTouchEvent(MotionEvent motionEvent) {
+            return SimpleDragSortListView.super.onTouchEvent(motionEvent);
+        }
 
-    public void setDragSortViewEventDelegate(c cVar) {
-        this.fTv = cVar;
-        cVar.a(this, getContext(), this.fTw);
-    }
-
-    public d getViewSuperMethods() {
-        return this.fTx;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
-    public void setAdapter(ListAdapter listAdapter) {
-        if (this.fTv != null) {
-            this.fTv.setAdapter(listAdapter);
-        } else {
-            super.setAdapter(listAdapter);
+        @Override // d.b.h0.b1.e.d
+        public void requestLayout() {
+            SimpleDragSortListView.super.requestLayout();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public SimpleDragSortListView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.M = new a();
+        this.L = attributeSet;
+    }
+
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        if (this.fTv != null) {
-            this.fTv.dispatchDraw(canvas);
+        c cVar = this.K;
+        if (cVar != null) {
+            cVar.b(canvas);
         } else {
             super.dispatchDraw(canvas);
         }
     }
 
+    public d getViewSuperMethods() {
+        return this.M;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView
+    public void layoutChildren() {
+        c cVar = this.K;
+        if (cVar != null) {
+            cVar.a();
+        } else {
+            super.layoutChildren();
+        }
+    }
+
     @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        if (this.fTv != null) {
-            this.fTv.onDraw(canvas);
+    public void onDraw(Canvas canvas) {
+        c cVar = this.K;
+        if (cVar != null) {
+            cVar.onDraw(canvas);
         } else {
             super.onDraw(canvas);
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.fTv != null ? this.fTv.onTouchEvent(motionEvent) : super.onTouchEvent(motionEvent);
-    }
-
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.fTv != null ? this.fTv.onInterceptTouchEvent(motionEvent) : super.onInterceptTouchEvent(motionEvent);
-    }
-
-    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        if (this.fTv != null) {
-            this.fTv.onSizeChanged(i, i2, i3, i4);
-        } else {
-            super.onSizeChanged(i, i2, i3, i4);
+        c cVar = this.K;
+        if (cVar != null) {
+            return cVar.onInterceptTouchEvent(motionEvent);
         }
+        return super.onInterceptTouchEvent(motionEvent);
     }
 
-    @Override // android.widget.AbsListView, android.view.View, android.view.ViewParent
-    public void requestLayout() {
-        if (this.fTv != null) {
-            this.fTv.requestLayout();
-        } else {
-            super.requestLayout();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.fTv != null) {
-            this.fTv.onMeasure(i, i2);
+        c cVar = this.K;
+        if (cVar != null) {
+            cVar.onMeasure(i, i2);
         } else {
             super.onMeasure(i, i2);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView
-    public void layoutChildren() {
-        if (this.fTv != null) {
-            this.fTv.layoutChildren();
+    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        c cVar = this.K;
+        if (cVar != null) {
+            cVar.onSizeChanged(i, i2, i3, i4);
         } else {
-            super.layoutChildren();
+            super.onSizeChanged(i, i2, i3, i4);
+        }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        c cVar = this.K;
+        if (cVar != null) {
+            return cVar.onTouchEvent(motionEvent);
+        }
+        return super.onTouchEvent(motionEvent);
+    }
+
+    @Override // android.widget.AbsListView, android.view.View, android.view.ViewParent
+    public void requestLayout() {
+        c cVar = this.K;
+        if (cVar != null) {
+            cVar.requestLayout();
+        } else {
+            super.requestLayout();
+        }
+    }
+
+    public void setDragSortViewEventDelegate(c cVar) {
+        this.K = cVar;
+        cVar.d(this, getContext(), this.L);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
+    public void setAdapter(ListAdapter listAdapter) {
+        c cVar = this.K;
+        if (cVar != null) {
+            cVar.c(listAdapter);
+        } else {
+            super.setAdapter(listAdapter);
         }
     }
 }

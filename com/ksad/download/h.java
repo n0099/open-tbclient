@@ -2,7 +2,7 @@ package com.ksad.download;
 
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
-import com.kwad.sdk.collector.AppStatusRules;
+import com.baidu.nps.utils.Constant;
 import com.kwai.filedownloader.f.c;
 import java.io.InputStream;
 import java.util.List;
@@ -14,108 +14,123 @@ import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.Util;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h implements com.kwai.filedownloader.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final OkHttpClient f5302a;
-    private final Request.Builder b;
-    private Request c;
-    private Response d;
+    public final OkHttpClient f31167a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final Request.Builder f31168b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Request f31169c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Response f31170d;
+
+    /* loaded from: classes6.dex */
     public static class a implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private OkHttpClient f5303a;
-        private OkHttpClient.Builder b;
+        public OkHttpClient f31171a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public OkHttpClient.Builder f31172b;
 
         public a() {
         }
 
         public a(boolean z) {
-            if (z) {
-                this.b = h.j();
-            } else {
-                this.b = h.i();
-            }
+            this.f31172b = z ? h.j() : h.i();
         }
 
         @Override // com.kwai.filedownloader.f.c.b
         public com.kwai.filedownloader.a.b a(String str) {
-            if (this.f5303a == null) {
+            if (this.f31171a == null) {
                 synchronized (a.class) {
-                    if (this.f5303a == null) {
-                        this.f5303a = this.b != null ? this.b.build() : new OkHttpClient();
-                        this.b = null;
+                    if (this.f31171a == null) {
+                        this.f31171a = this.f31172b != null ? this.f31172b.build() : new OkHttpClient();
+                        this.f31172b = null;
                     }
                 }
             }
-            return new h(str, this.f5303a);
+            return new h(str, this.f31171a);
         }
     }
 
-    private h(String str, OkHttpClient okHttpClient) {
+    public h(String str, OkHttpClient okHttpClient) {
         this(new Request.Builder().url(str), okHttpClient);
     }
 
-    private h(Request.Builder builder, OkHttpClient okHttpClient) {
-        this.b = builder;
-        this.f5302a = okHttpClient;
+    public h(Request.Builder builder, OkHttpClient okHttpClient) {
+        this.f31168b = builder;
+        this.f31167a = okHttpClient;
     }
 
     private String b(String str) {
         String a2 = a("Content-Type");
-        String b = com.ksad.download.d.a.b(str);
-        if (TextUtils.isEmpty(a2) || !TextUtils.isEmpty(b)) {
-            return TextUtils.isEmpty(str) ? System.currentTimeMillis() + ".apk" : str;
+        String b2 = com.ksad.download.d.a.b(str);
+        boolean isEmpty = TextUtils.isEmpty(a2);
+        String str2 = Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
+        if (isEmpty || !TextUtils.isEmpty(b2)) {
+            if (TextUtils.isEmpty(str)) {
+                return System.currentTimeMillis() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
+            }
+            return str;
         }
         String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(a2);
-        return System.currentTimeMillis() + (TextUtils.isEmpty(extensionFromMimeType) ? ".apk" : "." + extensionFromMimeType);
+        StringBuilder sb = new StringBuilder();
+        sb.append(System.currentTimeMillis());
+        if (!TextUtils.isEmpty(extensionFromMimeType)) {
+            str2 = "." + extensionFromMimeType;
+        }
+        sb.append(str2);
+        return sb.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static OkHttpClient.Builder i() {
-        return new OkHttpClient.Builder().connectTimeout(10000L, TimeUnit.MILLISECONDS).addInterceptor(new com.ksad.download.b.a()).readTimeout(0L, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(6, AppStatusRules.DEFAULT_GRANULARITY, TimeUnit.MILLISECONDS)).retryOnConnectionFailure(true);
+        return new OkHttpClient.Builder().connectTimeout(10000L, TimeUnit.MILLISECONDS).addInterceptor(new com.ksad.download.b.a()).readTimeout(0L, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(6, 60000L, TimeUnit.MILLISECONDS)).retryOnConnectionFailure(true);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static OkHttpClient.Builder j() {
-        return new OkHttpClient.Builder().connectTimeout(10000L, TimeUnit.MILLISECONDS).addInterceptor(new com.ksad.download.b.a()).protocols(Util.immutableList(Protocol.HTTP_1_1)).readTimeout(0L, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(6, AppStatusRules.DEFAULT_GRANULARITY, TimeUnit.MILLISECONDS)).retryOnConnectionFailure(true);
+        return new OkHttpClient.Builder().connectTimeout(10000L, TimeUnit.MILLISECONDS).addInterceptor(new com.ksad.download.b.a()).protocols(Util.immutableList(Protocol.HTTP_1_1)).readTimeout(0L, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(6, 60000L, TimeUnit.MILLISECONDS)).retryOnConnectionFailure(true);
     }
 
     @Override // com.kwai.filedownloader.a.b
     public InputStream a() {
-        if (this.d == null) {
-            throw new IllegalStateException("Please invoke #execute first!");
+        Response response = this.f31170d;
+        if (response != null) {
+            return com.kwad.sdk.core.h.b.a().b(response.body().byteStream());
         }
-        return com.kwad.sdk.core.h.b.a().b(this.d.body().byteStream());
+        throw new IllegalStateException("Please invoke #execute first!");
     }
 
     @Override // com.kwai.filedownloader.a.b
     public String a(String str) {
         String str2;
         if (!"Content-Disposition".equals(str)) {
-            if (this.d == null) {
+            Response response = this.f31170d;
+            if (response == null) {
                 return null;
             }
-            return this.d.header(str);
+            return response.header(str);
         }
         try {
-        } catch (Exception e) {
+        } catch (Exception unused) {
             str2 = "";
         }
-        if (TextUtils.isEmpty(com.kwai.filedownloader.f.f.g(this.d.header(str)))) {
-            List<String> pathSegments = this.d.request().url().pathSegments();
+        if (TextUtils.isEmpty(com.kwai.filedownloader.f.f.g(this.f31170d.header(str)))) {
+            List<String> pathSegments = this.f31170d.request().url().pathSegments();
             str2 = pathSegments.get(pathSegments.size() - 1);
             return "attachment; filename=\"" + b(str2) + "\"";
         }
-        return this.d.header(str);
+        return this.f31170d.header(str);
     }
 
     @Override // com.kwai.filedownloader.a.b
     public void a(String str, String str2) {
-        this.b.addHeader(str, str2);
+        this.f31168b.addHeader(str, str2);
     }
 
     @Override // com.kwai.filedownloader.a.b
@@ -125,42 +140,45 @@ public class h implements com.kwai.filedownloader.a.b {
 
     @Override // com.kwai.filedownloader.a.b
     public Map<String, List<String>> b() {
-        if (this.c == null) {
-            this.c = this.b.build();
+        if (this.f31169c == null) {
+            this.f31169c = this.f31168b.build();
         }
-        return this.c.headers().toMultimap();
+        return this.f31169c.headers().toMultimap();
     }
 
     @Override // com.kwai.filedownloader.a.b
     public Map<String, List<String>> c() {
-        if (this.d == null) {
+        Response response = this.f31170d;
+        if (response == null) {
             return null;
         }
-        return this.d.headers().toMultimap();
+        return response.headers().toMultimap();
     }
 
     @Override // com.kwai.filedownloader.a.b
     public void d() {
-        if (this.c == null) {
-            this.c = this.b.build();
+        if (this.f31169c == null) {
+            this.f31169c = this.f31168b.build();
         }
-        this.d = this.f5302a.newCall(this.c).execute();
+        this.f31170d = this.f31167a.newCall(this.f31169c).execute();
     }
 
     @Override // com.kwai.filedownloader.a.b
     public int e() {
-        if (this.d == null) {
-            throw new IllegalStateException("Please invoke #execute first!");
+        Response response = this.f31170d;
+        if (response != null) {
+            return response.code();
         }
-        return this.d.code();
+        throw new IllegalStateException("Please invoke #execute first!");
     }
 
     @Override // com.kwai.filedownloader.a.b
     public void f() {
-        this.c = null;
-        if (this.d != null && this.d.body() != null) {
-            this.d.body().close();
+        this.f31169c = null;
+        Response response = this.f31170d;
+        if (response != null && response.body() != null) {
+            this.f31170d.body().close();
         }
-        this.d = null;
+        this.f31170d = null;
     }
 }

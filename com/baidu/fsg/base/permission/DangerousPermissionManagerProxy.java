@@ -3,21 +3,16 @@ package com.baidu.fsg.base.permission;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class DangerousPermissionManagerProxy {
-    private DangerousPermissionManagerProxy() {
+
+    /* loaded from: classes2.dex */
+    public static class SingleInstance {
+        public static DangerousPermissionManagerProxy mInstance = new DangerousPermissionManagerProxy();
     }
 
     public static DangerousPermissionManagerProxy getInstance() {
         return SingleInstance.mInstance;
-    }
-
-    /* loaded from: classes5.dex */
-    private static class SingleInstance {
-        private static DangerousPermissionManagerProxy mInstance = new DangerousPermissionManagerProxy();
-
-        private SingleInstance() {
-        }
     }
 
     public boolean isPermissionGroupGranted(Context context, String[] strArr) {
@@ -34,5 +29,8 @@ public class DangerousPermissionManagerProxy {
 
     public void requestPermissionsDialog(Activity activity, String[] strArr, RequestPermissionDialogCallBack requestPermissionDialogCallBack) {
         requestPermissionDialogCallBack.isAllAgree(true);
+    }
+
+    public DangerousPermissionManagerProxy() {
     }
 }

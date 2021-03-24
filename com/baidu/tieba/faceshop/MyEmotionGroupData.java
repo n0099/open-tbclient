@@ -1,49 +1,50 @@
 package com.baidu.tieba.faceshop;
 
+import d.b.i0.k0.c.b;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
-public class MyEmotionGroupData implements com.baidu.tieba.face.data.b, Serializable {
-    private static final long serialVersionUID = 1;
-    protected String groupId;
-    protected int id;
-    protected String uid;
-    protected long updateTime;
+/* loaded from: classes4.dex */
+public class MyEmotionGroupData implements Serializable, b {
+    public static final long serialVersionUID = 1;
+    public String groupId;
+    public int id;
+    public String uid;
+    public long updateTime;
+
+    @Override // d.b.i0.k0.c.b
+    public boolean IsValid() {
+        return true;
+    }
+
+    @Override // d.b.i0.k0.c.b
+    public String getGroupId() {
+        return this.groupId;
+    }
 
     public int getId() {
         return this.id;
-    }
-
-    public void setId(int i) {
-        this.id = i;
     }
 
     public String getUid() {
         return this.uid;
     }
 
-    public void setUid(String str) {
-        this.uid = str;
-    }
-
-    @Override // com.baidu.tieba.face.data.b
-    public String getGroupId() {
-        return this.groupId;
+    public long getUpdateTime() {
+        return this.updateTime;
     }
 
     public void setGroupId(String str) {
         this.groupId = str;
     }
 
-    public long getUpdateTime() {
-        return this.updateTime;
+    public void setId(int i) {
+        this.id = i;
+    }
+
+    public void setUid(String str) {
+        this.uid = str;
     }
 
     public void setUpdateTime(long j) {
         this.updateTime = j;
-    }
-
-    @Override // com.baidu.tieba.face.data.b
-    public boolean IsValid() {
-        return true;
     }
 }

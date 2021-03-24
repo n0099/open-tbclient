@@ -11,24 +11,94 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.searchbox.afx.AlphaVideo;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class NewUserRewardDialogView extends LinearLayout {
-    private TextView eIY;
-    private TextView kyk;
-    private AlphaVideo obW;
-    private RoundRelativeLayout obX;
-    private ImageView obY;
-    private final CustomMessageListener obZ;
+
+    /* renamed from: e  reason: collision with root package name */
+    public AlphaVideo f22141e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public RoundRelativeLayout f22142f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f22143g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f22144h;
+    public ImageView i;
+    public final CustomMessageListener j;
+
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (!(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() || NewUserRewardDialogView.this.f22141e == null) {
+                return;
+            }
+            NewUserRewardDialogView.this.f22141e.requestRender();
+        }
+    }
 
     public NewUserRewardDialogView(Context context) {
         this(context, null);
+    }
+
+    public final void b(Context context) {
+        LayoutInflater.from(context).inflate(R.layout.new_user_reward_dialog_layout, this);
+        this.f22141e = (AlphaVideo) findViewById(R.id.new_user_anim);
+        this.f22142f = (RoundRelativeLayout) findViewById(R.id.new_user_dialog_text_area);
+        this.f22143g = (TextView) findViewById(R.id.new_user_dialog_title);
+        this.f22144h = (TextView) findViewById(R.id.new_user_dialog_desc);
+        this.i = (ImageView) findViewById(R.id.new_user_dialog_close);
+        this.f22142f.setAllCornerRound(l.g(context, R.dimen.tbds31));
+        this.f22141e.setKeepLastFrame(true);
+        MessageManager.getInstance().registerListener(this.j);
+    }
+
+    public void c() {
+        SkinManager.setBackgroundColor(this.f22142f, R.color.CAM_X0211);
+        SkinManager.setViewTextColor(this.f22143g, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f22144h, R.color.CAM_X0107);
+        SkinManager.setImageResource(this.i, R.drawable.icon_use_close_n);
+    }
+
+    public void d() {
+        this.f22141e.destroy();
+        MessageManager.getInstance().unRegisterListener(this.j);
+    }
+
+    public void setCloseListener(View.OnClickListener onClickListener) {
+        this.i.setOnClickListener(onClickListener);
+    }
+
+    public void setData(IconStampData iconStampData) {
+        if (iconStampData == null) {
+            return;
+        }
+        this.f22143g.setText(iconStampData.stampTitle);
+        this.f22144h.setText(iconStampData.stampText);
+        int i = iconStampData.stampType;
+        if (i == 1) {
+            this.f22141e.setSourceAssets("post_1_times.mp4");
+        } else if (i == 2) {
+            this.f22141e.setSourceAssets("reply_1_times.mp4");
+        } else if (i == 3) {
+            this.f22141e.setSourceAssets("post_7_times.mp4");
+        } else {
+            this.f22141e.setSourceAssets("reply_7_times.mp4");
+        }
+        this.f22141e.play();
     }
 
     public NewUserRewardDialogView(Context context, @Nullable AttributeSet attributeSet) {
@@ -37,61 +107,8 @@ public class NewUserRewardDialogView extends LinearLayout {
 
     public NewUserRewardDialogView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.obZ = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.view.NewUserRewardDialogView.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() && NewUserRewardDialogView.this.obW != null) {
-                    NewUserRewardDialogView.this.obW.requestRender();
-                }
-            }
-        };
-        initUI(context);
-        onChangeSkinType();
-    }
-
-    private void initUI(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.new_user_reward_dialog_layout, this);
-        this.obW = (AlphaVideo) findViewById(R.id.new_user_anim);
-        this.obX = (RoundRelativeLayout) findViewById(R.id.new_user_dialog_text_area);
-        this.eIY = (TextView) findViewById(R.id.new_user_dialog_title);
-        this.kyk = (TextView) findViewById(R.id.new_user_dialog_desc);
-        this.obY = (ImageView) findViewById(R.id.new_user_dialog_close);
-        this.obX.setAllCornerRound(l.getDimens(context, R.dimen.tbds31));
-        this.obW.setKeepLastFrame(true);
-        MessageManager.getInstance().registerListener(this.obZ);
-    }
-
-    public void setData(IconStampData iconStampData) {
-        if (iconStampData != null) {
-            this.eIY.setText(iconStampData.stampTitle);
-            this.kyk.setText(iconStampData.stampText);
-            if (iconStampData.stampType == 1) {
-                this.obW.setSourceAssets("post_1_times.mp4");
-            } else if (iconStampData.stampType == 2) {
-                this.obW.setSourceAssets("reply_1_times.mp4");
-            } else if (iconStampData.stampType == 3) {
-                this.obW.setSourceAssets("post_7_times.mp4");
-            } else {
-                this.obW.setSourceAssets("reply_7_times.mp4");
-            }
-            this.obW.play();
-        }
-    }
-
-    public void setCloseListener(View.OnClickListener onClickListener) {
-        this.obY.setOnClickListener(onClickListener);
-    }
-
-    public void onDestroy() {
-        this.obW.destroy();
-        MessageManager.getInstance().unRegisterListener(this.obZ);
-    }
-
-    public void onChangeSkinType() {
-        ap.setBackgroundColor(this.obX, R.color.CAM_X0211);
-        ap.setViewTextColor(this.eIY, R.color.CAM_X0105);
-        ap.setViewTextColor(this.kyk, R.color.CAM_X0107);
-        ap.setImageResource(this.obY, R.drawable.icon_use_close_n);
+        this.j = new a(2001011);
+        b(context);
+        c();
     }
 }

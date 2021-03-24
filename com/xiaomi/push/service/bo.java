@@ -1,21 +1,86 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.gf;
-import com.xiaomi.push.gj;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class bo implements gf {
+import android.content.Context;
+import com.xiaomi.push.hj;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+/* loaded from: classes7.dex */
+public final class bo implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f8551a;
+    public final /* synthetic */ Context f41009a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(XMPushService xMPushService) {
-        this.f8551a = xMPushService;
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ hj f939a;
+
+    public bo(Context context, hj hjVar) {
+        this.f41009a = context;
+        this.f939a = hjVar;
     }
 
-    @Override // com.xiaomi.push.gf
-    public boolean a(gj gjVar) {
-        return true;
+    @Override // java.lang.Runnable
+    public void run() {
+        RandomAccessFile randomAccessFile;
+        synchronized (bn.f41008a) {
+            FileLock fileLock = null;
+            try {
+                try {
+                    File file = new File(this.f41009a.getFilesDir(), "tiny_data.lock");
+                    com.xiaomi.push.y.m624a(file);
+                    randomAccessFile = new RandomAccessFile(file, "rw");
+                    try {
+                        try {
+                            fileLock = randomAccessFile.getChannel().lock();
+                            bn.c(this.f41009a, this.f939a);
+                            if (fileLock != null && fileLock.isValid()) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e2) {
+                                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                                }
+                            }
+                        } catch (Exception e3) {
+                            e = e3;
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                            if (fileLock != null && fileLock.isValid()) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e4) {
+                                    com.xiaomi.channel.commonutils.logger.b.a(e4);
+                                }
+                            }
+                            com.xiaomi.push.y.a(randomAccessFile);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        if (fileLock != null && fileLock.isValid()) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException e5) {
+                                com.xiaomi.channel.commonutils.logger.b.a(e5);
+                            }
+                        }
+                        com.xiaomi.push.y.a(randomAccessFile);
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    throw th2;
+                }
+            } catch (Exception e6) {
+                e = e6;
+                randomAccessFile = null;
+            } catch (Throwable th3) {
+                th = th3;
+                randomAccessFile = null;
+                if (fileLock != null) {
+                    fileLock.release();
+                }
+                com.xiaomi.push.y.a(randomAccessFile);
+                throw th;
+            }
+            com.xiaomi.push.y.a(randomAccessFile);
+        }
     }
 }

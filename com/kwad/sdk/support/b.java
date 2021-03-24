@@ -18,22 +18,29 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class b {
-    private static final Paint c;
-    private static final Set<String> e;
-    private static final Lock f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Paint f7100a = new Paint(6);
-    private static final Paint b = new Paint(7);
-    private static final Paint d = new Paint(7);
+    public static final Paint f36665a = new Paint(6);
 
-    /* loaded from: classes3.dex */
-    private static final class a implements Lock {
-        a() {
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public static final Paint f36666b = new Paint(7);
 
+    /* renamed from: c  reason: collision with root package name */
+    public static final Paint f36667c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Paint f36668d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final Set<String> f36669e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final Lock f36670f;
+
+    /* loaded from: classes6.dex */
+    public static final class a implements Lock {
         @Override // java.util.concurrent.locks.Lock
         public void lock() {
         }
@@ -64,23 +71,27 @@ public final class b {
     }
 
     static {
-        d.setColor(Color.parseColor("#EAEAEA"));
-        d.setStyle(Paint.Style.STROKE);
-        d.setAntiAlias(true);
-        d.setStrokeWidth(1.0f);
-        d.setDither(true);
-        e = new HashSet(Arrays.asList("XT1085", "XT1092", "XT1093", "XT1094", "XT1095", "XT1096", "XT1097", "XT1098", "XT1031", "XT1028", "XT937C", "XT1032", "XT1008", "XT1033", "XT1035", "XT1034", "XT939G", "XT1039", "XT1040", "XT1042", "XT1045", "XT1063", "XT1064", "XT1068", "XT1069", "XT1072", "XT1077", "XT1078", "XT1079"));
-        f = e.contains(Build.MODEL) ? new ReentrantLock() : new a();
-        c = new Paint(7);
-        c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        Paint paint = new Paint(7);
+        f36668d = paint;
+        paint.setColor(Color.parseColor("#EAEAEA"));
+        f36668d.setStyle(Paint.Style.STROKE);
+        f36668d.setAntiAlias(true);
+        f36668d.setStrokeWidth(1.0f);
+        f36668d.setDither(true);
+        HashSet hashSet = new HashSet(Arrays.asList("XT1085", "XT1092", "XT1093", "XT1094", "XT1095", "XT1096", "XT1097", "XT1098", "XT1031", "XT1028", "XT937C", "XT1032", "XT1008", "XT1033", "XT1035", "XT1034", "XT939G", "XT1039", "XT1040", "XT1042", "XT1045", "XT1063", "XT1064", "XT1068", "XT1069", "XT1072", "XT1077", "XT1078", "XT1079"));
+        f36669e = hashSet;
+        f36670f = hashSet.contains(Build.MODEL) ? new ReentrantLock() : new a();
+        Paint paint2 = new Paint(7);
+        f36667c = paint2;
+        paint2.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
     @NonNull
-    private static Bitmap.Config a(@NonNull Bitmap bitmap) {
+    public static Bitmap.Config a(@NonNull Bitmap bitmap) {
         return (Build.VERSION.SDK_INT < 26 || !Bitmap.Config.RGBA_F16.equals(bitmap.getConfig())) ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGBA_F16;
     }
 
-    private static Bitmap a(@NonNull e eVar, @NonNull Bitmap bitmap) {
+    public static Bitmap a(@NonNull e eVar, @NonNull Bitmap bitmap) {
         Bitmap.Config a2 = a(bitmap);
         if (a2.equals(bitmap.getConfig())) {
             return bitmap;
@@ -92,37 +103,38 @@ public final class b {
 
     public static Bitmap a(@NonNull e eVar, @NonNull Bitmap bitmap, int i, int i2) {
         int min = Math.min(i, i2);
-        float f2 = min / 2.0f;
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        float max = Math.max(min / width, min / height);
-        float f3 = width * max;
-        float f4 = height * max;
-        float f5 = (min - f3) / 2.0f;
-        float f6 = (min - f4) / 2.0f;
-        RectF rectF = new RectF(f5, f6, f3 + f5, f4 + f6);
+        float f2 = min;
+        float f3 = f2 / 2.0f;
+        float width = bitmap.getWidth();
+        float height = bitmap.getHeight();
+        float max = Math.max(f2 / width, f2 / height);
+        float f4 = width * max;
+        float f5 = max * height;
+        float f6 = (f2 - f4) / 2.0f;
+        float f7 = (f2 - f5) / 2.0f;
+        RectF rectF = new RectF(f6, f7, f4 + f6, f5 + f7);
         Bitmap a2 = a(eVar, bitmap);
         Bitmap a3 = eVar.a(min, min, a(bitmap));
         a3.setHasAlpha(true);
-        f.lock();
+        f36670f.lock();
         try {
             Canvas canvas = new Canvas(a3);
-            canvas.drawCircle(f2, f2, f2, b);
-            canvas.drawBitmap(a2, (Rect) null, rectF, c);
-            canvas.drawCircle(f2, f2, f2 - 0.0f, d);
+            canvas.drawCircle(f3, f3, f3, f36666b);
+            canvas.drawBitmap(a2, (Rect) null, rectF, f36667c);
+            canvas.drawCircle(f3, f3, f3 - 0.0f, f36668d);
             a(canvas);
-            f.unlock();
+            f36670f.unlock();
             if (!a2.equals(bitmap)) {
                 eVar.a(a2);
             }
             return a3;
         } catch (Throwable th) {
-            f.unlock();
+            f36670f.unlock();
             throw th;
         }
     }
 
-    private static void a(Canvas canvas) {
+    public static void a(Canvas canvas) {
         canvas.setBitmap(null);
     }
 }

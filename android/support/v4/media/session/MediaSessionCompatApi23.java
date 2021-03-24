@@ -4,22 +4,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompatApi21;
 import androidx.annotation.RequiresApi;
-/* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(23)
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class MediaSessionCompatApi23 {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface Callback extends MediaSessionCompatApi21.Callback {
         void onPlayFromUri(Uri uri, Bundle bundle);
     }
 
-    public static Object createCallback(Callback callback) {
-        return new CallbackProxy(callback);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public static class CallbackProxy<T extends Callback> extends MediaSessionCompatApi21.CallbackProxy<T> {
         public CallbackProxy(T t) {
             super(t);
@@ -32,6 +26,7 @@ public class MediaSessionCompatApi23 {
         }
     }
 
-    private MediaSessionCompatApi23() {
+    public static Object createCallback(Callback callback) {
+        return new CallbackProxy(callback);
     }
 }

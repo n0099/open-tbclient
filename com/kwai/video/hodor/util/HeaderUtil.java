@@ -2,8 +2,9 @@ package com.kwai.video.hodor.util;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.android.internal.http.multipart.Part;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HeaderUtil {
     public static String parseHeaderMapToFlatString(@Nullable Map<String, String> map) {
         if (map == null || map.isEmpty()) {
@@ -16,7 +17,7 @@ public class HeaderUtil {
             if (!TextUtils.isEmpty(entry.getValue())) {
                 sb.append(entry.getValue());
             }
-            sb.append("\r\n");
+            sb.append(Part.CRLF);
         }
         return sb.toString();
     }

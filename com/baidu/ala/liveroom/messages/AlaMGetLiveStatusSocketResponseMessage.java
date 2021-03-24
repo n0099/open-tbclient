@@ -1,15 +1,16 @@
 package com.baidu.ala.liveroom.messages;
 
 import alaim.AlaMgetLiveStatus.AlaMgetLiveStatusResIdl;
+import alaim.AlaMgetLiveStatus.DataRes;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class AlaMGetLiveStatusSocketResponseMessage extends SocketResponsedMessage {
-    private List<Long> mCloseIds;
-    private long mInterval;
+    public List<Long> mCloseIds;
+    public long mInterval;
 
     public AlaMGetLiveStatusSocketResponseMessage() {
         super(AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2);
@@ -24,14 +25,16 @@ public class AlaMGetLiveStatusSocketResponseMessage extends SocketResponsedMessa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
         AlaMgetLiveStatusResIdl alaMgetLiveStatusResIdl = (AlaMgetLiveStatusResIdl) new Wire(new Class[0]).parseFrom(bArr, AlaMgetLiveStatusResIdl.class);
         setError(alaMgetLiveStatusResIdl.error.errorno.intValue());
         setErrorString(alaMgetLiveStatusResIdl.error.usermsg);
-        if (getError() == 0 && alaMgetLiveStatusResIdl.data != null && alaMgetLiveStatusResIdl.data.close_live != null) {
-            this.mInterval = alaMgetLiveStatusResIdl.data.interval.longValue();
-            this.mCloseIds = new ArrayList(alaMgetLiveStatusResIdl.data.close_live);
+        if (getError() != 0 || (dataRes = alaMgetLiveStatusResIdl.data) == null || dataRes.close_live == null) {
+            return;
         }
+        this.mInterval = dataRes.interval.longValue();
+        this.mCloseIds = new ArrayList(alaMgetLiveStatusResIdl.data.close_live);
     }
 }

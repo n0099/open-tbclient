@@ -2,17 +2,17 @@ package com.sina.weibo.sdk.network.base;
 
 import android.net.Uri;
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UriUtils {
     public static Uri buildCompleteUri(Uri uri, Bundle bundle) {
-        if (bundle != null && !bundle.isEmpty()) {
-            Uri.Builder buildUpon = uri.buildUpon();
-            for (String str : bundle.keySet()) {
-                buildUpon.appendQueryParameter(str, String.valueOf(bundle.get(str)));
-            }
-            return buildUpon.build();
+        if (bundle == null || bundle.isEmpty()) {
+            return uri;
         }
-        return uri;
+        Uri.Builder buildUpon = uri.buildUpon();
+        for (String str : bundle.keySet()) {
+            buildUpon.appendQueryParameter(str, String.valueOf(bundle.get(str)));
+        }
+        return buildUpon.build();
     }
 
     public static String buildCompleteUri(String str, Bundle bundle) {

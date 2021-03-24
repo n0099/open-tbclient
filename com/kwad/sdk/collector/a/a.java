@@ -1,35 +1,39 @@
 package com.kwad.sdk.collector.a;
 
+import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.sdk.core.network.d;
 import com.kwad.sdk.utils.o;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends d {
-    private C1092a b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public C0359a f31875b;
 
     /* renamed from: com.kwad.sdk.collector.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    static class C1092a {
+    /* loaded from: classes6.dex */
+    public static class C0359a {
 
         /* renamed from: a  reason: collision with root package name */
-        private List<String> f5499a;
+        public List<String> f31876a;
 
-        public C1092a(List<String> list) {
-            this.f5499a = list;
+        public C0359a(List<String> list) {
+            this.f31876a = list;
         }
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "packageName", this.f5499a);
+            o.a(jSONObject, InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, this.f31876a);
             return jSONObject;
         }
     }
 
     public a(List<String> list) {
-        this.b = new C1092a(list);
-        a("targetAppInfo", this.b.a());
+        C0359a c0359a = new C0359a(list);
+        this.f31875b = c0359a;
+        a("targetAppInfo", c0359a.a());
         b(CommandMessage.SDK_VERSION, "3.3.9");
         a("sdkVersionCode", 3030900);
     }

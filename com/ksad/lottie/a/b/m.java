@@ -2,42 +2,41 @@ package com.ksad.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class m extends a<PointF, PointF> {
-    private final PointF c;
-    private final a<Float, Float> d;
-    private final a<Float, Float> e;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final PointF f31305c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final a<Float, Float> f31306d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final a<Float, Float> f31307e;
 
     public m(a<Float, Float> aVar, a<Float, Float> aVar2) {
         super(Collections.emptyList());
-        this.c = new PointF();
-        this.d = aVar;
-        this.e = aVar2;
+        this.f31305c = new PointF();
+        this.f31306d = aVar;
+        this.f31307e = aVar2;
         a(f());
     }
 
     @Override // com.ksad.lottie.a.b.a
-    public void a(float f) {
-        this.d.a(f);
-        this.e.a(f);
-        this.c.set(this.d.e().floatValue(), this.e.e().floatValue());
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.f5322a.size()) {
-                return;
-            }
-            this.f5322a.get(i2).a();
-            i = i2 + 1;
+    public void a(float f2) {
+        this.f31306d.a(f2);
+        this.f31307e.a(f2);
+        this.f31305c.set(this.f31306d.e().floatValue(), this.f31307e.e().floatValue());
+        for (int i = 0; i < this.f31287a.size(); i++) {
+            this.f31287a.get(i).a();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.ksad.lottie.a.b.a
     /* renamed from: b */
-    public PointF a(com.ksad.lottie.e.a<PointF> aVar, float f) {
-        return this.c;
+    public PointF a(com.ksad.lottie.e.a<PointF> aVar, float f2) {
+        return this.f31305c;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

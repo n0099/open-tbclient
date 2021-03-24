@@ -1,10 +1,9 @@
 package com.baidu.tieba.tbadkCore.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class CancelDownloadMessage extends CustomResponsedMessage<Boolean> {
     public CancelDownloadMessage(Boolean bool) {
-        super(CmdConfigCustom.CMD_CANCEL_FILE_DOWNLOAD, bool);
+        super(2001140, bool);
     }
 }

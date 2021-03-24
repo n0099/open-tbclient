@@ -1,20 +1,21 @@
 package com.baidu.tieba.forumsearch.controller;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumSearchActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
-/* loaded from: classes7.dex */
+import d.b.i0.c3.d0.a;
+/* loaded from: classes4.dex */
 public class ForumSearchStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumSearchActivityConfig.class, ForumSearchActivity.class);
-        bRn();
+        a();
     }
 
-    private static void bRn() {
-        com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_SEARCH_POST_FORUM, SearchPostForumSocketResponseMessage.class, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SEARCH_POST_FORUM, 1003335, TbConfig.SEARCH_POST_FORUM, SearchPostForumHttpResponseMessage.class, false, false, true, false);
+    public static void a() {
+        a.f(309466, SearchPostForumSocketResponseMessage.class, false);
+        a.c(309466, CmdConfigHttp.CMD_SEARCH_POST_FORUM, TbConfig.SEARCH_POST_FORUM, SearchPostForumHttpResponseMessage.class, false, false, true, false);
     }
 }

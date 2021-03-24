@@ -4,86 +4,99 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.AlaWriteShareInBarActivityConfig;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.livesdk.c;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
+import d.b.b.e.p.j;
+import d.b.i0.l1.c;
+import d.b.i0.l1.f;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
-    private ArrayList<TransmitForumData> ljN;
-    private AlaShareInBarModel ljO;
-    private String mLiveId = "";
-    private final AlaShareInBarModel.a ljP = new AlaShareInBarModel.a() { // from class: com.baidu.tieba.livesdk.share.AlaShareInBarEmptyActivity.2
-        @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.a
-        public void a(int i, String str, com.baidu.tieba.livesdk.share.b.a aVar) {
+    public String mLiveId = "";
+    public final AlaShareInBarModel.b mOnPostDataCallBack = new b();
+    public AlaShareInBarModel mPostModel;
+    public ArrayList<TransmitForumData> mTransmitForumDataList;
+
+    /* loaded from: classes3.dex */
+    public class a implements DialogInterface.OnCancelListener {
+        public a() {
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            AlaShareInBarEmptyActivity.this.mPostModel.cancelLoadData();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements AlaShareInBarModel.b {
+        public b() {
+        }
+
+        @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
+        public void a(int i, String str, d.b.i0.l1.k.b.a aVar) {
             AlaShareInBarEmptyActivity.this.closeLoadingDialog();
             if (i == 0 && aVar != null) {
-                BdToast.a(AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity(), AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity().getString(c.b.share_alert_success), c.a.icon_pure_toast_succeed40_svg, 3000, true).bqF();
+                BdToast.h(AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity(), AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity().getString(f.share_alert_success), c.icon_pure_toast_succeed40_svg, 3000, true).q();
             } else {
                 AlaShareInBarEmptyActivity.this.showToast(str);
             }
             AlaShareInBarEmptyActivity.this.finish();
         }
-    };
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    private void initData(Bundle bundle) {
+        AlaShareInBarModel alaShareInBarModel = new AlaShareInBarModel();
+        this.mPostModel = alaShareInBarModel;
+        alaShareInBarModel.v(this.mOnPostDataCallBack);
+        Intent intent = getIntent();
+        if (intent != null) {
+            this.mLiveId = intent.getStringExtra("extra_key_live_id");
+            this.mTransmitForumDataList = intent.getParcelableArrayListExtra(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
+        } else if (bundle != null) {
+            this.mLiveId = bundle.getString("extra_key_live_id");
+            this.mTransmitForumDataList = bundle.getParcelableArrayList(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
+        }
+    }
+
+    private void sendRequest() {
+        if (!j.z()) {
+            showToast(f.neterror);
+            finish();
+        } else if (!StringUtils.isNull(this.mLiveId) && !ListUtils.isEmpty(this.mTransmitForumDataList)) {
+            showLoadingDialog((String) null, new a());
+            TransmitForumData transmitForumData = this.mTransmitForumDataList.get(0);
+            if (transmitForumData != null) {
+                this.mPostModel.u(this.mLiveId, String.valueOf(transmitForumData.forumId), "");
+            }
+        } else {
+            finish();
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         initData(bundle);
-        ddN();
+        sendRequest();
     }
 
-    private void initData(Bundle bundle) {
-        this.ljO = new AlaShareInBarModel();
-        this.ljO.a(this.ljP);
-        Intent intent = getIntent();
-        if (intent != null) {
-            this.mLiveId = intent.getStringExtra("extra_key_live_id");
-            this.ljN = intent.getParcelableArrayListExtra(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
-        } else if (bundle != null) {
-            this.mLiveId = bundle.getString("extra_key_live_id");
-            this.ljN = bundle.getParcelableArrayList(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
-        }
-    }
-
-    private void ddN() {
-        if (!j.isNetWorkAvailable()) {
-            showToast(c.b.neterror);
-            finish();
-        } else if (StringUtils.isNull(this.mLiveId) || y.isEmpty(this.ljN)) {
-            finish();
-        } else {
-            showLoadingDialog((String) null, new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.livesdk.share.AlaShareInBarEmptyActivity.1
-                @Override // android.content.DialogInterface.OnCancelListener
-                public void onCancel(DialogInterface dialogInterface) {
-                    AlaShareInBarEmptyActivity.this.ljO.cancelLoadData();
-                }
-            });
-            TransmitForumData transmitForumData = this.ljN.get(0);
-            if (transmitForumData != null) {
-                this.ljO.aL(this.mLiveId, String.valueOf(transmitForumData.forumId), "");
-            }
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        AlaShareInBarModel alaShareInBarModel = this.mPostModel;
+        if (alaShareInBarModel != null) {
+            alaShareInBarModel.onDestroy();
         }
     }
 
     @Override // android.app.Activity
     public void overridePendingTransition(int i, int i2) {
         super.overridePendingTransition(0, 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.ljO != null) {
-            this.ljO.onDestroy();
-        }
     }
 }

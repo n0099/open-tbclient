@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess.share;
 
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ShareEvent extends SerializableEvent {
     public int channel;
     public String extLiveInfo;

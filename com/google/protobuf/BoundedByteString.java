@@ -1,78 +1,44 @@
 package com.google.protobuf;
 
+import com.baidu.android.common.others.lang.StringUtil;
 import com.google.protobuf.ByteString;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class BoundedByteString extends LiteralByteString {
-    private final int bytesLength;
-    private final int bytesOffset;
+    public final int bytesLength;
+    public final int bytesOffset;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public BoundedByteString(byte[] bArr, int i, int i2) {
-        super(bArr);
-        if (i < 0) {
-            throw new IllegalArgumentException("Offset too small: " + i);
-        }
-        if (i2 < 0) {
-            throw new IllegalArgumentException("Length too small: " + i);
-        }
-        if (i + i2 > bArr.length) {
-            throw new IllegalArgumentException("Offset+Length too large: " + i + "+" + i2);
-        }
-        this.bytesOffset = i;
-        this.bytesLength = i2;
-    }
-
-    @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
-    public byte byteAt(int i) {
-        if (i < 0) {
-            throw new ArrayIndexOutOfBoundsException("Index too small: " + i);
-        }
-        if (i >= size()) {
-            throw new ArrayIndexOutOfBoundsException("Index too large: " + i + ", " + size());
-        }
-        return this.bytes[this.bytesOffset + i];
-    }
-
-    @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
-    public int size() {
-        return this.bytesLength;
-    }
-
-    @Override // com.google.protobuf.LiteralByteString
-    protected int getOffsetIntoBytes() {
-        return this.bytesOffset;
-    }
-
-    @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
-    protected void copyToInternal(byte[] bArr, int i, int i2, int i3) {
-        System.arraycopy(this.bytes, getOffsetIntoBytes() + i, bArr, i2, i3);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.google.protobuf.ByteString$ByteIterator' to match base method */
-    @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString, java.lang.Iterable
-    /* renamed from: iterator */
-    public Iterator<Byte> iterator2() {
-        return new BoundedByteIterator();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class BoundedByteIterator implements ByteString.ByteIterator {
-        private final int limit;
-        private int position;
-
-        private BoundedByteIterator() {
-            this.position = BoundedByteString.this.getOffsetIntoBytes();
-            this.limit = this.position + BoundedByteString.this.size();
-        }
+        public final int limit;
+        public int position;
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             return this.position < this.limit;
+        }
+
+        @Override // com.google.protobuf.ByteString.ByteIterator
+        public byte nextByte() {
+            int i = this.position;
+            if (i < this.limit) {
+                byte[] bArr = BoundedByteString.this.bytes;
+                this.position = i + 1;
+                return bArr[i];
+            }
+            throw new NoSuchElementException();
+        }
+
+        @Override // java.util.Iterator
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+
+        public BoundedByteIterator() {
+            int offsetIntoBytes = BoundedByteString.this.getOffsetIntoBytes();
+            this.position = offsetIntoBytes;
+            this.limit = offsetIntoBytes + BoundedByteString.this.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,21 +47,55 @@ public class BoundedByteString extends LiteralByteString {
         public Byte next() {
             return Byte.valueOf(nextByte());
         }
+    }
 
-        @Override // com.google.protobuf.ByteString.ByteIterator
-        public byte nextByte() {
-            if (this.position >= this.limit) {
-                throw new NoSuchElementException();
+    public BoundedByteString(byte[] bArr, int i, int i2) {
+        super(bArr);
+        if (i < 0) {
+            throw new IllegalArgumentException("Offset too small: " + i);
+        } else if (i2 >= 0) {
+            if (i + i2 <= bArr.length) {
+                this.bytesOffset = i;
+                this.bytesLength = i2;
+                return;
             }
-            byte[] bArr = BoundedByteString.this.bytes;
-            int i = this.position;
-            this.position = i + 1;
-            return bArr[i];
+            throw new IllegalArgumentException("Offset+Length too large: " + i + "+" + i2);
+        } else {
+            throw new IllegalArgumentException("Length too small: " + i);
         }
+    }
 
-        @Override // java.util.Iterator
-        public void remove() {
-            throw new UnsupportedOperationException();
+    @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
+    public byte byteAt(int i) {
+        if (i >= 0) {
+            if (i < size()) {
+                return this.bytes[this.bytesOffset + i];
+            }
+            throw new ArrayIndexOutOfBoundsException("Index too large: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + size());
         }
+        throw new ArrayIndexOutOfBoundsException("Index too small: " + i);
+    }
+
+    @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
+    public void copyToInternal(byte[] bArr, int i, int i2, int i3) {
+        System.arraycopy(this.bytes, getOffsetIntoBytes() + i, bArr, i2, i3);
+    }
+
+    @Override // com.google.protobuf.LiteralByteString
+    public int getOffsetIntoBytes() {
+        return this.bytesOffset;
+    }
+
+    @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
+    public int size() {
+        return this.bytesLength;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.google.protobuf.ByteString$ByteIterator' to match base method */
+    @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString, java.lang.Iterable
+    /* renamed from: iterator */
+    public Iterator<Byte> iterator2() {
+        return new BoundedByteIterator();
     }
 }

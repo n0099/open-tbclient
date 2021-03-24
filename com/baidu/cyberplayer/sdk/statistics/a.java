@@ -5,37 +5,38 @@ import android.content.pm.PackageManager;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1469a;
-    private boolean c = false;
-    private c b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
+    public static a f5064a;
 
-    private a() {
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f5066c = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f5065b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
 
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1469a == null) {
-                f1469a = new a();
+            if (f5064a == null) {
+                f5064a = new a();
             }
-            aVar = f1469a;
+            aVar = f5064a;
         }
         return aVar;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
-        return this.b.a(jSONObject);
+        return this.f5065b.a(jSONObject);
     }
 
     public void b() {
-        if (this.c) {
+        if (this.f5066c) {
             return;
         }
-        this.c = true;
+        this.f5066c = true;
         Context applicationContext = CyberPlayerManager.getApplicationContext();
         PackageManager packageManager = applicationContext.getPackageManager();
         String packageName = applicationContext.getPackageName();
@@ -43,21 +44,21 @@ public class a {
         if (packageManager != null) {
             try {
                 str = packageManager.getPackageInfo(packageName, 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e2) {
+                e2.printStackTrace();
             }
         }
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(applicationContext);
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_name", packageName));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_version", str));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SDK_VERSION, CyberPlayerManager.getSDKVersion()));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "cuid", CyberPlayerManager.getClientID()));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "network", networkStatisticsData));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_KERNEL_SESSION_ID, System.currentTimeMillis()));
-        this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_INIT));
+        this.f5065b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_APP_NAME, packageName));
+        this.f5065b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_version", str));
+        this.f5065b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SDK_VERSION, CyberPlayerManager.getSDKVersion()));
+        this.f5065b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "cuid", CyberPlayerManager.getClientID()));
+        this.f5065b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "network", networkStatisticsData));
+        this.f5065b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_KERNEL_SESSION_ID, System.currentTimeMillis()));
+        this.f5065b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_INIT));
         String str2 = CyberPlayerManager.getInstallOpts().get("abtest_sid");
         if (str2 != null) {
-            this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "abtest_sid", str2));
+            this.f5065b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "abtest_sid", str2));
         }
     }
 }

@@ -8,38 +8,52 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import com.kwad.sdk.utils.ap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends GestureDetector implements ap.a {
-    private long A;
-    private VelocityTracker B;
+    public long A;
+    public VelocityTracker B;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6000a;
-    private int c;
-    private int d;
-    private int e;
-    private int f;
-    private final Handler i;
-    private final GestureDetector.OnGestureListener j;
-    private GestureDetector.OnDoubleTapListener k;
-    private boolean l;
-    private boolean m;
-    private boolean n;
-    private boolean o;
-    private boolean p;
-    private boolean q;
-    private boolean r;
-    private MotionEvent s;
-    private MotionEvent t;
-    private boolean u;
-    private float v;
-    private float w;
-    private float x;
-    private float y;
-    private boolean z;
-    private static final int g = ViewConfiguration.getLongPressTimeout();
-    private static final int h = ViewConfiguration.getTapTimeout();
-    public static final int b = ViewConfiguration.getDoubleTapTimeout();
+    public int f33393a;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f33394c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f33395d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f33396e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f33397f;
+    public final Handler i;
+    public final GestureDetector.OnGestureListener j;
+    public GestureDetector.OnDoubleTapListener k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public MotionEvent s;
+    public MotionEvent t;
+    public boolean u;
+    public float v;
+    public float w;
+    public float x;
+    public float y;
+    public boolean z;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final int f33391g = ViewConfiguration.getLongPressTimeout();
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final int f33392h = ViewConfiguration.getTapTimeout();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f33390b = ViewConfiguration.getDoubleTapTimeout();
 
     public c(Context context, GestureDetector.OnGestureListener onGestureListener) {
         this(context, onGestureListener, null);
@@ -47,7 +61,7 @@ public class c extends GestureDetector implements ap.a {
 
     public c(Context context, GestureDetector.OnGestureListener onGestureListener, Handler handler) {
         super(context, onGestureListener, handler);
-        this.A = b;
+        this.A = f33390b;
         if (handler != null) {
             this.i = new ap(this, handler.getLooper());
         } else {
@@ -77,32 +91,30 @@ public class c extends GestureDetector implements ap.a {
     }
 
     private void a(Context context) {
-        int scaledTouchSlop;
+        int scaledDoubleTapSlop;
         int i;
-        int i2;
         if (this.j == null) {
             throw new NullPointerException("OnGestureListener must not be null");
         }
         this.z = true;
+        int i2 = 300;
         if (context == null) {
-            int touchSlop = ViewConfiguration.getTouchSlop();
-            this.e = ViewConfiguration.getMinimumFlingVelocity();
-            this.f = ViewConfiguration.getMaximumFlingVelocity();
-            i = touchSlop;
-            i2 = 300;
-            scaledTouchSlop = touchSlop;
+            i = ViewConfiguration.getTouchSlop();
+            this.f33396e = ViewConfiguration.getMinimumFlingVelocity();
+            this.f33397f = ViewConfiguration.getMaximumFlingVelocity();
+            i2 = i;
+            scaledDoubleTapSlop = 300;
         } else {
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
-            scaledTouchSlop = viewConfiguration.getScaledTouchSlop();
-            int scaledDoubleTapSlop = viewConfiguration.getScaledDoubleTapSlop();
-            this.e = viewConfiguration.getScaledMinimumFlingVelocity();
-            this.f = viewConfiguration.getScaledMaximumFlingVelocity();
-            i = 300;
-            i2 = scaledDoubleTapSlop;
+            int scaledTouchSlop = viewConfiguration.getScaledTouchSlop();
+            scaledDoubleTapSlop = viewConfiguration.getScaledDoubleTapSlop();
+            this.f33396e = viewConfiguration.getScaledMinimumFlingVelocity();
+            this.f33397f = viewConfiguration.getScaledMaximumFlingVelocity();
+            i = scaledTouchSlop;
         }
-        this.f6000a = scaledTouchSlop * scaledTouchSlop;
-        this.c = i * i;
-        this.d = i2 * i2;
+        this.f33393a = i * i;
+        this.f33394c = i2 * i2;
+        this.f33395d = scaledDoubleTapSlop * scaledDoubleTapSlop;
     }
 
     private boolean a(MotionEvent motionEvent, MotionEvent motionEvent2, MotionEvent motionEvent3) {
@@ -113,7 +125,7 @@ public class c extends GestureDetector implements ap.a {
             }
             int x = ((int) motionEvent.getX()) - ((int) motionEvent3.getX());
             int y = ((int) motionEvent.getY()) - ((int) motionEvent3.getY());
-            return (x * x) + (y * y) < ((motionEvent.getFlags() & 8) != 0 ? 0 : this.d);
+            return (x * x) + (y * y) < ((motionEvent.getFlags() & 8) != 0 ? 0 : this.f33395d);
         }
         return false;
     }
@@ -144,26 +156,18 @@ public class c extends GestureDetector implements ap.a {
 
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
-        switch (message.what) {
-            case 1:
-                this.j.onShowPress(this.s);
-                return;
-            case 2:
-                c();
-                return;
-            case 3:
-                if (this.k != null) {
-                    if (this.l) {
-                        this.m = true;
-                        return;
-                    } else {
-                        this.k.onSingleTapConfirmed(this.s);
-                        return;
-                    }
-                }
-                return;
-            default:
-                return;
+        GestureDetector.OnDoubleTapListener onDoubleTapListener;
+        int i = message.what;
+        if (i == 1) {
+            this.j.onShowPress(this.s);
+        } else if (i == 2) {
+            c();
+        } else if (i == 3 && (onDoubleTapListener = this.k) != null) {
+            if (this.l) {
+                this.m = true;
+            } else {
+                onDoubleTapListener.onSingleTapConfirmed(this.s);
+            }
         }
     }
 
@@ -172,196 +176,203 @@ public class c extends GestureDetector implements ap.a {
         return this.z;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00f6  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x010f  */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x0227  */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x023e  */
     @Override // android.view.GestureDetector
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean z;
-        boolean z2;
-        boolean z3;
+        MotionEvent motionEvent2;
+        MotionEvent motionEvent3;
+        boolean onFling;
+        GestureDetector.OnDoubleTapListener onDoubleTapListener;
         int action = motionEvent.getAction();
         if (this.B == null) {
             this.B = VelocityTracker.obtain();
         }
         this.B.addMovement(motionEvent);
-        boolean z4 = (action & 255) == 6;
-        int actionIndex = z4 ? motionEvent.getActionIndex() : -1;
-        boolean z5 = (motionEvent.getFlags() & 8) != 0;
+        int i = action & 255;
+        boolean z2 = i == 6;
+        int actionIndex = z2 ? motionEvent.getActionIndex() : -1;
+        boolean z3 = (motionEvent.getFlags() & 8) != 0;
         int pointerCount = motionEvent.getPointerCount();
-        float f = 0.0f;
         float f2 = 0.0f;
-        for (int i = 0; i < pointerCount; i++) {
-            if (actionIndex != i) {
-                f2 += motionEvent.getX(i);
-                f += motionEvent.getY(i);
+        float f3 = 0.0f;
+        for (int i2 = 0; i2 < pointerCount; i2++) {
+            if (actionIndex != i2) {
+                f2 += motionEvent.getX(i2);
+                f3 += motionEvent.getY(i2);
             }
         }
-        int i2 = z4 ? pointerCount - 1 : pointerCount;
-        float f3 = f2 / i2;
-        float f4 = f / i2;
-        switch (action & 255) {
-            case 0:
-                if (this.k != null) {
-                    boolean hasMessages = this.i.hasMessages(3);
-                    if (hasMessages) {
-                        this.i.removeMessages(3);
+        float f4 = z2 ? pointerCount - 1 : pointerCount;
+        float f5 = f2 / f4;
+        float f6 = f3 / f4;
+        if (i == 0) {
+            if (this.k != null) {
+                boolean hasMessages = this.i.hasMessages(3);
+                if (hasMessages) {
+                    this.i.removeMessages(3);
+                }
+                MotionEvent motionEvent4 = this.s;
+                if (motionEvent4 != null && (motionEvent3 = this.t) != null && hasMessages && a(motionEvent4, motionEvent3, motionEvent)) {
+                    this.u = true;
+                    z = this.k.onDoubleTap(this.s) | false | this.k.onDoubleTapEvent(motionEvent);
+                    this.v = f5;
+                    this.x = f5;
+                    this.w = f6;
+                    this.y = f6;
+                    motionEvent2 = this.s;
+                    if (motionEvent2 != null) {
+                        motionEvent2.recycle();
                     }
-                    if (this.s != null && this.t != null && hasMessages && a(this.s, this.t, motionEvent)) {
-                        this.u = true;
-                        z3 = this.k.onDoubleTap(this.s) | false | this.k.onDoubleTapEvent(motionEvent);
-                        this.v = f3;
-                        this.x = f3;
-                        this.w = f4;
-                        this.y = f4;
-                        if (this.s != null) {
-                            this.s.recycle();
-                        }
-                        this.s = MotionEvent.obtain(motionEvent);
-                        this.p = true;
-                        this.q = true;
-                        this.l = true;
-                        this.n = false;
-                        this.m = false;
-                        if (this.z) {
-                            this.i.removeMessages(2);
-                            this.i.sendEmptyMessageAtTime(2, this.s.getDownTime() + g);
-                        }
-                        this.i.sendEmptyMessageAtTime(1, this.s.getDownTime() + h);
-                        return z3 | this.j.onDown(motionEvent);
+                    this.s = MotionEvent.obtain(motionEvent);
+                    this.p = true;
+                    this.q = true;
+                    this.l = true;
+                    this.n = false;
+                    this.m = false;
+                    if (this.z) {
+                        this.i.removeMessages(2);
+                        this.i.sendEmptyMessageAtTime(2, this.s.getDownTime() + f33391g);
                     }
-                    this.i.sendEmptyMessageDelayed(3, this.A);
+                    this.i.sendEmptyMessageAtTime(1, this.s.getDownTime() + f33392h);
+                    return z | this.j.onDown(motionEvent);
                 }
-                z3 = false;
-                this.v = f3;
-                this.x = f3;
-                this.w = f4;
-                this.y = f4;
-                if (this.s != null) {
-                }
-                this.s = MotionEvent.obtain(motionEvent);
-                this.p = true;
-                this.q = true;
-                this.l = true;
-                this.n = false;
-                this.m = false;
-                if (this.z) {
-                }
-                this.i.sendEmptyMessageAtTime(1, this.s.getDownTime() + h);
-                return z3 | this.j.onDown(motionEvent);
-            case 1:
-                this.l = false;
-                MotionEvent obtain = MotionEvent.obtain(motionEvent);
-                if (this.u) {
-                    z = this.k.onDoubleTapEvent(motionEvent) | false;
-                } else if (this.n) {
+                this.i.sendEmptyMessageDelayed(3, this.A);
+            }
+            z = false;
+            this.v = f5;
+            this.x = f5;
+            this.w = f6;
+            this.y = f6;
+            motionEvent2 = this.s;
+            if (motionEvent2 != null) {
+            }
+            this.s = MotionEvent.obtain(motionEvent);
+            this.p = true;
+            this.q = true;
+            this.l = true;
+            this.n = false;
+            this.m = false;
+            if (this.z) {
+            }
+            this.i.sendEmptyMessageAtTime(1, this.s.getDownTime() + f33392h);
+            return z | this.j.onDown(motionEvent);
+        }
+        if (i == 1) {
+            this.l = false;
+            MotionEvent obtain = MotionEvent.obtain(motionEvent);
+            if (this.u) {
+                onFling = this.k.onDoubleTapEvent(motionEvent) | false;
+            } else {
+                if (this.n) {
                     this.i.removeMessages(3);
                     this.n = false;
-                    z = false;
-                } else if (!this.p || this.r) {
-                    if (!this.r) {
-                        VelocityTracker velocityTracker = this.B;
-                        int pointerId = motionEvent.getPointerId(0);
-                        velocityTracker.computeCurrentVelocity(1000, this.f);
-                        float yVelocity = velocityTracker.getYVelocity(pointerId);
-                        float xVelocity = velocityTracker.getXVelocity(pointerId);
-                        if (Math.abs(yVelocity) > this.e || Math.abs(xVelocity) > this.e) {
-                            z = this.j.onFling(this.s, motionEvent, xVelocity, yVelocity);
-                        }
+                } else if (this.p && !this.r) {
+                    boolean onSingleTapUp = this.j.onSingleTapUp(motionEvent);
+                    if (this.m && (onDoubleTapListener = this.k) != null) {
+                        onDoubleTapListener.onSingleTapConfirmed(motionEvent);
                     }
-                    z = false;
-                } else {
-                    z = this.j.onSingleTapUp(motionEvent);
-                    if (this.m && this.k != null) {
-                        this.k.onSingleTapConfirmed(motionEvent);
+                    onFling = onSingleTapUp;
+                } else if (!this.r) {
+                    VelocityTracker velocityTracker = this.B;
+                    int pointerId = motionEvent.getPointerId(0);
+                    velocityTracker.computeCurrentVelocity(1000, this.f33397f);
+                    float yVelocity = velocityTracker.getYVelocity(pointerId);
+                    float xVelocity = velocityTracker.getXVelocity(pointerId);
+                    if (Math.abs(yVelocity) > this.f33396e || Math.abs(xVelocity) > this.f33396e) {
+                        onFling = this.j.onFling(this.s, motionEvent, xVelocity, yVelocity);
                     }
                 }
-                if (this.t != null) {
-                    this.t.recycle();
-                }
-                this.t = obtain;
-                if (this.B != null) {
-                    this.B.recycle();
-                    this.B = null;
-                }
-                this.u = false;
-                this.m = false;
-                this.r = false;
-                this.i.removeMessages(1);
-                this.i.removeMessages(2);
-                return z;
-            case 2:
-                if (this.n || this.o) {
-                    return false;
-                }
-                float f5 = this.v - f3;
-                float f6 = this.w - f4;
-                if (this.u) {
-                    return false | this.k.onDoubleTapEvent(motionEvent);
-                }
-                if (!this.p) {
-                    if (Math.abs(f5) >= 1.0f || Math.abs(f6) >= 1.0f) {
-                        boolean onScroll = this.j.onScroll(this.s, motionEvent, f5, f6);
-                        this.v = f3;
-                        this.w = f4;
-                        return onScroll;
-                    }
-                    return false;
-                }
-                int i3 = (int) (f3 - this.x);
-                int i4 = (int) (f4 - this.y);
-                int i5 = (i4 * i4) + (i3 * i3);
-                if (i5 > (z5 ? 0 : this.f6000a)) {
-                    z2 = this.j.onScroll(this.s, motionEvent, f5, f6);
-                    this.v = f3;
-                    this.w = f4;
-                    this.p = false;
-                    this.i.removeMessages(3);
-                    this.i.removeMessages(1);
-                    this.i.removeMessages(2);
-                } else {
-                    z2 = false;
-                }
-                if (i5 > (z5 ? 0 : this.c)) {
-                    this.q = false;
-                }
-                return z2;
-            case 3:
+                onFling = false;
+            }
+            MotionEvent motionEvent5 = this.t;
+            if (motionEvent5 != null) {
+                motionEvent5.recycle();
+            }
+            this.t = obtain;
+            VelocityTracker velocityTracker2 = this.B;
+            if (velocityTracker2 != null) {
+                velocityTracker2.recycle();
+                this.B = null;
+            }
+            this.u = false;
+            this.m = false;
+            this.r = false;
+            this.i.removeMessages(1);
+            this.i.removeMessages(2);
+        } else if (i != 2) {
+            if (i == 3) {
                 a();
                 return false;
-            case 4:
-            default:
-                return false;
-            case 5:
-                this.v = f3;
-                this.x = f3;
-                this.w = f4;
-                this.y = f4;
+            } else if (i == 5) {
+                this.v = f5;
+                this.x = f5;
+                this.w = f6;
+                this.y = f6;
                 b();
                 return false;
-            case 6:
-                this.v = f3;
-                this.x = f3;
-                this.w = f4;
-                this.y = f4;
-                this.B.computeCurrentVelocity(1000, this.f);
+            } else if (i != 6) {
+                return false;
+            } else {
+                this.v = f5;
+                this.x = f5;
+                this.w = f6;
+                this.y = f6;
+                this.B.computeCurrentVelocity(1000, this.f33397f);
                 int actionIndex2 = motionEvent.getActionIndex();
                 int pointerId2 = motionEvent.getPointerId(actionIndex2);
                 float xVelocity2 = this.B.getXVelocity(pointerId2);
                 float yVelocity2 = this.B.getYVelocity(pointerId2);
-                for (int i6 = 0; i6 < pointerCount; i6++) {
-                    if (i6 != actionIndex2) {
-                        int pointerId3 = motionEvent.getPointerId(i6);
-                        if ((this.B.getYVelocity(pointerId3) * yVelocity2) + (this.B.getXVelocity(pointerId3) * xVelocity2) < 0.0f) {
+                for (int i3 = 0; i3 < pointerCount; i3++) {
+                    if (i3 != actionIndex2) {
+                        int pointerId3 = motionEvent.getPointerId(i3);
+                        if ((this.B.getXVelocity(pointerId3) * xVelocity2) + (this.B.getYVelocity(pointerId3) * yVelocity2) < 0.0f) {
                             this.B.clear();
                             return false;
                         }
                     }
                 }
                 return false;
+            }
+        } else if (this.n || this.o) {
+            return false;
+        } else {
+            float f7 = this.v - f5;
+            float f8 = this.w - f6;
+            if (this.u) {
+                return false | this.k.onDoubleTapEvent(motionEvent);
+            }
+            if (!this.p) {
+                if (Math.abs(f7) >= 1.0f || Math.abs(f8) >= 1.0f) {
+                    boolean onScroll = this.j.onScroll(this.s, motionEvent, f7, f8);
+                    this.v = f5;
+                    this.w = f6;
+                    return onScroll;
+                }
+                return false;
+            }
+            int i4 = (int) (f5 - this.x);
+            int i5 = (int) (f6 - this.y);
+            int i6 = (i4 * i4) + (i5 * i5);
+            if (i6 > (z3 ? 0 : this.f33393a)) {
+                onFling = this.j.onScroll(this.s, motionEvent, f7, f8);
+                this.v = f5;
+                this.w = f6;
+                this.p = false;
+                this.i.removeMessages(3);
+                this.i.removeMessages(1);
+                this.i.removeMessages(2);
+            } else {
+                onFling = false;
+            }
+            if (i6 > (z3 ? 0 : this.f33394c)) {
+                this.q = false;
+            }
         }
+        return onFling;
     }
 
     @Override // android.view.GestureDetector

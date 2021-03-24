@@ -1,11 +1,10 @@
 package com.baidu.android.imsdk;
 
+import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.android.imsdk.utils.NoProGuard;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.File;
-/* loaded from: classes3.dex */
-public class IMConstants implements ResponseCode, NoProGuard {
+/* loaded from: classes2.dex */
+public class IMConstants implements NoProGuard, ResponseCode {
     public static final int ACCOUNT_ANON = 0;
     public static final int ACCOUNT_BAIDU = 1;
     public static final int ACCOUNT_BAIDUSNS = 2;
@@ -335,9 +334,9 @@ public class IMConstants implements ResponseCode, NoProGuard {
     public static final int UPDATESWITCHTYPE_USER = 2;
     public static final String UPDATE_TIME = "update_time";
     public static final String IM_FILE_ROOT = "baidu/imsdk";
-    public static final String IM_ICON_DIR = IM_FILE_ROOT + File.separator + AlaStaticKeys.ALA_STATIC_VALUE_ICON;
+    public static final String IM_ICON_DIR = IM_FILE_ROOT + File.separator + "icon";
     public static final String IM_MSG_FILE_DIR = IM_FILE_ROOT + File.separator + "msgs";
-    public static final String IM_DB_DIR = IM_FILE_ROOT + File.separator + BdStatsConstant.OpSubType.DB;
+    public static final String IM_DB_DIR = IM_FILE_ROOT + File.separator + IMTrackDatabase.DbEnum.TABLE_NAME;
     public static final Long DEFAULT_FRIEND_GROUP_ID = 0L;
     public static boolean IS_UPDATE_VERSION = false;
 }

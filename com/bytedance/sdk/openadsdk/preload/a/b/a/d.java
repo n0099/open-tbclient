@@ -7,10 +7,10 @@ import com.bytedance.sdk.openadsdk.preload.a.w;
 public final class d implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.preload.a.b.c f4959a;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.c f29912a;
 
     public d(com.bytedance.sdk.openadsdk.preload.a.b.c cVar) {
-        this.f4959a = cVar;
+        this.f29912a = cVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.w
@@ -19,10 +19,9 @@ public final class d implements w {
         if (bVar == null) {
             return null;
         }
-        return (v<T>) a(this.f4959a, fVar, aVar, bVar);
+        return (v<T>) a(this.f29912a, fVar, aVar, bVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public v<?> a(com.bytedance.sdk.openadsdk.preload.a.b.c cVar, com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<?> aVar, com.bytedance.sdk.openadsdk.preload.a.a.b bVar) {
         v<?> lVar;
         Object a2 = cVar.a(com.bytedance.sdk.openadsdk.preload.a.c.a.b(bVar.a())).a();
@@ -30,14 +29,13 @@ public final class d implements w {
             lVar = (v) a2;
         } else if (a2 instanceof w) {
             lVar = ((w) a2).a(fVar, aVar);
-        } else if ((a2 instanceof s) || (a2 instanceof com.bytedance.sdk.openadsdk.preload.a.k)) {
-            lVar = new l<>(a2 instanceof s ? (s) a2 : null, a2 instanceof com.bytedance.sdk.openadsdk.preload.a.k ? (com.bytedance.sdk.openadsdk.preload.a.k) a2 : null, fVar, aVar, null);
         } else {
-            throw new IllegalArgumentException("Invalid attempt to bind an instance of " + a2.getClass().getName() + " as a @JsonAdapter for " + aVar.toString() + ". @JsonAdapter value must be a TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer.");
+            boolean z = a2 instanceof s;
+            if (!z && !(a2 instanceof com.bytedance.sdk.openadsdk.preload.a.k)) {
+                throw new IllegalArgumentException("Invalid attempt to bind an instance of " + a2.getClass().getName() + " as a @JsonAdapter for " + aVar.toString() + ". @JsonAdapter value must be a TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer.");
+            }
+            lVar = new l<>(z ? (s) a2 : null, a2 instanceof com.bytedance.sdk.openadsdk.preload.a.k ? (com.bytedance.sdk.openadsdk.preload.a.k) a2 : null, fVar, aVar, null);
         }
-        if (lVar != null && bVar.b()) {
-            return lVar.a();
-        }
-        return lVar;
+        return (lVar == null || !bVar.b()) ? lVar : lVar.a();
     }
 }

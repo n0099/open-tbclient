@@ -8,56 +8,56 @@ import android.os.Handler;
 import com.kwad.sdk.core.imageloader.core.assist.ImageScaleType;
 import com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.process.BitmapProcessor;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class DisplayImageOptions {
-    private final boolean cacheInMemory;
-    private final boolean cacheOnDisk;
-    private final boolean considerExifParams;
-    private final BitmapFactory.Options decodingOptions;
-    private final int delayBeforeLoading;
-    private final BitmapDisplayer displayer;
-    private final Object extraForDownloader;
-    private final Handler handler;
-    private final Drawable imageForEmptyUri;
-    private final Drawable imageOnFail;
-    private final Drawable imageOnLoading;
-    private final int imageResForEmptyUri;
-    private final int imageResOnFail;
-    private final int imageResOnLoading;
-    private final ImageScaleType imageScaleType;
-    private final boolean isSyncLoading;
-    private final BitmapProcessor postProcessor;
-    private final BitmapProcessor preProcessor;
-    private final boolean resetViewBeforeLoading;
+    public final boolean cacheInMemory;
+    public final boolean cacheOnDisk;
+    public final boolean considerExifParams;
+    public final BitmapFactory.Options decodingOptions;
+    public final int delayBeforeLoading;
+    public final BitmapDisplayer displayer;
+    public final Object extraForDownloader;
+    public final Handler handler;
+    public final Drawable imageForEmptyUri;
+    public final Drawable imageOnFail;
+    public final Drawable imageOnLoading;
+    public final int imageResForEmptyUri;
+    public final int imageResOnFail;
+    public final int imageResOnLoading;
+    public final ImageScaleType imageScaleType;
+    public final boolean isSyncLoading;
+    public final BitmapProcessor postProcessor;
+    public final BitmapProcessor preProcessor;
+    public final boolean resetViewBeforeLoading;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
-        private int imageResOnLoading = 0;
-        private int imageResForEmptyUri = 0;
-        private int imageResOnFail = 0;
-        private Drawable imageOnLoading = null;
-        private Drawable imageForEmptyUri = null;
-        private Drawable imageOnFail = null;
-        private boolean resetViewBeforeLoading = false;
-        private boolean cacheInMemory = false;
-        private boolean cacheOnDisk = false;
-        private ImageScaleType imageScaleType = ImageScaleType.IN_SAMPLE_POWER_OF_2;
-        private BitmapFactory.Options decodingOptions = new BitmapFactory.Options();
-        private int delayBeforeLoading = 0;
-        private boolean considerExifParams = false;
-        private Object extraForDownloader = null;
-        private BitmapProcessor preProcessor = null;
-        private BitmapProcessor postProcessor = null;
-        private BitmapDisplayer displayer = DefaultConfigurationFactory.createBitmapDisplayer();
-        private Handler handler = null;
-        private boolean isSyncLoading = false;
+        public int imageResOnLoading = 0;
+        public int imageResForEmptyUri = 0;
+        public int imageResOnFail = 0;
+        public Drawable imageOnLoading = null;
+        public Drawable imageForEmptyUri = null;
+        public Drawable imageOnFail = null;
+        public boolean resetViewBeforeLoading = false;
+        public boolean cacheInMemory = false;
+        public boolean cacheOnDisk = false;
+        public ImageScaleType imageScaleType = ImageScaleType.IN_SAMPLE_POWER_OF_2;
+        public BitmapFactory.Options decodingOptions = new BitmapFactory.Options();
+        public int delayBeforeLoading = 0;
+        public boolean considerExifParams = false;
+        public Object extraForDownloader = null;
+        public BitmapProcessor preProcessor = null;
+        public BitmapProcessor postProcessor = null;
+        public BitmapDisplayer displayer = DefaultConfigurationFactory.createBitmapDisplayer();
+        public Handler handler = null;
+        public boolean isSyncLoading = false;
 
         public Builder bitmapConfig(Bitmap.Config config) {
-            if (config == null) {
-                throw new IllegalArgumentException("bitmapConfig can't be null");
+            if (config != null) {
+                this.decodingOptions.inPreferredConfig = config;
+                return this;
             }
-            this.decodingOptions.inPreferredConfig = config;
-            return this;
+            throw new IllegalArgumentException("bitmapConfig can't be null");
         }
 
         public DisplayImageOptions build() {
@@ -119,11 +119,11 @@ public final class DisplayImageOptions {
         }
 
         public Builder decodingOptions(BitmapFactory.Options options) {
-            if (options == null) {
-                throw new IllegalArgumentException("decodingOptions can't be null");
+            if (options != null) {
+                this.decodingOptions = options;
+                return this;
             }
-            this.decodingOptions = options;
-            return this;
+            throw new IllegalArgumentException("decodingOptions can't be null");
         }
 
         public Builder delayBeforeLoading(int i) {
@@ -132,11 +132,11 @@ public final class DisplayImageOptions {
         }
 
         public Builder displayer(BitmapDisplayer bitmapDisplayer) {
-            if (bitmapDisplayer == null) {
-                throw new IllegalArgumentException("displayer can't be null");
+            if (bitmapDisplayer != null) {
+                this.displayer = bitmapDisplayer;
+                return this;
             }
-            this.displayer = bitmapDisplayer;
-            return this;
+            throw new IllegalArgumentException("displayer can't be null");
         }
 
         public Builder extraForDownloader(Object obj) {
@@ -210,14 +210,13 @@ public final class DisplayImageOptions {
             return this;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public Builder syncLoading(boolean z) {
             this.isSyncLoading = z;
             return this;
         }
     }
 
-    private DisplayImageOptions(Builder builder) {
+    public DisplayImageOptions(Builder builder) {
         this.imageResOnLoading = builder.imageResOnLoading;
         this.imageResForEmptyUri = builder.imageResForEmptyUri;
         this.imageResOnFail = builder.imageResOnFail;
@@ -264,15 +263,18 @@ public final class DisplayImageOptions {
     }
 
     public Drawable getImageForEmptyUri(Resources resources) {
-        return this.imageResForEmptyUri != 0 ? resources.getDrawable(this.imageResForEmptyUri) : this.imageForEmptyUri;
+        int i = this.imageResForEmptyUri;
+        return i != 0 ? resources.getDrawable(i) : this.imageForEmptyUri;
     }
 
     public Drawable getImageOnFail(Resources resources) {
-        return this.imageResOnFail != 0 ? resources.getDrawable(this.imageResOnFail) : this.imageOnFail;
+        int i = this.imageResOnFail;
+        return i != 0 ? resources.getDrawable(i) : this.imageOnFail;
     }
 
     public Drawable getImageOnLoading(Resources resources) {
-        return this.imageResOnLoading != 0 ? resources.getDrawable(this.imageResOnLoading) : this.imageOnLoading;
+        int i = this.imageResOnLoading;
+        return i != 0 ? resources.getDrawable(i) : this.imageOnLoading;
     }
 
     public ImageScaleType getImageScaleType() {
@@ -303,7 +305,6 @@ public final class DisplayImageOptions {
         return this.resetViewBeforeLoading;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isSyncLoading() {
         return this.isSyncLoading;
     }

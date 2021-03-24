@@ -15,492 +15,88 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.view.ViewCompat;
-import com.baidu.live.adp.widget.HorizontalTranslateLayout;
+import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.apps.ao.ah;
-import com.baidu.swan.apps.ao.h;
-import com.baidu.swan.apps.ao.s;
-import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.storage.PathType;
-import com.baidu.webkit.internal.ABTestConstants;
-import com.bytedance.sdk.openadsdk.preload.falconx.statistic.StatisticData;
-import com.facebook.common.b.i;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import d.b.g0.a.i2.h;
+import d.b.g0.a.i2.h0;
+import d.b.g0.a.i2.s;
+import d.b.g0.a.k;
+import d.b.g0.a.r1.e;
+import d.b.g0.g.k0.f.a.c;
 import java.io.File;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class ApiButton extends AppCompatButton implements View.OnClickListener {
-    private EventTargetImpl enH;
-    private a enI;
-    private Bitmap mBitmap;
-    private int mHeight;
-    private String mImage;
-    private String mText;
-    private String mType;
-    private int mWidth;
+
+    /* renamed from: e  reason: collision with root package name */
+    public EventTargetImpl f12879e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f12880f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f12881g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f12882h;
+    public Bitmap i;
+    public d.b.g0.g.k0.f.a.a j;
+    public int k;
+    public int l;
+
+    /* loaded from: classes3.dex */
+    public class a extends BaseBitmapDataSubscriber {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ DataSource f12883a;
+
+        public a(DataSource dataSource) {
+            this.f12883a = dataSource;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.DataSource] */
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            if (e.x) {
+                Log.d("ApiButton", "——> onFailureImpl: " + dataSource.getFailureCause().getMessage());
+            }
+            ApiButton.this.k();
+            if (dataSource != null) {
+                dataSource.close();
+            }
+        }
+
+        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
+        public void onNewResultImpl(@Nullable Bitmap bitmap) {
+            if (e.x) {
+                Log.d("ApiButton", "——> onNewResultImpl: ");
+            }
+            if (this.f12883a.isFinished()) {
+                ApiButton apiButton = ApiButton.this;
+                apiButton.i = s.g(bitmap, apiButton.k, ApiButton.this.l);
+                ApiButton.this.k();
+                this.f12883a.close();
+            }
+        }
+    }
 
     public ApiButton(Context context, EventTargetImpl eventTargetImpl) {
         super(context);
-        this.mType = "text";
-        this.enH = eventTargetImpl;
+        this.f12880f = "text";
+        this.f12879e = eventTargetImpl;
         setSingleLine();
         setOnClickListener(this);
-    }
-
-    public ApiButton(Context context) {
-        super(context);
-        this.mType = "text";
-    }
-
-    public void hide() {
-        if (this.enI != null) {
-            this.enI.hidden = true;
-        }
-        setVisibility(8);
-    }
-
-    public void show() {
-        if (this.enI != null) {
-            this.enI.hidden = false;
-        }
-        setVisibility(0);
-    }
-
-    public void setApiButtonStyle(a aVar) {
-        this.enI = aVar;
-    }
-
-    public String getType() {
-        return this.mType;
-    }
-
-    public void setType(String str) {
-        this.mType = str;
-    }
-
-    public void setButtonText(String str) {
-        if (!TextUtils.equals(str, this.mText)) {
-            this.mText = str;
-            if (aZF() && getParent() != null) {
-                setText(this.mText);
-                requestLayout();
-            }
-        }
-    }
-
-    public void setImageUrl(String str) {
-        if (!TextUtils.equals(str, this.mImage)) {
-            this.mImage = str;
-            this.mBitmap = null;
-            if (aZG() && getParent() != null) {
-                Xt();
-            }
-        }
-    }
-
-    @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("ApiButton", "onSizeChanged mWidth=" + this.mWidth + ";mHeight" + this.mHeight);
-        }
-        this.mWidth = i;
-        this.mHeight = i2;
-        this.mBitmap = null;
-        aZx();
-    }
-
-    public void aZx() {
-        if (this.enI != null && getParent() != null) {
-            if (aZF()) {
-                GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.setColor(0);
-                setBorder(gradientDrawable);
-                setBorderRadius(gradientDrawable);
-                setButtonBackground(gradientDrawable);
-                setText(this.mText);
-                aZy();
-                setTextColor(aj(this.enI.color, ViewCompat.MEASURED_STATE_MASK));
-                aZB();
-                aZA();
-                aZC();
-                aZE();
-            } else {
-                Xt();
-            }
-            aZz();
-        }
-    }
-
-    private void setButtonBackground(GradientDrawable gradientDrawable) {
-        setBackgroundDrawable(new LayerDrawable(new Drawable[]{ln(aj(this.enI.backgroundColor, 0)), gradientDrawable}));
-    }
-
-    private GradientDrawable ln(int i) {
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(i);
-        int T = ah.T(this.enI.borderWidth);
-        if (T > 0) {
-            gradientDrawable.setStroke(T, a.lo(i));
-        }
-        if (this.enI.borderRadius != 0.0d) {
-            gradientDrawable.setCornerRadius(ah.T((float) this.enI.borderRadius));
-        }
-        return gradientDrawable;
-    }
-
-    private int aj(String str, int i) {
-        if (!TextUtils.isEmpty(str)) {
-            if (Pattern.compile("^#([0-9a-fA-F]{8}|[0-9a-fA-F]{6})$").matcher(str).matches()) {
-                return Color.parseColor(str);
-            }
-            try {
-                int parseColor = Color.parseColor(h.toColorRGBA(str));
-                int i2 = parseColor >>> 24;
-                return ((parseColor & 255) << 16) | (i2 << 24) | (((parseColor >> 8) & 255) << 8) | ((parseColor >> 16) & 255);
-            } catch (Exception e) {
-                if (com.baidu.swan.apps.b.DEBUG) {
-                    e.printStackTrace();
-                    return i;
-                }
-                return i;
-            }
-        }
-        return i;
-    }
-
-    private void aZy() {
-        setTextSize((float) this.enI.fontSize);
-    }
-
-    private void aZz() {
-        if (this.enI.hidden) {
-            setVisibility(8);
-        } else {
-            setVisibility(0);
-        }
-    }
-
-    private void Xt() {
-        Uri uri = getUri();
-        if (uri == null || o(uri)) {
-            aZD();
-            return;
-        }
-        try {
-            p(uri);
-        } catch (Exception e) {
-            if (com.baidu.swan.apps.b.DEBUG) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private Uri getUri() {
-        String aZL;
-        String str;
-        if (c.tl(this.mImage) == PathType.NETWORK) {
-            return Uri.parse(this.mImage);
-        }
-        if (c.tl(this.mImage) != PathType.RELATIVE || (aZL = c.aZL()) == null) {
-            return null;
-        }
-        if (this.mImage.startsWith(".")) {
-            this.mImage = this.mImage.substring(1);
-        }
-        if (this.mImage.startsWith("/")) {
-            str = aZL + this.mImage;
-        } else {
-            str = aZL + File.separator + this.mImage;
-        }
-        if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("ApiButton", "——> getUri: " + str);
-        }
-        return Uri.parse(str);
-    }
-
-    private void aZA() {
-        if (!TextUtils.isEmpty(this.enI.textAlign)) {
-            String str = this.enI.textAlign;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1364013995:
-                    if (str.equals("center")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3317767:
-                    if (str.equals("left")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 108511772:
-                    if (str.equals(HorizontalTranslateLayout.DIRECTION_RIGHT)) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    setTextAlignment(5);
-                    return;
-                case 1:
-                    setTextAlignment(6);
-                    return;
-                case 2:
-                    setTextAlignment(4);
-                    return;
-                default:
-                    setTextAlignment(5);
-                    return;
-            }
-        }
-    }
-
-    private void aZB() {
-        if (!TextUtils.isEmpty(this.enI.fontWeight)) {
-            TextPaint paint = getPaint();
-            paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            String str = this.enI.fontWeight;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1383482894:
-                    if (str.equals("bolder")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1039745817:
-                    if (str.equals("normal")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 48625:
-                    if (str.equals(StatisticData.ERROR_CODE_NOT_FOUND)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 49586:
-                    if (str.equals(BasicPushStatus.SUCCESS_CODE)) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 50547:
-                    if (str.equals(ABTestConstants.PREFETCH_REUSE_AGE_DEFAULT_VALUE)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 51508:
-                    if (str.equals("400")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 52469:
-                    if (str.equals("500")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 53430:
-                    if (str.equals("600")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 54391:
-                    if (str.equals("700")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case 55352:
-                    if (str.equals("800")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case 56313:
-                    if (str.equals("900")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case 3029637:
-                    if (str.equals("bold")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 170546243:
-                    if (str.equals("lighter")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    paint.setStrokeWidth(0.0f);
-                    return;
-                case 1:
-                    paint.setStrokeWidth(0.0f);
-                    return;
-                case 2:
-                    paint.setStrokeWidth(2.0f);
-                    return;
-                case 3:
-                    paint.setStrokeWidth(3.0f);
-                    return;
-                case 4:
-                    paint.setStrokeWidth(0.0f);
-                    return;
-                case 5:
-                    paint.setStrokeWidth(0.0f);
-                    return;
-                case 6:
-                    paint.setStrokeWidth(0.0f);
-                    return;
-                case 7:
-                    paint.setStrokeWidth(0.0f);
-                    return;
-                case '\b':
-                    paint.setStrokeWidth(1.0f);
-                    return;
-                case '\t':
-                    paint.setStrokeWidth(1.5f);
-                    return;
-                case '\n':
-                    paint.setStrokeWidth(2.0f);
-                    return;
-                case 11:
-                    paint.setStrokeWidth(2.5f);
-                    return;
-                case '\f':
-                    paint.setStrokeWidth(3.0f);
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    private void setBorderRadius(GradientDrawable gradientDrawable) {
-        if (this.enI.borderRadius != 0.0d) {
-            gradientDrawable.setCornerRadius(ah.T((float) this.enI.borderRadius));
-        }
-    }
-
-    private void setBorder(GradientDrawable gradientDrawable) {
-        int T = ah.T(this.enI.borderWidth);
-        if (T > 0) {
-            gradientDrawable.setStroke(T, a.lo(aj(this.enI.borderColor, 0)));
-        }
-    }
-
-    private void aZC() {
-        int T = ah.T(this.enI.borderWidth);
-        int T2 = ah.T(this.enI.lineHeight);
-        int textLineHeight = T2 > 0 ? ((T2 / 2) - (getTextLineHeight() / 2)) - getTextTopPadding() : 0;
-        int max = Math.max(0, T);
-        setPadding(max, Math.max(max, textLineHeight), max, max);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aZD() {
-        if (this.enI != null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(0);
-            setBorder(gradientDrawable);
-            setBorderRadius(gradientDrawable);
-            Drawable gradientDrawable2 = new GradientDrawable();
-            gradientDrawable.setColor(0);
-            if (this.mBitmap != null) {
-                gradientDrawable2 = new com.baidu.swan.apps.res.ui.c(this.mBitmap, ah.T((float) this.enI.borderRadius), 0, 0);
-            }
-            setBackgroundDrawable(new LayerDrawable(new Drawable[]{gradientDrawable2, gradientDrawable}));
-            aZE();
-        }
-    }
-
-    private void aZE() {
-        float min = Math.min(1.0f, Math.max(0.0f, (float) this.enI.opacity));
-        if (getBackground() != null) {
-            setAlpha(min);
-        }
-    }
-
-    private boolean o(Uri uri) {
-        if (this.mBitmap != null) {
-            return true;
-        }
-        if (this.mImage == null) {
-            return false;
-        }
-        this.mBitmap = s.b(uri, getContext());
-        if (this.mBitmap != null) {
-            this.mBitmap = s.c(this.mBitmap, this.mWidth, this.mHeight);
-        }
-        return this.mBitmap != null;
-    }
-
-    @UiThread
-    private void p(Uri uri) {
-        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> e = com.facebook.drawee.a.a.c.etH().e(ImageRequestBuilder.ag(uri).eAz(), getContext());
-        e.a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.swan.games.view.button.base.ApiButton.1
-            @Override // com.facebook.imagepipeline.d.b
-            public void f(@Nullable Bitmap bitmap) {
-                if (e.DEBUG) {
-                    Log.d("ApiButton", "——> onNewResultImpl: ");
-                }
-                if (e.isFinished()) {
-                    ApiButton.this.mBitmap = s.c(bitmap, ApiButton.this.mWidth, ApiButton.this.mHeight);
-                    ApiButton.this.aZD();
-                    e.apO();
-                }
-            }
-
-            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.b] */
-            @Override // com.facebook.datasource.a
-            public void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> bVar) {
-                if (e.DEBUG) {
-                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.etq().getMessage());
-                }
-                ApiButton.this.aZD();
-                if (bVar != null) {
-                    bVar.apO();
-                }
-            }
-        }, i.esN());
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(JSEvent jSEvent) {
-        if (this.enH != null) {
-            this.enH.dispatchEvent(jSEvent);
-        }
-    }
-
-    public boolean aZF() {
-        return TextUtils.equals(getType(), "text");
-    }
-
-    public boolean aZG() {
-        return !aZF();
     }
 
     private int getTextLineHeight() {
@@ -509,5 +105,435 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
 
     private int getTextTopPadding() {
         return getPaint().getFontMetricsInt().ascent - getPaint().getFontMetricsInt().top;
+    }
+
+    private Uri getUri() {
+        String b2;
+        String str;
+        if (c.a(this.f12882h) == PathType.NETWORK) {
+            return Uri.parse(this.f12882h);
+        }
+        if (c.a(this.f12882h) != PathType.RELATIVE || (b2 = c.b()) == null) {
+            return null;
+        }
+        if (this.f12882h.startsWith(".")) {
+            this.f12882h = this.f12882h.substring(1);
+        }
+        if (this.f12882h.startsWith("/")) {
+            str = b2 + this.f12882h;
+        } else {
+            str = b2 + File.separator + this.f12882h;
+        }
+        if (k.f45050a) {
+            Log.d("ApiButton", "——> getUri: " + str);
+        }
+        return Uri.parse(str);
+    }
+
+    private void setBorder(GradientDrawable gradientDrawable) {
+        int f2 = h0.f(this.j.borderWidth);
+        if (f2 > 0) {
+            gradientDrawable.setStroke(f2, d.b.g0.g.k0.f.a.a.c(n(this.j.borderColor, 0)));
+        }
+    }
+
+    private void setBorderRadius(GradientDrawable gradientDrawable) {
+        double d2 = this.j.borderRadius;
+        if (d2 != 0.0d) {
+            gradientDrawable.setCornerRadius(h0.f((float) d2));
+        }
+    }
+
+    private void setButtonBackground(GradientDrawable gradientDrawable) {
+        setBackgroundDrawable(new LayerDrawable(new Drawable[]{m(n(this.j.backgroundColor, 0)), gradientDrawable}));
+    }
+
+    public final void e() {
+        setTextSize((float) this.j.fontSize);
+    }
+
+    public final void f() {
+        if (this.j.hidden) {
+            setVisibility(8);
+        } else {
+            setVisibility(0);
+        }
+    }
+
+    public String getType() {
+        return this.f12880f;
+    }
+
+    public final void h() {
+        float min = Math.min(1.0f, Math.max(0.0f, (float) this.j.opacity));
+        if (getBackground() != null) {
+            setAlpha(min);
+        }
+    }
+
+    public void i() {
+        if (this.j == null || getParent() == null) {
+            return;
+        }
+        if (r()) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(0);
+            setBorder(gradientDrawable);
+            setBorderRadius(gradientDrawable);
+            setButtonBackground(gradientDrawable);
+            setText(this.f12881g);
+            e();
+            setTextColor(n(this.j.color, -16777216));
+            v();
+            j();
+            u();
+            h();
+        } else {
+            s();
+        }
+        f();
+    }
+
+    public final void j() {
+        if (TextUtils.isEmpty(this.j.textAlign)) {
+            return;
+        }
+        String str = this.j.textAlign;
+        char c2 = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1364013995) {
+            if (hashCode != 3317767) {
+                if (hashCode == 108511772 && str.equals("right")) {
+                    c2 = 1;
+                }
+            } else if (str.equals(CustomDialogData.POS_LEFT)) {
+                c2 = 0;
+            }
+        } else if (str.equals("center")) {
+            c2 = 2;
+        }
+        if (c2 == 0) {
+            setTextAlignment(5);
+        } else if (c2 == 1) {
+            setTextAlignment(6);
+        } else if (c2 != 2) {
+            setTextAlignment(5);
+        } else {
+            setTextAlignment(4);
+        }
+    }
+
+    public final void k() {
+        if (this.j == null) {
+            return;
+        }
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(0);
+        setBorder(gradientDrawable);
+        setBorderRadius(gradientDrawable);
+        Object gradientDrawable2 = new GradientDrawable();
+        gradientDrawable.setColor(0);
+        if (this.i != null) {
+            gradientDrawable2 = new d.b.g0.a.q1.a.c(this.i, h0.f((float) this.j.borderRadius), 0, 0);
+        }
+        setBackgroundDrawable(new LayerDrawable(new Drawable[]{gradientDrawable2, gradientDrawable}));
+        h();
+    }
+
+    public void l(JSEvent jSEvent) {
+        EventTargetImpl eventTargetImpl = this.f12879e;
+        if (eventTargetImpl != null) {
+            eventTargetImpl.dispatchEvent(jSEvent);
+        }
+    }
+
+    public final GradientDrawable m(int i) {
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(i);
+        int f2 = h0.f(this.j.borderWidth);
+        if (f2 > 0) {
+            gradientDrawable.setStroke(f2, d.b.g0.g.k0.f.a.a.c(i));
+        }
+        double d2 = this.j.borderRadius;
+        if (d2 != 0.0d) {
+            gradientDrawable.setCornerRadius(h0.f((float) d2));
+        }
+        return gradientDrawable;
+    }
+
+    public final int n(String str, int i) {
+        if (TextUtils.isEmpty(str)) {
+            return i;
+        }
+        if (Pattern.compile("^#([0-9a-fA-F]{8}|[0-9a-fA-F]{6})$").matcher(str).matches()) {
+            return Color.parseColor(str);
+        }
+        try {
+            int parseColor = Color.parseColor(h.b(str));
+            int i2 = parseColor >>> 24;
+            return ((parseColor & 255) << 16) | (i2 << 24) | (((parseColor >> 8) & 255) << 8) | ((parseColor >> 16) & 255);
+        } catch (Exception e2) {
+            if (k.f45050a) {
+                e2.printStackTrace();
+                return i;
+            }
+            return i;
+        }
+    }
+
+    public void o() {
+        d.b.g0.g.k0.f.a.a aVar = this.j;
+        if (aVar != null) {
+            aVar.hidden = true;
+        }
+        setVisibility(8);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        if (k.f45050a) {
+            Log.d("ApiButton", "onSizeChanged mWidth=" + this.k + ";mHeight" + this.l);
+        }
+        this.k = i;
+        this.l = i2;
+        this.i = null;
+        i();
+    }
+
+    public boolean p() {
+        return !r();
+    }
+
+    public final boolean q(Uri uri) {
+        if (this.i != null) {
+            return true;
+        }
+        if (this.f12882h == null) {
+            return false;
+        }
+        Bitmap c2 = s.c(uri, getContext());
+        this.i = c2;
+        if (c2 != null) {
+            this.i = s.g(c2, this.k, this.l);
+        }
+        return this.i != null;
+    }
+
+    public boolean r() {
+        return TextUtils.equals(getType(), "text");
+    }
+
+    public final void s() {
+        Uri uri = getUri();
+        if (uri != null && !q(uri)) {
+            try {
+                x(uri);
+                return;
+            } catch (Exception e2) {
+                if (k.f45050a) {
+                    e2.printStackTrace();
+                    return;
+                }
+                return;
+            }
+        }
+        k();
+    }
+
+    public void setApiButtonStyle(d.b.g0.g.k0.f.a.a aVar) {
+        this.j = aVar;
+    }
+
+    public void setButtonText(String str) {
+        if (TextUtils.equals(str, this.f12881g)) {
+            return;
+        }
+        this.f12881g = str;
+        if (!r() || getParent() == null) {
+            return;
+        }
+        setText(this.f12881g);
+        requestLayout();
+    }
+
+    public void setImageUrl(String str) {
+        if (TextUtils.equals(str, this.f12882h)) {
+            return;
+        }
+        this.f12882h = str;
+        this.i = null;
+        if (!p() || getParent() == null) {
+            return;
+        }
+        s();
+    }
+
+    public void setType(String str) {
+        this.f12880f = str;
+    }
+
+    public final void u() {
+        int f2 = h0.f(this.j.borderWidth);
+        int f3 = h0.f(this.j.lineHeight);
+        int textLineHeight = f3 > 0 ? ((f3 / 2) - (getTextLineHeight() / 2)) - getTextTopPadding() : 0;
+        int max = Math.max(0, f2);
+        setPadding(max, Math.max(max, textLineHeight), max, max);
+    }
+
+    public final void v() {
+        if (TextUtils.isEmpty(this.j.fontWeight)) {
+            return;
+        }
+        TextPaint paint = getPaint();
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        String str = this.j.fontWeight;
+        char c2 = 65535;
+        switch (str.hashCode()) {
+            case -1383482894:
+                if (str.equals("bolder")) {
+                    c2 = 3;
+                    break;
+                }
+                break;
+            case -1039745817:
+                if (str.equals("normal")) {
+                    c2 = 1;
+                    break;
+                }
+                break;
+            case 48625:
+                if (str.equals("100")) {
+                    c2 = 4;
+                    break;
+                }
+                break;
+            case 49586:
+                if (str.equals(BasicPushStatus.SUCCESS_CODE)) {
+                    c2 = 5;
+                    break;
+                }
+                break;
+            case 50547:
+                if (str.equals("300")) {
+                    c2 = 6;
+                    break;
+                }
+                break;
+            case 51508:
+                if (str.equals(FontParser.sFontWeightDefault)) {
+                    c2 = 7;
+                    break;
+                }
+                break;
+            case 52469:
+                if (str.equals("500")) {
+                    c2 = '\b';
+                    break;
+                }
+                break;
+            case 53430:
+                if (str.equals("600")) {
+                    c2 = '\t';
+                    break;
+                }
+                break;
+            case 54391:
+                if (str.equals("700")) {
+                    c2 = '\n';
+                    break;
+                }
+                break;
+            case 55352:
+                if (str.equals("800")) {
+                    c2 = 11;
+                    break;
+                }
+                break;
+            case 56313:
+                if (str.equals("900")) {
+                    c2 = '\f';
+                    break;
+                }
+                break;
+            case 3029637:
+                if (str.equals("bold")) {
+                    c2 = 2;
+                    break;
+                }
+                break;
+            case 170546243:
+                if (str.equals("lighter")) {
+                    c2 = 0;
+                    break;
+                }
+                break;
+        }
+        switch (c2) {
+            case 0:
+                paint.setStrokeWidth(0.0f);
+                return;
+            case 1:
+                paint.setStrokeWidth(0.0f);
+                return;
+            case 2:
+                paint.setStrokeWidth(2.0f);
+                return;
+            case 3:
+                paint.setStrokeWidth(3.0f);
+                return;
+            case 4:
+                paint.setStrokeWidth(0.0f);
+                return;
+            case 5:
+                paint.setStrokeWidth(0.0f);
+                return;
+            case 6:
+                paint.setStrokeWidth(0.0f);
+                return;
+            case 7:
+                paint.setStrokeWidth(0.0f);
+                return;
+            case '\b':
+                paint.setStrokeWidth(1.0f);
+                return;
+            case '\t':
+                paint.setStrokeWidth(1.5f);
+                return;
+            case '\n':
+                paint.setStrokeWidth(2.0f);
+                return;
+            case 11:
+                paint.setStrokeWidth(2.5f);
+                return;
+            case '\f':
+                paint.setStrokeWidth(3.0f);
+                return;
+            default:
+                return;
+        }
+    }
+
+    public void w() {
+        d.b.g0.g.k0.f.a.a aVar = this.j;
+        if (aVar != null) {
+            aVar.hidden = false;
+        }
+        setVisibility(0);
+    }
+
+    @UiThread
+    public final void x(Uri uri) {
+        DataSource<CloseableReference<CloseableImage>> fetchDecodedImage = Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(uri).build(), getContext());
+        fetchDecodedImage.subscribe(new a(fetchDecodedImage), UiThreadImmediateExecutorService.getInstance());
+    }
+
+    public ApiButton(Context context) {
+        super(context);
+        this.f12880f = "text";
     }
 }

@@ -3,31 +3,34 @@ package com.yxcorp.kuaishou.addfp.a.b.j;
 import android.content.Context;
 import android.os.IBinder;
 import android.os.IInterface;
-/* loaded from: classes3.dex */
-public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
+/* loaded from: classes7.dex */
+public final class g implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f8619a;
-    private com.yxcorp.kuaishou.addfp.a.a.a b;
+    public Context f41108a;
 
-    public g(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f8619a = context;
-        this.b = aVar;
+    /* renamed from: b  reason: collision with root package name */
+    public d.q.a.a.a.a.a f41109b;
+
+    public g(Context context, d.q.a.a.a.a.a aVar) {
+        this.f41108a = context;
+        this.f41109b = aVar;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
-        if (this.b != null) {
-            this.b.a(d.eJo().c(), this);
+        d.q.a.a.a.a.a aVar = this.f41109b;
+        if (aVar != null) {
+            aVar.a(d.q.a.a.a.b.k.a.f().h(), this);
         }
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
-    public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        d.eJo().a(this.f8619a, this);
+    @Override // d.q.a.a.a.b.b
+    public final void a(d.q.a.a.a.a.a aVar) {
+        d.q.a.a.a.b.k.a.f().d(this.f41108a, this);
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final boolean a() {
         return false;
     }
@@ -37,27 +40,27 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         return null;
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final String b() {
         String a2;
-        return (d.eJo().c() && (a2 = d.eJo().a()) != null) ? a2 : "";
+        return (d.q.a.a.a.b.k.a.f().h() && (a2 = d.q.a.a.a.b.k.a.f().a()) != null) ? a2 : "";
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final boolean c() {
-        return d.eJo().c();
+        return d.q.a.a.a.b.k.a.f().h();
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final void d() {
-        d.eJo().a(this.f8619a);
+        d.q.a.a.a.b.k.a.f().c(this.f41108a);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.b != null) {
-            com.yxcorp.kuaishou.addfp.android.b.b.b("failed here");
-            this.b.a(false, this);
+        if (this.f41109b != null) {
+            d.q.a.a.c.b.b.e("failed here");
+            this.f41109b.a(false, this);
         }
     }
 }

@@ -1,13 +1,11 @@
 package com.google.zxing.datamatrix.encoder;
 
-import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Base256Encoder implements Encoder {
-    @Override // com.google.zxing.datamatrix.encoder.Encoder
-    public int getEncodingMode() {
-        return 5;
+    public static char randomize255State(char c2, int i) {
+        int i2 = c2 + ((i * Opcodes.FCMPL) % 255) + 1;
+        return i2 <= 255 ? (char) i2 : (char) (i2 - 256);
     }
 
     @Override // com.google.zxing.datamatrix.encoder.Encoder
@@ -46,8 +44,8 @@ public final class Base256Encoder implements Encoder {
         }
     }
 
-    private static char randomize255State(char c, int i) {
-        int i2 = ((i * Opcodes.FCMPL) % 255) + 1 + c;
-        return i2 <= 255 ? (char) i2 : (char) (i2 + InputDeviceCompat.SOURCE_ANY);
+    @Override // com.google.zxing.datamatrix.encoder.Encoder
+    public int getEncodingMode() {
+        return 5;
     }
 }

@@ -1,11 +1,10 @@
 package org.webrtc;
 
-import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class RTCStatsReport {
-    private final Map<String, RTCStats> stats;
-    private final long timestampUs;
+    public final Map<String, RTCStats> stats;
+    public final long timestampUs;
 
     public RTCStatsReport(long j, Map<String, RTCStats> map) {
         this.timestampUs = j;
@@ -13,7 +12,7 @@ public class RTCStatsReport {
     }
 
     @CalledByNative
-    private static RTCStatsReport create(long j, Map map) {
+    public static RTCStatsReport create(long j, Map map) {
         return new RTCStatsReport(j, map);
     }
 
@@ -30,20 +29,15 @@ public class RTCStatsReport {
         sb.append("{ timestampUs: ");
         sb.append(this.timestampUs);
         sb.append(", stats: [\n");
-        Iterator<RTCStats> it = this.stats.values().iterator();
         boolean z = true;
-        while (true) {
-            boolean z2 = z;
-            if (!it.hasNext()) {
-                sb.append(" ] }");
-                return sb.toString();
-            }
-            RTCStats next = it.next();
-            if (!z2) {
+        for (RTCStats rTCStats : this.stats.values()) {
+            if (!z) {
                 sb.append(",\n");
             }
-            sb.append(next);
+            sb.append(rTCStats);
             z = false;
         }
+        sb.append(" ] }");
+        return sb.toString();
     }
 }

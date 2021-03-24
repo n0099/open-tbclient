@@ -1,5 +1,5 @@
 package com.baidu.searchbox.http;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface IHttpDns {
     boolean getHttpDnsEnable();
 

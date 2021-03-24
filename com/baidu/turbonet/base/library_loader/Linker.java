@@ -3,37 +3,16 @@ package com.baidu.turbonet.base.library_loader;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
-import com.baidu.turbonet.base.a;
 import com.baidu.turbonet.base.annotations.AccessedByNative;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public abstract class Linker {
-    private static Linker oRE = null;
-    private static Object oRF = new Object();
-    protected int oRC = 0;
-    protected final Object mLock = new Object();
-    private String oRD = null;
-
-    private static native long nativeGetRandomBaseLoadAddress();
+    public static native long nativeGetRandomBaseLoadAddress();
 
     /* loaded from: classes5.dex */
     public static class LibInfo implements Parcelable {
-        public static final Parcelable.Creator<LibInfo> CREATOR = new Parcelable.Creator<LibInfo>() { // from class: com.baidu.turbonet.base.library_loader.Linker.LibInfo.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            /* renamed from: aj */
-            public LibInfo createFromParcel(Parcel parcel) {
-                return new LibInfo(parcel);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            /* renamed from: MQ */
-            public LibInfo[] newArray(int i) {
-                return new LibInfo[i];
-            }
-        };
+        public static final Parcelable.Creator<LibInfo> CREATOR = new a();
         @AccessedByNative
         public long mLoadAddress;
         @AccessedByNative
@@ -45,6 +24,23 @@ public abstract class Linker {
         @AccessedByNative
         public long mRelroStart;
 
+        /* loaded from: classes5.dex */
+        public static class a implements Parcelable.Creator<LibInfo> {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            /* renamed from: a */
+            public LibInfo createFromParcel(Parcel parcel) {
+                return new LibInfo(parcel);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            /* renamed from: b */
+            public LibInfo[] newArray(int i) {
+                return new LibInfo[i];
+            }
+        }
+
         public LibInfo() {
             this.mLoadAddress = 0L;
             this.mLoadSize = 0L;
@@ -53,13 +49,13 @@ public abstract class Linker {
             this.mRelroFd = -1;
         }
 
-        public LibInfo(Parcel parcel) {
-            this.mLoadAddress = parcel.readLong();
-            this.mLoadSize = parcel.readLong();
-            this.mRelroStart = parcel.readLong();
-            this.mRelroSize = parcel.readLong();
-            ParcelFileDescriptor parcelFileDescriptor = (ParcelFileDescriptor) ParcelFileDescriptor.CREATOR.createFromParcel(parcel);
-            this.mRelroFd = parcelFileDescriptor == null ? -1 : parcelFileDescriptor.detachFd();
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            return 1;
+        }
+
+        public String toString() {
+            return String.format(Locale.US, "[load=0x%x-0x%x relro=0x%x-0x%x fd=%d]", Long.valueOf(this.mLoadAddress), Long.valueOf(this.mLoadAddress + this.mLoadSize), Long.valueOf(this.mRelroStart), Long.valueOf(this.mRelroStart + this.mRelroSize), Integer.valueOf(this.mRelroFd));
         }
 
         @Override // android.os.Parcelable
@@ -73,19 +69,19 @@ public abstract class Linker {
                     ParcelFileDescriptor fromFd = ParcelFileDescriptor.fromFd(this.mRelroFd);
                     fromFd.writeToParcel(parcel, 0);
                     fromFd.close();
-                } catch (IOException e) {
-                    a.e("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
+                } catch (IOException e2) {
+                    d.b.j0.a.a.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e2);
                 }
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            return 1;
-        }
-
-        public String toString() {
-            return String.format(Locale.US, "[load=0x%x-0x%x relro=0x%x-0x%x fd=%d]", Long.valueOf(this.mLoadAddress), Long.valueOf(this.mLoadAddress + this.mLoadSize), Long.valueOf(this.mRelroStart), Long.valueOf(this.mRelroStart + this.mRelroSize), Integer.valueOf(this.mRelroFd));
+        public LibInfo(Parcel parcel) {
+            this.mLoadAddress = parcel.readLong();
+            this.mLoadSize = parcel.readLong();
+            this.mRelroStart = parcel.readLong();
+            this.mRelroSize = parcel.readLong();
+            ParcelFileDescriptor parcelFileDescriptor = (ParcelFileDescriptor) ParcelFileDescriptor.CREATOR.createFromParcel(parcel);
+            this.mRelroFd = parcelFileDescriptor == null ? -1 : parcelFileDescriptor.detachFd();
         }
     }
 }

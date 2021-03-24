@@ -5,11 +5,11 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class TagTextHelper {
 
-    /* loaded from: classes.dex */
-    private enum HotTopicTag {
+    /* loaded from: classes3.dex */
+    public enum HotTopicTag {
         NEW(R.string.tag_str_new, R.color.CAM_X0305),
         HOT(R.string.tag_str_hot, R.color.CAM_X0301),
         REC(R.string.tag_str_rec, R.color.CAM_X0302),
@@ -17,55 +17,60 @@ public final class TagTextHelper {
         FEI(R.string.tag_str_fei, R.color.CAM_X0317);
         
         @ColorRes
-        int tagColorRes;
+        public int tagColorRes;
         @StringRes
-        int tagStrRes;
+        public int tagStrRes;
 
         HotTopicTag(@StringRes int i, @ColorRes int i2) {
             this.tagStrRes = i;
             this.tagColorRes = i2;
         }
 
-        static HotTopicTag getHotTopicTag(int i) {
-            switch (i) {
-                case 1:
-                    return NEW;
-                case 2:
-                    return HOT;
-                case 3:
+        public static HotTopicTag getHotTopicTag(int i) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                return null;
+                            }
+                            return FEI;
+                        }
+                        return BAO;
+                    }
                     return REC;
-                case 4:
-                    return BAO;
-                case 5:
-                    return FEI;
-                default:
-                    return null;
+                }
+                return HOT;
             }
+            return NEW;
         }
     }
 
-    public static String D(@NonNull Context context, int i) {
+    @ColorRes
+    public static int getHotTopicTagColorRes(int i) {
+        HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
+        if (hotTopicTag != null) {
+            return hotTopicTag.tagColorRes;
+        }
+        return R.color.transparent;
+    }
+
+    public static String getHotTopicTagStr(@NonNull Context context, int i) {
         HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
         return hotTopicTag != null ? context.getString(hotTopicTag.tagStrRes) : "";
     }
 
     @ColorRes
-    public static int oJ(int i) {
-        HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
-        return hotTopicTag != null ? hotTopicTag.tagColorRes : R.color.transparent;
-    }
-
-    @ColorRes
-    public static int oK(int i) {
-        switch (i) {
-            case 1:
-                return R.color.CAM_X0301;
-            case 2:
-                return R.color.CAM_X0305;
-            case 3:
+    public static int getIndexTextColorRes(int i) {
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    return R.color.CAM_X0110;
+                }
                 return R.color.CAM_X0312;
-            default:
-                return R.color.CAM_X0110;
+            }
+            return R.color.CAM_X0305;
         }
+        return R.color.CAM_X0301;
     }
 }

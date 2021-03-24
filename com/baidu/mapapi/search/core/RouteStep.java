@@ -5,27 +5,30 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RouteStep implements Parcelable {
     public static final Parcelable.Creator<RouteStep> CREATOR = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2103a;
-    int b;
-    String c;
-    protected List<LatLng> mWayPoints;
+    public int f7162a;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: b  reason: collision with root package name */
+    public int f7163b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f7164c;
+    public List<LatLng> mWayPoints;
+
     public RouteStep() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public RouteStep(Parcel parcel) {
-        this.f2103a = parcel.readInt();
-        this.b = parcel.readInt();
-        this.c = parcel.readString();
-        this.mWayPoints = new ArrayList();
-        parcel.readList(this.mWayPoints, LatLng.class.getClassLoader());
+        this.f7162a = parcel.readInt();
+        this.f7163b = parcel.readInt();
+        this.f7164c = parcel.readString();
+        ArrayList arrayList = new ArrayList();
+        this.mWayPoints = arrayList;
+        parcel.readList(arrayList, LatLng.class.getClassLoader());
         if (this.mWayPoints.size() == 0) {
             this.mWayPoints = null;
         }
@@ -37,15 +40,15 @@ public class RouteStep implements Parcelable {
     }
 
     public int getDistance() {
-        return this.f2103a;
+        return this.f7162a;
     }
 
     public int getDuration() {
-        return this.b;
+        return this.f7163b;
     }
 
     public String getName() {
-        return this.c;
+        return this.f7164c;
     }
 
     public List<LatLng> getWayPoints() {
@@ -53,15 +56,15 @@ public class RouteStep implements Parcelable {
     }
 
     public void setDistance(int i) {
-        this.f2103a = i;
+        this.f7162a = i;
     }
 
     public void setDuration(int i) {
-        this.b = i;
+        this.f7163b = i;
     }
 
     public void setName(String str) {
-        this.c = str;
+        this.f7164c = str;
     }
 
     public void setWayPoints(List<LatLng> list) {
@@ -70,9 +73,9 @@ public class RouteStep implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2103a);
-        parcel.writeInt(this.b);
-        parcel.writeString(this.c);
+        parcel.writeInt(this.f7162a);
+        parcel.writeInt(this.f7163b);
+        parcel.writeString(this.f7164c);
         parcel.writeList(this.mWayPoints);
     }
 }

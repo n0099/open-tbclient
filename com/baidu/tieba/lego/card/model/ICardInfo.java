@@ -1,10 +1,10 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.n;
+import d.b.b.j.e.n;
 import java.io.Serializable;
-/* loaded from: classes.dex */
-public interface ICardInfo extends n, Serializable {
+/* loaded from: classes4.dex */
+public interface ICardInfo extends Serializable, n {
     int getAdapterCount();
 
     ICardInfo getAdapterItem(int i);
@@ -16,6 +16,8 @@ public interface ICardInfo extends n, Serializable {
     String getFlipId();
 
     double getRatio();
+
+    /* synthetic */ BdUniqueId getType();
 
     ICardInfo getUpdateCard();
 

@@ -2,7 +2,7 @@ package com.baidu.mario.audio;
 
 import com.baidu.searchbox.v8engine.NotProguard;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class AudioParams {
     public static final int DEFAULT_AUDIO_BUFFER_SIZE = 32768;
     public static final int DEFAULT_AUDIO_FORMAT = 2;
@@ -12,69 +12,13 @@ public class AudioParams {
     public static final int DEFAULT_FRAME_SIZE = 1024;
     public static final int DEFAULT_SAMPLE_RATE = 16000;
     public static final int SAMPLES_PER_FRAME = 1024;
-    private int mAudioSource = 1;
-    private int mSampleRate = 16000;
-    private int mChannelConfig = 16;
-    private int mAudioFormat = 2;
-    private int mFrameSize = 1024;
-    private int mFrameBufferCount = 32;
-    private int mAudioBufferSize = 32768;
-
-    public int getAudioSource() {
-        return this.mAudioSource;
-    }
-
-    public void setAudioSource(int i) {
-        this.mAudioSource = i;
-    }
-
-    public int getSampleRate() {
-        return this.mSampleRate;
-    }
-
-    public void setSampleRate(int i) {
-        this.mSampleRate = i;
-    }
-
-    public int getChannelConfig() {
-        return this.mChannelConfig;
-    }
-
-    public void setChannelConfig(int i) {
-        this.mChannelConfig = i;
-    }
-
-    public int getAudioFormat() {
-        return this.mAudioFormat;
-    }
-
-    public void setAudioFormat(int i) {
-        this.mAudioFormat = i;
-    }
-
-    public int getFrameSize() {
-        return this.mFrameSize;
-    }
-
-    public void setFrameSize(int i) {
-        this.mFrameSize = i;
-    }
-
-    public int getFrameBufferCount() {
-        return this.mFrameBufferCount;
-    }
-
-    public void setFrameBufferCount(int i) {
-        this.mFrameBufferCount = i;
-    }
-
-    public int getAudioBufferSize() {
-        return this.mAudioBufferSize;
-    }
-
-    public void setAudioBufferSize(int i) {
-        this.mAudioBufferSize = i;
-    }
+    public int mAudioSource = 1;
+    public int mSampleRate = 16000;
+    public int mChannelConfig = 16;
+    public int mAudioFormat = 2;
+    public int mFrameSize = 1024;
+    public int mFrameBufferCount = 32;
+    public int mAudioBufferSize = 32768;
 
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -87,7 +31,63 @@ public class AudioParams {
         return false;
     }
 
+    public int getAudioBufferSize() {
+        return this.mAudioBufferSize;
+    }
+
+    public int getAudioFormat() {
+        return this.mAudioFormat;
+    }
+
+    public int getAudioSource() {
+        return this.mAudioSource;
+    }
+
+    public int getChannelConfig() {
+        return this.mChannelConfig;
+    }
+
+    public int getFrameBufferCount() {
+        return this.mFrameBufferCount;
+    }
+
+    public int getFrameSize() {
+        return this.mFrameSize;
+    }
+
+    public int getSampleRate() {
+        return this.mSampleRate;
+    }
+
     public int hashCode() {
         return ((((((((this.mAudioSource + 31) * 31) + this.mSampleRate) * 31) + this.mChannelConfig) * 31) + this.mAudioFormat) * 31) + this.mFrameSize;
+    }
+
+    public void setAudioBufferSize(int i) {
+        this.mAudioBufferSize = i;
+    }
+
+    public void setAudioFormat(int i) {
+        this.mAudioFormat = i;
+    }
+
+    public void setAudioSource(int i) {
+        this.mAudioSource = i;
+    }
+
+    public void setChannelConfig(int i) {
+        this.mChannelConfig = i;
+    }
+
+    public void setFrameBufferCount(int i) {
+        this.mFrameBufferCount = i;
+    }
+
+    public void setFrameSize(int i) {
+        this.mFrameSize = i;
+    }
+
+    public void setSampleRate(int i) {
+        this.mSampleRate = i;
     }
 }

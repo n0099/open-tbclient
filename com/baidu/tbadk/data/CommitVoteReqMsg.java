@@ -2,7 +2,8 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+/* loaded from: classes3.dex */
 public class CommitVoteReqMsg extends HttpMessage {
     public long candidate_uid;
     public long forum_id;
@@ -21,6 +22,6 @@ public class CommitVoteReqMsg extends HttpMessage {
         addParam("source", i);
         addHeader("needSig", "1");
         addParam("check_new_sig", "1");
-        addParam("subapp_type", "tieba");
+        addParam(HttpRequest.SUBAPP_TYPE, "tieba");
     }
 }

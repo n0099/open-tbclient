@@ -9,26 +9,26 @@ import android.media.projection.MediaProjectionManager;
 import android.view.Surface;
 import javax.annotation.Nullable;
 @TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
-    private static final int DISPLAY_FLAGS = 3;
-    private static final int VIRTUAL_DISPLAY_DPI = 400;
+    public static final int DISPLAY_FLAGS = 3;
+    public static final int VIRTUAL_DISPLAY_DPI = 400;
     @Nullable
-    private CapturerObserver capturerObserver;
-    private int height;
-    private boolean isDisposed;
+    public CapturerObserver capturerObserver;
+    public int height;
+    public boolean isDisposed;
     @Nullable
-    private MediaProjection mediaProjection;
-    private final MediaProjection.Callback mediaProjectionCallback;
+    public MediaProjection mediaProjection;
+    public final MediaProjection.Callback mediaProjectionCallback;
     @Nullable
-    private MediaProjectionManager mediaProjectionManager;
-    private final Intent mediaProjectionPermissionResultData;
-    private long numCapturedFrames;
+    public MediaProjectionManager mediaProjectionManager;
+    public final Intent mediaProjectionPermissionResultData;
+    public long numCapturedFrames;
     @Nullable
-    private SurfaceTextureHelper surfaceTextureHelper;
+    public SurfaceTextureHelper surfaceTextureHelper;
     @Nullable
-    private VirtualDisplay virtualDisplay;
-    private int width;
+    public VirtualDisplay virtualDisplay;
+    public int width;
 
     public ScreenCapturerAndroid(Intent intent, MediaProjection.Callback callback) {
         this.mediaProjectionPermissionResultData = intent;
@@ -110,8 +110,9 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
             checkNotDisposed();
             this.width = i;
             this.height = i2;
-            this.mediaProjection = this.mediaProjectionManager.getMediaProjection(-1, this.mediaProjectionPermissionResultData);
-            this.mediaProjection.registerCallback(this.mediaProjectionCallback, this.surfaceTextureHelper.getHandler());
+            MediaProjection mediaProjection = this.mediaProjectionManager.getMediaProjection(-1, this.mediaProjectionPermissionResultData);
+            this.mediaProjection = mediaProjection;
+            mediaProjection.registerCallback(this.mediaProjectionCallback, this.surfaceTextureHelper.getHandler());
             createVirtualDisplay();
             this.capturerObserver.onCapturerStarted(true);
             this.surfaceTextureHelper.startListening(this);

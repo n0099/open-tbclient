@@ -2,19 +2,20 @@ package com.baidu.tieba.homepage.topic.topictab.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.homepage.topic.topictab.b.a;
-import com.baidu.tieba.homepage.topic.topictab.b.c;
 import com.squareup.wire.Wire;
+import d.b.b.j.e.n;
+import d.b.i0.z0.j.b.c.a;
+import d.b.i0.z0.j.b.c.c;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.NewTopicList.DataRes;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
-    private List<n> mTopicDataList;
+    public List<n> mTopicDataList;
 
     public ResponseSocketGetTopicListMessage() {
         super(309628);
@@ -25,30 +26,34 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
         NewTopicListResIdl newTopicListResIdl = (NewTopicListResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicListResIdl.class);
-        if (newTopicListResIdl != null) {
-            setError(newTopicListResIdl.error.errorno.intValue());
-            setErrorString(newTopicListResIdl.error.usermsg);
-            if (getError() == 0 && newTopicListResIdl.data != null && !y.isEmpty(newTopicListResIdl.data.topic_list)) {
-                this.mTopicDataList = new ArrayList();
-                int i2 = 1;
-                for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
-                    if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                        a aVar = new a();
-                        aVar.index = i2;
-                        aVar.a(newTopicList);
-                        this.mTopicDataList.add(aVar);
-                        c cVar = new c();
-                        cVar.iOh = R.dimen.tbds1;
-                        cVar.eXW = R.color.CAM_X0203;
-                        this.mTopicDataList.add(cVar);
-                        i2++;
-                    }
-                }
-                ((c) y.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).iOh = 0;
+        if (newTopicListResIdl == null) {
+            return;
+        }
+        setError(newTopicListResIdl.error.errorno.intValue());
+        setErrorString(newTopicListResIdl.error.usermsg);
+        if (getError() != 0 || (dataRes = newTopicListResIdl.data) == null || ListUtils.isEmpty(dataRes.topic_list)) {
+            return;
+        }
+        this.mTopicDataList = new ArrayList();
+        int i2 = 1;
+        for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
+            if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
+                a aVar = new a();
+                aVar.S = i2;
+                aVar.a0(newTopicList);
+                this.mTopicDataList.add(aVar);
+                c cVar = new c();
+                cVar.f63366e = R.dimen.tbds1;
+                cVar.f63367f = R.color.CAM_X0203;
+                this.mTopicDataList.add(cVar);
+                i2++;
             }
         }
+        List<n> list = this.mTopicDataList;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f63366e = 0;
     }
 }

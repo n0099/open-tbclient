@@ -1,9 +1,26 @@
 package com.googlecode.mp4parser.h264;
 
 import java.nio.ShortBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Debug {
     public static final boolean debug = false;
+
+    public static void print(int i) {
+    }
+
+    public static void print(String str) {
+    }
+
+    public static void print(short[] sArr) {
+        int i = 0;
+        for (int i2 = 0; i2 < 8; i2++) {
+            for (int i3 = 0; i3 < 8; i3++) {
+                System.out.printf("%3d, ", Short.valueOf(sArr[i]));
+                i++;
+            }
+            System.out.println();
+        }
+    }
 
     public static final void print8x8(int[] iArr) {
         int i = 0;
@@ -14,6 +31,12 @@ public class Debug {
             }
             System.out.println();
         }
+    }
+
+    public static void println(String str) {
+    }
+
+    public static void trace(String str, Object... objArr) {
     }
 
     public static final void print8x8(short[] sArr) {
@@ -34,28 +57,5 @@ public class Debug {
             }
             System.out.println();
         }
-    }
-
-    public static void print(short[] sArr) {
-        int i = 0;
-        for (int i2 = 0; i2 < 8; i2++) {
-            for (int i3 = 0; i3 < 8; i3++) {
-                System.out.printf("%3d, ", Short.valueOf(sArr[i]));
-                i++;
-            }
-            System.out.println();
-        }
-    }
-
-    public static void trace(String str, Object... objArr) {
-    }
-
-    public static void print(int i) {
-    }
-
-    public static void print(String str) {
-    }
-
-    public static void println(String str) {
     }
 }

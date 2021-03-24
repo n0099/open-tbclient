@@ -4,7 +4,7 @@ import java.util.Collection;
 import org.apache.http.params.HttpAbstractParamBean;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CookieSpecParamBean extends HttpAbstractParamBean {
     public CookieSpecParamBean(HttpParams httpParams) {
         super(null);

@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.core.network.d {
-    com.kwad.sdk.core.g.a.f b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public com.kwad.sdk.core.g.a.f f33628b;
+
     public a(com.kwad.sdk.core.g.a.f fVar, com.kwad.sdk.core.g.a.l lVar) {
         this(fVar, null, false, lVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public a(com.kwad.sdk.core.g.a.f fVar, @Nullable List<String> list, boolean z, com.kwad.sdk.core.g.a.l lVar) {
         DevelopMangerPlugin.DevelopValue a2;
-        this.b = fVar;
+        this.f33628b = fVar;
         JSONArray jSONArray = new JSONArray();
         com.kwad.sdk.utils.o.a(jSONArray, fVar.toJson());
         a("impInfo", jSONArray);

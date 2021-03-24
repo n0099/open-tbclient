@@ -3,6 +3,7 @@ package com.alibaba.fastjson.parser;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import java.io.Closeable;
@@ -16,65 +17,29 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+import kotlin.text.Typography;
+/* loaded from: classes.dex */
 public abstract class JSONLexerBase implements JSONLexer, Closeable {
-    protected static final int INT_MULTMIN_RADIX_TEN = -214748364;
-    protected static final long MULTMIN_RADIX_TEN = -922337203685477580L;
-    protected int bp;
-    protected char ch;
-    protected int eofPos;
-    protected int features;
-    protected boolean hasSpecial;
-    protected int np;
-    protected int pos;
-    protected char[] sbuf;
-    protected int sp;
-    protected String stringDefaultValue;
-    protected int token;
-    private static final ThreadLocal<char[]> SBUF_LOCAL = new ThreadLocal<>();
-    protected static final char[] typeFieldName = ("\"" + JSON.DEFAULT_TYPE_KEY + "\":\"").toCharArray();
-    protected static final int[] digits = new int[103];
-    protected Calendar calendar = null;
-    protected TimeZone timeZone = JSON.defaultTimeZone;
-    protected Locale locale = JSON.defaultLocale;
+    public static final int INT_MULTMIN_RADIX_TEN = -214748364;
+    public static final long MULTMIN_RADIX_TEN = -922337203685477580L;
+    public int bp;
+    public char ch;
+    public int eofPos;
+    public int features;
+    public boolean hasSpecial;
+    public int np;
+    public int pos;
+    public char[] sbuf;
+    public int sp;
+    public String stringDefaultValue;
+    public int token;
+    public static final ThreadLocal<char[]> SBUF_LOCAL = new ThreadLocal<>();
+    public static final char[] typeFieldName = ("\"" + JSON.DEFAULT_TYPE_KEY + "\":\"").toCharArray();
+    public static final int[] digits = new int[103];
+    public Calendar calendar = null;
+    public TimeZone timeZone = JSON.defaultTimeZone;
+    public Locale locale = JSON.defaultLocale;
     public int matchStat = 0;
-
-    public abstract String addSymbol(int i, int i2, int i3, SymbolTable symbolTable);
-
-    protected abstract void arrayCopy(int i, char[] cArr, int i2, int i3);
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public abstract byte[] bytesValue();
-
-    protected abstract boolean charArrayCompare(char[] cArr);
-
-    public abstract char charAt(int i);
-
-    protected abstract void copyTo(int i, int i2, char[] cArr);
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public abstract BigDecimal decimalValue();
-
-    public abstract int indexOf(char c, int i);
-
-    public abstract boolean isEOF();
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public abstract char next();
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public abstract String numberString();
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public abstract String stringVal();
-
-    public abstract String subString(int i, int i2);
-
-    protected abstract char[] sub_chars(int i, int i2);
-
-    protected void lexError(String str, Object... objArr) {
-        this.token = 1;
-    }
 
     static {
         for (int i = 48; i <= 57; i++) {
@@ -91,21 +56,630 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     public JSONLexerBase(int i) {
         this.stringDefaultValue = null;
         this.features = i;
-        if ((Feature.InitStringFieldAsEmpty.mask & i) != 0) {
+        if ((i & Feature.InitStringFieldAsEmpty.mask) != 0) {
             this.stringDefaultValue = "";
         }
-        this.sbuf = SBUF_LOCAL.get();
-        if (this.sbuf == null) {
+        char[] cArr = SBUF_LOCAL.get();
+        this.sbuf = cArr;
+        if (cArr == null) {
             this.sbuf = new char[512];
         }
+    }
+
+    public static boolean isWhitespace(char c2) {
+        return c2 <= ' ' && (c2 == ' ' || c2 == '\n' || c2 == '\r' || c2 == '\t' || c2 == '\f' || c2 == '\b');
+    }
+
+    public static String readString(char[] cArr, int i) {
+        int i2;
+        char[] cArr2 = new char[i];
+        int i3 = 0;
+        int i4 = 0;
+        while (i3 < i) {
+            char c2 = cArr[i3];
+            if (c2 != '\\') {
+                cArr2[i4] = c2;
+                i4++;
+            } else {
+                i3++;
+                char c3 = cArr[i3];
+                if (c3 == '\"') {
+                    i2 = i4 + 1;
+                    cArr2[i4] = Typography.quote;
+                } else if (c3 != '\'') {
+                    if (c3 != 'F') {
+                        if (c3 == '\\') {
+                            i2 = i4 + 1;
+                            cArr2[i4] = '\\';
+                        } else if (c3 == 'b') {
+                            i2 = i4 + 1;
+                            cArr2[i4] = '\b';
+                        } else if (c3 != 'f') {
+                            if (c3 == 'n') {
+                                i2 = i4 + 1;
+                                cArr2[i4] = '\n';
+                            } else if (c3 == 'r') {
+                                i2 = i4 + 1;
+                                cArr2[i4] = '\r';
+                            } else if (c3 != 'x') {
+                                switch (c3) {
+                                    case '/':
+                                        i2 = i4 + 1;
+                                        cArr2[i4] = '/';
+                                        break;
+                                    case '0':
+                                        i2 = i4 + 1;
+                                        cArr2[i4] = 0;
+                                        break;
+                                    case '1':
+                                        i2 = i4 + 1;
+                                        cArr2[i4] = 1;
+                                        break;
+                                    case '2':
+                                        i2 = i4 + 1;
+                                        cArr2[i4] = 2;
+                                        break;
+                                    case '3':
+                                        i2 = i4 + 1;
+                                        cArr2[i4] = 3;
+                                        break;
+                                    case '4':
+                                        i2 = i4 + 1;
+                                        cArr2[i4] = 4;
+                                        break;
+                                    case '5':
+                                        i2 = i4 + 1;
+                                        cArr2[i4] = 5;
+                                        break;
+                                    case '6':
+                                        i2 = i4 + 1;
+                                        cArr2[i4] = 6;
+                                        break;
+                                    case '7':
+                                        i2 = i4 + 1;
+                                        cArr2[i4] = 7;
+                                        break;
+                                    default:
+                                        switch (c3) {
+                                            case 't':
+                                                i2 = i4 + 1;
+                                                cArr2[i4] = '\t';
+                                                break;
+                                            case 'u':
+                                                i2 = i4 + 1;
+                                                int i5 = i3 + 1;
+                                                int i6 = i5 + 1;
+                                                int i7 = i6 + 1;
+                                                i3 = i7 + 1;
+                                                cArr2[i4] = (char) Integer.parseInt(new String(new char[]{cArr[i5], cArr[i6], cArr[i7], cArr[i3]}), 16);
+                                                break;
+                                            case 'v':
+                                                i2 = i4 + 1;
+                                                cArr2[i4] = 11;
+                                                break;
+                                            default:
+                                                throw new JSONException("unclosed.str.lit");
+                                        }
+                                }
+                            } else {
+                                i2 = i4 + 1;
+                                int[] iArr = digits;
+                                int i8 = i3 + 1;
+                                i3 = i8 + 1;
+                                cArr2[i4] = (char) ((iArr[cArr[i8]] * 16) + iArr[cArr[i3]]);
+                            }
+                        }
+                    }
+                    i2 = i4 + 1;
+                    cArr2[i4] = '\f';
+                } else {
+                    i2 = i4 + 1;
+                    cArr2[i4] = '\'';
+                }
+                i4 = i2;
+            }
+            i3++;
+        }
+        return new String(cArr2, 0, i4);
+    }
+
+    private void scanStringSingleQuote() {
+        this.np = this.bp;
+        this.hasSpecial = false;
+        while (true) {
+            char next = next();
+            if (next == '\'') {
+                this.token = 4;
+                next();
+                return;
+            } else if (next == 26) {
+                if (!isEOF()) {
+                    putChar(JSONLexer.EOI);
+                } else {
+                    throw new JSONException("unclosed single-quote string");
+                }
+            } else if (next == '\\') {
+                if (!this.hasSpecial) {
+                    this.hasSpecial = true;
+                    int i = this.sp;
+                    char[] cArr = this.sbuf;
+                    if (i > cArr.length) {
+                        char[] cArr2 = new char[i * 2];
+                        System.arraycopy(cArr, 0, cArr2, 0, cArr.length);
+                        this.sbuf = cArr2;
+                    }
+                    copyTo(this.np + 1, this.sp, this.sbuf);
+                }
+                char next2 = next();
+                if (next2 == '\"') {
+                    putChar(Typography.quote);
+                } else if (next2 != '\'') {
+                    if (next2 != 'F') {
+                        if (next2 == '\\') {
+                            putChar('\\');
+                        } else if (next2 == 'b') {
+                            putChar('\b');
+                        } else if (next2 != 'f') {
+                            if (next2 == 'n') {
+                                putChar('\n');
+                            } else if (next2 == 'r') {
+                                putChar('\r');
+                            } else if (next2 != 'x') {
+                                switch (next2) {
+                                    case '/':
+                                        putChar('/');
+                                        continue;
+                                    case '0':
+                                        putChar((char) 0);
+                                        continue;
+                                    case '1':
+                                        putChar((char) 1);
+                                        continue;
+                                    case '2':
+                                        putChar((char) 2);
+                                        continue;
+                                    case '3':
+                                        putChar((char) 3);
+                                        continue;
+                                    case '4':
+                                        putChar((char) 4);
+                                        continue;
+                                    case '5':
+                                        putChar((char) 5);
+                                        continue;
+                                    case '6':
+                                        putChar((char) 6);
+                                        continue;
+                                    case '7':
+                                        putChar((char) 7);
+                                        continue;
+                                    default:
+                                        switch (next2) {
+                                            case 't':
+                                                putChar('\t');
+                                                continue;
+                                            case 'u':
+                                                putChar((char) Integer.parseInt(new String(new char[]{next(), next(), next(), next()}), 16));
+                                                continue;
+                                                continue;
+                                            case 'v':
+                                                putChar((char) 11);
+                                                continue;
+                                            default:
+                                                this.ch = next2;
+                                                throw new JSONException("unclosed single-quote string");
+                                        }
+                                }
+                            } else {
+                                putChar((char) ((digits[next()] * 16) + digits[next()]));
+                            }
+                        }
+                    }
+                    putChar('\f');
+                } else {
+                    putChar('\'');
+                }
+            } else if (!this.hasSpecial) {
+                this.sp++;
+            } else {
+                int i2 = this.sp;
+                char[] cArr3 = this.sbuf;
+                if (i2 == cArr3.length) {
+                    putChar(next);
+                } else {
+                    this.sp = i2 + 1;
+                    cArr3[i2] = next;
+                }
+            }
+        }
+    }
+
+    public abstract String addSymbol(int i, int i2, int i3, SymbolTable symbolTable);
+
+    public abstract void arrayCopy(int i, char[] cArr, int i2, int i3);
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public abstract byte[] bytesValue();
+
+    public abstract boolean charArrayCompare(char[] cArr);
+
+    public abstract char charAt(int i);
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer, java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        char[] cArr = this.sbuf;
+        if (cArr.length <= 8192) {
+            SBUF_LOCAL.set(cArr);
+        }
+        this.sbuf = null;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public void config(Feature feature, boolean z) {
+        int config = Feature.config(this.features, feature, z);
+        this.features = config;
+        if ((config & Feature.InitStringFieldAsEmpty.mask) != 0) {
+            this.stringDefaultValue = "";
+        }
+    }
+
+    public abstract void copyTo(int i, int i2, char[] cArr);
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final Number decimalValue(boolean z) {
+        char charAt = charAt((this.np + this.sp) - 1);
+        try {
+            if (charAt == 'F') {
+                return Float.valueOf(Float.parseFloat(numberString()));
+            }
+            if (charAt == 'D') {
+                return Double.valueOf(Double.parseDouble(numberString()));
+            }
+            if (z) {
+                return decimalValue();
+            }
+            return Double.valueOf(doubleValue());
+        } catch (NumberFormatException e2) {
+            throw new JSONException(e2.getMessage() + StringUtil.ARRAY_ELEMENT_SEPARATOR + info());
+        }
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public abstract BigDecimal decimalValue();
+
+    public double doubleValue() {
+        return Double.parseDouble(numberString());
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public float floatValue() {
+        char charAt;
+        String numberString = numberString();
+        float parseFloat = Float.parseFloat(numberString);
+        if ((parseFloat == 0.0f || parseFloat == Float.POSITIVE_INFINITY) && (charAt = numberString.charAt(0)) > '0' && charAt <= '9') {
+            throw new JSONException("float overflow : " + numberString);
+        }
+        return parseFloat;
+    }
+
+    public Calendar getCalendar() {
+        return this.calendar;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final char getCurrent() {
+        return this.ch;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public int getFeatures() {
+        return this.features;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public Locale getLocale() {
+        return this.locale;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public TimeZone getTimeZone() {
+        return this.timeZone;
+    }
+
+    public abstract int indexOf(char c2, int i);
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public String info() {
+        return "";
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final int intValue() {
+        int i;
+        boolean z;
+        int i2 = 0;
+        if (this.np == -1) {
+            this.np = 0;
+        }
+        int i3 = this.np;
+        int i4 = this.sp + i3;
+        if (charAt(i3) == '-') {
+            i = Integer.MIN_VALUE;
+            i3++;
+            z = true;
+        } else {
+            i = -2147483647;
+            z = false;
+        }
+        if (i3 < i4) {
+            i2 = -(charAt(i3) - '0');
+            i3++;
+        }
+        while (i3 < i4) {
+            int i5 = i3 + 1;
+            char charAt = charAt(i3);
+            if (charAt == 'L' || charAt == 'S' || charAt == 'B') {
+                i3 = i5;
+                break;
+            }
+            int i6 = charAt - '0';
+            if (i2 < -214748364) {
+                throw new NumberFormatException(numberString());
+            }
+            int i7 = i2 * 10;
+            if (i7 < i + i6) {
+                throw new NumberFormatException(numberString());
+            }
+            i2 = i7 - i6;
+            i3 = i5;
+        }
+        if (z) {
+            if (i3 > this.np + 1) {
+                return i2;
+            }
+            throw new NumberFormatException(numberString());
+        }
+        return -i2;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final Number integerValue() throws NumberFormatException {
+        long j;
+        long j2;
+        boolean z = false;
+        if (this.np == -1) {
+            this.np = 0;
+        }
+        int i = this.np;
+        int i2 = this.sp + i;
+        char c2 = ' ';
+        char charAt = charAt(i2 - 1);
+        if (charAt == 'B') {
+            i2--;
+            c2 = 'B';
+        } else if (charAt == 'L') {
+            i2--;
+            c2 = 'L';
+        } else if (charAt == 'S') {
+            i2--;
+            c2 = 'S';
+        }
+        if (charAt(this.np) == '-') {
+            j = Long.MIN_VALUE;
+            i++;
+            z = true;
+        } else {
+            j = -9223372036854775807L;
+        }
+        long j3 = MULTMIN_RADIX_TEN;
+        if (i < i2) {
+            j2 = -(charAt(i) - '0');
+            i++;
+        } else {
+            j2 = 0;
+        }
+        while (i < i2) {
+            int i3 = i + 1;
+            int charAt2 = charAt(i) - '0';
+            if (j2 < j3) {
+                return new BigInteger(numberString());
+            }
+            long j4 = j2 * 10;
+            long j5 = charAt2;
+            if (j4 < j + j5) {
+                return new BigInteger(numberString());
+            }
+            j2 = j4 - j5;
+            i = i3;
+            j3 = MULTMIN_RADIX_TEN;
+        }
+        if (!z) {
+            long j6 = -j2;
+            if (j6 > 2147483647L || c2 == 'L') {
+                return Long.valueOf(j6);
+            }
+            if (c2 == 'S') {
+                return Short.valueOf((short) j6);
+            }
+            if (c2 == 'B') {
+                return Byte.valueOf((byte) j6);
+            }
+            return Integer.valueOf((int) j6);
+        } else if (i > this.np + 1) {
+            if (j2 < -2147483648L || c2 == 'L') {
+                return Long.valueOf(j2);
+            }
+            if (c2 == 'S') {
+                return Short.valueOf((short) j2);
+            }
+            if (c2 == 'B') {
+                return Byte.valueOf((byte) j2);
+            }
+            return Integer.valueOf((int) j2);
+        } else {
+            throw new NumberFormatException(numberString());
+        }
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public boolean isBlankInput() {
+        int i = 0;
+        while (true) {
+            char charAt = charAt(i);
+            if (charAt == 26) {
+                this.token = 20;
+                return true;
+            } else if (!isWhitespace(charAt)) {
+                return false;
+            } else {
+                i++;
+            }
+        }
+    }
+
+    public abstract boolean isEOF();
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final boolean isEnabled(Feature feature) {
+        return isEnabled(feature.mask);
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final boolean isRef() {
+        return this.sp == 4 && charAt(this.np + 1) == '$' && charAt(this.np + 2) == 'r' && charAt(this.np + 3) == 'e' && charAt(this.np + 4) == 'f';
+    }
+
+    public void lexError(String str, Object... objArr) {
+        this.token = 1;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0038  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0075  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0085  */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x005c -> B:12:0x0032). Please submit an issue!!! */
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final long longValue() throws NumberFormatException {
+        long j;
+        long j2;
+        boolean z = false;
+        if (this.np == -1) {
+            this.np = 0;
+        }
+        int i = this.np;
+        int i2 = this.sp + i;
+        if (charAt(i) == '-') {
+            j = Long.MIN_VALUE;
+            i++;
+            z = true;
+        } else {
+            j = -9223372036854775807L;
+        }
+        if (i < i2) {
+            int i3 = i + 1;
+            j2 = -(charAt(i) - '0');
+            i = i3;
+            if (i < i2) {
+                i3 = i + 1;
+                char charAt = charAt(i);
+                if (charAt == 'L' || charAt == 'S' || charAt == 'B') {
+                    i = i3;
+                } else {
+                    int i4 = charAt - '0';
+                    if (j2 < MULTMIN_RADIX_TEN) {
+                        throw new NumberFormatException(numberString());
+                    }
+                    long j3 = j2 * 10;
+                    long j4 = i4;
+                    if (j3 < j + j4) {
+                        throw new NumberFormatException(numberString());
+                    }
+                    j2 = j3 - j4;
+                    i = i3;
+                    if (i < i2) {
+                    }
+                }
+            }
+            if (z) {
+                return -j2;
+            }
+            if (i > this.np + 1) {
+                return j2;
+            }
+            throw new NumberFormatException(numberString());
+        }
+        j2 = 0;
+        if (i < i2) {
+        }
+        if (z) {
+        }
+    }
+
+    public final boolean matchField(char[] cArr) {
+        while (!charArrayCompare(cArr)) {
+            if (!isWhitespace(this.ch)) {
+                return false;
+            }
+            next();
+        }
+        int length = this.bp + cArr.length;
+        this.bp = length;
+        char charAt = charAt(length);
+        this.ch = charAt;
+        if (charAt == '{') {
+            next();
+            this.token = 12;
+        } else if (charAt == '[') {
+            next();
+            this.token = 14;
+        } else if (charAt == 'S' && charAt(this.bp + 1) == 'e' && charAt(this.bp + 2) == 't' && charAt(this.bp + 3) == '[') {
+            int i = this.bp + 3;
+            this.bp = i;
+            this.ch = charAt(i);
+            this.token = 21;
+        } else {
+            nextToken();
+        }
+        return true;
+    }
+
+    public boolean matchField2(char[] cArr) {
+        throw new UnsupportedOperationException();
     }
 
     public final int matchStat() {
         return this.matchStat;
     }
 
-    public void setToken(int i) {
-        this.token = i;
+    public Collection<String> newCollectionByType(Class<?> cls) {
+        if (cls.isAssignableFrom(HashSet.class)) {
+            return new HashSet();
+        }
+        if (cls.isAssignableFrom(ArrayList.class)) {
+            return new ArrayList();
+        }
+        try {
+            return (Collection) cls.newInstance();
+        } catch (Exception e2) {
+            throw new JSONException(e2.getMessage(), e2);
+        }
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public abstract char next();
+
+    public final void nextIdent() {
+        while (isWhitespace(this.ch)) {
+            next();
+        }
+        char c2 = this.ch;
+        if (c2 != '_' && c2 != '$' && !Character.isLetter(c2)) {
+            nextToken();
+        } else {
+            scanIdent();
+        }
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexer
@@ -113,23 +687,26 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         this.sp = 0;
         while (true) {
             this.pos = this.bp;
-            if (this.ch == '/') {
+            char c2 = this.ch;
+            if (c2 == '/') {
                 skipComment();
-            } else if (this.ch == '\"') {
+            } else if (c2 == '\"') {
                 scanString();
                 return;
-            } else if (this.ch == ',') {
+            } else if (c2 == ',') {
                 next();
                 this.token = 16;
                 return;
-            } else if (this.ch >= '0' && this.ch <= '9') {
-                scanNumber();
-                return;
-            } else if (this.ch == '-') {
+            } else if (c2 >= '0' && c2 <= '9') {
                 scanNumber();
                 return;
             } else {
-                switch (this.ch) {
+                char c3 = this.ch;
+                if (c3 == '-') {
+                    scanNumber();
+                    return;
+                }
+                switch (c3) {
                     case '\b':
                     case '\t':
                     case '\n':
@@ -139,11 +716,11 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                         next();
                         continue;
                     case '\'':
-                        if (!isEnabled(Feature.AllowSingleQuotes)) {
-                            throw new JSONException("Feature.AllowSingleQuotes is false");
+                        if (isEnabled(Feature.AllowSingleQuotes)) {
+                            scanStringSingleQuote();
+                            return;
                         }
-                        scanStringSingleQuote();
-                        return;
+                        throw new JSONException("Feature.AllowSingleQuotes is false");
                     case '(':
                         next();
                         this.token = 10;
@@ -198,200 +775,47 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                         next();
                         this.token = 12;
                         return;
-                    case Constants.METHOD_IM_FRIEND_GROUP_ASSIGN /* 125 */:
+                    case '}':
                         next();
                         this.token = 13;
                         return;
                     default:
                         if (isEOF()) {
-                            if (this.token == 20) {
-                                throw new JSONException("EOF error");
+                            if (this.token != 20) {
+                                this.token = 20;
+                                int i = this.eofPos;
+                                this.bp = i;
+                                this.pos = i;
+                                return;
                             }
-                            this.token = 20;
-                            int i = this.eofPos;
-                            this.bp = i;
-                            this.pos = i;
-                            return;
-                        } else if (this.ch <= 31 || this.ch == 127) {
-                            next();
-                            continue;
-                        } else {
-                            lexError("illegal.char", String.valueOf((int) this.ch));
+                            throw new JSONException("EOF error");
+                        }
+                        char c4 = this.ch;
+                        if (c4 > 31 && c4 != 127) {
+                            lexError("illegal.char", String.valueOf((int) c4));
                             next();
                             return;
                         }
+                        next();
+                        continue;
                 }
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:6:0x0016  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x0116 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0030 A[ADDED_TO_REGION, SYNTHETIC] */
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void nextToken(int i) {
+    public final void nextTokenWithChar(char c2) {
         this.sp = 0;
         while (true) {
-            switch (i) {
-                case 2:
-                    if (this.ch >= '0' && this.ch <= '9') {
-                        this.pos = this.bp;
-                        scanNumber();
-                        return;
-                    } else if (this.ch == '\"') {
-                        this.pos = this.bp;
-                        scanString();
-                        return;
-                    } else if (this.ch == '[') {
-                        this.token = 14;
-                        next();
-                        return;
-                    } else {
-                        if (this.ch == '{') {
-                            this.token = 12;
-                            next();
-                            return;
-                        }
-                        if (this.ch != ' ' || this.ch == '\n' || this.ch == '\r' || this.ch == '\t' || this.ch == '\f' || this.ch == '\b') {
-                            next();
-                        } else {
-                            nextToken();
-                            return;
-                        }
-                    }
-                    break;
-                case 3:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                case 13:
-                case 17:
-                case 19:
-                default:
-                    if (this.ch != ' ') {
-                        break;
-                    }
-                    next();
-                case 4:
-                    if (this.ch == '\"') {
-                        this.pos = this.bp;
-                        scanString();
-                        return;
-                    } else if (this.ch >= '0' && this.ch <= '9') {
-                        this.pos = this.bp;
-                        scanNumber();
-                        return;
-                    } else if (this.ch == '[') {
-                        this.token = 14;
-                        next();
-                        return;
-                    } else {
-                        if (this.ch == '{') {
-                            this.token = 12;
-                            next();
-                            return;
-                        }
-                        if (this.ch != ' ') {
-                        }
-                        next();
-                    }
-                    break;
-                case 12:
-                    if (this.ch == '{') {
-                        this.token = 12;
-                        next();
-                        return;
-                    }
-                    if (this.ch == '[') {
-                        this.token = 14;
-                        next();
-                        return;
-                    }
-                    if (this.ch != ' ') {
-                    }
-                    next();
-                    break;
-                case 14:
-                    if (this.ch == '[') {
-                        this.token = 14;
-                        next();
-                        return;
-                    }
-                    if (this.ch == '{') {
-                        this.token = 12;
-                        next();
-                        return;
-                    }
-                    if (this.ch != ' ') {
-                    }
-                    next();
-                    break;
-                case 15:
-                    if (this.ch == ']') {
-                        this.token = 15;
-                        next();
-                        return;
-                    }
-                    if (this.ch == 26) {
-                        this.token = 20;
-                        return;
-                    }
-                    if (this.ch != ' ') {
-                    }
-                    next();
-                    break;
-                case 16:
-                    if (this.ch == ',') {
-                        this.token = 16;
-                        next();
-                        return;
-                    } else if (this.ch == '}') {
-                        this.token = 13;
-                        next();
-                        return;
-                    } else if (this.ch == ']') {
-                        this.token = 15;
-                        next();
-                        return;
-                    } else {
-                        if (this.ch == 26) {
-                            this.token = 20;
-                            return;
-                        }
-                        if (this.ch != ' ') {
-                        }
-                        next();
-                    }
-                    break;
-                case 18:
-                    nextIdent();
-                    return;
-                case 20:
-                    if (this.ch == 26) {
-                    }
-                    if (this.ch != ' ') {
-                    }
-                    next();
-                    break;
+            char c3 = this.ch;
+            if (c3 == c2) {
+                next();
+                nextToken();
+                return;
+            } else if (c3 != ' ' && c3 != '\n' && c3 != '\r' && c3 != '\t' && c3 != '\f' && c3 != '\b') {
+                throw new JSONException("not match " + c2 + " - " + this.ch + ", info : " + info());
+            } else {
+                next();
             }
-        }
-    }
-
-    public final void nextIdent() {
-        while (isWhitespace(this.ch)) {
-            next();
-        }
-        if (this.ch == '_' || this.ch == '$' || Character.isLetter(this.ch)) {
-            scanIdent();
-        } else {
-            nextToken();
         }
     }
 
@@ -400,368 +824,26 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         nextTokenWithChar(':');
     }
 
-    public final void nextTokenWithChar(char c) {
-        this.sp = 0;
-        while (this.ch != c) {
-            if (this.ch == ' ' || this.ch == '\n' || this.ch == '\r' || this.ch == '\t' || this.ch == '\f' || this.ch == '\b') {
-                next();
-            } else {
-                throw new JSONException("not match " + c + " - " + this.ch + ", info : " + info());
-            }
-        }
-        next();
-        nextToken();
-    }
-
     @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final int token() {
-        return this.token;
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final String tokenName() {
-        return JSONToken.name(this.token);
-    }
+    public abstract String numberString();
 
     @Override // com.alibaba.fastjson.parser.JSONLexer
     public final int pos() {
         return this.pos;
     }
 
-    public final String stringDefaultValue() {
-        return this.stringDefaultValue;
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final Number integerValue() throws NumberFormatException {
-        long j;
-        boolean z;
-        int i;
-        long j2 = 0;
-        if (this.np == -1) {
-            this.np = 0;
+    public final void putChar(char c2) {
+        int i = this.sp;
+        char[] cArr = this.sbuf;
+        if (i == cArr.length) {
+            char[] cArr2 = new char[cArr.length * 2];
+            System.arraycopy(cArr, 0, cArr2, 0, cArr.length);
+            this.sbuf = cArr2;
         }
-        int i2 = this.np;
-        int i3 = this.sp + this.np;
-        char c = ' ';
-        switch (charAt(i3 - 1)) {
-            case 'B':
-                i3--;
-                c = 'B';
-                break;
-            case 'L':
-                i3--;
-                c = 'L';
-                break;
-            case 'S':
-                i3--;
-                c = 'S';
-                break;
-        }
-        if (charAt(this.np) == '-') {
-            j = Long.MIN_VALUE;
-            i2++;
-            z = true;
-        } else {
-            j = -9223372036854775807L;
-            z = false;
-        }
-        if (i2 < i3) {
-            i = i2 + 1;
-            j2 = -(charAt(i2) - '0');
-        } else {
-            i = i2;
-        }
-        while (i < i3) {
-            int i4 = i + 1;
-            int charAt = charAt(i) - '0';
-            if (j2 < MULTMIN_RADIX_TEN) {
-                return new BigInteger(numberString());
-            }
-            long j3 = j2 * 10;
-            if (j3 < charAt + j) {
-                return new BigInteger(numberString());
-            }
-            j2 = j3 - charAt;
-            i = i4;
-        }
-        if (z) {
-            if (i > this.np + 1) {
-                if (j2 >= -2147483648L && c != 'L') {
-                    if (c == 'S') {
-                        return Short.valueOf((short) j2);
-                    }
-                    if (c == 'B') {
-                        return Byte.valueOf((byte) j2);
-                    }
-                    return Integer.valueOf((int) j2);
-                }
-                return Long.valueOf(j2);
-            }
-            throw new NumberFormatException(numberString());
-        }
-        long j4 = -j2;
-        if (j4 <= 2147483647L && c != 'L') {
-            if (c == 'S') {
-                return Short.valueOf((short) j4);
-            }
-            if (c == 'B') {
-                return Byte.valueOf((byte) j4);
-            }
-            return Integer.valueOf((int) j4);
-        }
-        return Long.valueOf(j4);
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final void nextTokenWithColon(int i) {
-        nextTokenWithChar(':');
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public float floatValue() {
-        char charAt;
-        String numberString = numberString();
-        float parseFloat = Float.parseFloat(numberString);
-        if ((parseFloat == 0.0f || parseFloat == Float.POSITIVE_INFINITY) && (charAt = numberString.charAt(0)) > '0' && charAt <= '9') {
-            throw new JSONException("float overflow : " + numberString);
-        }
-        return parseFloat;
-    }
-
-    public double doubleValue() {
-        return Double.parseDouble(numberString());
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public void config(Feature feature, boolean z) {
-        this.features = Feature.config(this.features, feature, z);
-        if ((this.features & Feature.InitStringFieldAsEmpty.mask) != 0) {
-            this.stringDefaultValue = "";
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final boolean isEnabled(Feature feature) {
-        return isEnabled(feature.mask);
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final boolean isEnabled(int i) {
-        return (this.features & i) != 0;
-    }
-
-    public final boolean isEnabled(int i, int i2) {
-        return ((this.features & i2) == 0 && (i & i2) == 0) ? false : true;
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final char getCurrent() {
-        return this.ch;
-    }
-
-    protected void skipComment() {
-        next();
-        if (this.ch == '/') {
-            do {
-                next();
-                if (this.ch == '\n') {
-                    next();
-                    return;
-                }
-            } while (this.ch != 26);
-        } else if (this.ch == '*') {
-            next();
-            while (this.ch != 26) {
-                if (this.ch == '*') {
-                    next();
-                    if (this.ch == '/') {
-                        next();
-                        return;
-                    }
-                } else {
-                    next();
-                }
-            }
-        } else {
-            throw new JSONException("invalid comment");
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final String scanSymbol(SymbolTable symbolTable) {
-        skipWhitespace();
-        if (this.ch == '\"') {
-            return scanSymbol(symbolTable, '\"');
-        }
-        if (this.ch == '\'') {
-            if (!isEnabled(Feature.AllowSingleQuotes)) {
-                throw new JSONException("syntax error");
-            }
-            return scanSymbol(symbolTable, '\'');
-        } else if (this.ch == '}') {
-            next();
-            this.token = 13;
-            return null;
-        } else if (this.ch == ',') {
-            next();
-            this.token = 16;
-            return null;
-        } else if (this.ch == 26) {
-            this.token = 20;
-            return null;
-        } else if (!isEnabled(Feature.AllowUnQuotedFieldNames)) {
-            throw new JSONException("syntax error");
-        } else {
-            return scanSymbolUnQuoted(symbolTable);
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final String scanSymbol(SymbolTable symbolTable, char c) {
-        String addSymbol;
-        this.np = this.bp;
-        this.sp = 0;
-        boolean z = false;
-        int i = 0;
-        while (true) {
-            char next = next();
-            if (next != c) {
-                if (next == 26) {
-                    throw new JSONException("unclosed.str");
-                }
-                if (next == '\\') {
-                    if (!z) {
-                        if (this.sp >= this.sbuf.length) {
-                            int length = this.sbuf.length * 2;
-                            if (this.sp > length) {
-                                length = this.sp;
-                            }
-                            char[] cArr = new char[length];
-                            System.arraycopy(this.sbuf, 0, cArr, 0, this.sbuf.length);
-                            this.sbuf = cArr;
-                        }
-                        arrayCopy(this.np + 1, this.sbuf, 0, this.sp);
-                        z = true;
-                    }
-                    char next2 = next();
-                    switch (next2) {
-                        case '\"':
-                            i = (i * 31) + 34;
-                            putChar('\"');
-                            continue;
-                        case '\'':
-                            i = (i * 31) + 39;
-                            putChar('\'');
-                            continue;
-                        case '/':
-                            i = (i * 31) + 47;
-                            putChar('/');
-                            continue;
-                        case '0':
-                            i = (i * 31) + next2;
-                            putChar((char) 0);
-                            continue;
-                        case '1':
-                            i = (i * 31) + next2;
-                            putChar((char) 1);
-                            continue;
-                        case '2':
-                            i = (i * 31) + next2;
-                            putChar((char) 2);
-                            continue;
-                        case '3':
-                            i = (i * 31) + next2;
-                            putChar((char) 3);
-                            continue;
-                        case '4':
-                            i = (i * 31) + next2;
-                            putChar((char) 4);
-                            continue;
-                        case '5':
-                            i = (i * 31) + next2;
-                            putChar((char) 5);
-                            continue;
-                        case '6':
-                            i = (i * 31) + next2;
-                            putChar((char) 6);
-                            continue;
-                        case '7':
-                            i = (i * 31) + next2;
-                            putChar((char) 7);
-                            continue;
-                        case 'F':
-                        case 'f':
-                            i = (i * 31) + 12;
-                            putChar('\f');
-                            continue;
-                        case '\\':
-                            i = (i * 31) + 92;
-                            putChar('\\');
-                            continue;
-                        case 'b':
-                            i = (i * 31) + 8;
-                            putChar('\b');
-                            continue;
-                        case 'n':
-                            i = (i * 31) + 10;
-                            putChar('\n');
-                            continue;
-                        case 'r':
-                            i = (i * 31) + 13;
-                            putChar('\r');
-                            continue;
-                        case 't':
-                            i = (i * 31) + 9;
-                            putChar('\t');
-                            continue;
-                        case 'u':
-                            int parseInt = Integer.parseInt(new String(new char[]{next(), next(), next(), next()}), 16);
-                            i = (i * 31) + parseInt;
-                            putChar((char) parseInt);
-                            continue;
-                        case 'v':
-                            i = (i * 31) + 11;
-                            putChar((char) 11);
-                            continue;
-                        case 'x':
-                            char next3 = next();
-                            this.ch = next3;
-                            char next4 = next();
-                            this.ch = next4;
-                            char c2 = (char) ((digits[next3] * 16) + digits[next4]);
-                            i = (i * 31) + c2;
-                            putChar(c2);
-                            continue;
-                        default:
-                            this.ch = next2;
-                            throw new JSONException("unclosed.str.lit");
-                    }
-                } else {
-                    i = (i * 31) + next;
-                    if (!z) {
-                        this.sp++;
-                    } else if (this.sp == this.sbuf.length) {
-                        putChar(next);
-                    } else {
-                        char[] cArr2 = this.sbuf;
-                        int i2 = this.sp;
-                        this.sp = i2 + 1;
-                        cArr2[i2] = next;
-                    }
-                }
-            } else {
-                this.token = 4;
-                if (!z) {
-                    addSymbol = addSymbol(this.np == -1 ? 0 : this.np + 1, this.sp, i, symbolTable);
-                } else {
-                    addSymbol = symbolTable.addSymbol(this.sbuf, 0, this.sp, i);
-                }
-                this.sp = 0;
-                next();
-                return addSymbol;
-            }
-        }
+        char[] cArr3 = this.sbuf;
+        int i2 = this.sp;
+        this.sp = i2 + 1;
+        cArr3[i2] = c2;
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexer
@@ -770,1091 +852,21 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexer
-    public String info() {
-        return "";
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final String scanSymbolUnQuoted(SymbolTable symbolTable) {
-        boolean z = false;
-        if (this.token == 1 && this.pos == 0 && this.bp == 1) {
-            this.bp = 0;
-        }
-        boolean[] zArr = IOUtils.firstIdentifierFlags;
-        int i = this.ch;
-        if (this.ch >= zArr.length || zArr[i]) {
-            z = true;
-        }
-        if (!z) {
-            throw new JSONException("illegal identifier : " + this.ch + info());
-        }
-        boolean[] zArr2 = IOUtils.identifierFlags;
-        this.np = this.bp;
-        this.sp = 1;
-        while (true) {
-            char next = next();
-            if (next < zArr2.length && !zArr2[next]) {
-                break;
-            }
-            i = (i * 31) + next;
-            this.sp++;
-        }
-        this.ch = charAt(this.bp);
-        this.token = 18;
-        if (this.sp == 4 && i == 3392903 && charAt(this.np) == 'n' && charAt(this.np + 1) == 'u' && charAt(this.np + 2) == 'l' && charAt(this.np + 3) == 'l') {
-            return null;
-        }
-        if (symbolTable == null) {
-            return subString(this.np, this.sp);
-        }
-        return addSymbol(this.np, this.sp, i, symbolTable);
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final void scanString() {
-        this.np = this.bp;
-        this.hasSpecial = false;
-        while (true) {
-            char next = next();
-            if (next != '\"') {
-                if (next == 26) {
-                    if (!isEOF()) {
-                        putChar(JSONLexer.EOI);
-                    } else {
-                        throw new JSONException("unclosed string : " + next);
-                    }
-                } else if (next == '\\') {
-                    if (!this.hasSpecial) {
-                        this.hasSpecial = true;
-                        if (this.sp >= this.sbuf.length) {
-                            int length = this.sbuf.length * 2;
-                            if (this.sp > length) {
-                                length = this.sp;
-                            }
-                            char[] cArr = new char[length];
-                            System.arraycopy(this.sbuf, 0, cArr, 0, this.sbuf.length);
-                            this.sbuf = cArr;
-                        }
-                        copyTo(this.np + 1, this.sp, this.sbuf);
-                    }
-                    char next2 = next();
-                    switch (next2) {
-                        case '\"':
-                            putChar('\"');
-                            continue;
-                        case '\'':
-                            putChar('\'');
-                            continue;
-                        case '/':
-                            putChar('/');
-                            continue;
-                        case '0':
-                            putChar((char) 0);
-                            continue;
-                        case '1':
-                            putChar((char) 1);
-                            continue;
-                        case '2':
-                            putChar((char) 2);
-                            continue;
-                        case '3':
-                            putChar((char) 3);
-                            continue;
-                        case '4':
-                            putChar((char) 4);
-                            continue;
-                        case '5':
-                            putChar((char) 5);
-                            continue;
-                        case '6':
-                            putChar((char) 6);
-                            continue;
-                        case '7':
-                            putChar((char) 7);
-                            continue;
-                        case 'F':
-                        case 'f':
-                            putChar('\f');
-                            continue;
-                        case '\\':
-                            putChar('\\');
-                            continue;
-                        case 'b':
-                            putChar('\b');
-                            continue;
-                        case 'n':
-                            putChar('\n');
-                            continue;
-                        case 'r':
-                            putChar('\r');
-                            continue;
-                        case 't':
-                            putChar('\t');
-                            continue;
-                        case 'u':
-                            putChar((char) Integer.parseInt(new String(new char[]{next(), next(), next(), next()}), 16));
-                            continue;
-                        case 'v':
-                            putChar((char) 11);
-                            continue;
-                        case 'x':
-                            putChar((char) ((digits[next()] * 16) + digits[next()]));
-                            continue;
-                        default:
-                            this.ch = next2;
-                            throw new JSONException("unclosed string : " + next2);
-                    }
-                } else if (!this.hasSpecial) {
-                    this.sp++;
-                } else if (this.sp == this.sbuf.length) {
-                    putChar(next);
-                } else {
-                    char[] cArr2 = this.sbuf;
-                    int i = this.sp;
-                    this.sp = i + 1;
-                    cArr2[i] = next;
-                }
-            } else {
-                this.token = 4;
-                this.ch = next();
-                return;
-            }
-        }
-    }
-
-    public Calendar getCalendar() {
-        return this.calendar;
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public TimeZone getTimeZone() {
-        return this.timeZone;
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public void setTimeZone(TimeZone timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public Locale getLocale() {
-        return this.locale;
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public void setLocale(Locale locale) {
-        this.locale = locale;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0048, code lost:
-        if (r1 <= (r10.np + 1)) goto L35;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004a, code lost:
-        return r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x007e, code lost:
-        throw new java.lang.NumberFormatException(numberString());
-     */
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final int intValue() {
-        int i;
-        boolean z;
-        int i2;
-        int i3;
-        int i4 = 0;
-        if (this.np == -1) {
-            this.np = 0;
-        }
-        int i5 = this.np;
-        int i6 = this.np + this.sp;
-        if (charAt(this.np) == '-') {
-            z = true;
-            i5++;
-            i = Integer.MIN_VALUE;
-        } else {
-            i = -2147483647;
-            z = false;
-        }
-        if (i5 < i6) {
-            i2 = i5 + 1;
-            i4 = -(charAt(i5) - '0');
-        } else {
-            i2 = i5;
-        }
-        while (true) {
-            if (i2 >= i6) {
-                i3 = i2;
-                break;
-            }
-            i3 = i2 + 1;
-            char charAt = charAt(i2);
-            if (charAt == 'L' || charAt == 'S' || charAt == 'B') {
-                break;
-            }
-            int i7 = charAt - '0';
-            if (i4 < -214748364) {
-                throw new NumberFormatException(numberString());
-            }
-            int i8 = i4 * 10;
-            if (i8 < i + i7) {
-                throw new NumberFormatException(numberString());
-            }
-            i4 = i8 - i7;
-            i2 = i3;
-        }
-        return -i4;
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer, java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        if (this.sbuf.length <= 8192) {
-            SBUF_LOCAL.set(this.sbuf);
-        }
-        this.sbuf = null;
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final boolean isRef() {
-        return this.sp == 4 && charAt(this.np + 1) == '$' && charAt(this.np + 2) == 'r' && charAt(this.np + 3) == 'e' && charAt(this.np + 4) == 'f';
-    }
-
-    public final int scanType(String str) {
-        this.matchStat = 0;
-        if (!charArrayCompare(typeFieldName)) {
-            return -2;
-        }
-        int length = this.bp + typeFieldName.length;
-        int length2 = str.length();
-        for (int i = 0; i < length2; i++) {
-            if (str.charAt(i) != charAt(length + i)) {
-                return -1;
-            }
-        }
-        int i2 = length + length2;
-        if (charAt(i2) != '\"') {
-            return -1;
-        }
-        int i3 = i2 + 1;
-        this.ch = charAt(i3);
-        if (this.ch == ',') {
-            int i4 = i3 + 1;
-            this.ch = charAt(i4);
-            this.bp = i4;
-            this.token = 16;
-            return 3;
-        }
-        if (this.ch == '}') {
-            i3++;
-            this.ch = charAt(i3);
-            if (this.ch == ',') {
-                this.token = 16;
-                i3++;
-                this.ch = charAt(i3);
-            } else if (this.ch == ']') {
-                this.token = 15;
-                i3++;
-                this.ch = charAt(i3);
-            } else if (this.ch == '}') {
-                this.token = 13;
-                i3++;
-                this.ch = charAt(i3);
-            } else if (this.ch != 26) {
-                return -1;
-            } else {
-                this.token = 20;
-            }
-            this.matchStat = 4;
-        }
-        this.bp = i3;
-        return this.matchStat;
-    }
-
-    public final boolean matchField(char[] cArr) {
-        while (!charArrayCompare(cArr)) {
-            if (isWhitespace(this.ch)) {
-                next();
-            } else {
-                return false;
-            }
-        }
-        this.bp += cArr.length;
-        this.ch = charAt(this.bp);
-        if (this.ch == '{') {
-            next();
-            this.token = 12;
-        } else if (this.ch == '[') {
-            next();
-            this.token = 14;
-        } else if (this.ch == 'S' && charAt(this.bp + 1) == 'e' && charAt(this.bp + 2) == 't' && charAt(this.bp + 3) == '[') {
-            this.bp += 3;
-            this.ch = charAt(this.bp);
-            this.token = 21;
-        } else {
-            nextToken();
-        }
-        return true;
-    }
-
-    public String scanFieldString(char[] cArr) {
-        this.matchStat = 0;
-        if (!charArrayCompare(cArr)) {
-            this.matchStat = -2;
-            return stringDefaultValue();
-        }
-        int length = cArr.length;
-        int i = length + 1;
-        if (charAt(length + this.bp) != '\"') {
-            this.matchStat = -1;
-            return stringDefaultValue();
-        }
-        int indexOf = indexOf('\"', this.bp + cArr.length + 1);
-        if (indexOf == -1) {
-            throw new JSONException("unclosed str");
-        }
-        int length2 = this.bp + cArr.length + 1;
-        String subString = subString(length2, indexOf - length2);
-        if (subString.indexOf(92) != -1) {
-            while (true) {
-                int i2 = 0;
-                for (int i3 = indexOf - 1; i3 >= 0 && charAt(i3) == '\\'; i3--) {
-                    i2++;
-                }
-                if (i2 % 2 == 0) {
-                    break;
-                }
-                indexOf = indexOf('\"', indexOf + 1);
-            }
-            int length3 = indexOf - ((this.bp + cArr.length) + 1);
-            subString = readString(sub_chars(this.bp + cArr.length + 1, length3), length3);
-        }
-        int length4 = (indexOf - ((this.bp + cArr.length) + 1)) + 1 + i;
-        int i4 = length4 + 1;
-        char charAt = charAt(length4 + this.bp);
-        if (charAt == ',') {
-            this.bp += i4;
-            this.ch = charAt(this.bp);
-            this.matchStat = 3;
-            return subString;
-        } else if (charAt == '}') {
-            int i5 = i4 + 1;
-            char charAt2 = charAt(this.bp + i4);
-            if (charAt2 == ',') {
-                this.token = 16;
-                this.bp += i5;
-                this.ch = charAt(this.bp);
-            } else if (charAt2 == ']') {
-                this.token = 15;
-                this.bp += i5;
-                this.ch = charAt(this.bp);
-            } else if (charAt2 == '}') {
-                this.token = 13;
-                this.bp += i5;
-                this.ch = charAt(this.bp);
-            } else if (charAt2 == 26) {
-                this.token = 20;
-                this.bp += i5 - 1;
-                this.ch = JSONLexer.EOI;
-            } else {
-                this.matchStat = -1;
-                return stringDefaultValue();
-            }
-            this.matchStat = 4;
-            return subString;
-        } else {
-            this.matchStat = -1;
-            return stringDefaultValue();
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public String scanString(char c) {
-        this.matchStat = 0;
-        char charAt = charAt(this.bp + 0);
-        if (charAt == 'n') {
-            if (charAt(this.bp + 1) != 'u' || charAt(this.bp + 1 + 1) != 'l' || charAt(this.bp + 1 + 2) != 'l') {
-                this.matchStat = -1;
-                return null;
-            } else if (charAt(this.bp + 4) == c) {
-                this.bp += 5;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
-                return null;
-            } else {
-                this.matchStat = -1;
-                return null;
-            }
-        }
-        int i = 1;
-        while (charAt != '\"') {
-            if (isWhitespace(charAt)) {
-                charAt = charAt(this.bp + i);
-                i++;
-            } else {
-                this.matchStat = -1;
-                return stringDefaultValue();
-            }
-        }
-        int i2 = this.bp + i;
-        int indexOf = indexOf('\"', i2);
-        if (indexOf == -1) {
-            throw new JSONException("unclosed str");
-        }
-        String subString = subString(this.bp + i, indexOf - i2);
-        if (subString.indexOf(92) != -1) {
-            while (true) {
-                int i3 = 0;
-                for (int i4 = indexOf - 1; i4 >= 0 && charAt(i4) == '\\'; i4--) {
-                    i3++;
-                }
-                if (i3 % 2 == 0) {
-                    break;
-                }
-                indexOf = indexOf('\"', indexOf + 1);
-            }
-            int i5 = indexOf - i2;
-            subString = readString(sub_chars(this.bp + 1, i5), i5);
-        }
-        int i6 = (indexOf - i2) + 1 + i;
-        int i7 = i6 + 1;
-        char charAt2 = charAt(i6 + this.bp);
-        while (charAt2 != c) {
-            if (isWhitespace(charAt2)) {
-                charAt2 = charAt(this.bp + i7);
-                i7++;
-            } else {
-                this.matchStat = -1;
-                return subString;
-            }
-        }
-        this.bp += i7;
-        this.ch = charAt(this.bp);
-        this.matchStat = 3;
-        return subString;
-    }
-
-    public long scanFieldSymbol(char[] cArr) {
-        this.matchStat = 0;
-        if (!charArrayCompare(cArr)) {
-            this.matchStat = -2;
-            return 0L;
-        }
-        int length = cArr.length;
-        int i = length + 1;
-        if (charAt(length + this.bp) != '\"') {
-            this.matchStat = -1;
-            return 0L;
-        }
-        long j = -3750763034362895579L;
-        while (true) {
-            int i2 = i + 1;
-            char charAt = charAt(i + this.bp);
-            if (charAt == '\"') {
-                int i3 = i2 + 1;
-                char charAt2 = charAt(this.bp + i2);
-                if (charAt2 == ',') {
-                    this.bp += i3;
-                    this.ch = charAt(this.bp);
-                    this.matchStat = 3;
-                    return j;
-                } else if (charAt2 == '}') {
-                    int i4 = i3 + 1;
-                    char charAt3 = charAt(this.bp + i3);
-                    if (charAt3 == ',') {
-                        this.token = 16;
-                        this.bp += i4;
-                        this.ch = charAt(this.bp);
-                    } else if (charAt3 == ']') {
-                        this.token = 15;
-                        this.bp += i4;
-                        this.ch = charAt(this.bp);
-                    } else if (charAt3 == '}') {
-                        this.token = 13;
-                        this.bp += i4;
-                        this.ch = charAt(this.bp);
-                    } else if (charAt3 == 26) {
-                        this.token = 20;
-                        this.bp += i4 - 1;
-                        this.ch = JSONLexer.EOI;
-                    } else {
-                        this.matchStat = -1;
-                        return 0L;
-                    }
-                    this.matchStat = 4;
-                    return j;
-                } else {
-                    this.matchStat = -1;
-                    return 0L;
-                }
-            }
-            j = (j ^ charAt) * 1099511628211L;
-            if (charAt == '\\') {
-                this.matchStat = -1;
-                return 0L;
-            }
-            i = i2;
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public Enum<?> scanEnum(Class<?> cls, SymbolTable symbolTable, char c) {
-        String scanSymbolWithSeperator = scanSymbolWithSeperator(symbolTable, c);
-        if (scanSymbolWithSeperator == null) {
-            return null;
-        }
-        return Enum.valueOf(cls, scanSymbolWithSeperator);
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public String scanSymbolWithSeperator(SymbolTable symbolTable, char c) {
-        int i;
-        int i2 = 0;
-        this.matchStat = 0;
-        int i3 = 1;
-        char charAt = charAt(this.bp + 0);
-        if (charAt == 'n') {
-            if (charAt(this.bp + 1) != 'u' || charAt(this.bp + 1 + 1) != 'l' || charAt(this.bp + 1 + 2) != 'l') {
-                this.matchStat = -1;
-                return null;
-            } else if (charAt(this.bp + 4) == c) {
-                this.bp += 5;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
-                return null;
-            } else {
-                this.matchStat = -1;
-                return null;
-            }
-        } else if (charAt != '\"') {
-            this.matchStat = -1;
-            return null;
-        } else {
-            while (true) {
-                int i4 = i3 + 1;
-                char charAt2 = charAt(i3 + this.bp);
-                if (charAt2 == '\"') {
-                    String addSymbol = addSymbol(this.bp + 0 + 1, ((this.bp + i4) - i) - 1, i2, symbolTable);
-                    char charAt3 = charAt(this.bp + i4);
-                    int i5 = i4 + 1;
-                    while (charAt3 != c) {
-                        if (isWhitespace(charAt3)) {
-                            charAt3 = charAt(this.bp + i5);
-                            i5++;
-                        } else {
-                            this.matchStat = -1;
-                            return addSymbol;
-                        }
-                    }
-                    this.bp += i5;
-                    this.ch = charAt(this.bp);
-                    this.matchStat = 3;
-                    return addSymbol;
-                }
-                i2 = (i2 * 31) + charAt2;
-                if (charAt2 == '\\') {
-                    this.matchStat = -1;
-                    return null;
-                }
-                i3 = i4;
-            }
-        }
-    }
-
-    public Collection<String> newCollectionByType(Class<?> cls) {
-        if (cls.isAssignableFrom(HashSet.class)) {
-            return new HashSet();
-        }
-        if (cls.isAssignableFrom(ArrayList.class)) {
-            return new ArrayList();
-        }
-        try {
-            return (Collection) cls.newInstance();
-        } catch (Exception e) {
-            throw new JSONException(e.getMessage(), e);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e7, code lost:
-        if (r3.size() != 0) goto L75;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e9, code lost:
-        r1 = r5 + 1;
-        r0 = charAt(r12.bp + r5);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00f2, code lost:
-        if (r0 != ',') goto L37;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x00f4, code lost:
-        r12.bp += r1;
-        r12.ch = charAt(r12.bp);
-        r12.matchStat = 3;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x010f, code lost:
-        throw new com.alibaba.fastjson.JSONException("illega str");
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0123, code lost:
-        if (r0 != '}') goto L54;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0125, code lost:
-        r4 = r1 + 1;
-        r0 = charAt(r12.bp + r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x012e, code lost:
-        if (r0 != ',') goto L44;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0130, code lost:
-        r12.token = 16;
-        r12.bp += r4;
-        r12.ch = charAt(r12.bp);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0141, code lost:
-        r12.matchStat = 4;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0147, code lost:
-        if (r0 != ']') goto L46;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0149, code lost:
-        r12.token = 15;
-        r12.bp += r4;
-        r12.ch = charAt(r12.bp);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x015d, code lost:
-        if (r0 != '}') goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x015f, code lost:
-        r12.token = 13;
-        r12.bp += r4;
-        r12.ch = charAt(r12.bp);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x0173, code lost:
-        if (r0 != 26) goto L52;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x0175, code lost:
-        r12.bp += r4 - 1;
-        r12.token = 20;
-        r12.ch = com.alibaba.fastjson.parser.JSONLexer.EOI;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0185, code lost:
-        r12.matchStat = -1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x018a, code lost:
-        r12.matchStat = -1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:75:?, code lost:
-        return r3;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:77:?, code lost:
-        return r3;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:78:?, code lost:
-        return null;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:79:?, code lost:
-        return null;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Collection<String> scanFieldStringArray(char[] cArr, Class<?> cls) {
-        char charAt;
-        int i;
-        this.matchStat = 0;
-        if (!charArrayCompare(cArr)) {
-            this.matchStat = -2;
-            return null;
-        }
-        Collection<String> newCollectionByType = newCollectionByType(cls);
-        int length = cArr.length;
-        int i2 = length + 1;
-        if (charAt(length + this.bp) != '[') {
-            this.matchStat = -1;
-            return null;
-        }
-        char charAt2 = charAt(this.bp + i2);
-        int i3 = i2 + 1;
-        while (true) {
-            if (charAt2 == '\"') {
-                int indexOf = indexOf('\"', this.bp + i3);
-                if (indexOf == -1) {
-                    throw new JSONException("unclosed str");
-                }
-                int i4 = this.bp + i3;
-                String subString = subString(i4, indexOf - i4);
-                if (subString.indexOf(92) != -1) {
-                    while (true) {
-                        int i5 = 0;
-                        for (int i6 = indexOf - 1; i6 >= 0 && charAt(i6) == '\\'; i6--) {
-                            i5++;
-                        }
-                        if (i5 % 2 == 0) {
-                            break;
-                        }
-                        indexOf = indexOf('\"', indexOf + 1);
-                    }
-                    int i7 = indexOf - (this.bp + i3);
-                    subString = readString(sub_chars(this.bp + i3, i7), i7);
-                }
-                int i8 = (indexOf - (this.bp + i3)) + 1 + i3;
-                i = i8 + 1;
-                charAt = charAt(i8 + this.bp);
-                newCollectionByType.add(subString);
-            } else if (charAt2 != 'n' || charAt(this.bp + i3) != 'u' || charAt(this.bp + i3 + 1) != 'l' || charAt(this.bp + i3 + 2) != 'l') {
-                break;
-            } else {
-                int i9 = i3 + 3;
-                int i10 = i9 + 1;
-                charAt = charAt(i9 + this.bp);
-                newCollectionByType.add(null);
-                i = i10;
-            }
-            if (charAt == ',') {
-                charAt2 = charAt(this.bp + i);
-                i3 = i + 1;
-            } else if (charAt == ']') {
-                int i11 = i + 1;
-                char charAt3 = charAt(this.bp + i);
-            } else {
-                this.matchStat = -1;
-                return null;
-            }
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public void scanStringArray(Collection<String> collection, char c) {
-        int i;
-        char charAt;
-        int i2;
-        char charAt2;
-        this.matchStat = 0;
-        char charAt3 = charAt(this.bp + 0);
-        if (charAt3 == 'n' && charAt(this.bp + 1) == 'u' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 'l' && charAt(this.bp + 1 + 3) == c) {
-            this.bp += 5;
-            this.ch = charAt(this.bp);
-            this.matchStat = 5;
-        } else if (charAt3 != '[') {
-            this.matchStat = -1;
-        } else {
-            int i3 = 2;
-            char charAt4 = charAt(this.bp + 1);
-            while (true) {
-                int i4 = i3;
-                if (charAt4 == 'n' && charAt(this.bp + i4) == 'u' && charAt(this.bp + i4 + 1) == 'l' && charAt(this.bp + i4 + 2) == 'l') {
-                    int i5 = i4 + 3;
-                    int i6 = i5 + 1;
-                    charAt = charAt(i5 + this.bp);
-                    collection.add(null);
-                    i = i6;
-                } else if (charAt4 == ']' && collection.size() == 0) {
-                    i2 = i4 + 1;
-                    charAt2 = charAt(this.bp + i4);
-                    break;
-                } else if (charAt4 != '\"') {
-                    this.matchStat = -1;
-                    return;
-                } else {
-                    int i7 = this.bp + i4;
-                    int indexOf = indexOf('\"', i7);
-                    if (indexOf == -1) {
-                        throw new JSONException("unclosed str");
-                    }
-                    String subString = subString(this.bp + i4, indexOf - i7);
-                    if (subString.indexOf(92) != -1) {
-                        while (true) {
-                            int i8 = 0;
-                            for (int i9 = indexOf - 1; i9 >= 0 && charAt(i9) == '\\'; i9--) {
-                                i8++;
-                            }
-                            if (i8 % 2 == 0) {
-                                break;
-                            }
-                            indexOf = indexOf('\"', indexOf + 1);
-                        }
-                        int i10 = indexOf - i7;
-                        subString = readString(sub_chars(this.bp + i4, i10), i10);
-                    }
-                    int i11 = (indexOf - (this.bp + i4)) + 1 + i4;
-                    i = i11 + 1;
-                    charAt = charAt(i11 + this.bp);
-                    collection.add(subString);
-                }
-                if (charAt == ',') {
-                    i3 = i + 1;
-                    charAt4 = charAt(this.bp + i);
-                } else if (charAt == ']') {
-                    i2 = i + 1;
-                    charAt2 = charAt(this.bp + i);
-                } else {
-                    this.matchStat = -1;
-                    return;
-                }
-            }
-            if (charAt2 == c) {
-                this.bp += i2;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
-                return;
-            }
-            this.matchStat = -1;
-        }
-    }
-
-    public int scanFieldInt(char[] cArr) {
-        int i;
-        int i2;
-        char charAt;
-        this.matchStat = 0;
-        if (!charArrayCompare(cArr)) {
-            this.matchStat = -2;
-            return 0;
-        }
-        int length = cArr.length;
-        int i3 = length + 1;
-        char charAt2 = charAt(length + this.bp);
-        boolean z = charAt2 == '-';
-        if (z) {
-            i = i3 + 1;
-            charAt2 = charAt(this.bp + i3);
-        } else {
-            i = i3;
-        }
-        if (charAt2 >= '0' && charAt2 <= '9') {
-            int i4 = charAt2 - '0';
-            while (true) {
-                i2 = i + 1;
-                charAt = charAt(i + this.bp);
-                if (charAt < '0' || charAt > '9') {
-                    break;
-                }
-                i4 = (i4 * 10) + (charAt - '0');
-                i = i2;
-            }
-            if (charAt == '.') {
-                this.matchStat = -1;
-                return 0;
-            } else if ((i4 < 0 || i2 > cArr.length + 14) && (i4 != Integer.MIN_VALUE || i2 != 17 || !z)) {
-                this.matchStat = -1;
-                return 0;
-            } else if (charAt == ',') {
-                this.bp += i2;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
-                this.token = 16;
-                return z ? -i4 : i4;
-            } else if (charAt == '}') {
-                int i5 = i2 + 1;
-                char charAt3 = charAt(this.bp + i2);
-                if (charAt3 == ',') {
-                    this.token = 16;
-                    this.bp += i5;
-                    this.ch = charAt(this.bp);
-                } else if (charAt3 == ']') {
-                    this.token = 15;
-                    this.bp += i5;
-                    this.ch = charAt(this.bp);
-                } else if (charAt3 == '}') {
-                    this.token = 13;
-                    this.bp += i5;
-                    this.ch = charAt(this.bp);
-                } else if (charAt3 == 26) {
-                    this.token = 20;
-                    this.bp += i5 - 1;
-                    this.ch = JSONLexer.EOI;
-                } else {
-                    this.matchStat = -1;
-                    return 0;
-                }
-                this.matchStat = 4;
-                return z ? -i4 : i4;
-            } else {
-                this.matchStat = -1;
-                return 0;
-            }
-        }
-        this.matchStat = -1;
-        return 0;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x00c0, code lost:
-        r14.matchStat = -1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:75:?, code lost:
-        return null;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final int[] scanFieldIntArray(char[] cArr) {
-        boolean z;
-        char c;
-        int i;
-        int i2;
-        char charAt;
-        int[] iArr;
-        int i3;
-        char charAt2;
-        int i4;
-        int[] iArr2;
-        this.matchStat = 0;
-        if (!charArrayCompare(cArr)) {
-            this.matchStat = -2;
-            return null;
-        }
-        int length = cArr.length;
-        int i5 = length + 1;
-        if (charAt(length + this.bp) != '[') {
-            this.matchStat = -2;
-            return null;
-        }
-        int i6 = i5 + 1;
-        char charAt3 = charAt(this.bp + i5);
-        int[] iArr3 = new int[16];
-        if (charAt3 == ']') {
-            charAt2 = charAt(this.bp + i6);
-            i4 = 0;
-            i3 = i6 + 1;
-        } else {
-            int i7 = 0;
-            int[] iArr4 = iArr3;
-            while (true) {
-                if (charAt3 == '-') {
-                    i = i6 + 1;
-                    c = charAt(this.bp + i6);
-                    z = true;
-                } else {
-                    z = false;
-                    c = charAt3;
-                    i = i6;
-                }
-                if (c < '0' || c > '9') {
-                    break;
-                }
-                int i8 = c - '0';
-                while (true) {
-                    i2 = i + 1;
-                    charAt = charAt(i + this.bp);
-                    if (charAt < '0' || charAt > '9') {
-                        break;
-                    }
-                    i8 = (i8 * 10) + (charAt - '0');
-                    i = i2;
-                }
-                if (i7 >= iArr4.length) {
-                    iArr = new int[(iArr4.length * 3) / 2];
-                    System.arraycopy(iArr4, 0, iArr, 0, i7);
-                } else {
-                    iArr = iArr4;
-                }
-                int i9 = i7 + 1;
-                if (z) {
-                    i8 = -i8;
-                }
-                iArr[i7] = i8;
-                if (charAt == ',') {
-                    charAt3 = charAt(this.bp + i2);
-                    i2++;
-                } else if (charAt == ']') {
-                    i3 = i2 + 1;
-                    charAt2 = charAt(this.bp + i2);
-                    i4 = i9;
-                    iArr3 = iArr;
-                    break;
-                } else {
-                    charAt3 = charAt;
-                }
-                i7 = i9;
-                iArr4 = iArr;
-                i6 = i2;
-            }
-        }
-        if (i4 != iArr3.length) {
-            int[] iArr5 = new int[i4];
-            System.arraycopy(iArr3, 0, iArr5, 0, i4);
-            iArr2 = iArr5;
-        } else {
-            iArr2 = iArr3;
-        }
-        if (charAt2 == ',') {
-            this.bp += i3 - 1;
-            next();
-            this.matchStat = 3;
-            this.token = 16;
-            return iArr2;
-        } else if (charAt2 == '}') {
-            int i10 = i3 + 1;
-            char charAt4 = charAt(this.bp + i3);
-            if (charAt4 == ',') {
-                this.token = 16;
-                this.bp += i10 - 1;
-                next();
-            } else if (charAt4 == ']') {
-                this.token = 15;
-                this.bp += i10 - 1;
-                next();
-            } else if (charAt4 == '}') {
-                this.token = 13;
-                this.bp += i10 - 1;
-                next();
-            } else if (charAt4 == 26) {
-                this.bp += i10 - 1;
-                this.token = 20;
-                this.ch = JSONLexer.EOI;
-            } else {
-                this.matchStat = -1;
-                return null;
-            }
-            this.matchStat = 4;
-            return iArr2;
-        } else {
-            this.matchStat = -1;
-            return null;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00bb  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0045 A[SYNTHETIC] */
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean scanBoolean(char c) {
-        int i = 2;
+    public boolean scanBoolean(char c2) {
         boolean z = false;
         this.matchStat = 0;
         char charAt = charAt(this.bp + 0);
+        int i = 5;
         if (charAt == 't') {
             if (charAt(this.bp + 1) == 'r' && charAt(this.bp + 1 + 1) == 'u' && charAt(this.bp + 1 + 2) == 'e') {
-                i = 5;
                 charAt = charAt(this.bp + 4);
                 z = true;
-                while (true) {
-                    if (charAt != c) {
-                        this.bp += i;
-                        this.ch = charAt(this.bp);
-                        this.matchStat = 3;
-                        break;
-                    } else if (isWhitespace(charAt)) {
-                        charAt = charAt(this.bp + i);
-                        i++;
-                    } else {
-                        this.matchStat = -1;
-                        break;
-                    }
-                }
             } else {
                 this.matchStat = -1;
+                return false;
             }
-        } else {
-            if (charAt == 'f') {
-                if (charAt(this.bp + 1) == 'a' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 's' && charAt(this.bp + 1 + 3) == 'e') {
-                    i = 6;
-                    charAt = charAt(this.bp + 5);
-                } else {
-                    this.matchStat = -1;
-                }
-            } else if (charAt == '1') {
+        } else if (charAt != 'f') {
+            if (charAt == '1') {
                 charAt = charAt(this.bp + 1);
                 z = true;
             } else if (charAt == '0') {
@@ -1862,107 +874,661 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             } else {
                 i = 1;
             }
-            while (true) {
-                if (charAt != c) {
-                }
+            i = 2;
+        } else if (charAt(this.bp + 1) == 'a' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 's' && charAt(this.bp + 1 + 3) == 'e') {
+            charAt = charAt(this.bp + 5);
+            i = 6;
+        } else {
+            this.matchStat = -1;
+            return false;
+        }
+        while (charAt != c2) {
+            if (isWhitespace(charAt)) {
                 charAt = charAt(this.bp + i);
                 i++;
+            } else {
+                this.matchStat = -1;
+                return z;
             }
         }
+        int i2 = this.bp + i;
+        this.bp = i2;
+        this.ch = charAt(i2);
+        this.matchStat = 3;
         return z;
     }
 
+    public Date scanDate(char c2) {
+        long j;
+        int i;
+        Date date;
+        boolean z = false;
+        this.matchStat = 0;
+        char charAt = charAt(this.bp + 0);
+        int i2 = 5;
+        if (charAt == '\"') {
+            int indexOf = indexOf(Typography.quote, this.bp + 1);
+            if (indexOf != -1) {
+                int i3 = this.bp + 1;
+                String subString = subString(i3, indexOf - i3);
+                if (subString.indexOf(92) != -1) {
+                    while (true) {
+                        int i4 = 0;
+                        for (int i5 = indexOf - 1; i5 >= 0 && charAt(i5) == '\\'; i5--) {
+                            i4++;
+                        }
+                        if (i4 % 2 == 0) {
+                            break;
+                        }
+                        indexOf = indexOf(Typography.quote, indexOf + 1);
+                    }
+                    int i6 = this.bp;
+                    int i7 = indexOf - (i6 + 1);
+                    subString = readString(sub_chars(i6 + 1, i7), i7);
+                }
+                int i8 = this.bp;
+                int i9 = (indexOf - (i8 + 1)) + 1 + 1;
+                int i10 = i9 + 1;
+                charAt = charAt(i8 + i9);
+                JSONScanner jSONScanner = new JSONScanner(subString);
+                try {
+                    if (jSONScanner.scanISO8601DateIfMatch(false)) {
+                        date = jSONScanner.getCalendar().getTime();
+                        jSONScanner.close();
+                        i2 = i10;
+                    } else {
+                        this.matchStat = -1;
+                        return null;
+                    }
+                } finally {
+                    jSONScanner.close();
+                }
+            } else {
+                throw new JSONException("unclosed str");
+            }
+        } else {
+            char c3 = '9';
+            int i11 = 2;
+            if (charAt != '-' && (charAt < '0' || charAt > '9')) {
+                if (charAt == 'n' && charAt(this.bp + 1) == 'u' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 'l') {
+                    this.matchStat = 5;
+                    charAt = charAt(this.bp + 4);
+                    date = null;
+                } else {
+                    this.matchStat = -1;
+                    return null;
+                }
+            } else {
+                if (charAt == '-') {
+                    charAt = charAt(this.bp + 1);
+                    z = true;
+                } else {
+                    i11 = 1;
+                }
+                if (charAt >= '0' && charAt <= '9') {
+                    j = charAt - '0';
+                    while (true) {
+                        i = i11 + 1;
+                        charAt = charAt(this.bp + i11);
+                        if (charAt < '0' || charAt > c3) {
+                            break;
+                        }
+                        j = (j * 10) + (charAt - '0');
+                        i11 = i;
+                        c3 = '9';
+                    }
+                } else {
+                    j = 0;
+                    i = i11;
+                }
+                if (j < 0) {
+                    this.matchStat = -1;
+                    return null;
+                }
+                if (z) {
+                    j = -j;
+                }
+                date = new Date(j);
+                i2 = i;
+            }
+        }
+        if (charAt == ',') {
+            int i12 = this.bp + i2;
+            this.bp = i12;
+            this.ch = charAt(i12);
+            this.matchStat = 3;
+            this.token = 16;
+            return date;
+        } else if (charAt == ']') {
+            int i13 = i2 + 1;
+            char charAt2 = charAt(this.bp + i2);
+            if (charAt2 == ',') {
+                this.token = 16;
+                int i14 = this.bp + i13;
+                this.bp = i14;
+                this.ch = charAt(i14);
+            } else if (charAt2 == ']') {
+                this.token = 15;
+                int i15 = this.bp + i13;
+                this.bp = i15;
+                this.ch = charAt(i15);
+            } else if (charAt2 == '}') {
+                this.token = 13;
+                int i16 = this.bp + i13;
+                this.bp = i16;
+                this.ch = charAt(i16);
+            } else if (charAt2 == 26) {
+                this.token = 20;
+                this.bp += i13 - 1;
+                this.ch = JSONLexer.EOI;
+            } else {
+                this.matchStat = -1;
+                return null;
+            }
+            this.matchStat = 4;
+            return date;
+        } else {
+            this.matchStat = -1;
+            return null;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00af A[ADDED_TO_REGION] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x00b1 -> B:50:0x009f). Please submit an issue!!! */
     @Override // com.alibaba.fastjson.parser.JSONLexer
-    public int scanInt(char c) {
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public BigDecimal scanDecimal(char c2) {
         int i;
         int i2;
+        char charAt;
         int i3;
         int i4;
-        char charAt;
         this.matchStat = 0;
         char charAt2 = charAt(this.bp + 0);
         boolean z = charAt2 == '\"';
         if (z) {
-            i = 2;
             charAt2 = charAt(this.bp + 1);
+            i = 2;
         } else {
             i = 1;
         }
-        boolean z2 = charAt2 == '-';
-        if (z2) {
-            i2 = i + 1;
+        if (charAt2 == '-') {
             charAt2 = charAt(this.bp + i);
-        } else {
-            i2 = i;
+            i++;
         }
         if (charAt2 >= '0' && charAt2 <= '9') {
-            int i5 = charAt2 - '0';
             while (true) {
-                i4 = i2 + 1;
-                charAt = charAt(i2 + this.bp);
+                i2 = i + 1;
+                charAt = charAt(this.bp + i);
                 if (charAt < '0' || charAt > '9') {
                     break;
                 }
-                i5 = (i5 * 10) + (charAt - '0');
-                i2 = i4;
+                i = i2;
             }
             if (charAt == '.') {
-                this.matchStat = -1;
-                return 0;
-            } else if (i5 < 0) {
-                this.matchStat = -1;
-                return 0;
-            } else {
-                while (charAt != c) {
-                    if (isWhitespace(charAt)) {
-                        charAt = charAt(this.bp + i4);
-                        i4++;
-                    } else {
-                        this.matchStat = -1;
-                        return z2 ? -i5 : i5;
+                int i5 = i2 + 1;
+                char charAt3 = charAt(this.bp + i2);
+                if (charAt3 >= '0' && charAt3 <= '9') {
+                    while (true) {
+                        i2 = i5 + 1;
+                        charAt = charAt(this.bp + i5);
+                        if (charAt < '0' || charAt > '9') {
+                            break;
+                        }
+                        i5 = i2;
                     }
-                }
-                this.bp += i4;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
-                this.token = 16;
-                return z2 ? -i5 : i5;
-            }
-        } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
-            this.matchStat = 5;
-            int i6 = i2 + 3;
-            int i7 = i6 + 1;
-            char charAt3 = charAt(i6 + this.bp);
-            if (z && charAt3 == '\"') {
-                i3 = i7 + 1;
-                charAt3 = charAt(this.bp + i7);
-            } else {
-                i3 = i7;
-            }
-            while (charAt3 != ',') {
-                if (charAt3 == ']') {
-                    this.bp += i3;
-                    this.ch = charAt(this.bp);
-                    this.matchStat = 5;
-                    this.token = 15;
-                    return 0;
-                } else if (isWhitespace(charAt3)) {
-                    charAt3 = charAt(this.bp + i3);
-                    i3++;
                 } else {
                     this.matchStat = -1;
-                    return 0;
+                    return null;
                 }
             }
-            this.bp += i3;
-            this.ch = charAt(this.bp);
+            if (charAt == 'e' || charAt == 'E') {
+                int i6 = i2 + 1;
+                charAt = charAt(this.bp + i2);
+                if (charAt == '+' || charAt == '-') {
+                    charAt = charAt(this.bp + i6);
+                    i2 = i6 + 1;
+                    if (charAt >= '0' && charAt <= '9') {
+                        i6 = i2 + 1;
+                        charAt = charAt(this.bp + i2);
+                    }
+                }
+                i2 = i6;
+                if (charAt >= '0') {
+                    i6 = i2 + 1;
+                    charAt = charAt(this.bp + i2);
+                    i2 = i6;
+                    if (charAt >= '0') {
+                    }
+                }
+            }
+            if (!z) {
+                i3 = this.bp;
+                i4 = ((i3 + i2) - i3) - 1;
+            } else if (charAt != '\"') {
+                this.matchStat = -1;
+                return null;
+            } else {
+                int i7 = i2 + 1;
+                char charAt4 = charAt(this.bp + i2);
+                int i8 = this.bp;
+                i3 = i8 + 1;
+                i4 = ((i8 + i7) - i3) - 2;
+                i2 = i7;
+                charAt = charAt4;
+            }
+            BigDecimal bigDecimal = new BigDecimal(sub_chars(i3, i4));
+            if (charAt == ',') {
+                int i9 = this.bp + i2;
+                this.bp = i9;
+                this.ch = charAt(i9);
+                this.matchStat = 3;
+                this.token = 16;
+                return bigDecimal;
+            } else if (charAt == ']') {
+                int i10 = i2 + 1;
+                char charAt5 = charAt(this.bp + i2);
+                if (charAt5 == ',') {
+                    this.token = 16;
+                    int i11 = this.bp + i10;
+                    this.bp = i11;
+                    this.ch = charAt(i11);
+                } else if (charAt5 == ']') {
+                    this.token = 15;
+                    int i12 = this.bp + i10;
+                    this.bp = i12;
+                    this.ch = charAt(i12);
+                } else if (charAt5 == '}') {
+                    this.token = 13;
+                    int i13 = this.bp + i10;
+                    this.bp = i13;
+                    this.ch = charAt(i13);
+                } else if (charAt5 == 26) {
+                    this.token = 20;
+                    this.bp += i10 - 1;
+                    this.ch = JSONLexer.EOI;
+                } else {
+                    this.matchStat = -1;
+                    return null;
+                }
+                this.matchStat = 4;
+                return bigDecimal;
+            } else {
+                this.matchStat = -1;
+                return null;
+            }
+        } else if (charAt2 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
+            this.matchStat = 5;
+            int i14 = i + 3;
+            int i15 = i14 + 1;
+            char charAt6 = charAt(this.bp + i14);
+            if (z && charAt6 == '\"') {
+                charAt6 = charAt(this.bp + i15);
+                i15++;
+            }
+            while (charAt6 != ',') {
+                if (charAt6 == '}') {
+                    int i16 = this.bp + i15;
+                    this.bp = i16;
+                    this.ch = charAt(i16);
+                    this.matchStat = 5;
+                    this.token = 13;
+                    return null;
+                } else if (isWhitespace(charAt6)) {
+                    charAt6 = charAt(this.bp + i15);
+                    i15++;
+                } else {
+                    this.matchStat = -1;
+                    return null;
+                }
+            }
+            int i17 = this.bp + i15;
+            this.bp = i17;
+            this.ch = charAt(i17);
             this.matchStat = 5;
             this.token = 16;
-            return 0;
+            return null;
         } else {
             this.matchStat = -1;
-            return 0;
+            return null;
         }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00c7 A[ADDED_TO_REGION] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:57:0x00c9 -> B:53:0x00b7). Please submit an issue!!! */
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public double scanDouble(char c2) {
+        int i;
+        int i2;
+        char charAt;
+        long j;
+        int i3;
+        int i4;
+        double parseDouble;
+        char charAt2;
+        this.matchStat = 0;
+        char charAt3 = charAt(this.bp + 0);
+        boolean z = charAt3 == '\"';
+        if (z) {
+            charAt3 = charAt(this.bp + 1);
+            i = 2;
+        } else {
+            i = 1;
+        }
+        boolean z2 = charAt3 == '-';
+        if (z2) {
+            charAt3 = charAt(this.bp + i);
+            i++;
+        }
+        if (charAt3 < '0' || charAt3 > '9') {
+            if (charAt3 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
+                this.matchStat = 5;
+                int i5 = i + 3;
+                int i6 = i5 + 1;
+                char charAt4 = charAt(this.bp + i5);
+                if (z && charAt4 == '\"') {
+                    charAt4 = charAt(this.bp + i6);
+                    i6++;
+                }
+                while (charAt4 != ',') {
+                    if (charAt4 == ']') {
+                        int i7 = this.bp + i6;
+                        this.bp = i7;
+                        this.ch = charAt(i7);
+                        this.matchStat = 5;
+                        this.token = 15;
+                        return 0.0d;
+                    } else if (isWhitespace(charAt4)) {
+                        charAt4 = charAt(this.bp + i6);
+                        i6++;
+                    } else {
+                        this.matchStat = -1;
+                        return 0.0d;
+                    }
+                }
+                int i8 = this.bp + i6;
+                this.bp = i8;
+                this.ch = charAt(i8);
+                this.matchStat = 5;
+                this.token = 16;
+                return 0.0d;
+            }
+            this.matchStat = -1;
+            return 0.0d;
+        }
+        long j2 = charAt3 - '0';
+        while (true) {
+            i2 = i + 1;
+            charAt = charAt(this.bp + i);
+            if (charAt < '0' || charAt > '9') {
+                break;
+            }
+            j2 = (j2 * 10) + (charAt - '0');
+            i = i2;
+        }
+        if (charAt == '.') {
+            int i9 = i2 + 1;
+            char charAt5 = charAt(this.bp + i2);
+            if (charAt5 < '0' || charAt5 > '9') {
+                this.matchStat = -1;
+                return 0.0d;
+            }
+            j2 = (j2 * 10) + (charAt5 - '0');
+            long j3 = 10;
+            while (true) {
+                i2 = i9 + 1;
+                charAt2 = charAt(this.bp + i9);
+                if (charAt2 < '0' || charAt2 > '9') {
+                    break;
+                }
+                j2 = (j2 * 10) + (charAt2 - '0');
+                j3 *= 10;
+                i9 = i2;
+            }
+            j = j3;
+            charAt = charAt2;
+        } else {
+            j = 1;
+        }
+        boolean z3 = charAt == 'e' || charAt == 'E';
+        if (z3) {
+            int i10 = i2 + 1;
+            charAt = charAt(this.bp + i2);
+            if (charAt == '+' || charAt == '-') {
+                charAt = charAt(this.bp + i10);
+                i2 = i10 + 1;
+                if (charAt >= '0' && charAt <= '9') {
+                    i10 = i2 + 1;
+                    charAt = charAt(this.bp + i2);
+                }
+            }
+            i2 = i10;
+            if (charAt >= '0') {
+                i10 = i2 + 1;
+                charAt = charAt(this.bp + i2);
+                i2 = i10;
+                if (charAt >= '0') {
+                }
+            }
+        }
+        if (!z) {
+            i3 = this.bp;
+            i4 = ((i3 + i2) - i3) - 1;
+        } else if (charAt != '\"') {
+            this.matchStat = -1;
+            return 0.0d;
+        } else {
+            int i11 = i2 + 1;
+            char charAt6 = charAt(this.bp + i2);
+            int i12 = this.bp;
+            i3 = i12 + 1;
+            i4 = ((i12 + i11) - i3) - 2;
+            i2 = i11;
+            charAt = charAt6;
+        }
+        if (!z3 && i4 < 20) {
+            double d2 = j2;
+            double d3 = j;
+            Double.isNaN(d2);
+            Double.isNaN(d3);
+            parseDouble = d2 / d3;
+            if (z2) {
+                parseDouble = -parseDouble;
+            }
+        } else {
+            parseDouble = Double.parseDouble(subString(i3, i4));
+        }
+        if (charAt == c2) {
+            int i13 = this.bp + i2;
+            this.bp = i13;
+            this.ch = charAt(i13);
+            this.matchStat = 3;
+            this.token = 16;
+            return parseDouble;
+        }
+        this.matchStat = -1;
+        return parseDouble;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public Enum<?> scanEnum(Class<?> cls, SymbolTable symbolTable, char c2) {
+        String scanSymbolWithSeperator = scanSymbolWithSeperator(symbolTable, c2);
+        if (scanSymbolWithSeperator == null) {
+            return null;
+        }
+        return Enum.valueOf(cls, scanSymbolWithSeperator);
+    }
+
+    public final void scanFalse() {
+        if (this.ch == 'f') {
+            next();
+            if (this.ch == 'a') {
+                next();
+                if (this.ch == 'l') {
+                    next();
+                    if (this.ch == 's') {
+                        next();
+                        if (this.ch == 'e') {
+                            next();
+                            char c2 = this.ch;
+                            if (c2 != ' ' && c2 != ',' && c2 != '}' && c2 != ']' && c2 != '\n' && c2 != '\r' && c2 != '\t' && c2 != 26 && c2 != '\f' && c2 != '\b' && c2 != ':' && c2 != '/') {
+                                throw new JSONException("scan false error");
+                            }
+                            this.token = 7;
+                            return;
+                        }
+                        throw new JSONException("error parse false");
+                    }
+                    throw new JSONException("error parse false");
+                }
+                throw new JSONException("error parse false");
+            }
+            throw new JSONException("error parse false");
+        }
+        throw new JSONException("error parse false");
+    }
+
+    public BigInteger scanFieldBigInteger(char[] cArr) {
+        int i;
+        char charAt;
+        int length;
+        int i2;
+        BigInteger valueOf;
+        this.matchStat = 0;
+        if (!charArrayCompare(cArr)) {
+            this.matchStat = -2;
+            return null;
+        }
+        int length2 = cArr.length;
+        int i3 = length2 + 1;
+        char charAt2 = charAt(this.bp + length2);
+        boolean z = charAt2 == '\"';
+        if (z) {
+            charAt2 = charAt(this.bp + i3);
+            i3++;
+        }
+        boolean z2 = charAt2 == '-';
+        if (z2) {
+            charAt2 = charAt(this.bp + i3);
+            i3++;
+        }
+        if (charAt2 >= '0') {
+            char c2 = '9';
+            if (charAt2 <= '9') {
+                long j = charAt2 - '0';
+                while (true) {
+                    i = i3 + 1;
+                    charAt = charAt(this.bp + i3);
+                    if (charAt < '0' || charAt > c2) {
+                        break;
+                    }
+                    j = (j * 10) + (charAt - '0');
+                    i3 = i;
+                    c2 = '9';
+                }
+                if (!z) {
+                    int i4 = this.bp;
+                    length = cArr.length + i4;
+                    i2 = ((i4 + i) - length) - 1;
+                } else if (charAt != '\"') {
+                    this.matchStat = -1;
+                    return null;
+                } else {
+                    int i5 = i + 1;
+                    charAt = charAt(this.bp + i);
+                    int i6 = this.bp;
+                    length = cArr.length + i6 + 1;
+                    i2 = ((i6 + i5) - length) - 2;
+                    i = i5;
+                }
+                if (i2 >= 20 && (!z2 || i2 >= 21)) {
+                    valueOf = new BigInteger(subString(length, i2));
+                } else {
+                    if (z2) {
+                        j = -j;
+                    }
+                    valueOf = BigInteger.valueOf(j);
+                }
+                if (charAt == ',') {
+                    int i7 = this.bp + i;
+                    this.bp = i7;
+                    this.ch = charAt(i7);
+                    this.matchStat = 3;
+                    this.token = 16;
+                    return valueOf;
+                } else if (charAt == '}') {
+                    int i8 = i + 1;
+                    char charAt3 = charAt(this.bp + i);
+                    if (charAt3 == ',') {
+                        this.token = 16;
+                        int i9 = this.bp + i8;
+                        this.bp = i9;
+                        this.ch = charAt(i9);
+                    } else if (charAt3 == ']') {
+                        this.token = 15;
+                        int i10 = this.bp + i8;
+                        this.bp = i10;
+                        this.ch = charAt(i10);
+                    } else if (charAt3 == '}') {
+                        this.token = 13;
+                        int i11 = this.bp + i8;
+                        this.bp = i11;
+                        this.ch = charAt(i11);
+                    } else if (charAt3 == 26) {
+                        this.token = 20;
+                        this.bp += i8 - 1;
+                        this.ch = JSONLexer.EOI;
+                    } else {
+                        this.matchStat = -1;
+                        return null;
+                    }
+                    this.matchStat = 4;
+                    return valueOf;
+                } else {
+                    this.matchStat = -1;
+                    return null;
+                }
+            }
+        }
+        if (charAt2 == 'n' && charAt(this.bp + i3) == 'u' && charAt(this.bp + i3 + 1) == 'l' && charAt(this.bp + i3 + 2) == 'l') {
+            this.matchStat = 5;
+            int i12 = i3 + 3;
+            int i13 = i12 + 1;
+            char charAt4 = charAt(this.bp + i12);
+            if (z && charAt4 == '\"') {
+                charAt4 = charAt(this.bp + i13);
+                i13++;
+            }
+            while (charAt4 != ',') {
+                if (charAt4 == '}') {
+                    int i14 = this.bp + i13;
+                    this.bp = i14;
+                    this.ch = charAt(i14);
+                    this.matchStat = 5;
+                    this.token = 13;
+                    return null;
+                } else if (isWhitespace(charAt4)) {
+                    charAt4 = charAt(this.bp + i13);
+                    i13++;
+                } else {
+                    this.matchStat = -1;
+                    return null;
+                }
+            }
+            int i15 = this.bp + i13;
+            this.bp = i15;
+            this.ch = charAt(i15);
+            this.matchStat = 5;
+            this.token = 16;
+            return null;
+        }
+        this.matchStat = -1;
+        return null;
     }
 
     public boolean scanFieldBoolean(char[] cArr) {
@@ -1975,7 +1541,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
         int length = cArr.length;
         int i2 = length + 1;
-        char charAt = charAt(length + this.bp);
+        char charAt = charAt(this.bp + length);
         if (charAt == 't') {
             int i3 = i2 + 1;
             if (charAt(this.bp + i2) != 'r') {
@@ -2009,42 +1575,47 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 this.matchStat = -1;
                 return false;
             }
-            i = i7 + 1;
+            int i8 = i7 + 1;
             if (charAt(this.bp + i7) != 'e') {
                 this.matchStat = -1;
                 return false;
             }
+            i = i8;
             z = false;
         } else {
             this.matchStat = -1;
             return false;
         }
-        int i8 = i + 1;
-        char charAt2 = charAt(i + this.bp);
+        int i9 = i + 1;
+        char charAt2 = charAt(this.bp + i);
         if (charAt2 == ',') {
-            this.bp += i8;
-            this.ch = charAt(this.bp);
+            int i10 = this.bp + i9;
+            this.bp = i10;
+            this.ch = charAt(i10);
             this.matchStat = 3;
             this.token = 16;
             return z;
         } else if (charAt2 == '}') {
-            int i9 = i8 + 1;
-            char charAt3 = charAt(this.bp + i8);
+            int i11 = i9 + 1;
+            char charAt3 = charAt(this.bp + i9);
             if (charAt3 == ',') {
                 this.token = 16;
-                this.bp += i9;
-                this.ch = charAt(this.bp);
+                int i12 = this.bp + i11;
+                this.bp = i12;
+                this.ch = charAt(i12);
             } else if (charAt3 == ']') {
                 this.token = 15;
-                this.bp += i9;
-                this.ch = charAt(this.bp);
+                int i13 = this.bp + i11;
+                this.bp = i13;
+                this.ch = charAt(i13);
             } else if (charAt3 == '}') {
                 this.token = 13;
-                this.bp += i9;
-                this.ch = charAt(this.bp);
+                int i14 = this.bp + i11;
+                this.bp = i14;
+                this.ch = charAt(i14);
             } else if (charAt3 == 26) {
                 this.token = 20;
-                this.bp += i9 - 1;
+                this.bp += i11 - 1;
                 this.ch = JSONLexer.EOI;
             } else {
                 this.matchStat = -1;
@@ -2058,786 +1629,251 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
     }
 
-    public long scanFieldLong(char[] cArr) {
-        boolean z;
+    public Date scanFieldDate(char[] cArr) {
         int i;
+        long j;
+        Date date;
         int i2;
-        char charAt;
-        this.matchStat = 0;
-        if (!charArrayCompare(cArr)) {
-            this.matchStat = -2;
-            return 0L;
-        }
-        int length = cArr.length;
-        int i3 = length + 1;
-        char charAt2 = charAt(length + this.bp);
-        if (charAt2 == '-') {
-            i = i3 + 1;
-            charAt2 = charAt(this.bp + i3);
-            z = true;
-        } else {
-            z = false;
-            i = i3;
-        }
-        if (charAt2 >= '0' && charAt2 <= '9') {
-            long j = charAt2 - '0';
-            while (true) {
-                i2 = i + 1;
-                charAt = charAt(i + this.bp);
-                if (charAt < '0' || charAt > '9') {
-                    break;
-                }
-                j = (j * 10) + (charAt - '0');
-                i = i2;
-            }
-            if (charAt == '.') {
-                this.matchStat = -1;
-                return 0L;
-            }
-            if (!(i2 - cArr.length < 21 && (j >= 0 || (j == Long.MIN_VALUE && z)))) {
-                this.matchStat = -1;
-                return 0L;
-            } else if (charAt == ',') {
-                this.bp += i2;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
-                this.token = 16;
-                return z ? -j : j;
-            } else if (charAt == '}') {
-                int i4 = i2 + 1;
-                char charAt3 = charAt(this.bp + i2);
-                if (charAt3 == ',') {
-                    this.token = 16;
-                    this.bp += i4;
-                    this.ch = charAt(this.bp);
-                } else if (charAt3 == ']') {
-                    this.token = 15;
-                    this.bp += i4;
-                    this.ch = charAt(this.bp);
-                } else if (charAt3 == '}') {
-                    this.token = 13;
-                    this.bp += i4;
-                    this.ch = charAt(this.bp);
-                } else if (charAt3 == 26) {
-                    this.token = 20;
-                    this.bp += i4 - 1;
-                    this.ch = JSONLexer.EOI;
-                } else {
-                    this.matchStat = -1;
-                    return 0L;
-                }
-                this.matchStat = 4;
-                return z ? -j : j;
-            } else {
-                this.matchStat = -1;
-                return 0L;
-            }
-        }
-        this.matchStat = -1;
-        return 0L;
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public long scanLong(char c) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
         char charAt;
         boolean z = false;
         this.matchStat = 0;
-        char charAt2 = charAt(this.bp + 0);
-        boolean z2 = charAt2 == '\"';
-        if (z2) {
-            i = 2;
-            charAt2 = charAt(this.bp + 1);
-        } else {
-            i = 1;
+        if (!charArrayCompare(cArr)) {
+            this.matchStat = -2;
+            return null;
         }
-        boolean z3 = charAt2 == '-';
-        if (z3) {
-            i2 = i + 1;
-            charAt2 = charAt(this.bp + i);
-        } else {
-            i2 = i;
-        }
-        if (charAt2 >= '0' && charAt2 <= '9') {
-            long j = charAt2 - '0';
-            while (true) {
-                i4 = i2 + 1;
-                charAt = charAt(i2 + this.bp);
-                if (charAt < '0' || charAt > '9') {
-                    break;
+        int length = cArr.length;
+        int i3 = length + 1;
+        char charAt2 = charAt(this.bp + length);
+        if (charAt2 == '\"') {
+            int indexOf = indexOf(Typography.quote, this.bp + cArr.length + 1);
+            if (indexOf != -1) {
+                int length2 = this.bp + cArr.length + 1;
+                String subString = subString(length2, indexOf - length2);
+                if (subString.indexOf(92) != -1) {
+                    while (true) {
+                        int i4 = 0;
+                        for (int i5 = indexOf - 1; i5 >= 0 && charAt(i5) == '\\'; i5--) {
+                            i4++;
+                        }
+                        if (i4 % 2 == 0) {
+                            break;
+                        }
+                        indexOf = indexOf(Typography.quote, indexOf + 1);
+                    }
+                    int i6 = this.bp;
+                    int length3 = indexOf - ((cArr.length + i6) + 1);
+                    subString = readString(sub_chars(i6 + cArr.length + 1, length3), length3);
                 }
-                j = (j * 10) + (charAt - '0');
-                i2 = i4;
+                int i7 = this.bp;
+                int length4 = i3 + (indexOf - ((cArr.length + i7) + 1)) + 1;
+                i = length4 + 1;
+                charAt2 = charAt(i7 + length4);
+                JSONScanner jSONScanner = new JSONScanner(subString);
+                try {
+                    if (jSONScanner.scanISO8601DateIfMatch(false)) {
+                        date = jSONScanner.getCalendar().getTime();
+                    } else {
+                        this.matchStat = -1;
+                        return null;
+                    }
+                } finally {
+                    jSONScanner.close();
+                }
+            } else {
+                throw new JSONException("unclosed str");
             }
-            if (charAt == '.') {
-                this.matchStat = -1;
-                return 0L;
-            }
-            if (j >= 0 || (j == Long.MIN_VALUE && z3)) {
+        } else if (charAt2 != '-' && (charAt2 < '0' || charAt2 > '9')) {
+            this.matchStat = -1;
+            return null;
+        } else {
+            if (charAt2 == '-') {
+                charAt2 = charAt(this.bp + i3);
+                i3++;
                 z = true;
             }
-            if (!z) {
-                throw new NumberFormatException(subString(this.bp, i4 - 1));
-            }
-            if (z2) {
-                if (charAt != '\"') {
-                    this.matchStat = -1;
-                    return 0L;
-                }
-                charAt = charAt(this.bp + i4);
-                i4++;
-            }
-            while (charAt != c) {
-                if (isWhitespace(charAt)) {
-                    charAt = charAt(this.bp + i4);
-                    i4++;
-                } else {
-                    this.matchStat = -1;
-                    return j;
-                }
-            }
-            this.bp += i4;
-            this.ch = charAt(this.bp);
-            this.matchStat = 3;
-            this.token = 16;
-            return z3 ? -j : j;
-        } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
-            this.matchStat = 5;
-            int i5 = i2 + 3;
-            int i6 = i5 + 1;
-            char charAt3 = charAt(i5 + this.bp);
-            if (z2 && charAt3 == '\"') {
-                i3 = i6 + 1;
-                charAt3 = charAt(this.bp + i6);
+            if (charAt2 < '0' || charAt2 > '9') {
+                i = i3;
+                j = 0;
             } else {
-                i3 = i6;
-            }
-            while (charAt3 != ',') {
-                if (charAt3 == ']') {
-                    this.bp += i3;
-                    this.ch = charAt(this.bp);
-                    this.matchStat = 5;
-                    this.token = 15;
-                    return 0L;
-                } else if (isWhitespace(charAt3)) {
-                    charAt3 = charAt(this.bp + i3);
-                    i3++;
-                } else {
-                    this.matchStat = -1;
-                    return 0L;
+                j = charAt2 - '0';
+                while (true) {
+                    i2 = i3 + 1;
+                    charAt = charAt(this.bp + i3);
+                    if (charAt < '0' || charAt > '9') {
+                        break;
+                    }
+                    j = (j * 10) + (charAt - '0');
+                    i3 = i2;
                 }
+                charAt2 = charAt;
+                i = i2;
             }
-            this.bp += i3;
-            this.ch = charAt(this.bp);
-            this.matchStat = 5;
-            this.token = 16;
-            return 0L;
+            if (j < 0) {
+                this.matchStat = -1;
+                return null;
+            }
+            if (z) {
+                j = -j;
+            }
+            date = new Date(j);
+        }
+        if (charAt2 == ',') {
+            int i8 = this.bp + i;
+            this.bp = i8;
+            this.ch = charAt(i8);
+            this.matchStat = 3;
+            return date;
+        } else if (charAt2 == '}') {
+            int i9 = i + 1;
+            char charAt3 = charAt(this.bp + i);
+            if (charAt3 == ',') {
+                this.token = 16;
+                int i10 = this.bp + i9;
+                this.bp = i10;
+                this.ch = charAt(i10);
+            } else if (charAt3 == ']') {
+                this.token = 15;
+                int i11 = this.bp + i9;
+                this.bp = i11;
+                this.ch = charAt(i11);
+            } else if (charAt3 == '}') {
+                this.token = 13;
+                int i12 = this.bp + i9;
+                this.bp = i12;
+                this.ch = charAt(i12);
+            } else if (charAt3 == 26) {
+                this.token = 20;
+                this.bp += i9 - 1;
+                this.ch = JSONLexer.EOI;
+            } else {
+                this.matchStat = -1;
+                return null;
+            }
+            this.matchStat = 4;
+            return date;
         } else {
             this.matchStat = -1;
-            return 0L;
+            return null;
         }
     }
 
-    public final float scanFieldFloat(char[] cArr) {
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00bc A[ADDED_TO_REGION] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:56:0x00be -> B:52:0x00ac). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public BigDecimal scanFieldDecimal(char[] cArr) {
         int i;
-        int i2;
-        int i3;
-        int i4;
         char charAt;
-        int i5;
-        int i6;
-        int i7;
-        char c;
         int length;
-        int i8;
-        int i9;
-        float parseFloat;
+        int i2;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
-            return 0.0f;
+            return null;
         }
         int length2 = cArr.length;
-        int i10 = length2 + 1;
-        char charAt2 = charAt(length2 + this.bp);
+        int i3 = length2 + 1;
+        char charAt2 = charAt(this.bp + length2);
         boolean z = charAt2 == '\"';
         if (z) {
-            i = i10 + 1;
-            charAt2 = charAt(this.bp + i10);
-        } else {
-            i = i10;
-        }
-        boolean z2 = charAt2 == '-';
-        if (z2) {
-            i2 = i + 1;
-            charAt2 = charAt(this.bp + i);
-        } else {
-            i2 = i;
-        }
-        if (charAt2 >= '0' && charAt2 <= '9') {
-            int i11 = charAt2 - '0';
-            while (true) {
-                i4 = i2 + 1;
-                charAt = charAt(i2 + this.bp);
-                if (charAt < '0' || charAt > '9') {
-                    break;
-                }
-                i11 = (i11 * 10) + (charAt - '0');
-                i2 = i4;
-            }
-            if (!(charAt == '.')) {
-                i5 = 1;
-                i6 = i11;
-                i7 = i4;
-            } else {
-                int i12 = i4 + 1;
-                char charAt3 = charAt(this.bp + i4);
-                if (charAt3 >= '0' && charAt3 <= '9') {
-                    int i13 = (charAt3 - '0') + (i11 * 10);
-                    int i14 = 10;
-                    while (true) {
-                        int i15 = i12;
-                        i12 = i15 + 1;
-                        charAt = charAt(i15 + this.bp);
-                        if (charAt < '0' || charAt > '9') {
-                            break;
-                        }
-                        i13 = (i13 * 10) + (charAt - '0');
-                        i14 *= 10;
-                    }
-                    i5 = i14;
-                    i6 = i13;
-                    i7 = i12;
-                } else {
-                    this.matchStat = -1;
-                    return 0.0f;
-                }
-            }
-            boolean z3 = charAt == 'e' || charAt == 'E';
-            if (z3) {
-                int i16 = i7 + 1;
-                c = charAt(this.bp + i7);
-                if (c == '+' || c == '-') {
-                    i7 = i16 + 1;
-                    c = charAt(i16 + this.bp);
-                } else {
-                    i7 = i16;
-                }
-                while (c >= '0' && c <= '9') {
-                    c = charAt(this.bp + i7);
-                    i7++;
-                }
-            } else {
-                c = charAt;
-            }
-            if (z) {
-                if (c != '\"') {
-                    this.matchStat = -1;
-                    return 0.0f;
-                }
-                i9 = i7 + 1;
-                c = charAt(this.bp + i7);
-                length = this.bp + cArr.length + 1;
-                i8 = ((this.bp + i9) - length) - 2;
-            } else {
-                length = cArr.length + this.bp;
-                i8 = ((this.bp + i7) - length) - 1;
-                i9 = i7;
-            }
-            if (!z3 && i8 < 20) {
-                parseFloat = i6 / i5;
-                if (z2) {
-                    parseFloat = -parseFloat;
-                }
-            } else {
-                parseFloat = Float.parseFloat(subString(length, i8));
-            }
-            if (c == ',') {
-                this.bp += i9;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
-                this.token = 16;
-                return parseFloat;
-            } else if (c == '}') {
-                int i17 = i9 + 1;
-                char charAt4 = charAt(this.bp + i9);
-                if (charAt4 == ',') {
-                    this.token = 16;
-                    this.bp += i17;
-                    this.ch = charAt(this.bp);
-                } else if (charAt4 == ']') {
-                    this.token = 15;
-                    this.bp += i17;
-                    this.ch = charAt(this.bp);
-                } else if (charAt4 == '}') {
-                    this.token = 13;
-                    this.bp += i17;
-                    this.ch = charAt(this.bp);
-                } else if (charAt4 == 26) {
-                    this.bp += i17 - 1;
-                    this.token = 20;
-                    this.ch = JSONLexer.EOI;
-                } else {
-                    this.matchStat = -1;
-                    return 0.0f;
-                }
-                this.matchStat = 4;
-                return parseFloat;
-            } else {
-                this.matchStat = -1;
-                return 0.0f;
-            }
-        } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
-            this.matchStat = 5;
-            int i18 = i2 + 3;
-            int i19 = i18 + 1;
-            char charAt5 = charAt(i18 + this.bp);
-            if (z && charAt5 == '\"') {
-                i3 = i19 + 1;
-                charAt5 = charAt(this.bp + i19);
-            } else {
-                i3 = i19;
-            }
-            while (charAt5 != ',') {
-                if (charAt5 == '}') {
-                    this.bp += i3;
-                    this.ch = charAt(this.bp);
-                    this.matchStat = 5;
-                    this.token = 13;
-                    return 0.0f;
-                } else if (isWhitespace(charAt5)) {
-                    charAt5 = charAt(this.bp + i3);
-                    i3++;
-                } else {
-                    this.matchStat = -1;
-                    return 0.0f;
-                }
-            }
-            this.bp += i3;
-            this.ch = charAt(this.bp);
-            this.matchStat = 5;
-            this.token = 16;
-            return 0.0f;
-        } else {
-            this.matchStat = -1;
-            return 0.0f;
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final float scanFloat(char c) {
-        int i;
-        int i2;
-        int i3;
-        char charAt;
-        long j;
-        int i4;
-        char c2;
-        int i5;
-        int i6;
-        int i7;
-        float parseFloat;
-        int i8;
-        this.matchStat = 0;
-        int i9 = 1;
-        char charAt2 = charAt(0 + this.bp);
-        boolean z = charAt2 == '\"';
-        if (z) {
-            i9 = 2;
-            charAt2 = charAt(this.bp + 1);
-        }
-        boolean z2 = charAt2 == '-';
-        if (z2) {
-            i = i9 + 1;
-            charAt2 = charAt(this.bp + i9);
-        } else {
-            i = i9;
-        }
-        if (charAt2 >= '0' && charAt2 <= '9') {
-            long j2 = charAt2 - '0';
-            while (true) {
-                i3 = i + 1;
-                charAt = charAt(i + this.bp);
-                if (charAt < '0' || charAt > '9') {
-                    break;
-                }
-                j2 = (j2 * 10) + (charAt - '0');
-                i = i3;
-            }
-            long j3 = 1;
-            if (charAt == '.') {
-                int i10 = i3 + 1;
-                char charAt3 = charAt(this.bp + i3);
-                if (charAt3 >= '0' && charAt3 <= '9') {
-                    long j4 = (charAt3 - '0') + (j2 * 10);
-                    long j5 = 10;
-                    while (true) {
-                        i8 = i10 + 1;
-                        charAt = charAt(i10 + this.bp);
-                        if (charAt < '0' || charAt > '9') {
-                            break;
-                        }
-                        j4 = (j4 * 10) + (charAt - '0');
-                        j5 *= 10;
-                        i10 = i8;
-                    }
-                    j3 = j5;
-                    j = j4;
-                    i4 = i8;
-                } else {
-                    this.matchStat = -1;
-                    return 0.0f;
-                }
-            } else {
-                j = j2;
-                i4 = i3;
-            }
-            boolean z3 = charAt == 'e' || charAt == 'E';
-            if (z3) {
-                int i11 = i4 + 1;
-                c2 = charAt(this.bp + i4);
-                if (c2 == '+' || c2 == '-') {
-                    i4 = i11 + 1;
-                    c2 = charAt(i11 + this.bp);
-                } else {
-                    i4 = i11;
-                }
-                while (c2 >= '0' && c2 <= '9') {
-                    c2 = charAt(this.bp + i4);
-                    i4++;
-                }
-            } else {
-                c2 = charAt;
-            }
-            if (z) {
-                if (c2 != '\"') {
-                    this.matchStat = -1;
-                    return 0.0f;
-                }
-                i7 = i4 + 1;
-                c2 = charAt(this.bp + i4);
-                i5 = this.bp + 1;
-                i6 = ((this.bp + i7) - i5) - 2;
-            } else {
-                i5 = this.bp;
-                i6 = ((this.bp + i4) - i5) - 1;
-                i7 = i4;
-            }
-            if (!z3 && i6 < 20) {
-                parseFloat = ((float) j) / ((float) j3);
-                if (z2) {
-                    parseFloat = -parseFloat;
-                }
-            } else {
-                parseFloat = Float.parseFloat(subString(i5, i6));
-            }
-            if (c2 == c) {
-                this.bp += i7;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
-                this.token = 16;
-                return parseFloat;
-            }
-            this.matchStat = -1;
-            return parseFloat;
-        } else if (charAt2 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
-            this.matchStat = 5;
-            int i12 = i + 3;
-            int i13 = i12 + 1;
-            char charAt4 = charAt(i12 + this.bp);
-            if (z && charAt4 == '\"') {
-                i2 = i13 + 1;
-                charAt4 = charAt(this.bp + i13);
-            } else {
-                i2 = i13;
-            }
-            while (charAt4 != ',') {
-                if (charAt4 == ']') {
-                    this.bp += i2;
-                    this.ch = charAt(this.bp);
-                    this.matchStat = 5;
-                    this.token = 15;
-                    return 0.0f;
-                } else if (isWhitespace(charAt4)) {
-                    charAt4 = charAt(this.bp + i2);
-                    i2++;
-                } else {
-                    this.matchStat = -1;
-                    return 0.0f;
-                }
-            }
-            this.bp += i2;
-            this.ch = charAt(this.bp);
-            this.matchStat = 5;
-            this.token = 16;
-            return 0.0f;
-        } else {
-            this.matchStat = -1;
-            return 0.0f;
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public double scanDouble(char c) {
-        int i;
-        int i2;
-        int i3;
-        char charAt;
-        long j;
-        int i4;
-        char c2;
-        int i5;
-        int i6;
-        int i7;
-        double parseDouble;
-        int i8;
-        this.matchStat = 0;
-        int i9 = 1;
-        char charAt2 = charAt(0 + this.bp);
-        boolean z = charAt2 == '\"';
-        if (z) {
-            i9 = 2;
-            charAt2 = charAt(this.bp + 1);
-        }
-        boolean z2 = charAt2 == '-';
-        if (z2) {
-            i = i9 + 1;
-            charAt2 = charAt(this.bp + i9);
-        } else {
-            i = i9;
-        }
-        if (charAt2 >= '0' && charAt2 <= '9') {
-            long j2 = charAt2 - '0';
-            while (true) {
-                i3 = i + 1;
-                charAt = charAt(i + this.bp);
-                if (charAt < '0' || charAt > '9') {
-                    break;
-                }
-                j2 = (j2 * 10) + (charAt - '0');
-                i = i3;
-            }
-            long j3 = 1;
-            if (charAt == '.') {
-                int i10 = i3 + 1;
-                char charAt3 = charAt(this.bp + i3);
-                if (charAt3 >= '0' && charAt3 <= '9') {
-                    long j4 = (charAt3 - '0') + (j2 * 10);
-                    long j5 = 10;
-                    while (true) {
-                        i8 = i10 + 1;
-                        charAt = charAt(i10 + this.bp);
-                        if (charAt < '0' || charAt > '9') {
-                            break;
-                        }
-                        j4 = (j4 * 10) + (charAt - '0');
-                        j5 *= 10;
-                        i10 = i8;
-                    }
-                    j3 = j5;
-                    j = j4;
-                    i4 = i8;
-                } else {
-                    this.matchStat = -1;
-                    return 0.0d;
-                }
-            } else {
-                j = j2;
-                i4 = i3;
-            }
-            boolean z3 = charAt == 'e' || charAt == 'E';
-            if (z3) {
-                int i11 = i4 + 1;
-                c2 = charAt(this.bp + i4);
-                if (c2 == '+' || c2 == '-') {
-                    i4 = i11 + 1;
-                    c2 = charAt(i11 + this.bp);
-                } else {
-                    i4 = i11;
-                }
-                while (c2 >= '0' && c2 <= '9') {
-                    c2 = charAt(this.bp + i4);
-                    i4++;
-                }
-            } else {
-                c2 = charAt;
-            }
-            if (z) {
-                if (c2 != '\"') {
-                    this.matchStat = -1;
-                    return 0.0d;
-                }
-                i7 = i4 + 1;
-                c2 = charAt(this.bp + i4);
-                i5 = this.bp + 1;
-                i6 = ((this.bp + i7) - i5) - 2;
-            } else {
-                i5 = this.bp;
-                i6 = ((this.bp + i4) - i5) - 1;
-                i7 = i4;
-            }
-            if (!z3 && i6 < 20) {
-                parseDouble = j / j3;
-                if (z2) {
-                    parseDouble = -parseDouble;
-                }
-            } else {
-                parseDouble = Double.parseDouble(subString(i5, i6));
-            }
-            if (c2 == c) {
-                this.bp += i7;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
-                this.token = 16;
-                return parseDouble;
-            }
-            this.matchStat = -1;
-            return parseDouble;
-        } else if (charAt2 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
-            this.matchStat = 5;
-            int i12 = i + 3;
-            int i13 = i12 + 1;
-            char charAt4 = charAt(i12 + this.bp);
-            if (z && charAt4 == '\"') {
-                i2 = i13 + 1;
-                charAt4 = charAt(this.bp + i13);
-            } else {
-                i2 = i13;
-            }
-            while (charAt4 != ',') {
-                if (charAt4 == ']') {
-                    this.bp += i2;
-                    this.ch = charAt(this.bp);
-                    this.matchStat = 5;
-                    this.token = 15;
-                    return 0.0d;
-                } else if (isWhitespace(charAt4)) {
-                    charAt4 = charAt(this.bp + i2);
-                    i2++;
-                } else {
-                    this.matchStat = -1;
-                    return 0.0d;
-                }
-            }
-            this.bp += i2;
-            this.ch = charAt(this.bp);
-            this.matchStat = 5;
-            this.token = 16;
-            return 0.0d;
-        } else {
-            this.matchStat = -1;
-            return 0.0d;
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public BigDecimal scanDecimal(char c) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        char charAt;
-        int i5;
-        int i6;
-        int i7;
-        this.matchStat = 0;
-        char charAt2 = charAt(this.bp + 0);
-        boolean z = charAt2 == '\"';
-        if (z) {
-            i = 2;
-            charAt2 = charAt(this.bp + 1);
-        } else {
-            i = 1;
+            charAt2 = charAt(this.bp + i3);
+            i3++;
         }
         if (charAt2 == '-') {
-            i2 = i + 1;
-            charAt2 = charAt(this.bp + i);
-        } else {
-            i2 = i;
+            charAt2 = charAt(this.bp + i3);
+            i3++;
         }
         if (charAt2 >= '0' && charAt2 <= '9') {
             while (true) {
-                i4 = i2 + 1;
-                charAt = charAt(i2 + this.bp);
+                i = i3 + 1;
+                charAt = charAt(this.bp + i3);
                 if (charAt < '0' || charAt > '9') {
                     break;
                 }
-                i2 = i4;
+                i3 = i;
             }
             if (charAt == '.') {
-                int i8 = i4 + 1;
-                char charAt3 = charAt(i4 + this.bp);
+                int i4 = i + 1;
+                char charAt3 = charAt(this.bp + i);
                 if (charAt3 >= '0' && charAt3 <= '9') {
                     while (true) {
-                        i4 = i8 + 1;
-                        charAt = charAt(i8 + this.bp);
+                        i = i4 + 1;
+                        charAt = charAt(this.bp + i4);
                         if (charAt < '0' || charAt > '9') {
                             break;
                         }
-                        i8 = i4;
+                        i4 = i;
                     }
                 } else {
                     this.matchStat = -1;
                     return null;
                 }
             }
-            int i9 = i4;
             if (charAt == 'e' || charAt == 'E') {
-                int i10 = i9 + 1;
-                charAt = charAt(this.bp + i9);
+                int i5 = i + 1;
+                charAt = charAt(this.bp + i);
                 if (charAt == '+' || charAt == '-') {
-                    i9 = i10 + 1;
-                    charAt = charAt(i10 + this.bp);
-                } else {
-                    i9 = i10;
+                    charAt = charAt(this.bp + i5);
+                    i = i5 + 1;
+                    if (charAt >= '0' && charAt <= '9') {
+                        i5 = i + 1;
+                        charAt = charAt(this.bp + i);
+                    }
                 }
-                while (charAt >= '0' && charAt <= '9') {
-                    charAt = charAt(this.bp + i9);
-                    i9++;
+                i = i5;
+                if (charAt >= '0') {
+                    i5 = i + 1;
+                    charAt = charAt(this.bp + i);
+                    i = i5;
+                    if (charAt >= '0') {
+                    }
                 }
             }
-            if (z) {
-                if (charAt != '\"') {
-                    this.matchStat = -1;
-                    return null;
-                }
-                i7 = i9 + 1;
-                charAt = charAt(this.bp + i9);
-                i5 = this.bp + 1;
-                i6 = ((this.bp + i7) - i5) - 2;
+            if (!z) {
+                int i6 = this.bp;
+                length = cArr.length + i6;
+                i2 = ((i6 + i) - length) - 1;
+            } else if (charAt != '\"') {
+                this.matchStat = -1;
+                return null;
             } else {
-                i5 = this.bp;
-                i6 = ((this.bp + i9) - i5) - 1;
-                i7 = i9;
+                int i7 = i + 1;
+                charAt = charAt(this.bp + i);
+                int i8 = this.bp;
+                length = cArr.length + i8 + 1;
+                i2 = ((i8 + i7) - length) - 2;
+                i = i7;
             }
-            BigDecimal bigDecimal = new BigDecimal(sub_chars(i5, i6));
+            BigDecimal bigDecimal = new BigDecimal(sub_chars(length, i2));
             if (charAt == ',') {
-                this.bp += i7;
-                this.ch = charAt(this.bp);
+                int i9 = this.bp + i;
+                this.bp = i9;
+                this.ch = charAt(i9);
                 this.matchStat = 3;
                 this.token = 16;
                 return bigDecimal;
-            } else if (charAt == ']') {
-                int i11 = i7 + 1;
-                char charAt4 = charAt(this.bp + i7);
+            } else if (charAt == '}') {
+                int i10 = i + 1;
+                char charAt4 = charAt(this.bp + i);
                 if (charAt4 == ',') {
                     this.token = 16;
-                    this.bp += i11;
-                    this.ch = charAt(this.bp);
+                    int i11 = this.bp + i10;
+                    this.bp = i11;
+                    this.ch = charAt(i11);
                 } else if (charAt4 == ']') {
                     this.token = 15;
-                    this.bp += i11;
-                    this.ch = charAt(this.bp);
+                    int i12 = this.bp + i10;
+                    this.bp = i12;
+                    this.ch = charAt(i12);
                 } else if (charAt4 == '}') {
                     this.token = 13;
-                    this.bp += i11;
-                    this.ch = charAt(this.bp);
+                    int i13 = this.bp + i10;
+                    this.bp = i13;
+                    this.ch = charAt(i13);
                 } else if (charAt4 == 26) {
                     this.token = 20;
-                    this.bp += i11 - 1;
+                    this.bp += i10 - 1;
                     this.ch = JSONLexer.EOI;
                 } else {
                     this.matchStat = -1;
@@ -2849,34 +1885,34 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 this.matchStat = -1;
                 return null;
             }
-        } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
+        } else if (charAt2 == 'n' && charAt(this.bp + i3) == 'u' && charAt(this.bp + i3 + 1) == 'l' && charAt(this.bp + i3 + 2) == 'l') {
             this.matchStat = 5;
-            int i12 = i2 + 3;
-            int i13 = i12 + 1;
-            char charAt5 = charAt(i12 + this.bp);
+            int i14 = i3 + 3;
+            int i15 = i14 + 1;
+            char charAt5 = charAt(this.bp + i14);
             if (z && charAt5 == '\"') {
-                i3 = i13 + 1;
-                charAt5 = charAt(this.bp + i13);
-            } else {
-                i3 = i13;
+                charAt5 = charAt(this.bp + i15);
+                i15++;
             }
             while (charAt5 != ',') {
                 if (charAt5 == '}') {
-                    this.bp += i3;
-                    this.ch = charAt(this.bp);
+                    int i16 = this.bp + i15;
+                    this.bp = i16;
+                    this.ch = charAt(i16);
                     this.matchStat = 5;
                     this.token = 13;
                     return null;
                 } else if (isWhitespace(charAt5)) {
-                    charAt5 = charAt(this.bp + i3);
-                    i3++;
+                    charAt5 = charAt(this.bp + i15);
+                    i15++;
                 } else {
                     this.matchStat = -1;
                     return null;
                 }
             }
-            this.bp += i3;
-            this.ch = charAt(this.bp);
+            int i17 = this.bp + i15;
+            this.bp = i17;
+            this.ch = charAt(i17);
             this.matchStat = 5;
             this.token = 16;
             return null;
@@ -2886,148 +1922,550 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:121:?, code lost:
-        return null;
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00dc A[ADDED_TO_REGION] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:59:0x00de -> B:55:0x00ca). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final double scanFieldDouble(char[] cArr) {
+        int i;
+        char charAt;
+        boolean z;
+        int length;
+        int i2;
+        double parseDouble;
+        this.matchStat = 0;
+        if (!charArrayCompare(cArr)) {
+            this.matchStat = -2;
+            return 0.0d;
+        }
+        int length2 = cArr.length;
+        int i3 = length2 + 1;
+        char charAt2 = charAt(this.bp + length2);
+        boolean z2 = charAt2 == '\"';
+        if (z2) {
+            charAt2 = charAt(this.bp + i3);
+            i3++;
+        }
+        boolean z3 = charAt2 == '-';
+        if (z3) {
+            charAt2 = charAt(this.bp + i3);
+            i3++;
+        }
+        if (charAt2 < '0' || charAt2 > '9') {
+            boolean z4 = z2;
+            if (charAt2 == 'n' && charAt(this.bp + i3) == 'u' && charAt(this.bp + i3 + 1) == 'l' && charAt(this.bp + i3 + 2) == 'l') {
+                this.matchStat = 5;
+                int i4 = i3 + 3;
+                int i5 = i4 + 1;
+                char charAt3 = charAt(this.bp + i4);
+                if (z4 && charAt3 == '\"') {
+                    charAt3 = charAt(this.bp + i5);
+                    i5++;
+                }
+                while (charAt3 != ',') {
+                    if (charAt3 == '}') {
+                        int i6 = this.bp + i5;
+                        this.bp = i6;
+                        this.ch = charAt(i6);
+                        this.matchStat = 5;
+                        this.token = 13;
+                        return 0.0d;
+                    } else if (isWhitespace(charAt3)) {
+                        charAt3 = charAt(this.bp + i5);
+                        i5++;
+                    } else {
+                        this.matchStat = -1;
+                        return 0.0d;
+                    }
+                }
+                int i7 = this.bp + i5;
+                this.bp = i7;
+                this.ch = charAt(i7);
+                this.matchStat = 5;
+                this.token = 16;
+                return 0.0d;
+            }
+            this.matchStat = -1;
+            return 0.0d;
+        }
+        long j = charAt2 - '0';
+        while (true) {
+            i = i3 + 1;
+            charAt = charAt(this.bp + i3);
+            if (charAt < '0' || charAt > '9') {
+                break;
+            }
+            j = (j * 10) + (charAt - '0');
+            i3 = i;
+        }
+        long j2 = 1;
+        if (charAt == '.') {
+            int i8 = i + 1;
+            char charAt4 = charAt(this.bp + i);
+            if (charAt4 >= '0' && charAt4 <= '9') {
+                z = z2;
+                j = (j * 10) + (charAt4 - '0');
+                j2 = 10;
+                while (true) {
+                    i = i8 + 1;
+                    charAt = charAt(this.bp + i8);
+                    if (charAt < '0' || charAt > '9') {
+                        break;
+                    }
+                    j = (j * 10) + (charAt - '0');
+                    j2 *= 10;
+                    i8 = i;
+                }
+            } else {
+                this.matchStat = -1;
+                return 0.0d;
+            }
+        } else {
+            z = z2;
+        }
+        long j3 = j2;
+        boolean z5 = charAt == 'e' || charAt == 'E';
+        if (z5) {
+            int i9 = i + 1;
+            char charAt5 = charAt(this.bp + i);
+            if (charAt5 == '+' || charAt5 == '-') {
+                int i10 = i9 + 1;
+                charAt = charAt(this.bp + i9);
+                i = i10;
+                if (charAt >= '0' && charAt <= '9') {
+                    i9 = i + 1;
+                    charAt5 = charAt(this.bp + i);
+                }
+            }
+            i = i9;
+            charAt = charAt5;
+            if (charAt >= '0') {
+                i9 = i + 1;
+                charAt5 = charAt(this.bp + i);
+                i = i9;
+                charAt = charAt5;
+                if (charAt >= '0') {
+                }
+            }
+        }
+        if (!z) {
+            int i11 = this.bp;
+            length = cArr.length + i11;
+            i2 = ((i11 + i) - length) - 1;
+        } else if (charAt != '\"') {
+            this.matchStat = -1;
+            return 0.0d;
+        } else {
+            int i12 = i + 1;
+            char charAt6 = charAt(this.bp + i);
+            int i13 = this.bp;
+            length = cArr.length + i13 + 1;
+            i2 = ((i13 + i12) - length) - 2;
+            i = i12;
+            charAt = charAt6;
+        }
+        if (!z5 && i2 < 20) {
+            double d2 = j;
+            double d3 = j3;
+            Double.isNaN(d2);
+            Double.isNaN(d3);
+            parseDouble = d2 / d3;
+            if (z3) {
+                parseDouble = -parseDouble;
+            }
+        } else {
+            parseDouble = Double.parseDouble(subString(length, i2));
+        }
+        if (charAt == ',') {
+            int i14 = this.bp + i;
+            this.bp = i14;
+            this.ch = charAt(i14);
+            this.matchStat = 3;
+            this.token = 16;
+            return parseDouble;
+        } else if (charAt == '}') {
+            int i15 = i + 1;
+            char charAt7 = charAt(this.bp + i);
+            if (charAt7 == ',') {
+                this.token = 16;
+                int i16 = this.bp + i15;
+                this.bp = i16;
+                this.ch = charAt(i16);
+            } else if (charAt7 == ']') {
+                this.token = 15;
+                int i17 = this.bp + i15;
+                this.bp = i17;
+                this.ch = charAt(i17);
+            } else if (charAt7 == '}') {
+                this.token = 13;
+                int i18 = this.bp + i15;
+                this.bp = i18;
+                this.ch = charAt(i18);
+            } else if (charAt7 == 26) {
+                this.token = 20;
+                this.bp += i15 - 1;
+                this.ch = JSONLexer.EOI;
+            } else {
+                this.matchStat = -1;
+                return 0.0d;
+            }
+            this.matchStat = 4;
+            return parseDouble;
+        } else {
+            this.matchStat = -1;
+            return 0.0d;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00d1 A[ADDED_TO_REGION] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:58:0x00cd -> B:59:0x00cf). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final float scanFieldFloat(char[] cArr) {
+        int i;
+        char charAt;
+        int i2;
+        int length;
+        int i3;
+        float parseFloat;
+        char charAt2;
+        this.matchStat = 0;
+        if (!charArrayCompare(cArr)) {
+            this.matchStat = -2;
+            return 0.0f;
+        }
+        int length2 = cArr.length;
+        int i4 = length2 + 1;
+        char charAt3 = charAt(this.bp + length2);
+        boolean z = charAt3 == '\"';
+        if (z) {
+            charAt3 = charAt(this.bp + i4);
+            i4++;
+        }
+        boolean z2 = charAt3 == '-';
+        if (z2) {
+            charAt3 = charAt(this.bp + i4);
+            i4++;
+        }
+        if (charAt3 < '0' || charAt3 > '9') {
+            if (charAt3 == 'n' && charAt(this.bp + i4) == 'u' && charAt(this.bp + i4 + 1) == 'l' && charAt(this.bp + i4 + 2) == 'l') {
+                this.matchStat = 5;
+                int i5 = i4 + 3;
+                int i6 = i5 + 1;
+                char charAt4 = charAt(this.bp + i5);
+                if (z && charAt4 == '\"') {
+                    charAt4 = charAt(this.bp + i6);
+                    i6++;
+                }
+                while (charAt4 != ',') {
+                    if (charAt4 == '}') {
+                        int i7 = this.bp + i6;
+                        this.bp = i7;
+                        this.ch = charAt(i7);
+                        this.matchStat = 5;
+                        this.token = 13;
+                        return 0.0f;
+                    } else if (isWhitespace(charAt4)) {
+                        charAt4 = charAt(this.bp + i6);
+                        i6++;
+                    } else {
+                        this.matchStat = -1;
+                        return 0.0f;
+                    }
+                }
+                int i8 = this.bp + i6;
+                this.bp = i8;
+                this.ch = charAt(i8);
+                this.matchStat = 5;
+                this.token = 16;
+                return 0.0f;
+            }
+            this.matchStat = -1;
+            return 0.0f;
+        }
+        int i9 = charAt3 - '0';
+        while (true) {
+            i = i4 + 1;
+            charAt = charAt(this.bp + i4);
+            if (charAt < '0' || charAt > '9') {
+                break;
+            }
+            i9 = (i9 * 10) + (charAt - '0');
+            i4 = i;
+        }
+        if (charAt == '.') {
+            int i10 = i + 1;
+            char charAt5 = charAt(this.bp + i);
+            if (charAt5 < '0' || charAt5 > '9') {
+                this.matchStat = -1;
+                return 0.0f;
+            }
+            i9 = (i9 * 10) + (charAt5 - '0');
+            int i11 = 10;
+            while (true) {
+                i = i10 + 1;
+                charAt2 = charAt(this.bp + i10);
+                if (charAt2 < '0' || charAt2 > '9') {
+                    break;
+                }
+                i9 = (i9 * 10) + (charAt2 - '0');
+                i11 *= 10;
+                i10 = i;
+            }
+            i2 = i11;
+            charAt = charAt2;
+        } else {
+            i2 = 1;
+        }
+        boolean z3 = charAt == 'e' || charAt == 'E';
+        if (z3) {
+            int i12 = i + 1;
+            charAt = charAt(this.bp + i);
+            if (charAt == '+' || charAt == '-') {
+                int i13 = i12 + 1;
+                charAt = charAt(this.bp + i12);
+                i = i13;
+                if (charAt >= '0' && charAt <= '9') {
+                    i13 = i + 1;
+                    charAt = charAt(this.bp + i);
+                    i = i13;
+                    if (charAt >= '0') {
+                        i13 = i + 1;
+                        charAt = charAt(this.bp + i);
+                        i = i13;
+                        if (charAt >= '0') {
+                        }
+                    }
+                }
+            } else {
+                i = i12;
+                if (charAt >= '0') {
+                }
+            }
+        }
+        if (!z) {
+            int i14 = this.bp;
+            length = cArr.length + i14;
+            i3 = ((i14 + i) - length) - 1;
+        } else if (charAt != '\"') {
+            this.matchStat = -1;
+            return 0.0f;
+        } else {
+            int i15 = i + 1;
+            char charAt6 = charAt(this.bp + i);
+            int i16 = this.bp;
+            length = cArr.length + i16 + 1;
+            i3 = ((i16 + i15) - length) - 2;
+            i = i15;
+            charAt = charAt6;
+        }
+        if (z3 || i3 >= 20) {
+            parseFloat = Float.parseFloat(subString(length, i3));
+        } else {
+            parseFloat = i9 / i2;
+            if (z2) {
+                parseFloat = -parseFloat;
+            }
+        }
+        if (charAt == ',') {
+            int i17 = this.bp + i;
+            this.bp = i17;
+            this.ch = charAt(i17);
+            this.matchStat = 3;
+            this.token = 16;
+            return parseFloat;
+        } else if (charAt == '}') {
+            int i18 = i + 1;
+            char charAt7 = charAt(this.bp + i);
+            if (charAt7 == ',') {
+                this.token = 16;
+                int i19 = this.bp + i18;
+                this.bp = i19;
+                this.ch = charAt(i19);
+            } else if (charAt7 == ']') {
+                this.token = 15;
+                int i20 = this.bp + i18;
+                this.bp = i20;
+                this.ch = charAt(i20);
+            } else if (charAt7 == '}') {
+                this.token = 13;
+                int i21 = this.bp + i18;
+                this.bp = i21;
+                this.ch = charAt(i21);
+            } else if (charAt7 == 26) {
+                this.bp += i18 - 1;
+                this.token = 20;
+                this.ch = JSONLexer.EOI;
+            } else {
+                this.matchStat = -1;
+                return 0.0f;
+            }
+            this.matchStat = 4;
+            return parseFloat;
+        } else {
+            this.matchStat = -1;
+            return 0.0f;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x01bb, code lost:
+        r1 = r4;
+        r19.matchStat = -1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00ab, code lost:
-        r11.matchStat = -1;
+    /* JADX WARN: Code restructure failed: missing block: B:104:0x01be, code lost:
+        return r1;
      */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00da A[ADDED_TO_REGION] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:58:0x00d6 -> B:59:0x00d8). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final float[] scanFieldFloatArray(char[] cArr) {
         int i;
+        char charAt;
         int i2;
-        int i3;
         float parseFloat;
         float[] fArr;
-        int i4;
+        char charAt2;
         this.matchStat = 0;
+        float[] fArr2 = null;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
             return null;
         }
         int length = cArr.length;
-        int i5 = length + 1;
-        if (charAt(length + this.bp) != '[') {
+        int i3 = length + 1;
+        if (charAt(this.bp + length) != '[') {
             this.matchStat = -2;
             return null;
         }
-        int i6 = i5 + 1;
-        char charAt = charAt(this.bp + i5);
-        int i7 = 0;
-        float[] fArr2 = new float[16];
+        int i4 = i3 + 1;
+        char charAt3 = charAt(this.bp + i3);
+        float[] fArr3 = new float[16];
+        int i5 = 0;
         while (true) {
-            int i8 = (this.bp + i6) - 1;
-            boolean z = charAt == '-';
+            int i6 = (this.bp + i4) - 1;
+            boolean z = charAt3 == '-';
             if (z) {
-                charAt = charAt(this.bp + i6);
-                i6++;
+                charAt3 = charAt(this.bp + i4);
+                i4++;
             }
-            if (charAt < '0' || charAt > '9') {
+            if (charAt3 < '0' || charAt3 > '9') {
                 break;
             }
-            int i9 = charAt - '0';
+            int i7 = charAt3 - '0';
             while (true) {
-                int i10 = i6;
-                i6 = i10 + 1;
-                charAt = charAt(i10 + this.bp);
+                i = i4 + 1;
+                charAt = charAt(this.bp + i4);
                 if (charAt < '0' || charAt > '9') {
                     break;
                 }
-                i9 = (i9 * 10) + (charAt - '0');
+                i7 = (i7 * 10) + (charAt - '0');
+                i4 = i;
             }
-            if (!(charAt == '.')) {
-                i = 1;
-                i2 = i9;
-                i3 = i6;
-            } else {
-                int i11 = i6 + 1;
-                char charAt2 = charAt(this.bp + i6);
-                if (charAt2 < '0' || charAt2 > '9') {
+            if (charAt == '.') {
+                int i8 = i + 1;
+                char charAt4 = charAt(this.bp + i);
+                if (charAt4 < '0' || charAt4 > '9') {
                     break;
                 }
-                int i12 = (charAt2 - '0') + (i9 * 10);
-                int i13 = 10;
+                i7 = (i7 * 10) + (charAt4 - '0');
+                int i9 = 10;
                 while (true) {
-                    i4 = i11 + 1;
-                    charAt = charAt(this.bp + i11);
-                    if (charAt < '0' || charAt > '9') {
+                    i = i8 + 1;
+                    charAt2 = charAt(this.bp + i8);
+                    if (charAt2 < '0' || charAt2 > '9') {
                         break;
                     }
-                    i13 *= 10;
-                    i12 = (charAt - '0') + (i12 * 10);
-                    i11 = i4;
+                    i7 = (i7 * 10) + (charAt2 - '0');
+                    i9 *= 10;
+                    i8 = i;
                 }
-                i = i13;
-                i2 = i12;
-                i3 = i4;
+                int i10 = i9;
+                charAt = charAt2;
+                i2 = i10;
+            } else {
+                i2 = 1;
             }
             boolean z2 = charAt == 'e' || charAt == 'E';
             if (z2) {
-                i6 = i3 + 1;
-                char charAt3 = charAt(this.bp + i3);
-                if (charAt3 == '+' || charAt3 == '-') {
-                    charAt3 = charAt(this.bp + i6);
-                    i6++;
-                }
-                while (charAt3 >= '0' && charAt3 <= '9') {
-                    charAt3 = charAt(this.bp + i6);
-                    i6++;
-                }
-                charAt = charAt3;
-            } else {
-                i6 = i3;
-            }
-            int i14 = ((this.bp + i6) - i8) - 1;
-            if (!z2 && i14 < 10) {
-                float f = i2 / i;
-                parseFloat = z ? -f : f;
-            } else {
-                parseFloat = Float.parseFloat(subString(i8, i14));
-            }
-            if (i7 >= fArr2.length) {
-                float[] fArr3 = new float[(fArr2.length * 3) / 2];
-                System.arraycopy(fArr2, 0, fArr3, 0, i7);
-                fArr2 = fArr3;
-            }
-            int i15 = i7 + 1;
-            fArr2[i7] = parseFloat;
-            if (charAt == ',') {
-                charAt = charAt(this.bp + i6);
-                i6++;
-            } else if (charAt == ']') {
-                int i16 = i6 + 1;
-                char charAt4 = charAt(this.bp + i6);
-                if (i15 != fArr2.length) {
-                    fArr = new float[i15];
-                    System.arraycopy(fArr2, 0, fArr, 0, i15);
+                int i11 = i + 1;
+                charAt = charAt(this.bp + i);
+                if (charAt == '+' || charAt == '-') {
+                    int i12 = i11 + 1;
+                    charAt = charAt(this.bp + i11);
+                    i = i12;
+                    if (charAt >= '0' && charAt <= '9') {
+                        i12 = i + 1;
+                        charAt = charAt(this.bp + i);
+                        i = i12;
+                        if (charAt >= '0') {
+                            i12 = i + 1;
+                            charAt = charAt(this.bp + i);
+                            i = i12;
+                            if (charAt >= '0') {
+                            }
+                        }
+                    }
                 } else {
-                    fArr = fArr2;
+                    i = i11;
+                    if (charAt >= '0') {
+                    }
                 }
-                if (charAt4 == ',') {
-                    this.bp += i16 - 1;
+            }
+            int i13 = ((this.bp + i) - i6) - 1;
+            if (z2 || i13 >= 10) {
+                parseFloat = Float.parseFloat(subString(i6, i13));
+            } else {
+                parseFloat = i7 / i2;
+                if (z) {
+                    parseFloat = -parseFloat;
+                }
+            }
+            if (i5 >= fArr3.length) {
+                float[] fArr4 = new float[(fArr3.length * 3) / 2];
+                System.arraycopy(fArr3, 0, fArr4, 0, i5);
+                fArr3 = fArr4;
+            }
+            int i14 = i5 + 1;
+            fArr3[i5] = parseFloat;
+            if (charAt == ',') {
+                i4 = i + 1;
+                charAt3 = charAt(this.bp + i);
+                fArr = null;
+            } else if (charAt == ']') {
+                int i15 = i + 1;
+                char charAt5 = charAt(this.bp + i);
+                if (i14 != fArr3.length) {
+                    float[] fArr5 = new float[i14];
+                    System.arraycopy(fArr3, 0, fArr5, 0, i14);
+                    fArr3 = fArr5;
+                }
+                if (charAt5 == ',') {
+                    this.bp += i15 - 1;
                     next();
                     this.matchStat = 3;
                     this.token = 16;
-                    return fArr;
-                } else if (charAt4 == '}') {
-                    int i17 = i16 + 1;
-                    char charAt5 = charAt(this.bp + i16);
-                    if (charAt5 == ',') {
+                    return fArr3;
+                } else if (charAt5 == '}') {
+                    int i16 = i15 + 1;
+                    char charAt6 = charAt(this.bp + i15);
+                    if (charAt6 == ',') {
                         this.token = 16;
-                        this.bp += i17 - 1;
+                        this.bp += i16 - 1;
                         next();
-                    } else if (charAt5 == ']') {
+                    } else if (charAt6 == ']') {
                         this.token = 15;
-                        this.bp += i17 - 1;
+                        this.bp += i16 - 1;
                         next();
-                    } else if (charAt5 == '}') {
+                    } else if (charAt6 == '}') {
                         this.token = 13;
-                        this.bp += i17 - 1;
+                        this.bp += i16 - 1;
                         next();
-                    } else if (charAt5 == 26) {
-                        this.bp += i17 - 1;
+                    } else if (charAt6 == 26) {
+                        this.bp += i16 - 1;
                         this.token = 20;
                         this.ch = JSONLexer.EOI;
                     } else {
@@ -3035,167 +2473,198 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                         return null;
                     }
                     this.matchStat = 4;
-                    return fArr;
+                    return fArr3;
                 } else {
                     this.matchStat = -1;
                     return null;
                 }
+            } else {
+                fArr = null;
+                charAt3 = charAt;
+                i4 = i;
             }
-            i7 = i15;
+            fArr2 = fArr;
+            i5 = i14;
         }
         this.matchStat = -1;
-        return null;
+        return fArr2;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:141:?, code lost:
-        return null;
+    /* JADX WARN: Code restructure failed: missing block: B:117:0x0215, code lost:
+        r6 = r4;
+        r19.matchStat = -1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:88:0x0182, code lost:
-        r13.matchStat = -1;
+    /* JADX WARN: Code restructure failed: missing block: B:118:0x0218, code lost:
+        return r6;
      */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00ae, code lost:
+        r19.matchStat = -1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00b0, code lost:
+        return r4;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00e2 A[ADDED_TO_REGION] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:57:0x00de -> B:58:0x00e0). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final float[][] scanFieldFloatArray2(char[] cArr) {
-        char charAt;
         int i;
+        char charAt;
         int i2;
         float parseFloat;
+        int i3;
         float[][] fArr;
+        float[][] fArr2;
+        char charAt2;
         this.matchStat = 0;
+        float[][] fArr3 = null;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
             return null;
         }
         int length = cArr.length;
-        int i3 = length + 1;
-        if (charAt(length + this.bp) != '[') {
+        int i4 = length + 1;
+        char c2 = '[';
+        if (charAt(this.bp + length) != '[') {
             this.matchStat = -2;
             return null;
         }
-        int i4 = i3 + 1;
-        char charAt2 = charAt(this.bp + i3);
-        float[][] fArr2 = new float[16];
-        int i5 = 0;
+        int i5 = i4 + 1;
+        char charAt3 = charAt(this.bp + i4);
+        int i6 = 16;
+        float[][] fArr4 = new float[16];
+        int i7 = 0;
         loop0: while (true) {
-            if (charAt2 == '[') {
-                int i6 = i4 + 1;
-                char charAt3 = charAt(this.bp + i4);
-                int i7 = 0;
-                float[] fArr3 = new float[16];
+            if (charAt3 == c2) {
+                int i8 = i5 + 1;
+                char charAt4 = charAt(this.bp + i5);
+                float[] fArr5 = new float[i6];
+                int i9 = 0;
                 while (true) {
-                    int i8 = (this.bp + i6) - 1;
-                    boolean z = charAt3 == '-';
+                    int i10 = (this.bp + i8) - 1;
+                    boolean z = charAt4 == '-';
                     if (z) {
-                        charAt3 = charAt(this.bp + i6);
-                        i6++;
+                        charAt4 = charAt(this.bp + i8);
+                        i8++;
                     }
-                    if (charAt3 < '0' || charAt3 > '9') {
+                    if (charAt4 < '0' || charAt4 > '9') {
                         break loop0;
                     }
-                    int i9 = charAt3 - '0';
+                    int i11 = charAt4 - '0';
                     while (true) {
-                        int i10 = i6;
-                        i6 = i10 + 1;
-                        charAt = charAt(i10 + this.bp);
+                        i = i8 + 1;
+                        charAt = charAt(this.bp + i8);
                         if (charAt < '0' || charAt > '9') {
                             break;
                         }
-                        i9 = (i9 * 10) + (charAt - '0');
+                        i11 = (i11 * 10) + (charAt - '0');
+                        i8 = i;
                     }
-                    if (charAt != '.') {
-                        i = 1;
-                        i2 = i9;
-                    } else {
-                        int i11 = i6 + 1;
-                        char charAt4 = charAt(this.bp + i6);
-                        if (charAt4 < '0' || charAt4 > '9') {
+                    if (charAt == '.') {
+                        int i12 = i + 1;
+                        char charAt5 = charAt(this.bp + i);
+                        if (charAt5 < '0' || charAt5 > '9') {
                             break loop0;
                         }
-                        int i12 = (charAt4 - '0') + (i9 * 10);
+                        i11 = (i11 * 10) + (charAt5 - '0');
                         int i13 = 10;
                         while (true) {
-                            int i14 = i11;
-                            i11 = i14 + 1;
-                            charAt = charAt(i14 + this.bp);
-                            if (charAt < '0' || charAt > '9') {
+                            i = i12 + 1;
+                            charAt2 = charAt(this.bp + i12);
+                            if (charAt2 < '0' || charAt2 > '9') {
                                 break;
                             }
-                            i12 = (i12 * 10) + (charAt - '0');
+                            i11 = (i11 * 10) + (charAt2 - '0');
                             i13 *= 10;
+                            i12 = i;
                         }
-                        i = i13;
-                        i2 = i12;
-                        i6 = i11;
+                        i2 = i13;
+                        charAt = charAt2;
+                    } else {
+                        i2 = 1;
                     }
                     boolean z2 = charAt == 'e' || charAt == 'E';
                     if (z2) {
-                        int i15 = i6 + 1;
-                        char charAt5 = charAt(this.bp + i6);
-                        if (charAt5 == '+' || charAt5 == '-') {
-                            i6 = i15 + 1;
-                            charAt5 = charAt(this.bp + i15);
+                        int i14 = i + 1;
+                        charAt = charAt(this.bp + i);
+                        if (charAt == '+' || charAt == '-') {
+                            int i15 = i14 + 1;
+                            charAt = charAt(this.bp + i14);
+                            i = i15;
+                            if (charAt >= '0' && charAt <= '9') {
+                                i15 = i + 1;
+                                charAt = charAt(this.bp + i);
+                                i = i15;
+                                if (charAt >= '0') {
+                                    i15 = i + 1;
+                                    charAt = charAt(this.bp + i);
+                                    i = i15;
+                                    if (charAt >= '0') {
+                                    }
+                                }
+                            }
                         } else {
-                            i6 = i15;
+                            i = i14;
+                            if (charAt >= '0') {
+                            }
                         }
-                        while (charAt5 >= '0' && charAt5 <= '9') {
-                            charAt5 = charAt(this.bp + i6);
-                            i6++;
-                        }
-                        charAt3 = charAt5;
+                    }
+                    int i16 = ((this.bp + i) - i10) - 1;
+                    if (z2 || i16 >= 10) {
+                        parseFloat = Float.parseFloat(subString(i10, i16));
                     } else {
-                        charAt3 = charAt;
-                    }
-                    int i16 = ((this.bp + i6) - i8) - 1;
-                    if (!z2 && i16 < 10) {
-                        float f = i2 / i;
-                        parseFloat = z ? -f : f;
-                    } else {
-                        parseFloat = Float.parseFloat(subString(i8, i16));
-                    }
-                    if (i7 >= fArr3.length) {
-                        float[] fArr4 = new float[(fArr3.length * 3) / 2];
-                        System.arraycopy(fArr3, 0, fArr4, 0, i7);
-                        fArr3 = fArr4;
-                    }
-                    int i17 = i7 + 1;
-                    fArr3[i7] = parseFloat;
-                    if (charAt3 == ',') {
-                        charAt3 = charAt(this.bp + i6);
-                        i6++;
-                    } else if (charAt3 == ']') {
-                        int i18 = i6 + 1;
-                        char charAt6 = charAt(this.bp + i6);
-                        if (i17 != fArr3.length) {
-                            float[] fArr5 = new float[i17];
-                            System.arraycopy(fArr3, 0, fArr5, 0, i17);
-                            fArr3 = fArr5;
+                        parseFloat = i11 / i2;
+                        if (z) {
+                            parseFloat = -parseFloat;
                         }
-                        if (i5 >= fArr2.length) {
-                            fArr = new float[(fArr2.length * 3) / 2];
-                            System.arraycopy(fArr3, 0, fArr, 0, i17);
+                    }
+                    if (i9 >= fArr5.length) {
+                        float[] fArr6 = new float[(fArr5.length * 3) / 2];
+                        System.arraycopy(fArr5, 0, fArr6, 0, i9);
+                        fArr5 = fArr6;
+                    }
+                    int i17 = i9 + 1;
+                    fArr5[i9] = parseFloat;
+                    if (charAt == ',') {
+                        i8 = i + 1;
+                        fArr2 = null;
+                        charAt4 = charAt(this.bp + i);
+                    } else if (charAt == ']') {
+                        int i18 = i + 1;
+                        char charAt6 = charAt(this.bp + i);
+                        if (i17 != fArr5.length) {
+                            float[] fArr7 = new float[i17];
+                            i3 = 0;
+                            System.arraycopy(fArr5, 0, fArr7, 0, i17);
+                            fArr5 = fArr7;
                         } else {
-                            fArr = fArr2;
+                            i3 = 0;
                         }
-                        int i19 = i5 + 1;
-                        fArr[i5] = fArr3;
+                        if (i7 >= fArr4.length) {
+                            fArr4 = new float[(fArr4.length * 3) / 2];
+                            System.arraycopy(fArr5, i3, fArr4, i3, i17);
+                        }
+                        int i19 = i7 + 1;
+                        fArr4[i7] = fArr5;
                         if (charAt6 == ',') {
-                            i4 = i18 + 1;
-                            charAt2 = charAt(this.bp + i18);
+                            i5 = i18 + 1;
+                            fArr = null;
+                            charAt3 = charAt(this.bp + i18);
                         } else if (charAt6 == ']') {
                             int i20 = i18 + 1;
                             char charAt7 = charAt(this.bp + i18);
-                            if (i19 != fArr.length) {
-                                float[][] fArr6 = new float[i19];
-                                System.arraycopy(fArr, 0, fArr6, 0, i19);
-                                fArr = fArr6;
+                            if (i19 != fArr4.length) {
+                                float[][] fArr8 = new float[i19];
+                                System.arraycopy(fArr4, 0, fArr8, 0, i19);
+                                fArr4 = fArr8;
                             }
                             if (charAt7 == ',') {
                                 this.bp += i20 - 1;
                                 next();
                                 this.matchStat = 3;
                                 this.token = 16;
-                                return fArr;
+                                return fArr4;
                             } else if (charAt7 == '}') {
                                 int i21 = i20 + 1;
                                 char charAt8 = charAt(this.bp + i20);
@@ -3220,774 +2689,610 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                                     return null;
                                 }
                                 this.matchStat = 4;
-                                return fArr;
+                                return fArr4;
                             } else {
                                 this.matchStat = -1;
                                 return null;
                             }
                         } else {
-                            charAt2 = charAt6;
-                            i4 = i18;
+                            fArr = null;
+                            charAt3 = charAt6;
+                            i5 = i18;
                         }
-                        i5 = i19;
-                        fArr2 = fArr;
+                        i7 = i19;
+                        fArr3 = fArr;
+                        c2 = '[';
+                        i6 = 16;
+                    } else {
+                        fArr2 = null;
+                        charAt4 = charAt;
+                        i8 = i;
                     }
-                    i7 = i17;
+                    i9 = i17;
+                    fArr3 = fArr2;
                 }
             }
         }
-        this.matchStat = -1;
-        return null;
     }
 
-    public final double scanFieldDouble(char[] cArr) {
+    public int scanFieldInt(char[] cArr) {
         int i;
-        int i2;
-        int i3;
-        int i4;
         char charAt;
-        long j;
-        int i5;
-        char c;
-        int length;
-        int i6;
-        int i7;
-        double parseDouble;
-        int i8;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
-            return 0.0d;
+            return 0;
         }
-        int length2 = cArr.length;
-        int i9 = length2 + 1;
-        char charAt2 = charAt(length2 + this.bp);
-        boolean z = charAt2 == '\"';
+        int length = cArr.length;
+        int i2 = length + 1;
+        char charAt2 = charAt(this.bp + length);
+        boolean z = charAt2 == '-';
         if (z) {
-            i = i9 + 1;
-            charAt2 = charAt(this.bp + i9);
-        } else {
-            i = i9;
+            charAt2 = charAt(this.bp + i2);
+            i2++;
         }
-        boolean z2 = charAt2 == '-';
-        if (z2) {
-            i2 = i + 1;
-            charAt2 = charAt(this.bp + i);
-        } else {
+        if (charAt2 < '0' || charAt2 > '9') {
+            this.matchStat = -1;
+            return 0;
+        }
+        int i3 = charAt2 - '0';
+        while (true) {
+            i = i2 + 1;
+            charAt = charAt(this.bp + i2);
+            if (charAt < '0' || charAt > '9') {
+                break;
+            }
+            i3 = (i3 * 10) + (charAt - '0');
             i2 = i;
         }
-        if (charAt2 >= '0' && charAt2 <= '9') {
-            long j2 = charAt2 - '0';
-            while (true) {
-                i4 = i2 + 1;
-                charAt = charAt(i2 + this.bp);
-                if (charAt < '0' || charAt > '9') {
-                    break;
-                }
-                j2 = (j2 * 10) + (charAt - '0');
-                i2 = i4;
-            }
-            long j3 = 1;
-            if (charAt == '.') {
-                int i10 = i4 + 1;
-                char charAt3 = charAt(this.bp + i4);
-                if (charAt3 >= '0' && charAt3 <= '9') {
-                    long j4 = (charAt3 - '0') + (j2 * 10);
-                    long j5 = 10;
-                    while (true) {
-                        i8 = i10 + 1;
-                        charAt = charAt(i10 + this.bp);
-                        if (charAt < '0' || charAt > '9') {
-                            break;
-                        }
-                        j4 = (j4 * 10) + (charAt - '0');
-                        j5 *= 10;
-                        i10 = i8;
-                    }
-                    j3 = j5;
-                    j = j4;
-                    i5 = i8;
-                } else {
-                    this.matchStat = -1;
-                    return 0.0d;
-                }
-            } else {
-                j = j2;
-                i5 = i4;
-            }
-            boolean z3 = charAt == 'e' || charAt == 'E';
-            if (z3) {
-                int i11 = i5 + 1;
-                c = charAt(this.bp + i5);
-                if (c == '+' || c == '-') {
-                    i5 = i11 + 1;
-                    c = charAt(i11 + this.bp);
-                } else {
-                    i5 = i11;
-                }
-                while (c >= '0' && c <= '9') {
-                    c = charAt(this.bp + i5);
-                    i5++;
-                }
-            } else {
-                c = charAt;
-            }
-            if (z) {
-                if (c != '\"') {
-                    this.matchStat = -1;
-                    return 0.0d;
-                }
-                i7 = i5 + 1;
-                c = charAt(this.bp + i5);
-                length = this.bp + cArr.length + 1;
-                i6 = ((this.bp + i7) - length) - 2;
-            } else {
-                length = cArr.length + this.bp;
-                i6 = ((this.bp + i5) - length) - 1;
-                i7 = i5;
-            }
-            if (!z3 && i6 < 20) {
-                parseDouble = j / j3;
-                if (z2) {
-                    parseDouble = -parseDouble;
-                }
-            } else {
-                parseDouble = Double.parseDouble(subString(length, i6));
-            }
-            if (c == ',') {
-                this.bp += i7;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
+        if (charAt == '.') {
+            this.matchStat = -1;
+            return 0;
+        } else if ((i3 < 0 || i > cArr.length + 14) && !(i3 == Integer.MIN_VALUE && i == 17 && z)) {
+            this.matchStat = -1;
+            return 0;
+        } else if (charAt == ',') {
+            int i4 = this.bp + i;
+            this.bp = i4;
+            this.ch = charAt(i4);
+            this.matchStat = 3;
+            this.token = 16;
+            return z ? -i3 : i3;
+        } else if (charAt == '}') {
+            int i5 = i + 1;
+            char charAt3 = charAt(this.bp + i);
+            if (charAt3 == ',') {
                 this.token = 16;
-                return parseDouble;
-            } else if (c == '}') {
-                int i12 = i7 + 1;
-                char charAt4 = charAt(this.bp + i7);
-                if (charAt4 == ',') {
-                    this.token = 16;
-                    this.bp += i12;
-                    this.ch = charAt(this.bp);
-                } else if (charAt4 == ']') {
-                    this.token = 15;
-                    this.bp += i12;
-                    this.ch = charAt(this.bp);
-                } else if (charAt4 == '}') {
-                    this.token = 13;
-                    this.bp += i12;
-                    this.ch = charAt(this.bp);
-                } else if (charAt4 == 26) {
-                    this.token = 20;
-                    this.bp += i12 - 1;
-                    this.ch = JSONLexer.EOI;
-                } else {
-                    this.matchStat = -1;
-                    return 0.0d;
-                }
-                this.matchStat = 4;
-                return parseDouble;
+                int i6 = this.bp + i5;
+                this.bp = i6;
+                this.ch = charAt(i6);
+            } else if (charAt3 == ']') {
+                this.token = 15;
+                int i7 = this.bp + i5;
+                this.bp = i7;
+                this.ch = charAt(i7);
+            } else if (charAt3 == '}') {
+                this.token = 13;
+                int i8 = this.bp + i5;
+                this.bp = i8;
+                this.ch = charAt(i8);
+            } else if (charAt3 == 26) {
+                this.token = 20;
+                this.bp += i5 - 1;
+                this.ch = JSONLexer.EOI;
             } else {
                 this.matchStat = -1;
-                return 0.0d;
+                return 0;
             }
-        } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
-            this.matchStat = 5;
-            int i13 = i2 + 3;
-            int i14 = i13 + 1;
-            char charAt5 = charAt(i13 + this.bp);
-            if (z && charAt5 == '\"') {
-                i3 = i14 + 1;
-                charAt5 = charAt(this.bp + i14);
-            } else {
-                i3 = i14;
-            }
-            while (charAt5 != ',') {
-                if (charAt5 == '}') {
-                    this.bp += i3;
-                    this.ch = charAt(this.bp);
-                    this.matchStat = 5;
-                    this.token = 13;
-                    return 0.0d;
-                } else if (isWhitespace(charAt5)) {
-                    charAt5 = charAt(this.bp + i3);
-                    i3++;
-                } else {
-                    this.matchStat = -1;
-                    return 0.0d;
-                }
-            }
-            this.bp += i3;
-            this.ch = charAt(this.bp);
-            this.matchStat = 5;
-            this.token = 16;
-            return 0.0d;
+            this.matchStat = 4;
+            return z ? -i3 : i3;
         } else {
             this.matchStat = -1;
-            return 0.0d;
+            return 0;
         }
     }
 
-    public BigDecimal scanFieldDecimal(char[] cArr) {
+    public final int[] scanFieldIntArray(char[] cArr) {
+        boolean z;
         int i;
+        char charAt;
         int i2;
         int i3;
-        int i4;
-        char charAt;
-        int length;
-        int i5;
-        int i6;
+        char charAt2;
         this.matchStat = 0;
+        int[] iArr = null;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
             return null;
         }
-        int length2 = cArr.length;
-        int i7 = length2 + 1;
-        char charAt2 = charAt(length2 + this.bp);
-        boolean z = charAt2 == '\"';
-        if (z) {
-            i = i7 + 1;
-            charAt2 = charAt(i7 + this.bp);
-        } else {
-            i = i7;
+        int length = cArr.length;
+        int i4 = length + 1;
+        if (charAt(this.bp + length) != '[') {
+            this.matchStat = -2;
+            return null;
         }
-        if (charAt2 == '-') {
-            i2 = i + 1;
-            charAt2 = charAt(this.bp + i);
+        int i5 = i4 + 1;
+        char charAt3 = charAt(this.bp + i4);
+        int[] iArr2 = new int[16];
+        if (charAt3 == ']') {
+            i3 = i5 + 1;
+            charAt2 = charAt(this.bp + i5);
+            i2 = 0;
         } else {
-            i2 = i;
-        }
-        if (charAt2 >= '0' && charAt2 <= '9') {
+            int i6 = 0;
             while (true) {
-                i4 = i2 + 1;
-                charAt = charAt(i2 + this.bp);
-                if (charAt < '0' || charAt > '9') {
+                if (charAt3 == '-') {
+                    charAt3 = charAt(this.bp + i5);
+                    i5++;
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (charAt3 < '0' || charAt3 > '9') {
                     break;
                 }
-                i2 = i4;
-            }
-            if (charAt == '.') {
-                int i8 = i4 + 1;
-                char charAt3 = charAt(i4 + this.bp);
-                if (charAt3 >= '0' && charAt3 <= '9') {
-                    while (true) {
-                        i4 = i8 + 1;
-                        charAt = charAt(i8 + this.bp);
-                        if (charAt < '0' || charAt > '9') {
-                            break;
-                        }
-                        i8 = i4;
+                int i7 = charAt3 - '0';
+                while (true) {
+                    i = i5 + 1;
+                    charAt = charAt(this.bp + i5);
+                    if (charAt < '0' || charAt > '9') {
+                        break;
                     }
-                } else {
-                    this.matchStat = -1;
-                    return null;
+                    i7 = (i7 * 10) + (charAt - '0');
+                    i5 = i;
                 }
+                if (i6 >= iArr2.length) {
+                    int[] iArr3 = new int[(iArr2.length * 3) / 2];
+                    System.arraycopy(iArr2, 0, iArr3, 0, i6);
+                    iArr2 = iArr3;
+                }
+                i2 = i6 + 1;
+                if (z) {
+                    i7 = -i7;
+                }
+                iArr2[i6] = i7;
+                if (charAt == ',') {
+                    i++;
+                    charAt = charAt(this.bp + i);
+                } else if (charAt == ']') {
+                    i3 = i + 1;
+                    charAt2 = charAt(this.bp + i);
+                    break;
+                }
+                i6 = i2;
+                iArr = null;
+                charAt3 = charAt;
+                i5 = i;
             }
-            int i9 = i4;
-            if (charAt == 'e' || charAt == 'E') {
-                int i10 = i9 + 1;
-                charAt = charAt(this.bp + i9);
-                if (charAt == '+' || charAt == '-') {
-                    i9 = i10 + 1;
-                    charAt = charAt(i10 + this.bp);
-                } else {
-                    i9 = i10;
-                }
-                while (charAt >= '0' && charAt <= '9') {
-                    charAt = charAt(this.bp + i9);
-                    i9++;
-                }
-            }
-            if (z) {
-                if (charAt != '\"') {
-                    this.matchStat = -1;
-                    return null;
-                }
-                i6 = i9 + 1;
-                charAt = charAt(this.bp + i9);
-                length = this.bp + cArr.length + 1;
-                i5 = ((this.bp + i6) - length) - 2;
-            } else {
-                length = cArr.length + this.bp;
-                i5 = ((this.bp + i9) - length) - 1;
-                i6 = i9;
-            }
-            BigDecimal bigDecimal = new BigDecimal(sub_chars(length, i5));
-            if (charAt == ',') {
-                this.bp += i6;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
+            int[] iArr4 = iArr;
+            this.matchStat = -1;
+            return iArr4;
+        }
+        if (i2 != iArr2.length) {
+            int[] iArr5 = new int[i2];
+            System.arraycopy(iArr2, 0, iArr5, 0, i2);
+            iArr2 = iArr5;
+        }
+        if (charAt2 == ',') {
+            this.bp += i3 - 1;
+            next();
+            this.matchStat = 3;
+            this.token = 16;
+            return iArr2;
+        } else if (charAt2 == '}') {
+            int i8 = i3 + 1;
+            char charAt4 = charAt(this.bp + i3);
+            if (charAt4 == ',') {
                 this.token = 16;
-                return bigDecimal;
-            } else if (charAt == '}') {
-                int i11 = i6 + 1;
-                char charAt4 = charAt(this.bp + i6);
-                if (charAt4 == ',') {
-                    this.token = 16;
-                    this.bp += i11;
-                    this.ch = charAt(this.bp);
-                } else if (charAt4 == ']') {
-                    this.token = 15;
-                    this.bp += i11;
-                    this.ch = charAt(this.bp);
-                } else if (charAt4 == '}') {
-                    this.token = 13;
-                    this.bp += i11;
-                    this.ch = charAt(this.bp);
-                } else if (charAt4 == 26) {
-                    this.token = 20;
-                    this.bp += i11 - 1;
-                    this.ch = JSONLexer.EOI;
-                } else {
-                    this.matchStat = -1;
-                    return null;
-                }
-                this.matchStat = 4;
-                return bigDecimal;
+                this.bp += i8 - 1;
+                next();
+            } else if (charAt4 == ']') {
+                this.token = 15;
+                this.bp += i8 - 1;
+                next();
+            } else if (charAt4 == '}') {
+                this.token = 13;
+                this.bp += i8 - 1;
+                next();
+            } else if (charAt4 == 26) {
+                this.bp += i8 - 1;
+                this.token = 20;
+                this.ch = JSONLexer.EOI;
             } else {
                 this.matchStat = -1;
                 return null;
             }
-        } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
-            this.matchStat = 5;
-            int i12 = i2 + 3;
-            int i13 = i12 + 1;
-            char charAt5 = charAt(i12 + this.bp);
-            if (z && charAt5 == '\"') {
-                i3 = i13 + 1;
-                charAt5 = charAt(this.bp + i13);
-            } else {
-                i3 = i13;
-            }
-            while (charAt5 != ',') {
-                if (charAt5 == '}') {
-                    this.bp += i3;
-                    this.ch = charAt(this.bp);
-                    this.matchStat = 5;
-                    this.token = 13;
-                    return null;
-                } else if (isWhitespace(charAt5)) {
-                    charAt5 = charAt(this.bp + i3);
-                    i3++;
-                } else {
-                    this.matchStat = -1;
-                    return null;
-                }
-            }
-            this.bp += i3;
-            this.ch = charAt(this.bp);
-            this.matchStat = 5;
-            this.token = 16;
-            return null;
+            this.matchStat = 4;
+            return iArr2;
         } else {
             this.matchStat = -1;
             return null;
         }
     }
 
-    public BigInteger scanFieldBigInteger(char[] cArr) {
+    public long scanFieldLong(char[] cArr) {
+        boolean z;
         int i;
-        int i2;
-        int i3;
-        int i4;
         char charAt;
-        int length;
-        int i5;
-        int i6;
-        BigInteger valueOf;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
-            return null;
+            return 0L;
         }
-        int length2 = cArr.length;
-        int i7 = length2 + 1;
-        char charAt2 = charAt(length2 + this.bp);
-        boolean z = charAt2 == '\"';
-        if (z) {
-            i = i7 + 1;
-            charAt2 = charAt(this.bp + i7);
+        int length = cArr.length;
+        int i2 = length + 1;
+        char charAt2 = charAt(this.bp + length);
+        if (charAt2 == '-') {
+            charAt2 = charAt(this.bp + i2);
+            i2++;
+            z = true;
         } else {
-            i = i7;
+            z = false;
         }
-        boolean z2 = charAt2 == '-';
-        if (z2) {
-            i2 = i + 1;
-            charAt2 = charAt(this.bp + i);
-        } else {
+        if (charAt2 < '0' || charAt2 > '9') {
+            this.matchStat = -1;
+            return 0L;
+        }
+        long j = charAt2 - '0';
+        while (true) {
+            i = i2 + 1;
+            charAt = charAt(this.bp + i2);
+            if (charAt < '0' || charAt > '9') {
+                break;
+            }
+            j = (j * 10) + (charAt - '0');
             i2 = i;
         }
-        if (charAt2 >= '0' && charAt2 <= '9') {
-            long j = charAt2 - '0';
-            while (true) {
-                i4 = i2 + 1;
-                charAt = charAt(i2 + this.bp);
-                if (charAt < '0' || charAt > '9') {
-                    break;
-                }
-                j = (j * 10) + (charAt - '0');
-                i2 = i4;
-            }
-            if (z) {
-                if (charAt != '\"') {
-                    this.matchStat = -1;
-                    return null;
-                }
-                i6 = i4 + 1;
-                charAt = charAt(this.bp + i4);
-                int length3 = this.bp + cArr.length + 1;
-                i5 = ((this.bp + i6) - length3) - 2;
-                length = length3;
-            } else {
-                length = cArr.length + this.bp;
-                i5 = ((this.bp + i4) - length) - 1;
-                i6 = i4;
-            }
-            if (i5 < 20 || (z2 && i5 < 21)) {
-                if (z2) {
-                    j = -j;
-                }
-                valueOf = BigInteger.valueOf(j);
-            } else {
-                valueOf = new BigInteger(subString(length, i5));
-            }
-            if (charAt == ',') {
-                this.bp += i6;
-                this.ch = charAt(this.bp);
-                this.matchStat = 3;
+        if (charAt == '.') {
+            this.matchStat = -1;
+            return 0L;
+        }
+        if (!(i - cArr.length < 21 && (j >= 0 || (j == Long.MIN_VALUE && z)))) {
+            this.matchStat = -1;
+            return 0L;
+        } else if (charAt == ',') {
+            int i3 = this.bp + i;
+            this.bp = i3;
+            this.ch = charAt(i3);
+            this.matchStat = 3;
+            this.token = 16;
+            return z ? -j : j;
+        } else if (charAt == '}') {
+            int i4 = i + 1;
+            char charAt3 = charAt(this.bp + i);
+            if (charAt3 == ',') {
                 this.token = 16;
-                return valueOf;
+                int i5 = this.bp + i4;
+                this.bp = i5;
+                this.ch = charAt(i5);
+            } else if (charAt3 == ']') {
+                this.token = 15;
+                int i6 = this.bp + i4;
+                this.bp = i6;
+                this.ch = charAt(i6);
+            } else if (charAt3 == '}') {
+                this.token = 13;
+                int i7 = this.bp + i4;
+                this.bp = i7;
+                this.ch = charAt(i7);
+            } else if (charAt3 == 26) {
+                this.token = 20;
+                this.bp += i4 - 1;
+                this.ch = JSONLexer.EOI;
+            } else {
+                this.matchStat = -1;
+                return 0L;
+            }
+            this.matchStat = 4;
+            return z ? -j : j;
+        } else {
+            this.matchStat = -1;
+            return 0L;
+        }
+    }
+
+    public String scanFieldString(char[] cArr) {
+        this.matchStat = 0;
+        if (!charArrayCompare(cArr)) {
+            this.matchStat = -2;
+            return stringDefaultValue();
+        }
+        int length = cArr.length;
+        int i = length + 1;
+        if (charAt(this.bp + length) != '\"') {
+            this.matchStat = -1;
+            return stringDefaultValue();
+        }
+        int indexOf = indexOf(Typography.quote, this.bp + cArr.length + 1);
+        if (indexOf != -1) {
+            int length2 = this.bp + cArr.length + 1;
+            String subString = subString(length2, indexOf - length2);
+            if (subString.indexOf(92) != -1) {
+                while (true) {
+                    int i2 = 0;
+                    for (int i3 = indexOf - 1; i3 >= 0 && charAt(i3) == '\\'; i3--) {
+                        i2++;
+                    }
+                    if (i2 % 2 == 0) {
+                        break;
+                    }
+                    indexOf = indexOf(Typography.quote, indexOf + 1);
+                }
+                int i4 = this.bp;
+                int length3 = indexOf - ((cArr.length + i4) + 1);
+                subString = readString(sub_chars(i4 + cArr.length + 1, length3), length3);
+            }
+            int i5 = this.bp;
+            int length4 = i + (indexOf - ((cArr.length + i5) + 1)) + 1;
+            int i6 = length4 + 1;
+            char charAt = charAt(i5 + length4);
+            if (charAt == ',') {
+                int i7 = this.bp + i6;
+                this.bp = i7;
+                this.ch = charAt(i7);
+                this.matchStat = 3;
+                return subString;
             } else if (charAt == '}') {
                 int i8 = i6 + 1;
-                char charAt3 = charAt(this.bp + i6);
-                if (charAt3 == ',') {
+                char charAt2 = charAt(this.bp + i6);
+                if (charAt2 == ',') {
                     this.token = 16;
-                    this.bp += i8;
-                    this.ch = charAt(this.bp);
-                } else if (charAt3 == ']') {
+                    int i9 = this.bp + i8;
+                    this.bp = i9;
+                    this.ch = charAt(i9);
+                } else if (charAt2 == ']') {
                     this.token = 15;
-                    this.bp += i8;
-                    this.ch = charAt(this.bp);
-                } else if (charAt3 == '}') {
+                    int i10 = this.bp + i8;
+                    this.bp = i10;
+                    this.ch = charAt(i10);
+                } else if (charAt2 == '}') {
                     this.token = 13;
-                    this.bp += i8;
-                    this.ch = charAt(this.bp);
-                } else if (charAt3 == 26) {
+                    int i11 = this.bp + i8;
+                    this.bp = i11;
+                    this.ch = charAt(i11);
+                } else if (charAt2 == 26) {
                     this.token = 20;
                     this.bp += i8 - 1;
                     this.ch = JSONLexer.EOI;
                 } else {
                     this.matchStat = -1;
-                    return null;
+                    return stringDefaultValue();
                 }
                 this.matchStat = 4;
-                return valueOf;
+                return subString;
             } else {
                 this.matchStat = -1;
-                return null;
+                return stringDefaultValue();
             }
-        } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
-            this.matchStat = 5;
-            int i9 = i2 + 3;
-            int i10 = i9 + 1;
-            char charAt4 = charAt(i9 + this.bp);
-            if (z && charAt4 == '\"') {
-                i3 = i10 + 1;
-                charAt4 = charAt(this.bp + i10);
-            } else {
-                i3 = i10;
-            }
-            while (charAt4 != ',') {
-                if (charAt4 == '}') {
-                    this.bp += i3;
-                    this.ch = charAt(this.bp);
-                    this.matchStat = 5;
-                    this.token = 13;
-                    return null;
-                } else if (isWhitespace(charAt4)) {
-                    charAt4 = charAt(this.bp + i3);
-                    i3++;
-                } else {
-                    this.matchStat = -1;
-                    return null;
-                }
-            }
-            this.bp += i3;
-            this.ch = charAt(this.bp);
-            this.matchStat = 5;
-            this.token = 16;
-            return null;
-        } else {
-            this.matchStat = -1;
-            return null;
         }
+        throw new JSONException("unclosed str");
     }
 
-    public Date scanFieldDate(char[] cArr) {
-        boolean z;
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x00ef, code lost:
+        if (r13.size() != 0) goto L75;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x00f1, code lost:
+        r12 = charAt(r11.bp + r1);
+        r1 = r1 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00fb, code lost:
+        if (r12 != ',') goto L38;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00fd, code lost:
+        r12 = r11.bp + r1;
+        r11.bp = r12;
+        r11.ch = charAt(r12);
+        r11.matchStat = 3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x010b, code lost:
+        return r13;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x010e, code lost:
+        if (r12 != '}') goto L54;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0110, code lost:
+        r6 = r1 + 1;
+        r12 = charAt(r11.bp + r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0119, code lost:
+        if (r12 != ',') goto L45;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x011b, code lost:
+        r11.token = 16;
+        r12 = r11.bp + r6;
+        r11.bp = r12;
+        r11.ch = charAt(r12);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x012b, code lost:
+        if (r12 != ']') goto L47;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x012d, code lost:
+        r11.token = 15;
+        r12 = r11.bp + r6;
+        r11.bp = r12;
+        r11.ch = charAt(r12);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x013d, code lost:
+        if (r12 != '}') goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x013f, code lost:
+        r11.token = 13;
+        r12 = r11.bp + r6;
+        r11.bp = r12;
+        r11.ch = charAt(r12);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x0151, code lost:
+        if (r12 != 26) goto L52;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x0153, code lost:
+        r11.bp += r6 - 1;
+        r11.token = 20;
+        r11.ch = com.alibaba.fastjson.parser.JSONLexer.EOI;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0160, code lost:
+        r11.matchStat = 4;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x0163, code lost:
+        return r13;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x0164, code lost:
+        r11.matchStat = -1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0166, code lost:
+        return null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0167, code lost:
+        r11.matchStat = -1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x0169, code lost:
+        return null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x0172, code lost:
+        throw new com.alibaba.fastjson.JSONException("illega str");
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Collection<String> scanFieldStringArray(char[] cArr, Class<?> cls) {
+        char charAt;
         int i;
-        int i2;
-        Date date;
-        char c;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
             return null;
         }
+        Collection<String> newCollectionByType = newCollectionByType(cls);
         int length = cArr.length;
-        int i3 = length + 1;
-        char charAt = charAt(length + this.bp);
-        if (charAt == '\"') {
-            int indexOf = indexOf('\"', this.bp + cArr.length + 1);
-            if (indexOf == -1) {
-                throw new JSONException("unclosed str");
-            }
-            int length2 = this.bp + cArr.length + 1;
-            String subString = subString(length2, indexOf - length2);
-            if (subString.indexOf(92) != -1) {
-                while (true) {
-                    int i4 = 0;
-                    for (int i5 = indexOf - 1; i5 >= 0 && charAt(i5) == '\\'; i5--) {
-                        i4++;
-                    }
-                    if (i4 % 2 == 0) {
-                        break;
-                    }
-                    indexOf = indexOf('\"', indexOf + 1);
-                }
-                int length3 = indexOf - ((this.bp + cArr.length) + 1);
-                subString = readString(sub_chars(this.bp + cArr.length + 1, length3), length3);
-            }
-            int length4 = (indexOf - ((this.bp + cArr.length) + 1)) + 1 + i3;
-            i2 = length4 + 1;
-            char charAt2 = charAt(length4 + this.bp);
-            JSONScanner jSONScanner = new JSONScanner(subString);
-            try {
-                if (jSONScanner.scanISO8601DateIfMatch(false)) {
-                    date = jSONScanner.getCalendar().getTime();
-                    jSONScanner.close();
-                    c = charAt2;
-                } else {
-                    this.matchStat = -1;
-                    return null;
-                }
-            } finally {
-                jSONScanner.close();
-            }
-        } else if (charAt == '-' || (charAt >= '0' && charAt <= '9')) {
-            long j = 0;
-            if (charAt == '-') {
-                i = i3 + 1;
-                charAt = charAt(this.bp + i3);
-                z = true;
-            } else {
-                z = false;
-                i = i3;
-            }
-            if (charAt >= '0' && charAt <= '9') {
-                j = charAt - '0';
-                while (true) {
-                    i2 = i + 1;
-                    charAt = charAt(i + this.bp);
-                    if (charAt < '0' || charAt > '9') {
-                        break;
-                    }
-                    j = (j * 10) + (charAt - '0');
-                    i = i2;
-                }
-            } else {
-                i2 = i;
-            }
-            if (j < 0) {
-                this.matchStat = -1;
-                return null;
-            }
-            if (z) {
-                j = -j;
-            }
-            date = new Date(j);
-            c = charAt;
-        } else {
+        int i2 = length + 1;
+        if (charAt(this.bp + length) != '[') {
             this.matchStat = -1;
             return null;
         }
-        if (c == ',') {
-            this.bp += i2;
-            this.ch = charAt(this.bp);
-            this.matchStat = 3;
-            return date;
-        } else if (c == '}') {
-            int i6 = i2 + 1;
-            char charAt3 = charAt(this.bp + i2);
-            if (charAt3 == ',') {
-                this.token = 16;
-                this.bp += i6;
-                this.ch = charAt(this.bp);
-            } else if (charAt3 == ']') {
-                this.token = 15;
-                this.bp += i6;
-                this.ch = charAt(this.bp);
-            } else if (charAt3 == '}') {
-                this.token = 13;
-                this.bp += i6;
-                this.ch = charAt(this.bp);
-            } else if (charAt3 == 26) {
-                this.token = 20;
-                this.bp += i6 - 1;
-                this.ch = JSONLexer.EOI;
+        int i3 = i2 + 1;
+        char charAt2 = charAt(this.bp + i2);
+        while (true) {
+            if (charAt2 == '\"') {
+                int indexOf = indexOf(Typography.quote, this.bp + i3);
+                if (indexOf != -1) {
+                    int i4 = this.bp + i3;
+                    String subString = subString(i4, indexOf - i4);
+                    if (subString.indexOf(92) != -1) {
+                        while (true) {
+                            int i5 = 0;
+                            for (int i6 = indexOf - 1; i6 >= 0 && charAt(i6) == '\\'; i6--) {
+                                i5++;
+                            }
+                            if (i5 % 2 == 0) {
+                                break;
+                            }
+                            indexOf = indexOf(Typography.quote, indexOf + 1);
+                        }
+                        int i7 = this.bp;
+                        int i8 = indexOf - (i7 + i3);
+                        subString = readString(sub_chars(i7 + i3, i8), i8);
+                    }
+                    int i9 = this.bp;
+                    int i10 = i3 + (indexOf - (i9 + i3)) + 1;
+                    i = i10 + 1;
+                    charAt = charAt(i9 + i10);
+                    newCollectionByType.add(subString);
+                } else {
+                    throw new JSONException("unclosed str");
+                }
+            } else if (charAt2 != 'n' || charAt(this.bp + i3) != 'u' || charAt(this.bp + i3 + 1) != 'l' || charAt(this.bp + i3 + 2) != 'l') {
+                break;
+            } else {
+                int i11 = i3 + 3;
+                int i12 = i11 + 1;
+                charAt = charAt(this.bp + i11);
+                newCollectionByType.add(null);
+                i = i12;
+            }
+            if (charAt == ',') {
+                int i13 = i + 1;
+                charAt2 = charAt(this.bp + i);
+                i3 = i13;
+            } else if (charAt == ']') {
+                int i14 = i + 1;
+                char charAt3 = charAt(this.bp + i);
             } else {
                 this.matchStat = -1;
                 return null;
             }
-            this.matchStat = 4;
-            return date;
-        } else {
-            this.matchStat = -1;
-            return null;
         }
     }
 
-    public Date scanDate(char c) {
-        boolean z;
-        int i;
-        Date date;
-        char c2;
+    public long scanFieldSymbol(char[] cArr) {
         this.matchStat = 0;
-        int i2 = 1;
-        char charAt = charAt(this.bp + 0);
-        if (charAt == '\"') {
-            int indexOf = indexOf('\"', this.bp + 1);
-            if (indexOf == -1) {
-                throw new JSONException("unclosed str");
-            }
-            int i3 = this.bp + 1;
-            String subString = subString(i3, indexOf - i3);
-            if (subString.indexOf(92) != -1) {
-                while (true) {
-                    int i4 = 0;
-                    for (int i5 = indexOf - 1; i5 >= 0 && charAt(i5) == '\\'; i5--) {
-                        i4++;
+        if (!charArrayCompare(cArr)) {
+            this.matchStat = -2;
+            return 0L;
+        }
+        int length = cArr.length;
+        int i = length + 1;
+        if (charAt(this.bp + length) != '\"') {
+            this.matchStat = -1;
+            return 0L;
+        }
+        long j = -3750763034362895579L;
+        while (true) {
+            int i2 = i + 1;
+            char charAt = charAt(this.bp + i);
+            if (charAt == '\"') {
+                int i3 = i2 + 1;
+                char charAt2 = charAt(this.bp + i2);
+                if (charAt2 == ',') {
+                    int i4 = this.bp + i3;
+                    this.bp = i4;
+                    this.ch = charAt(i4);
+                    this.matchStat = 3;
+                    return j;
+                } else if (charAt2 == '}') {
+                    int i5 = i3 + 1;
+                    char charAt3 = charAt(this.bp + i3);
+                    if (charAt3 == ',') {
+                        this.token = 16;
+                        int i6 = this.bp + i5;
+                        this.bp = i6;
+                        this.ch = charAt(i6);
+                    } else if (charAt3 == ']') {
+                        this.token = 15;
+                        int i7 = this.bp + i5;
+                        this.bp = i7;
+                        this.ch = charAt(i7);
+                    } else if (charAt3 == '}') {
+                        this.token = 13;
+                        int i8 = this.bp + i5;
+                        this.bp = i8;
+                        this.ch = charAt(i8);
+                    } else if (charAt3 == 26) {
+                        this.token = 20;
+                        this.bp += i5 - 1;
+                        this.ch = JSONLexer.EOI;
+                    } else {
+                        this.matchStat = -1;
+                        return 0L;
                     }
-                    if (i4 % 2 == 0) {
-                        break;
-                    }
-                    indexOf = indexOf('\"', indexOf + 1);
-                }
-                int i6 = indexOf - (this.bp + 1);
-                subString = readString(sub_chars(this.bp + 1, i6), i6);
-            }
-            int i7 = (indexOf - (this.bp + 1)) + 1 + 1;
-            i = i7 + 1;
-            char charAt2 = charAt(i7 + this.bp);
-            JSONScanner jSONScanner = new JSONScanner(subString);
-            try {
-                if (jSONScanner.scanISO8601DateIfMatch(false)) {
-                    date = jSONScanner.getCalendar().getTime();
-                    jSONScanner.close();
-                    c2 = charAt2;
+                    this.matchStat = 4;
+                    return j;
                 } else {
                     this.matchStat = -1;
-                    return null;
+                    return 0L;
                 }
-            } finally {
-                jSONScanner.close();
             }
-        } else if (charAt == '-' || (charAt >= '0' && charAt <= '9')) {
-            long j = 0;
-            if (charAt == '-') {
-                i2 = 2;
-                charAt = charAt(this.bp + 1);
-                z = true;
-            } else {
-                z = false;
-            }
-            if (charAt >= '0' && charAt <= '9') {
-                j = charAt - '0';
-                while (true) {
-                    i = i2 + 1;
-                    charAt = charAt(i2 + this.bp);
-                    if (charAt < '0' || charAt > '9') {
-                        break;
-                    }
-                    j = (j * 10) + (charAt - '0');
-                    i2 = i;
-                }
-            } else {
-                i = i2;
-            }
-            if (j < 0) {
+            j = (j ^ charAt) * 1099511628211L;
+            if (charAt == '\\') {
                 this.matchStat = -1;
-                return null;
+                return 0L;
             }
-            if (z) {
-                j = -j;
-            }
-            date = new Date(j);
-            c2 = charAt;
-        } else if (charAt == 'n' && charAt(this.bp + 1) == 'u' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 'l') {
-            this.matchStat = 5;
-            c2 = charAt(this.bp + 4);
-            date = null;
-            i = 5;
-        } else {
-            this.matchStat = -1;
-            return null;
-        }
-        if (c2 == ',') {
-            this.bp += i;
-            this.ch = charAt(this.bp);
-            this.matchStat = 3;
-            this.token = 16;
-            return date;
-        } else if (c2 == ']') {
-            int i8 = i + 1;
-            char charAt3 = charAt(this.bp + i);
-            if (charAt3 == ',') {
-                this.token = 16;
-                this.bp += i8;
-                this.ch = charAt(this.bp);
-            } else if (charAt3 == ']') {
-                this.token = 15;
-                this.bp += i8;
-                this.ch = charAt(this.bp);
-            } else if (charAt3 == '}') {
-                this.token = 13;
-                this.bp += i8;
-                this.ch = charAt(this.bp);
-            } else if (charAt3 == 26) {
-                this.token = 20;
-                this.bp += i8 - 1;
-                this.ch = JSONLexer.EOI;
-            } else {
-                this.matchStat = -1;
-                return null;
-            }
-            this.matchStat = 4;
-            return date;
-        } else {
-            this.matchStat = -1;
-            return null;
+            i = i2;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:139:0x01ec, code lost:
-        r12.matchStat = -2;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:159:0x022b, code lost:
-        r12.matchStat = -2;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:237:?, code lost:
-        return null;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:238:?, code lost:
-        return null;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public UUID scanFieldUUID(char[] cArr) {
-        UUID uuid;
-        int i;
         char charAt;
+        int i;
+        UUID uuid;
         int i2;
         int i3;
         int i4;
@@ -3995,195 +3300,208 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         int i6;
         int i7;
         int i8;
+        int i9;
+        int i10;
+        int i11;
+        int i12;
+        int i13;
+        int i14;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
             return null;
         }
         int length = cArr.length;
-        int i9 = length + 1;
-        char charAt2 = charAt(length + this.bp);
+        int i15 = length + 1;
+        char charAt2 = charAt(this.bp + length);
+        char c2 = 4;
         if (charAt2 == '\"') {
-            int indexOf = indexOf('\"', this.bp + cArr.length + 1);
-            if (indexOf == -1) {
-                throw new JSONException("unclosed str");
-            }
-            int length2 = this.bp + cArr.length + 1;
-            int i10 = indexOf - length2;
-            if (i10 == 36) {
-                long j = 0;
-                long j2 = 0;
-                int i11 = 0;
-                while (true) {
-                    int i12 = i11;
-                    if (i12 < 8) {
-                        char charAt3 = charAt(length2 + i12);
-                        if (charAt3 >= '0' && charAt3 <= '9') {
-                            i8 = charAt3 - '0';
-                        } else if (charAt3 >= 'a' && charAt3 <= 'f') {
-                            i8 = (charAt3 - 'a') + 10;
-                        } else if (charAt3 < 'A' || charAt3 > 'F') {
-                            break;
-                        } else {
-                            i8 = (charAt3 - 'A') + 10;
-                        }
-                        j = (j << 4) | i8;
-                        i11 = i12 + 1;
-                    } else {
-                        int i13 = 9;
-                        while (true) {
-                            int i14 = i13;
-                            if (i14 < 13) {
-                                char charAt4 = charAt(length2 + i14);
-                                if (charAt4 >= '0' && charAt4 <= '9') {
-                                    i7 = charAt4 - '0';
-                                } else if (charAt4 >= 'a' && charAt4 <= 'f') {
-                                    i7 = (charAt4 - 'a') + 10;
-                                } else if (charAt4 < 'A' || charAt4 > 'F') {
-                                    break;
-                                } else {
-                                    i7 = (charAt4 - 'A') + 10;
-                                }
-                                j = (j << 4) | i7;
-                                i13 = i14 + 1;
-                            } else {
-                                int i15 = 14;
-                                while (true) {
-                                    int i16 = i15;
-                                    if (i16 < 18) {
-                                        char charAt5 = charAt(length2 + i16);
-                                        if (charAt5 >= '0' && charAt5 <= '9') {
-                                            i6 = charAt5 - '0';
-                                        } else if (charAt5 >= 'a' && charAt5 <= 'f') {
-                                            i6 = (charAt5 - 'a') + 10;
-                                        } else if (charAt5 < 'A' || charAt5 > 'F') {
-                                            break;
-                                        } else {
-                                            i6 = (charAt5 - 'A') + 10;
-                                        }
-                                        j = (j << 4) | i6;
-                                        i15 = i16 + 1;
-                                    } else {
-                                        int i17 = 19;
-                                        while (true) {
-                                            int i18 = i17;
-                                            if (i18 < 23) {
-                                                char charAt6 = charAt(length2 + i18);
-                                                if (charAt6 >= '0' && charAt6 <= '9') {
-                                                    i5 = charAt6 - '0';
-                                                } else if (charAt6 >= 'a' && charAt6 <= 'f') {
-                                                    i5 = (charAt6 - 'a') + 10;
-                                                } else if (charAt6 < 'A' || charAt6 > 'F') {
-                                                    break;
-                                                } else {
-                                                    i5 = (charAt6 - 'A') + 10;
-                                                }
-                                                j2 = (j2 << 4) | i5;
-                                                i17 = i18 + 1;
-                                            } else {
-                                                int i19 = 24;
-                                                while (true) {
-                                                    int i20 = i19;
-                                                    if (i20 < 36) {
-                                                        char charAt7 = charAt(length2 + i20);
-                                                        if (charAt7 >= '0' && charAt7 <= '9') {
-                                                            i4 = charAt7 - '0';
-                                                        } else if (charAt7 >= 'a' && charAt7 <= 'f') {
-                                                            i4 = (charAt7 - 'a') + 10;
-                                                        } else if (charAt7 < 'A' || charAt7 > 'F') {
-                                                            break;
-                                                        } else {
-                                                            i4 = (charAt7 - 'A') + 10;
-                                                        }
-                                                        j2 = (j2 << 4) | i4;
-                                                        i19 = i20 + 1;
-                                                    } else {
-                                                        uuid = new UUID(j, j2);
-                                                        int length3 = (indexOf - ((this.bp + cArr.length) + 1)) + 1 + i9;
-                                                        i = length3 + 1;
-                                                        charAt = charAt(length3 + this.bp);
-                                                        break;
-                                                    }
-                                                }
-                                                this.matchStat = -2;
-                                                return null;
-                                            }
-                                        }
-                                        this.matchStat = -2;
-                                        return null;
-                                    }
-                                }
+            int indexOf = indexOf(Typography.quote, this.bp + cArr.length + 1);
+            if (indexOf != -1) {
+                int length2 = this.bp + cArr.length + 1;
+                int i16 = indexOf - length2;
+                char c3 = 'F';
+                char c4 = 'f';
+                char c5 = 'A';
+                char c6 = '0';
+                if (i16 == 36) {
+                    int i17 = 0;
+                    long j = 0;
+                    while (i17 < 8) {
+                        char charAt3 = charAt(length2 + i17);
+                        if (charAt3 < '0' || charAt3 > '9') {
+                            if (charAt3 >= 'a' && charAt3 <= 'f') {
+                                i13 = charAt3 - 'a';
+                            } else if (charAt3 < 'A' || charAt3 > c3) {
                                 this.matchStat = -2;
                                 return null;
+                            } else {
+                                i13 = charAt3 - 'A';
                             }
+                            i14 = i13 + 10;
+                        } else {
+                            i14 = charAt3 - '0';
                         }
-                        this.matchStat = -2;
+                        j = (j << 4) | i14;
+                        i17++;
+                        indexOf = indexOf;
+                        c3 = 'F';
+                    }
+                    int i18 = indexOf;
+                    int i19 = 9;
+                    int i20 = 13;
+                    while (i19 < i20) {
+                        char charAt4 = charAt(length2 + i19);
+                        if (charAt4 < '0' || charAt4 > '9') {
+                            if (charAt4 >= 'a' && charAt4 <= 'f') {
+                                i11 = charAt4 - 'a';
+                            } else if (charAt4 < c5 || charAt4 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i11 = charAt4 - 'A';
+                            }
+                            i12 = i11 + 10;
+                        } else {
+                            i12 = charAt4 - '0';
+                        }
+                        j = (j << c2) | i12;
+                        i19++;
+                        i20 = 13;
+                        c5 = 'A';
+                        c2 = 4;
+                    }
+                    long j2 = j;
+                    for (int i21 = 14; i21 < 18; i21++) {
+                        char charAt5 = charAt(length2 + i21);
+                        if (charAt5 < '0' || charAt5 > '9') {
+                            if (charAt5 >= 'a' && charAt5 <= 'f') {
+                                i9 = charAt5 - 'a';
+                            } else if (charAt5 < 'A' || charAt5 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i9 = charAt5 - 'A';
+                            }
+                            i10 = i9 + 10;
+                        } else {
+                            i10 = charAt5 - '0';
+                        }
+                        j2 = (j2 << 4) | i10;
+                    }
+                    int i22 = 19;
+                    long j3 = 0;
+                    while (i22 < 23) {
+                        char charAt6 = charAt(length2 + i22);
+                        if (charAt6 < '0' || charAt6 > '9') {
+                            if (charAt6 >= 'a' && charAt6 <= 'f') {
+                                i7 = charAt6 - 'a';
+                            } else if (charAt6 < 'A' || charAt6 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i7 = charAt6 - 'A';
+                            }
+                            i8 = i7 + 10;
+                        } else {
+                            i8 = charAt6 - '0';
+                        }
+                        i22++;
+                        j3 = (j3 << 4) | i8;
+                    }
+                    int i23 = 24;
+                    long j4 = j3;
+                    int i24 = 36;
+                    while (i23 < i24) {
+                        char charAt7 = charAt(length2 + i23);
+                        if (charAt7 < c6 || charAt7 > '9') {
+                            if (charAt7 >= 'a' && charAt7 <= c4) {
+                                i5 = charAt7 - 'a';
+                            } else if (charAt7 < 'A' || charAt7 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i5 = charAt7 - 'A';
+                            }
+                            i6 = i5 + 10;
+                        } else {
+                            i6 = charAt7 - '0';
+                        }
+                        j4 = (j4 << 4) | i6;
+                        i23++;
+                        i15 = i15;
+                        i24 = 36;
+                        c6 = '0';
+                        c4 = 'f';
+                    }
+                    uuid = new UUID(j2, j4);
+                    int i25 = this.bp;
+                    int length3 = i15 + (i18 - ((cArr.length + i25) + 1)) + 1;
+                    i = length3 + 1;
+                    charAt = charAt(i25 + length3);
+                } else {
+                    if (i16 == 32) {
+                        long j5 = 0;
+                        for (int i26 = 0; i26 < 16; i26++) {
+                            char charAt8 = charAt(length2 + i26);
+                            if (charAt8 < '0' || charAt8 > '9') {
+                                if (charAt8 >= 'a' && charAt8 <= 'f') {
+                                    i3 = charAt8 - 'a';
+                                } else if (charAt8 < 'A' || charAt8 > 'F') {
+                                    this.matchStat = -2;
+                                    return null;
+                                } else {
+                                    i3 = charAt8 - 'A';
+                                }
+                                i4 = i3 + 10;
+                            } else {
+                                i4 = charAt8 - '0';
+                            }
+                            j5 = (j5 << 4) | i4;
+                        }
+                        int i27 = 16;
+                        long j6 = 0;
+                        for (int i28 = 32; i27 < i28; i28 = 32) {
+                            char charAt9 = charAt(length2 + i27);
+                            if (charAt9 >= '0' && charAt9 <= '9') {
+                                i2 = charAt9 - '0';
+                            } else if (charAt9 >= 'a' && charAt9 <= 'f') {
+                                i2 = (charAt9 - 'a') + 10;
+                            } else if (charAt9 < 'A' || charAt9 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i2 = (charAt9 - 'A') + 10;
+                                j6 = (j6 << 4) | i2;
+                                i27++;
+                            }
+                            j6 = (j6 << 4) | i2;
+                            i27++;
+                        }
+                        uuid = new UUID(j5, j6);
+                        int i29 = this.bp;
+                        int length4 = i15 + (indexOf - ((cArr.length + i29) + 1)) + 1;
+                        i = length4 + 1;
+                        charAt = charAt(i29 + length4);
+                    } else {
+                        this.matchStat = -1;
                         return null;
                     }
                 }
-                this.matchStat = -2;
-                return null;
-            } else if (i10 == 32) {
-                long j3 = 0;
-                long j4 = 0;
-                int i21 = 0;
-                while (true) {
-                    int i22 = i21;
-                    if (i22 < 16) {
-                        char charAt8 = charAt(length2 + i22);
-                        if (charAt8 >= '0' && charAt8 <= '9') {
-                            i3 = charAt8 - '0';
-                        } else if (charAt8 >= 'a' && charAt8 <= 'f') {
-                            i3 = (charAt8 - 'a') + 10;
-                        } else if (charAt8 < 'A' || charAt8 > 'F') {
-                            break;
-                        } else {
-                            i3 = (charAt8 - 'A') + 10;
-                        }
-                        j3 = (j3 << 4) | i3;
-                        i21 = i22 + 1;
-                    } else {
-                        int i23 = 16;
-                        while (true) {
-                            int i24 = i23;
-                            if (i24 < 32) {
-                                char charAt9 = charAt(length2 + i24);
-                                if (charAt9 >= '0' && charAt9 <= '9') {
-                                    i2 = charAt9 - '0';
-                                } else if (charAt9 >= 'a' && charAt9 <= 'f') {
-                                    i2 = (charAt9 - 'a') + 10;
-                                } else if (charAt9 < 'A' || charAt9 > 'F') {
-                                    break;
-                                } else {
-                                    i2 = (charAt9 - 'A') + 10;
-                                }
-                                j4 = (j4 << 4) | i2;
-                                i23 = i24 + 1;
-                            } else {
-                                uuid = new UUID(j3, j4);
-                                int length4 = (indexOf - ((this.bp + cArr.length) + 1)) + 1 + i9;
-                                i = length4 + 1;
-                                charAt = charAt(length4 + this.bp);
-                                break;
-                            }
-                        }
-                    }
-                }
             } else {
-                this.matchStat = -1;
-                return null;
+                throw new JSONException("unclosed str");
             }
         } else {
             if (charAt2 == 'n') {
-                int i25 = i9 + 1;
-                if (charAt(this.bp + i9) == 'u') {
-                    int i26 = i25 + 1;
-                    if (charAt(this.bp + i25) == 'l') {
-                        int i27 = i26 + 1;
-                        if (charAt(this.bp + i26) == 'l') {
+                int i30 = i15 + 1;
+                if (charAt(this.bp + i15) == 'u') {
+                    int i31 = i30 + 1;
+                    if (charAt(this.bp + i30) == 'l') {
+                        int i32 = i31 + 1;
+                        if (charAt(this.bp + i31) == 'l') {
+                            charAt = charAt(this.bp + i32);
+                            i = i32 + 1;
                             uuid = null;
-                            i = i27 + 1;
-                            charAt = charAt(i27 + this.bp);
                         }
                     }
                 }
@@ -4192,28 +3510,32 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             return null;
         }
         if (charAt == ',') {
-            this.bp += i;
-            this.ch = charAt(this.bp);
+            int i33 = this.bp + i;
+            this.bp = i33;
+            this.ch = charAt(i33);
             this.matchStat = 3;
             return uuid;
         } else if (charAt == '}') {
-            int i28 = i + 1;
+            int i34 = i + 1;
             char charAt10 = charAt(this.bp + i);
             if (charAt10 == ',') {
                 this.token = 16;
-                this.bp += i28;
-                this.ch = charAt(this.bp);
+                int i35 = this.bp + i34;
+                this.bp = i35;
+                this.ch = charAt(i35);
             } else if (charAt10 == ']') {
                 this.token = 15;
-                this.bp += i28;
-                this.ch = charAt(this.bp);
+                int i36 = this.bp + i34;
+                this.bp = i36;
+                this.ch = charAt(i36);
             } else if (charAt10 == '}') {
                 this.token = 13;
-                this.bp += i28;
-                this.ch = charAt(this.bp);
+                int i37 = this.bp + i34;
+                this.bp = i37;
+                this.ch = charAt(i37);
             } else if (charAt10 == 26) {
                 this.token = 20;
-                this.bp += i28 - 1;
+                this.bp += i34 - 1;
                 this.ch = JSONLexer.EOI;
             } else {
                 this.matchStat = -1;
@@ -4227,330 +3549,188 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x006b, code lost:
-        r10.matchStat = -2;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x006f, code lost:
-        return null;
-     */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00c7 A[ADDED_TO_REGION] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:53:0x00c3 -> B:54:0x00c5). Please submit an issue!!! */
+    @Override // com.alibaba.fastjson.parser.JSONLexer
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public UUID scanUUID(char c) {
-        UUID uuid;
+    public final float scanFloat(char c2) {
         int i;
-        char charAt;
         int i2;
+        char charAt;
         int i3;
         int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
+        float parseFloat;
         this.matchStat = 0;
-        char charAt2 = charAt(0 + this.bp);
-        if (charAt2 == '\"') {
-            int indexOf = indexOf('\"', this.bp + 1);
-            if (indexOf == -1) {
-                throw new JSONException("unclosed str");
-            }
-            int i9 = this.bp + 1;
-            int i10 = indexOf - i9;
-            if (i10 == 36) {
-                long j = 0;
-                long j2 = 0;
-                int i11 = 0;
-                while (true) {
-                    int i12 = i11;
-                    if (i12 < 8) {
-                        char charAt3 = charAt(i9 + i12);
-                        if (charAt3 >= '0' && charAt3 <= '9') {
-                            i8 = charAt3 - '0';
-                        } else if (charAt3 >= 'a' && charAt3 <= 'f') {
-                            i8 = (charAt3 - 'a') + 10;
-                        } else if (charAt3 < 'A' || charAt3 > 'F') {
-                            break;
-                        } else {
-                            i8 = (charAt3 - 'A') + 10;
-                        }
-                        j = (j << 4) | i8;
-                        i11 = i12 + 1;
-                    } else {
-                        int i13 = 9;
-                        while (true) {
-                            int i14 = i13;
-                            if (i14 < 13) {
-                                char charAt4 = charAt(i9 + i14);
-                                if (charAt4 >= '0' && charAt4 <= '9') {
-                                    i7 = charAt4 - '0';
-                                } else if (charAt4 >= 'a' && charAt4 <= 'f') {
-                                    i7 = (charAt4 - 'a') + 10;
-                                } else if (charAt4 < 'A' || charAt4 > 'F') {
-                                    break;
-                                } else {
-                                    i7 = (charAt4 - 'A') + 10;
-                                }
-                                j = (j << 4) | i7;
-                                i13 = i14 + 1;
-                            } else {
-                                int i15 = 14;
-                                while (true) {
-                                    int i16 = i15;
-                                    if (i16 < 18) {
-                                        char charAt5 = charAt(i9 + i16);
-                                        if (charAt5 >= '0' && charAt5 <= '9') {
-                                            i6 = charAt5 - '0';
-                                        } else if (charAt5 >= 'a' && charAt5 <= 'f') {
-                                            i6 = (charAt5 - 'a') + 10;
-                                        } else if (charAt5 < 'A' || charAt5 > 'F') {
-                                            break;
-                                        } else {
-                                            i6 = (charAt5 - 'A') + 10;
-                                        }
-                                        j = (j << 4) | i6;
-                                        i15 = i16 + 1;
-                                    } else {
-                                        int i17 = 19;
-                                        while (true) {
-                                            int i18 = i17;
-                                            if (i18 < 23) {
-                                                char charAt6 = charAt(i9 + i18);
-                                                if (charAt6 >= '0' && charAt6 <= '9') {
-                                                    i5 = charAt6 - '0';
-                                                } else if (charAt6 >= 'a' && charAt6 <= 'f') {
-                                                    i5 = (charAt6 - 'a') + 10;
-                                                } else if (charAt6 < 'A' || charAt6 > 'F') {
-                                                    break;
-                                                } else {
-                                                    i5 = (charAt6 - 'A') + 10;
-                                                }
-                                                j2 = (j2 << 4) | i5;
-                                                i17 = i18 + 1;
-                                            } else {
-                                                int i19 = 24;
-                                                while (true) {
-                                                    int i20 = i19;
-                                                    if (i20 < 36) {
-                                                        char charAt7 = charAt(i9 + i20);
-                                                        if (charAt7 >= '0' && charAt7 <= '9') {
-                                                            i4 = charAt7 - '0';
-                                                        } else if (charAt7 >= 'a' && charAt7 <= 'f') {
-                                                            i4 = (charAt7 - 'a') + 10;
-                                                        } else if (charAt7 < 'A' || charAt7 > 'F') {
-                                                            break;
-                                                        } else {
-                                                            i4 = (charAt7 - 'A') + 10;
-                                                        }
-                                                        j2 = (j2 << 4) | i4;
-                                                        i19 = i20 + 1;
-                                                    } else {
-                                                        uuid = new UUID(j, j2);
-                                                        int i21 = (indexOf - (this.bp + 1)) + 1 + 1;
-                                                        i = i21 + 1;
-                                                        charAt = charAt(i21 + this.bp);
-                                                        break;
-                                                    }
-                                                }
-                                                this.matchStat = -2;
-                                                return null;
-                                            }
-                                        }
-                                        this.matchStat = -2;
-                                        return null;
-                                    }
-                                }
-                                this.matchStat = -2;
-                                return null;
-                            }
-                        }
-                        this.matchStat = -2;
-                        return null;
-                    }
-                }
-            } else if (i10 == 32) {
-                long j3 = 0;
-                long j4 = 0;
-                int i22 = 0;
-                while (true) {
-                    int i23 = i22;
-                    if (i23 < 16) {
-                        char charAt8 = charAt(i9 + i23);
-                        if (charAt8 >= '0' && charAt8 <= '9') {
-                            i3 = charAt8 - '0';
-                        } else if (charAt8 >= 'a' && charAt8 <= 'f') {
-                            i3 = (charAt8 - 'a') + 10;
-                        } else if (charAt8 < 'A' || charAt8 > 'F') {
-                            break;
-                        } else {
-                            i3 = (charAt8 - 'A') + 10;
-                        }
-                        j3 = (j3 << 4) | i3;
-                        i22 = i23 + 1;
-                    } else {
-                        int i24 = 16;
-                        while (true) {
-                            int i25 = i24;
-                            if (i25 < 32) {
-                                char charAt9 = charAt(i9 + i25);
-                                if (charAt9 >= '0' && charAt9 <= '9') {
-                                    i2 = charAt9 - '0';
-                                } else if (charAt9 >= 'a' && charAt9 <= 'f') {
-                                    i2 = (charAt9 - 'a') + 10;
-                                } else if (charAt9 < 'A' || charAt9 > 'F') {
-                                    break;
-                                } else {
-                                    i2 = (charAt9 - 'A') + 10;
-                                }
-                                j4 = (j4 << 4) | i2;
-                                i24 = i25 + 1;
-                            } else {
-                                uuid = new UUID(j3, j4);
-                                int i26 = (indexOf - (this.bp + 1)) + 1 + 1;
-                                i = i26 + 1;
-                                charAt = charAt(i26 + this.bp);
-                                break;
-                            }
-                        }
-                        this.matchStat = -2;
-                        return null;
-                    }
-                }
-                this.matchStat = -2;
-                return null;
-            } else {
-                this.matchStat = -1;
-                return null;
-            }
-        } else if (charAt2 == 'n' && charAt(this.bp + 1) == 'u' && charAt(this.bp + 2) == 'l' && charAt(this.bp + 3) == 'l') {
-            uuid = null;
-            i = 5;
-            charAt = charAt(this.bp + 4);
+        char charAt2 = charAt(this.bp + 0);
+        boolean z = charAt2 == '\"';
+        if (z) {
+            charAt2 = charAt(this.bp + 1);
+            i = 2;
         } else {
-            this.matchStat = -1;
-            return null;
+            i = 1;
         }
-        if (charAt == ',') {
-            this.bp += i;
-            this.ch = charAt(this.bp);
-            this.matchStat = 3;
-            return uuid;
-        } else if (charAt == ']') {
-            int i27 = i + 1;
-            char charAt10 = charAt(this.bp + i);
-            if (charAt10 == ',') {
+        boolean z2 = charAt2 == '-';
+        if (z2) {
+            charAt2 = charAt(this.bp + i);
+            i++;
+        }
+        if (charAt2 < '0' || charAt2 > '9') {
+            if (charAt2 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
+                this.matchStat = 5;
+                int i5 = i + 3;
+                int i6 = i5 + 1;
+                char charAt3 = charAt(this.bp + i5);
+                if (z && charAt3 == '\"') {
+                    charAt3 = charAt(this.bp + i6);
+                    i6++;
+                }
+                while (charAt3 != ',') {
+                    if (charAt3 == ']') {
+                        int i7 = this.bp + i6;
+                        this.bp = i7;
+                        this.ch = charAt(i7);
+                        this.matchStat = 5;
+                        this.token = 15;
+                        return 0.0f;
+                    } else if (isWhitespace(charAt3)) {
+                        charAt3 = charAt(this.bp + i6);
+                        i6++;
+                    } else {
+                        this.matchStat = -1;
+                        return 0.0f;
+                    }
+                }
+                int i8 = this.bp + i6;
+                this.bp = i8;
+                this.ch = charAt(i8);
+                this.matchStat = 5;
                 this.token = 16;
-                this.bp += i27;
-                this.ch = charAt(this.bp);
-            } else if (charAt10 == ']') {
-                this.token = 15;
-                this.bp += i27;
-                this.ch = charAt(this.bp);
-            } else if (charAt10 == '}') {
-                this.token = 13;
-                this.bp += i27;
-                this.ch = charAt(this.bp);
-            } else if (charAt10 == 26) {
-                this.token = 20;
-                this.bp += i27 - 1;
-                this.ch = JSONLexer.EOI;
+                return 0.0f;
+            }
+            this.matchStat = -1;
+            return 0.0f;
+        }
+        long j = charAt2 - '0';
+        while (true) {
+            i2 = i + 1;
+            charAt = charAt(this.bp + i);
+            if (charAt < '0' || charAt > '9') {
+                break;
+            }
+            j = (j * 10) + (charAt - '0');
+            i = i2;
+        }
+        long j2 = 1;
+        if (charAt == '.') {
+            int i9 = i2 + 1;
+            char charAt4 = charAt(this.bp + i2);
+            if (charAt4 >= '0' && charAt4 <= '9') {
+                j = (j * 10) + (charAt4 - '0');
+                j2 = 10;
+                while (true) {
+                    i2 = i9 + 1;
+                    charAt = charAt(this.bp + i9);
+                    if (charAt < '0' || charAt > '9') {
+                        break;
+                    }
+                    j = (j * 10) + (charAt - '0');
+                    j2 *= 10;
+                    i9 = i2;
+                }
             } else {
                 this.matchStat = -1;
-                return null;
+                return 0.0f;
             }
-            this.matchStat = 4;
-            return uuid;
-        } else {
+        }
+        long j3 = j2;
+        boolean z3 = charAt == 'e' || charAt == 'E';
+        if (z3) {
+            int i10 = i2 + 1;
+            char charAt5 = charAt(this.bp + i2);
+            if (charAt5 == '+' || charAt5 == '-') {
+                int i11 = i10 + 1;
+                charAt = charAt(this.bp + i10);
+                i2 = i11;
+                if (charAt >= '0' && charAt <= '9') {
+                    i11 = i2 + 1;
+                    charAt = charAt(this.bp + i2);
+                    i2 = i11;
+                    if (charAt >= '0') {
+                        i11 = i2 + 1;
+                        charAt = charAt(this.bp + i2);
+                        i2 = i11;
+                        if (charAt >= '0') {
+                        }
+                    }
+                }
+            } else {
+                i2 = i10;
+                charAt = charAt5;
+                if (charAt >= '0') {
+                }
+            }
+        }
+        if (!z) {
+            i3 = this.bp;
+            i4 = ((i3 + i2) - i3) - 1;
+        } else if (charAt != '\"') {
             this.matchStat = -1;
-            return null;
-        }
-    }
-
-    public final void scanTrue() {
-        if (this.ch != 't') {
-            throw new JSONException("error parse true");
-        }
-        next();
-        if (this.ch != 'r') {
-            throw new JSONException("error parse true");
-        }
-        next();
-        if (this.ch != 'u') {
-            throw new JSONException("error parse true");
-        }
-        next();
-        if (this.ch != 'e') {
-            throw new JSONException("error parse true");
-        }
-        next();
-        if (this.ch == ' ' || this.ch == ',' || this.ch == '}' || this.ch == ']' || this.ch == '\n' || this.ch == '\r' || this.ch == '\t' || this.ch == 26 || this.ch == '\f' || this.ch == '\b' || this.ch == ':' || this.ch == '/') {
-            this.token = 6;
-            return;
-        }
-        throw new JSONException("scan true error");
-    }
-
-    public final void scanNullOrNew() {
-        if (this.ch != 'n') {
-            throw new JSONException("error parse null or new");
-        }
-        next();
-        if (this.ch == 'u') {
-            next();
-            if (this.ch != 'l') {
-                throw new JSONException("error parse null");
-            }
-            next();
-            if (this.ch != 'l') {
-                throw new JSONException("error parse null");
-            }
-            next();
-            if (this.ch == ' ' || this.ch == ',' || this.ch == '}' || this.ch == ']' || this.ch == '\n' || this.ch == '\r' || this.ch == '\t' || this.ch == 26 || this.ch == '\f' || this.ch == '\b') {
-                this.token = 8;
-                return;
-            }
-            throw new JSONException("scan null error");
-        } else if (this.ch != 'e') {
-            throw new JSONException("error parse new");
+            return 0.0f;
         } else {
-            next();
-            if (this.ch != 'w') {
-                throw new JSONException("error parse new");
-            }
-            next();
-            if (this.ch == ' ' || this.ch == ',' || this.ch == '}' || this.ch == ']' || this.ch == '\n' || this.ch == '\r' || this.ch == '\t' || this.ch == 26 || this.ch == '\f' || this.ch == '\b') {
-                this.token = 9;
-                return;
-            }
-            throw new JSONException("scan new error");
+            int i12 = i2 + 1;
+            charAt = charAt(this.bp + i2);
+            int i13 = this.bp;
+            i3 = i13 + 1;
+            i4 = ((i13 + i12) - i3) - 2;
+            i2 = i12;
         }
+        if (z3 || i4 >= 20) {
+            parseFloat = Float.parseFloat(subString(i3, i4));
+        } else {
+            parseFloat = ((float) j) / ((float) j3);
+            if (z2) {
+                parseFloat = -parseFloat;
+            }
+        }
+        if (charAt == c2) {
+            int i14 = this.bp + i2;
+            this.bp = i14;
+            this.ch = charAt(i14);
+            this.matchStat = 3;
+            this.token = 16;
+            return parseFloat;
+        }
+        this.matchStat = -1;
+        return parseFloat;
     }
 
-    public final void scanFalse() {
-        if (this.ch != 'f') {
-            throw new JSONException("error parse false");
+    public final void scanHex() {
+        char next;
+        if (this.ch == 'x') {
+            next();
+            if (this.ch == '\'') {
+                this.np = this.bp;
+                next();
+                while (true) {
+                    next = next();
+                    if ((next < '0' || next > '9') && (next < 'A' || next > 'F')) {
+                        break;
+                    }
+                    this.sp++;
+                }
+                if (next == '\'') {
+                    this.sp++;
+                    next();
+                    this.token = 26;
+                    return;
+                }
+                throw new JSONException("illegal state. " + next);
+            }
+            throw new JSONException("illegal state. " + this.ch);
         }
-        next();
-        if (this.ch != 'a') {
-            throw new JSONException("error parse false");
-        }
-        next();
-        if (this.ch != 'l') {
-            throw new JSONException("error parse false");
-        }
-        next();
-        if (this.ch != 's') {
-            throw new JSONException("error parse false");
-        }
-        next();
-        if (this.ch != 'e') {
-            throw new JSONException("error parse false");
-        }
-        next();
-        if (this.ch == ' ' || this.ch == ',' || this.ch == '}' || this.ch == ']' || this.ch == '\n' || this.ch == '\r' || this.ch == '\t' || this.ch == 26 || this.ch == '\f' || this.ch == '\b' || this.ch == ':' || this.ch == '/') {
-            this.token = 7;
-            return;
-        }
-        throw new JSONException("scan false error");
+        throw new JSONException("illegal state. " + this.ch);
     }
 
     public final void scanIdent() {
@@ -4561,7 +3741,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             next();
         } while (Character.isLetterOrDigit(this.ch));
         String stringVal = stringVal();
-        if ("null".equalsIgnoreCase(stringVal)) {
+        if (StringUtil.NULL_STRING.equalsIgnoreCase(stringVal)) {
             this.token = 8;
         } else if ("new".equals(stringVal)) {
             this.token = 9;
@@ -4580,452 +3760,1421 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
     }
 
-    public static String readString(char[] cArr, int i) {
+    /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:67:0x00fc -> B:56:0x00cb */
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public int scanInt(char c2) {
+        int i;
         int i2;
-        char[] cArr2 = new char[i];
-        int i3 = 0;
-        int i4 = 0;
-        while (i3 < i) {
-            char c = cArr[i3];
-            if (c != '\\') {
-                i2 = i4 + 1;
-                cArr2[i4] = c;
-            } else {
-                i3++;
-                switch (cArr[i3]) {
-                    case '\"':
-                        i2 = i4 + 1;
-                        cArr2[i4] = '\"';
-                        continue;
-                    case '\'':
-                        i2 = i4 + 1;
-                        cArr2[i4] = '\'';
-                        continue;
-                    case '/':
-                        i2 = i4 + 1;
-                        cArr2[i4] = '/';
-                        continue;
-                    case '0':
-                        i2 = i4 + 1;
-                        cArr2[i4] = 0;
-                        continue;
-                    case '1':
-                        i2 = i4 + 1;
-                        cArr2[i4] = 1;
-                        continue;
-                    case '2':
-                        i2 = i4 + 1;
-                        cArr2[i4] = 2;
-                        continue;
-                    case '3':
-                        i2 = i4 + 1;
-                        cArr2[i4] = 3;
-                        continue;
-                    case '4':
-                        i2 = i4 + 1;
-                        cArr2[i4] = 4;
-                        continue;
-                    case '5':
-                        i2 = i4 + 1;
-                        cArr2[i4] = 5;
-                        continue;
-                    case '6':
-                        i2 = i4 + 1;
-                        cArr2[i4] = 6;
-                        continue;
-                    case '7':
-                        i2 = i4 + 1;
-                        cArr2[i4] = 7;
-                        continue;
-                    case 'F':
-                    case 'f':
-                        i2 = i4 + 1;
-                        cArr2[i4] = '\f';
-                        continue;
-                    case '\\':
-                        i2 = i4 + 1;
-                        cArr2[i4] = '\\';
-                        continue;
-                    case 'b':
-                        i2 = i4 + 1;
-                        cArr2[i4] = '\b';
-                        continue;
-                    case 'n':
-                        i2 = i4 + 1;
-                        cArr2[i4] = '\n';
-                        continue;
-                    case 'r':
-                        i2 = i4 + 1;
-                        cArr2[i4] = '\r';
-                        continue;
-                    case 't':
-                        i2 = i4 + 1;
-                        cArr2[i4] = '\t';
-                        continue;
-                    case 'u':
-                        i2 = i4 + 1;
-                        int i5 = i3 + 1;
-                        int i6 = i5 + 1;
-                        int i7 = i6 + 1;
-                        i3 = i7 + 1;
-                        cArr2[i4] = (char) Integer.parseInt(new String(new char[]{cArr[i5], cArr[i6], cArr[i7], cArr[i3]}), 16);
-                        continue;
-                    case 'v':
-                        i2 = i4 + 1;
-                        cArr2[i4] = 11;
-                        continue;
-                    case 'x':
-                        i2 = i4 + 1;
-                        int i8 = i3 + 1;
-                        i3 = i8 + 1;
-                        cArr2[i4] = (char) ((digits[cArr[i8]] * 16) + digits[cArr[i3]]);
-                        continue;
-                    default:
-                        throw new JSONException("unclosed.str.lit");
-                }
-            }
-            i3++;
-            i4 = i2;
+        char charAt;
+        this.matchStat = 0;
+        char charAt2 = charAt(this.bp + 0);
+        boolean z = charAt2 == '\"';
+        if (z) {
+            charAt2 = charAt(this.bp + 1);
+            i = 2;
+        } else {
+            i = 1;
         }
-        return new String(cArr2, 0, i4);
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public boolean isBlankInput() {
-        int i = 0;
-        while (true) {
-            char charAt = charAt(i);
-            if (charAt == 26) {
-                this.token = 20;
-                return true;
-            } else if (!isWhitespace(charAt)) {
-                return false;
-            } else {
-                i++;
-            }
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final void skipWhitespace() {
-        while (this.ch <= '/') {
-            if (this.ch == ' ' || this.ch == '\r' || this.ch == '\n' || this.ch == '\t' || this.ch == '\f' || this.ch == '\b') {
-                next();
-            } else if (this.ch == '/') {
-                skipComment();
-            } else {
-                return;
-            }
-        }
-    }
-
-    private void scanStringSingleQuote() {
-        this.np = this.bp;
-        this.hasSpecial = false;
-        while (true) {
-            char next = next();
-            if (next != '\'') {
-                if (next == 26) {
-                    if (!isEOF()) {
-                        putChar(JSONLexer.EOI);
-                    } else {
-                        throw new JSONException("unclosed single-quote string");
-                    }
-                } else if (next == '\\') {
-                    if (!this.hasSpecial) {
-                        this.hasSpecial = true;
-                        if (this.sp > this.sbuf.length) {
-                            char[] cArr = new char[this.sp * 2];
-                            System.arraycopy(this.sbuf, 0, cArr, 0, this.sbuf.length);
-                            this.sbuf = cArr;
-                        }
-                        copyTo(this.np + 1, this.sp, this.sbuf);
-                    }
-                    char next2 = next();
-                    switch (next2) {
-                        case '\"':
-                            putChar('\"');
-                            continue;
-                        case '\'':
-                            putChar('\'');
-                            continue;
-                        case '/':
-                            putChar('/');
-                            continue;
-                        case '0':
-                            putChar((char) 0);
-                            continue;
-                        case '1':
-                            putChar((char) 1);
-                            continue;
-                        case '2':
-                            putChar((char) 2);
-                            continue;
-                        case '3':
-                            putChar((char) 3);
-                            continue;
-                        case '4':
-                            putChar((char) 4);
-                            continue;
-                        case '5':
-                            putChar((char) 5);
-                            continue;
-                        case '6':
-                            putChar((char) 6);
-                            continue;
-                        case '7':
-                            putChar((char) 7);
-                            continue;
-                        case 'F':
-                        case 'f':
-                            putChar('\f');
-                            continue;
-                        case '\\':
-                            putChar('\\');
-                            continue;
-                        case 'b':
-                            putChar('\b');
-                            continue;
-                        case 'n':
-                            putChar('\n');
-                            continue;
-                        case 'r':
-                            putChar('\r');
-                            continue;
-                        case 't':
-                            putChar('\t');
-                            continue;
-                        case 'u':
-                            putChar((char) Integer.parseInt(new String(new char[]{next(), next(), next(), next()}), 16));
-                            continue;
-                        case 'v':
-                            putChar((char) 11);
-                            continue;
-                        case 'x':
-                            putChar((char) ((digits[next()] * 16) + digits[next()]));
-                            continue;
-                        default:
-                            this.ch = next2;
-                            throw new JSONException("unclosed single-quote string");
-                    }
-                } else if (!this.hasSpecial) {
-                    this.sp++;
-                } else if (this.sp == this.sbuf.length) {
-                    putChar(next);
-                } else {
-                    char[] cArr2 = this.sbuf;
-                    int i = this.sp;
-                    this.sp = i + 1;
-                    cArr2[i] = next;
-                }
-            } else {
-                this.token = 4;
-                next();
-                return;
-            }
-        }
-    }
-
-    protected final void putChar(char c) {
-        if (this.sp == this.sbuf.length) {
-            char[] cArr = new char[this.sbuf.length * 2];
-            System.arraycopy(this.sbuf, 0, cArr, 0, this.sbuf.length);
-            this.sbuf = cArr;
-        }
-        char[] cArr2 = this.sbuf;
-        int i = this.sp;
-        this.sp = i + 1;
-        cArr2[i] = c;
-    }
-
-    public final void scanHex() {
-        char next;
-        if (this.ch != 'x') {
-            throw new JSONException("illegal state. " + this.ch);
-        }
-        next();
-        if (this.ch != '\'') {
-            throw new JSONException("illegal state. " + this.ch);
-        }
-        this.np = this.bp;
-        next();
-        int i = 0;
-        while (true) {
-            next = next();
-            if ((next < '0' || next > '9') && (next < 'A' || next > 'F')) {
-                break;
-            }
-            this.sp++;
+        boolean z2 = charAt2 == '-';
+        if (z2) {
+            charAt2 = charAt(this.bp + i);
             i++;
         }
-        if (next == '\'') {
-            this.sp++;
-            next();
-            this.token = 26;
-            return;
+        if (charAt2 >= '0' && charAt2 <= '9') {
+            int i3 = charAt2 - '0';
+            while (true) {
+                i2 = i + 1;
+                charAt = charAt(this.bp + i);
+                if (charAt < '0' || charAt > '9') {
+                    break;
+                }
+                i3 = (i3 * 10) + (charAt - '0');
+                i = i2;
+            }
+            if (charAt == '.') {
+                this.matchStat = -1;
+                return 0;
+            } else if (i3 < 0) {
+                this.matchStat = -1;
+                return 0;
+            } else {
+                while (charAt != c2) {
+                    if (isWhitespace(charAt)) {
+                        i2++;
+                        charAt = charAt(this.bp + i2);
+                    } else {
+                        this.matchStat = -1;
+                        return z2 ? -i3 : i3;
+                    }
+                }
+                int i4 = this.bp + i2;
+                this.bp = i4;
+                this.ch = charAt(i4);
+                this.matchStat = 3;
+                this.token = 16;
+                return z2 ? -i3 : i3;
+            }
+        } else if (charAt2 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
+            this.matchStat = 5;
+            int i5 = i + 3;
+            int i6 = i5 + 1;
+            char charAt3 = charAt(this.bp + i5);
+            if (z && charAt3 == '\"') {
+                int i7 = i6 + 1;
+                charAt3 = charAt(this.bp + i6);
+                i6 = i7;
+            }
+            while (charAt3 != ',') {
+                if (charAt3 == ']') {
+                    int i8 = this.bp + i6;
+                    this.bp = i8;
+                    this.ch = charAt(i8);
+                    this.matchStat = 5;
+                    this.token = 15;
+                    return 0;
+                } else if (isWhitespace(charAt3)) {
+                    int i9 = i6 + 1;
+                    charAt3 = charAt(this.bp + i6);
+                    i6 = i9;
+                } else {
+                    this.matchStat = -1;
+                    return 0;
+                }
+            }
+            int i10 = this.bp + i6;
+            this.bp = i10;
+            this.ch = charAt(i10);
+            this.matchStat = 5;
+            this.token = 16;
+            return 0;
+        } else {
+            this.matchStat = -1;
+            return 0;
         }
-        throw new JSONException("illegal state. " + next);
     }
 
+    /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:79:0x0139 -> B:68:0x0108 */
     @Override // com.alibaba.fastjson.parser.JSONLexer
+    public long scanLong(char c2) {
+        int i;
+        int i2;
+        char charAt;
+        char c3;
+        this.matchStat = 0;
+        char charAt2 = charAt(this.bp + 0);
+        boolean z = charAt2 == '\"';
+        if (z) {
+            charAt2 = charAt(this.bp + 1);
+            i = 2;
+        } else {
+            i = 1;
+        }
+        boolean z2 = charAt2 == '-';
+        if (z2) {
+            charAt2 = charAt(this.bp + i);
+            i++;
+        }
+        if (charAt2 >= '0' && charAt2 <= '9') {
+            long j = charAt2 - '0';
+            while (true) {
+                i2 = i + 1;
+                charAt = charAt(this.bp + i);
+                if (charAt < '0' || charAt > '9') {
+                    break;
+                }
+                j = (j * 10) + (charAt - '0');
+                i = i2;
+            }
+            if (charAt == '.') {
+                this.matchStat = -1;
+                return 0L;
+            }
+            if (j >= 0 || (j == Long.MIN_VALUE && z2)) {
+                if (!z) {
+                    c3 = c2;
+                } else if (charAt != '\"') {
+                    this.matchStat = -1;
+                    return 0L;
+                } else {
+                    charAt = charAt(this.bp + i2);
+                    c3 = c2;
+                    i2++;
+                }
+                while (charAt != c3) {
+                    if (isWhitespace(charAt)) {
+                        charAt = charAt(this.bp + i2);
+                        i2++;
+                    } else {
+                        this.matchStat = -1;
+                        return j;
+                    }
+                }
+                int i3 = this.bp + i2;
+                this.bp = i3;
+                this.ch = charAt(i3);
+                this.matchStat = 3;
+                this.token = 16;
+                return z2 ? -j : j;
+            }
+            throw new NumberFormatException(subString(this.bp, i2 - 1));
+        } else if (charAt2 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
+            this.matchStat = 5;
+            int i4 = i + 3;
+            int i5 = i4 + 1;
+            char charAt3 = charAt(this.bp + i4);
+            if (z && charAt3 == '\"') {
+                int i6 = i5 + 1;
+                charAt3 = charAt(this.bp + i5);
+                i5 = i6;
+            }
+            while (charAt3 != ',') {
+                if (charAt3 == ']') {
+                    int i7 = this.bp + i5;
+                    this.bp = i7;
+                    this.ch = charAt(i7);
+                    this.matchStat = 5;
+                    this.token = 15;
+                    return 0L;
+                } else if (isWhitespace(charAt3)) {
+                    int i8 = i5 + 1;
+                    charAt3 = charAt(this.bp + i5);
+                    i5 = i8;
+                } else {
+                    this.matchStat = -1;
+                    return 0L;
+                }
+            }
+            int i9 = this.bp + i5;
+            this.bp = i9;
+            this.ch = charAt(i9);
+            this.matchStat = 5;
+            this.token = 16;
+            return 0L;
+        } else {
+            this.matchStat = -1;
+            return 0L;
+        }
+    }
+
+    public final void scanNullOrNew() {
+        if (this.ch == 'n') {
+            next();
+            char c2 = this.ch;
+            if (c2 != 'u') {
+                if (c2 == 'e') {
+                    next();
+                    if (this.ch == 'w') {
+                        next();
+                        char c3 = this.ch;
+                        if (c3 != ' ' && c3 != ',' && c3 != '}' && c3 != ']' && c3 != '\n' && c3 != '\r' && c3 != '\t' && c3 != 26 && c3 != '\f' && c3 != '\b') {
+                            throw new JSONException("scan new error");
+                        }
+                        this.token = 9;
+                        return;
+                    }
+                    throw new JSONException("error parse new");
+                }
+                throw new JSONException("error parse new");
+            }
+            next();
+            if (this.ch == 'l') {
+                next();
+                if (this.ch == 'l') {
+                    next();
+                    char c4 = this.ch;
+                    if (c4 != ' ' && c4 != ',' && c4 != '}' && c4 != ']' && c4 != '\n' && c4 != '\r' && c4 != '\t' && c4 != 26 && c4 != '\f' && c4 != '\b') {
+                        throw new JSONException("scan null error");
+                    }
+                    this.token = 8;
+                    return;
+                }
+                throw new JSONException("error parse null");
+            }
+            throw new JSONException("error parse null");
+        }
+        throw new JSONException("error parse null or new");
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00ca  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00ce  */
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final void scanNumber() {
         this.np = this.bp;
+        boolean z = true;
         if (this.ch == '-') {
             this.sp++;
             next();
         }
-        while (this.ch >= '0' && this.ch <= '9') {
+        while (true) {
+            char c2 = this.ch;
+            if (c2 < '0' || c2 > '9') {
+                break;
+            }
             this.sp++;
             next();
         }
-        boolean z = false;
+        boolean z2 = false;
         if (this.ch == '.') {
             this.sp++;
             next();
-            while (this.ch >= '0' && this.ch <= '9') {
+            while (true) {
+                char c3 = this.ch;
+                if (c3 < '0' || c3 > '9') {
+                    break;
+                }
                 this.sp++;
                 next();
             }
-            z = true;
+            z2 = true;
         }
-        if (this.ch == 'L') {
+        char c4 = this.ch;
+        if (c4 == 'L') {
             this.sp++;
             next();
-        } else if (this.ch == 'S') {
+        } else if (c4 == 'S') {
             this.sp++;
             next();
-        } else if (this.ch == 'B') {
-            this.sp++;
-            next();
-        } else if (this.ch == 'F') {
-            this.sp++;
-            next();
-            z = true;
-        } else if (this.ch == 'D') {
-            this.sp++;
-            next();
-            z = true;
-        } else if (this.ch == 'e' || this.ch == 'E') {
-            this.sp++;
-            next();
-            if (this.ch == '+' || this.ch == '-') {
+        } else if (c4 != 'B') {
+            if (c4 == 'F') {
                 this.sp++;
                 next();
-            }
-            while (this.ch >= '0' && this.ch <= '9') {
+            } else if (c4 == 'D') {
                 this.sp++;
                 next();
-            }
-            if (this.ch == 'D' || this.ch == 'F') {
+            } else if (c4 == 'e' || c4 == 'E') {
                 this.sp++;
                 next();
+                char c5 = this.ch;
+                if (c5 == '+' || c5 == '-') {
+                    this.sp++;
+                    next();
+                }
+                while (true) {
+                    char c6 = this.ch;
+                    if (c6 < '0' || c6 > '9') {
+                        break;
+                    }
+                    this.sp++;
+                    next();
+                }
+                char c7 = this.ch;
+                if (c7 == 'D' || c7 == 'F') {
+                    this.sp++;
+                    next();
+                }
             }
-            z = true;
-        }
-        if (z) {
-            this.token = 3;
+            if (!z) {
+                this.token = 3;
+                return;
+            } else {
+                this.token = 2;
+                return;
+            }
         } else {
-            this.token = 2;
+            this.sp++;
+            next();
+        }
+        z = z2;
+        if (!z) {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004d, code lost:
-        if (r2 <= (r12.np + 1)) goto L35;
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final void scanString() {
+        this.np = this.bp;
+        this.hasSpecial = false;
+        while (true) {
+            char next = next();
+            if (next == '\"') {
+                this.token = 4;
+                this.ch = next();
+                return;
+            } else if (next == 26) {
+                if (!isEOF()) {
+                    putChar(JSONLexer.EOI);
+                } else {
+                    throw new JSONException("unclosed string : " + next);
+                }
+            } else if (next == '\\') {
+                if (!this.hasSpecial) {
+                    this.hasSpecial = true;
+                    int i = this.sp;
+                    char[] cArr = this.sbuf;
+                    if (i >= cArr.length) {
+                        int length = cArr.length * 2;
+                        if (i <= length) {
+                            i = length;
+                        }
+                        char[] cArr2 = new char[i];
+                        char[] cArr3 = this.sbuf;
+                        System.arraycopy(cArr3, 0, cArr2, 0, cArr3.length);
+                        this.sbuf = cArr2;
+                    }
+                    copyTo(this.np + 1, this.sp, this.sbuf);
+                }
+                char next2 = next();
+                if (next2 == '\"') {
+                    putChar(Typography.quote);
+                } else if (next2 != '\'') {
+                    if (next2 != 'F') {
+                        if (next2 == '\\') {
+                            putChar('\\');
+                        } else if (next2 == 'b') {
+                            putChar('\b');
+                        } else if (next2 != 'f') {
+                            if (next2 == 'n') {
+                                putChar('\n');
+                            } else if (next2 == 'r') {
+                                putChar('\r');
+                            } else if (next2 != 'x') {
+                                switch (next2) {
+                                    case '/':
+                                        putChar('/');
+                                        continue;
+                                    case '0':
+                                        putChar((char) 0);
+                                        continue;
+                                    case '1':
+                                        putChar((char) 1);
+                                        continue;
+                                    case '2':
+                                        putChar((char) 2);
+                                        continue;
+                                    case '3':
+                                        putChar((char) 3);
+                                        continue;
+                                    case '4':
+                                        putChar((char) 4);
+                                        continue;
+                                    case '5':
+                                        putChar((char) 5);
+                                        continue;
+                                    case '6':
+                                        putChar((char) 6);
+                                        continue;
+                                    case '7':
+                                        putChar((char) 7);
+                                        continue;
+                                    default:
+                                        switch (next2) {
+                                            case 't':
+                                                putChar('\t');
+                                                continue;
+                                            case 'u':
+                                                putChar((char) Integer.parseInt(new String(new char[]{next(), next(), next(), next()}), 16));
+                                                continue;
+                                                continue;
+                                            case 'v':
+                                                putChar((char) 11);
+                                                continue;
+                                            default:
+                                                this.ch = next2;
+                                                throw new JSONException("unclosed string : " + next2);
+                                        }
+                                }
+                            } else {
+                                char next3 = next();
+                                char next4 = next();
+                                int[] iArr = digits;
+                                putChar((char) ((iArr[next3] * 16) + iArr[next4]));
+                            }
+                        }
+                    }
+                    putChar('\f');
+                } else {
+                    putChar('\'');
+                }
+            } else if (!this.hasSpecial) {
+                this.sp++;
+            } else {
+                int i2 = this.sp;
+                char[] cArr4 = this.sbuf;
+                if (i2 == cArr4.length) {
+                    putChar(next);
+                } else {
+                    this.sp = i2 + 1;
+                    cArr4[i2] = next;
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x012b, code lost:
+        if (r1 != r18) goto L37;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004f, code lost:
-        return r0;
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x012d, code lost:
+        r1 = r16.bp + r3;
+        r16.bp = r1;
+        r16.ch = charAt(r1);
+        r16.matchStat = 3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0087, code lost:
-        throw new java.lang.NumberFormatException(numberString());
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x013a, code lost:
+        return;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:?, code lost:
-        return -r0;
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x013b, code lost:
+        r16.matchStat = -1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x013d, code lost:
+        return;
      */
     @Override // com.alibaba.fastjson.parser.JSONLexer
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final long longValue() throws NumberFormatException {
-        long j;
-        boolean z;
+    public void scanStringArray(Collection<String> collection, char c2) {
         int i;
+        char charAt;
         int i2;
-        long j2 = 0;
-        if (this.np == -1) {
-            this.np = 0;
-        }
-        int i3 = this.np;
-        int i4 = this.np + this.sp;
-        if (charAt(this.np) == '-') {
-            j = Long.MIN_VALUE;
-            i3++;
-            z = true;
+        char charAt2;
+        this.matchStat = 0;
+        char charAt3 = charAt(this.bp + 0);
+        char c3 = 'u';
+        char c4 = 'n';
+        if (charAt3 == 'n' && charAt(this.bp + 1) == 'u' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 'l' && charAt(this.bp + 1 + 3) == c2) {
+            int i3 = this.bp + 5;
+            this.bp = i3;
+            this.ch = charAt(i3);
+            this.matchStat = 5;
+        } else if (charAt3 != '[') {
+            this.matchStat = -1;
         } else {
-            j = -9223372036854775807L;
-            z = false;
-        }
-        if (i3 < i4) {
-            i = i3 + 1;
-            j2 = -(charAt(i3) - '0');
-        } else {
-            i = i3;
-        }
-        while (true) {
-            if (i >= i4) {
-                i2 = i;
-                break;
+            char charAt4 = charAt(this.bp + 1);
+            int i4 = 2;
+            while (true) {
+                if (charAt4 == c4 && charAt(this.bp + i4) == c3 && charAt(this.bp + i4 + 1) == 'l' && charAt(this.bp + i4 + 2) == 'l') {
+                    int i5 = i4 + 3;
+                    i = i5 + 1;
+                    charAt = charAt(this.bp + i5);
+                    collection.add(null);
+                } else if (charAt4 == ']' && collection.size() == 0) {
+                    i2 = i4 + 1;
+                    charAt2 = charAt(this.bp + i4);
+                    break;
+                } else if (charAt4 != '\"') {
+                    this.matchStat = -1;
+                    return;
+                } else {
+                    int i6 = this.bp + i4;
+                    int indexOf = indexOf(Typography.quote, i6);
+                    if (indexOf != -1) {
+                        String subString = subString(this.bp + i4, indexOf - i6);
+                        if (subString.indexOf(92) != -1) {
+                            while (true) {
+                                int i7 = 0;
+                                for (int i8 = indexOf - 1; i8 >= 0 && charAt(i8) == '\\'; i8--) {
+                                    i7++;
+                                }
+                                if (i7 % 2 == 0) {
+                                    break;
+                                }
+                                indexOf = indexOf(Typography.quote, indexOf + 1);
+                            }
+                            int i9 = indexOf - i6;
+                            subString = readString(sub_chars(this.bp + i4, i9), i9);
+                        }
+                        int i10 = this.bp;
+                        int i11 = i4 + (indexOf - (i10 + i4)) + 1;
+                        i = i11 + 1;
+                        charAt = charAt(i10 + i11);
+                        collection.add(subString);
+                    } else {
+                        throw new JSONException("unclosed str");
+                    }
+                }
+                if (charAt == ',') {
+                    i4 = i + 1;
+                    charAt4 = charAt(this.bp + i);
+                    c3 = 'u';
+                    c4 = 'n';
+                } else if (charAt == ']') {
+                    i2 = i + 1;
+                    charAt2 = charAt(this.bp + i);
+                } else {
+                    this.matchStat = -1;
+                    return;
+                }
             }
-            i2 = i + 1;
-            char charAt = charAt(i);
-            if (charAt == 'L' || charAt == 'S' || charAt == 'B') {
-                break;
-            }
-            int i5 = charAt - '0';
-            if (j2 < MULTMIN_RADIX_TEN) {
-                throw new NumberFormatException(numberString());
-            }
-            long j3 = j2 * 10;
-            if (j3 < i5 + j) {
-                throw new NumberFormatException(numberString());
-            }
-            j2 = j3 - i5;
-            i = i2;
         }
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexer
-    public final Number decimalValue(boolean z) {
-        char charAt = charAt((this.np + this.sp) - 1);
-        try {
-            if (charAt == 'F') {
-                return Float.valueOf(Float.parseFloat(numberString()));
-            } else if (charAt == 'D') {
-                return Double.valueOf(Double.parseDouble(numberString()));
-            } else {
-                if (z) {
-                    return decimalValue();
-                }
-                return Double.valueOf(doubleValue());
+    public final String scanSymbol(SymbolTable symbolTable) {
+        skipWhitespace();
+        char c2 = this.ch;
+        if (c2 == '\"') {
+            return scanSymbol(symbolTable, Typography.quote);
+        }
+        if (c2 == '\'') {
+            if (isEnabled(Feature.AllowSingleQuotes)) {
+                return scanSymbol(symbolTable, '\'');
             }
-        } catch (NumberFormatException e) {
-            throw new JSONException(e.getMessage() + ", " + info());
+            throw new JSONException("syntax error");
+        } else if (c2 == '}') {
+            next();
+            this.token = 13;
+            return null;
+        } else if (c2 == ',') {
+            next();
+            this.token = 16;
+            return null;
+        } else if (c2 == 26) {
+            this.token = 20;
+            return null;
+        } else if (isEnabled(Feature.AllowUnQuotedFieldNames)) {
+            return scanSymbolUnQuoted(symbolTable);
+        } else {
+            throw new JSONException("syntax error");
         }
     }
 
-    public static boolean isWhitespace(char c) {
-        return c <= ' ' && (c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == '\f' || c == '\b');
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final String scanSymbolUnQuoted(SymbolTable symbolTable) {
+        boolean z = false;
+        if (this.token == 1 && this.pos == 0 && this.bp == 1) {
+            this.bp = 0;
+        }
+        boolean[] zArr = IOUtils.firstIdentifierFlags;
+        int i = this.ch;
+        if ((i >= zArr.length || zArr[i]) ? true : true) {
+            boolean[] zArr2 = IOUtils.identifierFlags;
+            this.np = this.bp;
+            this.sp = 1;
+            while (true) {
+                char next = next();
+                if (next < zArr2.length && !zArr2[next]) {
+                    break;
+                }
+                i = (i * 31) + next;
+                this.sp++;
+            }
+            this.ch = charAt(this.bp);
+            this.token = 18;
+            if (this.sp == 4 && i == 3392903 && charAt(this.np) == 'n' && charAt(this.np + 1) == 'u' && charAt(this.np + 2) == 'l' && charAt(this.np + 3) == 'l') {
+                return null;
+            }
+            if (symbolTable == null) {
+                return subString(this.np, this.sp);
+            }
+            return addSymbol(this.np, this.sp, i, symbolTable);
+        }
+        throw new JSONException("illegal identifier : " + this.ch + info());
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public String scanSymbolWithSeperator(SymbolTable symbolTable, char c2) {
+        int i = 0;
+        this.matchStat = 0;
+        char charAt = charAt(this.bp + 0);
+        if (charAt == 'n') {
+            if (charAt(this.bp + 1) == 'u' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 'l') {
+                if (charAt(this.bp + 4) == c2) {
+                    int i2 = this.bp + 5;
+                    this.bp = i2;
+                    this.ch = charAt(i2);
+                    this.matchStat = 3;
+                    return null;
+                }
+                this.matchStat = -1;
+                return null;
+            }
+            this.matchStat = -1;
+            return null;
+        } else if (charAt != '\"') {
+            this.matchStat = -1;
+            return null;
+        } else {
+            int i3 = 1;
+            while (true) {
+                int i4 = i3 + 1;
+                char charAt2 = charAt(this.bp + i3);
+                if (charAt2 == '\"') {
+                    int i5 = this.bp;
+                    int i6 = i5 + 0 + 1;
+                    String addSymbol = addSymbol(i6, ((i5 + i4) - i6) - 1, i, symbolTable);
+                    int i7 = i4 + 1;
+                    char charAt3 = charAt(this.bp + i4);
+                    while (charAt3 != c2) {
+                        if (isWhitespace(charAt3)) {
+                            charAt3 = charAt(this.bp + i7);
+                            i7++;
+                        } else {
+                            this.matchStat = -1;
+                            return addSymbol;
+                        }
+                    }
+                    int i8 = this.bp + i7;
+                    this.bp = i8;
+                    this.ch = charAt(i8);
+                    this.matchStat = 3;
+                    return addSymbol;
+                }
+                i = (i * 31) + charAt2;
+                if (charAt2 == '\\') {
+                    this.matchStat = -1;
+                    return null;
+                }
+                i3 = i4;
+            }
+        }
+    }
+
+    public final void scanTrue() {
+        if (this.ch == 't') {
+            next();
+            if (this.ch == 'r') {
+                next();
+                if (this.ch == 'u') {
+                    next();
+                    if (this.ch == 'e') {
+                        next();
+                        char c2 = this.ch;
+                        if (c2 != ' ' && c2 != ',' && c2 != '}' && c2 != ']' && c2 != '\n' && c2 != '\r' && c2 != '\t' && c2 != 26 && c2 != '\f' && c2 != '\b' && c2 != ':' && c2 != '/') {
+                            throw new JSONException("scan true error");
+                        }
+                        this.token = 6;
+                        return;
+                    }
+                    throw new JSONException("error parse true");
+                }
+                throw new JSONException("error parse true");
+            }
+            throw new JSONException("error parse true");
+        }
+        throw new JSONException("error parse true");
+    }
+
+    public final int scanType(String str) {
+        this.matchStat = 0;
+        if (charArrayCompare(typeFieldName)) {
+            int length = this.bp + typeFieldName.length;
+            int length2 = str.length();
+            for (int i = 0; i < length2; i++) {
+                if (str.charAt(i) != charAt(length + i)) {
+                    return -1;
+                }
+            }
+            int i2 = length + length2;
+            if (charAt(i2) != '\"') {
+                return -1;
+            }
+            int i3 = i2 + 1;
+            char charAt = charAt(i3);
+            this.ch = charAt;
+            if (charAt == ',') {
+                int i4 = i3 + 1;
+                this.ch = charAt(i4);
+                this.bp = i4;
+                this.token = 16;
+                return 3;
+            }
+            if (charAt == '}') {
+                i3++;
+                char charAt2 = charAt(i3);
+                this.ch = charAt2;
+                if (charAt2 == ',') {
+                    this.token = 16;
+                    i3++;
+                    this.ch = charAt(i3);
+                } else if (charAt2 == ']') {
+                    this.token = 15;
+                    i3++;
+                    this.ch = charAt(i3);
+                } else if (charAt2 == '}') {
+                    this.token = 13;
+                    i3++;
+                    this.ch = charAt(i3);
+                } else if (charAt2 != 26) {
+                    return -1;
+                } else {
+                    this.token = 20;
+                }
+                this.matchStat = 4;
+            }
+            this.bp = i3;
+            return this.matchStat;
+        }
+        return -2;
+    }
+
+    public UUID scanUUID(char c2) {
+        int i;
+        char charAt;
+        UUID uuid;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        int i9;
+        int i10;
+        int i11;
+        int i12;
+        int i13;
+        int i14;
+        this.matchStat = 0;
+        char charAt2 = charAt(this.bp + 0);
+        int i15 = 13;
+        char c3 = 4;
+        if (charAt2 == '\"') {
+            int indexOf = indexOf(Typography.quote, this.bp + 1);
+            if (indexOf != -1) {
+                int i16 = this.bp + 1;
+                int i17 = indexOf - i16;
+                char c4 = 'f';
+                char c5 = 'A';
+                char c6 = 'a';
+                if (i17 == 36) {
+                    int i18 = 0;
+                    long j = 0;
+                    while (i18 < 8) {
+                        char charAt3 = charAt(i16 + i18);
+                        if (charAt3 < '0' || charAt3 > '9') {
+                            if (charAt3 >= 'a' && charAt3 <= c4) {
+                                i13 = charAt3 - 'a';
+                            } else if (charAt3 < 'A' || charAt3 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i13 = charAt3 - 'A';
+                            }
+                            i14 = i13 + 10;
+                        } else {
+                            i14 = charAt3 - '0';
+                        }
+                        j = (j << 4) | i14;
+                        i18++;
+                        c4 = 'f';
+                    }
+                    int i19 = 9;
+                    while (i19 < i15) {
+                        char charAt4 = charAt(i16 + i19);
+                        if (charAt4 < '0' || charAt4 > '9') {
+                            if (charAt4 >= 'a' && charAt4 <= 'f') {
+                                i11 = charAt4 - 'a';
+                            } else if (charAt4 < c5 || charAt4 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i11 = charAt4 - 'A';
+                            }
+                            i12 = i11 + 10;
+                        } else {
+                            i12 = charAt4 - '0';
+                        }
+                        j = (j << 4) | i12;
+                        i19++;
+                        i15 = 13;
+                        c5 = 'A';
+                    }
+                    long j2 = j;
+                    for (int i20 = 14; i20 < 18; i20++) {
+                        char charAt5 = charAt(i16 + i20);
+                        if (charAt5 < '0' || charAt5 > '9') {
+                            if (charAt5 >= 'a' && charAt5 <= 'f') {
+                                i9 = charAt5 - 'a';
+                            } else if (charAt5 < 'A' || charAt5 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i9 = charAt5 - 'A';
+                            }
+                            i10 = i9 + 10;
+                        } else {
+                            i10 = charAt5 - '0';
+                        }
+                        j2 = (j2 << 4) | i10;
+                    }
+                    int i21 = 19;
+                    long j3 = 0;
+                    while (i21 < 23) {
+                        char charAt6 = charAt(i16 + i21);
+                        if (charAt6 < '0' || charAt6 > '9') {
+                            if (charAt6 >= c6 && charAt6 <= 'f') {
+                                i7 = charAt6 - 'a';
+                            } else if (charAt6 < 'A' || charAt6 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i7 = charAt6 - 'A';
+                            }
+                            i8 = i7 + 10;
+                        } else {
+                            i8 = charAt6 - '0';
+                        }
+                        j3 = (j3 << c3) | i8;
+                        i21++;
+                        c6 = 'a';
+                        c3 = 4;
+                    }
+                    long j4 = j3;
+                    for (int i22 = 24; i22 < 36; i22++) {
+                        char charAt7 = charAt(i16 + i22);
+                        if (charAt7 < '0' || charAt7 > '9') {
+                            if (charAt7 >= 'a' && charAt7 <= 'f') {
+                                i5 = charAt7 - 'a';
+                            } else if (charAt7 < 'A' || charAt7 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i5 = charAt7 - 'A';
+                            }
+                            i6 = i5 + 10;
+                        } else {
+                            i6 = charAt7 - '0';
+                        }
+                        j4 = (j4 << 4) | i6;
+                    }
+                    uuid = new UUID(j2, j4);
+                    int i23 = this.bp;
+                    int i24 = 1 + (indexOf - (i23 + 1)) + 1;
+                    i = i24 + 1;
+                    charAt = charAt(i23 + i24);
+                } else {
+                    if (i17 == 32) {
+                        long j5 = 0;
+                        for (int i25 = 0; i25 < 16; i25++) {
+                            char charAt8 = charAt(i16 + i25);
+                            if (charAt8 < '0' || charAt8 > '9') {
+                                if (charAt8 >= 'a' && charAt8 <= 'f') {
+                                    i3 = charAt8 - 'a';
+                                } else if (charAt8 < 'A' || charAt8 > 'F') {
+                                    this.matchStat = -2;
+                                    return null;
+                                } else {
+                                    i3 = charAt8 - 'A';
+                                }
+                                i4 = i3 + 10;
+                            } else {
+                                i4 = charAt8 - '0';
+                            }
+                            j5 = (j5 << 4) | i4;
+                        }
+                        int i26 = 16;
+                        long j6 = 0;
+                        for (int i27 = 32; i26 < i27; i27 = 32) {
+                            char charAt9 = charAt(i16 + i26);
+                            if (charAt9 >= '0' && charAt9 <= '9') {
+                                i2 = charAt9 - '0';
+                            } else if (charAt9 >= 'a' && charAt9 <= 'f') {
+                                i2 = (charAt9 - 'a') + 10;
+                            } else if (charAt9 < 'A' || charAt9 > 'F') {
+                                this.matchStat = -2;
+                                return null;
+                            } else {
+                                i2 = (charAt9 - 'A') + 10;
+                            }
+                            j6 = (j6 << 4) | i2;
+                            i26++;
+                        }
+                        uuid = new UUID(j5, j6);
+                        int i28 = this.bp;
+                        int i29 = 1 + (indexOf - (i28 + 1)) + 1;
+                        i = i29 + 1;
+                        charAt = charAt(i28 + i29);
+                    } else {
+                        this.matchStat = -1;
+                        return null;
+                    }
+                }
+            } else {
+                throw new JSONException("unclosed str");
+            }
+        } else if (charAt2 == 'n' && charAt(this.bp + 1) == 'u' && charAt(this.bp + 2) == 'l' && charAt(this.bp + 3) == 'l') {
+            i = 5;
+            charAt = charAt(this.bp + 4);
+            uuid = null;
+        } else {
+            this.matchStat = -1;
+            return null;
+        }
+        if (charAt == ',') {
+            int i30 = this.bp + i;
+            this.bp = i30;
+            this.ch = charAt(i30);
+            this.matchStat = 3;
+            return uuid;
+        } else if (charAt == ']') {
+            int i31 = i + 1;
+            char charAt10 = charAt(this.bp + i);
+            if (charAt10 == ',') {
+                this.token = 16;
+                int i32 = this.bp + i31;
+                this.bp = i32;
+                this.ch = charAt(i32);
+            } else if (charAt10 == ']') {
+                this.token = 15;
+                int i33 = this.bp + i31;
+                this.bp = i33;
+                this.ch = charAt(i33);
+            } else if (charAt10 == '}') {
+                this.token = 13;
+                int i34 = this.bp + i31;
+                this.bp = i34;
+                this.ch = charAt(i34);
+            } else if (charAt10 == 26) {
+                this.token = 20;
+                this.bp += i31 - 1;
+                this.ch = JSONLexer.EOI;
+            } else {
+                this.matchStat = -1;
+                return null;
+            }
+            this.matchStat = 4;
+            return uuid;
+        } else {
+            this.matchStat = -1;
+            return null;
+        }
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public void setLocale(Locale locale) {
+        this.locale = locale;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public void setTimeZone(TimeZone timeZone) {
+        this.timeZone = timeZone;
+    }
+
+    public void setToken(int i) {
+        this.token = i;
+    }
+
+    public void skipComment() {
+        char c2;
+        next();
+        char c3 = this.ch;
+        if (c3 == '/') {
+            do {
+                next();
+                c2 = this.ch;
+                if (c2 == '\n') {
+                    next();
+                    return;
+                }
+            } while (c2 != 26);
+        } else if (c3 == '*') {
+            next();
+            while (true) {
+                char c4 = this.ch;
+                if (c4 == 26) {
+                    return;
+                }
+                if (c4 == '*') {
+                    next();
+                    if (this.ch == '/') {
+                        next();
+                        return;
+                    }
+                } else {
+                    next();
+                }
+            }
+        } else {
+            throw new JSONException("invalid comment");
+        }
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final void skipWhitespace() {
+        while (true) {
+            char c2 = this.ch;
+            if (c2 > '/') {
+                return;
+            }
+            if (c2 == ' ' || c2 == '\r' || c2 == '\n' || c2 == '\t' || c2 == '\f' || c2 == '\b') {
+                next();
+            } else if (c2 != '/') {
+                return;
+            } else {
+                skipComment();
+            }
+        }
+    }
+
+    public final String stringDefaultValue() {
+        return this.stringDefaultValue;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public abstract String stringVal();
+
+    public abstract String subString(int i, int i2);
+
+    public abstract char[] sub_chars(int i, int i2);
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final int token() {
+        return this.token;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final String tokenName() {
+        return JSONToken.name(this.token);
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final boolean isEnabled(int i) {
+        return (i & this.features) != 0;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final void nextTokenWithColon(int i) {
+        nextTokenWithChar(':');
+    }
+
+    public final boolean isEnabled(int i, int i2) {
+        return ((this.features & i2) == 0 && (i & i2) == 0) ? false : true;
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final String scanSymbol(SymbolTable symbolTable, char c2) {
+        String addSymbol;
+        this.np = this.bp;
+        this.sp = 0;
+        boolean z = false;
+        int i = 0;
+        while (true) {
+            char next = next();
+            if (next == c2) {
+                this.token = 4;
+                if (!z) {
+                    int i2 = this.np;
+                    addSymbol = addSymbol(i2 == -1 ? 0 : i2 + 1, this.sp, i, symbolTable);
+                } else {
+                    addSymbol = symbolTable.addSymbol(this.sbuf, 0, this.sp, i);
+                }
+                this.sp = 0;
+                next();
+                return addSymbol;
+            } else if (next == 26) {
+                throw new JSONException("unclosed.str");
+            } else {
+                if (next == '\\') {
+                    if (!z) {
+                        int i3 = this.sp;
+                        char[] cArr = this.sbuf;
+                        if (i3 >= cArr.length) {
+                            int length = cArr.length * 2;
+                            if (i3 <= length) {
+                                i3 = length;
+                            }
+                            char[] cArr2 = new char[i3];
+                            char[] cArr3 = this.sbuf;
+                            System.arraycopy(cArr3, 0, cArr2, 0, cArr3.length);
+                            this.sbuf = cArr2;
+                        }
+                        arrayCopy(this.np + 1, this.sbuf, 0, this.sp);
+                        z = true;
+                    }
+                    char next2 = next();
+                    if (next2 == '\"') {
+                        i = (i * 31) + 34;
+                        putChar(Typography.quote);
+                    } else if (next2 != '\'') {
+                        if (next2 != 'F') {
+                            if (next2 == '\\') {
+                                i = (i * 31) + 92;
+                                putChar('\\');
+                            } else if (next2 == 'b') {
+                                i = (i * 31) + 8;
+                                putChar('\b');
+                            } else if (next2 != 'f') {
+                                if (next2 == 'n') {
+                                    i = (i * 31) + 10;
+                                    putChar('\n');
+                                } else if (next2 == 'r') {
+                                    i = (i * 31) + 13;
+                                    putChar('\r');
+                                } else if (next2 != 'x') {
+                                    switch (next2) {
+                                        case '/':
+                                            i = (i * 31) + 47;
+                                            putChar('/');
+                                            continue;
+                                        case '0':
+                                            i = (i * 31) + next2;
+                                            putChar((char) 0);
+                                            continue;
+                                        case '1':
+                                            i = (i * 31) + next2;
+                                            putChar((char) 1);
+                                            continue;
+                                        case '2':
+                                            i = (i * 31) + next2;
+                                            putChar((char) 2);
+                                            continue;
+                                        case '3':
+                                            i = (i * 31) + next2;
+                                            putChar((char) 3);
+                                            continue;
+                                        case '4':
+                                            i = (i * 31) + next2;
+                                            putChar((char) 4);
+                                            continue;
+                                        case '5':
+                                            i = (i * 31) + next2;
+                                            putChar((char) 5);
+                                            continue;
+                                        case '6':
+                                            i = (i * 31) + next2;
+                                            putChar((char) 6);
+                                            continue;
+                                        case '7':
+                                            i = (i * 31) + next2;
+                                            putChar((char) 7);
+                                            continue;
+                                        default:
+                                            switch (next2) {
+                                                case 't':
+                                                    i = (i * 31) + 9;
+                                                    putChar('\t');
+                                                    continue;
+                                                case 'u':
+                                                    int parseInt = Integer.parseInt(new String(new char[]{next(), next(), next(), next()}), 16);
+                                                    i = (i * 31) + parseInt;
+                                                    putChar((char) parseInt);
+                                                    continue;
+                                                    continue;
+                                                case 'v':
+                                                    i = (i * 31) + 11;
+                                                    putChar((char) 11);
+                                                    continue;
+                                                default:
+                                                    this.ch = next2;
+                                                    throw new JSONException("unclosed.str.lit");
+                                            }
+                                    }
+                                } else {
+                                    char next3 = next();
+                                    this.ch = next3;
+                                    char next4 = next();
+                                    this.ch = next4;
+                                    int[] iArr = digits;
+                                    char c3 = (char) ((iArr[next3] * 16) + iArr[next4]);
+                                    i = (i * 31) + c3;
+                                    putChar(c3);
+                                }
+                            }
+                        }
+                        i = (i * 31) + 12;
+                        putChar('\f');
+                    } else {
+                        i = (i * 31) + 39;
+                        putChar('\'');
+                    }
+                } else {
+                    i = (i * 31) + next;
+                    if (!z) {
+                        this.sp++;
+                    } else {
+                        int i4 = this.sp;
+                        char[] cArr4 = this.sbuf;
+                        if (i4 == cArr4.length) {
+                            putChar(next);
+                        } else {
+                            this.sp = i4 + 1;
+                            cArr4[i4] = next;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public final void nextToken(int i) {
+        this.sp = 0;
+        while (true) {
+            if (i == 2) {
+                char c2 = this.ch;
+                if (c2 >= '0' && c2 <= '9') {
+                    this.pos = this.bp;
+                    scanNumber();
+                    return;
+                }
+                char c3 = this.ch;
+                if (c3 == '\"') {
+                    this.pos = this.bp;
+                    scanString();
+                    return;
+                } else if (c3 == '[') {
+                    this.token = 14;
+                    next();
+                    return;
+                } else if (c3 == '{') {
+                    this.token = 12;
+                    next();
+                    return;
+                }
+            } else if (i == 4) {
+                char c4 = this.ch;
+                if (c4 == '\"') {
+                    this.pos = this.bp;
+                    scanString();
+                    return;
+                } else if (c4 >= '0' && c4 <= '9') {
+                    this.pos = this.bp;
+                    scanNumber();
+                    return;
+                } else {
+                    char c5 = this.ch;
+                    if (c5 == '[') {
+                        this.token = 14;
+                        next();
+                        return;
+                    } else if (c5 == '{') {
+                        this.token = 12;
+                        next();
+                        return;
+                    }
+                }
+            } else if (i == 12) {
+                char c6 = this.ch;
+                if (c6 == '{') {
+                    this.token = 12;
+                    next();
+                    return;
+                } else if (c6 == '[') {
+                    this.token = 14;
+                    next();
+                    return;
+                }
+            } else if (i != 18) {
+                if (i != 20) {
+                    switch (i) {
+                        case 14:
+                            char c7 = this.ch;
+                            if (c7 == '[') {
+                                this.token = 14;
+                                next();
+                                return;
+                            } else if (c7 == '{') {
+                                this.token = 12;
+                                next();
+                                return;
+                            }
+                            break;
+                        case 15:
+                            if (this.ch == ']') {
+                                this.token = 15;
+                                next();
+                                return;
+                            }
+                            break;
+                        case 16:
+                            char c8 = this.ch;
+                            if (c8 == ',') {
+                                this.token = 16;
+                                next();
+                                return;
+                            } else if (c8 == '}') {
+                                this.token = 13;
+                                next();
+                                return;
+                            } else if (c8 == ']') {
+                                this.token = 15;
+                                next();
+                                return;
+                            } else if (c8 == 26) {
+                                this.token = 20;
+                                return;
+                            }
+                            break;
+                    }
+                }
+                if (this.ch == 26) {
+                    this.token = 20;
+                    return;
+                }
+            } else {
+                nextIdent();
+                return;
+            }
+            char c9 = this.ch;
+            if (c9 != ' ' && c9 != '\n' && c9 != '\r' && c9 != '\t' && c9 != '\f' && c9 != '\b') {
+                nextToken();
+                return;
+            }
+            next();
+        }
+    }
+
+    @Override // com.alibaba.fastjson.parser.JSONLexer
+    public String scanString(char c2) {
+        this.matchStat = 0;
+        char charAt = charAt(this.bp + 0);
+        if (charAt == 'n') {
+            if (charAt(this.bp + 1) == 'u' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 'l') {
+                if (charAt(this.bp + 4) == c2) {
+                    int i = this.bp + 5;
+                    this.bp = i;
+                    this.ch = charAt(i);
+                    this.matchStat = 3;
+                    return null;
+                }
+                this.matchStat = -1;
+                return null;
+            }
+            this.matchStat = -1;
+            return null;
+        }
+        int i2 = 1;
+        while (charAt != '\"') {
+            if (isWhitespace(charAt)) {
+                charAt = charAt(this.bp + i2);
+                i2++;
+            } else {
+                this.matchStat = -1;
+                return stringDefaultValue();
+            }
+        }
+        int i3 = this.bp + i2;
+        int indexOf = indexOf(Typography.quote, i3);
+        if (indexOf != -1) {
+            String subString = subString(this.bp + i2, indexOf - i3);
+            if (subString.indexOf(92) != -1) {
+                while (true) {
+                    int i4 = 0;
+                    for (int i5 = indexOf - 1; i5 >= 0 && charAt(i5) == '\\'; i5--) {
+                        i4++;
+                    }
+                    if (i4 % 2 == 0) {
+                        break;
+                    }
+                    indexOf = indexOf(Typography.quote, indexOf + 1);
+                }
+                int i6 = indexOf - i3;
+                subString = readString(sub_chars(this.bp + 1, i6), i6);
+            }
+            int i7 = i2 + (indexOf - i3) + 1;
+            int i8 = i7 + 1;
+            char charAt2 = charAt(this.bp + i7);
+            while (charAt2 != c2) {
+                if (isWhitespace(charAt2)) {
+                    charAt2 = charAt(this.bp + i8);
+                    i8++;
+                } else {
+                    this.matchStat = -1;
+                    return subString;
+                }
+            }
+            int i9 = this.bp + i8;
+            this.bp = i9;
+            this.ch = charAt(i9);
+            this.matchStat = 3;
+            return subString;
+        }
+        throw new JSONException("unclosed str");
     }
 
     public String[] scanFieldStringArray(char[] cArr, int i, SymbolTable symbolTable) {
         throw new UnsupportedOperationException();
-    }
-
-    public boolean matchField2(char[] cArr) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // com.alibaba.fastjson.parser.JSONLexer
-    public int getFeatures() {
-        return this.features;
     }
 }

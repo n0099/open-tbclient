@@ -1,16 +1,16 @@
 package com.baidu.mapapi.cloud;
 
-import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudRgcResult {
     public AddressCompents addressCompents;
     public String customLocationDescription;
@@ -22,7 +22,7 @@ public class CloudRgcResult {
     public String recommendedLocationDescription;
     public int status;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class AddressCompents {
         public int adminAreaCode;
         public String city;
@@ -36,7 +36,7 @@ public class CloudRgcResult {
         public AddressCompents() {
         }
 
-        void a(JSONObject jSONObject) throws JSONException {
+        public void a(JSONObject jSONObject) throws JSONException {
             if (jSONObject != null) {
                 this.country = jSONObject.optString("country");
                 this.province = jSONObject.optString("province");
@@ -50,7 +50,7 @@ public class CloudRgcResult {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class PoiInfo {
         public String address;
         public String direction;
@@ -69,9 +69,9 @@ public class CloudRgcResult {
                 this.uid = jSONObject.optString("id");
                 this.address = jSONObject.optString("address");
                 this.tag = jSONObject.optString("tag");
-                JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
+                JSONObject optJSONObject = jSONObject.optJSONObject("location");
                 if (optJSONObject != null) {
-                    this.location = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
+                    this.location = new LatLng(optJSONObject.optDouble(SuggestAddrField.KEY_LAT), optJSONObject.optDouble(SuggestAddrField.KEY_LNG));
                     if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                         this.location = CoordTrans.baiduToGcj(this.location);
                     }
@@ -92,17 +92,18 @@ public class CloudRgcResult {
             if (this.status != 0) {
                 return;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
+            JSONObject optJSONObject = jSONObject.optJSONObject("location");
             if (optJSONObject != null) {
-                this.location = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
+                this.location = new LatLng(optJSONObject.optDouble(SuggestAddrField.KEY_LAT), optJSONObject.optDouble(SuggestAddrField.KEY_LNG));
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                     this.location = CoordTrans.baiduToGcj(this.location);
                 }
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("address_component");
             if (optJSONObject2 != null) {
-                this.addressCompents = new AddressCompents();
-                this.addressCompents.a(optJSONObject2);
+                AddressCompents addressCompents = new AddressCompents();
+                this.addressCompents = addressCompents;
+                addressCompents.a(optJSONObject2);
             }
             this.formattedAddress = jSONObject.optString("formatted_address");
             JSONArray optJSONArray = jSONObject.optJSONArray("pois");
@@ -131,8 +132,8 @@ public class CloudRgcResult {
             }
             this.customLocationDescription = jSONObject.optString("custom_location_description");
             this.recommendedLocationDescription = jSONObject.optString("recommended_location_description");
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 }

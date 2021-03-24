@@ -1,23 +1,25 @@
 package com.qq.e.ads.nativ;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ADSize {
     public static final int AUTO_HEIGHT = -2;
     public static final int FULL_WIDTH = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7518a;
-    private int b;
+    public int f38122a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f38123b;
 
     public ADSize(int i, int i2) {
-        this.b = i2;
-        this.f7518a = i;
+        this.f38123b = i2;
+        this.f38122a = i;
     }
 
     public int getHeight() {
-        return this.b;
+        return this.f38123b;
     }
 
     public int getWidth() {
-        return this.f7518a;
+        return this.f38122a;
     }
 }

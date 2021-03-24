@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ObserverList<E> implements Iterable<E> {
-    public static final /* synthetic */ boolean $assertionsDisabled = !ObserverList.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public int mCount;
     public int mIterationDepth;
     public boolean mNeedsCompact;
     public final List<E> mObservers = new ArrayList();
 
-    /* loaded from: classes3.dex */
-    private class ObserverListIterator implements RewindableIterator<E> {
+    /* loaded from: classes.dex */
+    public class ObserverListIterator implements RewindableIterator<E> {
         public int mIndex;
         public boolean mIsExhausted;
         public int mListEndMarker;
@@ -32,10 +32,11 @@ public class ObserverList<E> implements Iterable<E> {
             if (i < this.mListEndMarker) {
                 return true;
             }
-            if (!this.mIsExhausted) {
-                this.mIsExhausted = true;
-                ObserverList.access$400(ObserverList.this);
+            if (this.mIsExhausted) {
+                return false;
             }
+            this.mIsExhausted = true;
+            ObserverList.access$400(ObserverList.this);
             return false;
         }
 
@@ -67,7 +68,7 @@ public class ObserverList<E> implements Iterable<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface RewindableIterator<E> extends Iterator<E> {
     }
 
@@ -84,16 +85,10 @@ public class ObserverList<E> implements Iterable<E> {
     }
 
     public static /* synthetic */ void access$400(ObserverList observerList) {
-        observerList.mIterationDepth--;
-        if (!$assertionsDisabled && observerList.mIterationDepth < 0) {
-            throw new AssertionError();
-        }
-        int i = observerList.mIterationDepth;
+        int i = observerList.mIterationDepth - 1;
+        observerList.mIterationDepth = i;
         if (i <= 0 && observerList.mNeedsCompact) {
             observerList.mNeedsCompact = false;
-            if (!$assertionsDisabled && i != 0) {
-                throw new AssertionError();
-            }
             for (int size = observerList.mObservers.size() - 1; size >= 0; size--) {
                 if (observerList.mObservers.get(size) == null) {
                     observerList.mObservers.remove(size);
@@ -102,16 +97,13 @@ public class ObserverList<E> implements Iterable<E> {
         }
     }
 
-    public boolean addObserver(E e) {
-        if (e == null || this.mObservers.contains(e)) {
+    public boolean addObserver(E e2) {
+        if (e2 == null || this.mObservers.contains(e2)) {
             return false;
         }
-        boolean add = this.mObservers.add(e);
-        if ($assertionsDisabled || add) {
-            this.mCount++;
-            return true;
-        }
-        throw new AssertionError();
+        this.mObservers.add(e2);
+        this.mCount++;
+        return true;
     }
 
     @Override // java.lang.Iterable
@@ -119,9 +111,9 @@ public class ObserverList<E> implements Iterable<E> {
         return new ObserverListIterator(null);
     }
 
-    public boolean removeObserver(E e) {
+    public boolean removeObserver(E e2) {
         int indexOf;
-        if (e == null || (indexOf = this.mObservers.indexOf(e)) == -1) {
+        if (e2 == null || (indexOf = this.mObservers.indexOf(e2)) == -1) {
             return false;
         }
         if (this.mIterationDepth == 0) {
@@ -131,9 +123,6 @@ public class ObserverList<E> implements Iterable<E> {
             this.mObservers.set(indexOf, null);
         }
         this.mCount--;
-        if ($assertionsDisabled || this.mCount >= 0) {
-            return true;
-        }
-        throw new AssertionError();
+        return true;
     }
 }

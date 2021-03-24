@@ -5,16 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ScreenLockReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         boolean z = false;
         if (intent.getAction().equals("android.intent.action.SCREEN_OFF")) {
             z = true;
-        } else if (intent.getAction().equals("android.intent.action.SCREEN_ON")) {
+        } else {
+            intent.getAction().equals("android.intent.action.SCREEN_ON");
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED, Boolean.valueOf(z)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016523, Boolean.valueOf(z)));
     }
 }

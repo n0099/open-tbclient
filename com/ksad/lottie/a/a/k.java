@@ -8,84 +8,111 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 @TargetApi(19)
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class k implements i, l {
-    private final String d;
-    private final MergePaths f;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final String f31242d;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final MergePaths f31244f;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Path f5314a = new Path();
-    private final Path b = new Path();
-    private final Path c = new Path();
-    private final List<l> e = new ArrayList();
+    public final Path f31239a = new Path();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Path f31240b = new Path();
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Path f31241c = new Path();
+
+    /* renamed from: e  reason: collision with root package name */
+    public final List<l> f31243e = new ArrayList();
+
+    /* renamed from: com.ksad.lottie.a.a.k$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f31245a;
+
+        static {
+            int[] iArr = new int[MergePaths.MergePathsMode.values().length];
+            f31245a = iArr;
+            try {
+                iArr[MergePaths.MergePathsMode.Merge.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f31245a[MergePaths.MergePathsMode.Add.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f31245a[MergePaths.MergePathsMode.Subtract.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f31245a[MergePaths.MergePathsMode.Intersect.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f31245a[MergePaths.MergePathsMode.ExcludeIntersections.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+        }
+    }
 
     public k(MergePaths mergePaths) {
         if (Build.VERSION.SDK_INT < 19) {
             throw new IllegalStateException("Merge paths are not supported pre-KitKat.");
         }
-        this.d = mergePaths.a();
-        this.f = mergePaths;
+        this.f31242d = mergePaths.a();
+        this.f31244f = mergePaths;
     }
 
     private void a() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.e.size()) {
-                return;
-            }
-            this.c.addPath(this.e.get(i2).d());
-            i = i2 + 1;
+        for (int i = 0; i < this.f31243e.size(); i++) {
+            this.f31241c.addPath(this.f31243e.get(i).d());
         }
     }
 
     @TargetApi(19)
     private void a(Path.Op op) {
-        this.b.reset();
-        this.f5314a.reset();
-        int size = this.e.size() - 1;
-        while (true) {
-            int i = size;
-            if (i < 1) {
-                break;
-            }
-            l lVar = this.e.get(i);
+        this.f31240b.reset();
+        this.f31239a.reset();
+        for (int size = this.f31243e.size() - 1; size >= 1; size--) {
+            l lVar = this.f31243e.get(size);
             if (lVar instanceof c) {
-                List<l> b = ((c) lVar).b();
-                for (int size2 = b.size() - 1; size2 >= 0; size2--) {
-                    Path d = b.get(size2).d();
-                    d.transform(((c) lVar).c());
-                    this.b.addPath(d);
+                c cVar = (c) lVar;
+                List<l> b2 = cVar.b();
+                for (int size2 = b2.size() - 1; size2 >= 0; size2--) {
+                    Path d2 = b2.get(size2).d();
+                    d2.transform(cVar.c());
+                    this.f31240b.addPath(d2);
                 }
             } else {
-                this.b.addPath(lVar.d());
+                this.f31240b.addPath(lVar.d());
             }
-            size = i - 1;
         }
-        l lVar2 = this.e.get(0);
+        l lVar2 = this.f31243e.get(0);
         if (lVar2 instanceof c) {
-            List<l> b2 = ((c) lVar2).b();
-            for (int i2 = 0; i2 < b2.size(); i2++) {
-                Path d2 = b2.get(i2).d();
-                d2.transform(((c) lVar2).c());
-                this.f5314a.addPath(d2);
+            c cVar2 = (c) lVar2;
+            List<l> b3 = cVar2.b();
+            for (int i = 0; i < b3.size(); i++) {
+                Path d3 = b3.get(i).d();
+                d3.transform(cVar2.c());
+                this.f31239a.addPath(d3);
             }
         } else {
-            this.f5314a.set(lVar2.d());
+            this.f31239a.set(lVar2.d());
         }
-        this.c.op(this.f5314a, this.b, op);
+        this.f31241c.op(this.f31239a, this.f31240b, op);
     }
 
     @Override // com.ksad.lottie.a.a.b
     public void a(List<b> list, List<b> list2) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.e.size()) {
-                return;
-            }
-            this.e.get(i2).a(list, list2);
-            i = i2 + 1;
+        for (int i = 0; i < this.f31243e.size(); i++) {
+            this.f31243e.get(i).a(list, list2);
         }
     }
 
@@ -96,7 +123,7 @@ public class k implements i, l {
         while (listIterator.hasPrevious()) {
             b previous = listIterator.previous();
             if (previous instanceof l) {
-                this.e.add((l) previous);
+                this.f31243e.add((l) previous);
                 listIterator.remove();
             }
         }
@@ -104,24 +131,23 @@ public class k implements i, l {
 
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
-        this.c.reset();
-        switch (this.f.b()) {
-            case Merge:
-                a();
-                break;
-            case Add:
-                a(Path.Op.UNION);
-                break;
-            case Subtract:
-                a(Path.Op.REVERSE_DIFFERENCE);
-                break;
-            case Intersect:
-                a(Path.Op.INTERSECT);
-                break;
-            case ExcludeIntersections:
-                a(Path.Op.XOR);
-                break;
+        Path.Op op;
+        this.f31241c.reset();
+        int i = AnonymousClass1.f31245a[this.f31244f.b().ordinal()];
+        if (i != 1) {
+            if (i == 2) {
+                op = Path.Op.UNION;
+            } else if (i == 3) {
+                op = Path.Op.REVERSE_DIFFERENCE;
+            } else if (i == 4) {
+                op = Path.Op.INTERSECT;
+            } else if (i == 5) {
+                op = Path.Op.XOR;
+            }
+            a(op);
+        } else {
+            a();
         }
-        return this.c;
+        return this.f31241c;
     }
 }

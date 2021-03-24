@@ -5,7 +5,7 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RequestConnControl implements HttpRequestInterceptor {
     public RequestConnControl() {
         throw new RuntimeException("Stub!");

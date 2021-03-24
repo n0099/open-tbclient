@@ -5,38 +5,36 @@ import android.graphics.PointF;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import androidx.annotation.ColorInt;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
-class p {
+/* loaded from: classes6.dex */
+public class p {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.ksad.lottie.c.p$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f5335a = new int[JsonToken.values().length];
+        public static final /* synthetic */ int[] f31341a;
 
         static {
+            int[] iArr = new int[JsonToken.values().length];
+            f31341a = iArr;
             try {
-                f5335a[JsonToken.NUMBER.ordinal()] = 1;
-            } catch (NoSuchFieldError e) {
+                iArr[JsonToken.NUMBER.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
             try {
-                f5335a[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
-            } catch (NoSuchFieldError e2) {
+                f31341a[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
             try {
-                f5335a[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
-            } catch (NoSuchFieldError e3) {
+                f31341a[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @ColorInt
     public static int a(JsonReader jsonReader) {
         jsonReader.beginArray();
@@ -50,62 +48,60 @@ class p {
         return Color.argb(255, nextDouble, nextDouble2, nextDouble3);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static List<PointF> a(JsonReader jsonReader, float f) {
+    public static List<PointF> a(JsonReader jsonReader, float f2) {
         ArrayList arrayList = new ArrayList();
         jsonReader.beginArray();
         while (jsonReader.peek() == JsonToken.BEGIN_ARRAY) {
             jsonReader.beginArray();
-            arrayList.add(b(jsonReader, f));
+            arrayList.add(b(jsonReader, f2));
             jsonReader.endArray();
         }
         jsonReader.endArray();
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static float b(JsonReader jsonReader) {
         JsonToken peek = jsonReader.peek();
-        switch (AnonymousClass1.f5335a[peek.ordinal()]) {
-            case 1:
-                return (float) jsonReader.nextDouble();
-            case 2:
-                jsonReader.beginArray();
-                float nextDouble = (float) jsonReader.nextDouble();
-                while (jsonReader.hasNext()) {
-                    jsonReader.skipValue();
-                }
-                jsonReader.endArray();
-                return nextDouble;
-            default:
+        int i = AnonymousClass1.f31341a[peek.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
                 throw new IllegalArgumentException("Unknown value for token of type " + peek);
+            }
+            jsonReader.beginArray();
+            float nextDouble = (float) jsonReader.nextDouble();
+            while (jsonReader.hasNext()) {
+                jsonReader.skipValue();
+            }
+            jsonReader.endArray();
+            return nextDouble;
         }
+        return (float) jsonReader.nextDouble();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static PointF b(JsonReader jsonReader, float f) {
-        switch (AnonymousClass1.f5335a[jsonReader.peek().ordinal()]) {
-            case 1:
-                return c(jsonReader, f);
-            case 2:
-                return d(jsonReader, f);
-            case 3:
-                return e(jsonReader, f);
-            default:
+    public static PointF b(JsonReader jsonReader, float f2) {
+        int i = AnonymousClass1.f31341a[jsonReader.peek().ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i == 3) {
+                    return e(jsonReader, f2);
+                }
                 throw new IllegalArgumentException("Unknown point starts with " + jsonReader.peek());
+            }
+            return d(jsonReader, f2);
         }
+        return c(jsonReader, f2);
     }
 
-    private static PointF c(JsonReader jsonReader, float f) {
+    public static PointF c(JsonReader jsonReader, float f2) {
         float nextDouble = (float) jsonReader.nextDouble();
         float nextDouble2 = (float) jsonReader.nextDouble();
         while (jsonReader.hasNext()) {
             jsonReader.skipValue();
         }
-        return new PointF(nextDouble * f, nextDouble2 * f);
+        return new PointF(nextDouble * f2, nextDouble2 * f2);
     }
 
-    private static PointF d(JsonReader jsonReader, float f) {
+    public static PointF d(JsonReader jsonReader, float f2) {
         jsonReader.beginArray();
         float nextDouble = (float) jsonReader.nextDouble();
         float nextDouble2 = (float) jsonReader.nextDouble();
@@ -113,47 +109,33 @@ class p {
             jsonReader.skipValue();
         }
         jsonReader.endArray();
-        return new PointF(nextDouble * f, nextDouble2 * f);
+        return new PointF(nextDouble * f2, nextDouble2 * f2);
     }
 
-    private static PointF e(JsonReader jsonReader, float f) {
-        float f2 = 0.0f;
+    public static PointF e(JsonReader jsonReader, float f2) {
         jsonReader.beginObject();
         float f3 = 0.0f;
-        while (true) {
-            float f4 = f2;
-            if (!jsonReader.hasNext()) {
-                jsonReader.endObject();
-                return new PointF(f4 * f, f3 * f);
-            }
+        float f4 = 0.0f;
+        while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c = 65535;
-            switch (nextName.hashCode()) {
-                case 120:
-                    if (nextName.equals(Config.EVENT_HEAT_X)) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case Constants.METHOD_IM_FRIEND_GROUP_DROP /* 121 */:
-                    if (nextName.equals("y")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
+            char c2 = 65535;
+            int hashCode = nextName.hashCode();
+            if (hashCode != 120) {
+                if (hashCode == 121 && nextName.equals("y")) {
+                    c2 = 1;
+                }
+            } else if (nextName.equals("x")) {
+                c2 = 0;
             }
-            switch (c) {
-                case 0:
-                    f4 = b(jsonReader);
-                    break;
-                case 1:
-                    f3 = b(jsonReader);
-                    break;
-                default:
-                    jsonReader.skipValue();
-                    break;
+            if (c2 == 0) {
+                f3 = b(jsonReader);
+            } else if (c2 != 1) {
+                jsonReader.skipValue();
+            } else {
+                f4 = b(jsonReader);
             }
-            f2 = f4;
         }
+        jsonReader.endObject();
+        return new PointF(f3 * f2, f4 * f2);
     }
 }

@@ -2,12 +2,12 @@ package com.baidu.android.imsdk.mcast;
 
 import android.content.Context;
 import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class McastManagerImpl {
-    private static volatile McastManagerImpl mInstance;
-    private Context mContext;
+    public static volatile McastManagerImpl mInstance;
+    public Context mContext;
 
-    private McastManagerImpl(Context context) {
+    public McastManagerImpl(Context context) {
         this.mContext = context.getApplicationContext();
     }
 

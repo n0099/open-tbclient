@@ -1,0 +1,410 @@
+package com.opensource.svgaplayer;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.AudioAttributes;
+import android.media.SoundPool;
+import android.os.Build;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
+import com.opensource.svgaplayer.proto.AudioEntity;
+import com.opensource.svgaplayer.proto.MovieEntity;
+import com.opensource.svgaplayer.proto.MovieParams;
+import com.opensource.svgaplayer.proto.SpriteEntity;
+import com.tencent.connect.share.QzonePublish;
+import d.l.a.e;
+import d.l.a.g.f;
+import d.l.a.h.c;
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import kotlin.Metadata;
+import kotlin.Unit;
+import kotlin.collections.ArraysKt___ArraysKt;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.CollectionsKt__IterablesKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Ref;
+import kotlin.ranges.IntRange;
+import okio.ByteString;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000p\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\n\u0018\u0000B\u0019\b\u0016\u0012\u0006\u0010\n\u001a\u00020\u0010\u0012\u0006\u0010+\u001a\u00020*¢\u0006\u0004\bP\u0010QB\u0019\b\u0010\u0012\u0006\u0010\n\u001a\u00020\t\u0012\u0006\u0010+\u001a\u00020*¢\u0006\u0004\bP\u0010RJ\u000f\u0010\u0002\u001a\u00020\u0001H\u0004¢\u0006\u0004\b\u0002\u0010\u0003J\u001d\u0010\b\u001a\u00020\u00012\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00010\u0004H\u0000¢\u0006\u0004\b\u0006\u0010\u0007J%\u0010\f\u001a\u00020\u00012\u0006\u0010\n\u001a\u00020\t2\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00010\u0004H\u0002¢\u0006\u0004\b\f\u0010\rJ\u0017\u0010\u000e\u001a\u00020\u00012\u0006\u0010\n\u001a\u00020\tH\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0017\u0010\u000e\u001a\u00020\u00012\u0006\u0010\n\u001a\u00020\u0010H\u0002¢\u0006\u0004\b\u000e\u0010\u0011J\u0017\u0010\u0012\u001a\u00020\u00012\u0006\u0010\n\u001a\u00020\tH\u0002¢\u0006\u0004\b\u0012\u0010\u000fJ\u0017\u0010\u0012\u001a\u00020\u00012\u0006\u0010\n\u001a\u00020\u0010H\u0002¢\u0006\u0004\b\u0012\u0010\u0011R*\u0010\u0015\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u00138\u0006@BX\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\"\u0010\u001c\u001a\u00020\u001b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R(\u0010$\u001a\b\u0012\u0004\u0012\u00020#0\"8\u0000@\u0000X\u0080\u000e¢\u0006\u0012\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)R\u0016\u0010+\u001a\u00020*8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010,R*\u0010-\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u00138\u0006@BX\u0086\u000e¢\u0006\u0012\n\u0004\b-\u0010\u0016\u001a\u0004\b.\u0010\u0018\"\u0004\b/\u0010\u001aR.\u00103\u001a\u000e\u0012\u0004\u0012\u000201\u0012\u0004\u0012\u000202008\u0000@\u0000X\u0080\u000e¢\u0006\u0012\n\u0004\b3\u00104\u001a\u0004\b5\u00106\"\u0004\b7\u00108R$\u00109\u001a\u0004\u0018\u00010\t8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b9\u0010:\u001a\u0004\b;\u0010<\"\u0004\b=\u0010\u000fR$\u0010?\u001a\u0004\u0018\u00010>8\u0000@\u0000X\u0080\u000e¢\u0006\u0012\n\u0004\b?\u0010@\u001a\u0004\bA\u0010B\"\u0004\bC\u0010DR(\u0010F\u001a\b\u0012\u0004\u0012\u00020E0\"8\u0000@\u0000X\u0080\u000e¢\u0006\u0012\n\u0004\bF\u0010%\u001a\u0004\bG\u0010'\"\u0004\bH\u0010)R*\u0010J\u001a\u00020I2\u0006\u0010\u0014\u001a\u00020I8\u0006@BX\u0086\u000e¢\u0006\u0012\n\u0004\bJ\u0010K\u001a\u0004\bL\u0010M\"\u0004\bN\u0010O¨\u0006S"}, d2 = {"Lcom/opensource/svgaplayer/SVGAVideoEntity;", "", "finalize", "()V", "Lkotlin/Function0;", "callback", "prepare$library_release", "(Lkotlin/Function0;)V", "prepare", "Lcom/opensource/svgaplayer/proto/MovieEntity;", "obj", "completionBlock", "resetAudios", "(Lcom/opensource/svgaplayer/proto/MovieEntity;Lkotlin/Function0;)V", "resetImages", "(Lcom/opensource/svgaplayer/proto/MovieEntity;)V", "Lorg/json/JSONObject;", "(Lorg/json/JSONObject;)V", "resetSprites", "", "<set-?>", "FPS", "I", "getFPS", "()I", "setFPS", "(I)V", "", "antiAlias", "Z", "getAntiAlias", "()Z", "setAntiAlias", "(Z)V", "", "Lcom/opensource/svgaplayer/entities/SVGAAudioEntity;", "audios", "Ljava/util/List;", "getAudios$library_release", "()Ljava/util/List;", "setAudios$library_release", "(Ljava/util/List;)V", "Ljava/io/File;", "cacheDir", "Ljava/io/File;", "frames", "getFrames", "setFrames", "Ljava/util/HashMap;", "", "Landroid/graphics/Bitmap;", "images", "Ljava/util/HashMap;", "getImages$library_release", "()Ljava/util/HashMap;", "setImages$library_release", "(Ljava/util/HashMap;)V", "movieItem", "Lcom/opensource/svgaplayer/proto/MovieEntity;", "getMovieItem", "()Lcom/opensource/svgaplayer/proto/MovieEntity;", "setMovieItem", "Landroid/media/SoundPool;", "soundPool", "Landroid/media/SoundPool;", "getSoundPool$library_release", "()Landroid/media/SoundPool;", "setSoundPool$library_release", "(Landroid/media/SoundPool;)V", "Lcom/opensource/svgaplayer/entities/SVGAVideoSpriteEntity;", "sprites", "getSprites$library_release", "setSprites$library_release", "Lcom/opensource/svgaplayer/utils/SVGARect;", QzonePublish.PUBLISH_TO_QZONE_VIDEO_SIZE, "Lcom/opensource/svgaplayer/utils/SVGARect;", "getVideoSize", "()Lcom/opensource/svgaplayer/utils/SVGARect;", "setVideoSize", "(Lcom/opensource/svgaplayer/utils/SVGARect;)V", "<init>", "(Lorg/json/JSONObject;Ljava/io/File;)V", "(Lcom/opensource/svgaplayer/proto/MovieEntity;Ljava/io/File;)V", "library_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes6.dex */
+public final class SVGAVideoEntity {
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f37950b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f37951c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f37952d;
+
+    /* renamed from: g  reason: collision with root package name */
+    public SoundPool f37955g;
+    public File i;
+    public MovieEntity j;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f37949a = true;
+
+    /* renamed from: e  reason: collision with root package name */
+    public List<f> f37953e = CollectionsKt__CollectionsKt.emptyList();
+
+    /* renamed from: f  reason: collision with root package name */
+    public List<d.l.a.g.a> f37954f = CollectionsKt__CollectionsKt.emptyList();
+
+    /* renamed from: h  reason: collision with root package name */
+    public HashMap<String, Bitmap> f37956h = new HashMap<>();
+
+    /* loaded from: classes6.dex */
+    public static final class a implements SoundPool.OnLoadCompleteListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ Ref.IntRef f37957a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ List f37958b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ SVGAVideoEntity f37959c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ Function0 f37960d;
+
+        public a(Ref.IntRef intRef, List list, SVGAVideoEntity sVGAVideoEntity, Function0 function0, MovieEntity movieEntity) {
+            this.f37957a = intRef;
+            this.f37958b = list;
+            this.f37959c = sVGAVideoEntity;
+            this.f37960d = function0;
+        }
+
+        @Override // android.media.SoundPool.OnLoadCompleteListener
+        public final void onLoadComplete(SoundPool soundPool, int i, int i2) {
+            Ref.IntRef intRef = this.f37957a;
+            int i3 = intRef.element + 1;
+            intRef.element = i3;
+            if (i3 >= this.f37958b.size()) {
+                this.f37960d.invoke();
+            }
+        }
+    }
+
+    public SVGAVideoEntity(JSONObject jSONObject, File file) {
+        this.f37950b = new c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.f37951c = 15;
+        this.i = file;
+        JSONObject optJSONObject = jSONObject.optJSONObject("movie");
+        if (optJSONObject != null) {
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject("viewBox");
+            if (optJSONObject2 != null) {
+                this.f37950b = new c(0.0d, 0.0d, optJSONObject2.optDouble("width", 0.0d), optJSONObject2.optDouble("height", 0.0d));
+            }
+            this.f37951c = optJSONObject.optInt("fps", 20);
+            this.f37952d = optJSONObject.optInt("frames", 0);
+        }
+        l(jSONObject);
+        n(jSONObject);
+    }
+
+    public final boolean a() {
+        return this.f37949a;
+    }
+
+    public final List<d.l.a.g.a> b() {
+        return this.f37954f;
+    }
+
+    public final int c() {
+        return this.f37951c;
+    }
+
+    public final int d() {
+        return this.f37952d;
+    }
+
+    public final HashMap<String, Bitmap> e() {
+        return this.f37956h;
+    }
+
+    public final SoundPool f() {
+        return this.f37955g;
+    }
+
+    public final void finalize() {
+        SoundPool soundPool = this.f37955g;
+        if (soundPool != null) {
+            soundPool.release();
+        }
+        this.f37955g = null;
+        this.f37956h.clear();
+    }
+
+    public final List<f> g() {
+        return this.f37953e;
+    }
+
+    public final c h() {
+        return this.f37950b;
+    }
+
+    public final void i(Function0<Unit> function0) {
+        MovieEntity movieEntity = this.j;
+        if (movieEntity != null) {
+            j(movieEntity, new SVGAVideoEntity$prepare$$inlined$let$lambda$1(this, function0));
+        } else {
+            function0.invoke();
+        }
+    }
+
+    public final void j(MovieEntity movieEntity, Function0<Unit> function0) {
+        SoundPool soundPool;
+        SoundPool soundPool2;
+        HashMap hashMap;
+        Set<Map.Entry<String, ByteString>> entrySet;
+        List<AudioEntity> list = movieEntity.audios;
+        if (list != null) {
+            if (!(!list.isEmpty())) {
+                list = null;
+            }
+            List<AudioEntity> list2 = list;
+            if (list2 != null) {
+                Ref.IntRef intRef = new Ref.IntRef();
+                intRef.element = 0;
+                if (Build.VERSION.SDK_INT >= 21) {
+                    soundPool = new SoundPool.Builder().setAudioAttributes(new AudioAttributes.Builder().setUsage(1).build()).setMaxStreams(Math.min(12, list2.size())).build();
+                } else {
+                    soundPool = new SoundPool(Math.min(12, list2.size()), 3, 0);
+                }
+                HashMap hashMap2 = new HashMap();
+                soundPool.setOnLoadCompleteListener(new a(intRef, list2, this, function0, movieEntity));
+                HashMap hashMap3 = new HashMap();
+                Map<String, ByteString> map = movieEntity.images;
+                if (map != null && (entrySet = map.entrySet()) != null) {
+                    Iterator<T> it = entrySet.iterator();
+                    while (it.hasNext()) {
+                        Map.Entry entry = (Map.Entry) it.next();
+                        String imageKey = (String) entry.getKey();
+                        byte[] byteArray = ((ByteString) entry.getValue()).toByteArray();
+                        Intrinsics.checkExpressionValueIsNotNull(byteArray, "byteArray");
+                        if (byteArray.length >= 4) {
+                            List<Byte> slice = ArraysKt___ArraysKt.slice(byteArray, new IntRange(0, 3));
+                            if (slice.get(0).byteValue() == 73 && slice.get(1).byteValue() == 68 && slice.get(2).byteValue() == 51 && slice.get(3).byteValue() == 3) {
+                                Intrinsics.checkExpressionValueIsNotNull(imageKey, "imageKey");
+                                hashMap3.put(imageKey, byteArray);
+                            }
+                        }
+                    }
+                }
+                if (hashMap3.size() > 0) {
+                    for (Map.Entry entry2 : hashMap3.entrySet()) {
+                        File tmpFile = File.createTempFile((String) entry2.getKey(), EmotionResourceProvider.EMOTION_SOUND_SUFFIX);
+                        FileOutputStream fileOutputStream = new FileOutputStream(tmpFile);
+                        fileOutputStream.write((byte[]) entry2.getValue());
+                        fileOutputStream.flush();
+                        fileOutputStream.close();
+                        Object key = entry2.getKey();
+                        Intrinsics.checkExpressionValueIsNotNull(tmpFile, "tmpFile");
+                        hashMap2.put(key, tmpFile);
+                    }
+                }
+                ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list2, 10));
+                for (AudioEntity audio : list2) {
+                    Intrinsics.checkExpressionValueIsNotNull(audio, "audio");
+                    d.l.a.g.a aVar = new d.l.a.g.a(audio);
+                    File file = (File) hashMap2.get(audio.audioKey);
+                    if (file != null) {
+                        FileInputStream fileInputStream = new FileInputStream(file);
+                        FileDescriptor fd = fileInputStream.getFD();
+                        Integer num = audio.startTime;
+                        double intValue = num != null ? num.intValue() : 0;
+                        Integer num2 = audio.totalTime;
+                        double intValue2 = num2 != null ? num2.intValue() : 0;
+                        Double.isNaN(intValue);
+                        Double.isNaN(intValue2);
+                        double d2 = intValue / intValue2;
+                        double available = fileInputStream.available();
+                        Double.isNaN(available);
+                        soundPool2 = soundPool;
+                        hashMap = hashMap2;
+                        aVar.f(Integer.valueOf(soundPool.load(fd, (long) (d2 * available), fileInputStream.available(), 1)));
+                        fileInputStream.close();
+                    } else {
+                        soundPool2 = soundPool;
+                        hashMap = hashMap2;
+                    }
+                    arrayList.add(aVar);
+                    soundPool = soundPool2;
+                    hashMap2 = hashMap;
+                }
+                this.f37954f = arrayList;
+                this.f37955g = soundPool;
+                return;
+            }
+        }
+        function0.invoke();
+    }
+
+    public final void k(MovieEntity movieEntity) {
+        Set<Map.Entry<String, ByteString>> entrySet;
+        BitmapFactory.Options options;
+        BitmapFactory.Options options2;
+        Bitmap bitmap;
+        BitmapFactory.Options options3;
+        BitmapFactory.Options options4;
+        Map<String, ByteString> map = movieEntity.images;
+        if (map == null || (entrySet = map.entrySet()) == null) {
+            return;
+        }
+        Iterator<T> it = entrySet.iterator();
+        while (it.hasNext()) {
+            Map.Entry entry = (Map.Entry) it.next();
+            String imageKey = (String) entry.getKey();
+            options = e.f66228a;
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            byte[] byteArray = ((ByteString) entry.getValue()).toByteArray();
+            Intrinsics.checkExpressionValueIsNotNull(byteArray, "byteArray");
+            if (byteArray.length >= 4) {
+                List<Byte> slice = ArraysKt___ArraysKt.slice(byteArray, new IntRange(0, 3));
+                if (slice.get(0).byteValue() != 73 || slice.get(1).byteValue() != 68 || slice.get(2).byteValue() != 51 || slice.get(3).byteValue() != 3) {
+                    int length = byteArray.length;
+                    options2 = e.f66228a;
+                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray(byteArray, 0, length, options2);
+                    if (decodeByteArray != null) {
+                        HashMap<String, Bitmap> hashMap = this.f37956h;
+                        Intrinsics.checkExpressionValueIsNotNull(imageKey, "imageKey");
+                        hashMap.put(imageKey, decodeByteArray);
+                    } else {
+                        String utf8 = ((ByteString) entry.getValue()).utf8();
+                        if (utf8 != null) {
+                            String str = this.i.getAbsolutePath() + "/" + utf8;
+                            if (new File(str).exists()) {
+                                options4 = e.f66228a;
+                                bitmap = BitmapFactory.decodeFile(str, options4);
+                            } else {
+                                bitmap = null;
+                            }
+                            if (bitmap != null) {
+                                this.f37956h.put(imageKey, bitmap);
+                            } else {
+                                String str2 = this.i.getAbsolutePath() + "/" + imageKey + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
+                                String str3 = new File(str2).exists() ? str2 : null;
+                                if (str3 != null) {
+                                    options3 = e.f66228a;
+                                    Bitmap decodeFile = BitmapFactory.decodeFile(str3, options3);
+                                    if (decodeFile != null) {
+                                        this.f37956h.put(imageKey, decodeFile);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public final void l(JSONObject jSONObject) {
+        BitmapFactory.Options options;
+        Bitmap bitmap;
+        BitmapFactory.Options options2;
+        BitmapFactory.Options options3;
+        JSONObject optJSONObject = jSONObject.optJSONObject("images");
+        if (optJSONObject != null) {
+            Iterator<String> keys = optJSONObject.keys();
+            Intrinsics.checkExpressionValueIsNotNull(keys, "imgObjects.keys()");
+            while (keys.hasNext()) {
+                String next = keys.next();
+                options = e.f66228a;
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                String str = this.i.getAbsolutePath() + "/" + optJSONObject.get(next);
+                if (new File(str).exists()) {
+                    options3 = e.f66228a;
+                    bitmap = BitmapFactory.decodeFile(str, options3);
+                } else {
+                    bitmap = null;
+                }
+                if (bitmap != null) {
+                    this.f37956h.put(next, bitmap);
+                } else {
+                    String str2 = this.i.getAbsolutePath() + "/" + next + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
+                    String str3 = new File(str2).exists() ? str2 : null;
+                    if (str3 != null) {
+                        options2 = e.f66228a;
+                        Bitmap decodeFile = BitmapFactory.decodeFile(str3, options2);
+                        if (decodeFile != null) {
+                            this.f37956h.put(next, decodeFile);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public final void m(MovieEntity movieEntity) {
+        List<f> emptyList;
+        List<SpriteEntity> list = movieEntity.sprites;
+        if (list != null) {
+            emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
+            for (SpriteEntity it : list) {
+                Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                emptyList.add(new f(it));
+            }
+        } else {
+            emptyList = CollectionsKt__CollectionsKt.emptyList();
+        }
+        this.f37953e = emptyList;
+    }
+
+    public final void n(JSONObject jSONObject) {
+        ArrayList arrayList = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("sprites");
+        if (optJSONArray != null) {
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    arrayList.add(new f(optJSONObject));
+                }
+            }
+        }
+        this.f37953e = CollectionsKt___CollectionsKt.toList(arrayList);
+    }
+
+    public final void o(boolean z) {
+        this.f37949a = z;
+    }
+
+    public SVGAVideoEntity(MovieEntity movieEntity, File file) {
+        Float f2;
+        this.f37950b = new c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.f37951c = 15;
+        this.j = movieEntity;
+        this.i = file;
+        MovieParams movieParams = movieEntity.params;
+        if (movieParams != null) {
+            Float f3 = movieParams.viewBoxWidth;
+            this.f37950b = new c(0.0d, 0.0d, f3 != null ? f3.floatValue() : 0.0f, movieParams.viewBoxHeight != null ? f2.floatValue() : 0.0f);
+            Integer num = movieParams.fps;
+            this.f37951c = num != null ? num.intValue() : 20;
+            Integer num2 = movieParams.frames;
+            this.f37952d = num2 != null ? num2.intValue() : 0;
+        }
+        try {
+            k(movieEntity);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        m(movieEntity);
+    }
+}

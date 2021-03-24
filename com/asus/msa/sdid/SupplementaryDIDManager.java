@@ -9,21 +9,27 @@ import android.util.Log;
 import androidx.annotation.Keep;
 import com.asus.msa.a.a;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class SupplementaryDIDManager {
     public static boolean DEBUG = false;
     public static final String TAG = "SupplementaryDIDManager";
     public Context mContext;
     public com.asus.msa.a.a mDidService;
-    public a mListener;
+    public com.asus.msa.sdid.a mListener;
     public boolean isBinded = false;
-    public ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.asus.msa.sdid.SupplementaryDIDManager.1
+    public ServiceConnection mServiceConnection = new a();
+
+    /* loaded from: classes.dex */
+    public class a implements ServiceConnection {
+        public a() {
+        }
+
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             if (SupplementaryDIDManager.DEBUG) {
                 Log.i(SupplementaryDIDManager.TAG, "did service binded");
             }
-            SupplementaryDIDManager.this.mDidService = a.AbstractBinderC0014a.a(iBinder);
+            SupplementaryDIDManager.this.mDidService = a.AbstractBinderC0019a.a(iBinder);
             SupplementaryDIDManager.this.notifyAllListeners(true);
         }
 
@@ -31,7 +37,7 @@ public class SupplementaryDIDManager {
         public void onServiceDisconnected(ComponentName componentName) {
             SupplementaryDIDManager.this.notifyAllListeners(false);
         }
-    };
+    }
 
     public SupplementaryDIDManager(Context context) {
         this.mContext = context;
@@ -45,9 +51,9 @@ public class SupplementaryDIDManager {
             } else {
                 this.mListener.a();
             }
-        } catch (Exception e) {
+        } catch (Exception e2) {
             if (DEBUG) {
-                Log.e(TAG, "notify did bind status error :" + e.getMessage());
+                Log.e(TAG, "notify did bind status error :" + e2.getMessage());
             }
         }
     }
@@ -62,12 +68,12 @@ public class SupplementaryDIDManager {
             }
             this.isBinded = false;
             this.mContext.unbindService(this.mServiceConnection);
-        } catch (Exception e) {
-            Log.w(TAG, e.getMessage());
+        } catch (Exception e2) {
+            Log.w(TAG, e2.getMessage());
         }
     }
 
-    public void init(a aVar) {
+    public void init(com.asus.msa.sdid.a aVar) {
         try {
             this.mListener = aVar;
             Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
@@ -78,7 +84,7 @@ public class SupplementaryDIDManager {
                 Log.i(TAG, "start to bind did service.");
             }
             this.isBinded = this.mContext.bindService(intent2, this.mServiceConnection, 1);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             notifyAllListeners(false);
         }
     }

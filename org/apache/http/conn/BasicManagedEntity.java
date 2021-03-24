@@ -6,18 +6,28 @@ import java.io.OutputStream;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.HttpEntityWrapper;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicManagedEntity extends HttpEntityWrapper implements ConnectionReleaseTrigger, EofSensorWatcher {
-    protected final boolean attemptReuse;
-    protected ManagedClientConnection managedConn;
+    public final boolean attemptReuse;
+    public ManagedClientConnection managedConn;
 
     public BasicManagedEntity(HttpEntity httpEntity, ManagedClientConnection managedClientConnection, boolean z) {
         super(null);
         throw new RuntimeException("Stub!");
     }
 
+    @Override // org.apache.http.conn.ConnectionReleaseTrigger
+    public void abortConnection() throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
     @Override // org.apache.http.entity.HttpEntityWrapper, org.apache.http.HttpEntity
-    public boolean isRepeatable() {
+    public void consumeContent() throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.conn.EofSensorWatcher
+    public boolean eofDetected(InputStream inputStream) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -27,12 +37,7 @@ public class BasicManagedEntity extends HttpEntityWrapper implements ConnectionR
     }
 
     @Override // org.apache.http.entity.HttpEntityWrapper, org.apache.http.HttpEntity
-    public void consumeContent() throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.entity.HttpEntityWrapper, org.apache.http.HttpEntity
-    public void writeTo(OutputStream outputStream) throws IOException {
+    public boolean isRepeatable() {
         throw new RuntimeException("Stub!");
     }
 
@@ -41,18 +46,7 @@ public class BasicManagedEntity extends HttpEntityWrapper implements ConnectionR
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.conn.ConnectionReleaseTrigger
-    public void abortConnection() throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.conn.EofSensorWatcher
-    public boolean eofDetected(InputStream inputStream) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.conn.EofSensorWatcher
-    public boolean streamClosed(InputStream inputStream) throws IOException {
+    public void releaseManagedConnection() throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -61,7 +55,13 @@ public class BasicManagedEntity extends HttpEntityWrapper implements ConnectionR
         throw new RuntimeException("Stub!");
     }
 
-    protected void releaseManagedConnection() throws IOException {
+    @Override // org.apache.http.conn.EofSensorWatcher
+    public boolean streamClosed(InputStream inputStream) throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.entity.HttpEntityWrapper, org.apache.http.HttpEntity
+    public void writeTo(OutputStream outputStream) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

@@ -1,32 +1,37 @@
 package com.baidu.crabsdk.a;
 
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public abstract class n {
-    long aqc;
-    AtomicBoolean aqb = new AtomicBoolean(false);
-    private Runnable aqd = new o(this);
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f4661b;
+
+    /* renamed from: a  reason: collision with root package name */
+    public AtomicBoolean f4660a = new AtomicBoolean(false);
+
+    /* renamed from: c  reason: collision with root package name */
+    public Runnable f4662c = new d.b.n.a.j(this);
 
     public n(long j) {
-        this.aqc = 0 == j ? 300L : j;
+        this.f4661b = 0 == j ? 300L : j;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void o();
+    public abstract void b();
 
-    public final void start() {
-        if (this.aqb.get()) {
+    public final void c() {
+        if (this.f4660a.get()) {
             return;
         }
-        this.aqb.set(true);
-        j.ul().removeCallbacks(this.aqd);
-        j.ul().postDelayed(this.aqd, a.i());
+        this.f4660a.set(true);
+        j.a().removeCallbacks(this.f4662c);
+        j.a().postDelayed(this.f4662c, a.e());
     }
 
-    public final void stop() {
-        if (this.aqb.get()) {
-            this.aqb.set(false);
-            j.ul().removeCallbacks(this.aqd);
+    public final void d() {
+        if (this.f4660a.get()) {
+            this.f4660a.set(false);
+            j.a().removeCallbacks(this.f4662c);
         }
     }
 }

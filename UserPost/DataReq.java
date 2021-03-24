@@ -3,7 +3,7 @@ package UserPost;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import tbclient.CommonReq;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_COOKIE = "";
     public static final String DEFAULT_EMAIL = "";
@@ -19,7 +19,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 27)
 
     /* renamed from: common  reason: collision with root package name */
-    public final CommonReq f949common;
+    public final CommonReq f996common;
     @ProtoField(tag = 25, type = Message.Datatype.STRING)
     public final String cookie;
     @ProtoField(tag = 24, type = Message.Datatype.STRING)
@@ -109,221 +109,13 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_IS_VIEW_CARD = 0;
     public static final Integer DEFAULT_LAST_THREAD_TIME = 0;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.uid == null) {
-                this.uid = DEFAULT_UID;
-            } else {
-                this.uid = builder.uid;
-            }
-            if (builder.rn == null) {
-                this.rn = DEFAULT_RN;
-            } else {
-                this.rn = builder.rn;
-            }
-            if (builder.offset == null) {
-                this.offset = DEFAULT_OFFSET;
-            } else {
-                this.offset = builder.offset;
-            }
-            if (builder.is_thread == null) {
-                this.is_thread = DEFAULT_IS_THREAD;
-            } else {
-                this.is_thread = builder.is_thread;
-            }
-            if (builder.need_content == null) {
-                this.need_content = DEFAULT_NEED_CONTENT;
-            } else {
-                this.need_content = builder.need_content;
-            }
-            if (builder.forum_id == null) {
-                this.forum_id = DEFAULT_FORUM_ID;
-            } else {
-                this.forum_id = builder.forum_id;
-            }
-            if (builder.begin_time == null) {
-                this.begin_time = DEFAULT_BEGIN_TIME;
-            } else {
-                this.begin_time = builder.begin_time;
-            }
-            if (builder.end_time == null) {
-                this.end_time = DEFAULT_END_TIME;
-            } else {
-                this.end_time = builder.end_time;
-            }
-            if (builder.subtype == null) {
-                this.subtype = DEFAULT_SUBTYPE;
-            } else {
-                this.subtype = builder.subtype;
-            }
-            if (builder.check_login == null) {
-                this.check_login = DEFAULT_CHECK_LOGIN;
-            } else {
-                this.check_login = builder.check_login;
-            }
-            if (builder.ip_str == null) {
-                this.ip_str = "";
-            } else {
-                this.ip_str = builder.ip_str;
-            }
-            if (builder.ip_int == null) {
-                this.ip_int = DEFAULT_IP_INT;
-            } else {
-                this.ip_int = builder.ip_int;
-            }
-            if (builder.module_name == null) {
-                this.module_name = "";
-            } else {
-                this.module_name = builder.module_name;
-            }
-            if (builder.st_type == null) {
-                this.st_type = DEFAULT_ST_TYPE;
-            } else {
-                this.st_type = builder.st_type;
-            }
-            if (builder.st_param == null) {
-                this.st_param = DEFAULT_ST_PARAM;
-            } else {
-                this.st_param = builder.st_param;
-            }
-            if (builder.smile_grade == null) {
-                this.smile_grade = DEFAULT_SMILE_GRADE;
-            } else {
-                this.smile_grade = builder.smile_grade;
-            }
-            if (builder.support_noun == null) {
-                this.support_noun = DEFAULT_SUPPORT_NOUN;
-            } else {
-                this.support_noun = builder.support_noun;
-            }
-            if (builder.login == null) {
-                this.login = DEFAULT_LOGIN;
-            } else {
-                this.login = builder.login;
-            }
-            if (builder.user_id == null) {
-                this.user_id = DEFAULT_USER_ID;
-            } else {
-                this.user_id = builder.user_id;
-            }
-            if (builder.user_name == null) {
-                this.user_name = "";
-            } else {
-                this.user_name = builder.user_name;
-            }
-            if (builder.no_un == null) {
-                this.no_un = DEFAULT_NO_UN;
-            } else {
-                this.no_un = builder.no_un;
-            }
-            if (builder.portrait == null) {
-                this.portrait = "";
-            } else {
-                this.portrait = builder.portrait;
-            }
-            if (builder.mobile == null) {
-                this.mobile = "";
-            } else {
-                this.mobile = builder.mobile;
-            }
-            if (builder.email == null) {
-                this.email = "";
-            } else {
-                this.email = builder.email;
-            }
-            if (builder.cookie == null) {
-                this.cookie = "";
-            } else {
-                this.cookie = builder.cookie;
-            }
-            if (builder.pn == null) {
-                this.pn = DEFAULT_PN;
-            } else {
-                this.pn = builder.pn;
-            }
-            this.f949common = builder.f950common;
-            if (builder.is_twzhibo == null) {
-                this.is_twzhibo = DEFAULT_IS_TWZHIBO;
-            } else {
-                this.is_twzhibo = builder.is_twzhibo;
-            }
-            if (builder.scr_w == null) {
-                this.scr_w = DEFAULT_SCR_W;
-            } else {
-                this.scr_w = builder.scr_w;
-            }
-            if (builder.scr_h == null) {
-                this.scr_h = DEFAULT_SCR_H;
-            } else {
-                this.scr_h = builder.scr_h;
-            }
-            if (builder.scr_dip == null) {
-                this.scr_dip = DEFAULT_SCR_DIP;
-            } else {
-                this.scr_dip = builder.scr_dip;
-            }
-            if (builder.q_type == null) {
-                this.q_type = DEFAULT_Q_TYPE;
-            } else {
-                this.q_type = builder.q_type;
-            }
-            if (builder.is_view_card == null) {
-                this.is_view_card = DEFAULT_IS_VIEW_CARD;
-            } else {
-                this.is_view_card = builder.is_view_card;
-            }
-            if (builder.last_thread_time == null) {
-                this.last_thread_time = DEFAULT_LAST_THREAD_TIME;
-                return;
-            } else {
-                this.last_thread_time = builder.last_thread_time;
-                return;
-            }
-        }
-        this.uid = builder.uid;
-        this.rn = builder.rn;
-        this.offset = builder.offset;
-        this.is_thread = builder.is_thread;
-        this.need_content = builder.need_content;
-        this.forum_id = builder.forum_id;
-        this.begin_time = builder.begin_time;
-        this.end_time = builder.end_time;
-        this.subtype = builder.subtype;
-        this.check_login = builder.check_login;
-        this.ip_str = builder.ip_str;
-        this.ip_int = builder.ip_int;
-        this.module_name = builder.module_name;
-        this.st_type = builder.st_type;
-        this.st_param = builder.st_param;
-        this.smile_grade = builder.smile_grade;
-        this.support_noun = builder.support_noun;
-        this.login = builder.login;
-        this.user_id = builder.user_id;
-        this.user_name = builder.user_name;
-        this.no_un = builder.no_un;
-        this.portrait = builder.portrait;
-        this.mobile = builder.mobile;
-        this.email = builder.email;
-        this.cookie = builder.cookie;
-        this.pn = builder.pn;
-        this.f949common = builder.f950common;
-        this.is_twzhibo = builder.is_twzhibo;
-        this.scr_w = builder.scr_w;
-        this.scr_h = builder.scr_h;
-        this.scr_dip = builder.scr_dip;
-        this.q_type = builder.q_type;
-        this.is_view_card = builder.is_view_card;
-        this.last_thread_time = builder.last_thread_time;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer begin_time;
         public Integer check_login;
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonReq f950common;
+        public CommonReq f997common;
         public String cookie;
         public String email;
         public Integer end_time;
@@ -361,42 +153,43 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.uid = dataReq.uid;
-                this.rn = dataReq.rn;
-                this.offset = dataReq.offset;
-                this.is_thread = dataReq.is_thread;
-                this.need_content = dataReq.need_content;
-                this.forum_id = dataReq.forum_id;
-                this.begin_time = dataReq.begin_time;
-                this.end_time = dataReq.end_time;
-                this.subtype = dataReq.subtype;
-                this.check_login = dataReq.check_login;
-                this.ip_str = dataReq.ip_str;
-                this.ip_int = dataReq.ip_int;
-                this.module_name = dataReq.module_name;
-                this.st_type = dataReq.st_type;
-                this.st_param = dataReq.st_param;
-                this.smile_grade = dataReq.smile_grade;
-                this.support_noun = dataReq.support_noun;
-                this.login = dataReq.login;
-                this.user_id = dataReq.user_id;
-                this.user_name = dataReq.user_name;
-                this.no_un = dataReq.no_un;
-                this.portrait = dataReq.portrait;
-                this.mobile = dataReq.mobile;
-                this.email = dataReq.email;
-                this.cookie = dataReq.cookie;
-                this.pn = dataReq.pn;
-                this.f950common = dataReq.f949common;
-                this.is_twzhibo = dataReq.is_twzhibo;
-                this.scr_w = dataReq.scr_w;
-                this.scr_h = dataReq.scr_h;
-                this.scr_dip = dataReq.scr_dip;
-                this.q_type = dataReq.q_type;
-                this.is_view_card = dataReq.is_view_card;
-                this.last_thread_time = dataReq.last_thread_time;
+            if (dataReq == null) {
+                return;
             }
+            this.uid = dataReq.uid;
+            this.rn = dataReq.rn;
+            this.offset = dataReq.offset;
+            this.is_thread = dataReq.is_thread;
+            this.need_content = dataReq.need_content;
+            this.forum_id = dataReq.forum_id;
+            this.begin_time = dataReq.begin_time;
+            this.end_time = dataReq.end_time;
+            this.subtype = dataReq.subtype;
+            this.check_login = dataReq.check_login;
+            this.ip_str = dataReq.ip_str;
+            this.ip_int = dataReq.ip_int;
+            this.module_name = dataReq.module_name;
+            this.st_type = dataReq.st_type;
+            this.st_param = dataReq.st_param;
+            this.smile_grade = dataReq.smile_grade;
+            this.support_noun = dataReq.support_noun;
+            this.login = dataReq.login;
+            this.user_id = dataReq.user_id;
+            this.user_name = dataReq.user_name;
+            this.no_un = dataReq.no_un;
+            this.portrait = dataReq.portrait;
+            this.mobile = dataReq.mobile;
+            this.email = dataReq.email;
+            this.cookie = dataReq.cookie;
+            this.pn = dataReq.pn;
+            this.f997common = dataReq.f996common;
+            this.is_twzhibo = dataReq.is_twzhibo;
+            this.scr_w = dataReq.scr_w;
+            this.scr_h = dataReq.scr_h;
+            this.scr_dip = dataReq.scr_dip;
+            this.q_type = dataReq.q_type;
+            this.is_view_card = dataReq.is_view_card;
+            this.last_thread_time = dataReq.last_thread_time;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -405,5 +198,246 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.uid;
+            if (l == null) {
+                this.uid = DEFAULT_UID;
+            } else {
+                this.uid = l;
+            }
+            Integer num = builder.rn;
+            if (num == null) {
+                this.rn = DEFAULT_RN;
+            } else {
+                this.rn = num;
+            }
+            Integer num2 = builder.offset;
+            if (num2 == null) {
+                this.offset = DEFAULT_OFFSET;
+            } else {
+                this.offset = num2;
+            }
+            Integer num3 = builder.is_thread;
+            if (num3 == null) {
+                this.is_thread = DEFAULT_IS_THREAD;
+            } else {
+                this.is_thread = num3;
+            }
+            Integer num4 = builder.need_content;
+            if (num4 == null) {
+                this.need_content = DEFAULT_NEED_CONTENT;
+            } else {
+                this.need_content = num4;
+            }
+            Long l2 = builder.forum_id;
+            if (l2 == null) {
+                this.forum_id = DEFAULT_FORUM_ID;
+            } else {
+                this.forum_id = l2;
+            }
+            Integer num5 = builder.begin_time;
+            if (num5 == null) {
+                this.begin_time = DEFAULT_BEGIN_TIME;
+            } else {
+                this.begin_time = num5;
+            }
+            Integer num6 = builder.end_time;
+            if (num6 == null) {
+                this.end_time = DEFAULT_END_TIME;
+            } else {
+                this.end_time = num6;
+            }
+            Integer num7 = builder.subtype;
+            if (num7 == null) {
+                this.subtype = DEFAULT_SUBTYPE;
+            } else {
+                this.subtype = num7;
+            }
+            Integer num8 = builder.check_login;
+            if (num8 == null) {
+                this.check_login = DEFAULT_CHECK_LOGIN;
+            } else {
+                this.check_login = num8;
+            }
+            String str = builder.ip_str;
+            if (str == null) {
+                this.ip_str = "";
+            } else {
+                this.ip_str = str;
+            }
+            Integer num9 = builder.ip_int;
+            if (num9 == null) {
+                this.ip_int = DEFAULT_IP_INT;
+            } else {
+                this.ip_int = num9;
+            }
+            String str2 = builder.module_name;
+            if (str2 == null) {
+                this.module_name = "";
+            } else {
+                this.module_name = str2;
+            }
+            Integer num10 = builder.st_type;
+            if (num10 == null) {
+                this.st_type = DEFAULT_ST_TYPE;
+            } else {
+                this.st_type = num10;
+            }
+            Integer num11 = builder.st_param;
+            if (num11 == null) {
+                this.st_param = DEFAULT_ST_PARAM;
+            } else {
+                this.st_param = num11;
+            }
+            Integer num12 = builder.smile_grade;
+            if (num12 == null) {
+                this.smile_grade = DEFAULT_SMILE_GRADE;
+            } else {
+                this.smile_grade = num12;
+            }
+            Integer num13 = builder.support_noun;
+            if (num13 == null) {
+                this.support_noun = DEFAULT_SUPPORT_NOUN;
+            } else {
+                this.support_noun = num13;
+            }
+            Integer num14 = builder.login;
+            if (num14 == null) {
+                this.login = DEFAULT_LOGIN;
+            } else {
+                this.login = num14;
+            }
+            Long l3 = builder.user_id;
+            if (l3 == null) {
+                this.user_id = DEFAULT_USER_ID;
+            } else {
+                this.user_id = l3;
+            }
+            String str3 = builder.user_name;
+            if (str3 == null) {
+                this.user_name = "";
+            } else {
+                this.user_name = str3;
+            }
+            Integer num15 = builder.no_un;
+            if (num15 == null) {
+                this.no_un = DEFAULT_NO_UN;
+            } else {
+                this.no_un = num15;
+            }
+            String str4 = builder.portrait;
+            if (str4 == null) {
+                this.portrait = "";
+            } else {
+                this.portrait = str4;
+            }
+            String str5 = builder.mobile;
+            if (str5 == null) {
+                this.mobile = "";
+            } else {
+                this.mobile = str5;
+            }
+            String str6 = builder.email;
+            if (str6 == null) {
+                this.email = "";
+            } else {
+                this.email = str6;
+            }
+            String str7 = builder.cookie;
+            if (str7 == null) {
+                this.cookie = "";
+            } else {
+                this.cookie = str7;
+            }
+            Integer num16 = builder.pn;
+            if (num16 == null) {
+                this.pn = DEFAULT_PN;
+            } else {
+                this.pn = num16;
+            }
+            this.f996common = builder.f997common;
+            Integer num17 = builder.is_twzhibo;
+            if (num17 == null) {
+                this.is_twzhibo = DEFAULT_IS_TWZHIBO;
+            } else {
+                this.is_twzhibo = num17;
+            }
+            Integer num18 = builder.scr_w;
+            if (num18 == null) {
+                this.scr_w = DEFAULT_SCR_W;
+            } else {
+                this.scr_w = num18;
+            }
+            Integer num19 = builder.scr_h;
+            if (num19 == null) {
+                this.scr_h = DEFAULT_SCR_H;
+            } else {
+                this.scr_h = num19;
+            }
+            Double d2 = builder.scr_dip;
+            if (d2 == null) {
+                this.scr_dip = DEFAULT_SCR_DIP;
+            } else {
+                this.scr_dip = d2;
+            }
+            Integer num20 = builder.q_type;
+            if (num20 == null) {
+                this.q_type = DEFAULT_Q_TYPE;
+            } else {
+                this.q_type = num20;
+            }
+            Integer num21 = builder.is_view_card;
+            if (num21 == null) {
+                this.is_view_card = DEFAULT_IS_VIEW_CARD;
+            } else {
+                this.is_view_card = num21;
+            }
+            Integer num22 = builder.last_thread_time;
+            if (num22 == null) {
+                this.last_thread_time = DEFAULT_LAST_THREAD_TIME;
+                return;
+            } else {
+                this.last_thread_time = num22;
+                return;
+            }
+        }
+        this.uid = builder.uid;
+        this.rn = builder.rn;
+        this.offset = builder.offset;
+        this.is_thread = builder.is_thread;
+        this.need_content = builder.need_content;
+        this.forum_id = builder.forum_id;
+        this.begin_time = builder.begin_time;
+        this.end_time = builder.end_time;
+        this.subtype = builder.subtype;
+        this.check_login = builder.check_login;
+        this.ip_str = builder.ip_str;
+        this.ip_int = builder.ip_int;
+        this.module_name = builder.module_name;
+        this.st_type = builder.st_type;
+        this.st_param = builder.st_param;
+        this.smile_grade = builder.smile_grade;
+        this.support_noun = builder.support_noun;
+        this.login = builder.login;
+        this.user_id = builder.user_id;
+        this.user_name = builder.user_name;
+        this.no_un = builder.no_un;
+        this.portrait = builder.portrait;
+        this.mobile = builder.mobile;
+        this.email = builder.email;
+        this.cookie = builder.cookie;
+        this.pn = builder.pn;
+        this.f996common = builder.f997common;
+        this.is_twzhibo = builder.is_twzhibo;
+        this.scr_w = builder.scr_w;
+        this.scr_h = builder.scr_h;
+        this.scr_dip = builder.scr_dip;
+        this.q_type = builder.q_type;
+        this.is_view_card = builder.is_view_card;
+        this.last_thread_time = builder.last_thread_time;
     }
 }

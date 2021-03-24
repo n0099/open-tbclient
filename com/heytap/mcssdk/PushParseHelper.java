@@ -8,7 +8,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.utils.LogUtil;
 import com.heytap.mcssdk.utils.Utils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PushParseHelper {
     public static void parseCommandMessage(Context context, CommandMessage commandMessage, PushManager pushManager) {
         if (context == null) {
@@ -32,7 +32,7 @@ public class PushParseHelper {
                     return;
                 case CommandMessage.COMMAND_STATISTIC /* 12291 */:
                 case CommandMessage.COMMAND_PAUSE_PUSH /* 12299 */:
-                case CommandMessage.COMMAND_RESUME_PUSH /* 12300 */:
+                case 12300:
                 case 12304:
                 case CommandMessage.COMMAND_CLEAR_ALL_NOTIFICATION /* 12305 */:
                 case CommandMessage.COMMAND_SET_NOTIFICATION_TYPE /* 12307 */:
@@ -40,13 +40,13 @@ public class PushParseHelper {
                 default:
                     return;
                 case CommandMessage.COMMAND_SET_ALIAS /* 12292 */:
-                    pushManager.getPushCallback().onSetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_ALIAS, "aliasId", "aliasName"));
+                    pushManager.getPushCallback().onSetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "alias", "aliasId", "aliasName"));
                     return;
                 case CommandMessage.COMMAND_GET_ALIAS /* 12293 */:
-                    pushManager.getPushCallback().onGetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_ALIAS, "aliasId", "aliasName"));
+                    pushManager.getPushCallback().onGetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "alias", "aliasId", "aliasName"));
                     return;
                 case CommandMessage.COMMAND_UNSET_ALIAS /* 12294 */:
-                    pushManager.getPushCallback().onUnsetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_ALIAS, "aliasId", "aliasName"));
+                    pushManager.getPushCallback().onUnsetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "alias", "aliasId", "aliasName"));
                     return;
                 case CommandMessage.COMMAND_SET_TAGS /* 12295 */:
                     pushManager.getPushCallback().onSetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "tagId", "tagName"));
@@ -69,7 +69,7 @@ public class PushParseHelper {
                 case CommandMessage.COMMAND_UNSET_ACCOUNTS /* 12303 */:
                     pushManager.getPushCallback().onUnsetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
                     return;
-                case 12306:
+                case CommandMessage.COMMAND_GET_PUSH_STATUS /* 12306 */:
                     pushManager.getPushCallback().onGetPushStatus(commandMessage.getResponseCode(), Utils.parseInt(commandMessage.getContent()));
                     return;
                 case CommandMessage.COMMAND_GET_NOTIFICATION_STATUS /* 12309 */:
@@ -99,7 +99,7 @@ public class PushParseHelper {
                     return;
                 case CommandMessage.COMMAND_STATISTIC /* 12291 */:
                 case CommandMessage.COMMAND_PAUSE_PUSH /* 12299 */:
-                case CommandMessage.COMMAND_RESUME_PUSH /* 12300 */:
+                case 12300:
                 case 12304:
                 case CommandMessage.COMMAND_CLEAR_ALL_NOTIFICATION /* 12305 */:
                 case CommandMessage.COMMAND_SET_NOTIFICATION_TYPE /* 12307 */:
@@ -107,13 +107,13 @@ public class PushParseHelper {
                 default:
                     return;
                 case CommandMessage.COMMAND_SET_ALIAS /* 12292 */:
-                    pushCallback.onSetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_ALIAS, "aliasId", "aliasName"));
+                    pushCallback.onSetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "alias", "aliasId", "aliasName"));
                     return;
                 case CommandMessage.COMMAND_GET_ALIAS /* 12293 */:
-                    pushCallback.onGetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_ALIAS, "aliasId", "aliasName"));
+                    pushCallback.onGetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "alias", "aliasId", "aliasName"));
                     return;
                 case CommandMessage.COMMAND_UNSET_ALIAS /* 12294 */:
-                    pushCallback.onUnsetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_ALIAS, "aliasId", "aliasName"));
+                    pushCallback.onUnsetAliases(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), "alias", "aliasId", "aliasName"));
                     return;
                 case CommandMessage.COMMAND_SET_TAGS /* 12295 */:
                     pushCallback.onSetTags(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "tagId", "tagName"));
@@ -136,7 +136,7 @@ public class PushParseHelper {
                 case CommandMessage.COMMAND_UNSET_ACCOUNTS /* 12303 */:
                     pushCallback.onUnsetUserAccounts(commandMessage.getResponseCode(), CommandMessage.parseToSubscribeResultList(commandMessage.getContent(), CommandMessage.TYPE_TAGS, "accountId", "accountName"));
                     return;
-                case 12306:
+                case CommandMessage.COMMAND_GET_PUSH_STATUS /* 12306 */:
                     pushCallback.onGetPushStatus(commandMessage.getResponseCode(), Utils.parseInt(commandMessage.getContent()));
                     return;
                 case CommandMessage.COMMAND_GET_NOTIFICATION_STATUS /* 12309 */:
@@ -147,13 +147,12 @@ public class PushParseHelper {
     }
 
     public static void parseIntent(Context context, Intent intent, MessageCallback messageCallback) {
+        String str;
         if (context == null) {
-            LogUtil.e("context is null , please check param of parseIntent()");
+            str = "context is null , please check param of parseIntent()";
         } else if (intent == null) {
-            LogUtil.e("intent is null , please check param of parseIntent()");
-        } else if (messageCallback == null) {
-            LogUtil.e("callback is null , please check param of parseIntent()");
-        } else {
+            str = "intent is null , please check param of parseIntent()";
+        } else if (messageCallback != null) {
             for (Message message : com.heytap.mcssdk.a.c.a(context, intent)) {
                 if (message != null) {
                     for (com.heytap.mcssdk.b.c cVar : PushManager.getInstance().getProcessors()) {
@@ -163,6 +162,10 @@ public class PushParseHelper {
                     }
                 }
             }
+            return;
+        } else {
+            str = "callback is null , please check param of parseIntent()";
         }
+        LogUtil.e(str);
     }
 }

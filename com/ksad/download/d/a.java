@@ -4,7 +4,7 @@ import android.os.Build;
 import android.os.StatFs;
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static long a(String str) {
         StatFs statFs = new StatFs(str);
@@ -15,7 +15,7 @@ public class a {
                 th.printStackTrace();
             }
         }
-        return statFs.getAvailableBlocks() * statFs.getBlockSize();
+        return statFs.getBlockSize() * statFs.getAvailableBlocks();
     }
 
     public static boolean a(File file) {

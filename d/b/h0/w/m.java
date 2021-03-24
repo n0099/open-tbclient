@@ -1,0 +1,80 @@
+package d.b.h0.w;
+
+import android.content.Context;
+/* loaded from: classes3.dex */
+public class m {
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f51529a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f51530b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f51531c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f51532d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f51533e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f51534f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f51535g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f51536h;
+    public int j;
+    public n k;
+    public int l;
+    public int[] n;
+    public boolean o;
+    public boolean i = true;
+    public boolean m = false;
+    public boolean p = true;
+
+    public m(String str, int i, int i2) {
+        this.f51530b = str;
+        this.f51531c = i;
+        this.j = i2;
+    }
+
+    public boolean a() {
+        return true;
+    }
+
+    public Context b() {
+        return this.f51529a;
+    }
+
+    public boolean c() {
+        return this.p;
+    }
+
+    public boolean d() {
+        return true;
+    }
+
+    public void e(boolean z) {
+        this.p = z;
+    }
+
+    public void f(boolean z) {
+    }
+
+    public m(Context context, String str, int i) {
+        this.f51530b = str;
+        this.f51531c = i;
+        this.f51529a = context;
+    }
+
+    public m(Context context, String str, int i, int i2) {
+        this.f51530b = str;
+        this.f51531c = i;
+        this.f51529a = context;
+        this.j = i2;
+    }
+}

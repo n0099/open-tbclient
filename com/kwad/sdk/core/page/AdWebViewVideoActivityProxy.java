@@ -24,17 +24,18 @@ import com.kwad.sdk.utils.d;
 import com.kwad.sdk.utils.x;
 import com.kwad.sdk.widget.DownloadProgressBar;
 import java.io.Serializable;
+import java.util.List;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AdWebViewVideoActivityProxy extends IFragmentActivityProxy {
     public static final String KEY_REPORTED = "key_reported";
     public static final String KEY_TEMPLATE = "key_template";
-    private AdTemplate mAdTemplate;
-    private b mApkDownloadHelper;
-    private a mFragment;
-    private DownloadProgressBar mProgressbar;
-    private ViewGroup mWebDownloadContainer;
+    public AdTemplate mAdTemplate;
+    public b mApkDownloadHelper;
+    public a mFragment;
+    public DownloadProgressBar mProgressbar;
+    public ViewGroup mWebDownloadContainer;
 
     private void initView() {
         this.mProgressbar = (DownloadProgressBar) findViewById(R.id.ksad_web_download_progress);
@@ -93,16 +94,33 @@ public class AdWebViewVideoActivityProxy extends IFragmentActivityProxy {
         TextView textView = (TextView) findViewById(R.id.ksad_kwad_titlebar_title);
         ImageView imageView = (ImageView) findViewById(R.id.ksad_kwad_web_navi_back);
         ImageView imageView2 = (ImageView) findViewById(R.id.ksad_kwad_web_navi_close);
-        if (this.mAdTemplate.adInfoList == null || this.mAdTemplate.adInfoList.size() <= 0 || this.mAdTemplate.adInfoList.get(0) == null) {
-            textView.setText("详情页面");
-        } else {
+        List<AdInfo> list = this.mAdTemplate.adInfoList;
+        if (list != null && list.size() > 0 && this.mAdTemplate.adInfoList.get(0) != null) {
             AdInfo.AdBaseInfo adBaseInfo = this.mAdTemplate.adInfoList.get(0).adBaseInfo;
-            if (TextUtils.isEmpty(adBaseInfo.productName)) {
-                textView.setText("详情页面");
-            } else {
+            if (!TextUtils.isEmpty(adBaseInfo.productName)) {
                 textView.setText(adBaseInfo.productName);
+                imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.3
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        AdWebViewVideoActivityProxy.this.finish();
+                    }
+                });
+                imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.4
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        AdWebViewVideoActivityProxy.this.onBackPressed();
+                    }
+                });
+                x.b(getActivity());
+                d.a(getActivity(), 0, true);
+                int i = R.id.ksad_recycler_container;
+                a a2 = a.a(this.mAdTemplate);
+                this.mFragment = a2;
+                a2.a(this.mApkDownloadHelper);
+                getSupportFragmentManager().beginTransaction().replace(i, this.mFragment).commitAllowingStateLoss();
             }
         }
+        textView.setText("详情页面");
         imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -117,10 +135,11 @@ public class AdWebViewVideoActivityProxy extends IFragmentActivityProxy {
         });
         x.b(getActivity());
         d.a(getActivity(), 0, true);
-        int i = R.id.ksad_recycler_container;
-        this.mFragment = a.a(this.mAdTemplate);
-        this.mFragment.a(this.mApkDownloadHelper);
-        getSupportFragmentManager().beginTransaction().replace(i, this.mFragment).commitAllowingStateLoss();
+        int i2 = R.id.ksad_recycler_container;
+        a a22 = a.a(this.mAdTemplate);
+        this.mFragment = a22;
+        a22.a(this.mApkDownloadHelper);
+        getSupportFragmentManager().beginTransaction().replace(i2, this.mFragment).commitAllowingStateLoss();
     }
 
     public static void launch(Context context, AdTemplate adTemplate) {
@@ -132,18 +151,18 @@ public class AdWebViewVideoActivityProxy extends IFragmentActivityProxy {
         intent.putExtra("key_template", adTemplate);
         intent.putExtra(KEY_REPORTED, adTemplate.mPvReported);
         context.startActivity(intent);
-        Context delegatedContext = context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : context;
-        if (delegatedContext instanceof Activity) {
-            ((Activity) delegatedContext).overridePendingTransition(0, 0);
+        if (context instanceof ResContext) {
+            context = ((ResContext) context).getDelegatedContext();
+        }
+        if (context instanceof Activity) {
+            ((Activity) context).overridePendingTransition(0, 0);
         }
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onBackPressed() {
-        if (this.mFragment == null) {
-            super.onBackPressed();
-        } else if (this.mFragment.a()) {
-        } else {
+        a aVar = this.mFragment;
+        if (aVar == null || !aVar.a()) {
             super.onBackPressed();
         }
     }
@@ -156,17 +175,18 @@ public class AdWebViewVideoActivityProxy extends IFragmentActivityProxy {
             finish();
             return;
         }
-        this.mAdTemplate = (AdTemplate) serializableExtra;
-        this.mAdTemplate.mPvReported = getIntent().getBooleanExtra(KEY_REPORTED, false);
+        AdTemplate adTemplate = (AdTemplate) serializableExtra;
+        this.mAdTemplate = adTemplate;
+        adTemplate.mPvReported = getIntent().getBooleanExtra(KEY_REPORTED, false);
         initView();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onDestroy() {
         super.onDestroy();
-        if (this.mApkDownloadHelper != null) {
-            this.mApkDownloadHelper.f();
+        b bVar = this.mApkDownloadHelper;
+        if (bVar != null) {
+            bVar.f();
         }
     }
 

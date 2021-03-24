@@ -4,19 +4,27 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.core.view.ViewCompat;
-import com.baidu.swan.apps.ao.ah;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+import d.b.g0.a.i2.h0;
+/* loaded from: classes3.dex */
 public class OpenLocationMenuItem {
-    public static final int eqU = ah.T(45.0f);
-    private MenuItemType eqV;
-    private a eqW;
-    private TextView eqX;
-    private int mMarginBottom = ah.T(1.0f);
-    private String mTitle;
 
-    /* loaded from: classes8.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f12948e = h0.f(45.0f);
+
+    /* renamed from: a  reason: collision with root package name */
+    public MenuItemType f12949a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f12950b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f12951c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f12952d = h0.f(1.0f);
+
+    /* loaded from: classes3.dex */
     public enum MenuItemType {
         OPENLOCATION_PATH,
         OPENLOCATION_STREET_VIEW,
@@ -28,51 +36,56 @@ public class OpenLocationMenuItem {
         OPENLOCATION_GOOGLE_MAP
     }
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void b(OpenLocationMenuItem openLocationMenuItem);
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (OpenLocationMenuItem.this.f12950b != null) {
+                OpenLocationMenuItem.this.f12950b.a(OpenLocationMenuItem.this);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(OpenLocationMenuItem openLocationMenuItem);
     }
 
     public OpenLocationMenuItem(Context context, String str, MenuItemType menuItemType) {
-        this.eqX = new TextView(context);
-        this.eqX.setText(str);
-        this.eqX.setTextSize(16.0f);
-        this.eqX.setBackground(context.getResources().getDrawable(R.drawable.openlocation_bottommenu_itemclick_selector));
-        this.eqX.setTextColor(ViewCompat.MEASURED_STATE_MASK);
-        this.eqX.setGravity(17);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, eqU);
-        layoutParams.bottomMargin = this.mMarginBottom;
+        this.f12951c = new TextView(context);
+        this.f12951c.setText(str);
+        this.f12951c.setTextSize(16.0f);
+        this.f12951c.setBackground(context.getResources().getDrawable(R.drawable.openlocation_bottommenu_itemclick_selector));
+        this.f12951c.setTextColor(-16777216);
+        this.f12951c.setGravity(17);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, f12948e);
+        layoutParams.bottomMargin = this.f12952d;
         layoutParams.gravity = 17;
-        this.eqX.setLayoutParams(layoutParams);
-        setTitle(str);
-        a(menuItemType);
-        this.eqX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.impl.map.item.OpenLocationMenuItem.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (OpenLocationMenuItem.this.eqW != null) {
-                    OpenLocationMenuItem.this.eqW.b(OpenLocationMenuItem.this);
-                }
-            }
-        });
+        this.f12951c.setLayoutParams(layoutParams);
+        e(str);
+        f(menuItemType);
+        this.f12951c.setOnClickListener(new a());
     }
 
-    public void a(a aVar) {
-        this.eqW = aVar;
+    public TextView b() {
+        return this.f12951c;
     }
 
-    public MenuItemType baV() {
-        return this.eqV;
+    public MenuItemType c() {
+        return this.f12949a;
     }
 
-    public void a(MenuItemType menuItemType) {
-        this.eqV = menuItemType;
+    public void d(b bVar) {
+        this.f12950b = bVar;
     }
 
-    public void setTitle(String str) {
-        this.mTitle = str;
+    public void e(String str) {
     }
 
-    public TextView baW() {
-        return this.eqX;
+    public void f(MenuItemType menuItemType) {
+        this.f12949a = menuItemType;
     }
 }

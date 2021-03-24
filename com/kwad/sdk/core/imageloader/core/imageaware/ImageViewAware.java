@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.utils.L;
 import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ImageViewAware extends ViewAware {
     public ImageViewAware(ImageView imageView) {
         super(imageView);
@@ -18,18 +18,19 @@ public class ImageViewAware extends ViewAware {
         super(imageView, z);
     }
 
-    private static int getImageViewFieldValue(Object obj, String str) {
+    public static int getImageViewFieldValue(Object obj, String str) {
         try {
             Field declaredField = ImageView.class.getDeclaredField(str);
             declaredField.setAccessible(true);
             int intValue = ((Integer) declaredField.get(obj)).intValue();
-            if (intValue > 0 && intValue < Integer.MAX_VALUE) {
-                return intValue;
+            if (intValue <= 0 || intValue >= Integer.MAX_VALUE) {
+                return 0;
             }
-        } catch (Exception e) {
-            L.e(e);
+            return intValue;
+        } catch (Exception e2) {
+            L.e(e2);
+            return 0;
         }
-        return 0;
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ViewAware, com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
@@ -59,12 +60,12 @@ public class ImageViewAware extends ViewAware {
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ViewAware
-    protected void setImageBitmapInto(Bitmap bitmap, View view) {
+    public void setImageBitmapInto(Bitmap bitmap, View view) {
         ((ImageView) view).setImageBitmap(bitmap);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ViewAware
-    protected void setImageDrawableInto(Drawable drawable, View view) {
+    public void setImageDrawableInto(Drawable drawable, View view) {
         ((ImageView) view).setImageDrawable(drawable);
         if (drawable instanceof AnimationDrawable) {
             ((AnimationDrawable) drawable).start();

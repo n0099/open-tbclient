@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class MessageCenterActivityConfig extends IntentConfig {
     public static final String SELECTED_TAB_ID = "selected_tab_id";
     public static final int TAB_ID_CHAT = 2;

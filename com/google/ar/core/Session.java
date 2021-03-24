@@ -25,23 +25,41 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 import com.google.ar.core.exceptions.UnsupportedConfigurationException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class Session {
-    long pSD;
-    final q pSS;
 
-    /* loaded from: classes14.dex */
-    enum a {
+    /* renamed from: b  reason: collision with root package name */
+    public final d.g.b.a.g f30876b = new d.g.b.a.g();
+
+    /* renamed from: a  reason: collision with root package name */
+    public long f30875a = 0;
+
+    /* loaded from: classes6.dex */
+    public enum Feature {
+        FRONT_CAMERA(1),
+        SHARED_CAMERA(1000);
+        
+        public final int nativeCode;
+
+        Feature(int i) {
+            this.nativeCode = i;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public enum a {
         END_OF_LIST(0);
         
-        final int b = 0;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final int f30879b = 0;
 
         a(int i) {
         }
     }
 
-    /* loaded from: classes14.dex */
-    enum b {
+    /* loaded from: classes6.dex */
+    public enum b {
         SUCCESS(0, null),
         ERROR_INVALID_ARGUMENT(-1, IllegalArgumentException.class),
         ERROR_FATAL(-2, FatalException.class),
@@ -69,9 +87,9 @@ public class Session {
         UNAVAILABLE_SDK_TOO_OLD(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, UnavailableSdkTooOldException.class),
         UNAVAILABLE_USER_DECLINED_INSTALLATION(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, UnavailableUserDeclinedInstallationException.class);
         
-        final int j;
-        final Class<? extends Exception> k;
-        final String l;
+        public final int j;
+        public final Class<? extends Exception> k;
+        public final String l;
 
         b(int i, Class cls) {
             this(i, cls, null);
@@ -84,47 +102,11 @@ public class Session {
         }
     }
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes14.dex */
-    static abstract class c {
-        final int b;
-        private final Class<?> h;
-        private static final c c = new ad("BASE_TRACKABLE", 0, 1095893248, k.class);
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final c f5259a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
-        private static final c d = new af("PLANE", 2, 1095893249, Plane.class);
-        private static final c e = new ag("POINT", 3, 1095893250, Point.class);
-        private static final c f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
-        private static final c g = new ai("FACE", 5, 1095893253, AugmentedFace.class);
-        private static final /* synthetic */ c[] i = {c, f5259a, d, e, f, g};
-
-        public static c[] values() {
-            return (c[]) i.clone();
+    public static ByteBuffer a(ByteBuffer byteBuffer) {
+        if (byteBuffer == null) {
+            return ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
         }
-
-        public abstract k a(long j, Session session);
-
-        private c(String str, int i2, int i3, Class cls) {
-            this.b = i3;
-            this.h = cls;
-        }
-
-        public static c a(Class<? extends k> cls) {
-            c[] values;
-            for (c cVar : values()) {
-                if (cVar.h != null && cVar.h.equals(cls)) {
-                    return cVar;
-                }
-            }
-            return f5259a;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b) {
-            this(str, i2, i3, cls);
-        }
+        return byteBuffer.order(ByteOrder.nativeOrder());
     }
 
     private native long[] nativeAcquireAllAnchors(long j);
@@ -133,13 +115,13 @@ public class Session {
 
     private native void nativeConfigure(long j, long j2);
 
-    private native long nativeCreateAnchor(long j, h hVar);
+    private native long nativeCreateAnchor(long j, d.g.b.a.a aVar);
 
-    private static native long nativeCreateSession(Context context);
+    public static native long nativeCreateSession(Context context);
 
-    private static native long nativeCreateSessionForSharedCamera(Context context);
+    public static native long nativeCreateSessionForSharedCamera(Context context);
 
-    private static native long nativeCreateSessionWithFeatures(Context context, int[] iArr) throws UnavailableArcoreNotInstalledException, UnavailableApkTooOldException, UnavailableSdkTooOldException, UnavailableDeviceNotCompatibleException;
+    public static native long nativeCreateSessionWithFeatures(Context context, int[] iArr) throws UnavailableArcoreNotInstalledException, UnavailableApkTooOldException, UnavailableSdkTooOldException, UnavailableDeviceNotCompatibleException;
 
     private native void nativeDestroySession(long j);
 
@@ -167,30 +149,77 @@ public class Session {
 
     private native void nativeUpdate(long j, long j2);
 
-    native long[] nativeAcquireAllTrackables(long j, int i);
-
-    /* loaded from: classes14.dex */
-    public enum Feature {
-        FRONT_CAMERA(1),
-        SHARED_CAMERA(1000);
-        
-        final int nativeCode;
-
-        Feature(int i) {
-            this.nativeCode = i;
-        }
-    }
-
-    protected void finalize() throws Throwable {
-        if (this.pSD != 0) {
-            nativeDestroySession(this.pSD);
-            this.pSD = 0L;
+    public void finalize() throws Throwable {
+        long j = this.f30875a;
+        if (j != 0) {
+            nativeDestroySession(j);
+            this.f30875a = 0L;
         }
         super.finalize();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static ByteBuffer q(ByteBuffer byteBuffer) {
-        return byteBuffer == null ? ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder()) : byteBuffer.order(ByteOrder.nativeOrder());
+    public native long[] nativeAcquireAllTrackables(long j, int i);
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
+    /* loaded from: classes6.dex */
+    public static abstract class c {
+
+        /* renamed from: g  reason: collision with root package name */
+        public static final c f30893g;
+        public static final /* synthetic */ c[] i;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final int f30894b;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final Class<?> f30895h;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final c f30889c = new ad("BASE_TRACKABLE", 0, 1095893248, d.g.b.a.b.class);
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final c f30888a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final c f30890d = new af("PLANE", 2, 1095893249, Plane.class);
+
+        /* renamed from: e  reason: collision with root package name */
+        public static final c f30891e = new ag("POINT", 3, 1095893250, Point.class);
+
+        /* renamed from: f  reason: collision with root package name */
+        public static final c f30892f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
+
+        static {
+            ai aiVar = new ai("FACE", 5, 1095893253, AugmentedFace.class);
+            f30893g = aiVar;
+            i = new c[]{f30889c, f30888a, f30890d, f30891e, f30892f, aiVar};
+        }
+
+        public c(String str, int i2, int i3, Class cls) {
+            this.f30894b = i3;
+            this.f30895h = cls;
+        }
+
+        public static c a(Class<? extends d.g.b.a.b> cls) {
+            c[] values;
+            for (c cVar : values()) {
+                Class<?> cls2 = cVar.f30895h;
+                if (cls2 != null && cls2.equals(cls)) {
+                    return cVar;
+                }
+            }
+            return f30888a;
+        }
+
+        public static c[] values() {
+            return (c[]) i.clone();
+        }
+
+        public abstract d.g.b.a.b a(long j, Session session);
+
+        public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b2) {
+            this(str, i2, i3, cls);
+        }
     }
 }

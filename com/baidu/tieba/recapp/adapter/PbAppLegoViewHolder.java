@@ -2,106 +2,123 @@ package com.baidu.tieba.recapp.adapter;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.recapp.k;
-/* loaded from: classes7.dex */
-public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements com.baidu.tieba.play.e {
-    com.baidu.tieba.lego.card.view.e<?> jFV;
-    private k mUs;
+import d.b.i0.i2.e;
+import d.b.i0.r2.k;
+/* loaded from: classes5.dex */
+public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
-    public PbAppLegoViewHolder(com.baidu.tieba.lego.card.view.e<?> eVar) {
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.i0.i1.o.l.e<?> f20694e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public k f20695f;
+
+    public PbAppLegoViewHolder(d.b.i0.i1.o.l.e<?> eVar) {
         super((View) eVar);
-        this.jFV = eVar;
+        this.f20694e = eVar;
     }
 
-    public void dck() {
-        if (this.jFV != null) {
-            this.jFV.dck();
-        }
-    }
-
-    public void a(k kVar) {
-        this.mUs = kVar;
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlayStarted() {
-        if (this.mUs == null) {
-            return false;
-        }
-        return this.mUs.isPlayStarted();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlaying() {
-        if (this.mUs == null) {
-            return false;
-        }
-        return this.mUs.isPlaying();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isFullScreen() {
+    @Override // d.b.i0.i2.e
+    public boolean D() {
         return false;
     }
 
-    @Override // com.baidu.tieba.play.e
-    public void startPlay() {
-        if (this.mUs != null) {
-            this.mUs.startPlay();
+    public void b(int i) {
+        k kVar = this.f20695f;
+        if (kVar != null) {
+            kVar.autoPlay(i);
         }
     }
 
-    @Override // com.baidu.tieba.play.e
-    public void stopPlay() {
-        if (this.mUs != null) {
-            this.mUs.stopPlay();
+    public boolean c() {
+        k kVar = this.f20695f;
+        if (kVar == null) {
+            return false;
         }
+        return kVar.canPlay();
     }
 
-    @Override // com.baidu.tieba.play.e
-    public View getVideoContainer() {
-        if (this.mUs == null) {
-            return null;
-        }
-        return this.mUs.getVideoContainer();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public String getPlayUrl() {
-        return this.mUs == null ? "" : this.mUs.getPlayUrl();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public int getCurrentPosition() {
-        if (this.mUs == null) {
-            return 0;
-        }
-        return (int) this.mUs.getCurrentPosition();
-    }
-
-    public void release() {
-        if (this.mUs != null) {
-            this.mUs.release();
-        }
-    }
-
-    public int getPlayStatus() {
-        if (this.mUs != null) {
-            return this.mUs.getPlayStatus();
+    public int d() {
+        k kVar = this.f20695f;
+        if (kVar != null) {
+            return kVar.getPlayStatus();
         }
         return -2;
     }
 
-    public void autoPlay(int i) {
-        if (this.mUs != null) {
-            this.mUs.autoPlay(i);
+    public void e() {
+        k kVar = this.f20695f;
+        if (kVar != null) {
+            kVar.release();
         }
     }
 
-    public boolean canPlay() {
-        if (this.mUs == null) {
+    public void f(k kVar) {
+        this.f20695f = kVar;
+    }
+
+    @Override // d.b.i0.i2.e
+    public int getCurrentPosition() {
+        k kVar = this.f20695f;
+        if (kVar == null) {
+            return 0;
+        }
+        return (int) kVar.getCurrentPosition();
+    }
+
+    @Override // d.b.i0.i2.e
+    public String getPlayUrl() {
+        k kVar = this.f20695f;
+        return kVar == null ? "" : kVar.getPlayUrl();
+    }
+
+    @Override // d.b.i0.i2.e
+    public View getVideoContainer() {
+        k kVar = this.f20695f;
+        if (kVar == null) {
+            return null;
+        }
+        return kVar.getVideoContainer();
+    }
+
+    public void h() {
+        d.b.i0.i1.o.l.e<?> eVar = this.f20694e;
+        if (eVar != null) {
+            eVar.k();
+        }
+    }
+
+    @Override // d.b.i0.i2.e
+    public boolean isPlayStarted() {
+        k kVar = this.f20695f;
+        if (kVar == null) {
             return false;
         }
-        return this.mUs.canPlay();
+        return kVar.isPlayStarted();
+    }
+
+    @Override // d.b.i0.i2.e
+    public boolean isPlaying() {
+        k kVar = this.f20695f;
+        if (kVar == null) {
+            return false;
+        }
+        return kVar.isPlaying();
+    }
+
+    @Override // d.b.i0.i2.e
+    public void startPlay() {
+        k kVar = this.f20695f;
+        if (kVar != null) {
+            kVar.startPlay();
+        }
+    }
+
+    @Override // d.b.i0.i2.e
+    public void stopPlay() {
+        k kVar = this.f20695f;
+        if (kVar != null) {
+            kVar.stopPlay();
+        }
     }
 }

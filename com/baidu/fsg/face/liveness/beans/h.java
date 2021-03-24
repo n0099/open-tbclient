@@ -5,12 +5,18 @@ import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.face.liveness.datamodel.GetRecordVedioQuestionModel;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
+import com.baidu.wallet.core.beans.NetworkBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class h extends b {
     public h(Context context) {
         super(context);
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public void execBean() {
+        execBean(GetRecordVedioQuestionModel.class);
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
@@ -21,7 +27,7 @@ public class h extends b {
             setSpParameter(livenessRecogDTO.spParams);
             arrayList.add(new RestNameValuePair("processid", livenessRecogDTO.processid));
         }
-        arrayList.add(new RestNameValuePair("atbc", a()));
+        arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
         return arrayList;
     }
 
@@ -33,11 +39,6 @@ public class h extends b {
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
         return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f.r;
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public void execBean() {
-        execBean(GetRecordVedioQuestionModel.class);
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean

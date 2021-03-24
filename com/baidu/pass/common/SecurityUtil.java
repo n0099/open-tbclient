@@ -2,14 +2,14 @@ package com.baidu.pass.common;
 
 import android.util.Base64;
 import com.baidu.pass.common.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class SecurityUtil implements com.baidu.pass.a {
     public static byte[] aesDecrypt(byte[] bArr, String str, String str2) throws Exception {
-        return new a.C0280a().a(bArr, str, str2);
+        return new a.C0117a().a(bArr, str, str2);
     }
 
     public static byte[] aesEncrypt(String str, String str2, String str3) throws Exception {
-        return new a.C0280a().a(str, str2, str3);
+        return new a.C0117a().a(str, str2, str3);
     }
 
     public static byte[] base64Decode(byte[] bArr) {

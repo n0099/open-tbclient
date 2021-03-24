@@ -5,12 +5,16 @@ import com.googlecode.mp4parser.AbstractContainerBox;
 import com.googlecode.mp4parser.DataSource;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MovieFragmentBox extends AbstractContainerBox {
     public static final String TYPE = "moof";
 
     public MovieFragmentBox() {
         super(TYPE);
+    }
+
+    public DataSource getFileChannel() {
+        return this.dataSource;
     }
 
     public List<Long> getSyncSamples(SampleDependencyTypeBox sampleDependencyTypeBox) {
@@ -29,30 +33,20 @@ public class MovieFragmentBox extends AbstractContainerBox {
         return getBoxes(TrackFragmentBox.class, false).size();
     }
 
-    public long[] getTrackNumbers() {
-        int i = 0;
-        List boxes = getBoxes(TrackFragmentBox.class, false);
-        long[] jArr = new long[boxes.size()];
-        while (true) {
-            int i2 = i;
-            if (i2 < boxes.size()) {
-                jArr[i2] = ((TrackFragmentBox) boxes.get(i2)).getTrackFragmentHeaderBox().getTrackId();
-                i = i2 + 1;
-            } else {
-                return jArr;
-            }
-        }
-    }
-
     public List<TrackFragmentHeaderBox> getTrackFragmentHeaderBoxes() {
         return getBoxes(TrackFragmentHeaderBox.class, true);
     }
 
-    public List<TrackRunBox> getTrackRunBoxes() {
-        return getBoxes(TrackRunBox.class, true);
+    public long[] getTrackNumbers() {
+        List boxes = getBoxes(TrackFragmentBox.class, false);
+        long[] jArr = new long[boxes.size()];
+        for (int i = 0; i < boxes.size(); i++) {
+            jArr[i] = ((TrackFragmentBox) boxes.get(i)).getTrackFragmentHeaderBox().getTrackId();
+        }
+        return jArr;
     }
 
-    public DataSource getFileChannel() {
-        return this.dataSource;
+    public List<TrackRunBox> getTrackRunBoxes() {
+        return getBoxes(TrackRunBox.class, true);
     }
 }

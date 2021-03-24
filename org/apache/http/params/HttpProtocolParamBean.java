@@ -2,14 +2,10 @@ package org.apache.http.params;
 
 import org.apache.http.HttpVersion;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpProtocolParamBean extends HttpAbstractParamBean {
     public HttpProtocolParamBean(HttpParams httpParams) {
         super(null);
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setHttpElementCharset(String str) {
         throw new RuntimeException("Stub!");
     }
 
@@ -17,7 +13,11 @@ public class HttpProtocolParamBean extends HttpAbstractParamBean {
         throw new RuntimeException("Stub!");
     }
 
-    public void setVersion(HttpVersion httpVersion) {
+    public void setHttpElementCharset(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setUseExpectContinue(boolean z) {
         throw new RuntimeException("Stub!");
     }
 
@@ -25,7 +25,7 @@ public class HttpProtocolParamBean extends HttpAbstractParamBean {
         throw new RuntimeException("Stub!");
     }
 
-    public void setUseExpectContinue(boolean z) {
+    public void setVersion(HttpVersion httpVersion) {
         throw new RuntimeException("Stub!");
     }
 }

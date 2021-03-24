@@ -1,84 +1,107 @@
 package com.baidu.android.pushservice.message;
 
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class k implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1251a;
-    private String b;
-    private long c;
-    private int d;
-    private byte[] e;
-    private byte[] f;
-    private long g;
-    private boolean h = false;
+    public String f3480a;
 
-    public long a() {
-        return this.g;
+    /* renamed from: b  reason: collision with root package name */
+    public String f3481b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f3482c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f3483d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f3484e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public byte[] f3485f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public byte[] f3486g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f3487h;
+    public boolean i = false;
+
+    public int a() {
+        return this.f3484e;
     }
 
     public void a(int i) {
-        this.d = i;
+        this.f3484e = i;
     }
 
     public void a(long j) {
-        this.g = j;
+        this.f3487h = j;
     }
 
     public void a(String str) {
-        this.f1251a = str;
+        this.f3480a = str;
     }
 
     public void a(boolean z) {
-        this.h = z;
+        this.i = z;
     }
 
     public void a(byte[] bArr) {
-        this.e = bArr;
+        this.f3485f = bArr;
     }
 
-    public String b() {
-        return this.f1251a;
+    public long b() {
+        return this.f3487h;
+    }
+
+    public void b(int i) {
+        this.f3483d = i;
     }
 
     public void b(long j) {
-        this.c = j;
+        this.f3482c = j;
     }
 
     public void b(String str) {
-        this.b = str;
+        this.f3481b = str;
     }
 
     public void b(byte[] bArr) {
-        this.f = bArr;
+        this.f3486g = bArr;
     }
 
     public String c() {
-        return this.b;
+        return this.f3480a;
     }
 
-    public long d() {
-        return this.c;
+    public String d() {
+        return this.f3481b;
     }
 
-    public String e() {
-        return String.valueOf(this.c);
+    public long e() {
+        return this.f3482c;
     }
 
-    public int f() {
-        return this.d;
+    public String f() {
+        return String.valueOf(this.f3482c);
     }
 
-    public byte[] g() {
-        return this.e;
+    public int g() {
+        return this.f3483d;
     }
 
     public byte[] h() {
-        return this.f;
+        return this.f3485f;
+    }
+
+    public byte[] i() {
+        return this.f3486g;
     }
 
     public String toString() {
-        return "type:" + this.d + " appid:" + this.f1251a + " msgId:" + this.c + " isAlarm:  " + this.h + " pkgName:  " + this.b;
+        return "type:" + this.f3483d + " appid:" + this.f3480a + " msgId:" + this.f3482c + " isAlarm:  " + this.i + " pkgName:  " + this.f3481b + "  notifyId: " + this.f3484e;
     }
 }

@@ -3,40 +3,43 @@ package com.kwad.sdk.core.f.b;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface e extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements e {
 
         /* renamed from: a  reason: collision with root package name */
-        private IBinder f6093a;
+        public IBinder f33626a;
 
         public a(IBinder iBinder) {
-            this.f6093a = iBinder;
+            this.f33626a = iBinder;
         }
 
         public String a() {
-            String str = null;
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
-                obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                this.f6093a.transact(1, obtain, obtain2, 0);
-                obtain2.readException();
-                str = obtain2.readString();
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+                try {
+                    obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
+                    this.f33626a.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readString();
+                } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
+                    obtain2.recycle();
+                    obtain.recycle();
+                    return null;
+                }
             } finally {
                 obtain2.recycle();
                 obtain.recycle();
             }
-            return str;
         }
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f6093a;
+            return this.f33626a;
         }
     }
 }

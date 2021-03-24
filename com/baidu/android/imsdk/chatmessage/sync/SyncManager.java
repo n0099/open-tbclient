@@ -2,10 +2,10 @@ package com.baidu.android.imsdk.chatmessage.sync;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SyncManager {
-    private static boolean sSyncDone = false;
-    private static ArrayList<ISyncStateListener> sSyncStateListeners = new ArrayList<>();
+    public static boolean sSyncDone = false;
+    public static ArrayList<ISyncStateListener> sSyncStateListeners = new ArrayList<>();
 
     public static Boolean isSyncDone() {
         return Boolean.valueOf(sSyncDone);

@@ -15,60 +15,122 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R> {
-    private static final Waiter DEFAULT_WAITER = new Waiter();
-    private final boolean assertBackgroundThread;
+    public static final Waiter DEFAULT_WAITER = new Waiter();
+    public final boolean assertBackgroundThread;
     @Nullable
     @GuardedBy("this")
-    private GlideException exception;
-    private final int height;
+    public GlideException exception;
+    public final int height;
     @GuardedBy("this")
-    private boolean isCancelled;
+    public boolean isCancelled;
     @GuardedBy("this")
-    private boolean loadFailed;
+    public boolean loadFailed;
     @Nullable
     @GuardedBy("this")
-    private Request request;
+    public Request request;
     @Nullable
     @GuardedBy("this")
-    private R resource;
+    public R resource;
     @GuardedBy("this")
-    private boolean resultReceived;
-    private final Waiter waiter;
-    private final int width;
+    public boolean resultReceived;
+    public final Waiter waiter;
+    public final int width;
+
+    @VisibleForTesting
+    /* loaded from: classes5.dex */
+    public static class Waiter {
+        public void notifyAll(Object obj) {
+            obj.notifyAll();
+        }
+
+        public void waitForTimeout(Object obj, long j) throws InterruptedException {
+            obj.wait(j);
+        }
+    }
 
     public RequestFutureTarget(int i, int i2) {
         this(i, i2, true, DEFAULT_WAITER);
     }
 
-    RequestFutureTarget(int i, int i2, boolean z, Waiter waiter) {
-        this.width = i;
-        this.height = i2;
-        this.assertBackgroundThread = z;
-        this.waiter = waiter;
+    private synchronized R doGet(Long l) throws ExecutionException, InterruptedException, TimeoutException {
+        if (this.assertBackgroundThread && !isDone()) {
+            Util.assertBackgroundThread();
+        }
+        if (!this.isCancelled) {
+            if (!this.loadFailed) {
+                if (this.resultReceived) {
+                    return this.resource;
+                }
+                if (l == null) {
+                    this.waiter.waitForTimeout(this, 0L);
+                } else if (l.longValue() > 0) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    long longValue = l.longValue() + currentTimeMillis;
+                    while (!isDone() && currentTimeMillis < longValue) {
+                        this.waiter.waitForTimeout(this, longValue - currentTimeMillis);
+                        currentTimeMillis = System.currentTimeMillis();
+                    }
+                }
+                if (!Thread.interrupted()) {
+                    if (!this.loadFailed) {
+                        if (!this.isCancelled) {
+                            if (this.resultReceived) {
+                                return this.resource;
+                            }
+                            throw new TimeoutException();
+                        }
+                        throw new CancellationException();
+                    }
+                    throw new ExecutionException(this.exception);
+                }
+                throw new InterruptedException();
+            }
+            throw new ExecutionException(this.exception);
+        }
+        throw new CancellationException();
     }
 
     @Override // java.util.concurrent.Future
     public boolean cancel(boolean z) {
-        Request request = null;
-        boolean z2 = true;
         synchronized (this) {
             if (isDone()) {
-                z2 = false;
-            } else {
-                this.isCancelled = true;
-                this.waiter.notifyAll(this);
-                if (z) {
-                    request = this.request;
-                    this.request = null;
-                }
-                if (request != null) {
-                    request.clear();
-                }
+                return false;
             }
+            this.isCancelled = true;
+            this.waiter.notifyAll(this);
+            Request request = null;
+            if (z) {
+                Request request2 = this.request;
+                this.request = null;
+                request = request2;
+            }
+            if (request != null) {
+                request.clear();
+            }
+            return true;
         }
-        return z2;
+    }
+
+    @Override // java.util.concurrent.Future
+    public R get() throws InterruptedException, ExecutionException {
+        try {
+            return doGet(null);
+        } catch (TimeoutException e2) {
+            throw new AssertionError(e2);
+        }
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    @Nullable
+    public synchronized Request getRequest() {
+        return this.request;
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public void getSize(@NonNull SizeReadyCallback sizeReadyCallback) {
+        sizeReadyCallback.onSizeReady(this.width, this.height);
     }
 
     @Override // java.util.concurrent.Future
@@ -85,23 +147,32 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
         return z;
     }
 
-    @Override // java.util.concurrent.Future
-    public R get() throws InterruptedException, ExecutionException {
-        try {
-            return doGet(null);
-        } catch (TimeoutException e) {
-            throw new AssertionError(e);
-        }
-    }
-
-    @Override // java.util.concurrent.Future
-    public R get(long j, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
-        return doGet(Long.valueOf(timeUnit.toMillis(j)));
+    @Override // com.bumptech.glide.manager.LifecycleListener
+    public void onDestroy() {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void getSize(@NonNull SizeReadyCallback sizeReadyCallback) {
-        sizeReadyCallback.onSizeReady(this.width, this.height);
+    public void onLoadCleared(@Nullable Drawable drawable) {
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public synchronized void onLoadFailed(@Nullable Drawable drawable) {
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public void onLoadStarted(@Nullable Drawable drawable) {
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public synchronized void onResourceReady(@NonNull R r, @Nullable Transition<? super R> transition) {
+    }
+
+    @Override // com.bumptech.glide.manager.LifecycleListener
+    public void onStart() {
+    }
+
+    @Override // com.bumptech.glide.manager.LifecycleListener
+    public void onStop() {
     }
 
     @Override // com.bumptech.glide.request.target.Target
@@ -113,79 +184,11 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
         this.request = request;
     }
 
-    @Override // com.bumptech.glide.request.target.Target
-    @Nullable
-    public synchronized Request getRequest() {
-        return this.request;
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    public void onLoadCleared(@Nullable Drawable drawable) {
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    public void onLoadStarted(@Nullable Drawable drawable) {
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    public synchronized void onLoadFailed(@Nullable Drawable drawable) {
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    public synchronized void onResourceReady(@NonNull R r, @Nullable Transition<? super R> transition) {
-    }
-
-    private synchronized R doGet(Long l) throws ExecutionException, InterruptedException, TimeoutException {
-        R r;
-        if (this.assertBackgroundThread && !isDone()) {
-            Util.assertBackgroundThread();
-        }
-        if (this.isCancelled) {
-            throw new CancellationException();
-        }
-        if (this.loadFailed) {
-            throw new ExecutionException(this.exception);
-        }
-        if (this.resultReceived) {
-            r = this.resource;
-        } else {
-            if (l == null) {
-                this.waiter.waitForTimeout(this, 0L);
-            } else if (l.longValue() > 0) {
-                long currentTimeMillis = System.currentTimeMillis();
-                long longValue = l.longValue() + currentTimeMillis;
-                while (!isDone() && currentTimeMillis < longValue) {
-                    this.waiter.waitForTimeout(this, longValue - currentTimeMillis);
-                    currentTimeMillis = System.currentTimeMillis();
-                }
-            }
-            if (Thread.interrupted()) {
-                throw new InterruptedException();
-            }
-            if (this.loadFailed) {
-                throw new ExecutionException(this.exception);
-            }
-            if (this.isCancelled) {
-                throw new CancellationException();
-            }
-            if (!this.resultReceived) {
-                throw new TimeoutException();
-            }
-            r = this.resource;
-        }
-        return r;
-    }
-
-    @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onStart() {
-    }
-
-    @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onStop() {
-    }
-
-    @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onDestroy() {
+    public RequestFutureTarget(int i, int i2, boolean z, Waiter waiter) {
+        this.width = i;
+        this.height = i2;
+        this.assertBackgroundThread = z;
+        this.waiter = waiter;
     }
 
     @Override // com.bumptech.glide.request.RequestListener
@@ -204,19 +207,8 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @VisibleForTesting
-    /* loaded from: classes14.dex */
-    public static class Waiter {
-        Waiter() {
-        }
-
-        void waitForTimeout(Object obj, long j) throws InterruptedException {
-            obj.wait(j);
-        }
-
-        void notifyAll(Object obj) {
-            obj.notifyAll();
-        }
+    @Override // java.util.concurrent.Future
+    public R get(long j, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+        return doGet(Long.valueOf(timeUnit.toMillis(j)));
     }
 }

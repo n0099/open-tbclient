@@ -17,62 +17,72 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad.sdk.contentalliance.a.e {
-    private RelativeLayout d;
-    private KsAdFrameLayout e;
-    private com.kwad.sdk.contentalliance.widget.c f;
-    private GestureDetector.SimpleOnGestureListener g;
-    private long h;
-    private boolean i;
-    private int j;
-    private final Random b = new Random();
-    private List<Integer> c = new ArrayList();
-    private LinkedList<LottieAnimationView> k = new LinkedList<>();
-    private final Runnable m = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.1
+
+    /* renamed from: d  reason: collision with root package name */
+    public RelativeLayout f32307d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public KsAdFrameLayout f32308e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.widget.c f32309f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public GestureDetector.SimpleOnGestureListener f32310g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f32311h;
+    public boolean i;
+    public int j;
+    public h l;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Random f32305b = new Random();
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<Integer> f32306c = new ArrayList();
+    public LinkedList<LottieAnimationView> k = new LinkedList<>();
+    public final Runnable m = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.1
         @Override // java.lang.Runnable
         public void run() {
-            b.this.f.a(com.kwad.sdk.contentalliance.widget.c.b);
+            b.this.f32309f.a(com.kwad.sdk.contentalliance.widget.c.f33390b);
         }
     };
-    private com.kwad.sdk.contentalliance.a.e n = new com.kwad.sdk.contentalliance.a.e() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.2
+    public com.kwad.sdk.contentalliance.a.e n = new com.kwad.sdk.contentalliance.a.e() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.2
     };
-    private com.kwad.sdk.contentalliance.a.a o = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.3
+    public com.kwad.sdk.contentalliance.a.a o = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.3
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
             super.j();
-            b.this.f5594a.d.add(b.this.n);
+            ((com.kwad.sdk.contentalliance.detail.b) b.this).f32132a.f32154d.add(b.this.n);
         }
 
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
             super.k();
-            b.this.d.removeCallbacks(b.this.m);
-            b.this.f.a(com.kwad.sdk.contentalliance.widget.c.b);
-            b.this.f5594a.d.remove(b.this.n);
-            if (b.this.d != null) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= b.this.d.getChildCount()) {
-                        break;
+            b.this.f32307d.removeCallbacks(b.this.m);
+            b.this.f32309f.a(com.kwad.sdk.contentalliance.widget.c.f33390b);
+            ((com.kwad.sdk.contentalliance.detail.b) b.this).f32132a.f32154d.remove(b.this.n);
+            if (b.this.f32307d != null) {
+                for (int i = 0; i < b.this.f32307d.getChildCount(); i++) {
+                    if ((b.this.f32307d.getChildAt(i) instanceof LottieAnimationView) && ((LottieAnimationView) b.this.f32307d.getChildAt(i)).c()) {
+                        ((LottieAnimationView) b.this.f32307d.getChildAt(i)).d();
                     }
-                    if ((b.this.d.getChildAt(i2) instanceof LottieAnimationView) && ((LottieAnimationView) b.this.d.getChildAt(i2)).c()) {
-                        ((LottieAnimationView) b.this.d.getChildAt(i2)).d();
-                    }
-                    i = i2 + 1;
                 }
             }
             b.this.k.clear();
-            if (b.this.d != null) {
-                b.this.d.removeAllViews();
+            if (b.this.f32307d != null) {
+                b.this.f32307d.removeAllViews();
             }
         }
     };
-    private h l = new h();
 
     public b() {
-        a((Presenter) this.l);
+        h hVar = new h();
+        this.l = hVar;
+        a((Presenter) hVar);
     }
 
     private void a(final LottieAnimationView lottieAnimationView, boolean z) {
@@ -85,7 +95,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 lottieAnimationView.b(this);
-                if (b.this.d.indexOfChild(lottieAnimationView) > -1) {
+                if (b.this.f32307d.indexOfChild(lottieAnimationView) > -1) {
                     lottieAnimationView.setVisibility(4);
                     if (b.this.k.contains(lottieAnimationView)) {
                         b.this.k.offer(lottieAnimationView);
@@ -102,43 +112,46 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad
         lottieAnimationView.b();
     }
 
-    private void c(float f, float f2) {
-        LottieAnimationView lottieAnimationView;
+    private void c(float f2, float f3) {
         if (o() == null) {
             return;
         }
-        boolean z = f > -1.0f && f2 > -1.0f;
-        int i = z ? this.j : (int) (this.j * 1.2f);
+        boolean z = f2 > -1.0f && f3 > -1.0f;
+        int i = this.j;
+        if (!z) {
+            i = (int) (i * 1.2f);
+        }
         LottieAnimationView pollFirst = this.k.pollFirst();
         if (pollFirst == null) {
-            LottieAnimationView lottieAnimationView2 = new LottieAnimationView(o());
-            lottieAnimationView2.a(true);
-            this.d.addView(lottieAnimationView2, new RelativeLayout.LayoutParams(this.j, this.j));
-            lottieAnimationView = lottieAnimationView2;
-        } else {
-            lottieAnimationView = pollFirst;
+            pollFirst = new LottieAnimationView(o());
+            pollFirst.a(true);
+            RelativeLayout relativeLayout = this.f32307d;
+            int i2 = this.j;
+            relativeLayout.addView(pollFirst, new RelativeLayout.LayoutParams(i2, i2));
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) lottieAnimationView.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) pollFirst.getLayoutParams();
         layoutParams.width = i;
         layoutParams.height = i;
         if (z) {
-            lottieAnimationView.setTranslationX(f - (i / 2.0f));
-            lottieAnimationView.setTranslationY((f2 - (i / 2.0f)) - (this.j / 3.0f));
-            lottieAnimationView.setRotation(this.c.get(this.b.nextInt(this.c.size())).intValue());
+            float f4 = i / 2.0f;
+            pollFirst.setTranslationX(f2 - f4);
+            pollFirst.setTranslationY((f3 - f4) - (this.j / 3.0f));
+            List<Integer> list = this.f32306c;
+            pollFirst.setRotation(list.get(this.f32305b.nextInt(list.size())).intValue());
             layoutParams.addRule(13, 0);
         } else {
-            lottieAnimationView.setTranslationX(0.0f);
-            lottieAnimationView.setTranslationY(0.0f);
-            lottieAnimationView.setRotation(0.0f);
+            pollFirst.setTranslationX(0.0f);
+            pollFirst.setTranslationY(0.0f);
+            pollFirst.setRotation(0.0f);
             layoutParams.addRule(13, -1);
         }
-        lottieAnimationView.setLayoutParams(layoutParams);
-        a(lottieAnimationView, z);
+        pollFirst.setLayoutParams(layoutParams);
+        a(pollFirst, z);
     }
 
     private void e() {
-        if (this.g == null) {
-            this.g = new GestureDetector.SimpleOnGestureListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.4
+        if (this.f32310g == null) {
+            this.f32310g = new GestureDetector.SimpleOnGestureListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.4
                 @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
                 public boolean onDoubleTap(MotionEvent motionEvent) {
                     return b.this.a(motionEvent);
@@ -161,11 +174,11 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad
 
     @SuppressLint({"ClickableViewAccessibility"})
     private void f() {
-        if (this.f == null) {
-            if (this.g == null) {
+        if (this.f32309f == null) {
+            if (this.f32310g == null) {
                 e();
             }
-            this.f = new com.kwad.sdk.contentalliance.widget.c(o(), this.g) { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.5
+            this.f32309f = new com.kwad.sdk.contentalliance.widget.c(o(), this.f32310g) { // from class: com.kwad.sdk.contentalliance.detail.photo.e.b.5
                 @Override // com.kwad.sdk.contentalliance.widget.c, android.view.GestureDetector
                 public boolean onTouchEvent(MotionEvent motionEvent) {
                     return motionEvent.getActionMasked() == 6 ? b.this.d(motionEvent) : super.onTouchEvent(motionEvent);
@@ -175,67 +188,64 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad
     }
 
     private boolean g() {
-        return SystemClock.elapsedRealtime() - this.h < ((long) ViewConfiguration.getJumpTapTimeout());
+        return SystemClock.elapsedRealtime() - this.f32311h < ((long) ViewConfiguration.getJumpTapTimeout());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f5594a.b.add(this.o);
-        this.e.a(this.f);
-        this.d.setVisibility(0);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.add(this.o);
+        this.f32308e.a(this.f32309f);
+        this.f32307d.setVisibility(0);
     }
 
-    public boolean a(float f, float f2) {
-        this.f.a(500L);
-        this.d.removeCallbacks(this.m);
-        this.d.postDelayed(this.m, 500L);
+    public boolean a(float f2, float f3) {
+        this.f32309f.a(500L);
+        this.f32307d.removeCallbacks(this.m);
+        this.f32307d.postDelayed(this.m, 500L);
         this.l.h();
-        c(f, f2);
+        c(f2, f3);
         return true;
     }
 
     public boolean a(MotionEvent motionEvent) {
-        this.h = SystemClock.elapsedRealtime();
+        this.f32311h = SystemClock.elapsedRealtime();
         return this.i || a(motionEvent.getX(), motionEvent.getY());
     }
 
-    public boolean b(float f, float f2) {
-        this.h = SystemClock.elapsedRealtime();
+    public boolean b(float f2, float f3) {
+        this.f32311h = SystemClock.elapsedRealtime();
         this.i = true;
-        return a(f, f2);
+        return a(f2, f3);
     }
 
     public boolean b(MotionEvent motionEvent) {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     @SuppressLint({"ClickableViewAccessibility"})
     public void b_() {
         super.b_();
         l().setOnTouchListener(null);
-        this.d.setOnTouchListener(null);
-        this.e.b(this.f);
-        this.f5594a.d.remove(this.n);
+        this.f32307d.setOnTouchListener(null);
+        this.f32308e.b(this.f32309f);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32154d.remove(this.n);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
         if (o() != null) {
             this.j = o().getResources().getDimensionPixelSize(R.dimen.ksad_slide_play_center_like_view_size);
         }
-        this.d = (RelativeLayout) b(R.id.ksad_slide_play_like_image);
-        this.e = (KsAdFrameLayout) b(R.id.ksad_video_container);
+        this.f32307d = (RelativeLayout) b(R.id.ksad_slide_play_like_image);
+        this.f32308e = (KsAdFrameLayout) b(R.id.ksad_video_container);
         e();
         for (int i = -15; i < 15; i++) {
-            this.c.add(Integer.valueOf(i));
+            this.f32306c.add(Integer.valueOf(i));
         }
-        this.e.setClickable(true);
+        this.f32308e.setClickable(true);
         f();
     }
 
@@ -247,11 +257,11 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements com.kwad
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
-        if (this.d != null) {
-            this.d.removeCallbacks(this.m);
+        RelativeLayout relativeLayout = this.f32307d;
+        if (relativeLayout != null) {
+            relativeLayout.removeCallbacks(this.m);
         }
         super.d();
     }

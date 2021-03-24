@@ -4,18 +4,9 @@ import java.util.Map;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class RFC2617Scheme extends AuthSchemeBase {
     public RFC2617Scheme() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.auth.AuthSchemeBase
-    protected void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected Map<String, String> getParameters() {
         throw new RuntimeException("Stub!");
     }
 
@@ -24,8 +15,17 @@ public abstract class RFC2617Scheme extends AuthSchemeBase {
         throw new RuntimeException("Stub!");
     }
 
+    public Map<String, String> getParameters() {
+        throw new RuntimeException("Stub!");
+    }
+
     @Override // org.apache.http.auth.AuthScheme
     public String getRealm() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.auth.AuthSchemeBase
+    public void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException {
         throw new RuntimeException("Stub!");
     }
 }

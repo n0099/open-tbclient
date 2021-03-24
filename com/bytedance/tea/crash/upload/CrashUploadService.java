@@ -4,7 +4,10 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.bytedance.tea.crash.c;
+import d.c.d.b.c.a.a;
+import d.c.d.b.l;
+import d.c.d.b.n.e;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,53 +17,54 @@ public class CrashUploadService extends IntentService {
         super("CrashUploadService");
     }
 
-    @Override // android.app.IntentService
-    protected void onHandleIntent(@Nullable Intent intent) {
-        if (intent != null) {
-            com.bytedance.tea.crash.c cVar = null;
-            if (intent.hasExtra(BdStatsConstant.StatsKey.CRASH_TYPE)) {
-                cVar = (com.bytedance.tea.crash.c) intent.getSerializableExtra(BdStatsConstant.StatsKey.CRASH_TYPE);
-            }
-            String stringExtra = intent.getStringExtra("upload_url");
-            String stringExtra2 = intent.getStringExtra("crash_json_value");
-            String stringExtra3 = intent.getStringExtra("crash_info_file_path");
-            String stringExtra4 = intent.getStringExtra("crash_dump_file_path");
-            com.bytedance.tea.crash.b.a.erm().a(getApplication());
-            if (!TextUtils.isEmpty(stringExtra2) && !TextUtils.isEmpty(stringExtra) && !com.bytedance.tea.crash.b.a.erm().a(stringExtra3) && a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
-                if (cVar == com.bytedance.tea.crash.c.NATIVE) {
-                    if (!com.bytedance.tea.crash.g.d.c(new File(stringExtra3).getParentFile(), true)) {
-                        com.bytedance.tea.crash.b.a.erm().a(com.bytedance.tea.crash.b.a.a.Zk(stringExtra3));
-                    }
-                } else if (!TextUtils.isEmpty(stringExtra3) && !com.bytedance.tea.crash.g.d.a(stringExtra3)) {
-                    com.bytedance.tea.crash.b.a.erm().a(com.bytedance.tea.crash.b.a.a.Zk(stringExtra3));
-                }
-            }
-        }
-    }
-
-    private f a(String str, String str2, String str3, com.bytedance.tea.crash.c cVar) {
+    private e a(String str, String str2, String str3, c cVar) {
         if (cVar == null) {
-            return new f(201);
+            return new e(201);
         }
         try {
             JSONObject jSONObject = new JSONObject(str2);
             jSONObject.put("upload_scene", "new_process");
             str2 = jSONObject.toString();
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        if (cVar == com.bytedance.tea.crash.c.NATIVE) {
-            return b.aV(str, str2, str3);
+        if (cVar == c.NATIVE) {
+            return b.c(str, str2, str3);
         }
-        if (cVar == com.bytedance.tea.crash.c.LAUNCH) {
-            return b.hq(str, str2);
+        if (cVar == c.LAUNCH) {
+            return b.b(str, str2);
         }
-        return b.L(str, str2, b.a());
+        return b.d(str, str2, b.g());
     }
 
     @Override // android.app.IntentService, android.app.Service
     public void onDestroy() {
         super.onDestroy();
         System.exit(0);
+    }
+
+    @Override // android.app.IntentService
+    public void onHandleIntent(@Nullable Intent intent) {
+        if (intent == null) {
+            return;
+        }
+        c cVar = intent.hasExtra("crash_type") ? (c) intent.getSerializableExtra("crash_type") : null;
+        String stringExtra = intent.getStringExtra("upload_url");
+        String stringExtra2 = intent.getStringExtra("crash_json_value");
+        String stringExtra3 = intent.getStringExtra("crash_info_file_path");
+        String stringExtra4 = intent.getStringExtra("crash_dump_file_path");
+        d.c.d.b.c.b.a().b(getApplication());
+        if (TextUtils.isEmpty(stringExtra2) || TextUtils.isEmpty(stringExtra) || d.c.d.b.c.b.a().d(stringExtra3) || !a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
+            return;
+        }
+        if (cVar == c.NATIVE) {
+            if (l.e.g(new File(stringExtra3).getParentFile(), true)) {
+                return;
+            }
+            d.c.d.b.c.b.a().c(a.a(stringExtra3));
+        } else if (TextUtils.isEmpty(stringExtra3) || l.e.h(stringExtra3)) {
+        } else {
+            d.c.d.b.c.b.a().c(a.a(stringExtra3));
+        }
     }
 }

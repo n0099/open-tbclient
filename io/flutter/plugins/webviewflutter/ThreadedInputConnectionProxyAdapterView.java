@@ -5,18 +5,17 @@ import android.os.IBinder;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-/* loaded from: classes14.dex */
-final class ThreadedInputConnectionProxyAdapterView extends View {
-    private InputConnection cachedConnection;
-    final View containerView;
-    final Handler imeHandler;
-    private boolean isLocked;
-    final View rootView;
-    final View targetView;
-    private boolean triggerDelayed;
-    final IBinder windowToken;
+/* loaded from: classes7.dex */
+public final class ThreadedInputConnectionProxyAdapterView extends View {
+    public InputConnection cachedConnection;
+    public final View containerView;
+    public final Handler imeHandler;
+    public boolean isLocked;
+    public final View rootView;
+    public final View targetView;
+    public boolean triggerDelayed;
+    public final IBinder windowToken;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ThreadedInputConnectionProxyAdapterView(View view, View view2, Handler handler) {
         super(view.getContext());
         this.triggerDelayed = true;
@@ -31,13 +30,43 @@ final class ThreadedInputConnectionProxyAdapterView extends View {
         setVisibility(0);
     }
 
-    boolean isTriggerDelayed() {
+    @Override // android.view.View
+    public boolean checkInputConnectionProxy(View view) {
+        return true;
+    }
+
+    @Override // android.view.View
+    public Handler getHandler() {
+        return this.imeHandler;
+    }
+
+    @Override // android.view.View
+    public View getRootView() {
+        return this.rootView;
+    }
+
+    @Override // android.view.View
+    public IBinder getWindowToken() {
+        return this.windowToken;
+    }
+
+    @Override // android.view.View
+    public boolean hasWindowFocus() {
+        return true;
+    }
+
+    @Override // android.view.View
+    public boolean isFocused() {
+        return true;
+    }
+
+    public boolean isTriggerDelayed() {
         return this.triggerDelayed;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setLocked(boolean z) {
-        this.isLocked = z;
+    @Override // android.view.View
+    public boolean onCheckIsTextEditor() {
+        return true;
     }
 
     @Override // android.view.View
@@ -49,38 +78,7 @@ final class ThreadedInputConnectionProxyAdapterView extends View {
         return onCreateInputConnection;
     }
 
-    @Override // android.view.View
-    public boolean checkInputConnectionProxy(View view) {
-        return true;
-    }
-
-    @Override // android.view.View
-    public boolean hasWindowFocus() {
-        return true;
-    }
-
-    @Override // android.view.View
-    public View getRootView() {
-        return this.rootView;
-    }
-
-    @Override // android.view.View
-    public boolean onCheckIsTextEditor() {
-        return true;
-    }
-
-    @Override // android.view.View
-    public boolean isFocused() {
-        return true;
-    }
-
-    @Override // android.view.View
-    public IBinder getWindowToken() {
-        return this.windowToken;
-    }
-
-    @Override // android.view.View
-    public Handler getHandler() {
-        return this.imeHandler;
+    public void setLocked(boolean z) {
+        this.isLocked = z;
     }
 }

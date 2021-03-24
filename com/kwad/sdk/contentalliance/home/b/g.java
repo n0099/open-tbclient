@@ -5,23 +5,33 @@ import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.core.NetworkMonitor;
 import com.kwad.sdk.utils.p;
 import com.kwad.sdk.utils.v;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends com.kwad.sdk.contentalliance.home.e {
-    private com.kwad.sdk.core.i.a b;
-    private SlidePlayViewPager c;
-    private com.kwad.sdk.contentalliance.home.a.i d;
-    private com.kwad.sdk.contentalliance.home.a.d e = new com.kwad.sdk.contentalliance.home.a.e() { // from class: com.kwad.sdk.contentalliance.home.b.g.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public com.kwad.sdk.core.i.a f32687b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public SlidePlayViewPager f32688c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.home.a.i f32689d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.home.a.d f32690e = new com.kwad.sdk.contentalliance.home.a.e() { // from class: com.kwad.sdk.contentalliance.home.b.g.1
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
-            if (NetworkMonitor.a().b() && g.this.b != null && g.this.b.e() && v.c(g.this.o())) {
+            if (NetworkMonitor.a().b() && g.this.f32687b != null && g.this.f32687b.e() && v.c(g.this.o())) {
                 g.this.f();
             }
         }
     };
-    private NetworkMonitor.a f = new NetworkMonitor.a() { // from class: com.kwad.sdk.contentalliance.home.b.g.2
+
+    /* renamed from: f  reason: collision with root package name */
+    public NetworkMonitor.a f32691f = new NetworkMonitor.a() { // from class: com.kwad.sdk.contentalliance.home.b.g.2
         @Override // com.kwad.sdk.core.NetworkMonitor.a
         public void a(NetworkMonitor.NetworkState networkState) {
-            if (networkState != NetworkMonitor.NetworkState.NETWORK_MOBILE || !NetworkMonitor.a().b() || g.this.c == null || g.this.c.j() || g.this.b == null || !g.this.b.e()) {
+            if (networkState != NetworkMonitor.NetworkState.NETWORK_MOBILE || !NetworkMonitor.a().b() || g.this.f32688c == null || g.this.f32688c.j() || g.this.f32687b == null || !g.this.f32687b.e()) {
                 return;
             }
             g.this.f();
@@ -29,13 +39,14 @@ public class g extends com.kwad.sdk.contentalliance.home.e {
     };
 
     private void e() {
-        if (this.f != null) {
-            NetworkMonitor.a().b(this.f);
-            this.f = null;
+        if (this.f32691f != null) {
+            NetworkMonitor.a().b(this.f32691f);
+            this.f32691f = null;
         }
-        if (this.d != null) {
-            this.d.b(this.e);
-            this.e = null;
+        com.kwad.sdk.contentalliance.home.a.i iVar = this.f32689d;
+        if (iVar != null) {
+            iVar.b(this.f32690e);
+            this.f32690e = null;
         }
     }
 
@@ -46,31 +57,32 @@ public class g extends com.kwad.sdk.contentalliance.home.e {
         e();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.h hVar = this.f5821a.f;
+        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32768a;
+        com.kwad.sdk.contentalliance.home.h hVar = fVar.f32774f;
         if (hVar == null) {
             return;
         }
-        this.b = hVar.f5826a;
-        if (this.b != null) {
-            this.d = this.f5821a.b;
-            this.c = this.f5821a.c;
-            this.d.a(this.e);
-            NetworkMonitor.a().a(this.f);
+        com.kwad.sdk.core.i.a aVar = hVar.f32788a;
+        this.f32687b = aVar;
+        if (aVar == null) {
+            return;
         }
+        com.kwad.sdk.contentalliance.home.a.i iVar = fVar.f32770b;
+        this.f32689d = iVar;
+        this.f32688c = fVar.f32771c;
+        iVar.a(this.f32690e);
+        NetworkMonitor.a().a(this.f32691f);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
         e();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();

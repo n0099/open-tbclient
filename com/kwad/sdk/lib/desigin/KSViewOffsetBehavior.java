@@ -6,11 +6,11 @@ import android.view.View;
 import androidx.annotation.Keep;
 import com.kwad.sdk.lib.desigin.KSCoordinatorLayout;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KSViewOffsetBehavior<V extends View> extends KSCoordinatorLayout.Behavior<V> {
-    private int mTempLeftRightOffset;
-    private int mTempTopBottomOffset;
-    private KSViewOffsetHelper mViewOffsetHelper;
+    public int mTempLeftRightOffset;
+    public int mTempTopBottomOffset;
+    public KSViewOffsetHelper mViewOffsetHelper;
 
     public KSViewOffsetBehavior() {
         this.mTempTopBottomOffset = 0;
@@ -24,20 +24,21 @@ public class KSViewOffsetBehavior<V extends View> extends KSCoordinatorLayout.Be
     }
 
     public int getLeftAndRightOffset() {
-        if (this.mViewOffsetHelper != null) {
-            return this.mViewOffsetHelper.getLeftAndRightOffset();
+        KSViewOffsetHelper kSViewOffsetHelper = this.mViewOffsetHelper;
+        if (kSViewOffsetHelper != null) {
+            return kSViewOffsetHelper.getLeftAndRightOffset();
         }
         return 0;
     }
 
     public int getTopAndBottomOffset() {
-        if (this.mViewOffsetHelper != null) {
-            return this.mViewOffsetHelper.getTopAndBottomOffset();
+        KSViewOffsetHelper kSViewOffsetHelper = this.mViewOffsetHelper;
+        if (kSViewOffsetHelper != null) {
+            return kSViewOffsetHelper.getTopAndBottomOffset();
         }
         return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void layoutChild(KSCoordinatorLayout kSCoordinatorLayout, V v, int i) {
         kSCoordinatorLayout.onLayoutChild(v, i);
     }
@@ -49,12 +50,14 @@ public class KSViewOffsetBehavior<V extends View> extends KSCoordinatorLayout.Be
             this.mViewOffsetHelper = new KSViewOffsetHelper(v);
         }
         this.mViewOffsetHelper.onViewLayout();
-        if (this.mTempTopBottomOffset != 0) {
-            this.mViewOffsetHelper.setTopAndBottomOffset(this.mTempTopBottomOffset);
+        int i2 = this.mTempTopBottomOffset;
+        if (i2 != 0) {
+            this.mViewOffsetHelper.setTopAndBottomOffset(i2);
             this.mTempTopBottomOffset = 0;
         }
-        if (this.mTempLeftRightOffset != 0) {
-            this.mViewOffsetHelper.setLeftAndRightOffset(this.mTempLeftRightOffset);
+        int i3 = this.mTempLeftRightOffset;
+        if (i3 != 0) {
+            this.mViewOffsetHelper.setLeftAndRightOffset(i3);
             this.mTempLeftRightOffset = 0;
             return true;
         }
@@ -62,16 +65,18 @@ public class KSViewOffsetBehavior<V extends View> extends KSCoordinatorLayout.Be
     }
 
     public boolean setLeftAndRightOffset(int i) {
-        if (this.mViewOffsetHelper != null) {
-            return this.mViewOffsetHelper.setLeftAndRightOffset(i);
+        KSViewOffsetHelper kSViewOffsetHelper = this.mViewOffsetHelper;
+        if (kSViewOffsetHelper != null) {
+            return kSViewOffsetHelper.setLeftAndRightOffset(i);
         }
         this.mTempLeftRightOffset = i;
         return false;
     }
 
     public boolean setTopAndBottomOffset(int i) {
-        if (this.mViewOffsetHelper != null) {
-            return this.mViewOffsetHelper.setTopAndBottomOffset(i);
+        KSViewOffsetHelper kSViewOffsetHelper = this.mViewOffsetHelper;
+        if (kSViewOffsetHelper != null) {
+            return kSViewOffsetHelper.setTopAndBottomOffset(i);
         }
         this.mTempTopBottomOffset = i;
         return false;

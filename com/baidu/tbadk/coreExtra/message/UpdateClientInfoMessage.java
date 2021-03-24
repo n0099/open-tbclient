@@ -1,80 +1,42 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.squareup.wire.ByteString;
+import d.b.b.e.m.b;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 import protobuf.UpdateClientInfo.DataReq;
 import protobuf.UpdateClientInfo.UpdateClientInfoReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class UpdateClientInfoMessage extends TbSocketMessage {
-    private String bduss;
-    private final Map<String, String> device;
-    private int height;
-    private double lat;
-    private double lng;
-    private Integer pub_env;
-    private byte[] secretKey;
-    private String stoken;
-    private int width;
+    public String bduss;
+    public final Map<String, String> device;
+    public int height;
+    public double lat;
+    public double lng;
+    public Integer pub_env;
+    public byte[] secretKey;
+    public String stoken;
+    public int width;
 
     public UpdateClientInfoMessage() {
         super(1001);
         this.device = new HashMap();
         try {
             if (TbadkCoreApplication.getInst().getLocationShared()) {
-                this.lat = b.toDouble(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
-                this.lng = b.toDouble(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
+                this.lat = b.b(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
+                this.lng = b.b(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
         }
-    }
-
-    public void setPub_env(Integer num) {
-        this.pub_env = num;
-    }
-
-    public void setLat(double d) {
-        this.lat = d;
-    }
-
-    public void setLng(double d) {
-        this.lng = d;
-    }
-
-    public void setSecretKey(byte[] bArr) {
-        this.secretKey = bArr;
-    }
-
-    public void setBduss(String str, String str2) {
-        this.bduss = str;
-        this.stoken = str2;
     }
 
     public void addUserInfo(String str, String str2) {
         this.device.put(str, str2);
-    }
-
-    public String getDevice() {
-        try {
-            return new JSONObject(this.device).toString();
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-            return null;
-        }
-    }
-
-    public void setWidth(int i) {
-        this.width = i;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -93,5 +55,43 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         builder2.cuid = TbadkCoreApplication.getUniqueIdentifier();
         builder2.data = builder.build(false);
         return builder2.build(false);
+    }
+
+    public String getDevice() {
+        try {
+            return new JSONObject(this.device).toString();
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+            return null;
+        }
+    }
+
+    public void setBduss(String str, String str2) {
+        this.bduss = str;
+        this.stoken = str2;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public void setLat(double d2) {
+        this.lat = d2;
+    }
+
+    public void setLng(double d2) {
+        this.lng = d2;
+    }
+
+    public void setPub_env(Integer num) {
+        this.pub_env = num;
+    }
+
+    public void setSecretKey(byte[] bArr) {
+        this.secretKey = bArr;
+    }
+
+    public void setWidth(int i) {
+        this.width = i;
     }
 }

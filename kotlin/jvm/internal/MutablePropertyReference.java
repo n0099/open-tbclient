@@ -1,9 +1,13 @@
 package kotlin.jvm.internal;
-/* loaded from: classes14.dex */
-public abstract class MutablePropertyReference extends PropertyReference implements kotlin.reflect.f {
+
+import kotlin.SinceKotlin;
+import kotlin.reflect.KMutableProperty;
+/* loaded from: classes7.dex */
+public abstract class MutablePropertyReference extends PropertyReference implements KMutableProperty {
     public MutablePropertyReference() {
     }
 
+    @SinceKotlin(version = "1.1")
     public MutablePropertyReference(Object obj) {
         super(obj);
     }

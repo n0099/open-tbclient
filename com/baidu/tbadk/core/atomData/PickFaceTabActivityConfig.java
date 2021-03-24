@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.face.data.FaceData;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PickFaceTabActivityConfig extends IntentConfig {
     public static final String CHOOSED_LIST = "choosed_list";
 

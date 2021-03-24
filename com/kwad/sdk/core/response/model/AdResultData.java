@@ -15,12 +15,12 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b {
-    private static final String TAG = "AdResultData";
-    private static final long serialVersionUID = -818939163644825380L;
+    public static final String TAG = "AdResultData";
+    public static final long serialVersionUID = -818939163644825380L;
     public a entryInfo;
-    private Map<Long, SceneImpl> mRequestAdSceneMap;
+    public Map<Long, SceneImpl> mRequestAdSceneMap;
     public String pcursor;
     public PageInfo pageInfo = new PageInfo();
     public List<AdTemplate> adTemplateList = new ArrayList();
@@ -30,8 +30,9 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
 
     public AdResultData(KsScene ksScene) {
         if (ksScene != null) {
-            this.mRequestAdSceneMap = new HashMap(1);
-            this.mRequestAdSceneMap.put(Long.valueOf(ksScene.getPosId()), (SceneImpl) ksScene);
+            HashMap hashMap = new HashMap(1);
+            this.mRequestAdSceneMap = hashMap;
+            hashMap.put(Long.valueOf(ksScene.getPosId()), (SceneImpl) ksScene);
         }
     }
 
@@ -47,26 +48,28 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
     }
 
     private SceneImpl getAdScene(long j) {
-        SceneImpl sceneImpl = this.mRequestAdSceneMap != null ? this.mRequestAdSceneMap.get(Long.valueOf(j)) : null;
+        Map<Long, SceneImpl> map = this.mRequestAdSceneMap;
+        SceneImpl sceneImpl = map != null ? map.get(Long.valueOf(j)) : null;
         return sceneImpl == null ? new SceneImpl(j) : sceneImpl;
     }
 
     public boolean isAdResultDataEmpty() {
+        String str;
         if (this.adTemplateList.isEmpty()) {
-            com.kwad.sdk.core.d.a.d(TAG, "adTemplateList is empty");
-            return true;
-        }
-        com.kwad.sdk.core.d.a.a(TAG, "adTemplateList size = " + this.adTemplateList.size());
-        List<AdInfo> list = this.adTemplateList.get(0).adInfoList;
-        if (list.isEmpty()) {
-            com.kwad.sdk.core.d.a.d(TAG, "adInfoList is empty");
-            return true;
-        } else if (list.get(0) == null) {
-            com.kwad.sdk.core.d.a.d(TAG, "adInfo is null");
-            return true;
+            str = "adTemplateList is empty";
         } else {
-            return false;
+            com.kwad.sdk.core.d.a.a(TAG, "adTemplateList size = " + this.adTemplateList.size());
+            List<AdInfo> list = this.adTemplateList.get(0).adInfoList;
+            if (list.isEmpty()) {
+                str = "adInfoList is empty";
+            } else if (list.get(0) != null) {
+                return false;
+            } else {
+                str = "adInfo is null";
+            }
         }
+        com.kwad.sdk.core.d.a.d(TAG, str);
+        return true;
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
@@ -92,12 +95,12 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                 if (!ag.a(optString)) {
                     this.pageInfo.parseJson(new JSONObject(d.b(optString)));
                 }
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
-            String b = d.b(jSONObject.optString("impAdInfo"));
-            if (!ag.a(b)) {
-                JSONArray jSONArray = new JSONArray(b);
+            String b2 = d.b(jSONObject.optString("impAdInfo"));
+            if (!ag.a(b2)) {
+                JSONArray jSONArray = new JSONArray(b2);
                 if (jSONArray.length() > 0) {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         JSONObject optJSONObject = jSONArray.optJSONObject(i);
@@ -128,18 +131,19 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                     }
                 }
                 if (optJSONObject2 != null) {
-                    this.entryInfo = new a();
-                    this.entryInfo.a(optJSONObject2);
+                    a aVar = new a();
+                    this.entryInfo = aVar;
+                    aVar.a(optJSONObject2);
                     this.entryInfo.k = this.adTemplateList;
                 }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (Exception e3) {
+                com.kwad.sdk.core.d.a.a(e3);
             }
-            if (com.kwad.sdk.core.d.a.f6021a) {
+            if (com.kwad.sdk.core.d.a.f33457a) {
                 com.kwad.sdk.core.d.a.a(TAG, toJson().toString());
             }
-        } catch (Exception e3) {
-            com.kwad.sdk.core.d.a.a(e3);
+        } catch (Exception e4) {
+            com.kwad.sdk.core.d.a.a(e4);
         }
     }
 

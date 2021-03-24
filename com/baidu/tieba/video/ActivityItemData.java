@@ -4,23 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
-public class ActivityItemData implements Parcelable, Serializable {
-    public static final Parcelable.Creator<ActivityItemData> CREATOR = new Parcelable.Creator<ActivityItemData>() { // from class: com.baidu.tieba.video.ActivityItemData.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: ag */
-        public ActivityItemData createFromParcel(Parcel parcel) {
-            return new ActivityItemData(parcel);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: Kx */
-        public ActivityItemData[] newArray(int i) {
-            return new ActivityItemData[i];
-        }
-    };
+/* loaded from: classes5.dex */
+public class ActivityItemData implements Serializable, Parcelable {
+    public static final Parcelable.Creator<ActivityItemData> CREATOR = new a();
     public String activity_describe;
     public String activity_id;
     public String activity_name;
@@ -30,6 +16,23 @@ public class ActivityItemData implements Parcelable, Serializable {
     public String topic_id;
     public ArrayList<UserItemData> user_list;
     public String video_num;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Parcelable.Creator<ActivityItemData> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public ActivityItemData createFromParcel(Parcel parcel) {
+            return new ActivityItemData(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: b */
+        public ActivityItemData[] newArray(int i) {
+            return new ActivityItemData[i];
+        }
+    }
 
     public ActivityItemData() {
     }
@@ -52,7 +55,7 @@ public class ActivityItemData implements Parcelable, Serializable {
         parcel.writeTypedList(this.user_list);
     }
 
-    protected ActivityItemData(Parcel parcel) {
+    public ActivityItemData(Parcel parcel) {
         this.activity_id = parcel.readString();
         this.activity_name = parcel.readString();
         this.activity_describe = parcel.readString();

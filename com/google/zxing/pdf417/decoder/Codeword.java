@@ -1,14 +1,15 @@
 package com.google.zxing.pdf417.decoder;
-/* loaded from: classes4.dex */
-final class Codeword {
-    private static final int BARCODE_ROW_UNKNOWN = -1;
-    private final int bucket;
-    private final int endX;
-    private int rowNumber = -1;
-    private final int startX;
-    private final int value;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.FieldBuilder;
+/* loaded from: classes6.dex */
+public final class Codeword {
+    public static final int BARCODE_ROW_UNKNOWN = -1;
+    public final int bucket;
+    public final int endX;
+    public int rowNumber = -1;
+    public final int startX;
+    public final int value;
+
     public Codeword(int i, int i2, int i3, int i4) {
         this.startX = i;
         this.endX = i2;
@@ -16,57 +17,47 @@ final class Codeword {
         this.value = i4;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean hasValidRowNumber() {
-        return isValidRowNumber(this.rowNumber);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isValidRowNumber(int i) {
-        return i != -1 && this.bucket == (i % 3) * 3;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setRowNumberAsRowIndicatorColumn() {
-        this.rowNumber = ((this.value / 30) * 3) + (this.bucket / 3);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getWidth() {
-        return this.endX - this.startX;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getStartX() {
-        return this.startX;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getEndX() {
-        return this.endX;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int getBucket() {
         return this.bucket;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getValue() {
-        return this.value;
+    public int getEndX() {
+        return this.endX;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int getRowNumber() {
         return this.rowNumber;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public int getStartX() {
+        return this.startX;
+    }
+
+    public int getValue() {
+        return this.value;
+    }
+
+    public int getWidth() {
+        return this.endX - this.startX;
+    }
+
+    public boolean hasValidRowNumber() {
+        return isValidRowNumber(this.rowNumber);
+    }
+
+    public boolean isValidRowNumber(int i) {
+        return i != -1 && this.bucket == (i % 3) * 3;
+    }
+
     public void setRowNumber(int i) {
         this.rowNumber = i;
     }
 
+    public void setRowNumberAsRowIndicatorColumn() {
+        this.rowNumber = ((this.value / 30) * 3) + (this.bucket / 3);
+    }
+
     public String toString() {
-        return this.rowNumber + "|" + this.value;
+        return this.rowNumber + FieldBuilder.SE + this.value;
     }
 }

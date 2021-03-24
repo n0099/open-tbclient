@@ -1,20 +1,19 @@
 package org.webrtc;
 
 import android.view.SurfaceHolder;
-import com.baidu.mobstat.Config;
 import java.util.concurrent.CountDownLatch;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Callback {
-    private static final String TAG = "SurfaceEglRenderer";
-    private int frameRotation;
-    private boolean isFirstFrameRendered;
-    private boolean isRenderingPaused;
-    private final Object layoutLock;
-    private RendererCommon.RendererEvents rendererEvents;
-    private int rotatedFrameHeight;
-    private int rotatedFrameWidth;
+    public static final String TAG = "SurfaceEglRenderer";
+    public int frameRotation;
+    public boolean isFirstFrameRendered;
+    public boolean isRenderingPaused;
+    public final Object layoutLock;
+    public RendererCommon.RendererEvents rendererEvents;
+    public int rotatedFrameHeight;
+    public int rotatedFrameWidth;
 
     public SurfaceEglRenderer(String str) {
         super(str);
@@ -38,7 +37,7 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
                 }
             }
             if (this.rotatedFrameWidth != videoFrame.getRotatedWidth() || this.rotatedFrameHeight != videoFrame.getRotatedHeight() || this.frameRotation != videoFrame.getRotation()) {
-                logD("Reporting frame resolution changed to " + videoFrame.getBuffer().getWidth() + Config.EVENT_HEAT_X + videoFrame.getBuffer().getHeight() + " with rotation " + videoFrame.getRotation());
+                logD("Reporting frame resolution changed to " + videoFrame.getBuffer().getWidth() + "x" + videoFrame.getBuffer().getHeight() + " with rotation " + videoFrame.getRotation());
                 if (this.rendererEvents != null) {
                     this.rendererEvents.onFrameResolutionChanged(videoFrame.getBuffer().getWidth(), videoFrame.getBuffer().getHeight(), videoFrame.getRotation());
                 }
@@ -89,17 +88,17 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
     }
 
     @Override // org.webrtc.EglRenderer
-    public void setFpsReduction(float f) {
+    public void setFpsReduction(float f2) {
         synchronized (this.layoutLock) {
-            this.isRenderingPaused = f == 0.0f;
+            this.isRenderingPaused = f2 == 0.0f;
         }
-        super.setFpsReduction(f);
+        super.setFpsReduction(f2);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
         ThreadUtils.checkIsOnMainThread();
-        logD("surfaceChanged: format: " + i + " size: " + i2 + Config.EVENT_HEAT_X + i3);
+        logD("surfaceChanged: format: " + i + " size: " + i2 + "x" + i3);
     }
 
     @Override // android.view.SurfaceHolder.Callback

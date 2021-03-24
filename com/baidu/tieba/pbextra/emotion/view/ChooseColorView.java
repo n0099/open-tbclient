@@ -7,21 +7,70 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.core.view.ViewCompat;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ChooseColorView extends View {
-    private int mBorderColor;
-    private Paint mBorderPaint;
-    private float mBorderWidth;
-    private Paint mPaint;
-    private int mRadius;
-    private int mto;
-    private boolean mtp;
-    private Bitmap mtq;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f20196e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f20197f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f20198g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Paint f20199h;
+    public Paint i;
+    public int j;
+    public boolean k;
+    public Bitmap l;
 
     public ChooseColorView(Context context) {
         this(context, null);
+    }
+
+    public final void a() {
+        Paint paint = new Paint();
+        this.i = paint;
+        paint.setAntiAlias(true);
+        this.i.setColor(this.f20196e);
+        Paint paint2 = new Paint();
+        this.f20199h = paint2;
+        paint2.setColor(this.f20197f);
+        this.f20199h.setAntiAlias(true);
+        this.f20199h.setStyle(Paint.Style.STROKE);
+        this.f20199h.setStrokeWidth(this.f20198g);
+        this.l = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
+    }
+
+    public int getChooseColor() {
+        return this.f20196e;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.i);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f20199h);
+        if (this.k) {
+            canvas.drawBitmap(this.l, getWidth() - this.l.getWidth(), 0.0f, (Paint) null);
+        }
+    }
+
+    public void setChooseColor(int i) {
+        this.f20196e = i;
+        this.i.setColor(i);
+    }
+
+    public void setIsChooseView(boolean z) {
+        this.k = z;
+        invalidate();
+    }
+
+    public void setRadius(int i) {
+        this.j = i;
     }
 
     public ChooseColorView(Context context, AttributeSet attributeSet) {
@@ -30,49 +79,9 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mto = ViewCompat.MEASURED_STATE_MASK;
-        this.mBorderColor = -1;
-        this.mBorderWidth = getResources().getDimensionPixelSize(R.dimen.ds4);
-        init();
-    }
-
-    private void init() {
-        this.mPaint = new Paint();
-        this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.mto);
-        this.mBorderPaint = new Paint();
-        this.mBorderPaint.setColor(this.mBorderColor);
-        this.mBorderPaint.setAntiAlias(true);
-        this.mBorderPaint.setStyle(Paint.Style.STROKE);
-        this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.mtq = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
-    }
-
-    public void setChooseColor(int i) {
-        this.mto = i;
-        this.mPaint.setColor(this.mto);
-    }
-
-    public void setRadius(int i) {
-        this.mRadius = i;
-    }
-
-    public int getChooseColor() {
-        return this.mto;
-    }
-
-    public void setIsChooseView(boolean z) {
-        this.mtp = z;
-        invalidate();
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mBorderPaint);
-        if (this.mtp) {
-            canvas.drawBitmap(this.mtq, getWidth() - this.mtq.getWidth(), 0.0f, (Paint) null);
-        }
+        this.f20196e = -16777216;
+        this.f20197f = -1;
+        this.f20198g = getResources().getDimensionPixelSize(R.dimen.ds4);
+        a();
     }
 }

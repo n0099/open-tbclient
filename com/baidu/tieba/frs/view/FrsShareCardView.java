@@ -8,99 +8,108 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+import d.b.b.e.p.k;
+/* loaded from: classes4.dex */
 public class FrsShareCardView extends LinearLayout {
-    private Context context;
-    private TextView eoT;
-    private EditText jTj;
-    private HeadImageView jTk;
-    private TextView jTl;
-    private TextView jTm;
-    private ShareFromFrsMsgData jTn;
-    private LinearLayout mRootView;
 
-    public EditText getChatMsgView() {
-        return this.jTj;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public LinearLayout f16757e;
 
-    public void aP(String str, boolean z) {
-        if (this.jTk != null) {
-            this.jTk.startLoad(str, 15, false);
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public Context f16758f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public EditText f16759g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public HeadImageView f16760h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public ShareFromFrsMsgData l;
 
     public FrsShareCardView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.context = context;
-        initUI(context);
+        this.f16758f = context;
+        c(context);
     }
 
-    public FrsShareCardView(Context context) {
-        super(context);
-        this.context = context;
-        initUI(context);
+    public final String a(String str) {
+        return k.cutString(str, 18) + this.f16758f.getString(R.string.forum);
     }
 
-    public void setPageId(BdUniqueId bdUniqueId) {
-        this.jTk.setPageId(bdUniqueId);
+    public void b() {
+        this.f16757e.setFocusable(true);
+        this.f16757e.setFocusableInTouchMode(true);
+        this.f16757e.requestFocus();
     }
 
-    private void initUI(Context context) {
+    public final void c(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_share_card_view, this);
         setOrientation(1);
-        this.mRootView = (LinearLayout) findViewById(R.id.share_content);
-        this.eoT = (TextView) findViewById(R.id.frs_card_name);
-        this.jTj = (EditText) findViewById(R.id.chat_msg);
-        this.jTk = (HeadImageView) findViewById(R.id.frs_card_img);
-        this.jTm = (TextView) findViewById(R.id.frs_card_member_num);
-        this.jTl = (TextView) findViewById(R.id.frs_card_post_num);
-        ap.setViewTextColor(this.eoT, R.color.CAM_X0105, 1);
-        ap.setViewTextColor(this.jTj, R.color.CAM_X0105, 2);
-        this.jTj.setHintTextColor(ap.getColor(R.color.CAM_X0110));
-        this.jTj.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cNu();
+        this.f16757e = (LinearLayout) findViewById(R.id.share_content);
+        this.i = (TextView) findViewById(R.id.frs_card_name);
+        this.f16759g = (EditText) findViewById(R.id.chat_msg);
+        this.f16760h = (HeadImageView) findViewById(R.id.frs_card_img);
+        this.k = (TextView) findViewById(R.id.frs_card_member_num);
+        this.j = (TextView) findViewById(R.id.frs_card_post_num);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f16759g, R.color.CAM_X0105, 2);
+        this.f16759g.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.f16759g.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        b();
     }
 
-    public void cNu() {
-        this.mRootView.setFocusable(true);
-        this.mRootView.setFocusableInTouchMode(true);
-        this.mRootView.requestFocus();
+    public void d(String str, boolean z) {
+        HeadImageView headImageView = this.f16760h;
+        if (headImageView != null) {
+            headImageView.W(str, 15, false);
+        }
+    }
+
+    public final void e() {
+        this.i.setText(a(this.l.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.l.getImageUrl());
+        this.f16760h.W(this.l.getImageUrl(), 15, false);
+        this.k.setText(StringHelper.numFormatOver10000((long) this.l.getMemberNum()));
+        this.j.setText(StringHelper.numFormatOver10000((long) this.l.getPostNum()));
+    }
+
+    public EditText getChatMsgView() {
+        return this.f16759g;
     }
 
     public String getLeaveMsg() {
-        if (this.jTj != null) {
-            return k.charSequence2String(this.jTj.getText(), null);
+        EditText editText = this.f16759g;
+        if (editText != null) {
+            return k.charSequence2String(editText.getText(), null);
         }
         return null;
     }
 
+    public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
+        this.l = shareFromFrsMsgData;
+        e();
+    }
+
+    public void setPageId(BdUniqueId bdUniqueId) {
+        this.f16760h.setPageId(bdUniqueId);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
     public LinearLayout.LayoutParams generateDefaultLayoutParams() {
         return new LinearLayout.LayoutParams(-1, -2);
     }
 
-    public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.jTn = shareFromFrsMsgData;
-        updateUI();
-    }
-
-    private void updateUI() {
-        this.eoT.setText(getShortName(this.jTn.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.jTn.getImageUrl());
-        this.jTk.startLoad(this.jTn.getImageUrl(), 15, false);
-        this.jTm.setText(au.numFormatOver10000(this.jTn.getMemberNum()));
-        this.jTl.setText(au.numFormatOver10000(this.jTn.getPostNum()));
-    }
-
-    private String getShortName(String str) {
-        return au.cutString(str, 18) + this.context.getString(R.string.forum);
+    public FrsShareCardView(Context context) {
+        super(context);
+        this.f16758f = context;
+        c(context);
     }
 }

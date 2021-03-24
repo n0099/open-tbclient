@@ -3,11 +3,11 @@ package com.kwad.sdk.glide.request.a;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.Nullable;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class a<Z> implements j<Z> {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.kwad.sdk.glide.request.c f6823a;
+    public com.kwad.sdk.glide.request.c f35771a;
 
     @Override // com.kwad.sdk.glide.request.a.j
     public void a(@Nullable Drawable drawable) {
@@ -15,13 +15,13 @@ public abstract class a<Z> implements j<Z> {
 
     @Override // com.kwad.sdk.glide.request.a.j
     public void a(@Nullable com.kwad.sdk.glide.request.c cVar) {
-        this.f6823a = cVar;
+        this.f35771a = cVar;
     }
 
     @Override // com.kwad.sdk.glide.request.a.j
     @Nullable
     public com.kwad.sdk.glide.request.c b() {
-        return this.f6823a;
+        return this.f35771a;
     }
 
     @Override // com.kwad.sdk.glide.request.a.j

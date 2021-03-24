@@ -1,43 +1,47 @@
 package com.baidu.tieba.pb.pb.godreply;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.Error;
+import tbclient.GetPostList.DataRes;
 import tbclient.GetPostList.GetPostListResIdl;
 import tbclient.Post;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LookMoreSocketResMessage extends SocketResponsedMessage {
     public List<PostData> list;
 
     public LookMoreSocketResMessage() {
-        super(CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE);
+        super(309446);
         this.list = new ArrayList();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        List<Post> list;
-        GetPostListResIdl getPostListResIdl = (GetPostListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetPostListResIdl.class);
-        if (getPostListResIdl != null && getPostListResIdl.error != null) {
-            setError(getPostListResIdl.error.errorno.intValue());
-            setErrorString(getPostListResIdl.error.usermsg);
-        }
-        if (getError() == 0 && getPostListResIdl != null && getPostListResIdl.data != null && (list = getPostListResIdl.data.post_list) != null && list.size() > 0) {
-            for (Post post : list) {
-                PostData postData = new PostData();
-                postData.a(post, TbadkCoreApplication.getInst());
-                postData.nzK = 102;
-                this.list.add(postData);
-            }
-        }
     }
 
     public List<PostData> getData() {
         return this.list;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
+        List<Post> list;
+        Error error;
+        GetPostListResIdl getPostListResIdl = (GetPostListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetPostListResIdl.class);
+        if (getPostListResIdl != null && (error = getPostListResIdl.error) != null) {
+            setError(error.errorno.intValue());
+            setErrorString(getPostListResIdl.error.usermsg);
+        }
+        if (getError() != 0 || getPostListResIdl == null || (dataRes = getPostListResIdl.data) == null || (list = dataRes.post_list) == null || list.size() <= 0) {
+            return;
+        }
+        for (Post post : list) {
+            PostData postData = new PostData();
+            postData.a0(post, TbadkCoreApplication.getInst());
+            postData.O = 102;
+            this.list.add(postData);
+        }
     }
 }

@@ -3,35 +3,36 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class COSPushHelper {
 
-    /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f24a = false;
-
     /* renamed from: a  reason: collision with root package name */
-    private static long f8196a = 0;
+    public static long f40137a = 0;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static volatile boolean f41a = false;
 
     public static void convertMessage(Intent intent) {
-        h.a(intent);
+        i.a(intent);
     }
 
     public static void doInNetworkChange(Context context) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (getNeedRegister()) {
-            if (f8196a <= 0 || f8196a + 300000 <= elapsedRealtime) {
-                f8196a = elapsedRealtime;
+            long j = f40137a;
+            if (j <= 0 || j + 300000 <= elapsedRealtime) {
+                f40137a = elapsedRealtime;
                 registerCOSAssemblePush(context);
             }
         }
     }
 
     public static boolean getNeedRegister() {
-        return f24a;
+        return f41a;
     }
 
     public static boolean hasNetwork(Context context) {
-        return h.m118a(context);
+        return i.m113a(context);
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -41,20 +42,20 @@ public class COSPushHelper {
     }
 
     public static void registerCOSAssemblePush(Context context) {
-        AbstractPushManager a2 = e.a(context).a(d.ASSEMBLE_PUSH_COS);
+        AbstractPushManager a2 = f.a(context).a(e.ASSEMBLE_PUSH_COS);
         if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("ASSEMBLE_PUSH :  register cos when network change!");
+            com.xiaomi.channel.commonutils.logger.b.m51a("ASSEMBLE_PUSH :  register cos when network change!");
             a2.register();
         }
     }
 
     public static synchronized void setNeedRegister(boolean z) {
         synchronized (COSPushHelper.class) {
-            f24a = z;
+            f41a = z;
         }
     }
 
     public static void uploadToken(Context context, String str) {
-        h.a(context, d.ASSEMBLE_PUSH_COS, str);
+        i.a(context, e.ASSEMBLE_PUSH_COS, str);
     }
 }

@@ -9,128 +9,164 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class RecordTabLayout extends LinearLayout {
-    private int jFy;
-    private LinearLayout nTM;
-    private View nTN;
-    private boolean nTO;
-    private a nTP;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void ai(int i, boolean z);
+    /* renamed from: e  reason: collision with root package name */
+    public LinearLayout f21831e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f21832f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f21833g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f21834h;
+    public c i;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f21835e;
+
+        public a(int i) {
+            this.f21835e = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            int i = RecordTabLayout.this.f21834h;
+            int i2 = this.f21835e;
+            if (i == i2) {
+                return;
+            }
+            RecordTabLayout.this.setCurrentTab(i2, true);
+            if (RecordTabLayout.this.i != null) {
+                RecordTabLayout.this.i.onTabChoosed(this.f21835e, true);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ TextView f21837e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ boolean f21838f;
+
+        public b(TextView textView, boolean z) {
+            this.f21837e = textView;
+            this.f21838f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            float x = (this.f21837e.getX() + ((this.f21837e.getWidth() - RecordTabLayout.this.f21832f.getWidth()) / 2)) - RecordTabLayout.this.f21832f.getLeft();
+            if (this.f21838f) {
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.f21832f, "translationX", RecordTabLayout.this.f21832f.getTranslationX(), x);
+                ofFloat.setDuration(500L);
+                ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
+                ofFloat.start();
+                return;
+            }
+            RecordTabLayout.this.f21832f.setTranslationX(x);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void onTabChoosed(int i, boolean z);
     }
 
     public RecordTabLayout(Context context) {
         super(context);
-        this.nTO = true;
-        initView();
+        this.f21833g = true;
+        e();
+    }
+
+    public void d(int i, String str) {
+        TextView textView = new TextView(getContext());
+        textView.setTextSize(0, l.g(getContext(), R.dimen.fontsize28));
+        textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
+        textView.setText(str);
+        textView.setTag(Integer.valueOf(i));
+        textView.setOnClickListener(new a(i));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        if (this.f21831e.getChildCount() != 0) {
+            layoutParams.leftMargin = l.g(getContext(), R.dimen.ds44);
+        }
+        this.f21831e.addView(textView, layoutParams);
+    }
+
+    public final void e() {
+        setOrientation(1);
+        LinearLayout linearLayout = new LinearLayout(getContext());
+        this.f21831e = linearLayout;
+        linearLayout.setOrientation(0);
+        this.f21831e.setGravity(17);
+        addView(this.f21831e, new ViewGroup.LayoutParams(-1, -2));
+        View view = new View(getContext());
+        this.f21832f = view;
+        view.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(l.g(getContext(), R.dimen.ds44), l.g(getContext(), R.dimen.ds4));
+        layoutParams.topMargin = l.g(getContext(), R.dimen.ds18);
+        addView(this.f21832f, layoutParams);
+    }
+
+    public int getCurrentTab() {
+        return this.f21834h;
+    }
+
+    public void setCurrentTab(int i, boolean z) {
+        if (this.f21834h == i) {
+            return;
+        }
+        this.f21834h = i;
+        TextView textView = null;
+        for (int i2 = 0; i2 < this.f21831e.getChildCount(); i2++) {
+            View childAt = this.f21831e.getChildAt(i2);
+            if (childAt instanceof TextView) {
+                Object tag = childAt.getTag();
+                if ((tag instanceof Integer) && ((Integer) tag).intValue() == i) {
+                    TextView textView2 = (TextView) childAt;
+                    textView2.setTextColor(getResources().getColor(R.color.CAM_X0101));
+                    textView = textView2;
+                } else {
+                    ((TextView) childAt).setTextColor(getResources().getColor(R.color.white_alpha80));
+                }
+            }
+        }
+        if (this.f21833g) {
+            textView.post(new b(textView, z));
+        }
+    }
+
+    public void setListener(c cVar) {
+        this.i = cVar;
+    }
+
+    public void setShowIndicator(boolean z) {
+        this.f21833g = z;
+        if (z) {
+            return;
+        }
+        this.f21832f.setVisibility(4);
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nTO = true;
-        initView();
+        this.f21833g = true;
+        e();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nTO = true;
-        initView();
-    }
-
-    private void initView() {
-        setOrientation(1);
-        this.nTM = new LinearLayout(getContext());
-        this.nTM.setOrientation(0);
-        this.nTM.setGravity(17);
-        addView(this.nTM, new ViewGroup.LayoutParams(-1, -2));
-        this.nTN = new View(getContext());
-        this.nTN.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44), com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds4));
-        layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds18);
-        addView(this.nTN, layoutParams);
-    }
-
-    public void cf(final int i, String str) {
-        TextView textView = new TextView(getContext());
-        textView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.fontsize28));
-        textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
-        textView.setText(str);
-        textView.setTag(Integer.valueOf(i));
-        textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.RecordTabLayout.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (RecordTabLayout.this.jFy != i) {
-                    RecordTabLayout.this.setCurrentTab(i, true);
-                    if (RecordTabLayout.this.nTP != null) {
-                        RecordTabLayout.this.nTP.ai(i, true);
-                    }
-                }
-            }
-        });
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        if (this.nTM.getChildCount() != 0) {
-            layoutParams.leftMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44);
-        }
-        this.nTM.addView(textView, layoutParams);
-    }
-
-    public void setCurrentTab(int i, final boolean z) {
-        TextView textView;
-        if (this.jFy != i) {
-            this.jFy = i;
-            final TextView textView2 = null;
-            int i2 = 0;
-            while (i2 < this.nTM.getChildCount()) {
-                View childAt = this.nTM.getChildAt(i2);
-                if (childAt instanceof TextView) {
-                    Object tag = childAt.getTag();
-                    if ((tag instanceof Integer) && ((Integer) tag).intValue() == i) {
-                        textView = (TextView) childAt;
-                        textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
-                    } else {
-                        ((TextView) childAt).setTextColor(getResources().getColor(R.color.white_alpha80));
-                        textView = textView2;
-                    }
-                } else {
-                    textView = textView2;
-                }
-                i2++;
-                textView2 = textView;
-            }
-            if (this.nTO) {
-                textView2.post(new Runnable() { // from class: com.baidu.tieba.video.record.RecordTabLayout.2
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.nTN.getWidth()) / 2)) - RecordTabLayout.this.nTN.getLeft();
-                        if (z) {
-                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.nTN, "translationX", RecordTabLayout.this.nTN.getTranslationX(), x);
-                            ofFloat.setDuration(500L);
-                            ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
-                            ofFloat.start();
-                            return;
-                        }
-                        RecordTabLayout.this.nTN.setTranslationX(x);
-                    }
-                });
-            }
-        }
-    }
-
-    public int getCurrentTab() {
-        return this.jFy;
-    }
-
-    public void setListener(a aVar) {
-        this.nTP = aVar;
-    }
-
-    public void setShowIndicator(boolean z) {
-        this.nTO = z;
-        if (!this.nTO) {
-            this.nTN.setVisibility(4);
-        }
+        this.f21833g = true;
+        e();
     }
 }

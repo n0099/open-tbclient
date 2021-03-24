@@ -1,11 +1,23 @@
 package com.baidu.sofire.ac;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Callback {
     public Object onBegin(Object... objArr) {
         return null;
     }
 
+    public Object onEnd(Object... objArr) {
+        return null;
+    }
+
+    public Object onError(Object... objArr) {
+        return null;
+    }
+
     public Object onProgress1(Object... objArr) {
+        return null;
+    }
+
+    public Object onProgress10(Object... objArr) {
         return null;
     }
 
@@ -38,18 +50,6 @@ public class Callback {
     }
 
     public Object onProgress9(Object... objArr) {
-        return null;
-    }
-
-    public Object onProgress10(Object... objArr) {
-        return null;
-    }
-
-    public Object onError(Object... objArr) {
-        return null;
-    }
-
-    public Object onEnd(Object... objArr) {
         return null;
     }
 }

@@ -2,54 +2,59 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class s extends x {
 
     /* renamed from: a  reason: collision with root package name */
-    protected InsideNotificationItem f8024a;
-    private String b;
+    public InsideNotificationItem f39394a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f39395b;
 
     public s() {
         super(4);
     }
 
-    public final InsideNotificationItem d() {
-        return this.f8024a;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        this.b = com.vivo.push.util.q.b(this.f8024a);
-        aVar.a("notification_v1", this.b);
+        String b2 = com.vivo.push.util.q.b(this.f39394a);
+        this.f39395b = b2;
+        aVar.a("notification_v1", b2);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
-    public final void d(com.vivo.push.a aVar) {
-        super.d(aVar);
-        this.b = aVar.a("notification_v1");
-        if (!TextUtils.isEmpty(this.b)) {
-            this.f8024a = com.vivo.push.util.q.a(this.b);
-            if (this.f8024a != null) {
-                this.f8024a.setMsgId(f());
-            }
-        }
+    public final InsideNotificationItem d() {
+        return this.f39394a;
     }
 
     public final String e() {
-        if (TextUtils.isEmpty(this.b)) {
-            if (this.f8024a == null) {
+        if (TextUtils.isEmpty(this.f39395b)) {
+            InsideNotificationItem insideNotificationItem = this.f39394a;
+            if (insideNotificationItem == null) {
                 return null;
             }
-            return com.vivo.push.util.q.b(this.f8024a);
+            return com.vivo.push.util.q.b(insideNotificationItem);
         }
-        return this.b;
+        return this.f39395b;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final String toString() {
         return "OnNotifyArrivedCommand";
+    }
+
+    @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        String a2 = aVar.a("notification_v1");
+        this.f39395b = a2;
+        if (TextUtils.isEmpty(a2)) {
+            return;
+        }
+        InsideNotificationItem a3 = com.vivo.push.util.q.a(this.f39395b);
+        this.f39394a = a3;
+        if (a3 != null) {
+            a3.setMsgId(f());
+        }
     }
 }

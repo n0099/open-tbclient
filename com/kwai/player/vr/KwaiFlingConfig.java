@@ -2,11 +2,11 @@ package com.kwai.player.vr;
 
 import android.animation.TimeInterpolator;
 import android.view.animation.DecelerateInterpolator;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KwaiFlingConfig {
-    private TimeInterpolator mInterpolator = new DecelerateInterpolator();
-    private long mDuring = 400;
-    private float mSensitivity = 1.0f;
+    public TimeInterpolator mInterpolator = new DecelerateInterpolator();
+    public long mDuring = 400;
+    public float mSensitivity = 1.0f;
 
     public long getDuring() {
         return this.mDuring;
@@ -30,8 +30,8 @@ public class KwaiFlingConfig {
         return this;
     }
 
-    public KwaiFlingConfig setSensitivity(float f) {
-        this.mSensitivity = f;
+    public KwaiFlingConfig setSensitivity(float f2) {
+        this.mSensitivity = f2;
         return this;
     }
 }

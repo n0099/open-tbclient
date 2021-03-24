@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface KsImage {
     @KsAdSdkApi
     @Keep

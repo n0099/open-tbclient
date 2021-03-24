@@ -2,58 +2,67 @@ package com.baidu.mapsdkplatform.comapi.util;
 
 import android.content.Context;
 import android.os.Environment;
+import com.baidu.sapi2.SapiOptions;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f2285a;
-    private final String b;
-    private final String c;
-    private final String d;
-    private final String e;
-    private final String f;
+    public final boolean f7873a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final String f7874b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final String f7875c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final String f7876d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final String f7877e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final String f7878f;
+
     public d(Context context) {
-        this.f2285a = false;
-        this.b = Environment.getExternalStorageDirectory().getAbsolutePath();
-        this.c = this.b + File.separator + "BaiduMapSDKNew";
-        this.d = context.getCacheDir().getAbsolutePath();
-        this.e = "";
-        this.f = "";
+        this.f7873a = false;
+        this.f7874b = Environment.getExternalStorageDirectory().getAbsolutePath();
+        this.f7875c = this.f7874b + File.separator + "BaiduMapSDKNew";
+        this.f7876d = context.getCacheDir().getAbsolutePath();
+        this.f7877e = "";
+        this.f7878f = "";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, boolean z, String str2, Context context) {
-        this.f2285a = z;
-        this.b = str;
-        this.c = this.b + File.separator + "BaiduMapSDKNew";
-        this.d = this.c + File.separator + "cache";
-        this.e = context.getCacheDir().getAbsolutePath();
-        this.f = str2;
+        this.f7873a = z;
+        this.f7874b = str;
+        this.f7875c = this.f7874b + File.separator + "BaiduMapSDKNew";
+        this.f7876d = this.f7875c + File.separator + SapiOptions.q;
+        this.f7877e = context.getCacheDir().getAbsolutePath();
+        this.f7878f = str2;
     }
 
     public String a() {
-        return this.b;
+        return this.f7874b;
     }
 
     public String b() {
-        return this.b + File.separator + "BaiduMapSDKNew";
+        return this.f7874b + File.separator + "BaiduMapSDKNew";
     }
 
     public String c() {
-        return this.d;
+        return this.f7876d;
     }
 
     public String d() {
-        return this.e;
+        return this.f7877e;
     }
 
     public boolean equals(Object obj) {
         if (obj == null || !d.class.isInstance(obj)) {
             return false;
         }
-        return this.b.equals(((d) obj).b);
+        return this.f7874b.equals(((d) obj).f7874b);
     }
 }

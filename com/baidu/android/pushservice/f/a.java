@@ -1,45 +1,26 @@
 package com.baidu.android.pushservice.f;
 
+import android.content.ComponentName;
 import android.content.Context;
-import android.util.Log;
-import com.baidu.android.pushservice.PushSettings;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-/* loaded from: classes5.dex */
-public class a {
-    public static String a(Throwable th) {
-        if (th == null) {
-            return "";
-        }
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter printWriter = new PrintWriter(stringWriter);
-        th.printStackTrace(printWriter);
-        printWriter.close();
-        return stringWriter.toString();
+import android.net.Uri;
+import android.os.Bundle;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+/* loaded from: classes2.dex */
+public class a implements b {
+    @Override // com.baidu.android.pushservice.f.b
+    public int a() {
+        return 0;
     }
 
-    public static void a(String str, String str2, Context context) {
-        if (!PushSettings.e(context) || str2 == null) {
-            return;
+    @Override // com.baidu.android.pushservice.f.b
+    public void a(Context context, ComponentName componentName, int i) {
+        Bundle bundle = new Bundle();
+        bundle.putString("package", context.getPackageName());
+        bundle.putString(DealIntentService.KEY_CLASS, componentName.getClassName());
+        bundle.putInt("badgenumber", i);
+        try {
+            context.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
+        } catch (Exception unused) {
         }
-        Log.d("BDPushSDK-" + str, str2);
-    }
-
-    public static void a(String str, Throwable th, Context context) {
-        b(str, a(th), context);
-    }
-
-    public static void b(String str, String str2, Context context) {
-        if (!PushSettings.e(context) || str2 == null) {
-            return;
-        }
-        Log.e("BDPushSDK-" + str, str2);
-    }
-
-    public static void c(String str, String str2, Context context) {
-        if (!PushSettings.e(context) || str2 == null) {
-            return;
-        }
-        Log.i("BDPushSDK-" + str, str2);
     }
 }

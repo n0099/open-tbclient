@@ -3,30 +3,30 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import android.os.Looper;
 @Deprecated
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class CookieSyncManager implements Runnable {
-    private static boolean sGetInstanceAllowed;
-    private static String TAG = "CookieSyncManager";
-    private static final CookieSyncManager mInstance = new CookieSyncManager();
-    private static final Object sLockObject = new Object();
+    public static String TAG = "CookieSyncManager";
+    public static boolean sGetInstanceAllowed;
+    public static final CookieSyncManager mInstance = new CookieSyncManager();
+    public static final Object sLockObject = new Object();
 
-    private static void checkInstanceIsAllowed() {
+    public static void checkInstanceIsAllowed() {
         if (!sGetInstanceAllowed) {
             throw new IllegalStateException("CookieSyncManager::createInstance() needs to be called before CookieSyncManager::getInstance()");
         }
     }
 
     public static CookieSyncManager createInstance(Context context) {
-        if (context == null) {
-            throw new IllegalArgumentException("Invalid context argument");
+        if (context != null) {
+            if (Looper.getMainLooper() != Looper.myLooper()) {
+                Log.e(TAG, "CookieSyncManager.createInstance() must be called on the main thread.");
+            }
+            synchronized (sLockObject) {
+                setGetInstanceIsAllowed();
+            }
+            return getInstance();
         }
-        if (Looper.getMainLooper() != Looper.myLooper()) {
-            Log.e(TAG, "CookieSyncManager.createInstance() must be called on the main thread.");
-        }
-        synchronized (sLockObject) {
-            setGetInstanceIsAllowed();
-        }
-        return getInstance();
+        throw new IllegalArgumentException("Invalid context argument");
     }
 
     public static CookieSyncManager getInstance() {
@@ -36,7 +36,6 @@ public class CookieSyncManager implements Runnable {
         return mInstance;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void setGetInstanceIsAllowed() {
         sGetInstanceAllowed = true;
     }

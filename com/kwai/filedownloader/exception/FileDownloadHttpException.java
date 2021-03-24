@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FileDownloadHttpException extends IOException {
-    private final int mCode;
-    private final Map<String, List<String>> mRequestHeaderMap;
-    private final Map<String, List<String>> mResponseHeaderMap;
+    public final int mCode;
+    public final Map<String, List<String>> mRequestHeaderMap;
+    public final Map<String, List<String>> mResponseHeaderMap;
 
     public FileDownloadHttpException(int i, Map<String, List<String>> map, Map<String, List<String>> map2) {
         super(f.a("response requestHttpCode error: %d, \n request headers: %s \n response headers: %s", Integer.valueOf(i), map, map2));
@@ -19,7 +19,7 @@ public class FileDownloadHttpException extends IOException {
         this.mResponseHeaderMap = cloneSerializableMap(map);
     }
 
-    private static Map<String, List<String>> cloneSerializableMap(Map<String, List<String>> map) {
+    public static Map<String, List<String>> cloneSerializableMap(Map<String, List<String>> map) {
         HashMap hashMap = new HashMap();
         for (Map.Entry<String, List<String>> entry : map.entrySet()) {
             hashMap.put(entry.getKey(), new ArrayList(entry.getValue()));

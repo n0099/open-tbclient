@@ -1,14 +1,14 @@
 package com.baidu.tieba.pb.pb.godreply;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.b.e.p.l;
+import d.b.h0.z0.w;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LookMoreReqMessage extends NetMessage {
     public int is_comm_reverse;
     public Long kz;
@@ -18,56 +18,56 @@ public class LookMoreReqMessage extends NetMessage {
     public int st_type;
     public int with_floor;
 
-    public void setKz(Long l) {
-        this.kz = l;
+    public LookMoreReqMessage() {
+        super(CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
+        setNetType(NetMessage.NetType.AUTO);
     }
 
-    public void setWith_floor(int i) {
-        this.with_floor = i;
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        try {
+            int k = l.k(TbadkCoreApplication.getInst());
+            int i = l.i(TbadkCoreApplication.getInst());
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.kz = this.kz;
+            builder.with_floor = Integer.valueOf(this.with_floor);
+            builder.post_id = this.post_id;
+            builder.scr_w = Integer.valueOf(k);
+            builder.scr_h = Integer.valueOf(i);
+            builder.st_type = Integer.valueOf(this.st_type);
+            builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
+            if (z) {
+                w.a(builder, true);
+            }
+            GetPostListReqIdl.Builder builder2 = new GetPostListReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        } catch (Exception unused) {
+            return null;
+        }
+    }
+
+    public void setKz(Long l) {
+        this.kz = l;
     }
 
     public void setPost_id(List<Long> list) {
         this.post_id = list;
     }
 
-    public void setScr_w(int i) {
-        this.scr_w = i;
-    }
-
     public void setScr_h(int i) {
         this.scr_h = i;
+    }
+
+    public void setScr_w(int i) {
+        this.scr_w = i;
     }
 
     public void setSt_type(int i) {
         this.st_type = i;
     }
 
-    public LookMoreReqMessage() {
-        super(1001603, CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE);
-        setNetType(NetMessage.NetType.AUTO);
-    }
-
-    @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
-        try {
-            int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-            int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.kz = this.kz;
-            builder.with_floor = Integer.valueOf(this.with_floor);
-            builder.post_id = this.post_id;
-            builder.scr_w = Integer.valueOf(equipmentWidth);
-            builder.scr_h = Integer.valueOf(equipmentHeight);
-            builder.st_type = Integer.valueOf(this.st_type);
-            builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
-            if (z) {
-                v.b(builder, true);
-            }
-            GetPostListReqIdl.Builder builder2 = new GetPostListReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        } catch (Exception e) {
-            return null;
-        }
+    public void setWith_floor(int i) {
+        this.with_floor = i;
     }
 }

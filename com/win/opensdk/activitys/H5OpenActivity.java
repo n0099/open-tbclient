@@ -7,58 +7,67 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import com.win.opensdk.bd;
-import com.win.opensdk.bx;
-import com.win.opensdk.ca;
-import com.win.opensdk.cd;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.win.opensdk.R;
+import com.win.opensdk.Z0;
+import com.win.opensdk.a1;
+import com.win.opensdk.b1;
 import com.win.opensdk.core.Info;
-import com.win.opensdk.en;
-import com.win.opensdk.eq;
-import com.win.opensdk.fb;
+import com.win.opensdk.u;
+import com.win.opensdk.v;
 import com.win.opensdk.webviewbase.AdvancedWebView;
+import com.win.opensdk.y2;
 import org.json.JSONException;
-/* loaded from: classes14.dex */
-public class H5OpenActivity extends Activity implements fb {
-    public ProgressBar b;
-    public boolean d = false;
-    public Info qkh;
-    public AdvancedWebView qlt;
+/* loaded from: classes7.dex */
+public class H5OpenActivity extends Activity implements y2 {
 
-    @Override // com.win.opensdk.fb
+    /* renamed from: a  reason: collision with root package name */
+    public AdvancedWebView f39874a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ProgressBar f39875b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Info f39876c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f39877d = false;
+
+    @Override // com.win.opensdk.y2
     public void a(int i, String str, String str2) {
-        if (this.d) {
-            ca.iT(this).a(new cd(this.qkh), i, str2).a();
-            this.d = false;
-            Toast.makeText(this, getString(bd.e.win_loadp_error), 0).show();
+        if (this.f39877d) {
+            a1.a(this).a(new b1(this.f39876c), i, str2).a();
+            this.f39877d = false;
+            Toast.makeText(this, getString(R.string.win_loadp_error), 0).show();
         }
     }
 
-    @Override // com.win.opensdk.fb
+    @Override // com.win.opensdk.y2
     public void a(String str) {
-        this.qlt.setVisibility(0);
-        if (this.d) {
-            ca.iT(this).a(new cd(this.qkh), 200, str).a();
-            this.d = false;
+        this.f39874a.setVisibility(0);
+        if (this.f39877d) {
+            a1.a(this).a(new b1(this.f39876c), 200, str).a();
+            this.f39877d = false;
         }
     }
 
-    @Override // com.win.opensdk.fb
+    @Override // com.win.opensdk.y2
     public void a(String str, Bitmap bitmap) {
-        this.qlt.setVisibility(4);
+        this.f39874a.setVisibility(4);
     }
 
-    @Override // com.win.opensdk.fb
+    @Override // com.win.opensdk.y2
+    public void a(String str, String str2, String str3, long j, String str4, String str5) {
+    }
+
+    @Override // com.win.opensdk.y2
     public void b(String str) {
-    }
-
-    @Override // com.win.opensdk.fb
-    public void b(String str, String str2, String str3, long j, String str4, String str5) {
     }
 
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        AdvancedWebView advancedWebView = this.qlt;
+        AdvancedWebView advancedWebView = this.f39874a;
         if (advancedWebView != null) {
             advancedWebView.a(i, i2, intent);
         }
@@ -66,64 +75,71 @@ public class H5OpenActivity extends Activity implements fb {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        AdvancedWebView advancedWebView = this.qlt;
+        AdvancedWebView advancedWebView = this.f39874a;
         if (advancedWebView == null || advancedWebView.b()) {
             super.onBackPressed();
         }
     }
 
     @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        AdvancedWebView advancedWebView;
+        String open;
+        super.onCreate(bundle);
+        setContentView(R.layout.layout_h5_open_activity);
+        try {
+            this.f39876c = (Info) getIntent().getSerializableExtra("Key_H5OpenActData");
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        if (this.f39876c == null) {
+            return;
+        }
+        this.f39877d = true;
+        Z0 a2 = a1.a(this);
+        try {
+            a2.f39849b = a1.a("wbas", new b1(this.f39876c));
+        } catch (JSONException unused) {
+        }
+        a2.a();
+        this.f39875b = (ProgressBar) findViewById(R.id.h5_open_webview_process);
+        AdvancedWebView advancedWebView2 = (AdvancedWebView) findViewById(R.id.h5_open_webview);
+        this.f39874a = advancedWebView2;
+        advancedWebView2.a(this, this);
+        this.f39874a.setGeolocationEnabled(false);
+        this.f39874a.setMixedContentAllowed(false);
+        this.f39874a.setCookiesEnabled(true);
+        this.f39874a.setThirdPartyCookiesEnabled(true);
+        this.f39874a.setWebViewClient(new u(this));
+        this.f39874a.setWebChromeClient(new v(this));
+        Info info = this.f39876c;
+        if (info == null || TextUtils.isEmpty(info.getOph5Url())) {
+            Info info2 = this.f39876c;
+            if (info2 == null || TextUtils.isEmpty(info2.getOpen()) || StringUtil.NULL_STRING.equals(this.f39876c.getOpen())) {
+                return;
+            }
+            advancedWebView = this.f39874a;
+            open = this.f39876c.getOpen();
+        } else {
+            advancedWebView = this.f39874a;
+            open = this.f39876c.getOph5Url();
+        }
+        advancedWebView.loadUrl(open);
+    }
+
+    @Override // android.app.Activity
     public void onDestroy() {
-        AdvancedWebView advancedWebView = this.qlt;
+        AdvancedWebView advancedWebView = this.f39874a;
         if (advancedWebView != null) {
             advancedWebView.c();
         }
         super.onDestroy();
-        this.d = false;
-        bx iT = ca.iT(this);
+        this.f39877d = false;
+        Z0 a2 = a1.a(this);
         try {
-            iT.qlo = ca.a("wbao", new cd(this.qkh));
-        } catch (JSONException e) {
+            a2.f39849b = a1.a("wbao", new b1(this.f39876c));
+        } catch (JSONException unused) {
         }
-        iT.a();
-    }
-
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(bd.c.layout_h5_open_activity);
-        try {
-            this.qkh = (Info) getIntent().getSerializableExtra("Key_H5OpenActData");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (this.qkh != null) {
-            this.d = true;
-            bx iT = ca.iT(this);
-            try {
-                iT.qlo = ca.a("wbas", new cd(this.qkh));
-            } catch (JSONException e2) {
-            }
-            iT.a();
-            this.b = (ProgressBar) findViewById(bd.b.h5_open_webview_process);
-            this.qlt = (AdvancedWebView) findViewById(bd.b.h5_open_webview);
-            this.qlt.a(this, this);
-            this.qlt.setGeolocationEnabled(false);
-            this.qlt.setMixedContentAllowed(false);
-            this.qlt.setCookiesEnabled(true);
-            this.qlt.setThirdPartyCookiesEnabled(true);
-            this.qlt.setWebViewClient(new en(this));
-            this.qlt.setWebChromeClient(new eq(this));
-            Info info = this.qkh;
-            if (info != null && !TextUtils.isEmpty(info.getOph5Url())) {
-                this.qlt.loadUrl(this.qkh.getOph5Url());
-                return;
-            }
-            Info info2 = this.qkh;
-            if (info2 == null || TextUtils.isEmpty(info2.getOpen()) || "null".equals(this.qkh.getOpen())) {
-                return;
-            }
-            this.qlt.loadUrl(this.qkh.getOpen());
-        }
+        a2.a();
     }
 }

@@ -31,7 +31,11 @@ public interface q<T> {
 
     com.bytedance.sdk.openadsdk.c.h a(JSONObject jSONObject);
 
-    com.bytedance.sdk.openadsdk.core.d.q a();
+    com.bytedance.sdk.openadsdk.core.d.s a();
+
+    String a(AdSlot adSlot);
+
+    String a(AdSlot adSlot, boolean z, int i);
 
     void a(AdSlot adSlot, com.bytedance.sdk.openadsdk.core.d.m mVar, int i, b bVar);
 

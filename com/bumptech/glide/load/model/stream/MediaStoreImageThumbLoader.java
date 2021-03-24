@@ -11,9 +11,28 @@ import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.InputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MediaStoreImageThumbLoader implements ModelLoader<Uri, InputStream> {
-    private final Context context;
+    public final Context context;
+
+    /* loaded from: classes5.dex */
+    public static class Factory implements ModelLoaderFactory<Uri, InputStream> {
+        public final Context context;
+
+        public Factory(Context context) {
+            this.context = context;
+        }
+
+        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
+        @NonNull
+        public ModelLoader<Uri, InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
+            return new MediaStoreImageThumbLoader(this.context);
+        }
+
+        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
+        public void teardown() {
+        }
+    }
 
     public MediaStoreImageThumbLoader(Context context) {
         this.context = context.getApplicationContext();
@@ -32,24 +51,5 @@ public class MediaStoreImageThumbLoader implements ModelLoader<Uri, InputStream>
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(@NonNull Uri uri) {
         return MediaStoreUtil.isMediaStoreImageUri(uri);
-    }
-
-    /* loaded from: classes14.dex */
-    public static class Factory implements ModelLoaderFactory<Uri, InputStream> {
-        private final Context context;
-
-        public Factory(Context context) {
-            this.context = context;
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        @NonNull
-        public ModelLoader<Uri, InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
-            return new MediaStoreImageThumbLoader(this.context);
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public void teardown() {
-        }
     }
 }

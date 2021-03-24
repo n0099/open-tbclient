@@ -10,84 +10,66 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
-import com.baidu.adp.lib.util.v;
-import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.barselect.a.a;
-import com.baidu.tieba.barselect.data.f;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+import d.b.b.e.p.t;
+import d.b.h0.b1.m.f;
+/* loaded from: classes4.dex */
 public class AnnounceLayout extends CardBasicLayout {
-    private float fmF;
-    private TextView iuH;
-    private Context mContext;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f15189h;
+    public Context i;
+    public TextView j;
+
+    /* loaded from: classes4.dex */
+    public class a extends f {
+        public a(int i, String str) {
+            super(i, str);
+        }
+    }
 
     public AnnounceLayout(Context context) {
         this(context, null);
     }
 
-    public AnnounceLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.fmF = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds90) * 2);
-        initUI();
+    public final void a() {
+        this.j = (TextView) findViewById(R.id.announce_content);
     }
 
-    protected void initUI() {
-        this.mContext = getContext();
+    public void b() {
+        this.i = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(1);
         setGravity(17);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.announce_layout, (ViewGroup) this, true);
-        tz();
+        a();
     }
 
-    private void tz() {
-        this.iuH = (TextView) findViewById(R.id.announce_content);
-    }
-
-    @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, f fVar) {
-        super.setData(i, fVar);
-        if (this.ire == null || this.iuP == null || this.status < 0) {
-            setVisibility(8);
-            return;
-        }
-        if (this.status == a.ivd) {
-            this.fmF = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds120) * 2);
-        }
-        if (this.status == a.ive || this.status == a.ivf) {
-            this.fmF = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds96) * 2);
-        }
-        c(new SpannableStringBuilder(this.iuP.crq()));
-    }
-
-    private void c(SpannableStringBuilder spannableStringBuilder) {
-        float f;
-        if (spannableStringBuilder == null || TextUtils.isEmpty(spannableStringBuilder.toString())) {
-            this.iuH.setText(TbadkCoreApplication.getInst().getString(R.string.empty_announce));
-        } else if (!v.a(this.fmF, this.iuH.getPaint(), spannableStringBuilder.toString(), 2)) {
-            this.iuH.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
-        } else {
+    public final void c(SpannableStringBuilder spannableStringBuilder) {
+        if (spannableStringBuilder != null && !TextUtils.isEmpty(spannableStringBuilder.toString())) {
+            int i = 2;
+            if (!t.b(this.f15189h, this.j.getPaint(), spannableStringBuilder.toString(), 2)) {
+                this.j.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+                return;
+            }
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(StringHelper.STRING_MORE);
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.detail));
-            spannableStringBuilder3.setSpan(new com.baidu.tbadk.widget.richText.f(2, null) { // from class: com.baidu.tieba.barselect.segment.AnnounceLayout.1
-            }, 0, spannableStringBuilder3.length(), 17);
+            spannableStringBuilder3.setSpan(new a(2, null), 0, spannableStringBuilder3.length(), 17);
             spannableStringBuilder2.append((CharSequence) spannableStringBuilder3);
-            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.iuH.getPaint(), (int) this.fmF, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-            float f2 = this.fmF;
+            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.j.getPaint(), (int) this.f15189h, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            float f2 = this.f15189h;
             if (staticLayout.getLineCount() >= 2) {
                 spannableStringBuilder.delete(staticLayout.getLineEnd(1), spannableStringBuilder.length());
-                f = this.fmF - staticLayout.getLineWidth(1);
-            } else {
-                f = f2;
+                f2 = this.f15189h - staticLayout.getLineWidth(1);
             }
             CharSequence subSequence = spannableStringBuilder.subSequence(spannableStringBuilder.length() - 2, spannableStringBuilder.length());
-            float measureText = this.iuH.getPaint().measureText(spannableStringBuilder3.toString());
-            int i = 2;
-            while (measureText > this.iuH.getPaint().measureText(subSequence.toString()) + f) {
+            float measureText = this.j.getPaint().measureText(spannableStringBuilder3.toString());
+            while (measureText > this.j.getPaint().measureText(subSequence.toString()) + f2) {
                 i++;
                 if (spannableStringBuilder.length() - i < 0) {
                     break;
@@ -97,7 +79,33 @@ public class AnnounceLayout extends CardBasicLayout {
             if (spannableStringBuilder.length() - i > 0) {
                 spannableStringBuilder.replace(spannableStringBuilder.length() - i, spannableStringBuilder.length(), (CharSequence) spannableStringBuilder2);
             }
-            this.iuH.setText(spannableStringBuilder);
+            this.j.setText(spannableStringBuilder);
+            return;
         }
+        this.j.setText(TbadkCoreApplication.getInst().getString(R.string.empty_announce));
+    }
+
+    @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
+    public void setData(int i, d.b.i0.v.b.f fVar) {
+        int i2;
+        super.setData(i, fVar);
+        if (this.f15193f != null && this.f15194g != null && (i2 = this.f15192e) >= 0) {
+            if (i2 == d.b.i0.v.e.a.f61955b) {
+                this.f15189h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds120) * 2);
+            }
+            int i3 = this.f15192e;
+            if (i3 == d.b.i0.v.e.a.f61956c || i3 == d.b.i0.v.e.a.f61957d) {
+                this.f15189h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
+            }
+            c(new SpannableStringBuilder(this.f15194g.b()));
+            return;
+        }
+        setVisibility(8);
+    }
+
+    public AnnounceLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f15189h = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds90) * 2);
+        b();
     }
 }

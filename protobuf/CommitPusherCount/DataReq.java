@@ -2,7 +2,7 @@ package protobuf.CommitPusherCount;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long downFlowSize;
@@ -17,39 +17,7 @@ public final class DataReq extends Message {
     public static final Long DEFAULT_DOWNFLOWSIZE = 0L;
     public static final Long DEFAULT_ENTERFORECOUNT = 0L;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.pusherCount == null) {
-                this.pusherCount = DEFAULT_PUSHERCOUNT;
-            } else {
-                this.pusherCount = builder.pusherCount;
-            }
-            if (builder.upFlowSize == null) {
-                this.upFlowSize = DEFAULT_UPFLOWSIZE;
-            } else {
-                this.upFlowSize = builder.upFlowSize;
-            }
-            if (builder.downFlowSize == null) {
-                this.downFlowSize = DEFAULT_DOWNFLOWSIZE;
-            } else {
-                this.downFlowSize = builder.downFlowSize;
-            }
-            if (builder.enterForeCount == null) {
-                this.enterForeCount = DEFAULT_ENTERFORECOUNT;
-                return;
-            } else {
-                this.enterForeCount = builder.enterForeCount;
-                return;
-            }
-        }
-        this.pusherCount = builder.pusherCount;
-        this.upFlowSize = builder.upFlowSize;
-        this.downFlowSize = builder.downFlowSize;
-        this.enterForeCount = builder.enterForeCount;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long downFlowSize;
         public Long enterForeCount;
@@ -61,12 +29,13 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.pusherCount = dataReq.pusherCount;
-                this.upFlowSize = dataReq.upFlowSize;
-                this.downFlowSize = dataReq.downFlowSize;
-                this.enterForeCount = dataReq.enterForeCount;
+            if (dataReq == null) {
+                return;
             }
+            this.pusherCount = dataReq.pusherCount;
+            this.upFlowSize = dataReq.upFlowSize;
+            this.downFlowSize = dataReq.downFlowSize;
+            this.enterForeCount = dataReq.enterForeCount;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,5 +43,41 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.pusherCount;
+            if (l == null) {
+                this.pusherCount = DEFAULT_PUSHERCOUNT;
+            } else {
+                this.pusherCount = l;
+            }
+            Long l2 = builder.upFlowSize;
+            if (l2 == null) {
+                this.upFlowSize = DEFAULT_UPFLOWSIZE;
+            } else {
+                this.upFlowSize = l2;
+            }
+            Long l3 = builder.downFlowSize;
+            if (l3 == null) {
+                this.downFlowSize = DEFAULT_DOWNFLOWSIZE;
+            } else {
+                this.downFlowSize = l3;
+            }
+            Long l4 = builder.enterForeCount;
+            if (l4 == null) {
+                this.enterForeCount = DEFAULT_ENTERFORECOUNT;
+                return;
+            } else {
+                this.enterForeCount = l4;
+                return;
+            }
+        }
+        this.pusherCount = builder.pusherCount;
+        this.upFlowSize = builder.upFlowSize;
+        this.downFlowSize = builder.downFlowSize;
+        this.enterForeCount = builder.enterForeCount;
     }
 }

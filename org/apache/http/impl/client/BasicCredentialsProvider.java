@@ -4,14 +4,14 @@ import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.Credentials;
 import org.apache.http.client.CredentialsProvider;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicCredentialsProvider implements CredentialsProvider {
     public BasicCredentialsProvider() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.client.CredentialsProvider
-    public synchronized void setCredentials(AuthScope authScope, Credentials credentials) {
+    public synchronized void clear() {
         throw new RuntimeException("Stub!");
     }
 
@@ -20,12 +20,12 @@ public class BasicCredentialsProvider implements CredentialsProvider {
         throw new RuntimeException("Stub!");
     }
 
-    public String toString() {
+    @Override // org.apache.http.client.CredentialsProvider
+    public synchronized void setCredentials(AuthScope authScope, Credentials credentials) {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.client.CredentialsProvider
-    public synchronized void clear() {
+    public String toString() {
         throw new RuntimeException("Stub!");
     }
 }

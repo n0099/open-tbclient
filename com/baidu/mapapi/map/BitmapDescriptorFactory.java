@@ -10,15 +10,11 @@ import com.baidu.mapapi.common.SysOSUtil;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BitmapDescriptorFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f2011a;
-
-    static {
-        f2011a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-    }
+    public static final /* synthetic */ boolean f6824a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
 
     public static BitmapDescriptor fromAsset(String str) {
         Context context = BMapManager.getContext();
@@ -28,17 +24,21 @@ public class BitmapDescriptorFactory {
         try {
             Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
             BitmapDescriptor fromBitmap = fromBitmap(a2);
-            if (f2011a || a2 != null) {
-                a2.recycle();
-                return fromBitmap;
+            if (!f6824a && a2 == null) {
+                throw new AssertionError();
             }
-            throw new AssertionError();
-        } catch (Exception e) {
-            e.printStackTrace();
+            a2.recycle();
+            return fromBitmap;
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return null;
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0061 A[Catch: Exception -> 0x0065, TRY_LEAVE, TryCatch #0 {Exception -> 0x0065, blocks: (B:5:0x0008, B:8:0x000f, B:10:0x0017, B:11:0x0031, B:17:0x005c, B:19:0x0061, B:15:0x003c, B:16:0x0057), top: B:24:0x0008 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static BitmapDescriptor fromAssetWithDpi(String str) {
         BitmapDescriptor fromBitmap;
         Bitmap bitmap;
@@ -56,23 +56,26 @@ public class BitmapDescriptorFactory {
                 Matrix matrix = new Matrix();
                 matrix.postScale(2.0f, 2.0f);
                 bitmap = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
-                fromBitmap = fromBitmap(bitmap);
             } else if (densityDpi <= 320 || densityDpi > 480) {
                 fromBitmap = fromBitmap(a2);
                 bitmap = null;
+                a2.recycle();
+                if (bitmap != null) {
+                    bitmap.recycle();
+                }
+                return fromBitmap;
             } else {
                 Matrix matrix2 = new Matrix();
                 matrix2.postScale(1.5f, 1.5f);
                 bitmap = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix2, true);
-                fromBitmap = fromBitmap(bitmap);
             }
+            fromBitmap = fromBitmap(bitmap);
             a2.recycle();
             if (bitmap != null) {
-                bitmap.recycle();
             }
             return fromBitmap;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return null;
         }
     }
@@ -85,25 +88,24 @@ public class BitmapDescriptorFactory {
     }
 
     public static BitmapDescriptor fromFile(String str) {
-        if (str == null || str.equals("")) {
-            return null;
-        }
-        try {
-            Context context = BMapManager.getContext();
-            if (context != null) {
-                FileInputStream openFileInput = context.openFileInput(str);
-                Bitmap decodeStream = BitmapFactory.decodeStream(openFileInput);
-                openFileInput.close();
-                if (decodeStream != null) {
-                    BitmapDescriptor fromBitmap = fromBitmap(decodeStream);
-                    decodeStream.recycle();
-                    return fromBitmap;
+        if (str != null && !str.equals("")) {
+            try {
+                Context context = BMapManager.getContext();
+                if (context != null) {
+                    FileInputStream openFileInput = context.openFileInput(str);
+                    Bitmap decodeStream = BitmapFactory.decodeStream(openFileInput);
+                    openFileInput.close();
+                    if (decodeStream != null) {
+                        BitmapDescriptor fromBitmap = fromBitmap(decodeStream);
+                        decodeStream.recycle();
+                        return fromBitmap;
+                    }
                 }
+            } catch (FileNotFoundException e2) {
+                e2.printStackTrace();
+            } catch (IOException e3) {
+                e3.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e2) {
-            e2.printStackTrace();
         }
         return null;
     }

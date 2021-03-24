@@ -7,38 +7,30 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
-import com.baidu.tieba.tbadkCore.e.b;
+import com.baidu.tbadk.core.hybrid.BridgeWebView;
+import d.b.i0.c3.l0.b;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
-    private int forumId;
-    private final String nwA = "signSuccess";
-    private final String INTERFACE_NAME = "SupplementSignInterface";
-    private int nwB = 0;
-    private int nwC = 0;
-    private int nwD = 0;
-    private CustomMessageListener nwE = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_MEM) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                SupplementSignActivity.this.mWebView.loadUrl("javascript:TbJsBridge.refreshRemainDay()");
-            }
-        }
-    };
-    private b nwF = new b() { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
-        @Override // com.baidu.tieba.tbadkCore.e.b
+    public int forumId;
+    public final String JS_SIGN_SUCCESS = "signSuccess";
+    public final String INTERFACE_NAME = "SupplementSignInterface";
+    public int continuousSignAllDays = 0;
+    public int supplementSignDays = 0;
+    public int signBonusPoint = 0;
+    public CustomMessageListener mBuyMemberListener = new a(2001194);
+    public b mSupplementSignInterface = new b() { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        @Override // d.b.i0.c3.l0.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("SupplementSignInterface".equalsIgnoreCase(str) && "signSuccess".equalsIgnoreCase(str2)) {
                 if (!StringUtils.isNull(str3)) {
                     try {
                         JSONObject jSONObject = new JSONObject(str3);
-                        SupplementSignActivity.this.nwB = jSONObject.optInt("all");
-                        SupplementSignActivity.this.nwC += jSONObject.optInt("signed", 0);
-                        SupplementSignActivity.this.nwD = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.nwD;
+                        SupplementSignActivity.this.continuousSignAllDays = jSONObject.optInt("all");
+                        SupplementSignActivity.this.supplementSignDays += jSONObject.optInt("signed", 0);
+                        SupplementSignActivity.this.signBonusPoint += jSONObject.optInt("bonus", 0);
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
@@ -50,6 +42,38 @@ public class SupplementSignActivity extends TbWebViewActivity {
         }
     };
 
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer)) {
+                return;
+            }
+            SupplementSignActivity.this.mWebView.loadUrl("javascript:TbJsBridge.refreshRemainDay()");
+        }
+    }
+
+    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void finish() {
+        Intent intent = new Intent();
+        intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.forumId);
+        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.continuousSignAllDays);
+        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.supplementSignDays);
+        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.signBonusPoint);
+        super.finish(-1, intent);
+    }
+
+    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.mView.E();
+    }
+
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -57,33 +81,17 @@ public class SupplementSignActivity extends TbWebViewActivity {
         if (intent != null) {
             this.forumId = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
         }
-        addJsPromptInterface(this.nwF);
-        this.mView.jd(false);
-        registerListener(this.nwE);
+        addJsPromptInterface(this.mSupplementSignInterface);
+        this.mView.s(false);
+        registerListener(this.mBuyMemberListener);
     }
 
-    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mView.bkD();
-    }
-
-    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void finish() {
-        Intent intent = new Intent();
-        intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.forumId);
-        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.nwB);
-        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.nwC);
-        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.nwD);
-        super.finish(-1, intent);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.mWebView != null) {
-            this.mWebView.destroy();
+        BridgeWebView bridgeWebView = this.mWebView;
+        if (bridgeWebView != null) {
+            bridgeWebView.destroy();
             this.mWebView = null;
         }
     }

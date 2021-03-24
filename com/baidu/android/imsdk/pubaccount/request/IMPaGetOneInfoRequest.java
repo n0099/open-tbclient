@@ -14,24 +14,21 @@ import com.baidu.android.imsdk.pubaccount.IGetPaInfoListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.sapi2.SapiContext;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
-    private static final String TAG = "IMPaGetOneInfoRequest";
-    private long mAppid;
-    private String mKey;
-    private ArrayList<Long> mPaids;
-    private long mUk;
+    public static final String TAG = "IMPaGetOneInfoRequest";
+    public long mAppid;
+    public String mKey;
+    public ArrayList<Long> mPaids;
+    public long mUk;
 
     public IMPaGetOneInfoRequest(Context context, String str, ArrayList<Long> arrayList, long j, long j2) {
         this.mContext = context;
@@ -39,6 +36,26 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         this.mKey = str;
         this.mUk = j2;
         this.mPaids = arrayList;
+    }
+
+    private void onRequestReturn(Integer num, String str, IGetPaInfoListener iGetPaInfoListener) {
+        ArrayList<Long> arrayList = this.mPaids;
+        if (arrayList == null || arrayList.size() <= 0) {
+            return;
+        }
+        PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(this.mPaids.get(0).longValue());
+        if (iGetPaInfoListener != null) {
+            if (queryPaInfo != null) {
+                iGetPaInfoListener.onGetPaInfoResult(0, Constants.ERROR_MSG_SUCCESS, queryPaInfo);
+            } else {
+                iGetPaInfoListener.onGetPaInfoResult(num.intValue(), str, null);
+            }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/json";
     }
 
     @Override // com.baidu.android.imsdk.pubaccount.request.PaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -78,143 +95,18 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
             jSONObject.put("is_https", true);
             jSONObject.put("sign", getSignByMd5Error(bduss, currentTimeMillis, this.mAppid, md5));
             jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
-            jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-            jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+            jSONObject.put("device_type", 2);
             jSONObject.put("account_type", AccountManagerImpl.getInstance(this.mContext).getLoginType());
             if (AccountManager.isCuidLogin(this.mContext)) {
                 jSONObject.put("token", AccountManager.getToken(this.mContext));
             }
-        } catch (JSONException e) {
-            LogUtils.e(TAG, "Exception ", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+        } catch (JSONException e2) {
+            LogUtils.e(TAG, "Exception ", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
         return jSONObject.toString().getBytes();
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return HttpHelper.CONTENT_JSON;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        return false;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:27:0x01d1  */
-    /* JADX WARN: Removed duplicated region for block: B:58:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onSuccess(int i, byte[] bArr) {
-        JSONException jSONException;
-        ArrayList arrayList;
-        int i2;
-        String str;
-        ArrayList arrayList2;
-        IGetPaInfoListener iGetPaInfoListener;
-        JSONObject jSONObject;
-        ArrayList arrayList3;
-        try {
-            jSONObject = new JSONObject(new String(bArr));
-            i2 = jSONObject.getInt("error_code");
-            str = jSONObject.optString("error_msg", "");
-        } catch (JSONException e) {
-            jSONException = e;
-            arrayList = null;
-        }
-        if (i2 == 0) {
-            if (jSONObject.has("response_params")) {
-                JSONArray jSONArray = jSONObject.getJSONArray("response_params");
-                ArrayList arrayList4 = new ArrayList();
-                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                    try {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                        if (jSONObject2.optInt("pa_type") != 16) {
-                            PaInfo paInfo = new PaInfo();
-                            paInfo.setPaId(jSONObject2.optLong("pa_uid"));
-                            paInfo.setNickName(jSONObject2.optString("pa_nickname"));
-                            paInfo.setUsername(jSONObject2.optString("pa_username"));
-                            paInfo.setAvatar(jSONObject2.optString("pa_avatar"));
-                            paInfo.setDescription(jSONObject2.optString("description"));
-                            paInfo.setDetail(jSONObject2.optString("detail_description"));
-                            paInfo.setTPL(jSONObject2.optLong("tpl", -1L));
-                            paInfo.setAcceptPush(jSONObject2.optBoolean("is_accept_msg"));
-                            paInfo.setUrl(jSONObject2.optString("pa_url"));
-                            paInfo.setSubcribeTime(jSONObject2.optLong("create_time"));
-                            paInfo.setDisturb(jSONObject2.optInt("do_not_disturb"));
-                            paInfo.setSubtype(jSONObject2.optInt("pa_type"));
-                            paInfo.setClassType(jSONObject2.optInt("pa_classtype", 0));
-                            paInfo.setClasstitle(jSONObject2.optString("pa_classtitle"));
-                            paInfo.setClassAvatar(jSONObject2.optString("pa_classavatar"));
-                            paInfo.setClassshow(jSONObject2.optInt("pa_classshow", 0));
-                            paInfo.setStatus(jSONObject2.optInt("status", 0));
-                            String optString = jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_PA_EXT, "");
-                            paInfo.setPaExt(optString);
-                            if (!TextUtils.isEmpty(optString)) {
-                                try {
-                                    paInfo.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
-                                } catch (JSONException e2) {
-                                    LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e2);
-                                }
-                            }
-                            paInfo.setVipId(jSONObject2.optString("vip"));
-                            paInfo.setVPortrait(jSONObject2.optString("v_portrait", ""));
-                            paInfo.setHasIdentity(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_HAS_IDENTITY, 0));
-                            paInfo.setIdentity(jSONObject2.optString("identity", ""));
-                            paInfo.setThirdExt(jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, ""));
-                            paInfo.setRejectMenu(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU, 1));
-                            PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId());
-                            if (queryPaInfo != null) {
-                                paInfo.setMarkTop(queryPaInfo.getMarkTop());
-                                paInfo.setMarkTopTime(queryPaInfo.getMarkTopTime());
-                                paInfo.setShield(queryPaInfo.getShield());
-                                paInfo.setShieldTime(queryPaInfo.getShieldTime());
-                            }
-                            arrayList4.add(paInfo);
-                        }
-                    } catch (JSONException e3) {
-                        jSONException = e3;
-                        arrayList = arrayList4;
-                        LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", jSONException);
-                        i2 = 1010;
-                        str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(jSONException)).build();
-                        arrayList2 = arrayList;
-                        iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
-                        if (iGetPaInfoListener != null) {
-                        }
-                    }
-                }
-                Iterator it = arrayList4.iterator();
-                while (it.hasNext()) {
-                    PaInfoDBManager.getInstance(this.mContext).subscribePa((PaInfo) it.next());
-                }
-                arrayList3 = arrayList4;
-                arrayList2 = arrayList3;
-                iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
-                if (iGetPaInfoListener != null) {
-                    PaInfo paInfo2 = (arrayList2 == null || arrayList2.size() <= 0) ? null : (PaInfo) arrayList2.get(0);
-                    if (paInfo2 != null) {
-                        iGetPaInfoListener.onGetPaInfoResult(i2, str, PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo2.getPaId()));
-                        return;
-                    } else {
-                        onRequestReturn(Integer.valueOf(i2), str, iGetPaInfoListener);
-                        return;
-                    }
-                }
-                return;
-            }
-        } else {
-            LogUtils.e(TAG, "error code :" + i2 + "===errorMsg:" + str);
-        }
-        arrayList3 = null;
-        arrayList2 = arrayList3;
-        iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
-        if (iGetPaInfoListener != null) {
-        }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -223,16 +115,117 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         onRequestReturn((Integer) transErrorCode.first, (String) transErrorCode.second, (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey));
     }
 
-    private void onRequestReturn(Integer num, String str, IGetPaInfoListener iGetPaInfoListener) {
-        if (this.mPaids != null && this.mPaids.size() > 0) {
-            PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(this.mPaids.get(0).longValue());
-            if (iGetPaInfoListener != null) {
-                if (queryPaInfo != null) {
-                    iGetPaInfoListener.onGetPaInfoResult(0, Constants.ERROR_MSG_SUCCESS, queryPaInfo);
-                } else {
-                    iGetPaInfoListener.onGetPaInfoResult(num.intValue(), str, null);
+    /* JADX WARN: Removed duplicated region for block: B:39:0x01e1  */
+    /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onSuccess(int i, byte[] bArr) {
+        ArrayList arrayList;
+        int i2;
+        String str;
+        IGetPaInfoListener iGetPaInfoListener;
+        JSONObject jSONObject;
+        String str2 = new String(bArr);
+        PaInfo paInfo = null;
+        try {
+            jSONObject = new JSONObject(str2);
+            i2 = jSONObject.getInt("error_code");
+            str = jSONObject.optString("error_msg", "");
+        } catch (JSONException e2) {
+            e = e2;
+            arrayList = null;
+        }
+        if (i2 != 0) {
+            LogUtils.e(TAG, "error code :" + i2 + "===errorMsg:" + str);
+        } else if (jSONObject.has("response_params")) {
+            JSONArray jSONArray = jSONObject.getJSONArray("response_params");
+            arrayList = new ArrayList();
+            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                try {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                    if (jSONObject2.optInt("pa_type") != 16) {
+                        PaInfo paInfo2 = new PaInfo();
+                        paInfo2.setPaId(jSONObject2.optLong("pa_uid"));
+                        paInfo2.setNickName(jSONObject2.optString("pa_nickname"));
+                        paInfo2.setUsername(jSONObject2.optString("pa_username"));
+                        paInfo2.setAvatar(jSONObject2.optString("pa_avatar"));
+                        paInfo2.setDescription(jSONObject2.optString("description"));
+                        paInfo2.setDetail(jSONObject2.optString("detail_description"));
+                        paInfo2.setTPL(jSONObject2.optLong("tpl", -1L));
+                        paInfo2.setAcceptPush(jSONObject2.optBoolean("is_accept_msg"));
+                        paInfo2.setUrl(jSONObject2.optString("pa_url"));
+                        paInfo2.setSubcribeTime(jSONObject2.optLong("create_time"));
+                        paInfo2.setDisturb(jSONObject2.optInt("do_not_disturb"));
+                        paInfo2.setSubtype(jSONObject2.optInt("pa_type"));
+                        paInfo2.setClassType(jSONObject2.optInt("pa_classtype", 0));
+                        paInfo2.setClasstitle(jSONObject2.optString("pa_classtitle"));
+                        paInfo2.setClassAvatar(jSONObject2.optString("pa_classavatar"));
+                        paInfo2.setClassshow(jSONObject2.optInt("pa_classshow", 0));
+                        paInfo2.setStatus(jSONObject2.optInt("status", 0));
+                        String optString = jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_PA_EXT, "");
+                        paInfo2.setPaExt(optString);
+                        if (!TextUtils.isEmpty(optString)) {
+                            try {
+                                paInfo2.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
+                            } catch (JSONException e3) {
+                                LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e3);
+                            }
+                        }
+                        paInfo2.setVipId(jSONObject2.optString("vip"));
+                        paInfo2.setVPortrait(jSONObject2.optString("v_portrait", ""));
+                        paInfo2.setHasIdentity(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_HAS_IDENTITY, 0));
+                        paInfo2.setIdentity(jSONObject2.optString("identity", ""));
+                        paInfo2.setThirdExt(jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, ""));
+                        paInfo2.setRejectMenu(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU, 1));
+                        PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo2.getPaId());
+                        if (queryPaInfo != null) {
+                            paInfo2.setMarkTop(queryPaInfo.getMarkTop());
+                            paInfo2.setMarkTopTime(queryPaInfo.getMarkTopTime());
+                            paInfo2.setShield(queryPaInfo.getShield());
+                            paInfo2.setShieldTime(queryPaInfo.getShieldTime());
+                        }
+                        arrayList.add(paInfo2);
+                    }
+                } catch (JSONException e4) {
+                    e = e4;
+                    LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
+                    i2 = 1010;
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                    iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
+                    if (iGetPaInfoListener != null) {
+                    }
                 }
             }
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                PaInfoDBManager.getInstance(this.mContext).subscribePa((PaInfo) it.next());
+            }
+            iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
+            if (iGetPaInfoListener != null) {
+                if (arrayList != null && arrayList.size() > 0) {
+                    paInfo = (PaInfo) arrayList.get(0);
+                }
+                if (paInfo != null) {
+                    iGetPaInfoListener.onGetPaInfoResult(i2, str, PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId()));
+                    return;
+                } else {
+                    onRequestReturn(Integer.valueOf(i2), str, iGetPaInfoListener);
+                    return;
+                }
+            }
+            return;
         }
+        arrayList = null;
+        iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
+        if (iGetPaInfoListener != null) {
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        return false;
     }
 }

@@ -8,7 +8,7 @@ import com.kwad.sdk.api.KsFeedAd;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractKsFeedAd implements KsFeedAd {
     @Override // com.kwad.sdk.api.KsFeedAd
     @Nullable
@@ -21,5 +21,5 @@ public abstract class AbstractKsFeedAd implements KsFeedAd {
     @Nullable
     @KsAdSdkDynamicApi
     @Keep
-    protected abstract View getFeedView2(Context context);
+    public abstract View getFeedView2(Context context);
 }

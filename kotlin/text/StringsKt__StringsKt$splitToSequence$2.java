@@ -1,21 +1,24 @@
 package kotlin.text;
 
+import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import kotlin.Metadata;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
-@kotlin.e
-/* loaded from: classes14.dex */
-final class StringsKt__StringsKt$splitToSequence$2 extends Lambda implements kotlin.jvm.a.b<kotlin.b.h, String> {
-    final /* synthetic */ CharSequence receiver$0;
+import kotlin.ranges.IntRange;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lkotlin/ranges/IntRange;", "invoke"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes7.dex */
+public final class StringsKt__StringsKt$splitToSequence$2 extends Lambda implements Function1<IntRange, String> {
+    public final /* synthetic */ CharSequence $this_splitToSequence;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    StringsKt__StringsKt$splitToSequence$2(CharSequence charSequence) {
+    public StringsKt__StringsKt$splitToSequence$2(CharSequence charSequence) {
         super(1);
-        this.receiver$0 = charSequence;
+        this.$this_splitToSequence = charSequence;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.jvm.a.b
-    public final String invoke(kotlin.b.h hVar) {
-        kotlin.jvm.internal.p.p(hVar, "it");
-        return l.a(this.receiver$0, hVar);
+    @Override // kotlin.jvm.functions.Function1
+    public final String invoke(IntRange intRange) {
+        return StringsKt__StringsKt.substring(this.$this_splitToSequence, intRange);
     }
 }

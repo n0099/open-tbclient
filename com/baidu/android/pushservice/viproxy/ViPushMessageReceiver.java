@@ -4,12 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.frequency.b;
+import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.j.m;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.sdk.OpenClientPushMessageReceiver;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class ViPushMessageReceiver extends OpenClientPushMessageReceiver {
     @Override // com.vivo.push.sdk.PushMessageCallback
     public void onNotificationMessageClicked(Context context, UPSNotificationMessage uPSNotificationMessage) {
@@ -38,8 +39,9 @@ public class ViPushMessageReceiver extends OpenClientPushMessageReceiver {
             intent.putExtra("vi_notification_pkg_content", optString3);
             intent.putExtra("extra_extra_custom_content", optString4);
             m.a(intent, context.getApplicationContext());
-        } catch (Exception e) {
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+            b.a().a(context, false, 1, optString4);
+        } catch (Exception e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
         }
     }
 

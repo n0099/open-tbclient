@@ -1,27 +1,26 @@
 package com.baidu.mobad.nativevideo;
-/* loaded from: classes4.dex */
-class d implements com.baidu.mobads.i.a {
+/* loaded from: classes2.dex */
+public class d implements com.baidu.mobads.i.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2333a;
+    public final /* synthetic */ c f8063a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.f2333a = cVar;
+        this.f8063a = cVar;
     }
 
     @Override // com.baidu.mobads.i.a
     public void a() {
-        this.f2333a.f2332a.b();
+        this.f8063a.f8062a.b();
     }
 
     @Override // com.baidu.mobads.i.a
     public void b() {
-        this.f2333a.f2332a.c();
+        this.f8063a.f8062a.c();
     }
 
     @Override // com.baidu.mobads.i.a
     public void c() {
-        this.f2333a.f2332a.d();
+        this.f8063a.f8062a.d();
     }
 }

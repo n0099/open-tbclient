@@ -2,29 +2,30 @@ package com.baidu.tbadk.core.data;
 
 import java.io.Serializable;
 import tbclient.PushType;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PushTypeData implements Serializable {
-    private String mIcon;
-    private String mName;
-    private int mType;
+    public String mIcon;
+    public String mName;
+    public int mType;
 
-    public int getType() {
-        return this.mType;
+    public String getIcon() {
+        return this.mIcon;
     }
 
     public String getName() {
         return this.mName;
     }
 
-    public String getIcon() {
-        return this.mIcon;
+    public int getType() {
+        return this.mType;
     }
 
     public void parserProtobuf(PushType pushType) {
-        if (pushType != null) {
-            this.mType = pushType.type.intValue();
-            this.mName = pushType.name;
-            this.mIcon = pushType.icon;
+        if (pushType == null) {
+            return;
         }
+        this.mType = pushType.type.intValue();
+        this.mName = pushType.name;
+        this.mIcon = pushType.icon;
     }
 }

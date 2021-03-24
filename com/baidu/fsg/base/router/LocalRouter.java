@@ -3,70 +3,75 @@ package com.baidu.fsg.base.router;
 import android.content.Context;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class LocalRouter {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1519a = "LocalRouter";
-    private static LocalRouter b = null;
-    private HashMap<String, RouterProvider> c;
-    private Context d;
+    public static final String f5249a = "LocalRouter";
 
-    private LocalRouter(Context context) {
-        this.c = null;
-        this.d = context;
-        this.c = new HashMap<>();
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static LocalRouter f5250b;
 
-    public static synchronized LocalRouter init(Context context) {
-        LocalRouter localRouter;
-        synchronized (LocalRouter.class) {
-            if (b == null) {
-                b = new LocalRouter(context);
-            }
-            localRouter = b;
-        }
-        return localRouter;
+    /* renamed from: c  reason: collision with root package name */
+    public HashMap<String, RouterProvider> f5251c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f5252d;
+
+    public LocalRouter(Context context) {
+        this.f5251c = null;
+        this.f5252d = context;
+        this.f5251c = new HashMap<>();
     }
 
     public static synchronized LocalRouter getInstance() {
         LocalRouter localRouter;
         synchronized (LocalRouter.class) {
-            if (b == null) {
+            if (f5250b != null) {
+                localRouter = f5250b;
+            } else {
                 throw new RuntimeException("Local Router must be init first");
             }
-            localRouter = b;
         }
         return localRouter;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(String str, RouterProvider routerProvider) {
-        this.c.put(str, routerProvider);
+    public static synchronized LocalRouter init(Context context) {
+        LocalRouter localRouter;
+        synchronized (LocalRouter.class) {
+            if (f5250b == null) {
+                f5250b = new LocalRouter(context);
+            }
+            localRouter = f5250b;
+        }
+        return localRouter;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(String str, RouterProvider routerProvider) {
+        this.f5251c.put(str, routerProvider);
+    }
+
     public void a(Context context, RouterRequest routerRequest, RouterCallback routerCallback) {
-        LogUtil.d(f1519a, "Process:Local route start: " + System.currentTimeMillis());
-        LogUtil.d(f1519a, "Process:Local find action start: " + System.currentTimeMillis());
+        LogUtil.d("LocalRouter", "Process:Local route start: " + System.currentTimeMillis());
+        LogUtil.d("LocalRouter", "Process:Local find action start: " + System.currentTimeMillis());
         RouterAction a2 = a(routerRequest);
-        LogUtil.d(f1519a, "Process:Local find action end: " + System.currentTimeMillis());
+        LogUtil.d("LocalRouter", "Process:Local find action end: " + System.currentTimeMillis());
         try {
             a2.invoke(context, routerRequest.getData(), routerCallback);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             HashMap hashMap = new HashMap();
-            hashMap.put("retMsg", e.getMessage());
+            hashMap.put("retMsg", e2.getMessage());
             routerCallback.onResult(RouterCallback.CODE_ERROR, hashMap);
         }
-        LogUtil.d(f1519a, "Process:Local route end: " + System.currentTimeMillis());
+        LogUtil.d("LocalRouter", "Process:Local route end: " + System.currentTimeMillis());
     }
 
     private RouterAction a(RouterRequest routerRequest) {
-        RouterProvider routerProvider = this.c.get(routerRequest.getProvider());
+        RouterProvider routerProvider = this.f5251c.get(routerRequest.getProvider());
         ErrorAction errorAction = new ErrorAction();
         if (routerProvider == null) {
-            for (RouterProvider routerProvider2 : this.c.values()) {
+            for (RouterProvider routerProvider2 : this.f5251c.values()) {
                 RouterAction findAction = routerProvider2.findAction(routerRequest.getAction());
                 if (findAction != null) {
                     return findAction;

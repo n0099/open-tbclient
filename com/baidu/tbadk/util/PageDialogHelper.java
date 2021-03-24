@@ -3,17 +3,17 @@ package com.baidu.tbadk.util;
 import android.app.Activity;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PageDialogHelper {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public enum PayForm {
         NOT_SET,
         DIALOG,
         NORMAL
     }
 
-    public static void setDialogLayout(Activity activity) {
+    public static void a(Activity activity) {
         WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         attributes.x = 0;

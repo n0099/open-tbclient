@@ -12,41 +12,53 @@ import android.os.Build;
 import android.util.AttributeSet;
 import com.kwad.sdk.R;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f7169a = new float[8];
-    private float b;
-    private Path c;
-    private Paint d;
-    private RectF e;
-    private boolean f;
+    public float[] f36841a = new float[8];
+
+    /* renamed from: b  reason: collision with root package name */
+    public float f36842b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Path f36843c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Paint f36844d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RectF f36845e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f36846f;
 
     private float[] a() {
-        this.f7169a[0] = this.b;
-        this.f7169a[1] = this.b;
-        this.f7169a[2] = this.b;
-        this.f7169a[3] = this.b;
-        this.f7169a[4] = this.b;
-        this.f7169a[5] = this.b;
-        this.f7169a[6] = this.b;
-        this.f7169a[7] = this.b;
-        return this.f7169a;
+        float[] fArr = this.f36841a;
+        float f2 = this.f36842b;
+        fArr[0] = f2;
+        fArr[1] = f2;
+        fArr[2] = f2;
+        fArr[3] = f2;
+        fArr[4] = f2;
+        fArr[5] = f2;
+        fArr[6] = f2;
+        fArr[7] = f2;
+        return fArr;
     }
 
     private Path b() {
-        this.c.reset();
-        this.c.addRoundRect(this.e, a(), Path.Direction.CW);
-        return this.c;
+        this.f36843c.reset();
+        this.f36843c.addRoundRect(this.f36845e, a(), Path.Direction.CW);
+        return this.f36843c;
     }
 
-    public void a(float f) {
-        this.b = f;
+    public void a(float f2) {
+        this.f36842b = f2;
     }
 
     public void a(int i, int i2) {
-        this.e.set(0.0f, 0.0f, i, i2);
+        this.f36845e.set(0.0f, 0.0f, i, i2);
     }
 
     public void a(Context context, AttributeSet attributeSet) {
@@ -55,19 +67,19 @@ public class d {
         int[] iArr = {i, i2};
         Arrays.sort(iArr);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-        this.b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i), 0);
-        this.f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i2), true);
+        this.f36842b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i), 0);
+        this.f36846f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i2), true);
         obtainStyledAttributes.recycle();
-        this.c = new Path();
-        this.d = new Paint(1);
-        this.e = new RectF();
-        this.d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        this.f36843c = new Path();
+        this.f36844d = new Paint(1);
+        this.f36845e = new RectF();
+        this.f36844d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
     }
 
     public void a(Canvas canvas) {
-        if (this.f) {
+        if (this.f36846f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.saveLayer(this.e, null, 31);
+                canvas.saveLayer(this.f36845e, null, 31);
                 return;
             }
             canvas.save();
@@ -76,9 +88,9 @@ public class d {
     }
 
     public void b(Canvas canvas) {
-        if (this.f) {
+        if (this.f36846f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.drawPath(b(), this.d);
+                canvas.drawPath(b(), this.f36844d);
             }
             canvas.restore();
         }
@@ -86,7 +98,7 @@ public class d {
 
     public void c(Canvas canvas) {
         if (Build.VERSION.SDK_INT < 28) {
-            canvas.saveLayer(this.e, null, 31);
+            canvas.saveLayer(this.f36845e, null, 31);
             return;
         }
         canvas.save();
@@ -95,7 +107,7 @@ public class d {
 
     public void d(Canvas canvas) {
         if (Build.VERSION.SDK_INT < 28) {
-            canvas.drawPath(b(), this.d);
+            canvas.drawPath(b(), this.f36844d);
         }
         canvas.restore();
     }

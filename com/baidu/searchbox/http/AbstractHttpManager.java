@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.searchbox.http.RequestHandler;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.request.DeleteRequest;
@@ -31,23 +32,22 @@ import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractHttpManager {
-    private static final String TAG = "HttpManager";
-    private static String sClientIP;
-    private static List<Class<? extends Interceptor>> sExternalInterceptorClass;
-    private static List<Class<? extends Interceptor>> sExternalNetworkInterceptorClass;
-    private static ProductUserAgentHandler sProductUserAgent;
-    private static ProxySelector sProxySelector;
-    protected Context context;
-    protected Handler deliver;
-    private ConnectionPool ipv4OnlyConnectionPool;
-    private NetworkStat<Request> networkStat;
-    protected OkHttpClient okHttpClient;
-    private RequestHandler requestHandler;
-    private IHttpDns sHttpDns;
+    public static final String TAG = "HttpManager";
+    public static String sClientIP;
+    public static List<Class<? extends Interceptor>> sExternalInterceptorClass;
+    public static List<Class<? extends Interceptor>> sExternalNetworkInterceptorClass;
+    public static ProductUserAgentHandler sProductUserAgent;
+    public static ProxySelector sProxySelector;
+    public Context context;
+    public Handler deliver;
+    public ConnectionPool ipv4OnlyConnectionPool;
+    public NetworkStat<Request> networkStat;
+    public OkHttpClient okHttpClient;
+    public RequestHandler requestHandler;
+    public IHttpDns sHttpDns;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public AbstractHttpManager(Context context) {
         if (HttpRuntime.getHttpContext() != null) {
             HttpRuntime.getHttpContext().init();
@@ -59,14 +59,18 @@ public abstract class AbstractHttpManager {
         this.okHttpClient = initClient();
     }
 
-    public IHttpDns getHttpDns() {
-        return this.sHttpDns;
-    }
-
-    public static void setGlobalProxySelector(ProxySelector proxySelector) {
-        if (proxySelector != null) {
-            sProxySelector = proxySelector;
+    public static void addExternalInterceptorClass(Class<? extends Interceptor> cls) {
+        if (sExternalInterceptorClass == null) {
+            synchronized (AbstractHttpManager.class) {
+                if (sExternalInterceptorClass == null) {
+                    sExternalInterceptorClass = new ArrayList();
+                }
+            }
         }
+        if (cls == null || sExternalInterceptorClass.contains(cls)) {
+            return;
+        }
+        sExternalInterceptorClass.add(cls);
     }
 
     public static void addExternalNetworkInterceptorClass(Class<? extends Interceptor> cls) {
@@ -84,98 +88,67 @@ public abstract class AbstractHttpManager {
         }
     }
 
-    public static void addExternalInterceptorClass(Class<? extends Interceptor> cls) {
-        if (sExternalInterceptorClass == null) {
-            synchronized (AbstractHttpManager.class) {
-                if (sExternalInterceptorClass == null) {
-                    sExternalInterceptorClass = new ArrayList();
+    private void addFreeCardProxySelector(OkHttpClient.Builder builder) {
+        ProxySelector proxySelector = sProxySelector;
+        if (proxySelector != null) {
+            builder.proxySelector(proxySelector);
+        }
+    }
+
+    private void addStaticInterceptor(OkHttpClient.Builder builder) {
+        List<Class<? extends Interceptor>> list = sExternalNetworkInterceptorClass;
+        if (list != null) {
+            try {
+                for (Class<? extends Interceptor> cls : list) {
+                    builder.addNetworkInterceptor(cls.getConstructor(new Class[0]).newInstance(new Object[0]));
                 }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
-        if (cls != null && !sExternalInterceptorClass.contains(cls)) {
-            sExternalInterceptorClass.add(cls);
+        List<Class<? extends Interceptor>> list2 = sExternalInterceptorClass;
+        if (list2 != null) {
+            try {
+                for (Class<? extends Interceptor> cls2 : list2) {
+                    builder.addInterceptor(cls2.getConstructor(new Class[0]).newInstance(new Object[0]));
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
         }
     }
 
-    public boolean isNetWorkConnected() {
-        return ConnectManager.isNetworkConnected(this.context);
-    }
-
-    public boolean isWifi() {
-        return ConnectManager.isWifi(this.context);
-    }
-
-    public String getNetworkInfo() {
-        return ConnectManager.getNetworkInfo(this.context);
-    }
-
-    public void setHttpDnsEnable(boolean z) {
-        if (this.sHttpDns != null) {
-            this.sHttpDns.setHttpDnsEnable(z);
+    private void cancleTagByCall(Call call, Object obj) {
+        if (obj.equals(call.request().tag())) {
+            call.cancel();
+        } else if ((call.request().tag() instanceof HttpRequest) && obj.equals(((HttpRequest) call.request().tag()).tag())) {
+            call.cancel();
         }
     }
 
-    public boolean getHttpDnsEnable() {
-        if (this.sHttpDns != null) {
-            return this.sHttpDns.getHttpDnsEnable();
+    public static String getClientIP() {
+        return sClientIP;
+    }
+
+    public static ProductUserAgentHandler getProductUserAgent() {
+        return sProductUserAgent;
+    }
+
+    public static void setGlobalProxySelector(ProxySelector proxySelector) {
+        if (proxySelector != null) {
+            sProxySelector = proxySelector;
         }
-        return false;
     }
 
-    public void setNetworkStat(NetworkStat<Request> networkStat) {
-        this.networkStat = networkStat;
+    public static void setProductUserAgent(ProductUserAgentHandler productUserAgentHandler) {
+        sProductUserAgent = productUserAgentHandler;
     }
 
-    public NetworkStat<Request> getNetworkStat() {
-        return this.networkStat;
-    }
-
-    public GetRequest.GetRequestBuilder getRequest() {
-        return new GetRequest.GetRequestBuilder(this);
-    }
-
-    public PostFileRequest.PostFileRequestBuilder postFileRequest() {
-        return new PostFileRequest.PostFileRequestBuilder(this);
-    }
-
-    public PostStringRequest.PostStringRequestBuilder postStringRequest() {
-        return new PostStringRequest.PostStringRequestBuilder(this);
-    }
-
-    public PostByteRequest.PostByteRequestBuilder postByteRequest() {
-        return new PostByteRequest.PostByteRequestBuilder(this);
-    }
-
-    public PostFormRequest.PostFormRequestBuilder postFormRequest() {
-        return new PostFormRequest.PostFormRequestBuilder(this);
-    }
-
-    public PostBodyRequest.PostBodyRequestBuilder postRequest() {
-        return new PostBodyRequest.PostBodyRequestBuilder(this);
-    }
-
-    public PostMultiPartFormRequest.PostMultiPartFormRequestBuilder postMultiPartRequest() {
-        return new PostMultiPartFormRequest.PostMultiPartFormRequestBuilder(this);
-    }
-
-    public PutFormRequest.PutFormRequestBuilder putFormRequest() {
-        return new PutFormRequest.PutFormRequestBuilder(this);
-    }
-
-    public PutBodyRequest.PutBodyRequestBuilder putRequest() {
-        return new PutBodyRequest.PutBodyRequestBuilder(this);
-    }
-
-    public HeadRequest.HeadRequestBuilder headerRequest() {
-        return new HeadRequest.HeadRequestBuilder(this);
-    }
-
-    public DeleteRequest.DeleteRequestBuilder deleteRequest() {
-        return new DeleteRequest.DeleteRequestBuilder(this);
-    }
-
-    public PatchRequest.PatchRequestBuilder patchRequest() {
-        return new PatchRequest.PatchRequestBuilder(this);
+    public static void updateClientIP(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        sClientIP = str;
     }
 
     public void cancelAll() {
@@ -193,16 +166,28 @@ public abstract class AbstractHttpManager {
         }
     }
 
-    private void cancleTagByCall(Call call, Object obj) {
-        if (obj.equals(call.request().tag())) {
-            call.cancel();
-        } else if ((call.request().tag() instanceof HttpRequest) && obj.equals(((HttpRequest) call.request().tag()).tag())) {
-            call.cancel();
-        }
+    public DeleteRequest.DeleteRequestBuilder deleteRequest() {
+        return new DeleteRequest.DeleteRequestBuilder(this);
     }
 
-    public OkHttpClient getOkHttpClient() {
-        return this.okHttpClient;
+    public CookieManager getCookieManager(boolean z, boolean z2) {
+        return HttpRuntime.getHttpContext().getCookieManager(z, z2);
+    }
+
+    public Handler getDeliver() {
+        return this.deliver;
+    }
+
+    public IHttpDns getHttpDns() {
+        return this.sHttpDns;
+    }
+
+    public boolean getHttpDnsEnable() {
+        IHttpDns iHttpDns = this.sHttpDns;
+        if (iHttpDns != null) {
+            return iHttpDns.getHttpDnsEnable();
+        }
+        return false;
     }
 
     public ConnectionPool getIPv4OnlyConnectionPool() {
@@ -216,11 +201,34 @@ public abstract class AbstractHttpManager {
         return this.ipv4OnlyConnectionPool;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public String getNetworkInfo() {
+        return ConnectManager.getNetworkInfo(this.context);
+    }
+
+    public NetworkStat<Request> getNetworkStat() {
+        return this.networkStat;
+    }
+
+    public OkHttpClient getOkHttpClient() {
+        return this.okHttpClient;
+    }
+
+    public GetRequest.GetRequestBuilder getRequest() {
+        return new GetRequest.GetRequestBuilder(this);
+    }
+
+    public RequestHandler getRequestHandler() {
+        return this.requestHandler;
+    }
+
+    public HeadRequest.HeadRequestBuilder headerRequest() {
+        return new HeadRequest.HeadRequestBuilder(this);
+    }
+
     public OkHttpClient initClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         try {
-            builder.connectTimeout(30000L, TimeUnit.MILLISECONDS).readTimeout(30000L, TimeUnit.MILLISECONDS).writeTimeout(30000L, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(10, 5L, TimeUnit.MINUTES));
+            builder.connectTimeout(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, TimeUnit.MILLISECONDS).readTimeout(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, TimeUnit.MILLISECONDS).writeTimeout(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(10, 5L, TimeUnit.MINUTES));
             if (this.sHttpDns != null && (this.sHttpDns instanceof Dns)) {
                 builder.dns((Dns) this.sHttpDns);
             }
@@ -232,79 +240,72 @@ public abstract class AbstractHttpManager {
             if (HttpRuntime.getHttpContext() != null && HttpRuntime.getHttpContext().getEventListener() != null) {
                 builder.eventListener(HttpRuntime.getHttpContext().getEventListener());
             }
-        } catch (IllegalArgumentException e) {
-            Log.e(TAG, " set timeout illegal exception, we will use the 10_000 mills default", e);
+        } catch (IllegalArgumentException e2) {
+            Log.e("HttpManager", " set timeout illegal exception, we will use the 10_000 mills default", e2);
         }
         return builder.build();
     }
 
-    private void addStaticInterceptor(OkHttpClient.Builder builder) {
-        if (sExternalNetworkInterceptorClass != null) {
-            try {
-                for (Class<? extends Interceptor> cls : sExternalNetworkInterceptorClass) {
-                    builder.addNetworkInterceptor(cls.getConstructor(new Class[0]).newInstance(new Object[0]));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        if (sExternalInterceptorClass != null) {
-            try {
-                for (Class<? extends Interceptor> cls2 : sExternalInterceptorClass) {
-                    builder.addInterceptor(cls2.getConstructor(new Class[0]).newInstance(new Object[0]));
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+    public boolean isNetWorkConnected() {
+        return ConnectManager.isNetworkConnected(this.context);
+    }
+
+    public boolean isWifi() {
+        return ConnectManager.isWifi(this.context);
+    }
+
+    public PatchRequest.PatchRequestBuilder patchRequest() {
+        return new PatchRequest.PatchRequestBuilder(this);
+    }
+
+    public PostByteRequest.PostByteRequestBuilder postByteRequest() {
+        return new PostByteRequest.PostByteRequestBuilder(this);
+    }
+
+    public PostFileRequest.PostFileRequestBuilder postFileRequest() {
+        return new PostFileRequest.PostFileRequestBuilder(this);
+    }
+
+    public PostFormRequest.PostFormRequestBuilder postFormRequest() {
+        return new PostFormRequest.PostFormRequestBuilder(this);
+    }
+
+    public PostMultiPartFormRequest.PostMultiPartFormRequestBuilder postMultiPartRequest() {
+        return new PostMultiPartFormRequest.PostMultiPartFormRequestBuilder(this);
+    }
+
+    public PostBodyRequest.PostBodyRequestBuilder postRequest() {
+        return new PostBodyRequest.PostBodyRequestBuilder(this);
+    }
+
+    public PostStringRequest.PostStringRequestBuilder postStringRequest() {
+        return new PostStringRequest.PostStringRequestBuilder(this);
+    }
+
+    public PutFormRequest.PutFormRequestBuilder putFormRequest() {
+        return new PutFormRequest.PutFormRequestBuilder(this);
+    }
+
+    public PutBodyRequest.PutBodyRequestBuilder putRequest() {
+        return new PutBodyRequest.PutBodyRequestBuilder(this);
+    }
+
+    public void setHttpDnsEnable(boolean z) {
+        IHttpDns iHttpDns = this.sHttpDns;
+        if (iHttpDns != null) {
+            iHttpDns.setHttpDnsEnable(z);
         }
     }
 
-    private void addFreeCardProxySelector(OkHttpClient.Builder builder) {
-        if (sProxySelector != null) {
-            builder.proxySelector(sProxySelector);
-        }
+    public void setNetworkStat(NetworkStat<Request> networkStat) {
+        this.networkStat = networkStat;
     }
 
-    public Handler getDeliver() {
-        return this.deliver;
-    }
-
-    public RequestHandler getRequestHandler() {
-        return this.requestHandler;
+    public void setOkHttpClient(OkHttpClient okHttpClient) {
+        this.okHttpClient = okHttpClient;
     }
 
     public void setRequestHandler(RequestHandler requestHandler) {
         this.requestHandler = requestHandler;
-    }
-
-    public CookieManager getCookieManager(boolean z, boolean z2) {
-        return HttpRuntime.getHttpContext().getCookieManager(z, z2);
-    }
-
-    public static void setProductUserAgent(ProductUserAgentHandler productUserAgentHandler) {
-        sProductUserAgent = productUserAgentHandler;
-    }
-
-    public static ProductUserAgentHandler getProductUserAgent() {
-        return sProductUserAgent;
-    }
-
-    public static String getClientIP() {
-        IClientIPProvider clientIPProvider;
-        return (HttpRuntime.getHttpContext() == null || (clientIPProvider = HttpRuntime.getHttpContext().getClientIPProvider()) == null) ? sClientIP : clientIPProvider.getClientIP();
-    }
-
-    public static void updateClientIP(String str) {
-        IClientIPProvider clientIPProvider;
-        if (HttpRuntime.getHttpContext() != null && (clientIPProvider = HttpRuntime.getHttpContext().getClientIPProvider()) != null) {
-            clientIPProvider.notifyChanged(str);
-        }
-        if (!TextUtils.isEmpty(str)) {
-            sClientIP = str;
-        }
-    }
-
-    protected void setOkHttpClient(OkHttpClient okHttpClient) {
-        this.okHttpClient = okHttpClient;
     }
 }

@@ -20,374 +20,199 @@ import android.view.ViewGroup;
 import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.swan.support.v4.app.a;
-import com.baidu.swan.support.v4.app.c;
+import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.bumptech.glide.load.engine.GlideException;
+import d.b.g0.m.a.a.a;
+import d.b.g0.m.a.a.c;
+import d.b.g0.m.a.a.d;
+import d.b.g0.m.a.a.g;
+import d.b.g0.m.a.a.i;
+import d.b.g0.m.a.a.j;
+import d.b.g0.m.a.a.k;
+import d.b.g0.m.a.a.o;
+import d.b.g0.m.a.a.r;
+import d.b.g0.m.a.c.f;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class FragmentActivity extends g implements a.InterfaceC0546a, c.a {
-    boolean eyg;
-    boolean eyh;
-    boolean mCreated;
-    boolean mRequestedPermissionsFromFragment;
-    protected boolean mResumed;
-    boolean mRetaining;
-    boolean mStopped;
-    final Handler mHandler = new Handler() { // from class: com.baidu.swan.support.v4.app.FragmentActivity.1
+public class FragmentActivity extends g implements a.b, c.a {
+    public static final String FRAGMENTS_TAG = "android:support:fragments";
+    public static final int HONEYCOMB = 11;
+    public static final int MSG_REALLY_STOPPED = 1;
+    public static final int MSG_RESUME_PENDING = 2;
+    public static final String TAG = "FragmentActivity";
+    public boolean mCreated;
+    public boolean mOptionsMenuInvalidated;
+    public boolean mReallyStopped;
+    public boolean mRequestedPermissionsFromFragment;
+    public boolean mResumed;
+    public boolean mRetaining;
+    public boolean mStopped;
+    public final Handler mHandler = new a();
+    public final i mFragments = i.b(new b());
+
+    /* loaded from: classes3.dex */
+    public class a extends Handler {
+        public a() {
+        }
+
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            switch (message.what) {
-                case 1:
-                    if (FragmentActivity.this.mStopped) {
-                        FragmentActivity.this.iG(false);
-                        return;
-                    }
-                    return;
-                case 2:
-                    FragmentActivity.this.onResumeFragments();
-                    FragmentActivity.this.eyf.execPendingActions();
-                    return;
-                default:
-                    super.handleMessage(message);
-                    return;
+            int i = message.what;
+            if (i == 1) {
+                FragmentActivity fragmentActivity = FragmentActivity.this;
+                if (fragmentActivity.mStopped) {
+                    fragmentActivity.doReallyStop(false);
+                }
+            } else if (i != 2) {
+                super.handleMessage(message);
+            } else {
+                FragmentActivity.this.onResumeFragments();
+                FragmentActivity.this.mFragments.v();
             }
         }
-    };
-    final i eyf = i.a(new a());
-
-    @Override // com.baidu.swan.support.v4.app.g, android.app.Activity, android.view.LayoutInflater.Factory2
-    public /* bridge */ /* synthetic */ View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return super.onCreateView(view, str, context, attributeSet);
-    }
-
-    @Override // com.baidu.swan.support.v4.app.f, android.app.Activity, android.view.LayoutInflater.Factory
-    public /* bridge */ /* synthetic */ View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        return super.onCreateView(str, context, attributeSet);
     }
 
     /* loaded from: classes3.dex */
-    static final class b {
-        Object custom;
-        List<Fragment> eyj;
-        com.baidu.swan.support.v4.b.f<String, o> eyk;
-
-        b() {
+    public class b extends j<FragmentActivity> {
+        public b() {
+            super(FragmentActivity.this);
         }
-    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        this.eyf.noteStateNotSaved();
-        int i3 = i >> 16;
-        if (i3 != 0) {
-            int i4 = i3 - 1;
-            int activeFragmentsCount = this.eyf.getActiveFragmentsCount();
-            if (activeFragmentsCount == 0 || i4 < 0 || i4 >= activeFragmentsCount) {
-                Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
-                return;
+        @Override // d.b.g0.m.a.a.h
+        @Nullable
+        public View a(int i) {
+            return FragmentActivity.this.findViewById(i);
+        }
+
+        @Override // d.b.g0.m.a.a.h
+        public boolean b() {
+            Window window = FragmentActivity.this.getWindow();
+            return (window == null || window.peekDecorView() == null) ? false : true;
+        }
+
+        @Override // d.b.g0.m.a.a.j
+        public void n(Fragment fragment) {
+            FragmentActivity.this.onAttachFragment(fragment);
+        }
+
+        @Override // d.b.g0.m.a.a.j
+        public void o(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+            FragmentActivity.this.dump(str, fileDescriptor, printWriter, strArr);
+        }
+
+        @Override // d.b.g0.m.a.a.j
+        public LayoutInflater p() {
+            return FragmentActivity.this.getLayoutInflater().cloneInContext(FragmentActivity.this);
+        }
+
+        @Override // d.b.g0.m.a.a.j
+        public int q() {
+            Window window = FragmentActivity.this.getWindow();
+            if (window == null) {
+                return 0;
             }
-            Fragment fragment = this.eyf.getActiveFragments(new ArrayList(activeFragmentsCount)).get(i4);
-            if (fragment == null) {
-                Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
-                return;
-            } else {
-                fragment.onActivityResult(65535 & i, i2, intent);
-                return;
+            return window.getAttributes().windowAnimations;
+        }
+
+        @Override // d.b.g0.m.a.a.j
+        public boolean r() {
+            return FragmentActivity.this.getWindow() != null;
+        }
+
+        @Override // d.b.g0.m.a.a.j
+        public void s(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
+            FragmentActivity.this.requestPermissionsFromFragment(fragment, strArr, i);
+        }
+
+        @Override // d.b.g0.m.a.a.j
+        public boolean t(Fragment fragment) {
+            return !FragmentActivity.this.isFinishing();
+        }
+
+        @Override // d.b.g0.m.a.a.j
+        public void u() {
+            FragmentActivity.this.supportInvalidateOptionsMenu();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class c {
+
+        /* renamed from: a  reason: collision with root package name */
+        public Object f13037a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public List<Fragment> f13038b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public f<String, o> f13039c;
+    }
+
+    private void dumpViewHierarchy(String str, PrintWriter printWriter, View view) {
+        ViewGroup viewGroup;
+        int childCount;
+        printWriter.print(str);
+        if (view == null) {
+            printWriter.println(StringUtil.NULL_STRING);
+            return;
+        }
+        printWriter.println(viewToString(view));
+        if ((view instanceof ViewGroup) && (childCount = (viewGroup = (ViewGroup) view).getChildCount()) > 0) {
+            String str2 = str + GlideException.IndentedAppendable.INDENT;
+            for (int i = 0; i < childCount; i++) {
+                dumpViewHierarchy(str2, printWriter, viewGroup.getChildAt(i));
             }
         }
-        super.onActivityResult(i, i2, intent);
     }
 
-    @Override // android.app.Activity
-    public void onBackPressed() {
-        if (!this.eyf.bea().popBackStackImmediate()) {
-            supportFinishAfterTransition();
-        }
-    }
-
-    public void supportFinishAfterTransition() {
-        com.baidu.swan.support.v4.app.a.finishAfterTransition(this);
-    }
-
-    @Override // android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
-        this.eyf.dispatchConfigurationChanged(configuration);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.support.v4.app.f, android.app.Activity
-    public void onCreate(@Nullable Bundle bundle) {
-        this.eyf.h(null);
-        super.onCreate(bundle);
-        b bVar = (b) getLastNonConfigurationInstance();
-        if (bVar != null) {
-            this.eyf.a(bVar.eyk);
-        }
-        if (bundle != null) {
-            this.eyf.restoreAllState(bundle.getParcelable("android:support:fragments"), bVar != null ? bVar.eyj : null);
-        }
-        this.eyf.dispatchCreate();
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i, Menu menu) {
-        if (i == 0) {
-            boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.eyf.dispatchCreateOptionsMenu(menu, getMenuInflater());
-            if (Build.VERSION.SDK_INT < 11) {
-                return true;
-            }
-            return onCreatePanelMenu;
-        }
-        return super.onCreatePanelMenu(i, menu);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.baidu.swan.support.v4.app.f
-    public final View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.eyf.onCreateView(view, str, context, attributeSet);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        iG(false);
-        this.eyf.dispatchDestroy();
-        this.eyf.doLoaderDestroy();
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (Build.VERSION.SDK_INT < 5 && i == 4 && keyEvent.getRepeatCount() == 0) {
-            onBackPressed();
-            return true;
-        }
-        return super.onKeyDown(i, keyEvent);
-    }
-
-    @Override // android.app.Activity, android.content.ComponentCallbacks
-    public void onLowMemory() {
-        super.onLowMemory();
-        this.eyf.dispatchLowMemory();
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        if (super.onMenuItemSelected(i, menuItem)) {
-            return true;
-        }
-        switch (i) {
-            case 0:
-                return this.eyf.dispatchOptionsItemSelected(menuItem);
-            case 6:
-                return this.eyf.dispatchContextItemSelected(menuItem);
-            default:
-                return false;
-        }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i, Menu menu) {
-        switch (i) {
-            case 0:
-                this.eyf.dispatchOptionsMenuClosed(menu);
-                break;
-        }
-        super.onPanelClosed(i, menu);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onPause() {
-        super.onPause();
-        this.mResumed = false;
-        if (this.mHandler.hasMessages(2)) {
-            this.mHandler.removeMessages(2);
-            onResumeFragments();
-        }
-        this.eyf.dispatchPause();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        this.eyf.noteStateNotSaved();
-    }
-
-    @Override // android.app.Activity
-    public void onStateNotSaved() {
-        this.eyf.noteStateNotSaved();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.mHandler.sendEmptyMessage(2);
-        this.mResumed = true;
-        this.eyf.execPendingActions();
-    }
-
-    @Override // android.app.Activity
-    protected void onPostResume() {
-        super.onPostResume();
-        this.mHandler.removeMessages(2);
-        onResumeFragments();
-        this.eyf.execPendingActions();
-    }
-
-    protected void onResumeFragments() {
-        this.eyf.dispatchResume();
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
-        if (i != 0 || menu == null) {
-            return super.onPreparePanel(i, view, menu);
-        }
-        if (this.eyh) {
-            this.eyh = false;
-            menu.clear();
-            onCreatePanelMenu(i, menu);
-        }
-        return onPrepareOptionsPanel(view, menu) | this.eyf.dispatchPrepareOptionsMenu(menu);
-    }
-
-    protected boolean onPrepareOptionsPanel(View view, Menu menu) {
-        return super.onPreparePanel(0, view, menu);
-    }
-
-    @Override // android.app.Activity
-    public final Object onRetainNonConfigurationInstance() {
-        if (this.mStopped) {
-            iG(true);
-        }
-        Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
-        List<Fragment> retainNonConfig = this.eyf.retainNonConfig();
-        com.baidu.swan.support.v4.b.f<String, o> beb = this.eyf.beb();
-        if (retainNonConfig == null && beb == null && onRetainCustomNonConfigurationInstance == null) {
-            return null;
-        }
-        b bVar = new b();
-        bVar.custom = onRetainCustomNonConfigurationInstance;
-        bVar.eyj = retainNonConfig;
-        bVar.eyk = beb;
-        return bVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        Parcelable saveAllState = this.eyf.saveAllState();
-        if (saveAllState != null) {
-            bundle.putParcelable("android:support:fragments", saveAllState);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onStart() {
-        super.onStart();
-        this.mStopped = false;
-        this.eyg = false;
-        this.mHandler.removeMessages(1);
-        if (!this.mCreated) {
-            this.mCreated = true;
-            this.eyf.dispatchActivityCreated();
-        }
-        this.eyf.noteStateNotSaved();
-        this.eyf.execPendingActions();
-        this.eyf.doLoaderStart();
-        this.eyf.dispatchStart();
-        this.eyf.reportLoaderStart();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onStop() {
-        super.onStop();
-        this.mStopped = true;
-        this.mHandler.sendEmptyMessage(1);
-        this.eyf.dispatchStop();
-    }
-
-    public Object onRetainCustomNonConfigurationInstance() {
-        return null;
-    }
-
-    public void supportInvalidateOptionsMenu() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            d.V(this);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void requestPermissionsFromFragment(Fragment fragment, String[] strArr, int i) {
+        if (i == -1) {
+            d.b.g0.m.a.a.a.h(this, strArr, i);
+        } else if ((i & (-256)) == 0) {
+            this.mRequestedPermissionsFromFragment = true;
+            d.b.g0.m.a.a.a.h(this, strArr, ((fragment.j + 1) << 8) + (i & 255));
         } else {
-            this.eyh = true;
+            throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
         }
     }
 
-    @Override // android.app.Activity
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        if (Build.VERSION.SDK_INT >= 11) {
-        }
-        printWriter.print(str);
-        printWriter.print("Local FragmentActivity ");
-        printWriter.print(Integer.toHexString(System.identityHashCode(this)));
-        printWriter.println(" State:");
-        String str2 = str + "  ";
-        printWriter.print(str2);
-        printWriter.print("mCreated=");
-        printWriter.print(this.mCreated);
-        printWriter.print("mResumed=");
-        printWriter.print(this.mResumed);
-        printWriter.print(" mStopped=");
-        printWriter.print(this.mStopped);
-        printWriter.print(" mReallyStopped=");
-        printWriter.println(this.eyg);
-        this.eyf.dumpLoaders(str2, fileDescriptor, printWriter, strArr);
-        this.eyf.bea().dump(str, fileDescriptor, printWriter, strArr);
-        printWriter.print(str);
-        printWriter.println("View Hierarchy:");
-        a(str + "  ", printWriter, getWindow().getDecorView());
-    }
-
-    private static String bg(View view) {
-        String resourcePackageName;
+    public static String viewToString(View view) {
+        String str;
         StringBuilder sb = new StringBuilder(128);
         sb.append(view.getClass().getName());
         sb.append('{');
         sb.append(Integer.toHexString(System.identityHashCode(view)));
         sb.append(' ');
-        switch (view.getVisibility()) {
-            case 0:
-                sb.append('V');
-                break;
-            case 4:
-                sb.append('I');
-                break;
-            case 8:
-                sb.append('G');
-                break;
-            default:
-                sb.append('.');
-                break;
+        int visibility = view.getVisibility();
+        char c2 = IStringUtil.EXTENSION_SEPARATOR;
+        if (visibility == 0) {
+            sb.append('V');
+        } else if (visibility == 4) {
+            sb.append('I');
+        } else if (visibility != 8) {
+            sb.append(IStringUtil.EXTENSION_SEPARATOR);
+        } else {
+            sb.append('G');
         }
-        sb.append(view.isFocusable() ? 'F' : '.');
-        sb.append(view.isEnabled() ? 'E' : '.');
-        sb.append(view.willNotDraw() ? '.' : 'D');
-        sb.append(view.isHorizontalScrollBarEnabled() ? 'H' : '.');
-        sb.append(view.isVerticalScrollBarEnabled() ? 'V' : '.');
-        sb.append(view.isClickable() ? 'C' : '.');
-        sb.append(view.isLongClickable() ? 'L' : '.');
+        sb.append(view.isFocusable() ? 'F' : IStringUtil.EXTENSION_SEPARATOR);
+        sb.append(view.isEnabled() ? 'E' : IStringUtil.EXTENSION_SEPARATOR);
+        sb.append(view.willNotDraw() ? IStringUtil.EXTENSION_SEPARATOR : 'D');
+        sb.append(view.isHorizontalScrollBarEnabled() ? 'H' : IStringUtil.EXTENSION_SEPARATOR);
+        sb.append(view.isVerticalScrollBarEnabled() ? 'V' : IStringUtil.EXTENSION_SEPARATOR);
+        sb.append(view.isClickable() ? 'C' : IStringUtil.EXTENSION_SEPARATOR);
+        sb.append(view.isLongClickable() ? 'L' : IStringUtil.EXTENSION_SEPARATOR);
         sb.append(' ');
-        sb.append(view.isFocused() ? 'F' : '.');
-        sb.append(view.isSelected() ? 'S' : '.');
-        sb.append(view.isPressed() ? 'P' : '.');
+        sb.append(view.isFocused() ? 'F' : IStringUtil.EXTENSION_SEPARATOR);
+        sb.append(view.isSelected() ? 'S' : IStringUtil.EXTENSION_SEPARATOR);
+        if (view.isPressed()) {
+            c2 = 'P';
+        }
+        sb.append(c2);
         sb.append(' ');
         sb.append(view.getLeft());
         sb.append(',');
@@ -402,87 +227,345 @@ public class FragmentActivity extends g implements a.InterfaceC0546a, c.a {
             sb.append(Integer.toHexString(id));
             Resources resources = view.getResources();
             if (id != 0 && resources != null) {
-                switch ((-16777216) & id) {
-                    case 16777216:
-                        resourcePackageName = HttpConstants.OS_TYPE_VALUE;
-                        String resourceTypeName = resources.getResourceTypeName(id);
-                        String resourceEntryName = resources.getResourceEntryName(id);
-                        sb.append(" ");
-                        sb.append(resourcePackageName);
-                        sb.append(":");
-                        sb.append(resourceTypeName);
-                        sb.append("/");
-                        sb.append(resourceEntryName);
-                        break;
-                    case 2130706432:
-                        resourcePackageName = "app";
-                        String resourceTypeName2 = resources.getResourceTypeName(id);
-                        String resourceEntryName2 = resources.getResourceEntryName(id);
-                        sb.append(" ");
-                        sb.append(resourcePackageName);
-                        sb.append(":");
-                        sb.append(resourceTypeName2);
-                        sb.append("/");
-                        sb.append(resourceEntryName2);
-                        break;
-                    default:
-                        try {
-                            resourcePackageName = resources.getResourcePackageName(id);
-                            String resourceTypeName22 = resources.getResourceTypeName(id);
-                            String resourceEntryName22 = resources.getResourceEntryName(id);
-                            sb.append(" ");
-                            sb.append(resourcePackageName);
-                            sb.append(":");
-                            sb.append(resourceTypeName22);
-                            sb.append("/");
-                            sb.append(resourceEntryName22);
-                            break;
-                        } catch (Resources.NotFoundException e) {
-                            break;
-                        }
+                int i = (-16777216) & id;
+                if (i == 16777216) {
+                    str = "android";
+                } else if (i != 2130706432) {
+                    try {
+                        str = resources.getResourcePackageName(id);
+                    } catch (Resources.NotFoundException unused) {
+                    }
+                } else {
+                    str = "app";
                 }
+                String resourceTypeName = resources.getResourceTypeName(id);
+                String resourceEntryName = resources.getResourceEntryName(id);
+                sb.append(" ");
+                sb.append(str);
+                sb.append(":");
+                sb.append(resourceTypeName);
+                sb.append("/");
+                sb.append(resourceEntryName);
             }
         }
         sb.append("}");
         return sb.toString();
     }
 
-    private void a(String str, PrintWriter printWriter, View view) {
-        ViewGroup viewGroup;
-        int childCount;
-        printWriter.print(str);
-        if (view == null) {
-            printWriter.println("null");
+    @Override // d.b.g0.m.a.a.f
+    public final View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return this.mFragments.B(view, str, context, attributeSet);
+    }
+
+    public void doReallyStop(boolean z) {
+        if (this.mReallyStopped) {
             return;
         }
-        printWriter.println(bg(view));
-        if ((view instanceof ViewGroup) && (childCount = (viewGroup = (ViewGroup) view).getChildCount()) > 0) {
-            String str2 = str + "  ";
-            for (int i = 0; i < childCount; i++) {
-                a(str2, printWriter, viewGroup.getChildAt(i));
+        this.mReallyStopped = true;
+        this.mRetaining = z;
+        this.mHandler.removeMessages(1);
+        onReallyStop();
+    }
+
+    @Override // android.app.Activity
+    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        printWriter.print(str);
+        printWriter.print("Local FragmentActivity ");
+        printWriter.print(Integer.toHexString(System.identityHashCode(this)));
+        printWriter.println(" State:");
+        String str2 = str + GlideException.IndentedAppendable.INDENT;
+        printWriter.print(str2);
+        printWriter.print("mCreated=");
+        printWriter.print(this.mCreated);
+        printWriter.print("mResumed=");
+        printWriter.print(this.mResumed);
+        printWriter.print(" mStopped=");
+        printWriter.print(this.mStopped);
+        printWriter.print(" mReallyStopped=");
+        printWriter.println(this.mReallyStopped);
+        this.mFragments.u(str2, fileDescriptor, printWriter, strArr);
+        this.mFragments.y().b(str, fileDescriptor, printWriter, strArr);
+        printWriter.print(str);
+        printWriter.println("View Hierarchy:");
+        dumpViewHierarchy(str + GlideException.IndentedAppendable.INDENT, printWriter, getWindow().getDecorView());
+    }
+
+    public Object getLastCustomNonConfigurationInstance() {
+        c cVar = (c) getLastNonConfigurationInstance();
+        if (cVar != null) {
+            return cVar.f13037a;
+        }
+        return null;
+    }
+
+    public k getSupportFragmentManager() {
+        return this.mFragments.y();
+    }
+
+    public o getSupportLoaderManager() {
+        return this.mFragments.z();
+    }
+
+    @Override // android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        this.mFragments.A();
+        int i3 = i >> 16;
+        if (i3 != 0) {
+            int i4 = i3 - 1;
+            int x = this.mFragments.x();
+            if (x != 0 && i4 >= 0 && i4 < x) {
+                Fragment fragment = this.mFragments.w(new ArrayList(x)).get(i4);
+                if (fragment == null) {
+                    Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
+                    return;
+                }
+                fragment.p0(i & 65535, i2, intent);
+                return;
             }
+            Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
+            return;
+        }
+        super.onActivityResult(i, i2, intent);
+    }
+
+    public void onAttachFragment(Fragment fragment) {
+    }
+
+    @Override // android.app.Activity
+    public void onBackPressed() {
+        if (this.mFragments.y().e()) {
+            return;
+        }
+        supportFinishAfterTransition();
+    }
+
+    @Override // android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+        this.mFragments.d(configuration);
+    }
+
+    @Override // d.b.g0.m.a.a.f, android.app.Activity
+    public void onCreate(@Nullable Bundle bundle) {
+        this.mFragments.a(null);
+        super.onCreate(bundle);
+        c cVar = (c) getLastNonConfigurationInstance();
+        if (cVar != null) {
+            this.mFragments.E(cVar.f13039c);
+        }
+        if (bundle != null) {
+            this.mFragments.D(bundle.getParcelable("android:support:fragments"), cVar != null ? cVar.f13038b : null);
+        }
+        this.mFragments.f();
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean onCreatePanelMenu(int i, Menu menu) {
+        if (i == 0) {
+            boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.mFragments.g(menu, getMenuInflater());
+            if (Build.VERSION.SDK_INT >= 11) {
+                return onCreatePanelMenu;
+            }
+            return true;
+        }
+        return super.onCreatePanelMenu(i, menu);
+    }
+
+    @Override // d.b.g0.m.a.a.g, android.app.Activity, android.view.LayoutInflater.Factory2
+    public /* bridge */ /* synthetic */ View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(view, str, context, attributeSet);
+    }
+
+    @Override // android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        doReallyStop(false);
+        this.mFragments.h();
+        this.mFragments.r();
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (Build.VERSION.SDK_INT < 5 && i == 4 && keyEvent.getRepeatCount() == 0) {
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(i, keyEvent);
+    }
+
+    @Override // android.app.Activity, android.content.ComponentCallbacks
+    public void onLowMemory() {
+        super.onLowMemory();
+        this.mFragments.i();
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
+        if (super.onMenuItemSelected(i, menuItem)) {
+            return true;
+        }
+        if (i != 0) {
+            if (i != 6) {
+                return false;
+            }
+            return this.mFragments.e(menuItem);
+        }
+        return this.mFragments.j(menuItem);
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        this.mFragments.A();
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onPanelClosed(int i, Menu menu) {
+        if (i == 0) {
+            this.mFragments.k(menu);
+        }
+        super.onPanelClosed(i, menu);
+    }
+
+    @Override // android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.mResumed = false;
+        if (this.mHandler.hasMessages(2)) {
+            this.mHandler.removeMessages(2);
+            onResumeFragments();
+        }
+        this.mFragments.l();
+    }
+
+    @Override // android.app.Activity
+    public void onPostResume() {
+        super.onPostResume();
+        this.mHandler.removeMessages(2);
+        onResumeFragments();
+        this.mFragments.v();
+    }
+
+    public boolean onPrepareOptionsPanel(View view, Menu menu) {
+        return super.onPreparePanel(0, view, menu);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean onPreparePanel(int i, View view, Menu menu) {
+        if (i == 0 && menu != null) {
+            if (this.mOptionsMenuInvalidated) {
+                this.mOptionsMenuInvalidated = false;
+                menu.clear();
+                onCreatePanelMenu(i, menu);
+            }
+            return onPrepareOptionsPanel(view, menu) | this.mFragments.m(menu);
+        }
+        return super.onPreparePanel(i, view, menu);
+    }
+
+    public void onReallyStop() {
+        this.mFragments.t(this.mRetaining);
+        this.mFragments.n();
+    }
+
+    @Override // android.app.Activity, d.b.g0.m.a.a.a.b
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        int i2 = (i >> 8) & 255;
+        if (i2 != 0) {
+            int i3 = i2 - 1;
+            int x = this.mFragments.x();
+            if (x != 0 && i3 >= 0 && i3 < x) {
+                Fragment fragment = this.mFragments.w(new ArrayList(x)).get(i3);
+                if (fragment == null) {
+                    Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
+                    return;
+                }
+                fragment.F0(i & 255, strArr, iArr);
+                return;
+            }
+            Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
         }
     }
 
-    void iG(boolean z) {
-        if (!this.eyg) {
-            this.eyg = true;
-            this.mRetaining = z;
-            this.mHandler.removeMessages(1);
-            bdZ();
+    @Override // android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.mHandler.sendEmptyMessage(2);
+        this.mResumed = true;
+        this.mFragments.v();
+    }
+
+    public void onResumeFragments() {
+        this.mFragments.o();
+    }
+
+    public Object onRetainCustomNonConfigurationInstance() {
+        return null;
+    }
+
+    @Override // android.app.Activity
+    public final Object onRetainNonConfigurationInstance() {
+        if (this.mStopped) {
+            doReallyStop(true);
+        }
+        Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
+        List<Fragment> G = this.mFragments.G();
+        f<String, o> F = this.mFragments.F();
+        if (G == null && F == null && onRetainCustomNonConfigurationInstance == null) {
+            return null;
+        }
+        c cVar = new c();
+        cVar.f13037a = onRetainCustomNonConfigurationInstance;
+        cVar.f13038b = G;
+        cVar.f13039c = F;
+        return cVar;
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        Parcelable H = this.mFragments.H();
+        if (H != null) {
+            bundle.putParcelable("android:support:fragments", H);
         }
     }
 
-    void bdZ() {
-        this.eyf.doLoaderStop(this.mRetaining);
-        this.eyf.dispatchReallyStop();
+    @Override // android.app.Activity
+    public void onStart() {
+        super.onStart();
+        this.mStopped = false;
+        this.mReallyStopped = false;
+        this.mHandler.removeMessages(1);
+        if (!this.mCreated) {
+            this.mCreated = true;
+            this.mFragments.c();
+        }
+        this.mFragments.A();
+        this.mFragments.v();
+        this.mFragments.s();
+        this.mFragments.p();
+        this.mFragments.C();
     }
 
-    public void f(Fragment fragment) {
+    @Override // android.app.Activity
+    public void onStateNotSaved() {
+        this.mFragments.A();
     }
 
-    public k bea() {
-        return this.eyf.bea();
+    @Override // android.app.Activity
+    public void onStop() {
+        super.onStop();
+        this.mStopped = true;
+        this.mHandler.sendEmptyMessage(1);
+        this.mFragments.q();
+    }
+
+    public void setEnterSharedElementCallback(r rVar) {
+        d.b.g0.m.a.a.a.i(this, rVar);
+    }
+
+    public void setExitSharedElementCallback(r rVar) {
+        d.b.g0.m.a.a.a.j(this, rVar);
     }
 
     @Override // android.app.Activity
@@ -493,106 +576,47 @@ public class FragmentActivity extends g implements a.InterfaceC0546a, c.a {
         super.startActivityForResult(intent, i);
     }
 
-    @Override // com.baidu.swan.support.v4.app.c.a
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
+        if (i == -1) {
+            super.startActivityForResult(intent, -1);
+        } else if (((-65536) & i) == 0) {
+            super.startActivityForResult(intent, ((fragment.j + 1) << 16) + (i & 65535));
+        } else {
+            throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
+        }
+    }
+
+    public void supportFinishAfterTransition() {
+        d.b.g0.m.a.a.a.f(this);
+    }
+
+    public void supportInvalidateOptionsMenu() {
+        if (Build.VERSION.SDK_INT >= 11) {
+            d.a(this);
+        } else {
+            this.mOptionsMenuInvalidated = true;
+        }
+    }
+
+    public void supportPostponeEnterTransition() {
+        d.b.g0.m.a.a.a.g(this);
+    }
+
+    public void supportStartPostponedEnterTransition() {
+        d.b.g0.m.a.a.a.k(this);
+    }
+
+    @Override // d.b.g0.m.a.a.c.a
     public final void validateRequestPermissionsRequestCode(int i) {
         if (this.mRequestedPermissionsFromFragment) {
             this.mRequestedPermissionsFromFragment = false;
-        } else if ((i & InputDeviceCompat.SOURCE_ANY) != 0) {
+        } else if ((i & (-256)) != 0) {
             throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
         }
     }
 
-    @Override // android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0546a
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        int i2 = (i >> 8) & 255;
-        if (i2 != 0) {
-            int i3 = i2 - 1;
-            int activeFragmentsCount = this.eyf.getActiveFragmentsCount();
-            if (activeFragmentsCount == 0 || i3 < 0 || i3 >= activeFragmentsCount) {
-                Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
-                return;
-            }
-            Fragment fragment = this.eyf.getActiveFragments(new ArrayList(activeFragmentsCount)).get(i3);
-            if (fragment == null) {
-                Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
-            } else {
-                fragment.onRequestPermissionsResult(i & 255, strArr, iArr);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Fragment fragment, String[] strArr, int i) {
-        if (i == -1) {
-            com.baidu.swan.support.v4.app.a.requestPermissions(this, strArr, i);
-        } else if ((i & InputDeviceCompat.SOURCE_ANY) != 0) {
-            throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
-        } else {
-            this.mRequestedPermissionsFromFragment = true;
-            com.baidu.swan.support.v4.app.a.requestPermissions(this, strArr, ((fragment.mIndex + 1) << 8) + (i & 255));
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    class a extends j<FragmentActivity> {
-        public a() {
-            super(FragmentActivity.this);
-        }
-
-        @Override // com.baidu.swan.support.v4.app.j
-        public void onDump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-            FragmentActivity.this.dump(str, fileDescriptor, printWriter, strArr);
-        }
-
-        @Override // com.baidu.swan.support.v4.app.j
-        public boolean g(Fragment fragment) {
-            return !FragmentActivity.this.isFinishing();
-        }
-
-        @Override // com.baidu.swan.support.v4.app.j
-        public LayoutInflater onGetLayoutInflater() {
-            return FragmentActivity.this.getLayoutInflater().cloneInContext(FragmentActivity.this);
-        }
-
-        @Override // com.baidu.swan.support.v4.app.j
-        public void onSupportInvalidateOptionsMenu() {
-            FragmentActivity.this.supportInvalidateOptionsMenu();
-        }
-
-        @Override // com.baidu.swan.support.v4.app.j
-        public void b(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
-            FragmentActivity.this.a(fragment, strArr, i);
-        }
-
-        @Override // com.baidu.swan.support.v4.app.j
-        public boolean onHasWindowAnimations() {
-            return FragmentActivity.this.getWindow() != null;
-        }
-
-        @Override // com.baidu.swan.support.v4.app.j
-        public int onGetWindowAnimations() {
-            Window window = FragmentActivity.this.getWindow();
-            if (window == null) {
-                return 0;
-            }
-            return window.getAttributes().windowAnimations;
-        }
-
-        @Override // com.baidu.swan.support.v4.app.j
-        public void f(Fragment fragment) {
-            FragmentActivity.this.f(fragment);
-        }
-
-        @Override // com.baidu.swan.support.v4.app.j, com.baidu.swan.support.v4.app.h
-        @Nullable
-        public View onFindViewById(int i) {
-            return FragmentActivity.this.findViewById(i);
-        }
-
-        @Override // com.baidu.swan.support.v4.app.j, com.baidu.swan.support.v4.app.h
-        public boolean onHasView() {
-            Window window = FragmentActivity.this.getWindow();
-            return (window == null || window.peekDecorView() == null) ? false : true;
-        }
+    @Override // d.b.g0.m.a.a.f, android.app.Activity, android.view.LayoutInflater.Factory
+    public /* bridge */ /* synthetic */ View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(str, context, attributeSet);
     }
 }

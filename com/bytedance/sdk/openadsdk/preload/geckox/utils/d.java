@@ -21,7 +21,34 @@ public class d {
         return d(file);
     }
 
-    private static boolean d(File file) {
+    public static List<File> b(File file) {
+        if (file != null && file.exists() && file.isDirectory()) {
+            List<File> asList = Arrays.asList(file.listFiles());
+            Collections.sort(asList, new Comparator<File>() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.utils.d.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Comparator
+                /* renamed from: a */
+                public int compare(File file2, File file3) {
+                    return Long.compare(file2.lastModified(), file3.lastModified());
+                }
+            });
+            return asList;
+        }
+        return null;
+    }
+
+    public static boolean c(File file) {
+        if (file.isDirectory()) {
+            for (String str : file.list()) {
+                if (!c(new File(file, str))) {
+                    return false;
+                }
+            }
+        }
+        return file.delete();
+    }
+
+    public static boolean d(File file) {
         boolean z;
         File[] listFiles;
         if (file == null || !file.exists()) {
@@ -51,32 +78,5 @@ public class d {
                 return;
             }
         }
-    }
-
-    public static List<File> b(File file) {
-        if (file == null || !file.exists() || !file.isDirectory()) {
-            return null;
-        }
-        List<File> asList = Arrays.asList(file.listFiles());
-        Collections.sort(asList, new Comparator<File>() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.utils.d.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            /* renamed from: a */
-            public int compare(File file2, File file3) {
-                return Long.compare(file2.lastModified(), file3.lastModified());
-            }
-        });
-        return asList;
-    }
-
-    public static boolean c(File file) {
-        if (file.isDirectory()) {
-            for (String str : file.list()) {
-                if (!c(new File(file, str))) {
-                    return false;
-                }
-            }
-        }
-        return file.delete();
     }
 }

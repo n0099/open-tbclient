@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class EntityTemplate extends AbstractHttpEntity {
     public EntityTemplate(ContentProducer contentProducer) {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpEntity
-    public long getContentLength() {
+    @Override // org.apache.http.entity.AbstractHttpEntity, org.apache.http.HttpEntity
+    public void consumeContent() throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -21,12 +21,12 @@ public class EntityTemplate extends AbstractHttpEntity {
     }
 
     @Override // org.apache.http.HttpEntity
-    public boolean isRepeatable() {
+    public long getContentLength() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpEntity
-    public void writeTo(OutputStream outputStream) throws IOException {
+    public boolean isRepeatable() {
         throw new RuntimeException("Stub!");
     }
 
@@ -35,8 +35,8 @@ public class EntityTemplate extends AbstractHttpEntity {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.entity.AbstractHttpEntity, org.apache.http.HttpEntity
-    public void consumeContent() throws IOException {
+    @Override // org.apache.http.HttpEntity
+    public void writeTo(OutputStream outputStream) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

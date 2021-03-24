@@ -5,30 +5,34 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WXLaunchMiniProgram {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Req extends BaseReq {
         public static final int MINIPROGRAM_TYPE_PREVIEW = 2;
         public static final int MINIPROGRAM_TYPE_TEST = 1;
         public static final int MINIPTOGRAM_TYPE_RELEASE = 0;
-        private static final String TAG = "MicroMsg.SDK.WXLaunchMiniProgram.Req";
+        public static final String TAG = "MicroMsg.SDK.WXLaunchMiniProgram.Req";
         public String userName;
         public String path = "";
         public int miniprogramType = 0;
+        public String extData = "";
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public final boolean checkArgs() {
-            if (d.a(this.userName)) {
-                Log.e(TAG, "userName is null");
-                return false;
-            } else if (this.miniprogramType < 0 || this.miniprogramType > 2) {
-                Log.e(TAG, "miniprogram type should between MINIPTOGRAM_TYPE_RELEASE and MINIPROGRAM_TYPE_PREVIEW");
-                return false;
+            String str;
+            if (d.b(this.userName)) {
+                str = "userName is null";
             } else {
-                return true;
+                int i = this.miniprogramType;
+                if (i >= 0 && i <= 2) {
+                    return true;
+                }
+                str = "miniprogram type should between MINIPTOGRAM_TYPE_RELEASE and MINIPROGRAM_TYPE_PREVIEW";
             }
+            Log.e(TAG, str);
+            return false;
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -41,11 +45,12 @@ public class WXLaunchMiniProgram {
             super.toBundle(bundle);
             bundle.putString("_launch_wxminiprogram_username", this.userName);
             bundle.putString("_launch_wxminiprogram_path", this.path);
+            bundle.putString("_launch_wxminiprogram_extData", this.extData);
             bundle.putInt("_launch_wxminiprogram_type", this.miniprogramType);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Resp extends BaseResp {
         public String extMsg;
 
@@ -76,7 +81,6 @@ public class WXLaunchMiniProgram {
         public final void toBundle(Bundle bundle) {
             super.toBundle(bundle);
             bundle.putString("_launch_wxminiprogram_ext_msg", this.extMsg);
-            bundle.putInt("_wxapi_command_type", getType());
         }
     }
 }

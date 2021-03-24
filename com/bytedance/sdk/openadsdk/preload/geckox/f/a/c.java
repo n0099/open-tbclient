@@ -1,5 +1,6 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.f.a;
 
+import com.facebook.common.util.UriUtil;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,17 +12,17 @@ public class c extends a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.f.a.a
-    protected InputStream a(File file, String str) throws IOException {
-        File file2 = new File(file, "res" + File.separator + str);
-        if (!file2.getCanonicalPath().startsWith(file.getCanonicalPath())) {
-            throw new IOException("file not found");
+    public InputStream a(File file, String str) throws IOException {
+        File file2 = new File(file, UriUtil.LOCAL_RESOURCE_SCHEME + File.separator + str);
+        if (file2.getCanonicalPath().startsWith(file.getCanonicalPath())) {
+            com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "NormalFileLoader, file:", file2.getAbsolutePath());
+            return new FileInputStream(file2.getCanonicalFile());
         }
-        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "NormalFileLoader, file:", file2.getAbsolutePath());
-        return new FileInputStream(file2.getCanonicalFile());
+        throw new IOException("file not found");
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.f.a.a
-    protected boolean b(File file, String str) throws IOException {
-        return new File(file, "res" + File.separator + str).exists();
+    public boolean b(File file, String str) throws IOException {
+        return new File(file, UriUtil.LOCAL_RESOURCE_SCHEME + File.separator + str).exists();
     }
 }

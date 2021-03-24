@@ -8,17 +8,25 @@ import com.baidu.android.imsdk.internal.IMManagerImpl;
 import com.baidu.android.imsdk.internal.IMSettings;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class IMManager extends BaseManager implements NoProGuard {
     public static boolean enableDebugMode(Context context, boolean z) {
-        if (isNullContext(context)) {
+        if (BaseManager.isNullContext(context)) {
             return false;
         }
         return IMSettings.enableDebugMode(context.getApplicationContext(), z);
     }
 
+    public static String getIMDeviceId(Context context) {
+        return Utility.getIMDeviceId(context);
+    }
+
+    public static String getVersion() {
+        return IMManagerImpl.getVersion();
+    }
+
     public static boolean init(Context context, int i) {
-        if (isNullContext(context)) {
+        if (BaseManager.isNullContext(context)) {
             return false;
         }
         Context applicationContext = context.getApplicationContext();
@@ -26,13 +34,5 @@ public final class IMManager extends BaseManager implements NoProGuard {
         IMManagerImpl.getInstance(applicationContext);
         BindStateManager.activeUnBind(context);
         return productLine;
-    }
-
-    public static String getVersion() {
-        return IMManagerImpl.getVersion();
-    }
-
-    public static String getIMDeviceId(Context context) {
-        return Utility.getIMDeviceId(context);
     }
 }

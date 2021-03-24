@@ -9,45 +9,62 @@ import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
 import java.util.ArrayList;
 import java.util.Iterator;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ViewPropertyAnimatorCompatSet {
-    private Interpolator mInterpolator;
-    private boolean mIsStarted;
-    ViewPropertyAnimatorListener mListener;
-    private long mDuration = -1;
-    private final ViewPropertyAnimatorListenerAdapter mProxyListener = new ViewPropertyAnimatorListenerAdapter() { // from class: androidx.appcompat.view.ViewPropertyAnimatorCompatSet.1
-        private boolean mProxyStarted = false;
-        private int mProxyEndCount = 0;
-
-        @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-        public void onAnimationStart(View view) {
-            if (!this.mProxyStarted) {
-                this.mProxyStarted = true;
-                if (ViewPropertyAnimatorCompatSet.this.mListener != null) {
-                    ViewPropertyAnimatorCompatSet.this.mListener.onAnimationStart(null);
-                }
-            }
-        }
-
-        void onEnd() {
-            this.mProxyEndCount = 0;
-            this.mProxyStarted = false;
-            ViewPropertyAnimatorCompatSet.this.onAnimationsEnded();
-        }
+    public Interpolator mInterpolator;
+    public boolean mIsStarted;
+    public ViewPropertyAnimatorListener mListener;
+    public long mDuration = -1;
+    public final ViewPropertyAnimatorListenerAdapter mProxyListener = new ViewPropertyAnimatorListenerAdapter() { // from class: androidx.appcompat.view.ViewPropertyAnimatorCompatSet.1
+        public boolean mProxyStarted = false;
+        public int mProxyEndCount = 0;
 
         @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
         public void onAnimationEnd(View view) {
             int i = this.mProxyEndCount + 1;
             this.mProxyEndCount = i;
             if (i == ViewPropertyAnimatorCompatSet.this.mAnimators.size()) {
-                if (ViewPropertyAnimatorCompatSet.this.mListener != null) {
-                    ViewPropertyAnimatorCompatSet.this.mListener.onAnimationEnd(null);
+                ViewPropertyAnimatorListener viewPropertyAnimatorListener = ViewPropertyAnimatorCompatSet.this.mListener;
+                if (viewPropertyAnimatorListener != null) {
+                    viewPropertyAnimatorListener.onAnimationEnd(null);
                 }
                 onEnd();
             }
         }
+
+        @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
+        public void onAnimationStart(View view) {
+            if (this.mProxyStarted) {
+                return;
+            }
+            this.mProxyStarted = true;
+            ViewPropertyAnimatorListener viewPropertyAnimatorListener = ViewPropertyAnimatorCompatSet.this.mListener;
+            if (viewPropertyAnimatorListener != null) {
+                viewPropertyAnimatorListener.onAnimationStart(null);
+            }
+        }
+
+        public void onEnd() {
+            this.mProxyEndCount = 0;
+            this.mProxyStarted = false;
+            ViewPropertyAnimatorCompatSet.this.onAnimationsEnded();
+        }
     };
-    final ArrayList<ViewPropertyAnimatorCompat> mAnimators = new ArrayList<>();
+    public final ArrayList<ViewPropertyAnimatorCompat> mAnimators = new ArrayList<>();
+
+    public void cancel() {
+        if (this.mIsStarted) {
+            Iterator<ViewPropertyAnimatorCompat> it = this.mAnimators.iterator();
+            while (it.hasNext()) {
+                it.next().cancel();
+            }
+            this.mIsStarted = false;
+        }
+    }
+
+    public void onAnimationsEnded() {
+        this.mIsStarted = false;
+    }
 
     public ViewPropertyAnimatorCompatSet play(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat) {
         if (!this.mIsStarted) {
@@ -61,40 +78,6 @@ public class ViewPropertyAnimatorCompatSet {
         viewPropertyAnimatorCompat2.setStartDelay(viewPropertyAnimatorCompat.getDuration());
         this.mAnimators.add(viewPropertyAnimatorCompat2);
         return this;
-    }
-
-    public void start() {
-        if (!this.mIsStarted) {
-            Iterator<ViewPropertyAnimatorCompat> it = this.mAnimators.iterator();
-            while (it.hasNext()) {
-                ViewPropertyAnimatorCompat next = it.next();
-                if (this.mDuration >= 0) {
-                    next.setDuration(this.mDuration);
-                }
-                if (this.mInterpolator != null) {
-                    next.setInterpolator(this.mInterpolator);
-                }
-                if (this.mListener != null) {
-                    next.setListener(this.mProxyListener);
-                }
-                next.start();
-            }
-            this.mIsStarted = true;
-        }
-    }
-
-    void onAnimationsEnded() {
-        this.mIsStarted = false;
-    }
-
-    public void cancel() {
-        if (this.mIsStarted) {
-            Iterator<ViewPropertyAnimatorCompat> it = this.mAnimators.iterator();
-            while (it.hasNext()) {
-                it.next().cancel();
-            }
-            this.mIsStarted = false;
-        }
     }
 
     public ViewPropertyAnimatorCompatSet setDuration(long j) {
@@ -116,5 +99,28 @@ public class ViewPropertyAnimatorCompatSet {
             this.mListener = viewPropertyAnimatorListener;
         }
         return this;
+    }
+
+    public void start() {
+        if (this.mIsStarted) {
+            return;
+        }
+        Iterator<ViewPropertyAnimatorCompat> it = this.mAnimators.iterator();
+        while (it.hasNext()) {
+            ViewPropertyAnimatorCompat next = it.next();
+            long j = this.mDuration;
+            if (j >= 0) {
+                next.setDuration(j);
+            }
+            Interpolator interpolator = this.mInterpolator;
+            if (interpolator != null) {
+                next.setInterpolator(interpolator);
+            }
+            if (this.mListener != null) {
+                next.setListener(this.mProxyListener);
+            }
+            next.start();
+        }
+        this.mIsStarted = true;
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class HotTopicActivityConfig extends IntentConfig {
     public static final String FROM_BANG = "5";
     public static final String FROM_OTHER_CARD = "1";
@@ -21,7 +21,7 @@ public class HotTopicActivityConfig extends IntentConfig {
     public HotTopicActivityConfig createNormalConfig(String str, String str2, String str3) {
         Intent intent = getIntent();
         intent.putExtra("topic_id", str);
-        intent.putExtra("topic_name", str2);
+        intent.putExtra(IntentConfig.TOPIC_NAME, str2);
         if (StringUtils.isNull(str3)) {
             str3 = "1";
         }
@@ -30,9 +30,9 @@ public class HotTopicActivityConfig extends IntentConfig {
     }
 
     public void setExtra(long j, String str, String str2, long j2) {
-        getIntent().putExtra("topic_fid", j);
-        getIntent().putExtra("topic_first_dir", str);
-        getIntent().putExtra("topic_second_dir", str2);
+        getIntent().putExtra(IntentConfig.TOPIC_FID, j);
+        getIntent().putExtra(IntentConfig.TOPIC_FIRST_DIR, str);
+        getIntent().putExtra(IntentConfig.TOPIC_SECOND_DIR, str2);
         getIntent().putExtra(IntentConfig.TOPIC_TID, j2);
     }
 }

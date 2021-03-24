@@ -5,31 +5,34 @@ import com.baidu.ufosdk.f.c;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class a {
     @SuppressLint({"NewApi"})
     public static String a(Map map) {
+        Object obj;
+        Object obj2;
         if (map == null) {
             return "";
         }
         JSONObject jSONObject = new JSONObject();
         for (String str : map.keySet()) {
             try {
-                Object obj = map.get(str);
-                if (obj instanceof String) {
-                    jSONObject.put(str, (String) obj);
-                } else if (obj instanceof Integer) {
-                    jSONObject.put(str, (Integer) obj);
-                } else if (obj instanceof Long) {
-                    jSONObject.put(str, (Long) obj);
-                } else if (obj instanceof Float) {
-                    jSONObject.put(str, (Float) obj);
-                } else {
-                    c.d("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
-                }
-            } catch (JSONException e) {
-                c.a("Could not create JSON object for key " + str, e);
+                obj = map.get(str);
+            } catch (JSONException e2) {
+                c.a("Could not create JSON object for key " + str, e2);
             }
+            if (obj instanceof String) {
+                obj2 = (String) obj;
+            } else if (obj instanceof Integer) {
+                obj2 = (Integer) obj;
+            } else if (obj instanceof Long) {
+                obj2 = (Long) obj;
+            } else if (obj instanceof Float) {
+                obj2 = (Float) obj;
+            } else {
+                c.d("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
+            }
+            jSONObject.put(str, obj2);
         }
         c.c("json is " + jSONObject.toString());
         return jSONObject.toString();

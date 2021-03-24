@@ -1,23 +1,60 @@
 package com.xiaomi.push.service;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-/* loaded from: classes5.dex */
-class bc extends Handler {
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
+import com.baidu.android.util.devices.RomUtils;
+/* loaded from: classes7.dex */
+public class bc {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bb f8538a;
+    public static bc f40989a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bc(bb bbVar, Looper looper) {
-        super(looper);
-        this.f8538a = bbVar;
+    /* renamed from: a  reason: collision with other field name */
+    public int f920a = 0;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Context f921a;
+
+    public bc(Context context) {
+        this.f921a = context.getApplicationContext();
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
+    public static bc a(Context context) {
+        if (f40989a == null) {
+            f40989a = new bc(context);
+        }
+        return f40989a;
+    }
+
+    @SuppressLint({"NewApi"})
+    public int a() {
+        int i = this.f920a;
+        if (i != 0) {
+            return i;
+        }
+        if (Build.VERSION.SDK_INT >= 17) {
+            try {
+                this.f920a = Settings.Global.getInt(this.f921a.getContentResolver(), "device_provisioned", 0);
+            } catch (Exception unused) {
+            }
+            return this.f920a;
+        }
+        int i2 = Settings.Secure.getInt(this.f921a.getContentResolver(), "device_provisioned", 0);
+        this.f920a = i2;
+        return i2;
+    }
+
+    @SuppressLint({"NewApi"})
+    /* renamed from: a  reason: collision with other method in class */
+    public Uri m589a() {
+        return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m590a() {
+        return com.xiaomi.push.ab.f100a.contains("xmsf") || com.xiaomi.push.ab.f100a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f100a.contains("miui");
     }
 }

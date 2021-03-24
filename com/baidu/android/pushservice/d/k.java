@@ -4,66 +4,62 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.a.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class k extends c {
-    private ArrayList<String> d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ArrayList<String> f2970d;
 
     public k(i iVar, Context context) {
         super(iVar, context);
-        this.d = new ArrayList<>();
+        this.f2970d = new ArrayList<>();
     }
 
     @Override // com.baidu.android.pushservice.d.a
-    protected void a(int i, byte[] bArr) {
+    public void a(int i, byte[] bArr) {
         Intent intent = new Intent();
-        if (this.b.f1128a.equals("method_list_sdk_tags")) {
-            intent.setAction("com.baidu.android.pushservice.action.sdk.RECEIVE");
-        } else {
-            intent.setAction("com.baidu.android.pushservice.action.RECEIVE");
-        }
-        intent.putExtra("method", this.b.f1128a);
+        intent.setAction(((a) this).f2943b.f2958a.equals("method_list_sdk_tags") ? "com.baidu.android.pushservice.action.sdk.RECEIVE" : "com.baidu.android.pushservice.action.RECEIVE");
+        intent.putExtra("method", ((a) this).f2943b.f2958a);
         intent.putExtra("error_msg", i);
         intent.putExtra("content", bArr);
-        if (!this.d.isEmpty()) {
-            intent.putStringArrayListExtra("tags_list", this.d);
+        if (!this.f2970d.isEmpty()) {
+            intent.putStringArrayListExtra("tags_list", this.f2970d);
         }
         intent.setFlags(32);
         a(intent);
-        if (TextUtils.isEmpty(this.b.d)) {
-            if (!this.b.f1128a.equals("method_list_sdk_tags")) {
+        if (TextUtils.isEmpty(((a) this).f2943b.f2961d)) {
+            if (!((a) this).f2943b.f2958a.equals("method_list_sdk_tags")) {
                 return;
             }
-        } else if (!this.b.f1128a.equals("method_list_sdk_tags")) {
-            intent.setPackage(this.b.d);
+        } else if (!((a) this).f2943b.f2958a.equals("method_list_sdk_tags")) {
+            intent.setPackage(((a) this).f2943b.f2961d);
         }
-        com.baidu.android.pushservice.i.m.b(this.f1124a, intent, intent.getAction(), intent.getPackage());
+        com.baidu.android.pushservice.j.m.b(((a) this).f2942a, intent, intent.getAction(), intent.getPackage());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.android.pushservice.d.a
-    public void a(HashMap<String, String> hashMap) {
-        super.a(hashMap);
-        hashMap.put("method", "glist");
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.pushservice.d.a
     public String b(String str) {
-        String b = super.b(str);
+        String b2 = super.b(str);
         try {
-            JSONArray jSONArray = new JSONObject(b).getJSONObject("response_params").getJSONArray("groups");
+            JSONArray jSONArray = new JSONObject(b2).getJSONObject("response_params").getJSONArray("groups");
             for (int i = 0; i < jSONArray.length(); i++) {
-                this.d.add(jSONArray.getJSONObject(i).getString("name"));
+                this.f2970d.add(jSONArray.getJSONObject(i).getString("name"));
             }
-        } catch (JSONException e) {
-            new b.c(this.f1124a).a(Log.getStackTraceString(e)).a();
+        } catch (JSONException e2) {
+            new b.c(((a) this).f2942a).a(Log.getStackTraceString(e2)).a();
         }
-        return b;
+        return b2;
+    }
+
+    @Override // com.baidu.android.pushservice.d.a
+    public void b(HashMap<String, String> hashMap) {
+        super.b(hashMap);
+        hashMap.put("method", "glist");
     }
 }

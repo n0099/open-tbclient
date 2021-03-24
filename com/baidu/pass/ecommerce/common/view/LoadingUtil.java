@@ -1,0 +1,53 @@
+package com.baidu.pass.ecommerce.common.view;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiConfiguration;
+import com.baidu.sapi2.ecommerce.R;
+/* loaded from: classes2.dex */
+public class LoadingUtil {
+    public static Toast mToast;
+
+    public static void cancel() {
+        Toast toast = mToast;
+        if (toast != null) {
+            toast.cancel();
+        }
+    }
+
+    public static View createView(Context context, String str) {
+        View inflate;
+        LayoutInflater from = LayoutInflater.from(context);
+        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+        if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
+            inflate = from.inflate(R.layout.layout_sapi_sdk_common_night_loading, (ViewGroup) null);
+        } else {
+            inflate = from.inflate(R.layout.layout_sapi_sdk_common_loading, (ViewGroup) null);
+        }
+        ((TextView) inflate.findViewById(R.id.sapi_sdk_toast_msg_tv)).setText(str);
+        return inflate;
+    }
+
+    public static void show(String str) {
+        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+        if (confignation == null) {
+            return;
+        }
+        Toast toast = mToast;
+        if (toast != null) {
+            toast.cancel();
+        }
+        Context context = confignation.getContext();
+        Toast toast2 = new Toast(context);
+        mToast = toast2;
+        toast2.setGravity(17, 0, 0);
+        mToast.setDuration(1);
+        mToast.setView(createView(context, str));
+        mToast.show();
+    }
+}

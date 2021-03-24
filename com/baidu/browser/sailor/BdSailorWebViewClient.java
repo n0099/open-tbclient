@@ -12,7 +12,7 @@ import com.baidu.webkit.sdk.RenderProcessGoneDetail;
 import com.baidu.webkit.sdk.WebResourceError;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import com.baidu.webkit.sdk.WebResourceResponse;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class BdSailorWebViewClient implements INoProGuard {
     public void doUpdateVisitedHistory(BdSailorWebView bdSailorWebView, String str, boolean z) {
     }
@@ -61,7 +61,7 @@ public class BdSailorWebViewClient implements INoProGuard {
         return false;
     }
 
-    public void onScaleChanged(BdSailorWebView bdSailorWebView, float f, float f2) {
+    public void onScaleChanged(BdSailorWebView bdSailorWebView, float f2, float f3) {
     }
 
     public void onUnhandledKeyEvent(BdSailorWebView bdSailorWebView, KeyEvent keyEvent) {

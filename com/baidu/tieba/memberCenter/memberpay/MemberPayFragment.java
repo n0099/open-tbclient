@@ -6,35 +6,44 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+import d.b.i0.q1.f.b;
+import d.b.i0.q1.f.f;
+/* loaded from: classes3.dex */
 public class MemberPayFragment extends BaseFragment {
-    private boolean isPayDialog;
-    private String lrk;
-    private String lrl;
-    private int lrm;
-    private b lrn;
-    private f lro = null;
-    private Boolean lrp = false;
-    private View mRootView;
-    private int type;
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        Bundle arguments = getArguments();
-        this.type = arguments.getInt("member_type");
-        this.lrk = arguments.getString("member_refer_page");
-        this.lrl = arguments.getString("member_click_zone");
-        this.isPayDialog = arguments.getBoolean("member_is_pay_dialog");
-        this.lrm = arguments.getInt("member_from_type");
+    /* renamed from: e  reason: collision with root package name */
+    public int f18966e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f18967f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f18968g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f18969h;
+    public int i;
+    public b j;
+    public f k = null;
+    public View l;
+
+    public int E0() {
+        return this.f18966e;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.mRootView = layoutInflater.inflate(R.layout.member_pay_fragment_view, viewGroup, false);
-        this.lrn = new b(getPageContext(), this.mRootView, this.type, this.lrk, this.lrl, this.isPayDialog, this.lrm);
-        this.lrn.setDataAndRefreshUI(this.lro);
-        return this.mRootView;
+    public void F0(Boolean bool) {
+        b bVar = this.j;
+        if (bVar != null) {
+            bVar.q(bool.booleanValue());
+        }
+    }
+
+    public void G0(f fVar) {
+        this.k = fVar;
+        b bVar = this.j;
+        if (bVar != null) {
+            bVar.s(fVar);
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -42,29 +51,32 @@ public class MemberPayFragment extends BaseFragment {
         super.onActivityCreated(bundle);
     }
 
-    public void setDataAndRefreshUI(f fVar) {
-        this.lro = fVar;
-        if (this.lrn != null) {
-            this.lrn.setDataAndRefreshUI(fVar);
-        }
-    }
-
-    public void n(Boolean bool) {
-        this.lrp = bool;
-        if (this.lrn != null) {
-            this.lrn.tU(bool.booleanValue());
-        }
-    }
-
-    public int getType() {
-        return this.type;
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.lrn != null) {
-            this.lrn.onChangeSkinType(i);
+        b bVar = this.j;
+        if (bVar != null) {
+            bVar.p(i);
         }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        Bundle arguments = getArguments();
+        this.f18966e = arguments.getInt("member_type");
+        this.f18967f = arguments.getString("member_refer_page");
+        this.f18968g = arguments.getString("member_click_zone");
+        this.f18969h = arguments.getBoolean("member_is_pay_dialog");
+        this.i = arguments.getInt("member_from_type");
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.l = layoutInflater.inflate(R.layout.member_pay_fragment_view, viewGroup, false);
+        b bVar = new b(getPageContext(), this.l, this.f18966e, this.f18967f, this.f18968g, this.f18969h, this.i);
+        this.j = bVar;
+        bVar.s(this.k);
+        return this.l;
     }
 }

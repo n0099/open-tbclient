@@ -1,32 +1,58 @@
 package com.coremedia.iso.boxes.dece;
 
-import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import g.a.a.a;
+import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-import org.aspectj.a.b.b;
-import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TrickPlayBox extends AbstractFullBox {
     public static final String TYPE = "trik";
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_2 = null;
-    private List<Entry> entries;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
+    public List<Entry> entries;
+
+    /* loaded from: classes6.dex */
+    public static class Entry {
+        public int value;
+
+        public Entry() {
+        }
+
+        public int getDependencyLevel() {
+            return this.value & 63;
+        }
+
+        public int getPicType() {
+            return (this.value >> 6) & 3;
+        }
+
+        public void setDependencyLevel(int i) {
+            this.value = (i & 63) | this.value;
+        }
+
+        public void setPicType(int i) {
+            int i2 = this.value & 31;
+            this.value = i2;
+            this.value = ((i & 3) << 6) | i2;
+        }
+
+        public String toString() {
+            return "Entry{picType=" + getPicType() + ",dependencyLevel=" + getDependencyLevel() + '}';
+        }
+
+        public Entry(int i) {
+            this.value = i;
+        }
+    }
 
     static {
         ajc$preClinit();
-    }
-
-    private static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("TrickPlayBox.java", TrickPlayBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "setEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "java.util.List", "entries", "", "void"), 32);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", "java.util.List"), 36);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", FieldUtil.TYPE_STRING), 103);
     }
 
     public TrickPlayBox() {
@@ -34,57 +60,11 @@ public class TrickPlayBox extends AbstractFullBox {
         this.entries = new ArrayList();
     }
 
-    public void setEntries(List<Entry> list) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, list));
-        this.entries = list;
-    }
-
-    public List<Entry> getEntries() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this));
-        return this.entries;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class Entry {
-        private int value;
-
-        public Entry() {
-        }
-
-        public Entry(int i) {
-            this.value = i;
-        }
-
-        public int getPicType() {
-            return (this.value >> 6) & 3;
-        }
-
-        public void setPicType(int i) {
-            this.value &= 31;
-            this.value = ((i & 3) << 6) | this.value;
-        }
-
-        public int getDependencyLevel() {
-            return this.value & 63;
-        }
-
-        public void setDependencyLevel(int i) {
-            this.value = (i & 63) | this.value;
-        }
-
-        public String toString() {
-            StringBuilder sb = new StringBuilder();
-            sb.append("Entry");
-            sb.append("{picType=").append(getPicType());
-            sb.append(",dependencyLevel=").append(getDependencyLevel());
-            sb.append('}');
-            return sb.toString();
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    protected long getContentSize() {
-        return this.entries.size() + 4;
+    public static /* synthetic */ void ajc$preClinit() {
+        b bVar = new b("TrickPlayBox.java", TrickPlayBox.class);
+        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "setEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "java.util.List", "entries", "", "void"), 32);
+        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "getEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", "java.util.List"), 36);
+        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "toString", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", "java.lang.String"), 103);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -96,19 +76,30 @@ public class TrickPlayBox extends AbstractFullBox {
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
-    protected void getContent(ByteBuffer byteBuffer) {
+    public void getContent(ByteBuffer byteBuffer) {
         writeVersionAndFlags(byteBuffer);
         for (Entry entry : this.entries) {
             IsoTypeWriter.writeUInt8(byteBuffer, entry.value);
         }
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        return this.entries.size() + 4;
+    }
+
+    public List<Entry> getEntries() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_1, this, this));
+        return this.entries;
+    }
+
+    public void setEntries(List<Entry> list) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_0, this, this, list));
+        this.entries = list;
+    }
+
     public String toString() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this));
-        StringBuilder sb = new StringBuilder();
-        sb.append("TrickPlayBox");
-        sb.append("{entries=").append(this.entries);
-        sb.append('}');
-        return sb.toString();
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
+        return "TrickPlayBox{entries=" + this.entries + '}';
     }
 }

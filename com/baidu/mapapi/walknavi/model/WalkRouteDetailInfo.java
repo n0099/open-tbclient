@@ -1,5 +1,5 @@
 package com.baidu.mapapi.walknavi.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WalkRouteDetailInfo {
     public float altitude;
     public double avSpeed;
@@ -7,43 +7,43 @@ public class WalkRouteDetailInfo {
     public double maxSpeed;
     public double speed;
 
-    public double getDiffAltitude() {
-        return this.diffAltitude;
-    }
-
-    public void setDiffAltitude(float f) {
-        this.diffAltitude = f;
-    }
-
-    public double getSpeed() {
-        return this.speed;
-    }
-
-    public void setSpeed(double d) {
-        this.speed = d;
+    public double getAltitude() {
+        return this.altitude;
     }
 
     public double getAvSpeed() {
         return this.avSpeed;
     }
 
-    public void setAvSpeed(double d) {
-        this.avSpeed = d;
+    public double getDiffAltitude() {
+        return this.diffAltitude;
     }
 
     public double getMaxSpeed() {
         return this.maxSpeed;
     }
 
-    public void setMaxSpeed(double d) {
-        this.maxSpeed = d;
+    public double getSpeed() {
+        return this.speed;
     }
 
-    public double getAltitude() {
-        return this.altitude;
+    public void setAltitude(float f2) {
+        this.altitude = f2;
     }
 
-    public void setAltitude(float f) {
-        this.altitude = f;
+    public void setAvSpeed(double d2) {
+        this.avSpeed = d2;
+    }
+
+    public void setDiffAltitude(float f2) {
+        this.diffAltitude = f2;
+    }
+
+    public void setMaxSpeed(double d2) {
+        this.maxSpeed = d2;
+    }
+
+    public void setSpeed(double d2) {
+        this.speed = d2;
     }
 }

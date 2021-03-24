@@ -2,14 +2,20 @@ package com.vivo.push;
 
 import android.net.Uri;
 import com.baidu.mapapi.UIMsg;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f8092a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
-    public static final Uri b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
-    public static final Uri c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
-    public static final Uri d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
+    public static final Uri f39596a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Uri f39597b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final Uri f39598c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Uri f39599d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
 
     public static String a(int i) {
         switch (i) {

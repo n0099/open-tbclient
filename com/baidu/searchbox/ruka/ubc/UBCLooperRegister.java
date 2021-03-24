@@ -2,7 +2,9 @@ package com.baidu.searchbox.ruka.ubc;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.pyramid.runtime.service.c;
+import com.android.internal.http.multipart.Part;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
@@ -11,18 +13,19 @@ import com.baidu.searchbox.looper.ioc.ILooperRegister;
 import com.baidu.searchbox.ruka.Ruka;
 import com.baidu.searchbox.ruka.ioc.Constant;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.ubc.ab;
+import com.baidu.ubc.UBCManager;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes3.dex */
 public class UBCLooperRegister extends ILooperRegister {
-    private static final String KEY_EXT = "ext";
-    private static final String TAG = "UBCLooperRegister";
-    private static final String UBC_BLOCK = "1157";
-    private static final int UI_TRACE_MAX_SIZE = 20;
-    private String separator = "\r\n";
+    public static final String KEY_EXT = "ext";
+    public static final String TAG = "UBCLooperRegister";
+    public static final String UBC_BLOCK = "1157";
+    public static final int UI_TRACE_MAX_SIZE = 20;
+    public String separator = Part.CRLF;
     public static String KEY_BLOCK_ACTIVE_UPLOAD = "key_block_active_upload";
     public static boolean sEnable = QuickPersistConfig.getInstance().getBoolean(KEY_BLOCK_ACTIVE_UPLOAD, false);
 
@@ -96,8 +99,8 @@ public class UBCLooperRegister extends ILooperRegister {
             LinkedList<TrackUI> trackUIs = looperBlock.getTrackUIs();
             if (trackUIs != null && trackUIs.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                int size = trackUIs.size() - 1;
                 int i = 1;
+                int size = trackUIs.size() - 1;
                 while (true) {
                     TrackUI trackUI = trackUIs.get(size);
                     JSONObject jSONObject2 = new JSONObject();
@@ -113,19 +116,19 @@ public class UBCLooperRegister extends ILooperRegister {
                     if (size <= 0) {
                         break;
                     }
-                    i = i2;
                     size = i3;
+                    i = i2;
                 }
                 jSONObject.put("pageTrace", jSONArray);
             }
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("ext", jSONObject);
-            ab abVar = (ab) c.a(ab.SERVICE_REFERENCE);
-            if (abVar != null) {
-                abVar.onEvent(UBC_BLOCK, jSONObject3);
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (uBCManager != null) {
+                uBCManager.onEvent(UBC_BLOCK, jSONObject3);
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 }

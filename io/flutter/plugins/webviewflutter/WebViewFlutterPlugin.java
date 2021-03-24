@@ -3,9 +3,9 @@ package io.flutter.plugins.webviewflutter;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.PluginRegistry;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class WebViewFlutterPlugin implements FlutterPlugin {
-    private FlutterCookieManager flutterCookieManager;
+    public FlutterCookieManager flutterCookieManager;
 
     public static void registerWith(PluginRegistry.Registrar registrar) {
         registrar.platformViewRegistry().registerViewFactory("plugins.flutter.io/webview", new WebViewFactory(registrar.messenger(), registrar.view()));
@@ -21,9 +21,11 @@ public class WebViewFlutterPlugin implements FlutterPlugin {
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        if (this.flutterCookieManager != null) {
-            this.flutterCookieManager.dispose();
-            this.flutterCookieManager = null;
+        FlutterCookieManager flutterCookieManager = this.flutterCookieManager;
+        if (flutterCookieManager == null) {
+            return;
         }
+        flutterCookieManager.dispose();
+        this.flutterCookieManager = null;
     }
 }

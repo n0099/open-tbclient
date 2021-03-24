@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.videocache;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ProxyCacheException extends Exception {
-    private static final String LIBRARY_VERSION = ". Version: 3.3.9";
+    public static final String LIBRARY_VERSION = ". Version: 3.3.9";
 
     public ProxyCacheException(String str) {
         super(str + LIBRARY_VERSION);

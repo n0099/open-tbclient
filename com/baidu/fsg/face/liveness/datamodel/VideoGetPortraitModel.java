@@ -3,13 +3,12 @@ package com.baidu.fsg.face.liveness.datamodel;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.fsg.base.restnet.beans.IBeanResponse;
-import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
-import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.StringHelper;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class VideoGetPortraitModel implements IBeanResponse, Serializable {
     public String cutTimePoints;
     public String display_name;
@@ -24,12 +23,7 @@ public class VideoGetPortraitModel implements IBeanResponse, Serializable {
         return true;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponse
-    public void storeResponse(Context context) {
-    }
-
     public long[] getCutTimePoints() {
-        int i = 0;
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(this.cutTimePoints)) {
             String[] split = this.cutTimePoints.split(",");
@@ -37,44 +31,39 @@ public class VideoGetPortraitModel implements IBeanResponse, Serializable {
                 for (String str : split) {
                     try {
                         arrayList.add(Long.valueOf(Long.parseLong(str)));
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                     }
                 }
             }
         }
         long[] jArr = new long[arrayList.size()];
-        while (true) {
-            int i2 = i;
-            if (i2 < arrayList.size()) {
-                jArr[i2] = ((Long) arrayList.get(i2)).longValue();
-                i = i2 + 1;
-            } else {
-                return jArr;
-            }
+        for (int i = 0; i < arrayList.size(); i++) {
+            jArr[i] = ((Long) arrayList.get(i)).longValue();
         }
+        return jArr;
     }
 
     public List<String> getLrcContent() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(StringHelper.STRING_MORE);
         if (!TextUtils.isEmpty(this.readingContent)) {
-            arrayList.addAll(Arrays.asList(this.readingContent.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR)));
+            arrayList.addAll(Arrays.asList(this.readingContent.split("\\|")));
         }
         arrayList.add(" ");
         return arrayList;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x0013  */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x001b  */
+    /* JADX WARN: Removed duplicated region for block: B:15:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int getVideoMaxSize() {
         int i;
         try {
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         if (!TextUtils.isEmpty(this.videoMaxSize)) {
             i = Integer.parseInt(this.videoMaxSize);
@@ -86,5 +75,9 @@ public class VideoGetPortraitModel implements IBeanResponse, Serializable {
         i = Integer.MAX_VALUE;
         if (i <= 0) {
         }
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponse
+    public void storeResponse(Context context) {
     }
 }

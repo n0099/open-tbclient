@@ -2,13 +2,12 @@ package io.flutter.embedding.engine;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class FlutterEngineCache {
-    private static FlutterEngineCache instance;
-    private final Map<String, FlutterEngine> cachedEngines = new HashMap();
+    public static FlutterEngineCache instance;
+    public final Map<String, FlutterEngine> cachedEngines = new HashMap();
 
     @NonNull
     public static FlutterEngineCache getInstance() {
@@ -16,10 +15,6 @@ public class FlutterEngineCache {
             instance = new FlutterEngineCache();
         }
         return instance;
-    }
-
-    @VisibleForTesting
-    FlutterEngineCache() {
     }
 
     public boolean contains(@NonNull String str) {

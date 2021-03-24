@@ -1,16 +1,14 @@
 package com.baidu.platform.comapi.walknavi;
 
 import com.baidu.platform.comapi.walknavi.g.a;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f implements a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2953a;
+    public final /* synthetic */ b f10043a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar) {
-        this.f2953a = bVar;
+        this.f10043a = bVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.a.b
@@ -22,6 +20,6 @@ public class f implements a.b {
             }
             return;
         }
-        this.f2953a.s();
+        this.f10043a.s();
     }
 }

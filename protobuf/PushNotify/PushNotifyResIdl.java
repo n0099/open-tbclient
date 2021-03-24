@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class PushNotifyResIdl extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 2)
     public final List<PusherMsg> multiMsg;
@@ -13,27 +13,7 @@ public final class PushNotifyResIdl extends Message {
     public static final Long DEFAULT_PUSHTIME = 0L;
     public static final List<PusherMsg> DEFAULT_MULTIMSG = Collections.emptyList();
 
-    private PushNotifyResIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.pushTime == null) {
-                this.pushTime = DEFAULT_PUSHTIME;
-            } else {
-                this.pushTime = builder.pushTime;
-            }
-            if (builder.multiMsg == null) {
-                this.multiMsg = DEFAULT_MULTIMSG;
-                return;
-            } else {
-                this.multiMsg = immutableCopyOf(builder.multiMsg);
-                return;
-            }
-        }
-        this.pushTime = builder.pushTime;
-        this.multiMsg = immutableCopyOf(builder.multiMsg);
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<PushNotifyResIdl> {
         public List<PusherMsg> multiMsg;
         public Long pushTime;
@@ -43,10 +23,11 @@ public final class PushNotifyResIdl extends Message {
 
         public Builder(PushNotifyResIdl pushNotifyResIdl) {
             super(pushNotifyResIdl);
-            if (pushNotifyResIdl != null) {
-                this.pushTime = pushNotifyResIdl.pushTime;
-                this.multiMsg = PushNotifyResIdl.copyOf(pushNotifyResIdl.multiMsg);
+            if (pushNotifyResIdl == null) {
+                return;
             }
+            this.pushTime = pushNotifyResIdl.pushTime;
+            this.multiMsg = Message.copyOf(pushNotifyResIdl.multiMsg);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,5 +35,27 @@ public final class PushNotifyResIdl extends Message {
         public PushNotifyResIdl build(boolean z) {
             return new PushNotifyResIdl(this, z);
         }
+    }
+
+    public PushNotifyResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.pushTime;
+            if (l == null) {
+                this.pushTime = DEFAULT_PUSHTIME;
+            } else {
+                this.pushTime = l;
+            }
+            List<PusherMsg> list = builder.multiMsg;
+            if (list == null) {
+                this.multiMsg = DEFAULT_MULTIMSG;
+                return;
+            } else {
+                this.multiMsg = Message.immutableCopyOf(list);
+                return;
+            }
+        }
+        this.pushTime = builder.pushTime;
+        this.multiMsg = Message.immutableCopyOf(builder.multiMsg);
     }
 }

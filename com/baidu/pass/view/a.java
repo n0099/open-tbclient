@@ -1,26 +1,26 @@
 package com.baidu.pass.view;
 
 import android.view.View;
-import com.baidu.pass.view.ConfirmDialog;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+import com.baidu.pass.view.CommonDialog;
+/* loaded from: classes2.dex */
 public class a implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ConfirmDialog f2859a;
-    final /* synthetic */ ConfirmDialog.Builder b;
+    public final /* synthetic */ CommonDialog f9795a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(ConfirmDialog.Builder builder, ConfirmDialog confirmDialog) {
-        this.b = builder;
-        this.f2859a = confirmDialog;
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ CommonDialog.Builder f9796b;
+
+    public a(CommonDialog.Builder builder, CommonDialog commonDialog) {
+        this.f9796b = builder;
+        this.f9795a = commonDialog;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         View.OnClickListener onClickListener;
-        onClickListener = this.b.i;
+        onClickListener = this.f9796b.i;
         onClickListener.onClick(view);
-        this.f2859a.dismiss();
+        this.f9795a.dismiss();
     }
 }

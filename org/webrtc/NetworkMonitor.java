@@ -6,32 +6,28 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.NetworkMonitorAutoDetect;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class NetworkMonitor {
-    private static final String TAG = "NetworkMonitor";
+    public static final String TAG = "NetworkMonitor";
     @Nullable
-    private NetworkMonitorAutoDetect autoDetect;
-    private final Object autoDetectLock;
-    private volatile NetworkMonitorAutoDetect.ConnectionType currentConnectionType;
-    private final ArrayList<Long> nativeNetworkObservers;
-    private final ArrayList<NetworkObserver> networkObservers;
-    private int numObservers;
+    public NetworkMonitorAutoDetect autoDetect;
+    public final Object autoDetectLock;
+    public volatile NetworkMonitorAutoDetect.ConnectionType currentConnectionType;
+    public final ArrayList<Long> nativeNetworkObservers;
+    public final ArrayList<NetworkObserver> networkObservers;
+    public int numObservers;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class InstanceHolder {
-        static final NetworkMonitor instance = new NetworkMonitor();
-
-        private InstanceHolder() {
-        }
+        public static final NetworkMonitor instance = new NetworkMonitor();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface NetworkObserver {
         void onConnectionTypeChanged(NetworkMonitorAutoDetect.ConnectionType connectionType);
     }
 
-    private NetworkMonitor() {
+    public NetworkMonitor() {
         this.autoDetectLock = new Object();
         this.nativeNetworkObservers = new ArrayList<>();
         this.networkObservers = new ArrayList<>();
@@ -45,17 +41,17 @@ public class NetworkMonitor {
     }
 
     @CalledByNative
-    private static int androidSdkInt() {
+    public static int androidSdkInt() {
         return Build.VERSION.SDK_INT;
     }
 
-    private static void assertIsTrue(boolean z) {
+    public static void assertIsTrue(boolean z) {
         if (!z) {
             throw new AssertionError("Expected to be true");
         }
     }
 
-    static NetworkMonitorAutoDetect createAndSetAutoDetectForTest(Context context) {
+    public static NetworkMonitorAutoDetect createAndSetAutoDetectForTest(Context context) {
         NetworkMonitor networkMonitor = getInstance();
         NetworkMonitorAutoDetect createAutoDetect = networkMonitor.createAutoDetect(context);
         networkMonitor.autoDetect = createAutoDetect;
@@ -210,7 +206,7 @@ public class NetworkMonitor {
     }
 
     @Nullable
-    NetworkMonitorAutoDetect getNetworkMonitorAutoDetect() {
+    public NetworkMonitorAutoDetect getNetworkMonitorAutoDetect() {
         NetworkMonitorAutoDetect networkMonitorAutoDetect;
         synchronized (this.autoDetectLock) {
             networkMonitorAutoDetect = this.autoDetect;
@@ -218,7 +214,7 @@ public class NetworkMonitor {
         return networkMonitorAutoDetect;
     }
 
-    int getNumObservers() {
+    public int getNumObservers() {
         int i;
         synchronized (this.autoDetectLock) {
             i = this.numObservers;

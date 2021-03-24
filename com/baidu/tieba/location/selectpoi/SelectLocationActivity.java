@@ -5,43 +5,49 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-/* loaded from: classes7.dex */
+import d.b.i0.m1.e.c;
+/* loaded from: classes3.dex */
 public class SelectLocationActivity extends SuspendedActivity {
-    private CustomMessageListener lkE = new CustomMessageListener(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY) { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.1
+    public CustomMessageListener closeListener = new a(2002013);
+
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                SelectLocationActivity.this.finish();
+            if (customResponsedMessage == null) {
+                return;
             }
+            SelectLocationActivity.this.finish();
         }
-    };
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        registerListener(this.lkE);
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected com.baidu.tbadk.suspended.a a(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public d.b.h0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         return new c(getPageContext(), linearLayout, navigationBar);
     }
 
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bER() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 23009) {
             finish();
         }
+    }
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        registerListener(this.closeListener);
+    }
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public void requestData() {
     }
 }

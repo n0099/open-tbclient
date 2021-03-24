@@ -3,11 +3,15 @@ package com.baidu.tieba.lego.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class LegoTbImageView extends TbImageView {
     public LegoTbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init();
+        G();
+    }
+
+    public final void G() {
+        setDrawerType(6);
     }
 
     public LegoTbImageView(Context context, AttributeSet attributeSet) {
@@ -16,9 +20,5 @@ public class LegoTbImageView extends TbImageView {
 
     public LegoTbImageView(Context context) {
         this(context, null, 0);
-    }
-
-    private void init() {
-        setDrawerType(6);
     }
 }

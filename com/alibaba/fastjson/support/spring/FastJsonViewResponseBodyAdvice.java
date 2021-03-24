@@ -12,28 +12,18 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 @Order
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class FastJsonViewResponseBodyAdvice implements ResponseBodyAdvice<Object> {
-    /* renamed from: beforeBodyWrite  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ Object m8beforeBodyWrite(Object obj, MethodParameter methodParameter, MediaType mediaType, Class cls, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        return beforeBodyWrite(obj, methodParameter, mediaType, (Class<? extends HttpMessageConverter<?>>) cls, serverHttpRequest, serverHttpResponse);
-    }
-
-    public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> cls) {
-        return FastJsonHttpMessageConverter.class.isAssignableFrom(cls) && methodParameter.hasMethodAnnotation(FastJsonView.class);
-    }
-
-    public FastJsonContainer beforeBodyWrite(Object obj, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> cls, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        FastJsonContainer orCreateContainer = getOrCreateContainer(obj);
-        beforeBodyWriteInternal(orCreateContainer, mediaType, methodParameter, serverHttpRequest, serverHttpResponse);
-        return orCreateContainer;
-    }
-
     private FastJsonContainer getOrCreateContainer(Object obj) {
         return obj instanceof FastJsonContainer ? (FastJsonContainer) obj : new FastJsonContainer(obj);
     }
 
-    protected void beforeBodyWriteInternal(FastJsonContainer fastJsonContainer, MediaType mediaType, MethodParameter methodParameter, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+    /* renamed from: beforeBodyWrite  reason: collision with other method in class */
+    public /* bridge */ /* synthetic */ Object m7beforeBodyWrite(Object obj, MethodParameter methodParameter, MediaType mediaType, Class cls, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+        return beforeBodyWrite(obj, methodParameter, mediaType, (Class<? extends HttpMessageConverter<?>>) cls, serverHttpRequest, serverHttpResponse);
+    }
+
+    public void beforeBodyWriteInternal(FastJsonContainer fastJsonContainer, MediaType mediaType, MethodParameter methodParameter, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         FastJsonView fastJsonView = (FastJsonView) methodParameter.getMethodAnnotation(FastJsonView.class);
         FastJsonFilter[] include = fastJsonView.include();
         FastJsonFilter[] exclude = fastJsonView.exclude();
@@ -45,5 +35,15 @@ public class FastJsonViewResponseBodyAdvice implements ResponseBodyAdvice<Object
             propertyPreFilters.addFilter(fastJsonFilter2.clazz(), new String[0]).addExcludes(fastJsonFilter2.props());
         }
         fastJsonContainer.setFilters(propertyPreFilters);
+    }
+
+    public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> cls) {
+        return FastJsonHttpMessageConverter.class.isAssignableFrom(cls) && methodParameter.hasMethodAnnotation(FastJsonView.class);
+    }
+
+    public FastJsonContainer beforeBodyWrite(Object obj, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> cls, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+        FastJsonContainer orCreateContainer = getOrCreateContainer(obj);
+        beforeBodyWriteInternal(orCreateContainer, mediaType, methodParameter, serverHttpRequest, serverHttpResponse);
+        return orCreateContainer;
     }
 }

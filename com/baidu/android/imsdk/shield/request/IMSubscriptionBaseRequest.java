@@ -5,30 +5,23 @@ import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
-import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.sapi2.SapiContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
-    private static final String TAG = "IMSubscriptionBaseRequest";
-    protected String mKey;
-    protected List<String> mMiNiAppTopicList;
-    protected long mPaid;
-    protected String mSource;
-    protected List<Long> mTopicList;
+    public static final String TAG = "IMSubscriptionBaseRequest";
+    public String mKey;
+    public List<String> mMiNiAppTopicList;
+    public long mPaid;
+    public String mSource;
+    public List<Long> mTopicList;
 
-    public abstract String getHostUrlParam();
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public IMSubscriptionBaseRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
         if (list != null && list.size() > 0) {
             this.mTopicList = new ArrayList(list);
@@ -42,11 +35,30 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
         this.mSource = str2;
     }
 
+    private String getHostUrl() {
+        int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
+        if (readIntData != 0) {
+            if (readIntData == 1 || readIntData == 2) {
+                return "http://rd-im-server.bcc-szth.baidu.com:8111/";
+            }
+            if (readIntData != 3) {
+                return null;
+            }
+            return Constants.URL_HTTP_BOX;
+        }
+        return "https://pim.baidu.com/";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/json";
+    }
+
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
-        hashMap.put(SM.COOKIE, "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
-        hashMap.put("Content-Type", HttpHelper.CONTENT_JSON);
+        hashMap.put("Cookie", "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
+        hashMap.put("Content-Type", "application/json");
         return hashMap;
     }
 
@@ -58,18 +70,11 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
         return getHostUrl() + "rest/3.0/im/subscription?method=" + getHostUrlParam();
     }
 
-    private String getHostUrl() {
-        switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
-            case 0:
-                return "https://pim.baidu.com/";
-            case 1:
-            case 2:
-                return "http://rd-im-server.bcc-szth.baidu.com:8111/";
-            case 3:
-                return Constants.URL_HTTP_BOX;
-            default:
-                return null;
-        }
+    public abstract String getHostUrlParam();
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        return "POST";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -82,9 +87,9 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
             jSONObject.put("appid", appid);
             jSONObject.put("timestamp", currentTimeMillis);
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-            jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+            jSONObject.put("device_type", 2);
             jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-            jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("uk", uk);
             if (this.mTopicList != null && this.mTopicList.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
@@ -106,8 +111,8 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
             jSONObject.put("account_type", AccountManager.isCuidLogin(this.mContext) ? 1 : 0);
             LogUtils.d(TAG, "IMSubscriptionBaseRequest msg :" + jSONObject.toString());
             return jSONObject.toString().getBytes();
-        } catch (Exception e) {
-            LogUtils.e(TAG, "IMSubscriptionBaseRequest getRequestParameter exception", e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "IMSubscriptionBaseRequest getRequestParameter exception", e2);
             return null;
         }
     }
@@ -115,15 +120,5 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public boolean shouldAbort() {
         return false;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        return "POST";
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return HttpHelper.CONTENT_JSON;
     }
 }

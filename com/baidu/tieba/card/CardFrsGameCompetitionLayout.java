@@ -8,129 +8,57 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetitionSubNode;
+import d.b.b.e.k.b;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CardFrsGameCompetitionLayout extends LinearLayout {
-    private int aFj;
-    private com.baidu.adp.lib.d.b<CardFrsGameCompetitionItemView> ixi;
-    private int ixj;
-    private int ixk;
-    private final ViewGroup.OnHierarchyChangeListener ixl;
-    private TbPageContext pageContext;
+
+    /* renamed from: e  reason: collision with root package name */
+    public b<CardFrsGameCompetitionItemView> f15232e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f15233f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f15234g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f15235h;
+    public final ViewGroup.OnHierarchyChangeListener i;
+
+    /* loaded from: classes4.dex */
+    public class a implements ViewGroup.OnHierarchyChangeListener {
+        public a() {
+        }
+
+        @Override // android.view.ViewGroup.OnHierarchyChangeListener
+        public void onChildViewAdded(View view, View view2) {
+        }
+
+        @Override // android.view.ViewGroup.OnHierarchyChangeListener
+        public void onChildViewRemoved(View view, View view2) {
+            if (!(view2 instanceof CardFrsGameCompetitionItemView) || CardFrsGameCompetitionLayout.this.f15232e == null) {
+                return;
+            }
+            CardFrsGameCompetitionLayout.this.f15232e.e((CardFrsGameCompetitionItemView) view2);
+        }
+    }
 
     public CardFrsGameCompetitionLayout(Context context) {
         super(context);
-        this.ixi = null;
-        this.ixl = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameCompetitionLayout.1
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewAdded(View view, View view2) {
-            }
-
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof CardFrsGameCompetitionItemView) && CardFrsGameCompetitionLayout.this.ixi != null) {
-                    CardFrsGameCompetitionLayout.this.ixi.returnObject((CardFrsGameCompetitionItemView) view2);
-                }
-            }
-        };
-        init();
+        this.f15232e = null;
+        this.i = new a();
+        b();
     }
 
-    public CardFrsGameCompetitionLayout(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.ixi = null;
-        this.ixl = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameCompetitionLayout.1
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewAdded(View view, View view2) {
-            }
-
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof CardFrsGameCompetitionItemView) && CardFrsGameCompetitionLayout.this.ixi != null) {
-                    CardFrsGameCompetitionLayout.this.ixi.returnObject((CardFrsGameCompetitionItemView) view2);
-                }
-            }
-        };
-        init();
-    }
-
-    public CardFrsGameCompetitionLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.ixi = null;
-        this.ixl = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameCompetitionLayout.1
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewAdded(View view, View view2) {
-            }
-
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof CardFrsGameCompetitionItemView) && CardFrsGameCompetitionLayout.this.ixi != null) {
-                    CardFrsGameCompetitionLayout.this.ixi.returnObject((CardFrsGameCompetitionItemView) view2);
-                }
-            }
-        };
-        init();
-    }
-
-    private void init() {
+    public final void b() {
         setOrientation(0);
         setGravity(17);
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        setOnHierarchyChangeListener(this.ixl);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        setOnHierarchyChangeListener(null);
-    }
-
-    public void setPageContext(TbPageContext tbPageContext) {
-        this.pageContext = tbPageContext;
-    }
-
-    public void setData(List<FeatureCardCompetitionSubNode> list) {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
-            this.ixk = this.aFj + this.ixj;
-            int i = 0;
-            int childCount = getChildCount();
-            while (i < childCount && i < list.size()) {
-                if (getChildAt(i) instanceof CardFrsGameCompetitionItemView) {
-                    CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = (CardFrsGameCompetitionItemView) getChildAt(i);
-                    a(cardFrsGameCompetitionItemView, i, this.aFj);
-                    a(cardFrsGameCompetitionItemView, list.get(i));
-                }
-                i++;
-            }
-            int i2 = i;
-            while (i2 < childCount) {
-                removeViewAt(i2);
-                i2++;
-            }
-            while (true) {
-                int i3 = i2;
-                if (i3 < list.size()) {
-                    CardFrsGameCompetitionItemView borrowObject = this.ixi.borrowObject();
-                    if (borrowObject.getParent() != null) {
-                        ((ViewGroup) borrowObject.getParent()).removeView(borrowObject);
-                    }
-                    a(borrowObject, i3, this.aFj);
-                    a(borrowObject, list.get(i3));
-                    addView(borrowObject);
-                    i2 = i3 + 1;
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    private void a(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView, int i, int i2) {
+    public final void c(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView, int i, int i2) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cardFrsGameCompetitionItemView.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new LinearLayout.LayoutParams(i2, -1);
@@ -140,32 +68,93 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         if (i == 0) {
             layoutParams.leftMargin = 0;
         } else {
-            layoutParams.leftMargin = this.ixj;
+            layoutParams.leftMargin = this.f15233f;
         }
         cardFrsGameCompetitionItemView.setLayoutParams(layoutParams);
     }
 
-    private void a(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView, FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
-        if (featureCardCompetitionSubNode != null) {
-            cardFrsGameCompetitionItemView.a(featureCardCompetitionSubNode);
-            cardFrsGameCompetitionItemView.setTag(featureCardCompetitionSubNode.url);
-            cardFrsGameCompetitionItemView.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    public final void d(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView, FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
+        if (featureCardCompetitionSubNode == null) {
+            return;
         }
+        cardFrsGameCompetitionItemView.b(featureCardCompetitionSubNode);
+        cardFrsGameCompetitionItemView.setTag(featureCardCompetitionSubNode.url);
+        cardFrsGameCompetitionItemView.d(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public int getChildItemWidth() {
-        return this.ixk;
+        return this.f15235h;
     }
 
-    public void setViewPool(com.baidu.adp.lib.d.b<CardFrsGameCompetitionItemView> bVar) {
-        this.ixi = bVar;
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        setOnHierarchyChangeListener(this.i);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        setOnHierarchyChangeListener(null);
+    }
+
+    public void setData(List<FeatureCardCompetitionSubNode> list) {
+        if (ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.f15235h = this.f15234g + this.f15233f;
+        int i = 0;
+        int childCount = getChildCount();
+        while (i < childCount && i < list.size()) {
+            if (getChildAt(i) instanceof CardFrsGameCompetitionItemView) {
+                CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = (CardFrsGameCompetitionItemView) getChildAt(i);
+                c(cardFrsGameCompetitionItemView, i, this.f15234g);
+                d(cardFrsGameCompetitionItemView, list.get(i));
+            }
+            i++;
+        }
+        while (i < childCount) {
+            removeViewAt(i);
+            i++;
+        }
+        while (i < list.size()) {
+            CardFrsGameCompetitionItemView b2 = this.f15232e.b();
+            if (b2.getParent() != null) {
+                ((ViewGroup) b2.getParent()).removeView(b2);
+            }
+            c(b2, i, this.f15234g);
+            d(b2, list.get(i));
+            addView(b2);
+            i++;
+        }
     }
 
     public void setItemSpace(int i) {
-        this.ixj = i;
+        this.f15233f = i;
     }
 
     public void setItemWidth(int i) {
-        this.aFj = i;
+        this.f15234g = i;
+    }
+
+    public void setPageContext(TbPageContext tbPageContext) {
+    }
+
+    public void setViewPool(b<CardFrsGameCompetitionItemView> bVar) {
+        this.f15232e = bVar;
+    }
+
+    public CardFrsGameCompetitionLayout(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f15232e = null;
+        this.i = new a();
+        b();
+    }
+
+    public CardFrsGameCompetitionLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f15232e = null;
+        this.i = new a();
+        b();
     }
 }

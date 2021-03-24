@@ -9,43 +9,31 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class b {
-    private String b;
-    private String d;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f30282b;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f30284d;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<String, a> f5077a = new HashMap();
-    private AtomicBoolean c = new AtomicBoolean(false);
+    public final Map<String, a> f30281a = new HashMap();
+
+    /* renamed from: c  reason: collision with root package name */
+    public AtomicBoolean f30283c = new AtomicBoolean(false);
 
     public b(Context context, String str, File file) {
-        if (TextUtils.isEmpty(str)) {
-            throw new RuntimeException("access key empty");
+        if (!TextUtils.isEmpty(str)) {
+            this.f30282b = str;
+            if (file == null) {
+                File filesDir = context.getFilesDir();
+                this.f30284d = new File(filesDir, "gecko_offline_res_x" + File.separator + str).getAbsolutePath();
+                return;
+            }
+            this.f30284d = new File(file, str).getAbsolutePath();
+            return;
         }
-        this.b = str;
-        if (file == null) {
-            this.d = new File(context.getFilesDir(), "gecko_offline_res_x" + File.separator + str).getAbsolutePath();
-        } else {
-            this.d = new File(file, str).getAbsolutePath();
-        }
-    }
-
-    public InputStream a(String str) throws Exception {
-        if (this.c.get()) {
-            throw new RuntimeException("released");
-        }
-        if (TextUtils.isEmpty(str)) {
-            throw new RuntimeException("relativePath empty");
-        }
-        return c(str.trim()).a(str);
-    }
-
-    public boolean b(String str) throws Exception {
-        if (this.c.get()) {
-            throw new RuntimeException("released");
-        }
-        if (TextUtils.isEmpty(str)) {
-            throw new RuntimeException("relativePath empty");
-        }
-        return c(str.trim()).b(str);
+        throw new RuntimeException("access key empty");
     }
 
     private a c(String str) {
@@ -55,29 +43,50 @@ public class b {
             new RuntimeException("缺少channel：" + str);
         }
         String substring = str.substring(0, indexOf);
-        synchronized (this.f5077a) {
-            aVar = this.f5077a.get(substring);
+        synchronized (this.f30281a) {
+            aVar = this.f30281a.get(substring);
             if (aVar == null) {
-                aVar = new a(this.b, this.d, substring);
-                this.f5077a.put(substring, aVar);
+                aVar = new a(this.f30282b, this.f30284d, substring);
+                this.f30281a.put(substring, aVar);
             }
         }
         return aVar;
     }
 
-    public void a() throws Exception {
-        if (!this.c.getAndSet(true)) {
-            com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("Loader", "release version res loader");
-            b();
+    public InputStream a(String str) throws Exception {
+        if (!this.f30283c.get()) {
+            if (!TextUtils.isEmpty(str)) {
+                return c(str.trim()).a(str);
+            }
+            throw new RuntimeException("relativePath empty");
         }
+        throw new RuntimeException("released");
+    }
+
+    public boolean b(String str) throws Exception {
+        if (!this.f30283c.get()) {
+            if (!TextUtils.isEmpty(str)) {
+                return c(str.trim()).b(str);
+            }
+            throw new RuntimeException("relativePath empty");
+        }
+        throw new RuntimeException("released");
     }
 
     private void b() throws Exception {
-        synchronized (this.f5077a) {
-            for (a aVar : this.f5077a.values()) {
+        synchronized (this.f30281a) {
+            for (a aVar : this.f30281a.values()) {
                 aVar.a();
             }
-            this.f5077a.clear();
+            this.f30281a.clear();
         }
+    }
+
+    public void a() throws Exception {
+        if (this.f30283c.getAndSet(true)) {
+            return;
+        }
+        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("Loader", "release version res loader");
+        b();
     }
 }

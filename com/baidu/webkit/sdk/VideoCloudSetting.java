@@ -4,17 +4,17 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class VideoCloudSetting {
-    private static final String DEFAULT_ERROR_LOG_CLOSE_ALL = "close_all";
-    private static final String DEFAULT_ERROR_LOG_ENABLE_ALL = "enable_all";
-    private static final int DEFAULT_VIDEO_FORMAT_COLLECT_PERCENT_VALUE = 0;
-    private static final long HOUR_MILLISECOND = 3600000;
+    public static final String DEFAULT_ERROR_LOG_CLOSE_ALL = "close_all";
+    public static final String DEFAULT_ERROR_LOG_ENABLE_ALL = "enable_all";
+    public static final int DEFAULT_VIDEO_FORMAT_COLLECT_PERCENT_VALUE = 0;
+    public static final long HOUR_MILLISECOND = 3600000;
     public static final String PREF_KEY_BLACK_DEVICE_LIST = "video_black_devices_list_for_hardware_decoder";
     public static final String PREF_KEY_CYBER_CORE_VERSION = "video_cyber_core_version";
     public static final String PREF_KEY_CYBER_FEED_PLAY_COUNT = "cyber_feed_play_count";
@@ -38,12 +38,11 @@ public class VideoCloudSetting {
     public static final String PREF_KEY_VIDEO_LOG_HW_DECODER_EXCEPTION_ENABLE = "video_log_hw_decoder_exception_enable";
     public static final String PREF_KEY_ZEUS_VIDEO_PRELOAD_ENABLE_VERSION = "video_zeus_preload_enable_ver";
     public static final String PREF_NAME = "video_cfg_";
-    private static final int SETTING_CYBER_VERSION = 0;
-    private static final int SETTING_HOST = 1;
+    public static final int SETTING_CYBER_VERSION = 0;
+    public static final int SETTING_HOST = 1;
     public static final String TAG = "VideoCloudSettings";
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum MatchedType {
         FAILED,
         AND_NEED_CHECK_NEXT,
@@ -51,8 +50,7 @@ public class VideoCloudSetting {
         SUCCESS
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class VideoCloudSettingItem {
         public boolean mIsCloseAll;
         public boolean mIsEnableAll;
@@ -97,46 +95,47 @@ public class VideoCloudSetting {
             } else if (!str.contains(str2)) {
                 this.mSubItems = parseSubItems(str, str3);
             } else {
-                if (str2.endsWith("|")) {
-                    str2 = EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR;
+                if (str2.endsWith(FieldBuilder.SE)) {
+                    str2 = "\\|";
                 }
                 String[] split = str.split(str2);
-                if (split.length == 2) {
-                    this.mSubItems = parseSubItems(split[0], str3);
-                    this.mIsAdd = parseLogicalSymbol(split[1]);
+                if (split.length != 2) {
+                    return;
                 }
+                this.mSubItems = parseSubItems(split[0], str3);
+                this.mIsAdd = parseLogicalSymbol(split[1]);
             }
         }
 
         private String[] parseSubItems(String str, String str2) {
-            if (!TextUtils.isEmpty(str)) {
-                if (str.contains(str2)) {
-                    String[] split = str.split(str2);
-                    int length = split.length;
-                    for (int i = 0; i < length; i++) {
-                        if (TextUtils.isEmpty(split[i])) {
-                            split[i] = null;
-                        }
-                    }
-                    return split;
-                } else if (!TextUtils.isEmpty(str)) {
-                    return new String[]{str};
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (!str.contains(str2)) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                return new String[]{str};
+            }
+            String[] split = str.split(str2);
+            int length = split.length;
+            for (int i = 0; i < length; i++) {
+                if (TextUtils.isEmpty(split[i])) {
+                    split[i] = null;
                 }
             }
-            return null;
+            return split;
         }
 
         public boolean find(String str) {
+            String[] strArr;
             if (this.mIsEnableAll) {
                 return true;
             }
-            if (!TextUtils.isEmpty(str) && this.mSubItems != null) {
-                int length = this.mSubItems.length;
+            if (!TextUtils.isEmpty(str) && (strArr = this.mSubItems) != null) {
+                int length = strArr.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(this.mSubItems[i])) {
-                        return true;
-                    }
-                    if (this.mType == 0 && illegibilityMatch(str, this.mSubItems[i], "\\.", "*")) {
+                    if (str.equals(this.mSubItems[i]) || (this.mType == 0 && illegibilityMatch(str, this.mSubItems[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
                         return true;
                     }
                 }
@@ -155,8 +154,9 @@ public class VideoCloudSetting {
         public void print() {
             Log.d(VideoCloudSetting.TAG, "print =start= mType:" + this.mType);
             Log.d(VideoCloudSetting.TAG, "print mIsEnableAll:" + this.mIsEnableAll + " mIsCloseAll:" + this.mIsCloseAll + " isAdd:" + this.mIsAdd);
-            if (this.mSubItems != null) {
-                int length = this.mSubItems.length;
+            String[] strArr = this.mSubItems;
+            if (strArr != null) {
+                int length = strArr.length;
                 for (int i = 0; i < length; i++) {
                     Log.d(VideoCloudSetting.TAG, "mSubItems: [" + i + "] = " + this.mSubItems[i]);
                 }
@@ -168,49 +168,52 @@ public class VideoCloudSetting {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class VideoSettings {
-        private SparseArray<VideoCloudSettingItem> mItems = new SparseArray<>();
+        public SparseArray<VideoCloudSettingItem> mItems = new SparseArray<>();
 
         public boolean canErrorLogUpload(String str) {
+            boolean z;
             String str2;
-            boolean z = false;
-            boolean z2 = true;
-            int i = 0;
             MatchedType matchedType = MatchedType.FAILED;
+            boolean z2 = false;
+            int i = 0;
             while (true) {
+                z = true;
                 if (i >= this.mItems.size()) {
                     break;
                 }
                 VideoCloudSettingItem videoCloudSettingItem = this.mItems.get(i);
-                if (videoCloudSettingItem.mType == 0) {
+                int i2 = videoCloudSettingItem.mType;
+                if (i2 == 0) {
                     str2 = str;
                 } else {
-                    if (videoCloudSettingItem.mType == 1 && !videoCloudSettingItem.mIsCloseAll) {
+                    if (i2 == 1 && !videoCloudSettingItem.mIsCloseAll) {
                         videoCloudSettingItem.mIsEnableAll = true;
                     }
                     str2 = "";
                 }
-                matchedType = videoCloudSettingItem.match(str2);
-                Log.d(VideoCloudSetting.TAG, "i:" + i + " type:" + videoCloudSettingItem.mType + " checkStr:" + str2 + " matchedType:" + matchedType);
-                if (matchedType != MatchedType.SUCCESS) {
-                    if (matchedType == MatchedType.FAILED) {
-                        break;
-                    }
-                    i++;
-                } else {
-                    z = true;
+                MatchedType match = videoCloudSettingItem.match(str2);
+                Log.d(VideoCloudSetting.TAG, "i:" + i + " type:" + videoCloudSettingItem.mType + " checkStr:" + str2 + " matchedType:" + match);
+                if (match == MatchedType.SUCCESS) {
+                    matchedType = match;
+                    z2 = true;
                     break;
+                } else if (match == MatchedType.FAILED) {
+                    matchedType = match;
+                    break;
+                } else {
+                    i++;
+                    matchedType = match;
                 }
             }
             if (matchedType == MatchedType.AND_NEED_CHECK_NEXT) {
                 Log.d(VideoCloudSetting.TAG, "canErrorLogUpload AND_NEED_CHECK_NEXT");
             } else {
-                z2 = z;
+                z = z2;
             }
-            Log.d(VideoCloudSetting.TAG, "canErrorLogUpload canUpload:" + z2);
-            return z2;
+            Log.d(VideoCloudSetting.TAG, "canErrorLogUpload canUpload:" + z);
+            return z;
         }
 
         public SparseArray<VideoCloudSettingItem> getItems() {
@@ -228,29 +231,31 @@ public class VideoCloudSetting {
         return createVideoSetting.canErrorLogUpload(videoCfgValue);
     }
 
-    private static VideoSettings createVideoSetting() {
+    public static VideoSettings createVideoSetting() {
+        String str = DEFAULT_ERROR_LOG_CLOSE_ALL;
         String videoCfgValue = getVideoCfgValue(PREF_KEY_ENABLE_CYBER_VERSION, DEFAULT_ERROR_LOG_CLOSE_ALL);
         VideoCloudSettingItem videoCloudSettingItem = new VideoCloudSettingItem();
         videoCloudSettingItem.setType(0);
-        if (TextUtils.isEmpty(videoCfgValue)) {
-            videoCfgValue = DEFAULT_ERROR_LOG_CLOSE_ALL;
+        if (!TextUtils.isEmpty(videoCfgValue)) {
+            str = videoCfgValue;
         }
-        videoCloudSettingItem.parseSettingItem(videoCfgValue, "|", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        videoCloudSettingItem.parseSettingItem(str, FieldBuilder.SE, ";");
+        String str2 = DEFAULT_ERROR_LOG_ENABLE_ALL;
         String videoCfgValue2 = getVideoCfgValue(PREF_KEY_ENABLE_HOST, DEFAULT_ERROR_LOG_ENABLE_ALL);
         VideoCloudSettingItem videoCloudSettingItem2 = new VideoCloudSettingItem();
         videoCloudSettingItem2.setType(1);
-        if (TextUtils.isEmpty(videoCfgValue2)) {
-            videoCfgValue2 = DEFAULT_ERROR_LOG_ENABLE_ALL;
+        if (!TextUtils.isEmpty(videoCfgValue2)) {
+            str2 = videoCfgValue2;
         }
-        videoCloudSettingItem2.parseSettingItem(videoCfgValue2, "|", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        Log.d(TAG, "createVideoSetting videoEnableSdkVersion:" + videoCfgValue + " hostsStr:" + videoCfgValue2);
+        videoCloudSettingItem2.parseSettingItem(str2, FieldBuilder.SE, ";");
+        Log.d(TAG, "createVideoSetting videoEnableSdkVersion:" + str + " hostsStr:" + str2);
         VideoSettings videoSettings = new VideoSettings();
         videoSettings.getItems().put(0, videoCloudSettingItem);
         videoSettings.getItems().put(1, videoCloudSettingItem2);
         return videoSettings;
     }
 
-    private static String formatNowDate() {
+    public static String formatNowDate() {
         return new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
     }
 
@@ -260,21 +265,24 @@ public class VideoCloudSetting {
     }
 
     public static int getFeedVideoPvCount() {
-        int i = 0;
+        int parseInt;
         String videoCfgValue = getVideoCfgValue(PREF_KEY_CYBER_FEED_PLAY_COUNT, null);
         Log.d(TAG, "getFeedVideoPvCount feedCountStr " + videoCfgValue);
         if (videoCfgValue != null) {
             try {
-                i = Integer.parseInt(videoCfgValue);
-            } catch (Exception e) {
-                e.printStackTrace();
+                parseInt = Integer.parseInt(videoCfgValue);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
+            Log.d(TAG, "getFeedVideoPvCount count " + parseInt);
+            return parseInt;
         }
-        Log.d(TAG, "getFeedVideoPvCount count " + i);
-        return i;
+        parseInt = 0;
+        Log.d(TAG, "getFeedVideoPvCount count " + parseInt);
+        return parseInt;
     }
 
-    private static SharedPreferences getPrefs() {
+    public static SharedPreferences getPrefs() {
         Context context = WebKitFactory.getContext();
         if (context == null) {
             return null;
@@ -291,18 +299,21 @@ public class VideoCloudSetting {
     }
 
     public static int getVideoPvCount() {
-        int i = 0;
+        int parseInt;
         String videoCfgValue = getVideoCfgValue(PREF_KEY_CYBER_PLAY_COUNT, null);
         Log.d(TAG, "getVideoPvCount countStr " + videoCfgValue);
         if (videoCfgValue != null) {
             try {
-                i = Integer.parseInt(videoCfgValue);
-            } catch (Exception e) {
-                e.printStackTrace();
+                parseInt = Integer.parseInt(videoCfgValue);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
+            Log.d(TAG, "getVideoPvCount count " + parseInt);
+            return parseInt;
         }
-        Log.d(TAG, "getVideoPvCount count " + i);
-        return i;
+        parseInt = 0;
+        Log.d(TAG, "getVideoPvCount count " + parseInt);
+        return parseInt;
     }
 
     public static boolean hasCyberSdkVersion() {
@@ -354,7 +365,9 @@ public class VideoCloudSetting {
         String GetCloudSettingsValue16 = WebSettingsGlobalBlink.GetCloudSettingsValue("pcdn_forbidden");
         String GetCloudSettingsValue17 = WebSettingsGlobalBlink.GetCloudSettingsValue(PREF_KEY_SESSION_LOG_COLLECT_PERCENT);
         Log.d(TAG, "saveVideoSettingToCfg logEnableCyberVersion:" + GetCloudSettingsValue + " logEnableHost:" + GetCloudSettingsValue2);
-        Log.d(TAG, "VideoBlackUrlForFileCache = " + GetCloudSettingsValue3);
+        StringBuilder sb = new StringBuilder("VideoBlackUrlForFileCache = ");
+        sb.append(GetCloudSettingsValue3);
+        Log.d(TAG, sb.toString());
         Log.d(TAG, "videoBlackDevicesList = " + GetCloudSettingsValue6);
         Log.d(TAG, "videoCacheSize = " + GetCloudSettingsValue7);
         Log.d(TAG, "videoCacheInterval = " + GetCloudSettingsValue8);

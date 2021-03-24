@@ -1,28 +1,33 @@
 package com.baidu.tieba.godMultiAttention;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import d.b.h0.z0.w;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.MFollow.DataReq;
 import tbclient.MFollow.MFollowReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class MultiAttentionRequestMessage extends NetMessage {
-    private boolean isAttentionAll;
-    private List<String> portraitList;
+    public boolean isAttentionAll;
+    public List<String> portraitList;
 
     public MultiAttentionRequestMessage() {
-        super(1003105, CmdConfigSocket.MULTI_ATTENTION_SOCKET_CMD);
+        super(CmdConfigHttp.MULTI_ATTENTION_HTTP_CMD, 309388);
         this.portraitList = new ArrayList();
     }
 
-    public void setPortraitList(List<String> list) {
-        if (!y.isEmpty(list)) {
-            this.portraitList.clear();
-            this.portraitList.addAll(list);
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.portrait = this.portraitList;
+        if (z) {
+            w.b(builder, true, true);
         }
+        MFollowReqIdl.Builder builder2 = new MFollowReqIdl.Builder();
+        builder2.data = builder.build(false);
+        return builder2.build(false);
     }
 
     public boolean isAttentionAll() {
@@ -33,15 +38,11 @@ public class MultiAttentionRequestMessage extends NetMessage {
         this.isAttentionAll = z;
     }
 
-    @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.portrait = this.portraitList;
-        if (z) {
-            v.a(builder, true, true);
+    public void setPortraitList(List<String> list) {
+        if (ListUtils.isEmpty(list)) {
+            return;
         }
-        MFollowReqIdl.Builder builder2 = new MFollowReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+        this.portraitList.clear();
+        this.portraitList.addAll(list);
     }
 }

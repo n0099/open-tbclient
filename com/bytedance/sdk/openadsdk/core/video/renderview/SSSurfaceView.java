@@ -8,7 +8,6 @@ public class SSSurfaceView extends SurfaceView {
         super(context);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.SurfaceView, android.view.View
     public void onWindowVisibilityChanged(int i) {
         if (i == 0) {

@@ -11,32 +11,38 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class c extends a<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f1502a = Charset.forName("UTF-8");
+    public static final Charset f5178a = Charset.forName("UTF-8");
+
+    private Charset a(com.baidu.fsg.base.restnet.http.a aVar) {
+        if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
+            return Charset.forName(aVar.j());
+        }
+        return f5178a;
+    }
 
     @Override // com.baidu.fsg.base.restnet.a.a
-    protected Object b(Class<?> cls, e eVar) throws IOException, RestRuntimeException {
+    public Object b(Class<?> cls, e eVar) throws IOException, RestRuntimeException {
         InputStreamReader inputStreamReader = new InputStreamReader(eVar.c(), a(eVar.d()));
         String copyToString = FileCopyUtils.copyToString(inputStreamReader);
         if (ApollonConstants.DEBUG) {
             int length = copyToString.length();
-            for (int i = 0; i < length; i += 2000) {
-                LogUtil.i("ServerResponse", i + 2000 > length ? copyToString.substring(i) : copyToString.substring(i, i + 2000));
+            int i = 0;
+            while (i < length) {
+                int i2 = i + 2000;
+                LogUtil.i("ServerResponse", i2 > length ? copyToString.substring(i) : copyToString.substring(i, i2));
+                i = i2;
             }
         }
         try {
             Object fromJson = JsonUtils.fromJson(copyToString, cls);
             inputStreamReader.close();
             return fromJson;
-        } catch (JSONException e) {
-            throw new RestRuntimeException("Could not read JSON: " + e.getMessage(), e);
+        } catch (JSONException e2) {
+            throw new RestRuntimeException("Could not read JSON: " + e2.getMessage(), e2);
         }
-    }
-
-    private Charset a(com.baidu.fsg.base.restnet.http.a aVar) {
-        return (aVar == null || TextUtils.isEmpty(aVar.j())) ? f1502a : Charset.forName(aVar.j());
     }
 }

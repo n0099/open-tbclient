@@ -5,24 +5,24 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AppQosLiveRealtime {
-    private static final String TAG = "AppQosLiveRealtime";
-    private static final boolean VERBOSE = false;
-    private MetricMonitor mMetricMonitor;
-    private long mMoniterintervalMs;
-    IMediaPlayer.OnQosStatListener mOnQosStatListener;
-    private Object mQosObject;
-    private AppLiveReatimeInfoProvider mRealtimeInfoProvider;
-    private final long mReportIntervalMs;
-    private Timer timer;
-    private TimerTask timerTask;
-    private long lastSampleTime = 0;
-    private long lastLiveRecordTime = 0;
-    private long mTickStartTime = 0;
-    private boolean mStarted = false;
-    private volatile boolean mIsFirstQosStatReport = true;
-    private volatile boolean mIsLastQosStatReport = false;
+    public static final String TAG = "AppQosLiveRealtime";
+    public static final boolean VERBOSE = false;
+    public MetricMonitor mMetricMonitor;
+    public long mMoniterintervalMs;
+    public IMediaPlayer.OnQosStatListener mOnQosStatListener;
+    public Object mQosObject;
+    public AppLiveReatimeInfoProvider mRealtimeInfoProvider;
+    public final long mReportIntervalMs;
+    public Timer timer;
+    public TimerTask timerTask;
+    public long lastSampleTime = 0;
+    public long lastLiveRecordTime = 0;
+    public long mTickStartTime = 0;
+    public boolean mStarted = false;
+    public volatile boolean mIsFirstQosStatReport = true;
+    public volatile boolean mIsLastQosStatReport = false;
 
     public AppQosLiveRealtime(long j, long j2, AppLiveReatimeInfoProvider appLiveReatimeInfoProvider, Object obj) {
         this.mMoniterintervalMs = j;
@@ -33,7 +33,6 @@ public class AppQosLiveRealtime {
     }
 
     public JSONObject getQosStatistics(long j) {
-        JSONObject jSONObject;
         synchronized (this.mQosObject) {
             int i = this.mIsFirstQosStatReport ? 1 : 0;
             int i2 = this.mIsLastQosStatReport ? 1 : 0;
@@ -43,14 +42,13 @@ public class AppQosLiveRealtime {
             String liveRealTimeQosJson = this.mRealtimeInfoProvider.getLiveRealTimeQosJson(i, i2, this.mTickStartTime, j, this.mReportIntervalMs);
             if (liveRealTimeQosJson != null) {
                 try {
-                    jSONObject = new JSONObject(liveRealTimeQosJson);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                    return new JSONObject(liveRealTimeQosJson);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
             }
-            jSONObject = null;
+            return null;
         }
-        return jSONObject;
     }
 
     public void startReport(IMediaPlayer.OnQosStatListener onQosStatListener) {
@@ -61,7 +59,7 @@ public class AppQosLiveRealtime {
         this.mOnQosStatListener = onQosStatListener;
         this.mTickStartTime = System.currentTimeMillis();
         this.timer = new Timer();
-        this.timerTask = new TimerTask() { // from class: com.kwai.player.qos.AppQosLiveRealtime.1
+        TimerTask timerTask = new TimerTask() { // from class: com.kwai.player.qos.AppQosLiveRealtime.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -75,20 +73,26 @@ public class AppQosLiveRealtime {
                 }
             }
         };
-        this.timer.schedule(this.timerTask, this.mMoniterintervalMs, this.mMoniterintervalMs);
-        this.lastSampleTime = System.currentTimeMillis();
-        this.lastLiveRecordTime = this.lastSampleTime;
+        this.timerTask = timerTask;
+        Timer timer = this.timer;
+        long j = this.mMoniterintervalMs;
+        timer.schedule(timerTask, j, j);
+        long currentTimeMillis = System.currentTimeMillis();
+        this.lastSampleTime = currentTimeMillis;
+        this.lastLiveRecordTime = currentTimeMillis;
     }
 
     public void stopReport() {
         if (this.mStarted) {
             this.mStarted = false;
-            if (this.timerTask != null) {
-                this.timerTask.cancel();
+            TimerTask timerTask = this.timerTask;
+            if (timerTask != null) {
+                timerTask.cancel();
                 this.timerTask = null;
             }
-            if (this.timer != null) {
-                this.timer.cancel();
+            Timer timer = this.timer;
+            if (timer != null) {
+                timer.cancel();
                 this.timer = null;
             }
             this.mIsLastQosStatReport = true;
@@ -104,8 +108,9 @@ public class AppQosLiveRealtime {
     public void uploadReport(long j) {
         if (this.mRealtimeInfoProvider.isMediaPlayerValid()) {
             JSONObject qosStatistics = getQosStatistics(j);
-            if (this.mOnQosStatListener != null && qosStatistics != null) {
-                this.mOnQosStatListener.onQosStat(this.mRealtimeInfoProvider, qosStatistics);
+            IMediaPlayer.OnQosStatListener onQosStatListener = this.mOnQosStatListener;
+            if (onQosStatListener != null && qosStatistics != null) {
+                onQosStatListener.onQosStat(this.mRealtimeInfoProvider, qosStatistics);
             }
             this.mTickStartTime = System.currentTimeMillis();
         }

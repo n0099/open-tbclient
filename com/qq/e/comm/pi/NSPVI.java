@@ -4,11 +4,12 @@ import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import com.qq.e.comm.adevent.ADListener;
+import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
-public interface NSPVI {
+/* loaded from: classes6.dex */
+public interface NSPVI extends ApkDownloadComplianceInterface {
     public static final Map<String, String> ext = new HashMap();
 
     void fetchAdOnly();

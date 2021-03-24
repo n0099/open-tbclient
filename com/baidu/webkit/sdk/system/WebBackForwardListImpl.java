@@ -3,24 +3,23 @@ package com.baidu.webkit.sdk.system;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes14.dex */
-final class WebBackForwardListImpl extends WebBackForwardList implements Cloneable {
-    private static Method cloneMethod;
-    private final android.webkit.WebBackForwardList mList;
+/* loaded from: classes5.dex */
+public final class WebBackForwardListImpl extends WebBackForwardList implements Cloneable {
+    public static Method cloneMethod;
+    public final android.webkit.WebBackForwardList mList;
 
     static {
         try {
             cloneMethod = android.webkit.WebBackForwardList.class.getDeclaredMethod("clone", null);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
-    private WebBackForwardListImpl(android.webkit.WebBackForwardList webBackForwardList) {
+    public WebBackForwardListImpl(android.webkit.WebBackForwardList webBackForwardList) {
         this.mList = webBackForwardList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static WebBackForwardList from(android.webkit.WebBackForwardList webBackForwardList) {
         if (webBackForwardList == null) {
             return null;
@@ -29,15 +28,14 @@ final class WebBackForwardListImpl extends WebBackForwardList implements Cloneab
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.webkit.sdk.WebBackForwardList
     public final WebBackForwardList clone() {
         try {
             if (cloneMethod != null && this.mList != null) {
                 return from((android.webkit.WebBackForwardList) cloneMethod.invoke(this.mList, null));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         return null;
     }

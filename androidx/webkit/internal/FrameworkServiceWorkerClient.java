@@ -6,9 +6,9 @@ import android.webkit.WebResourceResponse;
 import androidx.annotation.RequiresApi;
 import androidx.webkit.ServiceWorkerClientCompat;
 @RequiresApi(24)
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class FrameworkServiceWorkerClient extends ServiceWorkerClient {
-    private final ServiceWorkerClientCompat mImpl;
+    public final ServiceWorkerClientCompat mImpl;
 
     public FrameworkServiceWorkerClient(ServiceWorkerClientCompat serviceWorkerClientCompat) {
         this.mImpl = serviceWorkerClientCompat;

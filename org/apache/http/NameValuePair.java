@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public interface NameValuePair {
     String getName();
 

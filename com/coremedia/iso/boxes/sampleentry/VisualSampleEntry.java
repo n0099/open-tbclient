@@ -7,29 +7,26 @@ import com.coremedia.iso.Utf8;
 import com.coremedia.iso.boxes.Container;
 import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
-    static final /* synthetic */ boolean $assertionsDisabled;
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE1 = "mp4v";
     public static final String TYPE2 = "s263";
     public static final String TYPE3 = "avc1";
     public static final String TYPE4 = "avc3";
     public static final String TYPE5 = "drmi";
     public static final String TYPE_ENCRYPTED = "encv";
-    private String compressorname;
-    private int depth;
-    private int frameCount;
-    private int height;
-    private double horizresolution;
-    private long[] predefined;
-    private double vertresolution;
-    private int width;
-
-    static {
-        $assertionsDisabled = !VisualSampleEntry.class.desiredAssertionStatus();
-    }
+    public String compressorname;
+    public int depth;
+    public int frameCount;
+    public int height;
+    public double horizresolution;
+    public long[] predefined;
+    public double vertresolution;
+    public int width;
 
     public VisualSampleEntry() {
         super(TYPE3);
@@ -39,121 +36,6 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
         this.compressorname = "";
         this.depth = 24;
         this.predefined = new long[3];
-    }
-
-    public VisualSampleEntry(String str) {
-        super(str);
-        this.horizresolution = 72.0d;
-        this.vertresolution = 72.0d;
-        this.frameCount = 1;
-        this.compressorname = "";
-        this.depth = 24;
-        this.predefined = new long[3];
-    }
-
-    public void setType(String str) {
-        this.type = str;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public double getHorizresolution() {
-        return this.horizresolution;
-    }
-
-    public double getVertresolution() {
-        return this.vertresolution;
-    }
-
-    public int getFrameCount() {
-        return this.frameCount;
-    }
-
-    public String getCompressorname() {
-        return this.compressorname;
-    }
-
-    public int getDepth() {
-        return this.depth;
-    }
-
-    public void setCompressorname(String str) {
-        this.compressorname = str;
-    }
-
-    public void setWidth(int i) {
-        this.width = i;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public void setHorizresolution(double d) {
-        this.horizresolution = d;
-    }
-
-    public void setVertresolution(double d) {
-        this.vertresolution = d;
-    }
-
-    public void setFrameCount(int i) {
-        this.frameCount = i;
-    }
-
-    public void setDepth(int i) {
-        this.depth = i;
-    }
-
-    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
-        ByteBuffer allocate = ByteBuffer.allocate(78);
-        dataSource.read(allocate);
-        allocate.position(6);
-        this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
-        long readUInt16 = IsoTypeReader.readUInt16(allocate);
-        if (!$assertionsDisabled && 0 != readUInt16) {
-            throw new AssertionError("reserved byte not 0");
-        }
-        long readUInt162 = IsoTypeReader.readUInt16(allocate);
-        if (!$assertionsDisabled && 0 != readUInt162) {
-            throw new AssertionError("reserved byte not 0");
-        }
-        this.predefined[0] = IsoTypeReader.readUInt32(allocate);
-        this.predefined[1] = IsoTypeReader.readUInt32(allocate);
-        this.predefined[2] = IsoTypeReader.readUInt32(allocate);
-        this.width = IsoTypeReader.readUInt16(allocate);
-        this.height = IsoTypeReader.readUInt16(allocate);
-        this.horizresolution = IsoTypeReader.readFixedPoint1616(allocate);
-        this.vertresolution = IsoTypeReader.readFixedPoint1616(allocate);
-        long readUInt32 = IsoTypeReader.readUInt32(allocate);
-        if (!$assertionsDisabled && 0 != readUInt32) {
-            throw new AssertionError("reserved byte not 0");
-        }
-        this.frameCount = IsoTypeReader.readUInt16(allocate);
-        int readUInt8 = IsoTypeReader.readUInt8(allocate);
-        if (readUInt8 > 31) {
-            System.out.println("invalid compressor name displayable data: " + readUInt8);
-            readUInt8 = 31;
-        }
-        byte[] bArr = new byte[readUInt8];
-        allocate.get(bArr);
-        this.compressorname = Utf8.convert(bArr);
-        if (readUInt8 < 31) {
-            allocate.get(new byte[31 - readUInt8]);
-        }
-        this.depth = IsoTypeReader.readUInt16(allocate);
-        long readUInt163 = IsoTypeReader.readUInt16(allocate);
-        if (!$assertionsDisabled && 65535 != readUInt163) {
-            throw new AssertionError();
-        }
-        parseContainer(dataSource, j - 78, boxParser);
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -186,9 +68,113 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
         writeContainer(writableByteChannel);
     }
 
+    public String getCompressorname() {
+        return this.compressorname;
+    }
+
+    public int getDepth() {
+        return this.depth;
+    }
+
+    public int getFrameCount() {
+        return this.frameCount;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public double getHorizresolution() {
+        return this.horizresolution;
+    }
+
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
-        long containerSize = getContainerSize();
-        return ((this.largeBox || (containerSize + 78) + 8 >= 4294967296L) ? 16 : 8) + containerSize + 78;
+        long containerSize = getContainerSize() + 78;
+        return containerSize + ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 8);
+    }
+
+    public double getVertresolution() {
+        return this.vertresolution;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+        ByteBuffer allocate = ByteBuffer.allocate(78);
+        dataSource.read(allocate);
+        allocate.position(6);
+        this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
+        IsoTypeReader.readUInt16(allocate);
+        IsoTypeReader.readUInt16(allocate);
+        this.predefined[0] = IsoTypeReader.readUInt32(allocate);
+        this.predefined[1] = IsoTypeReader.readUInt32(allocate);
+        this.predefined[2] = IsoTypeReader.readUInt32(allocate);
+        this.width = IsoTypeReader.readUInt16(allocate);
+        this.height = IsoTypeReader.readUInt16(allocate);
+        this.horizresolution = IsoTypeReader.readFixedPoint1616(allocate);
+        this.vertresolution = IsoTypeReader.readFixedPoint1616(allocate);
+        IsoTypeReader.readUInt32(allocate);
+        this.frameCount = IsoTypeReader.readUInt16(allocate);
+        int readUInt8 = IsoTypeReader.readUInt8(allocate);
+        if (readUInt8 > 31) {
+            PrintStream printStream = System.out;
+            printStream.println("invalid compressor name displayable data: " + readUInt8);
+            readUInt8 = 31;
+        }
+        byte[] bArr = new byte[readUInt8];
+        allocate.get(bArr);
+        this.compressorname = Utf8.convert(bArr);
+        if (readUInt8 < 31) {
+            allocate.get(new byte[31 - readUInt8]);
+        }
+        this.depth = IsoTypeReader.readUInt16(allocate);
+        IsoTypeReader.readUInt16(allocate);
+        parseContainer(dataSource, j - 78, boxParser);
+    }
+
+    public void setCompressorname(String str) {
+        this.compressorname = str;
+    }
+
+    public void setDepth(int i) {
+        this.depth = i;
+    }
+
+    public void setFrameCount(int i) {
+        this.frameCount = i;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public void setHorizresolution(double d2) {
+        this.horizresolution = d2;
+    }
+
+    public void setType(String str) {
+        this.type = str;
+    }
+
+    public void setVertresolution(double d2) {
+        this.vertresolution = d2;
+    }
+
+    public void setWidth(int i) {
+        this.width = i;
+    }
+
+    public VisualSampleEntry(String str) {
+        super(str);
+        this.horizresolution = 72.0d;
+        this.vertresolution = 72.0d;
+        this.frameCount = 1;
+        this.compressorname = "";
+        this.depth = 24;
+        this.predefined = new long[3];
     }
 }

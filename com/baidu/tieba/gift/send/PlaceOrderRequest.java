@@ -1,28 +1,28 @@
 package com.baidu.tieba.gift.send;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.PlaceOrder.DataReq;
 import tbclient.PlaceOrder.PlaceOrderReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class PlaceOrderRequest extends NetMessage {
     public long accountId;
     public int accountType;
-    private int giftId;
-    private long postId;
-    private String sceneFrom;
-    private int sendCount;
-    private long threadId;
-    private long toUserId;
-    private String toUserName;
+    public int giftId;
+    public long postId;
+    public String sceneFrom;
+    public int sendCount;
+    public long threadId;
+    public long toUserId;
+    public String toUserName;
 
     public PlaceOrderRequest() {
-        super(1003053, CmdConfigSocket.CMD_GIFT_PALCE_ORDER);
+        super(CmdConfigHttp.CMD_GIFT_PALCE_ORDER, 309051);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.gift_id = Integer.valueOf(this.giftId);
         builder.benefit_userid = Long.valueOf(this.toUserId);
@@ -34,7 +34,7 @@ public class PlaceOrderRequest extends NetMessage {
         builder.account_id = Long.valueOf(this.accountId);
         builder.account_type = Integer.valueOf(this.accountType);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         PlaceOrderReqIdl.Builder builder2 = new PlaceOrderReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -45,55 +45,55 @@ public class PlaceOrderRequest extends NetMessage {
         return this.giftId;
     }
 
-    public void setGiftId(int i) {
-        this.giftId = i;
-    }
-
-    public long getToUserId() {
-        return this.toUserId;
-    }
-
-    public void setToUserId(long j) {
-        this.toUserId = j;
-    }
-
-    public String getToUserName() {
-        return this.toUserName;
-    }
-
-    public void setToUserName(String str) {
-        this.toUserName = str;
+    public long getPostId() {
+        return this.postId;
     }
 
     public String getSceneFrom() {
         return this.sceneFrom;
     }
 
-    public void setSceneFrom(String str) {
-        this.sceneFrom = str;
+    public int getSendCount() {
+        return this.sendCount;
     }
 
     public long getThreadId() {
         return this.threadId;
     }
 
-    public void setThreadId(long j) {
-        this.threadId = j;
+    public long getToUserId() {
+        return this.toUserId;
     }
 
-    public long getPostId() {
-        return this.postId;
+    public String getToUserName() {
+        return this.toUserName;
+    }
+
+    public void setGiftId(int i) {
+        this.giftId = i;
     }
 
     public void setPostId(long j) {
         this.postId = j;
     }
 
-    public int getSendCount() {
-        return this.sendCount;
+    public void setSceneFrom(String str) {
+        this.sceneFrom = str;
     }
 
     public void setSendCount(int i) {
         this.sendCount = i;
+    }
+
+    public void setThreadId(long j) {
+        this.threadId = j;
+    }
+
+    public void setToUserId(long j) {
+        this.toUserId = j;
+    }
+
+    public void setToUserName(String str) {
+        this.toUserName = str;
     }
 }

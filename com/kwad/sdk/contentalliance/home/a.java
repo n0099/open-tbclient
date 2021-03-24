@@ -2,6 +2,7 @@ package com.kwad.sdk.contentalliance.home;
 
 import android.os.SystemClock;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.config.AppConfig;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
@@ -9,40 +10,36 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f5754a = new a();
-    private Map<Long, List<AdTemplate>> b = new HashMap();
+    public static a f32559a = new a();
 
-    private a() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public Map<Long, List<AdTemplate>> f32560b = new HashMap();
 
     public static a a() {
-        return f5754a;
+        return f32559a;
     }
 
     public static boolean a(@NonNull AdTemplate adTemplate) {
-        return com.kwad.sdk.core.response.b.c.b(adTemplate) && adTemplate.mPreloadData.isPreload && SystemClock.elapsedRealtime() - adTemplate.mPreloadData.mCacheTime < com.kwad.sdk.core.response.b.d.G(com.kwad.sdk.core.response.b.c.k(adTemplate)) - 120000;
+        return com.kwad.sdk.core.response.b.c.b(adTemplate) && adTemplate.mPreloadData.isPreload && SystemClock.elapsedRealtime() - adTemplate.mPreloadData.mCacheTime < com.kwad.sdk.core.response.b.d.G(com.kwad.sdk.core.response.b.c.k(adTemplate)) - AppConfig.TIMESTAMP_AVAILABLE_DURATION;
     }
 
     public synchronized List<AdTemplate> a(long j) {
-        ArrayList arrayList;
-        List<AdTemplate> list = this.b != null ? this.b.get(Long.valueOf(j)) : null;
+        List<AdTemplate> list = this.f32560b != null ? this.f32560b.get(Long.valueOf(j)) : null;
         if (list != null) {
-            ArrayList arrayList2 = new ArrayList(list);
-            Iterator<AdTemplate> it = arrayList2.iterator();
+            ArrayList arrayList = new ArrayList(list);
+            Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                if (!a(it.next())) {
+                if (!a((AdTemplate) it.next())) {
                     it.remove();
                 }
             }
-            arrayList = arrayList2;
-        } else {
-            arrayList = null;
+            return arrayList;
         }
-        return arrayList;
+        return null;
     }
 
     public synchronized void a(@NonNull List<AdTemplate> list) {
@@ -60,30 +57,30 @@ public class a {
             list2.add(adTemplate);
             com.kwad.sdk.core.d.a.a("ContentDataMemCache", "preload save posId=" + adTemplate.posId);
         }
-        this.b = hashMap;
+        this.f32560b = hashMap;
     }
 
     public synchronized void b() {
         com.kwad.sdk.core.d.a.a("ContentDataMemCache", "clearAll()");
-        if (this.b != null) {
-            this.b.clear();
+        if (this.f32560b != null) {
+            this.f32560b.clear();
         }
     }
 
     public synchronized void b(long j) {
         com.kwad.sdk.core.d.a.a("ContentDataMemCache", "clear() posId=" + j);
-        if (this.b != null && this.b.containsKey(Long.valueOf(j))) {
-            List<AdTemplate> list = this.b.get(Long.valueOf(j));
+        if (this.f32560b != null && this.f32560b.containsKey(Long.valueOf(j))) {
+            List<AdTemplate> list = this.f32560b.get(Long.valueOf(j));
             if (list != null) {
                 list.clear();
             }
-            this.b.remove(Long.valueOf(j));
+            this.f32560b.remove(Long.valueOf(j));
         }
     }
 
     public synchronized boolean c(long j) {
         List<AdTemplate> list;
-        list = this.b != null ? this.b.get(Long.valueOf(j)) : null;
+        list = this.f32560b != null ? this.f32560b.get(Long.valueOf(j)) : null;
         return list == null ? true : list.isEmpty();
     }
 }

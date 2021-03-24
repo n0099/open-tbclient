@@ -2,20 +2,24 @@ package com.kwad.sdk.core.g.a;
 
 import com.kwad.sdk.utils.o;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6095a;
-    public String b;
-    public String c;
+    public int f33629a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f33630b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f33631c;
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "level", this.f6095a);
-        o.a(jSONObject, "ssid", this.b);
-        o.a(jSONObject, "bssid", this.c);
+        o.a(jSONObject, "level", this.f33629a);
+        o.a(jSONObject, "ssid", this.f33630b);
+        o.a(jSONObject, "bssid", this.f33631c);
         return jSONObject;
     }
 }

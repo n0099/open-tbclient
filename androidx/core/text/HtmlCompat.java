@@ -7,7 +7,7 @@ import android.text.Spanned;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 @SuppressLint({"InlinedApi"})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class HtmlCompat {
     public static final int FROM_HTML_MODE_COMPACT = 63;
     public static final int FROM_HTML_MODE_LEGACY = 0;
@@ -23,19 +23,25 @@ public final class HtmlCompat {
 
     @NonNull
     public static Spanned fromHtml(@NonNull String str, int i) {
-        return Build.VERSION.SDK_INT >= 24 ? Html.fromHtml(str, i) : Html.fromHtml(str);
-    }
-
-    @NonNull
-    public static Spanned fromHtml(@NonNull String str, int i, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
-        return Build.VERSION.SDK_INT >= 24 ? Html.fromHtml(str, i, imageGetter, tagHandler) : Html.fromHtml(str, imageGetter, tagHandler);
+        if (Build.VERSION.SDK_INT >= 24) {
+            return Html.fromHtml(str, i);
+        }
+        return Html.fromHtml(str);
     }
 
     @NonNull
     public static String toHtml(@NonNull Spanned spanned, int i) {
-        return Build.VERSION.SDK_INT >= 24 ? Html.toHtml(spanned, i) : Html.toHtml(spanned);
+        if (Build.VERSION.SDK_INT >= 24) {
+            return Html.toHtml(spanned, i);
+        }
+        return Html.toHtml(spanned);
     }
 
-    private HtmlCompat() {
+    @NonNull
+    public static Spanned fromHtml(@NonNull String str, int i, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            return Html.fromHtml(str, i, imageGetter, tagHandler);
+        }
+        return Html.fromHtml(str, imageGetter, tagHandler);
     }
 }

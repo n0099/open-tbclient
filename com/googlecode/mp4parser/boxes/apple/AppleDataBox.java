@@ -1,142 +1,42 @@
 package com.googlecode.mp4parser.boxes.apple;
 
 import com.baidu.android.imsdk.utils.BaseUtils;
-import com.baidu.live.adp.lib.util.FieldUtil;
 import com.baidu.searchbox.http.HttpConfig;
+import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.tbadk.pay.PayConfig;
+import com.baidu.wallet.home.datamodel.HomeCfgResponse;
+import com.baidu.webkit.sdk.WebKitFactory;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
 import com.tencent.connect.common.Constants;
+import g.a.a.a;
+import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Locale;
-import org.aspectj.a.b.b;
-import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_5 = null;
-    private static HashMap<String, String> language;
-    int dataCountry;
-    int dataLanguage;
-    int dataType;
-
-    private static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("AppleDataBox.java", AppleDataBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getLanguageString", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", FieldUtil.TYPE_STRING), 25);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getDataType", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 43);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getDataCountry", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 47);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setDataCountry", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "int", "dataCountry", "", "void"), 51);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "getDataLanguage", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 55);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setDataLanguage", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "int", "dataLanguage", "", "void"), 59);
-    }
-
-    protected abstract int getDataLength();
-
-    protected abstract void parseData(ByteBuffer byteBuffer);
-
-    protected abstract byte[] writeData();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AppleDataBox(String str, int i) {
-        super(str);
-        this.dataType = i;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0014: IGET  (r2v0 int A[REMOVE]) = (r3v0 'this' com.googlecode.mp4parser.boxes.apple.AppleDataBox A[IMMUTABLE_TYPE, THIS]) com.googlecode.mp4parser.boxes.apple.AppleDataBox.dataLanguage int)] */
-    public String getLanguageString() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this));
-        String str = language.get(new StringBuilder().append(this.dataLanguage).toString());
-        if (str == null) {
-            ByteBuffer wrap = ByteBuffer.wrap(new byte[2]);
-            IsoTypeWriter.writeUInt16(wrap, this.dataLanguage);
-            wrap.reset();
-            return new Locale(IsoTypeReader.readIso639(wrap)).getDisplayLanguage();
-        }
-        return str;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    protected long getContentSize() {
-        return getDataLength() + 16;
-    }
-
-    public int getDataType() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this));
-        return this.dataType;
-    }
-
-    public int getDataCountry() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this));
-        return this.dataCountry;
-    }
-
-    public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Sw(i)));
-        this.dataCountry = i;
-    }
-
-    public int getDataLanguage() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this));
-        return this.dataLanguage;
-    }
-
-    public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Sw(i)));
-        this.dataLanguage = i;
-    }
-
-    @DoNotParseDetail
-    protected ByteBuffer parseDataLength4ccTypeCountryLanguageAndReturnRest(ByteBuffer byteBuffer) {
-        int i = byteBuffer.getInt();
-        byteBuffer.getInt();
-        this.dataType = byteBuffer.getInt();
-        this.dataCountry = byteBuffer.getShort();
-        if (this.dataCountry < 0) {
-            this.dataCountry += 65536;
-        }
-        this.dataLanguage = byteBuffer.getShort();
-        if (this.dataLanguage < 0) {
-            this.dataLanguage += 65536;
-        }
-        ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i - 16);
-        byteBuffer.position((i - 16) + byteBuffer.position());
-        return byteBuffer2;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    protected void _parseDetails(ByteBuffer byteBuffer) {
-        parseData(parseDataLength4ccTypeCountryLanguageAndReturnRest(byteBuffer));
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    protected void getContent(ByteBuffer byteBuffer) {
-        writeDataLength4ccTypeCountryLanguage(byteBuffer);
-        byteBuffer.put(writeData());
-    }
-
-    @DoNotParseDetail
-    protected void writeDataLength4ccTypeCountryLanguage(ByteBuffer byteBuffer) {
-        byteBuffer.putInt(getDataLength() + 16);
-        byteBuffer.put("data".getBytes());
-        byteBuffer.putInt(this.dataType);
-        IsoTypeWriter.writeUInt16(byteBuffer, this.dataCountry);
-        IsoTypeWriter.writeUInt16(byteBuffer, this.dataLanguage);
-    }
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_5 = null;
+    public static HashMap<String, String> language;
+    public int dataCountry;
+    public int dataLanguage;
+    public int dataType;
 
     static {
         ajc$preClinit();
-        language = new HashMap<>();
-        language.put("0", "English");
+        HashMap<String, String> hashMap = new HashMap<>();
+        language = hashMap;
+        hashMap.put("0", "English");
         language.put("1", "French");
         language.put("2", "German");
         language.put("3", "Italian");
@@ -145,7 +45,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("6", "Spanish");
         language.put("7", "Danish");
         language.put("8", "Portuguese");
-        language.put("9", "Norwegian");
+        language.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "Norwegian");
         language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "Hebrew");
         language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "Japanese");
         language.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "Arabic");
@@ -172,7 +72,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("33", "Simplified_Chinese");
         language.put("34", "Flemish");
         language.put("35", "Irish");
-        language.put("36", "Albanian");
+        language.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "Albanian");
         language.put(PayConfig.PAYMENT_POS_KEY_MANGA, "Romanian");
         language.put("38", "Czech");
         language.put("39", "Slovak");
@@ -200,7 +100,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("61", "Kashmiri");
         language.put("62", "Sindhi");
         language.put("63", "Tibetan");
-        language.put("64", "Nepali");
+        language.put(WebKitFactory.OS_64, "Nepali");
         language.put("65", "Sanskrit");
         language.put("66", "Marathi");
         language.put("67", "Bengali");
@@ -243,5 +143,113 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("137", "Dzongkha");
         language.put(UnitedSchemeMainDispatcher.UBC_OUTER_INVOKE_TO_TAYGET_ID, "JavaneseRom");
         language.put("32767", "Unspecified");
+    }
+
+    public AppleDataBox(String str, int i) {
+        super(str);
+        this.dataType = i;
+    }
+
+    public static /* synthetic */ void ajc$preClinit() {
+        b bVar = new b("AppleDataBox.java", AppleDataBox.class);
+        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getLanguageString", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "java.lang.String"), 25);
+        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "getDataType", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 43);
+        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "getDataCountry", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 47);
+        ajc$tjp_3 = bVar.g("method-execution", bVar.f("1", "setDataCountry", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "int", "dataCountry", "", "void"), 51);
+        ajc$tjp_4 = bVar.g("method-execution", bVar.f("1", "getDataLanguage", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "", "", "", "int"), 55);
+        ajc$tjp_5 = bVar.g("method-execution", bVar.f("1", "setDataLanguage", "com.googlecode.mp4parser.boxes.apple.AppleDataBox", "int", "dataLanguage", "", "void"), 59);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void _parseDetails(ByteBuffer byteBuffer) {
+        parseData(parseDataLength4ccTypeCountryLanguageAndReturnRest(byteBuffer));
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        writeDataLength4ccTypeCountryLanguage(byteBuffer);
+        byteBuffer.put(writeData());
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        return getDataLength() + 16;
+    }
+
+    public int getDataCountry() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
+        return this.dataCountry;
+    }
+
+    public int getDataLanguage() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_4, this, this));
+        return this.dataLanguage;
+    }
+
+    public abstract int getDataLength();
+
+    public int getDataType() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_1, this, this));
+        return this.dataType;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0014: IGET  (r2v0 int A[REMOVE]) = (r3v0 'this' com.googlecode.mp4parser.boxes.apple.AppleDataBox A[IMMUTABLE_TYPE, THIS]) com.googlecode.mp4parser.boxes.apple.AppleDataBox.dataLanguage int)] */
+    public String getLanguageString() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
+        HashMap<String, String> hashMap = language;
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.dataLanguage);
+        String str = hashMap.get(sb.toString());
+        if (str == null) {
+            ByteBuffer wrap = ByteBuffer.wrap(new byte[2]);
+            IsoTypeWriter.writeUInt16(wrap, this.dataLanguage);
+            wrap.reset();
+            return new Locale(IsoTypeReader.readIso639(wrap)).getDisplayLanguage();
+        }
+        return str;
+    }
+
+    public abstract void parseData(ByteBuffer byteBuffer);
+
+    @DoNotParseDetail
+    public ByteBuffer parseDataLength4ccTypeCountryLanguageAndReturnRest(ByteBuffer byteBuffer) {
+        int i = byteBuffer.getInt();
+        byteBuffer.getInt();
+        this.dataType = byteBuffer.getInt();
+        short s = byteBuffer.getShort();
+        this.dataCountry = s;
+        if (s < 0) {
+            this.dataCountry = s + 65536;
+        }
+        short s2 = byteBuffer.getShort();
+        this.dataLanguage = s2;
+        if (s2 < 0) {
+            this.dataLanguage = s2 + 65536;
+        }
+        int i2 = i - 16;
+        ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i2);
+        byteBuffer.position(i2 + byteBuffer.position());
+        return byteBuffer2;
+    }
+
+    public void setDataCountry(int i) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
+        this.dataCountry = i;
+    }
+
+    public void setDataLanguage(int i) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i)));
+        this.dataLanguage = i;
+    }
+
+    public abstract byte[] writeData();
+
+    @DoNotParseDetail
+    public void writeDataLength4ccTypeCountryLanguage(ByteBuffer byteBuffer) {
+        byteBuffer.putInt(getDataLength() + 16);
+        byteBuffer.put("data".getBytes());
+        byteBuffer.putInt(this.dataType);
+        IsoTypeWriter.writeUInt16(byteBuffer, this.dataCountry);
+        IsoTypeWriter.writeUInt16(byteBuffer, this.dataLanguage);
     }
 }

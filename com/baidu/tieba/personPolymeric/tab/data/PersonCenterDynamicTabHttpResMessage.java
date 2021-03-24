@@ -1,19 +1,21 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.squareup.wire.Wire;
+import d.b.h0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetShoubaiThreadList.DataRes;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListResIdl;
+import tbclient.GetShoubaiThreadList.PageInfo;
 import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
     public long mCursor;
     public boolean mHasMore;
-    public List<cb> mThreadDataList;
+    public List<a2> mThreadDataList;
 
     public PersonCenterDynamicTabHttpResMessage() {
         super(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB);
@@ -23,22 +25,26 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
         GetShoubaiThreadListResIdl getShoubaiThreadListResIdl = (GetShoubaiThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetShoubaiThreadListResIdl.class);
-        if (getShoubaiThreadListResIdl != null && getShoubaiThreadListResIdl.data != null) {
-            if (getShoubaiThreadListResIdl.data.page != null) {
-                this.mCursor = getShoubaiThreadListResIdl.data.page.cursor.longValue();
-                this.mHasMore = getShoubaiThreadListResIdl.data.page.has_more.intValue() == 1;
-            }
-            if (!y.isEmpty(getShoubaiThreadListResIdl.data.thread_list)) {
-                for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
-                    if (threadInfo != null) {
-                        cb cbVar = new cb();
-                        cbVar.a(threadInfo);
-                        this.mThreadDataList.add(cbVar);
-                    }
-                }
+        if (getShoubaiThreadListResIdl == null || (dataRes = getShoubaiThreadListResIdl.data) == null) {
+            return;
+        }
+        PageInfo pageInfo = dataRes.page;
+        if (pageInfo != null) {
+            this.mCursor = pageInfo.cursor.longValue();
+            this.mHasMore = getShoubaiThreadListResIdl.data.page.has_more.intValue() == 1;
+        }
+        if (ListUtils.isEmpty(getShoubaiThreadListResIdl.data.thread_list)) {
+            return;
+        }
+        for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
+            if (threadInfo != null) {
+                a2 a2Var = new a2();
+                a2Var.Q2(threadInfo);
+                this.mThreadDataList.add(a2Var);
             }
         }
     }

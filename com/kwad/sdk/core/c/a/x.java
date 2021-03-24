@@ -1,10 +1,9 @@
 package com.kwad.sdk.core.c.a;
 
-import com.baidu.ala.helper.AlaConstants;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.tencent.connect.share.QzonePublish;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class x implements com.kwad.sdk.core.c<AdInfo.AdMaterialInfo.MaterialFeature> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
@@ -19,7 +18,7 @@ public class x implements com.kwad.sdk.core.c<AdInfo.AdMaterialInfo.MaterialFeat
         com.kwad.sdk.utils.o.a(jSONObject, "blurBackgroundUrl", materialFeature.blurBackgroundUrl);
         com.kwad.sdk.utils.o.a(jSONObject, "webpCoverUrl", materialFeature.webpCoverUrl);
         com.kwad.sdk.utils.o.a(jSONObject, "videoWidth", materialFeature.videoWidth);
-        com.kwad.sdk.utils.o.a(jSONObject, AlaConstants.STAT_VIDEO_HEIGHT, materialFeature.videoHeight);
+        com.kwad.sdk.utils.o.a(jSONObject, "videoHeight", materialFeature.videoHeight);
         com.kwad.sdk.utils.o.a(jSONObject, "likeCount", materialFeature.likeCount);
         com.kwad.sdk.utils.o.a(jSONObject, "commentCount", materialFeature.commentCount);
         com.kwad.sdk.utils.o.a(jSONObject, "source", materialFeature.source);
@@ -42,7 +41,7 @@ public class x implements com.kwad.sdk.core.c<AdInfo.AdMaterialInfo.MaterialFeat
         materialFeature.blurBackgroundUrl = jSONObject.optString("blurBackgroundUrl");
         materialFeature.webpCoverUrl = jSONObject.optString("webpCoverUrl");
         materialFeature.videoWidth = jSONObject.optInt("videoWidth");
-        materialFeature.videoHeight = jSONObject.optInt(AlaConstants.STAT_VIDEO_HEIGHT);
+        materialFeature.videoHeight = jSONObject.optInt("videoHeight");
         materialFeature.likeCount = jSONObject.optLong("likeCount");
         materialFeature.commentCount = jSONObject.optLong("commentCount");
         materialFeature.source = jSONObject.optInt("source");

@@ -4,7 +4,7 @@ import aegon.chrome.net.CronetException;
 import aegon.chrome.net.UrlRequest;
 import aegon.chrome.net.UrlResponseInfo;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class VersionSafeCallbacks$UrlRequestCallback extends UrlRequest.Callback {
     public final UrlRequest.Callback mWrappedCallback;
 

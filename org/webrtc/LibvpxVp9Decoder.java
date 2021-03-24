@@ -1,11 +1,10 @@
 package org.webrtc;
 
 import org.webrtc.VideoDecoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class LibvpxVp9Decoder extends WrappedNativeVideoDecoder {
-    static native long nativeCreateDecoder();
+    public static native long nativeCreateDecoder();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static native boolean nativeIsSupported();
 
     @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder

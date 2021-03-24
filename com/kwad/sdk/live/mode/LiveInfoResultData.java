@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LiveInfoResultData extends BaseResultData {
-    private static final long serialVersionUID = -2695767546208947458L;
+    public static final long serialVersionUID = -2695767546208947458L;
     public List<LiveInfo> liveInfoList = new ArrayList();
     public String pcursor;
 

@@ -1,19 +1,41 @@
 package com.baidu.fsg.base;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class EnvConfig {
+    public static String DEFAULT_ENVIRONMENT = "ONLINE";
+    public static final String ENVIRONMENT_ONLINE = "ONLINE";
     public static final String ENVIRONMENT_PRELINE = "PRELINE";
     public static final String ENVIRONMENT_QA = "QA";
     public static final String ENVIRONMENT_RD = "RD";
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final String f1483a = "https://jrws.baidu.com";
-    private static final String c = "https://jrws.baidu.com";
-    public static final String ENVIRONMENT_ONLINE = "ONLINE";
-    public static String DEFAULT_ENVIRONMENT = ENVIRONMENT_ONLINE;
-    protected static String b = "https://jrws.baidu.com";
-    private static EnvConfig d = null;
+    public static final String f5100a = "https://jrws.baidu.com";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f5101b = "https://jrws.baidu.com";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f5102c = "https://jrws.baidu.com";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static EnvConfig f5103d;
+
+    public static synchronized EnvConfig a() {
+        EnvConfig envConfig;
+        synchronized (EnvConfig.class) {
+            if (f5103d == null && f5103d == null) {
+                f5103d = new EnvConfig();
+            }
+            envConfig = f5103d;
+        }
+        return envConfig;
+    }
+
+    private void b() {
+        f5101b = "https://jrws.baidu.com";
+        DEFAULT_ENVIRONMENT = "ONLINE";
+    }
 
     public static synchronized EnvConfig getInstance(Context context) {
         EnvConfig b2;
@@ -23,16 +45,12 @@ public class EnvConfig {
         return b2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static synchronized EnvConfig a() {
-        EnvConfig envConfig;
-        synchronized (EnvConfig.class) {
-            if (d == null && d == null) {
-                d = new EnvConfig();
-            }
-            envConfig = d;
-        }
-        return envConfig;
+    public String getEnvironment() {
+        return DEFAULT_ENVIRONMENT;
+    }
+
+    public String getRimHttpsHost() {
+        return f5101b;
     }
 
     public void initEnv() {
@@ -45,18 +63,5 @@ public class EnvConfig {
             b2 = c.b();
         }
         return b2;
-    }
-
-    public String getEnvironment() {
-        return DEFAULT_ENVIRONMENT;
-    }
-
-    private void b() {
-        b = "https://jrws.baidu.com";
-        DEFAULT_ENVIRONMENT = ENVIRONMENT_ONLINE;
-    }
-
-    public String getRimHttpsHost() {
-        return b;
     }
 }

@@ -3,47 +3,51 @@ package com.ksad.lottie.model;
 import android.graphics.PointF;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final PointF f5372a;
-    private final PointF b;
-    private final PointF c;
+    public final PointF f31448a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final PointF f31449b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final PointF f31450c;
 
     public a() {
-        this.f5372a = new PointF();
-        this.b = new PointF();
-        this.c = new PointF();
+        this.f31448a = new PointF();
+        this.f31449b = new PointF();
+        this.f31450c = new PointF();
     }
 
     public a(PointF pointF, PointF pointF2, PointF pointF3) {
-        this.f5372a = pointF;
-        this.b = pointF2;
-        this.c = pointF3;
+        this.f31448a = pointF;
+        this.f31449b = pointF2;
+        this.f31450c = pointF3;
     }
 
     public PointF a() {
-        return this.f5372a;
+        return this.f31448a;
     }
 
-    public void a(float f, float f2) {
-        this.f5372a.set(f, f2);
+    public void a(float f2, float f3) {
+        this.f31448a.set(f2, f3);
     }
 
     public PointF b() {
-        return this.b;
+        return this.f31449b;
     }
 
-    public void b(float f, float f2) {
-        this.b.set(f, f2);
+    public void b(float f2, float f3) {
+        this.f31449b.set(f2, f3);
     }
 
     public PointF c() {
-        return this.c;
+        return this.f31450c;
     }
 
-    public void c(float f, float f2) {
-        this.c.set(f, f2);
+    public void c(float f2, float f3) {
+        this.f31450c.set(f2, f3);
     }
 }

@@ -6,55 +6,59 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.model.SearchMajorModel;
+import d.b.i0.o1.b.a;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> implements SearchMajorModel.a {
-    private com.baidu.tieba.majorsearch.a.a lmB;
-    private SearchMajorModel lmC;
+/* loaded from: classes3.dex */
+public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> implements SearchMajorModel.b {
+    public a mController;
+    public SearchMajorModel mModel;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.lmB = new com.baidu.tieba.majorsearch.a.a(this);
-        this.lmC = new SearchMajorModel(getPageContext(), this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.lmB.onResume();
+    public void finish(Intent intent) {
+        setResult(-1, intent);
+        finish();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.lmB != null) {
-            this.lmB.onChangeSkinType(i);
+        a aVar = this.mController;
+        if (aVar != null) {
+            aVar.i(i);
         }
     }
 
-    @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
-    public void aj(List<String> list) {
-        if (this.lmB != null && this.lmB.dfh() != null) {
-            this.lmB.eQ(list);
-            hideNetRefreshView(this.lmB.dfh().dfc());
-        }
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.mController = new a(this);
+        this.mModel = new SearchMajorModel(getPageContext(), this);
     }
 
-    @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
-    public void b(ErrorData errorData) {
-        if (this.lmB != null && this.lmB.dfh() != null) {
-            this.lmB.d(errorData);
-            getRefreshView().rp(R.drawable.new_pic_emotion_07);
-            showNetRefreshViewNoClick(this.lmB.dfh().dfc(), null);
-            getRefreshView().Dr(getString(R.string.search_major_no_data));
+    @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.b
+    public void onError(ErrorData errorData) {
+        a aVar = this.mController;
+        if (aVar == null || aVar.g() == null) {
+            return;
         }
+        this.mController.m(errorData);
+        getRefreshView().h(R.drawable.new_pic_emotion_07);
+        showNetRefreshViewNoClick(this.mController.g().d(), null);
+        getRefreshView().n(getString(R.string.search_major_no_data));
     }
 
-    public void Z(Intent intent) {
-        setResult(-1, intent);
-        finish();
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.mController.j();
+    }
+
+    @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.b
+    public void onSuccess(List<String> list) {
+        a aVar = this.mController;
+        if (aVar == null || aVar.g() == null) {
+            return;
+        }
+        this.mController.l(list);
+        hideNetRefreshView(this.mController.g().d());
     }
 }

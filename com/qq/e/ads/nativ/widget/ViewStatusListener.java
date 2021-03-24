@@ -1,7 +1,7 @@
 package com.qq.e.ads.nativ.widget;
 
 import android.view.MotionEvent;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface ViewStatusListener {
     void onAttachToWindow();
 

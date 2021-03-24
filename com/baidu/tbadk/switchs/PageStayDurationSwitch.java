@@ -1,36 +1,36 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.adp.lib.featureSwitch.a;
-import com.baidu.tbadk.m.e;
-/* loaded from: classes.dex */
+import d.b.b.e.f.a;
+import d.b.h0.k0.e;
+/* loaded from: classes3.dex */
 public class PageStayDurationSwitch extends a {
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected void changeSettingByType(int i) {
-        e.bDW().setSamllFlowOpen(1 == i);
+    @Override // d.b.b.e.f.a
+    public void changeSettingByType(int i) {
+        e.b().g(1 == i);
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected String getName() {
-        return "log_online_smallflow";
-    }
-
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected String[] getCrashKeys() {
+    @Override // d.b.b.e.f.a
+    public String[] getCrashKeys() {
         return null;
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected int getDefaultType() {
+    @Override // d.b.b.e.f.a
+    public int getDefaultType() {
         return 0;
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected int getOffType() {
-        return 1;
+    @Override // d.b.b.e.f.a
+    public int getMaxCrashTimes() {
+        return 10;
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected int getMaxCrashTimes() {
-        return 10;
+    @Override // d.b.b.e.f.a
+    public String getName() {
+        return "log_online_smallflow";
+    }
+
+    @Override // d.b.b.e.f.a
+    public int getOffType() {
+        return 1;
     }
 }

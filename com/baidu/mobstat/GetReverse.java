@@ -1,19 +1,16 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GetReverse {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ICooperService f2547a;
-
-    private GetReverse() {
-    }
+    public static ICooperService f8800a;
 
     public static ICooperService getCooperService(Context context) {
-        if (f2547a == null) {
-            f2547a = CooperService.instance();
+        if (f8800a == null) {
+            f8800a = CooperService.instance();
         }
-        return f2547a;
+        return f8800a;
     }
 }

@@ -1,132 +1,137 @@
 package rx.schedulers;
 
+import h.g;
+import h.o.c.d;
+import h.o.c.e;
+import h.o.c.h;
+import h.o.c.j;
+import h.r.c;
+import h.r.f;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
-import rx.c.c;
-import rx.c.f;
-import rx.g;
-import rx.internal.schedulers.d;
-import rx.internal.schedulers.e;
-import rx.internal.schedulers.h;
-import rx.internal.schedulers.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> qzg = new AtomicReference<>();
-    private final g qFm;
-    private final g qFn;
-    private final g qFo;
 
-    private static Schedulers eNN() {
-        Schedulers schedulers;
+    /* renamed from: d  reason: collision with root package name */
+    public static final AtomicReference<Schedulers> f68267d = new AtomicReference<>();
+
+    /* renamed from: a  reason: collision with root package name */
+    public final g f68268a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final g f68269b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final g f68270c;
+
+    public Schedulers() {
+        h.r.g f2 = f.c().f();
+        g g2 = f2.g();
+        if (g2 != null) {
+            this.f68268a = g2;
+        } else {
+            this.f68268a = h.r.g.a();
+        }
+        g i = f2.i();
+        if (i != null) {
+            this.f68269b = i;
+        } else {
+            this.f68269b = h.r.g.c();
+        }
+        g j = f2.j();
+        if (j != null) {
+            this.f68270c = j;
+        } else {
+            this.f68270c = h.r.g.e();
+        }
+    }
+
+    public static Schedulers a() {
         while (true) {
-            schedulers = qzg.get();
-            if (schedulers == null) {
-                schedulers = new Schedulers();
-                if (qzg.compareAndSet(null, schedulers)) {
-                    break;
-                }
-                schedulers.eNP();
-            } else {
-                break;
+            Schedulers schedulers = f68267d.get();
+            if (schedulers != null) {
+                return schedulers;
             }
+            Schedulers schedulers2 = new Schedulers();
+            if (f68267d.compareAndSet(null, schedulers2)) {
+                return schedulers2;
+            }
+            schedulers2.b();
         }
-        return schedulers;
-    }
-
-    private Schedulers() {
-        rx.c.g eNE = f.eNz().eNE();
-        g eNI = eNE.eNI();
-        if (eNI != null) {
-            this.qFm = eNI;
-        } else {
-            this.qFm = rx.c.g.eNF();
-        }
-        g eNJ = eNE.eNJ();
-        if (eNJ != null) {
-            this.qFn = eNJ;
-        } else {
-            this.qFn = rx.c.g.eNG();
-        }
-        g eNK = eNE.eNK();
-        if (eNK != null) {
-            this.qFo = eNK;
-        } else {
-            this.qFo = rx.c.g.eNH();
-        }
-    }
-
-    public static g immediate() {
-        return e.qDu;
-    }
-
-    public static g trampoline() {
-        return j.qDR;
-    }
-
-    public static g newThread() {
-        return c.k(eNN().qFo);
     }
 
     public static g computation() {
-        return c.i(eNN().qFm);
+        return c.f(a().f68268a);
+    }
+
+    public static g from(Executor executor) {
+        return new h.o.c.c(executor);
+    }
+
+    public static g immediate() {
+        return e.f67895a;
     }
 
     public static g io() {
-        return c.j(eNN().qFn);
+        return c.k(a().f68269b);
+    }
+
+    public static g newThread() {
+        return c.l(a().f68270c);
+    }
+
+    public static void reset() {
+        Schedulers andSet = f68267d.getAndSet(null);
+        if (andSet != null) {
+            andSet.b();
+        }
+    }
+
+    public static void shutdown() {
+        Schedulers a2 = a();
+        a2.b();
+        synchronized (a2) {
+            d.f67893h.shutdown();
+        }
+    }
+
+    public static void start() {
+        Schedulers a2 = a();
+        a2.c();
+        synchronized (a2) {
+            d.f67893h.start();
+        }
     }
 
     public static TestScheduler test() {
         return new TestScheduler();
     }
 
-    public static g from(Executor executor) {
-        return new rx.internal.schedulers.c(executor);
+    public static g trampoline() {
+        return j.f67906a;
     }
 
-    public static void reset() {
-        Schedulers andSet = qzg.getAndSet(null);
-        if (andSet != null) {
-            andSet.eNP();
+    public synchronized void b() {
+        if (this.f68268a instanceof h) {
+            ((h) this.f68268a).shutdown();
         }
-    }
-
-    public static void start() {
-        Schedulers eNN = eNN();
-        eNN.eNO();
-        synchronized (eNN) {
-            d.qDs.start();
+        if (this.f68269b instanceof h) {
+            ((h) this.f68269b).shutdown();
+        }
+        if (this.f68270c instanceof h) {
+            ((h) this.f68270c).shutdown();
         }
     }
 
-    public static void shutdown() {
-        Schedulers eNN = eNN();
-        eNN.eNP();
-        synchronized (eNN) {
-            d.qDs.shutdown();
+    public synchronized void c() {
+        if (this.f68268a instanceof h) {
+            ((h) this.f68268a).start();
         }
-    }
-
-    synchronized void eNO() {
-        if (this.qFm instanceof h) {
-            ((h) this.qFm).start();
+        if (this.f68269b instanceof h) {
+            ((h) this.f68269b).start();
         }
-        if (this.qFn instanceof h) {
-            ((h) this.qFn).start();
-        }
-        if (this.qFo instanceof h) {
-            ((h) this.qFo).start();
-        }
-    }
-
-    synchronized void eNP() {
-        if (this.qFm instanceof h) {
-            ((h) this.qFm).shutdown();
-        }
-        if (this.qFn instanceof h) {
-            ((h) this.qFn).shutdown();
-        }
-        if (this.qFo instanceof h) {
-            ((h) this.qFo).shutdown();
+        if (this.f68270c instanceof h) {
+            ((h) this.f68270c).start();
         }
     }
 }

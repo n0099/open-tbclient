@@ -1,10 +1,10 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class JsResult {
-    private final ResultReceiver mReceiver;
-    private boolean mResult;
+    public final ResultReceiver mReceiver;
+    public boolean mResult;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface ResultReceiver {
         void onJsResultComplete(JsResult jsResult);
     }

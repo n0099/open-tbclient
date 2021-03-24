@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class ActivityInfo extends Message {
     public static final String DEFAULT_ACTIVITYTITLE = "";
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
@@ -14,33 +14,7 @@ public final class ActivityInfo extends Message {
     public static final Integer DEFAULT_ACTIVITYID = 0;
     public static final Integer DEFAULT_ISEND = 0;
 
-    private ActivityInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.activityId == null) {
-                this.activityId = DEFAULT_ACTIVITYID;
-            } else {
-                this.activityId = builder.activityId;
-            }
-            if (builder.activityTitle == null) {
-                this.activityTitle = "";
-            } else {
-                this.activityTitle = builder.activityTitle;
-            }
-            if (builder.isEnd == null) {
-                this.isEnd = DEFAULT_ISEND;
-                return;
-            } else {
-                this.isEnd = builder.isEnd;
-                return;
-            }
-        }
-        this.activityId = builder.activityId;
-        this.activityTitle = builder.activityTitle;
-        this.isEnd = builder.isEnd;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<ActivityInfo> {
         public Integer activityId;
         public String activityTitle;
@@ -51,11 +25,12 @@ public final class ActivityInfo extends Message {
 
         public Builder(ActivityInfo activityInfo) {
             super(activityInfo);
-            if (activityInfo != null) {
-                this.activityId = activityInfo.activityId;
-                this.activityTitle = activityInfo.activityTitle;
-                this.isEnd = activityInfo.isEnd;
+            if (activityInfo == null) {
+                return;
             }
+            this.activityId = activityInfo.activityId;
+            this.activityTitle = activityInfo.activityTitle;
+            this.isEnd = activityInfo.isEnd;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,5 +38,34 @@ public final class ActivityInfo extends Message {
         public ActivityInfo build(boolean z) {
             return new ActivityInfo(this, z);
         }
+    }
+
+    public ActivityInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.activityId;
+            if (num == null) {
+                this.activityId = DEFAULT_ACTIVITYID;
+            } else {
+                this.activityId = num;
+            }
+            String str = builder.activityTitle;
+            if (str == null) {
+                this.activityTitle = "";
+            } else {
+                this.activityTitle = str;
+            }
+            Integer num2 = builder.isEnd;
+            if (num2 == null) {
+                this.isEnd = DEFAULT_ISEND;
+                return;
+            } else {
+                this.isEnd = num2;
+                return;
+            }
+        }
+        this.activityId = builder.activityId;
+        this.activityTitle = builder.activityTitle;
+        this.isEnd = builder.isEnd;
     }
 }

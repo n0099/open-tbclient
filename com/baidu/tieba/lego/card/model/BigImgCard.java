@@ -1,11 +1,11 @@
 package com.baidu.tieba.lego.card.model;
 
-import com.baidu.adp.lib.util.k;
+import d.b.b.e.p.k;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class BigImgCard extends BaseCardInfo {
-    private final double ratio;
-    private final String url;
+    public final double ratio;
+    public final String url;
 
     public BigImgCard(JSONObject jSONObject) {
         super(jSONObject);
@@ -13,13 +13,13 @@ public class BigImgCard extends BaseCardInfo {
         this.ratio = jSONObject.optDouble("ratio");
     }
 
-    public String getUrl() {
-        return this.url;
-    }
-
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
         return this.ratio;
+    }
+
+    public String getUrl() {
+        return this.url;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo

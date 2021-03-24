@@ -1,35 +1,37 @@
 package com.baidu.platform.comapi.walknavi.d;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class i implements com.baidu.platform.comapi.walknavi.d.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2947a;
-    final /* synthetic */ g b;
+    public final /* synthetic */ c f10035a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ g f10036b;
+
     public i(g gVar, c cVar) {
-        this.b = gVar;
-        this.f2947a = cVar;
+        this.f10036b = gVar;
+        this.f10035a = cVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
-    public void a(boolean z, float f) {
-        com.baidu.platform.comapi.wnplatform.d.a.b("aaaaa MainActivity isUpdate=" + z + ", size=" + f);
-        this.f2947a.a(z, f);
+    public void a(boolean z, float f2) {
+        com.baidu.platform.comapi.wnplatform.d.a.b("aaaaa MainActivity isUpdate=" + z + ", size=" + f2);
+        this.f10035a.a(z, f2);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
     public void a(int i) {
-        if (this.f2947a != null) {
-            this.f2947a.a(i);
+        c cVar = this.f10035a;
+        if (cVar != null) {
+            cVar.a(i);
         }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
     public void a(int i, String str) {
-        if (this.f2947a != null) {
-            this.f2947a.a(i, str);
+        c cVar = this.f10035a;
+        if (cVar != null) {
+            cVar.a(i, str);
         }
     }
 }

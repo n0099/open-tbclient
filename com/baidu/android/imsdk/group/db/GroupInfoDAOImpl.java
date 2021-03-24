@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
@@ -20,15 +21,14 @@ import com.baidu.android.imsdk.group.GroupMember;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GroupInfoDAOImpl {
-    private static final String TAG = "GroupInfoDAOImpl";
-    private static GroupInfoParse sGroupInfoParse = new GroupInfoParse();
+    public static final String TAG = "GroupInfoDAOImpl";
+    public static GroupInfoParse sGroupInfoParse = new GroupInfoParse();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class GroupInfoParse implements IResultParse<GroupInfo> {
-        private GroupInfoParse() {
+        public GroupInfoParse() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,146 @@ public class GroupInfoDAOImpl {
         }
     }
 
-    private static ContentValues getGroupInfoCv(GroupInfo groupInfo) {
+    public static int activeGroupState(Context context, String str) {
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
+            if (dBGroupTableManager.isExistGroupTable(context, str)) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_ACTIVE_STATE, (Integer) 1);
+                int intValue = newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+                if (intValue > 0) {
+                    dBGroupTableManager.activeGroup(str);
+                    return intValue;
+                }
+                return intValue;
+            }
+            return DBResponseCode.ERROR_GROUP_NOT_EXIST;
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static long addMemberToGroup(Context context, String str, List<GroupMember> list) {
+        if (context == null || TextUtils.isEmpty(str) || list == null || list.size() <= 0) {
+            return -7001L;
+        }
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
+                ArrayList arrayList = new ArrayList();
+                for (GroupMember groupMember : list) {
+                    ContentValues groupMemberCv = getGroupMemberCv(groupMember);
+                    if (groupMemberCv != null) {
+                        arrayList.add(groupMemberCv);
+                    }
+                }
+                List<Long> insert = newDb.insert("groupmember", arrayList);
+                return (insert == null || insert.size() <= 0) ? -7100L : insert.get(0).longValue();
+            }
+            return -7008L;
+        }
+        return -70003L;
+    }
+
+    public static void clearGroupMarkTop(Context context) {
+        DBOperation newDb;
+        if (context == null || (newDb = DBOperationFactory.getNewDb(context)) == null) {
+            return;
+        }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("marktop", (Integer) 0);
+        newDb.update("groupinfo", contentValues, "marktop = ? ", new String[]{String.valueOf(1)});
+    }
+
+    public static int createGroup(Context context, String str) {
+        DBGroupTableManager dBGroupTableManager;
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            final String sqlCreateTableGroupMessage = DBTableDefine.getSqlCreateTableGroupMessage(str);
+            final ContentValues contentValues = new ContentValues();
+            contentValues.put("group_id", str);
+            int intValue = newDb.execTransaction(new ITransaction() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.1
+                @Override // com.baidu.android.imsdk.db.ITransaction
+                public void execTransaction(SQLiteDatabase sQLiteDatabase) {
+                    sQLiteDatabase.execSQL(sqlCreateTableGroupMessage);
+                    long insert = sQLiteDatabase.insert("groupinfo", null, contentValues);
+                    LogUtils.d(GroupInfoDAOImpl.TAG, "insertret : " + insert);
+                }
+            }).intValue();
+            LogUtils.d(TAG, "STAR create star group " + intValue + " " + str);
+            if (intValue != 0 || (dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)) == null) {
+                return intValue;
+            }
+            String groupMessageTableName = DBTableDefine.getGroupMessageTableName(str);
+            LogUtils.d(TAG, "STAR add group table " + groupMessageTableName);
+            dBGroupTableManager.addGroupTable(groupMessageTableName);
+            return intValue;
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static int delGroupMember(Context context, String str, ArrayList<String> arrayList) {
+        if (context == null || arrayList == null || arrayList.size() == 0) {
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        LogUtils.d("GroupInfoDAOIMPL", "delGroupMember " + arrayList.toString());
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            String str2 = " ( " + arrayList.get(0);
+            for (int i = 1; i < arrayList.size(); i++) {
+                str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + arrayList.get(i);
+            }
+            return newDb.delete("groupmember", "group_id = ? AND bduid in " + (str2 + " ) "), new String[]{str}).intValue();
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static int deletedGroupMember(Context context, String str) {
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("state", (Integer) 1);
+            return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static ArrayList<GroupInfo> getAllGroupInfo(Context context) {
+        DBOperation newDb;
+        if (context == null || (newDb = DBOperationFactory.getNewDb(context)) == null) {
+            return null;
+        }
+        return newDb.query(sGroupInfoParse, "groupinfo", null, null, null, null, null, null, null);
+    }
+
+    public static ArrayList<String> getAllGroupList(Context context) {
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.2
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.android.imsdk.db.IResultParse
+                public String onParse(Cursor cursor) {
+                    return cursor.getString(cursor.getColumnIndex("group_id"));
+                }
+            }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type != 2 AND state != 1", null, null, null, "create_time DESC", null);
+        }
+        return null;
+    }
+
+    public static ArrayList<GroupInfo> getGroupInfo(Context context, ArrayList<String> arrayList) {
+        DBOperation newDb;
+        if (context == null || arrayList == null || arrayList.size() == 0 || (newDb = DBOperationFactory.getNewDb(context)) == null) {
+            return null;
+        }
+        String str = " ( " + arrayList.get(0);
+        for (int i = 1; i < arrayList.size(); i++) {
+            str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + arrayList.get(i);
+        }
+        String str2 = str + " ) ";
+        return newDb.query(sGroupInfoParse, "groupinfo", null, "group_id in " + str2, null, null, null, null, null);
+    }
+
+    public static ContentValues getGroupInfoCv(GroupInfo groupInfo) {
         if (groupInfo == null) {
             return null;
         }
@@ -89,157 +228,20 @@ public class GroupInfoDAOImpl {
         return contentValues;
     }
 
-    private static ContentValues getGroupMemberCv(GroupMember groupMember) {
-        if (groupMember == null) {
-            return null;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("group_id", groupMember.getGroupid());
-        contentValues.put(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME, Long.valueOf(groupMember.getJointime()));
-        contentValues.put("role", Integer.valueOf(groupMember.getRole()));
-        contentValues.put("bduid", Long.valueOf(groupMember.getBduid()));
-        contentValues.put("uk", Long.valueOf(groupMember.getUk()));
-        contentValues.put("nickname", groupMember.getNickName());
-        contentValues.put("status", Integer.valueOf(groupMember.getValid()));
-        return contentValues;
-    }
-
-    public static int createGroup(Context context, String str) {
-        DBGroupTableManager dBGroupTableManager;
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        final String sqlCreateTableGroupMessage = DBTableDefine.getSqlCreateTableGroupMessage(str);
-        final ContentValues contentValues = new ContentValues();
-        contentValues.put("group_id", str);
-        int intValue = newDb.execTransaction(new ITransaction() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.1
-            @Override // com.baidu.android.imsdk.db.ITransaction
-            public void execTransaction(SQLiteDatabase sQLiteDatabase) {
-                sQLiteDatabase.execSQL(sqlCreateTableGroupMessage);
-                LogUtils.d(GroupInfoDAOImpl.TAG, "insertret : " + sQLiteDatabase.insert("groupinfo", null, contentValues));
-            }
-        }).intValue();
-        LogUtils.d(TAG, "STAR create star group " + intValue + " " + str);
-        if (intValue == 0 && (dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)) != null) {
-            String groupMessageTableName = DBTableDefine.getGroupMessageTableName(str);
-            LogUtils.d(TAG, "STAR add group table " + groupMessageTableName);
-            dBGroupTableManager.addGroupTable(groupMessageTableName);
-        }
-        return intValue;
-    }
-
-    public static boolean isExistGroup(Context context, String str) {
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        LogUtils.e(TAG, "operation : " + newDb);
-        if (newDb == null) {
-            return false;
-        }
-        DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
-        if (dBGroupTableManager == null) {
-            dBGroupTableManager = new DBGroupTableManager();
-            newDb.setTag(DBGroupTableManager.KEY, dBGroupTableManager);
-        }
-        return dBGroupTableManager.isExistGroupTable(context, str);
-    }
-
-    public static void clearGroupMarkTop(Context context) {
-        DBOperation newDb;
-        if (context != null && (newDb = DBOperationFactory.getNewDb(context)) != null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("marktop", (Integer) 0);
-            newDb.update("groupinfo", contentValues, "marktop = ? ", new String[]{String.valueOf(1)});
-        }
-    }
-
-    public static void updateGroupListMarkTop(Context context, List<ChatSession> list) {
-        clearGroupMarkTop(context);
-        if (list != null) {
-            for (ChatSession chatSession : list) {
-                updateGroupMarkTop(context, chatSession.getContacter(), chatSession.getMarkTop(), chatSession.getMarkTopTime());
-            }
-        }
-    }
-
-    public static void updateGroupMarkTop(Context context, long j, int i, long j2) {
-        updateGroupInfoMarkTop(context, j, i, j2);
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("marktop", Integer.valueOf(i));
-        contentValues.put("marktoptime", Long.valueOf(j2));
-        ChatMessageDBManager.getInstance(context).updateChatSession("contacter=?", new String[]{String.valueOf(j)}, contentValues);
-    }
-
-    public static int updateGroupInfoMarkTop(Context context, long j, int i, long j2) {
-        if (context == null) {
-            return -7001;
-        }
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, String.valueOf(j))) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("marktop", Integer.valueOf(i));
-            contentValues.put("marktoptime", Long.valueOf(j2));
-            return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{String.valueOf(j)}).intValue();
-        }
-        return DBResponseCode.ERROR_GROUP_NOT_EXIST;
-    }
-
-    public static int updateGroupInfo(Context context, GroupInfo groupInfo) {
-        if (context == null || groupInfo == null) {
-            return -7001;
-        }
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        if ((!((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, groupInfo.getGroupId()) ? createGroup(context, groupInfo.getGroupId()) : 0) < 0) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        return newDb.update("groupinfo", getGroupInfoCv(groupInfo), "group_id = ? ", new String[]{groupInfo.getGroupId()}).intValue();
-    }
-
-    public static ArrayList<String> getAllGroupList(Context context) {
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb != null) {
-            return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.2
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.android.imsdk.db.IResultParse
-                public String onParse(Cursor cursor) {
-                    return cursor.getString(cursor.getColumnIndex("group_id"));
-                }
-            }, "groupinfo", new String[]{"group_id"}, "state = 0 AND group_type != 2 AND state != 1", null, null, null, "create_time DESC", null);
-        }
-        return null;
-    }
-
-    public static ArrayList<String> getStarGroupList(Context context) {
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb != null) {
-            return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.3
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.android.imsdk.db.IResultParse
-                public String onParse(Cursor cursor) {
-                    return cursor.getString(cursor.getColumnIndex("group_id"));
-                }
-            }, "groupinfo", new String[]{"group_id"}, null, null, null, null, "create_time DESC", null);
-        }
-        return null;
-    }
-
     public static ArrayList<String> getGroupList(Context context, boolean z, int i, int i2) {
-        String str;
         DBOperation newDb = DBOperationFactory.getNewDb(context);
+        String str = null;
         if (newDb != null) {
-            String str2 = (z ? "active_state = 1 AND state = 0" : "active_state = 1") + " AND group_type != 2";
+            String str2 = "active_state = 1";
+            if (z) {
+                str2 = "active_state = 1 AND state = 0";
+            }
+            String str3 = str2 + " AND group_type != 2";
             if (i > 0) {
                 str = String.valueOf(i);
                 if (i2 > 0) {
                     str = str + " offset " + i2;
                 }
-            } else {
-                str = null;
             }
             return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.4
                 /* JADX DEBUG: Method merged with bridge method */
@@ -247,95 +249,69 @@ public class GroupInfoDAOImpl {
                 public String onParse(Cursor cursor) {
                     return cursor.getString(cursor.getColumnIndex("group_id"));
                 }
-            }, "groupinfo", new String[]{"group_id"}, str2, null, null, null, "create_time DESC", str);
+            }, "groupinfo", new String[]{"group_id"}, str3, null, null, null, "create_time DESC", str);
         }
         return null;
     }
 
-    public static long addMemberToGroup(Context context, String str, List<GroupMember> list) {
-        if (context == null || TextUtils.isEmpty(str) || list == null || list.size() <= 0) {
-            return -7001L;
-        }
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return -70003L;
-        }
-        if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
-            ArrayList arrayList = new ArrayList();
-            for (GroupMember groupMember : list) {
-                ContentValues groupMemberCv = getGroupMemberCv(groupMember);
-                if (groupMemberCv != null) {
-                    arrayList.add(groupMemberCv);
-                }
-            }
-            List<Long> insert = newDb.insert("groupmember", arrayList);
-            if (insert != null && insert.size() > 0) {
-                return insert.get(0).longValue();
-            }
-            return -7100L;
-        }
-        return -7008L;
-    }
-
-    public static int updateMemberToGroup(Context context, String str, GroupMember groupMember) {
-        if (context == null || TextUtils.isEmpty(str) || groupMember == null) {
-            return -7001;
-        }
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
-            return newDb.update(DBTableDefine.getGroupMessageTableName(str), getGroupMemberCv(groupMember), "group_id = ? AND bduid = ?", new String[]{groupMember.getGroupid(), String.valueOf(groupMember.getBduid())}).intValue();
-        }
-        return DBResponseCode.ERROR_GROUP_NOT_EXIST;
-    }
-
-    public static int updateMemberNickName(Context context, String str, String str2, String str3) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return -7001;
-        }
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("nickname", str3);
-        return newDb.update("groupmember", contentValues, "group_id = ? AND bduid = ?", new String[]{str, str2}).intValue();
-    }
-
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x008b, code lost:
+        if (r15 == 0) goto L38;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static ArrayList<GroupMember> getGroupMember(Context context, String str, ArrayList<String> arrayList, int i) {
         ArrayList<GroupMember> arrayList2;
-        GroupMember groupMember;
         String str2;
         String str3;
+        String str4;
+        GroupMember groupMember = null;
         if (context == null || TextUtils.isEmpty(str)) {
             return null;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb != null) {
+            String str5 = "";
             if (arrayList == null || arrayList.size() <= 0) {
                 str2 = "";
             } else {
-                String str4 = " AND ( bduid = " + arrayList.get(0);
+                String str6 = " AND ( bduid = " + arrayList.get(0);
                 for (int i2 = 1; i2 < arrayList.size(); i2++) {
-                    str4 = str4 + " OR bduid = " + arrayList.get(i2);
+                    str6 = str6 + " OR bduid = " + arrayList.get(i2);
                 }
-                str2 = str4 + " ) ";
+                str2 = str6 + " ) ";
             }
-            String str5 = "";
             if (i < 0) {
                 str5 = "join_time DESC ";
                 str3 = String.valueOf(Math.abs(i));
-            } else if (i > 0) {
-                str5 = "join_time ASC  ";
-                str3 = String.valueOf(i);
-            } else if (i == 0) {
-                str5 = "join_time ASC  ";
-                str3 = null;
             } else {
-                str3 = null;
+                if (i > 0) {
+                    str3 = String.valueOf(i);
+                } else {
+                    str3 = null;
+                }
+                str4 = "join_time ASC  ";
+                arrayList2 = newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.5
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
+                    @Override // com.baidu.android.imsdk.db.IResultParse
+                    public GroupMember onParse(Cursor cursor) {
+                        String string = cursor.getString(cursor.getColumnIndex("group_id"));
+                        long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
+                        int i3 = cursor.getInt(cursor.getColumnIndex("role"));
+                        String string2 = cursor.getString(cursor.getColumnIndex("name"));
+                        String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
+                        long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
+                        long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
+                        int i4 = cursor.getInt(cursor.getColumnIndex("status"));
+                        GroupMember groupMember2 = new GroupMember(string, j3, string2, j2, i3, j);
+                        groupMember2.setValid(i4);
+                        groupMember2.setNickName(string3);
+                        return groupMember2;
+                    }
+                }, "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str4, str3);
             }
+            str4 = str5;
             arrayList2 = newDb.query(new IResultParse<GroupMember>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.5
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
@@ -354,7 +330,7 @@ public class GroupInfoDAOImpl {
                     groupMember2.setNickName(string3);
                     return groupMember2;
                 }
-            }, "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str5, str3);
+            }, "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str4, str3);
         } else {
             arrayList2 = null;
         }
@@ -362,22 +338,55 @@ public class GroupInfoDAOImpl {
             int i3 = 0;
             while (true) {
                 if (i3 >= arrayList2.size()) {
-                    groupMember = null;
                     break;
                 }
-                groupMember = arrayList2.get(i3);
-                if (1 != groupMember.getRole()) {
-                    i3++;
-                } else {
+                GroupMember groupMember2 = arrayList2.get(i3);
+                if (1 == groupMember2.getRole()) {
                     arrayList2.remove(i3);
+                    groupMember = groupMember2;
                     break;
                 }
+                i3++;
             }
             if (groupMember != null) {
                 arrayList2.add(0, groupMember);
             }
         }
         return arrayList2;
+    }
+
+    public static ContentValues getGroupMemberCv(GroupMember groupMember) {
+        if (groupMember == null) {
+            return null;
+        }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("group_id", groupMember.getGroupid());
+        contentValues.put(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME, Long.valueOf(groupMember.getJointime()));
+        contentValues.put("role", Integer.valueOf(groupMember.getRole()));
+        contentValues.put("bduid", Long.valueOf(groupMember.getBduid()));
+        contentValues.put("uk", Long.valueOf(groupMember.getUk()));
+        contentValues.put("nickname", groupMember.getNickName());
+        contentValues.put("status", Integer.valueOf(groupMember.getValid()));
+        return contentValues;
+    }
+
+    public static ArrayList<Long> getGroupMemberId(Context context, String str) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return null;
+        }
+        String str2 = (" AND ( role != 1") + " ) ";
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            return newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.8
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // com.baidu.android.imsdk.db.IResultParse
+                public Long onParse(Cursor cursor) {
+                    return Long.valueOf(cursor.getLong(cursor.getColumnIndex("bduid")));
+                }
+            }, "groupmember", new String[]{"bduid"}, "group_id = ? " + str2, new String[]{str}, null, null, null, null);
+        }
+        return null;
     }
 
     public static ArrayList<GroupMember> getMemberNickname(Context context, String str) {
@@ -406,292 +415,301 @@ public class GroupInfoDAOImpl {
         }, "groupmember", null, "group_id = ? ", new String[]{str}, null, null, null, null);
     }
 
-    public static int hasMemberInGroup(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return 0;
-        }
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        ArrayList query = newDb != null ? newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.7
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.android.imsdk.db.IResultParse
-            public Long onParse(Cursor cursor) {
-                return Long.valueOf(cursor.getLong(cursor.getColumnIndex("bduid")));
+    public static String getNickName(Context context, String str, String str2) {
+        if (context != null && !TextUtils.isEmpty(str)) {
+            DBOperation newDb = DBOperationFactory.getNewDb(context);
+            ArrayList query = newDb != null ? newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.9
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.android.imsdk.db.IResultParse
+                public String onParse(Cursor cursor) {
+                    return cursor.getString(cursor.getColumnIndex("nickname"));
+                }
+            }, "groupmember", new String[]{"nickname"}, "group_id = ?  AND bduid = ? ", new String[]{str, str2}, null, null, null, null) : null;
+            if (query != null && query.size() > 0) {
+                return (String) query.get(0);
             }
-        }, "groupmember", new String[]{"bduid"}, "group_id = ? ", new String[]{str}, null, null, null, null) : null;
-        if (query != null) {
-            return query.size();
         }
-        return 0;
+        return null;
     }
 
-    public static ArrayList<Long> getGroupMemberId(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return null;
-        }
-        String str2 = (" AND ( role != 1") + " ) ";
+    public static ArrayList<String> getStarGroupList(Context context) {
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb != null) {
-            return newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.8
+            return newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.3
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.android.imsdk.db.IResultParse
+                public String onParse(Cursor cursor) {
+                    return cursor.getString(cursor.getColumnIndex("group_id"));
+                }
+            }, "groupinfo", new String[]{"group_id"}, null, null, null, null, "create_time DESC", null);
+        }
+        return null;
+    }
+
+    public static int hasMemberInGroup(Context context, String str) {
+        if (context != null && !TextUtils.isEmpty(str)) {
+            DBOperation newDb = DBOperationFactory.getNewDb(context);
+            ArrayList query = newDb != null ? newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.7
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.android.imsdk.db.IResultParse
                 public Long onParse(Cursor cursor) {
                     return Long.valueOf(cursor.getLong(cursor.getColumnIndex("bduid")));
                 }
-            }, "groupmember", new String[]{"bduid"}, "group_id = ? " + str2, new String[]{str}, null, null, null, null);
-        }
-        return null;
-    }
-
-    public static String getNickName(Context context, String str, String str2) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return null;
-        }
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        ArrayList query = newDb != null ? newDb.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.9
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.android.imsdk.db.IResultParse
-            public String onParse(Cursor cursor) {
-                return cursor.getString(cursor.getColumnIndex("nickname"));
-            }
-        }, "groupmember", new String[]{"nickname"}, "group_id = ?  AND bduid = ? ", new String[]{str, str2}, null, null, null, null) : null;
-        if (query == null || query.size() <= 0) {
-            return null;
-        }
-        return (String) query.get(0);
-    }
-
-    public static int quitGroup(Context context, final String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return -7001;
-        }
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        int intValue = newDb.execTransaction(new ITransaction() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.10
-            @Override // com.baidu.android.imsdk.db.ITransaction
-            public void execTransaction(SQLiteDatabase sQLiteDatabase) {
-                sQLiteDatabase.delete("groupinfo", "group_id = ? ", new String[]{str});
-                sQLiteDatabase.delete("groupmember", "group_id = ? ", new String[]{str});
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + DBTableDefine.getGroupMessageTableName(str));
-            }
-        }).intValue();
-        DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
-        if (dBGroupTableManager != null) {
-            String groupMessageTableName = DBTableDefine.getGroupMessageTableName(str);
-            LogUtils.d(TAG, "STAR quit group");
-            dBGroupTableManager.quitGroupTable(groupMessageTableName);
-            dBGroupTableManager.deactiveGroup(str);
-        }
-        return intValue;
-    }
-
-    public static int delGroupMember(Context context, String str, ArrayList<String> arrayList) {
-        if (context == null || arrayList == null || arrayList.size() == 0) {
-            return -7001;
-        }
-        LogUtils.d("GroupInfoDAOIMPL", "delGroupMember " + arrayList.toString());
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        String str2 = " ( " + arrayList.get(0);
-        for (int i = 1; i < arrayList.size(); i++) {
-            str2 = str2 + ", " + arrayList.get(i);
-        }
-        return newDb.delete("groupmember", "group_id = ? AND bduid in " + (str2 + " ) "), new String[]{str}).intValue();
-    }
-
-    public static int deletedGroupMember(Context context, String str) {
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("state", (Integer) 1);
-        return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
-    }
-
-    public static int updateGroupMemberRole(Context context, String str, String str2, int i) {
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("role", Integer.valueOf(i));
-        return newDb.update("groupmember", contentValues, "group_id = ? AND bduid = ? ", new String[]{str, str2}).intValue();
-    }
-
-    public static int updateMasterAsCommon(Context context, String str, int i) {
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("role", Integer.valueOf(i));
-        return newDb.update("groupmember", contentValues, "group_id = ? AND role = 2 ", new String[]{str}).intValue();
-    }
-
-    public static ArrayList<GroupInfo> getGroupInfo(Context context, ArrayList<String> arrayList) {
-        DBOperation newDb;
-        if (context == null || arrayList == null || arrayList.size() == 0 || (newDb = DBOperationFactory.getNewDb(context)) == null) {
-            return null;
-        }
-        String str = " ( " + arrayList.get(0);
-        int i = 1;
-        while (true) {
-            int i2 = i;
-            if (i2 < arrayList.size()) {
-                str = str + ", " + arrayList.get(i2);
-                i = i2 + 1;
-            } else {
-                return newDb.query(sGroupInfoParse, "groupinfo", null, "group_id in " + (str + " ) "), null, null, null, null, null);
+            }, "groupmember", new String[]{"bduid"}, "group_id = ? ", new String[]{str}, null, null, null, null) : null;
+            if (query != null) {
+                return query.size();
             }
         }
+        return 0;
     }
 
-    public static ArrayList<GroupInfo> getAllGroupInfo(Context context) {
-        DBOperation newDb;
-        if (context == null || (newDb = DBOperationFactory.getNewDb(context)) == null) {
-            return null;
-        }
-        return newDb.query(sGroupInfoParse, "groupinfo", null, null, null, null, null, null, null);
-    }
-
-    public static int modifyGroupName(Context context, String str, String str2) {
-        if (context == null || TextUtils.isEmpty(str) || str2 == null) {
-            return -7001;
-        }
-        ConversationManagerImpl.getInstance(context).updateConversationName(str2, 1, String.valueOf(str));
+    public static boolean isExistGroup(Context context, String str) {
         DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
+        LogUtils.e(TAG, "operation : " + newDb);
+        if (newDb != null) {
+            DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
+            if (dBGroupTableManager == null) {
+                dBGroupTableManager = new DBGroupTableManager();
+                newDb.setTag(DBGroupTableManager.KEY, dBGroupTableManager);
+            }
+            return dBGroupTableManager.isExistGroupTable(context, str);
         }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("group_name", str2);
-        return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+        return false;
     }
 
     public static int modifyGroupMemberNumber(Context context, String str, int i) {
         if (context == null || TextUtils.isEmpty(str) || i < 0) {
-            return -7001;
+            return DBResponseCode.ERROR_PARAMETER;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
+        if (newDb != null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM, Integer.valueOf(i));
+            return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
         }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM, Integer.valueOf(i));
-        return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+        return DBResponseCode.ERROR_DB_OPEN;
     }
 
     public static int modifyGroupMemberVersion(Context context, String str, long j) {
         if (context == null || TextUtils.isEmpty(str) || j < 0) {
-            return -7001;
+            return DBResponseCode.ERROR_PARAMETER;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION, Long.valueOf(j));
-        return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
-    }
-
-    public static int setGroupDisturb(Context context, String str, int i) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return -7001;
-        }
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
+        if (newDb != null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("disturb", Integer.valueOf(i));
+            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION, Long.valueOf(j));
             return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
         }
-        return DBResponseCode.ERROR_GROUP_NOT_EXIST;
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static int modifyGroupName(Context context, String str, String str2) {
+        if (context == null || TextUtils.isEmpty(str) || str2 == null) {
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        ConversationManagerImpl.getInstance(context).updateConversationName(str2, 1, String.valueOf(str));
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("group_name", str2);
+            return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static int quitGroup(Context context, final String str) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        int i = DBResponseCode.ERROR_DB_OPEN;
+        if (newDb != null) {
+            i = newDb.execTransaction(new ITransaction() { // from class: com.baidu.android.imsdk.group.db.GroupInfoDAOImpl.10
+                @Override // com.baidu.android.imsdk.db.ITransaction
+                public void execTransaction(SQLiteDatabase sQLiteDatabase) {
+                    sQLiteDatabase.delete("groupinfo", "group_id = ? ", new String[]{str});
+                    sQLiteDatabase.delete("groupmember", "group_id = ? ", new String[]{str});
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + DBTableDefine.getGroupMessageTableName(str));
+                }
+            }).intValue();
+            DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
+            if (dBGroupTableManager != null) {
+                String groupMessageTableName = DBTableDefine.getGroupMessageTableName(str);
+                LogUtils.d(TAG, "STAR quit group");
+                dBGroupTableManager.quitGroupTable(groupMessageTableName);
+                dBGroupTableManager.deactiveGroup(str);
+            }
+        }
+        return i;
     }
 
     public static int setAllStarDisturbDefault(Context context) {
         if (context == null) {
-            return -7001;
+            return DBResponseCode.ERROR_PARAMETER;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
+        if (newDb != null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("disturb", (Integer) 1);
+            return newDb.update("groupinfo", contentValues, "group_type = ? ", new String[]{"2"}).intValue();
         }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("disturb", (Integer) 1);
-        return newDb.update("groupinfo", contentValues, "group_type = ? ", new String[]{"2"}).intValue();
+        return DBResponseCode.ERROR_DB_OPEN;
     }
 
-    public static int setGroupState(Context context, String str, int i) {
+    public static int setGroupDisturb(Context context, String str, int i) {
         if (context == null || TextUtils.isEmpty(str)) {
-            return -7001;
+            return DBResponseCode.ERROR_PARAMETER;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("state", Integer.valueOf(i));
-            return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
-        }
-        return DBResponseCode.ERROR_GROUP_NOT_EXIST;
-    }
-
-    public static int activeGroupState(Context context, String str) {
-        DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
-        }
-        DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
-        if (dBGroupTableManager.isExistGroupTable(context, str)) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_ACTIVE_STATE, (Integer) 1);
-            int intValue = newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
-            if (intValue > 0) {
-                dBGroupTableManager.activeGroup(str);
+        if (newDb != null) {
+            if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("disturb", Integer.valueOf(i));
+                return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
             }
-            return intValue;
+            return DBResponseCode.ERROR_GROUP_NOT_EXIST;
         }
-        return DBResponseCode.ERROR_GROUP_NOT_EXIST;
+        return DBResponseCode.ERROR_DB_OPEN;
     }
 
     public static int setGroupPermit(Context context, String str, int i) {
         if (context == null || TextUtils.isEmpty(str)) {
-            return -7001;
+            return DBResponseCode.ERROR_PARAMETER;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
+        if (newDb != null) {
+            if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, Integer.valueOf(i));
+                return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+            }
+            return DBResponseCode.ERROR_GROUP_NOT_EXIST;
         }
-        if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, Integer.valueOf(i));
-            return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static int setGroupState(Context context, String str, int i) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return DBResponseCode.ERROR_PARAMETER;
         }
-        return DBResponseCode.ERROR_GROUP_NOT_EXIST;
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("state", Integer.valueOf(i));
+                return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+            }
+            return DBResponseCode.ERROR_GROUP_NOT_EXIST;
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
     }
 
     public static int setGroupType(Context context, String str, int i) {
         if (context == null || TextUtils.isEmpty(str)) {
-            return -7001;
+            return DBResponseCode.ERROR_PARAMETER;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
-        if (newDb == null) {
-            return DBResponseCode.ERROR_DB_OPEN;
+        if (newDb != null) {
+            if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("group_type", Integer.valueOf(i));
+                return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+            }
+            return DBResponseCode.ERROR_GROUP_NOT_EXIST;
         }
-        if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static int updateGroupInfo(Context context, GroupInfo groupInfo) {
+        if (context == null || groupInfo == null) {
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            return (!((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, groupInfo.getGroupId()) ? createGroup(context, groupInfo.getGroupId()) : 0) >= 0 ? newDb.update("groupinfo", getGroupInfoCv(groupInfo), "group_id = ? ", new String[]{groupInfo.getGroupId()}).intValue() : DBResponseCode.ERROR_DB_OPEN;
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static int updateGroupInfoMarkTop(Context context, long j, int i, long j2) {
+        if (context == null) {
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, String.valueOf(j))) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("marktop", Integer.valueOf(i));
+                contentValues.put("marktoptime", Long.valueOf(j2));
+                return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{String.valueOf(j)}).intValue();
+            }
+            return DBResponseCode.ERROR_GROUP_NOT_EXIST;
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static void updateGroupListMarkTop(Context context, List<ChatSession> list) {
+        clearGroupMarkTop(context);
+        if (list != null) {
+            for (ChatSession chatSession : list) {
+                updateGroupMarkTop(context, chatSession.getContacter(), chatSession.getMarkTop(), chatSession.getMarkTopTime());
+            }
+        }
+    }
+
+    public static void updateGroupMarkTop(Context context, long j, int i, long j2) {
+        updateGroupInfoMarkTop(context, j, i, j2);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("marktop", Integer.valueOf(i));
+        contentValues.put("marktoptime", Long.valueOf(j2));
+        ChatMessageDBManager.getInstance(context).updateChatSession("contacter=?", new String[]{String.valueOf(j)}, contentValues);
+    }
+
+    public static int updateGroupMemberRole(Context context, String str, String str2, int i) {
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("group_type", Integer.valueOf(i));
-            return newDb.update("groupinfo", contentValues, "group_id = ? ", new String[]{str}).intValue();
+            contentValues.put("role", Integer.valueOf(i));
+            return newDb.update("groupmember", contentValues, "group_id = ? AND bduid = ? ", new String[]{str, str2}).intValue();
         }
-        return DBResponseCode.ERROR_GROUP_NOT_EXIST;
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static int updateMasterAsCommon(Context context, String str, int i) {
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("role", Integer.valueOf(i));
+            return newDb.update("groupmember", contentValues, "group_id = ? AND role = 2 ", new String[]{str}).intValue();
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static int updateMemberNickName(Context context, String str, String str2, String str3) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("nickname", str3);
+            return newDb.update("groupmember", contentValues, "group_id = ? AND bduid = ?", new String[]{str, str2}).intValue();
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
+    }
+
+    public static int updateMemberToGroup(Context context, String str, GroupMember groupMember) {
+        if (context == null || TextUtils.isEmpty(str) || groupMember == null) {
+            return DBResponseCode.ERROR_PARAMETER;
+        }
+        DBOperation newDb = DBOperationFactory.getNewDb(context);
+        if (newDb != null) {
+            if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
+                return newDb.update(DBTableDefine.getGroupMessageTableName(str), getGroupMemberCv(groupMember), "group_id = ? AND bduid = ?", new String[]{groupMember.getGroupid(), String.valueOf(groupMember.getBduid())}).intValue();
+            }
+            return DBResponseCode.ERROR_GROUP_NOT_EXIST;
+        }
+        return DBResponseCode.ERROR_DB_OPEN;
     }
 }

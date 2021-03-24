@@ -31,13 +31,13 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsFragment extends AbstractIFragmentLifecycle implements IFragment, IFragmentLifecycle {
-    private static final SimpleArrayMap<String, Class<?>> sClassMap = new SimpleArrayMap<>();
-    private Fragment mBase;
-    private KsFragmentManager mChildFragmentManager;
-    private KsFragmentManager mFragmentManager;
-    private KsLifecycle mLifeCycle;
+    public static final SimpleArrayMap<String, Class<?>> sClassMap = new SimpleArrayMap<>();
+    public Fragment mBase;
+    public KsFragmentManager mChildFragmentManager;
+    public KsFragmentManager mFragmentManager;
+    public KsLifecycle mLifeCycle;
 
     @KsAdSdkDynamicApi
     @Keep
@@ -45,7 +45,6 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         this.mBase = new ResFragment(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Keep
     public KsFragment(Fragment fragment) {
         this.mBase = fragment;
@@ -64,14 +63,15 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
                 ksFragment.setArguments(bundle);
             }
             return ksFragment;
-        } catch (Exception e) {
-            throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e);
+        } catch (Exception e2) {
+            throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e2);
         }
     }
 
     private boolean isAllFragmentIsHidden(Fragment fragment) {
         Fragment parentFragment = fragment.getParentFragment();
-        return parentFragment == null ? fragment.isHidden() : fragment.isHidden() || isAllFragmentIsHidden(parentFragment);
+        boolean isHidden = fragment.isHidden();
+        return parentFragment == null ? isHidden : isHidden || isAllFragmentIsHidden(parentFragment);
     }
 
     private boolean isKsAdParentFragment() {
@@ -90,8 +90,9 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public final Activity getActivity() {
-        if (this.mBase instanceof IDelegateFragment) {
-            return ((IDelegateFragment) this.mBase).getActivity2();
+        Fragment fragment = this.mBase;
+        if (fragment instanceof IDelegateFragment) {
+            return ((IDelegateFragment) fragment).getActivity2();
         }
         throw new RuntimeException(this.mBase + " must be DelegateFragment or DelegateDialogFragment");
     }
@@ -211,10 +212,10 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         if (parentFragment instanceof IDelegateFragment) {
             return ((IDelegateFragment) parentFragment).getBase();
         }
-        if (parentFragment != null) {
-            throw new RuntimeException(parentFragment + " is not a DelegateFragment or DelegateDialogFragment");
+        if (parentFragment == null) {
+            return null;
         }
-        return null;
+        throw new RuntimeException(parentFragment + " is not a DelegateFragment or DelegateDialogFragment");
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -339,7 +340,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         }
         Fragment fragment = this.mBase;
         Fragment parentFragment2 = fragment.getParentFragment();
-        return parentFragment2 == null ? fragment.isHidden() : fragment.isHidden() || isAllFragmentIsHidden(parentFragment2);
+        boolean isHidden = fragment.isHidden();
+        return parentFragment2 == null ? isHidden : isHidden || isAllFragmentIsHidden(parentFragment2);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -617,7 +619,6 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         this.mBase.setArguments(bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Keep
     public void setBase(Fragment fragment) {
         this.mBase = fragment;

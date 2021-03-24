@@ -5,7 +5,7 @@ import android.widget.RelativeLayout;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXLinearAdSlot extends IXAdProd {
     void addEventListener(String str, IOAdEventListener iOAdEventListener);
 
@@ -24,7 +24,7 @@ public interface IXLinearAdSlot extends IXAdProd {
 
     void setActivityState(IXAdConstants4PDK.ActivityState activityState);
 
-    void setContentVideoAssetCurrentTimePosition(double d);
+    void setContentVideoAssetCurrentTimePosition(double d2);
 
     void setMaxAdNum(int i);
 

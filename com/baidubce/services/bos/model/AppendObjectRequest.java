@@ -4,34 +4,13 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.util.CheckUtils;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AppendObjectRequest extends PutObjectRequest {
-    private Long offset;
+    public Long offset;
 
     public AppendObjectRequest(String str, String str2, File file) {
         this(str, str2, file, null, new ObjectMetadata());
         CheckUtils.isNotNull(file, "file should not be null.");
-    }
-
-    public AppendObjectRequest(String str, String str2, File file, ObjectMetadata objectMetadata) {
-        this(str, str2, file, null, objectMetadata);
-        CheckUtils.isNotNull(file, "file should not be null.");
-        CheckUtils.isNotNull(objectMetadata, "metadata should not be null.");
-    }
-
-    public AppendObjectRequest(String str, String str2, InputStream inputStream) {
-        this(str, str2, null, inputStream, new ObjectMetadata());
-        CheckUtils.isNotNull(inputStream, "inputStream should not be null.");
-    }
-
-    public AppendObjectRequest(String str, String str2, InputStream inputStream, ObjectMetadata objectMetadata) {
-        this(str, str2, null, inputStream, objectMetadata);
-        CheckUtils.isNotNull(inputStream, "inputStream should not be null.");
-        CheckUtils.isNotNull(objectMetadata, "metadata should not be null.");
-    }
-
-    private AppendObjectRequest(String str, String str2, File file, InputStream inputStream, ObjectMetadata objectMetadata) {
-        super(str, str2, file, inputStream, objectMetadata);
     }
 
     public Long getOffset() {
@@ -44,13 +23,6 @@ public class AppendObjectRequest extends PutObjectRequest {
 
     public AppendObjectRequest withOffset(Long l) {
         setOffset(l);
-        return this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.services.bos.model.PutObjectRequest
-    public AppendObjectRequest withObjectMetadata(ObjectMetadata objectMetadata) {
-        setObjectMetadata(objectMetadata);
         return this;
     }
 
@@ -69,10 +41,16 @@ public class AppendObjectRequest extends PutObjectRequest {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.services.bos.model.PutObjectRequest, com.baidubce.model.AbstractBceRequest
-    public AppendObjectRequest withRequestCredentials(BceCredentials bceCredentials) {
-        setRequestCredentials(bceCredentials);
+    @Override // com.baidubce.services.bos.model.PutObjectRequest
+    public AppendObjectRequest withObjectMetadata(ObjectMetadata objectMetadata) {
+        setObjectMetadata(objectMetadata);
         return this;
+    }
+
+    public AppendObjectRequest(String str, String str2, File file, ObjectMetadata objectMetadata) {
+        this(str, str2, file, null, objectMetadata);
+        CheckUtils.isNotNull(file, "file should not be null.");
+        CheckUtils.isNotNull(objectMetadata, "metadata should not be null.");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,5 +65,27 @@ public class AppendObjectRequest extends PutObjectRequest {
     public AppendObjectRequest withKey(String str) {
         setKey(str);
         return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.services.bos.model.PutObjectRequest, com.baidubce.model.AbstractBceRequest
+    public AppendObjectRequest withRequestCredentials(BceCredentials bceCredentials) {
+        setRequestCredentials(bceCredentials);
+        return this;
+    }
+
+    public AppendObjectRequest(String str, String str2, InputStream inputStream) {
+        this(str, str2, null, inputStream, new ObjectMetadata());
+        CheckUtils.isNotNull(inputStream, "inputStream should not be null.");
+    }
+
+    public AppendObjectRequest(String str, String str2, InputStream inputStream, ObjectMetadata objectMetadata) {
+        this(str, str2, null, inputStream, objectMetadata);
+        CheckUtils.isNotNull(inputStream, "inputStream should not be null.");
+        CheckUtils.isNotNull(objectMetadata, "metadata should not be null.");
+    }
+
+    public AppendObjectRequest(String str, String str2, File file, InputStream inputStream, ObjectMetadata objectMetadata) {
+        super(str, str2, file, inputStream, objectMetadata);
     }
 }

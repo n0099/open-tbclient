@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class TopicSelect implements Jsonable, Serializable {
     public static final int TYPE_HIDDEN = -1;
     public static final int TYPE_NORMAL = 0;
@@ -13,20 +13,6 @@ public class TopicSelect implements Jsonable, Serializable {
     public int type = 0;
     public String name = "";
     public String id = "";
-
-    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
-    public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("type", this.type);
-            jSONObject.put("tid", this.id);
-            jSONObject.put("name", this.name);
-            jSONObject.put("selected", this.selected);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jSONObject;
-    }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
     public boolean parse(String str) {
@@ -40,8 +26,22 @@ public class TopicSelect implements Jsonable, Serializable {
             this.name = jSONObject.optString("name");
             this.selected = jSONObject.optBoolean("selected");
             return true;
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
             return false;
         }
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
+    public JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("type", this.type);
+            jSONObject.put("tid", this.id);
+            jSONObject.put("name", this.name);
+            jSONObject.put("selected", this.selected);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        return jSONObject;
     }
 }

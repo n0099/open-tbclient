@@ -8,14 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class FastJsonHttpMessageConverter4 extends FastJsonHttpMessageConverter {
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter
-    public boolean supports(Class<?> cls) {
-        return super.supports(cls);
-    }
-
     @Override // com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter
     public boolean canRead(Type type, Class<?> cls, MediaType mediaType) {
         return super.canRead(type, cls, mediaType);
@@ -32,17 +26,20 @@ public class FastJsonHttpMessageConverter4 extends FastJsonHttpMessageConverter 
     }
 
     @Override // com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter
-    public void write(Object obj, Type type, MediaType mediaType, HttpOutputMessage httpOutputMessage) throws IOException, HttpMessageNotWritableException {
-        super.write(obj, type, mediaType, httpOutputMessage);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter
     public Object readInternal(Class<?> cls, HttpInputMessage httpInputMessage) throws IOException, HttpMessageNotReadableException {
         return super.readInternal(cls, httpInputMessage);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter
+    public boolean supports(Class<?> cls) {
+        return super.supports(cls);
+    }
+
+    @Override // com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter
+    public void write(Object obj, Type type, MediaType mediaType, HttpOutputMessage httpOutputMessage) throws IOException, HttpMessageNotWritableException {
+        super.write(obj, type, mediaType, httpOutputMessage);
+    }
+
     @Override // com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter
     public void writeInternal(Object obj, HttpOutputMessage httpOutputMessage) throws IOException, HttpMessageNotWritableException {
         super.writeInternal(obj, httpOutputMessage);

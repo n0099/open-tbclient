@@ -15,6 +15,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.keepLive.nativekeepalive.GuardConfigurations;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,44 +24,246 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class GuardProxy {
-    private static final String INDICATOR_DAEMON_ASSISTANT_FILENAME = "indicator_d";
-    private static final String INDICATOR_DIR_NAME = "indicators";
-    private static final String INDICATOR_PERSISTENT_FILENAME = "indicator_p";
-    private static final String OBSERVER_DAEMON_ASSISTANT_FILENAME = "observer_d";
-    private static final String OBSERVER_PERSISTENT_FILENAME = "observer_p";
-    private GuardConfigurations mConfigs;
+    public static final String INDICATOR_DAEMON_ASSISTANT_FILENAME = "indicator_d";
+    public static final String INDICATOR_DIR_NAME = "indicators";
+    public static final String INDICATOR_PERSISTENT_FILENAME = "indicator_p";
+    public static final String OBSERVER_DAEMON_ASSISTANT_FILENAME = "observer_d";
+    public static final String OBSERVER_PERSISTENT_FILENAME = "observer_p";
+    public GuardConfigurations mConfigs;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean initIndicators(Context context) {
-        File dir = context.getDir(INDICATOR_DIR_NAME, 0);
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
-        try {
-            createNewFile(dir, INDICATOR_PERSISTENT_FILENAME);
-            createNewFile(dir, INDICATOR_DAEMON_ASSISTANT_FILENAME);
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    private void createNewFile(File file, String str) throws IOException {
-        File file2 = new File(file, str);
-        if (!file2.exists()) {
-            file2.createNewFile();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class c implements IGuard {
-        private Parcel laU;
-        private IBinder mRemote;
+    public class a implements IGuard {
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public c() {
+        /* renamed from: a  reason: collision with root package name */
+        public AlarmManager f18504a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public PendingIntent f18505b;
+
+        /* renamed from: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy$a$a  reason: collision with other inner class name */
+        /* loaded from: classes.dex */
+        public class C0200a extends Thread {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ Context f18506e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ GuardConfigurations f18507f;
+
+            public C0200a(a aVar, Context context, GuardConfigurations guardConfigurations) {
+                this.f18506e = context;
+                this.f18507f = guardConfigurations;
+            }
+
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                new NativeGuardLow(this.f18506e).doDaemon(this.f18506e.getPackageName(), this.f18507f.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(this.f18506e.getDir("bin", 0), "daemon").getAbsolutePath());
+            }
+        }
+
+        public a(GuardProxy guardProxy) {
+        }
+
+        public final void a(Context context, String str, File file, String str2) throws IOException, InterruptedException {
+            b(file, context.getAssets().open(str), str2);
+        }
+
+        public final void b(File file, InputStream inputStream, String str) throws IOException, InterruptedException {
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            String absolutePath = file.getAbsolutePath();
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read > 0) {
+                    fileOutputStream.write(bArr, 0, read);
+                } else {
+                    fileOutputStream.close();
+                    inputStream.close();
+                    Runtime runtime = Runtime.getRuntime();
+                    runtime.exec("chmod " + str + " " + absolutePath).waitFor();
+                    return;
+                }
+            }
+        }
+
+        public final void c(Context context, String str) {
+            if (this.f18504a == null) {
+                this.f18504a = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            }
+            if (this.f18505b == null) {
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName(context.getPackageName(), str));
+                intent.setFlags(16);
+                this.f18505b = PendingIntent.getService(context, 0, intent, 0);
+            }
+            this.f18504a.cancel(this.f18505b);
+        }
+
+        public final boolean d(Context context, String str, String str2, String str3) {
+            String str4;
+            File file = new File(context.getDir(str, 0), str3);
+            if (file.exists()) {
+                return true;
+            }
+            try {
+                StringBuilder sb = new StringBuilder();
+                if (TextUtils.isEmpty(str2)) {
+                    str4 = "";
+                } else {
+                    str4 = str2 + File.separator;
+                }
+                sb.append(str4);
+                sb.append(str3);
+                a(context, sb.toString(), file, "700");
+                return true;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+
+        public final boolean e(Context context) {
+            String str = Build.CPU_ABI;
+            String str2 = "armeabi-v7a";
+            if (!str.startsWith("armeabi-v7a")) {
+                str2 = str.startsWith("x86") ? "x86" : "armeabi";
+            }
+            return d(context, "bin", str2, "daemon");
+        }
+
+        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
+        public void onDaemonAssistantCreate(Context context, GuardConfigurations guardConfigurations) {
+            GuardConfigurations.DaemonListener daemonListener;
+            if (TbadkCoreApplication.getKeepLiveSwitch(context)) {
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME));
+                context.startService(intent);
+                if (guardConfigurations != null && (daemonListener = guardConfigurations.LISTENER) != null) {
+                    daemonListener.onWatchDaemonDaed();
+                }
+                Process.killProcess(Process.myPid());
+            }
+        }
+
+        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
+        public void onDaemonDead() {
+            if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
+                this.f18504a.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.f18505b);
+                Process.killProcess(Process.myPid());
+            }
+        }
+
+        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
+        public boolean onInitialization(Context context) {
+            return e(context);
+        }
+
+        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
+        public void onPersistentCreate(Context context, GuardConfigurations guardConfigurations) {
+            GuardConfigurations.DaemonListener daemonListener;
+            if (TbadkCoreApplication.getKeepLiveSwitch(context)) {
+                c(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
+                C0200a c0200a = new C0200a(this, context, guardConfigurations);
+                c0200a.setPriority(10);
+                c0200a.start();
+                if (guardConfigurations == null || (daemonListener = guardConfigurations.LISTENER) == null) {
+                    return;
+                }
+                daemonListener.onPersistentStart(context);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b implements IGuard {
+
+        /* renamed from: a  reason: collision with root package name */
+        public AlarmManager f18508a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public PendingIntent f18509b;
+
+        /* loaded from: classes.dex */
+        public class a extends Thread {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ Context f18511e;
+
+            public a(b bVar, Context context) {
+                this.f18511e = context;
+            }
+
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                File dir = this.f18511e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
+                new NativeGuardHigh(this.f18511e).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy$b$b  reason: collision with other inner class name */
+        /* loaded from: classes.dex */
+        public class C0201b extends Thread {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ Context f18512e;
+
+            public C0201b(b bVar, Context context) {
+                this.f18512e = context;
+            }
+
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                File dir = this.f18512e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
+                new NativeGuardHigh(this.f18512e).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
+            }
+        }
+
+        public b() {
+        }
+
+        public final void a(Context context, String str) {
+            if (this.f18508a == null) {
+                this.f18508a = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            }
+            if (this.f18509b == null) {
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName(context.getPackageName(), str));
+                intent.setFlags(16);
+                this.f18509b = PendingIntent.getService(context, 0, intent, 0);
+            }
+            this.f18508a.cancel(this.f18509b);
+        }
+
+        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
+        public void onDaemonAssistantCreate(Context context, GuardConfigurations guardConfigurations) {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME));
+            context.startService(intent);
+            a(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
+            C0201b c0201b = new C0201b(this, context);
+            c0201b.setPriority(10);
+            c0201b.start();
+            if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
+                return;
+            }
+            GuardProxy.this.mConfigs = guardConfigurations;
+            guardConfigurations.LISTENER.onDaemonAssistantStart(context);
+        }
+
+        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
+        public void onDaemonDead() {
+            if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
+                this.f18508a.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.f18509b);
+                if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
+                    GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
+                }
+                Process.killProcess(Process.myPid());
+                return;
+            }
+            Process.killProcess(Process.myPid());
         }
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
@@ -69,45 +272,133 @@ public class GuardProxy {
         }
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onPersistentCreate(final Context context, GuardConfigurations guardConfigurations) {
-            dbj();
-            aW(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
-            dbk();
-            new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.c.1
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    File dir = context.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                    new NativeGuardHigh(context).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
+        public void onPersistentCreate(Context context, GuardConfigurations guardConfigurations) {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME));
+            context.startService(intent);
+            a(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
+            a aVar = new a(this, context);
+            aVar.setPriority(10);
+            aVar.start();
+            if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
+                return;
+            }
+            GuardProxy.this.mConfigs = guardConfigurations;
+            guardConfigurations.LISTENER.onPersistentStart(context);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c implements IGuard {
+
+        /* renamed from: a  reason: collision with root package name */
+        public IBinder f18513a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public Parcel f18514b;
+
+        /* loaded from: classes.dex */
+        public class a extends Thread {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ Context f18516e;
+
+            public a(c cVar, Context context) {
+                this.f18516e = context;
+            }
+
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                File dir = this.f18516e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
+                new NativeGuardHigh(this.f18516e).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
+            }
+        }
+
+        /* loaded from: classes.dex */
+        public class b extends Thread {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ Context f18517e;
+
+            public b(c cVar, Context context) {
+                this.f18517e = context;
+            }
+
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                File dir = this.f18517e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
+                new NativeGuardHigh(this.f18517e).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
+            }
+        }
+
+        public c() {
+        }
+
+        public final void a() {
+            try {
+                Class<?> cls = Class.forName("android.app.ActivityManagerNative");
+                Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
+                Field declaredField = invoke.getClass().getDeclaredField("mRemote");
+                declaredField.setAccessible(true);
+                this.f18513a = (IBinder) declaredField.get(invoke);
+            } catch (ClassNotFoundException e2) {
+                e2.printStackTrace();
+            } catch (IllegalAccessException e3) {
+                e3.printStackTrace();
+            } catch (IllegalArgumentException e4) {
+                e4.printStackTrace();
+            } catch (NoSuchFieldException e5) {
+                e5.printStackTrace();
+            } catch (NoSuchMethodException e6) {
+                e6.printStackTrace();
+            } catch (InvocationTargetException e7) {
+                e7.printStackTrace();
+            }
+        }
+
+        @SuppressLint({"Recycle"})
+        public final void b(Context context, String str) {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName(context.getPackageName(), str));
+            Parcel obtain = Parcel.obtain();
+            this.f18514b = obtain;
+            obtain.writeInterfaceToken("android.app.IActivityManager");
+            this.f18514b.writeStrongBinder(null);
+            intent.writeToParcel(this.f18514b, 0);
+            this.f18514b.writeString(null);
+            this.f18514b.writeInt(0);
+        }
+
+        public final boolean c() {
+            try {
+                if (this.f18513a != null && this.f18514b != null) {
+                    this.f18513a.transact(34, this.f18514b, null, 0);
+                    return true;
                 }
-            }.start();
-            if (guardConfigurations != null && guardConfigurations.LISTENER != null) {
-                GuardProxy.this.mConfigs = guardConfigurations;
-                guardConfigurations.LISTENER.onPersistentStart(context);
+                return false;
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
+                return false;
             }
         }
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onDaemonAssistantCreate(final Context context, GuardConfigurations guardConfigurations) {
-            dbj();
-            aW(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
-            dbk();
-            new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.c.2
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    File dir = context.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                    new NativeGuardHigh(context).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
-                }
-            }.start();
-            if (guardConfigurations != null && guardConfigurations.LISTENER != null) {
-                GuardProxy.this.mConfigs = guardConfigurations;
-                guardConfigurations.LISTENER.onDaemonAssistantStart(context);
+        public void onDaemonAssistantCreate(Context context, GuardConfigurations guardConfigurations) {
+            a();
+            b(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
+            c();
+            new b(this, context).start();
+            if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
+                return;
             }
+            GuardProxy.this.mConfigs = guardConfigurations;
+            guardConfigurations.LISTENER.onDaemonAssistantStart(context);
         }
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                if (dbk()) {
+                if (c()) {
                     if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                         GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                     }
@@ -119,239 +410,62 @@ public class GuardProxy {
             Process.killProcess(Process.myPid());
         }
 
-        private void dbj() {
-            try {
-                Class<?> cls = Class.forName("android.app.ActivityManagerNative");
-                Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
-                Field declaredField = invoke.getClass().getDeclaredField("mRemote");
-                declaredField.setAccessible(true);
-                this.mRemote = (IBinder) declaredField.get(invoke);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
-            } catch (NoSuchFieldException e4) {
-                e4.printStackTrace();
-            } catch (NoSuchMethodException e5) {
-                e5.printStackTrace();
-            } catch (InvocationTargetException e6) {
-                e6.printStackTrace();
-            }
-        }
-
-        @SuppressLint({"Recycle"})
-        private void aW(Context context, String str) {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.laU = Parcel.obtain();
-            this.laU.writeInterfaceToken("android.app.IActivityManager");
-            this.laU.writeStrongBinder(null);
-            intent.writeToParcel(this.laU, 0);
-            this.laU.writeString(null);
-            this.laU.writeInt(0);
-        }
-
-        private boolean dbk() {
-            try {
-                if (this.mRemote == null || this.laU == null) {
-                    return false;
-                }
-                this.mRemote.transact(34, this.laU, null, 0);
-                return true;
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class b implements IGuard {
-        private AlarmManager laO;
-        private PendingIntent laP;
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public b() {
-        }
-
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public boolean onInitialization(Context context) {
             return GuardProxy.this.initIndicators(context);
         }
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onPersistentCreate(final Context context, GuardConfigurations guardConfigurations) {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME));
-            context.startService(intent);
-            aV(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
-            Thread thread = new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.b.1
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    File dir = context.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                    new NativeGuardHigh(context).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
-                }
-            };
-            thread.setPriority(10);
-            thread.start();
-            if (guardConfigurations != null && guardConfigurations.LISTENER != null) {
-                GuardProxy.this.mConfigs = guardConfigurations;
-                guardConfigurations.LISTENER.onPersistentStart(context);
-            }
-        }
-
-        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onDaemonAssistantCreate(final Context context, GuardConfigurations guardConfigurations) {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME));
-            context.startService(intent);
-            aV(context, guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME);
-            Thread thread = new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.b.2
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    File dir = context.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                    new NativeGuardHigh(context).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
-                }
-            };
-            thread.setPriority(10);
-            thread.start();
-            if (guardConfigurations != null && guardConfigurations.LISTENER != null) {
-                GuardProxy.this.mConfigs = guardConfigurations;
-                guardConfigurations.LISTENER.onDaemonAssistantStart(context);
-            }
-        }
-
-        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onDaemonDead() {
-            if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.laO.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.laP);
-                if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
-                    GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
-                }
-                Process.killProcess(Process.myPid());
+        public void onPersistentCreate(Context context, GuardConfigurations guardConfigurations) {
+            a();
+            b(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
+            c();
+            new a(this, context).start();
+            if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
                 return;
             }
-            Process.killProcess(Process.myPid());
-        }
-
-        private void aV(Context context, String str) {
-            if (this.laO == null) {
-                this.laO = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            }
-            if (this.laP == null) {
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName(context.getPackageName(), str));
-                intent.setFlags(16);
-                this.laP = PendingIntent.getService(context, 0, intent, 0);
-            }
-            this.laO.cancel(this.laP);
+            GuardProxy.this.mConfigs = guardConfigurations;
+            guardConfigurations.LISTENER.onPersistentStart(context);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class a implements IGuard {
-        private final String laM = "bin";
-        private final String laN = "daemon";
-        private AlarmManager laO;
-        private PendingIntent laP;
+    public class d implements IGuard {
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public a() {
-        }
+        /* renamed from: a  reason: collision with root package name */
+        public IBinder f18518a;
 
-        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public boolean onInitialization(Context context) {
-            return gw(context);
-        }
+        /* renamed from: b  reason: collision with root package name */
+        public Parcel f18519b;
 
-        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onPersistentCreate(final Context context, final GuardConfigurations guardConfigurations) {
-            if (TbadkCoreApplication.getKeepLiveSwitch(context)) {
-                aV(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
-                Thread thread = new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.a.1
-                    @Override // java.lang.Thread, java.lang.Runnable
-                    public void run() {
-                        new NativeGuardLow(context).doDaemon(context.getPackageName(), guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(context.getDir("bin", 0), "daemon").getAbsolutePath());
-                    }
-                };
-                thread.setPriority(10);
-                thread.start();
-                if (guardConfigurations != null && guardConfigurations.LISTENER != null) {
-                    guardConfigurations.LISTENER.onPersistentStart(context);
-                }
+        /* loaded from: classes.dex */
+        public class a extends Thread {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ Context f18521e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ GuardConfigurations f18522f;
+
+            public a(d dVar, Context context, GuardConfigurations guardConfigurations) {
+                this.f18521e = context;
+                this.f18522f = guardConfigurations;
+            }
+
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                new NativeGuardLow(this.f18521e).doDaemon(this.f18521e.getPackageName(), this.f18522f.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(this.f18521e.getDir("bin", 0), "daemon").getAbsolutePath());
             }
         }
 
-        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onDaemonAssistantCreate(Context context, GuardConfigurations guardConfigurations) {
-            if (TbadkCoreApplication.getKeepLiveSwitch(context)) {
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME));
-                context.startService(intent);
-                if (guardConfigurations != null && guardConfigurations.LISTENER != null) {
-                    guardConfigurations.LISTENER.onWatchDaemonDaed();
-                }
-                Process.killProcess(Process.myPid());
-            }
+        public d() {
         }
 
-        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onDaemonDead() {
-            if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.laO.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.laP);
-                Process.killProcess(Process.myPid());
-            }
+        public final void a(Context context, String str, File file, String str2) throws IOException, InterruptedException {
+            b(file, context.getAssets().open(str), str2);
         }
 
-        private void aV(Context context, String str) {
-            if (this.laO == null) {
-                this.laO = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            }
-            if (this.laP == null) {
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName(context.getPackageName(), str));
-                intent.setFlags(16);
-                this.laP = PendingIntent.getService(context, 0, intent, 0);
-            }
-            this.laO.cancel(this.laP);
-        }
-
-        private boolean gw(Context context) {
-            String str;
-            String str2 = Build.CPU_ABI;
-            if (str2.startsWith("armeabi-v7a")) {
-                str = "armeabi-v7a";
-            } else if (str2.startsWith("x86")) {
-                str = "x86";
-            } else {
-                str = "armeabi";
-            }
-            return h(context, "bin", str, "daemon");
-        }
-
-        private boolean h(Context context, String str, String str2, String str3) {
-            File file = new File(context.getDir(str, 0), str3);
-            if (file.exists()) {
-                return true;
-            }
-            try {
-                a(context, (TextUtils.isEmpty(str2) ? "" : str2 + File.separator) + str3, file, "700");
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-
-        private void a(Context context, String str, File file, String str2) throws IOException, InterruptedException {
-            a(file, context.getAssets().open(str), str2);
-        }
-
-        private void a(File file, InputStream inputStream, String str) throws IOException, InterruptedException {
+        public final void b(File file, InputStream inputStream, String str) throws IOException, InterruptedException {
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
@@ -365,155 +479,150 @@ public class GuardProxy {
                 } else {
                     fileOutputStream.close();
                     inputStream.close();
-                    Runtime.getRuntime().exec("chmod " + str + " " + absolutePath).waitFor();
+                    Runtime runtime = Runtime.getRuntime();
+                    runtime.exec("chmod " + str + " " + absolutePath).waitFor();
                     return;
                 }
             }
         }
-    }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class d implements IGuard {
-        private final String laM = "bin";
-        private final String laN = "daemon";
-        private Parcel laU;
-        private IBinder mRemote;
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public d() {
-        }
-
-        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public boolean onInitialization(Context context) {
-            return gw(context);
-        }
-
-        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onPersistentCreate(final Context context, final GuardConfigurations guardConfigurations) {
-            dbj();
-            aW(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
-            Thread thread = new Thread() { // from class: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy.d.1
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    new NativeGuardLow(context).doDaemon(context.getPackageName(), guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(context.getDir("bin", 0), "daemon").getAbsolutePath());
-                }
-            };
-            thread.setPriority(10);
-            thread.start();
-            if (guardConfigurations != null && guardConfigurations.LISTENER != null) {
-                GuardProxy.this.mConfigs = guardConfigurations;
-                guardConfigurations.LISTENER.onPersistentStart(context);
-            }
-        }
-
-        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onDaemonAssistantCreate(Context context, GuardConfigurations guardConfigurations) {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME));
-            context.startService(intent);
-            if (guardConfigurations != null && guardConfigurations.LISTENER != null) {
-                guardConfigurations.LISTENER.onWatchDaemonDaed();
-            }
-            Process.killProcess(Process.myPid());
-        }
-
-        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
-        public void onDaemonDead() {
-            if (dbk()) {
-                if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
-                    GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
-                }
-                Process.killProcess(Process.myPid());
-            }
-        }
-
-        private void dbj() {
+        public final void c() {
             try {
                 Class<?> cls = Class.forName("android.app.ActivityManagerNative");
                 Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
                 Field declaredField = invoke.getClass().getDeclaredField("mRemote");
                 declaredField.setAccessible(true);
-                this.mRemote = (IBinder) declaredField.get(invoke);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e2) {
+                this.f18518a = (IBinder) declaredField.get(invoke);
+            } catch (ClassNotFoundException e2) {
                 e2.printStackTrace();
-            } catch (IllegalArgumentException e3) {
+            } catch (IllegalAccessException e3) {
                 e3.printStackTrace();
-            } catch (NoSuchFieldException e4) {
+            } catch (IllegalArgumentException e4) {
                 e4.printStackTrace();
-            } catch (NoSuchMethodException e5) {
+            } catch (NoSuchFieldException e5) {
                 e5.printStackTrace();
-            } catch (InvocationTargetException e6) {
+            } catch (NoSuchMethodException e6) {
                 e6.printStackTrace();
+            } catch (InvocationTargetException e7) {
+                e7.printStackTrace();
             }
         }
 
         @SuppressLint({"Recycle"})
-        private void aW(Context context, String str) {
+        public final void d(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.laU = Parcel.obtain();
-            this.laU.writeInterfaceToken("android.app.IActivityManager");
-            this.laU.writeStrongBinder(null);
-            intent.writeToParcel(this.laU, 0);
-            this.laU.writeString(null);
-            this.laU.writeInt(0);
+            Parcel obtain = Parcel.obtain();
+            this.f18519b = obtain;
+            obtain.writeInterfaceToken("android.app.IActivityManager");
+            this.f18519b.writeStrongBinder(null);
+            intent.writeToParcel(this.f18519b, 0);
+            this.f18519b.writeString(null);
+            this.f18519b.writeInt(0);
         }
 
-        private boolean dbk() {
-            try {
-                if (this.mRemote == null || this.laU == null) {
-                    return false;
-                }
-                this.mRemote.transact(34, this.laU, null, 0);
-                return true;
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-
-        private boolean gw(Context context) {
-            return h(context, "bin", null, "daemon");
-        }
-
-        private boolean h(Context context, String str, String str2, String str3) {
+        public final boolean e(Context context, String str, String str2, String str3) {
+            String str4;
             File file = new File(context.getDir(str, 0), str3);
             if (file.exists()) {
                 return true;
             }
             try {
-                a(context, (TextUtils.isEmpty(str2) ? "" : str2 + File.separator) + str3, file, "700");
+                StringBuilder sb = new StringBuilder();
+                if (TextUtils.isEmpty(str2)) {
+                    str4 = "";
+                } else {
+                    str4 = str2 + File.separator;
+                }
+                sb.append(str4);
+                sb.append(str3);
+                a(context, sb.toString(), file, "700");
                 return true;
-            } catch (Exception e) {
+            } catch (Exception unused) {
                 return false;
             }
         }
 
-        private void a(Context context, String str, File file, String str2) throws IOException, InterruptedException {
-            a(file, context.getAssets().open(str), str2);
+        public final boolean f(Context context) {
+            return e(context, "bin", null, "daemon");
         }
 
-        private void a(File file, InputStream inputStream, String str) throws IOException, InterruptedException {
-            if (!file.getParentFile().exists()) {
-                file.getParentFile().mkdirs();
-            }
-            String absolutePath = file.getAbsolutePath();
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read > 0) {
-                    fileOutputStream.write(bArr, 0, read);
-                } else {
-                    fileOutputStream.close();
-                    inputStream.close();
-                    Runtime.getRuntime().exec("chmod " + str + " " + absolutePath).waitFor();
-                    return;
+        public final boolean g() {
+            try {
+                if (this.f18518a != null && this.f18519b != null) {
+                    this.f18518a.transact(34, this.f18519b, null, 0);
+                    return true;
                 }
+                return false;
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
+                return false;
             }
+        }
+
+        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
+        public void onDaemonAssistantCreate(Context context, GuardConfigurations guardConfigurations) {
+            GuardConfigurations.DaemonListener daemonListener;
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName(context.getPackageName(), guardConfigurations.PERSISTENT_CONFIG.SERVICE_NAME));
+            context.startService(intent);
+            if (guardConfigurations != null && (daemonListener = guardConfigurations.LISTENER) != null) {
+                daemonListener.onWatchDaemonDaed();
+            }
+            Process.killProcess(Process.myPid());
+        }
+
+        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
+        public void onDaemonDead() {
+            if (g()) {
+                if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
+                    GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
+                }
+                Process.killProcess(Process.myPid());
+            }
+        }
+
+        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
+        public boolean onInitialization(Context context) {
+            return f(context);
+        }
+
+        @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
+        public void onPersistentCreate(Context context, GuardConfigurations guardConfigurations) {
+            c();
+            d(context, guardConfigurations.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME);
+            a aVar = new a(this, context, guardConfigurations);
+            aVar.setPriority(10);
+            aVar.start();
+            if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
+                return;
+            }
+            GuardProxy.this.mConfigs = guardConfigurations;
+            guardConfigurations.LISTENER.onPersistentStart(context);
+        }
+    }
+
+    private void createNewFile(File file, String str) throws IOException {
+        File file2 = new File(file, str);
+        if (file2.exists()) {
+            return;
+        }
+        file2.createNewFile();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean initIndicators(Context context) {
+        File dir = context.getDir(INDICATOR_DIR_NAME, 0);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        try {
+            createNewFile(dir, INDICATOR_PERSISTENT_FILENAME);
+            createNewFile(dir, INDICATOR_DAEMON_ASSISTANT_FILENAME);
+            return true;
+        } catch (IOException e2) {
+            e2.printStackTrace();
+            return false;
         }
     }
 }

@@ -6,68 +6,78 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.swan.apps.a;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
-/* loaded from: classes8.dex */
+import d.b.g0.a.g;
+import java.util.List;
+/* loaded from: classes3.dex */
 public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
-    private com.baidu.swan.games.view.recommend.model.a eoC;
-    private a eoU;
-    private LayoutInflater mInflater;
 
-    /* loaded from: classes8.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public LayoutInflater f12909e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public a f12910f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.g0.g.k0.i.e.a f12911g;
+
+    /* loaded from: classes3.dex */
     public interface a {
-        void lv(int i);
+        void a(int i);
     }
 
     public ListRecommendAdapter(@NonNull Context context) {
-        this.mInflater = LayoutInflater.from(context);
+        this.f12909e = LayoutInflater.from(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: g */
-    public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new ListRecommendViewHolder(this.mInflater.inflate(a.g.swangame_recommend_dialog_item, viewGroup, false));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: a */
+    /* renamed from: c */
     public void onBindViewHolder(ListRecommendViewHolder listRecommendViewHolder, int i) {
-        RecommendItemModel recommendItemModel = this.eoC.epg.get(i);
+        RecommendItemModel recommendItemModel = this.f12911g.f48302b.get(i);
         if (recommendItemModel != null) {
-            listRecommendViewHolder.eoS.setImageURI(recommendItemModel.iconUrl);
-            listRecommendViewHolder.eoT.setText(recommendItemModel.appName);
-            listRecommendViewHolder.epd.setText(recommendItemModel.desc);
-            listRecommendViewHolder.epe.setText(recommendItemModel.buttonText);
+            listRecommendViewHolder.f12915a.setImageURI(recommendItemModel.iconUrl);
+            listRecommendViewHolder.f12916b.setText(recommendItemModel.appName);
+            listRecommendViewHolder.f12917c.setText(recommendItemModel.desc);
+            listRecommendViewHolder.f12918d.setText(recommendItemModel.buttonText);
             listRecommendViewHolder.itemView.setTag(Integer.valueOf(i));
-            listRecommendViewHolder.epe.setTag(Integer.valueOf(i));
+            listRecommendViewHolder.f12918d.setTag(Integer.valueOf(i));
             listRecommendViewHolder.itemView.setOnClickListener(this);
-            listRecommendViewHolder.epe.setOnClickListener(this);
+            listRecommendViewHolder.f12918d.setOnClickListener(this);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: d */
+    public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        return new ListRecommendViewHolder(this.f12909e.inflate(g.swangame_recommend_dialog_item, viewGroup, false));
+    }
+
+    public void e(a aVar) {
+        this.f12910f = aVar;
+    }
+
+    public void f(d.b.g0.g.k0.i.e.a aVar) {
+        this.f12911g = aVar;
+        notifyDataSetChanged();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.eoC == null || this.eoC.epg == null) {
+        List<RecommendItemModel> list;
+        d.b.g0.g.k0.i.e.a aVar = this.f12911g;
+        if (aVar == null || (list = aVar.f48302b) == null) {
             return 0;
         }
-        return this.eoC.epg.size();
+        return list.size();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eoU != null && view != null && (view.getTag() instanceof Integer)) {
-            this.eoU.lv(((Integer) view.getTag()).intValue());
+        if (this.f12910f == null || view == null || !(view.getTag() instanceof Integer)) {
+            return;
         }
-    }
-
-    public void a(com.baidu.swan.games.view.recommend.model.a aVar) {
-        this.eoC = aVar;
-        notifyDataSetChanged();
-    }
-
-    public void a(a aVar) {
-        this.eoU = aVar;
+        this.f12910f.a(((Integer) view.getTag()).intValue());
     }
 }

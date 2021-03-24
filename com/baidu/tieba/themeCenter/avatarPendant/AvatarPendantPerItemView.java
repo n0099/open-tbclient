@@ -9,101 +9,120 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.themeCenter.avatarPendant.c;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-/* loaded from: classes8.dex */
+import d.b.b.e.p.k;
+import d.b.i0.i3.d.c;
+/* loaded from: classes5.dex */
 public class AvatarPendantPerItemView extends LinearLayout {
-    private TextView jqG;
-    private TbImageView lok;
-    private Context mContext;
-    private View mRootView;
-    private ImageView nIA;
-    private c.a nIB;
-    private DressItemData nIc;
-    private HeadPendantView nIz;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f21583e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f21584f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public HeadPendantView f21585g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TbImageView f21586h;
+    public ImageView i;
+    public TextView j;
+    public DressItemData k;
+    public c.a l;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (view == null || AvatarPendantPerItemView.this.l == null) {
+                return;
+            }
+            if (AvatarPendantPerItemView.this.k != null && AvatarPendantPerItemView.this.k.getInUse() && TbadkCoreApplication.isLogin()) {
+                return;
+            }
+            AvatarPendantPerItemView.this.l.onItemClick(AvatarPendantPerItemView.this.k);
+        }
+    }
 
     public AvatarPendantPerItemView(Context context) {
         super(context);
-        this.mContext = context;
-        initView();
-    }
-
-    public AvatarPendantPerItemView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mContext = context;
-        initView();
-    }
-
-    public AvatarPendantPerItemView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet);
-        this.mContext = context;
-        initView();
-    }
-
-    private void initView() {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.avatar_pendant_per_item, this);
-        this.nIz = (HeadPendantView) this.mRootView.findViewById(R.id.avatar_image);
-        this.lok = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
-        this.lok.setDefaultResource(R.drawable.transparent_bg);
-        this.lok.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nIA = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
-        this.jqG = (TextView) this.mRootView.findViewById(R.id.text_pendant_name);
-        this.nIz.setHasPendantStyle();
-        if (this.nIz.getHeadView() != null) {
-            this.nIz.getHeadView().setIsRound(true);
-            this.nIz.getHeadView().setDrawBorder(false);
-        }
-        if (this.nIz.getPendantView() != null) {
-            this.nIz.getPendantView().setIsRound(true);
-            this.nIz.getPendantView().setDrawBorder(false);
-        }
+        this.f21583e = context;
+        d();
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void d(DressItemData dressItemData) {
-        if (dressItemData != null) {
-            this.nIc = dressItemData;
-            boolean inUse = dressItemData.getInUse();
-            if (dressItemData.isPropIdEven()) {
-                if (this.nIz.getHeadView() != null) {
-                    this.nIz.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
-                }
-            } else if (this.nIz.getHeadView() != null) {
-                this.nIz.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
+    public void c(DressItemData dressItemData) {
+        if (dressItemData == null) {
+            return;
+        }
+        this.k = dressItemData;
+        boolean inUse = dressItemData.getInUse();
+        if (dressItemData.isPropIdEven()) {
+            if (this.f21585g.getHeadView() != null) {
+                this.f21585g.getHeadView().W(String.valueOf(R.drawable.pic_shop_woman), 24, false);
             }
-            if (au.byteLength(dressItemData.getTitle()) > 8) {
-                this.jqG.setText(au.cutString(dressItemData.getTitle(), 8));
-            } else {
-                this.jqG.setText(dressItemData.getTitle());
-            }
-            if (inUse) {
-                this.nIA.setVisibility(0);
-                ap.setImageResource(this.nIA, R.drawable.icon_shop_selected);
-            } else {
-                this.nIA.setVisibility(8);
-            }
-            this.lok.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-            this.nIz.BG(dressItemData.getExampleImgUrl());
-            this.nIz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (view != null && AvatarPendantPerItemView.this.nIB != null) {
-                        if (AvatarPendantPerItemView.this.nIc == null || !AvatarPendantPerItemView.this.nIc.getInUse() || !TbadkCoreApplication.isLogin()) {
-                            AvatarPendantPerItemView.this.nIB.b(AvatarPendantPerItemView.this.nIc);
-                        }
-                    }
-                }
-            });
-            ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+        } else if (this.f21585g.getHeadView() != null) {
+            this.f21585g.getHeadView().W(String.valueOf(R.drawable.pic_shop_man), 24, false);
+        }
+        if (k.byteLength(dressItemData.getTitle()) > 8) {
+            this.j.setText(k.cutString(dressItemData.getTitle(), 8));
+        } else {
+            this.j.setText(dressItemData.getTitle());
+        }
+        if (inUse) {
+            this.i.setVisibility(0);
+            SkinManager.setImageResource(this.i, R.drawable.icon_shop_selected);
+        } else {
+            this.i.setVisibility(8);
+        }
+        this.f21586h.W(dressItemData.getPermissionImgUrl(), 10, false);
+        this.f21585g.l(dressItemData.getExampleImgUrl());
+        this.f21585g.setOnClickListener(new a());
+        SkinManager.setBackgroundColor(this.f21584f, R.color.CAM_X0201);
+    }
+
+    public final void d() {
+        View inflate = LayoutInflater.from(this.f21583e).inflate(R.layout.avatar_pendant_per_item, this);
+        this.f21584f = inflate;
+        this.f21585g = (HeadPendantView) inflate.findViewById(R.id.avatar_image);
+        TbImageView tbImageView = (TbImageView) this.f21584f.findViewById(R.id.permission_icon);
+        this.f21586h = tbImageView;
+        tbImageView.setDefaultResource(R.drawable.transparent_bg);
+        this.f21586h.setDefaultBgResource(R.drawable.transparent_bg);
+        this.i = (ImageView) this.f21584f.findViewById(R.id.choosed_icon);
+        this.j = (TextView) this.f21584f.findViewById(R.id.text_pendant_name);
+        this.f21585g.setHasPendantStyle();
+        if (this.f21585g.getHeadView() != null) {
+            this.f21585g.getHeadView().setIsRound(true);
+            this.f21585g.getHeadView().setDrawBorder(false);
+        }
+        if (this.f21585g.getPendantView() != null) {
+            this.f21585g.getPendantView().setIsRound(true);
+            this.f21585g.getPendantView().setDrawBorder(false);
         }
     }
 
     public void setAvatarPendantItemClickListener(c.a aVar) {
-        this.nIB = aVar;
+        this.l = aVar;
+    }
+
+    public AvatarPendantPerItemView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f21583e = context;
+        d();
+    }
+
+    public AvatarPendantPerItemView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet);
+        this.f21583e = context;
+        d();
     }
 }

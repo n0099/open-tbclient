@@ -5,26 +5,26 @@ import android.net.Network;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b extends ConnectivityManager.NetworkCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ URL f7604a;
-    private /* synthetic */ a b;
+    public /* synthetic */ URL f38411a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public /* synthetic */ a f38412b;
+
     public b(a aVar, URL url) {
-        this.b = aVar;
-        this.f7604a = url;
+        this.f38412b = aVar;
+        this.f38411a = url;
     }
 
     @Override // android.net.ConnectivityManager.NetworkCallback
     public final void onAvailable(Network network) {
         super.onAvailable(network);
         try {
-            this.b.c = (HttpURLConnection) network.openConnection(this.f7604a);
-        } catch (IOException e) {
+            this.f38412b.f38404c = (HttpURLConnection) network.openConnection(this.f38411a);
+        } catch (IOException unused) {
         }
     }
 }

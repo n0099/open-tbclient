@@ -1,5 +1,7 @@
 package com.baidu.mobads.interfaces.error;
-/* loaded from: classes4.dex */
+
+import com.baidu.sapi2.result.OneKeyLoginResult;
+/* loaded from: classes2.dex */
 public enum XAdErrorCode {
     INTERFACE_USE_PROBLEM(1010001, "接口使用问题"),
     WEBVIEW_LOAD_ERROR(1010002, "web载入异常"),
@@ -10,7 +12,7 @@ public enum XAdErrorCode {
     SETTINGS_ERROR(1030002, "设置问题"),
     REQUEST_PARAM_ERROR(1040001, "请求参数问题"),
     REQUEST_URL_TOO_LONG(1040002, "请求串过长"),
-    REQUEST_TIMEOUT(1040003, "请求超时"),
+    REQUEST_TIMEOUT(1040003, OneKeyLoginResult.m),
     REQUEST_STATUS_CODE_ERROR(1040004, "状态码异常"),
     RESPONSE_PARSE_FAILED(3010001, "清单解析失败"),
     RESPONSE_FIELD_LESS(3010002, "清单缺少字段"),
@@ -34,19 +36,21 @@ public enum XAdErrorCode {
     public static final String ERROR_CODE_MESSAGE = "msg";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2415a;
-    private String b;
+    public int f8351a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f8352b;
 
     XAdErrorCode(int i, String str) {
-        this.f2415a = i;
-        this.b = str;
+        this.f8351a = i;
+        this.f8352b = str;
     }
 
     public int getCode() {
-        return this.f2415a;
+        return this.f8351a;
     }
 
     public String getMessage() {
-        return this.b;
+        return this.f8352b;
     }
 }

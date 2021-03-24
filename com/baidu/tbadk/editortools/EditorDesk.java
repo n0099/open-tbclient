@@ -6,59 +6,71 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.noConflictPanel.widget.KPSwitchFSPanelFrameLayout;
 import com.baidu.tieba.R;
+import d.b.b.e.m.e;
+import d.b.b.e.p.l;
+import d.b.h0.w.h;
+import d.b.h0.w.n;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class EditorDesk extends KPSwitchFSPanelFrameLayout {
-    private LinkedList<h> fCO;
-    private LinkedList<n> fCP;
-    private n fCQ;
-    private boolean fCR;
-    private boolean fCS;
-    private EditorTools fCT;
-    private Runnable fCU;
-    private int mBgColor;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: f  reason: collision with root package name */
+    public LinkedList<h> f13839f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LinkedList<n> f13840g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f13841h;
+    public n i;
+    public boolean j;
+    public boolean k;
+    public EditorTools l;
+    public Runnable m;
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (EditorDesk.this.i != null) {
+                EditorDesk.this.i.b();
+            }
+        }
+    }
+
     public EditorDesk(Context context, EditorTools editorTools) {
         super(context);
-        this.mBgColor = R.color.CAM_X0206;
-        this.fCQ = null;
-        this.fCR = true;
-        this.fCS = false;
-        this.fCU = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
-            @Override // java.lang.Runnable
-            public void run() {
-                if (EditorDesk.this.fCQ != null) {
-                    EditorDesk.this.fCQ.display();
-                }
-            }
-        };
-        this.fCO = new LinkedList<>();
-        this.fCP = new LinkedList<>();
-        this.fCT = editorTools;
+        this.f13841h = R.color.CAM_X0206;
+        this.i = null;
+        this.j = true;
+        this.k = false;
+        this.m = new a();
+        this.f13839f = new LinkedList<>();
+        this.f13840g = new LinkedList<>();
+        this.l = editorTools;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(h hVar) {
-        this.fCO.add(hVar);
+    public void d(h hVar) {
+        this.f13839f.add(hVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(n nVar) {
-        this.fCP.add(nVar);
+    public void e(n nVar) {
+        this.f13840g.add(nVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void build() {
-        Iterator<n> it = this.fCP.iterator();
+    public void f() {
+        Iterator<n> it = this.f13840g.iterator();
         while (it.hasNext()) {
             n next = it.next();
             if (next.getToolId() == 2) {
-                b(next);
+                k(next);
             }
             if (next instanceof View) {
                 View view = (View) next;
@@ -70,57 +82,23 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         invalidate();
     }
 
-    private void b(n nVar) {
-        if (nVar instanceof MoreDeskView) {
-            ((MoreDeskView) nVar).g(this.fCO);
-            nVar.init();
+    public void g() {
+        n nVar = this.i;
+        if (nVar != null) {
+            nVar.hide();
         }
+        this.i = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void clear() {
-        this.fCQ = null;
-        this.fCO.clear();
-        this.fCP.clear();
-    }
-
-    protected void display() {
-        setVisibility(0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void hide() {
-        if (this.fCQ != null) {
-            this.fCQ.hide();
-        }
-        this.fCQ = null;
-        setVisibility(8);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void bBm() {
-        if (this.fCQ != null) {
-            this.fCQ.hide();
-        }
-        this.fCQ = null;
-    }
-
-    public void bBn() {
-        if (this.fCQ == null) {
-            setVisibility(8);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void qQ(int i) {
-        if (qU(i)) {
-            if (bBp()) {
-                this.fCR = true;
+    public void h(int i) {
+        if (m(i)) {
+            if (p()) {
+                this.j = true;
             } else {
-                this.fCR = false;
+                this.j = false;
             }
-            boolean z = this.fCS;
-            Iterator<n> it = this.fCP.iterator();
+            boolean z = this.k;
+            Iterator<n> it = this.f13840g.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (!z && TbadkCoreApplication.getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
@@ -128,31 +106,60 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.height = TbadkCoreApplication.getInst().getKeyboardHeight();
                     view.setLayoutParams(layoutParams);
-                    this.fCS = true;
+                    this.k = true;
                 }
                 if (next.getToolId() == i) {
-                    this.fCQ = next;
-                    if (this.fCR) {
-                        next.display();
+                    this.i = next;
+                    if (this.j) {
+                        next.b();
                     }
                 } else {
                     next.hide();
                 }
             }
-            if (!this.fCR && (getContext() instanceof Activity)) {
-                if (this.fCT != null) {
-                    this.fCT.bBt();
+            if (!this.j && (getContext() instanceof Activity)) {
+                EditorTools editorTools = this.l;
+                if (editorTools != null) {
+                    editorTools.p();
                 } else {
-                    com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), ((Activity) getContext()).getCurrentFocus());
+                    l.w(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
-                com.baidu.adp.lib.f.e.mA().postDelayed(this.fCU, 250L);
+                e.a().postDelayed(this.m, 250L);
             }
-            display();
+            j();
         }
     }
 
-    private boolean qU(int i) {
-        Iterator<n> it = this.fCP.iterator();
+    public void i() {
+        this.i = null;
+        this.f13839f.clear();
+        this.f13840g.clear();
+    }
+
+    public void j() {
+        setVisibility(0);
+    }
+
+    public final void k(n nVar) {
+        if (nVar instanceof MoreDeskView) {
+            ((MoreDeskView) nVar).p(this.f13839f);
+            nVar.init();
+        }
+    }
+
+    public h l(int i) {
+        Iterator<h> it = this.f13839f.iterator();
+        while (it.hasNext()) {
+            h next = it.next();
+            if (next.getToolId() == i) {
+                return next;
+            }
+        }
+        return null;
+    }
+
+    public final boolean m(int i) {
+        Iterator<n> it = this.f13840g.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
                 return true;
@@ -161,8 +168,86 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         return false;
     }
 
+    public void n() {
+        n nVar = this.i;
+        if (nVar != null) {
+            nVar.hide();
+        }
+        this.i = null;
+        setVisibility(8);
+    }
+
+    public void o() {
+        if (this.i != null) {
+            return;
+        }
+        setVisibility(8);
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        s(true);
+        return super.onInterceptTouchEvent(motionEvent);
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        return true;
+    }
+
+    public final boolean p() {
+        Iterator<n> it = this.f13840g.iterator();
+        while (it.hasNext()) {
+            if (((View) it.next()).getVisibility() == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean q() {
+        return getVisibility() == 0 && p();
+    }
+
+    public void r(int i) {
+        int i2 = this.f13841h;
+        if (i2 > 0) {
+            SkinManager.setBackgroundColor(this, i2, i);
+        }
+        Iterator<h> it = this.f13839f.iterator();
+        while (it.hasNext()) {
+            it.next().onChangeSkinType(i);
+        }
+        Iterator<n> it2 = this.f13840g.iterator();
+        while (it2.hasNext()) {
+            n next = it2.next();
+            if (next != null) {
+                next.onChangeSkinType(i);
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent
+    public void requestDisallowInterceptTouchEvent(boolean z) {
+        if (z) {
+            s(true);
+        }
+        super.requestDisallowInterceptTouchEvent(false);
+    }
+
+    public final void s(boolean z) {
+        if (getParent() != null) {
+            getParent().requestDisallowInterceptTouchEvent(z);
+        }
+    }
+
+    public void setBackgroundColorId(int i) {
+        super.setBackgroundColor(getContext().getResources().getColor(i));
+        this.f13841h = i;
+    }
+
     public void setDeskLauncherEnabled(boolean z) {
-        Iterator<h> it = this.fCO.iterator();
+        Iterator<h> it = this.f13839f.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next != null && (next instanceof View)) {
@@ -171,8 +256,8 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         }
     }
 
-    public boolean u(boolean z, int i) {
-        Iterator<h> it = this.fCO.iterator();
+    public boolean t(boolean z, int i) {
+        Iterator<h> it = this.f13839f.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof View) {
@@ -184,77 +269,5 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
             }
         }
         return false;
-    }
-
-    public h qS(int i) {
-        Iterator<h> it = this.fCO.iterator();
-        while (it.hasNext()) {
-            h next = it.next();
-            if (next.getToolId() == i) {
-                return next;
-            }
-        }
-        return null;
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.mBgColor > 0) {
-            ap.setBackgroundColor(this, this.mBgColor, i);
-        }
-        Iterator<h> it = this.fCO.iterator();
-        while (it.hasNext()) {
-            it.next().onChangeSkinType(i);
-        }
-        Iterator<n> it2 = this.fCP.iterator();
-        while (it2.hasNext()) {
-            n next = it2.next();
-            if (next != null) {
-                next.onChangeSkinType(i);
-            }
-        }
-    }
-
-    public boolean bBo() {
-        return getVisibility() == 0 && bBp();
-    }
-
-    private boolean bBp() {
-        Iterator<n> it = this.fCP.iterator();
-        while (it.hasNext()) {
-            if (((View) it.next()).getVisibility() == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void setBackgroundColorId(int i) {
-        super.setBackgroundColor(getContext().getResources().getColor(i));
-        this.mBgColor = i;
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestDisallowInterceptTouchEvent(boolean z) {
-        if (z) {
-            requestParentInterceptTouchEvent(true);
-        }
-        super.requestDisallowInterceptTouchEvent(false);
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        requestParentInterceptTouchEvent(true);
-        return super.onInterceptTouchEvent(motionEvent);
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        return true;
-    }
-
-    private void requestParentInterceptTouchEvent(boolean z) {
-        if (getParent() != null) {
-            getParent().requestDisallowInterceptTouchEvent(z);
-        }
     }
 }

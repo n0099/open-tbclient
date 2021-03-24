@@ -4,31 +4,34 @@ import android.app.Application;
 import android.content.Context;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.pano.platform.c.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BMapManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1871a = true;
-    private Context b;
+    public static boolean f6309a = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f6310b;
 
     static {
         System.loadLibrary("app_BaiduPanoramaAppLib");
     }
 
     public BMapManager(Context context) {
-        if (!(context instanceof Application)) {
-            throw new IllegalArgumentException("BMapManager is a Globle project, context should be a Application Context");
+        if (context instanceof Application) {
+            this.f6310b = context;
+            return;
         }
-        this.b = context;
-    }
-
-    public boolean init(MKGeneralListener mKGeneralListener) {
-        LBSAuthManager.getInstance(this.b).authenticate(true, "lbs_panosdk", null, new a(this, mKGeneralListener));
-        b.a().a(this.b);
-        return true;
+        throw new IllegalArgumentException("BMapManager is a Globle project, context should be a Application Context");
     }
 
     public static boolean isIllegalPanoSDKUser() {
-        return f1871a;
+        return f6309a;
+    }
+
+    public boolean init(MKGeneralListener mKGeneralListener) {
+        LBSAuthManager.getInstance(this.f6310b).authenticate(true, "lbs_panosdk", null, new a(this, mKGeneralListener));
+        b.a().a(this.f6310b);
+        return true;
     }
 }

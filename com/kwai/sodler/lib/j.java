@@ -10,74 +10,88 @@ import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class j extends k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile j f7258a;
-    private volatile boolean b;
-    private k c;
-    private com.kwai.sodler.lib.ext.a d;
-    private ExecutorService e;
-    private Map<String, b> f;
-    private a g;
+    public static volatile j f37176a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public volatile boolean f37177b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public k f37178c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwai.sodler.lib.ext.a f37179d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ExecutorService f37180e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Map<String, b> f37181f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public a f37182g;
+
+    /* loaded from: classes6.dex */
     public interface a {
         void a(String str, String str2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.kwai.sodler.lib.a.f f7260a;
-        private final Future<com.kwai.sodler.lib.a.f> b;
+        public final com.kwai.sodler.lib.a.f f37186a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final Future<com.kwai.sodler.lib.a.f> f37187b;
 
         public b(com.kwai.sodler.lib.a.f fVar, Future<com.kwai.sodler.lib.a.f> future) {
-            this.f7260a = fVar;
-            this.b = future;
+            this.f37186a = fVar;
+            this.f37187b = future;
         }
 
         public void a() {
-            this.f7260a.e();
-            this.b.cancel(true);
+            this.f37186a.e();
+            this.f37187b.cancel(true);
         }
     }
 
-    private j() {
+    public j() {
         super(null, null, null, null, null, null);
-        this.b = false;
+        this.f37177b = false;
     }
 
     public static j a() {
-        if (f7258a == null) {
+        if (f37176a == null) {
             synchronized (j.class) {
-                if (f7258a == null) {
-                    f7258a = new j();
+                if (f37176a == null) {
+                    f37176a = new j();
                 }
             }
         }
-        return f7258a;
+        return f37176a;
     }
 
-    private static ExecutorService i() {
+    public static ExecutorService i() {
         return new ThreadPoolExecutor(1, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue());
     }
 
     private void j() {
-        if (!this.b) {
+        if (!this.f37177b) {
             throw new RuntimeException("Sodler has not yet been init.");
         }
     }
 
     @Override // com.kwai.sodler.lib.k
     public com.kwai.sodler.lib.a.f a(@NonNull com.kwai.sodler.lib.a.f fVar, @NonNull k.a aVar) {
-        if (this.b) {
+        if (this.f37177b) {
             com.kwai.sodler.lib.a.e b2 = fVar.b();
-            k kVar = this.c;
+            k kVar = this.f37178c;
             if (b2 == null) {
-                b2 = this.c;
+                b2 = kVar;
             }
             return kVar.a(fVar.a(b2), aVar);
         }
@@ -89,36 +103,37 @@ public final class j extends k {
     }
 
     public synchronized void a(Context context, @NonNull com.kwai.sodler.lib.ext.c cVar) {
-        if (!this.b) {
+        if (!this.f37177b) {
             d dVar = new d(context);
             e eVar = new e(context);
             c cVar2 = new c(context, cVar);
             com.kwai.sodler.lib.b bVar = new com.kwai.sodler.lib.b();
-            this.d = new com.kwai.sodler.lib.ext.a();
-            this.e = i();
-            this.c = new k(dVar, eVar, cVar2, bVar, cVar, new com.kwai.sodler.lib.ext.a());
-            this.b = true;
+            this.f37179d = new com.kwai.sodler.lib.ext.a();
+            this.f37180e = i();
+            this.f37178c = new k(dVar, eVar, cVar2, bVar, cVar, new com.kwai.sodler.lib.ext.a());
+            this.f37177b = true;
             j();
         }
     }
 
     @Override // com.kwai.sodler.lib.k, com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.ext.c b() {
-        if (this.b) {
-            return this.c.b();
+        if (this.f37177b) {
+            return this.f37178c.b();
         }
         throw new RuntimeException("Sodler has not yet been init.");
     }
 
     public b b(@NonNull final com.kwai.sodler.lib.a.f fVar, @NonNull final k.a aVar) {
-        if (this.b) {
-            this.f = a(this.f);
-            b bVar = this.f.get(fVar.i());
+        if (this.f37177b) {
+            Map<String, b> a2 = a(this.f37181f);
+            this.f37181f = a2;
+            b bVar = a2.get(fVar.i());
             if (bVar != null) {
                 bVar.a();
             }
             fVar.a(this);
-            b bVar2 = new b(fVar, this.e.submit(new Callable<com.kwai.sodler.lib.a.f>() { // from class: com.kwai.sodler.lib.j.1
+            b bVar2 = new b(fVar, this.f37180e.submit(new Callable<com.kwai.sodler.lib.a.f>() { // from class: com.kwai.sodler.lib.j.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
                 /* renamed from: a */
@@ -127,7 +142,7 @@ public final class j extends k {
                 }
             }));
             if (fVar.i() != null) {
-                this.f.put(fVar.i(), bVar2);
+                this.f37181f.put(fVar.i(), bVar2);
             }
             return bVar2;
         }
@@ -136,45 +151,45 @@ public final class j extends k {
 
     @Override // com.kwai.sodler.lib.k, com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.a.d c() {
-        if (this.b) {
-            return this.c.c();
+        if (this.f37177b) {
+            return this.f37178c.c();
         }
         throw new RuntimeException("Sodler has not yet been init.");
     }
 
     @Override // com.kwai.sodler.lib.k, com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.a.g d() {
-        if (this.b) {
-            return this.c.d();
+        if (this.f37177b) {
+            return this.f37178c.d();
         }
         throw new RuntimeException("Sodler has not yet been init.");
     }
 
     @Override // com.kwai.sodler.lib.k, com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.a.c e() {
-        if (this.b) {
-            return this.c.e();
+        if (this.f37177b) {
+            return this.f37178c.e();
         }
         throw new RuntimeException("Sodler has not yet been init.");
     }
 
     @Override // com.kwai.sodler.lib.k, com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.a.b f() {
-        if (this.b) {
-            return this.c.f();
+        if (this.f37177b) {
+            return this.f37178c.f();
         }
         throw new RuntimeException("Sodler has not yet been init.");
     }
 
     @Override // com.kwai.sodler.lib.k, com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.ext.a g() {
-        if (this.b) {
-            return this.d;
+        if (this.f37177b) {
+            return this.f37179d;
         }
         throw new RuntimeException("Sodler has not yet been init.");
     }
 
     public a h() {
-        return this.g;
+        return this.f37182g;
     }
 }

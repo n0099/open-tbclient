@@ -1,98 +1,97 @@
 package com.ksad.lottie.c;
 
 import android.util.JsonReader;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class j {
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static com.ksad.lottie.model.d a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
+        char c2;
         ArrayList arrayList = new ArrayList();
         jsonReader.beginObject();
         String str = null;
         String str2 = null;
-        double d = 0.0d;
         double d2 = 0.0d;
-        char c = 0;
+        double d3 = 0.0d;
+        char c3 = 0;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c2 = 65535;
             switch (nextName.hashCode()) {
                 case -1866931350:
                     if (nextName.equals("fFamily")) {
                         c2 = 4;
                         break;
                     }
+                    c2 = 65535;
                     break;
                 case 119:
                     if (nextName.equals("w")) {
                         c2 = 2;
                         break;
                     }
+                    c2 = 65535;
                     break;
                 case 3173:
                     if (nextName.equals("ch")) {
                         c2 = 0;
                         break;
                     }
+                    c2 = 65535;
                     break;
                 case 3076010:
                     if (nextName.equals("data")) {
                         c2 = 5;
                         break;
                     }
+                    c2 = 65535;
                     break;
                 case 3530753:
-                    if (nextName.equals(TiebaInitialize.LogFields.SIZE)) {
+                    if (nextName.equals("size")) {
                         c2 = 1;
                         break;
                     }
+                    c2 = 65535;
                     break;
                 case 109780401:
                     if (nextName.equals("style")) {
                         c2 = 3;
                         break;
                     }
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    c = jsonReader.nextString().charAt(0);
-                    break;
-                case 1:
-                    d2 = jsonReader.nextDouble();
-                    break;
-                case 2:
-                    d = jsonReader.nextDouble();
-                    break;
-                case 3:
-                    str2 = jsonReader.nextString();
-                    break;
-                case 4:
-                    str = jsonReader.nextString();
-                    break;
-                case 5:
-                    jsonReader.beginObject();
-                    while (jsonReader.hasNext()) {
-                        if ("shapes".equals(jsonReader.nextName())) {
-                            jsonReader.beginArray();
-                            while (jsonReader.hasNext()) {
-                                arrayList.add((com.ksad.lottie.model.content.j) g.a(jsonReader, dVar));
-                            }
-                            jsonReader.endArray();
-                        } else {
-                            jsonReader.skipValue();
-                        }
-                    }
-                    jsonReader.endObject();
+                    c2 = 65535;
                     break;
                 default:
-                    jsonReader.skipValue();
+                    c2 = 65535;
                     break;
+            }
+            if (c2 == 0) {
+                c3 = jsonReader.nextString().charAt(0);
+            } else if (c2 == 1) {
+                d2 = jsonReader.nextDouble();
+            } else if (c2 == 2) {
+                d3 = jsonReader.nextDouble();
+            } else if (c2 == 3) {
+                str = jsonReader.nextString();
+            } else if (c2 == 4) {
+                str2 = jsonReader.nextString();
+            } else if (c2 != 5) {
+                jsonReader.skipValue();
+            } else {
+                jsonReader.beginObject();
+                while (jsonReader.hasNext()) {
+                    if ("shapes".equals(jsonReader.nextName())) {
+                        jsonReader.beginArray();
+                        while (jsonReader.hasNext()) {
+                            arrayList.add((com.ksad.lottie.model.content.j) g.a(jsonReader, dVar));
+                        }
+                        jsonReader.endArray();
+                    } else {
+                        jsonReader.skipValue();
+                    }
+                }
+                jsonReader.endObject();
             }
         }
         jsonReader.endObject();
-        return new com.ksad.lottie.model.d(arrayList, c, d2, d, str2, str);
+        return new com.ksad.lottie.model.d(arrayList, c3, d2, d3, str, str2);
     }
 }

@@ -5,67 +5,78 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.h0.w.n;
+/* loaded from: classes4.dex */
 public class MenuKeyboardView extends LinearLayout implements n {
-    private EditorTools ael;
-    private int aem;
 
-    public MenuKeyboardView(Context context) {
-        super(context);
-        this.aem = 0;
-        inflate(context, R.layout.official_bar_menu_toggle, this);
-        setLayoutParams(new RawLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.ds100), -2));
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MenuKeyboardView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                MenuKeyboardView.this.b(new com.baidu.tbadk.editortools.a(30, 0, null));
-            }
-        });
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public EditorTools f17787e;
 
-    @Override // com.baidu.tbadk.editortools.b
-    public void a(com.baidu.tbadk.editortools.a aVar) {
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public int f17788f;
 
-    @Override // com.baidu.tbadk.editortools.n
-    public void setEditorTools(EditorTools editorTools) {
-        this.ael = editorTools;
-    }
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
 
-    @Override // com.baidu.tbadk.editortools.n
-    public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.ael != null) {
-            this.ael.b(aVar);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            MenuKeyboardView.this.d(new d.b.h0.w.a(30, 0, null));
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.n
-    public void setToolId(int i) {
-        this.aem = i;
+    public MenuKeyboardView(Context context) {
+        super(context);
+        this.f17788f = 0;
+        LinearLayout.inflate(context, R.layout.official_bar_menu_toggle, this);
+        setLayoutParams(new RawLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.ds100), -2));
+        setOnClickListener(new a());
     }
 
-    @Override // com.baidu.tbadk.editortools.n
-    public int getToolId() {
-        return this.aem;
-    }
-
-    @Override // com.baidu.tbadk.editortools.n
-    public void init() {
-    }
-
-    @Override // com.baidu.tbadk.editortools.n
-    public void display() {
+    @Override // d.b.h0.w.n
+    public void b() {
         setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.editortools.n
+    @Override // d.b.h0.w.n
+    public void d(d.b.h0.w.a aVar) {
+        EditorTools editorTools = this.f17787e;
+        if (editorTools != null) {
+            editorTools.A(aVar);
+        }
+    }
+
+    @Override // d.b.h0.w.n
+    public int getToolId() {
+        return this.f17788f;
+    }
+
+    @Override // d.b.h0.w.n
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // com.baidu.tbadk.editortools.n
+    @Override // d.b.h0.w.n
+    public void init() {
+    }
+
+    @Override // d.b.h0.w.b
+    public void onAction(d.b.h0.w.a aVar) {
+    }
+
+    @Override // d.b.h0.w.n
     public void onChangeSkinType(int i) {
+    }
+
+    @Override // d.b.h0.w.n
+    public void setEditorTools(EditorTools editorTools) {
+        this.f17787e = editorTools;
+    }
+
+    @Override // d.b.h0.w.n
+    public void setToolId(int i) {
+        this.f17788f = i;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class EditVideoActivityConfig extends IntentConfig {
     public static final String FROM_TYPE = "from_type";
     public static final String FROM_TYPE_RECORD_VIDEO_ACTIVITY = "from_record_activity";
@@ -27,6 +27,10 @@ public class EditVideoActivityConfig extends IntentConfig {
         getIntent().putExtra("KEY_CALL_FROM", str);
     }
 
+    public void addFromType(String str) {
+        getIntent().putExtra("from_type", str);
+    }
+
     public void addMusicInfo(String str, String str2, int i) {
         getIntent().putExtra(LOCAL_PATH_KEY, str);
         getIntent().putExtra(MUSIC_ID_KEY, str2);
@@ -38,8 +42,25 @@ public class EditVideoActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void addFromType(String str) {
-        getIntent().putExtra("from_type", str);
+    public void setExtraData(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {
+        if (getIntent() != null) {
+            getIntent().putExtra(IntentConfig.FORUM_FIRST_DIR, str);
+            getIntent().putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
+            getIntent().putExtra("prefix_data", postPrefixData);
+            getIntent().putExtra("anti_data", antiData);
+        }
+    }
+
+    public void setForumLevel(int i) {
+        getIntent().putExtra("key_write_level", i);
+    }
+
+    public void setFrom(String str) {
+        getIntent().putExtra("from", str);
+    }
+
+    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
+        getIntent().putExtra("tab_list", frsTabInfoData);
     }
 
     public void setProZone(int i) {
@@ -48,26 +69,5 @@ public class EditVideoActivityConfig extends IntentConfig {
 
     public void setStatisticFrom(int i) {
         getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i);
-    }
-
-    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
-        getIntent().putExtra("tab_list", frsTabInfoData);
-    }
-
-    public void setFrom(String str) {
-        getIntent().putExtra("from", str);
-    }
-
-    public void setForumLevel(int i) {
-        getIntent().putExtra("key_write_level", i);
-    }
-
-    public void setExtraData(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {
-        if (getIntent() != null) {
-            getIntent().putExtra("forum_first_dir", str);
-            getIntent().putExtra("forum_second_dir", str2);
-            getIntent().putExtra("prefix_data", postPrefixData);
-            getIntent().putExtra("anti_data", antiData);
-        }
     }
 }

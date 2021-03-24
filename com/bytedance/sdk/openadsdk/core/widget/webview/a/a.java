@@ -1,20 +1,22 @@
 package com.bytedance.sdk.openadsdk.core.widget.webview.a;
 
 import android.webkit.WebResourceResponse;
-import com.bytedance.sdk.openadsdk.core.d.q;
-import com.bytedance.sdk.openadsdk.core.d.r;
+import com.bytedance.sdk.openadsdk.core.d.s;
+import com.bytedance.sdk.openadsdk.core.d.t;
 import com.bytedance.sdk.openadsdk.core.widget.webview.a.e;
+import com.bytedance.sdk.openadsdk.l.g;
 import com.bytedance.sdk.openadsdk.utils.j;
 import com.bytedance.sdk.openadsdk.utils.l;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Iterator;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static Object f4627a = new Object();
+    public static Object f28975a = new Object();
 
     public static void a() {
         b.a();
@@ -24,111 +26,113 @@ public class a {
     public static void b() {
         try {
             f.d();
-            File e = b.e();
-            if (e != null && e.exists()) {
-                if (e.getParentFile() != null) {
-                    l.c(e.getParentFile());
+            File e2 = b.e();
+            if (e2 != null && e2.exists()) {
+                if (e2.getParentFile() != null) {
+                    l.c(e2.getParentFile());
                 } else {
-                    l.c(e);
+                    l.c(e2);
                 }
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
-    }
-
-    public static void a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        d.a().a(lVar);
-    }
-
-    public static void b(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        d.a().b(lVar);
     }
 
     public static String c() {
         return c.c();
     }
 
-    public static r a(String str) {
-        return d.a().a(str);
-    }
-
-    public static Set<String> b(String str) {
-        return d.a().b(str);
-    }
-
-    public static r c(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        if (lVar == null || lVar.M() == null) {
+    public static t d(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null || lVar.T() == null) {
             return null;
         }
-        r a2 = d.a().a(lVar.M().b());
+        t a2 = d.a().a(lVar.T().b());
         if (a2 != null) {
             a2.a(Long.valueOf(System.currentTimeMillis()));
             a(a2);
-            return a2;
         }
         return a2;
-    }
-
-    public static r d(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        if (lVar == null || lVar.N() == null) {
-            return null;
-        }
-        r a2 = d.a().a(lVar.N().b());
-        if (a2 != null) {
-            a2.a(Long.valueOf(System.currentTimeMillis()));
-            a(a2);
-            return a2;
-        }
-        return a2;
-    }
-
-    private static void a(final r rVar) {
-        com.bytedance.sdk.openadsdk.j.e.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.a.1
-            @Override // java.lang.Runnable
-            public void run() {
-                synchronized (a.f4627a) {
-                    c.a().a(r.this);
-                }
-            }
-        }, 10);
-    }
-
-    public static q d() {
-        return b.a().c();
     }
 
     public static boolean e() {
         return b.a().b();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0057 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    public static t c(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null || lVar.S() == null) {
+            return null;
+        }
+        t a2 = d.a().a(lVar.S().b());
+        if (a2 != null) {
+            a2.a(Long.valueOf(System.currentTimeMillis()));
+            a(a2);
+        }
+        return a2;
+    }
+
+    public static void a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        d.a().a(lVar);
+    }
+
+    public static t a(String str) {
+        return d.a().a(str);
+    }
+
+    public static void a(final t tVar) {
+        com.bytedance.sdk.openadsdk.l.e.a(new g("updateTmplTime") { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                synchronized (a.f28975a) {
+                    c.a().a(tVar);
+                }
+            }
+        }, 10);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0052, code lost:
+        if (r2.b().equals(r4) != false) goto L16;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static WebResourceResponse a(String str, e.a aVar) {
         File file;
         if (e()) {
-            for (q.a aVar2 : d().e()) {
-                if (aVar2.a() != null && aVar2.a().equals(str)) {
-                    file = new File(b.e(), j.a(aVar2.a()));
+            Iterator<s.a> it = d().e().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                s.a next = it.next();
+                if (next.a() != null && next.a().equals(str)) {
+                    file = new File(b.e(), j.a(next.a()));
                     String a2 = j.a(file);
-                    if (aVar2.b() == null || !aVar2.b().equals(a2)) {
-                        file = null;
+                    if (next.b() != null) {
                     }
-                    if (file != null) {
-                        try {
-                            return new WebResourceResponse(aVar.a(), "utf-8", new FileInputStream(file));
-                        } catch (Throwable th) {
-                            u.c("TTDynamic", "get html WebResourceResponse error", th);
-                        }
-                    }
-                    return null;
                 }
             }
         }
         file = null;
         if (file != null) {
+            try {
+                return new WebResourceResponse(aVar.a(), "utf-8", new FileInputStream(file));
+            } catch (Throwable th) {
+                u.c("TTDynamic", "get html WebResourceResponse error", th);
+                return null;
+            }
         }
         return null;
+    }
+
+    public static s d() {
+        return b.a().c();
+    }
+
+    public static void b(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        d.a().b(lVar);
+    }
+
+    public static Set<String> b(String str) {
+        return d.a().b(str);
     }
 }

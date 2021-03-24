@@ -5,65 +5,69 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.barselect.data.d;
-import com.baidu.tieba.barselect.data.f;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+import d.b.i0.v.b.d;
+import d.b.i0.v.b.f;
+/* loaded from: classes4.dex */
 public class VotedAreaLayout extends CardBasicLayout {
-    private TextView foc;
-    private Context mContext;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Context f15200h;
+    public TextView i;
 
     public VotedAreaLayout(Context context) {
         this(context, null);
     }
 
-    public VotedAreaLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        initUI();
+    public final void a() {
+        this.i = (TextView) findViewById(R.id.vote_num);
     }
 
-    protected void initUI() {
-        this.mContext = getContext();
+    public void b() {
+        this.f15200h = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(0);
         setGravity(17);
         setBackgroundResource(R.drawable.bar_select_bg_voted_area_layout);
-        setMinimumHeight(l.getDimens(getContext(), R.dimen.tbds62));
-        setMinimumWidth(l.getDimens(getContext(), R.dimen.tbds172));
+        setMinimumHeight(l.g(getContext(), R.dimen.tbds62));
+        setMinimumWidth(l.g(getContext(), R.dimen.tbds172));
         setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.voted_area_layout, (ViewGroup) this, true);
-        tz();
+        a();
     }
 
-    private void tz() {
-        this.foc = (TextView) findViewById(R.id.vote_num);
+    public void c(int i) {
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1, i);
+        SkinManager.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.ire == null || this.iuP == null || this.status < 0) {
-            setVisibility(8);
+        if (this.f15193f != null && this.f15194g != null && this.f15192e >= 0) {
+            TextView textView = this.i;
+            textView.setText(StringHelper.numFormatOverWan(this.f15194g.m()) + "票");
+            c(TbadkCoreApplication.getInst().getSkinType());
             return;
         }
-        this.foc.setText(au.numFormatOverWan(this.iuP.crp()) + "票");
-        uw(TbadkCoreApplication.getInst().getSkinType());
+        setVisibility(8);
     }
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
-            this.iuP = dVar;
-            this.foc.setText(au.numFormatOverWan(this.iuP.crp()) + "票");
+            this.f15194g = dVar;
+            TextView textView = this.i;
+            textView.setText(StringHelper.numFormatOverWan(this.f15194g.m()) + "票");
         }
     }
 
-    public void uw(int i) {
-        ap.setViewTextColor(this.foc, R.color.CAM_X0105, 1, i);
-        ap.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
+    public VotedAreaLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        b();
     }
 }

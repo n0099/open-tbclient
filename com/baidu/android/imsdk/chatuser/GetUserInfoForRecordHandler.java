@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.CallBack;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public GetUserInfoForRecordHandler(Context context) {
         super(context);
@@ -19,11 +19,16 @@ public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandl
                 LogUtils.d("GetUserInfoForRecordHandler", "getChatObjectInfo getUser error:" + i);
                 if (i == 0 && chatUser != null) {
                     GetUserInfoForRecordHandler.this.deleteUUid();
-                    if (callBack != null) {
-                        callBack.onSuccess(0, 0, chatUser);
+                    CallBack callBack2 = callBack;
+                    if (callBack2 != null) {
+                        callBack2.onSuccess(0, 0, chatUser);
+                        return;
                     }
-                } else if (callBack != null) {
-                    callBack.onError(0, 0, j2);
+                    return;
+                }
+                CallBack callBack3 = callBack;
+                if (callBack3 != null) {
+                    callBack3.onError(0, 0, j2);
                 }
             }
         });

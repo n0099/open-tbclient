@@ -6,24 +6,28 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WalkingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<WalkingRouteResult> CREATOR = new t();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<WalkingRouteLine> f2145a;
-    private TaxiInfo b;
-    private SuggestAddrInfo c;
+    public List<WalkingRouteLine> f7329a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TaxiInfo f7330b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public SuggestAddrInfo f7331c;
 
     public WalkingRouteResult() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public WalkingRouteResult(Parcel parcel) {
-        this.f2145a = new ArrayList();
-        parcel.readList(this.f2145a, WalkingRouteLine.class.getClassLoader());
-        this.b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
-        this.c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        ArrayList arrayList = new ArrayList();
+        this.f7329a = arrayList;
+        parcel.readList(arrayList, WalkingRouteLine.class.getClassLoader());
+        this.f7330b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f7331c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -32,33 +36,33 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     }
 
     public List<WalkingRouteLine> getRouteLines() {
-        return this.f2145a;
+        return this.f7329a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
-        return this.c;
+        return this.f7331c;
     }
 
     public TaxiInfo getTaxiInfo() {
-        return this.b;
+        return this.f7330b;
     }
 
     public void setRouteLines(List<WalkingRouteLine> list) {
-        this.f2145a = list;
+        this.f7329a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
-        this.c = suggestAddrInfo;
+        this.f7331c = suggestAddrInfo;
     }
 
     public void setTaxiInfo(TaxiInfo taxiInfo) {
-        this.b = taxiInfo;
+        this.f7330b = taxiInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.f2145a);
-        parcel.writeParcelable(this.b, 1);
-        parcel.writeParcelable(this.c, 1);
+        parcel.writeList(this.f7329a);
+        parcel.writeParcelable(this.f7330b, 1);
+        parcel.writeParcelable(this.f7331c, 1);
     }
 }

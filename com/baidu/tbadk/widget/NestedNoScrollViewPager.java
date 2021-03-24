@@ -5,14 +5,10 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class NestedNoScrollViewPager extends ViewPager {
     public NestedNoScrollViewPager(@NonNull Context context) {
         super(context);
-    }
-
-    public NestedNoScrollViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
@@ -21,5 +17,9 @@ public class NestedNoScrollViewPager extends ViewPager {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }
+    }
+
+    public NestedNoScrollViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

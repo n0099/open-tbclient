@@ -2,8 +2,7 @@ package com.baidu.location.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.webkit.internal.ETAG;
-import com.baidubce.http.Headers;
+import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -12,280 +11,276 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1971a;
-    final /* synthetic */ boolean b;
-    final /* synthetic */ e c;
+    public final /* synthetic */ String f6707a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ boolean f6708b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ e f6709c;
+
     public g(e eVar, String str, boolean z) {
-        this.c = eVar;
-        this.f1971a = str;
-        this.b = z;
+        this.f6709c = eVar;
+        this.f6707a = str;
+        this.f6708b = z;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0240 A[LOOP:0: B:3:0x001b->B:110:0x0240, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:170:0x0085 A[EDGE_INSN: B:170:0x0085->B:22:0x0085 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x01d7 A[LOOP:0: B:3:0x0022->B:108:0x01d7, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x01df  */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x01ef A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:138:0x01e4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x01fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:167:0x0204 A[EDGE_INSN: B:167:0x0204->B:126:0x0204 ?: BREAK  , SYNTHETIC] */
     @Override // java.lang.Thread, java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
-        Throwable th;
-        OutputStream outputStream;
-        ByteArrayOutputStream byteArrayOutputStream;
         InputStream inputStream;
+        ByteArrayOutputStream byteArrayOutputStream;
+        OutputStream outputStream;
         OutputStream outputStream2;
-        ByteArrayOutputStream byteArrayOutputStream2;
-        HttpURLConnection httpURLConnection;
         boolean z;
-        boolean z2;
-        this.c.h = j.c();
-        this.c.b();
-        this.c.a();
-        HttpURLConnection httpURLConnection2 = null;
-        int i = this.c.i;
+        this.f6709c.f6705h = j.c();
+        this.f6709c.b();
+        this.f6709c.a();
+        int i = this.f6709c.i;
+        OutputStream outputStream3 = null;
+        HttpURLConnection httpURLConnection = null;
         while (i > 0) {
             try {
-                URL url = new URL(this.c.h);
+                URL url = new URL(this.f6709c.f6705h);
                 StringBuffer stringBuffer = new StringBuffer();
-                for (Map.Entry<String, Object> entry : this.c.k.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.f6709c.k.entrySet()) {
                     stringBuffer.append(entry.getKey());
                     stringBuffer.append("=");
                     stringBuffer.append(entry.getValue());
-                    stringBuffer.append(ETAG.ITEM_SEPARATOR);
+                    stringBuffer.append("&");
                 }
                 if (stringBuffer.length() > 0) {
                     stringBuffer.deleteCharAt(stringBuffer.length() - 1);
                 }
-                httpURLConnection = (HttpURLConnection) url.openConnection();
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
                 try {
-                    httpURLConnection.setRequestMethod("POST");
-                    httpURLConnection.setDoInput(true);
-                    httpURLConnection.setDoOutput(true);
-                    httpURLConnection.setUseCaches(false);
-                    httpURLConnection.setConnectTimeout(a.b);
-                    httpURLConnection.setReadTimeout(a.b);
-                    httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
-                    httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
-                    httpURLConnection.setRequestProperty(Headers.ACCEPT_ENCODING, "gzip");
-                    if (!TextUtils.isEmpty(this.f1971a)) {
-                        httpURLConnection.setRequestProperty("Host", this.f1971a);
+                    httpURLConnection2.setRequestMethod("POST");
+                    httpURLConnection2.setDoInput(true);
+                    httpURLConnection2.setDoOutput(true);
+                    httpURLConnection2.setUseCaches(false);
+                    httpURLConnection2.setConnectTimeout(a.f6669b);
+                    httpURLConnection2.setReadTimeout(a.f6669b);
+                    httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+                    httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
+                    httpURLConnection2.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                    if (!TextUtils.isEmpty(this.f6707a)) {
+                        httpURLConnection2.setRequestProperty("Host", this.f6707a);
                     }
-                    outputStream2 = httpURLConnection.getOutputStream();
+                    OutputStream outputStream4 = httpURLConnection2.getOutputStream();
                     try {
-                        outputStream2.write(stringBuffer.toString().getBytes());
-                        outputStream2.flush();
-                        if (httpURLConnection.getResponseCode() == 200) {
-                            inputStream = httpURLConnection.getInputStream();
+                        outputStream4.write(stringBuffer.toString().getBytes());
+                        outputStream4.flush();
+                        if (httpURLConnection2.getResponseCode() == 200) {
+                            inputStream = httpURLConnection2.getInputStream();
                             try {
-                                String contentEncoding = httpURLConnection.getContentEncoding();
-                                if (contentEncoding != null && contentEncoding.contains("gzip")) {
+                                String contentEncoding = httpURLConnection2.getContentEncoding();
+                                if (contentEncoding != null && contentEncoding.contains(AsyncHttpClient.ENCODING_GZIP)) {
                                     inputStream = new GZIPInputStream(new BufferedInputStream(inputStream));
                                 }
-                                byteArrayOutputStream2 = new ByteArrayOutputStream();
+                                byteArrayOutputStream = new ByteArrayOutputStream();
+                            } catch (Error unused) {
+                                byteArrayOutputStream = null;
+                            } catch (Exception unused2) {
+                                byteArrayOutputStream = null;
+                            } catch (Throwable th) {
+                                th = th;
+                                byteArrayOutputStream = null;
+                            }
+                            try {
+                                byte[] bArr = new byte[1024];
+                                while (true) {
+                                    int read = inputStream.read(bArr);
+                                    if (read == -1) {
+                                        break;
+                                    }
+                                    byteArrayOutputStream.write(bArr, 0, read);
+                                }
+                                this.f6709c.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                if (this.f6708b) {
+                                    this.f6709c.m = byteArrayOutputStream.toByteArray();
+                                }
+                                this.f6709c.a(true);
+                                z = true;
+                            } catch (Error unused3) {
+                                outputStream2 = outputStream4;
+                                httpURLConnection = httpURLConnection2;
                                 try {
+                                    Log.d(a.f6668a, "NetworkCommunicationError!");
+                                    if (httpURLConnection != null) {
+                                        httpURLConnection.disconnect();
+                                    }
+                                    if (outputStream2 != null) {
+                                        try {
+                                            outputStream2.close();
+                                        } catch (Exception unused4) {
+                                            Log.d(a.f6668a, "close os IOException!");
+                                        }
+                                    }
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception unused5) {
+                                            Log.d(a.f6668a, "close is IOException!");
+                                        }
+                                    }
+                                    if (byteArrayOutputStream != null) {
+                                        try {
+                                            byteArrayOutputStream.close();
+                                        } catch (Exception unused6) {
+                                            Log.d(a.f6668a, "close baos IOException!");
+                                        }
+                                    }
+                                    z = false;
+                                    if (z) {
+                                    }
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    outputStream3 = outputStream2;
+                                    if (httpURLConnection != null) {
+                                        httpURLConnection.disconnect();
+                                    }
+                                    if (outputStream3 != null) {
+                                        try {
+                                            outputStream3.close();
+                                        } catch (Exception unused7) {
+                                            Log.d(a.f6668a, "close os IOException!");
+                                        }
+                                    }
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception unused8) {
+                                            Log.d(a.f6668a, "close is IOException!");
+                                        }
+                                    }
+                                    if (byteArrayOutputStream != null) {
+                                        try {
+                                            byteArrayOutputStream.close();
+                                        } catch (Exception unused9) {
+                                            Log.d(a.f6668a, "close baos IOException!");
+                                        }
+                                    }
+                                    throw th;
+                                }
+                            } catch (Exception unused10) {
+                                outputStream = outputStream4;
+                                httpURLConnection = httpURLConnection2;
+                                Log.d(a.f6668a, "NetworkCommunicationException!");
+                                if (httpURLConnection != null) {
+                                    httpURLConnection.disconnect();
+                                }
+                                if (outputStream != null) {
                                     try {
-                                        byte[] bArr = new byte[1024];
-                                        while (true) {
-                                            int read = inputStream.read(bArr);
-                                            if (read == -1) {
-                                                break;
-                                            }
-                                            byteArrayOutputStream2.write(bArr, 0, read);
-                                        }
-                                        this.c.j = new String(byteArrayOutputStream2.toByteArray(), "utf-8");
-                                        if (this.b) {
-                                            this.c.m = byteArrayOutputStream2.toByteArray();
-                                        }
-                                        this.c.a(true);
-                                        z2 = true;
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        outputStream = outputStream2;
-                                        byteArrayOutputStream = byteArrayOutputStream2;
-                                        httpURLConnection2 = httpURLConnection;
-                                        if (httpURLConnection2 != null) {
-                                            httpURLConnection2.disconnect();
-                                        }
-                                        if (outputStream != null) {
-                                            try {
-                                                outputStream.close();
-                                            } catch (Exception e) {
-                                                Log.d(a.f1963a, "close os IOException!");
-                                            }
-                                        }
-                                        if (inputStream != null) {
-                                            try {
-                                                inputStream.close();
-                                            } catch (Exception e2) {
-                                                Log.d(a.f1963a, "close is IOException!");
-                                            }
-                                        }
-                                        if (byteArrayOutputStream != null) {
-                                            try {
-                                                byteArrayOutputStream.close();
-                                            } catch (Exception e3) {
-                                                Log.d(a.f1963a, "close baos IOException!");
-                                            }
-                                        }
-                                        throw th;
-                                    }
-                                } catch (Error e4) {
-                                    Log.d(a.f1963a, "NetworkCommunicationError!");
-                                    if (httpURLConnection != null) {
-                                        httpURLConnection.disconnect();
-                                    }
-                                    if (outputStream2 != null) {
-                                        try {
-                                            outputStream2.close();
-                                        } catch (Exception e5) {
-                                            Log.d(a.f1963a, "close os IOException!");
-                                        }
-                                    }
-                                    if (inputStream != null) {
-                                        try {
-                                            inputStream.close();
-                                        } catch (Exception e6) {
-                                            Log.d(a.f1963a, "close is IOException!");
-                                        }
-                                    }
-                                    if (byteArrayOutputStream2 != null) {
-                                        try {
-                                            byteArrayOutputStream2.close();
-                                        } catch (Exception e7) {
-                                            Log.d(a.f1963a, "close baos IOException!");
-                                            z = false;
-                                            httpURLConnection2 = httpURLConnection;
-                                        }
-                                    }
-                                    z = false;
-                                    httpURLConnection2 = httpURLConnection;
-                                    if (z) {
-                                    }
-                                } catch (Exception e8) {
-                                    Log.d(a.f1963a, "NetworkCommunicationException!");
-                                    if (httpURLConnection != null) {
-                                        httpURLConnection.disconnect();
-                                    }
-                                    if (outputStream2 != null) {
-                                        try {
-                                            outputStream2.close();
-                                        } catch (Exception e9) {
-                                            Log.d(a.f1963a, "close os IOException!");
-                                        }
-                                    }
-                                    if (inputStream != null) {
-                                        try {
-                                            inputStream.close();
-                                        } catch (Exception e10) {
-                                            Log.d(a.f1963a, "close is IOException!");
-                                        }
-                                    }
-                                    if (byteArrayOutputStream2 != null) {
-                                        try {
-                                            byteArrayOutputStream2.close();
-                                        } catch (Exception e11) {
-                                            Log.d(a.f1963a, "close baos IOException!");
-                                            z = false;
-                                            httpURLConnection2 = httpURLConnection;
-                                        }
-                                    }
-                                    z = false;
-                                    httpURLConnection2 = httpURLConnection;
-                                    if (z) {
+                                        outputStream.close();
+                                    } catch (Exception unused11) {
+                                        Log.d(a.f6668a, "close os IOException!");
                                     }
                                 }
-                            } catch (Error e12) {
-                                byteArrayOutputStream2 = null;
-                            } catch (Exception e13) {
-                                byteArrayOutputStream2 = null;
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (Exception unused12) {
+                                        Log.d(a.f6668a, "close is IOException!");
+                                    }
+                                }
+                                if (byteArrayOutputStream != null) {
+                                    byteArrayOutputStream.close();
+                                }
+                                z = false;
+                                if (z) {
+                                }
                             } catch (Throwable th3) {
                                 th = th3;
-                                outputStream = outputStream2;
-                                byteArrayOutputStream = null;
-                                httpURLConnection2 = httpURLConnection;
+                                outputStream3 = outputStream4;
+                                httpURLConnection = httpURLConnection2;
+                                if (httpURLConnection != null) {
+                                }
+                                if (outputStream3 != null) {
+                                }
+                                if (inputStream != null) {
+                                }
+                                if (byteArrayOutputStream != null) {
+                                }
+                                throw th;
                             }
                         } else {
-                            z2 = false;
-                            byteArrayOutputStream2 = null;
                             inputStream = null;
+                            byteArrayOutputStream = null;
+                            z = false;
                         }
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
+                        if (httpURLConnection2 != null) {
+                            httpURLConnection2.disconnect();
                         }
-                        if (outputStream2 != null) {
+                        if (outputStream4 != null) {
                             try {
-                                outputStream2.close();
-                            } catch (Exception e14) {
-                                Log.d(a.f1963a, "close os IOException!");
+                                outputStream4.close();
+                            } catch (Exception unused13) {
+                                Log.d(a.f6668a, "close os IOException!");
                             }
                         }
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (Exception e15) {
-                                Log.d(a.f1963a, "close is IOException!");
+                            } catch (Exception unused14) {
+                                Log.d(a.f6668a, "close is IOException!");
                             }
                         }
-                        if (byteArrayOutputStream2 != null) {
+                        if (byteArrayOutputStream != null) {
                             try {
-                                byteArrayOutputStream2.close();
-                            } catch (Exception e16) {
-                                Log.d(a.f1963a, "close baos IOException!");
-                                z = z2;
-                                httpURLConnection2 = httpURLConnection;
+                                byteArrayOutputStream.close();
+                            } catch (Exception unused15) {
+                                Log.d(a.f6668a, "close baos IOException!");
                             }
                         }
-                        z = z2;
-                        httpURLConnection2 = httpURLConnection;
-                    } catch (Error e17) {
-                        byteArrayOutputStream2 = null;
+                        httpURLConnection = httpURLConnection2;
+                    } catch (Error unused16) {
                         inputStream = null;
-                    } catch (Exception e18) {
-                        byteArrayOutputStream2 = null;
+                        byteArrayOutputStream = null;
+                    } catch (Exception unused17) {
                         inputStream = null;
+                        byteArrayOutputStream = null;
                     } catch (Throwable th4) {
                         th = th4;
-                        outputStream = outputStream2;
-                        byteArrayOutputStream = null;
                         inputStream = null;
-                        httpURLConnection2 = httpURLConnection;
+                        byteArrayOutputStream = null;
                     }
-                } catch (Error e19) {
+                } catch (Error unused18) {
                     outputStream2 = null;
-                    byteArrayOutputStream2 = null;
                     inputStream = null;
-                } catch (Exception e20) {
-                    outputStream2 = null;
-                    byteArrayOutputStream2 = null;
+                    byteArrayOutputStream = null;
+                } catch (Exception unused19) {
+                    outputStream = null;
                     inputStream = null;
+                    byteArrayOutputStream = null;
                 } catch (Throwable th5) {
                     th = th5;
-                    outputStream = null;
-                    byteArrayOutputStream = null;
                     inputStream = null;
-                    httpURLConnection2 = httpURLConnection;
+                    byteArrayOutputStream = null;
                 }
-            } catch (Error e21) {
+            } catch (Error unused20) {
                 outputStream2 = null;
-                byteArrayOutputStream2 = null;
                 inputStream = null;
-                httpURLConnection = httpURLConnection2;
-            } catch (Exception e22) {
-                outputStream2 = null;
-                byteArrayOutputStream2 = null;
+                byteArrayOutputStream = null;
+            } catch (Exception unused21) {
+                outputStream = null;
                 inputStream = null;
-                httpURLConnection = httpURLConnection2;
+                byteArrayOutputStream = null;
             } catch (Throwable th6) {
                 th = th6;
-                outputStream = null;
-                byteArrayOutputStream = null;
                 inputStream = null;
+                byteArrayOutputStream = null;
             }
             if (z) {
                 break;
@@ -297,7 +292,8 @@ public class g extends Thread {
             return;
         }
         e.p++;
-        this.c.j = null;
-        this.c.a(false);
+        e eVar = this.f6709c;
+        eVar.j = null;
+        eVar.a(false);
     }
 }

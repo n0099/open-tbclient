@@ -1,30 +1,70 @@
 package com.xiaomi.push;
 
+import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.content.Context;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public final class en implements Runnable {
+import android.content.res.Resources;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.RemoteViews;
+import java.util.Map;
+@SuppressLint({"NewApi"})
+/* loaded from: classes7.dex */
+public class en extends Notification.Builder {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f8352a;
+    public Context f40448a;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Context f298a;
-
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f299a;
-    final /* synthetic */ String b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public en(Context context, String str, int i, String str2) {
-        this.f298a = context;
-        this.f299a = str;
-        this.f8352a = i;
-        this.b = str2;
+    public en(Context context) {
+        super(context);
+        this.f40448a = context;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        em.c(this.f298a, this.f299a, this.f8352a, this.b);
+    public int a(Resources resources, String str, String str2, String str3) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        return resources.getIdentifier(str, str2, str3);
+    }
+
+    public Context a() {
+        return this.f40448a;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.app.Notification.Builder
+    /* renamed from: a */
+    public en addExtras(Bundle bundle) {
+        if (Build.VERSION.SDK_INT >= 20) {
+            super.addExtras(bundle);
+        }
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.app.Notification.Builder
+    /* renamed from: a */
+    public en setCustomContentView(RemoteViews remoteViews) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            super.setCustomContentView(remoteViews);
+        } else {
+            super.setContent(remoteViews);
+        }
+        return this;
+    }
+
+    public en a(Map<String, String> map) {
+        return this;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m270a() {
+    }
+
+    @Override // android.app.Notification.Builder
+    public Notification build() {
+        m270a();
+        return super.build();
     }
 }

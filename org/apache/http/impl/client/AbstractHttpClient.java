@@ -29,53 +29,80 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestExecutor;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractHttpClient implements HttpClient {
-    protected abstract AuthSchemeRegistry createAuthSchemeRegistry();
-
-    protected abstract ClientConnectionManager createClientConnectionManager();
-
-    protected abstract ConnectionKeepAliveStrategy createConnectionKeepAliveStrategy();
-
-    protected abstract ConnectionReuseStrategy createConnectionReuseStrategy();
-
-    protected abstract CookieSpecRegistry createCookieSpecRegistry();
-
-    protected abstract CookieStore createCookieStore();
-
-    protected abstract CredentialsProvider createCredentialsProvider();
-
-    protected abstract HttpContext createHttpContext();
-
-    protected abstract HttpParams createHttpParams();
-
-    protected abstract BasicHttpProcessor createHttpProcessor();
-
-    protected abstract HttpRequestRetryHandler createHttpRequestRetryHandler();
-
-    protected abstract HttpRoutePlanner createHttpRoutePlanner();
-
-    protected abstract AuthenticationHandler createProxyAuthenticationHandler();
-
-    protected abstract RedirectHandler createRedirectHandler();
-
-    protected abstract HttpRequestExecutor createRequestExecutor();
-
-    protected abstract AuthenticationHandler createTargetAuthenticationHandler();
-
-    protected abstract UserTokenHandler createUserTokenHandler();
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public AbstractHttpClient(ClientConnectionManager clientConnectionManager, HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.client.HttpClient
-    public final synchronized HttpParams getParams() {
+    public synchronized void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor) {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized void setParams(HttpParams httpParams) {
+    public synchronized void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void clearRequestInterceptors() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void clearResponseInterceptors() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract AuthSchemeRegistry createAuthSchemeRegistry();
+
+    public abstract ClientConnectionManager createClientConnectionManager();
+
+    public RequestDirector createClientRequestDirector(HttpRequestExecutor httpRequestExecutor, ClientConnectionManager clientConnectionManager, ConnectionReuseStrategy connectionReuseStrategy, ConnectionKeepAliveStrategy connectionKeepAliveStrategy, HttpRoutePlanner httpRoutePlanner, HttpProcessor httpProcessor, HttpRequestRetryHandler httpRequestRetryHandler, RedirectHandler redirectHandler, AuthenticationHandler authenticationHandler, AuthenticationHandler authenticationHandler2, UserTokenHandler userTokenHandler, HttpParams httpParams) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract ConnectionKeepAliveStrategy createConnectionKeepAliveStrategy();
+
+    public abstract ConnectionReuseStrategy createConnectionReuseStrategy();
+
+    public abstract CookieSpecRegistry createCookieSpecRegistry();
+
+    public abstract CookieStore createCookieStore();
+
+    public abstract CredentialsProvider createCredentialsProvider();
+
+    public abstract HttpContext createHttpContext();
+
+    public abstract HttpParams createHttpParams();
+
+    public abstract BasicHttpProcessor createHttpProcessor();
+
+    public abstract HttpRequestRetryHandler createHttpRequestRetryHandler();
+
+    public abstract HttpRoutePlanner createHttpRoutePlanner();
+
+    public abstract AuthenticationHandler createProxyAuthenticationHandler();
+
+    public abstract RedirectHandler createRedirectHandler();
+
+    public abstract HttpRequestExecutor createRequestExecutor();
+
+    public abstract AuthenticationHandler createTargetAuthenticationHandler();
+
+    public abstract UserTokenHandler createUserTokenHandler();
+
+    public HttpParams determineParams(HttpRequest httpRequest) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public final HttpResponse execute(HttpUriRequest httpUriRequest) throws IOException, ClientProtocolException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final synchronized AuthSchemeRegistry getAuthSchemes() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final synchronized ConnectionKeepAliveStrategy getConnectionKeepAliveStrategy() {
         throw new RuntimeException("Stub!");
     }
 
@@ -84,15 +111,7 @@ public abstract class AbstractHttpClient implements HttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    public final synchronized HttpRequestExecutor getRequestExecutor() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final synchronized AuthSchemeRegistry getAuthSchemes() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void setAuthSchemes(AuthSchemeRegistry authSchemeRegistry) {
+    public final synchronized ConnectionReuseStrategy getConnectionReuseStrategy() {
         throw new RuntimeException("Stub!");
     }
 
@@ -100,63 +119,7 @@ public abstract class AbstractHttpClient implements HttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized void setCookieSpecs(CookieSpecRegistry cookieSpecRegistry) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final synchronized ConnectionReuseStrategy getConnectionReuseStrategy() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void setReuseStrategy(ConnectionReuseStrategy connectionReuseStrategy) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final synchronized ConnectionKeepAliveStrategy getConnectionKeepAliveStrategy() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void setKeepAliveStrategy(ConnectionKeepAliveStrategy connectionKeepAliveStrategy) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final synchronized HttpRequestRetryHandler getHttpRequestRetryHandler() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void setHttpRequestRetryHandler(HttpRequestRetryHandler httpRequestRetryHandler) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final synchronized RedirectHandler getRedirectHandler() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void setRedirectHandler(RedirectHandler redirectHandler) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final synchronized AuthenticationHandler getTargetAuthenticationHandler() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void setTargetAuthenticationHandler(AuthenticationHandler authenticationHandler) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final synchronized AuthenticationHandler getProxyAuthenticationHandler() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void setProxyAuthenticationHandler(AuthenticationHandler authenticationHandler) {
-        throw new RuntimeException("Stub!");
-    }
-
     public final synchronized CookieStore getCookieStore() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void setCookieStore(CookieStore cookieStore) {
         throw new RuntimeException("Stub!");
     }
 
@@ -164,59 +127,28 @@ public abstract class AbstractHttpClient implements HttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized void setCredentialsProvider(CredentialsProvider credentialsProvider) {
+    public final synchronized BasicHttpProcessor getHttpProcessor() {
         throw new RuntimeException("Stub!");
     }
 
-    public final synchronized HttpRoutePlanner getRoutePlanner() {
+    public final synchronized HttpRequestRetryHandler getHttpRequestRetryHandler() {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized void setRoutePlanner(HttpRoutePlanner httpRoutePlanner) {
+    @Override // org.apache.http.client.HttpClient
+    public final synchronized HttpParams getParams() {
         throw new RuntimeException("Stub!");
     }
 
-    public final synchronized UserTokenHandler getUserTokenHandler() {
+    public final synchronized AuthenticationHandler getProxyAuthenticationHandler() {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized void setUserTokenHandler(UserTokenHandler userTokenHandler) {
+    public final synchronized RedirectHandler getRedirectHandler() {
         throw new RuntimeException("Stub!");
     }
 
-    protected final synchronized BasicHttpProcessor getHttpProcessor() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized HttpResponseInterceptor getResponseInterceptor(int i) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized int getResponseInterceptorCount() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void clearResponseInterceptors() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void removeResponseInterceptorByClass(Class<? extends HttpResponseInterceptor> cls) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i) {
+    public final synchronized HttpRequestExecutor getRequestExecutor() {
         throw new RuntimeException("Stub!");
     }
 
@@ -228,7 +160,23 @@ public abstract class AbstractHttpClient implements HttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized void clearRequestInterceptors() {
+    public synchronized HttpResponseInterceptor getResponseInterceptor(int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized int getResponseInterceptorCount() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final synchronized HttpRoutePlanner getRoutePlanner() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final synchronized AuthenticationHandler getTargetAuthenticationHandler() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final synchronized UserTokenHandler getUserTokenHandler() {
         throw new RuntimeException("Stub!");
     }
 
@@ -236,8 +184,67 @@ public abstract class AbstractHttpClient implements HttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.client.HttpClient
-    public final HttpResponse execute(HttpUriRequest httpUriRequest) throws IOException, ClientProtocolException {
+    public void removeResponseInterceptorByClass(Class<? extends HttpResponseInterceptor> cls) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setAuthSchemes(AuthSchemeRegistry authSchemeRegistry) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setCookieSpecs(CookieSpecRegistry cookieSpecRegistry) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setCookieStore(CookieStore cookieStore) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setCredentialsProvider(CredentialsProvider credentialsProvider) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setHttpRequestRetryHandler(HttpRequestRetryHandler httpRequestRetryHandler) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setKeepAliveStrategy(ConnectionKeepAliveStrategy connectionKeepAliveStrategy) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setParams(HttpParams httpParams) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setProxyAuthenticationHandler(AuthenticationHandler authenticationHandler) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setRedirectHandler(RedirectHandler redirectHandler) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setReuseStrategy(ConnectionReuseStrategy connectionReuseStrategy) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setRoutePlanner(HttpRoutePlanner httpRoutePlanner) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setTargetAuthenticationHandler(AuthenticationHandler authenticationHandler) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void setUserTokenHandler(UserTokenHandler userTokenHandler) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
         throw new RuntimeException("Stub!");
     }
 
@@ -253,14 +260,6 @@ public abstract class AbstractHttpClient implements HttpClient {
 
     @Override // org.apache.http.client.HttpClient
     public final HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws IOException, ClientProtocolException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected RequestDirector createClientRequestDirector(HttpRequestExecutor httpRequestExecutor, ClientConnectionManager clientConnectionManager, ConnectionReuseStrategy connectionReuseStrategy, ConnectionKeepAliveStrategy connectionKeepAliveStrategy, HttpRoutePlanner httpRoutePlanner, HttpProcessor httpProcessor, HttpRequestRetryHandler httpRequestRetryHandler, RedirectHandler redirectHandler, AuthenticationHandler authenticationHandler, AuthenticationHandler authenticationHandler2, UserTokenHandler userTokenHandler, HttpParams httpParams) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected HttpParams determineParams(HttpRequest httpRequest) {
         throw new RuntimeException("Stub!");
     }
 

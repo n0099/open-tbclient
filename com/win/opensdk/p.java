@@ -1,22 +1,43 @@
 package com.win.opensdk;
+/* loaded from: classes7.dex */
+public class p implements r {
 
-import com.win.opensdk.top.PProvider;
-/* loaded from: classes14.dex */
-public class p implements Runnable {
-    public final /* synthetic */ PProvider qkv;
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ q f40003a;
 
-    public p(PProvider pProvider) {
-        this.qkv = pProvider;
+    public p(q qVar) {
+        this.f40003a = qVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PProvider pProvider = this.qkv;
-        pProvider.f8173a = pProvider.getContext();
-        PProvider pProvider2 = this.qkv;
-        if (pProvider2.f8173a == null) {
-            return;
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        r rVar = this.f40003a.f40016b;
+        if (rVar != null) {
+            rVar.onClicked();
         }
-        pProvider2.a();
+    }
+
+    @Override // com.win.opensdk.r
+    public void onDisplayed() {
+        r rVar = this.f40003a.f40016b;
+        if (rVar != null) {
+            rVar.onDisplayed();
+        }
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        r rVar = this.f40003a.f40016b;
+        if (rVar != null) {
+            rVar.onFail(pBError);
+        }
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        r rVar = this.f40003a.f40016b;
+        if (rVar != null) {
+            rVar.onLoaded();
+        }
     }
 }

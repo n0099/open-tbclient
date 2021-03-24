@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class RelevanceItemSearchActivityConfig extends IntentConfig {
     public static final String EXTRA_DATA_KEY = "extra_data";
     public static final String EXTRA_TITLE_KEY = "title";

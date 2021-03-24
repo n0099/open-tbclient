@@ -11,6 +11,8 @@ import android.system.Os;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.track.ui.TrackUI;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.kwad.sdk.crash.model.message.DiskInfo;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.model.message.JavaExceptionMessage;
@@ -18,9 +20,11 @@ import com.kwad.sdk.crash.model.message.MemoryInfo;
 import com.kwad.sdk.crash.model.message.ThreadInfo;
 import com.kwad.sdk.crash.utils.SystemUtil;
 import com.kwad.sdk.utils.n;
+import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -38,46 +42,47 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final File f6396a = new File("/proc/self/fd");
-    private static final File b = new File("/proc/self/task");
+    public static final File f34491a = new File("/proc/self/fd");
 
-    private static int a() {
+    /* renamed from: b  reason: collision with root package name */
+    public static final File f34492b = new File("/proc/self/task");
+
+    public static int a() {
         File[] listFiles;
-        Objects.requireNonNull(f6396a);
-        if (f6396a.exists() && f6396a.isDirectory() && (listFiles = f6396a.listFiles()) != null) {
+        Objects.requireNonNull(f34491a);
+        if (f34491a.exists() && f34491a.isDirectory() && (listFiles = f34491a.listFiles()) != null) {
             return listFiles.length;
         }
         return 0;
     }
 
-    private static String a(Context context) {
-        String str;
+    public static String a(Context context) {
         InputStream inputStream = null;
         try {
             inputStream = context.getResources().getAssets().open("apk.json");
-            str = new JSONObject(h.a(inputStream)).getString("task_id");
-        } catch (IOException e) {
-            com.kwad.sdk.core.d.a.b(e);
-            str = "";
-        } catch (JSONException e2) {
+            return new JSONObject(h.a(inputStream)).getString("task_id");
+        } catch (IOException e2) {
             com.kwad.sdk.core.d.a.b(e2);
-            str = "";
+            return "";
+        } catch (JSONException e3) {
+            com.kwad.sdk.core.d.a.b(e3);
+            return "";
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
-            str = "";
+            return "";
         } finally {
             b.a(inputStream);
         }
-        return str;
     }
 
     public static String a(String str) {
@@ -89,34 +94,36 @@ public final class f {
         return !str.endsWith(str2) ? str : str.substring(0, str.lastIndexOf(str2));
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.io.StringWriter */
+    /* JADX WARN: Multi-variable type inference failed */
     public static String a(Throwable th) {
         StringWriter stringWriter;
         String th2 = th.toString();
+        PrintWriter printWriter = null;
         try {
-            stringWriter = new StringWriter();
             try {
-                try {
-                    e.a(th, new PrintWriter(stringWriter));
-                    th2 = stringWriter.toString();
-                    b.a((Writer) stringWriter);
-                } catch (Exception e) {
-                    e = e;
-                    com.kwad.sdk.core.d.a.b(e);
-                    b.a((Writer) stringWriter);
-                    return th2;
-                }
+                stringWriter = new StringWriter();
             } catch (Throwable th3) {
                 th = th3;
-                b.a((Writer) stringWriter);
-                throw th;
             }
         } catch (Exception e2) {
             e = e2;
-            stringWriter = null;
+        }
+        try {
+            printWriter = new PrintWriter(stringWriter);
+            e.a(th, printWriter);
+            th2 = stringWriter.toString();
+            b.a((Writer) stringWriter);
+        } catch (Exception e3) {
+            e = e3;
+            printWriter = stringWriter;
+            com.kwad.sdk.core.d.a.b(e);
+            b.a((Writer) printWriter);
+            return th2;
         } catch (Throwable th4) {
             th = th4;
-            stringWriter = null;
-            b.a((Writer) stringWriter);
+            printWriter = stringWriter;
+            b.a((Writer) printWriter);
             throw th;
         }
         return th2;
@@ -133,31 +140,33 @@ public final class f {
         StringBuilder sb = new StringBuilder();
         for (StackTraceElement stackTraceElement : stackTraceElementArr) {
             for (int i2 = 0; i2 < i; i2++) {
-                sb.append("\t");
+                sb.append(TrackUI.SEPERATOR);
             }
-            sb.append("at ").append(stackTraceElement).append('\n');
+            sb.append("at ");
+            sb.append(stackTraceElement);
+            sb.append('\n');
         }
         return sb.substring(0);
     }
 
-    private static void a(@NonNull ExceptionMessage exceptionMessage) {
+    public static void a(@NonNull ExceptionMessage exceptionMessage) {
         exceptionMessage.mVirtualApp = com.kwad.sdk.crash.d.a().d();
         exceptionMessage.mVersionCode = com.kwad.sdk.crash.d.a().e();
     }
 
     public static void a(ExceptionMessage exceptionMessage, int i) {
-        com.kwad.sdk.crash.f g = com.kwad.sdk.crash.d.a().g();
-        if (g == null) {
+        com.kwad.sdk.crash.f g2 = com.kwad.sdk.crash.d.a().g();
+        if (g2 == null) {
             com.kwad.sdk.core.d.a.a("tag", "getter is null!");
             return;
         }
-        com.kwad.sdk.crash.model.message.a a2 = g.a(i);
+        com.kwad.sdk.crash.model.message.a a2 = g2.a(i);
         if (a2 != null) {
             exceptionMessage.mCustomMsg = a2.toString();
         }
     }
 
-    private static void a(@NonNull ExceptionMessage exceptionMessage, @Nullable Context context) {
+    public static void a(@NonNull ExceptionMessage exceptionMessage, @Nullable Context context) {
         if (exceptionMessage instanceof JavaExceptionMessage) {
             if ("Unknown".equals(exceptionMessage.mThreadName)) {
                 exceptionMessage.mThreadName = Thread.currentThread().getName();
@@ -181,7 +190,7 @@ public final class f {
         exceptionMessage.mTaskId = a(context);
     }
 
-    private static void a(ExceptionMessage exceptionMessage, DiskInfo diskInfo, @Nullable Context context) {
+    public static void a(ExceptionMessage exceptionMessage, DiskInfo diskInfo, @Nullable Context context) {
         File externalStorageDirectory;
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
@@ -192,24 +201,27 @@ public final class f {
                 diskInfo.mExternalStorageTotalGB = BigDecimal.valueOf(((float) (statFs2.getTotalBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
                 diskInfo.mExternalStorageAvailableGB = BigDecimal.valueOf(((float) (statFs2.getAvailableBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
         exceptionMessage.mDiskInfo = diskInfo.toJson().toString();
     }
 
-    private static void a(ExceptionMessage exceptionMessage, MemoryInfo memoryInfo, @Nullable Context context) {
-        SystemUtil.a c = SystemUtil.c();
-        c.e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        c.f6393a = SystemUtil.a();
-        c.d = Debug.getPss();
-        memoryInfo.mTotalMB = (int) (c.f6393a / 1048576);
-        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f6375a / 1048576.0d);
-        memoryInfo.mJavaHeapMB = (int) (c.e / 1048576);
-        memoryInfo.mVssMB = (int) (c.b / 1024);
-        memoryInfo.mRssMB = (int) (c.c / 1024);
-        memoryInfo.mPssMB = (int) (c.d / 1024);
-        memoryInfo.mThreadsCount = c.f;
+    public static void a(ExceptionMessage exceptionMessage, MemoryInfo memoryInfo, @Nullable Context context) {
+        List<String> list;
+        String canonicalPath;
+        SystemUtil.a c2 = SystemUtil.c();
+        c2.f34487e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        c2.f34483a = SystemUtil.a();
+        long pss = Debug.getPss();
+        c2.f34486d = pss;
+        memoryInfo.mTotalMB = (int) (c2.f34483a / 1048576);
+        memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f34432a / 1048576.0d);
+        memoryInfo.mJavaHeapMB = (int) (c2.f34487e / 1048576);
+        memoryInfo.mVssMB = (int) (c2.f34484b / 1024);
+        memoryInfo.mRssMB = (int) (c2.f34485c / 1024);
+        memoryInfo.mPssMB = (int) (pss / 1024);
+        memoryInfo.mThreadsCount = c2.f34488f;
         memoryInfo.mFdCount = a();
         if (context != null) {
             memoryInfo.mAvailableMB = (int) (SystemUtil.b(context) / 1048576);
@@ -218,24 +230,27 @@ public final class f {
         if (memoryInfo.mFdCount > 800) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeFdOOM();
             exceptionMessage.mFdOverflow = "True";
-            File[] listFiles = f6396a.listFiles();
+            File[] listFiles = f34491a.listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
                     try {
                         if (Build.VERSION.SDK_INT >= 21) {
-                            memoryInfo.mFds.add(Os.readlink(file.getPath()));
+                            list = memoryInfo.mFds;
+                            canonicalPath = Os.readlink(file.getPath());
                         } else {
-                            memoryInfo.mFds.add(file.getCanonicalPath());
+                            list = memoryInfo.mFds;
+                            canonicalPath = file.getCanonicalPath();
                         }
-                    } catch (Exception e) {
-                        com.kwad.sdk.core.d.a.b(e);
+                        list.add(canonicalPath);
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.b(e2);
                     }
                 }
                 Collections.sort(memoryInfo.mFds);
             }
         }
         exceptionMessage.mThreadOverflow = "False";
-        if (c.f > 400) {
+        if (c2.f34488f > 400) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
             exceptionMessage.mThreadOverflow = "True";
             a(memoryInfo);
@@ -251,8 +266,8 @@ public final class f {
         exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
     }
 
-    private static void a(MemoryInfo memoryInfo) {
-        File[] listFiles = b.listFiles();
+    public static void a(MemoryInfo memoryInfo) {
+        File[] listFiles = f34492b.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -260,8 +275,8 @@ public final class f {
             ThreadInfo threadInfo = new ThreadInfo();
             try {
                 threadInfo.mName = h.a(new File(file, "comm"));
-            } catch (IOException e) {
-                com.kwad.sdk.core.d.a.b(e);
+            } catch (IOException e2) {
+                com.kwad.sdk.core.d.a.b(e2);
             }
             if (!TextUtils.isEmpty(threadInfo.mName)) {
                 threadInfo.mName = a(threadInfo.mName, "\n");
@@ -272,80 +287,73 @@ public final class f {
 
     public static void a(File file) {
         try {
-            c.a(SystemUtil.a(21) ? new String[]{"logcat", "-v", "threadtime", "-b", "main", "-b", "system", "-b", "events", "-b", "crash", "-d", "-f", file.getPath()} : new String[]{"logcat", "-v", "threadtime", "-b", "main", "-b", "system", "-b", "events", "-d", "-f", file.getPath()}, 0);
-        } catch (IOException e) {
-            com.kwad.sdk.core.d.a.b(e);
+            c.a(SystemUtil.a(21) ? new String[]{"logcat", "-v", "threadtime", "-b", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT, "-b", "system", "-b", "events", "-b", "crash", "-d", "-f", file.getPath()} : new String[]{"logcat", "-v", "threadtime", "-b", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT, "-b", "system", "-b", "events", "-d", "-f", file.getPath()}, 0);
+        } catch (IOException e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
     public static void a(File file, File file2) {
         BufferedReader bufferedReader;
-        Writer writer;
-        BufferedWriter bufferedWriter;
         try {
+            e(file);
+            e(file2);
+            BufferedWriter bufferedWriter = null;
             try {
-                e(file);
-                e(file2);
                 try {
                     bufferedReader = new BufferedReader(new FileReader(file));
-                } catch (FileNotFoundException e) {
-                    e = e;
-                    bufferedWriter = null;
-                    bufferedReader = null;
-                } catch (IOException e2) {
-                    e = e2;
-                    bufferedWriter = null;
-                    bufferedReader = null;
-                } catch (Throwable th) {
-                    th = th;
-                    writer = null;
-                    bufferedReader = null;
-                }
-            } catch (IOException e3) {
-                com.kwad.sdk.core.d.a.b(e3);
-                return;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-        }
-        try {
-            bufferedWriter = new BufferedWriter(new FileWriter(file2, true));
-            while (true) {
-                try {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        b.a((Writer) bufferedWriter);
-                        b.a((Reader) bufferedReader);
-                        return;
+                    try {
+                        BufferedWriter bufferedWriter2 = new BufferedWriter(new FileWriter(file2, true));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                bufferedWriter2.write(readLine);
+                                bufferedWriter2.newLine();
+                            } catch (FileNotFoundException e2) {
+                                e = e2;
+                                bufferedWriter = bufferedWriter2;
+                                com.kwad.sdk.core.d.a.b(e);
+                                b.a((Writer) bufferedWriter);
+                                b.a((Reader) bufferedReader);
+                            } catch (IOException e3) {
+                                e = e3;
+                                bufferedWriter = bufferedWriter2;
+                                com.kwad.sdk.core.d.a.b(e);
+                                b.a((Writer) bufferedWriter);
+                                b.a((Reader) bufferedReader);
+                            } catch (Throwable th) {
+                                th = th;
+                                bufferedWriter = bufferedWriter2;
+                                b.a((Writer) bufferedWriter);
+                                b.a((Reader) bufferedReader);
+                                throw th;
+                            }
+                        }
+                        b.a((Writer) bufferedWriter2);
+                    } catch (FileNotFoundException e4) {
+                        e = e4;
+                    } catch (IOException e5) {
+                        e = e5;
                     }
-                    bufferedWriter.write(readLine);
-                    bufferedWriter.newLine();
-                } catch (FileNotFoundException e4) {
-                    e = e4;
-                    com.kwad.sdk.core.d.a.b(e);
-                    b.a((Writer) bufferedWriter);
-                    b.a((Reader) bufferedReader);
-                    return;
-                } catch (IOException e5) {
-                    e = e5;
-                    com.kwad.sdk.core.d.a.b(e);
-                    b.a((Writer) bufferedWriter);
-                    b.a((Reader) bufferedReader);
-                    return;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
+            } catch (FileNotFoundException e6) {
+                e = e6;
+                bufferedReader = null;
+            } catch (IOException e7) {
+                e = e7;
+                bufferedReader = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedReader = null;
             }
-        } catch (FileNotFoundException e6) {
-            e = e6;
-            bufferedWriter = null;
-        } catch (IOException e7) {
-            e = e7;
-            bufferedWriter = null;
-        } catch (Throwable th3) {
-            th = th3;
-            writer = null;
-            b.a(writer);
             b.a((Reader) bufferedReader);
-            throw th;
+        } catch (IOException e8) {
+            com.kwad.sdk.core.d.a.b(e8);
         }
     }
 
@@ -360,11 +368,13 @@ public final class f {
     public static void a(File file, String str, Charset charset, boolean z) {
         FileOutputStream fileOutputStream = null;
         try {
-            fileOutputStream = g.a(file, z);
-            h.a(str, fileOutputStream, charset);
-            a(fileOutputStream);
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+            try {
+                fileOutputStream = g.a(file, z);
+                h.a(str, fileOutputStream, charset);
+                a(fileOutputStream);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.b(e2);
+            }
         } finally {
             b.a((OutputStream) fileOutputStream);
         }
@@ -394,8 +404,9 @@ public final class f {
         if (fileOutputStream != null) {
             try {
                 fileOutputStream.getFD().sync();
-            } catch (IOException e) {
-                com.kwad.sdk.core.d.a.b(e);
+                return true;
+            } catch (IOException e2) {
+                com.kwad.sdk.core.d.a.b(e2);
                 return false;
             }
         }
@@ -409,49 +420,52 @@ public final class f {
                 return file.length();
             }
             return -1L;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return -1L;
         }
     }
 
-    private static String b(Context context) {
+    public static String b(Context context) {
         StringBuilder sb = new StringBuilder();
         try {
             sb.append("BuildConfig Version Name: 3.3.9\n");
             sb.append("PackageInfo CodePath: " + context.getPackageCodePath() + "\n");
             sb.append("PackageInfo ResPath: " + context.getPackageResourcePath() + "\n");
             sb.append("DexPath: " + c(context) + "\n");
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
         return sb.toString();
     }
 
-    private static void b(@NonNull ExceptionMessage exceptionMessage, @Nullable Context context) {
+    public static void b(@NonNull ExceptionMessage exceptionMessage, @Nullable Context context) {
         String absolutePath;
+        String group;
         if (context == null) {
             return;
         }
         File parentFile = context.getCacheDir().getParentFile().getParentFile().getParentFile();
         try {
             absolutePath = parentFile.getCanonicalPath();
-        } catch (IOException e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (IOException e2) {
+            com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f34433b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f34434c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f34435d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f34436e.matcher(absolutePath);
         if (matcher.matches()) {
-            exceptionMessage.mVirtualApp = matcher.group(1);
-        } else if (matcher2.matches()) {
-            exceptionMessage.mVirtualApp = matcher2.group(1);
-        } else {
+            group = matcher.group(1);
+        } else if (!matcher2.matches()) {
             exceptionMessage.mVirtualApp = absolutePath;
+            return;
+        } else {
+            group = matcher2.group(1);
         }
+        exceptionMessage.mVirtualApp = group;
     }
 
     public static void b(File file) {
@@ -460,18 +474,18 @@ public final class f {
         }
         try {
             g.c(file);
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
-    private static void b(Throwable th, ExceptionMessage exceptionMessage) {
+    public static void b(Throwable th, ExceptionMessage exceptionMessage) {
         if (b(th) && exceptionMessage.mCrashType.equals(exceptionMessage.getTypeCommon())) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeHeapOOM();
         }
     }
 
-    private static boolean b(@Nullable Throwable th) {
+    public static boolean b(@Nullable Throwable th) {
         if (th == null) {
             return false;
         }
@@ -481,17 +495,29 @@ public final class f {
         return th instanceof OutOfMemoryError;
     }
 
-    private static String c(Context context) {
+    public static String c(Context context) {
         StringBuilder sb = new StringBuilder();
         ClassLoader classLoader = context.getClassLoader();
-        int i = 0;
         if (classLoader != null) {
             String obj = classLoader.toString();
-            sb.append("ClassLoader 0 : " + obj);
-            while (classLoader.getParent() != null) {
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append("ClassLoader ");
+            int i = 0;
+            sb2.append(0);
+            sb2.append(ZeusCrashHandler.NAME_SEPERATOR);
+            sb2.append(obj);
+            while (true) {
+                sb.append(sb2.toString());
+                if (classLoader.getParent() == null) {
+                    break;
+                }
                 classLoader = classLoader.getParent();
                 i++;
-                sb.append("\nClassLoader " + i + " : " + classLoader.toString());
+                sb2 = new StringBuilder();
+                sb2.append("\nClassLoader ");
+                sb2.append(i);
+                sb2.append(ZeusCrashHandler.NAME_SEPERATOR);
+                sb2.append(classLoader.toString());
             }
             if (obj != null) {
                 String[] split = obj.split("\"");
@@ -511,67 +537,58 @@ public final class f {
         ArrayList<String> arrayList = new ArrayList(hashSet);
         StringBuilder sb = new StringBuilder();
         for (String str3 : arrayList) {
-            sb.append(str3).append("\n");
+            sb.append(str3);
+            sb.append("\n");
         }
         return sb.substring(0);
     }
 
     public static void c(File file) {
         BufferedWriter bufferedWriter;
-        BufferedWriter bufferedWriter2;
         try {
             e(file);
-            BufferedWriter bufferedWriter3 = null;
+            BufferedWriter bufferedWriter2 = null;
             try {
                 try {
-                    bufferedWriter2 = new BufferedWriter(new FileWriter(file, true));
-                    try {
-                        for (Map.Entry<Thread, StackTraceElement[]> entry : Thread.getAllStackTraces().entrySet()) {
-                            String a2 = a(entry.getValue());
-                            if (a2.isEmpty()) {
-                                a2 = "(no managed stack frames)\n";
-                            }
-                            bufferedWriter2.write(entry.getKey().getName());
-                            bufferedWriter2.newLine();
-                            bufferedWriter2.write(a2);
-                            bufferedWriter2.newLine();
-                        }
-                        b.a((Writer) bufferedWriter2);
-                    } catch (FileNotFoundException e) {
-                        e = e;
-                        bufferedWriter3 = bufferedWriter2;
-                        try {
-                            com.kwad.sdk.core.d.a.b(e);
-                            b.a((Writer) bufferedWriter3);
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedWriter = bufferedWriter3;
-                            b.a((Writer) bufferedWriter);
-                            throw th;
-                        }
-                    } catch (IOException e2) {
-                        e = e2;
-                        com.kwad.sdk.core.d.a.b(e);
-                        b.a((Writer) bufferedWriter2);
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    b.a((Writer) bufferedWriter);
-                    throw th;
+                    bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+                } catch (Throwable th) {
+                    th = th;
                 }
-            } catch (FileNotFoundException e3) {
+            } catch (FileNotFoundException e2) {
+                e = e2;
+            } catch (IOException e3) {
                 e = e3;
-            } catch (IOException e4) {
-                e = e4;
-                bufferedWriter2 = null;
-            } catch (Throwable th3) {
-                th = th3;
-                bufferedWriter = null;
+            }
+            try {
+                for (Map.Entry<Thread, StackTraceElement[]> entry : Thread.getAllStackTraces().entrySet()) {
+                    String a2 = a(entry.getValue());
+                    if (a2.isEmpty()) {
+                        a2 = "(no managed stack frames)\n";
+                    }
+                    bufferedWriter.write(entry.getKey().getName());
+                    bufferedWriter.newLine();
+                    bufferedWriter.write(a2);
+                    bufferedWriter.newLine();
+                }
                 b.a((Writer) bufferedWriter);
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                bufferedWriter2 = bufferedWriter;
+                com.kwad.sdk.core.d.a.b(e);
+                b.a((Writer) bufferedWriter2);
+            } catch (IOException e5) {
+                e = e5;
+                bufferedWriter2 = bufferedWriter;
+                com.kwad.sdk.core.d.a.b(e);
+                b.a((Writer) bufferedWriter2);
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedWriter2 = bufferedWriter;
+                b.a((Writer) bufferedWriter2);
                 throw th;
             }
-        } catch (IOException e5) {
-            com.kwad.sdk.core.d.a.b(e5);
+        } catch (IOException e6) {
+            com.kwad.sdk.core.d.a.b(e6);
         }
     }
 
@@ -580,28 +597,30 @@ public final class f {
             Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
             Debug.getMemoryInfo(memoryInfo);
             Object a2 = n.a(n.a("android.app.ActivityThread", "currentActivityThread", new Object[0]), "mAppThread");
-            Object open = ParcelFileDescriptor.open(file, 1006632960);
+            ParcelFileDescriptor open = ParcelFileDescriptor.open(file, 1006632960);
+            FileDescriptor fileDescriptor = open;
             if (!SystemUtil.a(26)) {
-                open = ((ParcelFileDescriptor) open).getFileDescriptor();
+                fileDescriptor = open.getFileDescriptor();
             }
             if (SystemUtil.a(24)) {
-                n.a(a2, "dumpMemInfo", open, memoryInfo, false, true, true, false, false, new String[0]);
+                n.a(a2, "dumpMemInfo", fileDescriptor, memoryInfo, Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE, Boolean.FALSE, new String[0]);
             } else if (SystemUtil.a(23)) {
-                n.a(a2, "dumpMemInfo", open, memoryInfo, false, true, true, false, new String[0]);
+                n.a(a2, "dumpMemInfo", fileDescriptor, memoryInfo, Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE, new String[0]);
             } else if (SystemUtil.a(19)) {
-                n.a(a2, "dumpMemInfo", open, memoryInfo, false, true, true, new String[0]);
+                n.a(a2, "dumpMemInfo", fileDescriptor, memoryInfo, Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, new String[0]);
             }
-            Object open2 = ParcelFileDescriptor.open(file, 973078528);
+            ParcelFileDescriptor open2 = ParcelFileDescriptor.open(file, 973078528);
+            FileDescriptor fileDescriptor2 = open2;
             if (!SystemUtil.a(26)) {
-                open2 = ((ParcelFileDescriptor) open2).getFileDescriptor();
+                fileDescriptor2 = open2.getFileDescriptor();
             }
-            n.a(a2, "dumpGfxInfo", open2, new String[]{SystemUtil.a(com.kwad.sdk.crash.d.a().f())});
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+            n.a(a2, "dumpGfxInfo", fileDescriptor2, new String[]{SystemUtil.a(com.kwad.sdk.crash.d.a().f())});
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
-    private static void e(File file) {
+    public static void e(File file) {
         if (file.exists()) {
             if (file.isDirectory()) {
                 throw new IOException("File '" + file + "' exists but is a directory");
@@ -612,9 +631,10 @@ public final class f {
         if (parentFile == null) {
             throw new IOException("Could not find parent directory");
         }
-        if (!parentFile.mkdirs() && !parentFile.isDirectory()) {
-            throw new IOException("Directory '" + parentFile + "' could not be created");
+        if (parentFile.mkdirs() || parentFile.isDirectory()) {
+            file.createNewFile();
+            return;
         }
-        file.createNewFile();
+        throw new IOException("Directory '" + parentFile + "' could not be created");
     }
 }

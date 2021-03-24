@@ -4,71 +4,74 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static volatile a c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile a f32476c;
 
     /* renamed from: a  reason: collision with root package name */
-    private List<AdTemplate> f5724a;
-    private List<AdTemplate> b;
+    public List<AdTemplate> f32477a;
 
-    private a() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public List<AdTemplate> f32478b;
 
     public static a a() {
-        if (c == null) {
+        if (f32476c == null) {
             synchronized (a.class) {
-                if (c == null) {
-                    c = new a();
+                if (f32476c == null) {
+                    f32476c = new a();
                 }
             }
         }
-        return c;
+        return f32476c;
     }
 
     public void a(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.f5724a == null) {
-            this.f5724a = new ArrayList();
+        if (this.f32477a == null) {
+            this.f32477a = new ArrayList();
         }
-        this.f5724a.clear();
-        this.f5724a.addAll(list);
+        this.f32477a.clear();
+        this.f32477a.addAll(list);
     }
 
     @Nullable
     public List<AdTemplate> b() {
-        return this.f5724a;
+        return this.f32477a;
     }
 
     public void b(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.b == null) {
-            this.b = new ArrayList();
+        if (this.f32478b == null) {
+            this.f32478b = new ArrayList();
         }
-        this.b.clear();
-        this.b.addAll(list);
+        this.f32478b.clear();
+        this.f32478b.addAll(list);
     }
 
     public void c() {
-        if (this.f5724a != null) {
-            this.f5724a.clear();
+        List<AdTemplate> list = this.f32477a;
+        if (list != null) {
+            list.clear();
         }
-        this.f5724a = null;
+        this.f32477a = null;
     }
 
     @Nullable
     public List<AdTemplate> d() {
-        return this.b;
+        return this.f32478b;
     }
 
     public void e() {
-        if (this.b != null) {
-            this.b.clear();
+        List<AdTemplate> list = this.f32478b;
+        if (list != null) {
+            list.clear();
         }
-        this.b = null;
+        this.f32478b = null;
     }
 }

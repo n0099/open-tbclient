@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TubeInfo implements b, Serializable {
-    private static final long serialVersionUID = 4200733339719277993L;
+    public static final long serialVersionUID = 4200733339719277993L;
     public long authorId;
     public String authorName;
     public boolean isFinished;
@@ -40,8 +40,8 @@ public class TubeInfo implements b, Serializable {
                     }
                 }
             }
-        } catch (Exception e) {
-            a.a(e);
+        } catch (Exception e2) {
+            a.a(e2);
         }
         this.totalEpisodeCount = jSONObject.optInt("totalEpisodeCount", -1);
         this.isFinished = jSONObject.optBoolean("isFinished", false);

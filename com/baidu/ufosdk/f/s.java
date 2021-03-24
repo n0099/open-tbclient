@@ -1,7 +1,7 @@
 package com.baidu.ufosdk.f;
 
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class s {
     public static String a(String str) {
         if (com.baidu.ufosdk.b.ab == null) {

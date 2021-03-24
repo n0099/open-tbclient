@@ -6,7 +6,7 @@ import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.crash.report.ReportEvent;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
     public void a(final List<ReportEvent> list) {
         if (list == null || list.size() <= 0) {
@@ -14,7 +14,6 @@ public class b {
         }
         new i<a, CrashReportResult>() { // from class: com.kwad.sdk.crash.report.request.b.1
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwad.sdk.core.network.i
             @NonNull
             /* renamed from: a */
@@ -26,7 +25,6 @@ public class b {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwad.sdk.core.network.a
             @NonNull
             /* renamed from: c */

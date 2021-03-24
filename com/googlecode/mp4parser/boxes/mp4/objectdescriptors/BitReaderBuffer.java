@@ -1,37 +1,15 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BitReaderBuffer {
-    private ByteBuffer buffer;
-    int initialPos;
-    int position;
+    public ByteBuffer buffer;
+    public int initialPos;
+    public int position;
 
     public BitReaderBuffer(ByteBuffer byteBuffer) {
         this.buffer = byteBuffer;
         this.initialPos = byteBuffer.position();
-    }
-
-    public int readBits(int i) {
-        int readBits;
-        int i2 = this.buffer.get(this.initialPos + (this.position / 8));
-        if (i2 < 0) {
-            i2 += 256;
-        }
-        int i3 = 8 - (this.position % 8);
-        if (i <= i3) {
-            readBits = ((i2 << (this.position % 8)) & 255) >> ((i3 - i) + (this.position % 8));
-            this.position += i;
-        } else {
-            int i4 = i - i3;
-            readBits = readBits(i4) + (readBits(i3) << i4);
-        }
-        this.buffer.position(this.initialPos + ((int) Math.ceil(this.position / 8.0d)));
-        return readBits;
-    }
-
-    public int getPosition() {
-        return this.position;
     }
 
     public int byteSync() {
@@ -41,6 +19,33 @@ public class BitReaderBuffer {
         }
         readBits(i);
         return i;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public int readBits(int i) {
+        int readBits;
+        int i2 = this.buffer.get(this.initialPos + (this.position / 8));
+        if (i2 < 0) {
+            i2 += 256;
+        }
+        int i3 = this.position;
+        int i4 = 8 - (i3 % 8);
+        if (i <= i4) {
+            readBits = ((i2 << (i3 % 8)) & 255) >> ((i3 % 8) + (i4 - i));
+            this.position = i3 + i;
+        } else {
+            int i5 = i - i4;
+            readBits = (readBits(i4) << i5) + readBits(i5);
+        }
+        ByteBuffer byteBuffer = this.buffer;
+        int i6 = this.initialPos;
+        double d2 = this.position;
+        Double.isNaN(d2);
+        byteBuffer.position(i6 + ((int) Math.ceil(d2 / 8.0d)));
+        return readBits;
     }
 
     public int remainingBits() {

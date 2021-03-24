@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends RecyclerView {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6215a;
+    public boolean f33944a;
 
     public g(Context context) {
         super(context);
@@ -23,17 +23,13 @@ public class g extends RecyclerView {
         super(context, attributeSet, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup
     public void removeDetachedView(View view, boolean z) {
-        if (this.f6215a) {
-            super.removeDetachedView(view, z);
-        } else {
-            super.removeDetachedView(view, z);
-        }
+        boolean z2 = this.f33944a;
+        super.removeDetachedView(view, z);
     }
 
     public void setIngoreTmpDetachedFlag(boolean z) {
-        this.f6215a = z;
+        this.f33944a = z;
     }
 }

@@ -3,22 +3,19 @@ package com.baidu.webkit.internal.resource;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import java.lang.ref.WeakReference;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ResourceSchedulerEngine implements INoProGuard {
-    private static final String LOG_TAG = "ResourceTaskSchedulerEngine";
-    private static ResourceSchedulerEngine sIntance;
-    private WeakReference<IResourceScheduler> mZeusResourceScheduler;
+    public static final String LOG_TAG = "ResourceTaskSchedulerEngine";
+    public static ResourceSchedulerEngine sIntance;
+    public WeakReference<IResourceScheduler> mZeusResourceScheduler;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface IResourceScheduler extends INoProGuard {
         void fetchIntegrationInfoFromServer();
 
         void registTaskAndListener(IResourceTask iResourceTask, IResouceNetTaskListener iResouceNetTaskListener);
 
         void unregistTaskAndListener(IResourceTask iResourceTask);
-    }
-
-    private ResourceSchedulerEngine() {
     }
 
     public static ResourceSchedulerEngine getInstance() {
@@ -31,7 +28,8 @@ public class ResourceSchedulerEngine implements INoProGuard {
     }
 
     public boolean fetchIntegrationInfoFromServer() {
-        if (this.mZeusResourceScheduler == null || this.mZeusResourceScheduler.get() == null) {
+        WeakReference<IResourceScheduler> weakReference = this.mZeusResourceScheduler;
+        if (weakReference == null || weakReference.get() == null) {
             return false;
         }
         this.mZeusResourceScheduler.get().fetchIntegrationInfoFromServer();
@@ -40,7 +38,8 @@ public class ResourceSchedulerEngine implements INoProGuard {
     }
 
     public boolean registTaskAndListener(IResourceTask iResourceTask, IResouceNetTaskListener iResouceNetTaskListener) {
-        if (this.mZeusResourceScheduler == null || this.mZeusResourceScheduler.get() == null) {
+        WeakReference<IResourceScheduler> weakReference = this.mZeusResourceScheduler;
+        if (weakReference == null || weakReference.get() == null) {
             return false;
         }
         this.mZeusResourceScheduler.get().registTaskAndListener(iResourceTask, iResouceNetTaskListener);
@@ -61,7 +60,8 @@ public class ResourceSchedulerEngine implements INoProGuard {
     }
 
     public boolean unregistTaskAndListener(IResourceTask iResourceTask) {
-        if (this.mZeusResourceScheduler == null || this.mZeusResourceScheduler.get() == null) {
+        WeakReference<IResourceScheduler> weakReference = this.mZeusResourceScheduler;
+        if (weakReference == null || weakReference.get() == null) {
             return false;
         }
         this.mZeusResourceScheduler.get().unregistTaskAndListener(iResourceTask);

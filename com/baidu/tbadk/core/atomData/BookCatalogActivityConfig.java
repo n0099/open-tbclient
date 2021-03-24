@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class BookCatalogActivityConfig extends IntentConfig {
     public static final String BOOK_ID = "book_id";
     public static final String BOOK_NAME = "book_name";

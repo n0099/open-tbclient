@@ -4,43 +4,74 @@ import android.animation.LayoutTransition;
 import android.util.Log;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
-class ViewGroupUtilsApi14 {
-    private static final int LAYOUT_TRANSITION_CHANGING = 4;
-    private static final String TAG = "ViewGroupUtilsApi14";
-    private static Method sCancelMethod;
-    private static boolean sCancelMethodFetched;
-    private static LayoutTransition sEmptyLayoutTransition;
-    private static Field sLayoutSuppressedField;
-    private static boolean sLayoutSuppressedFieldFetched;
+/* loaded from: classes.dex */
+public class ViewGroupUtilsApi14 {
+    public static final int LAYOUT_TRANSITION_CHANGING = 4;
+    public static final String TAG = "ViewGroupUtilsApi14";
+    public static Method sCancelMethod;
+    public static boolean sCancelMethodFetched;
+    public static LayoutTransition sEmptyLayoutTransition;
+    public static Field sLayoutSuppressedField;
+    public static boolean sLayoutSuppressedFieldFetched;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void cancelLayoutTransition(LayoutTransition layoutTransition) {
+        if (!sCancelMethodFetched) {
+            try {
+                Method declaredMethod = LayoutTransition.class.getDeclaredMethod(QueryResponse.Options.CANCEL, new Class[0]);
+                sCancelMethod = declaredMethod;
+                declaredMethod.setAccessible(true);
+            } catch (NoSuchMethodException unused) {
+                Log.i(TAG, "Failed to access cancel method by reflection");
+            }
+            sCancelMethodFetched = true;
+        }
+        Method method = sCancelMethod;
+        if (method != null) {
+            try {
+                method.invoke(layoutTransition, new Object[0]);
+            } catch (IllegalAccessException unused2) {
+                Log.i(TAG, "Failed to access cancel method by reflection");
+            } catch (InvocationTargetException unused3) {
+                Log.i(TAG, "Failed to invoke cancel method by reflection");
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0081  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x008e  */
+    /* JADX WARN: Removed duplicated region for block: B:44:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void suppressLayout(@NonNull ViewGroup viewGroup, boolean z) {
+        LayoutTransition layoutTransition;
         boolean z2 = false;
         if (sEmptyLayoutTransition == null) {
-            sEmptyLayoutTransition = new LayoutTransition() { // from class: androidx.transition.ViewGroupUtilsApi14.1
+            LayoutTransition layoutTransition2 = new LayoutTransition() { // from class: androidx.transition.ViewGroupUtilsApi14.1
                 @Override // android.animation.LayoutTransition
                 public boolean isChangingLayout() {
                     return true;
                 }
             };
-            sEmptyLayoutTransition.setAnimator(2, null);
+            sEmptyLayoutTransition = layoutTransition2;
+            layoutTransition2.setAnimator(2, null);
             sEmptyLayoutTransition.setAnimator(0, null);
             sEmptyLayoutTransition.setAnimator(1, null);
             sEmptyLayoutTransition.setAnimator(3, null);
             sEmptyLayoutTransition.setAnimator(4, null);
         }
         if (z) {
-            LayoutTransition layoutTransition = viewGroup.getLayoutTransition();
-            if (layoutTransition != null) {
-                if (layoutTransition.isRunning()) {
-                    cancelLayoutTransition(layoutTransition);
+            LayoutTransition layoutTransition3 = viewGroup.getLayoutTransition();
+            if (layoutTransition3 != null) {
+                if (layoutTransition3.isRunning()) {
+                    cancelLayoutTransition(layoutTransition3);
                 }
-                if (layoutTransition != sEmptyLayoutTransition) {
-                    viewGroup.setTag(R.id.transition_layout_save, layoutTransition);
+                if (layoutTransition3 != sEmptyLayoutTransition) {
+                    viewGroup.setTag(R.id.transition_layout_save, layoutTransition3);
                 }
             }
             viewGroup.setLayoutTransition(sEmptyLayoutTransition);
@@ -49,54 +80,42 @@ class ViewGroupUtilsApi14 {
         viewGroup.setLayoutTransition(null);
         if (!sLayoutSuppressedFieldFetched) {
             try {
-                sLayoutSuppressedField = ViewGroup.class.getDeclaredField("mLayoutSuppressed");
-                sLayoutSuppressedField.setAccessible(true);
-            } catch (NoSuchFieldException e) {
+                Field declaredField = ViewGroup.class.getDeclaredField("mLayoutSuppressed");
+                sLayoutSuppressedField = declaredField;
+                declaredField.setAccessible(true);
+            } catch (NoSuchFieldException unused) {
                 Log.i(TAG, "Failed to access mLayoutSuppressed field by reflection");
             }
             sLayoutSuppressedFieldFetched = true;
         }
-        if (sLayoutSuppressedField != null) {
+        Field field = sLayoutSuppressedField;
+        if (field != null) {
             try {
-                z2 = sLayoutSuppressedField.getBoolean(viewGroup);
-                if (z2) {
-                    sLayoutSuppressedField.setBoolean(viewGroup, false);
+                boolean z3 = field.getBoolean(viewGroup);
+                if (z3) {
+                    try {
+                        sLayoutSuppressedField.setBoolean(viewGroup, false);
+                    } catch (IllegalAccessException unused2) {
+                        z2 = z3;
+                        Log.i(TAG, "Failed to get mLayoutSuppressed field by reflection");
+                        if (z2) {
+                        }
+                        layoutTransition = (LayoutTransition) viewGroup.getTag(R.id.transition_layout_save);
+                        if (layoutTransition == null) {
+                        }
+                    }
                 }
-            } catch (IllegalAccessException e2) {
-                Log.i(TAG, "Failed to get mLayoutSuppressed field by reflection");
+                z2 = z3;
+            } catch (IllegalAccessException unused3) {
             }
         }
         if (z2) {
             viewGroup.requestLayout();
         }
-        LayoutTransition layoutTransition2 = (LayoutTransition) viewGroup.getTag(R.id.transition_layout_save);
-        if (layoutTransition2 != null) {
+        layoutTransition = (LayoutTransition) viewGroup.getTag(R.id.transition_layout_save);
+        if (layoutTransition == null) {
             viewGroup.setTag(R.id.transition_layout_save, null);
-            viewGroup.setLayoutTransition(layoutTransition2);
+            viewGroup.setLayoutTransition(layoutTransition);
         }
-    }
-
-    private static void cancelLayoutTransition(LayoutTransition layoutTransition) {
-        if (!sCancelMethodFetched) {
-            try {
-                sCancelMethod = LayoutTransition.class.getDeclaredMethod("cancel", new Class[0]);
-                sCancelMethod.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                Log.i(TAG, "Failed to access cancel method by reflection");
-            }
-            sCancelMethodFetched = true;
-        }
-        if (sCancelMethod != null) {
-            try {
-                sCancelMethod.invoke(layoutTransition, new Object[0]);
-            } catch (IllegalAccessException e2) {
-                Log.i(TAG, "Failed to access cancel method by reflection");
-            } catch (InvocationTargetException e3) {
-                Log.i(TAG, "Failed to invoke cancel method by reflection");
-            }
-        }
-    }
-
-    private ViewGroupUtilsApi14() {
     }
 }

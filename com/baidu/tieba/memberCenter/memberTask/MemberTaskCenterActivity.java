@@ -5,238 +5,305 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.j;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.index.a.r;
-import com.baidu.tieba.memberCenter.memberTask.a;
-import com.baidu.tieba.memberCenter.memberTask.c;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
+import d.b.b.e.p.j;
+import d.b.h0.r.s.a;
+import d.b.i0.q1.c.b.r;
+import d.b.i0.q1.e.a;
+import d.b.i0.q1.e.c;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.GetMemberTaskList.ImgInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActivity> {
-    private String aIQ;
-    private String imageUrl;
-    private c lqg;
-    private d lqh;
-    private a lqi;
-    private int type;
-    private boolean lqj = false;
-    private a.InterfaceC0799a lqk = new a.InterfaceC0799a() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.1
-        @Override // com.baidu.tieba.memberCenter.memberTask.a.InterfaceC0799a
+    public String imageUrl;
+    public String jumpUrl;
+    public d.b.i0.q1.e.a mFinishMemberTaskModel;
+    public d.b.i0.q1.e.c mModel;
+    public d.b.i0.q1.e.d mView;
+    public int type;
+    public boolean isFromH5 = false;
+    public a.b mFinishMemberTaskCallbak = new a();
+    public c.b mTaskLoadCallback = new b();
+    public View.OnClickListener mCommenClickListener = new c();
+
+    /* loaded from: classes3.dex */
+    public class a implements a.b {
+        public a() {
+        }
+
+        @Override // d.b.i0.q1.e.a.b
         public void a(int i, String str, int i2, int i3, long j) {
-            if (i == 0 && MemberTaskCenterActivity.this.lqh != null) {
-                MemberTaskCenterActivity.this.Ex(i3);
+            if (i == 0 && MemberTaskCenterActivity.this.mView != null) {
+                MemberTaskCenterActivity.this.showGetScoresSuccessDialog(i3);
                 r rVar = new r();
-                rVar.setTaskId(j);
+                rVar.i(j);
                 if (MemberTaskCenterActivity.this.type == 1 && i2 == 2) {
-                    MemberTaskCenterActivity.this.lqg.hj(MemberTaskCenterActivity.this.lqg.dfy() + i3);
+                    MemberTaskCenterActivity.this.mModel.l(MemberTaskCenterActivity.this.mModel.h() + i3);
                 }
                 if (MemberTaskCenterActivity.this.type == 2) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMBER_CENTER_UPDATE_ACTIVE_SCORES, Integer.valueOf(i3)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016498, Integer.valueOf(i3)));
                 }
                 if (i2 >= 1) {
                     i2 = 1;
                 }
-                rVar.Ew(i2);
-                MemberTaskCenterActivity.this.a(rVar, i3);
+                rVar.h(i2);
+                MemberTaskCenterActivity.this.refreshDataWithScores(rVar, i3);
                 if (MemberTaskCenterActivity.this.type == 2) {
-                    TiebaStatic.log(new ar("c11744"));
+                    TiebaStatic.log(new StatisticItem("c11744"));
                 }
                 if (MemberTaskCenterActivity.this.type == 1) {
-                    TiebaStatic.log(new ar("c11745"));
+                    TiebaStatic.log(new StatisticItem("c11745"));
                 }
             }
         }
-    };
-    private c.a lql = new c.a() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.2
-        @Override // com.baidu.tieba.memberCenter.memberTask.c.a
-        public void bJ(int i, String str) {
-            MemberTaskCenterActivity.this.lqh.getListView().setVisibility(8);
-            MemberTaskCenterActivity.this.hideLoadingView(MemberTaskCenterActivity.this.lqh.getRootView());
-            MemberTaskCenterActivity.this.showNetRefreshView(MemberTaskCenterActivity.this.lqh.getRootView(), str, true);
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements c.b {
+        public b() {
+        }
+
+        @Override // d.b.i0.q1.e.c.b
+        public void a(int i, String str) {
+            MemberTaskCenterActivity.this.mView.b().setVisibility(8);
+            MemberTaskCenterActivity memberTaskCenterActivity = MemberTaskCenterActivity.this;
+            memberTaskCenterActivity.hideLoadingView(memberTaskCenterActivity.mView.c());
+            MemberTaskCenterActivity memberTaskCenterActivity2 = MemberTaskCenterActivity.this;
+            memberTaskCenterActivity2.showNetRefreshView(memberTaskCenterActivity2.mView.c(), str, true);
             MemberTaskCenterActivity.this.setNetRefreshViewEmotionDefMarginTop();
         }
 
-        @Override // com.baidu.tieba.memberCenter.memberTask.c.a
-        public void a(List<ImgInfo> list, List<r> list2, long j) {
-            MemberTaskCenterActivity.this.lqh.getListView().setVisibility(0);
-            MemberTaskCenterActivity.this.hideNetRefreshView(MemberTaskCenterActivity.this.lqh.getRootView());
-            MemberTaskCenterActivity.this.hideLoadingView(MemberTaskCenterActivity.this.lqh.getRootView());
+        @Override // d.b.i0.q1.e.c.b
+        public void b(List<ImgInfo> list, List<r> list2, long j) {
+            MemberTaskCenterActivity.this.mView.b().setVisibility(0);
+            MemberTaskCenterActivity memberTaskCenterActivity = MemberTaskCenterActivity.this;
+            memberTaskCenterActivity.hideNetRefreshView(memberTaskCenterActivity.mView.c());
+            MemberTaskCenterActivity memberTaskCenterActivity2 = MemberTaskCenterActivity.this;
+            memberTaskCenterActivity2.hideLoadingView(memberTaskCenterActivity2.mView.c());
             if (list != null && list.size() >= 1 && list.get(0) != null) {
-                MemberTaskCenterActivity.this.aIQ = list.get(0).jump_url;
+                MemberTaskCenterActivity.this.jumpUrl = list.get(0).jump_url;
                 MemberTaskCenterActivity.this.imageUrl = list.get(0).img_url;
             }
-            MemberTaskCenterActivity.this.lqh.a(MemberTaskCenterActivity.this.imageUrl, list2, j);
+            MemberTaskCenterActivity.this.mView.e(MemberTaskCenterActivity.this.imageUrl, list2, j);
         }
-    };
-    private View.OnClickListener jXv = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.3
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (view != null) {
-                if (view.getId() == R.id.advert_image_view) {
-                    MemberCenterStatic.c(MemberTaskCenterActivity.this.getPageContext(), new String[]{MemberTaskCenterActivity.this.aIQ});
-                    MemberTaskCenterActivity.this.lqj = true;
-                    TiebaStatic.log(new ar("c11747"));
-                } else if (view.getId() == R.id.task_status && (view.getTag() instanceof r)) {
-                    r rVar = (r) view.getTag();
-                    if (!TbadkCoreApplication.isLogin()) {
-                        bh.skipToLoginActivity(MemberTaskCenterActivity.this.getPageContext().getPageActivity());
-                    } else if (rVar.getType() == 2) {
-                        MemberTaskCenterActivity.this.type = 2;
-                        MemberTaskCenterActivity.this.a(rVar);
-                    } else if (rVar.getType() == 1) {
-                        MemberTaskCenterActivity.this.type = 1;
-                        if (MemberTaskCenterActivity.this.lqi != null) {
-                            MemberTaskCenterActivity.this.lqi.z(rVar.getId(), rVar.dfw());
-                        }
-                    }
-                }
-            }
-        }
-    };
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.lqh = new d(this, this.jXv);
-        this.lqg = new c();
-        this.lqg.a(this.lql);
-        this.lqi = new a();
-        this.lqi.a(this.lqk);
-        this.lqg.loadData();
-        showLoadingView(this.lqh.getRootView());
     }
 
-    public void a(r rVar, int i) {
-        List<r> taskList;
-        if (rVar != null && i > 0) {
-            if (this.lqg.getTaskList() != null && (taskList = this.lqg.getTaskList()) != null && taskList.size() > 0) {
-                Iterator<r> it = taskList.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    r next = it.next();
-                    if (next != null && next.getId() == rVar.getId()) {
-                        next.Ew(rVar.getStatus());
-                        break;
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+        public c() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (view == null) {
+                return;
+            }
+            if (view.getId() == R.id.advert_image_view) {
+                MemberCenterStatic.a(MemberTaskCenterActivity.this.getPageContext(), new String[]{MemberTaskCenterActivity.this.jumpUrl});
+                MemberTaskCenterActivity.this.isFromH5 = true;
+                TiebaStatic.log(new StatisticItem("c11747"));
+            } else if (view.getId() == R.id.task_status && (view.getTag() instanceof r)) {
+                r rVar = (r) view.getTag();
+                if (!TbadkCoreApplication.isLogin()) {
+                    ViewHelper.skipToLoginActivity(MemberTaskCenterActivity.this.getPageContext().getPageActivity());
+                } else if (rVar.g() == 2) {
+                    MemberTaskCenterActivity.this.type = 2;
+                    MemberTaskCenterActivity.this.showDialog(rVar);
+                } else if (rVar.g() == 1) {
+                    MemberTaskCenterActivity.this.type = 1;
+                    if (MemberTaskCenterActivity.this.mFinishMemberTaskModel != null) {
+                        MemberTaskCenterActivity.this.mFinishMemberTaskModel.f(rVar.c(), rVar.a());
                     }
                 }
             }
-            this.lqh.a(this.imageUrl, this.lqg.getTaskList(), this.lqg.dfy());
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.b.h0.r.s.a f18950e;
+
+        public d(d.b.h0.r.s.a aVar) {
+            this.f18950e = aVar;
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            this.f18950e.dismiss();
+            ViewHelper.skipToLoginActivity(MemberTaskCenterActivity.this.getPageContext().getPageActivity());
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.b.h0.r.s.a f18952e;
+
+        public e(d.b.h0.r.s.a aVar) {
+            this.f18952e = aVar;
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            this.f18952e.dismiss();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.b.h0.r.s.a f18954e;
+
+        public f(d.b.h0.r.s.a aVar) {
+            this.f18954e = aVar;
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            this.f18954e.dismiss();
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(MemberTaskCenterActivity.this.getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 0);
+            memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MISSION_CENTER_NATIVE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class g implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.b.h0.r.s.a f18956e;
+
+        public g(d.b.h0.r.s.a aVar) {
+            this.f18956e = aVar;
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            this.f18956e.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ex(int i) {
-        if (i > 0) {
-            if (this.type != 1) {
-                if (this.type == 2) {
-                    showToast(String.format(getResources().getString(R.string.tips_get_scores_success), Integer.valueOf(i)));
-                    return;
-                }
-                return;
+    public void showDialog(r rVar) {
+        if (rVar == null) {
+            return;
+        }
+        if (!TbadkCoreApplication.isLogin()) {
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(getPageContext().getPageActivity());
+            aVar.setTitle(R.string.tips_login_and_get_scores);
+            aVar.setPositiveButton(R.string.login, new d(aVar));
+            aVar.setNegativeButton(R.string.cancel, new e(aVar));
+            aVar.create(getPageContext());
+            aVar.show();
+        } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
+            d.b.i0.q1.e.a aVar2 = this.mFinishMemberTaskModel;
+            if (aVar2 != null) {
+                aVar2.f(rVar.c(), rVar.a());
             }
-            showToast(String.format(getResources().getString(R.string.tips_get_task_success), Integer.valueOf(i)));
+        } else {
+            d.b.h0.r.s.a aVar3 = new d.b.h0.r.s.a(getPageContext().getPageActivity());
+            aVar3.setTitle(R.string.tips_nomal_member_get_scores);
+            aVar3.setButtonTextColor(R.color.CAM_X0305);
+            aVar3.setPositiveButton(R.string.open_now, new f(aVar3));
+            aVar3.setNegativeButton(R.string.cancel, new g(aVar3));
+            aVar3.create(getPageContext());
+            aVar3.show();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onNetRefreshButtonClicked() {
-        showLoadingView(this.lqh.getRootView());
-        hideNetRefreshView(this.lqh.getRootView());
-        this.lqg.loadData();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showGetScoresSuccessDialog(int i) {
+        if (i <= 0) {
+            return;
+        }
+        int i2 = this.type;
+        if (i2 == 1) {
+            showToast(String.format(getResources().getString(R.string.tips_get_task_success), Integer.valueOf(i)));
+        } else if (i2 == 2) {
+            showToast(String.format(getResources().getString(R.string.tips_get_scores_success), Integer.valueOf(i)));
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.lqh.onChangeSkinType(i);
+        this.mView.d(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(r rVar) {
-        if (rVar != null) {
-            if (!TbadkCoreApplication.isLogin()) {
-                final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                aVar.nx(R.string.tips_login_and_get_scores);
-                aVar.a(R.string.login, new a.b() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.4
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        aVar.dismiss();
-                        bh.skipToLoginActivity(MemberTaskCenterActivity.this.getPageContext().getPageActivity());
-                    }
-                });
-                aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.5
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        aVar.dismiss();
-                    }
-                });
-                aVar.b(getPageContext());
-                aVar.bqz();
-            } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
-                if (this.lqi != null) {
-                    this.lqi.z(rVar.getId(), rVar.dfw());
-                }
-            } else {
-                final com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                aVar2.nx(R.string.tips_nomal_member_get_scores);
-                aVar2.nz(R.color.CAM_X0305);
-                aVar2.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.6
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
-                        aVar2.dismiss();
-                        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(MemberTaskCenterActivity.this.getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 0);
-                        memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MISSION_CENTER_NATIVE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
-                    }
-                });
-                aVar2.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity.7
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
-                        aVar2.dismiss();
-                    }
-                });
-                aVar2.b(getPageContext());
-                aVar2.bqz();
-            }
-        }
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.mView = new d.b.i0.q1.e.d(this, this.mCommenClickListener);
+        d.b.i0.q1.e.c cVar = new d.b.i0.q1.e.c();
+        this.mModel = cVar;
+        cVar.m(this.mTaskLoadCallback);
+        d.b.i0.q1.e.a aVar = new d.b.i0.q1.e.a();
+        this.mFinishMemberTaskModel = aVar;
+        aVar.h(this.mFinishMemberTaskCallbak);
+        this.mModel.j();
+        showLoadingView(this.mView.c());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.lqi != null) {
-            this.lqi.onDestroy();
+        d.b.i0.q1.e.a aVar = this.mFinishMemberTaskModel;
+        if (aVar != null) {
+            aVar.g();
         }
-        if (this.lqg != null) {
-            this.lqg.onDestroy();
+        d.b.i0.q1.e.c cVar = this.mModel;
+        if (cVar != null) {
+            cVar.k();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
+        showLoadingView(this.mView.c());
+        hideNetRefreshView(this.mView.c());
+        this.mModel.j();
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.lqj && j.isNetWorkAvailable()) {
-            this.lqj = false;
-            this.lqg.loadData();
+        if (this.isFromH5 && j.z()) {
+            this.isFromH5 = false;
+            this.mModel.j();
         }
+    }
+
+    public void refreshDataWithScores(r rVar, int i) {
+        List<r> i2;
+        if (rVar == null || i <= 0) {
+            return;
+        }
+        if (this.mModel.i() != null && (i2 = this.mModel.i()) != null && i2.size() > 0) {
+            Iterator<r> it = i2.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                r next = it.next();
+                if (next != null && next.c() == rVar.c()) {
+                    next.h(rVar.e());
+                    break;
+                }
+            }
+        }
+        this.mView.e(this.imageUrl, this.mModel.i(), this.mModel.h());
     }
 }

@@ -3,10 +3,10 @@ package com.baidu.tieba.homepage.tabfeed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.n;
+import d.b.b.j.e.n;
 import tbclient.ActivityPage.SpecialColumn;
-/* loaded from: classes2.dex */
-public class SpecialColumnItemData implements Parcelable, n {
+/* loaded from: classes4.dex */
+public class SpecialColumnItemData implements n, Parcelable {
     public static final int TYPE_LIVE = 3;
     public static final int TYPE_LIVE_RE = 4;
     public static final int TYPE_NORMAL = 1;
@@ -20,21 +20,27 @@ public class SpecialColumnItemData implements Parcelable, n {
     public long threadId;
     public String title;
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final Parcelable.Creator<SpecialColumnItemData> CREATOR = new Parcelable.Creator<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData.1
+    public static final Parcelable.Creator<SpecialColumnItemData> CREATOR = new a();
+
+    /* loaded from: classes4.dex */
+    public static class a implements Parcelable.Creator<SpecialColumnItemData> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Z */
+        /* renamed from: a */
         public SpecialColumnItemData createFromParcel(Parcel parcel) {
             return new SpecialColumnItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Cd */
+        /* renamed from: b */
         public SpecialColumnItemData[] newArray(int i) {
             return new SpecialColumnItemData[i];
         }
-    };
+    }
+
+    public SpecialColumnItemData() {
+    }
 
     public void a(SpecialColumn specialColumn) {
         this.specialType = specialColumn.type.intValue();
@@ -47,28 +53,14 @@ public class SpecialColumnItemData implements Parcelable, n {
         this.agree_num = specialColumn.agree_num.intValue();
     }
 
-    @Override // com.baidu.adp.widget.ListView.n
-    public BdUniqueId getType() {
-        return TYPE;
-    }
-
-    public SpecialColumnItemData() {
-    }
-
-    public SpecialColumnItemData(Parcel parcel) {
-        this.specialType = parcel.readInt();
-        this.threadId = parcel.readLong();
-        this.liveId = parcel.readLong();
-        this.title = parcel.readString();
-        this.image = parcel.readString();
-        this.text = parcel.readString();
-        this.freq_num = parcel.readInt();
-        this.agree_num = parcel.readInt();
-    }
-
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
+    }
+
+    @Override // d.b.b.j.e.n
+    public BdUniqueId getType() {
+        return TYPE;
     }
 
     @Override // android.os.Parcelable
@@ -81,5 +73,16 @@ public class SpecialColumnItemData implements Parcelable, n {
         parcel.writeString(this.text);
         parcel.writeInt(this.freq_num);
         parcel.writeInt(this.agree_num);
+    }
+
+    public SpecialColumnItemData(Parcel parcel) {
+        this.specialType = parcel.readInt();
+        this.threadId = parcel.readLong();
+        this.liveId = parcel.readLong();
+        this.title = parcel.readString();
+        this.image = parcel.readString();
+        this.text = parcel.readString();
+        this.freq_num = parcel.readInt();
+        this.agree_num = parcel.readInt();
     }
 }

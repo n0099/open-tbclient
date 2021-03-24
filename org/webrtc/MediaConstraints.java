@@ -1,17 +1,18 @@
 package org.webrtc;
 
+import com.baidu.android.common.others.lang.StringUtil;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class MediaConstraints {
     public final List<KeyValuePair> mandatory = new ArrayList();
     public final List<KeyValuePair> optional = new ArrayList();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static class KeyValuePair {
-        private final String key;
-        private final String value;
+        public final String key;
+        public final String value;
 
         public KeyValuePair(String str, String str2) {
             this.key = str;
@@ -22,7 +23,7 @@ public class MediaConstraints {
             if (this == obj) {
                 return true;
             }
-            if (obj == null || getClass() != obj.getClass()) {
+            if (obj == null || KeyValuePair.class != obj.getClass()) {
                 return false;
             }
             KeyValuePair keyValuePair = (KeyValuePair) obj;
@@ -48,11 +49,11 @@ public class MediaConstraints {
         }
     }
 
-    private static String stringifyKeyValuePairList(List<KeyValuePair> list) {
+    public static String stringifyKeyValuePairList(List<KeyValuePair> list) {
         StringBuilder sb = new StringBuilder("[");
         for (KeyValuePair keyValuePair : list) {
             if (sb.length() > 1) {
-                sb.append(", ");
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
             sb.append(keyValuePair.toString());
         }
@@ -61,12 +62,12 @@ public class MediaConstraints {
     }
 
     @CalledByNative
-    List<KeyValuePair> getMandatory() {
+    public List<KeyValuePair> getMandatory() {
         return this.mandatory;
     }
 
     @CalledByNative
-    List<KeyValuePair> getOptional() {
+    public List<KeyValuePair> getOptional() {
         return this.optional;
     }
 

@@ -1,10 +1,7 @@
 package com.baidu.searchbox.looper.impl;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class LooperMonitor_Factory {
-    private static volatile LooperMonitor instance;
-
-    private LooperMonitor_Factory() {
-    }
+    public static volatile LooperMonitor instance;
 
     public static synchronized LooperMonitor get() {
         LooperMonitor looperMonitor;

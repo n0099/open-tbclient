@@ -1,15 +1,14 @@
 package com.baidu.tbadk.core.message;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.GetMaskInfo.DataReq;
 import protobuf.GetMaskInfo.GetMaskInfoReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class RequestGetMaskInfoMessage extends TbSocketMessage {
-    private int maskType;
+    public int maskType;
 
     public RequestGetMaskInfoMessage() {
-        super(CmdConfigSocket.CMD_GET_MASK_INFO);
+        super(104103);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

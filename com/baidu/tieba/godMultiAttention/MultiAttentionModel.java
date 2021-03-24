@@ -1,17 +1,17 @@
 package com.baidu.tieba.godMultiAttention;
 
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.tbadkCore.a.a;
-/* loaded from: classes7.dex */
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.i0.c3.d0.a;
+/* loaded from: classes4.dex */
 public class MultiAttentionModel extends BdBaseModel {
     static {
-        a.b(1003105, CmdConfigSocket.MULTI_ATTENTION_SOCKET_CMD, TbConfig.MULTI_FOLLOW, MultiAttentionHttpResponseMessage.class, MultiAttentionSocketResponseMessage.class);
+        a.d(CmdConfigHttp.MULTI_ATTENTION_HTTP_CMD, 309388, TbConfig.MULTI_FOLLOW, MultiAttentionHttpResponseMessage.class, MultiAttentionSocketResponseMessage.class);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 

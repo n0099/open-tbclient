@@ -3,10 +3,6 @@ package com.bytedance.sdk.openadsdk.preload.a;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public abstract class v<T> {
-    public abstract void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException;
-
-    public abstract T b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException;
-
     public final v<T> a() {
         return new v<T>() { // from class: com.bytedance.sdk.openadsdk.preload.a.v.1
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -29,13 +25,17 @@ public abstract class v<T> {
         };
     }
 
+    public abstract void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException;
+
+    public abstract T b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException;
+
     public final l a(T t) {
         try {
             com.bytedance.sdk.openadsdk.preload.a.b.a.f fVar = new com.bytedance.sdk.openadsdk.preload.a.b.a.f();
             a(fVar, t);
             return fVar.a();
-        } catch (IOException e) {
-            throw new m(e);
+        } catch (IOException e2) {
+            throw new m(e2);
         }
     }
 }

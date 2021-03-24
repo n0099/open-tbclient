@@ -4,7 +4,7 @@ import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractTrack implements Track {
     @Override // com.googlecode.mp4parser.authoring.Track
     public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
@@ -12,8 +12,12 @@ public abstract class AbstractTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public long[] getSyncSamples() {
-        return null;
+    public long getDuration() {
+        long j = 0;
+        for (long j2 : getSampleDurations()) {
+            j += j2;
+        }
+        return j;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
@@ -27,11 +31,7 @@ public abstract class AbstractTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public long getDuration() {
-        long j = 0;
-        for (long j2 : getSampleDurations()) {
-            j += j2;
-        }
-        return j;
+    public long[] getSyncSamples() {
+        return null;
     }
 }

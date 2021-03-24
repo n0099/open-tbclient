@@ -4,16 +4,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import com.baidu.searchbox.process.ipc.util.TranslucentUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
-    private static final boolean DEBUG = false;
+    public static final boolean DEBUG = false;
     public static final String ENABLE_FALLBACK_FINISH_KEY = "fallback_finish_key";
-    private static final boolean FALLBACK_FINISH_DEFAULT_VALUE = true;
-    private static final String TAG = "PluginDelegateActivity";
-    private int mResumeCount = 0;
-    private boolean mFallbackFinish = true;
+    public static final boolean FALLBACK_FINISH_DEFAULT_VALUE = true;
+    public static final String TAG = "PluginDelegateActivity";
+    public int mResumeCount = 0;
+    public boolean mFallbackFinish = true;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -24,13 +23,14 @@ public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
         } else {
             setRequestedOrientation(this.mDelegation.getScreenOrientation());
         }
-        if (!this.mDelegation.mParams.isEmpty()) {
-            this.mFallbackFinish = this.mDelegation.mParams.getBoolean(ENABLE_FALLBACK_FINISH_KEY, true);
+        if (this.mDelegation.mParams.isEmpty()) {
+            return;
         }
+        this.mFallbackFinish = this.mDelegation.mParams.getBoolean(ENABLE_FALLBACK_FINISH_KEY, true);
     }
 
     @Override // android.app.Activity
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         if (this.mFallbackFinish) {
             int i = this.mResumeCount + 1;

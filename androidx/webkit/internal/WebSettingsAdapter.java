@@ -1,24 +1,20 @@
 package androidx.webkit.internal;
 
 import org.chromium.support_lib_boundary.WebSettingsBoundaryInterface;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class WebSettingsAdapter {
-    private WebSettingsBoundaryInterface mBoundaryInterface;
+    public WebSettingsBoundaryInterface mBoundaryInterface;
 
     public WebSettingsAdapter(WebSettingsBoundaryInterface webSettingsBoundaryInterface) {
         this.mBoundaryInterface = webSettingsBoundaryInterface;
     }
 
-    public void setOffscreenPreRaster(boolean z) {
-        this.mBoundaryInterface.setOffscreenPreRaster(z);
+    public int getDisabledActionModeMenuItems() {
+        return this.mBoundaryInterface.getDisabledActionModeMenuItems();
     }
 
     public boolean getOffscreenPreRaster() {
         return this.mBoundaryInterface.getOffscreenPreRaster();
-    }
-
-    public void setSafeBrowsingEnabled(boolean z) {
-        this.mBoundaryInterface.setSafeBrowsingEnabled(z);
     }
 
     public boolean getSafeBrowsingEnabled() {
@@ -29,7 +25,11 @@ public class WebSettingsAdapter {
         this.mBoundaryInterface.setDisabledActionModeMenuItems(i);
     }
 
-    public int getDisabledActionModeMenuItems() {
-        return this.mBoundaryInterface.getDisabledActionModeMenuItems();
+    public void setOffscreenPreRaster(boolean z) {
+        this.mBoundaryInterface.setOffscreenPreRaster(z);
+    }
+
+    public void setSafeBrowsingEnabled(boolean z) {
+        this.mBoundaryInterface.setSafeBrowsingEnabled(z);
     }
 }

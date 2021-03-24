@@ -2,32 +2,34 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
+import d.b.i0.n2.d.a;
 import java.io.IOException;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PushDialogSocketResMsg extends SocketResponsedMessage {
-    a mData;
+    public a mData;
 
     public PushDialogSocketResMsg(int i) {
         super(i);
     }
 
+    public a getData() {
+        return this.mData;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
         try {
-            GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.WIRE.parseFrom(bArr, GetLockWindowMsgResIdl.class);
+            GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f20620a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
             setError(getLockWindowMsgResIdl.error.errorno.intValue());
             setErrorString(getLockWindowMsgResIdl.error.usermsg);
             if (getLockWindowMsgResIdl.data != null) {
-                this.mData = new a();
-                this.mData.a(getLockWindowMsgResIdl.data);
+                a aVar = new a();
+                this.mData = aVar;
+                aVar.e(getLockWindowMsgResIdl.data);
             }
-        } catch (IOException e) {
+        } catch (IOException unused) {
         }
-    }
-
-    public a getData() {
-        return this.mData;
     }
 }

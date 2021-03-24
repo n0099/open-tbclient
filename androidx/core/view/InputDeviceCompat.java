@@ -1,5 +1,5 @@
 package androidx.core.view;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class InputDeviceCompat {
     public static final int SOURCE_ANY = -256;
     public static final int SOURCE_CLASS_BUTTON = 1;
@@ -22,7 +22,4 @@ public final class InputDeviceCompat {
     public static final int SOURCE_TOUCH_NAVIGATION = 2097152;
     public static final int SOURCE_TRACKBALL = 65540;
     public static final int SOURCE_UNKNOWN = 0;
-
-    private InputDeviceCompat() {
-    }
 }

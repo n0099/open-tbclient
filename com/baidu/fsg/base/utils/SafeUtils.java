@@ -4,15 +4,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.fsg.base.armor.RimArmor;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class SafeUtils {
     public static final String TAG = "SafeUtils";
 
     public static String encrypt(String str, String str2) {
-        if (!TextUtils.isEmpty(str2)) {
-            return RimArmor.getInstance().encryptProxy(str2);
-        }
-        return "";
+        return !TextUtils.isEmpty(str2) ? RimArmor.getInstance().encryptProxy(str2) : "";
     }
 
     public static byte[] xor(byte[] bArr, byte[] bArr2) {
@@ -28,14 +25,13 @@ public final class SafeUtils {
     }
 
     public static String xor(String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return "";
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            try {
+                return new String(xor(str.getBytes("UTF-8"), str2.getBytes("UTF-8")), "UTF-8");
+            } catch (UnsupportedEncodingException e2) {
+                e2.printStackTrace();
+            }
         }
-        try {
-            return new String(xor(str.getBytes("UTF-8"), str2.getBytes("UTF-8")), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return "";
-        }
+        return "";
     }
 }

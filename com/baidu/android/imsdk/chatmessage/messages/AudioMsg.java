@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AudioMsg extends RichMediaMsg {
     public static final Parcelable.Creator<AudioMsg> CREATOR = new Parcelable.Creator<AudioMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.AudioMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,9 +26,83 @@ public class AudioMsg extends RichMediaMsg {
             return new AudioMsg[i];
         }
     };
-    private final String TAG;
-    private int mDuration;
-    private int mFormat;
+    public final String TAG;
+    public int mDuration;
+    public int mFormat;
+
+    private String getAudioContent(String str, int i, int i2) {
+        if (TextUtils.isEmpty(str)) {
+            return "";
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("url", str);
+            jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, i);
+            jSONObject.put("duration", i2);
+            return jSONObject.toString();
+        } catch (JSONException e2) {
+            LogUtils.e(this.TAG, "getAudioContent Json", e2);
+            return "";
+        }
+    }
+
+    private void transCodeUrl(JSONObject jSONObject) {
+        try {
+            String decode = URLDecoder.decode(this.mRemoteUrl, "UTF-8");
+            LogUtils.d(ChatMsg.TAG, decode);
+            this.mRemoteUrl = decode;
+            jSONObject.put("url", decode);
+            this.mjsonContent = jSONObject.toString();
+        } catch (UnsupportedEncodingException e2) {
+            LogUtils.e(this.TAG, "transCodeUrl:", e2);
+        } catch (JSONException e3) {
+            LogUtils.e(this.TAG, "transCodeUrl:", e3);
+        }
+    }
+
+    public int getDuration() {
+        return this.mDuration;
+    }
+
+    public int getFormat() {
+        return this.mFormat;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        return "[语音]";
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        if (TextUtils.isEmpty(this.mjsonContent)) {
+            return false;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(this.mjsonContent);
+            this.mRemoteUrl = jSONObject.optString("url");
+            this.mFormat = jSONObject.optInt(KsMediaMeta.KSM_KEY_FORMAT);
+            this.mDuration = jSONObject.optInt("duration");
+            if (this.mRemoteUrl.regionMatches(0, "http%3A", 0, 7)) {
+                transCodeUrl(jSONObject);
+            }
+            return true;
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+            return false;
+        }
+    }
+
+    public void setContent(String str, int i, int i2) {
+        setMsgContent(getAudioContent(str, i, i2));
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+        parcel.writeInt(this.mFormat);
+        parcel.writeInt(this.mDuration);
+    }
 
     public AudioMsg() {
         this.TAG = VideoMsg.class.getSimpleName();
@@ -47,85 +121,12 @@ public class AudioMsg extends RichMediaMsg {
         this.mFormat = i2;
     }
 
-    private AudioMsg(Parcel parcel) {
+    public AudioMsg(Parcel parcel) {
         super(parcel);
         this.TAG = VideoMsg.class.getSimpleName();
         this.mFormat = -1;
         this.mDuration = -1;
         this.mFormat = parcel.readInt();
         this.mDuration = parcel.readInt();
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeInt(this.mFormat);
-        parcel.writeInt(this.mDuration);
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public boolean parseJsonString() {
-        if (TextUtils.isEmpty(this.mjsonContent)) {
-            return false;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(this.mjsonContent);
-            this.mRemoteUrl = jSONObject.optString("url");
-            this.mFormat = jSONObject.optInt(KsMediaMeta.KSM_KEY_FORMAT);
-            this.mDuration = jSONObject.optInt("duration");
-            if (this.mRemoteUrl.regionMatches(0, "http%3A", 0, 7)) {
-                transCodeUrl(jSONObject);
-            }
-            return true;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    private void transCodeUrl(JSONObject jSONObject) {
-        try {
-            String decode = URLDecoder.decode(this.mRemoteUrl, "UTF-8");
-            LogUtils.d("ChatMsg", decode);
-            this.mRemoteUrl = decode;
-            jSONObject.put("url", decode);
-            this.mjsonContent = jSONObject.toString();
-        } catch (UnsupportedEncodingException e) {
-            LogUtils.e(this.TAG, "transCodeUrl:", e);
-        } catch (JSONException e2) {
-            LogUtils.e(this.TAG, "transCodeUrl:", e2);
-        }
-    }
-
-    public int getFormat() {
-        return this.mFormat;
-    }
-
-    public int getDuration() {
-        return this.mDuration;
-    }
-
-    public void setContent(String str, int i, int i2) {
-        setMsgContent(getAudioContent(str, i, i2));
-    }
-
-    private String getAudioContent(String str, int i, int i2) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("url", str);
-                jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, i);
-                jSONObject.put("duration", i2);
-                return jSONObject.toString();
-            } catch (JSONException e) {
-                LogUtils.e(this.TAG, "getAudioContent Json", e);
-            }
-        }
-        return "";
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        return "[语音]";
     }
 }

@@ -9,23 +9,13 @@ import com.bytedance.sdk.openadsdk.utils.h;
 public class b extends ICommonPermissionListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f4893a = new Handler(Looper.getMainLooper());
-    private h.a b;
+    public Handler f29825a = new Handler(Looper.getMainLooper());
+
+    /* renamed from: b  reason: collision with root package name */
+    public h.a f29826b;
 
     public b(h.a aVar) {
-        this.b = aVar;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
-    public void onGranted() throws RemoteException {
-        a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.b.1
-            @Override // java.lang.Runnable
-            public void run() {
-                if (b.this.b != null) {
-                    b.this.b.a();
-                }
-            }
-        });
+        this.f29826b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -33,17 +23,29 @@ public class b extends ICommonPermissionListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.b.2
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.b != null) {
-                    b.this.b.a(str);
+                if (b.this.f29826b != null) {
+                    b.this.f29826b.a(str);
+                }
+            }
+        });
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
+    public void onGranted() throws RemoteException {
+        a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.b.1
+            @Override // java.lang.Runnable
+            public void run() {
+                if (b.this.f29826b != null) {
+                    b.this.f29826b.a();
                 }
             }
         });
     }
 
     private void a(Runnable runnable) {
-        if (this.f4893a == null) {
-            this.f4893a = new Handler(Looper.getMainLooper());
+        if (this.f29825a == null) {
+            this.f29825a = new Handler(Looper.getMainLooper());
         }
-        this.f4893a.post(runnable);
+        this.f29825a.post(runnable);
     }
 }

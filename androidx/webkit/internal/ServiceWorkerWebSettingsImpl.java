@@ -9,17 +9,20 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import org.chromium.support_lib_boundary.ServiceWorkerWebSettingsBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat {
-    private ServiceWorkerWebSettingsBoundaryInterface mBoundaryInterface;
-    private ServiceWorkerWebSettings mFrameworksImpl;
+    public ServiceWorkerWebSettingsBoundaryInterface mBoundaryInterface;
+    public ServiceWorkerWebSettings mFrameworksImpl;
 
     public ServiceWorkerWebSettingsImpl(@NonNull ServiceWorkerWebSettings serviceWorkerWebSettings) {
         this.mFrameworksImpl = serviceWorkerWebSettings;
     }
 
-    public ServiceWorkerWebSettingsImpl(@NonNull InvocationHandler invocationHandler) {
-        this.mBoundaryInterface = (ServiceWorkerWebSettingsBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(ServiceWorkerWebSettingsBoundaryInterface.class, invocationHandler);
+    private ServiceWorkerWebSettingsBoundaryInterface getBoundaryInterface() {
+        if (this.mBoundaryInterface == null) {
+            this.mBoundaryInterface = (ServiceWorkerWebSettingsBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(ServiceWorkerWebSettingsBoundaryInterface.class, WebViewGlueCommunicator.getCompatConverter().convertServiceWorkerSettings(this.mFrameworksImpl));
+        }
+        return this.mBoundaryInterface;
     }
 
     @RequiresApi(24)
@@ -30,24 +33,43 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
         return this.mFrameworksImpl;
     }
 
-    private ServiceWorkerWebSettingsBoundaryInterface getBoundaryInterface() {
-        if (this.mBoundaryInterface == null) {
-            this.mBoundaryInterface = (ServiceWorkerWebSettingsBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(ServiceWorkerWebSettingsBoundaryInterface.class, WebViewGlueCommunicator.getCompatConverter().convertServiceWorkerSettings(this.mFrameworksImpl));
+    @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
+    @SuppressLint({"NewApi"})
+    public boolean getAllowContentAccess() {
+        WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_CONTENT_ACCESS;
+        if (webViewFeatureInternal.isSupportedByFramework()) {
+            return getFrameworksImpl().getAllowContentAccess();
         }
-        return this.mBoundaryInterface;
+        if (webViewFeatureInternal.isSupportedByWebView()) {
+            return getBoundaryInterface().getAllowContentAccess();
+        }
+        throw WebViewFeatureInternal.getUnsupportedOperationException();
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
     @SuppressLint({"NewApi"})
-    public void setCacheMode(int i) {
-        WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_CACHE_MODE;
+    public boolean getAllowFileAccess() {
+        WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_FILE_ACCESS;
         if (webViewFeatureInternal.isSupportedByFramework()) {
-            getFrameworksImpl().setCacheMode(i);
-        } else if (webViewFeatureInternal.isSupportedByWebView()) {
-            getBoundaryInterface().setCacheMode(i);
-        } else {
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
+            return getFrameworksImpl().getAllowFileAccess();
         }
+        if (webViewFeatureInternal.isSupportedByWebView()) {
+            return getBoundaryInterface().getAllowFileAccess();
+        }
+        throw WebViewFeatureInternal.getUnsupportedOperationException();
+    }
+
+    @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
+    @SuppressLint({"NewApi"})
+    public boolean getBlockNetworkLoads() {
+        WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_BLOCK_NETWORK_LOADS;
+        if (webViewFeatureInternal.isSupportedByFramework()) {
+            return getFrameworksImpl().getBlockNetworkLoads();
+        }
+        if (webViewFeatureInternal.isSupportedByWebView()) {
+            return getBoundaryInterface().getBlockNetworkLoads();
+        }
+        throw WebViewFeatureInternal.getUnsupportedOperationException();
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
@@ -78,19 +100,6 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
     @SuppressLint({"NewApi"})
-    public boolean getAllowContentAccess() {
-        WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_CONTENT_ACCESS;
-        if (webViewFeatureInternal.isSupportedByFramework()) {
-            return getFrameworksImpl().getAllowContentAccess();
-        }
-        if (webViewFeatureInternal.isSupportedByWebView()) {
-            return getBoundaryInterface().getAllowContentAccess();
-        }
-        throw WebViewFeatureInternal.getUnsupportedOperationException();
-    }
-
-    @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
-    @SuppressLint({"NewApi"})
     public void setAllowFileAccess(boolean z) {
         WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_FILE_ACCESS;
         if (webViewFeatureInternal.isSupportedByFramework()) {
@@ -100,19 +109,6 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
         } else {
             throw WebViewFeatureInternal.getUnsupportedOperationException();
         }
-    }
-
-    @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
-    @SuppressLint({"NewApi"})
-    public boolean getAllowFileAccess() {
-        WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_FILE_ACCESS;
-        if (webViewFeatureInternal.isSupportedByFramework()) {
-            return getFrameworksImpl().getAllowFileAccess();
-        }
-        if (webViewFeatureInternal.isSupportedByWebView()) {
-            return getBoundaryInterface().getAllowFileAccess();
-        }
-        throw WebViewFeatureInternal.getUnsupportedOperationException();
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
@@ -130,14 +126,18 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
     @SuppressLint({"NewApi"})
-    public boolean getBlockNetworkLoads() {
-        WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_BLOCK_NETWORK_LOADS;
+    public void setCacheMode(int i) {
+        WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_CACHE_MODE;
         if (webViewFeatureInternal.isSupportedByFramework()) {
-            return getFrameworksImpl().getBlockNetworkLoads();
+            getFrameworksImpl().setCacheMode(i);
+        } else if (webViewFeatureInternal.isSupportedByWebView()) {
+            getBoundaryInterface().setCacheMode(i);
+        } else {
+            throw WebViewFeatureInternal.getUnsupportedOperationException();
         }
-        if (webViewFeatureInternal.isSupportedByWebView()) {
-            return getBoundaryInterface().getBlockNetworkLoads();
-        }
-        throw WebViewFeatureInternal.getUnsupportedOperationException();
+    }
+
+    public ServiceWorkerWebSettingsImpl(@NonNull InvocationHandler invocationHandler) {
+        this.mBoundaryInterface = (ServiceWorkerWebSettingsBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(ServiceWorkerWebSettingsBoundaryInterface.class, invocationHandler);
     }
 }

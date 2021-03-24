@@ -18,61 +18,173 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
-import com.baidu.tbadk.mutiprocess.g;
-import com.baidu.tbadk.pageExtra.d;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.tbadkCore.data.e;
-/* loaded from: classes2.dex */
+import d.b.b.e.p.k;
+import d.b.h0.f0.g;
+import d.b.h0.r.q.a2;
+import d.b.i0.c2.h.e;
+/* loaded from: classes4.dex */
 public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.AnimatorListener {
-    private e ffO;
-    private com.baidu.tbadk.core.data.e ffS;
-    private CustomMessageListener fgf;
-    private f lQH;
-    private AgreeData mAgreeData;
-    private Context mContext;
-    private View.OnClickListener mOnClickListener;
-    private TbPageContext mPageContext;
-    private CustomMessageListener mThreadAgreeChangedListener;
-    private a mia;
-    private a mib;
-    private a mic;
-    private a mie;
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.mThreadAgreeChangedListener);
-        MessageManager.getInstance().registerListener(this.fgf);
+    /* renamed from: e  reason: collision with root package name */
+    public TbPageContext f19858e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Context f19859f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d f19860g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d f19861h;
+    public d i;
+    public d j;
+    public e k;
+    public AgreeData l;
+    public d.b.i0.c3.h0.e m;
+    public d.b.h0.r.q.e n;
+    public CustomMessageListener o;
+    public CustomMessageListener p;
+    public View.OnClickListener q;
+
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.c3.h0.e)) {
+                return;
+            }
+            AgreeData agreeData = ((d.b.i0.c3.h0.e) customResponsedMessage.getData()).f53376b;
+            if (ThreadAgreeAndShareLayout.this.l == null || agreeData == null || ThreadAgreeAndShareLayout.this.m == null || ThreadAgreeAndShareLayout.this.l.isInPost || ThreadAgreeAndShareLayout.this.m.f53375a == ThreadAgreeAndShareLayout.this.m.f53375a) {
+                return;
+            }
+            String str = agreeData.nid;
+            if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
+                if (ThreadAgreeAndShareLayout.this.k == null || ThreadAgreeAndShareLayout.this.k.L() == null || ThreadAgreeAndShareLayout.this.k.L().V() == null || !TextUtils.equals(str, ThreadAgreeAndShareLayout.this.k.L().V().oriUgcNid)) {
+                    return;
+                }
+                ThreadAgreeAndShareLayout.this.o(agreeData);
+                return;
+            }
+            String str2 = agreeData.threadId;
+            String str3 = ThreadAgreeAndShareLayout.this.l.threadId;
+            if ("0".equals(str2) || TextUtils.isEmpty(str2) || !TextUtils.equals(str2, str3)) {
+                return;
+            }
+            ThreadAgreeAndShareLayout.this.o(agreeData);
+        }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.mThreadAgreeChangedListener);
-        MessageManager.getInstance().unRegisterListener(this.fgf);
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.c3.h0.e)) {
+                return;
+            }
+            d.b.i0.c3.h0.e eVar = (d.b.i0.c3.h0.e) customResponsedMessage.getData();
+            AgreeData agreeData = eVar.f53376b;
+            if (ThreadAgreeAndShareLayout.this.l == null || TextUtils.isEmpty(ThreadAgreeAndShareLayout.this.l.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !ThreadAgreeAndShareLayout.this.l.postId.equals(agreeData.postId) || ThreadAgreeAndShareLayout.this.l.isInThread || ThreadAgreeAndShareLayout.this.m.f53375a == eVar.f53375a) {
+                return;
+            }
+            ThreadAgreeAndShareLayout.this.o(agreeData);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(AgreeData agreeData) {
-        if (agreeData != null && this.mAgreeData != null) {
-            this.mAgreeData.agreeType = agreeData.agreeType;
-            this.mAgreeData.hasAgree = agreeData.hasAgree;
-            this.mAgreeData.diffAgreeNum = agreeData.diffAgreeNum;
-            this.mAgreeData.agreeNum = agreeData.agreeNum;
-            this.mAgreeData.disAgreeNum = agreeData.disAgreeNum;
-            dsJ();
+    /* loaded from: classes4.dex */
+    public class c implements View.OnClickListener {
+        public c() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            ThreadAgreeAndShareLayout.this.k(view);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d {
+
+        /* renamed from: a  reason: collision with root package name */
+        public View f19865a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public View f19866b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public TextView f19867c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public TBLottieAnimationView f19868d;
+
+        public d(Context context) {
+            View inflate = View.inflate(context, R.layout.thread_agree_and_share_item_view, null);
+            this.f19865a = inflate;
+            this.f19866b = inflate.findViewById(R.id.item_bg);
+            this.f19867c = (TextView) inflate.findViewById(R.id.item_text);
+            this.f19868d = (TBLottieAnimationView) inflate.findViewById(R.id.item_icon);
+        }
+
+        public void c(Animator.AnimatorListener animatorListener) {
+            this.f19868d.addAnimatorListener(animatorListener);
+        }
+
+        public void d() {
+            TBSelector.makeDrawableSelector().cornerRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds47)).strokeWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).defaultStrokeColor(R.color.cp_cont_f_alpha50).defaultColor(R.color.CAM_X0201).into(this.f19866b);
+        }
+
+        public TBLottieAnimationView e() {
+            return this.f19868d;
+        }
+
+        public TextView f() {
+            return this.f19867c;
+        }
+
+        public View g() {
+            return this.f19865a;
+        }
+
+        public void h() {
+            this.f19868d.playAnimation();
+        }
+
+        public void i(int i) {
+            SkinManager.setImageResource(this.f19868d, i);
+        }
+
+        public void j(ImageView.ScaleType scaleType) {
+            this.f19868d.setScaleType(scaleType);
+        }
+
+        public void k(int i) {
+            this.f19867c.setText(i);
+        }
+
+        public void l(int i) {
+            SkinManager.setViewTextColor(this.f19867c, i, 1);
         }
     }
 
@@ -80,256 +192,369 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         this(context, null);
     }
 
-    public ThreadAgreeAndShareLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mThreadAgreeChangedListener = new CustomMessageListener(2016528) { // from class: com.baidu.tieba.pb.pb.main.view.ThreadAgreeAndShareLayout.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
-                    AgreeData agreeData = ((e) customResponsedMessage.getData()).agreeData;
-                    if (ThreadAgreeAndShareLayout.this.mAgreeData != null && agreeData != null && ThreadAgreeAndShareLayout.this.ffO != null && !ThreadAgreeAndShareLayout.this.mAgreeData.isInPost && ThreadAgreeAndShareLayout.this.ffO.uniqueId != ThreadAgreeAndShareLayout.this.ffO.uniqueId) {
-                        String str = agreeData.nid;
-                        if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
-                            if (ThreadAgreeAndShareLayout.this.lQH != null && ThreadAgreeAndShareLayout.this.lQH.dlp() != null && ThreadAgreeAndShareLayout.this.lQH.dlp().getBaijiahaoData() != null && TextUtils.equals(str, ThreadAgreeAndShareLayout.this.lQH.dlp().getBaijiahaoData().oriUgcNid)) {
-                                ThreadAgreeAndShareLayout.this.a(agreeData);
-                                return;
-                            }
-                            return;
-                        }
-                        String str2 = agreeData.threadId;
-                        String str3 = ThreadAgreeAndShareLayout.this.mAgreeData.threadId;
-                        if (!"0".equals(str2) && !TextUtils.isEmpty(str2) && TextUtils.equals(str2, str3)) {
-                            ThreadAgreeAndShareLayout.this.a(agreeData);
-                        }
-                    }
-                }
-            }
-        };
-        this.fgf = new CustomMessageListener(2016530) { // from class: com.baidu.tieba.pb.pb.main.view.ThreadAgreeAndShareLayout.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
-                    e eVar = (e) customResponsedMessage.getData();
-                    AgreeData agreeData = eVar.agreeData;
-                    if (ThreadAgreeAndShareLayout.this.mAgreeData != null && !TextUtils.isEmpty(ThreadAgreeAndShareLayout.this.mAgreeData.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && ThreadAgreeAndShareLayout.this.mAgreeData.postId.equals(agreeData.postId) && !ThreadAgreeAndShareLayout.this.mAgreeData.isInThread && ThreadAgreeAndShareLayout.this.ffO.uniqueId != eVar.uniqueId) {
-                        ThreadAgreeAndShareLayout.this.a(agreeData);
-                    }
-                }
-            }
-        };
-        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.ThreadAgreeAndShareLayout.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                ThreadAgreeAndShareLayout.this.bx(view);
-            }
-        };
-        setOrientation(0);
-        setGravity(17);
-        this.mContext = context;
-        this.ffO = new e();
-        this.ffO.uniqueId = getPageId();
-        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds43);
-        setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-        initView();
-        this.ffS = new com.baidu.tbadk.core.data.e();
+    public final d f(int i) {
+        d dVar = new d(this.f19859f);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
+        layoutParams.leftMargin = i;
+        addView(dVar.g(), layoutParams);
+        return dVar;
     }
 
-    private void initView() {
-        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
-        this.mia = Gp(0);
-        this.mib = Gp(dimenPixelSize);
-        this.mic = Gp(dimenPixelSize);
-        this.mie = Gp(dimenPixelSize);
-        this.mic.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.mie.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.mic.setText(R.string.share_weixin_friend);
-        this.mie.setText(R.string.share_weixin_timeline);
-        this.mia.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.mia.addAnimatorListener(this);
-        this.mib.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.mib.addAnimatorListener(this);
-        this.mia.dsK().setOnClickListener(this.mOnClickListener);
-        this.mib.dsK().setOnClickListener(this.mOnClickListener);
-        this.mic.dsK().setOnClickListener(this.mOnClickListener);
-        this.mie.dsK().setOnClickListener(this.mOnClickListener);
-        bzq();
-    }
-
-    public void setData(f fVar, AgreeData agreeData) {
-        if (agreeData == null) {
-            setVisibility(8);
-            return;
-        }
-        setVisibility(0);
-        this.lQH = fVar;
-        this.mAgreeData = agreeData;
-        this.mAgreeData.isInThread = true;
-        dsJ();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bx(View view) {
-        int i = 0;
-        int i2 = 1;
-        if (this.mAgreeData != null && bh.checkUpIsLogin(getContext())) {
-            if (view == this.mia.dsK() || view == this.mib.dsK()) {
-                if (view == this.mia.dsK()) {
-                    this.mia.playAnimation();
-                    if (this.ffS != null) {
-                        this.ffS.type = 1;
-                        this.ffS.eNB = 4;
-                    }
-                    if (this.mAgreeData.hasAgree) {
-                        if (this.mAgreeData.agreeType == 2) {
-                            this.mAgreeData.agreeType = 2;
-                            this.mAgreeData.hasAgree = false;
-                            this.mAgreeData.diffAgreeNum--;
-                            this.mAgreeData.agreeNum--;
-                            dsJ();
-                            if (this.ffS != null) {
-                                this.ffS.eNE = 1;
-                            }
-                        } else {
-                            this.mAgreeData.agreeType = 2;
-                            this.mAgreeData.hasAgree = true;
-                            this.mAgreeData.diffAgreeNum += 2;
-                            this.mAgreeData.agreeNum++;
-                            this.mAgreeData.disAgreeNum--;
-                            wd(true);
-                            if (this.ffS != null) {
-                                this.ffS.eNE = 0;
-                                i2 = 0;
-                            }
-                        }
-                        Go(i2);
-                    } else {
-                        this.mAgreeData.agreeType = 2;
-                        this.mAgreeData.hasAgree = true;
-                        this.mAgreeData.diffAgreeNum++;
-                        this.mAgreeData.agreeNum++;
-                        wd(true);
-                    }
-                    i2 = 0;
-                    Go(i2);
-                } else if (view == this.mib.dsK()) {
-                    this.mib.playAnimation();
-                    if (this.ffS != null) {
-                        this.ffS.type = 2;
-                        this.ffS.eNB = 4;
-                    }
-                    if (this.mAgreeData.hasAgree) {
-                        if (this.mAgreeData.agreeType == 5) {
-                            this.mAgreeData.agreeType = 5;
-                            this.mAgreeData.hasAgree = false;
-                            this.mAgreeData.diffAgreeNum++;
-                            this.mAgreeData.disAgreeNum--;
-                            dsJ();
-                            if (this.ffS != null) {
-                                this.ffS.eNI = 0;
-                                i = 1;
-                            } else {
-                                i = 1;
-                            }
-                        } else {
-                            this.mAgreeData.agreeType = 5;
-                            this.mAgreeData.hasAgree = true;
-                            this.mAgreeData.diffAgreeNum -= 2;
-                            this.mAgreeData.agreeNum--;
-                            this.mAgreeData.disAgreeNum++;
-                            wd(false);
-                            if (this.ffS != null) {
-                                this.ffS.eNI = 1;
-                            }
-                        }
-                    } else {
-                        this.mAgreeData.agreeType = 5;
-                        this.mAgreeData.hasAgree = true;
-                        this.mAgreeData.diffAgreeNum--;
-                        this.mAgreeData.disAgreeNum++;
-                        wd(false);
-                        if (this.ffS != null) {
-                            this.ffS.eNI = 1;
-                        }
-                    }
-                    Go(i);
-                }
-                this.ffO.agreeData = this.mAgreeData;
-                if (this.mAgreeData.isInThread) {
-                    if (this.lQH != null && this.lQH.dlp() != null && this.lQH.dlp().getBaijiahaoData() != null) {
-                        this.mAgreeData.nid = this.lQH.dlp().getBaijiahaoData().oriUgcNid;
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, this.ffO));
-                    dispatchMutiProcessAgree(this.mAgreeData, AgreeEvent.IS_THREAD);
-                } else if (this.mAgreeData.isInPost) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, this.ffO));
-                    dispatchMutiProcessAgree(this.mAgreeData, AgreeEvent.IS_POST);
-                }
-                setStatisticData(this.ffS);
-                btP();
-            } else if (view == this.mic.dsK()) {
-                if (this.lQH != null) {
-                    com.baidu.tieba.pb.pb.main.d.b.a(this.mContext, this.lQH.dlp(), 3);
-                }
-            } else if (view == this.mie.dsK() && this.lQH != null) {
-                com.baidu.tieba.pb.pb.main.d.b.a(this.mContext, this.lQH.dlp(), 2);
-            }
-        }
-    }
-
-    private void dispatchMutiProcessAgree(AgreeData agreeData, String str) {
+    public final void g(AgreeData agreeData, String str) {
         AgreeEvent agreeEvent = new AgreeEvent();
         agreeEvent.agreeData = agreeData;
         agreeEvent.agreeExtra = str;
-        g.publishEvent(agreeEvent);
+        g.g(agreeEvent);
     }
 
-    public void Go(int i) {
-        if (this.mAgreeData != null) {
-            HttpMessage httpMessage = new HttpMessage(1001601);
-            httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
-            httpMessage.addParam("thread_id", this.mAgreeData.threadId);
-            httpMessage.addParam("op_type", i);
-            if (this.mAgreeData.objType == 0) {
-                this.mAgreeData.objType = 3;
-            }
-            httpMessage.addParam("obj_type", this.mAgreeData.objType);
-            httpMessage.addParam("agree_type", this.mAgreeData.agreeType);
-            httpMessage.addParam("forum_id", this.mAgreeData.forumId);
-            com.baidu.tbadk.pageExtra.c bR = d.bR(this);
-            if (bR != null) {
-                httpMessage.addParam("obj_source", bR.getCurrentPageKey());
-            }
-            if (!TextUtils.isEmpty(this.mAgreeData.postId)) {
-                httpMessage.addParam("post_id", this.mAgreeData.postId);
-            }
-            if (this.lQH != null && this.lQH.dlp() != null && this.lQH.dlp().getBaijiahaoData() != null) {
-                BaijiahaoData baijiahaoData = this.lQH.dlp().getBaijiahaoData();
-                httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
-                httpMessage.addParam("ori_ugc_nid", baijiahaoData.oriUgcNid);
-                httpMessage.addParam("ori_ugc_vid", baijiahaoData.oriUgcVid);
-                httpMessage.addParam("ori_ugc_type", baijiahaoData.oriUgcType);
-            }
-            httpMessage.setTag(getPageId());
-            httpMessage.setExtra(Integer.valueOf(i));
-            httpMessage.addHeader("needSig", "1");
-            MessageManager.getInstance().sendMessage(httpMessage);
+    public BdUniqueId getPageId() {
+        TbPageContext tbPageContext = getTbPageContext();
+        if (tbPageContext != null) {
+            return tbPageContext.getUniqueId();
         }
+        return null;
     }
 
-    public void wd(boolean z) {
-        if (this.mAgreeData == null) {
+    public TbPageContext getTbPageContext() {
+        if (this.f19858e == null) {
+            Context context = getContext();
+            if (context instanceof BaseActivity) {
+                this.f19858e = ((BaseActivity) context).getPageContext();
+            } else if (context instanceof BaseFragmentActivity) {
+                this.f19858e = ((BaseFragmentActivity) context).getPageContext();
+            }
+        }
+        return this.f19858e;
+    }
+
+    public void h() {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        int i;
+        if (this.n == null) {
             return;
         }
-        TBLottieAnimationView tBLottieAnimationView = this.mia.mig;
-        TBLottieAnimationView tBLottieAnimationView2 = this.mib.mig;
-        TextView textView = this.mia.textView;
-        TextView textView2 = this.mib.textView;
+        int i2 = 0;
+        e eVar = this.k;
+        String str6 = null;
+        if (eVar == null || eVar.L() == null) {
+            str = null;
+            str2 = null;
+            str3 = null;
+            str4 = null;
+            str5 = null;
+            i = 1;
+        } else {
+            a2 L = this.k.L();
+            if (L.O1()) {
+                i = 2;
+            } else if (L.R1()) {
+                i = 3;
+            } else if (L.P1()) {
+                i = 4;
+            } else {
+                i = L.Q1() ? 5 : 1;
+            }
+            String L0 = L.L0();
+            if (L.V() != null && !k.isEmpty(L.V().oriUgcVid)) {
+                str6 = L.V().oriUgcVid;
+            }
+            int U0 = L.U0();
+            str3 = L.R0;
+            str4 = L.T0;
+            str5 = L.S0;
+            str = L.U0;
+            i2 = U0;
+            str2 = str6;
+            str6 = L0;
+        }
+        int i3 = this.n.f50761a;
+        String str7 = str2;
+        String str8 = str;
+        String str9 = str5;
+        if (i3 != 1) {
+            if (i3 == 2) {
+                StatisticItem param = new StatisticItem("c13271").param("obj_type", this.n.f50767g).param("obj_locate", this.n.f50768h).param("obj_id", this.n.i).param("obj_name", i).param("nid", str6).param("card_type", i2).param("recom_source", str3).param("ab_tag", str4).param("weight", str9).param(TiebaStatic.Params.RECOM_EXTRA, str8).param(TiebaStatic.Params.OBJ_PARAM6, str7);
+                if (getTbPageContext() != null) {
+                    d.b.h0.j0.c.e(getTbPageContext().getPageActivity(), param);
+                }
+                TiebaStatic.log(param);
+                return;
+            }
+            return;
+        }
+        StatisticItem param2 = new StatisticItem("c12003").param("obj_locate", this.n.f50762b).param("obj_param1", this.n.f50763c).param("obj_source", this.n.f50764d).param("obj_id", this.n.f50765e).param("obj_name", i).param("nid", str6).param("card_type", i2).param("recom_source", str3).param("ab_tag", str4).param("weight", str9).param(TiebaStatic.Params.RECOM_EXTRA, str8).param(TiebaStatic.Params.OBJ_PARAM6, str7);
+        if (getTbPageContext() != null) {
+            d.b.h0.j0.c.e(getTbPageContext().getPageActivity(), param2);
+        }
+        d.b.h0.i0.c f2 = TbPageExtraHelper.f(this);
+        if (f2 != null) {
+            param2.param(TiebaStatic.Params.OBJ_CUR_PAGE, f2.a());
+        }
+        if (TbPageExtraHelper.m() != null) {
+            param2.param(TiebaStatic.Params.OBJ_PRE_PAGE, TbPageExtraHelper.m());
+        }
+        TiebaStatic.log(param2);
+    }
+
+    public final void i() {
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+        this.f19860g = f(0);
+        this.f19861h = f(dimenPixelSize);
+        this.i = f(dimenPixelSize);
+        this.j = f(dimenPixelSize);
+        this.i.j(ImageView.ScaleType.FIT_XY);
+        this.j.j(ImageView.ScaleType.FIT_XY);
+        this.i.k(R.string.share_weixin_friend);
+        this.j.k(R.string.share_weixin_timeline);
+        this.f19860g.j(ImageView.ScaleType.CENTER_INSIDE);
+        this.f19860g.c(this);
+        this.f19861h.j(ImageView.ScaleType.CENTER_INSIDE);
+        this.f19861h.c(this);
+        this.f19860g.e().setOnClickListener(this.q);
+        this.f19861h.e().setOnClickListener(this.q);
+        this.i.e().setOnClickListener(this.q);
+        this.j.e().setOnClickListener(this.q);
+        j();
+    }
+
+    public void j() {
+        this.i.l(R.color.CAM_X0107);
+        this.j.l(R.color.CAM_X0107);
+        this.i.i(R.drawable.icon_weixin_112);
+        this.j.i(R.drawable.icon_pengyouqun_112);
+        this.f19860g.d();
+        this.f19861h.d();
+        this.i.d();
+        this.j.d();
+        m();
+    }
+
+    public final void k(View view) {
+        e eVar;
+        if (this.l != null && ViewHelper.checkUpIsLogin(getContext())) {
+            if (view != this.f19860g.e() && view != this.f19861h.e()) {
+                if (view == this.i.e()) {
+                    e eVar2 = this.k;
+                    if (eVar2 != null) {
+                        d.b.i0.c2.k.e.b1.b.l(this.f19859f, eVar2.L(), 3);
+                        return;
+                    }
+                    return;
+                } else if (view != this.j.e() || (eVar = this.k) == null) {
+                    return;
+                } else {
+                    d.b.i0.c2.k.e.b1.b.l(this.f19859f, eVar.L(), 2);
+                    return;
+                }
+            }
+            int i = 0;
+            if (view == this.f19860g.e()) {
+                this.f19860g.h();
+                d.b.h0.r.q.e eVar3 = this.n;
+                if (eVar3 != null) {
+                    eVar3.f50761a = 1;
+                    eVar3.f50762b = 4;
+                }
+                AgreeData agreeData = this.l;
+                if (agreeData.hasAgree) {
+                    if (agreeData.agreeType == 2) {
+                        agreeData.agreeType = 2;
+                        agreeData.hasAgree = false;
+                        agreeData.diffAgreeNum--;
+                        agreeData.agreeNum--;
+                        m();
+                        d.b.h0.r.q.e eVar4 = this.n;
+                        if (eVar4 != null) {
+                            eVar4.f50765e = 1;
+                        }
+                        i = 1;
+                    } else {
+                        agreeData.agreeType = 2;
+                        agreeData.hasAgree = true;
+                        agreeData.diffAgreeNum += 2;
+                        agreeData.agreeNum++;
+                        agreeData.disAgreeNum--;
+                        n(true);
+                        d.b.h0.r.q.e eVar5 = this.n;
+                        if (eVar5 != null) {
+                            eVar5.f50765e = 0;
+                        }
+                    }
+                } else {
+                    agreeData.agreeType = 2;
+                    agreeData.hasAgree = true;
+                    agreeData.diffAgreeNum++;
+                    agreeData.agreeNum++;
+                    n(true);
+                }
+                l(i);
+            } else if (view == this.f19861h.e()) {
+                this.f19861h.h();
+                d.b.h0.r.q.e eVar6 = this.n;
+                if (eVar6 != null) {
+                    eVar6.f50761a = 2;
+                    eVar6.f50762b = 4;
+                }
+                AgreeData agreeData2 = this.l;
+                if (agreeData2.hasAgree) {
+                    if (agreeData2.agreeType == 5) {
+                        agreeData2.agreeType = 5;
+                        agreeData2.hasAgree = false;
+                        agreeData2.diffAgreeNum++;
+                        agreeData2.disAgreeNum--;
+                        m();
+                        d.b.h0.r.q.e eVar7 = this.n;
+                        if (eVar7 != null) {
+                            eVar7.i = 0;
+                        }
+                        i = 1;
+                    } else {
+                        agreeData2.agreeType = 5;
+                        agreeData2.hasAgree = true;
+                        agreeData2.diffAgreeNum -= 2;
+                        agreeData2.agreeNum--;
+                        agreeData2.disAgreeNum++;
+                        n(false);
+                        d.b.h0.r.q.e eVar8 = this.n;
+                        if (eVar8 != null) {
+                            eVar8.i = 1;
+                        }
+                    }
+                } else {
+                    agreeData2.agreeType = 5;
+                    agreeData2.hasAgree = true;
+                    agreeData2.diffAgreeNum--;
+                    agreeData2.disAgreeNum++;
+                    n(false);
+                    d.b.h0.r.q.e eVar9 = this.n;
+                    if (eVar9 != null) {
+                        eVar9.i = 1;
+                    }
+                }
+                l(i);
+            }
+            d.b.i0.c3.h0.e eVar10 = this.m;
+            AgreeData agreeData3 = this.l;
+            eVar10.f53376b = agreeData3;
+            if (agreeData3.isInThread) {
+                e eVar11 = this.k;
+                if (eVar11 != null && eVar11.L() != null && this.k.L().V() != null) {
+                    this.l.nid = this.k.L().V().oriUgcNid;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, this.m));
+                g(this.l, AgreeEvent.IS_THREAD);
+            } else if (agreeData3.isInPost) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, this.m));
+                g(this.l, AgreeEvent.IS_POST);
+            }
+            setStatisticData(this.n);
+            h();
+        }
+    }
+
+    public void l(int i) {
+        if (this.l == null) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+        httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+        httpMessage.addParam("thread_id", this.l.threadId);
+        httpMessage.addParam("op_type", i);
+        AgreeData agreeData = this.l;
+        if (agreeData.objType == 0) {
+            agreeData.objType = 3;
+        }
+        httpMessage.addParam("obj_type", this.l.objType);
+        httpMessage.addParam("agree_type", this.l.agreeType);
+        httpMessage.addParam("forum_id", this.l.forumId);
+        d.b.h0.i0.c f2 = TbPageExtraHelper.f(this);
+        if (f2 != null) {
+            httpMessage.addParam("obj_source", f2.a());
+        }
+        if (!TextUtils.isEmpty(this.l.postId)) {
+            httpMessage.addParam("post_id", this.l.postId);
+        }
+        e eVar = this.k;
+        if (eVar != null && eVar.L() != null && this.k.L().V() != null) {
+            BaijiahaoData V = this.k.L().V();
+            httpMessage.addParam("ori_ugc_tid", V.oriUgcTid);
+            httpMessage.addParam("ori_ugc_nid", V.oriUgcNid);
+            httpMessage.addParam("ori_ugc_vid", V.oriUgcVid);
+            httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, V.oriUgcType);
+        }
+        httpMessage.setTag(getPageId());
+        httpMessage.setExtra(Integer.valueOf(i));
+        httpMessage.addHeader("needSig", "1");
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void m() {
+        if (this.l == null) {
+            return;
+        }
+        TBLottieAnimationView e2 = this.f19860g.e();
+        SkinManager.setLottieAnimation(e2, R.raw.lottie_agree);
+        TBLottieAnimationView e3 = this.f19861h.e();
+        SkinManager.setLottieAnimation(e3, R.raw.lottie_disagree);
+        TextView f2 = this.f19860g.f();
+        TextView f3 = this.f19861h.f();
+        f2.setText(StringHelper.numFormatOverWanNa(this.l.agreeNum));
+        f3.setText(StringHelper.numFormatOverWanNa(this.l.disAgreeNum));
+        AgreeData agreeData = this.l;
+        if (agreeData.hasAgree) {
+            if (agreeData.agreeType == 2) {
+                e3.setProgress(0.0f);
+                e2.setProgress(1.0f);
+                f2.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                f3.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+            } else {
+                e2.setProgress(0.0f);
+                e3.setProgress(1.0f);
+                f2.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+                f3.setTextColor(SkinManager.getColor(R.color.CAM_X0304));
+            }
+        } else {
+            e2.setMinAndMaxProgress(0.0f, 0.0f);
+            e3.setMinAndMaxProgress(0.0f, 0.0f);
+            e2.setProgress(0.0f);
+            e3.setProgress(0.0f);
+            f2.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+            f3.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+        }
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType == 1) {
+            e2.setAlpha(0.5f);
+            e3.setAlpha(0.5f);
+        } else if (skinType == 4) {
+            e2.setAlpha(0.66f);
+            e3.setAlpha(0.66f);
+        } else {
+            e2.setAlpha(1.0f);
+            e3.setAlpha(1.0f);
+        }
+        e eVar = this.k;
+        if (eVar == null || eVar.L() == null) {
+            return;
+        }
+        setVisibility(this.k.L().x2() ? 8 : 0);
+    }
+
+    public void n(boolean z) {
+        if (this.l == null) {
+            return;
+        }
+        TBLottieAnimationView tBLottieAnimationView = this.f19860g.f19868d;
+        TBLottieAnimationView tBLottieAnimationView2 = this.f19861h.f19868d;
+        TextView textView = this.f19860g.f19867c;
+        TextView textView2 = this.f19861h.f19867c;
         tBLottieAnimationView.setMinAndMaxProgress(0.0f, 1.0f);
         tBLottieAnimationView2.setMinAndMaxProgress(0.0f, 1.0f);
-        textView.setText(au.numFormatOverWanNa(this.mAgreeData.agreeNum));
-        textView2.setText(au.numFormatOverWanNa(this.mAgreeData.disAgreeNum));
+        textView.setText(StringHelper.numFormatOverWanNa(this.l.agreeNum));
+        textView2.setText(StringHelper.numFormatOverWanNa(this.l.disAgreeNum));
         tBLottieAnimationView.clearColorFilter();
         tBLottieAnimationView2.clearColorFilter();
         if (z) {
@@ -343,152 +568,32 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         }
         tBLottieAnimationView.setFrame(0);
         tBLottieAnimationView2.setFrame(0);
-        if (this.mAgreeData.hasAgree) {
-            if (this.mAgreeData.agreeType == 2) {
-                textView.setTextColor(ap.getColor(R.color.CAM_X0301));
-                textView2.setTextColor(ap.getColor(R.color.CAM_X0107));
+        AgreeData agreeData = this.l;
+        if (agreeData.hasAgree) {
+            if (agreeData.agreeType == 2) {
+                textView.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
                 return;
             }
-            textView.setTextColor(ap.getColor(R.color.CAM_X0107));
-            textView2.setTextColor(ap.getColor(R.color.CAM_X0304));
+            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+            textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0304));
             return;
         }
-        textView.setTextColor(ap.getColor(R.color.CAM_X0107));
-        textView2.setTextColor(ap.getColor(R.color.CAM_X0107));
+        textView.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+        textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
     }
 
-    public void dsJ() {
-        if (this.mAgreeData != null) {
-            TBLottieAnimationView dsK = this.mia.dsK();
-            ap.a(dsK, R.raw.lottie_agree);
-            TBLottieAnimationView dsK2 = this.mib.dsK();
-            ap.a(dsK2, R.raw.lottie_disagree);
-            TextView textView = this.mia.getTextView();
-            TextView textView2 = this.mib.getTextView();
-            textView.setText(au.numFormatOverWanNa(this.mAgreeData.agreeNum));
-            textView2.setText(au.numFormatOverWanNa(this.mAgreeData.disAgreeNum));
-            if (this.mAgreeData.hasAgree) {
-                if (this.mAgreeData.agreeType == 2) {
-                    dsK2.setProgress(0.0f);
-                    dsK.setProgress(1.0f);
-                    textView.setTextColor(ap.getColor(R.color.CAM_X0301));
-                    textView2.setTextColor(ap.getColor(R.color.CAM_X0107));
-                } else {
-                    dsK.setProgress(0.0f);
-                    dsK2.setProgress(1.0f);
-                    textView.setTextColor(ap.getColor(R.color.CAM_X0107));
-                    textView2.setTextColor(ap.getColor(R.color.CAM_X0304));
-                }
-            } else {
-                dsK.setMinAndMaxProgress(0.0f, 0.0f);
-                dsK2.setMinAndMaxProgress(0.0f, 0.0f);
-                dsK.setProgress(0.0f);
-                dsK2.setProgress(0.0f);
-                textView.setTextColor(ap.getColor(R.color.CAM_X0107));
-                textView2.setTextColor(ap.getColor(R.color.CAM_X0107));
-            }
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 1) {
-                dsK.setAlpha(0.5f);
-                dsK2.setAlpha(0.5f);
-            } else if (skinType == 4) {
-                dsK.setAlpha(0.66f);
-                dsK2.setAlpha(0.66f);
-            } else {
-                dsK.setAlpha(1.0f);
-                dsK2.setAlpha(1.0f);
-            }
-            if (this.lQH != null && this.lQH.dlp() != null) {
-                setVisibility(this.lQH.dlp().bmB() ? 8 : 0);
-            }
+    public final void o(AgreeData agreeData) {
+        AgreeData agreeData2;
+        if (agreeData == null || (agreeData2 = this.l) == null) {
+            return;
         }
-    }
-
-    public void btP() {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        int i;
-        String str5;
-        String str6;
-        int i2;
-        int i3;
-        String str7 = null;
-        if (this.ffS != null) {
-            if (this.lQH == null || this.lQH.dlp() == null) {
-                str = null;
-                str2 = null;
-                str3 = null;
-                str4 = null;
-                i = 0;
-                str5 = null;
-                str6 = null;
-                i2 = 1;
-            } else {
-                cb dlp = this.lQH.dlp();
-                if (dlp.bmz()) {
-                    i3 = 2;
-                } else if (dlp.bmA()) {
-                    i3 = 3;
-                } else if (dlp.bpP()) {
-                    i3 = 4;
-                } else {
-                    i3 = dlp.bpQ() ? 5 : 1;
-                }
-                str6 = dlp.bmq();
-                if (dlp.getBaijiahaoData() != null && !au.isEmpty(dlp.getBaijiahaoData().oriUgcVid)) {
-                    str7 = dlp.getBaijiahaoData().oriUgcVid;
-                }
-                i = dlp.bpT();
-                str4 = dlp.mRecomSource;
-                str3 = dlp.mRecomAbTag;
-                str2 = dlp.mRecomWeight;
-                str = dlp.mRecomExtra;
-                str5 = str7;
-                i2 = i3;
-            }
-            if (this.ffS.type == 1) {
-                ar dR = new ar("c12003").aq("obj_locate", this.ffS.eNB).aq("obj_param1", this.ffS.eNC).aq("obj_source", this.ffS.eND).aq("obj_id", this.ffS.eNE).aq("obj_name", i2).dR(IntentConfig.NID, str6).aq(IntentConfig.CARD_TYPE, i).dR(IntentConfig.RECOM_SOURCE, str4).dR("ab_tag", str3).dR("weight", str2).dR("recom_extra", str).dR("obj_param6", str5);
-                if (getTbPageContext() != null) {
-                    com.baidu.tbadk.pageInfo.c.b(getTbPageContext().getPageActivity(), dR);
-                }
-                com.baidu.tbadk.pageExtra.c bR = d.bR(this);
-                if (bR != null) {
-                    dR.dR("obj_cur_page", bR.getCurrentPageKey());
-                }
-                if (d.bDP() != null) {
-                    dR.dR("obj_pre_page", d.bDP());
-                }
-                TiebaStatic.log(dR);
-            } else if (this.ffS.type == 2) {
-                ar dR2 = new ar("c13271").aq("obj_type", this.ffS.eNG).aq("obj_locate", this.ffS.eNH).aq("obj_id", this.ffS.eNI).aq("obj_name", i2).dR(IntentConfig.NID, str6).aq(IntentConfig.CARD_TYPE, i).dR(IntentConfig.RECOM_SOURCE, str4).dR("ab_tag", str3).dR("weight", str2).dR("recom_extra", str).dR("obj_param6", str5);
-                if (getTbPageContext() != null) {
-                    com.baidu.tbadk.pageInfo.c.b(getTbPageContext().getPageActivity(), dR2);
-                }
-                TiebaStatic.log(dR2);
-            }
-        }
-    }
-
-    public void bzq() {
-        this.mic.Gq(R.color.CAM_X0107);
-        this.mie.Gq(R.color.CAM_X0107);
-        this.mic.setImageResource(R.drawable.icon_weixin_112);
-        this.mie.setImageResource(R.drawable.icon_pengyouqun_112);
-        this.mia.dsL();
-        this.mib.dsL();
-        this.mic.dsL();
-        this.mie.dsL();
-        dsJ();
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
+        agreeData2.agreeType = agreeData.agreeType;
+        agreeData2.hasAgree = agreeData.hasAgree;
+        agreeData2.diffAgreeNum = agreeData.diffAgreeNum;
+        agreeData2.agreeNum = agreeData.agreeNum;
+        agreeData2.disAgreeNum = agreeData.disAgreeNum;
+        m();
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -496,95 +601,61 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
     }
 
     @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
     public void onAnimationRepeat(Animator animator) {
     }
 
-    public void setStatisticData(com.baidu.tbadk.core.data.e eVar) {
-        this.ffS = eVar;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
     }
 
-    public BdUniqueId getPageId() {
-        TbPageContext tbPageContext = getTbPageContext();
-        if (tbPageContext != null) {
-            return tbPageContext.getUniqueId();
-        }
-        return null;
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        MessageManager.getInstance().registerListener(this.o);
+        MessageManager.getInstance().registerListener(this.p);
     }
 
-    public TbPageContext getTbPageContext() {
-        if (this.mPageContext == null) {
-            Context context = getContext();
-            if (context instanceof BaseActivity) {
-                this.mPageContext = ((BaseActivity) context).getPageContext();
-            } else if (context instanceof BaseFragmentActivity) {
-                this.mPageContext = ((BaseFragmentActivity) context).getPageContext();
-            }
-        }
-        return this.mPageContext;
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        MessageManager.getInstance().unRegisterListener(this.o);
+        MessageManager.getInstance().unRegisterListener(this.p);
     }
 
-    private a Gp(int i) {
-        a aVar = new a(this.mContext);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
-        layoutParams.leftMargin = i;
-        addView(aVar.getView(), layoutParams);
-        return aVar;
+    public void setData(e eVar, AgreeData agreeData) {
+        if (agreeData == null) {
+            setVisibility(8);
+            return;
+        }
+        setVisibility(0);
+        this.k = eVar;
+        this.l = agreeData;
+        agreeData.isInThread = true;
+        m();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public static class a {
-        private View acg;
-        private TBLottieAnimationView mig;
-        private TextView textView;
-        private View view;
+    public void setStatisticData(d.b.h0.r.q.e eVar) {
+        this.n = eVar;
+    }
 
-        public a(Context context) {
-            View inflate = View.inflate(context, R.layout.thread_agree_and_share_item_view, null);
-            this.view = inflate;
-            this.acg = inflate.findViewById(R.id.item_bg);
-            this.textView = (TextView) inflate.findViewById(R.id.item_text);
-            this.mig = (TBLottieAnimationView) inflate.findViewById(R.id.item_icon);
-        }
-
-        public View getView() {
-            return this.view;
-        }
-
-        public TBLottieAnimationView dsK() {
-            return this.mig;
-        }
-
-        public TextView getTextView() {
-            return this.textView;
-        }
-
-        public void playAnimation() {
-            this.mig.playAnimation();
-        }
-
-        public void setImageResource(int i) {
-            ap.setImageResource(this.mig, i);
-        }
-
-        public void setText(int i) {
-            this.textView.setText(i);
-        }
-
-        public void Gq(int i) {
-            ap.setViewTextColor(this.textView, i, 1);
-        }
-
-        public void setScaleType(ImageView.ScaleType scaleType) {
-            this.mig.setScaleType(scaleType);
-        }
-
-        public void addAnimatorListener(Animator.AnimatorListener animatorListener) {
-            this.mig.addAnimatorListener(animatorListener);
-        }
-
-        public void dsL() {
-            com.baidu.tbadk.core.util.f.a.bty().oW(UtilHelper.getDimenPixelSize(R.dimen.tbds47)).oX(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).oV(R.color.cp_cont_f_alpha50).oQ(R.color.CAM_X0201).bv(this.acg);
-        }
+    public ThreadAgreeAndShareLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.o = new a(2016528);
+        this.p = new b(2016530);
+        this.q = new c();
+        setOrientation(0);
+        setGravity(17);
+        this.f19859f = context;
+        d.b.i0.c3.h0.e eVar = new d.b.i0.c3.h0.e();
+        this.m = eVar;
+        eVar.f53375a = getPageId();
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds43);
+        setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
+        i();
+        this.n = new d.b.h0.r.q.e();
     }
 }

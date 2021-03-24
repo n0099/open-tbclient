@@ -5,59 +5,48 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<a<?>> f6603a = new ArrayList();
+    public final List<a<?>> f35153a = new ArrayList();
 
-    /* loaded from: classes3.dex */
-    private static final class a<T> {
+    /* loaded from: classes6.dex */
+    public static final class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        final g<T> f6604a;
-        private final Class<T> b;
+        public final g<T> f35154a;
 
-        a(@NonNull Class<T> cls, @NonNull g<T> gVar) {
-            this.b = cls;
-            this.f6604a = gVar;
+        /* renamed from: b  reason: collision with root package name */
+        public final Class<T> f35155b;
+
+        public a(@NonNull Class<T> cls, @NonNull g<T> gVar) {
+            this.f35155b = cls;
+            this.f35154a = gVar;
         }
 
-        boolean a(@NonNull Class<?> cls) {
-            return this.b.isAssignableFrom(cls);
+        public boolean a(@NonNull Class<?> cls) {
+            return this.f35155b.isAssignableFrom(cls);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:8:0x0019, code lost:
-        r0 = (com.kwad.sdk.glide.load.g<Z>) r0.f6604a;
-     */
     @Nullable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public synchronized <Z> g<Z> a(@NonNull Class<Z> cls) {
-        g<Z> gVar;
-        int size = this.f6603a.size();
-        int i = 0;
-        while (true) {
-            if (i >= size) {
-                gVar = null;
-                break;
-            }
-            a<?> aVar = this.f6603a.get(i);
+        int size = this.f35153a.size();
+        for (int i = 0; i < size; i++) {
+            a<?> aVar = this.f35153a.get(i);
             if (aVar.a(cls)) {
-                break;
+                return (g<Z>) aVar.f35154a;
             }
-            i++;
         }
-        return gVar;
+        return null;
     }
 
     public synchronized <Z> void a(@NonNull Class<Z> cls, @NonNull g<Z> gVar) {
-        this.f6603a.add(new a<>(cls, gVar));
+        this.f35153a.add(new a<>(cls, gVar));
     }
 
     public synchronized <Z> void b(@NonNull Class<Z> cls, @NonNull g<Z> gVar) {
-        this.f6603a.add(0, new a<>(cls, gVar));
+        this.f35153a.add(0, new a<>(cls, gVar));
     }
 }

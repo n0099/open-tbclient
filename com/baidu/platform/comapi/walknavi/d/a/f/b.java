@@ -3,8 +3,6 @@ package com.baidu.platform.comapi.walknavi.d.a.f;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import com.baidu.platform.comapi.walknavi.d.a.g.k;
-import com.baidubce.http.Headers;
-import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -18,221 +16,34 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends AsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2932a;
-    private int b;
-    private a<String> c;
-    private boolean d = false;
-    private boolean e;
-    private String f;
+    public String f9994a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f9995b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public a<String> f9996c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f9997d = false;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f9998e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f9999f;
 
     public b(String str, int i, boolean z, a<String> aVar) {
-        this.f2932a = "";
-        this.b = 0;
-        this.f2932a = str;
-        this.b = i;
-        this.c = aVar;
-        this.e = z;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onProgressUpdate(Integer... numArr) {
-        super.onProgressUpdate(numArr);
-        if (this.c != null) {
-            this.c.a(numArr[0].intValue());
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [212=4, 213=4, 215=4, 216=4, 218=4] */
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:139:?, code lost:
-        return null;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:142:?, code lost:
-        return null;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:143:?, code lost:
-        return null;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x01cc, code lost:
-        com.baidu.platform.comapi.walknavi.d.a.g.a.a("cancelled");
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x01d2, code lost:
-        if (r2 == null) goto L57;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x01d4, code lost:
-        r2.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x01d7, code lost:
-        if (r1 == null) goto L63;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x01d9, code lost:
-        r1.close();
-     */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String doInBackground(String... strArr) {
-        Throwable th;
-        RandomAccessFile randomAccessFile;
-        BufferedInputStream bufferedInputStream;
-        RandomAccessFile randomAccessFile2;
-        BufferedInputStream bufferedInputStream2;
-        int i = 0;
-        if (strArr == null || strArr.length <= 0) {
-            return null;
-        }
-        String str = strArr[0];
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        this.f = str;
-        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f2932a, this.b);
-        if (TextUtils.isEmpty(a2)) {
-            return null;
-        }
-        File file = new File(a2);
-        if (!file.exists() || !file.isDirectory()) {
-            file.mkdirs();
-        }
-        String str2 = a2 + File.separator + (k.a(str) + ".zip");
-        File file2 = new File(str2);
-        if (file2.exists()) {
-            try {
-                new ZipFile(str2);
-                if (com.baidu.platform.comapi.walknavi.d.a.b.f2913a) {
-                    return c(str2);
-                }
-                if (this.c != null) {
-                    this.c.a(false, b(str));
-                }
-                return "false";
-            } catch (Exception e) {
-                file2.delete();
-                if (!com.baidu.platform.comapi.walknavi.d.a.b.f2913a) {
-                    if (this.c != null) {
-                        this.c.a(true, b(str));
-                    }
-                    return "true";
-                }
-            }
-        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f2913a) {
-            if (this.c != null) {
-                this.c.a(true, b(str));
-            }
-            return "true";
-        } else if (!com.baidu.platform.comapi.walknavi.d.a.g.c.a(file2.getParentFile())) {
-            com.baidu.platform.comapi.walknavi.d.a.g.a.a("create file error!");
-            return null;
-        } else {
-            try {
-                file2.createNewFile();
-            } catch (IOException e2) {
-                com.baidu.platform.comapi.walknavi.d.a.g.a.a("create zip file error!");
-                return null;
-            }
-        }
-        int b = b(str);
-        com.baidu.platform.comapi.walknavi.d.a.g.a.a("download length = " + b);
-        if (b == 0) {
-            return null;
-        }
-        try {
-            URLConnection openConnection = new URL(str).openConnection();
-            openConnection.setConnectTimeout(10000);
-            openConnection.setRequestProperty(Headers.RANGE, "bytes=0-" + b);
-            randomAccessFile2 = new RandomAccessFile(str2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
-            try {
-                randomAccessFile2.seek(0L);
-                byte[] bArr = new byte[8192];
-                bufferedInputStream2 = new BufferedInputStream(openConnection.getInputStream(), 8192);
-                while (true) {
-                    try {
-                        int read = bufferedInputStream2.read(bArr, 0, 8192);
-                        if (read != -1) {
-                            com.baidu.platform.comapi.walknavi.d.a.g.a.a("one while read start n =" + read);
-                            randomAccessFile2.write(bArr, 0, read);
-                            i += read;
-                            int i2 = (int) ((100.0f * i) / b);
-                            com.baidu.platform.comapi.walknavi.d.a.g.a.a("percentProgress = " + i2);
-                            publishProgress(Integer.valueOf(i2));
-                            while (this.d) {
-                                com.baidu.platform.comapi.walknavi.d.a.g.a.a("mIsPause = " + this.d);
-                                try {
-                                    Thread.currentThread();
-                                    Thread.sleep(500L);
-                                } catch (InterruptedException e3) {
-                                }
-                            }
-                            if (isCancelled()) {
-                                break;
-                            }
-                            com.baidu.platform.comapi.walknavi.d.a.g.a.a("one while read end count = " + i);
-                        } else {
-                            if (bufferedInputStream2 != null) {
-                                try {
-                                    bufferedInputStream2.close();
-                                } catch (IOException e4) {
-                                    return c(str2);
-                                }
-                            }
-                            if (randomAccessFile2 != null) {
-                                randomAccessFile2.close();
-                            }
-                        }
-                    } catch (IOException e5) {
-                        if (bufferedInputStream2 != null) {
-                            try {
-                                bufferedInputStream2.close();
-                            } catch (IOException e6) {
-                                return c(str2);
-                            }
-                        }
-                        if (randomAccessFile2 != null) {
-                            randomAccessFile2.close();
-                        }
-                        return c(str2);
-                    } catch (Throwable th2) {
-                        th = th2;
-                        randomAccessFile = randomAccessFile2;
-                        bufferedInputStream = bufferedInputStream2;
-                        if (bufferedInputStream != null) {
-                            try {
-                                bufferedInputStream.close();
-                            } catch (IOException e7) {
-                                throw th;
-                            }
-                        }
-                        if (randomAccessFile != null) {
-                            randomAccessFile.close();
-                        }
-                        throw th;
-                    }
-                }
-            } catch (IOException e8) {
-                bufferedInputStream2 = null;
-            } catch (Throwable th3) {
-                th = th3;
-                randomAccessFile = randomAccessFile2;
-                bufferedInputStream = null;
-            }
-        } catch (IOException e9) {
-            randomAccessFile2 = null;
-            bufferedInputStream2 = null;
-        } catch (Throwable th4) {
-            th = th4;
-            randomAccessFile = null;
-            bufferedInputStream = null;
-        }
+        this.f9994a = "";
+        this.f9995b = 0;
+        this.f9994a = str;
+        this.f9995b = i;
+        this.f9996c = aVar;
+        this.f9998e = z;
     }
 
     private int b(String str) {
@@ -240,21 +51,40 @@ public class b extends AsyncTask<String, Integer, String> {
             URLConnection openConnection = new URL(str).openConnection();
             openConnection.setConnectTimeout(10000);
             return openConnection.getContentLength();
-        } catch (MalformedURLException e) {
-            return 0;
-        } catch (IOException e2) {
+        } catch (MalformedURLException | IOException unused) {
             return 0;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [348=5, 350=4, 351=4, 356=4, 358=4, 359=4, 364=4, 366=4, 367=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:113:0x00e3 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:115:0x00e5 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:153:0x0050 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:155:0x0050 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x0105 */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v1, resolved type: java.io.BufferedOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: java.io.BufferedOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v4, resolved type: java.io.BufferedOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v5, resolved type: java.io.BufferedOutputStream */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x0130 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x013e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:127:0x0137 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x0155 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x014e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:133:0x0147 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x0127 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x0120 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:139:0x0119 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private String c(String str) {
-        Throwable th;
-        BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
+        BufferedOutputStream bufferedOutputStream;
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream2;
-        BufferedInputStream bufferedInputStream2;
+        BufferedOutputStream bufferedOutputStream3;
+        ZipFile zipFile2 = null;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -265,7 +95,7 @@ public class b extends AsyncTask<String, Integer, String> {
         String substring = str.substring(0, str.length() - 4);
         File file2 = new File(substring);
         String a2 = k.a(str);
-        if (this.e) {
+        if (this.f9998e) {
             if (file2.exists()) {
                 com.baidu.platform.comapi.walknavi.d.a.g.f.a(file2);
             }
@@ -280,8 +110,8 @@ public class b extends AsyncTask<String, Integer, String> {
             zipFile = new ZipFile(file);
             try {
                 Enumeration<? extends ZipEntry> entries = zipFile.entries();
-                bufferedOutputStream = null;
                 bufferedInputStream = null;
+                bufferedOutputStream = null;
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
@@ -295,154 +125,339 @@ public class b extends AsyncTask<String, Integer, String> {
                                 file3.createNewFile();
                             }
                             byte[] bArr = new byte[8192];
-                            BufferedInputStream bufferedInputStream3 = new BufferedInputStream(zipFile.getInputStream(nextElement), 8192);
+                            BufferedInputStream bufferedInputStream2 = new BufferedInputStream(zipFile.getInputStream(nextElement), 8192);
                             try {
-                                bufferedOutputStream2 = new BufferedOutputStream(new FileOutputStream(file3), 8192);
-                                int i = 0;
+                                BufferedOutputStream bufferedOutputStream4 = new BufferedOutputStream(new FileOutputStream(file3), 8192);
                                 while (true) {
                                     try {
-                                        int read = bufferedInputStream3.read(bArr, 0, 8192);
+                                        int read = bufferedInputStream2.read(bArr, 0, 8192);
                                         if (read == -1) {
                                             break;
                                         }
-                                        bufferedOutputStream2.write(bArr, 0, read);
-                                        i += read;
-                                    } catch (ZipException e) {
-                                        bufferedInputStream2 = bufferedInputStream3;
+                                        bufferedOutputStream4.write(bArr, 0, read);
+                                    } catch (ZipException unused) {
+                                        bufferedOutputStream = bufferedOutputStream4;
+                                        bufferedInputStream = bufferedInputStream2;
+                                        bufferedOutputStream3 = bufferedOutputStream;
                                         if (zipFile != null) {
-                                            try {
-                                                zipFile.close();
-                                            } catch (IOException e2) {
-                                            }
-                                        }
-                                        if (bufferedInputStream2 != null) {
-                                            try {
-                                                bufferedInputStream2.close();
-                                            } catch (IOException e3) {
-                                            }
-                                        }
-                                        if (bufferedOutputStream2 != null) {
-                                            try {
-                                                bufferedOutputStream2.close();
-                                            } catch (IOException e4) {
-                                            }
-                                        }
-                                        return null;
-                                    } catch (IOException e5) {
-                                        bufferedOutputStream = bufferedOutputStream2;
-                                        bufferedInputStream = bufferedInputStream3;
-                                        if (zipFile != null) {
-                                            try {
-                                                zipFile.close();
-                                            } catch (IOException e6) {
-                                            }
                                         }
                                         if (bufferedInputStream != null) {
-                                            try {
-                                                bufferedInputStream.close();
-                                            } catch (IOException e7) {
-                                            }
                                         }
-                                        if (bufferedOutputStream != null) {
-                                            try {
-                                                bufferedOutputStream.close();
-                                            } catch (IOException e8) {
-                                            }
+                                        if (bufferedOutputStream3 != 0) {
                                         }
                                         return null;
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        bufferedOutputStream = bufferedOutputStream2;
-                                        bufferedInputStream = bufferedInputStream3;
+                                    } catch (IOException unused2) {
+                                        bufferedOutputStream = bufferedOutputStream4;
+                                        bufferedInputStream = bufferedInputStream2;
+                                        bufferedOutputStream2 = bufferedOutputStream;
                                         if (zipFile != null) {
-                                            try {
-                                                zipFile.close();
-                                            } catch (IOException e9) {
-                                            }
                                         }
                                         if (bufferedInputStream != null) {
-                                            try {
-                                                bufferedInputStream.close();
-                                            } catch (IOException e10) {
-                                            }
+                                        }
+                                        if (bufferedOutputStream2 != 0) {
+                                        }
+                                        return null;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        zipFile2 = zipFile;
+                                        bufferedOutputStream = bufferedOutputStream4;
+                                        bufferedInputStream = bufferedInputStream2;
+                                        if (zipFile2 != null) {
+                                        }
+                                        if (bufferedInputStream != null) {
                                         }
                                         if (bufferedOutputStream != null) {
-                                            try {
-                                                bufferedOutputStream.close();
-                                            } catch (IOException e11) {
-                                            }
                                         }
                                         throw th;
                                     }
                                 }
-                                bufferedOutputStream2.flush();
-                                bufferedOutputStream = bufferedOutputStream2;
-                                bufferedInputStream = bufferedInputStream3;
-                            } catch (ZipException e12) {
-                                bufferedOutputStream2 = bufferedOutputStream;
-                                bufferedInputStream2 = bufferedInputStream3;
-                            } catch (IOException e13) {
-                                bufferedInputStream = bufferedInputStream3;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                bufferedInputStream = bufferedInputStream3;
+                                bufferedOutputStream4.flush();
+                                bufferedOutputStream = bufferedOutputStream4;
+                                bufferedInputStream = bufferedInputStream2;
+                            } catch (ZipException unused3) {
+                            } catch (IOException unused4) {
+                            } catch (Throwable th2) {
+                                th = th2;
+                                zipFile2 = zipFile;
+                                bufferedOutputStream = bufferedOutputStream;
                             }
                         }
-                    } catch (ZipException e14) {
+                    } catch (ZipException unused5) {
+                        bufferedOutputStream3 = bufferedOutputStream;
+                    } catch (IOException unused6) {
                         bufferedOutputStream2 = bufferedOutputStream;
-                        bufferedInputStream2 = bufferedInputStream;
-                    } catch (IOException e15) {
-                    } catch (Throwable th4) {
-                        th = th4;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        zipFile2 = zipFile;
+                        if (zipFile2 != null) {
+                            try {
+                                zipFile2.close();
+                            } catch (IOException unused7) {
+                            }
+                        }
+                        if (bufferedInputStream != null) {
+                            try {
+                                bufferedInputStream.close();
+                            } catch (IOException unused8) {
+                            }
+                        }
+                        if (bufferedOutputStream != null) {
+                            try {
+                                bufferedOutputStream.close();
+                            } catch (IOException unused9) {
+                            }
+                        }
+                        throw th;
                     }
                 }
-                if (zipFile != null) {
-                    try {
-                        zipFile.close();
-                    } catch (IOException e16) {
-                    }
+                try {
+                    zipFile.close();
+                } catch (IOException unused10) {
                 }
                 if (bufferedInputStream != null) {
                     try {
                         bufferedInputStream.close();
-                    } catch (IOException e17) {
+                    } catch (IOException unused11) {
                     }
                 }
                 if (bufferedOutputStream != null) {
                     try {
                         bufferedOutputStream.close();
-                    } catch (IOException e18) {
+                    } catch (IOException unused12) {
                     }
                 }
-                if (!this.e) {
+                if (!this.f9998e) {
                     com.baidu.platform.comapi.walknavi.d.a.g.f.a(a2, ".successUnzip.txt");
                 }
                 return substring;
-            } catch (ZipException e19) {
-                bufferedOutputStream2 = null;
-                bufferedInputStream2 = null;
-            } catch (IOException e20) {
-                bufferedOutputStream = null;
+            } catch (ZipException unused13) {
                 bufferedInputStream = null;
-            } catch (Throwable th5) {
-                th = th5;
-                bufferedOutputStream = null;
+                bufferedOutputStream3 = bufferedInputStream;
+                if (zipFile != null) {
+                    try {
+                        zipFile.close();
+                    } catch (IOException unused14) {
+                    }
+                }
+                if (bufferedInputStream != null) {
+                    try {
+                        bufferedInputStream.close();
+                    } catch (IOException unused15) {
+                    }
+                }
+                if (bufferedOutputStream3 != 0) {
+                    try {
+                        bufferedOutputStream3.close();
+                    } catch (IOException unused16) {
+                    }
+                }
+                return null;
+            } catch (IOException unused17) {
                 bufferedInputStream = null;
+                bufferedOutputStream2 = bufferedInputStream;
+                if (zipFile != null) {
+                    try {
+                        zipFile.close();
+                    } catch (IOException unused18) {
+                    }
+                }
+                if (bufferedInputStream != null) {
+                    try {
+                        bufferedInputStream.close();
+                    } catch (IOException unused19) {
+                    }
+                }
+                if (bufferedOutputStream2 != 0) {
+                    try {
+                        bufferedOutputStream2.close();
+                    } catch (IOException unused20) {
+                    }
+                }
+                return null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedInputStream = null;
+                bufferedOutputStream = null;
             }
-        } catch (ZipException e21) {
-            bufferedOutputStream2 = null;
-            bufferedInputStream2 = null;
+        } catch (ZipException unused21) {
             zipFile = null;
-        } catch (IOException e22) {
-            bufferedOutputStream = null;
             bufferedInputStream = null;
+        } catch (IOException unused22) {
             zipFile = null;
-        } catch (Throwable th6) {
-            th = th6;
-            bufferedOutputStream = null;
             bufferedInputStream = null;
-            zipFile = null;
+        } catch (Throwable th5) {
+            th = th5;
+            bufferedInputStream = null;
+            bufferedOutputStream = null;
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onProgressUpdate(Integer... numArr) {
+        super.onProgressUpdate(numArr);
+        a<String> aVar = this.f9996c;
+        if (aVar != null) {
+            aVar.a(numArr[0].intValue());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x018d, code lost:
+        com.baidu.platform.comapi.walknavi.d.a.g.a.a("cancelled");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x0192, code lost:
+        r8.close();
+        r4.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x01b2, code lost:
+        r4.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x01d0, code lost:
+        if (r4 != null) goto L66;
+     */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String doInBackground(String... strArr) {
+        String str;
+        RandomAccessFile randomAccessFile;
+        BufferedInputStream bufferedInputStream = null;
+        if (strArr != null && strArr.length > 0) {
+            String str2 = strArr[0];
+            if (TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            this.f9999f = str2;
+            String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f9994a, this.f9995b);
+            if (TextUtils.isEmpty(a2)) {
+                return null;
+            }
+            File file = new File(a2);
+            if (!file.exists() || !file.isDirectory()) {
+                file.mkdirs();
+            }
+            str = a2 + File.separator + (k.a(str2) + ".zip");
+            File file2 = new File(str);
+            if (file2.exists()) {
+                try {
+                    new ZipFile(str);
+                    if (!com.baidu.platform.comapi.walknavi.d.a.b.f9944a) {
+                        if (this.f9996c != null) {
+                            this.f9996c.a(false, b(str2));
+                            return "false";
+                        }
+                        return "false";
+                    }
+                    return c(str);
+                } catch (Exception unused) {
+                    file2.delete();
+                    if (!com.baidu.platform.comapi.walknavi.d.a.b.f9944a) {
+                        a<String> aVar = this.f9996c;
+                        if (aVar != null) {
+                            aVar.a(true, b(str2));
+                        }
+                        return "true";
+                    }
+                }
+            } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f9944a) {
+                a<String> aVar2 = this.f9996c;
+                if (aVar2 != null) {
+                    aVar2.a(true, b(str2));
+                }
+                return "true";
+            } else if (com.baidu.platform.comapi.walknavi.d.a.g.c.a(file2.getParentFile())) {
+                try {
+                    file2.createNewFile();
+                } catch (IOException unused2) {
+                    com.baidu.platform.comapi.walknavi.d.a.g.a.a("create zip file error!");
+                    return null;
+                }
+            } else {
+                com.baidu.platform.comapi.walknavi.d.a.g.a.a("create file error!");
+            }
+            int b2 = b(str2);
+            com.baidu.platform.comapi.walknavi.d.a.g.a.a("download length = " + b2);
+            try {
+                if (b2 == 0) {
+                    return null;
+                }
+                try {
+                    URLConnection openConnection = new URL(str2).openConnection();
+                    openConnection.setConnectTimeout(10000);
+                    openConnection.setRequestProperty("Range", "bytes=0-" + b2);
+                    randomAccessFile = new RandomAccessFile(str, "rw");
+                    try {
+                        randomAccessFile.seek(0L);
+                        byte[] bArr = new byte[8192];
+                        BufferedInputStream bufferedInputStream2 = new BufferedInputStream(openConnection.getInputStream(), 8192);
+                        int i = 0;
+                        while (true) {
+                            try {
+                                int read = bufferedInputStream2.read(bArr, 0, 8192);
+                                if (read != -1) {
+                                    com.baidu.platform.comapi.walknavi.d.a.g.a.a("one while read start n =" + read);
+                                    randomAccessFile.write(bArr, 0, read);
+                                    i += read;
+                                    int i2 = (int) ((((float) i) * 100.0f) / ((float) b2));
+                                    com.baidu.platform.comapi.walknavi.d.a.g.a.a("percentProgress = " + i2);
+                                    publishProgress(Integer.valueOf(i2));
+                                    while (this.f9997d) {
+                                        com.baidu.platform.comapi.walknavi.d.a.g.a.a("mIsPause = " + this.f9997d);
+                                        try {
+                                            Thread.currentThread();
+                                            Thread.sleep(500L);
+                                        } catch (InterruptedException unused3) {
+                                        }
+                                    }
+                                    if (isCancelled()) {
+                                        break;
+                                    }
+                                    com.baidu.platform.comapi.walknavi.d.a.g.a.a("one while read end count = " + i);
+                                } else {
+                                    bufferedInputStream2.close();
+                                    break;
+                                }
+                            } catch (IOException unused4) {
+                                bufferedInputStream = bufferedInputStream2;
+                                if (bufferedInputStream != null) {
+                                    bufferedInputStream.close();
+                                }
+                            } catch (Throwable th) {
+                                th = th;
+                                bufferedInputStream = bufferedInputStream2;
+                                if (bufferedInputStream != null) {
+                                    try {
+                                        bufferedInputStream.close();
+                                    } catch (IOException unused5) {
+                                        throw th;
+                                    }
+                                }
+                                if (randomAccessFile != null) {
+                                    randomAccessFile.close();
+                                }
+                                throw th;
+                            }
+                        }
+                    } catch (IOException unused6) {
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                } catch (IOException unused7) {
+                    randomAccessFile = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    randomAccessFile = null;
+                }
+            } catch (IOException unused8) {
+            }
+        }
+        return null;
+        return c(str);
+        return null;
     }
 
     private boolean a(String str, File file) {
@@ -451,17 +466,19 @@ public class b extends AsyncTask<String, Integer, String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public void onPostExecute(String str) {
+        a<String> aVar;
         if (TextUtils.isEmpty(str)) {
-            if (this.c != null) {
-                this.c.b("download error!");
+            a<String> aVar2 = this.f9996c;
+            if (aVar2 != null) {
+                aVar2.b("download error!");
             }
-        } else if (!"true".equalsIgnoreCase(str) && !"false".equalsIgnoreCase(str) && this.c != null) {
-            this.c.a(100);
-            this.c.a((a<String>) str);
+        } else if ("true".equalsIgnoreCase(str) || "false".equalsIgnoreCase(str) || (aVar = this.f9996c) == null) {
+        } else {
+            aVar.a(100);
+            this.f9996c.a((a<String>) str);
         }
     }
 }

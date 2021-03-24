@@ -11,22 +11,21 @@ import android.os.HandlerThread;
 import android.telephony.PhoneStateListener;
 import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AndroidCellularSignalStrength {
     public static final AndroidCellularSignalStrength sInstance = new AndroidCellularSignalStrength();
     public volatile int mSignalLevel = Integer.MIN_VALUE;
 
-    /* loaded from: classes3.dex */
-    private class CellStateListener extends PhoneStateListener implements ApplicationStatus.ApplicationStateListener {
-        public static final /* synthetic */ boolean $assertionsDisabled = !AndroidCellularSignalStrength.class.desiredAssertionStatus();
+    /* loaded from: classes.dex */
+    public class CellStateListener extends PhoneStateListener implements ApplicationStatus.ApplicationStateListener {
+        public static final /* synthetic */ boolean $assertionsDisabled = false;
         public final TelephonyManager mTelephonyManager;
 
         public CellStateListener() {
-            if (!ThreadUtils.sThreadAssertsDisabled && !ThreadUtils.$assertionsDisabled && ThreadUtils.runningOnUiThread()) {
-                throw new AssertionError("Must be called on a thread other than UI.");
-            }
-            this.mTelephonyManager = (TelephonyManager) ContextUtils.sApplicationContext.getSystemService("phone");
-            if (this.mTelephonyManager.getSimState() != 5) {
+            boolean z = ThreadUtils.sThreadAssertsDisabled;
+            TelephonyManager telephonyManager = (TelephonyManager) ContextUtils.sApplicationContext.getSystemService("phone");
+            this.mTelephonyManager = telephonyManager;
+            if (telephonyManager.getSimState() != 5) {
                 return;
             }
             ApplicationStatus.registerApplicationStateListener(this);
@@ -38,11 +37,8 @@ public class AndroidCellularSignalStrength {
         public void onSignalStrengthsChanged(SignalStrength signalStrength) {
             try {
                 AndroidCellularSignalStrength.this.mSignalLevel = signalStrength.getLevel();
-            } catch (SecurityException e) {
+            } catch (SecurityException unused) {
                 AndroidCellularSignalStrength.this.mSignalLevel = Integer.MIN_VALUE;
-                if (!$assertionsDisabled) {
-                    throw new AssertionError();
-                }
             }
         }
     }

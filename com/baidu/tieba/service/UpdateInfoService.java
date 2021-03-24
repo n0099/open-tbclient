@@ -5,41 +5,67 @@ import android.location.Address;
 import android.os.IBinder;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseService;
-import com.baidu.adp.lib.c.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.model.ReportUserInfoModel;
-import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes.dex */
+import d.b.b.e.i.a;
+/* loaded from: classes5.dex */
 public class UpdateInfoService extends BdBaseService {
-    private a.InterfaceC0021a locationCallBack = new a.InterfaceC0021a() { // from class: com.baidu.tieba.service.UpdateInfoService.2
-        @Override // com.baidu.adp.lib.c.a.InterfaceC0021a
+    public a.c locationCallBack = new b();
+    public ReportUserInfoModel mModel;
+
+    /* loaded from: classes5.dex */
+    public class a implements ReportUserInfoModel.b {
+        public a() {
+        }
+
+        @Override // com.baidu.tieba.model.ReportUserInfoModel.b
+        public void a(int i) {
+            BdLog.i("location_success");
+            BdLog.e("location_success next time=" + i);
+            if (i <= 0) {
+                i = 3600;
+            } else if (i >= 32400) {
+                i = 32400;
+            }
+            UpdateInfoService.this.mModel.x(i * 1000);
+        }
+
+        @Override // com.baidu.tieba.model.ReportUserInfoModel.b
+        public void onError(int i, String str) {
+            BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
+            UpdateInfoService.this.mModel.x(600000L);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements a.c {
+        public b() {
+        }
+
+        @Override // d.b.b.e.i.a.c
         public void onLocationGeted(int i, String str, Address address) {
-            switch (i) {
-                case 0:
-                    if (address != null) {
-                        float longitude = (float) address.getLongitude();
-                        float latitude = (float) address.getLatitude();
-                        com.baidu.tieba.recapp.c.a.dEu().RT(String.valueOf(longitude));
-                        com.baidu.tieba.recapp.c.a.dEu().RU(String.valueOf(latitude));
-                        com.baidu.tieba.recapp.c.a.dEu().hB(System.currentTimeMillis());
-                        if (UpdateInfoService.this.mModel.KO() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                            UpdateInfoService.this.mModel.a(1, longitude, latitude);
-                            UpdateInfoService.this.mModel.dgS();
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                case 1:
-                case 2:
-                case 3:
-                default:
-                    return;
+            if (i == 0 && address != null) {
+                float longitude = (float) address.getLongitude();
+                float latitude = (float) address.getLatitude();
+                d.b.i0.r2.a0.a.e().j(String.valueOf(longitude));
+                d.b.i0.r2.a0.a.e().i(String.valueOf(latitude));
+                d.b.i0.r2.a0.a.e().k(System.currentTimeMillis());
+                if (UpdateInfoService.this.mModel.t() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    UpdateInfoService.this.mModel.v(1, longitude, latitude);
+                    UpdateInfoService.this.mModel.w();
+                }
             }
         }
-    };
-    private ReportUserInfoModel mModel;
+    }
+
+    private void findLocationFromLocal() {
+        d.b.b.e.i.a.l().i(true, this.locationCallBack);
+    }
+
+    private void unRegisterLocalLocation() {
+        d.b.b.e.i.a.l().q(this.locationCallBack);
+    }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -49,36 +75,11 @@ public class UpdateInfoService extends BdBaseService {
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mModel = new ReportUserInfoModel(null);
-        this.mModel.dgT();
-        this.mModel.hl(540000L);
-        this.mModel.a(new ReportUserInfoModel.a() { // from class: com.baidu.tieba.service.UpdateInfoService.1
-            @Override // com.baidu.tieba.model.ReportUserInfoModel.a
-            public void dK(int i) {
-                BdLog.i("location_success");
-                BdLog.e("location_success next time=" + i);
-                if (i <= 0) {
-                    i = SdkConfigData.DEFAULT_REQUEST_INTERVAL;
-                } else if (i >= 32400) {
-                    i = 32400;
-                }
-                UpdateInfoService.this.mModel.hl(i * 1000);
-            }
-
-            @Override // com.baidu.tieba.model.ReportUserInfoModel.a
-            public void onError(int i, String str) {
-                BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
-                UpdateInfoService.this.mModel.hl(600000L);
-            }
-        });
-    }
-
-    @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
-        if (this.mModel.KO()) {
-            findLocationFromLocal();
-        }
+        ReportUserInfoModel reportUserInfoModel = new ReportUserInfoModel(null);
+        this.mModel = reportUserInfoModel;
+        reportUserInfoModel.u();
+        this.mModel.x(540000L);
+        this.mModel.y(new a());
     }
 
     @Override // android.app.Service
@@ -88,11 +89,11 @@ public class UpdateInfoService extends BdBaseService {
         this.mModel.unRegisterListener();
     }
 
-    private void findLocationFromLocal() {
-        a.lH().a(true, this.locationCallBack);
-    }
-
-    private void unRegisterLocalLocation() {
-        a.lH().a(this.locationCallBack);
+    @Override // android.app.Service
+    public void onStart(Intent intent, int i) {
+        super.onStart(intent, i);
+        if (this.mModel.t()) {
+            findLocationFromLocal();
+        }
     }
 }

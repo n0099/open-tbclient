@@ -6,19 +6,32 @@ import com.baidu.fsg.face.base.d.h;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1610a = "SdkConfigOptions";
-    public static final String b = "global-config";
-    public static final String c = "host_version";
-    public static final String d = "zip_version";
-    public static final String e = "updateFail";
-    public static final String f = "distributedSdk";
-    public static final String g = "files";
-    public static final String h = "list";
+    public static final String f5550a = "SdkConfigOptions";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f5551b = "global-config";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f5552c = "host_version";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f5553d = "zip_version";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f5554e = "updateFail";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f5555f = "distributedSdk";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f5556g = "files";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f5557h = "list";
     public static final String i = "cpu";
     public static final String j = "extra_params";
     public static final String k = "extra_global_enable";
@@ -31,8 +44,8 @@ public class c {
     public boolean r;
     public int s;
 
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0060, code lost:
-        r1.o = com.baidu.fsg.face.base.b.c.a.a(r4);
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0057, code lost:
+        r5.o = com.baidu.fsg.face.base.b.c.a.a(r2);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -42,9 +55,9 @@ public class c {
         c cVar = new c();
         cVar.q = jSONObject.optBoolean(k, true);
         try {
-            cVar.n = jSONObject.optString("zip_version");
+            cVar.n = jSONObject.optString(f5553d);
             cVar.r = jSONObject.optBoolean(l, true);
-            cVar.s = jSONObject.optInt(m);
+            cVar.s = jSONObject.optInt("gray");
             jSONArray = jSONObject.getJSONArray("list");
         } catch (JSONException e2) {
             Log.e("SdkConfigOptions", e2);
@@ -71,64 +84,75 @@ public class c {
         return cVar;
     }
 
-    public static c a(JSONObject jSONObject) {
-        c cVar = new c();
-        cVar.n = jSONObject.optString("zip_version");
-        cVar.p = jSONObject.optBoolean(e);
-        cVar.q = jSONObject.optBoolean(k);
-        cVar.r = jSONObject.optBoolean(l);
-        cVar.s = jSONObject.optInt(m);
-        cVar.o = a.a(jSONObject.optJSONObject(f));
-        return cVar;
-    }
-
-    public JSONObject a() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("zip_version", this.n);
-            jSONObject.put(e, this.p);
-            jSONObject.put(k, this.q);
-            jSONObject.put(l, this.r);
-            jSONObject.put(m, this.s);
-            jSONObject.put(f, this.o == null ? "" : this.o.a());
-            return jSONObject;
-        } catch (JSONException e2) {
-            return null;
-        }
-    }
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        private static final String d = "name";
-        private static final String e = "url";
-        private static final String f = "hash";
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final String f5558d = "name";
+
+        /* renamed from: e  reason: collision with root package name */
+        public static final String f5559e = "url";
+
+        /* renamed from: f  reason: collision with root package name */
+        public static final String f5560f = "hash";
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1611a = null;
-        public String b = null;
-        public String c = null;
+        public String f5561a = null;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f5562b = null;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f5563c = null;
 
         public static a a(JSONObject jSONObject) {
             a aVar = new a();
-            if (jSONObject != null) {
-                aVar.f1611a = jSONObject.optString("name");
-                aVar.b = jSONObject.optString("url");
-                aVar.c = jSONObject.optString(f);
+            if (jSONObject == null) {
+                return aVar;
             }
+            aVar.f5561a = jSONObject.optString("name");
+            aVar.f5562b = jSONObject.optString("url");
+            aVar.f5563c = jSONObject.optString("hash");
             return aVar;
         }
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("name", this.f1611a);
-                jSONObject.put("url", this.b);
-                jSONObject.put(f, this.c);
+                jSONObject.put("name", this.f5561a);
+                jSONObject.put("url", this.f5562b);
+                jSONObject.put("hash", this.f5563c);
                 return jSONObject;
             } catch (JSONException e2) {
                 com.baidu.fsg.face.base.d.d.a(e2);
                 return null;
             }
+        }
+    }
+
+    public static c a(JSONObject jSONObject) {
+        c cVar = new c();
+        cVar.n = jSONObject.optString(f5553d);
+        cVar.p = jSONObject.optBoolean(f5554e);
+        cVar.q = jSONObject.optBoolean(k);
+        cVar.r = jSONObject.optBoolean(l);
+        cVar.s = jSONObject.optInt("gray");
+        cVar.o = a.a(jSONObject.optJSONObject(f5555f));
+        return cVar;
+    }
+
+    public JSONObject a() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(f5553d, this.n);
+            jSONObject.put(f5554e, this.p);
+            jSONObject.put(k, this.q);
+            jSONObject.put(l, this.r);
+            jSONObject.put("gray", this.s);
+            jSONObject.put(f5555f, this.o == null ? "" : this.o.a());
+            return jSONObject;
+        } catch (JSONException unused) {
+            return null;
         }
     }
 }

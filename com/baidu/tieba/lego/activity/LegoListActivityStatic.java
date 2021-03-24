@@ -4,41 +4,42 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.pass.biometrics.base.dynamicupdate.SdkConfigOptions;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tieba.lego.a.a;
-import com.baidu.tieba.lego.a.c;
-import com.baidu.tieba.lego.a.e;
-import com.baidu.tieba.lego.card.d;
-import com.baidu.tieba.lego.d.b;
-import com.baidu.tieba.lego.l;
-/* loaded from: classes8.dex */
+import d.b.h0.r.q.a2;
+import d.b.i0.i1.l;
+import d.b.i0.i1.m.c;
+import d.b.i0.i1.m.e;
+import d.b.i0.i1.o.d;
+import d.b.i0.i1.r.b;
+/* loaded from: classes4.dex */
 public class LegoListActivityStatic {
-    static {
-        b.lin.set(new l());
-        TbConfig.setLegoLibVersion(SdkConfigOptions.HOST_VERSION);
-        com.baidu.tieba.lego.card.b.dbI().a(d.dbL());
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_LEGO_LIST, new CustomMessageTask.CustomRunnable<LegoListActivityConfig>() { // from class: com.baidu.tieba.lego.activity.LegoListActivityStatic.1
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<LegoListActivityConfig> customMessage) {
-                if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(LegoListActivity.class);
-                }
-                return null;
+
+    /* loaded from: classes4.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<LegoListActivityConfig> customMessage) {
+            if (customMessage != null && customMessage.getData() != null) {
+                customMessage.getData().startActivity(LegoListActivity.class);
             }
-        });
+            return null;
+        }
+    }
+
+    static {
+        b.f56058a.set(new l());
+        TbConfig.setLegoLibVersion("3.0.0");
+        d.b.i0.i1.o.b.h().g(d.f());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_LEGO_REGISTER);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEGO_REGISTER, true));
-        com.baidu.tieba.lego.a.b.dbA().a(new e());
-        a.dby().a(new c());
-        a.dby().a(new com.baidu.tieba.lego.a.d());
-        com.baidu.tbadk.b.c.eHX.set(com.baidu.tieba.lego.a.b.dbA());
-        com.baidu.tbadk.b.b.eHU.set(a.dby());
-        cb.eSC.set(true);
+        MessageManager.getInstance().registerStickyMode(2016470);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
+        d.b.i0.i1.m.b.a().b(new e());
+        d.b.i0.i1.m.a.a().b(new c());
+        d.b.i0.i1.m.a.a().b(new d.b.i0.i1.m.d());
+        d.b.h0.c.c.f50057a.set(d.b.i0.i1.m.b.a());
+        d.b.h0.c.b.f50055a.set(d.b.i0.i1.m.a.a());
+        a2.v3.set(true);
     }
 }

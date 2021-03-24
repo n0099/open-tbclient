@@ -1,38 +1,38 @@
 package org.webrtc;
 
 import android.opengl.GLES20;
+import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.RendererCommon;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class GlGenericDrawer implements RendererCommon.GlDrawer {
-    private static final String DEFAULT_VERTEX_SHADER_STRING = "varying vec2 tc;\nattribute vec4 in_pos;\nattribute vec4 in_tc;\nuniform mat4 tex_mat;\nvoid main() {\n  gl_Position = in_pos;\n  tc = (tex_mat * in_tc).xy;\n}\n";
-    private static final FloatBuffer FULL_RECTANGLE_BUFFER = GlUtil.createFloatBuffer(new float[]{-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f});
-    private static final FloatBuffer FULL_RECTANGLE_TEXTURE_BUFFER = GlUtil.createFloatBuffer(new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f});
-    private static final String INPUT_TEXTURE_COORDINATE_NAME = "in_tc";
-    private static final String INPUT_VERTEX_COORDINATE_NAME = "in_pos";
-    private static final String TEXTURE_MATRIX_NAME = "tex_mat";
+    public static final String DEFAULT_VERTEX_SHADER_STRING = "varying vec2 tc;\nattribute vec4 in_pos;\nattribute vec4 in_tc;\nuniform mat4 tex_mat;\nvoid main() {\n  gl_Position = in_pos;\n  tc = (tex_mat * in_tc).xy;\n}\n";
+    public static final FloatBuffer FULL_RECTANGLE_BUFFER = GlUtil.createFloatBuffer(new float[]{-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f});
+    public static final FloatBuffer FULL_RECTANGLE_TEXTURE_BUFFER = GlUtil.createFloatBuffer(new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f});
+    public static final String INPUT_TEXTURE_COORDINATE_NAME = "in_tc";
+    public static final String INPUT_VERTEX_COORDINATE_NAME = "in_pos";
+    public static final String TEXTURE_MATRIX_NAME = "tex_mat";
     @Nullable
-    private GlShader currentShader;
+    public GlShader currentShader;
     @Nullable
-    private ShaderType currentShaderType;
-    private final String genericFragmentSource;
-    private int inPosLocation;
-    private int inTcLocation;
-    private final ShaderCallbacks shaderCallbacks;
-    private int texMatrixLocation;
-    private final String vertexShader;
+    public ShaderType currentShaderType;
+    public final String genericFragmentSource;
+    public int inPosLocation;
+    public int inTcLocation;
+    public final ShaderCallbacks shaderCallbacks;
+    public int texMatrixLocation;
+    public final String vertexShader;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface ShaderCallbacks {
         void onNewShader(GlShader glShader);
 
         void onPrepareShader(GlShader glShader, float[] fArr, int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum ShaderType {
         OES,
         RGB,
@@ -49,7 +49,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
         this(DEFAULT_VERTEX_SHADER_STRING, str, shaderCallbacks);
     }
 
-    static String createFragmentShaderString(String str, ShaderType shaderType) {
+    public static String createFragmentShaderString(String str, ShaderType shaderType) {
         StringBuilder sb = new StringBuilder();
         if (shaderType == ShaderType.OES) {
             sb.append("#extension GL_OES_EGL_image_external : require\n");
@@ -68,14 +68,14 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
             sb.append("    y - 0.391762 * u - 0.812968 * v + 0.531668,\n");
             sb.append("    y + 2.01723 * u - 1.08563, 1);\n");
             sb.append("}\n");
-            sb.append(str);
         } else {
             String str2 = shaderType == ShaderType.OES ? "samplerExternalOES" : "sampler2D";
             sb.append("uniform ");
             sb.append(str2);
             sb.append(" tex;\n");
-            sb.append(str.replace("sample(", "texture2D(tex, "));
+            str = str.replace("sample(", "texture2D(tex, ");
         }
+        sb.append(str);
         return sb.toString();
     }
 
@@ -85,8 +85,9 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
             glShader = this.currentShader;
         } else {
             this.currentShaderType = shaderType;
-            if (this.currentShader != null) {
-                this.currentShader.release();
+            GlShader glShader2 = this.currentShader;
+            if (glShader2 != null) {
+                glShader2.release();
             }
             GlShader createShader = createShader(shaderType);
             this.currentShader = createShader;
@@ -107,15 +108,15 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
         }
         glShader.useProgram();
         GLES20.glEnableVertexAttribArray(this.inPosLocation);
-        GLES20.glVertexAttribPointer(this.inPosLocation, 2, 5126, false, 0, (Buffer) FULL_RECTANGLE_BUFFER);
+        GLES20.glVertexAttribPointer(this.inPosLocation, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) FULL_RECTANGLE_BUFFER);
         GLES20.glEnableVertexAttribArray(this.inTcLocation);
-        GLES20.glVertexAttribPointer(this.inTcLocation, 2, 5126, false, 0, (Buffer) FULL_RECTANGLE_TEXTURE_BUFFER);
+        GLES20.glVertexAttribPointer(this.inTcLocation, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) FULL_RECTANGLE_TEXTURE_BUFFER);
         GLES20.glUniformMatrix4fv(this.texMatrixLocation, 1, false, fArr, 0);
         this.shaderCallbacks.onPrepareShader(glShader, fArr, i, i2, i3, i4);
         GlUtil.checkNoGLES2Error("Prepare shader");
     }
 
-    GlShader createShader(ShaderType shaderType) {
+    public GlShader createShader(ShaderType shaderType) {
         return new GlShader(this.vertexShader, createFragmentShaderString(this.genericFragmentSource, shaderType));
     }
 
@@ -149,15 +150,16 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
         GLES20.glViewport(i3, i4, i5, i6);
         GLES20.glDrawArrays(5, 0, 4);
         for (int i8 = 0; i8 < 3; i8++) {
-            GLES20.glActiveTexture(33984 + i8);
+            GLES20.glActiveTexture(i8 + 33984);
             GLES20.glBindTexture(3553, 0);
         }
     }
 
     @Override // org.webrtc.RendererCommon.GlDrawer
     public void release() {
-        if (this.currentShader != null) {
-            this.currentShader.release();
+        GlShader glShader = this.currentShader;
+        if (glShader != null) {
+            glShader.release();
             this.currentShader = null;
             this.currentShaderType = null;
         }

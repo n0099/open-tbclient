@@ -5,18 +5,8 @@ import com.vivo.push.LocalAliasTagsManager;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.model.UnvarnishedMessage;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public abstract class PushMessageReceiver extends BasePushMessageReceiver implements LocalAliasTagsManager.LocalMessageCallback {
-    @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
-    public void onTransmissionMessage(Context context, UnvarnishedMessage unvarnishedMessage) {
-        LocalAliasTagsManager.getInstance(context).onReceiverMsg(unvarnishedMessage, this);
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public boolean onNotificationMessageArrived(Context context, UPSNotificationMessage uPSNotificationMessage) {
-        return LocalAliasTagsManager.getInstance(context).onReceiverNotification(uPSNotificationMessage, this);
-    }
-
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public void onDelAlias(Context context, int i, List<String> list, List<String> list2, String str) {
         LocalAliasTagsManager.getInstance(context).onDelAlias(list, str);
@@ -27,6 +17,11 @@ public abstract class PushMessageReceiver extends BasePushMessageReceiver implem
         LocalAliasTagsManager.getInstance(context).onDelTags(list, str);
     }
 
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public boolean onNotificationMessageArrived(Context context, UPSNotificationMessage uPSNotificationMessage) {
+        return LocalAliasTagsManager.getInstance(context).onReceiverNotification(uPSNotificationMessage, this);
+    }
+
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public void onSetAlias(Context context, int i, List<String> list, List<String> list2, String str) {
         LocalAliasTagsManager.getInstance(context).onSetAlias(list, str);
@@ -35,5 +30,10 @@ public abstract class PushMessageReceiver extends BasePushMessageReceiver implem
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
         LocalAliasTagsManager.getInstance(context).onSetTags(list, str);
+    }
+
+    @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
+    public void onTransmissionMessage(Context context, UnvarnishedMessage unvarnishedMessage) {
+        LocalAliasTagsManager.getInstance(context).onReceiverMsg(unvarnishedMessage, this);
     }
 }

@@ -1,37 +1,54 @@
 package com.baidu.swan.apps;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
-import com.baidu.swan.apps.ao.ah;
-import com.baidu.swan.apps.ao.ak;
-import com.baidu.swan.apps.ao.u;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.runtime.d;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes8.dex */
+import d.b.g0.a.i2.h0;
+import d.b.g0.a.i2.k0;
+import d.b.g0.a.i2.u;
+import d.b.g0.a.k;
+import d.b.g0.a.r1.d;
+import d.b.g0.a.y0.e.b;
+/* loaded from: classes3.dex */
 public class SwanAppLauncherActivity extends Activity {
-    private static final boolean DEBUG = b.DEBUG;
+    public static final boolean DEBUG = k.f45050a;
+    public static final String SWAN_APP_LAUNCH_ACTION = "com.baidu.searchbox.action.aiapps.LAUNCH";
+    public static final String TAG = "SwanAppLauncherActivity";
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            SwanAppLauncherActivity.this.finish();
+        }
+    }
+
+    @Deprecated
+    public static void startSwanApp(Context context, b bVar, String str) {
+        SwanLauncher.j().n(bVar, null);
+    }
 
     @Override // android.app.Activity
     @DebugTrace
-    protected void onCreate(Bundle bundle) {
-        int releaseFixedOrientation = ak.releaseFixedOrientation(this);
+    public void onCreate(Bundle bundle) {
+        int V = k0.V(this);
         super.onCreate(bundle);
-        ak.fixedOrientation(this, releaseFixedOrientation);
-        ah.O(this);
+        k0.h(this, V);
+        h0.b(this);
         if (DEBUG) {
-            Log.d("SwanAppLauncherActivity", MissionEvent.MESSAGE_CREATE);
+            Log.d(TAG, MissionEvent.MESSAGE_CREATE);
         }
-        if (!u.M(this)) {
-            SwanLauncher.atL().t(getIntent().getExtras());
-            d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.SwanAppLauncherActivity.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    SwanAppLauncherActivity.this.finish();
-                }
-            });
+        if (u.a(this)) {
+            return;
         }
+        SwanLauncher.j().m(getIntent().getExtras());
+        d.g().post(new a());
     }
 }

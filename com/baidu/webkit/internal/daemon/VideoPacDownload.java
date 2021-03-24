@@ -12,18 +12,17 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebSettings;
-import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class VideoPacDownload implements IResourceTask, INetListener {
-    private static final String LOG_TAG = "VideoPacDownload";
-    private static boolean mDownloading;
-    private static boolean mSuccessDownload;
-    private ByteArrayOutputStream mData = null;
-    private Map<String, String> mHeader;
-    private static WebSettings.ProxyType mPacType = WebSettings.ProxyType.NO_PROXY;
-    private static String sPacUrl = "https://browserkernel.baidu.com/newpac31/videoproxy.conf.txt";
+    public static final String LOG_TAG = "VideoPacDownload";
+    public static boolean mDownloading;
+    public static boolean mSuccessDownload;
+    public ByteArrayOutputStream mData = null;
+    public Map<String, String> mHeader;
+    public static WebSettings.ProxyType mPacType = WebSettings.ProxyType.NO_PROXY;
+    public static String sPacUrl = "https://browserkernel.baidu.com/newpac31/videoproxy.conf.txt";
 
     public static String getPacUrl() {
         return sPacUrl;
@@ -34,10 +33,10 @@ public class VideoPacDownload implements IResourceTask, INetListener {
             String str = CfgFileUtils.get(CfgFileUtils.KEY_VIDEO_PROXY_DATA, (String) null);
             if (str == null) {
                 Log.w(LOG_TAG, "restoreLastData null");
-            } else {
-                Log.w(LOG_TAG, "restoreLastData  " + str);
-                VideoFreeFlowConfigManager.getInstance().setPacData(str);
+                return;
             }
+            Log.w(LOG_TAG, "restoreLastData  " + str);
+            VideoFreeFlowConfigManager.getInstance().setPacData(str);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -73,8 +72,8 @@ public class VideoPacDownload implements IResourceTask, INetListener {
             bdNetTask.setNet(bdNet);
             bdNetTask.setUrl(getPacUrl());
             bdNet.start(bdNetTask, false);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -142,29 +141,33 @@ public class VideoPacDownload implements IResourceTask, INetListener {
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
+        String str;
         mDownloading = false;
-        if (this.mData == null) {
-            Log.w(LOG_TAG, "mData==null");
-            return;
-        }
-        if (this.mHeader != null) {
-            String str = this.mHeader.get(Headers.LAST_MODIFIED);
-            Log.w(LOG_TAG, "lastModify " + str);
-            if (str != null) {
-                Log.w(LOG_TAG, "lastModify1 " + str);
-                CfgFileUtils.set(CfgFileUtils.KEY_VIDEO_PROXY_LASTMODIFY, str);
+        if (this.mData != null) {
+            Map<String, String> map = this.mHeader;
+            if (map != null) {
+                String str2 = map.get("Last-Modified");
+                Log.w(LOG_TAG, "lastModify " + str2);
+                if (str2 != null) {
+                    Log.w(LOG_TAG, "lastModify1 " + str2);
+                    CfgFileUtils.set(CfgFileUtils.KEY_VIDEO_PROXY_LASTMODIFY, str2);
+                }
             }
+            byte[] byteArray = this.mData.toByteArray();
+            Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
+            mSuccessDownload = true;
+            try {
+                String str3 = new String(byteArray, "UTF-8");
+                VideoFreeFlowConfigManager.getInstance().setPacData(str3);
+                CfgFileUtils.set(CfgFileUtils.KEY_VIDEO_PROXY_DATA, str3);
+                return;
+            } catch (Exception e2) {
+                str = "mTimgConfData1 " + e2;
+            }
+        } else {
+            str = "mData==null";
         }
-        byte[] byteArray = this.mData.toByteArray();
-        Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
-        mSuccessDownload = true;
-        try {
-            String str2 = new String(byteArray, "UTF-8");
-            VideoFreeFlowConfigManager.getInstance().setPacData(str2);
-            CfgFileUtils.set(CfgFileUtils.KEY_VIDEO_PROXY_DATA, str2);
-        } catch (Exception e) {
-            Log.w(LOG_TAG, "mTimgConfData1 " + e);
-        }
+        Log.w(LOG_TAG, str);
     }
 
     @Override // com.baidu.webkit.net.INetListener

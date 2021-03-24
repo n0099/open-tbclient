@@ -8,56 +8,62 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.nps.NPSHookManager;
+import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
+import d.b.b.a.b;
+import d.b.b.a.h;
+import d.b.b.e.p.d;
+import d.b.b.g.c;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends Application {
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
-    private static BdBaseApplication sApp = null;
-    protected Handler mAppInitHandler;
-    private boolean mHasCheckedNewUserStatus;
-    private boolean mIsNewUser;
-    protected boolean mIsSmallFlow;
-    protected long mSmallFlowInterval;
-    protected long mStartSmallFlowTime;
-    private boolean mIsDebugMode = false;
-    private Application mContext = null;
-    private boolean mIsPluginResourceOpen = true;
-    private long lastGcTime = 0;
+    public static BdBaseApplication instance;
+    public static BdBaseApplication sApp;
+    public Handler mAppInitHandler;
+    public boolean mHasCheckedNewUserStatus;
+    public boolean mIsNewUser;
+    public boolean mIsSmallFlow;
+    public long mSmallFlowInterval;
+    public long mStartSmallFlowTime;
+    public boolean mIsDebugMode = false;
+    public Application mContext = null;
+    public boolean mIsPluginResourceOpen = true;
+    public long lastGcTime = 0;
 
-    public void onCreate(Application application) {
-        this.mAppInitHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.base.BdBaseApplication.1
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                BdBaseApplication.this.handleInitMessage(message);
-            }
-        };
-        h.kD().setHostResources(super.getResources());
-        initBdBaseApp(application);
-        super.onCreate();
+    /* loaded from: classes.dex */
+    public class a extends Handler {
+        public a(Looper looper) {
+            super(looper);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            BdBaseApplication.this.handleInitMessage(message);
+        }
     }
 
-    private void initBdBaseApp(Application application) {
+    public BdBaseApplication() {
         sApp = this;
-        this.mContext = application;
-        initWorkMode();
-        initBitmapHelper();
-        initPlugin();
-    }
-
-    private void initPlugin() {
-        com.baidu.adp.plugin.c.a.pl().init();
     }
 
     public static BdBaseApplication getInst() {
         return sApp;
     }
 
-    public Application getApp() {
-        return this.mContext;
+    private void initBdBaseApp(Application application) {
+        this.mContext = application;
+        initWorkMode();
+        initBitmapHelper();
+        initPlugin();
     }
 
-    public Context getContext() {
-        return this.mContext;
+    private void initBitmapHelper() {
+        d.d().f(this.mContext);
+    }
+
+    private void initPlugin() {
+        d.b.b.h.i.a.d().e();
     }
 
     private void initWorkMode() {
@@ -68,116 +74,11 @@ public class BdBaseApplication extends Application {
         }
     }
 
-    public void setIsSmallFlow(boolean z) {
-        this.mIsSmallFlow = z;
-    }
-
-    public boolean isSmallFlow() {
-        if (!this.mIsSmallFlow || (System.currentTimeMillis() - this.mStartSmallFlowTime) / 1000 <= this.mSmallFlowInterval) {
-            return this.mIsSmallFlow;
-        }
-        return false;
-    }
-
-    public void setStartSmallFlowTime(long j) {
-        this.mStartSmallFlowTime = j;
-    }
-
-    public long getStartSmallFlowTime() {
-        return this.mStartSmallFlowTime;
-    }
-
-    public void setSmallFlowInterval(long j) {
-        this.mSmallFlowInterval = j;
-    }
-
-    public long getSmallFlowInterval() {
-        return this.mSmallFlowInterval;
-    }
-
-    public boolean isDebugMode() {
-        return this.mIsDebugMode;
-    }
-
-    public void setDebugMode(boolean z) {
-        this.mIsDebugMode = z;
-    }
-
-    private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.nH().initial(this.mContext);
-    }
-
-    public void onAppMemoryLow() {
-        b.kB().releaseAllPossibleAcitivities();
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.lastGcTime > 30000) {
-            this.lastGcTime = currentTimeMillis;
-            System.gc();
-        }
-    }
-
-    protected void handleInitMessage(Message message) {
-    }
-
-    public void setActivityStackMaxSize(int i) {
-        b.kB().setActivityStackMaxSize(i);
-    }
-
-    public int getActivityStackMaxSize() {
-        return b.kB().getActivityStackMaxSize();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        Resources resources = h.kD().getResources();
-        return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public AssetManager getAssets() {
-        AssetManager assets = getResources().getAssets();
-        return assets != null ? assets : super.getAssets();
-    }
-
-    public boolean getIsPluginResourcOpen() {
-        return this.mIsPluginResourceOpen;
-    }
-
-    public void setIsPluginResourceOpen(boolean z) {
-        this.mIsPluginResourceOpen = true;
-    }
-
-    public boolean checkInterrupt() {
-        return checkInterrupt(System.currentTimeMillis());
-    }
-
-    private boolean checkInterrupt(long j) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2019, 5, 7, 19, 20, 0);
-        long timeInMillis = calendar.getTimeInMillis();
-        calendar.set(2019, 5, 7, 21, 0, 0);
-        long timeInMillis2 = calendar.getTimeInMillis();
-        calendar.set(2019, 5, 15, 20, 10, 0);
-        long timeInMillis3 = calendar.getTimeInMillis();
-        calendar.set(2019, 5, 15, 21, 50, 0);
-        long timeInMillis4 = calendar.getTimeInMillis();
-        calendar.set(2019, 4, 27, 20, 0, 0);
-        long timeInMillis5 = calendar.getTimeInMillis();
-        calendar.set(2019, 4, 27, 20, 30, 0);
-        return (timeInMillis <= j && j <= timeInMillis2) || (timeInMillis3 <= j && j <= timeInMillis4) || (timeInMillis5 <= j && j <= calendar.getTimeInMillis());
-    }
-
-    public boolean checkNewUser() {
-        if (this.mHasCheckedNewUserStatus) {
-            return this.mIsNewUser;
-        }
-        try {
-            this.mIsNewUser = checkInterrupt(getApplicationContext().getPackageManager().getPackageInfo(getPackageName(), 0).firstInstallTime);
-            this.mHasCheckedNewUserStatus = true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-        return this.mIsNewUser;
+    @Override // android.content.ContextWrapper
+    public void attachBaseContext(Context context) {
+        super.attachBaseContext(context);
+        NPSHookManager.init(this);
+        c.d().h(this);
     }
 
     public boolean checkInLater30Min() {
@@ -196,5 +97,128 @@ public class BdBaseApplication extends Application {
         long timeInMillis6 = calendar.getTimeInMillis();
         long currentTimeMillis = System.currentTimeMillis();
         return (timeInMillis <= currentTimeMillis && currentTimeMillis <= timeInMillis2) || (timeInMillis3 <= currentTimeMillis && currentTimeMillis <= timeInMillis4) || (timeInMillis5 <= currentTimeMillis && currentTimeMillis <= timeInMillis6);
+    }
+
+    public boolean checkInterrupt() {
+        return checkInterrupt(System.currentTimeMillis());
+    }
+
+    public boolean checkNewUser() {
+        if (this.mHasCheckedNewUserStatus) {
+            return this.mIsNewUser;
+        }
+        try {
+            this.mIsNewUser = checkInterrupt(getApplicationContext().getPackageManager().getPackageInfo(getPackageName(), 0).firstInstallTime);
+            this.mHasCheckedNewUserStatus = true;
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
+        }
+        return this.mIsNewUser;
+    }
+
+    public int getActivityStackMaxSize() {
+        return b.f().d();
+    }
+
+    public Application getApp() {
+        return this.mContext;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public AssetManager getAssets() {
+        AssetManager assets = getResources().getAssets();
+        return assets != null ? assets : super.getAssets();
+    }
+
+    public Context getContext() {
+        return this.mContext;
+    }
+
+    public boolean getIsPluginResourcOpen() {
+        return this.mIsPluginResourceOpen;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Resources getResources() {
+        Resources b2 = h.a().b();
+        return (b2 == null || !this.mIsPluginResourceOpen) ? super.getResources() : b2;
+    }
+
+    public long getSmallFlowInterval() {
+        return this.mSmallFlowInterval;
+    }
+
+    public long getStartSmallFlowTime() {
+        return this.mStartSmallFlowTime;
+    }
+
+    public void handleInitMessage(Message message) {
+    }
+
+    public boolean isDebugMode() {
+        return this.mIsDebugMode;
+    }
+
+    public boolean isSmallFlow() {
+        if (!this.mIsSmallFlow || (System.currentTimeMillis() - this.mStartSmallFlowTime) / 1000 <= this.mSmallFlowInterval) {
+            return this.mIsSmallFlow;
+        }
+        return false;
+    }
+
+    public void onAppMemoryLow() {
+        b.f().p();
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.lastGcTime > StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+            this.lastGcTime = currentTimeMillis;
+            System.gc();
+        }
+    }
+
+    public void onCreate(Application application) {
+        this.mAppInitHandler = new a(Looper.getMainLooper());
+        h.a().d(super.getResources());
+        initBdBaseApp(application);
+        super.onCreate();
+    }
+
+    public void setActivityStackMaxSize(int i) {
+        b.f().q(i);
+    }
+
+    public void setDebugMode(boolean z) {
+        this.mIsDebugMode = z;
+    }
+
+    public void setIsPluginResourceOpen(boolean z) {
+        this.mIsPluginResourceOpen = true;
+    }
+
+    public void setIsSmallFlow(boolean z) {
+        this.mIsSmallFlow = z;
+    }
+
+    public void setSmallFlowInterval(long j) {
+        this.mSmallFlowInterval = j;
+    }
+
+    public void setStartSmallFlowTime(long j) {
+        this.mStartSmallFlowTime = j;
+    }
+
+    private boolean checkInterrupt(long j) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2019, 5, 7, 19, 20, 0);
+        long timeInMillis = calendar.getTimeInMillis();
+        calendar.set(2019, 5, 7, 21, 0, 0);
+        long timeInMillis2 = calendar.getTimeInMillis();
+        calendar.set(2019, 5, 15, 20, 10, 0);
+        long timeInMillis3 = calendar.getTimeInMillis();
+        calendar.set(2019, 5, 15, 21, 50, 0);
+        long timeInMillis4 = calendar.getTimeInMillis();
+        calendar.set(2019, 4, 27, 20, 0, 0);
+        long timeInMillis5 = calendar.getTimeInMillis();
+        calendar.set(2019, 4, 27, 20, 30, 0);
+        return (timeInMillis <= j && j <= timeInMillis2) || (timeInMillis3 <= j && j <= timeInMillis4) || (timeInMillis5 <= j && j <= calendar.getTimeInMillis());
     }
 }

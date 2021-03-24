@@ -1,19 +1,69 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tieba.im.data.c;
 import com.squareup.wire.Wire;
+import d.b.i0.d1.g.b;
+import d.b.i0.d1.g.c;
 import java.util.ArrayList;
+import java.util.List;
 import tbclient.ForumMenu.ForumMenuResIdl;
 import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<Object> {
-    private c officialBarMenuDatas;
+    public c officialBarMenuDatas;
 
     public ResponseOfficialBarMenuLocalMessage() {
-        super(CmdConfigCustom.CMD_OFFICIAL_BAR_MENU_LOCAL);
+        super(2001177);
+    }
+
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        if (bArr == null) {
+            return;
+        }
+        ForumMenuResIdl forumMenuResIdl = (ForumMenuResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumMenuResIdl.class);
+        setError(forumMenuResIdl.error.errorno.intValue());
+        setErrorString(forumMenuResIdl.error.usermsg);
+        if (getError() != 0) {
+            return;
+        }
+        setOfficialBarMenuDatas(new c());
+        if (forumMenuResIdl.data != null) {
+            getOfficialBarMenuDatas().f(forumMenuResIdl.data.update_time.intValue());
+            getOfficialBarMenuDatas().d(forumMenuResIdl.data.has_menu.intValue());
+            getOfficialBarMenuDatas().e(new ArrayList());
+            int size = forumMenuResIdl.data.parent_menu.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                b bVar = new b();
+                Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
+                bVar.f(menu.action_type.intValue());
+                bVar.g(menu.content);
+                bVar.h(menu.create_time.intValue());
+                bVar.i(menu.forum_id + "");
+                bVar.j(menu.id + "");
+                bVar.k(menu.level.intValue());
+                bVar.l(menu.name);
+                bVar.n(new ArrayList());
+                List<SubMenu> list = menu.sub_menu;
+                if (list != null) {
+                    int size2 = list.size();
+                    for (int i3 = 0; i3 < size2; i3++) {
+                        SubMenu subMenu = menu.sub_menu.get(i3);
+                        b bVar2 = new b();
+                        bVar2.f(subMenu.action_type.intValue());
+                        bVar2.g(subMenu.content);
+                        bVar2.i(subMenu.forum_id + "");
+                        bVar2.j(subMenu.id + "");
+                        bVar2.k(subMenu.level.intValue());
+                        bVar2.l(subMenu.name);
+                        bVar2.m(subMenu.parent_id.intValue());
+                        bVar2.o(subMenu.update_time.intValue());
+                        bVar.e().add(bVar2);
+                    }
+                }
+                getOfficialBarMenuDatas().a().add(bVar);
+            }
+        }
     }
 
     public c getOfficialBarMenuDatas() {
@@ -22,51 +72,5 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
 
     public void setOfficialBarMenuDatas(c cVar) {
         this.officialBarMenuDatas = cVar;
-    }
-
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        if (bArr != null) {
-            ForumMenuResIdl forumMenuResIdl = (ForumMenuResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumMenuResIdl.class);
-            setError(forumMenuResIdl.error.errorno.intValue());
-            setErrorString(forumMenuResIdl.error.usermsg);
-            if (getError() == 0) {
-                setOfficialBarMenuDatas(new c());
-                if (forumMenuResIdl.data != null) {
-                    getOfficialBarMenuDatas().setUpdate_time(forumMenuResIdl.data.update_time.intValue());
-                    getOfficialBarMenuDatas().CW(forumMenuResIdl.data.has_menu.intValue());
-                    getOfficialBarMenuDatas().es(new ArrayList());
-                    int size = forumMenuResIdl.data.parent_menu.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
-                        Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
-                        bVar.CV(menu.action_type.intValue());
-                        bVar.setContent(menu.content);
-                        bVar.setCreate_time(menu.create_time.intValue());
-                        bVar.setForum_id(menu.forum_id + "");
-                        bVar.setId(menu.id + "");
-                        bVar.setLevel(menu.level.intValue());
-                        bVar.setName(menu.name);
-                        bVar.er(new ArrayList());
-                        if (menu.sub_menu != null) {
-                            int size2 = menu.sub_menu.size();
-                            for (int i3 = 0; i3 < size2; i3++) {
-                                SubMenu subMenu = menu.sub_menu.get(i3);
-                                com.baidu.tieba.im.data.b bVar2 = new com.baidu.tieba.im.data.b();
-                                bVar2.CV(subMenu.action_type.intValue());
-                                bVar2.setContent(subMenu.content);
-                                bVar2.setForum_id(subMenu.forum_id + "");
-                                bVar2.setId(subMenu.id + "");
-                                bVar2.setLevel(subMenu.level.intValue());
-                                bVar2.setName(subMenu.name);
-                                bVar2.CU(subMenu.parent_id.intValue());
-                                bVar2.setUpdate_time(subMenu.update_time.intValue());
-                                bVar.cVz().add(bVar2);
-                            }
-                        }
-                        getOfficialBarMenuDatas().cVB().add(bVar);
-                    }
-                }
-            }
-        }
     }
 }

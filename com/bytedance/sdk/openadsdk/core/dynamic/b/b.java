@@ -1,5 +1,6 @@
 package com.bytedance.sdk.openadsdk.core.dynamic.b;
 
+import com.baidu.searchbox.live.interfaces.DI;
 import com.bytedance.sdk.openadsdk.core.p;
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
     private List<String> b() {
-        return Arrays.asList("appInfo", "adInfo", "getTemplateInfo");
+        return Arrays.asList(DI.APP_INFO_NAME, "adInfo", "getTemplateInfo");
     }
 
     public JSONObject a() {
@@ -26,7 +27,7 @@ public class b {
             jSONObject.put("netType", com.bytedance.sdk.openadsdk.a.a.f());
             jSONObject.put("supportList", jSONArray);
             jSONObject.put("deviceId", com.bytedance.sdk.openadsdk.a.a.a(p.a()));
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         return jSONObject;
     }

@@ -1,11 +1,11 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class r extends ae {
-    private boolean j;
-    private String k;
-    private String l;
+    public boolean j;
+    public String k;
+    public String l;
 
     public r(com.kwad.sdk.pngencrypt.k kVar) {
         super("iTXt", kVar);
@@ -19,8 +19,12 @@ public class r extends ae {
         int[] iArr = new int[3];
         int i = 0;
         int i2 = 0;
-        while (i < dVar.d.length) {
-            if (dVar.d[i] == 0) {
+        while (true) {
+            byte[] bArr = dVar.f36142d;
+            if (i >= bArr.length) {
+                break;
+            }
+            if (bArr[i] == 0) {
                 iArr[i2] = i;
                 i2++;
                 if (i2 == 1) {
@@ -35,20 +39,19 @@ public class r extends ae {
         if (i2 != 3) {
             com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk"));
         }
-        this.h = b.a(dVar.d, 0, iArr[0]);
+        ((ae) this).f36130h = b.a(dVar.f36142d, 0, iArr[0]);
         int i3 = iArr[0] + 1;
-        this.j = dVar.d[i3] != 0;
+        boolean z = dVar.f36142d[i3] != 0;
+        this.j = z;
         int i4 = i3 + 1;
-        if (this.j && dVar.d[i4] != 0) {
+        if (z && dVar.f36142d[i4] != 0) {
             com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk - bad compression method "));
         }
-        this.k = b.a(dVar.d, i4, iArr[1] - i4);
-        this.l = b.b(dVar.d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
+        this.k = b.a(dVar.f36142d, i4, iArr[1] - i4);
+        this.l = b.b(dVar.f36142d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
         int i5 = iArr[2] + 1;
-        if (this.j) {
-            this.i = b.b(b.a(dVar.d, i5, dVar.d.length - i5, false));
-        } else {
-            this.i = b.b(dVar.d, i5, dVar.d.length - i5);
-        }
+        boolean z2 = this.j;
+        byte[] bArr2 = dVar.f36142d;
+        this.i = z2 ? b.b(b.a(bArr2, i5, bArr2.length - i5, false)) : b.b(bArr2, i5, bArr2.length - i5);
     }
 }

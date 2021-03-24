@@ -1,7 +1,7 @@
 package rx.exceptions;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class OnCompletedFailedException extends RuntimeException {
-    private static final long serialVersionUID = 8622579378868820554L;
+    public static final long serialVersionUID = 8622579378868820554L;
 
     public OnCompletedFailedException(Throwable th) {
         super(th == null ? new NullPointerException() : th);

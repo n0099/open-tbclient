@@ -1,24 +1,23 @@
 package com.baidu.appsearch.update.patchupdate;
 
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ByteBuffer f1254a;
+    public ByteBuffer f4075a;
 
     public a(ByteBuffer byteBuffer) {
         if (byteBuffer == null) {
             throw new NullPointerException("input parameter bb is null");
         }
-        this.f1254a = byteBuffer;
+        this.f4075a = byteBuffer;
         byteBuffer.rewind();
         try {
             a(0L);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException e2) {
+            throw new RuntimeException(e2);
         }
     }
 
@@ -28,10 +27,10 @@ public class a implements d {
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public int a(ByteBuffer byteBuffer) {
-        if (this.f1254a.hasRemaining()) {
+        if (this.f4075a.hasRemaining()) {
             int i = 0;
-            while (this.f1254a.hasRemaining() && byteBuffer.hasRemaining()) {
-                byteBuffer.put(this.f1254a.get());
+            while (this.f4075a.hasRemaining() && byteBuffer.hasRemaining()) {
+                byteBuffer.put(this.f4075a.get());
                 i++;
             }
             return i;
@@ -41,18 +40,19 @@ public class a implements d {
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public void a(long j) {
-        if (j > this.f1254a.limit()) {
-            throw new IOException("pos " + j + " cannot seek " + this.f1254a.limit());
+        if (j <= this.f4075a.limit()) {
+            this.f4075a.position((int) j);
+            return;
         }
-        this.f1254a.position((int) j);
+        throw new IOException("pos " + j + " cannot seek " + this.f4075a.limit());
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f1254a = null;
+        this.f4075a = null;
     }
 
     public String toString() {
-        return "BBSeekable bb=" + this.f1254a.position() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.f1254a.limit();
+        return "BBSeekable bb=" + this.f4075a.position() + "-" + this.f4075a.limit();
     }
 }

@@ -2,7 +2,7 @@ package com.kwai.video.player.pragma;
 
 import android.util.Log;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DebugLog {
     public static final boolean ENABLE_DEBUG = true;
     public static final boolean ENABLE_ERROR = true;

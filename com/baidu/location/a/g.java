@@ -1,83 +1,105 @@
 package com.baidu.location.a;
 
-import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f1913a = null;
-    private static String b = "Temp_in.dat";
-    private static File c = new File(com.baidu.location.d.i.f1973a, b);
-    private static StringBuffer d = null;
-    private static boolean e = true;
-    private static int f = 0;
-    private static int g = 0;
-    private static long h = 0;
-    private static long i = 0;
-    private static long j = 0;
-    private static double k = 0.0d;
-    private static double l = 0.0d;
-    private static int m = 0;
-    private static int n = 0;
-    private static int o = 0;
+    public static g f6493a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f6494b = "Temp_in.dat";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static File f6495c = new File(com.baidu.location.d.i.f6712a, f6494b);
+
+    /* renamed from: d  reason: collision with root package name */
+    public static StringBuffer f6496d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static boolean f6497e = true;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static int f6498f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static int f6499g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static long f6500h = 0;
+    public static long i = 0;
+    public static long j = 0;
+    public static double k = 0.0d;
+    public static double l = 0.0d;
+    public static int m = 0;
+    public static int n = 0;
+    public static int o = 0;
 
     public static String a() {
-        if (c != null && c.exists()) {
+        RandomAccessFile randomAccessFile;
+        int readInt;
+        int readInt2;
+        int readInt3;
+        int i2;
+        File file = f6495c;
+        if (file != null && file.exists()) {
             try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(c, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+                randomAccessFile = new RandomAccessFile(f6495c, "rw");
                 randomAccessFile.seek(0L);
-                int readInt = randomAccessFile.readInt();
-                int readInt2 = randomAccessFile.readInt();
-                int readInt3 = randomAccessFile.readInt();
-                if (!a(readInt, readInt2, readInt3)) {
-                    randomAccessFile.close();
-                    c();
-                    return null;
-                } else if (readInt2 == 0 || readInt2 == readInt3) {
-                    randomAccessFile.close();
-                    return null;
-                } else {
-                    long j2 = 0 + ((readInt2 - 1) * 1024) + 12;
-                    randomAccessFile.seek(j2);
-                    int readInt4 = randomAccessFile.readInt();
-                    byte[] bArr = new byte[readInt4];
-                    randomAccessFile.seek(j2 + 4);
-                    for (int i2 = 0; i2 < readInt4; i2++) {
-                        bArr[i2] = randomAccessFile.readByte();
-                    }
-                    String str = new String(bArr);
-                    int i3 = readInt < com.baidu.location.d.j.ae ? readInt2 + 1 : readInt2 == com.baidu.location.d.j.ae ? 1 : readInt2 + 1;
-                    randomAccessFile.seek(4L);
-                    randomAccessFile.writeInt(i3);
-                    randomAccessFile.close();
-                    return str;
-                }
-            } catch (IOException e2) {
+                readInt = randomAccessFile.readInt();
+                readInt2 = randomAccessFile.readInt();
+                readInt3 = randomAccessFile.readInt();
+            } catch (IOException unused) {
+            }
+            if (!a(readInt, readInt2, readInt3)) {
+                randomAccessFile.close();
+                c();
                 return null;
             }
+            if (readInt2 != 0 && readInt2 != readInt3) {
+                long j2 = ((readInt2 - 1) * 1024) + 12 + 0;
+                randomAccessFile.seek(j2);
+                int readInt4 = randomAccessFile.readInt();
+                byte[] bArr = new byte[readInt4];
+                randomAccessFile.seek(j2 + 4);
+                for (int i3 = 0; i3 < readInt4; i3++) {
+                    bArr[i3] = randomAccessFile.readByte();
+                }
+                String str = new String(bArr);
+                int i4 = 1;
+                if (readInt < com.baidu.location.d.j.ae) {
+                    i2 = readInt2 + 1;
+                } else {
+                    if (readInt2 != com.baidu.location.d.j.ae) {
+                        i4 = 1 + readInt2;
+                    }
+                    i2 = i4;
+                }
+                randomAccessFile.seek(4L);
+                randomAccessFile.writeInt(i2);
+                randomAccessFile.close();
+                return str;
+            }
+            randomAccessFile.close();
+            return null;
         }
         return null;
     }
 
-    private static boolean a(int i2, int i3, int i4) {
-        if (i2 < 0 || i2 > com.baidu.location.d.j.ae) {
-            return false;
-        }
-        if (i3 < 0 || i3 > i2 + 1) {
-            return false;
-        }
-        return i4 >= 1 && i4 <= i2 + 1 && i4 <= com.baidu.location.d.j.ae;
+    public static boolean a(int i2, int i3, int i4) {
+        int i5;
+        int i6;
+        return i2 >= 0 && i2 <= (i5 = com.baidu.location.d.j.ae) && i3 >= 0 && i3 <= (i6 = i2 + 1) && i4 >= 1 && i4 <= i6 && i4 <= i5;
     }
 
-    private static void b() {
-        e = true;
-        d = null;
-        f = 0;
-        g = 0;
-        h = 0L;
+    public static void b() {
+        f6497e = true;
+        f6496d = null;
+        f6498f = 0;
+        f6499g = 0;
+        f6500h = 0L;
         i = 0L;
         j = 0L;
         k = 0.0d;
@@ -87,24 +109,24 @@ public class g {
         o = 0;
     }
 
-    private static boolean c() {
-        if (c.exists()) {
-            c.delete();
+    public static boolean c() {
+        if (f6495c.exists()) {
+            f6495c.delete();
         }
-        if (!c.getParentFile().exists()) {
-            c.getParentFile().mkdirs();
+        if (!f6495c.getParentFile().exists()) {
+            f6495c.getParentFile().mkdirs();
         }
         try {
-            c.createNewFile();
-            RandomAccessFile randomAccessFile = new RandomAccessFile(c, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+            f6495c.createNewFile();
+            RandomAccessFile randomAccessFile = new RandomAccessFile(f6495c, "rw");
             randomAccessFile.seek(0L);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(1);
             randomAccessFile.close();
             b();
-            return c.exists();
-        } catch (IOException e2) {
+            return f6495c.exists();
+        } catch (IOException unused) {
             return false;
         }
     }

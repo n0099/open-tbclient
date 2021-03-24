@@ -1,0 +1,75 @@
+package com.baidu.wallet.base.widget.dialog;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.apollon.base.widget.BaseDialog;
+import com.baidu.apollon.utils.DisplayUtils;
+import com.baidu.apollon.utils.ResUtils;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class SelectNumberDialog extends BaseDialog implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    public LinearLayout f24033a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AdapterView.OnItemClickListener f24034b;
+
+    public SelectNumberDialog(Context context) {
+        super(context);
+        LinearLayout linearLayout = new LinearLayout(this.mContext);
+        this.f24033a = linearLayout;
+        linearLayout.setOrientation(1);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        dismiss();
+        if (this.f24034b == null || view.getTag() == null) {
+            return;
+        }
+        this.f24034b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
+    }
+
+    @Override // com.baidu.apollon.base.widget.BaseDialog, android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        addContentView(this.f24033a);
+        hideButtons();
+        setTitleText("选择手机号");
+        setCancelable(true);
+    }
+
+    public void setData(List<String> list) {
+        if (list == null || list.size() <= 1) {
+            return;
+        }
+        this.f24033a.removeAllViews();
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(this.mContext, 45.0f));
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(this.mContext, 1.0f));
+        for (int i = 1; i < list.size(); i++) {
+            if (i > 1) {
+                View view = new View(this.mContext);
+                view.setBackgroundColor(ResUtils.getColor(this.mContext, "bd_wallet_gray"));
+                view.setLayoutParams(layoutParams2);
+                this.f24033a.addView(view);
+            }
+            TextView textView = new TextView(this.mContext);
+            textView.setText(list.get(i));
+            textView.setPadding(DisplayUtils.dip2px(this.mContext, 10.0f), 0, 0, 0);
+            textView.setGravity(19);
+            textView.setLayoutParams(layoutParams);
+            textView.setTag(Integer.valueOf(i));
+            textView.setOnClickListener(this);
+            this.f24033a.addView(textView);
+        }
+    }
+
+    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+        this.f24034b = onItemClickListener;
+    }
+}

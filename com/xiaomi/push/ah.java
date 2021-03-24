@@ -4,13 +4,13 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ah {
     public static boolean a(Context context) {
         try {
             return ((KeyguardManager) context.getSystemService("keyguard")).inKeyguardRestrictedInputMode();
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
             return false;
         }
     }
@@ -19,7 +19,7 @@ public class ah {
         Intent intent = null;
         try {
             intent = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         if (intent == null) {
             return false;

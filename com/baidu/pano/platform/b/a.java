@@ -3,17 +3,17 @@ package com.baidu.pano.platform.b;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Bitmap f2718a;
+    public static Bitmap f9421a;
 
     public static void a(Context context) {
-        f2718a = a("com/baidu/pano/platform/res/indoor_in.png");
+        f9421a = a("com/baidu/pano/platform/res/indoor_in.png");
     }
 
-    private static Bitmap a(String str) {
+    public static Bitmap a(String str) {
         return BitmapFactory.decodeStream(a.class.getClassLoader().getResourceAsStream(str));
     }
 }

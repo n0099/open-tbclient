@@ -1,5 +1,5 @@
 package com.kwai.video.player.exceptions;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsMediaException extends Exception {
-    private static final long serialVersionUID = 7234796519009099506L;
+    public static final long serialVersionUID = 7234796519009099506L;
 }

@@ -2,12 +2,9 @@ package com.idlefish.flutterboost.containers;
 
 import com.idlefish.flutterboost.XPlatformPlugin;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
-/* loaded from: classes4.dex */
-class BoostViewUtils {
-    private static volatile XPlatformPlugin mInstance;
-
-    private BoostViewUtils() {
-    }
+/* loaded from: classes6.dex */
+public class BoostViewUtils {
+    public static volatile XPlatformPlugin mInstance;
 
     public static XPlatformPlugin getPlatformPlugin(PlatformChannel platformChannel) {
         if (mInstance == null) {

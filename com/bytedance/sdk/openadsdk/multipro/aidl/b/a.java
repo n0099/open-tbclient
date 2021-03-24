@@ -10,24 +10,13 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class a extends ICommonDialogListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f4889a = new Handler(Looper.getMainLooper());
-    private g.a b;
+    public Handler f29820a = new Handler(Looper.getMainLooper());
+
+    /* renamed from: b  reason: collision with root package name */
+    public g.a f29821b;
 
     public a(g.a aVar) {
-        this.b = aVar;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
-    public void onDialogBtnYes() throws RemoteException {
-        u.b("CommonDialogListenerImpl", "CommonDialogListenerImpl: onDialogBtnYes");
-        a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.1
-            @Override // java.lang.Runnable
-            public void run() {
-                if (a.this.b != null) {
-                    a.this.b.a();
-                }
-            }
-        });
+        this.f29821b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -36,8 +25,21 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.b != null) {
-                    a.this.b.b();
+                if (a.this.f29821b != null) {
+                    a.this.f29821b.b();
+                }
+            }
+        });
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
+    public void onDialogBtnYes() throws RemoteException {
+        u.b("CommonDialogListenerImpl", "CommonDialogListenerImpl: onDialogBtnYes");
+        a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                if (a.this.f29821b != null) {
+                    a.this.f29821b.a();
                 }
             }
         });
@@ -49,14 +51,14 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.b != null) {
-                    a.this.b.c();
+                if (a.this.f29821b != null) {
+                    a.this.f29821b.c();
                 }
             }
         });
     }
 
     private void a(Runnable runnable) {
-        this.f4889a.post(runnable);
+        this.f29820a.post(runnable);
     }
 }

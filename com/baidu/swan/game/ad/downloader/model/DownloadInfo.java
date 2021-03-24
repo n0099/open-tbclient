@@ -2,115 +2,133 @@ package com.baidu.swan.game.ad.downloader.model;
 
 import android.text.TextUtils;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
-import com.baidu.swan.game.ad.downloader.c.b;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import d.b.g0.e.a.l.i.b;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class DownloadInfo implements Serializable {
-    private long mCreateAt;
-    private transient b mDownloadListener;
-    private DownloadException mException;
-    private String mId;
-    private String mPackageName;
-    private String mPath;
-    private long mProgress;
-    private long mSize;
-    private int mStatus;
-    private String mUri;
+    public long mCreateAt;
+    public transient b mDownloadListener;
+    public DownloadException mException;
+    public String mId;
+    public String mPackageName;
+    public String mPath;
+    public long mProgress;
+    public long mSize;
+    public int mStatus;
+    public String mUri;
 
-    public b getDownloadListener() {
-        return this.mDownloadListener;
-    }
+    /* loaded from: classes3.dex */
+    public static final class a {
 
-    public void setDownloadListener(b bVar) {
-        this.mDownloadListener = bVar;
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public String f12790a;
 
-    public DownloadException getException() {
-        return this.mException;
-    }
+        /* renamed from: b  reason: collision with root package name */
+        public long f12791b = -1;
 
-    public void setException(DownloadException downloadException) {
-        this.mException = downloadException;
-    }
+        /* renamed from: c  reason: collision with root package name */
+        public String f12792c;
 
-    public String getId() {
-        return this.mId;
-    }
+        /* renamed from: d  reason: collision with root package name */
+        public String f12793d;
 
-    public void setId(String str) {
-        this.mId = str;
-    }
+        /* renamed from: e  reason: collision with root package name */
+        public String f12794e;
 
-    public long getCreateAt() {
-        return this.mCreateAt;
-    }
+        public DownloadInfo a() {
+            DownloadInfo downloadInfo = new DownloadInfo();
+            if (!TextUtils.isEmpty(this.f12792c)) {
+                downloadInfo.setUri(this.f12792c);
+                if (!TextUtils.isEmpty(this.f12794e)) {
+                    downloadInfo.setPath(this.f12794e);
+                    if (TextUtils.isEmpty(this.f12793d)) {
+                        downloadInfo.setPackageName(this.f12793d);
+                    }
+                    if (this.f12791b == -1) {
+                        b(System.currentTimeMillis());
+                    }
+                    if (TextUtils.isEmpty(this.f12790a)) {
+                        downloadInfo.setId(this.f12792c);
+                    } else {
+                        downloadInfo.setId(this.f12790a);
+                    }
+                    return downloadInfo;
+                }
+                throw new DownloadException(1, "path cannot be null.");
+            }
+            throw new DownloadException(0, "uri cannot be null.");
+        }
 
-    public void setCreateAt(long j) {
-        this.mCreateAt = j;
-    }
+        public a b(long j) {
+            this.f12791b = j;
+            return this;
+        }
 
-    public String getUri() {
-        return this.mUri;
-    }
+        public a c(String str) {
+            this.f12793d = str;
+            return this;
+        }
 
-    public void setUri(String str) {
-        this.mUri = str;
-    }
+        public a d(String str) {
+            this.f12794e = str;
+            return this;
+        }
 
-    public String getPackageName() {
-        return this.mPackageName;
-    }
-
-    public DownloadInfo setPackageName(String str) {
-        this.mPackageName = str;
-        return this;
-    }
-
-    public String getPath() {
-        return this.mPath;
-    }
-
-    public void setPath(String str) {
-        this.mPath = str;
-    }
-
-    public long getSize() {
-        return this.mSize;
-    }
-
-    public void setSize(long j) {
-        this.mSize = j;
-    }
-
-    public long getProgress() {
-        return this.mProgress;
-    }
-
-    public void setProgress(long j) {
-        this.mProgress = j;
-    }
-
-    public int getStatus() {
-        return this.mStatus;
-    }
-
-    public void setStatus(int i) {
-        this.mStatus = i;
-    }
-
-    public String toString() {
-        return "DownloadInfo{mDownloadListener=" + this.mDownloadListener + ", mException=" + this.mException + ", mId='" + this.mId + "', mCreateAt=" + this.mCreateAt + ", mUri='" + this.mUri + "', mPackageName='" + this.mPackageName + "', mPath='" + this.mPath + "', mSize=" + this.mSize + ", mProgress=" + this.mProgress + ", mStatus=" + this.mStatus + '}';
+        public a e(String str) {
+            this.f12792c = str;
+            return this;
+        }
     }
 
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || DownloadInfo.class != obj.getClass()) {
             return false;
         }
         return this.mId.equals(((DownloadInfo) obj).mId);
+    }
+
+    public long getCreateAt() {
+        return this.mCreateAt;
+    }
+
+    public b getDownloadListener() {
+        return this.mDownloadListener;
+    }
+
+    public DownloadException getException() {
+        return this.mException;
+    }
+
+    public String getId() {
+        return this.mId;
+    }
+
+    public String getPackageName() {
+        return this.mPackageName;
+    }
+
+    public String getPath() {
+        return this.mPath;
+    }
+
+    public long getProgress() {
+        return this.mProgress;
+    }
+
+    public long getSize() {
+        return this.mSize;
+    }
+
+    public int getStatus() {
+        return this.mStatus;
+    }
+
+    public String getUri() {
+        return this.mUri;
     }
 
     public int hashCode() {
@@ -121,56 +139,48 @@ public class DownloadInfo implements Serializable {
         return this.mStatus == SwanAdDownloadState.DOWNLOAD_PAUSED.value() || this.mStatus == SwanAdDownloadState.DOWNLOAD_FAILED.value() || this.mStatus == SwanAdDownloadState.DELETED.value();
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        private long dZR = -1;
-        private String id;
-        private String packageName;
-        private String path;
-        private String url;
+    public void setCreateAt(long j) {
+        this.mCreateAt = j;
+    }
 
-        public a dj(long j) {
-            this.dZR = j;
-            return this;
-        }
+    public void setDownloadListener(b bVar) {
+        this.mDownloadListener = bVar;
+    }
 
-        public a vk(String str) {
-            this.url = str;
-            return this;
-        }
+    public void setException(DownloadException downloadException) {
+        this.mException = downloadException;
+    }
 
-        public a vl(String str) {
-            this.path = str;
-            return this;
-        }
+    public void setId(String str) {
+        this.mId = str;
+    }
 
-        public a vm(String str) {
-            this.packageName = str;
-            return this;
-        }
+    public DownloadInfo setPackageName(String str) {
+        this.mPackageName = str;
+        return this;
+    }
 
-        public DownloadInfo aRL() {
-            DownloadInfo downloadInfo = new DownloadInfo();
-            if (TextUtils.isEmpty(this.url)) {
-                throw new DownloadException(0, "uri cannot be null.");
-            }
-            downloadInfo.setUri(this.url);
-            if (TextUtils.isEmpty(this.path)) {
-                throw new DownloadException(1, "path cannot be null.");
-            }
-            downloadInfo.setPath(this.path);
-            if (TextUtils.isEmpty(this.packageName)) {
-                downloadInfo.setPackageName(this.packageName);
-            }
-            if (this.dZR == -1) {
-                dj(System.currentTimeMillis());
-            }
-            if (TextUtils.isEmpty(this.id)) {
-                downloadInfo.setId(this.url);
-            } else {
-                downloadInfo.setId(this.id);
-            }
-            return downloadInfo;
-        }
+    public void setPath(String str) {
+        this.mPath = str;
+    }
+
+    public void setProgress(long j) {
+        this.mProgress = j;
+    }
+
+    public void setSize(long j) {
+        this.mSize = j;
+    }
+
+    public void setStatus(int i) {
+        this.mStatus = i;
+    }
+
+    public void setUri(String str) {
+        this.mUri = str;
+    }
+
+    public String toString() {
+        return "DownloadInfo{mDownloadListener=" + this.mDownloadListener + ", mException=" + this.mException + ", mId='" + this.mId + "', mCreateAt=" + this.mCreateAt + ", mUri='" + this.mUri + "', mPackageName='" + this.mPackageName + "', mPath='" + this.mPath + "', mSize=" + this.mSize + ", mProgress=" + this.mProgress + ", mStatus=" + this.mStatus + '}';
     }
 }

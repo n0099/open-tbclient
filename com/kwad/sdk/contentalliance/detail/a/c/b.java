@@ -7,30 +7,44 @@ import com.kwad.sdk.contentalliance.detail.video.f;
 import com.kwad.sdk.contentalliance.home.h;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.contentalliance.detail.b {
-    private static boolean b = false;
-    private AdTemplate c;
-    private int d;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f32001b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdTemplate f32002c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f32003d;
     @Nullable
-    private com.kwad.sdk.core.i.a e;
-    private SceneImpl f;
-    private volatile long j;
-    private long g = 0;
-    private boolean h = false;
-    private boolean i = true;
-    private boolean k = false;
-    private e l = new f() { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.1
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.core.i.a f32004e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SceneImpl f32005f;
+    public volatile long j;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f32006g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f32007h = false;
+    public boolean i = true;
+    public boolean k = false;
+    public e l = new f() { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             super.b();
             b.this.i = false;
             if (!b.this.k) {
-                b.this.g = SystemClock.elapsedRealtime();
+                b.this.f32006g = SystemClock.elapsedRealtime();
             }
             b.this.j = SystemClock.elapsedRealtime();
-            if (b.b) {
-                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.d + " onVideoPlayStart");
+            if (b.f32001b) {
+                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.f32003d + " onVideoPlayStart");
             }
         }
 
@@ -38,55 +52,55 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         public void c() {
             super.c();
             b.this.i = true;
-            if (b.this.h) {
-                com.kwad.sdk.core.report.e.a(b.this.f, b.this.c, b.this.j > 0 ? SystemClock.elapsedRealtime() - b.this.j : -1L);
+            if (b.this.f32007h) {
+                com.kwad.sdk.core.report.e.a(b.this.f32005f, b.this.f32002c, b.this.j > 0 ? SystemClock.elapsedRealtime() - b.this.j : -1L);
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
             super.d();
-            if (b.b) {
-                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.d + " onVideoPlaying");
+            if (b.f32001b) {
+                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.f32003d + " onVideoPlaying");
             }
             b.this.g();
             b.this.j = SystemClock.elapsedRealtime();
-            if (b.this.h && b.this.i) {
-                com.kwad.sdk.core.report.e.b(b.this.c);
+            if (b.this.f32007h && b.this.i) {
+                com.kwad.sdk.core.report.e.b(b.this.f32002c);
             }
             b.this.i = false;
         }
     };
-    private com.kwad.sdk.contentalliance.a.a m = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.2
+    public com.kwad.sdk.contentalliance.a.a m = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.2
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
             super.j();
-            if (b.b) {
-                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.d + " becomesAttachedOnPageSelected");
+            if (b.f32001b) {
+                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.f32003d + " becomesAttachedOnPageSelected");
             }
-            b.this.g = SystemClock.elapsedRealtime();
-            if (b.this.e == null) {
+            b.this.f32006g = SystemClock.elapsedRealtime();
+            if (b.this.f32004e == null) {
                 com.kwad.sdk.core.d.a.c("DetailLogVideoPresenter", "mVisibleHelper is null");
             } else {
-                b.this.e.a(b.this.n);
+                b.this.f32004e.a(b.this.n);
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
             super.k();
-            if (b.b) {
-                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.d + " becomesDetachedOnPageSelected");
+            if (b.f32001b) {
+                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.f32003d + " becomesDetachedOnPageSelected");
             }
-            if (b.this.e == null) {
+            if (b.this.f32004e == null) {
                 com.kwad.sdk.core.d.a.c("DetailLogVideoPresenter", "mVisibleHelper is null");
                 return;
             }
-            b.this.e.b(b.this.n);
+            b.this.f32004e.b(b.this.n);
             b.this.f();
         }
     };
-    private com.kwad.sdk.core.i.c n = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.3
+    public com.kwad.sdk.core.i.c n = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.contentalliance.detail.a.c.b.3
         @Override // com.kwad.sdk.core.i.c
         public void b() {
             b.this.k = false;
@@ -94,60 +108,61 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
 
         @Override // com.kwad.sdk.core.i.c
         public void c_() {
-            if (b.b) {
-                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.d + " onPageVisible");
+            if (b.f32001b) {
+                com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + b.this.f32003d + " onPageVisible");
             }
             b.this.k = true;
-            b.this.g = SystemClock.elapsedRealtime();
+            b.this.f32006g = SystemClock.elapsedRealtime();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         this.k = false;
-        this.h = false;
+        this.f32007h = false;
         this.i = false;
         this.j = 0L;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        if (this.h) {
+        if (this.f32007h) {
             return;
         }
-        this.h = true;
-        long elapsedRealtime = SystemClock.elapsedRealtime() - this.g;
-        if (b) {
-            com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + this.d + " startPlayDuration startPlayDuration: " + elapsedRealtime);
+        this.f32007h = true;
+        long elapsedRealtime = SystemClock.elapsedRealtime() - this.f32006g;
+        if (f32001b) {
+            com.kwad.sdk.core.d.a.a("DetailLogVideoPresenter", "position: " + this.f32003d + " startPlayDuration startPlayDuration: " + elapsedRealtime);
         }
-        com.kwad.sdk.core.report.e.a(this.c, elapsedRealtime);
+        com.kwad.sdk.core.report.e.a(this.f32002c, elapsedRealtime);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        h hVar = this.f5594a.f5600a;
+        h hVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32151a;
         if (hVar != null) {
-            this.e = hVar.f5826a;
-            this.f = hVar.k;
+            this.f32004e = hVar.f32788a;
+            this.f32005f = hVar.k;
         }
-        this.c = this.f5594a.j;
-        this.d = this.f5594a.i;
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
+        this.f32002c = cVar.j;
+        this.f32003d = cVar.i;
         f();
-        this.f5594a.b.add(this.m);
-        if (this.f5594a.m != null) {
-            this.f5594a.m.a(this.l);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.add(this.m);
+        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.m;
+        if (bVar != null) {
+            bVar.a(this.l);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f5594a.b.remove(this.m);
-        if (this.f5594a.m != null) {
-            this.f5594a.m.b(this.l);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.remove(this.m);
+        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.m;
+        if (bVar != null) {
+            bVar.b(this.l);
         }
     }
 }

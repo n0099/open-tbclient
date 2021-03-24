@@ -1,102 +1,87 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.os.Build;
-import android.provider.Settings;
-import android.telephony.TelephonyManager;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-/* loaded from: classes5.dex */
-public class ef extends ed {
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f8337a;
-    private boolean b;
-    private boolean c;
-    private boolean d;
-    private boolean e;
-
-    public ef(Context context, int i, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        super(context, i);
-        this.f8337a = z;
-        this.b = z2;
-        this.c = z3;
-        this.d = z4;
-        this.e = z5;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+/* loaded from: classes7.dex */
+public class ef implements ed {
+    private void a(Context context, String str) {
+        try {
+            if (!TextUtils.isEmpty(str) && context != null) {
+                String[] split = str.split("/");
+                if (split.length > 0 && !TextUtils.isEmpty(split[split.length - 1])) {
+                    String str2 = split[split.length - 1];
+                    if (TextUtils.isEmpty(str2)) {
+                        dw.a(context, "provider", 1008, "B get a incorrect message");
+                        return;
+                    }
+                    String decode = Uri.decode(str2);
+                    if (TextUtils.isEmpty(decode)) {
+                        dw.a(context, "provider", 1008, "B get a incorrect message");
+                        return;
+                    }
+                    String b2 = dv.b(decode);
+                    if (!TextUtils.isEmpty(b2)) {
+                        dw.a(context, b2, 1007, "play with provider successfully");
+                        return;
+                    }
+                }
+            }
+            dw.a(context, "provider", 1008, "B get a incorrect message");
+        } catch (Exception e2) {
+            dw.a(context, "provider", 1008, "B meet a exception" + e2.getMessage());
+        }
     }
 
-    private String b() {
-        if (this.f8337a) {
+    private void b(Context context, dz dzVar) {
+        String b2 = dzVar.b();
+        String d2 = dzVar.d();
+        int a2 = dzVar.a();
+        if (context == null || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d2)) {
+            if (TextUtils.isEmpty(d2)) {
+                dw.a(context, "provider", 1008, "argument error");
+            } else {
+                dw.a(context, d2, 1008, "argument error");
+            }
+        } else if (!com.xiaomi.push.service.g.b(context, b2)) {
+            dw.a(context, d2, 1003, "B is not ready");
+        } else {
+            dw.a(context, d2, 1002, "B is ready");
+            dw.a(context, d2, 1004, "A is ready");
+            String a3 = dv.a(d2);
             try {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) this.f231a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-                return displayMetrics.heightPixels + "," + displayMetrics.widthPixels;
-            } catch (Throwable th) {
-                return "";
+                if (TextUtils.isEmpty(a3)) {
+                    dw.a(context, d2, 1008, "info is empty");
+                } else if (a2 == 1 && !ea.m263a(context)) {
+                    dw.a(context, d2, 1008, "A not in foreground");
+                } else {
+                    String type = context.getContentResolver().getType(dv.a(b2, a3));
+                    if (TextUtils.isEmpty(type) || !"success".equals(type)) {
+                        dw.a(context, d2, 1008, "A is fail to help B's provider");
+                        return;
+                    }
+                    dw.a(context, d2, 1005, "A is successful");
+                    dw.a(context, d2, 1006, "The job is finished");
+                }
+            } catch (Exception e2) {
+                com.xiaomi.channel.commonutils.logger.b.a(e2);
+                dw.a(context, d2, 1008, "A meet a exception when help B's provider");
             }
         }
-        return "off";
     }
 
-    private String c() {
-        if (this.b) {
-            try {
-                return Build.VERSION.RELEASE;
-            } catch (Throwable th) {
-                return "";
-            }
+    @Override // com.xiaomi.push.ed
+    public void a(Context context, Intent intent, String str) {
+        a(context, str);
+    }
+
+    @Override // com.xiaomi.push.ed
+    public void a(Context context, dz dzVar) {
+        if (dzVar != null) {
+            b(context, dzVar);
+        } else {
+            dw.a(context, "provider", 1008, "A receive incorrect message");
         }
-        return "off";
-    }
-
-    private String d() {
-        if (this.c) {
-            try {
-                return String.valueOf(Build.VERSION.SDK_INT);
-            } catch (Throwable th) {
-                return "";
-            }
-        }
-        return "off";
-    }
-
-    private String e() {
-        if (this.d) {
-            try {
-                return Settings.Secure.getString(this.f231a.getContentResolver(), "android_id");
-            } catch (Throwable th) {
-                return "";
-            }
-        }
-        return "off";
-    }
-
-    private String f() {
-        if (this.e) {
-            try {
-                return ((TelephonyManager) this.f231a.getSystemService("phone")).getSimOperator();
-            } catch (Throwable th) {
-                return "";
-            }
-        }
-        return "off";
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public int mo170a() {
-        return 3;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public ho mo170a() {
-        return ho.DeviceInfoV2;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public String mo170a() {
-        return b() + "|" + c() + "|" + d() + "|" + e() + "|" + f();
     }
 }

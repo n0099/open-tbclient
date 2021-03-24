@@ -10,9 +10,11 @@ import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class CSJNativeAdVerticalVideoView extends b {
-    public FrameLayout f;
+
+    /* renamed from: f  reason: collision with root package name */
+    public FrameLayout f30766f;
 
     public CSJNativeAdVerticalVideoView(Context context) {
         super(context);
@@ -34,14 +36,14 @@ public final class CSJNativeAdVerticalVideoView extends b {
             ((ViewGroup) adView.getParent()).removeView(adView);
         }
         if (adView != null) {
-            this.f.removeAllViews();
-            this.f.addView(adView);
+            this.f30766f.removeAllViews();
+            this.f30766f.addView(adView);
         }
     }
 
     @Override // a.a.a.a.r.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f = (FrameLayout) findViewById(R.id.ad_video);
+        this.f30766f = (FrameLayout) findViewById(R.id.ad_video);
     }
 }

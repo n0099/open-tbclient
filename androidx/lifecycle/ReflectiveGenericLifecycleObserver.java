@@ -2,16 +2,14 @@ package androidx.lifecycle;
 
 import androidx.lifecycle.ClassesInfoCache;
 import androidx.lifecycle.Lifecycle;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ReflectiveGenericLifecycleObserver implements LifecycleEventObserver {
-    private final ClassesInfoCache.CallbackInfo mInfo;
-    private final Object mWrapped;
+    public final ClassesInfoCache.CallbackInfo mInfo;
+    public final Object mWrapped;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ReflectiveGenericLifecycleObserver(Object obj) {
         this.mWrapped = obj;
-        this.mInfo = ClassesInfoCache.sInstance.getInfo(this.mWrapped.getClass());
+        this.mInfo = ClassesInfoCache.sInstance.getInfo(obj.getClass());
     }
 
     @Override // androidx.lifecycle.LifecycleEventObserver

@@ -10,31 +10,83 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.facade.provider.a.c;
 import com.baidu.swan.facade.provider.processor.ProcessorInfo;
-import com.baidu.swan.facade.provider.processor.a;
+import d.b.g0.a.k;
+import d.b.g0.d.i.a.a;
+import d.b.g0.d.i.b.c;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class SwanContentProvider extends ContentProvider {
-    private static final boolean DEBUG = b.DEBUG;
-    private static final String dXh = AppRuntime.getAppContext().getPackageName() + ".provider";
-    private static UriMatcher dXi = new UriMatcher(-1);
-    private static HashSet<String> dXj = new HashSet<>();
+    public static final int PER_USER_RANGE = 100000;
+    public static final String TAG = "SwanContentProvider";
+    public static final boolean DEBUG = k.f45050a;
+    public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
+    public static UriMatcher sUriMatcher = new UriMatcher(-1);
+    public static HashSet<String> sAccreditedSet = new HashSet<>();
 
     static {
         ProcessorInfo[] values;
         for (ProcessorInfo processorInfo : ProcessorInfo.values()) {
             if (processorInfo != null) {
-                dXi.addURI(dXh, processorInfo.getPath(), processorInfo.getMatcherCode());
+                sUriMatcher.addURI(AUTHORITY, processorInfo.getPath(), processorInfo.getMatcherCode());
             }
         }
     }
 
+    private boolean checkPermission() {
+        boolean z = true;
+        if (isSameApp(Process.myUid(), Binder.getCallingUid())) {
+            return true;
+        }
+        String callingPackage = getCallingPackage();
+        if (sAccreditedSet.contains(callingPackage)) {
+            return true;
+        }
+        String a2 = c.a(callingPackage);
+        Set<String> a3 = d.b.g0.c.g.c.e().a();
+        z = (a3 == null || !a3.contains(a2)) ? false : false;
+        if (z) {
+            sAccreditedSet.add(callingPackage);
+        }
+        return z;
+    }
+
+    private boolean checkReadPermission() {
+        return checkPermission();
+    }
+
+    private boolean checkWritePermission() {
+        return checkPermission();
+    }
+
+    private a getProcessor(int i) {
+        Class<? extends a> processorClass = ProcessorInfo.getProcessorClass(i);
+        if (processorClass != null) {
+            try {
+                return processorClass.newInstance();
+            } catch (IllegalAccessException | InstantiationException e2) {
+                if (DEBUG) {
+                    e2.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static boolean isSameApp(int i, int i2) {
+        return i % 100000 == i2 % 100000;
+    }
+
     @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        return true;
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+        a processor;
+        if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
+            return 0;
+        }
+        return processor.a(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
@@ -45,81 +97,35 @@ public class SwanContentProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        a kH;
-        if (aQt() && (kH = kH(dXi.match(uri))) != null) {
-            return kH.query(uri, strArr, str, strArr2, str2);
+    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+        a processor;
+        if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
+            return null;
         }
-        return null;
+        return processor.b(uri, contentValues);
+    }
+
+    @Override // android.content.ContentProvider
+    public boolean onCreate() {
+        return true;
     }
 
     @Override // android.content.ContentProvider
     @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        a kH;
-        if (!aQu() || (kH = kH(dXi.match(uri))) == null) {
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        a processor;
+        if (!checkReadPermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
             return null;
         }
-        return kH.insert(uri, contentValues);
-    }
-
-    @Override // android.content.ContentProvider
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        a kH;
-        if (!aQu() || (kH = kH(dXi.match(uri))) == null) {
-            return 0;
-        }
-        return kH.delete(uri, str, strArr);
+        return processor.c(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        a kH;
-        if (!aQu() || (kH = kH(dXi.match(uri))) == null) {
+        a processor;
+        if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
             return 0;
         }
-        return kH.update(uri, contentValues, str, strArr);
-    }
-
-    private a kH(int i) {
-        Class<? extends a> processorClass = ProcessorInfo.getProcessorClass(i);
-        if (processorClass != null) {
-            try {
-                return processorClass.newInstance();
-            } catch (IllegalAccessException | InstantiationException e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return null;
-    }
-
-    private boolean aQt() {
-        return checkPermission();
-    }
-
-    private boolean aQu() {
-        return checkPermission();
-    }
-
-    private boolean checkPermission() {
-        boolean z = true;
-        if (!as(Process.myUid(), Binder.getCallingUid())) {
-            String callingPackage = getCallingPackage();
-            if (!dXj.contains(callingPackage)) {
-                String uY = c.uY(callingPackage);
-                Set<String> aQl = com.baidu.swan.config.c.c.aQk().aQl();
-                z = (aQl == null || !aQl.contains(uY)) ? false : false;
-                if (z) {
-                    dXj.add(callingPackage);
-                }
-            }
-        }
-        return z;
-    }
-
-    private static boolean as(int i, int i2) {
-        return i % 100000 == i2 % 100000;
+        return processor.d(uri, contentValues, str, strArr);
     }
 }

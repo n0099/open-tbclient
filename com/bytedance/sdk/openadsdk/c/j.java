@@ -8,6 +8,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import androidx.annotation.RequiresApi;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.bytedance.sdk.openadsdk.core.widget.webview.a.e;
 import com.bytedance.sdk.openadsdk.utils.t;
@@ -16,50 +17,174 @@ import com.bytedance.sdk.openadsdk.utils.x;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class j {
-    private String f;
-    private final Context g;
-    private final com.bytedance.sdk.openadsdk.core.d.l h;
-    private WebView p;
-    private JSONObject v;
-    private p w;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f27565d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f27566e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final Context f27567f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final com.bytedance.sdk.openadsdk.core.d.l f27568g;
+    public WebView p;
+    public JSONObject v;
+    public p w;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4203a = 1;
-    private boolean b = false;
-    private boolean c = false;
-    private boolean d = false;
-    private int e = -1;
-    private String i = "landingpage";
-    private long j = 0;
-    private long k = 0;
-    private long l = 0;
-    private long m = 0;
-    private boolean n = false;
-    private AtomicInteger o = new AtomicInteger(0);
-    private boolean q = false;
-    private AtomicInteger r = new AtomicInteger(0);
-    private String u = "";
-    private List<com.bytedance.sdk.openadsdk.core.d.d> s = new ArrayList();
-    private ConcurrentHashMap<String, com.bytedance.sdk.openadsdk.core.d.d> t = new ConcurrentHashMap<>();
+    public int f27562a = 1;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f27563b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f27564c = -1;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f27569h = "landingpage";
+    public long i = 0;
+    public long j = 0;
+    public long k = 0;
+    public long l = 0;
+    public long m = 0;
+    public boolean n = false;
+    public AtomicInteger o = new AtomicInteger(0);
+    public boolean q = false;
+    public AtomicInteger r = new AtomicInteger(0);
+    public String u = "";
+    public AtomicBoolean x = new AtomicBoolean(false);
+    public List<com.bytedance.sdk.openadsdk.core.d.d> s = new ArrayList();
+    public ConcurrentHashMap<String, com.bytedance.sdk.openadsdk.core.d.d> t = new ConcurrentHashMap<>();
+
+    /* loaded from: classes6.dex */
+    public class a {
+        public a() {
+        }
+
+        @JavascriptInterface
+        public String getUrl() {
+            return j.this.u;
+        }
+
+        @JavascriptInterface
+        public void readHtml(String str, String str2) {
+            com.bytedance.sdk.openadsdk.core.d.d dVar;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return;
+            }
+            if (j.this.t == null) {
+                j.this.t = new ConcurrentHashMap();
+            }
+            if (j.this.t.containsKey(str)) {
+                dVar = (com.bytedance.sdk.openadsdk.core.d.d) j.this.t.get(str);
+            } else {
+                com.bytedance.sdk.openadsdk.core.d.d dVar2 = new com.bytedance.sdk.openadsdk.core.d.d();
+                j.this.t.put(str, dVar2);
+                dVar2.a(str);
+                dVar = dVar2;
+            }
+            dVar.b(str2);
+            if (j.this.s == null) {
+                j.this.s = new ArrayList();
+            }
+            j.this.s.add(dVar);
+        }
+
+        @JavascriptInterface
+        public void readPercent(String str) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("measure height: ");
+            int i = 0;
+            sb.append(j.this.p == null ? 0 : j.this.p.getMeasuredHeight());
+            u.b("LandingPageLog", sb.toString());
+            u.b("LandingPageLog", "read percent: " + String.valueOf(str));
+            try {
+                int intValue = Float.valueOf(str).intValue();
+                if (intValue > 100) {
+                    i = 100;
+                } else if (intValue >= 0) {
+                    i = intValue;
+                }
+            } catch (Throwable unused) {
+            }
+            j.this.o.set(i);
+        }
+    }
 
     public j(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, WebView webView) {
-        this.g = context;
-        this.h = lVar;
+        this.f27567f = context;
+        this.f27568g = lVar;
         this.p = webView;
         if (Build.VERSION.SDK_INT >= 19) {
             this.p.addJavascriptInterface(new a(), "JS_LANDING_PAGE_LOG_OBJ");
         }
     }
 
-    public void a(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.i = str;
+    private void e() {
+        List<com.bytedance.sdk.openadsdk.core.d.d> list = this.s;
+        if (list == null || list.size() == 0) {
+            return;
         }
+        if (!com.bytedance.sdk.openadsdk.core.p.h().u() || x.c(com.bytedance.sdk.openadsdk.core.p.a()) == 4) {
+            com.bytedance.sdk.openadsdk.h.a.a().a(this.s, this.f27568g, this.v);
+        }
+    }
+
+    public void b() {
+        u.b("LandingPageLog", MissionEvent.MESSAGE_RESUME);
+        if (this.m == 0) {
+            this.m = System.currentTimeMillis();
+        }
+        this.i = System.currentTimeMillis();
+    }
+
+    public void c() {
+        u.b("LandingPageLog", MissionEvent.MESSAGE_STOP);
+        if (this.f27562a == 2) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.j = currentTimeMillis;
+            long j = currentTimeMillis - this.i;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("load_status", this.f27562a);
+                jSONObject.put("max_scroll_percent", this.o.get());
+                jSONObject.putOpt("render_type", "h5");
+                jSONObject.putOpt("render_type_2", 0);
+            } catch (JSONException unused) {
+            }
+            a("stay_page", jSONObject, j);
+        }
+    }
+
+    public void d() {
+        u.b("LandingPageLog", MissionEvent.MESSAGE_DESTROY);
+        e();
+        this.p = null;
+        if (this.x.get()) {
+            return;
+        }
+        d.b(this.f27567f, this.f27568g, this.f27569h, System.currentTimeMillis() - this.m);
+    }
+
+    public void a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.f27569h = str;
+    }
+
+    private boolean b(String str) {
+        com.bytedance.sdk.openadsdk.core.d.l lVar;
+        com.bytedance.sdk.openadsdk.core.h.h h2;
+        return (TextUtils.isEmpty(str) || (lVar = this.f27568g) == null || lVar.v() == 0 || com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str) != e.a.HTML || (h2 = com.bytedance.sdk.openadsdk.core.p.h()) == null || h2.l() <= this.r.get()) ? false : true;
     }
 
     public p a() {
@@ -81,28 +206,37 @@ public class j {
 
     public void a(WebView webView, int i) {
         u.b("LandingPageLog", "onWebProgress: " + i);
-        if (this.l == 0 && i > 0) {
+        if (this.k == 0 && i > 0) {
+            this.k = System.currentTimeMillis();
+        } else if (this.l == 0 && i == 100) {
             this.l = System.currentTimeMillis();
-        } else if (this.m == 0 && i == 100) {
-            this.m = System.currentTimeMillis();
         }
     }
 
     public void a(WebView webView, String str, Bitmap bitmap) {
         u.b("LandingPageLog", "onWebStarted: " + String.valueOf(str));
-        if (this.w != null) {
-            this.w.e();
+        p pVar = this.w;
+        if (pVar != null) {
+            pVar.e();
         }
-        if (!this.b) {
-            this.b = true;
-            a("load_start", new JSONObject());
+        if (this.f27563b) {
+            return;
         }
+        this.f27563b = true;
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.putOpt("render_type", "h5");
+            jSONObject.putOpt("render_type_2", 0);
+        } catch (Exception unused) {
+        }
+        a("load_start", jSONObject);
     }
 
     public void a(WebView webView, String str) {
         u.b("LandingPageLog", "onWebFinished: " + String.valueOf(str));
-        if (this.w != null) {
-            this.w.f();
+        p pVar = this.w;
+        if (pVar != null) {
+            pVar.f();
         }
         if (webView != null && !this.n && this.q) {
             this.n = true;
@@ -113,175 +247,110 @@ public class j {
                 this.r.incrementAndGet();
             }
         }
-        if (this.f4203a != 3) {
-            this.f4203a = 2;
+        if (this.x.get()) {
+            return;
         }
-        if (this.f4203a == 2) {
-            long j = this.m - this.l;
-            if (!this.c) {
-                this.c = true;
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("load_duration", j);
-                } catch (Exception e) {
-                }
-                a("load_finish", jSONObject);
-            }
-        } else if (!this.d) {
-            this.d = true;
-            JSONObject jSONObject2 = new JSONObject();
+        if (this.f27562a != 3) {
+            this.f27562a = 2;
+        }
+        this.x.set(true);
+        this.i = System.currentTimeMillis();
+        if (this.f27562a == 2) {
+            long j = this.l - this.k;
+            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject2.put("error_code", this.e);
-                jSONObject2.put("error_msg", this.f);
-            } catch (Exception e2) {
+                jSONObject.put("error_code", this.f27564c);
+                jSONObject.put("error_msg", this.f27565d);
+                jSONObject.put("error_url", this.f27566e);
+                jSONObject.putOpt("render_type", "h5");
+                jSONObject.putOpt("render_type_2", 0);
+            } catch (Exception unused) {
             }
-            a("load_fail", jSONObject2);
+            a("load_finish", jSONObject, j);
+            return;
         }
-    }
-
-    public void a(WebView webView, int i, String str, String str2) {
-        u.b("LandingPageLog", "onWebError: " + i + ", " + String.valueOf(str) + ", " + String.valueOf(str2));
-        if (this.w != null) {
-            this.w.g();
-        }
-        this.f4203a = 3;
-        this.e = i;
-        this.f = str;
-    }
-
-    public void b() {
-        u.b("LandingPageLog", MissionEvent.MESSAGE_RESUME);
-        this.j = System.currentTimeMillis();
-    }
-
-    public void c() {
-        u.b("LandingPageLog", MissionEvent.MESSAGE_STOP);
-        boolean z = this.f4203a == 2;
-        this.k = System.currentTimeMillis();
-        long j = this.k - this.j;
-        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("load_status", this.f4203a);
-            jSONObject.put("stay_page_duration", j);
-            jSONObject.put("max_scroll_percent", z ? this.o.get() : 0);
-        } catch (JSONException e) {
+            jSONObject2.put("error_code", this.f27564c);
+            jSONObject2.put("error_msg", this.f27565d);
+            jSONObject2.put("error_url", this.f27566e);
+            jSONObject2.putOpt("render_type", "h5");
+            jSONObject2.putOpt("render_type_2", 0);
+        } catch (Exception unused2) {
         }
-        a("landing_close", jSONObject);
+        a("load_fail", jSONObject2);
     }
 
-    public void d() {
-        u.b("LandingPageLog", MissionEvent.MESSAGE_DESTROY);
-        e();
-        this.p = null;
+    public void a(int i, String str, String str2, String str3) {
+        u.b("LandingPageLog", "onWebError: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + "，" + str3);
+        p pVar = this.w;
+        if (pVar != null) {
+            pVar.g();
+        }
+        if (!(str3 != null && str3.startsWith("image"))) {
+            this.f27562a = 3;
+        }
+        this.f27564c = i;
+        this.f27565d = str;
+        this.f27566e = str2;
     }
 
     @RequiresApi(api = 21)
     public void a(WebView webView, WebResourceRequest webResourceRequest) {
         com.bytedance.sdk.openadsdk.core.d.d dVar;
-        if (webResourceRequest != null && !TextUtils.isEmpty(webResourceRequest.getUrl().toString())) {
-            String uri = webResourceRequest.getUrl().toString();
-            if (b(uri)) {
-                if (this.t == null) {
-                    this.t = new ConcurrentHashMap<>();
-                }
-                if (this.t.containsKey(uri)) {
-                    dVar = this.t.get(uri);
-                } else {
-                    dVar = new com.bytedance.sdk.openadsdk.core.d.d();
-                    this.t.put(uri, dVar);
-                    dVar.a(uri);
-                }
-                dVar.a(webResourceRequest.getRequestHeaders());
+        if (webResourceRequest == null || TextUtils.isEmpty(webResourceRequest.getUrl().toString())) {
+            return;
+        }
+        String uri = webResourceRequest.getUrl().toString();
+        if (b(uri)) {
+            if (this.t == null) {
+                this.t = new ConcurrentHashMap<>();
             }
+            if (this.t.containsKey(uri)) {
+                dVar = this.t.get(uri);
+            } else {
+                com.bytedance.sdk.openadsdk.core.d.d dVar2 = new com.bytedance.sdk.openadsdk.core.d.d();
+                this.t.put(uri, dVar2);
+                dVar2.a(uri);
+                dVar = dVar2;
+            }
+            dVar.a(webResourceRequest.getRequestHeaders());
         }
     }
 
     private void a(String str, JSONObject jSONObject) {
-        JSONObject jSONObject2;
-        if (this.q && this.h != null && !TextUtils.isEmpty(str)) {
-            if (jSONObject == null) {
-                jSONObject2 = null;
-            } else {
-                try {
-                    jSONObject.put("is_playable", this.h.C() ? 1 : 0);
-                    jSONObject.put("usecache", com.bytedance.sdk.openadsdk.core.g.a.a().a(this.h) ? 1 : 0);
-                } catch (JSONException e) {
-                }
-                try {
-                    jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("ad_extra_data", jSONObject.toString());
-                    } catch (JSONException e2) {
-                    }
-                } catch (JSONException e3) {
-                    jSONObject2 = null;
-                }
-            }
-            u.b("LandingPageLog", "sendEvent: " + String.valueOf(this.i) + ", " + String.valueOf(str) + ", ext=" + String.valueOf(jSONObject2));
-            d.c(this.g, this.h, this.i, str, jSONObject2);
-        }
+        a(str, jSONObject, -1L);
     }
 
-    private boolean b(String str) {
-        com.bytedance.sdk.openadsdk.core.h.h h;
-        return (TextUtils.isEmpty(str) || this.h == null || this.h.v() == 0 || com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str) != e.a.HTML || (h = com.bytedance.sdk.openadsdk.core.p.h()) == null || h.m() <= this.r.get()) ? false : true;
-    }
-
-    private void e() {
-        if (this.s != null && this.s.size() != 0) {
-            if (!com.bytedance.sdk.openadsdk.core.p.h().v() || x.c(com.bytedance.sdk.openadsdk.core.p.a()) == 4) {
-                com.bytedance.sdk.openadsdk.g.a.a().a(this.s, this.h, this.v);
-            }
+    private void a(String str, JSONObject jSONObject, long j) {
+        if (!this.q || this.f27568g == null || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    /* loaded from: classes6.dex */
-    private class a {
-        private a() {
-        }
-
-        @JavascriptInterface
-        public void readPercent(String str) {
-            int i = 0;
-            u.b("LandingPageLog", "measure height: " + (j.this.p == null ? 0 : j.this.p.getMeasuredHeight()));
-            u.b("LandingPageLog", "read percent: " + String.valueOf(str));
+        JSONObject jSONObject2 = null;
+        if (jSONObject != null) {
             try {
-                int intValue = Float.valueOf(str).intValue();
-                if (intValue > 100) {
-                    i = 100;
-                } else if (intValue >= 0) {
-                    i = intValue;
+                int i = 1;
+                jSONObject.put("is_playable", this.f27568g.C() ? 1 : 0);
+                if (!com.bytedance.sdk.openadsdk.core.g.a.a().a(this.f27568g)) {
+                    i = 0;
                 }
-            } catch (Throwable th) {
+                jSONObject.put("usecache", i);
+            } catch (JSONException unused) {
             }
-            j.this.o.set(i);
-        }
-
-        @JavascriptInterface
-        public String getUrl() {
-            return j.this.u;
-        }
-
-        @JavascriptInterface
-        public void readHtml(String str, String str2) {
-            com.bytedance.sdk.openadsdk.core.d.d dVar;
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (j.this.t == null) {
-                    j.this.t = new ConcurrentHashMap();
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                try {
+                    jSONObject3.put("ad_extra_data", jSONObject.toString());
+                    if (j > 0) {
+                        jSONObject3.put("duration", j);
+                    }
+                } catch (JSONException unused2) {
                 }
-                if (j.this.t.containsKey(str)) {
-                    dVar = (com.bytedance.sdk.openadsdk.core.d.d) j.this.t.get(str);
-                } else {
-                    dVar = new com.bytedance.sdk.openadsdk.core.d.d();
-                    j.this.t.put(str, dVar);
-                    dVar.a(str);
-                }
-                dVar.b(str2);
-                if (j.this.s == null) {
-                    j.this.s = new ArrayList();
-                }
-                j.this.s.add(dVar);
+                jSONObject2 = jSONObject3;
+            } catch (JSONException unused3) {
             }
         }
+        u.b("LandingPageLog", "sendEvent: " + String.valueOf(this.f27569h) + StringUtil.ARRAY_ELEMENT_SEPARATOR + String.valueOf(str) + ", ext=" + String.valueOf(jSONObject2));
+        d.c(this.f27567f, this.f27568g, this.f27569h, str, jSONObject2);
     }
 }

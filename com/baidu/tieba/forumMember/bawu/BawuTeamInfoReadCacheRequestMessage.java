@@ -1,13 +1,12 @@
 package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BawuTeamInfoReadCacheRequestMessage extends CustomMessage<Object> {
-    private String cacheKey;
+    public String cacheKey;
 
     public BawuTeamInfoReadCacheRequestMessage() {
-        super(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE);
+        super(2003005);
     }
 
     public String getCacheKey() {

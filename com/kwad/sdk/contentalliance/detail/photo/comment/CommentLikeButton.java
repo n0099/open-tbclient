@@ -13,89 +13,99 @@ import android.widget.TextView;
 import com.ksad.lottie.LottieAnimationView;
 import com.kwad.sdk.R;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CommentLikeButton extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5625a;
-    private ImageView b;
-    private TextView c;
-    private LottieAnimationView d;
-    private long e;
-    private a f;
+    public int f32217a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f32218b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f32219c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public LottieAnimationView f32220d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f32221e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public a f32222f;
+
+    /* loaded from: classes6.dex */
     public interface a {
         void a(int i);
     }
 
     public CommentLikeButton(Context context) {
         super(context);
-        this.f5625a = 1;
-        this.b = null;
-        this.c = null;
+        this.f32217a = 1;
+        this.f32218b = null;
+        this.f32219c = null;
         c();
     }
 
     public CommentLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f5625a = 1;
-        this.b = null;
-        this.c = null;
+        this.f32217a = 1;
+        this.f32218b = null;
+        this.f32219c = null;
         c();
     }
 
     public CommentLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f5625a = 1;
-        this.b = null;
-        this.c = null;
+        this.f32217a = 1;
+        this.f32218b = null;
+        this.f32219c = null;
         c();
     }
 
     private void a(final int i) {
-        this.d.d();
+        this.f32220d.d();
         boolean z = i == 2;
-        this.d.a(true);
-        this.d.setAnimation(z ? R.raw.ksad_detail_comment_like_anim_2 : R.raw.ksad_detail_comment_unlike_anim_2);
-        this.d.setVisibility(0);
-        this.d.a(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentLikeButton.1
+        this.f32220d.a(true);
+        this.f32220d.setAnimation(z ? R.raw.ksad_detail_comment_like_anim_2 : R.raw.ksad_detail_comment_unlike_anim_2);
+        this.f32220d.setVisibility(0);
+        this.f32220d.a(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.detail.photo.comment.CommentLikeButton.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
                 CommentLikeButton.this.setImageView(i);
-                CommentLikeButton.this.b.setVisibility(0);
-                CommentLikeButton.this.d.setVisibility(8);
+                CommentLikeButton.this.f32218b.setVisibility(0);
+                CommentLikeButton.this.f32220d.setVisibility(8);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 CommentLikeButton.this.setImageView(i);
-                CommentLikeButton.this.b.setVisibility(0);
-                CommentLikeButton.this.d.setVisibility(8);
+                CommentLikeButton.this.f32218b.setVisibility(0);
+                CommentLikeButton.this.f32220d.setVisibility(8);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                CommentLikeButton.this.b.setVisibility(8);
+                CommentLikeButton.this.f32218b.setVisibility(8);
             }
         });
-        this.d.b();
+        this.f32220d.b();
     }
 
     private void c() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_comment_like_button_2, (ViewGroup) this, true);
-        this.b = (ImageView) findViewById(R.id.ksad_photo_comment_like_button_image);
-        this.c = (TextView) findViewById(R.id.ksad_photo_comment_like_count_text);
-        this.d = (LottieAnimationView) findViewById(R.id.ksad_photo_comment_like_animation_view);
+        this.f32218b = (ImageView) findViewById(R.id.ksad_photo_comment_like_button_image);
+        this.f32219c = (TextView) findViewById(R.id.ksad_photo_comment_like_count_text);
+        this.f32220d = (LottieAnimationView) findViewById(R.id.ksad_photo_comment_like_animation_view);
         setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setImageView(int i) {
-        this.b.setImageResource(i == 1 ? R.drawable.ksad_photo_comment_like_button_2_normal : R.drawable.ksad_photo_comment_like_button_2_selected);
+        this.f32218b.setImageResource(i == 1 ? R.drawable.ksad_photo_comment_like_button_2_normal : R.drawable.ksad_photo_comment_like_button_2_selected);
     }
 
     private void setImageViewWithAnimator(int i) {
@@ -104,70 +114,71 @@ public class CommentLikeButton extends LinearLayout implements View.OnClickListe
     }
 
     public void a(int i, long j) {
-        this.f5625a = i;
+        this.f32217a = i;
         setImageView(i);
-        this.d.setVisibility(8);
-        this.e = j;
+        this.f32220d.setVisibility(8);
+        this.f32221e = j;
         setLikeCount(j);
         setLikeCountColor(i);
     }
 
     public boolean a() {
-        return this.f5625a == 2;
+        return this.f32217a == 2;
     }
 
     public void b() {
-        if (this.d.c()) {
-            this.d.d();
+        if (this.f32220d.c()) {
+            this.f32220d.d();
         }
     }
 
     public int getLikeState() {
-        return this.f5625a;
+        return this.f32217a;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        long j;
         if (a()) {
             setLikeState(1);
-            if (this.f != null) {
-                this.f.a(1);
+            a aVar = this.f32222f;
+            if (aVar != null) {
+                aVar.a(1);
             }
-            long j = this.e - 1;
-            this.e = j;
-            setLikeCount(j);
-            return;
+            j = this.f32221e - 1;
+        } else {
+            setLikeState(2);
+            a aVar2 = this.f32222f;
+            if (aVar2 != null) {
+                aVar2.a(2);
+            }
+            j = this.f32221e + 1;
         }
-        setLikeState(2);
-        if (this.f != null) {
-            this.f.a(2);
-        }
-        long j2 = this.e + 1;
-        this.e = j2;
-        setLikeCount(j2);
+        this.f32221e = j;
+        setLikeCount(j);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         b();
     }
 
     public void setLikeCount(long j) {
-        this.c.setText(ag.a(j, ""));
+        this.f32219c.setText(ag.a(j, ""));
     }
 
     public void setLikeCountColor(int i) {
-        this.c.setTextColor(i == 2 ? -61862 : -7828591);
+        this.f32219c.setTextColor(i == 2 ? -61862 : -7828591);
     }
 
     public void setLikeState(int i) {
-        this.f5625a = i;
+        this.f32217a = i;
         setImageViewWithAnimator(i);
         setLikeCountColor(i);
     }
 
     public void setLikeStateListener(a aVar) {
-        this.f = aVar;
+        this.f32222f = aVar;
     }
 }

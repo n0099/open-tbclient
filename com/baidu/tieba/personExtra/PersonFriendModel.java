@@ -3,74 +3,84 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.live.tbadk.data.Config;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bf;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes7.dex */
+import d.b.h0.r.q.f1;
+/* loaded from: classes5.dex */
 public class PersonFriendModel extends BdBaseModel {
-    private static final String glq = TbConfig.SERVER_ADDRESS + Config.GET_FRIEND_LIST_ADDRESS;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1002001, glq);
-    private bf mData;
-    private String mId;
-    private boolean mIsHost;
-    private int mSex;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f20371g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static TbHttpMessageTask f20372h;
+
+    /* renamed from: e  reason: collision with root package name */
+    public f1 f20373e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f20374f;
 
     static {
-        task.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(task);
+        String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
+        f20371g = str;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
+        f20372h = tbHttpMessageTask;
+        tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
+        MessageManager.getInstance().registerTask(f20372h);
     }
 
     public PersonFriendModel(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.mData = new bf();
-        this.mIsHost = z;
-    }
-
-    public void setId(String str) {
-        this.mId = str;
-    }
-
-    public String getId() {
-        return this.mId;
-    }
-
-    public void setSex(int i) {
-        this.mSex = i;
-    }
-
-    public void d(bf bfVar) {
-        this.mData = bfVar;
-    }
-
-    public bf dyo() {
-        return this.mData;
-    }
-
-    public void dxK() {
-        super.sendMessage(new PersonFriendByUidLocalMessage());
-    }
-
-    public void a(boolean z, String str, int i, int i2) {
-        HttpMessage httpMessage = new HttpMessage(1002001);
-        if (!z) {
-            httpMessage.addParam("friend_uid", str);
-            httpMessage.addParam("is_guest", String.valueOf(1));
-            httpMessage.setExtra(str);
-        }
-        httpMessage.addParam("page_num", i + "");
-        httpMessage.addParam("res_num", i2 + "");
-        super.sendMessage(httpMessage);
+        this.f20373e = new f1();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
+    }
+
+    public String getId() {
+        return this.f20374f;
+    }
+
+    public f1 s() {
+        return this.f20373e;
+    }
+
+    public void setSex(int i) {
+    }
+
+    public void t() {
+        super.sendMessage(new PersonFriendByUidLocalMessage());
+    }
+
+    public void u(boolean z, String str, int i, int i2) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_FRIEND_CMD);
+        if (!z) {
+            httpMessage.addParam(TiebaStatic.Params.FRIEND_UID, str);
+            httpMessage.addParam("is_guest", String.valueOf(1));
+            httpMessage.setExtra(str);
+        }
+        httpMessage.addParam(SuggestAddrField.KEY_PAGE_NUM, i + "");
+        httpMessage.addParam("res_num", i2 + "");
+        super.sendMessage(httpMessage);
+    }
+
+    public void v(f1 f1Var) {
+        this.f20373e = f1Var;
+    }
+
+    public void w(String str) {
+        this.f20374f = str;
     }
 }

@@ -5,13 +5,12 @@ import android.os.Looper;
 import android.webkit.JavascriptInterface;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
-class JavaScriptChannel {
-    private final String javaScriptChannelName;
-    private final MethodChannel methodChannel;
-    private final Handler platformThreadHandler;
+/* loaded from: classes7.dex */
+public class JavaScriptChannel {
+    public final String javaScriptChannelName;
+    public final MethodChannel methodChannel;
+    public final Handler platformThreadHandler;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public JavaScriptChannel(MethodChannel methodChannel, String str, Handler handler) {
         this.methodChannel = methodChannel;
         this.javaScriptChannelName = str;

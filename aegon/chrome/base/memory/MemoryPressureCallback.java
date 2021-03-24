@@ -1,5 +1,5 @@
 package aegon.chrome.base.memory;
 @FunctionalInterface
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface MemoryPressureCallback {
 }

@@ -7,224 +7,272 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.lib.util.l;
 import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.ala.notify.AlaLiveUserNotifyController;
 import com.baidu.ala.notify.AlaLiveUserNotifyManager;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.l.h;
-import com.baidu.tbadk.util.aa;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.am;
-/* loaded from: classes9.dex */
-public class AlaLiveTabFragment extends BaseFragment implements am {
-    public static int gCn = 1;
-    public static int gCo = 1;
-    public static int gCp = 1;
-    private com.baidu.tieba.ala.alasquare.live_tab.view.a gCq;
-    private AlaLiveUserNotifyController gCr;
-    private AlaLiveUserNotifyManager.AlaLiveNotifyListener gCs;
-    private boolean gCv;
-    private boolean gCt = true;
-    private int gCu = -1;
-    private CustomMessageListener gCw = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE) { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.1
+import d.b.b.e.p.j;
+import d.b.b.e.p.l;
+import d.b.h0.d0.h;
+import d.b.h0.z0.b0;
+import d.b.i0.p0.o0;
+/* loaded from: classes4.dex */
+public class AlaLiveTabFragment extends BaseFragment implements o0 {
+    public static int m = 1;
+    public static int n = 1;
+    public static int o = 1;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.i0.t.d.c.h.a f14736e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public AlaLiveUserNotifyController f14737f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public AlaLiveUserNotifyManager.AlaLiveNotifyListener f14738g;
+    public boolean j;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f14739h = true;
+    public int i = -1;
+    public CustomMessageListener k = new a(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE);
+    public CustomMessageListener l = new b(2921446);
+
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.ala.alasquare.live_tab.b.b)) {
-                AlaLiveTabFragment.this.gCq.mE(true);
-                com.baidu.tieba.ala.alasquare.live_tab.b.b bVar = (com.baidu.tieba.ala.alasquare.live_tab.b.b) customResponsedMessage.getData();
-                if (bVar.isSuccess) {
-                    if (AlaLiveTabFragment.this.gCt || !bVar.isLoadMore) {
-                        AlaLiveTabFragment.this.Xc();
-                        AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.gCq.bSb());
-                        AlaLiveTabFragment.this.gCq.a(bVar.superEntranceInfo);
-                        AlaLiveTabFragment.this.gCt = false;
-                    }
-                } else if (AlaLiveTabFragment.this.gCt || !bVar.isLoadMore) {
-                    AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.gCq.bSb());
-                    AlaLiveTabFragment.this.bRH();
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.t.d.c.e.b)) {
+                return;
+            }
+            AlaLiveTabFragment.this.f14736e.r(true);
+            d.b.i0.t.d.c.e.b bVar = (d.b.i0.t.d.c.e.b) customResponsedMessage.getData();
+            if (bVar.f60321a) {
+                if (AlaLiveTabFragment.this.f14739h || !bVar.f60322b) {
+                    AlaLiveTabFragment.this.L0();
+                    AlaLiveTabFragment alaLiveTabFragment = AlaLiveTabFragment.this;
+                    alaLiveTabFragment.hideLoadingView(alaLiveTabFragment.f14736e.i());
+                    AlaLiveTabFragment.this.f14736e.t(bVar.f60323c);
+                    AlaLiveTabFragment.this.f14739h = false;
                 }
+            } else if (AlaLiveTabFragment.this.f14739h || !bVar.f60322b) {
+                AlaLiveTabFragment alaLiveTabFragment2 = AlaLiveTabFragment.this;
+                alaLiveTabFragment2.hideLoadingView(alaLiveTabFragment2.f14736e.i());
+                AlaLiveTabFragment.this.P0();
             }
         }
-    };
-    private CustomMessageListener gCx = new CustomMessageListener(2921446) { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.2
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-                if (AlaLiveTabFragment.this.gCq != null) {
-                    AlaLiveTabFragment.this.gCq.setCurrentTab(intValue);
-                }
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer)) {
+                return;
+            }
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            if (AlaLiveTabFragment.this.f14736e != null) {
+                AlaLiveTabFragment.this.f14736e.s(intValue);
             }
         }
-    };
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements AlaLiveUserNotifyManager.AlaLiveNotifyListener {
+        public c() {
+        }
+
+        @Override // com.baidu.ala.notify.AlaLiveUserNotifyManager.AlaLiveNotifyListener
+        public void onCallBack() {
+            if (AlaLiveTabFragment.this.isPrimary()) {
+                AlaLiveTabFragment.this.f14737f.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements View.OnClickListener {
+        public d() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (!j.A() || AlaLiveTabFragment.this.f14736e == null) {
+                return;
+            }
+            AlaLiveTabFragment.this.f14736e.r(false);
+            AlaLiveTabFragment.this.O0();
+            AlaLiveTabFragment.this.f14736e.m();
+            AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
+        }
+    }
+
+    @Override // d.b.i0.p0.o0
+    public void A() {
+    }
+
+    @Override // d.b.i0.p0.o0
+    public void F() {
+    }
+
+    @Override // d.b.i0.p0.o0
+    public void K(b0 b0Var) {
+    }
+
+    public void L0() {
+        this.f14736e.r(true);
+        h hVar = this.mRefreshView;
+        if (hVar != null) {
+            hVar.dettachView(this.f14736e.i());
+            this.mRefreshView = null;
+        }
+    }
+
+    public boolean M0() {
+        return this.f14739h;
+    }
+
+    public void N0() {
+        if (isAdded()) {
+            O0();
+            this.f14736e.m();
+        }
+    }
+
+    public final void O0() {
+        if (this.i < 0) {
+            this.i = this.f14736e.i().getHeight();
+        }
+        showLoadingView(this.f14736e.i(), false, (((this.i - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.g(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
+    }
+
+    public void P0() {
+        if (this.mRefreshView == null) {
+            this.mRefreshView = new h(getContext(), new d());
+        }
+        this.mRefreshView.o();
+        this.mRefreshView.l(null);
+        this.mRefreshView.m(getResources().getString(R.string.refresh_view_title_text));
+        this.mRefreshView.i(R.drawable.new_pic_emotion_08);
+        this.f14736e.r(false);
+        this.mRefreshView.k(0);
+        this.mRefreshView.attachView(this.f14736e.i(), false);
+    }
+
+    @Override // d.b.i0.p0.o0
+    public void W() {
+    }
+
+    @Override // d.b.i0.p0.o0
+    public void b0() {
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
+    public String getCurrentPageKey() {
+        return "a083";
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        d.b.i0.t.d.c.h.a aVar = this.f14736e;
+        if (aVar != null) {
+            aVar.o();
+        }
+        h hVar = this.mRefreshView;
+        if (hVar != null) {
+            hVar.onChangeSkinType();
+        }
+    }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(null);
-        this.gCq = new com.baidu.tieba.ala.alasquare.live_tab.view.a(getPageContext(), getChildFragmentManager(), this.gCv);
-        if (this.gCr == null) {
-            this.gCr = new AlaLiveUserNotifyController(getPageContext());
+        this.f14736e = new d.b.i0.t.d.c.h.a(getPageContext(), getChildFragmentManager(), this.j);
+        if (this.f14737f == null) {
+            this.f14737f = new AlaLiveUserNotifyController(getPageContext());
         }
-        this.gCs = new AlaLiveUserNotifyManager.AlaLiveNotifyListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.3
-            @Override // com.baidu.ala.notify.AlaLiveUserNotifyManager.AlaLiveNotifyListener
-            public void onCallBack() {
-                if (AlaLiveTabFragment.this.isPrimary()) {
-                    AlaLiveTabFragment.this.gCr.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
-                }
-            }
-        };
-        AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.gCs);
-        MessageManager.getInstance().registerListener(this.gCw);
-        MessageManager.getInstance().registerListener(this.gCx);
-        this.gCq.init();
-        if (this.gCu > 0) {
-            bRI();
+        this.f14738g = new c();
+        AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.f14738g);
+        MessageManager.getInstance().registerListener(this.k);
+        MessageManager.getInstance().registerListener(this.l);
+        this.f14736e.j();
+        if (this.i > 0) {
+            O0();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        ViewGroup bSb = this.gCq.bSb();
-        if (bSb.getParent() instanceof ViewGroup) {
-            ((ViewGroup) bSb.getParent()).removeView(bSb);
+        ViewGroup i = this.f14736e.i();
+        if (i.getParent() instanceof ViewGroup) {
+            ((ViewGroup) i.getParent()).removeView(i);
         }
-        return bSb;
+        return i;
     }
 
-    public boolean bRG() {
-        return this.gCt;
-    }
-
-    public void bRH() {
-        if (this.mRefreshView == null) {
-            this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.4
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (j.isNetworkAvailableForImmediately() && AlaLiveTabFragment.this.gCq != null) {
-                        AlaLiveTabFragment.this.gCq.mE(false);
-                        AlaLiveTabFragment.this.bRI();
-                        AlaLiveTabFragment.this.gCq.loadData();
-                        AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
-                    }
-                }
-            });
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        super.onDestroy();
+        this.f14739h = true;
+        d.b.i0.t.d.c.h.a aVar = this.f14736e;
+        if (aVar != null) {
+            aVar.g();
         }
-        this.mRefreshView.showRefreshButton();
-        this.mRefreshView.setSubText(null);
-        this.mRefreshView.setTitle(getResources().getString(R.string.refresh_view_title_text));
-        this.mRefreshView.ro(R.drawable.new_pic_emotion_08);
-        this.gCq.mE(false);
-        this.mRefreshView.rq(0);
-        this.mRefreshView.attachView(this.gCq.bSb(), false);
-    }
-
-    public void Xc() {
-        this.gCq.mE(true);
-        if (this.mRefreshView != null) {
-            this.mRefreshView.dettachView(this.gCq.bSb());
-            this.mRefreshView = null;
+        AlaLiveUserNotifyController alaLiveUserNotifyController = this.f14737f;
+        if (alaLiveUserNotifyController != null) {
+            alaLiveUserNotifyController.onDestroy();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bRI() {
-        if (this.gCu < 0) {
-            this.gCu = this.gCq.bSb().getHeight();
-        }
-        showLoadingView(this.gCq.bSb(), false, (((this.gCu - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void Uw() {
-        this.gCq.bSc();
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void bRJ() {
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void bRK() {
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void setRecommendFrsNavigationAnimDispatcher(aa aaVar) {
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void showFloatingView() {
+        AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.f14738g);
+        MessageManager.getInstance().unRegisterListener(this.k);
+        MessageManager.getInstance().unRegisterListener(this.l);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        this.gCv = true;
-        this.gCq.loadData();
-        bRI();
+        this.j = true;
+        this.f14736e.m();
+        O0();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
-            if (this.gCq != null) {
-                this.gCq.mF(true);
+            d.b.i0.t.d.c.h.a aVar = this.f14736e;
+            if (aVar != null) {
+                aVar.n(true);
             }
-        } else if (this.gCq != null) {
-            this.gCq.mF(false);
+        } else {
+            d.b.i0.t.d.c.h.a aVar2 = this.f14736e;
+            if (aVar2 != null) {
+                aVar2.n(false);
+            }
         }
-        if (this.gCq != null) {
-            this.gCq.cb(isPrimary());
-        }
-    }
-
-    public void reload() {
-        if (isAdded()) {
-            bRI();
-            this.gCq.loadData();
+        d.b.i0.t.d.c.h.a aVar3 = this.f14736e;
+        if (aVar3 != null) {
+            aVar3.p(isPrimary());
         }
     }
 
-    @Override // com.baidu.tieba.frs.am
-    public void bus() {
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (this.gCq != null) {
-            this.gCq.onChangeSkinType();
-        }
-        if (this.mRefreshView != null) {
-            this.mRefreshView.onChangeSkinType();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        super.onDestroy();
-        this.gCt = true;
-        if (this.gCq != null) {
-            this.gCq.destroy();
-        }
-        if (this.gCr != null) {
-            this.gCr.onDestroy();
-        }
-        AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.gCs);
-        MessageManager.getInstance().unRegisterListener(this.gCw);
-        MessageManager.getInstance().unRegisterListener(this.gCx);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
-    public String getCurrentPageKey() {
-        return "a083";
+    @Override // d.b.i0.p0.o0
+    public void w() {
+        this.f14736e.q();
     }
 }

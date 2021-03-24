@@ -1,13 +1,32 @@
 package com.facebook.imagepipeline.nativecode;
 
 import android.graphics.Bitmap;
-@com.facebook.common.internal.d
-/* loaded from: classes5.dex */
+import com.facebook.common.internal.DoNotStrip;
+import com.facebook.common.internal.Preconditions;
+@DoNotStrip
+/* loaded from: classes6.dex */
 public class NativeRoundingFilter {
-    @com.facebook.common.internal.d
-    private static native void nativeToCircleFilter(Bitmap bitmap);
-
     static {
-        a.load();
+        NativeFiltersLoader.load();
+    }
+
+    @DoNotStrip
+    public static native void nativeToCircleFilter(Bitmap bitmap, boolean z);
+
+    @DoNotStrip
+    public static native void nativeToCircleWithBorderFilter(Bitmap bitmap, int i, int i2, boolean z);
+
+    public static void toCircle(Bitmap bitmap) {
+        toCircle(bitmap, false);
+    }
+
+    public static void toCircleWithBorder(Bitmap bitmap, int i, int i2, boolean z) {
+        Preconditions.checkNotNull(bitmap);
+        nativeToCircleWithBorderFilter(bitmap, i, i2, z);
+    }
+
+    public static void toCircle(Bitmap bitmap, boolean z) {
+        Preconditions.checkNotNull(bitmap);
+        nativeToCircleFilter(bitmap, z);
     }
 }

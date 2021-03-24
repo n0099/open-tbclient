@@ -1,10 +1,10 @@
 package com.kwad.sdk.core.imageloader.core.assist;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ImageSize {
-    private static final String SEPARATOR = "x";
-    private static final int TO_STRING_MAX_LENGHT = 9;
-    private final int height;
-    private final int width;
+    public static final String SEPARATOR = "x";
+    public static final int TO_STRING_MAX_LENGHT = 9;
+    public final int height;
+    public final int width;
 
     public ImageSize(int i, int i2) {
         this.width = i;
@@ -29,8 +29,8 @@ public class ImageSize {
         return this.width;
     }
 
-    public ImageSize scale(float f) {
-        return new ImageSize((int) (this.width * f), (int) (this.height * f));
+    public ImageSize scale(float f2) {
+        return new ImageSize((int) (this.width * f2), (int) (this.height * f2));
     }
 
     public ImageSize scaleDown(int i) {
@@ -38,6 +38,10 @@ public class ImageSize {
     }
 
     public String toString() {
-        return new StringBuilder(9).append(this.width).append("x").append(this.height).toString();
+        StringBuilder sb = new StringBuilder(9);
+        sb.append(this.width);
+        sb.append("x");
+        sb.append(this.height);
+        return sb.toString();
     }
 }

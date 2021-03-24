@@ -3,7 +3,6 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -11,15 +10,16 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.WebBindWidgetResult;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
+import d.b.a0.a.f;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BindWidgetActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_BIND_WIDGET_ACTION = "EXTRA_BIND_WIDGET_ACTION";
     public static final int REQUEST_CODE_LOGIN = 200001;
-    private BindWidgetAction p;
-    private String q;
-    private WebBindWidgetResult r = new WebBindWidgetResult() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.1
+    public BindWidgetAction p;
+    public String q;
+    public WebBindWidgetResult r = new WebBindWidgetResult() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.1
         @Override // com.baidu.sapi2.result.WebBindWidgetResult
         public void loginSuc() {
             super.loginSuc();
@@ -35,19 +35,16 @@ public class BindWidgetActivity extends BaseActivity {
         CoreViewRouter.getInstance().release();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
         return CoreViewRouter.getInstance().getWebBindWidgetDTO();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
@@ -56,14 +53,12 @@ public class BindWidgetActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
         a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
@@ -72,15 +67,15 @@ public class BindWidgetActivity extends BaseActivity {
         finishActivity();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             this.p = (BindWidgetAction) getIntent().getSerializableExtra(EXTRA_BIND_WIDGET_ACTION);
-            this.q = getIntent().getStringExtra("EXTRA_BDUSS");
-            if (this.p != null && !TextUtils.isEmpty(this.q)) {
+            String stringExtra = getIntent().getStringExtra("EXTRA_BDUSS");
+            this.q = stringExtra;
+            if (this.p != null && !TextUtils.isEmpty(stringExtra)) {
                 init();
                 setupViews();
                 return;
@@ -94,17 +89,14 @@ public class BindWidgetActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
-        if (!this.executeSubClassMethod) {
-            return;
+        if (this.executeSubClassMethod) {
+            a();
         }
-        a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();

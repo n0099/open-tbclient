@@ -10,54 +10,64 @@ import android.util.AttributeSet;
 import android.widget.ProgressBar;
 /* loaded from: classes.dex */
 public class TextProgressBar extends ProgressBar {
-    private Paint.FontMetrics fm;
-    private int oldHeight;
-    private int oldWidth;
-    private String text;
-    private int textHeight;
-    private TextPaint textPaint;
-    private int textWidth;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f2373e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextPaint f2374f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Paint.FontMetrics f2375g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f2376h;
+    public int i;
+    public int j;
+    public int k;
 
     public TextProgressBar(Context context) {
         super(context);
-        init();
+        a();
     }
 
-    public TextProgressBar(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
-    }
-
-    public TextProgressBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
-        this.text = "0%";
-        this.textPaint = new TextPaint();
-        this.textPaint.setTextSize(20.0f);
-        this.textPaint.setColor(-1);
-        this.fm = new Paint.FontMetrics();
+    public final void a() {
+        this.f2373e = "0%";
+        TextPaint textPaint = new TextPaint();
+        this.f2374f = textPaint;
+        textPaint.setTextSize(20.0f);
+        this.f2374f.setColor(-1);
+        this.f2375g = new Paint.FontMetrics();
     }
 
     @Override // android.widget.ProgressBar, android.view.View
-    protected synchronized void onMeasure(int i, int i2) {
-        this.textWidth = (int) Layout.getDesiredWidth("100%", this.textPaint);
-        this.textPaint.getFontMetrics(this.fm);
-        this.textHeight = (int) (this.fm.descent - this.fm.top);
+    public synchronized void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.save();
+        this.i = (int) Layout.getDesiredWidth(this.f2373e, this.f2374f);
+        this.f2374f.getFontMetrics(this.f2375g);
+        this.f2376h = (int) (this.f2375g.descent - this.f2375g.top);
+        canvas.drawText(this.f2373e, (getMeasuredWidth() - this.i) / 2, getMeasuredHeight(), this.f2374f);
+        canvas.restore();
+    }
+
+    @Override // android.widget.ProgressBar, android.view.View
+    public synchronized void onMeasure(int i, int i2) {
+        this.i = (int) Layout.getDesiredWidth("100%", this.f2374f);
+        this.f2374f.getFontMetrics(this.f2375g);
+        this.f2376h = (int) (this.f2375g.descent - this.f2375g.top);
         super.onMeasure(i, i2);
-        this.oldWidth = getMeasuredWidth();
-        this.oldHeight = getMeasuredHeight();
-        setMeasuredDimension(Math.max(this.textWidth, getMeasuredWidth()), getMeasuredHeight() + this.textHeight + 0);
+        this.j = getMeasuredWidth();
+        this.k = getMeasuredHeight();
+        setMeasuredDimension(Math.max(this.i, getMeasuredWidth()), getMeasuredHeight() + this.f2376h + 0);
     }
 
     @Override // android.widget.ProgressBar, android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        int paddingRight = (this.oldWidth - getPaddingRight()) - getPaddingLeft();
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        int paddingRight = (this.j - getPaddingRight()) - getPaddingLeft();
         int width = (getWidth() - paddingRight) / 2;
         int i5 = paddingRight + width;
-        int paddingBottom = (this.oldHeight - getPaddingBottom()) - getPaddingTop();
+        int paddingBottom = (this.k - getPaddingBottom()) - getPaddingTop();
         Drawable indeterminateDrawable = getIndeterminateDrawable();
         if (indeterminateDrawable != null) {
             indeterminateDrawable.setBounds(width, 0, i5, paddingBottom);
@@ -68,24 +78,23 @@ public class TextProgressBar extends ProgressBar {
         }
     }
 
-    @Override // android.widget.ProgressBar, android.view.View
-    protected synchronized void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.save();
-        this.textWidth = (int) Layout.getDesiredWidth(this.text, this.textPaint);
-        this.textPaint.getFontMetrics(this.fm);
-        this.textHeight = (int) (this.fm.descent - this.fm.top);
-        canvas.drawText(this.text, (getMeasuredWidth() - this.textWidth) / 2, getMeasuredHeight(), this.textPaint);
-        canvas.restore();
-    }
-
     public synchronized void setText(String str) {
-        this.text = str;
+        this.f2373e = str;
         drawableStateChanged();
     }
 
     public void setTextColor(int i) {
-        this.textPaint.setColor(i);
+        this.f2374f.setColor(i);
         drawableStateChanged();
+    }
+
+    public TextProgressBar(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a();
+    }
+
+    public TextProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a();
     }
 }

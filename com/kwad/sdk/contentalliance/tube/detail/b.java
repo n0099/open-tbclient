@@ -12,15 +12,17 @@ import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.d;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends IFragmentActivityProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    private TubeDetailParam f5947a;
-    private SceneImpl b;
+    public TubeDetailParam f33165a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SceneImpl f33166b;
 
     private void a() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f5947a)).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f33165a)).commitAllowingStateLoss();
     }
 
     public static void a(Context context, TubeDetailParam tubeDetailParam) {
@@ -35,22 +37,22 @@ public class b extends IFragmentActivityProxy {
     private boolean b() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_TUBE_DETAIL_PARAM");
         if (serializableExtra instanceof TubeDetailParam) {
-            this.f5947a = (TubeDetailParam) serializableExtra;
-            this.b = new SceneImpl(this.f5947a.mEntryScene);
+            TubeDetailParam tubeDetailParam = (TubeDetailParam) serializableExtra;
+            this.f33165a = tubeDetailParam;
+            this.f33166b = new SceneImpl(tubeDetailParam.mEntryScene);
             URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 6);
-            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f5947a.getTubeId());
-            this.b.setUrlPackage(uRLPackage);
+            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f33165a.getTubeId());
+            this.f33166b.setUrlPackage(uRLPackage);
         }
-        return this.f5947a != null;
+        return this.f33165a != null;
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onBackPressed() {
         super.onBackPressed();
-        e.d(this.b);
+        e.d(this.f33166b);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);

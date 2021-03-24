@@ -2,7 +2,7 @@ package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SapiResult {
     public static final int ERROR_CODE_METHOD_DEPRECATED = -206;
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
@@ -25,12 +25,15 @@ public class SapiResult {
     public static final int RESULT_CODE_SUCCESS = 0;
     public static final int RESULT_CODE_WAPPASS_SUCCESS = 110000;
     public static final String RESULT_MSG_SUCCESS = "成功";
-    protected SparseArray<String> msgMap = new SparseArray<>();
-    protected int resultCode = -202;
-    protected String resultMsg;
+    public SparseArray<String> msgMap;
+    public int resultCode;
+    public String resultMsg;
 
     public SapiResult() {
-        this.msgMap.put(0, "成功");
+        SparseArray<String> sparseArray = new SparseArray<>();
+        this.msgMap = sparseArray;
+        this.resultCode = -202;
+        sparseArray.put(0, "成功");
         this.msgMap.put(110000, "成功");
         this.msgMap.put(-201, "网络连接不可用，请检查网络设置");
         this.msgMap.put(-202, "网络连接失败，请检查网络设置");
@@ -47,10 +50,19 @@ public class SapiResult {
     }
 
     public String getResultMsg() {
-        if (TextUtils.isEmpty(this.resultMsg)) {
-            return this.msgMap.get(this.resultCode) != null ? this.msgMap.get(this.resultCode) : this.msgMap.get(-202);
+        SparseArray<String> sparseArray;
+        int i;
+        if (!TextUtils.isEmpty(this.resultMsg)) {
+            return this.resultMsg;
         }
-        return this.resultMsg;
+        if (this.msgMap.get(this.resultCode) != null) {
+            sparseArray = this.msgMap;
+            i = this.resultCode;
+        } else {
+            sparseArray = this.msgMap;
+            i = -202;
+        }
+        return sparseArray.get(i);
     }
 
     public void setResultCode(int i) {

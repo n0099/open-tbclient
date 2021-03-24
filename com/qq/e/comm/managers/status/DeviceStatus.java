@@ -7,7 +7,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.http.Headers;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -16,104 +15,120 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.fsg.base.statistics.h;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.qq.e.comm.managers.GDTADManager;
+import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.Md5Util;
 import com.qq.e.comm.util.StringUtil;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DeviceStatus {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7576a;
-    private String b;
-    private int c;
-    private int d;
-    private int e;
-    private String f;
-    private String g;
-    private String h;
-    private String i;
-    private String j;
-    private volatile String k;
-    private volatile String l;
-    private volatile float m;
+    public String f38332a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f38333b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f38334c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f38335d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f38336e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f38337f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f38338g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f38339h;
+    public String i;
+    public String j;
+    public volatile String k;
+    public volatile String l;
+    public volatile float m;
     public final String model = Build.MODEL;
-    private Context n;
+    public Context n;
 
     public DeviceStatus(Context context) {
         this.n = context.getApplicationContext();
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.e = getVersion() > 3 ? displayMetrics.densityDpi : 120;
-        this.c = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.widthPixels) : displayMetrics.widthPixels;
-        this.d = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.heightPixels) : displayMetrics.heightPixels;
+        this.f38336e = getVersion() > 3 ? displayMetrics.densityDpi : 120;
+        this.f38334c = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.widthPixels) : displayMetrics.widthPixels;
+        this.f38335d = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.heightPixels) : displayMetrics.heightPixels;
         a();
     }
 
-    private int a(float f, int i) {
-        return (this.n.getApplicationInfo().flags & 8192) != 0 ? (int) (i / f) : i;
+    private int a(float f2, int i) {
+        return (this.n.getApplicationInfo().flags & 8192) != 0 ? (int) (i / f2) : i;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x0037: INVOKE  (r4v1 double A[REMOVE]) = (r2v6 android.location.Location) type: VIRTUAL call: android.location.Location.getLatitude():double)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x004a: INVOKE  (r4v2 double A[REMOVE]) = (r2v6 android.location.Location) type: VIRTUAL call: android.location.Location.getLongitude():double)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x003b: INVOKE  (r2v4 double A[REMOVE]) = (r0v4 android.location.Location) type: VIRTUAL call: android.location.Location.getLatitude():double)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x004d: INVOKE  (r2v5 double A[REMOVE]) = (r0v4 android.location.Location) type: VIRTUAL call: android.location.Location.getLongitude():double)] */
     private void a() {
+        final LocationManager locationManager;
         try {
-            final LocationManager locationManager = (LocationManager) this.n.getSystemService(Headers.LOCATION);
-            if (locationManager == null) {
-                return;
-            }
-            Criteria criteria = new Criteria();
-            criteria.setAccuracy(2);
-            criteria.setAltitudeRequired(false);
-            criteria.setBearingRequired(false);
-            criteria.setCostAllowed(true);
-            criteria.setPowerRequirement(1);
-            try {
+            if (GlobalSetting.isAgreePrivacyStrategyNonNull() && (locationManager = (LocationManager) this.n.getSystemService("location")) != null) {
+                Criteria criteria = new Criteria();
+                criteria.setAccuracy(2);
+                criteria.setAltitudeRequired(false);
+                criteria.setBearingRequired(false);
+                criteria.setCostAllowed(true);
+                criteria.setPowerRequirement(1);
                 String bestProvider = locationManager.getBestProvider(criteria, true);
                 Location lastKnownLocation = locationManager.getLastKnownLocation(bestProvider);
                 if (lastKnownLocation != null) {
-                    this.k = new StringBuilder().append(lastKnownLocation.getLatitude()).toString();
-                    this.l = new StringBuilder().append(lastKnownLocation.getLongitude()).toString();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(lastKnownLocation.getLatitude());
+                    this.k = sb.toString();
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append(lastKnownLocation.getLongitude());
+                    this.l = sb2.toString();
                     this.m = lastKnownLocation.getAccuracy();
                 } else {
-                    try {
-                        locationManager.requestLocationUpdates(bestProvider, 2000L, 7000.0f, new LocationListener() { // from class: com.qq.e.comm.managers.status.DeviceStatus.1
-                            /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x0007: INVOKE  (r2v0 double A[REMOVE]) = (r5v0 android.location.Location) type: VIRTUAL call: android.location.Location.getLatitude():double)] */
-                            /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x001d: INVOKE  (r2v1 double A[REMOVE]) = (r5v0 android.location.Location) type: VIRTUAL call: android.location.Location.getLongitude():double)] */
-                            @Override // android.location.LocationListener
-                            public void onLocationChanged(Location location) {
-                                try {
-                                    DeviceStatus.this.k = new StringBuilder().append(location.getLatitude()).toString();
-                                    DeviceStatus.this.l = new StringBuilder().append(location.getLongitude()).toString();
-                                    locationManager.removeUpdates(this);
-                                } catch (Throwable th) {
-                                }
+                    locationManager.requestLocationUpdates(bestProvider, 2000L, 7000.0f, new LocationListener() { // from class: com.qq.e.comm.managers.status.DeviceStatus.1
+                        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x0007: INVOKE  (r2v0 double A[REMOVE]) = (r5v0 android.location.Location) type: VIRTUAL call: android.location.Location.getLatitude():double)] */
+                        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: double : 0x001c: INVOKE  (r2v1 double A[REMOVE]) = (r5v0 android.location.Location) type: VIRTUAL call: android.location.Location.getLongitude():double)] */
+                        @Override // android.location.LocationListener
+                        public void onLocationChanged(Location location) {
+                            try {
+                                DeviceStatus deviceStatus = DeviceStatus.this;
+                                StringBuilder sb3 = new StringBuilder();
+                                sb3.append(location.getLatitude());
+                                deviceStatus.k = sb3.toString();
+                                DeviceStatus deviceStatus2 = DeviceStatus.this;
+                                StringBuilder sb4 = new StringBuilder();
+                                sb4.append(location.getLongitude());
+                                deviceStatus2.l = sb4.toString();
+                                locationManager.removeUpdates(this);
+                            } catch (Throwable unused) {
                             }
+                        }
 
-                            @Override // android.location.LocationListener
-                            public void onProviderDisabled(String str) {
-                            }
+                        @Override // android.location.LocationListener
+                        public void onProviderDisabled(String str) {
+                        }
 
-                            @Override // android.location.LocationListener
-                            public void onProviderEnabled(String str) {
-                            }
+                        @Override // android.location.LocationListener
+                        public void onProviderEnabled(String str) {
+                        }
 
-                            @Override // android.location.LocationListener
-                            public void onStatusChanged(String str, int i, Bundle bundle) {
-                            }
-                        });
-                    } catch (Throwable th) {
-                    }
+                        @Override // android.location.LocationListener
+                        public void onStatusChanged(String str, int i, Bundle bundle) {
+                        }
+                    });
                 }
-            } catch (Throwable th2) {
             }
-        } catch (Throwable th3) {
+        } catch (Throwable unused) {
         }
     }
 
@@ -135,40 +150,30 @@ public class DeviceStatus {
 
     public String getDataNet() {
         NetworkInfo networkInfo;
-        String str;
         try {
             networkInfo = ((ConnectivityManager) this.n.getSystemService("connectivity")).getActiveNetworkInfo();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             networkInfo = null;
         }
         if (networkInfo == null) {
             return null;
         }
-        switch (networkInfo.getType()) {
-            case 0:
-                str = Config.EVENT_PATH_MAPPING;
-                break;
-            case 1:
-                str = IXAdRequestInfo.WIFI;
-                break;
-            default:
-                str = "unknow";
-                break;
-        }
+        int type = networkInfo.getType();
+        String str = type != 0 ? type != 1 ? "unknow" : IXAdRequestInfo.WIFI : Config.EVENT_PATH_MAPPING;
         this.i = str;
-        return this.i;
+        return str;
     }
 
     public int getDeviceDensity() {
-        return this.e;
+        return this.f38336e;
     }
 
     public int getDeviceHeight() {
-        return this.d;
+        return this.f38335d;
     }
 
     public int getDeviceWidth() {
-        return this.c;
+        return this.f38334c;
     }
 
     public String getDid() {
@@ -176,37 +181,35 @@ public class DeviceStatus {
         return StringUtil.isEmpty(plainDid) ? "" : Md5Util.encode(plainDid.toLowerCase());
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r1v12 int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v12 int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v11 int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v3 int)] */
     public Map<String, String> getLacAndCeilId() {
         int i;
-        int i2;
         GsmCellLocation gsmCellLocation;
         String operator = getOperator();
         HashMap hashMap = new HashMap();
-        if (this.n.checkCallingOrSelfPermission("android.permission.ACCESS_COARSE_LOCATION") != 0) {
-            return hashMap;
-        }
-        if (!StringUtil.isEmpty(operator) && !"null".equalsIgnoreCase(operator)) {
+        if (this.n.checkCallingOrSelfPermission("android.permission.ACCESS_COARSE_LOCATION") == 0 && !StringUtil.isEmpty(operator) && !com.baidu.android.common.others.lang.StringUtil.NULL_STRING.equalsIgnoreCase(operator)) {
+            int i2 = 0;
             try {
                 if (Integer.parseInt(operator.substring(0, 3)) == 460) {
                     TelephonyManager telephonyManager = (TelephonyManager) this.n.getSystemService("phone");
                     CellLocation cellLocation = telephonyManager.getCellLocation();
                     if (cellLocation instanceof CdmaCellLocation) {
                         CdmaCellLocation cdmaCellLocation = (CdmaCellLocation) cellLocation;
-                        int networkId = cdmaCellLocation.getNetworkId();
+                        i2 = cdmaCellLocation.getNetworkId();
                         i = cdmaCellLocation.getBaseStationId();
-                        i2 = networkId;
                     } else if (!(cellLocation instanceof GsmCellLocation) || (gsmCellLocation = (GsmCellLocation) telephonyManager.getCellLocation()) == null) {
                         i = 0;
-                        i2 = 0;
                     } else {
-                        int lac = gsmCellLocation.getLac();
+                        i2 = gsmCellLocation.getLac();
                         i = gsmCellLocation.getCid();
-                        i2 = lac;
                     }
-                    hashMap.put("lac", new StringBuilder().append(i2).toString());
-                    hashMap.put("cellid", new StringBuilder().append(i).toString());
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(i2);
+                    hashMap.put("lac", sb.toString());
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append(i);
+                    hashMap.put("cellid", sb2.toString());
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -216,13 +219,14 @@ public class DeviceStatus {
     }
 
     public String getLanguage() {
-        if (this.b == null) {
-            this.b = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
-            if (this.b.length() == 0) {
-                this.b = h.f1535a;
+        if (this.f38333b == null) {
+            String lowerCase = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
+            this.f38333b = lowerCase;
+            if (lowerCase.length() == 0) {
+                this.f38333b = "en";
             }
         }
-        return this.b;
+        return this.f38333b;
     }
 
     public String getLat() {
@@ -243,7 +247,7 @@ public class DeviceStatus {
         if (dataNet == null || !dataNet.equals(IXAdRequestInfo.WIFI)) {
             try {
                 i = Integer.parseInt(getPhoneNet());
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException unused) {
                 i = 0;
             }
             switch (i) {
@@ -278,18 +282,18 @@ public class DeviceStatus {
     }
 
     public String getOS() {
-        return HttpConstants.OS_TYPE_VALUE;
+        return "android";
     }
 
     public String getOperator() {
         try {
-            this.g = ((TelephonyManager) this.n.getSystemService("phone")).getNetworkOperator();
-        } catch (Exception e) {
+            this.f38338g = ((TelephonyManager) this.n.getSystemService("phone")).getNetworkOperator();
+        } catch (Exception unused) {
         }
-        return this.g;
+        return this.f38338g;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v11 int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v6 int)] */
     public String getPhoneNet() {
         Context appContext = GDTADManager.getInstance().getAppContext();
         try {
@@ -299,20 +303,22 @@ public class DeviceStatus {
                 if (networkType == 0) {
                     networkType = activeNetworkInfo.getSubtype();
                 }
-                this.h = new StringBuilder().append(networkType).toString();
+                StringBuilder sb = new StringBuilder();
+                sb.append(networkType);
+                this.f38339h = sb.toString();
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
-        return this.h;
+        return this.f38339h;
     }
 
     public String getPlainDid() {
         if (StringUtil.isEmpty(this.j)) {
-            if (this.n.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0 && GDTADManager.getInstance().getSM().getInteger("imeion", 1) == 1) {
+            if (this.n.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0 && GDTADManager.getInstance().getSM().getInteger("imeion", 1) == 1 && GlobalSetting.isAgreePrivacyStrategyNonNull()) {
                 try {
                     this.j = ((TelephonyManager) this.n.getSystemService("phone")).getDeviceId();
-                } catch (Exception e) {
-                    GDTLogger.d("Get imei encounter error: " + e.getMessage());
+                } catch (Exception e2) {
+                    GDTLogger.d("Get imei encounter error: " + e2.getMessage());
                 }
                 return StringUtil.isEmpty(this.j) ? "" : this.j;
             }
@@ -322,21 +328,17 @@ public class DeviceStatus {
     }
 
     public String getScreenOrientation() {
-        if (this.n.getResources().getConfiguration().orientation == 2) {
-            this.f = "l";
-        } else {
-            this.f = "p";
-        }
-        return this.f;
+        this.f38337f = this.n.getResources().getConfiguration().orientation == 2 ? "l" : "p";
+        return this.f38337f;
     }
 
     public String getUid() {
         if (GDTADManager.getInstance().getSM().getInteger("adidon", 1) == 1) {
-            if (this.f7576a == null) {
+            if (this.f38332a == null) {
                 String string = Settings.Secure.getString(this.n.getContentResolver(), "android_id");
-                this.f7576a = string == null ? "" : Md5Util.encode(string);
+                this.f38332a = string != null ? Md5Util.encode(string) : "";
             }
-            return this.f7576a;
+            return this.f38332a;
         }
         return "";
     }
@@ -344,7 +346,7 @@ public class DeviceStatus {
     public int getVersion() {
         try {
             return Build.VERSION.SDK_INT;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return 3;
         }
     }

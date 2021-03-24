@@ -1,25 +1,16 @@
 package com.baidu.swan.apps.commonsync;
 
+import com.alipay.sdk.cons.b;
 import com.baidu.searchbox.NoProGuard;
-import com.coremedia.iso.boxes.MetaBox;
-import com.google.gson.a.c;
+import d.g.c.a.c;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes8.dex */
-public class CommonSyncServerData implements NoProGuard, Serializable {
+/* loaded from: classes3.dex */
+public class CommonSyncServerData implements Serializable, NoProGuard {
     @c("items")
     public List<MetaItemInfo> metaItems;
 
-    /* loaded from: classes8.dex */
-    public class MetaItemInfo implements NoProGuard {
-        @c(MetaBox.TYPE)
-        public MetaData metaData;
-
-        public MetaItemInfo() {
-        }
-    }
-
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class MetaData implements NoProGuard {
         @c("logo_url")
         public String logoUrl;
@@ -36,7 +27,27 @@ public class CommonSyncServerData implements NoProGuard, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
+    public class MetaItemInfo implements NoProGuard {
+        @c("meta")
+        public MetaData metaData;
+
+        public MetaItemInfo() {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class OtherData implements NoProGuard {
+        @c(b.f1858h)
+        public String appKey;
+        @c("frame_type")
+        public int frameType = -1;
+
+        public OtherData() {
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public class PlatConf implements NoProGuard {
         @c("h5")
         public PlatH5 platH5;
@@ -45,23 +56,12 @@ public class CommonSyncServerData implements NoProGuard, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class PlatH5 implements NoProGuard {
         @c("url")
         public String url;
 
         public PlatH5() {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class OtherData implements NoProGuard {
-        @c("app_key")
-        public String appKey;
-        @c("frame_type")
-        public int frameType = -1;
-
-        public OtherData() {
         }
     }
 }

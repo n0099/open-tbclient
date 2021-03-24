@@ -13,11 +13,11 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.net.http.Headers;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
@@ -27,9 +27,8 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.fsg.base.armor.RimArmor;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.mobstat.Config;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.baidu.searchbox.track.ui.TrackUI;
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -49,43 +48,75 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class PhoneUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1559a = "PhoneUtils";
-    private static final String b = "_rim_pay.preferences";
-    private static final String c = "cuid_1";
-    private static final String d = "cuid_2";
-    private static final String e = "wime";
-    private static final String f = "identity_code";
-    private static final String g = "phone_number";
-    private static final String h = "card_no";
-    private static final String i = "valid_date";
-    private static final String j = "cvv2";
-    private static final String k = "imei";
-    private static final String l = "nettype";
-    private static final String m = "wloc";
-    private static CPUInfo n = null;
-    private static ArrayList<String> o = new ArrayList<>();
+    public static final String f5379a = "PhoneUtils";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f5380b = "_rim_pay.preferences";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f5381c = "cuid_1";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f5382d = "cuid_2";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f5383e = "wime";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f5384f = "identity_code";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f5385g = "phone_number";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f5386h = "card_no";
+    public static final String i = "valid_date";
+    public static final String j = "cvv2";
+    public static final String k = "imei";
+    public static final String l = "nettype";
+    public static final String m = "wloc";
+    public static CPUInfo n;
+    public static ArrayList<String> o;
+
+    /* loaded from: classes2.dex */
+    public static class CPUInfo {
+        public static final String FEATURE_COMMON = "common";
+        public static final String FEATURE_NEON = "neon";
+        public static final String FEATURE_VFP = "vfp";
+        public static final String PROCESSOR_ARMV5 = "armv5";
+        public static final String PROCESSOR_ARMV6 = "armv6";
+        public static final String PROCESSOR_ARMV7 = "armv7";
+        public static final String PROCESSOR_ARM_PREFIX = "armv";
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final String f5387a = "processor";
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final String f5388b = "features";
+        public String processor = "";
+        public String features = "";
+
+        public String getCpuPath() {
+            return this.processor.startsWith("armv7") ? "armeabi-v7a" : this.processor.startsWith("armv") ? "armeabi" : this.processor.equals("intel") ? "x86" : this.processor.equals(IDevices.ABI_MIPS) ? IDevices.ABI_MIPS : "";
+        }
+    }
 
     static {
-        o.add("card_no");
+        ArrayList<String> arrayList = new ArrayList<>();
+        o = arrayList;
+        arrayList.add("card_no");
         o.add("valid_date");
         o.add("cvv2");
         o.add("identity_code");
         o.add("phone_number");
     }
 
-    private PhoneUtils() {
-    }
-
-    public static final String getImei(Context context) {
-        return a(context);
-    }
-
-    private static final String a(Context context) {
-        String str = (String) SharedPreferencesUtils.getParam(context, b, "imei", "");
+    public static final String a(Context context) {
+        String str = (String) SharedPreferencesUtils.getParam(context, f5380b, "imei", "");
         if (TextUtils.isEmpty(str)) {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("BAIDU");
@@ -101,7 +132,7 @@ public final class PhoneUtils {
                 random = null;
             }
             if (ApollonConstants.DEBUG) {
-                Log.d(f1559a, "makeImei :: " + upperCase + " # " + length);
+                Log.d("PhoneUtils", "makeImei :: " + upperCase + " # " + length);
             }
             int length2 = upperCase.length();
             for (int i2 = length2 - 1; i2 >= length2 - 6; i2--) {
@@ -110,118 +141,37 @@ public final class PhoneUtils {
             for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
                 stringBuffer.append((char) (random.nextInt(10) | 48));
             }
-            SharedPreferencesUtils.setParam(context, b, "imei", stringBuffer.toString());
+            SharedPreferencesUtils.setParam(context, f5380b, "imei", stringBuffer.toString());
             return stringBuffer.toString();
-        } else if (ApollonConstants.DEBUG) {
-            Log.d(f1559a, "从文件里面获取imei号=" + str);
-            return str;
-        } else {
-            return str;
         }
+        if (ApollonConstants.DEBUG) {
+            Log.d("PhoneUtils", "从文件里面获取imei号=" + str);
+        }
+        return str;
     }
 
-    public static String getImsi(Context context) {
-        return "";
+    public static String b(Context context) {
+        return DeviceId.getDeviceID(context);
     }
 
-    public static CPUInfo getSystemCPUInfo() {
-        if (n != null) {
-            return n;
+    public static void checkPermission(Context context, String str) {
+        if (hasPermission(context, str)) {
+            return;
         }
-        CPUInfo cPUInfo = new CPUInfo();
-        try {
-            FileReader fileReader = new FileReader("/proc/cpuinfo");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                String lowerCase = readLine.trim().toLowerCase(Locale.ENGLISH);
-                if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", "processor".length()) != -1) {
-                    if (cPUInfo.processor.length() > 0) {
-                        cPUInfo.processor += "__";
-                    }
-                    cPUInfo.processor += lowerCase.split(":")[1].trim();
-                } else if (lowerCase.startsWith("features") && lowerCase.indexOf(":", "features".length()) != -1) {
-                    if (cPUInfo.features.length() > 0) {
-                        cPUInfo.features += "__";
-                    }
-                    cPUInfo.features += lowerCase.split(":")[1].trim();
-                }
-            }
-            if (bufferedReader != null) {
-                bufferedReader.close();
-            }
-            if (fileReader != null) {
-                fileReader.close();
-            }
-        } catch (FileNotFoundException e2) {
-            e2.printStackTrace();
-        } catch (IOException e3) {
-            e3.printStackTrace();
-        }
-        n = cPUInfo;
-        return cPUInfo;
+        sdkError("You need the " + str + " permission. Open AndroidManifest.xml and just before the final </manifest> tag add:  <uses-permission android:name=\"" + str + "\" />");
     }
 
-    public static int getNumCores() {
-        try {
-            File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(new FileFilter() { // from class: com.baidu.fsg.base.utils.PhoneUtils.1CpuFilter
-                @Override // java.io.FileFilter
-                public boolean accept(File file) {
-                    return Pattern.matches("cpu[0-9]", file.getName());
-                }
-            });
-            LogUtil.d(f1559a, "CPU Count: " + listFiles.length);
-            return listFiles.length;
-        } catch (Exception e2) {
-            LogUtil.d(f1559a, "CPU Count: Failed.");
-            e2.printStackTrace();
-            return 1;
-        }
-    }
-
-    public static String getMetaData(Context context, String str) {
-        String str2 = "";
-        try {
-            ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
-            if (applicationInfo != null) {
-                Object obj = null;
-                if (applicationInfo.metaData != null) {
-                    obj = applicationInfo.metaData.get(str);
-                }
-                if (obj == null) {
-                    LogUtil.d("StatSDK", "null,can't find information for key:" + str);
-                } else {
-                    str2 = obj.toString();
-                    if (str2.trim().equals("")) {
-                    }
-                }
+    public static String encrypt(String str, String str2) {
+        LogUtil.d(str + "加密=" + str2);
+        if (o.contains(str)) {
+            if (TextUtils.isEmpty(str2)) {
+                return "";
             }
-        } catch (PackageManager.NameNotFoundException e2) {
-            Log.e(f1559a, "exception is " + e2);
+            String encryptProxy = RimArmor.getInstance().encryptProxy(str2);
+            LogUtil.d(str + "加密=" + encryptProxy);
+            return encryptProxy;
         }
         return str2;
-    }
-
-    public static String getApplicationName(Context context) {
-        if (context == null) {
-            return "";
-        }
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            return (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 0));
-        } catch (Throwable th) {
-            return "";
-        }
-    }
-
-    public static ApplicationInfo getApplicationInfo(Context context) {
-        if (context == null) {
-            return null;
-        }
-        try {
-            return context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
-        } catch (Throwable th) {
-            return null;
-        }
     }
 
     public static int getAppVersionCode(Context context) {
@@ -230,8 +180,8 @@ public final class PhoneUtils {
         }
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-        } catch (Throwable th) {
-            LogUtil.w(f1559a, "get app version code exception");
+        } catch (Throwable unused) {
+            LogUtil.w("PhoneUtils", "get app version code exception");
             return 1;
         }
     }
@@ -242,48 +192,229 @@ public final class PhoneUtils {
         }
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-        } catch (Throwable th) {
-            LogUtil.w(f1559a, "get app version name exception");
+        } catch (Throwable unused) {
+            LogUtil.w("PhoneUtils", "get app version name exception");
             return "";
         }
     }
 
-    public static void checkPermission(Context context, String str) {
-        if (!hasPermission(context, str)) {
-            sdkError("You need the " + str + " permission. Open AndroidManifest.xml and just before the final </manifest> tag add:  <uses-permission android:name=\"" + str + "\" />");
+    public static ApplicationInfo getApplicationInfo(Context context) {
+        if (context == null) {
+            return null;
+        }
+        try {
+            return context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
+        } catch (Throwable unused) {
+            return null;
         }
     }
 
-    public static boolean hasPermission(Context context, String str) {
-        return (context == null || context.checkCallingPermission(str) == -1) ? false : true;
-    }
-
-    public static void sdkError(String str) {
-        LogUtil.w(f1559a, str);
-        LogUtil.w(f1559a, "SDK install error:" + str);
-    }
-
-    public static String getWifiMacAddress(Context context) {
+    public static String getApplicationName(Context context) {
+        if (context == null) {
+            return "";
+        }
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-            if (wifiManager != null) {
-                WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                LogUtil.d(f1559a, String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()));
-                return connectionInfo.getMacAddress();
+            PackageManager packageManager = context.getPackageManager();
+            return (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 0));
+        } catch (Throwable unused) {
+            return "";
+        }
+    }
+
+    public static String getAvailMemory(Context context) {
+        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+        ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
+        return Formatter.formatFileSize(context, memoryInfo.availMem) + "_" + memoryInfo.lowMemory + "_" + Formatter.formatFileSize(context, memoryInfo.threshold);
+    }
+
+    @SuppressLint({"NewApi"})
+    public static String getBluetoothMac() {
+        try {
+            BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
+            return defaultAdapter != null ? defaultAdapter.getAddress() : "";
+        } catch (Exception e2) {
+            Log.d("PhoneUtils", "exception is " + e2);
+            return "";
+        }
+    }
+
+    public static String getCUID(Context context) {
+        return b(context);
+    }
+
+    public static String getCUID2(Context context) {
+        return DeviceId.getCUID(context);
+    }
+
+    public static String getCellLocation(Context context) {
+        return "";
+    }
+
+    public static String getGPSLocation(Context context) {
+        try {
+            if (hasPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                Location lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
+                LogUtil.d("PhoneUtils", "location: " + lastKnownLocation);
+                return lastKnownLocation != null ? String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude())) : "";
+            }
+            return "";
+        } catch (Exception e2) {
+            LogUtil.d("PhoneUtils", "exception is " + e2);
+            return "";
+        }
+    }
+
+    public static final String getImei(Context context) {
+        return a(context);
+    }
+
+    public static String getImsi(Context context) {
+        return "";
+    }
+
+    public static String getIpInfo() {
+        String str = null;
+        try {
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            while (networkInterfaces.hasMoreElements()) {
+                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                while (true) {
+                    if (inetAddresses.hasMoreElements()) {
+                        InetAddress nextElement = inetAddresses.nextElement();
+                        if (!nextElement.isLoopbackAddress()) {
+                            byte[] address = nextElement.getAddress();
+                            if (address.length == 4) {
+                                int i2 = ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8) | (address[0] & 255);
+                                str = (i2 & 255) + "." + ((i2 >> 8) & 255) + "." + ((i2 >> 16) & 255) + "." + ((i2 >> 24) & 255);
+                                break;
+                            }
+                        }
+                    }
+                }
             }
         } catch (Exception e2) {
             if (ApollonConstants.DEBUG) {
-                Log.d(f1559a, e2.toString());
+                Log.d("PhoneUtils", "getIpInfo fail!" + e2.toString());
             }
         }
+        return TextUtils.isEmpty(str) ? "" : str;
+    }
+
+    public static String getLineNum(Context context) {
         return "";
+    }
+
+    public static String getLinkedWay(Context context) {
+        try {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo != null) {
+                String typeName = activeNetworkInfo.getTypeName();
+                return (typeName.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) || activeNetworkInfo.getSubtypeName() == null) ? typeName : activeNetworkInfo.getSubtypeName();
+            }
+            return "";
+        } catch (Exception unused) {
+            return "";
+        }
+    }
+
+    public static String getLocalMacAddress() {
+        InputStreamReader inputStreamReader;
+        StringBuffer stringBuffer = new StringBuffer();
+        InputStreamReader inputStreamReader2 = null;
+        try {
+            char[] cArr = new char[20];
+            inputStreamReader = new InputStreamReader(new FileInputStream("/sys/class/net/eth0/address"));
+            while (true) {
+                try {
+                    int read = inputStreamReader.read(cArr);
+                    if (read != -1) {
+                        if (read != 20 || cArr[19] == '\r') {
+                            for (int i2 = 0; i2 < read; i2++) {
+                                if (cArr[i2] != '\r') {
+                                    stringBuffer.append(cArr[i2]);
+                                }
+                            }
+                        }
+                    } else {
+                        try {
+                            break;
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                } catch (Exception unused) {
+                    if (inputStreamReader != null) {
+                        try {
+                            inputStreamReader.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    inputStreamReader2 = inputStreamReader;
+                    if (inputStreamReader2 != null) {
+                        try {
+                            inputStreamReader2.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            }
+            inputStreamReader.close();
+            return stringBuffer.toString().trim().replaceAll(":", "");
+        } catch (Exception unused2) {
+            inputStreamReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static String getMetaData(Context context, String str) {
+        try {
+            ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+            if (applicationInfo != null) {
+                Bundle bundle = applicationInfo.metaData;
+                Object obj = bundle != null ? bundle.get(str) : null;
+                if (obj == null) {
+                    LogUtil.d("StatSDK", "null,can't find information for key:" + str);
+                    return "";
+                }
+                String obj2 = obj.toString();
+                obj2.trim().equals("");
+                return obj2;
+            }
+            return "";
+        } catch (PackageManager.NameNotFoundException e2) {
+            Log.e("PhoneUtils", "exception is " + e2);
+            return "";
+        }
+    }
+
+    public static int getNumCores() {
+        try {
+            File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(new FileFilter() { // from class: com.baidu.fsg.base.utils.PhoneUtils.1CpuFilter
+                @Override // java.io.FileFilter
+                public boolean accept(File file) {
+                    return Pattern.matches("cpu[0-9]", file.getName());
+                }
+            });
+            LogUtil.d("PhoneUtils", "CPU Count: " + listFiles.length);
+            return listFiles.length;
+        } catch (Exception e2) {
+            LogUtil.d("PhoneUtils", "CPU Count: Failed.");
+            e2.printStackTrace();
+            return 1;
+        }
     }
 
     @SuppressLint({"NewApi"})
     public static String getPhisicalMac(Context context) {
-        byte[] bArr;
-        byte[] bArr2 = null;
         StringBuffer stringBuffer = new StringBuffer();
+        byte[] bArr = null;
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
             while (networkInterfaces.hasMoreElements()) {
@@ -296,12 +427,9 @@ public final class PhoneUtils {
                             if (nextElement2.isSiteLocalAddress()) {
                                 bArr = nextElement.getHardwareAddress();
                             } else if (!nextElement2.isLinkLocalAddress()) {
-                                bArr2 = nextElement.getHardwareAddress();
+                                bArr = nextElement.getHardwareAddress();
                                 break;
-                            } else {
-                                bArr = bArr2;
                             }
-                            bArr2 = bArr;
                         }
                     }
                 }
@@ -309,199 +437,57 @@ public final class PhoneUtils {
         } catch (SocketException e2) {
             e2.printStackTrace();
         }
-        if (bArr2 != null) {
-            for (byte b2 : bArr2) {
+        if (bArr != null) {
+            for (byte b2 : bArr) {
                 stringBuffer.append(a(b2));
             }
             return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(":", "");
         }
         String wifiMacAddress = getWifiMacAddress(context);
-        if (wifiMacAddress != null) {
-            return wifiMacAddress.replaceAll(":", "");
-        }
-        return wifiMacAddress;
+        return wifiMacAddress != null ? wifiMacAddress.replaceAll(":", "") : wifiMacAddress;
     }
 
-    private static String a(byte b2) {
-        String str;
-        return ("00" + Integer.toHexString(b2) + ":").substring(str.length() - 3);
-    }
-
-    public static String getLocalMacAddress() {
-        Throwable th;
-        InputStreamReader inputStreamReader;
-        InputStreamReader inputStreamReader2;
-        StringBuffer stringBuffer = new StringBuffer();
-        try {
-            char[] cArr = new char[20];
-            inputStreamReader2 = new InputStreamReader(new FileInputStream("/sys/class/net/eth0/address"));
-            while (true) {
-                try {
-                    int read = inputStreamReader2.read(cArr);
-                    if (read == -1) {
-                        break;
-                    } else if (read != cArr.length || cArr[cArr.length - 1] == '\r') {
-                        for (int i2 = 0; i2 < read; i2++) {
-                            if (cArr[i2] != '\r') {
-                                stringBuffer.append(cArr[i2]);
-                            }
-                        }
-                    }
-                } catch (Exception e2) {
-                    if (inputStreamReader2 != null) {
-                        try {
-                            inputStreamReader2.close();
-                            return null;
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                            return null;
-                        }
-                    }
-                    return null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    inputStreamReader = inputStreamReader2;
-                    if (inputStreamReader != null) {
-                        try {
-                            inputStreamReader.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-            }
-            if (inputStreamReader2 != null) {
-                try {
-                    inputStreamReader2.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
-                }
-            }
-            return stringBuffer.toString().trim().replaceAll(":", "");
-        } catch (Exception e6) {
-            inputStreamReader2 = null;
-        } catch (Throwable th3) {
-            th = th3;
-            inputStreamReader = null;
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public static String getBluetoothMac() {
-        try {
-            BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
-            if (defaultAdapter == null) {
-                return "";
-            }
-            return defaultAdapter.getAddress();
-        } catch (Exception e2) {
-            Log.d(f1559a, "exception is " + e2);
-            return "";
-        }
-    }
-
-    public static String getCellLocation(Context context) {
+    public static String getSimSerialNum(Context context) {
         return "";
     }
 
-    public static String getGPSLocation(Context context) {
+    public static CPUInfo getSystemCPUInfo() {
+        CPUInfo cPUInfo = n;
+        if (cPUInfo != null) {
+            return cPUInfo;
+        }
+        CPUInfo cPUInfo2 = new CPUInfo();
         try {
-            if (hasPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
-                Location lastKnownLocation = ((LocationManager) context.getSystemService(Headers.LOCATION)).getLastKnownLocation("gps");
-                LogUtil.d(f1559a, "location: " + lastKnownLocation);
-                if (lastKnownLocation != null) {
-                    return String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
+            FileReader fileReader = new FileReader("/proc/cpuinfo");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                String lowerCase = readLine.trim().toLowerCase(Locale.ENGLISH);
+                if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", 9) != -1) {
+                    if (cPUInfo2.processor.length() > 0) {
+                        cPUInfo2.processor += "__";
+                    }
+                    cPUInfo2.processor += lowerCase.split(":")[1].trim();
+                } else if (lowerCase.startsWith("features") && lowerCase.indexOf(":", 8) != -1) {
+                    if (cPUInfo2.features.length() > 0) {
+                        cPUInfo2.features += "__";
+                    }
+                    cPUInfo2.features += lowerCase.split(":")[1].trim();
                 }
             }
-        } catch (Exception e2) {
-            LogUtil.d(f1559a, "exception is " + e2);
+            bufferedReader.close();
+            fileReader.close();
+        } catch (FileNotFoundException e2) {
+            e2.printStackTrace();
+        } catch (IOException e3) {
+            e3.printStackTrace();
         }
-        return "";
+        n = cPUInfo2;
+        return cPUInfo2;
     }
 
-    public static String getWifiLocation(Context context) {
-        Exception e2;
-        String str;
-        String str2;
-        int i2;
-        int i3 = 0;
-        try {
-            if (hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
-                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-                if (wifiManager.isWifiEnabled()) {
-                    int i4 = Integer.MAX_VALUE;
-                    int i5 = -1;
-                    while (i3 < wifiManager.getScanResults().size()) {
-                        ScanResult scanResult = wifiManager.getScanResults().get(i3);
-                        int abs = Math.abs(scanResult.level);
-                        LogUtil.d(f1559a, String.format("%s %s_%s", scanResult.SSID, scanResult.BSSID, Integer.valueOf(abs)));
-                        if (i4 > abs) {
-                            i2 = i3;
-                        } else {
-                            i2 = i5;
-                            abs = i4;
-                        }
-                        i3++;
-                        i5 = i2;
-                        i4 = abs;
-                    }
-                    if (i5 < 0) {
-                        str2 = "";
-                    } else {
-                        ScanResult scanResult2 = wifiManager.getScanResults().get(i5);
-                        str2 = String.format("%s_%s", scanResult2.BSSID.replace(":", "").toLowerCase(Locale.ENGLISH), Integer.valueOf(Math.abs(scanResult2.level)));
-                    }
-                    try {
-                        WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                        Log.d(f1559a, String.format("[active]%s %s_%s", connectionInfo.getSSID(), connectionInfo.getMacAddress(), Integer.valueOf(Math.abs(connectionInfo.getRssi()))));
-                        return str2;
-                    } catch (Exception e3) {
-                        e2 = e3;
-                        str = str2;
-                        Log.d(f1559a, "getWifiLocation " + e2);
-                        return str;
-                    }
-                }
-            }
-            return "";
-        } catch (Exception e4) {
-            e2 = e4;
-            str = "";
-        }
-    }
-
-    public static String getLinkedWay(Context context) {
-        String str;
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo == null) {
-                return "";
-            }
-            String typeName = activeNetworkInfo.getTypeName();
-            try {
-                if (!typeName.equals("WIFI") && activeNetworkInfo.getSubtypeName() != null) {
-                    return activeNetworkInfo.getSubtypeName();
-                }
-                return typeName;
-            } catch (Exception e2) {
-                return str;
-            }
-        } catch (Exception e3) {
-            return "";
-        }
-    }
-
-    public static String getCUID2(Context context) {
-        return DeviceId.getCUID(context);
-    }
-
-    public static String getCUID(Context context) {
-        return b(context);
-    }
-
-    private static String b(Context context) {
-        return DeviceId.getDeviceID(context);
+    public static long getTotalInternalMemorySize() {
+        StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+        return statFs.getBlockCount() * statFs.getBlockSize();
     }
 
     public static String getTotalMemory(Context context) {
@@ -510,69 +496,95 @@ public final class PhoneUtils {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
             String readLine = bufferedReader.readLine();
             String[] split = readLine.split("\\s+");
-            int length = split.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                Log.i(readLine, split[i2] + "\t");
+            for (String str : split) {
+                Log.i(readLine, str + TrackUI.SEPERATOR);
             }
             j2 = Long.valueOf(split[1]).longValue() * 1024;
             bufferedReader.close();
-        } catch (IOException e2) {
+        } catch (IOException unused) {
         }
         return Formatter.formatFileSize(context, j2);
     }
 
-    public static String getAvailMemory(Context context) {
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
-        return Formatter.formatFileSize(context, memoryInfo.availMem) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + memoryInfo.lowMemory + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Formatter.formatFileSize(context, memoryInfo.threshold);
-    }
-
-    public static String getLineNum(Context context) {
-        return "";
-    }
-
-    public static String getSimSerialNum(Context context) {
-        return "";
-    }
-
-    public static String getIpInfo() {
-        String str;
-        String str2 = null;
+    public static String getWCPParams(Context context) {
+        JSONObject jSONObject = new JSONObject();
         try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces.hasMoreElements()) {
-                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                while (true) {
-                    if (!inetAddresses.hasMoreElements()) {
-                        str = str2;
-                        break;
-                    }
-                    InetAddress nextElement = inetAddresses.nextElement();
-                    if (!nextElement.isLoopbackAddress()) {
-                        byte[] address = nextElement.getAddress();
-                        if (address.length == 4) {
-                            int i2 = (address[0] & 255) | ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8);
-                            str = (i2 & 255) + "." + ((i2 >> 8) & 255) + "." + ((i2 >> 16) & 255) + "." + ((i2 >> 24) & 255);
-                            break;
-                        }
-                    }
-                }
-                str2 = str;
-            }
-        } catch (Exception e2) {
-            if (ApollonConstants.DEBUG) {
-                Log.d(f1559a, "getIpInfo fail!" + e2.toString());
-            }
-        }
-        if (TextUtils.isEmpty(str2)) {
+            jSONObject.put("wime", encrypt("phone_number", getImei(context)));
+            jSONObject.put("cuid_1", encrypt("phone_number", getCUID(context)));
+            jSONObject.put("cuid_2", encrypt("phone_number", getCUID2(context)));
+            jSONObject.put("nettype", NetworkUtils.getNetworkType(context));
+            jSONObject.put("wloc", encrypt("phone_number", getGPSLocation(context)));
+            return new String(Base64Utils.encode(jSONObject.toString().getBytes()));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             return "";
         }
-        return str2;
+    }
+
+    public static String getWifiLocation(Context context) {
+        String str = "";
+        try {
+            if (hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
+                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+                if (wifiManager.isWifiEnabled()) {
+                    int i2 = Integer.MAX_VALUE;
+                    int i3 = -1;
+                    for (int i4 = 0; i4 < wifiManager.getScanResults().size(); i4++) {
+                        ScanResult scanResult = wifiManager.getScanResults().get(i4);
+                        int abs = Math.abs(scanResult.level);
+                        LogUtil.d("PhoneUtils", String.format("%s %s_%s", scanResult.SSID, scanResult.BSSID, Integer.valueOf(abs)));
+                        if (i2 > abs) {
+                            i3 = i4;
+                            i2 = abs;
+                        }
+                    }
+                    if (i3 >= 0) {
+                        ScanResult scanResult2 = wifiManager.getScanResults().get(i3);
+                        str = String.format("%s_%s", scanResult2.BSSID.replace(":", "").toLowerCase(Locale.ENGLISH), Integer.valueOf(Math.abs(scanResult2.level)));
+                    }
+                    WifiInfo connectionInfo = wifiManager.getConnectionInfo();
+                    Log.d("PhoneUtils", String.format("[active]%s %s_%s", connectionInfo.getSSID(), connectionInfo.getMacAddress(), Integer.valueOf(Math.abs(connectionInfo.getRssi()))));
+                }
+            }
+        } catch (Exception e2) {
+            Log.d("PhoneUtils", "getWifiLocation " + e2);
+        }
+        return str;
+    }
+
+    public static String getWifiMacAddress(Context context) {
+        try {
+            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+            if (wifiManager != null) {
+                WifiInfo connectionInfo = wifiManager.getConnectionInfo();
+                LogUtil.d("PhoneUtils", String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()));
+                return connectionInfo.getMacAddress();
+            }
+            return "";
+        } catch (Exception e2) {
+            if (ApollonConstants.DEBUG) {
+                Log.d("PhoneUtils", e2.toString());
+                return "";
+            }
+            return "";
+        }
+    }
+
+    public static boolean hasPermission(Context context, String str) {
+        return (context == null || context.checkCallingPermission(str) == -1) ? false : true;
+    }
+
+    public static boolean isIntentAvailable(Context context, Intent intent) {
+        return context.getPackageManager().queryIntentActivities(intent, 1).size() > 0;
+    }
+
+    public static void sdkError(String str) {
+        LogUtil.w("PhoneUtils", str);
+        LogUtil.w("PhoneUtils", "SDK install error:" + str);
     }
 
     @TargetApi(9)
     public static void showInstalledAppOrDetails(Context context, String str) {
-        String str2 = Config.INPUT_DEF_PKG;
         Intent intent = new Intent();
         int i2 = Build.VERSION.SDK_INT;
         if (i2 >= 9) {
@@ -583,9 +595,7 @@ public final class PhoneUtils {
                 intent.setAction("android.settings.MANAGE_APPLICATIONS_SETTINGS");
             }
         } else {
-            if (i2 != 8) {
-                str2 = "com.android.settings.ApplicationPkgName";
-            }
+            String str2 = i2 == 8 ? "pkg" : "com.android.settings.ApplicationPkgName";
             intent.setAction("android.intent.action.VIEW");
             if (!TextUtils.isEmpty(str)) {
                 intent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
@@ -599,73 +609,8 @@ public final class PhoneUtils {
         }
     }
 
-    public static boolean isIntentAvailable(Context context, Intent intent) {
-        return context.getPackageManager().queryIntentActivities(intent, 1).size() > 0;
-    }
-
-    public static long getTotalInternalMemorySize() {
-        StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-        return statFs.getBlockCount() * statFs.getBlockSize();
-    }
-
-    public static String getWCPParams(Context context) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(e, encrypt("phone_number", getImei(context)));
-            jSONObject.put(c, encrypt("phone_number", getCUID(context)));
-            jSONObject.put(d, encrypt("phone_number", getCUID2(context)));
-            jSONObject.put(l, NetworkUtils.getNetworkType(context));
-            jSONObject.put(m, encrypt("phone_number", getGPSLocation(context)));
-            return new String(Base64Utils.encode(jSONObject.toString().getBytes()));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return "";
-        }
-    }
-
-    public static String encrypt(String str, String str2) {
-        LogUtil.d(str + "加密=" + str2);
-        if (o.contains(str)) {
-            if (!TextUtils.isEmpty(str2)) {
-                String encryptProxy = RimArmor.getInstance().encryptProxy(str2);
-                LogUtil.d(str + "加密=" + encryptProxy);
-                return encryptProxy;
-            }
-            return "";
-        }
-        return str2;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class CPUInfo {
-        public static final String FEATURE_COMMON = "common";
-        public static final String FEATURE_NEON = "neon";
-        public static final String FEATURE_VFP = "vfp";
-        public static final String PROCESSOR_ARMV5 = "armv5";
-        public static final String PROCESSOR_ARMV6 = "armv6";
-        public static final String PROCESSOR_ARMV7 = "armv7";
-        public static final String PROCESSOR_ARM_PREFIX = "armv";
-
-        /* renamed from: a  reason: collision with root package name */
-        private static final String f1560a = "processor";
-        private static final String b = "features";
-        public String processor = "";
-        public String features = "";
-
-        public String getCpuPath() {
-            if (this.processor.startsWith("armv7")) {
-                return "armeabi-v7a";
-            }
-            if (this.processor.startsWith(PROCESSOR_ARM_PREFIX)) {
-                return "armeabi";
-            }
-            if (this.processor.equals("intel")) {
-                return "x86";
-            }
-            if (this.processor.equals(IDevices.ABI_MIPS)) {
-                return IDevices.ABI_MIPS;
-            }
-            return "";
-        }
+    public static String a(byte b2) {
+        String str;
+        return ("00" + Integer.toHexString(b2) + ":").substring(str.length() - 3);
     }
 }

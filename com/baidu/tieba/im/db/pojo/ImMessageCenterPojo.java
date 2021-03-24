@@ -2,251 +2,54 @@ package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.f.b;
-import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.util.c;
+import d.b.b.e.m.b;
+import d.b.b.e.p.k;
+import d.b.i0.d1.w.c;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ImMessageCenterPojo implements Serializable {
     public static final int DELETEED = 1;
     public static final int HIDDEN = 1;
     public static final int SHOW = 0;
     public static final int UN_DELETE = 0;
-    private static final long serialVersionUID = -8887966163420052407L;
-    private String bjhAvatar;
-    int followStatus;
-    String gid;
-    String group_ext;
-    String group_head;
-    String group_name;
-    int group_type;
-    int isFriend;
-    private boolean isSelf;
-    int is_delete;
-    int is_hidden;
-    private String lastServiceId;
-    private String lastTaskId;
-    String last_content;
-    String last_content_raw_data;
-    long last_content_time;
-    long last_rid;
-    String last_user_name;
-    private int mCustomGroupType = 1;
-    private String nameShow;
-    long orderCol;
-    long pulled_msgId;
-    private String pushIds;
-    private long read_msgId;
-    int send_status;
-    private long sent_msgId;
-    private String serviceId;
-    private long sid;
-    private String taskId;
-    int type;
-    int unread_count;
-    private int userType;
-
-    public String getPushIds() {
-        return this.pushIds;
-    }
-
-    public void setPushIds(String str) {
-        this.pushIds = str;
-    }
-
-    public long getSid() {
-        return this.sid;
-    }
-
-    public void setSid(long j) {
-        this.sid = j;
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String str) {
-        this.taskId = str;
-    }
-
-    public String getServiceId() {
-        return this.serviceId;
-    }
-
-    public String getLastServiceId() {
-        return this.lastServiceId;
-    }
-
-    public void setLastServiceId(String str) {
-        this.lastServiceId = str;
-    }
-
-    public void setServiceId(String str) {
-        this.serviceId = str;
-    }
-
-    public void setLastTaskId(String str) {
-        this.lastTaskId = str;
-    }
-
-    public String getLastTaskId() {
-        return this.lastTaskId;
-    }
-
-    public boolean isSelf() {
-        return this.isSelf;
-    }
-
-    public int getSend_status() {
-        return this.send_status;
-    }
-
-    public void setSend_status(int i) {
-        this.send_status = i;
-    }
-
-    public void setSelf(boolean z) {
-        this.isSelf = z;
-    }
-
-    public long getLast_rid() {
-        return this.last_rid;
-    }
-
-    public void setLast_rid(long j) {
-        this.last_rid = j;
-    }
-
-    public long getPulled_msgId() {
-        return this.pulled_msgId;
-    }
-
-    public void setPulled_msgId(long j) {
-        this.pulled_msgId = j;
-    }
-
-    public int getIs_delete() {
-        return this.is_delete;
-    }
-
-    public void setIs_delete(int i) {
-        this.is_delete = i;
-    }
-
-    public int getIs_hidden() {
-        return this.is_hidden;
-    }
-
-    public void setIs_hidden(int i) {
-        this.is_hidden = i;
-    }
-
-    @Deprecated
-    public int getGroup_type() {
-        return this.group_type;
-    }
-
-    @Deprecated
-    public void setGroup_type(int i) {
-        this.group_type = i;
-    }
-
-    public String getGid() {
-        return this.gid;
-    }
-
-    public void setGid(String str) {
-        this.gid = str;
-    }
-
-    public String getGroup_name() {
-        return this.group_name;
-    }
-
-    public void setGroup_name(String str) {
-        this.group_name = str;
-    }
-
-    public String getGroup_head() {
-        return this.group_head;
-    }
-
-    public void setGroup_head(String str) {
-        this.group_head = str;
-    }
-
-    @Deprecated
-    public String getGroup_ext() {
-        return this.group_ext;
-    }
-
-    @Deprecated
-    public void setGroup_ext(String str) {
-        this.group_ext = str;
-    }
-
-    public int getUnread_count() {
-        return this.unread_count;
-    }
-
-    public void setUnread_count(int i) {
-        this.unread_count = i;
-    }
-
-    public long getLast_content_time() {
-        return this.last_content_time;
-    }
-
-    public void setLast_content_time(long j) {
-        this.last_content_time = j;
-    }
-
-    public String getLast_user_name() {
-        return this.last_user_name;
-    }
-
-    public void setLast_user_name(String str) {
-        this.last_user_name = str;
-    }
-
-    public String getLast_content() {
-        return this.last_content;
-    }
-
-    public void setLast_content(String str) {
-        this.last_content = str;
-    }
-
-    public int getType() {
-        return this.type;
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public long getOrderCol() {
-        return this.orderCol;
-    }
-
-    public void setOrderCol(long j) {
-        this.orderCol = j;
-    }
-
-    public int getUserType() {
-        return this.userType;
-    }
-
-    public void setUserType(int i) {
-        this.userType = i;
-    }
+    public static final long serialVersionUID = -8887966163420052407L;
+    public String bjhAvatar;
+    public int followStatus;
+    public String gid;
+    public String group_ext;
+    public String group_head;
+    public String group_name;
+    public int group_type;
+    public int isFriend;
+    public boolean isSelf;
+    public int is_delete;
+    public int is_hidden;
+    public String lastServiceId;
+    public String lastTaskId;
+    public String last_content;
+    public String last_content_raw_data;
+    public long last_content_time;
+    public long last_rid;
+    public String last_user_name;
+    public int mCustomGroupType = 1;
+    public String nameShow;
+    public long orderCol;
+    public long pulled_msgId;
+    public String pushIds;
+    public long read_msgId;
+    public int send_status;
+    public long sent_msgId;
+    public String serviceId;
+    public long sid;
+    public String taskId;
+    public int type;
+    public int unread_count;
+    public int userType;
 
     public static ImMessageCenterPojo fromCommonMsg(CommonMsgPojo commonMsgPojo) {
         int userType;
-        boolean z;
         OldUserData oldUserData;
         OldUserData oldUserData2;
         if (commonMsgPojo == null) {
@@ -274,30 +77,27 @@ public class ImMessageCenterPojo implements Serializable {
         if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && currentAccount.equals(gid)) {
             return null;
         }
-        if (currentAccount.equals(commonMsgPojo.getUid())) {
-            if (userData2 != null) {
-                if (k.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
-                    oldUserData.setToUserData(userData2);
-                }
-                imMessageCenterPojo.setGroup_name(userData2.getUserName());
-                imMessageCenterPojo.setGroup_head(userData2.getPortrait());
-                imMessageCenterPojo.setNameShow(userData2.getName_show());
-                imMessageCenterPojo.setBjhAvatar(userData2.getImBjhAvatar());
-            }
-        } else {
+        if (!currentAccount.equals(commonMsgPojo.getUid())) {
             imMessageCenterPojo.setGroup_name(userData.getUserName());
             imMessageCenterPojo.setGroup_head(userData.getPortrait());
             imMessageCenterPojo.setNameShow(userData.getName_show());
             imMessageCenterPojo.setBjhAvatar(userData.getImBjhAvatar());
+        } else if (userData2 != null) {
+            if (k.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
+                oldUserData.setToUserData(userData2);
+            }
+            imMessageCenterPojo.setGroup_name(userData2.getUserName());
+            imMessageCenterPojo.setGroup_head(userData2.getPortrait());
+            imMessageCenterPojo.setNameShow(userData2.getName_show());
+            imMessageCenterPojo.setBjhAvatar(userData2.getImBjhAvatar());
         }
-        if (b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
+        boolean z = false;
+        if (b.f(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
             userType = userData.getUserType();
         } else {
             userType = userData2.getUserType();
         }
-        if (userType != 1 && userType != 3 && userType != 4) {
-            z = false;
-        } else {
+        if (userType == 1 || userType == 3 || userType == 4) {
             imMessageCenterPojo.setCustomGroupType(4);
             z = true;
         }
@@ -305,7 +105,7 @@ public class ImMessageCenterPojo implements Serializable {
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        imMessageCenterPojo.setLast_content(c.bF(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+        imMessageCenterPojo.setLast_content(c.u(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
         imMessageCenterPojo.setLast_user_name(userData.getName_show());
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -317,67 +117,263 @@ public class ImMessageCenterPojo implements Serializable {
         return imMessageCenterPojo;
     }
 
+    public String getBjhAvatar() {
+        return this.bjhAvatar;
+    }
+
     public int getCustomGroupType() {
         return this.mCustomGroupType;
-    }
-
-    public void setCustomGroupType(int i) {
-        this.mCustomGroupType = i;
-    }
-
-    public int getIsFriend() {
-        return this.isFriend;
-    }
-
-    public void setIsFriend(int i) {
-        this.isFriend = i;
-    }
-
-    public void setFollowStatus(int i) {
-        this.followStatus = i;
     }
 
     public int getFollowStatus() {
         return this.followStatus;
     }
 
-    public long getSent_msgId() {
-        return this.sent_msgId;
+    public String getGid() {
+        return this.gid;
     }
 
-    public void setSent_msgId(long j) {
-        this.sent_msgId = j;
+    @Deprecated
+    public String getGroup_ext() {
+        return this.group_ext;
     }
 
-    public long getRead_msgId() {
-        return this.read_msgId;
+    public String getGroup_head() {
+        return this.group_head;
     }
 
-    public void setRead_msgId(long j) {
-        this.read_msgId = j;
+    public String getGroup_name() {
+        return this.group_name;
     }
 
-    public void setLastContentRawData(String str) {
-        this.last_content_raw_data = str;
+    @Deprecated
+    public int getGroup_type() {
+        return this.group_type;
+    }
+
+    public int getIsFriend() {
+        return this.isFriend;
+    }
+
+    public int getIs_delete() {
+        return this.is_delete;
+    }
+
+    public int getIs_hidden() {
+        return this.is_hidden;
     }
 
     public String getLastContentRawData() {
         return this.last_content_raw_data;
     }
 
+    public String getLastServiceId() {
+        return this.lastServiceId;
+    }
+
+    public String getLastTaskId() {
+        return this.lastTaskId;
+    }
+
+    public String getLast_content() {
+        return this.last_content;
+    }
+
+    public long getLast_content_time() {
+        return this.last_content_time;
+    }
+
+    public long getLast_rid() {
+        return this.last_rid;
+    }
+
+    public String getLast_user_name() {
+        return this.last_user_name;
+    }
+
     public String getNameShow() {
         return this.nameShow;
+    }
+
+    public long getOrderCol() {
+        return this.orderCol;
+    }
+
+    public long getPulled_msgId() {
+        return this.pulled_msgId;
+    }
+
+    public String getPushIds() {
+        return this.pushIds;
+    }
+
+    public long getRead_msgId() {
+        return this.read_msgId;
+    }
+
+    public int getSend_status() {
+        return this.send_status;
+    }
+
+    public long getSent_msgId() {
+        return this.sent_msgId;
+    }
+
+    public String getServiceId() {
+        return this.serviceId;
+    }
+
+    public long getSid() {
+        return this.sid;
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public int getType() {
+        return this.type;
+    }
+
+    public int getUnread_count() {
+        return this.unread_count;
+    }
+
+    public int getUserType() {
+        return this.userType;
+    }
+
+    public boolean isSelf() {
+        return this.isSelf;
+    }
+
+    public void setBjhAvatar(String str) {
+        this.bjhAvatar = str;
+    }
+
+    public void setCustomGroupType(int i) {
+        this.mCustomGroupType = i;
+    }
+
+    public void setFollowStatus(int i) {
+        this.followStatus = i;
+    }
+
+    public void setGid(String str) {
+        this.gid = str;
+    }
+
+    @Deprecated
+    public void setGroup_ext(String str) {
+        this.group_ext = str;
+    }
+
+    public void setGroup_head(String str) {
+        this.group_head = str;
+    }
+
+    public void setGroup_name(String str) {
+        this.group_name = str;
+    }
+
+    @Deprecated
+    public void setGroup_type(int i) {
+        this.group_type = i;
+    }
+
+    public void setIsFriend(int i) {
+        this.isFriend = i;
+    }
+
+    public void setIs_delete(int i) {
+        this.is_delete = i;
+    }
+
+    public void setIs_hidden(int i) {
+        this.is_hidden = i;
+    }
+
+    public void setLastContentRawData(String str) {
+        this.last_content_raw_data = str;
+    }
+
+    public void setLastServiceId(String str) {
+        this.lastServiceId = str;
+    }
+
+    public void setLastTaskId(String str) {
+        this.lastTaskId = str;
+    }
+
+    public void setLast_content(String str) {
+        this.last_content = str;
+    }
+
+    public void setLast_content_time(long j) {
+        this.last_content_time = j;
+    }
+
+    public void setLast_rid(long j) {
+        this.last_rid = j;
+    }
+
+    public void setLast_user_name(String str) {
+        this.last_user_name = str;
     }
 
     public void setNameShow(String str) {
         this.nameShow = str;
     }
 
-    public String getBjhAvatar() {
-        return this.bjhAvatar;
+    public void setOrderCol(long j) {
+        this.orderCol = j;
     }
 
-    public void setBjhAvatar(String str) {
-        this.bjhAvatar = str;
+    public void setPulled_msgId(long j) {
+        this.pulled_msgId = j;
+    }
+
+    public void setPushIds(String str) {
+        this.pushIds = str;
+    }
+
+    public void setRead_msgId(long j) {
+        this.read_msgId = j;
+    }
+
+    public void setSelf(boolean z) {
+        this.isSelf = z;
+    }
+
+    public void setSend_status(int i) {
+        this.send_status = i;
+    }
+
+    public void setSent_msgId(long j) {
+        this.sent_msgId = j;
+    }
+
+    public void setServiceId(String str) {
+        this.serviceId = str;
+    }
+
+    public void setSid(long j) {
+        this.sid = j;
+    }
+
+    public void setTaskId(String str) {
+        this.taskId = str;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public void setUnread_count(int i) {
+        this.unread_count = i;
+    }
+
+    public void setUserType(int i) {
+        this.userType = i;
     }
 }

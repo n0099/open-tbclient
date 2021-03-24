@@ -11,21 +11,13 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
-    private long mAppid;
+    public long mAppid;
 
     public IMUserQueryPrivacyRequest(Context context, long j) {
         this.mContext = context;
         this.mAppid = j;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public byte[] getRequestParameter() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("method=read_user_setting");
-        sb.append("&appid=").append(this.mAppid);
-        return sb.toString().getBytes();
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -33,35 +25,41 @@ public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
         return "application/x-www-form-urlencoded";
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        int i2;
-        String str = new String(bArr);
-        int i3 = 0;
-        String str2 = Constants.ERROR_MSG_SUCCESS;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.has("response_params")) {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                i2 = jSONObject2.getInt("error_code");
-                i3 = jSONObject2.getJSONObject("user_setting").optInt("push_privacy");
-            } else {
-                i2 = jSONObject.getInt("error_code");
-                str2 = jSONObject.optString("error_msg", "");
-            }
-        } catch (JSONException e) {
-            LogUtils.e("IMUserQueryPrivacyRequest", "JSONException", e);
-            i2 = 1010;
-            str2 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-        }
-        AccountManagerImpl.getInstance(this.mContext).onQueryPrivacyResult(i2, str2, i3);
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public byte[] getRequestParameter() {
+        return ("method=read_user_setting&appid=" + this.mAppid).getBytes();
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
         AccountManagerImpl.getInstance(this.mContext).onQueryPrivacyResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, 0);
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
+        String str;
+        String str2 = new String(bArr);
+        int i3 = 0;
+        try {
+            JSONObject jSONObject = new JSONObject(str2);
+            if (jSONObject.has("response_params")) {
+                JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
+                i2 = jSONObject2.getInt("error_code");
+                i3 = jSONObject2.getJSONObject("user_setting").optInt("push_privacy");
+                str = Constants.ERROR_MSG_SUCCESS;
+            } else {
+                i2 = jSONObject.getInt("error_code");
+                str = jSONObject.optString("error_msg", "");
+            }
+        } catch (JSONException e2) {
+            LogUtils.e("IMUserQueryPrivacyRequest", "JSONException", e2);
+            i2 = 1010;
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+        }
+        AccountManagerImpl.getInstance(this.mContext).onQueryPrivacyResult(i2, str, i3);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

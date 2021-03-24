@@ -4,48 +4,29 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.down.manage.Download;
 import com.baidu.down.manage.DownloadConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class DownloadDao {
     public static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS downloads (_id  INTEGER PRIMARY KEY AUTOINCREMENT ,URI  TEXT,_DATA  TEXT,SAVED_PATH_FOR_USER  TEXT,MIMETYPE  TEXT,ETAG  TEXT,STATUS  INTEGER,TOTAL_BYTES  INTEGER,CURRENT_BYTES  INTEGER,NOTIFICATIONNEEDED  INTEGER,FAILEDREASON  TEXT,PROGRESSMAP  TEXT,URI_HOST  TEXT,CONTROL_FLAG  INTEGER,FAILED_TYPE  INTEGER,DOWNLOAD_PRIORITY INTEGER, SAVED_SOURCE_KEY_USER TEXT,DOWN_DIR TEXT,FROM_PARAM TEXT); ";
-    private static final boolean DEBUG = DownloadConstants.mDebug;
+    public static final boolean DEBUG = DownloadConstants.mDebug;
     public static final String TABLENAME = "downloads";
-    private static DownloadDao mInstance;
-    private DownloadDBHelper db;
-    private Context mContext;
+    public static DownloadDao mInstance;
+    public DownloadDBHelper db;
+    public Context mContext;
 
-    private DownloadDao(Context context) {
+    public DownloadDao(Context context) {
         this.mContext = null;
         this.mContext = context.getApplicationContext();
         this.db = DownloadDBHelper.getInstance(context);
     }
 
-    public static synchronized DownloadDao getInstance(Context context) {
-        DownloadDao downloadDao;
-        synchronized (DownloadDao.class) {
-            if (mInstance == null) {
-                mInstance = new DownloadDao(context);
-            }
-            downloadDao = mInstance;
-        }
-        return downloadDao;
-    }
-
-    public static void releaseSingleInstance() {
-        if (mInstance.db != null) {
-            mInstance.db.close();
-        }
-        mInstance = null;
-    }
-
     private ContentValues createContentValues(Download download, boolean z) {
         ContentValues contentValues = new ContentValues();
         if (!z) {
-            contentValues.put(IMConstants.MSG_ROW_ID.toUpperCase(), download.getId());
+            contentValues.put("_id".toUpperCase(), download.getId());
         }
         contentValues.put(DownloadConstants.DownloadColumns.COLUMN_URI.toUpperCase(), download.getUrl());
         contentValues.put(DownloadConstants.DownloadColumns.COLUMN_FILE_NAME.toUpperCase(), download.getFileName());
@@ -68,9 +49,131 @@ public final class DownloadDao {
         return contentValues;
     }
 
+    public static synchronized DownloadDao getInstance(Context context) {
+        DownloadDao downloadDao;
+        synchronized (DownloadDao.class) {
+            if (mInstance == null) {
+                mInstance = new DownloadDao(context);
+            }
+            downloadDao = mInstance;
+        }
+        return downloadDao;
+    }
+
+    public static void releaseSingleInstance() {
+        DownloadDBHelper downloadDBHelper = mInstance.db;
+        if (downloadDBHelper != null) {
+            downloadDBHelper.close();
+        }
+        mInstance = null;
+    }
+
+    public boolean deleteByKey(long j) {
+        try {
+            SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
+            writableDatabase.delete("downloads", "_id =? ", new String[]{j + ""});
+            return true;
+        } catch (Exception e2) {
+            if (DEBUG) {
+                e2.printStackTrace();
+                throw e2;
+            }
+            return false;
+        }
+    }
+
+    public long insert(Download download) {
+        long j = -1;
+        try {
+            try {
+                j = this.db.getWritableDatabase().insert("downloads", null, createContentValues(download, true));
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    e2.printStackTrace();
+                    throw e2;
+                }
+            }
+            return j;
+        } finally {
+            download.setId(-1L);
+        }
+    }
+
+    public void insertInTx(List<Download> list) {
+        try {
+            SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
+            writableDatabase.beginTransaction();
+            for (Download download : list) {
+                download.setId(Long.valueOf(writableDatabase.insert("downloads", null, createContentValues(download, true))));
+            }
+            writableDatabase.endTransaction();
+            writableDatabase.setTransactionSuccessful();
+        } catch (Exception e2) {
+            if (DEBUG) {
+                e2.printStackTrace();
+                throw e2;
+            }
+        }
+    }
+
+    public List<Download> loadAll() {
+        return queryList("select * from downloads", null);
+    }
+
+    public List<Download> queryFinshDownload() {
+        return queryList("select * from downloads where STATUS = ?", new String[]{Download.DownloadState.FINISH.ordinal() + ""});
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0027 A[Catch: all -> 0x002b, Exception -> 0x002d, TRY_LEAVE, TryCatch #0 {Exception -> 0x002d, blocks: (B:3:0x0006, B:5:0x0012, B:7:0x0018, B:10:0x0027), top: B:33:0x0006, outer: #3 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<Download> queryList(String str, String[] strArr) {
+        ArrayList arrayList = new ArrayList();
+        Cursor cursor = null;
+        try {
+            try {
+                cursor = this.db.getReadableDatabase().rawQuery(str, strArr);
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    e2.printStackTrace();
+                    throw e2;
+                } else if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                }
+            }
+            if (cursor == null || !cursor.moveToFirst()) {
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return arrayList;
+            }
+            do {
+                arrayList.add(readEntity(cursor));
+            } while (cursor.moveToNext());
+            if (cursor != null) {
+            }
+            return arrayList;
+        } catch (Throwable th) {
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            }
+            throw th;
+        }
+    }
+
     public Download readEntity(Cursor cursor) {
-        boolean z;
         Download download = new Download();
+        boolean z = false;
         download.setId(cursor.isNull(0) ? null : Long.valueOf(cursor.getLong(0)));
         download.setUrl(cursor.isNull(1) ? "" : cursor.getString(1));
         download.setFileName(cursor.isNull(2) ? "" : cursor.getString(2));
@@ -80,10 +183,8 @@ public final class DownloadDao {
         download.setStatus(Integer.valueOf(cursor.isNull(6) ? Download.DownloadState.WAITING.ordinal() : cursor.getInt(6)));
         download.setTotalbytes(Long.valueOf(cursor.isNull(7) ? 0L : cursor.getLong(7)));
         download.setCurrentbytes(Long.valueOf(cursor.isNull(8) ? 0L : cursor.getLong(8)));
-        if (cursor.isNull(9)) {
-            z = false;
-        } else {
-            z = cursor.getInt(9) > 0;
+        if (!cursor.isNull(9) && cursor.getInt(9) > 0) {
+            z = true;
         }
         download.setNotificationNeeded(z);
         download.setFailedReason(cursor.isNull(10) ? "" : cursor.getString(10));
@@ -98,136 +199,20 @@ public final class DownloadDao {
         return download;
     }
 
-    public long insert(Download download) {
-        long j = -1;
-        try {
-            j = this.db.getWritableDatabase().insert("downloads", null, createContentValues(download, true));
-        } catch (Exception e) {
-            if (DEBUG) {
-                e.printStackTrace();
-                throw e;
-            }
-        } finally {
-            download.setId(-1L);
-        }
-        return j;
-    }
-
     public boolean update(Download download) {
         try {
-            return this.db.getWritableDatabase().update("downloads", createContentValues(download, false), "_id = ?", new String[]{new StringBuilder().append(download.getId()).append("").toString()}) > 0;
-        } catch (Exception e) {
-            if (DEBUG) {
-                e.printStackTrace();
-                throw e;
-            }
-            return false;
-        }
-    }
-
-    public void insertInTx(List<Download> list) {
-        try {
             SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
-            writableDatabase.beginTransaction();
-            for (Download download : list) {
-                download.setId(Long.valueOf(writableDatabase.insert("downloads", null, createContentValues(download, true))));
-            }
-            writableDatabase.endTransaction();
-            writableDatabase.setTransactionSuccessful();
-        } catch (Exception e) {
+            ContentValues createContentValues = createContentValues(download, false);
+            StringBuilder sb = new StringBuilder();
+            sb.append(download.getId());
+            sb.append("");
+            return writableDatabase.update("downloads", createContentValues, "_id = ?", new String[]{sb.toString()}) > 0;
+        } catch (Exception e2) {
             if (DEBUG) {
-                e.printStackTrace();
-                throw e;
-            }
-        }
-    }
-
-    public boolean deleteByKey(long j) {
-        try {
-            this.db.getWritableDatabase().delete("downloads", "_id =? ", new String[]{j + ""});
-            return true;
-        } catch (Exception e) {
-            if (DEBUG) {
-                e.printStackTrace();
-                throw e;
+                e2.printStackTrace();
+                throw e2;
             }
             return false;
         }
-    }
-
-    public List<Download> loadAll() {
-        return queryList("select * from downloads", null);
-    }
-
-    public List<Download> queryFinshDownload() {
-        return queryList("select * from downloads where STATUS = ?", new String[]{Download.DownloadState.FINISH.ordinal() + ""});
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<Download> queryList(String str, String[] strArr) {
-        Cursor cursor;
-        Cursor cursor2 = null;
-        ArrayList arrayList = new ArrayList();
-        try {
-            try {
-                cursor = this.db.getReadableDatabase().rawQuery(str, strArr);
-                if (cursor != null) {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            do {
-                                arrayList.add(readEntity(cursor));
-                            } while (cursor.moveToNext());
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        if (DEBUG) {
-                            e.printStackTrace();
-                            throw e;
-                        }
-                        if (cursor != null) {
-                            try {
-                                cursor.close();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                        }
-                        return arrayList;
-                    }
-                }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                Cursor cursor3 = null;
-                if (0 != 0) {
-                    try {
-                        cursor3.close();
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (0 != 0) {
-                    try {
-                        cursor2.close();
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception e5) {
-            e = e5;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (0 != 0) {
-            }
-            throw th;
-        }
-        return arrayList;
     }
 }

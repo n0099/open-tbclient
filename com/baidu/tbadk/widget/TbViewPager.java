@@ -5,87 +5,73 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
-import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import androidx.viewpager.widget.ViewPager;
 import java.lang.reflect.Field;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TbViewPager extends ViewPager {
-    private float lastX;
-    private int mDuration;
-    private boolean mIsDisallowIntercept;
-    private int mTouchSlop;
 
-    /* loaded from: classes.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f14112e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f14113f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f14114g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f14115h;
+
+    /* loaded from: classes3.dex */
     public class a extends Scroller {
         public a(Context context) {
             super(context);
         }
 
-        @Override // android.widget.Scroller
-        public void startScroll(int i, int i2, int i3, int i4, int i5) {
-            super.startScroll(i, i2, i3, i4, TbViewPager.this.mDuration);
-        }
-
-        @Override // android.widget.Scroller
-        public void startScroll(int i, int i2, int i3, int i4) {
-            super.startScroll(i, i2, i3, i4, TbViewPager.this.mDuration);
-        }
-
-        public void initViewPagerScroll(ViewPager viewPager) {
+        public void a(ViewPager viewPager) {
             try {
                 Field declaredField = ViewPager.class.getDeclaredField("mScroller");
                 declaredField.setAccessible(true);
                 declaredField.set(viewPager, this);
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
-    }
 
-    public void setViewPagerScroll(int i) {
-        this.mDuration = i;
-        new a(getContext()).initViewPagerScroll(this);
-    }
+        @Override // android.widget.Scroller
+        public void startScroll(int i, int i2, int i3, int i4, int i5) {
+            super.startScroll(i, i2, i3, i4, TbViewPager.this.f14115h);
+        }
 
-    public void setViewPagerScroll() {
-        setViewPagerScroll(600);
-    }
-
-    public int getScrollingDuration() {
-        return this.mDuration;
+        @Override // android.widget.Scroller
+        public void startScroll(int i, int i2, int i3, int i4) {
+            super.startScroll(i, i2, i3, i4, TbViewPager.this.f14115h);
+        }
     }
 
     public TbViewPager(Context context) {
         super(context);
-        this.mIsDisallowIntercept = false;
-        this.mDuration = 600;
-        init();
+        this.f14112e = false;
+        this.f14115h = 600;
+        c();
     }
 
-    public TbViewPager(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mIsDisallowIntercept = false;
-        this.mDuration = 600;
-        init();
+    public final void c() {
+        this.f14114g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
     }
 
-    private void init() {
-        this.mTouchSlop = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.mIsDisallowIntercept = z;
-        super.requestDisallowInterceptTouchEvent(z);
+    public final boolean d(MotionEvent motionEvent) {
+        int action = (motionEvent.getAction() & 65280) >> 8;
+        return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (isInvalidPointer(motionEvent)) {
+        if (d(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.mIsDisallowIntercept) {
+        if (motionEvent.getPointerCount() > 1 && this.f14112e) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -93,72 +79,100 @@ public class TbViewPager extends ViewPager {
         }
         try {
             return super.dispatchTouchEvent(motionEvent);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return false;
         }
     }
 
+    public final void e(boolean z) {
+        if (getParent() != null) {
+            getParent().requestDisallowInterceptTouchEvent(z);
+        }
+    }
+
+    public int getScrollingDuration() {
+        return this.f14115h;
+    }
+
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (isInvalidPointer(motionEvent)) {
+        if (d(motionEvent)) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0016, code lost:
+        if (r0 != 6) goto L13;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x006a A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction() & 255) {
-            case 0:
-            case 5:
-            case 6:
-                requestParentInterceptTouchEvent(true);
-                this.lastX = motionEvent.getX();
-                break;
-            case 1:
-            case 3:
-                requestParentInterceptTouchEvent(false);
-                this.lastX = 0.0f;
-                break;
-            case 2:
-                float x = motionEvent.getX() - this.lastX;
-                if (getCurrentItem() == 0) {
-                    if (x >= this.mTouchSlop) {
-                        requestParentInterceptTouchEvent(false);
-                        break;
-                    } else {
-                        requestParentInterceptTouchEvent(true);
-                        break;
+        int action = motionEvent.getAction() & 255;
+        if (action != 0) {
+            if (action != 1) {
+                if (action == 2) {
+                    float x = motionEvent.getX() - this.f14113f;
+                    if (getCurrentItem() == 0) {
+                        if (x >= this.f14114g) {
+                            e(false);
+                        } else {
+                            e(true);
+                        }
+                    } else if (getCurrentItem() == getAdapter().getCount() - 1) {
+                        if (x <= (-this.f14114g)) {
+                            e(false);
+                        } else {
+                            e(true);
+                        }
                     }
-                } else if (getCurrentItem() == getAdapter().getCount() - 1) {
-                    if (x <= (-this.mTouchSlop)) {
-                        requestParentInterceptTouchEvent(false);
-                        break;
-                    } else {
-                        requestParentInterceptTouchEvent(true);
-                        break;
+                } else if (action != 3) {
+                    if (action != 5) {
                     }
                 }
-                break;
+                if (d(motionEvent)) {
+                    return true;
+                }
+                try {
+                    return super.onTouchEvent(motionEvent);
+                } catch (IllegalArgumentException unused) {
+                    return true;
+                }
+            }
+            e(false);
+            this.f14113f = 0.0f;
+            if (d(motionEvent)) {
+            }
         }
-        if (isInvalidPointer(motionEvent)) {
-            return true;
-        }
-        try {
-            return super.onTouchEvent(motionEvent);
-        } catch (IllegalArgumentException e) {
-            return true;
+        e(true);
+        this.f14113f = motionEvent.getX();
+        if (d(motionEvent)) {
         }
     }
 
-    private boolean isInvalidPointer(MotionEvent motionEvent) {
-        int action = (motionEvent.getAction() & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8;
-        return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
+    @Override // android.view.ViewGroup, android.view.ViewParent
+    public void requestDisallowInterceptTouchEvent(boolean z) {
+        this.f14112e = z;
+        super.requestDisallowInterceptTouchEvent(z);
     }
 
-    private void requestParentInterceptTouchEvent(boolean z) {
-        if (getParent() != null) {
-            getParent().requestDisallowInterceptTouchEvent(z);
-        }
+    public void setViewPagerScroll(int i) {
+        this.f14115h = i;
+        new a(getContext()).a(this);
+    }
+
+    public void setViewPagerScroll() {
+        setViewPagerScroll(600);
+    }
+
+    public TbViewPager(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f14112e = false;
+        this.f14115h = 600;
+        c();
     }
 }

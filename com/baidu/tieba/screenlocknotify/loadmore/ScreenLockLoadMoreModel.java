@@ -1,19 +1,15 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.screenlocknotify.ScreenLockActivity;
-/* loaded from: classes7.dex */
+import d.b.i0.c3.d0.a;
+/* loaded from: classes5.dex */
 public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
     public ScreenLockLoadMoreModel(ScreenLockActivity screenLockActivity) {
         super(screenLockActivity.getPageContext());
         registerTask();
-    }
-
-    private void registerTask() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SCREEN_LOCK_MESSAGE_MORE, 1003194, TbConfig.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreHttpResponseMessage.class, false, false, false, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -21,12 +17,17 @@ public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
         return true;
     }
 
-    public void dFE() {
-        sendMessage(new ScreenLockLoadMoreMessage());
-    }
-
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
+    }
+
+    public final void registerTask() {
+        a.h(309420, ScreenLockLoadMoreSocketResponseMessage.class, false, false);
+        a.c(309420, CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE, TbConfig.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreHttpResponseMessage.class, false, false, false, false);
+    }
+
+    public void s() {
+        sendMessage(new ScreenLockLoadMoreMessage());
     }
 }

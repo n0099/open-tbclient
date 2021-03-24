@@ -5,39 +5,46 @@ import android.content.res.Resources;
 import android.text.TextUtils;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f5470a;
-    private final String b;
-    private final String c;
-    private Resources d;
-    private ClassLoader e;
-    private IKsAdSDK f;
+    public final String f31802a;
 
-    private j(String str, String str2, String str3) {
-        this.f5470a = str;
-        this.b = str2;
-        this.c = str3;
+    /* renamed from: b  reason: collision with root package name */
+    public final String f31803b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final String f31804c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Resources f31805d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ClassLoader f31806e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public IKsAdSDK f31807f;
+
+    public j(String str, String str2, String str3) {
+        this.f31802a = str;
+        this.f31803b = str2;
+        this.f31804c = str3;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized j a(Context context, String str) {
-        j jVar;
+        j a2;
         synchronized (j.class) {
             try {
-                jVar = a(context, g.d(context, str), g.e(context, str), g.f(context, str));
-            } catch (Exception e) {
-                e.printStackTrace();
-                jVar = null;
+                a2 = a(context, g.d(context, str), g.e(context, str), g.f(context, str));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
-        return jVar;
+        return a2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static j a(Context context, String str, String str2, String str3) {
         if (TextUtils.isEmpty(str)) {
             throw new RuntimeException("mApk is null");
@@ -53,45 +60,43 @@ public class j {
 
     private void a(Context context) {
         d();
-        Resources a2 = o.a(context, context.getResources(), this.f5470a);
-        ClassLoader a3 = d.a(context, this.f5470a, this.b, this.c);
+        Resources a2 = o.a(context, context.getResources(), this.f31802a);
+        ClassLoader a3 = d.a(context, this.f31802a, this.f31803b, this.f31804c);
         IKsAdSDK a4 = Loader.a(a3);
-        this.d = a2;
-        this.e = a3;
-        this.f = a4;
+        this.f31805d = a2;
+        this.f31806e = a3;
+        this.f31807f = a4;
         int sDKType = a4.getSDKType();
-        int i = com.kwad.sdk.api.a.f5448a;
-        if (sDKType != i) {
-            throw new RuntimeException("sdkType error apiType: " + i + " , sdkType:" + sDKType);
+        int i = com.kwad.sdk.api.a.f31745a;
+        if (sDKType == i) {
+            return;
         }
+        throw new RuntimeException("sdkType error apiType: " + i + " , sdkType:" + sDKType);
     }
 
     private void d() {
-        if (TextUtils.isEmpty(this.f5470a)) {
+        if (TextUtils.isEmpty(this.f31802a)) {
             throw new RuntimeException("mApk is null");
         }
-        File file = new File(this.f5470a);
+        File file = new File(this.f31802a);
         if (!file.isFile() || !file.exists()) {
             throw new RuntimeException("mApk not a file");
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Resources a() {
-        return this.d;
+        return this.f31805d;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ClassLoader b() {
-        return this.e;
+        return this.f31806e;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public IKsAdSDK c() {
-        return this.f;
+        return this.f31807f;
     }
 
     public String toString() {
-        return "ExternalPackage{mApk='" + this.f5470a + "', mDexDir='" + this.b + "', mNativeLibDir='" + this.c + "', mResource=" + this.d + ", mClassLoader=" + this.e + ", mKsSdk=" + this.f + '}';
+        return "ExternalPackage{mApk='" + this.f31802a + "', mDexDir='" + this.f31803b + "', mNativeLibDir='" + this.f31804c + "', mResource=" + this.f31805d + ", mClassLoader=" + this.f31806e + ", mKsSdk=" + this.f31807f + '}';
     }
 }

@@ -8,15 +8,39 @@ import androidx.annotation.Dimension;
 import androidx.annotation.RestrictTo;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
-class MaterialCardViewHelper {
-    private static final int DEFAULT_STROKE_VALUE = -1;
-    private final MaterialCardView materialCardView;
-    private int strokeColor;
-    private int strokeWidth;
+/* loaded from: classes6.dex */
+public class MaterialCardViewHelper {
+    public static final int DEFAULT_STROKE_VALUE = -1;
+    public final MaterialCardView materialCardView;
+    public int strokeColor;
+    public int strokeWidth;
 
     public MaterialCardViewHelper(MaterialCardView materialCardView) {
         this.materialCardView = materialCardView;
+    }
+
+    private void adjustContentPadding() {
+        this.materialCardView.setContentPadding(this.materialCardView.getContentPaddingLeft() + this.strokeWidth, this.materialCardView.getContentPaddingTop() + this.strokeWidth, this.materialCardView.getContentPaddingRight() + this.strokeWidth, this.materialCardView.getContentPaddingBottom() + this.strokeWidth);
+    }
+
+    private Drawable createForegroundDrawable() {
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setCornerRadius(this.materialCardView.getRadius());
+        int i = this.strokeColor;
+        if (i != -1) {
+            gradientDrawable.setStroke(this.strokeWidth, i);
+        }
+        return gradientDrawable;
+    }
+
+    @ColorInt
+    public int getStrokeColor() {
+        return this.strokeColor;
+    }
+
+    @Dimension
+    public int getStrokeWidth() {
+        return this.strokeWidth;
     }
 
     public void loadFromAttributes(TypedArray typedArray) {
@@ -26,46 +50,18 @@ class MaterialCardViewHelper {
         adjustContentPadding();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setStrokeColor(@ColorInt int i) {
         this.strokeColor = i;
         updateForeground();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @ColorInt
-    public int getStrokeColor() {
-        return this.strokeColor;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setStrokeWidth(@Dimension int i) {
         this.strokeWidth = i;
         updateForeground();
         adjustContentPadding();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Dimension
-    public int getStrokeWidth() {
-        return this.strokeWidth;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void updateForeground() {
         this.materialCardView.setForeground(createForegroundDrawable());
-    }
-
-    private Drawable createForegroundDrawable() {
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(this.materialCardView.getRadius());
-        if (this.strokeColor != -1) {
-            gradientDrawable.setStroke(this.strokeWidth, this.strokeColor);
-        }
-        return gradientDrawable;
-    }
-
-    private void adjustContentPadding() {
-        this.materialCardView.setContentPadding(this.materialCardView.getContentPaddingLeft() + this.strokeWidth, this.materialCardView.getContentPaddingTop() + this.strokeWidth, this.materialCardView.getContentPaddingRight() + this.strokeWidth, this.materialCardView.getContentPaddingBottom() + this.strokeWidth);
     }
 }

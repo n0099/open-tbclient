@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.diskcache;
 
 import androidx.annotation.NonNull;
+import com.baidu.nps.utils.Constant;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.d.a;
 import com.kwad.sdk.utils.ad;
@@ -9,68 +10,68 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ApkCacheManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private Future f6022a;
-    private File b;
-    private final ExecutorService c;
-    private final Callable<Void> d;
+    public Future f33460a;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public File f33461b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final ExecutorService f33462c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Callable<Void> f33463d;
+
+    /* loaded from: classes6.dex */
     public enum Holder {
         INSTANCE;
         
-        private ApkCacheManager mInstance = new ApkCacheManager();
+        public ApkCacheManager mInstance = new ApkCacheManager();
 
         Holder() {
         }
 
-        ApkCacheManager getInstance() {
+        public ApkCacheManager getInstance() {
             return this.mInstance;
         }
     }
 
-    private ApkCacheManager() {
-        this.c = Executors.newSingleThreadExecutor();
-        this.d = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
+    public ApkCacheManager() {
+        this.f33462c = Executors.newSingleThreadExecutor();
+        this.f33463d = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Void call() {
                 synchronized (ApkCacheManager.class) {
-                    if (ApkCacheManager.this.b != null && ApkCacheManager.this.b.exists() && !ApkCacheManager.this.c()) {
-                        Iterator it = ApkCacheManager.this.d(ApkCacheManager.this.b).iterator();
-                        while (true) {
-                            if (!it.hasNext()) {
-                                break;
-                            }
-                            File file = (File) it.next();
-                            if (file.getName().endsWith(".apk")) {
+                    if (ApkCacheManager.this.f33461b != null && ApkCacheManager.this.f33461b.exists() && !ApkCacheManager.this.c()) {
+                        for (File file : ApkCacheManager.this.d(ApkCacheManager.this.f33461b)) {
+                            if (file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
                                 ApkCacheManager.this.c(file);
                                 if (ApkCacheManager.this.c()) {
-                                    break;
+                                    return null;
                                 }
                             }
                         }
+                        return null;
                     }
+                    return null;
                 }
-                return null;
             }
         };
         if (KsAdSDKImpl.get().getContext() == null) {
             return;
         }
         try {
-            this.b = ad.c(KsAdSDKImpl.get().getContext());
+            this.f33461b = ad.c(KsAdSDKImpl.get().getContext());
         } catch (Throwable th) {
             a.a(th);
         }
@@ -99,8 +100,8 @@ public class ApkCacheManager {
     }
 
     private long b(File file) {
-        long j = 0;
         File[] listFiles = file.listFiles();
+        long j = 0;
         if (listFiles != null) {
             int length = listFiles.length;
             for (int i = 0; i < length; i++) {
@@ -116,48 +117,49 @@ public class ApkCacheManager {
             return;
         }
         try {
-            if (!file.isDirectory()) {
-                if (file.exists()) {
-                    file.delete();
-                    return;
+            if (file.isDirectory()) {
+                for (File file2 : file.listFiles()) {
+                    c(file2);
                 }
+            } else if (!file.exists()) {
                 return;
             }
-            for (File file2 : file.listFiles()) {
-                c(file2);
-            }
             file.delete();
-        } catch (Exception e) {
-            a.a(e);
+        } catch (Exception e2) {
+            a.a(e2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        if (this.b == null || !this.b.exists()) {
+        File file = this.f33461b;
+        if (file == null || !file.exists()) {
             return false;
         }
-        File[] listFiles = this.b.listFiles();
-        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.b) <= 400);
+        File[] listFiles = this.f33461b.listFiles();
+        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f33461b) <= 400);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public List<File> d(@NonNull File file) {
         ArrayList arrayList = new ArrayList();
         File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            arrayList.addAll(Arrays.asList(listFiles));
-            a(arrayList);
+        if (listFiles == null) {
+            return arrayList;
         }
+        arrayList.addAll(Arrays.asList(listFiles));
+        a(arrayList);
         return arrayList;
     }
 
     public void b() {
-        if (this.b == null || !this.b.exists()) {
+        File file = this.f33461b;
+        if (file == null || !file.exists()) {
             return;
         }
-        if (this.f6022a == null || this.f6022a.isDone()) {
-            this.f6022a = this.c.submit(this.d);
+        Future future = this.f33460a;
+        if (future == null || future.isDone()) {
+            this.f33460a = this.f33462c.submit(this.f33463d);
         }
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.frs.FrsTabInfoData;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class AlbumActivityConfig extends IntentConfig {
     public static final String ACTION_SELECT_IMAGE_RESULT = "com.baidu.tieba.AlbumActivity.SelectImageResult";
     public static final String ALBUM_RESULT = "album_result";
@@ -39,60 +39,24 @@ public class AlbumActivityConfig extends IntentConfig {
 
     public AlbumActivityConfig(Context context, String str) {
         super(context);
-        getIntent().putExtra("camera_request_from", 0);
-        getIntent().putExtra("write_images_info", str);
+        getIntent().putExtra(CAMERA_REQUEST_FROM, 0);
+        getIntent().putExtra(WRITE_IMAGES_INFO, str);
         setIntentAction(IntentAction.ActivityForResult);
-    }
-
-    public AlbumActivityConfig(Context context, boolean z, String str) {
-        super(context);
-        getIntent().putExtra("camera_request_from", 0);
-        getIntent().putExtra("write_images_info", str);
-        getIntent().putExtra("use_original_img", z);
-        setIntentAction(IntentAction.ActivityForResult);
-    }
-
-    public AlbumActivityConfig(Context context, String str, String str2) {
-        this(context, str);
-        getIntent().putExtra("camera_photo_name", str2);
-    }
-
-    public AlbumActivityConfig(Context context, String str, String str2, boolean z) {
-        this(context, str);
-        getIntent().putExtra("camera_photo_name", str2);
-        getIntent().putExtra("use_original_img", z);
-    }
-
-    public AlbumActivityConfig(Context context, String str, boolean z) {
-        this(context, str);
-        getIntent().putExtra("auto_photo_name", z);
-    }
-
-    public AlbumActivityConfig(Context context, String str, boolean z, boolean z2) {
-        this(context, str);
-        getIntent().putExtra("auto_photo_name", z);
-        getIntent().putExtra("use_original_img", z2);
-    }
-
-    public AlbumActivityConfig(Context context, String str, int i) {
-        this(context, str);
-        getIntent().putExtra("camera_request_from", i);
-    }
-
-    public AlbumActivityConfig(Context context, String str, String str2, int i) {
-        this(context, str, str2);
-        getIntent().putExtra("camera_request_from", i);
-    }
-
-    public void setRequestFrom(int i) {
-        if (getIntent() != null) {
-            getIntent().putExtra("camera_request_from", i);
-        }
     }
 
     public void setAlbumThread(int i) {
         if (getIntent() != null) {
-            getIntent().putExtra("album_thread", i);
+            getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
+        }
+    }
+
+    public void setCallFrom(String str) {
+        getIntent().putExtra("KEY_CALL_FROM", str);
+    }
+
+    public void setCanEditImage(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(IntentConfig.KEY_CAN_EDIT_IMAGE, z);
         }
     }
 
@@ -102,15 +66,23 @@ public class AlbumActivityConfig extends IntentConfig {
         }
     }
 
-    public void setCanEditImage(boolean z) {
+    public void setFromWrite(boolean z) {
         if (getIntent() != null) {
-            getIntent().putExtra(IntentConfig.KEY_CAN_EDIT_IMAGE, z);
+            getIntent().putExtra(IntentConfig.KEY_FROM_WRITEACTIVITY, z);
         }
     }
 
-    public void setFromWrite(boolean z) {
+    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
+        getIntent().putExtra("tab_list", frsTabInfoData);
+    }
+
+    public void setProfessionZone(int i) {
+        getIntent().putExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, i);
+    }
+
+    public void setRequestFrom(int i) {
         if (getIntent() != null) {
-            getIntent().putExtra("from_write", z);
+            getIntent().putExtra(CAMERA_REQUEST_FROM, i);
         }
     }
 
@@ -120,19 +92,47 @@ public class AlbumActivityConfig extends IntentConfig {
         }
     }
 
-    public void setCallFrom(String str) {
-        getIntent().putExtra("KEY_CALL_FROM", str);
-    }
-
     public void setStatisticFrom(int i) {
         getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i);
     }
 
-    public void setProfessionZone(int i) {
-        getIntent().putExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, i);
+    public AlbumActivityConfig(Context context, boolean z, String str) {
+        super(context);
+        getIntent().putExtra(CAMERA_REQUEST_FROM, 0);
+        getIntent().putExtra(WRITE_IMAGES_INFO, str);
+        getIntent().putExtra(USE_ORIGINAL_IMG, z);
+        setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
-        getIntent().putExtra("tab_list", frsTabInfoData);
+    public AlbumActivityConfig(Context context, String str, String str2) {
+        this(context, str);
+        getIntent().putExtra(CAMERA_PHOTO_NAME, str2);
+    }
+
+    public AlbumActivityConfig(Context context, String str, String str2, boolean z) {
+        this(context, str);
+        getIntent().putExtra(CAMERA_PHOTO_NAME, str2);
+        getIntent().putExtra(USE_ORIGINAL_IMG, z);
+    }
+
+    public AlbumActivityConfig(Context context, String str, boolean z) {
+        this(context, str);
+        getIntent().putExtra(AUTO_PHOTO_NAME, z);
+    }
+
+    public AlbumActivityConfig(Context context, String str, boolean z, boolean z2) {
+        this(context, str);
+        getIntent().putExtra(AUTO_PHOTO_NAME, z);
+        getIntent().putExtra(USE_ORIGINAL_IMG, z2);
+    }
+
+    public AlbumActivityConfig(Context context, String str, int i) {
+        this(context, str);
+        getIntent().putExtra(CAMERA_REQUEST_FROM, i);
+    }
+
+    public AlbumActivityConfig(Context context, String str, String str2, int i) {
+        this(context, str, str2);
+        getIntent().putExtra(CAMERA_REQUEST_FROM, i);
     }
 }

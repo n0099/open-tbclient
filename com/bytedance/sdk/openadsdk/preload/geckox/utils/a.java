@@ -5,16 +5,16 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Process;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.baidu.android.common.others.lang.StringUtil;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
     public static String a(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-        } catch (Exception e) {
-            com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "getVersion:", e);
-            return "null";
+        } catch (Exception e2) {
+            com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "getVersion:", e2);
+            return StringUtil.NULL_STRING;
         }
     }
 
@@ -22,10 +22,7 @@ public class a {
         try {
             PackageManager packageManager = context.getPackageManager();
             ApplicationInfo applicationInfo = packageManager.getApplicationInfo(context.getPackageName(), 0);
-            if (applicationInfo == null) {
-                return "";
-            }
-            return applicationInfo.loadLabel(packageManager).toString();
+            return applicationInfo == null ? "" : applicationInfo.loadLabel(packageManager).toString();
         } catch (Throwable th) {
             com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "getApplicationName:", th);
             return "";
@@ -37,9 +34,9 @@ public class a {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         try {
             myPid = Process.myPid();
-            runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
-        } catch (Exception e) {
-            com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "getProcessName:", e);
+            runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+        } catch (Exception e2) {
+            com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "getProcessName:", e2);
         }
         if (runningAppProcesses == null) {
             return null;

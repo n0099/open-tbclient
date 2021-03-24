@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache {
-    private final Map<DecodedResult, Integer> usingCounts;
+    public final Map<DecodedResult, Integer> usingCounts;
 
     public UsingFreqLimitedMemoryCache(int i) {
         super(i);
@@ -24,7 +24,7 @@ public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
-    protected Reference<DecodedResult> createReference(DecodedResult decodedResult) {
+    public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
     }
 
@@ -39,7 +39,7 @@ public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
-    protected int getSize(DecodedResult decodedResult) {
+    public int getSize(DecodedResult decodedResult) {
         return decodedResult.getByteSize();
     }
 
@@ -62,7 +62,7 @@ public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
-    protected DecodedResult removeNext() {
+    public DecodedResult removeNext() {
         DecodedResult decodedResult;
         Set<Map.Entry<DecodedResult, Integer>> entrySet = this.usingCounts.entrySet();
         synchronized (this.usingCounts) {

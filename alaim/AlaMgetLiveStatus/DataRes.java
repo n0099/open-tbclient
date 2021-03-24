@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public final class DataRes extends Message {
     public static final List<Long> DEFAULT_CLOSE_LIVE = Collections.emptyList();
     public static final Long DEFAULT_INTERVAL = 0L;
@@ -13,27 +13,7 @@ public final class DataRes extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long interval;
 
-    private DataRes(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.close_live == null) {
-                this.close_live = DEFAULT_CLOSE_LIVE;
-            } else {
-                this.close_live = immutableCopyOf(builder.close_live);
-            }
-            if (builder.interval == null) {
-                this.interval = DEFAULT_INTERVAL;
-                return;
-            } else {
-                this.interval = builder.interval;
-                return;
-            }
-        }
-        this.close_live = immutableCopyOf(builder.close_live);
-        this.interval = builder.interval;
-    }
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public List<Long> close_live;
         public Long interval;
@@ -43,10 +23,11 @@ public final class DataRes extends Message {
 
         public Builder(DataRes dataRes) {
             super(dataRes);
-            if (dataRes != null) {
-                this.close_live = DataRes.copyOf(dataRes.close_live);
-                this.interval = dataRes.interval;
+            if (dataRes == null) {
+                return;
             }
+            this.close_live = Message.copyOf(dataRes.close_live);
+            this.interval = dataRes.interval;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,5 +36,27 @@ public final class DataRes extends Message {
         public DataRes build(boolean z) {
             return new DataRes(this, z);
         }
+    }
+
+    public DataRes(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            List<Long> list = builder.close_live;
+            if (list == null) {
+                this.close_live = DEFAULT_CLOSE_LIVE;
+            } else {
+                this.close_live = Message.immutableCopyOf(list);
+            }
+            Long l = builder.interval;
+            if (l == null) {
+                this.interval = DEFAULT_INTERVAL;
+                return;
+            } else {
+                this.interval = l;
+                return;
+            }
+        }
+        this.close_live = Message.immutableCopyOf(builder.close_live);
+        this.interval = builder.interval;
     }
 }

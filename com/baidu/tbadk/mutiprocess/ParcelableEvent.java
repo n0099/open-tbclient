@@ -2,9 +2,33 @@ package com.baidu.tbadk.mutiprocess;
 
 import android.os.Parcelable;
 import android.os.Process;
-/* loaded from: classes.dex */
-public abstract class ParcelableEvent implements Parcelable, a {
-    private int mTag = 0;
-    private int mType = 0;
-    private int mPid = Process.myPid();
+import com.baidu.adp.BdUniqueId;
+import d.b.h0.f0.a;
+/* loaded from: classes3.dex */
+public abstract class ParcelableEvent implements a, Parcelable {
+    public int mTag = 0;
+    public int mType = 0;
+    public int mPid = Process.myPid();
+
+    @Override // d.b.h0.f0.a
+    public int getPid() {
+        return this.mPid;
+    }
+
+    @Override // d.b.h0.f0.a
+    public int getTag() {
+        return this.mTag;
+    }
+
+    @Override // d.b.h0.f0.a
+    public int getType() {
+        return this.mType;
+    }
+
+    @Override // d.b.h0.f0.a
+    public void setTag(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null) {
+            this.mTag = bdUniqueId.getId();
+        }
+    }
 }

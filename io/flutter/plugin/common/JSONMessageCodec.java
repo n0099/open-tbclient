@@ -4,24 +4,9 @@ import java.nio.ByteBuffer;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class JSONMessageCodec implements MessageCodec<Object> {
     public static final JSONMessageCodec INSTANCE = new JSONMessageCodec();
-
-    private JSONMessageCodec() {
-    }
-
-    @Override // io.flutter.plugin.common.MessageCodec
-    public ByteBuffer encodeMessage(Object obj) {
-        if (obj == null) {
-            return null;
-        }
-        Object wrap = JSONUtil.wrap(obj);
-        if (wrap instanceof String) {
-            return StringCodec.INSTANCE.encodeMessage(JSONObject.quote((String) wrap));
-        }
-        return StringCodec.INSTANCE.encodeMessage(wrap.toString());
-    }
 
     @Override // io.flutter.plugin.common.MessageCodec
     public Object decodeMessage(ByteBuffer byteBuffer) {
@@ -35,8 +20,20 @@ public final class JSONMessageCodec implements MessageCodec<Object> {
                 throw new IllegalArgumentException("Invalid JSON");
             }
             return nextValue;
-        } catch (JSONException e) {
-            throw new IllegalArgumentException("Invalid JSON", e);
+        } catch (JSONException e2) {
+            throw new IllegalArgumentException("Invalid JSON", e2);
         }
+    }
+
+    @Override // io.flutter.plugin.common.MessageCodec
+    public ByteBuffer encodeMessage(Object obj) {
+        if (obj == null) {
+            return null;
+        }
+        Object wrap = JSONUtil.wrap(obj);
+        if (wrap instanceof String) {
+            return StringCodec.INSTANCE.encodeMessage(JSONObject.quote((String) wrap));
+        }
+        return StringCodec.INSTANCE.encodeMessage(wrap.toString());
     }
 }

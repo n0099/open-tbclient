@@ -2,15 +2,14 @@ package com.yxcorp.kuaishou.addfp.a.b.c;
 
 import android.os.IBinder;
 import android.os.Parcel;
-/* loaded from: classes3.dex */
-final class c implements a {
+/* loaded from: classes7.dex */
+public final class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private IBinder f8600a;
+    public IBinder f41092a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public c(IBinder iBinder) {
-        this.f8600a = iBinder;
+        this.f41092a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.c.a
@@ -20,16 +19,13 @@ final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-            this.f8600a.transact(1, obtain, obtain2, 0);
+            this.f41092a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
-        } catch (Throwable th) {
+        } finally {
             try {
-                com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                str = "";
+                return str;
             } finally {
-                obtain2.recycle();
-                obtain.recycle();
             }
         }
         return str;
@@ -43,16 +39,13 @@ final class c implements a {
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
             obtain.writeString(str);
-            this.f8600a.transact(4, obtain, obtain2, 0);
+            this.f41092a.transact(4, obtain, obtain2, 0);
             obtain2.readException();
             str2 = obtain2.readString();
-        } catch (Throwable th) {
+        } finally {
             try {
-                com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                str2 = "";
+                return str2;
             } finally {
-                obtain2.recycle();
-                obtain.recycle();
             }
         }
         return str2;
@@ -60,7 +53,7 @@ final class c implements a {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f8600a;
+        return this.f41092a;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.c.a
@@ -70,16 +63,13 @@ final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-            this.f8600a.transact(2, obtain, obtain2, 0);
+            this.f41092a.transact(2, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
-        } catch (Throwable th) {
+        } finally {
             try {
-                com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                str = "";
+                return str;
             } finally {
-                obtain2.recycle();
-                obtain.recycle();
             }
         }
         return str;
@@ -93,16 +83,13 @@ final class c implements a {
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
             obtain.writeString(str);
-            this.f8600a.transact(5, obtain, obtain2, 0);
+            this.f41092a.transact(5, obtain, obtain2, 0);
             obtain2.readException();
             str2 = obtain2.readString();
-        } catch (Throwable th) {
+        } finally {
             try {
-                com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                str2 = "";
+                return str2;
             } finally {
-                obtain2.recycle();
-                obtain.recycle();
             }
         }
         return str2;
@@ -114,15 +101,16 @@ final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-            this.f8600a.transact(3, obtain, obtain2, 0);
+            this.f41092a.transact(3, obtain, obtain2, 0);
             obtain2.readException();
-            r0 = obtain2.readInt() != 0;
+            r2 = obtain2.readInt() != 0;
             obtain2.recycle();
             obtain.recycle();
-        } catch (Throwable th) {
+            return r2;
+        } catch (Throwable unused) {
             obtain2.recycle();
             obtain.recycle();
+            return r2;
         }
-        return r0;
     }
 }

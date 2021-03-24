@@ -1,12 +1,9 @@
 package com.baidu.searchbox.appframework;
 
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GlobalActivityLifecycle extends BdBoxActivityLifecycle {
-    private static GlobalActivityLifecycle sInstance;
-
-    private GlobalActivityLifecycle() {
-    }
+    public static GlobalActivityLifecycle sInstance;
 
     public static GlobalActivityLifecycle getInstance() {
         if (sInstance == null) {

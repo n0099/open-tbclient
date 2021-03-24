@@ -9,9 +9,6 @@ public class c {
     }
 
     public static String b(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        return new String(Base64.decode(str, 10));
+        return TextUtils.isEmpty(str) ? "" : new String(Base64.decode(str, 10));
     }
 }

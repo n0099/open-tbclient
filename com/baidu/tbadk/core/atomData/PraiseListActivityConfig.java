@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PraiseListActivityConfig extends IntentConfig {
     public static final String IS_AUTHOR = "is_author";
     public static final int TYPE_GRAFFITI_PRAISE_LIST = 1;
@@ -12,19 +12,19 @@ public class PraiseListActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("thread_id", str);
         getIntent().putExtra("post_id", str2);
-        getIntent().putExtra("post_desc", str3);
-        getIntent().putExtra("is_from_pb", z);
-    }
-
-    public void setIsGraffitiPraiseList() {
-        if (getIntent() != null) {
-            getIntent().putExtra("list_type", 1);
-        }
+        getIntent().putExtra(IntentConfig.POST_DESC, str3);
+        getIntent().putExtra(IntentConfig.IS_FROM_PB, z);
     }
 
     public void setIsAuthor(boolean z) {
         if (getIntent() != null) {
             getIntent().putExtra(IS_AUTHOR, z);
+        }
+    }
+
+    public void setIsGraffitiPraiseList() {
+        if (getIntent() != null) {
+            getIntent().putExtra(IntentConfig.LIST_TYPE, 1);
         }
     }
 }

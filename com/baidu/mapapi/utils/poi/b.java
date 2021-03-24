@@ -2,38 +2,43 @@ package com.baidu.mapapi.utils.poi;
 
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.PanoStateError;
-/* loaded from: classes4.dex */
-/* synthetic */ class b {
+/* loaded from: classes2.dex */
+public /* synthetic */ class b {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f2170a;
-    static final /* synthetic */ int[] b = new int[HttpClient.HttpStateError.values().length];
+    public static final /* synthetic */ int[] f7409a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final /* synthetic */ int[] f7410b;
 
     static {
+        int[] iArr = new int[HttpClient.HttpStateError.values().length];
+        f7410b = iArr;
         try {
-            b[HttpClient.HttpStateError.NETWORK_ERROR.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[HttpClient.HttpStateError.NETWORK_ERROR.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f7410b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
-        f2170a = new int[PanoStateError.values().length];
+        int[] iArr2 = new int[PanoStateError.values().length];
+        f7409a = iArr2;
         try {
-            f2170a[PanoStateError.PANO_UID_ERROR.ordinal()] = 1;
-        } catch (NoSuchFieldError e3) {
-        }
-        try {
-            f2170a[PanoStateError.PANO_NOT_FOUND.ordinal()] = 2;
-        } catch (NoSuchFieldError e4) {
+            iArr2[PanoStateError.PANO_UID_ERROR.ordinal()] = 1;
+        } catch (NoSuchFieldError unused3) {
         }
         try {
-            f2170a[PanoStateError.PANO_NO_TOKEN.ordinal()] = 3;
-        } catch (NoSuchFieldError e5) {
+            f7409a[PanoStateError.PANO_NOT_FOUND.ordinal()] = 2;
+        } catch (NoSuchFieldError unused4) {
         }
         try {
-            f2170a[PanoStateError.PANO_NO_ERROR.ordinal()] = 4;
-        } catch (NoSuchFieldError e6) {
+            f7409a[PanoStateError.PANO_NO_TOKEN.ordinal()] = 3;
+        } catch (NoSuchFieldError unused5) {
+        }
+        try {
+            f7409a[PanoStateError.PANO_NO_ERROR.ordinal()] = 4;
+        } catch (NoSuchFieldError unused6) {
         }
     }
 }

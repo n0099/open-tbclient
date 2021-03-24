@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.LinearLayout;
 import androidx.annotation.Keep;
 import androidx.core.math.MathUtils;
 import com.kwad.sdk.R;
@@ -19,28 +20,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
-    private static final int DEFAULT_REBOUND_MAX_OFFSET = 150;
-    private static final int REBOUND_ANIM_TIME = 200;
-    private static final String TAG = CustomReboundBehavior.class.toString();
-    private static final int TYPE_UNKNOWN = -1;
-    private WeakReference<KSAppBarLayout> mAppBartReference;
-    private WeakReference<KSCoordinatorLayout> mCoordinatorReference;
-    private List<CustomReboundOffsetCallback> mCustomReboundOffsetCallbacks;
-    private boolean mEnableRebound;
-    private HeaderTopBottomOffsetChangeListener mHeaderTopBottomOffsetChangeListener;
-    private int mOffsetDelta;
-    private int mOffsetRebound;
-    private int mPreHeadHeight;
-    private final int mReboundMaxOffset;
-    private ValueAnimator mReboundRecoverAnimator;
-    private View mReboundView;
-    private final int mReboundViewId;
-    private int mReboundViewOriginHeight;
-    private int mReboundViewOriginWidth;
+    public static final int DEFAULT_REBOUND_MAX_OFFSET = 150;
+    public static final int REBOUND_ANIM_TIME = 200;
+    public static final String TAG = CustomReboundBehavior.class.toString();
+    public static final int TYPE_UNKNOWN = -1;
+    public WeakReference<KSAppBarLayout> mAppBartReference;
+    public WeakReference<KSCoordinatorLayout> mCoordinatorReference;
+    public List<CustomReboundOffsetCallback> mCustomReboundOffsetCallbacks;
+    public boolean mEnableRebound;
+    public HeaderTopBottomOffsetChangeListener mHeaderTopBottomOffsetChangeListener;
+    public int mOffsetDelta;
+    public int mOffsetRebound;
+    public int mPreHeadHeight;
+    public final int mReboundMaxOffset;
+    public ValueAnimator mReboundRecoverAnimator;
+    public View mReboundView;
+    public final int mReboundViewId;
+    public int mReboundViewOriginHeight;
+    public int mReboundViewOriginWidth;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface HeaderTopBottomOffsetChangeListener {
         void onHeaderTopBottomOffsetChange(int i, int i2);
     }
@@ -66,24 +67,27 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
         super(customAppBarBehaviorParams);
         this.mReboundMaxOffset = customAppBarBehaviorParams.mReboundMaxOffset;
         this.mEnableRebound = customAppBarBehaviorParams.mEnableRebound;
-        this.mReboundViewId = customAppBarBehaviorParams.mReboundViewId;
-        if (this.mReboundViewId == 0) {
+        int i = customAppBarBehaviorParams.mReboundViewId;
+        this.mReboundViewId = i;
+        if (i == 0) {
             throw new IllegalArgumentException("should set rebound view id , with 'reboundViewId'");
         }
     }
 
     private void animateReboundRecover(final KSCoordinatorLayout kSCoordinatorLayout, final KSAppBarLayout kSAppBarLayout) {
-        if (this.mReboundRecoverAnimator == null) {
-            this.mReboundRecoverAnimator = new ValueAnimator();
-            this.mReboundRecoverAnimator.setDuration(200L);
+        ValueAnimator valueAnimator = this.mReboundRecoverAnimator;
+        if (valueAnimator == null) {
+            ValueAnimator valueAnimator2 = new ValueAnimator();
+            this.mReboundRecoverAnimator = valueAnimator2;
+            valueAnimator2.setDuration(200L);
             this.mReboundRecoverAnimator.setInterpolator(new DecelerateInterpolator());
             this.mReboundRecoverAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.lib.desigin.CustomReboundBehavior.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    CustomReboundBehavior.this.updateReboundHeaderHeight(kSCoordinatorLayout, kSAppBarLayout, ((Integer) valueAnimator.getAnimatedValue()).intValue(), 2);
+                public void onAnimationUpdate(ValueAnimator valueAnimator3) {
+                    CustomReboundBehavior.this.updateReboundHeaderHeight(kSCoordinatorLayout, kSAppBarLayout, ((Integer) valueAnimator3.getAnimatedValue()).intValue(), 2);
                 }
             });
-        } else if (this.mReboundRecoverAnimator.isRunning()) {
+        } else if (valueAnimator.isRunning()) {
             this.mReboundRecoverAnimator.cancel();
         }
         this.mReboundRecoverAnimator.setIntValues(this.mOffsetRebound, 0);
@@ -102,12 +106,12 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = kSAppBarLayout.getChildAt(i2);
             KSAppBarLayout.LayoutParams layoutParams = (KSAppBarLayout.LayoutParams) childAt.getLayoutParams();
-            i += layoutParams.topMargin + layoutParams.bottomMargin + childAt.getMeasuredHeight();
+            i += ((LinearLayout.LayoutParams) layoutParams).bottomMargin + ((LinearLayout.LayoutParams) layoutParams).topMargin + childAt.getMeasuredHeight();
         }
         return Math.max(0, i);
     }
 
-    private static int getScreenWidthPx(Context context) {
+    public static int getScreenWidthPx(Context context) {
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         DisplayMetrics displayMetrics = new DisplayMetrics();
         defaultDisplay.getMetrics(displayMetrics);
@@ -124,21 +128,26 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateReboundHeaderHeight(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i, int i2) {
-        if (kSAppBarLayout.getHeight() < this.mPreHeadHeight || i < 0 || i > this.mReboundMaxOffset) {
+        int i3;
+        if (kSAppBarLayout.getHeight() < this.mPreHeadHeight || i < 0 || i > (i3 = this.mReboundMaxOffset)) {
             return;
         }
         this.mOffsetRebound = i;
-        if (this.mCustomReboundOffsetCallbacks != null && this.mEnableRebound) {
-            float f = (this.mOffsetRebound * 1.0f) / this.mReboundMaxOffset;
-            for (int size = this.mCustomReboundOffsetCallbacks.size() - 1; size >= 0; size--) {
-                this.mCustomReboundOffsetCallbacks.get(size).rebound(i2, f, this.mOffsetRebound);
+        List<CustomReboundOffsetCallback> list = this.mCustomReboundOffsetCallbacks;
+        if (list != null && this.mEnableRebound) {
+            float f2 = (i * 1.0f) / i3;
+            for (int size = list.size() - 1; size >= 0; size--) {
+                this.mCustomReboundOffsetCallbacks.get(size).rebound(i2, f2, this.mOffsetRebound);
             }
         }
-        if (this.mReboundView != null) {
-            ViewGroup.LayoutParams layoutParams = this.mReboundView.getLayoutParams();
+        View view = this.mReboundView;
+        if (view != null) {
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             layoutParams.height = this.mReboundViewOriginHeight + i;
-            if (layoutParams.width != this.mReboundViewOriginWidth) {
-                layoutParams.width = this.mReboundViewOriginWidth;
+            int i4 = layoutParams.width;
+            int i5 = this.mReboundViewOriginWidth;
+            if (i4 != i5) {
+                layoutParams.width = i5;
             }
             this.mReboundView.setLayoutParams(layoutParams);
         }
@@ -146,7 +155,8 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
     }
 
     private void updateReboundOffsetByScroll(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i) {
-        if (this.mReboundRecoverAnimator != null && this.mReboundRecoverAnimator.isRunning()) {
+        ValueAnimator valueAnimator = this.mReboundRecoverAnimator;
+        if (valueAnimator != null && valueAnimator.isRunning()) {
             this.mReboundRecoverAnimator.cancel();
         }
         updateReboundHeaderHeight(kSCoordinatorLayout, kSAppBarLayout, i, 1);
@@ -160,8 +170,9 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
     }
 
     public void clearReboundOffsetCallback() {
-        if (this.mCustomReboundOffsetCallbacks != null) {
-            this.mCustomReboundOffsetCallbacks.clear();
+        List<CustomReboundOffsetCallback> list = this.mCustomReboundOffsetCallbacks;
+        if (list != null) {
+            list.clear();
         }
     }
 
@@ -221,8 +232,9 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.lib.desigin.CustomAppBarLayoutBehavior, com.kwad.sdk.lib.desigin.KSAppBarLayout.KSBehavior, com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
     public void onNestedScroll(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, View view, int i, int i2, int i3, int i4, int i5) {
-        if (i4 < 0 && i5 == 1 && this.mHeaderTopBottomOffsetChangeListener != null) {
-            this.mHeaderTopBottomOffsetChangeListener.onHeaderTopBottomOffsetChange(getTopBottomOffsetForScrollingSibling() - i4, -kSAppBarLayout.getDownNestedScrollRange());
+        HeaderTopBottomOffsetChangeListener headerTopBottomOffsetChangeListener;
+        if (i4 < 0 && i5 == 1 && (headerTopBottomOffsetChangeListener = this.mHeaderTopBottomOffsetChangeListener) != null) {
+            headerTopBottomOffsetChangeListener.onHeaderTopBottomOffsetChange(getTopBottomOffsetForScrollingSibling() - i4, -kSAppBarLayout.getDownNestedScrollRange());
         }
         super.onNestedScroll(kSCoordinatorLayout, kSAppBarLayout, view, i, i2, i3, i4, i5);
     }
@@ -230,8 +242,9 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.lib.desigin.KSAppBarLayout.KSBehavior, com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
     public boolean onStartNestedScroll(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, View view, View view2, int i, int i2) {
+        ValueAnimator valueAnimator;
         boolean onStartNestedScroll = super.onStartNestedScroll(kSCoordinatorLayout, kSAppBarLayout, view, view2, i, i2);
-        if (onStartNestedScroll && this.mReboundRecoverAnimator != null && this.mReboundRecoverAnimator.isRunning()) {
+        if (onStartNestedScroll && (valueAnimator = this.mReboundRecoverAnimator) != null && valueAnimator.isRunning()) {
             this.mReboundRecoverAnimator.cancel();
         }
         return onStartNestedScroll;
@@ -245,14 +258,17 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
     }
 
     public void removeReboundOffsetCallback(CustomReboundOffsetCallback customReboundOffsetCallback) {
-        if (this.mCustomReboundOffsetCallbacks != null) {
-            this.mCustomReboundOffsetCallbacks.remove(customReboundOffsetCallback);
+        List<CustomReboundOffsetCallback> list = this.mCustomReboundOffsetCallbacks;
+        if (list != null) {
+            list.remove(customReboundOffsetCallback);
         }
     }
 
     public void setEnableRebound(boolean z) {
+        WeakReference<KSAppBarLayout> weakReference;
         this.mEnableRebound = z;
-        if (this.mCoordinatorReference == null || this.mCoordinatorReference.get() == null || this.mAppBartReference == null || this.mAppBartReference.get() == null) {
+        WeakReference<KSCoordinatorLayout> weakReference2 = this.mCoordinatorReference;
+        if (weakReference2 == null || weakReference2.get() == null || (weakReference = this.mAppBartReference) == null || weakReference.get() == null) {
             return;
         }
         animateReboundRecover(this.mCoordinatorReference.get(), this.mAppBartReference.get());
@@ -272,8 +288,9 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
 
     @Override // com.kwad.sdk.lib.desigin.CustomAppBarLayoutBehavior
     public int setHeaderTopBottomOffset(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i, int i2, int i3, int i4) {
-        if (this.mHeaderTopBottomOffsetChangeListener != null) {
-            this.mHeaderTopBottomOffsetChangeListener.onHeaderTopBottomOffsetChange(i, i2);
+        HeaderTopBottomOffsetChangeListener headerTopBottomOffsetChangeListener = this.mHeaderTopBottomOffsetChangeListener;
+        if (headerTopBottomOffsetChangeListener != null) {
+            headerTopBottomOffsetChangeListener.onHeaderTopBottomOffsetChange(i, i2);
         }
         if (this.mEnableRebound) {
             int topBottomOffsetForScrollingSibling = getTopBottomOffsetForScrollingSibling();
@@ -284,9 +301,10 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
                     if (scrollableSize <= 0) {
                         return -i5;
                     }
-                    if (scrollableSize + i <= 0) {
+                    int i6 = scrollableSize + i;
+                    if (i6 <= 0) {
                         setTopAndBottomOffset(-scrollableSize);
-                        return scrollableSize + i;
+                        return i6;
                     }
                 }
                 if (i2 == 0 || topBottomOffsetForScrollingSibling < i2 || topBottomOffsetForScrollingSibling > i3) {
@@ -303,13 +321,13 @@ public class CustomReboundBehavior extends CustomAppBarLayoutBehavior {
                 int interpolateOffset = kSAppBarLayout.hasChildWithInterpolator() ? interpolateOffset(kSAppBarLayout, clamp) : clamp;
                 boolean topAndBottomOffset = setTopAndBottomOffset(interpolateOffset);
                 this.mOffsetDelta = clamp - interpolateOffset;
-                int i6 = topBottomOffsetForScrollingSibling - clamp;
+                int i7 = topBottomOffsetForScrollingSibling - clamp;
                 if (!topAndBottomOffset && kSAppBarLayout.hasChildWithInterpolator()) {
                     kSCoordinatorLayout.dispatchDependentViewsChanged(kSAppBarLayout);
                 }
                 kSAppBarLayout.dispatchOffsetUpdates(getTopAndBottomOffset());
                 updateAppBarLayoutDrawableState(kSCoordinatorLayout, kSAppBarLayout, clamp, clamp < topBottomOffsetForScrollingSibling ? -1 : 1, false);
-                return i6;
+                return i7;
             }
             return updateReboundByScroll(kSCoordinatorLayout, kSAppBarLayout, i4, i);
         }

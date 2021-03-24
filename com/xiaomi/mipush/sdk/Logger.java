@@ -1,15 +1,15 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import com.baidu.tbadk.TbConfig;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-import com.xiaomi.push.dl;
-import com.xiaomi.push.dm;
+import com.xiaomi.push.de;
+import com.xiaomi.push.df;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Logger {
-    private static boolean sDisablePushLog = false;
-    private static LoggerInterface sUserLogger = null;
+    public static boolean sDisablePushLog = false;
+    public static LoggerInterface sUserLogger;
 
     public static void disablePushFileLog(Context context) {
         sDisablePushLog = true;
@@ -21,45 +21,28 @@ public class Logger {
         setPushLog(context);
     }
 
+    @Deprecated
     public static File getLogFile(String str) {
-        try {
-            File file = new File(str);
-            if (file.exists() && file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                for (int i = 0; i < listFiles.length; i++) {
-                    if (listFiles[i].isFile() && !listFiles[i].getName().contains("lock") && listFiles[i].getName().contains(TbConfig.TMP_LOG_DIR_NAME)) {
-                        return listFiles[i];
-                    }
-                }
-                return null;
-            }
-            return null;
-        } catch (NullPointerException e) {
-            com.xiaomi.channel.commonutils.logger.b.d("null pointer exception while retrieve file.");
-            return null;
-        }
+        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public static LoggerInterface getUserLogger() {
         return sUserLogger;
     }
 
-    private static boolean hasWritePermission(Context context) {
+    public static boolean hasWritePermission(Context context) {
         try {
             String[] strArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
             if (strArr != null) {
                 for (String str : strArr) {
-                    if ("android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
+                    if (StorageUtils.EXTERNAL_STORAGE_PERMISSION.equals(str)) {
                         return true;
                     }
                 }
-                return false;
             }
-            return false;
-        } catch (Exception e) {
-            return false;
+        } catch (Exception unused) {
         }
+        return false;
     }
 
     public static void setLogger(Context context, LoggerInterface loggerInterface) {
@@ -67,19 +50,24 @@ public class Logger {
         setPushLog(context);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
+        if (hasWritePermission(r4) != false) goto L8;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void setPushLog(Context context) {
-        boolean z;
-        boolean z2 = sUserLogger != null;
-        if (sDisablePushLog) {
-            z = false;
-            z2 = false;
-        } else {
-            z = hasWritePermission(context);
+        boolean z = true;
+        boolean z2 = false;
+        boolean z3 = sUserLogger != null;
+        if (!sDisablePushLog) {
+            z2 = z3;
         }
-        com.xiaomi.channel.commonutils.logger.b.a(new dl(z2 ? sUserLogger : null, z ? new dm(context) : null));
+        z = false;
+        com.xiaomi.channel.commonutils.logger.b.a(new de(z2 ? sUserLogger : null, z ? new df(context) : null));
     }
 
+    @Deprecated
     public static void uploadLogFile(Context context, boolean z) {
-        com.xiaomi.push.ai.a(context).a(new u(context, z));
     }
 }

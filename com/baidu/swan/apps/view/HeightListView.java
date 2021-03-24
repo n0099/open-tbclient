@@ -4,34 +4,37 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class HeightListView extends ListView {
-    private int dSs;
 
-    public void setListViewHeight(int i) {
-        this.dSs = i;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public int f12680e;
 
     public HeightListView(Context context) {
         super(context);
-        this.dSs = -1;
+        this.f12680e = -1;
+    }
+
+    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
+    public void onMeasure(int i, int i2) {
+        int i3 = this.f12680e;
+        if (i3 > -1) {
+            i2 = View.MeasureSpec.makeMeasureSpec(i3, Integer.MIN_VALUE);
+        }
+        super.onMeasure(i, i2);
+    }
+
+    public void setListViewHeight(int i) {
+        this.f12680e = i;
     }
 
     public HeightListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dSs = -1;
+        this.f12680e = -1;
     }
 
     public HeightListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dSs = -1;
-    }
-
-    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    protected void onMeasure(int i, int i2) {
-        if (this.dSs > -1) {
-            i2 = View.MeasureSpec.makeMeasureSpec(this.dSs, Integer.MIN_VALUE);
-        }
-        super.onMeasure(i, i2);
+        this.f12680e = -1;
     }
 }

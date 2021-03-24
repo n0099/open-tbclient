@@ -2,48 +2,55 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class x implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f8086a = "SpCache";
-    private static String b = "com.vivo.push.cache";
-    private SharedPreferences c;
+    public static String f39572a = "SpCache";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f39573b = "com.vivo.push.cache";
+
+    /* renamed from: c  reason: collision with root package name */
+    public SharedPreferences f39574c;
 
     @Override // com.vivo.push.util.c
     public final boolean a(Context context) {
-        if (this.c == null) {
-            this.c = context.getSharedPreferences(b, 0);
+        if (this.f39574c == null) {
+            this.f39574c = context.getSharedPreferences(f39573b, 0);
             return true;
         }
         return true;
     }
 
     @Override // com.vivo.push.util.c
-    public final String a(String str, String str2) {
-        String string = this.c.getString(str, str2);
-        p.d(f8086a, "getString " + str + " is " + string);
-        return string;
-    }
-
-    @Override // com.vivo.push.util.c
     public final void b(String str, String str2) {
-        SharedPreferences.Editor edit = this.c.edit();
+        SharedPreferences.Editor edit = this.f39574c.edit();
         if (edit != null) {
             edit.putString(str, str2);
             a.a(edit);
-            p.d(f8086a, "putString by " + str);
+            String str3 = f39572a;
+            p.d(str3, "putString by " + str);
             return;
         }
-        p.b(f8086a, "putString error by " + str);
+        String str4 = f39572a;
+        p.b(str4, "putString error by " + str);
+    }
+
+    @Override // com.vivo.push.util.c
+    public final String a(String str, String str2) {
+        String string = this.f39574c.getString(str, str2);
+        String str3 = f39572a;
+        p.d(str3, "getString " + str + " is " + string);
+        return string;
     }
 
     public final void a() {
-        SharedPreferences.Editor edit = this.c.edit();
+        SharedPreferences.Editor edit = this.f39574c.edit();
         if (edit != null) {
             edit.clear();
             a.a(edit);
         }
-        p.d(f8086a, "system cache is cleared");
+        p.d(f39572a, "system cache is cleared");
     }
 }

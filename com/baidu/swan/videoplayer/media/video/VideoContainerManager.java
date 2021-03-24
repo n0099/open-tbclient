@@ -9,228 +9,228 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.swan.apps.component.b.a;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
-import com.baidu.swan.apps.media.b.c;
-import com.baidu.swan.videoplayer.c;
-import com.facebook.drawee.drawable.p;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.common.d;
+import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import d.b.g0.a.a0.b.a;
+import d.b.g0.a.b1.g.c;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class VideoContainerManager extends a<VideoHolderWrapper, c> {
-    private SwanAppComponentContainerView cNi;
-    private VideoHolderWrapper eCw;
-    private Context mContext;
+    public Context i;
+    public SwanAppComponentContainerView j;
+    public VideoHolderWrapper k;
 
-    public VideoContainerManager(@NonNull Context context, @NonNull c cVar) {
-        super(context, cVar);
-        this.mContext = context;
-        this.cNi = new SwanAppComponentContainerView(this.mContext);
-        this.cNi.setBackgroundColor(Color.parseColor("#666666"));
-        gs(1);
-    }
-
-    public void e(c cVar) {
-        if (cVar != null) {
-            f(cVar);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.component.b.a
-    @NonNull
-    /* renamed from: eL */
-    public VideoHolderWrapper cu(@NonNull Context context) {
-        return bgc();
-    }
-
-    @Override // com.baidu.swan.apps.component.b.a
-    @NonNull
-    protected SwanAppComponentContainerView cv(@NonNull Context context) {
-        return this.cNi;
-    }
-
-    private void f(c cVar) {
-        if (cVar != null) {
-            if (!(alj() != null)) {
-                if (bgc().getParent() instanceof ViewGroup) {
-                    ((ViewGroup) bgc().getParent()).removeView(bgc());
-                }
-                bgf().setDescendantFocusability(393216);
-                com.baidu.swan.apps.console.c.d("video", "Add CoverContainerWrapper " + ale().isSuccess() + " position " + cVar.cMU);
-                return;
-            }
-            c alh = alh();
-            if (!TextUtils.equals(cVar.cMQ, alh.cMQ) || !TextUtils.equals(cVar.cMR, alh.cMR) || !TextUtils.equals(cVar.cMS, alh.cMS)) {
-                com.baidu.swan.apps.component.e.a.bk("video", "updateCoverContainerPosition with different id");
-            }
-            com.baidu.swan.apps.console.c.d("video", "Update CoverContainerWrapper " + a((VideoContainerManager) cVar).isSuccess() + " position " + cVar.cMU);
-        }
-    }
-
-    private VideoHolderWrapper bgc() {
-        if (this.eCw == null) {
-            this.eCw = new VideoHolderWrapper(this.mContext);
-        }
-        return this.eCw;
-    }
-
-    public FrameLayout getVideoHolder() {
-        return bgc().getVideoHolder();
-    }
-
-    public void g(View.OnClickListener onClickListener) {
-        View playerIcon = bgc().getPlayerIcon();
-        playerIcon.setOnClickListener(onClickListener);
-        l(playerIcon, 0);
-    }
-
-    public void bgd() {
-        l(bgc().getPlayerIcon(), 8);
-    }
-
-    public void dy(String str, String str2) {
-        bgc().setPoster(str, str2);
-        l(bgc().getVideoPoster(), 0);
-    }
-
-    public void bge() {
-        l(bgc().getVideoPoster(), 8);
-    }
-
-    public SwanAppComponentContainerView bgf() {
-        return this.cNi;
-    }
-
-    private void l(View view, int i) {
-        if (view != null && view.getVisibility() != i) {
-            view.setVisibility(i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public class VideoHolderWrapper extends FrameLayout {
-        private FrameLayout eCx;
-        private ImageView eCy;
-        private SimpleDraweeView eCz;
+
+        /* renamed from: e  reason: collision with root package name */
+        public FrameLayout f13068e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public ImageView f13069f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public SimpleDraweeView f13070g;
 
         public VideoHolderWrapper(@NonNull Context context) {
             super(context);
-            bgg();
-            bgh();
-            bgi();
-        }
-
-        private void bgg() {
-            this.eCx = new FrameLayout(getContext());
-            addView(this.eCx, new FrameLayout.LayoutParams(-1, -1));
-        }
-
-        private void bgh() {
-            this.eCz = new SimpleDraweeView(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.eCz.getHierarchy().b(p.b.pGb);
-            addView(this.eCz, layoutParams);
-        }
-
-        private void bgi() {
-            this.eCy = new ImageView(VideoContainerManager.this.mContext);
-            this.eCy.setImageResource(c.a.btn_play);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 17;
-            addView(this.eCy, layoutParams);
-        }
-
-        public FrameLayout getVideoHolder() {
-            return this.eCx;
-        }
-
-        public View getPlayerIcon() {
-            return this.eCy;
-        }
-
-        public SimpleDraweeView getVideoPoster() {
-            return this.eCz;
-        }
-
-        public void setPoster(String str) {
-            setPoster(str, "cover");
-        }
-
-        public void setPoster(String str, String str2) {
-            if (!TextUtils.isEmpty(str)) {
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = "cover";
-                }
-                p.b bVar = p.b.pGb;
-                char c = 65535;
-                switch (str2.hashCode()) {
-                    case 3143043:
-                        if (str2.equals("fill")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case 94852023:
-                        if (str2.equals("cover")) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                    case 951526612:
-                        if (str2.equals("contain")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        p.b bVar2 = p.b.pGa;
-                        break;
-                    case 1:
-                        p.b bVar3 = p.b.pGb;
-                        break;
-                    case 2:
-                        p.b bVar4 = p.b.pFV;
-                        break;
-                }
-                this.eCz.getHierarchy().b(p.b.pGb);
-                a(str, this.eCz);
-            }
+            e();
+            d();
+            c();
         }
 
         public void a(String str, SimpleDraweeView simpleDraweeView) {
-            Uri uc = uc(str);
-            if (uc == null) {
+            Uri b2 = b(str);
+            if (b2 == null) {
                 simpleDraweeView.setController(null);
                 return;
             }
-            ImageRequestBuilder ag = ImageRequestBuilder.ag(uc);
+            ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(b2);
             int measuredWidth = simpleDraweeView.getMeasuredWidth() / 2;
             int measuredHeight = simpleDraweeView.getMeasuredHeight() / 2;
             if (measuredWidth > 0 && measuredHeight > 0) {
-                ag.c(new d(measuredWidth, measuredHeight));
+                newBuilderWithSource.setResizeOptions(new ResizeOptions(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.etF().c(simpleDraweeView.getController()).bq(ag.eAz()).euw());
+            simpleDraweeView.setController(Fresco.newDraweeControllerBuilder().setOldController(simpleDraweeView.getController()).setImageRequest(newBuilderWithSource.build()).build());
         }
 
-        public Uri uc(String str) {
+        public Uri b(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            if (str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) || str.startsWith("file://")) {
-                return Uri.parse(str);
+            if (!str.startsWith("http://") && !str.startsWith("https://") && !str.startsWith("file://")) {
+                if (str.startsWith("/")) {
+                    return Uri.fromFile(new File(str));
+                }
+                return null;
             }
-            if (str.startsWith("/")) {
-                return Uri.fromFile(new File(str));
-            }
-            return null;
+            return Uri.parse(str);
         }
+
+        public final void c() {
+            ImageView imageView = new ImageView(VideoContainerManager.this.i);
+            this.f13069f = imageView;
+            imageView.setImageResource(d.b.g0.s.c.btn_play);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 17;
+            addView(this.f13069f, layoutParams);
+        }
+
+        public final void d() {
+            this.f13070g = new SimpleDraweeView(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            this.f13070g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
+            addView(this.f13070g, layoutParams);
+        }
+
+        public final void e() {
+            this.f13068e = new FrameLayout(getContext());
+            addView(this.f13068e, new FrameLayout.LayoutParams(-1, -1));
+        }
+
+        public View getPlayerIcon() {
+            return this.f13069f;
+        }
+
+        public FrameLayout getVideoHolder() {
+            return this.f13068e;
+        }
+
+        public SimpleDraweeView getVideoPoster() {
+            return this.f13070g;
+        }
+
+        public void setPoster(String str) {
+            setPoster(str, AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+        }
+
+        public void setPoster(String str, String str2) {
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str2 = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
+            }
+            ScalingUtils.ScaleType scaleType = ScalingUtils.ScaleType.CENTER_CROP;
+            char c2 = 65535;
+            int hashCode = str2.hashCode();
+            if (hashCode != 3143043) {
+                if (hashCode != 94852023) {
+                    if (hashCode == 951526612 && str2.equals("contain")) {
+                        c2 = 0;
+                    }
+                } else if (str2.equals(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY)) {
+                    c2 = 1;
+                }
+            } else if (str2.equals("fill")) {
+                c2 = 2;
+            }
+            if (c2 == 0) {
+                ScalingUtils.ScaleType scaleType2 = ScalingUtils.ScaleType.CENTER_INSIDE;
+            } else if (c2 == 1) {
+                ScalingUtils.ScaleType scaleType3 = ScalingUtils.ScaleType.CENTER_CROP;
+            } else if (c2 == 2) {
+                ScalingUtils.ScaleType scaleType4 = ScalingUtils.ScaleType.FIT_XY;
+            }
+            this.f13070g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
+            a(str, this.f13070g);
+        }
+    }
+
+    public VideoContainerManager(@NonNull Context context, @NonNull c cVar) {
+        super(context, cVar);
+        this.i = context;
+        SwanAppComponentContainerView swanAppComponentContainerView = new SwanAppComponentContainerView(this.i);
+        this.j = swanAppComponentContainerView;
+        swanAppComponentContainerView.setBackgroundColor(Color.parseColor("#666666"));
+        g(1);
+    }
+
+    public SwanAppComponentContainerView I() {
+        return this.j;
+    }
+
+    public FrameLayout J() {
+        return K().getVideoHolder();
+    }
+
+    public final VideoHolderWrapper K() {
+        if (this.k == null) {
+            this.k = new VideoHolderWrapper(this.i);
+        }
+        return this.k;
+    }
+
+    public void L() {
+        S(K().getPlayerIcon(), 8);
+    }
+
+    public void M() {
+        S(K().getVideoPoster(), 8);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.g0.a.a0.b.a
+    @NonNull
+    /* renamed from: N */
+    public VideoHolderWrapper v(@NonNull Context context) {
+        return K();
+    }
+
+    public void O(View.OnClickListener onClickListener) {
+        View playerIcon = K().getPlayerIcon();
+        playerIcon.setOnClickListener(onClickListener);
+        S(playerIcon, 0);
+    }
+
+    public void P(String str, String str2) {
+        K().setPoster(str, str2);
+        S(K().getVideoPoster(), 0);
+    }
+
+    public void Q(c cVar) {
+        if (cVar == null) {
+            return;
+        }
+        R(cVar);
+    }
+
+    public final void R(c cVar) {
+        if (cVar == null) {
+            return;
+        }
+        if (!(m() != null)) {
+            if (K().getParent() instanceof ViewGroup) {
+                ((ViewGroup) K().getParent()).removeView(K());
+            }
+            I().setDescendantFocusability(393216);
+            d.b.g0.a.a0.b.c w = w();
+            d.b.g0.a.c0.c.a("video", "Add CoverContainerWrapper " + w.a() + " position " + cVar.l);
+            return;
+        }
+        c n = n();
+        if (!TextUtils.equals(cVar.f43112f, n.f43112f) || !TextUtils.equals(cVar.f43113g, n.f43113g) || !TextUtils.equals(cVar.f43114h, n.f43114h)) {
+            d.b.g0.a.a0.g.a.a("video", "updateCoverContainerPosition with different id");
+        }
+        d.b.g0.a.a0.b.c G = G(cVar);
+        d.b.g0.a.c0.c.a("video", "Update CoverContainerWrapper " + G.a() + " position " + cVar.l);
+    }
+
+    public final void S(View view, int i) {
+        if (view == null || view.getVisibility() == i) {
+            return;
+        }
+        view.setVisibility(i);
+    }
+
+    @Override // d.b.g0.a.a0.b.a
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
+        return this.j;
     }
 }

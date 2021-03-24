@@ -5,24 +5,10 @@ import android.os.Handler;
 import android.os.Looper;
 import com.baidu.ar.plugin.reflect.MethodUtils;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class ActivityThreadCompat {
-    private static Object sActivityThread;
-    private static Class sClass = null;
-
-    public static final synchronized Object currentActivityThread() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        Object obj;
-        synchronized (ActivityThreadCompat.class) {
-            if (sActivityThread == null) {
-                sActivityThread = MethodUtils.invokeStaticMethod(activityThreadClass(), "currentActivityThread", new Object[0]);
-                if (sActivityThread == null) {
-                    sActivityThread = currentActivityThread2();
-                }
-            }
-            obj = sActivityThread;
-        }
-        return obj;
-    }
+    public static Object sActivityThread;
+    public static Class sClass;
 
     public static final Class activityThreadClass() throws ClassNotFoundException {
         if (sClass == null) {
@@ -31,11 +17,25 @@ public class ActivityThreadCompat {
         return sClass;
     }
 
-    private static Object currentActivityThread2() {
+    public static final synchronized Object currentActivityThread() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        Object obj;
+        synchronized (ActivityThreadCompat.class) {
+            if (sActivityThread == null) {
+                Object invokeStaticMethod = MethodUtils.invokeStaticMethod(activityThreadClass(), "currentActivityThread", new Object[0]);
+                sActivityThread = invokeStaticMethod;
+                if (invokeStaticMethod == null) {
+                    sActivityThread = currentActivityThread2();
+                }
+            }
+            obj = sActivityThread;
+        }
+        return obj;
+    }
+
+    public static Object currentActivityThread2() {
         Handler handler = new Handler(Looper.getMainLooper());
         final Object obj = new Object();
         handler.post(new Runnable() { // from class: com.baidu.ar.plugin.helper.ActivityThreadCompat.1
-            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [47=4] */
             /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
             @Override // java.lang.Runnable
             public void run() {
@@ -45,8 +45,8 @@ public class ActivityThreadCompat {
                         synchronized (obj) {
                             obj.notifyAll();
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                         synchronized (obj) {
                             obj.notifyAll();
                         }
@@ -59,14 +59,14 @@ public class ActivityThreadCompat {
                 }
             }
         });
-        if (sActivityThread == null && Looper.getMainLooper() != Looper.myLooper()) {
-            synchronized (obj) {
-                try {
-                    obj.wait(300L);
-                } catch (InterruptedException e) {
-                }
-            }
+        if (sActivityThread != null || Looper.getMainLooper() == Looper.myLooper()) {
             return null;
+        }
+        synchronized (obj) {
+            try {
+                obj.wait(300L);
+            } catch (InterruptedException unused) {
+            }
         }
         return null;
     }

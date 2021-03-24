@@ -2,14 +2,14 @@ package com.kwad.sdk.core.imageloader.core.assist.deque;
 
 import java.util.Iterator;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface Deque<E> extends Queue<E> {
     @Override // java.util.Queue, java.util.Collection, java.util.concurrent.BlockingQueue
-    boolean add(E e);
+    boolean add(E e2);
 
-    void addFirst(E e);
+    void addFirst(E e2);
 
-    void addLast(E e);
+    void addLast(E e2);
 
     @Override // java.util.Collection, java.util.concurrent.BlockingQueue
     boolean contains(Object obj);
@@ -27,11 +27,11 @@ public interface Deque<E> extends Queue<E> {
     Iterator<E> iterator();
 
     @Override // java.util.Queue, java.util.concurrent.BlockingQueue
-    boolean offer(E e);
+    boolean offer(E e2);
 
-    boolean offerFirst(E e);
+    boolean offerFirst(E e2);
 
-    boolean offerLast(E e);
+    boolean offerLast(E e2);
 
     @Override // java.util.Queue
     E peek();
@@ -49,7 +49,7 @@ public interface Deque<E> extends Queue<E> {
 
     E pop();
 
-    void push(E e);
+    void push(E e2);
 
     @Override // java.util.Queue
     E remove();

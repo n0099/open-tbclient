@@ -1,89 +1,122 @@
 package com.meizu.cloud.pushsdk.b.c;
 
-import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.meizu.cloud.pushsdk.b.c.c;
 import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final f f7348a;
-    private final String b;
-    private final c c;
-    private final j d;
-    private final Object e;
+    public final f f37532a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final String f37533b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final c f37534c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final j f37535d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final Object f37536e;
+
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private f f7349a;
-        private String b = "GET";
-        private c.a c = new c.a();
-        private j d;
-        private Object e;
+        public f f37537a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f37538b = "GET";
+
+        /* renamed from: c  reason: collision with root package name */
+        public c.a f37539c = new c.a();
+
+        /* renamed from: d  reason: collision with root package name */
+        public j f37540d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public Object f37541e;
 
         public a a() {
             return a("GET", (j) null);
         }
 
         public a a(c cVar) {
-            this.c = cVar.c();
+            this.f37539c = cVar.c();
             return this;
         }
 
         public a a(f fVar) {
-            if (fVar == null) {
-                throw new IllegalArgumentException("url == null");
+            if (fVar != null) {
+                this.f37537a = fVar;
+                return this;
             }
-            this.f7349a = fVar;
-            return this;
+            throw new IllegalArgumentException("url == null");
         }
 
         public a a(j jVar) {
             return a("POST", jVar);
         }
 
+        /* JADX WARN: Removed duplicated region for block: B:12:0x0045  */
+        /* JADX WARN: Removed duplicated region for block: B:14:0x004a  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public a a(String str) {
+            StringBuilder sb;
+            int i;
+            f c2;
             if (str == null) {
                 throw new IllegalArgumentException("url == null");
             }
-            if (str.regionMatches(true, 0, "ws:", 0, 3)) {
-                str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
-            } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
-                str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
-            }
-            f c = f.c(str);
-            if (c == null) {
+            if (!str.regionMatches(true, 0, "ws:", 0, 3)) {
+                if (str.regionMatches(true, 0, "wss:", 0, 4)) {
+                    sb = new StringBuilder();
+                    sb.append(UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
+                    i = 4;
+                }
+                c2 = f.c(str);
+                if (c2 == null) {
+                    return a(c2);
+                }
                 throw new IllegalArgumentException("unexpected url: " + str);
             }
-            return a(c);
+            sb = new StringBuilder();
+            sb.append(UrlSchemaHelper.SCHEMA_TYPE_HTTP);
+            i = 3;
+            sb.append(str.substring(i));
+            str = sb.toString();
+            c2 = f.c(str);
+            if (c2 == null) {
+            }
         }
 
         public a a(String str, j jVar) {
             if (str == null || str.length() == 0) {
                 throw new IllegalArgumentException("method == null || method.length() == 0");
             }
-            if (jVar == null || d.b(str)) {
-                if (jVar == null && d.a(str)) {
-                    throw new IllegalArgumentException("method " + str + " must have a request body.");
-                }
-                this.b = str;
-                this.d = jVar;
+            if (jVar != null && !d.b(str)) {
+                throw new IllegalArgumentException("method " + str + " must not have a request body.");
+            } else if (jVar != null || !d.a(str)) {
+                this.f37538b = str;
+                this.f37540d = jVar;
                 return this;
+            } else {
+                throw new IllegalArgumentException("method " + str + " must have a request body.");
             }
-            throw new IllegalArgumentException("method " + str + " must not have a request body.");
         }
 
         public a a(String str, String str2) {
-            this.c.a(str, str2);
+            this.f37539c.a(str, str2);
             return this;
         }
 
         public a b() {
-            return a(HttpHead.METHOD_NAME, (j) null);
+            return a("HEAD", (j) null);
         }
 
         public a b(j jVar) {
@@ -95,10 +128,10 @@ public class i {
         }
 
         public i c() {
-            if (this.f7349a == null) {
-                throw new IllegalStateException("url == null");
+            if (this.f37537a != null) {
+                return new i(this);
             }
-            return new i(this);
+            throw new IllegalStateException("url == null");
         }
 
         public a d(j jVar) {
@@ -106,24 +139,24 @@ public class i {
         }
     }
 
-    private i(a aVar) {
-        this.f7348a = aVar.f7349a;
-        this.b = aVar.b;
-        this.c = aVar.c.a();
-        this.d = aVar.d;
-        this.e = aVar.e != null ? aVar.e : this;
+    public i(a aVar) {
+        this.f37532a = aVar.f37537a;
+        this.f37533b = aVar.f37538b;
+        this.f37534c = aVar.f37539c.a();
+        this.f37535d = aVar.f37540d;
+        this.f37536e = aVar.f37541e != null ? aVar.f37541e : this;
     }
 
     public f a() {
-        return this.f7348a;
+        return this.f37532a;
     }
 
     public String a(String str) {
-        return this.c.a(str);
+        return this.f37534c.a(str);
     }
 
     public String b() {
-        return this.b;
+        return this.f37533b;
     }
 
     public int c() {
@@ -139,25 +172,37 @@ public class i {
         if (HttpDelete.METHOD_NAME.equals(b())) {
             return 3;
         }
-        if (HttpHead.METHOD_NAME.equals(b())) {
+        if ("HEAD".equals(b())) {
             return 4;
         }
         return "PATCH".equals(b()) ? 5 : 0;
     }
 
     public c d() {
-        return this.c;
+        return this.f37534c;
     }
 
     public j e() {
-        return this.d;
+        return this.f37535d;
     }
 
     public boolean f() {
-        return this.f7348a.a();
+        return this.f37532a.a();
     }
 
     public String toString() {
-        return "Request{method=" + this.b + ", url=" + this.f7348a + ", tag=" + (this.e != this ? this.e : null) + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Request{method=");
+        sb.append(this.f37533b);
+        sb.append(", url=");
+        sb.append(this.f37532a);
+        sb.append(", tag=");
+        Object obj = this.f37536e;
+        if (obj == this) {
+            obj = null;
+        }
+        sb.append(obj);
+        sb.append('}');
+        return sb.toString();
     }
 }

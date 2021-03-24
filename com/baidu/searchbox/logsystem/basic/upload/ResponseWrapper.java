@@ -1,7 +1,7 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class ResponseWrapper {
     public abstract void close();
 

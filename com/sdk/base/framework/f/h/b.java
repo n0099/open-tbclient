@@ -1,56 +1,59 @@
 package com.sdk.base.framework.f.h;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import com.tencent.connect.common.Constants;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
+import com.sdk.base.framework.a.a.c;
+import com.sdk.base.framework.c.f;
+import java.nio.charset.Charset;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.interfaces.RSAPublicKey;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+/* loaded from: classes6.dex */
 public class b extends com.sdk.base.framework.f.a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f38558a = "RSA/ECB/PKCS1Padding";
+
     static {
-        b.class.getName();
-        boolean z = com.sdk.base.framework.c.f.b;
+        boolean z = f.f38519b;
     }
 
-    public static c a(Context context, ArrayList<String> arrayList) {
-        c cVar = c.c;
-        return arrayList != null ? a.a(context, arrayList, true) : a.a(context, null, false);
+    public static String a(String str, String str2) {
+        RSAPublicKey rSAPublicKey = (RSAPublicKey) a.a(str2);
+        if (c.a(str).booleanValue()) {
+            throw new Exception("rsaAes key is null");
+        }
+        return new String(a(rSAPublicKey, com.sdk.base.framework.f.i.c.a(str)), Charset.defaultCharset()).trim();
     }
 
-    public static String a(Context context, String str) {
-        int b;
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            String str2 = null;
-            if (com.sdk.base.framework.a.a.c.b(str).booleanValue()) {
-                String substring = str.substring(3);
-                str2 = substring.substring(0, substring.length() - 10);
+    public static byte[] a(RSAPublicKey rSAPublicKey, byte[] bArr) {
+        if (rSAPublicKey != null) {
+            try {
+                Cipher cipher = Cipher.getInstance(f38558a);
+                cipher.init(2, rSAPublicKey);
+                return cipher.doFinal(bArr);
+            } catch (InvalidKeyException unused) {
+                throw new InvalidKeyException("解密公钥非法,请检查");
+            } catch (NoSuchAlgorithmException unused2) {
+                throw new NoSuchAlgorithmException("无此解密算法");
+            } catch (BadPaddingException unused3) {
+                throw new BadPaddingException("密文数据已损坏");
+            } catch (IllegalBlockSizeException unused4) {
+                throw new IllegalBlockSizeException("密文长度非法");
+            } catch (NoSuchPaddingException unused5) {
+                throw new NoSuchPaddingException("解密出错！不支持该填充机制");
             }
-            b = com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? -1 : com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? -1 : ("01".equals(str2) || "06".equals(str2) || "09".equals(str2)) ? g.b.b() : ("00".equals(str2) || "02".equals(str2) || "04".equals(str2) || "07".equals(str2)) ? g.f7647a.b() : ("03".equals(str2) || "05".equals(str2) || Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE.equals(str2)) ? g.c.b() : -1;
-            if (b == -1 && activeNetworkInfo != null) {
-                String typeName = activeNetworkInfo.getTypeName();
-                if (!"WIFI".equalsIgnoreCase(typeName) && "MOBILE".equalsIgnoreCase(typeName)) {
-                    String extraInfo = activeNetworkInfo.getExtraInfo();
-                    if ("cmnet".equals(extraInfo) || "cmwap".equals(extraInfo)) {
-                        b = g.f7647a.b();
-                    } else if ("3gwap".equals(extraInfo) || "uniwap".equals(extraInfo) || "3gnet".equals(extraInfo) || "uninet".equals(extraInfo)) {
-                        b = g.b.b();
-                    } else if ("ctnet".equals(extraInfo) || "ctwap".equals(extraInfo)) {
-                        b = g.c.b();
-                    }
-                }
-            }
-        } catch (Exception e) {
         }
-        if (b == g.b.b()) {
-            return g.b.a();
-        }
-        if (b == g.c.b()) {
-            return g.c.a();
-        }
-        if (b == g.f7647a.b()) {
-            return g.f7647a.a();
-        }
-        return "UNKOWN";
+        throw new Exception("解密公钥为空, 请设置");
+    }
+
+    public static String b(String str, String str2) {
+        PublicKey a2 = a.a(str);
+        Cipher cipher = Cipher.getInstance(f38558a);
+        cipher.init(1, a2);
+        return com.sdk.base.framework.f.i.c.a(cipher.doFinal(str2.getBytes(Charset.defaultCharset()))).toString();
     }
 }

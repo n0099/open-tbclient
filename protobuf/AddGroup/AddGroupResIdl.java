@@ -10,18 +10,7 @@ public final class AddGroupResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    private AddGroupResIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            this.error = builder.error;
-            this.data = builder.data;
-            return;
-        }
-        this.error = builder.error;
-        this.data = builder.data;
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<AddGroupResIdl> {
         public DataRes data;
         public Error error;
@@ -31,10 +20,11 @@ public final class AddGroupResIdl extends Message {
 
         public Builder(AddGroupResIdl addGroupResIdl) {
             super(addGroupResIdl);
-            if (addGroupResIdl != null) {
-                this.error = addGroupResIdl.error;
-                this.data = addGroupResIdl.data;
+            if (addGroupResIdl == null) {
+                return;
             }
+            this.error = addGroupResIdl.error;
+            this.data = addGroupResIdl.data;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,5 +32,16 @@ public final class AddGroupResIdl extends Message {
         public AddGroupResIdl build(boolean z) {
             return new AddGroupResIdl(this, z);
         }
+    }
+
+    public AddGroupResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+            this.data = builder.data;
+            return;
+        }
+        this.error = builder.error;
+        this.data = builder.data;
     }
 }

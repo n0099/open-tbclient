@@ -3,52 +3,60 @@ package com.kwad.sdk.utils;
 import android.content.Context;
 import android.content.IntentFilter;
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicBoolean f7146a = new AtomicBoolean(false);
-    private static volatile h b;
-    private Context c;
-    private a d;
+    public static final AtomicBoolean f36774a = new AtomicBoolean(false);
 
-    private h(Context context) {
-        this.c = context.getApplicationContext();
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile h f36775b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f36776c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public a f36777d;
+
+    public h(Context context) {
+        this.f36776c = context.getApplicationContext();
     }
 
     public static h a(@NonNull Context context) {
-        if (b == null) {
+        if (f36775b == null) {
             synchronized (h.class) {
-                if (b == null) {
-                    b = new h(context);
+                if (f36775b == null) {
+                    f36775b = new h(context);
                 }
             }
         }
-        return b;
+        return f36775b;
     }
 
     private void c() {
-        if (!f7146a.get() || this.c == null) {
+        Context context;
+        if (!f36774a.get() || (context = this.f36776c) == null) {
             return;
         }
-        this.c.unregisterReceiver(this.d);
-        f7146a.set(false);
+        context.unregisterReceiver(this.f36777d);
+        f36774a.set(false);
     }
 
     public void a() {
-        if (this.c == null || f7146a.get()) {
+        if (this.f36776c == null || f36774a.get()) {
             return;
         }
-        if (this.d == null) {
-            this.d = new a();
+        if (this.f36777d == null) {
+            this.f36777d = new a();
         }
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.intent.action.PACKAGE_REMOVED");
-        intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
+        intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
+        intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addDataScheme("package");
-        this.c.registerReceiver(this.d, intentFilter);
-        f7146a.set(true);
+        this.f36776c.registerReceiver(this.f36777d, intentFilter);
+        f36774a.set(true);
     }
 
     public void b() {

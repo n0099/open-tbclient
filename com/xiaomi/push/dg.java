@@ -1,58 +1,75 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
-/* synthetic */ class dg {
+
+import android.util.Log;
+import android.util.Pair;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class dg implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f8316a = new int[hm.values().length];
+    public final /* synthetic */ df f40361a;
 
-    static {
-        try {
-            f8316a[hm.Registration.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ String f232a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ Throwable f233a;
+
+    public dg(df dfVar, String str, Throwable th) {
+        this.f40361a = dfVar;
+        this.f232a = str;
+        this.f233a = th;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        List list;
+        SimpleDateFormat simpleDateFormat;
+        String str;
+        List list2;
+        String str2;
+        String str3;
+        List list3;
+        List list4;
+        SimpleDateFormat simpleDateFormat2;
+        String str4;
+        List list5;
+        List list6;
+        list = df.f229a;
+        simpleDateFormat = df.f228a;
+        str = this.f40361a.f40359b;
+        list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f232a), this.f233a));
+        list2 = df.f229a;
+        if (list2.size() > 20000) {
+            list3 = df.f229a;
+            int size = (list3.size() - 20000) + 50;
+            for (int i = 0; i < size; i++) {
+                try {
+                    list5 = df.f229a;
+                    if (list5.size() > 0) {
+                        list6 = df.f229a;
+                        list6.remove(0);
+                    }
+                } catch (IndexOutOfBoundsException unused) {
+                }
+            }
+            list4 = df.f229a;
+            simpleDateFormat2 = df.f228a;
+            str4 = this.f40361a.f40359b;
+            list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str4, "flush " + size + " lines logs."), null));
         }
         try {
-            f8316a[hm.UnRegistration.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            f8316a[hm.Subscription.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
-        try {
-            f8316a[hm.UnSubscription.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
-        }
-        try {
-            f8316a[hm.SendMessage.ordinal()] = 5;
-        } catch (NoSuchFieldError e5) {
-        }
-        try {
-            f8316a[hm.AckMessage.ordinal()] = 6;
-        } catch (NoSuchFieldError e6) {
-        }
-        try {
-            f8316a[hm.SetConfig.ordinal()] = 7;
-        } catch (NoSuchFieldError e7) {
-        }
-        try {
-            f8316a[hm.ReportFeedback.ordinal()] = 8;
-        } catch (NoSuchFieldError e8) {
-        }
-        try {
-            f8316a[hm.MultiConnectionBroadcast.ordinal()] = 9;
-        } catch (NoSuchFieldError e9) {
-        }
-        try {
-            f8316a[hm.MultiConnectionResult.ordinal()] = 10;
-        } catch (NoSuchFieldError e10) {
-        }
-        try {
-            f8316a[hm.Notification.ordinal()] = 11;
-        } catch (NoSuchFieldError e11) {
-        }
-        try {
-            f8316a[hm.Command.ordinal()] = 12;
-        } catch (NoSuchFieldError e12) {
+            if (aa.d()) {
+                this.f40361a.m225a();
+                return;
+            }
+            str3 = this.f40361a.f40359b;
+            Log.w(str3, "SDCard is unavailable.");
+        } catch (Exception e2) {
+            str2 = this.f40361a.f40359b;
+            Log.e(str2, "", e2);
         }
     }
 }

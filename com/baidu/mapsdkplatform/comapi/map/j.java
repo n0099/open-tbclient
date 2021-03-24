@@ -13,9 +13,10 @@ import android.view.SurfaceHolder;
 import com.baidu.mapapi.common.EnvironmentUtilities;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.MapRenderer;
-import com.baidu.mobstat.Config;
+import java.util.List;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
@@ -23,34 +24,59 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, MapRenderer.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2225a = j.class.getSimpleName();
-    private Handler b;
-    private MapRenderer c;
-    private int d;
-    private int e;
-    private GestureDetector f;
-    private e g;
+    public static final String f7634a = j.class.getSimpleName();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public Handler f7635b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public MapRenderer f7636c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f7637d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f7638e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public GestureDetector f7639f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public e f7640g;
+
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        float f2226a;
-        float b;
-        float c;
-        float d;
-        boolean e;
-        float f;
-        float g;
-        double h;
+        public float f7641a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public float f7642b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public float f7643c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public float f7644d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f7645e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public float f7646f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public float f7647g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public double f7648h;
 
         public String toString() {
-            return "MultiTouch{x1=" + this.f2226a + ", x2=" + this.b + ", y1=" + this.c + ", y2=" + this.d + ", mTwoTouch=" + this.e + ", centerX=" + this.f + ", centerY=" + this.g + ", length=" + this.h + '}';
+            return "MultiTouch{x1=" + this.f7641a + ", x2=" + this.f7642b + ", y1=" + this.f7643c + ", y2=" + this.f7644d + ", mTwoTouch=" + this.f7645e + ", centerX=" + this.f7646f + ", centerY=" + this.f7647g + ", length=" + this.f7648h + '}';
         }
     }
 
@@ -60,22 +86,22 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
             throw new RuntimeException("when you create an mapview, the context can not be null");
         }
         setEGLContextClientVersion(2);
-        this.f = new GestureDetector(context, this);
+        this.f7639f = new GestureDetector(context, this);
         EnvironmentUtilities.initAppDirectory(context);
-        if (this.g == null) {
-            this.g = new e(context, str, i);
+        if (this.f7640g == null) {
+            this.f7640g = new e(context, str, i);
         }
-        this.g.a(context.hashCode());
+        this.f7640g.a(context.hashCode());
         g();
-        this.g.a();
-        this.g.a(zVar);
+        this.f7640g.a();
+        this.f7640g.a(zVar);
         h();
-        this.g.a(this.b);
-        this.g.f();
+        this.f7640g.a(this.f7635b);
+        this.f7640g.f();
         setBackgroundColor(0);
     }
 
-    private static boolean a(int i, int i2, int i3, int i4, int i5, int i6) {
+    public static boolean a(int i, int i2, int i3, int i4, int i5, int i6) {
         EGL10 egl10 = (EGL10) EGLContext.getEGL();
         EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
         egl10.eglInitialize(eglGetDisplay, new int[2]);
@@ -92,152 +118,168 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
             } else {
                 setEGLConfigChooser(true);
             }
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException unused) {
             setEGLConfigChooser(true);
         }
-        this.c = new MapRenderer(this, this);
-        this.c.a(this.g.j);
-        setRenderer(this.c);
+        MapRenderer mapRenderer = new MapRenderer(this, this);
+        this.f7636c = mapRenderer;
+        mapRenderer.a(this.f7640g.j);
+        setRenderer(this.f7636c);
         setRenderMode(1);
     }
 
     private void h() {
-        this.b = new k(this);
+        this.f7635b = new k(this);
     }
 
     public e a() {
-        return this.g;
+        return this.f7640g;
     }
 
-    public void a(float f, float f2) {
-        if (this.g == null || this.g.i == null) {
+    public void a(float f2, float f3) {
+        e eVar = this.f7640g;
+        if (eVar == null || eVar.i == null) {
             return;
         }
-        this.g.b(f, f2);
+        eVar.b(f2, f3);
     }
 
     public void a(int i) {
-        if (this.g == null) {
+        int i2;
+        if (this.f7640g == null) {
             return;
         }
         Message message = new Message();
         message.what = 50;
-        message.obj = Long.valueOf(this.g.j);
-        boolean q = this.g.q();
-        if (i == 3) {
-            message.arg1 = 0;
-        } else if (q) {
-            message.arg1 = 1;
+        message.obj = Long.valueOf(this.f7640g.j);
+        boolean q = this.f7640g.q();
+        if (i != 3) {
+            i2 = q ? 1 : 1;
+            this.f7635b.sendMessage(message);
         }
-        this.b.sendMessage(message);
+        i2 = 0;
+        message.arg1 = i2;
+        this.f7635b.sendMessage(message);
     }
 
     public void a(String str, Rect rect) {
-        if (this.g == null || this.g.i == null) {
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
+        e eVar = this.f7640g;
+        if (eVar == null || (aVar = eVar.i) == null) {
             return;
         }
-        if (rect == null) {
-            this.g.i.a(str, (Bundle) null);
-            requestRender();
-            return;
+        if (rect != null) {
+            int i = rect.left;
+            int i2 = this.f7638e;
+            int i3 = rect.bottom;
+            int i4 = i2 < i3 ? 0 : i2 - i3;
+            int width = rect.width();
+            int height = rect.height();
+            if (i < 0 || i4 < 0 || width <= 0 || height <= 0) {
+                return;
+            }
+            if (width > this.f7637d) {
+                width = Math.abs(rect.width()) - (rect.right - this.f7637d);
+            }
+            if (height > this.f7638e) {
+                height = Math.abs(rect.height()) - (rect.bottom - this.f7638e);
+            }
+            if (i > SysOSUtil.getScreenSizeX() || i4 > SysOSUtil.getScreenSizeY()) {
+                this.f7640g.i.a(str, (Bundle) null);
+                requestRender();
+                return;
+            }
+            this.f7637d = width;
+            this.f7638e = height;
+            Bundle bundle = new Bundle();
+            bundle.putInt("x", i);
+            bundle.putInt("y", i4);
+            bundle.putInt("width", width);
+            bundle.putInt("height", height);
+            this.f7640g.i.a(str, bundle);
+        } else {
+            aVar.a(str, (Bundle) null);
         }
-        int i = rect.left;
-        int i2 = this.e < rect.bottom ? 0 : this.e - rect.bottom;
-        int width = rect.width();
-        int height = rect.height();
-        if (i < 0 || i2 < 0 || width <= 0 || height <= 0) {
-            return;
-        }
-        if (width > this.d) {
-            width = Math.abs(rect.width()) - (rect.right - this.d);
-        }
-        if (height > this.e) {
-            height = Math.abs(rect.height()) - (rect.bottom - this.e);
-        }
-        if (i > SysOSUtil.getScreenSizeX() || i2 > SysOSUtil.getScreenSizeY()) {
-            this.g.i.a(str, (Bundle) null);
-            requestRender();
-            return;
-        }
-        this.d = width;
-        this.e = height;
-        Bundle bundle = new Bundle();
-        bundle.putInt(Config.EVENT_HEAT_X, i);
-        bundle.putInt("y", i2);
-        bundle.putInt("width", width);
-        bundle.putInt("height", height);
-        this.g.i.a(str, bundle);
         requestRender();
     }
 
-    public boolean a(float f, float f2, float f3, float f4) {
-        if (this.g == null || this.g.i == null) {
+    public boolean a(float f2, float f3, float f4, float f5) {
+        e eVar = this.f7640g;
+        if (eVar == null || eVar.i == null) {
             return false;
         }
-        return this.g.a(f, f2, f3, f4);
+        return eVar.a(f2, f3, f4, f5);
     }
 
     public void b() {
-        if (this.g == null) {
+        e eVar = this.f7640g;
+        if (eVar == null) {
             return;
         }
-        this.g.u();
+        eVar.u();
     }
 
     public void b(int i) {
-        if (this.g != null) {
-            if (this.g.h != null) {
-                for (l lVar : this.g.h) {
+        e eVar = this.f7640g;
+        if (eVar != null) {
+            List<l> list = eVar.f7618h;
+            if (list != null) {
+                for (l lVar : list) {
                     if (lVar != null) {
                         lVar.f();
                     }
                 }
             }
-            this.g.b(this.b);
-            this.g.b(i);
-            this.g = null;
+            this.f7640g.b(this.f7635b);
+            this.f7640g.b(i);
+            this.f7640g = null;
         }
-        if (this.b != null) {
-            this.b.removeCallbacksAndMessages(null);
+        Handler handler = this.f7635b;
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
         }
     }
 
-    public boolean b(float f, float f2) {
-        if (this.g == null || this.g.i == null) {
+    public boolean b(float f2, float f3) {
+        e eVar = this.f7640g;
+        if (eVar == null || eVar.i == null) {
             return false;
         }
-        return this.g.d(f, f2);
+        return eVar.d(f2, f3);
     }
 
     public void c() {
-        if (this.g == null) {
+        e eVar = this.f7640g;
+        if (eVar == null) {
             return;
         }
-        this.g.v();
+        eVar.v();
     }
 
-    public boolean c(float f, float f2) {
-        if (this.g == null || this.g.i == null) {
+    public boolean c(float f2, float f3) {
+        e eVar = this.f7640g;
+        if (eVar == null || eVar.i == null) {
             return false;
         }
-        return this.g.c(f, f2);
+        return eVar.c(f2, f3);
     }
 
     public void d() {
         getHolder().setFormat(-3);
-        this.g.i.s();
+        this.f7640g.i.s();
     }
 
-    public boolean d(float f, float f2) {
-        if (this.g == null || this.g.i == null) {
+    public boolean d(float f2, float f3) {
+        e eVar = this.f7640g;
+        if (eVar == null || eVar.i == null) {
             return false;
         }
-        return this.g.c((int) f, (int) f2);
+        return eVar.c((int) f2, (int) f3);
     }
 
     public void e() {
         getHolder().setFormat(-1);
-        this.g.i.t();
+        this.f7640g.i.t();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.MapRenderer.a
@@ -246,32 +288,33 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.g == null || this.g.i == null || !this.g.k) {
+        e eVar = this.f7640g;
+        if (eVar == null || eVar.i == null || !eVar.k) {
             return true;
         }
-        GeoPoint b = this.g.b((int) motionEvent.getX(), (int) motionEvent.getY());
-        if (b != null) {
-            if (this.g.h != null) {
-                for (l lVar : this.g.h) {
+        GeoPoint b2 = eVar.b((int) motionEvent.getX(), (int) motionEvent.getY());
+        if (b2 != null) {
+            List<l> list = this.f7640g.f7618h;
+            if (list != null) {
+                for (l lVar : list) {
                     if (lVar != null) {
-                        lVar.b(b);
+                        lVar.b(b2);
                     }
                 }
             }
-            if (this.g.f) {
-                ab E = this.g.E();
-                E.f2214a += 1.0f;
-                if (!this.g.g) {
-                    E.d = b.getLongitudeE6();
-                    E.e = b.getLatitudeE6();
+            e eVar2 = this.f7640g;
+            if (eVar2.f7616f) {
+                ab E = eVar2.E();
+                E.f7569a += 1.0f;
+                if (!this.f7640g.f7617g) {
+                    E.f7572d = b2.getLongitudeE6();
+                    E.f7573e = b2.getLatitudeE6();
                 }
                 BaiduMap.mapStatusReason |= 1;
-                this.g.a(E, 300);
-                e eVar = this.g;
+                this.f7640g.a(E, 300);
                 e.m = System.currentTimeMillis();
                 return true;
             }
-            return false;
         }
         return false;
     }
@@ -287,46 +330,54 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.g == null || this.g.i == null || !this.g.k) {
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        e eVar = this.f7640g;
+        if (eVar == null || eVar.i == null || !eVar.k) {
             return true;
         }
-        if (this.g.e) {
-            float sqrt = (float) Math.sqrt((f * f) + (f2 * f2));
-            if (sqrt > 500.0f) {
-                BaiduMap.mapStatusReason |= 1;
-                this.g.A();
-                this.g.a(34, (int) (sqrt * 0.6f), (((int) motionEvent2.getY()) << 16) | ((int) motionEvent2.getX()));
-                this.g.L();
-                return true;
+        if (eVar.f7615e) {
+            float sqrt = (float) Math.sqrt((f2 * f2) + (f3 * f3));
+            if (sqrt <= 500.0f) {
+                return false;
             }
-            return false;
+            BaiduMap.mapStatusReason |= 1;
+            this.f7640g.A();
+            this.f7640g.a(34, (int) (sqrt * 0.6f), ((int) motionEvent2.getX()) | (((int) motionEvent2.getY()) << 16));
+            this.f7640g.L();
+            return true;
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
     public void onLongPress(MotionEvent motionEvent) {
-        if (this.g == null || this.g.i == null || !this.g.k) {
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
+        e eVar = this.f7640g;
+        if (eVar == null || (aVar = eVar.i) == null || !eVar.k) {
             return;
         }
-        String a2 = this.g.i.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.g.l);
+        String a2 = aVar.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.f7640g.l);
         if (a2 == null || a2.equals("")) {
-            if (this.g.h != null) {
-                for (l lVar : this.g.h) {
-                    GeoPoint b = this.g.b((int) motionEvent.getX(), (int) motionEvent.getY());
+            List<l> list = this.f7640g.f7618h;
+            if (list != null) {
+                for (l lVar : list) {
+                    GeoPoint b2 = this.f7640g.b((int) motionEvent.getX(), (int) motionEvent.getY());
                     if (lVar != null) {
-                        lVar.c(b);
+                        lVar.c(b2);
                     }
                 }
+                return;
             }
-        } else if (this.g.h != null) {
-            for (l lVar2 : this.g.h) {
+            return;
+        }
+        List<l> list2 = this.f7640g.f7618h;
+        if (list2 != null) {
+            for (l lVar2 : list2) {
                 if (lVar2 != null) {
                     if (lVar2.b(a2)) {
-                        this.g.p = true;
+                        this.f7640g.p = true;
                     } else {
-                        lVar2.c(this.g.b((int) motionEvent.getX(), (int) motionEvent.getY()));
+                        lVar2.c(this.f7640g.b((int) motionEvent.getX(), (int) motionEvent.getY()));
                     }
                 }
             }
@@ -335,34 +386,38 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
 
     @Override // android.opengl.GLSurfaceView
     public void onPause() {
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         super.onPause();
-        if (this.g == null || this.g.i == null) {
+        e eVar = this.f7640g;
+        if (eVar == null || (aVar = eVar.i) == null) {
             return;
         }
-        this.g.i.c();
+        aVar.c();
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onResume() {
         super.onResume();
-        if (this.g == null || this.g.i == null) {
+        e eVar = this.f7640g;
+        if (eVar == null || eVar.i == null) {
             return;
         }
-        if (this.g.h != null) {
-            for (l lVar : this.g.h) {
+        List<l> list = eVar.f7618h;
+        if (list != null) {
+            for (l lVar : list) {
                 if (lVar != null) {
                     lVar.d();
                 }
             }
         }
-        this.g.i.g();
-        this.g.i.d();
-        this.g.i.n();
+        this.f7640g.i.g();
+        this.f7640g.i.d();
+        this.f7640g.i.n();
         setRenderMode(1);
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
         return false;
     }
 
@@ -370,46 +425,53 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     public void onShowPress(MotionEvent motionEvent) {
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0055  */
     @Override // android.view.GestureDetector.OnDoubleTapListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         JSONObject jSONObject;
-        JSONObject jSONObject2;
-        if (this.g != null && this.g.i != null && this.g.k) {
-            String a2 = this.g.i.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.g.l);
-            if (a2 != null && !a2.equals("")) {
-                try {
-                    jSONObject = new JSONObject(a2);
-                } catch (JSONException e) {
-                    e = e;
-                    jSONObject = null;
-                }
-                try {
-                    jSONObject.put("px", (int) motionEvent.getX());
-                    jSONObject.put("py", (int) motionEvent.getY());
-                    jSONObject2 = jSONObject;
-                } catch (JSONException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    jSONObject2 = jSONObject;
-                    if (this.g.h != null) {
-                    }
-                    return true;
-                }
-                if (this.g.h != null) {
-                    for (l lVar : this.g.h) {
-                        if (jSONObject2 != null && lVar != null) {
-                            lVar.a(jSONObject2.toString());
+        List<l> list;
+        e eVar = this.f7640g;
+        if (eVar != null && (aVar = eVar.i) != null && eVar.k) {
+            String a2 = aVar.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.f7640g.l);
+            JSONObject jSONObject2 = null;
+            if (a2 == null || a2.equals("")) {
+                List<l> list2 = this.f7640g.f7618h;
+                if (list2 != null) {
+                    for (l lVar : list2) {
+                        if (lVar != null) {
+                            lVar.a(this.f7640g.b((int) motionEvent.getX(), (int) motionEvent.getY()));
                         }
                     }
                 }
-            } else if (this.g.h != null) {
-                for (l lVar2 : this.g.h) {
-                    if (lVar2 != null) {
-                        lVar2.a(this.g.b((int) motionEvent.getX(), (int) motionEvent.getY()));
+            } else {
+                try {
+                    jSONObject = new JSONObject(a2);
+                    try {
+                        jSONObject.put("px", (int) motionEvent.getX());
+                        jSONObject.put("py", (int) motionEvent.getY());
+                    } catch (JSONException e2) {
+                        e = e2;
+                        jSONObject2 = jSONObject;
+                        e.printStackTrace();
+                        jSONObject = jSONObject2;
+                        list = this.f7640g.f7618h;
+                        if (list != null) {
+                        }
+                        return true;
+                    }
+                } catch (JSONException e3) {
+                    e = e3;
+                }
+                list = this.f7640g.f7618h;
+                if (list != null) {
+                    for (l lVar2 : list) {
+                        if (jSONObject != null && lVar2 != null) {
+                            lVar2.a(jSONObject.toString());
+                        }
                     }
                 }
             }
@@ -424,47 +486,65 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.g == null || this.g.i == null) {
+        e eVar = this.f7640g;
+        if (eVar == null || eVar.i == null) {
             return true;
         }
         super.onTouchEvent(motionEvent);
-        if (this.g.h != null) {
-            for (l lVar : this.g.h) {
+        List<l> list = this.f7640g.f7618h;
+        if (list != null) {
+            for (l lVar : list) {
                 if (lVar != null) {
                     lVar.a(motionEvent);
                 }
             }
         }
-        if (this.f.onTouchEvent(motionEvent)) {
+        if (this.f7639f.onTouchEvent(motionEvent)) {
             return true;
         }
-        return this.g.a(motionEvent);
+        return this.f7640g.a(motionEvent);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x002d, code lost:
+        if (r6 == ((r2.left - r2.right) / 2)) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0040, code lost:
+        if (r6 == ((r2.bottom - r2.top) / 2)) goto L18;
+     */
     @Override // android.opengl.GLSurfaceView, android.view.SurfaceHolder.Callback
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
         super.surfaceChanged(surfaceHolder, i, i2, i3);
-        if (this.g == null || this.g.i == null) {
+        e eVar = this.f7640g;
+        if (eVar == null || eVar.i == null) {
             return;
         }
-        this.c.f2212a = i2;
-        this.c.b = i3;
-        this.d = i2;
-        this.e = i3;
-        this.c.c = 0;
-        ab E = this.g.E();
-        if (E.f == 0 || E.f == -1 || E.f == (E.j.left - E.j.right) / 2) {
-            E.f = -1;
+        MapRenderer mapRenderer = this.f7636c;
+        mapRenderer.f7559a = i2;
+        mapRenderer.f7560b = i3;
+        this.f7637d = i2;
+        this.f7638e = i3;
+        mapRenderer.f7561c = 0;
+        ab E = eVar.E();
+        int i4 = E.f7574f;
+        if (i4 != 0 && i4 != -1) {
+            WinRound winRound = E.j;
         }
-        if (E.g == 0 || E.g == -1 || E.g == (E.j.bottom - E.j.top) / 2) {
-            E.g = -1;
+        E.f7574f = -1;
+        int i5 = E.f7575g;
+        if (i5 != 0 && i5 != -1) {
+            WinRound winRound2 = E.j;
         }
-        E.j.left = 0;
-        E.j.top = 0;
-        E.j.bottom = i3;
-        E.j.right = i2;
-        this.g.a(E);
-        this.g.a(this.d, this.e);
+        E.f7575g = -1;
+        WinRound winRound3 = E.j;
+        winRound3.left = 0;
+        winRound3.top = 0;
+        winRound3.bottom = i3;
+        winRound3.right = i2;
+        this.f7640g.a(E);
+        this.f7640g.a(this.f7637d, this.f7638e);
     }
 
     @Override // android.opengl.GLSurfaceView, android.view.SurfaceHolder.Callback

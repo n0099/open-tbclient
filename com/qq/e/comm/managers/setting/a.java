@@ -3,26 +3,21 @@ package com.qq.e.comm.managers.setting;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class a extends e {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public a() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str) {
         super(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final Object a(String str) {
-        return this.f7572a.opt(str);
+        return this.f38325a.opt(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final Object a(String str, String str2) {
-        JSONObject optJSONObject = this.f7572a.optJSONObject("ps");
+        JSONObject optJSONObject = this.f38325a.optJSONObject("ps");
         JSONObject optJSONObject2 = optJSONObject != null ? optJSONObject.optJSONObject(str2) : null;
         if (optJSONObject2 != null) {
             return optJSONObject2.opt(str);
@@ -30,39 +25,33 @@ public final class a extends e {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(String str, Object obj) {
         try {
-            this.f7572a.putOpt(str, obj);
-        } catch (JSONException e) {
-            GDTLogger.e("Exception while update setting", e);
+            this.f38325a.putOpt(str, obj);
+        } catch (JSONException e2) {
+            GDTLogger.e("Exception while update setting", e2);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(String str, Object obj, String str2) {
-        JSONObject jSONObject;
         try {
-            JSONObject optJSONObject = this.f7572a.optJSONObject("ps");
+            JSONObject optJSONObject = this.f38325a.optJSONObject("ps");
             if (optJSONObject == null) {
-                JSONObject jSONObject2 = new JSONObject();
-                this.f7572a.putOpt("ps", jSONObject2);
-                jSONObject = jSONObject2;
-            } else {
-                jSONObject = optJSONObject;
+                optJSONObject = new JSONObject();
+                this.f38325a.putOpt("ps", optJSONObject);
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject(str2);
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject(str2);
             if (optJSONObject2 == null) {
                 optJSONObject2 = new JSONObject();
-                jSONObject.putOpt(str2, optJSONObject2);
+                optJSONObject.putOpt(str2, optJSONObject2);
             }
             if (obj == null) {
                 optJSONObject2.remove(str);
             } else {
                 optJSONObject2.putOpt(str, obj);
             }
-        } catch (JSONException e) {
-            GDTLogger.e("Exception while update setting", e);
+        } catch (JSONException e2) {
+            GDTLogger.e("Exception while update setting", e2);
         }
     }
 }

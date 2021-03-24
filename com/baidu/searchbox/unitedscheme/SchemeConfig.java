@@ -3,11 +3,11 @@ package com.baidu.searchbox.unitedscheme;
 import android.content.Context;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SchemeConfig {
     public static final boolean DEBUG = false;
-    private static final String SCHEME_HEAD;
-    private static final Context sAppContext = AppRuntime.getAppContext();
+    public static final String SCHEME_HEAD;
+    public static final Context sAppContext = AppRuntime.getAppContext();
 
     static {
         ISchemeHeadIoc schemeHeadIoc = SchemeRuntime.getSchemeHeadIoc();

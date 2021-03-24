@@ -1,10 +1,11 @@
 package com.baidu.swan.apps.database.cloudconfig;
 
 import android.database.sqlite.SQLiteDatabase;
-/* loaded from: classes8.dex */
+import com.baidu.android.common.others.lang.StringUtil;
+/* loaded from: classes3.dex */
 public final class SwanAppConfTokenTable {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public enum Table {
         app_id,
         action,
@@ -12,15 +13,15 @@ public final class SwanAppConfTokenTable {
         ext
     }
 
-    public static void w(SQLiteDatabase sQLiteDatabase) {
+    public static void a(SQLiteDatabase sQLiteDatabase) {
         try {
-            sQLiteDatabase.execSQL(ath());
-        } catch (Exception e) {
-            e.getStackTrace();
+            sQLiteDatabase.execSQL(b());
+        } catch (Exception e2) {
+            e2.getStackTrace();
         }
     }
 
-    public static String ath() {
-        return "CREATE TABLE ai_apps_cloud_config_tokens (" + Table.app_id + " TEXT NOT NULL," + Table.action + " TEXT," + Table.token + " TEXT," + Table.ext + " TEXT, PRIMARY KEY (" + Table.app_id + ", " + Table.action + "));";
+    public static String b() {
+        return "CREATE TABLE ai_apps_cloud_config_tokens (" + Table.app_id + " TEXT NOT NULL," + Table.action + " TEXT," + Table.token + " TEXT," + Table.ext + " TEXT, PRIMARY KEY (" + Table.app_id + StringUtil.ARRAY_ELEMENT_SEPARATOR + Table.action + "));";
     }
 }

@@ -1,27 +1,28 @@
 package com.baidu.tieba.pb.pb.report;
 
 import com.baidu.adp.framework.message.HttpMessage;
-/* loaded from: classes2.dex */
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+/* loaded from: classes4.dex */
 public class UEGReportRequestMessage extends HttpMessage {
-    private String mPid;
-    private String mTUid;
+    public String mPid;
+    public String mTUid;
 
     public UEGReportRequestMessage() {
-        super(1003402);
+        super(CmdConfigHttp.CMD_UEG_REPORT);
     }
 
     public String getPid() {
         return this.mPid;
     }
 
+    public String getTUid() {
+        return this.mTUid;
+    }
+
     public void setPid(String str) {
         addParam("category", 1);
         addParam("pid", str);
         this.mPid = str;
-    }
-
-    public String getTUid() {
-        return this.mTUid;
     }
 
     public void setTUid(String str) {

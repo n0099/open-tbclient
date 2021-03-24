@@ -1,9 +1,7 @@
 package com.win.opensdk;
-
-import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public enum L0 {
-    STATE_DEFAULT(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT),
+    STATE_DEFAULT("default"),
     STATE_EXPANDED("expanded"),
     STATE_LOADING("loading"),
     STATE_HIDDEN("hidden"),
@@ -11,14 +9,14 @@ public enum L0 {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8097a;
+    public String f39720a;
 
     L0(String str) {
-        this.f8097a = str;
+        this.f39720a = str;
     }
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f8097a;
+        return this.f39720a;
     }
 }

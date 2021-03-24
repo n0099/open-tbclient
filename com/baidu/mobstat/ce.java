@@ -11,86 +11,242 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import kotlin.jvm.internal.ByteCompanionObject;
+import okhttp3.internal.ws.WebSocketProtocol;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ce extends cd {
-    static final /* synthetic */ boolean f;
-    private ByteBuffer g;
-    private final Random h = new Random();
 
-    static {
-        f = !ce.class.desiredAssertionStatus();
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public static final /* synthetic */ boolean f9169f = !ce.class.desiredAssertionStatus();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* renamed from: g  reason: collision with root package name */
+    public ByteBuffer f9170g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final Random f9171h = new Random();
+
+    /* loaded from: classes2.dex */
     public class a extends Throwable {
-        private int b;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f9173b;
 
         public a(int i) {
-            this.b = i;
+            this.f9173b = i;
         }
 
         public int a() {
-            return this.b;
+            return this.f9173b;
         }
     }
 
     @Override // com.baidu.mobstat.cd
     public cd.b a(cs csVar, cz czVar) throws cj {
-        if (!csVar.c("Sec-WebSocket-Key") || !czVar.c("Sec-WebSocket-Accept")) {
+        if (csVar.c("Sec-WebSocket-Key") && czVar.c("Sec-WebSocket-Accept")) {
+            if (a(csVar.b("Sec-WebSocket-Key")).equals(czVar.b("Sec-WebSocket-Accept"))) {
+                return cd.b.MATCHED;
+            }
             return cd.b.NOT_MATCHED;
-        }
-        if (a(csVar.b("Sec-WebSocket-Key")).equals(czVar.b("Sec-WebSocket-Accept"))) {
-            return cd.b.MATCHED;
         }
         return cd.b.NOT_MATCHED;
     }
 
     @Override // com.baidu.mobstat.cd
-    public ByteBuffer a(cq cqVar) {
-        int i;
-        int i2 = 0;
-        ByteBuffer c = cqVar.c();
-        boolean z = this.d == by.b.CLIENT;
-        if (c.remaining() <= 125) {
-            i = 1;
-        } else {
-            i = c.remaining() <= 65535 ? 2 : 8;
+    public cd.a b() {
+        return cd.a.TWOWAY;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x009a, code lost:
+        if (r6.hasRemaining() == false) goto L20;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x009c, code lost:
+        r6.mark();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x009f, code lost:
+        r0.add(e(r6));
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x00a7, code lost:
+        r1 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00a8, code lost:
+        r6.reset();
+        r1 = java.nio.ByteBuffer.allocate(a(r1.a()));
+        r5.f9170g = r1;
+        r1.put(r6);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00bc, code lost:
+        return r0;
+     */
+    @Override // com.baidu.mobstat.cd
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<cq> c(ByteBuffer byteBuffer) throws ck, ch {
+        while (true) {
+            LinkedList linkedList = new LinkedList();
+            if (this.f9170g == null) {
+                break;
+            }
+            try {
+                byteBuffer.mark();
+                int remaining = byteBuffer.remaining();
+                int remaining2 = this.f9170g.remaining();
+                if (remaining2 > remaining) {
+                    this.f9170g.put(byteBuffer.array(), byteBuffer.position(), remaining);
+                    byteBuffer.position(byteBuffer.position() + remaining);
+                    return Collections.emptyList();
+                }
+                this.f9170g.put(byteBuffer.array(), byteBuffer.position(), remaining2);
+                byteBuffer.position(byteBuffer.position() + remaining2);
+                linkedList.add(e((ByteBuffer) this.f9170g.duplicate().position(0)));
+                this.f9170g = null;
+            } catch (a e2) {
+                this.f9170g.limit();
+                ByteBuffer allocate = ByteBuffer.allocate(a(e2.a()));
+                if (!f9169f && allocate.limit() <= this.f9170g.limit()) {
+                    throw new AssertionError();
+                }
+                this.f9170g.rewind();
+                allocate.put(this.f9170g);
+                this.f9170g = allocate;
+            }
         }
-        ByteBuffer allocate = ByteBuffer.allocate((z ? 4 : 0) + (i > 1 ? i + 1 : i) + 1 + c.remaining());
-        allocate.put((byte) (((byte) (cqVar.d() ? -128 : 0)) | a(cqVar.f())));
-        byte[] a2 = a(c.remaining(), i);
-        if (f || a2.length == i) {
-            if (i == 1) {
-                allocate.put((byte) (a2[0] | (z ? Byte.MIN_VALUE : (byte) 0)));
-            } else if (i == 2) {
-                allocate.put((byte) ((z ? Byte.MIN_VALUE : (byte) 0) | 126));
-                allocate.put(a2);
-            } else if (i == 8) {
-                allocate.put((byte) ((z ? Byte.MIN_VALUE : (byte) 0) | Byte.MAX_VALUE));
-                allocate.put(a2);
+    }
+
+    public cq e(ByteBuffer byteBuffer) throws a, ch {
+        cp crVar;
+        int remaining = byteBuffer.remaining();
+        int i = 2;
+        if (remaining >= 2) {
+            byte b2 = byteBuffer.get();
+            boolean z = (b2 >> 8) != 0;
+            byte b3 = (byte) ((b2 & ByteCompanionObject.MAX_VALUE) >> 4);
+            if (b3 == 0) {
+                byte b4 = byteBuffer.get();
+                boolean z2 = (b4 & ByteCompanionObject.MIN_VALUE) != 0;
+                int i2 = (byte) (b4 & ByteCompanionObject.MAX_VALUE);
+                cq.a a2 = a((byte) (b2 & 15));
+                if (z || !(a2 == cq.a.PING || a2 == cq.a.PONG || a2 == cq.a.CLOSING)) {
+                    if (i2 < 0 || i2 > 125) {
+                        if (a2 == cq.a.PING || a2 == cq.a.PONG || a2 == cq.a.CLOSING) {
+                            throw new ci("more than 125 octets");
+                        }
+                        if (i2 != 126) {
+                            i = 10;
+                            if (remaining >= 10) {
+                                byte[] bArr = new byte[8];
+                                for (int i3 = 0; i3 < 8; i3++) {
+                                    bArr[i3] = byteBuffer.get();
+                                }
+                                long longValue = new BigInteger(bArr).longValue();
+                                if (longValue > 2147483647L) {
+                                    throw new ck("Payloadsize is to big...");
+                                }
+                                i2 = (int) longValue;
+                            } else {
+                                throw new a(10);
+                            }
+                        } else if (remaining >= 4) {
+                            i2 = new BigInteger(new byte[]{0, byteBuffer.get(), byteBuffer.get()}).intValue();
+                            i = 4;
+                        } else {
+                            throw new a(4);
+                        }
+                    }
+                    int i4 = i + (z2 ? 4 : 0) + i2;
+                    if (remaining >= i4) {
+                        ByteBuffer allocate = ByteBuffer.allocate(a(i2));
+                        if (z2) {
+                            byte[] bArr2 = new byte[4];
+                            byteBuffer.get(bArr2);
+                            for (int i5 = 0; i5 < i2; i5++) {
+                                allocate.put((byte) (byteBuffer.get() ^ bArr2[i5 % 4]));
+                            }
+                        } else {
+                            allocate.put(byteBuffer.array(), byteBuffer.position(), allocate.limit());
+                            byteBuffer.position(byteBuffer.position() + allocate.limit());
+                        }
+                        if (a2 == cq.a.CLOSING) {
+                            crVar = new co();
+                        } else {
+                            crVar = new cr();
+                            crVar.a(z);
+                            crVar.a(a2);
+                        }
+                        allocate.flip();
+                        crVar.a(allocate);
+                        if (a2 != cq.a.TEXT || dc.b(crVar.c())) {
+                            return crVar;
+                        }
+                        throw new ch(1007);
+                    }
+                    throw new a(i4);
+                }
+                throw new ci("control frames may no be fragmented");
+            }
+            throw new ci("bad rsv " + ((int) b3));
+        }
+        throw new a(2);
+    }
+
+    @Override // com.baidu.mobstat.cd
+    public ByteBuffer a(cq cqVar) {
+        ByteBuffer c2 = cqVar.c();
+        int i = 0;
+        boolean z = this.f9160d == by.b.CLIENT;
+        int i2 = c2.remaining() <= 125 ? 1 : c2.remaining() <= 65535 ? 2 : 8;
+        ByteBuffer allocate = ByteBuffer.allocate((i2 > 1 ? i2 + 1 : i2) + 1 + (z ? 4 : 0) + c2.remaining());
+        byte a2 = a(cqVar.f());
+        boolean d2 = cqVar.d();
+        byte b2 = ByteCompanionObject.MIN_VALUE;
+        allocate.put((byte) (((byte) (d2 ? com.alipay.sdk.encrypt.a.f1896g : 0)) | a2));
+        byte[] a3 = a(c2.remaining(), i2);
+        if (f9169f || a3.length == i2) {
+            if (i2 == 1) {
+                byte b3 = a3[0];
+                if (!z) {
+                    b2 = 0;
+                }
+                allocate.put((byte) (b3 | b2));
+            } else if (i2 == 2) {
+                if (!z) {
+                    b2 = 0;
+                }
+                allocate.put((byte) (b2 | 126));
+                allocate.put(a3);
+            } else if (i2 == 8) {
+                if (!z) {
+                    b2 = 0;
+                }
+                allocate.put((byte) (b2 | ByteCompanionObject.MAX_VALUE));
+                allocate.put(a3);
             } else {
                 throw new RuntimeException("Size representation not supported/specified");
             }
             if (z) {
                 ByteBuffer allocate2 = ByteBuffer.allocate(4);
-                allocate2.putInt(this.h.nextInt());
+                allocate2.putInt(this.f9171h.nextInt());
                 allocate.put(allocate2.array());
-                while (c.hasRemaining()) {
-                    allocate.put((byte) (c.get() ^ allocate2.get(i2 % 4)));
-                    i2++;
+                while (c2.hasRemaining()) {
+                    allocate.put((byte) (c2.get() ^ allocate2.get(i % 4)));
+                    i++;
                 }
             } else {
-                allocate.put(c);
+                allocate.put(c2);
             }
-            if (f || allocate.remaining() == 0) {
+            if (f9169f || allocate.remaining() == 0) {
                 allocate.flip();
                 return allocate;
             }
             throw new AssertionError(allocate.remaining());
         }
         throw new AssertionError();
+    }
+
+    @Override // com.baidu.mobstat.cd
+    public cd c() {
+        return new ce();
     }
 
     @Override // com.baidu.mobstat.cd
@@ -102,8 +258,8 @@ public class ce extends cd {
             crVar.a(cq.a.BINARY);
             crVar.b(z);
             return Collections.singletonList(crVar);
-        } catch (ch e) {
-            throw new cl(e);
+        } catch (ch e2) {
+            throw new cl(e2);
         }
     }
 
@@ -131,9 +287,9 @@ public class ce extends cd {
 
     private String a(String str) {
         try {
-            return db.a(MessageDigest.getInstance("SHA1").digest((str.trim() + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11").getBytes()));
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
+            return db.a(MessageDigest.getInstance("SHA1").digest((str.trim() + WebSocketProtocol.ACCEPT_MAGIC).getBytes()));
+        } catch (NoSuchAlgorithmException e2) {
+            throw new RuntimeException(e2);
         }
     }
 
@@ -143,7 +299,7 @@ public class ce extends cd {
         ctVar.a(HTTP.CONN_DIRECTIVE, "Upgrade");
         ctVar.a("Sec-WebSocket-Version", "8");
         byte[] bArr = new byte[16];
-        this.h.nextBytes(bArr);
+        this.f9171h.nextBytes(bArr);
         ctVar.a("Sec-WebSocket-Key", db.a(bArr));
         return ctVar;
     }
@@ -157,163 +313,30 @@ public class ce extends cd {
         return bArr;
     }
 
-    private cq.a a(byte b) throws ci {
-        switch (b) {
-            case 0:
-                return cq.a.CONTINUOUS;
-            case 1:
-                return cq.a.TEXT;
-            case 2:
+    private cq.a a(byte b2) throws ci {
+        if (b2 != 0) {
+            if (b2 != 1) {
+                if (b2 != 2) {
+                    switch (b2) {
+                        case 8:
+                            return cq.a.CLOSING;
+                        case 9:
+                            return cq.a.PING;
+                        case 10:
+                            return cq.a.PONG;
+                        default:
+                            throw new ci("unknow optcode " + ((int) b2));
+                    }
+                }
                 return cq.a.BINARY;
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            default:
-                throw new ci("unknow optcode " + ((int) b));
-            case 8:
-                return cq.a.CLOSING;
-            case 9:
-                return cq.a.PING;
-            case 10:
-                return cq.a.PONG;
-        }
-    }
-
-    @Override // com.baidu.mobstat.cd
-    public List<cq> c(ByteBuffer byteBuffer) throws ck, ch {
-        LinkedList linkedList;
-        while (true) {
-            linkedList = new LinkedList();
-            if (this.g == null) {
-                break;
             }
-            try {
-                byteBuffer.mark();
-                int remaining = byteBuffer.remaining();
-                int remaining2 = this.g.remaining();
-                if (remaining2 > remaining) {
-                    this.g.put(byteBuffer.array(), byteBuffer.position(), remaining);
-                    byteBuffer.position(remaining + byteBuffer.position());
-                    return Collections.emptyList();
-                }
-                this.g.put(byteBuffer.array(), byteBuffer.position(), remaining2);
-                byteBuffer.position(byteBuffer.position() + remaining2);
-                linkedList.add(e((ByteBuffer) this.g.duplicate().position(0)));
-                this.g = null;
-            } catch (a e) {
-                this.g.limit();
-                ByteBuffer allocate = ByteBuffer.allocate(a(e.a()));
-                if (!f && allocate.limit() <= this.g.limit()) {
-                    throw new AssertionError();
-                }
-                this.g.rewind();
-                allocate.put(this.g);
-                this.g = allocate;
-            }
+            return cq.a.TEXT;
         }
-        while (byteBuffer.hasRemaining()) {
-            byteBuffer.mark();
-            try {
-                linkedList.add(e(byteBuffer));
-            } catch (a e2) {
-                byteBuffer.reset();
-                this.g = ByteBuffer.allocate(a(e2.a()));
-                this.g.put(byteBuffer);
-            }
-        }
-        return linkedList;
-    }
-
-    public cq e(ByteBuffer byteBuffer) throws a, ch {
-        byte b;
-        cp crVar;
-        int i = 2;
-        int remaining = byteBuffer.remaining();
-        if (remaining < 2) {
-            throw new a(2);
-        }
-        byte b2 = byteBuffer.get();
-        boolean z = (b2 >> 8) != 0;
-        if (((byte) ((b2 & Byte.MAX_VALUE) >> 4)) != 0) {
-            throw new ci("bad rsv " + ((int) b));
-        }
-        byte b3 = byteBuffer.get();
-        boolean z2 = (b3 & Byte.MIN_VALUE) != 0;
-        int i2 = (byte) (b3 & Byte.MAX_VALUE);
-        cq.a a2 = a((byte) (b2 & 15));
-        if (!z && (a2 == cq.a.PING || a2 == cq.a.PONG || a2 == cq.a.CLOSING)) {
-            throw new ci("control frames may no be fragmented");
-        }
-        if (i2 < 0 || i2 > 125) {
-            if (a2 == cq.a.PING || a2 == cq.a.PONG || a2 == cq.a.CLOSING) {
-                throw new ci("more than 125 octets");
-            }
-            if (i2 == 126) {
-                if (remaining < 4) {
-                    throw new a(4);
-                }
-                i2 = new BigInteger(new byte[]{0, byteBuffer.get(), byteBuffer.get()}).intValue();
-                i = 4;
-            } else {
-                i = 10;
-                if (remaining < 10) {
-                    throw new a(10);
-                }
-                byte[] bArr = new byte[8];
-                for (int i3 = 0; i3 < 8; i3++) {
-                    bArr[i3] = byteBuffer.get();
-                }
-                long longValue = new BigInteger(bArr).longValue();
-                if (longValue > 2147483647L) {
-                    throw new ck("Payloadsize is to big...");
-                }
-                i2 = (int) longValue;
-            }
-        }
-        int i4 = (z2 ? 4 : 0) + i + i2;
-        if (remaining < i4) {
-            throw new a(i4);
-        }
-        ByteBuffer allocate = ByteBuffer.allocate(a(i2));
-        if (z2) {
-            byte[] bArr2 = new byte[4];
-            byteBuffer.get(bArr2);
-            for (int i5 = 0; i5 < i2; i5++) {
-                allocate.put((byte) (byteBuffer.get() ^ bArr2[i5 % 4]));
-            }
-        } else {
-            allocate.put(byteBuffer.array(), byteBuffer.position(), allocate.limit());
-            byteBuffer.position(byteBuffer.position() + allocate.limit());
-        }
-        if (a2 == cq.a.CLOSING) {
-            crVar = new co();
-        } else {
-            crVar = new cr();
-            crVar.a(z);
-            crVar.a(a2);
-        }
-        allocate.flip();
-        crVar.a(allocate);
-        if (a2 == cq.a.TEXT && !dc.b(crVar.c())) {
-            throw new ch(1007);
-        }
-        return crVar;
+        return cq.a.CONTINUOUS;
     }
 
     @Override // com.baidu.mobstat.cd
     public void a() {
-        this.g = null;
-    }
-
-    @Override // com.baidu.mobstat.cd
-    public cd c() {
-        return new ce();
-    }
-
-    @Override // com.baidu.mobstat.cd
-    public cd.a b() {
-        return cd.a.TWOWAY;
+        this.f9170g = null;
     }
 }

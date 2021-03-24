@@ -1,40 +1,44 @@
 package kotlin.jvm.internal;
 
-import kotlin.reflect.g;
-import kotlin.reflect.k;
-/* loaded from: classes14.dex */
-public abstract class MutablePropertyReference0 extends MutablePropertyReference implements kotlin.reflect.g {
+import kotlin.SinceKotlin;
+import kotlin.reflect.KCallable;
+import kotlin.reflect.KMutableProperty0;
+import kotlin.reflect.KProperty0;
+/* loaded from: classes7.dex */
+public abstract class MutablePropertyReference0 extends MutablePropertyReference implements KMutableProperty0 {
     public MutablePropertyReference0() {
     }
 
-    public MutablePropertyReference0(Object obj) {
-        super(obj);
-    }
-
     @Override // kotlin.jvm.internal.CallableReference
-    protected kotlin.reflect.b computeReflected() {
-        return s.a(this);
+    public KCallable computeReflected() {
+        return Reflection.mutableProperty0(this);
     }
 
-    @Override // kotlin.jvm.a.a
+    @Override // kotlin.reflect.KProperty0
+    @SinceKotlin(version = "1.1")
+    public Object getDelegate() {
+        return ((KMutableProperty0) getReflected()).getDelegate();
+    }
+
+    @Override // kotlin.jvm.functions.Function0
     public Object invoke() {
         return get();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.reflect.k
-    public k.a getGetter() {
-        return ((kotlin.reflect.g) getReflected()).getGetter();
+    @SinceKotlin(version = "1.1")
+    public MutablePropertyReference0(Object obj) {
+        super(obj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.reflect.g
-    public g.a getSetter() {
-        return ((kotlin.reflect.g) getReflected()).getSetter();
+    @Override // kotlin.reflect.KProperty, kotlin.reflect.KProperty0
+    public KProperty0.Getter getGetter() {
+        return ((KMutableProperty0) getReflected()).getGetter();
     }
 
-    @Override // kotlin.reflect.k
-    public Object getDelegate() {
-        return ((kotlin.reflect.g) getReflected()).getDelegate();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.reflect.KMutableProperty, kotlin.reflect.KMutableProperty0
+    public KMutableProperty0.Setter getSetter() {
+        return ((KMutableProperty0) getReflected()).getSetter();
     }
 }

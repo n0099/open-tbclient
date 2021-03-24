@@ -7,83 +7,91 @@ import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class RecordLayout extends RelativeLayout {
-    private float mDownX;
-    private int mFlingDistance;
-    private int mMaximumVelocity;
-    private int mMinimumVelocity;
-    private VelocityTracker mVelocityTracker;
-    private a nTI;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public VelocityTracker f21827e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f21828f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f21829g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f21830h;
+    public float i;
+    public a j;
+
+    /* loaded from: classes5.dex */
     public interface a {
-        void dUA();
+        void onTouchToLeft();
 
-        void dUz();
+        void onTouchToRight();
     }
 
     public RecordLayout(Context context) {
         super(context);
-        init();
+        a();
     }
 
-    public RecordLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
-    }
-
-    public RecordLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
-        this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
-        this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
-        this.mFlingDistance = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds150);
+    public final void a() {
+        this.f21829g = ViewConfiguration.getMaximumFlingVelocity();
+        this.f21828f = ViewConfiguration.getMinimumFlingVelocity();
+        this.f21830h = l.g(getContext(), R.dimen.ds150);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.mVelocityTracker == null) {
-            this.mVelocityTracker = VelocityTracker.obtain();
+        if (this.f21827e == null) {
+            this.f21827e = VelocityTracker.obtain();
         }
-        this.mVelocityTracker.addMovement(motionEvent);
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.mDownX = motionEvent.getRawX();
-                break;
-            case 1:
-            case 3:
-                if (this.nTI != null) {
-                    this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                    float xVelocity = this.mVelocityTracker.getXVelocity();
-                    int rawX = (int) (motionEvent.getRawX() - this.mDownX);
-                    if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
+        this.f21827e.addMovement(motionEvent);
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if ((action == 1 || action == 3) && this.j != null) {
+                this.f21827e.computeCurrentVelocity(1000, this.f21829g);
+                float xVelocity = this.f21827e.getXVelocity();
+                int rawX = (int) (motionEvent.getRawX() - this.i);
+                if (Math.abs(xVelocity) <= this.f21828f || Math.abs(rawX) <= this.f21830h) {
+                    double abs = Math.abs(rawX);
+                    double k = l.k(getContext());
+                    Double.isNaN(k);
+                    if (abs > k * 0.5d) {
                         if (rawX > 0) {
-                            this.nTI.dUA();
+                            this.j.onTouchToRight();
                         } else {
-                            this.nTI.dUz();
-                        }
-                    } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) {
-                        if (rawX > 0) {
-                            this.nTI.dUA();
-                        } else {
-                            this.nTI.dUA();
+                            this.j.onTouchToRight();
                         }
                     }
-                    this.mVelocityTracker.clear();
-                    this.mVelocityTracker.recycle();
-                    this.mVelocityTracker = null;
-                    break;
+                } else if (rawX > 0) {
+                    this.j.onTouchToRight();
+                } else {
+                    this.j.onTouchToLeft();
                 }
-                break;
+                this.f21827e.clear();
+                this.f21827e.recycle();
+                this.f21827e = null;
+            }
+        } else {
+            this.i = motionEvent.getRawX();
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setListener(a aVar) {
-        this.nTI = aVar;
+        this.j = aVar;
+    }
+
+    public RecordLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a();
+    }
+
+    public RecordLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a();
     }
 }

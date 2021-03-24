@@ -3,52 +3,60 @@ package com.bytedance.sdk.openadsdk.preload.geckox.a.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    final int f5054a;
-    final c b;
-    private final b c;
+    public final int f30196a;
 
-    private a(C1045a c1045a) {
-        this.f5054a = c1045a.f5055a;
-        this.c = c1045a.b;
-        this.b = c1045a.c;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public final c f30197b;
 
-    public b a() {
-        return this.c;
-    }
-
-    public int b() {
-        return this.f5054a;
-    }
-
-    public c c() {
-        return this.b;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public final b f30198c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1045a {
+    public static final class C0333a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f5055a;
-        private b b = b.f5056a;
-        private c c;
+        public int f30199a;
 
-        public C1045a a(int i) {
-            this.f5055a = i;
+        /* renamed from: b  reason: collision with root package name */
+        public b f30200b = b.f30202a;
+
+        /* renamed from: c  reason: collision with root package name */
+        public c f30201c;
+
+        public C0333a a(int i) {
+            this.f30199a = i;
             return this;
         }
 
-        public C1045a a(b bVar) {
+        public C0333a a(b bVar) {
             if (bVar == null) {
-                bVar = b.f5056a;
+                bVar = b.f30202a;
             }
-            this.b = bVar;
+            this.f30200b = bVar;
             return this;
         }
 
         public a a() {
             return new a(this);
         }
+    }
+
+    public b a() {
+        return this.f30198c;
+    }
+
+    public int b() {
+        return this.f30196a;
+    }
+
+    public c c() {
+        return this.f30197b;
+    }
+
+    public a(C0333a c0333a) {
+        this.f30196a = c0333a.f30199a;
+        this.f30198c = c0333a.f30200b;
+        this.f30197b = c0333a.f30201c;
     }
 }

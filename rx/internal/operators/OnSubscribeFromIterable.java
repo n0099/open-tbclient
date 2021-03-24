@@ -1,140 +1,139 @@
 package rx.internal.operators;
 
+import h.d;
+import h.f;
+import h.j;
+import h.m.a;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
-import rx.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class OnSubscribeFromIterable<T> implements d.a<T> {
-    final Iterable<? extends T> qzW;
 
-    @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((rx.j) ((rx.j) obj));
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public final Iterable<? extends T> f68152e;
 
-    public OnSubscribeFromIterable(Iterable<? extends T> iterable) {
-        if (iterable == null) {
-            throw new NullPointerException("iterable must not be null");
-        }
-        this.qzW = iterable;
-    }
+    /* loaded from: classes7.dex */
+    public static final class IterableProducer<T> extends AtomicLong implements f {
+        public static final long serialVersionUID = -8730475647105475802L;
+        public final Iterator<? extends T> it;
+        public final j<? super T> o;
 
-    public void call(rx.j<? super T> jVar) {
-        try {
-            Iterator<? extends T> it = this.qzW.iterator();
-            boolean hasNext = it.hasNext();
-            if (!jVar.isUnsubscribed()) {
-                if (!hasNext) {
-                    jVar.onCompleted();
-                } else {
-                    jVar.setProducer(new IterableProducer(jVar, it));
-                }
-            }
-        } catch (Throwable th) {
-            rx.exceptions.a.a(th, jVar);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class IterableProducer<T> extends AtomicLong implements rx.f {
-        private static final long serialVersionUID = -8730475647105475802L;
-        private final Iterator<? extends T> it;
-        private final rx.j<? super T> o;
-
-        IterableProducer(rx.j<? super T> jVar, Iterator<? extends T> it) {
+        public IterableProducer(j<? super T> jVar, Iterator<? extends T> it) {
             this.o = jVar;
             this.it = it;
         }
 
-        @Override // rx.f
-        public void request(long j) {
-            if (get() != Long.MAX_VALUE) {
-                if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
-                    fastPath();
-                } else if (j > 0 && a.e(this, j) == 0) {
-                    slowPath(j);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: T, ? super T */
-        void slowPath(long j) {
-            rx.j<? super T> jVar = this.o;
-            Iterator<? extends T> it = this.it;
-            long j2 = 0;
-            while (true) {
-                if (j2 != j) {
-                    if (!jVar.isUnsubscribed()) {
-                        try {
-                            jVar.onNext((T) it.next());
-                            if (!jVar.isUnsubscribed()) {
-                                try {
-                                    if (!it.hasNext()) {
-                                        if (!jVar.isUnsubscribed()) {
-                                            jVar.onCompleted();
-                                            return;
-                                        }
-                                        return;
-                                    }
-                                    j2++;
-                                } catch (Throwable th) {
-                                    rx.exceptions.a.a(th, jVar);
-                                    return;
-                                }
-                            } else {
-                                return;
-                            }
-                        } catch (Throwable th2) {
-                            rx.exceptions.a.a(th2, jVar);
-                            return;
-                        }
-                    } else {
-                        return;
-                    }
-                } else {
-                    j = get();
-                    if (j2 == j) {
-                        j = a.c(this, j2);
-                        if (j == 0) {
-                            return;
-                        }
-                        j2 = 0;
-                    } else {
-                        continue;
-                    }
-                }
-            }
-        }
-
         /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
-        void fastPath() {
-            rx.j<? super T> jVar = this.o;
+        public void fastPath() {
+            j<? super T> jVar = this.o;
             Iterator<? extends T> it = this.it;
             while (!jVar.isUnsubscribed()) {
                 try {
                     jVar.onNext((T) it.next());
-                    if (!jVar.isUnsubscribed()) {
-                        try {
-                            if (!it.hasNext()) {
-                                if (!jVar.isUnsubscribed()) {
-                                    jVar.onCompleted();
-                                    return;
-                                }
+                    if (jVar.isUnsubscribed()) {
+                        return;
+                    }
+                    try {
+                        if (!it.hasNext()) {
+                            if (jVar.isUnsubscribed()) {
                                 return;
                             }
-                        } catch (Throwable th) {
-                            rx.exceptions.a.a(th, jVar);
+                            jVar.onCompleted();
                             return;
                         }
-                    } else {
+                    } catch (Throwable th) {
+                        a.f(th, jVar);
                         return;
                     }
                 } catch (Throwable th2) {
-                    rx.exceptions.a.a(th2, jVar);
+                    a.f(th2, jVar);
                     return;
                 }
             }
+        }
+
+        @Override // h.f
+        public void request(long j) {
+            if (get() == Long.MAX_VALUE) {
+                return;
+            }
+            if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
+                fastPath();
+            } else if (j <= 0 || h.o.a.a.b(this, j) != 0) {
+            } else {
+                slowPath(j);
+            }
+        }
+
+        /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: T, ? super T */
+        public void slowPath(long j) {
+            j<? super T> jVar = this.o;
+            Iterator<? extends T> it = this.it;
+            do {
+                long j2 = 0;
+                while (true) {
+                    if (j2 != j) {
+                        if (jVar.isUnsubscribed()) {
+                            return;
+                        }
+                        try {
+                            jVar.onNext((T) it.next());
+                            if (jVar.isUnsubscribed()) {
+                                return;
+                            }
+                            try {
+                                if (!it.hasNext()) {
+                                    if (jVar.isUnsubscribed()) {
+                                        return;
+                                    }
+                                    jVar.onCompleted();
+                                    return;
+                                }
+                                j2++;
+                            } catch (Throwable th) {
+                                a.f(th, jVar);
+                                return;
+                            }
+                        } catch (Throwable th2) {
+                            a.f(th2, jVar);
+                            return;
+                        }
+                    } else {
+                        j = get();
+                        if (j2 == j) {
+                            j = h.o.a.a.g(this, j2);
+                        }
+                    }
+                }
+            } while (j != 0);
+        }
+    }
+
+    public OnSubscribeFromIterable(Iterable<? extends T> iterable) {
+        if (iterable != null) {
+            this.f68152e = iterable;
+            return;
+        }
+        throw new NullPointerException("iterable must not be null");
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // h.n.b
+    /* renamed from: a */
+    public void call(j<? super T> jVar) {
+        try {
+            Iterator<? extends T> it = this.f68152e.iterator();
+            boolean hasNext = it.hasNext();
+            if (jVar.isUnsubscribed()) {
+                return;
+            }
+            if (!hasNext) {
+                jVar.onCompleted();
+            } else {
+                jVar.setProducer(new IterableProducer(jVar, it));
+            }
+        } catch (Throwable th) {
+            a.f(th, jVar);
         }
     }
 }

@@ -1,10 +1,11 @@
 package com.baidu.helios.common.cc;
 
+import d.b.q.g.b.b;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
-class n {
+/* loaded from: classes2.dex */
+public class n {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a extends Exception {
         public a(String str) {
             super(str);
@@ -20,10 +21,10 @@ class n {
     }
 
     public static String a(byte[] bArr) {
-        return new String(new com.baidu.helios.common.a.b().z(bArr), "UTF-8");
+        return new String(new b().a(bArr), "UTF-8");
     }
 
-    public static Method a(Class<?> cls, String str, Class<?>[] clsArr) {
+    public static Method b(Class<?> cls, String str, Class<?>[] clsArr) {
         Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
         declaredMethod.setAccessible(true);
         return declaredMethod;

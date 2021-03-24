@@ -1,167 +1,88 @@
 package com.bytedance.sdk.openadsdk.core.d;
-
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
-import com.bytedance.sdk.openadsdk.utils.u;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4408a;
-    private int b;
-    private long c;
-    private double d;
-    private String e;
-    private String f;
-    private String g;
-    private String h;
-    private String i;
-    private String j;
-    private int k;
-    private int l = 0;
-    private int m = 0;
+    public String f28234a;
 
-    public int a() {
-        return this.k;
+    /* renamed from: b  reason: collision with root package name */
+    public String f28235b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f28236c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f28237d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f28238e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f28239f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Long f28240g;
+
+    public String a() {
+        return this.f28234a;
     }
 
-    public void a(int i) {
-        this.k = i;
+    public String b() {
+        return this.f28235b;
     }
 
-    public int b() {
-        return this.f4408a;
+    public String c() {
+        return this.f28236c;
     }
 
-    public void b(int i) {
-        this.f4408a = i;
+    public String d() {
+        return this.f28237d;
     }
 
-    public int c() {
-        return this.b;
-    }
-
-    public void c(int i) {
-        this.b = i;
-    }
-
-    public long d() {
-        return this.c;
-    }
-
-    public void a(long j) {
-        this.c = j;
-    }
-
-    public double e() {
-        return this.d;
-    }
-
-    public void a(double d) {
-        this.d = d;
+    public String e() {
+        return this.f28238e;
     }
 
     public String f() {
-        return this.e;
+        return this.f28239f;
     }
 
-    public void a(String str) {
-        this.e = str;
+    public Long g() {
+        return this.f28240g;
     }
 
-    public int[] g() {
-        try {
-            int indexOf = this.e.indexOf(Config.EVENT_HEAT_X);
-            return new int[]{Integer.parseInt(this.e.substring(0, indexOf).trim()), Integer.parseInt(this.e.substring(indexOf + 1).trim())};
-        } catch (Throwable th) {
-            u.c("VideoInfo", "getWidthAndHeight error", th);
-            return null;
-        }
+    public t a(String str) {
+        this.f28234a = str;
+        return this;
     }
 
-    public String h() {
-        return this.f;
+    public t b(String str) {
+        this.f28235b = str;
+        return this;
     }
 
-    public void b(String str) {
-        this.f = str;
+    public t c(String str) {
+        this.f28236c = str;
+        return this;
     }
 
-    public String i() {
-        return this.g;
+    public t d(String str) {
+        this.f28237d = str;
+        return this;
     }
 
-    public void c(String str) {
-        this.g = str;
+    public t e(String str) {
+        this.f28238e = str;
+        return this;
     }
 
-    public String j() {
-        return this.h;
+    public t f(String str) {
+        this.f28239f = str;
+        return this;
     }
 
-    public void d(String str) {
-        this.h = str;
-    }
-
-    public String k() {
-        return this.i;
-    }
-
-    public void e(String str) {
-        this.i = str;
-    }
-
-    public String l() {
-        return this.j;
-    }
-
-    public void f(String str) {
-        this.j = str;
-    }
-
-    public JSONObject m() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("cover_height", b());
-            jSONObject.put("cover_url", h());
-            jSONObject.put("cover_width", c());
-            jSONObject.put("endcard", j());
-            jSONObject.put("file_hash", l());
-            jSONObject.put("resolution", f());
-            jSONObject.put(TiebaInitialize.LogFields.SIZE, d());
-            jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, e());
-            jSONObject.put("video_url", i());
-            jSONObject.put("playable_download_url", k());
-            jSONObject.put("if_playable_loading_show", n());
-            jSONObject.put("remove_loading_page_type", o());
-            jSONObject.put("fallback_endcard_judge", a());
-        } catch (Exception e) {
-        }
-        return jSONObject;
-    }
-
-    public int n() {
-        return this.l;
-    }
-
-    public void d(int i) {
-        this.l = i;
-    }
-
-    public int o() {
-        return this.m;
-    }
-
-    public void e(int i) {
-        this.m = i;
-    }
-
-    public static int[] a(l lVar) {
-        if (lVar == null || lVar.R() == null) {
-            return null;
-        }
-        return lVar.R().g();
+    public t a(Long l) {
+        this.f28240g = l;
+        return this;
     }
 }

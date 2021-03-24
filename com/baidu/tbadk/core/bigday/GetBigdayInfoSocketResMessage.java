@@ -1,12 +1,15 @@
 package com.baidu.tbadk.core.bigday;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.cache.l;
 import com.squareup.wire.Wire;
+import d.b.b.e.d.l;
+import d.b.h0.r.n.a;
 import java.util.ArrayList;
+import tbclient.Error;
 import tbclient.GetBigday.BigdayInfo;
+import tbclient.GetBigday.DataRes;
 import tbclient.GetBigday.GetBigdayResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public ArrayList<a> bigdayInfos;
 
@@ -15,37 +18,41 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
-        if (getBigdayResIdl != null) {
-            if (getBigdayResIdl.error != null) {
-                setError(getBigdayResIdl.error.errorno.intValue());
-                setErrorString(getBigdayResIdl.error.errmsg);
-            }
-            if (getBigdayResIdl.data != null && getBigdayResIdl.data.bigday_list != null) {
-                this.bigdayInfos = new ArrayList<>();
-                for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
-                    if (bigdayInfo != null) {
-                        a aVar = new a();
-                        aVar.a(bigdayInfo);
-                        if (aVar.blc()) {
-                            this.bigdayInfos.add(aVar);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (bArr != null) {
-            l<byte[]> Ay = com.baidu.tbadk.core.c.a.bqt().Ay("tb.bigday_datas");
-            Ay.remove("tb.bigday_datas");
-            Ay.setForever("tb.bigday_datas", bArr);
+        if (bArr == null) {
+            return;
+        }
+        l<byte[]> d2 = d.b.h0.r.r.a.f().d("tb.bigday_datas");
+        d2.remove("tb.bigday_datas");
+        d2.g("tb.bigday_datas", bArr);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
+        if (getBigdayResIdl != null) {
+            Error error = getBigdayResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getBigdayResIdl.error.errmsg);
+            }
+            DataRes dataRes = getBigdayResIdl.data;
+            if (dataRes == null || dataRes.bigday_list == null) {
+                return;
+            }
+            this.bigdayInfos = new ArrayList<>();
+            for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
+                if (bigdayInfo != null) {
+                    a aVar = new a();
+                    aVar.b(bigdayInfo);
+                    if (aVar.a()) {
+                        this.bigdayInfos.add(aVar);
+                    }
+                }
+            }
         }
     }
 }

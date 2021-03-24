@@ -2,20 +2,14 @@ package com.baidu.platform.comapi.walknavi.g.b;
 
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2977a;
+    public final /* synthetic */ c f10096a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.f2977a = cVar;
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+        this.f10096a = cVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,19 +19,23 @@ public class g implements Animation.AnimationListener {
         RelativeLayout relativeLayout3;
         RelativeLayout relativeLayout4;
         RelativeLayout relativeLayout5;
-        relativeLayout = this.f2977a.y;
+        relativeLayout = this.f10096a.y;
         relativeLayout.clearAnimation();
-        relativeLayout2 = this.f2977a.y;
+        relativeLayout2 = this.f10096a.y;
         relativeLayout2.setVisibility(8);
-        relativeLayout3 = this.f2977a.H;
+        relativeLayout3 = this.f10096a.H;
         relativeLayout3.clearAnimation();
-        relativeLayout4 = this.f2977a.H;
+        relativeLayout4 = this.f10096a.H;
         relativeLayout4.setVisibility(8);
-        relativeLayout5 = this.f2977a.I;
+        relativeLayout5 = this.f10096a.I;
         relativeLayout5.setVisibility(0);
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

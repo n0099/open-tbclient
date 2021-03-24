@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public abstract class a {
-    public void a(Map<String, List<Pair<String, Long>>> map, Map<String, List<UpdatePackage>> map2) {
-    }
-
-    public void a(Map<String, List<Pair<String, Long>>> map, Throwable th) {
+    public void a() {
     }
 
     public void a(UpdatePackage updatePackage) {
+    }
+
+    public void a(UpdatePackage updatePackage, Throwable th) {
     }
 
     public void a(String str) {
@@ -21,24 +21,24 @@ public abstract class a {
     public void a(String str, long j) {
     }
 
+    public void a(String str, Throwable th) {
+    }
+
+    public void a(Map<String, List<Pair<String, Long>>> map, Throwable th) {
+    }
+
+    public void a(Map<String, List<Pair<String, Long>>> map, Map<String, List<UpdatePackage>> map2) {
+    }
+
     public void b(UpdatePackage updatePackage) {
-    }
-
-    public void a(UpdatePackage updatePackage, Throwable th) {
-    }
-
-    public void c(UpdatePackage updatePackage) {
     }
 
     public void b(UpdatePackage updatePackage, Throwable th) {
     }
 
-    public void a(String str, Throwable th) {
-    }
-
-    public void a() {
-    }
-
     public void b(String str) {
+    }
+
+    public void c(UpdatePackage updatePackage) {
     }
 }

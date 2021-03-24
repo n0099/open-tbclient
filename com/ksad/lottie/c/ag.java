@@ -1,51 +1,37 @@
 package com.ksad.lottie.c;
 
 import android.util.JsonReader;
+import androidx.appcompat.widget.SearchView;
 import com.fun.ad.sdk.FunAdSdk;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ag {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.content.k a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
+        String str = null;
         com.ksad.lottie.model.a.h hVar = null;
         int i = 0;
-        String str = null;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c = 65535;
-            switch (nextName.hashCode()) {
-                case 3432:
-                    if (nextName.equals(FunAdSdk.PLATFORM_KS)) {
-                        c = 2;
-                        break;
+            char c2 = 65535;
+            int hashCode = nextName.hashCode();
+            if (hashCode != 3432) {
+                if (hashCode != 3519) {
+                    if (hashCode == 104415 && nextName.equals("ind")) {
+                        c2 = 1;
                     }
-                    break;
-                case 3519:
-                    if (nextName.equals("nm")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 104415:
-                    if (nextName.equals("ind")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
+                } else if (nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {
+                    c2 = 0;
+                }
+            } else if (nextName.equals(FunAdSdk.PLATFORM_KS)) {
+                c2 = 2;
             }
-            switch (c) {
-                case 0:
-                    str = jsonReader.nextString();
-                    break;
-                case 1:
-                    i = jsonReader.nextInt();
-                    break;
-                case 2:
-                    hVar = d.e(jsonReader, dVar);
-                    break;
-                default:
-                    jsonReader.skipValue();
-                    break;
+            if (c2 == 0) {
+                str = jsonReader.nextString();
+            } else if (c2 == 1) {
+                i = jsonReader.nextInt();
+            } else if (c2 != 2) {
+                jsonReader.skipValue();
+            } else {
+                hVar = d.e(jsonReader, dVar);
             }
         }
         return new com.ksad.lottie.model.content.k(str, i, hVar);

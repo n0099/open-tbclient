@@ -1,96 +1,109 @@
 package com.xiaomi.push;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
-import android.os.SystemClock;
-import androidx.core.app.NotificationCompat;
-import com.xiaomi.push.fc;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class fd implements fc.a {
-
-    /* renamed from: a  reason: collision with other field name */
-    protected Context f315a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private PendingIntent f314a = null;
+import com.xiaomi.push.du;
+import java.io.BufferedOutputStream;
+import java.io.OutputStream;
+import java.nio.ByteBuffer;
+import java.util.Locale;
+import java.util.TimeZone;
+import java.util.zip.Adler32;
+/* loaded from: classes7.dex */
+public class fd {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile long f8361a = 0;
+    public int f40495a;
 
-    public fd(Context context) {
-        this.f315a = null;
-        this.f315a = context;
+    /* renamed from: a  reason: collision with other field name */
+    public fh f368a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public OutputStream f369a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public byte[] f372a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f40496b;
+
+    /* renamed from: a  reason: collision with other field name */
+    public ByteBuffer f370a = ByteBuffer.allocate(2048);
+
+    /* renamed from: b  reason: collision with other field name */
+    public ByteBuffer f373b = ByteBuffer.allocate(4);
+
+    /* renamed from: a  reason: collision with other field name */
+    public Adler32 f371a = new Adler32();
+
+    public fd(OutputStream outputStream, fh fhVar) {
+        this.f369a = new BufferedOutputStream(outputStream);
+        this.f368a = fhVar;
+        TimeZone timeZone = TimeZone.getDefault();
+        this.f40495a = timeZone.getRawOffset() / 3600000;
+        this.f40496b = timeZone.useDaylightTime() ? 1 : 0;
     }
 
-    private void a(AlarmManager alarmManager, long j, PendingIntent pendingIntent) {
-        try {
-            AlarmManager.class.getMethod("setExact", Integer.TYPE, Long.TYPE, PendingIntent.class).invoke(alarmManager, 0, Long.valueOf(j), pendingIntent);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+    public int a(fa faVar) {
+        int c2 = faVar.c();
+        if (c2 > 32768) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("Blob size=" + c2 + " should be less than 32768 Drop blob chid=" + faVar.a() + " id=" + faVar.e());
+            return 0;
         }
+        this.f370a.clear();
+        int i = c2 + 8 + 4;
+        if (i > this.f370a.capacity() || this.f370a.capacity() > 4096) {
+            this.f370a = ByteBuffer.allocate(i);
+        }
+        this.f370a.putShort((short) -15618);
+        this.f370a.putShort((short) 5);
+        this.f370a.putInt(c2);
+        int position = this.f370a.position();
+        this.f370a = faVar.mo284a(this.f370a);
+        if (!"CONN".equals(faVar.m283a())) {
+            if (this.f372a == null) {
+                this.f372a = this.f368a.a();
+            }
+            com.xiaomi.push.service.be.a(this.f372a, this.f370a.array(), true, position, c2);
+        }
+        this.f371a.reset();
+        this.f371a.update(this.f370a.array(), 0, this.f370a.position());
+        this.f373b.putInt(0, (int) this.f371a.getValue());
+        this.f369a.write(this.f370a.array(), 0, this.f370a.position());
+        this.f369a.write(this.f373b.array(), 0, 4);
+        this.f369a.flush();
+        int position2 = this.f370a.position() + 4;
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + faVar.m283a() + ";chid=" + faVar.a() + ";len=" + position2 + "}");
+        return position2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.xiaomi.push.fc.a
-    public long a() {
-        return fy.b();
-    }
-
-    @Override // com.xiaomi.push.fc.a
     public void a() {
-        if (this.f314a != null) {
-            try {
-                ((AlarmManager) this.f315a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f314a);
-            } catch (Exception e) {
-            } finally {
-                this.f314a = null;
-                com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
-                this.f8361a = 0L;
-            }
+        du.e eVar = new du.e();
+        eVar.a(106);
+        eVar.a(Build.MODEL);
+        eVar.b(t.m618a());
+        eVar.c(com.xiaomi.push.service.bi.m593a());
+        eVar.b(43);
+        eVar.d(this.f368a.m305b());
+        eVar.e(this.f368a.a());
+        eVar.f(Locale.getDefault().toString());
+        eVar.c(Build.VERSION.SDK_INT);
+        byte[] m311a = this.f368a.m301a().m311a();
+        if (m311a != null) {
+            eVar.a(du.b.a(m311a));
         }
-        this.f8361a = 0L;
+        fa faVar = new fa();
+        faVar.a(0);
+        faVar.a("CONN", (String) null);
+        faVar.a(0L, "xiaomi.com", null);
+        faVar.a(eVar.m262a(), (String) null);
+        a(faVar);
+        com.xiaomi.channel.commonutils.logger.b.m51a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m593a() + " tz=" + this.f40495a + ":" + this.f40496b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
     }
 
-    public void a(Intent intent, long j) {
-        AlarmManager alarmManager = (AlarmManager) this.f315a.getSystemService(NotificationCompat.CATEGORY_ALARM);
-        this.f314a = PendingIntent.getBroadcast(this.f315a, 0, intent, 0);
-        if (Build.VERSION.SDK_INT >= 23) {
-            ba.a(alarmManager, "setExactAndAllowWhileIdle", 0, Long.valueOf(j), this.f314a);
-        } else if (Build.VERSION.SDK_INT >= 19) {
-            a(alarmManager, j, this.f314a);
-        } else {
-            alarmManager.set(0, j, this.f314a);
-        }
-        com.xiaomi.channel.commonutils.logger.b.c("register timer " + j);
-    }
-
-    @Override // com.xiaomi.push.fc.a
-    public void a(boolean z) {
-        long a2 = a();
-        if (z || this.f8361a != 0) {
-            if (z) {
-                a();
-            }
-            if (z || this.f8361a == 0) {
-                this.f8361a = (a2 - (SystemClock.elapsedRealtime() % a2)) + System.currentTimeMillis();
-            } else {
-                this.f8361a += a2;
-                if (this.f8361a < System.currentTimeMillis()) {
-                    this.f8361a = a2 + System.currentTimeMillis();
-                }
-            }
-            Intent intent = new Intent(com.xiaomi.push.service.at.o);
-            intent.setPackage(this.f315a.getPackageName());
-            a(intent, this.f8361a);
-        }
-    }
-
-    @Override // com.xiaomi.push.fc.a
-    public boolean a() {
-        return this.f8361a != 0;
+    public void b() {
+        fa faVar = new fa();
+        faVar.a("CLOSE", (String) null);
+        a(faVar);
+        this.f369a.close();
     }
 }

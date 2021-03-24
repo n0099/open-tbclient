@@ -4,96 +4,61 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.atomData.ApplyJoinGroupActivityConfig;
-import com.baidu.tbadk.util.ae;
-import com.baidu.tbadk.util.af;
-import com.baidu.tbadk.util.m;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.data.ValidateItemData;
-import com.baidu.tieba.im.db.d;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.memorycache.b;
+import d.b.b.e.p.l;
+import d.b.h0.z0.f0;
+import d.b.h0.z0.h0;
+import d.b.h0.z0.n;
+import d.b.i0.d1.h.d;
+import d.b.i0.d1.k.b;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ValidateModel {
-    public static void updateValidateData(m<Boolean> mVar, final ValidateItemData validateItemData) {
-        if (validateItemData != null) {
-            af.b(new ae<Boolean>() { // from class: com.baidu.tieba.im.model.ValidateModel.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ae
-                public Boolean doInBackground() {
-                    return Boolean.valueOf(d.cVH().a(ValidateItemData.this));
-                }
-            }, mVar);
+    public static ValidateItemData convertToValidateItemData(GroupNewsPojo groupNewsPojo) {
+        if (groupNewsPojo == null) {
+            return null;
         }
-    }
-
-    public static void markShown(List<ValidateItemData> list) {
-        if (list != null && !list.isEmpty()) {
-            final LinkedList linkedList = new LinkedList();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                ValidateItemData validateItemData = list.get(i);
-                if (validateItemData != null && !validateItemData.isShown()) {
-                    validateItemData.setShown(true);
-                    linkedList.add(new GroupNewsPojo(validateItemData));
-                }
-            }
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.im.model.ValidateModel.2
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    d.cVH().m(linkedList);
+        String content = groupNewsPojo.getContent();
+        if (TextUtils.isEmpty(content)) {
+            return null;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(content);
+            if (true == jSONObject.isNull("notice_id")) {
+                ValidateItemData validateItemData = new ValidateItemData();
+                validateItemData.setNotice_id(groupNewsPojo.getNotice_id());
+                validateItemData.setApplyReason(jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG));
+                validateItemData.setApplyTime(groupNewsPojo.getTime());
+                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+                if (optJSONObject == null) {
                     return null;
                 }
-            }.execute(new Void[0]);
-        }
-    }
-
-    public static void deleteValidateData(final ValidateItemData validateItemData, m<Boolean> mVar) {
-        if (validateItemData != null) {
-            af.b(new ae<Boolean>() { // from class: com.baidu.tieba.im.model.ValidateModel.3
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ae
-                public Boolean doInBackground() {
-                    return Boolean.valueOf(d.cVH().MS(ValidateItemData.this.getNotice_id()));
-                }
-            }, mVar);
-        }
-    }
-
-    public static void requestValidateDataFromDB(final int i, final int i2, m<LinkedList<GroupNewsPojo>> mVar) {
-        af.b(new ae<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.ValidateModel.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.ae
-            public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.cVH().a(0L, i, i2, "apply_join_group");
+                validateItemData.setUserName(optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME));
+                validateItemData.setPortrait(optJSONObject.optString("portrait"));
+                String optString = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
+                validateItemData.setGroupId(optString);
+                setGroupName(validateItemData, optString);
+                validateItemData.setUserId(optJSONObject.optString("userId"));
+                validateItemData.setInviterUserId(optJSONObject.optLong(ApplyJoinGroupActivityConfig.INVITE_USER_ID));
+                validateItemData.setJoinType(optJSONObject.optInt(ApplyJoinGroupActivityConfig.JOIN_TYPE));
+                validateItemData.setExt(groupNewsPojo.getExt());
+                return validateItemData;
             }
-        }, mVar);
-    }
-
-    public static void requestValidateDataCountFromDB(m<Integer> mVar) {
-        af.b(new ae<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.ae
-            public Integer doInBackground() {
-                return Integer.valueOf(d.cVH().MQ("apply_join_group"));
-            }
-        }, mVar);
-    }
-
-    public static ValidateItemData getByNoticeid(String str) {
-        return convertToValidateItemData(d.cVH().MR(str));
+            ValidateItemData validateItemData2 = (ValidateItemData) OrmObject.objectWithJsonStr(content, ValidateItemData.class);
+            setGroupName(validateItemData2, validateItemData2.getGroupId());
+            return validateItemData2;
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+            return null;
+        }
     }
 
     public static List<ValidateItemData> convertToValidateItemDataList(LinkedList<GroupNewsPojo> linkedList) {
@@ -111,55 +76,86 @@ public class ValidateModel {
         return linkedList2;
     }
 
-    public static ValidateItemData convertToValidateItemData(GroupNewsPojo groupNewsPojo) {
-        ValidateItemData validateItemData;
-        if (groupNewsPojo == null) {
-            return null;
+    public static void deleteValidateData(final ValidateItemData validateItemData, n<Boolean> nVar) {
+        if (validateItemData == null) {
+            return;
         }
-        String content = groupNewsPojo.getContent();
-        if (TextUtils.isEmpty(content)) {
-            return null;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(content);
-            if (true == jSONObject.isNull("notice_id")) {
-                validateItemData = new ValidateItemData();
-                validateItemData.setNotice_id(groupNewsPojo.getNotice_id());
-                validateItemData.setApplyReason(jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG));
-                validateItemData.setApplyTime(groupNewsPojo.getTime());
-                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
-                if (optJSONObject == null) {
-                    validateItemData = null;
-                } else {
-                    validateItemData.setUserName(optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME));
-                    validateItemData.setPortrait(optJSONObject.optString("portrait"));
-                    String optString = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                    validateItemData.setGroupId(optString);
-                    setGroupName(validateItemData, optString);
-                    validateItemData.setUserId(optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_ID));
-                    validateItemData.setInviterUserId(optJSONObject.optLong(ApplyJoinGroupActivityConfig.INVITE_USER_ID));
-                    validateItemData.setJoinType(optJSONObject.optInt(ApplyJoinGroupActivityConfig.JOIN_TYPE));
-                    validateItemData.setExt(groupNewsPojo.getExt());
-                }
-            } else {
-                validateItemData = (ValidateItemData) OrmObject.objectWithJsonStr(content, ValidateItemData.class);
-                setGroupName(validateItemData, validateItemData.getGroupId());
+        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.ValidateModel.3
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // d.b.h0.z0.f0
+            public Boolean doInBackground() {
+                return Boolean.valueOf(d.f().a(ValidateItemData.this.getNotice_id()));
             }
-            return validateItemData;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
+        }, nVar);
+    }
+
+    public static ValidateItemData getByNoticeid(String str) {
+        return convertToValidateItemData(d.f().d(str));
+    }
+
+    public static void markShown(List<ValidateItemData> list) {
+        if (list == null || list.isEmpty()) {
+            return;
+        }
+        final LinkedList linkedList = new LinkedList();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            ValidateItemData validateItemData = list.get(i);
+            if (validateItemData != null && !validateItemData.isShown()) {
+                validateItemData.setShown(true);
+                linkedList.add(new GroupNewsPojo(validateItemData));
+            }
+        }
+        new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.im.model.ValidateModel.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Void doInBackground(Void... voidArr) {
+                d.f().n(linkedList);
+                return null;
+            }
+        }.execute(new Void[0]);
+    }
+
+    public static void requestValidateDataCountFromDB(n<Integer> nVar) {
+        h0.c(new f0<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // d.b.h0.z0.f0
+            public Integer doInBackground() {
+                return Integer.valueOf(d.f().e("apply_join_group"));
+            }
+        }, nVar);
+    }
+
+    public static void requestValidateDataFromDB(final int i, final int i2, n<LinkedList<GroupNewsPojo>> nVar) {
+        h0.c(new f0<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.ValidateModel.4
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // d.b.h0.z0.f0
+            public LinkedList<GroupNewsPojo> doInBackground() {
+                return d.f().c(0L, i, i2, "apply_join_group");
+            }
+        }, nVar);
+    }
+
+    public static void setGroupName(ValidateItemData validateItemData, String str) {
+        if (!BdBaseApplication.getInst().isDebugMode() || l.B()) {
+            ImMessageCenterPojo i = b.o().i(str, 1);
+            validateItemData.setGroupName(i != null ? i.getGroup_name() : "");
         }
     }
 
-    private static void setGroupName(ValidateItemData validateItemData, String str) {
-        if (!BdBaseApplication.getInst().isDebugMode() || l.isMainThread()) {
-            String str2 = "";
-            ImMessageCenterPojo bs = b.cWS().bs(str, 1);
-            if (bs != null) {
-                str2 = bs.getGroup_name();
-            }
-            validateItemData.setGroupName(str2);
+    public static void updateValidateData(n<Boolean> nVar, final ValidateItemData validateItemData) {
+        if (validateItemData == null) {
+            return;
         }
+        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.ValidateModel.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // d.b.h0.z0.f0
+            public Boolean doInBackground() {
+                return Boolean.valueOf(d.f().j(ValidateItemData.this));
+            }
+        }, nVar);
     }
 }

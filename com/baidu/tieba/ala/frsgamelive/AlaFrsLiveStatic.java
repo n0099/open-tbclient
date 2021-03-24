@@ -9,7 +9,6 @@ import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaConfig;
 import com.baidu.ala.atomdata.AlaAllGameLiveEntryActivityConfig;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaFrsStoryLiveGatherActivityConfig;
@@ -19,14 +18,183 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRespMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
-import com.baidu.tieba.ala.frsgamelive.mvc.a;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.frs.ai;
-import com.baidu.tieba.frs.aj;
-/* loaded from: classes9.dex */
+import d.b.i0.p0.j0;
+import d.b.i0.p0.k0;
+/* loaded from: classes4.dex */
 public class AlaFrsLiveStatic {
-    public static String Tag = "tag";
+
+    /* loaded from: classes4.dex */
+    public static class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if (data instanceof k0) {
+                k0 k0Var = (k0) data;
+                d.b.i0.t.e.c.a aVar = new d.b.i0.t.e.c.a(true);
+                aVar.getFragmentTabStructure().f50158e = 2;
+                aVar.b(k0Var.c());
+                aVar.c(k0Var.d());
+                aVar.a(k0Var.b());
+                aVar.d(1);
+                aVar.e(false);
+                k0Var.a(aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if (data instanceof j0) {
+                j0 j0Var = (j0) data;
+                d.b.i0.t.e.c.a aVar = new d.b.i0.t.e.c.a(true);
+                aVar.getFragmentTabStructure().f50158e = 9;
+                aVar.b(j0Var.d());
+                aVar.c(j0Var.e());
+                aVar.a(j0Var.c());
+                aVar.d(1);
+                aVar.e(true);
+                if (j0Var.i(9)) {
+                    j0Var.a(aVar);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c extends CustomMessageListener {
+        public c(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if (data instanceof k0) {
+                k0 k0Var = (k0) data;
+                d.b.i0.t.e.c.a aVar = new d.b.i0.t.e.c.a(false);
+                aVar.getFragmentTabStructure().f50158e = 1;
+                aVar.b(k0Var.c());
+                aVar.c(k0Var.d());
+                aVar.a(k0Var.b());
+                aVar.d(2);
+                aVar.e(false);
+                k0Var.a(aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d extends CustomMessageListener {
+        public d(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if (data instanceof k0) {
+                k0 k0Var = (k0) data;
+                d.b.i0.t.g.a.a aVar = new d.b.i0.t.g.a.a();
+                aVar.getFragmentTabStructure().f50158e = 3;
+                aVar.a(k0Var.c());
+                aVar.b(k0Var.d());
+                aVar.c(false);
+                k0Var.a(aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e extends CustomMessageListener {
+        public e(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if (data instanceof j0) {
+                j0 j0Var = (j0) data;
+                d.b.i0.t.g.a.a aVar = new d.b.i0.t.g.a.a();
+                aVar.getFragmentTabStructure().f50158e = 8;
+                aVar.getFragmentTabStructure().f50155b = R.string.ala_video;
+                aVar.a(j0Var.d());
+                aVar.b(j0Var.e());
+                aVar.c(true);
+                if (j0Var.i(8)) {
+                    j0Var.a(aVar);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class f extends CustomMessageListener {
+        public f(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if (data instanceof j0) {
+                j0 j0Var = (j0) data;
+                d.b.i0.t.f.a aVar = new d.b.i0.t.f.a();
+                aVar.c(j0Var.d());
+                aVar.d(j0Var.e());
+                aVar.b(j0Var.c());
+                aVar.a(j0Var);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class g implements CustomMessageTask.CustomRunnable<AlaAllGameLiveEntryActivityConfig> {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<AlaAllGameLiveEntryActivityConfig> customMessage) {
+            if (customMessage != null && customMessage.getData() != null) {
+                customMessage.getData().startActivity(AlaAllGameLiveEntryActivity.class);
+            }
+            return null;
+        }
+    }
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaFrsStoryLiveGatherActivityConfig.class, AlaFrsStoryLiveGatherActivity.class);
@@ -47,133 +215,13 @@ public class AlaFrsLiveStatic {
         tbHttpMessageTask2.setResponsedClass(AlaGameFrsLiveThreadsRespMessage.class);
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_LIVE_TAB_ADD_TAB) { // from class: com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    Object data = customResponsedMessage.getData();
-                    if (data instanceof aj) {
-                        aj ajVar = (aj) data;
-                        a aVar = new a(true);
-                        aVar.getFragmentTabStructure().type = 2;
-                        aVar.setForumId(ajVar.getForumId());
-                        aVar.setForumName(ajVar.getForumName());
-                        aVar.setForumGameLabel(ajVar.getForumGameLabel());
-                        aVar.setFromType(1);
-                        aVar.nk(false);
-                        ajVar.b(aVar);
-                    }
-                }
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    Object data = customResponsedMessage.getData();
-                    if (data instanceof ai) {
-                        ai aiVar = (ai) data;
-                        a aVar = new a(true);
-                        aVar.getFragmentTabStructure().type = 9;
-                        aVar.setForumId(aiVar.getForumId());
-                        aVar.setForumName(aiVar.getForumName());
-                        aVar.setForumGameLabel(aiVar.getForumGameLabel());
-                        aVar.setFromType(1);
-                        aVar.nk(true);
-                        if (aiVar.zc(9)) {
-                            aiVar.b(aVar);
-                        }
-                    }
-                }
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_LIVE_ADD_TAB) { // from class: com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    Object data = customResponsedMessage.getData();
-                    if (data instanceof aj) {
-                        aj ajVar = (aj) data;
-                        a aVar = new a(false);
-                        aVar.getFragmentTabStructure().type = 1;
-                        aVar.setForumId(ajVar.getForumId());
-                        aVar.setForumName(ajVar.getForumName());
-                        aVar.setForumGameLabel(ajVar.getForumGameLabel());
-                        aVar.setFromType(2);
-                        aVar.nk(false);
-                        ajVar.b(aVar);
-                    }
-                }
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_LIVE_TAB_ADD_TAB) { // from class: com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    Object data = customResponsedMessage.getData();
-                    if (data instanceof aj) {
-                        aj ajVar = (aj) data;
-                        com.baidu.tieba.ala.gamefrslivetab.video.a aVar = new com.baidu.tieba.ala.gamefrslivetab.video.a();
-                        aVar.getFragmentTabStructure().type = 3;
-                        aVar.setForumId(ajVar.getForumId());
-                        aVar.setForumName(ajVar.getForumName());
-                        aVar.nl(false);
-                        ajVar.b(aVar);
-                    }
-                }
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic.5
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    Object data = customResponsedMessage.getData();
-                    if (data instanceof ai) {
-                        ai aiVar = (ai) data;
-                        com.baidu.tieba.ala.gamefrslivetab.video.a aVar = new com.baidu.tieba.ala.gamefrslivetab.video.a();
-                        aVar.getFragmentTabStructure().type = 8;
-                        aVar.getFragmentTabStructure().textResId = R.string.ala_video;
-                        aVar.setForumId(aiVar.getForumId());
-                        aVar.setForumName(aiVar.getForumName());
-                        aVar.nl(true);
-                        if (aiVar.zc(8)) {
-                            aiVar.b(aVar);
-                        }
-                    }
-                }
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic.6
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    Object data = customResponsedMessage.getData();
-                    if (data instanceof ai) {
-                        ai aiVar = (ai) data;
-                        com.baidu.tieba.ala.gamebar.a aVar = new com.baidu.tieba.ala.gamebar.a();
-                        aVar.setForumId(aiVar.getForumId());
-                        aVar.setForumName(aiVar.getForumName());
-                        aVar.setForumGameLabel(aiVar.getForumGameLabel());
-                        aVar.a(aiVar);
-                    }
-                }
-            }
-        });
-        CustomMessageTask customMessageTask = new CustomMessageTask(AlaCmdConfigCustom.CMD_ALA_ALL_GAME_LIVE_ENTRY, new CustomMessageTask.CustomRunnable<AlaAllGameLiveEntryActivityConfig>() { // from class: com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic.7
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<AlaAllGameLiveEntryActivityConfig> customMessage) {
-                if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(AlaAllGameLiveEntryActivity.class);
-                }
-                return null;
-            }
-        });
+        MessageManager.getInstance().registerListener(new a(2001619));
+        MessageManager.getInstance().registerListener(new b(2001616));
+        MessageManager.getInstance().registerListener(new c(2001620));
+        MessageManager.getInstance().registerListener(new d(2001619));
+        MessageManager.getInstance().registerListener(new e(2001616));
+        MessageManager.getInstance().registerListener(new f(2001616));
+        CustomMessageTask customMessageTask = new CustomMessageTask(AlaCmdConfigCustom.CMD_ALA_ALL_GAME_LIVE_ENTRY, new g());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

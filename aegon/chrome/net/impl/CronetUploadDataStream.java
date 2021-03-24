@@ -7,7 +7,7 @@ import aegon.chrome.net.UploadDataSink;
 import android.annotation.SuppressLint;
 import java.nio.ByteBuffer;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class CronetUploadDataStream extends UploadDataSink {
     public static final String TAG = "CronetUploadDataStream";
     public ByteBuffer mByteBuffer;
@@ -21,7 +21,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
     public final CronetUrlRequest mRequest;
     public long mUploadDataStreamAdapter;
     public final Runnable mReadTask = new Runnable() { // from class: aegon.chrome.net.impl.CronetUploadDataStream.1
-        public static final /* synthetic */ boolean $assertionsDisabled = !CronetUploadDataStream.class.desiredAssertionStatus();
+        public static final /* synthetic */ boolean $assertionsDisabled = false;
 
         @Override // java.lang.Runnable
         public void run() {
@@ -36,13 +36,10 @@ public final class CronetUploadDataStream extends UploadDataSink {
                 CronetUploadDataStream.this.mInWhichUserCallback = 0;
                 try {
                     CronetUploadDataStream.access$500(CronetUploadDataStream.this);
-                    if (!$assertionsDisabled && CronetUploadDataStream.this.mByteBuffer.position() != 0) {
-                        throw new AssertionError();
-                    }
                     VersionSafeCallbacks$UploadDataProviderWrapper versionSafeCallbacks$UploadDataProviderWrapper = CronetUploadDataStream.this.mDataProvider;
                     versionSafeCallbacks$UploadDataProviderWrapper.mWrappedProvider.read(CronetUploadDataStream.this, CronetUploadDataStream.this.mByteBuffer);
-                } catch (Exception e) {
-                    CronetUploadDataStream.this.onError(e);
+                } catch (Exception e2) {
+                    CronetUploadDataStream.this.onError(e2);
                 }
             }
         }
@@ -79,9 +76,10 @@ public final class CronetUploadDataStream extends UploadDataSink {
     }
 
     public final void checkState(int i) {
-        if (this.mInWhichUserCallback != i) {
-            throw new IllegalStateException("Expected " + i + ", but was " + this.mInWhichUserCallback);
+        if (this.mInWhichUserCallback == i) {
+            return;
         }
+        throw new IllegalStateException("Expected " + i + ", but was " + this.mInWhichUserCallback);
     }
 
     public final void destroyAdapter() {
@@ -101,8 +99,8 @@ public final class CronetUploadDataStream extends UploadDataSink {
                         try {
                             CronetUploadDataStream.access$500(CronetUploadDataStream.this);
                             CronetUploadDataStream.this.mDataProvider.mWrappedProvider.close();
-                        } catch (Exception e) {
-                            Log.e(CronetUploadDataStream.TAG, "Exception thrown when closing", e);
+                        } catch (Exception e2) {
+                            Log.e(CronetUploadDataStream.TAG, "Exception thrown when closing", e2);
                         }
                     }
                 });
@@ -127,8 +125,9 @@ public final class CronetUploadDataStream extends UploadDataSink {
         }
         try {
             this.mRequest.checkCallingThread();
-            this.mLength = this.mDataProvider.mWrappedProvider.getLength();
-            this.mRemainingLength = this.mLength;
+            long length = this.mDataProvider.mWrappedProvider.getLength();
+            this.mLength = length;
+            this.mRemainingLength = length;
         } catch (Throwable th) {
             onError(th);
         }
@@ -151,8 +150,8 @@ public final class CronetUploadDataStream extends UploadDataSink {
         if (z) {
             try {
                 this.mDataProvider.mWrappedProvider.close();
-            } catch (Exception e) {
-                Log.e(TAG, "Failure closing data provider", e);
+            } catch (Exception e2) {
+                Log.e(TAG, "Failure closing data provider", e2);
             }
         }
         this.mRequest.onUploadException(th);
@@ -178,8 +177,9 @@ public final class CronetUploadDataStream extends UploadDataSink {
                 throw new IllegalArgumentException("Non-chunked upload can't have last chunk");
             }
             int position = this.mByteBuffer.position();
-            this.mRemainingLength -= position;
-            if (this.mRemainingLength < 0 && this.mLength >= 0) {
+            long j = this.mRemainingLength - position;
+            this.mRemainingLength = j;
+            if (j < 0 && this.mLength >= 0) {
                 throw new IllegalArgumentException(String.format("Read upload data length %d exceeds expected length %d", Long.valueOf(this.mLength - this.mRemainingLength), Long.valueOf(this.mLength)));
             }
             this.mByteBuffer.position(0);
@@ -241,8 +241,8 @@ public final class CronetUploadDataStream extends UploadDataSink {
                         CronetUploadDataStream.access$500(CronetUploadDataStream.this);
                         VersionSafeCallbacks$UploadDataProviderWrapper versionSafeCallbacks$UploadDataProviderWrapper = CronetUploadDataStream.this.mDataProvider;
                         versionSafeCallbacks$UploadDataProviderWrapper.mWrappedProvider.rewind(CronetUploadDataStream.this);
-                    } catch (Exception e) {
-                        CronetUploadDataStream.this.onError(e);
+                    } catch (Exception e2) {
+                        CronetUploadDataStream.this.onError(e2);
                     }
                 }
             }

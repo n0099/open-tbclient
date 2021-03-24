@@ -2,33 +2,33 @@ package com.baidu.platform.comapi.walknavi.d.a.d;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f2927a;
+    public final Context f9984a;
 
     public g(Context context) {
-        this.f2927a = context;
+        this.f9984a = context;
+    }
+
+    private SharedPreferences c() {
+        return this.f9984a.getSharedPreferences("ar_so_info", 0);
     }
 
     public String a() {
         return c().getString("so_version", "");
     }
 
-    public void a(String str) {
-        c().edit().putString("so_version", str).commit();
-    }
-
     public void b(String str) {
         c().edit().putString("ar_sdk_version", str).commit();
     }
 
-    public String b() {
-        return c().getString("ar_sdk_version", "");
+    public void a(String str) {
+        c().edit().putString("so_version", str).commit();
     }
 
-    private SharedPreferences c() {
-        return this.f2927a.getSharedPreferences("ar_so_info", 0);
+    public String b() {
+        return c().getString("ar_sdk_version", "");
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.developer;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class BdDeveloperUtils {
     public static final String API_KEY = "T9UCyRzS7RQsG1Q8TqUTCjp2";
     public static final String APPID = "405384";
@@ -12,7 +12,4 @@ public final class BdDeveloperUtils {
     public static final String SECRET_KEY = "3cZkzgwRMgP9PfXzjf3a75mdldFYs3m4";
     public static final String XIAOMI_PUSH_APPID = "2882303761517132673";
     public static final String XIAOMI_PUSH_APPKEY = "5391713263673";
-
-    private BdDeveloperUtils() {
-    }
 }

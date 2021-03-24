@@ -1,56 +1,79 @@
 package com.fun.openid.sdk;
 
+import android.content.ComponentName;
 import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes3.dex */
-public class d {
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Parcel;
+import com.fun.openid.sdk.e;
+import com.fun.openid.sdk.f;
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes6.dex */
+public class d implements f {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f5243a;
-    public static boolean b;
+    /* loaded from: classes6.dex */
+    public static final class a implements ServiceConnection {
 
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x002e, code lost:
-        if (((java.lang.Integer) java.lang.Class.forName("android.content.Context").getMethod("checkSelfPermission", java.lang.String.class).invoke(r7, r8)).intValue() == 0) goto L5;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean a(Context context, String str) {
-        if (Build.VERSION.SDK_INT < 23) {
-            if (context.getPackageManager().checkPermission(str, context.getPackageName()) != 0) {
-                return false;
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f30838a = false;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final LinkedBlockingQueue<IBinder> f30839b = new LinkedBlockingQueue<>();
+
+        public IBinder a() {
+            if (this.f30838a) {
+                throw new IllegalStateException();
+            }
+            this.f30838a = true;
+            return this.f30839b.poll(5L, TimeUnit.SECONDS);
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            try {
+                this.f30839b.put(iBinder);
+            } catch (InterruptedException e2) {
+                e2.printStackTrace();
             }
         }
-        return true;
-        return false;
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+        }
     }
 
-    public static h eAG() {
-        String str = Build.BRAND;
-        if (b.isLogEnabled()) {
-            Log.e("FunOpenIDSdk", "==========brand = " + str);
+    @Override // com.fun.openid.sdk.f
+    public void a(Context context, f.a aVar) {
+        a aVar2 = new a();
+        Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+        intent.setPackage("com.huawei.hwid");
+        try {
+            if (!context.bindService(intent, aVar2, 1)) {
+                ((e.a) aVar).a(false, null);
+                return;
+            }
+            try {
+                IBinder a2 = aVar2.a();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                    a2.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    ((e.a) aVar).a(true, obtain2.readString());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                ((e.a) aVar).a(true, null);
+            }
+        } finally {
+            context.unbindService(aVar2);
         }
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_HUAWEI) || str.equalsIgnoreCase("honor") || str.equalsIgnoreCase("华为")) {
-            return new f();
-        }
-        if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI) || str.equalsIgnoreCase("redmi") || str.equalsIgnoreCase("meitu") || str.equalsIgnoreCase("小米")) {
-            return new j();
-        }
-        if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_VIVO)) {
-            return new n();
-        }
-        if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_OPPO) || str.equalsIgnoreCase("oneplus")) {
-            return new m();
-        }
-        if (str.equalsIgnoreCase("lenovo") || str.equalsIgnoreCase("zuk")) {
-            return new i();
-        }
-        return null;
     }
 }

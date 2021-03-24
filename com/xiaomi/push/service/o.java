@@ -1,84 +1,83 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Pair;
-import com.xiaomi.push.gd;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class o {
-
-    /* renamed from: a  reason: collision with other field name */
-    private static final Map<String, byte[]> f921a = new HashMap();
+import com.xiaomi.mipush.sdk.ErrorCode;
+import com.xiaomi.push.fw;
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.av;
+import java.util.Collection;
+/* loaded from: classes7.dex */
+public class o extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList<Pair<String, byte[]>> f8575a = new ArrayList<>();
+    public XMPushService f41053a;
 
-    public static void a(Context context, int i, String str) {
-        synchronized (f921a) {
-            for (String str2 : f921a.keySet()) {
-                a(context, str2, f921a.get(str2), i, str);
+    /* renamed from: a  reason: collision with other field name */
+    public String f963a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public byte[] f964a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f41054b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f41055c;
+
+    public o(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
+        super(9);
+        this.f41053a = xMPushService;
+        this.f963a = str;
+        this.f964a = bArr;
+        this.f41054b = str2;
+        this.f41055c = str3;
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "register app";
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        av.b next;
+        l a2 = m.a((Context) this.f41053a);
+        if (a2 == null) {
+            try {
+                a2 = m.a(this.f41053a, this.f963a, this.f41054b, this.f41055c);
+            } catch (Exception e2) {
+                com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e2);
             }
-            f921a.clear();
         }
-    }
-
-    public static void a(Context context, String str, byte[] bArr, int i, String str2) {
-        Intent intent = new Intent("com.xiaomi.mipush.ERROR");
-        intent.setPackage(str);
-        intent.putExtra("mipush_payload", bArr);
-        intent.putExtra("mipush_error_code", i);
-        intent.putExtra("mipush_error_msg", str2);
-        context.sendBroadcast(intent, w.a(str));
-    }
-
-    public static void a(XMPushService xMPushService) {
+        if (a2 == null) {
+            com.xiaomi.channel.commonutils.logger.b.d("no account for mipush");
+            p.a(this.f41053a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
+            return;
+        }
+        Collection<av.b> m582a = av.a().m582a("5");
+        if (m582a.isEmpty()) {
+            next = a2.a(this.f41053a);
+            y.a(this.f41053a, next);
+            av.a().a(next);
+        } else {
+            next = m582a.iterator().next();
+        }
+        if (!this.f41053a.m548c()) {
+            this.f41053a.a(true);
+            return;
+        }
         try {
-            synchronized (f921a) {
-                for (String str : f921a.keySet()) {
-                    w.a(xMPushService, str, f921a.get(str));
-                }
-                f921a.clear();
+            if (next.f906a == av.c.binded) {
+                y.a(this.f41053a, this.f963a, this.f964a);
+            } else if (next.f906a == av.c.unbind) {
+                XMPushService xMPushService = this.f41053a;
+                XMPushService xMPushService2 = this.f41053a;
+                xMPushService2.getClass();
+                xMPushService.a(new XMPushService.a(next));
             }
-        } catch (gd e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            xMPushService.a(10, e);
-        }
-    }
-
-    public static void a(String str, byte[] bArr) {
-        synchronized (f921a) {
-            f921a.put(str, bArr);
-        }
-    }
-
-    public static void b(XMPushService xMPushService) {
-        ArrayList<Pair<String, byte[]>> arrayList;
-        try {
-            synchronized (f8575a) {
-                arrayList = f8575a;
-                f8575a = new ArrayList<>();
-            }
-            Iterator<Pair<String, byte[]>> it = arrayList.iterator();
-            while (it.hasNext()) {
-                Pair<String, byte[]> next = it.next();
-                w.a(xMPushService, (String) next.first, (byte[]) next.second);
-            }
-        } catch (gd e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            xMPushService.a(10, e);
-        }
-    }
-
-    public static void b(String str, byte[] bArr) {
-        synchronized (f8575a) {
-            f8575a.add(new Pair<>(str, bArr));
-            if (f8575a.size() > 50) {
-                f8575a.remove(0);
-            }
+        } catch (fw e3) {
+            com.xiaomi.channel.commonutils.logger.b.d("meet error, disconnect connection. " + e3);
+            this.f41053a.a(10, e3);
         }
     }
 }

@@ -2,15 +2,19 @@ package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.facebook.common.util.UriUtil;
+import d.b.i0.r.a.e.b;
+import d.b.i0.r.a.i.a;
 import java.io.Serializable;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AdInfo implements Serializable {
-    private static final long serialVersionUID = 1;
+    public static final long serialVersionUID = 1;
     public int adHeight;
     public String adImgUrl;
     public CreativeType adShowType;
@@ -56,17 +60,30 @@ public class AdInfo implements Serializable {
     public String videoMd5;
     public int videoWidth;
 
+    public static ArrayList<String> convertStrToList(String str) {
+        ArrayList<String> arrayList = new ArrayList<>();
+        if (!TextUtils.isEmpty(str)) {
+            for (String str2 : str.split(",")) {
+                try {
+                    arrayList.add(URLDecoder.decode(str2, "utf-8"));
+                } catch (Exception e2) {
+                    BdLog.e("decode 监测地址失败" + e2);
+                }
+            }
+        }
+        return arrayList;
+    }
+
     public static AdInfo jsonToObject(String str) {
-        JSONObject jSONObject;
         AdInfo adInfo = new AdInfo();
         if (TextUtils.isEmpty(str)) {
             return adInfo;
         }
+        JSONObject jSONObject = null;
         try {
             jSONObject = new JSONObject(str);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            jSONObject = null;
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         adInfo.parseFromJson(jSONObject);
         return adInfo;
@@ -76,14 +93,6 @@ public class AdInfo implements Serializable {
         return !TextUtils.isEmpty(this.adVideoUrl);
     }
 
-    public boolean shouldDownloadVideo() {
-        b Fr = b.Fr(com.baidu.tieba.advert.sdk.d.a.bMP());
-        if (TextUtils.isEmpty(Fr.videoLocalPath)) {
-            return true;
-        }
-        return TextUtils.isEmpty(Fr.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !Fr.adVideoUrl.equals(this.adVideoUrl);
-    }
-
     public void parseFromJson(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject jSONObject2;
@@ -91,57 +100,55 @@ public class AdInfo implements Serializable {
         JSONObject jSONObject3;
         JSONObject jSONObject4;
         JSONObject jSONObject5;
-        JSONArray jSONArray3;
         JSONObject jSONObject6;
-        if (jSONObject != null) {
-            try {
-                JSONObject jSONObject7 = jSONObject.getJSONObject("res");
-                if (jSONObject7 != null && (jSONArray = jSONObject7.getJSONArray("ad")) != null && jSONArray.length() > 0 && (jSONObject2 = jSONArray.getJSONObject(0)) != null && (jSONArray2 = jSONObject2.getJSONArray("adInfo")) != null && jSONArray2.length() > 0 && (jSONObject3 = jSONArray2.getJSONObject(0)) != null) {
-                    if (jSONObject3.has("advisible")) {
-                        this.advisible = jSONObject3.getInt("advisible");
-                    } else {
-                        this.advisible = 1;
-                    }
-                    JSONArray jSONArray4 = jSONObject3.getJSONArray("material");
-                    JSONArray jSONArray5 = jSONObject3.getJSONArray("extra");
-                    if (jSONArray5 != null && jSONArray5.length() > 0 && (jSONObject4 = jSONArray5.getJSONObject(0)) != null) {
-                        this.extraParam = jSONObject4.getString("v");
-                        if (jSONArray4 != null && jSONArray4.length() > 0 && (jSONObject5 = jSONArray4.getJSONObject(0)) != null) {
-                            String optString = jSONObject5.optString("info");
-                            if (!TextUtils.isEmpty(optString) && (jSONArray3 = new JSONArray(optString)) != null && jSONArray3.length() > 0 && (jSONObject6 = jSONArray3.getJSONObject(0)) != null) {
-                                this.adImgUrl = jSONObject6.optString("thread_pic");
-                                this.redirectUrl = jSONObject6.optString("url");
-                                this.displayName = jSONObject6.optString("displayName");
-                                this.startShowTime = jSONObject6.optLong("start_show_time");
-                                this.endShowTime = jSONObject6.optLong("end_show_time");
-                                this.adVideoUrl = jSONObject6.optString("adVideo");
-                                this.videoJumpUrl = jSONObject6.optString("video_jump");
-                                this.videoWidth = jSONObject6.optInt("video_width");
-                                this.videoHight = jSONObject6.optInt("video_height");
-                                this.videoMd5 = jSONObject6.optString("video_md5");
-                            }
+        if (jSONObject == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject7 = jSONObject.getJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+            if (jSONObject7 != null && (jSONArray = jSONObject7.getJSONArray("ad")) != null && jSONArray.length() > 0 && (jSONObject2 = jSONArray.getJSONObject(0)) != null && (jSONArray2 = jSONObject2.getJSONArray("adInfo")) != null && jSONArray2.length() > 0 && (jSONObject3 = jSONArray2.getJSONObject(0)) != null) {
+                if (jSONObject3.has("advisible")) {
+                    this.advisible = jSONObject3.getInt("advisible");
+                } else {
+                    this.advisible = 1;
+                }
+                JSONArray jSONArray3 = jSONObject3.getJSONArray("material");
+                JSONArray jSONArray4 = jSONObject3.getJSONArray("extra");
+                if (jSONArray4 != null && jSONArray4.length() > 0 && (jSONObject4 = jSONArray4.getJSONObject(0)) != null) {
+                    this.extraParam = jSONObject4.getString("v");
+                    if (jSONArray3 != null && jSONArray3.length() > 0 && (jSONObject5 = jSONArray3.getJSONObject(0)) != null) {
+                        String optString = jSONObject5.optString("info");
+                        if (TextUtils.isEmpty(optString)) {
+                            return;
+                        }
+                        JSONArray jSONArray5 = new JSONArray(optString);
+                        if (jSONArray5.length() > 0 && (jSONObject6 = jSONArray5.getJSONObject(0)) != null) {
+                            this.adImgUrl = jSONObject6.optString("thread_pic");
+                            this.redirectUrl = jSONObject6.optString("url");
+                            this.displayName = jSONObject6.optString("displayName");
+                            this.startShowTime = jSONObject6.optLong("start_show_time");
+                            this.endShowTime = jSONObject6.optLong("end_show_time");
+                            this.adVideoUrl = jSONObject6.optString("adVideo");
+                            this.videoJumpUrl = jSONObject6.optString("video_jump");
+                            this.videoWidth = jSONObject6.optInt("video_width");
+                            this.videoHight = jSONObject6.optInt("video_height");
+                            this.videoMd5 = jSONObject6.optString(VideoFinishResult.KEY_VIDEO_MD5);
                         }
                     }
                 }
-            } catch (NullPointerException e) {
-                BdLog.e("服务端获取数据为空" + e);
-            } catch (JSONException e2) {
-                BdLog.e("解析服务端json数据异常" + e2);
             }
+        } catch (NullPointerException e2) {
+            BdLog.e("服务端获取数据为空" + e2);
+        } catch (JSONException e3) {
+            BdLog.e("解析服务端json数据异常" + e3);
         }
     }
 
-    public static ArrayList<String> convertStrToList(String str) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(str)) {
-            for (String str2 : str.split(",")) {
-                try {
-                    arrayList.add(URLDecoder.decode(str2, "utf-8"));
-                } catch (Exception e) {
-                    BdLog.e("decode 监测地址失败" + e);
-                }
-            }
+    public boolean shouldDownloadVideo() {
+        b b2 = b.b(a.g());
+        if (TextUtils.isEmpty(b2.f59666d)) {
+            return true;
         }
-        return arrayList;
+        return TextUtils.isEmpty(b2.f59665c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f59665c.equals(this.adVideoUrl);
     }
 }

@@ -2,54 +2,44 @@ package com.baidu.platform.comapi.walknavi.c;
 
 import android.os.Handler;
 import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2908a;
+    public final /* synthetic */ b f9921a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f2908a = bVar;
+        this.f9921a = bVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        int i;
         a aVar;
-        int i2;
         a aVar2;
+        int i;
         a aVar3;
+        int i2;
         a aVar4;
-        switch (message.what) {
-            case 1:
-                aVar3 = this.f2908a.e;
-                if (aVar3 != null) {
-                    aVar4 = this.f2908a.e;
-                    aVar4.b();
-                    this.f2908a.e = null;
-                    return;
+        int i3 = message.what;
+        if (i3 == 1) {
+            aVar = this.f9921a.f9913e;
+            if (aVar != null) {
+                aVar2 = this.f9921a.f9913e;
+                aVar2.b();
+                this.f9921a.f9913e = null;
+            }
+        } else if (i3 == 16 || i3 == 32) {
+            b bVar = this.f9921a;
+            i = bVar.f9914f;
+            bVar.f9914f = message.what | i;
+            aVar3 = this.f9921a.f9913e;
+            if (aVar3 != null) {
+                i2 = this.f9921a.f9914f;
+                if (i2 == 48) {
+                    aVar4 = this.f9921a.f9913e;
+                    aVar4.a();
                 }
-                return;
-            case 16:
-            case 32:
-                b bVar = this.f2908a;
-                i = this.f2908a.f;
-                bVar.f = i | message.what;
-                aVar = this.f2908a.e;
-                if (aVar != null) {
-                    i2 = this.f2908a.f;
-                    if (i2 == 48) {
-                        aVar2 = this.f2908a.e;
-                        aVar2.a();
-                        return;
-                    }
-                    return;
-                }
-                return;
-            default:
-                return;
+            }
         }
     }
 }

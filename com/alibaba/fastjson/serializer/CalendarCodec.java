@@ -4,7 +4,6 @@ import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.alibaba.fastjson.util.IOUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Calendar;
@@ -13,10 +12,44 @@ import java.util.GregorianCalendar;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-/* loaded from: classes4.dex */
-public class CalendarCodec implements ObjectDeserializer, ObjectSerializer {
+import kotlin.text.Typography;
+/* loaded from: classes.dex */
+public class CalendarCodec implements ObjectSerializer, ObjectDeserializer {
     public static final CalendarCodec instance = new CalendarCodec();
-    private DatatypeFactory dateFactory;
+    public DatatypeFactory dateFactory;
+
+    public XMLGregorianCalendar createXMLGregorianCalendar(Calendar calendar) {
+        if (this.dateFactory == null) {
+            try {
+                this.dateFactory = DatatypeFactory.newInstance();
+            } catch (DatatypeConfigurationException e2) {
+                throw new IllegalStateException("Could not obtain an instance of DatatypeFactory.", e2);
+            }
+        }
+        return this.dateFactory.newXMLGregorianCalendar((GregorianCalendar) calendar);
+    }
+
+    /* JADX WARN: Type inference failed for: r2v3, types: [java.util.Calendar, T] */
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
+        T t = (T) DateCodec.instance.deserialze(defaultJSONParser, type, obj);
+        if (t instanceof Calendar) {
+            return t;
+        }
+        Date date = (Date) t;
+        if (date == null) {
+            return null;
+        }
+        JSONLexer jSONLexer = defaultJSONParser.lexer;
+        ?? r2 = (T) Calendar.getInstance(jSONLexer.getTimeZone(), jSONLexer.getLocale());
+        r2.setTime(date);
+        return type == XMLGregorianCalendar.class ? (T) createXMLGregorianCalendar((GregorianCalendar) r2) : r2;
+    }
+
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public int getFastMatchToken() {
+        return 2;
+    }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
@@ -33,8 +66,8 @@ public class CalendarCodec implements ObjectDeserializer, ObjectSerializer {
             calendar = (Calendar) obj;
         }
         if (serializeWriter.isEnabled(SerializerFeature.UseISO8601DateFormat)) {
-            char c = serializeWriter.isEnabled(SerializerFeature.UseSingleQuotes) ? '\'' : '\"';
-            serializeWriter.append(c);
+            char c2 = serializeWriter.isEnabled(SerializerFeature.UseSingleQuotes) ? '\'' : Typography.quote;
+            serializeWriter.append(c2);
             int i2 = calendar.get(1);
             int i3 = calendar.get(2) + 1;
             int i4 = calendar.get(5);
@@ -72,44 +105,11 @@ public class CalendarCodec implements ObjectDeserializer, ObjectSerializer {
             } else if (rawOffset > 0) {
                 serializeWriter.append((CharSequence) "+").append((CharSequence) String.format("%02d", Integer.valueOf(rawOffset))).append((CharSequence) ":00");
             } else {
-                serializeWriter.append((CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SERVER).append((CharSequence) String.format("%02d", Integer.valueOf(-rawOffset))).append((CharSequence) ":00");
+                serializeWriter.append((CharSequence) "-").append((CharSequence) String.format("%02d", Integer.valueOf(-rawOffset))).append((CharSequence) ":00");
             }
-            serializeWriter.append(c);
+            serializeWriter.append(c2);
             return;
         }
         jSONSerializer.write(calendar.getTime());
-    }
-
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.util.Calendar, T] */
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
-        T t = (T) DateCodec.instance.deserialze(defaultJSONParser, type, obj);
-        if (!(t instanceof Calendar)) {
-            Date date = (Date) t;
-            if (date == null) {
-                return null;
-            }
-            JSONLexer jSONLexer = defaultJSONParser.lexer;
-            ?? r1 = (T) Calendar.getInstance(jSONLexer.getTimeZone(), jSONLexer.getLocale());
-            r1.setTime(date);
-            return type == XMLGregorianCalendar.class ? (T) createXMLGregorianCalendar((GregorianCalendar) r1) : r1;
-        }
-        return t;
-    }
-
-    public XMLGregorianCalendar createXMLGregorianCalendar(Calendar calendar) {
-        if (this.dateFactory == null) {
-            try {
-                this.dateFactory = DatatypeFactory.newInstance();
-            } catch (DatatypeConfigurationException e) {
-                throw new IllegalStateException("Could not obtain an instance of DatatypeFactory.", e);
-            }
-        }
-        return this.dateFactory.newXMLGregorianCalendar((GregorianCalendar) calendar);
-    }
-
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public int getFastMatchToken() {
-        return 2;
     }
 }

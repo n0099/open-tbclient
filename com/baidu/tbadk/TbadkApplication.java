@@ -13,53 +13,276 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.f.c;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.b.b;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.adp.plugin.util.Util;
 import com.baidu.appsearchlib.NASLib;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.k;
-import com.baidu.tbadk.data.e;
-import com.baidu.tbadk.n.l;
-import com.baidu.tbadk.o.d;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.switchs.PluginClassChangeSwitch;
 import com.baidu.tieba.service.SignAlertReceiver;
+import com.baidubce.auth.NTLMEngineImpl;
+import d.b.b.e.m.c;
+import d.b.b.h.h.b;
+import d.b.b.h.j.g.d;
+import d.b.h0.m0.l;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TbadkApplication extends TbadkCoreApplication {
-    CustomMessageListener mMemListener = new CustomMessageListener(CmdConfigCustom.CMD_RESPONSE_MEM) { // from class: com.baidu.tbadk.TbadkApplication.1
+    public static String mForumName = "armcv";
+    public static TbadkApplication sApp;
+    public CustomMessageListener mMemListener = new CustomMessageListener(2001194) { // from class: com.baidu.tbadk.TbadkApplication.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Integer num;
-            if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null) {
-                TbadkCoreApplication.setCurrentMemberType(num.intValue());
-                if (num.intValue() != 0) {
-                    TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.isMem + TbadkApplication.getCurrentAccount(), true);
-                } else {
-                    TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.isMem + TbadkApplication.getCurrentAccount(), false);
-                }
+            if (customResponsedMessage == null || (num = (Integer) customResponsedMessage.getData()) == null) {
+                return;
             }
+            TbadkCoreApplication.setCurrentMemberType(num.intValue());
+            if (num.intValue() != 0) {
+                TbadkSettings inst = TbadkSettings.getInst();
+                inst.saveBoolean(TbadkCoreApplication.isMem + TbadkCoreApplication.getCurrentAccount(), true);
+                return;
+            }
+            TbadkSettings inst2 = TbadkSettings.getInst();
+            inst2.saveBoolean(TbadkCoreApplication.isMem + TbadkCoreApplication.getCurrentAccount(), false);
         }
     };
-    private String[] mPatchWhiteList = {"HUAWEI:H60-L01", "HUAWEI:H60-L02", "HUAWEI:H60-L03"};
-    private c resourcesWrapper;
-    private String tShopUrl;
-    protected static TbadkApplication sApp = null;
-    private static String mForumName = "armcv";
+    public String[] mPatchWhiteList = {"HUAWEI:H60-L01", "HUAWEI:H60-L02", "HUAWEI:H60-L03"};
+    public c resourcesWrapper;
+    public String tShopUrl;
+
+    private boolean checkSyncPatchBlacklist() {
+        StringBuffer stringBuffer;
+        Map<String, PluginSetting> plugins;
+        try {
+            plugins = d.k().l().getPlugins();
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+        }
+        if (d.k().l().hasPatch() && plugins != null && !plugins.isEmpty()) {
+            Iterator<PluginSetting> it = plugins.values().iterator();
+            PluginSetting pluginSetting = null;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                PluginSetting next = it.next();
+                if (next.isPatch && next.enable && !next.forbidden && TextUtils.isEmpty(next.replaceMethodClasses)) {
+                    pluginSetting = next;
+                    break;
+                }
+            }
+            if (pluginSetting == null) {
+                return false;
+            }
+            if (!TextUtils.isEmpty(pluginSetting.ext)) {
+                String string = new JSONObject(pluginSetting.ext).getString("patch_blacklist_models");
+                if (!TextUtils.isEmpty(string)) {
+                    this.mPatchWhiteList = string.split(",");
+                }
+            }
+            String[] strArr = this.mPatchWhiteList;
+            if (strArr != null && strArr.length != 0) {
+                String str = Build.MANUFACTURER;
+                if (str == null) {
+                    stringBuffer = new StringBuffer("");
+                } else {
+                    stringBuffer = new StringBuffer(str);
+                }
+                stringBuffer.append(':');
+                String str2 = Build.MODEL;
+                if (str2 != null) {
+                    stringBuffer.append(str2);
+                }
+                String stringBuffer2 = stringBuffer.toString();
+                for (String str3 : this.mPatchWhiteList) {
+                    if (stringBuffer2.equals(str3)) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 
     public static TbadkApplication getInst() {
         return sApp;
+    }
+
+    private void prepareForDefaultAlertTime() {
+        Calendar calendar = Calendar.getInstance();
+        setSignAlertTime(calendar.get(11), calendar.get(12));
+    }
+
+    public Intent createIntentForSignAlarm() {
+        Intent intent = new Intent(TbConfig.getBroadcastActionSignAlert());
+        intent.setData(Uri.parse("tieba_sign://alert"));
+        intent.setClass(getInst().getContext(), SignAlertReceiver.class);
+        return intent;
+    }
+
+    public String getForumName() {
+        return mForumName;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper, android.content.Context
+    public Resources getResources() {
+        if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().getIsPluginResourcOpen()) {
+            if (this.resourcesWrapper == null && super.getResources() != null) {
+                this.resourcesWrapper = new c(super.getResources());
+            }
+            return this.resourcesWrapper;
+        }
+        return super.getResources();
+    }
+
+    public int getSignAlertHours() {
+        int loadInt = TbadkSettings.getInst().loadInt("alert_sign_hours", -1);
+        if (loadInt == -1) {
+            prepareForDefaultAlertTime();
+            return TbadkSettings.getInst().loadInt("alert_sign_hours", 12);
+        }
+        return loadInt;
+    }
+
+    public int getSignAlertMins() {
+        int loadInt = TbadkSettings.getInst().loadInt("alert_sign_mins", -1);
+        if (loadInt == -1) {
+            prepareForDefaultAlertTime();
+            return TbadkSettings.getInst().loadInt("alert_sign_mins", 30);
+        }
+        return loadInt;
+    }
+
+    public String gettShopUrl() {
+        return this.tShopUrl;
+    }
+
+    @Override // com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication
+    public void handleInitMessage(Message message) {
+        if (message == null) {
+            return;
+        }
+        super.handleInitMessage(message);
+        boolean z = true;
+        switch (message.what) {
+            case 6:
+                boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
+                boolean z2 = this.mIsToLogo && isXiaomiPushSdkShouldOpen;
+                b.e("TbadkApplication_onCreate", z2 ? "plugin_load_delay" : "plugin_load_now");
+                long currentTimeMillis = System.currentTimeMillis();
+                b.e("TbadkApplication_onCreate", "load_all_plugins");
+                String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
+                if (!((isMainProcess(false) && PluginClassChangeSwitch.isOn()) ? false : false)) {
+                    isXiaomiPushSdkShouldOpen = z2;
+                }
+                boolean z3 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
+                if (!this.isKeepLiveProcess) {
+                    if (!this.mPluginIsInited) {
+                        PluginPackageManager.O().i0(d.b.h0.o0.c.n(), new d.b.h0.o0.d(), z3, null);
+                    }
+                    PluginSettings l = d.k().l();
+                    if (l != null) {
+                        String containerVersion = l.getContainerVersion();
+                        if (!TextUtils.isEmpty(containerVersion) && Util.c(containerVersion, str) == Util.VersionCompare.EQUAL) {
+                            l.b().D(z3);
+                            l.b().C(System.currentTimeMillis() - currentTimeMillis);
+                        }
+                    }
+                }
+                this.mAppInitHandler.sendEmptyMessage(7);
+                return;
+            case 7:
+                setActivityStackMaxSize(20);
+                if (isMainProcess(false)) {
+                    updateSignAlarm();
+                    initLikeForum();
+                    initSignedForum();
+                }
+                this.mAppInitHandler.sendEmptyMessage(8);
+                return;
+            case 8:
+                MessageManager.getInstance().registerListener(this.mMemListener);
+                if (isMainProcess(true)) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.2
+                        @Override // com.baidu.appsearchlib.NASLib.NASCallBack
+                        public void callback(String str2, String str3) {
+                            UrlManager.getInstance().dealOneLink(null, new String[]{str3});
+                        }
+                    });
+                    l.b().q(System.currentTimeMillis() - currentTimeMillis2);
+                }
+                this.mAppInitHandler.sendEmptyMessage(9);
+                return;
+            case 9:
+                EmotionUtil.statisticsEmotionGroupNums();
+                if (this.isRemoteProcess) {
+                    l.b().g(System.currentTimeMillis() - this.processCreateTime);
+                    return;
+                }
+                return;
+            default:
+                return;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.TbadkCoreApplication
+    public void initSetting() {
+        super.initSetting();
+        upgradeAbstractOnInMemory(TbadkSettings.getInst().loadInt("new_abstract_state", 0));
+    }
+
+    public boolean isDaemonProcess() {
+        return this.isDaemonProcess;
+    }
+
+    public boolean isSignAlertOn() {
+        return TbadkSettings.getInst().loadBoolean("alert_sign_on", false);
+    }
+
+    public boolean isTbCDNTachometerProcess() {
+        Boolean bool = this.isCdnTachometerProcess;
+        if (bool == null) {
+            return false;
+        }
+        return bool.booleanValue();
+    }
+
+    @Override // com.baidu.tbadk.core.TbadkCoreApplication
+    public void loadPatchs() {
+        if (this.isKeepLiveProcess) {
+            return;
+        }
+        super.loadPatchs();
+        int j = d.b.h0.r.d0.b.i().j("plugin_patch_hook_failed_count", 0);
+        PluginPackageManager.O().v0(j);
+        if (checkSyncPatchBlacklist() && d.b.b.h.g.d.l() && j == 0 && PluginPackageManager.O().n0()) {
+            long currentTimeMillis = System.currentTimeMillis();
+            PluginPackageManager.O().k0();
+            l.b().B(System.currentTimeMillis() - currentTimeMillis);
+        }
+    }
+
+    public String loginShareRead() {
+        return loadString("account_share", null);
+    }
+
+    public void loginShareRemove() {
+        d.b.h0.r.d0.b.i().B("account_share");
+    }
+
+    public void loginShareSave(String str) {
+        saveString("account_share", str);
     }
 
     @Override // com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
@@ -68,114 +291,23 @@ public class TbadkApplication extends TbadkCoreApplication {
         super.onCreate();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication
-    public void handleInitMessage(Message message) {
-        boolean z = true;
-        if (message != null) {
-            super.handleInitMessage(message);
-            switch (message.what) {
-                case 6:
-                    boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-                    boolean z2 = this.mIsToLogo && isXiaomiPushSdkShouldOpen;
-                    b.C("TbadkApplication_onCreate", z2 ? "plugin_load_delay" : "plugin_load_now");
-                    long currentTimeMillis = System.currentTimeMillis();
-                    b.C("TbadkApplication_onCreate", "load_all_plugins");
-                    String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
-                    if (!isMainProcess(false) || !PluginClassChangeSwitch.isOn()) {
-                        z = false;
-                    }
-                    if (z) {
-                        z2 = isXiaomiPushSdkShouldOpen;
-                    }
-                    boolean z3 = Build.VERSION.SDK_INT < 28 ? z2 : false;
-                    if (!this.isKeepLiveProcess) {
-                        if (!this.mPluginIsInited) {
-                            PluginPackageManager.pv().a(com.baidu.tbadk.o.c.bEC(), new d(), z3, (Object) null);
-                        }
-                        PluginSettings pU = com.baidu.adp.plugin.packageManager.pluginSettings.c.pX().pU();
-                        if (pU != null) {
-                            String containerVersion = pU.getContainerVersion();
-                            if (!TextUtils.isEmpty(containerVersion) && Util.I(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                                l.bEp().lp(z3);
-                                l.bEp().er(System.currentTimeMillis() - currentTimeMillis);
-                            }
-                        }
-                    }
-                    this.mAppInitHandler.sendEmptyMessage(7);
-                    return;
-                case 7:
-                    setActivityStackMaxSize(20);
-                    if (isMainProcess(false)) {
-                        updateSignAlarm();
-                        initLikeForum();
-                        initSignedForum();
-                    }
-                    this.mAppInitHandler.sendEmptyMessage(8);
-                    return;
-                case 8:
-                    MessageManager.getInstance().registerListener(this.mMemListener);
-                    if (isMainProcess(true)) {
-                        long currentTimeMillis2 = System.currentTimeMillis();
-                        NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.2
-                            @Override // com.baidu.appsearchlib.NASLib.NASCallBack
-                            public void callback(String str2, String str3) {
-                                bf.bsY().b(null, new String[]{str3});
-                            }
-                        });
-                        l.bEp().eB(System.currentTimeMillis() - currentTimeMillis2);
-                    }
-                    this.mAppInitHandler.sendEmptyMessage(9);
-                    return;
-                case 9:
-                    k.bsi();
-                    if (this.isRemoteProcess) {
-                        l.bEp().eJ(System.currentTimeMillis() - this.processCreateTime);
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public boolean isSignAlertOn() {
-        return TbadkSettings.getInst().loadBoolean(SharedPrefConfig.ALERT_SIGN_ON, false);
+    public void setForumName(String str) {
+        mForumName = str;
     }
 
     public void setSignAlertOn(boolean z) {
-        TbadkSettings.getInst().saveBoolean(SharedPrefConfig.ALERT_SIGN_ON, z);
+        TbadkSettings.getInst().saveBoolean("alert_sign_on", z);
         updateSignAlarm();
-    }
-
-    public int getSignAlertHours() {
-        int loadInt = TbadkSettings.getInst().loadInt(SharedPrefConfig.ALERT_SIGN_HOURS, -1);
-        if (loadInt == -1) {
-            prepareForDefaultAlertTime();
-            return TbadkSettings.getInst().loadInt(SharedPrefConfig.ALERT_SIGN_HOURS, 12);
-        }
-        return loadInt;
-    }
-
-    private void prepareForDefaultAlertTime() {
-        Calendar calendar = Calendar.getInstance();
-        setSignAlertTime(calendar.get(11), calendar.get(12));
-    }
-
-    public int getSignAlertMins() {
-        int loadInt = TbadkSettings.getInst().loadInt(SharedPrefConfig.ALERT_SIGN_MINS, -1);
-        if (loadInt == -1) {
-            prepareForDefaultAlertTime();
-            return TbadkSettings.getInst().loadInt(SharedPrefConfig.ALERT_SIGN_MINS, 30);
-        }
-        return loadInt;
     }
 
     public void setSignAlertTime(int i, int i2) {
-        TbadkSettings.getInst().saveInt(SharedPrefConfig.ALERT_SIGN_HOURS, i);
-        TbadkSettings.getInst().saveInt(SharedPrefConfig.ALERT_SIGN_MINS, i2);
+        TbadkSettings.getInst().saveInt("alert_sign_hours", i);
+        TbadkSettings.getInst().saveInt("alert_sign_mins", i2);
         updateSignAlarm();
+    }
+
+    public void settShopUrl(String str) {
+        this.tShopUrl = str;
     }
 
     public void updateSignAlarm() {
@@ -195,147 +327,13 @@ public class TbadkApplication extends TbadkCoreApplication {
                 calendar.set(6, calendar.get(6) + 1);
             }
             alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, 134217728));
-            if (BdLog.isDebugMode()) {
-            }
+            BdLog.isDebugMode();
             return;
         }
-        PendingIntent broadcast = PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, 536870912);
+        PendingIntent broadcast = PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
         if (broadcast != null) {
             alarmManager.cancel(broadcast);
-            if (BdLog.isDebugMode()) {
-            }
+            BdLog.isDebugMode();
         }
-    }
-
-    protected Intent createIntentForSignAlarm() {
-        Intent intent = new Intent(e.getBroadcastActionSignAlert());
-        intent.setData(Uri.parse("tieba_sign://alert"));
-        intent.setClass(getInst().getContext(), SignAlertReceiver.class);
-        return intent;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        if (BdBaseApplication.getInst() == null || BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-            return super.getResources();
-        }
-        if (this.resourcesWrapper == null && super.getResources() != null) {
-            this.resourcesWrapper = new c(super.getResources());
-        }
-        return this.resourcesWrapper;
-    }
-
-    public boolean isDaemonProcess() {
-        return this.isDaemonProcess;
-    }
-
-    public boolean isTbCDNTachometerProcess() {
-        if (this.isCdnTachometerProcess == null) {
-            return false;
-        }
-        return this.isCdnTachometerProcess.booleanValue();
-    }
-
-    public void loginShareRemove() {
-        com.baidu.tbadk.core.sharedPref.b.brR().remove(SharedPrefConfig.ACCOUNT_SHARE);
-    }
-
-    public String loginShareRead() {
-        return loadString(SharedPrefConfig.ACCOUNT_SHARE, null);
-    }
-
-    public void loginShareSave(String str) {
-        saveString(SharedPrefConfig.ACCOUNT_SHARE, str);
-    }
-
-    public void setForumName(String str) {
-        mForumName = str;
-    }
-
-    public String getForumName() {
-        return mForumName;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.TbadkCoreApplication
-    public void initSetting() {
-        super.initSetting();
-        upgradeAbstractOnInMemory(TbadkSettings.getInst().loadInt(SharedPrefConfig.PREFS_ABSTRACT_STATE, 0));
-    }
-
-    public String gettShopUrl() {
-        return this.tShopUrl;
-    }
-
-    public void settShopUrl(String str) {
-        this.tShopUrl = str;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.TbadkCoreApplication
-    public void loadPatchs() {
-        if (!this.isKeepLiveProcess) {
-            super.loadPatchs();
-            int i = com.baidu.tbadk.core.sharedPref.b.brR().getInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, 0);
-            PluginPackageManager.pv().aK(i);
-            if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.pc() && i == 0 && PluginPackageManager.pv().pz()) {
-                long currentTimeMillis = System.currentTimeMillis();
-                PluginPackageManager.pv().pA();
-                l.bEp().eq(System.currentTimeMillis() - currentTimeMillis);
-            }
-        }
-    }
-
-    private boolean checkSyncPatchBlacklist() {
-        StringBuffer stringBuffer;
-        Map<String, PluginSetting> plugins;
-        PluginSetting pluginSetting;
-        try {
-            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.pX().pU().getPlugins();
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
-        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.pX().pU().hasPatch() || plugins == null || plugins.isEmpty()) {
-            return false;
-        }
-        Iterator<PluginSetting> it = plugins.values().iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                pluginSetting = null;
-                break;
-            }
-            pluginSetting = it.next();
-            if (pluginSetting.isPatch && pluginSetting.enable && !pluginSetting.forbidden && TextUtils.isEmpty(pluginSetting.replaceMethodClasses)) {
-                break;
-            }
-        }
-        if (pluginSetting == null) {
-            return false;
-        }
-        if (!TextUtils.isEmpty(pluginSetting.ext)) {
-            String string = new JSONObject(pluginSetting.ext).getString("patch_blacklist_models");
-            if (!TextUtils.isEmpty(string)) {
-                this.mPatchWhiteList = string.split(",");
-            }
-        }
-        if (this.mPatchWhiteList == null || this.mPatchWhiteList.length == 0) {
-            return true;
-        }
-        if (Build.MANUFACTURER == null) {
-            stringBuffer = new StringBuffer("");
-        } else {
-            stringBuffer = new StringBuffer(Build.MANUFACTURER);
-        }
-        stringBuffer.append(':');
-        if (Build.MODEL != null) {
-            stringBuffer.append(Build.MODEL);
-        }
-        String stringBuffer2 = stringBuffer.toString();
-        for (String str : this.mPatchWhiteList) {
-            if (stringBuffer2.equals(str)) {
-                return false;
-            }
-        }
-        return true;
     }
 }

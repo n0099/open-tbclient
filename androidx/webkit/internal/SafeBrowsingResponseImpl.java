@@ -9,17 +9,20 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import org.chromium.support_lib_boundary.SafeBrowsingResponseBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
-    private SafeBrowsingResponseBoundaryInterface mBoundaryInterface;
-    private SafeBrowsingResponse mFrameworksImpl;
+    public SafeBrowsingResponseBoundaryInterface mBoundaryInterface;
+    public SafeBrowsingResponse mFrameworksImpl;
 
     public SafeBrowsingResponseImpl(@NonNull InvocationHandler invocationHandler) {
         this.mBoundaryInterface = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, invocationHandler);
     }
 
-    public SafeBrowsingResponseImpl(@NonNull SafeBrowsingResponse safeBrowsingResponse) {
-        this.mFrameworksImpl = safeBrowsingResponse;
+    private SafeBrowsingResponseBoundaryInterface getBoundaryInterface() {
+        if (this.mBoundaryInterface == null) {
+            this.mBoundaryInterface = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, WebViewGlueCommunicator.getCompatConverter().convertSafeBrowsingResponse(this.mFrameworksImpl));
+        }
+        return this.mBoundaryInterface;
     }
 
     @RequiresApi(27)
@@ -30,21 +33,14 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
         return this.mFrameworksImpl;
     }
 
-    private SafeBrowsingResponseBoundaryInterface getBoundaryInterface() {
-        if (this.mBoundaryInterface == null) {
-            this.mBoundaryInterface = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, WebViewGlueCommunicator.getCompatConverter().convertSafeBrowsingResponse(this.mFrameworksImpl));
-        }
-        return this.mBoundaryInterface;
-    }
-
     @Override // androidx.webkit.SafeBrowsingResponseCompat
     @SuppressLint({"NewApi"})
-    public void showInterstitial(boolean z) {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL");
+    public void backToSafety(boolean z) {
+        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_RESPONSE_BACK_TO_SAFETY");
         if (feature.isSupportedByFramework()) {
-            getFrameworksImpl().showInterstitial(z);
+            getFrameworksImpl().backToSafety(z);
         } else if (feature.isSupportedByWebView()) {
-            getBoundaryInterface().showInterstitial(z);
+            getBoundaryInterface().backToSafety(z);
         } else {
             throw WebViewFeatureInternal.getUnsupportedOperationException();
         }
@@ -65,14 +61,18 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
 
     @Override // androidx.webkit.SafeBrowsingResponseCompat
     @SuppressLint({"NewApi"})
-    public void backToSafety(boolean z) {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_RESPONSE_BACK_TO_SAFETY");
+    public void showInterstitial(boolean z) {
+        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL");
         if (feature.isSupportedByFramework()) {
-            getFrameworksImpl().backToSafety(z);
+            getFrameworksImpl().showInterstitial(z);
         } else if (feature.isSupportedByWebView()) {
-            getBoundaryInterface().backToSafety(z);
+            getBoundaryInterface().showInterstitial(z);
         } else {
             throw WebViewFeatureInternal.getUnsupportedOperationException();
         }
+    }
+
+    public SafeBrowsingResponseImpl(@NonNull SafeBrowsingResponse safeBrowsingResponse) {
+        this.mFrameworksImpl = safeBrowsingResponse;
     }
 }

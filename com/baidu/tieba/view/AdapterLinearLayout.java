@@ -6,102 +6,68 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.LinearLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class AdapterLinearLayout extends LinearLayout {
-    private final DataSetObserver mDataSetObserver;
-    private Adapter nYM;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Adapter f22011e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final DataSetObserver f22012f;
+
+    /* loaded from: classes5.dex */
+    public class a extends DataSetObserver {
+        public a() {
+        }
+
+        @Override // android.database.DataSetObserver
+        public void onChanged() {
+            if (AdapterLinearLayout.this.f22011e == null) {
+                return;
+            }
+            int count = AdapterLinearLayout.this.f22011e.getCount();
+            int childCount = AdapterLinearLayout.this.getChildCount() - count;
+            for (int i = 0; i < count; i++) {
+                View childAt = AdapterLinearLayout.this.getChildAt(i);
+                View view = AdapterLinearLayout.this.f22011e.getView(i, childAt, AdapterLinearLayout.this);
+                if (childAt == null && view != null) {
+                    AdapterLinearLayout.this.addView(view);
+                }
+            }
+            if (childCount > 0) {
+                AdapterLinearLayout.this.removeViews(count, childCount);
+            }
+        }
+
+        @Override // android.database.DataSetObserver
+        public void onInvalidated() {
+            super.onInvalidated();
+        }
+    }
 
     public AdapterLinearLayout(Context context) {
         super(context);
-        this.mDataSetObserver = new DataSetObserver() { // from class: com.baidu.tieba.view.AdapterLinearLayout.1
-            @Override // android.database.DataSetObserver
-            public void onChanged() {
-                if (AdapterLinearLayout.this.nYM != null) {
-                    int count = AdapterLinearLayout.this.nYM.getCount();
-                    int childCount = AdapterLinearLayout.this.getChildCount() - count;
-                    for (int i = 0; i < count; i++) {
-                        View childAt = AdapterLinearLayout.this.getChildAt(i);
-                        View view = AdapterLinearLayout.this.nYM.getView(i, childAt, AdapterLinearLayout.this);
-                        if (childAt == null && view != null) {
-                            AdapterLinearLayout.this.addView(view);
-                        }
-                    }
-                    if (childCount > 0) {
-                        AdapterLinearLayout.this.removeViews(count, childCount);
-                    }
-                }
-            }
+        this.f22012f = new a();
+    }
 
-            @Override // android.database.DataSetObserver
-            public void onInvalidated() {
-                super.onInvalidated();
-            }
-        };
+    public void setAdapter(Adapter adapter) {
+        Adapter adapter2 = this.f22011e;
+        if (adapter2 != null) {
+            adapter2.unregisterDataSetObserver(this.f22012f);
+        }
+        this.f22011e = adapter;
+        if (adapter != null) {
+            adapter.registerDataSetObserver(this.f22012f);
+        }
     }
 
     public AdapterLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mDataSetObserver = new DataSetObserver() { // from class: com.baidu.tieba.view.AdapterLinearLayout.1
-            @Override // android.database.DataSetObserver
-            public void onChanged() {
-                if (AdapterLinearLayout.this.nYM != null) {
-                    int count = AdapterLinearLayout.this.nYM.getCount();
-                    int childCount = AdapterLinearLayout.this.getChildCount() - count;
-                    for (int i = 0; i < count; i++) {
-                        View childAt = AdapterLinearLayout.this.getChildAt(i);
-                        View view = AdapterLinearLayout.this.nYM.getView(i, childAt, AdapterLinearLayout.this);
-                        if (childAt == null && view != null) {
-                            AdapterLinearLayout.this.addView(view);
-                        }
-                    }
-                    if (childCount > 0) {
-                        AdapterLinearLayout.this.removeViews(count, childCount);
-                    }
-                }
-            }
-
-            @Override // android.database.DataSetObserver
-            public void onInvalidated() {
-                super.onInvalidated();
-            }
-        };
+        this.f22012f = new a();
     }
 
     public AdapterLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mDataSetObserver = new DataSetObserver() { // from class: com.baidu.tieba.view.AdapterLinearLayout.1
-            @Override // android.database.DataSetObserver
-            public void onChanged() {
-                if (AdapterLinearLayout.this.nYM != null) {
-                    int count = AdapterLinearLayout.this.nYM.getCount();
-                    int childCount = AdapterLinearLayout.this.getChildCount() - count;
-                    for (int i2 = 0; i2 < count; i2++) {
-                        View childAt = AdapterLinearLayout.this.getChildAt(i2);
-                        View view = AdapterLinearLayout.this.nYM.getView(i2, childAt, AdapterLinearLayout.this);
-                        if (childAt == null && view != null) {
-                            AdapterLinearLayout.this.addView(view);
-                        }
-                    }
-                    if (childCount > 0) {
-                        AdapterLinearLayout.this.removeViews(count, childCount);
-                    }
-                }
-            }
-
-            @Override // android.database.DataSetObserver
-            public void onInvalidated() {
-                super.onInvalidated();
-            }
-        };
-    }
-
-    public void setAdapter(Adapter adapter) {
-        if (this.nYM != null) {
-            this.nYM.unregisterDataSetObserver(this.mDataSetObserver);
-        }
-        this.nYM = adapter;
-        if (this.nYM != null) {
-            this.nYM.registerDataSetObserver(this.mDataSetObserver);
-        }
+        this.f22012f = new a();
     }
 }

@@ -28,78 +28,57 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MessageHandler extends IMessageHandler {
-    private static final HostnameVerifier HOSTNAME_VERIFIER = HttpsURLConnection.getDefaultHostnameVerifier();
-    private static final String TAG = "MessageHandler";
-    private SocketState mCurrentSocketState;
-    private InputStream mInputStream;
-    private BigEndianDataIutputStream mIs;
-    private OutputStream mOutputStream;
-    private Socket mSocket;
+    public static final HostnameVerifier HOSTNAME_VERIFIER = HttpsURLConnection.getDefaultHostnameVerifier();
+    public static final String TAG = "MessageHandler";
+    public SocketState mCurrentSocketState;
+    public InputStream mInputStream;
+    public BigEndianDataIutputStream mIs;
+    public OutputStream mOutputStream;
+    public Socket mSocket;
 
     public MessageHandler(Context context) {
         super(context);
         this.mCurrentSocketState = null;
     }
 
-    @Override // com.baidu.android.imsdk.internal.IMessageHandler
-    public SocketState socketConnect(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        return connectImpl(str, i);
-    }
-
-    @Override // com.baidu.android.imsdk.internal.IMessageHandler
-    public void socketWrite(Message message) throws IOException {
-        if (this.mOutputStream != null) {
-            this.mOutputStream.write(message.getMessageBytes());
-            this.mOutputStream.flush();
-        }
-    }
-
     private SocketState connectImpl(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
         LogUtils.i(TAG, "---------------ip:" + str + "  port:" + i + "-----------------");
         this.mSocket = createSocket(str, i);
         SocketState socketState = new SocketState();
-        if (this.mSocket == null) {
+        Socket socket = this.mSocket;
+        if (socket == null) {
             Utility.writeLoginFlag(this.mContext, "14N_2", "socketConnect mSocket = null");
-        } else {
-            socketState.mSocket = this.mSocket;
-            socketState.mInputStream = this.mSocket.getInputStream();
-            socketState.mOutputStream = this.mSocket.getOutputStream();
-            socketState.mSocketCreateOk = true;
-            socketState.mSocketEnvOk = true;
-            LogUtils.i(TAG, "socket create OK!");
+            return socketState;
         }
+        socketState.mSocket = socket;
+        socketState.mInputStream = socket.getInputStream();
+        socketState.mOutputStream = this.mSocket.getOutputStream();
+        Boolean bool = Boolean.TRUE;
+        socketState.mSocketCreateOk = bool;
+        socketState.mSocketEnvOk = bool;
+        LogUtils.i(TAG, "socket create OK!");
         return socketState;
     }
 
     private Socket createSocket(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
-        switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
-            case 0:
-                if (Utility.isCreateTlsSocket(this.mContext)) {
-                    return createSocketOnLine(str, i);
-                }
-                LogUtils.d(TAG, "createSocketOnlineByTcp ip = " + str + " port = " + Constants.SOCKET_PORT_TCP);
-                return createSocketOnlineByTcp(str, Constants.SOCKET_PORT_TCP);
-            case 1:
-            case 2:
-            case 3:
+        int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
+        if (readIntData != 0) {
+            if (readIntData == 1 || readIntData == 2 || readIntData == 3) {
                 return createSocketRD(str, i);
-            default:
-                return null;
+            }
+            return null;
+        } else if (Utility.isCreateTlsSocket(this.mContext)) {
+            return createSocketOnLine(str, i);
+        } else {
+            LogUtils.d(TAG, "createSocketOnlineByTcp ip = " + str + " port = 8100");
+            return createSocketOnlineByTcp(str, 8100);
         }
     }
 
-    private Socket createSocketRD(String str, int i) throws IOException {
-        return new Socket(str, i);
-    }
-
-    private Socket createSocketOnlineByTcp(String str, int i) throws IOException {
-        return new Socket(str, i);
-    }
-
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002a, code lost:
-        r8 = r4.getHostAddress();
+        r8 = r5.getHostAddress();
      */
     @SuppressLint({"NewApi"})
     /*
@@ -125,8 +104,8 @@ public class MessageHandler extends IMessageHandler {
                         i2++;
                     }
                 }
-            } catch (Exception e) {
-                LogUtils.e(TAG, "createSocketOnLine", e);
+            } catch (Exception e2) {
+                LogUtils.e(TAG, "createSocketOnLine", e2);
             }
         }
         LogUtils.e(TAG, "createSocketOnLine request ip = " + str);
@@ -155,6 +134,14 @@ public class MessageHandler extends IMessageHandler {
         return sSLSocket;
     }
 
+    private Socket createSocketOnlineByTcp(String str, int i) throws IOException {
+        return new Socket(str, i);
+    }
+
+    private Socket createSocketRD(String str, int i) throws IOException {
+        return new Socket(str, i);
+    }
+
     @TargetApi(17)
     public void enableSessionTicket(SSLCertificateSocketFactory sSLCertificateSocketFactory, Socket socket) {
         if (Build.VERSION.SDK_INT > 17) {
@@ -163,11 +150,45 @@ public class MessageHandler extends IMessageHandler {
     }
 
     @Override // com.baidu.android.imsdk.internal.IMessageHandler
+    public Message readMessage() throws EOFException, IOException {
+        return super.readMessage(this.mIs);
+    }
+
+    @Override // com.baidu.android.imsdk.internal.IMessageHandler
+    public void setCurrentSocketState(SocketState socketState) {
+        this.mCurrentSocketState = socketState;
+        if (socketState != null) {
+            InputStream inputStream = socketState.mInputStream;
+            this.mInputStream = inputStream;
+            this.mOutputStream = socketState.mOutputStream;
+            this.mIs = new BigEndianDataIutputStream(inputStream);
+            return;
+        }
+        this.mInputStream = null;
+        this.mOutputStream = null;
+        this.mIs = null;
+    }
+
+    @Override // com.baidu.android.imsdk.internal.IMessageHandler
     public boolean socketClose() {
         synchronized (this.mSendQueque) {
             this.mSendQueque.notifyAll();
         }
         return socketClose(this.mCurrentSocketState);
+    }
+
+    @Override // com.baidu.android.imsdk.internal.IMessageHandler
+    public SocketState socketConnect(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+        return connectImpl(str, i);
+    }
+
+    @Override // com.baidu.android.imsdk.internal.IMessageHandler
+    public void socketWrite(Message message) throws IOException {
+        OutputStream outputStream = this.mOutputStream;
+        if (outputStream != null) {
+            outputStream.write(message.getMessageBytes());
+            this.mOutputStream.flush();
+        }
     }
 
     public boolean socketClose(SocketState socketState) {
@@ -187,30 +208,11 @@ public class MessageHandler extends IMessageHandler {
                     return true;
                 }
                 return true;
-            } catch (IOException e) {
-                LogUtils.e(TAG, "destroy:" + e.getMessage(), e);
+            } catch (IOException e2) {
+                LogUtils.e(TAG, "destroy:" + e2.getMessage(), e2);
                 return false;
             }
         }
         return true;
-    }
-
-    @Override // com.baidu.android.imsdk.internal.IMessageHandler
-    public Message readMessage() throws EOFException, IOException {
-        return super.readMessage(this.mIs);
-    }
-
-    @Override // com.baidu.android.imsdk.internal.IMessageHandler
-    public void setCurrentSocketState(SocketState socketState) {
-        this.mCurrentSocketState = socketState;
-        if (this.mCurrentSocketState != null) {
-            this.mInputStream = this.mCurrentSocketState.mInputStream;
-            this.mOutputStream = this.mCurrentSocketState.mOutputStream;
-            this.mIs = new BigEndianDataIutputStream(this.mInputStream);
-            return;
-        }
-        this.mInputStream = null;
-        this.mOutputStream = null;
-        this.mIs = null;
     }
 }

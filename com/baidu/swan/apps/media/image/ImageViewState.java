@@ -2,22 +2,18 @@ package com.baidu.swan.apps.media.image;
 
 import android.graphics.PointF;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class ImageViewState implements Serializable {
-    private float centerX;
-    private float centerY;
-    private int orientation;
-    private float scale;
+    public float centerX;
+    public float centerY;
+    public int orientation;
+    public float scale;
 
-    public ImageViewState(float f, PointF pointF, int i) {
-        this.scale = f;
+    public ImageViewState(float f2, PointF pointF, int i) {
+        this.scale = f2;
         this.centerX = pointF.x;
         this.centerY = pointF.y;
         this.orientation = i;
-    }
-
-    public float getScale() {
-        return this.scale;
     }
 
     public PointF getCenter() {
@@ -26,5 +22,9 @@ public class ImageViewState implements Serializable {
 
     public int getOrientation() {
         return this.orientation;
+    }
+
+    public float getScale() {
+        return this.scale;
     }
 }

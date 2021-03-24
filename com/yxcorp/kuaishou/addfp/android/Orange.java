@@ -1,83 +1,91 @@
 package com.yxcorp.kuaishou.addfp.android;
 
 import android.content.Context;
-import com.yxcorp.kuaishou.addfp.android.b.b;
-/* loaded from: classes3.dex */
+import d.q.a.a.c.b.b;
+/* loaded from: classes7.dex */
 public class Orange {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f8620a = true;
-    private static volatile Orange qmZ;
+    public static boolean f41110a = true;
 
-    private Orange() {
-        e();
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile Orange f41111b;
+
+    public Orange() {
+        g();
     }
 
-    private void e() {
-        try {
-            System.loadLibrary("sgcore");
-            f8620a = false;
-            b.b("so loaded");
-        } catch (Throwable th) {
-            b.b("so load failed");
-            f8620a = true;
-            b.a(th);
-        }
-    }
-
-    public static Orange eJq() {
-        if (qmZ == null) {
+    public static Orange a() {
+        if (f41111b == null) {
             synchronized (Orange.class) {
-                if (qmZ == null) {
-                    qmZ = new Orange();
+                if (f41111b == null) {
+                    f41111b = new Orange();
                 }
             }
         }
-        return qmZ;
+        return f41111b;
     }
 
-    private boolean f() {
-        return f8620a;
-    }
+    public static native String getClock(Context context, byte[] bArr, int i);
 
-    private static native String getClock(Context context, byte[] bArr, int i);
+    public static native byte[] getMagic(Context context, byte[] bArr, int i);
 
-    private static native byte[] getMagic(Context context, byte[] bArr, int i);
+    public static native Object jniCommand(int i, Object obj, Object obj2, Object obj3);
 
-    private static native Object jniCommand(int i, Object obj, Object obj2, Object obj3);
-
-    public synchronized String a(Context context, byte[] bArr, int i) {
-        return f() ? "" : getClock(context, bArr, i);
-    }
-
-    public String b() {
-        try {
-            return f() ? "" : (String) jniCommand(1114128, null, null, null);
-        } catch (Throwable th) {
-            b.a(th);
+    public synchronized String b(Context context, byte[] bArr, int i) {
+        if (h()) {
             return "";
         }
-    }
-
-    public synchronized byte[] b(Context context, byte[] bArr, int i) {
-        return f() ? null : getMagic(context, bArr, i);
+        return getClock(context, bArr, i);
     }
 
     public String c() {
         try {
-            return f() ? "" : (String) jniCommand(1179649, null, null, null);
+            return h() ? "" : (String) jniCommand(1114128, null, null, null);
         } catch (Throwable th) {
-            b.a(th);
+            b.c(th);
             return "";
         }
     }
 
-    public String d() {
+    public synchronized byte[] d(Context context, byte[] bArr, int i) {
+        if (h()) {
+            return null;
+        }
+        return getMagic(context, bArr, i);
+    }
+
+    public String e() {
         try {
-            return f() ? "" : (String) jniCommand(1179653, null, null, null);
+            return h() ? "" : (String) jniCommand(1179649, null, null, null);
         } catch (Throwable th) {
-            b.a(th);
+            b.c(th);
             return "";
         }
+    }
+
+    public String f() {
+        try {
+            return h() ? "" : (String) jniCommand(1179653, null, null, null);
+        } catch (Throwable th) {
+            b.c(th);
+            return "";
+        }
+    }
+
+    public final void g() {
+        try {
+            System.loadLibrary("sgcore");
+            f41110a = false;
+            b.e("so loaded");
+        } catch (Throwable th) {
+            b.e("so load failed");
+            f41110a = true;
+            b.c(th);
+        }
+    }
+
+    public final boolean h() {
+        return f41110a;
     }
 }

@@ -1,8 +1,95 @@
 package com.ss.android.socialbase.downloader.b;
-/* loaded from: classes6.dex */
-public enum b {
-    BYTE_INVALID_RETRY_STATUS_NONE,
-    BYTE_INVALID_RETRY_STATUS_RESTART,
-    BYTE_INVALID_RETRY_STATUS_DOWNLOADING,
-    BYTE_INVALID_RETRY_STATUS_DOWNLOADED
+
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public interface b extends IInterface {
+    void a(Map map, Map map2) throws RemoteException;
+
+    /* loaded from: classes7.dex */
+    public static abstract class a extends Binder implements b {
+
+        /* renamed from: com.ss.android.socialbase.downloader.b.b$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public static class C0479a implements b {
+
+            /* renamed from: a  reason: collision with root package name */
+            public static b f38716a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public IBinder f38717b;
+
+            public C0479a(IBinder iBinder) {
+                this.f38717b = iBinder;
+            }
+
+            @Override // com.ss.android.socialbase.downloader.b.b
+            public void a(Map map, Map map2) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
+                    obtain.writeMap(map);
+                    obtain.writeMap(map2);
+                    if (!this.f38717b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        a.a().a(map, map2);
+                    } else {
+                        obtain2.readException();
+                    }
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.os.IInterface
+            public IBinder asBinder() {
+                return this.f38717b;
+            }
+        }
+
+        public a() {
+            attachInterface(this, "com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
+        }
+
+        public static b a(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
+            if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
+                return (b) queryLocalInterface;
+            }
+            return new C0479a(iBinder);
+        }
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
+
+        @Override // android.os.Binder
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
+                return true;
+            }
+            parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
+            ClassLoader classLoader = getClass().getClassLoader();
+            a(parcel.readHashMap(classLoader), parcel.readHashMap(classLoader));
+            parcel2.writeNoException();
+            return true;
+        }
+
+        public static b a() {
+            return C0479a.f38716a;
+        }
+    }
 }

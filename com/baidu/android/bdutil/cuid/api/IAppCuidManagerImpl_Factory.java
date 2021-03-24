@@ -1,10 +1,7 @@
 package com.baidu.android.bdutil.cuid.api;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IAppCuidManagerImpl_Factory {
-    private static volatile IAppCuidManagerImpl instance;
-
-    private IAppCuidManagerImpl_Factory() {
-    }
+    public static volatile IAppCuidManagerImpl instance;
 
     public static synchronized IAppCuidManagerImpl get() {
         IAppCuidManagerImpl iAppCuidManagerImpl;

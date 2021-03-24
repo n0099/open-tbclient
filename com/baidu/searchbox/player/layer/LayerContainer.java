@@ -11,24 +11,14 @@ import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LayerContainer extends FrameLayout {
-    private ArrayList<ILayer> mLayers;
-    private FrameLayout.LayoutParams mLayoutParams;
-    private BDVideoPlayer mPlayer;
+    public ArrayList<ILayer> mLayers;
+    public FrameLayout.LayoutParams mLayoutParams;
+    public BDVideoPlayer mPlayer;
 
     public LayerContainer(@NonNull Context context) {
         super(context);
-        init();
-    }
-
-    public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
-    }
-
-    public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
         init();
     }
 
@@ -37,14 +27,9 @@ public class LayerContainer extends FrameLayout {
         this.mLayoutParams = new FrameLayout.LayoutParams(-1, -1);
     }
 
-    public void bindPlayer(@NonNull BDVideoPlayer bDVideoPlayer) {
-        this.mPlayer = bDVideoPlayer;
-    }
-
-    @NonNull
     @PublicMethod
-    public BDVideoPlayer getBindPlayer() {
-        return this.mPlayer;
+    public void addLayer(@NonNull AbsLayer absLayer) {
+        addLayer(absLayer, this.mLayoutParams);
     }
 
     @PublicMethod
@@ -57,39 +42,24 @@ public class LayerContainer extends FrameLayout {
         }
     }
 
+    public void bindPlayer(@NonNull BDVideoPlayer bDVideoPlayer) {
+        this.mPlayer = bDVideoPlayer;
+    }
+
     @PublicMethod
     public void detachLayer(@NonNull ILayer iLayer) {
         detachLayer(iLayer, false);
     }
 
+    @NonNull
     @PublicMethod
-    public void detachLayer(@NonNull ILayer iLayer, boolean z) {
-        ViewGroup viewGroup;
-        this.mLayers.remove(iLayer);
-        iLayer.onLayerDetach();
-        if (iLayer.getContentView() != null && (viewGroup = (ViewGroup) iLayer.getContentView().getParent()) != null) {
-            viewGroup.removeView(iLayer.getContentView());
-        }
-        if (z && this.mPlayer != null) {
-            this.mPlayer.getVideoSession().unregisterLayer(iLayer);
-        }
+    public BDVideoPlayer getBindPlayer() {
+        return this.mPlayer;
     }
 
     @PublicMethod
-    public void addLayer(@NonNull AbsLayer absLayer) {
-        addLayer(absLayer, this.mLayoutParams);
-    }
-
-    @PublicMethod
-    public void addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
-        if (!this.mLayers.contains(absLayer)) {
-            absLayer.setLayerContainer(this);
-            absLayer.initLayer();
-            this.mLayers.add(absLayer);
-            if (absLayer.getContentView() != null && absLayer.getContentView() != this) {
-                addView(absLayer.getContentView(), layoutParams);
-            }
-        }
+    public ArrayList<ILayer> getLayerList() {
+        return this.mLayers;
     }
 
     @PublicMethod
@@ -102,16 +72,12 @@ public class LayerContainer extends FrameLayout {
         }
     }
 
-    @PublicMethod
-    public void insertLayer(@NonNull AbsLayer absLayer, @Nullable FrameLayout.LayoutParams layoutParams) {
-        if (!this.mLayers.contains(absLayer)) {
-            absLayer.setLayerContainer(this);
-            this.mLayers.add(absLayer);
-            if (layoutParams == null) {
-                layoutParams = this.mLayoutParams;
-            }
-            if (absLayer.getContentView() != this) {
-                addView(absLayer.getContentView(), layoutParams);
+    public void onContainerDetach() {
+        ArrayList<ILayer> arrayList = this.mLayers;
+        if (arrayList != null) {
+            Iterator<ILayer> it = arrayList.iterator();
+            while (it.hasNext()) {
+                it.next().onContainerDetach();
             }
         }
     }
@@ -126,17 +92,57 @@ public class LayerContainer extends FrameLayout {
         removeAllViews();
     }
 
-    public void onContainerDetach() {
-        if (this.mLayers != null) {
-            Iterator<ILayer> it = this.mLayers.iterator();
-            while (it.hasNext()) {
-                it.next().onContainerDetach();
-            }
+    @PublicMethod
+    public void addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
+        if (this.mLayers.contains(absLayer)) {
+            return;
         }
+        absLayer.setLayerContainer(this);
+        absLayer.initLayer();
+        this.mLayers.add(absLayer);
+        if (absLayer.getContentView() == null || absLayer.getContentView() == this) {
+            return;
+        }
+        addView(absLayer.getContentView(), layoutParams);
     }
 
     @PublicMethod
-    public ArrayList<ILayer> getLayerList() {
-        return this.mLayers;
+    public void detachLayer(@NonNull ILayer iLayer, boolean z) {
+        BDVideoPlayer bDVideoPlayer;
+        ViewGroup viewGroup;
+        this.mLayers.remove(iLayer);
+        iLayer.onLayerDetach();
+        if (iLayer.getContentView() != null && (viewGroup = (ViewGroup) iLayer.getContentView().getParent()) != null) {
+            viewGroup.removeView(iLayer.getContentView());
+        }
+        if (!z || (bDVideoPlayer = this.mPlayer) == null) {
+            return;
+        }
+        bDVideoPlayer.getVideoSession().unregisterLayer(iLayer);
+    }
+
+    public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        init();
+    }
+
+    public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        init();
+    }
+
+    @PublicMethod
+    public void insertLayer(@NonNull AbsLayer absLayer, @Nullable FrameLayout.LayoutParams layoutParams) {
+        if (this.mLayers.contains(absLayer)) {
+            return;
+        }
+        absLayer.setLayerContainer(this);
+        this.mLayers.add(absLayer);
+        if (layoutParams == null) {
+            layoutParams = this.mLayoutParams;
+        }
+        if (absLayer.getContentView() != this) {
+            addView(absLayer.getContentView(), layoutParams);
+        }
     }
 }

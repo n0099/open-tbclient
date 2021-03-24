@@ -1,36 +1,35 @@
 package com.baidu.tbadk.newFriends;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.ReplyFriend.ReplyFriendResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ResponseApplyMessage extends SocketResponsedMessage {
-    private long friendId;
-    private String message;
+    public long friendId;
+    public String message;
+
+    public ResponseApplyMessage() {
+        super(304103);
+    }
 
     public long getFriendId() {
         return this.friendId;
-    }
-
-    public void setFriendId(long j) {
-        this.friendId = j;
     }
 
     public String getMessage() {
         return this.message;
     }
 
+    public void setFriendId(long j) {
+        this.friendId = j;
+    }
+
     public void setMessage(String str) {
         this.message = str;
     }
 
-    public ResponseApplyMessage() {
-        super(CmdConfigSocket.CMD_APPLY_MESSAGE);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ReplyFriendResIdl replyFriendResIdl = (ReplyFriendResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyFriendResIdl.class);
         setError(replyFriendResIdl.error.errorno.intValue());

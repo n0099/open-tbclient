@@ -7,16 +7,7 @@ public final class AddGroupReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    private AddGroupReqIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            this.data = builder.data;
-        } else {
-            this.data = builder.data;
-        }
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<AddGroupReqIdl> {
         public DataReq data;
 
@@ -25,15 +16,25 @@ public final class AddGroupReqIdl extends Message {
 
         public Builder(AddGroupReqIdl addGroupReqIdl) {
             super(addGroupReqIdl);
-            if (addGroupReqIdl != null) {
-                this.data = addGroupReqIdl.data;
+            if (addGroupReqIdl == null) {
+                return;
             }
+            this.data = addGroupReqIdl.data;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public AddGroupReqIdl build(boolean z) {
             return new AddGroupReqIdl(this, z);
+        }
+    }
+
+    public AddGroupReqIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.data = builder.data;
+        } else {
+            this.data = builder.data;
         }
     }
 }

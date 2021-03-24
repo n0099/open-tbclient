@@ -1,21 +1,27 @@
 package com.meizu.cloud.pushsdk.base.a;
 
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<String, Class<?>> f7378a = new HashMap<>();
-    private Class<?> b;
-    private String c;
-    private Object d;
+    public static HashMap<String, Class<?>> f37622a = new HashMap<>();
 
-    private a(Object obj) {
-        this.d = obj;
+    /* renamed from: b  reason: collision with root package name */
+    public Class<?> f37623b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f37624c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Object f37625d;
+
+    public a(Object obj) {
+        this.f37625d = obj;
     }
 
-    private a(String str) {
-        this.c = str;
+    public a(String str) {
+        this.f37624c = str;
     }
 
     public static a a(Object obj) {
@@ -34,20 +40,21 @@ public class a {
         return new c(this, str, clsArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Class<?> a() throws ClassNotFoundException {
-        if (this.b != null) {
-            return this.b;
+        Class<?> cls = this.f37623b;
+        if (cls != null) {
+            return cls;
         }
-        if (this.d != null) {
-            return this.d.getClass();
+        Object obj = this.f37625d;
+        if (obj != null) {
+            return obj.getClass();
         }
-        Class<?> cls = f7378a.get(this.c);
-        if (cls == null) {
-            Class<?> cls2 = Class.forName(this.c);
-            f7378a.put(this.c, cls2);
-            return cls2;
+        Class<?> cls2 = f37622a.get(this.f37624c);
+        if (cls2 == null) {
+            Class<?> cls3 = Class.forName(this.f37624c);
+            f37622a.put(this.f37624c, cls3);
+            return cls3;
         }
-        return cls;
+        return cls2;
     }
 }

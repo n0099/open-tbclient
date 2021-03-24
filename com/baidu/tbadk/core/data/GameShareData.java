@@ -2,26 +2,11 @@ package com.baidu.tbadk.core.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.ar.gesture.GestureAR;
-import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TbEnum;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class GameShareData implements Parcelable {
-    public static final Parcelable.Creator<GameShareData> CREATOR = new Parcelable.Creator<GameShareData>() { // from class: com.baidu.tbadk.core.data.GameShareData.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: N */
-        public GameShareData createFromParcel(Parcel parcel) {
-            return new GameShareData(parcel);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: mW */
-        public GameShareData[] newArray(int i) {
-            return new GameShareData[i];
-        }
-    };
+    public static final Parcelable.Creator<GameShareData> CREATOR = new a();
     public String gameComment;
     public String gameDescription;
     public String gameIconUrl;
@@ -33,20 +18,45 @@ public class GameShareData implements Parcelable {
     public String userPortrait;
     public float userScore;
 
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<GameShareData> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public GameShareData createFromParcel(Parcel parcel) {
+            return new GameShareData(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: b */
+        public GameShareData[] newArray(int i) {
+            return new GameShareData[i];
+        }
+    }
+
     public GameShareData() {
     }
 
-    protected GameShareData(Parcel parcel) {
-        this.gameIconUrl = parcel.readString();
-        this.gameName = parcel.readString();
-        this.gameDescription = parcel.readString();
-        this.gameScore = parcel.readFloat();
-        this.userName = parcel.readString();
-        this.userPortrait = parcel.readString();
-        this.userScore = parcel.readFloat();
-        this.gameComment = parcel.readString();
-        this.shareQRCodeUrl = parcel.readString();
-        this.headBgUrl = parcel.readString();
+    public void a(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        this.gameIconUrl = jSONObject.optString("barIconUrl");
+        this.gameName = jSONObject.optString("barName");
+        this.gameDescription = jSONObject.optString("barDescribe");
+        this.gameScore = (float) jSONObject.optDouble("score");
+        this.userName = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+        this.userPortrait = jSONObject.optString("avastar");
+        this.userScore = (float) jSONObject.optDouble("userScore");
+        this.gameComment = jSONObject.optString("content");
+        this.shareQRCodeUrl = jSONObject.optString("qrCodeUrl");
+        this.headBgUrl = jSONObject.optString("headBgUrl");
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
     }
 
     @Override // android.os.Parcelable
@@ -63,23 +73,16 @@ public class GameShareData implements Parcelable {
         parcel.writeString(this.headBgUrl);
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
-    }
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.gameIconUrl = jSONObject.optString("barIconUrl");
-            this.gameName = jSONObject.optString("barName");
-            this.gameDescription = jSONObject.optString("barDescribe");
-            this.gameScore = (float) jSONObject.optDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
-            this.userName = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
-            this.userPortrait = jSONObject.optString("avastar");
-            this.userScore = (float) jSONObject.optDouble("userScore");
-            this.gameComment = jSONObject.optString("content");
-            this.shareQRCodeUrl = jSONObject.optString("qrCodeUrl");
-            this.headBgUrl = jSONObject.optString("headBgUrl");
-        }
+    public GameShareData(Parcel parcel) {
+        this.gameIconUrl = parcel.readString();
+        this.gameName = parcel.readString();
+        this.gameDescription = parcel.readString();
+        this.gameScore = parcel.readFloat();
+        this.userName = parcel.readString();
+        this.userPortrait = parcel.readString();
+        this.userScore = parcel.readFloat();
+        this.gameComment = parcel.readString();
+        this.shareQRCodeUrl = parcel.readString();
+        this.headBgUrl = parcel.readString();
     }
 }

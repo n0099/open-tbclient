@@ -1,63 +1,70 @@
 package com.baidu.fsg.base.restnet.b;
 
 import android.text.TextUtils;
+import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.fsg.base.restnet.http.HttpStatus;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class f implements com.baidu.fsg.base.restnet.rest.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private InputStream f1508a;
-    private int b;
-    private String c;
-    private Map<String, List<String>> d;
-    private com.baidu.fsg.base.restnet.http.a e;
-    private InputStream f;
+    public InputStream f5198a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f5199b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f5200c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Map<String, List<String>> f5201d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.baidu.fsg.base.restnet.http.a f5202e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public InputStream f5203f;
 
     public f(InputStream inputStream, int i, String str, Map<String, List<String>> map) {
-        this.f1508a = inputStream;
-        this.b = i;
-        this.c = str;
-        this.d = map;
+        this.f5198a = inputStream;
+        this.f5199b = i;
+        this.f5200c = str;
+        this.f5201d = map;
+    }
+
+    private boolean g() {
+        String g2 = d().g();
+        return !TextUtils.isEmpty(g2) && g2.contains(AsyncHttpClient.ENCODING_GZIP);
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public int a() throws IOException {
-        return this.b;
+        return this.f5199b;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public String b() throws IOException {
-        return this.c;
+        return this.f5200c;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public InputStream c() throws IOException {
-        return g() ? a(this.f1508a) : this.f1508a;
-    }
-
-    private boolean g() {
-        String g = d().g();
-        return !TextUtils.isEmpty(g) && g.contains("gzip");
-    }
-
-    private InputStream a(InputStream inputStream) throws IOException {
-        if (this.f == null) {
-            this.f = new GZIPInputStream(inputStream);
+        if (g()) {
+            return a(this.f5198a);
         }
-        return this.f;
+        return this.f5198a;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public com.baidu.fsg.base.restnet.http.a d() {
-        if (this.e == null) {
-            this.e = new com.baidu.fsg.base.restnet.http.a(this.d, false);
+        if (this.f5202e == null) {
+            this.f5202e = new com.baidu.fsg.base.restnet.http.a(this.f5201d, false);
         }
-        return this.e;
+        return this.f5202e;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
@@ -67,19 +74,28 @@ public class f implements com.baidu.fsg.base.restnet.rest.e {
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public void f() {
-        if (this.f != null) {
+        InputStream inputStream = this.f5203f;
+        if (inputStream != null) {
             try {
-                this.f.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        if (this.f1508a != null) {
-            try {
-                this.f1508a.close();
+                inputStream.close();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
         }
+        InputStream inputStream2 = this.f5198a;
+        if (inputStream2 != null) {
+            try {
+                inputStream2.close();
+            } catch (IOException e3) {
+                e3.printStackTrace();
+            }
+        }
+    }
+
+    private InputStream a(InputStream inputStream) throws IOException {
+        if (this.f5203f == null) {
+            this.f5203f = new GZIPInputStream(inputStream);
+        }
+        return this.f5203f;
     }
 }

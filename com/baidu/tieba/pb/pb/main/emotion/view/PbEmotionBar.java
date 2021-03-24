@@ -21,551 +21,557 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.f.e;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.util.ag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.SearchEmotionModel;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.view.EmotionView;
 import com.baidu.tieba.horizonalList.widget.HListView;
+import d.b.b.e.p.l;
+import d.b.h0.z0.i0;
 import java.util.List;
-/* loaded from: classes2.dex */
-public class PbEmotionBar extends LinearLayout implements EmotionView.a {
-    private float bIs;
-    private float cFL;
-    private float iUE;
-    private EditText iUJ;
-    private ImageView iUK;
-    private SearchEmotionModel.a iUq;
-    private int kRh;
-    private RelativeLayout lzu;
-    private com.baidu.tieba.pb.pb.main.emotion.a.a mData;
-    private float mDownX;
-    private int mFlingDistance;
-    private int mMaximumVelocity;
-    private int mMinimumVelocity;
-    private int mScreenWidth;
-    private VelocityTracker mVelocityTracker;
-    private HListView mfR;
-    private com.baidu.tieba.pb.pb.main.emotion.view.a mfS;
-    private double mfT;
-    private int mfU;
-    private int mfV;
-    private int mfW;
-    private int mfX;
-    private b mfY;
-    private RelativeLayout mfZ;
-    private boolean mga;
-    private boolean mgb;
-    private com.baidu.tieba.pb.pb.main.emotion.view.b mgc;
-    private TextWatcher mgd;
+/* loaded from: classes4.dex */
+public class PbEmotionBar extends LinearLayout implements EmotionView.c {
+    public int A;
+    public boolean B;
+    public boolean C;
+    public d.b.i0.c2.k.e.y0.g.b D;
+    public TextWatcher E;
+    public SearchEmotionModel.b F;
 
-    /* loaded from: classes2.dex */
-    public interface a {
-        void b(EmotionImageData emotionImageData, boolean z);
+    /* renamed from: e  reason: collision with root package name */
+    public RelativeLayout f19813e;
 
-        void c(String str, List<String> list, List<String> list2);
+    /* renamed from: f  reason: collision with root package name */
+    public HListView f19814f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.i0.c2.k.e.y0.g.a f19815g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f19816h;
+    public float i;
+    public float j;
+    public double k;
+    public int l;
+    public int m;
+    public float n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public j s;
+    public d.b.i0.c2.k.e.y0.e.a t;
+    public RelativeLayout u;
+    public EditText v;
+    public ImageView w;
+    public VelocityTracker x;
+    public int y;
+    public int z;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            TiebaStatic.log("c12492");
+        }
     }
 
-    /* loaded from: classes2.dex */
-    public interface b {
-        void onMove(float f);
+    /* loaded from: classes4.dex */
+    public class b implements InputFilter {
+        public b() {
+        }
+
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            int i5 = i4 - i3;
+            int length = 30 - (spanned.length() - i5);
+            String obj = spanned.toString();
+            int b2 = i0.b(obj);
+            if (i5 > 0) {
+                for (int i6 = i3; i6 < i5 + i3 && obj.length() < i6; i6++) {
+                    b2 -= i0.a(obj.charAt(i6));
+                }
+            } else {
+                b2 += i0.b(charSequence.toString());
+            }
+            if (b2 <= 30 && length > 0) {
+                if (length >= i2 - i) {
+                    return null;
+                }
+                return charSequence.subSequence(i, length + i);
+            }
+            return "";
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements TextWatcher {
+        public c() {
+        }
+
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            if (editable == null) {
+                return;
+            }
+            String trim = editable.toString().trim();
+            if (TextUtils.isEmpty(trim)) {
+                if (PbEmotionBar.this.t == null || ListUtils.isEmpty(PbEmotionBar.this.t.a())) {
+                    return;
+                }
+                PbEmotionBar.this.f19815g.e(PbEmotionBar.this.t.a());
+                PbEmotionBar.this.f19815g.notifyDataSetChanged();
+                return;
+            }
+            if (PbEmotionBar.this.D == null) {
+                PbEmotionBar.this.D = new d.b.i0.c2.k.e.y0.g.b();
+                PbEmotionBar.this.D.g(PbEmotionBar.this.F);
+            }
+            PbEmotionBar.this.D.f(trim);
+        }
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements SearchEmotionModel.b {
+        public d() {
+        }
+
+        @Override // com.baidu.tieba.face.SearchEmotionModel.b
+        public void a(String str, d.b.i0.k0.c.a aVar) {
+            if (aVar == null || ListUtils.isEmpty(aVar.a()) || !PbEmotionBar.this.v.getText().toString().trim().equals(str)) {
+                return;
+            }
+            PbEmotionBar.this.f19815g.e(aVar.a());
+            PbEmotionBar.this.f19815g.notifyDataSetChanged();
+        }
+
+        @Override // com.baidu.tieba.face.SearchEmotionModel.b
+        public void onFail(int i, String str) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e implements ValueAnimator.AnimatorUpdateListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ RelativeLayout.LayoutParams f19821e;
+
+        public e(RelativeLayout.LayoutParams layoutParams) {
+            this.f19821e = layoutParams;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+            this.f19821e.leftMargin = intValue;
+            PbEmotionBar.this.B(intValue);
+            PbEmotionBar pbEmotionBar = PbEmotionBar.this;
+            pbEmotionBar.A(pbEmotionBar.r(this.f19821e.leftMargin));
+            PbEmotionBar.this.setLayoutParams(this.f19821e);
+            PbEmotionBar.this.v(this.f19821e.leftMargin);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class f extends AnimatorListenerAdapter {
+        public f() {
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            super.onAnimationEnd(animator);
+            if (((RelativeLayout.LayoutParams) PbEmotionBar.this.getLayoutParams()).leftMargin <= 0) {
+                PbEmotionBar.this.setCanShowEmotionPreview(true);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class g implements Runnable {
+        public g() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            PbEmotionBar.this.v.requestFocus();
+            l.J(PbEmotionBar.this.getContext(), PbEmotionBar.this.v);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class h implements i {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ i f19825a;
+
+        public h(i iVar) {
+            this.f19825a = iVar;
+        }
+
+        @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.i
+        public void a(EmotionImageData emotionImageData, boolean z) {
+            this.f19825a.a(emotionImageData, z);
+        }
+
+        @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.i
+        public void b(String str, List<String> list, List<String> list2) {
+            if (PbEmotionBar.this.t != null) {
+                this.f19825a.b(PbEmotionBar.this.v.getText().toString(), PbEmotionBar.this.t.b(), list2);
+                TiebaStatic.log("c12177");
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface i {
+        void a(EmotionImageData emotionImageData, boolean z);
+
+        void b(String str, List<String> list, List<String> list2);
+    }
+
+    /* loaded from: classes4.dex */
+    public interface j {
+        void onMove(float f2);
     }
 
     public PbEmotionBar(Context context) {
         super(context);
-        this.mgb = false;
-        this.mgd = new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.3
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable editable) {
-                if (editable != null) {
-                    String trim = editable.toString().trim();
-                    if (TextUtils.isEmpty(trim)) {
-                        if (PbEmotionBar.this.mData != null && !y.isEmpty(PbEmotionBar.this.mData.cyt())) {
-                            PbEmotionBar.this.mfS.setData(PbEmotionBar.this.mData.cyt());
-                            PbEmotionBar.this.mfS.notifyDataSetChanged();
-                            return;
-                        }
-                        return;
-                    }
-                    if (PbEmotionBar.this.mgc == null) {
-                        PbEmotionBar.this.mgc = new com.baidu.tieba.pb.pb.main.emotion.view.b();
-                        PbEmotionBar.this.mgc.a(PbEmotionBar.this.iUq);
-                    }
-                    PbEmotionBar.this.mgc.PZ(trim);
-                }
-            }
-        };
-        this.iUq = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.4
-            @Override // com.baidu.tieba.face.SearchEmotionModel.a
-            public void a(String str, com.baidu.tieba.face.data.a aVar) {
-                if (aVar != null && !y.isEmpty(aVar.cyt()) && PbEmotionBar.this.iUJ.getText().toString().trim().equals(str)) {
-                    PbEmotionBar.this.mfS.setData(aVar.cyt());
-                    PbEmotionBar.this.mfS.notifyDataSetChanged();
-                }
-            }
-
-            @Override // com.baidu.tieba.face.SearchEmotionModel.a
-            public void onFail(int i, String str) {
-            }
-        };
-        init();
-    }
-
-    public PbEmotionBar(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mgb = false;
-        this.mgd = new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.3
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable editable) {
-                if (editable != null) {
-                    String trim = editable.toString().trim();
-                    if (TextUtils.isEmpty(trim)) {
-                        if (PbEmotionBar.this.mData != null && !y.isEmpty(PbEmotionBar.this.mData.cyt())) {
-                            PbEmotionBar.this.mfS.setData(PbEmotionBar.this.mData.cyt());
-                            PbEmotionBar.this.mfS.notifyDataSetChanged();
-                            return;
-                        }
-                        return;
-                    }
-                    if (PbEmotionBar.this.mgc == null) {
-                        PbEmotionBar.this.mgc = new com.baidu.tieba.pb.pb.main.emotion.view.b();
-                        PbEmotionBar.this.mgc.a(PbEmotionBar.this.iUq);
-                    }
-                    PbEmotionBar.this.mgc.PZ(trim);
-                }
-            }
-        };
-        this.iUq = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.4
-            @Override // com.baidu.tieba.face.SearchEmotionModel.a
-            public void a(String str, com.baidu.tieba.face.data.a aVar) {
-                if (aVar != null && !y.isEmpty(aVar.cyt()) && PbEmotionBar.this.iUJ.getText().toString().trim().equals(str)) {
-                    PbEmotionBar.this.mfS.setData(aVar.cyt());
-                    PbEmotionBar.this.mfS.notifyDataSetChanged();
-                }
-            }
-
-            @Override // com.baidu.tieba.face.SearchEmotionModel.a
-            public void onFail(int i, String str) {
-            }
-        };
-        init();
-    }
-
-    public PbEmotionBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mgb = false;
-        this.mgd = new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.3
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i2, int i22, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i2, int i22, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable editable) {
-                if (editable != null) {
-                    String trim = editable.toString().trim();
-                    if (TextUtils.isEmpty(trim)) {
-                        if (PbEmotionBar.this.mData != null && !y.isEmpty(PbEmotionBar.this.mData.cyt())) {
-                            PbEmotionBar.this.mfS.setData(PbEmotionBar.this.mData.cyt());
-                            PbEmotionBar.this.mfS.notifyDataSetChanged();
-                            return;
-                        }
-                        return;
-                    }
-                    if (PbEmotionBar.this.mgc == null) {
-                        PbEmotionBar.this.mgc = new com.baidu.tieba.pb.pb.main.emotion.view.b();
-                        PbEmotionBar.this.mgc.a(PbEmotionBar.this.iUq);
-                    }
-                    PbEmotionBar.this.mgc.PZ(trim);
-                }
-            }
-        };
-        this.iUq = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.4
-            @Override // com.baidu.tieba.face.SearchEmotionModel.a
-            public void a(String str, com.baidu.tieba.face.data.a aVar) {
-                if (aVar != null && !y.isEmpty(aVar.cyt()) && PbEmotionBar.this.iUJ.getText().toString().trim().equals(str)) {
-                    PbEmotionBar.this.mfS.setData(aVar.cyt());
-                    PbEmotionBar.this.mfS.notifyDataSetChanged();
-                }
-            }
-
-            @Override // com.baidu.tieba.face.SearchEmotionModel.a
-            public void onFail(int i2, String str) {
-            }
-        };
-        init();
-    }
-
-    private void init() {
-        setId(R.id.pb_emotion_bar);
-        inflate(getContext(), R.layout.layout_pb_emotion_bar, this);
-        setOrientation(1);
-        setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
-        this.mfR = (HListView) findViewById(R.id.lv_emotion);
-        this.mfS = new com.baidu.tieba.pb.pb.main.emotion.view.a();
-        this.mfS.a(this);
-        this.mfR.setAdapter((ListAdapter) this.mfS);
-        this.mfR.setDividerWidth(l.getDimens(getContext(), R.dimen.ds7));
-        this.mfR.setSelector(getResources().getDrawable(R.drawable.transparent_bg));
-        this.mfZ = (RelativeLayout) findViewById(R.id.layout_search);
-        this.iUJ = (EditText) findViewById(R.id.edit_search);
-        this.iUK = (ImageView) findViewById(R.id.iv_search);
-        this.iUJ.addTextChangedListener(this.mgd);
-        this.iUJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                TiebaStatic.log("c12492");
-            }
-        });
-        this.iUJ.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.2
-            @Override // android.text.InputFilter
-            public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-                int i5 = i4 - i3;
-                int length = 30 - (spanned.length() - i5);
-                String obj = spanned.toString();
-                int textLength = ag.getTextLength(obj);
-                if (i5 > 0) {
-                    for (int i6 = i3; i6 < i5 + i3 && obj.length() < i6; i6++) {
-                        textLength -= ag.getCharLength(obj.charAt(i6));
-                    }
-                } else {
-                    textLength += ag.getTextLength(charSequence.toString());
-                }
-                if (textLength > 30 || length <= 0) {
-                    return "";
-                }
-                if (length >= i2 - i) {
-                    return null;
-                }
-                return charSequence.subSequence(i, i + length);
-            }
-        }});
-        this.mScreenWidth = l.getEquipmentWidth(getContext());
-        this.iUE = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-        this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
-        this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
-        this.mFlingDistance = l.getDimens(getContext(), R.dimen.ds150);
-        this.mfV = l.getDimens(getContext(), R.dimen.ds58);
-        this.mfW = l.getDimens(getContext(), R.dimen.ds114);
-        this.kRh = l.getDimens(getContext(), R.dimen.ds10);
-        this.mfU = this.mScreenWidth - l.getDimens(getContext(), R.dimen.tbds196);
-        this.mfT = (this.mfV - this.mfW) * (1.0d / this.mfU);
-        this.mfX = l.getDimens(getContext(), R.dimen.ds100);
-        onChangeSkinType();
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                return false;
-            case 1:
-                if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin == this.mfU && ab(motionEvent)) {
-                    vU(true);
-                    break;
-                }
-                break;
-            case 2:
-                break;
-            default:
-                return super.onInterceptTouchEvent(motionEvent);
-        }
-        return aa(motionEvent);
-    }
-
-    private boolean aa(MotionEvent motionEvent) {
-        View childAt;
-        if (ab(motionEvent)) {
-            return false;
-        }
-        if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
-            return true;
-        }
-        if (this.mfR.getChildCount() <= 0 || this.mfR.getFirstVisiblePosition() != 0 || (childAt = this.mfR.getChildAt(0)) == null || childAt.getLeft() < 0 || motionEvent.getRawX() <= this.bIs) {
-            setCanShowEmotionPreview(true);
-            return false;
-        }
-        return true;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        boolean dispatchTouchEvent;
-        boolean dispatchTouchEvent2;
-        this.lzu.requestDisallowInterceptTouchEvent(true);
-        if (!onInterceptTouchEvent(motionEvent)) {
-            if (this.mgb && motionEvent.getAction() == 2) {
-                MotionEvent obtain = MotionEvent.obtain(motionEvent);
-                obtain.setAction(0);
-                dispatchTouchEvent2 = super.dispatchTouchEvent(obtain);
-            } else {
-                dispatchTouchEvent2 = super.dispatchTouchEvent(motionEvent);
-            }
-            this.mgb = false;
-            dispatchTouchEvent = dispatchTouchEvent2;
-        } else {
-            this.mgb = true;
-            dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        }
-        switch (motionEvent.getAction()) {
-            case 0:
-                if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
-                    setCanShowEmotionPreview(false);
-                }
-                this.mDownX = motionEvent.getRawX();
-                this.cFL = motionEvent.getRawY();
-                this.bIs = motionEvent.getRawX();
-                this.bIs = motionEvent.getRawX();
-                break;
-            case 2:
-                this.bIs = motionEvent.getRawX();
-                break;
-        }
-        return dispatchTouchEvent;
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        int i = 0;
-        if (this.mVelocityTracker == null) {
-            this.mVelocityTracker = VelocityTracker.obtain();
-        }
-        this.mVelocityTracker.addMovement(motionEvent);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-        switch (motionEvent.getAction()) {
-            case 1:
-            case 3:
-                this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                float xVelocity = this.mVelocityTracker.getXVelocity();
-                int rawX = (int) (motionEvent.getRawX() - this.mDownX);
-                if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
-                    if (rawX > 0) {
-                        vU(false);
-                    } else {
-                        vU(true);
-                    }
-                } else if (layoutParams.leftMargin > 0.4d * this.mScreenWidth) {
-                    vU(false);
-                } else {
-                    vU(true);
-                }
-                this.mVelocityTracker.clear();
-                this.mVelocityTracker.recycle();
-                this.mVelocityTracker = null;
-                break;
-            case 2:
-                setCanShowEmotionPreview(false);
-                int rawX2 = layoutParams.leftMargin + ((int) (motionEvent.getRawX() - this.bIs));
-                if (rawX2 >= 0) {
-                    i = rawX2 > this.mfU ? this.mfU : rawX2;
-                }
-                if (layoutParams.leftMargin != i) {
-                    layoutParams.leftMargin = i;
-                    int Gj = Gj(i);
-                    if (Gj <= this.mfW && Gj >= this.mfV) {
-                        Gl(i);
-                        Gk(Gj);
-                        Gm(layoutParams.leftMargin);
-                    }
-                    setLayoutParams(layoutParams);
-                    break;
-                }
-                break;
-        }
-        return true;
-    }
-
-    private boolean ab(MotionEvent motionEvent) {
-        return Math.abs(motionEvent.getRawX() - this.mDownX) < this.iUE && Math.abs(motionEvent.getRawY() - this.cFL) < this.iUE;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int Gj(int i) {
-        return (int) ((this.mfT * i) + this.mfW);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Gk(int i) {
-        this.mfR.getLayoutParams().height = (this.kRh * 2) + i;
-        this.mfS.Gk(i);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Gl(int i) {
-        float f = 1.0f - ((i * 1.0f) / this.mfU);
-        this.mfZ.getLayoutParams().height = (int) (this.mfX * f);
-        this.mfZ.setAlpha(f);
-        this.iUK.setScaleX(f);
-        this.iUK.setScaleY(f);
-        this.iUJ.setTextSize(0, f * l.getDimens(getContext(), R.dimen.fontsize32));
-    }
-
-    private void db(int i, int i2) {
-        if (i != i2) {
-            final RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-            ValueAnimator ofInt = ValueAnimator.ofInt(i, i2);
-            ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.5
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                    layoutParams.leftMargin = intValue;
-                    PbEmotionBar.this.Gl(intValue);
-                    PbEmotionBar.this.Gk(PbEmotionBar.this.Gj(layoutParams.leftMargin));
-                    PbEmotionBar.this.setLayoutParams(layoutParams);
-                    PbEmotionBar.this.Gm(layoutParams.leftMargin);
-                }
-            });
-            ofInt.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.6
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator) {
-                    super.onAnimationEnd(animator);
-                    if (((RelativeLayout.LayoutParams) PbEmotionBar.this.getLayoutParams()).leftMargin <= 0) {
-                        PbEmotionBar.this.setCanShowEmotionPreview(true);
-                    }
-                }
-            });
-            ofInt.setDuration(300L).start();
-        }
-    }
-
-    public void vU(boolean z) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-        if (layoutParams.leftMargin <= 0) {
-            setCanShowEmotionPreview(true);
-            return;
-        }
-        int i = layoutParams.leftMargin;
-        int i2 = this.mfU;
-        if (z) {
-            i2 = 0;
-            TiebaStatic.log("c12175");
-        }
-        if (!z) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ON_DUI_SEND_SUCCESS_OR_CANCEL));
-        }
-        db(i, i2);
-    }
-
-    public void vV(boolean z) {
-        vU(true);
-        if (z) {
-            e.mA().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.7
-                @Override // java.lang.Runnable
-                public void run() {
-                    PbEmotionBar.this.iUJ.requestFocus();
-                    l.showSoftKeyPad(PbEmotionBar.this.getContext(), PbEmotionBar.this.iUJ);
-                }
-            }, 300L);
-        }
-    }
-
-    public void setOnEmotionClickListener(final a aVar) {
-        if (aVar != null && this.mfS != null) {
-            this.mfS.a(new a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.8
-                @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.a
-                public void b(EmotionImageData emotionImageData, boolean z) {
-                    aVar.b(emotionImageData, z);
-                }
-
-                @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.a
-                public void c(String str, List<String> list, List<String> list2) {
-                    if (PbEmotionBar.this.mData != null) {
-                        aVar.c(PbEmotionBar.this.iUJ.getText().toString(), PbEmotionBar.this.mData.dsp(), list2);
-                        TiebaStatic.log("c12177");
-                    }
-                }
-            });
-        }
+        this.C = false;
+        this.E = new c();
+        this.F = new d();
+        t();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setCanShowEmotionPreview(boolean z) {
-        this.mga = z;
+        this.B = z;
     }
 
-    @Override // com.baidu.tieba.face.view.EmotionView.a
-    public boolean cyv() {
-        return this.mga;
+    public final void A(int i2) {
+        this.f19814f.getLayoutParams().height = (this.q * 2) + i2;
+        this.f19815g.h(i2);
     }
 
-    @Override // com.baidu.tieba.face.view.EmotionView.a
-    public boolean canClick() {
+    public final void B(int i2) {
+        float f2 = 1.0f - ((i2 * 1.0f) / this.m);
+        this.u.getLayoutParams().height = (int) (this.r * f2);
+        this.u.setAlpha(f2);
+        this.w.setScaleX(f2);
+        this.w.setScaleY(f2);
+        this.v.setTextSize(0, l.g(getContext(), R.dimen.fontsize32) * f2);
+    }
+
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public boolean a() {
+        return this.B;
+    }
+
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public void c() {
+    }
+
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public boolean d() {
         return ((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin <= 0;
     }
 
-    @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void cyy() {
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0037, code lost:
+        if (r1 != 2) goto L13;
+     */
+    @Override // android.view.ViewGroup, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        boolean dispatchTouchEvent;
+        this.f19813e.requestDisallowInterceptTouchEvent(true);
+        if (!onInterceptTouchEvent(motionEvent)) {
+            if (this.C && motionEvent.getAction() == 2) {
+                MotionEvent obtain = MotionEvent.obtain(motionEvent);
+                obtain.setAction(0);
+                dispatchTouchEvent = super.dispatchTouchEvent(obtain);
+            } else {
+                dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+            }
+            this.C = false;
+        } else {
+            this.C = true;
+            dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+        }
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
+                setCanShowEmotionPreview(false);
+            }
+            this.f19816h = motionEvent.getRawX();
+            this.i = motionEvent.getRawY();
+            this.j = motionEvent.getRawX();
+        }
+        this.j = motionEvent.getRawX();
+        return dispatchTouchEvent;
     }
 
-    @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void cyz() {
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public void f() {
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Gm(int i) {
-        if (this.mfY != null) {
-            this.mfY.onMove((this.mfU - i) * (1.0f / this.mfU));
+    public int getMaxLeftMargin() {
+        return this.m;
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action != 2) {
+                    return super.onInterceptTouchEvent(motionEvent);
+                }
+            } else if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin == this.m && u(motionEvent)) {
+                p(true);
+            }
+            return y(motionEvent);
+        }
+        return false;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0021, code lost:
+        if (r1 != 3) goto L10;
+     */
+    @Override // android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (this.x == null) {
+            this.x = VelocityTracker.obtain();
+        }
+        this.x.addMovement(motionEvent);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
+        int action = motionEvent.getAction();
+        int i2 = 0;
+        if (action != 1) {
+            if (action == 2) {
+                setCanShowEmotionPreview(false);
+                int rawX = layoutParams.leftMargin + ((int) (motionEvent.getRawX() - this.j));
+                if (rawX >= 0 && rawX <= (i2 = this.m)) {
+                    i2 = rawX;
+                }
+                if (layoutParams.leftMargin != i2) {
+                    layoutParams.leftMargin = i2;
+                    int r = r(i2);
+                    if (r <= this.p && r >= this.o) {
+                        B(i2);
+                        A(r);
+                        v(layoutParams.leftMargin);
+                    }
+                    setLayoutParams(layoutParams);
+                }
+            }
+            return true;
+        }
+        this.x.computeCurrentVelocity(1000, this.z);
+        float xVelocity = this.x.getXVelocity();
+        int rawX2 = (int) (motionEvent.getRawX() - this.f19816h);
+        if (Math.abs(xVelocity) <= this.y || Math.abs(rawX2) <= this.A) {
+            double d2 = layoutParams.leftMargin;
+            double d3 = this.l;
+            Double.isNaN(d3);
+            if (d2 > d3 * 0.4d) {
+                p(false);
+            } else {
+                p(true);
+            }
+        } else if (rawX2 > 0) {
+            p(false);
+        } else {
+            p(true);
+        }
+        this.x.clear();
+        this.x.recycle();
+        this.x = null;
+        return true;
+    }
+
+    public void p(boolean z) {
+        int i2 = ((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin;
+        if (i2 <= 0) {
+            setCanShowEmotionPreview(true);
+            return;
+        }
+        int i3 = this.m;
+        if (z) {
+            i3 = 0;
+            TiebaStatic.log("c12175");
+        }
+        if (!z) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921306));
+        }
+        z(i2, i3);
+    }
+
+    public void q(boolean z) {
+        p(true);
+        if (z) {
+            d.b.b.e.m.e.a().postDelayed(new g(), 300L);
         }
     }
 
-    public void setOnMoveListener(b bVar) {
-        this.mfY = bVar;
+    public final int r(int i2) {
+        double d2 = this.k;
+        double d3 = i2;
+        Double.isNaN(d3);
+        double d4 = d2 * d3;
+        double d5 = this.p;
+        Double.isNaN(d5);
+        return (int) (d4 + d5);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
     }
 
-    public void onDestroy() {
-        if (this.mfS != null) {
-            this.mfS.djd();
-        }
-        cFK();
-    }
-
-    public void cFK() {
-        if (this.mgc != null) {
-            this.mgc.cFK();
+    public void s() {
+        d.b.i0.c2.k.e.y0.g.b bVar = this.D;
+        if (bVar != null) {
+            bVar.e();
         }
     }
 
-    public void onChangeSkinType() {
-        ap.setViewTextColor(this.iUJ, R.color.CAM_X0105);
-        this.iUJ.setHintTextColor(ap.getColor(R.color.CAM_X0110));
-        ap.setBackgroundColor(this, R.color.CAM_X0201);
-        if (this.mfS != null) {
-            this.mfS.notifyDataSetChanged();
+    public void setOnEmotionClickListener(i iVar) {
+        d.b.i0.c2.k.e.y0.g.a aVar;
+        if (iVar == null || (aVar = this.f19815g) == null) {
+            return;
+        }
+        aVar.g(new h(iVar));
+    }
+
+    public void setOnMoveListener(j jVar) {
+        this.s = jVar;
+    }
+
+    public final void t() {
+        setId(R.id.pb_emotion_bar);
+        LinearLayout.inflate(getContext(), R.layout.layout_pb_emotion_bar, this);
+        setOrientation(1);
+        setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
+        this.f19814f = (HListView) findViewById(R.id.lv_emotion);
+        d.b.i0.c2.k.e.y0.g.a aVar = new d.b.i0.c2.k.e.y0.g.a();
+        this.f19815g = aVar;
+        aVar.f(this);
+        this.f19814f.setAdapter((ListAdapter) this.f19815g);
+        this.f19814f.setDividerWidth(l.g(getContext(), R.dimen.ds7));
+        this.f19814f.setSelector(getResources().getDrawable(R.drawable.transparent_bg));
+        this.u = (RelativeLayout) findViewById(R.id.layout_search);
+        this.v = (EditText) findViewById(R.id.edit_search);
+        this.w = (ImageView) findViewById(R.id.iv_search);
+        this.v.addTextChangedListener(this.E);
+        this.v.setOnClickListener(new a());
+        this.v.setFilters(new InputFilter[]{new b()});
+        this.l = l.k(getContext());
+        this.n = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.z = ViewConfiguration.getMaximumFlingVelocity();
+        this.y = ViewConfiguration.getMinimumFlingVelocity();
+        this.A = l.g(getContext(), R.dimen.ds150);
+        this.o = l.g(getContext(), R.dimen.ds58);
+        this.p = l.g(getContext(), R.dimen.ds114);
+        this.q = l.g(getContext(), R.dimen.ds10);
+        int g2 = this.l - l.g(getContext(), R.dimen.tbds196);
+        this.m = g2;
+        double d2 = this.o - this.p;
+        double d3 = g2;
+        Double.isNaN(d3);
+        Double.isNaN(d2);
+        this.k = d2 * (1.0d / d3);
+        this.r = l.g(getContext(), R.dimen.ds100);
+        w();
+    }
+
+    public final boolean u(MotionEvent motionEvent) {
+        float abs = Math.abs(motionEvent.getRawX() - this.f19816h);
+        float abs2 = Math.abs(motionEvent.getRawY() - this.i);
+        float f2 = this.n;
+        return abs < f2 && abs2 < f2;
+    }
+
+    public final void v(int i2) {
+        j jVar = this.s;
+        if (jVar != null) {
+            int i3 = this.m;
+            jVar.onMove((i3 - i2) * (1.0f / i3));
         }
     }
 
-    public int getMaxLeftMargin() {
-        return this.mfU;
+    public void w() {
+        SkinManager.setViewTextColor(this.v, R.color.CAM_X0105);
+        this.v.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+        d.b.i0.c2.k.e.y0.g.a aVar = this.f19815g;
+        if (aVar != null) {
+            aVar.notifyDataSetChanged();
+        }
+    }
+
+    public void x() {
+        d.b.i0.c2.k.e.y0.g.a aVar = this.f19815g;
+        if (aVar != null) {
+            aVar.d();
+        }
+        s();
+    }
+
+    public final boolean y(MotionEvent motionEvent) {
+        View childAt;
+        if (u(motionEvent)) {
+            return false;
+        }
+        if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
+            return true;
+        }
+        if (this.f19814f.getChildCount() <= 0 || this.f19814f.getFirstVisiblePosition() != 0 || (childAt = this.f19814f.getChildAt(0)) == null || childAt.getLeft() < 0 || motionEvent.getRawX() <= this.j) {
+            setCanShowEmotionPreview(true);
+            return false;
+        }
+        return true;
+    }
+
+    public final void z(int i2, int i3) {
+        if (i2 == i3) {
+            return;
+        }
+        ValueAnimator ofInt = ValueAnimator.ofInt(i2, i3);
+        ofInt.addUpdateListener(new e((RelativeLayout.LayoutParams) getLayoutParams()));
+        ofInt.addListener(new f());
+        ofInt.setDuration(300L).start();
+    }
+
+    public PbEmotionBar(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.C = false;
+        this.E = new c();
+        this.F = new d();
+        t();
+    }
+
+    public PbEmotionBar(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.C = false;
+        this.E = new c();
+        this.F = new d();
+        t();
     }
 }

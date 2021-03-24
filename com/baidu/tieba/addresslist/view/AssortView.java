@@ -7,64 +7,36 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.coreExtra.relationship.c;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.h0.s.f.c;
+/* loaded from: classes4.dex */
 public class AssortView extends View {
-    private a glP;
-    private Paint mPaint;
-    private int mPosition;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public Paint f14638e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f14639f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public a f14640g;
+
+    /* loaded from: classes4.dex */
     public interface a {
-        void EZ(String str);
+        void f0(String str);
 
-        void bLU();
+        void z0();
     }
 
     public AssortView(Context context) {
         super(context);
-        this.mPosition = -1;
-        init();
+        this.f14639f = -1;
+        a();
     }
 
-    public AssortView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mPosition = -1;
-        init();
-    }
-
-    public AssortView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mPosition = -1;
-        init();
-    }
-
-    private void init() {
-        this.mPaint = new Paint();
-    }
-
-    public void setOnTouchListener(a aVar) {
-        this.glP = aVar;
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        int height = getHeight();
-        int width = getWidth();
-        float f = (float) (width / 48.0d);
-        int length = height / c.fvY.length;
-        int length2 = c.fvY.length;
-        for (int i = 0; i < length2; i++) {
-            this.mPaint.setAntiAlias(true);
-            this.mPaint.setTypeface(Typeface.DEFAULT_BOLD);
-            this.mPaint.setColor(ap.getColor(R.color.CAM_X0108));
-            this.mPaint.setTextSize(26.0f * f);
-            canvas.drawText(c.fvY[i], (width / 2.0f) - (this.mPaint.measureText(c.fvY[i]) / 2.0f), (length * i) + length, this.mPaint);
-            this.mPaint.reset();
-        }
+    public final void a() {
+        this.f14638e = new Paint();
     }
 
     @Override // android.view.View
@@ -73,43 +45,78 @@ public class AssortView extends View {
     }
 
     @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        int height = getHeight();
+        int width = getWidth();
+        double d2 = width;
+        Double.isNaN(d2);
+        float f2 = (float) (d2 / 48.0d);
+        String[] strArr = c.f51354a;
+        int length = height / strArr.length;
+        int length2 = strArr.length;
+        for (int i = 0; i < length2; i++) {
+            this.f14638e.setAntiAlias(true);
+            this.f14638e.setTypeface(Typeface.DEFAULT_BOLD);
+            this.f14638e.setColor(SkinManager.getColor(R.color.CAM_X0108));
+            this.f14638e.setTextSize(26.0f * f2);
+            canvas.drawText(c.f51354a[i], (width / 2.0f) - (this.f14638e.measureText(c.f51354a[i]) / 2.0f), (length * i) + length, this.f14638e);
+            this.f14638e.reset();
+        }
+    }
+
+    @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
-        int y = (int) ((motionEvent.getY() / getHeight()) * c.fvY.length);
-        if (y >= 0 && y < c.fvY.length) {
-            switch (motionEvent.getAction()) {
-                case 0:
-                    this.mPosition = y;
-                    if (this.glP != null) {
-                        this.glP.EZ(c.fvY[this.mPosition]);
-                        return true;
+        float y = motionEvent.getY() / getHeight();
+        String[] strArr = c.f51354a;
+        int length = (int) (y * strArr.length);
+        if (length >= 0 && length < strArr.length) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                this.f14639f = length;
+                a aVar = this.f14640g;
+                if (aVar != null) {
+                    aVar.f0(c.f51354a[length]);
+                }
+            } else if (action != 1) {
+                if (action == 2 && this.f14639f != length) {
+                    this.f14639f = length;
+                    a aVar2 = this.f14640g;
+                    if (aVar2 != null) {
+                        aVar2.f0(c.f51354a[length]);
                     }
-                    return true;
-                case 1:
-                    if (this.glP != null) {
-                        this.glP.bLU();
-                    }
-                    this.mPosition = -1;
-                    return true;
-                case 2:
-                    if (this.mPosition != y) {
-                        this.mPosition = y;
-                        if (this.glP != null) {
-                            this.glP.EZ(c.fvY[this.mPosition]);
-                            return true;
-                        }
-                        return true;
-                    }
-                    return true;
-                default:
-                    return true;
+                }
+            } else {
+                a aVar3 = this.f14640g;
+                if (aVar3 != null) {
+                    aVar3.z0();
+                }
+                this.f14639f = -1;
+            }
+        } else {
+            this.f14639f = -1;
+            a aVar4 = this.f14640g;
+            if (aVar4 != null) {
+                aVar4.z0();
             }
         }
-        this.mPosition = -1;
-        if (this.glP != null) {
-            this.glP.bLU();
-            return true;
-        }
         return true;
+    }
+
+    public void setOnTouchListener(a aVar) {
+        this.f14640g = aVar;
+    }
+
+    public AssortView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f14639f = -1;
+        a();
+    }
+
+    public AssortView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f14639f = -1;
+        a();
     }
 }

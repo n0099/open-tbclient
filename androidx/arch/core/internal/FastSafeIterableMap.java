@@ -6,12 +6,23 @@ import androidx.arch.core.internal.SafeIterableMap;
 import java.util.HashMap;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class FastSafeIterableMap<K, V> extends SafeIterableMap<K, V> {
-    private HashMap<K, SafeIterableMap.Entry<K, V>> mHashMap = new HashMap<>();
+    public HashMap<K, SafeIterableMap.Entry<K, V>> mHashMap = new HashMap<>();
+
+    public Map.Entry<K, V> ceil(K k) {
+        if (contains(k)) {
+            return this.mHashMap.get(k).mPrevious;
+        }
+        return null;
+    }
+
+    public boolean contains(K k) {
+        return this.mHashMap.containsKey(k);
+    }
 
     @Override // androidx.arch.core.internal.SafeIterableMap
-    protected SafeIterableMap.Entry<K, V> get(K k) {
+    public SafeIterableMap.Entry<K, V> get(K k) {
         return this.mHashMap.get(k);
     }
 
@@ -30,16 +41,5 @@ public class FastSafeIterableMap<K, V> extends SafeIterableMap<K, V> {
         V v = (V) super.remove(k);
         this.mHashMap.remove(k);
         return v;
-    }
-
-    public boolean contains(K k) {
-        return this.mHashMap.containsKey(k);
-    }
-
-    public Map.Entry<K, V> ceil(K k) {
-        if (contains(k)) {
-            return this.mHashMap.get(k).mPrevious;
-        }
-        return null;
     }
 }

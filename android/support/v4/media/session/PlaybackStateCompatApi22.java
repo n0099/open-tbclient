@@ -6,15 +6,15 @@ import androidx.annotation.RequiresApi;
 import java.util.Iterator;
 import java.util.List;
 @RequiresApi(22)
-/* loaded from: classes14.dex */
-class PlaybackStateCompatApi22 {
+/* loaded from: classes.dex */
+public class PlaybackStateCompatApi22 {
     public static Bundle getExtras(Object obj) {
         return ((PlaybackState) obj).getExtras();
     }
 
-    public static Object newInstance(int i, long j, long j2, float f, long j3, CharSequence charSequence, long j4, List<Object> list, long j5, Bundle bundle) {
+    public static Object newInstance(int i, long j, long j2, float f2, long j3, CharSequence charSequence, long j4, List<Object> list, long j5, Bundle bundle) {
         PlaybackState.Builder builder = new PlaybackState.Builder();
-        builder.setState(i, j, f, j4);
+        builder.setState(i, j, f2, j4);
         builder.setBufferedPosition(j2);
         builder.setActions(j3);
         builder.setErrorMessage(charSequence);
@@ -25,8 +25,5 @@ class PlaybackStateCompatApi22 {
         builder.setActiveQueueItemId(j5);
         builder.setExtras(bundle);
         return builder.build();
-    }
-
-    private PlaybackStateCompatApi22() {
     }
 }

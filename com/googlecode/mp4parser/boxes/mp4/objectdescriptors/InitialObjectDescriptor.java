@@ -5,21 +5,21 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class InitialObjectDescriptor extends ObjectDescriptorBase {
-    int audioProfileLevelIndication;
-    int graphicsProfileLevelIndication;
-    int includeInlineProfileLevelFlag;
-    int oDProfileLevelIndication;
-    private int objectDescriptorId;
-    int sceneProfileLevelIndication;
-    int urlFlag;
-    int urlLength;
-    String urlString;
-    int visualProfileLevelIndication;
-    List<ESDescriptor> esDescriptors = new ArrayList();
-    List<ExtensionDescriptor> extensionDescriptors = new ArrayList();
-    List<BaseDescriptor> unknownDescriptors = new ArrayList();
+    public int audioProfileLevelIndication;
+    public int graphicsProfileLevelIndication;
+    public int includeInlineProfileLevelFlag;
+    public int oDProfileLevelIndication;
+    public int objectDescriptorId;
+    public int sceneProfileLevelIndication;
+    public int urlFlag;
+    public int urlLength;
+    public String urlString;
+    public int visualProfileLevelIndication;
+    public List<ESDescriptor> esDescriptors = new ArrayList();
+    public List<ExtensionDescriptor> extensionDescriptors = new ArrayList();
+    public List<BaseDescriptor> unknownDescriptors = new ArrayList();
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public void parseDetail(ByteBuffer byteBuffer) throws IOException {
@@ -30,8 +30,9 @@ public class InitialObjectDescriptor extends ObjectDescriptorBase {
         this.includeInlineProfileLevelFlag = (readUInt16 & 31) >> 4;
         int size = getSize() - 2;
         if (this.urlFlag == 1) {
-            this.urlLength = IsoTypeReader.readUInt8(byteBuffer);
-            this.urlString = IsoTypeReader.readString(byteBuffer, this.urlLength);
+            int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
+            this.urlLength = readUInt8;
+            this.urlString = IsoTypeReader.readString(byteBuffer, readUInt8);
             i = size - (this.urlLength + 1);
         } else {
             this.oDProfileLevelIndication = IsoTypeReader.readUInt8(byteBuffer);
@@ -39,18 +40,16 @@ public class InitialObjectDescriptor extends ObjectDescriptorBase {
             this.audioProfileLevelIndication = IsoTypeReader.readUInt8(byteBuffer);
             this.visualProfileLevelIndication = IsoTypeReader.readUInt8(byteBuffer);
             this.graphicsProfileLevelIndication = IsoTypeReader.readUInt8(byteBuffer);
-            int i2 = size - 5;
-            if (i2 > 2) {
+            i = size - 5;
+            if (i > 2) {
                 BaseDescriptor createFrom = ObjectDescriptorFactory.createFrom(-1, byteBuffer);
-                i2 -= createFrom.getSize();
+                i -= createFrom.getSize();
                 if (createFrom instanceof ESDescriptor) {
                     this.esDescriptors.add((ESDescriptor) createFrom);
-                    i = i2;
                 } else {
                     this.unknownDescriptors.add(createFrom);
                 }
             }
-            i = i2;
         }
         if (i > 2) {
             BaseDescriptor createFrom2 = ObjectDescriptorFactory.createFrom(-1, byteBuffer);
@@ -64,22 +63,6 @@ public class InitialObjectDescriptor extends ObjectDescriptorBase {
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("InitialObjectDescriptor");
-        sb.append("{objectDescriptorId=").append(this.objectDescriptorId);
-        sb.append(", urlFlag=").append(this.urlFlag);
-        sb.append(", includeInlineProfileLevelFlag=").append(this.includeInlineProfileLevelFlag);
-        sb.append(", urlLength=").append(this.urlLength);
-        sb.append(", urlString='").append(this.urlString).append('\'');
-        sb.append(", oDProfileLevelIndication=").append(this.oDProfileLevelIndication);
-        sb.append(", sceneProfileLevelIndication=").append(this.sceneProfileLevelIndication);
-        sb.append(", audioProfileLevelIndication=").append(this.audioProfileLevelIndication);
-        sb.append(", visualProfileLevelIndication=").append(this.visualProfileLevelIndication);
-        sb.append(", graphicsProfileLevelIndication=").append(this.graphicsProfileLevelIndication);
-        sb.append(", esDescriptors=").append(this.esDescriptors);
-        sb.append(", extensionDescriptors=").append(this.extensionDescriptors);
-        sb.append(", unknownDescriptors=").append(this.unknownDescriptors);
-        sb.append('}');
-        return sb.toString();
+        return "InitialObjectDescriptor{objectDescriptorId=" + this.objectDescriptorId + ", urlFlag=" + this.urlFlag + ", includeInlineProfileLevelFlag=" + this.includeInlineProfileLevelFlag + ", urlLength=" + this.urlLength + ", urlString='" + this.urlString + "', oDProfileLevelIndication=" + this.oDProfileLevelIndication + ", sceneProfileLevelIndication=" + this.sceneProfileLevelIndication + ", audioProfileLevelIndication=" + this.audioProfileLevelIndication + ", visualProfileLevelIndication=" + this.visualProfileLevelIndication + ", graphicsProfileLevelIndication=" + this.graphicsProfileLevelIndication + ", esDescriptors=" + this.esDescriptors + ", extensionDescriptors=" + this.extensionDescriptors + ", unknownDescriptors=" + this.unknownDescriptors + '}';
     }
 }

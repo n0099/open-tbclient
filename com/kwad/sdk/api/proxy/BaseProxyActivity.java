@@ -12,27 +12,21 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseProxyActivity extends Activity {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private IActivityProxy mDelegate;
-
-    static {
-        $assertionsDisabled = !BaseProxyActivity.class.desiredAssertionStatus();
-    }
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public IActivityProxy mDelegate;
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
-    protected void attachBaseContext(Context context) {
+    public void attachBaseContext(Context context) {
         super.attachBaseContext(Wrapper.wrapContextIfNeed(context));
-        this.mDelegate = getDelegate(context);
-        this.mDelegate.setActivity(this);
-        if (!$assertionsDisabled && this.mDelegate == null) {
-            throw new AssertionError();
-        }
+        IActivityProxy delegate = getDelegate(context);
+        this.mDelegate = delegate;
+        delegate.setActivity(this);
     }
 
     @NonNull
-    protected abstract IActivityProxy getDelegate(Context context);
+    public abstract IActivityProxy getDelegate(Context context);
 
     @Override // android.app.Activity
     public Intent getIntent() {
@@ -46,13 +40,13 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         this.mDelegate.onActivityResult(i, i2, intent);
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper
-    protected void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
+    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         super.onApplyThemeResource(theme, i, z);
         this.mDelegate.onApplyThemeResource(theme, i, z);
     }
@@ -63,7 +57,7 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    protected void onChildTitleChanged(Activity activity, CharSequence charSequence) {
+    public void onChildTitleChanged(Activity activity, CharSequence charSequence) {
         super.onChildTitleChanged(activity, charSequence);
         this.mDelegate.onChildTitleChanged(activity, charSequence);
     }
@@ -75,14 +69,14 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    protected void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         this.mDelegate.onPreCreate(bundle);
         super.onCreate(bundle);
         this.mDelegate.onCreate(bundle);
     }
 
     @Override // android.app.Activity
-    protected void onDestroy() {
+    public void onDestroy() {
         this.mDelegate.onPreDestroy();
         super.onDestroy();
         this.mDelegate.onDestroy();
@@ -105,78 +99,78 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    protected void onNewIntent(Intent intent) {
+    public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         this.mDelegate.onNewIntent(intent);
     }
 
     @Override // android.app.Activity
-    protected void onPause() {
+    public void onPause() {
         this.mDelegate.onPrePause();
         super.onPause();
         this.mDelegate.onPause();
     }
 
     @Override // android.app.Activity
-    protected void onPostCreate(@Nullable Bundle bundle) {
+    public void onPostCreate(@Nullable Bundle bundle) {
         super.onPostCreate(bundle);
         this.mDelegate.onPostCreate(bundle);
     }
 
     @Override // android.app.Activity
-    protected void onPostResume() {
+    public void onPostResume() {
         super.onPostResume();
         this.mDelegate.onPostResume();
     }
 
     @Override // android.app.Activity
-    protected void onRestart() {
+    public void onRestart() {
         super.onRestart();
         this.mDelegate.onRestart();
     }
 
     @Override // android.app.Activity
-    protected void onRestoreInstanceState(@NonNull Bundle bundle) {
+    public void onRestoreInstanceState(@NonNull Bundle bundle) {
         super.onRestoreInstanceState(bundle);
         this.mDelegate.onRestoreInstanceState(bundle);
     }
 
     @Override // android.app.Activity
-    protected void onResume() {
+    public void onResume() {
         this.mDelegate.onPreResume();
         super.onResume();
         this.mDelegate.onResume();
     }
 
     @Override // android.app.Activity
-    protected void onSaveInstanceState(@NonNull Bundle bundle) {
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
         this.mDelegate.onPreSaveInstanceState(bundle);
         super.onSaveInstanceState(bundle);
         this.mDelegate.onSaveInstanceState(bundle);
     }
 
     @Override // android.app.Activity
-    protected void onStart() {
+    public void onStart() {
         this.mDelegate.onPreStart();
         super.onStart();
         this.mDelegate.onStart();
     }
 
     @Override // android.app.Activity
-    protected void onStop() {
+    public void onStop() {
         this.mDelegate.onPreStop();
         super.onStop();
         this.mDelegate.onStop();
     }
 
     @Override // android.app.Activity
-    protected void onTitleChanged(CharSequence charSequence, int i) {
+    public void onTitleChanged(CharSequence charSequence, int i) {
         super.onTitleChanged(charSequence, i);
         this.mDelegate.onTitleChanged(charSequence, i);
     }
 
     @Override // android.app.Activity
-    protected void onUserLeaveHint() {
+    public void onUserLeaveHint() {
         super.onUserLeaveHint();
         this.mDelegate.onUserLeaveHint();
     }

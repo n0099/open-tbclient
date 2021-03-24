@@ -7,62 +7,64 @@ import android.webkit.WebView;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a f5149a;
+    public static final a f30445a;
 
     /* loaded from: classes6.dex */
-    private static class a {
-        private a() {
+    public static class a {
+        public a() {
         }
 
         public void a(WebView webView, String str) {
-            if (webView != null) {
-                try {
-                    webView.loadUrl(str);
-                } catch (Throwable th) {
-                }
+            if (webView == null) {
+                return;
+            }
+            try {
+                webView.loadUrl(str);
+            } catch (Throwable unused) {
             }
         }
     }
 
     @TargetApi(19)
     /* loaded from: classes6.dex */
-    private static class b extends a {
-        private b() {
+    public static class b extends a {
+        public b() {
             super();
         }
 
         @Override // com.bytedance.sdk.openadsdk.utils.t.a
         public void a(WebView webView, String str) {
+            if (webView == null) {
+                return;
+            }
             boolean z = false;
-            if (webView != null) {
-                if (str != null && str.startsWith("javascript:")) {
-                    try {
-                        webView.evaluateJavascript(str, null);
-                        z = true;
-                    } catch (Throwable th) {
-                        if (th instanceof IllegalStateException) {
-                        }
-                    }
+            if (str != null && str.startsWith("javascript:")) {
+                try {
+                    webView.evaluateJavascript(str, null);
+                    z = true;
+                } catch (Throwable th) {
+                    boolean z2 = th instanceof IllegalStateException;
                 }
-                if (!z) {
-                    try {
-                        webView.loadUrl(str);
-                    } catch (Throwable th2) {
-                    }
-                }
+            }
+            if (z) {
+                return;
+            }
+            try {
+                webView.loadUrl(str);
+            } catch (Throwable unused) {
             }
         }
     }
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
-            f5149a = new b();
+            f30445a = new b();
         } else {
-            f5149a = new a();
+            f30445a = new a();
         }
     }
 
     public static void a(WebView webView, String str) {
-        f5149a.a(webView, str);
+        f30445a.a(webView, str);
     }
 }

@@ -4,40 +4,53 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+import d.b.h0.r.u.c;
+import d.b.i0.c2.h.d;
+/* loaded from: classes4.dex */
 public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
-    private ViewGroup lRc;
-    private View mRootView;
-    private TextView mTitle;
-    private View mTopLine;
+
+    /* renamed from: a  reason: collision with root package name */
+    public View f19525a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f19526b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ViewGroup f19527c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f19528d;
 
     public PbChildTitleViewHolder(View view) {
         super(view);
-        this.mRootView = view;
-        this.mTopLine = view.findViewById(R.id.pb_child_title_top_line);
-        this.lRc = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
-        this.mTitle = (TextView) view.findViewById(R.id.tv_pb_child_title);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.mTitle).ob(R.string.F_X02);
+        this.f19525a = view;
+        this.f19526b = view.findViewById(R.id.pb_child_title_top_line);
+        this.f19527c = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
+        TextView textView = (TextView) view.findViewById(R.id.tv_pb_child_title);
+        this.f19528d = textView;
+        c.a(textView).s(R.string.F_X02);
     }
 
-    public void a(com.baidu.tieba.pb.data.e eVar) {
-        this.mTitle.setText(eVar.getTitle());
+    public void b(d dVar) {
+        this.f19528d.setText(dVar.e());
     }
 
-    public void onChangeSkinType() {
-        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mTopLine, R.color.CAM_X0204);
-        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lRc, R.color.CAM_X0205);
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
+    public View c() {
+        return this.f19525a;
     }
 
-    public View getRootView() {
-        return this.mRootView;
+    public void d() {
+        SkinManager.setBackgroundColor(this.f19526b, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f19527c, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(this.f19528d, R.color.CAM_X0105);
     }
 
-    public void FF(int i) {
-        if (this.mRootView != null) {
-            this.mRootView.setVisibility(i);
+    public void e(int i) {
+        View view = this.f19525a;
+        if (view != null) {
+            view.setVisibility(i);
         }
     }
 }

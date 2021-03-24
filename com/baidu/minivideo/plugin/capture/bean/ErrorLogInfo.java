@@ -2,7 +2,7 @@ package com.baidu.minivideo.plugin.capture.bean;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class ErrorLogInfo implements Jsonable {
     public String code;
     public String data;
@@ -14,57 +14,6 @@ public class ErrorLogInfo implements Jsonable {
     public int type;
 
     public ErrorLogInfo() {
-    }
-
-    public ErrorLogInfo(int i, String str, String str2, String str3, String str4) {
-        set(i, str, str2, str3, str4);
-    }
-
-    public void set(int i, String str, String str2, String str3, String str4) {
-        this.type = i;
-        this.name = str;
-        this.code = str2;
-        this.msg = str3;
-        this.data = str4;
-    }
-
-    public void set(int i, String str, String str2, String str3, String str4, boolean z) {
-        this.type = i;
-        this.name = str;
-        this.code = str2;
-        this.msg = str3;
-        this.data = str4;
-        this.doReport = z;
-    }
-
-    public String toString() {
-        return "type:" + this.type + "name:" + this.name + "code:" + this.code + "msg:" + this.msg + "data" + this.data + "doReport : " + this.doReport;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
-    public JSONObject toJson() {
-        JSONObject jSONObject;
-        try {
-            jSONObject = new JSONObject();
-        } catch (JSONException e) {
-            e = e;
-            jSONObject = null;
-        }
-        try {
-            jSONObject.put("type", this.type);
-            jSONObject.put("doReport", this.doReport);
-            jSONObject.put("name", this.name);
-            jSONObject.put("code", this.code);
-            jSONObject.put("msg", this.msg);
-            jSONObject.put("data", this.data);
-            jSONObject.put("isShowSpecialToast", this.isShowSpecialToast);
-            jSONObject.put("specialToast", this.specialToast);
-        } catch (JSONException e2) {
-            e = e2;
-            e.printStackTrace();
-            return jSONObject;
-        }
-        return jSONObject;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
@@ -79,9 +28,61 @@ public class ErrorLogInfo implements Jsonable {
             this.isShowSpecialToast = jSONObject.getBoolean("isShowSpecialToast");
             this.specialToast = jSONObject.getString("specialToast");
             return false;
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             return false;
         }
+    }
+
+    public void set(int i, String str, String str2, String str3, String str4) {
+        this.type = i;
+        this.name = str;
+        this.code = str2;
+        this.msg = str3;
+        this.data = str4;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
+    public JSONObject toJson() {
+        JSONObject jSONObject;
+        JSONException e2;
+        try {
+            jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", this.type);
+                jSONObject.put("doReport", this.doReport);
+                jSONObject.put("name", this.name);
+                jSONObject.put("code", this.code);
+                jSONObject.put("msg", this.msg);
+                jSONObject.put("data", this.data);
+                jSONObject.put("isShowSpecialToast", this.isShowSpecialToast);
+                jSONObject.put("specialToast", this.specialToast);
+            } catch (JSONException e3) {
+                e2 = e3;
+                e2.printStackTrace();
+                return jSONObject;
+            }
+        } catch (JSONException e4) {
+            jSONObject = null;
+            e2 = e4;
+        }
+        return jSONObject;
+    }
+
+    public String toString() {
+        return "type:" + this.type + "name:" + this.name + "code:" + this.code + "msg:" + this.msg + "data" + this.data + "doReport : " + this.doReport;
+    }
+
+    public ErrorLogInfo(int i, String str, String str2, String str3, String str4) {
+        set(i, str, str2, str3, str4);
+    }
+
+    public void set(int i, String str, String str2, String str3, String str4, boolean z) {
+        this.type = i;
+        this.name = str;
+        this.code = str2;
+        this.msg = str3;
+        this.data = str4;
+        this.doReport = z;
     }
 }

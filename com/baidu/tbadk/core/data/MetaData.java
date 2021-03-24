@@ -1,15 +1,23 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.tbadk.core.util.ImageInfo;
+import com.baidu.tbadk.core.util.ImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
-public class MetaData extends com.baidu.tbadk.data.MetaData implements com.baidu.tbadk.core.util.ah, com.baidu.tbadk.core.util.w, TbCheckBox.b {
-    private static final long serialVersionUID = -5772546803814127750L;
-    private boolean mIsChecked = false;
+/* loaded from: classes3.dex */
+public class MetaData extends com.baidu.tbadk.data.MetaData implements TbCheckBox.c, ImageProvider, PreLoadImageProvider {
+    public static final long serialVersionUID = -5772546803814127750L;
+    public boolean mIsChecked = false;
 
+    @Override // com.baidu.tbadk.core.util.ImageProvider
+    public ArrayList<String> getForumPhotoUrl() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getImageUrl() {
         ArrayList<IconData> iconInfo = getIconInfo();
         ArrayList<IconData> tShowInfoNew = getTShowInfoNew();
@@ -26,35 +34,7 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements com.baidu
         return arrayList;
     }
 
-    public ArrayList<String> getPhotoUrl() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(getPortrait());
-        return arrayList;
-    }
-
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.b
-    public boolean isChecked() {
-        return this.mIsChecked;
-    }
-
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.b
-    public void setChecked(boolean z) {
-        this.mIsChecked = z;
-    }
-
-    public boolean isSupportImageSize() {
-        return false;
-    }
-
-    public ArrayList<ImageInfo> getImagesWithEmotions() {
-        return null;
-    }
-
-    public ArrayList<String> getForumPhotoUrl() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.util.ah
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
@@ -62,5 +42,32 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements com.baidu
         preLoadImageInfo.procType = 12;
         arrayList.add(preLoadImageInfo);
         return arrayList;
+    }
+
+    @Override // com.baidu.tbadk.core.util.ImageProvider
+    public ArrayList<ImageInfo> getImagesWithEmotions() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.util.ImageProvider
+    public ArrayList<String> getPhotoUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(getPortrait());
+        return arrayList;
+    }
+
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+    public boolean isChecked() {
+        return this.mIsChecked;
+    }
+
+    @Override // com.baidu.tbadk.core.util.ImageProvider
+    public boolean isSupportImageSize() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+    public void setChecked(boolean z) {
+        this.mIsChecked = z;
     }
 }

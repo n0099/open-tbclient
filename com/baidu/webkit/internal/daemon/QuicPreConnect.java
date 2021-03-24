@@ -11,14 +11,14 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class QuicPreConnect implements INoProGuard, INetListener {
-    private static final String LOG_TAG = "QuicPreConnect";
-    private static boolean mDownloading = false;
-    private static final String mQuicPreConnectUrl = "https://m.baidu.com/static/searchbox/common/prelink.html?word=";
-    private ByteArrayOutputStream mData = null;
+    public static final String LOG_TAG = "QuicPreConnect";
+    public static boolean mDownloading = false;
+    public static final String mQuicPreConnectUrl = "https://m.baidu.com/static/searchbox/common/prelink.html?word=";
+    public ByteArrayOutputStream mData = null;
 
-    private static String getUrl(Context context) {
+    public static String getUrl(Context context) {
         String str = mQuicPreConnectUrl + System.currentTimeMillis();
         Log.w(LOG_TAG, "getUrl=" + str);
         return str;
@@ -46,8 +46,8 @@ public class QuicPreConnect implements INoProGuard, INetListener {
                     bdNetTask.setNet(bdNet);
                     bdNetTask.setUrl(getUrl(context));
                     bdNet.start(bdNetTask, false);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
         }
@@ -92,11 +92,13 @@ public class QuicPreConnect implements INoProGuard, INetListener {
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
+        String str;
         if (this.mData != null) {
-            Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
+            str = "onNetDownloadComplete url " + bdNetTask.getUrl();
         } else {
-            Log.w(LOG_TAG, "mData==null");
+            str = "mData==null";
         }
+        Log.w(LOG_TAG, str);
     }
 
     @Override // com.baidu.webkit.net.INetListener

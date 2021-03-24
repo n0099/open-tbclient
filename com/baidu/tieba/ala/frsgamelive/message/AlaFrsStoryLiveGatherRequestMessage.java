@@ -3,29 +3,40 @@ package com.baidu.tieba.ala.frsgamelive.message;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaFrsStoryLiveGatherRequestMessage extends HttpMessage {
-    private String forumId;
-    private int needRecommend;
-    private int pn;
-    private int ps;
-    private int sortType;
+    public String forumId;
+    public int needRecommend;
+    public int pn;
+    public int ps;
+    public int sortType;
 
     public AlaFrsStoryLiveGatherRequestMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_FRS_STORY_LIVE_GATHER);
+    }
+
+    public int getPn() {
+        return this.pn;
     }
 
     public void setForumId(String str) {
         this.forumId = str;
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setHttpParams() {
+        addParam("forum_id", this.forumId);
+        addParam(Config.PACKAGE_NAME, this.pn);
+        addParam("ps", this.ps);
+        addParam("sort_type", this.sortType);
+        addParam("need_recommend", this.needRecommend);
     }
 
-    public int getPn() {
-        return this.pn;
+    public void setNeedRecommend(int i) {
+        this.needRecommend = i;
+    }
+
+    public void setPn(int i) {
+        this.pn = i;
     }
 
     public void setPs(int i) {
@@ -34,17 +45,5 @@ public class AlaFrsStoryLiveGatherRequestMessage extends HttpMessage {
 
     public void setSortType(int i) {
         this.sortType = i;
-    }
-
-    public void setNeedRecommend(int i) {
-        this.needRecommend = i;
-    }
-
-    public void setHttpParams() {
-        addParam("forum_id", this.forumId);
-        addParam(Config.PACKAGE_NAME, this.pn);
-        addParam("ps", this.ps);
-        addParam(PbActivityConfig.KEY_SORTTYPE, this.sortType);
-        addParam("need_recommend", this.needRecommend);
     }
 }

@@ -5,22 +5,22 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.util.d;
-/* loaded from: classes.dex */
+import d.b.h0.z0.d;
+/* loaded from: classes3.dex */
 public class PackageChangedReceiver extends BroadcastReceiver {
-    private static final String ACTION_INSTALL = "android.intent.action.PACKAGE_ADDED";
-    private static final String ACTION_UNINSTALL = "android.intent.action.PACKAGE_REMOVED";
+    public static final String ACTION_INSTALL = "android.intent.action.PACKAGE_ADDED";
+    public static final String ACTION_UNINSTALL = "android.intent.action.PACKAGE_REMOVED";
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (intent != null) {
-            if (ACTION_INSTALL.equals(intent.getAction())) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PACKAGE_ADDED, intent));
-            } else if (ACTION_UNINSTALL.equals(intent.getAction())) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PACKAGE_REMOVED, intent));
-            }
-            d.L(intent);
+        if (intent == null) {
+            return;
         }
+        if (ACTION_INSTALL.equals(intent.getAction())) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002501, intent));
+        } else if (ACTION_UNINSTALL.equals(intent.getAction())) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002502, intent));
+        }
+        d.s(intent);
     }
 }

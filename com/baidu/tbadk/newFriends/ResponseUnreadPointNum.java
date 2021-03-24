@@ -1,18 +1,19 @@
 package com.baidu.tbadk.newFriends;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ResponseUnreadPointNum extends CustomResponsedMessage<Object> {
-    private boolean fromNet;
-    private int num;
+    public boolean fromNet;
+    public int num;
+
+    public ResponseUnreadPointNum(int i, boolean z) {
+        super(2001176);
+        this.num = i;
+        this.fromNet = z;
+    }
 
     public int getNum() {
         return this.num;
-    }
-
-    public void setNum(int i) {
-        this.num = i;
     }
 
     public boolean isFromNet() {
@@ -23,9 +24,7 @@ public class ResponseUnreadPointNum extends CustomResponsedMessage<Object> {
         this.fromNet = z;
     }
 
-    public ResponseUnreadPointNum(int i, boolean z) {
-        super(CmdConfigCustom.CMD_RESPONSE_UNREAD_NEW_FRIENDS_NUM);
+    public void setNum(int i) {
         this.num = i;
-        this.fromNet = z;
     }
 }

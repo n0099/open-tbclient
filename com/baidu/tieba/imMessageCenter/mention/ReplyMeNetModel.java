@@ -1,44 +1,45 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-/* loaded from: classes2.dex */
-public class ReplyMeNetModel extends NetAutoModel<k, l, ReplyMessageFragment> {
-    public ReplyMeNetModel(TbPageContext tbPageContext, k kVar) {
-        super(tbPageContext, kVar);
+import d.b.i0.e1.b.l;
+import d.b.i0.e1.b.m;
+/* loaded from: classes4.dex */
+public class ReplyMeNetModel extends NetAutoModel<l, m, ReplyMessageFragment> {
+    public ReplyMeNetModel(TbPageContext tbPageContext, l lVar) {
+        super(tbPageContext, lVar);
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> acV() {
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public int F() {
+        return CmdConfigHttp.REPLYME_HTTP_CMD;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<? extends MvcProtobufHttpResponsedMessage> H() {
         return ReplyMeHttpResponseMessage.class;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> acX() {
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public String I() {
+        return "c/u/feed/replyme";
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public int J() {
+        return 303007;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<? extends MvcSocketResponsedMessage> K() {
         return ReplyMeSocketResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int acS() {
-        return 1002200;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String acL() {
-        return Config.REPLYME_ADDRESS;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<l> getResponseDataClass() {
-        return l.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int acR() {
-        return CmdConfigSocket.CMD_REPLY_ME;
+    public Class<m> getResponseDataClass() {
+        return m.class;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.mapsdkplatform.comapi.util;
 
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comjni.tools.JNITools;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CoordTrans {
     public static LatLng baiduToGcj(LatLng latLng) {
         double[] baiduToGcj;

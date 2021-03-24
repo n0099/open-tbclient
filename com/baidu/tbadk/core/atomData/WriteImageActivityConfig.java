@@ -5,7 +5,7 @@ import android.net.Uri;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class WriteImageActivityConfig extends IntentConfig {
     public static final String CANCEL_TEXT = "cancel_text";
     public static final String DELET_FLAG = "delete";
@@ -26,13 +26,13 @@ public class WriteImageActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra("from", str5);
         getIntent().putExtra("forumid", str);
-        getIntent().putExtra(FORUMNAME, str2);
-        getIntent().putExtra(DISPLAY_SIZE, i3);
+        getIntent().putExtra("foruimname", str2);
+        getIntent().putExtra("display_size", i3);
         if (str3 != null) {
-            getIntent().putExtra(FINISH_TEXT, str3);
+            getIntent().putExtra("finish_text", str3);
         }
         if (str4 != null) {
-            getIntent().putExtra(CANCEL_TEXT, str4);
+            getIntent().putExtra("cancel_text", str4);
         }
         if (str6 != null) {
             getIntent().putExtra("file_name", str6);
@@ -47,13 +47,13 @@ public class WriteImageActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra("from", str5);
         getIntent().putExtra("forumid", str);
-        getIntent().putExtra(FORUMNAME, str2);
-        getIntent().putExtra(DISPLAY_SIZE, i3);
+        getIntent().putExtra("foruimname", str2);
+        getIntent().putExtra("display_size", i3);
         if (str3 != null) {
-            getIntent().putExtra(FINISH_TEXT, str3);
+            getIntent().putExtra("finish_text", str3);
         }
         if (str4 != null) {
-            getIntent().putExtra(CANCEL_TEXT, str4);
+            getIntent().putExtra("cancel_text", str4);
         }
         getIntent().setData(uri);
         setRequestCode(i2);

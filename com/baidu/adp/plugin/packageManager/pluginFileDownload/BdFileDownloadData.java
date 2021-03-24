@@ -1,5 +1,6 @@
 package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 
+import d.b.b.h.j.e.a;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class BdFileDownloadData implements Serializable {
@@ -11,25 +12,25 @@ public class BdFileDownloadData implements Serializable {
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_NORMAL = 10;
-    private static final long serialVersionUID = -3270428328316883061L;
-    private String afterHttpDnsUrl;
-    private transient a callback;
-    private String check;
-    private String description;
-    private int errorCode;
-    private int height;
-    private String id;
-    private long length;
-    private String name;
-    private int notifyId;
-    private String path;
-    private int position;
-    private long size;
-    private int status;
-    private String statusMsg;
-    private int type;
-    private String url;
-    private int width;
+    public static final long serialVersionUID = -3270428328316883061L;
+    public String afterHttpDnsUrl;
+    public transient a callback;
+    public String check;
+    public String description;
+    public int errorCode;
+    public int height;
+    public String id;
+    public long length;
+    public String name;
+    public int notifyId;
+    public String path;
+    public int position;
+    public long size;
+    public int status;
+    public String statusMsg;
+    public int type;
+    public String url;
+    public int width;
 
     public BdFileDownloadData(String str) {
         this.status = 1;
@@ -44,6 +45,150 @@ public class BdFileDownloadData implements Serializable {
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
+    }
+
+    public String getAfterHttpDnsUrl() {
+        return this.afterHttpDnsUrl;
+    }
+
+    public a getCallback() {
+        return this.callback;
+    }
+
+    public String getCheck() {
+        return this.check;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public int getErrorCode() {
+        return this.errorCode;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public long getLength() {
+        return this.length;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getNotifyId() {
+        return this.notifyId;
+    }
+
+    public String getPath() {
+        return this.path;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public long getSize() {
+        return this.size;
+    }
+
+    public int getStatus() {
+        return this.status;
+    }
+
+    public String getStatusMsg() {
+        return this.statusMsg;
+    }
+
+    public int getType() {
+        return this.type;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public void setAfterHttpDnsUrl(String str) {
+        this.afterHttpDnsUrl = str;
+    }
+
+    public void setCallback(a aVar) {
+        this.callback = aVar;
+    }
+
+    public void setCheck(String str) {
+        this.check = str;
+    }
+
+    public void setDescription(String str) {
+        this.description = str;
+    }
+
+    public void setErrorCode(int i) {
+        this.errorCode = i;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public void setId(String str) {
+        this.id = str;
+    }
+
+    public void setLength(long j) {
+        this.length = j;
+    }
+
+    public void setName(String str) {
+        this.name = str;
+    }
+
+    public void setNotifyId(int i) {
+        this.notifyId = i;
+    }
+
+    public void setPath(String str) {
+        this.path = str;
+    }
+
+    public void setPosition(int i) {
+        this.position = i;
+    }
+
+    public void setSize(long j) {
+        this.size = j;
+    }
+
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public void setStatusMsg(String str) {
+        this.statusMsg = str;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
+    public void setWidth(int i) {
+        this.width = i;
     }
 
     public BdFileDownloadData(String str, String str2) {
@@ -79,149 +224,5 @@ public class BdFileDownloadData implements Serializable {
         this.url = str3;
         this.callback = aVar;
         this.status = 1;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String str) {
-        this.id = str;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String str) {
-        this.name = str;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String str) {
-        this.description = str;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
-
-    public String getPath() {
-        return this.path;
-    }
-
-    public void setPath(String str) {
-        this.path = str;
-    }
-
-    public int getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(int i) {
-        this.status = i;
-    }
-
-    public int getType() {
-        return this.type;
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public long getLength() {
-        return this.length;
-    }
-
-    public void setLength(long j) {
-        this.length = j;
-    }
-
-    public long getSize() {
-        return this.size;
-    }
-
-    public void setSize(long j) {
-        this.size = j;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public void setWidth(int i) {
-        this.width = i;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public String getCheck() {
-        return this.check;
-    }
-
-    public void setCheck(String str) {
-        this.check = str;
-    }
-
-    public a getCallback() {
-        return this.callback;
-    }
-
-    public void setCallback(a aVar) {
-        this.callback = aVar;
-    }
-
-    public String getStatusMsg() {
-        return this.statusMsg;
-    }
-
-    public void setStatusMsg(String str) {
-        this.statusMsg = str;
-    }
-
-    public int getPosition() {
-        return this.position;
-    }
-
-    public void setPosition(int i) {
-        this.position = i;
-    }
-
-    public int getNotifyId() {
-        return this.notifyId;
-    }
-
-    public void setNotifyId(int i) {
-        this.notifyId = i;
-    }
-
-    public int getErrorCode() {
-        return this.errorCode;
-    }
-
-    public void setErrorCode(int i) {
-        this.errorCode = i;
-    }
-
-    public String getAfterHttpDnsUrl() {
-        return this.afterHttpDnsUrl;
-    }
-
-    public void setAfterHttpDnsUrl(String str) {
-        this.afterHttpDnsUrl = str;
     }
 }

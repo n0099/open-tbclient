@@ -1,14 +1,13 @@
 package com.baidubce;
 
 import com.baidu.android.imsdk.internal.Constants;
-import org.apache.http.HttpHost;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum Protocol {
-    HTTP(HttpHost.DEFAULT_SCHEME_NAME, 80),
+    HTTP("http", 80),
     HTTPS("https", Constants.SOCKET_PORT_SSL);
     
-    private int defaultPort;
-    private String protocol;
+    public int defaultPort;
+    public String protocol;
 
     Protocol(String str, int i) {
         this.protocol = str;

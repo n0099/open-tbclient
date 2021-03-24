@@ -2,17 +2,19 @@ package com.alibaba.fastjson.serializer;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class PrimitiveArraySerializer implements ObjectSerializer {
     public static PrimitiveArraySerializer instance = new PrimitiveArraySerializer();
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public final void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        int i2 = 0;
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull(SerializerFeature.WriteNullListAsEmpty);
-        } else if (obj instanceof int[]) {
+            return;
+        }
+        int i2 = 0;
+        if (obj instanceof int[]) {
             int[] iArr = (int[]) obj;
             serializeWriter.write(91);
             while (i2 < iArr.length) {
@@ -63,11 +65,11 @@ public class PrimitiveArraySerializer implements ObjectSerializer {
                 if (i2 != 0) {
                     serializeWriter.write(44);
                 }
-                float f = fArr[i2];
-                if (Float.isNaN(f)) {
+                float f2 = fArr[i2];
+                if (Float.isNaN(f2)) {
                     serializeWriter.writeNull();
                 } else {
-                    serializeWriter.append((CharSequence) Float.toString(f));
+                    serializeWriter.append((CharSequence) Float.toString(f2));
                 }
                 i2++;
             }
@@ -79,11 +81,11 @@ public class PrimitiveArraySerializer implements ObjectSerializer {
                 if (i2 != 0) {
                     serializeWriter.write(44);
                 }
-                double d = dArr[i2];
-                if (Double.isNaN(d)) {
+                double d2 = dArr[i2];
+                if (Double.isNaN(d2)) {
                     serializeWriter.writeNull();
                 } else {
-                    serializeWriter.append((CharSequence) Double.toString(d));
+                    serializeWriter.append((CharSequence) Double.toString(d2));
                 }
                 i2++;
             }

@@ -6,17 +6,27 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class DiskLruCacheWrapper implements DiskCache {
-    private static final int APP_VERSION = 1;
-    private static final String TAG = "DiskLruCacheWrapper";
-    private static final int VALUE_COUNT = 1;
-    private static DiskLruCacheWrapper wrapper;
-    private final File directory;
-    private DiskLruCache diskLruCache;
-    private final long maxSize;
-    private final DiskCacheWriteLocker writeLocker = new DiskCacheWriteLocker();
-    private final SafeKeyGenerator safeKeyGenerator = new SafeKeyGenerator();
+    public static final int APP_VERSION = 1;
+    public static final String TAG = "DiskLruCacheWrapper";
+    public static final int VALUE_COUNT = 1;
+    public static DiskLruCacheWrapper wrapper;
+    public final File directory;
+    public DiskLruCache diskLruCache;
+    public final long maxSize;
+    public final DiskCacheWriteLocker writeLocker = new DiskCacheWriteLocker();
+    public final SafeKeyGenerator safeKeyGenerator = new SafeKeyGenerator();
+
+    @Deprecated
+    public DiskLruCacheWrapper(File file, long j) {
+        this.directory = file;
+        this.maxSize = j;
+    }
+
+    public static DiskCache create(File file, long j) {
+        return new DiskLruCacheWrapper(file, j);
+    }
 
     @Deprecated
     public static synchronized DiskCache get(File file, long j) {
@@ -30,16 +40,6 @@ public class DiskLruCacheWrapper implements DiskCache {
         return diskLruCacheWrapper;
     }
 
-    public static DiskCache create(File file, long j) {
-        return new DiskLruCacheWrapper(file, j);
-    }
-
-    @Deprecated
-    protected DiskLruCacheWrapper(File file, long j) {
-        this.directory = file;
-        this.maxSize = j;
-    }
-
     private synchronized DiskLruCache getDiskCache() throws IOException {
         if (this.diskLruCache == null) {
             this.diskLruCache = DiskLruCache.open(this.directory, 1, 1, this.maxSize);
@@ -47,24 +47,30 @@ public class DiskLruCacheWrapper implements DiskCache {
         return this.diskLruCache;
     }
 
+    private synchronized void resetDiskCache() {
+        this.diskLruCache = null;
+    }
+
     @Override // com.bumptech.glide.load.engine.cache.DiskCache
-    public File get(Key key) {
-        String safeKey = this.safeKeyGenerator.getSafeKey(key);
-        if (Log.isLoggable(TAG, 2)) {
-            Log.v(TAG, "Get: Obtained: " + safeKey + " for for Key: " + key);
-        }
+    public synchronized void clear() {
         try {
-            DiskLruCache.Value value = getDiskCache().get(safeKey);
-            if (value == null) {
-                return null;
+            getDiskCache().delete();
+        } catch (IOException e2) {
+            if (Log.isLoggable(TAG, 5)) {
+                Log.w(TAG, "Unable to clear disk cache or disk cache cleared externally", e2);
             }
-            return value.getFile(0);
-        } catch (IOException e) {
-            if (!Log.isLoggable(TAG, 5)) {
-                return null;
+        }
+        resetDiskCache();
+    }
+
+    @Override // com.bumptech.glide.load.engine.cache.DiskCache
+    public void delete(Key key) {
+        try {
+            getDiskCache().remove(this.safeKeyGenerator.getSafeKey(key));
+        } catch (IOException e2) {
+            if (Log.isLoggable(TAG, 5)) {
+                Log.w(TAG, "Unable to delete from disk cache", e2);
             }
-            Log.w(TAG, "Unable to get from disk cache", e);
-            return null;
         }
     }
 
@@ -79,54 +85,51 @@ public class DiskLruCacheWrapper implements DiskCache {
             }
             try {
                 diskCache = getDiskCache();
-            } catch (IOException e) {
+            } catch (IOException e2) {
                 if (Log.isLoggable(TAG, 5)) {
-                    Log.w(TAG, "Unable to put to disk cache", e);
+                    Log.w(TAG, "Unable to put to disk cache", e2);
                 }
             }
-            if (diskCache.get(safeKey) == null) {
-                DiskLruCache.Editor edit = diskCache.edit(safeKey);
-                if (edit == null) {
-                    throw new IllegalStateException("Had two simultaneous puts for: " + safeKey);
-                }
+            if (diskCache.get(safeKey) != null) {
+                return;
+            }
+            DiskLruCache.Editor edit = diskCache.edit(safeKey);
+            if (edit != null) {
                 try {
                     if (writer.write(edit.getFile(0))) {
                         edit.commit();
                     }
-                } finally {
                     edit.abortUnlessCommitted();
+                    return;
+                } catch (Throwable th) {
+                    edit.abortUnlessCommitted();
+                    throw th;
                 }
             }
+            throw new IllegalStateException("Had two simultaneous puts for: " + safeKey);
         } finally {
             this.writeLocker.release(safeKey);
         }
     }
 
     @Override // com.bumptech.glide.load.engine.cache.DiskCache
-    public void delete(Key key) {
-        try {
-            getDiskCache().remove(this.safeKeyGenerator.getSafeKey(key));
-        } catch (IOException e) {
-            if (Log.isLoggable(TAG, 5)) {
-                Log.w(TAG, "Unable to delete from disk cache", e);
-            }
+    public File get(Key key) {
+        String safeKey = this.safeKeyGenerator.getSafeKey(key);
+        if (Log.isLoggable(TAG, 2)) {
+            Log.v(TAG, "Get: Obtained: " + safeKey + " for for Key: " + key);
         }
-    }
-
-    @Override // com.bumptech.glide.load.engine.cache.DiskCache
-    public synchronized void clear() {
         try {
-            getDiskCache().delete();
-            resetDiskCache();
-        } catch (IOException e) {
-            if (Log.isLoggable(TAG, 5)) {
-                Log.w(TAG, "Unable to clear disk cache or disk cache cleared externally", e);
+            DiskLruCache.Value value = getDiskCache().get(safeKey);
+            if (value != null) {
+                return value.getFile(0);
             }
-            resetDiskCache();
+            return null;
+        } catch (IOException e2) {
+            if (Log.isLoggable(TAG, 5)) {
+                Log.w(TAG, "Unable to get from disk cache", e2);
+                return null;
+            }
+            return null;
         }
-    }
-
-    private synchronized void resetDiskCache() {
-        this.diskLruCache = null;
     }
 }

@@ -10,9 +10,42 @@ import com.google.zxing.qrcode.encoder.ByteMatrix;
 import com.google.zxing.qrcode.encoder.Encoder;
 import com.google.zxing.qrcode.encoder.QRCode;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class QRCodeWriter implements Writer {
-    private static final int QUIET_ZONE_SIZE = 4;
+    public static final int QUIET_ZONE_SIZE = 4;
+
+    public static BitMatrix renderResult(QRCode qRCode, int i, int i2, int i3) {
+        ByteMatrix matrix = qRCode.getMatrix();
+        if (matrix != null) {
+            int width = matrix.getWidth();
+            int height = matrix.getHeight();
+            int i4 = i3 << 1;
+            int i5 = width + i4;
+            int i6 = i4 + height;
+            int max = Math.max(i, i5);
+            int max2 = Math.max(i2, i6);
+            int min = Math.min(max / i5, max2 / i6);
+            int i7 = (max - (width * min)) / 2;
+            int i8 = (max2 - (height * min)) / 2;
+            BitMatrix bitMatrix = new BitMatrix(max, max2);
+            int i9 = 0;
+            while (i9 < height) {
+                int i10 = i7;
+                int i11 = 0;
+                while (i11 < width) {
+                    if (matrix.get(i11, i9) == 1) {
+                        bitMatrix.setRegion(i10, i8, min, min);
+                    }
+                    i11++;
+                    i10 += min;
+                }
+                i9++;
+                i8 += min;
+            }
+            return bitMatrix;
+        }
+        throw new IllegalStateException();
+    }
 
     @Override // com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) throws WriterException {
@@ -21,55 +54,25 @@ public final class QRCodeWriter implements Writer {
 
     @Override // com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
-        if (str.isEmpty()) {
-            throw new IllegalArgumentException("Found empty contents");
-        }
-        if (barcodeFormat != BarcodeFormat.QR_CODE) {
-            throw new IllegalArgumentException("Can only encode QR_CODE, but got " + barcodeFormat);
-        }
-        if (i < 0 || i2 < 0) {
-            throw new IllegalArgumentException("Requested dimensions are too small: " + i + 'x' + i2);
-        }
-        ErrorCorrectionLevel errorCorrectionLevel = ErrorCorrectionLevel.L;
-        int i3 = 4;
-        if (map != null) {
-            if (map.containsKey(EncodeHintType.ERROR_CORRECTION)) {
-                errorCorrectionLevel = ErrorCorrectionLevel.valueOf(map.get(EncodeHintType.ERROR_CORRECTION).toString());
-            }
-            if (map.containsKey(EncodeHintType.MARGIN)) {
-                i3 = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
-            }
-        }
-        return renderResult(Encoder.encode(str, errorCorrectionLevel, map), i, i2, i3);
-    }
-
-    private static BitMatrix renderResult(QRCode qRCode, int i, int i2, int i3) {
-        ByteMatrix matrix = qRCode.getMatrix();
-        if (matrix == null) {
-            throw new IllegalStateException();
-        }
-        int width = matrix.getWidth();
-        int height = matrix.getHeight();
-        int i4 = (i3 << 1) + width;
-        int i5 = (i3 << 1) + height;
-        int max = Math.max(i, i4);
-        int max2 = Math.max(i2, i5);
-        int min = Math.min(max / i4, max2 / i5);
-        int i6 = (max - (width * min)) / 2;
-        BitMatrix bitMatrix = new BitMatrix(max, max2);
-        int i7 = (max2 - (height * min)) / 2;
-        for (int i8 = 0; i8 < height; i8++) {
-            int i9 = 0;
-            int i10 = i6;
-            while (i9 < width) {
-                if (matrix.get(i9, i8) == 1) {
-                    bitMatrix.setRegion(i10, i7, min, min);
+        if (!str.isEmpty()) {
+            if (barcodeFormat != BarcodeFormat.QR_CODE) {
+                throw new IllegalArgumentException("Can only encode QR_CODE, but got " + barcodeFormat);
+            } else if (i >= 0 && i2 >= 0) {
+                ErrorCorrectionLevel errorCorrectionLevel = ErrorCorrectionLevel.L;
+                int i3 = 4;
+                if (map != null) {
+                    if (map.containsKey(EncodeHintType.ERROR_CORRECTION)) {
+                        errorCorrectionLevel = ErrorCorrectionLevel.valueOf(map.get(EncodeHintType.ERROR_CORRECTION).toString());
+                    }
+                    if (map.containsKey(EncodeHintType.MARGIN)) {
+                        i3 = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
+                    }
                 }
-                i9++;
-                i10 += min;
+                return renderResult(Encoder.encode(str, errorCorrectionLevel, map), i, i2, i3);
+            } else {
+                throw new IllegalArgumentException("Requested dimensions are too small: " + i + 'x' + i2);
             }
-            i7 += min;
         }
-        return bitMatrix;
+        throw new IllegalArgumentException("Found empty contents");
     }
 }

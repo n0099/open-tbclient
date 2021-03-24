@@ -3,67 +3,70 @@ package com.baidu.mapapi.walknavi.params;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.walknavi.e.c;
 import com.baidu.platform.comapi.walknavi.e.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WalkNaviLaunchParam {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2180a;
-    private LatLng b;
-    private int c;
-    private int d;
-    private int e;
+    public LatLng f7445a;
 
-    public int getEndCityCode() {
-        return this.d;
+    /* renamed from: b  reason: collision with root package name */
+    public LatLng f7446b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f7447c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f7448d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f7449e;
+
+    public static c create() {
+        return new d();
     }
 
-    public LatLng getStartPt() {
-        return this.f2180a;
-    }
-
-    public LatLng getEndPt() {
-        return this.b;
-    }
-
-    public int getStartCityCode() {
-        return this.c;
-    }
-
-    public int getExtraNaviMode() {
-        return this.e;
-    }
-
-    public WalkNaviLaunchParam stPt(LatLng latLng) {
-        this.f2180a = latLng;
+    public WalkNaviLaunchParam endCityCode(int i) {
+        this.f7448d = i;
         return this;
     }
 
     public WalkNaviLaunchParam endPt(LatLng latLng) {
-        this.b = latLng;
-        return this;
-    }
-
-    public WalkNaviLaunchParam stCityCode(int i) {
-        this.c = i;
-        return this;
-    }
-
-    public WalkNaviLaunchParam endCityCode(int i) {
-        this.d = i;
+        this.f7446b = latLng;
         return this;
     }
 
     public WalkNaviLaunchParam extraNaviMode(int i) {
-        this.e = i;
+        this.f7449e = i;
         return this;
     }
 
-    public static c create() {
-        switch (1) {
-            case 1:
-                return new d();
-            default:
-                return null;
-        }
+    public int getEndCityCode() {
+        return this.f7448d;
+    }
+
+    public LatLng getEndPt() {
+        return this.f7446b;
+    }
+
+    public int getExtraNaviMode() {
+        return this.f7449e;
+    }
+
+    public int getStartCityCode() {
+        return this.f7447c;
+    }
+
+    public LatLng getStartPt() {
+        return this.f7445a;
+    }
+
+    public WalkNaviLaunchParam stCityCode(int i) {
+        this.f7447c = i;
+        return this;
+    }
+
+    public WalkNaviLaunchParam stPt(LatLng latLng) {
+        this.f7445a = latLng;
+        return this;
     }
 }

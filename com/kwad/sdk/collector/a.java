@@ -5,24 +5,23 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.network.i;
 import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.utils.AppStatusHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: com.kwad.sdk.collector.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1091a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0358a {
         void a(int i, String str);
 
         void a(AppStatusRules appStatusRules);
     }
 
-    public static void a(final Context context, final InterfaceC1091a interfaceC1091a) {
+    public static void a(final Context context, final InterfaceC0358a interfaceC0358a) {
         if (context == null) {
             return;
         }
         new i<com.kwad.sdk.collector.a.a, AppStatusRules>() { // from class: com.kwad.sdk.collector.a.1
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwad.sdk.core.network.i
             @NonNull
             /* renamed from: a */
@@ -31,7 +30,6 @@ public class a {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwad.sdk.core.network.a
             @NonNull
             /* renamed from: a */
@@ -49,16 +47,18 @@ public class a {
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.collector.a.a aVar, int i, String str) {
                 super.a((AnonymousClass2) aVar, i, str);
-                if (InterfaceC1091a.this != null) {
-                    InterfaceC1091a.this.a(i, str);
+                InterfaceC0358a interfaceC0358a2 = InterfaceC0358a.this;
+                if (interfaceC0358a2 != null) {
+                    interfaceC0358a2.a(i, str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.collector.a.a aVar, @NonNull AppStatusRules appStatusRules) {
-                if (InterfaceC1091a.this != null) {
-                    InterfaceC1091a.this.a(appStatusRules);
+                InterfaceC0358a interfaceC0358a2 = InterfaceC0358a.this;
+                if (interfaceC0358a2 != null) {
+                    interfaceC0358a2.a(appStatusRules);
                 }
             }
         });

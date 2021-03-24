@@ -6,24 +6,28 @@ import org.apache.http.auth.AuthenticationException;
 import org.apache.http.auth.Credentials;
 import org.apache.http.auth.MalformedChallengeException;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DigestScheme extends RFC2617Scheme {
     public DigestScheme() {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.impl.auth.AuthSchemeBase, org.apache.http.auth.AuthScheme
-    public void processChallenge(Header header) throws MalformedChallengeException {
+    public static String createCnonce() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.auth.AuthScheme
-    public boolean isComplete() {
+    public Header authenticate(Credentials credentials, HttpRequest httpRequest) throws AuthenticationException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.auth.AuthScheme
     public String getSchemeName() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.auth.AuthScheme
+    public boolean isComplete() {
         throw new RuntimeException("Stub!");
     }
 
@@ -36,12 +40,8 @@ public class DigestScheme extends RFC2617Scheme {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.auth.AuthScheme
-    public Header authenticate(Credentials credentials, HttpRequest httpRequest) throws AuthenticationException {
-        throw new RuntimeException("Stub!");
-    }
-
-    public static String createCnonce() {
+    @Override // org.apache.http.impl.auth.AuthSchemeBase, org.apache.http.auth.AuthScheme
+    public void processChallenge(Header header) throws MalformedChallengeException {
         throw new RuntimeException("Stub!");
     }
 }

@@ -1,48 +1,60 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class z {
 
     /* renamed from: a  reason: collision with root package name */
-    ab f2236a = new ab();
-    boolean b = true;
-    int c = 1;
-    boolean d = true;
-    boolean e = true;
-    boolean f = true;
-    boolean g = true;
+    public ab f7685a = new ab();
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f7686b = true;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f7687c = 1;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f7688d = true;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f7689e = true;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f7690f = true;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f7691g = true;
 
     public z a(int i) {
-        this.c = i;
+        this.f7687c = i;
         return this;
     }
 
     public z a(ab abVar) {
-        this.f2236a = abVar;
+        this.f7685a = abVar;
         return this;
     }
 
     public z a(boolean z) {
-        this.b = z;
+        this.f7686b = z;
         return this;
     }
 
     public z b(boolean z) {
-        this.d = z;
+        this.f7688d = z;
         return this;
     }
 
     public z c(boolean z) {
-        this.e = z;
+        this.f7689e = z;
         return this;
     }
 
     public z d(boolean z) {
-        this.f = z;
+        this.f7690f = z;
         return this;
     }
 
     public z e(boolean z) {
-        this.g = z;
+        this.f7691g = z;
         return this;
     }
 }

@@ -3,9 +3,8 @@ package com.ksad.lottie.model.layer;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.RectF;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends a {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.ksad.lottie.f fVar, Layer layer) {
         super(fVar, layer);
     }
@@ -17,6 +16,6 @@ public class d extends a {
     }
 
     @Override // com.ksad.lottie.model.layer.a
-    void b(Canvas canvas, Matrix matrix, int i) {
+    public void b(Canvas canvas, Matrix matrix, int i) {
     }
 }

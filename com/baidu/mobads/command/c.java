@@ -2,8 +2,8 @@ package com.baidu.mobads.command;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
-final class c implements Parcelable.Creator<XAdLandingPageExtraInfo> {
+/* loaded from: classes2.dex */
+public final class c implements Parcelable.Creator<XAdLandingPageExtraInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */

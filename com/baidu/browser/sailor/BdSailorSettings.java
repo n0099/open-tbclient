@@ -6,36 +6,39 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public final class BdSailorSettings implements INoProGuard {
-    private boolean mDebugEnable;
-    private String mEmulatedUA;
-    private boolean mIsGifFirstFrameOnly;
-    private boolean mNightMode;
-    private boolean mOpenEyeShieldMode;
-    private boolean mOpenOverSeasProxy;
-    private boolean mOpenSpdy;
-    private String mSafeCheck;
-    private boolean mUaEmulate;
-    private boolean mIsAllowTransCode = false;
-    private boolean mIsAllowTransLang = true;
-    private boolean mAdBlockEnable = false;
-    private boolean mSaveFlow = true;
-    private boolean mImageViewer = true;
-    private boolean mUrlSecureCheck = true;
-    private boolean mSailorMonitorEnable = true;
+    public boolean mDebugEnable;
+    public String mEmulatedUA;
+    public boolean mIsGifFirstFrameOnly;
+    public boolean mNightMode;
+    public boolean mOpenEyeShieldMode;
+    public boolean mOpenOverSeasProxy;
+    public boolean mOpenSpdy;
+    public String mSafeCheck;
+    public boolean mUaEmulate;
+    public boolean mIsAllowTransCode = false;
+    public boolean mIsAllowTransLang = true;
+    public boolean mAdBlockEnable = false;
+    public boolean mSaveFlow = true;
+    public boolean mImageViewer = true;
+    public boolean mUrlSecureCheck = true;
+    public boolean mSailorMonitorEnable = true;
 
     private boolean getStaticWebSeting(String str) {
         try {
             if (WebViewFactory.hasProvider()) {
                 return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(str)).booleanValue();
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+            return false;
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
+            return false;
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "getStaticWebSeting error:" + th);
+            String str2 = Log.LOG_TAG;
+            Log.e(str2, "getStaticWebSeting error:" + th);
+            return false;
         }
-        return false;
     }
 
     private void setStaticWebSeting(String str, boolean z) {
@@ -43,24 +46,25 @@ public final class BdSailorSettings implements INoProGuard {
             if (WebViewFactory.hasProvider()) {
                 WebViewFactory.getProvider().setStaticWebSeting(str, new Boolean(z));
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:" + th);
+            String str2 = Log.LOG_TAG;
+            Log.e(str2, "setDefaultEnableJsPromptSailor error:" + th);
         }
     }
 
     public final String getEmulatedUA() {
         try {
-            if (WebViewFactory.hasProvider()) {
-                return (String) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_UA_EMULATE);
-            }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+            return WebViewFactory.hasProvider() ? (String) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_UA_EMULATE) : "";
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
+            return "";
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "getStaticWebSeting error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "getStaticWebSeting error:" + th);
+            return "";
         }
-        return "";
     }
 
     public final boolean getOpenEyeShieldMode() {
@@ -185,15 +189,20 @@ public final class BdSailorSettings implements INoProGuard {
 
     public final void setProxyType() {
         WebSettings.ProxyType proxyType = WebSettings.ProxyType.NO_PROXY;
-        WebSettings.ProxyType proxyType2 = this.mOpenSpdy ? this.mOpenOverSeasProxy ? WebSettings.ProxyType.SPDYANDOVERSEAS_PROXY : WebSettings.ProxyType.SPDY_PROXY : this.mOpenOverSeasProxy ? WebSettings.ProxyType.OVERSEAS_PROXY : WebSettings.ProxyType.NO_PROXY;
+        if (this.mOpenSpdy) {
+            proxyType = this.mOpenOverSeasProxy ? WebSettings.ProxyType.SPDYANDOVERSEAS_PROXY : WebSettings.ProxyType.SPDY_PROXY;
+        } else if (this.mOpenOverSeasProxy) {
+            proxyType = WebSettings.ProxyType.OVERSEAS_PROXY;
+        }
         try {
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_PROXY_TYPE, new Integer(proxyType2.ordinal()));
+                WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_PROXY_TYPE, new Integer(proxyType.ordinal()));
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "setDefaultEnableJsPromptSailor error:" + th);
         }
     }
 
@@ -207,11 +216,7 @@ public final class BdSailorSettings implements INoProGuard {
 
     public final void setSaveFlow(boolean z) {
         int networkType = BdSailorPlatform.getInstance().getNetworkType();
-        if (networkType == 1 || -1 == networkType) {
-            this.mSaveFlow = false;
-            setStaticWebSeting(WebViewFactoryProvider.SETTING_SAVE_FLOW, false);
-            return;
-        }
+        z = (networkType == 1 || -1 == networkType) ? false : false;
         this.mSaveFlow = z;
         setStaticWebSeting(WebViewFactoryProvider.SETTING_SAVE_FLOW, z);
     }

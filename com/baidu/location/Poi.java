@@ -2,17 +2,17 @@ package com.baidu.location;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Poi implements Parcelable {
     public static final Parcelable.Creator<Poi> CREATOR = new d();
-    private final String mId;
-    private final String mName;
-    private final double mRank;
+    public final String mId;
+    public final String mName;
+    public final double mRank;
 
-    public Poi(String str, String str2, double d) {
+    public Poi(String str, String str2, double d2) {
         this.mId = str;
         this.mName = str2;
-        this.mRank = d;
+        this.mRank = d2;
     }
 
     @Override // android.os.Parcelable

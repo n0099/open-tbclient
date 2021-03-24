@@ -3,17 +3,14 @@ package com.baidu.mapapi.map;
 import android.graphics.Point;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MapStatusUpdateFactory {
-    MapStatusUpdateFactory() {
-    }
-
     public static MapStatusUpdate newLatLng(LatLng latLng) {
         if (latLng == null) {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(2);
-        mapStatusUpdate.c = latLng;
+        mapStatusUpdate.f6913c = latLng;
         return mapStatusUpdate;
     }
 
@@ -22,7 +19,7 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(3);
-        mapStatusUpdate.d = latLngBounds;
+        mapStatusUpdate.f6914d = latLngBounds;
         return mapStatusUpdate;
     }
 
@@ -31,9 +28,9 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(9);
-        mapStatusUpdate.d = latLngBounds;
-        mapStatusUpdate.e = i;
-        mapStatusUpdate.f = i2;
+        mapStatusUpdate.f6914d = latLngBounds;
+        mapStatusUpdate.f6915e = i;
+        mapStatusUpdate.f6916f = i2;
         return mapStatusUpdate;
     }
 
@@ -42,7 +39,7 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(10);
-        mapStatusUpdate.d = latLngBounds;
+        mapStatusUpdate.f6914d = latLngBounds;
         mapStatusUpdate.l = i;
         mapStatusUpdate.m = i2;
         mapStatusUpdate.n = i3;
@@ -50,13 +47,13 @@ public final class MapStatusUpdateFactory {
         return mapStatusUpdate;
     }
 
-    public static MapStatusUpdate newLatLngZoom(LatLng latLng, float f) {
+    public static MapStatusUpdate newLatLngZoom(LatLng latLng, float f2) {
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(4);
         if (latLng == null) {
             return null;
         }
-        mapStatusUpdate.c = latLng;
-        mapStatusUpdate.g = f;
+        mapStatusUpdate.f6913c = latLng;
+        mapStatusUpdate.f6917g = f2;
         return mapStatusUpdate;
     }
 
@@ -65,29 +62,29 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(1);
-        mapStatusUpdate.b = mapStatus;
+        mapStatusUpdate.f6912b = mapStatus;
         return mapStatusUpdate;
     }
 
     public static MapStatusUpdate scrollBy(int i, int i2) {
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(5);
-        mapStatusUpdate.h = i;
+        mapStatusUpdate.f6918h = i;
         mapStatusUpdate.i = i2;
         return mapStatusUpdate;
     }
 
-    public static MapStatusUpdate zoomBy(float f) {
+    public static MapStatusUpdate zoomBy(float f2) {
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(6);
-        mapStatusUpdate.j = f;
+        mapStatusUpdate.j = f2;
         return mapStatusUpdate;
     }
 
-    public static MapStatusUpdate zoomBy(float f, Point point) {
+    public static MapStatusUpdate zoomBy(float f2, Point point) {
         if (point == null) {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(7);
-        mapStatusUpdate.j = f;
+        mapStatusUpdate.j = f2;
         mapStatusUpdate.k = point;
         return mapStatusUpdate;
     }
@@ -104,9 +101,9 @@ public final class MapStatusUpdateFactory {
         return mapStatusUpdate;
     }
 
-    public static MapStatusUpdate zoomTo(float f) {
+    public static MapStatusUpdate zoomTo(float f2) {
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(8);
-        mapStatusUpdate.g = f;
+        mapStatusUpdate.f6917g = f2;
         return mapStatusUpdate;
     }
 }

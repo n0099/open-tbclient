@@ -1,7 +1,7 @@
 package com.google.zxing;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum DecodeHintType {
     OTHER(Object.class),
     PURE_BARCODE(Void.class),
@@ -15,7 +15,7 @@ public enum DecodeHintType {
     NEED_RESULT_POINT_CALLBACK(ResultPointCallback.class),
     ALLOWED_EAN_EXTENSIONS(int[].class);
     
-    private final Class<?> valueType;
+    public final Class<?> valueType;
 
     DecodeHintType(Class cls) {
         this.valueType = cls;

@@ -2,100 +2,113 @@ package com.pgl.sys.ces;
 
 import android.content.Context;
 import android.util.Log;
-import com.pgl.a.b.e;
-import com.pgl.sys.ces.a.f;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import d.m.a.b.e;
+import d.m.b.b.a.f;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class b extends Thread implements com.pgl.sys.ces.d.b {
-    private static Map<String, Object> n;
-    public Context b;
-    private String g;
-    private com.pgl.sys.ces.d.a l;
-    private static volatile b e = null;
-    private static boolean f = false;
-    public static boolean c = false;
-    public static boolean d = false;
-    private static boolean m = false;
+public class b extends Thread implements d.m.b.b.d.b {
+
+    /* renamed from: c  reason: collision with root package name */
+    public static boolean f37989c = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static boolean f37990d = false;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static volatile b f37991e = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static boolean f37992f = false;
+    public static boolean m = false;
+    public static Map<String, Object> n;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f37994b;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f37995g;
+    public d.m.b.b.d.a l;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f7479a = false;
-    private String h = "";
-    private String i = "";
-    private String j = "";
-    private boolean k = false;
+    public boolean f37993a = false;
 
-    private b(Context context, String str, com.pgl.sys.ces.d.a aVar) {
-        this.b = null;
-        this.g = "";
+    /* renamed from: h  reason: collision with root package name */
+    public String f37996h = "";
+    public String i = "";
+    public String j = "";
+    public boolean k = false;
+
+    public b(Context context, String str, d.m.b.b.d.a aVar) {
+        this.f37994b = null;
+        this.f37995g = "";
         this.l = null;
         setName("CZL-00");
-        this.b = context;
-        this.g = str;
+        this.f37994b = context;
+        this.f37995g = str;
         this.l = aVar;
     }
 
     public static b a() {
-        return e;
+        return f37991e;
     }
 
-    public static b a(Context context, String str, int i, com.pgl.sys.ces.d.a aVar) {
-        if (e == null) {
+    public static b a(Context context, String str, int i, d.m.b.b.d.a aVar) {
+        if (f37991e == null) {
             synchronized (b.class) {
-                if (e == null) {
+                if (f37991e == null) {
                     if (context == null) {
-                        context = com.pgl.sys.ces.a.a.eDQ().getApplicationContext();
+                        context = d.m.b.b.a.a.d().getApplicationContext();
                     }
                     if (context == null) {
                         return null;
                     }
-                    e = new b(context, str, aVar);
+                    f37991e = new b(context, str, aVar);
                 }
-                com.pgl.a.a.a.a(i);
-                e.a(context, "nms");
+                d.m.a.a.a.b(i);
+                e.c(context, "nms");
                 a(context);
             }
         }
-        return e;
+        return f37991e;
     }
 
-    private static void a(Context context) {
+    public static void a(Context context) {
         synchronized (b.class) {
             if (context != null) {
-                if (!f) {
+                if (!f37992f) {
                     try {
                         a.meta(101, null, "0");
                         a.meta(1020, null, "" + b());
-                        a.meta(105, null, "" + com.pgl.sys.ces.a.a.b(context));
-                        a.meta(106, null, "" + com.pgl.sys.ces.a.a.a(context));
-                        a.meta(107, null, "" + com.pgl.sys.ces.a.a.c(context));
-                        a.meta(108, null, "" + com.pgl.sys.ces.a.a.d(context));
-                        a.meta(109, null, "" + com.pgl.sys.ces.a.a.c());
-                        a.meta(110, null, "" + com.pgl.sys.ces.a.a.d());
-                        f = true;
-                    } catch (Throwable th) {
+                        a.meta(105, null, "" + d.m.b.b.a.a.c(context));
+                        a.meta(106, null, "" + d.m.b.b.a.a.b(context));
+                        a.meta(107, null, "" + d.m.b.b.a.a.f(context));
+                        a.meta(108, null, "" + d.m.b.b.a.a.h(context));
+                        a.meta(109, null, "" + d.m.b.b.a.a.e());
+                        a.meta(110, null, "" + d.m.b.b.a.a.g());
+                        f37992f = true;
+                    } catch (Throwable unused) {
                     }
                 }
             }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.pgl.sys.ces.b$1] */
     private void a(String str) {
         new Thread("CZL-" + str) { // from class: com.pgl.sys.ces.b.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                d.f7485a = 0;
-                d.a(b.this.b);
+                d.f38001a = 0;
+                d.a(b.this.f37994b);
             }
         }.start();
     }
 
     public static String b() {
-        return a().g;
+        return a().f37995g;
     }
 
     public static String c() {
@@ -103,17 +116,17 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     }
 
     public static String d() {
-        return a().h;
+        return a().f37996h;
     }
 
-    public static com.pgl.sys.ces.d.a e() {
+    public static d.m.b.b.d.a e() {
         return a().l;
     }
 
     public static int f() {
         try {
-            return com.pgl.sys.ces.a.a.eDP() != null ? 1 : 0;
-        } catch (Throwable th) {
+            return d.m.b.b.a.a.a() != null ? 1 : 0;
+        } catch (Throwable unused) {
             return -1;
         }
     }
@@ -123,8 +136,8 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     }
 
     private void h() {
-        com.pgl.sys.a.a.a(this.b, b(), new com.pgl.sys.a.a.a() { // from class: com.pgl.sys.ces.b.2
-            @Override // com.pgl.sys.a.a.a
+        d.m.b.a.b.b(this.f37994b, b(), new d.m.b.a.a.a() { // from class: com.pgl.sys.ces.b.2
+            @Override // d.m.b.a.a.a
             public void a(String str) {
                 boolean unused = b.m = true;
             }
@@ -132,55 +145,56 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     }
 
     public void SetRegionType(int i) {
-        com.pgl.a.a.a.a(i);
+        d.m.a.a.a.b(i);
     }
 
     public Object a(int i, Object obj) {
-        String str;
+        String trim;
+        String str = null;
         if (i == 123) {
-            return com.pgl.sys.ces.a.e.a(this.b);
+            return d.m.b.b.a.e.a(this.f37994b);
         }
         if (i == 121) {
-            return com.pgl.sys.ces.a.c.c(this.b);
+            return d.m.b.b.a.c.e(this.f37994b);
         }
         if (i == 122) {
-            return com.pgl.sys.ces.a.c.a();
+            return d.m.b.b.a.c.a();
         }
         if (i == 126) {
-            return com.pgl.sys.ces.a.c.e(this.b);
+            return d.m.b.b.a.c.g(this.f37994b);
         }
         if (i == 127) {
-            return com.pgl.sys.ces.a.c.a(this.b);
+            return d.m.b.b.a.c.b(this.f37994b);
         }
         if (i == 128) {
-            return com.pgl.sys.ces.a.c.b(this.b);
+            return d.m.b.b.a.c.d(this.f37994b);
         }
         if (i == 120) {
-            return com.pgl.sys.ces.a.b.a();
+            return d.m.b.b.a.b.a();
         }
         if (i == 124) {
-            return f.b(this.b);
+            return f.b(this.f37994b);
         }
         if (i == 130) {
-            return f.a(this.b);
+            return f.a(this.f37994b);
         }
         if (i == 125) {
-            return f.c(this.b);
+            return f.c(this.f37994b);
         }
         if (i == 129) {
-            return com.pgl.sys.ces.a.d.a(this.b);
+            return d.m.b.b.a.d.a(this.f37994b);
         }
         if (i == 131) {
-            return com.pgl.sys.a.a.a();
+            return d.m.b.a.b.a();
         }
         if (i == 132) {
             reportNow((String) obj);
             return null;
         } else if (i == 134) {
-            return com.pgl.sys.ces.b.b.iw(this.b).c();
+            return d.m.b.b.b.b.a(this.f37994b).d();
         } else {
             if (i == 140) {
-                return com.pgl.sys.ces.b.a.iv(this.b).e();
+                return d.m.b.b.b.a.b(this.f37994b).f();
             }
             if (i == 133) {
                 try {
@@ -193,35 +207,37 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
                         }
                     }
                     str = jSONObject.toString();
-                } catch (Throwable th) {
-                    str = null;
+                } catch (Throwable unused) {
                 }
-                return str == null ? "{}" : str.trim();
-            } else if (i == 135) {
-                String a2 = c.a();
-                return a2 == null ? "0000000000000000000000000000000000000000" : a2.trim();
-            } else if (i == 136) {
-                try {
-                    return this.b.getPackageManager().getPackageInfo(this.b.getPackageName(), 64).signatures[0].toByteArray();
-                } catch (Throwable th2) {
-                    th2.printStackTrace();
-                    return null;
-                }
-            } else if (i == 201) {
-                return com.pgl.sys.ces.a.c.d(this.b);
-            } else {
-                if (i == 202) {
-                    return com.pgl.sys.ces.a.c.b();
-                }
-                if (i == 236) {
+                trim = str == null ? StringUtil.EMPTY_ARRAY : str.trim();
+            } else if (i != 135) {
+                if (i == 136) {
                     try {
-                        return Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class).invoke(null, (String) obj);
-                    } catch (Throwable th3) {
+                        return this.f37994b.getPackageManager().getPackageInfo(this.f37994b.getPackageName(), 64).signatures[0].toByteArray();
+                    } catch (Throwable th) {
+                        th.printStackTrace();
                         return null;
                     }
+                } else if (i == 201) {
+                    return d.m.b.b.a.c.f(this.f37994b);
+                } else {
+                    if (i == 202) {
+                        return d.m.b.b.a.c.c();
+                    }
+                    if (i == 236) {
+                        try {
+                            return Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class).invoke(null, (String) obj);
+                        } catch (Throwable unused2) {
+                            return null;
+                        }
+                    }
+                    return null;
                 }
-                return null;
+            } else {
+                String a2 = c.a();
+                trim = a2 == null ? "0000000000000000000000000000000000000000" : a2.trim();
             }
+            return trim;
         }
     }
 
@@ -229,40 +245,39 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
         return (String) a.meta(1024768, null, null);
     }
 
-    @Override // com.pgl.sys.ces.d.b
+    @Override // d.m.b.b.d.b
     public String onEvent() {
-        return com.pgl.sys.a.a.a();
+        return d.m.b.a.b.a();
     }
 
-    @Override // com.pgl.sys.ces.d.b
+    @Override // d.m.b.b.d.b
     public String pullSg() {
         return c.a();
     }
 
-    @Override // com.pgl.sys.ces.d.b
+    @Override // d.m.b.b.d.b
     public String pullVer(String str) {
         return c.a(str);
     }
 
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.pgl.sys.ces.b$3] */
-    @Override // com.pgl.sys.ces.d.b
+    @Override // d.m.b.b.d.b
     public void reportNow(final String str) {
         try {
             new Thread("CZL-LRT") { // from class: com.pgl.sys.ces.b.3
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     try {
-                        long timeInMillis = b.a().f7479a ? Calendar.getInstance().getTimeInMillis() : 0L;
-                        byte[] bArr = (byte[]) a.meta(222, b.this.b, str);
-                        long timeInMillis2 = b.a().f7479a ? Calendar.getInstance().getTimeInMillis() : 0L;
-                        if (b.a().f7479a) {
+                        long timeInMillis = b.a().f37993a ? Calendar.getInstance().getTimeInMillis() : 0L;
+                        byte[] bArr = (byte[]) a.meta(222, b.this.f37994b, str);
+                        long timeInMillis2 = b.a().f37993a ? Calendar.getInstance().getTimeInMillis() : 0L;
+                        if (b.a().f37993a) {
                             Log.d("CZL_Efficient", "[Efficient] report : " + (timeInMillis2 - timeInMillis));
                         }
                         if (bArr == null || bArr.length <= 0) {
                             throw new NullPointerException("NullPointerException");
                         }
-                        new com.pgl.sys.ces.c.a(b.this.b, b.this.h).d(1, 2, bArr);
-                    } catch (Throwable th) {
+                        new d.m.b.b.c.a(b.this.f37994b, b.this.f37996h).d(1, 2, bArr);
+                    } catch (Throwable unused) {
                     }
                 }
             }.start();
@@ -274,29 +289,27 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         this.k = true;
-        long j = 1800000 / 180000;
         a("SP1");
-        com.pgl.a.b.f.a(10000L);
+        d.m.a.b.f.a(10000L);
         h();
-        com.pgl.a.b.f.a(10000L);
+        d.m.a.b.f.a(10000L);
         reportNow("CZL-L1st");
-        int i = 0;
         while (true) {
-            com.pgl.sys.ces.b.b.iw(this.b).b();
-            com.pgl.sys.ces.b.a.iv(this.b).d();
-            if (i == j) {
-                reportNow("CZL-LLP");
-            }
-            i++;
-            a.meta(1213, null, Thread.currentThread().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + i);
-            com.pgl.a.b.f.a(180000L);
-            if (i > j) {
-                i = 0;
-            }
+            int i = 0;
+            do {
+                d.m.b.b.b.b.a(this.f37994b).c();
+                d.m.b.b.b.a.b(this.f37994b).e();
+                if (i == 10) {
+                    reportNow("CZL-LLP");
+                }
+                i++;
+                a.meta(1213, null, Thread.currentThread().getName() + "-" + i);
+                d.m.a.b.f.a(180000L);
+            } while (i <= 10);
         }
     }
 
-    @Override // com.pgl.sys.ces.d.b
+    @Override // d.m.b.b.d.b
     public void setCustomInfo(HashMap<String, Object> hashMap) {
         if (hashMap != null) {
             n = hashMap;
@@ -304,10 +317,10 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     }
 
     public void setEfficientDebug(boolean z) {
-        this.f7479a = z;
+        this.f37993a = z;
     }
 
-    @Override // com.pgl.sys.ces.d.b
+    @Override // d.m.b.b.d.b
     public void setParams(String str, String str2) {
         if (str != null && str.length() > 0) {
             this.i = str;
@@ -322,7 +335,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
         }
         try {
             start();
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
     }
 }

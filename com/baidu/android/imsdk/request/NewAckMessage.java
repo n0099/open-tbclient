@@ -4,43 +4,43 @@ import android.content.Context;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NewAckMessage extends Message {
-    private Context mContext;
-    private JSONArray mJsonArray;
-    private long mTriggerId;
-    private List<Tripule> tripules;
+    public Context mContext;
+    public JSONArray mJsonArray;
+    public long mTriggerId;
+    public List<Tripule> tripules;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Tripule {
-        private String accountType;
-        private String businessSource;
-        private int contentType;
-        private long fromUser;
-        private long mcastId;
-        private String msgCategory;
-        private String msgPage;
-        private long msgReceiveTime;
-        private long msgid;
-        private String msgkey;
-        private int paClassType;
-        private long paId;
-        private int paType;
-        private int subPaType;
-        private String thirdId;
-        private long ukFromUser;
-        private long ukToUser;
-        private JSONObject jack = null;
-        private boolean isReliable = false;
-        private String osName = HttpConstants.OS_TYPE_VALUE;
+        public String accountType;
+        public String businessSource;
+        public int contentType;
+        public long fromUser;
+        public long mcastId;
+        public String msgCategory;
+        public String msgPage;
+        public long msgReceiveTime;
+        public long msgid;
+        public String msgkey;
+        public int paClassType;
+        public long paId;
+        public int paType;
+        public int subPaType;
+        public String thirdId;
+        public long ukFromUser;
+        public long ukToUser;
+        public JSONObject jack = null;
+        public boolean isReliable = false;
+        public String osName = "android";
 
         public Tripule(long j, String str, long j2, String str2, int i, String str3, long j3, long j4, long j5, int i2, int i3, int i4, String str4, String str5, String str6) {
             this.msgid = j;
@@ -60,20 +60,20 @@ public class NewAckMessage extends Message {
             this.thirdId = str6;
         }
 
-        public void setFromUser(long j) {
-            this.fromUser = j;
-        }
-
         public void setAck(JSONObject jSONObject) {
             this.jack = jSONObject;
         }
 
-        public void setStudioIsReliable(boolean z) {
-            this.isReliable = z;
+        public void setFromUser(long j) {
+            this.fromUser = j;
         }
 
         public void setMcastId(long j) {
             this.mcastId = j;
+        }
+
+        public void setStudioIsReliable(boolean z) {
+            this.isReliable = z;
         }
 
         public JSONObject toJsonObject() {
@@ -100,7 +100,7 @@ public class NewAckMessage extends Message {
                     jSONObject.put("third_id", this.thirdId);
                 }
                 if (this.jack != null) {
-                    jSONObject.put("ack", this.jack);
+                    jSONObject.put(IMTrackDatabase.AckEnum.TABLE_NAME, this.jack);
                 }
                 if (this.mcastId > 0) {
                     jSONObject.put("mcast_id", this.mcastId);
@@ -110,8 +110,8 @@ public class NewAckMessage extends Message {
                     return jSONObject;
                 }
                 return jSONObject;
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "toJsonObject", e);
+            } catch (JSONException e2) {
+                LogUtils.e(LogUtils.TAG, "toJsonObject", e2);
                 return null;
             }
         }
@@ -130,13 +130,6 @@ public class NewAckMessage extends Message {
         this.mPriority = 16;
     }
 
-    public NewAckMessage(Context context, long j, long j2, boolean z) {
-        this(context, j, j2);
-        if (!z) {
-            saveCmdMessage(context, this, null, this.mPriority);
-        }
-    }
-
     public static NewAckMessage parseBody(Context context, String str, String str2, String str3) throws Exception {
         JSONObject jSONObject = new JSONObject(str2);
         long optLong = jSONObject.optLong(Constants.KEY_TRIGGER_ID, 0L);
@@ -148,8 +141,13 @@ public class NewAckMessage extends Message {
         return newAckMessage;
     }
 
+    public boolean addTriples(List<Tripule> list) {
+        this.tripules.addAll(list);
+        return toJsonArray(list);
+    }
+
     @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
+    public void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("method", 95);
@@ -159,11 +157,24 @@ public class NewAckMessage extends Message {
                 this.mAppid = AccountManager.getAppid(this.mContext);
             }
             jSONObject.put("appid", this.mAppid);
-            jSONObject.put("device_id", Utility.getIMDeviceId(this.mContext));
+            jSONObject.put(Constants.KEY_DEVICE_ID, Utility.getIMDeviceId(this.mContext));
             jSONObject.put("msgs", this.mJsonArray);
             this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "buildBody", e);
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "buildBody", e2);
+        }
+    }
+
+    public JSONArray getJsonArray() {
+        return this.mJsonArray;
+    }
+
+    @Override // com.baidu.android.imsdk.request.Message
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        super.handleMessageResult(context, jSONObject, i, str);
+        if (i == 0) {
+            DBManager.getInstance(context).deleteCmdMsg(getUUID());
+            AckHandlerThread.getInstance(context).mRetryCount.set(0);
         }
     }
 
@@ -174,15 +185,6 @@ public class NewAckMessage extends Message {
 
     public void setJsonArray(JSONArray jSONArray) {
         this.mJsonArray = jSONArray;
-    }
-
-    public JSONArray getJsonArray() {
-        return this.mJsonArray;
-    }
-
-    public boolean addTriples(List<Tripule> list) {
-        this.tripules.addAll(list);
-        return toJsonArray(list);
     }
 
     public boolean toJsonArray(List<Tripule> list) {
@@ -197,15 +199,14 @@ public class NewAckMessage extends Message {
             }
         }
         this.mJsonArray = jSONArray;
-        return this.mJsonArray.length() != 0;
+        return jSONArray.length() != 0;
     }
 
-    @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        super.handleMessageResult(context, jSONObject, i, str);
-        if (i == 0) {
-            DBManager.getInstance(context).deleteCmdMsg(getUUID());
-            AckHandlerThread.getInstance(context).mRetryCount.set(0);
+    public NewAckMessage(Context context, long j, long j2, boolean z) {
+        this(context, j, j2);
+        if (z) {
+            return;
         }
+        Message.saveCmdMessage(context, this, null, this.mPriority);
     }
 }

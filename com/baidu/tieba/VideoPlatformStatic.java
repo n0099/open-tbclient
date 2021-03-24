@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.net.http.Headers;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
@@ -9,106 +8,79 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.helper.AlaLiveBaseInfo;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.live.tbadk.core.data.ConstantData;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.apollon.statistics.g;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.CommonHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.l.k;
-import com.baidu.tieba.l.l;
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.tencent.connect.common.Constants;
+import d.b.b.e.p.j;
+import d.b.i0.l3.e;
+import d.b.i0.s1.k;
+import d.b.i0.s1.l;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener ghr = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+
+    /* renamed from: a  reason: collision with root package name */
+    public static CustomMessageListener f14455a = new a(2007015);
+
+    /* loaded from: classes4.dex */
+    public static class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.u.e.dRP().dRL();
-            com.baidu.tieba.u.b.dRK().dRL();
+            e.h().o();
+            d.b.i0.l3.b.d().k();
         }
-    };
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements CustomMessageTask.CustomRunnable<k> {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<k> run(CustomMessage<k> customMessage) {
+            return new CustomResponsedMessage<>(2921309, new l());
+        }
+    }
 
     static {
-        bKS();
-        MessageManager.getInstance().registerListener(ghr);
-        bKT();
+        f();
+        MessageManager.getInstance().registerListener(f14455a);
+        e();
     }
 
-    private static void bKS() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<k>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
-            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<k> run(CustomMessage<k> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new l());
+    public static String a(String str) {
+        return TextUtils.equals(str, "1") ? "index" : TextUtils.equals(str, "2") ? "frs" : TextUtils.equals(str, "6") ? "pb" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SET_AVATAR) ? "frs_bavideotab" : TextUtils.equals(str, "3") ? "floor5" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SHARE_TO_QQ) ? "floor10" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE) ? "floor15" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_JOININ_GROUP) ? "auto_midpage" : str;
+    }
+
+    public static int b(int i) {
+        if (i != -400) {
+            if (i != -200) {
+                return i != -100 ? 3 : 2;
             }
-        });
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
+            return 1;
+        }
+        return 4;
     }
 
-    private static void bKT() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003388, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
-        tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        messageManager.registerTask(tbHttpMessageTask);
-    }
-
-    public static int sW(int i) {
-        switch (i) {
-            case -400:
-                return 4;
-            case -200:
-                return 1;
-            case -100:
-                return 2;
-            default:
-                return 3;
-        }
-    }
-
-    public static String EA(String str) {
-        if (TextUtils.equals(str, "1")) {
-            return "index";
-        }
-        if (TextUtils.equals(str, "2")) {
-            return "frs";
-        }
-        if (TextUtils.equals(str, "6")) {
-            return "pb";
-        }
-        if (TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SET_AVATAR)) {
-            return ConstantData.VideoLocationType.VIDEO_AGGREGATION;
-        }
-        if (TextUtils.equals(str, "3")) {
-            return ConstantData.VideoLocationType.FRS_5FLOOR;
-        }
-        if (TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SHARE_TO_QQ)) {
-            return ConstantData.VideoLocationType.FLOOR_10;
-        }
-        if (TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE)) {
-            return ConstantData.VideoLocationType.FLOOR_15;
-        }
-        if (TextUtils.equals(str, Constants.VIA_REPORT_TYPE_JOININ_GROUP)) {
-            return ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
-        }
-        return str;
-    }
-
-    public static JSONObject bKU() {
+    public static JSONObject c() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());
-            jSONObject.put("clientIp", com.baidu.tbadk.core.util.d.getIp());
+            jSONObject.put("clientIp", CommonHelper.getIp());
             jSONObject.put("clientTimestamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("deviceId", UtilHelper.getDeviceId());
-            jSONObject.put("network", getNetwork());
-            jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, AlaLiveBaseInfo.mOSType);
+            jSONObject.put("network", d());
+            jSONObject.put("osType", "AND");
             jSONObject.put("osVer", Build.VERSION.RELEASE);
             if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                 jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
@@ -117,33 +89,35 @@ public class VideoPlatformStatic {
             }
             jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
             if (UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                jSONObject.put(Headers.LOCATION, new StringBuilder().toString());
+                jSONObject.put("location", new StringBuilder().toString());
             }
-            jSONObject.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
+            jSONObject.put("brand", Build.BRAND);
             jSONObject.put("model", Build.MODEL);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         return jSONObject;
     }
 
-    public static String getNetwork() {
-        if (com.baidu.adp.lib.util.j.isWifiNet()) {
-            return "WIFI";
-        }
-        if (com.baidu.adp.lib.util.j.is2GNet()) {
-            return "2G";
-        }
-        if (com.baidu.adp.lib.util.j.is3GNet()) {
-            return "3G";
-        }
-        if (!com.baidu.adp.lib.util.j.is4GNet() && !com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-            return "NONE";
-        }
-        return "4G";
+    public static String d() {
+        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3873b : (j.v() || j.z()) ? "4G" : "NONE";
     }
 
-    public static String sX(int i) {
+    public static void e() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_MOOV_UPLOAD, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
+        tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        messageManager.registerTask(tbHttpMessageTask);
+    }
+
+    public static void f() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921309, new b());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    public static String g(int i) {
         switch (i) {
             case 101:
                 return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_success);

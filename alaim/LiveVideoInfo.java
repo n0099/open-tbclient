@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public final class LiveVideoInfo extends Message {
     public static final Long DEFAULT_DURATION = 0L;
     public static final String DEFAULT_ID = "";
@@ -14,33 +14,7 @@ public final class LiveVideoInfo extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String url;
 
-    private LiveVideoInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.id == null) {
-                this.id = "";
-            } else {
-                this.id = builder.id;
-            }
-            if (builder.duration == null) {
-                this.duration = DEFAULT_DURATION;
-            } else {
-                this.duration = builder.duration;
-            }
-            if (builder.url == null) {
-                this.url = "";
-                return;
-            } else {
-                this.url = builder.url;
-                return;
-            }
-        }
-        this.id = builder.id;
-        this.duration = builder.duration;
-        this.url = builder.url;
-    }
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<LiveVideoInfo> {
         public Long duration;
         public String id;
@@ -51,11 +25,12 @@ public final class LiveVideoInfo extends Message {
 
         public Builder(LiveVideoInfo liveVideoInfo) {
             super(liveVideoInfo);
-            if (liveVideoInfo != null) {
-                this.id = liveVideoInfo.id;
-                this.duration = liveVideoInfo.duration;
-                this.url = liveVideoInfo.url;
+            if (liveVideoInfo == null) {
+                return;
             }
+            this.id = liveVideoInfo.id;
+            this.duration = liveVideoInfo.duration;
+            this.url = liveVideoInfo.url;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,5 +39,34 @@ public final class LiveVideoInfo extends Message {
         public LiveVideoInfo build(boolean z) {
             return new LiveVideoInfo(this, z);
         }
+    }
+
+    public LiveVideoInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            String str = builder.id;
+            if (str == null) {
+                this.id = "";
+            } else {
+                this.id = str;
+            }
+            Long l = builder.duration;
+            if (l == null) {
+                this.duration = DEFAULT_DURATION;
+            } else {
+                this.duration = l;
+            }
+            String str2 = builder.url;
+            if (str2 == null) {
+                this.url = "";
+                return;
+            } else {
+                this.url = str2;
+                return;
+            }
+        }
+        this.id = builder.id;
+        this.duration = builder.duration;
+        this.url = builder.url;
     }
 }

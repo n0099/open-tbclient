@@ -1,7 +1,7 @@
 package com.baidu.mapapi.walknavi;
 
 import com.baidu.mapapi.VersionInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static String a() {
         return VersionInfo.VERSION_INFO;

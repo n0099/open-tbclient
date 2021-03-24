@@ -6,20 +6,11 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BrowserCompatSpec extends CookieSpecBase {
-    protected static final String[] DATE_PATTERNS = null;
+    public static final String[] DATE_PATTERNS = null;
 
     public BrowserCompatSpec(String[] strArr) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public BrowserCompatSpec() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.cookie.CookieSpec
-    public List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
         throw new RuntimeException("Stub!");
     }
 
@@ -35,6 +26,15 @@ public class BrowserCompatSpec extends CookieSpecBase {
 
     @Override // org.apache.http.cookie.CookieSpec
     public Header getVersionHeader() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.cookie.CookieSpec
+    public List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public BrowserCompatSpec() {
         throw new RuntimeException("Stub!");
     }
 }

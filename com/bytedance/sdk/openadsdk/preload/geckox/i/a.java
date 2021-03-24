@@ -1,11 +1,11 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.i;
 
 import com.baidubce.AbstractBceClient;
-import com.bytedance.sdk.a.b.ab;
-import com.bytedance.sdk.a.b.ac;
-import com.bytedance.sdk.a.b.v;
-import com.bytedance.sdk.a.b.y;
-import com.bytedance.sdk.a.b.z;
+import d.c.c.a.b.a0;
+import d.c.c.a.b.b0;
+import d.c.c.a.b.v;
+import d.c.c.a.b.x;
+import d.c.c.a.b.y;
 import java.io.BufferedInputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,51 +14,77 @@ import java.util.concurrent.TimeUnit;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected z f5083a = new z.a().c(10, TimeUnit.SECONDS).d(10, TimeUnit.SECONDS).e(10, TimeUnit.SECONDS).eqH();
-    protected z b = new z.a().c(10, TimeUnit.SECONDS).d(30, TimeUnit.SECONDS).e(30, TimeUnit.SECONDS).eqH();
+    public y f30296a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public y f30297b;
+
+    public a() {
+        y.b bVar = new y.b();
+        bVar.a(10L, TimeUnit.SECONDS);
+        bVar.d(10L, TimeUnit.SECONDS);
+        bVar.f(10L, TimeUnit.SECONDS);
+        this.f30296a = bVar.c();
+        y.b bVar2 = new y.b();
+        bVar2.a(10L, TimeUnit.SECONDS);
+        bVar2.d(30L, TimeUnit.SECONDS);
+        bVar2.f(30L, TimeUnit.SECONDS);
+        this.f30297b = bVar2.c();
+    }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
     public c a(String str, String str2) throws Exception {
-        com.bytedance.sdk.a.b.b epY = this.f5083a.g(new ab.a().Zh(str).a(ac.a(y.Zg(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2)).eqQ()).epY();
-        return new c(a(epY.epT()), epY.c() == 200 ? epY.epU().e() : null, epY.c(), epY.e());
+        b0 b2 = b0.b(x.a(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2);
+        a0.a aVar = new a0.a();
+        aVar.e(str);
+        aVar.d(b2);
+        d.c.c.a.b.c a2 = this.f30296a.c(aVar.p()).a();
+        return new c(a(a2.w()), a2.r() == 200 ? a2.x().s() : null, a2.r(), a2.t());
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
     public void a(String str, long j, com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b bVar) throws Exception {
+        Exception e2;
+        int i;
         BufferedInputStream bufferedInputStream;
-        int i = 0;
+        BufferedInputStream bufferedInputStream2 = null;
         try {
-            com.bytedance.sdk.a.b.b epY = this.b.g(new ab.a().eqN().Zh(str).eqQ()).epY();
-            i = epY.c();
-            bufferedInputStream = new BufferedInputStream(epY.epU().c());
             try {
+                a0.a aVar = new a0.a();
+                aVar.a();
+                aVar.e(str);
+                d.c.c.a.b.c a2 = this.f30297b.c(aVar.p()).a();
+                i = a2.r();
                 try {
-                    byte[] bArr = new byte[2048];
-                    while (true) {
-                        int read = bufferedInputStream.read(bArr, 0, bArr.length);
-                        if (read != -1) {
-                            bVar.write(bArr, 0, read);
-                        } else {
-                            com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(bufferedInputStream);
-                            return;
-                        }
-                    }
-                } catch (Exception e) {
-                    e = e;
-                    throw new RuntimeException("downloadFile failed, code: " + i + ", url:" + str + ", caused by:" + e.getMessage(), e);
+                    bufferedInputStream = new BufferedInputStream(a2.x().q());
+                } catch (Exception e3) {
+                    e2 = e3;
                 }
-            } catch (Throwable th) {
-                th = th;
-                com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(bufferedInputStream);
-                throw th;
+            } catch (Exception e4) {
+                e2 = e4;
+                i = 0;
             }
-        } catch (Exception e2) {
-            e = e2;
-            bufferedInputStream = null;
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            byte[] bArr = new byte[2048];
+            while (true) {
+                int read = bufferedInputStream.read(bArr, 0, 2048);
+                if (read != -1) {
+                    bVar.write(bArr, 0, read);
+                } else {
+                    com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(bufferedInputStream);
+                    return;
+                }
+            }
+        } catch (Exception e5) {
+            e2 = e5;
+            throw new RuntimeException("downloadFile failed, code: " + i + ", url:" + str + ", caused by:" + e2.getMessage(), e2);
         } catch (Throwable th2) {
             th = th2;
-            bufferedInputStream = null;
-            com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(bufferedInputStream);
+            bufferedInputStream2 = bufferedInputStream;
+            com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(bufferedInputStream2);
             throw th;
         }
     }
@@ -68,8 +94,8 @@ public class a implements b {
             return null;
         }
         HashMap hashMap = new HashMap();
-        for (String str : vVar.b()) {
-            hashMap.put(str, vVar.a(str));
+        for (String str : vVar.g()) {
+            hashMap.put(str, vVar.c(str));
         }
         return hashMap;
     }

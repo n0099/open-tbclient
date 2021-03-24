@@ -2,10 +2,9 @@ package com.baidu.mobstat;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
-class q extends j {
+/* loaded from: classes2.dex */
+public class q extends j {
     public q() {
         super("app_list3", "Create table if not exists app_list3(_id Integer primary key AUTOINCREMENT,time VARCHAR(50),content TEXT);");
     }
@@ -21,6 +20,11 @@ class q extends j {
     }
 
     @Override // com.baidu.mobstat.j
+    public boolean b(long j) {
+        return a(j);
+    }
+
+    @Override // com.baidu.mobstat.j
     public long a(String str, String str2) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("time", str);
@@ -28,20 +32,16 @@ class q extends j {
         return a(contentValues);
     }
 
-    @Override // com.baidu.mobstat.j
-    public boolean b(long j) {
-        return a(j);
-    }
-
     private ArrayList<i> a(Cursor cursor) {
         ArrayList<i> arrayList = new ArrayList<>();
-        if (cursor != null && cursor.getCount() != 0) {
-            int columnIndex = cursor.getColumnIndex(IMConstants.MSG_ROW_ID);
-            int columnIndex2 = cursor.getColumnIndex("time");
-            int columnIndex3 = cursor.getColumnIndex("content");
-            while (cursor.moveToNext()) {
-                arrayList.add(new i(cursor.getLong(columnIndex), cursor.getString(columnIndex2), cursor.getString(columnIndex3)));
-            }
+        if (cursor == null || cursor.getCount() == 0) {
+            return arrayList;
+        }
+        int columnIndex = cursor.getColumnIndex("_id");
+        int columnIndex2 = cursor.getColumnIndex("time");
+        int columnIndex3 = cursor.getColumnIndex("content");
+        while (cursor.moveToNext()) {
+            arrayList.add(new i(cursor.getLong(columnIndex), cursor.getString(columnIndex2), cursor.getString(columnIndex3)));
         }
         return arrayList;
     }

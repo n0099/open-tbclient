@@ -1,27 +1,60 @@
 package com.xiaomi.push;
+/* loaded from: classes7.dex */
+public class dz {
 
-import android.content.Context;
-/* loaded from: classes5.dex */
-public class dz extends ed {
-    public dz(Context context, int i) {
-        super(context, i);
+    /* renamed from: a  reason: collision with root package name */
+    public int f40430a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public String f307a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f40431b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f40432c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f40433d;
+
+    public int a() {
+        return this.f40430a;
     }
 
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public int mo170a() {
-        return 5;
+    /* renamed from: a  reason: collision with other method in class */
+    public String m260a() {
+        return this.f307a;
     }
 
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public ho mo170a() {
-        return ho.AppActiveList;
+    public void a(int i) {
+        this.f40430a = i;
     }
 
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public String mo170a() {
-        return null;
+    public void a(String str) {
+        this.f307a = str;
+    }
+
+    public String b() {
+        return this.f40431b;
+    }
+
+    public void b(String str) {
+        this.f40431b = str;
+    }
+
+    public String c() {
+        return this.f40432c;
+    }
+
+    public void c(String str) {
+        this.f40432c = str;
+    }
+
+    public String d() {
+        return this.f40433d;
+    }
+
+    public void d(String str) {
+        this.f40433d = str;
     }
 }

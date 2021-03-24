@@ -1,25 +1,49 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import d.b.i0.i1.o.j.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class OnePicInfoCard extends BaseCardInfo {
-    private final String desc;
-    private final List<b> iconList;
-    private final String pic;
-    private final int tBgColor;
-    private final int tBgColorN;
-    private final String tag;
+    public final String desc;
+    public final List<b> iconList;
+    public final String pic;
+    public final int tBgColor;
+    public final int tBgColorN;
+    public final String tag;
 
-    public List<b> getIconList() {
-        return this.iconList;
+    public OnePicInfoCard(JSONObject jSONObject) throws CardParseException {
+        super(jSONObject);
+        this.desc = jSONObject.optString("desc", "");
+        this.pic = jSONObject.optString("pic");
+        this.tag = jSONObject.optString("tag", "");
+        this.tBgColor = d.b.i0.i1.o.k.b.b(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = d.b.i0.i1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
+        JSONArray optJSONArray = jSONObject.optJSONArray("icons");
+        int length = optJSONArray == null ? 0 : optJSONArray.length();
+        this.iconList = new ArrayList(length);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                b bVar = new b();
+                bVar.f55939c = optJSONObject.optInt("type");
+                bVar.f55937a = optJSONObject.optString("url");
+                bVar.f55938b = optJSONObject.optString("urlNight");
+                bVar.f55940d = optJSONObject.optString("content", "");
+                this.iconList.add(bVar);
+            }
+        }
     }
 
     public String getDesc() {
         return this.desc;
+    }
+
+    public List<b> getIconList() {
+        return this.iconList;
     }
 
     public String getPic() {
@@ -36,29 +60,5 @@ public class OnePicInfoCard extends BaseCardInfo {
 
     public int gettBgColorN() {
         return this.tBgColorN;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnePicInfoCard(JSONObject jSONObject) throws CardParseException {
-        super(jSONObject);
-        this.desc = jSONObject.optString("desc", "");
-        this.pic = jSONObject.optString("pic");
-        this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("tBgColorN", ""));
-        JSONArray optJSONArray = jSONObject.optJSONArray("icons");
-        int length = optJSONArray == null ? 0 : optJSONArray.length();
-        this.iconList = new ArrayList(length);
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                b bVar = new b();
-                bVar.type = optJSONObject.optInt("type");
-                bVar.url = optJSONObject.optString("url");
-                bVar.lee = optJSONObject.optString("urlNight");
-                bVar.content = optJSONObject.optString("content", "");
-                this.iconList.add(bVar);
-            }
-        }
     }
 }

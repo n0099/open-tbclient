@@ -1,39 +1,53 @@
 package com.vivo.push;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+import com.baidu.android.common.others.lang.StringUtil;
+/* loaded from: classes7.dex */
 public abstract class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f8089a;
-    private int b;
-    private y c;
+    public Context f39588a;
 
-    protected abstract void a(y yVar);
+    /* renamed from: b  reason: collision with root package name */
+    public int f39589b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public y f39590c;
 
     public v(y yVar) {
-        this.b = -1;
-        this.c = yVar;
-        this.b = yVar.b();
-        if (this.b < 0) {
-            throw new IllegalArgumentException("PushTask need a > 0 task id.");
+        this.f39589b = -1;
+        this.f39590c = yVar;
+        int b2 = yVar.b();
+        this.f39589b = b2;
+        if (b2 >= 0) {
+            this.f39588a = p.a().h();
+            return;
         }
-        this.f8089a = p.a().h();
+        throw new IllegalArgumentException("PushTask need a > 0 task id.");
     }
 
     public final int a() {
-        return this.b;
+        return this.f39589b;
     }
+
+    public abstract void a(y yVar);
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.f8089a != null && !(this.c instanceof com.vivo.push.b.p)) {
-            com.vivo.push.util.p.a(this.f8089a, "[执行指令]" + this.c);
+        Context context = this.f39588a;
+        if (context != null && !(this.f39590c instanceof com.vivo.push.b.p)) {
+            com.vivo.push.util.p.a(context, "[执行指令]" + this.f39590c);
         }
-        a(this.c);
+        a(this.f39590c);
     }
 
     public String toString() {
-        return getClass().getSimpleName() + "{" + (this.c == null ? "[null]" : this.c.toString()) + "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(StringUtil.ARRAY_START);
+        y yVar = this.f39590c;
+        sb.append(yVar == null ? "[null]" : yVar.toString());
+        sb.append("}");
+        return sb.toString();
     }
 }

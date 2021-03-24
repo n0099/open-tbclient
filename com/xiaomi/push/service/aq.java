@@ -1,32 +1,190 @@
 package com.xiaomi.push.service;
 
-import com.kwad.sdk.collector.AppStatusRules;
-import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.ap;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class aq implements ap.b.a {
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Pair;
+import com.xiaomi.push.hk;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ap.b f8526a;
+    public static volatile aq f40954a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(ap.b bVar) {
-        this.f8526a = bVar;
+    /* renamed from: a  reason: collision with other field name */
+    public SharedPreferences f895a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public HashSet<a> f896a = new HashSet<>();
+
+    /* loaded from: classes7.dex */
+    public static abstract class a implements Runnable {
+        public String mDescription;
+        public int mId;
+
+        public a(int i, String str) {
+            this.mId = i;
+            this.mDescription = str;
+        }
+
+        public boolean equals(Object obj) {
+            return (obj instanceof a) && this.mId == ((a) obj).mId;
+        }
+
+        public int hashCode() {
+            return this.mId;
+        }
+
+        public abstract void onCallback();
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            onCallback();
+        }
     }
 
-    @Override // com.xiaomi.push.service.ap.b.a
-    public void a(ap.c cVar, ap.c cVar2, int i) {
-        XMPushService.b bVar;
-        XMPushService.b bVar2;
-        if (cVar2 == ap.c.binding) {
-            XMPushService xMPushService = this.f8526a.f855a;
-            bVar2 = this.f8526a.f854a;
-            xMPushService.a(bVar2, AppStatusRules.DEFAULT_GRANULARITY);
+    public aq(Context context) {
+        this.f895a = context.getSharedPreferences("mipush_oc", 0);
+    }
+
+    public static aq a(Context context) {
+        if (f40954a == null) {
+            synchronized (aq.class) {
+                if (f40954a == null) {
+                    f40954a = new aq(context);
+                }
+            }
+        }
+        return f40954a;
+    }
+
+    private String a(int i) {
+        return "normal_oc_" + i;
+    }
+
+    private void a(SharedPreferences.Editor editor, Pair<Integer, Object> pair, String str) {
+        Object obj = pair.second;
+        if (obj instanceof Integer) {
+            editor.putInt(str, ((Integer) obj).intValue());
+        } else if (obj instanceof Long) {
+            editor.putLong(str, ((Long) obj).longValue());
+        } else if (!(obj instanceof String)) {
+            if (obj instanceof Boolean) {
+                editor.putBoolean(str, ((Boolean) obj).booleanValue());
+            }
+        } else {
+            String str2 = (String) obj;
+            if (str.equals(a(hk.AppIsInstalledList.a()))) {
+                str2 = com.xiaomi.push.bj.a(str2);
+            }
+            editor.putString(str, str2);
+        }
+    }
+
+    private String b(int i) {
+        return "custom_oc_" + i;
+    }
+
+    public int a(int i, int i2) {
+        try {
+            String b2 = b(i);
+            if (this.f895a.contains(b2)) {
+                return this.f895a.getInt(b2, 0);
+            }
+            String a2 = a(i);
+            return this.f895a.contains(a2) ? this.f895a.getInt(a2, 0) : i2;
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.m51a(i + " oc int error " + e2);
+            return i2;
+        }
+    }
+
+    public String a(int i, String str) {
+        try {
+            String b2 = b(i);
+            if (this.f895a.contains(b2)) {
+                return this.f895a.getString(b2, null);
+            }
+            String a2 = a(i);
+            return this.f895a.contains(a2) ? this.f895a.getString(a2, null) : str;
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.m51a(i + " oc string error " + e2);
+            return str;
+        }
+    }
+
+    public synchronized void a() {
+        this.f896a.clear();
+    }
+
+    public synchronized void a(a aVar) {
+        if (!this.f896a.contains(aVar)) {
+            this.f896a.add(aVar);
+        }
+    }
+
+    public void a(List<Pair<Integer, Object>> list) {
+        if (com.xiaomi.push.ad.a(list)) {
             return;
         }
-        XMPushService xMPushService2 = this.f8526a.f855a;
-        bVar = this.f8526a.f854a;
-        xMPushService2.b(bVar);
+        SharedPreferences.Editor edit = this.f895a.edit();
+        for (Pair<Integer, Object> pair : list) {
+            Object obj = pair.first;
+            if (obj != null && pair.second != null) {
+                a(edit, pair, a(((Integer) obj).intValue()));
+            }
+        }
+        edit.commit();
+    }
+
+    public boolean a(int i, boolean z) {
+        try {
+            String b2 = b(i);
+            if (this.f895a.contains(b2)) {
+                return this.f895a.getBoolean(b2, false);
+            }
+            String a2 = a(i);
+            return this.f895a.contains(a2) ? this.f895a.getBoolean(a2, false) : z;
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.m51a(i + " oc boolean error " + e2);
+            return z;
+        }
+    }
+
+    public void b() {
+        com.xiaomi.channel.commonutils.logger.b.c("OC_Callback : receive new oc data");
+        HashSet hashSet = new HashSet();
+        synchronized (this) {
+            hashSet.addAll(this.f896a);
+        }
+        Iterator it = hashSet.iterator();
+        while (it.hasNext()) {
+            a aVar = (a) it.next();
+            if (aVar != null) {
+                aVar.run();
+            }
+        }
+        hashSet.clear();
+    }
+
+    public void b(List<Pair<Integer, Object>> list) {
+        if (com.xiaomi.push.ad.a(list)) {
+            return;
+        }
+        SharedPreferences.Editor edit = this.f895a.edit();
+        for (Pair<Integer, Object> pair : list) {
+            Object obj = pair.first;
+            if (obj != null) {
+                String b2 = b(((Integer) obj).intValue());
+                if (pair.second == null) {
+                    edit.remove(b2);
+                } else {
+                    a(edit, pair, b2);
+                }
+            }
+        }
+        edit.commit();
     }
 }

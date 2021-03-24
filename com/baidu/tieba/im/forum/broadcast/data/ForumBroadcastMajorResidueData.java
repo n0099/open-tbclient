@@ -1,29 +1,31 @@
 package com.baidu.tieba.im.forum.broadcast.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ForumBroadcastMajorResidueData extends OrmObject {
-    private int kHZ;
-    private int kIa;
-    private int kIb;
 
-    public int cWq() {
-        return this.kHZ;
+    /* renamed from: e  reason: collision with root package name */
+    public int f17927e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f17928f;
+
+    public int s() {
+        return this.f17928f;
     }
 
-    public void CY(int i) {
-        this.kHZ = i;
+    public int t() {
+        return this.f17927e;
     }
 
-    public int cWr() {
-        return this.kIa;
+    public void u(int i) {
+        this.f17928f = i;
     }
 
-    public void CZ(int i) {
-        this.kIa = i;
+    public void v(int i) {
     }
 
-    public void Da(int i) {
-        this.kIb = i;
+    public void w(int i) {
+        this.f17927e = i;
     }
 }

@@ -2,8 +2,8 @@ package com.baidu.mapapi.search.geocode;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
-final class b implements Parcelable.Creator<ReverseGeoCodeResult> {
+/* loaded from: classes2.dex */
+public final class b implements Parcelable.Creator<ReverseGeoCodeResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */

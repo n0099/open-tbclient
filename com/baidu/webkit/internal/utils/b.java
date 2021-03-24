@@ -4,28 +4,35 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3842a;
-    private static int b = -1;
+    public static boolean f26953a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f26954b = -1;
 
     public static synchronized void a() {
         synchronized (b.class) {
+            File filesDir = WebViewFactory.getContext().getFilesDir();
             try {
-                new File(WebViewFactory.getContext().getFilesDir(), WebKitFactory.getProcessTypeString() + "zeus_init_model_opt").createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
+                new File(filesDir, WebKitFactory.getProcessTypeString() + "zeus_init_model_opt").createNewFile();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
         }
     }
 
     public static synchronized int b() {
         synchronized (b.class) {
-            if (!f3842a) {
-                b = new File(WebViewFactory.getContext().getFilesDir(), new StringBuilder().append(WebKitFactory.getProcessTypeString()).append("zeus_init_model_opt").toString()).exists() ? 1 : -1;
-                f3842a = true;
+            if (!f26953a) {
+                File filesDir = WebViewFactory.getContext().getFilesDir();
+                StringBuilder sb = new StringBuilder();
+                sb.append(WebKitFactory.getProcessTypeString());
+                sb.append("zeus_init_model_opt");
+                f26954b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
+                f26953a = true;
             }
         }
         return 1;

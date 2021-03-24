@@ -1,17 +1,17 @@
 package com.bumptech.glide.load.data.mediastore;
 
 import java.io.File;
-/* loaded from: classes14.dex */
-class FileService {
+/* loaded from: classes5.dex */
+public class FileService {
     public boolean exists(File file) {
         return file.exists();
     }
 
-    public long length(File file) {
-        return file.length();
-    }
-
     public File get(String str) {
         return new File(str);
+    }
+
+    public long length(File file) {
+        return file.length();
     }
 }

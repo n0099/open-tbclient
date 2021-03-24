@@ -1,16 +1,15 @@
 package io.reactivex.disposables;
 
-import org.a.d;
-/* loaded from: classes6.dex */
-final class SubscriptionDisposable extends ReferenceDisposable<d> {
-    private static final long serialVersionUID = -707001650852963139L;
+import g.d.d;
+/* loaded from: classes7.dex */
+public final class SubscriptionDisposable extends ReferenceDisposable<d> {
+    public static final long serialVersionUID = -707001650852963139L;
 
-    SubscriptionDisposable(d dVar) {
+    public SubscriptionDisposable(d dVar) {
         super(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // io.reactivex.disposables.ReferenceDisposable
     public void onDisposed(d dVar) {
         dVar.cancel();

@@ -7,7 +7,7 @@ import com.baidu.swan.games.utils.so.SoUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h {
     public static JSONObject a(Context context) {
         JSONObject jSONObject = new JSONObject();
@@ -17,15 +17,15 @@ public class h {
             jSONObject.put(Config.CUID_SEC, bw.a(2, context));
             jSONObject.put("w", bw.c(context));
             jSONObject.put("h", bw.d(context));
-            jSONObject.put("ly", ab.c);
+            jSONObject.put("ly", ab.f8876c);
             jSONObject.put("pv", SoUtils.SO_EVENT_ID_DEFAULT);
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 jSONObject.put(Config.PACKAGE_NAME, bw.h(2, context));
                 jSONObject.put("a", packageInfo.versionCode);
                 jSONObject.put("n", packageInfo.versionName);
-            } catch (Exception e) {
-                bb.c().a(e);
+            } catch (Exception e2) {
+                bb.c().a(e2);
             }
             jSONObject.put(Config.DEVICE_MAC_ID, bw.b(2, context));
             jSONObject.put(Config.DEVICE_BLUETOOTH_MAC, bw.f(2, context));
@@ -34,38 +34,23 @@ public class h {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put(Config.TRACE_FAILED_CNT, 0);
             jSONObject2.put("send_index", 0);
-            String b = bw.b();
-            if (b == null) {
-                b = "";
+            String b2 = bw.b();
+            if (b2 == null) {
+                b2 = "";
             }
-            jSONObject2.put(Config.ROM, b);
+            jSONObject2.put(Config.ROM, b2);
             jSONObject.put(Config.TRACE_PART, jSONObject2);
-        } catch (JSONException e2) {
-            bb.c().b(e2);
+        } catch (JSONException e3) {
+            bb.c().b(e3);
         }
         return jSONObject;
-    }
-
-    public static JSONObject a(JSONObject jSONObject) {
-        JSONObject jSONObject2;
-        if (jSONObject == null) {
-            return null;
-        }
-        try {
-            JSONArray jSONArray = (JSONArray) jSONObject.get("payload");
-            JSONObject jSONObject3 = (jSONArray == null || jSONArray.length() <= 0) ? null : (JSONObject) jSONArray.get(0);
-            jSONObject2 = jSONObject3 != null ? jSONObject3.getJSONObject(Config.HEADER_PART) : null;
-        } catch (Exception e) {
-            jSONObject2 = null;
-        }
-        return jSONObject2;
     }
 
     public static void b(JSONObject jSONObject) {
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject(Config.TRACE_PART);
             jSONObject2.put(Config.TRACE_FAILED_CNT, jSONObject2.getLong(Config.TRACE_FAILED_CNT) + 1);
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
@@ -73,7 +58,23 @@ public class h {
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject(Config.TRACE_PART);
             jSONObject2.put("send_index", jSONObject2.getLong("send_index") + 1);
-        } catch (Exception e) {
+        } catch (Exception unused) {
+        }
+    }
+
+    public static JSONObject a(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
+        }
+        try {
+            JSONArray jSONArray = (JSONArray) jSONObject.get("payload");
+            JSONObject jSONObject2 = (jSONArray == null || jSONArray.length() <= 0) ? null : (JSONObject) jSONArray.get(0);
+            if (jSONObject2 != null) {
+                return jSONObject2.getJSONObject(Config.HEADER_PART);
+            }
+            return null;
+        } catch (Exception unused) {
+            return null;
         }
     }
 }

@@ -3,30 +3,36 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.an;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.recapp.report.b;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SpecHotTopicHelper;
 import com.squareup.wire.Wire;
+import d.b.b.j.e.n;
+import d.b.h0.r.q.a2;
+import d.b.h0.r.q.n0;
+import d.b.i0.r2.b0.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
+import tbclient.Error;
 import tbclient.ThreadInfo;
+import tbclient.ThreadList.DataRes;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
-    private BannerListData bannerListData;
-    private ArrayList<n> threadList;
-    private HashMap<String, MetaData> userMap;
+    public BannerListData bannerListData;
+    public ArrayList<n> threadList;
+    public HashMap<String, MetaData> userMap;
 
     public LoadMoreHttpResponseMessage(int i) {
         super(i);
+    }
+
+    public BannerListData getBannerListData() {
+        return this.bannerListData;
     }
 
     public ArrayList<n> getThreadList() {
@@ -34,79 +40,82 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        Error error;
+        DataRes dataRes;
         boolean z;
         Message<?> orginalMessage;
         ThreadListResIdl threadListResIdl = (ThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, ThreadListResIdl.class);
-        if (threadListResIdl != null && threadListResIdl.error != null) {
-            setError(threadListResIdl.error.errorno.intValue());
-            setErrorString(threadListResIdl.error.usermsg);
-            if (getError() == 0 && threadListResIdl.data != null) {
-                if (y.getCount(threadListResIdl.data.user_list) > 0) {
-                    this.userMap = new HashMap<>();
-                    List<User> list = threadListResIdl.data.user_list;
-                    if (list != null) {
-                        for (int i2 = 0; i2 < list.size(); i2++) {
-                            MetaData metaData = new MetaData();
-                            metaData.parserProtobuf(list.get(i2));
-                            String userId = metaData.getUserId();
-                            if (userId != null && !userId.equals("0")) {
-                                this.userMap.put(metaData.getUserId(), metaData);
-                            }
+        if (threadListResIdl == null || (error = threadListResIdl.error) == null) {
+            return;
+        }
+        setError(error.errorno.intValue());
+        setErrorString(threadListResIdl.error.usermsg);
+        if (getError() == 0 && (dataRes = threadListResIdl.data) != null) {
+            if (ListUtils.getCount(dataRes.user_list) > 0) {
+                this.userMap = new HashMap<>();
+                List<User> list = threadListResIdl.data.user_list;
+                if (list != null) {
+                    for (int i2 = 0; i2 < list.size(); i2++) {
+                        MetaData metaData = new MetaData();
+                        metaData.parserProtobuf(list.get(i2));
+                        String userId = metaData.getUserId();
+                        if (userId != null && !userId.equals("0")) {
+                            this.userMap.put(metaData.getUserId(), metaData);
                         }
-                    }
-                }
-                long j = 0;
-                Message<?> orginalMessage2 = getOrginalMessage();
-                if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
-                    z = false;
-                } else {
-                    LoadMoreRequestMessage loadMoreRequestMessage = (LoadMoreRequestMessage) orginalMessage2.getExtra();
-                    z = loadMoreRequestMessage.isBrandForum();
-                    j = loadMoreRequestMessage.getForumId();
-                }
-                if (y.getCount(threadListResIdl.data.thread_list) > 0) {
-                    this.threadList = new ArrayList<>();
-                    List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
-                    if (list2 != null) {
-                        ArrayList arrayList = new ArrayList();
-                        for (int i3 = 0; i3 < list2.size(); i3++) {
-                            ThreadInfo threadInfo = list2.get(i3);
-                            cb cbVar = new cb();
-                            aq.a(j, cbVar);
-                            cbVar.setUserMap(this.userMap);
-                            cbVar.a(threadInfo);
-                            cbVar.boR();
-                            cbVar.eUP = z;
-                            if (!TextUtils.isEmpty(cbVar.bpd())) {
-                                an anVar = new an();
-                                anVar.Ac(cbVar.bpd());
-                                this.threadList.add(anVar);
-                            } else {
-                                this.threadList.add(cbVar);
-                                JSONObject f = b.f(threadInfo);
-                                if (f != null) {
-                                    arrayList.add(f);
-                                }
-                            }
-                        }
-                        b.dEB().q("FRS", arrayList);
-                    }
-                }
-                this.bannerListData = null;
-                if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {
-                    LoadMoreRequestMessage loadMoreRequestMessage2 = (LoadMoreRequestMessage) orginalMessage.getExtra();
-                    if (loadMoreRequestMessage2.getPageType() == 1 || loadMoreRequestMessage2.getPageType() == 2 || loadMoreRequestMessage2.getPageType() == 3) {
-                        this.bannerListData = new BannerListData();
-                        this.bannerListData.parserProtobuf(threadListResIdl.data.banner_list);
                     }
                 }
             }
+            long j = 0;
+            Message<?> orginalMessage2 = getOrginalMessage();
+            if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
+                z = false;
+            } else {
+                LoadMoreRequestMessage loadMoreRequestMessage = (LoadMoreRequestMessage) orginalMessage2.getExtra();
+                boolean isBrandForum = loadMoreRequestMessage.isBrandForum();
+                long forumId = loadMoreRequestMessage.getForumId();
+                z = isBrandForum;
+                j = forumId;
+            }
+            if (ListUtils.getCount(threadListResIdl.data.thread_list) > 0) {
+                this.threadList = new ArrayList<>();
+                List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
+                if (list2 != null) {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i3 = 0; i3 < list2.size(); i3++) {
+                        ThreadInfo threadInfo = list2.get(i3);
+                        a2 a2Var = new a2();
+                        SpecHotTopicHelper.setSpecTopicIcon(j, a2Var);
+                        a2Var.p4(this.userMap);
+                        a2Var.Q2(threadInfo);
+                        a2Var.U2();
+                        a2Var.D1 = z;
+                        if (!TextUtils.isEmpty(a2Var.E0())) {
+                            n0 n0Var = new n0();
+                            n0Var.n(a2Var.E0());
+                            this.threadList.add(n0Var);
+                        } else {
+                            this.threadList.add(a2Var);
+                            JSONObject b2 = b.b(threadInfo);
+                            if (b2 != null) {
+                                arrayList.add(b2);
+                            }
+                        }
+                    }
+                    b.f().h("FRS", arrayList);
+                }
+            }
+            this.bannerListData = null;
+            if (threadListResIdl.data.banner_list == null || (orginalMessage = getOrginalMessage()) == null || orginalMessage.getExtra() == null || !(orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {
+                return;
+            }
+            LoadMoreRequestMessage loadMoreRequestMessage2 = (LoadMoreRequestMessage) orginalMessage.getExtra();
+            if (loadMoreRequestMessage2.getPageType() == 1 || loadMoreRequestMessage2.getPageType() == 2 || loadMoreRequestMessage2.getPageType() == 3) {
+                BannerListData bannerListData = new BannerListData();
+                this.bannerListData = bannerListData;
+                bannerListData.parserProtobuf(threadListResIdl.data.banner_list);
+            }
         }
-    }
-
-    public BannerListData getBannerListData() {
-        return this.bannerListData;
     }
 }

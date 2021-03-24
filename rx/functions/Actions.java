@@ -1,64 +1,45 @@
 package rx.functions;
 
+import h.n.b;
+import h.n.c;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Actions {
-    private static final b qzl = new b();
 
-    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> eMF() {
-        return qzl;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public static final a f68141a = new a();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class b<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements rx.functions.a, rx.functions.b<T0>, c<T0, T1> {
-        b() {
-        }
-
-        @Override // rx.functions.a
-        public void call() {
-        }
-
-        @Override // rx.functions.b
-        public void call(T0 t0) {
-        }
-
-        @Override // rx.functions.c
-        public void m(T0 t0, T1 t1) {
-        }
-    }
-
-    public static <T> rx.functions.b<T> e(rx.functions.a aVar) {
-        return new a(aVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class a<T> implements rx.functions.b<T> {
-        final rx.functions.a action;
-
-        public a(rx.functions.a aVar) {
-            this.action = aVar;
-        }
-
-        @Override // rx.functions.b
-        public void call(T t) {
-            this.action.call();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    enum NotImplemented implements rx.functions.b<Throwable> {
+    /* loaded from: classes7.dex */
+    public enum NotImplemented implements b<Throwable> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.b
+        @Override // h.n.b
         public void call(Throwable th) {
             throw new OnErrorNotImplementedException(th);
         }
     }
 
-    public static rx.functions.b<Throwable> eMG() {
+    /* loaded from: classes7.dex */
+    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements h.n.a, b<T0>, c<T0, T1> {
+        @Override // h.n.c
+        public void a(T0 t0, T1 t1) {
+        }
+
+        @Override // h.n.a
+        public void call() {
+        }
+
+        @Override // h.n.b
+        public void call(T0 t0) {
+        }
+    }
+
+    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> a<T0, T1, T2, T3, T4, T5, T6, T7, T8> a() {
+        return f68141a;
+    }
+
+    public static b<Throwable> b() {
         return NotImplemented.INSTANCE;
     }
 }

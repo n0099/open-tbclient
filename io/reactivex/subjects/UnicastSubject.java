@@ -1,257 +1,274 @@
 package io.reactivex.subjects;
 
-import io.reactivex.internal.a.f;
+import f.a.d0.a;
+import f.a.l;
+import f.a.o;
+import f.a.t.b;
+import f.a.x.c.f;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
-import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-public final class UnicastSubject<T> extends b<T> {
-    final AtomicReference<u<? super T>> actual;
-    final boolean delayError;
-    volatile boolean disposed;
-    volatile boolean done;
-    Throwable error;
-    final AtomicBoolean once;
-    final BasicIntQueueDisposable<T> qtN;
-    final AtomicReference<Runnable> qtq;
-    boolean qts;
-    final io.reactivex.internal.queue.a<T> queue;
+/* loaded from: classes7.dex */
+public final class UnicastSubject<T> extends a<T> {
 
-    public static <T> UnicastSubject<T> eKF() {
-        return new UnicastSubject<>(eJU(), true);
+    /* renamed from: e  reason: collision with root package name */
+    public final f.a.x.f.a<T> f68114e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final AtomicReference<o<? super T>> f68115f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final AtomicReference<Runnable> f68116g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final boolean f68117h;
+    public volatile boolean i;
+    public volatile boolean j;
+    public Throwable k;
+    public final AtomicBoolean l;
+    public final BasicIntQueueDisposable<T> m;
+    public boolean n;
+
+    /* loaded from: classes7.dex */
+    public final class UnicastQueueDisposable extends BasicIntQueueDisposable<T> {
+        public static final long serialVersionUID = 7926949470189395511L;
+
+        public UnicastQueueDisposable() {
+        }
+
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+        public void clear() {
+            UnicastSubject.this.f68114e.clear();
+        }
+
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+        public void dispose() {
+            if (UnicastSubject.this.i) {
+                return;
+            }
+            UnicastSubject.this.i = true;
+            UnicastSubject.this.e();
+            UnicastSubject.this.f68115f.lazySet(null);
+            if (UnicastSubject.this.m.getAndIncrement() == 0) {
+                UnicastSubject.this.f68115f.lazySet(null);
+                UnicastSubject.this.f68114e.clear();
+            }
+        }
+
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.t.b
+        public boolean isDisposed() {
+            return UnicastSubject.this.i;
+        }
+
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+        public boolean isEmpty() {
+            return UnicastSubject.this.f68114e.isEmpty();
+        }
+
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.f
+        public T poll() throws Exception {
+            return UnicastSubject.this.f68114e.poll();
+        }
+
+        @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.a.x.c.c
+        public int requestFusion(int i) {
+            if ((i & 2) != 0) {
+                UnicastSubject.this.n = true;
+                return 2;
+            }
+            return 0;
+        }
+    }
+
+    public UnicastSubject(int i, boolean z) {
+        f.a.x.b.a.c(i, "capacityHint");
+        this.f68114e = new f.a.x.f.a<>(i);
+        this.f68116g = new AtomicReference<>();
+        this.f68117h = z;
+        this.f68115f = new AtomicReference<>();
+        this.l = new AtomicBoolean();
+        this.m = new UnicastQueueDisposable();
+    }
+
+    public static <T> UnicastSubject<T> c() {
+        return new UnicastSubject<>(l.a(), true);
     }
 
     public static <T> UnicastSubject<T> d(int i, Runnable runnable) {
         return new UnicastSubject<>(i, runnable, true);
     }
 
-    UnicastSubject(int i, boolean z) {
-        this.queue = new io.reactivex.internal.queue.a<>(io.reactivex.internal.functions.a.ck(i, "capacityHint"));
-        this.qtq = new AtomicReference<>();
-        this.delayError = z;
-        this.actual = new AtomicReference<>();
-        this.once = new AtomicBoolean();
-        this.qtN = new UnicastQueueDisposable();
-    }
-
-    UnicastSubject(int i, Runnable runnable, boolean z) {
-        this.queue = new io.reactivex.internal.queue.a<>(io.reactivex.internal.functions.a.ck(i, "capacityHint"));
-        this.qtq = new AtomicReference<>(io.reactivex.internal.functions.a.n(runnable, "onTerminate"));
-        this.delayError = z;
-        this.actual = new AtomicReference<>();
-        this.once = new AtomicBoolean();
-        this.qtN = new UnicastQueueDisposable();
-    }
-
-    @Override // io.reactivex.q
-    protected void a(u<? super T> uVar) {
-        if (!this.once.get() && this.once.compareAndSet(false, true)) {
-            uVar.onSubscribe(this.qtN);
-            this.actual.lazySet(uVar);
-            if (this.disposed) {
-                this.actual.lazySet(null);
+    @Override // f.a.l
+    public void b(o<? super T> oVar) {
+        if (!this.l.get() && this.l.compareAndSet(false, true)) {
+            oVar.onSubscribe(this.m);
+            this.f68115f.lazySet(oVar);
+            if (this.i) {
+                this.f68115f.lazySet(null);
                 return;
             } else {
-                drain();
+                f();
                 return;
             }
         }
-        EmptyDisposable.error(new IllegalStateException("Only a single observer allowed."), uVar);
+        EmptyDisposable.error(new IllegalStateException("Only a single observer allowed."), oVar);
     }
 
-    void doTerminate() {
-        Runnable runnable = this.qtq.get();
-        if (runnable != null && this.qtq.compareAndSet(runnable, null)) {
-            runnable.run();
-        }
-    }
-
-    @Override // io.reactivex.u
-    public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.done || this.disposed) {
-            bVar.dispose();
-        }
-    }
-
-    @Override // io.reactivex.u
-    public void onNext(T t) {
-        io.reactivex.internal.functions.a.n(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (!this.done && !this.disposed) {
-            this.queue.offer(t);
-            drain();
-        }
-    }
-
-    @Override // io.reactivex.u
-    public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.n(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.done || this.disposed) {
-            io.reactivex.d.a.onError(th);
+    public void e() {
+        Runnable runnable = this.f68116g.get();
+        if (runnable == null || !this.f68116g.compareAndSet(runnable, null)) {
             return;
         }
-        this.error = th;
-        this.done = true;
-        doTerminate();
-        drain();
+        runnable.run();
     }
 
-    @Override // io.reactivex.u
-    public void onComplete() {
-        if (!this.done && !this.disposed) {
-            this.done = true;
-            doTerminate();
-            drain();
+    public void f() {
+        if (this.m.getAndIncrement() != 0) {
+            return;
+        }
+        o<? super T> oVar = this.f68115f.get();
+        int i = 1;
+        while (oVar == null) {
+            i = this.m.addAndGet(-i);
+            if (i == 0) {
+                return;
+            }
+            oVar = this.f68115f.get();
+        }
+        if (this.n) {
+            g(oVar);
+        } else {
+            h(oVar);
         }
     }
 
-    void c(u<? super T> uVar) {
-        io.reactivex.internal.queue.a<T> aVar = this.queue;
-        boolean z = !this.delayError;
+    public void g(o<? super T> oVar) {
+        f.a.x.f.a<T> aVar = this.f68114e;
+        int i = 1;
+        boolean z = !this.f68117h;
+        while (!this.i) {
+            boolean z2 = this.j;
+            if (z && z2 && j(aVar, oVar)) {
+                return;
+            }
+            oVar.onNext(null);
+            if (z2) {
+                i(oVar);
+                return;
+            }
+            i = this.m.addAndGet(-i);
+            if (i == 0) {
+                return;
+            }
+        }
+        this.f68115f.lazySet(null);
+        aVar.clear();
+    }
+
+    public void h(o<? super T> oVar) {
+        f.a.x.f.a<T> aVar = this.f68114e;
+        boolean z = !this.f68117h;
         boolean z2 = true;
         int i = 1;
-        while (!this.disposed) {
-            boolean z3 = this.done;
-            Object obj = (T) this.queue.poll();
+        while (!this.i) {
+            boolean z3 = this.j;
+            Object obj = (T) this.f68114e.poll();
             boolean z4 = obj == null;
             if (z3) {
                 if (z && z2) {
-                    if (a(aVar, uVar)) {
+                    if (j(aVar, oVar)) {
                         return;
                     }
                     z2 = false;
                 }
                 if (z4) {
-                    e(uVar);
+                    i(oVar);
                     return;
                 }
             }
-            if (!z4) {
-                uVar.onNext(obj);
-            } else {
-                i = this.qtN.addAndGet(-i);
-                if (i == 0) {
-                    return;
-                }
-            }
-        }
-        this.actual.lazySet(null);
-        aVar.clear();
-    }
-
-    void d(u<? super T> uVar) {
-        int i = 1;
-        io.reactivex.internal.queue.a<T> aVar = this.queue;
-        boolean z = !this.delayError;
-        while (!this.disposed) {
-            boolean z2 = this.done;
-            if (!z || !z2 || !a(aVar, uVar)) {
-                uVar.onNext(null);
-                if (z2) {
-                    e(uVar);
-                    return;
-                }
-                i = this.qtN.addAndGet(-i);
+            if (z4) {
+                i = this.m.addAndGet(-i);
                 if (i == 0) {
                     return;
                 }
             } else {
-                return;
+                oVar.onNext(obj);
             }
         }
-        this.actual.lazySet(null);
+        this.f68115f.lazySet(null);
         aVar.clear();
     }
 
-    void e(u<? super T> uVar) {
-        this.actual.lazySet(null);
-        Throwable th = this.error;
+    public void i(o<? super T> oVar) {
+        this.f68115f.lazySet(null);
+        Throwable th = this.k;
         if (th != null) {
-            uVar.onError(th);
+            oVar.onError(th);
         } else {
-            uVar.onComplete();
+            oVar.onComplete();
         }
     }
 
-    boolean a(f<T> fVar, u<? super T> uVar) {
-        Throwable th = this.error;
+    public boolean j(f<T> fVar, o<? super T> oVar) {
+        Throwable th = this.k;
         if (th != null) {
-            this.actual.lazySet(null);
+            this.f68115f.lazySet(null);
             fVar.clear();
-            uVar.onError(th);
+            oVar.onError(th);
             return true;
         }
         return false;
     }
 
-    void drain() {
-        if (this.qtN.getAndIncrement() == 0) {
-            u<? super T> uVar = this.actual.get();
-            int i = 1;
-            while (uVar == null) {
-                i = this.qtN.addAndGet(-i);
-                if (i != 0) {
-                    uVar = this.actual.get();
-                } else {
-                    return;
-                }
-            }
-            if (this.qts) {
-                d(uVar);
-            } else {
-                c(uVar);
-            }
+    @Override // f.a.o
+    public void onComplete() {
+        if (this.j || this.i) {
+            return;
+        }
+        this.j = true;
+        e();
+        f();
+    }
+
+    @Override // f.a.o
+    public void onError(Throwable th) {
+        f.a.x.b.a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (!this.j && !this.i) {
+            this.k = th;
+            this.j = true;
+            e();
+            f();
+            return;
+        }
+        f.a.a0.a.f(th);
+    }
+
+    @Override // f.a.o
+    public void onNext(T t) {
+        f.a.x.b.a.b(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (this.j || this.i) {
+            return;
+        }
+        this.f68114e.offer(t);
+        f();
+    }
+
+    @Override // f.a.o
+    public void onSubscribe(b bVar) {
+        if (this.j || this.i) {
+            bVar.dispose();
         }
     }
 
-    /* loaded from: classes6.dex */
-    final class UnicastQueueDisposable extends BasicIntQueueDisposable<T> {
-        private static final long serialVersionUID = 7926949470189395511L;
-
-        UnicastQueueDisposable() {
-        }
-
-        @Override // io.reactivex.internal.a.c
-        public int requestFusion(int i) {
-            if ((i & 2) != 0) {
-                UnicastSubject.this.qts = true;
-                return 2;
-            }
-            return 0;
-        }
-
-        @Override // io.reactivex.internal.a.f
-        public T poll() throws Exception {
-            return UnicastSubject.this.queue.poll();
-        }
-
-        @Override // io.reactivex.internal.a.f
-        public boolean isEmpty() {
-            return UnicastSubject.this.queue.isEmpty();
-        }
-
-        @Override // io.reactivex.internal.a.f
-        public void clear() {
-            UnicastSubject.this.queue.clear();
-        }
-
-        @Override // io.reactivex.disposables.b
-        public void dispose() {
-            if (!UnicastSubject.this.disposed) {
-                UnicastSubject.this.disposed = true;
-                UnicastSubject.this.doTerminate();
-                UnicastSubject.this.actual.lazySet(null);
-                if (UnicastSubject.this.qtN.getAndIncrement() == 0) {
-                    UnicastSubject.this.actual.lazySet(null);
-                    UnicastSubject.this.queue.clear();
-                }
-            }
-        }
-
-        @Override // io.reactivex.disposables.b
-        public boolean isDisposed() {
-            return UnicastSubject.this.disposed;
-        }
+    public UnicastSubject(int i, Runnable runnable, boolean z) {
+        f.a.x.b.a.c(i, "capacityHint");
+        this.f68114e = new f.a.x.f.a<>(i);
+        f.a.x.b.a.b(runnable, "onTerminate");
+        this.f68116g = new AtomicReference<>(runnable);
+        this.f68117h = z;
+        this.f68115f = new AtomicReference<>();
+        this.l = new AtomicBoolean();
+        this.m = new UnicastQueueDisposable();
     }
 }

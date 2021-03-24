@@ -1,20 +1,19 @@
 package com.baidu.ufosdk.ui;
 
 import android.view.View;
-/* loaded from: classes7.dex */
-final class am implements View.OnClickListener {
+/* loaded from: classes5.dex */
+public final class am implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackFacePageActivity f3659a;
+    public final /* synthetic */ FeedbackFacePageActivity f23060a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public am(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f3659a = feedbackFacePageActivity;
+        this.f23060a = feedbackFacePageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.f3659a.u = true;
-        this.f3659a.c();
+        this.f23060a.u = true;
+        this.f23060a.c();
     }
 }

@@ -1,76 +1,37 @@
 package com.xiaomi.push;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import com.xiaomi.push.cb;
-/* loaded from: classes5.dex */
-class cd implements Runnable {
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
+import com.xiaomi.mipush.sdk.MiPushMessage;
+import com.xiaomi.push.cg;
+/* loaded from: classes7.dex */
+public class cd extends cg.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f8299a;
+    public String f40306a;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ cb.a f161a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(cb.a aVar, Context context) {
-        this.f161a = aVar;
-        this.f8299a = context;
+    public cd(String str, ContentValues contentValues, String str2) {
+        super(str, contentValues);
+        this.f40306a = "MessageInsertJob";
+        this.f40306a = str2;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, IGET, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION, IGET, IGET, INVOKE, IGET, IGET, INVOKE, IF, IGET, IGET, IGET, IGET, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION, IGET, IGET, INVOKE, IGET, IGET, INVOKE, IF, IGET, IGET, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    @Override // java.lang.Runnable
-    public void run() {
-        SQLiteDatabase sQLiteDatabase = null;
-        try {
-            try {
-                sQLiteDatabase = this.f161a.a();
-                if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
-                    sQLiteDatabase.beginTransaction();
-                    this.f161a.a(this.f8299a, sQLiteDatabase);
-                    sQLiteDatabase.setTransactionSuccessful();
-                }
-                if (sQLiteDatabase != null) {
-                    try {
-                        sQLiteDatabase.endTransaction();
-                    } catch (Exception e) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e);
-                    }
-                }
-                if (this.f161a.f152a != null) {
-                    this.f161a.f152a.close();
-                }
-                this.f161a.a(this.f8299a);
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
-                if (sQLiteDatabase != null) {
-                    try {
-                        sQLiteDatabase.endTransaction();
-                    } catch (Exception e3) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e3);
-                        this.f161a.a(this.f8299a);
-                    }
-                }
-                if (this.f161a.f152a != null) {
-                    this.f161a.f152a.close();
-                }
-                this.f161a.a(this.f8299a);
-            }
-        } catch (Throwable th) {
-            if (sQLiteDatabase != null) {
-                try {
-                    sQLiteDatabase.endTransaction();
-                } catch (Exception e4) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e4);
-                    this.f161a.a(this.f8299a);
-                    throw th;
-                }
-            }
-            if (this.f161a.f152a != null) {
-                this.f161a.f152a.close();
-            }
-            this.f161a.a(this.f8299a);
-            throw th;
+    public static cd a(Context context, String str, hj hjVar) {
+        byte[] a2 = ip.a(hjVar);
+        if (a2 == null || a2.length <= 0) {
+            return null;
         }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("status", (Integer) 0);
+        contentValues.put(MiPushMessage.KEY_MESSAGE_ID, "");
+        contentValues.put("messageItemId", hjVar.d());
+        contentValues.put("messageItem", a2);
+        contentValues.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, bu.a(context).b());
+        contentValues.put(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, bu.a(context).m173a());
+        contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
+        contentValues.put("uploadTimestamp", (Integer) 0);
+        return new cd(str, contentValues, "a job build to insert message to db");
     }
 }

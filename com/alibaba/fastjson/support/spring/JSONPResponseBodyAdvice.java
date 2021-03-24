@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 @Order(Integer.MIN_VALUE)
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class JSONPResponseBodyAdvice implements ResponseBodyAdvice<Object> {
-    public final Log logger = LogFactory.getLog(getClass());
-
-    public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> cls) {
-        return FastJsonHttpMessageConverter.class.isAssignableFrom(cls) && (methodParameter.getContainingClass().isAnnotationPresent(ResponseJSONP.class) || methodParameter.hasMethodAnnotation(ResponseJSONP.class));
-    }
+    public final Log logger = LogFactory.getLog(JSONPResponseBodyAdvice.class);
 
     public Object beforeBodyWrite(Object obj, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> cls, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         ResponseJSONP responseJSONP = (ResponseJSONP) methodParameter.getMethodAnnotation(ResponseJSONP.class);
-        String parameter = ((ServletServerHttpRequest) serverHttpRequest).getServletRequest().getParameter((responseJSONP == null ? (ResponseJSONP) methodParameter.getContainingClass().getAnnotation(ResponseJSONP.class) : responseJSONP).callback());
+        if (responseJSONP == null) {
+            responseJSONP = (ResponseJSONP) methodParameter.getContainingClass().getAnnotation(ResponseJSONP.class);
+        }
+        String parameter = ((ServletServerHttpRequest) serverHttpRequest).getServletRequest().getParameter(responseJSONP.callback());
         if (!IOUtils.isValidJsonpQueryParam(parameter)) {
             if (this.logger.isDebugEnabled()) {
-                this.logger.debug("Invalid jsonp parameter value:" + parameter);
+                Log log = this.logger;
+                log.debug("Invalid jsonp parameter value:" + parameter);
             }
             parameter = null;
         }
@@ -42,7 +42,11 @@ public class JSONPResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     public void beforeBodyWriteInternal(JSONPObject jSONPObject, MediaType mediaType, MethodParameter methodParameter, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
     }
 
-    protected MediaType getContentType(MediaType mediaType, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+    public MediaType getContentType(MediaType mediaType, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         return FastJsonHttpMessageConverter.APPLICATION_JAVASCRIPT;
+    }
+
+    public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> cls) {
+        return FastJsonHttpMessageConverter.class.isAssignableFrom(cls) && (methodParameter.getContainingClass().isAnnotationPresent(ResponseJSONP.class) || methodParameter.hasMethodAnnotation(ResponseJSONP.class));
     }
 }

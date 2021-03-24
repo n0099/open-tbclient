@@ -6,7 +6,7 @@ import com.kwai.video.hodor.MediaPreloadPriorityTask;
 import com.kwai.video.ksvodplayerkit.i;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f extends b {
     public f(String str, String str2, int i) {
         ArrayList arrayList = new ArrayList();
@@ -15,40 +15,44 @@ public class f extends b {
     }
 
     private void a(List<String> list, String str, int i) {
-        this.f7285a = new com.kwai.video.ksvodplayerkit.HttpDns.d(list);
-        this.f = i.a().t();
-        this.d = list.get(0);
-        this.c = i;
-        this.g = str;
-        String b = com.kwai.video.ksvodplayerkit.c.a.b(this.d);
-        if (this.f7285a.b() != null && !TextUtils.isEmpty(this.f7285a.b().b)) {
-            this.d = this.f7285a.b().b;
-            b = this.f7285a.d();
+        this.f37287a = new com.kwai.video.ksvodplayerkit.HttpDns.d(list);
+        this.f37292f = i.a().t();
+        String str2 = list.get(0);
+        this.f37290d = str2;
+        this.f37289c = i;
+        this.f37293g = str;
+        String b2 = com.kwai.video.ksvodplayerkit.c.a.b(str2);
+        if (this.f37287a.b() != null && !TextUtils.isEmpty(this.f37287a.b().f37196b)) {
+            this.f37290d = this.f37287a.b().f37196b;
+            b2 = this.f37287a.d();
         }
-        this.c = i;
-        this.e = MediaPreloadPriorityTask.newTaskWithHttpDns(this.d, b, com.kwai.video.ksvodplayerkit.c.c.c(this.d));
+        this.f37289c = i;
+        String str3 = this.f37290d;
+        this.f37291e = MediaPreloadPriorityTask.newTaskWithHttpDns(str3, b2, com.kwai.video.ksvodplayerkit.c.c.c(str3));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask a() {
-        this.f7285a.a(false);
-        if (this.f7285a.f() <= 0 || this.f7285a.e() || this.b.get() >= i.a().e() || !this.f7285a.a()) {
+        this.f37287a.a(false);
+        if (this.f37287a.f() <= 0 || this.f37287a.e() || this.f37288b.get() >= i.a().e() || !this.f37287a.a()) {
             return null;
         }
-        if (this.f7285a.b() != null && !TextUtils.isEmpty(this.f7285a.b().b)) {
-            this.d = this.f7285a.b().b;
-            this.e = MediaPreloadPriorityTask.newTaskWithHttpDns(this.d, this.f7285a.d(), com.kwai.video.ksvodplayerkit.c.c.c(this.d));
+        if (this.f37287a.b() != null && !TextUtils.isEmpty(this.f37287a.b().f37196b)) {
+            this.f37290d = this.f37287a.b().f37196b;
+            String d2 = this.f37287a.d();
+            String str = this.f37290d;
+            this.f37291e = MediaPreloadPriorityTask.newTaskWithHttpDns(str, d2, com.kwai.video.ksvodplayerkit.c.c.c(str));
         }
-        return this.e;
+        return this.f37291e;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask b() {
-        if (this.e == null) {
-            this.e = MediaPreloadPriorityTask.newTaskWithHttpDns(this.d, this.f7285a.d() != null ? this.f7285a.d() : com.kwai.video.ksvodplayerkit.c.a.b(this.d), com.kwai.video.ksvodplayerkit.c.c.c(this.d));
+        if (this.f37291e == null) {
+            String d2 = this.f37287a.d() != null ? this.f37287a.d() : com.kwai.video.ksvodplayerkit.c.a.b(this.f37290d);
+            String str = this.f37290d;
+            this.f37291e = MediaPreloadPriorityTask.newTaskWithHttpDns(str, d2, com.kwai.video.ksvodplayerkit.c.c.c(str));
         }
-        return this.e;
+        return this.f37291e;
     }
 }

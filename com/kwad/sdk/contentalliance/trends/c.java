@@ -7,32 +7,36 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.contentalliance.home.g;
 import com.kwad.sdk.core.response.model.TrendInfo;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<TrendInfo> f5918a;
-    private TrendInfo b;
-    private KsScene c;
+    public List<TrendInfo> f33063a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TrendInfo f33064b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public KsScene f33065c;
 
     public c(@NonNull KsScene ksScene) {
-        this.c = ksScene;
+        this.f33065c = ksScene;
     }
 
     @NonNull
     public KsFragment a() {
-        g a2 = g.a(this.c);
+        g a2 = g.a(this.f33065c);
         Bundle arguments = a2.getArguments();
         if (arguments == null) {
             arguments = new Bundle();
         }
-        arguments.putString("KEY_TREND_LIST_DATA", TrendInfo.toString(this.f5918a));
-        arguments.putString("KEY_CURRENT_TREND", this.b.toJson().toString());
+        arguments.putString("KEY_TREND_LIST_DATA", TrendInfo.toString(this.f33063a));
+        arguments.putString("KEY_CURRENT_TREND", this.f33064b.toJson().toString());
         return a2;
     }
 
     public void a(@NonNull List<TrendInfo> list, @NonNull TrendInfo trendInfo) {
-        this.f5918a = list;
-        this.b = trendInfo;
+        this.f33063a = list;
+        this.f33064b = trendInfo;
     }
 }

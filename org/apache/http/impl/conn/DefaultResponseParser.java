@@ -9,7 +9,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.message.LineParser;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DefaultResponseParser extends AbstractMessageParser {
     public DefaultResponseParser(SessionInputBuffer sessionInputBuffer, LineParser lineParser, HttpResponseFactory httpResponseFactory, HttpParams httpParams) {
         super(null, null, null);
@@ -17,7 +17,7 @@ public class DefaultResponseParser extends AbstractMessageParser {
     }
 
     @Override // org.apache.http.impl.io.AbstractMessageParser
-    protected HttpMessage parseHead(SessionInputBuffer sessionInputBuffer) throws IOException, HttpException {
+    public HttpMessage parseHead(SessionInputBuffer sessionInputBuffer) throws IOException, HttpException {
         throw new RuntimeException("Stub!");
     }
 }

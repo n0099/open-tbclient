@@ -12,10 +12,8 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.IDevices;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,13 +22,233 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DeviceUtils implements IDevices {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
+    public static final class CPUInfo {
+        public static final String FEATURE_COMMON = "common";
+        public static final String FEATURE_NEON = "neon";
+        public static final String FEATURE_VFP = "vfp";
+        public static final String PREFIX_FEATURES = "features";
+        public static final String PREFIX_PROCESSOR = "processor";
+        public static final String PROCESSOR_ARMV5 = "armv5";
+        public static final String PROCESSOR_ARMV6 = "armv6";
+        public static final String PROCESSOR_ARMV7 = "armv7";
+        public static final String PROCESSOR_X86 = "x86";
+        public static IDevices.ARCH sArch = IDevices.ARCH.Unknown;
+        public static CPUInfo systemCPUInfo;
+        public String processor = "";
+        public String features = "";
+
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0064 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0070 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:65:0x0019 */
+        /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: java.io.RandomAccessFile */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r3v11 */
+        /* JADX WARN: Type inference failed for: r3v12 */
+        /* JADX WARN: Type inference failed for: r3v13 */
+        /* JADX WARN: Type inference failed for: r3v14 */
+        /* JADX WARN: Type inference failed for: r3v15 */
+        public static synchronized IDevices.ARCH getCpuArch() {
+            RandomAccessFile randomAccessFile;
+            synchronized (CPUInfo.class) {
+                byte[] bArr = new byte[20];
+                File file = new File(Environment.getRootDirectory(), "lib/libc.so");
+                if (file.canRead()) {
+                    RandomAccessFile randomAccessFile2 = null;
+                    try {
+                        try {
+                            randomAccessFile = new RandomAccessFile(file, r.f7663a);
+                        } catch (Throwable th) {
+                            th = th;
+                        }
+                    } catch (FileNotFoundException e2) {
+                        e = e2;
+                    } catch (IOException e3) {
+                        e = e3;
+                    }
+                    try {
+                        randomAccessFile.readFully(bArr);
+                        randomAccessFile2 = 8;
+                        int i = bArr[18] | (bArr[19] << 8);
+                        if (i == 3) {
+                            sArch = IDevices.ARCH.X86;
+                        } else if (i == 8) {
+                            sArch = IDevices.ARCH.MIPS;
+                        } else if (i == 40) {
+                            sArch = IDevices.ARCH.ARM;
+                        } else if (i == 183) {
+                            sArch = IDevices.ARCH.ARM64;
+                        }
+                        try {
+                            randomAccessFile.close();
+                        } catch (IOException e4) {
+                            e = e4;
+                            e.printStackTrace();
+                            return sArch;
+                        }
+                    } catch (FileNotFoundException e5) {
+                        e = e5;
+                        randomAccessFile2 = randomAccessFile;
+                        e.printStackTrace();
+                        randomAccessFile2 = randomAccessFile2;
+                        if (randomAccessFile2 != null) {
+                            try {
+                                randomAccessFile2.close();
+                                randomAccessFile2 = randomAccessFile2;
+                            } catch (IOException e6) {
+                                e = e6;
+                                e.printStackTrace();
+                                return sArch;
+                            }
+                        }
+                        return sArch;
+                    } catch (IOException e7) {
+                        e = e7;
+                        randomAccessFile2 = randomAccessFile;
+                        e.printStackTrace();
+                        randomAccessFile2 = randomAccessFile2;
+                        if (randomAccessFile2 != null) {
+                            try {
+                                randomAccessFile2.close();
+                                randomAccessFile2 = randomAccessFile2;
+                            } catch (IOException e8) {
+                                e = e8;
+                                e.printStackTrace();
+                                return sArch;
+                            }
+                        }
+                        return sArch;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        randomAccessFile2 = randomAccessFile;
+                        if (randomAccessFile2 != null) {
+                            try {
+                                randomAccessFile2.close();
+                            } catch (IOException e9) {
+                                e9.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                }
+            }
+            return sArch;
+        }
+
+        public static String getCpuArchInfo() {
+            String lowerCase = System.getProperty("os.arch").toLowerCase();
+            if (lowerCase == null || lowerCase.length() == 0) {
+                return null;
+            }
+            return lowerCase;
+        }
+
+        public static String getPreferredABI() {
+            if (OSInfo.hasLollipop()) {
+                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+                if (strArr != null && strArr.length > 0) {
+                    return strArr[0];
+                }
+                String[] strArr2 = Build.SUPPORTED_32_BIT_ABIS;
+                if (strArr2 != null && strArr2.length > 0) {
+                    return strArr2[0];
+                }
+            }
+            return Build.CPU_ABI;
+        }
+
+        public static String[] getSupportedABIs() {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return Build.SUPPORTED_ABIS;
+            }
+            ArrayList arrayList = new ArrayList(Arrays.asList(Build.CPU_ABI, Build.CPU_ABI2));
+            arrayList.removeAll(Arrays.asList(null, ""));
+            return (String[]) arrayList.toArray(new String[0]);
+        }
+
+        public static CPUInfo getSystemCPUInfo() {
+            CPUInfo cPUInfo = systemCPUInfo;
+            if (cPUInfo != null) {
+                return cPUInfo;
+            }
+            CPUInfo cPUInfo2 = new CPUInfo();
+            try {
+                FileReader fileReader = new FileReader("/proc/cpuinfo");
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                    String lowerCase = readLine.trim().toLowerCase();
+                    if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", 9) != -1) {
+                        if (cPUInfo2.processor.length() > 0) {
+                            cPUInfo2.processor += "__";
+                        }
+                        cPUInfo2.processor += lowerCase.split(":")[1].trim();
+                    } else if (lowerCase.startsWith("features") && lowerCase.indexOf(":", 8) != -1) {
+                        if (cPUInfo2.features.length() > 0) {
+                            cPUInfo2.features += "__";
+                        }
+                        cPUInfo2.features += lowerCase.split(":")[1].trim();
+                    }
+                }
+                bufferedReader.close();
+                fileReader.close();
+            } catch (FileNotFoundException e2) {
+                e2.printStackTrace();
+            } catch (IOException e3) {
+                e3.printStackTrace();
+            }
+            if (Build.CPU_ABI.equalsIgnoreCase("x86")) {
+                cPUInfo2.processor = "x86";
+            }
+            systemCPUInfo = cPUInfo2;
+            return cPUInfo2;
+        }
+
+        public static boolean isARMSimulatedByX86() {
+            return !supportX86() && IDevices.ARCH.X86.equals(getCpuArch());
+        }
+
+        public static boolean isRealARMArch() {
+            return (supportABI("armeabi-v7a") || supportABI("armeabi")) && IDevices.ARCH.ARM.equals(getCpuArch());
+        }
+
+        public static boolean isRealX86Arch() {
+            return supportABI("x86") || IDevices.ARCH.X86.equals(getCpuArch());
+        }
+
+        public static boolean supportABI(String str) {
+            for (String str2 : getSupportedABIs()) {
+                if (str2.equalsIgnoreCase(str)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static boolean supportMips() {
+            return supportABI(IDevices.ABI_MIPS);
+        }
+
+        public static boolean supportX86() {
+            return supportABI("x86");
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public static class OSInfo {
         public static String getOS() {
             return "Android";
+        }
+
+        public static String getOsVersion() {
+            String str = Build.VERSION.RELEASE;
+            return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
+        }
+
+        public static int getSDKLevel() {
+            return Build.VERSION.SDK_INT;
         }
 
         public static boolean hasFroyo() {
@@ -39,14 +257,6 @@ public class DeviceUtils implements IDevices {
 
         public static boolean hasGingerbread() {
             return Build.VERSION.SDK_INT >= 9;
-        }
-
-        public static boolean isGingerbreadmr1() {
-            return Build.VERSION.SDK_INT == 10;
-        }
-
-        public static boolean isGingerbread() {
-            return Build.VERSION.SDK_INT == 9;
         }
 
         public static boolean hasHoneycomb() {
@@ -81,20 +291,12 @@ public class DeviceUtils implements IDevices {
             return Build.VERSION.SDK_INT >= 19;
         }
 
-        public static boolean isKitKat() {
-            return Build.VERSION.SDK_INT == 19;
-        }
-
         public static boolean hasLollipop() {
             return Build.VERSION.SDK_INT >= 21;
         }
 
         public static boolean hasLollipopMR1() {
             return Build.VERSION.SDK_INT >= 22;
-        }
-
-        public static final boolean isLollipop() {
-            return Build.VERSION.SDK_INT == 21;
         }
 
         public static boolean hasMarshMallow() {
@@ -125,51 +327,54 @@ public class DeviceUtils implements IDevices {
             return Build.VERSION.SDK_INT >= 29;
         }
 
-        public static String getOsVersion() {
-            String str = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str)) {
-                return "0.0";
-            }
-            return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+        public static boolean isGingerbread() {
+            return Build.VERSION.SDK_INT == 9;
         }
 
-        public static int getSDKLevel() {
-            return Build.VERSION.SDK_INT;
+        public static boolean isGingerbreadmr1() {
+            return Build.VERSION.SDK_INT == 10;
+        }
+
+        public static boolean isKitKat() {
+            return Build.VERSION.SDK_INT == 19;
+        }
+
+        public static final boolean isLollipop() {
+            return Build.VERSION.SDK_INT == 21;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ScreenInfo {
-        private static final int STANDARD_STATUSBAR_HEIGHT = 50;
-        private static int originDensityDip = 0;
-        private static DisplayMetrics sDisplayMetrics;
+        public static final int STANDARD_STATUSBAR_HEIGHT = 50;
+        public static int originDensityDip;
+        public static DisplayMetrics sDisplayMetrics;
 
-        public static int dp2px(@Nullable Context context, float f) {
+        public static int dp2px(@Nullable Context context, float f2) {
             if (context == null) {
                 return 0;
             }
-            return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
+            return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
         }
 
-        public static float dp2pxf(@Nullable Context context, float f) {
-            return getDensity(context) * f;
+        public static float dp2pxf(@Nullable Context context, float f2) {
+            return f2 * getDensity(context);
         }
 
-        public static int px2dp(@Nullable Context context, float f) {
-            if (context == null) {
-                return 0;
-            }
-            return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
-        }
-
-        public static float px2dpFloat(@Nullable Context context, float f) {
-            return f / getDensity(context);
-        }
-
-        public static int getDisplayWidth(@Nullable Context context) {
-            DisplayMetrics displayMetrics = getDisplayMetrics(context);
+        public static float getDensity(@Nullable Context context) {
+            initDisplayMetrics(context);
+            DisplayMetrics displayMetrics = sDisplayMetrics;
             if (displayMetrics != null) {
-                return displayMetrics.widthPixels;
+                return displayMetrics.density;
+            }
+            return 0.0f;
+        }
+
+        public static int getDensityDpi(@Nullable Context context) {
+            initDisplayMetrics(context);
+            DisplayMetrics displayMetrics = sDisplayMetrics;
+            if (displayMetrics != null) {
+                return displayMetrics.densityDpi;
             }
             return 0;
         }
@@ -182,76 +387,19 @@ public class DeviceUtils implements IDevices {
             return 0;
         }
 
-        public static int getRealScreenHeight(@Nullable Context context) {
-            if (context == null) {
-                return 0;
-            }
-            WindowManager windowManager = (WindowManager) context.getSystemService("window");
-            if (windowManager == null) {
-                return -1;
-            }
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (OSInfo.hasJellyBeanMR1()) {
-                windowManager.getDefaultDisplay().getRealMetrics(displayMetrics);
-                return displayMetrics.heightPixels;
-            }
-            return getDisplayHeight(context);
-        }
-
-        public static int getScreenOriginDensityDip() {
-            if (originDensityDip > 0) {
-                return originDensityDip;
-            }
-            try {
-                originDensityDip = ((Integer) Class.forName("android.view.IWindowManager").getMethod("getInitialDisplayDensity", Integer.TYPE).invoke(Class.forName("android.view.WindowManagerGlobal").getMethod("getWindowManagerService", new Class[0]).invoke(new Object(), new Object[0]), 0)).intValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return originDensityDip;
-        }
-
-        public static float getDensity(@Nullable Context context) {
-            initDisplayMetrics(context);
-            if (sDisplayMetrics != null) {
-                return sDisplayMetrics.density;
-            }
-            return 0.0f;
-        }
-
-        public static int getDensityDpi(@Nullable Context context) {
-            initDisplayMetrics(context);
-            if (sDisplayMetrics != null) {
-                return sDisplayMetrics.densityDpi;
-            }
-            return 0;
-        }
-
-        private static void initDisplayMetrics(Context context) {
-            if (sDisplayMetrics == null && context != null) {
-                sDisplayMetrics = context.getResources().getDisplayMetrics();
-            }
-        }
-
-        private static DisplayMetrics getDisplayMetrics(Context context) {
+        public static DisplayMetrics getDisplayMetrics(Context context) {
             if (context == null) {
                 return null;
             }
             return context.getResources().getDisplayMetrics();
         }
 
-        public static int getStatusBarHeight() {
-            int i = 0;
-            int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE);
-            if (identifier > 0) {
-                try {
-                    i = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
-                } catch (Exception e) {
-                }
+        public static int getDisplayWidth(@Nullable Context context) {
+            DisplayMetrics displayMetrics = getDisplayMetrics(context);
+            if (displayMetrics != null) {
+                return displayMetrics.widthPixels;
             }
-            if (i == 0) {
-                return (int) (25.0f * getDensity(null));
-            }
-            return i;
+            return 0;
         }
 
         public static int getNavigationBarHeight() {
@@ -261,25 +409,23 @@ public class DeviceUtils implements IDevices {
                 return 0;
             }
             Resources resources = AppRuntime.getAppContext().getResources();
-            return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE));
+            return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", "android"));
         }
 
-        public static boolean isScreenPortrait() {
-            return AppRuntime.getAppContext().getResources().getConfiguration().orientation == 1;
-        }
-
-        public static boolean isScreenLand() {
-            return AppRuntime.getAppContext().getResources().getConfiguration().orientation == 2;
-        }
-
-        public static boolean isDensityTooLarge(Activity activity) {
-            int screenOriginDensityDip;
-            if (Build.VERSION.SDK_INT < 24 || activity == null || (screenOriginDensityDip = getScreenOriginDensityDip()) <= 0 || activity.isInMultiWindowMode()) {
-                return false;
+        public static int getRealScreenHeight(@Nullable Context context) {
+            if (context == null) {
+                return 0;
             }
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            return displayMetrics.density > ((float) screenOriginDensityDip) / 160.0f;
+            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            if (windowManager != null) {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                if (OSInfo.hasJellyBeanMR1()) {
+                    windowManager.getDefaultDisplay().getRealMetrics(displayMetrics);
+                    return displayMetrics.heightPixels;
+                }
+                return getDisplayHeight(context);
+            }
+            return -1;
         }
 
         public static int[] getRealScreenSize(@Nullable Context context) {
@@ -292,217 +438,66 @@ public class DeviceUtils implements IDevices {
             }
             return iArr;
         }
-    }
 
-    /* loaded from: classes4.dex */
-    public static final class CPUInfo {
-        public static final String FEATURE_COMMON = "common";
-        public static final String FEATURE_NEON = "neon";
-        public static final String FEATURE_VFP = "vfp";
-        private static final String PREFIX_FEATURES = "features";
-        private static final String PREFIX_PROCESSOR = "processor";
-        public static final String PROCESSOR_ARMV5 = "armv5";
-        public static final String PROCESSOR_ARMV6 = "armv6";
-        public static final String PROCESSOR_ARMV7 = "armv7";
-        public static final String PROCESSOR_X86 = "x86";
-        private static CPUInfo systemCPUInfo = null;
-        private static IDevices.ARCH sArch = IDevices.ARCH.Unknown;
-        public String processor = "";
-        public String features = "";
-
-        public static CPUInfo getSystemCPUInfo() {
-            if (systemCPUInfo != null) {
-                return systemCPUInfo;
+        public static int getScreenOriginDensityDip() {
+            int i = originDensityDip;
+            if (i > 0) {
+                return i;
             }
-            CPUInfo cPUInfo = new CPUInfo();
             try {
-                FileReader fileReader = new FileReader("/proc/cpuinfo");
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                    String lowerCase = readLine.trim().toLowerCase();
-                    if (lowerCase.startsWith(PREFIX_PROCESSOR) && lowerCase.indexOf(":", PREFIX_PROCESSOR.length()) != -1) {
-                        if (cPUInfo.processor.length() > 0) {
-                            cPUInfo.processor += "__";
-                        }
-                        cPUInfo.processor += lowerCase.split(":")[1].trim();
-                    } else if (lowerCase.startsWith(PREFIX_FEATURES) && lowerCase.indexOf(":", PREFIX_FEATURES.length()) != -1) {
-                        if (cPUInfo.features.length() > 0) {
-                            cPUInfo.features += "__";
-                        }
-                        cPUInfo.features += lowerCase.split(":")[1].trim();
-                    }
-                }
-                if (bufferedReader != null) {
-                    bufferedReader.close();
-                }
-                if (fileReader != null) {
-                    fileReader.close();
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e2) {
+                originDensityDip = ((Integer) Class.forName("android.view.IWindowManager").getMethod("getInitialDisplayDensity", Integer.TYPE).invoke(Class.forName("android.view.WindowManagerGlobal").getMethod("getWindowManagerService", new Class[0]).invoke(new Object(), new Object[0]), 0)).intValue();
+            } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (Build.CPU_ABI.equalsIgnoreCase("x86")) {
-                cPUInfo.processor = "x86";
-            }
-            systemCPUInfo = cPUInfo;
-            return cPUInfo;
+            return originDensityDip;
         }
 
-        public static String getCpuArchInfo() {
-            String lowerCase = System.getProperty("os.arch").toLowerCase();
-            if (lowerCase == null || lowerCase.length() == 0) {
-                return null;
-            }
-            return lowerCase;
-        }
-
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [777=5, 779=4, 780=4, 781=4] */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x006c */
-        /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.io.RandomAccessFile */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Removed duplicated region for block: B:64:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Type inference failed for: r1v1, types: [boolean] */
-        /* JADX WARN: Type inference failed for: r1v2 */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public static synchronized IDevices.ARCH getCpuArch() {
-            RandomAccessFile randomAccessFile;
-            synchronized (CPUInfo.class) {
-                byte[] bArr = new byte[20];
-                File file = new File(Environment.getRootDirectory(), "lib/libc.so");
-                RandomAccessFile canRead = file.canRead();
-                if (canRead != 0) {
-                    try {
-                        try {
-                            randomAccessFile = new RandomAccessFile(file, "r");
-                            try {
-                                randomAccessFile.readFully(bArr);
-                                switch (bArr[18] | (bArr[19] << 8)) {
-                                    case 3:
-                                        sArch = IDevices.ARCH.X86;
-                                        break;
-                                    case 8:
-                                        sArch = IDevices.ARCH.MIPS;
-                                        break;
-                                    case 40:
-                                        sArch = IDevices.ARCH.ARM;
-                                        break;
-                                    case 183:
-                                        sArch = IDevices.ARCH.ARM64;
-                                        break;
-                                }
-                                if (randomAccessFile != null) {
-                                    try {
-                                        randomAccessFile.close();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (FileNotFoundException e2) {
-                                e = e2;
-                                e.printStackTrace();
-                                if (randomAccessFile != null) {
-                                    try {
-                                        randomAccessFile.close();
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
-                                    }
-                                }
-                                return sArch;
-                            } catch (IOException e4) {
-                                e = e4;
-                                e.printStackTrace();
-                                if (randomAccessFile != null) {
-                                    try {
-                                        randomAccessFile.close();
-                                    } catch (IOException e5) {
-                                        e5.printStackTrace();
-                                    }
-                                }
-                                return sArch;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            if (canRead != 0) {
-                                try {
-                                    canRead.close();
-                                } catch (IOException e6) {
-                                    e6.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    } catch (FileNotFoundException e7) {
-                        e = e7;
-                        randomAccessFile = null;
-                    } catch (IOException e8) {
-                        e = e8;
-                        randomAccessFile = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        canRead = 0;
-                        if (canRead != 0) {
-                        }
-                        throw th;
-                    }
+        public static int getStatusBarHeight() {
+            int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
+            int i = 0;
+            if (identifier > 0) {
+                try {
+                    i = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
+                } catch (Exception unused) {
                 }
             }
-            return sArch;
+            return i == 0 ? (int) (getDensity(null) * 25.0f) : i;
         }
 
-        public static String[] getSupportedABIs() {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return Build.SUPPORTED_ABIS;
+        public static void initDisplayMetrics(Context context) {
+            if (sDisplayMetrics != null || context == null) {
+                return;
             }
-            ArrayList arrayList = new ArrayList(Arrays.asList(Build.CPU_ABI, Build.CPU_ABI2));
-            arrayList.removeAll(Arrays.asList(null, ""));
-            return (String[]) arrayList.toArray(new String[0]);
+            sDisplayMetrics = context.getResources().getDisplayMetrics();
         }
 
-        public static boolean supportABI(String str) {
-            for (String str2 : getSupportedABIs()) {
-                if (str2.equalsIgnoreCase(str)) {
-                    return true;
-                }
+        public static boolean isDensityTooLarge(Activity activity) {
+            int screenOriginDensityDip;
+            if (Build.VERSION.SDK_INT < 24 || activity == null || (screenOriginDensityDip = getScreenOriginDensityDip()) <= 0 || activity.isInMultiWindowMode()) {
+                return false;
             }
-            return false;
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            return displayMetrics.density > ((float) screenOriginDensityDip) / 160.0f;
         }
 
-        public static boolean supportX86() {
-            return supportABI("x86");
+        public static boolean isScreenLand() {
+            return AppRuntime.getAppContext().getResources().getConfiguration().orientation == 2;
         }
 
-        public static boolean supportMips() {
-            return supportABI(IDevices.ABI_MIPS);
+        public static boolean isScreenPortrait() {
+            return AppRuntime.getAppContext().getResources().getConfiguration().orientation == 1;
         }
 
-        public static boolean isARMSimulatedByX86() {
-            return !supportX86() && IDevices.ARCH.X86.equals(getCpuArch());
-        }
-
-        public static boolean isRealARMArch() {
-            return (supportABI("armeabi-v7a") || supportABI("armeabi")) && IDevices.ARCH.ARM.equals(getCpuArch());
-        }
-
-        public static boolean isRealX86Arch() {
-            return supportABI("x86") || IDevices.ARCH.X86.equals(getCpuArch());
-        }
-
-        public static String getPreferredABI() {
-            if (OSInfo.hasLollipop()) {
-                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-                if (strArr != null && strArr.length > 0) {
-                    return strArr[0];
-                }
-                String[] strArr2 = Build.SUPPORTED_32_BIT_ABIS;
-                if (strArr2 != null && strArr2.length > 0) {
-                    return strArr2[0];
-                }
+        public static int px2dp(@Nullable Context context, float f2) {
+            if (context == null) {
+                return 0;
             }
-            return Build.CPU_ABI;
+            return (int) ((f2 / context.getResources().getDisplayMetrics().density) + 0.5f);
+        }
+
+        public static float px2dpFloat(@Nullable Context context, float f2) {
+            return f2 / getDensity(context);
         }
     }
 }

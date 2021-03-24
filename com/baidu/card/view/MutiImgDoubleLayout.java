@@ -10,169 +10,280 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
-import com.baidu.card.p;
-import com.baidu.tbadk.a.b.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.d;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.ab;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import d.b.b.e.p.l;
+import d.b.h0.b1.j.d;
+import d.b.h0.r.k;
+import d.b.h0.r.q.a2;
+import d.b.i.p;
+import d.b.i0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes.dex */
-public class MutiImgDoubleLayout extends LinearLayout implements p<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a ahB;
-    public TextView air;
-    private ab<com.baidu.tbadk.core.data.a> ajy;
-    private int amH;
-    private d amI;
-    public RelativeLayout amM;
-    public TbImageView amN;
-    public TbImageView amO;
-    private boolean amh;
-    public PlayVoiceBntNew amu;
-    private boolean amw;
-    private boolean amx;
-    private LinkedList<MediaData> amy;
-    private String mFrom;
-    public TextView mTitle;
-    private static final int amr = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-    private static final int ams = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-    private static final int amt = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7);
-    private static final int aip = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - ((l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+/* loaded from: classes2.dex */
+public class MutiImgDoubleLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
+    public static final int r;
 
-    public void setFrom(String str) {
-        this.mFrom = str;
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f4442e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f4443f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public PlayVoiceBntNew f4444g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public RelativeLayout f4445h;
+    public TbImageView i;
+    public TbImageView j;
+    public String k;
+    public boolean l;
+    public b0<d.b.h0.r.q.a> m;
+    public d.b.h0.r.q.a n;
+    public int o;
+    public d p;
+    public LinkedList<MediaData> q;
+
+    /* loaded from: classes2.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            b0<d.b.h0.r.q.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
+            if (subClickListener != null) {
+                view.setTag("2");
+                subClickListener.a(view, MutiImgDoubleLayout.this.n);
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements d {
+        public b() {
+        }
+
+        @Override // d.b.h0.b1.j.d
+        public void a(View view, int i, boolean z) {
+            b0<d.b.h0.r.q.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
+            if (subClickListener != null) {
+                view.setTag("1");
+                MutiImgDoubleLayout.this.n.objType = 2;
+                subClickListener.a(view, MutiImgDoubleLayout.this.n);
+                MutiImgDoubleLayout.this.n.objType = 1;
+            }
+            ThreadCardUtils.startImageViewer(view, MutiImgDoubleLayout.this.l, MutiImgDoubleLayout.this.q, i, MutiImgDoubleLayout.this.n.n(), MutiImgDoubleLayout.this.k);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class c implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f4448e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public boolean f4449f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f4450g;
+
+        public c(int i, boolean z, boolean z2) {
+            a(i, z, z2);
+        }
+
+        public void a(int i, boolean z, boolean z2) {
+            this.f4448e = i;
+            this.f4449f = z;
+            this.f4450g = z2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (MutiImgDoubleLayout.this.p != null) {
+                MutiImgDoubleLayout.this.p.a(view, this.f4448e, this.f4449f && this.f4450g);
+            }
+        }
+    }
+
+    static {
+        l.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+        l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+        l.g(TbadkCoreApplication.getInst(), R.dimen.tbds7);
+        r = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     public MutiImgDoubleLayout(Context context) {
         this(context, null);
     }
 
-    public MutiImgDoubleLayout(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.amh = true;
-        this.ahB = null;
-        this.amw = false;
-        this.amx = false;
-        this.amH = 0;
-        initUI();
-    }
-
-    private void initUI() {
-        LayoutInflater.from(getContext()).inflate(R.layout.multi_image_double_layout, (ViewGroup) this, true);
-        setOrientation(1);
-        setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.air = (TextView) findViewById(R.id.thread_card_abstract);
-        this.mTitle = (TextView) findViewById(R.id.thread_card_title);
-        this.amu = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
-        this.amu.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.MutiImgDoubleLayout.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                ab<com.baidu.tbadk.core.data.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
-                if (subClickListener != null) {
-                    view.setTag("2");
-                    subClickListener.a(view, MutiImgDoubleLayout.this.ahB);
-                }
-            }
-        });
-        b.j(this.amu, R.dimen.tbds28, R.dimen.tbds14);
-        b.a(this.mTitle, R.dimen.tbds7, R.dimen.tbds10);
-        b.a(this.air, R.dimen.tbds7, R.dimen.tbds10);
-        this.amM = (RelativeLayout) findViewById(R.id.thread_card_img_double_container);
-        b.j(this.amM, R.dimen.tbds20, R.dimen.tbds14);
-        this.amN = (TbImageView) findViewById(R.id.thread_card_img_double_one);
-        this.amO = (TbImageView) findViewById(R.id.thread_card_img_double_two);
-        this.amI = new d() { // from class: com.baidu.card.view.MutiImgDoubleLayout.2
-            @Override // com.baidu.tbadk.widget.layout.d
-            public void c(View view, int i, boolean z) {
-                ab<com.baidu.tbadk.core.data.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
-                if (subClickListener != null) {
-                    view.setTag("1");
-                    MutiImgDoubleLayout.this.ahB.objType = 2;
-                    subClickListener.a(view, MutiImgDoubleLayout.this.ahB);
-                    MutiImgDoubleLayout.this.ahB.objType = 1;
-                }
-                az.a(view, MutiImgDoubleLayout.this.amh, MutiImgDoubleLayout.this.amy, i, MutiImgDoubleLayout.this.ahB.blp(), MutiImgDoubleLayout.this.mFrom);
-            }
-        };
-    }
-
-    private void setVoiceData(cb cbVar) {
-        ArrayList<VoiceData.VoiceModel> bof = cbVar.bof();
-        if (y.isEmpty(bof)) {
-            this.amu.setVisibility(8);
-            this.amx = false;
-            return;
-        }
-        this.amu.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = bof.get(0);
-        this.amu.setVoiceModel(voiceModel);
-        this.amu.setTag(voiceModel);
-        this.amu.bur();
-        if (voiceModel != null) {
-            this.amu.Ds(voiceModel.voice_status.intValue());
-        }
-        this.amu.ccH();
-        this.amx = true;
-    }
-
-    private void setImageData(cb cbVar) {
-        ArrayList<MediaData> bob = cbVar.bob();
-        if (k.bkV().isShowImages() && y.getCount(bob) != 0) {
+    private void setImageData(a2 a2Var) {
+        ArrayList<MediaData> K0 = a2Var.K0();
+        if (k.c().g() && ListUtils.getCount(K0) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < bob.size(); i++) {
-                MediaData mediaData = (MediaData) y.getItem(bob, i);
+            for (int i = 0; i < K0.size(); i++) {
+                MediaData mediaData = (MediaData) ListUtils.getItem(K0, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
             }
-            this.amy = linkedList;
-            this.amw = true;
-            this.amM.setVisibility(8);
-            if (y.getCount(linkedList) == 2) {
-                this.amM.setVisibility(0);
-                this.amN.setConrers(15);
-                a((MediaData) y.getItem(bob, 0), this.amN, true, false, false, 0);
-                this.amO.setConrers(15);
-                a((MediaData) y.getItem(bob, 1), this.amO, true, false, true, 1);
+            this.q = linkedList;
+            this.f4445h.setVisibility(8);
+            if (ListUtils.getCount(linkedList) == 2) {
+                this.f4445h.setVisibility(0);
+                this.i.setConrers(15);
+                l((MediaData) ListUtils.getItem(K0, 0), this.i, true, false, false, 0);
+                this.j.setConrers(15);
+                l((MediaData) ListUtils.getItem(K0, 1), this.j, true, false, true, 1);
                 return;
             }
-            this.amM.setVisibility(8);
-            this.amw = false;
+            this.f4445h.setVisibility(8);
             return;
         }
-        this.amM.setVisibility(8);
-        this.amw = false;
+        this.f4445h.setVisibility(8);
     }
 
-    public void setFromCDN(boolean z) {
-        this.amh = z;
+    private void setVoiceData(a2 a2Var) {
+        ArrayList<VoiceData$VoiceModel> H1 = a2Var.H1();
+        if (ListUtils.isEmpty(H1)) {
+            this.f4444g.setVisibility(8);
+            return;
+        }
+        this.f4444g.setVisibility(0);
+        VoiceData$VoiceModel voiceData$VoiceModel = H1.get(0);
+        this.f4444g.setVoiceModel(voiceData$VoiceModel);
+        this.f4444g.setTag(voiceData$VoiceModel);
+        this.f4444g.d();
+        if (voiceData$VoiceModel != null) {
+            this.f4444g.m(voiceData$VoiceModel.voice_status.intValue());
+        }
+        this.f4444g.o();
     }
 
-    public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
+    public final int g(int i) {
+        int i2 = this.o;
+        if (i2 > 0) {
+            return i2;
+        }
+        int size = (View.MeasureSpec.getSize(i) - (2 * TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10))) / 3;
+        this.o = size;
+        return size;
+    }
+
+    public b0<d.b.h0.r.q.a> getSubClickListener() {
+        return this.m;
+    }
+
+    public final String h(MediaData mediaData) {
+        if (mediaData == null) {
+            return "";
+        }
+        String picUrl = mediaData.getPicUrl();
+        if (TextUtils.isEmpty(picUrl)) {
+            picUrl = mediaData.getSmallUrl();
+        }
+        if (TextUtils.isEmpty(picUrl)) {
+            picUrl = mediaData.getThumbnails_url();
+        }
+        return TextUtils.isEmpty(picUrl) ? mediaData.getSrc_pic() : picUrl;
+    }
+
+    public final void i() {
+        LayoutInflater.from(getContext()).inflate(R.layout.multi_image_double_layout, (ViewGroup) this, true);
+        setOrientation(1);
+        setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.f4443f = (TextView) findViewById(R.id.thread_card_abstract);
+        this.f4442e = (TextView) findViewById(R.id.thread_card_title);
+        PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
+        this.f4444g = playVoiceBntNew;
+        playVoiceBntNew.setAfterClickListener(new a());
+        d.b.h0.b.g.b.b(this.f4444g, R.dimen.tbds28, R.dimen.tbds14);
+        d.b.h0.b.g.b.k(this.f4442e, R.dimen.tbds7, R.dimen.tbds10);
+        d.b.h0.b.g.b.k(this.f4443f, R.dimen.tbds7, R.dimen.tbds10);
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.thread_card_img_double_container);
+        this.f4445h = relativeLayout;
+        d.b.h0.b.g.b.b(relativeLayout, R.dimen.tbds20, R.dimen.tbds14);
+        this.i = (TbImageView) findViewById(R.id.thread_card_img_double_one);
+        this.j = (TbImageView) findViewById(R.id.thread_card_img_double_two);
+        this.p = new b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.p
-    /* renamed from: b */
-    public void E(com.baidu.tbadk.core.data.a aVar) {
-        this.ahB = aVar;
-        cb blp = aVar.blp();
-        az.a(this.mTitle, blp);
-        az.a(this.air, this.mTitle, blp, aip);
-        setImageData(blp);
-        setVoiceData(blp);
+    @Override // d.b.i.p
+    /* renamed from: j */
+    public void a(d.b.h0.r.q.a aVar) {
+        this.n = aVar;
+        a2 n = aVar.n();
+        ThreadCardUtils.setTitle(this.f4442e, n);
+        ThreadCardUtils.setAbstract(this.f4443f, this.f4442e, n, r);
+        setImageData(n);
+        setVoiceData(n);
+    }
+
+    public final void k(TbImageView tbImageView, int i, boolean z, boolean z2) {
+        if (this.p != null && tbImageView != null) {
+            View.OnClickListener onClickListener = tbImageView.getOnClickListener();
+            if (onClickListener instanceof c) {
+                ((c) onClickListener).a(i, z, z2);
+            } else {
+                tbImageView.setOnClickListener(new c(i, z, z2));
+            }
+        } else if (this.p != null || tbImageView == null) {
+        } else {
+            tbImageView.setClickable(false);
+        }
+    }
+
+    public final void l(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
+        String h2 = h(mediaData);
+        int i2 = this.l ? 13 : 14;
+        if (!StringHelper.equals(h2, tbImageView.getUrl())) {
+            tbImageView.S();
+        }
+        if (z) {
+            tbImageView.setRadius(l.g(getContext(), R.dimen.tbds10));
+            tbImageView.setDrawBorder(true);
+            tbImageView.setForegroundColor(0);
+            tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
+            tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            tbImageView.setBorderSurroundContent(true);
+        }
+        tbImageView.W(h2, i2, false);
+        k(tbImageView, i, z2, z3);
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        int g2 = g(i);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
+        layoutParams.width = g2;
+        layoutParams.height = g2;
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
+        layoutParams2.width = g2;
+        layoutParams2.height = g2;
+        if (this.f4445h.getVisibility() != 8) {
+            this.i.setLayoutParams(layoutParams);
+            this.j.setLayoutParams(layoutParams2);
+        }
+    }
+
+    public void setFrom(String str) {
+        this.k = str;
+    }
+
+    public void setFromCDN(boolean z) {
+        this.l = z;
     }
 
     public void setMarginsTop(View view, int i) {
@@ -185,108 +296,18 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<com.baidu.tba
         }
     }
 
-    public ab<com.baidu.tbadk.core.data.a> getSubClickListener() {
-        return this.ajy;
+    public void setPreloadSizeReadyCallback(d.b.b.j.c.b bVar) {
     }
 
-    public void setSubClickListener(ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.ajy = abVar;
+    public void setSubClickListener(b0<d.b.h0.r.q.a> b0Var) {
+        this.m = b0Var;
     }
 
-    @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int bF = bF(i);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.amN.getLayoutParams();
-        layoutParams.width = bF;
-        layoutParams.height = bF;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.amO.getLayoutParams();
-        layoutParams2.width = bF;
-        layoutParams2.height = bF;
-        if (this.amM.getVisibility() != 8) {
-            this.amN.setLayoutParams(layoutParams);
-            this.amO.setLayoutParams(layoutParams2);
-        }
-    }
-
-    private int bF(int i) {
-        if (this.amH > 0) {
-            return this.amH;
-        }
-        this.amH = (View.MeasureSpec.getSize(i) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10) * 2)) / 3;
-        return this.amH;
-    }
-
-    private void a(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
-        String a2 = a(mediaData);
-        int i2 = this.amh ? 13 : 14;
-        if (!au.equals(a2, tbImageView.getUrl())) {
-            tbImageView.reset();
-        }
-        if (z) {
-            tbImageView.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-            tbImageView.setDrawBorder(true);
-            tbImageView.setForegroundColor(0);
-            tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-            tbImageView.setBorderColor(ap.getColor(R.color.CAM_X0401));
-            tbImageView.setBorderSurroundContent(true);
-        }
-        tbImageView.startLoad(a2, i2, false);
-        a(tbImageView, i, z2, z3);
-    }
-
-    private String a(MediaData mediaData) {
-        if (mediaData == null) {
-            return "";
-        }
-        String picUrl = mediaData.getPicUrl();
-        if (TextUtils.isEmpty(picUrl)) {
-            picUrl = mediaData.getSmallUrl();
-        }
-        if (TextUtils.isEmpty(picUrl)) {
-            picUrl = mediaData.getThumbnails_url();
-        }
-        if (TextUtils.isEmpty(picUrl)) {
-            return mediaData.getSrc_pic();
-        }
-        return picUrl;
-    }
-
-    private void a(TbImageView tbImageView, int i, boolean z, boolean z2) {
-        if (this.amI != null && tbImageView != null) {
-            View.OnClickListener onClickListener = tbImageView.getOnClickListener();
-            if (onClickListener instanceof a) {
-                ((a) onClickListener).b(i, z, z2);
-            } else {
-                tbImageView.setOnClickListener(new a(i, z, z2));
-            }
-        } else if (this.amI == null && tbImageView != null) {
-            tbImageView.setClickable(false);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a implements View.OnClickListener {
-        private boolean amL;
-        private int currentIndex;
-        private boolean hasMore;
-
-        public a(int i, boolean z, boolean z2) {
-            b(i, z, z2);
-        }
-
-        public void b(int i, boolean z, boolean z2) {
-            this.currentIndex = i;
-            this.hasMore = z;
-            this.amL = z2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (MutiImgDoubleLayout.this.amI != null) {
-                MutiImgDoubleLayout.this.amI.c(view, this.currentIndex, this.hasMore && this.amL);
-            }
-        }
+    public MutiImgDoubleLayout(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.l = true;
+        this.n = null;
+        this.o = 0;
+        i();
     }
 }

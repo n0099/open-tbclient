@@ -6,12 +6,12 @@ import android.net.Uri;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e extends com.baidu.mobads.vo.d {
     public e(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, String str, String str2, CPUWebAdRequestParam cPUWebAdRequestParam) {
         super(context, activity, slotType);
         d dVar = new d(context.getApplicationContext(), str2, str);
-        this.b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
+        this.f8625b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
     }
 
     private Uri.Builder a(Map<String, Object> map, String str) {
@@ -24,16 +24,13 @@ public class e extends com.baidu.mobads.vo.d {
         return buildUpon;
     }
 
-    private Map<String, Object> a(d dVar, CPUWebAdRequestParam cPUWebAdRequestParam) {
-        if (cPUWebAdRequestParam == null) {
-            return null;
-        }
-        Map<String, Object> parameters = cPUWebAdRequestParam.getParameters();
-        if (parameters != null && parameters.containsKey("outerId")) {
-            dVar.a((String) parameters.get("outerId"));
-            parameters.remove("outerId");
-        }
-        return parameters;
+    @Override // com.baidu.mobads.vo.d
+    public String b() {
+        return "http://127.0.0.1";
+    }
+
+    public String c() {
+        return this.f8625b;
     }
 
     public e(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, String str, int i, CPUWebAdRequestParam cPUWebAdRequestParam) {
@@ -42,20 +39,24 @@ public class e extends com.baidu.mobads.vo.d {
         if (i != 1080) {
             cPUWebAdRequestParam.getParameters().remove("city");
         }
-        this.b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
+        this.f8625b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
+    }
+
+    private Map<String, Object> a(d dVar, CPUWebAdRequestParam cPUWebAdRequestParam) {
+        if (cPUWebAdRequestParam != null) {
+            Map<String, Object> parameters = cPUWebAdRequestParam.getParameters();
+            if (parameters == null || !parameters.containsKey("outerId")) {
+                return parameters;
+            }
+            dVar.a((String) parameters.get("outerId"));
+            parameters.remove("outerId");
+            return parameters;
+        }
+        return null;
     }
 
     @Override // com.baidu.mobads.vo.d
-    protected HashMap<String, String> a() {
+    public HashMap<String, String> a() {
         return new HashMap<>();
-    }
-
-    public String c() {
-        return this.b;
-    }
-
-    @Override // com.baidu.mobads.vo.d
-    public String b() {
-        return "http://127.0.0.1";
     }
 }

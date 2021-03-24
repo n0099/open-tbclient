@@ -1,41 +1,46 @@
 package com.baidu.platform.util;
 
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-import com.baidu.webkit.internal.ETAG;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a implements ParamBuilder<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Map<String, String> f3102a;
+    public Map<String, String> f10426a;
 
     public a a(String str, String str2) {
-        if (this.f3102a == null) {
-            this.f3102a = new LinkedHashMap();
+        if (this.f10426a == null) {
+            this.f10426a = new LinkedHashMap();
         }
-        this.f3102a.put(str, str2);
+        this.f10426a.put(str, str2);
         return this;
     }
 
     public String a() {
-        if (this.f3102a == null || this.f3102a.isEmpty()) {
+        StringBuilder sb;
+        Map<String, String> map = this.f10426a;
+        if (map == null || map.isEmpty()) {
             return null;
         }
         String str = new String();
-        Iterator<String> it = this.f3102a.keySet().iterator();
         int i = 0;
-        while (true) {
-            int i2 = i;
-            String str2 = str;
-            if (!it.hasNext()) {
-                return str2;
+        for (String str2 : this.f10426a.keySet()) {
+            String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f10426a.get(str2));
+            if (i == 0) {
+                sb = new StringBuilder();
+            } else {
+                sb = new StringBuilder();
+                sb.append(str);
+                str = "&";
             }
-            String next = it.next();
-            String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f3102a.get(next));
-            str = i2 == 0 ? str2 + next + "=" + encodeUrlParamsValue : str2 + ETAG.ITEM_SEPARATOR + next + "=" + encodeUrlParamsValue;
-            i = i2 + 1;
+            sb.append(str);
+            sb.append(str2);
+            sb.append("=");
+            sb.append(encodeUrlParamsValue);
+            str = sb.toString();
+            i++;
         }
+        return str;
     }
 }

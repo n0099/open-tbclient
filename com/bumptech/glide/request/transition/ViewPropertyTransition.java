@@ -2,11 +2,11 @@ package com.bumptech.glide.request.transition;
 
 import android.view.View;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ViewPropertyTransition<R> implements Transition<R> {
-    private final Animator animator;
+    public final Animator animator;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface Animator {
         void animate(View view);
     }

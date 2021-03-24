@@ -152,6 +152,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_TASK_SCORES = 1003101;
     public static final int CMD_GET_TCODE_INFO_CMD = 1003320;
     public static final int CMD_GET_TOKEN = 1003404;
+    public static final int CMD_GET_USER_BLOCK_INFO = 1003488;
     public static final int CMD_GET_USER_INFO = 1003001;
     public static final int CMD_GET_USER_ORDER = 1003075;
     public static final int CMD_GET_USER_VIDEO_LIST = 1003312;
@@ -262,6 +263,7 @@ public class CmdConfigHttp {
     public static final int CMD_UPLOAD_COLLECT_EMOTION_INFO = 1003339;
     public static final int CMD_UPLOAD_FACE_GROUP = 1003345;
     public static final int CMD_URL_PARSER_MESSAGE = 1003476;
+    public static final int CMD_USER_BLOCK_SET = 1003489;
     public static final int CMD_USER_FREE_CHANCE = 1003047;
     public static final int CMD_USER_MUTE_ADD = 1003027;
     public static final int CMD_USER_MUTE_CHECK = 1003025;
@@ -285,7 +287,7 @@ public class CmdConfigHttp {
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
     public static final int DISTRIBUTE_ACTRUAL_CMD = 1003000;
     public static final int FORUM_RECOMMEND_HTTP_CMD = 1002400;
-    private static final int FRS_BASE_CMD = 1001700;
+    public static final int FRS_BASE_CMD = 1001700;
     public static final int FRS_GAME_INFO_GAME_COMMENT = 1001712;
     public static final int FRS_HTTP_CMD = 1001703;
     public static final int FRS_LIVE_TIP_CMD = 1001713;
@@ -296,7 +298,7 @@ public class CmdConfigHttp {
     public static final int GET_GIFT_LIST = 1001509;
     public static final int GET_PRIVATE_INFO_CMD = 1002501;
     public static final int JUMP_TO_NEW_GUIDE_HTTP_CMD = 1001520;
-    private static final int LOGIN_HTTP_BASE_CMD = 1001100;
+    public static final int LOGIN_HTTP_BASE_CMD = 1001100;
     public static final int MEMBER_PAY_CMD = 1001532;
     public static final int MEMBER_PRIVILEGE_CMD = 1001531;
     public static final int MOBILE_CDN_IPLIST_CMD = 1002601;
@@ -328,7 +330,7 @@ public class CmdConfigHttp {
     public static final int SET_PRIVATE_CMD = 1001506;
     public static final int SHARE_GET_FORUM_PROFIX_HTTP_CMD = 1002701;
     public static final int SIGNALL_GET_FOURMS = 1001201;
-    private static final int SIGNALL_HTTP_BASE_CMD = 1001200;
+    public static final int SIGNALL_HTTP_BASE_CMD = 1001200;
     public static final int SPECIAL_PAGE_HTTP_CMD = 1003200;
     public static final int SubPb_HTTP_CMD = 1002100;
     public static final int USER_POST_HTTP_CMD = 1001503;

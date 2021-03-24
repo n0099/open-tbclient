@@ -12,19 +12,19 @@ import com.kwai.video.hodor.util.Timber;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ExportMediaCacheTask extends AbstractHodorTask {
     @AccessedByNative
-    private final String mCacheKey;
+    public final String mCacheKey;
     @AccessedByNative
-    private final String mExportFilePath;
-    private ExportMediaCacheTaskCallback mExportMediaCacheTaskCallback;
+    public final String mExportFilePath;
+    public ExportMediaCacheTaskCallback mExportMediaCacheTaskCallback;
     @AccessedByNative
-    private final String mHttpHeaders;
+    public final String mHttpHeaders;
     @AccessedByNative
-    private final String mUrl;
+    public final String mUrl;
     @AccessedByNative
-    private AwesomeCacheCallback mAwesomeCacheCallback = new AwesomeCacheCallback() { // from class: com.kwai.video.hodor.ExportMediaCacheTask.1
+    public AwesomeCacheCallback mAwesomeCacheCallback = new AwesomeCacheCallback() { // from class: com.kwai.video.hodor.ExportMediaCacheTask.1
         @Override // com.kwai.video.cache.AwesomeCacheCallback
         public void onDownloadFinish(AcCallBackInfo acCallBackInfo) {
             ExportMediaCacheTask.this.mTaskInfo.copyInfoAfterDownload(acCallBackInfo);
@@ -43,19 +43,19 @@ public class ExportMediaCacheTask extends AbstractHodorTask {
             }
         }
     };
-    private TaskInfo mTaskInfo = new TaskInfo();
+    public TaskInfo mTaskInfo = new TaskInfo();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface ExportMediaCacheTaskCallback {
         void onCdnReport(TaskInfo taskInfo);
 
         void onTaskStatusChanged(TaskInfo taskInfo);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class TaskInfo extends BaseTaskInfo {
-        private String cacheFilePath = "";
-        private boolean loadFromCache;
+        public String cacheFilePath = "";
+        public boolean loadFromCache;
 
         public void debugPrintTaskStatus(int i, String str) {
             Timber.log(i, "%s loadFromCache:%b, complete:%b,cacheFilePath:%s", str, Boolean.valueOf(this.loadFromCache), Boolean.valueOf(isComplete()), this.cacheFilePath);

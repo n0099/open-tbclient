@@ -7,29 +7,37 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
-class b implements Closeable {
+/* loaded from: classes6.dex */
+public class b implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    private final InputStream f6578a;
-    private final Charset b;
-    private byte[] c;
-    private int d;
-    private int e;
+    public final InputStream f35051a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Charset f35052b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public byte[] f35053c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f35054d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f35055e;
 
     public b(InputStream inputStream, int i, Charset charset) {
         if (inputStream == null || charset == null) {
-            throw new NullPointerException();
+            throw null;
         }
         if (i < 0) {
             throw new IllegalArgumentException("capacity <= 0");
         }
-        if (!charset.equals(c.f6580a)) {
+        if (!charset.equals(c.f35057a)) {
             throw new IllegalArgumentException("Unsupported encoding");
         }
-        this.f6578a = inputStream;
-        this.b = charset;
-        this.c = new byte[i];
+        this.f35051a = inputStream;
+        this.f35052b = charset;
+        this.f35053c = new byte[i];
     }
 
     public b(InputStream inputStream, Charset charset) {
@@ -37,75 +45,83 @@ class b implements Closeable {
     }
 
     private void c() {
-        int read = this.f6578a.read(this.c, 0, this.c.length);
+        InputStream inputStream = this.f35051a;
+        byte[] bArr = this.f35053c;
+        int read = inputStream.read(bArr, 0, bArr.length);
         if (read == -1) {
             throw new EOFException();
         }
-        this.d = 0;
-        this.e = read;
+        this.f35054d = 0;
+        this.f35055e = read;
     }
 
     public String a() {
         int i;
-        String byteArrayOutputStream;
-        synchronized (this.f6578a) {
-            if (this.c == null) {
-                throw new IOException("LineReader is closed");
-            }
-            if (this.d >= this.e) {
-                c();
-            }
-            int i2 = this.d;
-            while (true) {
-                if (i2 == this.e) {
-                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream((this.e - this.d) + 80) { // from class: com.kwad.sdk.glide.a.b.1
-                        @Override // java.io.ByteArrayOutputStream
-                        public String toString() {
-                            try {
-                                return new String(this.buf, 0, (this.count <= 0 || this.buf[this.count + (-1)] != 13) ? this.count : this.count - 1, b.this.b.name());
-                            } catch (UnsupportedEncodingException e) {
-                                throw new AssertionError(e);
-                            }
-                        }
-                    };
-                    loop1: while (true) {
-                        byteArrayOutputStream2.write(this.c, this.d, this.e - this.d);
-                        this.e = -1;
-                        c();
-                        i = this.d;
-                        while (i != this.e) {
-                            if (this.c[i] == 10) {
-                                break loop1;
-                            }
-                            i++;
-                        }
-                    }
-                    if (i != this.d) {
-                        byteArrayOutputStream2.write(this.c, this.d, i - this.d);
-                    }
-                    this.d = i + 1;
-                    byteArrayOutputStream = byteArrayOutputStream2.toString();
-                } else if (this.c[i2] == 10) {
-                    byteArrayOutputStream = new String(this.c, this.d, ((i2 == this.d || this.c[i2 + (-1)] != 13) ? i2 : i2 - 1) - this.d, this.b.name());
-                    this.d = i2 + 1;
-                } else {
-                    i2++;
+        int i2;
+        synchronized (this.f35051a) {
+            if (this.f35053c != null) {
+                if (this.f35054d >= this.f35055e) {
+                    c();
                 }
+                for (int i3 = this.f35054d; i3 != this.f35055e; i3++) {
+                    if (this.f35053c[i3] == 10) {
+                        if (i3 != this.f35054d) {
+                            i2 = i3 - 1;
+                            if (this.f35053c[i2] == 13) {
+                                String str = new String(this.f35053c, this.f35054d, i2 - this.f35054d, this.f35052b.name());
+                                this.f35054d = i3 + 1;
+                                return str;
+                            }
+                        }
+                        i2 = i3;
+                        String str2 = new String(this.f35053c, this.f35054d, i2 - this.f35054d, this.f35052b.name());
+                        this.f35054d = i3 + 1;
+                        return str2;
+                    }
+                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((this.f35055e - this.f35054d) + 80) { // from class: com.kwad.sdk.glide.a.b.1
+                    @Override // java.io.ByteArrayOutputStream
+                    public String toString() {
+                        int i4 = ((ByteArrayOutputStream) this).count;
+                        try {
+                            return new String(((ByteArrayOutputStream) this).buf, 0, (i4 <= 0 || ((ByteArrayOutputStream) this).buf[i4 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i4 - 1, b.this.f35052b.name());
+                        } catch (UnsupportedEncodingException e2) {
+                            throw new AssertionError(e2);
+                        }
+                    }
+                };
+                loop1: while (true) {
+                    byteArrayOutputStream.write(this.f35053c, this.f35054d, this.f35055e - this.f35054d);
+                    this.f35055e = -1;
+                    c();
+                    i = this.f35054d;
+                    while (i != this.f35055e) {
+                        if (this.f35053c[i] == 10) {
+                            break loop1;
+                        }
+                        i++;
+                    }
+                }
+                if (i != this.f35054d) {
+                    byteArrayOutputStream.write(this.f35053c, this.f35054d, i - this.f35054d);
+                }
+                this.f35054d = i + 1;
+                return byteArrayOutputStream.toString();
             }
-            return byteArrayOutputStream;
+            throw new IOException("LineReader is closed");
         }
     }
 
     public boolean b() {
-        return this.e == -1;
+        return this.f35055e == -1;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        synchronized (this.f6578a) {
-            if (this.c != null) {
-                this.c = null;
-                this.f6578a.close();
+        synchronized (this.f35051a) {
+            if (this.f35053c != null) {
+                this.f35053c = null;
+                this.f35051a.close();
             }
         }
     }

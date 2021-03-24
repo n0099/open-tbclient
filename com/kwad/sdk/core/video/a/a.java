@@ -2,114 +2,128 @@ package com.kwad.sdk.core.video.a;
 
 import android.media.TimedText;
 import com.kwad.sdk.core.video.a.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private c.e f6260a;
-    private c.b b;
-    private c.a c;
-    private c.f d;
-    private c.h e;
-    private c.InterfaceC1123c f;
-    private c.d g;
-    private c.g h;
+    public c.e f34089a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c.b f34090b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c.a f34091c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public c.f f34092d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c.h f34093e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public c.InterfaceC0390c f34094f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public c.d f34095g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c.g f34096h;
 
     public void a() {
-        this.f6260a = null;
-        this.c = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
+        this.f34089a = null;
+        this.f34091c = null;
+        this.f34090b = null;
+        this.f34092d = null;
+        this.f34093e = null;
+        this.f34094f = null;
+        this.f34095g = null;
+        this.f34096h = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void a(int i) {
-        if (this.c != null) {
-            this.c.a(this, i);
+        c.a aVar = this.f34091c;
+        if (aVar != null) {
+            aVar.a(this, i);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void a(int i, int i2) {
-        if (this.e != null) {
-            this.e.a(this, i, i2);
+        c.h hVar = this.f34093e;
+        if (hVar != null) {
+            hVar.a(this, i, i2);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void a(TimedText timedText) {
-        if (this.h != null) {
-            this.h.a(this, timedText);
+        c.g gVar = this.f34096h;
+        if (gVar != null) {
+            gVar.a(this, timedText);
         }
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.a aVar) {
-        this.c = aVar;
+        this.f34091c = aVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.b bVar) {
-        this.b = bVar;
+        this.f34090b = bVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
-    public void a(c.InterfaceC1123c interfaceC1123c) {
-        this.f = interfaceC1123c;
+    public void a(c.InterfaceC0390c interfaceC0390c) {
+        this.f34094f = interfaceC0390c;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.d dVar) {
-        this.g = dVar;
+        this.f34095g = dVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.e eVar) {
-        this.f6260a = eVar;
+        this.f34089a = eVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.f fVar) {
-        this.d = fVar;
+        this.f34092d = fVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.h hVar) {
-        this.e = hVar;
+        this.f34093e = hVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
-        if (this.f6260a != null) {
-            this.f6260a.a(this);
+        c.e eVar = this.f34089a;
+        if (eVar != null) {
+            eVar.a(this);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final boolean b(int i, int i2) {
-        return this.f != null && this.f.a(this, i, i2);
+        c.InterfaceC0390c interfaceC0390c = this.f34094f;
+        return interfaceC0390c != null && interfaceC0390c.a(this, i, i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void c() {
-        if (this.b != null) {
-            this.b.a(this);
+        c.b bVar = this.f34090b;
+        if (bVar != null) {
+            bVar.a(this);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final boolean c(int i, int i2) {
-        return this.g != null && this.g.a(this, i, i2);
+        c.d dVar = this.f34095g;
+        return dVar != null && dVar.a(this, i, i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void d() {
-        if (this.d != null) {
-            this.d.a(this);
+        c.f fVar = this.f34092d;
+        if (fVar != null) {
+            fVar.a(this);
         }
     }
 }

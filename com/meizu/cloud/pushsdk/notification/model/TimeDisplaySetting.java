@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TimeDisplaySetting implements Parcelable {
     public static final Parcelable.Creator<TimeDisplaySetting> CREATOR = new Parcelable.Creator<TimeDisplaySetting>() { // from class: com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -27,9 +27,9 @@ public class TimeDisplaySetting implements Parcelable {
     public static final String TAG = "time_display_setting";
     public static final String TIME_DISPLAY = "td";
     public static final String TIME_DISPLAY_SETTING = "ts";
-    private String endShowTime;
-    private boolean isTimeDisplay;
-    private String startShowTime;
+    public String endShowTime;
+    public boolean isTimeDisplay;
+    public String startShowTime;
 
     public TimeDisplaySetting() {
     }
@@ -45,8 +45,8 @@ public class TimeDisplaySetting implements Parcelable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e(TAG, "parse json string error " + e.getMessage());
+            } catch (JSONException e2) {
+                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -55,6 +55,7 @@ public class TimeDisplaySetting implements Parcelable {
     }
 
     public static TimeDisplaySetting parse(JSONObject jSONObject) {
+        String str;
         TimeDisplaySetting timeDisplaySetting = new TimeDisplaySetting();
         if (jSONObject != null) {
             try {
@@ -67,12 +68,13 @@ public class TimeDisplaySetting implements Parcelable {
                 if (!jSONObject.isNull("et")) {
                     timeDisplaySetting.setEndShowTime(jSONObject.getString("et"));
                 }
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e(TAG, "parse json obj error " + e.getMessage());
+            } catch (JSONException e2) {
+                str = "parse json obj error " + e2.getMessage();
             }
-        } else {
-            com.meizu.cloud.a.a.e(TAG, "no such tag time_display_setting");
+            return timeDisplaySetting;
         }
+        str = "no such tag time_display_setting";
+        d.j.a.a.a.b(TAG, str);
         return timeDisplaySetting;
     }
 
@@ -111,7 +113,7 @@ public class TimeDisplaySetting implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte((byte) (this.isTimeDisplay ? 1 : 0));
+        parcel.writeByte(this.isTimeDisplay ? (byte) 1 : (byte) 0);
         parcel.writeString(this.startShowTime);
         parcel.writeString(this.endShowTime);
     }

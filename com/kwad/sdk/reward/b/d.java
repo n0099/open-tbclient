@@ -3,50 +3,56 @@ package com.kwad.sdk.reward.b;
 import android.app.Activity;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.contentalliance.detail.video.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends com.kwad.sdk.reward.d {
     @NonNull
-    private com.kwad.sdk.reward.a.b b;
-    private com.kwad.sdk.reward.c.a c;
-    private com.kwad.sdk.contentalliance.detail.video.e d = new f() { // from class: com.kwad.sdk.reward.b.d.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public com.kwad.sdk.reward.a.b f36432b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.kwad.sdk.reward.c.a f36433c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.detail.video.e f36434d = new f() { // from class: com.kwad.sdk.reward.b.d.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
-            d.this.b.d();
+            d.this.f36432b.d();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(int i, int i2) {
-            d.this.b.a(i, i2);
+            d.this.f36432b.a(i, i2);
             d.this.e();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
-            d.this.b.c();
+            d.this.f36432b.c();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        Activity activity = this.f7028a.g;
+        Activity activity = ((com.kwad.sdk.reward.d) this).f36457a.f36222g;
         if (activity != null) {
             activity.finish();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.b = this.f7028a.b;
-        this.c = this.f7028a.i;
-        this.c.a(this.d);
+        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f36457a;
+        this.f36432b = aVar.f36217b;
+        com.kwad.sdk.reward.c.a aVar2 = aVar.i;
+        this.f36433c = aVar2;
+        aVar2.a(this.f36434d);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.c.b(this.d);
+        this.f36433c.b(this.f36434d);
     }
 }

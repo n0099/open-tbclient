@@ -3,7 +3,7 @@ package aegon.chrome.net.impl;
 import aegon.chrome.net.CronetProvider;
 import android.content.Context;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class NativeCronetProvider extends CronetProvider {
     public NativeCronetProvider(Context context) {
         super(context);

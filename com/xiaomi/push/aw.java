@@ -1,26 +1,31 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
-public class aw implements ay {
+
+import android.content.Context;
+/* loaded from: classes7.dex */
+public class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8264a;
-    private final String b;
+    public static int f40251a;
 
-    public aw(String str, String str2) {
-        if (str == null) {
-            throw new IllegalArgumentException("Name may not be null");
+    public static ar a(Context context) {
+        if (av.m133a(context)) {
+            f40251a = 1;
+            return new av(context);
+        } else if (ap.m129a(context)) {
+            f40251a = 2;
+            return new ap(context);
+        } else if (ay.a(context)) {
+            f40251a = 4;
+            return new ay(context);
+        } else if (bc.a(context)) {
+            f40251a = 5;
+            return new bc(context);
+        } else if (au.a(context)) {
+            f40251a = 3;
+            return new as(context);
+        } else {
+            f40251a = 0;
+            return new bb();
         }
-        this.f8264a = str;
-        this.b = str2;
-    }
-
-    @Override // com.xiaomi.push.ay
-    public String a() {
-        return this.f8264a;
-    }
-
-    @Override // com.xiaomi.push.ay
-    public String b() {
-        return this.b;
     }
 }

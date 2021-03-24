@@ -1,10 +1,8 @@
 package com.google.gson;
 
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Field;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum FieldNamingPolicy implements FieldNamingStrategy {
     IDENTITY { // from class: com.google.gson.FieldNamingPolicy.1
         @Override // com.google.gson.FieldNamingStrategy
@@ -15,35 +13,42 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
     UPPER_CAMEL_CASE { // from class: com.google.gson.FieldNamingPolicy.2
         @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
-            return upperCaseFirstLetter(field.getName());
+            return FieldNamingPolicy.upperCaseFirstLetter(field.getName());
         }
     },
     UPPER_CAMEL_CASE_WITH_SPACES { // from class: com.google.gson.FieldNamingPolicy.3
         @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
-            return upperCaseFirstLetter(separateCamelCase(field.getName(), " "));
+            return FieldNamingPolicy.upperCaseFirstLetter(FieldNamingPolicy.separateCamelCase(field.getName(), " "));
         }
     },
     LOWER_CASE_WITH_UNDERSCORES { // from class: com.google.gson.FieldNamingPolicy.4
         @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
-            return separateCamelCase(field.getName(), PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).toLowerCase(Locale.ENGLISH);
+            return FieldNamingPolicy.separateCamelCase(field.getName(), "_").toLowerCase(Locale.ENGLISH);
         }
     },
     LOWER_CASE_WITH_DASHES { // from class: com.google.gson.FieldNamingPolicy.5
         @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
-            return separateCamelCase(field.getName(), Constants.ACCEPT_TIME_SEPARATOR_SERVER).toLowerCase(Locale.ENGLISH);
+            return FieldNamingPolicy.separateCamelCase(field.getName(), "-").toLowerCase(Locale.ENGLISH);
         }
     },
     LOWER_CASE_WITH_DOTS { // from class: com.google.gson.FieldNamingPolicy.6
         @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
-            return separateCamelCase(field.getName(), ".").toLowerCase(Locale.ENGLISH);
+            return FieldNamingPolicy.separateCamelCase(field.getName(), ".").toLowerCase(Locale.ENGLISH);
         }
     };
 
-    static String separateCamelCase(String str, String str2) {
+    public static String modifyString(char c2, String str, int i) {
+        if (i < str.length()) {
+            return c2 + str.substring(i);
+        }
+        return String.valueOf(c2);
+    }
+
+    public static String separateCamelCase(String str, String str2) {
         StringBuilder sb = new StringBuilder();
         int length = str.length();
         for (int i = 0; i < length; i++) {
@@ -56,7 +61,7 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
         return sb.toString();
     }
 
-    static String upperCaseFirstLetter(String str) {
+    public static String upperCaseFirstLetter(String str) {
         StringBuilder sb = new StringBuilder();
         int i = 0;
         char charAt = str.charAt(0);
@@ -66,16 +71,10 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
             i++;
             charAt = str.charAt(i);
         }
-        if (!Character.isUpperCase(charAt)) {
-            return sb.append(modifyString(Character.toUpperCase(charAt), str, i + 1)).toString();
+        if (Character.isUpperCase(charAt)) {
+            return str;
         }
-        return str;
-    }
-
-    private static String modifyString(char c, String str, int i) {
-        if (i < str.length()) {
-            return c + str.substring(i);
-        }
-        return String.valueOf(c);
+        sb.append(modifyString(Character.toUpperCase(charAt), str, i + 1));
+        return sb.toString();
     }
 }

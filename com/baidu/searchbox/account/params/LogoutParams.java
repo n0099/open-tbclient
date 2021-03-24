@@ -2,26 +2,13 @@ package com.baidu.searchbox.account.params;
 
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class LogoutParams {
     public final UserAccountActionItem mLogoutSrc;
 
-    private LogoutParams(Builder builder) {
-        this.mLogoutSrc = builder.mLogoutSrc;
-    }
-
-    public String toString() {
-        return this.mLogoutSrc != null ? this.mLogoutSrc.toString() : super.toString();
-    }
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
-        private UserAccountActionItem mLogoutSrc;
-
-        public Builder setLogoutSrc(UserAccountActionItem userAccountActionItem) {
-            this.mLogoutSrc = userAccountActionItem;
-            return this;
-        }
+        public UserAccountActionItem mLogoutSrc;
 
         public LogoutParams build() {
             if (this.mLogoutSrc == null) {
@@ -29,5 +16,22 @@ public final class LogoutParams {
             }
             return new LogoutParams(this);
         }
+
+        public Builder setLogoutSrc(UserAccountActionItem userAccountActionItem) {
+            this.mLogoutSrc = userAccountActionItem;
+            return this;
+        }
+    }
+
+    public String toString() {
+        UserAccountActionItem userAccountActionItem = this.mLogoutSrc;
+        if (userAccountActionItem != null) {
+            return userAccountActionItem.toString();
+        }
+        return super.toString();
+    }
+
+    public LogoutParams(Builder builder) {
+        this.mLogoutSrc = builder.mLogoutSrc;
     }
 }

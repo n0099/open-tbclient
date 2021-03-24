@@ -7,20 +7,58 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class SelectorImageView extends BdBaseImageView {
-    private static int dWX = 255;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static int f12737g = 255;
+
+    /* loaded from: classes3.dex */
+    public static class a implements View.OnTouchListener {
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                Log.d("ACTION_DOWN", "ACTION_DOWN");
+                if (view instanceof ImageView) {
+                    ((ImageView) view).setImageAlpha(76);
+                    return false;
+                }
+                return false;
+            } else if (action == 1 || action == 3) {
+                Log.d("ACTION_UP", "ACTION_UP");
+                if (view instanceof ImageView) {
+                    ((ImageView) view).setImageAlpha(255);
+                    return false;
+                }
+                return false;
+            } else {
+                return false;
+            }
+        }
+    }
 
     public SelectorImageView(Context context) {
         super(context);
     }
 
-    public SelectorImageView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public static View.OnTouchListener getStaticOnTouchListener() {
+        return new a();
     }
 
-    public SelectorImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (isEnabled()) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                Log.d("ACTION_DOWN", "ACTION_DOWN");
+                setImageAlpha(76);
+            } else if (action == 1 || action == 3) {
+                Log.d("ACTION_UP", "ACTION_UP");
+                setImageAlpha(f12737g);
+            }
+        }
+        return super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
@@ -30,53 +68,15 @@ public class SelectorImageView extends BdBaseImageView {
         if (!z) {
             setImageAlpha(255);
         } else {
-            setImageAlpha(dWX);
+            setImageAlpha(f12737g);
         }
     }
 
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (isEnabled()) {
-            switch (motionEvent.getAction()) {
-                case 0:
-                    Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    setImageAlpha(76);
-                    break;
-                case 1:
-                case 3:
-                    Log.d("ACTION_UP", "ACTION_UP");
-                    setImageAlpha(dWX);
-                    break;
-            }
-        }
-        return super.onTouchEvent(motionEvent);
+    public SelectorImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 
-    public static View.OnTouchListener getStaticOnTouchListener() {
-        return new View.OnTouchListener() { // from class: com.baidu.swan.bdprivate.widget.SelectorImageView.1
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()) {
-                    case 0:
-                        Log.d("ACTION_DOWN", "ACTION_DOWN");
-                        if (view instanceof ImageView) {
-                            ((ImageView) view).setImageAlpha(76);
-                            return false;
-                        }
-                        return false;
-                    case 1:
-                    case 3:
-                        Log.d("ACTION_UP", "ACTION_UP");
-                        if (view instanceof ImageView) {
-                            ((ImageView) view).setImageAlpha(255);
-                            return false;
-                        }
-                        return false;
-                    case 2:
-                    default:
-                        return false;
-                }
-            }
-        };
+    public SelectorImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 }

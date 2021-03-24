@@ -12,17 +12,21 @@ import com.kwad.sdk.contentalliance.refreshview.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SlidePlayViewPager extends SlidePlayTouchViewPager {
-    private KsFragment g;
-    private Presenter h;
-    private d i;
-    private a j;
-    private i k;
-    private com.kwad.sdk.contentalliance.detail.b.b l;
-    private h m;
-    private f n;
-    private int o;
+
+    /* renamed from: g  reason: collision with root package name */
+    public KsFragment f32821g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Presenter f32822h;
+    public d i;
+    public a j;
+    public i k;
+    public com.kwad.sdk.contentalliance.detail.b.b l;
+    public h m;
+    public f n;
+    public int o;
 
     public SlidePlayViewPager(Context context) {
         this(context, null);
@@ -34,63 +38,63 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     private void t() {
-        this.i = new d();
-        this.i.f5843a = this.k;
-        this.i.b = this.g;
-        this.i.c = this;
-        this.i.d = this.d;
+        d dVar = new d();
+        this.i = dVar;
+        dVar.f32849a = this.k;
+        dVar.f32850b = this.f32821g;
+        dVar.f32851c = this;
+        dVar.f32852d = this.f32817d;
     }
 
     private void u() {
-        this.h = new Presenter();
-        this.h.a((Presenter) new com.kwad.sdk.contentalliance.home.viewpager.a.b());
-        this.h.a((Presenter) new com.kwad.sdk.contentalliance.home.viewpager.a.a());
-        this.h.a((View) this);
+        Presenter presenter = new Presenter();
+        this.f32822h = presenter;
+        presenter.a((Presenter) new com.kwad.sdk.contentalliance.home.viewpager.a.b());
+        this.f32822h.a((Presenter) new com.kwad.sdk.contentalliance.home.viewpager.a.a());
+        this.f32822h.a((View) this);
     }
 
     @Override // com.kwad.sdk.contentalliance.b.b
     public final void a(int i, boolean z) {
-        if (this.j != null) {
-            super.a(this.j.c(i), z);
+        a aVar = this.j;
+        if (aVar != null) {
+            super.a(aVar.c(i), z);
         }
     }
 
     public void a(@NonNull f fVar, @NonNull e eVar) {
         this.n = fVar;
-        this.g = fVar.f5822a;
-        this.d = eVar;
-        this.k = fVar.b;
-        this.l = fVar.d;
-        this.m = fVar.f;
+        this.f32821g = fVar.f32769a;
+        this.f32817d = eVar;
+        this.k = fVar.f32770b;
+        this.l = fVar.f32772d;
+        this.m = fVar.f32774f;
         this.o = 0;
         b();
-        this.f5832a = fVar.k;
-        this.b = true;
-        this.j = new b(this.g.getChildFragmentManager());
-        this.j.a(this.l);
+        this.f32814a = fVar.k;
+        ((SlidePlayTouchViewPager) this).f32815b = true;
+        b bVar = new b(this.f32821g.getChildFragmentManager());
+        this.j = bVar;
+        bVar.a(this.l);
         this.j.a(this.m);
         this.j.a(this);
         u();
         t();
-        this.h.a(this.i);
+        this.f32822h.a(this.i);
         setAdapter(this.j);
         setCurrentItem(this.n.j);
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        int b = this.k.b(adTemplate);
-        if (b > -1) {
-            a(b, false);
+        int b2 = this.k.b(adTemplate);
+        if (b2 > -1) {
+            a(b2, false);
         }
     }
 
     public void a(@NonNull AdTemplate adTemplate, int i) {
         this.o = i;
-        if (this.o == 1) {
-            this.f5832a = false;
-        } else {
-            this.f5832a = this.n.k;
-        }
+        this.f32814a = i == 1 ? false : this.n.k;
         this.j.a(this.k.d(), adTemplate, i, this.k.a(adTemplate), false);
     }
 
@@ -107,16 +111,18 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     public void b(@NonNull List<AdTemplate> list) {
-        if (this.j != null) {
-            this.j.a(false);
+        a aVar = this.j;
+        if (aVar != null) {
+            aVar.a(false);
         }
-        if (this.g.getHost() == null) {
+        if (this.f32821g.getHost() == null) {
             com.kwad.sdk.core.d.a.c("SlidePlayViewPager", "mFragment mHost is null");
             return;
         }
         b();
-        this.j = new b(this.g.getChildFragmentManager());
-        this.j.a(this.l);
+        b bVar = new b(this.f32821g.getChildFragmentManager());
+        this.j = bVar;
+        bVar.a(this.l);
         this.j.a(this.m);
         this.j.a(this);
         setAdapter(this.j);
@@ -125,7 +131,7 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     public void g() {
-        this.h.j();
+        this.f32822h.j();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -135,25 +141,29 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     public List<AdTemplate> getData() {
-        if (this.j != null) {
-            return this.j.d();
+        a aVar = this.j;
+        if (aVar != null) {
+            return aVar.d();
         }
         return null;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.viewpager.SlidePlayTouchViewPager
-    protected int getFirstValidItemPosition() {
-        return this.j != null ? this.j.b() : super.getFirstValidItemPosition();
+    public int getFirstValidItemPosition() {
+        a aVar = this.j;
+        return aVar != null ? aVar.b() : super.getFirstValidItemPosition();
     }
 
     @Override // com.kwad.sdk.contentalliance.home.viewpager.SlidePlayTouchViewPager
-    protected int getLastValidItemPosition() {
-        return this.j != null ? this.j.c() : super.getLastValidItemPosition();
+    public int getLastValidItemPosition() {
+        a aVar = this.j;
+        return aVar != null ? aVar.c() : super.getLastValidItemPosition();
     }
 
     public int getRealPosition() {
-        if (this.j != null) {
-            return this.j.a(getCurrentItem());
+        a aVar = this.j;
+        if (aVar != null) {
+            return aVar.a(getCurrentItem());
         }
         return 0;
     }
@@ -163,38 +173,41 @@ public class SlidePlayViewPager extends SlidePlayTouchViewPager {
     }
 
     public void h() {
-        this.f5832a = false;
+        this.f32814a = false;
     }
 
     public void i() {
-        this.f5832a = this.n.k;
+        this.f32814a = this.n.k;
     }
 
     public boolean j() {
-        return this.j == null || this.j.d().size() == 0;
+        a aVar = this.j;
+        return aVar == null || aVar.d().size() == 0;
     }
 
     public boolean k() {
-        int realPosition = this.i.c.getRealPosition();
-        return realPosition > -1 && realPosition < this.j.a() + (-1);
+        int realPosition = this.i.f32851c.getRealPosition();
+        return realPosition > -1 && realPosition < this.j.a() - 1;
     }
 
     @Override // com.kwad.sdk.contentalliance.b.b, android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
     }
 
     @Override // com.kwad.sdk.contentalliance.b.b
-    protected final void setCurrentItem(int i) {
-        if (this.j != null) {
-            super.setCurrentItem(this.j.c(i));
+    public final void setCurrentItem(int i) {
+        a aVar = this.j;
+        if (aVar != null) {
+            super.setCurrentItem(aVar.c(i));
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.b.b
     public void setInitStartPosition(int i) {
-        if (this.j != null) {
-            super.setInitStartPosition(this.j.c(i));
+        a aVar = this.j;
+        if (aVar != null) {
+            super.setInitStartPosition(aVar.c(i));
         }
         super.setInitStartPosition(i);
     }

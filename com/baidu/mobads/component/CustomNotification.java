@@ -10,9 +10,20 @@ import android.text.TextUtils;
 import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
 import com.baidu.mobads.proxy.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CustomNotification {
-    private NotificationCompat.Style mStyle = new NotificationCompat.DecoratedCustomViewStyle();
+    public NotificationCompat.Style mStyle = new NotificationCompat.DecoratedCustomViewStyle();
+
+    private void setRemoteViewText(RemoteViews remoteViews, int i, String str) {
+        if (remoteViews != null) {
+            if (!TextUtils.isEmpty(str)) {
+                remoteViews.setTextViewText(i, str);
+                remoteViews.setViewVisibility(i, 0);
+                return;
+            }
+            remoteViews.setViewVisibility(i, 8);
+        }
+    }
 
     @TargetApi(16)
     public Notification getCustomNotification(Context context, String str, String str2, Bitmap bitmap, String str3, String str4, String str5, boolean z, int i, int i2, String str6, PendingIntent pendingIntent) {
@@ -25,7 +36,7 @@ public class CustomNotification {
             }
             try {
                 builder = new NotificationCompat.Builder(context, str);
-            } catch (NoSuchMethodError e) {
+            } catch (NoSuchMethodError unused) {
                 builder = new NotificationCompat.Builder(context);
             }
         }
@@ -43,25 +54,14 @@ public class CustomNotification {
             setRemoteViewText(remoteViews, R.id.content_text, str4);
             setRemoteViewText(remoteViews, R.id.content_status, str5);
         }
-        if (i < 0 || i > 100) {
-            remoteViews.setViewVisibility(R.id.progress_bar, 8);
-        } else {
+        if (i >= 0 && i <= 100) {
             remoteViews.setProgressBar(R.id.progress_bar, 100, i, false);
             remoteViews.setViewVisibility(R.id.progress_bar, 0);
+        } else {
+            remoteViews.setViewVisibility(R.id.progress_bar, 8);
         }
         remoteViews.setTextViewText(R.id.btn_action, str6);
         remoteViews.setOnClickPendingIntent(R.id.btn_action, pendingIntent);
         return builder.setSmallIcon(i2).setOngoing(false).setTicker(str2).setAutoCancel(z).setWhen(System.currentTimeMillis()).setCustomContentView(remoteViews).build();
-    }
-
-    private void setRemoteViewText(RemoteViews remoteViews, int i, String str) {
-        if (remoteViews != null) {
-            if (!TextUtils.isEmpty(str)) {
-                remoteViews.setTextViewText(i, str);
-                remoteViews.setViewVisibility(i, 0);
-                return;
-            }
-            remoteViews.setViewVisibility(i, 8);
-        }
     }
 }

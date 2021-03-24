@@ -1,17 +1,17 @@
 package org.webrtc;
 
 import org.webrtc.VideoDecoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class VideoDecoderFallback extends WrappedNativeVideoDecoder {
-    private final VideoDecoder fallback;
-    private final VideoDecoder primary;
+    public final VideoDecoder fallback;
+    public final VideoDecoder primary;
 
     public VideoDecoderFallback(VideoDecoder videoDecoder, VideoDecoder videoDecoder2) {
         this.fallback = videoDecoder;
         this.primary = videoDecoder2;
     }
 
-    private static native long nativeCreateDecoder(VideoDecoder videoDecoder, VideoDecoder videoDecoder2);
+    public static native long nativeCreateDecoder(VideoDecoder videoDecoder, VideoDecoder videoDecoder2);
 
     @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder
     public long createNativeVideoDecoder() {

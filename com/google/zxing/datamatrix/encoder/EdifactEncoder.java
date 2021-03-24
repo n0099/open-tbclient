@@ -1,10 +1,74 @@
 package com.google.zxing.datamatrix.encoder;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class EdifactEncoder implements Encoder {
-    @Override // com.google.zxing.datamatrix.encoder.Encoder
-    public int getEncodingMode() {
-        return 4;
+    public static void encodeChar(char c2, StringBuilder sb) {
+        if (c2 >= ' ' && c2 <= '?') {
+            sb.append(c2);
+        } else if (c2 >= '@' && c2 <= '^') {
+            sb.append((char) (c2 - '@'));
+        } else {
+            HighLevelEncoder.illegalCharacter(c2);
+        }
+    }
+
+    public static String encodeToCodewords(CharSequence charSequence, int i) {
+        int length = charSequence.length() - i;
+        if (length != 0) {
+            int charAt = (charSequence.charAt(i) << 18) + ((length >= 2 ? charSequence.charAt(i + 1) : (char) 0) << '\f') + ((length >= 3 ? charSequence.charAt(i + 2) : (char) 0) << 6) + (length >= 4 ? charSequence.charAt(i + 3) : (char) 0);
+            char c2 = (char) ((charAt >> 8) & 255);
+            char c3 = (char) (charAt & 255);
+            StringBuilder sb = new StringBuilder(3);
+            sb.append((char) ((charAt >> 16) & 255));
+            if (length >= 2) {
+                sb.append(c2);
+            }
+            if (length >= 3) {
+                sb.append(c3);
+            }
+            return sb.toString();
+        }
+        throw new IllegalStateException("StringBuilder must not be empty");
+    }
+
+    public static void handleEOD(EncoderContext encoderContext, CharSequence charSequence) {
+        try {
+            int length = charSequence.length();
+            if (length == 0) {
+                return;
+            }
+            boolean z = true;
+            if (length == 1) {
+                encoderContext.updateSymbolInfo();
+                int dataCapacity = encoderContext.getSymbolInfo().getDataCapacity() - encoderContext.getCodewordCount();
+                if (encoderContext.getRemainingCharacters() == 0 && dataCapacity <= 2) {
+                    return;
+                }
+            }
+            if (length <= 4) {
+                int i = length - 1;
+                String encodeToCodewords = encodeToCodewords(charSequence, 0);
+                if (!(!encoderContext.hasMoreCharacters()) || i > 2) {
+                    z = false;
+                }
+                if (i <= 2) {
+                    encoderContext.updateSymbolInfo(encoderContext.getCodewordCount() + i);
+                    if (encoderContext.getSymbolInfo().getDataCapacity() - encoderContext.getCodewordCount() >= 3) {
+                        encoderContext.updateSymbolInfo(encoderContext.getCodewordCount() + encodeToCodewords.length());
+                        z = false;
+                    }
+                }
+                if (z) {
+                    encoderContext.resetSymbolInfo();
+                    encoderContext.pos -= i;
+                } else {
+                    encoderContext.writeCodewords(encodeToCodewords);
+                }
+                return;
+            }
+            throw new IllegalStateException("Count must not exceed 4");
+        } finally {
+            encoderContext.signalEncoderChange(0);
+        }
     }
 
     @Override // com.google.zxing.datamatrix.encoder.Encoder
@@ -29,75 +93,8 @@ public final class EdifactEncoder implements Encoder {
         handleEOD(encoderContext, sb);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [98=4] */
-    private static void handleEOD(EncoderContext encoderContext, CharSequence charSequence) {
-        boolean z = true;
-        try {
-            int length = charSequence.length();
-            if (length == 0) {
-                return;
-            }
-            if (length == 1) {
-                encoderContext.updateSymbolInfo();
-                int dataCapacity = encoderContext.getSymbolInfo().getDataCapacity() - encoderContext.getCodewordCount();
-                if (encoderContext.getRemainingCharacters() == 0 && dataCapacity <= 2) {
-                    return;
-                }
-            }
-            if (length > 4) {
-                throw new IllegalStateException("Count must not exceed 4");
-            }
-            int i = length - 1;
-            String encodeToCodewords = encodeToCodewords(charSequence, 0);
-            if (!(!encoderContext.hasMoreCharacters()) || i > 2) {
-                z = false;
-            }
-            if (i <= 2) {
-                encoderContext.updateSymbolInfo(encoderContext.getCodewordCount() + i);
-                if (encoderContext.getSymbolInfo().getDataCapacity() - encoderContext.getCodewordCount() >= 3) {
-                    encoderContext.updateSymbolInfo(encoderContext.getCodewordCount() + encodeToCodewords.length());
-                    z = false;
-                }
-            }
-            if (z) {
-                encoderContext.resetSymbolInfo();
-                encoderContext.pos -= i;
-            } else {
-                encoderContext.writeCodewords(encodeToCodewords);
-            }
-        } finally {
-            encoderContext.signalEncoderChange(0);
-        }
-    }
-
-    private static void encodeChar(char c, StringBuilder sb) {
-        if (c >= ' ' && c <= '?') {
-            sb.append(c);
-        } else if (c >= '@' && c <= '^') {
-            sb.append((char) (c - '@'));
-        } else {
-            HighLevelEncoder.illegalCharacter(c);
-        }
-    }
-
-    private static String encodeToCodewords(CharSequence charSequence, int i) {
-        int length = charSequence.length() - i;
-        if (length == 0) {
-            throw new IllegalStateException("StringBuilder must not be empty");
-        }
-        char charAt = charSequence.charAt(i);
-        char charAt2 = length >= 2 ? charSequence.charAt(i + 1) : (char) 0;
-        int charAt3 = (length >= 4 ? charSequence.charAt(i + 3) : (char) 0) + ((length >= 3 ? charSequence.charAt(i + 2) : (char) 0) << 6) + (charAt2 << '\f') + (charAt << 18);
-        char c = (char) ((charAt3 >> 8) & 255);
-        char c2 = (char) (charAt3 & 255);
-        StringBuilder sb = new StringBuilder(3);
-        sb.append((char) ((charAt3 >> 16) & 255));
-        if (length >= 2) {
-            sb.append(c);
-        }
-        if (length >= 3) {
-            sb.append(c2);
-        }
-        return sb.toString();
+    @Override // com.google.zxing.datamatrix.encoder.Encoder
+    public int getEncodingMode() {
+        return 4;
     }
 }

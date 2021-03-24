@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop.forumpackage.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ForumEmotionData extends OrmObject {
     public String activity_url;
     public List<EmotionCenterData.BannerData> banner;

@@ -7,7 +7,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.kwai.video.player.misc.IMediaFormat;
-/* loaded from: classes5.dex */
+import com.sina.weibo.sdk.utils.FileUtils;
+/* loaded from: classes2.dex */
 public class VideoInfo implements Parcelable {
     public static final Parcelable.Creator<VideoInfo> CREATOR = new Parcelable.Creator<VideoInfo>() { // from class: com.baidu.fsg.face.liveness.video.VideoInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,38 +27,40 @@ public class VideoInfo implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1769a;
-    private int b;
-    private int c;
-    private int d;
-    private long e;
-    private int f;
+    public String f5986a;
 
-    public String a() {
-        return this.f1769a;
+    /* renamed from: b  reason: collision with root package name */
+    public int f5987b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f5988c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f5989d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f5990e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f5991f;
+
+    public VideoInfo() {
     }
 
-    public void a(String str) {
-        this.f1769a = str;
+    public String a() {
+        return this.f5986a;
     }
 
     public int b() {
-        return this.b;
-    }
-
-    public void a(int i) {
-        this.b = i;
+        return this.f5987b;
     }
 
     public int c() {
-        return this.c;
+        return this.f5988c;
     }
 
-    public void b(int i) {
-        this.c = i;
-    }
-
-    public VideoInfo() {
+    public long d() {
+        return this.f5990e;
     }
 
     @Override // android.os.Parcelable
@@ -65,66 +68,81 @@ public class VideoInfo implements Parcelable {
         return 0;
     }
 
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f1769a);
-        parcel.writeInt(this.b);
-        parcel.writeInt(this.c);
-        parcel.writeLong(this.e);
-        parcel.writeFloat(this.d);
-        parcel.writeInt(this.f);
-    }
-
-    protected VideoInfo(Parcel parcel) {
-        this.f1769a = parcel.readString();
-        this.b = parcel.readInt();
-        this.c = parcel.readInt();
-        this.e = parcel.readLong();
-        this.d = parcel.readInt();
-        this.f = parcel.readInt();
-    }
-
-    public long d() {
-        return this.e;
-    }
-
-    public void a(long j) {
-        this.e = j;
-    }
-
     public int e() {
-        return this.d;
-    }
-
-    public void c(int i) {
-        this.d = i;
+        return this.f5989d;
     }
 
     public int f() {
-        return this.f;
-    }
-
-    public void d(int i) {
-        this.f = i;
+        return this.f5991f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: g */
     public VideoInfo clone() {
         VideoInfo videoInfo = new VideoInfo();
-        videoInfo.f = this.f;
-        videoInfo.d = this.d;
-        videoInfo.e = this.e;
-        videoInfo.c = this.c;
-        videoInfo.b = this.b;
-        videoInfo.f1769a = this.f1769a;
+        videoInfo.f5991f = this.f5991f;
+        videoInfo.f5989d = this.f5989d;
+        videoInfo.f5990e = this.f5990e;
+        videoInfo.f5988c = this.f5988c;
+        videoInfo.f5987b = this.f5987b;
+        videoInfo.f5986a = this.f5986a;
         return videoInfo;
     }
 
+    public String toString() {
+        return "VideoInfo{videoPath='" + this.f5986a + "', videoWidth=" + this.f5987b + ", videoHeight=" + this.f5988c + ", frameRate=" + this.f5989d + ", duration=" + this.f5990e + ", videoRotation=" + this.f5991f + '}';
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.f5986a);
+        parcel.writeInt(this.f5987b);
+        parcel.writeInt(this.f5988c);
+        parcel.writeLong(this.f5990e);
+        parcel.writeFloat(this.f5989d);
+        parcel.writeInt(this.f5991f);
+    }
+
+    public VideoInfo(Parcel parcel) {
+        this.f5986a = parcel.readString();
+        this.f5987b = parcel.readInt();
+        this.f5988c = parcel.readInt();
+        this.f5990e = parcel.readLong();
+        this.f5989d = parcel.readInt();
+        this.f5991f = parcel.readInt();
+    }
+
+    public void a(String str) {
+        this.f5986a = str;
+    }
+
+    public void b(int i) {
+        this.f5988c = i;
+    }
+
+    public void c(int i) {
+        this.f5989d = i;
+    }
+
+    public void d(int i) {
+        this.f5991f = i;
+    }
+
+    public void a(int i) {
+        this.f5987b = i;
+    }
+
+    public void a(long j) {
+        this.f5990e = j;
+    }
+
     public static void a(String str, VideoInfo videoInfo) {
-        if (!TextUtils.isEmpty(str) && videoInfo != null) {
-            videoInfo.a(str);
-            MediaExtractor mediaExtractor = new MediaExtractor();
+        if (TextUtils.isEmpty(str) || videoInfo == null) {
+            return;
+        }
+        videoInfo.a(str);
+        MediaExtractor mediaExtractor = new MediaExtractor();
+        try {
             try {
                 mediaExtractor.setDataSource(str);
                 MediaFormat trackFormat = mediaExtractor.getTrackFormat(a(mediaExtractor, false));
@@ -133,11 +151,11 @@ public class VideoInfo implements Parcelable {
                 videoInfo.a(trackFormat.getInteger("width"));
                 videoInfo.b(trackFormat.getInteger("height"));
                 videoInfo.d(trackFormat.containsKey("rotation-degrees") ? trackFormat.getInteger("rotation-degrees") : 0);
-            } catch (Exception e) {
-                LogUtil.e(e.toString());
-            } finally {
-                mediaExtractor.release();
+            } catch (Exception e2) {
+                LogUtil.e(e2.toString());
             }
+        } finally {
+            mediaExtractor.release();
         }
     }
 
@@ -149,14 +167,10 @@ public class VideoInfo implements Parcelable {
                 if (string.startsWith("audio/")) {
                     return i;
                 }
-            } else if (string.startsWith("video/")) {
+            } else if (string.startsWith(FileUtils.VIDEO_FILE_START)) {
                 return i;
             }
         }
         return -5;
-    }
-
-    public String toString() {
-        return "VideoInfo{videoPath='" + this.f1769a + "', videoWidth=" + this.b + ", videoHeight=" + this.c + ", frameRate=" + this.d + ", duration=" + this.e + ", videoRotation=" + this.f + '}';
     }
 }

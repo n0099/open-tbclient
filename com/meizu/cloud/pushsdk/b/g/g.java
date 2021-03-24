@@ -1,5 +1,6 @@
 package com.meizu.cloud.pushsdk.b.g;
 
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,121 +8,121 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Logger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Logger f7365a = Logger.getLogger(g.class.getName());
-
-    private g() {
-    }
+    public static final Logger f37591a = Logger.getLogger(g.class.getName());
 
     public static c a(l lVar) {
-        if (lVar == null) {
-            throw new IllegalArgumentException("sink == null");
+        if (lVar != null) {
+            return new h(lVar);
         }
-        return new h(lVar);
+        throw new IllegalArgumentException("sink == null");
     }
 
     public static d a(m mVar) {
-        if (mVar == null) {
-            throw new IllegalArgumentException("source == null");
+        if (mVar != null) {
+            return new i(mVar);
         }
-        return new i(mVar);
+        throw new IllegalArgumentException("source == null");
     }
 
     public static l a(OutputStream outputStream) {
         return a(outputStream, new n());
     }
 
-    private static l a(final OutputStream outputStream, final n nVar) {
-        if (outputStream == null) {
-            throw new IllegalArgumentException("out == null");
-        }
-        if (nVar == null) {
+    public static l a(final OutputStream outputStream, final n nVar) {
+        if (outputStream != null) {
+            if (nVar != null) {
+                return new l() { // from class: com.meizu.cloud.pushsdk.b.g.g.1
+                    @Override // com.meizu.cloud.pushsdk.b.g.l
+                    public void a(b bVar, long j) throws IOException {
+                        o.a(bVar.f37583b, 0L, j);
+                        while (j > 0) {
+                            n.this.a();
+                            j jVar = bVar.f37582a;
+                            int min = (int) Math.min(j, jVar.f37605c - jVar.f37604b);
+                            outputStream.write(jVar.f37603a, jVar.f37604b, min);
+                            int i = jVar.f37604b + min;
+                            jVar.f37604b = i;
+                            long j2 = min;
+                            j -= j2;
+                            bVar.f37583b -= j2;
+                            if (i == jVar.f37605c) {
+                                bVar.f37582a = jVar.a();
+                                k.a(jVar);
+                            }
+                        }
+                    }
+
+                    @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m
+                    public void close() throws IOException {
+                        outputStream.close();
+                    }
+
+                    @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Flushable
+                    public void flush() throws IOException {
+                        outputStream.flush();
+                    }
+
+                    public String toString() {
+                        return "sink(" + outputStream + SmallTailInfo.EMOTION_SUFFIX;
+                    }
+                };
+            }
             throw new IllegalArgumentException("timeout == null");
         }
-        return new l() { // from class: com.meizu.cloud.pushsdk.b.g.g.1
-            @Override // com.meizu.cloud.pushsdk.b.g.l
-            public void a(b bVar, long j) throws IOException {
-                o.a(bVar.b, 0L, j);
-                while (j > 0) {
-                    n.this.a();
-                    j jVar = bVar.f7361a;
-                    int min = (int) Math.min(j, jVar.c - jVar.b);
-                    outputStream.write(jVar.f7371a, jVar.b, min);
-                    jVar.b += min;
-                    j -= min;
-                    bVar.b -= min;
-                    if (jVar.b == jVar.c) {
-                        bVar.f7361a = jVar.a();
-                        k.a(jVar);
-                    }
-                }
-            }
-
-            @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m
-            public void close() throws IOException {
-                outputStream.close();
-            }
-
-            @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Flushable
-            public void flush() throws IOException {
-                outputStream.flush();
-            }
-
-            public String toString() {
-                return "sink(" + outputStream + ")";
-            }
-        };
+        throw new IllegalArgumentException("out == null");
     }
 
     public static m a(File file) throws FileNotFoundException {
-        if (file == null) {
-            throw new IllegalArgumentException("file == null");
+        if (file != null) {
+            return a(new FileInputStream(file));
         }
-        return a(new FileInputStream(file));
+        throw new IllegalArgumentException("file == null");
     }
 
     public static m a(InputStream inputStream) {
         return a(inputStream, new n());
     }
 
-    private static m a(final InputStream inputStream, final n nVar) {
-        if (inputStream == null) {
-            throw new IllegalArgumentException("in == null");
-        }
-        if (nVar == null) {
+    public static m a(final InputStream inputStream, final n nVar) {
+        if (inputStream != null) {
+            if (nVar != null) {
+                return new m() { // from class: com.meizu.cloud.pushsdk.b.g.g.2
+                    @Override // com.meizu.cloud.pushsdk.b.g.m
+                    public long b(b bVar, long j) throws IOException {
+                        if (j < 0) {
+                            throw new IllegalArgumentException("byteCount < 0: " + j);
+                        } else if (j == 0) {
+                            return 0L;
+                        } else {
+                            n.this.a();
+                            j c2 = bVar.c(1);
+                            int read = inputStream.read(c2.f37603a, c2.f37605c, (int) Math.min(j, 2048 - c2.f37605c));
+                            if (read == -1) {
+                                return -1L;
+                            }
+                            c2.f37605c += read;
+                            long j2 = read;
+                            bVar.f37583b += j2;
+                            return j2;
+                        }
+                    }
+
+                    @Override // com.meizu.cloud.pushsdk.b.g.m, java.lang.AutoCloseable
+                    public void close() throws IOException {
+                        inputStream.close();
+                    }
+
+                    public String toString() {
+                        return "source(" + inputStream + SmallTailInfo.EMOTION_SUFFIX;
+                    }
+                };
+            }
             throw new IllegalArgumentException("timeout == null");
         }
-        return new m() { // from class: com.meizu.cloud.pushsdk.b.g.g.2
-            @Override // com.meizu.cloud.pushsdk.b.g.m
-            public long b(b bVar, long j) throws IOException {
-                if (j < 0) {
-                    throw new IllegalArgumentException("byteCount < 0: " + j);
-                }
-                if (j == 0) {
-                    return 0L;
-                }
-                n.this.a();
-                j c = bVar.c(1);
-                int read = inputStream.read(c.f7371a, c.c, (int) Math.min(j, 2048 - c.c));
-                if (read == -1) {
-                    return -1L;
-                }
-                c.c += read;
-                bVar.b += read;
-                return read;
-            }
-
-            @Override // com.meizu.cloud.pushsdk.b.g.m, java.lang.AutoCloseable
-            public void close() throws IOException {
-                inputStream.close();
-            }
-
-            public String toString() {
-                return "source(" + inputStream + ")";
-            }
-        };
+        throw new IllegalArgumentException("in == null");
     }
 }

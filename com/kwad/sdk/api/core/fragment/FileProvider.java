@@ -17,8 +17,8 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.baidu.mapsdkplatform.comapi.map.r;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
-import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -26,27 +26,26 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FileProvider extends ContentProvider {
-    private static final String ATTR_NAME = "name";
-    private static final String ATTR_PATH = "path";
-    private static final String META_DATA_FILE_PROVIDER_PATHS = "android.support.FILE_PROVIDER_PATHS";
-    private static final String TAG_CACHE_PATH = "cache-path";
-    private static final String TAG_EXTERNAL = "external-path";
-    private static final String TAG_EXTERNAL_CACHE = "external-cache-path";
-    private static final String TAG_EXTERNAL_FILES = "external-files-path";
-    private static final String TAG_FILES_PATH = "files-path";
-    private static final String TAG_ROOT_PATH = "root-path";
-    private PathStrategy mStrategy;
-    private static final String[] COLUMNS = {"_display_name", "_size"};
-    private static final File DEVICE_ROOT = new File("/");
+    public static final String ATTR_NAME = "name";
+    public static final String ATTR_PATH = "path";
+    public static final String META_DATA_FILE_PROVIDER_PATHS = "android.support.FILE_PROVIDER_PATHS";
+    public static final String TAG_CACHE_PATH = "cache-path";
+    public static final String TAG_EXTERNAL = "external-path";
+    public static final String TAG_EXTERNAL_CACHE = "external-cache-path";
+    public static final String TAG_EXTERNAL_FILES = "external-files-path";
+    public static final String TAG_FILES_PATH = "files-path";
+    public static final String TAG_ROOT_PATH = "root-path";
+    public PathStrategy mStrategy;
+    public static final String[] COLUMNS = {"_display_name", "_size"};
+    public static final File DEVICE_ROOT = new File("/");
     @GuardedBy("sCache")
-    private static HashMap<String, PathStrategy> sCache = new HashMap<>();
+    public static HashMap<String, PathStrategy> sCache = new HashMap<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @KsAdSdkDynamicApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface PathStrategy {
         @KsAdSdkDynamicApi
         @Keep
@@ -57,11 +56,10 @@ public class FileProvider extends ContentProvider {
         Uri getUriForFile(File file);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class SimplePathStrategy implements PathStrategy {
-        private final String mAuthority;
-        private final HashMap<String, File> mRoots = new HashMap<>();
+        public final String mAuthority;
+        public final HashMap<String, File> mRoots = new HashMap<>();
 
         public SimplePathStrategy(String str) {
             this.mAuthority = str;
@@ -73,8 +71,8 @@ public class FileProvider extends ContentProvider {
             }
             try {
                 this.mRoots.put(str, file.getCanonicalFile());
-            } catch (IOException e) {
-                throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e);
+            } catch (IOException e2) {
+                throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
             }
         }
 
@@ -97,7 +95,7 @@ public class FileProvider extends ContentProvider {
                     return canonicalFile;
                 }
                 throw new SecurityException("Resolved path jumped beyond configured root");
-            } catch (IOException e) {
+            } catch (IOException unused) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file2);
             }
         }
@@ -111,60 +109,60 @@ public class FileProvider extends ContentProvider {
                 Map.Entry<String, File> entry = null;
                 for (Map.Entry<String, File> entry2 : this.mRoots.entrySet()) {
                     String path = entry2.getValue().getPath();
-                    if (!canonicalPath.startsWith(path) || (entry != null && path.length() <= entry.getValue().getPath().length())) {
-                        entry2 = entry;
+                    if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
+                        entry = entry2;
                     }
-                    entry = entry2;
                 }
                 if (entry == null) {
                     throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
                 }
                 String path2 = entry.getValue().getPath();
-                return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(path2.endsWith("/") ? canonicalPath.substring(path2.length()) : canonicalPath.substring(path2.length() + 1), "/")).build();
-            } catch (IOException e) {
+                boolean endsWith = path2.endsWith("/");
+                int length = path2.length();
+                if (!endsWith) {
+                    length++;
+                }
+                String substring = canonicalPath.substring(length);
+                return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+            } catch (IOException unused) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
             }
         }
     }
 
-    private static File buildPath(File file, String... strArr) {
-        int length = strArr.length;
-        int i = 0;
-        File file2 = file;
-        while (i < length) {
-            String str = strArr[i];
-            i++;
-            file2 = str != null ? new File(file2, str) : file2;
+    public static File buildPath(File file, String... strArr) {
+        for (String str : strArr) {
+            if (str != null) {
+                file = new File(file, str);
+            }
         }
-        return file2;
+        return file;
     }
 
-    private static Object[] copyOf(Object[] objArr, int i) {
+    public static Object[] copyOf(Object[] objArr, int i) {
         Object[] objArr2 = new Object[i];
         System.arraycopy(objArr, 0, objArr2, 0, i);
         return objArr2;
     }
 
-    private static String[] copyOf(String[] strArr, int i) {
+    public static String[] copyOf(String[] strArr, int i) {
         String[] strArr2 = new String[i];
         System.arraycopy(strArr, 0, strArr2, 0, i);
         return strArr2;
     }
 
-    private static PathStrategy getPathStrategy(Context context, String str) {
+    public static PathStrategy getPathStrategy(Context context, String str) {
         PathStrategy pathStrategy;
         synchronized (sCache) {
             pathStrategy = sCache.get(str);
             if (pathStrategy == null) {
                 try {
-                    try {
-                        pathStrategy = parsePathStrategy(context, str);
-                        sCache.put(str, pathStrategy);
-                    } catch (IOException e) {
-                        throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e);
-                    }
-                } catch (XmlPullParserException e2) {
+                    pathStrategy = parsePathStrategy(context, str);
+                    sCache.put(str, pathStrategy);
+                } catch (IOException e2) {
                     throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e2);
+                } catch (XmlPullParserException e3) {
+                    throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e3);
                 }
             }
         }
@@ -177,8 +175,8 @@ public class FileProvider extends ContentProvider {
         return getPathStrategy(context, str).getUriForFile(file);
     }
 
-    private static int modeToMode(String str) {
-        if ("r".equals(str)) {
+    public static int modeToMode(String str) {
+        if (r.f7663a.equals(str)) {
             return 268435456;
         }
         if ("w".equals(str) || "wt".equals(str)) {
@@ -187,7 +185,7 @@ public class FileProvider extends ContentProvider {
         if ("wa".equals(str)) {
             return 704643072;
         }
-        if (VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth.equals(str)) {
+        if ("rw".equals(str)) {
             return 939524096;
         }
         if ("rwt".equals(str)) {
@@ -196,10 +194,9 @@ public class FileProvider extends ContentProvider {
         throw new IllegalArgumentException("Invalid mode: " + str);
     }
 
-    private static PathStrategy parsePathStrategy(Context context, String str) {
-        File file;
+    public static PathStrategy parsePathStrategy(Context context, String str) {
         SimplePathStrategy simplePathStrategy = new SimplePathStrategy(str);
-        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), META_DATA_FILE_PROVIDER_PATHS);
+        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
         if (loadXmlMetaData == null) {
             throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
         }
@@ -210,30 +207,27 @@ public class FileProvider extends ContentProvider {
             }
             if (next == 2) {
                 String name = loadXmlMetaData.getName();
+                File file = null;
                 String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
                 String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
-                if (TAG_ROOT_PATH.equals(name)) {
+                if ("root-path".equals(name)) {
                     file = DEVICE_ROOT;
-                } else if (TAG_FILES_PATH.equals(name)) {
+                } else if ("files-path".equals(name)) {
                     file = context.getFilesDir();
                 } else if ("cache-path".equals(name)) {
                     file = context.getCacheDir();
-                } else if (TAG_EXTERNAL.equals(name)) {
+                } else if ("external-path".equals(name)) {
                     file = Environment.getExternalStorageDirectory();
-                } else if (TAG_EXTERNAL_FILES.equals(name)) {
+                } else if ("external-files-path".equals(name)) {
                     File[] externalFilesDirs = ContextCompat.getExternalFilesDirs(context, null);
                     if (externalFilesDirs.length > 0) {
                         file = externalFilesDirs[0];
                     }
-                    file = null;
-                } else {
-                    if (TAG_EXTERNAL_CACHE.equals(name)) {
-                        File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
-                        if (externalCacheDirs.length > 0) {
-                            file = externalCacheDirs[0];
-                        }
+                } else if ("external-cache-path".equals(name)) {
+                    File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
+                    if (externalCacheDirs.length > 0) {
+                        file = externalCacheDirs[0];
                     }
-                    file = null;
                 }
                 if (file != null) {
                     simplePathStrategy.addRoot(attributeValue, buildPath(file, attributeValue2));
@@ -271,9 +265,7 @@ public class FileProvider extends ContentProvider {
         int lastIndexOf = fileForUri.getName().lastIndexOf(46);
         if (lastIndexOf >= 0) {
             String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileForUri.getName().substring(lastIndexOf + 1));
-            if (mimeTypeFromExtension != null) {
-                return mimeTypeFromExtension;
-            }
+            return mimeTypeFromExtension != null ? mimeTypeFromExtension : "application/octet-stream";
         }
         return "application/octet-stream";
     }
@@ -310,27 +302,21 @@ public class FileProvider extends ContentProvider {
         }
         String[] strArr3 = new String[strArr.length];
         Object[] objArr = new Object[strArr.length];
-        int length = strArr.length;
         int i2 = 0;
-        int i3 = 0;
-        while (i2 < length) {
-            String str3 = strArr[i2];
+        for (String str3 : strArr) {
             if ("_display_name".equals(str3)) {
-                strArr3[i3] = "_display_name";
-                i = i3 + 1;
-                objArr[i3] = fileForUri.getName();
+                strArr3[i2] = "_display_name";
+                i = i2 + 1;
+                objArr[i2] = fileForUri.getName();
             } else if ("_size".equals(str3)) {
-                strArr3[i3] = "_size";
-                i = i3 + 1;
-                objArr[i3] = Long.valueOf(fileForUri.length());
-            } else {
-                i = i3;
+                strArr3[i2] = "_size";
+                i = i2 + 1;
+                objArr[i2] = Long.valueOf(fileForUri.length());
             }
-            i2++;
-            i3 = i;
+            i2 = i;
         }
-        String[] copyOf = copyOf(strArr3, i3);
-        Object[] copyOf2 = copyOf(objArr, i3);
+        String[] copyOf = copyOf(strArr3, i2);
+        Object[] copyOf2 = copyOf(objArr, i2);
         MatrixCursor matrixCursor = new MatrixCursor(copyOf, 1);
         matrixCursor.addRow(copyOf2);
         return matrixCursor;

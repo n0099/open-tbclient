@@ -1,27 +1,40 @@
 package com.baidu.crabsdk;
 
-import com.baidu.android.imsdk.internal.Constants;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class a {
-    public static OnAnrCrashListener P;
-    public static OnCrashExceedListener Q;
+    public static OnAnrCrashListener P = null;
+    public static OnCrashExceedListener Q = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1374a = "";
-    public static String b = "alpha";
-    public static String c = null;
-    public static String d = "UNSET";
-    public static int e = 10;
-    public static int f = 5;
-    public static int g = 10;
-    public static int h = 200;
+    public static String f4634a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f4635b = "alpha";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f4636c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f4637d = "UNSET";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static int f4638e = 10;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static int f4639f = 5;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static int f4640g = 10;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static int f4641h = 200;
     public static boolean i = true;
     public static int j = 50;
-    public static long k = Constants.SYNC_MSG_DELAY_TIME;
+    public static long k = 10800000;
     public static long l = 30000;
     public static boolean m = false;
     public static boolean n = false;
@@ -56,19 +69,31 @@ public final class a {
     public static String S = "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
 
     public static String a() {
-        return E ? O + "api_int/add_crab" : R;
+        if (E) {
+            return O + "api_int/add_crab";
+        }
+        return R;
     }
 
     public static String b() {
-        return E ? O + "api_anr/add_crab" : S;
+        if (E) {
+            return O + "api_anr/add_crab";
+        }
+        return S;
     }
 
     public static String c() {
-        return E ? O + "api/newsync2" : "http://yq01-crab-offline01.epc.baidu.com:8123/api/newsync2";
+        if (E) {
+            return O + "api/newsync2";
+        }
+        return "http://yq01-crab-offline01.epc.baidu.com:8123/api/newsync2";
     }
 
     public static String d() {
-        return E ? O + "api/add_crab" : "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
+        if (E) {
+            return O + "api/add_crab";
+        }
+        return "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
     }
 
     public static String e() {

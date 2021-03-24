@@ -1,48 +1,51 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.message.k;
-import com.baidu.webkit.internal.GlobalConstants;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public abstract class b {
+/* loaded from: classes2.dex */
+public class b extends d {
 
-    /* renamed from: a  reason: collision with root package name */
-    protected Context f1237a;
+    /* renamed from: com.baidu.android.pushservice.message.a.b$1  reason: invalid class name */
+    /* loaded from: classes2.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f3430a;
+
+        static {
+            int[] iArr = new int[com.baidu.android.pushservice.a.c.values().length];
+            f3430a = iArr;
+            try {
+                iArr[com.baidu.android.pushservice.a.c.PUSH_CLIENT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+        }
+    }
 
     public b(Context context) {
-        this.f1237a = context;
+        super(context);
     }
 
-    public abstract com.baidu.android.pushservice.message.g a(k kVar, byte[] bArr);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String a(String str) {
-        return ("com.baidu.searchbox_samsung".equals(str) && GlobalConstants.SEARCHBOX_PACKAGE_NAME.equals(this.f1237a.getPackageName())) ? GlobalConstants.SEARCHBOX_PACKAGE_NAME : str;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:14:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x0022  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean a(byte[] bArr) {
-        int i;
-        JSONObject jSONObject;
-        try {
-            jSONObject = new JSONObject(new String(bArr));
-        } catch (Exception e) {
-            new b.c(this.f1237a).a(Log.getStackTraceString(e)).a();
+    @Override // com.baidu.android.pushservice.message.a.d
+    public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
+        com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
+        int a2 = kVar.a();
+        int i = 12;
+        if (AnonymousClass1.f3430a[com.baidu.android.pushservice.a.d.a(this.f3432a, kVar.c()).a().ordinal()] != 1) {
+            i = 7;
+        } else {
+            if (kVar.g() == l.MSG_TYPE_CLEAR_MESSAGE.b()) {
+                if (kVar.a() != 0 && com.baidu.android.pushservice.c.c.a(this.f3432a, a2)) {
+                    com.baidu.android.pushservice.j.h.a(this.f3432a, a2);
+                    if (com.baidu.android.pushservice.c.c.b(this.f3432a, a2)) {
+                        i = 10;
+                    }
+                } else {
+                    com.baidu.android.pushservice.j.h.a(this.f3432a);
+                }
+            }
+            i = 1;
         }
-        if (!jSONObject.isNull("bccs_fb")) {
-            i = Integer.parseInt(jSONObject.getString("bccs_fb"));
-            return i != 1;
-        }
-        i = 0;
-        if (i != 1) {
-        }
+        gVar.a(i);
+        return gVar;
     }
 }

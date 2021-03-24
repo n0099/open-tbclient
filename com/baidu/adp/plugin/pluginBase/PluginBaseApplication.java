@@ -22,9 +22,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.adp.plugin.proxy.PackageMangerProxy;
+import d.b.b.h.j.g.d;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -35,140 +35,35 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class PluginBaseApplication extends Application {
-    private Application mApplicationProxy = null;
-    private String mPluginPacakgeName = null;
-    private PackageMangerProxy mProxyPm = null;
+    public Application mApplicationProxy = null;
+    public String mPluginPacakgeName = null;
+    public PackageMangerProxy mProxyPm = null;
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [82=6] */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0049  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void setApplicationProxy(Application application) {
-        Exception e;
-        InvocationTargetException e2;
-        NoSuchMethodException e3;
-        InstantiationException e4;
-        IllegalArgumentException e5;
-        IllegalAccessException e6;
-        ClassNotFoundException e7;
-        Context context;
-        this.mApplicationProxy = application;
-        if (application == null) {
-            return;
-        }
-        Context context2 = null;
-        try {
-            Class<?> cls = Class.forName("android.app.ContextImpl");
-            Constructor<?> constructor = cls.getConstructor(cls);
-            constructor.setAccessible(true);
-            context = (Context) constructor.newInstance(application.getBaseContext());
-            try {
-                Method declaredMethod = cls.getDeclaredMethod("setOuterContext", Context.class);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(context, this);
-            } catch (ClassNotFoundException e8) {
-                e7 = e8;
-                context2 = context;
-                BdLog.e(e7);
-                context = context2;
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field = application.getClass().getField("mLoadedApk");
-                field.set(this, field.get(application));
-            } catch (IllegalAccessException e9) {
-                e6 = e9;
-                context2 = context;
-                BdLog.e(e6);
-                context = context2;
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field2 = application.getClass().getField("mLoadedApk");
-                field2.set(this, field2.get(application));
-            } catch (IllegalArgumentException e10) {
-                e5 = e10;
-                context2 = context;
-                BdLog.e(e5);
-                context = context2;
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field22 = application.getClass().getField("mLoadedApk");
-                field22.set(this, field22.get(application));
-            } catch (InstantiationException e11) {
-                e4 = e11;
-                context2 = context;
-                BdLog.e(e4);
-                context = context2;
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field222 = application.getClass().getField("mLoadedApk");
-                field222.set(this, field222.get(application));
-            } catch (NoSuchMethodException e12) {
-                e3 = e12;
-                context2 = context;
-                BdLog.e(e3);
-                context = context2;
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field2222 = application.getClass().getField("mLoadedApk");
-                field2222.set(this, field2222.get(application));
-            } catch (InvocationTargetException e13) {
-                e2 = e13;
-                context2 = context;
-                BdLog.e(e2);
-                context = context2;
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field22222 = application.getClass().getField("mLoadedApk");
-                field22222.set(this, field22222.get(application));
-            } catch (Exception e14) {
-                e = e14;
-                context2 = context;
-                BdLog.e(e);
-                context = context2;
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field222222 = application.getClass().getField("mLoadedApk");
-                field222222.set(this, field222222.get(application));
-            }
-        } catch (ClassNotFoundException e15) {
-            e7 = e15;
-        } catch (IllegalAccessException e16) {
-            e6 = e16;
-        } catch (IllegalArgumentException e17) {
-            e5 = e17;
-        } catch (InstantiationException e18) {
-            e4 = e18;
-        } catch (NoSuchMethodException e19) {
-            e3 = e19;
-        } catch (InvocationTargetException e20) {
-            e2 = e20;
-        } catch (Exception e21) {
-            e = e21;
-        }
-        if (context == null) {
-            context = application.getBaseContext();
-        }
-        attachBaseContext(context);
-        try {
-            Field field2222222 = application.getClass().getField("mLoadedApk");
-            field2222222.set(this, field2222222.get(application));
-        } catch (IllegalAccessException e22) {
-        } catch (IllegalArgumentException e23) {
-        } catch (NoSuchFieldException e24) {
-        } catch (Exception e25) {
-        }
+    @Override // android.content.ContextWrapper, android.content.Context
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
+        return this.mApplicationProxy.bindService(intent, serviceConnection, i);
     }
 
-    public Application getApplicationProxy() {
-        return this.mApplicationProxy;
+    @Override // android.content.ContextWrapper, android.content.Context
+    public boolean deleteFile(String str) {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Application application = this.mApplicationProxy;
+            return application.deleteFile(pluginPackageName + str);
+        }
+        return this.mApplicationProxy.deleteFile(str);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public String[] fileList() {
+        try {
+            String[] list = getFilesDir().list();
+            return list != null ? list : new String[0];
+        } catch (Exception e2) {
+            BdLog.e(e2);
+            return null;
+        }
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -177,65 +72,12 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPluginPacakgeName);
-        return plugin2.getPluginResources() != null ? plugin2.getPluginResources() : this.mApplicationProxy.getResources();
+    public ApplicationInfo getApplicationInfo() {
+        return this.mApplicationProxy.getApplicationInfo();
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public PackageManager getPackageManager() {
-        PackageManager packageManager = this.mApplicationProxy.getPackageManager();
-        if (this.mProxyPm == null && packageManager != null) {
-            this.mProxyPm = new PackageMangerProxy(packageManager);
-            this.mProxyPm.setPackageName(getPackageName());
-            this.mProxyPm.setPluginPackageName(this.mPluginPacakgeName);
-        }
-        return this.mProxyPm;
-    }
-
-    public void setPluginPackageName(String str) {
-        this.mPluginPacakgeName = str;
-    }
-
-    public String getPluginPackageName() {
-        return this.mPluginPacakgeName;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public String getPackageName() {
-        return this.mApplicationProxy.getPackageName();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Object getSystemService(String str) {
-        return super.getSystemService(str);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i) {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.getSharedPreferences(str, i) : this.mApplicationProxy.getSharedPreferences(pluginPackageName + str, i);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        return this.mApplicationProxy.bindService(intent, serviceConnection, i);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
-        return super.registerReceiver(broadcastReceiver, intentFilter);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, String str, Handler handler) {
-        return super.registerReceiver(broadcastReceiver, intentFilter, str, handler);
-    }
-
-    @Override // android.content.ContextWrapper
-    public Context getBaseContext() {
-        return this.mApplicationProxy.getBaseContext();
+    public Application getApplicationProxy() {
+        return this.mApplicationProxy;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -243,110 +85,9 @@ public class PluginBaseApplication extends Application {
         return getResources().getAssets();
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public ContentResolver getContentResolver() {
-        return ContentResolverProxy.getContentResolver();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Looper getMainLooper() {
-        return this.mApplicationProxy.getMainLooper();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i) {
-        this.mApplicationProxy.setTheme(i);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public ClassLoader getClassLoader() {
-        return this.mApplicationProxy.getClassLoader();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public ApplicationInfo getApplicationInfo() {
-        return this.mApplicationProxy.getApplicationInfo();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public String getPackageResourcePath() {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
-        if (findPluginSetting != null && findPluginSetting.isThird) {
-            Plugin plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName);
-            if (plugin2 == null) {
-                return null;
-            }
-            return plugin2.getPluginApkFilePath();
-        }
-        return this.mApplicationProxy.getPackageResourcePath();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public String getPackageCodePath() {
-        return getPackageResourcePath();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public FileInputStream openFileInput(String str) throws FileNotFoundException {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.openFileInput(str) : this.mApplicationProxy.openFileInput(pluginPackageName + str);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.openFileOutput(str, i) : this.mApplicationProxy.openFileOutput(pluginPackageName + str, i);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public boolean deleteFile(String str) {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.deleteFile(str) : this.mApplicationProxy.deleteFile(pluginPackageName + str);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public File getFileStreamPath(String str) {
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.getFileStreamPath(str) : this.mApplicationProxy.getFileStreamPath(pluginPackageName + str);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public String[] fileList() {
-        try {
-            String[] list = getFilesDir().list();
-            return list != null ? list : new String[0];
-        } catch (Exception e) {
-            BdLog.e(e);
-            return null;
-        }
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public File getFilesDir() {
-        File filesDir = this.mApplicationProxy.getFilesDir();
-        if (filesDir == null) {
-            return null;
-        }
-        String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
-        if (findPluginSetting == null || !findPluginSetting.isThird) {
-            return filesDir;
-        }
-        try {
-            File file = new File(filesDir, pluginPackageName);
-            if (!file.isDirectory() || !file.exists()) {
-                file.mkdir();
-            }
-            return file;
-        } catch (Exception e) {
-            BdLog.e(e);
-            return null;
-        }
+    @Override // android.content.ContextWrapper
+    public Context getBaseContext() {
+        return this.mApplicationProxy.getBaseContext();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -356,8 +97,8 @@ public class PluginBaseApplication extends Application {
             return null;
         }
         try {
-            PluginSetting findPluginSetting = c.pX().findPluginSetting(getPluginPackageName());
-            if (findPluginSetting == null || !findPluginSetting.isThird) {
+            PluginSetting h2 = d.k().h(getPluginPackageName());
+            if (h2 == null || !h2.isThird) {
                 return cacheDir;
             }
             File file = new File(cacheDir.getPath() + File.separator + getPluginPackageName() + cacheDir.getName());
@@ -365,24 +106,323 @@ public class PluginBaseApplication extends Application {
                 file.mkdir();
             }
             return file;
-        } catch (Exception e) {
-            BdLog.e(e);
+        } catch (Exception e2) {
+            BdLog.e(e2);
             return null;
         }
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    public ClassLoader getClassLoader() {
+        return this.mApplicationProxy.getClassLoader();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public ContentResolver getContentResolver() {
+        return ContentResolverProxy.getContentResolver();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
     public File getDir(String str, int i) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.getDir(str, i) : this.mApplicationProxy.getDir(pluginPackageName + str, i);
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Application application = this.mApplicationProxy;
+            return application.getDir(pluginPackageName + str, i);
+        }
+        return this.mApplicationProxy.getDir(str, i);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getFileStreamPath(String str) {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Application application = this.mApplicationProxy;
+            return application.getFileStreamPath(pluginPackageName + str);
+        }
+        return this.mApplicationProxy.getFileStreamPath(str);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getFilesDir() {
+        File filesDir = this.mApplicationProxy.getFilesDir();
+        if (filesDir == null) {
+            return null;
+        }
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 == null || !h2.isThird) {
+            return filesDir;
+        }
+        try {
+            File file = new File(filesDir, pluginPackageName);
+            if (!file.isDirectory() || !file.exists()) {
+                file.mkdir();
+            }
+            return file;
+        } catch (Exception e2) {
+            BdLog.e(e2);
+            return null;
+        }
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Looper getMainLooper() {
+        return this.mApplicationProxy.getMainLooper();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public String getPackageCodePath() {
+        return getPackageResourcePath();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public PackageManager getPackageManager() {
+        PackageManager packageManager = this.mApplicationProxy.getPackageManager();
+        if (this.mProxyPm == null && packageManager != null) {
+            PackageMangerProxy packageMangerProxy = new PackageMangerProxy(packageManager);
+            this.mProxyPm = packageMangerProxy;
+            packageMangerProxy.setPackageName(getPackageName());
+            this.mProxyPm.setPluginPackageName(this.mPluginPacakgeName);
+        }
+        return this.mProxyPm;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public String getPackageName() {
+        return this.mApplicationProxy.getPackageName();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public String getPackageResourcePath() {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Plugin plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName);
+            if (plugin2 == null) {
+                return null;
+            }
+            return plugin2.getPluginApkFilePath();
+        }
+        return this.mApplicationProxy.getPackageResourcePath();
+    }
+
+    public String getPluginPackageName() {
+        return this.mPluginPacakgeName;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Resources getResources() {
+        Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPluginPacakgeName);
+        if (plugin2.getPluginResources() != null) {
+            return plugin2.getPluginResources();
+        }
+        return this.mApplicationProxy.getResources();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SharedPreferences getSharedPreferences(String str, int i) {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Application application = this.mApplicationProxy;
+            return application.getSharedPreferences(pluginPackageName + str, i);
+        }
+        return this.mApplicationProxy.getSharedPreferences(str, i);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Object getSystemService(String str) {
+        return super.getSystemService(str);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public FileInputStream openFileInput(String str) throws FileNotFoundException {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Application application = this.mApplicationProxy;
+            return application.openFileInput(pluginPackageName + str);
+        }
+        return this.mApplicationProxy.openFileInput(str);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
+        String pluginPackageName = getPluginPackageName();
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Application application = this.mApplicationProxy;
+            return application.openFileOutput(pluginPackageName + str, i);
+        }
+        return this.mApplicationProxy.openFileOutput(str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
-        return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.openOrCreateDatabase(str, i, cursorFactory) : this.mApplicationProxy.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
+        PluginSetting h2 = d.k().h(pluginPackageName);
+        if (h2 != null && h2.isThird) {
+            Application application = this.mApplicationProxy;
+            return application.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
+        }
+        return this.mApplicationProxy.openOrCreateDatabase(str, i, cursorFactory);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
+        return super.registerReceiver(broadcastReceiver, intentFilter);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void removeStickyBroadcast(Intent intent) {
+        this.mApplicationProxy.removeStickyBroadcast(intent);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void sendBroadcast(Intent intent) {
+        this.mApplicationProxy.sendBroadcast(intent);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void sendOrderedBroadcast(Intent intent, String str) {
+        this.mApplicationProxy.sendOrderedBroadcast(intent, str);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void sendStickyBroadcast(Intent intent) {
+        this.mApplicationProxy.sendStickyBroadcast(intent);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void sendStickyOrderedBroadcast(Intent intent, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str, Bundle bundle) {
+        this.mApplicationProxy.sendStickyOrderedBroadcast(intent, broadcastReceiver, handler, i, str, bundle);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:45:0x007f  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void setApplicationProxy(Application application) {
+        Context context;
+        Exception e2;
+        InvocationTargetException e3;
+        NoSuchMethodException e4;
+        InstantiationException e5;
+        IllegalArgumentException e6;
+        IllegalAccessException e7;
+        ClassNotFoundException e8;
+        this.mApplicationProxy = application;
+        if (application == null) {
+            return;
+        }
+        try {
+            Class<?> cls = Class.forName("android.app.ContextImpl");
+            Constructor<?> constructor = cls.getConstructor(cls);
+            constructor.setAccessible(true);
+            context = (Context) constructor.newInstance(application.getBaseContext());
+            try {
+                Method declaredMethod = cls.getDeclaredMethod("setOuterContext", Context.class);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(context, this);
+            } catch (ClassNotFoundException e9) {
+                e8 = e9;
+                BdLog.e(e8);
+                if (context == null) {
+                }
+                attachBaseContext(context);
+                Field field = application.getClass().getField("mLoadedApk");
+                field.set(this, field.get(application));
+            } catch (IllegalAccessException e10) {
+                e7 = e10;
+                BdLog.e(e7);
+                if (context == null) {
+                }
+                attachBaseContext(context);
+                Field field2 = application.getClass().getField("mLoadedApk");
+                field2.set(this, field2.get(application));
+            } catch (IllegalArgumentException e11) {
+                e6 = e11;
+                BdLog.e(e6);
+                if (context == null) {
+                }
+                attachBaseContext(context);
+                Field field22 = application.getClass().getField("mLoadedApk");
+                field22.set(this, field22.get(application));
+            } catch (InstantiationException e12) {
+                e5 = e12;
+                BdLog.e(e5);
+                if (context == null) {
+                }
+                attachBaseContext(context);
+                Field field222 = application.getClass().getField("mLoadedApk");
+                field222.set(this, field222.get(application));
+            } catch (NoSuchMethodException e13) {
+                e4 = e13;
+                BdLog.e(e4);
+                if (context == null) {
+                }
+                attachBaseContext(context);
+                Field field2222 = application.getClass().getField("mLoadedApk");
+                field2222.set(this, field2222.get(application));
+            } catch (InvocationTargetException e14) {
+                e3 = e14;
+                BdLog.e(e3);
+                if (context == null) {
+                }
+                attachBaseContext(context);
+                Field field22222 = application.getClass().getField("mLoadedApk");
+                field22222.set(this, field22222.get(application));
+            } catch (Exception e15) {
+                e2 = e15;
+                BdLog.e(e2);
+                if (context == null) {
+                }
+                attachBaseContext(context);
+                Field field222222 = application.getClass().getField("mLoadedApk");
+                field222222.set(this, field222222.get(application));
+            }
+        } catch (ClassNotFoundException e16) {
+            context = null;
+            e8 = e16;
+        } catch (IllegalAccessException e17) {
+            context = null;
+            e7 = e17;
+        } catch (IllegalArgumentException e18) {
+            context = null;
+            e6 = e18;
+        } catch (InstantiationException e19) {
+            context = null;
+            e5 = e19;
+        } catch (NoSuchMethodException e20) {
+            context = null;
+            e4 = e20;
+        } catch (InvocationTargetException e21) {
+            context = null;
+            e3 = e21;
+        } catch (Exception e22) {
+            context = null;
+            e2 = e22;
+        }
+        if (context == null) {
+            context = application.getBaseContext();
+        }
+        attachBaseContext(context);
+        try {
+            Field field2222222 = application.getClass().getField("mLoadedApk");
+            field2222222.set(this, field2222222.get(application));
+        } catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | Exception unused) {
+        }
+    }
+
+    public void setPluginPackageName(String str) {
+        this.mPluginPacakgeName = str;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void setTheme(int i) {
+        this.mApplicationProxy.setTheme(i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -399,46 +439,6 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         this.mApplicationProxy.startIntentSender(intentSender, intent, i, i2, i3);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void sendBroadcast(Intent intent) {
-        this.mApplicationProxy.sendBroadcast(intent);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void sendBroadcast(Intent intent, String str) {
-        this.mApplicationProxy.sendBroadcast(intent, str);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void sendOrderedBroadcast(Intent intent, String str) {
-        this.mApplicationProxy.sendOrderedBroadcast(intent, str);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str2, Bundle bundle) {
-        this.mApplicationProxy.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i, str2, bundle);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void sendStickyBroadcast(Intent intent) {
-        this.mApplicationProxy.sendStickyBroadcast(intent);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void sendStickyOrderedBroadcast(Intent intent, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str, Bundle bundle) {
-        this.mApplicationProxy.sendStickyOrderedBroadcast(intent, broadcastReceiver, handler, i, str, bundle);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void removeStickyBroadcast(Intent intent) {
-        this.mApplicationProxy.removeStickyBroadcast(intent);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void unregisterReceiver(BroadcastReceiver broadcastReceiver) {
-        super.unregisterReceiver(broadcastReceiver);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -462,5 +462,25 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public void unbindService(ServiceConnection serviceConnection) {
         this.mApplicationProxy.unbindService(serviceConnection);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void unregisterReceiver(BroadcastReceiver broadcastReceiver) {
+        super.unregisterReceiver(broadcastReceiver);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, String str, Handler handler) {
+        return super.registerReceiver(broadcastReceiver, intentFilter, str, handler);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void sendBroadcast(Intent intent, String str) {
+        this.mApplicationProxy.sendBroadcast(intent, str);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str2, Bundle bundle) {
+        this.mApplicationProxy.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i, str2, bundle);
     }
 }

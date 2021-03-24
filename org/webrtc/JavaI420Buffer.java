@@ -3,19 +3,19 @@ package org.webrtc;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class JavaI420Buffer implements VideoFrame.I420Buffer {
-    private final ByteBuffer dataU;
-    private final ByteBuffer dataV;
-    private final ByteBuffer dataY;
-    private final int height;
-    private final RefCountDelegate refCountDelegate;
-    private final int strideU;
-    private final int strideV;
-    private final int strideY;
-    private final int width;
+    public final ByteBuffer dataU;
+    public final ByteBuffer dataV;
+    public final ByteBuffer dataY;
+    public final int height;
+    public final RefCountDelegate refCountDelegate;
+    public final int strideU;
+    public final int strideV;
+    public final int strideY;
+    public final int width;
 
-    private JavaI420Buffer(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, @Nullable Runnable runnable) {
+    public JavaI420Buffer(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, @Nullable Runnable runnable) {
         this.width = i;
         this.height = i2;
         this.dataY = byteBuffer;
@@ -34,7 +34,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
         int i6 = i5 + 0;
         int i7 = i4 * i3;
         int i8 = i6 + i7;
-        final ByteBuffer nativeAllocateByteBuffer = JniCommon.nativeAllocateByteBuffer((i3 * i4 * 2) + i5);
+        final ByteBuffer nativeAllocateByteBuffer = JniCommon.nativeAllocateByteBuffer(i5 + (i4 * 2 * i3));
         nativeAllocateByteBuffer.position(0);
         nativeAllocateByteBuffer.limit(i6);
         ByteBuffer slice = nativeAllocateByteBuffer.slice();
@@ -51,44 +51,45 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
         });
     }
 
-    private static void checkCapacity(ByteBuffer byteBuffer, int i, int i2, int i3) {
-        int i4 = ((i2 - 1) * i3) + i;
-        if (byteBuffer.capacity() < i4) {
-            throw new IllegalArgumentException("Buffer must be at least " + i4 + " bytes, but was " + byteBuffer.capacity());
+    public static void checkCapacity(ByteBuffer byteBuffer, int i, int i2, int i3) {
+        int i4 = (i3 * (i2 - 1)) + i;
+        if (byteBuffer.capacity() >= i4) {
+            return;
         }
+        throw new IllegalArgumentException("Buffer must be at least " + i4 + " bytes, but was " + byteBuffer.capacity());
     }
 
     public static VideoFrame.Buffer cropAndScaleI420(final VideoFrame.I420Buffer i420Buffer, int i, int i2, int i3, int i4, int i5, int i6) {
-        if (i3 != i5 || i4 != i6) {
-            JavaI420Buffer allocate = allocate(i5, i6);
-            nativeCropAndScaleI420(i420Buffer.getDataY(), i420Buffer.getStrideY(), i420Buffer.getDataU(), i420Buffer.getStrideU(), i420Buffer.getDataV(), i420Buffer.getStrideV(), i, i2, i3, i4, allocate.getDataY(), allocate.getStrideY(), allocate.getDataU(), allocate.getStrideU(), allocate.getDataV(), allocate.getStrideV(), i5, i6);
-            return allocate;
+        if (i3 == i5 && i4 == i6) {
+            ByteBuffer dataY = i420Buffer.getDataY();
+            ByteBuffer dataU = i420Buffer.getDataU();
+            ByteBuffer dataV = i420Buffer.getDataV();
+            dataY.position(i + (i420Buffer.getStrideY() * i2));
+            int i7 = i / 2;
+            int i8 = i2 / 2;
+            dataU.position((i420Buffer.getStrideU() * i8) + i7);
+            dataV.position(i7 + (i8 * i420Buffer.getStrideV()));
+            i420Buffer.retain();
+            ByteBuffer slice = dataY.slice();
+            int strideY = i420Buffer.getStrideY();
+            ByteBuffer slice2 = dataU.slice();
+            int strideU = i420Buffer.getStrideU();
+            ByteBuffer slice3 = dataV.slice();
+            int strideV = i420Buffer.getStrideV();
+            i420Buffer.getClass();
+            return wrap(i5, i6, slice, strideY, slice2, strideU, slice3, strideV, new Runnable() { // from class: org.webrtc._$$Lambda$cpstbe6pEi_a9uN5WMp_TN86PFo
+                @Override // java.lang.Runnable
+                public final void run() {
+                    VideoFrame.I420Buffer.this.release();
+                }
+            });
         }
-        ByteBuffer dataY = i420Buffer.getDataY();
-        ByteBuffer dataU = i420Buffer.getDataU();
-        ByteBuffer dataV = i420Buffer.getDataV();
-        dataY.position((i420Buffer.getStrideY() * i2) + i);
-        int i7 = i / 2;
-        int i8 = i2 / 2;
-        dataU.position((i420Buffer.getStrideU() * i8) + i7);
-        dataV.position(i7 + (i8 * i420Buffer.getStrideV()));
-        i420Buffer.retain();
-        ByteBuffer slice = dataY.slice();
-        int strideY = i420Buffer.getStrideY();
-        ByteBuffer slice2 = dataU.slice();
-        int strideU = i420Buffer.getStrideU();
-        ByteBuffer slice3 = dataV.slice();
-        int strideV = i420Buffer.getStrideV();
-        i420Buffer.getClass();
-        return wrap(i5, i6, slice, strideY, slice2, strideU, slice3, strideV, new Runnable() { // from class: org.webrtc._$$Lambda$cpstbe6pEi_a9uN5WMp_TN86PFo
-            @Override // java.lang.Runnable
-            public final void run() {
-                VideoFrame.I420Buffer.this.release();
-            }
-        });
+        JavaI420Buffer allocate = allocate(i5, i6);
+        nativeCropAndScaleI420(i420Buffer.getDataY(), i420Buffer.getStrideY(), i420Buffer.getDataU(), i420Buffer.getStrideU(), i420Buffer.getDataV(), i420Buffer.getStrideV(), i, i2, i3, i4, allocate.getDataY(), allocate.getStrideY(), allocate.getDataU(), allocate.getStrideU(), allocate.getDataV(), allocate.getStrideV(), i5, i6);
+        return allocate;
     }
 
-    private static native void nativeCropAndScaleI420(ByteBuffer byteBuffer, int i, ByteBuffer byteBuffer2, int i2, ByteBuffer byteBuffer3, int i3, int i4, int i5, int i6, int i7, ByteBuffer byteBuffer4, int i8, ByteBuffer byteBuffer5, int i9, ByteBuffer byteBuffer6, int i10, int i11, int i12);
+    public static native void nativeCropAndScaleI420(ByteBuffer byteBuffer, int i, ByteBuffer byteBuffer2, int i2, ByteBuffer byteBuffer3, int i3, int i4, int i5, int i6, int i7, ByteBuffer byteBuffer4, int i8, ByteBuffer byteBuffer5, int i9, ByteBuffer byteBuffer6, int i10, int i11, int i12);
 
     public static JavaI420Buffer wrap(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, @Nullable Runnable runnable) {
         if (byteBuffer == null || byteBuffer2 == null || byteBuffer3 == null) {

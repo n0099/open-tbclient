@@ -7,228 +7,244 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.au;
-/* loaded from: classes8.dex */
-public class FacePackageDetailModel extends BdBaseModel<l> {
-    private boolean ggI;
-    private ProxyAdkBaseActivity.LoadDataCallBack iWP;
-    private int iWR;
-    private String iWS;
-    private FacePackageDetailData iWT;
-    private a iWU;
-    private float iWV;
-    private String mDownloadUrl;
-    private String mPid;
-    private int mScreenHeight;
-    private int mScreenWidth;
-    private String mStType;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import d.b.b.e.d.l;
+import d.b.b.e.p.k;
+/* loaded from: classes4.dex */
+public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivity> {
 
-    public FacePackageDetailModel(l lVar) {
-        super(lVar.getPageContext());
-        this.mDownloadUrl = null;
-        this.mScreenWidth = 0;
-        this.mScreenHeight = 0;
-        this.iWP = null;
-        this.iWU = null;
-        TbadkApplication inst = TbadkApplication.getInst();
-        this.mScreenWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(inst);
-        this.mScreenHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(inst);
-        this.iWV = inst.getResources().getDisplayMetrics().density;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f15654e;
 
-    public FacePackageDetailData czc() {
-        return this.iWT;
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public int f15655f;
 
-    public void JT(String str) {
-        this.mDownloadUrl = str;
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public String f15656g;
 
-    public String czd() {
-        return this.mDownloadUrl;
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public String f15657h;
+    public String i;
+    public String j;
+    public FacePackageDetailData k;
+    public b l;
+    public int m;
+    public int n;
+    public float o;
+    public ProxyAdkBaseActivity.LoadDataCallBack p;
 
-    public void qh(boolean z) {
-        this.ggI = z;
-    }
+    /* loaded from: classes4.dex */
+    public class b extends BdAsyncTask<Object, String, FacePackageDetailData> {
 
-    public boolean cze() {
-        return this.ggI;
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public NetWork f15658a;
 
-    public int czf() {
-        return this.iWR;
-    }
+        /* renamed from: b  reason: collision with root package name */
+        public volatile boolean f15659b;
 
-    public void setPid(String str) {
-        this.mPid = str;
-    }
-
-    public String getPid() {
-        return this.mPid;
-    }
-
-    public void setStType(String str) {
-        this.mStType = str;
-    }
-
-    public String getStType() {
-        return this.mStType;
-    }
-
-    public void JU(String str) {
-        this.iWS = str;
-    }
-
-    public String czg() {
-        return this.iWS;
-    }
-
-    public void loadData() {
-        if (this.iWU == null) {
-            this.iWU = new a();
-            this.iWU.setPriority(3);
-            this.iWU.execute(new Object[0]);
+        public b() {
+            this.f15659b = false;
         }
-    }
 
-    public void a(FacePackageData facePackageData) {
-        if (facePackageData != null) {
-            int i = facePackageData.buy_status;
-            int i2 = facePackageData.can_download;
-            int i3 = facePackageData.downloading;
-            int i4 = facePackageData.downloaded;
-            if (i3 == 1) {
-                this.iWR = 5;
-            } else if (i4 == 1) {
-                this.iWR = 1;
-            } else if (i == 2) {
-                this.iWR = 6;
-            } else if (i == 1) {
-                if (i2 == 1) {
-                    this.iWR = 2;
-                }
-            } else if (i == 0) {
-                if (i2 == 1) {
-                    this.iWR = 3;
-                } else {
-                    this.iWR = 4;
-                }
+        public final void b(String str) {
+            l<String> g2 = d.b.h0.r.r.a.f().g("tb_face_package");
+            if (g2 != null) {
+                g2.e(TbadkCoreApplication.getCurrentAccount() + FacePackageDetailModel.this.f15657h, str, 604800000L);
             }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    private class a extends BdAsyncTask<Object, String, FacePackageDetailData> {
-        private com.baidu.tbadk.core.util.aa cnM;
-        private volatile boolean iWW;
-
-        private a() {
-            this.iWW = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: u */
+        /* renamed from: c */
         public FacePackageDetailData doInBackground(Object... objArr) {
-            FacePackageDetailData facePackageDetailData;
+            FacePackageDetailData facePackageDetailData = null;
             try {
-                if (FacePackageDetailModel.this.mPid == null || FacePackageDetailModel.this.mPid.length() <= 0 || this.iWW) {
+                if (FacePackageDetailModel.this.f15657h == null || FacePackageDetailModel.this.f15657h.length() <= 0 || this.f15659b) {
                     return null;
                 }
-                com.baidu.adp.lib.cache.l<String> Az = com.baidu.tbadk.core.c.a.bqt().Az("tb_face_package");
-                if (Az != null) {
-                    String str = Az.get(TbadkApplication.getCurrentAccount() + FacePackageDetailModel.this.mPid);
-                    if (!au.isEmpty(str)) {
+                l<String> g2 = d.b.h0.r.r.a.f().g("tb_face_package");
+                if (g2 != null) {
+                    String str = g2.get(TbadkCoreApplication.getCurrentAccount() + FacePackageDetailModel.this.f15657h);
+                    if (!k.isEmpty(str)) {
                         publishProgress(str);
                     }
                 }
-                this.cnM = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DETAIL);
-                this.cnM.addPostData("scr_w", String.valueOf(FacePackageDetailModel.this.mScreenWidth));
-                this.cnM.addPostData("scr_h", String.valueOf(FacePackageDetailModel.this.mScreenHeight));
-                this.cnM.addPostData("scr_dip", String.valueOf(FacePackageDetailModel.this.iWV));
-                this.cnM.addPostData("pid", FacePackageDetailModel.this.mPid);
-                this.cnM.addPostData("st_type", FacePackageDetailModel.this.mStType);
-                String postNetData = this.cnM.postNetData();
-                facePackageDetailData = (FacePackageDetailData) OrmObject.objectWithJsonStr(postNetData, FacePackageDetailData.class);
-                if (facePackageDetailData != null) {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DETAIL);
+                this.f15658a = netWork;
+                netWork.addPostData("scr_w", String.valueOf(FacePackageDetailModel.this.m));
+                this.f15658a.addPostData("scr_h", String.valueOf(FacePackageDetailModel.this.n));
+                this.f15658a.addPostData("scr_dip", String.valueOf(FacePackageDetailModel.this.o));
+                this.f15658a.addPostData("pid", FacePackageDetailModel.this.f15657h);
+                this.f15658a.addPostData("st_type", FacePackageDetailModel.this.f15656g);
+                String postNetData = this.f15658a.postNetData();
+                FacePackageDetailData facePackageDetailData2 = (FacePackageDetailData) OrmObject.objectWithJsonStr(postNetData, FacePackageDetailData.class);
+                if (facePackageDetailData2 != null) {
                     try {
-                        if (facePackageDetailData.faces_list != null) {
-                            JV(postNetData);
-                            return facePackageDetailData;
+                        if (facePackageDetailData2.faces_list != null) {
+                            b(postNetData);
                         }
-                        return facePackageDetailData;
-                    } catch (Exception e) {
-                        e = e;
+                    } catch (Exception e2) {
+                        e = e2;
+                        facePackageDetailData = facePackageDetailData2;
                         BdLog.detailException(e);
                         return facePackageDetailData;
                     }
                 }
-                return facePackageDetailData;
-            } catch (Exception e2) {
-                e = e2;
-                facePackageDetailData = null;
+                return facePackageDetailData2;
+            } catch (Exception e3) {
+                e = e3;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
-        public void onPostExecute(FacePackageDetailData facePackageDetailData) {
-            super.onPostExecute(facePackageDetailData);
-            FacePackageDetailModel.this.iWU = null;
-            if (facePackageDetailData != null) {
-                FacePackageDetailModel.this.iWT = facePackageDetailData;
-            }
-            FacePackageDetailModel.this.iWP.callback(facePackageDetailData, false);
-        }
-
-        private void JV(String str) {
-            com.baidu.adp.lib.cache.l<String> Az = com.baidu.tbadk.core.c.a.bqt().Az("tb_face_package");
-            if (Az != null) {
-                Az.set(TbadkApplication.getCurrentAccount() + FacePackageDetailModel.this.mPid, str, 604800000L);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onProgressUpdate(String... strArr) {
-            FacePackageDetailData facePackageDetailData = (FacePackageDetailData) OrmObject.objectWithJsonStr(strArr[0], FacePackageDetailData.class);
-            FacePackageDetailModel.this.iWT = facePackageDetailData;
-            FacePackageDetailModel.this.iWP.callback(facePackageDetailData, true);
-            super.onProgressUpdate((Object[]) strArr);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.iWW = true;
-            if (this.cnM != null) {
-                this.cnM.cancelNetConnect();
-                this.cnM = null;
+            this.f15659b = true;
+            NetWork netWork = this.f15658a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
+                this.f15658a = null;
             }
-            FacePackageDetailModel.this.iWU = null;
+            FacePackageDetailModel.this.l = null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(FacePackageDetailData facePackageDetailData) {
+            super.onPostExecute(facePackageDetailData);
+            FacePackageDetailModel.this.l = null;
+            if (facePackageDetailData != null) {
+                FacePackageDetailModel.this.k = facePackageDetailData;
+            }
+            FacePackageDetailModel.this.p.callback(facePackageDetailData, Boolean.FALSE);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
+        public void onProgressUpdate(String... strArr) {
+            FacePackageDetailData facePackageDetailData = (FacePackageDetailData) OrmObject.objectWithJsonStr(strArr[0], FacePackageDetailData.class);
+            FacePackageDetailModel.this.k = facePackageDetailData;
+            FacePackageDetailModel.this.p.callback(facePackageDetailData, Boolean.TRUE);
+            super.onProgressUpdate(strArr);
+        }
+    }
+
+    public FacePackageDetailModel(FacePackageDetailActivity facePackageDetailActivity) {
+        super(facePackageDetailActivity.getPageContext());
+        this.i = null;
+        this.m = 0;
+        this.n = 0;
+        this.p = null;
+        this.l = null;
+        TbadkApplication inst = TbadkApplication.getInst();
+        this.m = d.b.b.e.p.l.k(inst);
+        this.n = d.b.b.e.p.l.i(inst);
+        this.o = inst.getResources().getDisplayMetrics().density;
+    }
+
+    public FacePackageDetailData A() {
+        return this.k;
+    }
+
+    public String B() {
+        return this.i;
+    }
+
+    public boolean C() {
+        return this.f15654e;
+    }
+
+    public String D() {
+        return this.j;
+    }
+
+    public int E() {
+        return this.f15655f;
+    }
+
+    public void F() {
+        if (this.l == null) {
+            b bVar = new b();
+            this.l = bVar;
+            bVar.setPriority(3);
+            this.l.execute(new Object[0]);
+        }
+    }
+
+    public void G(String str) {
+        this.i = str;
+    }
+
+    public void H(boolean z) {
+        this.f15654e = z;
+    }
+
+    public void I(ProxyAdkBaseActivity.LoadDataCallBack loadDataCallBack) {
+        this.p = loadDataCallBack;
+    }
+
+    public void J(String str) {
+        this.j = str;
+    }
+
+    public void K(FacePackageData facePackageData) {
+        if (facePackageData == null) {
+            return;
+        }
+        int i = facePackageData.buy_status;
+        int i2 = facePackageData.can_download;
+        int i3 = facePackageData.downloading;
+        int i4 = facePackageData.downloaded;
+        if (i3 == 1) {
+            this.f15655f = 5;
+        } else if (i4 == 1) {
+            this.f15655f = 1;
+        } else if (i == 2) {
+            this.f15655f = 6;
+        } else if (i == 1) {
+            if (i2 == 1) {
+                this.f15655f = 2;
+            }
+        } else if (i == 0) {
+            if (i2 == 1) {
+                this.f15655f = 3;
+            } else {
+                this.f15655f = 4;
+            }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iWU != null) {
-            this.iWU.cancel();
+        b bVar = this.l;
+        if (bVar != null) {
+            bVar.cancel();
             return true;
         }
         return true;
     }
 
-    public void a(ProxyAdkBaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.iWP = loadDataCallBack;
+    public String getPid() {
+        return this.f15657h;
+    }
+
+    public String getStType() {
+        return this.f15656g;
+    }
+
+    public void setPid(String str) {
+        this.f15657h = str;
+    }
+
+    public void setStType(String str) {
+        this.f15656g = str;
     }
 }

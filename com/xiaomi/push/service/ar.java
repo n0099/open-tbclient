@@ -1,30 +1,60 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.ap;
-/* loaded from: classes5.dex */
-class ar extends XMPushService.i {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ap.b.c f8527a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ar(ap.b.c cVar, int i) {
-        super(i);
-        this.f8527a = cVar;
+import android.util.Pair;
+import com.xiaomi.push.hl;
+import com.xiaomi.push.hm;
+import com.xiaomi.push.ho;
+import com.xiaomi.push.hq;
+import com.xiaomi.push.ic;
+import com.xiaomi.push.id;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class ar {
+    public static int a(aq aqVar, hl hlVar) {
+        return aqVar.f895a.getInt(a(hlVar), as.f40955a[hlVar.ordinal()] != 1 ? 0 : 1);
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        return "clear peer job";
+    public static String a(hl hlVar) {
+        return "oc_version_" + hlVar.a();
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        if (this.f8527a.f8524a == this.f8527a.f866a.f853a) {
-            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.f8527a.f866a.g);
-            this.f8527a.f866a.f853a = null;
+    public static List<Pair<Integer, Object>> a(List<hq> list, boolean z) {
+        if (com.xiaomi.push.ad.a(list)) {
+            return null;
         }
+        ArrayList arrayList = new ArrayList();
+        for (hq hqVar : list) {
+            int a2 = hqVar.a();
+            hm a3 = hm.a(hqVar.b());
+            if (a3 != null) {
+                if (z && hqVar.f512a) {
+                    arrayList.add(new Pair(Integer.valueOf(a2), null));
+                } else {
+                    int i = as.f40956b[a3.ordinal()];
+                    arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a2), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a2), hqVar.m374a()) : new Pair(Integer.valueOf(a2), Long.valueOf(hqVar.m373a())) : new Pair(Integer.valueOf(a2), Integer.valueOf(hqVar.c())));
+                }
+            }
+        }
+        return arrayList;
+    }
+
+    public static void a(aq aqVar, hl hlVar, int i) {
+        aqVar.f895a.edit().putInt(a(hlVar), i).commit();
+    }
+
+    public static void a(aq aqVar, ic icVar) {
+        aqVar.b(a(icVar.a(), true));
+        aqVar.b();
+    }
+
+    public static void a(aq aqVar, id idVar) {
+        for (ho hoVar : idVar.a()) {
+            if (hoVar.a() > a(aqVar, hoVar.m369a())) {
+                a(aqVar, hoVar.m369a(), hoVar.a());
+                aqVar.a(a(hoVar.f504a, false));
+            }
+        }
+        aqVar.b();
     }
 }

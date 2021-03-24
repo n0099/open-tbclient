@@ -1,42 +1,42 @@
 package com.sdk.mobile.b.a;
 
 import android.content.Context;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class c implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ String f7663a;
-    private /* synthetic */ a b;
+    public /* synthetic */ String f38592a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public /* synthetic */ a f38593b;
+
     public c(a aVar, String str) {
-        this.b = aVar;
-        this.f7663a = str;
+        this.f38593b = aVar;
+        this.f38592a = str;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, int i2, String str) {
-        this.b.a(i, i2, str);
+        this.f38593b.a(i, i2, str);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r10v0, resolved type: T */
+    /* JADX DEBUG: Multi-variable search result rejected for r12v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, String str, int i2, T t, String str2) {
         String str3;
         Context context;
-        if (i == 0 && com.sdk.base.framework.a.a.c.a(this.f7663a).booleanValue()) {
-            context = this.b.d;
-            str3 = com.sdk.base.framework.f.l.a.a(context, String.valueOf(t));
-            if (str3 == null) {
-                this.b.a(1, "SDK解密异常", CmdConfigSocket.CMD_PB_PAGE, str3, str2);
+        if (i == 0 && com.sdk.base.framework.a.a.c.a(this.f38592a).booleanValue()) {
+            context = this.f38593b.f38586d;
+            String a2 = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
+            if (a2 == null) {
+                this.f38593b.a(1, "SDK解密异常", 302001, a2, str2);
                 return;
             }
+            str3 = a2;
         } else {
             str3 = t;
         }
-        this.b.a(i, str, i2, str3, str2);
+        this.f38593b.a(i, str, i2, str3, str2);
     }
 }

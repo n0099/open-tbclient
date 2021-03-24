@@ -10,49 +10,46 @@ import com.baidu.ala.AlaConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.livesdk.share.message.AlaShareInBarResponsedMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class AlaShareInBarModel extends BdBaseModel {
-    private a ljU;
-    private final HttpMessageListener ljV = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.1
+
+    /* renamed from: e  reason: collision with root package name */
+    public b f18766e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final HttpMessageListener f18767f = new a(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
+
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaShareInBarResponsedMessage)) {
-                AlaShareInBarResponsedMessage alaShareInBarResponsedMessage = (AlaShareInBarResponsedMessage) httpResponsedMessage;
-                if (AlaShareInBarModel.this.ljU != null) {
-                    AlaShareInBarModel.this.ljU.a(alaShareInBarResponsedMessage.getError(), alaShareInBarResponsedMessage.getErrorString(), alaShareInBarResponsedMessage.getShareInBarData());
-                }
+            if (httpResponsedMessage == null || !(httpResponsedMessage instanceof AlaShareInBarResponsedMessage)) {
+                return;
+            }
+            AlaShareInBarResponsedMessage alaShareInBarResponsedMessage = (AlaShareInBarResponsedMessage) httpResponsedMessage;
+            if (AlaShareInBarModel.this.f18766e != null) {
+                AlaShareInBarModel.this.f18766e.a(alaShareInBarResponsedMessage.getError(), alaShareInBarResponsedMessage.getErrorString(), alaShareInBarResponsedMessage.getShareInBarData());
             }
         }
-    };
+    }
 
-    /* loaded from: classes9.dex */
-    public interface a {
-        void a(int i, String str, com.baidu.tieba.livesdk.share.b.a aVar);
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(int i, String str, d.b.i0.l1.k.b.a aVar);
     }
 
     public AlaShareInBarModel() {
-        ddR();
-        MessageManager.getInstance().registerListener(this.ljV);
-    }
-
-    private void ddR() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_LIVE_SHARE_IN_BAR);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setResponsedClass(AlaShareInBarResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public void aL(String str, String str2, String str3) {
-        HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-        httpMessage.addParam("live_id", str);
-        httpMessage.addParam("forum_ids", str2);
-        httpMessage.addParam("content", str3);
-        MessageManager.getInstance().sendMessage(httpMessage);
+        t();
+        MessageManager.getInstance().registerListener(this.f18767f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -62,12 +59,27 @@ public class AlaShareInBarModel extends BdBaseModel {
         return false;
     }
 
-    public void a(a aVar) {
-        this.ljU = aVar;
-    }
-
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-        MessageManager.getInstance().unRegisterListener(this.ljV);
+        MessageManager.getInstance().unRegisterListener(this.f18767f);
+    }
+
+    public final void t() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_LIVE_SHARE_IN_BAR);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setResponsedClass(AlaShareInBarResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public void u(String str, String str2, String str3) {
+        HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
+        httpMessage.addParam("live_id", str);
+        httpMessage.addParam("forum_ids", str2);
+        httpMessage.addParam("content", str3);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void v(b bVar) {
+        this.f18766e = bVar;
     }
 }

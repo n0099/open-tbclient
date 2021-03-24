@@ -6,111 +6,123 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.HeadIconRefreshHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.r;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.an;
 import com.tencent.connect.common.Constants;
-import org.apache.http.HttpHost;
-/* loaded from: classes2.dex */
+import d.b.b.e.p.k;
+import d.b.b.e.p.l;
+import d.b.h0.r.f0.m.a;
+import d.b.h0.r.q.a2;
+import d.b.i0.c2.k.e.o0;
+/* loaded from: classes5.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
-    private HeadImageView mpr;
-    private PbVideoFullscreenLikeBtn mps;
-    private an mpt;
-    private BdUniqueId uniqueId;
+
+    /* renamed from: e  reason: collision with root package name */
+    public HeadImageView f20104e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public PbVideoFullscreenLikeBtn f20105f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public o0 f20106g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public BdUniqueId f20107h;
 
     public PbVideoFullscreenAttentionLayout(Context context) {
         super(context);
-        init(context);
+        c(context);
     }
 
-    public PbVideoFullscreenAttentionLayout(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context);
-    }
-
-    public PbVideoFullscreenAttentionLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(context);
-    }
-
-    private void init(Context context) {
-        inflate(context, R.layout.pb_video_attention, this);
-        this.mpr = (HeadImageView) findViewById(R.id.attention_img);
-        this.mps = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
-        this.mpr.setIsRound(true);
-        this.mpr.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
-        this.mpr.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
-        this.mpr.setAutoChangeStyle(false);
-        this.mps.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
-    }
-
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.uniqueId = bdUniqueId;
-    }
-
-    public void setOnClickEvent(View.OnClickListener onClickListener) {
-        this.mps.setOnclickEvent(onClickListener);
-    }
-
-    public void setData(cb cbVar) {
-        if (cbVar != null && cbVar.bnS() != null) {
-            String Bc = r.Bc(cbVar.bnS().getAvater());
-            if (Bc.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.mpr.startLoad(Bc, 10, false);
-            } else {
-                this.mpr.startLoad(Bc, 25, false);
-            }
-            if (cbVar.bnS().getBaijiahaoInfo() != null && cbVar.bnS().getBaijiahaoInfo().auth_id.intValue() > 0) {
-                this.mpr.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(cbVar.bnS().getBaijiahaoInfo().auth_id.intValue(), 1));
-                this.mpr.setShowV(true);
-                this.mpr.setGodIconWidth(R.dimen.tbds31);
-            } else {
-                this.mpr.setBjhAuthIconRes(0);
-                this.mpr.setIsBigV(cbVar.bnS().isBigV());
-                this.mpr.setShowV(cbVar.bnS().isBigV());
-            }
-            aY(cbVar);
-        }
-    }
-
-    public void aY(cb cbVar) {
-        if (cbVar != null && cbVar.bnS() != null) {
-            String str = cbVar.tid;
-            int aZ = aZ(cbVar);
-            if (this.mpt == null) {
-                if (getContext() instanceof PbActivity) {
-                    this.mpt = new an(((PbActivity) getContext()).getPageContext(), this.mps, -1);
-                    this.mpt.An(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
-                    this.mpt.l(this.uniqueId);
-                } else {
-                    return;
-                }
-            }
-            this.mpt.a(cbVar.bnS());
-            this.mpt.setTid(str);
-            this.mpt.setThreadData(cbVar);
-            this.mpt.maV = true;
-            this.mpt.Gd(aZ);
-        }
-    }
-
-    public int aZ(cb cbVar) {
-        if (cbVar == null) {
+    public int a(a2 a2Var) {
+        if (a2Var == null) {
             return 0;
         }
-        if (cbVar.bpr()) {
-            return !au.isEmpty(cbVar.bnW()) ? 2 : 0;
+        if (a2Var.k2()) {
+            return !k.isEmpty(a2Var.i0()) ? 2 : 0;
         }
         return 1;
     }
 
-    public boolean dvJ() {
-        return (this.mpt == null || this.mpt.bvv() == null || !this.mpt.bvv().getIsLike()) ? false : true;
+    public boolean b() {
+        o0 o0Var = this.f20106g;
+        return (o0Var == null || o0Var.j() == null || !this.f20106g.j().getIsLike()) ? false : true;
+    }
+
+    public final void c(Context context) {
+        FrameLayout.inflate(context, R.layout.pb_video_attention, this);
+        this.f20104e = (HeadImageView) findViewById(R.id.attention_img);
+        this.f20105f = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
+        this.f20104e.setIsRound(true);
+        this.f20104e.setBorderWidth(l.g(context, R.dimen.tbds3));
+        this.f20104e.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
+        this.f20104e.setAutoChangeStyle(false);
+        this.f20105f.setConfig(new a());
+    }
+
+    public void d(a2 a2Var) {
+        if (a2Var == null || a2Var.T() == null) {
+            return;
+        }
+        String str = a2Var.A;
+        int a2 = a(a2Var);
+        if (this.f20106g == null) {
+            if (!(getContext() instanceof PbActivity)) {
+                return;
+            }
+            o0 o0Var = new o0(((PbActivity) getContext()).getPageContext(), this.f20105f, -1);
+            this.f20106g = o0Var;
+            o0Var.m(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+            this.f20106g.l(this.f20107h);
+        }
+        this.f20106g.n(a2Var.T());
+        this.f20106g.x(str);
+        this.f20106g.v(a2Var);
+        o0 o0Var2 = this.f20106g;
+        o0Var2.r = true;
+        o0Var2.w(a2);
+    }
+
+    public void setData(a2 a2Var) {
+        if (a2Var == null || a2Var.T() == null) {
+            return;
+        }
+        String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(a2Var.T().getAvater());
+        if (headPortraitFilter.startsWith("http")) {
+            this.f20104e.W(headPortraitFilter, 10, false);
+        } else {
+            this.f20104e.W(headPortraitFilter, 25, false);
+        }
+        if (a2Var.T().getBaijiahaoInfo() != null && a2Var.T().getBaijiahaoInfo().auth_id.intValue() > 0) {
+            this.f20104e.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(a2Var.T().getBaijiahaoInfo().auth_id.intValue(), 1));
+            this.f20104e.setShowV(true);
+            this.f20104e.setGodIconWidth(R.dimen.tbds31);
+        } else {
+            this.f20104e.setBjhAuthIconRes(0);
+            this.f20104e.setIsBigV(a2Var.T().isBigV());
+            this.f20104e.setShowV(a2Var.T().isBigV());
+        }
+        d(a2Var);
+    }
+
+    public void setOnClickEvent(View.OnClickListener onClickListener) {
+        this.f20105f.setOnclickEvent(onClickListener);
+    }
+
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        this.f20107h = bdUniqueId;
+    }
+
+    public PbVideoFullscreenAttentionLayout(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        c(context);
+    }
+
+    public PbVideoFullscreenAttentionLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        c(context);
     }
 }

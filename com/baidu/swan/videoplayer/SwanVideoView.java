@@ -14,757 +14,654 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.ViewCompat;
-import com.baidu.swan.videoplayer.a;
-import com.baidu.swan.videoplayer.c;
 import com.baidu.swan.videoplayer.widget.MediaController;
+import d.b.g0.s.a;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class SwanVideoView extends FrameLayout {
-    private boolean bfQ;
-    private TextView eBA;
-    private a eBB;
-    private FrameLayout eBC;
-    private com.baidu.swan.videoplayer.a.a eBD;
-    MediaPlayer.OnPreparedListener eBE;
-    private MediaPlayer.OnCompletionListener eBF;
-    private MediaPlayer.OnVideoSizeChangedListener eBG;
-    private MediaPlayer.OnErrorListener eBH;
-    private MediaPlayer.OnBufferingUpdateListener eBI;
-    private MediaPlayer.OnSeekCompleteListener eBJ;
-    a.InterfaceC0551a eBK;
-    private int eBr;
-    private int eBs;
-    private boolean eBt;
-    private MediaController eBu;
-    private int eBv;
-    private int eBw;
-    private boolean eBx;
-    private RelativeLayout eBy;
-    private ProgressBar eBz;
-    private Context mAppContext;
-    private Map<String, String> mHeaders;
-    private boolean mIsLandscape;
-    private MediaPlayer mMediaPlayer;
-    private boolean mMute;
-    private Uri mUri;
-    private int mVideoHeight;
-    private int mVideoWidth;
+    public MediaPlayer.OnCompletionListener A;
+    public MediaPlayer.OnVideoSizeChangedListener B;
+    public MediaPlayer.OnErrorListener C;
+    public MediaPlayer.OnBufferingUpdateListener D;
+    public MediaPlayer.OnSeekCompleteListener E;
+    public a.InterfaceC1030a F;
 
-    public void setIsLandscape(boolean z) {
-        this.mIsLandscape = z;
-        if (this.eBu != null) {
-            this.eBu.iR(z);
+    /* renamed from: e  reason: collision with root package name */
+    public int f13048e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f13049f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Uri f13050g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Map<String, String> f13051h;
+    public MediaController i;
+    public MediaPlayer j;
+    public int k;
+    public Context l;
+    public int m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public RelativeLayout q;
+    public ProgressBar r;
+    public TextView s;
+    public int t;
+    public d.b.g0.s.a u;
+    public int v;
+    public int w;
+    public FrameLayout x;
+    public d.b.g0.s.h.a y;
+    public MediaPlayer.OnPreparedListener z;
+
+    /* loaded from: classes3.dex */
+    public class a implements MediaPlayer.OnPreparedListener {
+        public a() {
+        }
+
+        @Override // android.media.MediaPlayer.OnPreparedListener
+        public void onPrepared(MediaPlayer mediaPlayer) {
+            SwanVideoView.this.setCurrentState(2);
+            SwanVideoView.this.setCacheViewVisibility(false);
+            if (SwanVideoView.this.y != null) {
+                SwanVideoView.this.y.onPrepared();
+            }
+            SwanVideoView.this.v = mediaPlayer.getVideoWidth();
+            SwanVideoView.this.w = mediaPlayer.getVideoHeight();
+            if (SwanVideoView.this.v != 0 && SwanVideoView.this.w != 0 && SwanVideoView.this.u != null) {
+                SwanVideoView.this.u.setVideoSize(SwanVideoView.this.v, SwanVideoView.this.w);
+            }
+            if (SwanVideoView.this.f13049f) {
+                SwanVideoView.this.C();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements MediaPlayer.OnCompletionListener {
+        public b() {
+        }
+
+        @Override // android.media.MediaPlayer.OnCompletionListener
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            Log.d("SwanVideoView", "onCompletion");
+            SwanVideoView.this.setCacheViewVisibility(false);
+            SwanVideoView.this.setCurrentState(5);
+            SwanVideoView.this.f13049f = false;
+            if (SwanVideoView.this.y != null) {
+                SwanVideoView.this.y.a();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements MediaPlayer.OnVideoSizeChangedListener {
+        public c() {
+        }
+
+        @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
+        public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
+            SwanVideoView.this.v = mediaPlayer.getVideoWidth();
+            SwanVideoView.this.w = mediaPlayer.getVideoHeight();
+            if (SwanVideoView.this.v == 0 || SwanVideoView.this.w == 0) {
+                return;
+            }
+            if (SwanVideoView.this.u != null) {
+                SwanVideoView.this.u.setVideoSize(SwanVideoView.this.v, SwanVideoView.this.w);
+            }
+            if (SwanVideoView.this.y != null) {
+                SwanVideoView.this.y.onVideoSizeChanged(i, i2);
+            }
+            SwanVideoView.this.requestLayout();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements MediaPlayer.OnErrorListener {
+        public d() {
+        }
+
+        @Override // android.media.MediaPlayer.OnErrorListener
+        public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
+            Log.d("SwanVideoView", "onError: " + i + "," + i2);
+            SwanVideoView.this.setCurrentState(-1);
+            SwanVideoView.this.f13049f = false;
+            SwanVideoView.this.setCacheViewVisibility(false);
+            if (SwanVideoView.this.y != null) {
+                SwanVideoView.this.y.onError(i, i2, null);
+            }
+            return SwanVideoView.this.y != null;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements MediaPlayer.OnBufferingUpdateListener {
+        public e() {
+        }
+
+        @Override // android.media.MediaPlayer.OnBufferingUpdateListener
+        public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
+            Log.d("SwanVideoView", "onBufferingUpdate: percent=" + i);
+            SwanVideoView.this.k = i;
+            if (SwanVideoView.this.y != null) {
+                SwanVideoView.this.y.onBufferingUpdate(i);
+            }
+            if (SwanVideoView.this.i != null) {
+                SwanVideoView.this.i.l((i * SwanVideoView.this.getDuration()) / 100);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements MediaPlayer.OnSeekCompleteListener {
+        public f() {
+        }
+
+        @Override // android.media.MediaPlayer.OnSeekCompleteListener
+        public void onSeekComplete(MediaPlayer mediaPlayer) {
+            Log.d("SwanVideoView", "onSeekComplete");
+            SwanVideoView.this.setCacheViewVisibility(false);
+            if (SwanVideoView.this.y != null) {
+                SwanVideoView.this.y.onSeekEnd();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class g implements a.InterfaceC1030a {
+        public g() {
+        }
+
+        @Override // d.b.g0.s.a.InterfaceC1030a
+        public void a(a.b bVar, int i, int i2, int i3) {
+        }
+
+        @Override // d.b.g0.s.a.InterfaceC1030a
+        public void b(a.b bVar) {
+        }
+
+        @Override // d.b.g0.s.a.InterfaceC1030a
+        public void c(a.b bVar, int i, int i2) {
+            if (bVar.b() == SwanVideoView.this.u && SwanVideoView.this.j != null) {
+                SwanVideoView swanVideoView = SwanVideoView.this;
+                swanVideoView.p(swanVideoView.j, bVar);
+            }
         }
     }
 
     public SwanVideoView(Context context) {
         super(context);
-        this.eBs = 0;
-        this.eBw = -1;
-        this.eBx = true;
-        this.eBr = 0;
-        this.eBE = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.1
-            @Override // android.media.MediaPlayer.OnPreparedListener
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                SwanVideoView.this.setCurrentState(2);
-                SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onPrepared();
-                }
-                SwanVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
-                SwanVideoView.this.mVideoHeight = mediaPlayer.getVideoHeight();
-                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0 && SwanVideoView.this.eBB != null) {
-                    SwanVideoView.this.eBB.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
-                }
-                if (SwanVideoView.this.eBt) {
-                    SwanVideoView.this.start();
-                }
-            }
-        };
-        this.eBF = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.2
-            @Override // android.media.MediaPlayer.OnCompletionListener
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                Log.d("SwanVideoView", "onCompletion");
-                SwanVideoView.this.setCacheViewVisibility(false);
-                SwanVideoView.this.setCurrentState(5);
-                SwanVideoView.this.eBt = false;
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onEnd();
-                }
-            }
-        };
-        this.eBG = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.3
-            @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
-            public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-                SwanVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
-                SwanVideoView.this.mVideoHeight = mediaPlayer.getVideoHeight();
-                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0) {
-                    if (SwanVideoView.this.eBB != null) {
-                        SwanVideoView.this.eBB.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
-                    }
-                    if (SwanVideoView.this.eBD != null) {
-                        SwanVideoView.this.eBD.onVideoSizeChanged(i, i2);
-                    }
-                    SwanVideoView.this.requestLayout();
-                }
-            }
-        };
-        this.eBH = new MediaPlayer.OnErrorListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.4
-            @Override // android.media.MediaPlayer.OnErrorListener
-            public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                Log.d("SwanVideoView", "onError: " + i + "," + i2);
-                SwanVideoView.this.setCurrentState(-1);
-                SwanVideoView.this.eBt = false;
-                SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onError(i, i2, null);
-                }
-                return SwanVideoView.this.eBD != null;
-            }
-        };
-        this.eBI = new MediaPlayer.OnBufferingUpdateListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.5
-            @Override // android.media.MediaPlayer.OnBufferingUpdateListener
-            public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
-                Log.d("SwanVideoView", "onBufferingUpdate: percent=" + i);
-                SwanVideoView.this.eBv = i;
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onBufferingUpdate(i);
-                }
-                if (SwanVideoView.this.eBu != null) {
-                    SwanVideoView.this.eBu.my((SwanVideoView.this.getDuration() * i) / 100);
-                }
-            }
-        };
-        this.eBJ = new MediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.6
-            @Override // android.media.MediaPlayer.OnSeekCompleteListener
-            public void onSeekComplete(MediaPlayer mediaPlayer) {
-                Log.d("SwanVideoView", "onSeekComplete");
-                SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onSeekEnd();
-                }
-            }
-        };
-        this.eBK = new a.InterfaceC0551a() { // from class: com.baidu.swan.videoplayer.SwanVideoView.7
-            @Override // com.baidu.swan.videoplayer.a.InterfaceC0551a
-            public void a(a.b bVar, int i, int i2, int i3) {
-            }
-
-            @Override // com.baidu.swan.videoplayer.a.InterfaceC0551a
-            public void a(a.b bVar, int i, int i2) {
-                if (bVar.bfN() == SwanVideoView.this.eBB && SwanVideoView.this.mMediaPlayer != null) {
-                    SwanVideoView.this.a(SwanVideoView.this.mMediaPlayer, bVar);
-                }
-            }
-
-            @Override // com.baidu.swan.videoplayer.a.InterfaceC0551a
-            public void a(a.b bVar) {
-            }
-        };
-        eK(context);
+        this.f13048e = 0;
+        this.m = -1;
+        this.p = true;
+        this.t = 0;
+        this.z = new a();
+        this.A = new b();
+        this.B = new c();
+        this.C = new d();
+        this.D = new e();
+        this.E = new f();
+        this.F = new g();
+        s(context);
     }
 
-    public SwanVideoView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.eBs = 0;
-        this.eBw = -1;
-        this.eBx = true;
-        this.eBr = 0;
-        this.eBE = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.1
-            @Override // android.media.MediaPlayer.OnPreparedListener
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                SwanVideoView.this.setCurrentState(2);
-                SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onPrepared();
-                }
-                SwanVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
-                SwanVideoView.this.mVideoHeight = mediaPlayer.getVideoHeight();
-                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0 && SwanVideoView.this.eBB != null) {
-                    SwanVideoView.this.eBB.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
-                }
-                if (SwanVideoView.this.eBt) {
-                    SwanVideoView.this.start();
-                }
-            }
-        };
-        this.eBF = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.2
-            @Override // android.media.MediaPlayer.OnCompletionListener
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                Log.d("SwanVideoView", "onCompletion");
-                SwanVideoView.this.setCacheViewVisibility(false);
-                SwanVideoView.this.setCurrentState(5);
-                SwanVideoView.this.eBt = false;
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onEnd();
-                }
-            }
-        };
-        this.eBG = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.3
-            @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
-            public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-                SwanVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
-                SwanVideoView.this.mVideoHeight = mediaPlayer.getVideoHeight();
-                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0) {
-                    if (SwanVideoView.this.eBB != null) {
-                        SwanVideoView.this.eBB.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
-                    }
-                    if (SwanVideoView.this.eBD != null) {
-                        SwanVideoView.this.eBD.onVideoSizeChanged(i, i2);
-                    }
-                    SwanVideoView.this.requestLayout();
-                }
-            }
-        };
-        this.eBH = new MediaPlayer.OnErrorListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.4
-            @Override // android.media.MediaPlayer.OnErrorListener
-            public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                Log.d("SwanVideoView", "onError: " + i + "," + i2);
-                SwanVideoView.this.setCurrentState(-1);
-                SwanVideoView.this.eBt = false;
-                SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onError(i, i2, null);
-                }
-                return SwanVideoView.this.eBD != null;
-            }
-        };
-        this.eBI = new MediaPlayer.OnBufferingUpdateListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.5
-            @Override // android.media.MediaPlayer.OnBufferingUpdateListener
-            public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
-                Log.d("SwanVideoView", "onBufferingUpdate: percent=" + i);
-                SwanVideoView.this.eBv = i;
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onBufferingUpdate(i);
-                }
-                if (SwanVideoView.this.eBu != null) {
-                    SwanVideoView.this.eBu.my((SwanVideoView.this.getDuration() * i) / 100);
-                }
-            }
-        };
-        this.eBJ = new MediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.6
-            @Override // android.media.MediaPlayer.OnSeekCompleteListener
-            public void onSeekComplete(MediaPlayer mediaPlayer) {
-                Log.d("SwanVideoView", "onSeekComplete");
-                SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onSeekEnd();
-                }
-            }
-        };
-        this.eBK = new a.InterfaceC0551a() { // from class: com.baidu.swan.videoplayer.SwanVideoView.7
-            @Override // com.baidu.swan.videoplayer.a.InterfaceC0551a
-            public void a(a.b bVar, int i, int i2, int i3) {
-            }
-
-            @Override // com.baidu.swan.videoplayer.a.InterfaceC0551a
-            public void a(a.b bVar, int i, int i2) {
-                if (bVar.bfN() == SwanVideoView.this.eBB && SwanVideoView.this.mMediaPlayer != null) {
-                    SwanVideoView.this.a(SwanVideoView.this.mMediaPlayer, bVar);
-                }
-            }
-
-            @Override // com.baidu.swan.videoplayer.a.InterfaceC0551a
-            public void a(a.b bVar) {
-            }
-        };
-        eK(context);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setCacheViewVisibility(boolean z) {
+        if (z) {
+            this.q.setVisibility(0);
+        } else {
+            this.q.setVisibility(8);
+        }
     }
 
-    public SwanVideoView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.eBs = 0;
-        this.eBw = -1;
-        this.eBx = true;
-        this.eBr = 0;
-        this.eBE = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.1
-            @Override // android.media.MediaPlayer.OnPreparedListener
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                SwanVideoView.this.setCurrentState(2);
-                SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onPrepared();
-                }
-                SwanVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
-                SwanVideoView.this.mVideoHeight = mediaPlayer.getVideoHeight();
-                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0 && SwanVideoView.this.eBB != null) {
-                    SwanVideoView.this.eBB.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
-                }
-                if (SwanVideoView.this.eBt) {
-                    SwanVideoView.this.start();
-                }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setCurrentState(int i) {
+        if (this.f13048e != i) {
+            this.f13048e = i;
+            MediaController mediaController = this.i;
+            if (mediaController != null) {
+                mediaController.s();
             }
-        };
-        this.eBF = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.2
-            @Override // android.media.MediaPlayer.OnCompletionListener
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                Log.d("SwanVideoView", "onCompletion");
-                SwanVideoView.this.setCacheViewVisibility(false);
-                SwanVideoView.this.setCurrentState(5);
-                SwanVideoView.this.eBt = false;
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onEnd();
-                }
-            }
-        };
-        this.eBG = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.3
-            @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
-            public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i22) {
-                SwanVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
-                SwanVideoView.this.mVideoHeight = mediaPlayer.getVideoHeight();
-                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0) {
-                    if (SwanVideoView.this.eBB != null) {
-                        SwanVideoView.this.eBB.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
-                    }
-                    if (SwanVideoView.this.eBD != null) {
-                        SwanVideoView.this.eBD.onVideoSizeChanged(i2, i22);
-                    }
-                    SwanVideoView.this.requestLayout();
-                }
-            }
-        };
-        this.eBH = new MediaPlayer.OnErrorListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.4
-            @Override // android.media.MediaPlayer.OnErrorListener
-            public boolean onError(MediaPlayer mediaPlayer, int i2, int i22) {
-                Log.d("SwanVideoView", "onError: " + i2 + "," + i22);
-                SwanVideoView.this.setCurrentState(-1);
-                SwanVideoView.this.eBt = false;
-                SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onError(i2, i22, null);
-                }
-                return SwanVideoView.this.eBD != null;
-            }
-        };
-        this.eBI = new MediaPlayer.OnBufferingUpdateListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.5
-            @Override // android.media.MediaPlayer.OnBufferingUpdateListener
-            public void onBufferingUpdate(MediaPlayer mediaPlayer, int i2) {
-                Log.d("SwanVideoView", "onBufferingUpdate: percent=" + i2);
-                SwanVideoView.this.eBv = i2;
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onBufferingUpdate(i2);
-                }
-                if (SwanVideoView.this.eBu != null) {
-                    SwanVideoView.this.eBu.my((SwanVideoView.this.getDuration() * i2) / 100);
-                }
-            }
-        };
-        this.eBJ = new MediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.swan.videoplayer.SwanVideoView.6
-            @Override // android.media.MediaPlayer.OnSeekCompleteListener
-            public void onSeekComplete(MediaPlayer mediaPlayer) {
-                Log.d("SwanVideoView", "onSeekComplete");
-                SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.eBD != null) {
-                    SwanVideoView.this.eBD.onSeekEnd();
-                }
-            }
-        };
-        this.eBK = new a.InterfaceC0551a() { // from class: com.baidu.swan.videoplayer.SwanVideoView.7
-            @Override // com.baidu.swan.videoplayer.a.InterfaceC0551a
-            public void a(a.b bVar, int i2, int i22, int i3) {
-            }
-
-            @Override // com.baidu.swan.videoplayer.a.InterfaceC0551a
-            public void a(a.b bVar, int i2, int i22) {
-                if (bVar.bfN() == SwanVideoView.this.eBB && SwanVideoView.this.mMediaPlayer != null) {
-                    SwanVideoView.this.a(SwanVideoView.this.mMediaPlayer, bVar);
-                }
-            }
-
-            @Override // com.baidu.swan.videoplayer.a.InterfaceC0551a
-            public void a(a.b bVar) {
-            }
-        };
-        eK(context);
+        }
     }
 
-    private void eK(Context context) {
-        this.mAppContext = context.getApplicationContext();
-        this.eBC = new FrameLayout(context);
+    public final void A() {
+        try {
+            this.j.reset();
+            this.j.setDataSource(this.l, this.f13050g, this.f13051h);
+            this.j.prepareAsync();
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public void B(int i) {
+        if (t()) {
+            if (i >= this.j.getDuration()) {
+                i = this.j.getDuration() - 1000;
+            }
+            this.j.seekTo(i);
+            setCacheViewVisibility(true);
+        }
+    }
+
+    public void C() {
+        if (this.j == null) {
+            return;
+        }
+        int i = this.f13048e;
+        if (i != -1 && i != 5) {
+            if (t()) {
+                d.b.g0.s.h.a aVar = this.y;
+                if (aVar != null) {
+                    if (this.f13048e == 4) {
+                        aVar.onResume();
+                    } else {
+                        aVar.onStart();
+                    }
+                }
+                this.j.start();
+                setCurrentState(3);
+            }
+        } else {
+            if (this.f13048e == 5) {
+                this.j.stop();
+            }
+            A();
+            setCacheViewVisibility(true);
+            setCurrentState(1);
+        }
+        this.f13049f = true;
+    }
+
+    public void D() {
+        MediaPlayer mediaPlayer = this.j;
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            z();
+            this.f13049f = false;
+        }
+    }
+
+    public final void E() {
+        if (this.p) {
+            if (this.i.getVisibility() != 0) {
+                this.i.i();
+            } else {
+                this.i.h();
+            }
+        }
+    }
+
+    public Bitmap getBitmap() {
+        d.b.g0.s.a aVar = this.u;
+        if (aVar != null) {
+            return aVar.getBitmap();
+        }
+        return null;
+    }
+
+    public int getBufferPercentage() {
+        if (this.j != null) {
+            return this.k;
+        }
+        return 0;
+    }
+
+    public int getCurrentPlayerState() {
+        return this.f13048e;
+    }
+
+    public String getCurrentPlayingUrl() {
+        Uri uri = this.f13050g;
+        if (uri != null) {
+            return uri.toString();
+        }
+        return null;
+    }
+
+    public int getCurrentPosition() {
+        if (t()) {
+            return this.j.getCurrentPosition();
+        }
+        return 0;
+    }
+
+    public int getDuration() {
+        if (t()) {
+            return this.j.getDuration();
+        }
+        return 0;
+    }
+
+    public int getVideoHeight() {
+        return this.j.getVideoHeight();
+    }
+
+    public d.b.g0.s.h.a getVideoPlayerCallback() {
+        return this.y;
+    }
+
+    public int getVideoWidth() {
+        return this.j.getVideoWidth();
+    }
+
+    public final void o() {
+        this.q = new RelativeLayout(getContext());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+        this.q.setVisibility(8);
+        addView(this.q, layoutParams);
+        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams2.addRule(13);
+        ProgressBar progressBar = new ProgressBar(getContext());
+        this.r = progressBar;
+        progressBar.setId(16908308);
+        this.r.setMax(100);
+        this.r.setProgress(10);
+        this.r.setSecondaryProgress(100);
+        this.q.addView(this.r, layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
+        layoutParams3.addRule(9);
+        layoutParams3.addRule(3, 16908308);
+        TextView textView = new TextView(getContext());
+        this.s = textView;
+        textView.setTextColor(-1);
+        this.s.setText(d.b.g0.s.f.laoding);
+        this.s.setGravity(1);
+        this.q.addView(this.s, layoutParams3);
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 0) {
+            E();
+        }
+        return super.onTouchEvent(motionEvent);
+    }
+
+    public final void p(MediaPlayer mediaPlayer, a.b bVar) {
+        if (mediaPlayer == null) {
+            return;
+        }
+        if (bVar == null) {
+            mediaPlayer.setDisplay(null);
+        } else {
+            bVar.a(mediaPlayer);
+        }
+    }
+
+    public MediaPlayer q() {
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        mediaPlayer.setLooping(this.n);
+        mediaPlayer.setWakeMode(getContext(), 10);
+        return mediaPlayer;
+    }
+
+    public final void r() {
+        setRenderView(new TextureRenderView(getContext()));
+    }
+
+    public final void s(Context context) {
+        this.l = context.getApplicationContext();
+        this.x = new FrameLayout(context);
         ViewGroup.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.eBC.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-        addView(this.eBC, layoutParams);
-        this.eBu = new MediaController(context);
+        this.x.setBackgroundColor(-16777216);
+        addView(this.x, layoutParams);
+        this.i = new MediaController(context);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
         layoutParams2.gravity = 80;
-        this.eBu.setVisibility(8);
-        addView(this.eBu, layoutParams2);
-        this.eBu.i(this);
-        bfS();
-        bfR();
+        this.i.setVisibility(8);
+        addView(this.i, layoutParams2);
+        this.i.f(this);
+        r();
+        o();
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
         setCurrentState(0);
     }
 
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            bfQ();
-        }
-        return super.onTouchEvent(motionEvent);
-    }
-
-    private void bfQ() {
-        if (this.eBx) {
-            if (this.eBu.getVisibility() != 0) {
-                this.eBu.bgx();
-            } else {
-                this.eBu.hide();
-            }
-        }
-    }
-
-    public void setSurface(Surface surface) {
-        this.mMediaPlayer.setSurface(surface);
-    }
-
-    private void bfR() {
-        this.eBy = new RelativeLayout(getContext());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.eBy.setVisibility(8);
-        addView(this.eBy, layoutParams);
-        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams2.addRule(13);
-        this.eBz = new ProgressBar(getContext());
-        this.eBz.setId(16908308);
-        this.eBz.setMax(100);
-        this.eBz.setProgress(10);
-        this.eBz.setSecondaryProgress(100);
-        this.eBy.addView(this.eBz, layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams3.addRule(9);
-        layoutParams3.addRule(3, 16908308);
-        this.eBA = new TextView(getContext());
-        this.eBA.setTextColor(-1);
-        this.eBA.setText(c.d.laoding);
-        this.eBA.setGravity(1);
-        this.eBy.addView(this.eBA, layoutParams3);
-    }
-
-    public void setVideoPlayerCallback(com.baidu.swan.videoplayer.a.a aVar) {
-        this.eBD = aVar;
-        if (this.eBu != null) {
-            this.eBu.setToggleScreenListener(aVar);
-        }
-    }
-
-    public int getCurrentPlayerState() {
-        return this.eBs;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setCurrentState(int i) {
-        if (this.eBs != i) {
-            this.eBs = i;
-            if (this.eBu != null) {
-                this.eBu.bgu();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setCacheViewVisibility(boolean z) {
-        if (z) {
-            this.eBy.setVisibility(0);
-        } else {
-            this.eBy.setVisibility(8);
-        }
-    }
-
-    private void bfS() {
-        setRenderView(new TextureRenderView(getContext()));
-    }
-
-    protected void setRenderView(a aVar) {
-        if (this.eBB != null) {
-            if (this.mMediaPlayer != null) {
-                this.mMediaPlayer.setDisplay(null);
-            }
-            View view = this.eBB.getView();
-            this.eBB.b(this.eBK);
-            this.eBB.release();
-            this.eBB = null;
-            this.eBC.removeView(view);
-        }
-        if (aVar != null) {
-            this.eBB = aVar;
-            aVar.setAspectRatio(this.eBr);
-            if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
-                aVar.setVideoSize(this.mVideoWidth, this.mVideoHeight);
-            }
-            View view2 = this.eBB.getView();
-            view2.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
-            this.eBC.addView(view2);
-            this.eBB.a(this.eBK);
-        }
-    }
-
-    public void setVideoPath(String str) {
-        this.mUri = Uri.parse(str);
-        if (this.mUri != null) {
-            if (this.mMediaPlayer != null) {
-                try {
-                    this.mMediaPlayer.setDataSource(this.mAppContext, this.mUri, this.mHeaders);
-                    this.mMediaPlayer.prepareAsync();
-                    setCacheViewVisibility(true);
-                    setCurrentState(1);
-                } catch (IOException e) {
-                    setCurrentState(-1);
-                    this.eBt = false;
-                    this.eBH.onError(this.mMediaPlayer, 1, 0);
-                }
-            }
-            requestLayout();
-            invalidate();
-        }
-    }
-
     public void setHeaders(Map<String, String> map) {
-        this.mHeaders = map;
+        this.f13051h = map;
     }
 
-    public void stopPlayback() {
-        if (this.mMediaPlayer != null) {
-            this.mMediaPlayer.stop();
-            bfV();
-            this.eBt = false;
+    public void setInitPlayPosition(int i) {
+        this.m = i;
+        MediaPlayer mediaPlayer = this.j;
+        if (mediaPlayer != null) {
+            mediaPlayer.seekTo(i);
+            this.m = -1;
         }
     }
 
-    public void bfT() {
-        try {
-            this.mMediaPlayer = bfU();
-            this.mMediaPlayer.setOnPreparedListener(this.eBE);
-            this.mMediaPlayer.setOnCompletionListener(this.eBF);
-            this.mMediaPlayer.setOnErrorListener(this.eBH);
-            this.mMediaPlayer.setOnBufferingUpdateListener(this.eBI);
-            this.mMediaPlayer.setOnSeekCompleteListener(this.eBJ);
-            this.mMediaPlayer.setOnVideoSizeChangedListener(this.eBG);
-            this.eBv = 0;
-            this.mMediaPlayer.setAudioStreamType(3);
-            this.mMediaPlayer.setScreenOnWhilePlaying(true);
-        } catch (IllegalArgumentException e) {
-            setCurrentState(-1);
-            this.eBt = false;
-            this.eBH.onError(this.mMediaPlayer, 1, 0);
+    public void setIsLandscape(boolean z) {
+        MediaController mediaController = this.i;
+        if (mediaController != null) {
+            mediaController.m(z);
         }
-    }
-
-    public MediaPlayer bfU() {
-        MediaPlayer mediaPlayer = new MediaPlayer();
-        mediaPlayer.setLooping(this.bfQ);
-        mediaPlayer.setWakeMode(getContext(), 10);
-        return mediaPlayer;
     }
 
     public void setLooping(boolean z) {
-        this.bfQ = z;
-        if (this.mMediaPlayer != null) {
-            this.mMediaPlayer.setLooping(this.bfQ);
-        }
-    }
-
-    public void setMuted(boolean z) {
-        if (this.mMediaPlayer != null) {
-            setVolume(z ? 0.0f : 1.0f);
-            this.mMute = z;
-            if (this.eBu != null && this.eBx) {
-                this.eBu.setMute(this.mMute);
-            }
-        }
-    }
-
-    public boolean isMute() {
-        return this.mMute;
-    }
-
-    public void setVolume(float f) {
-        if (this.mMediaPlayer != null) {
-            this.mMediaPlayer.setVolume(f, f);
+        this.n = z;
+        MediaPlayer mediaPlayer = this.j;
+        if (mediaPlayer != null) {
+            mediaPlayer.setLooping(z);
         }
     }
 
     public void setMediaControllerEnabled(boolean z) {
-        this.eBx = z;
+        this.p = z;
     }
 
-    public void setInitPlayPosition(int i) {
-        this.eBw = i;
-        if (this.mMediaPlayer != null) {
-            this.mMediaPlayer.seekTo(this.eBw);
-            this.eBw = -1;
-        }
-    }
-
-    public void release() {
-        bfV();
-        this.eBt = false;
-        if (this.eBB != null) {
-            this.eBB.release();
-        }
-        if (this.eBu != null) {
-            this.eBu.setToggleScreenListener(null);
-            this.eBu.i(null);
-            this.eBu = null;
-        }
-        if (this.eBD != null) {
-            this.eBD = null;
+    public void setMuted(boolean z) {
+        if (this.j != null) {
+            setVolume(z ? 0.0f : 1.0f);
+            this.o = z;
+            MediaController mediaController = this.i;
+            if (mediaController == null || !this.p) {
+                return;
+            }
+            mediaController.setMute(z);
         }
     }
 
-    private void bfV() {
-        if (this.mMediaPlayer != null) {
-            this.mMediaPlayer.reset();
-            this.mMediaPlayer.setDisplay(null);
-            this.mMediaPlayer.release();
-            this.mMediaPlayer = null;
-            setCurrentState(0);
+    public void setRenderView(d.b.g0.s.a aVar) {
+        int i;
+        if (this.u != null) {
+            MediaPlayer mediaPlayer = this.j;
+            if (mediaPlayer != null) {
+                mediaPlayer.setDisplay(null);
+            }
+            View view = this.u.getView();
+            this.u.a(this.F);
+            this.u.release();
+            this.u = null;
+            this.x.removeView(view);
         }
-        if (this.eBD != null) {
-            this.eBD = null;
+        if (aVar == null) {
+            return;
         }
+        this.u = aVar;
+        aVar.setAspectRatio(this.t);
+        int i2 = this.v;
+        if (i2 > 0 && (i = this.w) > 0) {
+            aVar.setVideoSize(i2, i);
+        }
+        View view2 = this.u.getView();
+        view2.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
+        this.x.addView(view2);
+        this.u.b(this.F);
     }
 
-    public void start() {
-        if (this.mMediaPlayer != null) {
-            if (this.eBs == -1 || this.eBs == 5) {
-                if (this.eBs == 5) {
-                    this.mMediaPlayer.stop();
-                }
-                restart();
+    public void setSurface(Surface surface) {
+        this.j.setSurface(surface);
+    }
+
+    public void setVideoPath(String str) {
+        Uri parse = Uri.parse(str);
+        this.f13050g = parse;
+        if (parse == null) {
+            return;
+        }
+        MediaPlayer mediaPlayer = this.j;
+        if (mediaPlayer != null) {
+            try {
+                mediaPlayer.setDataSource(this.l, parse, this.f13051h);
+                this.j.prepareAsync();
                 setCacheViewVisibility(true);
                 setCurrentState(1);
-            } else if (isInPlaybackState()) {
-                if (this.eBD != null) {
-                    if (this.eBs == 4) {
-                        this.eBD.onResume();
-                    } else {
-                        this.eBD.onStart();
-                    }
-                }
-                this.mMediaPlayer.start();
-                setCurrentState(3);
+            } catch (IOException unused) {
+                setCurrentState(-1);
+                this.f13049f = false;
+                this.C.onError(this.j, 1, 0);
             }
-            this.eBt = true;
         }
+        requestLayout();
+        invalidate();
     }
 
-    private void restart() {
-        try {
-            this.mMediaPlayer.reset();
-            this.mMediaPlayer.setDataSource(this.mAppContext, this.mUri, this.mHeaders);
-            this.mMediaPlayer.prepareAsync();
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void setVideoPlayerCallback(d.b.g0.s.h.a aVar) {
+        this.y = aVar;
+        MediaController mediaController = this.i;
+        if (mediaController != null) {
+            mediaController.setToggleScreenListener(aVar);
         }
-    }
-
-    public void pause() {
-        if (isInPlaybackState() && this.mMediaPlayer.isPlaying()) {
-            this.mMediaPlayer.pause();
-            setCurrentState(4);
-        }
-        this.eBt = false;
-        if (this.eBD != null) {
-            this.eBD.onPause();
-        }
-    }
-
-    public int getBufferPercentage() {
-        if (this.mMediaPlayer != null) {
-            return this.eBv;
-        }
-        return 0;
-    }
-
-    public String getCurrentPlayingUrl() {
-        if (this.mUri != null) {
-            return this.mUri.toString();
-        }
-        return null;
-    }
-
-    public int getDuration() {
-        if (isInPlaybackState()) {
-            return this.mMediaPlayer.getDuration();
-        }
-        return 0;
-    }
-
-    public int getCurrentPosition() {
-        if (isInPlaybackState()) {
-            return this.mMediaPlayer.getCurrentPosition();
-        }
-        return 0;
-    }
-
-    public void seekTo(int i) {
-        if (isInPlaybackState()) {
-            if (i >= this.mMediaPlayer.getDuration()) {
-                i = this.mMediaPlayer.getDuration() - 1000;
-            }
-            this.mMediaPlayer.seekTo(i);
-            setCacheViewVisibility(true);
-        }
-    }
-
-    public boolean isPlaying() {
-        return isInPlaybackState() && this.mMediaPlayer.isPlaying();
-    }
-
-    private boolean isInPlaybackState() {
-        return (this.mMediaPlayer == null || this.eBs == -1 || this.eBs == 0 || this.eBs == 1) ? false : true;
-    }
-
-    public int getVideoWidth() {
-        return this.mMediaPlayer.getVideoWidth();
-    }
-
-    public int getVideoHeight() {
-        return this.mMediaPlayer.getVideoHeight();
     }
 
     public void setVideoScalingMode(int i) {
-        if (i == 1 || i == 2 || i == 3) {
-            if (i == 1) {
-                this.eBr = 0;
-            } else if (i == 2) {
-                this.eBr = 1;
-            } else {
-                this.eBr = 3;
-            }
-            if (this.eBB != null) {
-                this.eBB.setAspectRatio(this.eBr);
-                return;
-            }
+        if (i != 1 && i != 2 && i != 3) {
+            Log.e("SwanVideoView", "setVideoScalingMode: param should be VID");
             return;
         }
-        Log.e("SwanVideoView", "setVideoScalingMode: param should be VID");
-    }
-
-    public Bitmap getBitmap() {
-        if (this.eBB != null) {
-            return this.eBB.getBitmap();
+        if (i == 1) {
+            this.t = 0;
+        } else if (i == 2) {
+            this.t = 1;
+        } else {
+            this.t = 3;
         }
-        return null;
+        d.b.g0.s.a aVar = this.u;
+        if (aVar != null) {
+            aVar.setAspectRatio(this.t);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(MediaPlayer mediaPlayer, a.b bVar) {
+    public void setVolume(float f2) {
+        MediaPlayer mediaPlayer = this.j;
         if (mediaPlayer != null) {
-            if (bVar == null) {
-                mediaPlayer.setDisplay(null);
-            } else {
-                bVar.b(mediaPlayer);
-            }
+            mediaPlayer.setVolume(f2, f2);
         }
     }
 
-    public com.baidu.swan.videoplayer.a.a getVideoPlayerCallback() {
-        return this.eBD;
+    public final boolean t() {
+        int i;
+        return (this.j == null || (i = this.f13048e) == -1 || i == 0 || i == 1) ? false : true;
+    }
+
+    public boolean u() {
+        return this.o;
+    }
+
+    public boolean v() {
+        return t() && this.j.isPlaying();
+    }
+
+    public void w() {
+        try {
+            MediaPlayer q = q();
+            this.j = q;
+            q.setOnPreparedListener(this.z);
+            this.j.setOnCompletionListener(this.A);
+            this.j.setOnErrorListener(this.C);
+            this.j.setOnBufferingUpdateListener(this.D);
+            this.j.setOnSeekCompleteListener(this.E);
+            this.j.setOnVideoSizeChangedListener(this.B);
+            this.k = 0;
+            this.j.setAudioStreamType(3);
+            this.j.setScreenOnWhilePlaying(true);
+        } catch (IllegalArgumentException unused) {
+            setCurrentState(-1);
+            this.f13049f = false;
+            this.C.onError(this.j, 1, 0);
+        }
+    }
+
+    public void x() {
+        if (t() && this.j.isPlaying()) {
+            this.j.pause();
+            setCurrentState(4);
+        }
+        this.f13049f = false;
+        d.b.g0.s.h.a aVar = this.y;
+        if (aVar != null) {
+            aVar.onPause();
+        }
+    }
+
+    public void y() {
+        z();
+        this.f13049f = false;
+        d.b.g0.s.a aVar = this.u;
+        if (aVar != null) {
+            aVar.release();
+        }
+        MediaController mediaController = this.i;
+        if (mediaController != null) {
+            mediaController.setToggleScreenListener(null);
+            this.i.f(null);
+            this.i = null;
+        }
+        if (this.y != null) {
+            this.y = null;
+        }
+    }
+
+    public final void z() {
+        MediaPlayer mediaPlayer = this.j;
+        if (mediaPlayer != null) {
+            mediaPlayer.reset();
+            this.j.setDisplay(null);
+            this.j.release();
+            this.j = null;
+            setCurrentState(0);
+        }
+        if (this.y != null) {
+            this.y = null;
+        }
+    }
+
+    public SwanVideoView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f13048e = 0;
+        this.m = -1;
+        this.p = true;
+        this.t = 0;
+        this.z = new a();
+        this.A = new b();
+        this.B = new c();
+        this.C = new d();
+        this.D = new e();
+        this.E = new f();
+        this.F = new g();
+        s(context);
+    }
+
+    public SwanVideoView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f13048e = 0;
+        this.m = -1;
+        this.p = true;
+        this.t = 0;
+        this.z = new a();
+        this.A = new b();
+        this.B = new c();
+        this.C = new d();
+        this.D = new e();
+        this.E = new f();
+        this.F = new g();
+        s(context);
     }
 }

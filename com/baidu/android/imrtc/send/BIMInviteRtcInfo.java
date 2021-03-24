@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMInviteRtcInfo extends BIMRtcInfo {
     public static final Parcelable.Creator<BIMInviteRtcInfo> CREATOR = new Parcelable.Creator<BIMInviteRtcInfo>() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -29,38 +29,13 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             return new BIMInviteRtcInfo[i];
         }
     };
-    private static final String TAG = "IMInviteRtcInfo";
-    protected Context mContext;
-    private List<BIMInviteUser> mInviteUsers;
-    private int mMediaType;
-    private int mRtcRoomType;
+    public static final String TAG = "IMInviteRtcInfo";
+    public Context mContext;
+    public List<BIMInviteUser> mInviteUsers;
+    public int mMediaType;
+    public int mRtcRoomType;
 
-    public int getRtcRoomType() {
-        return this.mRtcRoomType;
-    }
-
-    public void setRtcRoomType(int i) {
-        this.mRtcRoomType = i;
-    }
-
-    public int getMediaType() {
-        return this.mMediaType;
-    }
-
-    public void setMediaType(int i) {
-        this.mMediaType = i;
-    }
-
-    public List<BIMInviteUser> getBIMInviteUsers() {
-        return this.mInviteUsers;
-    }
-
-    public void setBIMInviteUsers(@NonNull List<BIMInviteUser> list) {
-        this.mInviteUsers.clear();
-        this.mInviteUsers.addAll(list);
-    }
-
-    protected BIMInviteRtcInfo(Parcel parcel) {
+    public BIMInviteRtcInfo(Parcel parcel) {
         super(parcel);
         this.mInviteUsers = new ArrayList();
         this.mRtcRoomType = parcel.readInt();
@@ -69,26 +44,60 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         this.mInviteUsers = parcel.createTypedArrayList(BIMInviteUser.CREATOR);
     }
 
-    public BIMInviteRtcInfo(Context context) {
-        this.mInviteUsers = new ArrayList();
-        this.mContext = context;
+    public List<BIMInviteUser> getBIMInviteUsers() {
+        return this.mInviteUsers;
     }
 
-    private BIMInviteRtcInfo(BIMRtcInfo bIMRtcInfo) {
-        this.mInviteUsers = new ArrayList();
-        setAction(bIMRtcInfo.getAction());
-        setRtcRoomId(bIMRtcInfo.getRtcRoomId());
-        setRtcExt(bIMRtcInfo.getRtcExt());
-        setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
+    public int getMediaType() {
+        return this.mMediaType;
     }
 
-    @Override // com.baidu.android.imrtc.BIMRtcInfo, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeInt(this.mRtcRoomType);
-        parcel.writeInt(this.mMediaType);
-        parcel.writeString(this.mRtcExt);
-        parcel.writeTypedList(this.mInviteUsers);
+    public int getRtcRoomType() {
+        return this.mRtcRoomType;
+    }
+
+    public void setBIMInviteUsers(@NonNull List<BIMInviteUser> list) {
+        this.mInviteUsers.clear();
+        this.mInviteUsers.addAll(list);
+    }
+
+    public void setMediaType(int i) {
+        this.mMediaType = i;
+    }
+
+    public void setRtcRoomType(int i) {
+        this.mRtcRoomType = i;
+    }
+
+    @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
+    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
+        JSONArray optJSONArray;
+        BIMInviteRtcInfo bIMInviteRtcInfo = new BIMInviteRtcInfo(super.toRtcInfo(i, str, str2));
+        try {
+            JSONObject jSONObject = new JSONObject(str2);
+            bIMInviteRtcInfo.setMediaType(jSONObject.optInt("media_type"));
+            bIMInviteRtcInfo.setRtcRoomType(jSONObject.optInt("rtc_room_type"));
+            optJSONArray = jSONObject.optJSONArray("user_list");
+        } catch (Exception e2) {
+            LogUtils.e("IMInviteRtcInfo", "BIMInviteRtcInfo toRtcInfo Exception ", e2);
+        }
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                BIMInviteUser bIMInviteUser = new BIMInviteUser();
+                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
+                bIMInviteUser.appId = jSONObject2.optLong("appid");
+                bIMInviteUser.uk = jSONObject2.optLong("uk");
+                bIMInviteUser.cuid = jSONObject2.optString("cuid");
+                bIMInviteUser.thirdUserId = jSONObject2.optString("third_userid");
+                bIMInviteUser.appVersion = jSONObject2.optString("app_version");
+                arrayList.add(bIMInviteUser);
+            }
+            bIMInviteRtcInfo.setBIMInviteUsers(arrayList);
+            return bIMInviteRtcInfo;
+        }
+        return bIMInviteRtcInfo;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
@@ -97,8 +106,8 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         try {
             JSONObject jSONObject = new JSONObject(super.toRtcInfoString());
             jSONObject.put("rtc_appid", RtcUtility.getRtcAppId(this.mContext));
-            jSONObject.put("rtc_room_token", RtcUtility.getRtcRoomToken(this.mContext));
-            jSONObject.put("rtc_room_name", RtcUtility.getRtcRoomName(this.mContext));
+            jSONObject.put(RtcUtility.KEY_RTC_ROOM_TOKEN, RtcUtility.getRtcRoomToken(this.mContext));
+            jSONObject.put(RtcUtility.KEY_RTC_ROOM_NAME, RtcUtility.getRtcRoomName(this.mContext));
             jSONObject.put("rtc_room_desc", RtcUtility.getRtcRoomDes(this.mContext));
             jSONObject.put("rtc_room_type", this.mRtcRoomType);
             jSONObject.put("media_type", this.mMediaType);
@@ -113,43 +122,12 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 jSONArray.put(jSONObject2);
             }
             jSONObject.put("user_list", jSONArray);
-            LogUtils.d(TAG, "IMInviteRtcInfo :" + jSONObject.toString());
+            LogUtils.d("IMInviteRtcInfo", "IMInviteRtcInfo :" + jSONObject.toString());
             return jSONObject.toString();
-        } catch (Exception e) {
-            LogUtils.e(TAG, "IMInviteRtcInfo Exception ", e);
+        } catch (Exception e2) {
+            LogUtils.e("IMInviteRtcInfo", "IMInviteRtcInfo Exception ", e2);
             return "";
         }
-    }
-
-    @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
-        JSONArray optJSONArray;
-        BIMInviteRtcInfo bIMInviteRtcInfo = new BIMInviteRtcInfo(super.toRtcInfo(i, str, str2));
-        try {
-            JSONObject jSONObject = new JSONObject(str2);
-            bIMInviteRtcInfo.setMediaType(jSONObject.optInt("media_type"));
-            bIMInviteRtcInfo.setRtcRoomType(jSONObject.optInt("rtc_room_type"));
-            optJSONArray = jSONObject.optJSONArray("user_list");
-        } catch (Exception e) {
-            LogUtils.e(TAG, "BIMInviteRtcInfo toRtcInfo Exception ", e);
-        }
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            return bIMInviteRtcInfo;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            BIMInviteUser bIMInviteUser = new BIMInviteUser();
-            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
-            bIMInviteUser.appId = jSONObject2.optLong("appid");
-            bIMInviteUser.uk = jSONObject2.optLong("uk");
-            bIMInviteUser.cuid = jSONObject2.optString("cuid");
-            bIMInviteUser.thirdUserId = jSONObject2.optString("third_userid");
-            bIMInviteUser.appVersion = jSONObject2.optString("app_version");
-            arrayList.add(bIMInviteUser);
-        }
-        bIMInviteRtcInfo.setBIMInviteUsers(arrayList);
-        return bIMInviteRtcInfo;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
@@ -157,7 +135,16 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         return "BIMInviteRtcInfo{" + super.toString() + ", mRtcRoomType=" + this.mRtcRoomType + ", mMediaType=" + this.mMediaType + '}';
     }
 
-    /* loaded from: classes3.dex */
+    @Override // com.baidu.android.imrtc.BIMRtcInfo, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+        parcel.writeInt(this.mRtcRoomType);
+        parcel.writeInt(this.mMediaType);
+        parcel.writeString(this.mRtcExt);
+        parcel.writeTypedList(this.mInviteUsers);
+    }
+
+    /* loaded from: classes2.dex */
     public static class BIMInviteUser implements Parcelable {
         public static final Parcelable.Creator<BIMInviteUser> CREATOR = new Parcelable.Creator<BIMInviteUser>() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.BIMInviteUser.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -180,15 +167,12 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         public String thirdUserId;
         public long uk;
 
-        protected BIMInviteUser(Parcel parcel) {
+        public BIMInviteUser(Parcel parcel) {
             this.appId = parcel.readLong();
             this.uk = parcel.readLong();
             this.cuid = parcel.readString();
             this.thirdUserId = parcel.readString();
             this.appVersion = parcel.readString();
-        }
-
-        public BIMInviteUser() {
         }
 
         @Override // android.os.Parcelable
@@ -204,5 +188,21 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             parcel.writeString(this.thirdUserId);
             parcel.writeString(this.appVersion);
         }
+
+        public BIMInviteUser() {
+        }
+    }
+
+    public BIMInviteRtcInfo(Context context) {
+        this.mInviteUsers = new ArrayList();
+        this.mContext = context;
+    }
+
+    public BIMInviteRtcInfo(BIMRtcInfo bIMRtcInfo) {
+        this.mInviteUsers = new ArrayList();
+        setAction(bIMRtcInfo.getAction());
+        setRtcRoomId(bIMRtcInfo.getRtcRoomId());
+        setRtcExt(bIMRtcInfo.getRtcExt());
+        setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 }

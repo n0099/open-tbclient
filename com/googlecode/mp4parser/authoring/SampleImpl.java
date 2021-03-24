@@ -5,12 +5,12 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SampleImpl implements Sample {
-    private ByteBuffer[] data;
-    private final long offset;
-    private final Container parent;
-    private final long size;
+    public ByteBuffer[] data;
+    public final long offset;
+    public final Container parent;
+    public final long size;
 
     public SampleImpl(ByteBuffer byteBuffer) {
         this.offset = -1L;
@@ -19,16 +19,57 @@ public class SampleImpl implements Sample {
         this.parent = null;
     }
 
+    @Override // com.googlecode.mp4parser.authoring.Sample
+    public ByteBuffer asByteBuffer() {
+        ensureData();
+        ByteBuffer wrap = ByteBuffer.wrap(new byte[CastUtils.l2i(this.size)]);
+        for (ByteBuffer byteBuffer : this.data) {
+            wrap.put(byteBuffer.duplicate());
+        }
+        wrap.rewind();
+        return wrap;
+    }
+
+    public void ensureData() {
+        if (this.data != null) {
+            return;
+        }
+        Container container = this.parent;
+        if (container != null) {
+            try {
+                this.data = new ByteBuffer[]{container.getByteBuffer(this.offset, this.size)};
+                return;
+            } catch (IOException e2) {
+                throw new RuntimeException("couldn't read sample " + this, e2);
+            }
+        }
+        throw new RuntimeException("Missing parent container, can't read sample " + this);
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Sample
+    public long getSize() {
+        return this.size;
+    }
+
+    public String toString() {
+        return "SampleImpl{offset=" + this.offset + "{size=" + this.size + '}';
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Sample
+    public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
+        ensureData();
+        for (ByteBuffer byteBuffer : this.data) {
+            writableByteChannel.write(byteBuffer.duplicate());
+        }
+    }
+
     public SampleImpl(ByteBuffer[] byteBufferArr) {
         this.offset = -1L;
-        int length = byteBufferArr.length;
         int i = 0;
-        int i2 = 0;
-        while (i < length) {
-            i++;
-            i2 = byteBufferArr[i].remaining() + i2;
+        for (ByteBuffer byteBuffer : byteBufferArr) {
+            i += byteBuffer.remaining();
         }
-        this.size = i2;
+        this.size = i;
         this.data = byteBufferArr;
         this.parent = null;
     }
@@ -45,51 +86,5 @@ public class SampleImpl implements Sample {
         this.size = j2;
         this.data = null;
         this.parent = container;
-    }
-
-    protected void ensureData() {
-        if (this.data == null) {
-            if (this.parent == null) {
-                throw new RuntimeException("Missing parent container, can't read sample " + this);
-            }
-            try {
-                this.data = new ByteBuffer[]{this.parent.getByteBuffer(this.offset, this.size)};
-            } catch (IOException e) {
-                throw new RuntimeException("couldn't read sample " + this, e);
-            }
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Sample
-    public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-        ensureData();
-        for (ByteBuffer byteBuffer : this.data) {
-            writableByteChannel.write(byteBuffer.duplicate());
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Sample
-    public long getSize() {
-        return this.size;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Sample
-    public ByteBuffer asByteBuffer() {
-        ensureData();
-        ByteBuffer wrap = ByteBuffer.wrap(new byte[CastUtils.l2i(this.size)]);
-        for (ByteBuffer byteBuffer : this.data) {
-            wrap.put(byteBuffer.duplicate());
-        }
-        wrap.rewind();
-        return wrap;
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("SampleImpl");
-        sb.append("{offset=").append(this.offset);
-        sb.append("{size=").append(this.size);
-        sb.append('}');
-        return sb.toString();
     }
 }

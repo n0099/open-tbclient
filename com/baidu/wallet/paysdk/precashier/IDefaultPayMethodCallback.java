@@ -1,0 +1,5 @@
+package com.baidu.wallet.paysdk.precashier;
+/* loaded from: classes5.dex */
+public interface IDefaultPayMethodCallback {
+    void onReceived(int i, String str);
+}

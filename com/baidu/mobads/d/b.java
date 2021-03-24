@@ -6,29 +6,14 @@ import com.baidu.mobads.interfaces.error.XAdErrorCode;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b implements IXAdErrorCode {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f2373a;
+    public final IXAdLogger f8213a;
 
     public b(IXAdLogger iXAdLogger) {
-        this.f2373a = iXAdLogger;
-    }
-
-    @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
-    public void printErrorMessage(XAdErrorCode xAdErrorCode, String str) {
-        this.f2373a.e(genCompleteErrorMessage(xAdErrorCode, str));
-    }
-
-    @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
-    public void printErrorMessage(String str, String str2, String str3) {
-        this.f2373a.e(a(str, str2, str3));
-    }
-
-    @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
-    public String genCompleteErrorMessage(XAdErrorCode xAdErrorCode, String str) {
-        return xAdErrorCode == null ? "" : a(xAdErrorCode.getCode() + "", xAdErrorCode.getMessage(), str);
+        this.f8213a = iXAdLogger;
     }
 
     public String a(String str, String str2, String str3) {
@@ -52,8 +37,22 @@ public class b implements IXAdErrorCode {
     }
 
     @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
+    public String genCompleteErrorMessage(XAdErrorCode xAdErrorCode, String str) {
+        if (xAdErrorCode == null) {
+            return "";
+        }
+        return a(xAdErrorCode.getCode() + "", xAdErrorCode.getMessage(), str);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0032  */
+    /* JADX WARN: Removed duplicated region for block: B:19:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x002e -> B:11:0x002e). Please submit an issue!!! */
+    @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public String getMessage(Map<String, Object> map) {
-        String str = "";
+        String str;
         if (map != null) {
             try {
                 if (map.containsKey("msg")) {
@@ -61,13 +60,22 @@ public class b implements IXAdErrorCode {
                 } else if (map.containsKey("error_message")) {
                     str = (String) map.get("error_message");
                 }
-            } catch (Exception e) {
-                str = "";
+            } catch (Exception unused) {
             }
+            return str != null ? "" : str;
         }
-        if (str == null) {
-            return "";
+        str = "";
+        if (str != null) {
         }
-        return str;
+    }
+
+    @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
+    public void printErrorMessage(XAdErrorCode xAdErrorCode, String str) {
+        this.f8213a.e(genCompleteErrorMessage(xAdErrorCode, str));
+    }
+
+    @Override // com.baidu.mobads.interfaces.error.IXAdErrorCode
+    public void printErrorMessage(String str, String str2, String str3) {
+        this.f8213a.e(a(str, str2, str3));
     }
 }

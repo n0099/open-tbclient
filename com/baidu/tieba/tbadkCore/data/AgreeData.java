@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Agree;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class AgreeData implements Serializable {
     public int agreeType;
     public BaijiahaoData baijiahaoData;
@@ -30,23 +30,28 @@ public class AgreeData implements Serializable {
     public boolean isInPost = false;
     public long indexOfPic = 0;
 
-    public void parseProtobuf(Agree agree) {
-        if (agree != null) {
-            this.agreeNum = agree.agree_num == null ? 0L : agree.agree_num.longValue();
-            this.disAgreeNum = agree.disagree_num.longValue();
-            this.agreeType = agree.agree_type == null ? 0 : agree.agree_type.intValue();
-            this.hasAgree = agree.has_agree.intValue() == 1;
-            this.diffAgreeNum = agree.diff_agree_num != null ? agree.diff_agree_num.longValue() : 0L;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
         }
+        this.agreeNum = jSONObject.optInt("agree_num");
+        this.disAgreeNum = jSONObject.optLong("disagree_num");
+        this.agreeType = jSONObject.optInt("agree_type");
+        this.hasAgree = jSONObject.optInt("has_agree") == 1;
+        this.diffAgreeNum = jSONObject.optLong("diff_agree_num");
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.agreeNum = jSONObject.optInt("agree_num");
-            this.disAgreeNum = jSONObject.optLong("disagree_num");
-            this.agreeType = jSONObject.optInt("agree_type");
-            this.hasAgree = jSONObject.optInt("has_agree") == 1;
-            this.diffAgreeNum = jSONObject.optLong("diff_agree_num");
+    public void parseProtobuf(Agree agree) {
+        if (agree == null) {
+            return;
         }
+        Long l = agree.agree_num;
+        this.agreeNum = l == null ? 0L : l.longValue();
+        this.disAgreeNum = agree.disagree_num.longValue();
+        Integer num = agree.agree_type;
+        this.agreeType = num == null ? 0 : num.intValue();
+        this.hasAgree = agree.has_agree.intValue() == 1;
+        Long l2 = agree.diff_agree_num;
+        this.diffAgreeNum = l2 != null ? l2.longValue() : 0L;
     }
 }

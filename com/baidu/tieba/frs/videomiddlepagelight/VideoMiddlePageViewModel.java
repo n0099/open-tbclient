@@ -9,193 +9,179 @@ import com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import java.util.ArrayList;
 import java.util.List;
-import kotlin.d;
-import kotlin.e;
+import kotlin.Lazy;
+import kotlin.LazyKt__LazyJVMKt;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.PropertyReference1Impl;
-import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.p;
-import kotlin.jvm.internal.s;
-import kotlin.reflect.j;
-@e
-/* loaded from: classes2.dex */
+import kotlin.jvm.internal.Reflection;
+import kotlin.reflect.KProperty;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\n\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010!\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\u0018\u0000 H2\u00020\u0001:\u0001HB\u0013\u0012\n\u00102\u001a\u0006\u0012\u0002\b\u000301¢\u0006\u0004\bF\u0010GJ\u0015\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u001b\u0010\u0005\u001a\u00020\u00042\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u0007¢\u0006\u0004\b\u0005\u0010\bJ\r\u0010\t\u001a\u00020\u0004¢\u0006\u0004\b\t\u0010\nJ\r\u0010\u000b\u001a\u00020\u0004¢\u0006\u0004\b\u000b\u0010\nJ\r\u0010\f\u001a\u00020\u0004¢\u0006\u0004\b\f\u0010\nJ\u0015\u0010\u000f\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u000f\u0010\u0010J\r\u0010\u0011\u001a\u00020\u0004¢\u0006\u0004\b\u0011\u0010\nR\u001f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00130\u00128\u0006@\u0006¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0016\u0010\u0017R\u001f\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\r0\u00128\u0006@\u0006¢\u0006\f\n\u0004\b\u0018\u0010\u0015\u001a\u0004\b\u0019\u0010\u0017R*\u0010\u001c\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R*\u0010\"\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b\"\u0010\u001d\u001a\u0004\b#\u0010\u001f\"\u0004\b$\u0010!R\u001f\u0010&\u001a\b\u0012\u0004\u0012\u00020%0\u00128\u0006@\u0006¢\u0006\f\n\u0004\b&\u0010\u0015\u001a\u0004\b'\u0010\u0017R\u001f\u0010(\u001a\b\u0012\u0004\u0012\u00020%0\u00128\u0006@\u0006¢\u0006\f\n\u0004\b(\u0010\u0015\u001a\u0004\b(\u0010\u0017R\u001f\u0010)\u001a\b\u0012\u0004\u0012\u00020\u001a0\u00128\u0006@\u0006¢\u0006\f\n\u0004\b)\u0010\u0015\u001a\u0004\b*\u0010\u0017R\u001d\u00100\u001a\u00020+8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b,\u0010-\u001a\u0004\b.\u0010/R\u001d\u00102\u001a\u0006\u0012\u0002\b\u0003018\u0006@\u0006¢\u0006\f\n\u0004\b2\u00103\u001a\u0004\b4\u00105R*\u00106\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b6\u0010\u001d\u001a\u0004\b7\u0010\u001f\"\u0004\b8\u0010!R%\u0010:\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u0002090\u00128\u0006@\u0006¢\u0006\f\n\u0004\b:\u0010\u0015\u001a\u0004\b;\u0010\u0017R.\u0010=\u001a\u0004\u0018\u00010<2\b\u0010\u001b\u001a\u0004\u0018\u00010<8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b=\u0010>\u001a\u0004\b?\u0010@\"\u0004\bA\u0010BR*\u0010C\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\bC\u0010\u001d\u001a\u0004\bD\u0010\u001f\"\u0004\bE\u0010!¨\u0006I"}, d2 = {"Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "Landroidx/lifecycle/ViewModel;", "Lcom/baidu/tieba/card/data/BaseCardInfo;", "data", "", "addData", "(Lcom/baidu/tieba/card/data/BaseCardInfo;)V", "", "(Ljava/util/List;)V", "loadData", "()V", "playLastVideo", "playNextVideo", "", "position", "playVideoAtPosition", "(I)V", "resumePlayVideo", "Landroidx/lifecycle/MutableLiveData;", "Landroid/content/res/Configuration;", "configuration", "Landroidx/lifecycle/MutableLiveData;", "getConfiguration", "()Landroidx/lifecycle/MutableLiveData;", "curPlayingVideoPos", "getCurPlayingVideoPos", "", "value", "from", "Ljava/lang/String;", "getFrom", "()Ljava/lang/String;", "setFrom", "(Ljava/lang/String;)V", "fromTid", "getFromTid", "setFromTid", "", "hasMore", "getHasMore", "isLoading", "loadErrorMsg", "getLoadErrorMsg", "Lcom/baidu/tieba/frs/videomiddlepage/VideoMiddleModel;", "model$delegate", "Lkotlin/Lazy;", "getModel", "()Lcom/baidu/tieba/frs/videomiddlepage/VideoMiddleModel;", "model", "Lcom/baidu/tbadk/TbPageContext;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "getPageContext", "()Lcom/baidu/tbadk/TbPageContext;", "stType", "getStType", "setStType", "", "videoDataList", "getVideoDataList", "Lcom/baidu/tieba/play/monitor/VideoSerializeVideoThreadInfo;", "videoThreadInfo", "Lcom/baidu/tieba/play/monitor/VideoSerializeVideoThreadInfo;", "getVideoThreadInfo", "()Lcom/baidu/tieba/play/monitor/VideoSerializeVideoThreadInfo;", "setVideoThreadInfo", "(Lcom/baidu/tieba/play/monitor/VideoSerializeVideoThreadInfo;)V", "yuelaouLocate", "getYuelaouLocate", "setYuelaouLocate", "<init>", "(Lcom/baidu/tbadk/TbPageContext;)V", "Companion", "frsExtra_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes4.dex */
 public final class VideoMiddlePageViewModel extends ViewModel {
-    static final /* synthetic */ j[] $$delegatedProperties = {s.a(new PropertyReference1Impl(s.G(VideoMiddlePageViewModel.class), "model", "getModel()Lcom/baidu/tieba/frs/videomiddlepage/VideoMiddleModel;"))};
-    public static final a jQX = new a(null);
-    private String from;
-    private String iyl;
-    private VideoSerializeVideoThreadInfo jPu;
-    private final MutableLiveData<List<BaseCardInfo>> jQP;
-    private final MutableLiveData<Boolean> jQQ;
-    private final MutableLiveData<Boolean> jQR;
-    private final MutableLiveData<String> jQS;
-    private final MutableLiveData<Integer> jQT;
-    private final MutableLiveData<Configuration> jQU;
-    private final kotlin.c jQV;
-    private String jQW;
-    private final TbPageContext<?> pageContext;
-    private String stType;
+    public static final /* synthetic */ KProperty[] k = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(VideoMiddlePageViewModel.class), "model", "getModel()Lcom/baidu/tieba/frs/videomiddlepage/VideoMiddleModel;"))};
 
-    public final VideoMiddleModel cNd() {
-        kotlin.c cVar = this.jQV;
-        j jVar = $$delegatedProperties[0];
-        return (VideoMiddleModel) cVar.getValue();
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public final MutableLiveData<List<BaseCardInfo>> f16706a = new MutableLiveData<>();
 
-    @e
-    /* loaded from: classes2.dex */
-    public static final class a {
-        private a() {
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public final MutableLiveData<Boolean> f16707b = new MutableLiveData<>();
 
-        public /* synthetic */ a(o oVar) {
-            this();
-        }
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public final MutableLiveData<Boolean> f16708c = new MutableLiveData<>();
+
+    /* renamed from: d  reason: collision with root package name */
+    public final MutableLiveData<String> f16709d = new MutableLiveData<>();
+
+    /* renamed from: e  reason: collision with root package name */
+    public final MutableLiveData<Integer> f16710e = new MutableLiveData<>();
+
+    /* renamed from: f  reason: collision with root package name */
+    public final MutableLiveData<Configuration> f16711f = new MutableLiveData<>();
+
+    /* renamed from: g  reason: collision with root package name */
+    public final Lazy f16712g = LazyKt__LazyJVMKt.lazy(new VideoMiddlePageViewModel$model$2(this));
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f16713h = "";
+    public String i = "";
+    public final TbPageContext<?> j;
 
     public VideoMiddlePageViewModel(TbPageContext<?> tbPageContext) {
-        p.p(tbPageContext, "pageContext");
-        this.pageContext = tbPageContext;
-        this.jQP = new MutableLiveData<>();
-        this.jQQ = new MutableLiveData<>();
-        this.jQR = new MutableLiveData<>();
-        this.jQS = new MutableLiveData<>();
-        this.jQT = new MutableLiveData<>();
-        this.jQU = new MutableLiveData<>();
-        this.jQV = d.b(new VideoMiddlePageViewModel$model$2(this));
-        this.jQW = "";
-        this.iyl = "";
-        this.stType = "";
-        this.from = "";
-        this.jQQ.setValue(false);
-        this.jQR.setValue(false);
-        this.jQP.setValue(new ArrayList());
-        this.jQT.setValue(0);
+        this.j = tbPageContext;
+        this.f16707b.setValue(Boolean.FALSE);
+        this.f16708c.setValue(Boolean.FALSE);
+        this.f16706a.setValue(new ArrayList());
+        this.f16710e.setValue(0);
     }
 
-    public final TbPageContext<?> getPageContext() {
-        return this.pageContext;
-    }
-
-    public final MutableLiveData<List<BaseCardInfo>> cMX() {
-        return this.jQP;
-    }
-
-    public final MutableLiveData<Boolean> cMY() {
-        return this.jQQ;
-    }
-
-    public final MutableLiveData<Boolean> cMZ() {
-        return this.jQR;
-    }
-
-    public final MutableLiveData<String> cNa() {
-        return this.jQS;
-    }
-
-    public final MutableLiveData<Integer> cNb() {
-        return this.jQT;
-    }
-
-    public final MutableLiveData<Configuration> cNc() {
-        return this.jQU;
-    }
-
-    public final String cNe() {
-        return this.jQW;
-    }
-
-    public final void Lx(String str) {
-        p.p(str, "value");
-        this.jQW = str;
-        cNd().setId(str);
-    }
-
-    public final void setYuelaouLocate(String str) {
-        p.p(str, "value");
-        this.iyl = str;
-        cNd().setLocation(str);
-    }
-
-    public final void setStType(String str) {
-        p.p(str, "value");
-        this.stType = str;
-        cNd().Ky(str);
-    }
-
-    public final void a(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.jPu = videoSerializeVideoThreadInfo;
-        cNd().a(videoSerializeVideoThreadInfo);
-    }
-
-    public final String getFrom() {
-        return this.from;
-    }
-
-    public final void setFrom(String str) {
-        p.p(str, "value");
-        this.from = str;
-        cNd().setFrom(str);
-    }
-
-    public final void loadData() {
-        if (p.l(this.jQQ.getValue(), false)) {
-            this.jQQ.setValue(true);
-            cNd().setFrom(this.from);
-            cNd().LoadData();
-        }
-    }
-
-    public final void cv(List<? extends BaseCardInfo> list) {
-        p.p(list, "data");
-        List<BaseCardInfo> value = this.jQP.getValue();
+    public final void a(List<? extends BaseCardInfo> list) {
+        List<BaseCardInfo> value = this.f16706a.getValue();
         if (value != null) {
             value.addAll(list);
         }
-        this.jQP.setValue(this.jQP.getValue());
+        MutableLiveData<List<BaseCardInfo>> mutableLiveData = this.f16706a;
+        mutableLiveData.setValue(mutableLiveData.getValue());
     }
 
-    public final void cNf() {
-        List<BaseCardInfo> value = this.jQP.getValue();
-        Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
-        Integer value2 = this.jQT.getValue();
-        if (valueOf != null && valueOf.intValue() > 0 && value2 != null && value2.intValue() < valueOf.intValue() - 1) {
-            MutableLiveData<Integer> mutableLiveData = this.jQT;
-            Integer value3 = this.jQT.getValue();
-            mutableLiveData.setValue(value3 != null ? Integer.valueOf(value3.intValue() + 1) : null);
-            if ((valueOf.intValue() - 1) - value2.intValue() <= 3) {
-                loadData();
-            }
+    public final MutableLiveData<Configuration> b() {
+        return this.f16711f;
+    }
+
+    public final MutableLiveData<Integer> c() {
+        return this.f16710e;
+    }
+
+    public final String d() {
+        return this.i;
+    }
+
+    public final String e() {
+        return this.f16713h;
+    }
+
+    public final MutableLiveData<Boolean> f() {
+        return this.f16708c;
+    }
+
+    public final MutableLiveData<String> g() {
+        return this.f16709d;
+    }
+
+    public final VideoMiddleModel h() {
+        Lazy lazy = this.f16712g;
+        KProperty kProperty = k[0];
+        return (VideoMiddleModel) lazy.getValue();
+    }
+
+    public final TbPageContext<?> i() {
+        return this.j;
+    }
+
+    public final MutableLiveData<List<BaseCardInfo>> j() {
+        return this.f16706a;
+    }
+
+    public final MutableLiveData<Boolean> k() {
+        return this.f16707b;
+    }
+
+    public final void l() {
+        if (Intrinsics.areEqual(this.f16707b.getValue(), Boolean.FALSE)) {
+            this.f16707b.setValue(Boolean.TRUE);
+            h().setFrom(this.i);
+            h().LoadData();
         }
     }
 
-    public final void cNg() {
-        List<BaseCardInfo> value = this.jQP.getValue();
+    public final void m() {
+        List<BaseCardInfo> value = this.f16706a.getValue();
         Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
-        Integer value2 = this.jQT.getValue();
-        if (valueOf != null && valueOf.intValue() > 0 && value2 != null && value2.intValue() > 0) {
-            MutableLiveData<Integer> mutableLiveData = this.jQT;
-            Integer value3 = this.jQT.getValue();
-            mutableLiveData.setValue(value3 != null ? Integer.valueOf(value3.intValue() - 1) : null);
+        Integer value2 = this.f16710e.getValue();
+        if (valueOf == null || valueOf.intValue() <= 0 || value2 == null || value2.intValue() <= 0) {
+            return;
+        }
+        MutableLiveData<Integer> mutableLiveData = this.f16710e;
+        Integer value3 = mutableLiveData.getValue();
+        mutableLiveData.setValue(value3 != null ? Integer.valueOf(value3.intValue() - 1) : null);
+    }
+
+    public final void n() {
+        List<BaseCardInfo> value = this.f16706a.getValue();
+        Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
+        Integer value2 = this.f16710e.getValue();
+        if (valueOf == null || valueOf.intValue() <= 0 || value2 == null || value2.intValue() >= valueOf.intValue() - 1) {
+            return;
+        }
+        MutableLiveData<Integer> mutableLiveData = this.f16710e;
+        Integer value3 = mutableLiveData.getValue();
+        mutableLiveData.setValue(value3 != null ? Integer.valueOf(value3.intValue() + 1) : null);
+        if ((valueOf.intValue() - 1) - value2.intValue() <= 3) {
+            l();
         }
     }
 
-    public final void cNh() {
-        Integer value = this.jQT.getValue();
+    public final void o(int i) {
+        List<BaseCardInfo> value = this.f16706a.getValue();
+        Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
+        Integer value2 = this.f16710e.getValue();
+        if (valueOf == null || valueOf.intValue() <= 0 || Intrinsics.compare(i, valueOf.intValue()) >= 0) {
+            return;
+        }
+        this.f16710e.setValue(Integer.valueOf(i));
+        if (value2 == null || (valueOf.intValue() - 1) - value2.intValue() > 3) {
+            return;
+        }
+        l();
+    }
+
+    public final void p() {
+        Integer value = this.f16710e.getValue();
         if (value == null) {
             value = 0;
         }
-        Ba(value.intValue());
+        o(value.intValue());
     }
 
-    public final void Ba(int i) {
-        List<BaseCardInfo> value = this.jQP.getValue();
-        Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
-        Integer value2 = this.jQT.getValue();
-        if (valueOf != null && valueOf.intValue() > 0 && p.compare(i, valueOf.intValue()) < 0) {
-            this.jQT.setValue(Integer.valueOf(i));
-            if (value2 != null && (valueOf.intValue() - 1) - value2.intValue() <= 3) {
-                loadData();
-            }
-        }
+    public final void q(String str) {
+        this.i = str;
+        h().setFrom(str);
+    }
+
+    public final void r(String str) {
+        this.f16713h = str;
+        h().x(str);
+    }
+
+    public final void s(String str) {
+        h().z(str);
+    }
+
+    public final void t(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
+        h().A(videoSerializeVideoThreadInfo);
+    }
+
+    public final void u(String str) {
+        h().y(str);
     }
 }

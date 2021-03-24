@@ -6,11 +6,11 @@ import android.view.View;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface ICyberVideoView {
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnSnapShotCompleteListener {
         void onSnapShotComplete(Bitmap bitmap);
     }
@@ -71,7 +71,7 @@ public interface ICyberVideoView {
 
     void setRemote(boolean z);
 
-    void setSpeed(float f);
+    void setSpeed(float f2);
 
     void setVideoRotation(int i);
 
@@ -89,5 +89,5 @@ public interface ICyberVideoView {
 
     boolean takeSnapshotAsync(OnSnapShotCompleteListener onSnapShotCompleteListener);
 
-    boolean takeSnapshotAsync(OnSnapShotCompleteListener onSnapShotCompleteListener, float f, int i, int i2);
+    boolean takeSnapshotAsync(OnSnapShotCompleteListener onSnapShotCompleteListener, float f2, int i, int i2);
 }

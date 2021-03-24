@@ -2,17 +2,16 @@ package com.bumptech.glide.load.engine.cache;
 
 import android.content.Context;
 import androidx.annotation.Nullable;
-import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheFactory;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ExternalPreferredCacheDiskCacheFactory extends DiskLruCacheFactory {
     public ExternalPreferredCacheDiskCacheFactory(Context context) {
-        this(context, DiskCache.Factory.DEFAULT_DISK_CACHE_DIR, 262144000L);
+        this(context, "image_manager_disk_cache", 262144000L);
     }
 
     public ExternalPreferredCacheDiskCacheFactory(Context context, long j) {
-        this(context, DiskCache.Factory.DEFAULT_DISK_CACHE_DIR, j);
+        this(context, "image_manager_disk_cache", j);
     }
 
     public ExternalPreferredCacheDiskCacheFactory(final Context context, final String str, long j) {
@@ -30,10 +29,7 @@ public final class ExternalPreferredCacheDiskCacheFactory extends DiskLruCacheFa
             public File getCacheDirectory() {
                 File externalCacheDir;
                 File internalCacheDirectory = getInternalCacheDirectory();
-                if ((internalCacheDirectory == null || !internalCacheDirectory.exists()) && (externalCacheDir = context.getExternalCacheDir()) != null && externalCacheDir.canWrite()) {
-                    return str != null ? new File(externalCacheDir, str) : externalCacheDir;
-                }
-                return internalCacheDirectory;
+                return ((internalCacheDirectory == null || !internalCacheDirectory.exists()) && (externalCacheDir = context.getExternalCacheDir()) != null && externalCacheDir.canWrite()) ? str != null ? new File(externalCacheDir, str) : externalCacheDir : internalCacheDirectory;
             }
         }, j);
     }

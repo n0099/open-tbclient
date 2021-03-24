@@ -9,10 +9,12 @@ import android.view.KeyEvent;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.browser.core.INoProGuard;
+import com.baidu.browser.sailor.feature.a;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.platform.nativeability.BdGeoLocationInfo;
 import com.baidu.browser.sailor.webkit.loader.BdWebkitManager;
 import com.baidu.browser.sailor.webkit.loader.IWebkitLoaderListener;
+import com.baidu.browser.sailor.webkit.update.BdZeusUpdate;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -30,17 +32,17 @@ import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class BdSailor implements INoProGuard {
-    public static final String LOG_TAG = BdSailor.class.getSimpleName();
-    protected static BdSailor sInstance;
-    private BdSailorClient mClient;
-    private BdSailorWebView mCurSailorWebView;
-    private boolean mIsInit = false;
-    private BdSailorSettings mSettings;
-    private HashMap<String, Object> mStaticWebSettings;
+    public static final String LOG_TAG = "BdSailor";
+    public static BdSailor sInstance;
+    public BdSailorClient mClient;
+    public BdSailorWebView mCurSailorWebView;
+    public boolean mIsInit = false;
+    public BdSailorSettings mSettings;
+    public HashMap<String, Object> mStaticWebSettings;
 
-    protected BdSailor() {
+    public BdSailor() {
         Log.d(LOG_TAG, "BdSailor::BdSailor");
         this.mClient = new BdSailorClient();
     }
@@ -51,21 +53,17 @@ public class BdSailor implements INoProGuard {
 
     public static void crashIntentionally(int i) {
         Log.d("CRASHPAD", "bdsailor.crashIntentionally type:" + i);
-        switch (i) {
-            case 4:
-                ZwDebug.crashIntentionally(2);
-                return;
-            case 5:
-                ZwDebug.crashIntentionally(3);
-                return;
-            default:
-                Log.d("CRASHPAD", "bdsailor.crashIntentionally default type:" + i);
-                return;
+        if (i == 4) {
+            ZwDebug.crashIntentionally(2);
+        } else if (i == 5) {
+            ZwDebug.crashIntentionally(3);
+        } else {
+            Log.d("CRASHPAD", "bdsailor.crashIntentionally default type:" + i);
         }
     }
 
     private void enableFeatureInternal(String str) {
-        com.baidu.browser.sailor.feature.a featureByName;
+        a featureByName;
         if (TextUtils.isEmpty(str) || (featureByName = BdSailorPlatform.getInstance().getFeatureByName(str)) == null) {
             return;
         }
@@ -93,7 +91,7 @@ public class BdSailor implements INoProGuard {
         }
         Log.i(EngineManager.LOG_TAG, "start check zeus update after notifyUserPrivacyConfirmInner");
         getAppContext();
-        com.baidu.browser.sailor.webkit.update.a.sL().a(getAppContext());
+        BdZeusUpdate.a().c(getAppContext());
     }
 
     private void setSailorFeatureListener() {
@@ -128,7 +126,7 @@ public class BdSailor implements INoProGuard {
     }
 
     public void disableFeature(String str) {
-        com.baidu.browser.sailor.feature.a featureByName;
+        a featureByName;
         WebViewFactory.getProvider().disableFeature(str);
         if (TextUtils.isEmpty(str) || (featureByName = BdSailorPlatform.getInstance().getFeatureByName(str)) == null) {
             return;
@@ -137,7 +135,7 @@ public class BdSailor implements INoProGuard {
     }
 
     public void enableFeature(String str) {
-        com.baidu.browser.sailor.feature.a featureByName;
+        a featureByName;
         WebViewFactory.getProvider().enableFeature(str);
         if (TextUtils.isEmpty(str) || (featureByName = BdSailorPlatform.getInstance().getFeatureByName(str)) == null) {
             return;
@@ -181,11 +179,12 @@ public class BdSailor implements INoProGuard {
     }
 
     public BdSailorClient getSailorClient() {
-        if (this.mClient == null) {
+        BdSailorClient bdSailorClient = this.mClient;
+        if (bdSailorClient == null) {
             Log.e(LOG_TAG, "SailorClient can not be NULL!");
             return new BdSailorClient();
         }
-        return this.mClient;
+        return bdSailorClient;
     }
 
     @Nullable
@@ -213,7 +212,7 @@ public class BdSailor implements INoProGuard {
         return this.mSettings;
     }
 
-    public com.baidu.browser.sailor.platform.b.a getStatic() {
+    public d.b.h.b.d.c.a getStatic() {
         BdSailorPlatform.getInstance();
         return BdSailorPlatform.getStatic();
     }
@@ -272,21 +271,32 @@ public class BdSailor implements INoProGuard {
     }
 
     public void initWebkit(String str, boolean z, Class<? extends CrashCallback> cls) {
+        StringBuilder sb;
+        String zeusInitTiming;
         long currentTimeMillis = System.currentTimeMillis();
-        boolean z2 = BdWebkitManager.a.f1324a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
+        boolean z2 = BdWebkitManager.a.f4326a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
+        ZeusPerformanceTiming.Stage stage = ZeusPerformanceTiming.Stage.Start;
         if (z2) {
-            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
+            ZeusPerformanceTiming.record(stage, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
         } else {
-            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
+            ZeusPerformanceTiming.record(stage, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
         }
         BdSailorPlatform.getInstance().initWebkit(str, z, cls);
         if (z2) {
             ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
-            android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + " " + ZeusPerformanceTiming.getSysInitTiming());
-            return;
+            sb = new StringBuilder("initWebkit = ");
+            sb.append(System.currentTimeMillis() - currentTimeMillis);
+            sb.append(" ");
+            zeusInitTiming = ZeusPerformanceTiming.getSysInitTiming();
+        } else {
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
+            sb = new StringBuilder("initWebkit = ");
+            sb.append(System.currentTimeMillis() - currentTimeMillis);
+            sb.append(" ");
+            zeusInitTiming = ZeusPerformanceTiming.getZeusInitTiming();
         }
-        ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
-        android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + " " + ZeusPerformanceTiming.getZeusInitTiming());
+        sb.append(zeusInitTiming);
+        android.util.Log.i(GlobalConstants.LOG_PER_TAG, sb.toString());
     }
 
     public void installZeusFromDownload(String str) {
@@ -294,7 +304,7 @@ public class BdSailor implements INoProGuard {
     }
 
     public boolean isFeatureEnable(String str) {
-        com.baidu.browser.sailor.feature.a featureByName;
+        a featureByName;
         if (TextUtils.isEmpty(str) || (featureByName = BdSailorPlatform.getInstance().getFeatureByName(str)) == null) {
             return false;
         }
@@ -403,7 +413,6 @@ public class BdSailor implements INoProGuard {
         WebKitFactory.setCUIDString(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void setCurrentSailorWebView(BdSailorWebView bdSailorWebView) {
         this.mCurSailorWebView = bdSailorWebView;
     }
@@ -430,7 +439,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().aho = this.mClient;
+        BdSailorPlatform.getStatic().f49474a = this.mClient;
     }
 
     public void setSailorCronetListenerInterface(ICronetListenerInterface iCronetListenerInterface) {

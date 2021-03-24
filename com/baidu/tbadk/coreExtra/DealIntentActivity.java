@@ -5,13 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import androidx.annotation.Nullable;
-import com.baidu.adp.base.a;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-/* loaded from: classes.dex */
+import d.b.b.a.a;
+/* loaded from: classes3.dex */
 public class DealIntentActivity extends Activity {
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        finish();
+        return super.dispatchTouchEvent(motionEvent);
+    }
+
     @Override // android.app.Activity
-    protected void onCreate(@Nullable Bundle bundle) {
-        a.j(this);
+    public void onCreate(@Nullable Bundle bundle) {
+        a.b(this);
         super.onCreate(bundle);
         Intent intent = getIntent();
         if (intent != null) {
@@ -23,14 +29,9 @@ public class DealIntentActivity extends Activity {
 
     @Override // android.app.Activity
     public void setRequestedOrientation(int i) {
-        if (!a.k(this) || !a.Z(i)) {
-            super.setRequestedOrientation(i);
+        if (a.d(this) && a.a(i)) {
+            return;
         }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        finish();
-        return super.dispatchTouchEvent(motionEvent);
+        super.setRequestedOrientation(i);
     }
 }

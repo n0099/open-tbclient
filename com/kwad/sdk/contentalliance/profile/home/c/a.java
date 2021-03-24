@@ -9,41 +9,53 @@ import com.kwad.sdk.contentalliance.widget.KSPageLoadingView;
 import com.kwad.sdk.contentalliance.widget.KSProfilePageLoadingView;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.contentalliance.profile.home.b.a {
-    private View b;
-    private KSProfilePageLoadingView c;
-    private com.kwad.sdk.contentalliance.profile.home.b d;
-    private Set<com.kwad.sdk.contentalliance.profile.home.a.a> e;
-    private KSPageLoadingView.a f = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.a.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f32874b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public KSProfilePageLoadingView f32875c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.profile.home.b f32876d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Set<com.kwad.sdk.contentalliance.profile.home.a.a> f32877e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public KSPageLoadingView.a f32878f = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.a.1
         @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
         public void a() {
-            if (a.this.d != null) {
-                a.this.d.a();
+            if (a.this.f32876d != null) {
+                a.this.f32876d.a();
             }
         }
     };
-    private b.a g = new b.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.a.2
+
+    /* renamed from: g  reason: collision with root package name */
+    public b.a f32879g = new b.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.a.2
         @Override // com.kwad.sdk.contentalliance.profile.home.b.a
         public void a() {
-            a.this.c.b();
+            a.this.f32875c.b();
         }
 
         @Override // com.kwad.sdk.contentalliance.profile.home.b.a
         public void a(int i, String str) {
-            a.this.c.a();
-            if (com.kwad.sdk.core.network.f.f6187a.k == i) {
-                a.this.c.c();
+            a.this.f32875c.a();
+            if (com.kwad.sdk.core.network.f.f33868a.k == i) {
+                a.this.f32875c.c();
             } else {
-                a.this.c.d();
+                a.this.f32875c.d();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.profile.home.b.a
         public void a(UserProfile userProfile) {
-            a.this.c.a();
-            a.this.b.setVisibility(0);
-            for (com.kwad.sdk.contentalliance.profile.home.a.a aVar : a.this.e) {
+            a.this.f32875c.a();
+            a.this.f32874b.setVisibility(0);
+            for (com.kwad.sdk.contentalliance.profile.home.a.a aVar : a.this.f32877e) {
                 aVar.a(userProfile);
             }
         }
@@ -54,36 +66,34 @@ public class a extends com.kwad.sdk.contentalliance.profile.home.b.a {
     };
 
     private void e() {
-        this.d.a();
+        this.f32876d.a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = this.f5850a.f;
-        ProfileHomeParam profileHomeParam = this.f5850a.d;
-        SceneImpl sceneImpl = this.f5850a.b;
+        com.kwad.sdk.contentalliance.profile.home.b.b bVar = ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32867a;
+        this.f32877e = bVar.f32873f;
+        ProfileHomeParam profileHomeParam = bVar.f32871d;
+        SceneImpl sceneImpl = bVar.f32869b;
         com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(sceneImpl);
-        fVar.b = sceneImpl.getPageScene();
-        this.d = new com.kwad.sdk.contentalliance.profile.home.b(fVar, profileHomeParam.mAuthorId, this.g);
+        fVar.f33651b = sceneImpl.getPageScene();
+        this.f32876d = new com.kwad.sdk.contentalliance.profile.home.b(fVar, profileHomeParam.mAuthorId, this.f32879g);
         e();
-        this.c.setRetryClickListener(this.f);
+        this.f32875c.setRetryClickListener(this.f32878f);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.d.b();
-        this.c.setRetryClickListener(null);
+        this.f32876d.b();
+        this.f32875c.setRetryClickListener(null);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = b(R.id.ksad_profile_view_pager);
-        this.c = (KSProfilePageLoadingView) b(R.id.ksad_page_loading);
+        this.f32874b = b(R.id.ksad_profile_view_pager);
+        this.f32875c = (KSProfilePageLoadingView) b(R.id.ksad_page_loading);
     }
 }

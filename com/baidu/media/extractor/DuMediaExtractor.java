@@ -7,34 +7,31 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
+import com.android.internal.http.multipart.Part;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.media.duplayer.Keep;
-import com.baidu.media.extractor.b;
 import com.baidu.mobstat.Config;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes5.dex */
-public class DuMediaExtractor implements b {
-    private b.a cka;
-    private a ckb;
+/* loaded from: classes2.dex */
+public class DuMediaExtractor {
     @Keep
-    private long mNativeDuMediaExtractor;
+    public long mNativeDuMediaExtractor;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<DuMediaExtractor> f2311a;
+        public final WeakReference<DuMediaExtractor> f7975a;
 
         public a(DuMediaExtractor duMediaExtractor, Looper looper) {
             super(looper);
-            this.f2311a = new WeakReference<>(duMediaExtractor);
+            this.f7975a = new WeakReference<>(duMediaExtractor);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuMediaExtractor duMediaExtractor = this.f2311a.get();
+            DuMediaExtractor duMediaExtractor = this.f7975a.get();
             if (duMediaExtractor == null || duMediaExtractor.mNativeDuMediaExtractor == 0) {
                 CyberLog.w("DuMediaExtractor", "IjkMediaPlayer went away with unhandled events");
             } else {
@@ -45,21 +42,7 @@ public class DuMediaExtractor implements b {
 
     public DuMediaExtractor() {
         nativeSetup(new WeakReference(this));
-        c();
-    }
-
-    private void c() {
-        Looper myLooper = Looper.myLooper();
-        if (myLooper != null) {
-            this.ckb = new a(this, myLooper);
-            return;
-        }
-        Looper mainLooper = Looper.getMainLooper();
-        if (mainLooper != null) {
-            this.ckb = new a(this, mainLooper);
-        } else {
-            this.ckb = null;
-        }
+        i();
     }
 
     private native Bundle nativeGetMediaMeta();
@@ -77,47 +60,46 @@ public class DuMediaExtractor implements b {
     private native void nativeSetup(Object obj);
 
     @Keep
-    private static boolean onNativeInvoke(Object obj, int i, Bundle bundle) {
+    public static boolean onNativeInvoke(Object obj, int i, Bundle bundle) {
         if (obj == null || !(obj instanceof WeakReference)) {
             CyberLog.e("DuMediaExtractor", "<null weakThiz>.onNativeInvoke()");
+            return false;
         }
         return false;
     }
 
-    public void a() {
+    public void b() {
         synchronized (this) {
             nativeRelease();
-            this.cka = null;
-            this.ckb = null;
             this.mNativeDuMediaExtractor = 0L;
         }
     }
 
-    public void a(int i, String str, long j) {
+    public void c(int i, String str, long j) {
         nativeSetOption(i, str, j);
     }
 
-    public void a(int i, String str, String str2) {
+    public void d(int i, String str, String str2) {
         nativeSetOption(i, str, str2);
     }
 
-    public void a(Context context, Uri uri, Map<String, String> map) {
-        a(uri.toString(), map);
+    public void e(Context context, Uri uri, Map<String, String> map) {
+        g(uri.toString(), map);
     }
 
-    public void a(String str) {
+    public void f(String str) {
         nativeSetDataSource(str, null, null);
         nativePrepare();
     }
 
-    public void a(String str, Map<String, String> map) {
+    public void g(String str, Map<String, String> map) {
         if (map != null && !map.isEmpty()) {
             StringBuilder sb = new StringBuilder();
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 if (entry.getKey().equals("Referer")) {
                     String value = entry.getValue();
                     if (!TextUtils.isEmpty(value)) {
-                        a(1, Config.LAUNCH_REFERER, value);
+                        d(1, Config.LAUNCH_REFERER, value);
                     }
                 } else {
                     sb.append(entry.getKey());
@@ -125,15 +107,27 @@ public class DuMediaExtractor implements b {
                     if (!TextUtils.isEmpty(entry.getValue())) {
                         sb.append(entry.getValue());
                     }
-                    sb.append("\r\n");
+                    sb.append(Part.CRLF);
                 }
             }
-            a(1, "headers", sb.toString());
+            d(1, "headers", sb.toString());
         }
-        a(str);
+        f(str);
     }
 
-    public Bundle b() {
+    public Bundle h() {
         return nativeGetMediaMeta();
+    }
+
+    public final void i() {
+        Looper myLooper = Looper.myLooper();
+        if (myLooper != null) {
+            new a(this, myLooper);
+            return;
+        }
+        Looper mainLooper = Looper.getMainLooper();
+        if (mainLooper != null) {
+            new a(this, mainLooper);
+        }
     }
 }

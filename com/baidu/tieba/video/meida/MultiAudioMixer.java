@@ -6,120 +6,28 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class MultiAudioMixer {
-    private b nRM;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void KL(int i);
+    /* renamed from: a  reason: collision with root package name */
+    public c f21806a;
 
-        void ah(byte[] bArr) throws IOException;
-
-        void dTN();
-    }
-
-    abstract byte[] c(byte[][] bArr);
-
-    public static MultiAudioMixer dTM() {
-        return new a();
-    }
-
-    public void a(b bVar) {
-        this.nRM = bVar;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [88=6] */
-    public void e(File[] fileArr) {
-        boolean z;
-        int i = 0;
-        int length = fileArr.length;
-        FileInputStream[] fileInputStreamArr = new FileInputStream[length];
-        byte[][] bArr = new byte[length];
-        boolean[] zArr = new boolean[length];
-        byte[] bArr2 = new byte[512];
-        for (int i2 = 0; i2 < length; i2++) {
-            try {
-                try {
-                    fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    if (this.nRM != null) {
-                        this.nRM.KL(1);
-                    }
-                    try {
-                        int length2 = fileInputStreamArr.length;
-                        while (i < length2) {
-                            FileInputStream fileInputStream = fileInputStreamArr[i];
-                            if (fileInputStream != null) {
-                                fileInputStream.close();
-                            }
-                            i++;
-                        }
-                        return;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                        return;
-                    }
-                }
-            } finally {
-                try {
-                    int length3 = fileInputStreamArr.length;
-                    while (i < length3) {
-                        FileInputStream fileInputStream2 = fileInputStreamArr[i];
-                        if (fileInputStream2 != null) {
-                            fileInputStream2.close();
-                        }
-                        i++;
-                    }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-            }
-        }
-        do {
-            for (int i3 = 0; i3 < length; i3++) {
-                FileInputStream fileInputStream3 = fileInputStreamArr[i3];
-                if (zArr[i3] || fileInputStream3.read(bArr2) == -1) {
-                    zArr[i3] = true;
-                    bArr[i3] = new byte[512];
-                } else {
-                    bArr[i3] = Arrays.copyOf(bArr2, bArr2.length);
-                }
-            }
-            byte[] c = c(bArr);
-            if (c != null && this.nRM != null) {
-                this.nRM.ah(c);
-            }
-            z = true;
-            for (boolean z2 : zArr) {
-                if (!z2) {
-                    z = false;
-                }
-            }
-        } while (!z);
-        if (this.nRM != null) {
-            this.nRM.dTN();
-        }
-    }
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class AudioMixException extends IOException {
-        private static final long serialVersionUID = -1344782236320621800L;
+        public static final long serialVersionUID = -1344782236320621800L;
 
         public AudioMixException(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes7.dex */
-    private static class a extends MultiAudioMixer {
-        private a() {
+    /* loaded from: classes5.dex */
+    public static class b extends MultiAudioMixer {
+        public b() {
         }
 
         @Override // com.baidu.tieba.video.meida.MultiAudioMixer
-        byte[] c(byte[][] bArr) {
+        public byte[] c(byte[][] bArr) {
             if (bArr == null || bArr.length == 0) {
                 return null;
             }
@@ -135,25 +43,126 @@ public abstract class MultiAudioMixer {
             }
             int length = bArr.length;
             int length2 = bArr2.length / 2;
-            short[][] sArr = (short[][]) Array.newInstance(Short.TYPE, length, length2);
+            short[][] sArr = (short[][]) Array.newInstance(short.class, length, length2);
             for (int i2 = 0; i2 < length; i2++) {
                 for (int i3 = 0; i3 < length2; i3++) {
-                    sArr[i2][i3] = (short) ((bArr[i2][i3 * 2] & 255) | ((bArr[i2][(i3 * 2) + 1] & 255) << 8));
+                    int i4 = i3 * 2;
+                    sArr[i2][i3] = (short) ((bArr[i2][i4] & 255) | ((bArr[i2][i4 + 1] & 255) << 8));
                 }
             }
             short[] sArr2 = new short[length2];
-            for (int i4 = 0; i4 < length2; i4++) {
-                int i5 = 0;
-                for (int i6 = 0; i6 < length; i6++) {
-                    i5 += sArr[i6][i4];
+            for (int i5 = 0; i5 < length2; i5++) {
+                int i6 = 0;
+                for (int i7 = 0; i7 < length; i7++) {
+                    i6 += sArr[i7][i5];
                 }
-                sArr2[i4] = (short) (i5 / length);
+                sArr2[i5] = (short) (i6 / length);
             }
-            for (int i7 = 0; i7 < length2; i7++) {
-                bArr2[i7 * 2] = (byte) (sArr2[i7] & 255);
-                bArr2[(i7 * 2) + 1] = (byte) ((sArr2[i7] & 65280) >> 8);
+            for (int i8 = 0; i8 < length2; i8++) {
+                int i9 = i8 * 2;
+                bArr2[i9] = (byte) (sArr2[i8] & 255);
+                bArr2[i9 + 1] = (byte) ((sArr2[i8] & 65280) >> 8);
             }
             return bArr2;
         }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(byte[] bArr) throws IOException;
+
+        void b(int i);
+
+        void c();
+    }
+
+    public static MultiAudioMixer a() {
+        return new b();
+    }
+
+    public void b(File[] fileArr) {
+        boolean z;
+        int length = fileArr.length;
+        FileInputStream[] fileInputStreamArr = new FileInputStream[length];
+        byte[][] bArr = new byte[length];
+        boolean[] zArr = new boolean[length];
+        byte[] bArr2 = new byte[512];
+        int i = 0;
+        for (int i2 = 0; i2 < length; i2++) {
+            try {
+                try {
+                    try {
+                        fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                        if (this.f21806a != null) {
+                            this.f21806a.b(1);
+                        }
+                        while (i < length) {
+                            FileInputStream fileInputStream = fileInputStreamArr[i];
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
+                            }
+                            i++;
+                        }
+                        return;
+                    }
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    return;
+                }
+            } catch (Throwable th) {
+                while (i < length) {
+                    try {
+                        FileInputStream fileInputStream2 = fileInputStreamArr[i];
+                        if (fileInputStream2 != null) {
+                            fileInputStream2.close();
+                        }
+                        i++;
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                        throw th;
+                    }
+                }
+                throw th;
+            }
+        }
+        do {
+            for (int i3 = 0; i3 < length; i3++) {
+                FileInputStream fileInputStream3 = fileInputStreamArr[i3];
+                if (!zArr[i3] && fileInputStream3.read(bArr2) != -1) {
+                    bArr[i3] = Arrays.copyOf(bArr2, 512);
+                } else {
+                    zArr[i3] = true;
+                    bArr[i3] = new byte[512];
+                }
+            }
+            byte[] c2 = c(bArr);
+            if (c2 != null && this.f21806a != null) {
+                this.f21806a.a(c2);
+            }
+            z = true;
+            for (int i4 = 0; i4 < length; i4++) {
+                if (!zArr[i4]) {
+                    z = false;
+                }
+            }
+        } while (!z);
+        if (this.f21806a != null) {
+            this.f21806a.c();
+        }
+        while (i < length) {
+            FileInputStream fileInputStream4 = fileInputStreamArr[i];
+            if (fileInputStream4 != null) {
+                fileInputStream4.close();
+            }
+            i++;
+        }
+    }
+
+    public abstract byte[] c(byte[][] bArr);
+
+    public void d(c cVar) {
+        this.f21806a = cVar;
     }
 }

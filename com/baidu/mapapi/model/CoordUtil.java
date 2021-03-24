@@ -6,14 +6,17 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CoordUtil {
-    public static LatLng Coordinate_encryptEx(float f, float f2, String str) {
-        return com.baidu.mapsdkplatform.comapi.util.b.a(f, f2, str);
+    public static LatLng Coordinate_encryptEx(float f2, float f3, String str) {
+        return com.baidu.mapsdkplatform.comapi.util.b.a(f2, f3, str);
     }
 
     public static LatLng decodeLocation(String str) {
-        return SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(com.baidu.mapsdkplatform.comapi.util.b.a(str)) : com.baidu.mapsdkplatform.comapi.util.b.a(str);
+        CoordType coordType = SDKInitializer.getCoordType();
+        CoordType coordType2 = CoordType.GCJ02;
+        LatLng a2 = com.baidu.mapsdkplatform.comapi.util.b.a(str);
+        return coordType == coordType2 ? CoordTrans.baiduToGcj(a2) : a2;
     }
 
     public static List<LatLng> decodeLocationList(String str) {
@@ -25,7 +28,10 @@ public class CoordUtil {
     }
 
     public static LatLng decodeNodeLocation(String str) {
-        return SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(com.baidu.mapsdkplatform.comapi.util.b.b(str)) : com.baidu.mapsdkplatform.comapi.util.b.b(str);
+        CoordType coordType = SDKInitializer.getCoordType();
+        CoordType coordType2 = CoordType.GCJ02;
+        LatLng b2 = com.baidu.mapsdkplatform.comapi.util.b.b(str);
+        return coordType == coordType2 ? CoordTrans.baiduToGcj(b2) : b2;
     }
 
     public static double getDistance(Point point, Point point2) {
@@ -45,6 +51,9 @@ public class CoordUtil {
     }
 
     public static LatLng mc2ll(GeoPoint geoPoint) {
-        return SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(com.baidu.mapsdkplatform.comapi.util.b.a(geoPoint)) : com.baidu.mapsdkplatform.comapi.util.b.a(geoPoint);
+        CoordType coordType = SDKInitializer.getCoordType();
+        CoordType coordType2 = CoordType.GCJ02;
+        LatLng a2 = com.baidu.mapsdkplatform.comapi.util.b.a(geoPoint);
+        return coordType == coordType2 ? CoordTrans.baiduToGcj(a2) : a2;
     }
 }

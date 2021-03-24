@@ -5,110 +5,117 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int jnx;
-    private int jnz;
-    private Context mContext;
-    private int mWidth;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f19836e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f19837f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f19838g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f19839h;
 
     public PbFirstFloorTopicView(Context context) {
         super(context);
-        this.mContext = null;
-        init(context);
+        this.f19836e = null;
+        c(context);
     }
 
-    public PbFirstFloorTopicView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mContext = null;
-        init(context);
-    }
-
-    public PbFirstFloorTopicView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mContext = null;
-        init(context);
-    }
-
-    private void init(Context context) {
-        setOrientation(1);
-        this.mContext = context;
-        this.jnz = l.getDimens(this.mContext, R.dimen.ds8);
-        this.mWidth = l.getEquipmentWidth(this.mContext);
-        this.jnx = l.getEquipmentWidth(this.mContext) / 2;
-    }
-
-    public void setData(ArrayList<String> arrayList) {
-        LinearLayout linearLayout;
-        if (!y.isEmpty(arrayList)) {
-            if (getChildCount() > 0) {
-                removeAllViews();
-            }
-            int count = y.getCount(arrayList);
-            LinearLayout linearLayout2 = null;
-            int i = 0;
-            while (i < count) {
-                if (i % 2 == 0) {
-                    linearLayout = dsx();
-                } else {
-                    if (linearLayout2 != null) {
-                        b(linearLayout2, (String) y.getItem(arrayList, i - 1));
-                        b(linearLayout2, (String) y.getItem(arrayList, i));
-                    }
-                    linearLayout = linearLayout2;
-                }
-                i++;
-                linearLayout2 = linearLayout;
-            }
-            if (linearLayout2 != null && linearLayout2.getChildCount() == 0) {
-                this.jnx = this.mWidth;
-                b(linearLayout2, (String) y.getItem(arrayList, count - 1));
-            }
-        }
-    }
-
-    private void b(LinearLayout linearLayout, String str) {
-        TextView textView = new TextView(this.mContext);
-        textView.setText(str);
-        textView.setGravity(17);
-        ap.setBackgroundColor(textView, R.color.CAM_X0204);
-        ap.setViewTextColor(textView, R.color.black_alpha100);
-        textView.setTextSize(0, getResources().getDimension(R.dimen.ds28));
-        textView.setTypeface(null, 1);
-        textView.setMinLines(1);
-        textView.setMaxLines(1);
-        textView.setWidth(this.jnx);
-        textView.setOnClickListener(this);
-        linearLayout.addView(textView);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.jnz;
-        layoutParams.rightMargin = this.jnz;
-    }
-
-    private LinearLayout dsx() {
-        LinearLayout linearLayout = new LinearLayout(this.mContext);
-        ap.setBackgroundColor(linearLayout, R.color.transparent);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));
+    public final LinearLayout a() {
+        LinearLayout linearLayout = new LinearLayout(this.f19836e);
+        SkinManager.setBackgroundColor(linearLayout, R.color.transparent);
+        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.f19839h, -2));
         linearLayout.setGravity(17);
         addView(linearLayout);
         return linearLayout;
     }
 
+    public final void b(LinearLayout linearLayout, String str) {
+        TextView textView = new TextView(this.f19836e);
+        textView.setText(str);
+        textView.setGravity(17);
+        SkinManager.setBackgroundColor(textView, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(textView, R.color.black_alpha100);
+        textView.setTextSize(0, getResources().getDimension(R.dimen.ds28));
+        textView.setTypeface(null, 1);
+        textView.setMinLines(1);
+        textView.setMaxLines(1);
+        textView.setWidth(this.f19837f);
+        textView.setOnClickListener(this);
+        linearLayout.addView(textView);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
+        int i = this.f19838g;
+        layoutParams.leftMargin = i;
+        layoutParams.rightMargin = i;
+    }
+
+    public final void c(Context context) {
+        setOrientation(1);
+        this.f19836e = context;
+        this.f19838g = l.g(context, R.dimen.ds8);
+        this.f19839h = l.k(this.f19836e);
+        this.f19837f = l.k(this.f19836e) / 2;
+    }
+
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view instanceof TextView) && ((TextView) view).getText() != null) {
-            ((TextView) view).getText().toString();
+        if (view instanceof TextView) {
+            TextView textView = (TextView) view;
+            if (textView.getText() != null) {
+                textView.getText().toString();
+            }
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         removeAllViews();
         super.onDetachedFromWindow();
+    }
+
+    public void setData(ArrayList<String> arrayList) {
+        if (ListUtils.isEmpty(arrayList)) {
+            return;
+        }
+        if (getChildCount() > 0) {
+            removeAllViews();
+        }
+        int count = ListUtils.getCount(arrayList);
+        LinearLayout linearLayout = null;
+        for (int i = 0; i < count; i++) {
+            if (i % 2 == 0) {
+                linearLayout = a();
+            } else if (linearLayout != null) {
+                b(linearLayout, (String) ListUtils.getItem(arrayList, i - 1));
+                b(linearLayout, (String) ListUtils.getItem(arrayList, i));
+            }
+        }
+        if (linearLayout == null || linearLayout.getChildCount() != 0) {
+            return;
+        }
+        this.f19837f = this.f19839h;
+        b(linearLayout, (String) ListUtils.getItem(arrayList, count - 1));
+    }
+
+    public PbFirstFloorTopicView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f19836e = null;
+        c(context);
+    }
+
+    public PbFirstFloorTopicView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f19836e = null;
+        c(context);
     }
 }

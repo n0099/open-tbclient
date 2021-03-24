@@ -2,65 +2,65 @@ package com.baidu.tieba.personExtra;
 
 import android.os.Bundle;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PersonFriendActivity extends BasePersonInfoActivity {
-    private PersonFriendAdapter mAC = null;
-    private PersonFriendModel mAD = null;
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.mAD = new PersonFriendModel(getPageContext(), Xj());
-        this.mAD.setSex(getSex());
-        this.mAD.setId(getUid());
-        this.mAD.setUniqueId(getUniqueId());
-    }
-
-    public PersonFriendModel dyl() {
-        return this.mAD;
-    }
+    public PersonFriendAdapter mAdapter = null;
+    public PersonFriendModel mModel = null;
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.mAC == null) {
-            this.mAC = new PersonFriendAdapter(this, Xj());
+    public BasePersonInfoAdapter createPersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
+        if (this.mAdapter == null) {
+            this.mAdapter = new PersonFriendAdapter(this, getIsHost());
         }
-        return this.mAC;
+        return this.mAdapter;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dxh() {
-        return getPageContext().getString(R.string.person_friend_title);
-    }
-
-    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dxi() {
-        return getPageContext().getString(R.string.person_friend_no_personal_title);
-    }
-
-    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dxj() {
-        return getPageContext().getString(R.string.commonfriend);
-    }
-
-    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dxk() {
-        return getPageContext().getString(R.string.person_friend_personal);
-    }
-
-    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dxl() {
+    public String getCommonTabTitle() {
         return getPageContext().getString(R.string.person_friend_common);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String dxp() {
+    public String getHisCommonEventText() {
         return "common_frd";
     }
 
+    public PersonFriendModel getModel() {
+        return this.mModel;
+    }
+
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int dxq() {
+    public String getNavigationBarTitle() {
+        return getPageContext().getString(R.string.person_friend_title);
+    }
+
+    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
+    public String getNoCommonTabTitle() {
+        return getPageContext().getString(R.string.commonfriend);
+    }
+
+    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
+    public String getNoPersonalTabTitle() {
+        return getPageContext().getString(R.string.person_friend_no_personal_title);
+    }
+
+    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
+    public String getPersonalTabTitle() {
+        return getPageContext().getString(R.string.person_friend_personal);
+    }
+
+    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
+    public int getPrivacyType() {
         return 5;
+    }
+
+    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        PersonFriendModel personFriendModel = new PersonFriendModel(getPageContext(), getIsHost());
+        this.mModel = personFriendModel;
+        personFriendModel.setSex(getSex());
+        this.mModel.w(getUid());
+        this.mModel.setUniqueId(getUniqueId());
     }
 }

@@ -4,14 +4,9 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.request.Request;
 @Deprecated
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseTarget<Z> implements Target<Z> {
-    private Request request;
-
-    @Override // com.bumptech.glide.request.target.Target
-    public void setRequest(@Nullable Request request) {
-        this.request = request;
-    }
+    public Request request;
 
     @Override // com.bumptech.glide.request.target.Target
     @Nullable
@@ -19,16 +14,20 @@ public abstract class BaseTarget<Z> implements Target<Z> {
         return this.request;
     }
 
+    @Override // com.bumptech.glide.manager.LifecycleListener
+    public void onDestroy() {
+    }
+
     @Override // com.bumptech.glide.request.target.Target
     public void onLoadCleared(@Nullable Drawable drawable) {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadStarted(@Nullable Drawable drawable) {
+    public void onLoadFailed(@Nullable Drawable drawable) {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadFailed(@Nullable Drawable drawable) {
+    public void onLoadStarted(@Nullable Drawable drawable) {
     }
 
     @Override // com.bumptech.glide.manager.LifecycleListener
@@ -39,7 +38,8 @@ public abstract class BaseTarget<Z> implements Target<Z> {
     public void onStop() {
     }
 
-    @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onDestroy() {
+    @Override // com.bumptech.glide.request.target.Target
+    public void setRequest(@Nullable Request request) {
+        this.request = request;
     }
 }

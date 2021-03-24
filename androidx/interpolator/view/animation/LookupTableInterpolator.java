@@ -1,27 +1,29 @@
 package androidx.interpolator.view.animation;
 
 import android.view.animation.Interpolator;
-/* loaded from: classes4.dex */
-abstract class LookupTableInterpolator implements Interpolator {
-    private final float mStepSize;
-    private final float[] mValues;
+/* loaded from: classes.dex */
+public abstract class LookupTableInterpolator implements Interpolator {
+    public final float mStepSize;
+    public final float[] mValues;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public LookupTableInterpolator(float[] fArr) {
         this.mValues = fArr;
-        this.mStepSize = 1.0f / (this.mValues.length - 1);
+        this.mStepSize = 1.0f / (fArr.length - 1);
     }
 
     @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        if (f >= 1.0f) {
+    public float getInterpolation(float f2) {
+        if (f2 >= 1.0f) {
             return 1.0f;
         }
-        if (f <= 0.0f) {
+        if (f2 <= 0.0f) {
             return 0.0f;
         }
-        int min = Math.min((int) ((this.mValues.length - 1) * f), this.mValues.length - 2);
-        float f2 = (f - (min * this.mStepSize)) / this.mStepSize;
-        return ((this.mValues[min + 1] - this.mValues[min]) * f2) + this.mValues[min];
+        float[] fArr = this.mValues;
+        int min = Math.min((int) ((fArr.length - 1) * f2), fArr.length - 2);
+        float f3 = this.mStepSize;
+        float f4 = (f2 - (min * f3)) / f3;
+        float[] fArr2 = this.mValues;
+        return fArr2[min] + (f4 * (fArr2[min + 1] - fArr2[min]));
     }
 }

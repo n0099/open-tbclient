@@ -23,13 +23,92 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpExecutor {
-    private static final long CONNECTION_TIMEOUT = 15;
-    private static final long READ_TIMEOUT = 15;
-    private static final String TAG = "HttpExecutor";
-    private static volatile HttpExecutor mInstance;
-    private OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new HttpExecutorLogger()).connectTimeout(15, TimeUnit.SECONDS).readTimeout(15, TimeUnit.SECONDS).build();
+    public static final long CONNECTION_TIMEOUT = 15;
+    public static final long READ_TIMEOUT = 15;
+    public static final String TAG = "HttpExecutor";
+    public static volatile HttpExecutor mInstance;
+    public OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new HttpExecutorLogger()).connectTimeout(15, TimeUnit.SECONDS).readTimeout(15, TimeUnit.SECONDS).build();
+
+    /* loaded from: classes2.dex */
+    public class HttpExecutorLogger implements Interceptor {
+        public HttpExecutorLogger() {
+        }
+
+        @Override // okhttp3.Interceptor
+        public Response intercept(Interceptor.Chain chain) throws IOException {
+            try {
+                Request request = chain.request();
+                long currentTimeMillis = System.currentTimeMillis();
+                Response proceed = chain.proceed(request);
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (Constants.isDebugMode()) {
+                    LogUtils.d("HttpExecutor", ">>>>>request time=" + (currentTimeMillis2 - currentTimeMillis) + ", url=" + request.url().toString());
+                    return proceed;
+                }
+                return proceed;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return chain.proceed(chain.request());
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class MyTrustManager implements X509TrustManager {
+        @Override // javax.net.ssl.X509TrustManager
+        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public X509Certificate[] getAcceptedIssuers() {
+            return new X509Certificate[0];
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class TrustAllHostnameVerifier implements HostnameVerifier {
+        public TrustAllHostnameVerifier() {
+        }
+
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            return true;
+        }
+    }
+
+    private SSLSocketFactory createSSLSocketFactory() {
+        try {
+            MyTrustManager myTrustManager = new MyTrustManager();
+            SSLContext sSLContext = SSLContext.getInstance("TLS");
+            sSLContext.init(null, new TrustManager[]{myTrustManager}, new SecureRandom());
+            return sSLContext.getSocketFactory();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return null;
+        }
+    }
+
+    private Headers getHeaders(Map<String, String> map) {
+        try {
+            Headers.Builder builder = new Headers.Builder();
+            if (map != null && map.size() > 0) {
+                for (String str : map.keySet()) {
+                    String str2 = str.toString();
+                    builder.add(str2, map.get(str2));
+                }
+            }
+            return builder.build();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return null;
+        }
+    }
 
     public static HttpExecutor getInstance() {
         if (mInstance == null) {
@@ -63,96 +142,16 @@ public class HttpExecutor {
             try {
                 Response execute = this.okHttpClient.newCall(build).execute();
                 byte[] bytes = execute.body().bytes();
-                LogUtils.i(TAG, "requestUrl:" + str + "\nrequest method: " + i + "\nrequest contentType: " + str2 + "\nrequest param: " + new String(bArr) + "\n response : " + new String(bytes));
+                LogUtils.i("HttpExecutor", "requestUrl:" + str + "\nrequest method: " + i + "\nrequest contentType: " + str2 + "\nrequest param: " + new String(bArr) + "\n response : " + new String(bytes));
                 responseHandler.onSuccess(execute.code(), bytes);
-            } catch (IOException e) {
-                LogUtils.e(TAG, "exception :", e);
-                responseHandler.onSuccess(1011, e.getMessage().getBytes());
+            } catch (IOException e2) {
+                LogUtils.e("HttpExecutor", "exception :", e2);
+                responseHandler.onSuccess(1011, e2.getMessage().getBytes());
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
             if (responseHandler != null) {
-                responseHandler.onFailure(-1003, "Http Unknown exception".getBytes(), e2);
-            }
-        }
-    }
-
-    private SSLSocketFactory createSSLSocketFactory() {
-        try {
-            MyTrustManager myTrustManager = new MyTrustManager();
-            SSLContext sSLContext = SSLContext.getInstance("TLS");
-            sSLContext.init(null, new TrustManager[]{myTrustManager}, new SecureRandom());
-            return sSLContext.getSocketFactory();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class MyTrustManager implements X509TrustManager {
-        @Override // javax.net.ssl.X509TrustManager
-        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        }
-
-        @Override // javax.net.ssl.X509TrustManager
-        public X509Certificate[] getAcceptedIssuers() {
-            return new X509Certificate[0];
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public class TrustAllHostnameVerifier implements HostnameVerifier {
-        private TrustAllHostnameVerifier() {
-        }
-
-        @Override // javax.net.ssl.HostnameVerifier
-        public boolean verify(String str, SSLSession sSLSession) {
-            return true;
-        }
-    }
-
-    private Headers getHeaders(Map<String, String> map) {
-        try {
-            Headers.Builder builder = new Headers.Builder();
-            if (map != null && map.size() > 0) {
-                for (String str : map.keySet()) {
-                    String str2 = str.toString();
-                    builder.add(str2, map.get(str2));
-                }
-            }
-            return builder.build();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    private class HttpExecutorLogger implements Interceptor {
-        private HttpExecutorLogger() {
-        }
-
-        @Override // okhttp3.Interceptor
-        public Response intercept(Interceptor.Chain chain) throws IOException {
-            try {
-                Request request = chain.request();
-                long currentTimeMillis = System.currentTimeMillis();
-                Response proceed = chain.proceed(request);
-                long currentTimeMillis2 = System.currentTimeMillis();
-                if (Constants.isDebugMode()) {
-                    LogUtils.d(HttpExecutor.TAG, ">>>>>request time=" + (currentTimeMillis2 - currentTimeMillis) + ", url=" + request.url().toString());
-                    return proceed;
-                }
-                return proceed;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return chain.proceed(chain.request());
+                responseHandler.onFailure(-1003, "Http Unknown exception".getBytes(), e3);
             }
         }
     }

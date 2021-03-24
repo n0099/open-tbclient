@@ -1,8 +1,10 @@
 package com.kwad.sdk.api;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f5449a = true;
-    public static final Boolean b = false;
+    public static final Boolean f31746a = Boolean.TRUE;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Boolean f31747b = Boolean.FALSE;
 }

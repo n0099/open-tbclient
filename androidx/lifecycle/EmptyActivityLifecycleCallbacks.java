@@ -3,18 +3,14 @@ package androidx.lifecycle;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-/* loaded from: classes4.dex */
-class EmptyActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
+/* loaded from: classes.dex */
+public class EmptyActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
+    public void onActivityDestroyed(Activity activity) {
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -22,7 +18,7 @@ class EmptyActivityLifecycleCallbacks implements Application.ActivityLifecycleCa
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
+    public void onActivityResumed(Activity activity) {
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -30,6 +26,10 @@ class EmptyActivityLifecycleCallbacks implements Application.ActivityLifecycleCa
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
+    public void onActivityStarted(Activity activity) {
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
     }
 }

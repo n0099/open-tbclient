@@ -1,16 +1,12 @@
 package rx.internal.util.atomic;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>> {
-    private static final long serialVersionUID = 2404266111789071508L;
-    private E value;
+    public static final long serialVersionUID = 2404266111789071508L;
+    public E value;
 
     public LinkedQueueNode() {
-    }
-
-    public LinkedQueueNode(E e) {
-        spValue(e);
     }
 
     public E getAndNullValue() {
@@ -23,15 +19,19 @@ public final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>
         return this.value;
     }
 
-    public void spValue(E e) {
-        this.value = e;
+    public LinkedQueueNode<E> lvNext() {
+        return get();
     }
 
     public void soNext(LinkedQueueNode<E> linkedQueueNode) {
         lazySet(linkedQueueNode);
     }
 
-    public LinkedQueueNode<E> lvNext() {
-        return get();
+    public void spValue(E e2) {
+        this.value = e2;
+    }
+
+    public LinkedQueueNode(E e2) {
+        spValue(e2);
     }
 }

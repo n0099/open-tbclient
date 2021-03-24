@@ -1,23 +1,21 @@
 package com.baidu.mobads.nativecpu;
-
-import com.baidu.tbadk.TbConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public enum CpuLpFontSize {
     SMALL("sml"),
-    REGULAR(TbConfig.ST_TYPE_REG),
+    REGULAR("reg"),
     LARGE("lrg"),
     EXTRA_LARGE("xlg"),
     XX_LARGE("xxl");
     
 
     /* renamed from: a  reason: collision with root package name */
-    String f2425a;
+    public String f8372a;
 
     CpuLpFontSize(String str) {
-        this.f2425a = str;
+        this.f8372a = str;
     }
 
     public String getValue() {
-        return this.f2425a;
+        return this.f8372a;
     }
 }

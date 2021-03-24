@@ -3,7 +3,7 @@ package com.baidu.tieba.imageProblem.cdnOptimize;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class TbCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessage {
     public TbCdnIpListData ipListData;
 
@@ -15,12 +15,13 @@ public class TbCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        if (jSONObject != null) {
-            try {
-                this.ipListData.parseJson(jSONObject);
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
+        if (jSONObject == null) {
+            return;
+        }
+        try {
+            this.ipListData.parseJson(jSONObject);
+        } catch (Exception e2) {
+            BdLog.e(e2);
         }
     }
 }

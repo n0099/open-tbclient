@@ -1,6 +1,6 @@
 package org.apache.http.client;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CircularRedirectException extends RedirectException {
     public CircularRedirectException() {
         throw new RuntimeException("Stub!");

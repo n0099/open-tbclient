@@ -4,25 +4,22 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class IoUtils {
     public static final int CONTINUE_LOADING_PERCENTAGE = 75;
     public static final int DEFAULT_BUFFER_SIZE = 32768;
     public static final int DEFAULT_IMAGE_TOTAL_SIZE = 512000;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface CopyListener {
         boolean onBytesCopied(int i, int i2);
-    }
-
-    private IoUtils() {
     }
 
     public static void closeSilently(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
     }
@@ -34,7 +31,7 @@ public final class IoUtils {
     public static boolean copyStream(InputStream inputStream, OutputStream outputStream, CopyListener copyListener, int i) {
         int available = inputStream.available();
         if (available <= 0) {
-            available = DEFAULT_IMAGE_TOTAL_SIZE;
+            available = 512000;
         }
         byte[] bArr = new byte[i];
         if (shouldStopLoading(copyListener, 0, available)) {
@@ -56,15 +53,16 @@ public final class IoUtils {
     public static void readAndCloseStream(InputStream inputStream) {
         do {
             try {
-            } catch (IOException e) {
-                return;
-            } finally {
+            } catch (IOException unused) {
+            } catch (Throwable th) {
                 closeSilently(inputStream);
+                throw th;
             }
         } while (inputStream.read(new byte[32768], 0, 32768) != -1);
+        closeSilently(inputStream);
     }
 
-    private static boolean shouldStopLoading(CopyListener copyListener, int i, int i2) {
+    public static boolean shouldStopLoading(CopyListener copyListener, int i, int i2) {
         return (copyListener == null || copyListener.onBytesCopied(i, i2) || (i * 100) / i2 >= 75) ? false : true;
     }
 }

@@ -1,13 +1,23 @@
 package com.baidu.swan.apps.statistic.search;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class SearchFlowEvent {
-    public EventType dNl;
-    public String data;
-    public String extData;
-    public String id;
-    public long timestamp;
 
-    /* loaded from: classes8.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public String f12650a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f12651b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f12652c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f12653d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public EventType f12654e;
+
+    /* loaded from: classes3.dex */
     public enum EventType {
         START,
         NORMAL,
@@ -15,22 +25,22 @@ public class SearchFlowEvent {
     }
 
     public SearchFlowEvent(String str) {
-        this.id = str;
-        this.timestamp = System.currentTimeMillis();
-        this.dNl = EventType.NORMAL;
-        this.data = "";
-        this.extData = "";
-    }
-
-    public SearchFlowEvent(String str, long j, String str2, String str3, EventType eventType) {
-        this.id = str;
-        this.timestamp = j;
-        this.data = str2;
-        this.extData = str3;
-        this.dNl = eventType;
+        this.f12650a = str;
+        this.f12651b = System.currentTimeMillis();
+        this.f12654e = EventType.NORMAL;
+        this.f12652c = "";
+        this.f12653d = "";
     }
 
     public String toString() {
-        return "Event: id=" + this.id + ", timestamp=" + this.timestamp + ", data=" + this.data + ", extData=" + this.extData + ", eventType=" + this.dNl.toString();
+        return "Event: id=" + this.f12650a + ", timestamp=" + this.f12651b + ", data=" + this.f12652c + ", extData=" + this.f12653d + ", eventType=" + this.f12654e.toString();
+    }
+
+    public SearchFlowEvent(String str, long j, String str2, String str3, EventType eventType) {
+        this.f12650a = str;
+        this.f12651b = j;
+        this.f12652c = str2;
+        this.f12653d = str3;
+        this.f12654e = eventType;
     }
 }

@@ -3,31 +3,32 @@ package com.kwad.sdk.contentalliance.detail.photo.f;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.kwad.sdk.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class a<T extends View> extends com.kwad.sdk.contentalliance.detail.b implements d<T> {
-    protected T b = null;
-    protected LinearLayout c;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: b  reason: collision with root package name */
+    public T f32358b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinearLayout f32359c;
+
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.c = (LinearLayout) b(R.id.ksad_photo_detail_bottom_toolbar);
-        this.c.addView(f(), new LinearLayout.LayoutParams(-2, -2));
-        this.c.setVisibility(0);
+        this.f32359c = (LinearLayout) b(R.id.ksad_photo_detail_bottom_toolbar);
+        this.f32359c.addView(f(), new LinearLayout.LayoutParams(-2, -2));
+        this.f32359c.setVisibility(0);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public T f() {
-        if (this.b == null) {
-            this.b = g();
+        if (this.f32358b == null) {
+            this.f32358b = g();
         }
-        return this.b;
+        return this.f32358b;
     }
 }

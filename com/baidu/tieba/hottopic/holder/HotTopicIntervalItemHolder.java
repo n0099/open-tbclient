@@ -4,24 +4,31 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class HotTopicIntervalItemHolder extends TypeAdapter.ViewHolder {
-    public int aln;
-    public View kya;
-    public TextView kyb;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f17584a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f17585b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f17586c;
 
     public HotTopicIntervalItemHolder(View view) {
         super(view);
-        this.aln = 3;
-        this.kya = null;
-        this.kyb = null;
-        dj(view);
+        this.f17584a = 3;
+        this.f17585b = null;
+        this.f17586c = null;
+        b(view);
     }
 
-    private void dj(View view) {
-        if (view != null) {
-            this.kya = view.findViewById(R.id.top_divider_line);
-            this.kyb = (TextView) view.findViewById(R.id.item_theme_title);
+    public final void b(View view) {
+        if (view == null) {
+            return;
         }
+        this.f17585b = view.findViewById(R.id.top_divider_line);
+        this.f17586c = (TextView) view.findViewById(R.id.item_theme_title);
     }
 }

@@ -5,12 +5,13 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-/* loaded from: classes3.dex */
+import com.google.protobuf.CodedInputStream;
+/* loaded from: classes6.dex */
 public class af {
     public static void a(Activity activity) {
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = activity.getWindow();
-            window.clearFlags(67108864);
+            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             window.addFlags(Integer.MIN_VALUE);
             window.getDecorView().setSystemUiVisibility(1024);
             window.setStatusBarColor(0);

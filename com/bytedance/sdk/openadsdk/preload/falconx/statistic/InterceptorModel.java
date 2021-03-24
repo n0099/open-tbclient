@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.falconx.statistic;
 
 import android.os.SystemClock;
 import androidx.annotation.Keep;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 @Keep
 /* loaded from: classes6.dex */
@@ -12,9 +13,9 @@ public class InterceptorModel {
     public String accessKey;
     @c(a = "channel")
     public String channel;
-    @c(a = "err_code")
+    @c(a = PmsConstant.Statistic.STATISTIC_ERRCODE)
     public String errCode;
-    @c(a = "err_msg")
+    @c(a = PmsConstant.Statistic.STATISTIC_ERRMSG)
     public String errMsg;
     @c(a = "log_id")
     public String logId;
@@ -38,14 +39,6 @@ public class InterceptorModel {
     @c(a = "resource_url")
     public String url;
 
-    public void setErrorCode(String str) {
-        this.errCode = str;
-    }
-
-    public void setErrorMsg(String str) {
-        this.errMsg = str;
-    }
-
     public void loadFinish(boolean z) {
         if (z) {
             this.offlineDuration = Long.valueOf(SystemClock.uptimeMillis() - this.startTime.longValue());
@@ -53,5 +46,13 @@ public class InterceptorModel {
             return;
         }
         this.offlineStatus = 0;
+    }
+
+    public void setErrorCode(String str) {
+        this.errCode = str;
+    }
+
+    public void setErrorMsg(String str) {
+        this.errMsg = str;
     }
 }

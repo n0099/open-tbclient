@@ -4,15 +4,14 @@ import com.baidu.location.a.l;
 import com.baidu.location.a.u;
 import com.baidu.location.a.x;
 import com.baidu.location.b.i;
-/* loaded from: classes4.dex */
-class j implements Runnable {
+/* loaded from: classes2.dex */
+public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i.a f1959a;
+    public final /* synthetic */ i.a f6659a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public j(i.a aVar) {
-        this.f1959a = aVar;
+        this.f6659a = aVar;
     }
 
     @Override // java.lang.Runnable

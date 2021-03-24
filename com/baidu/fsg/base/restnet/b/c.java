@@ -10,16 +10,14 @@ import java.util.regex.Pattern;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class c implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1505a;
+    public final /* synthetic */ b f5188a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f1505a = bVar;
+        this.f5188a = bVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier
@@ -27,7 +25,7 @@ public class c implements HostnameVerifier {
         e eVar;
         try {
             Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-            eVar = this.f1505a.e;
+            eVar = this.f5188a.f5184e;
             String v = eVar.b().v();
             if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                 X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];
@@ -55,10 +53,10 @@ public class c implements HostnameVerifier {
                     }
                 }
             }
-        } catch (CertificateParsingException e) {
-            e.printStackTrace();
-        } catch (SSLPeerUnverifiedException e2) {
+        } catch (CertificateParsingException e2) {
             e2.printStackTrace();
+        } catch (SSLPeerUnverifiedException e3) {
+            e3.printStackTrace();
         }
         return false;
     }

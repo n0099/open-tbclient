@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public final class LiveInfo extends Message {
     public static final String DEFAULT_CHANNEL_NAME = "";
     public static final String DEFAULT_CLOSE_REASON = "";
@@ -151,299 +151,7 @@ public final class LiveInfo extends Message {
     public static final Integer DEFAULT_IM_PULL_MODE = 0;
     public static final Integer DEFAULT_NOTICE_BROAD_MSG_ID = 0;
 
-    private LiveInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.live_id == null) {
-                this.live_id = DEFAULT_LIVE_ID;
-            } else {
-                this.live_id = builder.live_id;
-            }
-            if (builder.user_id == null) {
-                this.user_id = DEFAULT_USER_ID;
-            } else {
-                this.user_id = builder.user_id;
-            }
-            if (builder.user_name == null) {
-                this.user_name = "";
-            } else {
-                this.user_name = builder.user_name;
-            }
-            if (builder.group_id == null) {
-                this.group_id = DEFAULT_GROUP_ID;
-            } else {
-                this.group_id = builder.group_id;
-            }
-            if (builder.session_id == null) {
-                this.session_id = "";
-            } else {
-                this.session_id = builder.session_id;
-            }
-            if (builder.description == null) {
-                this.description = "";
-            } else {
-                this.description = builder.description;
-            }
-            if (builder.cover == null) {
-                this.cover = "";
-            } else {
-                this.cover = builder.cover;
-            }
-            if (builder.join_count == null) {
-                this.join_count = DEFAULT_JOIN_COUNT;
-            } else {
-                this.join_count = builder.join_count;
-            }
-            if (builder.zan_count == null) {
-                this.zan_count = DEFAULT_ZAN_COUNT;
-            } else {
-                this.zan_count = builder.zan_count;
-            }
-            if (builder.live_duration == null) {
-                this.live_duration = DEFAULT_LIVE_DURATION;
-            } else {
-                this.live_duration = builder.live_duration;
-            }
-            if (builder.charm_count == null) {
-                this.charm_count = DEFAULT_CHARM_COUNT;
-            } else {
-                this.charm_count = builder.charm_count;
-            }
-            if (builder.start_time == null) {
-                this.start_time = DEFAULT_START_TIME;
-            } else {
-                this.start_time = builder.start_time;
-            }
-            if (builder.end_time == null) {
-                this.end_time = DEFAULT_END_TIME;
-            } else {
-                this.end_time = builder.end_time;
-            }
-            if (builder.channel_id == null) {
-                this.channel_id = DEFAULT_CHANNEL_ID;
-            } else {
-                this.channel_id = builder.channel_id;
-            }
-            if (builder.channel_name == null) {
-                this.channel_name = "";
-            } else {
-                this.channel_name = builder.channel_name;
-            }
-            if (builder.live_status == null) {
-                this.live_status = DEFAULT_LIVE_STATUS;
-            } else {
-                this.live_status = builder.live_status;
-            }
-            if (builder.close_type == null) {
-                this.close_type = DEFAULT_CLOSE_TYPE;
-            } else {
-                this.close_type = builder.close_type;
-            }
-            if (builder.close_reason == null) {
-                this.close_reason = "";
-            } else {
-                this.close_reason = builder.close_reason;
-            }
-            this.session_info = builder.session_info;
-            if (builder.session_exception == null) {
-                this.session_exception = DEFAULT_SESSION_EXCEPTION;
-            } else {
-                this.session_exception = builder.session_exception;
-            }
-            if (builder.session_update_time == null) {
-                this.session_update_time = DEFAULT_SESSION_UPDATE_TIME;
-            } else {
-                this.session_update_time = builder.session_update_time;
-            }
-            if (builder.backstage_update_time == null) {
-                this.backstage_update_time = DEFAULT_BACKSTAGE_UPDATE_TIME;
-            } else {
-                this.backstage_update_time = builder.backstage_update_time;
-            }
-            if (builder.audience_count == null) {
-                this.audience_count = DEFAULT_AUDIENCE_COUNT;
-            } else {
-                this.audience_count = builder.audience_count;
-            }
-            if (builder.backstage_type == null) {
-                this.backstage_type = DEFAULT_BACKSTAGE_TYPE;
-            } else {
-                this.backstage_type = builder.backstage_type;
-            }
-            if (builder.session_status == null) {
-                this.session_status = DEFAULT_SESSION_STATUS;
-            } else {
-                this.session_status = builder.session_status;
-            }
-            if (builder.share_url == null) {
-                this.share_url = "";
-            } else {
-                this.share_url = builder.share_url;
-            }
-            if (builder.last_msg_id == null) {
-                this.last_msg_id = DEFAULT_LAST_MSG_ID;
-            } else {
-                this.last_msg_id = builder.last_msg_id;
-            }
-            this.media = builder.media;
-            if (builder.location == null) {
-                this.location = "";
-            } else {
-                this.location = builder.location;
-            }
-            if (builder.forum_id == null) {
-                this.forum_id = DEFAULT_FORUM_ID;
-            } else {
-                this.forum_id = builder.forum_id;
-            }
-            if (builder.forum_name == null) {
-                this.forum_name = "";
-            } else {
-                this.forum_name = builder.forum_name;
-            }
-            if (builder.third_app_id == null) {
-                this.third_app_id = "";
-            } else {
-                this.third_app_id = builder.third_app_id;
-            }
-            if (builder.third_app_name == null) {
-                this.third_app_name = "";
-            } else {
-                this.third_app_name = builder.third_app_name;
-            }
-            if (builder.live_type == null) {
-                this.live_type = DEFAULT_LIVE_TYPE;
-            } else {
-                this.live_type = builder.live_type;
-            }
-            if (builder.screen_direction == null) {
-                this.screen_direction = DEFAULT_SCREEN_DIRECTION;
-            } else {
-                this.screen_direction = builder.screen_direction;
-            }
-            if (builder.on_private == null) {
-                this.on_private = DEFAULT_ON_PRIVATE;
-            } else {
-                this.on_private = builder.on_private;
-            }
-            if (builder.user_nickname == null) {
-                this.user_nickname = "";
-            } else {
-                this.user_nickname = builder.user_nickname;
-            }
-            this.session_info_backup = builder.session_info_backup;
-            if (builder.session_default == null) {
-                this.session_default = DEFAULT_SESSION_DEFAULT;
-            } else {
-                this.session_default = builder.session_default;
-            }
-            if (builder.session_force == null) {
-                this.session_force = DEFAULT_SESSION_FORCE;
-            } else {
-                this.session_force = builder.session_force;
-            }
-            if (builder.flower_count == null) {
-                this.flower_count = DEFAULT_FLOWER_COUNT;
-            } else {
-                this.flower_count = builder.flower_count;
-            }
-            if (builder.open_type == null) {
-                this.open_type = DEFAULT_OPEN_TYPE;
-            } else {
-                this.open_type = builder.open_type;
-            }
-            if (builder.on_audio_private == null) {
-                this.on_audio_private = DEFAULT_ON_AUDIO_PRIVATE;
-            } else {
-                this.on_audio_private = builder.on_audio_private;
-            }
-            if (builder.pk_id == null) {
-                this.pk_id = DEFAULT_PK_ID;
-            } else {
-                this.pk_id = builder.pk_id;
-            }
-            if (builder.challenge_id == null) {
-                this.challenge_id = DEFAULT_CHALLENGE_ID;
-            } else {
-                this.challenge_id = builder.challenge_id;
-            }
-            if (builder.gift_broad_msg_id == null) {
-                this.gift_broad_msg_id = DEFAULT_GIFT_BROAD_MSG_ID;
-            } else {
-                this.gift_broad_msg_id = builder.gift_broad_msg_id;
-            }
-            this.close_set = builder.close_set;
-            if (builder.nobility_broad_msg_id == null) {
-                this.nobility_broad_msg_id = DEFAULT_NOBILITY_BROAD_MSG_ID;
-            } else {
-                this.nobility_broad_msg_id = builder.nobility_broad_msg_id;
-            }
-            if (builder.im_pull_mode == null) {
-                this.im_pull_mode = DEFAULT_IM_PULL_MODE;
-            } else {
-                this.im_pull_mode = builder.im_pull_mode;
-            }
-            if (builder.notice_broad_msg_id == null) {
-                this.notice_broad_msg_id = DEFAULT_NOTICE_BROAD_MSG_ID;
-                return;
-            } else {
-                this.notice_broad_msg_id = builder.notice_broad_msg_id;
-                return;
-            }
-        }
-        this.live_id = builder.live_id;
-        this.user_id = builder.user_id;
-        this.user_name = builder.user_name;
-        this.group_id = builder.group_id;
-        this.session_id = builder.session_id;
-        this.description = builder.description;
-        this.cover = builder.cover;
-        this.join_count = builder.join_count;
-        this.zan_count = builder.zan_count;
-        this.live_duration = builder.live_duration;
-        this.charm_count = builder.charm_count;
-        this.start_time = builder.start_time;
-        this.end_time = builder.end_time;
-        this.channel_id = builder.channel_id;
-        this.channel_name = builder.channel_name;
-        this.live_status = builder.live_status;
-        this.close_type = builder.close_type;
-        this.close_reason = builder.close_reason;
-        this.session_info = builder.session_info;
-        this.session_exception = builder.session_exception;
-        this.session_update_time = builder.session_update_time;
-        this.backstage_update_time = builder.backstage_update_time;
-        this.audience_count = builder.audience_count;
-        this.backstage_type = builder.backstage_type;
-        this.session_status = builder.session_status;
-        this.share_url = builder.share_url;
-        this.last_msg_id = builder.last_msg_id;
-        this.media = builder.media;
-        this.location = builder.location;
-        this.forum_id = builder.forum_id;
-        this.forum_name = builder.forum_name;
-        this.third_app_id = builder.third_app_id;
-        this.third_app_name = builder.third_app_name;
-        this.live_type = builder.live_type;
-        this.screen_direction = builder.screen_direction;
-        this.on_private = builder.on_private;
-        this.user_nickname = builder.user_nickname;
-        this.session_info_backup = builder.session_info_backup;
-        this.session_default = builder.session_default;
-        this.session_force = builder.session_force;
-        this.flower_count = builder.flower_count;
-        this.open_type = builder.open_type;
-        this.on_audio_private = builder.on_audio_private;
-        this.pk_id = builder.pk_id;
-        this.challenge_id = builder.challenge_id;
-        this.gift_broad_msg_id = builder.gift_broad_msg_id;
-        this.close_set = builder.close_set;
-        this.nobility_broad_msg_id = builder.nobility_broad_msg_id;
-        this.im_pull_mode = builder.im_pull_mode;
-        this.notice_broad_msg_id = builder.notice_broad_msg_id;
-    }
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<LiveInfo> {
         public Integer audience_count;
         public Integer backstage_type;
@@ -501,58 +209,59 @@ public final class LiveInfo extends Message {
 
         public Builder(LiveInfo liveInfo) {
             super(liveInfo);
-            if (liveInfo != null) {
-                this.live_id = liveInfo.live_id;
-                this.user_id = liveInfo.user_id;
-                this.user_name = liveInfo.user_name;
-                this.group_id = liveInfo.group_id;
-                this.session_id = liveInfo.session_id;
-                this.description = liveInfo.description;
-                this.cover = liveInfo.cover;
-                this.join_count = liveInfo.join_count;
-                this.zan_count = liveInfo.zan_count;
-                this.live_duration = liveInfo.live_duration;
-                this.charm_count = liveInfo.charm_count;
-                this.start_time = liveInfo.start_time;
-                this.end_time = liveInfo.end_time;
-                this.channel_id = liveInfo.channel_id;
-                this.channel_name = liveInfo.channel_name;
-                this.live_status = liveInfo.live_status;
-                this.close_type = liveInfo.close_type;
-                this.close_reason = liveInfo.close_reason;
-                this.session_info = liveInfo.session_info;
-                this.session_exception = liveInfo.session_exception;
-                this.session_update_time = liveInfo.session_update_time;
-                this.backstage_update_time = liveInfo.backstage_update_time;
-                this.audience_count = liveInfo.audience_count;
-                this.backstage_type = liveInfo.backstage_type;
-                this.session_status = liveInfo.session_status;
-                this.share_url = liveInfo.share_url;
-                this.last_msg_id = liveInfo.last_msg_id;
-                this.media = liveInfo.media;
-                this.location = liveInfo.location;
-                this.forum_id = liveInfo.forum_id;
-                this.forum_name = liveInfo.forum_name;
-                this.third_app_id = liveInfo.third_app_id;
-                this.third_app_name = liveInfo.third_app_name;
-                this.live_type = liveInfo.live_type;
-                this.screen_direction = liveInfo.screen_direction;
-                this.on_private = liveInfo.on_private;
-                this.user_nickname = liveInfo.user_nickname;
-                this.session_info_backup = liveInfo.session_info_backup;
-                this.session_default = liveInfo.session_default;
-                this.session_force = liveInfo.session_force;
-                this.flower_count = liveInfo.flower_count;
-                this.open_type = liveInfo.open_type;
-                this.on_audio_private = liveInfo.on_audio_private;
-                this.pk_id = liveInfo.pk_id;
-                this.challenge_id = liveInfo.challenge_id;
-                this.gift_broad_msg_id = liveInfo.gift_broad_msg_id;
-                this.close_set = liveInfo.close_set;
-                this.nobility_broad_msg_id = liveInfo.nobility_broad_msg_id;
-                this.im_pull_mode = liveInfo.im_pull_mode;
-                this.notice_broad_msg_id = liveInfo.notice_broad_msg_id;
+            if (liveInfo == null) {
+                return;
             }
+            this.live_id = liveInfo.live_id;
+            this.user_id = liveInfo.user_id;
+            this.user_name = liveInfo.user_name;
+            this.group_id = liveInfo.group_id;
+            this.session_id = liveInfo.session_id;
+            this.description = liveInfo.description;
+            this.cover = liveInfo.cover;
+            this.join_count = liveInfo.join_count;
+            this.zan_count = liveInfo.zan_count;
+            this.live_duration = liveInfo.live_duration;
+            this.charm_count = liveInfo.charm_count;
+            this.start_time = liveInfo.start_time;
+            this.end_time = liveInfo.end_time;
+            this.channel_id = liveInfo.channel_id;
+            this.channel_name = liveInfo.channel_name;
+            this.live_status = liveInfo.live_status;
+            this.close_type = liveInfo.close_type;
+            this.close_reason = liveInfo.close_reason;
+            this.session_info = liveInfo.session_info;
+            this.session_exception = liveInfo.session_exception;
+            this.session_update_time = liveInfo.session_update_time;
+            this.backstage_update_time = liveInfo.backstage_update_time;
+            this.audience_count = liveInfo.audience_count;
+            this.backstage_type = liveInfo.backstage_type;
+            this.session_status = liveInfo.session_status;
+            this.share_url = liveInfo.share_url;
+            this.last_msg_id = liveInfo.last_msg_id;
+            this.media = liveInfo.media;
+            this.location = liveInfo.location;
+            this.forum_id = liveInfo.forum_id;
+            this.forum_name = liveInfo.forum_name;
+            this.third_app_id = liveInfo.third_app_id;
+            this.third_app_name = liveInfo.third_app_name;
+            this.live_type = liveInfo.live_type;
+            this.screen_direction = liveInfo.screen_direction;
+            this.on_private = liveInfo.on_private;
+            this.user_nickname = liveInfo.user_nickname;
+            this.session_info_backup = liveInfo.session_info_backup;
+            this.session_default = liveInfo.session_default;
+            this.session_force = liveInfo.session_force;
+            this.flower_count = liveInfo.flower_count;
+            this.open_type = liveInfo.open_type;
+            this.on_audio_private = liveInfo.on_audio_private;
+            this.pk_id = liveInfo.pk_id;
+            this.challenge_id = liveInfo.challenge_id;
+            this.gift_broad_msg_id = liveInfo.gift_broad_msg_id;
+            this.close_set = liveInfo.close_set;
+            this.nobility_broad_msg_id = liveInfo.nobility_broad_msg_id;
+            this.im_pull_mode = liveInfo.im_pull_mode;
+            this.notice_broad_msg_id = liveInfo.notice_broad_msg_id;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -561,5 +270,343 @@ public final class LiveInfo extends Message {
         public LiveInfo build(boolean z) {
             return new LiveInfo(this, z);
         }
+    }
+
+    public LiveInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.live_id;
+            if (l == null) {
+                this.live_id = DEFAULT_LIVE_ID;
+            } else {
+                this.live_id = l;
+            }
+            Long l2 = builder.user_id;
+            if (l2 == null) {
+                this.user_id = DEFAULT_USER_ID;
+            } else {
+                this.user_id = l2;
+            }
+            String str = builder.user_name;
+            if (str == null) {
+                this.user_name = "";
+            } else {
+                this.user_name = str;
+            }
+            Long l3 = builder.group_id;
+            if (l3 == null) {
+                this.group_id = DEFAULT_GROUP_ID;
+            } else {
+                this.group_id = l3;
+            }
+            String str2 = builder.session_id;
+            if (str2 == null) {
+                this.session_id = "";
+            } else {
+                this.session_id = str2;
+            }
+            String str3 = builder.description;
+            if (str3 == null) {
+                this.description = "";
+            } else {
+                this.description = str3;
+            }
+            String str4 = builder.cover;
+            if (str4 == null) {
+                this.cover = "";
+            } else {
+                this.cover = str4;
+            }
+            Integer num = builder.join_count;
+            if (num == null) {
+                this.join_count = DEFAULT_JOIN_COUNT;
+            } else {
+                this.join_count = num;
+            }
+            Integer num2 = builder.zan_count;
+            if (num2 == null) {
+                this.zan_count = DEFAULT_ZAN_COUNT;
+            } else {
+                this.zan_count = num2;
+            }
+            Long l4 = builder.live_duration;
+            if (l4 == null) {
+                this.live_duration = DEFAULT_LIVE_DURATION;
+            } else {
+                this.live_duration = l4;
+            }
+            Integer num3 = builder.charm_count;
+            if (num3 == null) {
+                this.charm_count = DEFAULT_CHARM_COUNT;
+            } else {
+                this.charm_count = num3;
+            }
+            Integer num4 = builder.start_time;
+            if (num4 == null) {
+                this.start_time = DEFAULT_START_TIME;
+            } else {
+                this.start_time = num4;
+            }
+            Integer num5 = builder.end_time;
+            if (num5 == null) {
+                this.end_time = DEFAULT_END_TIME;
+            } else {
+                this.end_time = num5;
+            }
+            Long l5 = builder.channel_id;
+            if (l5 == null) {
+                this.channel_id = DEFAULT_CHANNEL_ID;
+            } else {
+                this.channel_id = l5;
+            }
+            String str5 = builder.channel_name;
+            if (str5 == null) {
+                this.channel_name = "";
+            } else {
+                this.channel_name = str5;
+            }
+            Integer num6 = builder.live_status;
+            if (num6 == null) {
+                this.live_status = DEFAULT_LIVE_STATUS;
+            } else {
+                this.live_status = num6;
+            }
+            Integer num7 = builder.close_type;
+            if (num7 == null) {
+                this.close_type = DEFAULT_CLOSE_TYPE;
+            } else {
+                this.close_type = num7;
+            }
+            String str6 = builder.close_reason;
+            if (str6 == null) {
+                this.close_reason = "";
+            } else {
+                this.close_reason = str6;
+            }
+            this.session_info = builder.session_info;
+            Long l6 = builder.session_exception;
+            if (l6 == null) {
+                this.session_exception = DEFAULT_SESSION_EXCEPTION;
+            } else {
+                this.session_exception = l6;
+            }
+            Integer num8 = builder.session_update_time;
+            if (num8 == null) {
+                this.session_update_time = DEFAULT_SESSION_UPDATE_TIME;
+            } else {
+                this.session_update_time = num8;
+            }
+            Integer num9 = builder.backstage_update_time;
+            if (num9 == null) {
+                this.backstage_update_time = DEFAULT_BACKSTAGE_UPDATE_TIME;
+            } else {
+                this.backstage_update_time = num9;
+            }
+            Integer num10 = builder.audience_count;
+            if (num10 == null) {
+                this.audience_count = DEFAULT_AUDIENCE_COUNT;
+            } else {
+                this.audience_count = num10;
+            }
+            Integer num11 = builder.backstage_type;
+            if (num11 == null) {
+                this.backstage_type = DEFAULT_BACKSTAGE_TYPE;
+            } else {
+                this.backstage_type = num11;
+            }
+            Integer num12 = builder.session_status;
+            if (num12 == null) {
+                this.session_status = DEFAULT_SESSION_STATUS;
+            } else {
+                this.session_status = num12;
+            }
+            String str7 = builder.share_url;
+            if (str7 == null) {
+                this.share_url = "";
+            } else {
+                this.share_url = str7;
+            }
+            Long l7 = builder.last_msg_id;
+            if (l7 == null) {
+                this.last_msg_id = DEFAULT_LAST_MSG_ID;
+            } else {
+                this.last_msg_id = l7;
+            }
+            this.media = builder.media;
+            String str8 = builder.location;
+            if (str8 == null) {
+                this.location = "";
+            } else {
+                this.location = str8;
+            }
+            Long l8 = builder.forum_id;
+            if (l8 == null) {
+                this.forum_id = DEFAULT_FORUM_ID;
+            } else {
+                this.forum_id = l8;
+            }
+            String str9 = builder.forum_name;
+            if (str9 == null) {
+                this.forum_name = "";
+            } else {
+                this.forum_name = str9;
+            }
+            String str10 = builder.third_app_id;
+            if (str10 == null) {
+                this.third_app_id = "";
+            } else {
+                this.third_app_id = str10;
+            }
+            String str11 = builder.third_app_name;
+            if (str11 == null) {
+                this.third_app_name = "";
+            } else {
+                this.third_app_name = str11;
+            }
+            Integer num13 = builder.live_type;
+            if (num13 == null) {
+                this.live_type = DEFAULT_LIVE_TYPE;
+            } else {
+                this.live_type = num13;
+            }
+            Integer num14 = builder.screen_direction;
+            if (num14 == null) {
+                this.screen_direction = DEFAULT_SCREEN_DIRECTION;
+            } else {
+                this.screen_direction = num14;
+            }
+            Integer num15 = builder.on_private;
+            if (num15 == null) {
+                this.on_private = DEFAULT_ON_PRIVATE;
+            } else {
+                this.on_private = num15;
+            }
+            String str12 = builder.user_nickname;
+            if (str12 == null) {
+                this.user_nickname = "";
+            } else {
+                this.user_nickname = str12;
+            }
+            this.session_info_backup = builder.session_info_backup;
+            Integer num16 = builder.session_default;
+            if (num16 == null) {
+                this.session_default = DEFAULT_SESSION_DEFAULT;
+            } else {
+                this.session_default = num16;
+            }
+            Integer num17 = builder.session_force;
+            if (num17 == null) {
+                this.session_force = DEFAULT_SESSION_FORCE;
+            } else {
+                this.session_force = num17;
+            }
+            Integer num18 = builder.flower_count;
+            if (num18 == null) {
+                this.flower_count = DEFAULT_FLOWER_COUNT;
+            } else {
+                this.flower_count = num18;
+            }
+            Integer num19 = builder.open_type;
+            if (num19 == null) {
+                this.open_type = DEFAULT_OPEN_TYPE;
+            } else {
+                this.open_type = num19;
+            }
+            Integer num20 = builder.on_audio_private;
+            if (num20 == null) {
+                this.on_audio_private = DEFAULT_ON_AUDIO_PRIVATE;
+            } else {
+                this.on_audio_private = num20;
+            }
+            Long l9 = builder.pk_id;
+            if (l9 == null) {
+                this.pk_id = DEFAULT_PK_ID;
+            } else {
+                this.pk_id = l9;
+            }
+            Integer num21 = builder.challenge_id;
+            if (num21 == null) {
+                this.challenge_id = DEFAULT_CHALLENGE_ID;
+            } else {
+                this.challenge_id = num21;
+            }
+            Long l10 = builder.gift_broad_msg_id;
+            if (l10 == null) {
+                this.gift_broad_msg_id = DEFAULT_GIFT_BROAD_MSG_ID;
+            } else {
+                this.gift_broad_msg_id = l10;
+            }
+            this.close_set = builder.close_set;
+            Long l11 = builder.nobility_broad_msg_id;
+            if (l11 == null) {
+                this.nobility_broad_msg_id = DEFAULT_NOBILITY_BROAD_MSG_ID;
+            } else {
+                this.nobility_broad_msg_id = l11;
+            }
+            Integer num22 = builder.im_pull_mode;
+            if (num22 == null) {
+                this.im_pull_mode = DEFAULT_IM_PULL_MODE;
+            } else {
+                this.im_pull_mode = num22;
+            }
+            Integer num23 = builder.notice_broad_msg_id;
+            if (num23 == null) {
+                this.notice_broad_msg_id = DEFAULT_NOTICE_BROAD_MSG_ID;
+                return;
+            } else {
+                this.notice_broad_msg_id = num23;
+                return;
+            }
+        }
+        this.live_id = builder.live_id;
+        this.user_id = builder.user_id;
+        this.user_name = builder.user_name;
+        this.group_id = builder.group_id;
+        this.session_id = builder.session_id;
+        this.description = builder.description;
+        this.cover = builder.cover;
+        this.join_count = builder.join_count;
+        this.zan_count = builder.zan_count;
+        this.live_duration = builder.live_duration;
+        this.charm_count = builder.charm_count;
+        this.start_time = builder.start_time;
+        this.end_time = builder.end_time;
+        this.channel_id = builder.channel_id;
+        this.channel_name = builder.channel_name;
+        this.live_status = builder.live_status;
+        this.close_type = builder.close_type;
+        this.close_reason = builder.close_reason;
+        this.session_info = builder.session_info;
+        this.session_exception = builder.session_exception;
+        this.session_update_time = builder.session_update_time;
+        this.backstage_update_time = builder.backstage_update_time;
+        this.audience_count = builder.audience_count;
+        this.backstage_type = builder.backstage_type;
+        this.session_status = builder.session_status;
+        this.share_url = builder.share_url;
+        this.last_msg_id = builder.last_msg_id;
+        this.media = builder.media;
+        this.location = builder.location;
+        this.forum_id = builder.forum_id;
+        this.forum_name = builder.forum_name;
+        this.third_app_id = builder.third_app_id;
+        this.third_app_name = builder.third_app_name;
+        this.live_type = builder.live_type;
+        this.screen_direction = builder.screen_direction;
+        this.on_private = builder.on_private;
+        this.user_nickname = builder.user_nickname;
+        this.session_info_backup = builder.session_info_backup;
+        this.session_default = builder.session_default;
+        this.session_force = builder.session_force;
+        this.flower_count = builder.flower_count;
+        this.open_type = builder.open_type;
+        this.on_audio_private = builder.on_audio_private;
+        this.pk_id = builder.pk_id;
+        this.challenge_id = builder.challenge_id;
+        this.gift_broad_msg_id = builder.gift_broad_msg_id;
+        this.close_set = builder.close_set;
+        this.nobility_broad_msg_id = builder.nobility_broad_msg_id;
+        this.im_pull_mode = builder.im_pull_mode;
+        this.notice_broad_msg_id = builder.notice_broad_msg_id;
     }
 }

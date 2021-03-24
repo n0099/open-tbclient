@@ -1,6 +1,6 @@
 package com.baidu.platform.core.d;
 
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -8,12 +8,14 @@ import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.core.VehicleInfo;
 import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteResult;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class m extends k {
     private RouteNode a(JSONObject jSONObject, String str) {
         if (jSONObject == null || str == null || "".equals(str)) {
@@ -23,14 +25,14 @@ public class m extends k {
         RouteNode routeNode = new RouteNode();
         routeNode.setTitle(optJSONObject.optString(ActVideoSetting.WIFI_DISPLAY));
         routeNode.setUid(optJSONObject.optString("uid"));
-        routeNode.setLocation(CoordUtil.decodeLocation(optJSONObject.optString("pt")));
+        routeNode.setLocation(CoordUtil.decodeLocation(optJSONObject.optString(Config.PLATFORM_TYPE)));
         return routeNode;
     }
 
     private TaxiInfo a(JSONObject jSONObject) {
-        float f;
         float f2;
         float f3;
+        float f4;
         if (jSONObject == null) {
             return null;
         }
@@ -42,18 +44,17 @@ public class m extends k {
         int length = optJSONArray.length();
         int i = 0;
         while (true) {
+            f2 = 0.0f;
             if (i >= length) {
-                f = 0.0f;
-                f2 = 0.0f;
                 f3 = 0.0f;
+                f4 = 0.0f;
                 break;
             }
             JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
             if (jSONObject2 != null && jSONObject2.optString("desc").contains("白天")) {
                 f3 = (float) jSONObject2.optDouble("km_price");
-                float optDouble = (float) jSONObject2.optDouble("start_price");
-                f = (float) jSONObject2.optDouble("total_price");
-                f2 = optDouble;
+                f4 = (float) jSONObject2.optDouble("start_price");
+                f2 = (float) jSONObject2.optDouble("total_price");
                 break;
             }
             i++;
@@ -61,8 +62,8 @@ public class m extends k {
         taxiInfo.setDesc(jSONObject.optString("remark"));
         taxiInfo.setDistance(jSONObject.optInt("distance"));
         taxiInfo.setDuration(jSONObject.optInt("duration"));
-        taxiInfo.setTotalPrice(f);
-        taxiInfo.setStartPrice(f2);
+        taxiInfo.setTotalPrice(f2);
+        taxiInfo.setStartPrice(f4);
         taxiInfo.setPerKMPrice(f3);
         return taxiInfo;
     }
@@ -87,106 +88,120 @@ public class m extends k {
     }
 
     private boolean b(String str, TransitRouteResult transitRouteResult) {
-        JSONObject optJSONObject;
+        JSONArray jSONArray;
+        RouteNode routeNode;
+        JSONArray jSONArray2;
+        RouteNode routeNode2;
+        SearchResult.ERRORNO errorno;
+        int i = 0;
         if (str == null || str.length() <= 0) {
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("result");
+            if (optJSONObject == null) {
                 return false;
             }
-            switch (optJSONObject.optInt(BdStatsConstant.StatsType.ERROR)) {
-                case 0:
-                    JSONObject optJSONObject2 = jSONObject.optJSONObject("bus");
-                    if (optJSONObject2 == null) {
-                        return false;
-                    }
-                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("taxi");
-                    if (optJSONObject3 != null) {
-                        transitRouteResult.setTaxiInfo(a(optJSONObject3));
-                    }
-                    JSONObject optJSONObject4 = optJSONObject2.optJSONObject("option");
-                    if (optJSONObject4 == null) {
-                        return false;
-                    }
-                    RouteNode a2 = a(optJSONObject4, "start");
-                    RouteNode a3 = a(optJSONObject4, "end");
-                    JSONArray optJSONArray = optJSONObject2.optJSONArray("routes");
-                    if (optJSONArray == null || optJSONArray.length() <= 0) {
-                        return false;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    int i = 0;
-                    while (true) {
-                        int i2 = i;
-                        if (i2 >= optJSONArray.length()) {
-                            transitRouteResult.setRoutelines(arrayList);
-                            return true;
-                        }
-                        JSONObject jSONObject2 = (JSONObject) ((JSONObject) optJSONArray.opt(i2)).optJSONArray("legs").opt(0);
-                        if (jSONObject2 != null) {
-                            TransitRouteLine transitRouteLine = new TransitRouteLine();
-                            transitRouteLine.setDistance(jSONObject2.optInt("distance"));
-                            transitRouteLine.setDuration(jSONObject2.optInt("duration"));
-                            transitRouteLine.setStarting(a2);
-                            transitRouteLine.setTerminal(a3);
-                            JSONArray optJSONArray2 = jSONObject2.optJSONArray("steps");
-                            if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                                ArrayList arrayList2 = new ArrayList();
-                                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                                    JSONArray optJSONArray3 = optJSONArray2.optJSONObject(i3).optJSONArray("step");
-                                    if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                                        JSONObject optJSONObject5 = optJSONArray3.optJSONObject(0);
-                                        TransitRouteLine.TransitStep transitStep = new TransitRouteLine.TransitStep();
-                                        transitStep.setEntrace(RouteNode.location(CoordUtil.decodeLocation(optJSONObject5.optString("start_location"))));
-                                        transitStep.setExit(RouteNode.location(CoordUtil.decodeLocation(optJSONObject5.optString("end_location"))));
-                                        if (optJSONObject5.optInt("type") == 5) {
-                                            transitStep.setStepType(TransitRouteLine.TransitStep.TransitRouteStepType.WAKLING);
-                                        } else {
-                                            transitStep.setStepType(TransitRouteLine.TransitStep.TransitRouteStepType.BUSLINE);
-                                        }
-                                        transitStep.setInstructions(b(optJSONObject5.optString("instructions")));
-                                        transitStep.setDistance(optJSONObject5.optInt("distance"));
-                                        transitStep.setDuration(optJSONObject5.optInt("duration"));
-                                        transitStep.setPathString(optJSONObject5.optString("path"));
-                                        if (optJSONObject5.has("vehicle")) {
-                                            transitStep.setVehicleInfo(c(optJSONObject5.optString("vehicle")));
-                                            JSONObject optJSONObject6 = optJSONObject5.optJSONObject("vehicle");
-                                            transitStep.getEntrance().setUid(optJSONObject6.optString("start_uid"));
-                                            transitStep.getEntrance().setTitle(optJSONObject6.optString("start_name"));
-                                            transitStep.getExit().setUid(optJSONObject6.optString("end_uid"));
-                                            transitStep.getExit().setTitle(optJSONObject6.optString("end_name"));
-                                            Integer valueOf = Integer.valueOf(optJSONObject6.optInt("type"));
-                                            if (valueOf == null) {
-                                                transitStep.setStepType(TransitRouteLine.TransitStep.TransitRouteStepType.BUSLINE);
-                                            } else if (valueOf.intValue() == 1) {
-                                                transitStep.setStepType(TransitRouteLine.TransitStep.TransitRouteStepType.SUBWAY);
-                                            } else {
-                                                transitStep.setStepType(TransitRouteLine.TransitStep.TransitRouteStepType.BUSLINE);
-                                            }
-                                        }
-                                        arrayList2.add(transitStep);
-                                    }
-                                }
-                                transitRouteLine.setSteps(arrayList2);
-                                arrayList.add(transitRouteLine);
-                            }
-                        }
-                        i = i2 + 1;
-                    }
-                    break;
-                case 1:
-                    transitRouteResult.error = SearchResult.ERRORNO.ST_EN_TOO_NEAR;
-                    return true;
-                case 200:
-                    transitRouteResult.error = SearchResult.ERRORNO.NOT_SUPPORT_BUS_2CITY;
-                    return true;
-                default:
+            int optInt = optJSONObject.optInt("error");
+            if (optInt != 0) {
+                if (optInt == 1) {
+                    errorno = SearchResult.ERRORNO.ST_EN_TOO_NEAR;
+                } else if (optInt != 200) {
                     return false;
+                } else {
+                    errorno = SearchResult.ERRORNO.NOT_SUPPORT_BUS_2CITY;
+                }
+                transitRouteResult.error = errorno;
+                return true;
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("bus");
+            if (optJSONObject2 == null) {
+                return false;
+            }
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("taxi");
+            if (optJSONObject3 != null) {
+                transitRouteResult.setTaxiInfo(a(optJSONObject3));
+            }
+            JSONObject optJSONObject4 = optJSONObject2.optJSONObject("option");
+            if (optJSONObject4 == null) {
+                return false;
+            }
+            RouteNode a2 = a(optJSONObject4, IntentConfig.START);
+            RouteNode a3 = a(optJSONObject4, ProgressInfo.JSON_KEY_END);
+            JSONArray optJSONArray = optJSONObject2.optJSONArray("routes");
+            if (optJSONArray == null || optJSONArray.length() <= 0) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            int i2 = 0;
+            while (i2 < optJSONArray.length()) {
+                JSONObject jSONObject2 = (JSONObject) ((JSONObject) optJSONArray.opt(i2)).optJSONArray("legs").opt(i);
+                if (jSONObject2 != null) {
+                    TransitRouteLine transitRouteLine = new TransitRouteLine();
+                    transitRouteLine.setDistance(jSONObject2.optInt("distance"));
+                    transitRouteLine.setDuration(jSONObject2.optInt("duration"));
+                    transitRouteLine.setStarting(a2);
+                    transitRouteLine.setTerminal(a3);
+                    JSONArray optJSONArray2 = jSONObject2.optJSONArray("steps");
+                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                        ArrayList arrayList2 = new ArrayList();
+                        int i3 = 0;
+                        while (i3 < optJSONArray2.length()) {
+                            JSONArray optJSONArray3 = optJSONArray2.optJSONObject(i3).optJSONArray("step");
+                            if (optJSONArray3 == null || optJSONArray3.length() <= 0) {
+                                jSONArray2 = optJSONArray;
+                                routeNode2 = a3;
+                            } else {
+                                JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i);
+                                TransitRouteLine.TransitStep transitStep = new TransitRouteLine.TransitStep();
+                                transitStep.setEntrace(RouteNode.location(CoordUtil.decodeLocation(optJSONObject5.optString("start_location"))));
+                                transitStep.setExit(RouteNode.location(CoordUtil.decodeLocation(optJSONObject5.optString("end_location"))));
+                                jSONArray2 = optJSONArray;
+                                routeNode2 = a3;
+                                transitStep.setStepType(optJSONObject5.optInt("type") == 5 ? TransitRouteLine.TransitStep.TransitRouteStepType.WAKLING : TransitRouteLine.TransitStep.TransitRouteStepType.BUSLINE);
+                                transitStep.setInstructions(b(optJSONObject5.optString("instructions")));
+                                transitStep.setDistance(optJSONObject5.optInt("distance"));
+                                transitStep.setDuration(optJSONObject5.optInt("duration"));
+                                transitStep.setPathString(optJSONObject5.optString("path"));
+                                if (optJSONObject5.has("vehicle")) {
+                                    transitStep.setVehicleInfo(c(optJSONObject5.optString("vehicle")));
+                                    JSONObject optJSONObject6 = optJSONObject5.optJSONObject("vehicle");
+                                    transitStep.getEntrance().setUid(optJSONObject6.optString("start_uid"));
+                                    transitStep.getEntrance().setTitle(optJSONObject6.optString("start_name"));
+                                    transitStep.getExit().setUid(optJSONObject6.optString("end_uid"));
+                                    transitStep.getExit().setTitle(optJSONObject6.optString("end_name"));
+                                    Integer valueOf = Integer.valueOf(optJSONObject6.optInt("type"));
+                                    transitStep.setStepType((valueOf == null || valueOf.intValue() != 1) ? TransitRouteLine.TransitStep.TransitRouteStepType.BUSLINE : TransitRouteLine.TransitStep.TransitRouteStepType.SUBWAY);
+                                }
+                                arrayList2.add(transitStep);
+                            }
+                            i3++;
+                            optJSONArray = jSONArray2;
+                            a3 = routeNode2;
+                            i = 0;
+                        }
+                        jSONArray = optJSONArray;
+                        routeNode = a3;
+                        transitRouteLine.setSteps(arrayList2);
+                        arrayList.add(transitRouteLine);
+                        i2++;
+                        optJSONArray = jSONArray;
+                        a3 = routeNode;
+                        i = 0;
+                    }
+                }
+                jSONArray = optJSONArray;
+                routeNode = a3;
+                i2++;
+                optJSONArray = jSONArray;
+                a3 = routeNode;
+                i = 0;
+            }
+            transitRouteResult.setRoutelines(arrayList);
+            return true;
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             return false;
         }
     }
@@ -195,8 +210,8 @@ public class m extends k {
         JSONObject jSONObject;
         try {
             jSONObject = new JSONObject(str);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             jSONObject = null;
         }
         if (jSONObject == null) {
@@ -212,32 +227,28 @@ public class m extends k {
     }
 
     public void a(String str, TransitRouteResult transitRouteResult) {
-        if (str == null || str.equals("")) {
-            transitRouteResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.has("SDK_InnerError")) {
-                JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
-                if (optJSONObject.has("PermissionCheckError")) {
-                    transitRouteResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
-                } else if (optJSONObject.has("httpStateError")) {
-                    String optString = optJSONObject.optString("httpStateError");
-                    if (optString.equals("NETWORK_ERROR")) {
-                        transitRouteResult.error = SearchResult.ERRORNO.NETWORK_ERROR;
-                    } else if (optString.equals("REQUEST_ERROR")) {
-                        transitRouteResult.error = SearchResult.ERRORNO.REQUEST_ERROR;
-                    } else {
-                        transitRouteResult.error = SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
+        if (str != null && !str.equals("")) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.has("SDK_InnerError")) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
+                    if (optJSONObject.has("PermissionCheckError")) {
+                        transitRouteResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
+                        return;
+                    } else if (optJSONObject.has("httpStateError")) {
+                        String optString = optJSONObject.optString("httpStateError");
+                        transitRouteResult.error = optString.equals("NETWORK_ERROR") ? SearchResult.ERRORNO.NETWORK_ERROR : optString.equals("REQUEST_ERROR") ? SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
+                        return;
                     }
                 }
-            }
-            if (!a(str, transitRouteResult, false) && !b(str, transitRouteResult)) {
+                if (a(str, transitRouteResult, false) || b(str, transitRouteResult)) {
+                    return;
+                }
                 transitRouteResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                return;
+            } catch (Exception unused) {
             }
-        } catch (Exception e) {
-            transitRouteResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
         }
+        transitRouteResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
     }
 }

@@ -7,7 +7,7 @@ import com.kuaishou.aegon.httpdns.ResolveFinishedInfo;
 import com.kuaishou.aegon.httpdns.ResolvedIP;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c implements b {
     public c() {
         HttpDnsResolver.setLogger(new HttpDnsResolver.a() { // from class: com.kwai.video.ksvodplayerkit.HttpDns.c.1
@@ -37,7 +37,7 @@ public class c implements b {
             for (ResolvedIP resolvedIP : resolve) {
                 if (resolvedIP != null) {
                     f fVar = new f(resolvedIP.mHost, resolvedIP.mIP, ResolverType.HTTP, resolvedIP.mTtl);
-                    fVar.d = resolvedIP.mResolver;
+                    fVar.f37214d = resolvedIP.mResolver;
                     arrayList.add(fVar);
                 }
             }

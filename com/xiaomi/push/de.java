@@ -1,97 +1,47 @@
 package com.xiaomi.push;
 
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.Iterator;
-import java.util.LinkedList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-class de implements Comparable<de> {
+import com.xiaomi.channel.commonutils.logger.LoggerInterface;
+/* loaded from: classes7.dex */
+public class de implements LoggerInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f8315a;
+    public LoggerInterface f40356a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private long f199a;
+    /* renamed from: b  reason: collision with root package name */
+    public LoggerInterface f40357b;
 
-    /* renamed from: a  reason: collision with other field name */
-    String f200a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private final LinkedList<cu> f201a;
-
-    public de() {
-        this(null, 0);
+    public de(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
+        this.f40356a = null;
+        this.f40357b = null;
+        this.f40356a = loggerInterface;
+        this.f40357b = loggerInterface2;
     }
 
-    public de(String str) {
-        this(str, 0);
-    }
-
-    public de(String str, int i) {
-        this.f201a = new LinkedList<>();
-        this.f199a = 0L;
-        this.f200a = str;
-        this.f8315a = i;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(de deVar) {
-        if (deVar == null) {
-            return 1;
+    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
+    public void log(String str) {
+        LoggerInterface loggerInterface = this.f40356a;
+        if (loggerInterface != null) {
+            loggerInterface.log(str);
         }
-        return deVar.f8315a - this.f8315a;
-    }
-
-    public synchronized de a(JSONObject jSONObject) {
-        this.f199a = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
-        this.f8315a = jSONObject.getInt("wt");
-        this.f200a = jSONObject.getString("host");
-        JSONArray jSONArray = jSONObject.getJSONArray("ah");
-        for (int i = 0; i < jSONArray.length(); i++) {
-            this.f201a.add(new cu().a(jSONArray.getJSONObject(i)));
-        }
-        return this;
-    }
-
-    public synchronized JSONObject a() {
-        JSONObject jSONObject;
-        jSONObject = new JSONObject();
-        jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.f199a);
-        jSONObject.put("wt", this.f8315a);
-        jSONObject.put("host", this.f200a);
-        JSONArray jSONArray = new JSONArray();
-        Iterator<cu> it = this.f201a.iterator();
-        while (it.hasNext()) {
-            jSONArray.put(it.next().m209a());
-        }
-        jSONObject.put("ah", jSONArray);
-        return jSONObject;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void a(cu cuVar) {
-        if (cuVar != null) {
-            this.f201a.add(cuVar);
-            int a2 = cuVar.a();
-            if (a2 > 0) {
-                this.f8315a += cuVar.a();
-            } else {
-                int i = 0;
-                for (int size = this.f201a.size() - 1; size >= 0 && this.f201a.get(size).a() < 0; size--) {
-                    i++;
-                }
-                this.f8315a += a2 * i;
-            }
-            if (this.f201a.size() > 30) {
-                this.f8315a -= this.f201a.remove().a();
-            }
+        LoggerInterface loggerInterface2 = this.f40357b;
+        if (loggerInterface2 != null) {
+            loggerInterface2.log(str);
         }
     }
 
-    public String toString() {
-        return this.f200a + ":" + this.f8315a;
+    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
+    public void log(String str, Throwable th) {
+        LoggerInterface loggerInterface = this.f40356a;
+        if (loggerInterface != null) {
+            loggerInterface.log(str, th);
+        }
+        LoggerInterface loggerInterface2 = this.f40357b;
+        if (loggerInterface2 != null) {
+            loggerInterface2.log(str, th);
+        }
+    }
+
+    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
+    public void setTag(String str) {
     }
 }

@@ -4,25 +4,23 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.listener.c;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.RequestUpdateForumMask;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateForumMask;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskMessage;
-import com.baidu.tbadk.coreExtra.messageCenter.d;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerReqMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerSwitchResMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MsgRemindModel extends BdBaseModel {
     public static final int ACCEPT_MSG = 1;
     public static final int OFFICIAL_PUSH_MSG_ID = 1501754229;
@@ -39,88 +37,126 @@ public class MsgRemindModel extends BdBaseModel {
     public static final int SWITCH_TYPE_NUM = 8;
     public static final int SWITCH_YY_MSG = 6;
     public static final int SWITCH_ZAN = 20;
-    private BaseActivity nhq;
-    private a nhr;
-    private HttpMessageListener nhs;
-    private c nht;
-    private c nhu;
-    private c nhv;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void i(int i, boolean z, boolean z2);
+    /* renamed from: e  reason: collision with root package name */
+    public BaseActivity f20986e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public e f20987f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public HttpMessageListener f20988g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d.b.b.c.g.c f20989h;
+    public d.b.b.c.g.c i;
+    public d.b.b.c.g.c j;
+
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            MsgRemindModel.this.f20986e.hideProgressBar();
+            if ((httpResponsedMessage instanceof FriendAndStrangerSwitchResMsg) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
+                FriendAndStrangerReqMsg friendAndStrangerReqMsg = (FriendAndStrangerReqMsg) httpResponsedMessage.getOrginalMessage();
+                FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
+                if (friendAndStrangerSwitchResMsg.getError() == 0) {
+                    GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = friendAndStrangerReqMsg.mMaskType;
+                }
+                int i = friendAndStrangerReqMsg.mMaskType;
+                if (i == 3) {
+                    MsgRemindModel.this.u(8, friendAndStrangerSwitchResMsg.getError() == 0, false, friendAndStrangerSwitchResMsg.getErrorString());
+                } else if (i == 0) {
+                    MsgRemindModel.this.u(9, friendAndStrangerSwitchResMsg.getError() == 0, true, friendAndStrangerSwitchResMsg.getErrorString());
+                } else if (i == 1) {
+                    int i2 = friendAndStrangerReqMsg.mRequestType;
+                    if (i2 == 8) {
+                        MsgRemindModel.this.u(8, friendAndStrangerSwitchResMsg.getError() == 0, true, friendAndStrangerSwitchResMsg.getErrorString());
+                    } else if (i2 == 9) {
+                        MsgRemindModel.this.u(9, friendAndStrangerSwitchResMsg.getError() == 0, false, friendAndStrangerSwitchResMsg.getErrorString());
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends d.b.b.c.g.c {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            MsgRemindModel.this.f20986e.hideProgressBar();
+            if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage)) {
+                ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
+                RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) socketResponsedMessage.getOrginalMessage();
+                MsgRemindModel.this.u(requestUpdateMaskInfoMessage.getMaskType(), responseUpdateMaskInfoMessage.getError() == 0, requestUpdateMaskInfoMessage.isSettingMask(), responseUpdateMaskInfoMessage.getErrorString());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends d.b.b.c.g.c {
+        public c(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            MsgRemindModel.this.f20986e.hideProgressBar();
+            if ((socketResponsedMessage instanceof ResponseUpdateMaskMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskMessage)) {
+                ResponseUpdateMaskMessage responseUpdateMaskMessage = (ResponseUpdateMaskMessage) socketResponsedMessage;
+                MsgRemindModel.this.u(4, responseUpdateMaskMessage.getError() == 0, ((RequestUpdateMaskMessage) socketResponsedMessage.getOrginalMessage()).isSettingMask(), responseUpdateMaskMessage.getErrorString());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends d.b.b.c.g.c {
+        public d(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            MsgRemindModel.this.f20986e.hideProgressBar();
+            if (socketResponsedMessage instanceof ResponseUpdateForumMask) {
+                ResponseUpdateForumMask responseUpdateForumMask = (ResponseUpdateForumMask) socketResponsedMessage;
+                MsgRemindModel.this.u(7, responseUpdateForumMask.getError() == 0, !((RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage()).getFlag(), responseUpdateForumMask.getErrorString());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a(int i, boolean z, boolean z2);
     }
 
     public MsgRemindModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.nhs = new HttpMessageListener(1003318) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                MsgRemindModel.this.nhq.hideProgressBar();
-                if ((httpResponsedMessage instanceof FriendAndStrangerSwitchResMsg) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
-                    FriendAndStrangerReqMsg friendAndStrangerReqMsg = (FriendAndStrangerReqMsg) httpResponsedMessage.getOrginalMessage();
-                    FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
-                    if (friendAndStrangerSwitchResMsg.getError() == 0) {
-                        GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = friendAndStrangerReqMsg.mMaskType;
-                    }
-                    if (friendAndStrangerReqMsg.mMaskType == 3) {
-                        MsgRemindModel.this.a(8, friendAndStrangerSwitchResMsg.getError() == 0, false, friendAndStrangerSwitchResMsg.getErrorString());
-                    } else if (friendAndStrangerReqMsg.mMaskType == 0) {
-                        MsgRemindModel.this.a(9, friendAndStrangerSwitchResMsg.getError() == 0, true, friendAndStrangerSwitchResMsg.getErrorString());
-                    } else if (friendAndStrangerReqMsg.mMaskType == 1) {
-                        if (friendAndStrangerReqMsg.mRequestType == 8) {
-                            MsgRemindModel.this.a(8, friendAndStrangerSwitchResMsg.getError() == 0, true, friendAndStrangerSwitchResMsg.getErrorString());
-                        } else if (friendAndStrangerReqMsg.mRequestType == 9) {
-                            MsgRemindModel.this.a(9, friendAndStrangerSwitchResMsg.getError() == 0, false, friendAndStrangerSwitchResMsg.getErrorString());
-                        }
-                    }
-                }
-            }
-        };
-        this.nht = new c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                MsgRemindModel.this.nhq.hideProgressBar();
-                if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage)) {
-                    ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
-                    RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) socketResponsedMessage.getOrginalMessage();
-                    MsgRemindModel.this.a(requestUpdateMaskInfoMessage.getMaskType(), responseUpdateMaskInfoMessage.getError() == 0, requestUpdateMaskInfoMessage.isSettingMask(), responseUpdateMaskInfoMessage.getErrorString());
-                }
-            }
-        };
-        this.nhu = new c(CmdConfigSocket.CMD_UPDATE_MASK) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                MsgRemindModel.this.nhq.hideProgressBar();
-                if ((socketResponsedMessage instanceof ResponseUpdateMaskMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskMessage)) {
-                    ResponseUpdateMaskMessage responseUpdateMaskMessage = (ResponseUpdateMaskMessage) socketResponsedMessage;
-                    MsgRemindModel.this.a(4, responseUpdateMaskMessage.getError() == 0, ((RequestUpdateMaskMessage) socketResponsedMessage.getOrginalMessage()).isSettingMask(), responseUpdateMaskMessage.getErrorString());
-                }
-            }
-        };
-        this.nhv = new c(CmdConfigSocket.CMD_UPDATE_FORUM_MAST_STAT) { // from class: com.baidu.tieba.setting.model.MsgRemindModel.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                MsgRemindModel.this.nhq.hideProgressBar();
-                if (socketResponsedMessage instanceof ResponseUpdateForumMask) {
-                    ResponseUpdateForumMask responseUpdateForumMask = (ResponseUpdateForumMask) socketResponsedMessage;
-                    MsgRemindModel.this.a(7, responseUpdateForumMask.getError() == 0, !((RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage()).getFlag(), responseUpdateForumMask.getErrorString());
-                }
-            }
-        };
-        this.nhq = baseActivity;
-        registerListener(this.nhu);
-        registerListener(this.nht);
-        registerListener(this.nhv);
-        registerListener(this.nhs);
+        this.f20988g = new a(CmdConfigHttp.CMD_FRIEND_AND_STRANGER_MSG_SWITCH);
+        this.f20989h = new b(104102);
+        this.i = new c(104101);
+        this.j = new d(104106);
+        this.f20986e = baseActivity;
+        registerListener(this.i);
+        registerListener(this.f20989h);
+        registerListener(this.j);
+        registerListener(this.f20988g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -129,11 +165,46 @@ public class MsgRemindModel extends BdBaseModel {
         return false;
     }
 
-    public void a(int i, boolean z, a aVar) {
+    public final void u(int i, boolean z, boolean z2, String str) {
+        if (z) {
+            BaseActivity baseActivity = this.f20986e;
+            baseActivity.showToast(baseActivity.getResources().getString(R.string.success));
+            e eVar = this.f20987f;
+            if (eVar != null) {
+                eVar.a(i, true, z2);
+                if (i != 14) {
+                    if (d.b.h0.s.d.d.d().o() || d.b.h0.s.d.d.d().p() || d.b.h0.s.d.d.d().r() || d.b.h0.s.d.d.d().t() || d.b.h0.s.d.d.d().w() || d.b.h0.s.d.d.d().n() || d.b.h0.s.d.d.d().z()) {
+                        return;
+                    }
+                    this.f20987f.a(14, true, false);
+                    return;
+                }
+                this.f20987f.a(2, true, z2);
+                this.f20987f.a(3, true, z2);
+                this.f20987f.a(4, true, z2);
+                this.f20987f.a(5, true, z2);
+                this.f20987f.a(1, true, z2);
+                this.f20987f.a(20, true, z2);
+                return;
+            }
+            return;
+        }
+        if (!TextUtils.isEmpty(str)) {
+            this.f20986e.showToast(str);
+        } else {
+            this.f20986e.showToast(R.string.setdefualt_error);
+        }
+        e eVar2 = this.f20987f;
+        if (eVar2 != null) {
+            eVar2.a(i, false, z2);
+        }
+    }
+
+    public void v(int i, boolean z, e eVar) {
         Message<?> friendAndStrangerReqMsg;
         Message<?> friendAndStrangerReqMsg2;
         if (i == 14 || i == 2 || i == 3 || i == 4 || i == 5 || i == 1 || i == 7 || i == 8 || i == 9 || i == 20 || i == 6) {
-            this.nhr = aVar;
+            this.f20987f = eVar;
             if (i == 4) {
                 RequestUpdateMaskMessage requestUpdateMaskMessage = new RequestUpdateMaskMessage();
                 requestUpdateMaskMessage.setSettingMask(z);
@@ -174,40 +245,7 @@ public class MsgRemindModel extends BdBaseModel {
                 requestUpdateMaskInfoMessage2.setSettingMask(z);
                 sendMessage(requestUpdateMaskInfoMessage2);
             }
-            this.nhq.showProgressBar();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, boolean z, boolean z2, String str) {
-        if (z) {
-            this.nhq.showToast(this.nhq.getResources().getString(R.string.success));
-            if (this.nhr != null) {
-                this.nhr.i(i, true, z2);
-                if (i != 14) {
-                    if (!d.byh().bym() && !d.byh().byp() && !d.byh().byn() && !d.byh().byo() && !d.byh().byy() && !d.byh().byx() && !d.byh().byl()) {
-                        this.nhr.i(14, true, false);
-                        return;
-                    }
-                    return;
-                }
-                this.nhr.i(2, true, z2);
-                this.nhr.i(3, true, z2);
-                this.nhr.i(4, true, z2);
-                this.nhr.i(5, true, z2);
-                this.nhr.i(1, true, z2);
-                this.nhr.i(20, true, z2);
-                return;
-            }
-            return;
-        }
-        if (!TextUtils.isEmpty(str)) {
-            this.nhq.showToast(str);
-        } else {
-            this.nhq.showToast(R.string.setdefualt_error);
-        }
-        if (this.nhr != null) {
-            this.nhr.i(i, false, z2);
+            this.f20986e.showProgressBar();
         }
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.android.pushservice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.android.pushservice.i.l;
-/* loaded from: classes5.dex */
+import com.baidu.android.pushservice.j.l;
+/* loaded from: classes2.dex */
 public class RegistrationReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -12,7 +12,7 @@ public class RegistrationReceiver extends BroadcastReceiver {
         try {
             intent.getByteArrayExtra("baidu_message_secur_info");
             l.a(context, intent, context.getPackageName());
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 }

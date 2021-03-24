@@ -9,6 +9,7 @@ import android.view.accessibility.AccessibilityManager;
 import android.webkit.JsPromptResult;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
+import com.baidu.webkit.sdk.WebChromeClient;
 import com.coremedia.iso.boxes.DataEntryUrlBox;
 import com.kwad.sdk.utils.as;
 import java.lang.reflect.InvocationTargetException;
@@ -17,33 +18,39 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends KSApiWebView {
-    private static final String[] b = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String[] f33973b = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
 
     /* renamed from: a  reason: collision with root package name */
-    private Boolean f6223a;
-    private final HashMap<String, Object> c;
-    private String d;
+    public Boolean f33974a;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final HashMap<String, Object> f33975c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f33976d;
 
     public b(Context context) {
         super(context);
-        this.c = new HashMap<>();
-        this.d = null;
+        this.f33975c = new HashMap<>();
+        this.f33976d = null;
         d();
     }
 
     public b(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = new HashMap<>();
-        this.d = null;
+        this.f33975c = new HashMap<>();
+        this.f33976d = null;
         d();
     }
 
     public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.c = new HashMap<>();
-        this.d = null;
+        this.f33975c = new HashMap<>();
+        this.f33976d = null;
         d();
     }
 
@@ -54,51 +61,83 @@ public class b extends KSApiWebView {
 
     private void a(ValueCallback<String> valueCallback) {
         try {
-            if (TextUtils.isEmpty(this.d)) {
+            if (TextUtils.isEmpty(this.f33976d)) {
                 return;
             }
-            as.a(this, this.d, valueCallback);
-        } catch (Exception e) {
+            as.a(this, this.f33976d, valueCallback);
+        } catch (Exception unused) {
         }
     }
 
     private void a(String str, Object obj, StringBuilder sb) {
         Method[] methods;
+        String str2;
         if (TextUtils.isEmpty(str) || obj == null || sb == null) {
             return;
         }
         Class<?> cls = obj.getClass();
-        sb.append("if(typeof(window.").append(str).append(")!='undefined'){");
+        sb.append("if(typeof(window.");
+        sb.append(str);
+        sb.append(")!='undefined'){");
         sb.append("}else {");
-        sb.append("    window.").append(str).append("={");
+        sb.append("    window.");
+        sb.append(str);
+        sb.append("={");
         for (Method method : cls.getMethods()) {
             String name = method.getName();
             if (!a(name)) {
-                sb.append("        ").append(name).append(":function(");
+                sb.append("        ");
+                sb.append(name);
+                sb.append(":function(");
                 int length = method.getParameterTypes().length;
                 if (length > 0) {
                     int i = length - 1;
-                    for (int i2 = 0; i2 < i; i2++) {
-                        sb.append("arg").append(i2).append(",");
+                    int i2 = 0;
+                    while (true) {
+                        sb.append("arg");
+                        if (i2 >= i) {
+                            break;
+                        }
+                        sb.append(i2);
+                        sb.append(",");
+                        i2++;
                     }
-                    sb.append("arg").append(length - 1);
+                    sb.append(i);
                 }
                 sb.append(") {");
                 if (method.getReturnType() != Void.TYPE) {
-                    sb.append("            return ").append("prompt('").append("MyApp:").append("'+");
+                    sb.append("            return ");
+                    str2 = "prompt('";
                 } else {
-                    sb.append("            prompt('").append("MyApp:").append("'+");
+                    str2 = "            prompt('";
                 }
+                sb.append(str2);
+                sb.append("MyApp:");
+                sb.append("'+");
                 sb.append("JSON.stringify({");
-                sb.append("obj").append(":'").append(str).append("',");
-                sb.append("func").append(":'").append(name).append("',");
-                sb.append("args").append(":[");
+                sb.append("obj");
+                sb.append(":'");
+                sb.append(str);
+                sb.append("',");
+                sb.append(WebChromeClient.KEY_FUNCTION_NAME);
+                sb.append(":'");
+                sb.append(name);
+                sb.append("',");
+                sb.append("args");
+                sb.append(":[");
                 if (length > 0) {
                     int i3 = length - 1;
-                    for (int i4 = 0; i4 < i3; i4++) {
-                        sb.append("arg").append(i4).append(",");
+                    int i4 = 0;
+                    while (true) {
+                        sb.append("arg");
+                        if (i4 >= i3) {
+                            break;
+                        }
+                        sb.append(i4);
+                        sb.append(",");
+                        i4++;
                     }
-                    sb.append("arg").append(i3);
+                    sb.append(i3);
                 }
                 sb.append("]})");
                 sb.append(");");
@@ -114,20 +153,21 @@ public class b extends KSApiWebView {
             Method declaredMethod = WebView.class.getDeclaredMethod(str, String.class);
             declaredMethod.setAccessible(true);
             declaredMethod.invoke(this, str2);
-        } catch (IllegalAccessException e) {
-            com.kwad.sdk.core.d.a.a(e);
-        } catch (IllegalArgumentException e2) {
+        } catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | InvocationTargetException e2) {
             com.kwad.sdk.core.d.a.a(e2);
-        } catch (NoSuchMethodException e3) {
-            com.kwad.sdk.core.d.a.a(e3);
-        } catch (InvocationTargetException e4) {
-            com.kwad.sdk.core.d.a.a(e4);
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0042  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0045 A[Catch: NoSuchMethodException | Exception -> 0x004e, NoSuchMethodException -> 0x0050, TryCatch #2 {NoSuchMethodException | Exception -> 0x004e, blocks: (B:15:0x0026, B:17:0x0034, B:25:0x0049, B:24:0x0045), top: B:33:0x0026 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private boolean a(JsPromptResult jsPromptResult, String str, String str2, Object[] objArr) {
-        boolean z = true;
-        Object obj = this.c.get(str);
+        Object invoke;
+        boolean z;
+        Object obj = this.f33975c.get(str);
+        boolean z2 = false;
         if (obj == null) {
             jsPromptResult.cancel();
             return false;
@@ -141,21 +181,26 @@ public class b extends KSApiWebView {
             }
         }
         try {
-            Object invoke = obj.getClass().getMethod(str2, clsArr).invoke(obj, objArr);
-            jsPromptResult.confirm(invoke == null || invoke.getClass() == Void.TYPE ? "" : invoke.toString());
-        } catch (NoSuchMethodException e) {
-            com.kwad.sdk.core.d.a.a(e);
-            z = false;
-        } catch (Exception e2) {
+            invoke = obj.getClass().getMethod(str2, clsArr).invoke(obj, objArr);
+        } catch (NoSuchMethodException | Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
-            z = false;
         }
+        if (invoke != null && invoke.getClass() != Void.TYPE) {
+            z = false;
+            jsPromptResult.confirm(!z ? "" : invoke.toString());
+            z2 = true;
+            jsPromptResult.cancel();
+            return z2;
+        }
+        z = true;
+        jsPromptResult.confirm(!z ? "" : invoke.toString());
+        z2 = true;
         jsPromptResult.cancel();
-        return z;
+        return z2;
     }
 
     private boolean a(String str) {
-        for (String str2 : b) {
+        for (String str2 : f33973b) {
             if (str2.equals(str)) {
                 return true;
             }
@@ -169,15 +214,16 @@ public class b extends KSApiWebView {
 
     private boolean e() {
         try {
-            if (b() && !c()) {
-                a("removeJavascriptInterface", "searchBoxJavaBridge_");
-                a("removeJavascriptInterface", "accessibility");
-                a("removeJavascriptInterface", "accessibilityTraversal");
-                return true;
+            if (!b() || c()) {
+                return false;
             }
-        } catch (Exception e) {
+            a("removeJavascriptInterface", "searchBoxJavaBridge_");
+            a("removeJavascriptInterface", "accessibility");
+            a("removeJavascriptInterface", "accessibilityTraversal");
+            return true;
+        } catch (Exception unused) {
+            return false;
         }
-        return false;
     }
 
     private boolean f() {
@@ -185,17 +231,17 @@ public class b extends KSApiWebView {
     }
 
     private String g() {
-        if (this.c.size() == 0) {
-            this.d = null;
+        if (this.f33975c.size() == 0) {
+            this.f33976d = null;
             return null;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("javascript:(function JsAddJavascriptInterface_(){");
-        for (Map.Entry<String, Object> entry : this.c.entrySet()) {
+        for (Map.Entry<String, Object> entry : this.f33975c.entrySet()) {
             try {
                 a(entry.getKey(), entry.getValue(), sb);
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
         }
         sb.append("})()");
@@ -208,13 +254,13 @@ public class b extends KSApiWebView {
             declaredMethod.setAccessible(true);
             declaredMethod.invoke((AccessibilityManager) getContext().getApplicationContext().getSystemService("accessibility"), Boolean.valueOf(z));
             declaredMethod.setAccessible(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
     public void a() {
-        if (Build.VERSION.SDK_INT == 17 && this.f6223a == null && f()) {
-            this.f6223a = true;
+        if (Build.VERSION.SDK_INT == 17 && this.f33974a == null && f()) {
+            this.f33974a = Boolean.TRUE;
             setAccessibilityEnabled(false);
         }
     }
@@ -226,11 +272,11 @@ public class b extends KSApiWebView {
     }
 
     public void a(WebView webView, ValueCallback<String> valueCallback) {
-        if (!TextUtils.isEmpty(this.d)) {
+        if (!TextUtils.isEmpty(this.f33976d)) {
             a(valueCallback);
             return;
         }
-        this.d = g();
+        this.f33976d = g();
         a(valueCallback);
     }
 
@@ -238,7 +284,7 @@ public class b extends KSApiWebView {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.c.put(str, obj);
+        this.f33975c.put(str, obj);
         a(this, valueCallback);
     }
 
@@ -246,9 +292,9 @@ public class b extends KSApiWebView {
         int length;
         if (str2.startsWith("MyApp:")) {
             try {
-                JSONObject jSONObject = new JSONObject(str2.substring("MyApp:".length()));
+                JSONObject jSONObject = new JSONObject(str2.substring(6));
                 String string = jSONObject.getString("obj");
-                String string2 = jSONObject.getString("func");
+                String string2 = jSONObject.getString(WebChromeClient.KEY_FUNCTION_NAME);
                 JSONArray jSONArray = jSONObject.getJSONArray("args");
                 Object[] objArr = null;
                 if (jSONArray != null && (length = jSONArray.length()) > 0) {
@@ -260,8 +306,8 @@ public class b extends KSApiWebView {
                 if (a(jsPromptResult, string, string2, objArr)) {
                     return true;
                 }
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
             jsPromptResult.cancel();
             return false;
@@ -274,7 +320,7 @@ public class b extends KSApiWebView {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.c.put(str, obj);
+        this.f33975c.put(str, obj);
         a(this, (ValueCallback<String>) null);
     }
 
@@ -296,14 +342,14 @@ public class b extends KSApiWebView {
     public void setOverScrollMode(int i) {
         try {
             super.setOverScrollMode(i);
-        } catch (Exception e) {
-            String stackTraceString = Log.getStackTraceString(e);
+        } catch (Exception e2) {
+            String stackTraceString = Log.getStackTraceString(e2);
             if (!stackTraceString.contains("android.content.pm.PackageManager$NameNotFoundException") && !stackTraceString.contains("java.lang.RuntimeException: Cannot load WebView") && !stackTraceString.contains("android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed")) {
-                throw e;
+                throw e2;
             }
             try {
                 destroy();
-            } catch (Exception e2) {
+            } catch (Exception unused) {
             }
         }
     }

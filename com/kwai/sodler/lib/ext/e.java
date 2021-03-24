@@ -3,7 +3,7 @@ package com.kwai.sodler.lib.ext;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static Field a(Object obj, String str) {
         for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
@@ -13,7 +13,7 @@ public class e {
                     declaredField.setAccessible(true);
                 }
                 return declaredField;
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
         throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
@@ -27,7 +27,7 @@ public class e {
                     declaredMethod.setAccessible(true);
                 }
                 return declaredMethod;
-            } catch (NoSuchMethodException e) {
+            } catch (NoSuchMethodException unused) {
             }
         }
         throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
@@ -44,7 +44,7 @@ public class e {
                     declaredField.setAccessible(true);
                 }
                 return declaredField;
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
         throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());

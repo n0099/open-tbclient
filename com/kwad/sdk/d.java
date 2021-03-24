@@ -3,16 +3,18 @@ package com.kwad.sdk;
 import android.text.TextUtils;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f6401a;
-    public static String b;
+    public static final int f34511a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f34512b;
 
     static {
-        f6401a = a.f5417a.booleanValue() ? 1 : 2;
-        b = "kwrules.csv";
+        f34511a = a.f31641a.booleanValue() ? 1 : 2;
+        f34512b = "kwrules.csv";
     }
 
     public static String a() {

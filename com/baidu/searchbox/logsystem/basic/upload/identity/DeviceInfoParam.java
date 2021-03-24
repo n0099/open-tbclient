@@ -2,39 +2,40 @@ package com.baidu.searchbox.logsystem.basic.upload.identity;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.util.Base64Encoder;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class DeviceInfoParam {
-    private String mDeviceInfo;
-    private String mEnDeviceInfo;
-    private String mManufacturer;
-    private String mModel;
-    private String mOSVersion;
+    public String mDeviceInfo;
+    public String mEnDeviceInfo;
+    public String mManufacturer;
+    public String mModel;
+    public String mOSVersion;
 
     public DeviceInfoParam() {
         init();
     }
 
     private void init() {
-        this.mModel = Build.MODEL;
-        if (TextUtils.isEmpty(this.mModel)) {
+        String str = Build.MODEL;
+        this.mModel = str;
+        if (TextUtils.isEmpty(str)) {
             this.mModel = "NUL";
         } else {
-            this.mModel = this.mModel.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            this.mModel = this.mModel.replace("_", "-");
         }
-        this.mManufacturer = Build.MANUFACTURER;
-        if (TextUtils.isEmpty(this.mManufacturer)) {
+        String str2 = Build.MANUFACTURER;
+        this.mManufacturer = str2;
+        if (TextUtils.isEmpty(str2)) {
             this.mManufacturer = "NUL";
         } else {
-            this.mManufacturer = this.mManufacturer.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            this.mManufacturer = this.mManufacturer.replace("_", "-");
         }
-        this.mOSVersion = Build.VERSION.RELEASE;
-        if (TextUtils.isEmpty(this.mOSVersion)) {
+        String str3 = Build.VERSION.RELEASE;
+        this.mOSVersion = str3;
+        if (TextUtils.isEmpty(str3)) {
             this.mOSVersion = "0.0";
         } else {
-            this.mOSVersion = this.mOSVersion.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            this.mOSVersion = this.mOSVersion.replace("_", "-");
         }
         this.mDeviceInfo = initDeviceInfo();
     }
@@ -43,23 +44,16 @@ public class DeviceInfoParam {
         String str = this.mModel;
         String str2 = this.mOSVersion;
         int i = Build.VERSION.SDK_INT;
-        return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mManufacturer;
+        String str3 = this.mManufacturer;
+        return str + "_" + str2 + "_" + i + "_" + str3;
+    }
+
+    private void initEnDeviceInfo() {
+        this.mEnDeviceInfo = new String(Base64Encoder.B64Encode(this.mDeviceInfo.getBytes()));
     }
 
     public String getDeviceInfo() {
         return this.mDeviceInfo;
-    }
-
-    public String getOSVersion() {
-        return this.mOSVersion;
-    }
-
-    public String getModel() {
-        return this.mModel;
-    }
-
-    public String getManufacturer() {
-        return this.mManufacturer;
     }
 
     public String getEnDeviceInfo() {
@@ -69,7 +63,15 @@ public class DeviceInfoParam {
         return this.mEnDeviceInfo;
     }
 
-    private void initEnDeviceInfo() {
-        this.mEnDeviceInfo = new String(Base64Encoder.B64Encode(this.mDeviceInfo.getBytes()));
+    public String getManufacturer() {
+        return this.mManufacturer;
+    }
+
+    public String getModel() {
+        return this.mModel;
+    }
+
+    public String getOSVersion() {
+        return this.mOSVersion;
     }
 }

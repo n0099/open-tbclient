@@ -1,7 +1,7 @@
 package a.a.a.a.r.a.f;
 
-import a.a.a.a.a.e;
-import a.a.a.a.c.n;
+import a.a.a.a.s.e;
+import a.a.a.a.u.n;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
@@ -13,73 +13,28 @@ import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.api.KsLoadManager;
 import com.kwad.sdk.api.KsScene;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class a extends a.a.a.a.c<KsDrawAd> {
-    public a(e.a aVar) {
-        super(aVar);
-    }
-
-    @Override // a.a.a.a.c
-    public a.a.a.a.c.a a(e.a aVar) {
-        return new n(aVar);
-    }
-
-    @Override // a.a.a.a.c
-    public void a(Context context, FunAdSlot funAdSlot) {
-        KsScene build = new KsScene.Builder(Long.parseLong(this.zl.c)).adNum(5).build();
-        this.zk.a(funAdSlot, this.zl);
-        KsAdSDK.getLoadManager().loadDrawAd(build, new C0004a(funAdSlot));
-        g();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
-    @Override // a.a.a.a.c
-    public boolean a(Activity activity, ViewGroup viewGroup, String str, KsDrawAd ksDrawAd) {
-        KsDrawAd ksDrawAd2 = ksDrawAd;
-        this.zk.g();
-        ksDrawAd2.setAdInteractionListener(new b(this, ksDrawAd2, str));
-        View drawView = ksDrawAd2.getDrawView(viewGroup.getContext());
-        if (drawView == null) {
-            a.a.a.a.v.d.b("drawView is null", new Object[0]);
-            return false;
-        }
-        if (drawView.getParent() != null) {
-            ((ViewGroup) drawView.getParent()).removeView(drawView);
-        }
-        viewGroup.removeAllViews();
-        viewGroup.addView(drawView);
-        return true;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // a.a.a.a.c
-    public void b(KsDrawAd ksDrawAd) {
-    }
+/* loaded from: classes.dex */
+public class a extends a.a.a.a.b<KsDrawAd> {
 
     /* renamed from: a.a.a.a.r.a.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public class C0004a implements KsLoadManager.DrawAdListener {
-        public final /* synthetic */ FunAdSlot zR;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FunAdSlot f1224a;
 
         public C0004a(FunAdSlot funAdSlot) {
-            this.zR = funAdSlot;
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
-        public void onError(int i, String str) {
-            a.a.a.a.v.d.b("onError code: " + i + ", message: " + str, new Object[0]);
-            a.this.zk.a(Integer.valueOf(i));
-            a.this.b(i, str);
+            this.f1224a = funAdSlot;
         }
 
         @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
         public void onDrawAdLoad(@Nullable List<KsDrawAd> list) {
             a.a.a.a.v.d.a();
             if (list != null && !list.isEmpty()) {
-                a.this.zk.b();
+                a.this.f1010g.b();
                 for (KsDrawAd ksDrawAd : list) {
                     if (ksDrawAd != null) {
-                        a.this.zm.b(ksDrawAd, this.zR.getSid());
+                        a.this.k.b(ksDrawAd, this.f1224a.getSid());
                     }
                 }
                 a aVar = a.this;
@@ -95,5 +50,53 @@ public class a extends a.a.a.a.c<KsDrawAd> {
             a.a.a.a.v.d.b("onDrawAdLoad error: adList is null or empty", new Object[0]);
             onError(0, "NoFill");
         }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
+        public void onError(int i, String str) {
+            a.a.a.a.v.d.b("onError code: " + i + ", message: " + str, new Object[0]);
+            a.this.f1010g.a(Integer.valueOf(i));
+            a.this.b(i, str);
+        }
+    }
+
+    public a(e.a aVar) {
+        super(aVar);
+    }
+
+    @Override // a.a.a.a.b
+    public a.a.a.a.u.a a(e.a aVar) {
+        return new n(aVar);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
+    @Override // a.a.a.a.b
+    public boolean a(Activity activity, ViewGroup viewGroup, String str, KsDrawAd ksDrawAd) {
+        KsDrawAd ksDrawAd2 = ksDrawAd;
+        this.f1010g.g();
+        ksDrawAd2.setAdInteractionListener(new b(this, ksDrawAd2, str));
+        View drawView = ksDrawAd2.getDrawView(viewGroup.getContext());
+        if (drawView == null) {
+            a.a.a.a.v.d.b("drawView is null", new Object[0]);
+            return false;
+        }
+        if (drawView.getParent() != null) {
+            ((ViewGroup) drawView.getParent()).removeView(drawView);
+        }
+        viewGroup.removeAllViews();
+        viewGroup.addView(drawView);
+        return true;
+    }
+
+    @Override // a.a.a.a.b
+    public void b(Context context, FunAdSlot funAdSlot) {
+        KsScene build = new KsScene.Builder(Long.parseLong(this.f1011h.f1334c)).adNum(5).build();
+        this.f1010g.a(funAdSlot, this.f1011h);
+        KsAdSDK.getLoadManager().loadDrawAd(build, new C0004a(funAdSlot));
+        g();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // a.a.a.a.b
+    public void b(KsDrawAd ksDrawAd) {
     }
 }

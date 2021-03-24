@@ -1,110 +1,137 @@
 package a.a.a.a;
 
-import a.a.a.a.a.e;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
+import com.fun.ad.sdk.FunAdFactory;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdLoadListener;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunNativeAd;
 import com.fun.ad.sdk.FunNativeAdInflater;
-/* loaded from: classes4.dex */
-public class d implements l {
-    public final long b;
-    public long c;
-    public final l zo;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+/* loaded from: classes.dex */
+public final class d implements FunAdFactory {
 
-    /* loaded from: classes4.dex */
-    public class a implements m {
-        public final m zp;
+    /* renamed from: c  reason: collision with root package name */
+    public static d f1018c;
 
-        public a(m mVar) {
-            this.zp = mVar;
-        }
+    /* renamed from: a  reason: collision with root package name */
+    public final Map<String, Map<q, e>> f1019a;
 
-        @Override // a.a.a.a.m
-        public void a() {
-            this.zp.a();
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public final m f1020b;
 
-        @Override // a.a.a.a.m
-        public void a(int i, String str) {
-            this.zp.a(i, str);
-        }
+    public d() {
+        this.f1019a = new HashMap();
+        this.f1020b = new m(new HashMap());
+    }
 
-        @Override // a.a.a.a.m
-        public void b() {
-            this.zp.b();
-        }
+    public d(m mVar) {
+        this.f1019a = new HashMap();
+        this.f1020b = mVar;
+        f1018c = this;
+    }
 
-        @Override // a.a.a.a.m
-        public void onAdClicked() {
-            this.zp.onAdClicked();
-        }
-
-        @Override // a.a.a.a.m
-        public void onAdClose() {
-            this.zp.onAdClose();
-        }
-
-        @Override // a.a.a.a.m
-        public void onAdShow() {
-            this.zp.onAdShow();
-        }
-
-        @Override // a.a.a.a.m
-        public void onError(int i, String str) {
-            this.zp.onError(i, str);
-        }
-
-        @Override // a.a.a.a.m
-        public void onLoaded() {
-            d.this.c = System.currentTimeMillis();
-            this.zp.onLoaded();
+    public final e a(String str) {
+        synchronized (this.f1019a) {
+            q b2 = h.b(str);
+            if (b2 == null) {
+                return null;
+            }
+            Map<q, e> map = this.f1019a.get(str);
+            if (map == null) {
+                map = new HashMap<>();
+                this.f1019a.put(str, map);
+            }
+            e eVar = map.get(b2);
+            if (eVar == null) {
+                eVar = b2.f1081a.a(this.f1020b);
+                map.put(b2, eVar);
+            }
+            return eVar;
         }
     }
 
-    public d(l lVar) {
-        this.zo = lVar;
-        this.b = lVar.hq().e * 60 * 1000;
+    public final void a(Activity activity, String str, FunAdInteractionListener funAdInteractionListener, ViewGroup viewGroup, FunNativeAdInflater funNativeAdInflater) {
+        e a2 = a(str);
+        if (a2 != null) {
+            a2.a(activity, viewGroup, str, funAdInteractionListener, funNativeAdInflater);
+            return;
+        }
+        a.a.a.a.v.d.a("No Loader found for sid:%s", str);
+        funAdInteractionListener.onAdError(str);
     }
 
-    @Override // a.a.a.a.l
-    public void a() {
-        this.zo.a();
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void destroyAd(String str) {
+        synchronized (this.f1019a) {
+            q b2 = h.b(str);
+            if (b2 == null) {
+                a.a.a.a.v.d.b("No SlotId found for sid:%s when destroyAd", str);
+                return;
+            }
+            Map<q, e> map = this.f1019a.get(str);
+            if (map == null) {
+                a.a.a.a.v.d.b("No slotIdLoaderMap found for sid:%s when destroyAd", str);
+                return;
+            }
+            HashSet hashSet = new HashSet();
+            for (q qVar : map.keySet()) {
+                map.get(qVar).a();
+                if (!b2.equals(qVar)) {
+                    a.a.a.a.v.d.a("Remove redundant loader for sid:%s", str);
+                    hashSet.add(qVar);
+                }
+            }
+            Iterator it = hashSet.iterator();
+            while (it.hasNext()) {
+                map.remove((q) it.next());
+            }
+        }
     }
 
-    @Override // a.a.a.a.l
-    public void a(m mVar) {
-        this.zo.a(new a(mVar));
-    }
-
-    @Override // a.a.a.a.l
-    public boolean a(Activity activity, ViewGroup viewGroup, String str, FunNativeAdInflater funNativeAdInflater) {
-        return this.zo.a(activity, viewGroup, str, funNativeAdInflater);
-    }
-
-    @Override // a.a.a.a.l
-    public void b(Context context, FunAdSlot funAdSlot) {
-        this.zo.b(context, funAdSlot);
-    }
-
-    @Override // a.a.a.a.l
-    public boolean c() {
-        return this.zo.c() && System.currentTimeMillis() - this.c < this.b;
-    }
-
-    @Override // a.a.a.a.l
+    @Override // com.fun.ad.sdk.FunAdFactory
     public FunNativeAd getNativeAd(Context context, String str) {
-        return this.zo.getNativeAd(context, str);
+        e a2 = a(str);
+        if (a2 == null) {
+            a.a.a.a.v.d.a("No Loader found for sid:%s", str);
+            return null;
+        }
+        return a2.a(context);
     }
 
-    @Override // a.a.a.a.l
-    public e.a hq() {
-        return this.zo.hq();
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public boolean isAdReady(String str) {
+        e a2 = a(str);
+        if (a2 == null) {
+            a.a.a.a.v.d.a("No Loader found for sid:%s", str);
+            return false;
+        }
+        return a2.b();
     }
 
-    @Override // a.a.a.a.l
-    public a.a.a.a.c.p hr() {
-        return this.zo.hr();
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void loadAd(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+        e a2 = a(funAdSlot.getSid());
+        if (a2 != null) {
+            a2.a(context, funAdSlot, funAdLoadListener);
+            return;
+        }
+        a.a.a.a.v.d.a("No Loader found for sid:%s", funAdSlot.getSid());
+        funAdLoadListener.onError(funAdSlot.getSid());
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void showAd(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+        a(activity, str, funAdInteractionListener, viewGroup, null);
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void showAd(Activity activity, String str, FunAdInteractionListener funAdInteractionListener, FunNativeAdInflater funNativeAdInflater) {
+        a(activity, str, funAdInteractionListener, null, funNativeAdInflater);
     }
 }

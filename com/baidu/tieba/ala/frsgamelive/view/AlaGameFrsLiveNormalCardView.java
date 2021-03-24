@@ -5,46 +5,42 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.h;
-/* loaded from: classes9.dex */
-public class AlaGameFrsLiveNormalCardView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private b gYB;
-    private TbPageContext mPageContext;
+import d.b.h0.r.q.a2;
+import d.b.i0.t.e.b.c;
+import d.b.i0.x.b;
+/* loaded from: classes4.dex */
+public class AlaGameFrsLiveNormalCardView extends b<c> {
+    public TbPageContext m;
+    public d.b.i0.t.e.d.b n;
+
+    /* loaded from: classes4.dex */
+    public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public AlaGameFrsLiveNormalCardView f14996a;
+
+        public AlaGameFrsNormalViewHolder(AlaGameFrsLiveNormalCardView alaGameFrsLiveNormalCardView) {
+            super(alaGameFrsLiveNormalCardView.m());
+            this.f14996a = alaGameFrsLiveNormalCardView;
+        }
+    }
 
     public AlaGameFrsLiveNormalCardView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.mPageContext = tbPageContext;
-        initView();
+        this.m = tbPageContext;
+        u();
     }
 
-    private void initView() {
-        this.gYB = new b(this.mPageContext);
-        ((ViewGroup) getView()).addView(this.gYB.getView());
-    }
-
-    @Override // com.baidu.tieba.card.b
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.gYB != null) {
-            this.gYB.onChangeSkinType(tbPageContext, i);
-        }
-    }
-
-    public void c(h hVar) {
-        if (this.gYB != null) {
-            this.gYB.d(hVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.card.b
-    public int getLayout() {
+    @Override // d.b.i0.x.b
+    public int h() {
         return R.layout.ala_sub_list_game_live;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.b
-    public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.eLr != null && this.gYB != null) {
-            this.gYB.a(cVar.eLr);
+    @Override // d.b.i0.x.b
+    public void o(TbPageContext<?> tbPageContext, int i) {
+        d.b.i0.t.e.d.b bVar = this.n;
+        if (bVar != null) {
+            bVar.e(tbPageContext, i);
         }
     }
 
@@ -52,13 +48,27 @@ public class AlaGameFrsLiveNormalCardView extends com.baidu.tieba.card.b<com.bai
     public void onClick(View view) {
     }
 
-    /* loaded from: classes9.dex */
-    public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
-        public AlaGameFrsLiveNormalCardView gYC;
+    public final void u() {
+        this.n = new d.b.i0.t.e.d.b(this.m);
+        ((ViewGroup) m()).addView(this.n.c());
+    }
 
-        public AlaGameFrsNormalViewHolder(AlaGameFrsLiveNormalCardView alaGameFrsLiveNormalCardView) {
-            super(alaGameFrsLiveNormalCardView.getView());
-            this.gYC = alaGameFrsLiveNormalCardView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.i0.x.b
+    /* renamed from: v */
+    public void n(c cVar) {
+        a2 a2Var;
+        d.b.i0.t.e.d.b bVar;
+        if (cVar == null || (a2Var = cVar.f60685e) == null || (bVar = this.n) == null) {
+            return;
+        }
+        bVar.d(a2Var);
+    }
+
+    public void w(d.b.i0.t.c cVar) {
+        d.b.i0.t.e.d.b bVar = this.n;
+        if (bVar != null) {
+            bVar.g(cVar);
         }
     }
 }

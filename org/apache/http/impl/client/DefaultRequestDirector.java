@@ -22,24 +22,40 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestExecutor;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DefaultRequestDirector implements RequestDirector {
-    protected final ClientConnectionManager connManager;
-    protected final HttpProcessor httpProcessor;
-    protected final ConnectionKeepAliveStrategy keepAliveStrategy;
-    protected ManagedClientConnection managedConn;
-    protected final HttpParams params;
-    protected final RedirectHandler redirectHandler;
-    protected final HttpRequestExecutor requestExec;
-    protected final HttpRequestRetryHandler retryHandler;
-    protected final ConnectionReuseStrategy reuseStrategy;
-    protected final HttpRoutePlanner routePlanner;
+    public final ClientConnectionManager connManager;
+    public final HttpProcessor httpProcessor;
+    public final ConnectionKeepAliveStrategy keepAliveStrategy;
+    public ManagedClientConnection managedConn;
+    public final HttpParams params;
+    public final RedirectHandler redirectHandler;
+    public final HttpRequestExecutor requestExec;
+    public final HttpRequestRetryHandler retryHandler;
+    public final ConnectionReuseStrategy reuseStrategy;
+    public final HttpRoutePlanner routePlanner;
 
     public DefaultRequestDirector(HttpRequestExecutor httpRequestExecutor, ClientConnectionManager clientConnectionManager, ConnectionReuseStrategy connectionReuseStrategy, ConnectionKeepAliveStrategy connectionKeepAliveStrategy, HttpRoutePlanner httpRoutePlanner, HttpProcessor httpProcessor, HttpRequestRetryHandler httpRequestRetryHandler, RedirectHandler redirectHandler, AuthenticationHandler authenticationHandler, AuthenticationHandler authenticationHandler2, UserTokenHandler userTokenHandler, HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
-    protected void rewriteRequestURI(RequestWrapper requestWrapper, HttpRoute httpRoute) throws ProtocolException {
+    public HttpRequest createConnectRequest(HttpRoute httpRoute, HttpContext httpContext) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean createTunnelToProxy(HttpRoute httpRoute, int i, HttpContext httpContext) throws HttpException, IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean createTunnelToTarget(HttpRoute httpRoute, HttpContext httpContext) throws HttpException, IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public HttpRoute determineRoute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws HttpException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void establishRoute(HttpRoute httpRoute, HttpContext httpContext) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -48,31 +64,15 @@ public class DefaultRequestDirector implements RequestDirector {
         throw new RuntimeException("Stub!");
     }
 
-    protected void releaseConnection() {
+    public RoutedRequest handleResponse(RoutedRequest routedRequest, HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 
-    protected HttpRoute determineRoute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws HttpException {
+    public void releaseConnection() {
         throw new RuntimeException("Stub!");
     }
 
-    protected void establishRoute(HttpRoute httpRoute, HttpContext httpContext) throws HttpException, IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected boolean createTunnelToTarget(HttpRoute httpRoute, HttpContext httpContext) throws HttpException, IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected boolean createTunnelToProxy(HttpRoute httpRoute, int i, HttpContext httpContext) throws HttpException, IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected HttpRequest createConnectRequest(HttpRoute httpRoute, HttpContext httpContext) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected RoutedRequest handleResponse(RoutedRequest routedRequest, HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
+    public void rewriteRequestURI(RequestWrapper requestWrapper, HttpRoute httpRoute) throws ProtocolException {
         throw new RuntimeException("Stub!");
     }
 }

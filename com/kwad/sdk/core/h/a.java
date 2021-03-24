@@ -2,7 +2,7 @@ package com.kwad.sdk.core.h;
 
 import com.kwad.sdk.api.core.SpeedLimitApi;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a implements SpeedLimitApi {
     @Override // com.kwad.sdk.api.core.SpeedLimitApi
     public InputStream wrapInputStream(InputStream inputStream) {

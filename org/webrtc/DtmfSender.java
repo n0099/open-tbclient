@@ -1,7 +1,7 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class DtmfSender {
-    private long nativeDtmfSender;
+    public long nativeDtmfSender;
 
     public DtmfSender(long j) {
         this.nativeDtmfSender = j;
@@ -13,15 +13,15 @@ public class DtmfSender {
         }
     }
 
-    private static native boolean nativeCanInsertDtmf(long j);
+    public static native boolean nativeCanInsertDtmf(long j);
 
-    private static native int nativeDuration(long j);
+    public static native int nativeDuration(long j);
 
-    private static native boolean nativeInsertDtmf(long j, String str, int i, int i2);
+    public static native boolean nativeInsertDtmf(long j, String str, int i, int i2);
 
-    private static native int nativeInterToneGap(long j);
+    public static native int nativeInterToneGap(long j);
 
-    private static native String nativeTones(long j);
+    public static native String nativeTones(long j);
 
     public boolean canInsertDtmf() {
         checkDtmfSenderExists();

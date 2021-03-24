@@ -1,10 +1,10 @@
 package com.baidu.fsg.base.restnet.beans.business;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class BeanErrorContent {
-    private int mBeanId;
-    private Object mErrContent;
-    private String mMsg;
-    private int mRet;
+    public int mBeanId;
+    public Object mErrContent;
+    public String mMsg;
+    public int mRet;
 
     public BeanErrorContent(int i, int i2, String str, Object obj) {
         this.mBeanId = i;
@@ -17,15 +17,15 @@ public class BeanErrorContent {
         return this.mBeanId;
     }
 
-    public int getRet() {
-        return this.mRet;
+    public Object getErrContent() {
+        return this.mErrContent;
     }
 
     public String getMsg() {
         return this.mMsg;
     }
 
-    public Object getErrContent() {
-        return this.mErrContent;
+    public int getRet() {
+        return this.mRet;
     }
 }

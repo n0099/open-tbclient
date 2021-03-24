@@ -9,60 +9,93 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.helios.bridge.a;
 import com.baidu.helios.bridge.multiprocess.e;
-/* loaded from: classes5.dex */
+import d.b.q.d.a;
+import d.b.q.d.d.c;
+import d.b.q.d.d.d;
+/* loaded from: classes2.dex */
 public abstract class BaseIPCProvider extends ContentProvider {
-    private e ata;
-    private UriMatcher atb = new UriMatcher(-1);
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f6188a = "ipc/method/get_bridge";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f6189b = "_method_get_bridge";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f6190c = "Helios";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final int f6191f = 0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public e f6192d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public UriMatcher f6193e = new UriMatcher(-1);
 
     private String a(String str) {
-        return str + uK();
+        return str + getAuthoritySuffix();
     }
 
     private synchronized void a() {
-        if (this.ata == null) {
-            this.ata = new e.a() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1
-                private g e;
+        if (this.f6192d == null) {
+            this.f6192d = new e.a() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1
+
+                /* renamed from: e  reason: collision with root package name */
+                public d f6195e;
+
+                /* renamed from: com.baidu.helios.bridge.multiprocess.BaseIPCProvider$1$a */
+                /* loaded from: classes2.dex */
+                public class a implements a.c<String> {
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ f f6196a;
+
+                    public a(AnonymousClass1 anonymousClass1, f fVar) {
+                        this.f6196a = fVar;
+                    }
+
+                    @Override // d.b.q.d.a.c
+                    public void b(int i, Exception exc, Bundle bundle) {
+                        try {
+                            this.f6196a.a(i, bundle);
+                        } catch (RemoteException unused) {
+                        }
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // d.b.q.d.a.c
+                    /* renamed from: c */
+                    public void a(String str, Bundle bundle) {
+                        try {
+                            this.f6196a.a(str, bundle);
+                        } catch (RemoteException unused) {
+                        }
+                    }
+                }
 
                 {
-                    this.e = new g(BaseIPCProvider.this.getContext().getApplicationContext());
+                    this.f6195e = new d(BaseIPCProvider.this.getContext().getApplicationContext());
                 }
 
                 @Override // com.baidu.helios.bridge.multiprocess.e
                 public Bundle a(String str, Bundle bundle) {
-                    a.d d = this.e.uL().d(str, bundle);
-                    if (d == null) {
+                    a.d f2 = this.f6195e.a().f(str, bundle);
+                    if (f2 == null) {
                         return null;
                     }
-                    return h.a(d);
+                    return g.j(f2);
                 }
 
                 @Override // com.baidu.helios.bridge.multiprocess.e
-                public void a(String str, Bundle bundle, final f fVar) {
-                    this.e.uL().a(str, bundle, new a.c<String>() { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1.1
-                        @Override // com.baidu.helios.bridge.a.c
-                        public void a(int i, Exception exc, Bundle bundle2) {
-                            try {
-                                fVar.a(i, bundle2);
-                            } catch (RemoteException e) {
-                            }
-                        }
-
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.helios.bridge.a.c
-                        public void a(String str2, Bundle bundle2) {
-                            try {
-                                fVar.a(str2, bundle2);
-                            } catch (RemoteException e) {
-                            }
-                        }
-                    });
+                public void a(String str, Bundle bundle, f fVar) {
+                    this.f6195e.a().a(str, bundle, new a(this, fVar));
                 }
 
                 @Override // com.baidu.helios.bridge.multiprocess.e
                 public boolean a(String str) {
-                    return this.e.uL().ea(str);
+                    return this.f6195e.a().d(str);
                 }
             };
         }
@@ -70,32 +103,29 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public Bundle call(String str, String str2, Bundle bundle) {
-        Log.i("Helios", "provider call");
-        if (!TextUtils.isEmpty(str)) {
-            Bundle bundle2 = new Bundle();
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1722610639:
-                    if (str.equals("_method_get_bridge")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    a();
-                    h.a(bundle2, this.ata.asBinder());
-                    return bundle2;
-            }
+        Log.i(f6190c, "provider call");
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        return null;
+        Bundle bundle2 = new Bundle();
+        char c2 = 65535;
+        if (str.hashCode() == -1722610639 && str.equals(f6189b)) {
+            c2 = 0;
+        }
+        if (c2 != 0) {
+            return null;
+        }
+        a();
+        g.m(bundle2, this.f6192d.asBinder());
+        return bundle2;
     }
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
         return 0;
     }
+
+    public abstract String getAuthoritySuffix();
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
@@ -109,27 +139,23 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.atb.addURI(a(getContext().getPackageName()), "ipc/method/get_bridge", 0);
-        Log.i("Helios", "provider onCreate");
+        this.f6193e.addURI(a(getContext().getPackageName()), f6188a, 0);
+        Log.i(f6190c, "provider onCreate");
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        int match = this.atb.match(uri);
-        Log.i("Helios", "provider query, code = " + match);
-        switch (match) {
-            case 0:
-                a();
-                Bundle bundle = new Bundle();
-                h.a(bundle, this.ata.asBinder());
-                return new d(bundle);
-            default:
-                return null;
+        int match = this.f6193e.match(uri);
+        Log.i(f6190c, "provider query, code = " + match);
+        if (match != 0) {
+            return null;
         }
+        a();
+        Bundle bundle = new Bundle();
+        g.m(bundle, this.f6192d.asBinder());
+        return new c(bundle);
     }
-
-    public abstract String uK();
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {

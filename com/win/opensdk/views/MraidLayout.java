@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class MraidLayout extends FrameLayout {
     public MraidLayout(Context context) {
         this(context, null);

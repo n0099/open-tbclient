@@ -4,21 +4,19 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.util.LogUtil;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ClientUpdater f1359a;
+    public final /* synthetic */ ClientUpdater f4578a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public b(ClientUpdater clientUpdater) {
-        this.f1359a = clientUpdater;
+        this.f4578a = clientUpdater;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         LogUtil.logE("ClientUpdater", "receive:android.net.conn.CONNECTIVITY_CHANGE");
-        this.f1359a.a();
+        this.f4578a.a();
     }
 }

@@ -8,28 +8,115 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class ShadowLinearLayout extends LinearLayout {
-    private float bNR;
-    private float dxQ;
-    private float dyT;
-    private int mHeight;
-    private Paint mPaint;
-    private Path mPath;
-    private float mRadius;
-    private int mWidth;
-    private float nZb;
-    private float ocU;
-    private RectF ocV;
-    private RectF ocW;
-    private RectF ocX;
-    private RectF ocY;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f22192e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f22193f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f22194g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f22195h;
+    public float i;
+    public float j;
+    public float k;
+    public float l;
+    public Paint m;
+    public Path n;
+    public RectF o;
+    public RectF p;
+    public RectF q;
+    public RectF r;
 
     public ShadowLinearLayout(Context context) {
         this(context, null);
+    }
+
+    public final void a(Context context) {
+        Paint paint = new Paint();
+        this.m = paint;
+        paint.reset();
+        this.m.setAntiAlias(true);
+        this.m.setStyle(Paint.Style.FILL);
+        this.m.setDither(true);
+        this.k = l.g(context, R.dimen.ds20);
+        float g2 = l.g(context, R.dimen.ds25);
+        this.l = g2;
+        this.f22194g = g2;
+        this.f22195h = g2;
+        this.n = new Path();
+        setLayerType(1, this.m);
+        b();
+    }
+
+    public void b() {
+        this.m.setColor(SkinManager.getColor(R.color.CAM_X0211));
+        this.m.setShadowLayer(25.0f, 0.0f, 0.0f, SkinManager.getColor(R.color.CAM_X0805));
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        if (this.f22192e <= 0 || this.f22193f <= 0) {
+            return;
+        }
+        this.n.moveTo(this.f22194g, this.f22195h + this.k);
+        if (this.o == null) {
+            float f2 = this.f22194g;
+            float f3 = this.f22195h;
+            float f4 = this.k;
+            this.o = new RectF(f2, f3, (f4 * 2.0f) + f2, (f4 * 2.0f) + f3);
+        }
+        this.n.arcTo(this.o, 180.0f, 90.0f, false);
+        this.n.lineTo(this.i - this.k, this.f22195h);
+        if (this.p == null) {
+            float f5 = this.i;
+            float f6 = this.k;
+            float f7 = this.f22195h;
+            this.p = new RectF(f5 - (f6 * 2.0f), f7, f5, (f6 * 2.0f) + f7);
+        }
+        this.n.arcTo(this.p, 270.0f, 90.0f, false);
+        this.n.lineTo(this.i, this.j - this.k);
+        if (this.q == null) {
+            float f8 = this.i;
+            float f9 = this.k;
+            float f10 = this.j;
+            this.q = new RectF(f8 - (f9 * 2.0f), f10 - (f9 * 2.0f), f8, f10);
+        }
+        this.n.arcTo(this.q, 0.0f, 90.0f, false);
+        this.n.lineTo(this.f22194g + this.k, this.j);
+        if (this.r == null) {
+            float f11 = this.f22194g;
+            float f12 = this.j;
+            float f13 = this.k;
+            this.r = new RectF(f11, f12 - (f13 * 2.0f), (f13 * 2.0f) + f11, f12);
+        }
+        this.n.arcTo(this.r, 90.0f, 90.0f, false);
+        this.n.lineTo(this.f22194g, this.f22195h + this.k);
+        canvas.drawPath(this.n, this.m);
+        super.dispatchDraw(canvas);
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        this.f22192e = getMeasuredWidth();
+        int measuredHeight = getMeasuredHeight();
+        this.f22193f = measuredHeight;
+        int i3 = this.f22192e;
+        if (i3 <= 0 || measuredHeight <= 0) {
+            return;
+        }
+        float f2 = this.l;
+        this.i = i3 - f2;
+        this.j = measuredHeight - f2;
     }
 
     public ShadowLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
@@ -38,66 +125,6 @@ public class ShadowLinearLayout extends LinearLayout {
 
     public ShadowLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init(context);
-    }
-
-    private void init(Context context) {
-        this.mPaint = new Paint();
-        this.mPaint.reset();
-        this.mPaint.setAntiAlias(true);
-        this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setDither(true);
-        this.mRadius = l.getDimens(context, R.dimen.ds20);
-        this.nZb = l.getDimens(context, R.dimen.ds25);
-        this.dxQ = this.nZb;
-        this.bNR = this.nZb;
-        this.mPath = new Path();
-        setLayerType(1, this.mPaint);
-        onChangeSkinType();
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        this.mWidth = getMeasuredWidth();
-        this.mHeight = getMeasuredHeight();
-        if (this.mWidth > 0 && this.mHeight > 0) {
-            this.dyT = this.mWidth - this.nZb;
-            this.ocU = this.mHeight - this.nZb;
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        if (this.mWidth > 0 && this.mHeight > 0) {
-            this.mPath.moveTo(this.dxQ, this.bNR + this.mRadius);
-            if (this.ocV == null) {
-                this.ocV = new RectF(this.dxQ, this.bNR, this.dxQ + (this.mRadius * 2.0f), this.bNR + (this.mRadius * 2.0f));
-            }
-            this.mPath.arcTo(this.ocV, 180.0f, 90.0f, false);
-            this.mPath.lineTo(this.dyT - this.mRadius, this.bNR);
-            if (this.ocW == null) {
-                this.ocW = new RectF(this.dyT - (this.mRadius * 2.0f), this.bNR, this.dyT, this.bNR + (this.mRadius * 2.0f));
-            }
-            this.mPath.arcTo(this.ocW, 270.0f, 90.0f, false);
-            this.mPath.lineTo(this.dyT, this.ocU - this.mRadius);
-            if (this.ocX == null) {
-                this.ocX = new RectF(this.dyT - (this.mRadius * 2.0f), this.ocU - (this.mRadius * 2.0f), this.dyT, this.ocU);
-            }
-            this.mPath.arcTo(this.ocX, 0.0f, 90.0f, false);
-            this.mPath.lineTo(this.dxQ + this.mRadius, this.ocU);
-            if (this.ocY == null) {
-                this.ocY = new RectF(this.dxQ, this.ocU - (this.mRadius * 2.0f), this.dxQ + (this.mRadius * 2.0f), this.ocU);
-            }
-            this.mPath.arcTo(this.ocY, 90.0f, 90.0f, false);
-            this.mPath.lineTo(this.dxQ, this.bNR + this.mRadius);
-            canvas.drawPath(this.mPath, this.mPaint);
-            super.dispatchDraw(canvas);
-        }
-    }
-
-    public void onChangeSkinType() {
-        this.mPaint.setColor(ap.getColor(R.color.CAM_X0211));
-        this.mPaint.setShadowLayer(25.0f, 0.0f, 0.0f, ap.getColor(R.color.CAM_X0805));
+        a(context);
     }
 }

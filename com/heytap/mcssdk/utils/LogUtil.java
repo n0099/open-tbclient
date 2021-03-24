@@ -1,17 +1,17 @@
 package com.heytap.mcssdk.utils;
 
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LogUtil {
     public static final String TAG = "mcssdk---";
-    private static String special = "MCS";
-    private static boolean sV = false;
-    private static boolean sI = false;
-    private static boolean sD = true;
-    private static boolean sW = true;
-    private static boolean sE = true;
-    private static String sSeparator = "-->";
-    private static boolean sIsDebug = true;
+    public static boolean sD = true;
+    public static boolean sE = true;
+    public static boolean sI = false;
+    public static boolean sIsDebug = true;
+    public static String sSeparator = "-->";
+    public static boolean sV = false;
+    public static boolean sW = true;
+    public static String special = "MCS";
 
     public static void d(String str) {
         if (sD && sIsDebug) {
@@ -99,19 +99,12 @@ public class LogUtil {
 
     public static void setDebugs(boolean z) {
         sIsDebug = z;
-        if (z) {
-            sV = true;
-            sD = true;
-            sI = true;
-            sW = true;
-            sE = true;
-            return;
-        }
-        sV = false;
-        sD = false;
-        sI = false;
-        sW = false;
-        sE = false;
+        boolean z2 = z;
+        sV = z2;
+        sD = z2;
+        sI = z2;
+        sW = z2;
+        sE = z2;
     }
 
     public static void setE(boolean z) {

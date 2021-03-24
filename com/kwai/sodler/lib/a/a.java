@@ -4,69 +4,83 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwai.sodler.lib.j;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected File f7247a;
-    protected String b;
-    protected String d;
-    protected String e;
-    protected com.kwai.sodler.lib.b.b f;
-    private final String i;
-    private final byte[] h = new byte[0];
-    private boolean g = false;
-    protected com.kwai.sodler.lib.ext.c c = j.a().b();
+    public File f37123a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f37124b;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f37126d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f37127e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.kwai.sodler.lib.b.b f37128f;
+    public final String i;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final byte[] f37130h = new byte[0];
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f37129g = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.kwai.sodler.lib.ext.c f37125c = j.a().b();
 
     public a(String str) {
         this.i = str;
-        this.b = str;
+        this.f37124b = str;
     }
 
     public a a(@NonNull com.kwai.sodler.lib.b.b bVar) {
-        this.f = bVar;
+        this.f37128f = bVar;
         return this;
     }
 
     public String a() {
-        return this.e;
+        return this.f37127e;
     }
 
     public abstract void a(Context context, String str);
 
     public void a(String str) {
-        this.e = str;
+        this.f37127e = str;
     }
 
     public final void b(String str) {
-        this.d = str;
+        this.f37126d = str;
     }
 
     public final boolean b() {
         boolean z;
-        if (this.g) {
+        if (this.f37129g) {
             return true;
         }
-        synchronized (this.h) {
-            z = this.g;
+        synchronized (this.f37130h) {
+            z = this.f37129g;
         }
         return z;
     }
 
     public final String c() {
-        return this.d;
+        return this.f37126d;
     }
 
     public void c(String str) {
-        this.b = str;
+        this.f37124b = str;
     }
 
     public final void d() {
-        if (this.g) {
+        if (this.f37129g) {
             return;
         }
-        synchronized (this.h) {
-            this.g = true;
+        synchronized (this.f37130h) {
+            this.f37129g = true;
         }
     }
 

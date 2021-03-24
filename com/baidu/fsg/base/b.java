@@ -1,19 +1,21 @@
 package com.baidu.fsg.base;
-/* loaded from: classes5.dex */
-class b implements Runnable {
+
+import com.baidu.fsg.base.InitDelayThread;
+/* loaded from: classes2.dex */
+public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ InitDelayThread f1493a;
+    public final /* synthetic */ InitDelayThread f5150a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public b(InitDelayThread initDelayThread) {
-        this.f1493a = initDelayThread;
+        this.f5150a = initDelayThread;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.f1493a.mCallback != null) {
-            this.f1493a.mCallback.callBack();
+        InitDelayThread.InitDelayCallback initDelayCallback = this.f5150a.mCallback;
+        if (initDelayCallback != null) {
+            initDelayCallback.callBack();
         }
     }
 }

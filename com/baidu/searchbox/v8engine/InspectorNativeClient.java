@@ -1,9 +1,14 @@
 package com.baidu.searchbox.v8engine;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class InspectorNativeClient {
-    private InspectorNativeChannel mChannel;
-    private long mNativePtr;
+    public InspectorNativeChannel mChannel;
+    public long mNativePtr;
+
+    public InspectorNativeClient(long j, InspectorNativeChannel inspectorNativeChannel) {
+        this.mChannel = inspectorNativeChannel;
+        this.mNativePtr = nativeInitInspector(j, inspectorNativeChannel);
+    }
 
     private native void nativeDestroyInspector(long j);
 
@@ -13,17 +18,12 @@ public class InspectorNativeClient {
 
     private native void nativeScheduleBreak(long j);
 
-    public InspectorNativeClient(long j, InspectorNativeChannel inspectorNativeChannel) {
-        this.mChannel = inspectorNativeChannel;
-        this.mNativePtr = nativeInitInspector(j, inspectorNativeChannel);
+    public void destroy() {
+        nativeDestroyInspector(this.mNativePtr);
     }
 
     public void dispatchProtocolMessage(String str) {
         nativeDispatchProtocolMessage(this.mNativePtr, str);
-    }
-
-    public void destroy() {
-        nativeDestroyInspector(this.mNativePtr);
     }
 
     public void scheduleBreak() {

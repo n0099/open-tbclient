@@ -3,10 +3,10 @@ package com.baidu.android.util.devices;
 import android.content.Context;
 import android.os.IBinder;
 import android.view.inputmethod.InputMethodManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class KeyboardUtils {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "KeyboardUtils";
+    public static final boolean DEBUG = false;
+    public static final String TAG = "KeyboardUtils";
 
     public static synchronized void forceHiddenSoftInput(Context context, IBinder iBinder) {
         synchronized (KeyboardUtils.class) {
@@ -14,7 +14,7 @@ public class KeyboardUtils {
             if (inputMethodManager != null) {
                 try {
                     inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
-                } catch (Exception e) {
+                } catch (Exception unused) {
                 }
             }
         }

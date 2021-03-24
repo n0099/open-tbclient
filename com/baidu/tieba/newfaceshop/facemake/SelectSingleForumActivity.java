@@ -8,104 +8,82 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SelectSingleForumActivityConfig;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
+import d.b.i0.x1.g.i;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumActivity> {
-    private BdListView Yj;
-    private View dCC;
-    private View eIZ;
-    private TextView lEM;
-    private i lEN;
-    private View lEO;
-    private NavigationBar mNavigationBar;
-    private View mRootView;
-    private TextView mTitleView;
-    private List<BazhuInfoData.BaInfo> mDataList = new ArrayList();
-    private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.SelectSingleForumActivity.1
+    public i mAdapter;
+    public View mBackView;
+    public View mDivider;
+    public View mLayoutConfirm;
+    public BdListView mListView;
+    public NavigationBar mNavigationBar;
+    public View mRootView;
+    public TextView mTitleView;
+    public TextView mTransmitConfirmButton;
+    public List<BazhuInfoData.BaInfo> mDataList = new ArrayList();
+    public View.OnClickListener mOnClickListener = new a();
+    public AdapterView.OnItemClickListener mOnItemClickListener = new b();
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != null) {
-                if (view.getId() == SelectSingleForumActivity.this.lEM.getId()) {
-                    if (SelectSingleForumActivity.this.djf() != null) {
-                        Intent intent = new Intent();
-                        intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, SelectSingleForumActivity.this.djf());
-                        SelectSingleForumActivity.this.setResult(-1, intent);
-                        SelectSingleForumActivity.this.finish();
-                    }
-                } else if (view.getId() == SelectSingleForumActivity.this.eIZ.getId()) {
-                    SelectSingleForumActivity.this.setResult(0);
-                    SelectSingleForumActivity.this.finish();
+            if (view == null) {
+                return;
+            }
+            if (view.getId() == SelectSingleForumActivity.this.mTransmitConfirmButton.getId()) {
+                if (SelectSingleForumActivity.this.getSelectedData() == null) {
+                    return;
                 }
+                Intent intent = new Intent();
+                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, SelectSingleForumActivity.this.getSelectedData());
+                SelectSingleForumActivity.this.setResult(-1, intent);
+                SelectSingleForumActivity.this.finish();
+            } else if (view.getId() == SelectSingleForumActivity.this.mBackView.getId()) {
+                SelectSingleForumActivity.this.setResult(0);
+                SelectSingleForumActivity.this.finish();
             }
         }
-    };
-    private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.SelectSingleForumActivity.2
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements AdapterView.OnItemClickListener {
+        public b() {
+        }
+
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) SelectSingleForumActivity.this.mDataList.get(i);
             CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
-            if (!checkBox.isChecked()) {
-                if (SelectSingleForumActivity.this.djf() != null && SelectSingleForumActivity.this.djf().isChecked) {
-                    SelectSingleForumActivity.this.djf().isChecked = false;
-                }
-                baInfo.isChecked = true;
-                checkBox.setChecked(!checkBox.isChecked());
-                SelectSingleForumActivity.this.lEN.notifyDataSetChanged();
+            if (checkBox.isChecked()) {
+                return;
             }
-        }
-    };
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.select_single_forum_activity);
-        this.mRootView = findViewById(R.id.root_view);
-        this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.eIZ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        if (this.eIZ.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eIZ.getLayoutParams();
-            layoutParams.leftMargin = l.getDimens(getActivity(), R.dimen.ds10);
-            this.eIZ.setLayoutParams(layoutParams);
-        }
-        this.mTitleView = this.mNavigationBar.setCenterTextTitle(getString(R.string.emotion_make_select_bar));
-        this.eIZ.setOnClickListener(this.mOnClickListener);
-        this.dCC = findViewById(R.id.view_divider);
-        this.lEM = (TextView) findViewById(R.id.transmit_confirm);
-        this.lEM.setOnClickListener(this.mOnClickListener);
-        this.lEO = findViewById(R.id.layout_confirm);
-        this.Yj = (BdListView) findViewById(R.id.trasmit_grid_view);
-        if (getIntent() != null) {
-            ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
-            if (y.getCount(parcelableArrayListExtra) > 0) {
-                this.mDataList.addAll(parcelableArrayListExtra);
+            if (SelectSingleForumActivity.this.getSelectedData() != null && SelectSingleForumActivity.this.getSelectedData().isChecked) {
+                SelectSingleForumActivity.this.getSelectedData().isChecked = false;
             }
+            baInfo.isChecked = true;
+            checkBox.setChecked(!checkBox.isChecked());
+            SelectSingleForumActivity.this.mAdapter.notifyDataSetChanged();
         }
-        this.Yj.setOnItemClickListener(this.mOnItemClickListener);
-        this.lEN = new i(getActivity());
-        this.Yj.setAdapter((ListAdapter) this.lEN);
-        this.lEN.eK(this.mDataList);
-        dje();
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    private void dje() {
-        this.lEM.setText(R.string.select_single_forum_confirm);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public BazhuInfoData.BaInfo djf() {
+    public BazhuInfoData.BaInfo getSelectedData() {
         for (BazhuInfoData.BaInfo baInfo : this.mDataList) {
             if (baInfo.isChecked) {
                 return baInfo;
@@ -114,18 +92,58 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    private void setTransmitConfirmButtonText() {
+        this.mTransmitConfirmButton.setText(R.string.select_single_forum_confirm);
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-        ap.setBackgroundResource(this.lEM, R.drawable.btn_all_blue);
-        ap.setViewTextColor(this.lEM, R.color.CAM_X0111, 1);
-        ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.dCC, R.color.CAM_X0204);
-        this.lEN.Fl(i);
-        this.Yj.setSelector(ap.getDrawable(R.drawable.selector_select_forum_item));
-        ap.setBackgroundColor(this.lEO, R.color.cp_bg_line_d_alpha95);
+        SkinManager.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
+        SkinManager.setBackgroundResource(this.mTransmitConfirmButton, R.drawable.btn_all_blue);
+        SkinManager.setViewTextColor(this.mTransmitConfirmButton, R.color.CAM_X0111, 1);
+        SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
+        this.mAdapter.c(i);
+        this.mListView.setSelector(SkinManager.getDrawable(R.drawable.selector_select_forum_item));
+        SkinManager.setBackgroundColor(this.mLayoutConfirm, R.color.cp_bg_line_d_alpha95);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.select_single_forum_activity);
+        this.mRootView = findViewById(R.id.root_view);
+        NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar = navigationBar;
+        View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mBackView = addSystemImageButton;
+        if (addSystemImageButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mBackView.getLayoutParams();
+            layoutParams.leftMargin = l.g(getActivity(), R.dimen.ds10);
+            this.mBackView.setLayoutParams(layoutParams);
+        }
+        this.mTitleView = this.mNavigationBar.setCenterTextTitle(getString(R.string.emotion_make_select_bar));
+        this.mBackView.setOnClickListener(this.mOnClickListener);
+        this.mDivider = findViewById(R.id.view_divider);
+        TextView textView = (TextView) findViewById(R.id.transmit_confirm);
+        this.mTransmitConfirmButton = textView;
+        textView.setOnClickListener(this.mOnClickListener);
+        this.mLayoutConfirm = findViewById(R.id.layout_confirm);
+        this.mListView = (BdListView) findViewById(R.id.trasmit_grid_view);
+        if (getIntent() != null) {
+            ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
+            if (ListUtils.getCount(parcelableArrayListExtra) > 0) {
+                this.mDataList.addAll(parcelableArrayListExtra);
+            }
+        }
+        this.mListView.setOnItemClickListener(this.mOnItemClickListener);
+        i iVar = new i(getActivity());
+        this.mAdapter = iVar;
+        this.mListView.setAdapter((ListAdapter) iVar);
+        this.mAdapter.b(this.mDataList);
+        setTransmitConfirmButtonText();
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 }

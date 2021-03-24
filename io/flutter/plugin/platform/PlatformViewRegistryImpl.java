@@ -2,10 +2,13 @@ package io.flutter.plugin.platform;
 
 import java.util.HashMap;
 import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class PlatformViewRegistryImpl implements PlatformViewRegistry {
-    private final Map<String, PlatformViewFactory> viewFactories = new HashMap();
+    public final Map<String, PlatformViewFactory> viewFactories = new HashMap();
+
+    public PlatformViewFactory getFactory(String str) {
+        return this.viewFactories.get(str);
+    }
 
     @Override // io.flutter.plugin.platform.PlatformViewRegistry
     public boolean registerViewFactory(String str, PlatformViewFactory platformViewFactory) {
@@ -14,10 +17,5 @@ public class PlatformViewRegistryImpl implements PlatformViewRegistry {
         }
         this.viewFactories.put(str, platformViewFactory);
         return true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PlatformViewFactory getFactory(String str) {
-        return this.viewFactories.get(str);
     }
 }

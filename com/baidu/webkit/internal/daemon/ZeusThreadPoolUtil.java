@@ -1,5 +1,6 @@
 package com.baidu.webkit.internal.daemon;
 
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import java.util.Queue;
@@ -8,24 +9,23 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ZeusThreadPoolUtil implements INoProGuard {
-    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-    private static final String LOG_TAG = "ZeusThreadPoolUtil";
-    private static final int THREAD_POOL_KEEP_ALIVE_TIME = 60;
-    private static final int THREAD_POOL_MAX = 4;
-    private static final int THREAD_POOL_MIN = 2;
-    private static ThreadPoolExecutor mExecutor;
-    private static Queue<Runnable> mLazyRunQueue;
-    private static volatile boolean sIsZeusLoaded;
+    public static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+    public static final String LOG_TAG = "ZeusThreadPoolUtil";
+    public static final int THREAD_POOL_KEEP_ALIVE_TIME = 60;
+    public static final int THREAD_POOL_MAX = 4;
+    public static final int THREAD_POOL_MIN = 2;
+    public static ThreadPoolExecutor mExecutor;
+    public static Queue<Runnable> mLazyRunQueue;
+    public static volatile boolean sIsZeusLoaded;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class a implements ThreadFactory {
-        private a() {
+        public a() {
         }
 
-        /* synthetic */ a(byte b) {
+        public /* synthetic */ a(byte b2) {
             this();
         }
 
@@ -38,7 +38,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
         }
     }
 
-    private static void doExecute(Runnable runnable) {
+    public static void doExecute(Runnable runnable) {
         try {
             if (mExecutor == null) {
                 start();
@@ -76,15 +76,21 @@ public class ZeusThreadPoolUtil implements INoProGuard {
         synchronized (ZeusThreadPoolUtil.class) {
             sIsZeusLoaded = true;
             if (mLazyRunQueue != null) {
-                for (Runnable poll = mLazyRunQueue.poll(); poll != null; poll = mLazyRunQueue.poll()) {
-                    doExecute(poll);
+                Runnable poll = mLazyRunQueue.poll();
+                while (true) {
+                    Runnable runnable = poll;
+                    if (runnable == null) {
+                        break;
+                    }
+                    doExecute(runnable);
+                    poll = mLazyRunQueue.poll();
                 }
             }
         }
     }
 
     public static void start() {
-        Log.d(LOG_TAG, "start");
+        Log.d(LOG_TAG, IntentConfig.START);
         try {
             synchronized (ZeusThreadPoolUtil.class) {
                 if (mExecutor == null) {
@@ -93,13 +99,13 @@ public class ZeusThreadPoolUtil implements INoProGuard {
                     threadPoolExecutor.allowCoreThreadTimeOut(true);
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
     public static void stop() {
-        Log.d(LOG_TAG, "stop");
+        Log.d(LOG_TAG, IntentConfig.STOP);
         try {
             synchronized (ZeusThreadPoolUtil.class) {
                 if (mExecutor != null) {
@@ -107,8 +113,8 @@ public class ZeusThreadPoolUtil implements INoProGuard {
                     mExecutor = null;
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

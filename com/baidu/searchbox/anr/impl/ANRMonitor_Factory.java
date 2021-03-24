@@ -1,10 +1,7 @@
 package com.baidu.searchbox.anr.impl;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ANRMonitor_Factory {
-    private static volatile ANRMonitor instance;
-
-    private ANRMonitor_Factory() {
-    }
+    public static volatile ANRMonitor instance;
 
     public static synchronized ANRMonitor get() {
         ANRMonitor aNRMonitor;

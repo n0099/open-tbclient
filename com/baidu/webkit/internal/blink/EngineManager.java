@@ -11,28 +11,25 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class EngineManager implements INoProGuard {
-    private static final String DIFF_FILE_SUBFIX = ".diff";
+    public static final String DIFF_FILE_SUBFIX = ".diff";
     public static final String LOG_TAG = "webkitUpdate";
-    private static final String PATCH_FOLDER = "/baidu/zeus/patch/";
-    private static final int RET_FAILED = 2;
-    private static final int RET_OK = 0;
-    private static final int RET_RUNNING = 1;
-    private static final String TAG = "EngineManager";
-    private static EngineManager sInstance;
-    private SharedPreferences.Editor mEditor;
-    private boolean mInstallSyncSuccess;
-    private boolean mIsInstalling;
-    private final Object mLockObject = new Object();
-    private SharedPreferences mSp;
-    private static String ZEUS_PREFER = "zeusPreference";
-    private static String ZEUS_INSTALL_START = "zeusInstallStart";
-    private static String ZEUS_INSTALL_FINISH = "zeusInstallFinish";
-    private static String ZEUS_INSTALL_APP_RESTART = "zeusInstallAppRestart";
-
-    protected EngineManager() {
-    }
+    public static final String PATCH_FOLDER = "/baidu/zeus/patch/";
+    public static final int RET_FAILED = 2;
+    public static final int RET_OK = 0;
+    public static final int RET_RUNNING = 1;
+    public static final String TAG = "EngineManager";
+    public static String ZEUS_INSTALL_APP_RESTART = "zeusInstallAppRestart";
+    public static String ZEUS_INSTALL_FINISH = "zeusInstallFinish";
+    public static String ZEUS_INSTALL_START = "zeusInstallStart";
+    public static String ZEUS_PREFER = "zeusPreference";
+    public static EngineManager sInstance;
+    public SharedPreferences.Editor mEditor;
+    public boolean mInstallSyncSuccess;
+    public boolean mIsInstalling;
+    public final Object mLockObject = new Object();
+    public SharedPreferences mSp;
 
     private a createInstaller(String str, WebKitFactory.WebkitInstallListener webkitInstallListener) {
         if (str.startsWith("file://")) {
@@ -73,7 +70,8 @@ public class EngineManager implements INoProGuard {
         }
         if (str == null) {
             webkitInstallListener.onInstallFinish(13, null);
-        } else if (tryChangeZeusEngine(webkitInstallListener) != 1) {
+        } else if (tryChangeZeusEngine(webkitInstallListener) == 1) {
+        } else {
             if (!str.startsWith("file://")) {
                 webkitInstallListener.onInstallFinish(13, null);
                 return;
@@ -84,16 +82,16 @@ public class EngineManager implements INoProGuard {
                 return;
             }
             Log.i(LOG_TAG, "BlinkEngineInstaller.installAsync");
-            if (cVar.b == null || WebKitFactory.getContext() == null) {
-                if (cVar.f3821a != null) {
-                    cVar.f3821a.onInstallFinish(13, null);
-                    return;
-                }
+            if (cVar.f26881b != null && WebKitFactory.getContext() != null) {
+                HandlerThread handlerThread = new HandlerThread("T7@ZeusInstaller");
+                handlerThread.start();
+                new Handler(handlerThread.getLooper()).post(new b(cVar, handlerThread));
                 return;
             }
-            HandlerThread handlerThread = new HandlerThread("T7@ZeusInstaller");
-            handlerThread.start();
-            new Handler(handlerThread.getLooper()).post(new b(cVar, handlerThread));
+            WebKitFactory.WebkitInstallListener webkitInstallListener2 = cVar.f26880a;
+            if (webkitInstallListener2 != null) {
+                webkitInstallListener2.onInstallFinish(13, null);
+            }
         }
     }
 
@@ -104,7 +102,8 @@ public class EngineManager implements INoProGuard {
             getEditor().commit();
             boolean z = getSp().getBoolean(ZEUS_INSTALL_START, false);
             boolean z2 = getSp().getBoolean(ZEUS_INSTALL_FINISH, false);
-            Log.i(LOG_TAG, "after clear = " + z + " finish = " + z2 + " restart = " + getSp().getBoolean(ZEUS_INSTALL_APP_RESTART, false));
+            boolean z3 = getSp().getBoolean(ZEUS_INSTALL_APP_RESTART, false);
+            Log.i(LOG_TAG, "after clear = " + z + " finish = " + z2 + " restart = " + z3);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -118,7 +117,8 @@ public class EngineManager implements INoProGuard {
                 getEditor().putBoolean(ZEUS_INSTALL_FINISH, z);
                 getEditor().commit();
             }
-            Log.i(LOG_TAG, "setInstallFinish apply = " + getSp().getBoolean(ZEUS_INSTALL_FINISH, false));
+            boolean z2 = getSp().getBoolean(ZEUS_INSTALL_FINISH, false);
+            Log.i(LOG_TAG, "setInstallFinish apply = " + z2);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -161,18 +161,18 @@ public class EngineManager implements INoProGuard {
     }
 
     public boolean isInstallBreak() {
-        boolean z = true;
         try {
-            boolean z2 = getSp().getBoolean(ZEUS_INSTALL_START, false);
-            boolean z3 = getSp().getBoolean(ZEUS_INSTALL_FINISH, false);
-            if (z2 && !z3) {
+            boolean z = getSp().getBoolean(ZEUS_INSTALL_START, false);
+            boolean z2 = getSp().getBoolean(ZEUS_INSTALL_FINISH, false);
+            if (z && !z2) {
                 Log.i(LOG_TAG, " install is break ");
-            } else if (z2 || !z3) {
-                z = false;
+                return true;
+            } else if (z || !z2) {
+                return false;
             } else {
                 Log.i(LOG_TAG, " install is break ");
+                return true;
             }
-            return z;
         } catch (Throwable th) {
             th.printStackTrace();
             return false;
@@ -217,39 +217,37 @@ public class EngineManager implements INoProGuard {
     }
 
     public synchronized void removeOldStatisticsFiles(Context context) {
-        if (context != null) {
-            File filesDir = context.getFilesDir();
-            if (filesDir != null) {
-                new File(filesDir, "zeus/statistics/error.log").delete();
-            }
+        if (context == null) {
+            return;
+        }
+        File filesDir = context.getFilesDir();
+        if (filesDir != null) {
+            new File(filesDir, "zeus/statistics/error.log").delete();
         }
     }
 
     public synchronized void removeUnusedFiles(Context context) {
-        synchronized (this) {
-            if (context != null) {
-                String[] strArr = {"zeus/libs/com.baidu.zeus2.dex", "zeus/libs/com.baidu.zeus2.jar", "zeus/libs/libbaiduwebviewchromium.so", "pagecache.log"};
-                File filesDir = context.getFilesDir();
-                if (filesDir != null) {
-                    for (int i = 0; i < 4; i++) {
-                        new File(filesDir, strArr[i]).delete();
-                    }
-                }
+        if (context == null) {
+            return;
+        }
+        String[] strArr = {"zeus/libs/com.baidu.zeus2.dex", "zeus/libs/com.baidu.zeus2.jar", "zeus/libs/libbaiduwebviewchromium.so", "pagecache.log"};
+        File filesDir = context.getFilesDir();
+        if (filesDir != null) {
+            for (int i = 0; i < 4; i++) {
+                new File(filesDir, strArr[i]).delete();
             }
         }
     }
 
     public void resetZeus() {
-        String[] strArr;
         try {
             String downloadLibPath = UtilsBlink.getDownloadLibPath(WebKitFactory.getContext());
-            int length = GlobalConstants.LIB_ZEUS_SO.length;
-            for (int i = 0; i < length; i++) {
-                String str = downloadLibPath + strArr[i];
-                File file = new File(str);
+            for (String str : GlobalConstants.LIB_ZEUS_SO) {
+                String str2 = downloadLibPath + str;
+                File file = new File(str2);
                 if (file.exists()) {
                     file.delete();
-                    Log.i(LOG_TAG, "delete update so " + str);
+                    Log.i(LOG_TAG, "delete update so " + str2);
                 }
             }
             resetPref();
@@ -265,7 +263,8 @@ public class EngineManager implements INoProGuard {
                 getEditor().putBoolean(ZEUS_INSTALL_APP_RESTART, z);
                 getEditor().commit();
             }
-            Log.i(LOG_TAG, "setNeedKillProcess after apply = " + getSp().getBoolean(ZEUS_INSTALL_APP_RESTART, false));
+            boolean z2 = getSp().getBoolean(ZEUS_INSTALL_APP_RESTART, false);
+            Log.i(LOG_TAG, "setNeedKillProcess after apply = " + z2);
         } catch (Throwable th) {
             th.printStackTrace();
         }

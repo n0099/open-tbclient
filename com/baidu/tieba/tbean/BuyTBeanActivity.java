@@ -9,31 +9,81 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.pay.PayConst;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.pay.PayConfigModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.live.tbean.TbeanStatisticKey;
 import com.baidu.tieba.tbean.BuyTBeanModel;
-/* loaded from: classes8.dex */
-public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements BuyTBeanModel.a {
-    private PayConfigModel lrb;
-    private String mClickZone;
-    private long mGiftBbean;
-    private String mReferPage;
-    private BuyTBeanModel nEf;
-    private a nEg;
-    private boolean mIsPayDialog = true;
-    private String SCENE_ID = "4001001000";
-    private boolean nEh = false;
-    private int isFromDecreaseGiftStepStrategy = 0;
-    private long nEi = 0;
-    private CustomMessageListener nEj = new CustomMessageListener(2921407) { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.4
+import d.b.h0.r.s.a;
+/* loaded from: classes5.dex */
+public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements BuyTBeanModel.e {
+    public static final String GIFT_TBEAN = "gift_tbean";
+    public String mClickZone;
+    public long mGiftBbean;
+    public BuyTBeanModel mModel;
+    public PayConfigModel mPayConfigModel;
+    public String mReferPage;
+    public d.b.i0.e3.a mTBeanView;
+    public boolean mIsPayDialog = true;
+    public String SCENE_ID = "4001001000";
+    public boolean isFromAlaLiveRoom = false;
+    public int isFromDecreaseGiftStepStrategy = 0;
+    public long moneyLeft = 0;
+    public CustomMessageListener roomClosedListener = new d(2921407);
+
+    /* loaded from: classes5.dex */
+    public class a implements d.b.h0.l0.a {
+        public a() {
+        }
+
+        @Override // d.b.h0.l0.a
+        public void a() {
+            d.b.h0.l0.c.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(BuyTBeanActivity.this.mGiftBbean), d.b.h0.l0.b.f50294a) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
+            BuyTBeanActivity.this.finish();
+        }
+
+        @Override // d.b.h0.l0.a
+        public void b() {
+            BuyTBeanActivity.this.mModel.F();
+        }
+
+        @Override // d.b.h0.l0.a
+        public void onError(String str) {
+            BuyTBeanActivity.this.mModel.F();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements a.e {
+        public b() {
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            aVar.dismiss();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements a.e {
+        public c() {
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            BuyTBeanActivity.this.finish();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends CustomMessageListener {
+        public d(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -41,20 +91,103 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                 BuyTBeanActivity.this.closeActivity();
             }
         }
-    };
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    private void getGiftTBean(Intent intent) {
+        this.mGiftBbean = intent.getLongExtra("gift_tbean", 0L);
+    }
+
+    private void processClose() {
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this);
+        aVar.setAutoNight(true);
+        aVar.setCancelable(true);
+        aVar.setTitleShowCenter(true);
+        aVar.setMessageShowCenter(true);
+        aVar.setTitle(getString(R.string.buy_tbean_exit_dialog_title));
+        aVar.setMessage(getString(R.string.buy_tbean_exit_dialog_sub_title));
+        aVar.setPositiveButton(getString(R.string.go_on), new b());
+        aVar.setNegativeButton(getString(R.string.buy_tbean_exit_dialog_quit), new c());
+        aVar.create(getPageContext()).show();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void closeAnimation() {
+        clearAnimatable();
+        clearAnimation();
+        overridePendingTransition(0, 0);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void enterExitAnimation() {
+        clearAnimatable();
+        clearAnimation();
+        overridePendingTransition(0, 0);
+    }
+
+    public String getClickZone() {
+        return this.mClickZone;
+    }
+
+    public String getReferPage() {
+        return this.mReferPage;
+    }
+
+    public boolean isFromAlaLiveRoom() {
+        return this.isFromAlaLiveRoom;
+    }
+
+    public int isFromDecreaseGiftStepStrategy() {
+        return this.isFromDecreaseGiftStepStrategy;
+    }
+
+    public boolean isPayDialog() {
+        return this.mIsPayDialog;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        if (intent == null || !intent.getBooleanExtra("success", false)) {
+            return;
+        }
+        finish();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        d.b.i0.e3.a aVar = this.mTBeanView;
+        if (aVar != null) {
+            aVar.B(i);
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
+    public void onClick(View view) {
+        d.b.i0.e3.a aVar;
+        if (view.getId() != R.id.buy_tbean_use_rule && view.getId() != R.id.t_dou_introduce_activity_right_button) {
+            if ((view.getId() == R.id.buy_tbean_close_image || view.getId() == R.id.buy_tbean_root_view) && (aVar = this.mTBeanView) != null) {
+                if (aVar.A()) {
+                    this.mTBeanView.y();
+                    return;
+                } else {
+                    processClose();
+                    return;
+                }
+            }
+            return;
+        }
+        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        if (getIntent().getStringExtra("scene_id") != null) {
-            String str = this.SCENE_ID;
-        }
-        this.mReferPage = getIntent().getStringExtra("refer_page");
-        this.mClickZone = getIntent().getStringExtra("click_zone");
-        this.nEh = getIntent().getBooleanExtra(BuyTBeanActivityConfig.IS_FROM_ALA, false);
+        getIntent().getStringExtra("scene_id");
+        this.mReferPage = getIntent().getStringExtra(MemberPayStatistic.REFER_PAGE);
+        this.mClickZone = getIntent().getStringExtra(MemberPayStatistic.CLICK_ZONE);
+        this.isFromAlaLiveRoom = getIntent().getBooleanExtra(BuyTBeanActivityConfig.IS_FROM_ALA, false);
         this.isFromDecreaseGiftStepStrategy = getIntent().getIntExtra(BuyTBeanActivityConfig.IS_FROM_ALA_GIFT_PANEL, 0);
-        this.nEi = getIntent().getLongExtra(BuyTBeanActivityConfig.TBEAN_LEFT_TO_BUY_ALA_GIFT, 0L);
-        this.nEh = false;
+        this.moneyLeft = getIntent().getLongExtra(BuyTBeanActivityConfig.TBEAN_LEFT_TO_BUY_ALA_GIFT, 0L);
+        this.isFromAlaLiveRoom = false;
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(false);
         addGlobalLayoutListener();
@@ -65,80 +198,57 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
         getGiftTBean(getIntent());
         showLoadingDialog(getPageContext().getString(R.string.flist_loading));
-        this.nEg = new a(this);
-        setContentView(this.nEg.getRootView());
-        if (this.isFromDecreaseGiftStepStrategy != 0 && this.nEi > 0) {
-            this.nEg.hH(this.nEi);
+        d.b.i0.e3.a aVar = new d.b.i0.e3.a(this);
+        this.mTBeanView = aVar;
+        setContentView(aVar.v());
+        if (this.isFromDecreaseGiftStepStrategy != 0) {
+            long j = this.moneyLeft;
+            if (j > 0) {
+                this.mTBeanView.H(j);
+            }
         }
-        this.nEg.hideRootView();
-        this.nEf = new BuyTBeanModel(this, this);
-        this.nEf.dPV();
-        this.nEf.registerYinJiHttpListener();
-        this.nEf.dPX();
-        this.nEf.dPW();
-        this.lrb = new PayConfigModel(this, new com.baidu.tbadk.pay.a() { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.1
-            @Override // com.baidu.tbadk.pay.a
-            public void onError(String str2) {
-                BuyTBeanActivity.this.nEf.requestYinJiInfo();
-            }
-
-            @Override // com.baidu.tbadk.pay.a
-            public void onPayNative() {
-                BuyTBeanActivity.this.nEf.requestYinJiInfo();
-            }
-
-            /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.tbean.BuyTBeanActivity */
-            /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.baidu.tbadk.pay.a
-            public void onPayH5() {
-                com.baidu.tbadk.pay.c.bDZ().a(String.format(PayConst.PAY_H5_TBEAN, String.valueOf(BuyTBeanActivity.this.mGiftBbean), com.baidu.tbadk.pay.b.PAY_H5_TBEAN_RETURN_URL) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
-                BuyTBeanActivity.this.finish();
-            }
-        });
-        this.lrb.bDY();
-        registerListener(this.nEj);
-        TiebaStatic.log(TbeanStatisticKey.BUY_TBEAN_ACTIVITY);
+        this.mTBeanView.x();
+        BuyTBeanModel buyTBeanModel = new BuyTBeanModel(this, this);
+        this.mModel = buyTBeanModel;
+        buyTBeanModel.E();
+        this.mModel.D();
+        this.mModel.C();
+        this.mModel.B();
+        PayConfigModel payConfigModel = new PayConfigModel(this, new a());
+        this.mPayConfigModel = payConfigModel;
+        payConfigModel.x();
+        registerListener(this.roomClosedListener);
+        TiebaStatic.log("c10295");
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public void enterExitAnimation() {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
         clearAnimatable();
         clearAnimation();
-        overridePendingTransition(0, 0);
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void closeAnimation() {
-        clearAnimatable();
-        clearAnimation();
-        overridePendingTransition(0, 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        if (this.nEg != null) {
-            this.nEg.onChangeSkinType(i);
+        super.onDestroy();
+        d.b.i0.e3.a aVar = this.mTBeanView;
+        if (aVar != null) {
+            aVar.C();
         }
     }
 
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putLong("gift_tbean", this.mGiftBbean);
+    @Override // com.baidu.tieba.tbean.BuyTBeanModel.e
+    public void onFailed(String str) {
+        showToast(str);
+        closeLoadingDialog();
+        d.b.i0.e3.a aVar = this.mTBeanView;
+        if (aVar != null) {
+            aVar.J();
+            this.mTBeanView.I();
+        }
     }
 
-    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getId() == R.id.buy_tbean_use_rule || view.getId() == R.id.t_dou_introduce_activity_right_button) {
-            bf.bsY().b(getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
-        } else if ((view.getId() == R.id.buy_tbean_close_image || view.getId() == R.id.buy_tbean_root_view) && this.nEg != null) {
-            if (this.nEg.dQc()) {
-                this.nEg.hideSoftKeyPad();
-            } else {
-                processClose();
-            }
+    @Override // com.baidu.tieba.tbean.BuyTBeanModel.e
+    public void onGetWalletUrl(String str) {
+        if (StringUtils.isNull(str)) {
+            return;
         }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001447, str));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
@@ -150,116 +260,43 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void processClose() {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
-        aVar.setAutoNight(true);
-        aVar.jF(true);
-        aVar.setTitleShowCenter(true);
-        aVar.setMessageShowCenter(true);
-        aVar.AA(getString(R.string.buy_tbean_exit_dialog_title));
-        aVar.AB(getString(R.string.buy_tbean_exit_dialog_sub_title));
-        aVar.a(getString(R.string.go_on), new a.b() { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.2
-            @Override // com.baidu.tbadk.core.dialog.a.b
-            public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                aVar2.dismiss();
-            }
-        });
-        aVar.b(getString(R.string.buy_tbean_exit_dialog_quit), new a.b() { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.3
-            @Override // com.baidu.tbadk.core.dialog.a.b
-            public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                BuyTBeanActivity.this.finish();
-            }
-        });
-        aVar.b(getPageContext()).bqz();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (intent != null && intent.getBooleanExtra("success", false)) {
-            finish();
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onKeyboardVisibilityChanged(boolean z) {
+        super.onKeyboardVisibilityChanged(z);
+        d.b.i0.e3.a aVar = this.mTBeanView;
+        if (aVar != null) {
+            aVar.D(z);
         }
     }
 
-    private void getGiftTBean(Intent intent) {
-        this.mGiftBbean = intent.getLongExtra("gift_tbean", 0L);
-    }
-
-    @Override // com.baidu.tieba.tbean.BuyTBeanModel.a
-    public void onFailed(String str) {
-        showToast(str);
-        closeLoadingDialog();
-        if (this.nEg != null) {
-            this.nEg.showRootView();
-            this.nEg.cHS();
-        }
-    }
-
-    @Override // com.baidu.tieba.tbean.BuyTBeanModel.a
-    public void onSuccess() {
-        closeLoadingDialog();
-        if (this.nEg != null) {
-            this.nEg.showRootView();
-            this.nEg.cHT();
-            this.nEg.a(this.nEf.dPY(), this.nEf.dQa(), this.nEf.dPZ(), this.nEf.getUserInfo());
-        }
-    }
-
-    @Override // com.baidu.tieba.tbean.BuyTBeanModel.a
-    public void onGetWalletUrl(String str) {
-        if (!StringUtils.isNull(str)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_OPEN_WALLET_ICASH, str));
-        }
-    }
-
-    public void refresh() {
-        if (this.nEf != null && this.nEg != null) {
-            showLoadingDialog(getPageContext().getString(R.string.flist_loading));
-            this.nEg.hideRootView();
-            this.nEf.requestYinJiInfo();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         refresh();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        clearAnimatable();
-        clearAnimation();
-        super.onDestroy();
-        if (this.nEg != null) {
-            this.nEg.onDestroy();
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putLong("gift_tbean", this.mGiftBbean);
+    }
+
+    @Override // com.baidu.tieba.tbean.BuyTBeanModel.e
+    public void onSuccess() {
+        closeLoadingDialog();
+        d.b.i0.e3.a aVar = this.mTBeanView;
+        if (aVar != null) {
+            aVar.J();
+            this.mTBeanView.w();
+            this.mTBeanView.G(this.mModel.x(), this.mModel.z(), this.mModel.y(), this.mModel.A());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onKeyboardVisibilityChanged(boolean z) {
-        super.onKeyboardVisibilityChanged(z);
-        if (this.nEg != null) {
-            this.nEg.onKeyboardVisibilityChanged(z);
+    public void refresh() {
+        if (this.mModel == null || this.mTBeanView == null) {
+            return;
         }
-    }
-
-    public String getReferPage() {
-        return this.mReferPage;
-    }
-
-    public String getClickZone() {
-        return this.mClickZone;
-    }
-
-    public boolean dPT() {
-        return this.mIsPayDialog;
-    }
-
-    public int isFromDecreaseGiftStepStrategy() {
-        return this.isFromDecreaseGiftStepStrategy;
+        showLoadingDialog(getPageContext().getString(R.string.flist_loading));
+        this.mTBeanView.x();
+        this.mModel.F();
     }
 }

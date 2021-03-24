@@ -3,49 +3,51 @@ package com.kwai.video.hodor;
 import com.kwai.video.cache.AcCallBackInfo;
 import com.kwai.video.hodor.IHodorTask;
 import com.kwai.video.hodor.util.Timber;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BaseTaskInfo {
-    String cdnStatJson;
-    long currentSpeedKbps;
-    String currentUrl;
-    long downloadedBytes;
-    int errorCode;
-    String errorMsg;
-    long expectBytes;
-    String host;
+    public String cdnStatJson;
+    public long currentSpeedKbps;
+    public String currentUrl;
+    public long downloadedBytes;
+    public int errorCode;
+    public String errorMsg;
+    public long expectBytes;
+    public String host;
     public int httpResponseCode;
-    String ip;
-    String kwaiSign;
-    long progressBytes;
+    public String ip;
+    public String kwaiSign;
+    public long progressBytes;
     @AcCallBackInfo.DownloadStopReason
-    int stopReason;
+    public int stopReason;
     @IHodorTask.HodorTaskState
-    int taskState = -1;
-    long totalBytes;
-    int transferConsumeMs;
-    String xKsCache;
+    public int taskState = -1;
+    public long totalBytes;
+    public int transferConsumeMs;
+    public String xKsCache;
 
     public static String taskStateToString(@IHodorTask.HodorTaskState int i) {
-        switch (i) {
-            case -1:
-                return "TaskState_Unknown";
-            case 0:
-                return "TaskState_Started";
-            case 1:
+        if (i != -1) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                Timber.d("taskStateToString unknown state:%d, return InnerError", Integer.valueOf(i));
+                                return "InnerError";
+                            }
+                            return "TaskState_Paused";
+                        }
+                        return "TaskState_Failed";
+                    }
+                    return "TaskState_Cancelled";
+                }
                 return "TaskState_Finished";
-            case 2:
-                return "TaskState_Cancelled";
-            case 3:
-                return "TaskState_Failed";
-            case 4:
-                return "TaskState_Paused";
-            default:
-                Timber.d("taskStateToString unknown state:%d, return InnerError", Integer.valueOf(i));
-                return "InnerError";
+            }
+            return "TaskState_Started";
         }
+        return "TaskState_Unknown";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void copyInfoAfterDownload(AcCallBackInfo acCallBackInfo) {
         Timber.d("[copyInfoAfterDownload]progressBytes:%d, acInfo.progressPosition:%d, acInfo.httpResponseCode:%d", Long.valueOf(this.progressBytes), Long.valueOf(acCallBackInfo.progressPosition), Integer.valueOf(acCallBackInfo.httpResponseCode));
         this.taskState = acCallBackInfo.taskState;
@@ -67,7 +69,6 @@ public class BaseTaskInfo {
         this.cdnStatJson = acCallBackInfo.cdnStatJson;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void copyInfoInProgress(AcCallBackInfo acCallBackInfo) {
         this.taskState = acCallBackInfo.taskState;
         this.expectBytes = acCallBackInfo.contentLength;
@@ -165,10 +166,17 @@ public class BaseTaskInfo {
     }
 
     public boolean isComplete() {
-        return this.taskState == 1 && this.totalBytes > 0 && this.progressBytes == this.totalBytes;
+        if (this.taskState == 1) {
+            long j = this.totalBytes;
+            if (j > 0 && this.progressBytes == j) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isOver() {
-        return (this.taskState == 0 || this.taskState == 4) ? false : true;
+        int i = this.taskState;
+        return (i == 0 || i == 4) ? false : true;
     }
 }

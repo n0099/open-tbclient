@@ -5,7 +5,7 @@ import android.view.View;
 import android.webkit.WebView;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface NativeResponse {
     public static final int INFO_FLOW_GROUP_PIC = 35;
     public static final int INFO_FLOW_GROUP_PIC_LOGO = 36;
@@ -16,7 +16,7 @@ public interface NativeResponse {
     public static final int INFO_FLOW_RIGHT_PIC = 34;
     public static final int INFO_FLOW_VIDEO_TOP_TITLE = 37;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface AdInteractionListener {
         void onADExposed();
 
@@ -27,13 +27,42 @@ public interface NativeResponse {
         void onAdUnionClick();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface AdPrivacyListener {
         void onADPermissionClose();
 
         void onADPermissionShow();
 
         void onADPrivacyClick();
+    }
+
+    /* loaded from: classes2.dex */
+    public enum MaterialType {
+        NORMAL("normal"),
+        VIDEO("video"),
+        HTML("html");
+        
+
+        /* renamed from: a  reason: collision with root package name */
+        public final String f8015a;
+
+        MaterialType(String str) {
+            this.f8015a = str;
+        }
+
+        public static MaterialType parse(String str) {
+            MaterialType[] values;
+            for (MaterialType materialType : values()) {
+                if (materialType.f8015a.equalsIgnoreCase(str)) {
+                    return materialType;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return this.f8015a;
+        }
     }
 
     String getAdLogoUrl();
@@ -133,33 +162,4 @@ public interface NativeResponse {
     void setAdPrivacyListener(AdPrivacyListener adPrivacyListener);
 
     void unionLogoClick();
-
-    /* loaded from: classes4.dex */
-    public enum MaterialType {
-        NORMAL("normal"),
-        VIDEO("video"),
-        HTML("html");
-        
-
-        /* renamed from: a  reason: collision with root package name */
-        private final String f2321a;
-
-        MaterialType(String str) {
-            this.f2321a = str;
-        }
-
-        public String getValue() {
-            return this.f2321a;
-        }
-
-        public static MaterialType parse(String str) {
-            MaterialType[] values;
-            for (MaterialType materialType : values()) {
-                if (materialType.f2321a.equalsIgnoreCase(str)) {
-                    return materialType;
-                }
-            }
-            return null;
-        }
-    }
 }

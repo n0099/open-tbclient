@@ -1,10 +1,12 @@
 package com.baidu.cesium.a;
 
+import d.b.j.d.a.c;
+import d.b.j.d.a.g;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class i {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a extends Exception {
         public a(String str) {
             super(str);
@@ -20,11 +22,11 @@ public class i {
     }
 
     public static String a(byte[] bArr) {
-        byte[] a2 = com.baidu.cesium.c.a.g.a();
-        return new String(com.baidu.cesium.c.a.c.c(a2, a2, bArr));
+        byte[] a2 = g.a();
+        return new String(c.d(a2, a2, bArr));
     }
 
-    public static Method a(Class<?> cls, String str, Class<?>[] clsArr) {
+    public static Method b(Class<?> cls, String str, Class<?>[] clsArr) {
         Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
         declaredMethod.setAccessible(true);
         return declaredMethod;

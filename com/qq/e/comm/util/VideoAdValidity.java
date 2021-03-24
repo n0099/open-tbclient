@@ -1,5 +1,5 @@
 package com.qq.e.comm.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum VideoAdValidity {
     VALID("有效且可展示的广告"),
     OVERDUE("过期的广告"),
@@ -8,13 +8,13 @@ public enum VideoAdValidity {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7596a;
+    public String f38395a;
 
     VideoAdValidity(String str) {
-        this.f7596a = str;
+        this.f38395a = str;
     }
 
     public final String getMessage() {
-        return this.f7596a;
+        return this.f38395a;
     }
 }

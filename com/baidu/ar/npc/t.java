@@ -1,30 +1,38 @@
 package com.baidu.ar.npc;
 
 import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class t implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1301a;
-    final /* synthetic */ int b;
-    final /* synthetic */ HashMap c;
-    final /* synthetic */ int d;
-    final /* synthetic */ int e;
-    final /* synthetic */ ArBridge f;
+    public final /* synthetic */ String f4211a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ int f4212b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ HashMap f4213c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ int f4214d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ int f4215e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final /* synthetic */ ArBridge f4216f;
+
     public t(ArBridge arBridge, String str, int i, HashMap hashMap, int i2, int i3) {
-        this.f = arBridge;
-        this.f1301a = str;
-        this.b = i;
-        this.c = hashMap;
-        this.d = i2;
-        this.e = i3;
+        this.f4216f = arBridge;
+        this.f4211a = str;
+        this.f4212b = i;
+        this.f4213c = hashMap;
+        this.f4214d = i2;
+        this.f4215e = i3;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f.nativeCreateCase(this.f1301a, this.b, this.c, this.d, this.e);
+        this.f4216f.nativeCreateCase(this.f4211a, this.f4212b, this.f4213c, this.f4214d, this.f4215e);
     }
 }

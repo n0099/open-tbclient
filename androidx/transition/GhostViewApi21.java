@@ -9,24 +9,28 @@ import androidx.annotation.RequiresApi;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
-class GhostViewApi21 implements GhostViewImpl {
-    private static final String TAG = "GhostViewApi21";
-    private static Method sAddGhostMethod;
-    private static boolean sAddGhostMethodFetched;
-    private static Class<?> sGhostViewClass;
-    private static boolean sGhostViewClassFetched;
-    private static Method sRemoveGhostMethod;
-    private static boolean sRemoveGhostMethodFetched;
-    private final View mGhostView;
+/* loaded from: classes.dex */
+public class GhostViewApi21 implements GhostViewImpl {
+    public static final String TAG = "GhostViewApi21";
+    public static Method sAddGhostMethod;
+    public static boolean sAddGhostMethodFetched;
+    public static Class<?> sGhostViewClass;
+    public static boolean sGhostViewClassFetched;
+    public static Method sRemoveGhostMethod;
+    public static boolean sRemoveGhostMethodFetched;
+    public final View mGhostView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public GhostViewApi21(@NonNull View view) {
+        this.mGhostView = view;
+    }
+
     public static GhostViewImpl addGhost(View view, ViewGroup viewGroup, Matrix matrix) {
         fetchAddGhostMethod();
-        if (sAddGhostMethod != null) {
+        Method method = sAddGhostMethod;
+        if (method != null) {
             try {
-                return new GhostViewApi21((View) sAddGhostMethod.invoke(null, view, viewGroup, matrix));
-            } catch (IllegalAccessException e) {
+                return new GhostViewApi21((View) method.invoke(null, view, viewGroup, matrix));
+            } catch (IllegalAccessException unused) {
             } catch (InvocationTargetException e2) {
                 throw new RuntimeException(e2.getCause());
             }
@@ -34,66 +38,67 @@ class GhostViewApi21 implements GhostViewImpl {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void fetchAddGhostMethod() {
+        if (sAddGhostMethodFetched) {
+            return;
+        }
+        try {
+            fetchGhostViewClass();
+            Method declaredMethod = sGhostViewClass.getDeclaredMethod("addGhost", View.class, ViewGroup.class, Matrix.class);
+            sAddGhostMethod = declaredMethod;
+            declaredMethod.setAccessible(true);
+        } catch (NoSuchMethodException e2) {
+            Log.i(TAG, "Failed to retrieve addGhost method", e2);
+        }
+        sAddGhostMethodFetched = true;
+    }
+
+    public static void fetchGhostViewClass() {
+        if (sGhostViewClassFetched) {
+            return;
+        }
+        try {
+            sGhostViewClass = Class.forName("android.view.GhostView");
+        } catch (ClassNotFoundException e2) {
+            Log.i(TAG, "Failed to retrieve GhostView class", e2);
+        }
+        sGhostViewClassFetched = true;
+    }
+
+    public static void fetchRemoveGhostMethod() {
+        if (sRemoveGhostMethodFetched) {
+            return;
+        }
+        try {
+            fetchGhostViewClass();
+            Method declaredMethod = sGhostViewClass.getDeclaredMethod("removeGhost", View.class);
+            sRemoveGhostMethod = declaredMethod;
+            declaredMethod.setAccessible(true);
+        } catch (NoSuchMethodException e2) {
+            Log.i(TAG, "Failed to retrieve removeGhost method", e2);
+        }
+        sRemoveGhostMethodFetched = true;
+    }
+
     public static void removeGhost(View view) {
         fetchRemoveGhostMethod();
-        if (sRemoveGhostMethod != null) {
+        Method method = sRemoveGhostMethod;
+        if (method != null) {
             try {
-                sRemoveGhostMethod.invoke(null, view);
-            } catch (IllegalAccessException e) {
+                method.invoke(null, view);
+            } catch (IllegalAccessException unused) {
             } catch (InvocationTargetException e2) {
                 throw new RuntimeException(e2.getCause());
             }
         }
     }
 
-    private GhostViewApi21(@NonNull View view) {
-        this.mGhostView = view;
+    @Override // androidx.transition.GhostViewImpl
+    public void reserveEndViewTransition(ViewGroup viewGroup, View view) {
     }
 
     @Override // androidx.transition.GhostViewImpl
     public void setVisibility(int i) {
         this.mGhostView.setVisibility(i);
-    }
-
-    @Override // androidx.transition.GhostViewImpl
-    public void reserveEndViewTransition(ViewGroup viewGroup, View view) {
-    }
-
-    private static void fetchGhostViewClass() {
-        if (!sGhostViewClassFetched) {
-            try {
-                sGhostViewClass = Class.forName("android.view.GhostView");
-            } catch (ClassNotFoundException e) {
-                Log.i(TAG, "Failed to retrieve GhostView class", e);
-            }
-            sGhostViewClassFetched = true;
-        }
-    }
-
-    private static void fetchAddGhostMethod() {
-        if (!sAddGhostMethodFetched) {
-            try {
-                fetchGhostViewClass();
-                sAddGhostMethod = sGhostViewClass.getDeclaredMethod("addGhost", View.class, ViewGroup.class, Matrix.class);
-                sAddGhostMethod.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                Log.i(TAG, "Failed to retrieve addGhost method", e);
-            }
-            sAddGhostMethodFetched = true;
-        }
-    }
-
-    private static void fetchRemoveGhostMethod() {
-        if (!sRemoveGhostMethodFetched) {
-            try {
-                fetchGhostViewClass();
-                sRemoveGhostMethod = sGhostViewClass.getDeclaredMethod("removeGhost", View.class);
-                sRemoveGhostMethod.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                Log.i(TAG, "Failed to retrieve removeGhost method", e);
-            }
-            sRemoveGhostMethodFetched = true;
-        }
     }
 }

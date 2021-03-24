@@ -2,8 +2,8 @@ package com.baidu.pass.http;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.android.internal.http.multipart.Part;
 import com.baidu.pass.http.MultipartHashMap;
-import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -17,51 +17,61 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2844a = "PassHttpClientRequest";
-    private static final String b = "Set-Cookie";
-    private static final char[] c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-    private static final String d = "User-Agent";
-    private static final int e = 15000;
-    private Context h;
-    private HttpResponseHandler i;
-    private PassHttpParamDTO j;
-    private Method k;
-    private HttpURLConnection l;
-    private Thread m;
-    private String f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
-    private boolean g = false;
-    private volatile boolean n = false;
-    private volatile boolean o = false;
+    public static final String f9755a = "PassHttpClientRequest";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f9756b = "Set-Cookie";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final char[] f9757c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f9758d = "User-Agent";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f9759e = 15000;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Context f9762h;
+    public HttpResponseHandler i;
+    public PassHttpParamDTO j;
+    public Method k;
+    public HttpURLConnection l;
+    public Thread m;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f9760f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f9761g = false;
+    public volatile boolean n = false;
+    public volatile boolean o = false;
+
     public d(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
         this.k = method;
-        this.h = context;
+        this.f9762h = context;
         this.j = passHttpParamDTO;
         this.i = httpResponseHandler;
         c();
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
     private byte[] a(InputStream inputStream) {
-        byte[] bArr = null;
         BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(byteArrayOutputStream);
-        byte[] bArr2 = new byte[8192];
+        byte[] bArr = new byte[8192];
         while (true) {
             try {
                 try {
-                    int read = bufferedInputStream.read(bArr2);
+                    int read = bufferedInputStream.read(bArr);
                     if (read <= 0) {
                         break;
                     }
-                    bufferedOutputStream.write(bArr2, 0, read);
+                    bufferedOutputStream.write(bArr, 0, read);
                 } catch (IOException e2) {
                     e2.printStackTrace();
                     try {
@@ -74,8 +84,9 @@ public class d implements Runnable {
                     } catch (IOException e4) {
                         e4.printStackTrace();
                     }
+                    return null;
                 }
-            } finally {
+            } catch (Throwable th) {
                 try {
                     bufferedOutputStream.close();
                 } catch (IOException e5) {
@@ -86,38 +97,53 @@ public class d implements Runnable {
                 } catch (IOException e6) {
                     e6.printStackTrace();
                 }
+                throw th;
             }
         }
         bufferedOutputStream.flush();
-        bArr = byteArrayOutputStream.toByteArray();
-        return bArr;
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        try {
+            bufferedOutputStream.close();
+        } catch (IOException e7) {
+            e7.printStackTrace();
+        }
+        try {
+            bufferedInputStream.close();
+            return byteArray;
+        } catch (IOException e8) {
+            e8.printStackTrace();
+            return byteArray;
+        }
     }
 
     private void c() {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < 30; i++) {
-            char[] cArr = c;
+            char[] cArr = f9757c;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }
-        this.f = sb.toString();
+        this.f9760f = sb.toString();
     }
 
     private void d() throws IOException, InterruptedException, IllegalArgumentException {
         byte[] bArr;
-        int i = c.f2843a[this.k.ordinal()];
+        int i = c.f9754a[this.k.ordinal()];
         if (i == 1) {
             String a2 = a(this.j.paramsMap);
             if (!TextUtils.isEmpty(a2)) {
-                this.j.url += "?" + a2;
+                PassHttpParamDTO passHttpParamDTO = this.j;
+                passHttpParamDTO.url = this.j.url + "?" + a2;
             }
-            this.l = (HttpURLConnection) new URL(this.j.url).openConnection();
-            this.l.setRequestMethod("GET");
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.j.url).openConnection();
+            this.l = httpURLConnection;
+            httpURLConnection.setRequestMethod("GET");
             this.l.setUseCaches(false);
             bArr = null;
         } else if (i == 2) {
-            this.l = (HttpURLConnection) new URL(this.j.url).openConnection();
-            this.l.setRequestMethod("POST");
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.j.url).openConnection();
+            this.l = httpURLConnection2;
+            httpURLConnection2.setRequestMethod("POST");
             this.l.setDoOutput(true);
             bArr = a(this.l, this.j);
         } else {
@@ -126,7 +152,7 @@ public class d implements Runnable {
         a(this.l, this.j.connectTimeout);
         a(this.l, this.j.userAgent);
         a(this.l, this.j.headers);
-        e.b(this.h, this.l, this.j);
+        e.b(this.f9762h, this.l, this.j);
         if (bArr != null) {
             OutputStream outputStream = this.l.getOutputStream();
             outputStream.write(bArr);
@@ -137,29 +163,29 @@ public class d implements Runnable {
         int responseCode = this.l.getResponseCode();
         byte[] a3 = a(inputStream);
         if (a3 != null) {
-            f.a(f2844a, "responseBody:" + new String(a3));
+            f.a(f9755a, "responseBody:" + new String(a3));
         }
         HashMap<String, String> a4 = a(this.l);
-        e.a(this.h, this.l, this.j);
+        e.a(this.f9762h, this.l, this.j);
         HttpResponseHandler httpResponseHandler = this.i;
         if (httpResponseHandler != null) {
             httpResponseHandler.b(responseCode, a4, a3);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void b() {
         this.o = true;
-        if (this.m != null) {
-            while (this.m.isAlive() && !this.n) {
-                this.m.interrupt();
-                try {
-                    this.m.join(10L);
-                } catch (InterruptedException e2) {
-                }
-            }
-            this.m = null;
+        if (this.m == null) {
+            return;
         }
+        while (this.m.isAlive() && !this.n) {
+            this.m.interrupt();
+            try {
+                this.m.join(10L);
+            } catch (InterruptedException unused) {
+            }
+        }
+        this.m = null;
     }
 
     @Override // java.lang.Runnable
@@ -205,13 +231,13 @@ public class d implements Runnable {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < 30; i++) {
-            char[] cArr = c;
+            char[] cArr = f9757c;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }
-        byte[] bytes = ("\r\n--" + this.f + "\r\n").getBytes();
-        if (!this.g) {
-            this.g = true;
-            byteArrayOutputStream.write(("--" + this.f + "\r\n").getBytes());
+        byte[] bytes = ("\r\n--" + this.f9760f + Part.CRLF).getBytes();
+        if (!this.f9761g) {
+            this.f9761g = true;
+            byteArrayOutputStream.write(("--" + this.f9760f + Part.CRLF).getBytes());
             return;
         }
         byteArrayOutputStream.write(bytes);
@@ -227,9 +253,19 @@ public class d implements Runnable {
         try {
             try {
                 a(byteArrayOutputStream);
-                byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + str2 + "\"\r\n").getBytes());
+                StringBuilder sb = new StringBuilder();
+                sb.append("Content-Disposition: form-data; name=\"");
+                sb.append(str);
+                sb.append("\"; filename=\"");
+                sb.append(str2);
+                sb.append("\"\r\n");
+                byteArrayOutputStream.write(sb.toString().getBytes());
                 if (str3 != null) {
-                    byteArrayOutputStream.write(("Content-Type: " + str3 + "\r\n\r\n").getBytes());
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append(Part.CONTENT_TYPE);
+                    sb2.append(str3);
+                    sb2.append("\r\n\r\n");
+                    byteArrayOutputStream.write(sb2.toString().getBytes());
                 } else {
                     byteArrayOutputStream.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
                 }
@@ -242,16 +278,22 @@ public class d implements Runnable {
                     byteArrayOutputStream.write(bArr, 0, read);
                 }
                 byteArrayOutputStream.flush();
+                try {
+                    inputStream.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
                 return byteArrayOutputStream;
-            } catch (IOException e2) {
-                throw e2;
+            } catch (IOException e3) {
+                throw e3;
             }
-        } finally {
+        } catch (Throwable th) {
             try {
                 inputStream.close();
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            } catch (IOException e4) {
+                e4.printStackTrace();
             }
+            throw th;
         }
     }
 
@@ -261,8 +303,10 @@ public class d implements Runnable {
             for (Map.Entry entry : httpHashMap.getMap().entrySet()) {
                 if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
                     try {
-                        sb.append(URLEncoder.encode((String) entry.getKey(), "UTF-8")).append("=").append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
-                        sb.append(ETAG.ITEM_SEPARATOR);
+                        sb.append(URLEncoder.encode((String) entry.getKey(), "UTF-8"));
+                        sb.append("=");
+                        sb.append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
+                        sb.append("&");
                     } catch (UnsupportedEncodingException e2) {
                         f.a(e2.getMessage());
                     }
@@ -307,7 +351,7 @@ public class d implements Runnable {
     private byte[] a(HttpURLConnection httpURLConnection, PassHttpParamDTO passHttpParamDTO) throws IOException {
         HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
         if (httpHashMap instanceof MultipartHashMap) {
-            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f);
+            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f9760f);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
             if (httpHashMap2 != null) {
@@ -318,7 +362,7 @@ public class d implements Runnable {
                 }
             }
             MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-            a(byteArrayOutputStream, aVar.f2839a, aVar.b, aVar.d, aVar.c);
+            a(byteArrayOutputStream, aVar.f9745a, aVar.f9746b, aVar.f9748d, aVar.f9747c);
             a(byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } else if (httpHashMap instanceof HttpHashMap) {

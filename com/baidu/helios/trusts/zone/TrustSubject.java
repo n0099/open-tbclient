@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.helios.common.b.a.e;
-import com.baidu.helios.common.c.a;
+import d.b.q.g.c.a.e;
+import d.b.q.g.d.a;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.Comparator;
@@ -16,36 +16,34 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TrustSubject {
 
-    /* renamed from: a  reason: collision with root package name */
-    static Comparator<TrustSubject> f1860a = new Comparator<TrustSubject>() { // from class: com.baidu.helios.trusts.zone.TrustSubject.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(TrustSubject trustSubject, TrustSubject trustSubject2) {
-            long d = trustSubject.avp.d() - trustSubject2.avp.d();
-            return d != 0 ? d > 0 ? -1 : 1 : trustSubject.packageName.compareTo(trustSubject2.packageName);
-        }
-    };
-    static Comparator<TrustSubject> avq = new Comparator<TrustSubject>() { // from class: com.baidu.helios.trusts.zone.TrustSubject.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(TrustSubject trustSubject, TrustSubject trustSubject2) {
-            long f = trustSubject.avp.f() - trustSubject2.avp.f();
-            return f != 0 ? f > 0 ? -1 : 1 : trustSubject.packageName.compareTo(trustSubject2.packageName);
-        }
-    };
-    private a.C0139a avo;
-    private Context e;
-    public final String packageName;
-    private final com.baidu.helios.trusts.zone.b.a avm = new com.baidu.helios.trusts.zone.b.a();
-    private final com.baidu.helios.trusts.zone.a.a avn = new com.baidu.helios.trusts.zone.a.a();
-    private a avp = new a();
+    /* renamed from: g  reason: collision with root package name */
+    public static Comparator<TrustSubject> f6271g = new a();
 
-    /* loaded from: classes4.dex */
+    /* renamed from: h  reason: collision with root package name */
+    public static Comparator<TrustSubject> f6272h = new b();
+
+    /* renamed from: a  reason: collision with root package name */
+    public final String f6273a;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f6276d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public a.C1752a f6277e;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final d.b.q.j.a.c.a f6274b = new d.b.q.j.a.c.a();
+
+    /* renamed from: c  reason: collision with root package name */
+    public final d.b.q.j.a.b.a f6275c = new d.b.q.j.a.b.a();
+
+    /* renamed from: f  reason: collision with root package name */
+    public c f6278f = new c();
+
+    /* loaded from: classes2.dex */
     public static class ConfigNotFoundException extends Exception {
         public ConfigNotFoundException(String str) {
             super(str);
@@ -60,366 +58,382 @@ public class TrustSubject {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public class a {
-        private int t;
-        private long u;
-        private long v;
-        private long w;
-        private long x;
-        private e avr = new e();
-        private boolean z = true;
-        private Set<String> A = new HashSet();
+    /* loaded from: classes2.dex */
+    public static class a implements Comparator<TrustSubject> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(TrustSubject trustSubject, TrustSubject trustSubject2) {
+            long k = trustSubject.f6278f.k() - trustSubject2.f6278f.k();
+            return k != 0 ? k > 0 ? -1 : 1 : trustSubject.f6273a.compareTo(trustSubject2.f6273a);
+        }
+    }
 
-        a() {
+    /* loaded from: classes2.dex */
+    public static class b implements Comparator<TrustSubject> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(TrustSubject trustSubject, TrustSubject trustSubject2) {
+            long o = trustSubject.f6278f.o() - trustSubject2.f6278f.o();
+            return o != 0 ? o > 0 ? -1 : 1 : trustSubject.f6273a.compareTo(trustSubject2.f6273a);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class c {
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f6279a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public long f6280b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public long f6281c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public long f6282d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public long f6283e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public e f6284f = new e();
+
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f6285g = true;
+
+        /* renamed from: h  reason: collision with root package name */
+        public Set<String> f6286h = new HashSet();
+
+        public c() {
         }
 
-        public boolean Q(long j) {
-            if (this.x != j) {
-                this.x = j;
-                this.z = true;
-                return true;
-            }
-            return false;
-        }
-
-        public boolean R(long j) {
-            if (this.w != j) {
-                this.w = j;
-                return true;
-            }
-            return false;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
         public long a(long j) {
-            return this.avr.P(j);
+            return this.f6284f.a(j);
         }
 
-        public void a(Set<String> set) {
+        public void c(Set<String> set) {
             if (set == null || set.size() == 0) {
-                if (this.A.size() != 0) {
-                    this.A.clear();
-                    this.z = true;
+                if (this.f6286h.size() == 0) {
+                    return;
                 }
-            } else if (this.A.equals(set)) {
+                this.f6286h.clear();
+            } else if (this.f6286h.equals(set)) {
+                return;
             } else {
-                this.A.clear();
-                this.A.addAll(set);
-                this.z = true;
+                this.f6286h.clear();
+                this.f6286h.addAll(set);
             }
+            this.f6285g = true;
         }
 
-        public boolean a(int i) {
-            if (this.t != i) {
-                this.t = i;
-                this.z = true;
+        public boolean d(int i) {
+            if (this.f6279a != i) {
+                this.f6279a = i;
+                this.f6285g = true;
                 return true;
             }
             return false;
         }
 
-        boolean a(long j, long j2) {
-            if (this.avr.g(j, j2)) {
-                this.z = true;
+        public boolean e(long j, long j2) {
+            if (this.f6284f.c(j, j2)) {
+                this.f6285g = true;
                 return true;
             }
             return false;
         }
 
-        public boolean a(boolean z) {
-            return a(z ? 1L : 2L, 3L);
+        public boolean f(boolean z) {
+            return e(z ? 1L : 2L, 3L);
         }
 
-        public int b() {
-            return this.t;
+        public int g() {
+            return this.f6279a;
         }
 
-        public boolean b(long j) {
-            if (this.u != j) {
-                this.u = j;
-                this.z = true;
+        public boolean h(long j) {
+            if (this.f6280b != j) {
+                this.f6280b = j;
+                this.f6285g = true;
                 return true;
             }
             return false;
         }
 
-        public long c() {
-            return this.u;
+        public long i() {
+            return this.f6280b;
         }
 
-        public boolean c(long j) {
-            if (this.v != j) {
-                this.v = j;
-                this.z = true;
+        public boolean j(long j) {
+            if (this.f6281c != j) {
+                this.f6281c = j;
+                this.f6285g = true;
                 return true;
             }
             return false;
         }
 
-        public long d() {
-            return this.v;
+        public long k() {
+            return this.f6281c;
         }
 
-        public long e() {
-            return this.x;
+        public boolean l(long j) {
+            if (this.f6283e != j) {
+                this.f6283e = j;
+                this.f6285g = true;
+                return true;
+            }
+            return false;
         }
 
-        public long f() {
-            return this.w;
+        public long m() {
+            return this.f6283e;
         }
 
-        public Set<String> g() {
-            return this.A;
+        public boolean n(long j) {
+            if (this.f6282d != j) {
+                this.f6282d = j;
+                return true;
+            }
+            return false;
         }
 
-        public boolean h() {
-            if (this.z) {
+        public long o() {
+            return this.f6282d;
+        }
+
+        public Set<String> p() {
+            return this.f6286h;
+        }
+
+        public boolean q() {
+            if (this.f6285g) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, this.u);
-                    jSONObject.put("version_code", this.t);
-                    jSONObject.put("trust_priority", this.v);
-                    jSONObject.put("quick_config_version", this.w);
-                    jSONObject.put("config_version", this.x);
-                    jSONObject.put("flags", this.avr.vh());
-                    if (this.A.size() > 0) {
+                    jSONObject.put(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, this.f6280b);
+                    jSONObject.put("version_code", this.f6279a);
+                    jSONObject.put("trust_priority", this.f6281c);
+                    jSONObject.put("quick_config_version", this.f6282d);
+                    jSONObject.put("config_version", this.f6283e);
+                    jSONObject.put("flags", this.f6284f.d());
+                    if (this.f6286h.size() > 0) {
                         JSONArray jSONArray = new JSONArray();
-                        for (String str : this.A) {
+                        for (String str : this.f6286h) {
                             jSONArray.put(str);
                         }
                         jSONObject.put("pkg_sigs", jSONArray);
                     }
-                    TrustSubject.this.avo.c("ts_info", jSONObject.toString(), true);
-                    this.z = false;
+                    TrustSubject.this.f6277e.i("ts_info", jSONObject.toString(), true);
+                    this.f6285g = false;
                     return true;
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
             }
             return false;
         }
 
-        public void i() {
-            String p = TrustSubject.this.avo.p("ts_info", true);
-            if (TextUtils.isEmpty(p)) {
+        public void r() {
+            String g2 = TrustSubject.this.f6277e.g("ts_info", true);
+            if (TextUtils.isEmpty(g2)) {
                 return;
             }
             try {
-                JSONObject jSONObject = new JSONObject(p);
-                this.u = jSONObject.getLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME);
-                this.t = jSONObject.getInt("version_code");
-                this.v = jSONObject.getLong("trust_priority");
-                this.w = jSONObject.getLong("quick_config_version");
-                this.x = jSONObject.getLong("config_version");
-                this.avr.O(jSONObject.getLong("flags"));
-                this.A.clear();
+                JSONObject jSONObject = new JSONObject(g2);
+                this.f6280b = jSONObject.getLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME);
+                this.f6279a = jSONObject.getInt("version_code");
+                this.f6281c = jSONObject.getLong("trust_priority");
+                this.f6282d = jSONObject.getLong("quick_config_version");
+                this.f6283e = jSONObject.getLong("config_version");
+                this.f6284f.b(jSONObject.getLong("flags"));
+                this.f6286h.clear();
                 JSONArray optJSONArray = jSONObject.optJSONArray("pkg_sigs");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
-                        this.A.add(optJSONArray.getString(i));
+                        this.f6286h.add(optJSONArray.getString(i));
                     }
                 }
-                this.z = false;
-            } catch (JSONException e) {
-                e.printStackTrace();
+                this.f6285g = false;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static class b implements FileFilter {
+    /* loaded from: classes2.dex */
+    public static class d implements FileFilter {
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             return file.isDirectory() && file.getName().startsWith("pkg-");
         }
     }
 
-    public TrustSubject(String str, Context context, a.C0139a c0139a) {
-        this.e = context;
-        this.packageName = str;
-        this.avo = c0139a.eg(a(str));
-        n();
+    public TrustSubject(String str, Context context, a.C1752a c1752a) {
+        this.f6276d = context;
+        this.f6273a = str;
+        this.f6277e = c1752a.f(c(str));
+        x();
     }
 
-    static String a(String str) {
+    public static String c(String str) {
         return "pkg-" + Base64.encodeToString(str.getBytes(), 3);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String b(String str) {
-        if (!TextUtils.isEmpty(str) && str.length() > "pkg-".length()) {
+    public static String f(String str) {
+        if (!TextUtils.isEmpty(str) && str.length() > 4) {
             try {
-                return new String(Base64.decode(str.substring("pkg-".length()), 3));
-            } catch (Exception e) {
+                return new String(Base64.decode(str.substring(4), 3));
+            } catch (Exception unused) {
                 return null;
             }
         }
         return null;
     }
 
-    private void n() {
-        this.avm.a(this.packageName, this.e);
-        this.avn.a(this.packageName, this.e, this.avo);
+    public c a() {
+        return this.f6278f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(com.baidu.helios.common.a.b.a aVar) {
-        this.avm.a(aVar, true);
-        this.avp.a(this.avm.a());
-        this.avp.c(this.avm.b());
-        this.avp.a(this.avm.c());
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b() {
-        long a2 = this.avn.a();
-        if (a2 > -1) {
-            this.avp.a(128L, 384L);
-        } else {
-            this.avp.a(256L, 384L);
-        }
-        this.avp.R(a2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean c() {
-        switch (this.avn.b()) {
-            case 0:
-                this.avp.a(16L, 48L);
-                this.avp.a(64L, 64L);
-                this.avp.a(4L, 12L);
-                d();
-                this.avp.Q(this.avn.g());
-                return true;
-            case 1:
-            case 2:
-            default:
-                this.avp.a(32L, 48L);
-                this.avp.a(0L, 64L);
-                return false;
-            case 3:
-                this.avp.a(32L, 48L);
-                this.avp.a(8L, 12L);
-                return false;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void d() {
-        this.avn.e();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void e() {
-        this.avn.f();
-    }
-
-    public String ei(String str) {
-        this.avn.e();
-        return this.avn.a(str);
+    public void d(d.b.q.g.b.e.a aVar) {
+        this.f6274b.b(aVar, true);
+        this.f6278f.f(this.f6274b.d());
+        this.f6278f.j(this.f6274b.i());
+        this.f6278f.c(this.f6274b.j());
     }
 
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || TrustSubject.class != obj.getClass()) {
             return false;
         }
-        return this.packageName.equals(((TrustSubject) obj).packageName);
+        return this.f6273a.equals(((TrustSubject) obj).f6273a);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void f() {
-        this.avn.c();
-        this.avp.a(0L, 64L);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void g() {
-        this.avn.d();
+        long a2 = this.f6275c.a();
+        this.f6278f.e(a2 > -1 ? 128L : 256L, 384L);
+        this.f6278f.n(a2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean h() {
-        return this.avp.f() == this.avp.e();
+        int d2 = this.f6275c.d();
+        if (d2 == 0) {
+            this.f6278f.e(16L, 48L);
+            this.f6278f.e(64L, 64L);
+            this.f6278f.e(4L, 12L);
+            i();
+            this.f6278f.l(this.f6275c.j());
+            return true;
+        } else if (d2 != 3) {
+            this.f6278f.e(32L, 48L);
+            this.f6278f.e(0L, 64L);
+            return false;
+        } else {
+            this.f6278f.e(32L, 48L);
+            this.f6278f.e(8L, 12L);
+            return false;
+        }
     }
 
     public int hashCode() {
-        return this.packageName.hashCode();
+        return this.f6273a.hashCode();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void i() {
-        try {
-            PackageInfo packageInfo = this.e.getPackageManager().getPackageInfo(this.packageName, 0);
-            long j = packageInfo.lastUpdateTime;
-            int i = packageInfo.versionCode;
-            this.avp.b(j);
-            this.avp.a(i);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
+        this.f6275c.h();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Set<String> j() {
-        return new HashSet(this.avp.g());
+    public void j() {
+        this.f6275c.i();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean k() {
-        try {
-            PackageInfo packageInfo = this.e.getPackageManager().getPackageInfo(this.packageName, 0);
-            long j = packageInfo.lastUpdateTime;
-            int i = packageInfo.versionCode;
-            if (this.avp.c() == j) {
-                return this.avp.b() == i;
-            }
-            return false;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
+    public void k() {
+        this.f6275c.f();
+        this.f6278f.e(0L, 64L);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void l() {
-        this.avp.i();
+        this.f6275c.g();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean m() {
-        return this.avp.h();
+    public String m(String str) {
+        this.f6275c.h();
+        return this.f6275c.b(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a vt() {
-        return this.avp;
+    public long n() {
+        return this.f6278f.f6283e;
     }
 
-    public boolean vu() {
-        PackageInfo packageInfo = null;
+    public long o() {
+        return this.f6278f.k();
+    }
+
+    public boolean p() {
+        return this.f6278f.o() == this.f6278f.m();
+    }
+
+    public void q() {
         try {
-            packageInfo = this.e.getPackageManager().getPackageInfo(this.packageName, 0);
-        } catch (PackageManager.NameNotFoundException e) {
+            PackageInfo packageInfo = this.f6276d.getPackageManager().getPackageInfo(this.f6273a, 0);
+            long j = packageInfo.lastUpdateTime;
+            int i = packageInfo.versionCode;
+            this.f6278f.h(j);
+            this.f6278f.d(i);
+        } catch (PackageManager.NameNotFoundException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public boolean r() {
+        return this.f6278f.a(12L) == 4;
+    }
+
+    public boolean s() {
+        PackageInfo packageInfo;
+        try {
+            packageInfo = this.f6276d.getPackageManager().getPackageInfo(this.f6273a, 0);
+        } catch (PackageManager.NameNotFoundException unused) {
+            packageInfo = null;
         }
         return packageInfo != null;
     }
 
-    public long vv() {
-        return this.avp.x;
+    public Set<String> t() {
+        return new HashSet(this.f6278f.p());
     }
 
-    public long vw() {
-        return this.avp.d();
+    public boolean u() {
+        try {
+            PackageInfo packageInfo = this.f6276d.getPackageManager().getPackageInfo(this.f6273a, 0);
+            long j = packageInfo.lastUpdateTime;
+            int i = packageInfo.versionCode;
+            if (this.f6278f.i() == j) {
+                return this.f6278f.g() == i;
+            }
+            return false;
+        } catch (PackageManager.NameNotFoundException e2) {
+            e2.printStackTrace();
+            return false;
+        }
     }
 
-    public boolean vx() {
-        return this.avp.a(12L) == 4;
+    public void v() {
+        this.f6278f.r();
+    }
+
+    public boolean w() {
+        return this.f6278f.q();
+    }
+
+    public final void x() {
+        this.f6274b.c(this.f6273a, this.f6276d);
+        this.f6275c.c(this.f6273a, this.f6276d, this.f6277e);
     }
 }

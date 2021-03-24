@@ -2,17 +2,18 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PoiDetailInfo implements Parcelable {
     public static final Parcelable.Creator<PoiDetailInfo> CREATOR = new f();
-    private String address;
-    private String area;
+    public String address;
+    public String area;
     public int checkinNum;
-    private String city;
+    public String city;
     public int commentNum;
-    private int detail;
+    public int detail;
     public String detailUrl;
     public int discountNum;
     public int distance;
@@ -22,27 +23,26 @@ public class PoiDetailInfo implements Parcelable {
     public int grouponNum;
     public double hygieneRating;
     public int imageNum;
-    private LatLng location;
-    private String name;
+    public LatLng location;
+    public String name;
     public LatLng naviLocation;
     public double overallRating;
-    private List<PoiChildrenInfo> poiChildrenInfoList;
+    public List<PoiChildrenInfo> poiChildrenInfoList;
     public double price;
-    private String province;
+    public String province;
     public double serviceRating;
     public String shopHours;
-    private String streetId;
+    public String streetId;
     public String tag;
     public double tasteRating;
     public double technologyRating;
-    private String telephone;
+    public String telephone;
     public String type;
-    private String uid;
+    public String uid;
 
     public PoiDetailInfo() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public PoiDetailInfo(Parcel parcel) {
         this.name = parcel.readString();
         this.location = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
@@ -229,7 +229,7 @@ public class PoiDetailInfo implements Parcelable {
     public void setDetail(String str) {
         try {
             this.detail = Integer.parseInt(str);
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException unused) {
             this.detail = 0;
         }
     }
@@ -246,12 +246,12 @@ public class PoiDetailInfo implements Parcelable {
         this.distance = i;
     }
 
-    public void setEnvironmentRating(double d) {
-        this.environmentRating = d;
+    public void setEnvironmentRating(double d2) {
+        this.environmentRating = d2;
     }
 
-    public void setFacilityRating(double d) {
-        this.facilityRating = d;
+    public void setFacilityRating(double d2) {
+        this.facilityRating = d2;
     }
 
     public void setFavoriteNum(int i) {
@@ -262,8 +262,8 @@ public class PoiDetailInfo implements Parcelable {
         this.grouponNum = i;
     }
 
-    public void setHygieneRating(double d) {
-        this.hygieneRating = d;
+    public void setHygieneRating(double d2) {
+        this.hygieneRating = d2;
     }
 
     public void setImageNum(int i) {
@@ -282,24 +282,24 @@ public class PoiDetailInfo implements Parcelable {
         this.naviLocation = latLng;
     }
 
-    public void setOverallRating(double d) {
-        this.overallRating = d;
+    public void setOverallRating(double d2) {
+        this.overallRating = d2;
     }
 
     public void setPoiChildrenInfoList(List<PoiChildrenInfo> list) {
         this.poiChildrenInfoList = list;
     }
 
-    public void setPrice(double d) {
-        this.price = d;
+    public void setPrice(double d2) {
+        this.price = d2;
     }
 
     public void setProvince(String str) {
         this.province = str;
     }
 
-    public void setServiceRating(double d) {
-        this.serviceRating = d;
+    public void setServiceRating(double d2) {
+        this.serviceRating = d2;
     }
 
     public void setShopHours(String str) {
@@ -314,12 +314,12 @@ public class PoiDetailInfo implements Parcelable {
         this.tag = str;
     }
 
-    public void setTasteRating(double d) {
-        this.tasteRating = d;
+    public void setTasteRating(double d2) {
+        this.tasteRating = d2;
     }
 
-    public void setTechnologyRating(double d) {
-        this.technologyRating = d;
+    public void setTechnologyRating(double d2) {
+        this.technologyRating = d2;
     }
 
     public void setTelephone(String str) {
@@ -336,60 +336,86 @@ public class PoiDetailInfo implements Parcelable {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PoiDetailInfo: ");
-        stringBuffer.append("name = ").append(this.name);
+        stringBuffer.append("name = ");
+        stringBuffer.append(this.name);
         stringBuffer.append("; location = ");
-        if (this.location != null) {
-            stringBuffer.append(this.location.toString());
+        LatLng latLng = this.location;
+        if (latLng != null) {
+            stringBuffer.append(latLng.toString());
         } else {
-            stringBuffer.append("null");
+            stringBuffer.append(StringUtil.NULL_STRING);
         }
-        stringBuffer.append("; address = ").append(this.address);
-        stringBuffer.append("; province = ").append(this.province);
-        stringBuffer.append("; city = ").append(this.city);
-        stringBuffer.append("; area = ").append(this.area);
-        stringBuffer.append("; telephone = ").append(this.telephone);
-        stringBuffer.append("; uid = ").append(this.uid);
-        stringBuffer.append("; detail = ").append(this.detail);
-        stringBuffer.append("; distance = ").append(this.distance);
-        stringBuffer.append("; type = ").append(this.type);
-        stringBuffer.append("; tag = ").append(this.tag);
+        stringBuffer.append("; address = ");
+        stringBuffer.append(this.address);
+        stringBuffer.append("; province = ");
+        stringBuffer.append(this.province);
+        stringBuffer.append("; city = ");
+        stringBuffer.append(this.city);
+        stringBuffer.append("; area = ");
+        stringBuffer.append(this.area);
+        stringBuffer.append("; telephone = ");
+        stringBuffer.append(this.telephone);
+        stringBuffer.append("; uid = ");
+        stringBuffer.append(this.uid);
+        stringBuffer.append("; detail = ");
+        stringBuffer.append(this.detail);
+        stringBuffer.append("; distance = ");
+        stringBuffer.append(this.distance);
+        stringBuffer.append("; type = ");
+        stringBuffer.append(this.type);
+        stringBuffer.append("; tag = ");
+        stringBuffer.append(this.tag);
         stringBuffer.append("; naviLocation = ");
-        if (this.naviLocation != null) {
-            stringBuffer.append(this.naviLocation.toString());
+        LatLng latLng2 = this.naviLocation;
+        if (latLng2 != null) {
+            stringBuffer.append(latLng2.toString());
         } else {
-            stringBuffer.append("null");
+            stringBuffer.append(StringUtil.NULL_STRING);
         }
-        stringBuffer.append("; detailUrl = ").append(this.detailUrl);
-        stringBuffer.append("; price = ").append(this.price);
-        stringBuffer.append("; shopHours = ").append(this.shopHours);
-        stringBuffer.append("; overallRating = ").append(this.overallRating);
-        stringBuffer.append("; tasteRating = ").append(this.tasteRating);
-        stringBuffer.append("; serviceRating = ").append(this.serviceRating);
-        stringBuffer.append("; environmentRating = ").append(this.environmentRating);
-        stringBuffer.append("; facilityRating = ").append(this.facilityRating);
-        stringBuffer.append("; hygieneRating = ").append(this.hygieneRating);
-        stringBuffer.append("; technologyRating = ").append(this.technologyRating);
-        stringBuffer.append("; imageNum = ").append(this.imageNum);
-        stringBuffer.append("; grouponNum = ").append(this.grouponNum);
-        stringBuffer.append("; discountNum = ").append(this.discountNum);
-        stringBuffer.append("; commentNum = ").append(this.commentNum);
-        stringBuffer.append("; favoriteNum = ").append(this.favoriteNum);
-        stringBuffer.append("; checkinNum = ").append(this.checkinNum);
-        if (this.poiChildrenInfoList != null && !this.poiChildrenInfoList.isEmpty()) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= this.poiChildrenInfoList.size()) {
-                    break;
-                }
-                stringBuffer.append("; The ").append(i2).append(" poiChildrenInfo is: ");
-                PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i2);
+        stringBuffer.append("; detailUrl = ");
+        stringBuffer.append(this.detailUrl);
+        stringBuffer.append("; price = ");
+        stringBuffer.append(this.price);
+        stringBuffer.append("; shopHours = ");
+        stringBuffer.append(this.shopHours);
+        stringBuffer.append("; overallRating = ");
+        stringBuffer.append(this.overallRating);
+        stringBuffer.append("; tasteRating = ");
+        stringBuffer.append(this.tasteRating);
+        stringBuffer.append("; serviceRating = ");
+        stringBuffer.append(this.serviceRating);
+        stringBuffer.append("; environmentRating = ");
+        stringBuffer.append(this.environmentRating);
+        stringBuffer.append("; facilityRating = ");
+        stringBuffer.append(this.facilityRating);
+        stringBuffer.append("; hygieneRating = ");
+        stringBuffer.append(this.hygieneRating);
+        stringBuffer.append("; technologyRating = ");
+        stringBuffer.append(this.technologyRating);
+        stringBuffer.append("; imageNum = ");
+        stringBuffer.append(this.imageNum);
+        stringBuffer.append("; grouponNum = ");
+        stringBuffer.append(this.grouponNum);
+        stringBuffer.append("; discountNum = ");
+        stringBuffer.append(this.discountNum);
+        stringBuffer.append("; commentNum = ");
+        stringBuffer.append(this.commentNum);
+        stringBuffer.append("; favoriteNum = ");
+        stringBuffer.append(this.favoriteNum);
+        stringBuffer.append("; checkinNum = ");
+        stringBuffer.append(this.checkinNum);
+        List<PoiChildrenInfo> list = this.poiChildrenInfoList;
+        if (list != null && !list.isEmpty()) {
+            for (int i = 0; i < this.poiChildrenInfoList.size(); i++) {
+                stringBuffer.append("; The ");
+                stringBuffer.append(i);
+                stringBuffer.append(" poiChildrenInfo is: ");
+                PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i);
                 if (poiChildrenInfo != null) {
                     stringBuffer.append(poiChildrenInfo.toString());
                 } else {
-                    stringBuffer.append("null");
+                    stringBuffer.append(StringUtil.NULL_STRING);
                 }
-                i = i2 + 1;
             }
         }
         return stringBuffer.toString();

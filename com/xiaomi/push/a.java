@@ -1,18 +1,18 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f8248a = new a(new byte[0]);
+    public static final a f40213a = new a(new byte[0]);
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile int f89a = 0;
+    public volatile int f98a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private final byte[] f90a;
+    public final byte[] f99a;
 
-    private a(byte[] bArr) {
-        this.f90a = bArr;
+    public a(byte[] bArr) {
+        this.f99a = bArr;
     }
 
     public static a a(byte[] bArr) {
@@ -26,15 +26,16 @@ public final class a {
     }
 
     public int a() {
-        return this.f90a.length;
+        return this.f99a.length;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m127a() {
-        int length = this.f90a.length;
-        byte[] bArr = new byte[length];
-        System.arraycopy(this.f90a, 0, bArr, 0, length);
-        return bArr;
+    public byte[] m118a() {
+        byte[] bArr = this.f99a;
+        int length = bArr.length;
+        byte[] bArr2 = new byte[length];
+        System.arraycopy(bArr, 0, bArr2, 0, length);
+        return bArr2;
     }
 
     public boolean equals(Object obj) {
@@ -42,13 +43,12 @@ public final class a {
             return true;
         }
         if (obj instanceof a) {
-            a aVar = (a) obj;
-            int length = this.f90a.length;
-            if (length != aVar.f90a.length) {
+            byte[] bArr = this.f99a;
+            int length = bArr.length;
+            byte[] bArr2 = ((a) obj).f99a;
+            if (length != bArr2.length) {
                 return false;
             }
-            byte[] bArr = this.f90a;
-            byte[] bArr2 = aVar.f90a;
             for (int i = 0; i < length; i++) {
                 if (bArr[i] != bArr2[i]) {
                     return false;
@@ -60,18 +60,15 @@ public final class a {
     }
 
     public int hashCode() {
-        int i = this.f89a;
+        int i = this.f98a;
         if (i == 0) {
-            byte[] bArr = this.f90a;
-            int length = this.f90a.length;
-            i = length;
-            for (int i2 = 0; i2 < length; i2++) {
-                i = (i * 31) + bArr[i2];
+            byte[] bArr = this.f99a;
+            int length = bArr.length;
+            for (byte b2 : bArr) {
+                length = (length * 31) + b2;
             }
-            if (i == 0) {
-                i = 1;
-            }
-            this.f89a = i;
+            i = length == 0 ? 1 : length;
+            this.f98a = i;
         }
         return i;
     }

@@ -1,76 +1,256 @@
 package com.bytedance.sdk.openadsdk.core.d;
+
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4406a;
-    private String b;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private Long g;
+    public long f28218a;
 
-    public String a() {
-        return this.f4406a;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public long f28219b;
 
-    public r a(String str) {
-        this.f4406a = str;
-        return this;
+    /* renamed from: c  reason: collision with root package name */
+    public long f28220c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f28222e;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f28224g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f28225h;
+    public int i;
+    public int j;
+    public long k;
+    public long l;
+    public long m;
+    public long n;
+    public int o;
+    public double p;
+    public String q;
+    public JSONObject r;
+    public long s;
+    public long t;
+    public long u;
+    public long v;
+    public long w;
+    public long x;
+    public long y;
+    public long z;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f28221d = false;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f28223f = true;
+
+    public int a() {
+        return this.f28224g;
     }
 
     public String b() {
-        return this.b;
+        return this.f28225h;
     }
 
-    public r b(String str) {
-        this.b = str;
-        return this;
+    public int c() {
+        return this.i;
     }
 
-    public String c() {
-        return this.c;
+    public int d() {
+        return this.j;
     }
 
-    public r c(String str) {
-        this.c = str;
-        return this;
+    public long e() {
+        return this.k;
     }
 
-    public String d() {
-        return this.d;
+    public long f() {
+        return this.l;
     }
 
-    public r d(String str) {
-        this.d = str;
-        return this;
+    public long g() {
+        return this.n;
     }
 
-    public String e() {
-        return this.e;
+    public int h() {
+        return this.o;
     }
 
-    public r e(String str) {
-        this.e = str;
-        return this;
+    public double i() {
+        return this.p;
     }
 
-    public String f() {
-        return this.f;
+    public String j() {
+        return this.q;
     }
 
-    public r f(String str) {
-        this.f = str;
-        return this;
+    public JSONObject k() {
+        return this.r;
     }
 
-    public Long g() {
-        return this.g;
+    public long l() {
+        return this.s;
     }
 
-    public r a(Long l) {
-        this.g = l;
-        return this;
+    public long m() {
+        return this.t;
+    }
+
+    public long n() {
+        return this.u;
+    }
+
+    public long o() {
+        return this.v;
+    }
+
+    public long p() {
+        return this.w;
+    }
+
+    public long q() {
+        return this.x;
+    }
+
+    public long r() {
+        return this.y;
+    }
+
+    public long s() {
+        return this.z;
+    }
+
+    public long t() {
+        return this.f28218a;
+    }
+
+    public long u() {
+        return this.f28219b;
+    }
+
+    public long v() {
+        return this.f28220c;
+    }
+
+    public boolean w() {
+        return this.f28221d;
+    }
+
+    public long x() {
+        return this.m;
+    }
+
+    public long y() {
+        return this.f28222e;
+    }
+
+    public boolean z() {
+        return this.f28223f;
+    }
+
+    public void a(int i) {
+        this.f28224g = i;
+    }
+
+    public void b(int i) {
+        this.i = i;
+    }
+
+    public void c(int i) {
+        this.j = i;
+    }
+
+    public void d(int i) {
+        this.o = i;
+    }
+
+    public void e(long j) {
+        this.t = j;
+    }
+
+    public void f(long j) {
+        this.u = j;
+    }
+
+    public void g(long j) {
+        this.v = j;
+    }
+
+    public void h(long j) {
+        this.w = j;
+    }
+
+    public void i(long j) {
+        this.x = j;
+    }
+
+    public void j(long j) {
+        this.y = j;
+    }
+
+    public void k(long j) {
+        this.z = j;
+    }
+
+    public void l(long j) {
+        this.f28218a = j;
+    }
+
+    public void m(long j) {
+        this.f28219b = j;
+    }
+
+    public void n(long j) {
+        this.f28220c = j;
+    }
+
+    public void o(long j) {
+        this.m = j;
+    }
+
+    public void p(long j) {
+        this.f28222e = j;
+    }
+
+    public void a(String str) {
+        this.f28225h = str;
+    }
+
+    public void b(long j) {
+        this.l = j;
+    }
+
+    public void c(long j) {
+        this.n = j;
+    }
+
+    public void d(long j) {
+        this.s = j;
+    }
+
+    public void a(long j) {
+        this.k = j;
+    }
+
+    public void b(String str) {
+        this.q = str;
+    }
+
+    public void a(double d2) {
+        this.p = d2;
+    }
+
+    public void b(boolean z) {
+        this.f28223f = z;
+    }
+
+    public void a(JSONObject jSONObject) {
+        this.r = jSONObject;
+    }
+
+    public void a(boolean z) {
+        this.f28221d = z;
     }
 }

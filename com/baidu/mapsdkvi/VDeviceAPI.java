@@ -22,31 +22,31 @@ import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
-import com.baidu.ar.constants.HttpConstants;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VDeviceAPI {
 
     /* renamed from: a  reason: collision with root package name */
-    private static PowerManager.WakeLock f2296a = null;
-    private static BroadcastReceiver b = null;
+    public static PowerManager.WakeLock f7908a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static BroadcastReceiver f7909b;
 
     public static String getAppVersion() {
         try {
             return b.a().getPackageManager().getPackageInfo(b.a().getApplicationInfo().packageName, 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException unused) {
             return null;
         }
     }
 
     public static long getAvailableMemory() {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) b.a().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+        ((ActivityManager) b.a().getSystemService("activity")).getMemoryInfo(memoryInfo);
         return memoryInfo.availMem / 1024;
     }
 
@@ -60,32 +60,32 @@ public class VDeviceAPI {
             return null;
         }
         CellLocation cellLocation = telephonyManager.getCellLocation();
-        return cellLocation instanceof GsmCellLocation ? " " + ((GsmCellLocation) cellLocation).getCid() : " ";
+        if (cellLocation instanceof GsmCellLocation) {
+            return " " + ((GsmCellLocation) cellLocation).getCid();
+        }
+        return " ";
     }
 
     public static int getCurrentNetworkType() {
         NetworkInfo networkInfo;
         try {
             networkInfo = ((ConnectivityManager) b.a().getSystemService("connectivity")).getActiveNetworkInfo();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             networkInfo = null;
         }
         if (networkInfo == null) {
             return 0;
         }
-        switch (networkInfo.getType()) {
-            case 0:
-                return 3;
-            case 1:
-                return 2;
-            default:
-                return 1;
+        int type = networkInfo.getType();
+        if (type != 0) {
+            return type != 1 ? 1 : 2;
         }
+        return 3;
     }
 
     public static long getFreeSpace() {
         StatFs statFs = new StatFs(Environment.getRootDirectory().getPath());
-        return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024;
+        return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
     }
 
     public static String getImei() {
@@ -110,50 +110,59 @@ public class VDeviceAPI {
             return null;
         }
         CellLocation cellLocation = telephonyManager.getCellLocation();
-        return cellLocation instanceof GsmCellLocation ? "" + ((GsmCellLocation) cellLocation).getLac() : "";
+        if (cellLocation instanceof GsmCellLocation) {
+            return "" + ((GsmCellLocation) cellLocation).getLac();
+        }
+        return "";
     }
 
     public static String getModuleFileName() {
         return b.a().getFilesDir().getAbsolutePath();
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:11:0x001e  */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0024 A[RETURN] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static c getNetworkInfo(int i) {
+        int i2;
         NetworkInfo networkInfo;
         ConnectivityManager connectivityManager = (ConnectivityManager) b.a().getSystemService("connectivity");
-        switch (i) {
-            case 2:
-                networkInfo = connectivityManager.getNetworkInfo(1);
-                break;
-            case 3:
-                networkInfo = connectivityManager.getNetworkInfo(0);
-                break;
-            default:
-                networkInfo = null;
-                break;
+        if (i == 2) {
+            i2 = 1;
+        } else if (i != 3) {
+            networkInfo = null;
+            if (networkInfo == null) {
+                return new c(networkInfo);
+            }
+            return null;
+        } else {
+            i2 = 0;
         }
-        if (networkInfo != null) {
-            return new c(networkInfo);
+        networkInfo = connectivityManager.getNetworkInfo(i2);
+        if (networkInfo == null) {
         }
-        return null;
     }
 
     public static String getOsVersion() {
-        return HttpConstants.OS_TYPE_VALUE;
+        return "android";
     }
 
     public static int getScreenBrightness() {
+        int i;
         ContentResolver contentResolver = b.a().getContentResolver();
-        int i = 0;
         try {
             i = Settings.System.getInt(contentResolver, "screen_brightness_mode");
-        } catch (Settings.SettingNotFoundException e) {
+        } catch (Settings.SettingNotFoundException unused) {
+            i = 0;
         }
         if (i == 1) {
             return -1;
         }
         try {
             return Settings.System.getInt(contentResolver, "screen_brightness");
-        } catch (Settings.SettingNotFoundException e2) {
+        } catch (Settings.SettingNotFoundException unused2) {
             return -1;
         }
     }
@@ -184,7 +193,7 @@ public class VDeviceAPI {
 
     public static long getSdcardFreeSpace() {
         StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-        return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024;
+        return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
     }
 
     public static String getSdcardPath() {
@@ -197,7 +206,7 @@ public class VDeviceAPI {
 
     public static long getSdcardTotalSpace() {
         StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-        return (statFs.getBlockCount() * statFs.getBlockSize()) / 1024;
+        return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
     }
 
     public static float getSystemMetricsX() {
@@ -228,16 +237,16 @@ public class VDeviceAPI {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
             String readLine = bufferedReader.readLine();
-            r0 = readLine != null ? Integer.valueOf(readLine.split("\\s+")[1]).intValue() : 0L;
+            r1 = readLine != null ? Integer.valueOf(readLine.split("\\s+")[1]).intValue() : 0L;
             bufferedReader.close();
-        } catch (IOException e) {
+        } catch (IOException unused) {
         }
-        return r0;
+        return r1;
     }
 
     public static long getTotalSpace() {
         StatFs statFs = new StatFs(Environment.getRootDirectory().getPath());
-        return (statFs.getBlockCount() * statFs.getBlockSize()) / 1024;
+        return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
     }
 
     public static ScanResult[] getWifiHotpot() {
@@ -275,7 +284,7 @@ public class VDeviceAPI {
                 intent.setType(mimeTypeFromExtension);
                 b.a().startActivity(intent);
                 return 0;
-            } catch (Exception e) {
+            } catch (Exception unused) {
                 return 2;
             }
         }
@@ -290,21 +299,24 @@ public class VDeviceAPI {
 
     public static void setNetworkChangedCallback() {
         unsetNetworkChangedCallback();
-        b = new a();
-        b.a().registerReceiver(b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        f7909b = new a();
+        b.a().registerReceiver(f7909b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
     public static void setScreenAlwaysOn(boolean z) {
         if (z) {
-            if (f2296a == null) {
-                f2296a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+            if (f7908a == null) {
+                f7908a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
             }
-            f2296a.acquire();
-        } else if (f2296a == null || !f2296a.isHeld()) {
-        } else {
-            f2296a.release();
-            f2296a = null;
+            f7908a.acquire();
+            return;
         }
+        PowerManager.WakeLock wakeLock = f7908a;
+        if (wakeLock == null || !wakeLock.isHeld()) {
+            return;
+        }
+        f7908a.release();
+        f7908a = null;
     }
 
     public static void setupSoftware(String str) {
@@ -314,9 +326,9 @@ public class VDeviceAPI {
     }
 
     public static void unsetNetworkChangedCallback() {
-        if (b != null) {
-            b.a().unregisterReceiver(b);
-            b = null;
+        if (f7909b != null) {
+            b.a().unregisterReceiver(f7909b);
+            f7909b = null;
         }
     }
 }

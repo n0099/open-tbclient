@@ -4,44 +4,43 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.al;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes6.dex */
 public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4547a;
+    public boolean f28702a;
 
     public NativeDrawVideoTsView(@NonNull Context context, @NonNull l lVar) {
         super(context, lVar);
-        this.f4547a = false;
+        this.f28702a = false;
         setOnClickListener(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
-    public void b() {
-        this.e = false;
-        this.k = "draw_ad";
-        p.h().s(String.valueOf(aj.d(this.b.aj())));
-        super.b();
+    private void d() {
+        al.a((View) this.f28708f, 0);
+        al.a((View) this.f28709g, 0);
+        al.a((View) this.i, 8);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
-    public void c() {
-        if (this.f4547a) {
-            super.c();
+    private void e() {
+        h();
+        RelativeLayout relativeLayout = this.f28708f;
+        if (relativeLayout != null) {
+            if (relativeLayout.getVisibility() == 0) {
+                return;
+            }
+            com.bytedance.sdk.openadsdk.i.e.c().a(this.f28704b.X().h(), this.f28709g);
         }
-    }
-
-    public void setCanInterruptVideoPlay(boolean z) {
-        this.f4547a = z;
+        d();
     }
 
     public void a(Bitmap bitmap, int i) {
@@ -49,48 +48,51 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
         this.l = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView, android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        if (this.h != null && this.h.getVisibility() == 0) {
-            e();
-        } else {
-            super.onWindowVisibilityChanged(i);
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
+    public void b() {
+        this.f28707e = false;
+        this.k = "draw_ad";
+        p.h().r(String.valueOf(ak.d(this.f28704b.ap())));
+        super.b();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
+    public void c() {
+        if (this.f28702a) {
+            super.c();
         }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ImageView imageView = this.f28710h;
+        if (imageView != null && imageView.getVisibility() == 0) {
+            al.f(this.f28708f);
+        }
+        c();
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView, android.view.View
     public void onWindowFocusChanged(boolean z) {
-        if (this.h != null && this.h.getVisibility() == 0) {
+        ImageView imageView = this.f28710h;
+        if (imageView != null && imageView.getVisibility() == 0) {
             e();
         } else {
             super.onWindowFocusChanged(z);
         }
     }
 
-    private void d() {
-        ak.a((View) this.f, 0);
-        ak.a((View) this.g, 0);
-        ak.a((View) this.i, 8);
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView, android.view.View
+    public void onWindowVisibilityChanged(int i) {
+        ImageView imageView = this.f28710h;
+        if (imageView != null && imageView.getVisibility() == 0) {
+            e();
+        } else {
+            super.onWindowVisibilityChanged(i);
+        }
     }
 
-    private void e() {
-        g();
-        if (this.f != null) {
-            if (this.f.getVisibility() != 0) {
-                com.bytedance.sdk.openadsdk.h.d.a(getContext()).a(this.b.R().h(), this.g);
-            } else {
-                return;
-            }
-        }
-        d();
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.h != null && this.h.getVisibility() == 0) {
-            ak.f(this.f);
-        }
-        c();
+    public void setCanInterruptVideoPlay(boolean z) {
+        this.f28702a = z;
     }
 }

@@ -5,15 +5,29 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class LoadingDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f1806a;
+    public TextView f6130a;
 
     public LoadingDialog(Context context) {
         super(context, R.style.BeautyDialog);
         a();
+    }
+
+    private void a() {
+        setContentView(R.layout.layout_sapi_liveness_dialog_loading);
+        setCanceledOnTouchOutside(false);
+        this.f6130a = (TextView) findViewById(R.id.msg_text);
+    }
+
+    public void setMessage(String str) {
+        this.f6130a.setText(str);
+    }
+
+    public void setMessage(int i) {
+        this.f6130a.setText(i);
     }
 
     public LoadingDialog(Context context, int i) {
@@ -24,19 +38,5 @@ public class LoadingDialog extends Dialog {
     public LoadingDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
         super(context, z, onCancelListener);
         a();
-    }
-
-    private void a() {
-        setContentView(R.layout.layout_sapi_liveness_dialog_loading);
-        setCanceledOnTouchOutside(false);
-        this.f1806a = (TextView) findViewById(R.id.msg_text);
-    }
-
-    public void setMessage(String str) {
-        this.f1806a.setText(str);
-    }
-
-    public void setMessage(int i) {
-        this.f1806a.setText(i);
     }
 }

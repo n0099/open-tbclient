@@ -8,19 +8,16 @@ public class f {
         if (lVar == null) {
             return "";
         }
-        com.bytedance.sdk.openadsdk.core.d.b ah = lVar.ah();
-        if (ah != null && !TextUtils.isEmpty(ah.c())) {
-            return ah.c();
+        com.bytedance.sdk.openadsdk.core.d.b an = lVar.an();
+        if (an != null && !TextUtils.isEmpty(an.c())) {
+            return an.c();
         }
-        if (!TextUtils.isEmpty(lVar.S())) {
-            return lVar.S();
+        if (!TextUtils.isEmpty(lVar.Y())) {
+            return lVar.Y();
         }
-        if (!TextUtils.isEmpty(lVar.ae())) {
-            return lVar.ae();
+        if (TextUtils.isEmpty(lVar.ak())) {
+            return !TextUtils.isEmpty(lVar.aF()) ? lVar.aF() : "";
         }
-        if (TextUtils.isEmpty(lVar.ay())) {
-            return "";
-        }
-        return lVar.ay();
+        return lVar.ak();
     }
 }

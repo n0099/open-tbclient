@@ -6,23 +6,21 @@ import android.content.Intent;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.ecommerce.activity.AddressManageActivity;
+import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
+import com.baidu.sapi2.ecommerce.activity.AddressListActivity;
 import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.ecommerce.dto.InvoiceBuildDTO;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EcommerceRouter implements NoProguard {
-    private static EcommerceRouter instance;
-    private AddressManageCallback addressManageCallback;
-    private AddressManageDTO addressManageDTO;
-    private Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
-    private InvoiceBuildCallback invoiceBuildCallback;
-    private InvoiceBuildDTO invoiceBuildDTO;
-
-    private EcommerceRouter() {
-    }
+    public static EcommerceRouter instance;
+    public AddressManageCallback addressManageCallback;
+    public AddressManageDTO addressManageDTO;
+    public Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
+    public InvoiceBuildCallback invoiceBuildCallback;
+    public InvoiceBuildDTO invoiceBuildDTO;
 
     public static synchronized EcommerceRouter getInstance() {
         EcommerceRouter ecommerceRouter;
@@ -33,6 +31,19 @@ public class EcommerceRouter implements NoProguard {
             ecommerceRouter = instance;
         }
         return ecommerceRouter;
+    }
+
+    private void loadNaAddressManage(Context context) {
+        Intent intent;
+        if (this.addressManageDTO.openPageName == "1") {
+            intent = new Intent(context, AddressEditActivity.class);
+        } else {
+            intent = new Intent(context, AddressListActivity.class);
+        }
+        if (!(context instanceof Activity)) {
+            intent.setFlags(268435456);
+        }
+        context.startActivity(intent);
     }
 
     public AddressManageCallback getAddressManageCallback() {
@@ -57,11 +68,7 @@ public class EcommerceRouter implements NoProguard {
         if (context == null) {
             context = this.context;
         }
-        Intent intent = new Intent(context, AddressManageActivity.class);
-        if (!(context instanceof Activity)) {
-            intent.setFlags(268435456);
-        }
-        context.startActivity(intent);
+        loadNaAddressManage(context);
     }
 
     public void loadInvoiceBuild(Context context, InvoiceBuildDTO invoiceBuildDTO, InvoiceBuildCallback invoiceBuildCallback) {

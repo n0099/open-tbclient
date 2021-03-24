@@ -7,51 +7,58 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class JsCallJava {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8126a;
-    public String b;
-    public String c;
-    public JSONObject d;
+    public String f39892a;
 
-    public static JsCallJava eJg() {
+    /* renamed from: b  reason: collision with root package name */
+    public String f39893b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f39894c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public JSONObject f39895d;
+
+    public static JsCallJava newInstance() {
         return new JsCallJava();
     }
 
-    public void d(WebView webView, String str) {
-        if (webView != null && !TextUtils.isEmpty(str)) {
-            if (str.startsWith("rainbow")) {
-                Uri parse = Uri.parse(str);
-                this.f8126a = parse.getHost();
-                String path = parse.getPath();
-                if (TextUtils.isEmpty(path)) {
-                    this.b = "";
-                } else {
-                    this.b = path.replace("/", "");
-                }
-                this.c = String.valueOf(parse.getPort());
-                try {
-                    this.d = new JSONObject(parse.getQuery());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    this.d = new JSONObject();
-                }
+    public void call(WebView webView, String str) {
+        if (webView == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (str.startsWith("rainbow")) {
+            Uri parse = Uri.parse(str);
+            this.f39892a = parse.getHost();
+            String path = parse.getPath();
+            if (TextUtils.isEmpty(path)) {
+                this.f39893b = "";
+            } else {
+                this.f39893b = path.replace("/", "");
             }
-            Method hE = NativeMethodInjectHelper.eJh().hE(this.f8126a, this.b);
-            JsCallback e2 = JsCallback.e(webView, this.c);
-            if (hE == null) {
-                JsCallback.a(e2, false, null, "Method (" + this.b + ") in this class (" + this.f8126a + ") not found!");
-                return;
-            }
+            this.f39894c = String.valueOf(parse.getPort());
             try {
-                hE.invoke(null, webView, this.d, e2);
-            } catch (IllegalAccessException e3) {
-                e3.printStackTrace();
-            } catch (InvocationTargetException e4) {
-                e4.printStackTrace();
+                this.f39895d = new JSONObject(parse.getQuery());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                this.f39895d = new JSONObject();
             }
+        }
+        Method findMethod = NativeMethodInjectHelper.getInstance().findMethod(this.f39892a, this.f39893b);
+        JsCallback newInstance = JsCallback.newInstance(webView, this.f39894c);
+        if (findMethod == null) {
+            JsCallback.invokeJsCallback(newInstance, false, null, "Method (" + this.f39893b + ") in this class (" + this.f39892a + ") not found!");
+            return;
+        }
+        try {
+            findMethod.invoke(null, webView, this.f39895d, newInstance);
+        } catch (IllegalAccessException e3) {
+            e3.printStackTrace();
+        } catch (InvocationTargetException e4) {
+            e4.printStackTrace();
         }
     }
 }

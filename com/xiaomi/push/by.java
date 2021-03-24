@@ -1,34 +1,13 @@
 package com.xiaomi.push;
-
-import android.content.ContentValues;
-import android.content.Context;
-import com.xiaomi.push.cb;
-/* loaded from: classes5.dex */
-public class by extends cb.e {
+/* loaded from: classes7.dex */
+public class by {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8290a;
+    public static int f40300a = 200;
 
-    public by(String str, ContentValues contentValues, String str2) {
-        super(str, contentValues);
-        this.f8290a = "MessageInsertJob";
-        this.f8290a = str2;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public static long f164a = 52428800;
 
-    public static by a(Context context, String str, hq hqVar) {
-        byte[] a2 = iw.a(hqVar);
-        if (a2 == null || a2.length <= 0) {
-            return null;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("status", (Integer) 0);
-        contentValues.put("messageId", "");
-        contentValues.put("messageItemId", hqVar.d());
-        contentValues.put("messageItem", a2);
-        contentValues.put("appId", bp.a(context).b());
-        contentValues.put("packageName", bp.a(context).m179a());
-        contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
-        contentValues.put("uploadTimestamp", (Integer) 0);
-        return new by(str, contentValues, "a job build to insert message to db");
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public static String f165a = "MessageInfo.db";
 }

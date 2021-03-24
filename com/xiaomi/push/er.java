@@ -1,78 +1,141 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.text.TextUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class er implements Runnable {
+import android.content.pm.PackageInfo;
+import android.content.pm.ServiceInfo;
+import android.os.Build;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.xiaomi.push.service.XMJobService;
+/* loaded from: classes7.dex */
+public final class er {
+
+    /* renamed from: a  reason: collision with other field name */
+    public static a f330a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final String f331a = XMJobService.class.getCanonicalName();
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f8355a;
+    public static int f40455a = 0;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ eq f306a;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f307a;
-    final /* synthetic */ String b;
-    final /* synthetic */ String c;
+        void a(boolean z);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public er(eq eqVar, String str, Context context, String str2, String str3) {
-        this.f306a = eqVar;
-        this.f307a = str;
-        this.f8355a = context;
-        this.b = str2;
-        this.c = str3;
+        /* renamed from: a  reason: collision with other method in class */
+        boolean m278a();
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (TextUtils.isEmpty(this.f307a)) {
-            em.a(this.f8355a, "null", 1008, "A receive a incorrect message with empty info");
-            return;
+    public static synchronized void a() {
+        synchronized (er.class) {
+            if (f330a == null) {
+                return;
+            }
+            com.xiaomi.channel.commonutils.logger.b.c("stop alarm.");
+            f330a.a();
         }
-        try {
-            em.a(this.f8355a, this.f307a, 1001, "get message");
-            JSONObject jSONObject = new JSONObject(this.f307a);
-            String optString = jSONObject.optString("action");
-            String optString2 = jSONObject.optString("awakened_app_packagename");
-            String optString3 = jSONObject.optString("awake_app_packagename");
-            String optString4 = jSONObject.optString("awake_app");
-            String optString5 = jSONObject.optString("awake_type");
-            int optInt = jSONObject.optInt("awake_foreground", 0);
-            if (!this.b.equals(optString3) || !this.c.equals(optString4)) {
-                em.a(this.f8355a, this.f307a, 1008, "A receive a incorrect message with incorrect package info" + optString3);
-            } else if (TextUtils.isEmpty(optString5) || TextUtils.isEmpty(optString3) || TextUtils.isEmpty(optString4) || TextUtils.isEmpty(optString2)) {
-                em.a(this.f8355a, this.f307a, 1008, "A receive a incorrect message with empty type");
-            } else {
-                this.f306a.b(optString3);
-                this.f306a.a(optString4);
-                ep epVar = new ep();
-                epVar.b(optString);
-                epVar.a(optString2);
-                epVar.a(optInt);
-                epVar.d(this.f307a);
-                if ("service".equals(optString5)) {
-                    if (TextUtils.isEmpty(optString)) {
-                        epVar.c("com.xiaomi.mipush.sdk.PushMessageHandler");
-                        this.f306a.a(es.SERVICE_COMPONENT, this.f8355a, epVar);
-                    } else {
-                        this.f306a.a(es.SERVICE_ACTION, this.f8355a, epVar);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x005e, code lost:
+        if (com.xiaomi.push.er.f331a.equals(com.xiaomi.push.t.a(r9, r6.name).getSuperclass().getCanonicalName()) != false) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(Context context) {
+        es esVar;
+        Context applicationContext = context.getApplicationContext();
+        if ("com.xiaomi.xmsf".equals(applicationContext.getPackageName())) {
+            esVar = new es(applicationContext);
+        } else {
+            int i = 0;
+            try {
+                PackageInfo packageInfo = applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 4);
+                if (packageInfo.services != null) {
+                    ServiceInfo[] serviceInfoArr = packageInfo.services;
+                    int length = serviceInfoArr.length;
+                    int i2 = 0;
+                    while (i < length) {
+                        try {
+                            ServiceInfo serviceInfo = serviceInfoArr[i];
+                            if ("android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
+                                if (!f331a.equals(serviceInfo.name)) {
+                                    try {
+                                    } catch (Exception unused) {
+                                    }
+                                }
+                                i2 = 1;
+                                if (i2 == 1) {
+                                    break;
+                                }
+                            }
+                            if (f331a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
+                                i = 1;
+                                break;
+                            }
+                            i++;
+                        } catch (Exception e2) {
+                            e = e2;
+                            i = i2;
+                            com.xiaomi.channel.commonutils.logger.b.m51a("check service err : " + e.getMessage());
+                            if (i != 0) {
+                            }
+                            int i3 = Build.VERSION.SDK_INT;
+                            esVar = new es(applicationContext);
+                            f330a = esVar;
+                        }
                     }
-                } else if (es.ACTIVITY.f309a.equals(optString5)) {
-                    this.f306a.a(es.ACTIVITY, this.f8355a, epVar);
-                } else if (es.PROVIDER.f309a.equals(optString5)) {
-                    this.f306a.a(es.PROVIDER, this.f8355a, epVar);
+                    i = i2;
+                }
+            } catch (Exception e3) {
+                e = e3;
+            }
+            if (i != 0 && t.m621a(applicationContext)) {
+                throw new RuntimeException("Should export service: " + f331a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
+            }
+            int i32 = Build.VERSION.SDK_INT;
+            esVar = new es(applicationContext);
+        }
+        f330a = esVar;
+    }
+
+    public static synchronized void a(Context context, int i) {
+        synchronized (er.class) {
+            int i2 = f40455a;
+            if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
+                if (i == 2) {
+                    f40455a = 2;
                 } else {
-                    em.a(this.f8355a, this.f307a, 1008, "A receive a incorrect message with unknown type " + optString5);
+                    f40455a = 0;
                 }
             }
-        } catch (JSONException e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            em.a(this.f8355a, this.f307a, 1008, "A meet a exception when receive the message");
+            if (i2 != f40455a && f40455a == 2) {
+                a();
+                f330a = new eu(context);
+            }
+        }
+    }
+
+    public static synchronized void a(boolean z) {
+        synchronized (er.class) {
+            if (f330a == null) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("timer is not initialized");
+                return;
+            }
+            com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
+            f330a.a(z);
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static synchronized boolean m277a() {
+        synchronized (er.class) {
+            if (f330a == null) {
+                return false;
+            }
+            return f330a.m278a();
         }
     }
 }

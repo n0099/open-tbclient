@@ -5,44 +5,45 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.view.AdapterLinearLayout;
+import d.b.h0.b1.a;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SelectRuleRowItem extends AdapterLinearLayout {
-    private a fQo;
-    private int mType;
+
+    /* renamed from: g  reason: collision with root package name */
+    public a f14085g;
 
     public SelectRuleRowItem(Context context) {
         this(context, null);
+    }
+
+    public final void b() {
+        setOrientation(0);
+        setGravity(16);
+        setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        a aVar = new a(getContext());
+        this.f14085g = aVar;
+        setAdapter(aVar);
+    }
+
+    public void setData(List<String> list, List<String> list2) {
+        this.f14085g.c(list, list2);
+    }
+
+    public void setType(int i) {
+        this.f14085g.e(i);
     }
 
     public SelectRuleRowItem(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
+    public void setData(List<String> list, List<String> list2, List<String> list3) {
+        this.f14085g.d(list, list2, list3);
+    }
+
     public SelectRuleRowItem(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mType = 0;
-        initUI();
-    }
-
-    private void initUI() {
-        setOrientation(0);
-        setGravity(16);
-        setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.fQo = new a(getContext());
-        setAdapter(this.fQo);
-    }
-
-    public void setData(List<String> list, List<String> list2) {
-        this.fQo.setData(list, list2);
-    }
-
-    public void setData(List<String> list, List<String> list2, List<String> list3) {
-        this.fQo.setData(list, list2, list3);
-    }
-
-    public void setType(int i) {
-        this.mType = i;
-        this.fQo.setType(i);
+        b();
     }
 }

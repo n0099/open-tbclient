@@ -5,9 +5,15 @@ import android.os.Parcelable;
 import android.util.SparseArray;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class ParcelableSparseArray extends SparseArray<Parcelable> implements Parcelable {
     public static final Parcelable.Creator<ParcelableSparseArray> CREATOR = new Parcelable.ClassLoaderCreator<ParcelableSparseArray>() { // from class: com.google.android.material.internal.ParcelableSparseArray.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        public ParcelableSparseArray[] newArray(int i) {
+            return new ParcelableSparseArray[i];
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.ClassLoaderCreator
@@ -20,25 +26,9 @@ public class ParcelableSparseArray extends SparseArray<Parcelable> implements Pa
         public ParcelableSparseArray createFromParcel(Parcel parcel) {
             return new ParcelableSparseArray(parcel, null);
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        public ParcelableSparseArray[] newArray(int i) {
-            return new ParcelableSparseArray[i];
-        }
     };
 
     public ParcelableSparseArray() {
-    }
-
-    public ParcelableSparseArray(Parcel parcel, ClassLoader classLoader) {
-        int readInt = parcel.readInt();
-        int[] iArr = new int[readInt];
-        parcel.readIntArray(iArr);
-        Parcelable[] readParcelableArray = parcel.readParcelableArray(classLoader);
-        for (int i = 0; i < readInt; i++) {
-            put(iArr[i], readParcelableArray[i]);
-        }
     }
 
     @Override // android.os.Parcelable
@@ -58,5 +48,15 @@ public class ParcelableSparseArray extends SparseArray<Parcelable> implements Pa
         parcel.writeInt(size);
         parcel.writeIntArray(iArr);
         parcel.writeParcelableArray(parcelableArr, i);
+    }
+
+    public ParcelableSparseArray(Parcel parcel, ClassLoader classLoader) {
+        int readInt = parcel.readInt();
+        int[] iArr = new int[readInt];
+        parcel.readIntArray(iArr);
+        Parcelable[] readParcelableArray = parcel.readParcelableArray(classLoader);
+        for (int i = 0; i < readInt; i++) {
+            put(iArr[i], readParcelableArray[i]);
+        }
     }
 }

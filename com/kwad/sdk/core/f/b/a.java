@@ -3,40 +3,43 @@ package com.kwad.sdk.core.f.b;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.kwad.sdk.core.f.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class C1114a implements a {
+    /* loaded from: classes6.dex */
+    public static final class C0381a implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        private IBinder f6089a;
+        public IBinder f33622a;
 
-        public C1114a(IBinder iBinder) {
+        public C0381a(IBinder iBinder) {
         }
 
         public String a() {
-            String str = null;
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
-                obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                this.f6089a.transact(3, obtain, obtain2, 0);
-                obtain2.readException();
-                str = obtain2.readString();
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+                try {
+                    obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
+                    this.f33622a.transact(3, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readString();
+                } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
+                    obtain.recycle();
+                    obtain2.recycle();
+                    return null;
+                }
             } finally {
                 obtain.recycle();
                 obtain2.recycle();
             }
-            return str;
         }
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f6089a;
+            return this.f33622a;
         }
     }
 }

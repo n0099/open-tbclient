@@ -10,16 +10,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ChannelManager {
-    private static boolean DEBUG = AppConfig.isDebug();
-    private static final String KEY_CHANNEL = "channel";
-    private static final String PREFS_NAME = "com.baidu.common.pubparam";
-    private static final String TAG = "ChannelManager";
-    private static volatile ChannelManager sInstance;
-    private SharedPreferences mCache;
-    private String mChannel;
-    private String mLastChannel;
+    public static boolean DEBUG = AppConfig.isDebug();
+    public static final String KEY_CHANNEL = "channel";
+    public static final String PREFS_NAME = "com.baidu.common.pubparam";
+    public static final String TAG = "ChannelManager";
+    public static volatile ChannelManager sInstance;
+    public SharedPreferences mCache;
+    public String mChannel;
+    public String mLastChannel;
+
+    public ChannelManager() {
+        init();
+    }
 
     public static ChannelManager getInstance() {
         if (sInstance == null) {
@@ -32,36 +36,27 @@ public class ChannelManager {
         return sInstance;
     }
 
-    private ChannelManager() {
-        init();
-    }
-
     private void init() {
         this.mCache = AppRuntime.getAppContext().getSharedPreferences(PREFS_NAME, 0);
         initLastChannel();
         initChanel();
     }
 
-    public String getChannel() {
-        return this.mChannel;
-    }
-
-    public String getLastChannel() {
-        return this.mLastChannel;
+    private void initChanel() {
+        String readChannelFromCache = readChannelFromCache();
+        this.mChannel = readChannelFromCache;
+        if (!TextUtils.isEmpty(readChannelFromCache) || TextUtils.isEmpty(this.mLastChannel)) {
+            return;
+        }
+        this.mChannel = this.mLastChannel;
+        saveCannelToCache();
     }
 
     private void initLastChannel() {
-        this.mLastChannel = readLastChannelFromRaw();
-        if (TextUtils.isEmpty(this.mLastChannel)) {
+        String readLastChannelFromRaw = readLastChannelFromRaw();
+        this.mLastChannel = readLastChannelFromRaw;
+        if (TextUtils.isEmpty(readLastChannelFromRaw)) {
             this.mLastChannel = readLastChannelFromAssets();
-        }
-    }
-
-    private void initChanel() {
-        this.mChannel = readChannelFromCache();
-        if (TextUtils.isEmpty(this.mChannel) && !TextUtils.isEmpty(this.mLastChannel)) {
-            this.mChannel = this.mLastChannel;
-            saveCannelToCache();
         }
     }
 
@@ -69,35 +64,140 @@ public class ChannelManager {
         return this.mCache.getString("channel", null);
     }
 
-    private void saveCannelToCache() {
-        this.mCache.edit().putString("channel", this.mChannel).apply();
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[CONST_STR, CONST_STR, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, CONST_STR, CONST_STR, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
-    private String readLastChannelFromRaw() {
-        String str = null;
-        Resources resources = AppRuntime.getAppContext().getResources();
-        int identifier = resources.getIdentifier("tnconfig", "raw", AppRuntime.getAppContext().getPackageName());
-        if (identifier != 0) {
-            InputStream openRawResource = resources.openRawResource(identifier);
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0080 A[Catch: Exception -> 0x007c, TRY_LEAVE, TryCatch #4 {Exception -> 0x007c, blocks: (B:45:0x0078, B:49:0x0080), top: B:59:0x0078 }] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0078 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private String readLastChannelFromAssets() {
+        BufferedReader bufferedReader;
+        Throwable th;
+        InputStream inputStream;
+        String str;
+        InputStream inputStream2 = null;
+        String str2 = null;
+        try {
+            inputStream = AppRuntime.getAppContext().getAssets().open("file:///android_asset/channel");
             try {
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            } catch (IOException e2) {
+                e = e2;
+                bufferedReader = null;
+                inputStream2 = inputStream;
+                str = null;
+            } catch (Throwable th2) {
+                bufferedReader = null;
+                th = th2;
+            }
+        } catch (IOException e3) {
+            e = e3;
+            str = null;
+            bufferedReader = null;
+        } catch (Throwable th3) {
+            bufferedReader = null;
+            th = th3;
+            inputStream = null;
+        }
+        try {
+            str2 = bufferedReader.readLine();
+            inputStream.close();
+            bufferedReader.close();
+            if (inputStream != null) {
                 try {
-                    str = bufferedReader.readLine();
-                } catch (IOException e) {
+                    inputStream.close();
+                } catch (Exception e4) {
                     if (DEBUG) {
-                        Log.e(TAG, "readLastChannelFromRaw", e);
+                        Log.e(TAG, "readLastChannelFromAssets", e4);
+                        return str2;
                     }
+                    return str2;
+                }
+            }
+            bufferedReader.close();
+            return str2;
+        } catch (IOException e5) {
+            e = e5;
+            String str3 = str2;
+            inputStream2 = inputStream;
+            str = str3;
+            try {
+                if (DEBUG) {
+                    Log.e(TAG, "readLastChannelFromAssets", e);
+                }
+                if (inputStream2 != null) {
                     try {
-                        openRawResource.close();
-                        bufferedReader.close();
-                    } catch (Exception e2) {
+                        inputStream2.close();
+                    } catch (Exception e6) {
                         if (DEBUG) {
-                            Log.e(TAG, "readLastChannelFromRaw", e2);
+                            Log.e(TAG, "readLastChannelFromAssets", e6);
                         }
+                        return str;
                     }
                 }
-            } finally {
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+                return str;
+            } catch (Throwable th4) {
+                InputStream inputStream3 = inputStream2;
+                th = th4;
+                inputStream = inputStream3;
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception e7) {
+                        if (DEBUG) {
+                            Log.e(TAG, "readLastChannelFromAssets", e7);
+                        }
+                        throw th;
+                    }
+                }
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+                throw th;
+            }
+        } catch (Throwable th5) {
+            th = th5;
+            if (inputStream != null) {
+            }
+            if (bufferedReader != null) {
+            }
+            throw th;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x003c, code lost:
+        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L10;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x003e, code lost:
+        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r2);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0056, code lost:
+        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L10;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private String readLastChannelFromRaw() {
+        Resources resources = AppRuntime.getAppContext().getResources();
+        int identifier = resources.getIdentifier("tnconfig", "raw", AppRuntime.getAppContext().getPackageName());
+        String str = null;
+        if (identifier == 0) {
+            return null;
+        }
+        InputStream openRawResource = resources.openRawResource(identifier);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
+        try {
+            try {
+                str = bufferedReader.readLine();
+                try {
+                    openRawResource.close();
+                    bufferedReader.close();
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
                 try {
                     openRawResource.close();
                     bufferedReader.close();
@@ -106,105 +206,31 @@ public class ChannelManager {
                         Log.e(TAG, "readLastChannelFromRaw", e3);
                     }
                 }
+                throw th;
+            }
+        } catch (IOException e4) {
+            if (DEBUG) {
+                Log.e(TAG, "readLastChannelFromRaw", e4);
+            }
+            try {
+                openRawResource.close();
+                bufferedReader.close();
+            } catch (Exception e5) {
+                e = e5;
             }
         }
         return str;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0073 A[Catch: Exception -> 0x0077, TRY_LEAVE, TryCatch #3 {Exception -> 0x0077, blocks: (B:33:0x006e, B:35:0x0073), top: B:55:0x006e }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x006e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private String readLastChannelFromAssets() {
-        BufferedReader bufferedReader;
-        InputStream inputStream;
-        String str;
-        try {
-            inputStream = AppRuntime.getAppContext().getAssets().open("file:///android_asset/channel");
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                try {
-                    try {
-                        str = bufferedReader.readLine();
-                        try {
-                            inputStream.close();
-                            bufferedReader.close();
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception e) {
-                                    if (DEBUG) {
-                                        Log.e(TAG, "readLastChannelFromAssets", e);
-                                    }
-                                }
-                            }
-                            if (bufferedReader != null) {
-                                bufferedReader.close();
-                            }
-                        } catch (IOException e2) {
-                            e = e2;
-                            if (DEBUG) {
-                                Log.e(TAG, "readLastChannelFromAssets", e);
-                            }
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception e3) {
-                                    if (DEBUG) {
-                                        Log.e(TAG, "readLastChannelFromAssets", e3);
-                                    }
-                                }
-                            }
-                            if (bufferedReader != null) {
-                                bufferedReader.close();
-                            }
-                            return str;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Exception e4) {
-                                if (DEBUG) {
-                                    Log.e(TAG, "readLastChannelFromAssets", e4);
-                                }
-                                throw th;
-                            }
-                        }
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                        throw th;
-                    }
-                } catch (IOException e5) {
-                    e = e5;
-                    str = null;
-                }
-            } catch (IOException e6) {
-                e = e6;
-                bufferedReader = null;
-                str = null;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader = null;
-                if (inputStream != null) {
-                }
-                if (bufferedReader != null) {
-                }
-                throw th;
-            }
-        } catch (IOException e7) {
-            e = e7;
-            bufferedReader = null;
-            inputStream = null;
-            str = null;
-        } catch (Throwable th3) {
-            th = th3;
-            bufferedReader = null;
-            inputStream = null;
-        }
-        return str;
+    private void saveCannelToCache() {
+        this.mCache.edit().putString("channel", this.mChannel).apply();
+    }
+
+    public String getChannel() {
+        return this.mChannel;
+    }
+
+    public String getLastChannel() {
+        return this.mLastChannel;
     }
 }

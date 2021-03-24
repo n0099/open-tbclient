@@ -19,13 +19,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.loader.Loader;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class DelegateFragment extends Fragment implements IDelegateFragment {
-    private static final String REAL_BASE_CLASS = "real_base_class";
-    private IFragmentLifecycle mBase;
+    public static final String REAL_BASE_CLASS = "real_base_class";
+    public IFragmentLifecycle mBase;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public DelegateFragment(KsFragment ksFragment) {
         this.mBase = ksFragment;
     }
@@ -68,10 +66,10 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
     public void onAttachFragment(Fragment fragment) {
         if (fragment instanceof IDelegateFragment) {
             this.mBase.onAttachFragment(((IDelegateFragment) fragment).getBase());
-        } else if (fragment != null) {
-            throw new RuntimeException(fragment + " is not a DelegateFragment or DelegateDialogFragment");
-        } else {
+        } else if (fragment == null) {
             this.mBase.onAttachFragment(null);
+        } else {
+            throw new RuntimeException(fragment + " is not a DelegateFragment or DelegateDialogFragment");
         }
     }
 
@@ -90,9 +88,10 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
     public void onCreate(@Nullable Bundle bundle) {
         if (bundle != null) {
             try {
-                this.mBase = (KsFragment) Loader.get().getRealClassLoader().loadClass((String) bundle.get(REAL_BASE_CLASS)).newInstance();
-                ((KsFragment) this.mBase).setBase(this);
-            } catch (Exception e) {
+                KsFragment ksFragment = (KsFragment) Loader.get().getRealClassLoader().loadClass((String) bundle.get(REAL_BASE_CLASS)).newInstance();
+                this.mBase = ksFragment;
+                ksFragment.setBase(this);
+            } catch (Exception unused) {
             }
             bundle.clear();
         }
@@ -217,7 +216,7 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
         this.mBase.onPrepareOptionsMenu(menu);
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0154a
+    @Override // androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         this.mBase.onRequestPermissionsResult(i, strArr, iArr);
@@ -262,7 +261,7 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
         this.mBase.onViewStateRestored(bundle);
     }
 
-    void setBase(KsFragment ksFragment) {
+    public void setBase(KsFragment ksFragment) {
         this.mBase = ksFragment;
     }
 }

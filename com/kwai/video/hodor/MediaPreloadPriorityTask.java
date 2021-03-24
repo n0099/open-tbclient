@@ -12,10 +12,10 @@ import com.kwai.video.hodor.util.Timber;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MediaPreloadPriorityTask extends AbstractHodorPreloadTask {
     @AccessedByNative
-    private AwesomeCacheCallback mAwesomeCacheCallback;
+    public AwesomeCacheCallback mAwesomeCacheCallback;
     @AccessedByNative
     public final String mCacheKey;
     @AccessedByNative
@@ -23,12 +23,12 @@ public class MediaPreloadPriorityTask extends AbstractHodorPreloadTask {
     @AccessedByNative
     public final String mUrl;
     @AccessedByNative
-    private long mPreloadBytes = 1048576;
+    public long mPreloadBytes = 1048576;
     @AccessedByNative
-    private String mMd5HashCode = "";
+    public String mMd5HashCode = "";
     @IHodorTask.MediaDirEvictStrategy
     @AccessedByNative
-    private int mEvictStrategy = 1;
+    public int mEvictStrategy = 1;
 
     public MediaPreloadPriorityTask(@NonNull String str, @Nullable Map<String, String> map, @Nullable String str2) {
         this.mUrl = str;

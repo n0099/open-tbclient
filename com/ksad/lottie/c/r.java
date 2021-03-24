@@ -2,69 +2,59 @@ package com.ksad.lottie.c;
 
 import android.util.JsonReader;
 import android.util.JsonToken;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
-class r {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> List<com.ksad.lottie.e.a<T>> a(JsonReader jsonReader, com.ksad.lottie.d dVar, float f, aj<T> ajVar) {
+/* loaded from: classes6.dex */
+public class r {
+    public static <T> List<com.ksad.lottie.e.a<T>> a(JsonReader jsonReader, com.ksad.lottie.d dVar, float f2, aj<T> ajVar) {
         ArrayList arrayList = new ArrayList();
         if (jsonReader.peek() == JsonToken.STRING) {
             dVar.a("Lottie doesn't support expressions.");
-        } else {
-            jsonReader.beginObject();
-            while (jsonReader.hasNext()) {
-                String nextName = jsonReader.nextName();
-                char c = 65535;
-                switch (nextName.hashCode()) {
-                    case 107:
-                        if (nextName.equals("k")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        if (jsonReader.peek() != JsonToken.BEGIN_ARRAY) {
-                            arrayList.add(q.a(jsonReader, dVar, f, ajVar, false));
-                            break;
-                        } else {
-                            jsonReader.beginArray();
-                            if (jsonReader.peek() == JsonToken.NUMBER) {
-                                arrayList.add(q.a(jsonReader, dVar, f, ajVar, false));
-                            } else {
-                                while (jsonReader.hasNext()) {
-                                    arrayList.add(q.a(jsonReader, dVar, f, ajVar, true));
-                                }
-                            }
-                            jsonReader.endArray();
-                            break;
-                        }
-                    default:
-                        jsonReader.skipValue();
-                        break;
-                }
-            }
-            jsonReader.endObject();
-            a(arrayList);
+            return arrayList;
         }
+        jsonReader.beginObject();
+        while (jsonReader.hasNext()) {
+            String nextName = jsonReader.nextName();
+            char c2 = 65535;
+            if (nextName.hashCode() == 107 && nextName.equals(Config.APP_KEY)) {
+                c2 = 0;
+            }
+            if (c2 != 0) {
+                jsonReader.skipValue();
+            } else if (jsonReader.peek() == JsonToken.BEGIN_ARRAY) {
+                jsonReader.beginArray();
+                if (jsonReader.peek() == JsonToken.NUMBER) {
+                    arrayList.add(q.a(jsonReader, dVar, f2, ajVar, false));
+                } else {
+                    while (jsonReader.hasNext()) {
+                        arrayList.add(q.a(jsonReader, dVar, f2, ajVar, true));
+                    }
+                }
+                jsonReader.endArray();
+            } else {
+                arrayList.add(q.a(jsonReader, dVar, f2, ajVar, false));
+            }
+        }
+        jsonReader.endObject();
+        a(arrayList);
         return arrayList;
     }
 
     public static void a(List<? extends com.ksad.lottie.e.a<?>> list) {
+        int i;
         int size = list.size();
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            int i2 = i;
-            if (i2 >= size - 1) {
+            i = size - 1;
+            if (i2 >= i) {
                 break;
             }
-            list.get(i2).e = Float.valueOf(list.get(i2 + 1).d);
-            i = i2 + 1;
+            i2++;
+            list.get(i2).f31386e = Float.valueOf(list.get(i2).f31385d);
         }
-        com.ksad.lottie.e.a<?> aVar = list.get(size - 1);
-        if (aVar.f5351a == 0) {
+        com.ksad.lottie.e.a<?> aVar = list.get(i);
+        if (aVar.f31382a == 0) {
             list.remove(aVar);
         }
     }

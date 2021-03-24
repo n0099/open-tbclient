@@ -2,11 +2,11 @@ package org.webrtc;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
-class RefCountDelegate implements RefCounted {
-    private final AtomicInteger refCount = new AtomicInteger(1);
+/* loaded from: classes.dex */
+public class RefCountDelegate implements RefCounted {
+    public final AtomicInteger refCount = new AtomicInteger(1);
     @Nullable
-    private final Runnable releaseCallback;
+    public final Runnable releaseCallback;
 
     public RefCountDelegate(@Nullable Runnable runnable) {
         this.releaseCallback = runnable;
@@ -14,10 +14,11 @@ class RefCountDelegate implements RefCounted {
 
     @Override // org.webrtc.RefCounted
     public void release() {
-        if (this.refCount.decrementAndGet() != 0 || this.releaseCallback == null) {
+        Runnable runnable;
+        if (this.refCount.decrementAndGet() != 0 || (runnable = this.releaseCallback) == null) {
             return;
         }
-        this.releaseCallback.run();
+        runnable.run();
     }
 
     @Override // org.webrtc.RefCounted

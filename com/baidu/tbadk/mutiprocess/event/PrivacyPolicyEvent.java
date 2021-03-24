@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess.event;
 
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PrivacyPolicyEvent extends SerializableEvent {
     public boolean isAgreePrivacyPolicy;
 

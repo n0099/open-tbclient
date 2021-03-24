@@ -2,10 +2,10 @@ package org.apache.http.impl.client;
 
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RoutedRequest {
-    protected final RequestWrapper request;
-    protected final HttpRoute route;
+    public final RequestWrapper request;
+    public final HttpRoute route;
 
     public RoutedRequest(RequestWrapper requestWrapper, HttpRoute httpRoute) {
         throw new RuntimeException("Stub!");

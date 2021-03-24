@@ -7,17 +7,17 @@ import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.ufosdk.UfoSDK;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+import com.baidu.webkit.sdk.WebKitFactory;
+/* loaded from: classes5.dex */
 public final class ao implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackFacePageActivity f3661a;
+    public final /* synthetic */ FeedbackFacePageActivity f23062a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ao(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f3661a = feedbackFacePageActivity;
+        this.f23062a = feedbackFacePageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,39 +37,39 @@ public final class ao implements View.OnClickListener {
             return;
         }
         try {
-            view2 = this.f3661a.n;
+            view2 = this.f23062a.n;
             view2.setVisibility(0);
-            linearLayout = this.f3661a.g;
+            linearLayout = this.f23062a.f23002g;
             linearLayout.setVisibility(8);
-            webView = this.f3661a.o;
+            webView = this.f23062a.o;
             webView.setVisibility(0);
-            if (!com.baidu.ufosdk.b.d.c(this.f3661a.getApplicationContext())) {
-                webView4 = this.f3661a.o;
+            if (!com.baidu.ufosdk.b.d.c(this.f23062a.getApplicationContext())) {
+                webView4 = this.f23062a.o;
                 webView4.setVisibility(8);
-                view3 = this.f3661a.n;
+                view3 = this.f23062a.n;
                 view3.setVisibility(8);
-                Context applicationContext = this.f3661a.getApplicationContext();
-                textView = this.f3661a.q;
+                Context applicationContext = this.f23062a.getApplicationContext();
+                textView = this.f23062a.q;
                 com.baidu.ufosdk.f.i.a(applicationContext, textView);
-                linearLayout3 = this.f3661a.g;
+                linearLayout3 = this.f23062a.f23002g;
                 linearLayout3.setVisibility(0);
-                Toast.makeText(this.f3661a, com.baidu.ufosdk.f.s.a("64"), 1).show();
+                Toast.makeText(this.f23062a, com.baidu.ufosdk.f.s.a(WebKitFactory.OS_64), 1).show();
             } else if (UfoSDK.clientid.length() == 0) {
-                Toast.makeText(this.f3661a, com.baidu.ufosdk.f.s.a("62"), 1).show();
+                Toast.makeText(this.f23062a, com.baidu.ufosdk.f.s.a("62"), 1).show();
                 new Thread(new ap(this)).start();
             } else {
-                webView2 = this.f3661a.o;
-                webView2.loadDataWithBaseURL(null, null, "text/html", "utf-8", null);
-                linearLayout2 = this.f3661a.g;
+                webView2 = this.f23062a.o;
+                webView2.loadDataWithBaseURL(null, null, SapiWebView.K, "utf-8", null);
+                linearLayout2 = this.f23062a.f23002g;
                 linearLayout2.setVisibility(8);
-                webView3 = this.f3661a.o;
+                webView3 = this.f23062a.o;
                 webView3.setVisibility(0);
-                handler = this.f3661a.v;
+                handler = this.f23062a.v;
                 handler.obtainMessage(1, null).sendToTarget();
                 new Thread(new aq(this)).start();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

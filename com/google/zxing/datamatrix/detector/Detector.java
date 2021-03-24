@@ -13,30 +13,162 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Detector {
-    private final BitMatrix image;
-    private final WhiteRectangleDetector rectangleDetector;
+    public final BitMatrix image;
+    public final WhiteRectangleDetector rectangleDetector;
+
+    /* loaded from: classes6.dex */
+    public static final class ResultPointsAndTransitions {
+        public final ResultPoint from;
+        public final ResultPoint to;
+        public final int transitions;
+
+        public ResultPoint getFrom() {
+            return this.from;
+        }
+
+        public ResultPoint getTo() {
+            return this.to;
+        }
+
+        public int getTransitions() {
+            return this.transitions;
+        }
+
+        public String toString() {
+            return this.from + "/" + this.to + '/' + this.transitions;
+        }
+
+        public ResultPointsAndTransitions(ResultPoint resultPoint, ResultPoint resultPoint2, int i) {
+            this.from = resultPoint;
+            this.to = resultPoint2;
+            this.transitions = i;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class ResultPointsAndTransitionsComparator implements Serializable, Comparator<ResultPointsAndTransitions> {
+        public ResultPointsAndTransitionsComparator() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        public int compare(ResultPointsAndTransitions resultPointsAndTransitions, ResultPointsAndTransitions resultPointsAndTransitions2) {
+            return resultPointsAndTransitions.getTransitions() - resultPointsAndTransitions2.getTransitions();
+        }
+    }
 
     public Detector(BitMatrix bitMatrix) throws NotFoundException {
         this.image = bitMatrix;
         this.rectangleDetector = new WhiteRectangleDetector(bitMatrix);
     }
 
+    private ResultPoint correctTopRight(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i) {
+        float f2 = i;
+        float distance = distance(resultPoint, resultPoint2) / f2;
+        float distance2 = distance(resultPoint3, resultPoint4);
+        ResultPoint resultPoint5 = new ResultPoint(resultPoint4.getX() + (((resultPoint4.getX() - resultPoint3.getX()) / distance2) * distance), resultPoint4.getY() + (distance * ((resultPoint4.getY() - resultPoint3.getY()) / distance2)));
+        float distance3 = distance(resultPoint, resultPoint3) / f2;
+        float distance4 = distance(resultPoint2, resultPoint4);
+        ResultPoint resultPoint6 = new ResultPoint(resultPoint4.getX() + (((resultPoint4.getX() - resultPoint2.getX()) / distance4) * distance3), resultPoint4.getY() + (distance3 * ((resultPoint4.getY() - resultPoint2.getY()) / distance4)));
+        if (isValid(resultPoint5)) {
+            return (isValid(resultPoint6) && Math.abs(transitionsBetween(resultPoint3, resultPoint5).getTransitions() - transitionsBetween(resultPoint2, resultPoint5).getTransitions()) > Math.abs(transitionsBetween(resultPoint3, resultPoint6).getTransitions() - transitionsBetween(resultPoint2, resultPoint6).getTransitions())) ? resultPoint6 : resultPoint5;
+        } else if (isValid(resultPoint6)) {
+            return resultPoint6;
+        } else {
+            return null;
+        }
+    }
+
+    private ResultPoint correctTopRightRectangular(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i, int i2) {
+        float distance = distance(resultPoint, resultPoint2) / i;
+        float distance2 = distance(resultPoint3, resultPoint4);
+        ResultPoint resultPoint5 = new ResultPoint(resultPoint4.getX() + (((resultPoint4.getX() - resultPoint3.getX()) / distance2) * distance), resultPoint4.getY() + (distance * ((resultPoint4.getY() - resultPoint3.getY()) / distance2)));
+        float distance3 = distance(resultPoint, resultPoint3) / i2;
+        float distance4 = distance(resultPoint2, resultPoint4);
+        ResultPoint resultPoint6 = new ResultPoint(resultPoint4.getX() + (((resultPoint4.getX() - resultPoint2.getX()) / distance4) * distance3), resultPoint4.getY() + (distance3 * ((resultPoint4.getY() - resultPoint2.getY()) / distance4)));
+        if (isValid(resultPoint5)) {
+            return (isValid(resultPoint6) && Math.abs(i - transitionsBetween(resultPoint3, resultPoint5).getTransitions()) + Math.abs(i2 - transitionsBetween(resultPoint2, resultPoint5).getTransitions()) > Math.abs(i - transitionsBetween(resultPoint3, resultPoint6).getTransitions()) + Math.abs(i2 - transitionsBetween(resultPoint2, resultPoint6).getTransitions())) ? resultPoint6 : resultPoint5;
+        } else if (isValid(resultPoint6)) {
+            return resultPoint6;
+        } else {
+            return null;
+        }
+    }
+
+    public static int distance(ResultPoint resultPoint, ResultPoint resultPoint2) {
+        return MathUtils.round(ResultPoint.distance(resultPoint, resultPoint2));
+    }
+
+    public static void increment(Map<ResultPoint, Integer> map, ResultPoint resultPoint) {
+        Integer num = map.get(resultPoint);
+        map.put(resultPoint, Integer.valueOf(num != null ? 1 + num.intValue() : 1));
+    }
+
+    private boolean isValid(ResultPoint resultPoint) {
+        return resultPoint.getX() >= 0.0f && resultPoint.getX() < ((float) this.image.getWidth()) && resultPoint.getY() > 0.0f && resultPoint.getY() < ((float) this.image.getHeight());
+    }
+
+    public static BitMatrix sampleGrid(BitMatrix bitMatrix, ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i, int i2) throws NotFoundException {
+        float f2 = i - 0.5f;
+        float f3 = i2 - 0.5f;
+        return GridSampler.getInstance().sampleGrid(bitMatrix, i, i2, 0.5f, 0.5f, f2, 0.5f, f2, f3, 0.5f, f3, resultPoint.getX(), resultPoint.getY(), resultPoint4.getX(), resultPoint4.getY(), resultPoint3.getX(), resultPoint3.getY(), resultPoint2.getX(), resultPoint2.getY());
+    }
+
+    private ResultPointsAndTransitions transitionsBetween(ResultPoint resultPoint, ResultPoint resultPoint2) {
+        int x = (int) resultPoint.getX();
+        int y = (int) resultPoint.getY();
+        int x2 = (int) resultPoint2.getX();
+        int y2 = (int) resultPoint2.getY();
+        int i = 0;
+        boolean z = Math.abs(y2 - y) > Math.abs(x2 - x);
+        if (z) {
+            y = x;
+            x = y;
+            y2 = x2;
+            x2 = y2;
+        }
+        int abs = Math.abs(x2 - x);
+        int abs2 = Math.abs(y2 - y);
+        int i2 = (-abs) / 2;
+        int i3 = y < y2 ? 1 : -1;
+        int i4 = x >= x2 ? -1 : 1;
+        boolean z2 = this.image.get(z ? y : x, z ? x : y);
+        while (x != x2) {
+            boolean z3 = this.image.get(z ? y : x, z ? x : y);
+            if (z3 != z2) {
+                i++;
+                z2 = z3;
+            }
+            i2 += abs2;
+            if (i2 > 0) {
+                if (y == y2) {
+                    break;
+                }
+                y += i3;
+                i2 -= abs;
+            }
+            x += i4;
+        }
+        return new ResultPointsAndTransitions(resultPoint, resultPoint2, i);
+    }
+
     public DetectorResult detect() throws NotFoundException {
         ResultPoint resultPoint;
-        ResultPoint correctTopRightRectangular;
+        ResultPoint resultPoint2;
         BitMatrix sampleGrid;
         ResultPoint[] detect = this.rectangleDetector.detect();
-        ResultPoint resultPoint2 = detect[0];
-        ResultPoint resultPoint3 = detect[1];
-        ResultPoint resultPoint4 = detect[2];
-        ResultPoint resultPoint5 = detect[3];
+        ResultPoint resultPoint3 = detect[0];
+        ResultPoint resultPoint4 = detect[1];
+        ResultPoint resultPoint5 = detect[2];
+        ResultPoint resultPoint6 = detect[3];
         ArrayList arrayList = new ArrayList(4);
-        arrayList.add(transitionsBetween(resultPoint2, resultPoint3));
-        arrayList.add(transitionsBetween(resultPoint2, resultPoint4));
+        arrayList.add(transitionsBetween(resultPoint3, resultPoint4));
         arrayList.add(transitionsBetween(resultPoint3, resultPoint5));
-        arrayList.add(transitionsBetween(resultPoint4, resultPoint5));
+        arrayList.add(transitionsBetween(resultPoint4, resultPoint6));
+        arrayList.add(transitionsBetween(resultPoint5, resultPoint6));
+        ResultPoint resultPoint7 = null;
         Collections.sort(arrayList, new ResultPointsAndTransitionsComparator());
         ResultPointsAndTransitions resultPointsAndTransitions = (ResultPointsAndTransitions) arrayList.get(0);
         ResultPointsAndTransitions resultPointsAndTransitions2 = (ResultPointsAndTransitions) arrayList.get(1);
@@ -45,213 +177,72 @@ public final class Detector {
         increment(hashMap, resultPointsAndTransitions.getTo());
         increment(hashMap, resultPointsAndTransitions2.getFrom());
         increment(hashMap, resultPointsAndTransitions2.getTo());
-        ResultPoint resultPoint6 = null;
-        ResultPoint resultPoint7 = null;
         ResultPoint resultPoint8 = null;
+        ResultPoint resultPoint9 = null;
         for (Map.Entry entry : hashMap.entrySet()) {
-            ResultPoint resultPoint9 = (ResultPoint) entry.getKey();
+            ResultPoint resultPoint10 = (ResultPoint) entry.getKey();
             if (((Integer) entry.getValue()).intValue() == 2) {
-                resultPoint8 = resultPoint9;
-            } else if (resultPoint6 == null) {
-                resultPoint6 = resultPoint9;
+                resultPoint8 = resultPoint10;
+            } else if (resultPoint7 == null) {
+                resultPoint7 = resultPoint10;
             } else {
-                resultPoint7 = resultPoint9;
+                resultPoint9 = resultPoint10;
             }
         }
-        if (resultPoint6 == null || resultPoint8 == null || resultPoint7 == null) {
-            throw NotFoundException.getNotFoundInstance();
-        }
-        ResultPoint[] resultPointArr = {resultPoint6, resultPoint8, resultPoint7};
-        ResultPoint.orderBestPatterns(resultPointArr);
-        ResultPoint resultPoint10 = resultPointArr[0];
-        ResultPoint resultPoint11 = resultPointArr[1];
-        ResultPoint resultPoint12 = resultPointArr[2];
-        if (!hashMap.containsKey(resultPoint2)) {
-            resultPoint = resultPoint2;
-        } else if (hashMap.containsKey(resultPoint3)) {
-            resultPoint = !hashMap.containsKey(resultPoint4) ? resultPoint4 : resultPoint5;
-        } else {
-            resultPoint = resultPoint3;
-        }
-        int transitions = transitionsBetween(resultPoint12, resultPoint).getTransitions();
-        int transitions2 = transitionsBetween(resultPoint10, resultPoint).getTransitions();
-        if ((transitions & 1) == 1) {
-            transitions++;
-        }
-        int i = transitions + 2;
-        if ((transitions2 & 1) == 1) {
-            transitions2++;
-        }
-        int i2 = transitions2 + 2;
-        if (i * 4 >= i2 * 7 || i2 * 4 >= i * 7) {
-            correctTopRightRectangular = correctTopRightRectangular(resultPoint11, resultPoint10, resultPoint12, resultPoint, i, i2);
-            if (correctTopRightRectangular == null) {
-                correctTopRightRectangular = resultPoint;
-            }
-            int transitions3 = transitionsBetween(resultPoint12, correctTopRightRectangular).getTransitions();
-            int transitions4 = transitionsBetween(resultPoint10, correctTopRightRectangular).getTransitions();
-            if ((transitions3 & 1) == 1) {
-                transitions3++;
-            }
-            if ((transitions4 & 1) == 1) {
-                transitions4++;
-            }
-            sampleGrid = sampleGrid(this.image, resultPoint12, resultPoint11, resultPoint10, correctTopRightRectangular, transitions3, transitions4);
-        } else {
-            correctTopRightRectangular = correctTopRight(resultPoint11, resultPoint10, resultPoint12, resultPoint, Math.min(i2, i));
-            if (correctTopRightRectangular == null) {
-                correctTopRightRectangular = resultPoint;
-            }
-            int max = Math.max(transitionsBetween(resultPoint12, correctTopRightRectangular).getTransitions(), transitionsBetween(resultPoint10, correctTopRightRectangular).getTransitions()) + 1;
-            if ((max & 1) == 1) {
-                max++;
-            }
-            sampleGrid = sampleGrid(this.image, resultPoint12, resultPoint11, resultPoint10, correctTopRightRectangular, max, max);
-        }
-        return new DetectorResult(sampleGrid, new ResultPoint[]{resultPoint12, resultPoint11, resultPoint10, correctTopRightRectangular});
-    }
-
-    private ResultPoint correctTopRightRectangular(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i, int i2) {
-        float distance = distance(resultPoint, resultPoint2) / i;
-        int distance2 = distance(resultPoint3, resultPoint4);
-        ResultPoint resultPoint5 = new ResultPoint((((resultPoint4.getX() - resultPoint3.getX()) / distance2) * distance) + resultPoint4.getX(), (distance * ((resultPoint4.getY() - resultPoint3.getY()) / distance2)) + resultPoint4.getY());
-        float distance3 = distance(resultPoint, resultPoint3) / i2;
-        int distance4 = distance(resultPoint2, resultPoint4);
-        ResultPoint resultPoint6 = new ResultPoint((((resultPoint4.getX() - resultPoint2.getX()) / distance4) * distance3) + resultPoint4.getX(), (distance3 * ((resultPoint4.getY() - resultPoint2.getY()) / distance4)) + resultPoint4.getY());
-        if (isValid(resultPoint5)) {
-            return (isValid(resultPoint6) && Math.abs(i - transitionsBetween(resultPoint3, resultPoint5).getTransitions()) + Math.abs(i2 - transitionsBetween(resultPoint2, resultPoint5).getTransitions()) > Math.abs(i - transitionsBetween(resultPoint3, resultPoint6).getTransitions()) + Math.abs(i2 - transitionsBetween(resultPoint2, resultPoint6).getTransitions())) ? resultPoint6 : resultPoint5;
-        } else if (!isValid(resultPoint6)) {
-            return null;
-        } else {
-            return resultPoint6;
-        }
-    }
-
-    private ResultPoint correctTopRight(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i) {
-        float distance = distance(resultPoint, resultPoint2) / i;
-        int distance2 = distance(resultPoint3, resultPoint4);
-        ResultPoint resultPoint5 = new ResultPoint((((resultPoint4.getX() - resultPoint3.getX()) / distance2) * distance) + resultPoint4.getX(), (distance * ((resultPoint4.getY() - resultPoint3.getY()) / distance2)) + resultPoint4.getY());
-        float distance3 = distance(resultPoint, resultPoint3) / i;
-        int distance4 = distance(resultPoint2, resultPoint4);
-        ResultPoint resultPoint6 = new ResultPoint((((resultPoint4.getX() - resultPoint2.getX()) / distance4) * distance3) + resultPoint4.getX(), (distance3 * ((resultPoint4.getY() - resultPoint2.getY()) / distance4)) + resultPoint4.getY());
-        if (isValid(resultPoint5)) {
-            return (isValid(resultPoint6) && Math.abs(transitionsBetween(resultPoint3, resultPoint5).getTransitions() - transitionsBetween(resultPoint2, resultPoint5).getTransitions()) > Math.abs(transitionsBetween(resultPoint3, resultPoint6).getTransitions() - transitionsBetween(resultPoint2, resultPoint6).getTransitions())) ? resultPoint6 : resultPoint5;
-        } else if (!isValid(resultPoint6)) {
-            return null;
-        } else {
-            return resultPoint6;
-        }
-    }
-
-    private boolean isValid(ResultPoint resultPoint) {
-        return resultPoint.getX() >= 0.0f && resultPoint.getX() < ((float) this.image.getWidth()) && resultPoint.getY() > 0.0f && resultPoint.getY() < ((float) this.image.getHeight());
-    }
-
-    private static int distance(ResultPoint resultPoint, ResultPoint resultPoint2) {
-        return MathUtils.round(ResultPoint.distance(resultPoint, resultPoint2));
-    }
-
-    private static void increment(Map<ResultPoint, Integer> map, ResultPoint resultPoint) {
-        Integer num = map.get(resultPoint);
-        map.put(resultPoint, Integer.valueOf(num == null ? 1 : num.intValue() + 1));
-    }
-
-    private static BitMatrix sampleGrid(BitMatrix bitMatrix, ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i, int i2) throws NotFoundException {
-        return GridSampler.getInstance().sampleGrid(bitMatrix, i, i2, 0.5f, 0.5f, i - 0.5f, 0.5f, i - 0.5f, i2 - 0.5f, 0.5f, i2 - 0.5f, resultPoint.getX(), resultPoint.getY(), resultPoint4.getX(), resultPoint4.getY(), resultPoint3.getX(), resultPoint3.getY(), resultPoint2.getX(), resultPoint2.getY());
-    }
-
-    private ResultPointsAndTransitions transitionsBetween(ResultPoint resultPoint, ResultPoint resultPoint2) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        boolean z;
-        int x = (int) resultPoint.getX();
-        int y = (int) resultPoint.getY();
-        int x2 = (int) resultPoint2.getX();
-        int y2 = (int) resultPoint2.getY();
-        boolean z2 = Math.abs(y2 - y) > Math.abs(x2 - x);
-        if (z2) {
-            i = x2;
-            i2 = y2;
-            i3 = x;
-            i4 = y;
-        } else {
-            i = y2;
-            i2 = x2;
-            i3 = y;
-            i4 = x;
-        }
-        int abs = Math.abs(i2 - i4);
-        int abs2 = Math.abs(i - i3);
-        int i5 = (-abs) / 2;
-        int i6 = i3 < i ? 1 : -1;
-        int i7 = i4 < i2 ? 1 : -1;
-        int i8 = 0;
-        boolean z3 = this.image.get(z2 ? i3 : i4, z2 ? i4 : i3);
-        int i9 = i4;
-        while (i9 != i2) {
-            boolean z4 = this.image.get(z2 ? i3 : i9, z2 ? i9 : i3);
-            if (z4 != z3) {
-                i8++;
-                z = z4;
+        if (resultPoint7 != null && resultPoint8 != null && resultPoint9 != null) {
+            ResultPoint[] resultPointArr = {resultPoint7, resultPoint8, resultPoint9};
+            ResultPoint.orderBestPatterns(resultPointArr);
+            ResultPoint resultPoint11 = resultPointArr[0];
+            ResultPoint resultPoint12 = resultPointArr[1];
+            ResultPoint resultPoint13 = resultPointArr[2];
+            if (!hashMap.containsKey(resultPoint3)) {
+                resultPoint = resultPoint3;
+            } else if (hashMap.containsKey(resultPoint4)) {
+                resultPoint = !hashMap.containsKey(resultPoint5) ? resultPoint5 : resultPoint6;
             } else {
-                z = z3;
+                resultPoint = resultPoint4;
             }
-            int i10 = i5 + abs2;
-            if (i10 > 0) {
-                if (i3 == i) {
-                    break;
+            int transitions = transitionsBetween(resultPoint13, resultPoint).getTransitions();
+            int transitions2 = transitionsBetween(resultPoint11, resultPoint).getTransitions();
+            if ((transitions & 1) == 1) {
+                transitions++;
+            }
+            int i = transitions + 2;
+            if ((transitions2 & 1) == 1) {
+                transitions2++;
+            }
+            int i2 = transitions2 + 2;
+            if (i * 4 < i2 * 7 && i2 * 4 < i * 7) {
+                ResultPoint correctTopRight = correctTopRight(resultPoint12, resultPoint11, resultPoint13, resultPoint, Math.min(i2, i));
+                if (correctTopRight != null) {
+                    resultPoint = correctTopRight;
                 }
-                i3 += i6;
-                i10 -= abs;
+                int max = Math.max(transitionsBetween(resultPoint13, resultPoint).getTransitions(), transitionsBetween(resultPoint11, resultPoint).getTransitions()) + 1;
+                if ((max & 1) == 1) {
+                    max++;
+                }
+                int i3 = max;
+                sampleGrid = sampleGrid(this.image, resultPoint13, resultPoint12, resultPoint11, resultPoint, i3, i3);
+                resultPoint2 = resultPoint13;
+            } else {
+                resultPoint2 = resultPoint13;
+                ResultPoint correctTopRightRectangular = correctTopRightRectangular(resultPoint12, resultPoint11, resultPoint13, resultPoint, i, i2);
+                if (correctTopRightRectangular != null) {
+                    resultPoint = correctTopRightRectangular;
+                }
+                int transitions3 = transitionsBetween(resultPoint2, resultPoint).getTransitions();
+                int transitions4 = transitionsBetween(resultPoint11, resultPoint).getTransitions();
+                if ((transitions3 & 1) == 1) {
+                    transitions3++;
+                }
+                int i4 = transitions3;
+                if ((transitions4 & 1) == 1) {
+                    transitions4++;
+                }
+                sampleGrid = sampleGrid(this.image, resultPoint2, resultPoint12, resultPoint11, resultPoint, i4, transitions4);
             }
-            i9 += i7;
-            z3 = z;
-            i5 = i10;
+            return new DetectorResult(sampleGrid, new ResultPoint[]{resultPoint2, resultPoint12, resultPoint11, resultPoint});
         }
-        return new ResultPointsAndTransitions(resultPoint, resultPoint2, i8);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public static final class ResultPointsAndTransitions {
-        private final ResultPoint from;
-        private final ResultPoint to;
-        private final int transitions;
-
-        private ResultPointsAndTransitions(ResultPoint resultPoint, ResultPoint resultPoint2, int i) {
-            this.from = resultPoint;
-            this.to = resultPoint2;
-            this.transitions = i;
-        }
-
-        ResultPoint getFrom() {
-            return this.from;
-        }
-
-        ResultPoint getTo() {
-            return this.to;
-        }
-
-        int getTransitions() {
-            return this.transitions;
-        }
-
-        public String toString() {
-            return this.from + "/" + this.to + '/' + this.transitions;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    private static final class ResultPointsAndTransitionsComparator implements Serializable, Comparator<ResultPointsAndTransitions> {
-        private ResultPointsAndTransitionsComparator() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        public int compare(ResultPointsAndTransitions resultPointsAndTransitions, ResultPointsAndTransitions resultPointsAndTransitions2) {
-            return resultPointsAndTransitions.getTransitions() - resultPointsAndTransitions2.getTransitions();
-        }
+        throw NotFoundException.getNotFoundInstance();
     }
 }

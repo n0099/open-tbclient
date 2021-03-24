@@ -4,14 +4,18 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RetrieveTaskManager {
-    private static final String ACTION_FETCH_LOG_NOTICE = "fetch_log_notice";
-    private static final String DATA = "data";
-    private static final String KEY = "api";
-    private static final String TAG = "RetrieveTaskManager";
-    private static volatile RetrieveTaskManager instance;
-    private Context mContext;
+    public static final String ACTION_FETCH_LOG_NOTICE = "fetch_log_notice";
+    public static final String DATA = "data";
+    public static final String KEY = "api";
+    public static final String TAG = "RetrieveTaskManager";
+    public static volatile RetrieveTaskManager instance;
+    public Context mContext;
+
+    public RetrieveTaskManager(Context context) {
+        this.mContext = context;
+    }
 
     public static RetrieveTaskManager getInstance(Context context) {
         if (instance == null) {
@@ -22,10 +26,6 @@ public class RetrieveTaskManager {
             }
         }
         return instance;
-    }
-
-    private RetrieveTaskManager(Context context) {
-        this.mContext = context;
     }
 
     public void dispatch(JSONObject jSONObject) {

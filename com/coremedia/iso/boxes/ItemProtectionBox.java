@@ -8,51 +8,14 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ItemProtectionBox extends AbstractContainerBox implements FullBox {
     public static final String TYPE = "ipro";
-    private int flags;
-    private int version;
+    public int flags;
+    public int version;
 
     public ItemProtectionBox() {
         super(TYPE);
-    }
-
-    @Override // com.coremedia.iso.boxes.FullBox
-    public int getVersion() {
-        return this.version;
-    }
-
-    @Override // com.coremedia.iso.boxes.FullBox
-    public void setVersion(int i) {
-        this.version = i;
-    }
-
-    @Override // com.coremedia.iso.boxes.FullBox
-    public int getFlags() {
-        return this.flags;
-    }
-
-    @Override // com.coremedia.iso.boxes.FullBox
-    public void setFlags(int i) {
-        this.flags = i;
-    }
-
-    public SchemeInformationBox getItemProtectionScheme() {
-        if (getBoxes(SchemeInformationBox.class).isEmpty()) {
-            return null;
-        }
-        return (SchemeInformationBox) getBoxes(SchemeInformationBox.class).get(0);
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
-        ByteBuffer allocate = ByteBuffer.allocate(6);
-        dataSource.read(allocate);
-        allocate.rewind();
-        this.version = IsoTypeReader.readUInt8(allocate);
-        this.flags = IsoTypeReader.readUInt24(allocate);
-        parseContainer(dataSource, j - 6, boxParser);
     }
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -66,9 +29,46 @@ public class ItemProtectionBox extends AbstractContainerBox implements FullBox {
         writeContainer(writableByteChannel);
     }
 
+    @Override // com.coremedia.iso.boxes.FullBox
+    public int getFlags() {
+        return this.flags;
+    }
+
+    public SchemeInformationBox getItemProtectionScheme() {
+        if (getBoxes(SchemeInformationBox.class).isEmpty()) {
+            return null;
+        }
+        return (SchemeInformationBox) getBoxes(SchemeInformationBox.class).get(0);
+    }
+
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
-        long containerSize = getContainerSize();
-        return ((this.largeBox || containerSize + 6 >= 4294967296L) ? 16 : 8) + containerSize + 6;
+        long containerSize = getContainerSize() + 6;
+        return containerSize + ((this.largeBox || containerSize >= 4294967296L) ? 16 : 8);
+    }
+
+    @Override // com.coremedia.iso.boxes.FullBox
+    public int getVersion() {
+        return this.version;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+        ByteBuffer allocate = ByteBuffer.allocate(6);
+        dataSource.read(allocate);
+        allocate.rewind();
+        this.version = IsoTypeReader.readUInt8(allocate);
+        this.flags = IsoTypeReader.readUInt24(allocate);
+        parseContainer(dataSource, j - 6, boxParser);
+    }
+
+    @Override // com.coremedia.iso.boxes.FullBox
+    public void setFlags(int i) {
+        this.flags = i;
+    }
+
+    @Override // com.coremedia.iso.boxes.FullBox
+    public void setVersion(int i) {
+        this.version = i;
     }
 }

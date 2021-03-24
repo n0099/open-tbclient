@@ -4,16 +4,14 @@ import android.opengl.GLES20;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class GlUtil {
-    private GlUtil() {
-    }
-
     public static void checkNoGLES2Error(String str) {
         int glGetError = GLES20.glGetError();
-        if (glGetError != 0) {
-            throw new RuntimeException(str + ": GLES20 error: " + glGetError);
+        if (glGetError == 0) {
+            return;
         }
+        throw new RuntimeException(str + ": GLES20 error: " + glGetError);
     }
 
     public static FloatBuffer createFloatBuffer(float[] fArr) {

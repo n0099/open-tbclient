@@ -3,7 +3,7 @@ package com.baidu.mobads.component;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class StyleParams {
     public int mBrandBottomDp;
     public int mBrandFontColor;
@@ -103,495 +103,7 @@ public class StyleParams {
     public int mTwoPicTopDp;
     public int mTwoPicWidthDp;
 
-    public StyleParams(Builder builder) {
-        this.mSmartDownloadViewTopDp = builder.mSmartDownloadViewTopDp;
-        this.mSmartDownloadViewBottomDp = builder.mSmartDownloadViewBottomDp;
-        this.mSmartDownloadViewLeftDp = builder.mSmartDownloadViewLeftDp;
-        this.mSmartDownloadViewRightDp = builder.mSmartDownloadViewRightDp;
-        this.mSmartDownloadViewBackgroundColor = builder.mSmartDownloadViewBackgroundColor;
-        this.mSmartDownloadCompanyTextSizeSp = builder.mSmartDownloadCompanyTextSizeSp;
-        this.mSmartDownloadCompanyTextColor = builder.mSmartDownloadCompanyTextColor;
-        this.mSmartDownloadCompanyTopDp = builder.mSmartDownloadCompanyTopDp;
-        this.mSmartDownloadCompanyBottomDp = builder.mSmartDownloadCompanyBottomDp;
-        this.mSmartDownloadCompanyLeftDp = builder.mSmartDownloadCompanyLeftDp;
-        this.mSmartDownloadCompanyRightDp = builder.mSmartDownloadCompanyRightDp;
-        this.mSmartDownloadVersionTextSizeSp = builder.mSmartDownloadVersionTextSizeSp;
-        this.mSmartDownloadVersionTextColor = builder.mSmartDownloadVersionTextColor;
-        this.mSmartDownloadVersionTopDp = builder.mSmartDownloadVersionTopDp;
-        this.mSmartDownloadVersionBottomDp = builder.mSmartDownloadVersionBottomDp;
-        this.mSmartDownloadVersionLeftDp = builder.mSmartDownloadVersionLeftDp;
-        this.mSmartDownloadVersionRightDp = builder.mSmartDownloadVersionRightDp;
-        this.mSmartDownloadPermissionTextSizeSp = builder.mSmartDownloadPermissionTextSizeSp;
-        this.mSmartDownloadPermissionTextColor = builder.mSmartDownloadPermissionTextColor;
-        this.mSmartDownloadPermissionTopDp = builder.mSmartDownloadPermissionTopDp;
-        this.mSmartDownloadPermissionBottomDp = builder.mSmartDownloadPermissionBottomDp;
-        this.mSmartDownloadPermissionLeftDp = builder.mSmartDownloadPermissionLeftDp;
-        this.mSmartDownloadPermissionRightDp = builder.mSmartDownloadPermissionRightDp;
-        this.mSmartDownloadPrivacyTextSizeSp = builder.mSmartDownloadPrivacyTextSizeSp;
-        this.mSmartDownloadPrivacyTextColor = builder.mSmartDownloadPrivacyTextColor;
-        this.mSmartDownloadPrivacyTopDp = builder.mSmartDownloadPrivacyTopDp;
-        this.mSmartDownloadPrivacyBottomDp = builder.mSmartDownloadPrivacyBottomDp;
-        this.mSmartDownloadPrivacyLeftDp = builder.mSmartDownloadPrivacyLeftDp;
-        this.mSmartDownloadPrivacyRightDp = builder.mSmartDownloadPrivacyRightDp;
-        this.mSmartDownloadAppNameTextSizeSp = builder.mSmartDownloadAppNameTextSizeSp;
-        this.mSmartDownloadAppNameTextColor = builder.mSmartDownloadAppNameTextColor;
-        this.mSmartDownloadAppNameTopDp = builder.mSmartDownloadAppNameTopDp;
-        this.mSmartDownloadAppNameBottomDp = builder.mSmartDownloadAppNameBottomDp;
-        this.mSmartDownloadAppNameLeftDp = builder.mSmartDownloadAppNameLeftDp;
-        this.mSmartDownloadAppNameRightDp = builder.mSmartDownloadAppNameRightDp;
-        this.mSmartDownloadButtonWidthDp = builder.mSmartDownloadButtonWidthDp;
-        this.mSmartDownloadButtonHeightDp = builder.mSmartDownloadButtonHeightDp;
-        this.mSmartDownloadButtonLeftDp = builder.mSmartDownloadButtonLeftDp;
-        this.mSmartDownloadButtonRightDp = builder.mSmartDownloadButtonRightDp;
-        this.mSmartDownloadButtonTopDp = builder.mSmartDownloadButtonTopDp;
-        this.mSmartDownloadButtonBottomDp = builder.mSmartDownloadButtonBottomDp;
-        this.mSmartDownloadButtonForegroundColor = builder.mSmartDownloadButtonForegroundColor;
-        this.mSmartDownloadButtonBackgroundColor = builder.mSmartDownloadButtonBackgroundColor;
-        this.mSmartDownloadButtonFontSizeSp = builder.mSmartDownloadButtonFontSizeSp;
-        this.mSmartDownloadButtonFontColor = builder.mSmartDownloadButtonFontColor;
-        this.mSmartDownloadButtonFontTypeFace = builder.mSmartDownloadButtonFontTypeFace;
-        this.mIconWidthDp = builder.mIconWidthDp;
-        this.mIconHeightDp = builder.mIconHeightDp;
-        this.mIconTopDp = builder.mIconTopDp;
-        this.mIconBottomDp = builder.mIconBottomDp;
-        this.mIconLeftDp = builder.mIconLeftDp;
-        this.mIconRightDp = builder.mIconRightDp;
-        this.mTitleLeftDp = builder.mTitleLeftDp;
-        this.mTitleRightDp = builder.mTitleRightDp;
-        this.mTitleTopDp = builder.mTitleTopDp;
-        this.mTitleBottomDp = builder.mTitleBottomDp;
-        this.mTitleFontSizeSp = builder.mTitleFontSizeSp;
-        this.mTitleFontColor = builder.mTitleFontColor;
-        this.mTitleFontTypeFace = builder.mTitleFontTypeFace;
-        this.mFirstPicWidthDp = builder.mFirstPicWidthDp;
-        this.mFirstPicHeightDp = builder.mFirstPicHeightDp;
-        this.mFirstPicTopDp = builder.mFirstPicTopDp;
-        this.mFirstPicBottomDp = builder.mFirstPicBottomDp;
-        this.mFirstPicLeftDp = builder.mFirstPicLeftDp;
-        this.mFirstPicRightDp = builder.mFirstPicRightDp;
-        this.mTwoPicWidthDp = builder.mTwoPicWidthDp;
-        this.mTwoPicHeightDp = builder.mTwoPicHeightDp;
-        this.mTwoPicTopDp = builder.mTwoPicTopDp;
-        this.mTwoPicBottomDp = builder.mTwoPicBottomDp;
-        this.mTwoPicLeftDp = builder.mTwoPicLeftDp;
-        this.mTwoPicRightDp = builder.mTwoPicRightDp;
-        this.mThreePicWidthDp = builder.mThreePicWidthDp;
-        this.mThreePicHeightDp = builder.mThreePicHeightDp;
-        this.mThreePicTopDp = builder.mThreePicTopDp;
-        this.mThreePicBottomDp = builder.mThreePicBottomDp;
-        this.mThreePicLeftDp = builder.mThreePicLeftDp;
-        this.mThreePicRightDp = builder.mThreePicRightDp;
-        this.mImageBackground = builder.mImageBackground;
-        this.mImageBackgroundColor = builder.mImageBackgroundColor;
-        this.mBrandLeftDp = builder.mBrandLeftDp;
-        this.mBrandRightDp = builder.mBrandRightDp;
-        this.mBrandBottomDp = builder.mBrandBottomDp;
-        this.mBrandFontSizeSp = builder.mBrandFontSizeSp;
-        this.mBrandFontColor = builder.mBrandFontColor;
-        this.mBrandFontTypeFace = builder.mBrandFontTypeFace;
-        this.mButtonWidthDp = builder.mButtonWidthDp;
-        this.mButtonHeightDp = builder.mButtonHeightDp;
-        this.mButtonLeftDp = builder.mButtonLeftDp;
-        this.mButtonRightDp = builder.mButtonRightDp;
-        this.mButtonTopDp = builder.mButtonTopDp;
-        this.mButtonBottomDp = builder.mButtonBottomDp;
-        this.mButtonFontColor = builder.mButtonFontColor;
-        this.mButtonFontSizeSp = builder.mButtonFontSizeSp;
-        this.mButtonFontTypeFace = builder.mButtonFontTypeFace;
-        this.mButtonForegroundColor = builder.mButtonForegroundColor;
-        this.mButtonBackgroundColor = builder.mButtonBackgroundColor;
-        this.mIsShowDownloadInfo = builder.mIsShowDownloadInfo;
-    }
-
-    public int getIconWidthDp() {
-        return this.mIconWidthDp;
-    }
-
-    public int getIconHeightDp() {
-        return this.mIconHeightDp;
-    }
-
-    public int getIconTopDp() {
-        return this.mIconTopDp;
-    }
-
-    public int getIconBottomDp() {
-        return this.mIconBottomDp;
-    }
-
-    public int getIconLeftDp() {
-        return this.mIconLeftDp;
-    }
-
-    public int getIconRightDp() {
-        return this.mIconRightDp;
-    }
-
-    public int getTitleLeftDp() {
-        return this.mTitleLeftDp;
-    }
-
-    public int getTitleRightDp() {
-        return this.mTitleRightDp;
-    }
-
-    public int getTitleTopDp() {
-        return this.mTitleTopDp;
-    }
-
-    public int getTitleBottomDp() {
-        return this.mTitleBottomDp;
-    }
-
-    public int getTitleFontSizeSp() {
-        return this.mTitleFontSizeSp;
-    }
-
-    public int getTitleFontColor() {
-        return this.mTitleFontColor;
-    }
-
-    public Typeface getTitleFontTypeFace() {
-        return this.mTitleFontTypeFace;
-    }
-
-    public int getFirstPicWidthDp() {
-        return this.mFirstPicWidthDp;
-    }
-
-    public int getFirstPicHeightDp() {
-        return this.mFirstPicHeightDp;
-    }
-
-    public int getFirstPicTopDp() {
-        return this.mFirstPicTopDp;
-    }
-
-    public int getFirstPicBottomDp() {
-        return this.mFirstPicBottomDp;
-    }
-
-    public int getFirstPicLeftDp() {
-        return this.mFirstPicLeftDp;
-    }
-
-    public int getFirstPicRightDp() {
-        return this.mFirstPicRightDp;
-    }
-
-    public int getTwoPicWidthDp() {
-        return this.mTwoPicWidthDp;
-    }
-
-    public int getTwoPicHeightDp() {
-        return this.mTwoPicHeightDp;
-    }
-
-    public int getTwoPicTopDp() {
-        return this.mTwoPicTopDp;
-    }
-
-    public int getTwoPicBottomDp() {
-        return this.mTwoPicBottomDp;
-    }
-
-    public int getTwoPicLeftDp() {
-        return this.mTwoPicLeftDp;
-    }
-
-    public int getTwoPicRightDp() {
-        return this.mTwoPicRightDp;
-    }
-
-    public int getThreePicWidthDp() {
-        return this.mThreePicWidthDp;
-    }
-
-    public int getThreePicHeightDp() {
-        return this.mThreePicHeightDp;
-    }
-
-    public int getThreePicTopDp() {
-        return this.mThreePicTopDp;
-    }
-
-    public int getThreePicBottomDp() {
-        return this.mThreePicBottomDp;
-    }
-
-    public int getThreePicLeftDp() {
-        return this.mThreePicLeftDp;
-    }
-
-    public int getThreePicRightDp() {
-        return this.mThreePicRightDp;
-    }
-
-    public int getImageBackgroundColor() {
-        return this.mImageBackgroundColor;
-    }
-
-    public Drawable getImageBackground() {
-        return this.mImageBackground;
-    }
-
-    public int getBrandLeftDp() {
-        return this.mBrandLeftDp;
-    }
-
-    public int getBrandRightDp() {
-        return this.mBrandRightDp;
-    }
-
-    public int getBrandBottomDp() {
-        return this.mBrandBottomDp;
-    }
-
-    public int getBrandFontSizeSp() {
-        return this.mBrandFontSizeSp;
-    }
-
-    public int getBrandFontColor() {
-        return this.mBrandFontColor;
-    }
-
-    public Typeface getBrandFontTypeFace() {
-        return this.mBrandFontTypeFace;
-    }
-
-    public int getButtonWidthDp() {
-        return this.mButtonWidthDp;
-    }
-
-    public int getButtonHeightDp() {
-        return this.mButtonHeightDp;
-    }
-
-    public int getButtonLeftDp() {
-        return this.mButtonLeftDp;
-    }
-
-    public int getButtonRightDp() {
-        return this.mButtonRightDp;
-    }
-
-    public int getButtonTopDp() {
-        return this.mButtonTopDp;
-    }
-
-    public int getButtonBottomDp() {
-        return this.mButtonBottomDp;
-    }
-
-    public int getButtonTextSizeSp() {
-        return this.mButtonFontSizeSp;
-    }
-
-    public int getButtonTextColor() {
-        return this.mButtonFontColor;
-    }
-
-    public Typeface getButtonFontTypeFace() {
-        return this.mButtonFontTypeFace;
-    }
-
-    public int getButtonForegroundColor() {
-        return this.mButtonForegroundColor;
-    }
-
-    public int getButtonBackgroundColor() {
-        return this.mButtonBackgroundColor;
-    }
-
-    public int getSmartDownloadViewLeftDp() {
-        return this.mSmartDownloadViewLeftDp;
-    }
-
-    public int getSmartDownloadViewRightDp() {
-        return this.mSmartDownloadViewRightDp;
-    }
-
-    public int getSmartDownloadViewTopDp() {
-        return this.mSmartDownloadViewTopDp;
-    }
-
-    public int getSmartDownloadViewBottomDp() {
-        return this.mSmartDownloadViewBottomDp;
-    }
-
-    public int getSmartDownloadViewBackgroundColor() {
-        return this.mSmartDownloadViewBackgroundColor;
-    }
-
-    public int getSmartDownloadCompanyTextSizeSp() {
-        return this.mSmartDownloadCompanyTextSizeSp;
-    }
-
-    public int getSmartDownloadCompanyTextColor() {
-        return this.mSmartDownloadCompanyTextColor;
-    }
-
-    public int getSmartDownloadCompanyTopDp() {
-        return this.mSmartDownloadCompanyTopDp;
-    }
-
-    public int getSmartDownloadCompanyBottomDp() {
-        return this.mSmartDownloadCompanyBottomDp;
-    }
-
-    public int getSmartDownloadCompanyLeftDp() {
-        return this.mSmartDownloadCompanyLeftDp;
-    }
-
-    public int getSmartDownloadCompanyRightDp() {
-        return this.mSmartDownloadCompanyRightDp;
-    }
-
-    public int getSmartDownloadVersionTextSizeSp() {
-        return this.mSmartDownloadVersionTextSizeSp;
-    }
-
-    public int getSmartDownloadVersionTextColor() {
-        return this.mSmartDownloadVersionTextColor;
-    }
-
-    public int getSmartDownloadVersionTopDp() {
-        return this.mSmartDownloadVersionTopDp;
-    }
-
-    public int getSmartDownloadVersionBottomDp() {
-        return this.mSmartDownloadVersionBottomDp;
-    }
-
-    public int getSmartDownloadVersionLeftDp() {
-        return this.mSmartDownloadVersionLeftDp;
-    }
-
-    public int getSmartDownloadVersionRightDp() {
-        return this.mSmartDownloadVersionRightDp;
-    }
-
-    public int getSmartDownloadPermissionTextSizeSp() {
-        return this.mSmartDownloadPermissionTextSizeSp;
-    }
-
-    public int getSmartDownloadPermissionTextColor() {
-        return this.mSmartDownloadPermissionTextColor;
-    }
-
-    public int getSmartDownloadPermissionTopDp() {
-        return this.mSmartDownloadPermissionTopDp;
-    }
-
-    public int getSmartDownloadPermissionBottomDp() {
-        return this.mSmartDownloadPermissionBottomDp;
-    }
-
-    public int getSmartDownloadPermissionLeftDp() {
-        return this.mSmartDownloadPermissionLeftDp;
-    }
-
-    public int getSmartDownloadPermissionRightDp() {
-        return this.mSmartDownloadPermissionRightDp;
-    }
-
-    public int getSmartDownloadPrivacyTextSizeSp() {
-        return this.mSmartDownloadPrivacyTextSizeSp;
-    }
-
-    public int getSmartDownloadPrivacyTextColor() {
-        return this.mSmartDownloadPrivacyTextColor;
-    }
-
-    public int getSmartDownloadPrivacyTopDp() {
-        return this.mSmartDownloadPrivacyTopDp;
-    }
-
-    public int getSmartDownloadPrivacyBottomDp() {
-        return this.mSmartDownloadPrivacyBottomDp;
-    }
-
-    public int getSmartDownloadPrivacyLeftDp() {
-        return this.mSmartDownloadPrivacyLeftDp;
-    }
-
-    public int getSmartDownloadPrivacyRightDp() {
-        return this.mSmartDownloadPrivacyRightDp;
-    }
-
-    public int getSmartDownloadAppNameTextSizeSp() {
-        return this.mSmartDownloadAppNameTextSizeSp;
-    }
-
-    public int getSmartDownloadAppNameTextColor() {
-        return this.mSmartDownloadAppNameTextColor;
-    }
-
-    public int getSmartDownloadAppNameTopDp() {
-        return this.mSmartDownloadAppNameTopDp;
-    }
-
-    public int getSmartDownloadAppNameBottomDp() {
-        return this.mSmartDownloadAppNameBottomDp;
-    }
-
-    public int getSmartDownloadAppNameLeftDp() {
-        return this.mSmartDownloadAppNameLeftDp;
-    }
-
-    public int getSmartDownloadAppNameRightDp() {
-        return this.mSmartDownloadAppNameRightDp;
-    }
-
-    public int getSmartDownloadButtonWidthDp() {
-        return this.mSmartDownloadButtonWidthDp;
-    }
-
-    public int getSmartDownloadButtonHeightDp() {
-        return this.mSmartDownloadButtonHeightDp;
-    }
-
-    public int getSmartDownloadButtonLeftDp() {
-        return this.mSmartDownloadButtonLeftDp;
-    }
-
-    public int getSmartDownloadButtonRightDp() {
-        return this.mSmartDownloadButtonRightDp;
-    }
-
-    public int getSmartDownloadButtonTopDp() {
-        return this.mSmartDownloadButtonTopDp;
-    }
-
-    public int getSmartDownloadButtonBottomDp() {
-        return this.mSmartDownloadButtonBottomDp;
-    }
-
-    public int getSmartDownloadButtonForegroundColor() {
-        return this.mSmartDownloadButtonForegroundColor;
-    }
-
-    public int getSmartDownloadButtonBackgroundColor() {
-        return this.mSmartDownloadButtonBackgroundColor;
-    }
-
-    public int getSmartDownloadButtonFontSizeSp() {
-        return this.mSmartDownloadButtonFontSizeSp;
-    }
-
-    public int getSmartDownloadButtonFontColor() {
-        return this.mSmartDownloadButtonFontColor;
-    }
-
-    public Typeface getSmartDownloadButtonFontTypeFace() {
-        return this.mSmartDownloadButtonFontTypeFace;
-    }
-
-    public boolean isShowDownloadInfo() {
-        return this.mIsShowDownloadInfo;
-    }
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public int mBrandRightDp;
         public boolean mIsShowDownloadInfo = true;
@@ -693,168 +205,27 @@ public class StyleParams {
         public int mButtonFontColor = Color.parseColor("#FFFFFF");
         public Typeface mButtonFontTypeFace = null;
 
-        public Builder setIconWidthDp(int i) {
-            this.mIconWidthDp = i;
+        public StyleParams build() {
+            return new StyleParams(this);
+        }
+
+        public Builder setBrandBottomDp(int i) {
+            this.mBrandBottomDp = i;
             return this;
         }
 
-        public Builder setIconHeightDp(int i) {
-            this.mIconHeightDp = i;
+        public Builder setBrandFontColor(int i) {
+            this.mBrandFontColor = i;
             return this;
         }
 
-        public Builder setIconTopDp(int i) {
-            this.mIconTopDp = i;
+        public Builder setBrandFontSizeSp(int i) {
+            this.mBrandFontSizeSp = i;
             return this;
         }
 
-        public Builder setIconBottomDp(int i) {
-            this.mIconBottomDp = i;
-            return this;
-        }
-
-        public Builder setIconLeftDp(int i) {
-            this.mIconLeftDp = i;
-            return this;
-        }
-
-        public Builder setIconRightDp(int i) {
-            this.mIconRightDp = i;
-            return this;
-        }
-
-        public Builder setTitleLeftDp(int i) {
-            this.mTitleLeftDp = i;
-            return this;
-        }
-
-        public Builder setTitleRightDp(int i) {
-            this.mTitleRightDp = i;
-            return this;
-        }
-
-        public Builder setTitleTopDp(int i) {
-            this.mTitleTopDp = i;
-            return this;
-        }
-
-        public Builder setTitleBottomDp(int i) {
-            this.mTitleBottomDp = i;
-            return this;
-        }
-
-        public Builder setTitleFontSizeSp(int i) {
-            this.mTitleFontSizeSp = i;
-            return this;
-        }
-
-        public Builder setTitleFontColor(int i) {
-            this.mTitleFontColor = i;
-            return this;
-        }
-
-        public Builder setTitleFontTypeFace(Typeface typeface) {
-            this.mTitleFontTypeFace = typeface;
-            return this;
-        }
-
-        public Builder setFirstPicWidthDp(int i) {
-            this.mFirstPicWidthDp = i;
-            return this;
-        }
-
-        public Builder setFirstPicHeightDp(int i) {
-            this.mFirstPicHeightDp = i;
-            return this;
-        }
-
-        public Builder setFirstPicTopDp(int i) {
-            this.mFirstPicTopDp = i;
-            return this;
-        }
-
-        public Builder setFirstPicBottomDp(int i) {
-            this.mFirstPicBottomDp = i;
-            return this;
-        }
-
-        public Builder setFirstPicLeftDp(int i) {
-            this.mFirstPicLeftDp = i;
-            return this;
-        }
-
-        public Builder setFirstPicRightDp(int i) {
-            this.mFirstPicRightDp = i;
-            return this;
-        }
-
-        public Builder setTwoPicWidthDp(int i) {
-            this.mTwoPicWidthDp = i;
-            return this;
-        }
-
-        public Builder setTwoPicHeightDp(int i) {
-            this.mTwoPicHeightDp = i;
-            return this;
-        }
-
-        public Builder setTwoPicTopDp(int i) {
-            this.mTwoPicTopDp = i;
-            return this;
-        }
-
-        public Builder setTwoPicBottomDp(int i) {
-            this.mTwoPicBottomDp = i;
-            return this;
-        }
-
-        public Builder setTwoPicLeftDp(int i) {
-            this.mTwoPicLeftDp = i;
-            return this;
-        }
-
-        public Builder setTwoPicRightDp(int i) {
-            this.mTwoPicRightDp = i;
-            return this;
-        }
-
-        public Builder setThreePicWidthDp(int i) {
-            this.mThreePicWidthDp = i;
-            return this;
-        }
-
-        public Builder setThreePicHeightDp(int i) {
-            this.mThreePicHeightDp = i;
-            return this;
-        }
-
-        public Builder setThreePicTopDp(int i) {
-            this.mThreePicTopDp = i;
-            return this;
-        }
-
-        public Builder setThreePicBottomDp(int i) {
-            this.mThreePicBottomDp = i;
-            return this;
-        }
-
-        public Builder setThreePicLeftDp(int i) {
-            this.mThreePicLeftDp = i;
-            return this;
-        }
-
-        public Builder setThreePicRightDp(int i) {
-            this.mThreePicRightDp = i;
-            return this;
-        }
-
-        public Builder setImageBackgroundColor(int i) {
-            this.mImageBackgroundColor = i;
-            return this;
-        }
-
-        public Builder setImageBackground(Drawable drawable) {
-            this.mImageBackground = drawable;
+        public Builder setBrandFontTypeFace(Typeface typeface) {
+            this.mBrandFontTypeFace = typeface;
             return this;
         }
 
@@ -868,28 +239,23 @@ public class StyleParams {
             return this;
         }
 
-        public Builder setBrandBottomDp(int i) {
-            this.mBrandBottomDp = i;
+        public Builder setButtonBackgroundColor(int i) {
+            this.mButtonBackgroundColor = i;
             return this;
         }
 
-        public Builder setBrandFontSizeSp(int i) {
-            this.mBrandFontSizeSp = i;
+        public Builder setButtonBottomDp(int i) {
+            this.mButtonBottomDp = i;
             return this;
         }
 
-        public Builder setBrandFontColor(int i) {
-            this.mBrandFontColor = i;
+        public Builder setButtonFontTypeface(Typeface typeface) {
+            this.mButtonFontTypeFace = typeface;
             return this;
         }
 
-        public Builder setBrandFontTypeFace(Typeface typeface) {
-            this.mBrandFontTypeFace = typeface;
-            return this;
-        }
-
-        public Builder setButtonWidthDp(int i) {
-            this.mButtonWidthDp = i;
+        public Builder setButtonForegroundColor(int i) {
+            this.mButtonForegroundColor = i;
             return this;
         }
 
@@ -908,26 +274,6 @@ public class StyleParams {
             return this;
         }
 
-        public Builder setButtonTopDp(int i) {
-            this.mButtonTopDp = i;
-            return this;
-        }
-
-        public Builder setButtonBottomDp(int i) {
-            this.mButtonBottomDp = i;
-            return this;
-        }
-
-        public Builder setButtonForegroundColor(int i) {
-            this.mButtonForegroundColor = i;
-            return this;
-        }
-
-        public Builder setButtonBackgroundColor(int i) {
-            this.mButtonBackgroundColor = i;
-            return this;
-        }
-
         public Builder setButtonTextColor(int i) {
             this.mButtonFontColor = i;
             return this;
@@ -938,8 +284,23 @@ public class StyleParams {
             return this;
         }
 
-        public Builder setButtonFontTypeface(Typeface typeface) {
-            this.mButtonFontTypeFace = typeface;
+        public Builder setButtonTopDp(int i) {
+            this.mButtonTopDp = i;
+            return this;
+        }
+
+        public Builder setButtonWidthDp(int i) {
+            this.mButtonWidthDp = i;
+            return this;
+        }
+
+        public Builder setDownloadViewBackgroundColor(int i) {
+            this.mSmartDownloadViewBackgroundColor = i;
+            return this;
+        }
+
+        public Builder setDownloadViewBottomDp(int i) {
+            this.mSmartDownloadViewBottomDp = i;
             return this;
         }
 
@@ -958,148 +319,78 @@ public class StyleParams {
             return this;
         }
 
-        public Builder setDownloadViewBottomDp(int i) {
-            this.mSmartDownloadViewBottomDp = i;
+        public Builder setFirstPicBottomDp(int i) {
+            this.mFirstPicBottomDp = i;
             return this;
         }
 
-        public Builder setDownloadViewBackgroundColor(int i) {
-            this.mSmartDownloadViewBackgroundColor = i;
+        public Builder setFirstPicHeightDp(int i) {
+            this.mFirstPicHeightDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadCompanyTextSizeSp(int i) {
-            this.mSmartDownloadCompanyTextSizeSp = i;
+        public Builder setFirstPicLeftDp(int i) {
+            this.mFirstPicLeftDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadCompanyTextColor(int i) {
-            this.mSmartDownloadCompanyTextColor = i;
+        public Builder setFirstPicRightDp(int i) {
+            this.mFirstPicRightDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadCompanyTopDp(int i) {
-            this.mSmartDownloadCompanyTopDp = i;
+        public Builder setFirstPicTopDp(int i) {
+            this.mFirstPicTopDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadCompanyBottomDp(int i) {
-            this.mSmartDownloadCompanyBottomDp = i;
+        public Builder setFirstPicWidthDp(int i) {
+            this.mFirstPicWidthDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadCompanyLeftDp(int i) {
-            this.mSmartDownloadCompanyLeftDp = i;
+        public Builder setIconBottomDp(int i) {
+            this.mIconBottomDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadCompanyRightDp(int i) {
-            this.mSmartDownloadCompanyRightDp = i;
+        public Builder setIconHeightDp(int i) {
+            this.mIconHeightDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadVersionTextSizeSp(int i) {
-            this.mSmartDownloadVersionTextSizeSp = i;
+        public Builder setIconLeftDp(int i) {
+            this.mIconLeftDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadVersionTextColor(int i) {
-            this.mSmartDownloadVersionTextColor = i;
+        public Builder setIconRightDp(int i) {
+            this.mIconRightDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadVersionTopDp(int i) {
-            this.mSmartDownloadVersionTopDp = i;
+        public Builder setIconTopDp(int i) {
+            this.mIconTopDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadVersionBottomDp(int i) {
-            this.mSmartDownloadVersionBottomDp = i;
+        public Builder setIconWidthDp(int i) {
+            this.mIconWidthDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadVersionLeftDp(int i) {
-            this.mSmartDownloadVersionLeftDp = i;
+        public Builder setImageBackground(Drawable drawable) {
+            this.mImageBackground = drawable;
             return this;
         }
 
-        public Builder setSmartDownloadVersionRightDp(int i) {
-            this.mSmartDownloadVersionRightDp = i;
+        public Builder setImageBackgroundColor(int i) {
+            this.mImageBackgroundColor = i;
             return this;
         }
 
-        public Builder setSmartDownloadPrivacyTextSizeSp(int i) {
-            this.mSmartDownloadPrivacyTextSizeSp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPrivacyTextColor(int i) {
-            this.mSmartDownloadPrivacyTextColor = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPrivacyTopDp(int i) {
-            this.mSmartDownloadPrivacyTopDp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPrivacyBottomDp(int i) {
-            this.mSmartDownloadPrivacyBottomDp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPrivacyLeftDp(int i) {
-            this.mSmartDownloadPrivacyLeftDp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPrivacyRightDp(int i) {
-            this.mSmartDownloadPrivacyRightDp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPermissionTextSizeSp(int i) {
-            this.mSmartDownloadPermissionTextSizeSp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPermissionTextColor(int i) {
-            this.mSmartDownloadPermissionTextColor = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPermissionTopDp(int i) {
-            this.mSmartDownloadPermissionTopDp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPermissionBottomDp(int i) {
-            this.mSmartDownloadPermissionBottomDp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPermissionLeftDp(int i) {
-            this.mSmartDownloadPermissionLeftDp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadPermissionRightDp(int i) {
-            this.mSmartDownloadPermissionRightDp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadAppNameTextSizeSp(int i) {
-            this.mSmartDownloadAppNameTextSizeSp = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadAppNameTextColor(int i) {
-            this.mSmartDownloadAppNameTextColor = i;
-            return this;
-        }
-
-        public Builder setSmartDownloadAppNameTopDp(int i) {
-            this.mSmartDownloadAppNameTopDp = i;
+        public Builder setShowDownloadInfo(boolean z) {
+            this.mIsShowDownloadInfo = z;
             return this;
         }
 
@@ -1118,8 +409,48 @@ public class StyleParams {
             return this;
         }
 
-        public Builder setSmartDownloadButtonWidthDp(int i) {
-            this.mSmartDownloadButtonWidthDp = i;
+        public Builder setSmartDownloadAppNameTextColor(int i) {
+            this.mSmartDownloadAppNameTextColor = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadAppNameTextSizeSp(int i) {
+            this.mSmartDownloadAppNameTextSizeSp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadAppNameTopDp(int i) {
+            this.mSmartDownloadAppNameTopDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadButtonBackgroundColor(int i) {
+            this.mSmartDownloadButtonBackgroundColor = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadButtonBottomDp(int i) {
+            this.mSmartDownloadButtonBottomDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadButtonFontColor(int i) {
+            this.mSmartDownloadButtonFontColor = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadButtonFontSizeSp(int i) {
+            this.mSmartDownloadButtonFontSizeSp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadButtonFontTypeFace(Typeface typeface) {
+            this.mSmartDownloadButtonFontTypeFace = typeface;
+            return this;
+        }
+
+        public Builder setSmartDownloadButtonForegroundColor(int i) {
+            this.mSmartDownloadButtonForegroundColor = i;
             return this;
         }
 
@@ -1143,43 +474,712 @@ public class StyleParams {
             return this;
         }
 
-        public Builder setSmartDownloadButtonBottomDp(int i) {
-            this.mSmartDownloadButtonBottomDp = i;
+        public Builder setSmartDownloadButtonWidthDp(int i) {
+            this.mSmartDownloadButtonWidthDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadButtonForegroundColor(int i) {
-            this.mSmartDownloadButtonForegroundColor = i;
+        public Builder setSmartDownloadCompanyBottomDp(int i) {
+            this.mSmartDownloadCompanyBottomDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadButtonBackgroundColor(int i) {
-            this.mSmartDownloadButtonBackgroundColor = i;
+        public Builder setSmartDownloadCompanyLeftDp(int i) {
+            this.mSmartDownloadCompanyLeftDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadButtonFontSizeSp(int i) {
-            this.mSmartDownloadButtonFontSizeSp = i;
+        public Builder setSmartDownloadCompanyRightDp(int i) {
+            this.mSmartDownloadCompanyRightDp = i;
             return this;
         }
 
-        public Builder setSmartDownloadButtonFontColor(int i) {
-            this.mSmartDownloadButtonFontColor = i;
+        public Builder setSmartDownloadCompanyTextColor(int i) {
+            this.mSmartDownloadCompanyTextColor = i;
             return this;
         }
 
-        public Builder setSmartDownloadButtonFontTypeFace(Typeface typeface) {
-            this.mSmartDownloadButtonFontTypeFace = typeface;
+        public Builder setSmartDownloadCompanyTextSizeSp(int i) {
+            this.mSmartDownloadCompanyTextSizeSp = i;
             return this;
         }
 
-        public Builder setShowDownloadInfo(boolean z) {
-            this.mIsShowDownloadInfo = z;
+        public Builder setSmartDownloadCompanyTopDp(int i) {
+            this.mSmartDownloadCompanyTopDp = i;
             return this;
         }
 
-        public StyleParams build() {
-            return new StyleParams(this);
+        public Builder setSmartDownloadPermissionBottomDp(int i) {
+            this.mSmartDownloadPermissionBottomDp = i;
+            return this;
         }
+
+        public Builder setSmartDownloadPermissionLeftDp(int i) {
+            this.mSmartDownloadPermissionLeftDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadPermissionRightDp(int i) {
+            this.mSmartDownloadPermissionRightDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadPermissionTextColor(int i) {
+            this.mSmartDownloadPermissionTextColor = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadPermissionTextSizeSp(int i) {
+            this.mSmartDownloadPermissionTextSizeSp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadPermissionTopDp(int i) {
+            this.mSmartDownloadPermissionTopDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadPrivacyBottomDp(int i) {
+            this.mSmartDownloadPrivacyBottomDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadPrivacyLeftDp(int i) {
+            this.mSmartDownloadPrivacyLeftDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadPrivacyRightDp(int i) {
+            this.mSmartDownloadPrivacyRightDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadPrivacyTextColor(int i) {
+            this.mSmartDownloadPrivacyTextColor = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadPrivacyTextSizeSp(int i) {
+            this.mSmartDownloadPrivacyTextSizeSp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadPrivacyTopDp(int i) {
+            this.mSmartDownloadPrivacyTopDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadVersionBottomDp(int i) {
+            this.mSmartDownloadVersionBottomDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadVersionLeftDp(int i) {
+            this.mSmartDownloadVersionLeftDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadVersionRightDp(int i) {
+            this.mSmartDownloadVersionRightDp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadVersionTextColor(int i) {
+            this.mSmartDownloadVersionTextColor = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadVersionTextSizeSp(int i) {
+            this.mSmartDownloadVersionTextSizeSp = i;
+            return this;
+        }
+
+        public Builder setSmartDownloadVersionTopDp(int i) {
+            this.mSmartDownloadVersionTopDp = i;
+            return this;
+        }
+
+        public Builder setThreePicBottomDp(int i) {
+            this.mThreePicBottomDp = i;
+            return this;
+        }
+
+        public Builder setThreePicHeightDp(int i) {
+            this.mThreePicHeightDp = i;
+            return this;
+        }
+
+        public Builder setThreePicLeftDp(int i) {
+            this.mThreePicLeftDp = i;
+            return this;
+        }
+
+        public Builder setThreePicRightDp(int i) {
+            this.mThreePicRightDp = i;
+            return this;
+        }
+
+        public Builder setThreePicTopDp(int i) {
+            this.mThreePicTopDp = i;
+            return this;
+        }
+
+        public Builder setThreePicWidthDp(int i) {
+            this.mThreePicWidthDp = i;
+            return this;
+        }
+
+        public Builder setTitleBottomDp(int i) {
+            this.mTitleBottomDp = i;
+            return this;
+        }
+
+        public Builder setTitleFontColor(int i) {
+            this.mTitleFontColor = i;
+            return this;
+        }
+
+        public Builder setTitleFontSizeSp(int i) {
+            this.mTitleFontSizeSp = i;
+            return this;
+        }
+
+        public Builder setTitleFontTypeFace(Typeface typeface) {
+            this.mTitleFontTypeFace = typeface;
+            return this;
+        }
+
+        public Builder setTitleLeftDp(int i) {
+            this.mTitleLeftDp = i;
+            return this;
+        }
+
+        public Builder setTitleRightDp(int i) {
+            this.mTitleRightDp = i;
+            return this;
+        }
+
+        public Builder setTitleTopDp(int i) {
+            this.mTitleTopDp = i;
+            return this;
+        }
+
+        public Builder setTwoPicBottomDp(int i) {
+            this.mTwoPicBottomDp = i;
+            return this;
+        }
+
+        public Builder setTwoPicHeightDp(int i) {
+            this.mTwoPicHeightDp = i;
+            return this;
+        }
+
+        public Builder setTwoPicLeftDp(int i) {
+            this.mTwoPicLeftDp = i;
+            return this;
+        }
+
+        public Builder setTwoPicRightDp(int i) {
+            this.mTwoPicRightDp = i;
+            return this;
+        }
+
+        public Builder setTwoPicTopDp(int i) {
+            this.mTwoPicTopDp = i;
+            return this;
+        }
+
+        public Builder setTwoPicWidthDp(int i) {
+            this.mTwoPicWidthDp = i;
+            return this;
+        }
+    }
+
+    public StyleParams(Builder builder) {
+        this.mSmartDownloadViewTopDp = builder.mSmartDownloadViewTopDp;
+        this.mSmartDownloadViewBottomDp = builder.mSmartDownloadViewBottomDp;
+        this.mSmartDownloadViewLeftDp = builder.mSmartDownloadViewLeftDp;
+        this.mSmartDownloadViewRightDp = builder.mSmartDownloadViewRightDp;
+        this.mSmartDownloadViewBackgroundColor = builder.mSmartDownloadViewBackgroundColor;
+        this.mSmartDownloadCompanyTextSizeSp = builder.mSmartDownloadCompanyTextSizeSp;
+        this.mSmartDownloadCompanyTextColor = builder.mSmartDownloadCompanyTextColor;
+        this.mSmartDownloadCompanyTopDp = builder.mSmartDownloadCompanyTopDp;
+        this.mSmartDownloadCompanyBottomDp = builder.mSmartDownloadCompanyBottomDp;
+        this.mSmartDownloadCompanyLeftDp = builder.mSmartDownloadCompanyLeftDp;
+        this.mSmartDownloadCompanyRightDp = builder.mSmartDownloadCompanyRightDp;
+        this.mSmartDownloadVersionTextSizeSp = builder.mSmartDownloadVersionTextSizeSp;
+        this.mSmartDownloadVersionTextColor = builder.mSmartDownloadVersionTextColor;
+        this.mSmartDownloadVersionTopDp = builder.mSmartDownloadVersionTopDp;
+        this.mSmartDownloadVersionBottomDp = builder.mSmartDownloadVersionBottomDp;
+        this.mSmartDownloadVersionLeftDp = builder.mSmartDownloadVersionLeftDp;
+        this.mSmartDownloadVersionRightDp = builder.mSmartDownloadVersionRightDp;
+        this.mSmartDownloadPermissionTextSizeSp = builder.mSmartDownloadPermissionTextSizeSp;
+        this.mSmartDownloadPermissionTextColor = builder.mSmartDownloadPermissionTextColor;
+        this.mSmartDownloadPermissionTopDp = builder.mSmartDownloadPermissionTopDp;
+        this.mSmartDownloadPermissionBottomDp = builder.mSmartDownloadPermissionBottomDp;
+        this.mSmartDownloadPermissionLeftDp = builder.mSmartDownloadPermissionLeftDp;
+        this.mSmartDownloadPermissionRightDp = builder.mSmartDownloadPermissionRightDp;
+        this.mSmartDownloadPrivacyTextSizeSp = builder.mSmartDownloadPrivacyTextSizeSp;
+        this.mSmartDownloadPrivacyTextColor = builder.mSmartDownloadPrivacyTextColor;
+        this.mSmartDownloadPrivacyTopDp = builder.mSmartDownloadPrivacyTopDp;
+        this.mSmartDownloadPrivacyBottomDp = builder.mSmartDownloadPrivacyBottomDp;
+        this.mSmartDownloadPrivacyLeftDp = builder.mSmartDownloadPrivacyLeftDp;
+        this.mSmartDownloadPrivacyRightDp = builder.mSmartDownloadPrivacyRightDp;
+        this.mSmartDownloadAppNameTextSizeSp = builder.mSmartDownloadAppNameTextSizeSp;
+        this.mSmartDownloadAppNameTextColor = builder.mSmartDownloadAppNameTextColor;
+        this.mSmartDownloadAppNameTopDp = builder.mSmartDownloadAppNameTopDp;
+        this.mSmartDownloadAppNameBottomDp = builder.mSmartDownloadAppNameBottomDp;
+        this.mSmartDownloadAppNameLeftDp = builder.mSmartDownloadAppNameLeftDp;
+        this.mSmartDownloadAppNameRightDp = builder.mSmartDownloadAppNameRightDp;
+        this.mSmartDownloadButtonWidthDp = builder.mSmartDownloadButtonWidthDp;
+        this.mSmartDownloadButtonHeightDp = builder.mSmartDownloadButtonHeightDp;
+        this.mSmartDownloadButtonLeftDp = builder.mSmartDownloadButtonLeftDp;
+        this.mSmartDownloadButtonRightDp = builder.mSmartDownloadButtonRightDp;
+        this.mSmartDownloadButtonTopDp = builder.mSmartDownloadButtonTopDp;
+        this.mSmartDownloadButtonBottomDp = builder.mSmartDownloadButtonBottomDp;
+        this.mSmartDownloadButtonForegroundColor = builder.mSmartDownloadButtonForegroundColor;
+        this.mSmartDownloadButtonBackgroundColor = builder.mSmartDownloadButtonBackgroundColor;
+        this.mSmartDownloadButtonFontSizeSp = builder.mSmartDownloadButtonFontSizeSp;
+        this.mSmartDownloadButtonFontColor = builder.mSmartDownloadButtonFontColor;
+        this.mSmartDownloadButtonFontTypeFace = builder.mSmartDownloadButtonFontTypeFace;
+        this.mIconWidthDp = builder.mIconWidthDp;
+        this.mIconHeightDp = builder.mIconHeightDp;
+        this.mIconTopDp = builder.mIconTopDp;
+        this.mIconBottomDp = builder.mIconBottomDp;
+        this.mIconLeftDp = builder.mIconLeftDp;
+        this.mIconRightDp = builder.mIconRightDp;
+        this.mTitleLeftDp = builder.mTitleLeftDp;
+        this.mTitleRightDp = builder.mTitleRightDp;
+        this.mTitleTopDp = builder.mTitleTopDp;
+        this.mTitleBottomDp = builder.mTitleBottomDp;
+        this.mTitleFontSizeSp = builder.mTitleFontSizeSp;
+        this.mTitleFontColor = builder.mTitleFontColor;
+        this.mTitleFontTypeFace = builder.mTitleFontTypeFace;
+        this.mFirstPicWidthDp = builder.mFirstPicWidthDp;
+        this.mFirstPicHeightDp = builder.mFirstPicHeightDp;
+        this.mFirstPicTopDp = builder.mFirstPicTopDp;
+        this.mFirstPicBottomDp = builder.mFirstPicBottomDp;
+        this.mFirstPicLeftDp = builder.mFirstPicLeftDp;
+        this.mFirstPicRightDp = builder.mFirstPicRightDp;
+        this.mTwoPicWidthDp = builder.mTwoPicWidthDp;
+        this.mTwoPicHeightDp = builder.mTwoPicHeightDp;
+        this.mTwoPicTopDp = builder.mTwoPicTopDp;
+        this.mTwoPicBottomDp = builder.mTwoPicBottomDp;
+        this.mTwoPicLeftDp = builder.mTwoPicLeftDp;
+        this.mTwoPicRightDp = builder.mTwoPicRightDp;
+        this.mThreePicWidthDp = builder.mThreePicWidthDp;
+        this.mThreePicHeightDp = builder.mThreePicHeightDp;
+        this.mThreePicTopDp = builder.mThreePicTopDp;
+        this.mThreePicBottomDp = builder.mThreePicBottomDp;
+        this.mThreePicLeftDp = builder.mThreePicLeftDp;
+        this.mThreePicRightDp = builder.mThreePicRightDp;
+        this.mImageBackground = builder.mImageBackground;
+        this.mImageBackgroundColor = builder.mImageBackgroundColor;
+        this.mBrandLeftDp = builder.mBrandLeftDp;
+        this.mBrandRightDp = builder.mBrandRightDp;
+        this.mBrandBottomDp = builder.mBrandBottomDp;
+        this.mBrandFontSizeSp = builder.mBrandFontSizeSp;
+        this.mBrandFontColor = builder.mBrandFontColor;
+        this.mBrandFontTypeFace = builder.mBrandFontTypeFace;
+        this.mButtonWidthDp = builder.mButtonWidthDp;
+        this.mButtonHeightDp = builder.mButtonHeightDp;
+        this.mButtonLeftDp = builder.mButtonLeftDp;
+        this.mButtonRightDp = builder.mButtonRightDp;
+        this.mButtonTopDp = builder.mButtonTopDp;
+        this.mButtonBottomDp = builder.mButtonBottomDp;
+        this.mButtonFontColor = builder.mButtonFontColor;
+        this.mButtonFontSizeSp = builder.mButtonFontSizeSp;
+        this.mButtonFontTypeFace = builder.mButtonFontTypeFace;
+        this.mButtonForegroundColor = builder.mButtonForegroundColor;
+        this.mButtonBackgroundColor = builder.mButtonBackgroundColor;
+        this.mIsShowDownloadInfo = builder.mIsShowDownloadInfo;
+    }
+
+    public int getBrandBottomDp() {
+        return this.mBrandBottomDp;
+    }
+
+    public int getBrandFontColor() {
+        return this.mBrandFontColor;
+    }
+
+    public int getBrandFontSizeSp() {
+        return this.mBrandFontSizeSp;
+    }
+
+    public Typeface getBrandFontTypeFace() {
+        return this.mBrandFontTypeFace;
+    }
+
+    public int getBrandLeftDp() {
+        return this.mBrandLeftDp;
+    }
+
+    public int getBrandRightDp() {
+        return this.mBrandRightDp;
+    }
+
+    public int getButtonBackgroundColor() {
+        return this.mButtonBackgroundColor;
+    }
+
+    public int getButtonBottomDp() {
+        return this.mButtonBottomDp;
+    }
+
+    public Typeface getButtonFontTypeFace() {
+        return this.mButtonFontTypeFace;
+    }
+
+    public int getButtonForegroundColor() {
+        return this.mButtonForegroundColor;
+    }
+
+    public int getButtonHeightDp() {
+        return this.mButtonHeightDp;
+    }
+
+    public int getButtonLeftDp() {
+        return this.mButtonLeftDp;
+    }
+
+    public int getButtonRightDp() {
+        return this.mButtonRightDp;
+    }
+
+    public int getButtonTextColor() {
+        return this.mButtonFontColor;
+    }
+
+    public int getButtonTextSizeSp() {
+        return this.mButtonFontSizeSp;
+    }
+
+    public int getButtonTopDp() {
+        return this.mButtonTopDp;
+    }
+
+    public int getButtonWidthDp() {
+        return this.mButtonWidthDp;
+    }
+
+    public int getFirstPicBottomDp() {
+        return this.mFirstPicBottomDp;
+    }
+
+    public int getFirstPicHeightDp() {
+        return this.mFirstPicHeightDp;
+    }
+
+    public int getFirstPicLeftDp() {
+        return this.mFirstPicLeftDp;
+    }
+
+    public int getFirstPicRightDp() {
+        return this.mFirstPicRightDp;
+    }
+
+    public int getFirstPicTopDp() {
+        return this.mFirstPicTopDp;
+    }
+
+    public int getFirstPicWidthDp() {
+        return this.mFirstPicWidthDp;
+    }
+
+    public int getIconBottomDp() {
+        return this.mIconBottomDp;
+    }
+
+    public int getIconHeightDp() {
+        return this.mIconHeightDp;
+    }
+
+    public int getIconLeftDp() {
+        return this.mIconLeftDp;
+    }
+
+    public int getIconRightDp() {
+        return this.mIconRightDp;
+    }
+
+    public int getIconTopDp() {
+        return this.mIconTopDp;
+    }
+
+    public int getIconWidthDp() {
+        return this.mIconWidthDp;
+    }
+
+    public Drawable getImageBackground() {
+        return this.mImageBackground;
+    }
+
+    public int getImageBackgroundColor() {
+        return this.mImageBackgroundColor;
+    }
+
+    public int getSmartDownloadAppNameBottomDp() {
+        return this.mSmartDownloadAppNameBottomDp;
+    }
+
+    public int getSmartDownloadAppNameLeftDp() {
+        return this.mSmartDownloadAppNameLeftDp;
+    }
+
+    public int getSmartDownloadAppNameRightDp() {
+        return this.mSmartDownloadAppNameRightDp;
+    }
+
+    public int getSmartDownloadAppNameTextColor() {
+        return this.mSmartDownloadAppNameTextColor;
+    }
+
+    public int getSmartDownloadAppNameTextSizeSp() {
+        return this.mSmartDownloadAppNameTextSizeSp;
+    }
+
+    public int getSmartDownloadAppNameTopDp() {
+        return this.mSmartDownloadAppNameTopDp;
+    }
+
+    public int getSmartDownloadButtonBackgroundColor() {
+        return this.mSmartDownloadButtonBackgroundColor;
+    }
+
+    public int getSmartDownloadButtonBottomDp() {
+        return this.mSmartDownloadButtonBottomDp;
+    }
+
+    public int getSmartDownloadButtonFontColor() {
+        return this.mSmartDownloadButtonFontColor;
+    }
+
+    public int getSmartDownloadButtonFontSizeSp() {
+        return this.mSmartDownloadButtonFontSizeSp;
+    }
+
+    public Typeface getSmartDownloadButtonFontTypeFace() {
+        return this.mSmartDownloadButtonFontTypeFace;
+    }
+
+    public int getSmartDownloadButtonForegroundColor() {
+        return this.mSmartDownloadButtonForegroundColor;
+    }
+
+    public int getSmartDownloadButtonHeightDp() {
+        return this.mSmartDownloadButtonHeightDp;
+    }
+
+    public int getSmartDownloadButtonLeftDp() {
+        return this.mSmartDownloadButtonLeftDp;
+    }
+
+    public int getSmartDownloadButtonRightDp() {
+        return this.mSmartDownloadButtonRightDp;
+    }
+
+    public int getSmartDownloadButtonTopDp() {
+        return this.mSmartDownloadButtonTopDp;
+    }
+
+    public int getSmartDownloadButtonWidthDp() {
+        return this.mSmartDownloadButtonWidthDp;
+    }
+
+    public int getSmartDownloadCompanyBottomDp() {
+        return this.mSmartDownloadCompanyBottomDp;
+    }
+
+    public int getSmartDownloadCompanyLeftDp() {
+        return this.mSmartDownloadCompanyLeftDp;
+    }
+
+    public int getSmartDownloadCompanyRightDp() {
+        return this.mSmartDownloadCompanyRightDp;
+    }
+
+    public int getSmartDownloadCompanyTextColor() {
+        return this.mSmartDownloadCompanyTextColor;
+    }
+
+    public int getSmartDownloadCompanyTextSizeSp() {
+        return this.mSmartDownloadCompanyTextSizeSp;
+    }
+
+    public int getSmartDownloadCompanyTopDp() {
+        return this.mSmartDownloadCompanyTopDp;
+    }
+
+    public int getSmartDownloadPermissionBottomDp() {
+        return this.mSmartDownloadPermissionBottomDp;
+    }
+
+    public int getSmartDownloadPermissionLeftDp() {
+        return this.mSmartDownloadPermissionLeftDp;
+    }
+
+    public int getSmartDownloadPermissionRightDp() {
+        return this.mSmartDownloadPermissionRightDp;
+    }
+
+    public int getSmartDownloadPermissionTextColor() {
+        return this.mSmartDownloadPermissionTextColor;
+    }
+
+    public int getSmartDownloadPermissionTextSizeSp() {
+        return this.mSmartDownloadPermissionTextSizeSp;
+    }
+
+    public int getSmartDownloadPermissionTopDp() {
+        return this.mSmartDownloadPermissionTopDp;
+    }
+
+    public int getSmartDownloadPrivacyBottomDp() {
+        return this.mSmartDownloadPrivacyBottomDp;
+    }
+
+    public int getSmartDownloadPrivacyLeftDp() {
+        return this.mSmartDownloadPrivacyLeftDp;
+    }
+
+    public int getSmartDownloadPrivacyRightDp() {
+        return this.mSmartDownloadPrivacyRightDp;
+    }
+
+    public int getSmartDownloadPrivacyTextColor() {
+        return this.mSmartDownloadPrivacyTextColor;
+    }
+
+    public int getSmartDownloadPrivacyTextSizeSp() {
+        return this.mSmartDownloadPrivacyTextSizeSp;
+    }
+
+    public int getSmartDownloadPrivacyTopDp() {
+        return this.mSmartDownloadPrivacyTopDp;
+    }
+
+    public int getSmartDownloadVersionBottomDp() {
+        return this.mSmartDownloadVersionBottomDp;
+    }
+
+    public int getSmartDownloadVersionLeftDp() {
+        return this.mSmartDownloadVersionLeftDp;
+    }
+
+    public int getSmartDownloadVersionRightDp() {
+        return this.mSmartDownloadVersionRightDp;
+    }
+
+    public int getSmartDownloadVersionTextColor() {
+        return this.mSmartDownloadVersionTextColor;
+    }
+
+    public int getSmartDownloadVersionTextSizeSp() {
+        return this.mSmartDownloadVersionTextSizeSp;
+    }
+
+    public int getSmartDownloadVersionTopDp() {
+        return this.mSmartDownloadVersionTopDp;
+    }
+
+    public int getSmartDownloadViewBackgroundColor() {
+        return this.mSmartDownloadViewBackgroundColor;
+    }
+
+    public int getSmartDownloadViewBottomDp() {
+        return this.mSmartDownloadViewBottomDp;
+    }
+
+    public int getSmartDownloadViewLeftDp() {
+        return this.mSmartDownloadViewLeftDp;
+    }
+
+    public int getSmartDownloadViewRightDp() {
+        return this.mSmartDownloadViewRightDp;
+    }
+
+    public int getSmartDownloadViewTopDp() {
+        return this.mSmartDownloadViewTopDp;
+    }
+
+    public int getThreePicBottomDp() {
+        return this.mThreePicBottomDp;
+    }
+
+    public int getThreePicHeightDp() {
+        return this.mThreePicHeightDp;
+    }
+
+    public int getThreePicLeftDp() {
+        return this.mThreePicLeftDp;
+    }
+
+    public int getThreePicRightDp() {
+        return this.mThreePicRightDp;
+    }
+
+    public int getThreePicTopDp() {
+        return this.mThreePicTopDp;
+    }
+
+    public int getThreePicWidthDp() {
+        return this.mThreePicWidthDp;
+    }
+
+    public int getTitleBottomDp() {
+        return this.mTitleBottomDp;
+    }
+
+    public int getTitleFontColor() {
+        return this.mTitleFontColor;
+    }
+
+    public int getTitleFontSizeSp() {
+        return this.mTitleFontSizeSp;
+    }
+
+    public Typeface getTitleFontTypeFace() {
+        return this.mTitleFontTypeFace;
+    }
+
+    public int getTitleLeftDp() {
+        return this.mTitleLeftDp;
+    }
+
+    public int getTitleRightDp() {
+        return this.mTitleRightDp;
+    }
+
+    public int getTitleTopDp() {
+        return this.mTitleTopDp;
+    }
+
+    public int getTwoPicBottomDp() {
+        return this.mTwoPicBottomDp;
+    }
+
+    public int getTwoPicHeightDp() {
+        return this.mTwoPicHeightDp;
+    }
+
+    public int getTwoPicLeftDp() {
+        return this.mTwoPicLeftDp;
+    }
+
+    public int getTwoPicRightDp() {
+        return this.mTwoPicRightDp;
+    }
+
+    public int getTwoPicTopDp() {
+        return this.mTwoPicTopDp;
+    }
+
+    public int getTwoPicWidthDp() {
+        return this.mTwoPicWidthDp;
+    }
+
+    public boolean isShowDownloadInfo() {
+        return this.mIsShowDownloadInfo;
     }
 }

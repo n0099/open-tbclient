@@ -4,12 +4,12 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BackupExecutors {
-    private static final int BACKUP_THREAD_POOL_CORE_SIZE = 15;
-    private static volatile BackupExecutors sInstance = null;
-    private ScheduledExecutorService mThreadPoolExecutor = Executors.newScheduledThreadPool(15);
-    private ScheduledExecutorService mSerialExecutor = Executors.newSingleThreadScheduledExecutor();
+    public static final int BACKUP_THREAD_POOL_CORE_SIZE = 15;
+    public static volatile BackupExecutors sInstance;
+    public ScheduledExecutorService mThreadPoolExecutor = Executors.newScheduledThreadPool(15);
+    public ScheduledExecutorService mSerialExecutor = Executors.newSingleThreadScheduledExecutor();
 
     public static BackupExecutors getInstance() {
         if (sInstance == null) {
@@ -22,22 +22,19 @@ public class BackupExecutors {
         return sInstance;
     }
 
-    private BackupExecutors() {
-    }
-
-    public void postThreadPoolTask(Runnable runnable, long j) {
-        this.mThreadPoolExecutor.schedule(runnable, j, TimeUnit.MILLISECONDS);
-    }
-
-    public void postSerialTask(Runnable runnable, long j) {
-        this.mSerialExecutor.schedule(runnable, j, TimeUnit.MILLISECONDS);
+    public Executor getSerialExecutor() {
+        return this.mSerialExecutor;
     }
 
     public Executor getThreadPoolExecutor() {
         return this.mThreadPoolExecutor;
     }
 
-    public Executor getSerialExecutor() {
-        return this.mSerialExecutor;
+    public void postSerialTask(Runnable runnable, long j) {
+        this.mSerialExecutor.schedule(runnable, j, TimeUnit.MILLISECONDS);
+    }
+
+    public void postThreadPoolTask(Runnable runnable, long j) {
+        this.mThreadPoolExecutor.schedule(runnable, j, TimeUnit.MILLISECONDS);
     }
 }

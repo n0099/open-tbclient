@@ -8,23 +8,31 @@ import android.os.IBinder;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
-/* loaded from: classes5.dex */
+import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.j.m;
+/* loaded from: classes2.dex */
 public class PushService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1071a = false;
-    private Handler b = new Handler();
-    private boolean c = false;
-    private final Runnable d = new Runnable() { // from class: com.baidu.android.pushservice.PushService.1
+    public boolean f2650a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Handler f2651b = new Handler();
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f2652c = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Runnable f2653d = new Runnable() { // from class: com.baidu.android.pushservice.PushService.1
         @Override // java.lang.Runnable
         public void run() {
             g.b();
             PushService.this.stopSelf();
         }
     };
-    private final Runnable e = new Runnable() { // from class: com.baidu.android.pushservice.PushService.2
+
+    /* renamed from: e  reason: collision with root package name */
+    public final Runnable f2654e = new Runnable() { // from class: com.baidu.android.pushservice.PushService.2
         @Override // java.lang.Runnable
         public void run() {
             Process.killProcess(Process.myPid());
@@ -32,14 +40,14 @@ public class PushService extends Service {
     };
 
     private void a(boolean z, boolean z2) {
-        this.f1071a = z;
-        com.baidu.android.pushservice.f.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
+        this.f2650a = z;
+        com.baidu.android.pushservice.g.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
         if (z2) {
-            this.d.run();
+            this.f2653d.run();
             return;
         }
-        this.b.removeCallbacks(this.d);
-        this.b.postDelayed(this.d, 1000L);
+        this.f2651b.removeCallbacks(this.f2653d);
+        this.f2651b.postDelayed(this.f2653d, 1000L);
     }
 
     @Override // android.app.Service
@@ -50,10 +58,11 @@ public class PushService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        com.baidu.android.pushservice.f.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
+        com.baidu.android.pushservice.g.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
         m.a("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
-        this.c = g.a(this).a();
-        if (this.c) {
+        boolean a2 = g.a(this).a();
+        this.f2652c = a2;
+        if (a2) {
             return;
         }
         a(true, false);
@@ -62,19 +71,19 @@ public class PushService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.android.pushservice.f.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
+        com.baidu.android.pushservice.g.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
         m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         g.b();
-        if (this.f1071a) {
-            this.b.removeCallbacks(this.e);
-            this.b.postDelayed(this.e, 1000L);
+        if (this.f2650a) {
+            this.f2651b.removeCallbacks(this.f2654e);
+            this.f2651b.postDelayed(this.f2654e, 1000L);
         }
-        if (!this.c || g.a(this).e()) {
+        if (!this.f2652c || g.a(this).e()) {
             return;
         }
         try {
             sendBroadcast(f.a(this));
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
@@ -82,35 +91,37 @@ public class PushService extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         if (intent == null) {
             intent = new Intent();
-            com.baidu.android.pushservice.f.a.c("PushService", "--- onStart by null intent!", getApplicationContext());
+            com.baidu.android.pushservice.g.a.c("PushService", "--- onStart by null intent!", getApplicationContext());
         } else {
             try {
-                m.a("PushService onStartCommand from " + getPackageName() + " Intent " + intent.toUri(0) + " at Time " + System.currentTimeMillis(), getApplicationContext());
+                String uri = intent.toUri(0);
+                m.a("PushService onStartCommand from " + getPackageName() + " Intent " + uri + " at Time " + System.currentTimeMillis(), getApplicationContext());
                 String stringExtra = intent.getStringExtra("source");
                 if (!TextUtils.isEmpty(stringExtra) && !stringExtra.equals(getPackageName())) {
-                    if (Build.VERSION.SDK_INT <= 23 && !m.j(this)) {
+                    if (Build.VERSION.SDK_INT <= 23 && !m.i(this)) {
                         g.a(this).d();
                         a(true, true);
                         return 2;
                     }
                     new b.d(getApplicationContext()).d(501011L).a(System.currentTimeMillis()).c(stringExtra).a();
                 }
-            } catch (Exception e) {
-                new b.c(getApplicationContext()).a(Log.getStackTraceString(e)).a();
+            } catch (Exception e2) {
+                new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
             }
         }
-        this.b.removeCallbacks(this.d);
-        this.b.removeCallbacks(this.e);
+        this.f2651b.removeCallbacks(this.f2653d);
+        this.f2651b.removeCallbacks(this.f2654e);
         try {
-            this.c = g.a(this).a(intent);
-            if (this.c) {
+            boolean a2 = g.a(this).a(intent);
+            this.f2652c = a2;
+            if (a2) {
                 return 1;
             }
             a(true, true);
             return 2;
-        } catch (Exception e2) {
+        } catch (Exception e3) {
             a(true, true);
-            new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
+            new b.c(getApplicationContext()).a(Log.getStackTraceString(e3)).a();
             return 2;
         }
     }

@@ -1,16 +1,14 @@
 package com.baidu.platform.comapi.bikenavi.widget;
 
 import android.app.Activity;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2889a;
+    public final /* synthetic */ a f9871a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f2889a = aVar;
+        this.f9871a = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -25,21 +23,21 @@ public class b implements Runnable {
         int i4;
         int i5;
         CustomScrollView customScrollView2;
-        a aVar = this.f2889a;
-        activity = this.f2889a.f2887a;
-        int e = com.baidu.platform.comapi.wnplatform.o.g.e(activity);
-        activity2 = this.f2889a.f2887a;
+        a aVar = this.f9871a;
+        activity = aVar.f9859a;
+        int e2 = com.baidu.platform.comapi.wnplatform.o.g.e(activity);
+        activity2 = this.f9871a.f9859a;
         i = a.F;
-        aVar.E = e - com.baidu.platform.comapi.wnplatform.o.g.a(activity2, i);
-        customScrollView = this.f2889a.n;
-        i2 = this.f2889a.E;
+        aVar.E = e2 - com.baidu.platform.comapi.wnplatform.o.g.a(activity2, i);
+        customScrollView = this.f9871a.n;
+        i2 = this.f9871a.E;
         customScrollView.setBlankHeight(i2);
-        i3 = this.f2889a.E;
-        activity3 = this.f2889a.f2887a;
+        i3 = this.f9871a.E;
+        activity3 = this.f9871a.f9859a;
         i4 = a.F;
         i5 = a.G;
         int a2 = i3 + com.baidu.platform.comapi.wnplatform.o.g.a(activity3, i4 - i5);
-        customScrollView2 = this.f2889a.n;
+        customScrollView2 = this.f9871a.n;
         customScrollView2.setStatusHeight(a2, 0);
     }
 }

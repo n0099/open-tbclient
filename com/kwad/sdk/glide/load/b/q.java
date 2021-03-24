@@ -11,73 +11,87 @@ import com.kwad.sdk.glide.load.engine.GlideException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes3.dex */
-class q<Model, Data> implements n<Model, Data> {
+/* loaded from: classes6.dex */
+public class q<Model, Data> implements n<Model, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<n<Model, Data>> f6690a;
-    private final Pools.Pool<List<Throwable>> b;
+    public final List<n<Model, Data>> f35340a;
 
-    /* loaded from: classes3.dex */
-    static class a<Data> implements com.kwad.sdk.glide.load.a.d<Data>, d.a<Data> {
+    /* renamed from: b  reason: collision with root package name */
+    public final Pools.Pool<List<Throwable>> f35341b;
+
+    /* loaded from: classes6.dex */
+    public static class a<Data> implements com.kwad.sdk.glide.load.a.d<Data>, d.a<Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<com.kwad.sdk.glide.load.a.d<Data>> f6691a;
-        private final Pools.Pool<List<Throwable>> b;
-        private int c;
-        private Priority d;
-        private d.a<? super Data> e;
-        @Nullable
-        private List<Throwable> f;
-        private boolean g;
+        public final List<com.kwad.sdk.glide.load.a.d<Data>> f35342a;
 
-        a(@NonNull List<com.kwad.sdk.glide.load.a.d<Data>> list, @NonNull Pools.Pool<List<Throwable>> pool) {
-            this.b = pool;
+        /* renamed from: b  reason: collision with root package name */
+        public final Pools.Pool<List<Throwable>> f35343b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f35344c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public Priority f35345d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public d.a<? super Data> f35346e;
+        @Nullable
+
+        /* renamed from: f  reason: collision with root package name */
+        public List<Throwable> f35347f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f35348g;
+
+        public a(@NonNull List<com.kwad.sdk.glide.load.a.d<Data>> list, @NonNull Pools.Pool<List<Throwable>> pool) {
+            this.f35343b = pool;
             com.kwad.sdk.glide.g.j.a(list);
-            this.f6691a = list;
-            this.c = 0;
+            this.f35342a = list;
+            this.f35344c = 0;
         }
 
         private void e() {
-            if (this.g) {
+            if (this.f35348g) {
                 return;
             }
-            if (this.c < this.f6691a.size() - 1) {
-                this.c++;
-                a(this.d, this.e);
+            if (this.f35344c < this.f35342a.size() - 1) {
+                this.f35344c++;
+                a(this.f35345d, this.f35346e);
                 return;
             }
-            com.kwad.sdk.glide.g.j.a(this.f);
-            this.e.a((Exception) new GlideException("Fetch failed", new ArrayList(this.f)));
+            com.kwad.sdk.glide.g.j.a(this.f35347f);
+            this.f35346e.a((Exception) new GlideException("Fetch failed", new ArrayList(this.f35347f)));
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         @NonNull
         public Class<Data> a() {
-            return this.f6691a.get(0).a();
+            return this.f35342a.get(0).a();
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super Data> aVar) {
-            this.d = priority;
-            this.e = aVar;
-            this.f = this.b.acquire();
-            this.f6691a.get(this.c).a(priority, this);
-            if (this.g) {
+            this.f35345d = priority;
+            this.f35346e = aVar;
+            this.f35347f = this.f35343b.acquire();
+            this.f35342a.get(this.f35344c).a(priority, this);
+            if (this.f35348g) {
                 c();
             }
         }
 
         @Override // com.kwad.sdk.glide.load.a.d.a
         public void a(@NonNull Exception exc) {
-            ((List) com.kwad.sdk.glide.g.j.a(this.f)).add(exc);
+            ((List) com.kwad.sdk.glide.g.j.a(this.f35347f)).add(exc);
             e();
         }
 
         @Override // com.kwad.sdk.glide.load.a.d.a
         public void a(@Nullable Data data) {
             if (data != null) {
-                this.e.a((d.a<? super Data>) data);
+                this.f35346e.a((d.a<? super Data>) data);
             } else {
                 e();
             }
@@ -85,19 +99,20 @@ class q<Model, Data> implements n<Model, Data> {
 
         @Override // com.kwad.sdk.glide.load.a.d
         public void b() {
-            if (this.f != null) {
-                this.b.release(this.f);
+            List<Throwable> list = this.f35347f;
+            if (list != null) {
+                this.f35343b.release(list);
             }
-            this.f = null;
-            for (com.kwad.sdk.glide.load.a.d<Data> dVar : this.f6691a) {
+            this.f35347f = null;
+            for (com.kwad.sdk.glide.load.a.d<Data> dVar : this.f35342a) {
                 dVar.b();
             }
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         public void c() {
-            this.g = true;
-            for (com.kwad.sdk.glide.load.a.d<Data> dVar : this.f6691a) {
+            this.f35348g = true;
+            for (com.kwad.sdk.glide.load.a.d<Data> dVar : this.f35342a) {
                 dVar.c();
             }
         }
@@ -105,44 +120,37 @@ class q<Model, Data> implements n<Model, Data> {
         @Override // com.kwad.sdk.glide.load.a.d
         @NonNull
         public DataSource d() {
-            return this.f6691a.get(0).d();
+            return this.f35342a.get(0).d();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public q(@NonNull List<n<Model, Data>> list, @NonNull Pools.Pool<List<Throwable>> pool) {
-        this.f6690a = list;
-        this.b = pool;
+        this.f35340a = list;
+        this.f35341b = pool;
     }
 
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull Model model, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        com.kwad.sdk.glide.load.c cVar;
         n.a<Data> a2;
-        int size = this.f6690a.size();
+        int size = this.f35340a.size();
         ArrayList arrayList = new ArrayList(size);
-        int i3 = 0;
-        com.kwad.sdk.glide.load.c cVar2 = null;
-        while (i3 < size) {
-            n<Model, Data> nVar = this.f6690a.get(i3);
-            if (!nVar.a(model) || (a2 = nVar.a(model, i, i2, eVar)) == null) {
-                cVar = cVar2;
-            } else {
-                cVar = a2.f6686a;
-                arrayList.add(a2.c);
+        com.kwad.sdk.glide.load.c cVar = null;
+        for (int i3 = 0; i3 < size; i3++) {
+            n<Model, Data> nVar = this.f35340a.get(i3);
+            if (nVar.a(model) && (a2 = nVar.a(model, i, i2, eVar)) != null) {
+                cVar = a2.f35333a;
+                arrayList.add(a2.f35335c);
             }
-            i3++;
-            cVar2 = cVar;
         }
-        if (arrayList.isEmpty() || cVar2 == null) {
+        if (arrayList.isEmpty() || cVar == null) {
             return null;
         }
-        return new n.a<>(cVar2, new a(arrayList, this.b));
+        return new n.a<>(cVar, new a(arrayList, this.f35341b));
     }
 
     @Override // com.kwad.sdk.glide.load.b.n
     public boolean a(@NonNull Model model) {
-        for (n<Model, Data> nVar : this.f6690a) {
+        for (n<Model, Data> nVar : this.f35340a) {
             if (nVar.a(model)) {
                 return true;
             }
@@ -151,6 +159,6 @@ class q<Model, Data> implements n<Model, Data> {
     }
 
     public String toString() {
-        return "MultiModelLoader{modelLoaders=" + Arrays.toString(this.f6690a.toArray()) + '}';
+        return "MultiModelLoader{modelLoaders=" + Arrays.toString(this.f35340a.toArray()) + '}';
     }
 }

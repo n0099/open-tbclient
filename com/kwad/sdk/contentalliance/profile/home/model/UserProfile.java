@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class UserProfile implements b, Serializable {
-    private static final long serialVersionUID = 8190442197779201133L;
+    public static final long serialVersionUID = 8190442197779201133L;
     public String authorGender;
     public String authorIcon;
     public long authorId;
@@ -19,9 +19,9 @@ public class UserProfile implements b, Serializable {
     public OwnerCount ownerCount = new OwnerCount();
     public List<TabInfo> tabList = new ArrayList();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class OwnerCount implements b, Serializable {
-        private static final long serialVersionUID = 6850889799944988895L;
+        public static final long serialVersionUID = 6850889799944988895L;
         public long fansCount;
         public long followCount;
         public long ownerCount;
@@ -48,9 +48,9 @@ public class UserProfile implements b, Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class TabInfo implements b, Serializable {
-        private static final long serialVersionUID = -4013982742376017878L;
+        public static final long serialVersionUID = -4013982742376017878L;
         public long tabId;
         public String tabName;
 

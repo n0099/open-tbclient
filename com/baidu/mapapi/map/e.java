@@ -2,34 +2,39 @@ package com.baidu.mapapi.map;
 
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapsdkplatform.comapi.map.aa;
-/* loaded from: classes4.dex */
-/* synthetic */ class e {
+/* loaded from: classes2.dex */
+public /* synthetic */ class e {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f2065a;
-    static final /* synthetic */ int[] b = new int[aa.values().length];
+    public static final /* synthetic */ int[] f7066a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final /* synthetic */ int[] f7067b;
 
     static {
+        int[] iArr = new int[aa.values().length];
+        f7067b = iArr;
         try {
-            b[aa.TextureView.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[aa.TextureView.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            b[aa.GLSurfaceView.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f7067b[aa.GLSurfaceView.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
-        f2065a = new int[MyLocationConfiguration.LocationMode.values().length];
+        int[] iArr2 = new int[MyLocationConfiguration.LocationMode.values().length];
+        f7066a = iArr2;
         try {
-            f2065a[MyLocationConfiguration.LocationMode.COMPASS.ordinal()] = 1;
-        } catch (NoSuchFieldError e3) {
-        }
-        try {
-            f2065a[MyLocationConfiguration.LocationMode.FOLLOWING.ordinal()] = 2;
-        } catch (NoSuchFieldError e4) {
+            iArr2[MyLocationConfiguration.LocationMode.COMPASS.ordinal()] = 1;
+        } catch (NoSuchFieldError unused3) {
         }
         try {
-            f2065a[MyLocationConfiguration.LocationMode.NORMAL.ordinal()] = 3;
-        } catch (NoSuchFieldError e5) {
+            f7066a[MyLocationConfiguration.LocationMode.FOLLOWING.ordinal()] = 2;
+        } catch (NoSuchFieldError unused4) {
+        }
+        try {
+            f7066a[MyLocationConfiguration.LocationMode.NORMAL.ordinal()] = 3;
+        } catch (NoSuchFieldError unused5) {
         }
     }
 }

@@ -7,9 +7,9 @@ import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.MessageBodyWriter;
 import org.glassfish.jersey.CommonProperties;
 import org.glassfish.jersey.internal.util.PropertiesHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class FastJsonFeature implements Feature {
-    private static final String JSON_FEATURE = FastJsonFeature.class.getSimpleName();
+    public static final String JSON_FEATURE = FastJsonFeature.class.getSimpleName();
 
     public boolean configure(FeatureContext featureContext) {
         Configuration configuration = featureContext.getConfiguration();

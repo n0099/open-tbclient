@@ -4,21 +4,19 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes14.dex */
-final class WebSettingsImpl extends WebSettings {
-    private boolean mEnableFileSchemaOnPrivate = true;
-    private android.webkit.WebSettings mSettings;
+/* loaded from: classes5.dex */
+public final class WebSettingsImpl extends WebSettings {
+    public boolean mEnableFileSchemaOnPrivate = true;
+    public android.webkit.WebSettings mSettings;
 
-    private WebSettingsImpl(android.webkit.WebSettings webSettings) {
+    public WebSettingsImpl(android.webkit.WebSettings webSettings) {
         this.mSettings = webSettings;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static WebSettings from(android.webkit.WebSettings webSettings) {
         if (webSettings == null) {
             return null;
@@ -302,19 +300,18 @@ final class WebSettingsImpl extends WebSettings {
         setDatabaseEnabled(true);
         setDomStorageEnabled(true);
         setAppCacheEnabled(true);
-        String path = context.getDir(NgWebView.APP_DATABASE_PATH, 0).getPath();
-        setGeolocationDatabasePath(context.getDir(NgWebView.APP_GEO_PATH, 0).getPath());
+        String path = context.getDir("databases", 0).getPath();
+        setGeolocationDatabasePath(context.getDir("geolocation", 0).getPath());
         setDatabasePath(path);
         setAppCachePath(context.getDir("appcache_sys", 0).getPath());
         setSupportMultipleWindows(true);
-        Boolean bool = false;
         if (webViewFactoryProvider != null) {
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("searchbox_urlsafe_switch_pr");
             if (!TextUtils.isEmpty(GetCloudSettingsValue)) {
                 setUrlSecurityCheckEnabled((Integer.parseInt(GetCloudSettingsValue) == 1) && ((Boolean) webViewFactoryProvider.getStaticWebSeting(WebViewFactoryProvider.SETTING_URL_SAFE_CHECK)).booleanValue());
             }
         }
-        if (GlobalConstants.enableSearchboxFeatures() || bool.booleanValue()) {
+        if (GlobalConstants.enableSearchboxFeatures()) {
             setLoadWithOverviewMode(true);
         } else {
             setLoadWithOverviewMode(false);

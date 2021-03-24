@@ -2,7 +2,7 @@ package org.apache.http.impl.auth;
 
 import org.apache.http.auth.AuthenticationException;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NTLMEngineException extends AuthenticationException {
     public NTLMEngineException() {
         throw new RuntimeException("Stub!");

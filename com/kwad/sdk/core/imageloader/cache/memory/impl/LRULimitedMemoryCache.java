@@ -8,15 +8,15 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LRULimitedMemoryCache extends LimitedMemoryCache {
-    private static final int INITIAL_CAPACITY = 10;
-    private static final float LOAD_FACTOR = 1.1f;
-    private final Map<String, DecodedResult> lruCache;
+    public static final int INITIAL_CAPACITY = 10;
+    public static final float LOAD_FACTOR = 1.1f;
+    public final Map<String, DecodedResult> lruCache;
 
     public LRULimitedMemoryCache(int i) {
         super(i);
-        this.lruCache = Collections.synchronizedMap(new LinkedHashMap(10, LOAD_FACTOR, true));
+        this.lruCache = Collections.synchronizedMap(new LinkedHashMap(10, 1.1f, true));
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache, com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
@@ -26,7 +26,7 @@ public class LRULimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
-    protected Reference<DecodedResult> createReference(DecodedResult decodedResult) {
+    public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
     }
 
@@ -37,7 +37,7 @@ public class LRULimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
-    protected int getSize(DecodedResult decodedResult) {
+    public int getSize(DecodedResult decodedResult) {
         return decodedResult.getByteSize();
     }
 
@@ -57,13 +57,15 @@ public class LRULimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
-    protected DecodedResult removeNext() {
-        DecodedResult decodedResult = null;
+    public DecodedResult removeNext() {
+        DecodedResult decodedResult;
         synchronized (this.lruCache) {
             Iterator<Map.Entry<String, DecodedResult>> it = this.lruCache.entrySet().iterator();
             if (it.hasNext()) {
                 decodedResult = it.next().getValue();
                 it.remove();
+            } else {
+                decodedResult = null;
             }
         }
         return decodedResult;

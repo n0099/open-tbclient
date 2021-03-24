@@ -1,11 +1,11 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public enum OrientationType {
     UNKNOWN(0),
     PORTRAIT(1),
     LANDSCAPE(2);
     
-    private int type;
+    public int type;
 
     OrientationType(int i) {
         this.type = i;

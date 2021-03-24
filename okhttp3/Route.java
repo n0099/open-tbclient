@@ -1,13 +1,14 @@
 package okhttp3;
 
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import javax.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class Route {
-    final Address address;
-    final InetSocketAddress inetSocketAddress;
-    final Proxy proxy;
+    public final Address address;
+    public final InetSocketAddress inetSocketAddress;
+    public final Proxy proxy;
 
     public Route(Address address, Proxy proxy, InetSocketAddress inetSocketAddress) {
         if (address == null) {
@@ -16,36 +17,43 @@ public final class Route {
         if (proxy == null) {
             throw new NullPointerException("proxy == null");
         }
-        if (inetSocketAddress == null) {
-            throw new NullPointerException("inetSocketAddress == null");
+        if (inetSocketAddress != null) {
+            this.address = address;
+            this.proxy = proxy;
+            this.inetSocketAddress = inetSocketAddress;
+            return;
         }
-        this.address = address;
-        this.proxy = proxy;
-        this.inetSocketAddress = inetSocketAddress;
+        throw new NullPointerException("inetSocketAddress == null");
     }
 
     public Address address() {
         return this.address;
     }
 
-    public Proxy proxy() {
-        return this.proxy;
+    public boolean equals(@Nullable Object obj) {
+        if (obj instanceof Route) {
+            Route route = (Route) obj;
+            if (route.address.equals(this.address) && route.proxy.equals(this.proxy) && route.inetSocketAddress.equals(this.inetSocketAddress)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public InetSocketAddress socketAddress() {
-        return this.inetSocketAddress;
+    public int hashCode() {
+        return ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.address.hashCode()) * 31) + this.proxy.hashCode()) * 31) + this.inetSocketAddress.hashCode();
+    }
+
+    public Proxy proxy() {
+        return this.proxy;
     }
 
     public boolean requiresTunnel() {
         return this.address.sslSocketFactory != null && this.proxy.type() == Proxy.Type.HTTP;
     }
 
-    public boolean equals(@Nullable Object obj) {
-        return (obj instanceof Route) && ((Route) obj).address.equals(this.address) && ((Route) obj).proxy.equals(this.proxy) && ((Route) obj).inetSocketAddress.equals(this.inetSocketAddress);
-    }
-
-    public int hashCode() {
-        return ((((this.address.hashCode() + 527) * 31) + this.proxy.hashCode()) * 31) + this.inetSocketAddress.hashCode();
+    public InetSocketAddress socketAddress() {
+        return this.inetSocketAddress;
     }
 
     public String toString() {

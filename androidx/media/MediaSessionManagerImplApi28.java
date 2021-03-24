@@ -6,11 +6,10 @@ import androidx.annotation.RequiresApi;
 import androidx.core.util.ObjectsCompat;
 import androidx.media.MediaSessionManager;
 @RequiresApi(28)
-/* loaded from: classes14.dex */
-class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
-    android.media.session.MediaSessionManager mObject;
+/* loaded from: classes.dex */
+public class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
+    public android.media.session.MediaSessionManager mObject;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public MediaSessionManagerImplApi28(Context context) {
         super(context);
         this.mObject = (android.media.session.MediaSessionManager) context.getSystemService("media_session");
@@ -24,18 +23,22 @@ class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
         return false;
     }
 
-    /* loaded from: classes14.dex */
-    static final class RemoteUserInfoImplApi28 implements MediaSessionManager.RemoteUserInfoImpl {
-        final MediaSessionManager.RemoteUserInfo mObject;
+    /* loaded from: classes.dex */
+    public static final class RemoteUserInfoImplApi28 implements MediaSessionManager.RemoteUserInfoImpl {
+        public final MediaSessionManager.RemoteUserInfo mObject;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public RemoteUserInfoImplApi28(String str, int i, int i2) {
             this.mObject = new MediaSessionManager.RemoteUserInfo(str, i, i2);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public RemoteUserInfoImplApi28(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
-            this.mObject = remoteUserInfo;
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof RemoteUserInfoImplApi28) {
+                return this.mObject.equals(((RemoteUserInfoImplApi28) obj).mObject);
+            }
+            return false;
         }
 
         @Override // androidx.media.MediaSessionManager.RemoteUserInfoImpl
@@ -57,14 +60,8 @@ class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
             return ObjectsCompat.hash(this.mObject);
         }
 
-        public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (!(obj instanceof RemoteUserInfoImplApi28)) {
-                return false;
-            }
-            return this.mObject.equals(((RemoteUserInfoImplApi28) obj).mObject);
+        public RemoteUserInfoImplApi28(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
+            this.mObject = remoteUserInfo;
         }
     }
 }

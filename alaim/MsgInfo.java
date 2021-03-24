@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public final class MsgInfo extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_LINK = "";
@@ -54,109 +54,7 @@ public final class MsgInfo extends Message {
     public static final Integer DEFAULT_ISFRIEND = 0;
     public static final Long DEFAULT_SID = 0L;
 
-    private MsgInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.msgId == null) {
-                this.msgId = DEFAULT_MSGID;
-            } else {
-                this.msgId = builder.msgId;
-            }
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-            } else {
-                this.groupId = builder.groupId;
-            }
-            if (builder.msgType == null) {
-                this.msgType = DEFAULT_MSGTYPE;
-            } else {
-                this.msgType = builder.msgType;
-            }
-            if (builder.userId == null) {
-                this.userId = DEFAULT_USERID;
-            } else {
-                this.userId = builder.userId;
-            }
-            if (builder.content == null) {
-                this.content = "";
-            } else {
-                this.content = builder.content;
-            }
-            if (builder.status == null) {
-                this.status = DEFAULT_STATUS;
-            } else {
-                this.status = builder.status;
-            }
-            if (builder.duration == null) {
-                this.duration = DEFAULT_DURATION;
-            } else {
-                this.duration = builder.duration;
-            }
-            if (builder.createTime == null) {
-                this.createTime = DEFAULT_CREATETIME;
-            } else {
-                this.createTime = builder.createTime;
-            }
-            if (builder.recordId == null) {
-                this.recordId = DEFAULT_RECORDID;
-            } else {
-                this.recordId = builder.recordId;
-            }
-            this.userInfo = builder.userInfo;
-            if (builder.toUid == null) {
-                this.toUid = DEFAULT_TOUID;
-            } else {
-                this.toUid = builder.toUid;
-            }
-            this.toUserInfo = builder.toUserInfo;
-            if (builder.link == null) {
-                this.link = "";
-            } else {
-                this.link = builder.link;
-            }
-            if (builder.stat == null) {
-                this.stat = "";
-            } else {
-                this.stat = builder.stat;
-            }
-            if (builder.taskId == null) {
-                this.taskId = DEFAULT_TASKID;
-            } else {
-                this.taskId = builder.taskId;
-            }
-            if (builder.isFriend == null) {
-                this.isFriend = DEFAULT_ISFRIEND;
-            } else {
-                this.isFriend = builder.isFriend;
-            }
-            if (builder.sid == null) {
-                this.sid = DEFAULT_SID;
-                return;
-            } else {
-                this.sid = builder.sid;
-                return;
-            }
-        }
-        this.msgId = builder.msgId;
-        this.groupId = builder.groupId;
-        this.msgType = builder.msgType;
-        this.userId = builder.userId;
-        this.content = builder.content;
-        this.status = builder.status;
-        this.duration = builder.duration;
-        this.createTime = builder.createTime;
-        this.recordId = builder.recordId;
-        this.userInfo = builder.userInfo;
-        this.toUid = builder.toUid;
-        this.toUserInfo = builder.toUserInfo;
-        this.link = builder.link;
-        this.stat = builder.stat;
-        this.taskId = builder.taskId;
-        this.isFriend = builder.isFriend;
-        this.sid = builder.sid;
-    }
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<MsgInfo> {
         public String content;
         public Integer createTime;
@@ -181,25 +79,26 @@ public final class MsgInfo extends Message {
 
         public Builder(MsgInfo msgInfo) {
             super(msgInfo);
-            if (msgInfo != null) {
-                this.msgId = msgInfo.msgId;
-                this.groupId = msgInfo.groupId;
-                this.msgType = msgInfo.msgType;
-                this.userId = msgInfo.userId;
-                this.content = msgInfo.content;
-                this.status = msgInfo.status;
-                this.duration = msgInfo.duration;
-                this.createTime = msgInfo.createTime;
-                this.recordId = msgInfo.recordId;
-                this.userInfo = msgInfo.userInfo;
-                this.toUid = msgInfo.toUid;
-                this.toUserInfo = msgInfo.toUserInfo;
-                this.link = msgInfo.link;
-                this.stat = msgInfo.stat;
-                this.taskId = msgInfo.taskId;
-                this.isFriend = msgInfo.isFriend;
-                this.sid = msgInfo.sid;
+            if (msgInfo == null) {
+                return;
             }
+            this.msgId = msgInfo.msgId;
+            this.groupId = msgInfo.groupId;
+            this.msgType = msgInfo.msgType;
+            this.userId = msgInfo.userId;
+            this.content = msgInfo.content;
+            this.status = msgInfo.status;
+            this.duration = msgInfo.duration;
+            this.createTime = msgInfo.createTime;
+            this.recordId = msgInfo.recordId;
+            this.userInfo = msgInfo.userInfo;
+            this.toUid = msgInfo.toUid;
+            this.toUserInfo = msgInfo.toUserInfo;
+            this.link = msgInfo.link;
+            this.stat = msgInfo.stat;
+            this.taskId = msgInfo.taskId;
+            this.isFriend = msgInfo.isFriend;
+            this.sid = msgInfo.sid;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -208,5 +107,122 @@ public final class MsgInfo extends Message {
         public MsgInfo build(boolean z) {
             return new MsgInfo(this, z);
         }
+    }
+
+    public MsgInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.msgId;
+            if (l == null) {
+                this.msgId = DEFAULT_MSGID;
+            } else {
+                this.msgId = l;
+            }
+            Integer num = builder.groupId;
+            if (num == null) {
+                this.groupId = DEFAULT_GROUPID;
+            } else {
+                this.groupId = num;
+            }
+            Integer num2 = builder.msgType;
+            if (num2 == null) {
+                this.msgType = DEFAULT_MSGTYPE;
+            } else {
+                this.msgType = num2;
+            }
+            Long l2 = builder.userId;
+            if (l2 == null) {
+                this.userId = DEFAULT_USERID;
+            } else {
+                this.userId = l2;
+            }
+            String str = builder.content;
+            if (str == null) {
+                this.content = "";
+            } else {
+                this.content = str;
+            }
+            Integer num3 = builder.status;
+            if (num3 == null) {
+                this.status = DEFAULT_STATUS;
+            } else {
+                this.status = num3;
+            }
+            Integer num4 = builder.duration;
+            if (num4 == null) {
+                this.duration = DEFAULT_DURATION;
+            } else {
+                this.duration = num4;
+            }
+            Integer num5 = builder.createTime;
+            if (num5 == null) {
+                this.createTime = DEFAULT_CREATETIME;
+            } else {
+                this.createTime = num5;
+            }
+            Long l3 = builder.recordId;
+            if (l3 == null) {
+                this.recordId = DEFAULT_RECORDID;
+            } else {
+                this.recordId = l3;
+            }
+            this.userInfo = builder.userInfo;
+            Long l4 = builder.toUid;
+            if (l4 == null) {
+                this.toUid = DEFAULT_TOUID;
+            } else {
+                this.toUid = l4;
+            }
+            this.toUserInfo = builder.toUserInfo;
+            String str2 = builder.link;
+            if (str2 == null) {
+                this.link = "";
+            } else {
+                this.link = str2;
+            }
+            String str3 = builder.stat;
+            if (str3 == null) {
+                this.stat = "";
+            } else {
+                this.stat = str3;
+            }
+            Long l5 = builder.taskId;
+            if (l5 == null) {
+                this.taskId = DEFAULT_TASKID;
+            } else {
+                this.taskId = l5;
+            }
+            Integer num6 = builder.isFriend;
+            if (num6 == null) {
+                this.isFriend = DEFAULT_ISFRIEND;
+            } else {
+                this.isFriend = num6;
+            }
+            Long l6 = builder.sid;
+            if (l6 == null) {
+                this.sid = DEFAULT_SID;
+                return;
+            } else {
+                this.sid = l6;
+                return;
+            }
+        }
+        this.msgId = builder.msgId;
+        this.groupId = builder.groupId;
+        this.msgType = builder.msgType;
+        this.userId = builder.userId;
+        this.content = builder.content;
+        this.status = builder.status;
+        this.duration = builder.duration;
+        this.createTime = builder.createTime;
+        this.recordId = builder.recordId;
+        this.userInfo = builder.userInfo;
+        this.toUid = builder.toUid;
+        this.toUserInfo = builder.toUserInfo;
+        this.link = builder.link;
+        this.stat = builder.stat;
+        this.taskId = builder.taskId;
+        this.isFriend = builder.isFriend;
+        this.sid = builder.sid;
     }
 }

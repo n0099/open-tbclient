@@ -4,27 +4,34 @@ import android.content.Context;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import d.b.i0.c2.h.c;
+import d.b.i0.c2.h.e;
+import d.b.i0.c2.k.e.i;
+import d.b.i0.r2.b0.b;
 import java.util.ArrayList;
 import org.json.JSONObject;
+import tbclient.PbPage.AppealInfo;
+import tbclient.PbPage.DataRes;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes2.dex */
+import tbclient.SimpleForum;
+/* loaded from: classes4.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
-    private String cacheKey;
-    private Context context;
-    private boolean isFromMark;
-    private com.baidu.tieba.pb.data.d mAppealInfo;
-    private com.baidu.tieba.pb.data.f pbData;
-    private int updateType;
+    public String cacheKey;
+    public Context context;
+    public boolean isFromMark;
+    public c mAppealInfo;
+    public e pbData;
+    public int updateType;
 
     public pbPageHttpResponseMessage(int i) {
         super(i);
     }
 
-    public com.baidu.tieba.pb.data.d getAppealInfo() {
+    public c getAppealInfo() {
         return this.mAppealInfo;
     }
 
-    public com.baidu.tieba.pb.data.f getPbData() {
+    public e getPbData() {
         return this.pbData;
     }
 
@@ -45,56 +52,55 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        int i2 = this.updateType;
+        if (i2 == 3) {
+            i.b().e(this.cacheKey, this.isFromMark, bArr);
+        } else if (i2 != 4) {
+        } else {
+            i.b().f(this.cacheKey, bArr);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() != 0) {
-            if (getError() == 4 && pbPageResIdl.data != null) {
-                this.mAppealInfo = new com.baidu.tieba.pb.data.d();
-                if (pbPageResIdl.data.appeal_info != null) {
-                    this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.lMg = pbPageResIdl.data.appeal_info.appeal_url;
-                }
-                if (pbPageResIdl.data.forum != null) {
-                    this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
-                    return;
-                }
+            if (getError() != 4 || pbPageResIdl.data == null) {
+                return;
+            }
+            c cVar = new c();
+            this.mAppealInfo = cVar;
+            AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
+            if (appealInfo != null) {
+                cVar.f52413a = appealInfo.source;
+                cVar.f52415c = appealInfo.appeal_url;
+            }
+            SimpleForum simpleForum = pbPageResIdl.data.forum;
+            if (simpleForum != null) {
+                this.mAppealInfo.f52414b = simpleForum.name;
                 return;
             }
             return;
         }
-        this.pbData = new com.baidu.tieba.pb.data.f();
-        this.pbData.Fx(2);
-        this.pbData.a(pbPageResIdl.data, this.context);
-        if (pbPageResIdl.data != null) {
-            String str = "";
-            if (pbPageResIdl.data.forum != null) {
-                str = pbPageResIdl.data.forum.name;
-            }
-            JSONObject a2 = com.baidu.tieba.recapp.report.b.a(pbPageResIdl.data.thread, str);
+        e eVar = new e();
+        this.pbData = eVar;
+        eVar.j0(2);
+        this.pbData.i0(pbPageResIdl.data, this.context);
+        DataRes dataRes = pbPageResIdl.data;
+        if (dataRes != null) {
+            SimpleForum simpleForum2 = dataRes.forum;
+            JSONObject c2 = b.c(pbPageResIdl.data.thread, simpleForum2 != null ? simpleForum2.name : "");
             ArrayList arrayList = new ArrayList();
-            if (a2 != null) {
-                arrayList.add(a2);
+            if (c2 != null) {
+                arrayList.add(c2);
             }
-            com.baidu.tieba.recapp.report.b.dEB().q("PB", arrayList);
+            b.f().h("PB", arrayList);
         }
         BdLog.detailException(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        switch (this.updateType) {
-            case 3:
-                i.dnm().a(this.cacheKey, this.isFromMark, bArr);
-                return;
-            case 4:
-                i.dnm().n(this.cacheKey, bArr);
-                return;
-            default:
-                return;
-        }
     }
 }

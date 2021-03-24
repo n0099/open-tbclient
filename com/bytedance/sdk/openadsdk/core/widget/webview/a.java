@@ -12,76 +12,40 @@ import java.lang.ref.WeakReference;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<Context> f4626a;
-    private boolean b = true;
-    private boolean c = true;
-    private boolean d = true;
-    private boolean e = true;
-    private boolean f = true;
-    private boolean g = true;
-    private boolean h = true;
+    public WeakReference<Context> f28967a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f28968b = true;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f28969c = true;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f28970d = true;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f28971e = true;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f28972f = true;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f28973g = true;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f28974h = true;
+
+    public a(Context context) {
+        this.f28967a = new WeakReference<>(context);
+    }
 
     public static a a(Context context) {
         return new a(context);
     }
 
-    private a(Context context) {
-        this.f4626a = new WeakReference<>(context);
-    }
-
-    public a a(boolean z) {
-        this.h = z;
-        return this;
-    }
-
     public a b(boolean z) {
-        this.c = z;
+        this.f28969c = z;
         return this;
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x005e -> B:41:0x000c). Please submit an issue!!! */
-    @SuppressLint({"SetJavaScriptEnabled"})
-    public void a(WebView webView) {
-        if (webView != null && this.f4626a.get() != null) {
-            b(webView);
-            WebSettings settings = webView.getSettings();
-            a(settings);
-            if (settings != null) {
-                try {
-                    settings.setJavaScriptEnabled(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                try {
-                    if (this.c) {
-                        settings.setSupportZoom(true);
-                        settings.setBuiltInZoomControls(true);
-                    } else {
-                        settings.setSupportZoom(false);
-                    }
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-                settings.setLoadWithOverviewMode(true);
-                settings.setUseWideViewPort(this.d);
-                settings.setDomStorageEnabled(this.e);
-                settings.setAllowFileAccess(this.f);
-                settings.setBlockNetworkImage(this.g ? false : true);
-                settings.setDisplayZoomControls(false);
-                if (Build.VERSION.SDK_INT < 28) {
-                    this.h = false;
-                }
-                try {
-                    if (Build.VERSION.SDK_INT >= 11 && !this.h) {
-                        webView.setLayerType(0, null);
-                    } else if (Build.VERSION.SDK_INT >= 16 && this.h) {
-                        webView.setLayerType(2, null);
-                    }
-                } catch (Throwable th2) {
-                    th2.printStackTrace();
-                }
-            }
-        }
     }
 
     private void b(WebView webView) {
@@ -91,6 +55,58 @@ public class a {
             webView.removeJavascriptInterface("accessibilityTraversal");
         } catch (Throwable th) {
             u.b(th.toString());
+        }
+    }
+
+    public a a(boolean z) {
+        this.f28974h = z;
+        return this;
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:37:0x0078 -> B:44:0x007b). Please submit an issue!!! */
+    @SuppressLint({"SetJavaScriptEnabled"})
+    public void a(WebView webView) {
+        if (webView == null || this.f28967a.get() == null) {
+            return;
+        }
+        b(webView);
+        WebSettings settings = webView.getSettings();
+        a(settings);
+        if (settings == null) {
+            return;
+        }
+        try {
+            settings.setJavaScriptEnabled(true);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        try {
+            if (this.f28969c) {
+                settings.setSupportZoom(true);
+                settings.setBuiltInZoomControls(true);
+            } else {
+                settings.setSupportZoom(false);
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+        settings.setLoadWithOverviewMode(true);
+        settings.setUseWideViewPort(this.f28970d);
+        settings.setDomStorageEnabled(this.f28971e);
+        settings.setAllowFileAccess(this.f28972f);
+        settings.setBlockNetworkImage(true ^ this.f28973g);
+        settings.setDisplayZoomControls(false);
+        if (Build.VERSION.SDK_INT < 28) {
+            this.f28974h = false;
+        }
+        try {
+            if (Build.VERSION.SDK_INT >= 11 && !this.f28974h) {
+                webView.setLayerType(0, null);
+            } else if (Build.VERSION.SDK_INT >= 16 && this.f28974h) {
+                webView.setLayerType(2, null);
+            }
+        } catch (Throwable th2) {
+            th2.printStackTrace();
         }
     }
 
@@ -108,6 +124,7 @@ public class a {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || "0".equals(str2) || !str.contains("{{ad_id}}")) {
             return null;
         }
-        return "javascript:(function () {    var JS_ACTLOG_URL = '" + str.replace("{{ad_id}}", str2) + "';    var head = document.getElementsByTagName('head')[0];    var script = document.createElement('script');    script.type = 'text/javascript';    script.src = JS_ACTLOG_URL;    head.appendChild(script);})();";
+        String replace = str.replace("{{ad_id}}", str2);
+        return "javascript:(function () {    var JS_ACTLOG_URL = '" + replace + "';    var head = document.getElementsByTagName('head')[0];    var script = document.createElement('script');    script.type = 'text/javascript';    script.src = JS_ACTLOG_URL;    head.appendChild(script);})();";
     }
 }

@@ -19,98 +19,81 @@ import java.lang.reflect.Method;
 @JNINamespace
 /* loaded from: classes5.dex */
 public class ProxyChangeListener {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean sEnabled;
-    private Context mContext;
-    private long mNativePtr;
-    private b oTy;
-    private Delegate oTz;
-    private final Looper mLooper = Looper.myLooper();
-    private final Handler mHandler = new Handler(this.mLooper);
+
+    /* renamed from: g  reason: collision with root package name */
+    public static boolean f22800g = true;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final Looper f22801a = Looper.myLooper();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Handler f22802b = new Handler(this.f22801a);
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f22803c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f22804d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c f22805e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Delegate f22806f;
 
     /* loaded from: classes5.dex */
     public interface Delegate {
-        void egR();
+        void a();
     }
 
-    @NativeClassQualifiedName
-    private native void nativeProxySettingsChanged(long j);
-
-    @NativeClassQualifiedName
-    private native void nativeProxySettingsChangedTo(long j, String str, int i, String str2, String[] strArr);
-
-    static {
-        $assertionsDisabled = !ProxyChangeListener.class.desiredAssertionStatus();
-        sEnabled = true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
-    public static class a {
-        public final String[] mExclusionList;
-        public final String mHost;
-        public final String mPacUrl;
-        public final int mPort;
+    public static class b {
 
-        public a(String str, int i, String str2, String[] strArr) {
-            this.mHost = str;
-            this.mPort = i;
-            this.mPacUrl = str2;
-            this.mExclusionList = strArr;
+        /* renamed from: a  reason: collision with root package name */
+        public final String f22807a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final int f22808b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final String f22809c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final String[] f22810d;
+
+        public b(String str, int i, String str2, String[] strArr) {
+            this.f22807a = str;
+            this.f22808b = i;
+            this.f22809c = str2;
+            this.f22810d = strArr;
         }
     }
 
-    private ProxyChangeListener(Context context) {
-        this.mContext = context;
-    }
-
-    @CalledByNative
-    public static ProxyChangeListener create(Context context) {
-        return new ProxyChangeListener(context);
-    }
-
-    @CalledByNative
-    public static String getProperty(String str) {
-        return System.getProperty(str);
-    }
-
-    @CalledByNative
-    public void start(long j) {
-        assertOnThread();
-        if (!$assertionsDisabled && this.mNativePtr != 0) {
-            throw new AssertionError();
-        }
-        this.mNativePtr = j;
-        registerReceiver();
-    }
-
-    @CalledByNative
-    public void stop() {
-        assertOnThread();
-        this.mNativePtr = 0L;
-        unregisterReceiver();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
-    public class b extends BroadcastReceiver {
-        private b() {
-        }
+    public class c extends BroadcastReceiver {
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, final Intent intent) {
-            if (intent.getAction().equals("android.intent.action.PROXY_CHANGE")) {
-                ProxyChangeListener.this.runOnThread(new Runnable() { // from class: com.baidu.turbonet.net.ProxyChangeListener.b.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        ProxyChangeListener.this.a(b.this, b.this.extractNewProxy(intent));
-                    }
-                });
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ Intent f22811e;
+
+            public a(Intent intent) {
+                this.f22811e = intent;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                c cVar = c.this;
+                ProxyChangeListener.this.e(cVar, cVar.extractNewProxy(this.f22811e));
             }
         }
 
+        public c() {
+        }
+
         /* JADX INFO: Access modifiers changed from: private */
-        public a extractNewProxy(Intent intent) {
+        public b extractNewProxy(Intent intent) {
             String str;
             String str2;
             String[] strArr;
@@ -140,82 +123,127 @@ public class ProxyChangeListener {
                 if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
                     String str4 = (String) cls.getDeclaredMethod("getPacFileUrl", new Class[0]).invoke(obj, new Object[0]);
                     if (!TextUtils.isEmpty(str4)) {
-                        return new a(str3, intValue, str4, strArr);
+                        return new b(str3, intValue, str4, strArr);
                     }
                 } else if (Build.VERSION.SDK_INT >= 21) {
                     Uri uri = (Uri) cls.getDeclaredMethod("getPacFileUrl", new Class[0]).invoke(obj, new Object[0]);
                     if (!Uri.EMPTY.equals(uri)) {
-                        return new a(str3, intValue, uri.toString(), strArr);
+                        return new b(str3, intValue, uri.toString(), strArr);
                     }
                 }
-                return new a(str3, intValue, null, strArr);
-            } catch (ClassNotFoundException e) {
-                Log.e("ProxyChangeListener", "Using no proxy configuration due to exception:" + e);
-                return null;
-            } catch (IllegalAccessException e2) {
+                return new b(str3, intValue, null, strArr);
+            } catch (ClassNotFoundException e2) {
                 Log.e("ProxyChangeListener", "Using no proxy configuration due to exception:" + e2);
                 return null;
-            } catch (NoSuchMethodException e3) {
+            } catch (IllegalAccessException e3) {
                 Log.e("ProxyChangeListener", "Using no proxy configuration due to exception:" + e3);
                 return null;
-            } catch (NullPointerException e4) {
+            } catch (NoSuchMethodException e4) {
                 Log.e("ProxyChangeListener", "Using no proxy configuration due to exception:" + e4);
                 return null;
-            } catch (InvocationTargetException e5) {
+            } catch (NullPointerException e5) {
                 Log.e("ProxyChangeListener", "Using no proxy configuration due to exception:" + e5);
+                return null;
+            } catch (InvocationTargetException e6) {
+                Log.e("ProxyChangeListener", "Using no proxy configuration due to exception:" + e6);
                 return null;
             }
         }
-    }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(b bVar, a aVar) {
-        if (sEnabled && bVar == this.oTy) {
-            if (this.oTz != null) {
-                this.oTz.egR();
-            }
-            if (this.mNativePtr != 0) {
-                if (aVar != null) {
-                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.mExclusionList);
-                } else {
-                    nativeProxySettingsChanged(this.mNativePtr);
-                }
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals("android.intent.action.PROXY_CHANGE")) {
+                ProxyChangeListener.this.g(new a(intent));
             }
         }
     }
 
-    private void registerReceiver() {
-        if (this.oTy == null) {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-            this.oTy = new b();
-            this.mContext.getApplicationContext().registerReceiver(this.oTy, intentFilter);
-        }
+    public ProxyChangeListener(Context context) {
+        this.f22804d = context;
     }
 
-    private void unregisterReceiver() {
-        if (this.oTy != null) {
-            this.mContext.unregisterReceiver(this.oTy);
-            this.oTy = null;
-        }
+    @CalledByNative
+    public static ProxyChangeListener create(Context context) {
+        return new ProxyChangeListener(context);
     }
 
-    private boolean onThread() {
-        return this.mLooper == Looper.myLooper();
+    @CalledByNative
+    public static String getProperty(String str) {
+        return System.getProperty(str);
     }
 
-    private void assertOnThread() {
-        if (!onThread()) {
+    @NativeClassQualifiedName
+    private native void nativeProxySettingsChanged(long j);
+
+    @NativeClassQualifiedName
+    private native void nativeProxySettingsChangedTo(long j, String str, int i, String str2, String[] strArr);
+
+    public final void c() {
+        if (!d()) {
             throw new IllegalStateException("Must be called on ProxyChangeListener thread.");
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void runOnThread(Runnable runnable) {
-        if (onThread()) {
+    public final boolean d() {
+        return this.f22801a == Looper.myLooper();
+    }
+
+    public final void e(c cVar, b bVar) {
+        if (f22800g && cVar == this.f22805e) {
+            Delegate delegate = this.f22806f;
+            if (delegate != null) {
+                delegate.a();
+            }
+            long j = this.f22803c;
+            if (j == 0) {
+                return;
+            }
+            if (bVar != null) {
+                nativeProxySettingsChangedTo(j, bVar.f22807a, bVar.f22808b, bVar.f22809c, bVar.f22810d);
+            } else {
+                nativeProxySettingsChanged(j);
+            }
+        }
+    }
+
+    public final void f() {
+        if (this.f22805e != null) {
+            return;
+        }
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.PROXY_CHANGE");
+        this.f22805e = new c();
+        this.f22804d.getApplicationContext().registerReceiver(this.f22805e, intentFilter);
+    }
+
+    public final void g(Runnable runnable) {
+        if (d()) {
             runnable.run();
         } else {
-            this.mHandler.post(runnable);
+            this.f22802b.post(runnable);
         }
+    }
+
+    public final void h() {
+        c cVar = this.f22805e;
+        if (cVar == null) {
+            return;
+        }
+        this.f22804d.unregisterReceiver(cVar);
+        this.f22805e = null;
+    }
+
+    @CalledByNative
+    public void start(long j) {
+        c();
+        this.f22803c = j;
+        f();
+    }
+
+    @CalledByNative
+    public void stop() {
+        c();
+        this.f22803c = 0L;
+        h();
     }
 }

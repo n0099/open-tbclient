@@ -2,79 +2,47 @@ package com.baidu.tbadk.core.data;
 
 import java.io.Serializable;
 import tbclient.FeedForumInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class FeedForumData implements Serializable {
-    private String avatar;
-    private String forumId;
-    private String forumName;
-    private int isLike;
-    private int memberCount;
-    private int pos;
-    private int postNum;
-    private String reason;
+    public String avatar;
+    public String forumId;
+    public String forumName;
+    public int isLike;
+    public int memberCount;
+    public int pos;
+    public int postNum;
+    public String reason;
+
+    public String getAvatar() {
+        return this.avatar;
+    }
 
     public String getForumId() {
         return this.forumId;
-    }
-
-    public void setForumId(String str) {
-        this.forumId = str;
     }
 
     public String getForumName() {
         return this.forumName;
     }
 
-    public void setForumName(String str) {
-        this.forumName = str;
+    public int getIsLike() {
+        return this.isLike;
     }
 
     public int getMemberCount() {
         return this.memberCount;
     }
 
-    public void setMemberCount(int i) {
-        this.memberCount = i;
+    public int getPos() {
+        return this.pos;
     }
 
     public int getPostNum() {
         return this.postNum;
     }
 
-    public void setPostNum(int i) {
-        this.postNum = i;
-    }
-
-    public String getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(String str) {
-        this.avatar = str;
-    }
-
     public String getReason() {
         return this.reason;
-    }
-
-    public void setReason(String str) {
-        this.reason = str;
-    }
-
-    public int getPos() {
-        return this.pos;
-    }
-
-    public void setPos(int i) {
-        this.pos = i;
-    }
-
-    public int getIsLike() {
-        return this.isLike;
-    }
-
-    public void setIsLike(int i) {
-        this.isLike = i;
     }
 
     public void parseFromFeedForumInfo(FeedForumInfo feedForumInfo) {
@@ -86,5 +54,37 @@ public class FeedForumData implements Serializable {
         this.reason = feedForumInfo.reason;
         this.pos = feedForumInfo.pos.intValue();
         this.isLike = feedForumInfo.is_like.intValue();
+    }
+
+    public void setAvatar(String str) {
+        this.avatar = str;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = str;
+    }
+
+    public void setForumName(String str) {
+        this.forumName = str;
+    }
+
+    public void setIsLike(int i) {
+        this.isLike = i;
+    }
+
+    public void setMemberCount(int i) {
+        this.memberCount = i;
+    }
+
+    public void setPos(int i) {
+        this.pos = i;
+    }
+
+    public void setPostNum(int i) {
+        this.postNum = i;
+    }
+
+    public void setReason(String str) {
+        this.reason = str;
     }
 }

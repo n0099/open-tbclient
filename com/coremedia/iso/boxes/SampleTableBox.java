@@ -1,13 +1,40 @@
 package com.coremedia.iso.boxes;
 
 import com.googlecode.mp4parser.AbstractContainerBox;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SampleTableBox extends AbstractContainerBox {
     public static final String TYPE = "stbl";
-    private SampleToChunkBox sampleToChunkBox;
+    public SampleToChunkBox sampleToChunkBox;
 
     public SampleTableBox() {
         super(TYPE);
+    }
+
+    public ChunkOffsetBox getChunkOffsetBox() {
+        for (Box box : getBoxes()) {
+            if (box instanceof ChunkOffsetBox) {
+                return (ChunkOffsetBox) box;
+            }
+        }
+        return null;
+    }
+
+    public CompositionTimeToSample getCompositionTimeToSample() {
+        for (Box box : getBoxes()) {
+            if (box instanceof CompositionTimeToSample) {
+                return (CompositionTimeToSample) box;
+            }
+        }
+        return null;
+    }
+
+    public SampleDependencyTypeBox getSampleDependencyTypeBox() {
+        for (Box box : getBoxes()) {
+            if (box instanceof SampleDependencyTypeBox) {
+                return (SampleDependencyTypeBox) box;
+            }
+        }
+        return null;
     }
 
     public SampleDescriptionBox getSampleDescriptionBox() {
@@ -29,31 +56,15 @@ public class SampleTableBox extends AbstractContainerBox {
     }
 
     public SampleToChunkBox getSampleToChunkBox() {
-        if (this.sampleToChunkBox != null) {
-            return this.sampleToChunkBox;
+        SampleToChunkBox sampleToChunkBox = this.sampleToChunkBox;
+        if (sampleToChunkBox != null) {
+            return sampleToChunkBox;
         }
         for (Box box : getBoxes()) {
             if (box instanceof SampleToChunkBox) {
-                this.sampleToChunkBox = (SampleToChunkBox) box;
-                return this.sampleToChunkBox;
-            }
-        }
-        return null;
-    }
-
-    public ChunkOffsetBox getChunkOffsetBox() {
-        for (Box box : getBoxes()) {
-            if (box instanceof ChunkOffsetBox) {
-                return (ChunkOffsetBox) box;
-            }
-        }
-        return null;
-    }
-
-    public TimeToSampleBox getTimeToSampleBox() {
-        for (Box box : getBoxes()) {
-            if (box instanceof TimeToSampleBox) {
-                return (TimeToSampleBox) box;
+                SampleToChunkBox sampleToChunkBox2 = (SampleToChunkBox) box;
+                this.sampleToChunkBox = sampleToChunkBox2;
+                return sampleToChunkBox2;
             }
         }
         return null;
@@ -68,19 +79,10 @@ public class SampleTableBox extends AbstractContainerBox {
         return null;
     }
 
-    public CompositionTimeToSample getCompositionTimeToSample() {
+    public TimeToSampleBox getTimeToSampleBox() {
         for (Box box : getBoxes()) {
-            if (box instanceof CompositionTimeToSample) {
-                return (CompositionTimeToSample) box;
-            }
-        }
-        return null;
-    }
-
-    public SampleDependencyTypeBox getSampleDependencyTypeBox() {
-        for (Box box : getBoxes()) {
-            if (box instanceof SampleDependencyTypeBox) {
-                return (SampleDependencyTypeBox) box;
+            if (box instanceof TimeToSampleBox) {
+                return (TimeToSampleBox) box;
             }
         }
         return null;

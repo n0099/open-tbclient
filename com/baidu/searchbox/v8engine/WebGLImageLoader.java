@@ -11,56 +11,57 @@ import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.util.BitmapReferenceMap;
 import com.baidu.searchbox.v8engine.util.DeviceInfo;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.smallgame.sdk.c.a;
+import d.b.e0.a.e.a;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import org.apache.http.HttpHost;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class WebGLImageLoader {
-    private static final String ASSET_URL = "asset://";
-    static final String BDFILE = "bdfile://";
-    static final String DATA_URL = "data:";
-    private static final boolean DEBUG = false;
-    private static final boolean USE_CACHE = true;
-    private static ExecutorService sExecutorService;
-    private static String TAG = "WebGLImageLoader";
-    private static BitmapReferenceMap sReferenceMap = new BitmapReferenceMap();
+    public static final String ASSET_URL = "asset://";
+    public static final String BDFILE = "bdfile://";
+    public static final String DATA_URL = "data:";
+    public static final boolean DEBUG = false;
+    public static String TAG = "WebGLImageLoader";
+    public static final boolean USE_CACHE = true;
+    public static ExecutorService sExecutorService;
+    public static BitmapReferenceMap sReferenceMap = new BitmapReferenceMap();
 
-    public static void loadImage(WebGLImage webGLImage) {
-        ImageBitmapBean bitmapBean = getBitmapBean(webGLImage);
-        if (bitmapBean != null && bitmapBean.getBitmap() != null) {
-            loadCacheImage(webGLImage, bitmapBean.getBitmap());
-        } else if (webGLImage.src().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-            loadNetImage(webGLImage);
-        } else if (webGLImage.src().startsWith(BDFILE)) {
-            loadBdfileImage(webGLImage);
-        } else if (webGLImage.src().startsWith(DATA_URL)) {
-            loadDataImage(webGLImage);
-        } else {
-            loadLocalImage(webGLImage);
+    /* loaded from: classes3.dex */
+    public static class NetValueCallback implements ValueCallback<String> {
+        public final WebGLImage mImage;
+        public final int mImageId;
+        public final String mSrc;
+
+        public NetValueCallback(WebGLImage webGLImage) {
+            this.mImage = webGLImage;
+            this.mSrc = webGLImage.src();
+            this.mImageId = this.mImage.getImageId();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        public void onReceiveValue(final String str) {
+            WebGLImageLoader.runInIOThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImageLoader.NetValueCallback.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    WebGLImageLoader.loadImageFromConvertedSource(NetValueCallback.this.mImage, NetValueCallback.this.mImageId, NetValueCallback.this.mSrc, str);
+                }
+            });
         }
     }
 
-    public static void recycleBitmap(String str) {
-        synchronized (BitmapReferenceMap.class) {
-            ImageBitmapBean decrease = sReferenceMap.decrease(str);
-            if (decrease != null) {
-                decrease.resetIfNoUsed();
-            }
-        }
-    }
-
-    static ImageBitmapBean getBitmapBean(WebGLImage webGLImage) {
+    public static ImageBitmapBean getBitmapBean(WebGLImage webGLImage) {
+        ImageBitmapBean imageBitmapBean;
         initializeIfNeeded();
         String src = webGLImage.src();
         String oldSrc = webGLImage.oldSrc();
-        ImageBitmapBean imageBitmapBean = null;
         synchronized (BitmapReferenceMap.class) {
-            if (!src.equals(oldSrc)) {
+            if (src.equals(oldSrc)) {
+                imageBitmapBean = null;
+            } else {
                 ImageBitmapBean imageBitmapBean2 = sReferenceMap.get(oldSrc);
                 if (imageBitmapBean2 != null) {
                     imageBitmapBean2.decreaseRefCount();
@@ -77,84 +78,78 @@ public class WebGLImageLoader {
         return imageBitmapBean;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void loadImageFromConvertedSource(WebGLImage webGLImage, int i, String str, Object obj) {
-        Bitmap bitmap;
-        ImageBitmapBean imageBitmapBean = null;
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        if (Build.VERSION.SDK_INT >= 19) {
-            options.inPremultiplied = false;
+    @NonNull
+    public static String getRealBdFilePath(V8Engine v8Engine, String str) {
+        String bdFileRealPath = v8Engine.getBdFileRealPath();
+        String substring = str.substring(9);
+        if (!substring.startsWith(File.separator)) {
+            substring = "/" + substring;
         }
-        if (obj instanceof String) {
-            String str2 = (String) obj;
-            if (a.jP(str2)) {
-                bitmap = BitmapFactory.decodeFile(str2, options);
-                if (bitmap == null) {
-                    bitmap = BitmapFactory.decodeFile(str2);
-                }
-            } else {
-                bitmap = null;
-            }
-        } else if (obj instanceof byte[]) {
-            byte[] bArr = (byte[]) obj;
-            bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-            if (bitmap == null) {
-                bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
-            }
-        } else if (obj instanceof InputStream) {
-            InputStream inputStream = (InputStream) obj;
-            bitmap = BitmapFactory.decodeStream(inputStream, null, options);
-            if (bitmap == null) {
-                bitmap = BitmapFactory.decodeStream(inputStream);
-            }
-        } else {
-            bitmap = null;
-        }
-        synchronized (BitmapReferenceMap.class) {
-            if (bitmap != null) {
-                imageBitmapBean = sReferenceMap.get(str);
-                if (imageBitmapBean != null && imageBitmapBean.getBitmap() != null) {
-                    bitmap.recycle();
-                    bitmap = imageBitmapBean.getBitmap();
-                } else {
-                    imageBitmapBean = new ImageBitmapBean(str, bitmap);
-                    sReferenceMap.put(str, imageBitmapBean);
-                }
-            }
-            if (imageBitmapBean != null) {
-                imageBitmapBean.increaseRefCount();
-            }
-        }
-        loadBitmapData(webGLImage, i, bitmap);
+        return bdFileRealPath + substring;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void loadBitmapData(WebGLImage webGLImage, int i, Bitmap bitmap) {
-        if (bitmap != null && webGLImage.setBitmapData(bitmap)) {
-            webGLImage.onLoadSuccess(i);
-        } else {
-            webGLImage.onLoadFailed(i, "load bitmap failed, src is " + webGLImage.src());
-        }
-    }
-
-    private static void initializeIfNeeded() {
+    public static void initializeIfNeeded() {
         if (sExecutorService == null) {
             int numberOfCPUCores = DeviceInfo.getNumberOfCPUCores();
             sExecutorService = Executors.newFixedThreadPool(numberOfCPUCores < 2 ? 1 : numberOfCPUCores / 2);
         }
     }
 
-    public static void runInIOThread(Runnable runnable) {
-        initializeIfNeeded();
-        sExecutorService.submit(runnable);
-    }
-
-    public static void loadCacheImage(final WebGLImage webGLImage, final Bitmap bitmap) {
+    public static void loadAssetImage(final WebGLImage webGLImage) {
+        final String src = webGLImage.src();
+        final String replace = src.substring(src.indexOf("//") + 2).replace("./", "");
         final int imageId = webGLImage.getImageId();
-        runInIOThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImageLoader.1
+        runInIOThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImageLoader.5
+            /* JADX WARN: Removed duplicated region for block: B:30:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
             @Override // java.lang.Runnable
+            /*
+                Code decompiled incorrectly, please refer to instructions dump.
+            */
             public void run() {
-                WebGLImageLoader.loadBitmapData(WebGLImage.this, imageId, bitmap);
+                InputStream inputStream;
+                Throwable th;
+                try {
+                    try {
+                        try {
+                            inputStream = V8Engine.getAppContext().getResources().getAssets().open(replace);
+                            try {
+                                WebGLImageLoader.loadImageFromConvertedSource(webGLImage, imageId, src, inputStream);
+                            } catch (IOException e2) {
+                                e = e2;
+                                e.printStackTrace();
+                                WebGLImageLoader.loadBitmapData(webGLImage, imageId, null);
+                                if (inputStream != null) {
+                                    inputStream.close();
+                                }
+                                return;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (IOException e4) {
+                        e = e4;
+                        inputStream = null;
+                    } catch (Throwable th3) {
+                        inputStream = null;
+                        th = th3;
+                        if (inputStream != null) {
+                        }
+                        throw th;
+                    }
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
             }
         });
     }
@@ -175,15 +170,22 @@ public class WebGLImageLoader {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
-    public static String getRealBdFilePath(V8Engine v8Engine, String str) {
-        String bdFileRealPath = v8Engine.getBdFileRealPath();
-        String substring = str.substring(BDFILE.length());
-        if (!substring.startsWith(File.separator)) {
-            substring = "/" + substring;
+    public static void loadBitmapData(WebGLImage webGLImage, int i, Bitmap bitmap) {
+        if (bitmap != null && webGLImage.setBitmapData(bitmap)) {
+            webGLImage.onLoadSuccess(i);
+            return;
         }
-        return bdFileRealPath + substring;
+        webGLImage.onLoadFailed(i, "load bitmap failed, src is " + webGLImage.src());
+    }
+
+    public static void loadCacheImage(final WebGLImage webGLImage, final Bitmap bitmap) {
+        final int imageId = webGLImage.getImageId();
+        runInIOThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImageLoader.1
+            @Override // java.lang.Runnable
+            public void run() {
+                WebGLImageLoader.loadBitmapData(WebGLImage.this, imageId, bitmap);
+            }
+        });
     }
 
     public static void loadDataImage(final WebGLImage webGLImage) {
@@ -192,9 +194,82 @@ public class WebGLImageLoader {
         runInIOThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImageLoader.3
             @Override // java.lang.Runnable
             public void run() {
-                WebGLImageLoader.loadImageFromConvertedSource(webGLImage, imageId, src, Base64.decode(src.substring(src.indexOf(";base64,") + 8), 0));
+                String str = src;
+                WebGLImageLoader.loadImageFromConvertedSource(webGLImage, imageId, src, Base64.decode(str.substring(str.indexOf(";base64,") + 8), 0));
             }
         });
+    }
+
+    public static void loadImage(WebGLImage webGLImage) {
+        ImageBitmapBean bitmapBean = getBitmapBean(webGLImage);
+        if (bitmapBean != null && bitmapBean.getBitmap() != null) {
+            loadCacheImage(webGLImage, bitmapBean.getBitmap());
+        } else if (webGLImage.src().startsWith("http")) {
+            loadNetImage(webGLImage);
+        } else if (webGLImage.src().startsWith(BDFILE)) {
+            loadBdfileImage(webGLImage);
+        } else if (webGLImage.src().startsWith(DATA_URL)) {
+            loadDataImage(webGLImage);
+        } else {
+            loadLocalImage(webGLImage);
+        }
+    }
+
+    public static void loadImageFromConvertedSource(WebGLImage webGLImage, int i, String str, Object obj) {
+        Bitmap decodeStream;
+        Bitmap decodeStream2;
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        if (Build.VERSION.SDK_INT >= 19) {
+            options.inPremultiplied = false;
+        }
+        ImageBitmapBean imageBitmapBean = null;
+        if (obj instanceof String) {
+            String str2 = (String) obj;
+            if (a.b(str2)) {
+                decodeStream = BitmapFactory.decodeFile(str2, options);
+                if (decodeStream == null) {
+                    decodeStream = BitmapFactory.decodeFile(str2);
+                }
+            }
+            decodeStream = null;
+        } else if (obj instanceof byte[]) {
+            byte[] bArr = (byte[]) obj;
+            decodeStream = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+            if (decodeStream == null) {
+                decodeStream2 = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                decodeStream = decodeStream2;
+            }
+        } else {
+            if (obj instanceof InputStream) {
+                InputStream inputStream = (InputStream) obj;
+                decodeStream = BitmapFactory.decodeStream(inputStream, null, options);
+                if (decodeStream == null) {
+                    decodeStream2 = BitmapFactory.decodeStream(inputStream);
+                    decodeStream = decodeStream2;
+                }
+            }
+            decodeStream = null;
+        }
+        synchronized (BitmapReferenceMap.class) {
+            if (decodeStream != null) {
+                try {
+                    imageBitmapBean = sReferenceMap.get(str);
+                    if (imageBitmapBean != null && imageBitmapBean.getBitmap() != null) {
+                        decodeStream.recycle();
+                        decodeStream = imageBitmapBean.getBitmap();
+                    } else {
+                        imageBitmapBean = new ImageBitmapBean(str, decodeStream);
+                        sReferenceMap.put(str, imageBitmapBean);
+                    }
+                } catch (Throwable th) {
+                    throw th;
+                }
+            }
+            if (imageBitmapBean != null) {
+                imageBitmapBean.increaseRefCount();
+            }
+        }
+        loadBitmapData(webGLImage, i, decodeStream);
     }
 
     public static void loadLocalImage(final WebGLImage webGLImage) {
@@ -205,50 +280,6 @@ public class WebGLImageLoader {
             @Override // java.lang.Runnable
             public void run() {
                 WebGLImageLoader.loadImageFromConvertedSource(webGLImage, imageId, src, basePath + src);
-            }
-        });
-    }
-
-    public static void loadAssetImage(final WebGLImage webGLImage) {
-        final String src = webGLImage.src();
-        final String replace = src.substring(src.indexOf("//") + 2).replace("./", "");
-        final int imageId = webGLImage.getImageId();
-        runInIOThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImageLoader.5
-            @Override // java.lang.Runnable
-            public void run() {
-                InputStream inputStream = null;
-                try {
-                    try {
-                        inputStream = V8Engine.getAppContext().getResources().getAssets().open(replace);
-                        WebGLImageLoader.loadImageFromConvertedSource(webGLImage, imageId, src, inputStream);
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                        WebGLImageLoader.loadBitmapData(webGLImage, imageId, null);
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                    }
-                } catch (Throwable th) {
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
             }
         });
     }
@@ -267,27 +298,17 @@ public class WebGLImageLoader {
         }
     }
 
-    /* loaded from: classes14.dex */
-    public static class NetValueCallback implements ValueCallback<String> {
-        private final WebGLImage mImage;
-        private final int mImageId;
-        private final String mSrc;
-
-        NetValueCallback(WebGLImage webGLImage) {
-            this.mImage = webGLImage;
-            this.mSrc = this.mImage.src();
-            this.mImageId = this.mImage.getImageId();
+    public static void recycleBitmap(String str) {
+        synchronized (BitmapReferenceMap.class) {
+            ImageBitmapBean decrease = sReferenceMap.decrease(str);
+            if (decrease != null) {
+                decrease.resetIfNoUsed();
+            }
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        public void onReceiveValue(final String str) {
-            WebGLImageLoader.runInIOThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImageLoader.NetValueCallback.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    WebGLImageLoader.loadImageFromConvertedSource(NetValueCallback.this.mImage, NetValueCallback.this.mImageId, NetValueCallback.this.mSrc, str);
-                }
-            });
-        }
+    public static void runInIOThread(Runnable runnable) {
+        initializeIfNeeded();
+        sExecutorService.submit(runnable);
     }
 }

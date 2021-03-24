@@ -7,92 +7,166 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PickFaceTabActivityConfig;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.FaceData;
+import d.b.b.e.p.l;
+import d.b.h0.e.d;
+import d.b.i0.x1.g.f;
+import d.b.i0.x1.g.g;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScrollListener {
-    private GridView dkY;
-    private BaseFragmentActivity iMq;
-    private g iYC;
-    private com.baidu.tbadk.album.b iYD;
-    private f lCQ;
-    private List<ImageFileInfo> mImageList;
-    private NoDataView mNoDataView;
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.iMq = (BaseFragmentActivity) getPageContext().getPageActivity();
-        View inflate = layoutInflater.inflate(R.layout.fragment_pick_album, (ViewGroup) null);
-        ap.setBackgroundResource(inflate, R.color.CAM_X0201);
-        this.mNoDataView = NoDataViewFactory.a(this.iMq, inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.iMq, R.dimen.ds320)), NoDataViewFactory.d.BI(this.iMq.getText(R.string.face_group_no_picture).toString()), null);
-        this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.mNoDataView.setVisibility(8);
-        this.dkY = (GridView) inflate.findViewById(R.id.grid_view);
-        init();
-        czN();
-        return inflate;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.h0.e.b f19218e;
 
-    private void init() {
-        Serializable serializable;
-        this.mImageList = new ArrayList();
-        this.iYD = new com.baidu.tbadk.album.b(getActivity());
-        this.iYC = new g(this.iMq, this.mImageList);
-        this.iYC.b(this.lCQ);
-        this.dkY.setAdapter((ListAdapter) this.iYC);
-        this.dkY.setOnScrollListener(this);
-        if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            Iterator it = ((ArrayList) serializable).iterator();
-            while (it.hasNext()) {
-                FaceData faceData = (FaceData) it.next();
-                if (faceData != null && faceData.type == 3 && faceData.imageFileInfo != null) {
-                    linkedHashMap.put(faceData.imageFileInfo.getFilePath(), faceData.imageFileInfo);
-                }
+    /* renamed from: f  reason: collision with root package name */
+    public GridView f19219f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public g f19220g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public List<ImageFileInfo> f19221h;
+    public f i;
+    public NoDataView j;
+    public BaseFragmentActivity k;
+
+    /* loaded from: classes4.dex */
+    public class a implements d {
+        public a() {
+        }
+
+        @Override // d.b.h0.e.d
+        public void a(List<d.b.h0.e.a> list, List<ImageFileInfo> list2, String str) {
+            if (!ListUtils.isEmpty(list2)) {
+                FaceAlbumFragment.this.f19221h.addAll(list2);
+                FaceAlbumFragment.this.f19220g.notifyDataSetChanged();
+                return;
             }
-            this.iYC.I(linkedHashMap);
+            FaceAlbumFragment.this.f19219f.setVisibility(8);
+            FaceAlbumFragment.this.j.setVisibility(0);
+        }
+
+        @Override // d.b.h0.e.d
+        public void onPreLoad() {
         }
     }
 
-    private void czN() {
-        this.iYD.a(com.baidu.tbadk.album.a.ALBUM_ID_ALL, new com.baidu.tbadk.album.d() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceAlbumFragment.1
-            @Override // com.baidu.tbadk.album.d
-            public void onPreLoad() {
-            }
+    /* loaded from: classes4.dex */
+    public class b implements d.b.h0.a0.b {
+        public b() {
+        }
 
-            @Override // com.baidu.tbadk.album.d
-            public void a(List<com.baidu.tbadk.album.a> list, List<ImageFileInfo> list2, String str) {
-                if (!y.isEmpty(list2)) {
-                    FaceAlbumFragment.this.mImageList.addAll(list2);
-                    FaceAlbumFragment.this.iYC.notifyDataSetChanged();
-                    return;
-                }
-                FaceAlbumFragment.this.dkY.setVisibility(8);
-                FaceAlbumFragment.this.mNoDataView.setVisibility(0);
+        @Override // d.b.h0.a0.b
+        public void a(d.b.b.j.d.a aVar, String str, boolean z) {
+            TbImageView tbImageView = (TbImageView) FaceAlbumFragment.this.f19219f.findViewWithTag(str);
+            if (tbImageView == null || aVar == null) {
+                return;
             }
-        });
+            tbImageView.invalidate();
+        }
     }
 
-    public void a(f fVar) {
-        this.lCQ = fVar;
-        if (this.iYC != null) {
-            this.iYC.b(this.lCQ);
+    public LinkedHashMap<String, ImageFileInfo> I0() {
+        g gVar = this.f19220g;
+        if (gVar != null) {
+            return gVar.f();
+        }
+        return null;
+    }
+
+    public final void J0() {
+        Serializable serializable;
+        ImageFileInfo imageFileInfo;
+        this.f19221h = new ArrayList();
+        this.f19218e = new d.b.h0.e.b(getActivity());
+        g gVar = new g(this.k, this.f19221h);
+        this.f19220g = gVar;
+        gVar.j(this.i);
+        this.f19219f.setAdapter((ListAdapter) this.f19220g);
+        this.f19219f.setOnScrollListener(this);
+        if (getArguments() == null || (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) == null || !(serializable instanceof ArrayList)) {
+            return;
+        }
+        LinkedHashMap linkedHashMap = new LinkedHashMap();
+        Iterator it = ((ArrayList) serializable).iterator();
+        while (it.hasNext()) {
+            FaceData faceData = (FaceData) it.next();
+            if (faceData != null && faceData.type == 3 && (imageFileInfo = faceData.imageFileInfo) != null) {
+                linkedHashMap.put(imageFileInfo.getFilePath(), faceData.imageFileInfo);
+            }
+        }
+        this.f19220g.e(linkedHashMap);
+    }
+
+    public final void K0() {
+        this.f19218e.i(d.b.h0.e.a.f50119f, new a());
+    }
+
+    public final void L0() {
+        g gVar = this.f19220g;
+        if (gVar == null || gVar.g() == null) {
+            return;
+        }
+        int childCount = this.f19219f.getChildCount();
+        int firstVisiblePosition = this.f19219f.getFirstVisiblePosition();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = this.f19219f.getChildAt(i);
+            if (childAt != null) {
+                TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.image);
+                ImageFileInfo item = this.f19220g.getItem(firstVisiblePosition + i);
+                if (item != null && tbImageView != null) {
+                    tbImageView.setTag(item.toCachedKey(false));
+                    this.f19220g.g().e(item, new b(), false, false);
+                }
+            }
+        }
+    }
+
+    public void M0(f fVar) {
+        this.i = fVar;
+        g gVar = this.f19220g;
+        if (gVar != null) {
+            gVar.j(fVar);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.k = (BaseFragmentActivity) getPageContext().getPageActivity();
+        View inflate = layoutInflater.inflate(R.layout.fragment_pick_album, (ViewGroup) null);
+        SkinManager.setBackgroundResource(inflate, R.color.CAM_X0201);
+        NoDataView a2 = NoDataViewFactory.a(this.k, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.k, R.dimen.ds320)), NoDataViewFactory.e.c(this.k.getText(R.string.face_group_no_picture).toString()), null);
+        this.j = a2;
+        a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.j.setVisibility(8);
+        this.f19219f = (GridView) inflate.findViewById(R.id.grid_view);
+        J0();
+        K0();
+        return inflate;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        super.onDestroy();
+        d.b.h0.e.b bVar = this.f19218e;
+        if (bVar != null) {
+            bVar.d();
         }
     }
 
@@ -100,51 +174,10 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public void onScrollStateChanged(AbsListView absListView, int i) {
         super.onScrollStateChanged(absListView, i);
         if (i == 2) {
-            this.iYC.dq(true);
-        } else if (this.iYC.isScroll()) {
-            this.iYC.dq(false);
-            czO();
-        }
-    }
-
-    private void czO() {
-        if (this.iYC != null && this.iYC.djc() != null) {
-            int childCount = this.dkY.getChildCount();
-            int firstVisiblePosition = this.dkY.getFirstVisiblePosition();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = this.dkY.getChildAt(i);
-                if (childAt != null) {
-                    TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.image);
-                    ImageFileInfo item = this.iYC.getItem(firstVisiblePosition + i);
-                    if (item != null && tbImageView != null) {
-                        tbImageView.setTag(item.toCachedKey(false));
-                        this.iYC.djc().a(item, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceAlbumFragment.2
-                            @Override // com.baidu.tbadk.imageManager.b
-                            public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
-                                TbImageView tbImageView2 = (TbImageView) FaceAlbumFragment.this.dkY.findViewWithTag(str);
-                                if (tbImageView2 != null && aVar != null) {
-                                    tbImageView2.invalidate();
-                                }
-                            }
-                        }, false, false);
-                    }
-                }
-            }
-        }
-    }
-
-    public LinkedHashMap<String, ImageFileInfo> diL() {
-        if (this.iYC != null) {
-            return this.iYC.diL();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.iYD != null) {
-            this.iYD.bjW();
+            this.f19220g.l(true);
+        } else if (this.f19220g.i()) {
+            this.f19220g.l(false);
+            L0();
         }
     }
 }

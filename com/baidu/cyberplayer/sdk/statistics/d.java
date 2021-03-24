@@ -3,11 +3,11 @@ package com.baidu.cyberplayer.sdk.statistics;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.android.internal.http.multipart.Part;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.n;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.yy.mediaframework.stat.VideoDataStatistic;
+import com.baidu.mobstat.Config;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,23 +15,27 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1472a = null;
-    private String b = null;
-    private String c;
+    public String f5071a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f5072b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f5073c;
 
     public d() {
-        this.c = null;
-        this.c = "video_session";
+        this.f5073c = null;
+        this.f5073c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
     public d(String str) {
-        this.c = null;
-        this.c = str;
+        this.f5073c = null;
+        this.f5073c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -42,117 +46,104 @@ public class d {
         }
     }
 
-    private static void a(String str, byte[] bArr, String str2) {
-        FileLock fileLock;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0061 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:76:0x0018 */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.nio.channels.FileLock */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x008f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [java.io.RandomAccessFile, java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v4, types: [java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:48:0x007e -> B:63:0x0081). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(String str, byte[] bArr, String str2) {
         RandomAccessFile randomAccessFile;
-        FileLock fileLock2;
         if (bArr == null || TextUtils.isEmpty(str)) {
             return;
         }
-        FileLock fileLock3 = null;
+        FileLock fileLock = 0;
+        fileLock = 0;
         try {
             try {
-                randomAccessFile = new RandomAccessFile(str, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                if (randomAccessFile.length() > 10485760) {
-                    if (0 != 0) {
-                        try {
-                            fileLock3.release();
-                        } catch (Exception e) {
-                            CyberLog.e("DpStatFileWriter", "file lock release fail", e);
-                        }
-                    }
-                    if (randomAccessFile != null) {
-                        try {
-                            randomAccessFile.close();
-                            return;
-                        } catch (Exception e2) {
-                            CyberLog.e("DpStatFileWriter", "file close fail", e2);
-                            return;
-                        }
-                    }
-                    return;
-                }
-                fileLock2 = randomAccessFile.getChannel().tryLock();
-                if (fileLock2 != null) {
+                try {
+                    randomAccessFile = new RandomAccessFile(str, "rw");
                     try {
-                        if (fileLock2.isValid()) {
-                            randomAccessFile.seek(randomAccessFile.length());
-                            randomAccessFile.write(bArr);
-                            if (!TextUtils.isEmpty(str2)) {
-                                randomAccessFile.write(str2.getBytes());
-                            }
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         CyberLog.e("DpStatFileWriter", "FileWriter invoke write fail:", e);
-                        if (fileLock2 != null) {
+                        if (fileLock != 0) {
                             try {
-                                fileLock2.release();
-                            } catch (Exception e4) {
-                                CyberLog.e("DpStatFileWriter", "file lock release fail", e4);
+                                fileLock.release();
+                            } catch (Exception e3) {
+                                CyberLog.e("DpStatFileWriter", "file lock release fail", e3);
                             }
                         }
                         if (randomAccessFile != null) {
-                            try {
-                                randomAccessFile.close();
-                                return;
-                            } catch (Exception e5) {
-                                CyberLog.e("DpStatFileWriter", "file close fail", e5);
-                                return;
-                            }
+                            randomAccessFile.close();
                         }
                         return;
                     }
-                }
-                if (fileLock2 != null) {
-                    try {
-                        fileLock2.release();
-                    } catch (Exception e6) {
-                        CyberLog.e("DpStatFileWriter", "file lock release fail", e6);
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        try {
+                            fileLock.release();
+                        } catch (Exception e4) {
+                            CyberLog.e("DpStatFileWriter", "file lock release fail", e4);
+                        }
                     }
-                }
-                if (randomAccessFile != null) {
-                    try {
-                        randomAccessFile.close();
-                    } catch (Exception e7) {
-                        CyberLog.e("DpStatFileWriter", "file close fail", e7);
+                    if (0 != 0) {
+                        try {
+                            fileLock.close();
+                        } catch (Exception e5) {
+                            CyberLog.e("DpStatFileWriter", "file close fail", e5);
+                        }
                     }
+                    throw th;
                 }
-            } catch (Exception e8) {
-                e = e8;
-                fileLock2 = null;
+            } catch (Exception e6) {
+                e = e6;
+                randomAccessFile = null;
             } catch (Throwable th2) {
                 th = th2;
-                fileLock = null;
-                if (fileLock != null) {
-                    try {
-                        fileLock.release();
-                    } catch (Exception e9) {
-                        CyberLog.e("DpStatFileWriter", "file lock release fail", e9);
-                    }
+                if (0 != 0) {
                 }
-                if (randomAccessFile != null) {
-                    try {
-                        randomAccessFile.close();
-                    } catch (Exception e10) {
-                        CyberLog.e("DpStatFileWriter", "file close fail", e10);
-                    }
+                if (0 != 0) {
                 }
                 throw th;
             }
-        } catch (Exception e11) {
-            e = e11;
-            fileLock2 = null;
-            randomAccessFile = null;
-        } catch (Throwable th3) {
-            th = th3;
-            fileLock = null;
-            randomAccessFile = null;
+        } catch (Exception e7) {
+            CyberLog.e("DpStatFileWriter", "file close fail", e7);
         }
+        if (randomAccessFile.length() > Config.FULL_TRACE_LOG_LIMIT) {
+            try {
+                randomAccessFile.close();
+                return;
+            } catch (Exception e8) {
+                CyberLog.e("DpStatFileWriter", "file close fail", e8);
+                return;
+            }
+        }
+        fileLock = randomAccessFile.getChannel().tryLock();
+        if (fileLock != 0 && fileLock.isValid()) {
+            randomAccessFile.seek(randomAccessFile.length());
+            randomAccessFile.write(bArr);
+            if (!TextUtils.isEmpty(str2)) {
+                randomAccessFile.write(str2.getBytes());
+            }
+        }
+        if (fileLock != 0) {
+            try {
+                fileLock.release();
+            } catch (Exception e9) {
+                CyberLog.e("DpStatFileWriter", "file lock release fail", e9);
+            }
+        }
+        randomAccessFile.close();
     }
 
     public static boolean a(String str) {
@@ -160,7 +151,7 @@ public class d {
         return file.exists() && file.isFile() && file.delete();
     }
 
-    private static boolean b(String str) {
+    public static boolean b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -169,24 +160,23 @@ public class d {
     }
 
     public void a() {
-        if (TextUtils.isEmpty(this.f1472a) || TextUtils.isEmpty(this.b)) {
+        if (TextUtils.isEmpty(this.f5071a) || TextUtils.isEmpty(this.f5072b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f1472a;
+            String str = this.f5071a;
             if (b(str)) {
-                String str2 = this.b;
+                String str2 = this.f5072b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
-                    a(str2);
                 } else {
                     a(str);
                     a(str2, str);
-                    a(str2);
                 }
+                a(str2);
             }
         } finally {
             reentrantLock.unlock();
@@ -194,68 +184,70 @@ public class d {
     }
 
     public void a(Context context) {
-        String b;
-        if (context == null || (b = n.b(context)) == null) {
+        String b2;
+        if (context == null || (b2 = n.b(context)) == null) {
             return;
         }
-        new File(b).mkdirs();
+        new File(b2).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f1472a = b + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + ".bak";
-        this.b = b + File.separator + this.c + "_log_" + coreVersion + ".tmp";
+        this.f5071a = b2 + File.separator + this.f5073c + "_" + coreVersion + ".bak";
+        this.f5072b = b2 + File.separator + this.f5073c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
-        if (bArr == null || TextUtils.isEmpty(this.f1472a)) {
+        if (bArr == null || TextUtils.isEmpty(this.f5071a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            a(this.f1472a, bArr, "\r\n");
-        } catch (AssertionError e) {
-            CyberLog.e("DpStatFileWriter", "write data to file fail");
+            try {
+                a(this.f5071a, bArr, Part.CRLF);
+            } catch (AssertionError unused) {
+                CyberLog.e("DpStatFileWriter", "write data to file fail");
+            }
         } finally {
             reentrantLock.unlock();
         }
     }
 
     public boolean b(String str, String str2) {
-        Exception e;
-        boolean z;
+        boolean z = false;
+        boolean z2 = true;
         try {
             FileInputStream fileInputStream = new FileInputStream(str);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String a2 = DpSessionDatasUploader.getInstance().a(DpSessionDatasUploader.SAILOR_MONITOR, this.c.equals("live_show_session") ? 24 : 1);
+            String a2 = DpSessionDatasUploader.getInstance().a(DpSessionDatasUploader.SAILOR_MONITOR, this.f5073c.equals("live_show_session") ? 24 : 1);
             if (TextUtils.isEmpty(a2)) {
                 z = true;
             } else {
-                int i = 1;
-                z = true;
                 while (true) {
                     try {
                         String readLine = bufferedReader.readLine();
                         if (readLine == null) {
                             break;
                         }
-                        int i2 = i + 1;
                         if (!DpSessionDatasUploader.getInstance().a(Base64.decode(readLine, 2), a2, false)) {
                             try {
-                                a(str2, readLine.getBytes(), "\r\n");
-                                z = false;
+                                a(str2, readLine.getBytes(), Part.CRLF);
+                                z2 = false;
                             } catch (Exception e2) {
                                 e = e2;
-                                z = false;
                                 e.printStackTrace();
                                 CyberLog.e("DpStatFileWriter", "readAndUploadLogFile failed");
                                 return z;
                             }
                         }
-                        i = i2;
                     } catch (Exception e3) {
                         e = e3;
+                        z = z2;
+                        e.printStackTrace();
+                        CyberLog.e("DpStatFileWriter", "readAndUploadLogFile failed");
+                        return z;
                     }
                 }
+                z = z2;
             }
             bufferedReader.close();
             inputStreamReader.close();

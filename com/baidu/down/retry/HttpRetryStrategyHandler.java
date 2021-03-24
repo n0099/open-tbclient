@@ -18,22 +18,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HttpRetryStrategyHandler {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "HttpRetryStrategyHandler";
-    private Context mContext;
-    private boolean mHostIsMatch;
-    private HttpDNSCacheInfo mHttpDNSCacheInfo;
-    private List<OnFetchDataResultListener> mOnFetchDataRequestListener;
-    private Exception mRetryException;
-    private List<RetryRequestInfo> mRetryRequestInfoList;
+    public static final boolean DEBUG = false;
+    public static final String TAG = "HttpRetryStrategyHandler";
+    public Context mContext;
+    public boolean mHostIsMatch;
+    public HttpDNSCacheInfo mHttpDNSCacheInfo;
+    public List<OnFetchDataResultListener> mOnFetchDataRequestListener;
+    public Exception mRetryException;
+    public List<RetryRequestInfo> mRetryRequestInfoList;
     public AbstractTask mtask;
-    private boolean requestRetryStrategyData = false;
-    private ConcurrentHashMap<Integer, String> mDownDetail = new ConcurrentHashMap<>();
-    private int mRetryType = 0;
+    public boolean requestRetryStrategyData = false;
+    public ConcurrentHashMap<Integer, String> mDownDetail = new ConcurrentHashMap<>();
+    public int mRetryType = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnFetchDataResultListener {
         void onResult(boolean z);
     }
@@ -45,6 +45,72 @@ public class HttpRetryStrategyHandler {
         this.mHostIsMatch = URLRegUtils.matchRetryHostReg(abstractTask.mUri);
     }
 
+    public boolean HttpDNSCacheAvailable() {
+        HttpDNSCacheInfo httpDNSCacheInfo;
+        return this.mHostIsMatch && (httpDNSCacheInfo = this.mHttpDNSCacheInfo) != null && httpDNSCacheInfo.isRetryStrategyCacheAvailable(this.mContext) && continueRetryStrategy(0);
+    }
+
+    @SuppressLint({"LongLogTag"})
+    public void appendDownDetail(int i, String str) {
+        if (this.mDownDetail.containsKey(Integer.valueOf(i))) {
+            ConcurrentHashMap<Integer, String> concurrentHashMap = this.mDownDetail;
+            Integer valueOf = Integer.valueOf(i);
+            concurrentHashMap.put(valueOf, this.mDownDetail.get(Integer.valueOf(i)) + str);
+            return;
+        }
+        this.mDownDetail.put(Integer.valueOf(i), str);
+    }
+
+    public boolean continueRetryStrategy(int i) {
+        return !Utils.isEmpty(this.mRetryRequestInfoList) && i < this.mRetryRequestInfoList.size();
+    }
+
+    public ConcurrentHashMap<Integer, String> getDownDetail() {
+        return this.mDownDetail;
+    }
+
+    public long getDownFlowCostTime() {
+        HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
+        if (httpDNSCacheInfo != null) {
+            return httpDNSCacheInfo.mDownFlowCostTime;
+        }
+        return -1L;
+    }
+
+    public int getDownFlowMode() {
+        HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
+        if (httpDNSCacheInfo != null) {
+            return httpDNSCacheInfo.mMode;
+        }
+        return -1;
+    }
+
+    public HttpDNSCacheInfo getHttpDNSCacheInfo() {
+        return this.mHttpDNSCacheInfo;
+    }
+
+    public String getRequestId() {
+        HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
+        return httpDNSCacheInfo != null ? httpDNSCacheInfo.mRequestId : "";
+    }
+
+    public String getRetryExceptionName() {
+        Exception exc = this.mRetryException;
+        return exc != null ? exc.getClass().getName() : "";
+    }
+
+    public List<RetryRequestInfo> getRetryRequestInfoList() {
+        return this.mRetryRequestInfoList;
+    }
+
+    public int getRetryType() {
+        return this.mRetryType;
+    }
+
+    public boolean isAcquireRetryStrategy(boolean z, Exception exc, int i) {
+        return TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mHttpRetryStrategyEnable && ((z && this.mHostIsMatch && ((exc instanceof UnknownHostException) || (exc instanceof ConnectException) || (exc instanceof SocketException) || (exc instanceof SocketTimeoutException) || (exc instanceof ConnectTimeoutException) || (exc instanceof ProtocolException) || (exc instanceof RetryStrategyException))) || continueRetryStrategy(i));
+    }
+
     @SuppressLint({"LongLogTag"})
     public void retryStrategy(final Exception exc, OnFetchDataResultListener onFetchDataResultListener) {
         if (HttpDNSCacheAvailable()) {
@@ -53,16 +119,19 @@ public class HttpRetryStrategyHandler {
         }
         if (!this.requestRetryStrategyData) {
             this.requestRetryStrategyData = true;
-            this.mOnFetchDataRequestListener = new ArrayList();
-            this.mOnFetchDataRequestListener.add(onFetchDataResultListener);
-            new HttpRetryStrategyDataParse().onFetchRetryDataRequest(this.mtask.mContext, this.mtask.mUri, new HttpRetryStrategyDataParse.OnFetchRetryDataRequestListener() { // from class: com.baidu.down.retry.HttpRetryStrategyHandler.1
+            ArrayList arrayList = new ArrayList();
+            this.mOnFetchDataRequestListener = arrayList;
+            arrayList.add(onFetchDataResultListener);
+            HttpRetryStrategyDataParse httpRetryStrategyDataParse = new HttpRetryStrategyDataParse();
+            AbstractTask abstractTask = this.mtask;
+            httpRetryStrategyDataParse.onFetchRetryDataRequest(abstractTask.mContext, abstractTask.mUri, new HttpRetryStrategyDataParse.OnFetchRetryDataRequestListener() { // from class: com.baidu.down.retry.HttpRetryStrategyHandler.1
                 @Override // com.baidu.down.retry.HttpRetryStrategyDataParse.OnFetchRetryDataRequestListener
                 public void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i) {
-                    int i2 = 0;
                     HttpRetryStrategyHandler.this.requestRetryStrategyData = false;
                     if (z) {
                         HttpRetryStrategyHandler.this.mHttpDNSCacheInfo = httpDNSCacheInfo;
-                        HttpRetryStrategyHandler.this.mRetryRequestInfoList = HttpRetryStrategyHandler.this.mHttpDNSCacheInfo.getSequenceRetryRequest(HttpRetryStrategyHandler.this.mtask.mUri, exc);
+                        HttpRetryStrategyHandler httpRetryStrategyHandler = HttpRetryStrategyHandler.this;
+                        httpRetryStrategyHandler.mRetryRequestInfoList = httpRetryStrategyHandler.mHttpDNSCacheInfo.getSequenceRetryRequest(HttpRetryStrategyHandler.this.mtask.mUri, exc);
                     }
                     if (Utils.isEmpty(HttpRetryStrategyHandler.this.mRetryRequestInfoList)) {
                         z = false;
@@ -73,15 +142,10 @@ public class HttpRetryStrategyHandler {
                         HttpRetryStrategyHandler.this.mRetryType = i;
                     }
                     synchronized (HttpRetryStrategyHandler.this.mOnFetchDataRequestListener) {
-                        while (true) {
-                            int i3 = i2;
-                            if (i3 >= HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.size()) {
-                                HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.clear();
-                            } else {
-                                ((OnFetchDataResultListener) HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.get(i3)).onResult(z);
-                                i2 = i3 + 1;
-                            }
+                        for (int i2 = 0; i2 < HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.size(); i2++) {
+                            ((OnFetchDataResultListener) HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.get(i2)).onResult(z);
                         }
+                        HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.clear();
                     }
                 }
             });
@@ -90,8 +154,8 @@ public class HttpRetryStrategyHandler {
         }
         try {
             this.mtask.wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (InterruptedException e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -99,70 +163,11 @@ public class HttpRetryStrategyHandler {
         this.mHttpDNSCacheInfo = httpDNSCacheInfo;
     }
 
-    public HttpDNSCacheInfo getHttpDNSCacheInfo() {
-        return this.mHttpDNSCacheInfo;
-    }
-
-    public List<RetryRequestInfo> getRetryRequestInfoList() {
-        return this.mRetryRequestInfoList;
-    }
-
-    public boolean HttpDNSCacheAvailable() {
-        return this.mHostIsMatch && this.mHttpDNSCacheInfo != null && this.mHttpDNSCacheInfo.isRetryStrategyCacheAvailable(this.mContext) && continueRetryStrategy(0);
-    }
-
-    public boolean isAcquireRetryStrategy(boolean z, Exception exc, int i) {
-        return TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mHttpRetryStrategyEnable && ((z && this.mHostIsMatch && ((exc instanceof UnknownHostException) || (exc instanceof ConnectException) || (exc instanceof SocketException) || (exc instanceof SocketTimeoutException) || (exc instanceof ConnectTimeoutException) || (exc instanceof ProtocolException) || (exc instanceof RetryStrategyException))) || continueRetryStrategy(i));
-    }
-
-    public boolean continueRetryStrategy(int i) {
-        return !Utils.isEmpty(this.mRetryRequestInfoList) && i < this.mRetryRequestInfoList.size();
-    }
-
-    @SuppressLint({"LongLogTag"})
-    public void appendDownDetail(int i, String str) {
-        if (this.mDownDetail.containsKey(Integer.valueOf(i))) {
-            this.mDownDetail.put(Integer.valueOf(i), this.mDownDetail.get(Integer.valueOf(i)) + str);
-            return;
-        }
-        this.mDownDetail.put(Integer.valueOf(i), str);
-    }
-
-    public ConcurrentHashMap<Integer, String> getDownDetail() {
-        return this.mDownDetail;
-    }
-
-    public long getDownFlowCostTime() {
-        if (this.mHttpDNSCacheInfo != null) {
-            return this.mHttpDNSCacheInfo.mDownFlowCostTime;
-        }
-        return -1L;
-    }
-
-    public int getDownFlowMode() {
-        if (this.mHttpDNSCacheInfo != null) {
-            return this.mHttpDNSCacheInfo.mMode;
-        }
-        return -1;
-    }
-
-    public String getRequestId() {
-        return this.mHttpDNSCacheInfo != null ? this.mHttpDNSCacheInfo.mRequestId : "";
-    }
-
-    public int getRetryType() {
-        return this.mRetryType;
+    public void setRetryException(Exception exc) {
+        this.mRetryException = exc;
     }
 
     public void setRetryType(int i) {
         this.mRetryType = i;
-    }
-
-    public String getRetryExceptionName() {
-        return this.mRetryException != null ? this.mRetryException.getClass().getName() : "";
-    }
-
-    public void setRetryException(Exception exc) {
-        this.mRetryException = exc;
     }
 }

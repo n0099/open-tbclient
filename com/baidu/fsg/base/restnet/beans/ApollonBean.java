@@ -7,46 +7,46 @@ import com.baidu.fsg.base.restnet.RestResponseEntity;
 import com.baidu.fsg.base.restnet.RestTemplate;
 import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.NetworkUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public abstract class ApollonBean {
-    private static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
-    private static final String BEAN_TASK_MGR_TASK_KEY = "ApollonBeanTask";
-    protected Context mContext;
-    protected RestTemplate mRestTemplate;
-    protected IBeanResponseCallback mRspCallback;
-    private String mTskKey = "";
-
-    public abstract int getBeanId();
-
-    protected abstract List<RestNameValuePair> getRequestParams();
-
-    public abstract String getUrl();
-
-    protected abstract <T, E> void handleCommonErrors(Exception exc);
-
-    protected abstract void handleNetworkFailureError();
-
-    public abstract <T, E> void handleResponse(Class<T> cls, Class<E> cls2, RestResponseEntity<? extends BeanResponseBase> restResponseEntity);
-
-    protected abstract <T> void handleResponseHeaders(RestResponseEntity<T> restResponseEntity);
-
-    protected abstract void prepareRestTemplate();
-
-    public abstract Class<?> responseClass();
+    public static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
+    public static final String BEAN_TASK_MGR_TASK_KEY = "ApollonBeanTask";
+    public Context mContext;
+    public RestTemplate mRestTemplate;
+    public IBeanResponseCallback mRspCallback;
+    public String mTskKey = "";
 
     public ApollonBean(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public void setResponseCallback(IBeanResponseCallback iBeanResponseCallback) {
-        this.mRspCallback = iBeanResponseCallback;
+    public void destroyBean() {
+        this.mRspCallback = null;
+        a.a("BeanTaskManager").a("ApollonBeanTask", this.mTskKey);
+        RestTemplate restTemplate = this.mRestTemplate;
+        if (restTemplate != null) {
+            restTemplate.setRequestInterceptor(null);
+        }
     }
 
     public void execBean() {
         execBean(responseClass());
     }
+
+    public <T, E> void executeAndHandleResponse(Class<T> cls, Class<E> cls2) {
+        RestResponseEntity<T> restResponseEntity;
+        if (getHttpMethod() == 0) {
+            restResponseEntity = this.mRestTemplate.getForEntity(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
+        } else if (getHttpMethod() == 1) {
+            restResponseEntity = this.mRestTemplate.postForEntity(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
+        } else {
+            restResponseEntity = null;
+        }
+        handleResponse(cls, cls2, restResponseEntity);
+    }
+
+    public abstract int getBeanId();
 
     public String getEncode() {
         return "UTF-8";
@@ -56,12 +56,24 @@ public abstract class ApollonBean {
         return 1;
     }
 
-    public void destroyBean() {
-        this.mRspCallback = null;
-        a.a(BEAN_TASK_MGR_KEY).a(BEAN_TASK_MGR_TASK_KEY, this.mTskKey);
-        if (this.mRestTemplate != null) {
-            this.mRestTemplate.setRequestInterceptor(null);
-        }
+    public abstract List<RestNameValuePair> getRequestParams();
+
+    public abstract String getUrl();
+
+    public abstract <T, E> void handleCommonErrors(Exception exc);
+
+    public abstract void handleNetworkFailureError();
+
+    public abstract <T, E> void handleResponse(Class<T> cls, Class<E> cls2, RestResponseEntity<? extends BeanResponseBase> restResponseEntity);
+
+    public abstract <T> void handleResponseHeaders(RestResponseEntity<T> restResponseEntity);
+
+    public abstract void prepareRestTemplate();
+
+    public abstract Class<?> responseClass();
+
+    public void setResponseCallback(IBeanResponseCallback iBeanResponseCallback) {
+        this.mRspCallback = iBeanResponseCallback;
     }
 
     public <T> void execBean(Class<T> cls) {
@@ -73,10 +85,12 @@ public abstract class ApollonBean {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    ApollonBean.this.prepareRestTemplate();
-                    ApollonBean.this.executeAndHandleResponse(cls, cls2);
-                } catch (Exception e) {
-                    ApollonBean.this.handleCommonErrors(e);
+                    try {
+                        ApollonBean.this.prepareRestTemplate();
+                        ApollonBean.this.executeAndHandleResponse(cls, cls2);
+                    } catch (Exception e2) {
+                        ApollonBean.this.handleCommonErrors(e2);
+                    }
                 } finally {
                     ApollonBean.this.mRspCallback = null;
                 }
@@ -86,23 +100,9 @@ public abstract class ApollonBean {
             handleNetworkFailureError();
             return;
         }
-        a a2 = a.a(BEAN_TASK_MGR_KEY);
-        this.mTskKey = "BeanTask_" + getBeanId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
+        a a2 = a.a("BeanTaskManager");
+        this.mTskKey = "BeanTask_" + getBeanId() + "_" + System.currentTimeMillis();
         a2.getClass();
-        a2.a(new a.c(0L, 0L, false, this.mTskKey, runnable), BEAN_TASK_MGR_TASK_KEY);
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.fsg.base.restnet.RestTemplate */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: com.baidu.fsg.base.restnet.RestTemplate */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Multi-variable type inference failed */
-    public <T, E> void executeAndHandleResponse(Class<T> cls, Class<E> cls2) {
-        RestResponseEntity<? extends BeanResponseBase> restResponseEntity = null;
-        if (getHttpMethod() == 0) {
-            restResponseEntity = this.mRestTemplate.getForEntity(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
-        } else if (getHttpMethod() == 1) {
-            restResponseEntity = this.mRestTemplate.postForEntity(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
-        }
-        handleResponse(cls, cls2, restResponseEntity);
+        a2.a(new a.c(0L, 0L, false, this.mTskKey, runnable), "ApollonBeanTask");
     }
 }

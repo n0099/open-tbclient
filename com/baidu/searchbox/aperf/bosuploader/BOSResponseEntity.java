@@ -1,13 +1,25 @@
 package com.baidu.searchbox.aperf.bosuploader;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class BOSResponseEntity {
-    private int mErrorCode;
-    private String mResponseMessage;
-    private boolean mSuccess;
+    public int mErrorCode;
+    public String mResponseMessage;
+    public boolean mSuccess;
 
     public BOSResponseEntity() {
         this.mSuccess = true;
         this.mResponseMessage = null;
+    }
+
+    public int getErrorCode() {
+        return this.mErrorCode;
+    }
+
+    public String getMessage() {
+        return this.mResponseMessage;
+    }
+
+    public boolean isSuccess() {
+        return this.mSuccess;
     }
 
     public BOSResponseEntity(boolean z, String str) {
@@ -29,17 +41,5 @@ public class BOSResponseEntity {
         this.mSuccess = true;
         this.mResponseMessage = null;
         this.mSuccess = z;
-    }
-
-    public boolean isSuccess() {
-        return this.mSuccess;
-    }
-
-    public String getMessage() {
-        return this.mResponseMessage;
-    }
-
-    public int getErrorCode() {
-        return this.mErrorCode;
     }
 }

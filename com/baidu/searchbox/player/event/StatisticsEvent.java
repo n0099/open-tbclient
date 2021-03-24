@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.event;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.interfaces.INeuron;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class StatisticsEvent extends VideoEvent {
     public static final String ACTION_ADD_PLAY_SPEED_RECORD = "monitor_add_play_speed_record";
     public static final String ACTION_BUFFER_END = "statistics_player_buffer_end";
@@ -22,16 +22,16 @@ public class StatisticsEvent extends VideoEvent {
     public static final int KEY_START_TIME = 5;
     public static final int KEY_WHAT = 3;
 
-    @Override // com.baidu.searchbox.player.event.VideoEvent
-    public boolean filter(@NonNull INeuron iNeuron) {
-        return 1 != iNeuron.getType();
-    }
-
     @PublicMethod(version = "11.24.0.0")
     public static VideoEvent obtainEvent(@NonNull String str) {
-        VideoEvent obtain = obtain(str, 6);
+        VideoEvent obtain = VideoEvent.obtain(str, 6);
         obtain.setTargetType(1);
         obtain.setPriority(1);
         return obtain;
+    }
+
+    @Override // com.baidu.searchbox.player.event.VideoEvent
+    public boolean filter(@NonNull INeuron iNeuron) {
+        return 1 != iNeuron.getType();
     }
 }

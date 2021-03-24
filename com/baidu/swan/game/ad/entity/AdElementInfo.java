@@ -4,10 +4,9 @@ import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.core.data.ConstantData;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.FieldBuilder;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -16,72 +15,289 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AdElementInfo implements Parcelable {
     public static final int ACTION_TYPE_DOWNLOAD = 2;
     public static final int ACTION_TYPE_LANDING_PAGE = 1;
     public static final int CLOSE_TYPE_TO_NEW_STRATEGY = 6;
-    public static final Parcelable.Creator<AdElementInfo> CREATOR = new Parcelable.Creator<AdElementInfo>() { // from class: com.baidu.swan.game.ad.entity.AdElementInfo.1
+    public static final Parcelable.Creator<AdElementInfo> CREATOR = new a();
+    public static final String TAG = "AdElementInfo";
+    public long createTime;
+    public int mActionType;
+    public String mAdId;
+    public JSONObject mAdJsonObject;
+    public JSONObject mAdMonitors;
+    public int mAntiTag;
+    public String mApkName;
+    public String mAppName;
+    public long mAppSize;
+    public String mBannerHtml;
+    public String mClickUrl;
+    public Set<String> mCloseTrackers;
+    public int mCloseType;
+    public Set<String> mConversionUrls;
+    public String mDescription;
+    public int mDuration;
+    public String mEndFrameHtml;
+    public String mEndFrameUrl;
+    public int mExpire;
+    public String mFallback;
+    public String mFbAct;
+    public boolean mGdtAd;
+    public String mIconUrl;
+    public Set<String> mImpressionUrls;
+    public String mLandBannerHtml;
+    public Set<String> mMonitorClickers;
+    public String mPackageName;
+    public String mPage;
+    public String mPictureUrl;
+    public String mQueryKey;
+    public int mRewardTime;
+    public int mRewardTimeDefault;
+    public int mSkipTime;
+    public int mSkipTimeDefault;
+    public Set<String> mSkipTrackers;
+    public Set<String> mStartTrackers;
+    public Set<String> mThirdClickMonitorTrackers;
+    public Set<String> mThirdImpMonitorTrackers;
+    public String mTitle;
+    public String mType;
+    public String mUniqueId;
+    public String mVersion;
+    public int mVideoHeight;
+    public String mVideoUrl;
+    public int mVideoWidth;
+
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<AdElementInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: C */
+        /* renamed from: a */
         public AdElementInfo createFromParcel(Parcel parcel) {
-            return new AdElementInfo(parcel);
+            return new AdElementInfo(parcel, (a) null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: kN */
+        /* renamed from: b */
         public AdElementInfo[] newArray(int i) {
             return new AdElementInfo[i];
         }
-    };
-    public static final String TAG = "AdElementInfo";
-    private long createTime;
-    private int mActionType;
-    private String mAdId;
-    private JSONObject mAdJsonObject;
-    private JSONObject mAdMonitors;
-    private int mAntiTag;
-    private String mApkName;
-    private String mAppName;
-    private long mAppSize;
-    private String mBannerHtml;
-    private String mClickUrl;
-    private Set<String> mCloseTrackers;
-    private int mCloseType;
-    private Set<String> mConversionUrls;
-    private String mDescription;
-    private int mDuration;
-    private String mEndFrameHtml;
-    private String mEndFrameUrl;
-    private int mExpire;
-    private String mFallback;
-    private String mFbAct;
-    private boolean mGdtAd;
-    private String mIconUrl;
-    private Set<String> mImpressionUrls;
-    private String mLandBannerHtml;
-    private Set<String> mMonitorClickers;
-    private String mPackageName;
-    private String mPage;
-    private String mPictureUrl;
-    private String mQueryKey;
-    private int mRewardTime;
-    private int mRewardTimeDefault;
-    private int mSkipTime;
-    private int mSkipTimeDefault;
-    private Set<String> mSkipTrackers;
-    private Set<String> mStartTrackers;
-    private Set<String> mThirdClickMonitorTrackers;
-    private Set<String> mThirdImpMonitorTrackers;
-    private String mTitle;
-    private String mType;
-    private String mUniqueId;
-    private String mVersion;
-    private int mVideoHeight;
-    private String mVideoUrl;
-    private int mVideoWidth;
+    }
+
+    public /* synthetic */ AdElementInfo(Parcel parcel, a aVar) {
+        this(parcel);
+    }
+
+    public int A() {
+        if (n() == 6) {
+            return this.mRewardTime;
+        }
+        return this.mRewardTimeDefault;
+    }
+
+    public int B() {
+        if (n() == 6) {
+            return this.mSkipTime;
+        }
+        return this.mSkipTimeDefault;
+    }
+
+    public List<String> C() {
+        return new ArrayList(this.mSkipTrackers);
+    }
+
+    public List<String> D() {
+        return new ArrayList(this.mStartTrackers);
+    }
+
+    public List<String> E() {
+        return new ArrayList(this.mThirdClickMonitorTrackers);
+    }
+
+    public List<String> F() {
+        return new ArrayList(this.mThirdImpMonitorTrackers);
+    }
+
+    public String G() {
+        return this.mTitle;
+    }
+
+    public int H() {
+        return this.mVideoHeight;
+    }
+
+    public String I() {
+        return this.mVideoUrl;
+    }
+
+    public int J() {
+        return this.mVideoWidth;
+    }
+
+    public boolean K() {
+        return this.mGdtAd;
+    }
+
+    public final void a(String str) {
+        if (str == null || str.equals("")) {
+            return;
+        }
+        this.mCloseTrackers.add(str);
+    }
+
+    public final void b(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.mConversionUrls.add(str);
+    }
+
+    public final void c(String str) {
+        if (str == null || str.equals("")) {
+            return;
+        }
+        this.mMonitorClickers.add(str);
+    }
+
+    public final void d(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.mSkipTrackers.add(str);
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public final void e(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.mStartTrackers.add(str);
+    }
+
+    public final void f(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.mThirdClickMonitorTrackers.add(str);
+    }
+
+    public final void g(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.mThirdImpMonitorTrackers.add(str);
+    }
+
+    public int h() {
+        return this.mActionType;
+    }
+
+    public JSONObject i() {
+        return this.mAdMonitors;
+    }
+
+    public String j() {
+        return this.mAppName;
+    }
+
+    public String k() {
+        return this.mBannerHtml;
+    }
+
+    public String l() {
+        return this.mClickUrl;
+    }
+
+    public List<String> m() {
+        return new ArrayList(this.mCloseTrackers);
+    }
+
+    public int n() {
+        return this.mCloseType;
+    }
+
+    public List<String> o() {
+        return new ArrayList(this.mConversionUrls);
+    }
+
+    public long p() {
+        return this.createTime;
+    }
+
+    public String q() {
+        return this.mDescription;
+    }
+
+    public int r() {
+        return this.mDuration;
+    }
+
+    public String s() {
+        return this.mEndFrameHtml;
+    }
+
+    public String t() {
+        return this.mEndFrameUrl;
+    }
+
+    public int u() {
+        return this.mExpire;
+    }
+
+    public String v() {
+        return this.mIconUrl;
+    }
+
+    public List<String> w() {
+        return new ArrayList(this.mImpressionUrls);
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.mQueryKey);
+        parcel.writeString(this.mAdId);
+        parcel.writeString(this.mTitle);
+        parcel.writeString(this.mDescription);
+        parcel.writeString(this.mIconUrl);
+        parcel.writeString(this.mType);
+        parcel.writeInt(this.mActionType);
+        parcel.writeInt(this.mAntiTag);
+        parcel.writeString(this.mClickUrl);
+        parcel.writeString(this.mPictureUrl);
+        parcel.writeString(this.mVideoUrl);
+        parcel.writeInt(this.mVideoWidth);
+        parcel.writeInt(this.mVideoHeight);
+        parcel.writeInt(this.mDuration);
+        parcel.writeInt(this.mCloseType);
+        parcel.writeInt(this.mExpire);
+        parcel.writeString(this.mAppName);
+        parcel.writeString(this.mPackageName);
+        parcel.writeString(this.mApkName);
+        parcel.writeLong(this.mAppSize);
+        parcel.writeString(this.mPage);
+        parcel.writeString(this.mVersion);
+        parcel.writeString(this.mFallback);
+        parcel.writeString(this.mFbAct);
+        parcel.writeInt(this.mRewardTime);
+        parcel.writeInt(this.mSkipTime);
+    }
+
+    public String x() {
+        return this.mLandBannerHtml;
+    }
+
+    public String y() {
+        return this.mPackageName;
+    }
+
+    public String z() {
+        return this.mPictureUrl;
+    }
 
     @SuppressLint({"DefaultLocale"})
     public AdElementInfo(JSONObject jSONObject) {
@@ -109,7 +325,7 @@ public class AdElementInfo implements Parcelable {
             }
             this.mTitle = jSONObject.optString("tit", "");
             this.mDescription = jSONObject.optString("desc", "");
-            this.mIconUrl = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, "");
+            this.mIconUrl = jSONObject.optString("icon", "");
             this.mType = jSONObject.optString("type");
             this.mActionType = jSONObject.optInt("act");
             this.mAntiTag = jSONObject.optInt("anti_tag");
@@ -133,39 +349,39 @@ public class AdElementInfo implements Parcelable {
                     if (next.equals("s")) {
                         JSONArray optJSONArray = optJSONObject.optJSONArray(next);
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            vo(optJSONArray.optString(i));
+                            g(optJSONArray.optString(i));
                         }
                     } else if (next.equals("vskip")) {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            addSkipMonitorTrackers(optJSONArray2.optString(i2));
+                            d(optJSONArray2.optString(i2));
                         }
                     } else if (next.equals("vstart")) {
                         JSONArray optJSONArray3 = optJSONObject.optJSONArray(next);
                         for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                            addStartMonitorTrackers(optJSONArray3.optString(i3));
+                            e(optJSONArray3.optString(i3));
                         }
                     } else if (next.equals("vclose")) {
                         JSONArray optJSONArray4 = optJSONObject.optJSONArray(next);
                         for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                            addCloseMonitorTrackers(optJSONArray4.optString(i4));
+                            a(optJSONArray4.optString(i4));
                         }
-                    } else if (next.equals("click")) {
+                    } else if (next.equals(PrefetchEvent.STATE_CLICK)) {
                         JSONArray optJSONArray5 = optJSONObject.optJSONArray(next);
                         for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
-                            vq(optJSONArray5.optString(i5));
+                            c(optJSONArray5.optString(i5));
                         }
                     } else if (next.equals("c")) {
                         JSONArray optJSONArray6 = optJSONObject.optJSONArray(next);
                         for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
-                            vp(optJSONArray6.optString(i6));
+                            f(optJSONArray6.optString(i6));
                         }
                     }
                 }
             }
             this.mAppName = jSONObject.optString("appname", "");
             this.mPackageName = jSONObject.optString("pk", "");
-            this.mApkName = jSONObject.optString(ConstantData.Logo.LOGO_AD_APK_PACKAGE_NAME, "");
+            this.mApkName = jSONObject.optString("apk_name", "");
             this.mAppSize = jSONObject.optLong("sz", 0L);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("ad_html");
             if (optJSONObject2 != null) {
@@ -187,9 +403,9 @@ public class AdElementInfo implements Parcelable {
                 this.mFallback = jSONObject.optString("fallback", "");
                 this.mFbAct = jSONObject.optString("fb_act", "");
             }
-            this.mUniqueId = this.mQueryKey + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + new Random().nextLong() + System.currentTimeMillis() + "|";
+            this.mUniqueId = this.mQueryKey + "_" + new Random().nextLong() + System.currentTimeMillis() + FieldBuilder.SE;
             this.mGdtAd = false;
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
@@ -217,12 +433,12 @@ public class AdElementInfo implements Parcelable {
             this.mIconUrl = jSONObject.optString("icon_url", "");
             this.mTitle = jSONObject.optString("title", "");
             this.mDescription = jSONObject.optString("description", "");
-            this.mAppName = jSONObject.optString("app_name", "");
+            this.mAppName = jSONObject.optString(DpStatConstants.KEY_APP_NAME, "");
             this.mPackageName = jSONObject.optString("app_bundle", "");
             this.mActionType = jSONObject.optInt("interact_type") + 1;
             this.mClickUrl = jSONObject.optString("target_url");
             this.createTime = System.currentTimeMillis();
-            if (jSONObject.has(TbConfig.IMAGE_CACHE_DIR_NAME) && (optJSONArray = jSONObject.optJSONArray(TbConfig.IMAGE_CACHE_DIR_NAME)) != null && optJSONArray.length() > 0 && (optJSONObject2 = optJSONArray.optJSONObject(0)) != null) {
+            if (jSONObject.has("images") && (optJSONArray = jSONObject.optJSONArray("images")) != null && optJSONArray.length() > 0 && (optJSONObject2 = optJSONArray.optJSONObject(0)) != null) {
                 this.mPictureUrl = optJSONObject2.optString("url", "");
             }
             if (jSONObject.has("video") && (optJSONObject = jSONObject.optJSONObject("video")) != null) {
@@ -242,28 +458,28 @@ public class AdElementInfo implements Parcelable {
             if (jSONObject.has("click_urls")) {
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("click_urls");
                 for (int i2 = 0; optJSONArray3 != null && i2 < optJSONArray3.length(); i2++) {
-                    vp(optJSONArray3.optString(i2));
+                    f(optJSONArray3.optString(i2));
                 }
             }
             if (jSONObject.has("video_play_urls")) {
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("video_play_urls");
                 for (int i3 = 0; optJSONArray4 != null && i3 < optJSONArray4.length(); i3++) {
-                    addCloseMonitorTrackers(optJSONArray4.optString(i3));
+                    a(optJSONArray4.optString(i3));
                 }
             }
             if (jSONObject.has("conversion_urls")) {
                 JSONArray optJSONArray5 = jSONObject.optJSONArray("conversion_urls");
                 for (int i4 = 0; optJSONArray5 != null && i4 < optJSONArray5.length(); i4++) {
-                    vr(optJSONArray5.optString(i4));
+                    b(optJSONArray5.optString(i4));
                 }
             }
             this.mExpire = jSONObject.optInt("expiration", 0);
-            this.mUniqueId = this.mAdId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + new Random().nextLong() + System.currentTimeMillis() + "|";
-        } catch (Exception e) {
+            this.mUniqueId = this.mAdId + "_" + new Random().nextLong() + System.currentTimeMillis() + FieldBuilder.SE;
+        } catch (Exception unused) {
         }
     }
 
-    private AdElementInfo(Parcel parcel) {
+    public AdElementInfo(Parcel parcel) {
         this.mAdId = "-1";
         this.mImpressionUrls = new HashSet();
         this.mVideoWidth = 0;
@@ -303,202 +519,5 @@ public class AdElementInfo implements Parcelable {
         this.mFbAct = parcel.readString();
         this.mRewardTime = parcel.readInt();
         this.mSkipTime = parcel.readInt();
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.mQueryKey);
-        parcel.writeString(this.mAdId);
-        parcel.writeString(this.mTitle);
-        parcel.writeString(this.mDescription);
-        parcel.writeString(this.mIconUrl);
-        parcel.writeString(this.mType);
-        parcel.writeInt(this.mActionType);
-        parcel.writeInt(this.mAntiTag);
-        parcel.writeString(this.mClickUrl);
-        parcel.writeString(this.mPictureUrl);
-        parcel.writeString(this.mVideoUrl);
-        parcel.writeInt(this.mVideoWidth);
-        parcel.writeInt(this.mVideoHeight);
-        parcel.writeInt(this.mDuration);
-        parcel.writeInt(this.mCloseType);
-        parcel.writeInt(this.mExpire);
-        parcel.writeString(this.mAppName);
-        parcel.writeString(this.mPackageName);
-        parcel.writeString(this.mApkName);
-        parcel.writeLong(this.mAppSize);
-        parcel.writeString(this.mPage);
-        parcel.writeString(this.mVersion);
-        parcel.writeString(this.mFallback);
-        parcel.writeString(this.mFbAct);
-        parcel.writeInt(this.mRewardTime);
-        parcel.writeInt(this.mSkipTime);
-    }
-
-    public String getTitle() {
-        return this.mTitle;
-    }
-
-    public String getDescription() {
-        return this.mDescription;
-    }
-
-    public String aRQ() {
-        return this.mPictureUrl;
-    }
-
-    public String getIconUrl() {
-        return this.mIconUrl;
-    }
-
-    public String getVideoUrl() {
-        return this.mVideoUrl;
-    }
-
-    public int getDuration() {
-        return this.mDuration;
-    }
-
-    public int aRR() {
-        return getCloseType() == 6 ? this.mRewardTime : this.mRewardTimeDefault;
-    }
-
-    public int aRS() {
-        return getCloseType() == 6 ? this.mSkipTime : this.mSkipTimeDefault;
-    }
-
-    public String aRT() {
-        return this.mEndFrameUrl;
-    }
-
-    public int getCloseType() {
-        return this.mCloseType;
-    }
-
-    public String aRU() {
-        return this.mClickUrl;
-    }
-
-    public int getActionType() {
-        return this.mActionType;
-    }
-
-    public String getPackageName() {
-        return this.mPackageName;
-    }
-
-    public String getAppName() {
-        return this.mAppName;
-    }
-
-    public long getCreateTime() {
-        return this.createTime;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
-    }
-
-    public int aRV() {
-        return this.mExpire;
-    }
-
-    public int getVideoWidth() {
-        return this.mVideoWidth;
-    }
-
-    public int getVideoHeight() {
-        return this.mVideoHeight;
-    }
-
-    public String aRW() {
-        return this.mBannerHtml;
-    }
-
-    public String aRX() {
-        return this.mLandBannerHtml;
-    }
-
-    public String aRY() {
-        return this.mEndFrameHtml;
-    }
-
-    public List<String> aRZ() {
-        return new ArrayList(this.mImpressionUrls);
-    }
-
-    public JSONObject aSa() {
-        return this.mAdMonitors;
-    }
-
-    public List<String> getThirdImpressionTrackingUrls() {
-        return new ArrayList(this.mThirdImpMonitorTrackers);
-    }
-
-    public List<String> getThirdClickTrackingUrls() {
-        return new ArrayList(this.mThirdClickMonitorTrackers);
-    }
-
-    public List<String> getStartTrackers() {
-        return new ArrayList(this.mStartTrackers);
-    }
-
-    public List<String> getSkipTrackers() {
-        return new ArrayList(this.mSkipTrackers);
-    }
-
-    public List<String> getCloseTrackers() {
-        return new ArrayList(this.mCloseTrackers);
-    }
-
-    public List<String> aSb() {
-        return new ArrayList(this.mConversionUrls);
-    }
-
-    private void vo(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.mThirdImpMonitorTrackers.add(str);
-        }
-    }
-
-    private void vp(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.mThirdClickMonitorTrackers.add(str);
-        }
-    }
-
-    private void addStartMonitorTrackers(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.mStartTrackers.add(str);
-        }
-    }
-
-    private void addSkipMonitorTrackers(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.mSkipTrackers.add(str);
-        }
-    }
-
-    private void addCloseMonitorTrackers(String str) {
-        if (str != null && !str.equals("")) {
-            this.mCloseTrackers.add(str);
-        }
-    }
-
-    private void vq(String str) {
-        if (str != null && !str.equals("")) {
-            this.mMonitorClickers.add(str);
-        }
-    }
-
-    private void vr(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.mConversionUrls.add(str);
-        }
-    }
-
-    public boolean aSc() {
-        return this.mGdtAd;
     }
 }

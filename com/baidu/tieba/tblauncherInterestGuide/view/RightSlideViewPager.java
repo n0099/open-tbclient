@@ -4,14 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RightSlideViewPager extends ViewPager {
     public RightSlideViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-    }
-
-    public RightSlideViewPager(Context context) {
-        super(context);
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
@@ -30,5 +26,9 @@ public class RightSlideViewPager extends ViewPager {
             return super.onTouchEvent(motionEvent);
         }
         return false;
+    }
+
+    public RightSlideViewPager(Context context) {
+        super(context);
     }
 }

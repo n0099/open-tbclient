@@ -4,35 +4,31 @@ import android.util.Base64;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.al;
-import com.baidu.tbadk.util.v;
+import d.b.h0.z0.n0;
+import d.b.h0.z0.w;
 import tbclient.CompleteTask.CompleteTaskReqIdl;
 import tbclient.CompleteTask.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class CompleteTaskReqMsg extends NetMessage {
     public static final int TASK_TYPE_DEFAULT = 0;
     public static final int TASK_TYPE_SHARE = 2;
     public static final int TASK_TYPE_TIMER = 1;
     public String completeId;
     public Object extra;
-    private int mTaskType;
-    private String mToken;
+    public int mTaskType;
+    public String mToken;
 
     public CompleteTaskReqMsg(int i) {
         super(CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
         this.mTaskType = i;
     }
 
-    public void setToken(String str) {
-        this.mToken = str;
-    }
-
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         if (z) {
             try {
-                getHttpMessage().setUserAgent(al.getUserAgent());
-            } catch (Exception e) {
+                getHttpMessage().setUserAgent(n0.e());
+            } catch (Exception unused) {
                 return null;
             }
         }
@@ -44,7 +40,7 @@ public class CompleteTaskReqMsg extends NetMessage {
         if (this.mToken != null) {
             builder.token = Base64.encodeToString(this.mToken.getBytes(), 2);
         }
-        v.a(builder, true, true, false);
+        w.c(builder, true, true, false);
         CompleteTaskReqIdl.Builder builder2 = new CompleteTaskReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
@@ -52,5 +48,9 @@ public class CompleteTaskReqMsg extends NetMessage {
 
     public int getTaskType() {
         return this.mTaskType;
+    }
+
+    public void setToken(String str) {
+        this.mToken = str;
     }
 }

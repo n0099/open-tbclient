@@ -6,138 +6,156 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.n;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment;
-import com.baidu.tieba.ala.alasquare.live_tab.b.j;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
+import com.baidu.webkit.internal.ETAG;
+import d.b.b.e.p.l;
+import d.b.b.j.e.n;
+import d.b.i0.t.d.c.e.j;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveTabFriendModel extends BdBaseModel {
-    private a gDA;
-    private boolean gDx;
-    private com.baidu.tieba.ala.alasquare.live_tab.c.a gDy;
-    private long gDz;
-    private boolean hasMore;
-    private int mPn;
-    private TbPageContext mTbPageContext;
-    private HttpMessageListener gDB = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabFriendModel.1
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbPageContext f14766e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f14767f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f14768g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f14769h;
+    public d.b.i0.t.d.c.g.a j;
+    public long k;
+    public b l;
+    public HttpMessageListener m = new a(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
+    public BdUniqueId i = BdUniqueId.gen();
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveTabFriendModel.this.mCurTag) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveTabFriendModel.this.i) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
-                    if (AlaLiveTabFriendModel.this.gDA != null) {
-                        AlaLiveTabFriendModel.this.gDA.g(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabFriendModel.this.gDx);
+                    if (AlaLiveTabFriendModel.this.l != null) {
+                        AlaLiveTabFriendModel.this.l.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabFriendModel.this.f14769h);
                     }
                 } else {
                     j jVar = alaTabLiveResponsedMessage.tabAllLiveInfo;
-                    if (AlaLiveTabFriendModel.this.gDx) {
-                        AlaLiveTabFriendModel.this.gDy.a(jVar);
-                        AlaLiveTabFriendModel.e(AlaLiveTabFriendModel.this);
+                    if (AlaLiveTabFriendModel.this.f14769h) {
+                        AlaLiveTabFriendModel.this.j.a(jVar);
+                        AlaLiveTabFriendModel.y(AlaLiveTabFriendModel.this);
                     } else {
-                        AlaLiveTabFragment.gCp++;
-                        if (AlaLiveTabFriendModel.this.gDy != null) {
-                            AlaLiveTabFriendModel.this.gDy.clear();
+                        AlaLiveTabFragment.o++;
+                        if (AlaLiveTabFriendModel.this.j != null) {
+                            AlaLiveTabFriendModel.this.j.b();
                         }
-                        AlaLiveTabFriendModel.this.gDy = new com.baidu.tieba.ala.alasquare.live_tab.c.a(alaTabLiveResponsedMessage);
+                        AlaLiveTabFriendModel.this.j = new d.b.i0.t.d.c.g.a(alaTabLiveResponsedMessage);
                     }
-                    AlaLiveTabFriendModel.this.hasMore = AlaLiveTabFriendModel.this.gDy.hasMore();
-                    if (AlaLiveTabFriendModel.this.gDA != null) {
-                        AlaLiveTabFriendModel.this.gDA.g(AlaLiveTabFriendModel.this.hasMore, AlaLiveTabFriendModel.this.gDy.getData());
+                    AlaLiveTabFriendModel alaLiveTabFriendModel = AlaLiveTabFriendModel.this;
+                    alaLiveTabFriendModel.f14768g = alaLiveTabFriendModel.j.f();
+                    if (AlaLiveTabFriendModel.this.l != null) {
+                        AlaLiveTabFriendModel.this.l.a(AlaLiveTabFriendModel.this.f14768g, AlaLiveTabFriendModel.this.j.d());
                     }
                 }
-                AlaLiveTabFriendModel.this.gDx = false;
+                AlaLiveTabFriendModel.this.f14769h = false;
             }
         }
-    };
-    private BdUniqueId mCurTag = BdUniqueId.gen();
-
-    /* loaded from: classes9.dex */
-    public interface a {
-        void g(int i, String str, boolean z);
-
-        void g(boolean z, List<n> list);
     }
 
-    static /* synthetic */ int e(AlaLiveTabFriendModel alaLiveTabFriendModel) {
-        int i = alaLiveTabFriendModel.mPn;
-        alaLiveTabFriendModel.mPn = i + 1;
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(boolean z, List<n> list);
+
+        void b(int i, String str, boolean z);
+    }
+
+    public AlaLiveTabFriendModel(TbPageContext tbPageContext, b bVar) {
+        this.f14766e = tbPageContext;
+        this.l = bVar;
+    }
+
+    public static /* synthetic */ int y(AlaLiveTabFriendModel alaLiveTabFriendModel) {
+        int i = alaLiveTabFriendModel.f14767f;
+        alaLiveTabFriendModel.f14767f = i + 1;
         return i;
     }
 
-    public AlaLiveTabFriendModel(TbPageContext tbPageContext, a aVar) {
-        this.mTbPageContext = tbPageContext;
-        this.gDA = aVar;
+    public boolean B() {
+        d.b.i0.t.d.c.g.a aVar = this.j;
+        return (aVar == null || ListUtils.isEmpty(aVar.d())) ? false : true;
     }
 
-    public void init() {
-        MessageManager.getInstance().registerListener(this.gDB);
-    }
-
-    public void refresh() {
-        this.gDz = System.currentTimeMillis();
-        this.gDx = false;
-        this.mPn = 1;
-        M(this.mPn, 0, AlaLiveTabFragment.gCp);
-    }
-
-    public void bRp() {
-        if (this.hasMore && !this.gDx) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.gDz >= 1800000) {
-                this.gDz = currentTimeMillis;
-            }
-            this.gDx = true;
-            M(this.mPn + 1, 1, AlaLiveTabFragment.gCp - 1);
+    public void C() {
+        if (!this.f14768g || this.f14769h) {
+            return;
         }
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.k >= 1800000) {
+            this.k = currentTimeMillis;
+        }
+        this.f14769h = true;
+        E(this.f14767f + 1, 1, AlaLiveTabFragment.o - 1);
     }
 
-    private void M(int i, int i2, int i3) {
+    public void D() {
+        this.k = System.currentTimeMillis();
+        this.f14769h = false;
+        this.f14767f = 1;
+        E(1, 0, AlaLiveTabFragment.o);
+    }
+
+    public final void E(int i, int i2, int i3) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
         httpMessage.addParam("tab_id", 3);
         String str = "N";
-        if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-            str = "N";
-        } else if (com.baidu.adp.lib.util.j.isWifiNet()) {
-            str = "1_0";
-        } else if (com.baidu.adp.lib.util.j.is4GNet()) {
-            str = "0_13";
-        } else if (com.baidu.adp.lib.util.j.is3GNet()) {
-            str = "0_3";
-        } else if (com.baidu.adp.lib.util.j.is2GNet()) {
-            str = "0_2";
+        if (d.b.b.e.p.j.z()) {
+            if (d.b.b.e.p.j.H()) {
+                str = "1_0";
+            } else if (d.b.b.e.p.j.v()) {
+                str = "0_13";
+            } else if (d.b.b.e.p.j.u()) {
+                str = "0_3";
+            } else if (d.b.b.e.p.j.t()) {
+                str = "0_2";
+            }
         }
         httpMessage.addParam("network", str);
-        httpMessage.addParam("ua_str", l.getEquipmentWidth(this.mTbPageContext.getPageActivity()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + l.getEquipmentHeight(this.mTbPageContext.getPageActivity()) + "_android_" + TbConfig.getVersion());
-        httpMessage.addParam("session_id", this.gDz);
+        httpMessage.addParam("ua_str", l.k(this.f14766e.getPageActivity()) + "_" + l.i(this.f14766e.getPageActivity()) + "_android_" + TbConfig.getVersion());
+        httpMessage.addParam(ETAG.KEY_STATISTICS_SEESIONID, this.k);
         httpMessage.addParam("refresh_type", i2);
         httpMessage.addParam("big_refresh_count", i3);
-        httpMessage.setTag(this.mCurTag);
+        httpMessage.setTag(this.i);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gDB);
-    }
-
-    public boolean hasData() {
-        return (this.gDy == null || y.isEmpty(this.gDy.getData())) ? false : true;
-    }
-
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
+    }
+
+    public void init() {
+        MessageManager.getInstance().registerListener(this.m);
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.m);
     }
 }

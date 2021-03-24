@@ -8,15 +8,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.l.a;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+import d.b.h0.d0.a;
+/* loaded from: classes2.dex */
 public class AlaNetRefreshView extends a {
-    private TextView mNetFailTipView;
-    private TextView mNetRefreshBtn;
-    private LinearLayout mNetRefreshContainer;
-    private ImageView mNetRefreshImg;
+    public TextView mNetFailTipView;
+    public TextView mNetRefreshBtn;
+    public LinearLayout mNetRefreshContainer;
+    public ImageView mNetRefreshImg;
 
     public AlaNetRefreshView(Context context) {
         super(LayoutInflater.from(context).inflate(R.layout.ala_live_net_refresh_view_layout, (ViewGroup) null));
@@ -26,33 +26,28 @@ public class AlaNetRefreshView extends a {
         this.mNetRefreshContainer = (LinearLayout) this.attachedView.findViewById(R.id.ala_net_refresh_container);
     }
 
-    public void setOnRefreshClickListener(View.OnClickListener onClickListener) {
-        if (this.mNetRefreshBtn != null) {
-            this.mNetRefreshBtn.setOnClickListener(onClickListener);
+    public void onChangeSkinType() {
+        TextView textView = this.mNetFailTipView;
+        if (textView != null) {
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0106);
         }
-    }
-
-    public void setImageResource(int i) {
-        if (this.mNetRefreshImg != null) {
-            this.mNetRefreshImg.setImageResource(i);
+        LinearLayout linearLayout = this.mNetRefreshContainer;
+        if (linearLayout != null) {
+            SkinManager.setBackgroundResource(linearLayout, R.color.CAM_X0201);
         }
-    }
-
-    public void setNetFailTipText(String str) {
-        if (this.mNetFailTipView != null) {
-            this.mNetFailTipView.setText(str);
+        TextView textView2 = this.mNetRefreshBtn;
+        if (textView2 != null) {
+            SkinManager.setViewTextColor(textView2, R.color.CAM_X0106);
+            SkinManager.setBackgroundResource(this.mNetRefreshBtn, R.drawable.ala_net_refresh_btn_bg);
         }
-    }
-
-    public void setNetRefreshBtnText(String str) {
-        if (this.mNetRefreshBtn != null) {
-            this.mNetRefreshBtn.setText(str);
-        }
-    }
-
-    public void setIsShowRefreshButton(boolean z) {
-        if (this.mNetRefreshBtn != null) {
-            this.mNetRefreshBtn.setVisibility(z ? 0 : 8);
+        boolean z = TbadkApplication.getInst().getSkinType() == 1;
+        ImageView imageView = this.mNetRefreshImg;
+        if (imageView != null) {
+            if (z) {
+                imageView.setAlpha(0.4f);
+            } else {
+                imageView.setAlpha(1.0f);
+            }
         }
     }
 
@@ -60,54 +55,73 @@ public class AlaNetRefreshView extends a {
         this.attachedView.setBackgroundColor(i);
     }
 
-    public void setNetRefreshImgAlpha(float f) {
-        if (this.mNetRefreshImg != null) {
-            this.mNetRefreshImg.setAlpha(f);
+    public void setContainerBackgroundColor(int i) {
+        LinearLayout linearLayout = this.mNetRefreshContainer;
+        if (linearLayout != null) {
+            linearLayout.setBackgroundColor(i);
         }
     }
 
-    public void setNetRefreshBtnTextColor(int i) {
-        if (this.mNetRefreshBtn != null) {
-            this.mNetRefreshBtn.setTextColor(i);
+    public void setImageResource(int i) {
+        ImageView imageView = this.mNetRefreshImg;
+        if (imageView != null) {
+            imageView.setImageResource(i);
+        }
+    }
+
+    public void setIsShowRefreshButton(boolean z) {
+        TextView textView = this.mNetRefreshBtn;
+        if (textView != null) {
+            textView.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void setNetFailTipText(String str) {
+        TextView textView = this.mNetFailTipView;
+        if (textView != null) {
+            textView.setText(str);
         }
     }
 
     public void setNetRefreshBtnBackgroundResource(int i) {
-        if (this.mNetRefreshBtn != null) {
-            this.mNetRefreshBtn.setBackgroundResource(i);
+        TextView textView = this.mNetRefreshBtn;
+        if (textView != null) {
+            textView.setBackgroundResource(i);
+        }
+    }
+
+    public void setNetRefreshBtnText(String str) {
+        TextView textView = this.mNetRefreshBtn;
+        if (textView != null) {
+            textView.setText(str);
+        }
+    }
+
+    public void setNetRefreshBtnTextColor(int i) {
+        TextView textView = this.mNetRefreshBtn;
+        if (textView != null) {
+            textView.setTextColor(i);
+        }
+    }
+
+    public void setNetRefreshImgAlpha(float f2) {
+        ImageView imageView = this.mNetRefreshImg;
+        if (imageView != null) {
+            imageView.setAlpha(f2);
         }
     }
 
     public void setNetRefreshTipTextColor(int i) {
-        if (this.mNetFailTipView != null) {
-            this.mNetFailTipView.setTextColor(i);
+        TextView textView = this.mNetFailTipView;
+        if (textView != null) {
+            textView.setTextColor(i);
         }
     }
 
-    public void setContainerBackgroundColor(int i) {
-        if (this.mNetRefreshContainer != null) {
-            this.mNetRefreshContainer.setBackgroundColor(i);
-        }
-    }
-
-    public void onChangeSkinType() {
-        if (this.mNetFailTipView != null) {
-            ap.setViewTextColor(this.mNetFailTipView, R.color.CAM_X0106);
-        }
-        if (this.mNetRefreshContainer != null) {
-            ap.setBackgroundResource(this.mNetRefreshContainer, R.color.CAM_X0201);
-        }
-        if (this.mNetRefreshBtn != null) {
-            ap.setViewTextColor(this.mNetRefreshBtn, R.color.CAM_X0106);
-            ap.setBackgroundResource(this.mNetRefreshBtn, R.drawable.ala_net_refresh_btn_bg);
-        }
-        boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        if (this.mNetRefreshImg != null) {
-            if (z) {
-                this.mNetRefreshImg.setAlpha(0.4f);
-            } else {
-                this.mNetRefreshImg.setAlpha(1.0f);
-            }
+    public void setOnRefreshClickListener(View.OnClickListener onClickListener) {
+        TextView textView = this.mNetRefreshBtn;
+        if (textView != null) {
+            textView.setOnClickListener(onClickListener);
         }
     }
 }

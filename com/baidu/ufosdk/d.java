@@ -1,28 +1,32 @@
 package com.baidu.ufosdk;
 
 import android.content.Context;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f3612a;
-    final /* synthetic */ int b;
-    final /* synthetic */ int c;
-    final /* synthetic */ int d;
+    public final /* synthetic */ int f22922a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ int f22923b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ int f22924c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ int f22925d;
+
     public d(int i, int i2, int i3, int i4) {
-        this.f3612a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
+        this.f22922a = i;
+        this.f22923b = i2;
+        this.f22924c = i3;
+        this.f22925d = i4;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
         context = UfoSDK.mApplication;
-        com.baidu.ufosdk.e.a.a(context, this.f3612a, this.b, this.c, this.d, false);
+        com.baidu.ufosdk.e.a.a(context, this.f22922a, this.f22923b, this.f22924c, this.f22925d, false);
     }
 }

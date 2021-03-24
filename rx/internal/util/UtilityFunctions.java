@@ -1,45 +1,48 @@
 package rx.internal.util;
-/* loaded from: classes4.dex */
+
+import h.n.f;
+/* loaded from: classes7.dex */
 public final class UtilityFunctions {
-    public static <T> rx.functions.f<? super T, Boolean> eNj() {
-        return AlwaysTrue.INSTANCE;
-    }
 
-    public static <T> rx.functions.f<T, T> eNk() {
-        return Identity.INSTANCE;
-    }
-
-    /* loaded from: classes4.dex */
-    enum AlwaysTrue implements rx.functions.f<Object, Boolean> {
+    /* loaded from: classes7.dex */
+    public enum AlwaysFalse implements f<Object, Boolean> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // rx.functions.f
+        @Override // h.n.f
         public Boolean call(Object obj) {
-            return true;
+            return Boolean.FALSE;
         }
     }
 
-    /* loaded from: classes4.dex */
-    enum AlwaysFalse implements rx.functions.f<Object, Boolean> {
+    /* loaded from: classes7.dex */
+    public enum AlwaysTrue implements f<Object, Boolean> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // rx.functions.f
+        @Override // h.n.f
         public Boolean call(Object obj) {
-            return false;
+            return Boolean.TRUE;
         }
     }
 
-    /* loaded from: classes4.dex */
-    enum Identity implements rx.functions.f<Object, Object> {
+    /* loaded from: classes7.dex */
+    public enum Identity implements f<Object, Object> {
         INSTANCE;
 
-        @Override // rx.functions.f
+        @Override // h.n.f
         public Object call(Object obj) {
             return obj;
         }
+    }
+
+    public static <T> f<? super T, Boolean> a() {
+        return AlwaysTrue.INSTANCE;
+    }
+
+    public static <T> f<T, T> b() {
+        return Identity.INSTANCE;
     }
 }

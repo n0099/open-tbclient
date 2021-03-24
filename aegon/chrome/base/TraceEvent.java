@@ -5,16 +5,15 @@ import android.os.Looper;
 import android.os.MessageQueue;
 import android.os.SystemClock;
 import android.util.Printer;
-import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes3.dex */
+import com.baidu.tbadk.core.data.SmallTailInfo;
+/* loaded from: classes.dex */
 public class TraceEvent implements AutoCloseable {
     public static volatile boolean sEnabled;
     public final String mName;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class BasicLooperMonitor implements Printer {
-        public static final /* synthetic */ boolean $assertionsDisabled = !TraceEvent.class.desiredAssertionStatus();
+        public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static final int SHORTEST_LOG_PREFIX_LENGTH = 18;
         public String mCurrentTarget;
 
@@ -24,16 +23,20 @@ public class TraceEvent implements AutoCloseable {
         public void beginHandling(String str) {
             boolean isActive = EarlyTraceEvent.isActive();
             if (TraceEvent.sEnabled || isActive) {
-                StringBuilder append = new StringBuilder().append("Looper.dispatch: ");
+                StringBuilder sb = new StringBuilder();
+                sb.append("Looper.dispatch: ");
                 int indexOf = str.indexOf(40, SHORTEST_LOG_PREFIX_LENGTH);
                 int indexOf2 = indexOf == -1 ? -1 : str.indexOf(41, indexOf);
-                StringBuilder append2 = append.append(indexOf2 != -1 ? str.substring(indexOf + 1, indexOf2) : "").append("(");
-                int indexOf3 = str.indexOf(Constants.METHOD_IM_FRIEND_GROUP_ASSIGN, SHORTEST_LOG_PREFIX_LENGTH);
+                sb.append(indexOf2 != -1 ? str.substring(indexOf + 1, indexOf2) : "");
+                sb.append("(");
+                int indexOf3 = str.indexOf(125, SHORTEST_LOG_PREFIX_LENGTH);
                 int indexOf4 = indexOf3 == -1 ? -1 : str.indexOf(58, indexOf3);
                 if (indexOf4 == -1) {
                     indexOf4 = str.length();
                 }
-                this.mCurrentTarget = append2.append(indexOf3 != -1 ? str.substring(indexOf3 + 2, indexOf4) : "").append(")").toString();
+                sb.append(indexOf3 != -1 ? str.substring(indexOf3 + 2, indexOf4) : "");
+                sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                this.mCurrentTarget = sb.toString();
                 if (TraceEvent.sEnabled) {
                     TraceEvent.nativeBeginToplevel(this.mCurrentTarget);
                 } else {
@@ -58,16 +61,14 @@ public class TraceEvent implements AutoCloseable {
         public void println(String str) {
             if (str.startsWith(">")) {
                 beginHandling(str);
-            } else if (!$assertionsDisabled && !str.startsWith("<")) {
-                throw new AssertionError();
             } else {
                 endHandling(str);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static final class IdleTracingLooperMonitor extends BasicLooperMonitor implements MessageQueue.IdleHandler {
+    /* loaded from: classes.dex */
+    public static final class IdleTracingLooperMonitor extends BasicLooperMonitor implements MessageQueue.IdleHandler {
         public boolean mIdleMonitorAttached;
         public long mLastIdleStartedAt;
         public long mLastWorkStartedAt;
@@ -88,16 +89,20 @@ public class TraceEvent implements AutoCloseable {
             syncIdleMonitoring();
             boolean isActive = EarlyTraceEvent.isActive();
             if (TraceEvent.sEnabled || isActive) {
-                StringBuilder append = new StringBuilder().append("Looper.dispatch: ");
+                StringBuilder sb = new StringBuilder();
+                sb.append("Looper.dispatch: ");
                 int indexOf = str.indexOf(40, BasicLooperMonitor.SHORTEST_LOG_PREFIX_LENGTH);
                 int indexOf2 = indexOf == -1 ? -1 : str.indexOf(41, indexOf);
-                StringBuilder append2 = append.append(indexOf2 != -1 ? str.substring(indexOf + 1, indexOf2) : "").append("(");
-                int indexOf3 = str.indexOf(Constants.METHOD_IM_FRIEND_GROUP_ASSIGN, BasicLooperMonitor.SHORTEST_LOG_PREFIX_LENGTH);
+                sb.append(indexOf2 != -1 ? str.substring(indexOf + 1, indexOf2) : "");
+                sb.append("(");
+                int indexOf3 = str.indexOf(125, BasicLooperMonitor.SHORTEST_LOG_PREFIX_LENGTH);
                 int indexOf4 = indexOf3 == -1 ? -1 : str.indexOf(58, indexOf3);
                 if (indexOf4 == -1) {
                     indexOf4 = str.length();
                 }
-                this.mCurrentTarget = append2.append(indexOf3 != -1 ? str.substring(indexOf3 + 2, indexOf4) : "").append(")").toString();
+                sb.append(indexOf3 != -1 ? str.substring(indexOf3 + 2, indexOf4) : "");
+                sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                this.mCurrentTarget = sb.toString();
                 if (TraceEvent.sEnabled) {
                     TraceEvent.nativeBeginToplevel(this.mCurrentTarget);
                 } else {
@@ -152,22 +157,25 @@ public class TraceEvent implements AutoCloseable {
         }
 
         public final void syncIdleMonitoring() {
+            String str;
             if (TraceEvent.sEnabled && !this.mIdleMonitorAttached) {
                 this.mLastIdleStartedAt = SystemClock.elapsedRealtime();
                 Looper.myQueue().addIdleHandler(this);
                 this.mIdleMonitorAttached = true;
-                android.util.Log.v("TraceEvent.LooperMonitor", "attached idle handler");
+                str = "attached idle handler";
             } else if (!this.mIdleMonitorAttached || TraceEvent.sEnabled) {
+                return;
             } else {
                 Looper.myQueue().removeIdleHandler(this);
                 this.mIdleMonitorAttached = false;
-                android.util.Log.v("TraceEvent.LooperMonitor", "detached idle handler");
+                str = "detached idle handler";
             }
+            android.util.Log.v("TraceEvent.LooperMonitor", str);
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static final class LooperMonitorHolder {
+    /* loaded from: classes.dex */
+    public static final class LooperMonitorHolder {
         public static final BasicLooperMonitor sInstance;
 
         static {

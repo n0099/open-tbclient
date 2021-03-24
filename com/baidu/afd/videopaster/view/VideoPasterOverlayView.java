@@ -11,117 +11,152 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.l;
-import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class VideoPasterOverlayView extends FrameLayout {
-    private static final int ads = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds22);
-    private boolean acn;
-    private TextView adn;
-    private TextView ado;
-    private View adp;
-    private boolean adq;
-    private a adr;
-    private int adt;
-    private boolean adu;
-    private int adv;
-    private int adw;
-    private boolean adx;
-    private com.baidu.afd.videopaster.data.a ady;
-    private ImageView mBack;
-    private Context mContext;
-    private String mFrom;
-    private View.OnClickListener mOnClickListener;
-    private View mRootView;
-    private TextView mTitle;
+    public static final int w = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds22);
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f2492e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f2493f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f2494g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public View f2495h;
+    public View i;
+    public ImageView j;
+    public boolean k;
+    public boolean l;
+    public b m;
+    public Context n;
+    public int o;
+    public boolean p;
+    public int q;
+    public int r;
+    public String s;
+    public boolean t;
+    public d.b.c.m.e.a u;
+    public View.OnClickListener v;
 
     /* loaded from: classes.dex */
-    public interface a {
-        void rm();
+    public class a implements View.OnClickListener {
+        public a() {
+        }
 
-        void rn();
-
-        void ro();
-
-        void rp();
-
-        void rq();
-    }
-
-    public VideoPasterOverlayView(@NonNull Context context) {
-        super(context);
-        this.adt = 0;
-        this.adu = false;
-        this.adv = 0;
-        this.adw = 0;
-        this.adx = false;
-        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.afd.videopaster.view.VideoPasterOverlayView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (view.getId() == R.id.video_paster_overlay_time_and_close) {
-                    if (VideoPasterOverlayView.this.adr != null) {
-                        VideoPasterOverlayView.this.adr.rp();
-                    }
-                } else if (view.getId() == R.id.video_paster_overlay_title) {
-                    if (VideoPasterOverlayView.this.adr != null) {
-                        VideoPasterOverlayView.this.adr.rm();
-                    }
-                } else if (view.getId() == R.id.video_paster_overlay_detail) {
-                    if (VideoPasterOverlayView.this.adr != null) {
-                        VideoPasterOverlayView.this.adr.ro();
-                        VideoPasterOverlayView.this.adx = true;
-                    }
-                } else if (view.getId() == R.id.video_paster_mask_wrapper) {
-                    if (VideoPasterOverlayView.this.adr != null) {
-                        VideoPasterOverlayView.this.adr.rn();
-                        VideoPasterOverlayView.this.adx = true;
-                    }
-                } else if (view.getId() == R.id.video_paster_mask_back && VideoPasterOverlayView.this.adr != null) {
-                    VideoPasterOverlayView.this.adr.rq();
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (view.getId() == R.id.video_paster_overlay_time_and_close) {
+                if (VideoPasterOverlayView.this.m != null) {
+                    VideoPasterOverlayView.this.m.c();
                 }
-            }
-        };
-        this.mContext = context;
-        this.adt = getNavigationBarHeight(context);
-        this.mRootView = LayoutInflater.from(context).inflate(R.layout.video_paster_overlay_layout, (ViewGroup) null);
-        this.adp = this.mRootView.findViewById(R.id.video_paster_mask_wrapper);
-        this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_paster_overlay_title);
-        this.adn = (TextView) this.mRootView.findViewById(R.id.video_paster_overlay_time_and_close);
-        this.ado = (TextView) this.mRootView.findViewById(R.id.video_paster_overlay_detail);
-        this.mBack = (ImageView) this.mRootView.findViewById(R.id.video_paster_mask_back);
-        this.ado.setOnClickListener(this.mOnClickListener);
-        this.adn.setOnClickListener(this.mOnClickListener);
-        this.adp.setOnClickListener(this.mOnClickListener);
-        this.mBack.setOnClickListener(this.mOnClickListener);
-        this.mTitle.setOnClickListener(this.mOnClickListener);
-    }
-
-    @Override // android.view.View
-    public View getRootView() {
-        return this.mRootView;
-    }
-
-    public void a(com.baidu.afd.videopaster.data.a aVar, boolean z, boolean z2) {
-        if (aVar != null) {
-            this.ady = aVar;
-            this.adq = z;
-            this.acn = z2;
-            this.mTitle.setText(aVar.acu);
-            this.ado.setText(aVar.rv());
-            if (z && !z2) {
-                rG();
+            } else if (view.getId() == R.id.video_paster_overlay_title) {
+                if (VideoPasterOverlayView.this.m != null) {
+                    VideoPasterOverlayView.this.m.b();
+                }
+            } else if (view.getId() == R.id.video_paster_overlay_detail) {
+                if (VideoPasterOverlayView.this.m != null) {
+                    VideoPasterOverlayView.this.m.d();
+                    VideoPasterOverlayView.this.t = true;
+                }
+            } else if (view.getId() == R.id.video_paster_mask_wrapper) {
+                if (VideoPasterOverlayView.this.m != null) {
+                    VideoPasterOverlayView.this.m.e();
+                    VideoPasterOverlayView.this.t = true;
+                }
+            } else if (view.getId() != R.id.video_paster_mask_back || VideoPasterOverlayView.this.m == null) {
             } else {
-                rE();
+                VideoPasterOverlayView.this.m.a();
             }
         }
     }
 
-    private boolean hasNavBar(Context context) {
+    /* loaded from: classes.dex */
+    public interface b {
+        void a();
+
+        void b();
+
+        void c();
+
+        void d();
+
+        void e();
+    }
+
+    public VideoPasterOverlayView(@NonNull Context context) {
+        super(context);
+        this.o = 0;
+        this.p = false;
+        this.q = 0;
+        this.r = 0;
+        this.t = false;
+        this.v = new a();
+        this.n = context;
+        this.o = e(context);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.video_paster_overlay_layout, (ViewGroup) null);
+        this.i = inflate;
+        this.f2495h = inflate.findViewById(R.id.video_paster_mask_wrapper);
+        this.f2492e = (TextView) this.i.findViewById(R.id.video_paster_overlay_title);
+        this.f2493f = (TextView) this.i.findViewById(R.id.video_paster_overlay_time_and_close);
+        this.f2494g = (TextView) this.i.findViewById(R.id.video_paster_overlay_detail);
+        this.j = (ImageView) this.i.findViewById(R.id.video_paster_mask_back);
+        this.f2494g.setOnClickListener(this.v);
+        this.f2493f.setOnClickListener(this.v);
+        this.f2495h.setOnClickListener(this.v);
+        this.j.setOnClickListener(this.v);
+        this.f2492e.setOnClickListener(this.v);
+    }
+
+    private String getNavBarOverride() {
+        try {
+            Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
+            declaredMethod.setAccessible(true);
+            return (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+        } catch (Throwable unused) {
+            return null;
+        }
+    }
+
+    public final void c() {
+        this.j.setVisibility(0);
+        this.f2493f.setPadding(w, 0, 0, 0);
+        this.f2494g.setPadding(0, 0, w, 0);
+        this.i.setPadding(0, 0, 0, 0);
+        p();
+    }
+
+    public final void d() {
+        this.j.setVisibility(8);
+        this.f2493f.setPadding(0, 0, 0, 0);
+        this.f2494g.setPadding(0, 0, 0, 0);
+        boolean f2 = f(this.n);
+        if (this.k && this.l && f2) {
+            this.i.setPadding(0, 0, 0, this.o);
+        } else {
+            this.i.setPadding(0, 0, 0, 0);
+        }
+        p();
+    }
+
+    public final int e(Context context) {
+        Resources resources;
+        int identifier;
+        if (!f(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", "android")) <= 0) {
+            return 0;
+        }
+        return resources.getDimensionPixelSize(identifier);
+    }
+
+    public final boolean f(Context context) {
         Resources resources = context.getResources();
-        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", HttpConstants.OS_TYPE_VALUE);
+        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
         if (identifier != 0) {
             boolean z = resources.getBoolean(identifier);
             String navBarOverride = getNavBarOverride();
@@ -133,156 +168,144 @@ public class VideoPasterOverlayView extends FrameLayout {
             }
             return z;
         }
-        return ViewConfiguration.get(context).hasPermanentMenuKey() ? false : true;
+        return !ViewConfiguration.get(context).hasPermanentMenuKey();
     }
 
-    private String getNavBarOverride() {
-        try {
-            Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
-            declaredMethod.setAccessible(true);
-            return (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
-        } catch (Throwable th) {
-            return null;
+    public void g() {
+        this.k = true;
+        n(this.u, true, this.l);
+        if (this.p) {
+            o(this.q, this.r, this.s);
         }
     }
 
-    private void rE() {
-        this.mBack.setVisibility(8);
-        this.adn.setPadding(0, 0, 0, 0);
-        this.ado.setPadding(0, 0, 0, 0);
-        boolean hasNavBar = hasNavBar(this.mContext);
-        if (this.adq && this.acn && hasNavBar) {
-            this.mRootView.setPadding(0, 0, 0, this.adt);
+    @Override // android.view.View
+    public View getRootView() {
+        return this.i;
+    }
+
+    public void h() {
+        this.k = false;
+        n(this.u, false, this.l);
+        if (this.t && !this.l) {
+            this.t = false;
+        } else if (this.p) {
+            o(this.q, this.r, this.s);
+        }
+    }
+
+    public void i() {
+        this.p = false;
+        this.s = "";
+        this.q = 0;
+        this.r = 0;
+        this.t = false;
+    }
+
+    public final void j(int i, int i2, String str) {
+        Context context = this.n;
+        if (context == null || i == 0 || i2 == 0) {
+            return;
+        }
+        int k = l.k(context);
+        int i3 = 0;
+        if (TextUtils.equals(str, "NEWINDEX")) {
+            k -= l.g(this.n, R.dimen.tbds88);
+            double d2 = k;
+            Double.isNaN(d2);
+            i3 = (int) (d2 * 0.5625d);
+        } else if (TextUtils.equals(str, "VIDEO_LIST")) {
+            i3 = (int) (k * (this.l ? 0.875f : 0.5625f));
         } else {
-            this.mRootView.setPadding(0, 0, 0, 0);
+            k = 0;
         }
-        rF();
+        if (i3 == 0) {
+            return;
+        }
+        if (i / i2 > k / i3) {
+            i3 = (i2 * k) / i;
+        }
+        if (i3 <= 0) {
+            return;
+        }
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.i.getLayoutParams();
+        layoutParams.width = -1;
+        layoutParams.height = i3;
+        this.i.setLayoutParams(layoutParams);
     }
 
-    private void rF() {
-        if (this.mContext != null && this.adp != null && hasNavBar(this.mContext)) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.adp.getLayoutParams();
-            if (this.adq) {
-                if (this.acn) {
-                    layoutParams.setMargins(0, 0, 0, this.adt);
-                } else {
-                    layoutParams.setMargins(this.adt, 0, this.adt, 0);
-                }
+    public void k(int i) {
+    }
+
+    public void l() {
+    }
+
+    public void m() {
+    }
+
+    public void n(d.b.c.m.e.a aVar, boolean z, boolean z2) {
+        if (aVar == null) {
+            return;
+        }
+        this.u = aVar;
+        this.k = z;
+        this.l = z2;
+        this.f2492e.setText(aVar.f42520h);
+        this.f2494g.setText(aVar.b());
+        if (z && !z2) {
+            c();
+        } else {
+            d();
+        }
+    }
+
+    public void o(int i, int i2, String str) {
+        this.p = true;
+        this.q = i;
+        this.r = i2;
+        this.s = str;
+        if (this.k) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.i.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+            this.i.setLayoutParams(layoutParams);
+            return;
+        }
+        j(i, i2, str);
+    }
+
+    public final void p() {
+        Context context = this.n;
+        if (context == null || this.f2495h == null || !f(context)) {
+            return;
+        }
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2495h.getLayoutParams();
+        if (this.k) {
+            if (this.l) {
+                layoutParams.setMargins(0, 0, 0, this.o);
             } else {
-                layoutParams.setMargins(0, 0, 0, 0);
+                int i = this.o;
+                layoutParams.setMargins(i, 0, i, 0);
             }
-            this.adp.setLayoutParams(layoutParams);
+        } else {
+            layoutParams.setMargins(0, 0, 0, 0);
         }
-    }
-
-    private void rG() {
-        this.mBack.setVisibility(0);
-        this.adn.setPadding(ads, 0, 0, 0);
-        this.ado.setPadding(0, 0, ads, 0);
-        this.mRootView.setPadding(0, 0, 0, 0);
-        rF();
-    }
-
-    private int getNavigationBarHeight(Context context) {
-        Resources resources;
-        int identifier;
-        if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE)) <= 0) {
-            return 0;
-        }
-        return resources.getDimensionPixelSize(identifier);
+        this.f2495h.setLayoutParams(layoutParams);
     }
 
     public void setCountDownNum(int i) {
         String str;
-        if (this.adn != null && i > 0) {
-            if (i >= 10) {
-                str = "" + i;
-            } else {
+        if (this.f2493f != null && i > 0) {
+            if (i < 10) {
                 str = "0" + i;
-            }
-            this.adn.setText(str + TbadkCoreApplication.getInst().getResources().getString(R.string.video_paster_close_ad));
-        }
-    }
-
-    public void setOverlayViewCallback(a aVar) {
-        this.adr = aVar;
-    }
-
-    public void resume() {
-    }
-
-    public void stop() {
-    }
-
-    public void bf(int i) {
-    }
-
-    public void d(int i, int i2, String str) {
-        this.adu = true;
-        this.adv = i;
-        this.adw = i2;
-        this.mFrom = str;
-        if (this.adq) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -1;
-            this.mRootView.setLayoutParams(layoutParams);
-            return;
-        }
-        e(i, i2, str);
-    }
-
-    private void e(int i, int i2, String str) {
-        int i3;
-        if (this.mContext != null && i != 0 && i2 != 0) {
-            int equipmentWidth = l.getEquipmentWidth(this.mContext);
-            if (TextUtils.equals(str, "NEWINDEX")) {
-                int dimens = equipmentWidth - l.getDimens(this.mContext, R.dimen.tbds88);
-                i3 = (int) (0.5625d * dimens);
-                equipmentWidth = dimens;
-            } else if (!TextUtils.equals(str, "VIDEO_LIST")) {
-                i3 = 0;
-                equipmentWidth = 0;
-            } else if (this.acn) {
-                i3 = (int) (0.875f * equipmentWidth);
             } else {
-                i3 = (int) (0.5625f * equipmentWidth);
+                str = "" + i;
             }
-            if (i3 != 0) {
-                int i4 = ((float) i) / ((float) i2) > ((float) equipmentWidth) / ((float) i3) ? (i2 * equipmentWidth) / i : i3;
-                if (i4 > 0) {
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
-                    layoutParams.width = -1;
-                    layoutParams.height = i4;
-                    this.mRootView.setLayoutParams(layoutParams);
-                }
-            }
+            this.f2493f.setText(str + TbadkCoreApplication.getInst().getResources().getString(R.string.video_paster_close_ad));
         }
     }
 
-    public void reset() {
-        this.adu = false;
-        this.mFrom = "";
-        this.adv = 0;
-        this.adw = 0;
-        this.adx = false;
-    }
-
-    public void rj() {
-        this.adq = true;
-        a(this.ady, this.adq, this.acn);
-        if (this.adu) {
-            d(this.adv, this.adw, this.mFrom);
-        }
-    }
-
-    public void rk() {
-        this.adq = false;
-        a(this.ady, this.adq, this.acn);
-        if (this.adx && !this.acn) {
-            this.adx = false;
-        } else if (this.adu) {
-            d(this.adv, this.adw, this.mFrom);
-        }
+    public void setOverlayViewCallback(b bVar) {
+        this.m = bVar;
     }
 }

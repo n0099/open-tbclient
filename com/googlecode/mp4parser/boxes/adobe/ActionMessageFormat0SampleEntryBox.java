@@ -8,21 +8,12 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
     public static final String TYPE = "amf0";
 
     public ActionMessageFormat0SampleEntryBox() {
         super(TYPE);
-    }
-
-    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
-        ByteBuffer allocate = ByteBuffer.allocate(8);
-        dataSource.read(allocate);
-        allocate.position(6);
-        this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
-        parseContainer(dataSource, j - 8, boxParser);
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -37,7 +28,16 @@ public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
-        long containerSize = getContainerSize();
-        return ((this.largeBox || containerSize + 8 >= 4294967296L) ? 16 : 8) + containerSize + 8;
+        long containerSize = getContainerSize() + 8;
+        return containerSize + ((this.largeBox || containerSize >= 4294967296L) ? 16 : 8);
+    }
+
+    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+        ByteBuffer allocate = ByteBuffer.allocate(8);
+        dataSource.read(allocate);
+        allocate.position(6);
+        this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
+        parseContainer(dataSource, j - 8, boxParser);
     }
 }

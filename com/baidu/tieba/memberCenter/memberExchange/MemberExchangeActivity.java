@@ -7,46 +7,85 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.MemberExchangeActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
-    private String descStr;
-    private String dueDate;
-    private a lpP;
-    public HttpMessageListener lpQ = new HttpMessageListener(1003320) { // from class: com.baidu.tieba.memberCenter.memberExchange.MemberExchangeActivity.1
+    public String descStr;
+    public String dueDate;
+    public HttpMessageListener getTCodeInfoListener = new a(CmdConfigHttp.CMD_GET_TCODE_INFO_CMD);
+    public d.b.i0.q1.d.a mView;
+    public String memberImage;
+    public String memberLevelIcon;
+    public String memberName;
+
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetTCodeResMessage) {
                 GetTCodeResMessage getTCodeResMessage = (GetTCodeResMessage) httpResponsedMessage;
-                if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    String errorString = httpResponsedMessage.getErrorString();
-                    if (StringUtils.isNull(errorString) || "null".equals(errorString)) {
-                        errorString = MemberExchangeActivity.this.getResources().getString(R.string.neterror);
+                if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
+                    if (getTCodeResMessage.getTCodeInfo() != null) {
+                        if (getTCodeResMessage.getTCodeInfo().f59339a.equals("0")) {
+                            MemberExchangeActivity.this.showToast(R.string.exchange_success);
+                            return;
+                        } else {
+                            MemberExchangeActivity.this.showToast(R.string.exchange_error);
+                            return;
+                        }
                     }
-                    MemberExchangeActivity.this.showToast(errorString);
-                } else if (getTCodeResMessage.getTCodeInfo() != null) {
-                    if (getTCodeResMessage.getTCodeInfo().errorCode.equals("0")) {
-                        MemberExchangeActivity.this.showToast(R.string.exchange_success);
-                    } else {
-                        MemberExchangeActivity.this.showToast(R.string.exchange_error);
-                    }
-                } else {
                     MemberExchangeActivity.this.showToast(R.string.neterror);
+                    return;
                 }
+                String errorString = httpResponsedMessage.getErrorString();
+                if (StringUtils.isNull(errorString) || StringUtil.NULL_STRING.equals(errorString)) {
+                    errorString = MemberExchangeActivity.this.getResources().getString(R.string.neterror);
+                }
+                MemberExchangeActivity.this.showToast(errorString);
             }
         }
-    };
-    private String memberImage;
-    private String memberLevelIcon;
-    private String memberName;
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    private void initListener() {
+        registerListener(this.getTCodeInfoListener);
+    }
+
+    private void initTask() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_TCODE_INFO_CMD, TbConfig.SERVER_ADDRESS + TbConfig.GET_T_CODE_INFO);
+        tbHttpMessageTask.setResponsedClass(GetTCodeResMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    private void requestTCodeInfo() {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_TCODE_INFO_CMD);
+        httpMessage.addParam(GetTCodeResMessage.ACTIVATION_CODE, this.mView.b().getText().toString());
+        sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == null) {
+            return;
+        }
+        if (view.getId() == R.id.go_to_exchange) {
+            requestTCodeInfo();
+        } else {
+            l.w(getPageContext().getPageActivity(), this.mView.b());
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -63,36 +102,10 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             this.dueDate = getIntent().getStringExtra(MemberExchangeActivityConfig.DUE_DATE);
             this.descStr = getIntent().getStringExtra(MemberExchangeActivityConfig.DESC_STR);
         }
-        acb();
+        initTask();
         initListener();
-        this.lpP = new a(this);
-        this.lpP.l(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view != null) {
-            if (view.getId() == R.id.go_to_exchange) {
-                dfx();
-            } else {
-                l.hideSoftKeyPad(getPageContext().getPageActivity(), this.lpP.getEditText());
-            }
-        }
-    }
-
-    private void acb() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003320, TbConfig.SERVER_ADDRESS + TbConfig.GET_T_CODE_INFO);
-        tbHttpMessageTask.setResponsedClass(GetTCodeResMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    private void initListener() {
-        registerListener(this.lpQ);
-    }
-
-    private void dfx() {
-        HttpMessage httpMessage = new HttpMessage(1003320);
-        httpMessage.addParam(GetTCodeResMessage.ACTIVATION_CODE, this.lpP.getEditText().getText().toString());
-        sendMessage(httpMessage);
+        d.b.i0.q1.d.a aVar = new d.b.i0.q1.d.a(this);
+        this.mView = aVar;
+        aVar.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
     }
 }

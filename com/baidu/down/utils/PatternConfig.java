@@ -1,5 +1,5 @@
 package com.baidu.down.utils;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PatternConfig {
     public static final int PATTERN_COMMON = 0;
     public static final int PATTERN_REMOTE_SERVER_HTTPDNS = 1;

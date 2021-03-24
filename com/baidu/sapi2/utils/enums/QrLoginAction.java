@@ -1,21 +1,22 @@
 package com.baidu.sapi2.utils.enums;
 
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-/* loaded from: classes3.dex */
+import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
+import com.baidu.wallet.paysdk.datamodel.ErrorContentResponse;
+/* loaded from: classes2.dex */
 public enum QrLoginAction {
-    NOTICE("notice"),
-    LOGIN(OneKeyLoginSdkCall.k),
-    CANCEL("cancel");
+    NOTICE(ErrorContentResponse.Operations.NOTICE),
+    LOGIN("login"),
+    CANCEL(QueryResponse.Options.CANCEL);
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3457a;
+    public String f11492a;
 
     QrLoginAction(String str) {
-        this.f3457a = str;
+        this.f11492a = str;
     }
 
     public String getName() {
-        return this.f3457a;
+        return this.f11492a;
     }
 }

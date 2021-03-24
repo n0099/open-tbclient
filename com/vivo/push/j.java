@@ -9,54 +9,53 @@ import com.vivo.push.model.SubscribeAppInfo;
 import com.vivo.push.model.UnvarnishedMessage;
 import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UnvarnishedMessage f8055a;
-    final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback b;
-    final /* synthetic */ LocalAliasTagsManager c;
+    public final /* synthetic */ UnvarnishedMessage f39473a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback f39474b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ LocalAliasTagsManager f39475c;
+
     public j(LocalAliasTagsManager localAliasTagsManager, UnvarnishedMessage unvarnishedMessage, LocalAliasTagsManager.LocalMessageCallback localMessageCallback) {
-        this.c = localAliasTagsManager;
-        this.f8055a = unvarnishedMessage;
-        this.b = localMessageCallback;
+        this.f39475c = localAliasTagsManager;
+        this.f39473a = unvarnishedMessage;
+        this.f39474b = localMessageCallback;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Handler handler;
-        ISubscribeAppTagManager iSubscribeAppTagManager;
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
-        int targetType = this.f8055a.getTargetType();
-        String tragetContent = this.f8055a.getTragetContent();
+        ISubscribeAppTagManager iSubscribeAppTagManager;
+        int targetType = this.f39473a.getTargetType();
+        String tragetContent = this.f39473a.getTragetContent();
         if (!TextUtils.isEmpty(tragetContent) && targetType != 0) {
-            switch (targetType) {
-                case 3:
-                    iSubscribeAppAliasManager = this.c.mSubscribeAppAliasManager;
-                    SubscribeAppInfo subscribeAppInfo = iSubscribeAppAliasManager.getSubscribeAppInfo();
-                    if (subscribeAppInfo == null || subscribeAppInfo.getTargetStatus() != 1 || !subscribeAppInfo.getName().equals(tragetContent)) {
-                        p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, tragetContent);
-                        com.vivo.push.util.p.a(LocalAliasTagsManager.TAG, tragetContent + " has ignored ; current Alias is " + subscribeAppInfo);
-                        return;
-                    }
-                    break;
-                case 4:
-                    iSubscribeAppTagManager = this.c.mSubscribeAppTagManager;
-                    List<String> subscribeTags = iSubscribeAppTagManager.getSubscribeTags();
-                    if (subscribeTags == null || !subscribeTags.contains(tragetContent)) {
-                        ArrayList<String> arrayList = new ArrayList<>();
-                        arrayList.add(tragetContent);
-                        p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, arrayList);
-                        com.vivo.push.util.p.a(LocalAliasTagsManager.TAG, tragetContent + " has ignored ; current tags is " + subscribeTags);
-                        return;
-                    }
-                    break;
+            if (targetType == 3) {
+                iSubscribeAppAliasManager = this.f39475c.mSubscribeAppAliasManager;
+                SubscribeAppInfo subscribeAppInfo = iSubscribeAppAliasManager.getSubscribeAppInfo();
+                if (subscribeAppInfo == null || subscribeAppInfo.getTargetStatus() != 1 || !subscribeAppInfo.getName().equals(tragetContent)) {
+                    p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, tragetContent);
+                    com.vivo.push.util.p.a(LocalAliasTagsManager.TAG, tragetContent + " has ignored ; current Alias is " + subscribeAppInfo);
+                    return;
+                }
+            } else if (targetType == 4) {
+                iSubscribeAppTagManager = this.f39475c.mSubscribeAppTagManager;
+                List<String> subscribeTags = iSubscribeAppTagManager.getSubscribeTags();
+                if (subscribeTags == null || !subscribeTags.contains(tragetContent)) {
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    arrayList.add(tragetContent);
+                    p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, arrayList);
+                    com.vivo.push.util.p.a(LocalAliasTagsManager.TAG, tragetContent + " has ignored ; current tags is " + subscribeTags);
+                    return;
+                }
             }
         }
-        handler = this.c.mHandler;
+        handler = this.f39475c.mHandler;
         handler.post(new k(this));
     }
 }

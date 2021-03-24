@@ -11,9 +11,8 @@ import android.graphics.drawable.RippleDrawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 @TargetApi(21)
-/* loaded from: classes14.dex */
-class MaterialButtonBackgroundDrawable extends RippleDrawable {
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public class MaterialButtonBackgroundDrawable extends RippleDrawable {
     public MaterialButtonBackgroundDrawable(@NonNull ColorStateList colorStateList, @Nullable InsetDrawable insetDrawable, @Nullable Drawable drawable) {
         super(colorStateList, insetDrawable, drawable);
     }

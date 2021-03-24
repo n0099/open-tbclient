@@ -3,19 +3,31 @@ package com.baidu.mapsdkplatform.comapi.map;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+import androidx.recyclerview.widget.ItemTouchHelper;
+/* loaded from: classes2.dex */
 public class ad extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ac f2217a;
+    public final /* synthetic */ ac f7593a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ac acVar) {
-        this.f2217a = acVar;
+        this.f7593a = acVar;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x00fb, code lost:
+        if (r13 != null) goto L116;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00fd, code lost:
+        r13 = r12.f7593a.f7592h;
+        r13.a();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x010f, code lost:
+        if (r13 != null) goto L116;
+     */
     @Override // android.os.Handler
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void handleMessage(Message message) {
         e eVar;
         e eVar2;
@@ -38,8 +50,6 @@ public class ad extends Handler {
         e eVar19;
         m mVar;
         m mVar2;
-        m mVar3;
-        m mVar4;
         e eVar20;
         e eVar21;
         e eVar22;
@@ -58,179 +68,187 @@ public class ad extends Handler {
         e eVar35;
         e eVar36;
         super.handleMessage(message);
-        eVar = this.f2217a.i;
+        eVar = this.f7593a.i;
         if (eVar != null) {
-            eVar2 = this.f2217a.i;
+            eVar2 = this.f7593a.i;
             if (eVar2.i == null) {
                 return;
             }
             long longValue = ((Long) message.obj).longValue();
-            eVar3 = this.f2217a.i;
-            if (longValue == eVar3.j) {
-                if (message.what == 4000) {
-                    eVar33 = this.f2217a.i;
-                    if (eVar33.h != null) {
-                        eVar34 = this.f2217a.i;
-                        for (l lVar : eVar34.h) {
-                            Bitmap bitmap = null;
-                            if (message.arg2 == 1) {
-                                int[] iArr = new int[ac.f2216a * ac.b];
-                                int[] iArr2 = new int[ac.f2216a * ac.b];
-                                eVar35 = this.f2217a.i;
-                                if (eVar35.i == null) {
-                                    return;
+            eVar3 = this.f7593a.i;
+            if (longValue != eVar3.j) {
+                return;
+            }
+            int i = message.what;
+            if (i == 4000) {
+                eVar33 = this.f7593a.i;
+                if (eVar33.f7618h == null) {
+                    return;
+                }
+                eVar34 = this.f7593a.i;
+                for (l lVar : eVar34.f7618h) {
+                    Bitmap bitmap = null;
+                    if (message.arg2 == 1) {
+                        int[] iArr = new int[ac.f7585a * ac.f7586b];
+                        int[] iArr2 = new int[ac.f7585a * ac.f7586b];
+                        eVar35 = this.f7593a.i;
+                        if (eVar35.i == null) {
+                            return;
+                        }
+                        eVar36 = this.f7593a.i;
+                        int[] a2 = eVar36.i.a(iArr, ac.f7585a, ac.f7586b);
+                        for (int i2 = 0; i2 < ac.f7586b; i2++) {
+                            int i3 = 0;
+                            while (true) {
+                                int i4 = ac.f7585a;
+                                if (i3 < i4) {
+                                    int i5 = a2[(i4 * i2) + i3];
+                                    iArr2[(((ac.f7586b - i2) - 1) * ac.f7585a) + i3] = (i5 & (-16711936)) | ((i5 << 16) & ItemTouchHelper.ACTION_MODE_DRAG_MASK) | ((i5 >> 16) & 255);
+                                    i3++;
                                 }
-                                eVar36 = this.f2217a.i;
-                                int[] a2 = eVar36.i.a(iArr, ac.f2216a, ac.b);
-                                for (int i = 0; i < ac.b; i++) {
-                                    for (int i2 = 0; i2 < ac.f2216a; i2++) {
-                                        int i3 = a2[(ac.f2216a * i) + i2];
-                                        iArr2[(((ac.b - i) - 1) * ac.f2216a) + i2] = (i3 & (-16711936)) | ((i3 << 16) & 16711680) | ((i3 >> 16) & 255);
-                                    }
-                                }
-                                bitmap = Bitmap.createBitmap(iArr2, ac.f2216a, ac.b, Bitmap.Config.ARGB_8888);
                             }
-                            if (lVar != null) {
-                                lVar.a(bitmap);
+                        }
+                        bitmap = Bitmap.createBitmap(iArr2, ac.f7585a, ac.f7586b, Bitmap.Config.ARGB_8888);
+                    }
+                    if (lVar != null) {
+                        lVar.a(bitmap);
+                    }
+                }
+            } else if (i == 39) {
+                eVar17 = this.f7593a.i;
+                if (eVar17 == null) {
+                    return;
+                }
+                int i6 = message.arg1;
+                if (i6 == 100) {
+                    eVar32 = this.f7593a.i;
+                    eVar32.B();
+                } else if (i6 == 200) {
+                    eVar20 = this.f7593a.i;
+                    eVar20.K();
+                } else if (i6 == 1) {
+                    mVar2 = this.f7593a.f7592h;
+                } else if (i6 == 0) {
+                    mVar = this.f7593a.f7592h;
+                } else if (i6 == 2) {
+                    eVar18 = this.f7593a.i;
+                    if (eVar18.f7618h == null) {
+                        return;
+                    }
+                    eVar19 = this.f7593a.i;
+                    for (l lVar2 : eVar19.f7618h) {
+                        if (lVar2 != null) {
+                            lVar2.c();
+                        }
+                    }
+                }
+                eVar21 = this.f7593a.i;
+                if (!eVar21.k && ac.f7586b > 0 && ac.f7585a > 0) {
+                    eVar28 = this.f7593a.i;
+                    if (eVar28.b(0, 0) != null) {
+                        eVar29 = this.f7593a.i;
+                        eVar29.k = true;
+                        eVar30 = this.f7593a.i;
+                        if (eVar30.f7618h == null) {
+                            return;
+                        }
+                        eVar31 = this.f7593a.i;
+                        for (l lVar3 : eVar31.f7618h) {
+                            if (lVar3 != null) {
+                                lVar3.b();
                             }
                         }
                     }
-                } else if (message.what == 39) {
-                    eVar17 = this.f2217a.i;
-                    if (eVar17 != null) {
-                        if (message.arg1 == 100) {
-                            eVar32 = this.f2217a.i;
-                            eVar32.B();
-                        } else if (message.arg1 == 200) {
-                            eVar20 = this.f2217a.i;
-                            eVar20.K();
-                        } else if (message.arg1 == 1) {
-                            mVar3 = this.f2217a.h;
-                            if (mVar3 != null) {
-                                mVar4 = this.f2217a.h;
-                                mVar4.a();
-                            }
-                        } else if (message.arg1 == 0) {
-                            mVar = this.f2217a.h;
-                            if (mVar != null) {
-                                mVar2 = this.f2217a.h;
-                                mVar2.a();
-                            }
-                        } else if (message.arg1 == 2) {
-                            eVar18 = this.f2217a.i;
-                            if (eVar18.h == null) {
-                                return;
-                            }
-                            eVar19 = this.f2217a.i;
-                            for (l lVar2 : eVar19.h) {
-                                if (lVar2 != null) {
-                                    lVar2.c();
-                                }
-                            }
-                        }
-                        eVar21 = this.f2217a.i;
-                        if (!eVar21.k && ac.b > 0 && ac.f2216a > 0) {
-                            eVar28 = this.f2217a.i;
-                            if (eVar28.b(0, 0) != null) {
-                                eVar29 = this.f2217a.i;
-                                eVar29.k = true;
-                                eVar30 = this.f2217a.i;
-                                if (eVar30.h == null) {
-                                    return;
-                                }
-                                eVar31 = this.f2217a.i;
-                                for (l lVar3 : eVar31.h) {
-                                    if (lVar3 != null) {
-                                        lVar3.b();
-                                    }
-                                }
-                            }
-                        }
-                        eVar22 = this.f2217a.i;
-                        if (eVar22.h != null) {
-                            eVar23 = this.f2217a.i;
-                            for (l lVar4 : eVar23.h) {
-                                if (lVar4 != null) {
-                                    lVar4.a();
-                                }
-                            }
-                            eVar24 = this.f2217a.i;
-                            if (eVar24.q()) {
-                                eVar25 = this.f2217a.i;
-                                if (eVar25.h != null) {
-                                    eVar26 = this.f2217a.i;
-                                    for (l lVar5 : eVar26.h) {
-                                        if (lVar5 != null) {
-                                            eVar27 = this.f2217a.i;
-                                            if (eVar27.E().f2214a >= 18.0f) {
-                                                lVar5.a(true);
-                                            } else {
-                                                lVar5.a(false);
-                                            }
-                                        }
-                                    }
-                                }
+                }
+                eVar22 = this.f7593a.i;
+                if (eVar22.f7618h == null) {
+                    return;
+                }
+                eVar23 = this.f7593a.i;
+                for (l lVar4 : eVar23.f7618h) {
+                    if (lVar4 != null) {
+                        lVar4.a();
+                    }
+                }
+                eVar24 = this.f7593a.i;
+                if (eVar24.q()) {
+                    eVar25 = this.f7593a.i;
+                    if (eVar25.f7618h == null) {
+                        return;
+                    }
+                    eVar26 = this.f7593a.i;
+                    for (l lVar5 : eVar26.f7618h) {
+                        if (lVar5 != null) {
+                            eVar27 = this.f7593a.i;
+                            if (eVar27.E().f7569a >= 18.0f) {
+                                lVar5.a(true);
+                            } else {
+                                lVar5.a(false);
                             }
                         }
                     }
-                } else if (message.what == 41) {
-                    eVar9 = this.f2217a.i;
-                    if (eVar9 != null) {
-                        eVar10 = this.f2217a.i;
-                        if (!eVar10.n) {
-                            eVar16 = this.f2217a.i;
-                            if (!eVar16.o) {
-                                return;
-                            }
-                        }
-                        eVar11 = this.f2217a.i;
-                        if (eVar11.h != null) {
-                            eVar12 = this.f2217a.i;
-                            for (l lVar6 : eVar12.h) {
-                                if (lVar6 != null) {
-                                    eVar13 = this.f2217a.i;
-                                    lVar6.b(eVar13.E());
-                                    eVar14 = this.f2217a.i;
-                                    if (eVar14.q()) {
-                                        eVar15 = this.f2217a.i;
-                                        if (eVar15.E().f2214a >= 18.0f) {
-                                            lVar6.a(true);
-                                        } else {
-                                            lVar6.a(false);
-                                        }
-                                    }
-                                }
+                }
+            } else if (i == 41) {
+                eVar9 = this.f7593a.i;
+                if (eVar9 == null) {
+                    return;
+                }
+                eVar10 = this.f7593a.i;
+                if (!eVar10.n) {
+                    eVar16 = this.f7593a.i;
+                    if (!eVar16.o) {
+                        return;
+                    }
+                }
+                eVar11 = this.f7593a.i;
+                if (eVar11.f7618h == null) {
+                    return;
+                }
+                eVar12 = this.f7593a.i;
+                for (l lVar6 : eVar12.f7618h) {
+                    if (lVar6 != null) {
+                        eVar13 = this.f7593a.i;
+                        lVar6.b(eVar13.E());
+                        eVar14 = this.f7593a.i;
+                        if (eVar14.q()) {
+                            eVar15 = this.f7593a.i;
+                            if (eVar15.E().f7569a >= 18.0f) {
+                                lVar6.a(true);
+                            } else {
+                                lVar6.a(false);
                             }
                         }
                     }
-                } else if (message.what == 999) {
-                    eVar7 = this.f2217a.i;
-                    if (eVar7.h != null) {
-                        eVar8 = this.f2217a.i;
-                        for (l lVar7 : eVar8.h) {
-                            if (lVar7 != null) {
-                                lVar7.e();
-                            }
-                        }
+                }
+            } else if (i == 999) {
+                eVar7 = this.f7593a.i;
+                if (eVar7.f7618h == null) {
+                    return;
+                }
+                eVar8 = this.f7593a.i;
+                for (l lVar7 : eVar8.f7618h) {
+                    if (lVar7 != null) {
+                        lVar7.e();
                     }
-                } else if (message.what == 50) {
-                    eVar4 = this.f2217a.i;
-                    if (eVar4.h != null) {
-                        eVar5 = this.f2217a.i;
-                        for (l lVar8 : eVar5.h) {
-                            if (lVar8 != null) {
-                                if (message.arg1 == 0) {
-                                    lVar8.a(false);
-                                } else if (message.arg1 == 1) {
-                                    eVar6 = this.f2217a.i;
-                                    if (eVar6.E().f2214a >= 18.0f) {
-                                        lVar8.a(true);
-                                    } else {
-                                        lVar8.a(false);
-                                    }
+                }
+            } else if (i == 50) {
+                eVar4 = this.f7593a.i;
+                if (eVar4.f7618h == null) {
+                    return;
+                }
+                eVar5 = this.f7593a.i;
+                for (l lVar8 : eVar5.f7618h) {
+                    if (lVar8 != null) {
+                        int i7 = message.arg1;
+                        if (i7 != 0) {
+                            if (i7 == 1) {
+                                eVar6 = this.f7593a.i;
+                                if (eVar6.E().f7569a >= 18.0f) {
+                                    lVar8.a(true);
                                 }
                             }
                         }
+                        lVar8.a(false);
                     }
                 }
             }

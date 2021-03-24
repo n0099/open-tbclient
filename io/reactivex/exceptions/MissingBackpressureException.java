@@ -1,7 +1,7 @@
 package io.reactivex.exceptions;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class MissingBackpressureException extends RuntimeException {
-    private static final long serialVersionUID = 8517344746016032542L;
+    public static final long serialVersionUID = 8517344746016032542L;
 
     public MissingBackpressureException() {
     }

@@ -7,19 +7,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class PerformanceJsonBean {
     public static final String KEY_GAP = "gap";
     public static final String KEY_ID = "id";
     public static final String KEY_TIMESTAMP = "timestamp";
     public static final String TAG = "PerformanceJsonBean";
-    private List<PerformanceJsonObject> mPerformanceJsonObjectList = new ArrayList();
+    public List<PerformanceJsonObject> mPerformanceJsonObjectList = new ArrayList();
 
-    public List<PerformanceJsonObject> getPerformanceJsonObjectList() {
-        return this.mPerformanceJsonObjectList == null ? new ArrayList() : this.mPerformanceJsonObjectList;
-    }
-
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class PerformanceJsonObject {
         public String name;
         public long time;
@@ -30,16 +26,15 @@ public class PerformanceJsonBean {
         }
     }
 
-    public void put(String str) {
-        put(str, System.currentTimeMillis());
+    private long checkNull(Long l) {
+        if (l == null) {
+            return 0L;
+        }
+        return l.longValue();
     }
 
-    public void put(String str, long j) {
-        this.mPerformanceJsonObjectList.add(new PerformanceJsonObject(str, j));
-    }
-
-    public void put(PerformanceJsonBean performanceJsonBean) {
-        this.mPerformanceJsonObjectList.addAll(performanceJsonBean.getPerformanceJsonObjectList());
+    public void clear() {
+        this.mPerformanceJsonObjectList.clear();
     }
 
     public PerformanceJsonObject get(String str) {
@@ -51,19 +46,13 @@ public class PerformanceJsonBean {
         return null;
     }
 
-    public String toString() {
-        return toJSONArray().toString();
+    public List<PerformanceJsonObject> getPerformanceJsonObjectList() {
+        List<PerformanceJsonObject> list = this.mPerformanceJsonObjectList;
+        return list == null ? new ArrayList() : list;
     }
 
-    public void clear() {
-        this.mPerformanceJsonObjectList.clear();
-    }
-
-    private long checkNull(Long l) {
-        if (l == null) {
-            return 0L;
-        }
-        return l.longValue();
+    public void put(String str) {
+        put(str, System.currentTimeMillis());
     }
 
     public JSONArray toJSONArray() {
@@ -75,10 +64,22 @@ public class PerformanceJsonBean {
                 jSONObject.put("timestamp", performanceJsonObject.time);
                 jSONArray.put(jSONObject);
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         clear();
         return jSONArray;
+    }
+
+    public String toString() {
+        return toJSONArray().toString();
+    }
+
+    public void put(String str, long j) {
+        this.mPerformanceJsonObjectList.add(new PerformanceJsonObject(str, j));
+    }
+
+    public void put(PerformanceJsonBean performanceJsonBean) {
+        this.mPerformanceJsonObjectList.addAll(performanceJsonBean.getPerformanceJsonObjectList());
     }
 }

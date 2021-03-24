@@ -18,9 +18,9 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class WebViewFactoryProvider extends Observable {
-    private static final String LOG_TAG = "WebViewFactoryProvider";
+    public static final String LOG_TAG = "WebViewFactoryProvider";
     public static final String SETTING_AD_BLOCK = "ADBlock";
     public static final String SETTING_DEBUG = "Debug";
     public static final String SETTING_ENABLE_JS_PROMPT = "JsPromptEnable";
@@ -59,7 +59,7 @@ public abstract class WebViewFactoryProvider extends Observable {
     public static final Boolean SETTING_NO_IMAGE_MODE_VALUE = new Boolean(false);
     public static final Boolean SETTING_NA2_WEB_VALUE = new Boolean(false);
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface SettingsStatics {
         boolean canUseFreeFlow();
 
@@ -392,7 +392,7 @@ public abstract class WebViewFactoryProvider extends Observable {
         boolean useCronet();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface Statics {
         int AdBlockInit(String str, boolean z);
 
@@ -520,7 +520,8 @@ public abstract class WebViewFactoryProvider extends Observable {
     }
 
     public Object getStaticWebSeting(String str) {
-        if (TextUtils.isEmpty(str) || this.mStaticWebSettings == null || !this.mStaticWebSettings.containsKey(str)) {
+        HashMap<String, Object> hashMap;
+        if (TextUtils.isEmpty(str) || (hashMap = this.mStaticWebSettings) == null || !hashMap.containsKey(str)) {
             return null;
         }
         return this.mStaticWebSettings.get(str);
@@ -584,7 +585,8 @@ public abstract class WebViewFactoryProvider extends Observable {
     }
 
     public void setStaticWebSeting(String str, Object obj) {
-        if (TextUtils.isEmpty(str) || this.mStaticWebSettings == null || !this.mStaticWebSettings.containsKey(str)) {
+        HashMap<String, Object> hashMap;
+        if (TextUtils.isEmpty(str) || (hashMap = this.mStaticWebSettings) == null || !hashMap.containsKey(str)) {
             return;
         }
         this.mStaticWebSettings.put(str, obj);

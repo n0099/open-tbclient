@@ -1,18 +1,20 @@
 package com.baidu.webkit.logsdk.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.webkit.logsdk.c.a f3848a;
-    final /* synthetic */ b b;
+    public final /* synthetic */ com.baidu.webkit.logsdk.c.a f26982a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ b f26983b;
 
     public e(b bVar, com.baidu.webkit.logsdk.c.a aVar) {
-        this.b = bVar;
-        this.f3848a = aVar;
+        this.f26983b = bVar;
+        this.f26982a = aVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.b.h().c().a(this.f3848a);
+        this.f26983b.h().c().a(this.f26982a);
     }
 }

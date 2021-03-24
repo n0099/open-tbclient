@@ -1,18 +1,17 @@
 package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f6189a = b() + "ksad-android-3.3.9";
+    public static final String f33877a = b() + "ksad-android-3.3.9";
 
     public static String a() {
-        return f6189a;
+        return f33877a;
     }
 
-    private static String b() {
+    public static String b() {
         String property = System.getProperty("http.agent");
         if (TextUtils.isEmpty(property)) {
             return property;
@@ -27,7 +26,7 @@ public final class k {
                 stringBuffer.append(charAt);
             }
         }
-        stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+        stringBuffer.append("-");
         return stringBuffer.toString();
     }
 }

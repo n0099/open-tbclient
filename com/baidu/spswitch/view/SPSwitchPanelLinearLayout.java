@@ -6,16 +6,74 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import com.baidu.spswitch.a;
-import com.baidu.spswitch.a.b;
+import com.baidu.spswitch.IPanelConflictLayout;
+import com.baidu.spswitch.IPanelHeightTarget;
+import com.baidu.spswitch.handler.SPSwitchPanelLayoutHandler;
+import com.baidu.spswitch.utils.SPConfig;
 /* loaded from: classes3.dex */
-public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
-    private b cDp;
+public class SPSwitchPanelLinearLayout extends LinearLayout implements IPanelConflictLayout, IPanelHeightTarget {
+    public SPSwitchPanelLayoutHandler mPanelLayoutHandler;
     public static final String TAG = SPSwitchPanelLinearLayout.class.getSimpleName();
-    public static final boolean DEBUG = com.baidu.spswitch.b.b.isDebug();
+    public static final boolean DEBUG = SPConfig.isDebug();
 
     public SPSwitchPanelLinearLayout(Context context) {
         this(context, null);
+    }
+
+    private void init() {
+        this.mPanelLayoutHandler = new SPSwitchPanelLayoutHandler(this);
+    }
+
+    @Override // com.baidu.spswitch.IPanelConflictLayout
+    public void handleHide() {
+        this.mPanelLayoutHandler.handleHide();
+    }
+
+    @Override // com.baidu.spswitch.IPanelConflictLayout
+    public void handleShow() {
+        super.setVisibility(0);
+    }
+
+    @Override // com.baidu.spswitch.IPanelConflictLayout
+    public boolean isSoftInputShowing() {
+        return this.mPanelLayoutHandler.isSoftInputShowing();
+    }
+
+    @Override // com.baidu.spswitch.IPanelConflictLayout
+    public boolean isVisible() {
+        return this.mPanelLayoutHandler.isVisible();
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        if (DEBUG) {
+            String str = TAG;
+            Log.d(str, "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i2));
+        }
+        int[] processOnMeasure = this.mPanelLayoutHandler.processOnMeasure(i, i2);
+        if (DEBUG) {
+            String str2 = TAG;
+            Log.d(str2, "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(processOnMeasure[1]));
+        }
+        super.onMeasure(processOnMeasure[0], processOnMeasure[1]);
+    }
+
+    @Override // com.baidu.spswitch.IPanelHeightTarget
+    public void onSoftInputShowing(boolean z) {
+        this.mPanelLayoutHandler.setIsSoftInputShowing(z);
+    }
+
+    @Override // com.baidu.spswitch.IPanelHeightTarget
+    public void refreshHeight(int i) {
+        this.mPanelLayoutHandler.refreshPanelHeight(i);
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        if (this.mPanelLayoutHandler.filterSetVisibility(i)) {
+            return;
+        }
+        super.setVisibility(i);
     }
 
     public SPSwitchPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
@@ -25,38 +83,5 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
     public SPSwitchPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         init();
-    }
-
-    private void init() {
-        this.cDp = new b(this);
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        if (DEBUG) {
-            Log.d(TAG, "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i2));
-        }
-        int[] V = this.cDp.V(i, i2);
-        if (DEBUG) {
-            Log.d(TAG, "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(V[1]));
-        }
-        super.onMeasure(V[0], V[1]);
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        if (!this.cDp.fZ(i)) {
-            super.setVisibility(i);
-        }
-    }
-
-    @Override // com.baidu.spswitch.a
-    public void afI() {
-        super.setVisibility(0);
-    }
-
-    @Override // com.baidu.spswitch.a
-    public void afJ() {
-        this.cDp.afJ();
     }
 }

@@ -6,55 +6,63 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.adp.widget.ListView.w;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tieba.card.t;
-/* loaded from: classes2.dex */
-public class ReadProgessDelegetAdapter extends com.baidu.adp.widget.ListView.a<b, ViewHolder> {
-    private w kon;
-    private final TbPageContext<?> mPageContext;
+import d.b.b.j.e.n;
+import d.b.b.j.e.w;
+import d.b.i0.x.t;
+import d.b.i0.z0.g.l.b;
+/* loaded from: classes4.dex */
+public class ReadProgessDelegetAdapter extends d.b.b.j.e.a<b, ViewHolder> {
+    public final TbPageContext<?> m;
+    public w n;
+
+    /* loaded from: classes4.dex */
+    public static class ViewHolder extends TypeAdapter.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public d.b.i0.z0.g.l.a f17283a;
+
+        public ViewHolder(d.b.i0.z0.g.l.a aVar) {
+            super(aVar.m());
+            this.f17283a = aVar;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements w {
+        public a(ReadProgessDelegetAdapter readProgessDelegetAdapter) {
+        }
+
+        @Override // d.b.b.j.e.w
+        public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            TiebaStatic.log(new StatisticItem("c11273"));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, 0));
+        }
+    }
 
     public ReadProgessDelegetAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.kon = new w() { // from class: com.baidu.tieba.homepage.personalize.readProgressBar.ReadProgessDelegetAdapter.1
-            @Override // com.baidu.adp.widget.ListView.w
-            public void a(View view, n nVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
-                TiebaStatic.log(new ar("c11273"));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
-            }
-        };
-        this.mPageContext = tbPageContext;
-        a(this.kon);
+        a aVar = new a(this);
+        this.n = aVar;
+        this.m = tbPageContext;
+        c0(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bW */
-    public ViewHolder e(ViewGroup viewGroup) {
-        return new ViewHolder(new a(this.mPageContext, viewGroup));
+    @Override // d.b.b.j.e.a
+    /* renamed from: h0 */
+    public ViewHolder R(ViewGroup viewGroup) {
+        return new ViewHolder(new d.b.i0.z0.g.l.a(this.m, viewGroup));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
-        t.csH().e(new ar("c11272"));
-        viewHolder.kop.a(bVar);
-        return viewHolder.getView();
-    }
-
-    /* loaded from: classes2.dex */
-    public static class ViewHolder extends TypeAdapter.ViewHolder {
-        public a kop;
-
-        public ViewHolder(a aVar) {
-            super(aVar.getView());
-            this.kop = aVar;
-        }
+    @Override // d.b.b.j.e.a
+    /* renamed from: i0 */
+    public View X(int i, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
+        t.b().a(new StatisticItem("c11272"));
+        viewHolder.f17283a.n(bVar);
+        return viewHolder.a();
     }
 }

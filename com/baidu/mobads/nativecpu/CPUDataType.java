@@ -1,13 +1,12 @@
 package com.baidu.mobads.nativecpu;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public enum CPUDataType {
     NEWS("news", 0),
     IMAGE("image", 1),
     VIDEO("video", 2),
-    TOPIC(AlbumActivityConfig.FROM_TOPIC, 3),
+    TOPIC("topic", 3),
     AD("ad", 4),
     HOTDOC("hotkey", 5),
     SMALLVIDEO("smallvideo", 6),
@@ -16,29 +15,31 @@ public enum CPUDataType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    String f2424a;
-    int b;
+    public String f8369a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f8370b;
 
     CPUDataType(String str, int i) {
-        this.f2424a = str;
-        this.b = i;
-    }
-
-    public String getName() {
-        return this.f2424a;
-    }
-
-    public int getValue() {
-        return this.b;
+        this.f8369a = str;
+        this.f8370b = i;
     }
 
     public static CPUDataType parseType(String str) {
         CPUDataType[] values;
         for (CPUDataType cPUDataType : values()) {
-            if (cPUDataType != null && TextUtils.isEmpty(cPUDataType.f2424a) && cPUDataType.f2424a.equals(str)) {
+            if (cPUDataType != null && TextUtils.isEmpty(cPUDataType.f8369a) && cPUDataType.f8369a.equals(str)) {
                 return cPUDataType;
             }
         }
         return null;
+    }
+
+    public String getName() {
+        return this.f8369a;
+    }
+
+    public int getValue() {
+        return this.f8370b;
     }
 }

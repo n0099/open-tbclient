@@ -2,6 +2,7 @@ package com.sina.weibo.sdk.network.impl;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.sina.weibo.sdk.net.NetStateManager;
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import com.sina.weibo.sdk.network.IRequestParam;
@@ -16,26 +17,34 @@ import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> implements RequestCancelable {
-    private IRequestParam param;
-    Class<T> tClass;
-    private Target<R> target;
+    public IRequestParam param;
+    public Class<T> tClass;
+    public Target<R> target;
 
     public RequestTask(IRequestParam iRequestParam, Target<R> target) {
         this.param = iRequestParam;
         this.target = target;
     }
 
+    @Override // com.sina.weibo.sdk.network.RequestCancelable
+    public void cancelRequest() {
+    }
+
+    @Override // com.sina.weibo.sdk.network.RequestCancelable
+    public boolean isCancelRequest() {
+        return false;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.os.AsyncTask
     public RequestResult doInBackground(Object... objArr) {
         RequestResult requestResult = new RequestResult();
         if (!NetStateManager.isNetworkConnected(this.param.getContext())) {
             LogUtil.e("Task", "RequestTask:android.permission.ACCESS_NETWORK_STATE");
-            requestResult.setE(new SdkException("android.permission.ACCESS_NETWORK_STATE"));
+            requestResult.setE(new SdkException(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION));
         }
         if (this.param.needIntercept()) {
             try {
@@ -55,8 +64,8 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
                     }
                 }
                 this.param.getPostBundle().putAll(bundle);
-            } catch (InterceptException e) {
-                requestResult.setE(e);
+            } catch (InterceptException e2) {
+                requestResult.setE(e2);
                 return requestResult;
             }
         }
@@ -70,7 +79,7 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
                 if (byteStream != null) {
                     byteStream.close();
                 }
-            } catch (Exception e2) {
+            } catch (Exception unused) {
             }
         } catch (Exception e3) {
             requestResult.setE(e3);
@@ -79,14 +88,14 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.sina.weibo.sdk.network.target.Target<R> */
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.sina.weibo.sdk.network.target.Target<R> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.os.AsyncTask
     public void onPostExecute(RequestResult requestResult) {
         super.onPostExecute((RequestTask<T, R>) requestResult);
-        if (this.target != null) {
-            this.target.onRequestDone();
+        Target<R> target = this.target;
+        if (target != null) {
+            target.onRequestDone();
             if (requestResult.getE() != null) {
                 this.target.onFailure(requestResult.getE());
                 this.target.onError();
@@ -94,14 +103,5 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
             }
             this.target.onRequestSuccess(requestResult.getResponse());
         }
-    }
-
-    @Override // com.sina.weibo.sdk.network.RequestCancelable
-    public void cancelRequest() {
-    }
-
-    @Override // com.sina.weibo.sdk.network.RequestCancelable
-    public boolean isCancelRequest() {
-        return false;
     }
 }

@@ -10,19 +10,19 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LruDiskCache implements DiskCache {
     public static final int DEFAULT_BUFFER_SIZE = 32768;
     public static final Bitmap.CompressFormat DEFAULT_COMPRESS_FORMAT = Bitmap.CompressFormat.PNG;
     public static final int DEFAULT_COMPRESS_QUALITY = 100;
-    private static final String ERROR_ARG_NEGATIVE = " argument must be positive number";
-    private static final String ERROR_ARG_NULL = " argument must be not null";
-    protected int bufferSize;
-    protected DiskLruCache cache;
-    protected Bitmap.CompressFormat compressFormat;
-    protected int compressQuality;
-    protected final FileNameGenerator fileNameGenerator;
-    private File reserveCacheDir;
+    public static final String ERROR_ARG_NEGATIVE = " argument must be positive number";
+    public static final String ERROR_ARG_NULL = " argument must be not null";
+    public int bufferSize;
+    public DiskLruCache cache;
+    public Bitmap.CompressFormat compressFormat;
+    public int compressQuality;
+    public final FileNameGenerator fileNameGenerator;
+    public File reserveCacheDir;
 
     public LruDiskCache(File file, FileNameGenerator fileNameGenerator, long j) {
         this(file, null, fileNameGenerator, j, 0);
@@ -58,13 +58,13 @@ public class LruDiskCache implements DiskCache {
     private void initCache(File file, File file2, long j, int i) {
         try {
             this.cache = DiskLruCache.open(file, 1, 1, j, i);
-        } catch (IOException e) {
-            L.e(e);
+        } catch (IOException e2) {
+            L.e(e2);
             if (file2 != null) {
                 initCache(file2, null, j, i);
             }
             if (this.cache == null) {
-                throw e;
+                throw e2;
             }
         }
     }
@@ -73,13 +73,13 @@ public class LruDiskCache implements DiskCache {
     public void clear() {
         try {
             this.cache.delete();
-        } catch (IOException e) {
-            L.e(e);
+        } catch (IOException e2) {
+            L.e(e2);
         }
         try {
             initCache(this.cache.getDirectory(), this.reserveCacheDir, this.cache.getMaxSize(), this.cache.getMaxFileCount());
-        } catch (IOException e2) {
-            L.e(e2);
+        } catch (IOException e3) {
+            L.e(e3);
         }
     }
 
@@ -87,18 +87,19 @@ public class LruDiskCache implements DiskCache {
     public void close() {
         try {
             this.cache.close();
-        } catch (IOException e) {
-            L.e(e);
+        } catch (IOException e2) {
+            L.e(e2);
         }
         this.cache = null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0028  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x002e  */
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public File get(String str) {
+        Throwable th;
         DiskLruCache.Snapshot snapshot;
         File file = null;
         try {
@@ -107,16 +108,16 @@ public class LruDiskCache implements DiskCache {
                 try {
                     try {
                         file = snapshot.getFile(0);
-                    } catch (IOException e) {
-                        e = e;
+                    } catch (IOException e2) {
+                        e = e2;
                         L.e(e);
                         if (snapshot != null) {
                             snapshot.close();
                         }
-                        return file;
+                        return null;
                     }
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                     if (snapshot != null) {
                         snapshot.close();
                     }
@@ -126,17 +127,17 @@ public class LruDiskCache implements DiskCache {
             if (snapshot != null) {
                 snapshot.close();
             }
-        } catch (IOException e2) {
-            e = e2;
+            return file;
+        } catch (IOException e3) {
+            e = e3;
             snapshot = null;
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
             snapshot = null;
             if (snapshot != null) {
             }
             throw th;
         }
-        return file;
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
@@ -148,53 +149,53 @@ public class LruDiskCache implements DiskCache {
     public boolean remove(String str) {
         try {
             return this.cache.remove(getKey(str));
-        } catch (IOException e) {
-            L.e(e);
+        } catch (IOException e2) {
+            L.e(e2);
             return false;
         }
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean save(String str, Bitmap bitmap) {
-        boolean z = false;
         DiskLruCache.Editor edit = this.cache.edit(getKey(str));
-        if (edit != null) {
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(edit.newOutputStream(0), this.bufferSize);
-            try {
-                z = bitmap.compress(this.compressFormat, this.compressQuality, bufferedOutputStream);
-                if (z) {
-                    edit.commit();
-                } else {
-                    edit.abort();
-                }
-            } finally {
-                IoUtils.closeSilently(bufferedOutputStream);
-            }
+        if (edit == null) {
+            return false;
         }
-        return z;
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(edit.newOutputStream(0), this.bufferSize);
+        try {
+            boolean compress = bitmap.compress(this.compressFormat, this.compressQuality, bufferedOutputStream);
+            if (compress) {
+                edit.commit();
+            } else {
+                edit.abort();
+            }
+            return compress;
+        } finally {
+            IoUtils.closeSilently(bufferedOutputStream);
+        }
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean save(String str, InputStream inputStream, IoUtils.CopyListener copyListener) {
-        boolean z = false;
         DiskLruCache.Editor edit = this.cache.edit(getKey(str));
-        if (edit != null) {
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(edit.newOutputStream(0), this.bufferSize);
-            try {
-                z = IoUtils.copyStream(inputStream, bufferedOutputStream, copyListener, this.bufferSize);
-                IoUtils.closeSilently(bufferedOutputStream);
-                if (z) {
-                    edit.commit();
-                } else {
-                    edit.abort();
-                }
-            } catch (Throwable th) {
-                IoUtils.closeSilently(bufferedOutputStream);
-                edit.abort();
-                throw th;
-            }
+        if (edit == null) {
+            return false;
         }
-        return z;
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(edit.newOutputStream(0), this.bufferSize);
+        try {
+            boolean copyStream = IoUtils.copyStream(inputStream, bufferedOutputStream, copyListener, this.bufferSize);
+            IoUtils.closeSilently(bufferedOutputStream);
+            if (copyStream) {
+                edit.commit();
+            } else {
+                edit.abort();
+            }
+            return copyStream;
+        } catch (Throwable th) {
+            IoUtils.closeSilently(bufferedOutputStream);
+            edit.abort();
+            throw th;
+        }
     }
 
     public void setBufferSize(int i) {

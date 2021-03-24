@@ -1,8 +1,8 @@
 package com.baidu.android.imsdk.chatmessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MsgRecord {
-    private long msgId;
-    private long msgTime;
+    public long msgId;
+    public long msgTime;
 
     public MsgRecord(long j, long j2) {
         this.msgId = j;
@@ -13,12 +13,12 @@ public class MsgRecord {
         return this.msgId;
     }
 
-    public void setMsgId(long j) {
-        this.msgId = j;
-    }
-
     public long getMsgTime() {
         return this.msgTime;
+    }
+
+    public void setMsgId(long j) {
+        this.msgId = j;
     }
 
     public void setMsgTime(long j) {

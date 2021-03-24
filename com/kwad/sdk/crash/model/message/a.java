@@ -3,22 +3,22 @@ package com.kwad.sdk.crash.model.message;
 import android.text.TextUtils;
 import com.kwad.sdk.crash.c;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private JSONObject f6384a = new JSONObject();
+    public JSONObject f34466a = new JSONObject();
 
     private void a(String str, Object obj) {
         try {
-            this.f6384a.put(str, obj);
+            this.f34466a.put(str, obj);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
         }
     }
 
     public void a(String str) {
-        a(c.g, (Object) str);
+        a(c.f34438g, (Object) str);
     }
 
     public void a(String str, int i) {
@@ -34,6 +34,6 @@ public class a {
     }
 
     public String toString() {
-        return this.f6384a.toString();
+        return this.f34466a.toString();
     }
 }

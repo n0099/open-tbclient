@@ -3,7 +3,7 @@ package com.kwad.sdk.crash.report.request;
 import com.kwad.sdk.core.network.d;
 import com.kwad.sdk.crash.report.ReportEvent;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends d {
     public a(List<ReportEvent> list) {
         a("eventList", list);

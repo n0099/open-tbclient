@@ -2,7 +2,7 @@ package aegon.chrome.net.impl;
 
 import aegon.chrome.net.RequestFinishedInfo;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class VersionSafeCallbacks$RequestFinishedInfoListener extends RequestFinishedInfo.Listener {
     public final RequestFinishedInfo.Listener mWrappedListener;
 

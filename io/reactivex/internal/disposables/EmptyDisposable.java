@@ -1,82 +1,83 @@
 package io.reactivex.internal.disposables;
 
-import io.reactivex.m;
-import io.reactivex.u;
-import io.reactivex.y;
-/* loaded from: classes6.dex */
-public enum EmptyDisposable implements io.reactivex.internal.a.b<Object> {
+import f.a.i;
+import f.a.o;
+import f.a.r;
+import f.a.x.c.b;
+/* loaded from: classes7.dex */
+public enum EmptyDisposable implements b<Object> {
     INSTANCE,
     NEVER;
 
-    @Override // io.reactivex.disposables.b
+    public static void complete(o<?> oVar) {
+        oVar.onSubscribe(INSTANCE);
+        oVar.onComplete();
+    }
+
+    public static void error(Throwable th, o<?> oVar) {
+        oVar.onSubscribe(INSTANCE);
+        oVar.onError(th);
+    }
+
+    @Override // f.a.x.c.f
+    public void clear() {
+    }
+
+    @Override // f.a.t.b
     public void dispose() {
     }
 
-    @Override // io.reactivex.disposables.b
+    @Override // f.a.t.b
     public boolean isDisposed() {
         return this == INSTANCE;
     }
 
-    public static void complete(u<?> uVar) {
-        uVar.onSubscribe(INSTANCE);
-        uVar.onComplete();
+    @Override // f.a.x.c.f
+    public boolean isEmpty() {
+        return true;
     }
 
-    public static void complete(m<?> mVar) {
-        mVar.onSubscribe(INSTANCE);
-        mVar.onComplete();
-    }
-
-    public static void error(Throwable th, u<?> uVar) {
-        uVar.onSubscribe(INSTANCE);
-        uVar.onError(th);
-    }
-
-    public static void complete(io.reactivex.c cVar) {
-        cVar.onSubscribe(INSTANCE);
-        cVar.onComplete();
-    }
-
-    public static void error(Throwable th, io.reactivex.c cVar) {
-        cVar.onSubscribe(INSTANCE);
-        cVar.onError(th);
-    }
-
-    public static void error(Throwable th, y<?> yVar) {
-        yVar.onSubscribe(INSTANCE);
-        yVar.onError(th);
-    }
-
-    public static void error(Throwable th, m<?> mVar) {
-        mVar.onSubscribe(INSTANCE);
-        mVar.onError(th);
-    }
-
-    @Override // io.reactivex.internal.a.f
+    @Override // f.a.x.c.f
     public boolean offer(Object obj) {
         throw new UnsupportedOperationException("Should not be called!");
+    }
+
+    @Override // f.a.x.c.f
+    public Object poll() throws Exception {
+        return null;
+    }
+
+    @Override // f.a.x.c.c
+    public int requestFusion(int i) {
+        return i & 2;
     }
 
     public boolean offer(Object obj, Object obj2) {
         throw new UnsupportedOperationException("Should not be called!");
     }
 
-    @Override // io.reactivex.internal.a.f
-    public Object poll() throws Exception {
-        return null;
+    public static void complete(i<?> iVar) {
+        iVar.onSubscribe(INSTANCE);
+        iVar.onComplete();
     }
 
-    @Override // io.reactivex.internal.a.f
-    public boolean isEmpty() {
-        return true;
+    public static void error(Throwable th, f.a.b bVar) {
+        bVar.onSubscribe(INSTANCE);
+        bVar.onError(th);
     }
 
-    @Override // io.reactivex.internal.a.f
-    public void clear() {
+    public static void complete(f.a.b bVar) {
+        bVar.onSubscribe(INSTANCE);
+        bVar.onComplete();
     }
 
-    @Override // io.reactivex.internal.a.c
-    public int requestFusion(int i) {
-        return i & 2;
+    public static void error(Throwable th, r<?> rVar) {
+        rVar.onSubscribe(INSTANCE);
+        rVar.onError(th);
+    }
+
+    public static void error(Throwable th, i<?> iVar) {
+        iVar.onSubscribe(INSTANCE);
+        iVar.onError(th);
     }
 }

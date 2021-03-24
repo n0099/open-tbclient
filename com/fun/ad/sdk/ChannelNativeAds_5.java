@@ -5,7 +5,7 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.kwad.sdk.api.KsNativeAd;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.win.opensdk.PBNative;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ChannelNativeAds_5 {
     public final IBasicCPUData baiduNative;
     public final TTNativeAd csjNative;
@@ -14,7 +14,7 @@ public class ChannelNativeAds_5 {
     public final KsNativeAd ksNative;
     public GdtADStatusChangeListener mListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface GdtADStatusChangeListener {
         void onADStatusChanged(NativeUnifiedADData nativeUnifiedADData);
     }

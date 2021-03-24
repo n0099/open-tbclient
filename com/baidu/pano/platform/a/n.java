@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.pano.platform.a.b;
 import com.baidu.pano.platform.a.q;
 import com.baidu.pano.platform.a.w;
@@ -13,28 +12,43 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes4.dex */
+import kotlin.text.Typography;
+/* loaded from: classes2.dex */
 public abstract class n<T> implements Comparable<n<T>> {
-    private static long p;
+    public static long p;
 
     /* renamed from: a  reason: collision with root package name */
-    private final w.a f2709a;
-    private final int b;
-    private final String c;
-    private String d;
-    private String e;
-    private final int f;
-    private final q.a g;
-    private Integer h;
-    private p i;
-    private boolean j;
-    private boolean k;
-    private boolean l;
-    private long m;
-    private s n;
-    private b.a o;
+    public final w.a f9383a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final int f9384b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final String f9385c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f9386d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f9387e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final int f9388f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final q.a f9389g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Integer f9390h;
+    public p i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public long m;
+    public s n;
+    public b.a o;
+
+    /* loaded from: classes2.dex */
     public enum a {
         LOW,
         NORMAL,
@@ -42,41 +56,22 @@ public abstract class n<T> implements Comparable<n<T>> {
         IMMEDIATE
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract q<T> a(l lVar);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void a(T t);
-
-    @Override // java.lang.Comparable
-    public /* synthetic */ int compareTo(Object obj) {
-        return a((n) ((n) obj));
-    }
-
     public n(int i, String str, q.a aVar) {
-        this.f2709a = w.a.f2716a ? new w.a() : null;
+        this.f9383a = w.a.f9415a ? new w.a() : null;
         this.j = true;
         this.k = false;
         this.l = false;
         this.m = 0L;
         this.o = null;
-        this.b = i;
-        this.c = str;
-        this.e = a(i, str);
-        this.g = aVar;
+        this.f9384b = i;
+        this.f9385c = str;
+        this.f9387e = a(i, str);
+        this.f9389g = aVar;
         a((s) new e());
-        this.f = d(str);
+        this.f9388f = d(str);
     }
 
-    public int a() {
-        return this.b;
-    }
-
-    public int b() {
-        return this.f;
-    }
-
-    private static int d(String str) {
+    public static int d(String str) {
         Uri parse;
         String host;
         if (TextUtils.isEmpty(str) || (parse = Uri.parse(str)) == null || (host = parse.getHost()) == null) {
@@ -85,77 +80,30 @@ public abstract class n<T> implements Comparable<n<T>> {
         return host.hashCode();
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public n<?> a(s sVar) {
-        this.n = sVar;
-        return this;
+    public int a() {
+        return this.f9384b;
     }
 
-    public void a(String str) {
-        if (w.a.f2716a) {
-            this.f2709a.a(str, Thread.currentThread().getId());
-        } else if (this.m == 0) {
-            this.m = SystemClock.elapsedRealtime();
-        }
+    public abstract q<T> a(l lVar);
+
+    public v a(v vVar) {
+        return vVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(String str) {
-        if (this.i != null) {
-            this.i.b(this);
-        }
-        if (w.a.f2716a) {
-            long id = Thread.currentThread().getId();
-            if (Looper.myLooper() != Looper.getMainLooper()) {
-                new Handler(Looper.getMainLooper()).post(new o(this, str, id));
-                return;
-            }
-            this.f2709a.a(str, id);
-            this.f2709a.a(toString());
-            return;
-        }
-        long elapsedRealtime = SystemClock.elapsedRealtime() - this.m;
-        if (elapsedRealtime >= IMConnection.RETRY_DELAY_TIMES) {
-            w.b("%d ms: %s", Long.valueOf(elapsedRealtime), toString());
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public n<?> a(p pVar) {
-        this.i = pVar;
-        return this;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.pano.platform.a.n<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final n<?> a(int i) {
-        this.h = Integer.valueOf(i);
-        return this;
-    }
+    public abstract void a(T t);
 
     public String c() {
-        return this.d != null ? this.d : this.c;
+        String str = this.f9386d;
+        return str != null ? str : this.f9385c;
     }
 
-    public String d() {
-        return this.c;
-    }
-
-    public void c(String str) {
-        this.d = str;
+    @Override // java.lang.Comparable
+    public /* synthetic */ int compareTo(Object obj) {
+        return a((n) ((n) obj));
     }
 
     public String e() {
         return c();
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public n<?> a(b.a aVar) {
-        this.o = aVar;
-        return this;
     }
 
     public b.a f() {
@@ -175,12 +123,12 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     @Deprecated
-    protected Map<String, String> j() throws com.baidu.pano.platform.a.a {
+    public Map<String, String> j() throws com.baidu.pano.platform.a.a {
         return n();
     }
 
     @Deprecated
-    protected String k() {
+    public String k() {
         return o();
     }
 
@@ -198,11 +146,11 @@ public abstract class n<T> implements Comparable<n<T>> {
         return a(j, k());
     }
 
-    protected Map<String, String> n() throws com.baidu.pano.platform.a.a {
+    public Map<String, String> n() throws com.baidu.pano.platform.a.a {
         return null;
     }
 
-    protected String o() {
+    public String o() {
         return "UTF-8";
     }
 
@@ -218,28 +166,6 @@ public abstract class n<T> implements Comparable<n<T>> {
         return a(n, o());
     }
 
-    private byte[] a(Map<String, String> map, String str) {
-        StringBuilder sb = new StringBuilder();
-        try {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                sb.append(URLEncoder.encode(entry.getKey(), str));
-                sb.append('=');
-                sb.append(URLEncoder.encode(entry.getValue(), str));
-                sb.append('&');
-            }
-            return sb.toString().getBytes(str);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("Encoding not supported: " + str, e);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final n<?> a(boolean z) {
-        this.j = z;
-        return this;
-    }
-
     public final boolean r() {
         return this.j;
     }
@@ -250,6 +176,20 @@ public abstract class n<T> implements Comparable<n<T>> {
 
     public final int t() {
         return this.n.a();
+    }
+
+    public String toString() {
+        String str = "0x" + Integer.toHexString(b());
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.k ? "[X] " : "[ ] ");
+        sb.append(c());
+        sb.append(" ");
+        sb.append(str);
+        sb.append(" ");
+        sb.append(s());
+        sb.append(" ");
+        sb.append(this.f9390h);
+        return sb.toString();
     }
 
     public s u() {
@@ -264,34 +204,125 @@ public abstract class n<T> implements Comparable<n<T>> {
         return this.l;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public v a(v vVar) {
-        return vVar;
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public n<?> a(s sVar) {
+        this.n = sVar;
+        return this;
+    }
+
+    public int b() {
+        return this.f9388f;
+    }
+
+    public void c(String str) {
+        this.f9386d = str;
+    }
+
+    public void a(String str) {
+        if (w.a.f9415a) {
+            this.f9383a.a(str, Thread.currentThread().getId());
+        } else if (this.m == 0) {
+            this.m = SystemClock.elapsedRealtime();
+        }
+    }
+
+    public void b(String str) {
+        p pVar = this.i;
+        if (pVar != null) {
+            pVar.b(this);
+        }
+        if (w.a.f9415a) {
+            long id = Thread.currentThread().getId();
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                new Handler(Looper.getMainLooper()).post(new o(this, str, id));
+                return;
+            }
+            this.f9383a.a(str, id);
+            this.f9383a.a(toString());
+            return;
+        }
+        long elapsedRealtime = SystemClock.elapsedRealtime() - this.m;
+        if (elapsedRealtime >= 3000) {
+            w.b("%d ms: %s", Long.valueOf(elapsedRealtime), toString());
+        }
+    }
+
+    public String d() {
+        return this.f9385c;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public n<?> a(p pVar) {
+        this.i = pVar;
+        return this;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final n<?> a(int i) {
+        this.f9390h = Integer.valueOf(i);
+        return this;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public n<?> a(b.a aVar) {
+        this.o = aVar;
+        return this;
+    }
+
+    private byte[] a(Map<String, String> map, String str) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                sb.append(URLEncoder.encode(entry.getKey(), str));
+                sb.append(com.alipay.sdk.encrypt.a.f1897h);
+                sb.append(URLEncoder.encode(entry.getValue(), str));
+                sb.append(Typography.amp);
+            }
+            return sb.toString().getBytes(str);
+        } catch (UnsupportedEncodingException e2) {
+            throw new RuntimeException("Encoding not supported: " + str, e2);
+        }
     }
 
     public void b(v vVar) {
-        if (this.g != null) {
-            this.g.a(vVar);
+        q.a aVar = this.f9389g;
+        if (aVar != null) {
+            aVar.a(vVar);
         }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.pano.platform.a.n<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final n<?> a(boolean z) {
+        this.j = z;
+        return this;
     }
 
     public int a(n<T> nVar) {
         a s = s();
         a s2 = nVar.s();
         if (s == s2) {
-            return this.h.intValue() - nVar.h.intValue();
+            return this.f9390h.intValue() - nVar.f9390h.intValue();
         }
         return s2.ordinal() - s.ordinal();
     }
 
-    public String toString() {
-        return (this.k ? "[X] " : "[ ] ") + c() + " " + ("0x" + Integer.toHexString(b())) + " " + s() + " " + this.h;
-    }
-
-    private static String a(int i, String str) {
-        StringBuilder append = new StringBuilder().append("Request:").append(i).append(":").append(str).append(":").append(System.currentTimeMillis()).append(":");
+    public static String a(int i, String str) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Request:");
+        sb.append(i);
+        sb.append(":");
+        sb.append(str);
+        sb.append(":");
+        sb.append(System.currentTimeMillis());
+        sb.append(":");
         long j = p;
         p = 1 + j;
-        return h.a(append.append(j).toString());
+        sb.append(j);
+        return h.a(sb.toString());
     }
 }

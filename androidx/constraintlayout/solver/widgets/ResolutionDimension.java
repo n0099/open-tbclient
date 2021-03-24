@@ -1,7 +1,11 @@
 package androidx.constraintlayout.solver.widgets;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class ResolutionDimension extends ResolutionNode {
-    float value = 0.0f;
+    public float value = 0.0f;
+
+    public void remove() {
+        this.state = 2;
+    }
 
     @Override // androidx.constraintlayout.solver.widgets.ResolutionNode
     public void reset() {
@@ -17,9 +21,5 @@ public class ResolutionDimension extends ResolutionNode {
             }
             didResolve();
         }
-    }
-
-    public void remove() {
-        this.state = 2;
     }
 }

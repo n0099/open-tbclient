@@ -8,11 +8,16 @@ import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class CharArrayCodec implements ObjectDeserializer {
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
         return (T) deserialze(defaultJSONParser);
+    }
+
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public int getFastMatchToken() {
+        return 4;
     }
 
     public static <T> T deserialze(DefaultJSONParser defaultJSONParser) {
@@ -31,23 +36,26 @@ public class CharArrayCodec implements ObjectDeserializer {
             if (parse instanceof String) {
                 return (T) ((String) parse).toCharArray();
             }
-            if (parse instanceof Collection) {
-                Collection<String> collection = (Collection) parse;
-                Iterator it = collection.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        z = true;
-                        break;
-                    }
-                    Object next = it.next();
-                    if ((next instanceof String) && ((String) next).length() != 1) {
-                        z = false;
-                        break;
-                    }
+            if (!(parse instanceof Collection)) {
+                if (parse == null) {
+                    return null;
                 }
-                if (!z) {
-                    throw new JSONException("can not cast to char[]");
+                return (T) JSON.toJSONString(parse).toCharArray();
+            }
+            Collection<String> collection = (Collection) parse;
+            Iterator it = collection.iterator();
+            while (true) {
+                z = true;
+                if (!it.hasNext()) {
+                    break;
                 }
+                Object next = it.next();
+                if ((next instanceof String) && ((String) next).length() != 1) {
+                    z = false;
+                    break;
+                }
+            }
+            if (z) {
                 char[] cArr = new char[collection.size()];
                 int i = 0;
                 for (String str : collection) {
@@ -55,16 +63,8 @@ public class CharArrayCodec implements ObjectDeserializer {
                     i++;
                 }
                 return cArr;
-            } else if (parse == null) {
-                return null;
-            } else {
-                return (T) JSON.toJSONString(parse).toCharArray();
             }
+            throw new JSONException("can not cast to char[]");
         }
-    }
-
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public int getFastMatchToken() {
-        return 4;
     }
 }

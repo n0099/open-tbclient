@@ -5,101 +5,93 @@ import com.kwai.filedownloader.message.MessageSnapshot;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ArrayList<a.b> f7216a;
+    public final ArrayList<a.b> f37026a;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final h f7217a = new h();
+        public static final h f37027a = new h();
     }
 
-    private h() {
-        this.f7216a = new ArrayList<>();
+    public h() {
+        this.f37026a = new ArrayList<>();
     }
 
     public static h a() {
-        return a.f7217a;
+        return a.f37027a;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int a(int i) {
-        int i2 = 0;
-        synchronized (this.f7216a) {
-            Iterator<a.b> it = this.f7216a.iterator();
+        int i2;
+        synchronized (this.f37026a) {
+            Iterator<a.b> it = this.f37026a.iterator();
+            i2 = 0;
             while (it.hasNext()) {
-                i2 = it.next().b(i) ? i2 + 1 : i2;
+                if (it.next().b(i)) {
+                    i2++;
+                }
             }
         }
         return i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(List<a.b> list) {
-        synchronized (this.f7216a) {
-            Iterator<a.b> it = this.f7216a.iterator();
+        synchronized (this.f37026a) {
+            Iterator<a.b> it = this.f37026a.iterator();
             while (it.hasNext()) {
                 a.b next = it.next();
                 if (!list.contains(next)) {
                     list.add(next);
                 }
             }
-            this.f7216a.clear();
+            this.f37026a.clear();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(a.b bVar) {
-        return this.f7216a.isEmpty() || !this.f7216a.contains(bVar);
+        return this.f37026a.isEmpty() || !this.f37026a.contains(bVar);
     }
 
     public boolean a(a.b bVar, MessageSnapshot messageSnapshot) {
         boolean remove;
-        byte b = messageSnapshot.b();
-        synchronized (this.f7216a) {
-            remove = this.f7216a.remove(bVar);
+        byte b2 = messageSnapshot.b();
+        synchronized (this.f37026a) {
+            remove = this.f37026a.remove(bVar);
         }
-        if (com.kwai.filedownloader.f.d.f7212a && this.f7216a.size() == 0) {
-            com.kwai.filedownloader.f.d.e(this, "remove %s left %d %d", bVar, Byte.valueOf(b), Integer.valueOf(this.f7216a.size()));
+        if (com.kwai.filedownloader.f.d.f37011a && this.f37026a.size() == 0) {
+            com.kwai.filedownloader.f.d.e(this, "remove %s left %d %d", bVar, Byte.valueOf(b2), Integer.valueOf(this.f37026a.size()));
         }
         if (remove) {
-            s d = bVar.G().d();
-            switch (b) {
-                case -4:
-                    d.g(messageSnapshot);
-                    break;
-                case -3:
-                    d.e(com.kwai.filedownloader.message.f.a(messageSnapshot));
-                    break;
-                case -2:
-                    d.i(messageSnapshot);
-                    break;
-                case -1:
-                    d.h(messageSnapshot);
-                    break;
+            s d2 = bVar.G().d();
+            if (b2 == -4) {
+                d2.g(messageSnapshot);
+            } else if (b2 == -3) {
+                d2.e(com.kwai.filedownloader.message.f.a(messageSnapshot));
+            } else if (b2 == -2) {
+                d2.i(messageSnapshot);
+            } else if (b2 == -1) {
+                d2.h(messageSnapshot);
             }
         } else {
-            com.kwai.filedownloader.f.d.a(this, "remove error, not exist: %s %d", bVar, Byte.valueOf(b));
+            com.kwai.filedownloader.f.d.a(this, "remove error, not exist: %s %d", bVar, Byte.valueOf(b2));
         }
         return remove;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int b() {
-        return this.f7216a.size();
+        return this.f37026a.size();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public List<a.b> b(int i) {
         byte v;
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f7216a) {
-            Iterator<a.b> it = this.f7216a.iterator();
+        synchronized (this.f37026a) {
+            Iterator<a.b> it = this.f37026a.iterator();
             while (it.hasNext()) {
                 a.b next = it.next();
                 if (next.b(i) && !next.H() && (v = next.F().v()) != 0 && v != 10) {
@@ -110,7 +102,6 @@ public class h {
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b(a.b bVar) {
         if (!bVar.F().d()) {
             bVar.J();
@@ -120,11 +111,10 @@ public class h {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public List<a.b> c(int i) {
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f7216a) {
-            Iterator<a.b> it = this.f7216a.iterator();
+        synchronized (this.f37026a) {
+            Iterator<a.b> it = this.f37026a.iterator();
             while (it.hasNext()) {
                 a.b next = it.next();
                 if (next.b(i) && !next.H()) {
@@ -135,19 +125,18 @@ public class h {
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void c(a.b bVar) {
         if (bVar.K()) {
             return;
         }
-        synchronized (this.f7216a) {
-            if (this.f7216a.contains(bVar)) {
+        synchronized (this.f37026a) {
+            if (this.f37026a.contains(bVar)) {
                 com.kwai.filedownloader.f.d.d(this, "already has %s", bVar);
             } else {
                 bVar.L();
-                this.f7216a.add(bVar);
-                if (com.kwai.filedownloader.f.d.f7212a) {
-                    com.kwai.filedownloader.f.d.e(this, "add list in all %s %d %d", bVar, Byte.valueOf(bVar.F().v()), Integer.valueOf(this.f7216a.size()));
+                this.f37026a.add(bVar);
+                if (com.kwai.filedownloader.f.d.f37011a) {
+                    com.kwai.filedownloader.f.d.e(this, "add list in all %s %d %d", bVar, Byte.valueOf(bVar.F().v()), Integer.valueOf(this.f37026a.size()));
                 }
             }
         }

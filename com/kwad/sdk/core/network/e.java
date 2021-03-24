@@ -5,22 +5,19 @@ import androidx.annotation.WorkerThread;
 import com.kwad.sdk.api.KsAdSDK;
 import java.io.File;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f6186a = null;
-
-    private e() {
-    }
+    public static volatile e f33867a;
 
     public static synchronized e a() {
         e eVar;
         synchronized (e.class) {
-            if (f6186a == null) {
-                f6186a = new e();
+            if (f33867a == null) {
+                f33867a = new e();
             }
-            eVar = f6186a;
+            eVar = f33867a;
         }
         return eVar;
     }
@@ -29,8 +26,8 @@ public class e {
     private void b(String str) {
         try {
             com.kwad.sdk.utils.k.a(new File(d()), str, Charset.forName("UTF-8"), false);
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
@@ -39,8 +36,8 @@ public class e {
     private String c() {
         try {
             return com.kwad.sdk.utils.k.a(new File(d()), Charset.forName("UTF-8"));
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
             return null;
         }
     }
@@ -51,8 +48,8 @@ public class e {
 
     @WorkerThread
     public void a(String str) {
-        String c = c();
-        if (c == null || !c.equals(str)) {
+        String c2 = c();
+        if (c2 == null || !c2.equals(str)) {
             com.kwad.sdk.core.d.a.a("CookieStrHelper", "CookieStrHelper saveCookieString newCookieString=" + str);
             b(str);
         }
@@ -61,8 +58,8 @@ public class e {
     @Nullable
     @WorkerThread
     public String b() {
-        String c = c();
-        com.kwad.sdk.core.d.a.a("CookieStrHelper", "CookieStrHelper getCookieString cookieString=" + c);
-        return c;
+        String c2 = c();
+        com.kwad.sdk.core.d.a.a("CookieStrHelper", "CookieStrHelper getCookieString cookieString=" + c2);
+        return c2;
     }
 }

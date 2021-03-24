@@ -12,11 +12,11 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMPaAcceptPushMsg extends Message {
-    private boolean mAcceptPush;
-    private Context mContext;
-    private long mPaId;
+    public boolean mAcceptPush;
+    public Context mContext;
+    public long mPaId;
 
     public IMPaAcceptPushMsg(Context context, long j, boolean z) {
         this.mContext = null;
@@ -28,10 +28,6 @@ public class IMPaAcceptPushMsg extends Message {
         setType(105);
     }
 
-    public long getPaId() {
-        return this.mPaId;
-    }
-
     public static IMPaAcceptPushMsg newInstance(Context context, Intent intent) {
         if (intent.hasExtra(Constants.EXTRA_PA_ID) && intent.hasExtra(Constants.EXTRA_PA_ACCEPT_PUSH)) {
             return new IMPaAcceptPushMsg(context, intent.getLongExtra(Constants.EXTRA_PA_ID, -1L), intent.getBooleanExtra(Constants.EXTRA_PA_ACCEPT_PUSH, true));
@@ -40,7 +36,7 @@ public class IMPaAcceptPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
+    public void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("method", 105);
@@ -50,10 +46,14 @@ public class IMPaAcceptPushMsg extends Message {
             jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
             jSONObject.put("is_accept_msg", this.mAcceptPush);
             this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "buildBody:", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "buildBody:", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
+    }
+
+    public long getPaId() {
+        return this.mPaId;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -61,9 +61,9 @@ public class IMPaAcceptPushMsg extends Message {
         if (i == 0) {
             try {
                 PaInfoDBManager.getInstance(context).acceptPaPush(this.mPaId, this.mAcceptPush);
-            } catch (Exception e) {
-                LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            } catch (Exception e2) {
+                LogUtils.e(LogUtils.TAG, "handleMessageResult:", e2);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             }
         }
         super.handleMessageResult(context, jSONObject, i, str);

@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static AtomicBoolean f5781a = new AtomicBoolean(false);
+    public static AtomicBoolean f32637a = new AtomicBoolean(false);
 
     @Nullable
-    private static com.kwai.video.ksvodplayerkit.d.b a(AdTemplate adTemplate, int i) {
+    public static com.kwai.video.ksvodplayerkit.d.b a(AdTemplate adTemplate, int i) {
         if (adTemplate != null) {
             String l = com.kwad.sdk.core.response.b.c.l(adTemplate);
             if (ag.a(l)) {
@@ -36,16 +36,16 @@ public class b {
     }
 
     public static void a(List<KsScene> list) {
-        if (list == null || list.isEmpty() || f5781a.get()) {
+        if (list == null || list.isEmpty() || f32637a.get()) {
             return;
         }
-        f5781a.set(true);
+        f32637a.set(true);
         h.a aVar = new h.a();
         for (KsScene ksScene : list) {
-            aVar.f6152a.add(new com.kwad.sdk.core.g.a.f(ksScene));
+            aVar.f33784a.add(new com.kwad.sdk.core.g.a.f(ksScene));
         }
-        aVar.b = new com.kwad.sdk.core.g.a.c();
-        aVar.d = new j(1);
+        aVar.f33785b = new com.kwad.sdk.core.g.a.c();
+        aVar.f33787d = new j(1);
         i.a(aVar, new e.a() { // from class: com.kwad.sdk.contentalliance.home.b.1
             @Override // com.kwad.sdk.core.g.e.a
             public void a(int i, String str) {
@@ -56,7 +56,8 @@ public class b {
             public void a(@NonNull AdResultData adResultData) {
                 com.kwad.sdk.core.d.a.a("ContentPreloadManager", "PhotoRequestManager onSuccess");
                 if (adResultData.result != 1) {
-                    a(com.kwad.sdk.core.network.f.c.k, com.kwad.sdk.core.network.f.c.l);
+                    com.kwad.sdk.core.network.f fVar = com.kwad.sdk.core.network.f.f33870c;
+                    a(fVar.k, fVar.l);
                     return;
                 }
                 ArrayList arrayList = new ArrayList();
@@ -71,7 +72,8 @@ public class b {
                     }
                 }
                 if (arrayList.isEmpty()) {
-                    a(com.kwad.sdk.core.network.f.c.k, com.kwad.sdk.core.network.f.c.l);
+                    com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f33870c;
+                    a(fVar2.k, fVar2.l);
                     return;
                 }
                 com.kwad.sdk.core.d.a.a("ContentPreloadManager", "save");
@@ -83,25 +85,24 @@ public class b {
         });
     }
 
-    private static boolean a() {
+    public static boolean a() {
         return com.kwad.sdk.core.video.a.e.b() && com.kwad.sdk.core.config.c.p() && com.kwad.sdk.core.config.c.ag() && b() && com.kwad.sdk.core.video.a.d.p();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void b(@NonNull Map<Long, AdTemplate> map) {
         if (a()) {
             c(map);
         }
     }
 
-    private static boolean b() {
+    public static boolean b() {
         if (com.kwad.sdk.core.config.c.ah() != 1) {
             return com.kwad.sdk.core.config.c.ah() == 2 && com.ksad.download.d.b.b(KsAdSDKImpl.get().getContext());
         }
         return true;
     }
 
-    private static void c(@NonNull Map<Long, AdTemplate> map) {
+    public static void c(@NonNull Map<Long, AdTemplate> map) {
         int i = 0;
         for (Long l : map.keySet()) {
             AdTemplate adTemplate = map.get(l);

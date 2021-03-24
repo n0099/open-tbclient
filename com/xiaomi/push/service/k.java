@@ -1,69 +1,70 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.push.service.ap;
-import java.util.Locale;
-/* loaded from: classes5.dex */
-public class k {
+import android.text.TextUtils;
+import com.xiaomi.push.hf;
+import com.xiaomi.push.hs;
+import com.xiaomi.push.ib;
+import com.xiaomi.push.ie;
+import com.xiaomi.push.ip;
+import com.xiaomi.push.service.XMPushService;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class k extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f8571a;
+    public final /* synthetic */ j f41041a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f915a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final String e;
-    public final String f;
+    public final /* synthetic */ String f957a;
 
-    public k(String str, String str2, String str3, String str4, String str5, String str6, int i) {
-        this.f915a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = str4;
-        this.e = str5;
-        this.f = str6;
-        this.f8571a = i;
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ List f958a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ String f41042b;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(j jVar, int i, String str, List list, String str2) {
+        super(i);
+        this.f41041a = jVar;
+        this.f957a = str;
+        this.f958a = list;
+        this.f41042b = str2;
     }
 
-    public static boolean a() {
-        try {
-            return com.xiaomi.push.t.a(null, "miui.os.Build").getField("IS_ALPHA_BUILD").getBoolean(null);
-        } catch (Exception e) {
-            return false;
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "Send tiny data.";
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        String a2;
+        XMPushService xMPushService;
+        a2 = this.f41041a.a(this.f957a);
+        ArrayList<ie> a3 = bm.a(this.f958a, this.f957a, a2, 32768);
+        if (a3 == null) {
+            com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
+            return;
         }
-    }
-
-    public static boolean a(Context context) {
-        return "com.xiaomi.xmsf".equals(context.getPackageName()) && a();
-    }
-
-    private static boolean b(Context context) {
-        return context.getPackageName().equals("com.xiaomi.xmsf");
-    }
-
-    public ap.b a(XMPushService xMPushService) {
-        ap.b bVar = new ap.b(xMPushService);
-        a(bVar, xMPushService, xMPushService.b(), "c");
-        return bVar;
-    }
-
-    public ap.b a(ap.b bVar, Context context, d dVar, String str) {
-        bVar.f859a = context.getPackageName();
-        bVar.f862b = this.f915a;
-        bVar.h = this.c;
-        bVar.c = this.b;
-        bVar.g = "5";
-        bVar.d = "XMPUSH-PASS";
-        bVar.f861a = false;
-        bVar.e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 39, "cpvn", "3_7_5", "cpvc", 30705, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
-        bVar.f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.d, "locale", Locale.getDefault().toString(), Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
-        if (a(context)) {
-            bVar.f += String.format(",%1$s:%2$s", "ab", str);
+        Iterator<ie> it = a3.iterator();
+        while (it.hasNext()) {
+            ie next = it.next();
+            next.a("uploadWay", "longXMPushService");
+            ib a4 = y.a(this.f957a, a2, next, hf.Notification);
+            if (!TextUtils.isEmpty(this.f41042b) && !TextUtils.equals(this.f957a, this.f41042b)) {
+                if (a4.m431a() == null) {
+                    hs hsVar = new hs();
+                    hsVar.a("-1");
+                    a4.a(hsVar);
+                }
+                a4.m431a().b("ext_traffic_source_pkg", this.f41042b);
+            }
+            byte[] a5 = ip.a(a4);
+            xMPushService = this.f41041a.f41040a;
+            xMPushService.a(this.f957a, a5, true);
         }
-        bVar.f858a = dVar;
-        return bVar;
     }
 }

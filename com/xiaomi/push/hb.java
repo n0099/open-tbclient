@@ -1,24 +1,227 @@
 package com.xiaomi.push;
 
-import com.xiaomi.push.service.ap;
-/* loaded from: classes5.dex */
-/* synthetic */ class hb {
+import android.content.Context;
+import android.content.SharedPreferences;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
+public class hb {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f8406a = new int[ap.c.values().length];
+    public static boolean f40624a = false;
 
-    static {
-        try {
-            f8406a[ap.c.unbind.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+
+        /* renamed from: a  reason: collision with root package name */
+        public Context f40625a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public he f465a;
+
+        public a(Context context, he heVar) {
+            this.f465a = heVar;
+            this.f40625a = context;
         }
-        try {
-            f8406a[ap.c.binding.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+
+        @Override // java.lang.Runnable
+        public void run() {
+            hb.c(this.f40625a, this.f465a);
         }
-        try {
-            f8406a[ap.c.binded.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+    }
+
+    public static void a(Context context) {
+        File file = new File(context.getFilesDir() + "/tdReadTemp");
+        if (file.exists()) {
+            return;
         }
+        file.mkdirs();
+    }
+
+    public static void a(Context context, he heVar) {
+        ai.a(context).a(new a(context, heVar));
+    }
+
+    public static void a(Context context, he heVar, File file, byte[] bArr) {
+        String str;
+        int a2;
+        ArrayList arrayList = new ArrayList();
+        byte[] bArr2 = new byte[4];
+        BufferedInputStream bufferedInputStream = null;
+        try {
+            try {
+                BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
+                loop0: while (true) {
+                    int i = 0;
+                    int i2 = 0;
+                    while (true) {
+                        try {
+                            int read = bufferedInputStream2.read(bArr2);
+                            if (read == -1) {
+                                break loop0;
+                            } else if (read == 4) {
+                                a2 = ac.a(bArr2);
+                                if (a2 < 1 || a2 > 10240) {
+                                    break loop0;
+                                }
+                                byte[] bArr3 = new byte[a2];
+                                int read2 = bufferedInputStream2.read(bArr3);
+                                if (read2 != a2) {
+                                    str = "TinyData read from cache file failed cause buffer size not equal length. size:" + read2 + "__length:" + a2;
+                                    break loop0;
+                                }
+                                byte[] a3 = h.a(bArr, bArr3);
+                                if (a3 != null && a3.length != 0) {
+                                    hj hjVar = new hj();
+                                    ip.a(hjVar, a3);
+                                    hjVar.a("item_size", String.valueOf(a3.length));
+                                    arrayList.add(hjVar);
+                                    i++;
+                                    i2 += a3.length;
+                                    if (i >= 8 || i2 >= 10240) {
+                                    }
+                                }
+                                com.xiaomi.channel.commonutils.logger.b.d("TinyData read from cache file failed cause decrypt fail");
+                            } else {
+                                str = "TinyData read from cache file failed cause lengthBuffer error. size:" + read;
+                                break loop0;
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            bufferedInputStream = bufferedInputStream2;
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                            y.a(bufferedInputStream);
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedInputStream = bufferedInputStream2;
+                            y.a(bufferedInputStream);
+                            throw th;
+                        }
+                    }
+                    hc.a(context, heVar, arrayList);
+                    arrayList.clear();
+                }
+                str = "TinyData read from cache file failed cause lengthBuffer < 1 || too big. length:" + a2;
+                com.xiaomi.channel.commonutils.logger.b.d(str);
+                hc.a(context, heVar, arrayList);
+                if (file != null && file.exists() && !file.delete()) {
+                    com.xiaomi.channel.commonutils.logger.b.m51a("TinyData delete reading temp file failed");
+                }
+                y.a(bufferedInputStream2);
+            } catch (Exception e3) {
+                e = e3;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static void b(Context context) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 4).edit();
+        edit.putLong("last_tiny_data_upload_timestamp", System.currentTimeMillis() / 1000);
+        edit.commit();
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00b7  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00bb  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(Context context, he heVar) {
+        RandomAccessFile randomAccessFile;
+        File file;
+        if (f40624a) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("TinyData extractTinyData is running");
+            return;
+        }
+        f40624a = true;
+        File file2 = new File(context.getFilesDir(), "tiny_data.data");
+        if (!file2.exists()) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("TinyData no ready file to get data.");
+            return;
+        }
+        a(context);
+        byte[] a2 = com.xiaomi.push.service.bn.a(context);
+        FileLock fileLock = null;
+        try {
+            try {
+                File file3 = new File(context.getFilesDir(), "tiny_data.lock");
+                y.m624a(file3);
+                randomAccessFile = new RandomAccessFile(file3, "rw");
+                try {
+                    fileLock = randomAccessFile.getChannel().lock();
+                    file2.renameTo(new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data"));
+                    if (fileLock != null && fileLock.isValid()) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e2) {
+                            e = e2;
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                            y.a(randomAccessFile);
+                            file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
+                            if (file.exists()) {
+                            }
+                        }
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    if (fileLock != null && fileLock.isValid()) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e4) {
+                            e = e4;
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                            y.a(randomAccessFile);
+                            file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
+                            if (file.exists()) {
+                            }
+                        }
+                    }
+                    y.a(randomAccessFile);
+                    file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
+                    if (file.exists()) {
+                    }
+                }
+            } catch (Throwable th) {
+                th = th;
+                if (fileLock != null && fileLock.isValid()) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException e5) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e5);
+                    }
+                }
+                y.a(randomAccessFile);
+                throw th;
+            }
+        } catch (Exception e6) {
+            e = e6;
+            randomAccessFile = null;
+        } catch (Throwable th2) {
+            th = th2;
+            randomAccessFile = null;
+            if (fileLock != null) {
+                fileLock.release();
+            }
+            y.a(randomAccessFile);
+            throw th;
+        }
+        y.a(randomAccessFile);
+        file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
+        if (file.exists()) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("TinyData no ready file to get data.");
+            return;
+        }
+        a(context, heVar, file, a2);
+        ha.a(false);
+        b(context);
+        f40624a = false;
     }
 }

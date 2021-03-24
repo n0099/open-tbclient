@@ -1,8 +1,8 @@
 package com.google.zxing.client.result;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class TextParsedResult extends ParsedResult {
-    private final String language;
-    private final String text;
+    public final String language;
+    public final String text;
 
     public TextParsedResult(String str, String str2) {
         super(ParsedResultType.TEXT);
@@ -10,7 +10,8 @@ public final class TextParsedResult extends ParsedResult {
         this.language = str2;
     }
 
-    public String getText() {
+    @Override // com.google.zxing.client.result.ParsedResult
+    public String getDisplayResult() {
         return this.text;
     }
 
@@ -18,8 +19,7 @@ public final class TextParsedResult extends ParsedResult {
         return this.language;
     }
 
-    @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
+    public String getText() {
         return this.text;
     }
 }

@@ -14,22 +14,24 @@ import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
 import com.baidu.media.duplayer.monitor.DuplayerQualityMonitorManager;
 import com.baidu.media.recorder.DuAudioRecorder;
+import d.b.w.a.c;
+import d.b.w.b.a;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public long caculateFolderSize() {
         if (isLoaded(1)) {
-            return Utils.d();
+            return Utils.m();
         }
         return 0L;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public CaptureManagerProvider createCaptureManager(Context context, int i, int i2, int i3, int i4, int i5) {
-        return com.baidu.media.ext.a.a(context, i, i2, i3, i4, i5);
+        return a.a(context, i, i2, i3, i4, i5);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -39,7 +41,7 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public ExtractorProvider createCyberExtractor() {
-        return com.baidu.media.extractor.a.a();
+        return d.b.w.c.a.a();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -54,27 +56,27 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public RTCRoomProvider createRTCRoom() {
-        return com.baidu.media.ext.a.abB();
+        return a.f();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public RTCVideoViewProvider createRTCVideoView(Context context, AttributeSet attributeSet) {
-        return com.baidu.media.ext.a.a(context, attributeSet);
+        return a.b(context, attributeSet);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void duplayerEncrypt(byte[] bArr, int i, byte[] bArr2) {
-        Utils.a(bArr, i, bArr2);
+        Utils.h(bArr, i, bArr2);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void enableRTCCaptureDebug(boolean z) {
-        com.baidu.media.ext.a.b(z);
+        a.g(z);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void forceCleanFilecache() {
-        Utils.c();
+        Utils.k();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -89,7 +91,7 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public String[] getLibsSearchPath() {
-        return b.a();
+        return c.f();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -114,17 +116,17 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void init(Context context, String str) {
-        b.a(context, str);
+        c.b(context, str);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public boolean isLoaded(int i) {
-        return b.a(i);
+        return c.d(i);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void loadlibs(int i, Map<String, String> map) {
-        b.a(i, map);
+        c.a(i, map);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -134,7 +136,7 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void setRTCVerbose(boolean z) {
-        com.baidu.media.ext.a.a(z);
+        a.c(z);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -144,6 +146,6 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void updateCfg() {
-        Utils.e();
+        Utils.o();
     }
 }

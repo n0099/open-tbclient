@@ -8,9 +8,9 @@ import org.apache.http.conn.routing.HttpRoutePlanner;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DefaultHttpRoutePlanner implements HttpRoutePlanner {
-    protected SchemeRegistry schemeRegistry;
+    public SchemeRegistry schemeRegistry;
 
     public DefaultHttpRoutePlanner(SchemeRegistry schemeRegistry) {
         throw new RuntimeException("Stub!");

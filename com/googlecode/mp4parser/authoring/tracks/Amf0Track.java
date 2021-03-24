@@ -19,10 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Amf0Track extends AbstractTrack {
-    SortedMap<Long, byte[]> rawSamples;
-    private TrackMetaData trackMetaData = new TrackMetaData();
+    public SortedMap<Long, byte[]> rawSamples;
+    public TrackMetaData trackMetaData = new TrackMetaData();
 
     public Amf0Track(Map<Long, byte[]> map) {
         this.rawSamples = new TreeMap<Long, byte[]>() { // from class: com.googlecode.mp4parser.authoring.tracks.Amf0Track.1
@@ -34,13 +34,24 @@ public class Amf0Track extends AbstractTrack {
         this.trackMetaData.setLanguage("eng");
     }
 
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
+        return null;
+    }
+
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List<Sample> getSamples() {
-        LinkedList linkedList = new LinkedList();
-        for (byte[] bArr : this.rawSamples.values()) {
-            linkedList.add(new SampleImpl(ByteBuffer.wrap(bArr)));
-        }
-        return linkedList;
+    public String getHandler() {
+        return "data";
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public Box getMediaHeaderBox() {
+        return new NullMediaHeaderBox();
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
@@ -57,20 +68,23 @@ public class Amf0Track extends AbstractTrack {
         LinkedList linkedList = new LinkedList(this.rawSamples.keySet());
         Collections.sort(linkedList);
         long[] jArr = new long[linkedList.size()];
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < linkedList.size()) {
-                jArr[i2] = ((Long) linkedList.get(i2)).longValue() - 0;
-                i = i2 + 1;
-            } else {
-                return jArr;
-            }
+        for (int i = 0; i < linkedList.size(); i++) {
+            jArr[i] = ((Long) linkedList.get(i)).longValue() - 0;
         }
+        return jArr;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public List<Sample> getSamples() {
+        LinkedList linkedList = new LinkedList();
+        for (byte[] bArr : this.rawSamples.values()) {
+            linkedList.add(new SampleImpl(ByteBuffer.wrap(bArr)));
+        }
+        return linkedList;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
+    public SubSampleInformationBox getSubsampleInformationBox() {
         return null;
     }
 
@@ -79,28 +93,8 @@ public class Amf0Track extends AbstractTrack {
         return null;
     }
 
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        return null;
-    }
-
     @Override // com.googlecode.mp4parser.authoring.Track
     public TrackMetaData getTrackMetaData() {
         return this.trackMetaData;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public String getHandler() {
-        return "data";
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public Box getMediaHeaderBox() {
-        return new NullMediaHeaderBox();
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public SubSampleInformationBox getSubsampleInformationBox() {
-        return null;
     }
 }

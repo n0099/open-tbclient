@@ -13,18 +13,20 @@ import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.downloadnew.core.a;
 import com.bytedance.sdk.openadsdk.utils.a;
-import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.al;
 import com.bytedance.sdk.openadsdk.utils.g;
 import com.bytedance.sdk.openadsdk.utils.k;
 import com.bytedance.sdk.openadsdk.utils.m;
 import com.bytedance.sdk.openadsdk.utils.q;
 import com.bytedance.sdk.openadsdk.utils.u;
-import com.ss.android.a.a.d.a;
-import com.ss.android.socialbase.downloader.d.o;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import com.ss.android.socialbase.downloader.exception.BaseException;
+import com.ss.android.socialbase.downloader.model.DownloadInfo;
+import d.o.a.a.a.d.a;
+import d.o.a.d.f.c;
 import java.io.File;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -34,68 +36,129 @@ import org.json.JSONObject;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f4724a;
-    private static Context c;
-    private static Map<Integer, a.InterfaceC1029a> d;
-    private static final AtomicBoolean b = new AtomicBoolean(false);
-    private static boolean e = true;
-    private static com.ss.android.a.a.b.a.a f = new com.ss.android.a.a.b.a.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.1
-        @Override // com.ss.android.a.a.b.a.a
-        public void a(@NonNull com.ss.android.a.a.b.c cVar, @Nullable com.ss.android.a.a.b.a aVar, @Nullable com.ss.android.a.a.b.b bVar) {
+    public static volatile String f29250a;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Context f29252c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static Map<Integer, a.InterfaceC0317a> f29253d;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final AtomicBoolean f29251b = new AtomicBoolean(false);
+
+    /* renamed from: e  reason: collision with root package name */
+    public static boolean f29254e = true;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static d.o.a.a.a.c.a.a f29255f = new d.o.a.a.a.c.a.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.1
+        @Override // d.o.a.a.a.c.a.a
+        public void a(@NonNull d.o.a.a.a.c.d dVar, @Nullable d.o.a.a.a.c.b bVar, @Nullable d.o.a.a.a.c.c cVar) {
             u.b("LibHolder", "completeListener: onDownloadStart");
         }
 
-        @Override // com.ss.android.a.a.b.a.a
-        public void a(@NonNull com.ss.android.socialbase.downloader.g.c cVar, String str) {
-            u.b("LibHolder", "completeListener: onDownloadFinished");
-        }
-
-        @Override // com.ss.android.a.a.b.a.a
-        public void b(@Nullable com.ss.android.socialbase.downloader.g.c cVar, String str) {
+        @Override // d.o.a.a.a.c.a.a
+        public void b(@Nullable DownloadInfo downloadInfo, String str) {
             u.b("LibHolder", "completeListener: onInstalled");
             g.b(str);
         }
 
-        @Override // com.ss.android.a.a.b.a.a
-        public void a(@NonNull com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar, String str) {
+        @Override // d.o.a.a.a.c.a.a
+        public void a(@NonNull DownloadInfo downloadInfo, String str) {
+            u.b("LibHolder", "completeListener: onDownloadFinished");
+        }
+
+        @Override // d.o.a.a.a.c.a.a
+        public void a(@NonNull DownloadInfo downloadInfo, BaseException baseException, String str) {
             u.b("LibHolder", "completeListener: onDownloadFailed");
         }
 
-        @Override // com.ss.android.a.a.b.a.a
-        public void a(@NonNull com.ss.android.socialbase.downloader.g.c cVar) {
+        @Override // d.o.a.a.a.c.a.a
+        public void a(@NonNull DownloadInfo downloadInfo) {
             u.b("LibHolder", "completeListener: onCanceled");
         }
     };
 
     static {
         try {
-            f4724a = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
-        } catch (Throwable th) {
+            f29250a = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
+        } catch (Throwable unused) {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void b(String str) {
-        com.ss.android.b.a.b.a aaX;
-        JSONObject q;
+        d.o.a.b.a.c.b d2;
+        JSONObject g2;
         JSONObject optJSONObject;
         com.bytedance.sdk.openadsdk.downloadnew.a.b.a a2;
         l lVar;
-        if (!ak.a()) {
+        if (!al.a()) {
             u.b("LibHolder", "锁屏不执行自启动调起");
-        } else if (!TextUtils.isEmpty(str) && (aaX = com.ss.android.downloadlib.a.b.d.eEF().aaX(str)) != null && (q = aaX.q()) != null && (optJSONObject = q.optJSONObject("open_ad_sdk_download_extra")) != null && (a2 = com.bytedance.sdk.openadsdk.downloadnew.a.b.a.a(optJSONObject)) != null && (lVar = a2.f4715a) != null) {
+        } else if (TextUtils.isEmpty(str) || (d2 = c.g.e().d(str)) == null || (g2 = d2.g()) == null || (optJSONObject = g2.optJSONObject("open_ad_sdk_download_extra")) == null || (a2 = com.bytedance.sdk.openadsdk.downloadnew.a.b.a.a(optJSONObject)) == null || (lVar = a2.f29213a) == null) {
+        } else {
             a(str, lVar);
         }
     }
 
-    private static void a(String str, l lVar) {
+    public static void c(l lVar, String str) {
+        if (lVar != null && ak.a(g(), str)) {
+            u.b("LibHolder", "通过包名调起 " + str);
+        }
+    }
+
+    public static d.o.a.d.l d() {
+        if (!f29251b.get()) {
+            b(p.a());
+        }
+        return d.o.a.d.l.b(g());
+    }
+
+    public static void e() {
+        d().p();
+        if (TextUtils.isEmpty(f29250a)) {
+            return;
+        }
+        com.bytedance.sdk.openadsdk.utils.l.c(new File(f29250a));
+    }
+
+    public static Context g() {
+        Context context = f29252c;
+        return context == null ? p.a() : context;
+    }
+
+    @Nullable
+    public static Map<Integer, a.InterfaceC0317a> h() {
+        return f29253d;
+    }
+
+    @NonNull
+    public static JSONObject i() {
+        h h2 = p.h();
+        if (h2 != null && h2.o() != null) {
+            return h2.o();
+        }
+        return new JSONObject();
+    }
+
+    public static void c() {
+        boolean w;
+        h h2 = p.h();
+        if (h2 == null || f29254e == (w = h2.w())) {
+            return;
+        }
+        f29254e = w;
+        a();
+    }
+
+    public static void a(String str, l lVar) {
         try {
             if (g() != null && !TextUtils.isEmpty(str) && lVar != null && lVar.q()) {
-                com.bytedance.sdk.openadsdk.core.d.g ai = lVar.ai();
-                if (ai != null && !TextUtils.isEmpty(ai.a())) {
+                com.bytedance.sdk.openadsdk.core.d.g ao = lVar.ao();
+                if (ao != null && !TextUtils.isEmpty(ao.a())) {
                     u.f("LibHolder", "含有deepLink");
                     if (lVar.G() != 0) {
                         u.f("LibHolder", "deepLink过滤 mMeta.getDownConfigAutoOpen() " + lVar.G());
+                        return;
                     }
                 }
                 if (lVar.q()) {
@@ -108,86 +171,75 @@ public final class g {
                     }
                 }
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
     }
 
-    private static void b(final l lVar, final String str) {
+    public static void b(final l lVar, final String str) {
         final com.bytedance.sdk.openadsdk.utils.a c2;
-        if (!a(lVar) && (c2 = i.d().c()) != null) {
-            final long currentTimeMillis = System.currentTimeMillis();
-            c2.a(new a.InterfaceC1047a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.2
-                @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                public void a() {
-                    if (!ak.a()) {
-                        u.b("LibHolder", "锁屏不执行自启动调起");
-                        if (com.bytedance.sdk.openadsdk.utils.a.this != null) {
-                            com.bytedance.sdk.openadsdk.utils.a.this.b();
-                            return;
-                        }
+        if (a(lVar) || (c2 = i.d().c()) == null) {
+            return;
+        }
+        final long currentTimeMillis = System.currentTimeMillis();
+        c2.a(new a.InterfaceC0335a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.2
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void a() {
+                if (!al.a()) {
+                    u.b("LibHolder", "锁屏不执行自启动调起");
+                    com.bytedance.sdk.openadsdk.utils.a aVar = com.bytedance.sdk.openadsdk.utils.a.this;
+                    if (aVar != null) {
+                        aVar.b();
                         return;
                     }
-                    if (!q.a(str)) {
-                        g.b(lVar, currentTimeMillis, com.bytedance.sdk.openadsdk.utils.a.this, str);
-                    }
-                    if (com.bytedance.sdk.openadsdk.utils.a.this != null) {
-                        com.bytedance.sdk.openadsdk.utils.a.this.b();
-                    }
+                    return;
                 }
-
-                @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                public void b() {
+                if (!q.a(str)) {
+                    g.b(lVar, currentTimeMillis, com.bytedance.sdk.openadsdk.utils.a.this, str);
                 }
-
-                @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                public void c() {
+                com.bytedance.sdk.openadsdk.utils.a aVar2 = com.bytedance.sdk.openadsdk.utils.a.this;
+                if (aVar2 != null) {
+                    aVar2.b();
                 }
-
-                @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                public void d() {
-                }
-
-                @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                public void e() {
-                }
-
-                @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                public void f() {
-                }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(l lVar, long j, com.bytedance.sdk.openadsdk.utils.a aVar, String str) {
-        if (lVar != null) {
-            if (System.currentTimeMillis() - j >= lVar.u() * 1000) {
-                String str2 = "";
-                if (lVar.ah() != null) {
-                    str2 = lVar.ah().c();
-                }
-                String str3 = "安装完成，是否立即打开 ？";
-                if (TextUtils.isEmpty(str2)) {
-                    str3 = "应用安装完成，是否立即打开 ？";
-                }
-                b(aVar, lVar, str2, str3, str);
-                return;
             }
-            c(lVar, str);
-        }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void b() {
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void c() {
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void d() {
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void e() {
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void f() {
+            }
+        });
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void c(l lVar, String str) {
-        if (lVar != null && aj.a(g(), str)) {
-            u.b("LibHolder", "通过包名调起 " + str);
+    public static void b(l lVar, long j, com.bytedance.sdk.openadsdk.utils.a aVar, String str) {
+        if (lVar == null) {
+            return;
         }
+        if (System.currentTimeMillis() - j >= lVar.u() * 1000) {
+            String c2 = lVar.an() != null ? lVar.an().c() : "";
+            b(aVar, lVar, c2, TextUtils.isEmpty(c2) ? "应用安装完成，是否立即打开 ？" : "安装完成，是否立即打开 ？", str);
+            return;
+        }
+        c(lVar, str);
     }
 
-    private static boolean a(l lVar) {
+    public static boolean a(l lVar) {
         if (lVar != null && a(i())) {
-            int T = lVar.T();
-            if ((TextUtils.isEmpty(lVar.at()) || T != 4) && !k.f()) {
+            int Z = lVar.Z();
+            if ((TextUtils.isEmpty(lVar.aA()) || Z != 4) && !k.f()) {
                 return false;
             }
             k.a(false);
@@ -196,114 +248,167 @@ public final class g {
         return false;
     }
 
-    private static void a(Context context, final l lVar, final String str) {
-        if (context != null && lVar != null && !a(lVar)) {
-            final String str2 = "";
-            if (lVar.ah() != null) {
-                str2 = lVar.ah().c();
-            }
-            final String str3 = "安装完成，是否立即打开 ？";
-            if (TextUtils.isEmpty(str2)) {
-                str3 = "应用安装完成，是否立即打开 ？";
-            }
-            final com.bytedance.sdk.openadsdk.utils.a c2 = i.d().c();
-            if (c2 != null) {
-                c2.a(new a.InterfaceC1047a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.3
-                    @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                    public void a() {
-                        try {
-                            if (!ak.a()) {
-                                u.b("LibHolder", "锁屏不执行自启动调起");
-                                if (com.bytedance.sdk.openadsdk.utils.a.this != null) {
-                                    com.bytedance.sdk.openadsdk.utils.a.this.b();
-                                    return;
-                                }
-                                return;
-                            }
-                            if (!q.a(str)) {
-                                g.b(com.bytedance.sdk.openadsdk.utils.a.this, lVar, str2, str3, str);
-                            }
-                            if (com.bytedance.sdk.openadsdk.utils.a.this != null) {
-                                com.bytedance.sdk.openadsdk.utils.a.this.b();
-                            }
-                        } catch (Throwable th) {
-                        }
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                    public void b() {
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                    public void c() {
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                    public void d() {
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                    public void e() {
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC1047a
-                    public void f() {
-                    }
-                });
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public static void b(final com.bytedance.sdk.openadsdk.utils.a aVar, final l lVar, String str, String str2, final String str3) {
-        if (aVar != null) {
-            if (!aj.c(g(), str3)) {
-                u.b("LibHolder", "该app未安装 packageName " + str3);
-            } else {
-                com.bytedance.sdk.openadsdk.utils.g.a(lVar.ag(), TextUtils.isEmpty(str) ? "" : str, str2, "立即打开", "退出", new g.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.4
-                    @Override // com.bytedance.sdk.openadsdk.utils.g.a
-                    public void a() {
-                        g.c(l.this, str3);
-                        if (aVar != null) {
-                            aVar.b();
-                        }
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.utils.g.a
-                    public void b() {
-                        if (aVar != null) {
-                            aVar.b();
-                        }
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.utils.g.a
-                    public void c() {
-                        if (aVar != null) {
-                            aVar.b();
-                        }
-                    }
-                });
-            }
+        if (aVar == null) {
+            return;
         }
+        if (!ak.c(g(), str3)) {
+            u.b("LibHolder", "该app未安装 packageName " + str3);
+            return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            str = "";
+        }
+        String am = lVar.am();
+        com.bytedance.sdk.openadsdk.utils.g.a(g(), am, str, str2, "立即打开", "退出", new g.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.4
+            @Override // com.bytedance.sdk.openadsdk.utils.g.a
+            public void a() {
+                g.c(l.this, str3);
+                com.bytedance.sdk.openadsdk.utils.a aVar2 = aVar;
+                if (aVar2 != null) {
+                    aVar2.b();
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.g.a
+            public void b() {
+                com.bytedance.sdk.openadsdk.utils.a aVar2 = aVar;
+                if (aVar2 != null) {
+                    aVar2.b();
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.g.a
+            public void c() {
+                com.bytedance.sdk.openadsdk.utils.a aVar2 = aVar;
+                if (aVar2 != null) {
+                    aVar2.b();
+                }
+            }
+        });
     }
 
-    private static Context g() {
-        return c == null ? p.a() : c;
+    public static void a(Context context, final l lVar, final String str) {
+        if (context == null || lVar == null || a(lVar)) {
+            return;
+        }
+        final String c2 = lVar.an() != null ? lVar.an().c() : "";
+        final String str2 = TextUtils.isEmpty(c2) ? "应用安装完成，是否立即打开 ？" : "安装完成，是否立即打开 ？";
+        final com.bytedance.sdk.openadsdk.utils.a c3 = i.d().c();
+        if (c3 == null) {
+            return;
+        }
+        c3.a(new a.InterfaceC0335a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.3
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void a() {
+                try {
+                    if (!al.a()) {
+                        u.b("LibHolder", "锁屏不执行自启动调起");
+                        if (com.bytedance.sdk.openadsdk.utils.a.this != null) {
+                            com.bytedance.sdk.openadsdk.utils.a.this.b();
+                            return;
+                        }
+                        return;
+                    }
+                    if (!q.a(str)) {
+                        g.b(com.bytedance.sdk.openadsdk.utils.a.this, lVar, c2, str2, str);
+                    }
+                    if (com.bytedance.sdk.openadsdk.utils.a.this != null) {
+                        com.bytedance.sdk.openadsdk.utils.a.this.b();
+                    }
+                } catch (Throwable unused) {
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void b() {
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void c() {
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void d() {
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void e() {
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0335a
+            public void f() {
+            }
+        });
+    }
+
+    public static boolean b() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            return com.bytedance.sdk.openadsdk.core.f.d.a().a(g(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+        }
+        return true;
+    }
+
+    public static boolean b(Context context) {
+        if (context == null) {
+            return false;
+        }
+        Context applicationContext = context.getApplicationContext();
+        String packageName = applicationContext.getPackageName();
+        if (TextUtils.isEmpty(packageName)) {
+            packageName = "";
+        }
+        d.o.a.a.a.b a2 = d.o.a.d.l.b(applicationContext).a();
+        if (a2 == null) {
+            return false;
+        }
+        a.C1816a c1816a = new a.C1816a();
+        c1816a.d("143");
+        c1816a.a("open_news");
+        c1816a.f("3.4.5.5");
+        c1816a.h(String.valueOf(3455));
+        d.o.a.a.a.d.a b2 = c1816a.b();
+        a2.g(new com.bytedance.sdk.openadsdk.downloadnew.a.a.d(applicationContext));
+        a2.e(new com.bytedance.sdk.openadsdk.downloadnew.a.a.b(applicationContext));
+        a2.a(new com.bytedance.sdk.openadsdk.downloadnew.a.a.e(applicationContext));
+        a2.f(new com.bytedance.sdk.openadsdk.downloadnew.a.a.c(applicationContext));
+        a2.h(new d.o.a.a.a.a.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.5
+            @Override // d.o.a.a.a.a.i
+            public JSONObject a() {
+                return g.i();
+            }
+        });
+        a2.c(new com.bytedance.sdk.openadsdk.downloadnew.a.a.a(applicationContext));
+        a2.b(b2);
+        a2.a(packageName + ".TTFileProvider");
+        a2.d(a(applicationContext, i()));
+        d.o.a.d.n.a.c();
+        d.o.a.d.l.b(applicationContext).m().a(1);
+        d.o.a.d.l.b(applicationContext).e(f29255f);
+        d.o.a.e.a.e.F().o(new d.o.a.e.b.f.h() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.6
+            @Override // d.o.a.e.b.f.h
+            public boolean a(Intent intent) {
+                return false;
+            }
+        });
+        return true;
     }
 
     public static void a(Context context) {
         if (context == null) {
             context = p.a();
         }
-        if (context != null) {
-            c = context.getApplicationContext();
-            a();
-            if (!b.get()) {
-                synchronized (g.class) {
-                    if (!b.get()) {
-                        b.set(b(c));
-                    }
-                }
+        if (context == null) {
+            return;
+        }
+        f29252c = context.getApplicationContext();
+        a();
+        if (f29251b.get()) {
+            return;
+        }
+        synchronized (g.class) {
+            if (!f29251b.get()) {
+                f29251b.set(b(f29252c));
             }
         }
     }
@@ -312,16 +417,10 @@ public final class g {
         File externalFilesDir;
         String str = null;
         try {
-            if (e && !b()) {
+            if (f29254e && !b()) {
                 File file = new File(g().getCacheDir(), Environment.DIRECTORY_DOWNLOADS);
                 file.mkdirs();
-                String path = file.getPath();
-                if (TextUtils.isEmpty(path)) {
-                    str = path;
-                } else {
-                    Runtime.getRuntime().exec("chmod 777 " + path);
-                    str = path;
-                }
+                str = file.getPath();
             }
             if (TextUtils.isEmpty(str)) {
                 if ("mounted".equals(Environment.getExternalStorageState()) && (externalFilesDir = g().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)) != null) {
@@ -334,166 +433,80 @@ public final class g {
                 }
             }
             if (!TextUtils.isEmpty(str)) {
-                f4724a = str;
+                f29250a = str;
                 m.a();
             }
-            u.b("LibHolder", "path: " + String.valueOf(f4724a));
-        } catch (Throwable th) {
-        }
-    }
-
-    public static boolean b() {
-        if (Build.VERSION.SDK_INT < 23) {
-            return true;
-        }
-        return com.bytedance.sdk.openadsdk.core.f.d.a().a(g(), "android.permission.WRITE_EXTERNAL_STORAGE");
-    }
-
-    public static void c() {
-        boolean w;
-        h h = p.h();
-        if (h != null && e != (w = h.w())) {
-            e = w;
-            a();
-        }
-    }
-
-    public static com.ss.android.downloadlib.i d() {
-        if (!b.get()) {
-            b(p.a());
-        }
-        return com.ss.android.downloadlib.i.iB(g());
-    }
-
-    public static void e() {
-        d().g();
-        if (!TextUtils.isEmpty(f4724a)) {
-            com.bytedance.sdk.openadsdk.utils.l.c(new File(f4724a));
+            u.b("LibHolder", "path: " + String.valueOf(f29250a));
+        } catch (Throwable unused) {
         }
     }
 
     public static void a(int i) {
-        if (d != null) {
-            d.remove(Integer.valueOf(i));
+        Map<Integer, a.InterfaceC0317a> map = f29253d;
+        if (map != null) {
+            map.remove(Integer.valueOf(i));
         }
     }
 
-    public static void a(int i, a.InterfaceC1029a interfaceC1029a) {
-        if (interfaceC1029a != null) {
-            if (d == null) {
-                d = Collections.synchronizedMap(new WeakHashMap());
+    public static void a(int i, a.InterfaceC0317a interfaceC0317a) {
+        if (interfaceC0317a != null) {
+            if (f29253d == null) {
+                f29253d = Collections.synchronizedMap(new WeakHashMap());
             }
-            d.put(Integer.valueOf(i), interfaceC1029a);
+            f29253d.put(Integer.valueOf(i), interfaceC0317a);
         }
-    }
-
-    @Nullable
-    private static Map<Integer, a.InterfaceC1029a> h() {
-        return d;
     }
 
     public static boolean a(String str, String str2, l lVar, Object obj) {
+        Map<Integer, a.InterfaceC0317a> h2;
         boolean z = false;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || lVar == null) {
-            return false;
-        }
-        Map<Integer, a.InterfaceC1029a> h = h();
-        if (h == null) {
-            return false;
-        }
-        Iterator<Map.Entry<Integer, a.InterfaceC1029a>> it = h.entrySet().iterator();
-        while (true) {
-            boolean z2 = z;
-            if (it.hasNext()) {
-                Map.Entry<Integer, a.InterfaceC1029a> next = it.next();
-                int intValue = next.getKey().intValue();
-                a.InterfaceC1029a value = next.getValue();
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && lVar != null && (h2 = h()) != null) {
+            for (Map.Entry<Integer, a.InterfaceC0317a> entry : h2.entrySet()) {
+                int intValue = entry.getKey().intValue();
+                a.InterfaceC0317a value = entry.getValue();
                 if (value != null) {
                     boolean a2 = value.a(intValue, lVar, str, str2, obj);
-                    if (!z2 && !a2) {
-                        z2 = true;
+                    if (!z && !a2) {
+                        z = true;
                     }
                 }
-                z = z2;
-            } else {
-                return z2;
             }
         }
+        return z;
     }
 
     public static boolean a(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return false;
-        }
-        List<com.ss.android.socialbase.downloader.g.c> b2 = com.ss.android.socialbase.appdownloader.d.eFz().b(context);
-        if (!b2.isEmpty()) {
-            for (com.ss.android.socialbase.downloader.g.c cVar : b2) {
-                if (cVar != null && str.equals(cVar.j())) {
-                    return true;
+        if (context != null && !TextUtils.isEmpty(str)) {
+            List<DownloadInfo> v = d.o.a.e.a.e.F().v(context);
+            if (!v.isEmpty()) {
+                for (DownloadInfo downloadInfo : v) {
+                    if (downloadInfo != null && str.equals(downloadInfo.T0())) {
+                        return true;
+                    }
                 }
             }
         }
         return false;
     }
 
-    private g() {
-    }
-
-    private static boolean b(Context context) {
-        if (context == null) {
-            return false;
-        }
-        Context applicationContext = context.getApplicationContext();
-        String packageName = applicationContext.getPackageName();
-        if (TextUtils.isEmpty(packageName)) {
-            packageName = "";
-        }
-        com.ss.android.a.a.a eFq = com.ss.android.downloadlib.i.iB(applicationContext).eFq();
-        if (eFq == null) {
-            return false;
-        }
-        eFq.a(new com.bytedance.sdk.openadsdk.downloadnew.a.a.d(applicationContext)).a(new com.bytedance.sdk.openadsdk.downloadnew.a.a.b(applicationContext)).a(new com.bytedance.sdk.openadsdk.downloadnew.a.a.e(applicationContext)).a(new com.bytedance.sdk.openadsdk.downloadnew.a.a.c(applicationContext)).a(new com.ss.android.a.a.a.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.5
-            @Override // com.ss.android.a.a.a.i
+    public static d.o.a.e.b.g.b a(Context context, JSONObject jSONObject) {
+        int optInt = jSONObject.optInt("download_exp_switch_temp", 1040187391);
+        d.o.a.e.b.g.b bVar = new d.o.a.e.b.g.b(context);
+        bVar.e(new d.o.a.e.b.f.e() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.7
+            @Override // d.o.a.e.b.f.e
             public JSONObject a() {
                 return g.i();
-            }
-        }).a(new com.bytedance.sdk.openadsdk.downloadnew.a.a.a(applicationContext)).a(new a.C1209a().aat("143").aas("open_news").aau("3.4.0.1").aav(String.valueOf(3401)).eEn()).aar(packageName + ".TTFileProvider").a(a(applicationContext, i()));
-        com.ss.android.downloadlib.f.a.a();
-        com.ss.android.downloadlib.i.iB(applicationContext).eFr().a(1);
-        com.ss.android.downloadlib.i.iB(applicationContext).a(f);
-        com.ss.android.socialbase.appdownloader.d.eFz().a(new o() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.6
-            @Override // com.ss.android.socialbase.downloader.d.o
-            public boolean a(Intent intent) {
-                return false;
             }
         });
-        return true;
+        bVar.d(optInt);
+        bVar.E(new com.bytedance.sdk.openadsdk.downloadnew.a.a.f(context));
+        return bVar;
     }
 
-    private static com.ss.android.socialbase.downloader.downloader.g a(Context context, JSONObject jSONObject) {
-        return new com.ss.android.socialbase.downloader.downloader.g(context).b(new com.ss.android.socialbase.downloader.d.e() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.g.7
-            @Override // com.ss.android.socialbase.downloader.d.e
-            public JSONObject a() {
-                return g.i();
-            }
-        }).Rz(jSONObject.optInt("download_exp_switch_temp", 1023409663)).b(new com.bytedance.sdk.openadsdk.downloadnew.a.a.f(context));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
-    public static JSONObject i() {
-        h h = p.h();
-        return (h == null || h.p() == null) ? new JSONObject() : h.p();
-    }
-
-    private static boolean a(JSONObject jSONObject) {
+    public static boolean a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        try {
-            return jSONObject.optInt("enable_open_app_dialog") == 1;
-        } catch (Throwable th) {
-            return false;
-        }
+        return jSONObject.optInt("enable_open_app_dialog") == 1;
     }
 }

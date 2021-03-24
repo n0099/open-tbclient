@@ -1,25 +1,41 @@
 package com.baidu.searchbox.cloudcontrol.processor;
 
 import android.text.TextUtils;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
-import com.baidu.tieba.q.d;
+import d.b.i0.x2.d;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+@Autowired
+/* loaded from: classes2.dex */
 public class DataProcessors {
-    private HashMap<String, ICloudControlProcessor> mDataProcessors = new HashMap<>();
+    public HashMap<String, ICloudControlProcessor> mDataProcessors = new HashMap<>();
 
     public DataProcessors() {
         collectProcessors();
     }
 
-    public boolean containKey(String str) {
-        return this.mDataProcessors.containsKey(str);
+    @Inject
+    private ICloudControlRegister getCloudControlRegister() {
+        return d.a();
     }
 
     public void addProcessor(String str, ICloudControlProcessor iCloudControlProcessor) {
-        if (iCloudControlProcessor != null && !TextUtils.isEmpty(str)) {
-            this.mDataProcessors.put(str, iCloudControlProcessor);
+        if (iCloudControlProcessor == null || TextUtils.isEmpty(str)) {
+            return;
         }
+        this.mDataProcessors.put(str, iCloudControlProcessor);
+    }
+
+    public void collectProcessors() {
+        ICloudControlRegister cloudControlRegister = getCloudControlRegister();
+        if (cloudControlRegister != null) {
+            cloudControlRegister.registerAllProcessors(this);
+        }
+    }
+
+    public boolean containKey(String str) {
+        return this.mDataProcessors.containsKey(str);
     }
 
     public ICloudControlProcessor getProcessor(String str) {
@@ -31,16 +47,5 @@ public class DataProcessors {
 
     public HashMap<String, ICloudControlProcessor> getProcessors() {
         return this.mDataProcessors;
-    }
-
-    public void collectProcessors() {
-        ICloudControlRegister cloudControlRegister = getCloudControlRegister();
-        if (cloudControlRegister != null) {
-            cloudControlRegister.registerAllProcessors(this);
-        }
-    }
-
-    private ICloudControlRegister getCloudControlRegister() {
-        return d.dKr();
     }
 }

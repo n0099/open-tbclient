@@ -4,23 +4,18 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.message.IMessenger;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsEventTrigger implements IEventTrigger {
-    protected ArrayList<IMessenger> mNotifyList = new ArrayList<>();
-
-    @PublicMethod
-    public void register(@NonNull IMessenger iMessenger) {
-        this.mNotifyList.add(iMessenger);
-    }
-
-    @PublicMethod
-    public void unregister(@NonNull IMessenger iMessenger) {
-        this.mNotifyList.remove(iMessenger);
-    }
+    public ArrayList<IMessenger> mNotifyList = new ArrayList<>();
 
     @PublicMethod
     public void clear() {
         this.mNotifyList.clear();
+    }
+
+    @PublicMethod
+    public void register(@NonNull IMessenger iMessenger) {
+        this.mNotifyList.add(iMessenger);
     }
 
     @Override // com.baidu.searchbox.player.event.IEventTrigger
@@ -35,5 +30,10 @@ public abstract class AbsEventTrigger implements IEventTrigger {
                 iMessenger.notifyEvent(VideoEvent.copy(videoEvent));
             }
         }
+    }
+
+    @PublicMethod
+    public void unregister(@NonNull IMessenger iMessenger) {
+        this.mNotifyList.remove(iMessenger);
     }
 }

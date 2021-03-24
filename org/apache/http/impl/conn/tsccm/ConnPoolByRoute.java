@@ -9,52 +9,44 @@ import org.apache.http.conn.ConnectionPoolTimeoutException;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ConnPoolByRoute extends AbstractConnPool {
-    protected Queue<BasicPoolEntry> freeConnections;
-    protected final int maxTotalConnections;
-    protected final ClientConnectionOperator operator;
-    protected final Map<HttpRoute, RouteSpecificPool> routeToPool;
-    protected Queue<WaitingThread> waitingThreads;
+    public Queue<BasicPoolEntry> freeConnections;
+    public final int maxTotalConnections;
+    public final ClientConnectionOperator operator;
+    public final Map<HttpRoute, RouteSpecificPool> routeToPool;
+    public Queue<WaitingThread> waitingThreads;
 
     public ConnPoolByRoute(ClientConnectionOperator clientConnectionOperator, HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
-    protected Queue<BasicPoolEntry> createFreeConnQueue() {
+    public BasicPoolEntry createEntry(RouteSpecificPool routeSpecificPool, ClientConnectionOperator clientConnectionOperator) {
         throw new RuntimeException("Stub!");
     }
 
-    protected Queue<WaitingThread> createWaitingThreadQueue() {
+    public Queue<BasicPoolEntry> createFreeConnQueue() {
         throw new RuntimeException("Stub!");
     }
 
-    protected Map<HttpRoute, RouteSpecificPool> createRouteToPoolMap() {
+    public Map<HttpRoute, RouteSpecificPool> createRouteToPoolMap() {
         throw new RuntimeException("Stub!");
     }
 
-    protected RouteSpecificPool newRouteSpecificPool(HttpRoute httpRoute) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected WaitingThread newWaitingThread(Condition condition, RouteSpecificPool routeSpecificPool) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected RouteSpecificPool getRoutePool(HttpRoute httpRoute, boolean z) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public int getConnectionsInPool(HttpRoute httpRoute) {
+    public Queue<WaitingThread> createWaitingThreadQueue() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
-    public PoolEntryRequest requestPoolEntry(HttpRoute httpRoute, Object obj) {
+    public void deleteClosedConnections() {
         throw new RuntimeException("Stub!");
     }
 
-    protected BasicPoolEntry getEntryBlocking(HttpRoute httpRoute, Object obj, long j, TimeUnit timeUnit, WaitingThreadAborter waitingThreadAborter) throws ConnectionPoolTimeoutException, InterruptedException {
+    public void deleteEntry(BasicPoolEntry basicPoolEntry) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void deleteLeastUsedEntry() {
         throw new RuntimeException("Stub!");
     }
 
@@ -63,33 +55,41 @@ public class ConnPoolByRoute extends AbstractConnPool {
         throw new RuntimeException("Stub!");
     }
 
-    protected BasicPoolEntry getFreeEntry(RouteSpecificPool routeSpecificPool, Object obj) {
+    public int getConnectionsInPool(HttpRoute httpRoute) {
         throw new RuntimeException("Stub!");
     }
 
-    protected BasicPoolEntry createEntry(RouteSpecificPool routeSpecificPool, ClientConnectionOperator clientConnectionOperator) {
+    public BasicPoolEntry getEntryBlocking(HttpRoute httpRoute, Object obj, long j, TimeUnit timeUnit, WaitingThreadAborter waitingThreadAborter) throws ConnectionPoolTimeoutException, InterruptedException {
         throw new RuntimeException("Stub!");
     }
 
-    protected void deleteEntry(BasicPoolEntry basicPoolEntry) {
+    public BasicPoolEntry getFreeEntry(RouteSpecificPool routeSpecificPool, Object obj) {
         throw new RuntimeException("Stub!");
     }
 
-    protected void deleteLeastUsedEntry() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
-    protected void handleLostEntry(HttpRoute httpRoute) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected void notifyWaitingThread(RouteSpecificPool routeSpecificPool) {
+    public RouteSpecificPool getRoutePool(HttpRoute httpRoute, boolean z) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
-    public void deleteClosedConnections() {
+    public void handleLostEntry(HttpRoute httpRoute) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public RouteSpecificPool newRouteSpecificPool(HttpRoute httpRoute) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public WaitingThread newWaitingThread(Condition condition, RouteSpecificPool routeSpecificPool) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void notifyWaitingThread(RouteSpecificPool routeSpecificPool) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
+    public PoolEntryRequest requestPoolEntry(HttpRoute httpRoute, Object obj) {
         throw new RuntimeException("Stub!");
     }
 

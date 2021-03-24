@@ -6,48 +6,51 @@ import android.os.Message;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.d.j;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.wallet.lightapp.base.LightappConstants;
+import com.baidu.wallet.router.RouterCallback;
+import d.b.g0.a.e0.l.f;
+import d.b.g0.a.e0.l.j;
+import d.b.g0.a.k;
 import java.io.File;
-import org.apache.http.HttpHost;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class AudioPlayer implements com.baidu.swan.apps.media.a, com.baidu.swan.nalib.audio.c {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String djT;
-    protected com.baidu.swan.apps.media.audio.b.a dkt;
-    private com.baidu.swan.games.audio.b.c edO;
-    private int edR;
-    private String edS;
-    private a edT;
-    private boolean edV;
-    private String mDataSource;
-    private long mDuration;
-    protected PlayerStatus edM = PlayerStatus.NONE;
-    protected UserStatus edN = UserStatus.OPEN;
-    private d edP = new d();
-    private b edQ = new b();
-    private float edU = -1.0f;
-    private TypedCallbackHandler edW = new TypedCallbackHandler() { // from class: com.baidu.swan.games.audio.AudioPlayer.1
-        @Override // com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-        public int getInvokeSourceType() {
-            return 1;
-        }
+/* loaded from: classes3.dex */
+public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
+    public static final boolean o = k.f45050a;
 
-        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
-        public void handleSchemeDispatchCallback(String str, String str2) {
-        }
+    /* renamed from: a  reason: collision with root package name */
+    public d.b.g0.a.b1.c.e.a f12801a;
 
-        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
-        public String getCurrentPageUrl() {
-            return null;
-        }
-    };
+    /* renamed from: d  reason: collision with root package name */
+    public String f12804d;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes8.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.g0.g.c.j.c f12805e;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f12808h;
+    public String i;
+    public String j;
+    public d k;
+    public boolean m;
+    public long n;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PlayerStatus f12802b = PlayerStatus.NONE;
+
+    /* renamed from: c  reason: collision with root package name */
+    public UserStatus f12803c = UserStatus.OPEN;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d.b.g0.g.c.d f12806f = new d.b.g0.g.c.d();
+
+    /* renamed from: g  reason: collision with root package name */
+    public e f12807g = new e();
+    public float l = -1.0f;
+
+    /* loaded from: classes3.dex */
     public enum PlayerStatus {
         NONE,
         IDLE,
@@ -55,8 +58,7 @@ public class AudioPlayer implements com.baidu.swan.apps.media.a, com.baidu.swan.
         PREPARED
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public enum UserStatus {
         OPEN,
         PLAY,
@@ -65,420 +67,188 @@ public class AudioPlayer implements com.baidu.swan.apps.media.a, com.baidu.swan.
         DESTROY
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public AudioPlayer(String str) {
-        this.djT = "";
-        this.djT = str;
+    /* loaded from: classes3.dex */
+    public class a implements TypedCallbackHandler {
     }
 
-    public void pause() {
-        this.edN = UserStatus.PAUSE;
-        aAM();
-    }
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aAM() {
-        if (aTX()) {
-            this.edO.pause();
+        /* loaded from: classes3.dex */
+        public class a implements Runnable {
+            public a() {
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                AudioPlayer.this.P();
+            }
+        }
+
+        public b() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.b.g0.g.c.j.b.h().e().post(new a());
         }
     }
 
-    private void aTP() {
-        vZ(MissionEvent.MESSAGE_PAUSE);
-        this.edQ.removeMessages(0);
-    }
+    /* loaded from: classes3.dex */
+    public class c implements d.b.g0.g.c.i.a {
+        public c() {
+        }
 
-    public void ab(float f) {
-        try {
-            vZ("onSeeking");
-            int i = (int) (1000.0f * f);
-            if (aTX()) {
-                if (i >= 0 && i <= getDuration()) {
-                    this.edO.seek(i);
-                }
-                this.edU = -1.0f;
-                return;
-            }
-            if (this.edV && this.edM == PlayerStatus.IDLE) {
-                aTV();
-            }
-            this.edU = i;
-        } catch (Exception e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
+        @Override // d.b.g0.g.c.i.a
+        public void a(String str, String str2) {
+            AudioPlayer.this.j = str2;
+            AudioPlayer.this.w();
+        }
+
+        @Override // d.b.g0.g.c.i.a
+        public void fail(int i, String str) {
+            AudioPlayer.this.L(!SwanAppNetworkUtils.h(null) ? LightappConstants.ERRCODE_INNER_ERROR : LightappConstants.ERRCODE_NO_PERMISSION);
         }
     }
 
-    private void setLooping(boolean z) {
-        try {
-            if (aTX()) {
-                this.edO.hZ(z);
-            }
-        } catch (Exception e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
+    /* loaded from: classes3.dex */
+    public class d implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnInfoListener, MediaPlayer.OnErrorListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnBufferingUpdateListener {
+        public d() {
         }
-    }
 
-    public void stop() {
-        this.edN = UserStatus.STOP;
-        if (aTX()) {
-            this.edO.stop();
-        }
-        aTQ();
-        vZ(MissionEvent.MESSAGE_STOP);
-    }
-
-    public void release() {
-        aTQ();
-        this.edV = false;
-        this.edN = UserStatus.DESTROY;
-        this.edM = PlayerStatus.NONE;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aTQ() {
-        this.edM = PlayerStatus.IDLE;
-        if (this.edO != null) {
-            this.edO.destroy();
-            this.edO = null;
-        }
-        this.edQ.removeMessages(0);
-    }
-
-    public long getDuration() {
-        try {
-            if (0 == this.mDuration && this.edO != null) {
-                return this.edO.getDuration();
-            }
-        } catch (Exception e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-        }
-        return this.mDuration;
-    }
-
-    public int getCurrentPosition() {
-        if (aTX()) {
-            return this.edO.getCurrentTime();
-        }
-        return 0;
-    }
-
-    public int aTR() {
-        return this.edR;
-    }
-
-    public float getVolume() {
-        if (this.edP != null) {
-            return this.edP.mVolume;
-        }
-        return 1.0f;
-    }
-
-    private void setVolume(float f) {
-        if (aTX()) {
-            if (f > 1.0f) {
-                f = 1.0f;
-            } else if (f < 0.0f) {
-                f = 0.0f;
-            }
+        @Override // android.media.MediaPlayer.OnBufferingUpdateListener
+        public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
             try {
-                this.edO.setVolume(f);
-            } catch (Exception e) {
-                if (DEBUG) {
-                    e.printStackTrace();
+                if (AudioPlayer.o) {
+                    Log.d("SwanAppAudioPlayer", "onBufferUpdate : " + i + "%");
                 }
-            }
-        }
-    }
-
-    public com.baidu.swan.games.audio.b.c aTS() {
-        if (this.edO == null || this.edO.aUk()) {
-            this.edO = com.baidu.swan.games.audio.b.b.aUg().ak(this.edS, this.edP.mLoop);
-            registerListener();
-        }
-        return this.edO;
-    }
-
-    protected void registerListener() {
-        if (this.edT == null) {
-            this.edT = new a();
-        }
-        this.edO.setOnPreparedListener(this.edT);
-        this.edO.setOnCompletionListener(this.edT);
-        this.edO.setOnInfoListener(this.edT);
-        this.edO.setOnErrorListener(this.edT);
-        this.edO.a((MediaPlayer.OnSeekCompleteListener) this.edT);
-        this.edO.a((MediaPlayer.OnBufferingUpdateListener) this.edT);
-        this.edO.a(this);
-    }
-
-    @Override // com.baidu.swan.apps.media.a
-    public String awF() {
-        return this.djT;
-    }
-
-    @Override // com.baidu.swan.apps.media.a
-    public String aAH() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.media.a
-    public String getSlaveId() {
-        return this.edP.cFI;
-    }
-
-    @Override // com.baidu.swan.apps.media.a
-    public Object aAI() {
-        return this;
-    }
-
-    @Override // com.baidu.swan.apps.media.a
-    public void fX(boolean z) {
-        com.baidu.swan.games.f.a v8Engine;
-        com.baidu.swan.apps.runtime.e aIN = com.baidu.swan.apps.runtime.e.aIN();
-        if (aIN != null && aIN.aJg() && !z && (v8Engine = getV8Engine()) != null && !v8Engine.aWh()) {
-            v8Engine.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.audio.AudioPlayer.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    com.baidu.swan.games.audio.b.b.aUg().aUi().post(new Runnable() { // from class: com.baidu.swan.games.audio.AudioPlayer.2.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            AudioPlayer.this.aAM();
+                if (AudioPlayer.this.H()) {
+                    AudioPlayer.this.f12808h = (((int) AudioPlayer.this.A()) * i) / 100;
+                    if (AudioPlayer.this.f12801a != null) {
+                        AudioPlayer.this.J("onBufferingUpdate");
+                        if (AudioPlayer.this.f12802b != PlayerStatus.PREPARED || AudioPlayer.this.f12803c == UserStatus.STOP || (i * AudioPlayer.this.A()) / 100 > AudioPlayer.this.z()) {
+                            return;
                         }
-                    });
-                }
-            });
-        }
-    }
-
-    @Override // com.baidu.swan.apps.media.a
-    public void fY(boolean z) {
-    }
-
-    @Override // com.baidu.swan.apps.media.a
-    public boolean onBackPressed() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.media.a
-    public void onDestroy() {
-        com.baidu.swan.apps.runtime.e aIN = com.baidu.swan.apps.runtime.e.aIN();
-        if (aIN != null && aIN.aJg()) {
-            release();
-        }
-    }
-
-    private com.baidu.swan.games.f.a getV8Engine() {
-        com.baidu.swan.apps.runtime.e aIN = com.baidu.swan.apps.runtime.e.aIN();
-        if (aIN == null || !aIN.aJg()) {
-            return null;
-        }
-        SwanAppActivity aIH = aIN.aIH();
-        if (aIH == null) {
-            return null;
-        }
-        com.baidu.swan.apps.framework.c afT = aIH.afT();
-        if (afT instanceof com.baidu.swan.games.j.b) {
-            return ((com.baidu.swan.games.j.b) afT).getV8Engine();
-        }
-        return null;
-    }
-
-    public void a(d dVar) {
-        if (DEBUG) {
-            Log.d("SwanAppAudioPlayer", "AudioPlayer open");
-        }
-        if (this.edO != null) {
-            aTQ();
-        }
-        this.edN = UserStatus.OPEN;
-        this.edP = dVar;
-        this.edR = 0;
-        this.mDataSource = com.baidu.swan.apps.v.f.aAo().azU().tt(this.edP.mUrl);
-        this.edM = PlayerStatus.IDLE;
-        vZ("onWaiting");
-        aTT();
-    }
-
-    private void aTT() {
-        try {
-            if (this.mDataSource.contains(HttpHost.DEFAULT_SCHEME_NAME)) {
-                com.baidu.swan.games.audio.b.b aUg = com.baidu.swan.games.audio.b.b.aUg();
-                File file = new File(aUg.wf(this.mDataSource));
-                if (file.exists() && !file.isDirectory()) {
-                    this.edS = file.getAbsolutePath();
-                    aTU();
-                } else {
-                    aUg.a(this.mDataSource, new com.baidu.swan.games.audio.a.a() { // from class: com.baidu.swan.games.audio.AudioPlayer.3
-                        @Override // com.baidu.swan.games.audio.a.a
-                        public void cK(String str, String str2) {
-                            AudioPlayer.this.edS = str2;
-                            AudioPlayer.this.aTU();
-                        }
-
-                        @Override // com.baidu.swan.games.audio.a.a
-                        public void aB(int i, String str) {
-                            AudioPlayer.this.vY(!SwanAppNetworkUtils.isNetworkConnected(null) ? "10003" : "10002");
-                        }
-                    });
-                }
-            } else {
-                this.edS = this.mDataSource;
-                aTU();
-            }
-        } catch (Exception e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aTU() {
-        aTV();
-    }
-
-    private void aTV() {
-        try {
-            File file = new File(this.edS);
-            if (file.exists() && !file.isDirectory()) {
-                this.mDuration = com.baidu.swan.games.audio.b.b.aUg().wg(this.edS);
-                if (0 != this.mDuration) {
-                    aTS().setSrc(this.edS);
-                    if (DEBUG) {
-                        Log.e("SwanAppAudioPlayer", "setSrc path: " + this.edS);
-                        return;
-                    }
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            if (DEBUG) {
-                Log.d("SwanAppAudioPlayer", "set data source fail");
-                e.printStackTrace();
-            }
-        }
-        vY("10003");
-    }
-
-    public boolean aTW() {
-        return (UserStatus.STOP == this.edN || UserStatus.DESTROY == this.edN) ? false : true;
-    }
-
-    public void play() {
-        this.edN = UserStatus.PLAY;
-        if (this.edV) {
-            try {
-                if (!aqc() && aTY()) {
-                    if (DEBUG) {
-                        Log.d("SwanAppAudioPlayer", "play music first: " + this.edS);
-                    }
-                    if (this.edM == PlayerStatus.PREPARED) {
-                        this.edQ.sendEmptyMessage(0);
-                        aAP();
-                        if (DEBUG) {
-                            Log.d("SwanAppAudioPlayer", "play music: " + this.edS);
-                        }
-                        aTS().play();
-                        vZ("onPlay");
-                    } else if (this.edM == PlayerStatus.IDLE) {
-                        try {
-                            aTS().setSrc(this.edS);
-                            this.edM = PlayerStatus.PREPARING;
-                        } catch (Exception e) {
-                            if (DEBUG) {
-                                Log.d("SwanAppAudioPlayer", "set data source fail");
-                                e.printStackTrace();
-                            }
-                            vY(!SwanAppNetworkUtils.isNetworkConnected(null) ? "10003" : "10002");
-                        }
+                        AudioPlayer.this.J("onWaiting");
                     }
                 }
             } catch (Exception e2) {
-                if (DEBUG) {
+                if (AudioPlayer.o) {
                     e2.printStackTrace();
                 }
             }
         }
-    }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean aTX() {
-        return this.edO != null && this.edM == PlayerStatus.PREPARED;
-    }
-
-    private boolean aTY() throws JSONException {
-        File file = new File(this.edS);
-        if (!file.exists() || file.isDirectory()) {
-            vY("10003");
-            return false;
+        @Override // android.media.MediaPlayer.OnCompletionListener
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            if (AudioPlayer.o) {
+                Log.d("SwanAppAudioPlayer", "comCompletion");
+            }
+            try {
+                if (!AudioPlayer.this.f12806f.f47939f) {
+                    AudioPlayer.this.f12803c = UserStatus.STOP;
+                    AudioPlayer.this.F();
+                }
+                AudioPlayer.this.J("onEnded");
+            } catch (Exception e2) {
+                if (AudioPlayer.o) {
+                    e2.printStackTrace();
+                }
+            }
         }
-        return true;
-    }
 
-    public void b(d dVar) {
-        this.edP = dVar;
-        if (this.dkt != null) {
-            this.dkt.pD(this.edP.djZ);
-        }
-        aAP();
-    }
-
-    public void a(com.baidu.swan.apps.media.audio.b.a aVar) {
-        this.dkt = aVar;
-    }
-
-    private boolean aqc() {
-        if (com.baidu.swan.apps.runtime.e.aIN() == null || !com.baidu.swan.apps.runtime.e.aIN().aJg()) {
-            return false;
-        }
-        com.baidu.swan.apps.core.d.f aga = com.baidu.swan.apps.v.f.aAo().aga();
-        if (aga == null) {
+        @Override // android.media.MediaPlayer.OnErrorListener
+        public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
+            if (AudioPlayer.o) {
+                Log.d("SwanAppAudioPlayer", "onError : what is " + i + " extra is " + i2);
+                Log.e("SwanAppAudioPlayer", "Audio Error = " + i + "playerId = " + AudioPlayer.this.f12806f.f47934a + " url = " + AudioPlayer.this.f12806f.f47936c);
+            }
+            String str = "-1";
+            if (i != 1 && i == 100) {
+                str = LightappConstants.ERRCODE_INVALID_PARAMETER;
+            }
+            if (i2 == -1007) {
+                str = "10004";
+            }
+            AudioPlayer.this.L(str);
+            AudioPlayer.this.F();
             return true;
         }
-        com.baidu.swan.apps.core.d.c apA = aga.apA();
-        if (apA == null || !(apA instanceof j)) {
-            return true;
+
+        @Override // android.media.MediaPlayer.OnInfoListener
+        public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
+            if (AudioPlayer.o) {
+                Log.d("SwanAppAudioPlayer", "oninfo : what is " + i + " extra is " + i2);
+                return false;
+            }
+            return false;
         }
-        return ((j) apA).aqc();
-    }
 
-    private void aAP() {
-        if (DEBUG) {
-            Log.d("SwanAppAudioPlayer", "update AudioPlayer params : " + this.edP.toString());
+        @Override // android.media.MediaPlayer.OnPreparedListener
+        public void onPrepared(MediaPlayer mediaPlayer) {
+            if (AudioPlayer.o) {
+                Log.d("SwanAppAudioPlayer", "onPrepared");
+            }
+            AudioPlayer audioPlayer = AudioPlayer.this;
+            audioPlayer.f12802b = PlayerStatus.PREPARED;
+            if (!audioPlayer.m) {
+                AudioPlayer.this.J("onCanplay");
+            }
+            if (AudioPlayer.o) {
+                Log.d("SwanAppAudioPlayer", "prepare 2 path: " + AudioPlayer.this.j);
+            }
+            AudioPlayer.this.m = true;
+            UserStatus userStatus = UserStatus.PLAY;
+            AudioPlayer audioPlayer2 = AudioPlayer.this;
+            if (userStatus == audioPlayer2.f12803c) {
+                audioPlayer2.Q();
+            }
+            try {
+                if (AudioPlayer.this.f12806f.f47937d > 0.0f) {
+                    AudioPlayer.this.B().seek(AudioPlayer.this.f12806f.f47937d);
+                } else if (AudioPlayer.this.l >= 0.0f) {
+                    AudioPlayer.this.B().seek(AudioPlayer.this.l);
+                    AudioPlayer.this.l = -1.0f;
+                }
+            } catch (Exception e2) {
+                if (AudioPlayer.o) {
+                    e2.printStackTrace();
+                }
+            }
         }
-        setLooping(this.edP.mLoop);
-        setVolume(this.edP.mVolume);
+
+        @Override // android.media.MediaPlayer.OnSeekCompleteListener
+        public void onSeekComplete(MediaPlayer mediaPlayer) {
+            if (AudioPlayer.o) {
+                Log.d("SwanAppAudioPlayer", "onSeekComplete");
+            }
+            AudioPlayer.this.J("onSeeked");
+        }
+
+        public /* synthetic */ d(AudioPlayer audioPlayer, a aVar) {
+            this();
+        }
     }
 
-    @Override // com.baidu.swan.nalib.audio.c
-    public void onPause() {
-        aTP();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public class b extends Handler {
-        public b() {
-            super(com.baidu.swan.games.audio.b.b.aUg().aUi().getLooper());
+    /* loaded from: classes3.dex */
+    public class e extends Handler {
+        public e() {
+            super(d.b.g0.g.c.j.b.h().e().getLooper());
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what == 0 && AudioPlayer.this.edM == PlayerStatus.PREPARED) {
+            if (message.what == 0 && AudioPlayer.this.f12802b == PlayerStatus.PREPARED) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.putOpt("currentTime", Double.valueOf(AudioPlayer.this.getCurrentPosition() / 1000.0d));
-                    jSONObject.putOpt("duration", Long.valueOf(AudioPlayer.this.getDuration() / 1000));
-                    AudioPlayer.this.n("onTimeUpdate", jSONObject);
-                } catch (Exception e) {
-                    if (AudioPlayer.DEBUG) {
-                        e.printStackTrace();
+                    double z = AudioPlayer.this.z();
+                    Double.isNaN(z);
+                    jSONObject.putOpt("currentTime", Double.valueOf(z / 1000.0d));
+                    jSONObject.putOpt("duration", Long.valueOf(AudioPlayer.this.A() / 1000));
+                    AudioPlayer.this.K("onTimeUpdate", jSONObject);
+                } catch (Exception e2) {
+                    if (AudioPlayer.o) {
+                        e2.printStackTrace();
                     }
                 }
                 sendEmptyMessageDelayed(0, 1000L);
@@ -486,150 +256,401 @@ public class AudioPlayer implements com.baidu.swan.apps.media.a, com.baidu.swan.
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public class a implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener {
-        private a() {
-        }
+    public AudioPlayer(String str) {
+        this.f12804d = "";
+        this.f12804d = str;
+    }
 
-        @Override // android.media.MediaPlayer.OnPreparedListener
-        public void onPrepared(MediaPlayer mediaPlayer) {
-            if (AudioPlayer.DEBUG) {
-                Log.d("SwanAppAudioPlayer", "onPrepared");
+    public long A() {
+        try {
+            if (0 == this.n && this.f12805e != null) {
+                return this.f12805e.getDuration();
             }
-            AudioPlayer.this.edM = PlayerStatus.PREPARED;
-            if (!AudioPlayer.this.edV) {
-                AudioPlayer.this.vZ("onCanplay");
-            }
-            if (AudioPlayer.DEBUG) {
-                Log.d("SwanAppAudioPlayer", "prepare 2 path: " + AudioPlayer.this.edS);
-            }
-            AudioPlayer.this.edV = true;
-            if (UserStatus.PLAY == AudioPlayer.this.edN) {
-                AudioPlayer.this.play();
-            }
-            try {
-                if (AudioPlayer.this.edP.edZ > 0.0f) {
-                    AudioPlayer.this.aTS().seek(AudioPlayer.this.edP.edZ);
-                } else if (AudioPlayer.this.edU >= 0.0f) {
-                    AudioPlayer.this.aTS().seek(AudioPlayer.this.edU);
-                    AudioPlayer.this.edU = -1.0f;
-                }
-            } catch (Exception e) {
-                if (AudioPlayer.DEBUG) {
-                    e.printStackTrace();
-                }
+        } catch (Exception e2) {
+            if (o) {
+                e2.printStackTrace();
             }
         }
+        return this.n;
+    }
 
-        @Override // android.media.MediaPlayer.OnCompletionListener
-        public void onCompletion(MediaPlayer mediaPlayer) {
-            if (AudioPlayer.DEBUG) {
-                Log.d("SwanAppAudioPlayer", "comCompletion");
-            }
-            try {
-                if (!AudioPlayer.this.edP.mLoop) {
-                    AudioPlayer.this.edN = UserStatus.STOP;
-                    AudioPlayer.this.aTQ();
-                }
-                AudioPlayer.this.vZ("onEnded");
-            } catch (Exception e) {
-                if (AudioPlayer.DEBUG) {
-                    e.printStackTrace();
-                }
-            }
+    public d.b.g0.g.c.j.c B() {
+        d.b.g0.g.c.j.c cVar = this.f12805e;
+        if (cVar == null || cVar.n()) {
+            this.f12805e = d.b.g0.g.c.j.b.h().d(this.j, this.f12806f.f47939f);
+            S();
         }
+        return this.f12805e;
+    }
 
-        @Override // android.media.MediaPlayer.OnInfoListener
-        public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
-            if (AudioPlayer.DEBUG) {
-                Log.d("SwanAppAudioPlayer", "oninfo : what is " + i + " extra is " + i2);
-                return false;
-            }
+    public final d.b.g0.g.i.a C() {
+        SwanAppActivity n;
+        d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
+        if (y == null || !y.i0() || (n = y.n()) == null) {
+            return null;
+        }
+        d.b.g0.a.o0.c frame = n.getFrame();
+        if (frame instanceof d.b.g0.g.m.b) {
+            return ((d.b.g0.g.m.b) frame).U0();
+        }
+        return null;
+    }
+
+    public float D() {
+        d.b.g0.g.c.d dVar = this.f12806f;
+        if (dVar != null) {
+            return dVar.i;
+        }
+        return 1.0f;
+    }
+
+    public final void E() {
+        J(MissionEvent.MESSAGE_PAUSE);
+        this.f12807g.removeMessages(0);
+    }
+
+    public final void F() {
+        this.f12802b = PlayerStatus.IDLE;
+        d.b.g0.g.c.j.c cVar = this.f12805e;
+        if (cVar != null) {
+            cVar.destroy();
+            this.f12805e = null;
+        }
+        this.f12807g.removeMessages(0);
+    }
+
+    public final boolean G() {
+        d.b.g0.a.e0.l.c m;
+        if (d.b.g0.a.r1.e.y() == null || !d.b.g0.a.r1.e.y().i0()) {
             return false;
         }
-
-        @Override // android.media.MediaPlayer.OnErrorListener
-        public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-            String str;
-            if (AudioPlayer.DEBUG) {
-                Log.d("SwanAppAudioPlayer", "onError : what is " + i + " extra is " + i2);
-                Log.e("SwanAppAudioPlayer", "Audio Error = " + i + "playerId = " + AudioPlayer.this.edP.djT + " url = " + AudioPlayer.this.edP.mUrl);
-            }
-            switch (i) {
-                case 1:
-                    str = "-1";
-                    break;
-                case 100:
-                    str = "10001";
-                    break;
-                default:
-                    str = "-1";
-                    break;
-            }
-            if (i2 == -1007) {
-                str = "10004";
-            }
-            AudioPlayer.this.vY(str);
-            AudioPlayer.this.aTQ();
+        f W = d.b.g0.a.z0.f.V().W();
+        if (W == null || (m = W.m()) == null || !(m instanceof j)) {
             return true;
         }
+        return ((j) m).d3();
+    }
 
-        @Override // android.media.MediaPlayer.OnSeekCompleteListener
-        public void onSeekComplete(MediaPlayer mediaPlayer) {
-            if (AudioPlayer.DEBUG) {
-                Log.d("SwanAppAudioPlayer", "onSeekComplete");
-            }
-            AudioPlayer.this.vZ("onSeeked");
+    public final boolean H() {
+        return this.f12805e != null && this.f12802b == PlayerStatus.PREPARED;
+    }
+
+    public boolean I() {
+        UserStatus userStatus = UserStatus.STOP;
+        UserStatus userStatus2 = this.f12803c;
+        return (userStatus == userStatus2 || UserStatus.DESTROY == userStatus2) ? false : true;
+    }
+
+    public final void J(String str) {
+        K(str, null);
+    }
+
+    public final void K(String str, JSONObject jSONObject) {
+        d.b.g0.a.b1.c.e.a aVar = this.f12801a;
+        if (aVar != null) {
+            aVar.b(str, jSONObject);
         }
+    }
 
-        @Override // android.media.MediaPlayer.OnBufferingUpdateListener
-        public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
+    public final void L(String str) {
+        if (this.f12801a != null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                if (AudioPlayer.DEBUG) {
-                    Log.d("SwanAppAudioPlayer", "onBufferUpdate : " + i + "%");
+                jSONObject.putOpt(RouterCallback.KEY_ERROR_CODE, str);
+            } catch (JSONException e2) {
+                if (o) {
+                    Log.d("SwanAppAudioPlayer", Log.getStackTraceString(e2));
                 }
-                if (AudioPlayer.this.aTX()) {
-                    AudioPlayer.this.edR = (((int) AudioPlayer.this.getDuration()) * i) / 100;
-                    if (AudioPlayer.this.dkt != null) {
-                        AudioPlayer.this.vZ("onBufferingUpdate");
-                        if (AudioPlayer.this.edM == PlayerStatus.PREPARED && AudioPlayer.this.edN != UserStatus.STOP && (i * AudioPlayer.this.getDuration()) / 100 <= AudioPlayer.this.getCurrentPosition()) {
-                            AudioPlayer.this.vZ("onWaiting");
+            }
+            this.f12801a.b("onError", jSONObject);
+        }
+    }
+
+    public final void M() {
+        try {
+            if (this.i.contains("http")) {
+                d.b.g0.g.c.j.b h2 = d.b.g0.g.c.j.b.h();
+                File file = new File(h2.g(this.i));
+                if (file.exists() && !file.isDirectory()) {
+                    this.j = file.getAbsolutePath();
+                    w();
+                } else {
+                    h2.j(this.i, new c());
+                }
+            } else {
+                this.j = this.i;
+                w();
+            }
+        } catch (Exception e2) {
+            if (o) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void N(d.b.g0.g.c.d dVar) {
+        if (o) {
+            Log.d("SwanAppAudioPlayer", "AudioPlayer open");
+        }
+        if (this.f12805e != null) {
+            F();
+        }
+        this.f12803c = UserStatus.OPEN;
+        this.f12806f = dVar;
+        this.f12808h = 0;
+        this.i = d.b.g0.a.z0.f.V().y().m(this.f12806f.f47936c);
+        this.f12802b = PlayerStatus.IDLE;
+        J("onWaiting");
+        M();
+    }
+
+    public void O() {
+        this.f12803c = UserStatus.PAUSE;
+        P();
+    }
+
+    public final void P() {
+        if (H()) {
+            this.f12805e.pause();
+        }
+    }
+
+    public void Q() {
+        this.f12803c = UserStatus.PLAY;
+        if (this.m) {
+            try {
+                if (!G() && x()) {
+                    if (o) {
+                        Log.d("SwanAppAudioPlayer", "play music first: " + this.j);
+                    }
+                    if (this.f12802b == PlayerStatus.PREPARED) {
+                        this.f12807g.sendEmptyMessage(0);
+                        a0();
+                        if (o) {
+                            Log.d("SwanAppAudioPlayer", "play music: " + this.j);
+                        }
+                        B().play();
+                        J("onPlay");
+                    } else if (this.f12802b == PlayerStatus.IDLE) {
+                        try {
+                            B().e(this.j);
+                            this.f12802b = PlayerStatus.PREPARING;
+                        } catch (Exception e2) {
+                            if (o) {
+                                Log.d("SwanAppAudioPlayer", "set data source fail");
+                                e2.printStackTrace();
+                            }
+                            L(!SwanAppNetworkUtils.h(null) ? LightappConstants.ERRCODE_INNER_ERROR : LightappConstants.ERRCODE_NO_PERMISSION);
                         }
                     }
                 }
-            } catch (Exception e) {
-                if (AudioPlayer.DEBUG) {
-                    e.printStackTrace();
+            } catch (Exception e3) {
+                if (o) {
+                    e3.printStackTrace();
                 }
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void vY(String str) {
-        if (this.dkt != null) {
-            JSONObject jSONObject = new JSONObject();
+    public final void R() {
+        try {
+            File file = new File(this.j);
+            if (file.exists() && !file.isDirectory()) {
+                long f2 = d.b.g0.g.c.j.b.h().f(this.j);
+                this.n = f2;
+                if (0 != f2) {
+                    B().e(this.j);
+                    if (o) {
+                        Log.e("SwanAppAudioPlayer", "setSrc path: " + this.j);
+                        return;
+                    }
+                    return;
+                }
+            }
+        } catch (Exception e2) {
+            if (o) {
+                Log.d("SwanAppAudioPlayer", "set data source fail");
+                e2.printStackTrace();
+            }
+        }
+        L(LightappConstants.ERRCODE_INNER_ERROR);
+    }
+
+    public void S() {
+        if (this.k == null) {
+            this.k = new d(this, null);
+        }
+        this.f12805e.x(this.k);
+        this.f12805e.j(this.k);
+        this.f12805e.p(this.k);
+        this.f12805e.y(this.k);
+        this.f12805e.r(this.k);
+        this.f12805e.b(this.k);
+        this.f12805e.m(this);
+    }
+
+    public void T() {
+        F();
+        this.m = false;
+        this.f12803c = UserStatus.DESTROY;
+        this.f12802b = PlayerStatus.NONE;
+    }
+
+    public void U(float f2) {
+        try {
+            J("onSeeking");
+            int i = (int) (f2 * 1000.0f);
+            if (H()) {
+                if (i >= 0 && i <= A()) {
+                    this.f12805e.seek(i);
+                }
+                this.l = -1.0f;
+                return;
+            }
+            if (this.m && this.f12802b == PlayerStatus.IDLE) {
+                R();
+            }
+            this.l = i;
+        } catch (Exception e2) {
+            if (o) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void V(d.b.g0.a.b1.c.e.a aVar) {
+        this.f12801a = aVar;
+    }
+
+    public final void W(boolean z) {
+        try {
+            if (H()) {
+                this.f12805e.a(z);
+            }
+        } catch (Exception e2) {
+            if (o) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public final void X(float f2) {
+        if (H()) {
+            if (f2 > 1.0f) {
+                f2 = 1.0f;
+            } else if (f2 < 0.0f) {
+                f2 = 0.0f;
+            }
             try {
-                jSONObject.putOpt("errCode", str);
-            } catch (JSONException e) {
-                if (DEBUG) {
-                    Log.d("SwanAppAudioPlayer", Log.getStackTraceString(e));
+                this.f12805e.t(f2);
+            } catch (Exception e2) {
+                if (o) {
+                    e2.printStackTrace();
                 }
             }
-            this.dkt.i("onError", jSONObject);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void vZ(String str) {
-        n(str, null);
+    public void Y() {
+        this.f12803c = UserStatus.STOP;
+        if (H()) {
+            this.f12805e.stop();
+        }
+        F();
+        J(MissionEvent.MESSAGE_STOP);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void n(String str, JSONObject jSONObject) {
-        if (this.dkt != null) {
-            this.dkt.i(str, jSONObject);
+    public void Z(d.b.g0.g.c.d dVar) {
+        this.f12806f = dVar;
+        d.b.g0.a.b1.c.e.a aVar = this.f12801a;
+        if (aVar != null) {
+            aVar.d(dVar.j);
         }
+        a0();
+    }
+
+    @Override // d.b.g0.a.b1.a
+    public Object a() {
+        return this;
+    }
+
+    public final void a0() {
+        if (o) {
+            Log.d("SwanAppAudioPlayer", "update AudioPlayer params : " + this.f12806f.toString());
+        }
+        W(this.f12806f.f47939f);
+        X(this.f12806f.i);
+    }
+
+    @Override // d.b.g0.a.b1.a
+    public String b() {
+        return this.f12806f.f47935b;
+    }
+
+    @Override // d.b.g0.a.b1.a
+    public String c() {
+        return this.f12804d;
+    }
+
+    @Override // d.b.g0.a.b1.a
+    public void d(boolean z) {
+    }
+
+    @Override // d.b.g0.a.b1.a
+    public String e() {
+        return null;
+    }
+
+    @Override // d.b.g0.a.b1.a
+    public void f(boolean z) {
+        d.b.g0.g.i.a C;
+        d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
+        if (y == null || !y.i0() || z || (C = C()) == null || C.n0()) {
+            return;
+        }
+        C.runOnJSThread(new b());
+    }
+
+    @Override // d.b.g0.a.b1.a
+    public boolean onBackPressed() {
+        return false;
+    }
+
+    @Override // d.b.g0.a.b1.a
+    public void onDestroy() {
+        d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
+        if (y == null || !y.i0()) {
+            return;
+        }
+        T();
+    }
+
+    @Override // d.b.g0.j.a.c
+    public void onPause() {
+        E();
+    }
+
+    public final void w() {
+        R();
+    }
+
+    public final boolean x() throws JSONException {
+        File file = new File(this.j);
+        if (!file.exists() || file.isDirectory()) {
+            L(LightappConstants.ERRCODE_INNER_ERROR);
+            return false;
+        }
+        return true;
+    }
+
+    public int y() {
+        return this.f12808h;
+    }
+
+    public int z() {
+        if (H()) {
+            return this.f12805e.u();
+        }
+        return 0;
     }
 }

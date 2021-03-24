@@ -2,97 +2,117 @@ package com.baidu.tieba.themeCenter.bubble.list;
 
 import android.os.Bundle;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.view.f;
-import com.baidu.tbadk.m.d;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.list.BubbleListModel;
-import com.baidu.tieba.themeCenter.dressCenter.e;
+import d.b.h0.k0.d;
+import d.b.h0.r.f0.f;
+import d.b.i0.i3.h.e;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
-    private com.baidu.tieba.themeCenter.bubble.all.a nKf;
-    private BubbleListModel nKp;
-    private b nKq;
-    private BubbleListModel.a nKr = new BubbleListModel.a() { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity.1
-        @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.a
+    public d.b.i0.i3.f.a.a mItemController;
+    public BubbleListModel mModel;
+    public d.b.i0.i3.f.c.b mView;
+    public BubbleListModel.c mCallback = new a();
+    public BdListView.p mScrollToBottomListener = new b();
+    public final f.g mOnPullRefreshListener = new c();
+
+    /* loaded from: classes5.dex */
+    public class a implements BubbleListModel.c {
+        public a() {
+        }
+
+        @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.c
         public void a(int i, String str, e eVar, List<DressItemData> list) {
-            BubbleListActivity.this.nKq.bRO();
-            BubbleListActivity.this.hideLoadingView(BubbleListActivity.this.nKq.getRootView());
+            BubbleListActivity.this.mView.j();
+            BubbleListActivity bubbleListActivity = BubbleListActivity.this;
+            bubbleListActivity.hideLoadingView(bubbleListActivity.mView.c());
             if (i == 0) {
-                BubbleListActivity.this.nKq.a(eVar, list, BubbleListActivity.this.nKp.dRw());
+                BubbleListActivity.this.mView.i(eVar, list, BubbleListActivity.this.mModel.H());
                 return;
             }
             BubbleListActivity.this.showToast(str);
-            BubbleListActivity.this.nKq.cAU();
+            BubbleListActivity.this.mView.h();
         }
-    };
-    private BdListView.e gDl = new BdListView.e() { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity.2
-        @Override // com.baidu.adp.widget.ListView.BdListView.e
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements BdListView.p {
+        public b() {
+        }
+
+        @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (BubbleListActivity.this.nKp != null) {
-                BubbleListActivity.this.nKp.dRv();
+            if (BubbleListActivity.this.mModel != null) {
+                BubbleListActivity.this.mModel.s();
             }
         }
-    };
-    private final f.c gJi = new f.c() { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity.3
-        @Override // com.baidu.tbadk.core.view.f.c
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements f.g {
+        public c() {
+        }
+
+        @Override // d.b.h0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
-            if (BubbleListActivity.this.nKp != null) {
-                BubbleListActivity.this.nKp.LoadData();
+            if (BubbleListActivity.this.mModel != null) {
+                BubbleListActivity.this.mModel.LoadData();
             }
         }
-    };
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.nKp = new BubbleListModel(this);
-        this.nKp.a(this.nKr);
-        this.nKf = new com.baidu.tieba.themeCenter.bubble.all.a(getPageContext());
-        this.nKq = new b(this, this.nKf);
-        this.nKq.a(this.gDl, this.gJi);
-        showLoadingView(this.nKq.getRootView());
-        this.nKp.LoadData();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (this.nKq != null) {
-            this.nKq.bzq();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onNetRefreshButtonClicked() {
-        if (this.nKp != null && this.nKq != null) {
-            showLoadingView(this.nKq.getRootView());
-            this.nKp.LoadData();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
     public String getCurrentPageKey() {
-        return PageStayDurationConstants.PageName.BUBBLE_ALL;
+        return "b011";
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.isRouteStat = true;
+            pageStayDurationItem.f50238a = true;
         }
         return pageStayDurationItem;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        d.b.i0.i3.f.c.b bVar = this.mView;
+        if (bVar != null) {
+            bVar.d();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        BubbleListModel bubbleListModel = new BubbleListModel(this);
+        this.mModel = bubbleListModel;
+        bubbleListModel.J(this.mCallback);
+        d.b.i0.i3.f.a.a aVar = new d.b.i0.i3.f.a.a(getPageContext());
+        this.mItemController = aVar;
+        d.b.i0.i3.f.c.b bVar = new d.b.i0.i3.f.c.b(this, aVar);
+        this.mView = bVar;
+        bVar.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
+        showLoadingView(this.mView.c());
+        this.mModel.LoadData();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
+        d.b.i0.i3.f.c.b bVar;
+        if (this.mModel == null || (bVar = this.mView) == null) {
+            return;
+        }
+        showLoadingView(bVar.c());
+        this.mModel.LoadData();
     }
 }

@@ -1,32 +1,103 @@
 package com.sdk.base.framework.f.i;
 
-import com.baidu.android.common.security.RSAUtil;
-import com.sdk.base.framework.a.a.c;
+import android.content.Context;
 import com.sdk.base.framework.c.f;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes4.dex */
-public class a {
+import java.util.Random;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+/* loaded from: classes6.dex */
+public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7648a = a.class.getSimpleName();
-    private static Boolean b = Boolean.valueOf(f.b);
+    public static final String f38559a = "com.sdk.base.framework.f.i.a";
 
-    public static PublicKey a(String str) {
-        try {
-            com.sdk.base.framework.e.a aVar = new com.sdk.base.framework.e.a();
-            byte[] bArr = new byte[str.length()];
-            str.getBytes(0, str.length(), bArr, 0);
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            aVar.a(byteArrayInputStream, byteArrayOutputStream);
-            return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(byteArrayOutputStream.toByteArray()));
-        } catch (Exception e) {
-            c.b(f7648a, e.toString(), b);
-            return null;
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f38560b = f.f38519b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f38561c = "a6Hy5Hb8IfX46D1f";
+
+    public static String a(int i) {
+        Random random = new Random();
+        String str = "";
+        for (int i2 = 0; i2 < i; i2++) {
+            String str2 = random.nextInt(2) % 2 == 0 ? "char" : "num";
+            if ("char".equalsIgnoreCase(str2)) {
+                int i3 = random.nextInt(2) % 2 == 0 ? 65 : 97;
+                str = str + ((char) (random.nextInt(26) + i3));
+            } else if ("num".equalsIgnoreCase(str2)) {
+                str = str + String.valueOf(random.nextInt(10));
+            }
         }
+        return str;
+    }
+
+    public static String a(Context context) {
+        String b2 = com.sdk.base.framework.f.b.a.b(context, f.f38518a);
+        if (com.sdk.base.framework.a.a.c.a(b2).booleanValue()) {
+            String a2 = a(16);
+            com.sdk.base.framework.f.b.a.b(context, f.f38518a, a2);
+            return a2;
+        }
+        return b2;
+    }
+
+    public static String a(String str, String str2) {
+        return b(str, str2, f38561c);
+    }
+
+    public static String a(String str, String str2, String str3) {
+        if (str != null) {
+            try {
+                if (str.length() != 0 && str.trim().length() != 0) {
+                    if (str2 == null) {
+                        com.sdk.base.framework.f.a.a(f38559a, "EncryptCbcIv", "encrypt key is null", f38560b);
+                        return null;
+                    } else if (str2.length() != 16) {
+                        com.sdk.base.framework.f.a.a(f38559a, "EncryptCbcIv", "encrypt key length error", f38560b);
+                        return null;
+                    } else if (str3.length() != 16) {
+                        com.sdk.base.framework.f.a.a(f38559a, "EncryptCbcIv", "ivStr length error", f38560b);
+                        return null;
+                    } else {
+                        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                        cipher.init(1, new SecretKeySpec(str2.getBytes("utf-8"), "AES"), new IvParameterSpec(str3.getBytes("utf-8")));
+                        return c.a(cipher.doFinal(str.getBytes("utf-8")));
+                    }
+                }
+            } catch (Exception e2) {
+                com.sdk.base.framework.f.a.a(f38559a, "EncryptCbcIv", e2.getMessage(), f38560b);
+                return null;
+            }
+        }
+        com.sdk.base.framework.f.a.a(f38559a, "EncryptCbcIv", "encrypt content is null", f38560b);
+        return null;
+    }
+
+    public static String b(String str, String str2, String str3) {
+        if (str != null) {
+            try {
+                if (str.length() != 0 && str.trim().length() != 0) {
+                    if (str2 != null) {
+                        if (str2.length() == 16) {
+                            if (str3.length() == 16) {
+                                byte[] a2 = c.a(str);
+                                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                                cipher.init(2, new SecretKeySpec(str2.getBytes("utf-8"), "AES"), new IvParameterSpec(str3.getBytes("utf-8")));
+                                return new String(cipher.doFinal(a2), "utf-8");
+                            }
+                            throw new Exception(" iv decrypt key length error");
+                        }
+                        throw new Exception("decrypt key length error");
+                    }
+                    throw new Exception("decrypt key is null");
+                }
+                return null;
+            } catch (Exception e2) {
+                throw new Exception("decrypt errot", e2);
+            }
+        }
+        return null;
     }
 }

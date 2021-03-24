@@ -14,29 +14,42 @@ import android.view.View;
 import android.widget.ImageView;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public abstract class SharedElementCallback {
-    private static final String BUNDLE_SNAPSHOT_BITMAP = "sharedElement:snapshot:bitmap";
-    private static final String BUNDLE_SNAPSHOT_IMAGE_MATRIX = "sharedElement:snapshot:imageMatrix";
-    private static final String BUNDLE_SNAPSHOT_IMAGE_SCALETYPE = "sharedElement:snapshot:imageScaleType";
-    private static final int MAX_IMAGE_SIZE = 1048576;
-    private Matrix mTempMatrix;
+    public static final String BUNDLE_SNAPSHOT_BITMAP = "sharedElement:snapshot:bitmap";
+    public static final String BUNDLE_SNAPSHOT_IMAGE_MATRIX = "sharedElement:snapshot:imageMatrix";
+    public static final String BUNDLE_SNAPSHOT_IMAGE_SCALETYPE = "sharedElement:snapshot:imageScaleType";
+    public static final int MAX_IMAGE_SIZE = 1048576;
+    public Matrix mTempMatrix;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface OnSharedElementsReadyListener {
         void onSharedElementsReady();
     }
 
-    public void onSharedElementStart(List<String> list, List<View> list2, List<View> list3) {
-    }
-
-    public void onSharedElementEnd(List<String> list, List<View> list2, List<View> list3) {
-    }
-
-    public void onRejectSharedElements(List<View> list) {
-    }
-
-    public void onMapSharedElements(List<String> list, Map<String, View> map) {
+    public static Bitmap createDrawableBitmap(Drawable drawable) {
+        int intrinsicWidth = drawable.getIntrinsicWidth();
+        int intrinsicHeight = drawable.getIntrinsicHeight();
+        if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
+            return null;
+        }
+        float min = Math.min(1.0f, 1048576.0f / (intrinsicWidth * intrinsicHeight));
+        if ((drawable instanceof BitmapDrawable) && min == 1.0f) {
+            return ((BitmapDrawable) drawable).getBitmap();
+        }
+        int i = (int) (intrinsicWidth * min);
+        int i2 = (int) (intrinsicHeight * min);
+        Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(createBitmap);
+        Rect bounds = drawable.getBounds();
+        int i3 = bounds.left;
+        int i4 = bounds.top;
+        int i5 = bounds.right;
+        int i6 = bounds.bottom;
+        drawable.setBounds(0, 0, i, i2);
+        drawable.draw(canvas);
+        drawable.setBounds(i3, i4, i5, i6);
+        return createBitmap;
     }
 
     public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
@@ -78,56 +91,43 @@ public abstract class SharedElementCallback {
         return createBitmap;
     }
 
-    private static Bitmap createDrawableBitmap(Drawable drawable) {
-        int intrinsicWidth = drawable.getIntrinsicWidth();
-        int intrinsicHeight = drawable.getIntrinsicHeight();
-        if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
-            return null;
-        }
-        float min = Math.min(1.0f, 1048576.0f / (intrinsicWidth * intrinsicHeight));
-        if ((drawable instanceof BitmapDrawable) && min == 1.0f) {
-            return ((BitmapDrawable) drawable).getBitmap();
-        }
-        int i = (int) (intrinsicWidth * min);
-        int i2 = (int) (intrinsicHeight * min);
-        Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(createBitmap);
-        Rect bounds = drawable.getBounds();
-        int i3 = bounds.left;
-        int i4 = bounds.top;
-        int i5 = bounds.right;
-        int i6 = bounds.bottom;
-        drawable.setBounds(0, 0, i, i2);
-        drawable.draw(canvas);
-        drawable.setBounds(i3, i4, i5, i6);
-        return createBitmap;
-    }
-
     public View onCreateSnapshotView(Context context, Parcelable parcelable) {
-        ImageView imageView;
         if (parcelable instanceof Bundle) {
             Bundle bundle = (Bundle) parcelable;
             Bitmap bitmap = (Bitmap) bundle.getParcelable(BUNDLE_SNAPSHOT_BITMAP);
             if (bitmap == null) {
                 return null;
             }
-            ImageView imageView2 = new ImageView(context);
-            imageView2.setImageBitmap(bitmap);
-            imageView2.setScaleType(ImageView.ScaleType.valueOf(bundle.getString(BUNDLE_SNAPSHOT_IMAGE_SCALETYPE)));
-            if (imageView2.getScaleType() == ImageView.ScaleType.MATRIX) {
+            ImageView imageView = new ImageView(context);
+            imageView.setImageBitmap(bitmap);
+            imageView.setScaleType(ImageView.ScaleType.valueOf(bundle.getString(BUNDLE_SNAPSHOT_IMAGE_SCALETYPE)));
+            if (imageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                 float[] floatArray = bundle.getFloatArray(BUNDLE_SNAPSHOT_IMAGE_MATRIX);
                 Matrix matrix = new Matrix();
                 matrix.setValues(floatArray);
-                imageView2.setImageMatrix(matrix);
+                imageView.setImageMatrix(matrix);
+                return imageView;
             }
-            imageView = imageView2;
+            return imageView;
         } else if (parcelable instanceof Bitmap) {
-            imageView = new ImageView(context);
-            imageView.setImageBitmap((Bitmap) parcelable);
+            ImageView imageView2 = new ImageView(context);
+            imageView2.setImageBitmap((Bitmap) parcelable);
+            return imageView2;
         } else {
-            imageView = null;
+            return null;
         }
-        return imageView;
+    }
+
+    public void onMapSharedElements(List<String> list, Map<String, View> map) {
+    }
+
+    public void onRejectSharedElements(List<View> list) {
+    }
+
+    public void onSharedElementEnd(List<String> list, List<View> list2, List<View> list3) {
+    }
+
+    public void onSharedElementStart(List<String> list, List<View> list2, List<View> list3) {
     }
 
     public void onSharedElementsArrived(List<String> list, List<View> list2, OnSharedElementsReadyListener onSharedElementsReadyListener) {

@@ -6,7 +6,7 @@ import com.kwad.sdk.core.videocache.l;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f implements c {
     private String b(String str) {
         int lastIndexOf = str.lastIndexOf(46);
@@ -37,9 +37,12 @@ public class f implements c {
 
     @Override // com.kwad.sdk.core.videocache.a.c
     public String a(String str) {
-        String c = c(str);
-        String b = b(c);
-        String d = l.d(c);
-        return TextUtils.isEmpty(b) ? d : d + "." + b;
+        String c2 = c(str);
+        String b2 = b(c2);
+        String d2 = l.d(c2);
+        if (TextUtils.isEmpty(b2)) {
+            return d2;
+        }
+        return d2 + "." + b2;
     }
 }

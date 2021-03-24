@@ -2,19 +2,18 @@ package com.kwad.sdk.api.loader;
 
 import android.os.Build;
 import android.os.Process;
-/* loaded from: classes3.dex */
-class s {
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public class s {
     public static boolean a() {
-        if (Build.VERSION.SDK_INT >= 23) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 23) {
             return Process.is64Bit();
         }
-        if (Build.VERSION.SDK_INT >= 21) {
+        if (i >= 21) {
             try {
                 return ((Boolean) Reflect.a("dalvik.system.VMRuntime").d("getRuntime").d("is64Bit").a()).booleanValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
         return false;

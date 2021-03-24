@@ -1,35 +1,35 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a implements com.kwad.sdk.pngencrypt.g {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f6918a;
+    public boolean f36127a;
 
     public a() {
         this(true);
     }
 
     public a(boolean z) {
-        this.f6918a = z;
+        this.f36127a = z;
     }
 
     @Override // com.kwad.sdk.pngencrypt.g
     public final PngChunk a(d dVar, com.kwad.sdk.pngencrypt.k kVar) {
-        PngChunk a2 = a(dVar.c, kVar);
+        PngChunk a2 = a(dVar.f36141c, kVar);
         if (a2 == null) {
-            a2 = c(dVar.c, kVar);
+            a2 = c(dVar.f36141c, kVar);
         }
         if (a2 == null) {
-            a2 = b(dVar.c, kVar);
+            a2 = b(dVar.f36141c, kVar);
         }
         a2.b(dVar);
-        if (this.f6918a && dVar.d != null) {
+        if (this.f36127a && dVar.f36142d != null) {
             a2.a(dVar);
         }
         return a2;
     }
 
-    protected final PngChunk a(String str, com.kwad.sdk.pngencrypt.k kVar) {
+    public final PngChunk a(String str, com.kwad.sdk.pngencrypt.k kVar) {
         if (str.equals("IDAT")) {
             return new o(kVar);
         }
@@ -96,11 +96,11 @@ public class a implements com.kwad.sdk.pngencrypt.g {
         return null;
     }
 
-    protected final PngChunk b(String str, com.kwad.sdk.pngencrypt.k kVar) {
+    public final PngChunk b(String str, com.kwad.sdk.pngencrypt.k kVar) {
         return new af(str, kVar);
     }
 
-    protected PngChunk c(String str, com.kwad.sdk.pngencrypt.k kVar) {
+    public PngChunk c(String str, com.kwad.sdk.pngencrypt.k kVar) {
         if (str.equals("oFFs")) {
             return new t(kVar);
         }

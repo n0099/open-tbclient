@@ -4,10 +4,14 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public interface AutoSizeableTextView {
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final boolean PLATFORM_SUPPORTS_AUTOSIZE;
+
+    static {
+        PLATFORM_SUPPORTS_AUTOSIZE = Build.VERSION.SDK_INT >= 27;
+    }
 
     int getAutoSizeMaxTextSize();
 
@@ -24,8 +28,4 @@ public interface AutoSizeableTextView {
     void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException;
 
     void setAutoSizeTextTypeWithDefaults(int i);
-
-    static {
-        PLATFORM_SUPPORTS_AUTOSIZE = Build.VERSION.SDK_INT >= 27;
-    }
 }

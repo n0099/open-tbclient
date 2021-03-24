@@ -13,43 +13,51 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.util.io.ActionJsonData;
-import com.win.opensdk.aj;
-import com.win.opensdk.ao;
-import com.win.opensdk.ar;
-import com.win.opensdk.bd;
-import com.win.opensdk.bp;
-import com.win.opensdk.bx;
-import com.win.opensdk.ca;
-import com.win.opensdk.cd;
+import com.win.opensdk.G;
+import com.win.opensdk.H;
+import com.win.opensdk.L;
+import com.win.opensdk.N;
+import com.win.opensdk.O;
+import com.win.opensdk.R;
+import com.win.opensdk.V1;
+import com.win.opensdk.Z0;
+import com.win.opensdk.a1;
+import com.win.opensdk.b1;
 import com.win.opensdk.core.Info;
-import com.win.opensdk.v;
-import com.win.opensdk.z;
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class WDownLoadService extends Service {
 
     /* renamed from: a */
-    public String f8155a;
-    public String b;
-    public String c;
-    public NotificationManager d;
-    public Notification e;
+    public String f39920a;
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.win.opensdk.ao.b():void] */
+    /* renamed from: b */
+    public String f39921b;
+
+    /* renamed from: c */
+    public String f39922c;
+
+    /* renamed from: d */
+    public NotificationManager f39923d;
+
+    /* renamed from: e */
+    public Notification f39924e;
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.win.opensdk.N.b():void] */
     public static /* synthetic */ void a(WDownLoadService wDownLoadService, Info info) {
         wDownLoadService.b(info);
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.win.opensdk.ao.a():void, com.win.opensdk.ao.c():void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.win.opensdk.N.a():void, com.win.opensdk.N.c():void] */
     public static /* synthetic */ boolean a(WDownLoadService wDownLoadService) {
         return wDownLoadService.a();
     }
 
     public final PendingIntent a(Info info) {
-        return PendingIntent.getActivity(this, 0, v.b(info, getApplicationContext(), this.f8155a), 134217728);
+        return PendingIntent.getActivity(this, 0, G.a(info, getApplicationContext(), this.f39920a), 134217728);
     }
 
     public void a(Info info, String str, String str2, int i) {
@@ -58,7 +66,7 @@ public class WDownLoadService extends Service {
             if (Build.VERSION.SDK_INT >= 26) {
                 notificationManager.createNotificationChannel(new NotificationChannel("win_download_id", "win_download", 2));
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "win_download_id");
-                builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(bd.a.win_downloadicon).setTicker(str).setContentText(str2).build();
+                builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.win_downloadicon).setTicker(str).setContentText(str2).build();
                 if (i <= 0 || i > 100) {
                     builder.setProgress(0, 0, false);
                     builder.setContentText(str2);
@@ -72,8 +80,8 @@ public class WDownLoadService extends Service {
             return;
         }
         NotificationCompat.Builder builder2 = new NotificationCompat.Builder(this);
-        builder2.setSmallIcon(bd.a.win_downloadicon);
-        builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), bd.a.win_downloadicon));
+        builder2.setSmallIcon(R.drawable.win_downloadicon);
+        builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.win_downloadicon));
         builder2.setContentTitle(str);
         if (i <= 0 || i >= 100) {
             builder2.setProgress(0, 0, false);
@@ -84,12 +92,13 @@ public class WDownLoadService extends Service {
         builder2.setWhen(System.currentTimeMillis());
         builder2.setTicker(str);
         builder2.setContentIntent(i >= 100 ? a(info) : PendingIntent.getActivity(this, 0, new Intent(), 134217728));
-        this.e = builder2.build();
-        this.d.notify(232, this.e);
+        Notification build = builder2.build();
+        this.f39924e = build;
+        this.f39923d.notify(232, build);
     }
 
     public final boolean a() {
-        File file = new File(this.f8155a);
+        File file = new File(this.f39920a);
         if (file.exists() && file.isFile()) {
             return file.delete();
         }
@@ -97,52 +106,54 @@ public class WDownLoadService extends Service {
     }
 
     public final void b(Info info) {
-        new Handler().postDelayed(new ar(this, info), 400L);
+        new Handler().postDelayed(new O(this, info), 400L);
     }
 
     public final void c(Info info) {
-        bx iT = ca.iT(getApplicationContext());
-        cd cdVar = new cd(info);
-        String str = this.b;
+        Z0 a2 = a1.a(getApplicationContext());
+        b1 b1Var = new b1(info);
+        String str = this.f39921b;
         try {
-            iT.qlo = ca.a("wdst", cdVar);
-            iT.hD("msg", ca.a(str));
-        } catch (JSONException e) {
+            a2.f39849b = a1.a("wdst", b1Var);
+            a2.a("msg", a1.a(str));
+        } catch (JSONException unused) {
         }
-        String str2 = this.f8155a;
+        String str2 = this.f39920a;
         try {
-            str2 = v.a(str2);
-        } catch (Exception e2) {
+            str2 = G.a(str2);
+        } catch (Exception unused2) {
         }
-        iT.hD("desc", str2).a();
+        a2.a("desc", str2).a();
         try {
-            v.a(info, 300, "");
+            G.a(info, 300, "");
             if (info != null && !TextUtils.isEmpty(info.getVv_downs_urls())) {
-                v.i(info.getVv_downs_urls());
+                G.i(info.getVv_downs_urls());
             }
-        } catch (Exception e3) {
-            e3.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        z zVar = z.qkE;
-        String str3 = this.b;
-        String str4 = this.f8155a;
-        ao aoVar = new ao(this, info);
-        if (!zVar.c) {
-            File file = new File(str4.substring(0, str4.lastIndexOf("/") + 1));
-            File file2 = new File(str4);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            if (!file2.exists()) {
-                try {
-                    file2.createNewFile();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
-                }
-            }
-            zVar.qkF = new aj(str3, str4, aoVar);
-            new WeakReference(zVar.f8180a.submit(zVar.qkF));
+        H h2 = H.f39673d;
+        String str3 = this.f39921b;
+        String str4 = this.f39920a;
+        N n = new N(this, info);
+        if (h2.f39676c) {
+            return;
         }
+        File file = new File(str4.substring(0, str4.lastIndexOf("/") + 1));
+        File file2 = new File(str4);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        if (!file2.exists()) {
+            try {
+                file2.createNewFile();
+            } catch (IOException e3) {
+                e3.printStackTrace();
+            }
+        }
+        L l = new L(str3, str4, n);
+        h2.f39675b = l;
+        new WeakReference(h2.f39674a.submit(l));
     }
 
     @Override // android.app.Service
@@ -152,59 +163,53 @@ public class WDownLoadService extends Service {
 
     @Override // android.app.Service
     public void onCreate() {
-        this.d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        this.f39923d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
         try {
-            z.qkE.c = false;
-            if (this.d != null) {
-                this.d.cancel(232);
+            H.f39673d.f39676c = false;
+            if (this.f39923d != null) {
+                this.f39923d.cancel(232);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         String string;
-        String string2;
-        Info info;
-        WDownLoadService wDownLoadService;
-        Info info2 = null;
+        int i3;
+        Info info = null;
         try {
-            this.b = intent.getStringExtra("down_load_apk_url");
-            this.c = intent.getStringExtra("down_load_pkg_name");
-            this.f8155a = v.a(getApplicationContext()) + File.separator + "win" + File.separator + v.e(this.b);
-            File parentFile = new File(this.f8155a).getParentFile();
+            this.f39921b = intent.getStringExtra("down_load_apk_url");
+            this.f39922c = intent.getStringExtra("down_load_pkg_name");
+            this.f39920a = G.a(getApplicationContext()) + File.separator + "win" + File.separator + G.e(this.f39921b);
+            File parentFile = new File(this.f39920a).getParentFile();
             if (!parentFile.exists()) {
                 parentFile.mkdirs();
             }
             try {
-                info2 = (Info) bp.b(getApplicationContext(), this.c);
-            } catch (Exception e) {
-                e.printStackTrace();
+                info = (Info) V1.b(getApplicationContext(), this.f39922c);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            if (info2 != null) {
-                string = info2.getDl_name();
-                string2 = getString(bd.e.wdownload_start);
-                info = info2;
-                wDownLoadService = this;
+            if (info != null) {
+                string = info.getDl_name();
+                i3 = R.string.wdownload_start;
             } else {
-                string = getString(bd.e.wdownload_start);
-                string2 = getString(bd.e.wdownload_start);
-                info = info2;
-                wDownLoadService = this;
+                string = getString(R.string.wdownload_start);
+                i3 = R.string.wdownload_start;
             }
-            wDownLoadService.a(info, string, string2, 0);
-            c(info2);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            if (info2 != null) {
-                ca.iT(getApplicationContext()).a(new cd(info2), 3).hD("desc", e2.getMessage()).a();
+            a(info, string, getString(i3), 0);
+            c(info);
+        } catch (Exception e3) {
+            e3.printStackTrace();
+            if (info != null) {
+                a1.a(getApplicationContext()).b(new b1(info), 3).a("desc", e3.getMessage()).a();
             }
         }
         return super.onStartCommand(intent, i, i2);

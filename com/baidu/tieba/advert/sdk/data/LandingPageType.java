@@ -1,12 +1,12 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public enum LandingPageType {
     UNKNOW(0),
     WEBVIEW(1),
     BROWSER(2),
     DOWNLOAD(3);
     
-    private int value;
+    public int value;
 
     LandingPageType(int i) {
         this.value = i;

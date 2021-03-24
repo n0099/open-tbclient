@@ -9,12 +9,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.MainThread;
 import com.kwad.sdk.utils.s;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AdBaseFrameLayout extends FrameLayout {
-    private static final s.a b = new s.a();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final s.a f34222b = new s.a();
 
     /* renamed from: a  reason: collision with root package name */
-    private View.OnTouchListener f6303a;
+    public View.OnTouchListener f34223a;
 
     public AdBaseFrameLayout(Context context) {
         super(context);
@@ -30,24 +32,23 @@ public class AdBaseFrameLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.f6303a != null) {
-            this.f6303a.onTouch(this, motionEvent);
+        View.OnTouchListener onTouchListener = this.f34223a;
+        if (onTouchListener != null) {
+            onTouchListener.onTouch(this, motionEvent);
         }
-        switch (motionEvent.getAction()) {
-            case 0:
-                b.a(getWidth(), getHeight());
-                b.a(motionEvent.getX(), motionEvent.getY());
-                break;
-            case 1:
-                b.b(motionEvent.getX(), motionEvent.getY());
-                break;
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            f34222b.a(getWidth(), getHeight());
+            f34222b.a(motionEvent.getX(), motionEvent.getY());
+        } else if (action == 1) {
+            f34222b.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
     public s.a getTouchCoords() {
-        return b;
+        return f34222b;
     }
 
     @Override // android.view.View
@@ -55,6 +56,6 @@ public class AdBaseFrameLayout extends FrameLayout {
     }
 
     public void setDispatchTouchListener(View.OnTouchListener onTouchListener) {
-        this.f6303a = onTouchListener;
+        this.f34223a = onTouchListener;
     }
 }

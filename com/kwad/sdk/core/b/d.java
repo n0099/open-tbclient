@@ -4,37 +4,33 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static i f6012a;
+    public static i f33432a;
 
-    private static i a() {
-        if (f6012a != null) {
-            return f6012a;
+    public static i a() {
+        i gVar;
+        i iVar = f33432a;
+        if (iVar != null) {
+            return iVar;
         }
         DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_CLOSE_AES");
         if (a2 != null && ((Boolean) a2.getValue()).booleanValue()) {
-            f6012a = new g();
-            return f6012a;
+            g gVar2 = new g();
+            f33432a = gVar2;
+            return gVar2;
         }
-        if (com.kwad.sdk.d.f6401a == 1) {
+        if (com.kwad.sdk.d.f34511a == 1) {
             com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.a.class);
-            if (aVar == null || aVar.a() == null) {
-                f6012a = new g();
-            } else {
-                f6012a = aVar.a();
-            }
+            gVar = (aVar == null || aVar.a() == null) ? new g() : aVar.a();
         } else {
             com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.b.class);
-            if (bVar == null || bVar.a() == null) {
-                f6012a = new g();
-            } else {
-                f6012a = bVar.a();
-            }
+            gVar = (bVar == null || bVar.a() == null) ? new g() : bVar.a();
         }
-        return f6012a;
+        f33432a = gVar;
+        return f33432a;
     }
 
     public static String a(String str) {

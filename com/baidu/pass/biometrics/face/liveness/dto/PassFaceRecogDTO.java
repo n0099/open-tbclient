@@ -4,10 +4,9 @@ import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
 import com.baidu.pass.biometrics.face.liveness.a.a;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
-import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class PassFaceRecogDTO extends PassBiometricDto {
     public static final int IMAGE_FLAG_CUT_AND_ORIGIN_IMAGE = 3;
     public static final int IMAGE_FLAG_CUT_IMAGE = 1;
@@ -22,25 +21,28 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public String passProductId;
     public String phoneNum;
     public String processid;
+    public int quality;
     public String realName;
     public String serviceType;
     public String stoken;
     public String uid;
     public PassFaceRecogType livenessType = PassFaceRecogType.RECOG_TYPE_BDUSS;
     public Map<String, String> extraParamsMap = new HashMap();
-    public boolean guideLiveness = true;
+    public String di = "";
     public String imageFlag = "0";
 
     private int a() {
-        PassBiometricDto a2 = a.a().a("request_data");
-        if (a2 != null && (a2 instanceof PassFaceRecogDTO)) {
+        PassBiometricDto a2 = a.b().a("request_data");
+        if (a2 instanceof PassFaceRecogDTO) {
             PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) a2;
-            if (!TextUtils.isEmpty(passFaceRecogDTO.imageFlag)) {
-                try {
-                    return Integer.parseInt(passFaceRecogDTO.imageFlag);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if (TextUtils.isEmpty(passFaceRecogDTO.imageFlag)) {
+                return 0;
+            }
+            try {
+                return Integer.parseInt(passFaceRecogDTO.imageFlag);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return 0;
             }
         }
         return 0;
@@ -55,9 +57,14 @@ public class PassFaceRecogDTO extends PassBiometricDto {
         for (Map.Entry<String, String> entry : this.extraParamsMap.entrySet()) {
             if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(entry.getKey()).append("=").append(entry.getValue());
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
                 } else {
-                    sb.append(ETAG.ITEM_SEPARATOR).append(entry.getKey()).append("=").append(entry.getValue());
+                    sb.append("&");
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
                 }
             }
         }

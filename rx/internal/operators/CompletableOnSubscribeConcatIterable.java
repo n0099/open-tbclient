@@ -1,67 +1,33 @@
 package rx.internal.operators;
 
+import h.b;
+import h.c;
+import h.k;
+import h.u.d;
+import h.u.e;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
-import rx.b;
-/* loaded from: classes4.dex */
-public final class CompletableOnSubscribeConcatIterable implements b.a {
-    final Iterable<? extends rx.b> qoU;
+/* loaded from: classes7.dex */
+public final class CompletableOnSubscribeConcatIterable implements b.f {
 
-    public CompletableOnSubscribeConcatIterable(Iterable<? extends rx.b> iterable) {
-        this.qoU = iterable;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public final Iterable<? extends b> f68148e;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // rx.functions.b
-    /* renamed from: a */
-    public void call(rx.c cVar) {
-        try {
-            Iterator<? extends rx.b> it = this.qoU.iterator();
-            if (it == null) {
-                cVar.onSubscribe(rx.subscriptions.e.eOd());
-                cVar.onError(new NullPointerException("The iterator returned is null"));
-                return;
-            }
-            ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(cVar, it);
-            cVar.onSubscribe(concatInnerSubscriber.sd);
-            concatInnerSubscriber.next();
-        } catch (Throwable th) {
-            cVar.onSubscribe(rx.subscriptions.e.eOd());
-            cVar.onError(th);
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static final class ConcatInnerSubscriber extends AtomicInteger implements c {
+        public static final long serialVersionUID = -7965400327305809232L;
+        public final c actual;
+        public final d sd = new d();
+        public final Iterator<? extends b> sources;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class ConcatInnerSubscriber extends AtomicInteger implements rx.c {
-        private static final long serialVersionUID = -7965400327305809232L;
-        final rx.c actual;
-        final rx.subscriptions.d sd = new rx.subscriptions.d();
-        final Iterator<? extends rx.b> sources;
-
-        public ConcatInnerSubscriber(rx.c cVar, Iterator<? extends rx.b> it) {
+        public ConcatInnerSubscriber(c cVar, Iterator<? extends b> it) {
             this.actual = cVar;
             this.sources = it;
         }
 
-        @Override // rx.c
-        public void onSubscribe(rx.k kVar) {
-            this.sd.f(kVar);
-        }
-
-        @Override // rx.c
-        public void onError(Throwable th) {
-            this.actual.onError(th);
-        }
-
-        @Override // rx.c
-        public void onCompleted() {
-            next();
-        }
-
-        void next() {
+        public void next() {
             if (!this.sd.isUnsubscribed() && getAndIncrement() == 0) {
-                Iterator<? extends rx.b> it = this.sources;
+                Iterator<? extends b> it = this.sources;
                 while (!this.sd.isUnsubscribed()) {
                     try {
                         if (!it.hasNext()) {
@@ -69,12 +35,12 @@ public final class CompletableOnSubscribeConcatIterable implements b.a {
                             return;
                         }
                         try {
-                            rx.b next = it.next();
+                            b next = it.next();
                             if (next == null) {
                                 this.actual.onError(new NullPointerException("The completable returned is null"));
                                 return;
                             }
-                            next.b(this);
+                            next.j(this);
                             if (decrementAndGet() == 0) {
                                 return;
                             }
@@ -88,6 +54,45 @@ public final class CompletableOnSubscribeConcatIterable implements b.a {
                     }
                 }
             }
+        }
+
+        @Override // h.c
+        public void onCompleted() {
+            next();
+        }
+
+        @Override // h.c
+        public void onError(Throwable th) {
+            this.actual.onError(th);
+        }
+
+        @Override // h.c
+        public void onSubscribe(k kVar) {
+            this.sd.a(kVar);
+        }
+    }
+
+    public CompletableOnSubscribeConcatIterable(Iterable<? extends b> iterable) {
+        this.f68148e = iterable;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // h.n.b
+    /* renamed from: a */
+    public void call(c cVar) {
+        try {
+            Iterator<? extends b> it = this.f68148e.iterator();
+            if (it == null) {
+                cVar.onSubscribe(e.c());
+                cVar.onError(new NullPointerException("The iterator returned is null"));
+                return;
+            }
+            ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(cVar, it);
+            cVar.onSubscribe(concatInnerSubscriber.sd);
+            concatInnerSubscriber.next();
+        } catch (Throwable th) {
+            cVar.onSubscribe(e.c());
+            cVar.onError(th);
         }
     }
 }

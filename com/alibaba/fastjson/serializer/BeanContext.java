@@ -5,11 +5,11 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public final class BeanContext {
-    private final Class<?> beanClass;
-    private final FieldInfo fieldInfo;
-    private final String format;
+    public final Class<?> beanClass;
+    public final FieldInfo fieldInfo;
+    public final String format;
 
     public BeanContext(Class<?> cls, FieldInfo fieldInfo) {
         this.beanClass = cls;
@@ -17,24 +17,20 @@ public final class BeanContext {
         this.format = fieldInfo.getFormat();
     }
 
+    public <T extends Annotation> T getAnnation(Class<T> cls) {
+        return (T) this.fieldInfo.getAnnation(cls);
+    }
+
     public Class<?> getBeanClass() {
         return this.beanClass;
     }
 
-    public Method getMethod() {
-        return this.fieldInfo.method;
+    public int getFeatures() {
+        return this.fieldInfo.serialzeFeatures;
     }
 
     public Field getField() {
         return this.fieldInfo.field;
-    }
-
-    public String getName() {
-        return this.fieldInfo.name;
-    }
-
-    public String getLabel() {
-        return this.fieldInfo.label;
     }
 
     public Class<?> getFieldClass() {
@@ -45,19 +41,23 @@ public final class BeanContext {
         return this.fieldInfo.fieldType;
     }
 
-    public int getFeatures() {
-        return this.fieldInfo.serialzeFeatures;
+    public String getFormat() {
+        return this.format;
+    }
+
+    public String getLabel() {
+        return this.fieldInfo.label;
+    }
+
+    public Method getMethod() {
+        return this.fieldInfo.method;
+    }
+
+    public String getName() {
+        return this.fieldInfo.name;
     }
 
     public boolean isJsonDirect() {
         return this.fieldInfo.jsonDirect;
-    }
-
-    public <T extends Annotation> T getAnnation(Class<T> cls) {
-        return (T) this.fieldInfo.getAnnation(cls);
-    }
-
-    public String getFormat() {
-        return this.format;
     }
 }

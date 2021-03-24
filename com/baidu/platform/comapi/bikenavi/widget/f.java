@@ -1,18 +1,20 @@
 package com.baidu.platform.comapi.bikenavi.widget;
-/* loaded from: classes4.dex */
-/* synthetic */ class f {
+/* loaded from: classes2.dex */
+public /* synthetic */ class f {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f2893a = new int[com.baidu.platform.comapi.wnplatform.n.b.values().length];
+    public static final /* synthetic */ int[] f9875a;
 
     static {
+        int[] iArr = new int[com.baidu.platform.comapi.wnplatform.n.b.values().length];
+        f9875a = iArr;
         try {
-            f2893a[com.baidu.platform.comapi.wnplatform.n.b.BOTTOM.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[com.baidu.platform.comapi.wnplatform.n.b.BOTTOM.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            f2893a[com.baidu.platform.comapi.wnplatform.n.b.TOP.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f9875a[com.baidu.platform.comapi.wnplatform.n.b.TOP.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
     }
 }

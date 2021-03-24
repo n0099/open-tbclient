@@ -2,8 +2,8 @@ package com.baidu.mapsdkplatform.comapi.synchronization.render;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
-final class a implements Parcelable.Creator<LinkPointPolyLineInfo> {
+/* loaded from: classes2.dex */
+public final class a implements Parcelable.Creator<LinkPointPolyLineInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */

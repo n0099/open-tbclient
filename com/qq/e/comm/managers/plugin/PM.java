@@ -1,12 +1,10 @@
 package com.qq.e.comm.managers.plugin;
 
 import android.content.Context;
-import com.qq.e.comm.constants.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.qq.e.comm.constants.Sig;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
-import com.qq.e.comm.util.StringUtil;
-import com.yy.mediaframework.stat.VideoDataStatistic;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
@@ -15,26 +13,42 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PM {
-    private static final Map<Class<?>, String> m = new HashMap<Class<?>, String>() { // from class: com.qq.e.comm.managers.plugin.PM.2
+    public static final Map<Class<?>, String> n = new HashMap<Class<?>, String>() { // from class: com.qq.e.comm.managers.plugin.PM.2
         {
             put(POFactory.class, "com.qq.e.comm.plugin.POFactoryImpl");
         }
     };
-    private final Context b;
-    private String c;
-    private File d;
-    private int e;
-    private DexClassLoader f;
-    private RandomAccessFile g;
-    private FileLock h;
-    private a.InterfaceC1204a j;
-    private POFactory k;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Context f38288b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f38289c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public File f38290d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f38291e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public DexClassLoader f38292f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public RandomAccessFile f38293g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public FileLock f38294h;
+    public boolean i;
+    public a.InterfaceC0469a j;
+    public POFactory k;
+    public int l;
 
     /* renamed from: a  reason: collision with root package name */
-    private ExecutorService f7564a = Executors.newSingleThreadExecutor();
-    private a.b l = new a.b() { // from class: com.qq.e.comm.managers.plugin.PM.1
+    public ExecutorService f38287a = Executors.newSingleThreadExecutor();
+    public a.b m = new a.b() { // from class: com.qq.e.comm.managers.plugin.PM.1
         @Override // com.qq.e.comm.managers.plugin.PM.a.b
         public final void a() {
             PM.a(PM.this);
@@ -45,20 +59,19 @@ public class PM {
             PM.this.f();
         }
     };
-    private boolean i = d();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
 
         /* renamed from: com.qq.e.comm.managers.plugin.PM$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public interface InterfaceC1204a {
+        /* loaded from: classes6.dex */
+        public interface InterfaceC0469a {
             void onLoadFail();
 
             void onLoadSuccess();
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public interface b {
             void a();
 
@@ -66,22 +79,28 @@ public class PM {
         }
     }
 
-    public PM(Context context, a.InterfaceC1204a interfaceC1204a) {
-        this.b = context.getApplicationContext();
-        this.j = interfaceC1204a;
+    public PM(Context context, a.InterfaceC0469a interfaceC0469a) {
+        this.f38288b = context.getApplicationContext();
+        this.j = interfaceC0469a;
+        long currentTimeMillis = System.currentTimeMillis();
+        this.i = d();
         if (b()) {
             a();
         }
+        this.l = (int) (System.currentTimeMillis() - currentTimeMillis);
     }
 
     private void a() {
-        GDTLogger.d("PluginFile:\t" + (this.d == null ? "null" : this.d.getAbsolutePath()));
-        if (this.c == null || this.d == null) {
-            this.f = null;
+        StringBuilder sb = new StringBuilder("PluginFile:\t");
+        File file = this.f38290d;
+        sb.append(file == null ? StringUtil.NULL_STRING : file.getAbsolutePath());
+        GDTLogger.d(sb.toString());
+        if (this.f38289c == null || this.f38290d == null) {
+            this.f38292f = null;
             return;
         }
         try {
-            this.f = new DexClassLoader(this.d.getAbsolutePath(), d.a(this.b).getAbsolutePath(), null, getClass().getClassLoader());
+            this.f38292f = new DexClassLoader(this.f38290d.getAbsolutePath(), d.a(this.f38288b).getAbsolutePath(), null, getClass().getClassLoader());
             e();
         } catch (Throwable th) {
             GDTLogger.e("exception while init plugin class loader", th);
@@ -89,120 +108,131 @@ public class PM {
         }
     }
 
-    static /* synthetic */ void a(PM pm) {
+    public static /* synthetic */ void a(PM pm) {
         try {
-            if (pm.f == null && pm.c()) {
+            if (pm.f38292f == null && pm.c()) {
                 pm.a();
             }
-        } catch (Exception e) {
-            GDTLogger.report("Exception while init online plugin: ", e);
+        } catch (Exception e2) {
+            GDTLogger.report("Exception while init online plugin: ", e2);
             pm.f();
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:8:0x0024, code lost:
-        if (r2 != false) goto L17;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0051, code lost:
+        if (r2 == false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean b() {
+        StringBuilder sb;
         boolean z;
         boolean z2 = false;
         try {
             GDTLogger.d("TimeStap_BEFORE_PLUGIN_INIT:" + System.currentTimeMillis());
             if (!c()) {
-                if (!this.i) {
-                    z = false;
-                } else if (com.qq.e.comm.managers.plugin.a.a(this.b, d.b(this.b), d.e(this.b))) {
-                    this.c = Sig.ASSET_PLUGIN_SIG;
-                    this.d = d.b(this.b);
-                    this.e = Constants.PLUGIN.ASSET_PLUGIN_VERSION;
-                    z = true;
-                } else {
-                    GDTLogger.e("Fail to prepair Defult plugin ");
-                    z = false;
+                if (this.i) {
+                    if (com.qq.e.comm.managers.plugin.a.a(this.f38288b, d.b(this.f38288b), d.e(this.f38288b))) {
+                        this.f38289c = Sig.ASSET_PLUGIN_SIG;
+                        this.f38290d = d.b(this.f38288b);
+                        this.f38291e = 1203;
+                        z = true;
+                    } else {
+                        GDTLogger.e("Fail to prepair Defult plugin ");
+                    }
                 }
+                z = false;
             }
             z2 = true;
+            sb = new StringBuilder("TimeStap_AFTER_PLUGIN_INIT:");
         } catch (Throwable th) {
             try {
                 GDTLogger.report("Exception while init plugin manager", th);
-            } finally {
+                sb = new StringBuilder("TimeStap_AFTER_PLUGIN_INIT:");
+            } catch (Throwable th2) {
                 GDTLogger.d("TimeStap_AFTER_PLUGIN_INIT:" + System.currentTimeMillis());
+                throw th2;
             }
         }
+        sb.append(System.currentTimeMillis());
+        GDTLogger.d(sb.toString());
         return z2;
     }
 
     private boolean c() {
         if (this.i) {
-            com.qq.e.comm.managers.plugin.a aVar = new com.qq.e.comm.managers.plugin.a(d.d(this.b), d.g(this.b));
+            com.qq.e.comm.managers.plugin.a aVar = new com.qq.e.comm.managers.plugin.a(d.d(this.f38288b), d.g(this.f38288b));
             if (aVar.a()) {
-                GDTLogger.d("NextExist,Updated=" + aVar.a(d.b(this.b), d.e(this.b)));
+                boolean a2 = aVar.a(d.b(this.f38288b), d.e(this.f38288b));
+                GDTLogger.d("NextExist,Updated=" + a2);
             }
         }
-        com.qq.e.comm.managers.plugin.a aVar2 = new com.qq.e.comm.managers.plugin.a(d.b(this.b), d.e(this.b));
+        com.qq.e.comm.managers.plugin.a aVar2 = new com.qq.e.comm.managers.plugin.a(d.b(this.f38288b), d.e(this.f38288b));
         if (aVar2.a()) {
-            if (aVar2.b() < 1180) {
-                GDTLogger.d("last updated plugin version =" + this.e + ";asset plugin version=1180");
-                return false;
+            if (aVar2.b() >= 1203) {
+                this.f38289c = aVar2.c();
+                this.f38291e = aVar2.b();
+                this.f38290d = d.b(this.f38288b);
+                return true;
             }
-            this.c = aVar2.c();
-            this.e = aVar2.b();
-            this.d = d.b(this.b);
-            return true;
+            GDTLogger.d("last updated plugin version =" + this.f38291e + ";asset plugin version=1203");
+            return false;
         }
         return false;
     }
 
     private boolean d() {
         try {
-            File h = d.h(this.b);
-            if (!h.exists()) {
-                h.createNewFile();
-                StringUtil.writeTo("lock", h);
+            File h2 = d.h(this.f38288b);
+            if (!h2.exists()) {
+                h2.createNewFile();
+                com.qq.e.comm.util.StringUtil.writeTo("lock", h2);
             }
-            if (h.exists()) {
-                this.g = new RandomAccessFile(h, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
-                this.h = this.g.getChannel().tryLock();
-                if (this.h != null) {
-                    this.g.writeByte(37);
+            if (h2.exists()) {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(h2, "rw");
+                this.f38293g = randomAccessFile;
+                FileLock tryLock = randomAccessFile.getChannel().tryLock();
+                this.f38294h = tryLock;
+                if (tryLock != null) {
+                    this.f38293g.writeByte(37);
                     return true;
                 }
                 return false;
             }
             return false;
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return false;
         }
     }
 
     private void e() {
-        if (this.j != null) {
-            this.j.onLoadSuccess();
+        a.InterfaceC0469a interfaceC0469a = this.j;
+        if (interfaceC0469a != null) {
+            interfaceC0469a.onLoadSuccess();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.j != null) {
-            this.j.onLoadFail();
+        a.InterfaceC0469a interfaceC0469a = this.j;
+        if (interfaceC0469a != null) {
+            interfaceC0469a.onLoadFail();
         }
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v23, types: [java.lang.ClassLoader] */
     public <T> T getFactory(Class<T> cls) throws c {
         GDTLogger.d("GetFactoryInstaceforInterface:" + cls);
-        DexClassLoader classLoader = Sig.ASSET_PLUGIN_SIG == null ? getClass().getClassLoader() : this.f;
-        GDTLogger.d("PluginClassLoader is parent" + (getClass().getClassLoader() == classLoader));
+        ClassLoader classLoader = Sig.ASSET_PLUGIN_SIG == null ? PM.class.getClassLoader() : this.f38292f;
+        StringBuilder sb = new StringBuilder("PluginClassLoader is parent");
+        sb.append(PM.class.getClassLoader() == classLoader);
+        GDTLogger.d(sb.toString());
         if (classLoader == null) {
             throw new c("Fail to init GDTADPLugin,PluginClassLoader == null;while loading factory impl for:" + cls);
         }
         try {
-            String str = m.get(cls);
-            if (StringUtil.isEmpty(str)) {
+            String str = n.get(cls);
+            if (com.qq.e.comm.util.StringUtil.isEmpty(str)) {
                 throw new c("factory  implemention name is not specified for interface:" + cls.getName());
             }
             Class<?> loadClass = classLoader.loadClass(str);
@@ -214,8 +244,12 @@ public class PM {
         }
     }
 
+    public int getInitCostTime() {
+        return this.l;
+    }
+
     public String getLocalSig() {
-        return this.c;
+        return this.f38289c;
     }
 
     public POFactory getPOFactory() throws c {
@@ -226,13 +260,13 @@ public class PM {
     }
 
     public int getPluginVersion() {
-        return this.e;
+        return this.f38291e;
     }
 
     public void update(String str, String str2) {
         if (this.i) {
-            b bVar = new b(this.b, this.f7564a);
-            bVar.a(this.l);
+            b bVar = new b(this.f38288b, this.f38287a);
+            bVar.a(this.m);
             bVar.a(str, str2);
         }
     }

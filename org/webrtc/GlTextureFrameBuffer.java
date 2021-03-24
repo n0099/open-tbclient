@@ -1,14 +1,13 @@
 package org.webrtc;
 
 import android.opengl.GLES20;
-import com.baidu.mobstat.Config;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class GlTextureFrameBuffer {
-    private int frameBufferId;
-    private int height;
-    private final int pixelFormat;
-    private int textureId;
-    private int width;
+    public int frameBufferId;
+    public int height;
+    public final int pixelFormat;
+    public int textureId;
+    public int width;
 
     public GlTextureFrameBuffer(int i) {
         switch (i) {
@@ -51,7 +50,7 @@ public class GlTextureFrameBuffer {
 
     public void setSize(int i, int i2) {
         if (i <= 0 || i2 <= 0) {
-            throw new IllegalArgumentException("Invalid size: " + i + Config.EVENT_HEAT_X + i2);
+            throw new IllegalArgumentException("Invalid size: " + i + "x" + i2);
         } else if (i == this.width && i2 == this.height) {
         } else {
             this.width = i;
@@ -66,7 +65,8 @@ public class GlTextureFrameBuffer {
             }
             GLES20.glActiveTexture(33984);
             GLES20.glBindTexture(3553, this.textureId);
-            GLES20.glTexImage2D(3553, 0, this.pixelFormat, i, i2, 0, this.pixelFormat, 5121, null);
+            int i3 = this.pixelFormat;
+            GLES20.glTexImage2D(3553, 0, i3, i, i2, 0, i3, 5121, null);
             GLES20.glBindTexture(3553, 0);
             GlUtil.checkNoGLES2Error("GlTextureFrameBuffer setSize");
             GLES20.glBindFramebuffer(36160, this.frameBufferId);

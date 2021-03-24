@@ -9,203 +9,257 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SignItemView extends FrameLayout {
-    private int fWA;
-    private int fWB;
-    private int fWC;
-    private a fWN;
-    private LineView fWw;
-    private ArrayList<b> fWx;
-    private int fWz;
-    private LinearLayout mContainer;
-    private int mSkinType;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void b(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData);
+    /* renamed from: e  reason: collision with root package name */
+    public int f14245e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public LinearLayout f14246f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LineView f14247g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ArrayList<c> f14248h;
+    public b i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ c f14249e;
+
+        public a(c cVar) {
+            this.f14249e = cVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (this.f14249e.j) {
+                return;
+            }
+            Iterator it = SignItemView.this.f14248h.iterator();
+            while (it.hasNext()) {
+                ((c) it.next()).d(false);
+            }
+            this.f14249e.d(true);
+            if (SignItemView.this.i != null) {
+                SignItemView.this.i.a(this.f14249e.k);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData);
+    }
+
+    /* loaded from: classes3.dex */
+    public static class c {
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f14251a = R.drawable.ic_pic_mask_task_complete_svg;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f14252b = R.drawable.ic_pic_mask_task_select_svg;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f14253c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f14254d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f14255e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public View f14256f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public ImageView f14257g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public TextView f14258h;
+        public CircleView i;
+        public boolean j;
+        public ActiveCenterData.ActiveCenterStatusData k;
+
+        public c(View view, ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
+            int i = R.drawable.ic_pic_mask_task_comingsoon_svg;
+            this.f14253c = i;
+            this.f14254d = R.drawable.ic_pic_mask_task_uncomplete_svg;
+            this.f14255e = i;
+            this.j = false;
+            this.k = activeCenterStatusData;
+            this.f14256f = view;
+            this.f14257g = (ImageView) view.findViewById(R.id.item_icon);
+            this.f14258h = (TextView) this.f14256f.findViewById(R.id.item_text);
+            CircleView circleView = (CircleView) this.f14256f.findViewById(R.id.select_circle);
+            this.i = circleView;
+            circleView.setVisibility(4);
+            int i2 = activeCenterStatusData.is_today_mission;
+            if (i2 == 0) {
+                if (activeCenterStatusData.is_completed) {
+                    this.f14255e = this.f14251a;
+                } else {
+                    this.f14255e = this.f14254d;
+                }
+            } else if (i2 == 1) {
+                this.i.setVisibility(0);
+                if (activeCenterStatusData.is_completed) {
+                    this.f14255e = this.f14251a;
+                } else {
+                    this.f14255e = this.f14252b;
+                }
+            } else {
+                this.f14255e = this.f14253c;
+            }
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f14257g, this.f14255e, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.f14258h, R.color.CAM_X0109);
+            TextView textView = this.f14258h;
+            textView.setText(activeCenterStatusData.day + "天");
+        }
+
+        public void d(boolean z) {
+            if (z) {
+                this.j = true;
+                this.i.setVisibility(0);
+                return;
+            }
+            this.j = false;
+            this.i.setVisibility(4);
+        }
+
+        public void e() {
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f14257g, this.f14255e, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.f14258h, R.color.CAM_X0109);
+            this.i.b();
+        }
     }
 
     public SignItemView(Context context) {
         super(context);
-        this.mSkinType = 3;
-        this.fWx = new ArrayList<>();
-        this.fWB = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.fWC = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-        init();
+        this.f14245e = 3;
+        this.f14248h = new ArrayList<>();
+        this.l = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.m = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        d();
+    }
+
+    public final c c(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.sing_dialog_item_view, (ViewGroup) null);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+        layoutParams.weight = 1.0f;
+        this.f14246f.addView(inflate, layoutParams);
+        c cVar = new c(inflate, activeCenterStatusData);
+        cVar.f14257g.setOnClickListener(new a(cVar));
+        return cVar;
+    }
+
+    public final void d() {
+        LayoutInflater.from(getContext()).inflate(R.layout.sign_dialog_cus_view, (ViewGroup) this, true);
+        this.f14246f = (LinearLayout) findViewById(R.id.sign_item_container);
+        this.f14247g = (LineView) findViewById(R.id.line_view);
+        this.j = l.g(getContext(), R.dimen.tbds23);
+        this.k = l.g(getContext(), R.dimen.tbds26);
+    }
+
+    public void e(int i) {
+        if (this.f14245e != i) {
+            this.f14247g.b();
+            Iterator<c> it = this.f14248h.iterator();
+            while (it.hasNext()) {
+                it.next().e();
+            }
+        }
+        this.f14245e = i;
+    }
+
+    public void setData(ActiveCenterData activeCenterData) {
+        if (activeCenterData == null) {
+            return;
+        }
+        ArrayList<ActiveCenterData.ActiveCenterStatusData> arrayList = activeCenterData.mission_status_list;
+        int size = arrayList.size();
+        if (arrayList == null || size == 0) {
+            return;
+        }
+        this.f14246f.removeAllViews();
+        this.f14248h.clear();
+        ViewGroup.LayoutParams layoutParams = getLayoutParams();
+        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+            if (size <= 3) {
+                int i = this.k;
+                marginLayoutParams.leftMargin = i;
+                marginLayoutParams.rightMargin = i;
+            } else {
+                int i2 = this.j;
+                marginLayoutParams.leftMargin = i2;
+                marginLayoutParams.rightMargin = i2;
+            }
+            setLayoutParams(marginLayoutParams);
+        }
+        if (this.f14247g.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f14247g.getLayoutParams();
+            if (size <= 3) {
+                int i3 = marginLayoutParams2.leftMargin;
+                int i4 = this.l;
+                if (i3 != i4 || marginLayoutParams2.rightMargin != i4) {
+                    int i5 = this.l;
+                    marginLayoutParams2.leftMargin = i5;
+                    marginLayoutParams2.rightMargin = i5;
+                    this.f14247g.setLayoutParams(marginLayoutParams2);
+                }
+            } else {
+                int i6 = marginLayoutParams2.leftMargin;
+                int i7 = this.m;
+                if (i6 != i7 || marginLayoutParams2.rightMargin != i7) {
+                    int i8 = this.m;
+                    marginLayoutParams2.leftMargin = i8;
+                    marginLayoutParams2.rightMargin = i8;
+                    this.f14247g.setLayoutParams(marginLayoutParams2);
+                }
+            }
+        }
+        for (int i9 = 0; i9 < size; i9++) {
+            this.f14248h.add(c(arrayList.get(i9)));
+        }
+    }
+
+    public void setItemClickListener(b bVar) {
+        this.i = bVar;
     }
 
     public SignItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mSkinType = 3;
-        this.fWx = new ArrayList<>();
-        this.fWB = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.fWC = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-        init();
+        this.f14245e = 3;
+        this.f14248h = new ArrayList<>();
+        this.l = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.m = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        d();
     }
 
     public SignItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mSkinType = 3;
-        this.fWx = new ArrayList<>();
-        this.fWB = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.fWC = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-        init();
-    }
-
-    private void init() {
-        LayoutInflater.from(getContext()).inflate(R.layout.sign_dialog_cus_view, (ViewGroup) this, true);
-        this.mContainer = (LinearLayout) findViewById(R.id.sign_item_container);
-        this.fWw = (LineView) findViewById(R.id.line_view);
-        this.fWz = l.getDimens(getContext(), R.dimen.tbds23);
-        this.fWA = l.getDimens(getContext(), R.dimen.tbds26);
-    }
-
-    public void setItemClickListener(a aVar) {
-        this.fWN = aVar;
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            this.fWw.onChangeSkinType();
-            Iterator<b> it = this.fWx.iterator();
-            while (it.hasNext()) {
-                it.next().onChangeSkinType();
-            }
-        }
-        this.mSkinType = i;
-    }
-
-    public void setData(ActiveCenterData activeCenterData) {
-        if (activeCenterData != null) {
-            ArrayList<ActiveCenterData.ActiveCenterStatusData> arrayList = activeCenterData.mission_status_list;
-            int size = arrayList.size();
-            if (arrayList != null && size != 0) {
-                this.mContainer.removeAllViews();
-                this.fWx.clear();
-                ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    if (size <= 3) {
-                        marginLayoutParams.leftMargin = this.fWA;
-                        marginLayoutParams.rightMargin = this.fWA;
-                    } else {
-                        marginLayoutParams.leftMargin = this.fWz;
-                        marginLayoutParams.rightMargin = this.fWz;
-                    }
-                    setLayoutParams(marginLayoutParams);
-                }
-                if (this.fWw.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.fWw.getLayoutParams();
-                    if (size <= 3) {
-                        if (marginLayoutParams2.leftMargin != this.fWB || marginLayoutParams2.rightMargin != this.fWB) {
-                            marginLayoutParams2.leftMargin = this.fWB;
-                            marginLayoutParams2.rightMargin = this.fWB;
-                            this.fWw.setLayoutParams(marginLayoutParams2);
-                        }
-                    } else if (marginLayoutParams2.leftMargin != this.fWC || marginLayoutParams2.rightMargin != this.fWC) {
-                        marginLayoutParams2.leftMargin = this.fWC;
-                        marginLayoutParams2.rightMargin = this.fWC;
-                        this.fWw.setLayoutParams(marginLayoutParams2);
-                    }
-                }
-                for (int i = 0; i < size; i++) {
-                    this.fWx.add(c(arrayList.get(i)));
-                }
-            }
-        }
-    }
-
-    private b c(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.sing_dialog_item_view, (ViewGroup) null);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-        layoutParams.weight = 1.0f;
-        this.mContainer.addView(inflate, layoutParams);
-        final b bVar = new b(inflate, activeCenterStatusData);
-        bVar.iconView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.widget.mission.SignItemView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (!bVar.fWL) {
-                    Iterator it = SignItemView.this.fWx.iterator();
-                    while (it.hasNext()) {
-                        ((b) it.next()).lH(false);
-                    }
-                    bVar.lH(true);
-                    if (SignItemView.this.fWN == null) {
-                        return;
-                    }
-                    SignItemView.this.fWN.b(bVar.fWM);
-                }
-            }
-        });
-        return bVar;
-    }
-
-    /* loaded from: classes.dex */
-    public static class b {
-        private int fWJ;
-        private CircleView fWK;
-        private ActiveCenterData.ActiveCenterStatusData fWM;
-        private ImageView iconView;
-        private View itemView;
-        private TextView textView;
-        private int fWF = R.drawable.ic_pic_mask_task_complete_svg;
-        private int fWG = R.drawable.ic_pic_mask_task_select_svg;
-        private int fWH = R.drawable.ic_pic_mask_task_comingsoon_svg;
-        private int fWI = R.drawable.ic_pic_mask_task_uncomplete_svg;
-        private boolean fWL = false;
-
-        public b(View view, ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
-            this.fWJ = this.fWH;
-            this.fWM = activeCenterStatusData;
-            this.itemView = view;
-            this.iconView = (ImageView) this.itemView.findViewById(R.id.item_icon);
-            this.textView = (TextView) this.itemView.findViewById(R.id.item_text);
-            this.fWK = (CircleView) this.itemView.findViewById(R.id.select_circle);
-            this.fWK.setVisibility(4);
-            if (activeCenterStatusData.is_today_mission == 0) {
-                if (activeCenterStatusData.is_completed) {
-                    this.fWJ = this.fWF;
-                } else {
-                    this.fWJ = this.fWI;
-                }
-            } else if (activeCenterStatusData.is_today_mission == 1) {
-                this.fWK.setVisibility(0);
-                if (activeCenterStatusData.is_completed) {
-                    this.fWJ = this.fWF;
-                } else {
-                    this.fWJ = this.fWG;
-                }
-            } else {
-                this.fWJ = this.fWH;
-            }
-            SvgManager.bsU().a(this.iconView, this.fWJ, SvgManager.SvgResourceStateType.NORMAL);
-            ap.setViewTextColor(this.textView, R.color.CAM_X0109);
-            this.textView.setText(activeCenterStatusData.day + "天");
-        }
-
-        public void onChangeSkinType() {
-            SvgManager.bsU().a(this.iconView, this.fWJ, SvgManager.SvgResourceStateType.NORMAL);
-            ap.setViewTextColor(this.textView, R.color.CAM_X0109);
-            this.fWK.onChangeSkinType();
-        }
-
-        public void lH(boolean z) {
-            if (z) {
-                this.fWL = true;
-                this.fWK.setVisibility(0);
-                return;
-            }
-            this.fWL = false;
-            this.fWK.setVisibility(4);
-        }
+        this.f14245e = 3;
+        this.f14248h = new ArrayList<>();
+        this.l = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.m = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        d();
     }
 }

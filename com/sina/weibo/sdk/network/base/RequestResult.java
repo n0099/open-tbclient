@@ -1,30 +1,32 @@
 package com.sina.weibo.sdk.network.base;
 
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RequestResult<T> {
-    private Exception e;
-    private ArrayList<Object> interceptResult;
-    private T response;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Exception f38605e;
+    public ArrayList<Object> interceptResult;
+    public T response;
 
     public Exception getE() {
-        return this.e;
-    }
-
-    public void setInterceptResult(ArrayList<Object> arrayList) {
-        this.interceptResult = arrayList;
+        return this.f38605e;
     }
 
     public ArrayList<Object> getInterceptResult() {
         return this.interceptResult;
     }
 
-    public void setE(Exception exc) {
-        this.e = exc;
-    }
-
     public T getResponse() {
         return this.response;
+    }
+
+    public void setE(Exception exc) {
+        this.f38605e = exc;
+    }
+
+    public void setInterceptResult(ArrayList<Object> arrayList) {
+        this.interceptResult = arrayList;
     }
 
     public void setResponse(T t) {

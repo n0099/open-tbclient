@@ -1,44 +1,476 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import com.xiaomi.push.el;
-import com.xiaomi.push.eq;
-import com.xiaomi.push.eu;
-import com.xiaomi.push.hk;
-import com.xiaomi.push.hm;
-import com.xiaomi.push.hw;
-import com.xiaomi.push.il;
-import com.xiaomi.push.iw;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import android.text.TextUtils;
+import com.baidu.wallet.home.datamodel.HomeCfgResponse;
+import com.xiaomi.push.service.XMPushService;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class av implements eu {
-    @Override // com.xiaomi.push.eu
-    public void a(Context context, HashMap<String, String> hashMap) {
-        il ilVar = new il();
-        ilVar.b(eq.a(context).m273a());
-        ilVar.d(eq.a(context).b());
-        ilVar.c(hw.AwakeAppResponse.f476a);
-        ilVar.a(an.a());
-        ilVar.f617a = hashMap;
-        byte[] a2 = iw.a(w.a(ilVar.c(), ilVar.b(), ilVar, hm.Notification));
-        if (!(context instanceof XMPushService)) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("MoleInfo : context is not correct in pushLayer " + ilVar.a());
-            return;
-        }
-        com.xiaomi.channel.commonutils.logger.b.m58a("MoleInfo : send data directly in pushLayer " + ilVar.a());
-        ((XMPushService) context).a(context.getPackageName(), a2, true);
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes7.dex */
+public class av {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static av f40959a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public ConcurrentHashMap<String, HashMap<String, b>> f899a = new ConcurrentHashMap<>();
+
+    /* renamed from: a  reason: collision with other field name */
+    public List<a> f898a = new ArrayList();
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
     }
 
-    @Override // com.xiaomi.push.eu
-    public void b(Context context, HashMap<String, String> hashMap) {
-        hk a2 = hk.a(context);
-        if (a2 != null) {
-            a2.a("category_awake_app", "wake_up_app", 1L, el.a(hashMap));
+    /* loaded from: classes7.dex */
+    public static class b {
+
+        /* renamed from: a  reason: collision with other field name */
+        public Context f900a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public Messenger f902a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public XMPushService f904a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public e f907a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f908a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public boolean f910a;
+
+        /* renamed from: b  reason: collision with other field name */
+        public String f911b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f40962c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f40963d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public String f40964e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public String f40965f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public String f40966g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public String f40967h;
+        public String i;
+
+        /* renamed from: a  reason: collision with other field name */
+        public c f906a = c.unbind;
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f40960a = 0;
+
+        /* renamed from: a  reason: collision with other field name */
+        public List<a> f909a = new ArrayList();
+
+        /* renamed from: b  reason: collision with root package name */
+        public c f40961b = null;
+
+        /* renamed from: b  reason: collision with other field name */
+        public boolean f912b = false;
+
+        /* renamed from: a  reason: collision with other field name */
+        public XMPushService.b f903a = new XMPushService.b(this);
+
+        /* renamed from: a  reason: collision with other field name */
+        public IBinder.DeathRecipient f901a = null;
+
+        /* renamed from: a  reason: collision with other field name */
+        public final C0522b f905a = new C0522b();
+
+        /* loaded from: classes7.dex */
+        public interface a {
+            void a(c cVar, c cVar2, int i);
+        }
+
+        /* renamed from: com.xiaomi.push.service.av$b$b  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0522b extends XMPushService.i {
+
+            /* renamed from: a  reason: collision with other field name */
+            public String f913a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public int f40969b;
+
+            /* renamed from: b  reason: collision with other field name */
+            public String f914b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public int f40970c;
+
+            public C0522b() {
+                super(0);
+            }
+
+            public XMPushService.i a(int i, int i2, String str, String str2) {
+                this.f40969b = i;
+                this.f40970c = i2;
+                this.f914b = str2;
+                this.f913a = str;
+                return this;
+            }
+
+            @Override // com.xiaomi.push.service.XMPushService.i
+            public String a() {
+                return "notify job";
+            }
+
+            @Override // com.xiaomi.push.service.XMPushService.i
+            public void a() {
+                if (b.this.a(this.f40969b, this.f40970c, this.f914b)) {
+                    b.this.a(this.f40969b, this.f40970c, this.f913a, this.f914b);
+                    return;
+                }
+                com.xiaomi.channel.commonutils.logger.b.b(" ignore notify client :" + b.this.f40966g);
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class c implements IBinder.DeathRecipient {
+
+            /* renamed from: a  reason: collision with root package name */
+            public final Messenger f40971a;
+
+            /* renamed from: a  reason: collision with other field name */
+            public final b f915a;
+
+            public c(b bVar, Messenger messenger) {
+                this.f915a = bVar;
+                this.f40971a = messenger;
+            }
+
+            @Override // android.os.IBinder.DeathRecipient
+            public void binderDied() {
+                com.xiaomi.channel.commonutils.logger.b.b("peer died, chid = " + this.f915a.f40966g);
+                b.this.f904a.a(new ax(this, 0), 0L);
+                if (HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9.equals(this.f915a.f40966g) && "com.xiaomi.xmsf".equals(b.this.f904a.getPackageName())) {
+                    b.this.f904a.a(new ay(this, 0), 60000L);
+                }
+            }
+        }
+
+        public b() {
+        }
+
+        public b(XMPushService xMPushService) {
+            this.f904a = xMPushService;
+            a(new aw(this));
+        }
+
+        public static String a(String str) {
+            int lastIndexOf;
+            return (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf("/")) == -1) ? "" : str.substring(lastIndexOf + 1);
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void a(int i, int i2, String str, String str2) {
+            c cVar = this.f906a;
+            this.f40961b = cVar;
+            if (i == 2) {
+                this.f907a.a(this.f900a, this, i2);
+            } else if (i == 3) {
+                this.f907a.a(this.f900a, this, str2, str);
+            } else if (i == 1) {
+                boolean z = cVar == c.binded;
+                if (!z && "wait".equals(str2)) {
+                    this.f40960a++;
+                } else if (z) {
+                    this.f40960a = 0;
+                    if (this.f902a != null) {
+                        try {
+                            this.f902a.send(Message.obtain(null, 16, this.f904a.f838a));
+                        } catch (RemoteException unused) {
+                        }
+                    }
+                }
+                this.f907a.a(this.f904a, this, z, i2, str);
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public boolean a(int i, int i2, String str) {
+            boolean z;
+            StringBuilder sb;
+            String str2;
+            c cVar = this.f40961b;
+            if (cVar == null || !(z = this.f912b)) {
+                return true;
+            }
+            if (cVar == this.f906a) {
+                sb = new StringBuilder();
+                str2 = " status recovered, don't notify client:";
+            } else if (this.f902a != null && z) {
+                com.xiaomi.channel.commonutils.logger.b.b("Peer alive notify status to client:" + this.f40966g);
+                return true;
+            } else {
+                sb = new StringBuilder();
+                str2 = "peer died, ignore notify ";
+            }
+            sb.append(str2);
+            sb.append(this.f40966g);
+            com.xiaomi.channel.commonutils.logger.b.b(sb.toString());
+            return false;
+        }
+
+        private boolean b(int i, int i2, String str) {
+            if (i == 1) {
+                return (this.f906a == c.binded || !this.f904a.m548c() || i2 == 21 || (i2 == 7 && "wait".equals(str))) ? false : true;
+            } else if (i != 2) {
+                if (i != 3) {
+                    return false;
+                }
+                return !"wait".equals(str);
+            } else {
+                return this.f904a.m548c();
+            }
+        }
+
+        public long a() {
+            return (((long) ((Math.random() * 20.0d) - 10.0d)) + ((this.f40960a + 1) * 15)) * 1000;
+        }
+
+        public String a(int i) {
+            return i != 1 ? i != 2 ? i != 3 ? "unknown" : "KICK" : "CLOSE" : "OPEN";
+        }
+
+        /* renamed from: a  reason: collision with other method in class */
+        public void m588a() {
+            try {
+                Messenger messenger = this.f902a;
+                if (messenger != null && this.f901a != null) {
+                    messenger.getBinder().unlinkToDeath(this.f901a, 0);
+                }
+            } catch (Exception unused) {
+            }
+            this.f40961b = null;
+        }
+
+        public void a(Messenger messenger) {
+            m588a();
+            try {
+                if (messenger != null) {
+                    this.f902a = messenger;
+                    this.f912b = true;
+                    this.f901a = new c(this, messenger);
+                    messenger.getBinder().linkToDeath(this.f901a, 0);
+                } else {
+                    com.xiaomi.channel.commonutils.logger.b.b("peer linked with old sdk chid = " + this.f40966g);
+                }
+            } catch (Exception e2) {
+                com.xiaomi.channel.commonutils.logger.b.b("peer linkToDeath err: " + e2.getMessage());
+                this.f902a = null;
+                this.f912b = false;
+            }
+        }
+
+        public void a(a aVar) {
+            synchronized (this.f909a) {
+                this.f909a.add(aVar);
+            }
+        }
+
+        public void a(c cVar, int i, int i2, String str, String str2) {
+            boolean z;
+            synchronized (this.f909a) {
+                for (a aVar : this.f909a) {
+                    aVar.a(this.f906a, cVar, i2);
+                }
+            }
+            c cVar2 = this.f906a;
+            int i3 = 0;
+            if (cVar2 != cVar) {
+                com.xiaomi.channel.commonutils.logger.b.m51a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i), az.a(i2), str, str2, this.f40966g));
+                this.f906a = cVar;
+            }
+            if (this.f907a == null) {
+                com.xiaomi.channel.commonutils.logger.b.d("status changed while the client dispatcher is missing");
+            } else if (cVar != c.binding) {
+                if (this.f40961b != null && (z = this.f912b)) {
+                    i3 = (this.f902a == null || !z) ? 10100 : 1000;
+                }
+                this.f904a.b(this.f905a);
+                if (b(i, i2, str2)) {
+                    a(i, i2, str, str2);
+                } else {
+                    this.f904a.a(this.f905a.a(i, i2, str, str2), i3);
+                }
+            }
+        }
+
+        public void b(a aVar) {
+            synchronized (this.f909a) {
+                this.f909a.remove(aVar);
+            }
         }
     }
 
-    @Override // com.xiaomi.push.eu
-    public void c(Context context, HashMap<String, String> hashMap) {
-        com.xiaomi.channel.commonutils.logger.b.m58a("MoleInfo：\u3000" + el.b(hashMap));
+    /* loaded from: classes7.dex */
+    public enum c {
+        unbind,
+        binding,
+        binded
+    }
+
+    public static synchronized av a() {
+        av avVar;
+        synchronized (av.class) {
+            if (f40959a == null) {
+                f40959a = new av();
+            }
+            avVar = f40959a;
+        }
+        return avVar;
+    }
+
+    private String a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        int indexOf = str.indexOf("@");
+        return indexOf > 0 ? str.substring(0, indexOf) : str;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized int m580a() {
+        return this.f899a.size();
+    }
+
+    public synchronized b a(String str, String str2) {
+        HashMap<String, b> hashMap = this.f899a.get(str);
+        if (hashMap == null) {
+            return null;
+        }
+        return hashMap.get(a(str2));
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized ArrayList<b> m581a() {
+        ArrayList<b> arrayList;
+        arrayList = new ArrayList<>();
+        for (HashMap<String, b> hashMap : this.f899a.values()) {
+            arrayList.addAll(hashMap.values());
+        }
+        return arrayList;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized Collection<b> m582a(String str) {
+        if (this.f899a.containsKey(str)) {
+            return ((HashMap) this.f899a.get(str).clone()).values();
+        }
+        return new ArrayList();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized List<String> m583a(String str) {
+        ArrayList arrayList;
+        arrayList = new ArrayList();
+        for (HashMap<String, b> hashMap : this.f899a.values()) {
+            for (b bVar : hashMap.values()) {
+                if (str.equals(bVar.f908a)) {
+                    arrayList.add(bVar.f40966g);
+                }
+            }
+        }
+        return arrayList;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized void m584a() {
+        Iterator<b> it = m581a().iterator();
+        while (it.hasNext()) {
+            it.next().m588a();
+        }
+        this.f899a.clear();
+    }
+
+    public synchronized void a(Context context) {
+        for (HashMap<String, b> hashMap : this.f899a.values()) {
+            for (b bVar : hashMap.values()) {
+                bVar.a(c.unbind, 1, 3, (String) null, (String) null);
+            }
+        }
+    }
+
+    public synchronized void a(Context context, int i) {
+        for (HashMap<String, b> hashMap : this.f899a.values()) {
+            for (b bVar : hashMap.values()) {
+                bVar.a(c.unbind, 2, i, (String) null, (String) null);
+            }
+        }
+    }
+
+    public synchronized void a(a aVar) {
+        this.f898a.add(aVar);
+    }
+
+    public synchronized void a(b bVar) {
+        HashMap<String, b> hashMap = this.f899a.get(bVar.f40966g);
+        if (hashMap == null) {
+            hashMap = new HashMap<>();
+            this.f899a.put(bVar.f40966g, hashMap);
+        }
+        hashMap.put(a(bVar.f911b), bVar);
+        for (a aVar : this.f898a) {
+            aVar.a();
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized void m585a(String str) {
+        HashMap<String, b> hashMap = this.f899a.get(str);
+        if (hashMap != null) {
+            for (b bVar : hashMap.values()) {
+                bVar.m588a();
+            }
+            hashMap.clear();
+            this.f899a.remove(str);
+        }
+        for (a aVar : this.f898a) {
+            aVar.a();
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized void m586a(String str, String str2) {
+        HashMap<String, b> hashMap = this.f899a.get(str);
+        if (hashMap != null) {
+            b bVar = hashMap.get(a(str2));
+            if (bVar != null) {
+                bVar.m588a();
+            }
+            hashMap.remove(a(str2));
+            if (hashMap.isEmpty()) {
+                this.f899a.remove(str);
+            }
+        }
+        for (a aVar : this.f898a) {
+            aVar.a();
+        }
+    }
+
+    public synchronized void b() {
+        this.f898a.clear();
     }
 }

@@ -8,33 +8,31 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f6337a;
+    public final com.kwad.sdk.core.webview.a f34332a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private List<AdTemplate> f6338a;
+        public List<AdTemplate> f34333a;
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             JSONArray jSONArray = new JSONArray();
-            for (AdTemplate adTemplate : this.f6338a) {
-                if (TextUtils.isEmpty(adTemplate.mOriginJString)) {
-                    jSONArray.put(adTemplate.toJson());
-                } else {
+            for (AdTemplate adTemplate : this.f34333a) {
+                if (!TextUtils.isEmpty(adTemplate.mOriginJString)) {
                     try {
                         jSONArray.put(new JSONObject(adTemplate.mOriginJString));
-                    } catch (JSONException e) {
-                        com.kwad.sdk.core.d.a.a(e);
-                        jSONArray.put(adTemplate.toJson());
+                    } catch (JSONException e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
                     }
                 }
+                jSONArray.put(adTemplate.toJson());
             }
             com.kwad.sdk.utils.o.a(jSONObject, "impAdInfo", jSONArray);
             return jSONObject;
@@ -42,7 +40,7 @@ public class e implements com.kwad.sdk.core.webview.a.a {
     }
 
     public e(com.kwad.sdk.core.webview.a aVar) {
-        this.f6337a = aVar;
+        this.f34332a = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -53,12 +51,12 @@ public class e implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        if (this.f6337a.b == null) {
+        if (this.f34332a.f34285b == null) {
             cVar.a(-1, "native adTemplate is null");
             return;
         }
         a aVar = new a();
-        aVar.f6338a = Collections.singletonList(this.f6337a.b);
+        aVar.f34333a = Collections.singletonList(this.f34332a.f34285b);
         cVar.a(aVar);
     }
 

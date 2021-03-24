@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.kwai.video.cache.OfflineCacheVodAdaptiveTaskBuilder;
 import com.kwai.video.hodor.util.Timber;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AwesomeCache {
     public static final int DATA_SOURCE_TYPE_ASYNC_V2 = 0;
     public static final int DATA_SOURCE_TYPE_LIVE = 1;
@@ -14,32 +14,32 @@ public class AwesomeCache {
     public static final int UPSTREAM_TYPE_FFURL = 1;
     public static final int UPSTREAM_TYPE_P2SP = 2;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface DataSourceType {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class OfflineCacheDataSpec {
-        int bandWidthThreshold;
-        int cacheMode;
-        int connectTimeoutMs;
-        long durMs;
-        boolean enableLimitSpeedWhenCancel;
-        String host;
-        String key;
-        long len;
-        int maxSpeedKbps;
-        long pos;
-        int readTimeoutMs;
-        int socketBufSizeKb;
-        String url;
+        public int bandWidthThreshold;
+        public int cacheMode;
+        public int connectTimeoutMs;
+        public long durMs;
+        public boolean enableLimitSpeedWhenCancel;
+        public String host;
+        public String key;
+        public long len;
+        public int maxSpeedKbps;
+        public long pos;
+        public int readTimeoutMs;
+        public int socketBufSizeKb;
+        public String url;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface UpstreamType {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class VodAdaptive {
         public static final int NET_WORK_TYPE_FIVE_G = 5;
         public static final int NET_WORK_TYPE_FOUR_G = 2;
@@ -48,9 +48,9 @@ public class AwesomeCache {
         public static final int NET_WORK_TYPE_UNKNOW = 0;
         public static final int NET_WORK_TYPE_WIFI = 1;
 
-        private static native String _vodAdaptiveGetHistoryData();
+        public static native String _vodAdaptiveGetHistoryData();
 
-        private static native void _vodAdaptiveSetHistoryData(String str);
+        public static native void _vodAdaptiveSetHistoryData(String str);
 
         public static String getHistoryData() {
             return _vodAdaptiveGetHistoryData();
@@ -73,23 +73,23 @@ public class AwesomeCache {
         AwesomeCacheInitConfig.waitSoLibReady();
     }
 
-    private static native void _clearCacheDir();
+    public static native void _clearCacheDir();
 
-    private static native long _getCachedBytesForKey(String str);
+    public static native long _getCachedBytesForKey(String str);
 
-    private static native long _getTotalBytesForKey(String str);
+    public static native long _getTotalBytesForKey(String str);
 
-    private static native boolean _importToCache(String str, String str2);
+    public static native boolean _importToCache(String str, String str2);
 
-    private static native boolean _isFullyCached(String str);
+    public static native boolean _isFullyCached(String str);
 
-    private static native long _newExportCachedFileTask(Object obj, String str, String str2, String str3, String str4);
+    public static native long _newExportCachedFileTask(Object obj, String str, String str2, String str3, String str4);
 
-    private static native long _newOfflineCacheVodAdaptiveTask(Object obj, Object obj2, Object obj3, Object obj4);
+    public static native long _newOfflineCacheVodAdaptiveTask(Object obj, Object obj2, Object obj3, Object obj4);
 
-    private static native long _newOfflineCacheVodFileTask(Object obj, Object obj2, Object obj3);
+    public static native long _newOfflineCacheVodFileTask(Object obj, Object obj2, Object obj3);
 
-    private static native long _newOfflineCachedFileTask(Object obj, String str, String str2, String str3);
+    public static native long _newOfflineCachedFileTask(Object obj, String str, String str2, String str3);
 
     public static void clearCacheDir() {
         _clearCacheDir();
@@ -104,7 +104,7 @@ public class AwesomeCache {
         long totalBytesForKey = getTotalBytesForKey(str);
         Timber.i("[AwesomeCache] getCachedPercentForKey. key:%s cached:%d total:%d", str, Long.valueOf(cachedBytesForKey), Long.valueOf(totalBytesForKey));
         if (totalBytesForKey > 0) {
-            return (int) ((100 * cachedBytesForKey) / totalBytesForKey);
+            return (int) ((cachedBytesForKey * 100) / totalBytesForKey);
         }
         return 0;
     }

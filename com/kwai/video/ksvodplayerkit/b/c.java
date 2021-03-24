@@ -1,19 +1,25 @@
 package com.kwai.video.ksvodplayerkit.b;
 
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7274a = "1.0";
-    public String b = "hls";
-    public a c;
-    public transient String d;
+    public String f37232a = "1.0";
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public String f37233b = "hls";
+
+    /* renamed from: c  reason: collision with root package name */
+    public a f37234c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public transient String f37235d;
+
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<f> f7275a;
+        public List<f> f37236a;
     }
 }

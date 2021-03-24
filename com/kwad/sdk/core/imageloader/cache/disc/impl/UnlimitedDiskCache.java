@@ -2,7 +2,7 @@ package com.kwad.sdk.core.imageloader.cache.disc.impl;
 
 import com.kwad.sdk.core.imageloader.cache.disc.naming.FileNameGenerator;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class UnlimitedDiskCache extends BaseDiskCache {
     public UnlimitedDiskCache(File file) {
         super(file);

@@ -1,92 +1,110 @@
 package okio;
 
-import com.baidu.live.tbadk.log.LogConfig;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class InflaterSource implements Source {
-    private int bufferBytesHeldByInflater;
-    private boolean closed;
-    private final Inflater inflater;
-    private final BufferedSource source;
+    public int bufferBytesHeldByInflater;
+    public boolean closed;
+    public final Inflater inflater;
+    public final BufferedSource source;
 
     public InflaterSource(Source source, Inflater inflater) {
         this(Okio.buffer(source), inflater);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public InflaterSource(BufferedSource bufferedSource, Inflater inflater) {
-        if (bufferedSource == null) {
-            throw new IllegalArgumentException("source == null");
+    private void releaseInflatedBytes() throws IOException {
+        int i = this.bufferBytesHeldByInflater;
+        if (i == 0) {
+            return;
         }
-        if (inflater == null) {
-            throw new IllegalArgumentException("inflater == null");
-        }
-        this.source = bufferedSource;
-        this.inflater = inflater;
+        int remaining = i - this.inflater.getRemaining();
+        this.bufferBytesHeldByInflater -= remaining;
+        this.source.skip(remaining);
     }
 
+    @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        if (this.closed) {
+            return;
+        }
+        this.inflater.end();
+        this.closed = true;
+        this.source.close();
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0056, code lost:
+        releaseInflatedBytes();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x005d, code lost:
+        if (r1.pos != r1.limit) goto L28;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x005f, code lost:
+        r7.head = r1.pop();
+        okio.SegmentPool.recycle(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0068, code lost:
+        return -1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
+        return -1;
+     */
     @Override // okio.Source
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public long read(Buffer buffer, long j) throws IOException {
-        boolean refill;
-        if (j < 0) {
+        if (j >= 0) {
+            if (this.closed) {
+                throw new IllegalStateException("closed");
+            }
+            if (j == 0) {
+                return 0L;
+            }
+            while (true) {
+                boolean refill = refill();
+                try {
+                    Segment writableSegment = buffer.writableSegment(1);
+                    int inflate = this.inflater.inflate(writableSegment.data, writableSegment.limit, (int) Math.min(j, 8192 - writableSegment.limit));
+                    if (inflate > 0) {
+                        writableSegment.limit += inflate;
+                        long j2 = inflate;
+                        buffer.size += j2;
+                        return j2;
+                    } else if (this.inflater.finished() || this.inflater.needsDictionary()) {
+                        break;
+                    } else if (refill) {
+                        throw new EOFException("source exhausted prematurely");
+                    }
+                } catch (DataFormatException e2) {
+                    throw new IOException(e2);
+                }
+            }
+        } else {
             throw new IllegalArgumentException("byteCount < 0: " + j);
         }
-        if (this.closed) {
-            throw new IllegalStateException(LogConfig.TYPE_CLOSED);
-        }
-        if (j == 0) {
-            return 0L;
-        }
-        do {
-            refill = refill();
-            try {
-                Segment writableSegment = buffer.writableSegment(1);
-                int inflate = this.inflater.inflate(writableSegment.data, writableSegment.limit, (int) Math.min(j, 8192 - writableSegment.limit));
-                if (inflate > 0) {
-                    writableSegment.limit += inflate;
-                    buffer.size += inflate;
-                    return inflate;
-                } else if (this.inflater.finished() || this.inflater.needsDictionary()) {
-                    releaseInflatedBytes();
-                    if (writableSegment.pos == writableSegment.limit) {
-                        buffer.head = writableSegment.pop();
-                        SegmentPool.recycle(writableSegment);
-                    }
-                    return -1L;
-                }
-            } catch (DataFormatException e) {
-                throw new IOException(e);
-            }
-        } while (!refill);
-        throw new EOFException("source exhausted prematurely");
     }
 
-    public final boolean refill() throws IOException {
+    public boolean refill() throws IOException {
         if (this.inflater.needsInput()) {
             releaseInflatedBytes();
-            if (this.inflater.getRemaining() != 0) {
-                throw new IllegalStateException("?");
+            if (this.inflater.getRemaining() == 0) {
+                if (this.source.exhausted()) {
+                    return true;
+                }
+                Segment segment = this.source.buffer().head;
+                int i = segment.limit;
+                int i2 = segment.pos;
+                int i3 = i - i2;
+                this.bufferBytesHeldByInflater = i3;
+                this.inflater.setInput(segment.data, i2, i3);
+                return false;
             }
-            if (this.source.exhausted()) {
-                return true;
-            }
-            Segment segment = this.source.buffer().head;
-            this.bufferBytesHeldByInflater = segment.limit - segment.pos;
-            this.inflater.setInput(segment.data, segment.pos, this.bufferBytesHeldByInflater);
-            return false;
+            throw new IllegalStateException("?");
         }
         return false;
-    }
-
-    private void releaseInflatedBytes() throws IOException {
-        if (this.bufferBytesHeldByInflater != 0) {
-            int remaining = this.bufferBytesHeldByInflater - this.inflater.getRemaining();
-            this.bufferBytesHeldByInflater -= remaining;
-            this.source.skip(remaining);
-        }
     }
 
     @Override // okio.Source
@@ -94,12 +112,15 @@ public final class InflaterSource implements Source {
         return this.source.timeout();
     }
 
-    @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        if (!this.closed) {
-            this.inflater.end();
-            this.closed = true;
-            this.source.close();
+    public InflaterSource(BufferedSource bufferedSource, Inflater inflater) {
+        if (bufferedSource == null) {
+            throw new IllegalArgumentException("source == null");
         }
+        if (inflater != null) {
+            this.source = bufferedSource;
+            this.inflater = inflater;
+            return;
+        }
+        throw new IllegalArgumentException("inflater == null");
     }
 }

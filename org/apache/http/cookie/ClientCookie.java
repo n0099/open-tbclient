@@ -1,6 +1,6 @@
 package org.apache.http.cookie;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface ClientCookie extends Cookie {
     public static final String COMMENTURL_ATTR = "commenturl";
     public static final String COMMENT_ATTR = "comment";

@@ -2,12 +2,12 @@ package com.tencent.mm.opensdk.modelbiz;
 
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OpenBusiLuckyMoney {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
-        private static final int MAX_URL_LENGHT = 10240;
+        public static final int MAX_URL_LENGHT = 10240;
         public String appId;
         public String nonceStr;
         public String packageExt;
@@ -17,7 +17,12 @@ public class OpenBusiLuckyMoney {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
-            return this.appId != null && this.appId.length() > 0 && this.timeStamp != null && this.timeStamp.length() > 0 && this.nonceStr != null && this.nonceStr.length() > 0 && this.signType != null && this.signType.length() > 0 && this.signature != null && this.signature.length() > 0;
+            String str;
+            String str2;
+            String str3;
+            String str4;
+            String str5 = this.appId;
+            return str5 != null && str5.length() > 0 && (str = this.timeStamp) != null && str.length() > 0 && (str2 = this.nonceStr) != null && str2.length() > 0 && (str3 = this.signType) != null && str3.length() > 0 && (str4 = this.signature) != null && str4.length() > 0;
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq

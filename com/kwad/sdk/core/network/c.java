@@ -1,8 +1,10 @@
 package com.kwad.sdk.core.network;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6185a;
-    public String b;
+    public int f33865a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f33866b;
 }

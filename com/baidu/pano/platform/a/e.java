@@ -1,45 +1,50 @@
 package com.baidu.pano.platform.a;
-
-import com.baidu.tbadk.TbConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e implements s {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2702a;
-    private int b;
-    private final int c;
-    private final float d;
+    public int f9361a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f9362b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final int f9363c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final float f9364d;
 
     public e() {
-        this(TbConfig.NOTIFY_YUN_PUSH, 0, 1.0f);
-    }
-
-    public e(int i, int i2, float f) {
-        this.f2702a = i;
-        this.c = i2;
-        this.d = f;
+        this(2500, 0, 1.0f);
     }
 
     @Override // com.baidu.pano.platform.a.s
     public int a() {
-        return this.f2702a;
+        return this.f9361a;
     }
 
     @Override // com.baidu.pano.platform.a.s
     public int b() {
-        return this.b;
+        return this.f9362b;
+    }
+
+    public boolean c() {
+        return this.f9362b <= this.f9363c;
+    }
+
+    public e(int i, int i2, float f2) {
+        this.f9361a = i;
+        this.f9363c = i2;
+        this.f9364d = f2;
     }
 
     @Override // com.baidu.pano.platform.a.s
     public void a(v vVar) throws v {
-        this.b++;
-        this.f2702a = (int) (this.f2702a + (this.f2702a * this.d));
+        this.f9362b++;
+        int i = this.f9361a;
+        this.f9361a = (int) (i + (i * this.f9364d));
         if (!c()) {
             throw vVar;
         }
-    }
-
-    protected boolean c() {
-        return this.b <= this.c;
     }
 }

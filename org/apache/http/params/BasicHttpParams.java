@@ -2,28 +2,31 @@ package org.apache.http.params;
 
 import java.io.Serializable;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class BasicHttpParams extends AbstractHttpParams implements Serializable {
     public BasicHttpParams() {
         throw new RuntimeException("Stub!");
     }
 
+    public void clear() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.params.HttpParams
+    public HttpParams copy() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void copyParams(HttpParams httpParams) {
+        throw new RuntimeException("Stub!");
+    }
+
     @Override // org.apache.http.params.HttpParams
     public Object getParameter(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.params.HttpParams
-    public HttpParams setParameter(String str, Object obj) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.params.HttpParams
-    public boolean removeParameter(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setParameters(String[] strArr, Object obj) {
         throw new RuntimeException("Stub!");
     }
 
@@ -35,20 +38,17 @@ public final class BasicHttpParams extends AbstractHttpParams implements Seriali
         throw new RuntimeException("Stub!");
     }
 
-    public void clear() {
+    @Override // org.apache.http.params.HttpParams
+    public boolean removeParameter(String str) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.params.HttpParams
-    public HttpParams copy() {
+    public HttpParams setParameter(String str, Object obj) {
         throw new RuntimeException("Stub!");
     }
 
-    public Object clone() throws CloneNotSupportedException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected void copyParams(HttpParams httpParams) {
+    public void setParameters(String[] strArr, Object obj) {
         throw new RuntimeException("Stub!");
     }
 }

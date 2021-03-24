@@ -3,11 +3,10 @@ package com.baidu.browser.sailor;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class BdSailorWebBackForwardList implements INoProGuard {
-    private WebBackForwardList mBackForwardList;
+    public WebBackForwardList mBackForwardList;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public BdSailorWebBackForwardList(WebBackForwardList webBackForwardList) {
         this.mBackForwardList = webBackForwardList;
     }

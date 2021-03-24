@@ -1,7 +1,7 @@
 package com.coremedia.iso.boxes;
 
 import com.googlecode.mp4parser.AbstractContainerBox;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MediaInformationBox extends AbstractContainerBox {
     public static final String TYPE = "minf";
 
@@ -9,19 +9,19 @@ public class MediaInformationBox extends AbstractContainerBox {
         super(TYPE);
     }
 
-    public SampleTableBox getSampleTableBox() {
+    public AbstractMediaHeaderBox getMediaHeaderBox() {
         for (Box box : getBoxes()) {
-            if (box instanceof SampleTableBox) {
-                return (SampleTableBox) box;
+            if (box instanceof AbstractMediaHeaderBox) {
+                return (AbstractMediaHeaderBox) box;
             }
         }
         return null;
     }
 
-    public AbstractMediaHeaderBox getMediaHeaderBox() {
+    public SampleTableBox getSampleTableBox() {
         for (Box box : getBoxes()) {
-            if (box instanceof AbstractMediaHeaderBox) {
-                return (AbstractMediaHeaderBox) box;
+            if (box instanceof SampleTableBox) {
+                return (SampleTableBox) box;
             }
         }
         return null;

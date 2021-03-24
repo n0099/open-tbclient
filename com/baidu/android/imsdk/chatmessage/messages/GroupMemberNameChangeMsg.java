@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<GroupMemberNameChangeMsg> CREATOR = new Parcelable.Creator<GroupMemberNameChangeMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupMemberNameChangeMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,19 +23,39 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
             return new GroupMemberNameChangeMsg[i];
         }
     };
-    private String nickname;
-    private long wasmodifed;
-    private long whodo;
+    public String nickname;
+    public long wasmodifed;
+    public long whodo;
 
     public GroupMemberNameChangeMsg() {
         setMsgType(1012);
     }
 
-    public GroupMemberNameChangeMsg(Parcel parcel) {
-        super(parcel);
-        this.whodo = parcel.readLong();
-        this.wasmodifed = parcel.readLong();
-        this.nickname = parcel.readString();
+    public String getNickname() {
+        return this.nickname;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        return "你收到了一条系统消息";
+    }
+
+    public String memberChangedid() {
+        return String.valueOf(this.wasmodifed);
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        try {
+            JSONObject jSONObject = new JSONObject(getMsgContent());
+            this.whodo = jSONObject.optLong("operator");
+            this.wasmodifed = jSONObject.optLong("member");
+            this.nickname = jSONObject.optString("name");
+            return true;
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            return false;
+        }
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -46,30 +66,10 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
         parcel.writeString(this.nickname);
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        try {
-            JSONObject jSONObject = new JSONObject(getMsgContent());
-            this.whodo = jSONObject.optLong("operator");
-            this.wasmodifed = jSONObject.optLong("member");
-            this.nickname = jSONObject.optString("name");
-            return true;
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-            return false;
-        }
-    }
-
-    public String getNickname() {
-        return this.nickname;
-    }
-
-    public String memberChangedid() {
-        return String.valueOf(this.wasmodifed);
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        return "你收到了一条系统消息";
+    public GroupMemberNameChangeMsg(Parcel parcel) {
+        super(parcel);
+        this.whodo = parcel.readLong();
+        this.wasmodifed = parcel.readLong();
+        this.nickname = parcel.readString();
     }
 }

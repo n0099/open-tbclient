@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.f.a.b;
 import com.kwad.sdk.core.f.a.c;
@@ -18,226 +19,262 @@ import com.kwad.sdk.core.f.a.i;
 import com.kwad.sdk.core.f.a.j;
 import com.kwad.sdk.utils.ae;
 import com.kwad.sdk.utils.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static InterfaceC1113a b;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f6071a = "";
-    private static boolean c = false;
+    public static String f33590a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static InterfaceC0380a f33591b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static boolean f33592c = false;
 
     /* renamed from: com.kwad.sdk.core.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1113a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0380a {
         @WorkerThread
         void a(String str);
     }
 
     public static String a() {
-        if (TextUtils.isEmpty(f6071a)) {
+        if (TextUtils.isEmpty(f33590a)) {
             a(KsAdSDKImpl.get().getContext());
         }
-        return f6071a;
+        return f33590a;
     }
 
     public static void a(@Nullable Context context) {
-        if (c) {
+        if (f33592c) {
             return;
         }
-        c = true;
-        if (TextUtils.isEmpty(f6071a)) {
+        f33592c = true;
+        if (TextUtils.isEmpty(f33590a)) {
             if (context == null) {
                 context = KsAdSDKImpl.get().getContext();
             }
-            if (context != null) {
-                f6071a = ae.h(context);
-                if (TextUtils.isEmpty(f6071a)) {
-                    final Context applicationContext = context.getApplicationContext();
-                    f.a(new Runnable() { // from class: com.kwad.sdk.core.f.a.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            String upperCase = Build.MANUFACTURER.toUpperCase();
-                            char c2 = 65535;
-                            switch (upperCase.hashCode()) {
-                                case -2053026509:
-                                    if (upperCase.equals("LENOVO")) {
-                                        c2 = 6;
-                                        break;
-                                    }
+            if (context == null) {
+                return;
+            }
+            String h2 = ae.h(context);
+            f33590a = h2;
+            if (TextUtils.isEmpty(h2)) {
+                final Context applicationContext = context.getApplicationContext();
+                f.a(new Runnable() { // from class: com.kwad.sdk.core.f.a.1
+                    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        char c2;
+                        String a2;
+                        j jVar;
+                        String upperCase = Build.MANUFACTURER.toUpperCase();
+                        switch (upperCase.hashCode()) {
+                            case -2053026509:
+                                if (upperCase.equals("LENOVO")) {
+                                    c2 = 6;
                                     break;
-                                case -1712043046:
-                                    if (upperCase.equals("SAMSUNG")) {
-                                        c2 = '\n';
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case -1712043046:
+                                if (upperCase.equals("SAMSUNG")) {
+                                    c2 = '\n';
                                     break;
-                                case -1706170181:
-                                    if (upperCase.equals("XIAOMI")) {
-                                        c2 = 1;
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case -1706170181:
+                                if (upperCase.equals("XIAOMI")) {
+                                    c2 = 1;
                                     break;
-                                case -1134767290:
-                                    if (upperCase.equals("BLACKSHARK")) {
-                                        c2 = 2;
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case -1134767290:
+                                if (upperCase.equals("BLACKSHARK")) {
+                                    c2 = 2;
                                     break;
-                                case -602397472:
-                                    if (upperCase.equals("ONEPLUS")) {
-                                        c2 = 4;
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case -602397472:
+                                if (upperCase.equals(RomTypeUtil.ROM_ONEPLUS)) {
+                                    c2 = 4;
                                     break;
-                                case 89163:
-                                    if (upperCase.equals("ZTE")) {
-                                        c2 = '\f';
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case 89163:
+                                if (upperCase.equals("ZTE")) {
+                                    c2 = '\f';
                                     break;
-                                case 2018896:
-                                    if (upperCase.equals("ASUS")) {
-                                        c2 = 11;
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case 2018896:
+                                if (upperCase.equals("ASUS")) {
+                                    c2 = 11;
                                     break;
-                                case 2432928:
-                                    if (upperCase.equals(RomUtils.ROM_OPPO)) {
-                                        c2 = 3;
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case 2432928:
+                                if (upperCase.equals("OPPO")) {
+                                    c2 = 3;
                                     break;
-                                case 2555124:
-                                    if (upperCase.equals("SSUI")) {
-                                        c2 = 14;
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case 2555124:
+                                if (upperCase.equals("SSUI")) {
+                                    c2 = 14;
                                     break;
-                                case 2634924:
-                                    if (upperCase.equals(RomUtils.ROM_VIVO)) {
-                                        c2 = 5;
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case 2634924:
+                                if (upperCase.equals("VIVO")) {
+                                    c2 = 5;
                                     break;
-                                case 73239724:
-                                    if (upperCase.equals("MEIZU")) {
-                                        c2 = '\b';
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case 73239724:
+                                if (upperCase.equals("MEIZU")) {
+                                    c2 = '\b';
                                     break;
-                                case 74632627:
-                                    if (upperCase.equals(RomUtils.ROM_NUBIA)) {
-                                        c2 = '\t';
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case 74632627:
+                                if (upperCase.equals(RomUtils.ROM_NUBIA)) {
+                                    c2 = '\t';
                                     break;
-                                case 630905871:
-                                    if (upperCase.equals("MOTOLORA")) {
-                                        c2 = 7;
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case 630905871:
+                                if (upperCase.equals("MOTOLORA")) {
+                                    c2 = 7;
                                     break;
-                                case 976565563:
-                                    if (upperCase.equals("FERRMEOS")) {
-                                        c2 = '\r';
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case 976565563:
+                                if (upperCase.equals("FERRMEOS")) {
+                                    c2 = '\r';
                                     break;
-                                case 2141820391:
-                                    if (upperCase.equals("HUAWEI")) {
-                                        c2 = 0;
-                                        break;
-                                    }
+                                }
+                                c2 = 65535;
+                                break;
+                            case 2141820391:
+                                if (upperCase.equals("HUAWEI")) {
+                                    c2 = 0;
                                     break;
-                            }
-                            switch (c2) {
-                                case 0:
-                                    String unused = a.f6071a = new b(applicationContext).a();
-                                    break;
-                                case 1:
-                                case 2:
-                                    String unused2 = a.f6071a = new i(applicationContext).a();
-                                    break;
-                                case 3:
-                                case 4:
-                                    String unused3 = a.f6071a = new com.kwad.sdk.core.f.a.f(applicationContext).a();
-                                    break;
-                                case 5:
-                                    String unused4 = a.f6071a = new h(applicationContext).a();
-                                    break;
-                                case 6:
-                                case 7:
-                                    String unused5 = a.f6071a = new c(applicationContext).a();
-                                    break;
-                                case '\b':
-                                    String unused6 = a.f6071a = new d(applicationContext).a();
-                                    break;
-                                case '\t':
-                                    String unused7 = a.f6071a = new e(applicationContext).a();
-                                    break;
-                                case '\n':
-                                    String unused8 = a.f6071a = new g(applicationContext).a();
-                                    break;
-                                case 11:
-                                    String unused9 = a.f6071a = new com.kwad.sdk.core.f.a.a(applicationContext).a();
-                                    break;
-                                case '\f':
-                                case '\r':
-                                case 14:
-                                    String unused10 = a.f6071a = new j(applicationContext).a();
-                                    break;
-                                default:
-                                    if (a.f() || a.g()) {
-                                        String unused11 = a.f6071a = new j(applicationContext).a();
-                                        break;
-                                    }
-                                    break;
-                            }
-                            com.kwad.sdk.core.d.a.b("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + a.f6071a);
-                            if (!TextUtils.isEmpty(a.f6071a)) {
-                                ae.g(applicationContext, a.f6071a);
-                            }
-                            a.h();
-                            boolean unused12 = a.c = false;
+                                }
+                                c2 = 65535;
+                                break;
+                            default:
+                                c2 = 65535;
+                                break;
                         }
-                    });
-                }
+                        switch (c2) {
+                            case 0:
+                                a2 = new b(applicationContext).a();
+                                String unused = a.f33590a = a2;
+                                break;
+                            case 1:
+                            case 2:
+                                a2 = new i(applicationContext).a();
+                                String unused2 = a.f33590a = a2;
+                                break;
+                            case 3:
+                            case 4:
+                                a2 = new com.kwad.sdk.core.f.a.f(applicationContext).a();
+                                String unused22 = a.f33590a = a2;
+                                break;
+                            case 5:
+                                a2 = new h(applicationContext).a();
+                                String unused222 = a.f33590a = a2;
+                                break;
+                            case 6:
+                            case 7:
+                                a2 = new c(applicationContext).a();
+                                String unused2222 = a.f33590a = a2;
+                                break;
+                            case '\b':
+                                a2 = new d(applicationContext).a();
+                                String unused22222 = a.f33590a = a2;
+                                break;
+                            case '\t':
+                                a2 = new e(applicationContext).a();
+                                String unused222222 = a.f33590a = a2;
+                                break;
+                            case '\n':
+                                a2 = new g(applicationContext).a();
+                                String unused2222222 = a.f33590a = a2;
+                                break;
+                            case 11:
+                                a2 = new com.kwad.sdk.core.f.a.a(applicationContext).a();
+                                String unused22222222 = a.f33590a = a2;
+                                break;
+                            case '\f':
+                            case '\r':
+                            case 14:
+                                jVar = new j(applicationContext);
+                                a2 = jVar.a();
+                                String unused222222222 = a.f33590a = a2;
+                                break;
+                            default:
+                                if (a.f() || a.g()) {
+                                    jVar = new j(applicationContext);
+                                    a2 = jVar.a();
+                                    String unused2222222222 = a.f33590a = a2;
+                                    break;
+                                }
+                                break;
+                        }
+                        com.kwad.sdk.core.d.a.b("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + a.f33590a);
+                        if (!TextUtils.isEmpty(a.f33590a)) {
+                            ae.g(applicationContext, a.f33590a);
+                        }
+                        a.h();
+                        boolean unused3 = a.f33592c = false;
+                    }
+                });
             }
         }
     }
 
     @SuppressLint({"PrivateApi"})
-    private static String b(String str) {
-        String str2;
+    public static String b(String str) {
         if (str == null) {
             return null;
         }
         try {
             Class<?> cls = Class.forName("android.os.SystemProperties");
-            str2 = (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, "unknown");
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
-            str2 = null;
+            return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, "unknown");
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+            return null;
         }
-        return str2;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static boolean f() {
         String b2 = b("ro.build.freeme.label");
         return !TextUtils.isEmpty(b2) && b2.equalsIgnoreCase("FREEMEOS");
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static boolean g() {
         String b2 = b("ro.ssui.product");
         return (TextUtils.isEmpty(b2) || b2.equalsIgnoreCase("unknown")) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void h() {
-        if (b != null) {
-            b.a(f6071a);
+        InterfaceC0380a interfaceC0380a = f33591b;
+        if (interfaceC0380a != null) {
+            interfaceC0380a.a(f33590a);
         }
     }
 }

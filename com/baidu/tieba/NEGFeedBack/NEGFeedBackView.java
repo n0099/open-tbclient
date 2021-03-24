@@ -9,138 +9,70 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.av;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
+import d.b.h0.r.q.v0;
+import d.b.i0.h.c;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class NEGFeedBackView extends AppCompatImageView {
-    private int anI;
-    private int anJ;
-    private long baZ;
-    c gfn;
-    private View.OnClickListener gfo;
-    private Context mContext;
-    private int mPaddingLeft;
-    private int mPaddingRight;
-    private int mPaddingTop;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void onCheckedChanged(av avVar, CompoundButton compoundButton, boolean z);
+    /* renamed from: e  reason: collision with root package name */
+    public Context f14436e;
 
-        void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, av avVar);
+    /* renamed from: f  reason: collision with root package name */
+    public long f14437f;
 
-        void onNEGFeedbackWindowShow(av avVar);
+    /* renamed from: g  reason: collision with root package name */
+    public int f14438g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f14439h;
+    public int i;
+    public int j;
+    public int k;
+    public c l;
+    public View.OnClickListener m;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            NEGFeedBackView.this.o();
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - NEGFeedBackView.this.f14437f > 500) {
+                NEGFeedBackView.this.r(view);
+            }
+            NEGFeedBackView.this.f14437f = currentTimeMillis;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void onCheckedChanged(v0 v0Var, CompoundButton compoundButton, boolean z);
+
+        void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, v0 v0Var);
+
+        void onNEGFeedbackWindowShow(v0 v0Var);
     }
 
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.baZ = 0L;
-        this.anI = R.drawable.icon_pure_card_more22;
-        this.anJ = R.color.CAM_X0111;
-        this.gfo = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                NEGFeedBackView.this.bKu();
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.baZ > 500) {
-                    NEGFeedBackView.this.O(view);
-                }
-                NEGFeedBackView.this.baZ = currentTimeMillis;
-            }
-        };
-        this.mContext = tbPageContext.getPageActivity();
-        l(tbPageContext);
+        this.f14437f = 0L;
+        this.j = R.drawable.icon_pure_card_more22;
+        this.k = R.color.CAM_X0111;
+        this.m = new a();
+        this.f14436e = tbPageContext.getPageActivity();
+        p(tbPageContext);
     }
 
-    private void l(TbPageContext tbPageContext) {
-        this.gfn = new c(tbPageContext, this);
-        setOnClickListener(this.gfo);
-        setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        onChangeSkinType();
-    }
-
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.gfn.setUniqueId(bdUniqueId);
-    }
-
-    public void setDefaultLayout() {
-        onChangeSkinType();
-    }
-
-    public void setLeftPadding(int i) {
-        this.mPaddingLeft = i;
-        setPadding(i, this.mPaddingTop, this.mPaddingRight, 0);
-    }
-
-    public void setTopPadding(int i) {
-        this.mPaddingTop = i;
-        setPadding(this.mPaddingLeft, i, this.mPaddingRight, 0);
-    }
-
-    public void setRightPadding(int i) {
-        this.mPaddingRight = i;
-        setPadding(this.mPaddingLeft, this.mPaddingTop, i, 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void O(View view) {
-        this.gfn.O(view);
-    }
-
-    public void bKu() {
-        this.gfn.bKu();
-    }
-
-    public void setCWRotateAnimation() {
-    }
-
-    public void setACRotateAnimation() {
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        this.gfn.onDetachedFromWindow();
-    }
-
-    public void setData(av avVar) {
-        this.gfn.setData(avVar);
-    }
-
-    public void setFirstRowSingleColumn(boolean z) {
-        this.gfn.setFirstRowSingleColumn(z);
-    }
-
-    public void onChangeSkinType() {
-        setImageDrawable(WebPManager.a(this.anI, ap.getColor(this.anJ), WebPManager.ResourceStateType.NORMAL_PRESS));
-    }
-
-    public void setEventCallback(a aVar) {
-        this.gfn.setEventCallback(aVar);
-    }
-
-    public void setAutoProcess(boolean z) {
-        this.gfn.setAutoProcess(z);
-    }
-
-    public void setHeadText(String str) {
-        this.gfn.setHeadText(str);
-    }
-
-    public void aI(boolean z) {
-        this.gfn.aI(z);
-    }
-
-    public void setDefaultReasonArray(String[] strArr) {
-        this.gfn.setDefaultReasonArray(strArr);
-    }
-
-    public void a(ViewGroup viewGroup, int i, int i2) {
+    public void g(ViewGroup viewGroup, int i, int i2) {
         setPadding(0, i2, i2, 0);
         if (viewGroup instanceof RelativeLayout) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -154,14 +86,14 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void b(ViewGroup viewGroup, int i, int i2) {
-        int dimens = l.getDimens(this.mContext, R.dimen.tbds24);
+    public void n(ViewGroup viewGroup, int i, int i2) {
+        int g2 = l.g(this.f14436e, R.dimen.tbds24);
         setPadding(i2, 0, i2, 0);
         if (viewGroup instanceof RelativeLayout) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i);
             layoutParams.addRule(11);
             layoutParams.addRule(15);
-            layoutParams.rightMargin = dimens;
+            layoutParams.rightMargin = g2;
             viewGroup.addView(this, layoutParams);
         } else if (viewGroup instanceof FrameLayout) {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(i, i);
@@ -170,9 +102,91 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
+    public void o() {
+        this.l.l();
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        this.l.r();
+    }
+
+    public final void p(TbPageContext tbPageContext) {
+        this.l = new c(tbPageContext, this);
+        setOnClickListener(this.m);
+        setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        q();
+    }
+
+    public void q() {
+        setImageDrawable(WebPManager.getPureDrawable(this.j, SkinManager.getColor(this.k), WebPManager.ResourceStateType.NORMAL_PRESS));
+    }
+
+    public final void r(View view) {
+        this.l.B(view);
+    }
+
+    public void s(boolean z) {
+        this.l.C(z);
+    }
+
+    public void setACRotateAnimation() {
+    }
+
+    public void setAutoProcess(boolean z) {
+        this.l.u(z);
+    }
+
+    public void setCWRotateAnimation() {
+    }
+
+    public void setData(v0 v0Var) {
+        this.l.v(v0Var);
+    }
+
+    public void setDefaultLayout() {
+        q();
+    }
+
+    public void setDefaultReasonArray(String[] strArr) {
+        this.l.w(strArr);
+    }
+
+    public void setEventCallback(b bVar) {
+        this.l.x(bVar);
+    }
+
+    public void setFirstRowSingleColumn(boolean z) {
+        this.l.y(z);
+    }
+
+    public void setHeadText(String str) {
+        this.l.z(str);
+    }
+
+    public void setLeftPadding(int i) {
+        this.f14438g = i;
+        setPadding(i, this.i, this.f14439h, 0);
+    }
+
+    public void setRightPadding(int i) {
+        this.f14439h = i;
+        setPadding(this.f14438g, this.i, i, 0);
+    }
+
+    public void setTopPadding(int i) {
+        this.i = i;
+        setPadding(this.f14438g, i, this.f14439h, 0);
+    }
+
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        this.l.A(bdUniqueId);
+    }
+
     public void setWebPResId(int i, int i2) {
-        this.anI = i;
-        this.anJ = i2;
-        setImageDrawable(WebPManager.a(this.anI, ap.getColor(this.anJ), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.j = i;
+        this.k = i2;
+        setImageDrawable(WebPManager.getPureDrawable(i, SkinManager.getColor(i2), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

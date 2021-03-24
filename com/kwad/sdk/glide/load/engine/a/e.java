@@ -1,31 +1,40 @@
 package com.kwad.sdk.glide.load.engine.a;
 
 import android.util.Log;
+import com.bumptech.glide.load.engine.cache.DiskLruCacheWrapper;
 import com.kwad.sdk.glide.a.a;
 import com.kwad.sdk.glide.load.engine.a.a;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e implements a {
-    private final File b;
-    private final long c;
-    private com.kwad.sdk.glide.a.a e;
-    private final c d = new c();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final File f35425b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final long f35426c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.glide.a.a f35428e;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final c f35427d = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    private final j f6725a = new j();
+    public final j f35424a = new j();
 
     @Deprecated
-    protected e(File file, long j) {
-        this.b = file;
-        this.c = j;
+    public e(File file, long j) {
+        this.f35425b = file;
+        this.f35426c = j;
     }
 
     private synchronized com.kwad.sdk.glide.a.a a() {
-        if (this.e == null) {
-            this.e = com.kwad.sdk.glide.a.a.a(this.b, 1, 1, this.c);
+        if (this.f35428e == null) {
+            this.f35428e = com.kwad.sdk.glide.a.a.a(this.f35425b, 1, 1, this.f35426c);
         }
-        return this.e;
+        return this.f35428e;
     }
 
     public static a a(File file, long j) {
@@ -34,9 +43,9 @@ public class e implements a {
 
     @Override // com.kwad.sdk.glide.load.engine.a.a
     public File a(com.kwad.sdk.glide.load.c cVar) {
-        String a2 = this.f6725a.a(cVar);
-        if (Log.isLoggable("DiskLruCacheWrapper", 2)) {
-            Log.v("DiskLruCacheWrapper", "Get: Obtained: " + a2 + " for for Key: " + cVar);
+        String a2 = this.f35424a.a(cVar);
+        if (Log.isLoggable(DiskLruCacheWrapper.TAG, 2)) {
+            Log.v(DiskLruCacheWrapper.TAG, "Get: Obtained: " + a2 + " for for Key: " + cVar);
         }
         try {
             a.d a3 = a().a(a2);
@@ -44,9 +53,9 @@ public class e implements a {
                 return a3.a(0);
             }
             return null;
-        } catch (IOException e) {
-            if (Log.isLoggable("DiskLruCacheWrapper", 5)) {
-                Log.w("DiskLruCacheWrapper", "Unable to get from disk cache", e);
+        } catch (IOException e2) {
+            if (Log.isLoggable(DiskLruCacheWrapper.TAG, 5)) {
+                Log.w(DiskLruCacheWrapper.TAG, "Unable to get from disk cache", e2);
                 return null;
             }
             return null;
@@ -56,35 +65,37 @@ public class e implements a {
     @Override // com.kwad.sdk.glide.load.engine.a.a
     public void a(com.kwad.sdk.glide.load.c cVar, a.b bVar) {
         com.kwad.sdk.glide.a.a a2;
-        String a3 = this.f6725a.a(cVar);
-        this.d.a(a3);
+        String a3 = this.f35424a.a(cVar);
+        this.f35427d.a(a3);
         try {
-            if (Log.isLoggable("DiskLruCacheWrapper", 2)) {
-                Log.v("DiskLruCacheWrapper", "Put: Obtained: " + a3 + " for for Key: " + cVar);
+            if (Log.isLoggable(DiskLruCacheWrapper.TAG, 2)) {
+                Log.v(DiskLruCacheWrapper.TAG, "Put: Obtained: " + a3 + " for for Key: " + cVar);
             }
             try {
                 a2 = a();
-            } catch (IOException e) {
-                if (Log.isLoggable("DiskLruCacheWrapper", 5)) {
-                    Log.w("DiskLruCacheWrapper", "Unable to put to disk cache", e);
+            } catch (IOException e2) {
+                if (Log.isLoggable(DiskLruCacheWrapper.TAG, 5)) {
+                    Log.w(DiskLruCacheWrapper.TAG, "Unable to put to disk cache", e2);
                 }
             }
             if (a2.a(a3) != null) {
                 return;
             }
-            a.b b = a2.b(a3);
-            if (b == null) {
+            a.b b2 = a2.b(a3);
+            if (b2 == null) {
                 throw new IllegalStateException("Had two simultaneous puts for: " + a3);
             }
             try {
-                if (bVar.a(b.a(0))) {
-                    b.a();
+                if (bVar.a(b2.a(0))) {
+                    b2.a();
                 }
-            } finally {
-                b.c();
+                b2.c();
+            } catch (Throwable th) {
+                b2.c();
+                throw th;
             }
         } finally {
-            this.d.b(a3);
+            this.f35427d.b(a3);
         }
     }
 }

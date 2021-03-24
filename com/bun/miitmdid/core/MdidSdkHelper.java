@@ -8,15 +8,15 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MdidSdkHelper {
-    public static String TAG = MdidSdkHelper.class.getSimpleName();
+    public static String TAG = "MdidSdkHelper";
     @Keep
     public static boolean _OuterIsOk = true;
     @Keep
-    private String sdk_date = "2019120111";
+    public String sdk_date = "2019120111";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements IdSupplier {
         @Override // com.bun.miitmdid.supplier.IdSupplier
         public String getAAID() {
@@ -71,24 +71,8 @@ public class MdidSdkHelper {
             int intValue = ((Integer) declaredMethod.invoke(newInstance, context, iIdentifierListener)).intValue();
             logd(z, "call and retvalue:" + intValue);
             return intValue;
-        } catch (ClassNotFoundException e) {
-            loge(z, e);
-            logd(z, "exception exit");
-            return ErrorCode.INIT_HELPER_CALL_ERROR;
-        } catch (IllegalAccessException e2) {
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e2) {
             loge(z, e2);
-            logd(z, "exception exit");
-            return ErrorCode.INIT_HELPER_CALL_ERROR;
-        } catch (InstantiationException e3) {
-            loge(z, e3);
-            logd(z, "exception exit");
-            return ErrorCode.INIT_HELPER_CALL_ERROR;
-        } catch (NoSuchMethodException e4) {
-            loge(z, e4);
-            logd(z, "exception exit");
-            return ErrorCode.INIT_HELPER_CALL_ERROR;
-        } catch (InvocationTargetException e5) {
-            loge(z, e5);
             logd(z, "exception exit");
             return ErrorCode.INIT_HELPER_CALL_ERROR;
         }

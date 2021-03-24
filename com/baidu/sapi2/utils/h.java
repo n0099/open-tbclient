@@ -1,42 +1,42 @@
 package com.baidu.sapi2.utils;
 
-import android.annotation.TargetApi;
-import com.baidu.pass.common.SecurityUtil;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.SapiConfiguration;
-import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.utils.SapiDeviceUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
+import android.util.Base64;
+/* loaded from: classes2.dex */
 public class h {
-    @TargetApi(8)
-    public String a(Long l, String str, String str2) {
-        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
-        String packageName = confignation.context.getPackageName();
-        String packageSign = SapiUtils.getPackageSign(confignation.context, packageName);
-        String packageSign2 = SapiUtils.getPackageSign(confignation.context, str);
-        JSONObject jSONObject = new JSONObject();
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f11508a = "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f11509b = "aHR0cDovL3dhcHBhc3MuYmFpZHUuY29t";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f11510c = "aHR0cHM6Ly9vcGVuYXBpLmJhaWR1LmNvbQ==";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f11511d = "aHR0cHM6Ly93YXBwYXNzLmJkaW1nLmNvbQ==";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f11512e = "aHR0cHM6Ly9wYXNzcG9ydC5iYWlkdS5jb20=";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f11513f = "aHR0cDovL3Bhc3Nwb3J0LnFhdGVzdC5iYWlkdS5jb20=";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f11515h = "aHR0cDovL2RiLWluZmJrLW9ubGluZS0xNy5kYjAxLmJhaWR1LmNvbTo4MDgw";
+    public static final String j = "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==";
+    public static final String k = "aHR0cHM6Ly9uc2NsaWNrLmJhaWR1LmNvbS92LmdpZg==";
+    public static final String l = "aHR0cHM6Ly93d3cuYmFpZHUuY29t";
+    public static final String m = "aHR0cHM6Ly93YXAuYmFpZHUuY29tL2FjdGlvbl9pbnRlcmNlcHRfYW5kcm9pZA==";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f11514g = "aHR0cDovL3dhcHBhc3MucWF0ZXN0LmJhaWR1LmNvbQ==";
+    public static final String i = f11514g;
+
+    public static String a(String str) {
         try {
-            jSONObject.put("type", "native");
-            jSONObject.put("timestamp", l);
-            jSONObject.put("host_api_key", confignation.bdOauthAppId);
-            jSONObject.put("host_pkgname", packageName);
-            jSONObject.put("host_key_hash", packageSign);
-            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-            jSONObject.put("bduss_sign", SecurityUtil.md5((currentAccount == null ? "" : currentAccount.bduss).getBytes(), false));
-            jSONObject.put("pkgname", str);
-            jSONObject.put("key_hash", packageSign2);
-            jSONObject.put("app_id", str2);
-        } catch (JSONException e) {
-            Log.e(e);
-        }
-        String md5 = SecurityUtil.md5(("as#JU*342ns" + str2 + "#$FW34sfs").getBytes(), false);
-        try {
-            return SapiDeviceUtils.DeviceCrypto.base64Encode(new AES().encrypt(jSONObject.toString(), new StringBuffer(md5.substring(md5.length() - 16, md5.length())).reverse().toString(), md5.substring(0, 16)));
-        } catch (Exception e2) {
-            Log.e(e2);
+            return new String(Base64.decode(str.getBytes(), 0));
+        } catch (Exception unused) {
             return "";
         }
     }

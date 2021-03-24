@@ -1,7 +1,7 @@
 package com.baidu.down.common;
 
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class UrlDNSInfo implements Comparable<UrlDNSInfo> {
     public long dnsTime;
     public String host;

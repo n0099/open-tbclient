@@ -1,5 +1,5 @@
 package com.baidu.location;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Address {
     public final String adcode;
     public final String address;
@@ -12,22 +12,22 @@ public final class Address {
     public final String street;
     public final String streetNumber;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
-        private static final String BEI_JING = "北京";
-        private static final String CHONG_QIN = "重庆";
-        private static final String SHANG_HAI = "上海";
-        private static final String TIAN_JIN = "天津";
-        private String mCountry = null;
-        private String mCountryCode = null;
-        private String mProvince = null;
-        private String mCity = null;
-        private String mCityCode = null;
-        private String mDistrict = null;
-        private String mStreet = null;
-        private String mStreetNumber = null;
-        private String mAddress = null;
-        private String mAdcode = null;
+        public static final String BEI_JING = "北京";
+        public static final String CHONG_QIN = "重庆";
+        public static final String SHANG_HAI = "上海";
+        public static final String TIAN_JIN = "天津";
+        public String mCountry = null;
+        public String mCountryCode = null;
+        public String mProvince = null;
+        public String mCity = null;
+        public String mCityCode = null;
+        public String mDistrict = null;
+        public String mStreet = null;
+        public String mStreetNumber = null;
+        public String mAddress = null;
+        public String mAdcode = null;
 
         public Builder adcode(String str) {
             this.mAdcode = str;
@@ -35,28 +35,37 @@ public final class Address {
         }
 
         public Address build() {
+            String str;
             StringBuffer stringBuffer = new StringBuffer();
-            if (this.mCountry != null) {
-                stringBuffer.append(this.mCountry);
+            String str2 = this.mCountry;
+            if (str2 != null) {
+                stringBuffer.append(str2);
             }
-            if (this.mProvince != null) {
-                stringBuffer.append(this.mProvince);
+            String str3 = this.mProvince;
+            if (str3 != null) {
+                stringBuffer.append(str3);
             }
-            if (this.mProvince != null && this.mCity != null && !this.mProvince.equals(this.mCity)) {
+            String str4 = this.mProvince;
+            if (str4 != null && (str = this.mCity) != null && !str4.equals(str)) {
                 stringBuffer.append(this.mCity);
             }
-            if (this.mDistrict != null) {
-                if (this.mCity == null) {
-                    stringBuffer.append(this.mDistrict);
-                } else if (!this.mCity.equals(this.mDistrict)) {
-                    stringBuffer.append(this.mDistrict);
+            String str5 = this.mDistrict;
+            if (str5 != null) {
+                String str6 = this.mCity;
+                if (str6 != null) {
+                    if (!str6.equals(str5)) {
+                        str5 = this.mDistrict;
+                    }
                 }
+                stringBuffer.append(str5);
             }
-            if (this.mStreet != null) {
-                stringBuffer.append(this.mStreet);
+            String str7 = this.mStreet;
+            if (str7 != null) {
+                stringBuffer.append(str7);
             }
-            if (this.mStreetNumber != null) {
-                stringBuffer.append(this.mStreetNumber);
+            String str8 = this.mStreetNumber;
+            if (str8 != null) {
+                stringBuffer.append(str8);
             }
             if (stringBuffer.length() > 0) {
                 this.mAddress = stringBuffer.toString();
@@ -105,7 +114,7 @@ public final class Address {
         }
     }
 
-    private Address(Builder builder) {
+    public Address(Builder builder) {
         this.country = builder.mCountry;
         this.countryCode = builder.mCountryCode;
         this.province = builder.mProvince;

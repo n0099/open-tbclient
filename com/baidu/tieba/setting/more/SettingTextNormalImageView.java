@@ -10,70 +10,79 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import com.baidu.tieba.R$styleable;
+/* loaded from: classes5.dex */
 public class SettingTextNormalImageView extends FrameLayout {
-    private ImageView fzB;
-    private LinearLayout fzw;
-    private Context mContext;
-    private TbImageView nkL;
-    private TextView textView;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f21049e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public LinearLayout f21050f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f21051g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TbImageView f21052h;
+    public ImageView i;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mContext = context;
-        bzH();
-        h(attributeSet);
-        qK(TbadkCoreApplication.getInst().getSkinType());
+        this.f21049e = context;
+        b();
+        a(attributeSet);
+        c(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void a(AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = this.f21049e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
+        String string = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingText);
+        int color = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTextColor, -1);
+        obtainStyledAttributes.recycle();
+        if (string != null) {
+            this.f21051g.setText(string);
+        }
+        if (color > -1) {
+            this.f21051g.setTextColor(color);
+        }
+        this.f21050f.setClickable(false);
+        this.f21050f.setFocusable(false);
+    }
+
+    public final void b() {
+        LayoutInflater.from(this.f21049e).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
+        this.f21050f = (LinearLayout) findViewById(R.id.container);
+        this.f21051g = (TextView) findViewById(R.id.text);
+        this.f21052h = (TbImageView) findViewById(R.id.icon);
+        this.i = (ImageView) findViewById(R.id.arrow);
+    }
+
+    public void c(int i) {
+        SkinManager.setViewTextColor(this.f21051g, R.color.CAM_X0105, 1);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
+        this.f21052h.invalidate();
+    }
+
+    public void setLocalIcon(int i) {
+        this.f21052h.B();
+        this.f21052h.setConrers(0);
+        this.f21052h.setImageResource(i);
+    }
+
+    public void setText(String str) {
+        this.f21051g.setText(str);
     }
 
     public SettingTextNormalImageView(Context context) {
         super(context);
-        this.mContext = context;
-        bzH();
-        qK(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public void qK(int i) {
-        ap.setViewTextColor(this.textView, R.color.CAM_X0105, 1);
-        SvgManager.bsU().a(this.fzB, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        setBackgroundDrawable(ap.oD(R.color.CAM_X0205));
-        this.nkL.invalidate();
-    }
-
-    public void setText(String str) {
-        this.textView.setText(str);
-    }
-
-    public void setLocalIcon(int i) {
-        this.nkL.bGs();
-        this.nkL.setConrers(0);
-        this.nkL.setImageResource(i);
-    }
-
-    private void bzH() {
-        LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
-        this.fzw = (LinearLayout) findViewById(R.id.container);
-        this.textView = (TextView) findViewById(R.id.text);
-        this.nkL = (TbImageView) findViewById(R.id.icon);
-        this.fzB = (ImageView) findViewById(R.id.arrow);
-    }
-
-    private void h(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, R.styleable.TbSettingView);
-        String string = obtainStyledAttributes.getString(R.styleable.TbSettingView_settingText);
-        int color = obtainStyledAttributes.getColor(R.styleable.TbSettingView_settingTextColor, -1);
-        obtainStyledAttributes.recycle();
-        if (string != null) {
-            this.textView.setText(string);
-        }
-        if (color > -1) {
-            this.textView.setTextColor(color);
-        }
-        this.fzw.setClickable(false);
-        this.fzw.setFocusable(false);
+        this.f21049e = context;
+        b();
+        c(TbadkCoreApplication.getInst().getSkinType());
     }
 }

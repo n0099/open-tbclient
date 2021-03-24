@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.util.SparseIntArray;
 import androidx.collection.LongSparseArray;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mapapi.model.LatLng;
 import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
@@ -17,46 +16,66 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HeatMap {
     public static final Gradient DEFAULT_GRADIENT;
     public static final double DEFAULT_OPACITY = 0.6d;
     public static final int DEFAULT_RADIUS = 12;
-    private static final String b = HeatMap.class.getSimpleName();
-    private static final SparseIntArray c = new SparseIntArray();
-    private static final int[] d;
-    private static final float[] e;
-    private static int r;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f6869b = "HeatMap";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final SparseIntArray f6870c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final int[] f6871d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final float[] f6872e;
+    public static int r;
 
     /* renamed from: a  reason: collision with root package name */
-    BaiduMap f2020a;
-    private n<WeightedLatLng> f;
-    private Collection<WeightedLatLng> g;
-    private int h;
-    private Gradient i;
-    private double j;
-    private g k;
-    private int[] l;
-    private double[] m;
-    private double[] n;
-    private HashMap<String, Tile> o;
-    private ExecutorService p;
-    private HashSet<String> q;
+    public BaiduMap f6873a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: f  reason: collision with root package name */
+    public n<WeightedLatLng> f6874f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Collection<WeightedLatLng> f6875g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f6876h;
+    public Gradient i;
+    public double j;
+    public g k;
+    public int[] l;
+    public double[] m;
+    public double[] n;
+    public HashMap<String, Tile> o;
+    public ExecutorService p;
+    public HashSet<String> q;
+
+    /* loaded from: classes2.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private Collection<WeightedLatLng> f2021a;
-        private int b = 12;
-        private Gradient c = HeatMap.DEFAULT_GRADIENT;
-        private double d = 0.6d;
+        public Collection<WeightedLatLng> f6877a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f6878b = 12;
+
+        /* renamed from: c  reason: collision with root package name */
+        public Gradient f6879c = HeatMap.DEFAULT_GRADIENT;
+
+        /* renamed from: d  reason: collision with root package name */
+        public double f6880d = 0.6d;
 
         public HeatMap build() {
-            if (this.f2021a == null) {
-                throw new IllegalStateException("No input data: you must use either .data or .weightedData before building");
+            if (this.f6877a != null) {
+                return new HeatMap(this, null);
             }
-            return new HeatMap(this, null);
+            throw new IllegalStateException("No input data: you must use either .data or .weightedData before building");
         }
 
         public Builder data(Collection<LatLng> collection) {
@@ -70,24 +89,24 @@ public class HeatMap {
         }
 
         public Builder gradient(Gradient gradient) {
-            if (gradient == null) {
-                throw new IllegalArgumentException("gradient can not be null");
+            if (gradient != null) {
+                this.f6879c = gradient;
+                return this;
             }
-            this.c = gradient;
-            return this;
+            throw new IllegalArgumentException("gradient can not be null");
         }
 
-        public Builder opacity(double d) {
-            this.d = d;
-            if (this.d < 0.0d || this.d > 1.0d) {
+        public Builder opacity(double d2) {
+            this.f6880d = d2;
+            if (d2 < 0.0d || d2 > 1.0d) {
                 throw new IllegalArgumentException("Opacity must be in range [0, 1]");
             }
             return this;
         }
 
         public Builder radius(int i) {
-            this.b = i;
-            if (this.b < 10 || this.b > 50) {
+            this.f6878b = i;
+            if (i < 10 || i > 50) {
                 throw new IllegalArgumentException("Radius not within bounds.");
             }
             return this;
@@ -103,105 +122,128 @@ public class HeatMap {
             ArrayList arrayList = new ArrayList();
             for (WeightedLatLng weightedLatLng : collection) {
                 LatLng latLng = weightedLatLng.latLng;
-                if (latLng.latitude < 0.37532d || latLng.latitude > 54.562495d || latLng.longitude < 72.508319d || latLng.longitude > 135.942198d) {
-                    arrayList.add(weightedLatLng);
+                double d2 = latLng.latitude;
+                if (d2 >= 0.37532d && d2 <= 54.562495d) {
+                    double d3 = latLng.longitude;
+                    if (d3 >= 72.508319d && d3 <= 135.942198d) {
+                    }
                 }
+                arrayList.add(weightedLatLng);
             }
             collection.removeAll(arrayList);
-            this.f2021a = collection;
+            this.f6877a = collection;
             return this;
         }
     }
 
     static {
-        c.put(3, 8388608);
-        c.put(4, 4194304);
-        c.put(5, 2097152);
-        c.put(6, 1048576);
-        c.put(7, 524288);
-        c.put(8, 262144);
-        c.put(9, 131072);
-        c.put(10, 65536);
-        c.put(11, 32768);
-        c.put(12, 16384);
-        c.put(13, 8192);
-        c.put(14, 4096);
-        c.put(15, 2048);
-        c.put(16, 1024);
-        c.put(17, 512);
-        c.put(18, 256);
-        c.put(19, 128);
-        c.put(20, 64);
-        d = new int[]{Color.rgb(0, 0, 200), Color.rgb(0, 225, 0), Color.rgb(255, 0, 0)};
-        e = new float[]{0.08f, 0.4f, 1.0f};
-        DEFAULT_GRADIENT = new Gradient(d, e);
+        SparseIntArray sparseIntArray = new SparseIntArray();
+        f6870c = sparseIntArray;
+        sparseIntArray.put(3, 8388608);
+        f6870c.put(4, 4194304);
+        f6870c.put(5, 2097152);
+        f6870c.put(6, 1048576);
+        f6870c.put(7, 524288);
+        f6870c.put(8, 262144);
+        f6870c.put(9, 131072);
+        f6870c.put(10, 65536);
+        f6870c.put(11, 32768);
+        f6870c.put(12, 16384);
+        f6870c.put(13, 8192);
+        f6870c.put(14, 4096);
+        f6870c.put(15, 2048);
+        f6870c.put(16, 1024);
+        f6870c.put(17, 512);
+        f6870c.put(18, 256);
+        f6870c.put(19, 128);
+        f6870c.put(20, 64);
+        int[] iArr = {Color.rgb(0, 0, 200), Color.rgb(0, 225, 0), Color.rgb(255, 0, 0)};
+        f6871d = iArr;
+        float[] fArr = {0.08f, 0.4f, 1.0f};
+        f6872e = fArr;
+        DEFAULT_GRADIENT = new Gradient(iArr, fArr);
         r = 0;
     }
 
-    private HeatMap(Builder builder) {
+    public HeatMap(Builder builder) {
         this.o = new HashMap<>();
         this.p = Executors.newFixedThreadPool(1);
         this.q = new HashSet<>();
-        this.g = builder.f2021a;
-        this.h = builder.b;
-        this.i = builder.c;
-        this.j = builder.d;
-        this.m = a(this.h, this.h / 3.0d);
+        this.f6875g = builder.f6877a;
+        this.f6876h = builder.f6878b;
+        this.i = builder.f6879c;
+        this.j = builder.f6880d;
+        int i = this.f6876h;
+        double d2 = i;
+        Double.isNaN(d2);
+        this.m = a(i, d2 / 3.0d);
         a(this.i);
-        b(this.g);
+        b(this.f6875g);
     }
 
-    /* synthetic */ HeatMap(Builder builder, i iVar) {
+    public /* synthetic */ HeatMap(Builder builder, i iVar) {
         this(builder);
     }
 
-    private static double a(Collection<WeightedLatLng> collection, g gVar, int i, int i2) {
-        LongSparseArray longSparseArray;
-        double d2 = gVar.f2066a;
-        double d3 = gVar.c;
-        double d4 = gVar.b;
-        double d5 = gVar.d;
-        double d6 = ((int) ((i2 / (i * 2)) + 0.5d)) / (d3 - d2 > d5 - d4 ? d3 - d2 : d5 - d4);
-        LongSparseArray longSparseArray2 = new LongSparseArray();
-        double d7 = 0.0d;
-        Iterator<WeightedLatLng> it = collection.iterator();
-        while (true) {
-            double d8 = d7;
-            if (!it.hasNext()) {
-                return d8;
-            }
-            WeightedLatLng next = it.next();
-            int i3 = (int) ((next.a().x - d2) * d6);
-            int i4 = (int) ((next.a().y - d4) * d6);
-            LongSparseArray longSparseArray3 = (LongSparseArray) longSparseArray2.get(i3);
-            if (longSparseArray3 == null) {
-                LongSparseArray longSparseArray4 = new LongSparseArray();
-                longSparseArray2.put(i3, longSparseArray4);
-                longSparseArray = longSparseArray4;
-            } else {
-                longSparseArray = longSparseArray3;
-            }
-            Double d9 = (Double) longSparseArray.get(i4);
-            if (d9 == null) {
-                d9 = Double.valueOf(0.0d);
-            }
-            Double valueOf = Double.valueOf(next.intensity + d9.doubleValue());
-            longSparseArray.put(i4, valueOf);
-            d7 = valueOf.doubleValue() > d8 ? valueOf.doubleValue() : d8;
+    public static double a(Collection<WeightedLatLng> collection, g gVar, int i, int i2) {
+        double d2 = gVar.f7068a;
+        double d3 = gVar.f7070c;
+        double d4 = gVar.f7069b;
+        double d5 = d3 - d2;
+        double d6 = gVar.f7071d - d4;
+        if (d5 <= d6) {
+            d5 = d6;
         }
+        double d7 = i2 / (i * 2);
+        Double.isNaN(d7);
+        double d8 = (int) (d7 + 0.5d);
+        Double.isNaN(d8);
+        double d9 = d8 / d5;
+        LongSparseArray longSparseArray = new LongSparseArray();
+        double d10 = 0.0d;
+        for (WeightedLatLng weightedLatLng : collection) {
+            double d11 = weightedLatLng.a().x;
+            double d12 = weightedLatLng.a().y;
+            Double.isNaN(d11);
+            Double.isNaN(d12);
+            int i3 = (int) ((d12 - d4) * d9);
+            long j = (int) ((d11 - d2) * d9);
+            LongSparseArray longSparseArray2 = (LongSparseArray) longSparseArray.get(j);
+            if (longSparseArray2 == null) {
+                longSparseArray2 = new LongSparseArray();
+                longSparseArray.put(j, longSparseArray2);
+            }
+            long j2 = i3;
+            Double d13 = (Double) longSparseArray2.get(j2);
+            if (d13 == null) {
+                d13 = Double.valueOf(0.0d);
+            }
+            LongSparseArray longSparseArray3 = longSparseArray;
+            double d14 = d2;
+            Double valueOf = Double.valueOf(d13.doubleValue() + weightedLatLng.intensity);
+            longSparseArray2.put(j2, valueOf);
+            if (valueOf.doubleValue() > d10) {
+                d10 = valueOf.doubleValue();
+            }
+            longSparseArray = longSparseArray3;
+            d2 = d14;
+        }
+        return d10;
     }
 
-    private static Bitmap a(double[][] dArr, int[] iArr, double d2) {
+    public static Bitmap a(double[][] dArr, int[] iArr, double d2) {
         int i = iArr[iArr.length - 1];
-        double length = (iArr.length - 1) / d2;
+        double length = iArr.length - 1;
+        Double.isNaN(length);
+        double d3 = length / d2;
         int length2 = dArr.length;
         int[] iArr2 = new int[length2 * length2];
         for (int i2 = 0; i2 < length2; i2++) {
             for (int i3 = 0; i3 < length2; i3++) {
-                double d3 = dArr[i3][i2];
+                double d4 = dArr[i3][i2];
                 int i4 = (i2 * length2) + i3;
-                int i5 = (int) (d3 * length);
-                if (d3 == 0.0d) {
+                int i5 = (int) (d4 * d3);
+                if (d4 == 0.0d) {
                     iArr2[i4] = 0;
                 } else if (i5 < iArr.length) {
                     iArr2[i4] = iArr[i5];
@@ -215,7 +257,7 @@ public class HeatMap {
         return createBitmap;
     }
 
-    private static Tile a(Bitmap bitmap) {
+    public static Tile a(Bitmap bitmap) {
         ByteBuffer allocate = ByteBuffer.allocate(bitmap.getWidth() * bitmap.getHeight() * 4);
         bitmap.copyPixelsToBuffer(allocate);
         return new Tile(256, 256, allocate.array());
@@ -235,103 +277,170 @@ public class HeatMap {
     }
 
     private double[] a(int i) {
+        int i2;
         double[] dArr = new double[20];
-        for (int i2 = 5; i2 < 11; i2++) {
-            dArr[i2] = a(this.g, this.k, i, (int) (1280.0d * Math.pow(2.0d, i2 - 3)));
-            if (i2 == 5) {
-                for (int i3 = 0; i3 < i2; i3++) {
-                    dArr[i3] = dArr[i2];
+        int i3 = 5;
+        while (true) {
+            if (i3 >= 11) {
+                break;
+            }
+            dArr[i3] = a(this.f6875g, this.k, i, (int) (Math.pow(2.0d, i3 - 3) * 1280.0d));
+            if (i3 == 5) {
+                for (int i4 = 0; i4 < i3; i4++) {
+                    dArr[i4] = dArr[i3];
                 }
             }
+            i3++;
         }
-        for (int i4 = 11; i4 < 20; i4++) {
-            dArr[i4] = dArr[10];
+        for (i2 = 11; i2 < 20; i2++) {
+            dArr[i2] = dArr[10];
         }
         return dArr;
     }
 
-    private static double[] a(int i, double d2) {
+    public static double[] a(int i, double d2) {
         double[] dArr = new double[(i * 2) + 1];
         for (int i2 = -i; i2 <= i; i2++) {
-            dArr[i2 + i] = Math.exp(((-i2) * i2) / ((2.0d * d2) * d2));
+            double d3 = (-i2) * i2;
+            Double.isNaN(d3);
+            dArr[i2 + i] = Math.exp(d3 / ((2.0d * d2) * d2));
         }
         return dArr;
     }
 
-    private static double[][] a(double[][] dArr, double[] dArr2) {
-        int floor = (int) Math.floor(dArr2.length / 2.0d);
-        int length = dArr.length;
-        int i = length - (floor * 2);
-        int i2 = (floor + i) - 1;
-        double[][] dArr3 = (double[][]) Array.newInstance(Double.TYPE, length, length);
-        for (int i3 = 0; i3 < length; i3++) {
-            for (int i4 = 0; i4 < length; i4++) {
-                double d2 = dArr[i3][i4];
-                if (d2 != 0.0d) {
-                    int i5 = (i2 < i3 + floor ? i2 : i3 + floor) + 1;
-                    for (int i6 = floor > i3 - floor ? floor : i3 - floor; i6 < i5; i6++) {
-                        double[] dArr4 = dArr3[i6];
-                        dArr4[i4] = dArr4[i4] + (dArr2[i6 - (i3 - floor)] * d2);
+    public static double[][] a(double[][] dArr, double[] dArr2) {
+        double length = dArr2.length;
+        Double.isNaN(length);
+        int floor = (int) Math.floor(length / 2.0d);
+        int length2 = dArr.length;
+        int i = length2 - (floor * 2);
+        int i2 = 1;
+        int i3 = (floor + i) - 1;
+        double[][] dArr3 = (double[][]) Array.newInstance(double.class, length2, length2);
+        int i4 = 0;
+        while (true) {
+            double d2 = 0.0d;
+            if (i4 >= length2) {
+                break;
+            }
+            int i5 = 0;
+            while (i5 < length2) {
+                double d3 = dArr[i4][i5];
+                if (d3 != d2) {
+                    int i6 = i4 + floor;
+                    if (i3 < i6) {
+                        i6 = i3;
+                    }
+                    int i7 = i6 + 1;
+                    int i8 = i4 - floor;
+                    for (int i9 = floor > i8 ? floor : i8; i9 < i7; i9++) {
+                        double[] dArr4 = dArr3[i9];
+                        dArr4[i5] = dArr4[i5] + (dArr2[i9 - i8] * d3);
                     }
                 }
+                i5++;
+                d2 = 0.0d;
             }
+            i4++;
         }
-        double[][] dArr5 = (double[][]) Array.newInstance(Double.TYPE, i, i);
-        for (int i7 = floor; i7 < i2 + 1; i7++) {
-            for (int i8 = 0; i8 < length; i8++) {
-                double d3 = dArr3[i7][i8];
-                if (d3 != 0.0d) {
-                    int i9 = (i2 < i8 + floor ? i2 : i8 + floor) + 1;
-                    for (int i10 = floor > i8 - floor ? floor : i8 - floor; i10 < i9; i10++) {
-                        double[] dArr6 = dArr5[i7 - floor];
-                        int i11 = i10 - floor;
-                        dArr6[i11] = dArr6[i11] + (dArr2[i10 - (i8 - floor)] * d3);
+        double[][] dArr5 = (double[][]) Array.newInstance(double.class, i, i);
+        int i10 = floor;
+        while (i10 < i3 + 1) {
+            int i11 = 0;
+            while (i11 < length2) {
+                double d4 = dArr3[i10][i11];
+                if (d4 != 0.0d) {
+                    int i12 = i11 + floor;
+                    if (i3 < i12) {
+                        i12 = i3;
+                    }
+                    int i13 = i12 + i2;
+                    int i14 = i11 - floor;
+                    for (int i15 = floor > i14 ? floor : i14; i15 < i13; i15++) {
+                        double[] dArr6 = dArr5[i10 - floor];
+                        int i16 = i15 - floor;
+                        dArr6[i16] = dArr6[i16] + (dArr2[i15 - i14] * d4);
                     }
                 }
+                i11++;
+                i2 = 1;
             }
+            i10++;
+            i2 = 1;
         }
         return dArr5;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, int i2, int i3) {
-        double d2 = c.get(i3);
-        double d3 = (this.h * d2) / 256.0d;
-        double d4 = ((2.0d * d3) + d2) / ((this.h * 2) + 256);
+        double d2 = f6870c.get(i3);
+        int i4 = this.f6876h;
+        double d3 = i4;
+        Double.isNaN(d2);
+        Double.isNaN(d3);
+        double d4 = (d3 * d2) / 256.0d;
+        Double.isNaN(d2);
+        double d5 = (i4 * 2) + 256;
+        Double.isNaN(d5);
+        double d6 = ((2.0d * d4) + d2) / d5;
         if (i < 0 || i2 < 0) {
             return;
         }
-        double d5 = (i * d2) - d3;
-        double d6 = (d2 * (i2 + 1)) + d3;
-        g gVar = new g(d5, ((i + 1) * d2) + d3, (i2 * d2) - d3, d6);
-        if (gVar.a(new g(this.k.f2066a - d3, this.k.c + d3, this.k.b - d3, d3 + this.k.d))) {
-            Collection<WeightedLatLng> a2 = this.f.a(gVar);
+        double d7 = i;
+        Double.isNaN(d7);
+        Double.isNaN(d2);
+        double d8 = (d7 * d2) - d4;
+        double d9 = i + 1;
+        Double.isNaN(d9);
+        Double.isNaN(d2);
+        double d10 = (d9 * d2) + d4;
+        double d11 = i2;
+        Double.isNaN(d11);
+        Double.isNaN(d2);
+        double d12 = (d11 * d2) - d4;
+        double d13 = i2 + 1;
+        Double.isNaN(d13);
+        Double.isNaN(d2);
+        double d14 = (d13 * d2) + d4;
+        g gVar = new g(d8, d10, d12, d14);
+        g gVar2 = this.k;
+        if (gVar.a(new g(gVar2.f7068a - d4, gVar2.f7070c + d4, gVar2.f7069b - d4, gVar2.f7071d + d4))) {
+            Collection<WeightedLatLng> a2 = this.f6874f.a(gVar);
             if (a2.isEmpty()) {
                 return;
             }
-            double[][] dArr = (double[][]) Array.newInstance(Double.TYPE, (this.h * 2) + 256, (this.h * 2) + 256);
+            int i5 = this.f6876h;
+            double[][] dArr = (double[][]) Array.newInstance(double.class, (i5 * 2) + 256, (i5 * 2) + 256);
             for (WeightedLatLng weightedLatLng : a2) {
                 Point a3 = weightedLatLng.a();
-                int i4 = (int) ((a3.x - d5) / d4);
-                int i5 = (int) ((d6 - a3.y) / d4);
-                if (i4 >= (this.h * 2) + 256) {
-                    i4 = ((this.h * 2) + 256) - 1;
+                double d15 = a3.x;
+                Double.isNaN(d15);
+                int i6 = (int) ((d15 - d8) / d6);
+                double d16 = a3.y;
+                Double.isNaN(d16);
+                int i7 = (int) ((d14 - d16) / d6);
+                int i8 = this.f6876h;
+                if (i6 >= (i8 * 2) + 256) {
+                    i6 = ((i8 * 2) + 256) - 1;
                 }
-                if (i5 >= (this.h * 2) + 256) {
-                    i5 = ((this.h * 2) + 256) - 1;
+                int i9 = this.f6876h;
+                if (i7 >= (i9 * 2) + 256) {
+                    i7 = ((i9 * 2) + 256) - 1;
                 }
-                double[] dArr2 = dArr[i4];
-                dArr2[i5] = dArr2[i5] + weightedLatLng.intensity;
+                double[] dArr2 = dArr[i6];
+                dArr2[i7] = dArr2[i7] + weightedLatLng.intensity;
+                d14 = d14;
             }
             Bitmap a4 = a(a(dArr, this.m), this.l, this.n[i3 - 1]);
             Tile a5 = a(a4);
             a4.recycle();
-            a(i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i3, a5);
+            a(i + "_" + i2 + "_" + i3, a5);
             if (this.o.size() > r) {
                 a();
             }
-            if (this.f2020a != null) {
-                this.f2020a.a();
+            BaiduMap baiduMap = this.f6873a;
+            if (baiduMap != null) {
+                baiduMap.a();
             }
         }
     }
@@ -341,30 +450,28 @@ public class HeatMap {
     }
 
     private void b(Collection<WeightedLatLng> collection) {
-        this.g = collection;
-        if (this.g.isEmpty()) {
+        this.f6875g = collection;
+        if (collection.isEmpty()) {
             throw new IllegalArgumentException("No input points.");
         }
-        this.k = d(this.g);
-        this.f = new n<>(this.k);
-        for (WeightedLatLng weightedLatLng : this.g) {
-            this.f.a((n<WeightedLatLng>) weightedLatLng);
+        g d2 = d(this.f6875g);
+        this.k = d2;
+        this.f6874f = new n<>(d2);
+        for (WeightedLatLng weightedLatLng : this.f6875g) {
+            this.f6874f.a((n<WeightedLatLng>) weightedLatLng);
         }
-        this.n = a(this.h);
+        this.n = a(this.f6876h);
     }
 
     private synchronized Tile c(String str) {
-        Tile tile;
         if (this.o.containsKey(str)) {
-            tile = this.o.get(str);
+            Tile tile = this.o.get(str);
             this.o.remove(str);
-        } else {
-            tile = null;
+            return tile;
         }
-        return tile;
+        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static Collection<WeightedLatLng> c(Collection<LatLng> collection) {
         ArrayList arrayList = new ArrayList();
         for (LatLng latLng : collection) {
@@ -373,7 +480,7 @@ public class HeatMap {
         return arrayList;
     }
 
-    private static g d(Collection<WeightedLatLng> collection) {
+    public static g d(Collection<WeightedLatLng> collection) {
         Iterator<WeightedLatLng> it = collection.iterator();
         WeightedLatLng next = it.next();
         double d2 = next.a().x;
@@ -404,52 +511,53 @@ public class HeatMap {
         this.o.clear();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Tile a(int i, int i2, int i3) {
-        String str = i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i3;
+        String str = i + "_" + i2 + "_" + i3;
         Tile c2 = c(str);
         if (c2 != null) {
             return c2;
         }
-        if (!a(str)) {
-            if (this.f2020a != null && r == 0) {
-                MapStatus mapStatus = this.f2020a.getMapStatus();
-                r = (((mapStatus.f2029a.j.bottom - mapStatus.f2029a.j.top) / 256) + 2) * (((mapStatus.f2029a.j.right - mapStatus.f2029a.j.left) / 256) + 2) * 4;
-            }
-            if (this.o.size() > r) {
-                a();
-            }
-            if (!this.p.isShutdown()) {
-                try {
-                    this.p.execute(new i(this, i, i2, i3));
-                    b(str);
-                } catch (RejectedExecutionException e2) {
-                    e2.printStackTrace();
-                }
-            }
+        if (a(str)) {
+            return null;
         }
-        return null;
+        BaiduMap baiduMap = this.f6873a;
+        if (baiduMap != null && r == 0) {
+            WinRound winRound = baiduMap.getMapStatus().f6900a.j;
+            r = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2) * 4;
+        }
+        if (this.o.size() > r) {
+            a();
+        }
+        if (this.p.isShutdown()) {
+            return null;
+        }
+        try {
+            this.p.execute(new i(this, i, i2, i3));
+            b(str);
+            return null;
+        } catch (RejectedExecutionException e2) {
+            e2.printStackTrace();
+            return null;
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a() {
         this.q.clear();
         this.o.clear();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
         d();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
         this.p.shutdownNow();
     }
 
     public void removeHeatMap() {
-        if (this.f2020a != null) {
-            this.f2020a.a(this);
+        BaiduMap baiduMap = this.f6873a;
+        if (baiduMap != null) {
+            baiduMap.a(this);
         }
     }
 }

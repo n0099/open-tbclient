@@ -4,76 +4,91 @@ import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-/* loaded from: classes.dex */
+import d.b.i0.a1.b.c;
+import d.b.i0.x.e0.g;
+/* loaded from: classes4.dex */
 public class CardExtendForumItemHolder extends ItemViewHolder {
-    public BarImageView fUe;
-    public TextView fUf;
-    public EntelechyUserLikeButton fUh;
-    private com.baidu.tieba.card.data.g iwC;
-    private int mSkinType;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BarImageView f15222b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f15223c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public EntelechyUserLikeButton f15224d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public g f15225e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f15226f;
 
     public CardExtendForumItemHolder(View view) {
         super(view);
-        this.fUe = null;
-        this.fUf = null;
-        this.fUh = null;
-        this.mSkinType = 3;
+        this.f15222b = null;
+        this.f15223c = null;
+        this.f15224d = null;
+        this.f15226f = 3;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(com.baidu.tieba.horizonalList.widget.c cVar) {
-        if (cVar != null && (cVar instanceof com.baidu.tieba.card.data.g)) {
-            this.iwC = (com.baidu.tieba.card.data.g) cVar;
-            this.fUe.setTag(this.iwC.forumAvatar);
-            this.fUe.setTag(R.id.tag_forum_name, this.iwC.forumName);
-            this.fUe.startLoad(this.iwC.forumAvatar, 15, false);
-            this.fUf.setText(au.getFixedText(this.iwC.forumName, 4, true) + getView().getContext().getResources().getString(R.string.forum));
-            this.fUf.setTag(R.id.tag_forum_name, this.iwC.forumName);
-            this.fUh.setTag(R.id.tag_forum_id, Long.valueOf(this.iwC.forumId));
-            this.fUh.setTag(R.id.tag_forum_name, this.iwC.forumName);
-            getView().setTag(R.id.tag_forum_id, Long.valueOf(this.iwC.forumId));
-            getView().setTag(R.id.tag_forum_name, this.iwC.forumName);
-            a(this.fUh, this.iwC.isLiked);
-            this.fUe.setOnClickListener(this.onClickListener);
-            this.fUh.setOnClickListener(this.onClickListener);
-            this.fUf.setOnClickListener(this.onClickListener);
-            getView().setOnClickListener(this.onClickListener);
+    public void b(c cVar) {
+        if (cVar != null && (cVar instanceof g)) {
+            g gVar = (g) cVar;
+            this.f15225e = gVar;
+            this.f15222b.setTag(gVar.f62205b);
+            this.f15222b.setTag(R.id.tag_forum_name, this.f15225e.f62206c);
+            this.f15222b.W(this.f15225e.f62205b, 15, false);
+            TextView textView = this.f15223c;
+            textView.setText(StringHelper.getFixedText(this.f15225e.f62206c, 4, true) + a().getContext().getResources().getString(R.string.forum));
+            this.f15223c.setTag(R.id.tag_forum_name, this.f15225e.f62206c);
+            this.f15224d.setTag(R.id.tag_forum_id, Long.valueOf(this.f15225e.f62207d));
+            this.f15224d.setTag(R.id.tag_forum_name, this.f15225e.f62206c);
+            a().setTag(R.id.tag_forum_id, Long.valueOf(this.f15225e.f62207d));
+            a().setTag(R.id.tag_forum_name, this.f15225e.f62206c);
+            f(this.f15224d, this.f15225e.f62208e);
+            this.f15222b.setOnClickListener(this.f17525a);
+            this.f15224d.setOnClickListener(this.f17525a);
+            this.f15223c.setOnClickListener(this.f17525a);
+            a().setOnClickListener(this.f17525a);
         }
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        d(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public ItemViewHolder cI(View view) {
+    public ItemViewHolder c(View view) {
         CardExtendForumItemHolder cardExtendForumItemHolder = new CardExtendForumItemHolder(view);
-        cardExtendForumItemHolder.fUe = (BarImageView) view.findViewById(R.id.forum_avatar);
-        cardExtendForumItemHolder.fUe.setGifIconSupport(false);
-        cardExtendForumItemHolder.fUf = (TextView) view.findViewById(R.id.m_forum_name_textview);
-        cardExtendForumItemHolder.fUh = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
-        cardExtendForumItemHolder.kuv = 16908308;
+        BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
+        cardExtendForumItemHolder.f15222b = barImageView;
+        barImageView.setGifIconSupport(false);
+        cardExtendForumItemHolder.f15223c = (TextView) view.findViewById(R.id.m_forum_name_textview);
+        cardExtendForumItemHolder.f15224d = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
         return cardExtendForumItemHolder;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            ap.setBackgroundColor(getView(), R.color.CAM_X0201);
-            ap.setViewTextColor(this.fUf, R.color.CAM_X0105);
-            a(this.fUh, this.iwC.isLiked);
+    public void d(int i) {
+        if (this.f15226f != i) {
+            SkinManager.setBackgroundColor(a(), R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f15223c, R.color.CAM_X0105);
+            f(this.f15224d, this.f15225e.f62208e);
         }
-        this.mSkinType = i;
+        this.f15226f = i;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void a(EntelechyUserLikeButton entelechyUserLikeButton, boolean z) {
-        if (entelechyUserLikeButton != null) {
-            entelechyUserLikeButton.setTag(R.id.forum_follow, Boolean.valueOf(z));
-            entelechyUserLikeButton.aM(z);
+    public final void f(EntelechyUserLikeButton entelechyUserLikeButton, boolean z) {
+        if (entelechyUserLikeButton == null) {
+            return;
         }
+        entelechyUserLikeButton.setTag(R.id.forum_follow, Boolean.valueOf(z));
+        entelechyUserLikeButton.h(z);
     }
 }

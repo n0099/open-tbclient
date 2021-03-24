@@ -3,16 +3,17 @@ package com.kwad.sdk.contentalliance.tube.detail;
 import com.kwad.sdk.contentalliance.tube.model.TubeInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TubeDetailParam implements Serializable {
-    private static final long serialVersionUID = -5238032101385027454L;
+    public static final long serialVersionUID = -5238032101385027454L;
     public AdTemplate mAdTemplate;
     public long mEntryScene;
     public TubeInfo mTubeInfo;
 
     public long getTubeId() {
-        if (this.mTubeInfo != null) {
-            return this.mTubeInfo.tubeId;
+        TubeInfo tubeInfo = this.mTubeInfo;
+        if (tubeInfo != null) {
+            return tubeInfo.tubeId;
         }
         return 0L;
     }

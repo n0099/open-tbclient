@@ -14,73 +14,68 @@ import java.lang.reflect.Method;
 import java.util.Enumeration;
 /* loaded from: classes.dex */
 public class PatchReplaceMethodHelper {
-    private PatchReplaceMethodHelper() {
+
+    /* loaded from: classes.dex */
+    public static class a extends ClassLoader {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ DexFile f2236a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ClassLoader classLoader, DexFile dexFile) {
+            super(classLoader);
+            this.f2236a = dexFile;
+        }
+
+        @Override // java.lang.ClassLoader
+        public Class<?> findClass(String str) throws ClassNotFoundException {
+            Class<?> loadClass = this.f2236a.loadClass(str, this);
+            if (loadClass == null && str.startsWith("com.baidu.adp.plugin.PluginPatchAnnotation")) {
+                return Class.forName(str);
+            }
+            if (loadClass != null) {
+                return loadClass;
+            }
+            throw new ClassNotFoundException(str);
+        }
     }
 
     public static boolean loadPatch(Plugin plugin2, Context context, String str) {
-        Class<?> cls;
-        if (plugin2 == null || context == null) {
-            return false;
-        }
-        PluginSetting cA = PluginPackageManager.pv().cA(plugin2.getPackageName());
-        if (cA == null || TextUtils.isEmpty(cA.replaceMethodClasses)) {
-            return false;
-        }
-        try {
-            final DexFile loadDex = DexFile.loadDex(plugin2.getPluginApkFilePath(), str, 0);
-            ClassLoader classLoader = new ClassLoader(context.getClassLoader()) { // from class: com.baidu.adp.plugin.util.PatchReplaceMethodHelper.1
-                @Override // java.lang.ClassLoader
-                protected Class<?> findClass(String str2) throws ClassNotFoundException {
-                    Class<?> loadClass = loadDex.loadClass(str2, this);
-                    if (loadClass == null && str2.startsWith("com.baidu.adp.plugin.PluginPatchAnnotation")) {
-                        return Class.forName(str2);
+        PluginSetting P;
+        PluginPatchAnnotation pluginPatchAnnotation;
+        if (plugin2 != null && context != null && (P = PluginPackageManager.O().P(plugin2.getPackageName())) != null && !TextUtils.isEmpty(P.replaceMethodClasses)) {
+            try {
+                DexFile loadDex = DexFile.loadDex(plugin2.getPluginApkFilePath(), str, 0);
+                a aVar = new a(context.getClassLoader(), loadDex);
+                Enumeration<String> entries = loadDex.entries();
+                while (true) {
+                    Class<?> cls = null;
+                    if (!entries.hasMoreElements()) {
+                        return true;
                     }
-                    if (loadClass == null) {
-                        throw new ClassNotFoundException(str2);
-                    }
-                    return loadClass;
-                }
-            };
-            Enumeration<String> entries = loadDex.entries();
-            while (entries.hasMoreElements()) {
-                Method[] declaredMethods = loadDex.loadClass(entries.nextElement(), classLoader).getDeclaredMethods();
-                int i = 0;
-                Class<?> cls2 = null;
-                while (i < declaredMethods.length) {
-                    Annotation[] annotations = declaredMethods[i].getAnnotations();
-                    if (annotations != null) {
-                        if (annotations.length == 0) {
-                            cls = cls2;
-                        } else {
-                            PluginPatchAnnotation pluginPatchAnnotation = (PluginPatchAnnotation) declaredMethods[i].getAnnotation(PluginPatchAnnotation.class);
-                            if (pluginPatchAnnotation == null) {
-                                cls = cls2;
-                            } else if (cls2 == null) {
-                                cls = Class.forName(pluginPatchAnnotation.clazz(), true, context.getClassLoader());
-                            }
+                    Method[] declaredMethods = loadDex.loadClass(entries.nextElement(), aVar).getDeclaredMethods();
+                    for (int i = 0; i < declaredMethods.length; i++) {
+                        Annotation[] annotations = declaredMethods[i].getAnnotations();
+                        if (annotations != null && annotations.length != 0 && (pluginPatchAnnotation = (PluginPatchAnnotation) declaredMethods[i].getAnnotation(PluginPatchAnnotation.class)) != null && cls == null) {
+                            cls = Class.forName(pluginPatchAnnotation.clazz(), true, context.getClassLoader());
                         }
-                        i++;
-                        cls2 = cls;
                     }
-                    cls = cls2;
-                    i++;
-                    cls2 = cls;
+                    setFieldsFlag(cls);
                 }
-                setFieldsFlag(cls2);
+            } catch (IOException e2) {
+                d.b.b.h.h.a b2 = d.b.b.h.h.a.b();
+                b2.r("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
+                e2.printStackTrace();
+            } catch (ClassNotFoundException e3) {
+                d.b.b.h.h.a b3 = d.b.b.h.h.a.b();
+                b3.r("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e3.getMessage());
+                e3.printStackTrace();
             }
-            return true;
-        } catch (IOException e) {
-            com.baidu.adp.plugin.b.a.pe().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e.getMessage());
-            e.printStackTrace();
-            return false;
-        } catch (ClassNotFoundException e2) {
-            com.baidu.adp.plugin.b.a.pe().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
-            e2.printStackTrace();
-            return false;
         }
+        return false;
     }
 
-    private static void setFieldsFlag(Class<?> cls) {
+    public static void setFieldsFlag(Class<?> cls) {
         Field[] declaredFields;
         if (cls != null && (declaredFields = cls.getDeclaredFields()) != null && declaredFields.length == 0) {
         }

@@ -2,12 +2,12 @@ package com.bumptech.glide.load.engine.cache;
 
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class DiskLruCacheFactory implements DiskCache.Factory {
-    private final CacheDirectoryGetter cacheDirectoryGetter;
-    private final long diskCacheSize;
+    public final CacheDirectoryGetter cacheDirectoryGetter;
+    public final long diskCacheSize;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface CacheDirectoryGetter {
         File getCacheDirectory();
     }
@@ -19,6 +19,18 @@ public class DiskLruCacheFactory implements DiskCache.Factory {
                 return new File(str);
             }
         }, j);
+    }
+
+    @Override // com.bumptech.glide.load.engine.cache.DiskCache.Factory
+    public DiskCache build() {
+        File cacheDirectory = this.cacheDirectoryGetter.getCacheDirectory();
+        if (cacheDirectory == null) {
+            return null;
+        }
+        if (cacheDirectory.mkdirs() || (cacheDirectory.exists() && cacheDirectory.isDirectory())) {
+            return DiskLruCacheWrapper.create(cacheDirectory, this.diskCacheSize);
+        }
+        return null;
     }
 
     public DiskLruCacheFactory(final String str, final String str2, long j) {
@@ -33,17 +45,5 @@ public class DiskLruCacheFactory implements DiskCache.Factory {
     public DiskLruCacheFactory(CacheDirectoryGetter cacheDirectoryGetter, long j) {
         this.diskCacheSize = j;
         this.cacheDirectoryGetter = cacheDirectoryGetter;
-    }
-
-    @Override // com.bumptech.glide.load.engine.cache.DiskCache.Factory
-    public DiskCache build() {
-        File cacheDirectory = this.cacheDirectoryGetter.getCacheDirectory();
-        if (cacheDirectory == null) {
-            return null;
-        }
-        if (cacheDirectory.mkdirs() || (cacheDirectory.exists() && cacheDirectory.isDirectory())) {
-            return DiskLruCacheWrapper.create(cacheDirectory, this.diskCacheSize);
-        }
-        return null;
     }
 }

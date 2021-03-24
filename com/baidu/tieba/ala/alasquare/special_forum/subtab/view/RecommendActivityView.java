@@ -3,111 +3,141 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.base.j;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
-/* loaded from: classes9.dex */
-public class RecommendActivityView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.c> {
-    public AlaBannerAutoScrollView<com.baidu.tieba.ala.alasquare.special_forum.data.b> gKh;
-    private com.baidu.tieba.ala.alasquare.widget.banner.a gKi;
-    private TbPageContext mTbPageContext;
+import d.b.b.a.j;
+import d.b.i0.t.d.f.c.c;
+/* loaded from: classes4.dex */
+public class RecommendActivityView extends d.b.i0.x.b<c> {
+    public TbPageContext m;
+    public AlaBannerAutoScrollView<d.b.i0.t.d.f.c.b> n;
+    public d.b.i0.t.d.h.a.a o;
+
+    /* loaded from: classes4.dex */
+    public static class ViewHolder extends TypeAdapter.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public RecommendActivityView f14926a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public View f14927b;
+
+        public ViewHolder(RecommendActivityView recommendActivityView) {
+            super(recommendActivityView.m());
+            this.f14926a = recommendActivityView;
+            this.f14927b = recommendActivityView.m();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements d.b.i0.t.d.h.a.b {
+        public a() {
+        }
+
+        @Override // d.b.i0.t.d.h.a.b
+        public void a(Object obj) {
+            if (obj == null || !(obj instanceof d.b.i0.t.d.f.c.b)) {
+                return;
+            }
+            d.b.i0.t.d.f.c.b bVar = (d.b.i0.t.d.f.c.b) obj;
+            if (!StringUtils.isNull(bVar.f60531e)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(RecommendActivityView.this.m.getPageActivity()), new String[]{bVar.f60531e}, true);
+            }
+            TiebaStatic.log("c12902");
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements d.b.i0.t.d.h.a.a {
+
+        /* loaded from: classes4.dex */
+        public class a extends AlaBannerViewHolder<d.b.i0.t.d.f.c.b> {
+
+            /* renamed from: a  reason: collision with root package name */
+            public TbImageView f14930a;
+
+            public a(b bVar, View view) {
+                super(view);
+            }
+
+            @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
+            public void b(View view) {
+                TbImageView tbImageView = (TbImageView) view.findViewById(R.id.cover);
+                this.f14930a = tbImageView;
+                tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            }
+
+            @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
+            public void c(int i) {
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
+            /* renamed from: d */
+            public void a(int i, d.b.i0.t.d.f.c.b bVar) {
+                if (bVar == null || this.f14930a == null || StringUtils.isNull(bVar.f60532f)) {
+                    return;
+                }
+                this.f14930a.W(bVar.f60532f, 10, false);
+            }
+        }
+
+        public b() {
+        }
+
+        @Override // d.b.i0.t.d.h.a.a
+        public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
+            return new a(this, LayoutInflater.from(RecommendActivityView.this.m.getPageActivity()).inflate(R.layout.special_bar_recommend_activity, viewGroup, false));
+        }
+    }
 
     public RecommendActivityView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gKi = new com.baidu.tieba.ala.alasquare.widget.banner.a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView.2
-            @Override // com.baidu.tieba.ala.alasquare.widget.banner.a
-            public AlaBannerViewHolder t(ViewGroup viewGroup2, int i) {
-                return new AlaBannerViewHolder<com.baidu.tieba.ala.alasquare.special_forum.data.b>(LayoutInflater.from(RecommendActivityView.this.mTbPageContext.getPageActivity()).inflate(R.layout.special_bar_recommend_activity, viewGroup2, false)) { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView.2.1
-                    public TbImageView gKk;
-
-                    @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
-                    protected void am(View view) {
-                        this.gKk = (TbImageView) view.findViewById(R.id.cover);
-                        this.gKk.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    /* JADX INFO: Access modifiers changed from: protected */
-                    @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
-                    /* renamed from: a */
-                    public void k(int i2, com.baidu.tieba.ala.alasquare.special_forum.data.b bVar) {
-                        if (bVar != null && this.gKk != null && !StringUtils.isNull(bVar.pic)) {
-                            this.gKk.startLoad(bVar.pic, 10, false);
-                        }
-                    }
-
-                    /* JADX INFO: Access modifiers changed from: protected */
-                    @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
-                    public void onChangeSkinType(int i2) {
-                    }
-                };
-            }
-        };
-        this.mTbPageContext = tbPageContext;
-        this.gKh = (AlaBannerAutoScrollView) getView().findViewById(R.id.banner_container);
-        this.gKh.setViewHolderAdapter(this.gKi);
-        this.gKh.setOnBannerClickListener(new com.baidu.tieba.ala.alasquare.widget.banner.b() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView.1
-            @Override // com.baidu.tieba.ala.alasquare.widget.banner.b
-            public void aI(Object obj) {
-                if (obj != null && (obj instanceof com.baidu.tieba.ala.alasquare.special_forum.data.b)) {
-                    com.baidu.tieba.ala.alasquare.special_forum.data.b bVar = (com.baidu.tieba.ala.alasquare.special_forum.data.b) obj;
-                    if (!StringUtils.isNull(bVar.url)) {
-                        bf.bsY().a((TbPageContext) j.J(RecommendActivityView.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
-                    }
-                    TiebaStatic.log("c12902");
-                }
-            }
-        });
-        onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.o = new b();
+        this.m = tbPageContext;
+        AlaBannerAutoScrollView<d.b.i0.t.d.f.c.b> alaBannerAutoScrollView = (AlaBannerAutoScrollView) m().findViewById(R.id.banner_container);
+        this.n = alaBannerAutoScrollView;
+        alaBannerAutoScrollView.setViewHolderAdapter(this.o);
+        this.n.setOnBannerClickListener(new a());
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.card.b
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gKh.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tieba.card.b
-    public int getLayout() {
+    @Override // d.b.i0.x.b
+    public int h() {
         return R.layout.special_bar_recommend_banner;
     }
 
-    @Override // com.baidu.tieba.card.b
-    public View getView() {
-        return super.getView();
+    @Override // d.b.i0.x.b
+    public View m() {
+        return super.m();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.b
-    /* renamed from: b */
-    public void a(com.baidu.tieba.ala.alasquare.special_forum.data.c cVar) {
-        if (cVar != null && !y.isEmpty(cVar.gIE)) {
-            this.gKh.a(cVar.gIE, this.gKi);
-            TiebaStatic.log("c12901");
-        }
+    @Override // d.b.i0.x.b
+    public void o(TbPageContext<?> tbPageContext, int i) {
+        this.n.q(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
     }
 
-    /* loaded from: classes9.dex */
-    public static class ViewHolder extends TypeAdapter.ViewHolder {
-        public View eoR;
-        public RecommendActivityView gKm;
-
-        public ViewHolder(RecommendActivityView recommendActivityView) {
-            super(recommendActivityView.getView());
-            this.gKm = recommendActivityView;
-            this.eoR = recommendActivityView.getView();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.i0.x.b
+    /* renamed from: v */
+    public void n(c cVar) {
+        if (cVar == null || ListUtils.isEmpty(cVar.f60534e)) {
+            return;
         }
+        this.n.n(cVar.f60534e, this.o);
+        TiebaStatic.log("c12901");
     }
 }

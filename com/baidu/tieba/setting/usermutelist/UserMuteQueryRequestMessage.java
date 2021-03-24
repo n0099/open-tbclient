@@ -1,18 +1,32 @@
 package com.baidu.tieba.setting.usermutelist;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.UserMuteQuery.DataReq;
 import tbclient.UserMuteQuery.UserMuteQueryReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class UserMuteQueryRequestMessage extends NetMessage {
-    private int pn;
-    private int rn;
-    private long userId;
+    public int pn;
+    public int rn;
+    public long userId;
 
-    public void setUserId(long j) {
-        this.userId = j;
+    public UserMuteQueryRequestMessage() {
+        super(CmdConfigHttp.CMD_USER_MUTE_QUERY, 303028);
+    }
+
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.user_id = Long.valueOf(this.userId);
+        builder.pn = Integer.valueOf(this.pn);
+        builder.rn = Integer.valueOf(this.rn);
+        if (z) {
+            w.a(builder, true);
+        }
+        UserMuteQueryReqIdl.Builder builder2 = new UserMuteQueryReqIdl.Builder();
+        builder2.data = builder.build(false);
+        return builder2.build(false);
     }
 
     public void setPn(int i) {
@@ -23,21 +37,7 @@ public class UserMuteQueryRequestMessage extends NetMessage {
         this.rn = i;
     }
 
-    public UserMuteQueryRequestMessage() {
-        super(1003026, CmdConfigSocket.CMD_USER_MUTE_QUERY);
-    }
-
-    @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.user_id = Long.valueOf(this.userId);
-        builder.pn = Integer.valueOf(this.pn);
-        builder.rn = Integer.valueOf(this.rn);
-        if (z) {
-            v.b(builder, true);
-        }
-        UserMuteQueryReqIdl.Builder builder2 = new UserMuteQueryReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+    public void setUserId(long j) {
+        this.userId = j;
     }
 }

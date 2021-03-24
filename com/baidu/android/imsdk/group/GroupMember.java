@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.group;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.NoProGuard;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GroupMember implements Parcelable, NoProGuard {
     public static final int ADDSTATUSFAIL = 1;
     public static final int ADDSTATUSORIG = 2;
@@ -26,16 +26,16 @@ public class GroupMember implements Parcelable, NoProGuard {
     public static final int ROLECOMMON = 0;
     public static final int ROLEMANAGER = 2;
     public static final int ROLEMASTER = 1;
-    private int addStatus;
-    private String groupid;
-    private long jointime;
-    private long mBduid;
-    private String mName;
-    private String mNickName;
-    private String mPortrait;
-    private long mUk;
-    private int role;
-    private int valid;
+    public int addStatus;
+    public String groupid;
+    public long jointime;
+    public long mBduid;
+    public String mName;
+    public String mNickName;
+    public String mPortrait;
+    public long mUk;
+    public int role;
+    public int valid;
 
     public GroupMember(long j, String str, int i) {
         this.mUk = -1L;
@@ -49,6 +49,102 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.mUk = j;
         this.mName = str;
         this.role = i;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public int getAddStatus() {
+        return this.addStatus;
+    }
+
+    public long getBduid() {
+        return this.mBduid;
+    }
+
+    public String getGroupid() {
+        return this.groupid;
+    }
+
+    public long getJointime() {
+        return this.jointime;
+    }
+
+    public String getName() {
+        return this.mName;
+    }
+
+    public String getNickName() {
+        return this.mNickName;
+    }
+
+    public String getPortrait() {
+        return this.mPortrait;
+    }
+
+    public int getRole() {
+        return this.role;
+    }
+
+    public long getUk() {
+        return this.mUk;
+    }
+
+    public int getValid() {
+        return this.valid;
+    }
+
+    public void setAddStatus(int i) {
+        this.addStatus = i;
+    }
+
+    public void setBduid(long j) {
+        this.mBduid = j;
+    }
+
+    public void setGroupid(String str) {
+        this.groupid = str;
+    }
+
+    public void setJointime(long j) {
+        this.jointime = j;
+    }
+
+    public void setName(String str) {
+        this.mName = str;
+    }
+
+    public void setNickName(String str) {
+        this.mNickName = str;
+    }
+
+    public void setPortrait(String str) {
+        this.mPortrait = str;
+    }
+
+    public void setRole(int i) {
+        this.role = i;
+    }
+
+    public void setValid(int i) {
+        this.valid = i;
+    }
+
+    public String toString() {
+        return "GroupMember [groupid=" + this.groupid + ", mUk=" + this.mUk + ", mName=" + this.mName + ", mBduid=" + this.mBduid + ", role=" + this.role + ", jointime=" + this.jointime + ", addStatus=" + this.addStatus + ", valid=" + this.valid + ", mPortrait=" + getPortrait() + "]";
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeLong(this.mUk);
+        parcel.writeString(this.mName);
+        parcel.writeInt(this.role);
+        parcel.writeLong(this.jointime);
+        parcel.writeLong(this.mBduid);
+        parcel.writeString(this.groupid);
+        parcel.writeString(getPortrait());
     }
 
     public GroupMember(String str, long j, String str2, long j2, int i, long j3) {
@@ -68,11 +164,7 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.jointime = j3;
     }
 
-    public String toString() {
-        return "GroupMember [groupid=" + this.groupid + ", mUk=" + this.mUk + ", mName=" + this.mName + ", mBduid=" + this.mBduid + ", role=" + this.role + ", jointime=" + this.jointime + ", addStatus=" + this.addStatus + ", valid=" + this.valid + ", mPortrait=" + getPortrait() + "]";
-    }
-
-    GroupMember(Parcel parcel) {
+    public GroupMember(Parcel parcel) {
         this.mUk = -1L;
         this.mName = "";
         this.role = 0;
@@ -88,97 +180,5 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.mBduid = parcel.readLong();
         this.groupid = parcel.readString();
         setPortrait(parcel.readString());
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(this.mUk);
-        parcel.writeString(this.mName);
-        parcel.writeInt(this.role);
-        parcel.writeLong(this.jointime);
-        parcel.writeLong(this.mBduid);
-        parcel.writeString(this.groupid);
-        parcel.writeString(getPortrait());
-    }
-
-    public long getUk() {
-        return this.mUk;
-    }
-
-    public String getName() {
-        return this.mName;
-    }
-
-    public void setName(String str) {
-        this.mName = str;
-    }
-
-    public String getNickName() {
-        return this.mNickName;
-    }
-
-    public void setNickName(String str) {
-        this.mNickName = str;
-    }
-
-    public int getRole() {
-        return this.role;
-    }
-
-    public void setRole(int i) {
-        this.role = i;
-    }
-
-    public long getBduid() {
-        return this.mBduid;
-    }
-
-    public void setBduid(long j) {
-        this.mBduid = j;
-    }
-
-    public long getJointime() {
-        return this.jointime;
-    }
-
-    public void setJointime(long j) {
-        this.jointime = j;
-    }
-
-    public String getGroupid() {
-        return this.groupid;
-    }
-
-    public void setGroupid(String str) {
-        this.groupid = str;
-    }
-
-    public void setAddStatus(int i) {
-        this.addStatus = i;
-    }
-
-    public int getAddStatus() {
-        return this.addStatus;
-    }
-
-    public int getValid() {
-        return this.valid;
-    }
-
-    public void setValid(int i) {
-        this.valid = i;
-    }
-
-    public String getPortrait() {
-        return this.mPortrait;
-    }
-
-    public void setPortrait(String str) {
-        this.mPortrait = str;
     }
 }

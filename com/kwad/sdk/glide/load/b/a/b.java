@@ -11,15 +11,16 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import org.apache.http.HttpHost;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b implements n<Uri, InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Set<String> f6657a = Collections.unmodifiableSet(new HashSet(Arrays.asList(HttpHost.DEFAULT_SCHEME_NAME, "https")));
-    private final n<g, InputStream> b;
+    public static final Set<String> f35279a = Collections.unmodifiableSet(new HashSet(Arrays.asList("http", "https")));
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final n<g, InputStream> f35280b;
+
+    /* loaded from: classes6.dex */
     public static class a implements o<Uri, InputStream> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
@@ -29,18 +30,18 @@ public class b implements n<Uri, InputStream> {
     }
 
     public b(n<g, InputStream> nVar) {
-        this.b = nVar;
+        this.f35280b = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<InputStream> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return this.b.a(new g(uri.toString()), i, i2, eVar);
+        return this.f35280b.a(new g(uri.toString()), i, i2, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public boolean a(@NonNull Uri uri) {
-        return f6657a.contains(uri.getScheme());
+        return f35279a.contains(uri.getScheme());
     }
 }

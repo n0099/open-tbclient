@@ -2,26 +2,10 @@ package com.baidubce.services.vod.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VodError {
-    private String code = null;
-    private String message = null;
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String str) {
-        this.code = str;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    public void setMessage(String str) {
-        this.message = str;
-    }
+    public String code = null;
+    public String message = null;
 
     public static VodError formatFromJson(JSONObject jSONObject) throws JSONException {
         VodError vodError = new VodError();
@@ -30,12 +14,23 @@ public class VodError {
         return vodError;
     }
 
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
+    public void setCode(String str) {
+        this.code = str;
+    }
+
+    public void setMessage(String str) {
+        this.message = str;
+    }
+
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class VodError {\n");
-        sb.append("    code: ").append(this.code).append("\n");
-        sb.append("    message: ").append(this.message).append("\n");
-        sb.append("}\n");
-        return sb.toString();
+        return "class VodError {\n    code: " + this.code + "\n    message: " + this.message + "\n}\n";
     }
 }

@@ -1,50 +1,39 @@
 package com.baidu.sofire.i;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import androidx.core.app.NotificationCompat;
-import com.baidu.sofire.MyService;
-import com.baidu.sofire.ac.U;
-/* loaded from: classes4.dex */
-public final class b {
-    public static void a(Context context, int i, boolean z) {
-        long j = 600000;
-        try {
-            if (!"tvshield".equals("sofire")) {
-                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-                Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
-                intent.setClass(context, MyService.class);
-                intent.setPackage(context.getPackageName());
-                intent.addCategory("com.baidu.category.SOFIRE");
-                intent.addCategory("android.intent.category.DEFAULT");
-                intent.putExtra("from_plugin_package", context.getPackageName());
-                intent.putExtra("target_class", U.class.getCanonicalName());
-                intent.putExtra("target_method", "handleWork");
-                intent.putExtra("from", 2);
-                PendingIntent service = PendingIntent.getService(context, 1001, intent, 134217728);
-                switch (i) {
-                    case 0:
-                        j = 30000;
-                        break;
-                    case 1:
-                        j = 180000;
-                        break;
-                    case 2:
-                        j = 300000;
-                        break;
-                }
-                long currentTimeMillis = j + System.currentTimeMillis();
-                new StringBuilder("n=").append(currentTimeMillis).append(", c=").append(System.currentTimeMillis());
-                com.baidu.sofire.b.a();
-                alarmManager.cancel(service);
-                if (!z) {
-                    alarmManager.set(1, currentTimeMillis, service);
-                }
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.sofire.i.c;
+/* loaded from: classes3.dex */
+public final class b implements com.baidu.sofire.h.b {
+
+    /* renamed from: a  reason: collision with root package name */
+    public a f11814a;
+
+    @Override // com.baidu.sofire.h.b
+    public final void a(Context context, com.baidu.sofire.h.c cVar) {
+        final a aVar = new a(context, cVar);
+        this.f11814a = aVar;
+        aVar.f11810c = new ServiceConnection() { // from class: com.baidu.sofire.i.a.1
+            @Override // android.content.ServiceConnection
+            public final synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                aVar.f11809b = c.a.a(iBinder);
             }
-        } catch (Throwable th) {
-            e.a();
-        }
+
+            @Override // android.content.ServiceConnection
+            public final void onServiceDisconnected(ComponentName componentName) {
+                aVar.f11809b = null;
+            }
+        };
+        Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+        intent.setPackage("com.huawei.hwid");
+        aVar.f11808a.bindService(intent, aVar.f11810c, 1);
+    }
+
+    @Override // com.baidu.sofire.h.b
+    public final String b() {
+        return this.f11814a.a();
     }
 }

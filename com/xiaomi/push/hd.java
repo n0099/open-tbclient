@@ -1,166 +1,96 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.net.TrafficStats;
-import android.os.Process;
-import android.os.SystemClock;
 import android.text.TextUtils;
-import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes5.dex */
-public class hd implements fv {
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class hd {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8408a;
+    public static volatile hd f40626a;
 
     /* renamed from: a  reason: collision with other field name */
-    fs f424a;
+    public final Context f466a;
 
     /* renamed from: a  reason: collision with other field name */
-    XMPushService f425a;
+    public Map<String, he> f467a = new HashMap();
 
-    /* renamed from: a  reason: collision with other field name */
-    private Exception f426a;
-    private long e;
-    private long f;
-
-    /* renamed from: a  reason: collision with other field name */
-    private long f423a = 0;
-    private long b = 0;
-    private long c = 0;
-    private long d = 0;
-
-    /* renamed from: a  reason: collision with other field name */
-    private String f427a = "";
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public hd(XMPushService xMPushService) {
-        this.e = 0L;
-        this.f = 0L;
-        this.f425a = xMPushService;
-        b();
-        int myUid = Process.myUid();
-        try {
-            this.f = TrafficStats.getUidRxBytes(myUid);
-            this.e = TrafficStats.getUidTxBytes(myUid);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("Failed to obtain traffic data during initialization: " + e);
-            this.f = -1L;
-            this.e = -1L;
-        }
+    public hd(Context context) {
+        this.f466a = context;
     }
 
-    private void b() {
-        this.b = 0L;
-        this.d = 0L;
-        this.f423a = 0L;
-        this.c = 0L;
-        long elapsedRealtime = SystemClock.elapsedRealtime();
-        if (az.b(this.f425a)) {
-            this.f423a = elapsedRealtime;
+    public static hd a(Context context) {
+        if (context == null) {
+            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
+            return null;
         }
-        if (this.f425a.m530c()) {
-            this.c = elapsedRealtime;
+        if (f40626a == null) {
+            synchronized (hd.class) {
+                if (f40626a == null) {
+                    f40626a = new hd(context);
+                }
+            }
         }
+        return f40626a;
     }
 
-    private synchronized void c() {
-        com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f427a + " netDuration = " + this.b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
-        fi fiVar = new fi();
-        fiVar.f323a = (byte) 0;
-        fiVar.a(fh.CHANNEL_ONLINE_RATE.a());
-        fiVar.a(this.f427a);
-        fiVar.d((int) (System.currentTimeMillis() / 1000));
-        fiVar.b((int) (this.b / 1000));
-        fiVar.c((int) (this.d / 1000));
-        he.m338a().a(fiVar);
-        b();
+    private boolean a(String str, String str2, String str3, String str4, long j, String str5) {
+        hj hjVar = new hj();
+        hjVar.d(str3);
+        hjVar.c(str4);
+        hjVar.a(j);
+        hjVar.b(str5);
+        hjVar.a(true);
+        hjVar.a("push_sdk_channel");
+        hjVar.e(str2);
+        return a(hjVar, str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Exception a() {
-        return this.f426a;
+    public he a() {
+        he heVar = this.f467a.get("UPLOADER_PUSH_CHANNEL");
+        if (heVar != null) {
+            return heVar;
+        }
+        he heVar2 = this.f467a.get("UPLOADER_HTTP");
+        if (heVar2 != null) {
+            return heVar2;
+        }
+        return null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m337a() {
-        if (this.f425a != null) {
-            String m144a = az.m144a((Context) this.f425a);
-            boolean b = az.b(this.f425a);
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (this.f423a > 0) {
-                this.b += elapsedRealtime - this.f423a;
-                this.f423a = 0L;
-            }
-            if (this.c != 0) {
-                this.d += elapsedRealtime - this.c;
-                this.c = 0L;
-            }
-            if (b) {
-                if ((!TextUtils.equals(this.f427a, m144a) && this.b > 30000) || this.b > 5400000) {
-                    c();
-                }
-                this.f427a = m144a;
-                if (this.f423a == 0) {
-                    this.f423a = elapsedRealtime;
-                }
-                if (this.f425a.m530c()) {
-                    this.c = elapsedRealtime;
-                }
-            }
+    public Map<String, he> m352a() {
+        return this.f467a;
+    }
+
+    public void a(he heVar, String str) {
+        if (heVar == null) {
+            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: please do not add null mUploader to TinyDataManager.");
+        } else if (TextUtils.isEmpty(str)) {
+            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
+        } else {
+            m352a().put(str, heVar);
         }
     }
 
-    @Override // com.xiaomi.push.fv
-    public void a(fs fsVar) {
-        m337a();
-        this.c = SystemClock.elapsedRealtime();
-        hg.a(0, fh.CONN_SUCCESS.a(), fsVar.m298a(), fsVar.a());
-    }
-
-    @Override // com.xiaomi.push.fv
-    public void a(fs fsVar, int i, Exception exc) {
-        long j;
-        long j2;
-        if (this.f8408a == 0 && this.f426a == null) {
-            this.f8408a = i;
-            this.f426a = exc;
-            hg.b(fsVar.m298a(), exc);
-        }
-        if (i == 22 && this.c != 0) {
-            long m296a = fsVar.m296a() - this.c;
-            if (m296a < 0) {
-                m296a = 0;
+    public boolean a(hj hjVar, String str) {
+        if (TextUtils.isEmpty(str)) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+            return false;
+        } else if (com.xiaomi.push.service.bm.a(hjVar, false)) {
+            return false;
+        } else {
+            if (TextUtils.isEmpty(hjVar.d())) {
+                hjVar.f(com.xiaomi.push.service.bm.a());
             }
-            this.d = m296a + (fy.b() / 2) + this.d;
-            this.c = 0L;
+            hjVar.g(str);
+            com.xiaomi.push.service.bn.a(this.f466a, hjVar);
+            return true;
         }
-        m337a();
-        int myUid = Process.myUid();
-        try {
-            j2 = TrafficStats.getUidRxBytes(myUid);
-            j = TrafficStats.getUidTxBytes(myUid);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("Failed to obtain traffic data: " + e);
-            j = -1;
-            j2 = -1;
-        }
-        com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (j2 - this.f) + ", tx=" + (j - this.e));
-        this.f = j2;
-        this.e = j;
     }
 
-    @Override // com.xiaomi.push.fv
-    public void a(fs fsVar, Exception exc) {
-        hg.a(0, fh.CHANNEL_CON_FAIL.a(), 1, fsVar.m298a(), az.b(this.f425a) ? 1 : 0);
-        m337a();
-    }
-
-    @Override // com.xiaomi.push.fv
-    public void b(fs fsVar) {
-        this.f8408a = 0;
-        this.f426a = null;
-        this.f424a = fsVar;
-        this.f427a = az.m144a((Context) this.f425a);
-        hg.a(0, fh.CONN_SUCCESS.a());
+    public boolean a(String str, String str2, long j, String str3) {
+        return a(this.f466a.getPackageName(), this.f466a.getPackageName(), str, str2, j, str3);
     }
 }

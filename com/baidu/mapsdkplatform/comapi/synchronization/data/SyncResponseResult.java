@@ -2,63 +2,76 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SyncResponseResult implements Parcelable {
     public static final Parcelable.Creator<SyncResponseResult> CREATOR = new j();
 
     /* renamed from: a  reason: collision with root package name */
-    private RouteLineInfo f2255a;
-    private TrafficInfo b;
-    private DriverPosition c;
-    private float d;
-    private long e;
-    private float f;
-    private long g;
-    private int h;
-    private String i;
-    private String j;
+    public RouteLineInfo f7763a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TrafficInfo f7764b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public DriverPosition f7765c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f7766d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f7767e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f7768f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f7769g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f7770h;
+    public String i;
+    public String j;
 
     public SyncResponseResult() {
-        this.f2255a = new RouteLineInfo();
-        this.b = new TrafficInfo();
-        this.c = new DriverPosition();
-        this.d = 0.0f;
-        this.e = 0L;
-        this.f = 0.0f;
-        this.g = 0L;
-        this.h = 0;
+        this.f7763a = new RouteLineInfo();
+        this.f7764b = new TrafficInfo();
+        this.f7765c = new DriverPosition();
+        this.f7766d = 0.0f;
+        this.f7767e = 0L;
+        this.f7768f = 0.0f;
+        this.f7769g = 0L;
+        this.f7770h = 0;
         this.i = null;
         this.j = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public SyncResponseResult(Parcel parcel) {
-        this.f2255a = (RouteLineInfo) parcel.readParcelable(RouteLineInfo.class.getClassLoader());
-        this.b = (TrafficInfo) parcel.readParcelable(TrafficInfo.class.getClassLoader());
-        this.c = (DriverPosition) parcel.readParcelable(DriverPosition.class.getClassLoader());
-        this.d = (float) parcel.readLong();
-        this.e = parcel.readLong();
-        this.f = (float) parcel.readLong();
-        this.g = parcel.readLong();
-        this.h = parcel.readInt();
+        this.f7763a = (RouteLineInfo) parcel.readParcelable(RouteLineInfo.class.getClassLoader());
+        this.f7764b = (TrafficInfo) parcel.readParcelable(TrafficInfo.class.getClassLoader());
+        this.f7765c = (DriverPosition) parcel.readParcelable(DriverPosition.class.getClassLoader());
+        this.f7766d = (float) parcel.readLong();
+        this.f7767e = parcel.readLong();
+        this.f7768f = (float) parcel.readLong();
+        this.f7769g = parcel.readLong();
+        this.f7770h = parcel.readInt();
         this.i = parcel.readString();
         this.j = parcel.readString();
     }
 
     public RouteLineInfo a() {
-        return this.f2255a;
+        return this.f7763a;
     }
 
-    public void a(float f) {
-        this.d = f;
+    public void a(float f2) {
+        this.f7766d = f2;
     }
 
     public void a(int i) {
-        this.h = i;
+        this.f7770h = i;
     }
 
     public void a(long j) {
-        this.e = j;
+        this.f7767e = j;
     }
 
     public void a(String str) {
@@ -66,15 +79,15 @@ public final class SyncResponseResult implements Parcelable {
     }
 
     public TrafficInfo b() {
-        return this.b;
+        return this.f7764b;
     }
 
-    public void b(float f) {
-        this.f = f;
+    public void b(float f2) {
+        this.f7768f = f2;
     }
 
     public void b(long j) {
-        this.g = j;
+        this.f7769g = j;
     }
 
     public void b(String str) {
@@ -82,11 +95,11 @@ public final class SyncResponseResult implements Parcelable {
     }
 
     public DriverPosition c() {
-        return this.c;
+        return this.f7765c;
     }
 
     public float d() {
-        return this.f;
+        return this.f7768f;
     }
 
     @Override // android.os.Parcelable
@@ -95,19 +108,19 @@ public final class SyncResponseResult implements Parcelable {
     }
 
     public long e() {
-        return this.g;
+        return this.f7769g;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f2255a, 1);
-        parcel.writeParcelable(this.b, 1);
-        parcel.writeParcelable(this.c, 1);
-        parcel.writeFloat(this.d);
-        parcel.writeLong(this.e);
-        parcel.writeFloat(this.f);
-        parcel.writeLong(this.g);
-        parcel.writeInt(this.h);
+        parcel.writeParcelable(this.f7763a, 1);
+        parcel.writeParcelable(this.f7764b, 1);
+        parcel.writeParcelable(this.f7765c, 1);
+        parcel.writeFloat(this.f7766d);
+        parcel.writeLong(this.f7767e);
+        parcel.writeFloat(this.f7768f);
+        parcel.writeLong(this.f7769g);
+        parcel.writeInt(this.f7770h);
         parcel.writeString(this.i);
         parcel.writeString(this.j);
     }

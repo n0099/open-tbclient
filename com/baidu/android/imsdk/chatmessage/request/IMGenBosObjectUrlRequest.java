@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.webkit.CookieManager;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +15,6 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -27,16 +25,16 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
-    private String mContentType;
-    private Context mContext;
-    private String mFilePath;
-    private String mFormat;
-    private String mKey;
-    private int mOriHeight;
-    private int mOriWidth;
-    private int mReqSource;
+    public String mContentType;
+    public Context mContext;
+    public String mFilePath;
+    public String mFormat;
+    public String mKey;
+    public int mOriHeight;
+    public int mOriWidth;
+    public int mReqSource;
 
     public IMGenBosObjectUrlRequest(Context context, String str, String str2, String str3, int i, int i2, int i3, String str4) {
         this.mContext = context;
@@ -49,115 +47,41 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         this.mOriHeight = i3;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        String str;
-        String str2;
-        int i2;
-        String str3;
-        HashMap hashMap;
-        HashMap hashMap2;
-        String string;
-        int i3;
-        String string2;
-        String str4 = new String(bArr);
-        LogUtils.d("IMGenBosObjectUrlRequest", str4);
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public int getConnectTimeout() {
+        return 15000;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public Map<String, String> getHeaders() {
+        HashMap hashMap = new HashMap();
         try {
-            JSONObject jSONObject = new JSONObject(str4);
-            if (jSONObject.has("response_params")) {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                i3 = jSONObject2.getInt("error_code");
-                String string3 = jSONObject2.getString("authorization");
-                try {
-                    string2 = jSONObject2.getString("date");
-                } catch (JSONException e) {
-                    e = e;
-                    str = null;
-                    str2 = string3;
-                }
-                try {
-                    hashMap2 = new HashMap();
-                    hashMap2.put(AsyncChatTask.PUT_URL, jSONObject2.getString(AsyncChatTask.PUT_URL));
-                    hashMap2.put(AsyncChatTask.GET_URL, jSONObject2.getString(AsyncChatTask.GET_URL));
-                    if (jSONObject2.has("thumb_url")) {
-                        hashMap2.put("thumb_url", jSONObject2.getString("thumb_url"));
-                    }
-                    if (jSONObject2.has("thumb_width")) {
-                        hashMap2.put("thumb_width", jSONObject2.getString("thumb_width"));
-                    }
-                    if (jSONObject2.has("thumb_height")) {
-                        hashMap2.put("thumb_height", jSONObject2.getString("thumb_height"));
-                    }
-                    str = string2;
-                    str2 = string3;
-                    string = Constants.ERROR_MSG_SUCCESS;
-                } catch (JSONException e2) {
-                    e = e2;
-                    str = string2;
-                    str2 = string3;
-                    LogUtils.e("IMGenBosObjectUrlRequest", e.getMessage(), e);
-                    i2 = 1010;
-                    str3 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    hashMap = null;
-                    ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i2, str3, str2, str, hashMap);
-                }
-            } else {
-                int i4 = jSONObject.getInt("error_code");
-                hashMap2 = null;
-                str = null;
-                str2 = null;
-                string = jSONObject.getString("error_msg");
-                i3 = i4;
-            }
-            hashMap = hashMap2;
-            str3 = string;
-            i2 = i3;
-        } catch (JSONException e3) {
-            e = e3;
-            str = null;
-            str2 = null;
+            String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setCookie("baidu.com", "BDUSS=" + bduss);
+            hashMap.put("cookie", cookieManager.getCookie("baidu.com"));
+        } catch (Exception e2) {
+            LogUtils.e("IMGenBosObjectUrlRequest", "set bduss exception");
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
-        ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i2, str3, str2, str, hashMap);
-    }
-
-    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
-        String str;
-        if (th == null) {
-            if (i == 1005) {
-                str = new String(bArr);
-            } else {
-                str = "http response is error! response code:" + i;
-                i = 1011;
-            }
-        } else {
-            i = 1012;
-            str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
-        }
-        return new Pair<>(Integer.valueOf(i), str);
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-        LogUtils.d("", "IMGenBosObjectUrlRequest onFailure " + transErrorCode.first);
-        ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null, null, null);
+        return hashMap;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
-            case 0:
-                return "https://pim.baidu.com/rest/3.0/im/bos/generate_bos_url";
-            case 1:
-                return "http://rd-im-server.bcc-szth.baidu.com:8111/rest/3.0/im/bos/generate_bos_url";
-            case 2:
-                return "http://10.64.132.67:8080/rest/3.0/im/bos/generate_bos_url";
-            case 3:
-                return "http://180.97.36.95:8080/rest/3.0/im/bos/generate_bos_url";
-            default:
-                return "https://pim.baidu.com/rest/3.0/im/bos/generate_bos_url";
-        }
+        int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
+        return readIntData != 1 ? readIntData != 2 ? readIntData != 3 ? "https://pim.baidu.com/rest/3.0/im/bos/generate_bos_url" : "http://180.97.36.95:8080/rest/3.0/im/bos/generate_bos_url" : "http://10.64.132.67:8080/rest/3.0/im/bos/generate_bos_url" : "http://rd-im-server.bcc-szth.baidu.com:8111/rest/3.0/im/bos/generate_bos_url";
+    }
+
+    public String getMd5(String str) throws NoSuchAlgorithmException {
+        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        messageDigest.update(str.getBytes());
+        return Utility.byte2Hex(messageDigest.digest());
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -166,11 +90,18 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public int getReadTimeout() {
+        return 15000;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() {
+        String str = "";
         StringBuilder sb = new StringBuilder();
         long appid = AccountManager.getAppid(this.mContext);
         sb.append("&appid=" + appid);
-        sb.append("&uk=").append(AccountManager.getUK(this.mContext));
+        sb.append("&uk=");
+        sb.append(AccountManager.getUK(this.mContext));
         long j = 0;
         if (Utility.isMediaUri(this.mFilePath)) {
             try {
@@ -178,7 +109,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                 if (openInputStream != null) {
                     j = openInputStream.available();
                 }
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         } else {
             j = new File(this.mFilePath).length();
@@ -211,35 +142,93 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         } else {
             sb.append(1);
         }
-        String str = "";
         try {
             str = getMd5("" + currentTimeMillis + bduss + appid);
         } catch (Exception e3) {
-            LogUtils.e(getClass().getSimpleName(), "Exception ", e3);
+            LogUtils.e(IMGenBosObjectUrlRequest.class.getSimpleName(), "Exception ", e3);
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
         }
         sb.append("&sign=" + str);
         return sb.toString().getBytes();
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return "application/x-www-form-urlencoded";
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+        LogUtils.d("", "IMGenBosObjectUrlRequest onFailure " + transErrorCode.first);
+        ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null, null, null);
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
-        HashMap hashMap = new HashMap();
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onSuccess(int i, byte[] bArr) {
+        String str;
+        String str2;
+        String str3;
+        HashMap hashMap;
+        String str4;
+        String str5;
+        int i2;
+        int i3;
+        String string;
+        HashMap hashMap2;
+        String str6 = new String(bArr);
+        LogUtils.d("IMGenBosObjectUrlRequest", str6);
+        String str7 = null;
         try {
-            String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-            CookieManager cookieManager = CookieManager.getInstance();
-            cookieManager.setCookie("baidu.com", "BDUSS=" + bduss);
-            hashMap.put("cookie", cookieManager.getCookie("baidu.com"));
-        } catch (Exception e) {
-            LogUtils.e("IMGenBosObjectUrlRequest", "set bduss exception");
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            JSONObject jSONObject = new JSONObject(str6);
+            if (jSONObject.has("response_params")) {
+                JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
+                i3 = jSONObject2.getInt("error_code");
+                str = jSONObject2.getString("authorization");
+                try {
+                    str2 = jSONObject2.getString("date");
+                    try {
+                        hashMap2 = new HashMap();
+                        hashMap2.put(AsyncChatTask.PUT_URL, jSONObject2.getString(AsyncChatTask.PUT_URL));
+                        hashMap2.put(AsyncChatTask.GET_URL, jSONObject2.getString(AsyncChatTask.GET_URL));
+                        if (jSONObject2.has("thumb_url")) {
+                            hashMap2.put("thumb_url", jSONObject2.getString("thumb_url"));
+                        }
+                        if (jSONObject2.has("thumb_width")) {
+                            hashMap2.put("thumb_width", jSONObject2.getString("thumb_width"));
+                        }
+                        if (jSONObject2.has("thumb_height")) {
+                            hashMap2.put("thumb_height", jSONObject2.getString("thumb_height"));
+                        }
+                        string = Constants.ERROR_MSG_SUCCESS;
+                        str7 = str;
+                    } catch (JSONException e2) {
+                        e = e2;
+                        LogUtils.e("IMGenBosObjectUrlRequest", e.getMessage(), e);
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        str3 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                        hashMap = null;
+                        str4 = str;
+                        str5 = str2;
+                        i2 = 1010;
+                        ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i2, str3, str4, str5, hashMap);
+                    }
+                } catch (JSONException e3) {
+                    e = e3;
+                    str2 = null;
+                }
+            } else {
+                i3 = jSONObject.getInt("error_code");
+                string = jSONObject.getString("error_msg");
+                str2 = null;
+                hashMap2 = null;
+            }
+            str3 = string;
+            i2 = i3;
+            str4 = str7;
+            str5 = str2;
+            hashMap = hashMap2;
+        } catch (JSONException e4) {
+            e = e4;
+            str = null;
+            str2 = null;
         }
-        return hashMap;
+        ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i2, str3, str4, str5, hashMap);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -247,19 +236,17 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         return false;
     }
 
-    public String getMd5(String str) throws NoSuchAlgorithmException {
-        MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-        messageDigest.update(str.getBytes());
-        return Utility.byte2Hex(messageDigest.digest());
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public int getConnectTimeout() {
-        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public int getReadTimeout() {
-        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
+        String str;
+        if (th != null) {
+            i = 1012;
+            str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
+        } else if (i == 1005) {
+            str = new String(bArr);
+        } else {
+            str = "http response is error! response code:" + i;
+            i = 1011;
+        }
+        return new Pair<>(Integer.valueOf(i), str);
     }
 }

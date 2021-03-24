@@ -19,86 +19,200 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
-import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes2.dex */
+import com.baidubce.auth.NTLMEngineImpl;
+/* loaded from: classes4.dex */
 public class ForumTestWebView extends WebView {
-    private g iJY;
-    private b iJZ;
-    private d iKa;
-    private c iKb;
-    private e iKc;
-    private f iKd;
-    protected com.baidu.tieba.enterForum.forumtest.js.a iKe;
-    private com.baidu.tieba.enterForum.forumtest.js.c iKf;
-    private WebViewClient mWebViewClient;
 
-    /* loaded from: classes2.dex */
-    public interface b {
+    /* renamed from: e  reason: collision with root package name */
+    public WebViewClient f15383e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public h f15384f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public c f15385g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public e f15386h;
+    public d i;
+    public f j;
+    public g k;
+    public d.b.i0.i0.e.a.a l;
+    public d.b.i0.i0.e.a.c m;
+
+    /* loaded from: classes4.dex */
+    public class a implements d.b.i0.i0.e.a.c {
+        public a() {
+        }
+
+        @Override // d.b.i0.i0.e.a.c
+        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
+            d.b.i0.i0.e.a.a aVar = ForumTestWebView.this.l;
+            if (aVar != null) {
+                return aVar.b(str, jsPromptResult);
+            }
+            return false;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends WebViewClient {
+        public b() {
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onLoadResource(WebView webView, String str) {
+            super.onLoadResource(webView, str);
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onPageFinished(WebView webView, String str) {
+            super.onPageFinished(webView, str);
+            if (ForumTestWebView.this.i != null) {
+                ForumTestWebView.this.i.onPageFinished(webView, str);
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+            super.onPageStarted(webView, str, bitmap);
+            if (ForumTestWebView.this.f15386h != null) {
+                ForumTestWebView.this.f15386h.a(webView, str);
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
+            return super.shouldInterceptRequest(webView, str);
+        }
+
+        @Override // android.webkit.WebViewClient
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            if (ForumTestWebView.this.f15385g != null) {
+                return ForumTestWebView.this.f15385g.shouldOverrideUrlLoading(webView, str);
+            }
+            return super.shouldOverrideUrlLoading(webView, str);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface c {
         boolean shouldOverrideUrlLoading(WebView webView, String str);
     }
 
-    /* loaded from: classes2.dex */
-    public interface c {
+    /* loaded from: classes4.dex */
+    public interface d {
         void onPageFinished(WebView webView, String str);
     }
 
-    /* loaded from: classes2.dex */
-    public interface d {
-        void onPageStarted(WebView webView, String str);
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface e {
-        void onProgressChanged(WebView webView, int i);
+        void a(WebView webView, String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface f {
-        void iB(String str);
+        void a(WebView webView, int i);
+    }
+
+    /* loaded from: classes4.dex */
+    public interface g {
+        void a(String str);
+    }
+
+    /* loaded from: classes4.dex */
+    public class h extends WebChromeClient {
+        public h() {
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public View getVideoLoadingProgressView() {
+            FrameLayout frameLayout = new FrameLayout(ForumTestWebView.this.getContext());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+            if ((ForumTestWebView.this.getContext() instanceof Activity) && d.b.b.e.m.g.e((Activity) ForumTestWebView.this.getContext())) {
+                return super.onJsAlert(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+            if ((ForumTestWebView.this.getContext() instanceof Activity) && d.b.b.e.m.g.e((Activity) ForumTestWebView.this.getContext())) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+            if ((ForumTestWebView.this.getContext() instanceof Activity) && d.b.b.e.m.g.e((Activity) ForumTestWebView.this.getContext())) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+            if (ForumTestWebView.this.m == null || !ForumTestWebView.this.m.onJsPrompt(str2, jsPromptResult)) {
+                jsPromptResult.cancel();
+                return true;
+            }
+            return true;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public void onProgressChanged(WebView webView, int i) {
+            super.onProgressChanged(webView, i);
+            if (ForumTestWebView.this.j != null) {
+                ForumTestWebView.this.j.a(webView, i);
+            }
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public void onReceivedTitle(WebView webView, String str) {
+            super.onReceivedTitle(webView, str);
+            if (ForumTestWebView.this.k != null) {
+                ForumTestWebView.this.k.a(str);
+            }
+        }
+
+        public /* synthetic */ h(ForumTestWebView forumTestWebView, a aVar) {
+            this();
+        }
     }
 
     public ForumTestWebView(Context context) {
         super(context);
-        this.iKf = new com.baidu.tieba.enterForum.forumtest.js.c() { // from class: com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView.1
-            @Override // com.baidu.tieba.enterForum.forumtest.js.c
-            public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                if (ForumTestWebView.this.iKe != null) {
-                    return ForumTestWebView.this.iKe.a(str, jsPromptResult);
-                }
-                return false;
-            }
-        };
+        this.m = new a();
     }
 
-    public ForumTestWebView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.iKf = new com.baidu.tieba.enterForum.forumtest.js.c() { // from class: com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView.1
-            @Override // com.baidu.tieba.enterForum.forumtest.js.c
-            public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                if (ForumTestWebView.this.iKe != null) {
-                    return ForumTestWebView.this.iKe.a(str, jsPromptResult);
-                }
-                return false;
-            }
-        };
-    }
-
-    public ForumTestWebView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.iKf = new com.baidu.tieba.enterForum.forumtest.js.c() { // from class: com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView.1
-            @Override // com.baidu.tieba.enterForum.forumtest.js.c
-            public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                if (ForumTestWebView.this.iKe != null) {
-                    return ForumTestWebView.this.iKe.a(str, jsPromptResult);
-                }
-                return false;
-            }
-        };
+    @Override // android.webkit.WebView
+    public void destroy() {
+        super.destroy();
+        this.f15383e = null;
+        this.f15384f = null;
+        this.f15385g = null;
+        this.f15386h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.m = null;
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
-    public void a(com.baidu.tieba.enterForum.forumtest.js.b bVar) {
+    public void g(d.b.i0.i0.e.a.b bVar) {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         getSettings().setAllowFileAccess(true);
@@ -108,19 +222,22 @@ public class ForumTestWebView extends WebView {
         getSettings().setSupportZoom(true);
         getSettings().setBuiltInZoomControls(true);
         getSettings().setCacheMode(2);
-        getSettings().setDatabasePath(getContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getAbsolutePath());
+        getSettings().setDatabasePath(getContext().getDir("databases", 0).getAbsolutePath());
         setHorizontalScrollBarEnabled(false);
         setHorizontalScrollbarOverlay(false);
         setInitialScale(100);
-        setScrollBarStyle(33554432);
+        setScrollBarStyle(NTLMEngineImpl.FLAG_REQUEST_VERSION);
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
-        this.mWebViewClient = new a();
-        setWebViewClient(this.mWebViewClient);
-        this.iJY = new g();
-        setWebChromeClient(this.iJY);
-        this.iKe = new com.baidu.tieba.enterForum.forumtest.js.a();
-        this.iKe.b(bVar);
-        com.baidu.tbadk.browser.a.initCookie(getContext());
+        WebViewClient bVar2 = new b();
+        this.f15383e = bVar2;
+        setWebViewClient(bVar2);
+        h hVar = new h(this, null);
+        this.f15384f = hVar;
+        setWebChromeClient(hVar);
+        d.b.i0.i0.e.a.a aVar = new d.b.i0.i0.e.a.a();
+        this.l = aVar;
+        aVar.a(bVar);
+        d.b.h0.l.a.f(getContext());
         removeJavascriptInterface("searchBoxJavaBridge_");
         removeJavascriptInterface("accessibility");
         removeJavascriptInterface("accessibilityTraversal");
@@ -132,11 +249,12 @@ public class ForumTestWebView extends WebView {
 
     @TargetApi(21)
     public final void setAcceptThirdPartyCookies(boolean z) {
-        CookieManager cookieManager = null;
+        CookieManager cookieManager;
         try {
             CookieSyncManager.createInstance(getContext());
             cookieManager = CookieManager.getInstance();
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
+            cookieManager = null;
         }
         if (cookieManager != null) {
             cookieManager.setAcceptThirdPartyCookies(this, z);
@@ -152,120 +270,13 @@ public class ForumTestWebView extends WebView {
         }
     }
 
-    @Override // android.webkit.WebView
-    public void destroy() {
-        super.destroy();
-        this.mWebViewClient = null;
-        this.iJY = null;
-        this.iJZ = null;
-        this.iKa = null;
-        this.iKb = null;
-        this.iKc = null;
-        this.iKd = null;
-        this.iKf = null;
+    public ForumTestWebView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.m = new a();
     }
 
-    /* loaded from: classes2.dex */
-    private class g extends WebChromeClient {
-        private g() {
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(2 * j2);
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public View getVideoLoadingProgressView() {
-            FrameLayout frameLayout = new FrameLayout(ForumTestWebView.this.getContext());
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            return frameLayout;
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((ForumTestWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.f.g.isActivityCanShowDialogOrPopupWindow((Activity) ForumTestWebView.this.getContext())) {
-                return super.onJsAlert(webView, str, str2, jsResult);
-            }
-            return true;
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((ForumTestWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.f.g.isActivityCanShowDialogOrPopupWindow((Activity) ForumTestWebView.this.getContext())) {
-                return super.onJsBeforeUnload(webView, str, str2, jsResult);
-            }
-            return true;
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((ForumTestWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.f.g.isActivityCanShowDialogOrPopupWindow((Activity) ForumTestWebView.this.getContext())) {
-                return super.onJsConfirm(webView, str, str2, jsResult);
-            }
-            return true;
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            if (ForumTestWebView.this.iKf == null || !ForumTestWebView.this.iKf.onJsPrompt(str2, jsPromptResult)) {
-                jsPromptResult.cancel();
-            }
-            return true;
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public void onProgressChanged(WebView webView, int i) {
-            super.onProgressChanged(webView, i);
-            if (ForumTestWebView.this.iKc != null) {
-                ForumTestWebView.this.iKc.onProgressChanged(webView, i);
-            }
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public void onReceivedTitle(WebView webView, String str) {
-            super.onReceivedTitle(webView, str);
-            if (ForumTestWebView.this.iKd != null) {
-                ForumTestWebView.this.iKd.iB(str);
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class a extends WebViewClient {
-        public a() {
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            super.onPageStarted(webView, str, bitmap);
-            if (ForumTestWebView.this.iKa != null) {
-                ForumTestWebView.this.iKa.onPageStarted(webView, str);
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onLoadResource(WebView webView, String str) {
-            super.onLoadResource(webView, str);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageFinished(WebView webView, String str) {
-            super.onPageFinished(webView, str);
-            if (ForumTestWebView.this.iKb != null) {
-                ForumTestWebView.this.iKb.onPageFinished(webView, str);
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            return ForumTestWebView.this.iJZ != null ? ForumTestWebView.this.iJZ.shouldOverrideUrlLoading(webView, str) : super.shouldOverrideUrlLoading(webView, str);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-            return super.shouldInterceptRequest(webView, str);
-        }
+    public ForumTestWebView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.m = new a();
     }
 }

@@ -6,15 +6,15 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LimitedAgeMemoryCache implements MemoryCache {
-    private final MemoryCache cache;
-    private final Map<String, Long> loadingDates = Collections.synchronizedMap(new HashMap());
-    private final long maxAge;
+    public final MemoryCache cache;
+    public final Map<String, Long> loadingDates = Collections.synchronizedMap(new HashMap());
+    public final long maxAge;
 
     public LimitedAgeMemoryCache(MemoryCache memoryCache, long j) {
         this.cache = memoryCache;
-        this.maxAge = 1000 * j;
+        this.maxAge = j * 1000;
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache

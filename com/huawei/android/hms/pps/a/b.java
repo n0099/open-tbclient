@@ -3,21 +3,22 @@ package com.huawei.android.hms.pps.a;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes4.dex */
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
+/* loaded from: classes6.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a {
 
         /* renamed from: com.huawei.android.hms.pps.a.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C1081a implements b {
+        /* loaded from: classes6.dex */
+        public static class C0348a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f5292a;
+            public IBinder f31099a;
 
-            public C1081a(IBinder iBinder) {
-                this.f5292a = iBinder;
+            public C0348a(IBinder iBinder) {
+                this.f31099a = iBinder;
             }
 
             @Override // com.huawei.android.hms.pps.a.b
@@ -25,8 +26,8 @@ public interface b extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f5292a.transact(1, obtain, obtain2, 0);
+                    obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                    this.f31099a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -37,7 +38,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f5292a;
+                return this.f31099a;
             }
 
             @Override // com.huawei.android.hms.pps.a.b
@@ -45,8 +46,8 @@ public interface b extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    this.f5292a.transact(2, obtain, obtain2, 0);
+                    obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                    this.f31099a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

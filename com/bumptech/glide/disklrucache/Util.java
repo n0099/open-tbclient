@@ -6,15 +6,38 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
-final class Util {
-    static final Charset US_ASCII = Charset.forName("US-ASCII");
-    static final Charset UTF_8 = Charset.forName("UTF-8");
+/* loaded from: classes5.dex */
+public final class Util {
+    public static final Charset US_ASCII = Charset.forName("US-ASCII");
+    public static final Charset UTF_8 = Charset.forName("UTF-8");
 
-    private Util() {
+    public static void closeQuietly(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (RuntimeException e2) {
+                throw e2;
+            } catch (Exception unused) {
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void deleteContents(File file) throws IOException {
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    deleteContents(file2);
+                }
+                if (!file2.delete()) {
+                    throw new IOException("failed to delete file: " + file2);
+                }
+            }
+            return;
+        }
+        throw new IOException("not a readable directory: " + file);
+    }
+
     public static String readFully(Reader reader) throws IOException {
         try {
             StringWriter stringWriter = new StringWriter();
@@ -29,34 +52,6 @@ final class Util {
             }
         } finally {
             reader.close();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void deleteContents(File file) throws IOException {
-        File[] listFiles = file.listFiles();
-        if (listFiles == null) {
-            throw new IOException("not a readable directory: " + file);
-        }
-        for (File file2 : listFiles) {
-            if (file2.isDirectory()) {
-                deleteContents(file2);
-            }
-            if (!file2.delete()) {
-                throw new IOException("failed to delete file: " + file2);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void closeQuietly(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (RuntimeException e) {
-                throw e;
-            } catch (Exception e2) {
-            }
         }
     }
 }

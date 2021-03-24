@@ -3,60 +3,75 @@ package com.baidu.tbadk.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class KeyboardLayout extends RelativeLayout {
-    private a fPA;
-    private boolean mHasInit;
-    private boolean mHasKeybord;
-    private int mHeight;
 
-    /* loaded from: classes.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f14060e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f14061f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f14062g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public a f14063h;
+
+    /* loaded from: classes3.dex */
     public interface a {
-        void onKeyBoardStateChange(int i);
+        void a(int i);
     }
 
     public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mHasInit = false;
+        this.f14060e = false;
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (!this.f14060e) {
+            this.f14060e = true;
+            this.f14062g = i4;
+            a aVar = this.f14063h;
+            if (aVar != null) {
+                aVar.a(-1);
+            }
+        } else {
+            int i5 = this.f14062g;
+            if (i5 < i4) {
+                i5 = i4;
+            }
+            this.f14062g = i5;
+        }
+        if (this.f14060e && this.f14062g > i4) {
+            this.f14061f = true;
+            a aVar2 = this.f14063h;
+            if (aVar2 != null) {
+                aVar2.a(-3);
+            }
+        }
+        if (this.f14060e && this.f14061f && this.f14062g == i4) {
+            this.f14061f = false;
+            a aVar3 = this.f14063h;
+            if (aVar3 != null) {
+                aVar3.a(-2);
+            }
+        }
+    }
+
+    public void setOnkbdStateListener(a aVar) {
+        this.f14063h = aVar;
     }
 
     public KeyboardLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mHasInit = false;
+        this.f14060e = false;
     }
 
     public KeyboardLayout(Context context) {
         super(context);
-        this.mHasInit = false;
-    }
-
-    public void setOnkbdStateListener(a aVar) {
-        this.fPA = aVar;
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (!this.mHasInit) {
-            this.mHasInit = true;
-            this.mHeight = i4;
-            if (this.fPA != null) {
-                this.fPA.onKeyBoardStateChange(-1);
-            }
-        } else {
-            this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
-        }
-        if (this.mHasInit && this.mHeight > i4) {
-            this.mHasKeybord = true;
-            if (this.fPA != null) {
-                this.fPA.onKeyBoardStateChange(-3);
-            }
-        }
-        if (this.mHasInit && this.mHasKeybord && this.mHeight == i4) {
-            this.mHasKeybord = false;
-            if (this.fPA != null) {
-                this.fPA.onKeyBoardStateChange(-2);
-            }
-        }
+        this.f14060e = false;
     }
 }

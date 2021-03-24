@@ -6,8 +6,18 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import com.vivo.push.sdk.a;
 import com.vivo.push.util.p;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class CommandService extends Service {
+    public boolean a(String str) {
+        return "com.vivo.pushservice.action.RECEIVE".equals(str);
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        p.c("CommandService", "onBind initSuc: ");
+        return null;
+    }
+
     @Override // android.app.Service
     public void onCreate() {
         p.c("CommandService", getClass().getSimpleName() + " -- oncreate " + getPackageName());
@@ -16,39 +26,31 @@ public class CommandService extends Service {
     }
 
     @Override // android.app.Service
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         if (intent == null) {
             stopSelf();
+            return 2;
         } else if (!a(intent.getAction())) {
             p.a("CommandService", getPackageName() + " receive invalid action " + intent.getAction());
             stopSelf();
+            return 2;
         } else {
             try {
                 String stringExtra = intent.getStringExtra("command_type");
                 if (!TextUtils.isEmpty(stringExtra) && stringExtra.equals("reflect_receiver")) {
                     a.a().a(intent);
                 }
-            } catch (Exception e) {
-                p.a("CommandService", "onStartCommand -- error", e);
+            } catch (Exception e2) {
+                p.a("CommandService", "onStartCommand -- error", e2);
             }
             stopSelf();
+            return 2;
         }
-        return 2;
-    }
-
-    protected boolean a(String str) {
-        return "com.vivo.pushservice.action.RECEIVE".equals(str);
-    }
-
-    @Override // android.app.Service
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        p.c("CommandService", "onBind initSuc: ");
-        return null;
     }
 
     @Override // android.app.Service

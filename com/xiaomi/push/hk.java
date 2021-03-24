@@ -1,97 +1,137 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import android.text.TextUtils;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class hk {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static volatile hk f8417a;
+import com.baidu.android.imsdk.internal.Constants;
+/* loaded from: classes7.dex */
+public enum hk {
+    UploadSwitch(1),
+    UploadFrequency(2),
+    ScreenSizeCollectionSwitch(3),
+    MacCollectionSwitch(4),
+    IMSICollectionSwitch(5),
+    AndroidVnCollectionSwitch(6),
+    AndroidVcCollectionSwitch(7),
+    AndroidIdCollectionSwitch(8),
+    DeviceInfoCollectionFrequency(9),
+    AppInstallListCollectionSwitch(10),
+    AppInstallListCollectionFrequency(11),
+    AppActiveListCollectionSwitch(12),
+    AppActiveListCollectionFrequency(13),
+    BluetoothCollectionSwitch(14),
+    BluetoothCollectionFrequency(15),
+    LocationCollectionSwitch(16),
+    LocationCollectionFrequency(17),
+    AccountCollectionSwitch(18),
+    AccountCollectionFrequency(19),
+    WifiCollectionSwitch(20),
+    WifiCollectionFrequency(21),
+    CellularCollectionSwitch(22),
+    CellularCollectionFrequency(23),
+    TopAppCollectionSwitch(24),
+    TopAppCollectionFrequency(25),
+    DataCollectionSwitch(26),
+    OcVersionCheckFrequency(27),
+    SyncInfoFrequency(28),
+    UploadNotificationInfoFrequency(29),
+    UploadNotificationInfoMaxNum(30),
+    CollectionNotificationInfoBaseSwitch(31),
+    CollectionNotificationInfoAppSwitch(32),
+    CollectionNotificationInfoRemovedSwitch(33),
+    ForegroundServiceSwitch(34),
+    SyncMIIDFrequency(35),
+    Upload4GSwitch(36),
+    Upload4GFrequency(37),
+    Upload3GSwitch(38),
+    Upload3GFrequency(39),
+    ShieldTypeConfig(40),
+    UploadWIFIGeoLocFrequency(41),
+    UploadNOWIFIGeoLocFrequency(42),
+    BroadcastActionCollectionSwitch(43),
+    BroadcastActionCollectionFrequency(44),
+    UploadGeoLocSwitch(45),
+    ServiceBootMode(46),
+    AppPermissionCollectionSwitch(47),
+    AppPermissionCollectionFrequency(48),
+    WifiDevicesMacCollectionSwitch(49),
+    WifiDevicesMacCollectionFrequency(50),
+    WifiDevicesMacWifiUnchangedCollectionFrequency(51),
+    AggregationSdkMonitorSwitch(52),
+    AggregationSdkMonitorFrequency(53),
+    AggregationSdkMonitorDepth(54),
+    UploadGeoAppLocSwitch(55),
+    ThirdPushControlSwitch(56),
+    ThirdPushComponentKeyWords(57),
+    ThirdPushWhiteList(58),
+    XmsfScanWhitelist(59),
+    IccidCollectionSwitch(60),
+    LimitThridPushStrategyMode(61),
+    GlobalPushChannelException(62),
+    TinyDataUploadSwitch(63),
+    TinyDataUploadFrequency(64),
+    GlobalRegionIOSwitch(65),
+    GlobalRegionIOWait(66),
+    AggregatePushSwitch(67),
+    ActivityTSSwitch(68),
+    OperatorSwitch(69),
+    DeviceIdSwitch(70),
+    DeviceBaseInfoCollectionFrequency(71),
+    UsageStatsCollectionFrequency(72),
+    UsageStatsCollectionWhiteList(73),
+    ForceHandleCrashSwitch(74),
+    Crash4GUploadSwitch(75),
+    Crash4GUploadFrequency(76),
+    CrashWIFIUploadFrequency(77),
+    EventUploadSwitch(78),
+    PerfUploadSwitch(79),
+    EventUploadFrequency(80),
+    PerfUploadFrequency(81),
+    BatteryCollectionSwitch(82),
+    BatteryCollectionFrequency(83),
+    AwakeInfoUploadWaySwitch(84),
+    AwakeAppPingSwitch(85),
+    AwakeAppPingFrequency(86),
+    StorageCollectionSwitch(87),
+    StorageCollectionFrequency(88),
+    PopupDialogWhiteList(94),
+    PopupDialogContent(95),
+    PopupDialogSwitch(96),
+    FallDownTimeRange(97),
+    AppIsInstalledCollectionSwitch(98),
+    AppIsInstalledCollectionFrequency(99),
+    AppIsInstalledList(100),
+    TopNotificationUpdateFrequency(101),
+    TopNotificationUpdatePeriod(102),
+    TopNotificationUpdateSwitch(103),
+    EventUploadNewSwitch(104),
+    ScreenOnOrChargingTinyDataUploadSwitch(105),
+    NotificationAutoGroupSwitch(106),
+    LatestNotificationNotIntoGroupSwitch(107),
+    DCJobMutualSwitch(108),
+    NotificationBelongToAppSwitch(109),
+    DCJobUploadRepeatedInterval(110),
+    LauncherAppListCollectionSwitch(111),
+    LauncherAppListCollectionFrequency(112),
+    ScenePushForegroundDuration(113),
+    ScenePushForegroundDurationLong(114),
+    StatDataUploadFrequency(120),
+    StatDataUploadNum(Constants.METHOD_IM_FRIEND_GROUP_DROP),
+    StatDataProcessFrequency(122),
+    StatDataSwitch(Constants.METHOD_IM_FRIEND_GROUP_QUERY),
+    StatDataUploadWay(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER),
+    StatDataDeleteFrequency(125),
+    CollectionDataPluginVersion(1001),
+    CollectionPluginDownloadUrl(1002),
+    CollectionPluginMd5(1003),
+    CollectionPluginForceStop(1004);
+    
 
     /* renamed from: a  reason: collision with other field name */
-    private final Context f436a;
+    public final int f490a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private Map<String, hl> f437a = new HashMap();
-
-    private hk(Context context) {
-        this.f436a = context;
+    hk(int i) {
+        this.f490a = i;
     }
 
-    public static hk a(Context context) {
-        if (context == null) {
-            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
-            return null;
-        }
-        if (f8417a == null) {
-            synchronized (hk.class) {
-                if (f8417a == null) {
-                    f8417a = new hk(context);
-                }
-            }
-        }
-        return f8417a;
-    }
-
-    private boolean a(String str, String str2, String str3, String str4, long j, String str5) {
-        hq hqVar = new hq();
-        hqVar.d(str3);
-        hqVar.c(str4);
-        hqVar.a(j);
-        hqVar.b(str5);
-        hqVar.a(true);
-        hqVar.a("push_sdk_channel");
-        hqVar.e(str2);
-        return a(hqVar, str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public hl a() {
-        hl hlVar = this.f437a.get("UPLOADER_PUSH_CHANNEL");
-        if (hlVar != null) {
-            return hlVar;
-        }
-        hl hlVar2 = this.f437a.get("UPLOADER_HTTP");
-        if (hlVar2 == null) {
-            return null;
-        }
-        return hlVar2;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    Map<String, hl> m346a() {
-        return this.f437a;
-    }
-
-    public void a(hl hlVar, String str) {
-        if (hlVar == null) {
-            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: please do not add null mUploader to TinyDataManager.");
-        } else if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
-        } else {
-            m346a().put(str, hlVar);
-        }
-    }
-
-    public boolean a(hq hqVar, String str) {
-        if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("pkgName is null or empty, upload ClientUploadDataItem failed.");
-            return false;
-        } else if (com.xiaomi.push.service.bi.a(hqVar, false)) {
-            return false;
-        } else {
-            if (TextUtils.isEmpty(hqVar.d())) {
-                hqVar.f(com.xiaomi.push.service.bi.a());
-            }
-            hqVar.g(str);
-            com.xiaomi.push.service.bj.a(this.f436a, hqVar);
-            return true;
-        }
-    }
-
-    public boolean a(String str, String str2, long j, String str3) {
-        return a(this.f436a.getPackageName(), this.f436a.getPackageName(), str, str2, j, str3);
+    public int a() {
+        return this.f490a;
     }
 }

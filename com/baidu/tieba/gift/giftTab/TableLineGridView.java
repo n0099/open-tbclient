@@ -6,14 +6,67 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.view.BdGridView;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class TableLineGridView extends BdGridView {
-    private int beb;
-    private int columnCount;
-    private int rowCount;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f16917e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f16918f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f16919g;
 
     public TableLineGridView(Context context) {
         super(context);
+    }
+
+    @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        View childAt;
+        if (getChildCount() > 0 && (childAt = getChildAt(0)) != null) {
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(this.f16919g);
+            int width = childAt.getWidth() * this.f16918f;
+            int height = childAt.getHeight() * this.f16917e;
+            int width2 = childAt.getWidth();
+            int height2 = childAt.getHeight();
+            for (int i = 1; i < this.f16917e; i++) {
+                float f2 = height2 * i;
+                canvas.drawLine(0.0f, f2, width, f2, paint);
+            }
+            for (int i2 = 1; i2 < this.f16918f; i2++) {
+                float f3 = width2 * i2;
+                canvas.drawLine(f3, 0.0f, f3, height, paint);
+            }
+            super.dispatchDraw(canvas);
+        }
+    }
+
+    public int getBackgroundLineResource() {
+        return this.f16919g;
+    }
+
+    public int getColumnCount() {
+        return this.f16918f;
+    }
+
+    public int getRowCount() {
+        return this.f16917e;
+    }
+
+    public void setBackgroundLineResource(int i) {
+        this.f16919g = i;
+    }
+
+    public void setColumnCount(int i) {
+        this.f16918f = i;
+    }
+
+    public void setRowCount(int i) {
+        this.f16917e = i;
     }
 
     public TableLineGridView(Context context, AttributeSet attributeSet, int i) {
@@ -22,58 +75,5 @@ public class TableLineGridView extends BdGridView {
 
     public TableLineGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        View childAt;
-        int i = 1;
-        if (getChildCount() > 0 && (childAt = getChildAt(0)) != null) {
-            Paint paint = new Paint();
-            paint.setStyle(Paint.Style.STROKE);
-            paint.setColor(this.beb);
-            int width = childAt.getWidth() * this.columnCount;
-            int height = childAt.getHeight() * this.rowCount;
-            int width2 = childAt.getWidth();
-            int height2 = childAt.getHeight();
-            for (int i2 = 1; i2 < this.rowCount; i2++) {
-                canvas.drawLine(0.0f, height2 * i2, width, height2 * i2, paint);
-            }
-            while (true) {
-                int i3 = i;
-                if (i3 < this.columnCount) {
-                    canvas.drawLine(width2 * i3, 0.0f, width2 * i3, height, paint);
-                    i = i3 + 1;
-                } else {
-                    super.dispatchDraw(canvas);
-                    return;
-                }
-            }
-        }
-    }
-
-    public int getRowCount() {
-        return this.rowCount;
-    }
-
-    public void setRowCount(int i) {
-        this.rowCount = i;
-    }
-
-    public int getColumnCount() {
-        return this.columnCount;
-    }
-
-    public void setColumnCount(int i) {
-        this.columnCount = i;
-    }
-
-    public int getBackgroundLineResource() {
-        return this.beb;
-    }
-
-    public void setBackgroundLineResource(int i) {
-        this.beb = i;
     }
 }

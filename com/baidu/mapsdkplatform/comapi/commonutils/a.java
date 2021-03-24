@@ -11,14 +11,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f2204a;
+    public static final boolean f7531a;
 
     static {
-        f2204a = Build.VERSION.SDK_INT >= 8;
+        f7531a = Build.VERSION.SDK_INT >= 8;
     }
 
     public static Bitmap a(String str, Context context) {
@@ -28,12 +28,12 @@ public class a {
                 return BitmapFactory.decodeStream(open);
             }
             return null;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return BitmapFactory.decodeFile(b("assets/" + str, str, context));
         }
     }
 
-    private static void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
+    public static void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
         byte[] bArr = new byte[4096];
         while (true) {
             try {
@@ -42,13 +42,9 @@ public class a {
                     fileOutputStream.flush();
                     try {
                         inputStream.close();
-                        try {
-                            fileOutputStream.close();
-                            return;
-                        } catch (IOException e) {
-                            return;
-                        }
-                    } catch (IOException e2) {
+                        fileOutputStream.close();
+                        return;
+                    } catch (IOException unused) {
                         return;
                     }
                 }
@@ -56,180 +52,165 @@ public class a {
             } catch (Throwable th) {
                 try {
                     inputStream.close();
-                    try {
-                        fileOutputStream.close();
-                        throw th;
-                    } catch (IOException e3) {
-                        return;
-                    }
-                } catch (IOException e4) {
+                    fileOutputStream.close();
+                    throw th;
+                } catch (IOException unused2) {
                     return;
                 }
             }
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 0, insn: 0x00a4: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r0 I:??[OBJECT, ARRAY]), block:B:39:0x00a3 */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0097 A[Catch: IOException -> 0x0093, TRY_LEAVE, TryCatch #2 {IOException -> 0x0093, blocks: (B:37:0x008f, B:41:0x0097), top: B:46:0x008f }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x008f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void a(String str, String str2, Context context) {
-        Throwable th;
         FileOutputStream fileOutputStream;
-        InputStream inputStream;
-        FileOutputStream fileOutputStream2;
-        FileOutputStream fileOutputStream3;
+        byte[] bArr;
+        InputStream inputStream = null;
+        FileOutputStream fileOutputStream2 = null;
+        inputStream = null;
         try {
             try {
-                inputStream = context.getAssets().open(str);
-                if (inputStream != null) {
+                InputStream open = context.getAssets().open(str);
+                if (open != null) {
                     try {
-                        byte[] bArr = new byte[inputStream.available()];
-                        inputStream.read(bArr);
+                        bArr = new byte[open.available()];
+                        open.read(bArr);
                         File file = new File(context.getFilesDir().getAbsolutePath() + "/" + str2);
                         if (file.exists()) {
                             file.delete();
                         }
                         file.createNewFile();
-                        fileOutputStream2 = new FileOutputStream(file);
+                        fileOutputStream = new FileOutputStream(file);
+                    } catch (Exception unused) {
+                        fileOutputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = null;
+                    }
+                    try {
+                        fileOutputStream.write(bArr);
+                        fileOutputStream.close();
+                        fileOutputStream2 = fileOutputStream;
+                    } catch (Exception unused2) {
+                        inputStream = open;
                         try {
-                            fileOutputStream2.write(bArr);
-                            fileOutputStream2.close();
-                        } catch (Exception e) {
                             b("assets/" + str, str2, context);
+                            if (inputStream != null) {
+                                inputStream.close();
+                            }
+                            if (fileOutputStream != null) {
+                                fileOutputStream.close();
+                                return;
+                            }
+                            return;
+                        } catch (Throwable th2) {
+                            th = th2;
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
                                 } catch (IOException e2) {
                                     e2.printStackTrace();
-                                    return;
+                                    throw th;
                                 }
                             }
-                            if (fileOutputStream2 != null) {
-                                fileOutputStream2.close();
-                                return;
+                            if (fileOutputStream != null) {
+                                fileOutputStream.close();
                             }
-                            return;
+                            throw th;
                         }
-                    } catch (Exception e3) {
-                        fileOutputStream2 = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileOutputStream = null;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        inputStream = open;
                         if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                                throw th;
-                            }
                         }
                         if (fileOutputStream != null) {
-                            fileOutputStream.close();
                         }
                         throw th;
                     }
-                } else {
-                    fileOutputStream2 = null;
                 }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                        return;
-                    }
+                if (open != null) {
+                    open.close();
                 }
                 if (fileOutputStream2 != null) {
                     fileOutputStream2.close();
                 }
-            } catch (Throwable th3) {
-                th = th3;
-                fileOutputStream = fileOutputStream3;
+            } catch (IOException e3) {
+                e3.printStackTrace();
             }
-        } catch (Exception e6) {
-            fileOutputStream2 = null;
-            inputStream = null;
+        } catch (Exception unused3) {
+            fileOutputStream = null;
         } catch (Throwable th4) {
             th = th4;
             fileOutputStream = null;
-            inputStream = null;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00c4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static String b(String str, String str2, Context context) {
+    public static String b(String str, String str2, Context context) {
         ZipFile zipFile;
         File file;
         File file2;
         ZipEntry entry;
-        ZipFile zipFile2 = null;
         StringBuilder sb = new StringBuilder(context.getFilesDir().getAbsolutePath());
+        ZipFile zipFile2 = null;
         try {
-            zipFile = new ZipFile(f2204a ? context.getPackageCodePath() : "");
-        } catch (Exception e) {
-            e = e;
-        } catch (Throwable th) {
-            th = th;
-            zipFile = null;
+            try {
+                try {
+                    zipFile = new ZipFile(f7531a ? context.getPackageCodePath() : "");
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+        } catch (IOException unused) {
         }
         try {
             int lastIndexOf = str2.lastIndexOf("/");
             if (lastIndexOf > 0) {
                 file = new File(context.getFilesDir().getAbsolutePath());
-                file2 = new File(file.getAbsolutePath() + "/" + str2.substring(0, lastIndexOf), str2.substring(lastIndexOf + 1, str2.length()));
+                String substring = str2.substring(0, lastIndexOf);
+                String substring2 = str2.substring(lastIndexOf + 1, str2.length());
+                file2 = new File(file.getAbsolutePath() + "/" + substring, substring2);
             } else {
                 file = new File(context.getFilesDir(), "assets");
                 file2 = new File(file.getAbsolutePath(), str2);
             }
             file.mkdirs();
             entry = zipFile.getEntry(str);
-        } catch (Exception e2) {
-            e = e2;
+        } catch (Exception e3) {
+            e = e3;
             zipFile2 = zipFile;
-            try {
-                Log.e(a.class.getSimpleName(), "copyAssetsError", e);
-                if (zipFile2 != null) {
-                    try {
-                        zipFile2.close();
-                    } catch (IOException e3) {
-                    }
-                }
-                return sb.toString();
-            } catch (Throwable th2) {
-                th = th2;
-                zipFile = zipFile2;
-                if (zipFile != null) {
-                    try {
-                        zipFile.close();
-                    } catch (IOException e4) {
-                    }
-                }
-                throw th;
+            Log.e(a.class.getSimpleName(), "copyAssetsError", e);
+            if (zipFile2 != null) {
+                zipFile2.close();
             }
-        } catch (Throwable th3) {
-            th = th3;
-            if (zipFile != null) {
+            return sb.toString();
+        } catch (Throwable th2) {
+            th = th2;
+            zipFile2 = zipFile;
+            if (zipFile2 != null) {
+                try {
+                    zipFile2.close();
+                } catch (IOException unused2) {
+                }
             }
             throw th;
         }
         if (entry == null) {
-            if (zipFile != null) {
-                try {
-                    zipFile.close();
-                } catch (IOException e5) {
-                }
+            try {
+                zipFile.close();
+            } catch (IOException unused3) {
             }
             return null;
         }
         a(zipFile.getInputStream(entry), new FileOutputStream(file2));
-        sb.append("/").append(str);
-        if (zipFile != null) {
-            try {
-                zipFile.close();
-            } catch (IOException e6) {
-            }
-        }
+        sb.append("/");
+        sb.append(str);
+        zipFile.close();
         return sb.toString();
     }
 }

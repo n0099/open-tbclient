@@ -1,85 +1,906 @@
 package com.baidu.sofire.a;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.telephony.TelephonyManager;
-/* loaded from: classes4.dex */
+import android.content.pm.ActivityInfo;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
+import com.baidu.mobstat.Config;
+import com.baidu.sofire.b;
+import com.baidu.sofire.core.ApkInfo;
+import com.baidu.sofire.core.f;
+import com.baidu.sofire.g.d;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes3.dex */
 public final class a {
 
-    /* renamed from: a  reason: collision with root package name */
-    private static String f3499a;
-    private static int b = -1;
+    /* renamed from: d  reason: collision with root package name */
+    public static a f11622d;
 
-    private static String b(Context context) {
-        try {
-            return ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-        } catch (Throwable th) {
-            return "";
+    /* renamed from: a  reason: collision with root package name */
+    public int f11623a = 5;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f11624b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
+
+    /* renamed from: c  reason: collision with root package name */
+    public SQLiteDatabase f11625c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public C0153a f11626e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Context f11627f;
+
+    /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class C0153a extends SQLiteOpenHelper {
+        public C0153a(Context context) {
+            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f11623a);
+            new StringBuilder().append(a.this.f11623a);
+            b.a();
+        }
+
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public final void onCreate(SQLiteDatabase sQLiteDatabase) {
+            try {
+                sQLiteDatabase.execSQL(a.this.f11624b);
+            } catch (Throwable unused) {
+                d.a();
+            }
+        }
+
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            try {
+                StringBuilder sb = new StringBuilder("o=");
+                sb.append(i);
+                sb.append(", n=");
+                sb.append(i2);
+                b.a();
+                if (i < 3 && i2 >= 3) {
+                    sQLiteDatabase.beginTransaction();
+                    try {
+                        sQLiteDatabase.execSQL("ALTER TABLE pgn ADD COLUMN pr INTEGER  DEFAULT -1");
+                        sQLiteDatabase.setTransactionSuccessful();
+                    } catch (Throwable unused) {
+                        d.a();
+                    }
+                    sQLiteDatabase.endTransaction();
+                }
+                if (i < 5 && i2 >= 5) {
+                    sQLiteDatabase.beginTransaction();
+                    try {
+                        sQLiteDatabase.execSQL("ALTER TABLE pgn ADD COLUMN pdld INTEGER  DEFAULT -1");
+                        sQLiteDatabase.setTransactionSuccessful();
+                    } catch (Throwable unused2) {
+                        d.a();
+                    }
+                    sQLiteDatabase.endTransaction();
+                }
+                if (i >= 4 || i2 < 4) {
+                    return;
+                }
+                sQLiteDatabase.execSQL("drop table if exists tbch");
+            } catch (Throwable unused3) {
+                d.a();
+            }
         }
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:24:0x0071
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    public static synchronized java.lang.String a(android.content.Context r8) {
-        /*
-            java.lang.Class<com.baidu.sofire.a.a> r1 = com.baidu.sofire.a.a.class
-            monitor-enter(r1)
-            java.lang.String r0 = ""
-            java.lang.String r2 = com.baidu.sofire.a.a.f3499a     // Catch: java.lang.Throwable -> L24
-            boolean r2 = android.text.TextUtils.isEmpty(r2)     // Catch: java.lang.Throwable -> L24
-            if (r2 != 0) goto L12
-            java.lang.String r0 = com.baidu.sofire.a.a.f3499a     // Catch: java.lang.Throwable -> L24
-        L10:
-            monitor-exit(r1)
-            return r0
-        L12:
-            com.baidu.sofire.b.c r2 = new com.baidu.sofire.b.c     // Catch: java.lang.Throwable -> L24
-            r2.<init>(r8)     // Catch: java.lang.Throwable -> L24
-            java.lang.String r0 = r2.a()     // Catch: java.lang.Throwable -> L24
-            boolean r3 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L24
-            if (r3 != 0) goto L26
-            com.baidu.sofire.a.a.f3499a = r0     // Catch: java.lang.Throwable -> L24
-            goto L10
-        L24:
-            r2 = move-exception
-            goto L10
-        L26:
-            java.lang.String r3 = "android.permission.READ_PHONE_STATE"
-            int r4 = android.os.Process.myPid()     // Catch: java.lang.Throwable -> L24
-            int r5 = android.os.Process.myUid()     // Catch: java.lang.Throwable -> L24
-            int r3 = r8.checkPermission(r3, r4, r5)     // Catch: java.lang.Throwable -> L24
-            r4 = -1
-            if (r3 == r4) goto L10
-            java.lang.String r0 = b(r8)     // Catch: java.lang.Throwable -> L24
-            com.baidu.sofire.a.a.f3499a = r0     // Catch: java.lang.Throwable -> L24
-            boolean r3 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L6f
-            if (r3 != 0) goto L10
-            android.content.SharedPreferences$Editor r3 = r2.f3502a     // Catch: java.lang.Throwable -> L6f
-            java.lang.String r4 = "dd_v_d"
-            java.lang.String r5 = com.baidu.sofire.b.c.a(r0)     // Catch: java.lang.Throwable -> L6f
-            r3.putString(r4, r5)     // Catch: java.lang.Throwable -> L6f
-            android.content.SharedPreferences$Editor r3 = r2.f3502a     // Catch: java.lang.Throwable -> L6f
-            r3.commit()     // Catch: java.lang.Throwable -> L6f
-            long r4 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L6f
-            java.lang.Long r3 = java.lang.Long.valueOf(r4)     // Catch: java.lang.Throwable -> L6f
-            android.content.SharedPreferences$Editor r4 = r2.f3502a     // Catch: java.lang.Throwable -> L6f
-            java.lang.String r5 = "dd_v_d_t"
-            long r6 = r3.longValue()     // Catch: java.lang.Throwable -> L6f
-            r4.putLong(r5, r6)     // Catch: java.lang.Throwable -> L6f
-            android.content.SharedPreferences$Editor r2 = r2.f3502a     // Catch: java.lang.Throwable -> L6f
-            r2.commit()     // Catch: java.lang.Throwable -> L6f
-            goto L10
-        L6f:
-            r2 = move-exception
-            goto L10
-        L71:
-            r0 = move-exception
-            monitor-exit(r1)
-            throw r0
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.a(android.content.Context):java.lang.String");
+    public a(Context context) {
+        b.a();
+        this.f11627f = context.getApplicationContext();
+        C0153a c0153a = new C0153a(context.getApplicationContext());
+        this.f11626e = c0153a;
+        try {
+            this.f11625c = c0153a.getWritableDatabase();
+        } catch (Throwable unused) {
+            d.a();
+        }
+    }
+
+    public static synchronized a a(Context context) {
+        a aVar;
+        synchronized (a.class) {
+            new StringBuilder("i=").append(f11622d);
+            b.a();
+            if (f11622d == null) {
+                f11622d = new a(context);
+            }
+            aVar = f11622d;
+        }
+        return aVar;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x004f, code lost:
+        if (r2.isClosed() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x005c, code lost:
+        if (r2.isClosed() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x005e, code lost:
+        r2.close();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final Map<Integer, String> b() {
+        Cursor cursor;
+        HashMap hashMap = new HashMap();
+        try {
+            try {
+                cursor = this.f11625c.query("pgn", null, "n=1", null, null, null, null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        try {
+                            int i = cursor.getInt(cursor.getColumnIndex(Config.APP_KEY));
+                            String string = cursor.getString(cursor.getColumnIndex("v"));
+                            Integer valueOf = Integer.valueOf(i);
+                            hashMap.put(valueOf, "'" + string + "'");
+                        } catch (Throwable unused) {
+                            try {
+                                d.a();
+                                if (cursor != null) {
+                                }
+                                return hashMap;
+                            } catch (Throwable th) {
+                                if (cursor != null) {
+                                    try {
+                                        if (!cursor.isClosed()) {
+                                            cursor.close();
+                                        }
+                                    } catch (Throwable unused2) {
+                                        d.a();
+                                    }
+                                }
+                                throw th;
+                            }
+                        }
+                    }
+                }
+                if (cursor != null) {
+                }
+            } catch (Throwable unused3) {
+                d.a();
+            }
+        } catch (Throwable unused4) {
+            cursor = null;
+        }
+        return hashMap;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x003e, code lost:
+        if (r1.isClosed() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x004b, code lost:
+        if (r1.isClosed() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x004d, code lost:
+        r1.close();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final Map<Integer, String> c() {
+        Cursor cursor;
+        HashMap hashMap = new HashMap();
+        try {
+            try {
+                cursor = this.f11625c.query("pgn", null, "n=1", null, null, null, null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        try {
+                            int i = cursor.getInt(cursor.getColumnIndex(Config.APP_KEY));
+                            hashMap.put(Integer.valueOf(i), cursor.getString(cursor.getColumnIndex("p")));
+                        } catch (Throwable unused) {
+                            try {
+                                d.a();
+                                if (cursor != null) {
+                                }
+                                return hashMap;
+                            } catch (Throwable th) {
+                                if (cursor != null) {
+                                    try {
+                                        if (!cursor.isClosed()) {
+                                            cursor.close();
+                                        }
+                                    } catch (Throwable unused2) {
+                                        d.a();
+                                    }
+                                }
+                                throw th;
+                            }
+                        }
+                    }
+                }
+                if (cursor != null) {
+                }
+            } catch (Throwable unused3) {
+                d.a();
+            }
+        } catch (Throwable unused4) {
+            cursor = null;
+        }
+        return hashMap;
+    }
+
+    public final void d() {
+        try {
+            ArrayList<ApkInfo> arrayList = new ArrayList();
+            for (ApkInfo apkInfo : a()) {
+                if (!d.c(apkInfo.pkgPath) && f.f11699b != null && !f.f11699b.contains(Integer.valueOf(apkInfo.key))) {
+                    arrayList.add(apkInfo);
+                }
+            }
+            f a2 = f.a();
+            for (ApkInfo apkInfo2 : arrayList) {
+                if (a2 != null) {
+                    a2.b(apkInfo2.packageName);
+                }
+                SQLiteDatabase sQLiteDatabase = this.f11625c;
+                int delete = sQLiteDatabase.delete("pgn", "k=" + apkInfo2.key, null);
+                StringBuilder sb = new StringBuilder();
+                sb.append(apkInfo2.packageName);
+                sb.append(delete);
+                b.a();
+                d.d(this.f11627f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
+                if (this.f11627f != null) {
+                    d.d(this.f11627f.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
+                }
+            }
+        } catch (Throwable unused) {
+            d.a();
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x003b, code lost:
+        if (r11.isClosed() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x003d, code lost:
+        r11.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004f, code lost:
+        if (r11.isClosed() == false) goto L8;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean e(int i) {
+        Cursor cursor;
+        boolean z = false;
+        try {
+            try {
+                cursor = this.f11625c.query("pgn", new String[]{"s"}, "k=" + i, null, null, null, null);
+                if (cursor != null) {
+                    try {
+                        if (cursor.moveToFirst()) {
+                            if (cursor.getInt(cursor.getColumnIndex("s")) == 1) {
+                                z = true;
+                            }
+                        }
+                    } catch (Throwable unused) {
+                        try {
+                            d.a();
+                            if (cursor != null) {
+                            }
+                            return z;
+                        } catch (Throwable th) {
+                            if (cursor != null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
+                                } catch (Throwable unused2) {
+                                    d.a();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                }
+                if (cursor != null) {
+                }
+            } catch (Throwable unused3) {
+                d.a();
+            }
+        } catch (Throwable unused4) {
+            cursor = null;
+        }
+        return z;
+    }
+
+    public final void f(int i) {
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("n", (Integer) (-1));
+            SQLiteDatabase sQLiteDatabase = this.f11625c;
+            sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
+        } catch (Throwable unused) {
+            d.a();
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0038, code lost:
+        if (r11.isClosed() == false) goto L9;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x003a, code lost:
+        r11.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x004c, code lost:
+        if (r11.isClosed() == false) goto L9;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final int g(int i) {
+        Cursor cursor;
+        int i2 = 0;
+        try {
+            try {
+                cursor = this.f11625c.query("pgn", new String[]{"pdld"}, "k=" + i, null, null, null, null);
+                if (cursor != null) {
+                    try {
+                        if (cursor.moveToFirst()) {
+                            i2 = cursor.getInt(cursor.getColumnIndex("pdld"));
+                        }
+                    } catch (Throwable unused) {
+                        try {
+                            d.a();
+                            if (cursor != null) {
+                            }
+                            return i2;
+                        } catch (Throwable th) {
+                            if (cursor != null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
+                                } catch (Throwable unused2) {
+                                    d.a();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                }
+                if (cursor != null) {
+                }
+            } catch (Throwable unused3) {
+                cursor = null;
+            }
+        } catch (Throwable unused4) {
+            d.a();
+        }
+        return i2;
+    }
+
+    public final void h(int i) {
+        new StringBuilder().append(i);
+        b.a();
+        if (i <= 0) {
+            return;
+        }
+        try {
+            SQLiteDatabase sQLiteDatabase = this.f11625c;
+            new StringBuilder().append(sQLiteDatabase.delete("pgn", "k=" + i, null));
+            b.a();
+        } catch (Throwable unused) {
+            d.a();
+        }
+    }
+
+    public final long a(ApkInfo apkInfo) {
+        long j = 0;
+        if (apkInfo == null) {
+            return 0L;
+        }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("n", Integer.valueOf(apkInfo.initStatus));
+        contentValues.put("p", apkInfo.packageName);
+        contentValues.put("a", apkInfo.pkgPath);
+        contentValues.put("l", apkInfo.libPath);
+        contentValues.put("v", apkInfo.versionName);
+        contentValues.put("apk", apkInfo.dexPath);
+        contentValues.put("ap", Integer.valueOf(apkInfo.apkParseSuc));
+        contentValues.put(Config.CELL_LOCATION, apkInfo.className);
+        contentValues.put("st", Long.valueOf(apkInfo.startTime));
+        contentValues.put("du", Integer.valueOf(apkInfo.duration));
+        contentValues.put("m5", apkInfo.apkMD5);
+        contentValues.put("th", Integer.valueOf(apkInfo.applicationTheme));
+        contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(apkInfo.priority));
+        ActivityInfo[] activityInfoArr = apkInfo.activities;
+        if (activityInfoArr != null) {
+            contentValues.put("ac", new com.baidu.sofire.core.a(activityInfoArr).a());
+        }
+        try {
+            if (b(apkInfo.key)) {
+                j = this.f11625c.update("pgn", contentValues, "k=" + apkInfo.key, null);
+            } else {
+                contentValues.put(Config.APP_KEY, Integer.valueOf(apkInfo.key));
+                j = this.f11625c.insert("pgn", null, contentValues);
+            }
+        } catch (Throwable unused) {
+        }
+        return j;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0031, code lost:
+        if (r10.isClosed() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0033, code lost:
+        r10.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0045, code lost:
+        if (r10.isClosed() == false) goto L8;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean b(int i) {
+        Cursor cursor;
+        boolean z = false;
+        try {
+            try {
+                cursor = this.f11625c.query("pgn", new String[]{"p"}, "k=" + i, null, null, null, null);
+                if (cursor != null) {
+                    try {
+                        if (cursor.getCount() > 0) {
+                            z = true;
+                        }
+                    } catch (Throwable unused) {
+                        try {
+                            d.a();
+                            if (cursor != null) {
+                            }
+                            return z;
+                        } catch (Throwable th) {
+                            if (cursor != null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
+                                } catch (Throwable unused2) {
+                                    d.a();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                }
+                if (cursor != null) {
+                }
+            } catch (Throwable unused3) {
+                d.a();
+            }
+        } catch (Throwable unused4) {
+            cursor = null;
+        }
+        return z;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0038, code lost:
+        if (r11.isClosed() == false) goto L9;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x003a, code lost:
+        r11.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x004c, code lost:
+        if (r11.isClosed() == false) goto L9;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final int c(int i) {
+        Cursor cursor;
+        int i2 = 0;
+        try {
+            try {
+                cursor = this.f11625c.query("pgn", new String[]{"n"}, "k=" + i, null, null, null, null);
+                if (cursor != null) {
+                    try {
+                        if (cursor.moveToFirst()) {
+                            i2 = cursor.getInt(cursor.getColumnIndex("n"));
+                        }
+                    } catch (Throwable unused) {
+                        try {
+                            d.a();
+                            if (cursor != null) {
+                            }
+                            return i2;
+                        } catch (Throwable th) {
+                            if (cursor != null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
+                                } catch (Throwable unused2) {
+                                    d.a();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                }
+                if (cursor != null) {
+                }
+            } catch (Throwable unused3) {
+                cursor = null;
+            }
+        } catch (Throwable unused4) {
+            d.a();
+        }
+        return i2;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x003b, code lost:
+        if (r11.isClosed() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x003d, code lost:
+        r11.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004f, code lost:
+        if (r11.isClosed() == false) goto L8;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean d(int i) {
+        Cursor cursor;
+        boolean z = false;
+        try {
+            try {
+                cursor = this.f11625c.query("pgn", new String[]{"u"}, "k=" + i, null, null, null, null);
+                if (cursor != null) {
+                    try {
+                        if (cursor.moveToFirst()) {
+                            if (cursor.getInt(cursor.getColumnIndex("u")) == 1) {
+                                z = true;
+                            }
+                        }
+                    } catch (Throwable unused) {
+                        try {
+                            d.a();
+                            if (cursor != null) {
+                            }
+                            return z;
+                        } catch (Throwable th) {
+                            if (cursor != null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
+                                } catch (Throwable unused2) {
+                                    d.a();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                }
+                if (cursor != null) {
+                }
+            } catch (Throwable unused3) {
+                d.a();
+            }
+        } catch (Throwable unused4) {
+            cursor = null;
+        }
+        return z;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x008a, code lost:
+        if (r1.isClosed() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0097, code lost:
+        if (r1.isClosed() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0099, code lost:
+        r1.close();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final List<ApkInfo> a() {
+        Cursor cursor;
+        ArrayList arrayList = new ArrayList();
+        try {
+            try {
+                cursor = this.f11625c.query("pgn", null, null, null, null, null, null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        try {
+                            ApkInfo apkInfo = new ApkInfo();
+                            apkInfo.key = cursor.getInt(cursor.getColumnIndex(Config.APP_KEY));
+                            apkInfo.packageName = cursor.getString(cursor.getColumnIndex("p"));
+                            apkInfo.pkgPath = cursor.getString(cursor.getColumnIndex("a"));
+                            apkInfo.libPath = cursor.getString(cursor.getColumnIndex("l"));
+                            apkInfo.versionName = cursor.getString(cursor.getColumnIndex("v"));
+                            apkInfo.startTime = cursor.getLong(cursor.getColumnIndex("st"));
+                            apkInfo.duration = cursor.getInt(cursor.getColumnIndex("du"));
+                            apkInfo.priority = cursor.getInt(cursor.getColumnIndex(Config.PRINCIPAL_PART));
+                            arrayList.add(apkInfo);
+                        } catch (Throwable unused) {
+                            try {
+                                d.a();
+                                if (cursor != null) {
+                                }
+                                return arrayList;
+                            } catch (Throwable th) {
+                                if (cursor != null) {
+                                    try {
+                                        if (!cursor.isClosed()) {
+                                            cursor.close();
+                                        }
+                                    } catch (Throwable unused2) {
+                                        d.a();
+                                    }
+                                }
+                                throw th;
+                            }
+                        }
+                    }
+                }
+                if (cursor != null) {
+                }
+            } catch (Throwable unused3) {
+                d.a();
+            }
+        } catch (Throwable unused4) {
+            cursor = null;
+        }
+        return arrayList;
+    }
+
+    public final void b(int i, int i2) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("pdld", Integer.valueOf(i2));
+        try {
+            SQLiteDatabase sQLiteDatabase = this.f11625c;
+            sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
+        } catch (Throwable unused) {
+            d.a();
+        }
+    }
+
+    public final void c(int i, int i2) {
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(i2));
+            SQLiteDatabase sQLiteDatabase = this.f11625c;
+            sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
+        } catch (Throwable unused) {
+            d.a();
+        }
+    }
+
+    public final ApkInfo b(String str) {
+        ApkInfo apkInfo;
+        ArrayList<com.baidu.sofire.core.b> a2;
+        int size;
+        Cursor cursor = null;
+        r1 = null;
+        ApkInfo apkInfo2 = null;
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            Cursor query = this.f11625c.query("pgn", null, "p=?", new String[]{str}, null, null, null);
+            if (query != null) {
+                try {
+                    if (query.moveToFirst()) {
+                        apkInfo = new ApkInfo();
+                        try {
+                            apkInfo.key = query.getInt(query.getColumnIndex(Config.APP_KEY));
+                            apkInfo.initStatus = query.getInt(query.getColumnIndex("n"));
+                            apkInfo.packageName = query.getString(query.getColumnIndex("p"));
+                            apkInfo.pkgPath = query.getString(query.getColumnIndex("a"));
+                            apkInfo.libPath = query.getString(query.getColumnIndex("l"));
+                            apkInfo.versionName = query.getString(query.getColumnIndex("v"));
+                            apkInfo.dexPath = query.getString(query.getColumnIndex("apk"));
+                            apkInfo.apkParseSuc = query.getInt(query.getColumnIndex("ap"));
+                            apkInfo.className = query.getString(query.getColumnIndex(Config.CELL_LOCATION));
+                            apkInfo.applicationTheme = query.getInt(query.getColumnIndex("th"));
+                            apkInfo.startTime = query.getLong(query.getColumnIndex("st"));
+                            apkInfo.duration = query.getInt(query.getColumnIndex("du"));
+                            apkInfo.apkMD5 = query.getString(query.getColumnIndex("m5"));
+                            apkInfo.priority = query.getInt(query.getColumnIndex(Config.PRINCIPAL_PART));
+                            byte[] blob = query.getBlob(query.getColumnIndex("ac"));
+                            if (blob != null && (a2 = com.baidu.sofire.core.a.a(blob)) != null && (size = a2.size()) > 0) {
+                                apkInfo.activities = new ActivityInfo[size];
+                                for (int i = 0; i < size; i++) {
+                                    ActivityInfo activityInfo = new ActivityInfo();
+                                    activityInfo.theme = a2.get(i).f11650a;
+                                    activityInfo.name = a2.get(i).j;
+                                    activityInfo.configChanges = a2.get(i).f11657h;
+                                    activityInfo.flags = a2.get(i).f11655f;
+                                    activityInfo.labelRes = a2.get(i).l;
+                                    activityInfo.launchMode = a2.get(i).f11651b;
+                                    activityInfo.nonLocalizedLabel = a2.get(i).m;
+                                    activityInfo.packageName = a2.get(i).k;
+                                    activityInfo.permission = a2.get(i).f11652c;
+                                    activityInfo.screenOrientation = a2.get(i).f11656g;
+                                    activityInfo.softInputMode = a2.get(i).i;
+                                    activityInfo.targetActivity = a2.get(i).f11654e;
+                                    activityInfo.taskAffinity = a2.get(i).f11653d;
+                                    apkInfo.activities[i] = activityInfo;
+                                }
+                            }
+                            apkInfo2 = apkInfo;
+                        } catch (Throwable unused) {
+                            cursor = query;
+                            try {
+                                d.a();
+                                return apkInfo;
+                            } finally {
+                                if (cursor != null) {
+                                    try {
+                                        if (!cursor.isClosed()) {
+                                            cursor.close();
+                                        }
+                                    } catch (Throwable unused2) {
+                                        d.a();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch (Throwable unused3) {
+                    apkInfo = null;
+                }
+            }
+            if (query != null) {
+                try {
+                    if (query.isClosed()) {
+                        return apkInfo2;
+                    }
+                    query.close();
+                    return apkInfo2;
+                } catch (Throwable unused4) {
+                    d.a();
+                    return apkInfo2;
+                }
+            }
+            return apkInfo2;
+        } catch (Throwable unused5) {
+            apkInfo = null;
+        }
+    }
+
+    public final ApkInfo a(int i) {
+        ApkInfo apkInfo;
+        ArrayList<com.baidu.sofire.core.b> a2;
+        int size;
+        Cursor cursor = null;
+        r0 = null;
+        ApkInfo apkInfo2 = null;
+        try {
+            Cursor query = this.f11625c.query("pgn", null, "k=" + i, null, null, null, null);
+            if (query != null) {
+                try {
+                    if (query.moveToFirst()) {
+                        apkInfo = new ApkInfo();
+                        try {
+                            apkInfo.key = i;
+                            apkInfo.initStatus = query.getInt(query.getColumnIndex("n"));
+                            apkInfo.packageName = query.getString(query.getColumnIndex("p"));
+                            apkInfo.pkgPath = query.getString(query.getColumnIndex("a"));
+                            apkInfo.libPath = query.getString(query.getColumnIndex("l"));
+                            apkInfo.versionName = query.getString(query.getColumnIndex("v"));
+                            apkInfo.dexPath = query.getString(query.getColumnIndex("apk"));
+                            apkInfo.apkParseSuc = query.getInt(query.getColumnIndex("ap"));
+                            apkInfo.className = query.getString(query.getColumnIndex(Config.CELL_LOCATION));
+                            apkInfo.applicationTheme = query.getInt(query.getColumnIndex("th"));
+                            apkInfo.startTime = query.getLong(query.getColumnIndex("st"));
+                            apkInfo.duration = query.getInt(query.getColumnIndex("du"));
+                            apkInfo.apkMD5 = query.getString(query.getColumnIndex("m5"));
+                            apkInfo.priority = query.getInt(query.getColumnIndex(Config.PRINCIPAL_PART));
+                            byte[] blob = query.getBlob(query.getColumnIndex("ac"));
+                            if (blob != null && (a2 = com.baidu.sofire.core.a.a(blob)) != null && (size = a2.size()) > 0) {
+                                apkInfo.activities = new ActivityInfo[size];
+                                for (int i2 = 0; i2 < size; i2++) {
+                                    ActivityInfo activityInfo = new ActivityInfo();
+                                    activityInfo.theme = a2.get(i2).f11650a;
+                                    activityInfo.name = a2.get(i2).j;
+                                    activityInfo.configChanges = a2.get(i2).f11657h;
+                                    activityInfo.flags = a2.get(i2).f11655f;
+                                    activityInfo.labelRes = a2.get(i2).l;
+                                    activityInfo.launchMode = a2.get(i2).f11651b;
+                                    activityInfo.nonLocalizedLabel = a2.get(i2).m;
+                                    activityInfo.packageName = a2.get(i2).k;
+                                    activityInfo.permission = a2.get(i2).f11652c;
+                                    activityInfo.screenOrientation = a2.get(i2).f11656g;
+                                    activityInfo.softInputMode = a2.get(i2).i;
+                                    activityInfo.targetActivity = a2.get(i2).f11654e;
+                                    activityInfo.taskAffinity = a2.get(i2).f11653d;
+                                    apkInfo.activities[i2] = activityInfo;
+                                }
+                            }
+                            apkInfo2 = apkInfo;
+                        } catch (Throwable unused) {
+                            cursor = query;
+                            try {
+                                d.a();
+                                return apkInfo;
+                            } finally {
+                                if (cursor != null) {
+                                    try {
+                                        if (!cursor.isClosed()) {
+                                            cursor.close();
+                                        }
+                                    } catch (Throwable unused2) {
+                                        d.a();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch (Throwable unused3) {
+                    apkInfo = null;
+                }
+            }
+            if (query != null) {
+                try {
+                    if (query.isClosed()) {
+                        return apkInfo2;
+                    }
+                    query.close();
+                    return apkInfo2;
+                } catch (Throwable unused4) {
+                    d.a();
+                    return apkInfo2;
+                }
+            }
+            return apkInfo2;
+        } catch (Throwable unused5) {
+            apkInfo = null;
+        }
+    }
+
+    public final void a(String str) {
+        new StringBuilder().append(str);
+        b.a();
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            this.f11625c.delete("pgn", "p=?", new String[]{str});
+        } catch (Throwable unused) {
+            d.a();
+        }
+    }
+
+    public final int a(int i, int i2) {
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("u", Integer.valueOf(i2));
+            SQLiteDatabase sQLiteDatabase = this.f11625c;
+            return sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
+        } catch (Throwable unused) {
+            return 0;
+        }
+    }
+
+    public final void a(int i, String str) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(i);
+        sb.append(" v = ");
+        sb.append(str);
+        b.a();
+        if (i <= 0 || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            SQLiteDatabase sQLiteDatabase = this.f11625c;
+            sQLiteDatabase.delete("pgn", "k=" + i + " and v=?", new String[]{str});
+            b.a();
+        } catch (Throwable unused) {
+            d.a();
+        }
     }
 }

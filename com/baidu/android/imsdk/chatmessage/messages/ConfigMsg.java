@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ConfigMsg extends NormalMsg {
     public static final Parcelable.Creator<ConfigMsg> CREATOR = new Parcelable.Creator<ConfigMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ConfigMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,10 +23,29 @@ public class ConfigMsg extends NormalMsg {
             return new ConfigMsg[i];
         }
     };
-    private String dataList;
+    public String dataList;
 
     public String getDataList() {
         return this.dataList;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        return null;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        String jsonContent = getJsonContent();
+        if (!TextUtils.isEmpty(jsonContent)) {
+            try {
+                this.dataList = new JSONObject(jsonContent).optString("data_list");
+                return true;
+            } catch (JSONException e2) {
+                LogUtils.e("TextMsg", "parse json err!", e2);
+            }
+        }
+        return false;
     }
 
     public void setDataList(String str) {
@@ -37,27 +56,7 @@ public class ConfigMsg extends NormalMsg {
         setMsgType(20);
     }
 
-    private ConfigMsg(Parcel parcel) {
+    public ConfigMsg(Parcel parcel) {
         super(parcel);
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        String jsonContent = getJsonContent();
-        if (TextUtils.isEmpty(jsonContent)) {
-            return false;
-        }
-        try {
-            this.dataList = new JSONObject(jsonContent).optString("data_list");
-            return true;
-        } catch (JSONException e) {
-            LogUtils.e("TextMsg", "parse json err!", e);
-            return false;
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        return null;
     }
 }

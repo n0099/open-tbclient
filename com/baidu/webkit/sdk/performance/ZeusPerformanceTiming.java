@@ -9,6 +9,7 @@ import com.baidu.webkit.internal.utils.CommonUtils;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebView;
+import com.baidu.webkit.sdk.ZeusClassLoader;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,105 +18,105 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ZeusPerformanceTiming {
-    private static final String CONFIG_FILE = "startup_timing_log";
-    private static final String KEY_AMOUNT_FREE_DISK_SPACE = "AmountFreeDiskSpace";
-    private static final String KEY_AMOUNT_PHYSICAL_MEMORY = "AmountPhysicalMemory";
-    private static final String KEY_APP_NEW_WEBVIEW = "app_new_webview";
-    private static final String KEY_APP_START_SOURCE = "app_start_source";
+    public static final String CONFIG_FILE = "startup_timing_log";
+    public static final String KEY_AMOUNT_FREE_DISK_SPACE = "AmountFreeDiskSpace";
+    public static final String KEY_AMOUNT_PHYSICAL_MEMORY = "AmountPhysicalMemory";
+    public static final String KEY_APP_NEW_WEBVIEW = "app_new_webview";
+    public static final String KEY_APP_START_SOURCE = "app_start_source";
     public static final String KEY_BROWSER_STARTUP = "p1";
-    private static final String KEY_BROWSER_STARTUP_THREAD = "p1_thread";
-    private static final String KEY_BUILD_DATE_UTC = "BuildDateUTC";
+    public static final String KEY_BROWSER_STARTUP_THREAD = "p1_thread";
+    public static final String KEY_BUILD_DATE_UTC = "BuildDateUTC";
     public static final String KEY_CHECK_USE_T7 = "k_p0";
-    private static final String KEY_CHECK_USE_T7_THREAD = "k_p0_thread";
-    private static final String KEY_CUR_CPU_FREQ = "CurCpuFreq";
-    private static final String KEY_DALVIK_HEAP_SIZE = "DalvikHeapSize";
+    public static final String KEY_CHECK_USE_T7_THREAD = "k_p0_thread";
+    public static final String KEY_CUR_CPU_FREQ = "CurCpuFreq";
+    public static final String KEY_DALVIK_HEAP_SIZE = "DalvikHeapSize";
     public static final String KEY_FETCH_PACKAGE_INFO = "k_p1";
-    private static final String KEY_FETCH_PACKAGE_INFO_THREAD = "k_p1_thread";
-    private static final String KEY_FORCE_INIT_ZEUS = "force_init_zeus";
+    public static final String KEY_FETCH_PACKAGE_INFO_THREAD = "k_p1_thread";
+    public static final String KEY_FORCE_INIT_ZEUS = "force_init_zeus";
     public static final String KEY_GET_PROVIDER = "get_provider";
-    private static final String KEY_GET_PROVIDER_THREAD = "get_provider_thread";
-    private static final String KEY_GET_PROVIDER_THREAD_TIME = "get_provider_thread_time";
-    private static final String KEY_INIT_START = "init_start";
+    public static final String KEY_GET_PROVIDER_THREAD = "get_provider_thread";
+    public static final String KEY_GET_PROVIDER_THREAD_TIME = "get_provider_thread_time";
+    public static final String KEY_INIT_START = "init_start";
     public static final String KEY_INIT_SYS_WEBKIT = "init_sys_webkit";
     public static final String KEY_INIT_WEBKIT = "init_webkit";
-    private static final String KEY_INIT_WEBKIT_START_TIMESTAMP = "init_webkit_start_timestamp";
-    private static final String KEY_INIT_WEBKIT_THREAD = "init_webkit_thread";
-    private static final String KEY_INIT_WEBVIEW_START_TIMESTAMP = "init_webview_start_timestamp";
-    private static final String KEY_INIT_WEBVIEW_THREAD_START_TIMESTAMP = "init_webview_thread_start_timestamp";
-    private static final String KEY_IS_GET_PROVIDER_HIT_SYNCHRONIZED = "is_get_provider_hit_synchronized";
-    private static final String KEY_IS_PROCESS_MAIN = "is_process_main";
-    private static final String KEY_MAX_CPU_FREQ = "MaxCpuFreq";
-    private static final String KEY_MEMORY = "memory";
-    private static final String KEY_MIN_CPU_FREQ = "MinCpuFreq";
+    public static final String KEY_INIT_WEBKIT_START_TIMESTAMP = "init_webkit_start_timestamp";
+    public static final String KEY_INIT_WEBKIT_THREAD = "init_webkit_thread";
+    public static final String KEY_INIT_WEBVIEW_START_TIMESTAMP = "init_webview_start_timestamp";
+    public static final String KEY_INIT_WEBVIEW_THREAD_START_TIMESTAMP = "init_webview_thread_start_timestamp";
+    public static final String KEY_IS_GET_PROVIDER_HIT_SYNCHRONIZED = "is_get_provider_hit_synchronized";
+    public static final String KEY_IS_PROCESS_MAIN = "is_process_main";
+    public static final String KEY_MAX_CPU_FREQ = "MaxCpuFreq";
+    public static final String KEY_MEMORY = "memory";
+    public static final String KEY_MIN_CPU_FREQ = "MinCpuFreq";
     public static final String KEY_NEW_SYS_WEBVIEW = "new_sys_webview";
-    private static final String KEY_NEW_WEBVIEW = "new_webview";
+    public static final String KEY_NEW_WEBVIEW = "new_webview";
     public static final String KEY_NEW_WEBVIEW_METHOD = "new_webview_method";
-    private static final String KEY_NEW_WEBVIEW_METHOD_THREAD = "new_webview_method_thread";
-    private static final String KEY_NEW_WEBVIEW_THREAD = "new_webview_thread";
+    public static final String KEY_NEW_WEBVIEW_METHOD_THREAD = "new_webview_method_thread";
+    public static final String KEY_NEW_WEBVIEW_THREAD = "new_webview_thread";
     public static final String KEY_NEW_ZEUS_CL = "k_p2";
-    private static final String KEY_NEW_ZEUS_CL_THREAD = "k_p2_thread";
-    private static final String KEY_NUM_PROCESSORS = "NumProcessors";
-    private static final String KEY_PROVIDER_HIT_SYNCHRONIZED_STACK = "provider_hit_synchronized_stack";
-    private static final String KEY_PROVIDER_MTHREAD_STACK = "provider_mthread_stack";
+    public static final String KEY_NEW_ZEUS_CL_THREAD = "k_p2_thread";
+    public static final String KEY_NUM_PROCESSORS = "NumProcessors";
+    public static final String KEY_PROVIDER_HIT_SYNCHRONIZED_STACK = "provider_hit_synchronized_stack";
+    public static final String KEY_PROVIDER_MTHREAD_STACK = "provider_mthread_stack";
     public static final String KEY_T7_CHROMIUM_PROVIDER_INIT = "k_p3";
     public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_STEP0 = "k_p3_s0";
     public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_STEP1 = "k_p3_s1";
     public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_STEP2 = "k_p3_s2";
     public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_STEP3 = "k_p3_s3";
-    private static final String KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD = "k_p3_thread";
-    private static final String KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP0 = "k_p3_s0_thread";
-    private static final String KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP1 = "k_p3_s1_thread";
-    private static final String KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP2 = "k_p3_s2_thread";
-    private static final String KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP3 = "k_p3_s3_thread";
-    private static final String KEY_TYPE = "type";
+    public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD = "k_p3_thread";
+    public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP0 = "k_p3_s0_thread";
+    public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP1 = "k_p3_s1_thread";
+    public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP2 = "k_p3_s2_thread";
+    public static final String KEY_T7_CHROMIUM_PROVIDER_INIT_THREAD_STEP3 = "k_p3_s3_thread";
+    public static final String KEY_TYPE = "type";
     public static final String KEY_UNZIP = "unzip";
-    private static final String KEY_UNZIP_END_DIFF = "unzip_end_diff";
-    private static final String KEY_UNZIP_START_DIFF = "unzip_start_diff";
-    private static final String KEY_UNZIP_THREAD = "unzip_thread";
-    private static final String KEY_WEBKIT_INIT_STATISTICS = "webkit_init_statistics";
-    private static final String KEY_WEBKIT_WEBVIEW_START_DIFF = "init_webkit_webview_start_diff";
+    public static final String KEY_UNZIP_END_DIFF = "unzip_end_diff";
+    public static final String KEY_UNZIP_START_DIFF = "unzip_start_diff";
+    public static final String KEY_UNZIP_THREAD = "unzip_thread";
+    public static final String KEY_WEBKIT_INIT_STATISTICS = "webkit_init_statistics";
+    public static final String KEY_WEBKIT_WEBVIEW_START_DIFF = "init_webkit_webview_start_diff";
     public static final String KEY_WEBVIEWCHROMIUM_CONSTRUCT = "p0";
-    private static final String KEY_WEBVIEWCHROMIUM_CONSTRUCT_THREAD = "p0_thread";
+    public static final String KEY_WEBVIEWCHROMIUM_CONSTRUCT_THREAD = "p0_thread";
     public static final String KEY_WEBVIEWCHROMIUM_INIT = "webviewchromium_init";
     public static final String KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL = "p4";
-    private static final String KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL_THREAD = "p4_thread";
-    private static final String KEY_WEBVIEWCHROMIUM_INIT_THREAD = "webviewchromium_init_thread";
+    public static final String KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL_THREAD = "p4_thread";
+    public static final String KEY_WEBVIEWCHROMIUM_INIT_THREAD = "webviewchromium_init_thread";
     public static final String KEY_WEBVIEW_CONTENT_CLIENT_ADAPTER_CREATED = "p2";
-    private static final String KEY_WEBVIEW_CONTENT_CLIENT_ADAPTER_CREATED_THREAD = "p2_thread";
+    public static final String KEY_WEBVIEW_CONTENT_CLIENT_ADAPTER_CREATED_THREAD = "p2_thread";
     public static final String KEY_WEBVIEW_DEFAULT_SETTINGS = "p5";
-    private static final String KEY_WEBVIEW_DEFAULT_SETTINGS_THREAD = "p5_thread";
+    public static final String KEY_WEBVIEW_DEFAULT_SETTINGS_THREAD = "p5_thread";
     public static final String KEY_WEBVIEW_PROVIDER_INIT = "webview_provider_init";
-    private static final String KEY_WEBVIEW_PROVIDER_INIT_THREAD = "webview_provider_init_thread";
+    public static final String KEY_WEBVIEW_PROVIDER_INIT_THREAD = "webview_provider_init_thread";
     public static final String KEY_WEBVIEW_WAITING_RESOURCE = "webview_waiting_resource";
     public static final String KEY_WEBVIEW_ZWSETTINGS_CREATED = "p3";
-    private static final String KEY_WEBVIEW_ZWSETTINGS_CREATED_THREAD = "p3_thread";
-    private static final String KEY_ZEUS_WEBVIEW_LOAD_CLASS = "zeus_webview_load_class";
-    private static final int MONITOR_TYPE_STARTUP_TIMING = 12300;
+    public static final String KEY_WEBVIEW_ZWSETTINGS_CREATED_THREAD = "p3_thread";
+    public static final String KEY_ZEUS_WEBVIEW_LOAD_CLASS = "zeus_webview_load_class";
+    public static final int MONITOR_TYPE_STARTUP_TIMING = 12300;
     public static final int RECORD_FROM_FORCE_INIT = 2;
     public static final int RECORD_FROM_WEBVIEW_INIT = 1;
     public static final String SERVER_TYPE_T7_INIT = "t7_init";
-    private static long mInitOnAppStart;
-    private static boolean mIsForceInitT7;
-    private static boolean mIsGetProviderHitSynchronized;
-    private static boolean mIsMainThread;
-    private static String mMainThreadStack;
-    private static String mProviderHitSynchronizedStack;
-    private static JSONObject mWebkitInitStatistics;
-    private static int mZeusWebViewLoadClassTime;
-    private static String sAppStartSource;
-    private static boolean sLogEnabled;
-    private static int sRecordType;
-    private static boolean sUploaded;
-    private static long sWebViewInitTiming;
-    private static List<Long> sWebViewInitTimingList = new ArrayList();
-    private static ConcurrentHashMap<String, Long> sStartTimeStamps = new ConcurrentHashMap<>();
-    private static ConcurrentHashMap<String, Long> sEndTimeStamps = new ConcurrentHashMap<>();
-    private static ConcurrentHashMap<String, Long> sStartThreadTimeStamps = new ConcurrentHashMap<>();
-    private static ConcurrentHashMap<String, Long> sEndThreadTimeStamps = new ConcurrentHashMap<>();
+    public static long mInitOnAppStart;
+    public static boolean mIsForceInitT7;
+    public static boolean mIsGetProviderHitSynchronized;
+    public static boolean mIsMainThread;
+    public static String mMainThreadStack;
+    public static String mProviderHitSynchronizedStack;
+    public static JSONObject mWebkitInitStatistics;
+    public static int mZeusWebViewLoadClassTime;
+    public static String sAppStartSource;
+    public static boolean sLogEnabled;
+    public static int sRecordType;
+    public static boolean sUploaded;
+    public static long sWebViewInitTiming;
+    public static List<Long> sWebViewInitTimingList = new ArrayList();
+    public static ConcurrentHashMap<String, Long> sStartTimeStamps = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, Long> sEndTimeStamps = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, Long> sStartThreadTimeStamps = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, Long> sEndThreadTimeStamps = new ConcurrentHashMap<>();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum Stage {
         Start,
         End
@@ -125,23 +126,26 @@ public class ZeusPerformanceTiming {
         mIsForceInitT7 = true;
     }
 
-    private static boolean getBooleanFromFile() {
+    public static boolean getBooleanFromFile() {
+        StringBuilder sb;
         if (WebKitFactory.getContext() == null) {
             return false;
         }
         try {
-            return new File(new StringBuilder().append(WebKitFactory.getContext().getExternalFilesDir("").getAbsolutePath()).append("/startup_timing_log").toString()).exists();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+            sb = new StringBuilder();
+            sb.append(WebKitFactory.getContext().getExternalFilesDir("").getAbsolutePath());
+            sb.append("/startup_timing_log");
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
+        return new File(sb.toString()).exists();
     }
 
-    private static long getCurrentThreadTimeMillis(long j) {
+    public static long getCurrentThreadTimeMillis(long j) {
         return j == 0 ? SystemClock.currentThreadTimeMillis() : j;
     }
 
-    private static long getCurrentTimeMillis(long j) {
+    public static long getCurrentTimeMillis(long j) {
         return j == 0 ? System.currentTimeMillis() : j;
     }
 
@@ -152,6 +156,7 @@ public class ZeusPerformanceTiming {
             if (longValue > longValue2) {
                 return longValue - longValue2;
             }
+            return 0L;
         }
         return 0L;
     }
@@ -163,6 +168,7 @@ public class ZeusPerformanceTiming {
             if (longValue > longValue2) {
                 return longValue - longValue2;
             }
+            return 0L;
         }
         return 0L;
     }
@@ -176,7 +182,7 @@ public class ZeusPerformanceTiming {
         return sb.toString();
     }
 
-    private static long getTimeStampFromMap(Map<String, Long> map, String str) {
+    public static long getTimeStampFromMap(Map<String, Long> map, String str) {
         if (map == null || str == null || !map.containsKey(str)) {
             return 0L;
         }
@@ -208,7 +214,7 @@ public class ZeusPerformanceTiming {
             long longValue = sStartTimeStamps.get(KEY_INIT_WEBKIT).longValue();
             makeTimingFormat(sb, "shouldUseSystemWebView   ", getTimeStampFromMap(sStartTimeStamps, KEY_CHECK_USE_T7), getTimeStampFromMap(sEndTimeStamps, KEY_CHECK_USE_T7), longValue);
             makeTimingFormat(sb, "fetchDefaultPackageInfo   ", getTimeStampFromMap(sStartTimeStamps, KEY_FETCH_PACKAGE_INFO), getTimeStampFromMap(sEndTimeStamps, KEY_FETCH_PACKAGE_INFO), longValue);
-            makeTimingFormat(sb, "ZeusClassLoader", getTimeStampFromMap(sStartTimeStamps, KEY_NEW_ZEUS_CL), getTimeStampFromMap(sEndTimeStamps, KEY_NEW_ZEUS_CL), longValue);
+            makeTimingFormat(sb, ZeusClassLoader.TAG, getTimeStampFromMap(sStartTimeStamps, KEY_NEW_ZEUS_CL), getTimeStampFromMap(sEndTimeStamps, KEY_NEW_ZEUS_CL), longValue);
             makeTimingFormat(sb, "unzip          ", getTimeStampFromMap(sStartTimeStamps, KEY_UNZIP), getTimeStampFromMap(sEndTimeStamps, KEY_UNZIP), longValue);
             makeTimingFormat(sb, "newWebViewChromiumFactoryProviderInstance   ", getTimeStampFromMap(sStartTimeStamps, KEY_T7_CHROMIUM_PROVIDER_INIT), getTimeStampFromMap(sEndTimeStamps, KEY_T7_CHROMIUM_PROVIDER_INIT), longValue);
             makeTimingFormat(sb, "initProvider   ", getTimeStampFromMap(sStartTimeStamps, KEY_GET_PROVIDER), getTimeStampFromMap(sEndTimeStamps, KEY_GET_PROVIDER), longValue);
@@ -299,8 +305,8 @@ public class ZeusPerformanceTiming {
             jSONObject.putOpt(KEY_APP_START_SOURCE, sAppStartSource);
             jSONObject.putOpt(KEY_WEBKIT_INIT_STATISTICS, mWebkitInitStatistics);
             return jSONObject.toString();
-        } catch (JSONException e) {
-            Log.printStackTrace(e);
+        } catch (JSONException e2) {
+            Log.printStackTrace(e2);
             return null;
         }
     }
@@ -318,7 +324,8 @@ public class ZeusPerformanceTiming {
     }
 
     public static String initProviderMainThreadStack() {
-        return mMainThreadStack != null ? mMainThreadStack : "";
+        String str = mMainThreadStack;
+        return str != null ? str : "";
     }
 
     public static long initWebkitStartTime() {
@@ -333,7 +340,7 @@ public class ZeusPerformanceTiming {
         return mIsForceInitT7;
     }
 
-    private static void makeTimingFormat(StringBuilder sb, String str, long j, long j2, long j3) {
+    public static void makeTimingFormat(StringBuilder sb, String str, long j, long j2, long j3) {
         if (sb == null || str == null || j <= 0 || j2 <= 0) {
             return;
         }
@@ -352,33 +359,20 @@ public class ZeusPerformanceTiming {
         return getRecordedTime(KEY_WEBVIEWCHROMIUM_CONSTRUCT) + getRecordedTime(KEY_BROWSER_STARTUP) + getRecordedTime("p2") + getRecordedTime(KEY_WEBVIEW_ZWSETTINGS_CREATED) + getRecordedTime(KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL) + getRecordedTime(KEY_WEBVIEW_DEFAULT_SETTINGS);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00d2, code lost:
-        if (r7.equals(com.baidu.webkit.sdk.performance.ZeusPerformanceTiming.KEY_NEW_WEBVIEW_METHOD) != false) goto L37;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void record(Stage stage, String str) {
-        char c = 65535;
-        boolean z = false;
         if (str == null) {
             return;
         }
+        char c2 = 65535;
         if (Stage.Start != stage) {
             if (Stage.End == stage) {
                 if (!sEndTimeStamps.containsKey(str)) {
                     sEndTimeStamps.put(str, Long.valueOf(System.currentTimeMillis()));
-                    switch (str.hashCode()) {
-                        case -2077939610:
-                            break;
-                        default:
-                            z = true;
-                            break;
+                    if (str.hashCode() == -2077939610 && str.equals(KEY_NEW_WEBVIEW_METHOD)) {
+                        c2 = 0;
                     }
-                    switch (z) {
-                        case false:
-                            sWebViewInitTimingList.add(Long.valueOf(System.currentTimeMillis() - sWebViewInitTiming));
-                            break;
+                    if (c2 == 0) {
+                        sWebViewInitTimingList.add(Long.valueOf(System.currentTimeMillis() - sWebViewInitTiming));
                     }
                 }
                 if (sEndThreadTimeStamps.containsKey(str)) {
@@ -391,33 +385,23 @@ public class ZeusPerformanceTiming {
         }
         if (!sStartTimeStamps.containsKey(str)) {
             sStartTimeStamps.put(str, Long.valueOf(System.currentTimeMillis()));
-            switch (str.hashCode()) {
-                case -2077939610:
-                    if (str.equals(KEY_NEW_WEBVIEW_METHOD)) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 1384417466:
-                    if (str.equals(KEY_GET_PROVIDER)) {
-                        c = 0;
-                        break;
-                    }
-                    break;
+            int hashCode = str.hashCode();
+            if (hashCode != -2077939610) {
+                if (hashCode == 1384417466 && str.equals(KEY_GET_PROVIDER)) {
+                    c2 = 0;
+                }
+            } else if (str.equals(KEY_NEW_WEBVIEW_METHOD)) {
+                c2 = 1;
             }
-            switch (c) {
-                case 0:
-                    boolean z2 = Looper.getMainLooper() == Looper.myLooper();
-                    mIsMainThread = z2;
-                    if (z2) {
-                        mMainThreadStack = android.util.Log.getStackTraceString(new NullPointerException());
-                        android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit on MainThread  : " + mMainThreadStack);
-                        break;
-                    }
-                    break;
-                case 1:
-                    sWebViewInitTiming = System.currentTimeMillis();
-                    break;
+            if (c2 == 0) {
+                boolean z = Looper.getMainLooper() == Looper.myLooper();
+                mIsMainThread = z;
+                if (z) {
+                    mMainThreadStack = android.util.Log.getStackTraceString(new NullPointerException());
+                    android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit on MainThread  : " + mMainThreadStack);
+                }
+            } else if (c2 == 1) {
+                sWebViewInitTiming = System.currentTimeMillis();
             }
         }
         if (sStartThreadTimeStamps.containsKey(str)) {
@@ -430,18 +414,18 @@ public class ZeusPerformanceTiming {
         if (sUploaded) {
             return;
         }
-        sRecordType |= i;
-        if (WebKitFactory.isForceInitT7() && sRecordType != 3) {
-            Log.i("ZeusPerformanceTiming", "wait forceT7Init and WebView inited, sRecordType=" + sRecordType);
+        sRecordType = i | sRecordType;
+        if (!WebKitFactory.isForceInitT7() || sRecordType == 3) {
+            ZeusThreadPoolUtil.executeIgnoreZeus(new Runnable() { // from class: com.baidu.webkit.sdk.performance.ZeusPerformanceTiming.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    ZeusPerformanceTiming.upload();
+                }
+            });
+            sUploaded = true;
             return;
         }
-        ZeusThreadPoolUtil.executeIgnoreZeus(new Runnable() { // from class: com.baidu.webkit.sdk.performance.ZeusPerformanceTiming.1
-            @Override // java.lang.Runnable
-            public void run() {
-                ZeusPerformanceTiming.upload();
-            }
-        });
-        sUploaded = true;
+        Log.i("ZeusPerformanceTiming", "wait forceT7Init and WebView inited, sRecordType=" + sRecordType);
     }
 
     public static void setAppStartSource(String str) {
@@ -477,7 +461,6 @@ public class ZeusPerformanceTiming {
         return getTimeStampFromMap(sStartTimeStamps, KEY_NEW_ZEUS_CL) - getTimeStampFromMap(sStartTimeStamps, KEY_UNZIP);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void upload() {
         try {
             sLogEnabled = getBooleanFromFile();
@@ -488,8 +471,8 @@ public class ZeusPerformanceTiming {
             if (zeusPerformanceTiming != null) {
                 SessionMonitorEngine.getInstance().recordImmediately(SERVER_TYPE_T7_INIT, zeusPerformanceTiming);
             }
-        } catch (Exception e) {
-            Log.printStackTrace(e);
+        } catch (Exception e2) {
+            Log.printStackTrace(e2);
         }
     }
 

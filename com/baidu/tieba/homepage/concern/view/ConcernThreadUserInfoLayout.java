@@ -4,12 +4,36 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
-/* loaded from: classes2.dex */
+import d.b.h0.r.q.a2;
+/* loaded from: classes4.dex */
 public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     public ConcernThreadUserInfoLayout(Context context) {
         super(context);
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
+    public boolean j(a2 a2Var) {
+        if (super.j(a2Var)) {
+            this.i.setVisibility(8);
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
+    public void s(a2 a2Var) {
+        if (a2Var != null && !StringUtils.isNull(a2Var.V0())) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
+            if (layoutParams != null && layoutParams.bottomMargin != 0) {
+                layoutParams.bottomMargin = 0;
+                this.m.setLayoutParams(layoutParams);
+            }
+            this.m.setText(a2Var.V0());
+            this.m.setVisibility(0);
+            return;
+        }
+        this.m.setVisibility(8);
     }
 
     public ConcernThreadUserInfoLayout(Context context, AttributeSet attributeSet) {
@@ -18,29 +42,5 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
 
     public ConcernThreadUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    public boolean setData(cb cbVar) {
-        if (super.setData(cbVar)) {
-            this.alt.setVisibility(8);
-            return true;
-        }
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    protected void j(cb cbVar) {
-        if (cbVar == null || StringUtils.isNull(cbVar.blq())) {
-            this.aly.setVisibility(8);
-            return;
-        }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aly.getLayoutParams();
-        if (layoutParams != null && layoutParams.bottomMargin != 0) {
-            layoutParams.bottomMargin = 0;
-            this.aly.setLayoutParams(layoutParams);
-        }
-        this.aly.setText(cbVar.blq());
-        this.aly.setVisibility(0);
     }
 }

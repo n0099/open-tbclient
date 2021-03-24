@@ -9,45 +9,49 @@ import com.bytedance.sdk.openadsdk.TTCustomController;
 import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.h;
-import com.ss.android.a.a.a.h;
-import com.ss.android.a.a.a.q;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import d.o.a.a.a.a.h;
+import d.o.a.a.a.a.q;
+import d.o.a.d.n.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<Context> f4703a;
+    public final WeakReference<Context> f29189a;
 
     public d(Context context) {
-        this.f4703a = new WeakReference<>(context);
+        this.f29189a = new WeakReference<>(context);
     }
 
-    @Override // com.ss.android.a.a.a.h
+    @Override // d.o.a.a.a.a.h
+    public void a(@NonNull Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    }
+
+    @Override // d.o.a.a.a.a.h
     public void a(@NonNull Activity activity, @NonNull final String[] strArr, final q qVar) {
         boolean z;
-        TTCustomController e;
+        TTCustomController e2;
         if (strArr != null && strArr.length > 0) {
             int length = strArr.length;
             int i = 0;
             while (true) {
-                if (i < length) {
-                    if (!"android.permission.WRITE_EXTERNAL_STORAGE".equalsIgnoreCase(strArr[i])) {
-                        i++;
-                    } else {
-                        z = true;
-                        break;
-                    }
-                } else {
+                if (i >= length) {
                     z = false;
                     break;
+                } else if (StorageUtils.EXTERNAL_STORAGE_PERMISSION.equalsIgnoreCase(strArr[i])) {
+                    z = true;
+                    break;
+                } else {
+                    i++;
                 }
             }
-            if (z && (e = i.d().e()) != null && qVar != null && !e.isCanUseWriteExternal()) {
-                qVar.a("android.permission.WRITE_EXTERNAL_STORAGE");
+            if (z && (e2 = i.d().e()) != null && qVar != null && !e2.isCanUseWriteExternal()) {
+                qVar.a(StorageUtils.EXTERNAL_STORAGE_PERMISSION);
                 return;
             }
         }
-        if (Build.VERSION.SDK_INT >= 23 && com.ss.android.downloadlib.f.i.a((Context) activity) < 23) {
+        if (Build.VERSION.SDK_INT >= 23 && k.a(activity) < 23) {
             if (qVar != null) {
                 qVar.a();
             }
@@ -63,36 +67,34 @@ public class d implements h {
             com.bytedance.sdk.openadsdk.utils.h.a(String.valueOf(hashCode), strArr, new h.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.d.1
                 @Override // com.bytedance.sdk.openadsdk.utils.h.a
                 public void a() {
-                    if (qVar != null) {
-                        qVar.a();
+                    q qVar2 = qVar;
+                    if (qVar2 != null) {
+                        qVar2.a();
                     }
-                    com.bytedance.sdk.openadsdk.g.a.a().a(true, strArr);
+                    com.bytedance.sdk.openadsdk.h.a.a().a(true, strArr);
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.utils.h.a
                 public void a(String str2) {
-                    if (qVar != null) {
-                        qVar.a(str2);
+                    q qVar2 = qVar;
+                    if (qVar2 != null) {
+                        qVar2.a(str2);
                     }
-                    com.bytedance.sdk.openadsdk.g.a.a().a(false, new String[]{str2});
+                    com.bytedance.sdk.openadsdk.h.a.a().a(false, new String[]{str2});
                 }
             });
         }
     }
 
-    @Override // com.ss.android.a.a.a.h
+    @Override // d.o.a.a.a.a.h
     public boolean a(@Nullable Context context, @NonNull String str) {
-        TTCustomController e;
-        if ("android.permission.WRITE_EXTERNAL_STORAGE".equalsIgnoreCase(str) && (e = i.d().e()) != null && !e.isCanUseWriteExternal()) {
-            return false;
+        TTCustomController e2;
+        if (!StorageUtils.EXTERNAL_STORAGE_PERMISSION.equalsIgnoreCase(str) || (e2 = i.d().e()) == null || e2.isCanUseWriteExternal()) {
+            if (context == null) {
+                context = p.a();
+            }
+            return com.bytedance.sdk.openadsdk.core.f.d.a().a(context, str);
         }
-        if (context == null) {
-            context = p.a();
-        }
-        return com.bytedance.sdk.openadsdk.core.f.d.a().a(context, str);
-    }
-
-    @Override // com.ss.android.a.a.a.h
-    public void a(@NonNull Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        return false;
     }
 }

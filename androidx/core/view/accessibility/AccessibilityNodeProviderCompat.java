@@ -8,17 +8,17 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class AccessibilityNodeProviderCompat {
     public static final int HOST_VIEW_ID = -1;
-    private final Object mProvider;
+    public final Object mProvider;
 
     @RequiresApi(16)
-    /* loaded from: classes14.dex */
-    static class AccessibilityNodeProviderApi16 extends AccessibilityNodeProvider {
-        final AccessibilityNodeProviderCompat mCompat;
+    /* loaded from: classes.dex */
+    public static class AccessibilityNodeProviderApi16 extends AccessibilityNodeProvider {
+        public final AccessibilityNodeProviderCompat mCompat;
 
-        AccessibilityNodeProviderApi16(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
+        public AccessibilityNodeProviderApi16(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
             this.mCompat = accessibilityNodeProviderCompat;
         }
 
@@ -52,9 +52,9 @@ public class AccessibilityNodeProviderCompat {
     }
 
     @RequiresApi(19)
-    /* loaded from: classes14.dex */
-    static class AccessibilityNodeProviderApi19 extends AccessibilityNodeProviderApi16 {
-        AccessibilityNodeProviderApi19(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
+    /* loaded from: classes.dex */
+    public static class AccessibilityNodeProviderApi19 extends AccessibilityNodeProviderApi16 {
+        public AccessibilityNodeProviderApi19(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
             super(accessibilityNodeProviderCompat);
         }
 
@@ -69,30 +69,19 @@ public class AccessibilityNodeProviderCompat {
     }
 
     public AccessibilityNodeProviderCompat() {
-        if (Build.VERSION.SDK_INT >= 19) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 19) {
             this.mProvider = new AccessibilityNodeProviderApi19(this);
-        } else if (Build.VERSION.SDK_INT >= 16) {
+        } else if (i >= 16) {
             this.mProvider = new AccessibilityNodeProviderApi16(this);
         } else {
             this.mProvider = null;
         }
     }
 
-    public AccessibilityNodeProviderCompat(Object obj) {
-        this.mProvider = obj;
-    }
-
-    public Object getProvider() {
-        return this.mProvider;
-    }
-
     @Nullable
     public AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int i) {
         return null;
-    }
-
-    public boolean performAction(int i, int i2, Bundle bundle) {
-        return false;
     }
 
     @Nullable
@@ -103,5 +92,17 @@ public class AccessibilityNodeProviderCompat {
     @Nullable
     public AccessibilityNodeInfoCompat findFocus(int i) {
         return null;
+    }
+
+    public Object getProvider() {
+        return this.mProvider;
+    }
+
+    public boolean performAction(int i, int i2, Bundle bundle) {
+        return false;
+    }
+
+    public AccessibilityNodeProviderCompat(Object obj) {
+        this.mProvider = obj;
     }
 }

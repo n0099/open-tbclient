@@ -6,17 +6,21 @@ import com.kwad.sdk.glide.load.engine.s;
 import com.kwad.sdk.glide.webp.WebpHeaderParser;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g implements com.kwad.sdk.glide.load.f<InputStream, k> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f6847a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.StreamWebpDecoder.DisableAnimation", false);
-    private final com.kwad.sdk.glide.load.f<ByteBuffer, k> b;
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b c;
+    public static final com.kwad.sdk.glide.load.d<Boolean> f35838a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.StreamWebpDecoder.DisableAnimation", Boolean.FALSE);
+
+    /* renamed from: b  reason: collision with root package name */
+    public final com.kwad.sdk.glide.load.f<ByteBuffer, k> f35839b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35840c;
 
     public g(com.kwad.sdk.glide.load.f<ByteBuffer, k> fVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.b = fVar;
-        this.c = bVar;
+        this.f35839b = fVar;
+        this.f35840c = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,15 +31,15 @@ public class g implements com.kwad.sdk.glide.load.f<InputStream, k> {
         if (a2 == null) {
             return null;
         }
-        return this.b.a(ByteBuffer.wrap(a2), i, i2, eVar);
+        return this.f35839b.a(ByteBuffer.wrap(a2), i, i2, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(@NonNull InputStream inputStream, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f6847a)).booleanValue()) {
+        if (((Boolean) eVar.a(f35838a)).booleanValue()) {
             return false;
         }
-        return WebpHeaderParser.c(WebpHeaderParser.a(inputStream, this.c));
+        return WebpHeaderParser.c(WebpHeaderParser.a(inputStream, this.f35840c));
     }
 }

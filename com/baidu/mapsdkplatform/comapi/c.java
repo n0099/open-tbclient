@@ -7,14 +7,14 @@ import com.baidu.mapapi.JNIInitializer;
 import com.baidu.mapapi.common.EnvironmentUtilities;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f2202a;
+    public static boolean f7526a;
 
     public static void a(Context context, boolean z, String str, String str2) {
-        if (f2202a) {
+        if (f7526a) {
             return;
         }
         if (context == null) {
@@ -31,10 +31,10 @@ public class c {
         if (a(str2)) {
             EnvironmentUtilities.setSDCardPath(str2);
         }
-        f2202a = true;
+        f7526a = true;
     }
 
-    private static boolean a(String str) {
+    public static boolean a(String str) {
         if (str == null || str.isEmpty()) {
             return false;
         }
@@ -46,10 +46,11 @@ public class c {
             file.createNewFile();
             if (file.exists()) {
                 file.delete();
+                return true;
             }
             return true;
-        } catch (IOException e) {
-            Log.e("SDKInitializer", "SDCard cache path invalid", e);
+        } catch (IOException e2) {
+            Log.e("SDKInitializer", "SDCard cache path invalid", e2);
             throw new IllegalArgumentException("Provided sdcard cache path invalid can not used.");
         }
     }

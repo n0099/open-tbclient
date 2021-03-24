@@ -4,31 +4,34 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class BazhuInfoData extends OrmObject {
     public ArrayList<BaInfo> bazhu_info;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static class BaInfo extends OrmObject implements Parcelable {
-        public static final Parcelable.Creator<BaInfo> CREATOR = new Parcelable.Creator<BaInfo>() { // from class: com.baidu.tbadk.data.BazhuInfoData.BaInfo.1
+        public static final Parcelable.Creator<BaInfo> CREATOR = new a();
+        public String forum_Avatar;
+        public int forum_id;
+        public String forum_name;
+        public boolean isChecked;
+
+        /* loaded from: classes3.dex */
+        public static class a implements Parcelable.Creator<BaInfo> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: S */
+            /* renamed from: a */
             public BaInfo createFromParcel(Parcel parcel) {
                 return new BaInfo(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: qM */
+            /* renamed from: b */
             public BaInfo[] newArray(int i) {
                 return new BaInfo[i];
             }
-        };
-        public String forum_Avatar;
-        public int forum_id;
-        public String forum_name;
-        public boolean isChecked;
+        }
 
         public BaInfo() {
         }
@@ -46,7 +49,7 @@ public class BazhuInfoData extends OrmObject {
             parcel.writeByte(this.isChecked ? (byte) 1 : (byte) 0);
         }
 
-        protected BaInfo(Parcel parcel) {
+        public BaInfo(Parcel parcel) {
             this.forum_id = parcel.readInt();
             this.forum_name = parcel.readString();
             this.forum_Avatar = parcel.readString();

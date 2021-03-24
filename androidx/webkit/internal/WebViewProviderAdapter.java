@@ -7,16 +7,12 @@ import androidx.webkit.WebViewCompat;
 import java.lang.reflect.InvocationHandler;
 import org.chromium.support_lib_boundary.WebViewProviderBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class WebViewProviderAdapter {
-    WebViewProviderBoundaryInterface mImpl;
+    public WebViewProviderBoundaryInterface mImpl;
 
     public WebViewProviderAdapter(WebViewProviderBoundaryInterface webViewProviderBoundaryInterface) {
         this.mImpl = webViewProviderBoundaryInterface;
-    }
-
-    public void insertVisualStateCallback(long j, WebViewCompat.VisualStateCallback visualStateCallback) {
-        this.mImpl.insertVisualStateCallback(j, BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new VisualStateCallbackAdapter(visualStateCallback)));
     }
 
     public WebMessagePortCompat[] createWebMessageChannel() {
@@ -26,6 +22,10 @@ public class WebViewProviderAdapter {
             webMessagePortCompatArr[i] = new WebMessagePortImpl(createWebMessageChannel[i]);
         }
         return webMessagePortCompatArr;
+    }
+
+    public void insertVisualStateCallback(long j, WebViewCompat.VisualStateCallback visualStateCallback) {
+        this.mImpl.insertVisualStateCallback(j, BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new VisualStateCallbackAdapter(visualStateCallback)));
     }
 
     public void postWebMessage(WebMessageCompat webMessageCompat, Uri uri) {

@@ -12,19 +12,18 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
-import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PacDownload implements IResourceTask, INetListener {
-    private static final String LOG_TAG = "PacDownload";
-    private static boolean mDownloading;
+    public static final String LOG_TAG = "PacDownload";
+    public static boolean mDownloading;
     public static boolean mPacFreeFlowSucced;
     public static boolean mPacSucced;
-    private static WebSettings.ProxyType mPacType = WebSettings.ProxyType.NO_PROXY;
-    private ByteArrayOutputStream mData = null;
-    private boolean mFreeFlowEnabled;
-    private Map<String, String> mHeader;
+    public static WebSettings.ProxyType mPacType = WebSettings.ProxyType.NO_PROXY;
+    public ByteArrayOutputStream mData = null;
+    public boolean mFreeFlowEnabled;
+    public Map<String, String> mHeader;
 
     private boolean getFreeFlowEnabled() {
         return this.mFreeFlowEnabled;
@@ -45,10 +44,10 @@ public class PacDownload implements IResourceTask, INetListener {
             String str = CfgFileUtils.get(CfgFileUtils.KEY_PAC_DATA, (String) null);
             if (str == null) {
                 Log.w(LOG_TAG, "restoreLastData null");
-            } else {
-                Log.w(LOG_TAG, "restoreLastData  " + str);
-                WebSettingsGlobalBlink.setPacData(str);
+                return;
             }
+            Log.w(LOG_TAG, "restoreLastData  " + str);
+            WebSettingsGlobalBlink.setPacData(str);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -59,10 +58,10 @@ public class PacDownload implements IResourceTask, INetListener {
             String str = CfgFileUtils.get(CfgFileUtils.KEY_PAC_FREE_FLOW_DATA, (String) null);
             if (str == null) {
                 Log.w(LOG_TAG, "restoreLastDataFreeFLow null");
-            } else {
-                Log.w(LOG_TAG, "restoreLastDataFreeFLow  " + str);
-                WebSettingsGlobalBlink.setPacDataFreeFlow(str);
+                return;
             }
+            Log.w(LOG_TAG, "restoreLastDataFreeFLow  " + str);
+            WebSettingsGlobalBlink.setPacDataFreeFlow(str);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -94,8 +93,8 @@ public class PacDownload implements IResourceTask, INetListener {
                     bdNetTask.setNet(bdNet);
                     bdNetTask.setUrl(getUrl(context, false));
                     bdNet.start(bdNetTask, false);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
         }
@@ -127,8 +126,8 @@ public class PacDownload implements IResourceTask, INetListener {
                 bdNetTask.setNet(bdNet);
                 bdNetTask.setUrl(getUrl(context, true));
                 bdNet.start(bdNetTask, false);
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
@@ -155,7 +154,16 @@ public class PacDownload implements IResourceTask, INetListener {
 
     @Override // com.baidu.webkit.internal.resource.IResourceTask
     public String getTaskUrl() {
-        return getFreeFlowEnabled() ? getUrl(WebViewFactory.getContext(), true) : getUrl(WebViewFactory.getContext(), false);
+        Context context;
+        boolean z;
+        if (getFreeFlowEnabled()) {
+            context = WebViewFactory.getContext();
+            z = true;
+        } else {
+            context = WebViewFactory.getContext();
+            z = false;
+        }
+        return getUrl(context, z);
     }
 
     @Override // com.baidu.webkit.net.INetListener
@@ -198,17 +206,18 @@ public class PacDownload implements IResourceTask, INetListener {
     @Override // com.baidu.webkit.net.INetListener
     public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
         mDownloading = false;
-        if (this.mData == null) {
+        ByteArrayOutputStream byteArrayOutputStream = this.mData;
+        if (byteArrayOutputStream == null) {
             Log.w(LOG_TAG, "mData==null");
             return;
         }
-        byte[] byteArray = this.mData.toByteArray();
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
         Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
         try {
             String str = new String(byteArray, "UTF-8");
             if (getFreeFlowEnabled()) {
                 if (this.mHeader != null) {
-                    String str2 = this.mHeader.get(Headers.LAST_MODIFIED);
+                    String str2 = this.mHeader.get("Last-Modified");
                     Log.w(LOG_TAG, "lastModify freeflow  " + str2);
                     if (str2 != null) {
                         Log.w(LOG_TAG, "lastModify1 " + str2);
@@ -221,7 +230,7 @@ public class PacDownload implements IResourceTask, INetListener {
                 return;
             }
             if (this.mHeader != null) {
-                String str3 = this.mHeader.get(Headers.LAST_MODIFIED);
+                String str3 = this.mHeader.get("Last-Modified");
                 Log.w(LOG_TAG, "lastModify " + str3);
                 if (str3 != null) {
                     Log.w(LOG_TAG, "lastModify1 " + str3);
@@ -231,8 +240,8 @@ public class PacDownload implements IResourceTask, INetListener {
             CfgFileUtils.set(CfgFileUtils.KEY_PAC_DATA, str);
             mPacSucced = true;
             WebSettingsGlobalBlink.setPacData(str);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 

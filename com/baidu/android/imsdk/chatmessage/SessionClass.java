@@ -1,15 +1,11 @@
 package com.baidu.android.imsdk.chatmessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SessionClass {
-    private String avatarurl;
-    private int show;
-    private String title;
-    private int type;
-    private int unreadcount;
-
-    public int getType() {
-        return this.type;
-    }
+    public String avatarurl;
+    public int show;
+    public String title;
+    public int type;
+    public int unreadcount;
 
     public String getAvatarurl() {
         return this.avatarurl;
@@ -19,31 +15,35 @@ public class SessionClass {
         return this.title;
     }
 
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public void setTitle(String str) {
-        this.title = str;
-    }
-
-    public void setAvatarurl(String str) {
-        this.avatarurl = str;
-    }
-
-    public void setUnread(int i) {
-        this.unreadcount = i;
+    public int getType() {
+        return this.type;
     }
 
     public int getUnread() {
         return this.unreadcount;
     }
 
+    public int isShow() {
+        return this.show;
+    }
+
+    public void setAvatarurl(String str) {
+        this.avatarurl = str;
+    }
+
     public void setShow(int i) {
         this.show = i;
     }
 
-    public int isShow() {
-        return this.show;
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public void setUnread(int i) {
+        this.unreadcount = i;
     }
 }

@@ -1,7 +1,56 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
-public abstract class ca {
-    public abstract bz a(Context context, String str);
+import android.text.TextUtils;
+import com.xiaomi.push.cg;
+/* loaded from: classes7.dex */
+public class ca extends cc {
+    public ca(String str, String str2, String[] strArr, String str3) {
+        super(str, str2, strArr, str3);
+    }
+
+    public static ca a(Context context, String str, int i) {
+        com.xiaomi.channel.commonutils.logger.b.b("delete  messages when db size is too bigger");
+        String m195a = cg.a(context).m195a(str);
+        if (TextUtils.isEmpty(m195a)) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("rowDataId in (select ");
+        sb.append("rowDataId from " + m195a);
+        sb.append(" order by createTimeStamp asc");
+        sb.append(" limit ?)");
+        return new ca(str, sb.toString(), new String[]{String.valueOf(i)}, "a job build to delete history message");
+    }
+
+    private void a(long j) {
+        String[] strArr = ((cg.d) this).f183a;
+        if (strArr == null || strArr.length <= 0) {
+            return;
+        }
+        strArr[0] = String.valueOf(j);
+    }
+
+    @Override // com.xiaomi.push.cg.a
+    public void a(Context context, Object obj) {
+        if (obj instanceof Long) {
+            long longValue = ((Long) obj).longValue();
+            long a2 = cm.a(m197a());
+            long j = by.f164a;
+            if (a2 <= j) {
+                com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
+                return;
+            }
+            double d2 = a2 - j;
+            Double.isNaN(d2);
+            double d3 = j;
+            Double.isNaN(d3);
+            double d4 = longValue;
+            Double.isNaN(d4);
+            long j2 = (long) (((d2 * 1.2d) / d3) * d4);
+            a(j2);
+            bu.a(context).a("begin delete " + j2 + "noUpload messages , because db size is " + a2 + "B");
+            super.a(context, obj);
+        }
+    }
 }

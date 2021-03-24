@@ -5,16 +5,15 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.glide.load.engine.s;
 import com.kwad.sdk.glide.load.h;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class b<T> implements h<T> {
-    private static final h<?> b = new b();
 
-    private b() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final h<?> f35631b = new b();
 
     @NonNull
     public static <T> b<T> a() {
-        return (b) b;
+        return (b) f35631b;
     }
 
     @Override // com.kwad.sdk.glide.load.h

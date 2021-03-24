@@ -2,12 +2,12 @@ package aegon.chrome.net;
 
 import aegon.chrome.net.ProxyChangeListener;
 import android.content.Intent;
-/* loaded from: classes3.dex */
-final /* synthetic */ class ProxyChangeListener$ProxyReceiver$$Lambda$1 implements Runnable {
-    private final ProxyChangeListener.ProxyReceiver arg$1;
-    private final Intent arg$2;
+/* loaded from: classes.dex */
+public final /* synthetic */ class ProxyChangeListener$ProxyReceiver$$Lambda$1 implements Runnable {
+    public final ProxyChangeListener.ProxyReceiver arg$1;
+    public final Intent arg$2;
 
-    private ProxyChangeListener$ProxyReceiver$$Lambda$1(ProxyChangeListener.ProxyReceiver proxyReceiver, Intent intent) {
+    public ProxyChangeListener$ProxyReceiver$$Lambda$1(ProxyChangeListener.ProxyReceiver proxyReceiver, Intent intent) {
         this.arg$1 = proxyReceiver;
         this.arg$2 = intent;
     }

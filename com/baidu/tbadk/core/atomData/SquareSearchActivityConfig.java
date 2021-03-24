@@ -2,15 +2,15 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SquareSearchActivityConfig extends IntentConfig {
     public static final String BACK_SPECIAL = "back_special";
     public static final String FROM = "start_from";
     public static final String IS_FROM_ENTER_FROUM = "is_from_enter_forum";
+    public static boolean IS_SHOW_LIKE_FORUM = false;
+    public static boolean IS_SHOW_RECOMMEND_FORUM = true;
     public static final String SEARCH_TITLE = "search";
     public static final String SEARCH_VALUE = "searchValue";
-    public static boolean IS_SHOW_RECOMMEND_FORUM = true;
-    public static boolean IS_SHOW_LIKE_FORUM = false;
 
     public SquareSearchActivityConfig(Context context, String str, boolean z) {
         super(context);

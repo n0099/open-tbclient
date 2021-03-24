@@ -7,15 +7,15 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.cookie.SM;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class PaBaseHttpRequest extends BaseHttpRequest {
-    protected int mOsType = 1;
+    public int mOsType = 1;
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
-        hashMap.put(SM.COOKIE, "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
+        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        hashMap.put("Cookie", "BDUSS=" + bduss);
         return hashMap;
     }
 
@@ -27,36 +27,36 @@ public abstract class PaBaseHttpRequest extends BaseHttpRequest {
         return getHostUrl() + "rest/3.0/im/box";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public String getHostUrl() {
-        switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
-            case 0:
-                return "https://pim.baidu.com/";
-            case 1:
-                return "http://rd-im-server.bcc-szth.baidu.com:8080/";
-            case 2:
+        int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
+        if (readIntData != 0) {
+            if (readIntData != 1) {
+                if (readIntData != 2) {
+                    if (readIntData != 3) {
+                        return null;
+                    }
+                    return Constants.URL_HTTP_BOX;
+                }
                 return Constants.URL_HTTP_QA;
-            case 3:
-                return Constants.URL_HTTP_BOX;
-            default:
-                return null;
+            }
+            return "http://rd-im-server.bcc-szth.baidu.com:8080/";
         }
+        return "https://pim.baidu.com/";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public String getSignByMd5Error(String str, long j, long j2, String str2) {
         try {
             if (!TextUtils.isEmpty(str2)) {
                 if (str2.equals(Constants.ERROR_MSG_MD5_NULL)) {
-                    str2 = j + str.substring(0, 28) + j2;
+                    return j + str.substring(0, 28) + j2;
                 } else if (str2.equals(Constants.ERROR_MSG_MD5_EMPTY)) {
-                    str2 = j + str.substring(0, 24) + j2;
+                    return j + str.substring(0, 24) + j2;
+                } else {
+                    return str2;
                 }
-            } else {
-                str2 = j + str.substring(0, 20) + j2;
             }
-            return str2;
-        } catch (Exception e) {
+            return j + str.substring(0, 20) + j2;
+        } catch (Exception unused) {
             return "" + j + j2;
         }
     }

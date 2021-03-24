@@ -9,12 +9,12 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.view.ViewCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ButtonBarLayout extends LinearLayout {
-    private static final int PEEK_BUTTON_DP = 16;
-    private boolean mAllowStacking;
-    private int mLastWidthSize;
-    private int mMinimumHeight;
+    public static final int PEEK_BUTTON_DP = 16;
+    public boolean mAllowStacking;
+    public int mLastWidthSize;
+    public int mMinimumHeight;
 
     public ButtonBarLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -25,22 +25,44 @@ public class ButtonBarLayout extends LinearLayout {
         obtainStyledAttributes.recycle();
     }
 
-    public void setAllowStacking(boolean z) {
-        if (this.mAllowStacking != z) {
-            this.mAllowStacking = z;
-            if (!this.mAllowStacking && getOrientation() == 1) {
-                setStacked(false);
+    private int getNextVisibleChildIndex(int i) {
+        int childCount = getChildCount();
+        while (i < childCount) {
+            if (getChildAt(i).getVisibility() == 0) {
+                return i;
             }
-            requestLayout();
+            i++;
+        }
+        return -1;
+    }
+
+    private boolean isStacked() {
+        return getOrientation() == 1;
+    }
+
+    private void setStacked(boolean z) {
+        setOrientation(z ? 1 : 0);
+        setGravity(z ? 5 : 80);
+        View findViewById = findViewById(R.id.spacer);
+        if (findViewById != null) {
+            findViewById.setVisibility(z ? 8 : 4);
+        }
+        for (int childCount = getChildCount() - 2; childCount >= 0; childCount--) {
+            bringChildToFront(getChildAt(childCount));
         }
     }
 
+    @Override // android.view.View
+    public int getMinimumHeight() {
+        return Math.max(this.mMinimumHeight, super.getMinimumHeight());
+    }
+
     @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
+    public void onMeasure(int i, int i2) {
         int i3;
         boolean z;
-        int i4;
         int size = View.MeasureSpec.getSize(i);
+        int i4 = 0;
         if (this.mAllowStacking) {
             if (size > this.mLastWidthSize && isStacked()) {
                 setStacked(false);
@@ -56,7 +78,7 @@ public class ButtonBarLayout extends LinearLayout {
         }
         super.onMeasure(i3, i2);
         if (this.mAllowStacking && !isStacked()) {
-            if ((getMeasuredWidthAndState() & ViewCompat.MEASURED_STATE_MASK) == 16777216) {
+            if ((getMeasuredWidthAndState() & (-16777216)) == 16777216) {
                 setStacked(true);
                 z = true;
             }
@@ -68,51 +90,29 @@ public class ButtonBarLayout extends LinearLayout {
         if (nextVisibleChildIndex >= 0) {
             View childAt = getChildAt(nextVisibleChildIndex);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) childAt.getLayoutParams();
-            i4 = layoutParams.bottomMargin + childAt.getMeasuredHeight() + getPaddingTop() + layoutParams.topMargin + 0;
+            int paddingTop = getPaddingTop() + childAt.getMeasuredHeight() + layoutParams.topMargin + layoutParams.bottomMargin + 0;
             if (isStacked()) {
                 int nextVisibleChildIndex2 = getNextVisibleChildIndex(nextVisibleChildIndex + 1);
                 if (nextVisibleChildIndex2 >= 0) {
-                    i4 += getChildAt(nextVisibleChildIndex2).getPaddingTop() + ((int) (16.0f * getResources().getDisplayMetrics().density));
+                    paddingTop += getChildAt(nextVisibleChildIndex2).getPaddingTop() + ((int) (getResources().getDisplayMetrics().density * 16.0f));
                 }
+                i4 = paddingTop;
             } else {
-                i4 += getPaddingBottom();
+                i4 = paddingTop + getPaddingBottom();
             }
-        } else {
-            i4 = 0;
         }
         if (ViewCompat.getMinimumHeight(this) != i4) {
             setMinimumHeight(i4);
         }
     }
 
-    private int getNextVisibleChildIndex(int i) {
-        int childCount = getChildCount();
-        for (int i2 = i; i2 < childCount; i2++) {
-            if (getChildAt(i2).getVisibility() == 0) {
-                return i2;
+    public void setAllowStacking(boolean z) {
+        if (this.mAllowStacking != z) {
+            this.mAllowStacking = z;
+            if (!z && getOrientation() == 1) {
+                setStacked(false);
             }
+            requestLayout();
         }
-        return -1;
-    }
-
-    @Override // android.view.View
-    public int getMinimumHeight() {
-        return Math.max(this.mMinimumHeight, super.getMinimumHeight());
-    }
-
-    private void setStacked(boolean z) {
-        setOrientation(z ? 1 : 0);
-        setGravity(z ? 5 : 80);
-        View findViewById = findViewById(R.id.spacer);
-        if (findViewById != null) {
-            findViewById.setVisibility(z ? 8 : 4);
-        }
-        for (int childCount = getChildCount() - 2; childCount >= 0; childCount--) {
-            bringChildToFront(getChildAt(childCount));
-        }
-    }
-
-    private boolean isStacked() {
-        return getOrientation() == 1;
     }
 }

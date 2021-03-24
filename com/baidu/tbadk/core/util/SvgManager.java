@@ -19,27 +19,30 @@ import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.i0.c3.c;
+/* loaded from: classes3.dex */
 public class SvgManager {
-    private b fcI;
-    private Resources mResources;
+    public static final int DRAWABLE_TYPE_ANIMATED_VECTOR_DRAWABLE = 2;
+    public static final int DRAWABLE_TYPE_STATE_LIST = 3;
+    public static final int DRAWABLE_TYPE_VECTOR = 1;
+    public Resources mResources;
+    public VectorDrawableCache mVectorDrawableCache;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class a {
-        static SvgManager fcJ = new SvgManager();
+    /* loaded from: classes3.dex */
+    public static class InstanceHolder {
+        public static SvgManager SvgManagerInstance = new SvgManager();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public enum SvgResourceStateType {
         NORMAL(false, false, 1),
         NORMAL_PRESS(true, false, 2),
         NORMAL_PRESS_DISABLE(true, true, 3),
         NORMAL_DISABLE(false, true, 2);
         
-        private boolean canDisable;
-        private boolean canPress;
-        private int stateCount;
+        public boolean canDisable;
+        public boolean canPress;
+        public int stateCount;
 
         SvgResourceStateType(boolean z, boolean z2, int i) {
             this.canPress = z;
@@ -49,10 +52,11 @@ public class SvgManager {
 
         public ColorStateList getColorListByResourceType(@ColorInt int i) {
             int i2;
-            int[] iArr = new int[this.stateCount];
-            int[][] iArr2 = new int[this.stateCount];
+            int i3 = this.stateCount;
+            int[] iArr = new int[i3];
+            int[][] iArr2 = new int[i3];
             if (this.canPress) {
-                iArr[0] = com.baidu.tieba.tbadkCore.c.l(i, ap.fcm);
+                iArr[0] = c.a(i, SkinManager.RESOURCE_ALPHA_PRESS);
                 iArr2[0] = new int[]{16842919, 16842910};
                 i2 = 1;
             } else {
@@ -63,9 +67,9 @@ public class SvgManager {
                 int[] iArr3 = new int[1];
                 iArr3[0] = 16842910;
                 iArr2[i2] = iArr3;
-                int i3 = i2 + 1;
-                iArr[i3] = com.baidu.tieba.tbadkCore.c.l(i, ap.fcn);
-                iArr2[i3] = new int[0];
+                int i4 = i2 + 1;
+                iArr[i4] = c.a(i, SkinManager.RESOURCE_ALPHA_DISABLE);
+                iArr2[i4] = new int[0];
             } else {
                 iArr[i2] = i;
                 iArr2[i2] = new int[0];
@@ -74,352 +78,20 @@ public class SvgManager {
         }
     }
 
-    private SvgManager() {
-        this.fcI = new b();
-        try {
-            this.mResources = (Resources) Class.forName("androidx.appcompat.widget.VectorEnabledTintResources").getDeclaredConstructor(Context.class, Resources.class).newInstance(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources());
-        } catch (Exception e) {
-            this.mResources = TbadkCoreApplication.getInst().getResources();
-        }
-    }
+    /* loaded from: classes3.dex */
+    public static class VectorDrawableCache {
+        public static final int COUNT_OF_CACHED_SVG_ICON = 50;
+        public LruCache<Integer, Drawable.ConstantState> mVectorCache = new LruCache<>(50);
 
-    public static synchronized SvgManager bsU() {
-        SvgManager svgManager;
-        synchronized (SvgManager.class) {
-            svgManager = a.fcJ;
-        }
-        return svgManager;
-    }
-
-    public void a(@NonNull ImageView imageView, int i, @ColorRes int i2, SvgResourceStateType svgResourceStateType) {
-        if (i != 0 && i2 != 0 && imageView != null) {
-            if (svgResourceStateType == null) {
-                svgResourceStateType = SvgResourceStateType.NORMAL;
-            }
-            imageView.setImageDrawable(a(i, i2, svgResourceStateType));
-        }
-    }
-
-    public void a(@NonNull ImageView imageView, int i, SvgResourceStateType svgResourceStateType) {
-        if (i != 0 && imageView != null) {
-            if (svgResourceStateType == null) {
-                svgResourceStateType = SvgResourceStateType.NORMAL;
-            }
-            imageView.setImageDrawable(a(i, svgResourceStateType));
-        }
-    }
-
-    public Drawable a(int i, @ColorRes int i2, SvgResourceStateType svgResourceStateType) {
-        return a(i, i2, svgResourceStateType, true);
-    }
-
-    public Drawable a(int i, @ColorRes int i2, SvgResourceStateType svgResourceStateType, boolean z) {
-        if (i == 0 || i2 == 0) {
-            return null;
-        }
-        if (svgResourceStateType == null) {
-            svgResourceStateType = SvgResourceStateType.NORMAL;
-        }
-        Drawable j = j(i, 1, false);
-        if (j == null) {
-            return null;
-        }
-        ColorStateList colorListByResourceType = svgResourceStateType.getColorListByResourceType(z ? ap.getColor(i2) : TbadkCoreApplication.getInst().getResources().getColor(i2));
-        if (colorListByResourceType == null) {
-            return null;
-        }
-        Drawable mutate = j.mutate();
-        DrawableCompat.setTintList(mutate, colorListByResourceType);
-        return mutate;
-    }
-
-    public Drawable b(int i, @ColorInt int i2, SvgResourceStateType svgResourceStateType) {
-        ColorStateList colorListByResourceType;
-        if (i == 0 || i2 == 0) {
-            return null;
-        }
-        if (svgResourceStateType == null) {
-            svgResourceStateType = SvgResourceStateType.NORMAL;
-        }
-        Drawable j = j(i, 1, false);
-        if (j == null || (colorListByResourceType = svgResourceStateType.getColorListByResourceType(i2)) == null) {
-            return null;
-        }
-        Drawable mutate = j.mutate();
-        DrawableCompat.setTintList(mutate, colorListByResourceType);
-        return mutate;
-    }
-
-    public Drawable c(int i, @ColorInt int i2, SvgResourceStateType svgResourceStateType) {
-        ColorStateList colorListByResourceType;
-        if (i == 0 || i2 == 0) {
-            return null;
-        }
-        if (svgResourceStateType == null) {
-            svgResourceStateType = SvgResourceStateType.NORMAL;
-        }
-        Drawable j = j(i, 1, false);
-        if (j == null || (colorListByResourceType = svgResourceStateType.getColorListByResourceType(i2)) == null) {
-            return null;
-        }
-        Drawable mutate = j.mutate();
-        DrawableCompat.setTintList(mutate, colorListByResourceType);
-        return mutate;
-    }
-
-    public Drawable a(int i, SvgResourceStateType svgResourceStateType) {
-        Drawable oG;
-        Drawable oG2;
-        if (i == 0) {
-            return null;
-        }
-        if (svgResourceStateType == null) {
-            svgResourceStateType = SvgResourceStateType.NORMAL;
-        }
-        StateListDrawable stateListDrawable = new StateListDrawable();
-        if (svgResourceStateType.canDisable && (oG2 = oG(i)) != null) {
-            oG2.setAlpha((int) (ap.fcn * 255.0f));
-            stateListDrawable.addState(new int[]{-16842910}, oG2);
-        }
-        if (svgResourceStateType.canPress && (oG = oG(i)) != null) {
-            oG.setAlpha((int) (ap.fcm * 255.0f));
-            stateListDrawable.addState(new int[]{16842919}, oG);
-        }
-        Drawable oG3 = oG(i);
-        if (oG3 != null) {
-            stateListDrawable.addState(new int[0], oG3);
-            return stateListDrawable;
-        }
-        return null;
-    }
-
-    public Drawable z(int i, int i2, int i3) {
-        Drawable oG;
-        if (i <= 0) {
-            return null;
-        }
-        int i4 = R.color.CAM_X0105;
-        StateListDrawable stateListDrawable = new StateListDrawable();
-        Drawable j = j(i, 1, false);
-        if (j != null) {
-            Drawable mutate = j(i, 1, false).mutate();
-            DrawableCompat.setTint(mutate, com.baidu.tieba.tbadkCore.c.l(ap.getColor(i3, i4), ap.fcn));
-            stateListDrawable.addState(new int[]{-16842910}, mutate);
-            if (i2 > 0 && (oG = oG(i2)) != null) {
-                Drawable mutate2 = oG(i2).mutate();
-                mutate2.setAlpha((int) (255.0f * ap.fcm));
-                stateListDrawable.addState(new int[]{16842913, 16842919}, mutate2);
-                stateListDrawable.addState(new int[]{16842913}, oG);
-            }
-            Drawable mutate3 = j(i, 1, false).mutate();
-            DrawableCompat.setTint(mutate3, com.baidu.tieba.tbadkCore.c.l(ap.getColor(i3, i4), ap.fcm));
-            stateListDrawable.addState(new int[]{16842919}, mutate3);
-            DrawableCompat.setTint(j.mutate(), ap.getColor(i3, i4));
-            stateListDrawable.addState(new int[0], j);
-            return stateListDrawable;
-        }
-        return null;
-    }
-
-    private Drawable oG(int i) {
-        Drawable j;
-        Drawable drawable = null;
-        if (i != 0 && (j = j(i, 1, false)) != null) {
-            drawable = j.mutate();
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 1) {
-                drawable.setColorFilter(ap.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
-            } else if (skinType == 4) {
-                drawable.setColorFilter(ap.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
-            }
-        }
-        return drawable;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:12:0x001f  */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0024  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0053  */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0068  */
-    /* JADX WARN: Removed duplicated region for block: B:40:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Drawable j(int i, int i2, boolean z) {
-        int i3;
-        if (i == 0) {
-            return null;
-        }
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        try {
-            AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-            if (z) {
-                if (skinType == 1) {
-                    i3 = ap.c(this.mResources, i);
-                } else if (skinType == 4) {
-                    i3 = ap.d(this.mResources, i);
-                }
-                if (i3 == 0) {
-                    i3 = i;
-                }
-                switch (i2) {
-                    case 1:
-                        VectorDrawableCompat oH = this.fcI.oH(i3);
-                        if (oH == null) {
-                            return ap.getDrawable(skinType, this.mResources, ap.getVectorToDefaultResId(this.mResources, i));
-                        }
-                        return oH;
-                    case 2:
-                        AnimatedVectorDrawableCompat oI = this.fcI.oI(i3);
-                        if (oI == null) {
-                            return ap.getDrawable(skinType, this.mResources, ap.getVectorToDefaultResId(this.mResources, i));
-                        }
-                        return oI;
-                    case 3:
-                        StateListDrawable a2 = this.fcI.a(i3, this.mResources);
-                        if (a2 == null) {
-                            return ap.getDrawable(skinType, this.mResources, ap.getVectorToDefaultResId(this.mResources, i));
-                        }
-                        return a2;
-                    default:
-                        return null;
-                }
-            }
-            i3 = i;
-            if (i3 == 0) {
-            }
-            switch (i2) {
-            }
-        } catch (Exception e) {
-            return ap.getDrawable(skinType, this.mResources, ap.getVectorToDefaultResId(this.mResources, i));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class b {
-        private LruCache<Integer, Drawable.ConstantState> fcK = new LruCache<>(50);
-
-        b() {
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:11:0x0030  */
-        /* JADX WARN: Removed duplicated region for block: B:19:0x0045  */
-        /* JADX WARN: Removed duplicated region for block: B:20:0x0047  */
+        /* JADX WARN: Removed duplicated region for block: B:17:0x0036  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0043 A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:23:0x0044 A[RETURN] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public VectorDrawableCompat oH(int i) {
-            VectorDrawableCompat vectorDrawableCompat;
-            Drawable.ConstantState constantState;
-            VectorDrawableCompat vectorDrawableCompat2;
-            Drawable.ConstantState constantState2 = this.fcK.get(Integer.valueOf(i));
-            if (constantState2 == null) {
-                try {
-                    vectorDrawableCompat = VectorDrawableCompat.create(TbadkCoreApplication.getInst().getResources(), i, null);
-                    if (vectorDrawableCompat != null) {
-                        try {
-                            constantState = vectorDrawableCompat.getConstantState();
-                        } catch (Throwable th) {
-                            th = th;
-                            constantState = constantState2;
-                            BdLog.e(th);
-                            vectorDrawableCompat2 = vectorDrawableCompat;
-                            if (constantState != null) {
-                            }
-                            if (vectorDrawableCompat2 != null) {
-                            }
-                        }
-                    } else {
-                        constantState = constantState2;
-                    }
-                    if (constantState != null) {
-                        try {
-                            this.fcK.put(Integer.valueOf(i), constantState);
-                        } catch (Throwable th2) {
-                            th = th2;
-                            BdLog.e(th);
-                            vectorDrawableCompat2 = vectorDrawableCompat;
-                            if (constantState != null) {
-                            }
-                            if (vectorDrawableCompat2 != null) {
-                            }
-                        }
-                    }
-                    vectorDrawableCompat2 = vectorDrawableCompat;
-                } catch (Throwable th3) {
-                    th = th3;
-                    vectorDrawableCompat = null;
-                    constantState = constantState2;
-                }
-            } else {
-                vectorDrawableCompat2 = null;
-                constantState = constantState2;
-            }
-            if (constantState != null) {
-                Drawable newDrawable = constantState.newDrawable();
-                if (newDrawable instanceof VectorDrawableCompat) {
-                    return (VectorDrawableCompat) newDrawable;
-                }
-            }
-            if (vectorDrawableCompat2 != null) {
-                return vectorDrawableCompat2;
-            }
-            return null;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:15:0x0035  */
-        /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public StateListDrawable a(int i, @NonNull Resources resources) {
-            StateListDrawable stateListDrawable;
-            StateListDrawable stateListDrawable2;
-            Drawable.ConstantState constantState = this.fcK.get(Integer.valueOf(i));
-            if (constantState == null) {
-                try {
-                    stateListDrawable2 = (StateListDrawable) ResourcesCompat.getDrawable(resources, i, null);
-                    if (stateListDrawable2 != null) {
-                        try {
-                            constantState = stateListDrawable2.getConstantState();
-                        } catch (Throwable th) {
-                            th = th;
-                            BdLog.e(th);
-                            stateListDrawable = stateListDrawable2;
-                            if (stateListDrawable != null) {
-                            }
-                        }
-                    }
-                    if (constantState != null) {
-                        this.fcK.put(Integer.valueOf(i), constantState);
-                        Drawable newDrawable = constantState.newDrawable();
-                        if (newDrawable instanceof StateListDrawable) {
-                            return (StateListDrawable) newDrawable;
-                        }
-                    }
-                    stateListDrawable = stateListDrawable2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    stateListDrawable2 = null;
-                }
-            } else {
-                stateListDrawable = null;
-            }
-            if (stateListDrawable != null) {
-                return null;
-            }
-            return stateListDrawable;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:10:0x002a  */
-        /* JADX WARN: Removed duplicated region for block: B:18:0x003e  */
-        /* JADX WARN: Removed duplicated region for block: B:19:0x0040  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public AnimatedVectorDrawableCompat oI(int i) {
+        public AnimatedVectorDrawableCompat getAnimatedDrawable(int i) {
             AnimatedVectorDrawableCompat animatedVectorDrawableCompat;
-            Drawable.ConstantState constantState = this.fcK.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState = this.mVectorCache.get(Integer.valueOf(i));
             if (constantState == null) {
                 try {
                     animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(TbadkCoreApplication.getInst(), i);
@@ -437,7 +109,7 @@ public class SvgManager {
                         }
                     }
                     if (constantState != null) {
-                        this.fcK.put(Integer.valueOf(i), constantState);
+                        this.mVectorCache.put(Integer.valueOf(i), constantState);
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -457,5 +129,351 @@ public class SvgManager {
             }
             return null;
         }
+
+        /* JADX WARN: Removed duplicated region for block: B:19:0x003d A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:20:0x003e A[RETURN] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public StateListDrawable getStateListDrawable(int i, @NonNull Resources resources) {
+            StateListDrawable stateListDrawable;
+            Drawable.ConstantState constantState = this.mVectorCache.get(Integer.valueOf(i));
+            if (constantState == null) {
+                try {
+                    stateListDrawable = (StateListDrawable) ResourcesCompat.getDrawable(resources, i, null);
+                    if (stateListDrawable != null) {
+                        try {
+                            constantState = stateListDrawable.getConstantState();
+                        } catch (Throwable th) {
+                            th = th;
+                            BdLog.e(th);
+                            if (stateListDrawable == null) {
+                            }
+                        }
+                    }
+                    if (constantState != null) {
+                        this.mVectorCache.put(Integer.valueOf(i), constantState);
+                        Drawable newDrawable = constantState.newDrawable();
+                        if (newDrawable instanceof StateListDrawable) {
+                            return (StateListDrawable) newDrawable;
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    stateListDrawable = null;
+                }
+            } else {
+                stateListDrawable = null;
+            }
+            if (stateListDrawable == null) {
+                return stateListDrawable;
+            }
+            return null;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:17:0x0039  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0046 A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:23:0x0047 A[RETURN] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public VectorDrawableCompat getVectorDrawable(int i) {
+            VectorDrawableCompat vectorDrawableCompat;
+            Drawable.ConstantState constantState = this.mVectorCache.get(Integer.valueOf(i));
+            if (constantState == null) {
+                try {
+                    vectorDrawableCompat = VectorDrawableCompat.create(TbadkCoreApplication.getInst().getResources(), i, null);
+                    if (vectorDrawableCompat != null) {
+                        try {
+                            constantState = vectorDrawableCompat.getConstantState();
+                        } catch (Throwable th) {
+                            th = th;
+                            BdLog.e(th);
+                            if (constantState != null) {
+                            }
+                            if (vectorDrawableCompat == null) {
+                            }
+                        }
+                    }
+                    if (constantState != null) {
+                        this.mVectorCache.put(Integer.valueOf(i), constantState);
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    vectorDrawableCompat = null;
+                }
+            } else {
+                vectorDrawableCompat = null;
+            }
+            if (constantState != null) {
+                Drawable newDrawable = constantState.newDrawable();
+                if (newDrawable instanceof VectorDrawableCompat) {
+                    return (VectorDrawableCompat) newDrawable;
+                }
+            }
+            if (vectorDrawableCompat == null) {
+                return vectorDrawableCompat;
+            }
+            return null;
+        }
+    }
+
+    private Drawable getDrawableWithDayNightMask(int i) {
+        Drawable drawable;
+        if (i == 0 || (drawable = getDrawable(i, 1, false)) == null) {
+            return null;
+        }
+        Drawable mutate = drawable.mutate();
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType == 1) {
+            mutate.setColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+        } else if (skinType == 4) {
+            mutate.setColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+        }
+        return mutate;
+    }
+
+    public static synchronized SvgManager getInstance() {
+        SvgManager svgManager;
+        synchronized (SvgManager.class) {
+            svgManager = InstanceHolder.SvgManagerInstance;
+        }
+        return svgManager;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:18:0x002d  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0030  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0061  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Drawable getDrawable(int i, int i2, boolean z) {
+        int i3;
+        if (i == 0) {
+            return null;
+        }
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        try {
+            AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+            if (z) {
+                if (skinType == 1) {
+                    i3 = SkinManager.getNightResouceId(this.mResources, i);
+                } else if (skinType == 4) {
+                    i3 = SkinManager.getDarkResourceId(this.mResources, i);
+                }
+                if (i3 == 0) {
+                    i3 = i;
+                }
+                if (i2 != 1) {
+                    VectorDrawableCompat vectorDrawable = this.mVectorDrawableCache.getVectorDrawable(i3);
+                    if (vectorDrawable == null) {
+                        Resources resources = this.mResources;
+                        return SkinManager.getDrawable(skinType, resources, SkinManager.getVectorToDefaultResId(resources, i));
+                    }
+                    return vectorDrawable;
+                } else if (i2 == 2) {
+                    AnimatedVectorDrawableCompat animatedDrawable = this.mVectorDrawableCache.getAnimatedDrawable(i3);
+                    if (animatedDrawable == null) {
+                        Resources resources2 = this.mResources;
+                        return SkinManager.getDrawable(skinType, resources2, SkinManager.getVectorToDefaultResId(resources2, i));
+                    }
+                    return animatedDrawable;
+                } else if (i2 != 3) {
+                    return null;
+                } else {
+                    StateListDrawable stateListDrawable = this.mVectorDrawableCache.getStateListDrawable(i3, this.mResources);
+                    if (stateListDrawable == null) {
+                        Resources resources3 = this.mResources;
+                        return SkinManager.getDrawable(skinType, resources3, SkinManager.getVectorToDefaultResId(resources3, i));
+                    }
+                    return stateListDrawable;
+                }
+            }
+            i3 = i;
+            if (i3 == 0) {
+            }
+            if (i2 != 1) {
+            }
+        } catch (Exception unused) {
+            Resources resources4 = this.mResources;
+            return SkinManager.getDrawable(skinType, resources4, SkinManager.getVectorToDefaultResId(resources4, i));
+        }
+    }
+
+    public Drawable getMaskDrawable(int i, SvgResourceStateType svgResourceStateType) {
+        Drawable drawableWithDayNightMask;
+        Drawable drawableWithDayNightMask2;
+        if (i == 0) {
+            return null;
+        }
+        if (svgResourceStateType == null) {
+            svgResourceStateType = SvgResourceStateType.NORMAL;
+        }
+        StateListDrawable stateListDrawable = new StateListDrawable();
+        if (svgResourceStateType.canDisable && (drawableWithDayNightMask2 = getDrawableWithDayNightMask(i)) != null) {
+            drawableWithDayNightMask2.setAlpha((int) (SkinManager.RESOURCE_ALPHA_DISABLE * 255.0f));
+            stateListDrawable.addState(new int[]{-16842910}, drawableWithDayNightMask2);
+        }
+        if (svgResourceStateType.canPress && (drawableWithDayNightMask = getDrawableWithDayNightMask(i)) != null) {
+            drawableWithDayNightMask.setAlpha((int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f));
+            stateListDrawable.addState(new int[]{16842919}, drawableWithDayNightMask);
+        }
+        Drawable drawableWithDayNightMask3 = getDrawableWithDayNightMask(i);
+        if (drawableWithDayNightMask3 != null) {
+            stateListDrawable.addState(new int[0], drawableWithDayNightMask3);
+            return stateListDrawable;
+        }
+        return null;
+    }
+
+    public Drawable getNormalDrawable(int i, SvgResourceStateType svgResourceStateType) {
+        Drawable drawable;
+        Drawable drawable2;
+        if (i == 0) {
+            return null;
+        }
+        if (svgResourceStateType == null) {
+            svgResourceStateType = SvgResourceStateType.NORMAL;
+        }
+        StateListDrawable stateListDrawable = new StateListDrawable();
+        if (svgResourceStateType.canDisable && (drawable2 = getDrawable(i, 1, true)) != null) {
+            drawable2.setAlpha((int) (SkinManager.RESOURCE_ALPHA_DISABLE * 255.0f));
+            stateListDrawable.addState(new int[]{-16842910}, drawable2);
+        }
+        if (svgResourceStateType.canPress && (drawable = getDrawable(i, 1, true)) != null) {
+            drawable.setAlpha((int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f));
+            stateListDrawable.addState(new int[]{16842919}, drawable);
+        }
+        Drawable drawable3 = getDrawable(i, 1, true);
+        if (drawable3 != null) {
+            stateListDrawable.addState(new int[0], drawable3);
+            return stateListDrawable;
+        }
+        return null;
+    }
+
+    public Drawable getPureDrawable(int i, @ColorRes int i2, SvgResourceStateType svgResourceStateType) {
+        return getPureDrawable(i, i2, svgResourceStateType, true);
+    }
+
+    public Drawable getPureDrawableColorInt(int i, @ColorInt int i2, SvgResourceStateType svgResourceStateType) {
+        ColorStateList colorListByResourceType;
+        if (i == 0 || i2 == 0) {
+            return null;
+        }
+        if (svgResourceStateType == null) {
+            svgResourceStateType = SvgResourceStateType.NORMAL;
+        }
+        Drawable drawable = getDrawable(i, 1, false);
+        if (drawable == null || (colorListByResourceType = svgResourceStateType.getColorListByResourceType(i2)) == null) {
+            return null;
+        }
+        Drawable mutate = drawable.mutate();
+        DrawableCompat.setTintList(mutate, colorListByResourceType);
+        return mutate;
+    }
+
+    public Drawable getPureDrawableWithColorValue(int i, @ColorInt int i2, SvgResourceStateType svgResourceStateType) {
+        ColorStateList colorListByResourceType;
+        if (i == 0 || i2 == 0) {
+            return null;
+        }
+        if (svgResourceStateType == null) {
+            svgResourceStateType = SvgResourceStateType.NORMAL;
+        }
+        Drawable drawable = getDrawable(i, 1, false);
+        if (drawable == null || (colorListByResourceType = svgResourceStateType.getColorListByResourceType(i2)) == null) {
+            return null;
+        }
+        Drawable mutate = drawable.mutate();
+        DrawableCompat.setTintList(mutate, colorListByResourceType);
+        return mutate;
+    }
+
+    public Drawable getSeletableDrawableForEditorTools(int i, int i2, int i3) {
+        Drawable drawableWithDayNightMask;
+        if (i <= 0) {
+            return null;
+        }
+        int i4 = R.color.CAM_X0105;
+        StateListDrawable stateListDrawable = new StateListDrawable();
+        Drawable drawable = getDrawable(i, 1, false);
+        if (drawable == null) {
+            return null;
+        }
+        Drawable mutate = getDrawable(i, 1, false).mutate();
+        DrawableCompat.setTint(mutate, c.a(SkinManager.getColor(i3, i4), SkinManager.RESOURCE_ALPHA_DISABLE));
+        stateListDrawable.addState(new int[]{-16842910}, mutate);
+        if (i2 > 0 && (drawableWithDayNightMask = getDrawableWithDayNightMask(i2)) != null) {
+            Drawable mutate2 = getDrawableWithDayNightMask(i2).mutate();
+            mutate2.setAlpha((int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f));
+            stateListDrawable.addState(new int[]{16842913, 16842919}, mutate2);
+            stateListDrawable.addState(new int[]{16842913}, drawableWithDayNightMask);
+        }
+        Drawable mutate3 = getDrawable(i, 1, false).mutate();
+        DrawableCompat.setTint(mutate3, c.a(SkinManager.getColor(i3, i4), SkinManager.RESOURCE_ALPHA_PRESS));
+        stateListDrawable.addState(new int[]{16842919}, mutate3);
+        DrawableCompat.setTint(drawable.mutate(), SkinManager.getColor(i3, i4));
+        stateListDrawable.addState(new int[0], drawable);
+        return stateListDrawable;
+    }
+
+    public void setDrawableWithTintList(ImageView imageView, int i, int i2) {
+        Drawable drawable;
+        ColorStateList colorList;
+        if (imageView == null || i == 0 || i2 == 0 || (drawable = getDrawable(i, 1, true)) == null || (colorList = SkinManager.getColorList(i2)) == null) {
+            return;
+        }
+        DrawableCompat.setTintList(drawable, colorList);
+        imageView.setImageDrawable(drawable);
+    }
+
+    public void setMaskDrawableWithDayNightModeAutoChange(@NonNull ImageView imageView, int i, SvgResourceStateType svgResourceStateType) {
+        if (i == 0 || imageView == null) {
+            return;
+        }
+        if (svgResourceStateType == null) {
+            svgResourceStateType = SvgResourceStateType.NORMAL;
+        }
+        imageView.setImageDrawable(getMaskDrawable(i, svgResourceStateType));
+    }
+
+    public void setPureDrawableWithDayNightModeAutoChange(@NonNull ImageView imageView, int i, @ColorRes int i2, SvgResourceStateType svgResourceStateType) {
+        if (i == 0 || i2 == 0 || imageView == null) {
+            return;
+        }
+        if (svgResourceStateType == null) {
+            svgResourceStateType = SvgResourceStateType.NORMAL;
+        }
+        imageView.setImageDrawable(getPureDrawable(i, i2, svgResourceStateType));
+    }
+
+    public SvgManager() {
+        this.mVectorDrawableCache = new VectorDrawableCache();
+        try {
+            this.mResources = (Resources) Class.forName("androidx.appcompat.widget.VectorEnabledTintResources").getDeclaredConstructor(Context.class, Resources.class).newInstance(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources());
+        } catch (Exception unused) {
+            this.mResources = TbadkCoreApplication.getInst().getResources();
+        }
+    }
+
+    public Drawable getPureDrawable(int i, @ColorRes int i2, SvgResourceStateType svgResourceStateType, boolean z) {
+        if (i == 0 || i2 == 0) {
+            return null;
+        }
+        if (svgResourceStateType == null) {
+            svgResourceStateType = SvgResourceStateType.NORMAL;
+        }
+        Drawable drawable = getDrawable(i, 1, false);
+        if (drawable == null) {
+            return null;
+        }
+        ColorStateList colorListByResourceType = svgResourceStateType.getColorListByResourceType(z ? SkinManager.getColor(i2) : TbadkCoreApplication.getInst().getResources().getColor(i2));
+        if (colorListByResourceType == null) {
+            return null;
+        }
+        Drawable mutate = drawable.mutate();
+        DrawableCompat.setTintList(mutate, colorListByResourceType);
+        return mutate;
     }
 }

@@ -2,23 +2,26 @@ package com.baidu.tieba.enterForum.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.ForumRecommend.HotSearch;
-/* loaded from: classes2.dex */
+import tbclient.ForumRecommend.SearchValue;
+/* loaded from: classes4.dex */
 public class HotSearchInfoData extends OrmObject {
-    private String iJG;
-    private long mId;
-    private String mName;
-    private long mType;
 
-    public String cvt() {
-        return this.iJG;
+    /* renamed from: e  reason: collision with root package name */
+    public String f15375e;
+
+    public String s() {
+        return this.f15375e;
     }
 
-    public void a(HotSearch hotSearch) {
-        if (hotSearch != null && hotSearch.search_value != null) {
-            this.iJG = hotSearch.search_title;
-            this.mId = hotSearch.search_value.id.longValue();
-            this.mName = hotSearch.search_value.name;
-            this.mType = hotSearch.search_value.type.longValue();
+    public void t(HotSearch hotSearch) {
+        SearchValue searchValue;
+        if (hotSearch == null || (searchValue = hotSearch.search_value) == null) {
+            return;
         }
+        this.f15375e = hotSearch.search_title;
+        searchValue.id.longValue();
+        SearchValue searchValue2 = hotSearch.search_value;
+        String str = searchValue2.name;
+        searchValue2.type.longValue();
     }
 }

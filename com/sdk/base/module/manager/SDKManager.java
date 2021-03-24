@@ -1,19 +1,19 @@
 package com.sdk.base.module.manager;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.module.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class SDKManager {
-    private static boolean closePermission;
-    protected static Context mContext;
-    private static String userAgent;
-    private static String testHost = "";
-    private static String statisticalTestHost = "";
-    private static boolean isStrong = true;
-    private static boolean useCache = true;
+    public static boolean closePermission = false;
+    public static boolean isStrong = true;
+    public static Context mContext = null;
+    public static boolean smartTrust = true;
+    public static String statisticalTestHost = "";
+    public static String testHost = "";
+    public static boolean useCache = true;
+    public static String userAgent;
 
     public static void closePermission(boolean z) {
         closePermission = z;
@@ -35,19 +35,17 @@ public abstract class SDKManager {
         return userAgent;
     }
 
-    @Keep
     public static void init(Context context, String str) {
         mContext = context;
         a a2 = a.a(context);
-        Boolean.valueOf(com.sdk.base.framework.f.a.a.c());
+        com.sdk.base.framework.f.a.a.c();
         a2.a(null, str);
     }
 
-    @Keep
     public static void init(Context context, String str, String str2) {
         mContext = context;
         a a2 = a.a(context);
-        Boolean.valueOf(com.sdk.base.framework.f.a.a.c());
+        com.sdk.base.framework.f.a.a.c();
         a2.a(str, str2);
     }
 
@@ -59,17 +57,24 @@ public abstract class SDKManager {
         return isStrong;
     }
 
-    @Keep
+    public static boolean isSmartTrust() {
+        return smartTrust;
+    }
+
     public static void setDebug(boolean z) {
-        f.b = z;
+        f.f38519b = z;
     }
 
     public static void setDebugHead(boolean z) {
-        f.d = z;
+        f.f38521d = z;
     }
 
     public static void setIsStrong(boolean z) {
         isStrong = z;
+    }
+
+    public static void setSmartTrust(boolean z) {
+        smartTrust = z;
     }
 
     public static void setStatisticalTestHost(String str) {
@@ -88,7 +93,6 @@ public abstract class SDKManager {
         userAgent = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public static <T> void toFailed(CallBack<T> callBack, int i, String str) {
         if (callBack != null) {
             callBack.onFailed(1, i, str, null);

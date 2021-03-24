@@ -12,38 +12,35 @@ import android.webkit.WebView;
 import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.proxy.app.FileDownloadService;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.ref.WeakReference;
 @KsAdSdkDynamicImpl(FileDownloadService.class)
 @Keep
 @SuppressLint({"Registered"})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
-    private static final String TAG = "filedownloader";
+    public static final String TAG = "filedownloader";
     public Service context;
-    private i handler;
+    public i handler;
 
     @KsAdSdkDynamicImpl(FileDownloadService.SeparateProcessService.class)
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class SeparateProcessServiceProxy extends FileDownloadServiceProxy {
         private String getProcessName(Context context) {
-            String str;
             if (context == null) {
                 return "ksad";
             }
             try {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
                     if (runningAppProcessInfo.pid == Process.myPid()) {
-                        str = runningAppProcessInfo.processName;
-                        break;
+                        return runningAppProcessInfo.processName;
                     }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                return "ksad";
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return "ksad";
             }
-            str = "ksad";
-            return str;
         }
 
         @Override // com.kwai.filedownloader.services.FileDownloadServiceProxy, com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
@@ -51,8 +48,8 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
             if (Build.VERSION.SDK_INT >= 28) {
                 try {
                     WebView.setDataDirectorySuffix(getProcessName(service.getApplicationContext()));
-                } catch (Exception e) {
-                    com.kwad.sdk.core.d.a.a(FileDownloadServiceProxy.TAG, "WebView has already been initialized " + e.getMessage());
+                } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.a(FileDownloadServiceProxy.TAG, "WebView has already been initialized " + e2.getMessage());
                 }
             }
             super.onCreate(service);
@@ -61,7 +58,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SharedMainProcessService.class)
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class SharedMainProcessServiceProxy extends FileDownloadServiceProxy {
         @Override // com.kwai.filedownloader.services.FileDownloadServiceProxy, com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
         public void onCreate(Service service) {
@@ -80,19 +77,15 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.b.b {
             return;
         }
         this.context = service;
-        com.kwai.filedownloader.f.c.a(this.context);
+        com.kwai.filedownloader.f.c.a(service);
         try {
-            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f7213a);
-            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().b);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f37012a);
+            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f37013b);
+        } catch (IllegalAccessException e2) {
+            e2.printStackTrace();
         }
         g gVar = new g();
-        if (com.kwai.filedownloader.f.e.a().d) {
-            this.handler = new e(new WeakReference(this), gVar);
-        } else {
-            this.handler = new d(new WeakReference(this), gVar);
-        }
+        this.handler = com.kwai.filedownloader.f.e.a().f37015d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
     }
 
     @Override // com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy

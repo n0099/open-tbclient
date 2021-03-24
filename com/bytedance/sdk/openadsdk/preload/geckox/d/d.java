@@ -7,15 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends com.bytedance.sdk.openadsdk.preload.b.d<List<String>, List<Pair<String, Long>>> {
-    private File d;
-    private String e;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: d  reason: collision with root package name */
+    public File f30267d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f30268e;
+
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
-        this.d = (File) objArr[0];
-        this.e = (String) objArr[1];
+        this.f30267d = (File) objArr[0];
+        this.f30268e = (String) objArr[1];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +26,7 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<List<String>, Lis
     /* renamed from: a */
     public Object a_(com.bytedance.sdk.openadsdk.preload.b.b<List<Pair<String, Long>>> bVar, List<String> list) throws Exception {
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "get local channel version:", list);
-        File file = new File(this.d, this.e);
+        File file = new File(this.f30267d, this.f30268e);
         ArrayList arrayList = new ArrayList();
         for (String str : list) {
             Long a2 = k.a(new File(file, str));

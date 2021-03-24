@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 @Deprecated
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebViewFragment extends Fragment {
-    private boolean mIsWebViewAvailable;
-    private WebView mWebView;
+    public boolean mIsWebViewAvailable;
+    public WebView mWebView;
 
     public WebView getWebView() {
         if (this.mIsWebViewAvailable) {
@@ -20,18 +20,21 @@ public class WebViewFragment extends Fragment {
 
     @Override // android.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.mWebView != null) {
-            this.mWebView.destroy();
+        WebView webView = this.mWebView;
+        if (webView != null) {
+            webView.destroy();
         }
-        this.mWebView = new WebView(getActivity());
+        WebView webView2 = new WebView(getActivity());
+        this.mWebView = webView2;
         this.mIsWebViewAvailable = true;
-        return this.mWebView;
+        return webView2;
     }
 
     @Override // android.app.Fragment
     public void onDestroy() {
-        if (this.mWebView != null) {
-            this.mWebView.destroy();
+        WebView webView = this.mWebView;
+        if (webView != null) {
+            webView.destroy();
             this.mWebView = null;
         }
         super.onDestroy();

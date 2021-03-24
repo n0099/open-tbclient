@@ -1,0 +1,175 @@
+package com.duxiaoman.dxmpay.statistics.internal;
+
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
+import com.xiaomi.mipush.sdk.Constants;
+import d.d.a.a.a;
+import d.d.a.a.b.l;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class f {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final List<String> f30724a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
+        {
+            add("HUAWEI");
+            add("OPPO");
+            add(RomUtils.MANUFACTURER_VIVO);
+        }
+    };
+
+    public static String a() {
+        String str = Build.MANUFACTURER;
+        String trim = str == null ? RomUtils.UNKNOWN : str.trim();
+        try {
+            if (!TextUtils.isEmpty(trim)) {
+                for (String str2 : f30724a) {
+                    if (str2.equalsIgnoreCase(trim)) {
+                        return str2;
+                    }
+                }
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        return trim;
+    }
+
+    public static String b(String str, String str2, String str3, String str4, boolean z, String str5, String str6, String str7, String str8, String str9) {
+        char c2;
+        String str10 = "et";
+        try {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject(str);
+            jSONObject.put("distinct_id", str3);
+            if (!TextUtils.isEmpty(str4)) {
+                jSONObject.put("distinct_id_key", str4);
+            }
+            jSONObject.put("is_login_id", z);
+            jSONObject.put("source", 1);
+            JSONObject jSONObject3 = new JSONObject();
+            JSONArray jSONArray = null;
+            JSONArray jSONArray2 = new JSONArray();
+            Iterator<String> keys = jSONObject2.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!next.equals("array")) {
+                    jSONObject3.put(next, jSONObject2.optString(next));
+                } else {
+                    jSONArray = jSONObject2.optJSONArray("array");
+                }
+            }
+            jSONObject3.put("product", str5);
+            jSONObject3.put("sdk_version", str6);
+            jSONObject3.put("channel_id", str7);
+            jSONObject3.put("$os", "Android");
+            jSONObject3.put("$os_version", Build.VERSION.RELEASE == null ? RomUtils.UNKNOWN : Build.VERSION.RELEASE);
+            jSONObject3.put("$screen_width", l.b(a.c()));
+            jSONObject3.put("$screen_height", l.a(a.c()));
+            String replace = (Build.MODEL + '-' + Build.DEVICE).replace(' ', '-').replace('_', '-');
+            jSONObject3.put("$manufacturer", a());
+            jSONObject3.put("$model", replace);
+            jSONObject3.put("$app_version", str8);
+            jSONObject3.put(Constants.EXTRA_KEY_APP_VERSION_CODE, str9);
+            jSONObject.put("pub", jSONObject3);
+            if (jSONArray != null && jSONArray.length() > 0) {
+                int i = 0;
+                while (i < jSONArray.length()) {
+                    JSONObject jSONObject4 = new JSONObject();
+                    JSONObject jSONObject5 = (JSONObject) jSONArray.opt(i);
+                    jSONObject4.put("event", str2);
+                    jSONObject4.put("type", "track");
+                    if (jSONObject5.has(str10)) {
+                        jSONObject4.put("time", ((Long) jSONObject5.remove(str10)).longValue());
+                    }
+                    String str11 = (String) jSONObject5.remove("en");
+                    JSONObject jSONObject6 = new JSONObject();
+                    jSONObject6.put("event_key", str11);
+                    Iterator<String> keys2 = jSONObject5.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        int hashCode = next2.hashCode();
+                        String str12 = str10;
+                        JSONArray jSONArray3 = jSONArray;
+                        if (hashCode == 3123) {
+                            if (next2.equals("at")) {
+                                c2 = 3;
+                            }
+                            c2 = 65535;
+                        } else if (hashCode == 3234) {
+                            if (next2.equals("eg")) {
+                                c2 = 0;
+                            }
+                            c2 = 65535;
+                        } else if (hashCode == 3249) {
+                            if (next2.equals("ev")) {
+                                c2 = 4;
+                            }
+                            c2 = 65535;
+                        } else if (hashCode != 3455) {
+                            if (hashCode == 3527 && next2.equals("nu")) {
+                                c2 = 1;
+                            }
+                            c2 = 65535;
+                        } else {
+                            if (next2.equals("lk")) {
+                                c2 = 2;
+                            }
+                            c2 = 65535;
+                        }
+                        if (c2 == 0) {
+                            jSONObject6.put("event_tag", jSONObject5.optString("eg"));
+                        } else if (c2 == 1) {
+                            jSONObject6.put("event_number", jSONObject5.optInt("nu"));
+                        } else if (c2 != 2) {
+                            if (c2 == 3) {
+                                jSONObject6.put("abtype", jSONObject5.optString("at"));
+                            } else if (c2 != 4) {
+                                jSONObject6.put(next2, jSONObject5.opt(next2));
+                            } else {
+                                JSONArray jSONArray4 = new JSONArray(jSONObject5.optString("ev"));
+                                int i2 = 0;
+                                int i3 = 1;
+                                while (i2 < jSONArray4.length()) {
+                                    StringBuilder sb = new StringBuilder();
+                                    sb.append("value");
+                                    sb.append(i3);
+                                    jSONObject6.put(sb.toString(), jSONArray4.optString(i2));
+                                    i2++;
+                                    i3++;
+                                }
+                            }
+                            str10 = str12;
+                            jSONArray = jSONArray3;
+                        } else if (jSONObject5.optString("lk").equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
+                            jSONObject6.put("$wifi", true);
+                        } else {
+                            jSONObject6.put("$wifi", false);
+                        }
+                        str10 = str12;
+                        jSONArray = jSONArray3;
+                    }
+                    String str13 = str10;
+                    JSONArray jSONArray5 = jSONArray;
+                    jSONObject4.put("properties", jSONObject6);
+                    jSONArray2.put(jSONObject4);
+                    i++;
+                    str10 = str13;
+                    jSONArray = jSONArray5;
+                }
+            }
+            jSONObject.put("events", jSONArray2);
+            return jSONObject.toString();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+            return "";
+        }
+    }
+}

@@ -4,13 +4,13 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebViewRendererService extends Service {
     public static final String RENDER_SERVICE_PROCESS_NAME_SUFFIX = "sandboxed_process";
-    private static final String TAG = "WebViewRendererService";
-    private ServiceProvider mServiceImpl;
+    public static final String TAG = "WebViewRendererService";
+    public ServiceProvider mServiceImpl;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface ServiceProvider {
         IBinder bind(Intent intent);
 
@@ -22,12 +22,13 @@ public class WebViewRendererService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         stopSelf();
-        if (this.mServiceImpl != null) {
+        ServiceProvider serviceProvider = this.mServiceImpl;
+        if (serviceProvider != null) {
             try {
-                return this.mServiceImpl.bind(intent);
-            } catch (Exception e) {
-                android.util.Log.e(TAG, "exception during onBind: " + e);
-                throw e;
+                return serviceProvider.bind(intent);
+            } catch (Exception e2) {
+                android.util.Log.e(TAG, "exception during onBind: " + e2);
+                throw e2;
             }
         }
         return null;
@@ -36,13 +37,14 @@ public class WebViewRendererService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mServiceImpl = WebViewFactory.getProvider().getRendererService();
-        if (this.mServiceImpl != null) {
+        ServiceProvider rendererService = WebViewFactory.getProvider().getRendererService();
+        this.mServiceImpl = rendererService;
+        if (rendererService != null) {
             try {
-                this.mServiceImpl.create(getApplicationContext());
-            } catch (Exception e) {
-                android.util.Log.e(TAG, "exception during onCreate: " + e);
-                throw e;
+                rendererService.create(getApplicationContext());
+            } catch (Exception e2) {
+                android.util.Log.e(TAG, "exception during onCreate: " + e2);
+                throw e2;
             }
         }
     }
@@ -50,8 +52,9 @@ public class WebViewRendererService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (this.mServiceImpl != null) {
-            this.mServiceImpl.destroy();
+        ServiceProvider serviceProvider = this.mServiceImpl;
+        if (serviceProvider != null) {
+            serviceProvider.destroy();
         }
     }
 }

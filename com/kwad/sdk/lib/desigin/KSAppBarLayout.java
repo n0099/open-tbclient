@@ -34,44 +34,43 @@ import java.util.ArrayList;
 import java.util.List;
 @Keep
 @KSCoordinatorLayout.DefaultBehavior(KSBehavior.class)
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KSAppBarLayout extends LinearLayout {
-    private static final int INVALID_SCROLL_RANGE = -1;
-    static final int PENDING_ACTION_ANIMATE_ENABLED = 4;
-    static final int PENDING_ACTION_COLLAPSED = 2;
-    static final int PENDING_ACTION_EXPANDED = 1;
-    static final int PENDING_ACTION_FORCE = 8;
-    static final int PENDING_ACTION_NONE = 0;
-    private boolean mCollapsed;
-    private boolean mCollapsible;
-    private int mDownPreScrollRange;
-    private int mDownScrollRange;
-    private boolean mHaveChildWithInterpolator;
-    private WindowInsetsCompat mLastInsets;
-    private List<OnOffsetChangedListener> mListeners;
-    private int mPendingAction;
-    private int[] mTmpStatesArray;
-    private int mTotalScrollRange;
+    public static final int INVALID_SCROLL_RANGE = -1;
+    public static final int PENDING_ACTION_ANIMATE_ENABLED = 4;
+    public static final int PENDING_ACTION_COLLAPSED = 2;
+    public static final int PENDING_ACTION_EXPANDED = 1;
+    public static final int PENDING_ACTION_FORCE = 8;
+    public static final int PENDING_ACTION_NONE = 0;
+    public boolean mCollapsed;
+    public boolean mCollapsible;
+    public int mDownPreScrollRange;
+    public int mDownScrollRange;
+    public boolean mHaveChildWithInterpolator;
+    public WindowInsetsCompat mLastInsets;
+    public List<OnOffsetChangedListener> mListeners;
+    public int mPendingAction;
+    public int[] mTmpStatesArray;
+    public int mTotalScrollRange;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class KSBehavior extends KSHeaderBehavior<KSAppBarLayout> {
-        private static final int INVALID_POSITION = -1;
-        private static final int MAX_OFFSET_ANIMATION_DURATION = 600;
-        private WeakReference<View> mLastNestedScrollingChildRef;
-        private ValueAnimator mOffsetAnimator;
-        private int mOffsetDelta;
-        private int mOffsetToChildIndexOnLayout;
-        private boolean mOffsetToChildIndexOnLayoutIsMinHeight;
-        private float mOffsetToChildIndexOnLayoutPerc;
-        private DragCallback mOnDragCallback;
+        public static final int INVALID_POSITION = -1;
+        public static final int MAX_OFFSET_ANIMATION_DURATION = 600;
+        public WeakReference<View> mLastNestedScrollingChildRef;
+        public ValueAnimator mOffsetAnimator;
+        public int mOffsetDelta;
+        public int mOffsetToChildIndexOnLayout;
+        public boolean mOffsetToChildIndexOnLayoutIsMinHeight;
+        public float mOffsetToChildIndexOnLayoutPerc;
+        public DragCallback mOnDragCallback;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes6.dex */
         public static abstract class DragCallback {
             public abstract boolean canDrag(@NonNull KSAppBarLayout kSAppBarLayout);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes6.dex */
         public static class SavedState extends AbsSavedState {
             public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.kwad.sdk.lib.desigin.KSAppBarLayout.KSBehavior.SavedState.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -93,9 +92,9 @@ public class KSAppBarLayout extends LinearLayout {
                     return new SavedState[i];
                 }
             };
-            boolean firstVisibleChildAtMinimumHeight;
-            int firstVisibleChildIndex;
-            float firstVisibleChildPercentageShown;
+            public boolean firstVisibleChildAtMinimumHeight;
+            public int firstVisibleChildIndex;
+            public float firstVisibleChildPercentageShown;
 
             public SavedState(Parcel parcel, ClassLoader classLoader) {
                 super(parcel, classLoader);
@@ -113,7 +112,7 @@ public class KSAppBarLayout extends LinearLayout {
                 super.writeToParcel(parcel, i);
                 parcel.writeInt(this.firstVisibleChildIndex);
                 parcel.writeFloat(this.firstVisibleChildPercentageShown);
-                parcel.writeByte((byte) (this.firstVisibleChildAtMinimumHeight ? 1 : 0));
+                parcel.writeByte(this.firstVisibleChildAtMinimumHeight ? (byte) 1 : (byte) 0);
             }
         }
 
@@ -126,43 +125,46 @@ public class KSAppBarLayout extends LinearLayout {
             this.mOffsetToChildIndexOnLayout = -1;
         }
 
-        private void animateOffsetTo(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i, float f) {
+        private void animateOffsetTo(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i, float f2) {
             int abs = Math.abs(getTopBottomOffsetForScrollingSibling() - i);
-            float abs2 = Math.abs(f);
+            float abs2 = Math.abs(f2);
             animateOffsetWithDuration(kSCoordinatorLayout, kSAppBarLayout, i, abs2 > 0.0f ? Math.round((abs / abs2) * 1000.0f) * 3 : (int) (((abs / kSAppBarLayout.getHeight()) + 1.0f) * 150.0f));
         }
 
         private void animateOffsetWithDuration(final KSCoordinatorLayout kSCoordinatorLayout, final KSAppBarLayout kSAppBarLayout, int i, int i2) {
             int topBottomOffsetForScrollingSibling = getTopBottomOffsetForScrollingSibling();
             if (topBottomOffsetForScrollingSibling == i) {
-                if (this.mOffsetAnimator == null || !this.mOffsetAnimator.isRunning()) {
+                ValueAnimator valueAnimator = this.mOffsetAnimator;
+                if (valueAnimator == null || !valueAnimator.isRunning()) {
                     return;
                 }
                 this.mOffsetAnimator.cancel();
                 return;
             }
-            if (this.mOffsetAnimator == null) {
-                this.mOffsetAnimator = new ValueAnimator();
-                this.mOffsetAnimator.setInterpolator(KSAnimationUtils.DECELERATE_INTERPOLATOR);
+            ValueAnimator valueAnimator2 = this.mOffsetAnimator;
+            if (valueAnimator2 == null) {
+                ValueAnimator valueAnimator3 = new ValueAnimator();
+                this.mOffsetAnimator = valueAnimator3;
+                valueAnimator3.setInterpolator(KSAnimationUtils.DECELERATE_INTERPOLATOR);
                 this.mOffsetAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.lib.desigin.KSAppBarLayout.KSBehavior.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                        KSBehavior.this.setHeaderTopBottomOffset(kSCoordinatorLayout, kSAppBarLayout, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    public void onAnimationUpdate(ValueAnimator valueAnimator4) {
+                        KSBehavior.this.setHeaderTopBottomOffset(kSCoordinatorLayout, kSAppBarLayout, ((Integer) valueAnimator4.getAnimatedValue()).intValue());
                     }
                 });
             } else {
-                this.mOffsetAnimator.cancel();
+                valueAnimator2.cancel();
             }
             this.mOffsetAnimator.setDuration(Math.min(i2, 600));
             this.mOffsetAnimator.setIntValues(topBottomOffsetForScrollingSibling, i);
             this.mOffsetAnimator.start();
         }
 
-        private static boolean checkFlag(int i, int i2) {
+        public static boolean checkFlag(int i, int i2) {
             return (i & i2) == i2;
         }
 
-        private static View getAppBarChildOnOffset(KSAppBarLayout kSAppBarLayout, int i) {
+        public static View getAppBarChildOnOffset(KSAppBarLayout kSAppBarLayout, int i) {
             int abs = Math.abs(i);
             int childCount = kSAppBarLayout.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
@@ -178,7 +180,8 @@ public class KSAppBarLayout extends LinearLayout {
             int childCount = kSAppBarLayout.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = kSAppBarLayout.getChildAt(i2);
-                if (childAt.getTop() <= (-i) && childAt.getBottom() >= (-i)) {
+                int i3 = -i;
+                if (childAt.getTop() <= i3 && childAt.getBottom() >= i3) {
                     return i2;
                 }
             }
@@ -186,33 +189,34 @@ public class KSAppBarLayout extends LinearLayout {
         }
 
         private int interpolateOffset(KSAppBarLayout kSAppBarLayout, int i) {
-            int i2;
             int abs = Math.abs(i);
             int childCount = kSAppBarLayout.getChildCount();
-            for (int i3 = 0; i3 < childCount; i3++) {
+            int i2 = 0;
+            int i3 = 0;
+            while (true) {
+                if (i3 >= childCount) {
+                    break;
+                }
                 View childAt = kSAppBarLayout.getChildAt(i3);
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 Interpolator scrollInterpolator = layoutParams.getScrollInterpolator();
-                if (abs >= childAt.getTop() && abs <= childAt.getBottom()) {
-                    if (scrollInterpolator != null) {
-                        int scrollFlags = layoutParams.getScrollFlags();
-                        if ((scrollFlags & 1) != 0) {
-                            i2 = layoutParams.bottomMargin + childAt.getHeight() + layoutParams.topMargin + 0;
-                            if ((scrollFlags & 2) != 0) {
-                                i2 -= ViewCompat.getMinimumHeight(childAt);
-                            }
-                        } else {
-                            i2 = 0;
+                if (abs < childAt.getTop() || abs > childAt.getBottom()) {
+                    i3++;
+                } else if (scrollInterpolator != null) {
+                    int scrollFlags = layoutParams.getScrollFlags();
+                    if ((scrollFlags & 1) != 0) {
+                        i2 = 0 + childAt.getHeight() + ((LinearLayout.LayoutParams) layoutParams).topMargin + ((LinearLayout.LayoutParams) layoutParams).bottomMargin;
+                        if ((scrollFlags & 2) != 0) {
+                            i2 -= ViewCompat.getMinimumHeight(childAt);
                         }
-                        if (ViewCompat.getFitsSystemWindows(childAt)) {
-                            i2 -= kSAppBarLayout.getTopInset();
-                        }
-                        if (i2 > 0) {
-                            return Integer.signum(i) * (Math.round(scrollInterpolator.getInterpolation((abs - childAt.getTop()) / i2) * i2) + childAt.getTop());
-                        }
-                        return i;
                     }
-                    return i;
+                    if (ViewCompat.getFitsSystemWindows(childAt)) {
+                        i2 -= kSAppBarLayout.getTopInset();
+                    }
+                    if (i2 > 0) {
+                        float f2 = i2;
+                        return Integer.signum(i) * (childAt.getTop() + Math.round(f2 * scrollInterpolator.getInterpolation((abs - childAt.getTop()) / f2)));
+                    }
                 }
             }
             return i;
@@ -252,25 +256,23 @@ public class KSAppBarLayout extends LinearLayout {
                             i2 = minimumHeight;
                         }
                     }
-                    if (topBottomOffsetForScrollingSibling >= (i2 + i) / 2) {
-                        i2 = i;
+                    if (topBottomOffsetForScrollingSibling < (i2 + i) / 2) {
+                        i = i2;
                     }
-                    animateOffsetTo(kSCoordinatorLayout, kSAppBarLayout, MathUtils.clamp(i2, -kSAppBarLayout.getTotalScrollRange(), 0), 0.0f);
+                    animateOffsetTo(kSCoordinatorLayout, kSAppBarLayout, MathUtils.clamp(i, -kSAppBarLayout.getTotalScrollRange(), 0), 0.0f);
                 }
             }
         }
 
         private void updateAppBarLayoutDrawableState(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i, int i2, boolean z) {
-            boolean z2 = false;
             View appBarChildOnOffset = getAppBarChildOnOffset(kSAppBarLayout, i);
             if (appBarChildOnOffset != null) {
                 int scrollFlags = ((LayoutParams) appBarChildOnOffset.getLayoutParams()).getScrollFlags();
+                boolean z2 = false;
                 if ((scrollFlags & 1) != 0) {
                     int minimumHeight = ViewCompat.getMinimumHeight(appBarChildOnOffset);
-                    if (i2 > 0 && (scrollFlags & 12) != 0) {
-                        z2 = (-i) >= (appBarChildOnOffset.getBottom() - minimumHeight) - kSAppBarLayout.getTopInset();
-                    } else if ((scrollFlags & 2) != 0) {
-                        z2 = (-i) >= (appBarChildOnOffset.getBottom() - minimumHeight) - kSAppBarLayout.getTopInset();
+                    if (i2 <= 0 || (scrollFlags & 12) == 0 ? !((scrollFlags & 2) == 0 || (-i) < (appBarChildOnOffset.getBottom() - minimumHeight) - kSAppBarLayout.getTopInset()) : (-i) >= (appBarChildOnOffset.getBottom() - minimumHeight) - kSAppBarLayout.getTopInset()) {
+                        z2 = true;
                     }
                 }
                 boolean collapsedState = kSAppBarLayout.setCollapsedState(z2);
@@ -285,11 +287,13 @@ public class KSAppBarLayout extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.lib.desigin.KSHeaderBehavior
         public boolean canDragView(KSAppBarLayout kSAppBarLayout) {
-            if (this.mOnDragCallback != null) {
-                return this.mOnDragCallback.canDrag(kSAppBarLayout);
+            DragCallback dragCallback = this.mOnDragCallback;
+            if (dragCallback != null) {
+                return dragCallback.canDrag(kSAppBarLayout);
             }
-            if (this.mLastNestedScrollingChildRef != null) {
-                View view = this.mLastNestedScrollingChildRef.get();
+            WeakReference<View> weakReference = this.mLastNestedScrollingChildRef;
+            if (weakReference != null) {
+                View view = weakReference.get();
                 return (view == null || !view.isShown() || view.canScrollVertically(-1)) ? false : true;
             }
             return true;
@@ -302,7 +306,6 @@ public class KSAppBarLayout extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: package-private */
         @Override // com.kwad.sdk.lib.desigin.KSHeaderBehavior
         public int getScrollRangeForDragFling(KSAppBarLayout kSAppBarLayout) {
             return kSAppBarLayout.getTotalScrollRange();
@@ -315,7 +318,8 @@ public class KSAppBarLayout extends LinearLayout {
 
         @VisibleForTesting
         public boolean isOffsetAnimatorRunning() {
-            return this.mOffsetAnimator != null && this.mOffsetAnimator.isRunning();
+            ValueAnimator valueAnimator = this.mOffsetAnimator;
+            return valueAnimator != null && valueAnimator.isRunning();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -330,10 +334,10 @@ public class KSAppBarLayout extends LinearLayout {
         public boolean onLayoutChild(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i) {
             boolean onLayoutChild = super.onLayoutChild(kSCoordinatorLayout, (KSCoordinatorLayout) kSAppBarLayout, i);
             int pendingAction = kSAppBarLayout.getPendingAction();
-            if (this.mOffsetToChildIndexOnLayout >= 0 && (pendingAction & 8) == 0) {
-                View childAt = kSAppBarLayout.getChildAt(this.mOffsetToChildIndexOnLayout);
-                int i2 = -childAt.getBottom();
-                setHeaderTopBottomOffset(kSCoordinatorLayout, kSAppBarLayout, this.mOffsetToChildIndexOnLayoutIsMinHeight ? ViewCompat.getMinimumHeight(childAt) + kSAppBarLayout.getTopInset() + i2 : Math.round(childAt.getHeight() * this.mOffsetToChildIndexOnLayoutPerc) + i2);
+            int i2 = this.mOffsetToChildIndexOnLayout;
+            if (i2 >= 0 && (pendingAction & 8) == 0) {
+                View childAt = kSAppBarLayout.getChildAt(i2);
+                setHeaderTopBottomOffset(kSCoordinatorLayout, kSAppBarLayout, (-childAt.getBottom()) + (this.mOffsetToChildIndexOnLayoutIsMinHeight ? ViewCompat.getMinimumHeight(childAt) + kSAppBarLayout.getTopInset() : Math.round(childAt.getHeight() * this.mOffsetToChildIndexOnLayoutPerc)));
             } else if (pendingAction != 0) {
                 boolean z = (pendingAction & 4) != 0;
                 if ((pendingAction & 2) != 0) {
@@ -362,7 +366,7 @@ public class KSAppBarLayout extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
         public boolean onMeasureChild(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i, int i2, int i3, int i4) {
-            if (((KSCoordinatorLayout.LayoutParams) kSAppBarLayout.getLayoutParams()).height == -2) {
+            if (((ViewGroup.MarginLayoutParams) ((KSCoordinatorLayout.LayoutParams) kSAppBarLayout.getLayoutParams())).height == -2) {
                 kSCoordinatorLayout.onMeasureChild(kSAppBarLayout, i, i2, View.MeasureSpec.makeMeasureSpec(0, 0), i4);
                 return true;
             }
@@ -376,8 +380,9 @@ public class KSAppBarLayout extends LinearLayout {
             int i5;
             if (i2 != 0) {
                 if (i2 < 0) {
-                    i4 = -kSAppBarLayout.getTotalScrollRange();
-                    i5 = i4 + kSAppBarLayout.getDownNestedPreScrollRange();
+                    int i6 = -kSAppBarLayout.getTotalScrollRange();
+                    i4 = i6;
+                    i5 = kSAppBarLayout.getDownNestedPreScrollRange() + i6;
                 } else {
                     i4 = -kSAppBarLayout.getUpNestedPreScrollRange();
                     i5 = 0;
@@ -434,9 +439,10 @@ public class KSAppBarLayout extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
         public boolean onStartNestedScroll(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, View view, View view2, int i, int i2) {
+            ValueAnimator valueAnimator;
             boolean z = (i & 2) != 0 && kSAppBarLayout.hasScrollableChildren() && kSCoordinatorLayout.getHeight() - view.getHeight() <= kSAppBarLayout.getHeight();
-            if (z && this.mOffsetAnimator != null) {
-                this.mOffsetAnimator.cancel();
+            if (z && (valueAnimator = this.mOffsetAnimator) != null) {
+                valueAnimator.cancel();
             }
             this.mLastNestedScrollingChildRef = null;
             return z;
@@ -460,43 +466,43 @@ public class KSAppBarLayout extends LinearLayout {
         @Override // com.kwad.sdk.lib.desigin.KSHeaderBehavior
         public int setHeaderTopBottomOffset(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i, int i2, int i3) {
             int topBottomOffsetForScrollingSibling = getTopBottomOffsetForScrollingSibling();
+            int i4 = 0;
             if (i2 == 0 || topBottomOffsetForScrollingSibling < i2 || topBottomOffsetForScrollingSibling > i3) {
                 this.mOffsetDelta = 0;
-                return 0;
-            }
-            int clamp = MathUtils.clamp(i, i2, i3);
-            if (topBottomOffsetForScrollingSibling != clamp) {
-                int interpolateOffset = kSAppBarLayout.hasChildWithInterpolator() ? interpolateOffset(kSAppBarLayout, clamp) : clamp;
-                boolean topAndBottomOffset = setTopAndBottomOffset(interpolateOffset);
-                int i4 = topBottomOffsetForScrollingSibling - clamp;
-                this.mOffsetDelta = clamp - interpolateOffset;
-                if (!topAndBottomOffset && kSAppBarLayout.hasChildWithInterpolator()) {
-                    kSCoordinatorLayout.dispatchDependentViewsChanged(kSAppBarLayout);
+            } else {
+                int clamp = MathUtils.clamp(i, i2, i3);
+                if (topBottomOffsetForScrollingSibling != clamp) {
+                    int interpolateOffset = kSAppBarLayout.hasChildWithInterpolator() ? interpolateOffset(kSAppBarLayout, clamp) : clamp;
+                    boolean topAndBottomOffset = setTopAndBottomOffset(interpolateOffset);
+                    i4 = topBottomOffsetForScrollingSibling - clamp;
+                    this.mOffsetDelta = clamp - interpolateOffset;
+                    if (!topAndBottomOffset && kSAppBarLayout.hasChildWithInterpolator()) {
+                        kSCoordinatorLayout.dispatchDependentViewsChanged(kSAppBarLayout);
+                    }
+                    kSAppBarLayout.dispatchOffsetUpdates(getTopAndBottomOffset());
+                    updateAppBarLayoutDrawableState(kSCoordinatorLayout, kSAppBarLayout, clamp, clamp < topBottomOffsetForScrollingSibling ? -1 : 1, false);
                 }
-                kSAppBarLayout.dispatchOffsetUpdates(getTopAndBottomOffset());
-                updateAppBarLayoutDrawableState(kSCoordinatorLayout, kSAppBarLayout, clamp, clamp < topBottomOffsetForScrollingSibling ? -1 : 1, false);
-                return i4;
             }
-            return 0;
+            return i4;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
-        static final int COLLAPSIBLE_FLAGS = 10;
-        static final int FLAG_QUICK_RETURN = 5;
-        static final int FLAG_SNAP = 17;
+        public static final int COLLAPSIBLE_FLAGS = 10;
+        public static final int FLAG_QUICK_RETURN = 5;
+        public static final int FLAG_SNAP = 17;
         public static final int SCROLL_FLAG_ENTER_ALWAYS = 4;
         public static final int SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED = 8;
         public static final int SCROLL_FLAG_EXIT_UNTIL_COLLAPSED = 2;
         public static final int SCROLL_FLAG_SCROLL = 1;
         public static final int SCROLL_FLAG_SNAP = 16;
-        int mScrollFlags;
-        Interpolator mScrollInterpolator;
+        public int mScrollFlags;
+        public Interpolator mScrollInterpolator;
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public @interface ScrollFlags {
         }
 
@@ -505,8 +511,8 @@ public class KSAppBarLayout extends LinearLayout {
             this.mScrollFlags = 1;
         }
 
-        public LayoutParams(int i, int i2, float f) {
-            super(i, i2, f);
+        public LayoutParams(int i, int i2, float f2) {
+            super(i, i2, f2);
             this.mScrollFlags = 1;
         }
 
@@ -553,8 +559,9 @@ public class KSAppBarLayout extends LinearLayout {
             return this.mScrollInterpolator;
         }
 
-        boolean isCollapsible() {
-            return (this.mScrollFlags & 1) == 1 && (this.mScrollFlags & 10) != 0;
+        public boolean isCollapsible() {
+            int i = this.mScrollFlags;
+            return (i & 1) == 1 && (i & 10) != 0;
         }
 
         public void setScrollFlags(int i) {
@@ -566,12 +573,12 @@ public class KSAppBarLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnOffsetChangedListener {
         void onOffsetChanged(KSAppBarLayout kSAppBarLayout, int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ScrollingViewBehavior extends KSHeaderScrollingViewBehavior {
         public ScrollingViewBehavior() {
         }
@@ -583,7 +590,7 @@ public class KSAppBarLayout extends LinearLayout {
             obtainStyledAttributes.recycle();
         }
 
-        private static int getAppBarLayoutOffset(KSAppBarLayout kSAppBarLayout) {
+        public static int getAppBarLayoutOffset(KSAppBarLayout kSAppBarLayout) {
             KSCoordinatorLayout.Behavior behavior = ((KSCoordinatorLayout.LayoutParams) kSAppBarLayout.getLayoutParams()).getBehavior();
             if (behavior instanceof KSBehavior) {
                 return ((KSBehavior) behavior).getTopBottomOffsetForScrollingSibling();
@@ -594,17 +601,17 @@ public class KSAppBarLayout extends LinearLayout {
         private void offsetChildAsNeeded(KSCoordinatorLayout kSCoordinatorLayout, View view, View view2) {
             KSCoordinatorLayout.Behavior behavior = ((KSCoordinatorLayout.LayoutParams) view2.getLayoutParams()).getBehavior();
             if (behavior instanceof KSBehavior) {
-                ViewCompat.offsetTopAndBottom(view, ((((KSBehavior) behavior).mOffsetDelta + (view2.getBottom() - view.getTop())) + getVerticalLayoutGap()) - getOverlapPixelsForOffset(view2));
+                ViewCompat.offsetTopAndBottom(view, (((view2.getBottom() - view.getTop()) + ((KSBehavior) behavior).mOffsetDelta) + getVerticalLayoutGap()) - getOverlapPixelsForOffset(view2));
             }
         }
 
         @Override // com.kwad.sdk.lib.desigin.KSHeaderScrollingViewBehavior
-        /* bridge */ /* synthetic */ View findFirstDependency(List list) {
+        public /* bridge */ /* synthetic */ View findFirstDependency(List list) {
             return findFirstDependency((List<View>) list);
         }
 
         @Override // com.kwad.sdk.lib.desigin.KSHeaderScrollingViewBehavior
-        KSAppBarLayout findFirstDependency(List<View> list) {
+        public KSAppBarLayout findFirstDependency(List<View> list) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 View view = list.get(i);
@@ -616,7 +623,7 @@ public class KSAppBarLayout extends LinearLayout {
         }
 
         @Override // com.kwad.sdk.lib.desigin.KSHeaderScrollingViewBehavior
-        float getOverlapRatioForOffset(View view) {
+        public float getOverlapRatioForOffset(View view) {
             int i;
             if (view instanceof KSAppBarLayout) {
                 KSAppBarLayout kSAppBarLayout = (KSAppBarLayout) view;
@@ -624,9 +631,8 @@ public class KSAppBarLayout extends LinearLayout {
                 int downNestedPreScrollRange = kSAppBarLayout.getDownNestedPreScrollRange();
                 int appBarLayoutOffset = getAppBarLayoutOffset(kSAppBarLayout);
                 if ((downNestedPreScrollRange == 0 || totalScrollRange + appBarLayoutOffset > downNestedPreScrollRange) && (i = totalScrollRange - downNestedPreScrollRange) != 0) {
-                    return 1.0f + (appBarLayoutOffset / i);
+                    return (appBarLayoutOffset / i) + 1.0f;
                 }
-                return 0.0f;
             }
             return 0.0f;
         }
@@ -721,17 +727,16 @@ public class KSAppBarLayout extends LinearLayout {
     }
 
     private void setExpanded(boolean z, boolean z2, boolean z3) {
-        this.mPendingAction = (z3 ? 8 : 0) | (z2 ? 4 : 0) | (z ? 1 : 2);
+        this.mPendingAction = (z ? 1 : 2) | (z2 ? 4 : 0) | (z3 ? 8 : 0);
         requestLayout();
     }
 
     private void updateCollapsible() {
-        boolean z;
         int childCount = getChildCount();
+        boolean z = false;
         int i = 0;
         while (true) {
             if (i >= childCount) {
-                z = false;
                 break;
             } else if (((LayoutParams) getChildAt(i).getLayoutParams()).isCollapsible()) {
                 z = true;
@@ -754,13 +759,14 @@ public class KSAppBarLayout extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup
-    protected boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
+    public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
         return layoutParams instanceof LayoutParams;
     }
 
     public void dispatchOffsetUpdates(int i) {
-        if (this.mListeners != null) {
-            int size = this.mListeners.size();
+        List<OnOffsetChangedListener> list = this.mListeners;
+        if (list != null) {
+            int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 OnOffsetChangedListener onOffsetChangedListener = this.mListeners.get(i2);
                 if (onOffsetChangedListener != null) {
@@ -771,7 +777,6 @@ public class KSAppBarLayout extends LinearLayout {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-1, -2);
@@ -784,34 +789,28 @@ public class KSAppBarLayout extends LinearLayout {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         return (Build.VERSION.SDK_INT < 19 || !(layoutParams instanceof LinearLayout.LayoutParams)) ? layoutParams instanceof ViewGroup.MarginLayoutParams ? new LayoutParams((ViewGroup.MarginLayoutParams) layoutParams) : new LayoutParams(layoutParams) : new LayoutParams((LinearLayout.LayoutParams) layoutParams);
     }
 
     public int getDownNestedPreScrollRange() {
-        int i;
-        if (this.mDownPreScrollRange != -1) {
-            return this.mDownPreScrollRange;
+        int i = this.mDownPreScrollRange;
+        if (i != -1) {
+            return i;
         }
-        int childCount = getChildCount() - 1;
         int i2 = 0;
-        while (childCount >= 0) {
+        for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
             View childAt = getChildAt(childCount);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
             int measuredHeight = childAt.getMeasuredHeight();
             int i3 = layoutParams.mScrollFlags;
             if ((i3 & 5) == 5) {
-                int i4 = layoutParams.bottomMargin + layoutParams.topMargin + i2;
-                i = (i3 & 8) != 0 ? i4 + ViewCompat.getMinimumHeight(childAt) : (i3 & 2) != 0 ? i4 + (measuredHeight - ViewCompat.getMinimumHeight(childAt)) : i4 + (measuredHeight - getTopInset());
+                int i4 = i2 + ((LinearLayout.LayoutParams) layoutParams).topMargin + ((LinearLayout.LayoutParams) layoutParams).bottomMargin;
+                i2 = (i3 & 8) != 0 ? i4 + ViewCompat.getMinimumHeight(childAt) : i4 + (measuredHeight - ((i3 & 2) != 0 ? ViewCompat.getMinimumHeight(childAt) : getTopInset()));
             } else if (i2 > 0) {
                 break;
-            } else {
-                i = i2;
             }
-            childCount--;
-            i2 = i;
         }
         int max = Math.max(0, i2);
         this.mDownPreScrollRange = max;
@@ -819,44 +818,50 @@ public class KSAppBarLayout extends LinearLayout {
     }
 
     public int getDownNestedScrollRange() {
-        int i;
-        if (this.mDownScrollRange != -1) {
-            return this.mDownScrollRange;
+        int i = this.mDownScrollRange;
+        if (i != -1) {
+            return i;
         }
         int childCount = getChildCount();
         int i2 = 0;
-        for (int i3 = 0; i3 < childCount; i3++) {
-            View childAt = getChildAt(i3);
+        int i3 = 0;
+        while (true) {
+            if (i2 >= childCount) {
+                break;
+            }
+            View childAt = getChildAt(i2);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-            int measuredHeight = childAt.getMeasuredHeight() + layoutParams.topMargin + layoutParams.bottomMargin;
+            int measuredHeight = childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams).topMargin + ((LinearLayout.LayoutParams) layoutParams).bottomMargin;
             int i4 = layoutParams.mScrollFlags;
             if ((i4 & 1) == 0) {
                 break;
             }
-            i2 += measuredHeight;
+            i3 += measuredHeight;
             if ((i4 & 2) != 0) {
-                i = i2 - (ViewCompat.getMinimumHeight(childAt) + getTopInset());
+                i3 -= ViewCompat.getMinimumHeight(childAt) + getTopInset();
                 break;
             }
+            i2++;
         }
-        i = i2;
-        int max = Math.max(0, i);
+        int max = Math.max(0, i3);
         this.mDownScrollRange = max;
         return max;
     }
 
-    final int getMinimumHeightForVisibleOverlappingContent() {
+    public final int getMinimumHeightForVisibleOverlappingContent() {
         int topInset = getTopInset();
         int minimumHeight = ViewCompat.getMinimumHeight(this);
-        if (minimumHeight != 0) {
-            return (minimumHeight * 2) + topInset;
+        if (minimumHeight == 0) {
+            int childCount = getChildCount();
+            minimumHeight = childCount >= 1 ? ViewCompat.getMinimumHeight(getChildAt(childCount - 1)) : 0;
+            if (minimumHeight == 0) {
+                return getHeight() / 3;
+            }
         }
-        int childCount = getChildCount();
-        int minimumHeight2 = childCount >= 1 ? ViewCompat.getMinimumHeight(getChildAt(childCount - 1)) : 0;
-        return minimumHeight2 != 0 ? (minimumHeight2 * 2) + topInset : getHeight() / 3;
+        return (minimumHeight * 2) + topInset;
     }
 
-    int getPendingAction() {
+    public int getPendingAction() {
         return this.mPendingAction;
     }
 
@@ -867,40 +872,45 @@ public class KSAppBarLayout extends LinearLayout {
 
     @VisibleForTesting
     public final int getTopInset() {
-        if (this.mLastInsets != null) {
-            return this.mLastInsets.getSystemWindowInsetTop();
+        WindowInsetsCompat windowInsetsCompat = this.mLastInsets;
+        if (windowInsetsCompat != null) {
+            return windowInsetsCompat.getSystemWindowInsetTop();
         }
         return 0;
     }
 
     public final int getTotalScrollRange() {
-        int i;
-        if (this.mTotalScrollRange != -1) {
-            return this.mTotalScrollRange;
+        int i = this.mTotalScrollRange;
+        if (i != -1) {
+            return i;
         }
         int childCount = getChildCount();
         int i2 = 0;
-        for (int i3 = 0; i3 < childCount; i3++) {
-            View childAt = getChildAt(i3);
+        int i3 = 0;
+        while (true) {
+            if (i2 >= childCount) {
+                break;
+            }
+            View childAt = getChildAt(i2);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
             int measuredHeight = childAt.getMeasuredHeight();
             int i4 = layoutParams.mScrollFlags;
             if ((i4 & 1) == 0) {
                 break;
             }
-            i2 += layoutParams.bottomMargin + measuredHeight + layoutParams.topMargin;
+            i3 += measuredHeight + ((LinearLayout.LayoutParams) layoutParams).topMargin + ((LinearLayout.LayoutParams) layoutParams).bottomMargin;
             if ((i4 & 2) != 0) {
-                i = i2 - ViewCompat.getMinimumHeight(childAt);
+                i3 -= ViewCompat.getMinimumHeight(childAt);
                 break;
             }
+            i2++;
         }
-        i = i2;
-        int max = Math.max(0, i - getTopInset());
+        int max = Math.max(0, i3 - getTopInset());
         this.mTotalScrollRange = max;
         return max;
     }
 
-    int getUpNestedPreScrollRange() {
+    public int getUpNestedPreScrollRange() {
         return getTotalScrollRange();
     }
 
@@ -908,29 +918,29 @@ public class KSAppBarLayout extends LinearLayout {
         return this.mHaveChildWithInterpolator;
     }
 
-    boolean hasScrollableChildren() {
+    public boolean hasScrollableChildren() {
         return getTotalScrollRange() != 0;
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected int[] onCreateDrawableState(int i) {
+    public int[] onCreateDrawableState(int i) {
         if (this.mTmpStatesArray == null) {
             this.mTmpStatesArray = new int[2];
         }
         int[] iArr = this.mTmpStatesArray;
-        int[] onCreateDrawableState = super.onCreateDrawableState(iArr.length + i);
+        int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
         iArr[0] = this.mCollapsible ? R.attr.ksad_state_collapsible : -R.attr.ksad_state_collapsible;
         iArr[1] = (this.mCollapsible && this.mCollapsed) ? R.attr.ksad_state_collapsed : -R.attr.ksad_state_collapsed;
-        return mergeDrawableStates(onCreateDrawableState, iArr);
+        return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         invalidateScrollRanges();
+        int i5 = 0;
         this.mHaveChildWithInterpolator = false;
         int childCount = getChildCount();
-        int i5 = 0;
         while (true) {
             if (i5 >= childCount) {
                 break;
@@ -945,12 +955,12 @@ public class KSAppBarLayout extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
+    public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         invalidateScrollRanges();
     }
 
-    WindowInsetsCompat onWindowInsetChanged(WindowInsetsCompat windowInsetsCompat) {
+    public WindowInsetsCompat onWindowInsetChanged(WindowInsetsCompat windowInsetsCompat) {
         WindowInsetsCompat windowInsetsCompat2 = ViewCompat.getFitsSystemWindows(this) ? windowInsetsCompat : null;
         if (!ObjectsCompat.equals(this.mLastInsets, windowInsetsCompat2)) {
             this.mLastInsets = windowInsetsCompat2;
@@ -960,17 +970,18 @@ public class KSAppBarLayout extends LinearLayout {
     }
 
     public void removeOnOffsetChangedListener(OnOffsetChangedListener onOffsetChangedListener) {
-        if (this.mListeners == null || onOffsetChangedListener == null) {
+        List<OnOffsetChangedListener> list = this.mListeners;
+        if (list == null || onOffsetChangedListener == null) {
             return;
         }
-        this.mListeners.remove(onOffsetChangedListener);
+        list.remove(onOffsetChangedListener);
     }
 
-    void resetPendingAction() {
+    public void resetPendingAction() {
         this.mPendingAction = 0;
     }
 
-    boolean setCollapsedState(boolean z) {
+    public boolean setCollapsedState(boolean z) {
         if (this.mCollapsed != z) {
             this.mCollapsed = z;
             refreshDrawableState();
@@ -996,9 +1007,9 @@ public class KSAppBarLayout extends LinearLayout {
     }
 
     @Deprecated
-    public void setTargetElevation(float f) {
+    public void setTargetElevation(float f2) {
         if (Build.VERSION.SDK_INT >= 21) {
-            KSViewUtilsLollipop.setDefaultAppBarLayoutStateListAnimator(this, f);
+            KSViewUtilsLollipop.setDefaultAppBarLayoutStateListAnimator(this, f2);
         }
     }
 }

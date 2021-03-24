@@ -7,49 +7,50 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<KsContentPage.SubShowItem> f5599a = new ArrayList();
-    private Map<String, KsContentPage.SubShowItem> b = new HashMap();
+    public List<KsContentPage.SubShowItem> f32149a = new ArrayList();
+
+    /* renamed from: b  reason: collision with root package name */
+    public Map<String, KsContentPage.SubShowItem> f32150b = new HashMap();
 
     public int a(AdTemplate adTemplate, int i) {
         if (adTemplate == null) {
             return 0;
         }
         String str = adTemplate.mUniqueId;
-        if (this.b.containsKey(str)) {
+        if (this.f32150b.containsKey(str)) {
             return 3;
         }
         if (adTemplate.contentType == 3) {
             com.kwad.sdk.core.d.a.a("ThirdModelManager", "检测到第三方广告位，开始尝试插入,position:" + i);
-            if (this.f5599a.size() > 0) {
-                this.b.put(str, this.f5599a.remove(0));
+            if (this.f32149a.size() > 0) {
+                this.f32150b.put(str, this.f32149a.remove(0));
                 com.kwad.sdk.core.d.a.a("ThirdModelManager", "检测到第三方广告位，插入成功,position:" + i);
                 return 3;
-            } else if (adTemplate.adInfoList.size() <= 0 || adTemplate.adInfoList.get(0) == null) {
-                com.kwad.sdk.core.d.a.a("ThirdModelManager", "检测到第三方广告位，插入失败丢弃该位置，position:" + i);
-                e.i(adTemplate);
-                return 0;
-            } else {
+            } else if (adTemplate.adInfoList.size() > 0 && adTemplate.adInfoList.get(0) != null) {
                 adTemplate.realShowType = 2;
                 com.kwad.sdk.core.d.a.a("ThirdModelManager", "检测到第三方广告位，插入失败使用默认广告兜底,position:" + i);
                 return 2;
+            } else {
+                com.kwad.sdk.core.d.a.a("ThirdModelManager", "检测到第三方广告位，插入失败丢弃该位置，position:" + i);
+                e.i(adTemplate);
             }
         }
         return 0;
     }
 
     public KsContentPage.SubShowItem a(AdTemplate adTemplate) {
-        return this.b.get(adTemplate.mUniqueId);
+        return this.f32150b.get(adTemplate.mUniqueId);
     }
 
     public void a(KsContentPage.SubShowItem subShowItem) {
-        if (this.f5599a.contains(subShowItem)) {
+        if (this.f32149a.contains(subShowItem)) {
             return;
         }
-        this.f5599a.add(subShowItem);
+        this.f32149a.add(subShowItem);
     }
 
     public void a(List<KsContentPage.SubShowItem> list) {

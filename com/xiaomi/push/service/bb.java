@@ -1,116 +1,44 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.os.Build;
-import android.os.Looper;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class bb {
+import com.xiaomi.push.dv;
+import com.xiaomi.push.ea;
+import com.xiaomi.push.ee;
+import com.xiaomi.push.hd;
+import com.xiaomi.push.hf;
+import com.xiaomi.push.hp;
+import com.xiaomi.push.ie;
+import com.xiaomi.push.ip;
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public class bb implements ee {
+    @Override // com.xiaomi.push.ee
+    public void a(Context context, HashMap<String, String> hashMap) {
+        ie ieVar = new ie();
+        ieVar.b(ea.a(context).m265a());
+        ieVar.d(ea.a(context).b());
+        ieVar.c(hp.AwakeAppResponse.f506a);
+        ieVar.a(at.a());
+        ieVar.f647a = hashMap;
+        byte[] a2 = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.Notification));
+        if (!(context instanceof XMPushService)) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("MoleInfo : context is not correct in pushLayer " + ieVar.m446a());
+            return;
+        }
+        com.xiaomi.channel.commonutils.logger.b.m51a("MoleInfo : send data directly in pushLayer " + ieVar.m446a());
+        ((XMPushService) context).a(context.getPackageName(), a2, true);
+    }
 
-    /* renamed from: a  reason: collision with root package name */
-    private static bb f8537a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private static String f877a = null;
-
-    /* renamed from: a  reason: collision with other field name */
-    private Context f878a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private boolean f881a;
-    private Messenger b;
-
-    /* renamed from: a  reason: collision with other field name */
-    private List<Message> f880a = new ArrayList();
-
-    /* renamed from: b  reason: collision with other field name */
-    private boolean f882b = false;
-
-    /* renamed from: a  reason: collision with other field name */
-    private Messenger f879a = new Messenger(new bc(this, Looper.getMainLooper()));
-
-    private bb(Context context) {
-        this.f881a = false;
-        this.f878a = context.getApplicationContext();
-        if (a()) {
-            com.xiaomi.channel.commonutils.logger.b.c("use miui push service");
-            this.f881a = true;
+    @Override // com.xiaomi.push.ee
+    public void b(Context context, HashMap<String, String> hashMap) {
+        hd a2 = hd.a(context);
+        if (a2 != null) {
+            a2.a("category_awake_app", "wake_up_app", 1L, dv.a(hashMap));
         }
     }
 
-    private Message a(Intent intent) {
-        Message obtain = Message.obtain();
-        obtain.what = 17;
-        obtain.obj = intent;
-        return obtain;
-    }
-
-    public static bb a(Context context) {
-        if (f8537a == null) {
-            f8537a = new bb(context);
-        }
-        return f8537a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    private synchronized void m561a(Intent intent) {
-        if (this.f882b) {
-            Message a2 = a(intent);
-            if (this.f880a.size() >= 50) {
-                this.f880a.remove(0);
-            }
-            this.f880a.add(a2);
-        } else if (this.b == null) {
-            Context context = this.f878a;
-            bd bdVar = new bd(this);
-            Context context2 = this.f878a;
-            context.bindService(intent, bdVar, 1);
-            this.f882b = true;
-            this.f880a.clear();
-            this.f880a.add(a(intent));
-        } else {
-            try {
-                this.b.send(a(intent));
-            } catch (RemoteException e) {
-                this.b = null;
-                this.f882b = false;
-            }
-        }
-    }
-
-    private boolean a() {
-        if (com.xiaomi.push.ab.e) {
-            return false;
-        }
-        try {
-            PackageInfo packageInfo = this.f878a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
-            if (packageInfo != null) {
-                return packageInfo.versionCode >= 104;
-            }
-            return false;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m562a(Intent intent) {
-        try {
-            if (com.xiaomi.push.l.m504a() || Build.VERSION.SDK_INT < 26) {
-                this.f878a.startService(intent);
-            } else {
-                m561a(intent);
-            }
-            return true;
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            return false;
-        }
+    @Override // com.xiaomi.push.ee
+    public void c(Context context, HashMap<String, String> hashMap) {
+        com.xiaomi.channel.commonutils.logger.b.m51a("MoleInfo：\u3000" + dv.b(hashMap));
     }
 }

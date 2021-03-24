@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class GroupInfoActivityConfig extends IntentConfig {
     public static final String ACTION_FROM = "activity_from";
     public static final String DEFAULT_INVITE_MSG = "default_invite_msg";
@@ -24,9 +24,10 @@ public class GroupInfoActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("group_id", j);
         getIntent().putExtra(ACTION_FROM, i);
-        if (!(context instanceof Activity)) {
-            getIntent().addFlags(268435456);
+        if (context instanceof Activity) {
+            return;
         }
+        getIntent().addFlags(268435456);
     }
 
     public GroupInfoActivityConfig(Context context, long j, int i, String str, long j2) {
@@ -36,18 +37,20 @@ public class GroupInfoActivityConfig extends IntentConfig {
         getIntent().putExtra(DEFAULT_INVITE_MSG, str);
         getIntent().putExtra(INVITE_USER_ID, j2);
         getIntent().putExtra(JOIN_TYPE, ApplyJoinGroupActivityConfig.JOINTYPE_INVITE);
-        if (!(context instanceof Activity)) {
-            getIntent().addFlags(268435456);
+        if (context instanceof Activity) {
+            return;
         }
+        getIntent().addFlags(268435456);
     }
 
     public GroupInfoActivityConfig(int i, Activity activity, long j, int i2) {
         super(activity);
-        getIntent().putExtra(REQUEST_CODE, i);
+        getIntent().putExtra("requestCode", i);
         getIntent().putExtra("group_id", j);
         getIntent().putExtra(ACTION_FROM, i2);
-        if (!(activity instanceof Activity)) {
-            getIntent().addFlags(268435456);
+        if (activity instanceof Activity) {
+            return;
         }
+        getIntent().addFlags(268435456);
     }
 }

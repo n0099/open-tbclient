@@ -1,61 +1,125 @@
 package com.xiaomi.push;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.ar.pose.PoseAR;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class em {
-    public static void a(Context context, String str, int i, String str2) {
-        ai.a(context).a(new en(context, str, i, str2));
+import android.widget.RemoteViews;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class em extends ep {
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f40445a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Bitmap f40446b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Bitmap f40447c;
+
+    public em(Context context, String str) {
+        super(context, str);
+        this.f40445a = 16777216;
     }
 
-    private static void a(Context context, HashMap<String, String> hashMap) {
-        eu m272a = eq.a(context).m272a();
-        if (m272a != null) {
-            m272a.a(context, hashMap);
+    @Override // com.xiaomi.push.ep
+    public em a(Bitmap bitmap) {
+        if (m276b() && bitmap != null) {
+            if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
+            } else {
+                this.f40446b = bitmap;
+            }
         }
+        return this;
     }
 
-    private static void b(Context context, HashMap<String, String> hashMap) {
-        eu m272a = eq.a(context).m272a();
-        if (m272a != null) {
-            m272a.c(context, hashMap);
+    public em a(String str) {
+        if (m276b() && !TextUtils.isEmpty(str)) {
+            try {
+                this.f40445a = Color.parseColor(str);
+            } catch (Exception unused) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("parse banner notification image text color error");
+            }
         }
+        return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void c(Context context, String str, int i, String str2) {
-        if (context == null || TextUtils.isEmpty(str)) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.xiaomi.push.ep, android.app.Notification.Builder
+    /* renamed from: a */
+    public ep setLargeIcon(Bitmap bitmap) {
+        return this;
+    }
+
+    @Override // com.xiaomi.push.en
+    public String a() {
+        return "notification_banner";
+    }
+
+    @Override // com.xiaomi.push.en
+    public void a() {
+        RemoteViews a2;
+        Bitmap bitmap;
+        if (!m276b() || this.f40446b == null) {
+            m275b();
             return;
         }
-        try {
-            HashMap hashMap = new HashMap();
-            hashMap.put("awake_info", str);
-            hashMap.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, String.valueOf(i));
-            hashMap.put("description", str2);
-            switch (eq.a(context).a()) {
-                case 1:
-                    a(context, hashMap);
-                    break;
-                case 2:
-                    c(context, hashMap);
-                    break;
-                case 3:
-                    a(context, hashMap);
-                    c(context, hashMap);
-                    break;
-            }
-            b(context, hashMap);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+        super.a();
+        Resources resources = a().getResources();
+        String packageName = a().getPackageName();
+        int a3 = a(resources, "bg", "id", packageName);
+        if (l.a(a()) >= 10) {
+            a2 = a();
+            bitmap = a(this.f40446b, 30.0f);
+        } else {
+            a2 = a();
+            bitmap = this.f40446b;
         }
+        a2.setImageViewBitmap(a3, bitmap);
+        int a4 = a(resources, "icon", "id", packageName);
+        if (this.f40447c != null) {
+            a().setImageViewBitmap(a4, this.f40447c);
+        } else {
+            a(a4);
+        }
+        int a5 = a(resources, "title", "id", packageName);
+        a().setTextViewText(a5, ((ep) this).f324a);
+        Map<String, String> map = ((ep) this).f326a;
+        if (map != null && this.f40445a == 16777216) {
+            a(map.get("notification_image_text_color"));
+        }
+        RemoteViews a6 = a();
+        int i = this.f40445a;
+        a6.setTextColor(a5, (i == 16777216 || !m274a(i)) ? -1 : -16777216);
+        setCustomContentView(a());
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("miui.customHeight", true);
+        addExtras(bundle);
     }
 
-    private static void c(Context context, HashMap<String, String> hashMap) {
-        eu m272a = eq.a(context).m272a();
-        if (m272a != null) {
-            m272a.b(context, hashMap);
+    @Override // com.xiaomi.push.en
+    public boolean a() {
+        if (l.m517a(a())) {
+            Resources resources = a().getResources();
+            String packageName = a().getPackageName();
+            return (a(a().getResources(), "bg", "id", a().getPackageName()) == 0 || a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || l.a(a()) < 9) ? false : true;
         }
+        return false;
+    }
+
+    public em b(Bitmap bitmap) {
+        if (m276b() && bitmap != null) {
+            this.f40447c = bitmap;
+        }
+        return this;
+    }
+
+    @Override // com.xiaomi.push.ep
+    public String b() {
+        return null;
     }
 }

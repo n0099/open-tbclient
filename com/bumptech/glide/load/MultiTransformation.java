@@ -6,23 +6,30 @@ import com.bumptech.glide.load.engine.Resource;
 import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Collection;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MultiTransformation<T> implements Transformation<T> {
-    private final Collection<? extends Transformation<T>> transformations;
+    public final Collection<? extends Transformation<T>> transformations;
 
     @SafeVarargs
     public MultiTransformation(@NonNull Transformation<T>... transformationArr) {
-        if (transformationArr.length == 0) {
-            throw new IllegalArgumentException("MultiTransformation must contain at least one Transformation");
+        if (transformationArr.length != 0) {
+            this.transformations = Arrays.asList(transformationArr);
+            return;
         }
-        this.transformations = Arrays.asList(transformationArr);
+        throw new IllegalArgumentException("MultiTransformation must contain at least one Transformation");
     }
 
-    public MultiTransformation(@NonNull Collection<? extends Transformation<T>> collection) {
-        if (collection.isEmpty()) {
-            throw new IllegalArgumentException("MultiTransformation must contain at least one Transformation");
+    @Override // com.bumptech.glide.load.Key
+    public boolean equals(Object obj) {
+        if (obj instanceof MultiTransformation) {
+            return this.transformations.equals(((MultiTransformation) obj).transformations);
         }
-        this.transformations = collection;
+        return false;
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public int hashCode() {
+        return this.transformations.hashCode();
     }
 
     @Override // com.bumptech.glide.load.Transformation
@@ -40,22 +47,17 @@ public class MultiTransformation<T> implements Transformation<T> {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public boolean equals(Object obj) {
-        if (obj instanceof MultiTransformation) {
-            return this.transformations.equals(((MultiTransformation) obj).transformations);
-        }
-        return false;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public int hashCode() {
-        return this.transformations.hashCode();
-    }
-
-    @Override // com.bumptech.glide.load.Key
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         for (Transformation<T> transformation : this.transformations) {
             transformation.updateDiskCacheKey(messageDigest);
         }
+    }
+
+    public MultiTransformation(@NonNull Collection<? extends Transformation<T>> collection) {
+        if (!collection.isEmpty()) {
+            this.transformations = collection;
+            return;
+        }
+        throw new IllegalArgumentException("MultiTransformation must contain at least one Transformation");
     }
 }

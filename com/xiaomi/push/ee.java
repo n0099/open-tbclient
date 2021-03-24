@@ -1,70 +1,12 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.text.TextUtils;
-/* loaded from: classes5.dex */
-public class ee extends ed {
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public interface ee {
+    void a(Context context, HashMap<String, String> hashMap);
 
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f8336a;
-    private boolean b;
-    private boolean c;
-    private boolean d;
+    void b(Context context, HashMap<String, String> hashMap);
 
-    public ee(Context context, int i, boolean z, boolean z2, boolean z3, boolean z4) {
-        super(context, i);
-        this.f8336a = z;
-        this.b = z2;
-        if (l.d()) {
-            this.b = false;
-        }
-        this.c = z3;
-        this.d = z4;
-    }
-
-    private String a(Context context) {
-        return !this.d ? "off" : "";
-    }
-
-    private String b() {
-        if (this.f8336a) {
-            try {
-                String c = c();
-                return TextUtils.isEmpty(c) ? "" : bf.a(c) + "," + bf.b(c);
-            } catch (Throwable th) {
-                return "";
-            }
-        }
-        return "off";
-    }
-
-    private String c() {
-        return "";
-    }
-
-    private String d() {
-        return !this.b ? "off" : "";
-    }
-
-    private String e() {
-        return !this.c ? "off" : "";
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public int mo170a() {
-        return 13;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public ho mo170a() {
-        return ho.DeviceBaseInfo;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public String mo170a() {
-        return b() + "|" + d() + "|" + e() + "|" + a(this.f231a);
-    }
+    void c(Context context, HashMap<String, String> hashMap);
 }

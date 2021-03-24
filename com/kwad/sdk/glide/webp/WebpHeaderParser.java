@@ -3,20 +3,19 @@ package com.kwad.sdk.glide.webp;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.util.Base64;
-import androidx.core.internal.view.SupportMenu;
-import androidx.core.view.MotionEventCompat;
+import com.facebook.common.webp.WebpSupportStatus;
 import com.kwad.sdk.glide.g.j;
 import com.kwad.sdk.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WebpHeaderParser {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6833a = a();
+    public static final boolean f35802a = a();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum WebpImageType {
         WEBP_SIMPLE(false, false),
         WEBP_LOSSLESS(false, false),
@@ -26,8 +25,8 @@ public class WebpHeaderParser {
         WEBP_EXTENDED_ANIMATED(false, true),
         NONE_WEBP(false, false);
         
-        private final boolean hasAlpha;
-        private final boolean hasAnimation;
+        public final boolean hasAlpha;
+        public final boolean hasAnimation;
 
         WebpImageType(boolean z, boolean z2) {
             this.hasAlpha = z;
@@ -43,80 +42,86 @@ public class WebpHeaderParser {
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static final class a implements c {
+    /* loaded from: classes6.dex */
+    public static final class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final byte[] f6834a;
-        private final int b;
-        private final int c;
-        private int d;
+        public final byte[] f35803a;
 
-        a(byte[] bArr, int i, int i2) {
-            this.f6834a = bArr;
-            this.b = i;
-            this.c = i2;
-            this.d = i;
+        /* renamed from: b  reason: collision with root package name */
+        public final int f35804b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final int f35805c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f35806d;
+
+        public a(byte[] bArr, int i, int i2) {
+            this.f35803a = bArr;
+            this.f35804b = i;
+            this.f35805c = i2;
+            this.f35806d = i;
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public int a() {
-            return ((b() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (b() & 255);
+            return ((b() << 8) & 65280) | (b() & 255);
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public long a(long j) {
-            int min = (int) Math.min((this.b + this.c) - this.d, j);
-            this.d += min;
+            int min = (int) Math.min((this.f35804b + this.f35805c) - this.f35806d, j);
+            this.f35806d += min;
             return min;
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public int b() {
-            if (this.d >= this.b + this.c) {
+            int i = this.f35806d;
+            if (i >= this.f35804b + this.f35805c) {
                 return -1;
             }
-            byte[] bArr = this.f6834a;
-            int i = this.d;
-            this.d = i + 1;
+            byte[] bArr = this.f35803a;
+            this.f35806d = i + 1;
             return bArr[i];
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static final class b implements c {
+    /* loaded from: classes6.dex */
+    public static final class b implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f6835a;
+        public final ByteBuffer f35807a;
 
-        b(ByteBuffer byteBuffer) {
-            this.f6835a = byteBuffer;
+        public b(ByteBuffer byteBuffer) {
+            this.f35807a = byteBuffer;
             byteBuffer.order(ByteOrder.BIG_ENDIAN);
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public int a() {
-            return ((b() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (b() & 255);
+            return ((b() << 8) & 65280) | (b() & 255);
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public long a(long j) {
-            int min = (int) Math.min(this.f6835a.remaining(), j);
-            this.f6835a.position(this.f6835a.position() + min);
+            int min = (int) Math.min(this.f35807a.remaining(), j);
+            ByteBuffer byteBuffer = this.f35807a;
+            byteBuffer.position(byteBuffer.position() + min);
             return min;
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public int b() {
-            if (this.f6835a.remaining() < 1) {
+            if (this.f35807a.remaining() < 1) {
                 return -1;
             }
-            return this.f6835a.get();
+            return this.f35807a.get();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         int a();
 
@@ -125,19 +130,19 @@ public class WebpHeaderParser {
         int b();
     }
 
-    /* loaded from: classes3.dex */
-    private static final class d implements c {
+    /* loaded from: classes6.dex */
+    public static final class d implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final InputStream f6836a;
+        public final InputStream f35808a;
 
-        d(InputStream inputStream) {
-            this.f6836a = inputStream;
+        public d(InputStream inputStream) {
+            this.f35808a = inputStream;
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public int a() {
-            return ((this.f6836a.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.f6836a.read() & 255);
+            return ((this.f35808a.read() << 8) & 65280) | (this.f35808a.read() & 255);
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
@@ -147,33 +152,33 @@ public class WebpHeaderParser {
             }
             long j2 = j;
             while (j2 > 0) {
-                long skip = this.f6836a.skip(j2);
-                if (skip > 0) {
-                    j2 -= skip;
-                } else if (this.f6836a.read() == -1) {
-                    break;
-                } else {
-                    j2--;
+                long skip = this.f35808a.skip(j2);
+                if (skip <= 0) {
+                    if (this.f35808a.read() == -1) {
+                        break;
+                    }
+                    skip = 1;
                 }
+                j2 -= skip;
             }
             return j - j2;
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public int b() {
-            return this.f6836a.read();
+            return this.f35808a.read();
         }
     }
 
-    private static WebpImageType a(c cVar) {
-        if ((((cVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & 65535)) != 1380533830) {
+    public static WebpImageType a(c cVar) {
+        if ((((cVar.a() << 16) & (-65536)) | (cVar.a() & 65535)) != 1380533830) {
             return WebpImageType.NONE_WEBP;
         }
         cVar.a(4L);
-        if ((((cVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & 65535)) != 1464156752) {
+        if ((((cVar.a() << 16) & (-65536)) | (cVar.a() & 65535)) != 1464156752) {
             return WebpImageType.NONE_WEBP;
         }
-        int a2 = ((cVar.a() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.a() & 65535);
+        int a2 = ((cVar.a() << 16) & (-65536)) | (cVar.a() & 65535);
         if (a2 == 1448097824) {
             return WebpImageType.WEBP_SIMPLE;
         }
@@ -213,11 +218,12 @@ public class WebpHeaderParser {
     }
 
     public static boolean a() {
-        if (Build.VERSION.SDK_INT < 17) {
+        int i = Build.VERSION.SDK_INT;
+        if (i < 17) {
             return false;
         }
-        if (Build.VERSION.SDK_INT == 17) {
-            byte[] decode = Base64.decode("UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==", 0);
+        if (i == 17) {
+            byte[] decode = Base64.decode(WebpSupportStatus.VP8X_WEBP_BASE64, 0);
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeByteArray(decode, 0, decode.length, options);

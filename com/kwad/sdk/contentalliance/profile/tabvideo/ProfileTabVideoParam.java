@@ -2,9 +2,9 @@ package com.kwad.sdk.contentalliance.profile.tabvideo;
 
 import com.kwad.sdk.core.scene.URLPackage;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ProfileTabVideoParam implements Serializable {
-    private static final long serialVersionUID = -6152648276167879373L;
+    public static final long serialVersionUID = -6152648276167879373L;
     public long mAuthorId;
     public long mCurrentPhotoId;
     public long mEntryScene;

@@ -2,28 +2,12 @@ package com.baidu.tieba.lego.card.model;
 
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ImmersiveWebViewCard extends BaseCardInfo {
-    private final int container;
-    private final boolean enableTouchFromNet;
-    private final int height;
-    private final String url;
-
-    public String getPageUrl() {
-        return this.url;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public int getContainer() {
-        return this.container;
-    }
-
-    public boolean isEnableTouchFromNet() {
-        return this.enableTouchFromNet;
-    }
+    public final int container;
+    public final boolean enableTouchFromNet;
+    public final int height;
+    public final String url;
 
     public ImmersiveWebViewCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
@@ -33,8 +17,24 @@ public class ImmersiveWebViewCard extends BaseCardInfo {
         this.enableTouchFromNet = jSONObject.optInt("enable_scroll_from_net", 0) == 1;
     }
 
+    public int getContainer() {
+        return this.container;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public String getPageUrl() {
+        return this.url;
+    }
+
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
         return 1.78d;
+    }
+
+    public boolean isEnableTouchFromNet() {
+        return this.enableTouchFromNet;
     }
 }

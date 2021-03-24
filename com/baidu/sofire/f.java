@@ -1,7 +1,7 @@
 package com.baidu.sofire;
 
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class f {
     public static boolean a(Class<?> cls, Object obj, Object obj2) {
         Field[] declaredFields;
@@ -13,8 +13,8 @@ public final class f {
                 try {
                     field.setAccessible(true);
                     field.set(obj2, field.get(obj));
-                } catch (Throwable th) {
-                    com.baidu.sofire.i.e.a();
+                } catch (Throwable unused) {
+                    com.baidu.sofire.g.d.a();
                 }
             }
             cls = cls.getSuperclass();

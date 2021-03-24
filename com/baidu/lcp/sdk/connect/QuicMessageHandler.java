@@ -1,23 +1,15 @@
 package com.baidu.lcp.sdk.connect;
 
 import android.content.Context;
+import d.b.s.a.c.b;
+import d.b.s.a.c.c;
+import d.b.s.a.c.d;
+import d.b.s.a.c.e;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class QuicMessageHandler extends d implements c {
-    public native void closeStream(int i);
-
-    public native void enableQuicCache(boolean z, String str);
-
-    public native void initGlobalRef(c cVar);
-
-    public native int sendMsg(byte[] bArr);
-
-    public native int startConnect(String str, String str2);
-
-    public native int stopConnect();
-
     static {
         System.loadLibrary("native-lib");
     }
@@ -27,26 +19,38 @@ public class QuicMessageHandler extends d implements c {
         initGlobalRef(this);
     }
 
-    @Override // com.baidu.lcp.sdk.connect.d
-    public e y(String str, int i) {
+    @Override // d.b.s.a.c.d
+    public InputStream b() throws EOFException, IOException {
         return null;
     }
 
-    @Override // com.baidu.lcp.sdk.connect.d
-    public boolean socketClose() throws IOException {
+    @Override // d.b.s.a.c.d
+    public void c(e eVar) {
+    }
+
+    public native void closeStream(int i);
+
+    @Override // d.b.s.a.c.d
+    public boolean d() throws IOException {
         return false;
     }
 
-    @Override // com.baidu.lcp.sdk.connect.d
-    public void a(e eVar) {
-    }
-
-    @Override // com.baidu.lcp.sdk.connect.d
-    public void a(b bVar) throws IOException {
-    }
-
-    @Override // com.baidu.lcp.sdk.connect.d
-    public InputStream vK() throws EOFException, IOException {
+    @Override // d.b.s.a.c.d
+    public e e(String str, int i) {
         return null;
     }
+
+    public native void enableQuicCache(boolean z, String str);
+
+    @Override // d.b.s.a.c.d
+    public void f(b bVar) throws IOException {
+    }
+
+    public native void initGlobalRef(c cVar);
+
+    public native int sendMsg(byte[] bArr);
+
+    public native int startConnect(String str, String str2);
+
+    public native int stopConnect();
 }

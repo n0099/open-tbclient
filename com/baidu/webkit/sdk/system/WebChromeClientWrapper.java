@@ -20,17 +20,17 @@ import com.baidu.webkit.sdk.system.GeolocationPermissionsImpl;
 import com.baidu.webkit.sdk.system.WebStorageImpl;
 import com.baidu.webkit.sdk.system.WebViewImpl;
 import java.util.Objects;
-/* loaded from: classes14.dex */
-final class WebChromeClientWrapper extends WebChromeClient {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private final com.baidu.webkit.sdk.WebChromeClient mClient;
-    private final WebViewImpl mWebView;
+/* loaded from: classes5.dex */
+public final class WebChromeClientWrapper extends WebChromeClient {
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public final com.baidu.webkit.sdk.WebChromeClient mClient;
+    public final WebViewImpl mWebView;
 
-    /* loaded from: classes14.dex */
-    private static class CustomViewCallbackImpl implements WebChromeClient.CustomViewCallback {
-        private WebChromeClient.CustomViewCallback mCallback;
+    /* loaded from: classes5.dex */
+    public static class CustomViewCallbackImpl implements WebChromeClient.CustomViewCallback {
+        public WebChromeClient.CustomViewCallback mCallback;
 
-        private CustomViewCallbackImpl(WebChromeClient.CustomViewCallback customViewCallback) {
+        public CustomViewCallbackImpl(WebChromeClient.CustomViewCallback customViewCallback) {
             this.mCallback = customViewCallback;
         }
 
@@ -41,11 +41,11 @@ final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @TargetApi(21)
-    /* loaded from: classes14.dex */
-    private static class FileChooserParamsImpl extends WebChromeClient.FileChooserParams {
-        private final WebChromeClient.FileChooserParams mImpl;
+    /* loaded from: classes5.dex */
+    public static class FileChooserParamsImpl extends WebChromeClient.FileChooserParams {
+        public final WebChromeClient.FileChooserParams mImpl;
 
-        private FileChooserParamsImpl(WebChromeClient.FileChooserParams fileChooserParams) {
+        public FileChooserParamsImpl(WebChromeClient.FileChooserParams fileChooserParams) {
             this.mImpl = fileChooserParams;
         }
 
@@ -80,11 +80,6 @@ final class WebChromeClientWrapper extends WebChromeClient {
         }
     }
 
-    static {
-        $assertionsDisabled = !WebChromeClientWrapper.class.desiredAssertionStatus();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public WebChromeClientWrapper(WebViewImpl webViewImpl, com.baidu.webkit.sdk.WebChromeClient webChromeClient) {
         this.mClient = webChromeClient;
         this.mWebView = webViewImpl;
@@ -122,18 +117,12 @@ final class WebChromeClientWrapper extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public final boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
-        if ($assertionsDisabled || message != null) {
-            if ($assertionsDisabled || message.obj != null) {
-                WebViewImpl webViewImpl = this.mWebView;
-                Objects.requireNonNull(webViewImpl);
-                message.obj = new WebViewImpl.WebViewTransportImpl(this.mWebView.getWebView(), (WebView.WebViewTransport) message.obj);
-                boolean onCreateWindow = this.mClient.onCreateWindow(this.mWebView.getWebView(), z, z2, message);
-                message.obj = (WebView.WebViewTransport) message.obj;
-                return onCreateWindow;
-            }
-            throw new AssertionError();
-        }
-        throw new AssertionError();
+        WebViewImpl webViewImpl = this.mWebView;
+        Objects.requireNonNull(webViewImpl);
+        message.obj = new WebViewImpl.WebViewTransportImpl(this.mWebView.getWebView(), (WebView.WebViewTransport) message.obj);
+        boolean onCreateWindow = this.mClient.onCreateWindow(this.mWebView.getWebView(), z, z2, message);
+        message.obj = (WebView.WebViewTransport) message.obj;
+        return onCreateWindow;
     }
 
     @Override // android.webkit.WebChromeClient
@@ -193,9 +182,6 @@ final class WebChromeClientWrapper extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public final void onProgressChanged(WebView webView, int i) {
-        if (!$assertionsDisabled && webView != this.mWebView) {
-            throw new AssertionError();
-        }
         this.mClient.onProgressChanged(this.mWebView.getWebView(), i);
     }
 
@@ -206,25 +192,16 @@ final class WebChromeClientWrapper extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public final void onReceivedIcon(WebView webView, Bitmap bitmap) {
-        if (!$assertionsDisabled && webView != this.mWebView) {
-            throw new AssertionError();
-        }
         this.mClient.onReceivedIcon(this.mWebView.getWebView(), bitmap);
     }
 
     @Override // android.webkit.WebChromeClient
     public final void onReceivedTitle(WebView webView, String str) {
-        if (!$assertionsDisabled && webView != this.mWebView) {
-            throw new AssertionError();
-        }
         this.mClient.onReceivedTitle(this.mWebView.getWebView(), str);
     }
 
     @Override // android.webkit.WebChromeClient
     public final void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
-        if (!$assertionsDisabled && webView != this.mWebView) {
-            throw new AssertionError();
-        }
         this.mClient.onReceivedTouchIconUrl(this.mWebView.getWebView(), str, z);
     }
 

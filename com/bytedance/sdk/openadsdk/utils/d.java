@@ -4,172 +4,35 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.http.Headers;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.bytedance.sdk.openadsdk.TTLocation;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f5127a = 1800000;
-    private static Handler b = new Handler(Looper.getMainLooper());
+    public static long f30399a = 1800000;
 
-    @Nullable
-    public static c a(Context context) {
-        if (!com.bytedance.sdk.openadsdk.core.i.d().e().isCanUseLocation() && com.bytedance.sdk.openadsdk.core.i.d().e().getTTLocation() == null) {
-            return null;
-        }
-        Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context.getApplicationContext();
-        f5127a = com.bytedance.sdk.openadsdk.core.p.h().l() * 60 * 1000;
-        return !b(a2) ? c(a2) : d(a2);
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static c f30400b;
 
-    private static boolean b(Context context) {
-        long longValue = com.bytedance.sdk.openadsdk.core.d.a(context).b("lbstime", -1L).longValue();
-        return longValue == -1 || System.currentTimeMillis() - longValue > f5127a;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public static long f30401c;
 
-    @Nullable
-    private static c c(Context context) {
-        com.bytedance.sdk.openadsdk.core.d a2 = com.bytedance.sdk.openadsdk.core.d.a(context);
-        float b2 = a2.b("latitude", -1.0f);
-        float b3 = a2.b("longitude", -1.0f);
-        if (b2 == -1.0f || b3 == -1.0f) {
-            return null;
-        }
-        return new c(b2, b3);
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public static Handler f30402d = new Handler(Looper.getMainLooper());
 
-    private static c d(final Context context) {
-        c cVar;
-        c cVar2 = null;
-        if (!com.bytedance.sdk.openadsdk.core.i.d().e().isCanUseLocation()) {
-            try {
-                TTLocation a2 = a();
-                if (a2 != null) {
-                    a(context, a2);
-                    return new c(Double.valueOf(a2.getLatitude()).floatValue(), Double.valueOf(a2.getLongitude()).floatValue());
-                }
-                return null;
-            } catch (Throwable th) {
-                return null;
-            }
-        }
-        final LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
-        if (locationManager != null) {
-            try {
-                Location a3 = a(locationManager);
-                if (a3 != null && b(a3)) {
-                    b(context, a3);
-                    cVar2 = new c((float) a3.getLatitude(), (float) a3.getLongitude());
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                cVar = null;
-            }
-            try {
-                if (Looper.myLooper() != Looper.getMainLooper()) {
-                    new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.d.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            d.b(context, locationManager);
-                        }
-                    });
-                } else {
-                    b(context, locationManager);
-                }
-                cVar = cVar2;
-            } catch (Throwable th3) {
-                th = th3;
-                cVar = cVar2;
-                if (u.c()) {
-                    th.printStackTrace();
-                }
-                return cVar;
-            }
-        } else {
-            cVar = null;
-        }
-        return cVar;
-    }
-
-    private static Location a(LocationManager locationManager) {
-        Location a2 = a(locationManager, "gps");
-        if (a2 == null) {
-            a2 = a(locationManager, "network");
-        }
-        if (a2 == null) {
-            return a(locationManager, "passive");
-        }
-        return a2;
-    }
-
-    private static Location a(LocationManager locationManager, String str) {
-        try {
-            final com.bytedance.sdk.openadsdk.j.f fVar = new com.bytedance.sdk.openadsdk.j.f(new b(locationManager, str), 1, 2);
-            com.bytedance.sdk.openadsdk.j.e.a().execute(new com.bytedance.sdk.openadsdk.j.g() { // from class: com.bytedance.sdk.openadsdk.utils.d.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    com.bytedance.sdk.openadsdk.j.f.this.run();
-                }
-            });
-            return (Location) fVar.get(1L, TimeUnit.SECONDS);
-        } catch (Throwable th) {
-            return null;
-        }
-    }
-
-    private static TTLocation a() {
-        try {
-            final com.bytedance.sdk.openadsdk.j.f fVar = new com.bytedance.sdk.openadsdk.j.f(new a(), 1, 2);
-            com.bytedance.sdk.openadsdk.j.e.a().execute(new com.bytedance.sdk.openadsdk.j.g() { // from class: com.bytedance.sdk.openadsdk.utils.d.3
-                @Override // java.lang.Runnable
-                public void run() {
-                    com.bytedance.sdk.openadsdk.j.f.this.run();
-                }
-            });
-            TTLocation tTLocation = (TTLocation) fVar.get(1L, TimeUnit.SECONDS);
-            u.b("AdLocationUtils", "location dev:" + tTLocation);
-            return tTLocation;
-        } catch (Throwable th) {
-            return null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
-    public static class b implements Callable<Location> {
-
-        /* renamed from: a  reason: collision with root package name */
-        private LocationManager f5133a;
-        private String b;
-
-        public b(LocationManager locationManager, String str) {
-            this.f5133a = locationManager;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.concurrent.Callable
-        /* renamed from: a */
-        public Location call() throws Exception {
-            long currentTimeMillis = System.currentTimeMillis();
-            Location lastKnownLocation = this.f5133a.getLastKnownLocation(this.b);
-            u.b("AdLocationUtils", "location:" + lastKnownLocation + ",getLastKnownLocation use time :" + (System.currentTimeMillis() - currentTimeMillis));
-            return lastKnownLocation;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a implements Callable<TTLocation> {
-        private a() {
+        public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -180,7 +43,142 @@ public class d {
         }
     }
 
-    private static String b(LocationManager locationManager) {
+    /* loaded from: classes6.dex */
+    public static class b implements Callable<Location> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public LocationManager f30411a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f30412b;
+
+        public b(LocationManager locationManager, String str) {
+            this.f30411a = locationManager;
+            this.f30412b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public Location call() throws Exception {
+            long currentTimeMillis = System.currentTimeMillis();
+            Location lastKnownLocation = this.f30411a.getLastKnownLocation(this.f30412b);
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            u.b("AdLocationUtils", "location:" + lastKnownLocation + ",getLastKnownLocation use time :" + currentTimeMillis2);
+            return lastKnownLocation;
+        }
+    }
+
+    public static c c(final Context context) {
+        c cVar = null;
+        if (!com.bytedance.sdk.openadsdk.core.i.d().e().isCanUseLocation()) {
+            try {
+                TTLocation b2 = b();
+                if (b2 != null) {
+                    return new c(Double.valueOf(b2.getLatitude()).floatValue(), Double.valueOf(b2.getLongitude()).floatValue(), System.currentTimeMillis());
+                }
+            } catch (Throwable unused) {
+            }
+            return null;
+        }
+        final LocationManager locationManager = (LocationManager) context.getSystemService("location");
+        if (locationManager != null) {
+            try {
+                Location a2 = a(locationManager);
+                if (a2 != null && b(a2)) {
+                    cVar = new c((float) a2.getLatitude(), (float) a2.getLongitude(), System.currentTimeMillis());
+                }
+                if (Looper.myLooper() != Looper.getMainLooper()) {
+                    new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.d.2
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            d.b(context, locationManager);
+                        }
+                    });
+                } else {
+                    b(context, locationManager);
+                }
+            } catch (Throwable th) {
+                if (u.c()) {
+                    th.printStackTrace();
+                }
+            }
+        }
+        return cVar;
+    }
+
+    public static TTLocation b() {
+        try {
+            final com.bytedance.sdk.openadsdk.l.f fVar = new com.bytedance.sdk.openadsdk.l.f(new a(), 1, 2);
+            com.bytedance.sdk.openadsdk.l.e.a(new com.bytedance.sdk.openadsdk.l.g("getLastKnownLocation") { // from class: com.bytedance.sdk.openadsdk.utils.d.4
+                @Override // java.lang.Runnable
+                public void run() {
+                    fVar.run();
+                }
+            });
+            TTLocation tTLocation = (TTLocation) fVar.get(1L, TimeUnit.SECONDS);
+            u.b("AdLocationUtils", "location dev:" + tTLocation);
+            return tTLocation;
+        } catch (Throwable unused) {
+            return null;
+        }
+    }
+
+    @Nullable
+    public static c a(Context context) {
+        if (com.bytedance.sdk.openadsdk.core.i.d().e().isCanUseLocation() || com.bytedance.sdk.openadsdk.core.i.d().e().getTTLocation() != null) {
+            c cVar = f30400b;
+            final Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context.getApplicationContext();
+            u.b("AdLocationUtils", "Location cache time =", Long.valueOf(f30399a));
+            if (f30400b != null && !a()) {
+                return f30400b;
+            }
+            String a3 = com.bytedance.sdk.openadsdk.core.i.a("sdk_ad_location", f30399a);
+            if (!TextUtils.isEmpty(a3)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(a3);
+                    String string = jSONObject.getString("latitude");
+                    String string2 = jSONObject.getString("longitude");
+                    long j = jSONObject.getLong("lbstime");
+                    if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
+                        f30400b = new c(Float.valueOf(string).floatValue(), Float.valueOf(string2).floatValue(), j);
+                    }
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
+            }
+            if (a()) {
+                f30401c = System.currentTimeMillis();
+                u.c("AdLocationUtils", "Locating ...");
+                com.bytedance.sdk.openadsdk.l.e.a(new com.bytedance.sdk.openadsdk.l.g("getLocation c") { // from class: com.bytedance.sdk.openadsdk.utils.d.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        c c2 = d.c(a2);
+                        if (c2 != null) {
+                            try {
+                                JSONObject jSONObject2 = new JSONObject();
+                                jSONObject2.put("latitude", Float.toString(c2.f30396a));
+                                jSONObject2.put("longitude", Float.toString(c2.f30397b));
+                                jSONObject2.put("lbstime", c2.f30398c);
+                                com.bytedance.sdk.openadsdk.core.i.a("sdk_ad_location", jSONObject2.toString());
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
+                            }
+                            c unused = d.f30400b = c2;
+                        }
+                    }
+                });
+            }
+            if (f30400b == null) {
+                f30400b = cVar;
+                u.c("AdLocationUtils", "Use the last valid location");
+            }
+            return f30400b;
+        }
+        return null;
+    }
+
+    public static String b(LocationManager locationManager) {
         if (locationManager.isProviderEnabled("gps")) {
             return "gps";
         }
@@ -193,84 +191,92 @@ public class d {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(final Context context, final LocationManager locationManager) {
-        if (context != null && locationManager != null) {
-            final LocationListener locationListener = new LocationListener() { // from class: com.bytedance.sdk.openadsdk.utils.d.4
-                @Override // android.location.LocationListener
-                public void onLocationChanged(Location location) {
-                    if (location != null && d.b(location)) {
-                        d.b(context, location);
-                    }
-                    d.b(locationManager, this);
+    public static void b(Context context, final LocationManager locationManager) {
+        if (context == null || locationManager == null) {
+            return;
+        }
+        final LocationListener locationListener = new LocationListener() { // from class: com.bytedance.sdk.openadsdk.utils.d.5
+            @Override // android.location.LocationListener
+            public void onLocationChanged(Location location) {
+                if (location != null) {
+                    d.b(location);
                 }
-
-                @Override // android.location.LocationListener
-                public void onStatusChanged(String str, int i, Bundle bundle) {
-                }
-
-                @Override // android.location.LocationListener
-                public void onProviderEnabled(String str) {
-                }
-
-                @Override // android.location.LocationListener
-                public void onProviderDisabled(String str) {
-                }
-            };
-            try {
-                String b2 = b(locationManager);
-                if (!TextUtils.isEmpty(b2)) {
-                    locationManager.requestSingleUpdate(b2, locationListener, Looper.getMainLooper());
-                    b.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.d.5
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            d.b(locationManager, locationListener);
-                        }
-                    }, 30000L);
-                }
-            } catch (Throwable th) {
-                if (u.c()) {
-                    th.printStackTrace();
-                }
-                b(locationManager, locationListener);
+                d.b(locationManager, this);
             }
+
+            @Override // android.location.LocationListener
+            public void onProviderDisabled(String str) {
+            }
+
+            @Override // android.location.LocationListener
+            public void onProviderEnabled(String str) {
+            }
+
+            @Override // android.location.LocationListener
+            public void onStatusChanged(String str, int i, Bundle bundle) {
+            }
+        };
+        try {
+            String b2 = b(locationManager);
+            if (TextUtils.isEmpty(b2)) {
+                return;
+            }
+            locationManager.requestSingleUpdate(b2, locationListener, Looper.getMainLooper());
+            f30402d.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.d.6
+                @Override // java.lang.Runnable
+                public void run() {
+                    d.b(locationManager, locationListener);
+                }
+            }, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+        } catch (Throwable th) {
+            if (u.c()) {
+                th.printStackTrace();
+            }
+            b(locationManager, locationListener);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void b(LocationManager locationManager, LocationListener locationListener) {
-        if (locationManager != null && locationListener != null) {
-            try {
-                locationManager.removeUpdates(locationListener);
-            } catch (Throwable th) {
-                if (u.c()) {
-                    th.printStackTrace();
-                }
+        if (locationManager == null || locationListener == null) {
+            return;
+        }
+        try {
+            locationManager.removeUpdates(locationListener);
+        } catch (Throwable th) {
+            if (u.c()) {
+                th.printStackTrace();
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, Location location) {
-        if (b(location)) {
-            com.bytedance.sdk.openadsdk.core.d a2 = com.bytedance.sdk.openadsdk.core.d.a(context);
-            a2.a("latitude", (float) location.getLatitude());
-            a2.a("longitude", (float) location.getLongitude());
-            a2.a("lbstime", System.currentTimeMillis());
-        }
-    }
-
-    private static void a(Context context, TTLocation tTLocation) {
-        if (tTLocation != null && tTLocation.getLatitude() != 0.0d && tTLocation.getLongitude() != 0.0d) {
-            com.bytedance.sdk.openadsdk.core.d a2 = com.bytedance.sdk.openadsdk.core.d.a(context);
-            a2.a("latitude", (float) tTLocation.getLatitude());
-            a2.a("longitude", (float) tTLocation.getLongitude());
-            a2.a("lbstime", System.currentTimeMillis());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(Location location) {
         return (location.getLatitude() == 0.0d || location.getLongitude() == 0.0d) ? false : true;
+    }
+
+    public static boolean a() {
+        return System.currentTimeMillis() - f30401c > f30399a;
+    }
+
+    public static Location a(LocationManager locationManager) {
+        Location a2 = a(locationManager, "gps");
+        if (a2 == null) {
+            a2 = a(locationManager, "network");
+        }
+        return a2 == null ? a(locationManager, "passive") : a2;
+    }
+
+    public static Location a(LocationManager locationManager, String str) {
+        try {
+            final com.bytedance.sdk.openadsdk.l.f fVar = new com.bytedance.sdk.openadsdk.l.f(new b(locationManager, str), 1, 2);
+            com.bytedance.sdk.openadsdk.l.e.a(new com.bytedance.sdk.openadsdk.l.g("getLastKnownLocation") { // from class: com.bytedance.sdk.openadsdk.utils.d.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    fVar.run();
+                }
+            });
+            return (Location) fVar.get(1L, TimeUnit.SECONDS);
+        } catch (Throwable unused) {
+            return null;
+        }
     }
 }

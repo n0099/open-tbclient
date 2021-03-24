@@ -5,46 +5,42 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
-class b {
+public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<Long, b> f5095a = new HashMap();
-    private final Map<String, com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a> b = new HashMap();
+    public static final Map<Long, b> f30316a = new HashMap();
 
-    b() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public final Map<String, com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a> f30317b = new HashMap();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static b a(long j) {
         b bVar;
-        synchronized (f5095a) {
-            bVar = f5095a.get(Long.valueOf(j));
+        synchronized (f30316a) {
+            bVar = f30316a.get(Long.valueOf(j));
             if (bVar == null) {
                 bVar = new b();
-                f5095a.put(Long.valueOf(j), bVar);
+                f30316a.put(Long.valueOf(j), bVar);
             }
         }
         return bVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a(String str) {
         com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a aVar;
-        synchronized (this.b) {
-            aVar = this.b.get(str);
+        synchronized (this.f30317b) {
+            aVar = this.f30317b.get(str);
             if (aVar == null) {
                 aVar = new com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a();
-                this.b.put(str, aVar);
+                this.f30317b.put(str, aVar);
             }
         }
         return aVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public List<com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a> a() {
         ArrayList arrayList;
-        synchronized (this.b) {
-            arrayList = new ArrayList(this.b.values());
+        synchronized (this.f30317b) {
+            arrayList = new ArrayList(this.f30317b.values());
         }
         return arrayList;
     }

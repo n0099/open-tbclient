@@ -6,25 +6,27 @@ import android.graphics.RectF;
 import androidx.annotation.NonNull;
 import com.ksad.lottie.model.content.j;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e extends a {
-    private final com.ksad.lottie.a.a.c e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: e  reason: collision with root package name */
+    public final com.ksad.lottie.a.a.c f31588e;
+
     public e(com.ksad.lottie.f fVar, Layer layer) {
         super(fVar, layer);
-        this.e = new com.ksad.lottie.a.a.c(fVar, this, new j("__container", layer.n()));
-        this.e.a(Collections.emptyList(), Collections.emptyList());
+        com.ksad.lottie.a.a.c cVar = new com.ksad.lottie.a.a.c(fVar, this, new j("__container", layer.n()));
+        this.f31588e = cVar;
+        cVar.a(Collections.emptyList(), Collections.emptyList());
     }
 
     @Override // com.ksad.lottie.model.layer.a, com.ksad.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.e.a(rectF, this.f5400a);
+        this.f31588e.a(rectF, this.f31567a);
     }
 
     @Override // com.ksad.lottie.model.layer.a
-    void b(@NonNull Canvas canvas, Matrix matrix, int i) {
-        this.e.a(canvas, matrix, i);
+    public void b(@NonNull Canvas canvas, Matrix matrix, int i) {
+        this.f31588e.a(canvas, matrix, i);
     }
 }

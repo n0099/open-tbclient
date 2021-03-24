@@ -6,63 +6,72 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
-    private TextView jdp;
-    private TextView jdq;
-    private TextView jdr;
-    private Context mContext;
-    private View mRoot;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f15893e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f15894f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f15895g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f15896h;
+    public TextView i;
 
     public BawuManagerApplyInfoView(Context context) {
         super(context);
-        this.mContext = context;
-        initView();
+        this.f15893e = context;
+        b();
     }
 
-    public BawuManagerApplyInfoView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mContext = context;
-        initView();
-    }
-
-    public BawuManagerApplyInfoView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mContext = context;
-        initView();
-    }
-
-    private void initView() {
-        this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.bawu_manager_apply_layout, this);
-        this.jdp = (TextView) this.mRoot.findViewById(R.id.imageview_apply_btn);
-        this.jdq = (TextView) this.mRoot.findViewById(R.id.textview_manager_apply);
-        this.jdr = (TextView) this.mRoot.findViewById(R.id.textview_manager_left_num);
-    }
-
-    public void aX(String str, int i) {
-        this.jdq.setText(str);
-        this.jdp.setBackgroundDrawable(SvgManager.bsU().a(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
+    public void a(String str, int i) {
+        this.f15896h.setText(str);
+        this.f15895g.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
         if (i > 0) {
-            this.jdr.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), au.numberUniformFormat(i)));
-            this.jdp.setEnabled(true);
-            this.jdp.setClickable(true);
-            ap.setViewTextColor(this.jdq, R.color.CAM_X0105, 1);
-            ap.setViewTextColor(this.jdr, R.color.CAM_X0305, 1);
+            this.i.setText(String.format(this.f15893e.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(i)));
+            this.f15895g.setEnabled(true);
+            this.f15895g.setClickable(true);
+            SkinManager.setViewTextColor(this.f15896h, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0305, 1);
             return;
         }
-        this.jdr.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-        this.jdp.setEnabled(false);
-        this.jdp.setClickable(false);
-        ap.setViewTextColor(this.jdq, R.color.CAM_X0109, 1);
-        ap.setViewTextColor(this.jdr, R.color.CAM_X0109, 1);
+        this.i.setText(this.f15893e.getResources().getString(R.string.apply_no_left_tip));
+        this.f15895g.setEnabled(false);
+        this.f15895g.setClickable(false);
+        SkinManager.setViewTextColor(this.f15896h, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0109, 1);
+    }
+
+    public final void b() {
+        View inflate = LayoutInflater.from(this.f15893e).inflate(R.layout.bawu_manager_apply_layout, this);
+        this.f15894f = inflate;
+        this.f15895g = (TextView) inflate.findViewById(R.id.imageview_apply_btn);
+        this.f15896h = (TextView) this.f15894f.findViewById(R.id.textview_manager_apply);
+        this.i = (TextView) this.f15894f.findViewById(R.id.textview_manager_left_num);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.jdp.setOnClickListener(onClickListener);
+        this.f15895g.setOnClickListener(onClickListener);
+    }
+
+    public BawuManagerApplyInfoView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f15893e = context;
+        b();
+    }
+
+    public BawuManagerApplyInfoView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f15893e = context;
+        b();
     }
 }

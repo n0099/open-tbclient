@@ -1,29 +1,29 @@
 package com.baidu.media.duplayer;
 
 import com.baidu.cyberplayer.sdk.CyberLog;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class SystemInfraInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2303a = false;
+    public boolean f7953a = false;
     @Keep
-    private long mBuildDateUTC;
+    public long mBuildDateUTC;
     @Keep
-    private long mMaxCpuFreq;
+    public long mMaxCpuFreq;
     @Keep
-    private long mNumProcessors;
+    public long mNumProcessors;
     @Keep
-    private long mPmSizeAvailable;
+    public long mPmSizeAvailable;
     @Keep
-    private long mVmMaxSlice;
+    public long mVmMaxSlice;
     @Keep
-    private long mVmPeak;
+    public long mVmPeak;
     @Keep
-    private long mVmSize;
+    public long mVmSize;
     @Keep
-    private long mVmSizeAvailable;
+    public long mVmSizeAvailable;
     @Keep
-    private long mVmSizeInSmaps;
+    public long mVmSizeInSmaps;
 
     public SystemInfraInfo() {
         this.mVmSize = 0L;
@@ -44,15 +44,6 @@ public class SystemInfraInfo {
         this.mMaxCpuFreq = -1L;
         this.mBuildDateUTC = -1L;
         this.mPmSizeAvailable = -1L;
-    }
-
-    private void i() {
-        if (this.f2303a) {
-            return;
-        }
-        nativeGetConstInfo();
-        CyberLog.i("", "SystemInfraInfo mNumProcessors:" + this.mNumProcessors + " \nmMaxCpuFreq:" + this.mMaxCpuFreq + " \nmBuildDateUTC" + this.mBuildDateUTC);
-        this.f2303a = true;
     }
 
     private native void nativeGetConstInfo();
@@ -98,5 +89,14 @@ public class SystemInfraInfo {
 
     public long h() {
         return this.mPmSizeAvailable;
+    }
+
+    public final void i() {
+        if (this.f7953a) {
+            return;
+        }
+        nativeGetConstInfo();
+        CyberLog.i("", "SystemInfraInfo mNumProcessors:" + this.mNumProcessors + " \nmMaxCpuFreq:" + this.mMaxCpuFreq + " \nmBuildDateUTC" + this.mBuildDateUTC);
+        this.f7953a = true;
     }
 }

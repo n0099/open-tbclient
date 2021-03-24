@@ -6,9 +6,9 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.api.core.fragment.KsFragmentManager;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class IFragmentActivityProxy extends IActivityProxy {
-    private BaseProxyFragmentActivity mProxyFragmentActivity;
+    public BaseProxyFragmentActivity mProxyFragmentActivity;
 
     @KsAdSdkDynamicApi
     @Keep
@@ -19,7 +19,6 @@ public abstract class IFragmentActivityProxy extends IActivityProxy {
     public void onAttachFragment(KsFragment ksFragment) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setProxyFragmentActivity(BaseProxyFragmentActivity baseProxyFragmentActivity) {
         this.mProxyFragmentActivity = baseProxyFragmentActivity;
     }

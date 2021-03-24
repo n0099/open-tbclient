@@ -1,61 +1,60 @@
 package com.baidu.tbadk.newFriends;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<Object> {
-    private String content;
-    private long id;
-    private String name;
-    private String portrait;
-    private String st_type;
+    public String content;
+    public long id;
+    public String name;
+    public String portrait;
+    public String st_type;
 
-    public long getId() {
-        return this.id;
-    }
-
-    public void setId(long j) {
+    public RequestNewFriendActionLocalMessage(long j, String str, String str2, String str3, String str4) {
+        super(2001169);
         this.id = j;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String str) {
         this.name = str;
-    }
-
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public void setPortrait(String str) {
-        this.portrait = str;
+        this.portrait = str2;
+        this.content = str3;
+        this.st_type = str4;
     }
 
     public String getContent() {
         return this.content;
     }
 
-    public void setContent(String str) {
-        this.content = str;
+    public long getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getPortrait() {
+        return this.portrait;
     }
 
     public String getSt_type() {
         return this.st_type;
     }
 
-    public void setSt_type(String str) {
-        this.st_type = str;
+    public void setContent(String str) {
+        this.content = str;
     }
 
-    public RequestNewFriendActionLocalMessage(long j, String str, String str2, String str3, String str4) {
-        super(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_ADD_LOCAL);
+    public void setId(long j) {
         this.id = j;
+    }
+
+    public void setName(String str) {
         this.name = str;
-        this.portrait = str2;
-        this.content = str3;
-        this.st_type = str4;
+    }
+
+    public void setPortrait(String str) {
+        this.portrait = str;
+    }
+
+    public void setSt_type(String str) {
+        this.st_type = str;
     }
 }

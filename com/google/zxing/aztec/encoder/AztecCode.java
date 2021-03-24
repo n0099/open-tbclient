@@ -1,51 +1,51 @@
 package com.google.zxing.aztec.encoder;
 
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class AztecCode {
-    private int codeWords;
-    private boolean compact;
-    private int layers;
-    private BitMatrix matrix;
-    private int size;
+    public int codeWords;
+    public boolean compact;
+    public int layers;
+    public BitMatrix matrix;
+    public int size;
 
-    public boolean isCompact() {
-        return this.compact;
-    }
-
-    public void setCompact(boolean z) {
-        this.compact = z;
-    }
-
-    public int getSize() {
-        return this.size;
-    }
-
-    public void setSize(int i) {
-        this.size = i;
+    public int getCodeWords() {
+        return this.codeWords;
     }
 
     public int getLayers() {
         return this.layers;
     }
 
-    public void setLayers(int i) {
-        this.layers = i;
+    public BitMatrix getMatrix() {
+        return this.matrix;
     }
 
-    public int getCodeWords() {
-        return this.codeWords;
+    public int getSize() {
+        return this.size;
+    }
+
+    public boolean isCompact() {
+        return this.compact;
     }
 
     public void setCodeWords(int i) {
         this.codeWords = i;
     }
 
-    public BitMatrix getMatrix() {
-        return this.matrix;
+    public void setCompact(boolean z) {
+        this.compact = z;
+    }
+
+    public void setLayers(int i) {
+        this.layers = i;
     }
 
     public void setMatrix(BitMatrix bitMatrix) {
         this.matrix = bitMatrix;
+    }
+
+    public void setSize(int i) {
+        this.size = i;
     }
 }

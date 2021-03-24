@@ -5,6 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import d.b.h0.r.z.a;
 /* loaded from: classes.dex */
 public class LoginActivityConfig extends IntentConfig {
     public static final String ACTIVITY_ID = "activity_id";
@@ -15,55 +16,12 @@ public class LoginActivityConfig extends IntentConfig {
     public static final String SOCIAL_TYPE = "social_type";
     public static final String URL = "url";
     public static final String USER_INFO_CHANGED = "user_info_changed";
-    public static long lastStartActivityTime = 0;
+    public static long lastStartActivityTime;
 
     public LoginActivityConfig(Context context, int i) {
         this(context);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
-    }
-
-    public LoginActivityConfig(Context context, boolean z, int i) {
-        this(context);
-        getIntent().putExtra("close", z);
-        setRequestCode(i);
-        setIntentAction(IntentAction.ActivityForResult);
-    }
-
-    public LoginActivityConfig(Context context) {
-        super(context);
-        com.baidu.tbadk.core.d.a.a("account", -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
-    }
-
-    public LoginActivityConfig(Context context, boolean z) {
-        this(context);
-        getIntent().putExtra("close", z);
-    }
-
-    public LoginActivityConfig(Context context, boolean z, String str, String str2) {
-        this(context);
-        getIntent().putExtra("close", z);
-        getIntent().putExtra("url", str);
-        getIntent().putExtra(CUSTOM_LOGIN_CSS_URL, str2);
-    }
-
-    public void setJumpToAfterDestroy(int i) {
-        getIntent().putExtra(JUMP_AFTER_DESTROY, i);
-    }
-
-    public void setUrl(String str) {
-        getIntent().putExtra("url", str);
-    }
-
-    public void setThirdPartyLoginForResult(int i, String str) {
-        getIntent().putExtra(SOCIAL_TYPE, i);
-        getIntent().putExtra("activity_id", str);
-        setRequestCode(11043);
-        setIntentAction(IntentAction.ActivityForResult);
-    }
-
-    public void setIsFromAiapp(boolean z) {
-        getIntent().putExtra(IS_FROM_AIAPP, z);
     }
 
     public static boolean canStartActivity() {
@@ -72,5 +30,48 @@ public class LoginActivityConfig extends IntentConfig {
             return false;
         }
         return ((Boolean) runTask.getData()).booleanValue();
+    }
+
+    public void setIsFromAiapp(boolean z) {
+        getIntent().putExtra(IS_FROM_AIAPP, z);
+    }
+
+    public void setJumpToAfterDestroy(int i) {
+        getIntent().putExtra(JUMP_AFTER_DESTROY, i);
+    }
+
+    public void setThirdPartyLoginForResult(int i, String str) {
+        getIntent().putExtra("social_type", i);
+        getIntent().putExtra("activity_id", str);
+        setRequestCode(11043);
+        setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    public void setUrl(String str) {
+        getIntent().putExtra("url", str);
+    }
+
+    public LoginActivityConfig(Context context, boolean z, int i) {
+        this(context);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
+        setRequestCode(i);
+        setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    public LoginActivityConfig(Context context) {
+        super(context);
+        a.a("account", -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
+    }
+
+    public LoginActivityConfig(Context context, boolean z) {
+        this(context);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
+    }
+
+    public LoginActivityConfig(Context context, boolean z, String str, String str2) {
+        this(context);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
+        getIntent().putExtra("url", str);
+        getIntent().putExtra(CUSTOM_LOGIN_CSS_URL, str2);
     }
 }

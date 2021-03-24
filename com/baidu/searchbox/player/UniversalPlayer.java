@@ -27,52 +27,116 @@ import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
 /* loaded from: classes3.dex */
 public class UniversalPlayer extends BDVideoPlayer {
-    private static final String TAG = "UniversalPlayer";
-    protected static boolean sIsOrientationLock = false;
-    private SimpleArrayMap<Class<? extends IPlayerContext>, IPlayerContext> mContextMap;
-    protected String mCurrentMode;
-    protected boolean mIsEnableOrientation;
-    protected OrientationHelper mOrientationHelper;
-    protected ITimerTask mProgressHelper;
-    protected IPlayerStyleSwitchHelper mStyleSwitchHelper;
+    public static final String TAG = "UniversalPlayer";
+    public static boolean sIsOrientationLock = false;
+    public SimpleArrayMap<Class<? extends IPlayerContext>, IPlayerContext> mContextMap;
+    public String mCurrentMode;
+    public boolean mIsEnableOrientation;
+    public OrientationHelper mOrientationHelper;
+    public ITimerTask mProgressHelper;
+    public IPlayerStyleSwitchHelper mStyleSwitchHelper;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* loaded from: classes3.dex */
+    public class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
+        public static final int DELAY_TIME = 1000;
+        public long mChangedTime = 0;
+        public boolean mIsLandscape;
+        public boolean mIsPortrait;
+
+        public OrientationChangeCallBack() {
+        }
+
+        @Override // com.baidu.searchbox.player.helper.OrientationHelper.IOrientationChange
+        public void onOrientationChanged(int i) {
+            if (UniversalPlayer.isOrientationLock()) {
+                return;
+            }
+            UniversalPlayer universalPlayer = UniversalPlayer.this;
+            if (universalPlayer.mPlayerContainer == null || !universalPlayer.canChangeOrientation() || UniversalPlayer.this.isFloatingMode() || OrientationHelper.isSystemOrientationLocked(BDPlayerConfig.getAppContext())) {
+                return;
+            }
+            if (!UniversalPlayer.this.isFullMode()) {
+                this.mIsLandscape = false;
+                if (OrientationHelper.isPortrait(i)) {
+                    this.mIsPortrait = true;
+                }
+                if (this.mIsPortrait && OrientationHelper.isLandscape(i) && UniversalPlayer.this.mPlayerContainer.getVisibility() == 0 && System.currentTimeMillis() - this.mChangedTime > 1000) {
+                    this.mChangedTime = System.currentTimeMillis();
+                    UniversalPlayer.this.switchToFull(0);
+                    this.mIsPortrait = false;
+                    return;
+                }
+                return;
+            }
+            this.mIsPortrait = false;
+            if (OrientationHelper.isReverseLandscape(i)) {
+                this.mIsLandscape = true;
+                BdActivityUtils.requestLandscape(UniversalPlayer.this.getActivity(), true);
+            } else if (OrientationHelper.isLandscape(i)) {
+                this.mIsLandscape = true;
+                BdActivityUtils.requestLandscape(UniversalPlayer.this.getActivity(), false);
+            } else if (OrientationHelper.isPortrait(i) && this.mIsLandscape && System.currentTimeMillis() - this.mChangedTime > 1000) {
+                this.mChangedTime = System.currentTimeMillis();
+                UniversalPlayer.this.switchToHalf(0);
+                this.mIsLandscape = false;
+            }
+        }
+    }
+
     public UniversalPlayer(@Nullable Context context) {
         super(context);
         this.mCurrentMode = PlayerConstant.HALF_MODE;
         this.mContextMap = new SimpleArrayMap<>();
     }
 
-    protected UniversalPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer) {
-        super(context, baseKernelLayer);
-        this.mCurrentMode = PlayerConstant.HALF_MODE;
-        this.mContextMap = new SimpleArrayMap<>();
+    @PublicMethod
+    public static boolean isOrientationLock() {
+        return sIsOrientationLock;
     }
 
-    protected UniversalPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer, @NonNull String str) {
-        super(context, baseKernelLayer, str);
-        this.mCurrentMode = PlayerConstant.HALF_MODE;
-        this.mContextMap = new SimpleArrayMap<>();
+    private void syncWork() {
+        if (this.mVideoSession.getStatus() == PlayerStatus.PLAYING) {
+            this.mProgressHelper.start();
+        } else {
+            this.mProgressHelper.cancel();
+        }
     }
 
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    protected void setupLayers(@NonNull Context context) {
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    protected void initPlayer() {
-        initHelper();
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    protected void initCallBackManager() {
-        this.mCallbackManager = new UniversalPlayerCallbackManager();
+    public boolean canChangeOrientation() {
+        return true;
     }
 
     @PublicMethod
-    public void registerContext(Class<? extends IPlayerContext> cls, @NonNull IPlayerContext iPlayerContext) {
-        iPlayerContext.setPlayer(this);
-        this.mContextMap.put(cls, iPlayerContext);
+    public void disableOrientationEventHelper() {
+        OrientationHelper orientationHelper = this.mOrientationHelper;
+        if (orientationHelper == null) {
+            return;
+        }
+        this.mIsEnableOrientation = false;
+        orientationHelper.disable();
+    }
+
+    @PublicMethod
+    public void enableOrientationEventHelper() {
+        if (this.mOrientationHelper.canDetectOrientation()) {
+            this.mIsEnableOrientation = this.mOrientationHelper.enableSensor();
+        }
+    }
+
+    @IntRange(from = -1)
+    @PublicMethod
+    public int findLayerIndex(@NonNull ILayer iLayer) {
+        return this.mLayerContainer.indexOfChild(iLayer.getContentView());
+    }
+
+    @PublicMethod
+    public String getCurrentMode() {
+        return this.mCurrentMode;
+    }
+
+    @PublicMethod
+    public OrientationHelper getOrientationHelper() {
+        return this.mOrientationHelper;
     }
 
     @Nullable
@@ -85,118 +149,10 @@ public class UniversalPlayer extends BDVideoPlayer {
         return null;
     }
 
-    protected void initHelper() {
-        this.mProgressHelper = new ProgressHelper(this);
-        this.mOrientationHelper = new OrientationHelper(BDPlayerConfig.getAppContext(), 3);
-        if (this.mOrientationHelper.canDetectOrientation()) {
-            this.mIsEnableOrientation = true;
-            this.mOrientationHelper.disable();
-            this.mOrientationHelper.setListener(new OrientationChangeCallBack());
-        }
-        this.mStyleSwitchHelper = new SimpleStyleSwitchHelper(this);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    @NonNull
-    @PublicMethod
-    public UniversalPlayerCallbackManager getPlayerCallbackManager() {
-        return (UniversalPlayerCallbackManager) this.mCallbackManager;
-    }
-
-    @PublicMethod
-    public void setStyleSwitchHelper(@NonNull IPlayerStyleSwitchHelper iPlayerStyleSwitchHelper) {
-        this.mStyleSwitchHelper = iPlayerStyleSwitchHelper;
-    }
-
     @NonNull
     @PublicMethod
     public IPlayerStyleSwitchHelper getStyleSwitchHelper() {
         return this.mStyleSwitchHelper;
-    }
-
-    @IntRange(from = -1)
-    @PublicMethod
-    public int findLayerIndex(@NonNull ILayer iLayer) {
-        return this.mLayerContainer.indexOfChild(iLayer.getContentView());
-    }
-
-    @PublicMethod
-    public int findLayerIndex(Class cls) {
-        int childCount = this.mLayerContainer.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            if (this.mLayerContainer.getChildAt(i).getClass() == cls) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    @PublicMethod
-    public boolean onKeyBack() {
-        if (isFullMode()) {
-            BdVideoLog.d(TAG, "switch to half");
-            switchToHalf(3);
-            return true;
-        }
-        return false;
-    }
-
-    private void syncWork() {
-        if (this.mVideoSession.getStatus() == PlayerStatus.PLAYING) {
-            this.mProgressHelper.start();
-        } else {
-            this.mProgressHelper.cancel();
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    @PublicMethod
-    public void syncSession(@NonNull VideoSession videoSession) {
-        super.syncSession(videoSession);
-        syncWork();
-    }
-
-    protected boolean canChangeOrientation() {
-        return true;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    @NonNull
-    @PublicMethod
-    public IUniversalPlayerStatDispatcher getStatDispatcher() {
-        return UniversalStatDispatcherImp.EMPTY;
-    }
-
-    @PublicMethod
-    public void switchToFull(int i) {
-        switchToFull();
-    }
-
-    @PublicMethod
-    public void switchToFull() {
-        BdViewOpUtils.fixFullScreen4Notch(getActivity(), true);
-        BdVideoLog.d(TAG, "player start switchToFull");
-        getPlayerCallbackManager().onBeforeSwitchToFull();
-        this.mStyleSwitchHelper.switchToFullStyle();
-        sendEvent(LayerEvent.obtainEvent(LayerEvent.ACTION_SWITCH_FULL));
-        getPlayerCallbackManager().onVideoSwitchToFull();
-    }
-
-    @PublicMethod
-    public void switchToHalf(int i) {
-        switchToHalf();
-    }
-
-    @PublicMethod
-    public void switchToHalf() {
-        BdViewOpUtils.fixFullScreen4Notch(getActivity(), false);
-        getPlayerCallbackManager().onBeforeSwitchToHalf();
-        BdVideoLog.d(TAG, "player start switchToHalf");
-        this.mStyleSwitchHelper.switchToNormalStyle();
-        sendEvent(LayerEvent.obtainEvent(LayerEvent.ACTION_SWITCH_HALF));
-        getPlayerCallbackManager().onVideoSwitchToHalf();
     }
 
     @Override // com.baidu.searchbox.player.BDVideoPlayer
@@ -210,37 +166,68 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
-    @PublicMethod
-    public void enableOrientationEventHelper() {
-        if (this.mOrientationHelper.canDetectOrientation()) {
-            this.mIsEnableOrientation = this.mOrientationHelper.enableSensor();
-        }
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void initCallBackManager() {
+        this.mCallbackManager = new UniversalPlayerCallbackManager();
     }
 
-    @PublicMethod
-    public void disableOrientationEventHelper() {
-        if (this.mOrientationHelper != null) {
-            this.mIsEnableOrientation = false;
-            this.mOrientationHelper.disable();
-        }
-    }
-
-    @PublicMethod
-    public OrientationHelper getOrientationHelper() {
-        return this.mOrientationHelper;
-    }
-
-    @PublicMethod
-    public void setOrientationHelper(@NonNull OrientationHelper orientationHelper) {
+    public void initHelper() {
+        this.mProgressHelper = new ProgressHelper(this);
+        OrientationHelper orientationHelper = new OrientationHelper(BDPlayerConfig.getAppContext(), 3);
         this.mOrientationHelper = orientationHelper;
+        if (orientationHelper.canDetectOrientation()) {
+            this.mIsEnableOrientation = true;
+            this.mOrientationHelper.disable();
+            this.mOrientationHelper.setListener(new OrientationChangeCallBack());
+        }
+        this.mStyleSwitchHelper = new SimpleStyleSwitchHelper(this);
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void initPlayer() {
+        initHelper();
+    }
+
+    @PublicMethod
+    public boolean isFloatingMode() {
+        return TextUtils.equals(this.mCurrentMode, PlayerConstant.FLOATING_MODE);
+    }
+
+    @PublicMethod
+    public boolean isFullMode() {
+        return TextUtils.equals(this.mCurrentMode, PlayerConstant.FULL_MODE);
     }
 
     @PublicMethod
     public boolean isReverseLandscape() {
-        if (this.mOrientationHelper == null || !this.mIsEnableOrientation) {
+        OrientationHelper orientationHelper = this.mOrientationHelper;
+        if (orientationHelper == null || !this.mIsEnableOrientation) {
             return false;
         }
-        return OrientationHelper.isReverseLandscape(this.mOrientationHelper.getLastOrientation());
+        return OrientationHelper.isReverseLandscape(orientationHelper.getLastOrientation());
+    }
+
+    @PublicMethod
+    public boolean onKeyBack() {
+        if (isFullMode()) {
+            BdVideoLog.d(TAG, "switch to half");
+            switchToHalf(3);
+            return true;
+        }
+        return false;
+    }
+
+    @PublicMethod
+    public void registerContext(Class<? extends IPlayerContext> cls, @NonNull IPlayerContext iPlayerContext) {
+        iPlayerContext.setPlayer(this);
+        this.mContextMap.put(cls, iPlayerContext);
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    @PublicMethod
+    public void release() {
+        super.release();
+        this.mContextMap.clear();
     }
 
     @PublicMethod
@@ -253,13 +240,17 @@ public class UniversalPlayer extends BDVideoPlayer {
     }
 
     @PublicMethod
-    public boolean isFullMode() {
-        return TextUtils.equals(this.mCurrentMode, PlayerConstant.FULL_MODE);
+    public void setOrientationHelper(@NonNull OrientationHelper orientationHelper) {
+        this.mOrientationHelper = orientationHelper;
     }
 
     @PublicMethod
-    public String getCurrentMode() {
-        return this.mCurrentMode;
+    public void setOrientationLock(boolean z) {
+        sIsOrientationLock = z;
+        if (z) {
+            return;
+        }
+        enableOrientationEventHelper();
     }
 
     @PublicMethod
@@ -268,16 +259,20 @@ public class UniversalPlayer extends BDVideoPlayer {
     }
 
     @PublicMethod
-    public boolean isFloatingMode() {
-        return TextUtils.equals(this.mCurrentMode, PlayerConstant.FLOATING_MODE);
+    public void setRemote(boolean z) {
+        BaseKernelLayer baseKernelLayer = this.mKernelLayer;
+        if (baseKernelLayer != null) {
+            baseKernelLayer.setRemote(z);
+        }
     }
 
     @PublicMethod
-    public void setOrientationLock(boolean z) {
-        sIsOrientationLock = z;
-        if (!sIsOrientationLock) {
-            enableOrientationEventHelper();
-        }
+    public void setStyleSwitchHelper(@NonNull IPlayerStyleSwitchHelper iPlayerStyleSwitchHelper) {
+        this.mStyleSwitchHelper = iPlayerStyleSwitchHelper;
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void setupLayers(@NonNull Context context) {
     }
 
     @PublicMethod
@@ -286,63 +281,78 @@ public class UniversalPlayer extends BDVideoPlayer {
     }
 
     @PublicMethod
-    public static boolean isOrientationLock() {
-        return sIsOrientationLock;
+    public void switchToFull(int i) {
+        switchToFull();
     }
 
     @PublicMethod
-    public void setRemote(boolean z) {
-        if (this.mKernelLayer != null) {
-            this.mKernelLayer.setRemote(z);
-        }
+    public void switchToHalf(int i) {
+        switchToHalf();
     }
 
     @Override // com.baidu.searchbox.player.BDVideoPlayer
     @PublicMethod
-    public void release() {
-        super.release();
-        this.mContextMap.clear();
+    public void syncSession(@NonNull VideoSession videoSession) {
+        super.syncSession(videoSession);
+        syncWork();
     }
 
-    /* loaded from: classes3.dex */
-    public class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
-        private static final int DELAY_TIME = 1000;
-        private long mChangedTime = 0;
-        private boolean mIsLandscape;
-        private boolean mIsPortrait;
-
-        public OrientationChangeCallBack() {
-        }
-
-        @Override // com.baidu.searchbox.player.helper.OrientationHelper.IOrientationChange
-        public void onOrientationChanged(int i) {
-            if (!UniversalPlayer.isOrientationLock() && UniversalPlayer.this.mPlayerContainer != null && UniversalPlayer.this.canChangeOrientation() && !UniversalPlayer.this.isFloatingMode() && !OrientationHelper.isSystemOrientationLocked(BDPlayerConfig.getAppContext())) {
-                if (!UniversalPlayer.this.isFullMode()) {
-                    this.mIsLandscape = false;
-                    if (OrientationHelper.isPortrait(i)) {
-                        this.mIsPortrait = true;
-                    }
-                    if (this.mIsPortrait && OrientationHelper.isLandscape(i) && UniversalPlayer.this.mPlayerContainer.getVisibility() == 0 && System.currentTimeMillis() - this.mChangedTime > 1000) {
-                        this.mChangedTime = System.currentTimeMillis();
-                        UniversalPlayer.this.switchToFull(0);
-                        this.mIsPortrait = false;
-                        return;
-                    }
-                    return;
-                }
-                this.mIsPortrait = false;
-                if (OrientationHelper.isReverseLandscape(i)) {
-                    this.mIsLandscape = true;
-                    BdActivityUtils.requestLandscape(UniversalPlayer.this.getActivity(), true);
-                } else if (OrientationHelper.isLandscape(i)) {
-                    this.mIsLandscape = true;
-                    BdActivityUtils.requestLandscape(UniversalPlayer.this.getActivity(), false);
-                } else if (OrientationHelper.isPortrait(i) && this.mIsLandscape && System.currentTimeMillis() - this.mChangedTime > 1000) {
-                    this.mChangedTime = System.currentTimeMillis();
-                    UniversalPlayer.this.switchToHalf(0);
-                    this.mIsLandscape = false;
-                }
+    @PublicMethod
+    public int findLayerIndex(Class cls) {
+        int childCount = this.mLayerContainer.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            if (this.mLayerContainer.getChildAt(i).getClass() == cls) {
+                return i;
             }
         }
+        return -1;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    @NonNull
+    @PublicMethod
+    public UniversalPlayerCallbackManager getPlayerCallbackManager() {
+        return (UniversalPlayerCallbackManager) this.mCallbackManager;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    @NonNull
+    @PublicMethod
+    public IUniversalPlayerStatDispatcher getStatDispatcher() {
+        return UniversalStatDispatcherImp.EMPTY;
+    }
+
+    @PublicMethod
+    public void switchToFull() {
+        BdViewOpUtils.fixFullScreen4Notch(getActivity(), true);
+        BdVideoLog.d(TAG, "player start switchToFull");
+        getPlayerCallbackManager().onBeforeSwitchToFull();
+        this.mStyleSwitchHelper.switchToFullStyle();
+        sendEvent(LayerEvent.obtainEvent(LayerEvent.ACTION_SWITCH_FULL));
+        getPlayerCallbackManager().onVideoSwitchToFull();
+    }
+
+    @PublicMethod
+    public void switchToHalf() {
+        BdViewOpUtils.fixFullScreen4Notch(getActivity(), false);
+        getPlayerCallbackManager().onBeforeSwitchToHalf();
+        BdVideoLog.d(TAG, "player start switchToHalf");
+        this.mStyleSwitchHelper.switchToNormalStyle();
+        sendEvent(LayerEvent.obtainEvent(LayerEvent.ACTION_SWITCH_HALF));
+        getPlayerCallbackManager().onVideoSwitchToHalf();
+    }
+
+    public UniversalPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer) {
+        super(context, baseKernelLayer);
+        this.mCurrentMode = PlayerConstant.HALF_MODE;
+        this.mContextMap = new SimpleArrayMap<>();
+    }
+
+    public UniversalPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer, @NonNull String str) {
+        super(context, baseKernelLayer, str);
+        this.mCurrentMode = PlayerConstant.HALF_MODE;
+        this.mContextMap = new SimpleArrayMap<>();
     }
 }

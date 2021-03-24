@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes.dex */
 public final class DataRes extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 2)
     public final List<MsgInfo> res;
@@ -12,26 +12,6 @@ public final class DataRes extends Message {
     public final Integer total;
     public static final Integer DEFAULT_TOTAL = 0;
     public static final List<MsgInfo> DEFAULT_RES = Collections.emptyList();
-
-    private DataRes(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.total == null) {
-                this.total = DEFAULT_TOTAL;
-            } else {
-                this.total = builder.total;
-            }
-            if (builder.res == null) {
-                this.res = DEFAULT_RES;
-                return;
-            } else {
-                this.res = immutableCopyOf(builder.res);
-                return;
-            }
-        }
-        this.total = builder.total;
-        this.res = immutableCopyOf(builder.res);
-    }
 
     /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataRes> {
@@ -43,10 +23,11 @@ public final class DataRes extends Message {
 
         public Builder(DataRes dataRes) {
             super(dataRes);
-            if (dataRes != null) {
-                this.total = dataRes.total;
-                this.res = DataRes.copyOf(dataRes.res);
+            if (dataRes == null) {
+                return;
             }
+            this.total = dataRes.total;
+            this.res = Message.copyOf(dataRes.res);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,5 +35,27 @@ public final class DataRes extends Message {
         public DataRes build(boolean z) {
             return new DataRes(this, z);
         }
+    }
+
+    public DataRes(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.total;
+            if (num == null) {
+                this.total = DEFAULT_TOTAL;
+            } else {
+                this.total = num;
+            }
+            List<MsgInfo> list = builder.res;
+            if (list == null) {
+                this.res = DEFAULT_RES;
+                return;
+            } else {
+                this.res = Message.immutableCopyOf(list);
+                return;
+            }
+        }
+        this.total = builder.total;
+        this.res = Message.immutableCopyOf(builder.res);
     }
 }

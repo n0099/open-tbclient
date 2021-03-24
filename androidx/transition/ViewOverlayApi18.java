@@ -6,11 +6,10 @@ import android.view.ViewOverlay;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 @RequiresApi(18)
-/* loaded from: classes5.dex */
-class ViewOverlayApi18 implements ViewOverlayImpl {
-    private final ViewOverlay mViewOverlay;
+/* loaded from: classes.dex */
+public class ViewOverlayApi18 implements ViewOverlayImpl {
+    public final ViewOverlay mViewOverlay;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ViewOverlayApi18(@NonNull View view) {
         this.mViewOverlay = view.getOverlay();
     }

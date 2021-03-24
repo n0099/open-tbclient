@@ -6,8 +6,6 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.baidu.webkit.sdk.dumper.ZeusLogUploader;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,28 +19,28 @@ import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ZeusLogRecorder extends ZeusCrashHandler {
-    private static String TAG = "ZeusLogRecorder";
-    private static ZeusLogRecorder instance;
+    public static String TAG = "ZeusLogRecorder";
+    public static ZeusLogRecorder instance;
     public List<String> fileNameList;
-    private boolean isFilterLogRecord;
-    private boolean isUploading;
-    private List<LogRecordBean> list;
-    private OnFinishedUploadLogListener listener;
-    private Lock lock;
-    private File logDir;
-    private ZeusCrashHandler.ZeusCrashHandlerClient mClient;
-    private File mLogFile;
-    private int mPid;
-    private ZeusLogUploader mUploader;
-    private String recordPrefName;
-    private AtomicInteger unUploadFileSize;
+    public boolean isFilterLogRecord;
+    public boolean isUploading;
+    public List<LogRecordBean> list;
+    public OnFinishedUploadLogListener listener;
+    public Lock lock;
+    public File logDir;
+    public ZeusCrashHandler.ZeusCrashHandlerClient mClient;
+    public File mLogFile;
+    public int mPid;
+    public ZeusLogUploader mUploader;
+    public String recordPrefName;
+    public AtomicInteger unUploadFileSize;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class LogRecordBean {
-        private String upLoadFileName;
-        private boolean uploadSuccess;
+        public String upLoadFileName;
+        public boolean uploadSuccess;
 
         public LogRecordBean(String str, boolean z) {
             this.upLoadFileName = str;
@@ -66,18 +64,17 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface OnFinishedUploadLogListener {
         void onFinishedUploadLog(List<LogRecordBean> list, String str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class WatchThread extends Thread {
-        Process p;
-        private final Writer writer;
-        boolean over = false;
-        ArrayList<String> stream = new ArrayList<>();
+        public Process p;
+        public final Writer writer;
+        public boolean over = false;
+        public ArrayList<String> stream = new ArrayList<>();
 
         public WatchThread(Process process, Writer writer) {
             this.p = process;
@@ -105,8 +102,8 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                         }
                     }
                 }
-            } catch (Exception e) {
-                Log.e(ZeusLogRecorder.TAG, Log.getStackTraceString(e));
+            } catch (Exception e2) {
+                Log.e(ZeusLogRecorder.TAG, Log.getStackTraceString(e2));
             }
         }
 
@@ -115,15 +112,16 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         }
     }
 
-    private ZeusLogRecorder() {
+    public ZeusLogRecorder() {
         super(null);
         this.recordPrefName = "recordlog";
         this.list = new ArrayList();
         this.fileNameList = new ArrayList();
         this.lock = new ReentrantLock();
         try {
-            this.logDir = new File(WebViewFactory.getContext().getFilesDir(), this.recordPrefName);
-            if (this.logDir.exists() && !this.logDir.isDirectory()) {
+            File file = new File(WebViewFactory.getContext().getFilesDir(), this.recordPrefName);
+            this.logDir = file;
+            if (file.exists() && !this.logDir.isDirectory()) {
                 this.logDir.delete();
             }
             if (!this.logDir.exists()) {
@@ -137,128 +135,134 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         this.mClient = new ZeusCrashHandler.ZeusCrashHandlerClient(this);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00bd A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private void dumpExtraLogcatInfo(Writer writer) throws IOException {
+        String str;
+        Process start;
         BufferedReader bufferedReader;
-        int i = 0;
         BufferedReader bufferedReader2 = null;
         try {
             try {
-                String str = "Logcat:";
-                Process start = new ProcessBuilder("logcat", "-d", "-t5000", "-vthreadtime").start();
-                bufferedReader = new BufferedReader(new InputStreamReader(start.getInputStream()));
                 try {
-                    WatchThread watchThread = new WatchThread(start, writer);
-                    watchThread.start();
-                    start.waitFor();
-                    watchThread.setOver(true);
-                    watchThread.interrupt();
-                    while (true) {
-                        int i2 = i;
-                        if (!watchThread.isAlive()) {
-                            break;
-                        }
-                        Thread.sleep(1000L);
-                        i = i2 + 1;
-                        if (i2 > 30) {
-                            Log.e(TAG, "thread over %1$d secs, WatchThread is still alive", Integer.valueOf(i * 20));
-                            break;
-                        }
-                    }
-                    do {
-                        if (isProcessIdInLine(str)) {
-                            writer.write(str);
-                            writer.write("\n");
-                        }
-                        str = bufferedReader.readLine();
-                    } while (str != null);
-                    try {
-                        bufferedReader.close();
-                    } catch (Throwable th) {
-                        Log.e(TAG, Log.getStackTraceString(th));
-                    }
-                } catch (InterruptedException e) {
-                    e = e;
-                    e.printStackTrace();
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (Throwable th2) {
-                            Log.e(TAG, Log.getStackTraceString(th2));
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    Log.e(TAG, Log.getStackTraceString(e));
-                    throw new IOException(e);
+                    str = "Logcat:";
+                    start = new ProcessBuilder("logcat", "-d", "-t5000", "-vthreadtime").start();
+                    bufferedReader = new BufferedReader(new InputStreamReader(start.getInputStream()));
+                } catch (Throwable th) {
+                    Log.e(TAG, Log.getStackTraceString(th));
+                    return;
                 }
-            } catch (Throwable th3) {
-                th = th3;
-                if (0 != 0) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (Throwable th4) {
-                        Log.e(TAG, Log.getStackTraceString(th4));
-                    }
-                }
-                throw th;
+            } catch (InterruptedException e2) {
+                e = e2;
+            } catch (Exception e3) {
+                e = e3;
             }
-        } catch (InterruptedException e3) {
-            e = e3;
-            bufferedReader = null;
-        } catch (Exception e4) {
+        } catch (Throwable th2) {
+            th = th2;
+        }
+        try {
+            WatchThread watchThread = new WatchThread(start, writer);
+            watchThread.start();
+            start.waitFor();
+            watchThread.setOver(true);
+            watchThread.interrupt();
+            int i = 0;
+            while (true) {
+                if (!watchThread.isAlive()) {
+                    break;
+                }
+                Thread.sleep(1000L);
+                int i2 = i + 1;
+                if (i > 30) {
+                    Log.e(TAG, "thread over %1$d secs, WatchThread is still alive", Integer.valueOf(i2 * 20));
+                    break;
+                }
+                i = i2;
+            }
+            do {
+                if (isProcessIdInLine(str)) {
+                    writer.write(str);
+                    writer.write("\n");
+                }
+                str = bufferedReader.readLine();
+            } while (str != null);
+            bufferedReader.close();
+        } catch (InterruptedException e4) {
             e = e4;
-        } catch (Throwable th5) {
-            th = th5;
-            if (0 != 0) {
+            bufferedReader2 = bufferedReader;
+            e.printStackTrace();
+            if (bufferedReader2 != null) {
+                bufferedReader2.close();
+            }
+        } catch (Exception e5) {
+            e = e5;
+            Log.e(TAG, Log.getStackTraceString(e));
+            throw new IOException(e);
+        } catch (Throwable th3) {
+            th = th3;
+            bufferedReader2 = bufferedReader;
+            if (bufferedReader2 != null) {
+                try {
+                    bufferedReader2.close();
+                } catch (Throwable th4) {
+                    Log.e(TAG, Log.getStackTraceString(th4));
+                }
             }
             throw th;
         }
     }
 
     private boolean generateLogRecord(File file) {
-        BufferedWriter bufferedWriter;
+        BufferedWriter bufferedWriter = null;
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(file));
-        } catch (Throwable th) {
-            th = th;
-            bufferedWriter = null;
-        }
-        try {
-            dumpExtraLogcatInfo(bufferedWriter);
-            bufferedWriter.write("===============end===============");
-            bufferedWriter.write("\n\n");
+            BufferedWriter bufferedWriter2 = new BufferedWriter(new FileWriter(file));
             try {
-                bufferedWriter.close();
+                dumpExtraLogcatInfo(bufferedWriter2);
+                bufferedWriter2.write("===============end===============");
+                bufferedWriter2.write("\n\n");
+                try {
+                    bufferedWriter2.close();
+                    return true;
+                } catch (Throwable th) {
+                    Log.e(TAG, Log.getStackTraceString(th));
+                    return true;
+                }
             } catch (Throwable th2) {
-                Log.e(TAG, Log.getStackTraceString(th2));
-            }
-            return true;
-        } catch (Throwable th3) {
-            th = th3;
-            try {
-                th.printStackTrace();
-                return false;
-            } finally {
-                if (bufferedWriter != null) {
-                    try {
-                        bufferedWriter.close();
-                    } catch (Throwable th4) {
-                        Log.e(TAG, Log.getStackTraceString(th4));
+                th = th2;
+                bufferedWriter = bufferedWriter2;
+                try {
+                    th.printStackTrace();
+                    if (bufferedWriter != null) {
+                        try {
+                            bufferedWriter.close();
+                            return false;
+                        } catch (Throwable th3) {
+                            Log.e(TAG, Log.getStackTraceString(th3));
+                            return false;
+                        }
                     }
+                    return false;
+                } catch (Throwable th4) {
+                    if (bufferedWriter != null) {
+                        try {
+                            bufferedWriter.close();
+                        } catch (Throwable th5) {
+                            Log.e(TAG, Log.getStackTraceString(th5));
+                        }
+                    }
+                    throw th4;
                 }
             }
+        } catch (Throwable th6) {
+            th = th6;
         }
     }
 
-    private static String getCurrentProcessName() {
+    public static String getCurrentProcessName() {
         int myPid = Process.myPid();
         String str = "";
-        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) WebViewFactory.getContext().getApplicationContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
-            str = runningAppProcessInfo.pid == myPid ? runningAppProcessInfo.processName : str;
+        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) WebViewFactory.getContext().getApplicationContext().getSystemService("activity")).getRunningAppProcesses()) {
+            if (runningAppProcessInfo.pid == myPid) {
+                str = runningAppProcessInfo.processName;
+            }
         }
         return str;
     }
@@ -283,7 +287,9 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isProcessIdInLine(String str) {
         if (this.isFilterLogRecord) {
-            return str.contains(new StringBuilder().append(this.mPid).toString());
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.mPid);
+            return str.contains(sb.toString());
         }
         return true;
     }
@@ -299,11 +305,14 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void uploadLogRecord() throws Exception {
-        Log.i(TAG, Thread.currentThread() + " begin to upload log files");
+        String str = TAG;
+        Log.i(str, Thread.currentThread() + " begin to upload log files");
         setCrashTime(System.currentTimeMillis());
         Log.i(TAG, "generate log file");
-        this.mLogFile = this.mClient.getLogFile("recordlog-" + getCurrentProcessName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Process.myPid() + Constants.ACCEPT_TIME_SEPARATOR_SERVER, this.recordPrefName);
-        this.fileNameList.add(this.mLogFile.getName());
+        ZeusCrashHandler.ZeusCrashHandlerClient zeusCrashHandlerClient = this.mClient;
+        File logFile = zeusCrashHandlerClient.getLogFile("recordlog-" + getCurrentProcessName() + "-" + Process.myPid() + "-", this.recordPrefName);
+        this.mLogFile = logFile;
+        this.fileNameList.add(logFile.getName());
         showToastAndLog("log file " + this.mLogFile.getName() + " is generating now, maybe wait more than a minute");
         if (!generateLogRecord(this.mLogFile)) {
             Log.e(TAG, "[ZeusLogRecorder] create log file error");
@@ -323,22 +332,22 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         this.unUploadFileSize = new AtomicInteger(directoryFiles.length);
         this.mUploader.uploadLogDirectory(this.logDir.getAbsolutePath(), true, new ZeusLogUploader.OnFinishedListener() { // from class: com.baidu.webkit.sdk.dumper.ZeusLogRecorder.2
             @Override // com.baidu.webkit.sdk.dumper.ZeusLogUploader.OnFinishedListener
-            public void onFinished(String str, int i, String str2) {
+            public void onFinished(String str2, int i, String str3) {
                 int decrementAndGet = ZeusLogRecorder.this.unUploadFileSize.decrementAndGet();
                 if (decrementAndGet < 0) {
-                    Log.e(ZeusLogRecorder.TAG, "upload file over length, file name is %1$s: ", str);
+                    Log.e(ZeusLogRecorder.TAG, "upload file over length, file name is %1$s: ", str2);
                     ZeusLogRecorder.this.quitUploadLog();
                     return;
                 }
                 boolean z = i == 0;
-                String substring = str.substring(str.lastIndexOf("/") + 1);
+                String substring = str2.substring(str2.lastIndexOf("/") + 1);
                 Log.i(ZeusLogRecorder.TAG, "upload %1$s %2$s", substring, Boolean.valueOf(z));
                 ZeusLogRecorder.this.list.add(new LogRecordBean(substring, z));
                 if (decrementAndGet == 0) {
                     ZeusLogRecorder.this.showToastAndLog("Finish uploading files!");
                     ZeusLogRecorder.this.isUploading = false;
                     if (ZeusLogRecorder.this.listener != null) {
-                        ZeusLogRecorder.this.listener.onFinishedUploadLog(ZeusLogRecorder.this.list, str2);
+                        ZeusLogRecorder.this.listener.onFinishedUploadLog(ZeusLogRecorder.this.list, str3);
                     }
                     ZeusLogRecorder.this.quitUploadLog();
                 }
@@ -347,7 +356,6 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         Log.i(TAG, "upload log finished");
     }
 
-    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.webkit.sdk.dumper.ZeusLogRecorder$1] */
     public void initAndUpload() {
         Log.i(TAG, "[ZeusLogRecorder] initAndUpload");
         new Thread() { // from class: com.baidu.webkit.sdk.dumper.ZeusLogRecorder.1
@@ -355,16 +363,17 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
             public void run() {
                 try {
                     synchronized (ZeusLogRecorder.this) {
-                        ZeusLogRecorder.this.showToastAndLog(Thread.currentThread().getId() + " isUploading: " + ZeusLogRecorder.this.isUploading);
+                        ZeusLogRecorder zeusLogRecorder = ZeusLogRecorder.this;
+                        zeusLogRecorder.showToastAndLog(Thread.currentThread().getId() + " isUploading: " + ZeusLogRecorder.this.isUploading);
                         if (ZeusLogRecorder.this.isUploading) {
                             ZeusLogRecorder.this.showToastAndLog("some log is uploadiing now, please retry after a few minuite");
-                        } else {
-                            ZeusLogRecorder.this.isUploading = true;
-                            ZeusLogRecorder.this.uploadLogRecord();
+                            return;
                         }
+                        ZeusLogRecorder.this.isUploading = true;
+                        ZeusLogRecorder.this.uploadLogRecord();
                     }
-                } catch (Exception e) {
-                    Log.e(ZeusLogRecorder.TAG, Log.getStackTraceString(e));
+                } catch (Exception e2) {
+                    Log.e(ZeusLogRecorder.TAG, Log.getStackTraceString(e2));
                     ZeusLogRecorder.this.quitUploadLog();
                 }
             }

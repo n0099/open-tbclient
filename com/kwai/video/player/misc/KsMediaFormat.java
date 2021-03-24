@@ -2,11 +2,12 @@ package com.kwai.video.player.misc;
 
 import android.annotation.TargetApi;
 import android.text.TextUtils;
+import com.baidu.rtc.SdpPrefer;
 import com.kwai.video.player.KsMediaMeta;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsMediaFormat implements IMediaFormat {
     public static final String CODEC_NAME_H264 = "h264";
     public static final String KEY_KS_BIT_RATE_UI = "ks-bit-rate-ui";
@@ -17,23 +18,22 @@ public class KsMediaFormat implements IMediaFormat {
     public static final String KEY_KS_FRAME_RATE_UI = "ks-frame-rate-ui";
     public static final String KEY_KS_RESOLUTION_UI = "ks-resolution-ui";
     public static final String KEY_KS_SAMPLE_RATE_UI = "ks-sample-rate-ui";
-    private static final Map<String, Formatter> sFormatterMap = new HashMap();
+    public static final Map<String, Formatter> sFormatterMap = new HashMap();
     public final KsMediaMeta.KSYStreamMeta mMediaFormat;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Formatter {
-        private Formatter() {
+        public Formatter() {
         }
 
-        protected abstract String doFormat(KsMediaFormat ksMediaFormat);
+        public abstract String doFormat(KsMediaFormat ksMediaFormat);
 
         public String format(KsMediaFormat ksMediaFormat) {
             String doFormat = doFormat(ksMediaFormat);
             return TextUtils.isEmpty(doFormat) ? getDefaultString() : doFormat;
         }
 
-        protected String getDefaultString() {
+        public String getDefaultString() {
             return "N/A";
         }
     }
@@ -47,7 +47,7 @@ public class KsMediaFormat implements IMediaFormat {
         });
         sFormatterMap.put(KEY_KS_BIT_RATE_UI, new Formatter() { // from class: com.kwai.video.player.misc.KsMediaFormat.2
             @Override // com.kwai.video.player.misc.KsMediaFormat.Formatter
-            protected String doFormat(KsMediaFormat ksMediaFormat) {
+            public String doFormat(KsMediaFormat ksMediaFormat) {
                 int integer = ksMediaFormat.getInteger(KsMediaMeta.KSM_KEY_BITRATE);
                 if (integer <= 0) {
                     return null;
@@ -57,7 +57,7 @@ public class KsMediaFormat implements IMediaFormat {
         });
         sFormatterMap.put(KEY_KS_CODEC_PROFILE_LEVEL_UI, new Formatter() { // from class: com.kwai.video.player.misc.KsMediaFormat.3
             @Override // com.kwai.video.player.misc.KsMediaFormat.Formatter
-            protected String doFormat(KsMediaFormat ksMediaFormat) {
+            public String doFormat(KsMediaFormat ksMediaFormat) {
                 String string = ksMediaFormat.getString(KsMediaMeta.KSM_KEY_CODEC_PROFILE);
                 if (TextUtils.isEmpty(string)) {
                     return null;
@@ -72,9 +72,10 @@ public class KsMediaFormat implements IMediaFormat {
                     }
                     sb.append(" Profile Level ");
                     sb.append((integer / 10) % 10);
-                    if (integer % 10 != 0) {
+                    int i = integer % 10;
+                    if (i != 0) {
                         sb.append(".");
-                        sb.append(integer % 10);
+                        sb.append(i);
                     }
                 }
                 return sb.toString();
@@ -82,13 +83,13 @@ public class KsMediaFormat implements IMediaFormat {
         });
         sFormatterMap.put(KEY_KS_CODEC_PIXEL_FORMAT_UI, new Formatter() { // from class: com.kwai.video.player.misc.KsMediaFormat.4
             @Override // com.kwai.video.player.misc.KsMediaFormat.Formatter
-            protected String doFormat(KsMediaFormat ksMediaFormat) {
+            public String doFormat(KsMediaFormat ksMediaFormat) {
                 return ksMediaFormat.getString(KsMediaMeta.KSM_KEY_CODEC_PIXEL_FORMAT);
             }
         });
         sFormatterMap.put(KEY_KS_RESOLUTION_UI, new Formatter() { // from class: com.kwai.video.player.misc.KsMediaFormat.5
             @Override // com.kwai.video.player.misc.KsMediaFormat.Formatter
-            protected String doFormat(KsMediaFormat ksMediaFormat) {
+            public String doFormat(KsMediaFormat ksMediaFormat) {
                 int integer = ksMediaFormat.getInteger("width");
                 int integer2 = ksMediaFormat.getInteger("height");
                 int integer3 = ksMediaFormat.getInteger(KsMediaMeta.KSM_KEY_SAR_NUM);
@@ -101,7 +102,7 @@ public class KsMediaFormat implements IMediaFormat {
         });
         sFormatterMap.put(KEY_KS_FRAME_RATE_UI, new Formatter() { // from class: com.kwai.video.player.misc.KsMediaFormat.6
             @Override // com.kwai.video.player.misc.KsMediaFormat.Formatter
-            protected String doFormat(KsMediaFormat ksMediaFormat) {
+            public String doFormat(KsMediaFormat ksMediaFormat) {
                 int integer = ksMediaFormat.getInteger(KsMediaMeta.KSM_KEY_FPS_NUM);
                 int integer2 = ksMediaFormat.getInteger(KsMediaMeta.KSM_KEY_FPS_DEN);
                 if (integer <= 0 || integer2 <= 0) {
@@ -112,7 +113,7 @@ public class KsMediaFormat implements IMediaFormat {
         });
         sFormatterMap.put(KEY_KS_SAMPLE_RATE_UI, new Formatter() { // from class: com.kwai.video.player.misc.KsMediaFormat.7
             @Override // com.kwai.video.player.misc.KsMediaFormat.Formatter
-            protected String doFormat(KsMediaFormat ksMediaFormat) {
+            public String doFormat(KsMediaFormat ksMediaFormat) {
                 int integer = ksMediaFormat.getInteger(KsMediaMeta.KSM_KEY_SAMPLE_RATE);
                 if (integer <= 0) {
                     return null;
@@ -122,12 +123,13 @@ public class KsMediaFormat implements IMediaFormat {
         });
         sFormatterMap.put(KEY_KS_CHANNEL_UI, new Formatter() { // from class: com.kwai.video.player.misc.KsMediaFormat.8
             @Override // com.kwai.video.player.misc.KsMediaFormat.Formatter
-            protected String doFormat(KsMediaFormat ksMediaFormat) {
+            public String doFormat(KsMediaFormat ksMediaFormat) {
                 int integer = ksMediaFormat.getInteger(KsMediaMeta.KSM_KEY_CHANNEL_LAYOUT);
                 if (integer <= 0) {
                     return null;
                 }
-                return ((long) integer) == 4 ? "mono" : ((long) integer) == 3 ? "stereo" : String.format(Locale.US, "%x", Integer.valueOf(integer));
+                long j = integer;
+                return j == 4 ? "mono" : j == 3 ? SdpPrefer.AUDIO_STEREO : String.format(Locale.US, "%x", Integer.valueOf(integer));
             }
         });
         this.mMediaFormat = kSYStreamMeta;
@@ -136,10 +138,11 @@ public class KsMediaFormat implements IMediaFormat {
     @Override // com.kwai.video.player.misc.IMediaFormat
     @TargetApi(16)
     public int getInteger(String str) {
-        if (this.mMediaFormat == null) {
+        KsMediaMeta.KSYStreamMeta kSYStreamMeta = this.mMediaFormat;
+        if (kSYStreamMeta == null) {
             return 0;
         }
-        return this.mMediaFormat.getInt(str);
+        return kSYStreamMeta.getInt(str);
     }
 
     @Override // com.kwai.video.player.misc.IMediaFormat

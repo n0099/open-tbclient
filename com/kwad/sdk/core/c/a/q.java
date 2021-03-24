@@ -7,7 +7,7 @@ import com.kwad.sdk.emotion.model.EmotionPackage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class q implements com.kwad.sdk.core.c<EmotionPackage> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
@@ -86,8 +86,9 @@ public class q implements com.kwad.sdk.core.c<EmotionPackage> {
                 emotionPackage.packageDownloadUrl.add(cDNUrl5);
             }
         }
-        emotionPackage.emotionAuthor = new EmotionAuthor();
-        emotionPackage.emotionAuthor.parseJson(jSONObject.optJSONObject("emotionAuthor"));
+        EmotionAuthor emotionAuthor = new EmotionAuthor();
+        emotionPackage.emotionAuthor = emotionAuthor;
+        emotionAuthor.parseJson(jSONObject.optJSONObject("emotionAuthor"));
         emotionPackage.emotions = new ArrayList();
         JSONArray optJSONArray6 = jSONObject.optJSONArray("emotions");
         if (optJSONArray6 != null) {

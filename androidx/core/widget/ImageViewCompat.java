@@ -7,7 +7,7 @@ import android.os.Build;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class ImageViewCompat {
     @Nullable
     public static ColorStateList getImageTintList(@NonNull ImageView imageView) {
@@ -18,24 +18,6 @@ public class ImageViewCompat {
             return ((TintableImageSourceView) imageView).getSupportImageTintList();
         }
         return null;
-    }
-
-    public static void setImageTintList(@NonNull ImageView imageView, @Nullable ColorStateList colorStateList) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            imageView.setImageTintList(colorStateList);
-            if (Build.VERSION.SDK_INT == 21) {
-                Drawable drawable = imageView.getDrawable();
-                boolean z = (imageView.getImageTintList() == null || imageView.getImageTintMode() == null) ? false : true;
-                if (drawable != null && z) {
-                    if (drawable.isStateful()) {
-                        drawable.setState(imageView.getDrawableState());
-                    }
-                    imageView.setImageDrawable(drawable);
-                }
-            }
-        } else if (imageView instanceof TintableImageSourceView) {
-            ((TintableImageSourceView) imageView).setSupportImageTintList(colorStateList);
-        }
     }
 
     @Nullable
@@ -49,24 +31,41 @@ public class ImageViewCompat {
         return null;
     }
 
+    public static void setImageTintList(@NonNull ImageView imageView, @Nullable ColorStateList colorStateList) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            imageView.setImageTintList(colorStateList);
+            if (Build.VERSION.SDK_INT == 21) {
+                Drawable drawable = imageView.getDrawable();
+                boolean z = (imageView.getImageTintList() == null || imageView.getImageTintMode() == null) ? false : true;
+                if (drawable == null || !z) {
+                    return;
+                }
+                if (drawable.isStateful()) {
+                    drawable.setState(imageView.getDrawableState());
+                }
+                imageView.setImageDrawable(drawable);
+            }
+        } else if (imageView instanceof TintableImageSourceView) {
+            ((TintableImageSourceView) imageView).setSupportImageTintList(colorStateList);
+        }
+    }
+
     public static void setImageTintMode(@NonNull ImageView imageView, @Nullable PorterDuff.Mode mode) {
         if (Build.VERSION.SDK_INT >= 21) {
             imageView.setImageTintMode(mode);
             if (Build.VERSION.SDK_INT == 21) {
                 Drawable drawable = imageView.getDrawable();
                 boolean z = (imageView.getImageTintList() == null || imageView.getImageTintMode() == null) ? false : true;
-                if (drawable != null && z) {
-                    if (drawable.isStateful()) {
-                        drawable.setState(imageView.getDrawableState());
-                    }
-                    imageView.setImageDrawable(drawable);
+                if (drawable == null || !z) {
+                    return;
                 }
+                if (drawable.isStateful()) {
+                    drawable.setState(imageView.getDrawableState());
+                }
+                imageView.setImageDrawable(drawable);
             }
         } else if (imageView instanceof TintableImageSourceView) {
             ((TintableImageSourceView) imageView).setSupportImageTintMode(mode);
         }
-    }
-
-    private ImageViewCompat() {
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.ala.alasquare.widget.banner;
 
+import android.content.Context;
 import android.graphics.PointF;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -7,12 +8,101 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes9.dex */
+import d.b.i0.t.d.h.a.d;
+/* loaded from: classes4.dex */
 public class PagerSnapHelper extends SnapHelper {
     @Nullable
-    private d gMA;
+
+    /* renamed from: c  reason: collision with root package name */
+    public d f14958c;
     @Nullable
-    private d gMB;
+
+    /* renamed from: d  reason: collision with root package name */
+    public d f14959d;
+
+    /* loaded from: classes4.dex */
+    public class a extends LinearSmoothScroller {
+        public a(Context context) {
+            super(context);
+        }
+
+        @Override // androidx.recyclerview.widget.LinearSmoothScroller
+        public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+            return 100.0f / displayMetrics.densityDpi;
+        }
+
+        @Override // androidx.recyclerview.widget.LinearSmoothScroller
+        public int calculateTimeForScrolling(int i) {
+            return Math.min(100, super.calculateTimeForScrolling(i));
+        }
+
+        @Override // androidx.recyclerview.widget.LinearSmoothScroller, androidx.recyclerview.widget.RecyclerView.SmoothScroller
+        public void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
+            PagerSnapHelper pagerSnapHelper = PagerSnapHelper.this;
+            int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f14961a.getLayoutManager(), view);
+            int i = calculateDistanceToFinalSnap[0];
+            int i2 = calculateDistanceToFinalSnap[1];
+            int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));
+            if (calculateTimeForDeceleration > 0) {
+                action.update(i, i2, calculateTimeForDeceleration, this.mDecelerateInterpolator);
+            }
+        }
+    }
+
+    public final int a(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view, d dVar) {
+        int e2;
+        int d2 = dVar.d(view) + (dVar.c(view) / 2);
+        if (layoutManager.getClipToPadding()) {
+            e2 = dVar.f() + (dVar.g() / 2);
+        } else {
+            e2 = dVar.e() / 2;
+        }
+        return d2 - e2;
+    }
+
+    @Nullable
+    public final View b(RecyclerView.LayoutManager layoutManager, d dVar) {
+        int e2;
+        int childCount = layoutManager.getChildCount();
+        View view = null;
+        if (childCount == 0) {
+            return null;
+        }
+        if (layoutManager.getClipToPadding()) {
+            e2 = dVar.f() + (dVar.g() / 2);
+        } else {
+            e2 = dVar.e() / 2;
+        }
+        int i = Integer.MAX_VALUE;
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = layoutManager.getChildAt(i2);
+            int abs = Math.abs((dVar.d(childAt) + (dVar.c(childAt) / 2)) - e2);
+            if (abs < i) {
+                view = childAt;
+                i = abs;
+            }
+        }
+        return view;
+    }
+
+    @Nullable
+    public final View c(RecyclerView.LayoutManager layoutManager, d dVar) {
+        int childCount = layoutManager.getChildCount();
+        View view = null;
+        if (childCount == 0) {
+            return null;
+        }
+        int i = Integer.MAX_VALUE;
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = layoutManager.getChildAt(i2);
+            int d2 = dVar.d(childAt);
+            if (d2 < i) {
+                view = childAt;
+                i = d2;
+            }
+        }
+        return view;
+    }
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
     @Nullable
@@ -24,7 +114,7 @@ public class PagerSnapHelper extends SnapHelper {
             iArr[0] = 0;
         }
         if (layoutManager.canScrollVertically()) {
-            iArr[1] = a(layoutManager, view, c(layoutManager));
+            iArr[1] = a(layoutManager, view, e(layoutManager));
         } else {
             iArr[1] = 0;
         }
@@ -32,13 +122,39 @@ public class PagerSnapHelper extends SnapHelper {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
+    public LinearSmoothScroller createSnapScroller(RecyclerView.LayoutManager layoutManager) {
+        if (layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) {
+            return new a(this.f14961a.getContext());
+        }
+        return null;
+    }
+
+    @NonNull
+    public final d d(@NonNull RecyclerView.LayoutManager layoutManager) {
+        d dVar = this.f14959d;
+        if (dVar == null || dVar.f60668a != layoutManager) {
+            this.f14959d = d.a(layoutManager);
+        }
+        return this.f14959d;
+    }
+
+    @NonNull
+    public final d e(@NonNull RecyclerView.LayoutManager layoutManager) {
+        d dVar = this.f14958c;
+        if (dVar == null || dVar.f60668a != layoutManager) {
+            this.f14958c = d.b(layoutManager);
+        }
+        return this.f14958c;
+    }
+
+    @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
     @Nullable
     public View findSnapView(RecyclerView.LayoutManager layoutManager) {
         if (layoutManager.canScrollVertically()) {
-            return a(layoutManager, c(layoutManager));
+            return b(layoutManager, e(layoutManager));
         }
         if (layoutManager.canScrollHorizontally()) {
-            return a(layoutManager, d(layoutManager));
+            return b(layoutManager, d(layoutManager));
         }
         return null;
     }
@@ -46,137 +162,25 @@ public class PagerSnapHelper extends SnapHelper {
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
     public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i, int i2) {
         int position;
-        boolean z;
         PointF computeScrollVectorForPosition;
-        boolean z2 = false;
         int itemCount = layoutManager.getItemCount();
         if (itemCount == 0) {
             return -1;
         }
         View view = null;
         if (layoutManager.canScrollVertically()) {
-            view = b(layoutManager, c(layoutManager));
+            view = c(layoutManager, e(layoutManager));
         } else if (layoutManager.canScrollHorizontally()) {
-            view = b(layoutManager, d(layoutManager));
+            view = c(layoutManager, d(layoutManager));
         }
         if (view == null || (position = layoutManager.getPosition(view)) == -1) {
             return -1;
         }
-        if (layoutManager.canScrollHorizontally()) {
-            z = i > 0;
-        } else {
-            z = i2 > 0;
-        }
+        boolean z = false;
+        boolean z2 = !layoutManager.canScrollHorizontally() ? i2 <= 0 : i <= 0;
         if ((layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) && (computeScrollVectorForPosition = ((RecyclerView.SmoothScroller.ScrollVectorProvider) layoutManager).computeScrollVectorForPosition(itemCount - 1)) != null && (computeScrollVectorForPosition.x < 0.0f || computeScrollVectorForPosition.y < 0.0f)) {
-            z2 = true;
+            z = true;
         }
-        return z2 ? z ? position - 1 : position : z ? position + 1 : position;
-    }
-
-    @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
-    protected LinearSmoothScroller createSnapScroller(RecyclerView.LayoutManager layoutManager) {
-        if (layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) {
-            return new LinearSmoothScroller(this.mRecyclerView.getContext()) { // from class: com.baidu.tieba.ala.alasquare.widget.banner.PagerSnapHelper.1
-                @Override // androidx.recyclerview.widget.LinearSmoothScroller, androidx.recyclerview.widget.RecyclerView.SmoothScroller
-                protected void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
-                    int[] calculateDistanceToFinalSnap = PagerSnapHelper.this.calculateDistanceToFinalSnap(PagerSnapHelper.this.mRecyclerView.getLayoutManager(), view);
-                    int i = calculateDistanceToFinalSnap[0];
-                    int i2 = calculateDistanceToFinalSnap[1];
-                    int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));
-                    if (calculateTimeForDeceleration > 0) {
-                        action.update(i, i2, calculateTimeForDeceleration, this.mDecelerateInterpolator);
-                    }
-                }
-
-                @Override // androidx.recyclerview.widget.LinearSmoothScroller
-                protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
-                    return 100.0f / displayMetrics.densityDpi;
-                }
-
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // androidx.recyclerview.widget.LinearSmoothScroller
-                public int calculateTimeForScrolling(int i) {
-                    return Math.min(100, super.calculateTimeForScrolling(i));
-                }
-            };
-        }
-        return null;
-    }
-
-    private int a(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view, d dVar) {
-        int end;
-        int decoratedMeasurement = (dVar.getDecoratedMeasurement(view) / 2) + dVar.getDecoratedStart(view);
-        if (layoutManager.getClipToPadding()) {
-            end = dVar.getStartAfterPadding() + (dVar.getTotalSpace() / 2);
-        } else {
-            end = dVar.getEnd() / 2;
-        }
-        return decoratedMeasurement - end;
-    }
-
-    @Nullable
-    private View a(RecyclerView.LayoutManager layoutManager, d dVar) {
-        int end;
-        View view = null;
-        int childCount = layoutManager.getChildCount();
-        if (childCount != 0) {
-            if (layoutManager.getClipToPadding()) {
-                end = dVar.getStartAfterPadding() + (dVar.getTotalSpace() / 2);
-            } else {
-                end = dVar.getEnd() / 2;
-            }
-            int i = Integer.MAX_VALUE;
-            int i2 = 0;
-            while (i2 < childCount) {
-                View childAt = layoutManager.getChildAt(i2);
-                int abs = Math.abs((dVar.getDecoratedStart(childAt) + (dVar.getDecoratedMeasurement(childAt) / 2)) - end);
-                if (abs >= i) {
-                    abs = i;
-                    childAt = view;
-                }
-                i2++;
-                i = abs;
-                view = childAt;
-            }
-        }
-        return view;
-    }
-
-    @Nullable
-    private View b(RecyclerView.LayoutManager layoutManager, d dVar) {
-        View view = null;
-        int childCount = layoutManager.getChildCount();
-        if (childCount != 0) {
-            int i = Integer.MAX_VALUE;
-            int i2 = 0;
-            while (i2 < childCount) {
-                View childAt = layoutManager.getChildAt(i2);
-                int decoratedStart = dVar.getDecoratedStart(childAt);
-                if (decoratedStart >= i) {
-                    decoratedStart = i;
-                    childAt = view;
-                }
-                i2++;
-                i = decoratedStart;
-                view = childAt;
-            }
-        }
-        return view;
-    }
-
-    @NonNull
-    private d c(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gMA == null || this.gMA.mLayoutManager != layoutManager) {
-            this.gMA = d.b(layoutManager);
-        }
-        return this.gMA;
-    }
-
-    @NonNull
-    private d d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gMB == null || this.gMB.mLayoutManager != layoutManager) {
-            this.gMB = d.a(layoutManager);
-        }
-        return this.gMB;
+        return z ? z2 ? position - 1 : position : z2 ? position + 1 : position;
     }
 }

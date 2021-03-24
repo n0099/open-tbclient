@@ -20,10 +20,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.adp.widget.SwipeBackLayout;
-import com.baidu.live.adp.framework.MessageConfig;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -31,12 +27,12 @@ import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
@@ -52,648 +48,845 @@ import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import com.baidu.tieba.newfaceshop.NewFaceGroupShareModel;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import d.b.b.e.p.l;
+import d.b.h0.r.s.a;
+import d.b.i0.c3.w;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDetailActivity> {
-    private View dCC;
-    private View dCT;
-    private TextView eKp;
-    private LikeModel foW;
-    private NoNetworkView gCe;
-    private HeadImageView gEO;
-    private EmotionPackageDetailModel iVE;
-    private PackageDetailListView iVF;
-    private TbImageView iVG;
-    private TextView iVH;
-    private TextView iVI;
-    private TextView iVJ;
-    private TextView iVK;
-    private a iVL;
-    private View iVM;
-    private View iVN;
-    private View iVO;
-    private TextView iVP;
-    private TextView iVQ;
-    private ImageView iVR;
-    private TextView iVS;
-    private View iVT;
-    private View iVU;
-    private EmotionPackageData iVV;
-    private int iVW;
-    private com.baidu.tbadk.core.dialog.a iVX;
-    private com.baidu.tbadk.core.dialog.a iVY;
-    private ImageView iVZ;
-    private NewFaceGroupDownloadModel iWa;
-    private NewFaceGroupShareModel iWb;
-    private String iWc;
-    private View iWd;
-    private com.baidu.tieba.faceshop.packagedetail.b iWe;
-    private int iWf;
-    private View mHeaderView;
-    private ImageView mLeftImg;
-    private NavigationBar mNavigationBar;
-    private NoDataView mNoDataView;
-    private RelativeLayout mRootView;
-    private final String SHARE_URL = "http://tieba.baidu.com/n/interact/emoticonpackage/";
-    private final String iVD = "http://tieba.baidu.com/n/interact/emoticon/";
-    final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.1
+    public PackageDetailListView bdListView;
+    public View controllerDivider;
+    public View emationSingleBarIcon;
+    public k mAdapter;
+    public View mControllerLayout;
+    public TbImageView mCoverImage;
+    public ImageView mDeletImg;
+    public d.b.h0.r.s.a mDeleteDialog;
+    public View mDivider;
+    public View mDivider2;
+    public TextView mDownloadNum;
+    public NewFaceGroupDownloadModel mFaceGroupDownloadModel;
+    public NewFaceGroupShareModel mFaceGroupShareModel;
+    public View mHeaderView;
+    public TextView mImageNum;
+    public View mLeftContainer;
+    public ImageView mLeftImg;
+    public TextView mLeftTxt;
+    public LikeModel mLikeModel;
+    public EmotionPackageDetailModel mModel;
+    public NavigationBar mNavigationBar;
+    public NoDataView mNoDataView;
+    public NoNetworkView mNoNetworkView;
+    public TextView mPackageName;
+    public EmotionPackageData mPageData;
+    public int mPckId;
+    public View mRightContainer;
+    public RelativeLayout mRootView;
+    public TextView mShareNum;
+    public String mTempShareUrl;
+    public d.b.h0.r.s.a mUnFollowDialog;
+    public HeadImageView mUserAvatar;
+    public TextView mUserName;
+    public View mVoteContainer;
+    public ImageView mVoteImg;
+    public TextView mVoteMsg;
+    public TextView mVoteTxt;
+    public d.b.i0.l0.a0.b previewController;
+    public int voteSum;
+    public final String SHARE_URL = "http://tieba.baidu.com/n/interact/emoticonpackage/";
+    public final String PACKAGE_DETAIL_LINK = "http://tieba.baidu.com/n/interact/emoticon/";
+    public final CustomMessageListener mNetworkChangedMessageListener = new b(2000994);
+    public final CustomMessageListener mRefreshEmotionPackageDetailListener = new c(2921063);
+    public d.b.b.a.e dataCallBack = new f();
+    public CustomMessageListener mDownloadCompleteListener = new j(2921375);
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ShareItem f15596e;
+
+        public a(ShareItem shareItem) {
+            this.f15596e = shareItem;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            d.b.b.e.p.a.a(this.f15596e.t);
+            l.L(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && com.baidu.adp.lib.util.j.isNetWorkAvailable() && EmotionPackageDetailActivity.this.iVE != null && EmotionPackageDetailActivity.this.mNoDataView != null && EmotionPackageDetailActivity.this.mNoDataView.getVisibility() == 0) {
+            if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && d.b.b.e.p.j.z() && EmotionPackageDetailActivity.this.mModel != null && EmotionPackageDetailActivity.this.mNoDataView != null && EmotionPackageDetailActivity.this.mNoDataView.getVisibility() == 0) {
                 EmotionPackageDetailActivity.this.mNoDataView.setVisibility(8);
-                EmotionPackageDetailActivity.this.showLoadingView(EmotionPackageDetailActivity.this.mRootView, false, com.baidu.adp.lib.util.l.getDimens(EmotionPackageDetailActivity.this, R.dimen.ds400));
-                EmotionPackageDetailActivity.this.iVE.loadData(EmotionPackageDetailActivity.this.iVW);
+                EmotionPackageDetailActivity emotionPackageDetailActivity = EmotionPackageDetailActivity.this;
+                emotionPackageDetailActivity.showLoadingView(emotionPackageDetailActivity.mRootView, false, l.g(EmotionPackageDetailActivity.this, R.dimen.ds400));
+                EmotionPackageDetailActivity.this.mModel.y(EmotionPackageDetailActivity.this.mPckId);
             }
         }
-    };
-    final CustomMessageListener iWg = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH_EMOTION_PACKAGE_DETAIL) { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.3
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends CustomMessageListener {
+        public c(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage.getCmd() == 2921063 && EmotionPackageDetailActivity.this.iVV != null && EmotionPackageDetailActivity.this.iVP != null && EmotionPackageDetailActivity.this.iVO != null && EmotionPackageDetailActivity.this.iVJ != null) {
-                ap.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_downloaded);
-                EmotionPackageDetailActivity.this.iVP.setText(R.string.already_downloaded);
-                ap.setViewTextColor(EmotionPackageDetailActivity.this.iVP, R.color.CAM_X0109);
-                EmotionPackageDetailActivity.this.iVO.setEnabled(false);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_MY_EMOTION_PACKAGE));
-                EmotionPackageDetailActivity.this.iVV.download++;
-                EmotionPackageDetailActivity.this.iVJ.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_download_num), au.numberUniform(EmotionPackageDetailActivity.this.iVV.download)));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NOTIFY_EMOTION_CENTER, EmotionPackageDetailActivity.this.iVV));
+            if (customResponsedMessage.getCmd() != 2921063 || EmotionPackageDetailActivity.this.mPageData == null || EmotionPackageDetailActivity.this.mLeftTxt == null || EmotionPackageDetailActivity.this.mLeftContainer == null || EmotionPackageDetailActivity.this.mDownloadNum == null) {
+                return;
+            }
+            SkinManager.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_downloaded);
+            EmotionPackageDetailActivity.this.mLeftTxt.setText(R.string.already_downloaded);
+            SkinManager.setViewTextColor(EmotionPackageDetailActivity.this.mLeftTxt, R.color.CAM_X0109);
+            EmotionPackageDetailActivity.this.mLeftContainer.setEnabled(false);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
+            EmotionPackageDetailActivity.this.mPageData.download++;
+            EmotionPackageDetailActivity.this.mDownloadNum.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_download_num), StringHelper.numberUniform(EmotionPackageDetailActivity.this.mPageData.download)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921059, EmotionPackageDetailActivity.this.mPageData));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements View.OnClickListener {
+        public d() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            EmotionPackageDetailActivity.this.finish();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e implements View.OnClickListener {
+
+        /* loaded from: classes4.dex */
+        public class a implements a.e {
+            public a() {
+            }
+
+            @Override // d.b.h0.r.s.a.e
+            public void onClick(d.b.h0.r.s.a aVar) {
+                EmotionPackageDetailActivity.this.deleteEmotion();
+                aVar.dismiss();
             }
         }
-    };
-    private com.baidu.adp.base.e iWh = new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.6
-        @Override // com.baidu.adp.base.e
-        public void callback(Object obj) {
-            EmotionPackageDetailActivity.this.hideLoadingView(EmotionPackageDetailActivity.this.mRootView);
-            EmotionPackageDetailActivity.this.iVQ.setVisibility(8);
-            EmotionPackageDetailActivity.this.mNoDataView.setVisibility(8);
-            EmotionPackageDetailActivity.this.iVM.setVisibility(0);
-            EmotionPackageDetailActivity.this.iVF.setVisibility(0);
-            if (obj != null && (obj instanceof EmotionPackageData)) {
-                EmotionPackageDetailActivity.this.iVV = (EmotionPackageData) obj;
-                EmotionPackageDetailActivity.this.iVL.bn(EmotionPackageDetailActivity.this.iVV.pics);
-                EmotionPackageDetailActivity.this.iVG.setGifIconSupport(false);
-                if (EmotionPackageDetailActivity.this.iVV.forum_id > 0) {
-                    EmotionPackageDetailActivity.this.iWd.setVisibility(0);
-                    EmotionPackageDetailActivity.this.gEO.startLoad(EmotionPackageDetailActivity.this.iVV.forum_avatar, 10, false);
-                    EmotionPackageDetailActivity.this.eKp.setText(EmotionPackageDetailActivity.this.iVV.forum_name);
-                } else {
-                    EmotionPackageDetailActivity.this.gEO.startLoad(EmotionPackageDetailActivity.this.iVV.avatar, 10, false);
-                    EmotionPackageDetailActivity.this.eKp.setText(EmotionPackageDetailActivity.this.iVV.author);
+
+        /* loaded from: classes4.dex */
+        public class b implements a.e {
+            public b(e eVar) {
+            }
+
+            @Override // d.b.h0.r.s.a.e
+            public void onClick(d.b.h0.r.s.a aVar) {
+                aVar.dismiss();
+            }
+        }
+
+        public e() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (d.b.b.e.p.j.z()) {
+                if (EmotionPackageDetailActivity.this.mDeleteDialog == null) {
+                    EmotionPackageDetailActivity emotionPackageDetailActivity = EmotionPackageDetailActivity.this;
+                    emotionPackageDetailActivity.mDeleteDialog = new d.b.h0.r.s.a(emotionPackageDetailActivity.getPageContext().getPageActivity());
+                    EmotionPackageDetailActivity.this.mDeleteDialog.setMessageId(R.string.package_delete_confirm_tip);
+                    EmotionPackageDetailActivity.this.mDeleteDialog.setPositiveButton(R.string.package_delete_positive_tip, new a());
+                    EmotionPackageDetailActivity.this.mDeleteDialog.setNegativeButton(R.string.dialog_cancel, new b(this));
+                    EmotionPackageDetailActivity.this.mDeleteDialog.setCancelable(true);
+                    EmotionPackageDetailActivity.this.mDeleteDialog.create(EmotionPackageDetailActivity.this.getPageContext());
                 }
-                EmotionPackageDetailActivity.this.iVG.startLoad(EmotionPackageDetailActivity.this.iVV.cover, 10, false);
-                EmotionPackageDetailActivity.this.iVH.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_num), Integer.valueOf(EmotionPackageDetailActivity.this.iVV.num)));
-                EmotionPackageDetailActivity.this.iVJ.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_download_num), au.numFormatOverWan(EmotionPackageDetailActivity.this.iVV.download)));
-                EmotionPackageDetailActivity.this.iVK.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_share_num), au.numFormatOverWan(EmotionPackageDetailActivity.this.iVV.share)));
-                EmotionPackageDetailActivity.this.iVI.setText(EmotionPackageDetailActivity.this.iVV.name);
-                if (EmotionPackageDetailActivity.this.iVV.owner == null || !EmotionPackageDetailActivity.this.iVV.owner.equals(TbadkCoreApplication.getCurrentAccount())) {
-                    EmotionPackageDetailActivity.this.iVZ.setVisibility(8);
+                EmotionPackageDetailActivity.this.mDeleteDialog.show();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class f extends d.b.b.a.e {
+        public f() {
+        }
+
+        @Override // d.b.b.a.e
+        public void c(Object obj) {
+            EmotionPackageDetailActivity emotionPackageDetailActivity = EmotionPackageDetailActivity.this;
+            emotionPackageDetailActivity.hideLoadingView(emotionPackageDetailActivity.mRootView);
+            EmotionPackageDetailActivity.this.mVoteMsg.setVisibility(8);
+            EmotionPackageDetailActivity.this.mNoDataView.setVisibility(8);
+            EmotionPackageDetailActivity.this.mControllerLayout.setVisibility(0);
+            EmotionPackageDetailActivity.this.bdListView.setVisibility(0);
+            if (obj != null && (obj instanceof EmotionPackageData)) {
+                EmotionPackageDetailActivity.this.mPageData = (EmotionPackageData) obj;
+                EmotionPackageDetailActivity.this.mAdapter.e(EmotionPackageDetailActivity.this.mPageData.pics);
+                EmotionPackageDetailActivity.this.mCoverImage.setGifIconSupport(false);
+                if (EmotionPackageDetailActivity.this.mPageData.forum_id > 0) {
+                    EmotionPackageDetailActivity.this.emationSingleBarIcon.setVisibility(0);
+                    EmotionPackageDetailActivity.this.mUserAvatar.W(EmotionPackageDetailActivity.this.mPageData.forum_avatar, 10, false);
+                    EmotionPackageDetailActivity.this.mUserName.setText(EmotionPackageDetailActivity.this.mPageData.forum_name);
                 } else {
-                    EmotionPackageDetailActivity.this.iVZ.setVisibility(0);
-                    if (EmotionPackageDetailActivity.this.iVV.status == 4 || EmotionPackageDetailActivity.this.iVV.status == 2) {
-                        EmotionPackageDetailActivity.this.iVZ.setEnabled(false);
-                        SvgManager.bsU().a(EmotionPackageDetailActivity.this.iVZ, R.drawable.icon_pure_topbar_delete44_svg, R.color.white_alpha100, (SvgManager.SvgResourceStateType) null);
+                    EmotionPackageDetailActivity.this.mUserAvatar.W(EmotionPackageDetailActivity.this.mPageData.avatar, 10, false);
+                    EmotionPackageDetailActivity.this.mUserName.setText(EmotionPackageDetailActivity.this.mPageData.author);
+                }
+                EmotionPackageDetailActivity.this.mCoverImage.W(EmotionPackageDetailActivity.this.mPageData.cover, 10, false);
+                EmotionPackageDetailActivity.this.mImageNum.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_num), Integer.valueOf(EmotionPackageDetailActivity.this.mPageData.num)));
+                EmotionPackageDetailActivity.this.mDownloadNum.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_download_num), StringHelper.numFormatOverWan(EmotionPackageDetailActivity.this.mPageData.download)));
+                EmotionPackageDetailActivity.this.mShareNum.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_share_num), StringHelper.numFormatOverWan(EmotionPackageDetailActivity.this.mPageData.share)));
+                EmotionPackageDetailActivity.this.mPackageName.setText(EmotionPackageDetailActivity.this.mPageData.name);
+                if (EmotionPackageDetailActivity.this.mPageData.owner == null || !EmotionPackageDetailActivity.this.mPageData.owner.equals(TbadkCoreApplication.getCurrentAccount())) {
+                    EmotionPackageDetailActivity.this.mDeletImg.setVisibility(8);
+                } else {
+                    EmotionPackageDetailActivity.this.mDeletImg.setVisibility(0);
+                    if (EmotionPackageDetailActivity.this.mPageData.status == 4 || EmotionPackageDetailActivity.this.mPageData.status == 2) {
+                        EmotionPackageDetailActivity.this.mDeletImg.setEnabled(false);
+                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(EmotionPackageDetailActivity.this.mDeletImg, R.drawable.icon_pure_topbar_delete44_svg, R.color.white_alpha100, null);
                     } else {
-                        EmotionPackageDetailActivity.this.iVZ.setEnabled(true);
+                        EmotionPackageDetailActivity.this.mDeletImg.setEnabled(true);
                     }
                 }
-                if (EmotionPackageDetailActivity.this.iVV.status == 5 && EmotionPackageDetailActivity.this.iVV.forum_id > 0) {
-                    EmotionPackageDetailActivity.this.iVN.setVisibility(0);
-                    EmotionPackageDetailActivity.this.iVM.setVisibility(8);
-                    EmotionPackageDetailActivity.this.iVJ.setVisibility(8);
-                    EmotionPackageDetailActivity.this.iVK.setVisibility(8);
-                    int top = EmotionPackageDetailActivity.this.gEO.getTop();
-                    int bottom = (EmotionPackageDetailActivity.this.iVJ.getBottom() - EmotionPackageDetailActivity.this.iVI.getBottom()) + com.baidu.adp.lib.util.l.getDimens(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), R.dimen.ds32) + EmotionPackageDetailActivity.this.gEO.getHeight();
-                    EmotionPackageDetailActivity.this.gEO.setY(bottom);
-                    EmotionPackageDetailActivity.this.eKp.setY(bottom);
-                    if (EmotionPackageDetailActivity.this.iVV.owner == null || !EmotionPackageDetailActivity.this.iVV.owner.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        EmotionPackageDetailActivity.this.iVQ.setVisibility(0);
-                        EmotionPackageDetailActivity.this.iVQ.setText(EmotionPackageDetailActivity.this.JL(EmotionPackageDetailActivity.this.iVV.vote_num));
-                        EmotionPackageDetailActivity.this.iVQ.setY(top);
-                        if (EmotionPackageDetailActivity.this.iVV.has_vote == 1) {
-                            EmotionPackageDetailActivity.this.cyN();
+                if (EmotionPackageDetailActivity.this.mPageData.status == 5 && EmotionPackageDetailActivity.this.mPageData.forum_id > 0) {
+                    EmotionPackageDetailActivity.this.mVoteContainer.setVisibility(0);
+                    EmotionPackageDetailActivity.this.mControllerLayout.setVisibility(8);
+                    EmotionPackageDetailActivity.this.mDownloadNum.setVisibility(8);
+                    EmotionPackageDetailActivity.this.mShareNum.setVisibility(8);
+                    int top = EmotionPackageDetailActivity.this.mUserAvatar.getTop();
+                    float bottom = (EmotionPackageDetailActivity.this.mDownloadNum.getBottom() - EmotionPackageDetailActivity.this.mPackageName.getBottom()) + l.g(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), R.dimen.ds32) + EmotionPackageDetailActivity.this.mUserAvatar.getHeight();
+                    EmotionPackageDetailActivity.this.mUserAvatar.setY(bottom);
+                    EmotionPackageDetailActivity.this.mUserName.setY(bottom);
+                    if (EmotionPackageDetailActivity.this.mPageData.owner == null || !EmotionPackageDetailActivity.this.mPageData.owner.equals(TbadkCoreApplication.getCurrentAccount())) {
+                        EmotionPackageDetailActivity.this.mVoteMsg.setVisibility(0);
+                        TextView textView = EmotionPackageDetailActivity.this.mVoteMsg;
+                        EmotionPackageDetailActivity emotionPackageDetailActivity2 = EmotionPackageDetailActivity.this;
+                        textView.setText(emotionPackageDetailActivity2.getVoteNumber(emotionPackageDetailActivity2.mPageData.vote_num));
+                        EmotionPackageDetailActivity.this.mVoteMsg.setY(top);
+                        if (EmotionPackageDetailActivity.this.mPageData.has_vote == 1) {
+                            EmotionPackageDetailActivity.this.changeVoteViewState();
                         } else {
-                            ap.setBackgroundColor(EmotionPackageDetailActivity.this.dCT, R.color.CAM_X0204);
+                            SkinManager.setBackgroundColor(EmotionPackageDetailActivity.this.mDivider2, R.color.CAM_X0204);
                         }
                     } else {
-                        EmotionPackageDetailActivity.this.iVS.setText(R.string.package_detail_hits);
-                        EmotionPackageDetailActivity.this.iVR.setVisibility(8);
-                        EmotionPackageDetailActivity.this.iVZ.setVisibility(8);
-                        EmotionPackageDetailActivity.this.iVQ.setVisibility(8);
-                        ap.setViewTextColor(EmotionPackageDetailActivity.this.iVS, R.color.CAM_X0109);
-                        EmotionPackageDetailActivity.this.iVN.setEnabled(false);
+                        EmotionPackageDetailActivity.this.mVoteTxt.setText(R.string.package_detail_hits);
+                        EmotionPackageDetailActivity.this.mVoteImg.setVisibility(8);
+                        EmotionPackageDetailActivity.this.mDeletImg.setVisibility(8);
+                        EmotionPackageDetailActivity.this.mVoteMsg.setVisibility(8);
+                        SkinManager.setViewTextColor(EmotionPackageDetailActivity.this.mVoteTxt, R.color.CAM_X0109);
+                        EmotionPackageDetailActivity.this.mVoteContainer.setEnabled(false);
                     }
                 }
-                if (com.baidu.tieba.faceshop.a.cyB().JF("" + EmotionPackageDetailActivity.this.iVW)) {
-                    EmotionPackageDetailActivity.this.iVP.setText(R.string.already_downloaded);
-                    ap.setViewTextColor(EmotionPackageDetailActivity.this.iVP, R.color.CAM_X0109);
-                    ap.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_downloaded);
-                    EmotionPackageDetailActivity.this.iVO.setEnabled(false);
+                if (d.b.i0.l0.a.c().e("" + EmotionPackageDetailActivity.this.mPckId)) {
+                    EmotionPackageDetailActivity.this.mLeftTxt.setText(R.string.already_downloaded);
+                    SkinManager.setViewTextColor(EmotionPackageDetailActivity.this.mLeftTxt, R.color.CAM_X0109);
+                    SkinManager.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_downloaded);
+                    EmotionPackageDetailActivity.this.mLeftContainer.setEnabled(false);
                     return;
                 }
-                switch (EmotionPackageDetailActivity.this.iVV.status) {
-                    case 0:
-                    case 3:
-                        EmotionPackageDetailActivity.this.iVO.setVisibility(0);
-                        EmotionPackageDetailActivity.this.iVP.setText(R.string.download);
-                        ap.setViewTextColor(EmotionPackageDetailActivity.this.iVP, R.color.CAM_X0302);
-                        ap.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_download);
-                        EmotionPackageDetailActivity.this.iVO.setEnabled(true);
+                int i = EmotionPackageDetailActivity.this.mPageData.status;
+                if (i != 0) {
+                    if (i == 1) {
+                        EmotionPackageDetailActivity.this.mLeftContainer.setVisibility(0);
+                        EmotionPackageDetailActivity.this.mLeftTxt.setText(R.string.download);
+                        SkinManager.setViewTextColor(EmotionPackageDetailActivity.this.mLeftTxt, R.color.CAM_X0302);
+                        SkinManager.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_download);
+                        EmotionPackageDetailActivity.this.mLeftContainer.setEnabled(true);
                         return;
-                    case 1:
-                        EmotionPackageDetailActivity.this.iVO.setVisibility(0);
-                        EmotionPackageDetailActivity.this.iVP.setText(R.string.download);
-                        ap.setViewTextColor(EmotionPackageDetailActivity.this.iVP, R.color.CAM_X0302);
-                        ap.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_download);
-                        EmotionPackageDetailActivity.this.iVO.setEnabled(true);
+                    } else if (i == 2) {
+                        EmotionPackageDetailActivity.this.mLeftContainer.setVisibility(0);
+                        SkinManager.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_illegal_off);
+                        SkinManager.setViewTextColor(EmotionPackageDetailActivity.this.mLeftTxt, R.color.CAM_X0109);
+                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(EmotionPackageDetailActivity.this.mDeletImg, R.drawable.icon_pure_topbar_delete44_svg, R.color.white_alpha100, null);
+                        EmotionPackageDetailActivity.this.mLeftTxt.setText(R.string.face_package_not_ok);
+                        EmotionPackageDetailActivity.this.mLeftContainer.setEnabled(false);
                         return;
-                    case 2:
-                        EmotionPackageDetailActivity.this.iVO.setVisibility(0);
-                        ap.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_illegal_off);
-                        ap.setViewTextColor(EmotionPackageDetailActivity.this.iVP, R.color.CAM_X0109);
-                        SvgManager.bsU().a(EmotionPackageDetailActivity.this.iVZ, R.drawable.icon_pure_topbar_delete44_svg, R.color.white_alpha100, (SvgManager.SvgResourceStateType) null);
-                        EmotionPackageDetailActivity.this.iVP.setText(R.string.face_package_not_ok);
-                        EmotionPackageDetailActivity.this.iVO.setEnabled(false);
+                    } else if (i != 3) {
+                        if (i != 4) {
+                            EmotionPackageDetailActivity.this.mLeftContainer.setVisibility(8);
+                            return;
+                        }
+                        EmotionPackageDetailActivity.this.mLeftContainer.setVisibility(0);
+                        SkinManager.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_illegal_off);
+                        SkinManager.setViewTextColor(EmotionPackageDetailActivity.this.mLeftTxt, R.color.CAM_X0109);
+                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(EmotionPackageDetailActivity.this.mDeletImg, R.drawable.icon_pure_topbar_delete44_svg, R.color.white_alpha100, null);
+                        EmotionPackageDetailActivity.this.mLeftTxt.setText(R.string.face_package_has_delete);
+                        EmotionPackageDetailActivity.this.mLeftContainer.setEnabled(false);
                         return;
-                    case 4:
-                        EmotionPackageDetailActivity.this.iVO.setVisibility(0);
-                        ap.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_illegal_off);
-                        ap.setViewTextColor(EmotionPackageDetailActivity.this.iVP, R.color.CAM_X0109);
-                        SvgManager.bsU().a(EmotionPackageDetailActivity.this.iVZ, R.drawable.icon_pure_topbar_delete44_svg, R.color.white_alpha100, (SvgManager.SvgResourceStateType) null);
-                        EmotionPackageDetailActivity.this.iVP.setText(R.string.face_package_has_delete);
-                        EmotionPackageDetailActivity.this.iVO.setEnabled(false);
-                        return;
-                    default:
-                        EmotionPackageDetailActivity.this.iVO.setVisibility(8);
-                        return;
+                    }
                 }
+                EmotionPackageDetailActivity.this.mLeftContainer.setVisibility(0);
+                EmotionPackageDetailActivity.this.mLeftTxt.setText(R.string.download);
+                SkinManager.setViewTextColor(EmotionPackageDetailActivity.this.mLeftTxt, R.color.CAM_X0302);
+                SkinManager.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_download);
+                EmotionPackageDetailActivity.this.mLeftContainer.setEnabled(true);
+                return;
             }
-            com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), EmotionPackageDetailActivity.this.getResources().getString(R.string.package_detail_load_failed));
+            l.L(EmotionPackageDetailActivity.this.getActivity(), EmotionPackageDetailActivity.this.getResources().getString(R.string.package_detail_load_failed));
             EmotionPackageDetailActivity.this.mNoDataView.setVisibility(0);
-            EmotionPackageDetailActivity.this.iVM.setVisibility(8);
-            EmotionPackageDetailActivity.this.iVF.setVisibility(8);
+            EmotionPackageDetailActivity.this.mControllerLayout.setVisibility(8);
+            EmotionPackageDetailActivity.this.bdListView.setVisibility(8);
         }
-    };
-    private CustomMessageListener iWi = new CustomMessageListener(2921375) { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.10
+    }
+
+    /* loaded from: classes4.dex */
+    public class g implements EmotionPackageDetailModel.d {
+        public g() {
+        }
+
+        @Override // com.baidu.tieba.faceshop.EmotionPackageDetailModel.d
+        public void onResult(boolean z) {
+            if (z) {
+                SkinManager.setViewTextColor(EmotionPackageDetailActivity.this.mLeftTxt, R.color.CAM_X0205);
+                EmotionPackageDetailActivity.this.mLeftTxt.setText(R.string.package_already_delete);
+                SkinManager.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_downloaded);
+                EmotionPackageDetailActivity.this.mLeftContainer.setEnabled(false);
+                l.K(EmotionPackageDetailActivity.this.getActivity(), R.string.delete_success);
+                EmotionPackageDetailActivity.this.setResult(-1);
+                EmotionPackageDetailActivity.this.finish();
+                return;
+            }
+            l.K(EmotionPackageDetailActivity.this.getActivity(), R.string.delete_fail);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class h implements EmotionPackageDetailModel.e {
+
+        /* loaded from: classes4.dex */
+        public class a implements a.e {
+            public a() {
+            }
+
+            @Override // d.b.h0.r.s.a.e
+            public void onClick(d.b.h0.r.s.a aVar) {
+                aVar.dismiss();
+                EmotionPackageDetailActivity.this.mVoteContainer.setEnabled(true);
+            }
+        }
+
+        /* loaded from: classes4.dex */
+        public class b implements a.e {
+            public b() {
+            }
+
+            @Override // d.b.h0.r.s.a.e
+            public void onClick(d.b.h0.r.s.a aVar) {
+                if (EmotionPackageDetailActivity.this.mPageData == null || TextUtils.isEmpty(EmotionPackageDetailActivity.this.mPageData.forum_name)) {
+                    return;
+                }
+                EmotionPackageDetailActivity.this.doLike();
+            }
+        }
+
+        public h() {
+        }
+
+        @Override // com.baidu.tieba.faceshop.EmotionPackageDetailModel.e
+        public void a(HttpResponsedMessage httpResponsedMessage) {
+            String errorString;
+            if (httpResponsedMessage == null) {
+                return;
+            }
+            if (httpResponsedMessage.getError() == 0) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921062, EmotionPackageDetailActivity.this.mPageData));
+                EmotionPackageDetailActivity.this.changeVoteViewState();
+                if (EmotionPackageDetailActivity.this.mVoteMsg != null && EmotionPackageDetailActivity.this.mVoteMsg.isShown()) {
+                    TextView textView = EmotionPackageDetailActivity.this.mVoteMsg;
+                    EmotionPackageDetailActivity emotionPackageDetailActivity = EmotionPackageDetailActivity.this;
+                    textView.setText(emotionPackageDetailActivity.getVoteNumber(emotionPackageDetailActivity.voteSum + 1));
+                }
+                l.K(EmotionPackageDetailActivity.this.getActivity(), R.string.package_vote_success);
+            } else if (httpResponsedMessage.getError() == 170003) {
+                if (EmotionPackageDetailActivity.this.mUnFollowDialog == null) {
+                    EmotionPackageDetailActivity emotionPackageDetailActivity2 = EmotionPackageDetailActivity.this;
+                    emotionPackageDetailActivity2.mUnFollowDialog = new d.b.h0.r.s.a(emotionPackageDetailActivity2.getPageContext().getPageActivity());
+                    EmotionPackageDetailActivity.this.mUnFollowDialog.setMessageId(R.string.package_cant_vote_tips);
+                    EmotionPackageDetailActivity.this.mUnFollowDialog.setNegativeButton(R.string.package_cant_vote_negative, new a());
+                    EmotionPackageDetailActivity.this.mUnFollowDialog.setPositiveButton(R.string.package_cant_vote_positive, new b());
+                    EmotionPackageDetailActivity.this.mUnFollowDialog.create(EmotionPackageDetailActivity.this.getPageContext());
+                    EmotionPackageDetailActivity.this.mUnFollowDialog.setCancelable(true);
+                }
+                EmotionPackageDetailActivity.this.mUnFollowDialog.show();
+            } else {
+                EmotionPackageDetailActivity.this.mVoteContainer.setEnabled(true);
+                if (httpResponsedMessage.getErrorString() == null) {
+                    errorString = EmotionPackageDetailActivity.this.getString(R.string.package_vote_fail);
+                } else {
+                    errorString = httpResponsedMessage.getErrorString();
+                }
+                l.L(EmotionPackageDetailActivity.this.getActivity(), errorString);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class i extends d.b.b.a.e {
+        public i() {
+        }
+
+        @Override // d.b.b.a.e
+        public void c(Object obj) {
+            if (EmotionPackageDetailActivity.this.mLikeModel.getErrorCode() != 22) {
+                if (AntiHelper.m(EmotionPackageDetailActivity.this.mLikeModel.getErrorCode(), EmotionPackageDetailActivity.this.mLikeModel.getErrorString())) {
+                    AntiHelper.u(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), EmotionPackageDetailActivity.this.mLikeModel.getErrorString());
+                } else if (EmotionPackageDetailActivity.this.mLikeModel.getErrorCode() != 0) {
+                    l.L(EmotionPackageDetailActivity.this.getActivity(), EmotionPackageDetailActivity.this.mLikeModel.getErrorString());
+                    EmotionPackageDetailActivity emotionPackageDetailActivity = EmotionPackageDetailActivity.this;
+                    emotionPackageDetailActivity.showToast(emotionPackageDetailActivity.mLikeModel.getErrorString());
+                } else {
+                    w wVar = (w) obj;
+                    if (wVar != null) {
+                        l.K(EmotionPackageDetailActivity.this.getActivity(), R.string.attention_success);
+                        TbadkApplication.getInst().addLikeForum(EmotionPackageDetailActivity.this.mPageData.forum_name);
+                        wVar.v(1);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
+                    } else {
+                        l.K(EmotionPackageDetailActivity.this.getActivity(), R.string.neterror);
+                    }
+                }
+            } else {
+                l.K(EmotionPackageDetailActivity.this.getActivity(), R.string.had_liked_forum);
+            }
+            EmotionPackageDetailActivity.this.mVoteContainer.setEnabled(true);
+            EmotionPackageDetailActivity.this.mUnFollowDialog.dismiss();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class j extends CustomMessageListener {
+        public j(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.faceshop.packagedetail.a)) {
-                com.baidu.tieba.faceshop.packagedetail.a aVar = (com.baidu.tieba.faceshop.packagedetail.a) customResponsedMessage.getData();
-                if (aVar.resultCode == 0) {
-                    com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), R.string.down_state_success);
-                    ap.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_downloaded);
-                    EmotionPackageDetailActivity.this.iVP.setText(R.string.already_downloaded);
-                    ap.setViewTextColor(EmotionPackageDetailActivity.this.iVP, R.color.CAM_X0109);
-                    EmotionPackageDetailActivity.this.iVO.setEnabled(false);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_MY_EMOTION_PACKAGE));
-                    EmotionPackageDetailActivity.this.iVV.download++;
-                    EmotionPackageDetailActivity.this.iVJ.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_download_num), au.numberUniform(EmotionPackageDetailActivity.this.iVV.download)));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NOTIFY_EMOTION_CENTER, EmotionPackageDetailActivity.this.iVV));
-                } else if (aVar.resultCode == 1) {
-                    com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), R.string.download_error);
-                    EmotionPackageDetailActivity.this.iVO.setEnabled(true);
-                } else if (aVar.resultCode == 2) {
-                    int i = aVar.progress;
-                    if (i > 0 && i < 100) {
-                        com.baidu.adp.lib.util.l.showLongToast(EmotionPackageDetailActivity.this.getActivity(), EmotionPackageDetailActivity.this.getString(R.string.package_downloading_progress));
-                    } else if (i >= 100) {
-                        com.baidu.adp.lib.util.l.showLongToast(EmotionPackageDetailActivity.this.getActivity(), R.string.down_state_success);
-                    }
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.i0.l0.a0.a)) {
+                return;
+            }
+            d.b.i0.l0.a0.a aVar = (d.b.i0.l0.a0.a) customResponsedMessage.getData();
+            int i = aVar.f56481a;
+            if (i == 0) {
+                l.K(EmotionPackageDetailActivity.this.getActivity(), R.string.down_state_success);
+                SkinManager.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_downloaded);
+                EmotionPackageDetailActivity.this.mLeftTxt.setText(R.string.already_downloaded);
+                SkinManager.setViewTextColor(EmotionPackageDetailActivity.this.mLeftTxt, R.color.CAM_X0109);
+                EmotionPackageDetailActivity.this.mLeftContainer.setEnabled(false);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
+                EmotionPackageDetailActivity.this.mPageData.download++;
+                EmotionPackageDetailActivity.this.mDownloadNum.setText(String.format(EmotionPackageDetailActivity.this.getString(R.string.package_detail_download_num), StringHelper.numberUniform(EmotionPackageDetailActivity.this.mPageData.download)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921059, EmotionPackageDetailActivity.this.mPageData));
+            } else if (i == 1) {
+                l.K(EmotionPackageDetailActivity.this.getActivity(), R.string.download_error);
+                EmotionPackageDetailActivity.this.mLeftContainer.setEnabled(true);
+            } else if (i == 2) {
+                int i2 = aVar.f56482b;
+                if (i2 > 0 && i2 < 100) {
+                    l.I(EmotionPackageDetailActivity.this.getActivity(), EmotionPackageDetailActivity.this.getString(R.string.package_downloading_progress));
+                } else if (i2 >= 100) {
+                    l.H(EmotionPackageDetailActivity.this.getActivity(), R.string.down_state_success);
                 }
             }
         }
-    };
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.iVW = getIntent().getIntExtra("pck_id", -1);
-        if (this.iVW < 0) {
-            finish();
-            return;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void changeVoteViewState() {
+        this.mVoteTxt.setText(R.string.package_detail_voted);
+        SkinManager.setImageResource(this.mVoteImg, R.drawable.icon_bar_voted);
+        SkinManager.setViewTextColor(this.mVoteTxt, R.color.CAM_X0109);
+        this.mVoteContainer.setEnabled(false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void deleteEmotion() {
+        this.mModel.x(this.mPckId, new g());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void doLike() {
+        if (this.mLikeModel == null) {
+            this.mLikeModel = new LikeModel(getPageContext());
         }
-        setContentView(R.layout.emotion_package_detail_activity);
-        initUI();
-        showLoadingView(this.mRootView, false, com.baidu.adp.lib.util.l.getDimens(this, R.dimen.ds400));
-        initData();
-        registerListener(this.mNetworkChangedMessageListener);
-        registerListener(this.iWg);
-        registerListener(this.iWi);
-        TiebaStatic.log("c12330");
+        this.mLikeModel.setFrom("emotion_vote_follow");
+        this.mLikeModel.setLoadDataCallBack(new i());
+        LikeModel likeModel = this.mLikeModel;
+        EmotionPackageData emotionPackageData = this.mPageData;
+        likeModel.H(emotionPackageData.forum_name, String.valueOf(emotionPackageData.forum_id));
+    }
+
+    private void downloadEmotion() {
+        if (ViewHelper.checkUpIsLogin(getPageContext().getPageActivity())) {
+            TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DOWNLOAD);
+            if (this.mPckId < 0) {
+                return;
+            }
+            if (this.mFaceGroupDownloadModel == null) {
+                this.mFaceGroupDownloadModel = new NewFaceGroupDownloadModel();
+            }
+            this.mLeftContainer.setEnabled(false);
+            this.mFaceGroupDownloadModel.s(Integer.toString(this.mPckId), Boolean.TRUE, null);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String getVoteNumber(String str) {
+        try {
+            this.voteSum = Integer.valueOf(str).intValue();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        return String.format(getResources().getString(R.string.emotion_vote_message), str);
+    }
+
+    private void initData() {
+        if (this.mModel == null) {
+            this.mModel = new EmotionPackageDetailModel();
+        }
+        this.mModel.setLoadDataCallBack(this.dataCallBack);
+        this.mModel.y(this.mPckId);
+        this.voteSum = 0;
     }
 
     private void initUI() {
         this.mRootView = (RelativeLayout) findViewById(R.id.emotion_package_detail_container);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds200)), NoDataViewFactory.d.pA(R.string.no_face_detail_tip), null);
-        ap.setViewTextColor(this.mNavigationBar.setCenterTextTitle(getString(R.string.package_detail_title)), R.color.CAM_X0105);
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                EmotionPackageDetailActivity.this.finish();
-            }
-        });
+        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds200)), NoDataViewFactory.e.a(R.string.no_face_detail_tip), null);
+        SkinManager.setViewTextColor(this.mNavigationBar.setCenterTextTitle(getString(R.string.package_detail_title)), R.color.CAM_X0105);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        this.iVZ = new ImageView(getPageContext().getPageActivity());
-        SvgManager.bsU().a(this.iVZ, R.drawable.icon_pure_topbar_delete44_svg, R.color.white_alpha100, (SvgManager.SvgResourceStateType) null);
-        this.iVZ.setPadding(0, com.baidu.adp.lib.util.l.getDimens(this, R.dimen.ds20), com.baidu.adp.lib.util.l.getDimens(this, R.dimen.ds31), com.baidu.adp.lib.util.l.getDimens(this, R.dimen.ds20));
-        this.iVZ.setLayoutParams(layoutParams);
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.iVZ, new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.5
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                    if (EmotionPackageDetailActivity.this.iVX == null) {
-                        EmotionPackageDetailActivity.this.iVX = new com.baidu.tbadk.core.dialog.a(EmotionPackageDetailActivity.this.getPageContext().getPageActivity());
-                        EmotionPackageDetailActivity.this.iVX.ny(R.string.package_delete_confirm_tip);
-                        EmotionPackageDetailActivity.this.iVX.a(R.string.package_delete_positive_tip, new a.b() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.5.1
-                            @Override // com.baidu.tbadk.core.dialog.a.b
-                            public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                                EmotionPackageDetailActivity.this.cyM();
-                                aVar.dismiss();
-                            }
-                        });
-                        EmotionPackageDetailActivity.this.iVX.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.5.2
-                            @Override // com.baidu.tbadk.core.dialog.a.b
-                            public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                                aVar.dismiss();
-                            }
-                        });
-                        EmotionPackageDetailActivity.this.iVX.jF(true);
-                        EmotionPackageDetailActivity.this.iVX.b(EmotionPackageDetailActivity.this.getPageContext());
-                    }
-                    EmotionPackageDetailActivity.this.iVX.bqz();
-                }
-            }
-        });
-        this.gCe = (NoNetworkView) findViewById(R.id.no_network_view);
-        if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            this.gCe.setVisibility(8);
+        this.mDeletImg = new ImageView(getPageContext().getPageActivity());
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mDeletImg, R.drawable.icon_pure_topbar_delete44_svg, R.color.white_alpha100, null);
+        this.mDeletImg.setPadding(0, l.g(this, R.dimen.ds20), l.g(this, R.dimen.ds31), l.g(this, R.dimen.ds20));
+        this.mDeletImg.setLayoutParams(layoutParams);
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.mDeletImg, new e());
+        this.mNoNetworkView = (NoNetworkView) findViewById(R.id.no_network_view);
+        if (d.b.b.e.p.j.A()) {
+            this.mNoNetworkView.setVisibility(8);
         } else {
-            this.gCe.setVisibility(0);
+            this.mNoNetworkView.setVisibility(0);
         }
-        this.gCe.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.iVF = (PackageDetailListView) findViewById(R.id.package_image_gridview);
-        this.iVL = new a();
-        this.mHeaderView = LayoutInflater.from(getActivity()).inflate(R.layout.emotion_package_info, (ViewGroup) null);
-        this.iVF.addHeaderView(this.mHeaderView);
-        this.iVG = (TbImageView) this.mHeaderView.findViewById(R.id.emotion_package_cover);
-        this.iWd = this.mHeaderView.findViewById(R.id.emotion_package_single_bar_icon);
-        this.dCC = this.mHeaderView.findViewById(R.id.divider_line);
-        this.iVH = (TextView) this.mHeaderView.findViewById(R.id.emotion_count);
-        this.iVI = (TextView) this.mHeaderView.findViewById(R.id.emotion_package_name);
-        this.iVJ = (TextView) this.mHeaderView.findViewById(R.id.package_donwload_num);
-        this.iVK = (TextView) this.mHeaderView.findViewById(R.id.package_share_num);
-        this.iVQ = (TextView) this.mHeaderView.findViewById(R.id.emotion_detail_owner_and_vote_num);
-        this.gEO = (HeadImageView) this.mHeaderView.findViewById(R.id.package_author_avatar);
-        this.gEO.setIsRound(true);
-        this.gEO.setOnClickListener(this);
-        this.eKp = (TextView) this.mHeaderView.findViewById(R.id.package_author_name);
-        this.eKp.setOnClickListener(this);
-        this.iVF.setAdapter((ListAdapter) this.iVL);
-        this.dCT = findViewById(R.id.above_controller_divider);
-        this.iVM = findViewById(R.id.package_controller_layout);
-        this.iVU = findViewById(R.id.controller_divider);
-        this.iVO = findViewById(R.id.left_function_container);
-        this.iVO.setOnClickListener(this);
+        this.mNoNetworkView.c(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.bdListView = (PackageDetailListView) findViewById(R.id.package_image_gridview);
+        this.mAdapter = new k(this, null);
+        View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.emotion_package_info, (ViewGroup) null);
+        this.mHeaderView = inflate;
+        this.bdListView.addHeaderView(inflate);
+        this.mCoverImage = (TbImageView) this.mHeaderView.findViewById(R.id.emotion_package_cover);
+        this.emationSingleBarIcon = this.mHeaderView.findViewById(R.id.emotion_package_single_bar_icon);
+        this.mDivider = this.mHeaderView.findViewById(R.id.divider_line);
+        this.mImageNum = (TextView) this.mHeaderView.findViewById(R.id.emotion_count);
+        this.mPackageName = (TextView) this.mHeaderView.findViewById(R.id.emotion_package_name);
+        this.mDownloadNum = (TextView) this.mHeaderView.findViewById(R.id.package_donwload_num);
+        this.mShareNum = (TextView) this.mHeaderView.findViewById(R.id.package_share_num);
+        this.mVoteMsg = (TextView) this.mHeaderView.findViewById(R.id.emotion_detail_owner_and_vote_num);
+        HeadImageView headImageView = (HeadImageView) this.mHeaderView.findViewById(R.id.package_author_avatar);
+        this.mUserAvatar = headImageView;
+        headImageView.setIsRound(true);
+        this.mUserAvatar.setOnClickListener(this);
+        TextView textView = (TextView) this.mHeaderView.findViewById(R.id.package_author_name);
+        this.mUserName = textView;
+        textView.setOnClickListener(this);
+        this.bdListView.setAdapter((ListAdapter) this.mAdapter);
+        this.mDivider2 = findViewById(R.id.above_controller_divider);
+        this.mControllerLayout = findViewById(R.id.package_controller_layout);
+        this.controllerDivider = findViewById(R.id.controller_divider);
+        View findViewById = findViewById(R.id.left_function_container);
+        this.mLeftContainer = findViewById;
+        findViewById.setOnClickListener(this);
         this.mLeftImg = (ImageView) findViewById(R.id.left_img);
-        this.iVP = (TextView) findViewById(R.id.left_txt);
-        this.iVT = findViewById(R.id.right_function_container);
-        this.iVT.setOnClickListener(this);
-        this.iVN = findViewById(R.id.package_vote_container);
-        this.iVN.setOnClickListener(this);
-        this.iVR = (ImageView) findViewById(R.id.vote_img);
-        this.iVS = (TextView) findViewById(R.id.vote_text);
-        this.iWe = new com.baidu.tieba.faceshop.packagedetail.b(this);
+        this.mLeftTxt = (TextView) findViewById(R.id.left_txt);
+        View findViewById2 = findViewById(R.id.right_function_container);
+        this.mRightContainer = findViewById2;
+        findViewById2.setOnClickListener(this);
+        View findViewById3 = findViewById(R.id.package_vote_container);
+        this.mVoteContainer = findViewById3;
+        findViewById3.setOnClickListener(this);
+        this.mVoteImg = (ImageView) findViewById(R.id.vote_img);
+        this.mVoteTxt = (TextView) findViewById(R.id.vote_text);
+        this.previewController = new d.b.i0.l0.a0.b(this);
     }
 
-    public PackageDetailListView cyL() {
-        return this.iVF;
+    private void shareEmotion() {
+        TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_SHARE);
+        if (this.mPageData == null) {
+            return;
+        }
+        ShareItem shareItem = new ShareItem();
+        shareItem.r = this.mPageData.name;
+        shareItem.s = getString(R.string.package_share_content);
+        shareItem.t = "http://tieba.baidu.com/n/interact/emoticonpackage/" + this.mPckId;
+        shareItem.v = Uri.parse(this.mPageData.cover);
+        this.mTempShareUrl = shareItem.t;
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(getPageContext().getPageActivity(), shareItem, true);
+        shareDialogConfig.setIsCopyLink(true);
+        shareDialogConfig.setCopyLinkListener(new a(shareItem));
+        sendMessage(new CustomMessage(2001276, shareDialogConfig));
+    }
+
+    private void voteEmotion(int i2) {
+        this.mVoteContainer.setEnabled(false);
+        this.mModel.z(i2, new h());
+    }
+
+    public PackageDetailListView getListView() {
+        return this.bdListView;
+    }
+
+    public SwipeBackLayout getSwipeBackLayout() {
+        return this.mSwipeBackLayout;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        String[] split;
+        super.onActivityResult(i2, i3, intent);
+        if (i3 == -1 && i2 == 24007 && !TextUtils.isEmpty(this.mTempShareUrl) && this.mTempShareUrl.contains("emoticonpackage") && (split = this.mTempShareUrl.split("/")) != null && split.length > 0 && intent.getIntExtra("extra_share_status", 2) == 1) {
+            String str = split[split.length - 1];
+            if (this.mFaceGroupShareModel == null) {
+                this.mFaceGroupShareModel = new NewFaceGroupShareModel();
+            }
+            this.mFaceGroupShareModel.s(str);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mSkinType = i2;
+        getLayoutMode().k(i2 == 1);
+        getLayoutMode().j(this.mRootView);
+        SkinManager.setBackgroundColor(this.bdListView, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.mDivider, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(this.mDownloadNum, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.mShareNum, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.mPackageName, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.mUserName, R.color.CAM_X0304);
+        SkinManager.setViewTextColor(this.mVoteMsg, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.mImageNum, R.color.CAM_X0109);
+        if (i2 != 1 && i2 != 4) {
+            SkinManager.setBackgroundColor(this.mControllerLayout, R.color.white_alpha100, i2);
+        } else {
+            SkinManager.setBackgroundColor(this.mControllerLayout, R.color.common_color_10311, i2);
+            SkinManager.setBackgroundColor(this.mVoteContainer, R.color.CAM_X0201_1, i2);
+        }
+        SkinManager.setBackgroundColor(this.controllerDivider, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.mDivider2, R.color.CAM_X0205);
+        NoDataView noDataView = this.mNoDataView;
+        if (noDataView != null) {
+            noDataView.f(getPageContext(), i2);
+        }
+        d.b.i0.l0.a0.b bVar = this.previewController;
+        if (bVar != null) {
+            bVar.y(i2);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-            if (view == this.iVO) {
-                cyO();
-            } else if (view == this.iVT) {
-                cyP();
-            } else if (view == this.gEO || view == this.eKp) {
-                if (this.iVV != null && !TextUtils.isEmpty(this.iVV.owner)) {
-                    if (this.iVV.forum_id > 0) {
-                        sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.iVV.forum_name, null)));
-                        return;
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(getPageContext().getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(this.iVV.owner, 0L), this.iVV.owner.equals(TbadkCoreApplication.getCurrentAccount()), false)));
+        if (d.b.b.e.p.j.z()) {
+            if (view == this.mLeftContainer) {
+                downloadEmotion();
+            } else if (view == this.mRightContainer) {
+                shareEmotion();
+            } else if (view != this.mUserAvatar && view != this.mUserName) {
+                if (view == this.mVoteContainer) {
+                    voteEmotion(this.mPckId);
                 }
-            } else if (view == this.iVN) {
-                xW(this.iVW);
-            }
-        }
-    }
-
-    private void initData() {
-        if (this.iVE == null) {
-            this.iVE = new EmotionPackageDetailModel();
-        }
-        this.iVE.setLoadDataCallBack(this.iWh);
-        this.iVE.loadData(this.iVW);
-        this.iWf = 0;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String JL(String str) {
-        try {
-            this.iWf = Integer.valueOf(str).intValue();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return String.format(getResources().getString(R.string.emotion_vote_message), str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String xV(int i) {
-        this.iWf = i;
-        return String.format(getResources().getString(R.string.emotion_vote_message), String.valueOf(i));
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mSkinType = i;
-        getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.mRootView);
-        ap.setBackgroundColor(this.iVF, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.dCC, R.color.CAM_X0205);
-        ap.setViewTextColor(this.iVJ, R.color.CAM_X0109);
-        ap.setViewTextColor(this.iVK, R.color.CAM_X0109);
-        ap.setViewTextColor(this.iVI, R.color.CAM_X0105);
-        ap.setViewTextColor(this.eKp, R.color.CAM_X0304);
-        ap.setViewTextColor(this.iVQ, R.color.CAM_X0109);
-        ap.setViewTextColor(this.iVH, R.color.CAM_X0109);
-        if (i == 1 || i == 4) {
-            ap.setBackgroundColor(this.iVM, R.color.common_color_10311, i);
-            ap.setBackgroundColor(this.iVN, R.color.CAM_X0201_1, i);
-        } else {
-            ap.setBackgroundColor(this.iVM, R.color.white_alpha100, i);
-        }
-        ap.setBackgroundColor(this.iVU, R.color.CAM_X0205);
-        ap.setBackgroundColor(this.dCT, R.color.CAM_X0205);
-        if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(getPageContext(), i);
-        }
-        if (this.iWe != null) {
-            this.iWe.onChangeSkinType(i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cyM() {
-        this.iVE.a(this.iVW, new EmotionPackageDetailModel.a() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.7
-            @Override // com.baidu.tieba.faceshop.EmotionPackageDetailModel.a
-            public void onResult(boolean z) {
-                if (z) {
-                    ap.setViewTextColor(EmotionPackageDetailActivity.this.iVP, R.color.CAM_X0205);
-                    EmotionPackageDetailActivity.this.iVP.setText(R.string.package_already_delete);
-                    ap.setImageResource(EmotionPackageDetailActivity.this.mLeftImg, R.drawable.icon_bar_downloaded);
-                    EmotionPackageDetailActivity.this.iVO.setEnabled(false);
-                    com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), R.string.delete_success);
-                    EmotionPackageDetailActivity.this.setResult(-1);
-                    EmotionPackageDetailActivity.this.finish();
+            } else {
+                EmotionPackageData emotionPackageData = this.mPageData;
+                if (emotionPackageData == null || TextUtils.isEmpty(emotionPackageData.owner)) {
                     return;
                 }
-                com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), R.string.delete_fail);
-            }
-        });
-    }
-
-    private void xW(int i) {
-        this.iVN.setEnabled(false);
-        this.iVE.a(i, new EmotionPackageDetailModel.b() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.8
-            @Override // com.baidu.tieba.faceshop.EmotionPackageDetailModel.b
-            public void c(HttpResponsedMessage httpResponsedMessage) {
-                String errorString;
-                if (httpResponsedMessage != null) {
-                    if (httpResponsedMessage.getError() == 0) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NOTIFY_VOTE_EMOTION_PACKAGE_SUCCESS, EmotionPackageDetailActivity.this.iVV));
-                        EmotionPackageDetailActivity.this.cyN();
-                        if (EmotionPackageDetailActivity.this.iVQ != null && EmotionPackageDetailActivity.this.iVQ.isShown()) {
-                            EmotionPackageDetailActivity.this.iVQ.setText(EmotionPackageDetailActivity.this.xV(EmotionPackageDetailActivity.this.iWf + 1));
-                        }
-                        com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), R.string.package_vote_success);
-                    } else if (httpResponsedMessage.getError() == 170003) {
-                        if (EmotionPackageDetailActivity.this.iVY == null) {
-                            EmotionPackageDetailActivity.this.iVY = new com.baidu.tbadk.core.dialog.a(EmotionPackageDetailActivity.this.getPageContext().getPageActivity());
-                            EmotionPackageDetailActivity.this.iVY.ny(R.string.package_cant_vote_tips);
-                            EmotionPackageDetailActivity.this.iVY.b(R.string.package_cant_vote_negative, new a.b() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.8.1
-                                @Override // com.baidu.tbadk.core.dialog.a.b
-                                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                                    aVar.dismiss();
-                                    EmotionPackageDetailActivity.this.iVN.setEnabled(true);
-                                }
-                            });
-                            EmotionPackageDetailActivity.this.iVY.a(R.string.package_cant_vote_positive, new a.b() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.8.2
-                                @Override // com.baidu.tbadk.core.dialog.a.b
-                                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                                    if (EmotionPackageDetailActivity.this.iVV != null && !TextUtils.isEmpty(EmotionPackageDetailActivity.this.iVV.forum_name)) {
-                                        EmotionPackageDetailActivity.this.cyi();
-                                    }
-                                }
-                            });
-                            EmotionPackageDetailActivity.this.iVY.b(EmotionPackageDetailActivity.this.getPageContext());
-                            EmotionPackageDetailActivity.this.iVY.jF(true);
-                        }
-                        EmotionPackageDetailActivity.this.iVY.bqz();
-                    } else {
-                        EmotionPackageDetailActivity.this.iVN.setEnabled(true);
-                        if (httpResponsedMessage.getErrorString() == null) {
-                            errorString = EmotionPackageDetailActivity.this.getString(R.string.package_vote_fail);
-                        } else {
-                            errorString = httpResponsedMessage.getErrorString();
-                        }
-                        com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), errorString);
-                    }
+                if (this.mPageData.forum_id > 0) {
+                    sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mPageData.forum_name, null)));
+                    return;
                 }
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cyN() {
-        this.iVS.setText(R.string.package_detail_voted);
-        ap.setImageResource(this.iVR, R.drawable.icon_bar_voted);
-        ap.setViewTextColor(this.iVS, R.color.CAM_X0109);
-        this.iVN.setEnabled(false);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cyi() {
-        if (this.foW == null) {
-            this.foW = new LikeModel(getPageContext());
-        }
-        this.foW.setFrom("emotion_vote_follow");
-        this.foW.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.9
-            @Override // com.baidu.adp.base.e
-            public void callback(Object obj) {
-                if (EmotionPackageDetailActivity.this.foW.getErrorCode() != 22) {
-                    if (AntiHelper.bX(EmotionPackageDetailActivity.this.foW.getErrorCode(), EmotionPackageDetailActivity.this.foW.getErrorString())) {
-                        AntiHelper.bq(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), EmotionPackageDetailActivity.this.foW.getErrorString());
-                    } else if (EmotionPackageDetailActivity.this.foW.getErrorCode() != 0) {
-                        com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), EmotionPackageDetailActivity.this.foW.getErrorString());
-                        EmotionPackageDetailActivity.this.showToast(EmotionPackageDetailActivity.this.foW.getErrorString());
-                    } else {
-                        com.baidu.tieba.tbadkCore.w wVar = (com.baidu.tieba.tbadkCore.w) obj;
-                        if (wVar != null) {
-                            com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), R.string.attention_success);
-                            TbadkApplication.getInst().addLikeForum(EmotionPackageDetailActivity.this.iVV.forum_name);
-                            wVar.setLike(1);
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, wVar));
-                        } else {
-                            com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), R.string.neterror);
-                        }
-                    }
-                } else {
-                    com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getActivity(), R.string.had_liked_forum);
-                }
-                EmotionPackageDetailActivity.this.iVN.setEnabled(true);
-                EmotionPackageDetailActivity.this.iVY.dismiss();
-            }
-        });
-        this.foW.gy(this.iVV.forum_name, String.valueOf(this.iVV.forum_id));
-    }
-
-    private void cyO() {
-        if (bh.checkUpIsLogin(getPageContext().getPageActivity())) {
-            TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DOWNLOAD);
-            if (this.iVW >= 0) {
-                if (this.iWa == null) {
-                    this.iWa = new NewFaceGroupDownloadModel();
-                }
-                this.iVO.setEnabled(false);
-                this.iWa.a(Integer.toString(this.iVW), true, null);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(getPageContext().getPageActivity()).createNormalConfig(d.b.b.e.m.b.f(this.mPageData.owner, 0L), this.mPageData.owner.equals(TbadkCoreApplication.getCurrentAccount()), false)));
             }
         }
     }
 
-    private void cyP() {
-        TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_SHARE);
-        if (this.iVV != null) {
-            final ShareItem shareItem = new ShareItem();
-            shareItem.title = this.iVV.name;
-            shareItem.content = getString(R.string.package_share_content);
-            shareItem.linkUrl = "http://tieba.baidu.com/n/interact/emoticonpackage/" + this.iVW;
-            shareItem.imageUri = Uri.parse(this.iVV.cover);
-            this.iWc = shareItem.linkUrl;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(getPageContext().getPageActivity(), shareItem, true);
-            shareDialogConfig.setIsCopyLink(true);
-            shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    com.baidu.adp.lib.util.a.copyToClipboard(shareItem.linkUrl);
-                    com.baidu.adp.lib.util.l.showToast(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
-                }
-            });
-            sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
-        }
-    }
-
-    public SwipeBackLayout cyQ() {
-        return this.mSwipeBackLayout;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onPause() {
-        super.onPause();
-        if (this.iWe != null) {
-            this.iWe.cAJ();
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        int intExtra = getIntent().getIntExtra("pck_id", -1);
+        this.mPckId = intExtra;
+        if (intExtra < 0) {
+            finish();
+            return;
         }
+        setContentView(R.layout.emotion_package_detail_activity);
+        initUI();
+        showLoadingView(this.mRootView, false, l.g(this, R.dimen.ds400));
+        initData();
+        registerListener(this.mNetworkChangedMessageListener);
+        registerListener(this.mRefreshEmotionPackageDetailListener);
+        registerListener(this.mDownloadCompleteListener);
+        TiebaStatic.log("c12330");
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iVE != null) {
-            this.iVE.cancelLoadData();
+        EmotionPackageDetailModel emotionPackageDetailModel = this.mModel;
+        if (emotionPackageDetailModel != null) {
+            emotionPackageDetailModel.cancelLoadData();
         }
-        if (this.iWa != null) {
-            this.iWa.cancelLoadData();
+        NewFaceGroupDownloadModel newFaceGroupDownloadModel = this.mFaceGroupDownloadModel;
+        if (newFaceGroupDownloadModel != null) {
+            newFaceGroupDownloadModel.cancelLoadData();
         }
-        if (this.iWb != null) {
-            this.iWb.cancelLoadData();
+        NewFaceGroupShareModel newFaceGroupShareModel = this.mFaceGroupShareModel;
+        if (newFaceGroupShareModel != null) {
+            newFaceGroupShareModel.cancelLoadData();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        String[] split;
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1) {
-            switch (i) {
-                case RequestResponseCode.REQUEST_TO_SHARE /* 24007 */:
-                    if (!TextUtils.isEmpty(this.iWc) && this.iWc.contains("emoticonpackage") && (split = this.iWc.split("/")) != null && split.length > 0 && intent.getIntExtra("extra_share_status", 2) == 1) {
-                        String str = split[split.length - 1];
-                        if (this.iWb == null) {
-                            this.iWb = new NewFaceGroupShareModel();
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        d.b.i0.l0.a0.b bVar = this.previewController;
+        if (bVar != null) {
+            bVar.s();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class k extends BaseAdapter {
+
+        /* renamed from: e  reason: collision with root package name */
+        public List<EmotionPackageData.SingleEmotionData> f15610e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f15611f;
+
+        /* loaded from: classes4.dex */
+        public class a implements View.OnClickListener {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ int f15613e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ TbImageView f15614f;
+
+            public a(int i, TbImageView tbImageView) {
+                this.f15613e = i;
+                this.f15614f = tbImageView;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                EmotionPackageData.SingleEmotionData singleEmotionData = (EmotionPackageData.SingleEmotionData) k.this.f15610e.get(this.f15613e);
+                if (singleEmotionData == null || singleEmotionData.id < 0 || EmotionPackageDetailActivity.this.mPckId < 0 || !d.b.b.e.p.j.z()) {
+                    return;
+                }
+                EmotionDetailActivityConfig emotionDetailActivityConfig = new EmotionDetailActivityConfig(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), EmotionPackageDetailActivity.this.mPckId, singleEmotionData.id, this.f15614f.I());
+                emotionDetailActivityConfig.setFromEmotionPackage(true);
+                EmotionPackageDetailActivity.this.sendMessage(new CustomMessage(2002001, emotionDetailActivityConfig));
+            }
+        }
+
+        /* loaded from: classes4.dex */
+        public class b {
+
+            /* renamed from: a  reason: collision with root package name */
+            public TbImageView f15616a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public TbImageView f15617b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public TbImageView f15618c;
+
+            /* renamed from: d  reason: collision with root package name */
+            public TbImageView f15619d;
+
+            public b(k kVar) {
+            }
+
+            public TbImageView a(int i) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                return null;
+                            }
+                            return this.f15619d;
                         }
-                        this.iWb.OV(str);
-                        return;
+                        return this.f15618c;
                     }
-                    return;
-                default:
-                    return;
+                    return this.f15617b;
+                }
+                return this.f15616a;
             }
-        }
-    }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public class a extends BaseAdapter {
-        private List<EmotionPackageData.SingleEmotionData> dataList;
-        int dlK;
-
-        private a() {
-            this.dataList = new ArrayList();
-            this.dlK = (com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - com.baidu.adp.lib.util.l.getDimens(EmotionPackageDetailActivity.this.getActivity(), R.dimen.ds230)) / 4;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void bn(List<EmotionPackageData.SingleEmotionData> list) {
-            if (list != null) {
-                this.dataList.clear();
-                this.dataList.addAll(new ArrayList(list));
-                notifyDataSetChanged();
+            public /* synthetic */ b(k kVar, b bVar) {
+                this(kVar);
             }
         }
 
-        @Override // android.widget.Adapter
-        public int getCount() {
-            int size = this.dataList.size() / 4;
-            if (this.dataList.size() % 4 > 0) {
-                return size + 1;
+        public k() {
+            this.f15610e = new ArrayList();
+            this.f15611f = (l.k(TbadkCoreApplication.getInst()) - l.g(EmotionPackageDetailActivity.this.getActivity(), R.dimen.ds230)) / 4;
+        }
+
+        public final void c(int i, b bVar) {
+            for (int i2 = 0; i2 < 4; i2++) {
+                TbImageView a2 = bVar.a(i2);
+                if (a2 != null) {
+                    int i3 = (i * 4) + i2;
+                    if (i3 < this.f15610e.size() && i3 >= 0) {
+                        a2.setVisibility(0);
+                        a2.setTag(null);
+                        a2.setDefaultResource(R.drawable.img_default_100);
+                        a2.W(this.f15610e.get(i3).thumbnail, 10, false);
+                        a2.invalidate();
+                        a2.setOnClickListener(new a(i3, a2));
+                    } else {
+                        a2.setVisibility(4);
+                    }
+                }
             }
-            return size;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: xX */
+        /* renamed from: d */
         public List<EmotionPackageData.SingleEmotionData> getItem(int i) {
             ArrayList arrayList = new ArrayList();
-            for (int size = this.dataList.size() / 4; size < (this.dataList.size() / 4) + 4; size++) {
-                if (size > 0 && size < this.dataList.size()) {
-                    arrayList.add(this.dataList.get(size));
+            for (int size = this.f15610e.size() / 4; size < (this.f15610e.size() / 4) + 4; size++) {
+                if (size > 0 && size < this.f15610e.size()) {
+                    arrayList.add(this.f15610e.get(size));
                 }
             }
-            return this.dataList;
+            return this.f15610e;
+        }
+
+        public final void e(List<EmotionPackageData.SingleEmotionData> list) {
+            if (list == null) {
+                return;
+            }
+            this.f15610e.clear();
+            this.f15610e.addAll(new ArrayList(list));
+            notifyDataSetChanged();
+        }
+
+        @Override // android.widget.Adapter
+        public int getCount() {
+            int size = this.f15610e.size() / 4;
+            return this.f15610e.size() % 4 > 0 ? size + 1 : size;
         }
 
         @Override // android.widget.Adapter
@@ -703,94 +896,52 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
 
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
-            C0719a c0719a;
+            View view2;
+            b bVar;
             if (view == null) {
-                C0719a c0719a2 = new C0719a();
-                view = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.package_detail_item, viewGroup, false);
-                c0719a2.iWo = (TbImageView) view.findViewById(R.id.package_item_image1);
-                ViewGroup.LayoutParams layoutParams = c0719a2.iWo.getLayoutParams();
-                layoutParams.height = this.dlK;
-                c0719a2.iWo.setLayoutParams(layoutParams);
-                ap.setBackgroundColor(c0719a2.iWo, R.color.CAM_X0201);
-                c0719a2.iWp = (TbImageView) view.findViewById(R.id.package_item_image2);
-                ViewGroup.LayoutParams layoutParams2 = c0719a2.iWp.getLayoutParams();
-                layoutParams2.height = this.dlK;
-                c0719a2.iWp.setLayoutParams(layoutParams2);
-                ap.setBackgroundColor(c0719a2.iWp, R.color.CAM_X0201);
-                c0719a2.iWq = (TbImageView) view.findViewById(R.id.package_item_image3);
-                ViewGroup.LayoutParams layoutParams3 = c0719a2.iWq.getLayoutParams();
-                layoutParams3.height = this.dlK;
-                c0719a2.iWq.setLayoutParams(layoutParams3);
-                ap.setBackgroundColor(c0719a2.iWq, R.color.CAM_X0201);
-                c0719a2.iWr = (TbImageView) view.findViewById(R.id.package_item_image4);
-                ViewGroup.LayoutParams layoutParams4 = c0719a2.iWr.getLayoutParams();
-                layoutParams4.height = this.dlK;
-                c0719a2.iWr.setLayoutParams(layoutParams4);
-                ap.setBackgroundColor(c0719a2.iWr, R.color.CAM_X0201);
-                view.setTag(c0719a2);
-                c0719a = c0719a2;
+                bVar = new b(this, null);
+                view2 = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.package_detail_item, viewGroup, false);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.package_item_image1);
+                bVar.f15616a = tbImageView;
+                ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+                layoutParams.height = this.f15611f;
+                bVar.f15616a.setLayoutParams(layoutParams);
+                SkinManager.setBackgroundColor(bVar.f15616a, R.color.CAM_X0201);
+                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.package_item_image2);
+                bVar.f15617b = tbImageView2;
+                ViewGroup.LayoutParams layoutParams2 = tbImageView2.getLayoutParams();
+                layoutParams2.height = this.f15611f;
+                bVar.f15617b.setLayoutParams(layoutParams2);
+                SkinManager.setBackgroundColor(bVar.f15617b, R.color.CAM_X0201);
+                TbImageView tbImageView3 = (TbImageView) view2.findViewById(R.id.package_item_image3);
+                bVar.f15618c = tbImageView3;
+                ViewGroup.LayoutParams layoutParams3 = tbImageView3.getLayoutParams();
+                layoutParams3.height = this.f15611f;
+                bVar.f15618c.setLayoutParams(layoutParams3);
+                SkinManager.setBackgroundColor(bVar.f15618c, R.color.CAM_X0201);
+                TbImageView tbImageView4 = (TbImageView) view2.findViewById(R.id.package_item_image4);
+                bVar.f15619d = tbImageView4;
+                ViewGroup.LayoutParams layoutParams4 = tbImageView4.getLayoutParams();
+                layoutParams4.height = this.f15611f;
+                bVar.f15619d.setLayoutParams(layoutParams4);
+                SkinManager.setBackgroundColor(bVar.f15619d, R.color.CAM_X0201);
+                view2.setTag(bVar);
             } else {
-                c0719a = (C0719a) view.getTag();
+                view2 = view;
+                bVar = (b) view.getTag();
             }
-            a(i, c0719a);
-            return view;
+            c(i, bVar);
+            return view2;
         }
 
-        private void a(int i, C0719a c0719a) {
-            for (int i2 = 0; i2 < 4; i2++) {
-                final TbImageView xY = c0719a.xY(i2);
-                if (xY != null) {
-                    final int i3 = (i * 4) + i2;
-                    if (i3 >= this.dataList.size() || i3 < 0) {
-                        xY.setVisibility(4);
-                    } else {
-                        xY.setVisibility(0);
-                        xY.setTag(null);
-                        xY.setDefaultResource(R.drawable.img_default_100);
-                        xY.startLoad(this.dataList.get(i3).thumbnail, 10, false);
-                        xY.invalidate();
-                        xY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailActivity.a.1
-                            @Override // android.view.View.OnClickListener
-                            public void onClick(View view) {
-                                EmotionPackageData.SingleEmotionData singleEmotionData = (EmotionPackageData.SingleEmotionData) a.this.dataList.get(i3);
-                                if (singleEmotionData != null && singleEmotionData.id >= 0 && EmotionPackageDetailActivity.this.iVW >= 0 && com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                                    EmotionDetailActivityConfig emotionDetailActivityConfig = new EmotionDetailActivityConfig(EmotionPackageDetailActivity.this.getPageContext().getPageActivity(), EmotionPackageDetailActivity.this.iVW, singleEmotionData.id, xY.isGif());
-                                    emotionDetailActivityConfig.setFromEmotionPackage(true);
-                                    EmotionPackageDetailActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, emotionDetailActivityConfig));
-                                }
-                            }
-                        });
-                    }
-                }
-            }
+        public /* synthetic */ k(EmotionPackageDetailActivity emotionPackageDetailActivity, b bVar) {
+            this();
         }
+    }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        /* renamed from: com.baidu.tieba.faceshop.EmotionPackageDetailActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0719a {
-            TbImageView iWo;
-            TbImageView iWp;
-            TbImageView iWq;
-            TbImageView iWr;
-
-            private C0719a() {
-            }
-
-            public TbImageView xY(int i) {
-                switch (i) {
-                    case 0:
-                        return this.iWo;
-                    case 1:
-                        return this.iWp;
-                    case 2:
-                        return this.iWq;
-                    case 3:
-                        return this.iWr;
-                    default:
-                        return null;
-                }
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public String getVoteNumber(int i2) {
+        this.voteSum = i2;
+        return String.format(getResources().getString(R.string.emotion_vote_message), String.valueOf(i2));
     }
 }

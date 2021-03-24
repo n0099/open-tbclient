@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.emotion.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class b {
     @NonNull
     public Context a() {

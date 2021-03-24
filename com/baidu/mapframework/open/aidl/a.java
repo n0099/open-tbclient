@@ -6,22 +6,22 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.mapframework.open.aidl.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.mapframework.open.aidl.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static abstract class AbstractBinderC0254a extends Binder implements a {
+    /* loaded from: classes2.dex */
+    public static abstract class AbstractBinderC0095a extends Binder implements a {
 
         /* renamed from: com.baidu.mapframework.open.aidl.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C0255a implements a {
+        /* loaded from: classes2.dex */
+        public static class C0096a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f2182a;
+            public IBinder f7451a;
 
-            C0255a(IBinder iBinder) {
-                this.f2182a = iBinder;
+            public C0096a(IBinder iBinder) {
+                this.f7451a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.a
@@ -31,7 +31,7 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IMapOpenService");
                     obtain.writeStrongBinder(bVar != null ? bVar.asBinder() : null);
-                    this.f2182a.transact(1, obtain, obtain2, 0);
+                    this.f7451a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -41,7 +41,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f2182a;
+                return this.f7451a;
             }
         }
 
@@ -50,23 +50,22 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IMapOpenService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0255a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0096a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            switch (i) {
-                case 1:
-                    parcel.enforceInterface("com.baidu.mapframework.open.aidl.IMapOpenService");
-                    a(b.a.b(parcel.readStrongBinder()));
-                    parcel2.writeNoException();
-                    return true;
-                case 1598968902:
-                    parcel2.writeString("com.baidu.mapframework.open.aidl.IMapOpenService");
-                    return true;
-                default:
+            if (i != 1) {
+                if (i != 1598968902) {
                     return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString("com.baidu.mapframework.open.aidl.IMapOpenService");
+                return true;
             }
+            parcel.enforceInterface("com.baidu.mapframework.open.aidl.IMapOpenService");
+            a(b.a.b(parcel.readStrongBinder()));
+            parcel2.writeNoException();
+            return true;
         }
     }
 

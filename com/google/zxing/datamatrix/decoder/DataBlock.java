@@ -1,17 +1,16 @@
 package com.google.zxing.datamatrix.decoder;
 
 import com.google.zxing.datamatrix.decoder.Version;
-/* loaded from: classes4.dex */
-final class DataBlock {
-    private final byte[] codewords;
-    private final int numDataCodewords;
+/* loaded from: classes6.dex */
+public final class DataBlock {
+    public final byte[] codewords;
+    public final int numDataCodewords;
 
-    private DataBlock(int i, byte[] bArr) {
+    public DataBlock(int i, byte[] bArr) {
         this.numDataCodewords = i;
         this.codewords = bArr;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static DataBlock[] getDataBlocks(byte[] bArr, Version version) {
         Version.ECBlocks eCBlocks = version.getECBlocks();
         Version.ECB[] eCBlocks2 = eCBlocks.getECBlocks();
@@ -45,37 +44,32 @@ final class DataBlock {
         int i8 = z ? 8 : i2;
         int i9 = 0;
         while (i9 < i8) {
-            dataBlockArr[i9].codewords[length - 1] = bArr[i5];
+            dataBlockArr[i9].codewords[i4] = bArr[i5];
             i9++;
             i5++;
         }
         int length2 = dataBlockArr[0].codewords.length;
-        int i10 = i5;
         while (length < length2) {
-            int i11 = 0;
-            int i12 = i10;
-            while (i11 < i2) {
-                int i13 = z ? (i11 + 8) % i2 : i11;
-                dataBlockArr[i13].codewords[(!z || i13 <= 7) ? length : length - 1] = bArr[i12];
-                i11++;
-                i12++;
+            int i10 = 0;
+            while (i10 < i2) {
+                int i11 = z ? (i10 + 8) % i2 : i10;
+                dataBlockArr[i11].codewords[(!z || i11 <= 7) ? length : length - 1] = bArr[i5];
+                i10++;
+                i5++;
             }
             length++;
-            i10 = i12;
         }
-        if (i10 != bArr.length) {
-            throw new IllegalArgumentException();
+        if (i5 == bArr.length) {
+            return dataBlockArr;
         }
-        return dataBlockArr;
+        throw new IllegalArgumentException();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getNumDataCodewords() {
-        return this.numDataCodewords;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public byte[] getCodewords() {
         return this.codewords;
+    }
+
+    public int getNumDataCodewords() {
+        return this.numDataCodewords;
     }
 }

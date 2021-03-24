@@ -5,7 +5,7 @@ import com.kwad.sdk.export.proxy.AdHttpProxy;
 import java.util.Map;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b implements AdHttpProxy<Response> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy
@@ -14,10 +14,10 @@ public class b implements AdHttpProxy<Response> {
         c cVar = new c();
         if (response != null) {
             try {
-                cVar.f6185a = response.code();
-                cVar.b = com.kwad.sdk.core.network.a.b.a(response);
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+                cVar.f33865a = response.code();
+                cVar.f33866b = com.kwad.sdk.core.network.a.b.a(response);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
         }
         return cVar;

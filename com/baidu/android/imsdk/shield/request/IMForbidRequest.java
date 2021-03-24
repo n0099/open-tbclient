@@ -12,25 +12,21 @@ import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
-import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.sapi2.SapiContext;
-import com.kwad.sdk.core.config.item.TipsConfigItem;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMForbidRequest extends IMSettingBaseHttpRequest {
-    private static final String TAG = "IMForbidRequest";
-    private List<ChatMsg> chatMsgs;
-    private String key;
-    private long touk;
-    private int type;
-    private long uid;
+    public static final String TAG = "IMForbidRequest";
+    public List<ChatMsg> chatMsgs;
+    public String key;
+    public long touk;
+    public int type;
+    public long uid;
 
     public IMForbidRequest(Context context, long j, long j2, int i, List<ChatMsg> list, String str) {
         this.mContext = context;
@@ -39,6 +35,80 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
         this.type = i;
         this.key = str;
         this.touk = j;
+    }
+
+    private String getMsgContent(ChatMsg chatMsg) {
+        ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, chatMsg.getCategory(), chatMsg.getMsgType(), -1);
+        newChatMsg.setMsgContent(chatMsg.getMsgContent());
+        int msgType = chatMsg.getMsgType();
+        if (msgType != 0) {
+            if (msgType != 1) {
+                if (msgType != 2) {
+                    if (msgType != 8) {
+                        return "";
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("title", ((SignleGraphicTextMsg) newChatMsg).getTitle());
+                        jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, ((SignleGraphicTextMsg) newChatMsg).getCover());
+                        jSONObject.put("article_url", ((SignleGraphicTextMsg) newChatMsg).getArticleUrl());
+                    } catch (Exception e2) {
+                        LogUtils.e(TAG, "getMsgContent", e2);
+                    }
+                    return jSONObject.toString();
+                }
+                return ((AudioMsg) newChatMsg).getRemoteUrl();
+            }
+            return ((ImageMsg) newChatMsg).getRemoteUrl();
+        }
+        return ((TextMsg) newChatMsg).getText();
+    }
+
+    private JSONArray msgListToJsonArray() {
+        JSONArray jSONArray = new JSONArray();
+        List<ChatMsg> list = this.chatMsgs;
+        if (list != null && list.size() > 0) {
+            for (ChatMsg chatMsg : this.chatMsgs) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("msgid", chatMsg.getMsgId());
+                    jSONObject.put("content", getMsgContent(chatMsg));
+                    jSONObject.put("type", chatMsg.getMsgType());
+                    jSONObject.put("timestamp", chatMsg.getMsgTime());
+                    jSONObject.put("from", chatMsg.getFromUser());
+                    jSONObject.put("to", chatMsg.isSelf(this.mContext) ? chatMsg.getContacter() : AccountManager.getUK(this.mContext));
+                    jSONArray.put(jSONObject);
+                } catch (Exception e2) {
+                    LogUtils.e(TAG, "msgListToJsonArray exception: ", e2);
+                }
+            }
+        }
+        return jSONArray;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/json";
+    }
+
+    @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
+    public String getHostUrl() {
+        int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
+        if (readIntData != 0) {
+            if (readIntData == 1 || readIntData == 2) {
+                return "http://rd-im-server.bcc-szth.baidu.com:8111/";
+            }
+            if (readIntData != 3) {
+                return null;
+            }
+            return Constants.URL_HTTP_BOX;
+        }
+        return "https://pim.baidu.com/";
+    }
+
+    @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
+    public String getHostUrlParam() {
+        return "chat_report";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -53,52 +123,24 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
             jSONObject.put("uk_from", uk);
             jSONObject.put("uk_to", this.touk);
             jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-            jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-            jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
+            jSONObject.put("device_type", 2);
             jSONObject.put("timestamp", currentTimeMillis);
-            jSONObject.put(TiebaInitialize.LogFields.REASON, 1);
+            int i = 1;
+            jSONObject.put("reason", 1);
             jSONObject.put("msgs", msgListToJsonArray);
             jSONObject.put("bduk_to", Utility.transBDUID(this.uid + ""));
             jSONObject.put("sign", getMd5("" + currentTimeMillis + uk + appid));
-            jSONObject.put("account_type", AccountManager.isCuidLogin(this.mContext) ? 1 : 0);
+            if (!AccountManager.isCuidLogin(this.mContext)) {
+                i = 0;
+            }
+            jSONObject.put("account_type", i);
             LogUtils.d(TAG, "IMForbidRequest msg :" + jSONObject.toString());
             return jSONObject.toString().getBytes();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return HttpHelper.CONTENT_JSON;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        int i2;
-        String str;
-        String str2;
-        String str3 = new String(bArr);
-        LogUtils.e(TAG, "IMForbidRequest onSuccess :" + str3);
-        String str4 = "";
-        boolean z = true;
-        try {
-            JSONObject jSONObject = new JSONObject(str3);
-            i2 = jSONObject.optInt("error_code");
-            str = jSONObject.optString("error_msg");
-            z = jSONObject.optBoolean("display_toast", false);
-            if (z) {
-                str4 = jSONObject.optString(TipsConfigItem.TipConfigData.TOAST, "");
-            }
-            str2 = str4;
-        } catch (JSONException e) {
-            LogUtils.e(TAG, "JSONException", e);
-            i2 = 1010;
-            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            str2 = "";
-        }
-        ShieldAndTopManager.getInstance(this.mContext).onForbidResult(i2, str, z, str2, this.key);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -107,75 +149,31 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
         ShieldAndTopManager.getInstance(this.mContext).onForbidResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, true, "", this.key);
     }
 
-    @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
-    public String getHostUrlParam() {
-        return "chat_report";
-    }
-
-    private JSONArray msgListToJsonArray() {
-        JSONArray jSONArray = new JSONArray();
-        if (this.chatMsgs == null || this.chatMsgs.size() <= 0) {
-            return jSONArray;
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onSuccess(int i, byte[] bArr) {
+        String str;
+        boolean z;
+        String str2;
+        int i2;
+        String str3 = new String(bArr);
+        LogUtils.e(TAG, "IMForbidRequest onSuccess :" + str3);
+        boolean z2 = true;
+        try {
+            JSONObject jSONObject = new JSONObject(str3);
+            int optInt = jSONObject.optInt("error_code");
+            String optString = jSONObject.optString("error_msg");
+            z2 = jSONObject.optBoolean("display_toast", false);
+            str = z2 ? jSONObject.optString("toast", "") : "";
+            z = z2;
+            i2 = optInt;
+            str2 = optString;
+        } catch (JSONException e2) {
+            LogUtils.e(TAG, "JSONException", e2);
+            str = "";
+            z = z2;
+            str2 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+            i2 = 1010;
         }
-        for (ChatMsg chatMsg : this.chatMsgs) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("msgid", chatMsg.getMsgId());
-                jSONObject.put("content", getMsgContent(chatMsg));
-                jSONObject.put("type", chatMsg.getMsgType());
-                jSONObject.put("timestamp", chatMsg.getMsgTime());
-                jSONObject.put("from", chatMsg.getFromUser());
-                jSONObject.put("to", chatMsg.isSelf(this.mContext) ? chatMsg.getContacter() : AccountManager.getUK(this.mContext));
-                jSONArray.put(jSONObject);
-            } catch (Exception e) {
-                LogUtils.e(TAG, "msgListToJsonArray exception: ", e);
-            }
-        }
-        return jSONArray;
-    }
-
-    private String getMsgContent(ChatMsg chatMsg) {
-        ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, chatMsg.getCategory(), chatMsg.getMsgType(), -1);
-        newChatMsg.setMsgContent(chatMsg.getMsgContent());
-        switch (chatMsg.getMsgType()) {
-            case 0:
-                return ((TextMsg) newChatMsg).getText();
-            case 1:
-                return ((ImageMsg) newChatMsg).getRemoteUrl();
-            case 2:
-                return ((AudioMsg) newChatMsg).getRemoteUrl();
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            default:
-                return "";
-            case 8:
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("title", ((SignleGraphicTextMsg) newChatMsg).getTitle());
-                    jSONObject.put("cover", ((SignleGraphicTextMsg) newChatMsg).getCover());
-                    jSONObject.put("article_url", ((SignleGraphicTextMsg) newChatMsg).getArticleUrl());
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "getMsgContent", e);
-                }
-                return jSONObject.toString();
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
-    protected String getHostUrl() {
-        switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
-            case 0:
-                return "https://pim.baidu.com/";
-            case 1:
-            case 2:
-                return "http://rd-im-server.bcc-szth.baidu.com:8111/";
-            case 3:
-                return Constants.URL_HTTP_BOX;
-            default:
-                return null;
-        }
+        ShieldAndTopManager.getInstance(this.mContext).onForbidResult(i2, str2, z, str, this.key);
     }
 }

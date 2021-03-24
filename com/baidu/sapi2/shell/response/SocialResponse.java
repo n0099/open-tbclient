@@ -1,12 +1,11 @@
 package com.baidu.sapi2.shell.response;
 
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SocialResponse extends SapiAccountResponse {
     public boolean bindConflict;
     public String nextUrl;
@@ -24,10 +23,10 @@ public class SocialResponse extends SapiAccountResponse {
             return null;
         }
         SocialResponse socialResponse = new SocialResponse();
-        socialResponse.errorCode = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-        socialResponse.errorMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
+        socialResponse.errorCode = jSONObject.optInt("errno");
+        socialResponse.errorMsg = jSONObject.optString("errmsg");
         socialResponse.livingUname = jSONObject.optString("livinguname");
-        socialResponse.socialType = SocialType.getSocialType(jSONObject.optInt(HttpConstants.HTTP_OS_TYPE));
+        socialResponse.socialType = SocialType.getSocialType(jSONObject.optInt("os_type"));
         socialResponse.bduss = jSONObject.optString("bduss");
         socialResponse.socialPortraitUrl = jSONObject.optString("os_headurl");
         String optString = jSONObject.optString("incomplete_user");
@@ -42,7 +41,7 @@ public class SocialResponse extends SapiAccountResponse {
         socialResponse.isBinded = jSONObject.optBoolean("is_binded");
         socialResponse.displayname = jSONObject.optString("display_name");
         socialResponse.username = jSONObject.optString("passport_uname");
-        socialResponse.ptoken = jSONObject.optString("ptoken");
+        socialResponse.ptoken = jSONObject.optString(SapiAccount.f10605h);
         socialResponse.stoken = jSONObject.optString("stoken");
         JSONObject optJSONObject = jSONObject.optJSONObject("stoken_list");
         if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("stoken")) != null) {

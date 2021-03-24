@@ -4,7 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-/* loaded from: classes8.dex */
+import d.b.g0.a.k;
+/* loaded from: classes3.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public String agreeText;
     public String encryptPhoneNum;
@@ -12,52 +13,43 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public int loginMode;
     public String serviceAgreement;
     public boolean supportQuickLogin;
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final Parcelable.Creator<QuickLoginInfo> CREATOR = new Parcelable.Creator<QuickLoginInfo>() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo.1
+    public static final boolean DEBUG = k.f45050a;
+    public static final Parcelable.Creator<QuickLoginInfo> CREATOR = new a();
+
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<QuickLoginInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: A */
+        /* renamed from: a */
         public QuickLoginInfo createFromParcel(Parcel parcel) {
-            return new QuickLoginInfo(parcel);
+            return new QuickLoginInfo(parcel, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: kE */
+        /* renamed from: b */
         public QuickLoginInfo[] newArray(int i) {
             return new QuickLoginInfo[i];
         }
-    };
-
-    public QuickLoginInfo() {
     }
 
-    private QuickLoginInfo(Parcel parcel) {
-        this.supportQuickLogin = parcel.readByte() != 0;
-        this.encryptPhoneNum = parcel.readString();
-        this.serviceAgreement = parcel.readString();
-        this.hasHistory = parcel.readByte() != 0;
-        this.loginMode = parcel.readInt();
-        this.agreeText = parcel.readString();
+    public /* synthetic */ QuickLoginInfo(Parcel parcel, a aVar) {
+        this(parcel);
     }
 
     @Nullable
-    public static QuickLoginInfo a(a aVar) {
+    public static QuickLoginInfo a(d.b.g0.b.m.g.a aVar) {
         if (aVar == null) {
             return null;
         }
         QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-        quickLoginInfo.supportQuickLogin = aVar.aPU();
-        quickLoginInfo.encryptPhoneNum = aVar.aPV();
-        quickLoginInfo.serviceAgreement = aVar.aPX();
-        quickLoginInfo.hasHistory = aVar.aPW();
-        quickLoginInfo.loginMode = aVar.aPT();
-        quickLoginInfo.agreeText = aVar.aPY();
+        quickLoginInfo.supportQuickLogin = aVar.f();
+        quickLoginInfo.encryptPhoneNum = aVar.c();
+        quickLoginInfo.serviceAgreement = aVar.b();
+        quickLoginInfo.hasHistory = aVar.d();
+        quickLoginInfo.loginMode = aVar.e();
+        quickLoginInfo.agreeText = aVar.a();
         return quickLoginInfo;
-    }
-
-    public String toString() {
-        return "QuickLoginInfo{supportQuickLogin=" + this.supportQuickLogin + ", encryptPhoneNum='" + this.encryptPhoneNum + "', serviceAgreement='" + this.serviceAgreement + "', hasHistory=" + this.hasHistory + ", loginMode=" + this.loginMode + ", agreeText=" + this.agreeText + '}';
     }
 
     @Override // android.os.Parcelable
@@ -65,13 +57,29 @@ public class QuickLoginInfo extends SwanAppIPCData {
         return 0;
     }
 
+    public String toString() {
+        return "QuickLoginInfo{supportQuickLogin=" + this.supportQuickLogin + ", encryptPhoneNum='" + this.encryptPhoneNum + "', serviceAgreement='" + this.serviceAgreement + "', hasHistory=" + this.hasHistory + ", loginMode=" + this.loginMode + ", agreeText=" + this.agreeText + '}';
+    }
+
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte((byte) (this.supportQuickLogin ? 1 : 0));
+        parcel.writeByte(this.supportQuickLogin ? (byte) 1 : (byte) 0);
         parcel.writeString(this.encryptPhoneNum);
         parcel.writeString(this.serviceAgreement);
-        parcel.writeByte((byte) (this.hasHistory ? 1 : 0));
+        parcel.writeByte(this.hasHistory ? (byte) 1 : (byte) 0);
         parcel.writeInt(this.loginMode);
         parcel.writeString(this.agreeText);
+    }
+
+    public QuickLoginInfo() {
+    }
+
+    public QuickLoginInfo(Parcel parcel) {
+        this.supportQuickLogin = parcel.readByte() != 0;
+        this.encryptPhoneNum = parcel.readString();
+        this.serviceAgreement = parcel.readString();
+        this.hasHistory = parcel.readByte() != 0;
+        this.loginMode = parcel.readInt();
+        this.agreeText = parcel.readString();
     }
 }

@@ -1,6 +1,5 @@
 package com.bytedance.sdk.openadsdk.utils;
 
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
@@ -8,106 +7,95 @@ import java.security.MessageDigest;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f5143a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f30433a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String a(byte[] bArr) {
-        if (bArr == null) {
-            throw new NullPointerException("bytes is null");
+        if (bArr != null) {
+            return a(bArr, 0, bArr.length);
         }
-        return a(bArr, 0, bArr.length);
+        throw new NullPointerException("bytes is null");
     }
 
     public static String a(byte[] bArr, int i, int i2) {
-        if (bArr == null) {
-            throw new NullPointerException("bytes is null");
-        }
-        if (i < 0 || i + i2 > bArr.length) {
+        if (bArr != null) {
+            if (i >= 0 && i + i2 <= bArr.length) {
+                int i3 = i2 * 2;
+                char[] cArr = new char[i3];
+                int i4 = 0;
+                for (int i5 = 0; i5 < i2; i5++) {
+                    int i6 = bArr[i5 + i] & 255;
+                    int i7 = i4 + 1;
+                    char[] cArr2 = f30433a;
+                    cArr[i4] = cArr2[i6 >> 4];
+                    i4 = i7 + 1;
+                    cArr[i7] = cArr2[i6 & 15];
+                }
+                return new String(cArr, 0, i3);
+            }
             throw new IndexOutOfBoundsException();
         }
-        char[] cArr = new char[i2 * 2];
-        int i3 = 0;
-        for (int i4 = 0; i4 < i2; i4++) {
-            int i5 = bArr[i4 + i] & 255;
-            int i6 = i3 + 1;
-            cArr[i3] = f5143a[i5 >> 4];
-            i3 = i6 + 1;
-            cArr[i6] = f5143a[i5 & 15];
-        }
-        return new String(cArr, 0, i2 * 2);
+        throw new NullPointerException("bytes is null");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [79=5, 81=4] */
     public static String a(File file) {
-        Throwable th;
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
-        String str = null;
-        FileInputStream fileInputStream3 = null;
+        FileInputStream fileInputStream2 = null;
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-            if (messageDigest != null) {
-                fileInputStream2 = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream2.read(bArr, 0, bArr.length);
-                        if (read <= 0) {
-                            break;
-                        }
-                        messageDigest.update(bArr, 0, read);
-                    }
-                    str = a(messageDigest.digest());
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (Exception e) {
-                        }
-                    }
-                } catch (Exception e2) {
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (Exception e3) {
-                        }
-                    }
-                    return str;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream = fileInputStream2;
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e4) {
-                        }
-                    }
-                    throw th;
-                }
-            } else if (0 != 0) {
-                try {
-                    fileInputStream3.close();
-                } catch (Exception e5) {
-                }
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            if (messageDigest == null) {
+                return null;
             }
-        } catch (Exception e6) {
-            fileInputStream2 = null;
-        } catch (Throwable th3) {
-            th = th3;
+            fileInputStream = new FileInputStream(file);
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = fileInputStream.read(bArr, 0, 8192);
+                    if (read <= 0) {
+                        break;
+                    }
+                    messageDigest.update(bArr, 0, read);
+                }
+                String a2 = a(messageDigest.digest());
+                try {
+                    fileInputStream.close();
+                } catch (Exception unused) {
+                }
+                return a2;
+            } catch (Exception unused2) {
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (Exception unused3) {
+                    }
+                }
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception unused4) {
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception unused5) {
             fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return str;
     }
 
     public static String a(String str) {
         if (str != null) {
             try {
-                if (str.length() == 0) {
-                    return null;
+                if (str.length() != 0) {
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    messageDigest.update(str.getBytes("UTF-8"));
+                    return a(messageDigest.digest());
                 }
-                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-                messageDigest.update(str.getBytes("UTF-8"));
-                return a(messageDigest.digest());
-            } catch (Exception e) {
-                return null;
+            } catch (Exception unused) {
             }
         }
         return null;

@@ -7,38 +7,32 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class ThreadUtils {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.ThreadUtils$1CaughtException  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public class C1CaughtException {
-        Exception e;
 
-        C1CaughtException() {
-        }
+        /* renamed from: e  reason: collision with root package name */
+        public Exception f68131e;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public class C1Result {
         public V value;
-
-        C1Result() {
-        }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface BlockingOperation {
         void run() throws InterruptedException;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static class ThreadChecker {
         @Nullable
-        private Thread thread = Thread.currentThread();
+        public Thread thread = Thread.currentThread();
 
         public void checkIsOnValidThread() {
             if (this.thread == null) {
@@ -64,27 +58,28 @@ public class ThreadUtils {
     }
 
     public static boolean awaitUninterruptibly(CountDownLatch countDownLatch, long j) {
-        boolean z = false;
         long elapsedRealtime = SystemClock.elapsedRealtime();
+        boolean z = true;
         boolean z2 = false;
         long j2 = j;
+        boolean z3 = false;
         while (true) {
             try {
-                z = countDownLatch.await(j2, TimeUnit.MILLISECONDS);
+                z2 = countDownLatch.await(j2, TimeUnit.MILLISECONDS);
+                z = z3;
                 break;
-            } catch (InterruptedException e) {
+            } catch (InterruptedException unused) {
                 j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
                 if (j2 <= 0) {
-                    z2 = true;
                     break;
                 }
-                z2 = true;
+                z3 = true;
             }
         }
-        if (z2) {
+        if (z) {
             Thread.currentThread().interrupt();
         }
-        return z;
+        return z2;
     }
 
     public static void checkIsOnMainThread() {
@@ -93,7 +88,6 @@ public class ThreadUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static StackTraceElement[] concatStackTraces(StackTraceElement[] stackTraceElementArr, StackTraceElement[] stackTraceElementArr2) {
         StackTraceElement[] stackTraceElementArr3 = new StackTraceElement[stackTraceElementArr.length + stackTraceElementArr2.length];
         System.arraycopy(stackTraceElementArr, 0, stackTraceElementArr3, 0, stackTraceElementArr.length);
@@ -107,7 +101,7 @@ public class ThreadUtils {
             try {
                 blockingOperation.run();
                 break;
-            } catch (InterruptedException e) {
+            } catch (InterruptedException unused) {
                 z = true;
             }
         }
@@ -120,8 +114,8 @@ public class ThreadUtils {
         if (handler.getLooper().getThread() == Thread.currentThread()) {
             try {
                 return callable.call();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+            } catch (Exception e2) {
+                throw new RuntimeException(e2);
             }
         }
         final C1Result c1Result = new C1Result();
@@ -133,19 +127,19 @@ public class ThreadUtils {
             public void run() {
                 try {
                     C1Result.this.value = callable.call();
-                } catch (Exception e2) {
-                    c1CaughtException.e = e2;
+                } catch (Exception e3) {
+                    c1CaughtException.f68131e = e3;
                 }
                 countDownLatch.countDown();
             }
         });
         awaitUninterruptibly(countDownLatch);
-        if (c1CaughtException.e != null) {
-            RuntimeException runtimeException = new RuntimeException(c1CaughtException.e);
-            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.e.getStackTrace(), runtimeException.getStackTrace()));
-            throw runtimeException;
+        if (c1CaughtException.f68131e == null) {
+            return c1Result.value;
         }
-        return c1Result.value;
+        RuntimeException runtimeException = new RuntimeException(c1CaughtException.f68131e);
+        runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f68131e.getStackTrace(), runtimeException.getStackTrace()));
+        throw runtimeException;
     }
 
     public static void invokeAtFrontUninterruptibly(Handler handler, final Runnable runnable) {
@@ -176,7 +170,7 @@ public class ThreadUtils {
             try {
                 thread.join(j2);
                 break;
-            } catch (InterruptedException e) {
+            } catch (InterruptedException unused) {
                 j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
                 z = true;
             }

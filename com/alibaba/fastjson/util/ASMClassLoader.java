@@ -55,10 +55,10 @@ import java.security.PrivilegedAction;
 import java.security.ProtectionDomain;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class ASMClassLoader extends ClassLoader {
-    private static Map<String, Class<?>> classMapping = new HashMap();
-    private static ProtectionDomain DOMAIN = (ProtectionDomain) AccessController.doPrivileged(new PrivilegedAction<Object>() { // from class: com.alibaba.fastjson.util.ASMClassLoader.1
+    public static Map<String, Class<?>> classMapping = new HashMap();
+    public static ProtectionDomain DOMAIN = (ProtectionDomain) AccessController.doPrivileged(new PrivilegedAction<Object>() { // from class: com.alibaba.fastjson.util.ASMClassLoader.1
         @Override // java.security.PrivilegedAction
         public Object run() {
             return ASMClassLoader.class.getProtectionDomain();
@@ -66,8 +66,9 @@ public class ASMClassLoader extends ClassLoader {
     });
 
     static {
-        Class<?>[] clsArr;
-        for (Class<?> cls : new Class[]{JSON.class, JSONObject.class, JSONArray.class, JSONPath.class, JSONAware.class, JSONException.class, JSONPathException.class, JSONReader.class, JSONStreamAware.class, JSONWriter.class, TypeReference.class, FieldInfo.class, TypeUtils.class, IOUtils.class, IdentityHashMap.class, ParameterizedTypeImpl.class, JavaBeanInfo.class, ObjectSerializer.class, JavaBeanSerializer.class, SerializeFilterable.class, SerializeBeanInfo.class, JSONSerializer.class, SerializeWriter.class, SerializeFilter.class, Labels.class, LabelFilter.class, ContextValueFilter.class, AfterFilter.class, BeforeFilter.class, NameFilter.class, PropertyFilter.class, PropertyPreFilter.class, ValueFilter.class, SerializerFeature.class, ContextObjectSerializer.class, SerialContext.class, SerializeConfig.class, JavaBeanDeserializer.class, ParserConfig.class, DefaultJSONParser.class, JSONLexer.class, JSONLexerBase.class, ParseContext.class, JSONToken.class, SymbolTable.class, Feature.class, JSONScanner.class, JSONReaderScanner.class, AutowiredObjectDeserializer.class, ObjectDeserializer.class, ExtraProcessor.class, ExtraProcessable.class, ExtraTypeProvider.class, BeanContext.class, FieldDeserializer.class, DefaultFieldDeserializer.class}) {
+        Class<?>[] clsArr = {JSON.class, JSONObject.class, JSONArray.class, JSONPath.class, JSONAware.class, JSONException.class, JSONPathException.class, JSONReader.class, JSONStreamAware.class, JSONWriter.class, TypeReference.class, FieldInfo.class, TypeUtils.class, IOUtils.class, IdentityHashMap.class, ParameterizedTypeImpl.class, JavaBeanInfo.class, ObjectSerializer.class, JavaBeanSerializer.class, SerializeFilterable.class, SerializeBeanInfo.class, JSONSerializer.class, SerializeWriter.class, SerializeFilter.class, Labels.class, LabelFilter.class, ContextValueFilter.class, AfterFilter.class, BeforeFilter.class, NameFilter.class, PropertyFilter.class, PropertyPreFilter.class, ValueFilter.class, SerializerFeature.class, ContextObjectSerializer.class, SerialContext.class, SerializeConfig.class, JavaBeanDeserializer.class, ParserConfig.class, DefaultJSONParser.class, JSONLexer.class, JSONLexerBase.class, ParseContext.class, JSONToken.class, SymbolTable.class, Feature.class, JSONScanner.class, JSONReaderScanner.class, AutowiredObjectDeserializer.class, ObjectDeserializer.class, ExtraProcessor.class, ExtraProcessable.class, ExtraTypeProvider.class, BeanContext.class, FieldDeserializer.class, DefaultFieldDeserializer.class};
+        for (int i = 0; i < 56; i++) {
+            Class<?> cls = clsArr[i];
             classMapping.put(cls.getName(), cls);
         }
     }
@@ -76,52 +77,49 @@ public class ASMClassLoader extends ClassLoader {
         super(getParentClassLoader());
     }
 
-    public ASMClassLoader(ClassLoader classLoader) {
-        super(classLoader);
-    }
-
-    static ClassLoader getParentClassLoader() {
+    public static ClassLoader getParentClassLoader() {
         ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
         if (contextClassLoader != null) {
             try {
                 contextClassLoader.loadClass(JSON.class.getName());
                 return contextClassLoader;
-            } catch (ClassNotFoundException e) {
+            } catch (ClassNotFoundException unused) {
             }
         }
         return JSON.class.getClassLoader();
-    }
-
-    @Override // java.lang.ClassLoader
-    protected Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
-        Class<?> cls = classMapping.get(str);
-        if (cls != null) {
-            return cls;
-        }
-        try {
-            return super.loadClass(str, z);
-        } catch (ClassNotFoundException e) {
-            throw e;
-        }
     }
 
     public Class<?> defineClassPublic(String str, byte[] bArr, int i, int i2) throws ClassFormatError {
         return defineClass(str, bArr, i, i2, DOMAIN);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v1, types: [java.lang.ClassLoader] */
-    /* JADX WARN: Type inference failed for: r2v3 */
     public boolean isExternalClass(Class<?> cls) {
         ClassLoader classLoader = cls.getClassLoader();
         if (classLoader == null) {
             return false;
         }
-        for (?? r2 = this; r2 != 0; r2 = r2.getParent()) {
-            if (r2 == classLoader) {
+        for (ClassLoader classLoader2 = this; classLoader2 != null; classLoader2 = classLoader2.getParent()) {
+            if (classLoader2 == classLoader) {
                 return false;
             }
         }
         return true;
+    }
+
+    @Override // java.lang.ClassLoader
+    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
+        Class<?> cls = classMapping.get(str);
+        if (cls != null) {
+            return cls;
+        }
+        try {
+            return super.loadClass(str, z);
+        } catch (ClassNotFoundException e2) {
+            throw e2;
+        }
+    }
+
+    public ASMClassLoader(ClassLoader classLoader) {
+        super(classLoader);
     }
 }

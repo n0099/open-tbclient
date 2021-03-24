@@ -7,7 +7,7 @@ import com.kwad.sdk.api.KsContentAllianceAd;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractKsContentAllianceAd implements KsContentAllianceAd {
     @Override // com.kwad.sdk.api.KsContentAllianceAd
     @NonNull
@@ -20,5 +20,5 @@ public abstract class AbstractKsContentAllianceAd implements KsContentAllianceAd
     @NonNull
     @KsAdSdkDynamicApi
     @Keep
-    protected abstract KsFragment getFragment2();
+    public abstract KsFragment getFragment2();
 }

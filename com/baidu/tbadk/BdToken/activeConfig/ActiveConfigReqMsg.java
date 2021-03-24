@@ -2,15 +2,15 @@ package com.baidu.tbadk.BdToken.activeConfig;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.v;
+import d.b.h0.z0.w;
 import tbclient.ActiveConfig.ActiveConfigReqIdl;
 import tbclient.ActiveConfig.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ActiveConfigReqMsg extends NetMessage {
     public static final int LAUNTCH_FROM_HOME_PAGE = 1;
     public static final int LAUNTCH_FROM_START = 0;
-    private boolean isFirstUp;
-    private boolean isSchemaUp;
+    public boolean isFirstUp;
+    public boolean isSchemaUp;
     public int launtchType;
 
     public ActiveConfigReqMsg() {
@@ -18,16 +18,8 @@ public class ActiveConfigReqMsg extends NetMessage {
         this.launtchType = 0;
     }
 
-    public void setFirstUp(boolean z) {
-        this.isFirstUp = z;
-    }
-
-    public void setSchemaUp(boolean z) {
-        this.isSchemaUp = z;
-    }
-
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (this.isFirstUp) {
@@ -40,12 +32,20 @@ public class ActiveConfigReqMsg extends NetMessage {
             } else {
                 builder.is_schema_up = 0;
             }
-            v.a(builder, true, true, false);
+            w.c(builder, true, true, false);
             ActiveConfigReqIdl.Builder builder2 = new ActiveConfigReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
+    }
+
+    public void setFirstUp(boolean z) {
+        this.isFirstUp = z;
+    }
+
+    public void setSchemaUp(boolean z) {
+        this.isSchemaUp = z;
     }
 }

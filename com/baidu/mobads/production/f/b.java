@@ -8,24 +8,24 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.l;
 import com.baidu.mobads.vo.d;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    l f2460a;
+    public l f8468a;
 
     public b(Context context, IXAdConstants4PDK.SlotType slotType) {
         super(context, null, slotType);
-        this.f2460a = XAdSDKFoundationFacade.getInstance().getAdConstants();
-        this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.f8468a = XAdSDKFoundationFacade.getInstance().getAdConstants();
+        this.f8625b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         g(1);
-        i(this.f2460a.getAdCreativeTypeImage() + this.f2460a.getAdCreativeTypeVideo() + this.f2460a.getAdCreativeTypeRichmedia());
+        i(this.f8468a.getAdCreativeTypeImage() + this.f8468a.getAdCreativeTypeVideo() + this.f8468a.getAdCreativeTypeRichmedia());
         f(8);
         h(0);
     }
 
     @Override // com.baidu.mobads.vo.d
-    protected HashMap<String, String> a() {
+    public HashMap<String, String> a() {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(IXAdRequestInfo.FET, "ANTI,HTML,MSSP,VIDEO,RSPLASHHTML");
         hashMap.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "video/mp4,image/jpg,image/gif,image/png");

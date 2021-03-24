@@ -9,14 +9,14 @@ import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LiveStatusResultData extends BaseResultData {
-    private static final long serialVersionUID = 4029640509861990549L;
+    public static final long serialVersionUID = 4029640509861990549L;
     public LiveStatus liveStatus = new LiveStatus();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class LiveStatus implements b, Serializable {
-        private static final long serialVersionUID = -5609658944971506312L;
+        public static final long serialVersionUID = -5609658944971506312L;
         public String liveStreamId;
 
         public void parseJson(@Nullable JSONObject jSONObject) {
@@ -36,7 +36,8 @@ public class LiveStatusResultData extends BaseResultData {
 
     @Override // com.kwad.sdk.core.network.BaseResultData
     public boolean isDataEmpty() {
-        return this.liveStatus == null || ag.a(this.liveStatus.liveStreamId);
+        LiveStatus liveStatus = this.liveStatus;
+        return liveStatus == null || ag.a(liveStatus.liveStreamId);
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
@@ -51,8 +52,8 @@ public class LiveStatusResultData extends BaseResultData {
                 return;
             }
             this.liveStatus.parseJson(new JSONObject(d.b(optString)));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 

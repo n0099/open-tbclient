@@ -7,7 +7,7 @@ import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.mode.SptDataMessage;
 import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e extends c {
     @Override // com.heytap.mcssdk.a.d
     public final Message a(Context context, int i, Intent intent) {
@@ -23,16 +23,16 @@ public final class e extends c {
     public final Message a(Intent intent) {
         try {
             SptDataMessage sptDataMessage = new SptDataMessage();
-            sptDataMessage.setMessageID(Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra(Message.MESSAGE_ID))));
-            sptDataMessage.setTaskID(CryptoUtil.desDecrypt(intent.getStringExtra(Message.TASK_ID)));
-            sptDataMessage.setAppPackage(CryptoUtil.desDecrypt(intent.getStringExtra(Message.APP_PACKAGE)));
+            sptDataMessage.setMessageID(Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra("messageID"))));
+            sptDataMessage.setTaskID(CryptoUtil.desDecrypt(intent.getStringExtra("taskID")));
+            sptDataMessage.setAppPackage(CryptoUtil.desDecrypt(intent.getStringExtra("appPackage")));
             sptDataMessage.setContent(CryptoUtil.desDecrypt(intent.getStringExtra("content")));
             sptDataMessage.setDescription(CryptoUtil.desDecrypt(intent.getStringExtra("description")));
             sptDataMessage.setAppID(CryptoUtil.desDecrypt(intent.getStringExtra(Message.APP_ID)));
-            sptDataMessage.setGlobalID(CryptoUtil.desDecrypt(intent.getStringExtra(Message.GLOBAL_ID)));
+            sptDataMessage.setGlobalID(CryptoUtil.desDecrypt(intent.getStringExtra("globalID")));
             return sptDataMessage;
-        } catch (Exception e) {
-            LogUtil.d("OnHandleIntent--" + e.getMessage());
+        } catch (Exception e2) {
+            LogUtil.d("OnHandleIntent--" + e2.getMessage());
             return null;
         }
     }

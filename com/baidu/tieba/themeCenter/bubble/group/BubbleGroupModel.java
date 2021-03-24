@@ -6,91 +6,141 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
-import com.baidu.tieba.themeCenter.dressCenter.e;
+import d.b.i0.i3.h.e;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
-    private final HttpMessageListener lno;
-    private List<b> mGroupList;
-    private e mRecommand;
-    private boolean nJf;
-    private com.baidu.adp.framework.listener.a nJg;
-    private BubbleGroupActivity nKk;
-    private a nKl;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(int i, String str, e eVar, List<b> list);
+    /* renamed from: e  reason: collision with root package name */
+    public BubbleGroupActivity f21627e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public e f21628f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public List<d.b.i0.i3.f.b.b> f21629g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c f21630h;
+    public boolean i;
+    public d.b.b.c.g.a j;
+    public final HttpMessageListener k;
+
+    /* loaded from: classes5.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof BubbleGroupHttpResponseMessage;
+            if (z || (responsedMessage instanceof BubbleGroupSocketResponseMessage)) {
+                if (responsedMessage.getError() != 0) {
+                    if (BubbleGroupModel.this.f21630h != null) {
+                        BubbleGroupModel.this.f21630h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.f21628f, BubbleGroupModel.this.f21629g);
+                        return;
+                    }
+                    return;
+                }
+                if (z) {
+                    BubbleGroupHttpResponseMessage bubbleGroupHttpResponseMessage = (BubbleGroupHttpResponseMessage) responsedMessage;
+                    BubbleGroupModel.this.f21628f = bubbleGroupHttpResponseMessage.getRecommand();
+                    BubbleGroupModel.this.f21629g = bubbleGroupHttpResponseMessage.getGroupList();
+                } else if (responsedMessage instanceof BubbleGroupSocketResponseMessage) {
+                    BubbleGroupSocketResponseMessage bubbleGroupSocketResponseMessage = (BubbleGroupSocketResponseMessage) responsedMessage;
+                    BubbleGroupModel.this.f21628f = bubbleGroupSocketResponseMessage.getRecommand();
+                    BubbleGroupModel.this.f21629g = bubbleGroupSocketResponseMessage.getGroupList();
+                }
+                if (BubbleGroupModel.this.f21630h != null) {
+                    BubbleGroupModel.this.f21630h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.f21628f, BubbleGroupModel.this.f21629g);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends HttpMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003056) {
+                return;
+            }
+            BubbleSetResponseMessage bubbleSetResponseMessage = (BubbleSetResponseMessage) httpResponsedMessage;
+            if (bubbleSetResponseMessage.getError() != 0) {
+                BubbleGroupModel.this.f21627e.showToast(bubbleSetResponseMessage.getErrorString());
+                return;
+            }
+            BubbleGroupModel.this.D(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
+            BubbleGroupModel.this.f21630h.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleGroupModel.this.f21628f, BubbleGroupModel.this.f21629g);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(int i, String str, e eVar, List<d.b.i0.i3.f.b.b> list);
     }
 
     public BubbleGroupModel(BubbleGroupActivity bubbleGroupActivity) {
         super(bubbleGroupActivity.getPageContext());
-        this.nJg = new com.baidu.adp.framework.listener.a(1003039, CmdConfigSocket.CMD_BUBBLE_CATEGORY) { // from class: com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null) {
-                    if ((responsedMessage instanceof BubbleGroupHttpResponseMessage) || (responsedMessage instanceof BubbleGroupSocketResponseMessage)) {
-                        if (responsedMessage.getError() != 0) {
-                            if (BubbleGroupModel.this.nKl != null) {
-                                BubbleGroupModel.this.nKl.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.mRecommand, BubbleGroupModel.this.mGroupList);
-                                return;
-                            }
-                            return;
-                        }
-                        if (responsedMessage instanceof BubbleGroupHttpResponseMessage) {
-                            BubbleGroupHttpResponseMessage bubbleGroupHttpResponseMessage = (BubbleGroupHttpResponseMessage) responsedMessage;
-                            BubbleGroupModel.this.mRecommand = bubbleGroupHttpResponseMessage.getRecommand();
-                            BubbleGroupModel.this.mGroupList = bubbleGroupHttpResponseMessage.getGroupList();
-                        } else if (responsedMessage instanceof BubbleGroupSocketResponseMessage) {
-                            BubbleGroupSocketResponseMessage bubbleGroupSocketResponseMessage = (BubbleGroupSocketResponseMessage) responsedMessage;
-                            BubbleGroupModel.this.mRecommand = bubbleGroupSocketResponseMessage.getRecommand();
-                            BubbleGroupModel.this.mGroupList = bubbleGroupSocketResponseMessage.getGroupList();
-                        }
-                        if (BubbleGroupModel.this.nKl != null) {
-                            BubbleGroupModel.this.nKl.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.mRecommand, BubbleGroupModel.this.mGroupList);
-                        }
-                    }
-                }
-            }
-        };
-        this.lno = new HttpMessageListener(1003056) { // from class: com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003056) {
-                    BubbleSetResponseMessage bubbleSetResponseMessage = (BubbleSetResponseMessage) httpResponsedMessage;
-                    if (bubbleSetResponseMessage.getError() != 0) {
-                        BubbleGroupModel.this.nKk.showToast(bubbleSetResponseMessage.getErrorString());
-                        return;
-                    }
-                    BubbleGroupModel.this.Ko(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
-                    BubbleGroupModel.this.nKl.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleGroupModel.this.mRecommand, BubbleGroupModel.this.mGroupList);
-                }
-            }
-        };
-        this.nKk = bubbleGroupActivity;
-        this.nJf = bubbleGroupActivity.getIntent().getBooleanExtra("member_buy_show", false);
-        dRt();
-        registerListener(this.nJg);
-        dRu();
-        registerListener(this.lno);
+        this.j = new a(CmdConfigHttp.CMD_BUBBLE_CATEGORY, 309030);
+        this.k = new b(CmdConfigHttp.CMD_BUBBLE_SET);
+        this.f21627e = bubbleGroupActivity;
+        this.i = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        A();
+        registerListener(this.j);
+        B();
+        registerListener(this.k);
     }
 
-    private void dRt() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_BUBBLE_CATEGORY, BubbleGroupSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_BUBBLE_CATEGORY, 1003039, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
+    public final void A() {
+        d.b.i0.c3.d0.a.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void dRu() {
+    public final void B() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003056, TbConfig.SERVER_ADDRESS + "c/e/bu/setbubble");
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BUBBLE_SET, TbConfig.SERVER_ADDRESS + TbConfig.BUBBLE_SET);
         tbHttpMessageTask.setResponsedClass(BubbleSetResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
+    }
+
+    public void C(c cVar) {
+        this.f21630h = cVar;
+    }
+
+    public final void D(int i) {
+        List<d.b.i0.i3.f.b.b> list = this.f21629g;
+        if (list == null || list.size() <= 0) {
+            return;
+        }
+        for (d.b.i0.i3.f.b.b bVar : this.f21629g) {
+            if (bVar != null && bVar.a() != null) {
+                for (DressItemData dressItemData : bVar.a()) {
+                    if (dressItemData != null) {
+                        if (dressItemData.getPropsId() == i) {
+                            dressItemData.setInUse(true);
+                        } else {
+                            dressItemData.setInUse(false);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -104,30 +154,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         return false;
     }
 
-    public void a(a aVar) {
-        this.nKl = aVar;
-    }
-
-    public boolean dLf() {
-        return this.nJf;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Ko(int i) {
-        if (this.mGroupList != null && this.mGroupList.size() > 0) {
-            for (b bVar : this.mGroupList) {
-                if (bVar != null && bVar.getBubbleList() != null) {
-                    for (DressItemData dressItemData : bVar.getBubbleList()) {
-                        if (dressItemData != null) {
-                            if (dressItemData.getPropsId() == i) {
-                                dressItemData.setInUse(true);
-                            } else {
-                                dressItemData.setInUse(false);
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    public boolean z() {
+        return this.i;
     }
 }

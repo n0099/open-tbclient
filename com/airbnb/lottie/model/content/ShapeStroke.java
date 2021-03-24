@@ -2,109 +2,170 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.Paint;
 import androidx.annotation.Nullable;
-import com.airbnb.lottie.a.a.q;
+import d.a.a.f;
+import d.a.a.q.a.q;
+import d.a.a.s.i.d;
+import d.a.a.s.j.b;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ShapeStroke implements b {
-    private final com.airbnb.lottie.model.a.a GM;
-    private final com.airbnb.lottie.model.a.d GW;
-    @Nullable
-    private final com.airbnb.lottie.model.a.b HA;
-    private final com.airbnb.lottie.model.a.b Hk;
-    private final LineCapType Hl;
-    private final LineJoinType Hm;
-    private final float Hn;
-    private final List<com.airbnb.lottie.model.a.b> Ho;
-    private final String name;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public final String f1601a;
+    @Nullable
+
+    /* renamed from: b  reason: collision with root package name */
+    public final d.a.a.s.i.b f1602b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final List<d.a.a.s.i.b> f1603c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final d.a.a.s.i.a f1604d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final d f1605e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final d.a.a.s.i.b f1606f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final LineCapType f1607g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final LineJoinType f1608h;
+    public final float i;
+
+    /* loaded from: classes.dex */
     public enum LineCapType {
         Butt,
         Round,
         Unknown;
 
         public Paint.Cap toPaintCap() {
-            switch (this) {
-                case Butt:
-                    return Paint.Cap.BUTT;
-                case Round:
-                    return Paint.Cap.ROUND;
-                default:
+            int i = a.f1609a[ordinal()];
+            if (i != 1) {
+                if (i != 2) {
                     return Paint.Cap.SQUARE;
+                }
+                return Paint.Cap.ROUND;
             }
+            return Paint.Cap.BUTT;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes.dex */
     public enum LineJoinType {
         Miter,
         Round,
         Bevel;
 
         public Paint.Join toPaintJoin() {
-            switch (this) {
-                case Bevel:
-                    return Paint.Join.BEVEL;
-                case Miter:
-                    return Paint.Join.MITER;
-                case Round:
+            int i = a.f1610b[ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
                     return Paint.Join.ROUND;
-                default:
-                    return null;
+                }
+                return Paint.Join.MITER;
+            }
+            return Paint.Join.BEVEL;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f1609a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final /* synthetic */ int[] f1610b;
+
+        static {
+            int[] iArr = new int[LineJoinType.values().length];
+            f1610b = iArr;
+            try {
+                iArr[LineJoinType.Bevel.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f1610b[LineJoinType.Miter.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f1610b[LineJoinType.Round.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            int[] iArr2 = new int[LineCapType.values().length];
+            f1609a = iArr2;
+            try {
+                iArr2[LineCapType.Butt.ordinal()] = 1;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f1609a[LineCapType.Round.ordinal()] = 2;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                f1609a[LineCapType.Unknown.ordinal()] = 3;
+            } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
-    public ShapeStroke(String str, @Nullable com.airbnb.lottie.model.a.b bVar, List<com.airbnb.lottie.model.a.b> list, com.airbnb.lottie.model.a.a aVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f) {
-        this.name = str;
-        this.HA = bVar;
-        this.Ho = list;
-        this.GM = aVar;
-        this.GW = dVar;
-        this.Hk = bVar2;
-        this.Hl = lineCapType;
-        this.Hm = lineJoinType;
-        this.Hn = f;
+    public ShapeStroke(String str, @Nullable d.a.a.s.i.b bVar, List<d.a.a.s.i.b> list, d.a.a.s.i.a aVar, d dVar, d.a.a.s.i.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f2) {
+        this.f1601a = str;
+        this.f1602b = bVar;
+        this.f1603c = list;
+        this.f1604d = aVar;
+        this.f1605e = dVar;
+        this.f1606f = bVar2;
+        this.f1607g = lineCapType;
+        this.f1608h = lineJoinType;
+        this.i = f2;
     }
 
-    @Override // com.airbnb.lottie.model.content.b
-    public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar) {
+    @Override // d.a.a.s.j.b
+    public d.a.a.q.a.b a(f fVar, d.a.a.s.k.a aVar) {
         return new q(fVar, aVar, this);
     }
 
-    public String getName() {
-        return this.name;
+    public LineCapType b() {
+        return this.f1607g;
     }
 
-    public com.airbnb.lottie.model.a.a jN() {
-        return this.GM;
+    public d.a.a.s.i.a c() {
+        return this.f1604d;
     }
 
-    public com.airbnb.lottie.model.a.d jh() {
-        return this.GW;
+    public d.a.a.s.i.b d() {
+        return this.f1602b;
     }
 
-    public com.airbnb.lottie.model.a.b js() {
-        return this.Hk;
+    public LineJoinType e() {
+        return this.f1608h;
     }
 
-    public List<com.airbnb.lottie.model.a.b> jv() {
-        return this.Ho;
+    public List<d.a.a.s.i.b> f() {
+        return this.f1603c;
     }
 
-    public com.airbnb.lottie.model.a.b jw() {
-        return this.HA;
+    public float g() {
+        return this.i;
     }
 
-    public LineCapType jt() {
-        return this.Hl;
+    public String h() {
+        return this.f1601a;
     }
 
-    public LineJoinType ju() {
-        return this.Hm;
+    public d i() {
+        return this.f1605e;
     }
 
-    public float jx() {
-        return this.Hn;
+    public d.a.a.s.i.b j() {
+        return this.f1606f;
     }
 }

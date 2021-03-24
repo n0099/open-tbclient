@@ -1,102 +1,38 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.live.adp.lib.cache.BdKVCache;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
-public final class bg implements af {
+import com.xiaomi.push.fa;
+import com.xiaomi.push.fw;
+import com.xiaomi.push.service.XMPushService;
+/* loaded from: classes7.dex */
+public class bg extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile bg f8542a;
+    public fa f41000a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f888a;
+    public XMPushService f925a;
 
-    /* renamed from: a  reason: collision with other field name */
-    Context f889a;
+    public bg(XMPushService xMPushService, fa faVar) {
+        super(4);
+        this.f925a = null;
+        this.f925a = xMPushService;
+        this.f41000a = faVar;
+    }
 
-    /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f890a;
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "send a message.";
+    }
 
-    /* renamed from: a  reason: collision with other field name */
-    private volatile boolean f892a = false;
-
-    /* renamed from: a  reason: collision with other field name */
-    private ConcurrentHashMap<String, a> f891a = new ConcurrentHashMap<>();
-
-    /* loaded from: classes5.dex */
-    public static abstract class a implements Runnable {
-
-        /* renamed from: a  reason: collision with root package name */
-        long f8543a;
-
-        /* renamed from: a  reason: collision with other field name */
-        String f893a;
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public a(String str, long j) {
-            this.f893a = str;
-            this.f8543a = j;
-        }
-
-        abstract void a(bg bgVar);
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (bg.f8542a != null) {
-                Context context = bg.f8542a.f889a;
-                if (com.xiaomi.push.az.c(context)) {
-                    if (System.currentTimeMillis() - bg.f8542a.f890a.getLong(":ts-" + this.f893a, 0L) > this.f8543a || com.xiaomi.push.af.a(context)) {
-                        com.xiaomi.push.r.a(bg.f8542a.f890a.edit().putLong(":ts-" + this.f893a, System.currentTimeMillis()));
-                        a(bg.f8542a);
-                    }
-                }
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        try {
+            if (this.f41000a != null) {
+                this.f925a.a(this.f41000a);
             }
+        } catch (fw e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
+            this.f925a.a(10, e2);
         }
-    }
-
-    private bg(Context context) {
-        this.f889a = context.getApplicationContext();
-        this.f890a = context.getSharedPreferences("sync", 0);
-    }
-
-    public static bg a(Context context) {
-        if (f8542a == null) {
-            synchronized (bg.class) {
-                if (f8542a == null) {
-                    f8542a = new bg(context);
-                }
-            }
-        }
-        return f8542a;
-    }
-
-    public String a(String str, String str2) {
-        return this.f890a.getString(str + ":" + str2, "");
-    }
-
-    @Override // com.xiaomi.push.service.af
-    /* renamed from: a  reason: collision with other method in class */
-    public void mo570a() {
-        if (this.f892a) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f888a >= BdKVCache.MILLS_1Hour) {
-            this.f888a = currentTimeMillis;
-            this.f892a = true;
-            com.xiaomi.push.ai.a(this.f889a).a(new bh(this), (int) (Math.random() * 10.0d));
-        }
-    }
-
-    public void a(a aVar) {
-        if (this.f891a.putIfAbsent(aVar.f893a, aVar) == null) {
-            com.xiaomi.push.ai.a(this.f889a).a(aVar, ((int) (Math.random() * 30.0d)) + 10);
-        }
-    }
-
-    public void a(String str, String str2, String str3) {
-        com.xiaomi.push.r.a(f8542a.f890a.edit().putString(str + ":" + str2, str3));
     }
 }

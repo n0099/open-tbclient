@@ -1,7 +1,7 @@
 package com.qq.e.comm.managers.setting;
 
 import com.qq.e.comm.constants.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b extends d {
     public b() {
         a(Constants.KEYS.SDKServerGetADReportSamplingRate, (Object) 1);
@@ -12,6 +12,9 @@ public final class b extends d {
         a(Constants.KEYS.INNER_BROWSER_SCHEME, "weixin,tel,openapp.jdmobile");
         a(Constants.KEYS.FLOW_CONTROL, (Object) 1);
         a(Constants.KEYS.GDT_SDK_IDENTITY, (Object) 1);
+        a(Constants.KEYS.GDT_SDK_CHANNEL, (Object) 1);
+        a(Constants.KEYS.GDT_SDK_EX1, "");
+        a(Constants.KEYS.GDT_SDK_EX2, "");
         a(Constants.KEYS.Banner_RF, (Object) 30000);
         a(Constants.KEYS.SPLASH_LOADTIMEOUT, (Object) 3000);
         a(Constants.KEYS.SPLASH_EXPOSURE_TIME, (Object) 5000);

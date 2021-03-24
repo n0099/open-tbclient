@@ -16,26 +16,13 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingProcess
 import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class BaseUncaughtExceptionHandler extends BUncaughtExceptionHandler {
-    private final Supplier<List<ProcessEventSceneHandler>> mSupplier;
+    public final Supplier<List<ProcessEventSceneHandler>> mSupplier;
 
     public BaseUncaughtExceptionHandler(@NonNull Context context, @Nullable List<ProcessExceptionListener> list, @Nullable Supplier<List<ProcessEventSceneHandler>> supplier) {
         super(context, list);
         this.mSupplier = supplier;
-    }
-
-    public BaseUncaughtExceptionHandler(@Nullable Context context) {
-        this(context, null, null);
-    }
-
-    public BaseUncaughtExceptionHandler(@NonNull Context context, @Nullable Supplier<List<ProcessEventSceneHandler>> supplier) {
-        this(context, null, supplier);
-    }
-
-    @Override // com.baidu.searchbox.logsystem.basic.javacrash.BUncaughtExceptionHandler
-    public void onReport(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
-        LogSystemServiceUtil.startLogHandlerService(context, LogType.JAVA_CRASH, str, file, logExtra);
     }
 
     @Override // com.baidu.searchbox.logsystem.basic.javacrash.BUncaughtExceptionHandler
@@ -45,9 +32,23 @@ public class BaseUncaughtExceptionHandler extends BUncaughtExceptionHandler {
         forwardingProcessEventSceneHandler.addEventHandleCallback(new VssOOMEventSceneSceneHandler());
         forwardingProcessEventSceneHandler.addEventHandleCallback(new OOMEventSceneSceneHandler());
         forwardingProcessEventSceneHandler.addEventHandleCallback(new RssOOMEventSceneSceneHandler());
-        if (this.mSupplier != null) {
-            forwardingProcessEventSceneHandler.addEventHandleCallback(this.mSupplier.get());
+        Supplier<List<ProcessEventSceneHandler>> supplier = this.mSupplier;
+        if (supplier != null) {
+            forwardingProcessEventSceneHandler.addEventHandleCallback(supplier.get());
         }
         return forwardingProcessEventSceneHandler;
+    }
+
+    @Override // com.baidu.searchbox.logsystem.basic.javacrash.BUncaughtExceptionHandler
+    public void onReport(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
+        LogSystemServiceUtil.startLogHandlerService(context, LogType.JAVA_CRASH, str, file, logExtra);
+    }
+
+    public BaseUncaughtExceptionHandler(@Nullable Context context) {
+        this(context, null, null);
+    }
+
+    public BaseUncaughtExceptionHandler(@NonNull Context context, @Nullable Supplier<List<ProcessEventSceneHandler>> supplier) {
+        this(context, null, supplier);
     }
 }

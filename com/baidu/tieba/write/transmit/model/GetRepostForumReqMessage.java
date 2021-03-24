@@ -2,36 +2,28 @@ package com.baidu.tieba.write.transmit.model;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.f.b;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.b.e.m.b;
+import d.b.h0.z0.w;
 import tbclient.GetRepostRecommendForum.DataReq;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class GetRepostForumReqMessage extends NetMessage {
-    private long forumId;
-    private BdUniqueId mRequestId;
-    private String threadContent;
-    private String threadTitle;
+    public long forumId;
+    public BdUniqueId mRequestId;
+    public String threadContent;
+    public String threadTitle;
 
     public GetRepostForumReqMessage() {
-        super(1003323, CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM);
-    }
-
-    public void setRequestId(BdUniqueId bdUniqueId) {
-        this.mRequestId = bdUniqueId;
-    }
-
-    public BdUniqueId getRequestId() {
-        return this.mRequestId;
+        super(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                v.b(builder, true);
+                w.a(builder, true);
             }
             builder.title = this.threadTitle;
             builder.content = this.threadContent;
@@ -39,20 +31,28 @@ public class GetRepostForumReqMessage extends NetMessage {
             GetRepostRecommendForumReqIdl.Builder builder2 = new GetRepostRecommendForumReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }
 
-    public void setThreadTitle(String str) {
-        this.threadTitle = str;
+    public BdUniqueId getRequestId() {
+        return this.mRequestId;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = b.f(str, 0L);
+    }
+
+    public void setRequestId(BdUniqueId bdUniqueId) {
+        this.mRequestId = bdUniqueId;
     }
 
     public void setThreadContent(String str) {
         this.threadContent = str;
     }
 
-    public void setForumId(String str) {
-        this.forumId = b.toLong(str, 0L);
+    public void setThreadTitle(String str) {
+        this.threadTitle = str;
     }
 }

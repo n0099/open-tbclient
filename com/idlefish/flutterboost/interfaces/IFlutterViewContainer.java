@@ -3,7 +3,7 @@ package com.idlefish.flutterboost.interfaces;
 import android.app.Activity;
 import com.idlefish.flutterboost.containers.FlutterSplashView;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IFlutterViewContainer {
     void finishContainer(Map<String, Object> map);
 
@@ -21,5 +21,5 @@ public interface IFlutterViewContainer {
 
     void setSwipeBackEnable(boolean z);
 
-    void swipeBackControl(double d);
+    void swipeBackControl(double d2);
 }

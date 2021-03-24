@@ -2,52 +2,57 @@ package com.sdk.base.framework.a;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.kwad.sdk.collector.AppStatusRules;
+import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class d {
-    private static long c = AppStatusRules.DEFAULT_GRANULARITY;
-    private static final ConcurrentHashMap<String, Boolean> d;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static long f38457c = 60000;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final ConcurrentHashMap<String, Boolean> f38458d;
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.sdk.base.framework.a.a.c<String, String> f7618a;
-    private int b;
+    public final com.sdk.base.framework.a.a.c<String, String> f38459a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f38460b;
 
     static {
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
-        d = concurrentHashMap;
-        concurrentHashMap.put(i.f7621a.toString(), true);
+        f38458d = concurrentHashMap;
+        concurrentHashMap.put(j.f38480a.toString(), Boolean.TRUE);
         new ConcurrentHashMap(10);
     }
 
     public d() {
-        this(BdStatsConstant.MAX_WRITE_LOG_SIZE, AppStatusRules.DEFAULT_GRANULARITY);
+        this(LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP, 60000L);
     }
 
-    private d(int i, long j) {
-        this.b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
-        this.b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
-        c = AppStatusRules.DEFAULT_GRANULARITY;
-        this.f7618a = new e(this, this.b);
+    public d(int i, long j) {
+        this.f38460b = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP;
+        this.f38460b = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP;
+        f38457c = 60000L;
+        this.f38459a = new e(this, LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_BDMP);
     }
 
     public static long a() {
-        return c;
+        return f38457c;
     }
 
     @SuppressLint({"DefaultLocale"})
     public static boolean b(String str) {
         Boolean bool;
-        if (!TextUtils.isEmpty(str) && (bool = d.get(str.toUpperCase())) != null) {
-            return bool.booleanValue();
+        if (TextUtils.isEmpty(str) || (bool = f38458d.get(str.toUpperCase())) == null) {
+            return false;
         }
-        return false;
+        return bool.booleanValue();
     }
 
     public final String a(String str) {
         if (str != null) {
-            return this.f7618a.a((com.sdk.base.framework.a.a.c<String, String>) str);
+            return this.f38459a.a((com.sdk.base.framework.a.a.c<String, String>) str);
         }
         return null;
     }
@@ -56,6 +61,6 @@ public final class d {
         if (str == null || str2 == null || j < 1) {
             return;
         }
-        this.f7618a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
+        this.f38459a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
     }
 }

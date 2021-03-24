@@ -6,19 +6,21 @@ import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.StateEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class VideoKernelState {
-    private IMessenger mCourier;
-    private PlayerStatus mStatus;
+    public IMessenger mCourier;
+    public PlayerStatus mStatus;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public VideoKernelState(IMessenger iMessenger) {
         this.mCourier = iMessenger;
         init();
     }
 
-    public void init() {
-        this.mStatus = PlayerStatus.IDLE;
+    private VideoEvent setupEvent(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        VideoEvent obtainEvent = StateEvent.obtainEvent();
+        obtainEvent.putExtra(1, playerStatus);
+        obtainEvent.putExtra(2, playerStatus2);
+        return obtainEvent;
     }
 
     @PublicMethod
@@ -26,19 +28,8 @@ public class VideoKernelState {
         return this.mStatus;
     }
 
-    @PublicMethod
-    public boolean isPrepared() {
-        return this.mStatus == PlayerStatus.PREPARED;
-    }
-
-    @PublicMethod
-    public boolean isPreparing() {
-        return this.mStatus == PlayerStatus.PREPARING;
-    }
-
-    @PublicMethod
-    public boolean isIdle() {
-        return this.mStatus == PlayerStatus.IDLE;
+    public void init() {
+        this.mStatus = PlayerStatus.IDLE;
     }
 
     @PublicMethod
@@ -52,8 +43,8 @@ public class VideoKernelState {
     }
 
     @PublicMethod
-    public boolean isPlaying() {
-        return this.mStatus == PlayerStatus.PLAYING;
+    public boolean isIdle() {
+        return this.mStatus == PlayerStatus.IDLE;
     }
 
     @PublicMethod
@@ -62,74 +53,77 @@ public class VideoKernelState {
     }
 
     @PublicMethod
+    public boolean isPlaying() {
+        return this.mStatus == PlayerStatus.PLAYING;
+    }
+
+    @PublicMethod
+    public boolean isPrepared() {
+        return this.mStatus == PlayerStatus.PREPARED;
+    }
+
+    @PublicMethod
+    public boolean isPreparing() {
+        return this.mStatus == PlayerStatus.PREPARING;
+    }
+
+    @PublicMethod
     public boolean isStop() {
         return this.mStatus == PlayerStatus.STOP;
-    }
-
-    public void stateChangeNotify(PlayerStatus playerStatus) {
-        if (playerStatus != this.mStatus) {
-            this.mCourier.notifyEvent(setupEvent(this.mStatus, playerStatus));
-            this.mStatus = playerStatus;
-        }
-    }
-
-    private VideoEvent setupEvent(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        VideoEvent obtainEvent = StateEvent.obtainEvent();
-        obtainEvent.putExtra(1, playerStatus);
-        obtainEvent.putExtra(2, playerStatus2);
-        return obtainEvent;
     }
 
     public void receivePlayerEvent(VideoEvent videoEvent) {
         if (videoEvent.getType() == 4 || videoEvent.getType() == 2) {
             String action = videoEvent.getAction();
-            char c = 65535;
+            char c2 = 65535;
             switch (action.hashCode()) {
                 case -525235558:
                     if (action.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                        c = 2;
+                        c2 = 2;
                         break;
                     }
                     break;
                 case -461848373:
                     if (action.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                        c = 3;
+                        c2 = 3;
                         break;
                     }
                     break;
                 case 154871702:
                     if (action.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                        c = 1;
+                        c2 = 1;
                         break;
                     }
                     break;
                 case 1370689931:
                     if (action.equals(PlayerEvent.ACTION_ON_INFO)) {
-                        c = 0;
+                        c2 = 0;
                         break;
                     }
                     break;
             }
-            switch (c) {
-                case 0:
-                    int intValue = ((Integer) videoEvent.getExtra(1)).intValue();
-                    if (904 == intValue || 956 == intValue) {
-                        stateChangeNotify(PlayerStatus.PLAYING);
-                        return;
-                    }
-                    return;
-                case 1:
-                    stateChangeNotify(PlayerStatus.COMPLETE);
-                    return;
-                case 2:
-                    stateChangeNotify(PlayerStatus.PREPARED);
-                    return;
-                case 3:
-                    stateChangeNotify(PlayerStatus.ERROR);
-                    return;
-                default:
-                    return;
+            if (c2 == 0) {
+                int intValue = ((Integer) videoEvent.getExtra(1)).intValue();
+                if (904 == intValue || 956 == intValue) {
+                    stateChangeNotify(PlayerStatus.PLAYING);
+                }
+            } else if (c2 == 1) {
+                stateChangeNotify(PlayerStatus.COMPLETE);
+            } else if (c2 == 2) {
+                stateChangeNotify(PlayerStatus.PREPARED);
+            } else if (c2 != 3) {
+            } else {
+                stateChangeNotify(PlayerStatus.ERROR);
             }
         }
+    }
+
+    public void stateChangeNotify(PlayerStatus playerStatus) {
+        PlayerStatus playerStatus2 = this.mStatus;
+        if (playerStatus == playerStatus2) {
+            return;
+        }
+        this.mCourier.notifyEvent(setupEvent(playerStatus2, playerStatus));
+        this.mStatus = playerStatus;
     }
 }

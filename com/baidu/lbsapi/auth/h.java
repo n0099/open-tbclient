@@ -3,16 +3,14 @@ package com.baidu.lbsapi.auth;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1880a;
+    public final /* synthetic */ g f6335a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.f1880a = gVar;
+        this.f6335a = gVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier

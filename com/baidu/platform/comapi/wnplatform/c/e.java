@@ -2,25 +2,23 @@ package com.baidu.platform.comapi.wnplatform.c;
 
 import android.location.GpsStatus;
 import android.os.SystemClock;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e implements GpsStatus.Listener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f3048a;
+    public final /* synthetic */ d f10254a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f3048a = dVar;
+        this.f10254a = dVar;
     }
 
     @Override // android.location.GpsStatus.Listener
     public void onGpsStatusChanged(int i) {
         int i2;
-        this.f3048a.n = i;
-        i2 = this.f3048a.n;
+        this.f10254a.n = i;
+        i2 = this.f10254a.n;
         if (i2 == 4) {
-            this.f3048a.m = SystemClock.elapsedRealtime();
+            this.f10254a.m = SystemClock.elapsedRealtime();
         }
     }
 }

@@ -2,16 +2,18 @@ package com.baidu.platform.comapi.bikenavi.widget;
 
 import android.widget.ImageView;
 import com.baidu.platform.comapi.bikenavi.widget.CustomScrollView;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d implements CustomScrollView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2891a;
+    public final /* synthetic */ a f9873a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.f2891a = aVar;
+        this.f9873a = aVar;
+    }
+
+    @Override // com.baidu.platform.comapi.bikenavi.widget.CustomScrollView.b
+    public void a(int i) {
     }
 
     @Override // com.baidu.platform.comapi.bikenavi.widget.CustomScrollView.b
@@ -20,29 +22,23 @@ public class d implements CustomScrollView.b {
         ImageView imageView2;
         ImageView imageView3;
         ImageView imageView4;
-        if (bVar != bVar2) {
-            switch (bVar2) {
-                case TOP:
-                    imageView3 = this.f2891a.t;
-                    imageView3.setVisibility(8);
-                    imageView4 = this.f2891a.u;
-                    imageView4.setVisibility(0);
-                    this.f2891a.b(true);
-                    return;
-                case BOTTOM:
-                    imageView = this.f2891a.t;
-                    imageView.setVisibility(0);
-                    imageView2 = this.f2891a.u;
-                    imageView2.setVisibility(8);
-                    this.f2891a.b(false);
-                    return;
-                default:
-                    return;
-            }
+        if (bVar == bVar2) {
+            return;
         }
-    }
-
-    @Override // com.baidu.platform.comapi.bikenavi.widget.CustomScrollView.b
-    public void a(int i) {
+        int i = e.f9874a[bVar2.ordinal()];
+        if (i == 1) {
+            imageView = this.f9873a.t;
+            imageView.setVisibility(8);
+            imageView2 = this.f9873a.u;
+            imageView2.setVisibility(0);
+            this.f9873a.b(true);
+        } else if (i != 2) {
+        } else {
+            imageView3 = this.f9873a.t;
+            imageView3.setVisibility(0);
+            imageView4 = this.f9873a.u;
+            imageView4.setVisibility(8);
+            this.f9873a.b(false);
+        }
     }
 }

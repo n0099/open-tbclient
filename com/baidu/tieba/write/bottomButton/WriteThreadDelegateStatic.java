@@ -5,31 +5,31 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tbadk.mainTab.b;
-import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.h0.e0.b;
+import d.b.h0.e0.c;
+/* loaded from: classes5.dex */
 public class WriteThreadDelegateStatic extends b {
-    @Override // com.baidu.tbadk.mainTab.b
-    public boolean isAvailable() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.mainTab.b
+    @Override // d.b.h0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.frag = new WriteThreadFragment();
-        cVar.type = 9;
-        cVar.textResId = R.string.send;
-        cVar.drawableResId = R.drawable.icon_tabbar_add_n;
-        cVar.backgroundId = R.drawable.icon_tabbar_chaticon_n;
-        cVar.showIconType = c.SHOWICON;
+        cVar.f50154a = new WriteThreadFragment();
+        cVar.f50158e = 9;
+        cVar.f50155b = R.string.send;
+        cVar.f50157d = R.drawable.icon_tabbar_add_n;
+        cVar.f50161h = c.i;
         return cVar;
     }
 
-    @Override // com.baidu.tbadk.mainTab.b
+    @Override // d.b.h0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
-        this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        return this.mIndicator;
+        MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        this.mIndicator = maintabBottomIndicator;
+        return maintabBottomIndicator;
+    }
+
+    @Override // d.b.h0.e0.b
+    public boolean isAvailable() {
+        return true;
     }
 }

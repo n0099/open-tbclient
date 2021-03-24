@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.db;
 
 import android.provider.BaseColumns;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DBTableDefine {
     public static final String DB_NAME_PREFIX = "bd_imsdk_";
     public static final String DB_TABLE_GROUP_INFO = "groupinfo";
@@ -10,10 +10,10 @@ public class DBTableDefine {
     public static final String DB_TABLE_GROUP_MESSAGE = "groupmessage";
     public static final String SQL_CREATE_TABLE_GROUPINFO = "CREATE TABLE groupinfo (group_id TEXT NOT NULL PRIMARY KEY, bduid LONG DEFALUT '0', uk LONG DEFALUT '0', group_name NOT NULL DEFAULT \"\", group_type INTEGER DEFAULT '0', group_size INTEGER DEFAULT '0', group_verify INTEGER DEFAULT 0, create_time LONG DEFAULT '0', delete_time LONG DEFAULT '9223372036854775807', members_version LONG DEFAULT '0', active_state INTEGER DEFAULT '0', user_num INTEGER DEFAULT '0', state INTEGER DEFAULT '0', disturb INTEGER, table_exist INTEGER DEFAULT '0', description TEXT, marktop INTEGER DEFAULT 1, marktoptime LONG, brief INTEGER DEFAULT '0')";
     public static final String SQL_CREATE_TABLE_GROUP_MEMBER = "CREATE TABLE groupmember (group_id TEXT NOT NULL, bduid LONG, uk LONG, name TEXT, nickname TEXT, join_time LONG, last_active_time LONG, msg_set INTEGER, status INTEGER, role INTEGER , PRIMARY KEY (group_id,bduid));";
-    private static final String SQL_CREATE_TABLE_GROUP_MESSAGE = " (_id INTEGER PRIMARY KEY AUTOINCREMENT, msgid LONG UNIQUE, sendid TEXT DEFALUT '', groupid LONG, from_uk LONG, from_buid TEXT, type INTEGER, content TEXT, time LONG, is_read INTEGER, local_url TEXT, isclicked INTEGER,device_flag INTEGER,cmd INTEGER, status INTEGER DEFAULT0, msg_key TEXT);";
+    public static final String SQL_CREATE_TABLE_GROUP_MESSAGE = " (_id INTEGER PRIMARY KEY AUTOINCREMENT, msgid LONG UNIQUE, sendid TEXT DEFALUT '', groupid LONG, from_uk LONG, from_buid TEXT, type INTEGER, content TEXT, time LONG, is_read INTEGER, local_url TEXT, isclicked INTEGER,device_flag INTEGER,cmd INTEGER, status INTEGER DEFAULT0, msg_key TEXT);";
     public static final String SQL_CREATE_TABLE_LOCALMESSAGE = "CREATE TABLE grouplocalmessage (_id INTEGER PRIMARY KEY AUTOINCREMENT, msgid LONG, sendid TEXT DEFALUT '', groupid LONG, from_uk LONG, from_buid TEXT, type INTEGER, content TEXT, time LONG, is_read INTEGER, local_url TEXT, isclicked INTEGER,device_flag INTEGER,cmd INTEGER, status INTEGER DEFAULT0, msg_key TEXT);";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class GroupInfoColumns implements BaseColumns {
         public static final String COLUMN_ACTIVE_STATE = "active_state";
         public static final String COLUMN_BD_UID = "bduid";
@@ -36,7 +36,7 @@ public class DBTableDefine {
         public static final String COLUMN_USER_NUM = "user_num";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class GroupMemberColumns implements BaseColumns {
         public static final String COLUMN_BD_UID = "bduid";
         public static final String COLUMN_GROUP_ID = "group_id";
@@ -50,7 +50,7 @@ public class DBTableDefine {
         public static final String COLUMN_UK = "uk";
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class GroupMessageColumns implements BaseColumns {
         public static final String COLUMN_CMD = "cmd";
         public static final String COLUMN_CONTENT = "content";

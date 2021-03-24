@@ -1,7 +1,7 @@
 package org.apache.commons.base;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DecoderException extends Exception {
-    private static final long serialVersionUID = 1;
+    public static final long serialVersionUID = 1;
 
     public DecoderException() {
     }

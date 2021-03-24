@@ -9,33 +9,37 @@ import java.util.concurrent.locks.ReentrantLock;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, Lock> f5078a = new HashMap();
-    private FileLock b;
-    private String c;
+    public static final Map<String, Lock> f30285a = new HashMap();
 
-    private a(String str, FileLock fileLock) {
-        this.c = str;
-        this.b = fileLock;
+    /* renamed from: b  reason: collision with root package name */
+    public FileLock f30286b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f30287c;
+
+    public a(String str, FileLock fileLock) {
+        this.f30287c = str;
+        this.f30286b = fileLock;
     }
 
     public static a a(String str) throws Exception {
-        synchronized (f5078a) {
-            Lock lock = f5078a.get(str);
+        synchronized (f30285a) {
+            Lock lock = f30285a.get(str);
             if (lock == null) {
                 lock = new ReentrantLock();
-                f5078a.put(str, lock);
+                f30285a.put(str, lock);
             }
             if (lock.tryLock()) {
                 try {
-                    FileLock c = FileLock.c(str);
-                    if (c == null) {
+                    FileLock c2 = FileLock.c(str);
+                    if (c2 == null) {
                         lock.unlock();
                         return null;
                     }
-                    return new a(str, c);
-                } catch (Exception e) {
+                    return new a(str, c2);
+                } catch (Exception e2) {
                     lock.lock();
-                    com.bytedance.sdk.openadsdk.preload.geckox.utils.c.a(new RuntimeException(e));
+                    com.bytedance.sdk.openadsdk.preload.geckox.utils.c.a(new RuntimeException(e2));
                     return null;
                 }
             }
@@ -44,10 +48,10 @@ public class a {
     }
 
     public void a() {
-        synchronized (f5078a) {
-            this.b.a();
-            this.b.b();
-            f5078a.get(this.c).unlock();
+        synchronized (f30285a) {
+            this.f30286b.a();
+            this.f30286b.b();
+            f30285a.get(this.f30287c).unlock();
         }
     }
 }

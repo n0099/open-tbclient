@@ -6,87 +6,93 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.o;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.util.FileHelper;
+/* loaded from: classes3.dex */
 public class ImageModel extends BdBaseModel {
-    private a fEZ;
-    private String filename;
 
-    public ImageModel(TbPageContext tbPageContext) {
-        super(tbPageContext);
-        this.fEZ = null;
-        this.filename = null;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public a f13881e;
 
-    public boolean CZ(String str) {
-        this.filename = str;
-        return LoadData();
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public String f13882f;
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
-        if (this.fEZ != null) {
-            this.fEZ.cancel();
-        }
-        this.fEZ = new a(this.filename);
-        this.fEZ.execute(new Object[0]);
-        return true;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        if (this.fEZ != null) {
-            this.fEZ.cancel();
-            return true;
-        }
-        return true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Object, Integer, Bitmap> {
-        private String filename;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f13883a;
 
         public a(String str) {
-            this.filename = null;
-            this.filename = str;
+            this.f13883a = null;
+            this.f13883a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: g */
+        /* renamed from: b */
         public Bitmap doInBackground(Object... objArr) {
-            if (this.filename != null && !this.filename.equals(TbConfig.IMAGE_RESIZED_FILE)) {
-                o.dO("photos/" + this.filename, TbConfig.IMAGE_RESIZED_FILE);
+            String str = this.f13883a;
+            if (str != null && !str.equals(TbConfig.IMAGE_RESIZED_FILE)) {
+                FileHelper.CopyFile("photos/" + this.f13883a, TbConfig.IMAGE_RESIZED_FILE);
             }
-            return BitmapHelper.getRoundedCornerBitmap(BitmapHelper.getSquareBitmap(o.getImage(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
+            return BitmapHelper.getRoundedCornerBitmap(BitmapHelper.getSquareBitmap(FileHelper.getImage(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ImageModel.this.fEZ = null;
+            ImageModel.this.f13881e = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
-                ImageModel.this.mLoadDataCallBack.callback(null);
+                ImageModel.this.mLoadDataCallBack.c(null);
             }
             super.cancel(true);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            ImageModel.this.fEZ = null;
+            ImageModel.this.f13881e = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
-                ImageModel.this.mLoadDataCallBack.callback(bitmap);
+                ImageModel.this.mLoadDataCallBack.c(bitmap);
             }
         }
+    }
+
+    public ImageModel(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        this.f13881e = null;
+        this.f13882f = null;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        a aVar = this.f13881e;
+        if (aVar != null) {
+            aVar.cancel();
+        }
+        a aVar2 = new a(this.f13882f);
+        this.f13881e = aVar2;
+        aVar2.execute(new Object[0]);
+        return true;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        a aVar = this.f13881e;
+        if (aVar != null) {
+            aVar.cancel();
+            return true;
+        }
+        return true;
+    }
+
+    public boolean x(String str) {
+        this.f13882f = str;
+        return LoadData();
     }
 }

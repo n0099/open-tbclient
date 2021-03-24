@@ -4,50 +4,26 @@ import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2628a = 2;
+    public static int f9059a = 2;
 
     public abstract String a();
 
-    public abstract boolean b();
-
     public void a(String str, Throwable th) {
         a(2, str + '\n' + d(th));
-    }
-
-    public void a(String str) {
-        a(3, str);
-    }
-
-    public void a(Throwable th) {
-        a(3, d(th));
     }
 
     public void b(String str, Throwable th) {
         a(3, str + '\n' + d(th));
     }
 
+    public abstract boolean b();
+
     public void c(String str, Throwable th) {
         a(4, str + '\n' + d(th));
-    }
-
-    public void b(String str) {
-        a(5, str);
-    }
-
-    public void b(Throwable th) {
-        a(5, d(th));
-    }
-
-    public void c(String str) {
-        a(6, str);
-    }
-
-    public void c(Throwable th) {
-        a(6, d(th));
     }
 
     public void d(String str, Throwable th) {
@@ -68,9 +44,34 @@ public abstract class ba {
         return stringWriter.toString();
     }
 
+    public void a(String str) {
+        a(3, str);
+    }
+
+    public void b(String str) {
+        a(5, str);
+    }
+
+    public void c(String str) {
+        a(6, str);
+    }
+
+    public void a(Throwable th) {
+        a(3, d(th));
+    }
+
+    public void b(Throwable th) {
+        a(5, d(th));
+    }
+
+    public void c(Throwable th) {
+        a(6, d(th));
+    }
+
     private void a(int i, String str) {
-        if (b() && i >= f2628a) {
-            Log.println(i, a(), str);
+        if (!b() || i < f9059a) {
+            return;
         }
+        Log.println(i, a(), str);
     }
 }

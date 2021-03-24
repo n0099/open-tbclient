@@ -13,18 +13,20 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char f6398a = File.separatorChar;
-    public static final String b;
+    public static final char f34501a = File.separatorChar;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f34502b;
 
     static {
         StringBuilderWriter stringBuilderWriter = new StringBuilderWriter(4);
         PrintWriter printWriter = new PrintWriter(stringBuilderWriter);
         printWriter.println();
-        b = stringBuilderWriter.toString();
+        f34502b = stringBuilderWriter.toString();
         printWriter.close();
     }
 
@@ -64,6 +66,7 @@ public class h {
 
     public static String a(Reader reader) {
         StringWriter stringWriter;
+        Throwable th;
         StringWriter stringWriter2 = new StringWriter();
         try {
             stringWriter = new StringWriter();
@@ -79,15 +82,15 @@ public class h {
                     }
                     stringWriter.write(cArr, 0, read);
                 }
-            } catch (Throwable th) {
-                th = th;
+            } catch (Throwable th2) {
+                th = th2;
                 b.a(reader);
                 b.a((Writer) stringWriter);
                 throw th;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
             stringWriter = stringWriter2;
+            th = th3;
         }
     }
 
@@ -118,7 +121,7 @@ public class h {
     public static void b(String str) {
         try {
             a(str);
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
     }
 }

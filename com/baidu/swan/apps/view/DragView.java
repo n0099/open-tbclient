@@ -7,176 +7,192 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class DragView extends FrameLayout {
-    private int bnY;
-    private ViewDragHelper dSk;
-    private int dSl;
-    private int dSm;
-    private a dSn;
-    private int dSo;
-    private boolean dSp;
-    private int dSq;
-    private View mChildView;
-    private int mLastMotionY;
-    private float mSensitivity;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void hY(int i);
+    /* renamed from: e  reason: collision with root package name */
+    public ViewDragHelper f12675e;
 
+    /* renamed from: f  reason: collision with root package name */
+    public View f12676f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f12677g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f12678h;
+    public int i;
+    public int j;
+    public b k;
+    public int l;
+    public float m;
+    public boolean n;
+    public int o;
+
+    /* loaded from: classes3.dex */
+    public class a extends ViewDragHelper.Callback {
+        public a() {
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public int clampViewPositionVertical(View view, int i, int i2) {
+            return i < DragView.this.o ? DragView.this.o : i;
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public int getViewVerticalDragRange(View view) {
+            return DragView.this.getMeasuredWidth();
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
+            super.onViewPositionChanged(view, i, i2, i3, i4);
+            if (DragView.this.k != null) {
+                DragView.this.k.onClosing(i2 - DragView.this.f12678h);
+            }
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public void onViewReleased(View view, float f2, float f3) {
+            if (DragView.this.f12676f == null) {
+                return;
+            }
+            int top = DragView.this.f12676f.getTop() - DragView.this.f12678h;
+            if (Math.abs(top) <= DragView.this.l) {
+                DragView.this.f12675e.smoothSlideViewTo(DragView.this.getChildAt(0), DragView.this.f12677g, DragView.this.f12678h);
+            } else if (top < 0) {
+                DragView.this.f12675e.smoothSlideViewTo(DragView.this.getChildAt(0), 0, -DragView.this.f12676f.getMeasuredHeight());
+            } else {
+                DragView.this.f12675e.smoothSlideViewTo(DragView.this.getChildAt(0), 0, DragView.this.f12676f.getMeasuredHeight());
+            }
+            DragView.this.postInvalidate();
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public boolean tryCaptureView(View view, int i) {
+            return DragView.this.n;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
         void onClose();
 
-        void z(MotionEvent motionEvent);
+        void onClosing(int i);
+
+        void onDragViewTouchEvent(MotionEvent motionEvent);
     }
 
     public DragView(Context context) {
         super(context);
-        this.dSo = 300;
-        this.mSensitivity = 0.5f;
-        this.dSp = true;
-        this.dSq = Integer.MIN_VALUE;
-        init();
-    }
-
-    public DragView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.dSo = 300;
-        this.mSensitivity = 0.5f;
-        this.dSp = true;
-        this.dSq = Integer.MIN_VALUE;
-        init();
-    }
-
-    public DragView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.dSo = 300;
-        this.mSensitivity = 0.5f;
-        this.dSp = true;
-        this.dSq = Integer.MIN_VALUE;
-        init();
-    }
-
-    @Override // android.view.View
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        this.mChildView = getChildAt(0);
+        this.l = 300;
+        this.m = 0.5f;
+        this.n = true;
+        this.o = Integer.MIN_VALUE;
+        i();
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        this.mChildView = view;
+        this.f12676f = view;
     }
 
-    private void init() {
-        this.dSk = ViewDragHelper.create(this, this.mSensitivity, new ViewDragHelper.Callback() { // from class: com.baidu.swan.apps.view.DragView.1
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewReleased(View view, float f, float f2) {
-                if (DragView.this.mChildView != null) {
-                    int top = DragView.this.mChildView.getTop() - DragView.this.dSm;
-                    if (Math.abs(top) <= DragView.this.dSo) {
-                        DragView.this.dSk.smoothSlideViewTo(DragView.this.getChildAt(0), DragView.this.dSl, DragView.this.dSm);
-                    } else if (top < 0) {
-                        DragView.this.dSk.smoothSlideViewTo(DragView.this.getChildAt(0), 0, -DragView.this.mChildView.getMeasuredHeight());
-                    } else {
-                        DragView.this.dSk.smoothSlideViewTo(DragView.this.getChildAt(0), 0, DragView.this.mChildView.getMeasuredHeight());
-                    }
-                    DragView.this.postInvalidate();
-                }
-            }
+    @Override // android.view.View
+    public void computeScroll() {
+        b bVar;
+        if (this.f12675e.continueSettling(true)) {
+            ViewCompat.postInvalidateOnAnimation(this);
+            return;
+        }
+        View view = this.f12676f;
+        if (view == null || Math.abs(view.getTop() - this.f12678h) < this.l || (bVar = this.k) == null) {
+            return;
+        }
+        bVar.onClose();
+    }
 
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
-                super.onViewPositionChanged(view, i, i2, i3, i4);
-                if (DragView.this.dSn != null) {
-                    DragView.this.dSn.hY(i2 - DragView.this.dSm);
-                }
-            }
+    public final void i() {
+        this.f12675e = ViewDragHelper.create(this, this.m, new a());
+    }
 
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public boolean tryCaptureView(View view, int i) {
-                return DragView.this.dSp;
-            }
+    @Override // android.view.View
+    public void onFinishInflate() {
+        super.onFinishInflate();
+        this.f12676f = getChildAt(0);
+    }
 
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int getViewVerticalDragRange(View view) {
-                return DragView.this.getMeasuredWidth();
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        if (!this.n) {
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        int action = motionEvent.getAction();
+        int x = (int) motionEvent.getX();
+        int y = (int) motionEvent.getY();
+        if (motionEvent.getPointerCount() >= 2) {
+            return false;
+        }
+        if (action != 0) {
+            if (action == 2 && Math.abs(y - this.j) <= Math.abs(x - this.i)) {
+                return false;
             }
+        } else {
+            this.i = x;
+            this.j = y;
+        }
+        try {
+            return this.f12675e.shouldInterceptTouchEvent(motionEvent);
+        } catch (ArrayIndexOutOfBoundsException e2) {
+            e2.printStackTrace();
+            return false;
+        }
+    }
 
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionVertical(View view, int i, int i2) {
-                if (i < DragView.this.dSq) {
-                    return DragView.this.dSq;
-                }
-                return i;
-            }
-        });
+    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        this.f12677g = getLeft();
+        this.f12678h = getTop();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.dSp) {
-            this.dSk.processTouchEvent(motionEvent);
-            if (this.dSn != null) {
-                this.dSn.z(motionEvent);
+        if (this.n) {
+            this.f12675e.processTouchEvent(motionEvent);
+            b bVar = this.k;
+            if (bVar != null) {
+                bVar.onDragViewTouchEvent(motionEvent);
+                return true;
             }
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (!this.dSp) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        int action = motionEvent.getAction();
-        int x = (int) motionEvent.getX();
-        int y = (int) motionEvent.getY();
-        if (motionEvent.getPointerCount() < 2) {
-            switch (action) {
-                case 0:
-                    this.bnY = x;
-                    this.mLastMotionY = y;
-                    break;
-                case 2:
-                    if (Math.abs(y - this.mLastMotionY) <= Math.abs(x - this.bnY)) {
-                        return false;
-                    }
-                    break;
-            }
-            try {
-                return this.dSk.shouldInterceptTouchEvent(motionEvent);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return false;
-    }
-
-    @Override // android.view.View
-    public void computeScroll() {
-        if (this.dSk.continueSettling(true)) {
-            ViewCompat.postInvalidateOnAnimation(this);
-        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.dSm) >= this.dSo && this.dSn != null) {
-            this.dSn.onClose();
-        }
-    }
-
-    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        this.dSl = getLeft();
-        this.dSm = getTop();
-    }
-
-    public void setOnCloseListener(a aVar) {
-        this.dSn = aVar;
+    public void setOnCloseListener(b bVar) {
+        this.k = bVar;
     }
 
     public void setTopMinValue(int i) {
-        this.dSq = i;
+        this.o = i;
+    }
+
+    public DragView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.l = 300;
+        this.m = 0.5f;
+        this.n = true;
+        this.o = Integer.MIN_VALUE;
+        i();
+    }
+
+    public DragView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.l = 300;
+        this.m = 0.5f;
+        this.n = true;
+        this.o = Integer.MIN_VALUE;
+        i();
     }
 }

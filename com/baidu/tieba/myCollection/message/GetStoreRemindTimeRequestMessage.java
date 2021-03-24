@@ -1,21 +1,21 @@
 package com.baidu.tieba.myCollection.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetStoreRemindTime.DataReq;
 import tbclient.GetStoreRemindTime.GetStoreRemindTimeReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GetStoreRemindTimeRequestMessage extends NetMessage {
     public GetStoreRemindTimeRequestMessage() {
-        super(1003067, CmdConfigSocket.CMD_GET_STORE_REMIND_TIME);
+        super(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GetStoreRemindTimeReqIdl.Builder builder2 = new GetStoreRemindTimeReqIdl.Builder();
         builder2.data = builder.build(false);

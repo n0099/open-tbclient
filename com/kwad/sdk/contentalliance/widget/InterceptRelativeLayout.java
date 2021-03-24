@@ -3,8 +3,9 @@ package com.kwad.sdk.contentalliance.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class InterceptRelativeLayout extends FrameLayout {
     public InterceptRelativeLayout(Context context) {
         this(context, null);
@@ -20,15 +21,18 @@ public class InterceptRelativeLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                getParent().requestDisallowInterceptTouchEvent(true);
-                break;
-            case 1:
-            case 3:
-                getParent().requestDisallowInterceptTouchEvent(false);
-                break;
+        ViewParent parent;
+        int action = motionEvent.getAction();
+        boolean z = true;
+        if (action != 0) {
+            if (action == 1 || action == 3) {
+                parent = getParent();
+                z = false;
+            }
+            return super.dispatchTouchEvent(motionEvent);
         }
+        parent = getParent();
+        parent.requestDisallowInterceptTouchEvent(z);
         return super.dispatchTouchEvent(motionEvent);
     }
 }

@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.down.utils.IdentityManager;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TaskSpeedStat {
     public long did;
     public String docid;
-    private List<ThreadSpeedStat> mSpeedStatThreadList;
+    public List<ThreadSpeedStat> mSpeedStatThreadList;
     public long startTimeMillis;
     public int status;
     public boolean speedStatEnable = false;
@@ -16,9 +16,14 @@ public class TaskSpeedStat {
     public long endWriteTimeMillis = -1;
 
     public void addThreadSpeedStat(ThreadSpeedStat threadSpeedStat) {
-        if (!this.mSpeedStatThreadList.contains(threadSpeedStat)) {
-            this.mSpeedStatThreadList.add(threadSpeedStat);
+        if (this.mSpeedStatThreadList.contains(threadSpeedStat)) {
+            return;
         }
+        this.mSpeedStatThreadList.add(threadSpeedStat);
+    }
+
+    public String generateCqid(Context context) {
+        return IdentityManager.getInstance(context).getEncodedUid() + this.docid + this.did + System.currentTimeMillis();
     }
 
     public List<ThreadSpeedStat> getSpeedStatThreadList() {
@@ -29,9 +34,5 @@ public class TaskSpeedStat {
         this.speedStatEnable = z;
         this.mSpeedStatThreadList = new ArrayList();
         this.startTimeMillis = System.currentTimeMillis();
-    }
-
-    public String generateCqid(Context context) {
-        return IdentityManager.getInstance(context).getEncodedUid() + this.docid + this.did + System.currentTimeMillis();
     }
 }

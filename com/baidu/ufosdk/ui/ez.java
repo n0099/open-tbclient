@@ -9,28 +9,36 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.widget.ImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class ez extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f3776a;
-    private int b;
-    private int c;
-    private Paint d;
+    public Paint f23252a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f23253b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f23254c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Paint f23255d;
 
     public ez(Context context) {
         super(context);
-        this.b = 5;
-        this.c = 5;
-        float f = context.getResources().getDisplayMetrics().density;
-        this.b = (int) (this.b * f);
-        this.c = (int) (f * this.c);
-        this.f3776a = new Paint();
-        this.f3776a.setColor(-1);
-        this.f3776a.setAntiAlias(true);
-        this.f3776a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.d = new Paint();
-        this.d.setXfermode(null);
+        this.f23253b = 5;
+        this.f23254c = 5;
+        float f2 = context.getResources().getDisplayMetrics().density;
+        this.f23253b = (int) (this.f23253b * f2);
+        this.f23254c = (int) (this.f23254c * f2);
+        Paint paint = new Paint();
+        this.f23252a = paint;
+        paint.setColor(-1);
+        this.f23252a.setAntiAlias(true);
+        this.f23252a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        Paint paint2 = new Paint();
+        this.f23255d = paint2;
+        paint2.setXfermode(null);
     }
 
     @Override // android.view.View
@@ -39,34 +47,34 @@ public final class ez extends ImageView {
         Canvas canvas2 = new Canvas(createBitmap);
         super.draw(canvas2);
         Path path = new Path();
-        path.moveTo(0.0f, this.c);
+        path.moveTo(0.0f, this.f23254c);
         path.lineTo(0.0f, 0.0f);
-        path.lineTo(this.b, 0.0f);
-        path.arcTo(new RectF(0.0f, 0.0f, this.b * 2, this.c * 2), -90.0f, -90.0f);
+        path.lineTo(this.f23253b, 0.0f);
+        path.arcTo(new RectF(0.0f, 0.0f, this.f23253b * 2, this.f23254c * 2), -90.0f, -90.0f);
         path.close();
-        canvas2.drawPath(path, this.f3776a);
+        canvas2.drawPath(path, this.f23252a);
         Path path2 = new Path();
-        path2.moveTo(getWidth(), this.c);
+        path2.moveTo(getWidth(), this.f23254c);
         path2.lineTo(getWidth(), 0.0f);
-        path2.lineTo(getWidth() - this.b, 0.0f);
-        path2.arcTo(new RectF(getWidth() - (this.b * 2), 0.0f, getWidth(), (this.c * 2) + 0), -90.0f, 90.0f);
+        path2.lineTo(getWidth() - this.f23253b, 0.0f);
+        path2.arcTo(new RectF(getWidth() - (this.f23253b * 2), 0.0f, getWidth(), (this.f23254c * 2) + 0), -90.0f, 90.0f);
         path2.close();
-        canvas2.drawPath(path2, this.f3776a);
+        canvas2.drawPath(path2, this.f23252a);
         Path path3 = new Path();
-        path3.moveTo(0.0f, getHeight() - this.c);
+        path3.moveTo(0.0f, getHeight() - this.f23254c);
         path3.lineTo(0.0f, getHeight());
-        path3.lineTo(this.b, getHeight());
-        path3.arcTo(new RectF(0.0f, getHeight() - (this.c * 2), (this.b * 2) + 0, getHeight()), 90.0f, 90.0f);
+        path3.lineTo(this.f23253b, getHeight());
+        path3.arcTo(new RectF(0.0f, getHeight() - (this.f23254c * 2), (this.f23253b * 2) + 0, getHeight()), 90.0f, 90.0f);
         path3.close();
-        canvas2.drawPath(path3, this.f3776a);
+        canvas2.drawPath(path3, this.f23252a);
         Path path4 = new Path();
-        path4.moveTo(getWidth() - this.b, getHeight());
+        path4.moveTo(getWidth() - this.f23253b, getHeight());
         path4.lineTo(getWidth(), getHeight());
-        path4.lineTo(getWidth(), getHeight() - this.c);
-        path4.arcTo(new RectF(getWidth() - (this.b * 2), getHeight() - (this.c * 2), getWidth(), getHeight()), 0.0f, 90.0f);
+        path4.lineTo(getWidth(), getHeight() - this.f23254c);
+        path4.arcTo(new RectF(getWidth() - (this.f23253b * 2), getHeight() - (this.f23254c * 2), getWidth(), getHeight()), 0.0f, 90.0f);
         path4.close();
-        canvas2.drawPath(path4, this.f3776a);
-        canvas.drawBitmap(createBitmap, 0.0f, 0.0f, this.d);
+        canvas2.drawPath(path4, this.f23252a);
+        canvas.drawBitmap(createBitmap, 0.0f, 0.0f, this.f23255d);
         createBitmap.recycle();
     }
 }

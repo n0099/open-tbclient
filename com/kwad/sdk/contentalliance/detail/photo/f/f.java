@@ -5,47 +5,50 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.p;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f extends com.kwad.sdk.contentalliance.detail.photo.f.a<g> {
-    private g d;
-    private AdTemplate e;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: d  reason: collision with root package name */
+    public g f32363d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public AdTemplate f32364e;
+
+    /* loaded from: classes6.dex */
     public interface a {
         void a(@NonNull AdTemplate adTemplate, long j);
     }
 
     private void h() {
-        for (a aVar : this.f5594a.f) {
-            aVar.a(this.f5594a.j, this.f5594a.i);
+        for (a aVar : ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32156f) {
+            com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
+            aVar.a(cVar.j, cVar.i);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = this.f5594a.j;
-        long t = com.kwad.sdk.core.response.b.c.t(this.f5594a.j);
+        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j;
+        this.f32364e = adTemplate;
+        long t = com.kwad.sdk.core.response.b.c.t(adTemplate);
         if (com.kwad.sdk.core.config.c.C()) {
             t++;
         }
-        this.d.setCommentCount(t);
-        this.d.setOnClickListener(this);
+        this.f32363d.setCommentCount(t);
+        this.f32363d.setOnClickListener(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.d.setOnClickListener(null);
+        this.f32363d.setOnClickListener(null);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.d = (g) this.b;
+        this.f32363d = (g) ((com.kwad.sdk.contentalliance.detail.photo.f.a) this).f32358b;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,13 +60,11 @@ public class f extends com.kwad.sdk.contentalliance.detail.photo.f.a<g> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!com.kwad.sdk.core.response.b.c.c(this.e)) {
-            h();
-        } else if (com.kwad.sdk.core.config.c.C()) {
+        if (!com.kwad.sdk.core.response.b.c.c(this.f32364e) || com.kwad.sdk.core.config.c.C()) {
             h();
         } else {
             p.a(view.getContext(), view.getContext().getString(R.string.ksad_ad_function_disable));
         }
-        com.kwad.sdk.core.report.e.f(this.f5594a.j);
+        com.kwad.sdk.core.report.e.f(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j);
     }
 }

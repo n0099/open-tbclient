@@ -2,7 +2,6 @@ package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
 import android.widget.Toast;
-import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -12,19 +11,20 @@ import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.QrLoginResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
-/* loaded from: classes3.dex */
+import d.b.a0.a.f;
+import d.b.a0.a.g;
+/* loaded from: classes2.dex */
 public class QrLoginActivity extends BaseActivity {
     public static final String EXTRA_BOOLEAN_FINISH_PAGE = "EXTRA_BOOLEAN_FINISH_PAGE";
     public static final String EXTRA_STRING_QR_LOGIN_URL = "EXTRA_STRING_QR_LOGIN_URL";
-    private String p;
-    private boolean q;
-    QrLoginResult r = new QrLoginResult();
+    public String p;
+    public boolean q;
+    public QrLoginResult r = new QrLoginResult();
 
     private void finishActivity() {
         a(true);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
@@ -39,14 +39,12 @@ public class QrLoginActivity extends BaseActivity {
         finishActivity();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
         a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
@@ -78,7 +76,7 @@ public class QrLoginActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -89,21 +87,18 @@ public class QrLoginActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
-        if (!this.executeSubClassMethod) {
-            return;
+        if (this.executeSubClassMethod) {
+            a();
         }
-        a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitle(a.g.sapi_sdk_title_qr_login);
+        setTitle(g.sapi_sdk_title_qr_login);
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.QrLoginActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
@@ -146,6 +141,10 @@ public class QrLoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
+        try {
+            this.sapiWebView.destroy();
+        } catch (Exception unused) {
+        }
         QrLoginCallback qrLoginCallback = CoreViewRouter.getInstance().getQrLoginCallback();
         if (qrLoginCallback != null) {
             qrLoginCallback.onFinish(this.r);

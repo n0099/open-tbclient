@@ -1,45 +1,54 @@
 package com.xiaomi.push.service;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-/* loaded from: classes5.dex */
-class bq extends Handler {
+import com.xiaomi.push.hf;
+/* loaded from: classes7.dex */
+public /* synthetic */ class bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f8553a;
+    public static final /* synthetic */ int[] f41010a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(XMPushService xMPushService) {
-        this.f8553a = xMPushService;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        String str;
-        super.handleMessage(message);
-        if (message != null) {
-            try {
-                switch (message.what) {
-                    case 17:
-                        if (message.obj != null) {
-                            this.f8553a.onStart((Intent) message.obj, XMPushService.f8485a);
-                            break;
-                        }
-                        break;
-                    case 18:
-                        Message obtain = Message.obtain((Handler) null, 0);
-                        obtain.what = 18;
-                        Bundle bundle = new Bundle();
-                        str = this.f8553a.f811a;
-                        bundle.putString("xmsf_region", str);
-                        obtain.setData(bundle);
-                        message.replyTo.send(obtain);
-                        break;
-                }
-            } catch (Throwable th) {
-            }
+    static {
+        int[] iArr = new int[hf.values().length];
+        f41010a = iArr;
+        try {
+            iArr[hf.Registration.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
+        }
+        try {
+            f41010a[hf.UnRegistration.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
+        }
+        try {
+            f41010a[hf.Subscription.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
+        }
+        try {
+            f41010a[hf.UnSubscription.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
+        }
+        try {
+            f41010a[hf.SendMessage.ordinal()] = 5;
+        } catch (NoSuchFieldError unused5) {
+        }
+        try {
+            f41010a[hf.AckMessage.ordinal()] = 6;
+        } catch (NoSuchFieldError unused6) {
+        }
+        try {
+            f41010a[hf.SetConfig.ordinal()] = 7;
+        } catch (NoSuchFieldError unused7) {
+        }
+        try {
+            f41010a[hf.ReportFeedback.ordinal()] = 8;
+        } catch (NoSuchFieldError unused8) {
+        }
+        try {
+            f41010a[hf.Notification.ordinal()] = 9;
+        } catch (NoSuchFieldError unused9) {
+        }
+        try {
+            f41010a[hf.Command.ordinal()] = 10;
+        } catch (NoSuchFieldError unused10) {
         }
     }
 }

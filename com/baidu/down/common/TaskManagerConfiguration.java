@@ -1,68 +1,127 @@
 package com.baidu.down.common;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TaskManagerConfiguration {
-    private String mDomainNameToIpReg;
-    private String mHttpDnsServerIp;
-    private int mLogLevel;
-    private String mPreResolveDomainName;
-    private String mURLRetryHostReg;
-    private int maxTaskCount = 3;
-    private int maxBufferCount = 100;
-    private int bufferSize = 16384;
-    private long[] retryIntervals = DownConstants.DF_RETRY_INTERVALS;
-    private boolean retryNetDetect = true;
-    private int mTrafficStatsTag = 0;
-    private boolean mDomainNameToIpEnable = false;
-    private boolean mHttpRetryStrategyEnable = false;
-    private boolean mDownSpeedStatEnable = false;
+    public String mDomainNameToIpReg;
+    public String mHttpDnsServerIp;
+    public int mLogLevel;
+    public String mPreResolveDomainName;
+    public String mURLRetryHostReg;
+    public int maxTaskCount = 3;
+    public int maxBufferCount = 100;
+    public int bufferSize = 16384;
+    public long[] retryIntervals = DownConstants.DF_RETRY_INTERVALS;
+    public boolean retryNetDetect = true;
+    public int mTrafficStatsTag = 0;
+    public boolean mDomainNameToIpEnable = false;
+    public boolean mHttpRetryStrategyEnable = false;
+    public boolean mDownSpeedStatEnable = false;
 
-    public String getPreResolveDominName() {
-        return this.mPreResolveDomainName;
-    }
-
-    public void setPreResolveDominName(String str) {
-        this.mPreResolveDomainName = str;
-    }
-
-    public String getHttpDnsServerIp() {
-        return this.mHttpDnsServerIp;
-    }
-
-    public void setHttpDnsServerIp(String str) {
-        this.mHttpDnsServerIp = str;
-    }
-
-    public int getMaxTaskCount() {
-        return this.maxTaskCount;
-    }
-
-    public void setMaxTaskCount(int i) {
-        if (i <= 0 || i > 3) {
-            throw new RuntimeException("### maxTaskCount should be 0-3");
-        }
-        this.maxTaskCount = i;
-    }
-
-    public int getMaxBufferCount() {
-        return this.maxBufferCount;
-    }
-
-    public void setMaxBufferCount(int i) {
-        if (this.maxTaskCount <= 0) {
-            throw new RuntimeException("### maxBufferCount should be bigger than 0!");
-        }
-        this.maxBufferCount = i;
+    public boolean geDomainNameToIpEnable() {
+        return this.mDomainNameToIpEnable;
     }
 
     public int getBufferSize() {
         return this.bufferSize;
     }
 
+    public String getDomainNameToIpReg() {
+        return this.mDomainNameToIpReg;
+    }
+
+    public boolean getDownSpeedStatEnable() {
+        return this.mDownSpeedStatEnable;
+    }
+
+    public String getHttpDnsServerIp() {
+        return this.mHttpDnsServerIp;
+    }
+
+    public boolean getHttpRetryStrategyEnable() {
+        return this.mHttpRetryStrategyEnable;
+    }
+
+    public int getLogLevel() {
+        return this.mLogLevel;
+    }
+
+    public int getMaxBufferCount() {
+        return this.maxBufferCount;
+    }
+
+    public int getMaxTaskCount() {
+        return this.maxTaskCount;
+    }
+
+    public String getPreResolveDominName() {
+        return this.mPreResolveDomainName;
+    }
+
+    public long[] getRetryIntervals() {
+        return this.retryIntervals;
+    }
+
+    public int getTrafficStatsTag() {
+        return this.mTrafficStatsTag;
+    }
+
+    public String getURLRetryHostReg() {
+        return this.mURLRetryHostReg;
+    }
+
+    public boolean isRetryNetDetect() {
+        return this.retryNetDetect;
+    }
+
     public void setBufferSize(int i) {
-        if (i <= 0) {
-            throw new RuntimeException("### bufferSize should be bigger than 0!");
+        if (i > 0) {
+            this.bufferSize = i;
+            return;
         }
-        this.bufferSize = i;
+        throw new RuntimeException("### bufferSize should be bigger than 0!");
+    }
+
+    public void setDomainNameToIpEnable(boolean z) {
+        this.mDomainNameToIpEnable = z;
+    }
+
+    public void setDomainNameToIpReg(String str) {
+        this.mDomainNameToIpReg = str;
+    }
+
+    public void setDownSpeedStatEnable(boolean z) {
+        this.mDownSpeedStatEnable = z;
+    }
+
+    public void setHttpDnsServerIp(String str) {
+        this.mHttpDnsServerIp = str;
+    }
+
+    public void setHttpRetryStrategyEnable(boolean z) {
+        this.mHttpRetryStrategyEnable = z;
+    }
+
+    public void setLogLevel(int i) {
+        this.mLogLevel = i;
+    }
+
+    public void setMaxBufferCount(int i) {
+        if (this.maxTaskCount > 0) {
+            this.maxBufferCount = i;
+            return;
+        }
+        throw new RuntimeException("### maxBufferCount should be bigger than 0!");
+    }
+
+    public void setMaxTaskCount(int i) {
+        if (i > 0 && i <= 3) {
+            this.maxTaskCount = i;
+            return;
+        }
+        throw new RuntimeException("### maxTaskCount should be 0-3");
+    }
+
+    public void setPreResolveDominName(String str) {
+        this.mPreResolveDomainName = str;
     }
 
     public void setRetryIntervals(long[] jArr) {
@@ -71,71 +130,15 @@ public class TaskManagerConfiguration {
         }
     }
 
-    public long[] getRetryIntervals() {
-        return this.retryIntervals;
-    }
-
-    public boolean isRetryNetDetect() {
-        return this.retryNetDetect;
-    }
-
     public void setRetryNetDetect(boolean z) {
         this.retryNetDetect = z;
-    }
-
-    public int getTrafficStatsTag() {
-        return this.mTrafficStatsTag;
     }
 
     public void setTrafficStatsTag(int i) {
         this.mTrafficStatsTag = i;
     }
 
-    public String getURLRetryHostReg() {
-        return this.mURLRetryHostReg;
-    }
-
     public void setURLRetryHostReg(String str) {
         this.mURLRetryHostReg = str;
-    }
-
-    public int getLogLevel() {
-        return this.mLogLevel;
-    }
-
-    public void setLogLevel(int i) {
-        this.mLogLevel = i;
-    }
-
-    public String getDomainNameToIpReg() {
-        return this.mDomainNameToIpReg;
-    }
-
-    public void setDomainNameToIpReg(String str) {
-        this.mDomainNameToIpReg = str;
-    }
-
-    public boolean geDomainNameToIpEnable() {
-        return this.mDomainNameToIpEnable;
-    }
-
-    public void setDomainNameToIpEnable(boolean z) {
-        this.mDomainNameToIpEnable = z;
-    }
-
-    public boolean getHttpRetryStrategyEnable() {
-        return this.mHttpRetryStrategyEnable;
-    }
-
-    public void setHttpRetryStrategyEnable(boolean z) {
-        this.mHttpRetryStrategyEnable = z;
-    }
-
-    public boolean getDownSpeedStatEnable() {
-        return this.mDownSpeedStatEnable;
-    }
-
-    public void setDownSpeedStatEnable(boolean z) {
-        this.mDownSpeedStatEnable = z;
     }
 }

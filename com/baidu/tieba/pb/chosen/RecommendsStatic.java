@@ -1,36 +1,38 @@
 package com.baidu.tieba.pb.chosen;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.f.b;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.tbadk.core.util.bf;
-/* loaded from: classes7.dex */
+import com.baidu.tbadk.core.util.UrlManager;
+import d.b.b.e.m.b;
+/* loaded from: classes4.dex */
 public class RecommendsStatic {
-    static {
-        TbadkCoreApplication.getInst().RegisterIntent(PbChosenActivityConfig.class, PbChosenActivity.class);
-        cTm();
-    }
 
-    private static void cTm() {
-        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.pb.chosen.RecommendsStatic.1
-            @Override // com.baidu.tbadk.core.util.bf.a
-            public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-                if (strArr == null || strArr.length <= 0) {
-                    return 3;
-                }
+    /* loaded from: classes4.dex */
+    public static class a implements UrlManager.UrlDealListener {
+        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+            if (strArr != null && strArr.length > 0) {
                 String str = strArr[0];
                 if (str.startsWith("http://tieba.baidu.com/mo/q/recommendpb") && str.contains("ftid=")) {
-                    String substring = str.substring(str.lastIndexOf("ftid=") + "ftid=".length());
+                    String substring = str.substring(str.lastIndexOf("ftid=") + 5);
                     if (tbPageContext != null) {
-                        tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbChosenActivityConfig(tbPageContext.getPageActivity(), b.toLong(substring, 0L), null)));
+                        tbPageContext.sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(tbPageContext.getPageActivity(), b.f(substring, 0L), null)));
                         return 0;
                     }
                 }
-                return 3;
             }
-        });
+            return 3;
+        }
+    }
+
+    static {
+        TbadkCoreApplication.getInst().RegisterIntent(PbChosenActivityConfig.class, PbChosenActivity.class);
+        a();
+    }
+
+    public static void a() {
+        UrlManager.getInstance().addListener(new a());
     }
 }

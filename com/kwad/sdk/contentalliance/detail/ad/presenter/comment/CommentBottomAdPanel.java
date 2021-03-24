@@ -25,27 +25,41 @@ import com.kwad.sdk.core.view.e;
 import com.kwad.sdk.utils.ao;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CommentBottomAdPanel extends AdBaseLinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f5584a;
-    private TextView b;
-    private TextView c;
-    private View d;
-    private View e;
-    private View f;
-    private AnimatorSet g;
-    private boolean h;
-    private AdTemplate i;
-    private AdInfo j;
-    @Nullable
-    private b k;
-    private List<a> l;
-    private View.OnClickListener m;
-    private KsAppDownloadListener n;
+    public TextView f32113a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f32114b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f32115c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f32116d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f32117e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f32118f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public AnimatorSet f32119g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f32120h;
+    public AdTemplate i;
+    public AdInfo j;
+    @Nullable
+    public b k;
+    public List<a> l;
+    public View.OnClickListener m;
+    public KsAppDownloadListener n;
+
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
     }
@@ -65,37 +79,37 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
             public void a(int i) {
                 super.a(i);
                 CommentBottomAdPanel.this.b(true, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.a());
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.a());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
                 CommentBottomAdPanel.this.b(false, false);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
                 CommentBottomAdPanel.this.b(false, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.a(CommentBottomAdPanel.this.i));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.a(CommentBottomAdPanel.this.i));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
                 CommentBottomAdPanel.this.b(false, false);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onInstalled() {
                 CommentBottomAdPanel.this.b(false, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.b());
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.b());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onProgressUpdate(int i) {
                 CommentBottomAdPanel.this.b(true, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.b(i));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.b(i));
             }
         };
         b();
@@ -116,37 +130,37 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
             public void a(int i) {
                 super.a(i);
                 CommentBottomAdPanel.this.b(true, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.a());
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.a());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
                 CommentBottomAdPanel.this.b(false, false);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
                 CommentBottomAdPanel.this.b(false, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.a(CommentBottomAdPanel.this.i));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.a(CommentBottomAdPanel.this.i));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
                 CommentBottomAdPanel.this.b(false, false);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onInstalled() {
                 CommentBottomAdPanel.this.b(false, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.b());
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.b());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onProgressUpdate(int i) {
                 CommentBottomAdPanel.this.b(true, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.b(i));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.b(i));
             }
         };
         b();
@@ -167,37 +181,37 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
             public void a(int i2) {
                 super.a(i2);
                 CommentBottomAdPanel.this.b(true, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.a());
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.a());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
                 CommentBottomAdPanel.this.b(false, false);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
                 CommentBottomAdPanel.this.b(false, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.a(CommentBottomAdPanel.this.i));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.a(CommentBottomAdPanel.this.i));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
                 CommentBottomAdPanel.this.b(false, false);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.x(CommentBottomAdPanel.this.j));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onInstalled() {
                 CommentBottomAdPanel.this.b(false, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.b());
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.b());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onProgressUpdate(int i2) {
                 CommentBottomAdPanel.this.b(true, true);
-                CommentBottomAdPanel.this.c.setText(com.kwad.sdk.core.response.b.a.b(i2));
+                CommentBottomAdPanel.this.f32115c.setText(com.kwad.sdk.core.response.b.a.b(i2));
             }
         };
         b();
@@ -206,8 +220,8 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final int i) {
         b.a(this.k, true);
-        com.kwad.sdk.core.download.b.a.a(getContext(), this.i, new a.InterfaceC1111a() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.8
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
+        com.kwad.sdk.core.download.b.a.a(getContext(), this.i, new a.InterfaceC0378a() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.8
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0378a
             public void a() {
                 com.kwad.sdk.core.d.a.a("commentBottomAdPanel", "notifyAdContentClick onAdContentClick itemClickType:" + i);
                 com.kwad.sdk.core.report.b.a(CommentBottomAdPanel.this.i, i, CommentBottomAdPanel.this.getTouchCoords());
@@ -217,39 +231,40 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
 
     private void b() {
         com.kwad.sdk.core.d.a.a("commentBottomAdPanel", "initView");
-        this.h = com.kwad.sdk.core.config.c.D() == 1;
-        LayoutInflater.from(getContext()).inflate(this.h ? R.layout.ksad_comment_bottom_ad_panel_layout : R.layout.ksad_comment_bottom_ad_panel_layout_2, (ViewGroup) this, true);
-        this.f5584a = (TextView) findViewById(R.id.kasd_comment_bottom_ad_author_name);
-        this.b = (TextView) findViewById(R.id.kasd_comment_bottom_ad_content);
-        this.c = (TextView) findViewById(R.id.kasd_comment_bottom_ad_link_btn);
-        this.f = findViewById(R.id.kasd_comment_bottom_ad_link_btn_layout);
-        this.d = findViewById(R.id.kasd_comment_bottom_ad_close_btn);
-        this.e = findViewById(R.id.kasd_comment_bottom_ad_layout);
-        this.e.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.3
+        this.f32120h = com.kwad.sdk.core.config.c.D() == 1;
+        LayoutInflater.from(getContext()).inflate(this.f32120h ? R.layout.ksad_comment_bottom_ad_panel_layout : R.layout.ksad_comment_bottom_ad_panel_layout_2, (ViewGroup) this, true);
+        this.f32113a = (TextView) findViewById(R.id.kasd_comment_bottom_ad_author_name);
+        this.f32114b = (TextView) findViewById(R.id.kasd_comment_bottom_ad_content);
+        this.f32115c = (TextView) findViewById(R.id.kasd_comment_bottom_ad_link_btn);
+        this.f32118f = findViewById(R.id.kasd_comment_bottom_ad_link_btn_layout);
+        this.f32116d = findViewById(R.id.kasd_comment_bottom_ad_close_btn);
+        View findViewById = findViewById(R.id.kasd_comment_bottom_ad_layout);
+        this.f32117e = findViewById;
+        findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CommentBottomAdPanel.this.a(35);
             }
         });
-        this.f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.4
+        this.f32118f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CommentBottomAdPanel.this.a(34);
             }
         });
-        this.f5584a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.5
+        this.f32113a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CommentBottomAdPanel.this.a(90);
             }
         });
-        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.6
+        this.f32114b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CommentBottomAdPanel.this.a(91);
             }
         });
-        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.7
+        this.f32116d.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (CommentBottomAdPanel.this.m != null) {
@@ -257,7 +272,7 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
                 }
             }
         });
-        if (this.h) {
+        if (this.f32120h) {
             e.a(this, -1, ao.a(getContext(), 6.0f), Color.parseColor("#14000000"), ao.a(getContext(), 4.0f), 0, 1);
         } else {
             e.a(this, getContext().getResources().getDrawable(R.drawable.ksad_comment_bottom_ad_bg));
@@ -268,20 +283,26 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, boolean z2) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.c == null || (layoutParams = this.c.getLayoutParams()) == null) {
+        TextView textView;
+        int i;
+        TextView textView2 = this.f32115c;
+        if (textView2 == null || (layoutParams = textView2.getLayoutParams()) == null) {
             return;
         }
         if (z) {
-            layoutParams.width = this.h ? ao.a(getContext(), 104.0f) : -2;
+            layoutParams.width = this.f32120h ? ao.a(getContext(), 104.0f) : -2;
             layoutParams.height = -2;
-            this.c.setMaxEms(10);
+            textView = this.f32115c;
+            i = 10;
         } else {
             layoutParams.width = -2;
             layoutParams.height = -2;
-            this.c.setMaxEms(6);
+            textView = this.f32115c;
+            i = 6;
         }
-        this.c.setSelected(z2);
-        this.c.setLayoutParams(layoutParams);
+        textView.setMaxEms(i);
+        this.f32115c.setSelected(z2);
+        this.f32115c.setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -292,8 +313,9 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
     }
 
     public void a() {
-        if (this.k != null) {
-            this.k.b(this.n);
+        b bVar = this.k;
+        if (bVar != null) {
+            bVar.b(this.n);
         }
         this.l.clear();
     }
@@ -303,30 +325,35 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
     }
 
     public void a(AdTemplate adTemplate, @Nullable b bVar) {
+        ViewGroup.MarginLayoutParams marginLayoutParams;
+        Context context;
+        float f2;
         if (adTemplate == null) {
             return;
         }
         this.i = adTemplate;
-        this.j = com.kwad.sdk.core.response.b.c.j(this.i);
+        this.j = com.kwad.sdk.core.response.b.c.j(adTemplate);
         this.k = bVar;
-        this.b.setText(com.kwad.sdk.core.response.b.c.x(adTemplate));
-        this.f5584a.setText(com.kwad.sdk.core.response.b.c.v(adTemplate));
+        this.f32114b.setText(com.kwad.sdk.core.response.b.c.x(adTemplate));
+        this.f32113a.setText(com.kwad.sdk.core.response.b.c.v(adTemplate));
         b(false, false);
-        this.c.setText(com.kwad.sdk.core.response.b.a.x(com.kwad.sdk.core.response.b.c.j(adTemplate)));
-        if (this.k != null) {
-            this.k.a(this.n);
+        this.f32115c.setText(com.kwad.sdk.core.response.b.a.x(com.kwad.sdk.core.response.b.c.j(adTemplate)));
+        b bVar2 = this.k;
+        if (bVar2 != null) {
+            bVar2.a(this.n);
         }
-        if (this.h) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            int a2 = ao.a(getContext(), 8.0f);
-            marginLayoutParams.setMargins(a2, a2, a2, a2);
-            setLayoutParams(marginLayoutParams);
+        if (this.f32120h) {
+            marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
+            context = getContext();
+            f2 = 8.0f;
         } else {
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            int a3 = ao.a(getContext(), 0.0f);
-            marginLayoutParams2.setMargins(a3, a3, a3, a3);
-            setLayoutParams(marginLayoutParams2);
+            marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
+            context = getContext();
+            f2 = 0.0f;
         }
+        int a2 = ao.a(context, f2);
+        marginLayoutParams.setMargins(a2, a2, a2, a2);
+        setLayoutParams(marginLayoutParams);
         invalidate();
     }
 
@@ -334,11 +361,12 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
         if (z2) {
             setVisibility(8);
         }
-        if (this.g != null && this.g.isRunning()) {
-            this.g.removeAllListeners();
-            this.g.cancel();
+        AnimatorSet animatorSet = this.f32119g;
+        if (animatorSet != null && animatorSet.isRunning()) {
+            this.f32119g.removeAllListeners();
+            this.f32119g.cancel();
         }
-        this.g = new AnimatorSet();
+        this.f32119g = new AnimatorSet();
         int a2 = ao.a(getContext(), 80.0f);
         com.kwad.sdk.core.d.a.a("commentBottomAdPanel", "bottomViewAnimate + isShow : " + z);
         String name = View.TRANSLATION_Y.getName();
@@ -346,9 +374,9 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
         fArr[0] = z ? 0.0f : a2;
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, name, fArr);
         ofFloat.setDuration(z ? 350L : 300L);
-        this.g.playTogether(ofFloat);
-        this.g.removeAllListeners();
-        this.g.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.9
+        this.f32119g.playTogether(ofFloat);
+        this.f32119g.removeAllListeners();
+        this.f32119g.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.9
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
@@ -378,7 +406,7 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
                 }
             }
         });
-        this.g.start();
+        this.f32119g.start();
     }
 
     public void b(@NonNull a aVar) {
@@ -386,6 +414,6 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
     }
 
     public void setName(String str) {
-        this.f5584a.setText(str);
+        this.f32113a.setText(str);
     }
 }

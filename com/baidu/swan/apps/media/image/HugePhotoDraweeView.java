@@ -33,106 +33,409 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.a;
+import com.baidu.rtc.PeerConnectionClient;
+import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.Executor;
 @SuppressLint({"SwanDebugLog"})
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class HugePhotoDraweeView extends SimpleDraweeView {
-    private Bitmap bitmap;
-    private Paint bitmapPaint;
-    private boolean debug;
-    private Paint debugPaint;
-    private final Object decoderLock;
-    private GestureDetector detector;
-    private boolean dmV;
-    private boolean dmW;
-    private int dmY;
-    private int dmZ;
-    private boolean dna;
-    private int dnb;
-    private com.baidu.swan.apps.media.image.a.d dnc;
-    private com.baidu.swan.apps.media.image.a.b<? extends com.baidu.swan.apps.media.image.a.c> dnd;
-    private com.baidu.swan.apps.media.image.a.b<? extends com.baidu.swan.apps.media.image.a.d> dne;
-    private a dnf;
-    private e dng;
-    private f dnh;
-    private float dni;
-    private boolean dnj;
-    private ColorFilter dnk;
-    private int dnl;
-    private float doubleTapZoomScale;
-    private int doubleTapZoomStyle;
-    private float[] dstArray;
-    private int fullImageSampleSize;
-    private Handler handler;
-    private boolean imageLoadedSent;
-    private boolean isPanning;
-    private boolean isQuickScaling;
-    private boolean isZooming;
-    private Matrix matrix;
-    private float maxScale;
-    private int maxTouchCount;
-    private float minScale;
-    private int minimumScaleType;
-    private int minimumTileDpi;
-    private View.OnLongClickListener onLongClickListener;
-    private int orientation;
-    private Rect pRegion;
-    private boolean panEnabled;
-    private int panLimit;
-    private Float pendingScale;
-    private PointF quickScaleCenter;
-    private boolean quickScaleEnabled;
-    private float quickScaleLastDistance;
-    private PointF quickScaleLastPoint;
-    private boolean quickScaleMoved;
-    private final float quickScaleThreshold;
-    private boolean readySent;
-    private int sHeight;
-    private int sOrientation;
-    private PointF sPendingCenter;
-    private RectF sRect;
-    private Rect sRegion;
-    private PointF sRequestedCenter;
-    private int sWidth;
-    private float scale;
-    private float scaleStart;
-    private float[] srcArray;
-    private Paint tileBgPaint;
-    private Map<Integer, List<g>> tileMap;
-    private Uri uri;
-    private PointF vCenterStart;
-    private float vDistStart;
-    private PointF vTranslate;
-    private PointF vTranslateStart;
-    private boolean zoomEnabled;
-    private static final List<Integer> VALID_ORIENTATIONS = Arrays.asList(0, 90, 180, 270, -1);
-    private static final List<Integer> VALID_ZOOM_STYLES = Arrays.asList(1, 2, 3);
-    private static final List<Integer> VALID_EASING_STYLES = Arrays.asList(2, 1);
-    private static final List<Integer> VALID_PAN_LIMITS = Arrays.asList(1, 2, 3);
-    private static final List<Integer> VALID_SCALE_TYPES = Arrays.asList(2, 1, 3);
-    public static int dmX = Integer.MAX_VALUE;
+    public float A;
+    public float B;
+    public PointF C;
+    public PointF D;
+    public Float E;
+    public PointF F;
+    public PointF G;
+    public int H;
+    public int I;
+    public int J;
+    public Rect K;
+    public Rect L;
+    public boolean M;
+    public boolean N;
+    public boolean O;
+    public int P;
+    public GestureDetector Q;
+    public d.b.g0.a.b1.e.d.d R;
+    public final Object S;
+    public d.b.g0.a.b1.e.d.b<? extends d.b.g0.a.b1.e.d.c> T;
+    public d.b.g0.a.b1.e.d.b<? extends d.b.g0.a.b1.e.d.d> U;
+    public PointF V;
+    public float W;
+    public final float a0;
+    public PointF b0;
+    public float c0;
+    public PointF d0;
 
-    /* loaded from: classes8.dex */
-    public interface d {
-        void aBH();
+    /* renamed from: e  reason: collision with root package name */
+    public Bitmap f12339e;
+    public boolean e0;
 
-        void aBI();
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f12340f;
+    public c f0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f12341g;
+    public boolean g0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Uri f12342h;
+    public boolean h0;
+    public int i;
+    public g i0;
+    public Map<Integer, List<i>> j;
+    public View.OnLongClickListener j0;
+    public boolean k;
+    public Handler k0;
+    public int l;
+    public Paint l0;
+    public float m;
+    public Paint m0;
+    public float n;
+    public Paint n0;
+    public int o;
+    public h o0;
+    public int p;
+    public Matrix p0;
+    public int q;
+    public RectF q0;
+    public int r;
+    public float[] r0;
+    public int s;
+    public float[] s0;
+    public boolean t;
+    public float t0;
+    public boolean u;
+    public boolean u0;
+    public boolean v;
+    public ColorFilter v0;
+    public boolean w;
+    public int w0;
+    public float x;
+    public int y;
+    public int z;
+    public static final List<Integer> x0 = Arrays.asList(0, 90, 180, 270, -1);
+    public static final List<Integer> y0 = Arrays.asList(1, 2, 3);
+    public static final List<Integer> z0 = Arrays.asList(2, 1);
+    public static final List<Integer> A0 = Arrays.asList(1, 2, 3);
+    public static final List<Integer> B0 = Arrays.asList(2, 1, 3);
+    public static int C0 = Integer.MAX_VALUE;
+
+    /* loaded from: classes3.dex */
+    public class a implements Handler.Callback {
+        public a() {
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            if (message.what == 1 && HugePhotoDraweeView.this.j0 != null) {
+                HugePhotoDraweeView.this.P = 0;
+                HugePhotoDraweeView hugePhotoDraweeView = HugePhotoDraweeView.this;
+                HugePhotoDraweeView.super.setOnLongClickListener(hugePhotoDraweeView.j0);
+                HugePhotoDraweeView.this.performLongClick();
+                HugePhotoDraweeView.super.setOnLongClickListener(null);
+            }
+            return true;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends GestureDetector.SimpleOnGestureListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f12344e;
+
+        public b(Context context) {
+            this.f12344e = context;
+        }
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+        public boolean onDoubleTap(MotionEvent motionEvent) {
+            if (HugePhotoDraweeView.this.v && HugePhotoDraweeView.this.g0 && HugePhotoDraweeView.this.C != null) {
+                HugePhotoDraweeView.this.setGestureDetector(this.f12344e);
+                if (HugePhotoDraweeView.this.w) {
+                    HugePhotoDraweeView.this.V = new PointF(motionEvent.getX(), motionEvent.getY());
+                    HugePhotoDraweeView.this.D = new PointF(HugePhotoDraweeView.this.C.x, HugePhotoDraweeView.this.C.y);
+                    HugePhotoDraweeView hugePhotoDraweeView = HugePhotoDraweeView.this;
+                    hugePhotoDraweeView.B = hugePhotoDraweeView.A;
+                    HugePhotoDraweeView.this.O = true;
+                    HugePhotoDraweeView.this.M = true;
+                    HugePhotoDraweeView hugePhotoDraweeView2 = HugePhotoDraweeView.this;
+                    hugePhotoDraweeView2.b0 = hugePhotoDraweeView2.I0(hugePhotoDraweeView2.V);
+                    HugePhotoDraweeView.this.c0 = -1.0f;
+                    HugePhotoDraweeView.this.d0 = new PointF(HugePhotoDraweeView.this.b0.x, HugePhotoDraweeView.this.b0.y);
+                    HugePhotoDraweeView.this.e0 = false;
+                    return false;
+                }
+                HugePhotoDraweeView hugePhotoDraweeView3 = HugePhotoDraweeView.this;
+                hugePhotoDraweeView3.S(hugePhotoDraweeView3.I0(new PointF(motionEvent.getX(), motionEvent.getY())), new PointF(motionEvent.getX(), motionEvent.getY()));
+                return true;
+            }
+            return super.onDoubleTapEvent(motionEvent);
+        }
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            if (HugePhotoDraweeView.this.u && HugePhotoDraweeView.this.g0 && HugePhotoDraweeView.this.C != null && motionEvent != null && motionEvent2 != null && ((Math.abs(motionEvent.getX() - motionEvent2.getX()) > 50.0f || Math.abs(motionEvent.getY() - motionEvent2.getY()) > 50.0f) && ((Math.abs(f2) > 500.0f || Math.abs(f3) > 500.0f) && !HugePhotoDraweeView.this.M))) {
+                PointF pointF = new PointF(HugePhotoDraweeView.this.C.x + (f2 * 0.25f), HugePhotoDraweeView.this.C.y + (f3 * 0.25f));
+                d dVar = new d(HugePhotoDraweeView.this, new PointF(((HugePhotoDraweeView.this.getWidth() / 2) - pointF.x) / HugePhotoDraweeView.this.A, ((HugePhotoDraweeView.this.getHeight() / 2) - pointF.y) / HugePhotoDraweeView.this.A), (a) null);
+                dVar.d(1);
+                dVar.f(false);
+                dVar.b();
+                return true;
+            }
+            return super.onFling(motionEvent, motionEvent2, f2, f3);
+        }
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+        public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+            HugePhotoDraweeView.this.performClick();
+            return true;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public final class d {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final float f12354a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final PointF f12355b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final PointF f12356c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public long f12357d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f12358e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public boolean f12359f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f12360g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public f f12361h;
+
+        public /* synthetic */ d(HugePhotoDraweeView hugePhotoDraweeView, float f2, PointF pointF, PointF pointF2, a aVar) {
+            this(f2, pointF, pointF2);
+        }
+
+        public void b() {
+            PointF pointF;
+            if (HugePhotoDraweeView.this.f0 != null && HugePhotoDraweeView.this.f0.l != null) {
+                try {
+                    HugePhotoDraweeView.this.f0.l.b();
+                } catch (Exception e2) {
+                    Log.w("HugePhotoDraweeView", "Error thrown by animation listener", e2);
+                }
+            }
+            int paddingLeft = HugePhotoDraweeView.this.getPaddingLeft() + (((HugePhotoDraweeView.this.getWidth() - HugePhotoDraweeView.this.getPaddingRight()) - HugePhotoDraweeView.this.getPaddingLeft()) / 2);
+            int paddingTop = HugePhotoDraweeView.this.getPaddingTop() + (((HugePhotoDraweeView.this.getHeight() - HugePhotoDraweeView.this.getPaddingBottom()) - HugePhotoDraweeView.this.getPaddingTop()) / 2);
+            float i0 = HugePhotoDraweeView.this.i0(this.f12354a);
+            if (this.f12360g) {
+                HugePhotoDraweeView hugePhotoDraweeView = HugePhotoDraweeView.this;
+                PointF pointF2 = this.f12355b;
+                float f2 = pointF2.x;
+                float f3 = pointF2.y;
+                pointF = new PointF();
+                hugePhotoDraweeView.h0(f2, f3, i0, pointF);
+            } else {
+                pointF = this.f12355b;
+            }
+            HugePhotoDraweeView.this.f0 = new c(null);
+            HugePhotoDraweeView.this.f0.f12346a = HugePhotoDraweeView.this.A;
+            HugePhotoDraweeView.this.f0.f12347b = i0;
+            HugePhotoDraweeView.this.f0.k = System.currentTimeMillis();
+            HugePhotoDraweeView.this.f0.f12350e = pointF;
+            HugePhotoDraweeView.this.f0.f12348c = HugePhotoDraweeView.this.getCenter();
+            HugePhotoDraweeView.this.f0.f12349d = pointF;
+            HugePhotoDraweeView.this.f0.f12351f = HugePhotoDraweeView.this.A0(pointF);
+            HugePhotoDraweeView.this.f0.f12352g = new PointF(paddingLeft, paddingTop);
+            HugePhotoDraweeView.this.f0.f12353h = this.f12357d;
+            HugePhotoDraweeView.this.f0.i = this.f12359f;
+            HugePhotoDraweeView.this.f0.j = this.f12358e;
+            HugePhotoDraweeView.this.f0.k = System.currentTimeMillis();
+            HugePhotoDraweeView.this.f0.l = this.f12361h;
+            PointF pointF3 = this.f12356c;
+            if (pointF3 != null) {
+                float f4 = pointF3.x - (HugePhotoDraweeView.this.f0.f12348c.x * i0);
+                float f5 = this.f12356c.y - (HugePhotoDraweeView.this.f0.f12348c.y * i0);
+                h hVar = new h(i0, new PointF(f4, f5), null);
+                HugePhotoDraweeView.this.a0(true, hVar);
+                HugePhotoDraweeView.this.f0.f12352g = new PointF(this.f12356c.x + (hVar.f12370b.x - f4), this.f12356c.y + (hVar.f12370b.y - f5));
+            }
+            HugePhotoDraweeView.this.invalidate();
+        }
+
+        public d c(long j) {
+            this.f12357d = j;
+            return this;
+        }
+
+        public d d(int i) {
+            if (HugePhotoDraweeView.z0.contains(Integer.valueOf(i))) {
+                this.f12358e = i;
+                return this;
+            }
+            throw new IllegalArgumentException("Unknown easing type: " + i);
+        }
+
+        public d e(boolean z) {
+            this.f12359f = z;
+            return this;
+        }
+
+        public final d f(boolean z) {
+            this.f12360g = z;
+            return this;
+        }
+
+        public /* synthetic */ d(HugePhotoDraweeView hugePhotoDraweeView, float f2, PointF pointF, a aVar) {
+            this(f2, pointF);
+        }
+
+        public /* synthetic */ d(HugePhotoDraweeView hugePhotoDraweeView, PointF pointF, a aVar) {
+            this(pointF);
+        }
+
+        public d(PointF pointF) {
+            this.f12357d = 500L;
+            this.f12358e = 2;
+            this.f12359f = true;
+            this.f12360g = true;
+            this.f12354a = HugePhotoDraweeView.this.A;
+            this.f12355b = pointF;
+            this.f12356c = null;
+        }
+
+        public d(float f2, PointF pointF) {
+            this.f12357d = 500L;
+            this.f12358e = 2;
+            this.f12359f = true;
+            this.f12360g = true;
+            this.f12354a = f2;
+            this.f12355b = pointF;
+            this.f12356c = null;
+        }
+
+        public d(float f2, PointF pointF, PointF pointF2) {
+            this.f12357d = 500L;
+            this.f12358e = 2;
+            this.f12359f = true;
+            this.f12360g = true;
+            this.f12354a = f2;
+            this.f12355b = pointF;
+            this.f12356c = pointF2;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class e extends AsyncTask<Void, Void, Integer> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final WeakReference<HugePhotoDraweeView> f12362a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final WeakReference<Context> f12363b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final WeakReference<d.b.g0.a.b1.e.d.b<? extends d.b.g0.a.b1.e.d.c>> f12364c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final Uri f12365d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final boolean f12366e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public Bitmap f12367f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public Exception f12368g;
+
+        public e(HugePhotoDraweeView hugePhotoDraweeView, Context context, d.b.g0.a.b1.e.d.b<? extends d.b.g0.a.b1.e.d.c> bVar, Uri uri, boolean z) {
+            this.f12362a = new WeakReference<>(hugePhotoDraweeView);
+            this.f12363b = new WeakReference<>(context);
+            this.f12364c = new WeakReference<>(bVar);
+            this.f12365d = uri;
+            this.f12366e = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: a */
+        public Integer doInBackground(Void... voidArr) {
+            try {
+                String uri = this.f12365d.toString();
+                Context context = this.f12363b.get();
+                d.b.g0.a.b1.e.d.b<? extends d.b.g0.a.b1.e.d.c> bVar = this.f12364c.get();
+                HugePhotoDraweeView hugePhotoDraweeView = this.f12362a.get();
+                if (context == null || bVar == null || hugePhotoDraweeView == null) {
+                    return null;
+                }
+                this.f12367f = bVar.make().decode(context, this.f12365d);
+                return Integer.valueOf(hugePhotoDraweeView.b0(uri));
+            } catch (Exception e2) {
+                Log.e("HugePhotoDraweeView", "Failed to load bitmap", e2);
+                this.f12368g = e2;
+                return null;
+            } catch (OutOfMemoryError e3) {
+                Log.e("HugePhotoDraweeView", "Failed to load bitmap - OutOfMemoryError", e3);
+                this.f12368g = new RuntimeException(e3);
+                return null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: b */
+        public void onPostExecute(Integer num) {
+            HugePhotoDraweeView hugePhotoDraweeView = this.f12362a.get();
+            if (hugePhotoDraweeView != null) {
+                Bitmap bitmap = this.f12367f;
+                if (bitmap != null && num != null) {
+                    if (this.f12366e) {
+                        hugePhotoDraweeView.m0(bitmap);
+                    } else {
+                        hugePhotoDraweeView.l0(bitmap, num.intValue(), false);
+                    }
+                } else if (this.f12368g == null || hugePhotoDraweeView.i0 == null) {
+                } else {
+                    if (this.f12366e) {
+                        hugePhotoDraweeView.i0.onPreviewLoadError(this.f12368g);
+                    } else {
+                        hugePhotoDraweeView.i0.onImageLoadError(this.f12368g);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface f {
+        void a();
+
+        void b();
 
         void onComplete();
     }
 
-    /* loaded from: classes8.dex */
-    public interface e {
+    /* loaded from: classes3.dex */
+    public interface g {
         void onImageLoadError(Exception exc);
 
         void onImageLoaded();
@@ -144,1352 +447,517 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         void onTileLoadError(Exception exc);
     }
 
+    /* loaded from: classes3.dex */
+    public static class h {
+
+        /* renamed from: a  reason: collision with root package name */
+        public float f12369a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public PointF f12370b;
+
+        public /* synthetic */ h(float f2, PointF pointF, a aVar) {
+            this(f2, pointF);
+        }
+
+        public h(float f2, PointF pointF) {
+            this.f12369a = f2;
+            this.f12370b = pointF;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class i {
+
+        /* renamed from: a  reason: collision with root package name */
+        public Rect f12371a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f12372b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public Bitmap f12373c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f12374d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f12375e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public Rect f12376f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public Rect f12377g;
+
+        public i() {
+        }
+
+        public /* synthetic */ i(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class j extends AsyncTask<Void, Void, Bitmap> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final WeakReference<HugePhotoDraweeView> f12378a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final WeakReference<d.b.g0.a.b1.e.d.d> f12379b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final WeakReference<i> f12380c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public Exception f12381d;
+
+        public j(HugePhotoDraweeView hugePhotoDraweeView, d.b.g0.a.b1.e.d.d dVar, i iVar) {
+            this.f12378a = new WeakReference<>(hugePhotoDraweeView);
+            this.f12379b = new WeakReference<>(dVar);
+            this.f12380c = new WeakReference<>(iVar);
+            iVar.f12374d = true;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: a */
+        public Bitmap doInBackground(Void... voidArr) {
+            Bitmap decodeRegion;
+            try {
+                HugePhotoDraweeView hugePhotoDraweeView = this.f12378a.get();
+                d.b.g0.a.b1.e.d.d dVar = this.f12379b.get();
+                i iVar = this.f12380c.get();
+                if (dVar == null || iVar == null || hugePhotoDraweeView == null || !dVar.isReady() || !iVar.f12375e) {
+                    if (iVar != null) {
+                        iVar.f12374d = false;
+                        return null;
+                    }
+                    return null;
+                }
+                synchronized (hugePhotoDraweeView.S) {
+                    hugePhotoDraweeView.Y(iVar.f12371a, iVar.f12377g);
+                    if (hugePhotoDraweeView.K != null) {
+                        iVar.f12377g.offset(hugePhotoDraweeView.K.left, hugePhotoDraweeView.K.top);
+                    }
+                    decodeRegion = dVar.decodeRegion(iVar.f12377g, iVar.f12372b);
+                }
+                return decodeRegion;
+            } catch (Exception e2) {
+                Log.e("HugePhotoDraweeView", "Failed to decode tile", e2);
+                this.f12381d = e2;
+                return null;
+            } catch (OutOfMemoryError e3) {
+                Log.e("HugePhotoDraweeView", "Failed to decode tile - OutOfMemoryError", e3);
+                this.f12381d = new RuntimeException(e3);
+                return null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: b */
+        public void onPostExecute(Bitmap bitmap) {
+            HugePhotoDraweeView hugePhotoDraweeView = this.f12378a.get();
+            i iVar = this.f12380c.get();
+            if (hugePhotoDraweeView == null || iVar == null) {
+                return;
+            }
+            if (bitmap != null) {
+                iVar.f12373c = bitmap;
+                iVar.f12374d = false;
+                hugePhotoDraweeView.o0();
+            } else if (this.f12381d == null || hugePhotoDraweeView.i0 == null) {
+            } else {
+                hugePhotoDraweeView.i0.onTileLoadError(this.f12381d);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class k extends AsyncTask<Void, Void, int[]> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final WeakReference<HugePhotoDraweeView> f12382a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final WeakReference<Context> f12383b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final WeakReference<d.b.g0.a.b1.e.d.b<? extends d.b.g0.a.b1.e.d.d>> f12384c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public d.b.g0.a.b1.e.b f12385d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public d.b.g0.a.b1.e.d.d f12386e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public Exception f12387f;
+
+        public k(HugePhotoDraweeView hugePhotoDraweeView, Context context, d.b.g0.a.b1.e.d.b<? extends d.b.g0.a.b1.e.d.d> bVar, d.b.g0.a.b1.e.b bVar2) {
+            this.f12382a = new WeakReference<>(hugePhotoDraweeView);
+            this.f12383b = new WeakReference<>(context);
+            this.f12384c = new WeakReference<>(bVar);
+            this.f12385d = bVar2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: a */
+        public int[] doInBackground(Void... voidArr) {
+            Point init;
+            try {
+                if (this.f12385d.i() != null) {
+                    this.f12385d.i().toString();
+                }
+                Context context = this.f12383b.get();
+                d.b.g0.a.b1.e.d.b<? extends d.b.g0.a.b1.e.d.d> bVar = this.f12384c.get();
+                HugePhotoDraweeView hugePhotoDraweeView = this.f12382a.get();
+                if (context == null || bVar == null || hugePhotoDraweeView == null) {
+                    return null;
+                }
+                this.f12386e = bVar.make();
+                if (this.f12385d.c() != null) {
+                    init = this.f12386e.a(context, this.f12385d.c());
+                } else {
+                    init = this.f12386e.init(context, this.f12385d.i());
+                }
+                int i = init.x;
+                int i2 = init.y;
+                int b0 = hugePhotoDraweeView.b0("");
+                if (hugePhotoDraweeView.K != null) {
+                    i = hugePhotoDraweeView.K.width();
+                    i2 = hugePhotoDraweeView.K.height();
+                }
+                return new int[]{i, i2, b0};
+            } catch (Exception e2) {
+                Log.e("HugePhotoDraweeView", "Failed to initialise bitmap decoder", e2);
+                this.f12387f = e2;
+                return null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: b */
+        public void onPostExecute(int[] iArr) {
+            HugePhotoDraweeView hugePhotoDraweeView = this.f12382a.get();
+            if (hugePhotoDraweeView != null) {
+                d.b.g0.a.b1.e.d.d dVar = this.f12386e;
+                if (dVar != null && iArr != null && iArr.length == 3) {
+                    hugePhotoDraweeView.p0(dVar, iArr[0], iArr[1], iArr[2]);
+                } else if (this.f12387f == null || hugePhotoDraweeView.i0 == null) {
+                } else {
+                    hugePhotoDraweeView.i0.onImageLoadError(this.f12387f);
+                }
+            }
+        }
+    }
+
     public HugePhotoDraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         int resourceId;
         String string;
-        this.orientation = 0;
-        this.minScale = minScale();
-        this.maxScale = 5.0f;
-        this.minimumTileDpi = -1;
-        this.panLimit = 1;
-        this.minimumScaleType = 1;
-        this.dmY = dmX;
-        this.dmZ = dmX;
-        this.panEnabled = true;
-        this.zoomEnabled = true;
-        this.quickScaleEnabled = true;
-        this.doubleTapZoomScale = 5.0f;
-        this.doubleTapZoomStyle = 1;
-        this.dnb = 500;
-        this.decoderLock = new Object();
-        this.dnd = new com.baidu.swan.apps.media.image.a.a(com.baidu.swan.apps.media.image.a.e.class);
-        this.dne = new com.baidu.swan.apps.media.image.a.a(com.baidu.swan.apps.media.image.a.f.class);
-        this.srcArray = new float[8];
-        this.dstArray = new float[8];
-        this.dnj = false;
-        this.dnk = null;
-        this.dnl = 0;
-        this.dni = getResources().getDisplayMetrics().density;
+        this.l = 0;
+        this.m = j0();
+        this.n = 5.0f;
+        this.o = -1;
+        this.p = 1;
+        this.q = 1;
+        int i2 = C0;
+        this.r = i2;
+        this.s = i2;
+        this.u = true;
+        this.v = true;
+        this.w = true;
+        this.x = 5.0f;
+        this.y = 1;
+        this.z = 500;
+        this.S = new Object();
+        this.T = new d.b.g0.a.b1.e.d.a(d.b.g0.a.b1.e.d.e.class);
+        this.U = new d.b.g0.a.b1.e.d.a(d.b.g0.a.b1.e.d.f.class);
+        this.r0 = new float[8];
+        this.s0 = new float[8];
+        this.u0 = false;
+        this.v0 = null;
+        this.w0 = 0;
+        this.t0 = getResources().getDisplayMetrics().density;
         setMinimumDpi(160);
         setDoubleTapZoomDpi(160);
-        setMaximumDpi(720);
+        setMaximumDpi(PeerConnectionClient.HD_VIDEO_HEIGHT);
         setGestureDetector(context);
-        this.handler = new Handler(new Handler.Callback() { // from class: com.baidu.swan.apps.media.image.HugePhotoDraweeView.1
-            @Override // android.os.Handler.Callback
-            public boolean handleMessage(Message message) {
-                if (message.what == 1 && HugePhotoDraweeView.this.onLongClickListener != null) {
-                    HugePhotoDraweeView.this.maxTouchCount = 0;
-                    HugePhotoDraweeView.super.setOnLongClickListener(HugePhotoDraweeView.this.onLongClickListener);
-                    HugePhotoDraweeView.this.performLongClick();
-                    HugePhotoDraweeView.super.setOnLongClickListener(null);
-                }
-                return true;
-            }
-        });
+        this.k0 = new Handler(new a());
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.HugePhotoDraweeView);
-            if (obtainStyledAttributes.hasValue(a.j.HugePhotoDraweeView_assetName) && (string = obtainStyledAttributes.getString(a.j.HugePhotoDraweeView_assetName)) != null && string.length() > 0) {
-                setImage(com.baidu.swan.apps.media.image.b.pP(string).aBJ());
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d.b.g0.a.j.HugePhotoDraweeView);
+            if (obtainStyledAttributes.hasValue(d.b.g0.a.j.HugePhotoDraweeView_assetName) && (string = obtainStyledAttributes.getString(d.b.g0.a.j.HugePhotoDraweeView_assetName)) != null && string.length() > 0) {
+                d.b.g0.a.b1.e.b a2 = d.b.g0.a.b1.e.b.a(string);
+                a2.n();
+                setImage(a2);
             }
-            if (obtainStyledAttributes.hasValue(a.j.HugePhotoDraweeView_src) && (resourceId = obtainStyledAttributes.getResourceId(a.j.HugePhotoDraweeView_src, 0)) > 0) {
-                setImage(com.baidu.swan.apps.media.image.b.ig(resourceId).aBJ());
+            if (obtainStyledAttributes.hasValue(d.b.g0.a.j.HugePhotoDraweeView_src) && (resourceId = obtainStyledAttributes.getResourceId(d.b.g0.a.j.HugePhotoDraweeView_src, 0)) > 0) {
+                d.b.g0.a.b1.e.b k2 = d.b.g0.a.b1.e.b.k(resourceId);
+                k2.n();
+                setImage(k2);
             }
-            if (obtainStyledAttributes.hasValue(a.j.HugePhotoDraweeView_panEnabled)) {
-                setPanEnabled(obtainStyledAttributes.getBoolean(a.j.HugePhotoDraweeView_panEnabled, true));
+            if (obtainStyledAttributes.hasValue(d.b.g0.a.j.HugePhotoDraweeView_panEnabled)) {
+                setPanEnabled(obtainStyledAttributes.getBoolean(d.b.g0.a.j.HugePhotoDraweeView_panEnabled, true));
             }
-            if (obtainStyledAttributes.hasValue(a.j.HugePhotoDraweeView_zoomEnabled)) {
-                setZoomEnabled(obtainStyledAttributes.getBoolean(a.j.HugePhotoDraweeView_zoomEnabled, true));
+            if (obtainStyledAttributes.hasValue(d.b.g0.a.j.HugePhotoDraweeView_zoomEnabled)) {
+                setZoomEnabled(obtainStyledAttributes.getBoolean(d.b.g0.a.j.HugePhotoDraweeView_zoomEnabled, true));
             }
-            if (obtainStyledAttributes.hasValue(a.j.HugePhotoDraweeView_quickScaleEnabled)) {
-                setQuickScaleEnabled(obtainStyledAttributes.getBoolean(a.j.HugePhotoDraweeView_quickScaleEnabled, true));
+            if (obtainStyledAttributes.hasValue(d.b.g0.a.j.HugePhotoDraweeView_quickScaleEnabled)) {
+                setQuickScaleEnabled(obtainStyledAttributes.getBoolean(d.b.g0.a.j.HugePhotoDraweeView_quickScaleEnabled, true));
             }
-            if (obtainStyledAttributes.hasValue(a.j.HugePhotoDraweeView_tileBackgroundColor)) {
-                setTileBackgroundColor(obtainStyledAttributes.getColor(a.j.HugePhotoDraweeView_tileBackgroundColor, Color.argb(0, 0, 0, 0)));
+            if (obtainStyledAttributes.hasValue(d.b.g0.a.j.HugePhotoDraweeView_tileBackgroundColor)) {
+                setTileBackgroundColor(obtainStyledAttributes.getColor(d.b.g0.a.j.HugePhotoDraweeView_tileBackgroundColor, Color.argb(0, 0, 0, 0)));
             }
             obtainStyledAttributes.recycle();
         }
-        this.quickScaleThreshold = TypedValue.applyDimension(1, 20.0f, context.getResources().getDisplayMetrics());
+        this.a0 = TypedValue.applyDimension(1, 20.0f, context.getResources().getDisplayMetrics());
     }
 
-    public HugePhotoDraweeView(Context context) {
-        this(context, null);
-    }
-
-    public void setIsDynamicBitmap(boolean z) {
-        this.dnj = z;
-    }
-
-    public final void setOrientation(int i2) {
-        if (!VALID_ORIENTATIONS.contains(Integer.valueOf(i2))) {
-            throw new IllegalArgumentException("Invalid orientation: " + i2);
-        }
-        this.orientation = i2;
-        reset(false);
-        invalidate();
-        requestLayout();
-    }
-
-    public final void setImage(com.baidu.swan.apps.media.image.b bVar) {
-        setImage(bVar, null, null);
-    }
-
-    public final void setImage(com.baidu.swan.apps.media.image.b bVar, ImageViewState imageViewState) {
-        setImage(bVar, null, imageViewState);
-    }
-
-    public final void setImage(com.baidu.swan.apps.media.image.b bVar, com.baidu.swan.apps.media.image.b bVar2) {
-        setImage(bVar, bVar2, null);
-    }
-
-    public final void setImage(com.baidu.swan.apps.media.image.b bVar, com.baidu.swan.apps.media.image.b bVar2, ImageViewState imageViewState) {
-        if (bVar == null) {
-            throw new NullPointerException("imageSource must not be null");
-        }
-        reset(true);
-        if (imageViewState != null) {
-            a(imageViewState);
-        }
-        if (bVar2 != null) {
-            if (bVar.getBitmap() != null) {
-                throw new IllegalArgumentException("Preview image cannot be used when a bitmap is provided for the main image");
-            }
-            if (bVar.getSWidth() <= 0 || bVar.getSHeight() <= 0) {
-                throw new IllegalArgumentException("Preview image cannot be used unless dimensions are provided for the main image");
-            }
-            this.sWidth = bVar.getSWidth();
-            this.sHeight = bVar.getSHeight();
-            this.pRegion = bVar2.getSRegion();
-            if (bVar2.getBitmap() != null) {
-                this.dmW = bVar2.aBL();
-                onPreviewLoaded(bVar2.getBitmap());
-            } else {
-                Uri uri = bVar2.getUri();
-                if (uri == null && bVar2.getResource() != null) {
-                    uri = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + bVar2.getResource());
-                }
-                a(new c(this, getContext(), this.dnd, uri, true));
-            }
-        }
-        if (bVar.getBitmap() != null && bVar.getSRegion() != null) {
-            a(Bitmap.createBitmap(bVar.getBitmap(), bVar.getSRegion().left, bVar.getSRegion().top, bVar.getSRegion().width(), bVar.getSRegion().height()), 0, false);
-        } else if (bVar.getBitmap() != null && !bVar.getTile()) {
-            a(bVar.getBitmap(), 0, bVar.aBL());
-        } else {
-            this.sRegion = bVar.getSRegion();
-            this.uri = bVar.getUri();
-            if (this.uri == null && bVar.getResource() != null) {
-                this.uri = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + bVar.getResource());
-            }
-            if (bVar.getTile() || this.sRegion != null) {
-                a(new i(this, getContext(), this.dne, bVar));
-            } else {
-                a(new c(this, getContext(), this.dnd, this.uri, false));
-            }
-        }
-    }
-
-    private void reset(boolean z) {
-        this.scale = 0.0f;
-        this.scaleStart = 0.0f;
-        this.vTranslate = null;
-        this.vTranslateStart = null;
-        this.pendingScale = Float.valueOf(0.0f);
-        this.sPendingCenter = null;
-        this.sRequestedCenter = null;
-        this.isZooming = false;
-        this.isPanning = false;
-        this.isQuickScaling = false;
-        this.maxTouchCount = 0;
-        this.fullImageSampleSize = 0;
-        this.vCenterStart = null;
-        this.vDistStart = 0.0f;
-        this.quickScaleCenter = null;
-        this.quickScaleLastDistance = 0.0f;
-        this.quickScaleLastPoint = null;
-        this.quickScaleMoved = false;
-        this.dnf = null;
-        this.dnh = null;
-        this.matrix = null;
-        this.sRect = null;
-        if (z) {
-            this.uri = null;
-            if (this.dnc != null) {
-                synchronized (this.decoderLock) {
-                    this.dnc.recycle();
-                    this.dnc = null;
-                }
-            }
-            if (this.bitmap != null && !this.dmW) {
-                this.bitmap.recycle();
-            }
-            this.sWidth = 0;
-            this.sHeight = 0;
-            this.sOrientation = 0;
-            this.sRegion = null;
-            this.pRegion = null;
-            this.readySent = false;
-            this.imageLoadedSent = false;
-            this.bitmap = null;
-            this.dmV = false;
-            this.dmW = false;
-        }
-        if (this.tileMap != null) {
-            for (Map.Entry<Integer, List<g>> entry : this.tileMap.entrySet()) {
-                for (g gVar : entry.getValue()) {
-                    gVar.visible = false;
-                    if (gVar.bitmap != null) {
-                        gVar.bitmap.recycle();
-                        gVar.bitmap = null;
-                    }
-                }
-            }
-            this.tileMap = null;
-        }
-        setGestureDetector(getContext());
+    private int getRequiredRotation() {
+        int i2 = this.l;
+        return i2 == -1 ? this.J : i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setGestureDetector(final Context context) {
-        this.detector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.swan.apps.media.image.HugePhotoDraweeView.2
-            @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-                if (!HugePhotoDraweeView.this.panEnabled || !HugePhotoDraweeView.this.readySent || HugePhotoDraweeView.this.vTranslate == null || motionEvent == null || motionEvent2 == null || ((Math.abs(motionEvent.getX() - motionEvent2.getX()) <= 50.0f && Math.abs(motionEvent.getY() - motionEvent2.getY()) <= 50.0f) || ((Math.abs(f2) <= 500.0f && Math.abs(f3) <= 500.0f) || HugePhotoDraweeView.this.isZooming))) {
-                    return super.onFling(motionEvent, motionEvent2, f2, f3);
-                }
-                PointF pointF = new PointF(HugePhotoDraweeView.this.vTranslate.x + (f2 * 0.25f), HugePhotoDraweeView.this.vTranslate.y + (0.25f * f3));
-                new b(new PointF(((HugePhotoDraweeView.this.getWidth() / 2) - pointF.x) / HugePhotoDraweeView.this.scale, ((HugePhotoDraweeView.this.getHeight() / 2) - pointF.y) / HugePhotoDraweeView.this.scale)).m28if(1).gc(false).start();
-                return true;
-            }
-
-            @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-            public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-                HugePhotoDraweeView.this.performClick();
-                return true;
-            }
-
-            @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-            public boolean onDoubleTap(MotionEvent motionEvent) {
-                if (HugePhotoDraweeView.this.zoomEnabled && HugePhotoDraweeView.this.readySent && HugePhotoDraweeView.this.vTranslate != null) {
-                    HugePhotoDraweeView.this.setGestureDetector(context);
-                    if (!HugePhotoDraweeView.this.quickScaleEnabled) {
-                        HugePhotoDraweeView.this.doubleTapZoom(HugePhotoDraweeView.this.viewToSourceCoord(new PointF(motionEvent.getX(), motionEvent.getY())), new PointF(motionEvent.getX(), motionEvent.getY()));
-                        return true;
-                    }
-                    HugePhotoDraweeView.this.vCenterStart = new PointF(motionEvent.getX(), motionEvent.getY());
-                    HugePhotoDraweeView.this.vTranslateStart = new PointF(HugePhotoDraweeView.this.vTranslate.x, HugePhotoDraweeView.this.vTranslate.y);
-                    HugePhotoDraweeView.this.scaleStart = HugePhotoDraweeView.this.scale;
-                    HugePhotoDraweeView.this.isQuickScaling = true;
-                    HugePhotoDraweeView.this.isZooming = true;
-                    HugePhotoDraweeView.this.quickScaleCenter = HugePhotoDraweeView.this.viewToSourceCoord(HugePhotoDraweeView.this.vCenterStart);
-                    HugePhotoDraweeView.this.quickScaleLastDistance = -1.0f;
-                    HugePhotoDraweeView.this.quickScaleLastPoint = new PointF(HugePhotoDraweeView.this.quickScaleCenter.x, HugePhotoDraweeView.this.quickScaleCenter.y);
-                    HugePhotoDraweeView.this.quickScaleMoved = false;
-                    return false;
-                }
-                return super.onDoubleTapEvent(motionEvent);
-            }
-        });
+    public void setGestureDetector(Context context) {
+        this.Q = new GestureDetector(context, new b(context));
     }
 
-    @Override // android.view.View
-    protected void onSizeChanged(int i2, int i3, int i4, int i5) {
-        PointF center = getCenter();
-        if (this.readySent && center != null) {
-            this.dnf = null;
-            this.pendingScale = Float.valueOf(this.scale);
-            this.sPendingCenter = center;
-        }
+    public final PointF A0(PointF pointF) {
+        return z0(pointF.x, pointF.y, new PointF());
     }
 
-    @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView, android.view.View
-    protected void onMeasure(int i2, int i3) {
-        int i4;
-        int i5;
-        int mode = View.MeasureSpec.getMode(i2);
-        int mode2 = View.MeasureSpec.getMode(i3);
-        int size = View.MeasureSpec.getSize(i2);
-        int size2 = View.MeasureSpec.getSize(i3);
-        boolean z = mode != 1073741824;
-        boolean z2 = mode2 != 1073741824;
-        if (this.sWidth > 0 && this.sHeight > 0) {
-            if (z && z2) {
-                i5 = sWidth();
-                i4 = sHeight();
-            } else if (z2) {
-                i4 = (int) ((sHeight() / sWidth()) * size);
-                i5 = size;
-            } else if (z) {
-                i5 = (int) ((sWidth() / sHeight()) * size2);
-                i4 = size2;
-            }
-            setMeasuredDimension(Math.max(i5, getSuggestedMinimumWidth()), Math.max(i4, getSuggestedMinimumHeight()));
-        }
-        i4 = size2;
-        i5 = size;
-        setMeasuredDimension(Math.max(i5, getSuggestedMinimumWidth()), Math.max(i4, getSuggestedMinimumHeight()));
+    public final Rect B0(Rect rect, Rect rect2) {
+        rect2.set((int) C0(rect.left), (int) D0(rect.top), (int) C0(rect.right), (int) D0(rect.bottom));
+        return rect2;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.facebook.drawee.view.DraweeView, android.view.View
-    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
-        float f2;
-        boolean z = false;
-        if (this.dnf != null && !this.dnf.interruptible) {
-            getParent().requestDisallowInterceptTouchEvent(true);
-            return true;
+    public final float C0(float f2) {
+        PointF pointF = this.C;
+        if (pointF == null) {
+            return Float.NaN;
         }
-        if (this.dnf != null && this.dnf.dnn != null) {
-            try {
-                this.dnf.dnn.aBH();
-            } catch (Exception e2) {
-                Log.w("HugePhotoDraweeView", "Error thrown by animation listener", e2);
-            }
-        }
-        this.dnf = null;
-        if (this.dnj && this.vTranslate == null) {
-            this.vTranslate = new PointF();
-        }
-        if (this.vTranslate != null) {
-            if (!this.isQuickScaling && (this.detector == null || this.detector.onTouchEvent(motionEvent))) {
-                this.isZooming = false;
-                this.isPanning = false;
-                this.maxTouchCount = 0;
-                return true;
-            }
-            if (this.vTranslateStart == null) {
-                this.vTranslateStart = new PointF(0.0f, 0.0f);
-            }
-            if (this.vCenterStart == null) {
-                this.vCenterStart = new PointF(0.0f, 0.0f);
-            }
-            int pointerCount = motionEvent.getPointerCount();
-            switch (motionEvent.getAction()) {
-                case 0:
-                case 5:
-                case 261:
-                    this.dnf = null;
-                    getParent().requestDisallowInterceptTouchEvent(true);
-                    this.maxTouchCount = Math.max(this.maxTouchCount, pointerCount);
-                    if (pointerCount >= 2) {
-                        if (this.zoomEnabled) {
-                            float distance = distance(motionEvent.getX(0), motionEvent.getX(1), motionEvent.getY(0), motionEvent.getY(1));
-                            this.scaleStart = this.scale;
-                            this.vDistStart = distance;
-                            this.vTranslateStart.set(this.vTranslate.x, this.vTranslate.y);
-                            this.vCenterStart.set((motionEvent.getX(0) + motionEvent.getX(1)) / 2.0f, (motionEvent.getY(0) + motionEvent.getY(1)) / 2.0f);
-                        } else {
-                            this.maxTouchCount = 0;
-                        }
-                        this.handler.removeMessages(1);
-                        return true;
-                    } else if (this.isQuickScaling) {
-                        return true;
-                    } else {
-                        this.vTranslateStart.set(this.vTranslate.x, this.vTranslate.y);
-                        this.vCenterStart.set(motionEvent.getX(), motionEvent.getY());
-                        this.handler.sendEmptyMessageDelayed(1, 600L);
-                        return true;
-                    }
-                case 1:
-                case 3:
-                case 6:
-                case 262:
-                    aBF();
-                    this.handler.removeMessages(1);
-                    if (this.isQuickScaling) {
-                        this.isQuickScaling = false;
-                        if (!this.quickScaleMoved) {
-                            doubleTapZoom(this.quickScaleCenter, this.vCenterStart);
-                        }
-                    }
-                    if (this.maxTouchCount > 0 && (this.isZooming || this.isPanning)) {
-                        if (this.isZooming && pointerCount == 2) {
-                            this.isPanning = true;
-                            this.vTranslateStart.set(this.vTranslate.x, this.vTranslate.y);
-                            if (motionEvent.getActionIndex() == 1) {
-                                this.vCenterStart.set(motionEvent.getX(0), motionEvent.getY(0));
-                            } else {
-                                this.vCenterStart.set(motionEvent.getX(1), motionEvent.getY(1));
-                            }
-                        }
-                        if (pointerCount < 3) {
-                            this.isZooming = false;
-                        }
-                        if (pointerCount < 2) {
-                            this.isPanning = false;
-                            this.maxTouchCount = 0;
-                        }
-                        refreshRequiredTiles(true);
-                        return true;
-                    } else if (pointerCount == 1) {
-                        this.isZooming = false;
-                        this.isPanning = false;
-                        this.maxTouchCount = 0;
-                        return true;
-                    } else {
-                        return true;
-                    }
-                case 2:
-                    if (this.maxTouchCount > 0) {
-                        if (pointerCount >= 2) {
-                            float distance2 = distance(motionEvent.getX(0), motionEvent.getX(1), motionEvent.getY(0), motionEvent.getY(1));
-                            float x = (motionEvent.getX(0) + motionEvent.getX(1)) / 2.0f;
-                            float y = (motionEvent.getY(0) + motionEvent.getY(1)) / 2.0f;
-                            if (this.zoomEnabled && (distance(this.vCenterStart.x, x, this.vCenterStart.y, y) > 5.0f || Math.abs(distance2 - this.vDistStart) > 5.0f || this.isPanning)) {
-                                this.isZooming = true;
-                                this.isPanning = true;
-                                this.scale = Math.min(this.maxScale, (distance2 / this.vDistStart) * this.scaleStart);
-                                float minScale = minScale();
-                                if (this.scale <= minScale) {
-                                    Log.i("HugePhotoDraweeView", "scale is " + this.scale + "<= minScaleValue is " + minScale);
-                                } else if (this.panEnabled) {
-                                    float f3 = this.vCenterStart.x - this.vTranslateStart.x;
-                                    float f4 = this.vCenterStart.y - this.vTranslateStart.y;
-                                    float f5 = f3 * (this.scale / this.scaleStart);
-                                    float f6 = f4 * (this.scale / this.scaleStart);
-                                    this.vTranslate.x = x - f5;
-                                    this.vTranslate.y = y - f6;
-                                } else if (this.sRequestedCenter != null) {
-                                    this.vTranslate.x = (getWidth() / 2) - (this.scale * this.sRequestedCenter.x);
-                                    this.vTranslate.y = (getHeight() / 2) - (this.scale * this.sRequestedCenter.y);
-                                } else {
-                                    this.vTranslate.x = (getWidth() / 2) - (this.scale * (sWidth() / 2));
-                                    this.vTranslate.y = (getHeight() / 2) - (this.scale * (sHeight() / 2));
-                                }
-                                fitToBounds(true);
-                                refreshRequiredTiles(false);
-                                z = true;
-                            }
-                        } else if (this.isQuickScaling) {
-                            float abs = this.quickScaleThreshold + (Math.abs(this.vCenterStart.y - motionEvent.getY()) * 2.0f);
-                            if (this.quickScaleLastDistance == -1.0f) {
-                                this.quickScaleLastDistance = abs;
-                            }
-                            boolean z2 = motionEvent.getY() > this.quickScaleLastPoint.y;
-                            this.quickScaleLastPoint.set(0.0f, motionEvent.getY());
-                            float abs2 = Math.abs(1.0f - (abs / this.quickScaleLastDistance)) * 0.5f;
-                            if (abs2 > 0.03f || this.quickScaleMoved) {
-                                this.quickScaleMoved = true;
-                                if (this.quickScaleLastDistance > 0.0f) {
-                                    f2 = z2 ? 1.0f + abs2 : 1.0f - abs2;
-                                } else {
-                                    f2 = 1.0f;
-                                }
-                                this.scale = Math.max(minScale(), Math.min(this.maxScale, f2 * this.scale));
-                                if (this.panEnabled) {
-                                    float f7 = this.vCenterStart.x - this.vTranslateStart.x;
-                                    float f8 = this.vCenterStart.y - this.vTranslateStart.y;
-                                    float f9 = f7 * (this.scale / this.scaleStart);
-                                    float f10 = f8 * (this.scale / this.scaleStart);
-                                    this.vTranslate.x = this.vCenterStart.x - f9;
-                                    this.vTranslate.y = this.vCenterStart.y - f10;
-                                } else if (this.sRequestedCenter != null) {
-                                    this.vTranslate.x = (getWidth() / 2) - (this.scale * this.sRequestedCenter.x);
-                                    this.vTranslate.y = (getHeight() / 2) - (this.scale * this.sRequestedCenter.y);
-                                } else {
-                                    this.vTranslate.x = (getWidth() / 2) - (this.scale * (sWidth() / 2));
-                                    this.vTranslate.y = (getHeight() / 2) - (this.scale * (sHeight() / 2));
-                                }
-                            }
-                            this.quickScaleLastDistance = abs;
-                            fitToBounds(true);
-                            refreshRequiredTiles(false);
-                            z = true;
-                        } else if (!this.isZooming) {
-                            float abs3 = Math.abs(motionEvent.getX() - this.vCenterStart.x);
-                            float abs4 = Math.abs(motionEvent.getY() - this.vCenterStart.y);
-                            float f11 = this.dni * 5.0f;
-                            if (abs3 > f11 || abs4 > f11 || this.isPanning) {
-                                this.vTranslate.x = this.vTranslateStart.x + (motionEvent.getX() - this.vCenterStart.x);
-                                this.vTranslate.y = this.vTranslateStart.y + (motionEvent.getY() - this.vCenterStart.y);
-                                float f12 = this.vTranslate.x;
-                                float f13 = this.vTranslate.y;
-                                fitToBounds(true);
-                                boolean z3 = f12 != this.vTranslate.x;
-                                boolean z4 = z3 && abs3 > abs4 && !this.isPanning;
-                                boolean z5 = f13 == this.vTranslate.y && abs4 > 3.0f * f11;
-                                if (!z4 && (!z3 || z5 || this.isPanning)) {
-                                    this.isPanning = true;
-                                } else if (abs3 > f11) {
-                                    this.maxTouchCount = 0;
-                                    this.handler.removeMessages(1);
-                                    getParent().requestDisallowInterceptTouchEvent(false);
-                                }
-                                if (!this.panEnabled) {
-                                    this.vTranslate.x = this.vTranslateStart.x;
-                                    this.vTranslate.y = this.vTranslateStart.y;
-                                    getParent().requestDisallowInterceptTouchEvent(false);
-                                }
-                                refreshRequiredTiles(false);
-                                z = true;
-                            }
-                        }
-                    }
-                    if (z) {
-                        this.handler.removeMessages(1);
-                        invalidate();
-                        return true;
-                    }
-                    break;
-            }
-            return super.onTouchEvent(motionEvent);
-        }
-        return true;
+        return (f2 * this.A) + pointF.x;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void doubleTapZoom(PointF pointF, PointF pointF2) {
-        if (!this.panEnabled) {
-            if (this.sRequestedCenter != null) {
-                pointF.x = this.sRequestedCenter.x;
-                pointF.y = this.sRequestedCenter.y;
-            } else {
-                pointF.x = sWidth() / 2;
-                pointF.y = sHeight() / 2;
-            }
+    public final float D0(float f2) {
+        PointF pointF = this.C;
+        if (pointF == null) {
+            return Float.NaN;
         }
-        float min = Math.min(this.maxScale, this.doubleTapZoomScale);
-        boolean z = ((double) this.scale) <= ((double) min) * 0.9d;
-        if (!z) {
-            min = minScale();
-        }
-        if (this.doubleTapZoomStyle == 3) {
-            setScaleAndCenter(min, pointF);
-        } else if (this.doubleTapZoomStyle == 2 || !z || !this.panEnabled) {
-            new b(min, pointF).gb(false).cx(this.dnb).start();
-        } else if (this.doubleTapZoomStyle == 1) {
-            new b(min, pointF, pointF2).gb(false).cx(this.dnb).start();
-        }
-        invalidate();
+        return (f2 * this.A) + pointF.y;
     }
 
-    @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
-    public void setImageDrawable(@Nullable Drawable drawable) {
-        com.baidu.swan.apps.media.image.c.a(getContext(), drawable);
-        super.setImageDrawable(drawable);
+    public final boolean E0(i iVar) {
+        return J0(0.0f) <= ((float) iVar.f12371a.right) && ((float) iVar.f12371a.left) <= J0((float) getWidth()) && K0(0.0f) <= ((float) iVar.f12371a.bottom) && ((float) iVar.f12371a.top) <= K0((float) getHeight());
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        boolean z;
-        if (this.dnj) {
-            if (this.dnl != com.baidu.swan.apps.media.image.c.da(getContext())) {
-                com.baidu.swan.apps.media.image.c.a(getContext(), getDrawable());
-                this.dnl = com.baidu.swan.apps.media.image.c.da(getContext());
-            }
-            super.onDraw(canvas);
-            return;
+    public final PointF F0(float f2, float f3, float f4) {
+        int paddingLeft = getPaddingLeft() + (((getWidth() - getPaddingRight()) - getPaddingLeft()) / 2);
+        int paddingTop = getPaddingTop() + (((getHeight() - getPaddingBottom()) - getPaddingTop()) / 2);
+        if (this.o0 == null) {
+            this.o0 = new h(0.0f, new PointF(0.0f, 0.0f), null);
         }
-        createPaints();
-        aBE();
-        if (this.sWidth != 0 && this.sHeight != 0 && getWidth() != 0 && getHeight() != 0) {
-            if (this.tileMap == null && this.dnc != null) {
-                initialiseBaseLayer(getMaxBitmapDimensions(canvas));
-            }
-            if (checkReady()) {
-                preDraw();
-                if (this.dnf != null) {
-                    long currentTimeMillis = System.currentTimeMillis() - this.dnf.time;
-                    boolean z2 = currentTimeMillis > this.dnf.duration;
-                    long min = Math.min(currentTimeMillis, this.dnf.duration);
-                    this.scale = ease(this.dnf.easing, min, this.dnf.scaleStart, this.dnf.scaleEnd - this.dnf.scaleStart, this.dnf.duration);
-                    float ease = ease(this.dnf.easing, min, this.dnf.vFocusStart.x, this.dnf.vFocusEnd.x - this.dnf.vFocusStart.x, this.dnf.duration);
-                    float ease2 = ease(this.dnf.easing, min, this.dnf.vFocusStart.y, this.dnf.vFocusEnd.y - this.dnf.vFocusStart.y, this.dnf.duration);
-                    this.vTranslate.x -= sourceToViewX(this.dnf.sCenterEnd.x) - ease;
-                    this.vTranslate.y -= sourceToViewY(this.dnf.sCenterEnd.y) - ease2;
-                    fitToBounds(z2 || this.dnf.scaleStart == this.dnf.scaleEnd);
-                    refreshRequiredTiles(z2);
-                    if (z2) {
-                        if (this.dnf.dnn != null) {
-                            try {
-                                this.dnf.dnn.onComplete();
-                            } catch (Exception e2) {
-                                Log.w("HugePhotoDraweeView", "Error thrown by animation listener", e2);
-                            }
-                        }
-                        this.dnf = null;
-                    }
-                    invalidate();
-                }
-                if (this.tileMap != null && isBaseLayerReady()) {
-                    int min2 = Math.min(this.fullImageSampleSize, calculateInSampleSize(this.scale));
-                    boolean z3 = false;
-                    Iterator<Map.Entry<Integer, List<g>>> it = this.tileMap.entrySet().iterator();
-                    while (true) {
-                        z = z3;
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        Map.Entry<Integer, List<g>> next = it.next();
-                        if (next.getKey().intValue() == min2) {
-                            for (g gVar : next.getValue()) {
-                                if (gVar.visible && (gVar.loading || gVar.bitmap == null)) {
-                                    z = true;
-                                }
-                            }
-                        }
-                        z3 = z;
-                    }
-                    for (Map.Entry<Integer, List<g>> entry : this.tileMap.entrySet()) {
-                        if (entry.getKey().intValue() == min2 || z) {
-                            for (g gVar2 : entry.getValue()) {
-                                sourceToViewRect(gVar2.sRect, gVar2.vRect);
-                                if (!gVar2.loading && gVar2.bitmap != null) {
-                                    if (this.tileBgPaint != null) {
-                                        canvas.drawRect(gVar2.vRect, this.tileBgPaint);
-                                    }
-                                    if (this.matrix == null) {
-                                        this.matrix = new Matrix();
-                                    }
-                                    this.matrix.reset();
-                                    setMatrixArray(this.srcArray, 0.0f, 0.0f, gVar2.bitmap.getWidth(), 0.0f, gVar2.bitmap.getWidth(), gVar2.bitmap.getHeight(), 0.0f, gVar2.bitmap.getHeight());
-                                    if (getRequiredRotation() == 0) {
-                                        setMatrixArray(this.dstArray, gVar2.vRect.left, gVar2.vRect.top, gVar2.vRect.right, gVar2.vRect.top, gVar2.vRect.right, gVar2.vRect.bottom, gVar2.vRect.left, gVar2.vRect.bottom);
-                                    } else if (getRequiredRotation() == 90) {
-                                        setMatrixArray(this.dstArray, gVar2.vRect.right, gVar2.vRect.top, gVar2.vRect.right, gVar2.vRect.bottom, gVar2.vRect.left, gVar2.vRect.bottom, gVar2.vRect.left, gVar2.vRect.top);
-                                    } else if (getRequiredRotation() == 180) {
-                                        setMatrixArray(this.dstArray, gVar2.vRect.right, gVar2.vRect.bottom, gVar2.vRect.left, gVar2.vRect.bottom, gVar2.vRect.left, gVar2.vRect.top, gVar2.vRect.right, gVar2.vRect.top);
-                                    } else if (getRequiredRotation() == 270) {
-                                        setMatrixArray(this.dstArray, gVar2.vRect.left, gVar2.vRect.bottom, gVar2.vRect.left, gVar2.vRect.top, gVar2.vRect.right, gVar2.vRect.top, gVar2.vRect.right, gVar2.vRect.bottom);
-                                    }
-                                    this.matrix.setPolyToPoly(this.srcArray, 0, this.dstArray, 0, 4);
-                                    canvas.drawBitmap(gVar2.bitmap, this.matrix, this.bitmapPaint);
-                                    if (this.debug) {
-                                        canvas.drawRect(gVar2.vRect, this.debugPaint);
-                                    }
-                                } else if (gVar2.loading && this.debug) {
-                                    canvas.drawText("LOADING", gVar2.vRect.left + 5, gVar2.vRect.top + 35, this.debugPaint);
-                                }
-                                if (gVar2.visible && this.debug) {
-                                    canvas.drawText("ISS " + gVar2.sampleSize + " RECT " + gVar2.sRect.top + "," + gVar2.sRect.left + "," + gVar2.sRect.bottom + "," + gVar2.sRect.right, gVar2.vRect.left + 5, gVar2.vRect.top + 15, this.debugPaint);
-                                }
-                            }
-                        }
-                    }
-                    if (this.debug) {
-                        canvas.drawText("Scale: " + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(this.scale)), 5.0f, 15.0f, this.debugPaint);
-                        canvas.drawText("Translate: " + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(this.vTranslate.x)) + ":" + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(this.vTranslate.y)), 5.0f, 35.0f, this.debugPaint);
-                        PointF center = getCenter();
-                        canvas.drawText("Source center: " + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(center.x)) + ":" + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(center.y)), 5.0f, 55.0f, this.debugPaint);
-                        if (this.dnf == null) {
-                            return;
-                        }
-                        PointF sourceToViewCoord = sourceToViewCoord(this.dnf.sCenterStart);
-                        PointF sourceToViewCoord2 = sourceToViewCoord(this.dnf.sCenterEndRequested);
-                        PointF sourceToViewCoord3 = sourceToViewCoord(this.dnf.sCenterEnd);
-                        canvas.drawCircle(sourceToViewCoord.x, sourceToViewCoord.y, 10.0f, this.debugPaint);
-                        canvas.drawCircle(sourceToViewCoord2.x, sourceToViewCoord2.y, 20.0f, this.debugPaint);
-                        canvas.drawCircle(sourceToViewCoord3.x, sourceToViewCoord3.y, 25.0f, this.debugPaint);
-                        canvas.drawCircle(getWidth() / 2, getHeight() / 2, 30.0f, this.debugPaint);
-                    }
-                } else if (this.bitmap != null) {
-                    float f2 = this.scale;
-                    float f3 = this.scale;
-                    if (this.dmV) {
-                        f2 = (this.sWidth / this.bitmap.getWidth()) * this.scale;
-                        f3 = this.scale * (this.sHeight / this.bitmap.getHeight());
-                    }
-                    if (this.matrix == null) {
-                        this.matrix = new Matrix();
-                    }
-                    this.matrix.reset();
-                    this.matrix.postScale(f2, f3);
-                    this.matrix.postRotate(getRequiredRotation());
-                    this.matrix.postTranslate(this.vTranslate.x, this.vTranslate.y);
-                    if (getRequiredRotation() == 180) {
-                        this.matrix.postTranslate(this.scale * this.sWidth, this.scale * this.sHeight);
-                    } else if (getRequiredRotation() == 90) {
-                        this.matrix.postTranslate(this.scale * this.sHeight, 0.0f);
-                    } else if (getRequiredRotation() == 270) {
-                        this.matrix.postTranslate(0.0f, this.scale * this.sWidth);
-                    }
-                    if (this.tileBgPaint != null) {
-                        if (this.sRect == null) {
-                            this.sRect = new RectF();
-                        }
-                        this.sRect.set(0.0f, 0.0f, this.sWidth, this.sHeight);
-                        this.matrix.mapRect(this.sRect);
-                        canvas.drawRect(this.sRect, this.tileBgPaint);
-                    }
-                    if (this.bitmap != null && !this.bitmap.isRecycled()) {
-                        canvas.drawBitmap(this.bitmap, this.matrix, this.bitmapPaint);
-                    } else {
-                        Log.i("HugePhotoDraweeView", "onDraw-> Bitmap is NULL or Recycled <--");
-                    }
-                }
-            }
-        }
+        this.o0.f12369a = f4;
+        this.o0.f12370b.set(paddingLeft - (f2 * f4), paddingTop - (f3 * f4));
+        a0(true, this.o0);
+        return this.o0.f12370b;
     }
 
-    private void aBE() {
-        if (this.bitmapPaint != null) {
-            if (this.dnl != com.baidu.swan.apps.media.image.c.da(getContext())) {
-                this.dnl = com.baidu.swan.apps.media.image.c.da(getContext());
-                this.dnk = new PorterDuffColorFilter(this.dnl, PorterDuff.Mode.SRC_ATOP);
-            }
-            this.bitmapPaint.setColorFilter(this.dnk);
-        }
+    public final PointF G0(float f2, float f3) {
+        return H0(f2, f3, new PointF());
     }
 
-    private void setMatrixArray(float[] fArr, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9) {
-        fArr[0] = f2;
-        fArr[1] = f3;
-        fArr[2] = f4;
-        fArr[3] = f5;
-        fArr[4] = f6;
-        fArr[5] = f7;
-        fArr[6] = f8;
-        fArr[7] = f9;
+    public final PointF H0(float f2, float f3, PointF pointF) {
+        if (this.C == null) {
+            return null;
+        }
+        pointF.set(J0(f2), K0(f3));
+        return pointF;
     }
 
-    private boolean isBaseLayerReady() {
-        boolean z = true;
-        if (this.bitmap != null && !this.dmV) {
-            return true;
-        }
-        if (this.tileMap == null) {
-            return false;
-        }
-        Iterator<Map.Entry<Integer, List<g>>> it = this.tileMap.entrySet().iterator();
-        while (true) {
-            boolean z2 = z;
-            if (!it.hasNext()) {
-                return z2;
-            }
-            Map.Entry<Integer, List<g>> next = it.next();
-            if (next.getKey().intValue() == this.fullImageSampleSize) {
-                for (g gVar : next.getValue()) {
-                    if (gVar.loading || gVar.bitmap == null) {
-                        z2 = false;
-                    }
-                }
-            }
-            z = z2;
-        }
+    public final PointF I0(PointF pointF) {
+        return H0(pointF.x, pointF.y, new PointF());
     }
 
-    private boolean checkReady() {
-        boolean z = getWidth() > 0 && getHeight() > 0 && this.sWidth > 0 && this.sHeight > 0 && (this.bitmap != null || isBaseLayerReady());
-        if (!this.readySent && z) {
-            preDraw();
-            this.readySent = true;
-            onReady();
-            if (this.dng != null) {
-                this.dng.onReady();
-            }
+    public final float J0(float f2) {
+        PointF pointF = this.C;
+        if (pointF == null) {
+            return Float.NaN;
         }
-        return z;
+        return (f2 - pointF.x) / this.A;
     }
 
-    private boolean checkImageLoaded() {
-        boolean isBaseLayerReady = isBaseLayerReady();
-        if (!this.imageLoadedSent && isBaseLayerReady) {
-            preDraw();
-            this.imageLoadedSent = true;
-            onImageLoaded();
-            if (this.dng != null) {
-                this.dng.onImageLoaded();
-            }
+    public final float K0(float f2) {
+        PointF pointF = this.C;
+        if (pointF == null) {
+            return Float.NaN;
         }
-        return isBaseLayerReady;
+        return (f2 - pointF.y) / this.A;
     }
 
-    private void createPaints() {
-        if (this.bitmapPaint == null) {
-            this.bitmapPaint = new Paint();
-            this.bitmapPaint.setAntiAlias(true);
-            this.bitmapPaint.setFilterBitmap(true);
-            this.bitmapPaint.setDither(true);
-        }
-        if (this.debugPaint == null && this.debug) {
-            this.debugPaint = new Paint();
-            this.debugPaint.setTextSize(18.0f);
-            this.debugPaint.setColor(-65281);
-            this.debugPaint.setStyle(Paint.Style.STROKE);
-        }
-    }
-
-    private synchronized void initialiseBaseLayer(Point point) {
-        this.dnh = new f(0.0f, new PointF(0.0f, 0.0f));
-        a(true, this.dnh);
-        this.fullImageSampleSize = calculateInSampleSize(this.dnh.scale);
-        if (this.fullImageSampleSize > 1) {
-            this.fullImageSampleSize /= 2;
-        }
-        if (this.fullImageSampleSize == 1 && this.sRegion == null && sWidth() < point.x && sHeight() < point.y && this.uri != null) {
-            this.dnc.recycle();
-            this.dnc = null;
-            a(new c(this, getContext(), this.dnd, this.uri, false));
-        } else {
-            initialiseTileMap(point);
-            for (g gVar : this.tileMap.get(Integer.valueOf(this.fullImageSampleSize))) {
-                a(new h(this, this.dnc, gVar));
-            }
-            refreshRequiredTiles(true);
-        }
-    }
-
-    private void refreshRequiredTiles(boolean z) {
-        if (this.dnc != null && this.tileMap != null) {
-            int min = Math.min(this.fullImageSampleSize, calculateInSampleSize(this.scale));
-            for (Map.Entry<Integer, List<g>> entry : this.tileMap.entrySet()) {
-                for (g gVar : entry.getValue()) {
-                    if (gVar.sampleSize < min || (gVar.sampleSize > min && gVar.sampleSize != this.fullImageSampleSize)) {
-                        gVar.visible = false;
-                        if (gVar.bitmap != null) {
-                            gVar.bitmap.recycle();
-                            gVar.bitmap = null;
-                        }
-                    }
-                    if (gVar.sampleSize == min) {
-                        if (a(gVar)) {
-                            gVar.visible = true;
-                            if (!gVar.loading && gVar.bitmap == null && z) {
-                                a(new h(this, this.dnc, gVar));
-                            }
-                        } else if (gVar.sampleSize != this.fullImageSampleSize) {
-                            gVar.visible = false;
-                            if (gVar.bitmap != null) {
-                                gVar.bitmap.recycle();
-                                gVar.bitmap = null;
-                            }
-                        }
-                    } else if (gVar.sampleSize == this.fullImageSampleSize) {
-                        gVar.visible = true;
-                    }
-                }
-            }
-        }
-    }
-
-    private boolean a(g gVar) {
-        return viewToSourceX(0.0f) <= ((float) gVar.sRect.right) && ((float) gVar.sRect.left) <= viewToSourceX((float) getWidth()) && viewToSourceY(0.0f) <= ((float) gVar.sRect.bottom) && ((float) gVar.sRect.top) <= viewToSourceY((float) getHeight());
-    }
-
-    private void preDraw() {
-        if (getWidth() != 0 && getHeight() != 0 && this.sWidth > 0 && this.sHeight > 0) {
-            if (this.sPendingCenter != null && this.pendingScale != null) {
-                this.scale = this.pendingScale.floatValue();
-                if (this.vTranslate == null) {
-                    this.vTranslate = new PointF();
-                }
-                this.vTranslate.x = (getWidth() / 2) - (this.scale * this.sPendingCenter.x);
-                this.vTranslate.y = (getHeight() / 2) - (this.scale * this.sPendingCenter.y);
-                this.sPendingCenter = null;
-                this.pendingScale = null;
-                fitToBounds(true);
-                refreshRequiredTiles(true);
-            }
-            fitToBounds(false);
-        }
-    }
-
-    private int calculateInSampleSize(float f2) {
+    public final int N(float f2) {
         int round;
-        if (this.minimumTileDpi > 0) {
+        if (this.o > 0) {
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            f2 *= this.minimumTileDpi / ((displayMetrics.ydpi + displayMetrics.xdpi) / 2.0f);
+            f2 *= this.o / ((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f);
         }
-        int sWidth = (int) (sWidth() * f2);
-        int sHeight = (int) (sHeight() * f2);
-        if (sWidth == 0 || sHeight == 0) {
+        int x02 = (int) (x0() * f2);
+        int w0 = (int) (w0() * f2);
+        if (x02 == 0 || w0 == 0) {
             return 32;
         }
-        if (sHeight() > sHeight || sWidth() > sWidth) {
-            round = Math.round(sHeight() / sHeight);
-            int round2 = Math.round(sWidth() / sWidth);
+        int i2 = 1;
+        if (w0() > w0 || x0() > x02) {
+            round = Math.round(w0() / w0);
+            int round2 = Math.round(x0() / x02);
             if (round >= round2) {
                 round = round2;
             }
         } else {
             round = 1;
         }
-        int i2 = 1;
-        while (i2 * 2 < round) {
-            i2 *= 2;
-        }
-        return i2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z, f fVar) {
-        float max;
-        float max2;
-        float f2 = 0.5f;
-        if (this.panLimit == 2 && isReady()) {
-            z = false;
-        }
-        PointF pointF = fVar.vTranslate;
-        float limitedScale = limitedScale(fVar.scale);
-        float sWidth = limitedScale * sWidth();
-        float sHeight = limitedScale * sHeight();
-        if (this.panLimit == 3 && isReady()) {
-            pointF.x = Math.max(pointF.x, (getWidth() / 2) - sWidth);
-            pointF.y = Math.max(pointF.y, (getHeight() / 2) - sHeight);
-        } else if (z) {
-            pointF.x = Math.max(pointF.x, getWidth() - sWidth);
-            pointF.y = Math.max(pointF.y, getHeight() - sHeight);
-        } else {
-            pointF.x = Math.max(pointF.x, -sWidth);
-            pointF.y = Math.max(pointF.y, -sHeight);
-        }
-        float paddingLeft = (getPaddingLeft() > 0 || getPaddingRight() > 0) ? getPaddingLeft() / (getPaddingLeft() + getPaddingRight()) : 0.5f;
-        if (getPaddingTop() > 0 || getPaddingBottom() > 0) {
-            f2 = getPaddingTop() / (getPaddingTop() + getPaddingBottom());
-        }
-        if (this.panLimit == 3 && isReady()) {
-            max = Math.max(0, getWidth() / 2);
-            max2 = Math.max(0, getHeight() / 2);
-        } else if (z) {
-            max = Math.max(0.0f, (getWidth() - sWidth) * paddingLeft);
-            max2 = Math.max(0.0f, (getHeight() - sHeight) * f2);
-        } else {
-            max = Math.max(0, getWidth());
-            max2 = Math.max(0, getHeight());
-        }
-        pointF.x = Math.min(pointF.x, max);
-        pointF.y = Math.min(pointF.y, max2);
-        fVar.scale = limitedScale;
-    }
-
-    private void fitToBounds(boolean z) {
-        boolean z2 = false;
-        if (this.vTranslate == null) {
-            z2 = true;
-            this.vTranslate = new PointF(0.0f, 0.0f);
-        }
-        if (this.dnh == null) {
-            this.dnh = new f(0.0f, new PointF(0.0f, 0.0f));
-        }
-        this.dnh.scale = this.scale;
-        this.dnh.vTranslate.set(this.vTranslate);
-        a(z, this.dnh);
-        this.scale = this.dnh.scale;
-        this.vTranslate.set(this.dnh.vTranslate);
-        if (z2) {
-            this.vTranslate.set(vTranslateForSCenter(sWidth() / 2, sHeight() / 2, this.scale));
-        }
-    }
-
-    private void initialiseTileMap(Point point) {
-        this.tileMap = new LinkedHashMap();
-        int i2 = this.fullImageSampleSize;
-        int i3 = 1;
-        int i4 = 1;
         while (true) {
-            int sWidth = sWidth() / i3;
-            int sHeight = sHeight() / i4;
-            int i5 = sWidth / i2;
-            int i6 = sHeight / i2;
-            while (true) {
-                if (i5 + i3 + 1 > point.x || (i5 > getWidth() * 1.25d && i2 < this.fullImageSampleSize)) {
-                    i3++;
-                    sWidth = sWidth() / i3;
-                    i5 = sWidth / i2;
-                }
+            int i3 = i2 * 2;
+            if (i3 >= round) {
+                return i2;
             }
-            int i7 = i6;
-            while (true) {
-                if (i7 + i4 + 1 > point.y || (i7 > getHeight() * 1.25d && i2 < this.fullImageSampleSize)) {
-                    i4++;
-                    int sHeight2 = sHeight() / i4;
-                    i7 = sHeight2 / i2;
-                    sHeight = sHeight2;
-                }
-            }
-            ArrayList arrayList = new ArrayList(i3 * i4);
-            int i8 = 0;
-            while (i8 < i3) {
-                int i9 = 0;
-                while (i9 < i4) {
-                    g gVar = new g();
-                    gVar.sampleSize = i2;
-                    gVar.visible = i2 == this.fullImageSampleSize;
-                    gVar.sRect = new Rect(i8 * sWidth, i9 * sHeight, i8 == i3 + (-1) ? sWidth() : (i8 + 1) * sWidth, i9 == i4 + (-1) ? sHeight() : (i9 + 1) * sHeight);
-                    gVar.vRect = new Rect(0, 0, 0, 0);
-                    gVar.fileSRect = new Rect(gVar.sRect);
-                    arrayList.add(gVar);
-                    i9++;
-                }
-                i8++;
-            }
-            this.tileMap.put(Integer.valueOf(i2), arrayList);
-            if (i2 != 1) {
-                i2 /= 2;
-            } else {
-                return;
-            }
+            i2 = i3;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public static class i extends AsyncTask<Void, Void, int[]> {
-        private final WeakReference<Context> contextRef;
-        private final WeakReference<com.baidu.swan.apps.media.image.a.b<? extends com.baidu.swan.apps.media.image.a.d>> decoderFactoryRef;
-        private com.baidu.swan.apps.media.image.a.d dnc;
-        private com.baidu.swan.apps.media.image.b dno;
-        private Exception exception;
-        private final WeakReference<HugePhotoDraweeView> viewRef;
-
-        public i(HugePhotoDraweeView hugePhotoDraweeView, Context context, com.baidu.swan.apps.media.image.a.b<? extends com.baidu.swan.apps.media.image.a.d> bVar, com.baidu.swan.apps.media.image.b bVar2) {
-            this.viewRef = new WeakReference<>(hugePhotoDraweeView);
-            this.contextRef = new WeakReference<>(context);
-            this.decoderFactoryRef = new WeakReference<>(bVar);
-            this.dno = bVar2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public int[] doInBackground(Void... voidArr) {
-            Point init;
-            int i;
-            int i2;
-            try {
-                if (this.dno.getUri() != null) {
-                    this.dno.getUri().toString();
-                }
-                Context context = this.contextRef.get();
-                com.baidu.swan.apps.media.image.a.b<? extends com.baidu.swan.apps.media.image.a.d> bVar = this.decoderFactoryRef.get();
-                HugePhotoDraweeView hugePhotoDraweeView = this.viewRef.get();
-                if (context != null && bVar != null && hugePhotoDraweeView != null) {
-                    this.dnc = bVar.make();
-                    if (this.dno.getBitmap() != null) {
-                        init = this.dnc.a(context, this.dno.getBitmap());
-                    } else {
-                        init = this.dnc.init(context, this.dno.getUri());
-                    }
-                    int i3 = init.x;
-                    int i4 = init.y;
-                    int exifOrientation = hugePhotoDraweeView.getExifOrientation("");
-                    if (hugePhotoDraweeView.sRegion != null) {
-                        int width = hugePhotoDraweeView.sRegion.width();
-                        i = hugePhotoDraweeView.sRegion.height();
-                        i2 = width;
-                    } else {
-                        i = i4;
-                        i2 = i3;
-                    }
-                    return new int[]{i2, i, exifOrientation};
-                }
-            } catch (Exception e) {
-                Log.e("HugePhotoDraweeView", "Failed to initialise bitmap decoder", e);
-                this.exception = e;
-            }
-            return null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(int[] iArr) {
-            HugePhotoDraweeView hugePhotoDraweeView = this.viewRef.get();
-            if (hugePhotoDraweeView != null) {
-                if (this.dnc != null && iArr != null && iArr.length == 3) {
-                    hugePhotoDraweeView.a(this.dnc, iArr[0], iArr[1], iArr[2]);
-                } else if (this.exception != null && hugePhotoDraweeView.dng != null) {
-                    hugePhotoDraweeView.dng.onImageLoadError(this.exception);
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(com.baidu.swan.apps.media.image.a.d dVar, int i2, int i3, int i4) {
-        if (this.sWidth > 0 && this.sHeight > 0 && (this.sWidth != i2 || this.sHeight != i3)) {
-            reset(false);
-            if (this.bitmap != null) {
-                if (!this.dmW) {
-                    this.bitmap.recycle();
-                }
-                this.bitmap = null;
-                this.dmV = false;
-                this.dmW = false;
-            }
-        }
-        this.dnc = dVar;
-        this.sWidth = i2;
-        this.sHeight = i3;
-        this.sOrientation = i4;
-        checkReady();
-        checkImageLoaded();
-        invalidate();
-        requestLayout();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public static class h extends AsyncTask<Void, Void, Bitmap> {
-        private final WeakReference<com.baidu.swan.apps.media.image.a.d> decoderRef;
-        private Exception exception;
-        private final WeakReference<g> tileRef;
-        private final WeakReference<HugePhotoDraweeView> viewRef;
-
-        public h(HugePhotoDraweeView hugePhotoDraweeView, com.baidu.swan.apps.media.image.a.d dVar, g gVar) {
-            this.viewRef = new WeakReference<>(hugePhotoDraweeView);
-            this.decoderRef = new WeakReference<>(dVar);
-            this.tileRef = new WeakReference<>(gVar);
-            gVar.loading = true;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public Bitmap doInBackground(Void... voidArr) {
-            HugePhotoDraweeView hugePhotoDraweeView;
-            com.baidu.swan.apps.media.image.a.d dVar;
-            g gVar;
-            Bitmap decodeRegion;
-            try {
-                hugePhotoDraweeView = this.viewRef.get();
-                dVar = this.decoderRef.get();
-                gVar = this.tileRef.get();
-            } catch (Exception e) {
-                Log.e("HugePhotoDraweeView", "Failed to decode tile", e);
-                this.exception = e;
-            } catch (OutOfMemoryError e2) {
-                Log.e("HugePhotoDraweeView", "Failed to decode tile - OutOfMemoryError", e2);
-                this.exception = new RuntimeException(e2);
-            }
-            if (dVar != null && gVar != null && hugePhotoDraweeView != null && dVar.isReady() && gVar.visible) {
-                synchronized (hugePhotoDraweeView.decoderLock) {
-                    hugePhotoDraweeView.fileSRect(gVar.sRect, gVar.fileSRect);
-                    if (hugePhotoDraweeView.sRegion != null) {
-                        gVar.fileSRect.offset(hugePhotoDraweeView.sRegion.left, hugePhotoDraweeView.sRegion.top);
-                    }
-                    decodeRegion = dVar.decodeRegion(gVar.fileSRect, gVar.sampleSize);
-                }
-                return decodeRegion;
-            }
+    public final boolean O() {
+        boolean f0 = f0();
+        if (!this.h0 && f0) {
+            q0();
+            this.h0 = true;
+            k0();
+            g gVar = this.i0;
             if (gVar != null) {
-                gVar.loading = false;
+                gVar.onImageLoaded();
             }
-            return null;
         }
+        return f0;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(Bitmap bitmap) {
-            HugePhotoDraweeView hugePhotoDraweeView = this.viewRef.get();
-            g gVar = this.tileRef.get();
-            if (hugePhotoDraweeView != null && gVar != null) {
-                if (bitmap == null) {
-                    if (this.exception != null && hugePhotoDraweeView.dng != null) {
-                        hugePhotoDraweeView.dng.onTileLoadError(this.exception);
-                        return;
-                    }
-                    return;
-                }
-                gVar.bitmap = bitmap;
-                gVar.loading = false;
-                hugePhotoDraweeView.onTileLoaded();
+    public final boolean P() {
+        boolean z = getWidth() > 0 && getHeight() > 0 && this.H > 0 && this.I > 0 && (this.f12339e != null || f0());
+        if (!this.g0 && z) {
+            q0();
+            this.g0 = true;
+            n0();
+            g gVar = this.i0;
+            if (gVar != null) {
+                gVar.onReady();
             }
+        }
+        return z;
+    }
+
+    public final void Q() {
+        if (this.l0 == null) {
+            Paint paint = new Paint();
+            this.l0 = paint;
+            paint.setAntiAlias(true);
+            this.l0.setFilterBitmap(true);
+            this.l0.setDither(true);
+        }
+        if (this.m0 == null && this.k) {
+            Paint paint2 = new Paint();
+            this.m0 = paint2;
+            paint2.setTextSize(18.0f);
+            this.m0.setColor(-65281);
+            this.m0.setStyle(Paint.Style.STROKE);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void onTileLoaded() {
-        checkReady();
-        checkImageLoaded();
-        if (isBaseLayerReady() && this.bitmap != null) {
-            if (!this.dmW) {
-                this.bitmap.recycle();
+    public final float R(float f2, float f3, float f4, float f5) {
+        float f6 = f2 - f3;
+        float f7 = f4 - f5;
+        return (float) Math.sqrt((f6 * f6) + (f7 * f7));
+    }
+
+    public final void S(PointF pointF, PointF pointF2) {
+        if (!this.u) {
+            PointF pointF3 = this.G;
+            if (pointF3 != null) {
+                pointF.x = pointF3.x;
+                pointF.y = pointF3.y;
+            } else {
+                pointF.x = x0() / 2;
+                pointF.y = w0() / 2;
             }
-            this.bitmap = null;
-            this.dmV = false;
-            this.dmW = false;
+        }
+        float min = Math.min(this.n, this.x);
+        double d2 = min;
+        Double.isNaN(d2);
+        boolean z = ((double) this.A) <= d2 * 0.9d;
+        if (!z) {
+            min = j0();
+        }
+        float f2 = min;
+        int i2 = this.y;
+        if (i2 == 3) {
+            setScaleAndCenter(f2, pointF);
+        } else if (i2 == 2 || !z || !this.u) {
+            d dVar = new d(this, f2, pointF, (a) null);
+            dVar.e(false);
+            dVar.c(this.z);
+            dVar.b();
+        } else if (i2 == 1) {
+            d dVar2 = new d(this, f2, pointF, pointF2, null);
+            dVar2.e(false);
+            dVar2.c(this.z);
+            dVar2.b();
         }
         invalidate();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public static class c extends AsyncTask<Void, Void, Integer> {
-        private Bitmap bitmap;
-        private final WeakReference<Context> contextRef;
-        private final WeakReference<com.baidu.swan.apps.media.image.a.b<? extends com.baidu.swan.apps.media.image.a.c>> decoderFactoryRef;
-        private Exception exception;
-        private final boolean preview;
-        private final Uri source;
-        private final WeakReference<HugePhotoDraweeView> viewRef;
-
-        public c(HugePhotoDraweeView hugePhotoDraweeView, Context context, com.baidu.swan.apps.media.image.a.b<? extends com.baidu.swan.apps.media.image.a.c> bVar, Uri uri, boolean z) {
-            this.viewRef = new WeakReference<>(hugePhotoDraweeView);
-            this.contextRef = new WeakReference<>(context);
-            this.decoderFactoryRef = new WeakReference<>(bVar);
-            this.source = uri;
-            this.preview = z;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public Integer doInBackground(Void... voidArr) {
-            try {
-                String uri = this.source.toString();
-                Context context = this.contextRef.get();
-                com.baidu.swan.apps.media.image.a.b<? extends com.baidu.swan.apps.media.image.a.c> bVar = this.decoderFactoryRef.get();
-                HugePhotoDraweeView hugePhotoDraweeView = this.viewRef.get();
-                if (context != null && bVar != null && hugePhotoDraweeView != null) {
-                    this.bitmap = bVar.make().decode(context, this.source);
-                    return Integer.valueOf(hugePhotoDraweeView.getExifOrientation(uri));
-                }
-            } catch (Exception e) {
-                Log.e("HugePhotoDraweeView", "Failed to load bitmap", e);
-                this.exception = e;
-            } catch (OutOfMemoryError e2) {
-                Log.e("HugePhotoDraweeView", "Failed to load bitmap - OutOfMemoryError", e2);
-                this.exception = new RuntimeException(e2);
+    public final void T() {
+        if (this.l0 != null) {
+            if (this.w0 != d.b.g0.a.b1.e.c.d(getContext())) {
+                this.w0 = d.b.g0.a.b1.e.c.d(getContext());
+                this.v0 = new PorterDuffColorFilter(this.w0, PorterDuff.Mode.SRC_ATOP);
             }
-            return null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(Integer num) {
-            HugePhotoDraweeView hugePhotoDraweeView = this.viewRef.get();
-            if (hugePhotoDraweeView != null) {
-                if (this.bitmap != null && num != null) {
-                    if (this.preview) {
-                        hugePhotoDraweeView.onPreviewLoaded(this.bitmap);
-                    } else {
-                        hugePhotoDraweeView.a(this.bitmap, num.intValue(), false);
-                    }
-                } else if (this.exception != null && hugePhotoDraweeView.dng != null) {
-                    if (this.preview) {
-                        hugePhotoDraweeView.dng.onPreviewLoadError(this.exception);
-                    } else {
-                        hugePhotoDraweeView.dng.onImageLoadError(this.exception);
-                    }
-                }
-            }
+            this.l0.setColorFilter(this.v0);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void onPreviewLoaded(Bitmap bitmap) {
-        if (this.bitmap != null || this.imageLoadedSent) {
-            bitmap.recycle();
+    public final float U(int i2, long j2, float f2, float f3, long j3) {
+        if (i2 != 1) {
+            if (i2 == 2) {
+                return V(j2, f2, f3, j3);
+            }
+            throw new IllegalStateException("Unexpected easing type: " + i2);
+        }
+        return W(j2, f2, f3, j3);
+    }
+
+    public final float V(long j2, float f2, float f3, long j3) {
+        float f4;
+        float f5 = ((float) j2) / (((float) j3) / 2.0f);
+        if (f5 < 1.0f) {
+            f4 = (f3 / 2.0f) * f5;
         } else {
-            if (this.pRegion != null) {
-                this.bitmap = Bitmap.createBitmap(bitmap, this.pRegion.left, this.pRegion.top, this.pRegion.width(), this.pRegion.height());
-            } else {
-                this.bitmap = bitmap;
-            }
-            this.dmV = true;
-            if (checkReady()) {
-                invalidate();
-                requestLayout();
-            }
+            float f6 = f5 - 1.0f;
+            f4 = (-f3) / 2.0f;
+            f5 = (f6 * (f6 - 2.0f)) - 1.0f;
         }
+        return (f4 * f5) + f2;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(Bitmap bitmap, int i2, boolean z) {
-        if (this.sWidth > 0 && this.sHeight > 0 && (this.sWidth != bitmap.getWidth() || this.sHeight != bitmap.getHeight())) {
-            reset(false);
-        }
-        if (this.bitmap != null && !this.dmW) {
-            this.bitmap.recycle();
-        }
-        this.dmV = false;
-        this.dmW = z;
-        this.bitmap = bitmap;
-        this.sWidth = bitmap.getWidth();
-        this.sHeight = bitmap.getHeight();
-        this.sOrientation = i2;
-        boolean checkReady = checkReady();
-        boolean checkImageLoaded = checkImageLoaded();
-        if (checkReady || checkImageLoaded) {
-            invalidate();
-            requestLayout();
-        }
+    public final float W(long j2, float f2, float f3, long j3) {
+        float f4 = ((float) j2) / ((float) j3);
+        return ((-f3) * f4 * (f4 - 2.0f)) + f2;
     }
 
-    protected void onImageLoaded() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int getExifOrientation(String str) {
-        Cursor cursor;
-        int i2;
-        if (TextUtils.isEmpty(str)) {
-            return 0;
-        }
-        if (str.startsWith("content")) {
-            try {
-                try {
-                    cursor = getContext().getContentResolver().query(Uri.parse(str), new String[]{"orientation"}, null, null, null);
-                    if (cursor != null) {
-                        try {
-                            try {
-                                if (cursor.moveToFirst()) {
-                                    i2 = cursor.getInt(0);
-                                    if (!VALID_ORIENTATIONS.contains(Integer.valueOf(i2)) || i2 == -1) {
-                                        Log.w("HugePhotoDraweeView", "Unsupported orientation: " + i2);
-                                    }
-                                    com.baidu.swan.apps.media.image.a.closeSafely(cursor);
-                                }
-                                com.baidu.swan.apps.media.image.a.closeSafely(cursor);
-                            } catch (Exception e2) {
-                                Log.w("HugePhotoDraweeView", "Could not get orientation of image from media store");
-                                com.baidu.swan.apps.media.image.a.closeSafely(cursor);
-                                return i2;
-                            }
-                            i2 = 0;
-                        } catch (Exception e3) {
-                            i2 = 0;
-                        }
-                    } else {
-                        i2 = 0;
-                    }
-                    com.baidu.swan.apps.media.image.a.closeSafely(cursor);
-                } catch (Throwable th) {
-                    th = th;
-                    com.baidu.swan.apps.media.image.a.closeSafely(null);
-                    throw th;
-                }
-            } catch (Exception e4) {
-                cursor = null;
-                i2 = 0;
-            } catch (Throwable th2) {
-                th = th2;
-                com.baidu.swan.apps.media.image.a.closeSafely(null);
-                throw th;
-            }
-            return i2;
-        } else if (!str.startsWith("file:///") || str.startsWith("file:///android_asset/")) {
-            return 0;
-        } else {
-            try {
-                int attributeInt = new ExifInterface(str.substring("file:///".length() - 1)).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
-                if (attributeInt == 1 || attributeInt == 0) {
-                    return 0;
-                }
-                if (attributeInt == 6) {
-                    return 90;
-                }
-                if (attributeInt == 3) {
-                    return 180;
-                }
-                if (attributeInt == 8) {
-                    return 270;
-                }
-                Log.w("HugePhotoDraweeView", "Unsupported EXIF orientation: " + attributeInt);
-                return 0;
-            } catch (Exception e5) {
-                Log.w("HugePhotoDraweeView", "Could not get EXIF orientation of image");
-                return 0;
-            }
-        }
-    }
-
-    private void a(AsyncTask<Void, Void, ?> asyncTask) {
-        if (this.dna && Build.VERSION.SDK_INT >= 11) {
+    public final void X(AsyncTask<Void, Void, ?> asyncTask) {
+        if (this.t && Build.VERSION.SDK_INT >= 11) {
             try {
                 AsyncTask.class.getMethod("executeOnExecutor", Executor.class, Object[].class).invoke(asyncTask, (Executor) AsyncTask.class.getField("THREAD_POOL_EXECUTOR").get(null), null);
                 return;
@@ -1500,579 +968,1344 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         asyncTask.execute(new Void[0]);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public static class g {
-        private Bitmap bitmap;
-        private Rect fileSRect;
-        private boolean loading;
-        private Rect sRect;
-        private int sampleSize;
-        private Rect vRect;
-        private boolean visible;
-
-        private g() {
+    public final void Y(Rect rect, Rect rect2) {
+        if (getRequiredRotation() == 0) {
+            rect2.set(rect);
+        } else if (getRequiredRotation() == 90) {
+            int i2 = rect.top;
+            int i3 = this.I;
+            rect2.set(i2, i3 - rect.right, rect.bottom, i3 - rect.left);
+        } else if (getRequiredRotation() == 180) {
+            int i4 = this.H;
+            int i5 = this.I;
+            rect2.set(i4 - rect.right, i5 - rect.bottom, i4 - rect.left, i5 - rect.top);
+        } else {
+            int i6 = this.H;
+            rect2.set(i6 - rect.bottom, rect.left, i6 - rect.top, rect.right);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public static class a {
-        private d dnn;
-        private long duration;
-        private int easing;
-        private boolean interruptible;
-        private PointF sCenterEnd;
-        private PointF sCenterEndRequested;
-        private PointF sCenterStart;
-        private float scaleEnd;
-        private float scaleStart;
-        private long time;
-        private PointF vFocusEnd;
-        private PointF vFocusStart;
-
-        private a() {
-            this.duration = 500L;
-            this.interruptible = true;
-            this.easing = 2;
-            this.time = System.currentTimeMillis();
+    public final void Z(boolean z) {
+        boolean z2;
+        if (this.C == null) {
+            z2 = true;
+            this.C = new PointF(0.0f, 0.0f);
+        } else {
+            z2 = false;
+        }
+        if (this.o0 == null) {
+            this.o0 = new h(0.0f, new PointF(0.0f, 0.0f), null);
+        }
+        this.o0.f12369a = this.A;
+        this.o0.f12370b.set(this.C);
+        a0(z, this.o0);
+        this.A = this.o0.f12369a;
+        this.C.set(this.o0.f12370b);
+        if (z2) {
+            this.C.set(F0(x0() / 2, w0() / 2, this.A));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public static class f {
-        private float scale;
-        private PointF vTranslate;
+    public final void a0(boolean z, h hVar) {
+        float max;
+        int max2;
+        float max3;
+        if (this.p == 2 && g0()) {
+            z = false;
+        }
+        PointF pointF = hVar.f12370b;
+        float i0 = i0(hVar.f12369a);
+        float x02 = x0() * i0;
+        float w0 = w0() * i0;
+        if (this.p == 3 && g0()) {
+            pointF.x = Math.max(pointF.x, (getWidth() / 2) - x02);
+            pointF.y = Math.max(pointF.y, (getHeight() / 2) - w0);
+        } else if (z) {
+            pointF.x = Math.max(pointF.x, getWidth() - x02);
+            pointF.y = Math.max(pointF.y, getHeight() - w0);
+        } else {
+            pointF.x = Math.max(pointF.x, -x02);
+            pointF.y = Math.max(pointF.y, -w0);
+        }
+        float f2 = 0.5f;
+        float paddingLeft = (getPaddingLeft() > 0 || getPaddingRight() > 0) ? getPaddingLeft() / (getPaddingLeft() + getPaddingRight()) : 0.5f;
+        if (getPaddingTop() > 0 || getPaddingBottom() > 0) {
+            f2 = getPaddingTop() / (getPaddingTop() + getPaddingBottom());
+        }
+        if (this.p == 3 && g0()) {
+            max = Math.max(0, getWidth() / 2);
+            max2 = Math.max(0, getHeight() / 2);
+        } else if (z) {
+            max = Math.max(0.0f, (getWidth() - x02) * paddingLeft);
+            max3 = Math.max(0.0f, (getHeight() - w0) * f2);
+            pointF.x = Math.min(pointF.x, max);
+            pointF.y = Math.min(pointF.y, max3);
+            hVar.f12369a = i0;
+        } else {
+            max = Math.max(0, getWidth());
+            max2 = Math.max(0, getHeight());
+        }
+        max3 = max2;
+        pointF.x = Math.min(pointF.x, max);
+        pointF.y = Math.min(pointF.y, max3);
+        hVar.f12369a = i0;
+    }
 
-        private f(float f, PointF pointF) {
-            this.scale = f;
-            this.vTranslate = pointF;
+    public final int b0(String str) {
+        int i2 = 0;
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        if (str.startsWith("content")) {
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = getContext().getContentResolver().query(Uri.parse(str), new String[]{"orientation"}, null, null, null);
+                    if (cursor != null) {
+                        if (cursor.moveToFirst()) {
+                            int i3 = cursor.getInt(0);
+                            if (!x0.contains(Integer.valueOf(i3)) || i3 == -1) {
+                                Log.w("HugePhotoDraweeView", "Unsupported orientation: " + i3);
+                            } else {
+                                i2 = i3;
+                            }
+                        }
+                        d.b.g0.a.b1.e.a.a(cursor);
+                    }
+                } finally {
+                    d.b.g0.a.b1.e.a.a(cursor);
+                }
+            } catch (Exception unused) {
+                Log.w("HugePhotoDraweeView", "Could not get orientation of image from media store");
+            }
+            return i2;
+        } else if (!str.startsWith(ImageSource.FILE_SCHEME) || str.startsWith("file:///android_asset/")) {
+            return 0;
+        } else {
+            try {
+                int attributeInt = new ExifInterface(str.substring(7)).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+                if (attributeInt != 1 && attributeInt != 0) {
+                    if (attributeInt == 6) {
+                        return 90;
+                    }
+                    if (attributeInt == 3) {
+                        return 180;
+                    }
+                    if (attributeInt == 8) {
+                        return 270;
+                    }
+                    Log.w("HugePhotoDraweeView", "Unsupported EXIF orientation: " + attributeInt);
+                    return 0;
+                }
+                return 0;
+            } catch (Exception unused2) {
+                Log.w("HugePhotoDraweeView", "Could not get EXIF orientation of image");
+                return 0;
+            }
         }
     }
 
-    private void a(ImageViewState imageViewState) {
-        if (imageViewState != null && imageViewState.getCenter() != null && VALID_ORIENTATIONS.contains(Integer.valueOf(imageViewState.getOrientation()))) {
-            this.orientation = imageViewState.getOrientation();
-            this.pendingScale = Float.valueOf(imageViewState.getScale());
-            this.sPendingCenter = imageViewState.getCenter();
-            invalidate();
-        }
-    }
-
-    public void setMaxTileSize(int i2) {
-        this.dmY = i2;
-        this.dmZ = i2;
-    }
-
-    public void setMaxTileSize(int i2, int i3) {
-        this.dmY = i2;
-        this.dmZ = i3;
-    }
-
-    private Point getMaxBitmapDimensions(Canvas canvas) {
+    public final Point c0(Canvas canvas) {
         int i2;
-        int i3;
+        int intValue;
+        int i3 = 2048;
         if (Build.VERSION.SDK_INT >= 14) {
             try {
                 i2 = ((Integer) Canvas.class.getMethod("getMaximumBitmapWidth", new Class[0]).invoke(canvas, new Object[0])).intValue();
                 try {
-                    i3 = ((Integer) Canvas.class.getMethod("getMaximumBitmapHeight", new Class[0]).invoke(canvas, new Object[0])).intValue();
-                } catch (Exception e2) {
-                    i3 = 2048;
-                    return new Point(Math.min(i2, this.dmY), Math.min(i3, this.dmZ));
+                    intValue = ((Integer) Canvas.class.getMethod("getMaximumBitmapHeight", new Class[0]).invoke(canvas, new Object[0])).intValue();
+                    i3 = i2;
+                } catch (Exception unused) {
+                    i3 = i2;
+                    intValue = 2048;
+                    return new Point(Math.min(i3, this.r), Math.min(intValue, this.s));
                 }
-            } catch (Exception e3) {
+            } catch (Exception unused2) {
                 i2 = 2048;
             }
+            return new Point(Math.min(i3, this.r), Math.min(intValue, this.s));
+        }
+        intValue = 2048;
+        return new Point(Math.min(i3, this.r), Math.min(intValue, this.s));
+    }
+
+    public final synchronized void d0(Point point) {
+        h hVar = new h(0.0f, new PointF(0.0f, 0.0f), null);
+        this.o0 = hVar;
+        a0(true, hVar);
+        int N = N(this.o0.f12369a);
+        this.i = N;
+        if (N > 1) {
+            this.i = N / 2;
+        }
+        if (this.i == 1 && this.K == null && x0() < point.x && w0() < point.y && this.f12342h != null) {
+            this.R.recycle();
+            this.R = null;
+            X(new e(this, getContext(), this.T, this.f12342h, false));
         } else {
-            i3 = 2048;
-            i2 = 2048;
-        }
-        return new Point(Math.min(i2, this.dmY), Math.min(i3, this.dmZ));
-    }
-
-    private int sWidth() {
-        int requiredRotation = getRequiredRotation();
-        return (requiredRotation == 90 || requiredRotation == 270) ? this.sHeight : this.sWidth;
-    }
-
-    private int sHeight() {
-        int requiredRotation = getRequiredRotation();
-        return (requiredRotation == 90 || requiredRotation == 270) ? this.sWidth : this.sHeight;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void fileSRect(Rect rect, Rect rect2) {
-        if (getRequiredRotation() == 0) {
-            rect2.set(rect);
-        } else if (getRequiredRotation() == 90) {
-            rect2.set(rect.top, this.sHeight - rect.right, rect.bottom, this.sHeight - rect.left);
-        } else if (getRequiredRotation() == 180) {
-            rect2.set(this.sWidth - rect.right, this.sHeight - rect.bottom, this.sWidth - rect.left, this.sHeight - rect.top);
-        } else {
-            rect2.set(this.sWidth - rect.bottom, rect.left, this.sWidth - rect.top, rect.right);
+            e0(point);
+            for (i iVar : this.j.get(Integer.valueOf(this.i))) {
+                X(new j(this, this.R, iVar));
+            }
+            r0(true);
         }
     }
 
-    private int getRequiredRotation() {
-        return this.orientation == -1 ? this.sOrientation : this.orientation;
-    }
-
-    private float distance(float f2, float f3, float f4, float f5) {
-        float f6 = f2 - f3;
-        float f7 = f4 - f5;
-        return (float) Math.sqrt((f6 * f6) + (f7 * f7));
-    }
-
-    private float viewToSourceX(float f2) {
-        if (this.vTranslate == null) {
-            return Float.NaN;
-        }
-        return (f2 - this.vTranslate.x) / this.scale;
-    }
-
-    private float viewToSourceY(float f2) {
-        if (this.vTranslate == null) {
-            return Float.NaN;
-        }
-        return (f2 - this.vTranslate.y) / this.scale;
-    }
-
-    public final PointF viewToSourceCoord(PointF pointF) {
-        return viewToSourceCoord(pointF.x, pointF.y, new PointF());
-    }
-
-    public final PointF viewToSourceCoord(float f2, float f3) {
-        return viewToSourceCoord(f2, f3, new PointF());
-    }
-
-    public final PointF viewToSourceCoord(float f2, float f3, PointF pointF) {
-        if (this.vTranslate == null) {
-            return null;
-        }
-        pointF.set(viewToSourceX(f2), viewToSourceY(f3));
-        return pointF;
-    }
-
-    private float sourceToViewX(float f2) {
-        if (this.vTranslate == null) {
-            return Float.NaN;
-        }
-        return (this.scale * f2) + this.vTranslate.x;
-    }
-
-    private float sourceToViewY(float f2) {
-        if (this.vTranslate == null) {
-            return Float.NaN;
-        }
-        return (this.scale * f2) + this.vTranslate.y;
-    }
-
-    public final PointF sourceToViewCoord(PointF pointF) {
-        return sourceToViewCoord(pointF.x, pointF.y, new PointF());
-    }
-
-    public final PointF sourceToViewCoord(float f2, float f3, PointF pointF) {
-        if (this.vTranslate == null) {
-            return null;
-        }
-        pointF.set(sourceToViewX(f2), sourceToViewY(f3));
-        return pointF;
-    }
-
-    private Rect sourceToViewRect(Rect rect, Rect rect2) {
-        rect2.set((int) sourceToViewX(rect.left), (int) sourceToViewY(rect.top), (int) sourceToViewX(rect.right), (int) sourceToViewY(rect.bottom));
-        return rect2;
-    }
-
-    private PointF vTranslateForSCenter(float f2, float f3, float f4) {
-        int paddingLeft = getPaddingLeft() + (((getWidth() - getPaddingRight()) - getPaddingLeft()) / 2);
-        int paddingTop = getPaddingTop() + (((getHeight() - getPaddingBottom()) - getPaddingTop()) / 2);
-        if (this.dnh == null) {
-            this.dnh = new f(0.0f, new PointF(0.0f, 0.0f));
-        }
-        this.dnh.scale = f4;
-        this.dnh.vTranslate.set(paddingLeft - (f2 * f4), paddingTop - (f3 * f4));
-        a(true, this.dnh);
-        return this.dnh.vTranslate;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public PointF limitedSCenter(float f2, float f3, float f4, PointF pointF) {
-        PointF vTranslateForSCenter = vTranslateForSCenter(f2, f3, f4);
-        pointF.set(((getPaddingLeft() + (((getWidth() - getPaddingRight()) - getPaddingLeft()) / 2)) - vTranslateForSCenter.x) / f4, ((getPaddingTop() + (((getHeight() - getPaddingBottom()) - getPaddingTop()) / 2)) - vTranslateForSCenter.y) / f4);
-        return pointF;
-    }
-
-    private float minScale() {
-        int paddingBottom = getPaddingBottom() + getPaddingTop();
-        int paddingLeft = getPaddingLeft() + getPaddingRight();
-        if (this.minimumScaleType == 2) {
-            return Math.max((getWidth() - paddingLeft) / sWidth(), (getHeight() - paddingBottom) / sHeight());
-        }
-        if (this.minimumScaleType == 3 && this.minScale > 0.0f) {
-            return this.minScale;
-        }
-        return Math.min((getWidth() - paddingLeft) / sWidth(), (getHeight() - paddingBottom) / sHeight());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public float limitedScale(float f2) {
-        if (f2 > 0.0f && f2 < minScale()) {
-            Log.i("HugePhotoDraweeView", "targetScale is " + f2 + "< minScale is " + minScale());
-        } else {
-            f2 = Math.max(minScale(), f2);
-        }
-        return Math.min(this.maxScale, f2);
-    }
-
-    private float ease(int i2, long j, float f2, float f3, long j2) {
-        switch (i2) {
-            case 1:
-                return easeOutQuad(j, f2, f3, j2);
-            case 2:
-                return easeInOutQuad(j, f2, f3, j2);
-            default:
-                throw new IllegalStateException("Unexpected easing type: " + i2);
+    public final void e0(Point point) {
+        this.j = new LinkedHashMap();
+        int i2 = this.i;
+        int i3 = 1;
+        int i4 = 1;
+        int i5 = 1;
+        while (true) {
+            int x02 = x0() / i4;
+            int w0 = w0() / i5;
+            int i6 = x02 / i2;
+            int i7 = w0 / i2;
+            while (true) {
+                if (i6 + i4 + i3 <= point.x) {
+                    double d2 = i6;
+                    double width = getWidth();
+                    Double.isNaN(width);
+                    if (d2 <= width * 1.25d || i2 >= this.i) {
+                        break;
+                    }
+                }
+                i4++;
+                x02 = x0() / i4;
+                i6 = x02 / i2;
+            }
+            while (true) {
+                if (i7 + i5 + i3 <= point.y) {
+                    double height = getHeight();
+                    Double.isNaN(height);
+                    if (i7 <= height * 1.25d || i2 >= this.i) {
+                        break;
+                    }
+                }
+                i5++;
+                w0 = w0() / i5;
+                i7 = w0 / i2;
+            }
+            ArrayList arrayList = new ArrayList(i4 * i5);
+            int i8 = 0;
+            while (i8 < i4) {
+                int i9 = 0;
+                while (i9 < i5) {
+                    i iVar = new i(null);
+                    iVar.f12372b = i2;
+                    iVar.f12375e = i2 == this.i;
+                    iVar.f12371a = new Rect(i8 * x02, i9 * w0, i8 == i4 + (-1) ? x0() : (i8 + 1) * x02, i9 == i5 + (-1) ? w0() : (i9 + 1) * w0);
+                    iVar.f12376f = new Rect(0, 0, 0, 0);
+                    iVar.f12377g = new Rect(iVar.f12371a);
+                    arrayList.add(iVar);
+                    i9++;
+                }
+                i8++;
+            }
+            this.j.put(Integer.valueOf(i2), arrayList);
+            i3 = 1;
+            if (i2 == 1) {
+                return;
+            }
+            i2 /= 2;
         }
     }
 
-    private float easeOutQuad(long j, float f2, float f3, long j2) {
-        float f4 = ((float) j) / ((float) j2);
-        return ((f4 - 2.0f) * (-f3) * f4) + f2;
-    }
-
-    private float easeInOutQuad(long j, float f2, float f3, long j2) {
-        float f4 = ((float) j) / (((float) j2) / 2.0f);
-        if (f4 < 1.0f) {
-            return (f4 * (f3 / 2.0f) * f4) + f2;
+    public final boolean f0() {
+        boolean z = true;
+        if (this.f12339e == null || this.f12340f) {
+            Map<Integer, List<i>> map = this.j;
+            if (map != null) {
+                for (Map.Entry<Integer, List<i>> entry : map.entrySet()) {
+                    if (entry.getKey().intValue() == this.i) {
+                        for (i iVar : entry.getValue()) {
+                            if (iVar.f12374d || iVar.f12373c == null) {
+                                z = false;
+                            }
+                        }
+                    }
+                }
+                return z;
+            }
+            return false;
         }
-        float f5 = f4 - 1.0f;
-        return (((f5 * (f5 - 2.0f)) - 1.0f) * ((-f3) / 2.0f)) + f2;
+        return true;
     }
 
-    public final void setRegionDecoderClass(Class<? extends com.baidu.swan.apps.media.image.a.d> cls) {
-        if (cls == null) {
-            throw new IllegalArgumentException("Decoder class cannot be set to null");
-        }
-        this.dne = new com.baidu.swan.apps.media.image.a.a(cls);
-    }
-
-    public final void setRegionDecoderFactory(com.baidu.swan.apps.media.image.a.b<? extends com.baidu.swan.apps.media.image.a.d> bVar) {
-        if (bVar == null) {
-            throw new IllegalArgumentException("Decoder factory cannot be set to null");
-        }
-        this.dne = bVar;
-    }
-
-    public final void setBitmapDecoderClass(Class<? extends com.baidu.swan.apps.media.image.a.c> cls) {
-        if (cls == null) {
-            throw new IllegalArgumentException("Decoder class cannot be set to null");
-        }
-        this.dnd = new com.baidu.swan.apps.media.image.a.a(cls);
-    }
-
-    public final void setBitmapDecoderFactory(com.baidu.swan.apps.media.image.a.b<? extends com.baidu.swan.apps.media.image.a.c> bVar) {
-        if (bVar == null) {
-            throw new IllegalArgumentException("Decoder factory cannot be set to null");
-        }
-        this.dnd = bVar;
-    }
-
-    public final void setPanLimit(int i2) {
-        if (!VALID_PAN_LIMITS.contains(Integer.valueOf(i2))) {
-            throw new IllegalArgumentException("Invalid pan limit: " + i2);
-        }
-        this.panLimit = i2;
-        if (isReady()) {
-            fitToBounds(true);
-            invalidate();
-        }
-    }
-
-    public final void setMinimumScaleType(int i2) {
-        if (!VALID_SCALE_TYPES.contains(Integer.valueOf(i2))) {
-            throw new IllegalArgumentException("Invalid scale type: " + i2);
-        }
-        this.minimumScaleType = i2;
-        if (isReady()) {
-            fitToBounds(true);
-            invalidate();
-        }
-    }
-
-    public final void setMaxScale(float f2) {
-        this.maxScale = f2;
-    }
-
-    public final void setMinScale(float f2) {
-        this.minScale = f2;
-    }
-
-    public final void setMinimumDpi(int i2) {
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        setMaxScale((((displayMetrics.ydpi + displayMetrics.xdpi) / 2.0f) * 2.0f) / i2);
-    }
-
-    public final void setMaximumDpi(int i2) {
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        setMinScale(((displayMetrics.ydpi + displayMetrics.xdpi) / 2.0f) / i2);
-    }
-
-    public float getMaxScale() {
-        return this.maxScale;
-    }
-
-    public final float getMinScale() {
-        return minScale();
-    }
-
-    public void setMinimumTileDpi(int i2) {
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        this.minimumTileDpi = (int) Math.min((displayMetrics.ydpi + displayMetrics.xdpi) / 2.0f, i2);
-        if (isReady()) {
-            reset(false);
-            invalidate();
-        }
-    }
-
-    public final PointF getCenter() {
-        return viewToSourceCoord(getWidth() / 2, getHeight() / 2);
-    }
-
-    public final float getScale() {
-        return this.scale;
-    }
-
-    public final void setScaleAndCenter(float f2, PointF pointF) {
-        this.dnf = null;
-        this.pendingScale = Float.valueOf(f2);
-        this.sPendingCenter = pointF;
-        this.sRequestedCenter = pointF;
-        invalidate();
-    }
-
-    public final void aBF() {
-        if (this.scale < minScale()) {
-            resetScaleAndCenter();
-        }
-    }
-
-    public final void resetScaleAndCenter() {
-        this.dnf = null;
-        this.pendingScale = Float.valueOf(limitedScale(0.0f));
-        if (isReady()) {
-            this.sPendingCenter = new PointF(sWidth() / 2, sHeight() / 2);
-        } else {
-            this.sPendingCenter = new PointF(0.0f, 0.0f);
-        }
-        invalidate();
-    }
-
-    public final boolean isReady() {
-        return this.readySent;
-    }
-
-    protected void onReady() {
-    }
-
-    public final int getSWidth() {
-        return this.sWidth;
-    }
-
-    public final int getSHeight() {
-        return this.sHeight;
-    }
-
-    public final int getOrientation() {
-        return this.orientation;
+    public final boolean g0() {
+        return this.g0;
     }
 
     public final int getAppliedOrientation() {
         return getRequiredRotation();
     }
 
+    public final PointF getCenter() {
+        return G0(getWidth() / 2, getHeight() / 2);
+    }
+
+    public float getMaxScale() {
+        return this.n;
+    }
+
+    public final float getMinScale() {
+        return j0();
+    }
+
+    public final int getOrientation() {
+        return this.l;
+    }
+
+    public final int getSHeight() {
+        return this.I;
+    }
+
+    public final int getSWidth() {
+        return this.H;
+    }
+
+    public final float getScale() {
+        return this.A;
+    }
+
     public final ImageViewState getState() {
-        if (this.vTranslate == null || this.sWidth <= 0 || this.sHeight <= 0) {
+        if (this.C == null || this.H <= 0 || this.I <= 0) {
             return null;
         }
         return new ImageViewState(getScale(), getCenter(), getOrientation());
     }
 
-    public final void setZoomEnabled(boolean z) {
-        this.zoomEnabled = z;
+    public final PointF h0(float f2, float f3, float f4, PointF pointF) {
+        PointF F0 = F0(f2, f3, f4);
+        pointF.set(((getPaddingLeft() + (((getWidth() - getPaddingRight()) - getPaddingLeft()) / 2)) - F0.x) / f4, ((getPaddingTop() + (((getHeight() - getPaddingBottom()) - getPaddingTop()) / 2)) - F0.y) / f4);
+        return pointF;
     }
 
-    public final void setQuickScaleEnabled(boolean z) {
-        this.quickScaleEnabled = z;
+    public final float i0(float f2) {
+        if (f2 > 0.0f && f2 < j0()) {
+            Log.i("HugePhotoDraweeView", "targetScale is " + f2 + "< minScale is " + j0());
+        } else {
+            f2 = Math.max(j0(), f2);
+        }
+        return Math.min(this.n, f2);
     }
 
-    public final void setPanEnabled(boolean z) {
-        this.panEnabled = z;
-        if (!z && this.vTranslate != null) {
-            this.vTranslate.x = (getWidth() / 2) - (this.scale * (sWidth() / 2));
-            this.vTranslate.y = (getHeight() / 2) - (this.scale * (sHeight() / 2));
-            if (isReady()) {
-                refreshRequiredTiles(true);
-                invalidate();
+    public final float j0() {
+        int paddingBottom = getPaddingBottom() + getPaddingTop();
+        int paddingLeft = getPaddingLeft() + getPaddingRight();
+        int i2 = this.q;
+        if (i2 == 2) {
+            return Math.max((getWidth() - paddingLeft) / x0(), (getHeight() - paddingBottom) / w0());
+        }
+        if (i2 == 3) {
+            float f2 = this.m;
+            if (f2 > 0.0f) {
+                return f2;
             }
+        }
+        return Math.min((getWidth() - paddingLeft) / x0(), (getHeight() - paddingBottom) / w0());
+    }
+
+    public void k0() {
+    }
+
+    public final synchronized void l0(Bitmap bitmap, int i2, boolean z) {
+        if (this.H > 0 && this.I > 0 && (this.H != bitmap.getWidth() || this.I != bitmap.getHeight())) {
+            s0(false);
+        }
+        if (this.f12339e != null && !this.f12341g) {
+            this.f12339e.recycle();
+        }
+        this.f12340f = false;
+        this.f12341g = z;
+        this.f12339e = bitmap;
+        this.H = bitmap.getWidth();
+        this.I = bitmap.getHeight();
+        this.J = i2;
+        boolean P = P();
+        boolean O = O();
+        if (P || O) {
+            invalidate();
+            requestLayout();
         }
     }
 
-    public final void setTileBackgroundColor(int i2) {
-        if (Color.alpha(i2) == 0) {
-            this.tileBgPaint = null;
-        } else {
-            this.tileBgPaint = new Paint();
-            this.tileBgPaint.setStyle(Paint.Style.FILL);
-            this.tileBgPaint.setColor(i2);
+    public final synchronized void m0(Bitmap bitmap) {
+        if (this.f12339e == null && !this.h0) {
+            if (this.L != null) {
+                this.f12339e = Bitmap.createBitmap(bitmap, this.L.left, this.L.top, this.L.width(), this.L.height());
+            } else {
+                this.f12339e = bitmap;
+            }
+            this.f12340f = true;
+            if (P()) {
+                invalidate();
+                requestLayout();
+            }
+            return;
+        }
+        bitmap.recycle();
+    }
+
+    public void n0() {
+    }
+
+    public final synchronized void o0() {
+        P();
+        O();
+        if (f0() && this.f12339e != null) {
+            if (!this.f12341g) {
+                this.f12339e.recycle();
+            }
+            this.f12339e = null;
+            this.f12340f = false;
+            this.f12341g = false;
         }
         invalidate();
     }
 
-    public final void setDoubleTapZoomScale(float f2) {
-        this.doubleTapZoomScale = f2;
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Bitmap bitmap;
+        float f2;
+        if (this.u0) {
+            if (this.w0 != d.b.g0.a.b1.e.c.d(getContext())) {
+                d.b.g0.a.b1.e.c.b(getContext(), getDrawable());
+                this.w0 = d.b.g0.a.b1.e.c.d(getContext());
+            }
+            super.onDraw(canvas);
+            return;
+        }
+        Q();
+        T();
+        if (this.H == 0 || this.I == 0 || getWidth() == 0 || getHeight() == 0) {
+            return;
+        }
+        if (this.j == null && this.R != null) {
+            d0(c0(canvas));
+        }
+        if (P()) {
+            q0();
+            if (this.f0 != null) {
+                long currentTimeMillis = System.currentTimeMillis() - this.f0.k;
+                boolean z = currentTimeMillis > this.f0.f12353h;
+                long min = Math.min(currentTimeMillis, this.f0.f12353h);
+                this.A = U(this.f0.j, min, this.f0.f12346a, this.f0.f12347b - this.f0.f12346a, this.f0.f12353h);
+                float U = U(this.f0.j, min, this.f0.f12351f.x, this.f0.f12352g.x - this.f0.f12351f.x, this.f0.f12353h);
+                float U2 = U(this.f0.j, min, this.f0.f12351f.y, this.f0.f12352g.y - this.f0.f12351f.y, this.f0.f12353h);
+                this.C.x -= C0(this.f0.f12349d.x) - U;
+                this.C.y -= D0(this.f0.f12349d.y) - U2;
+                Z(z || this.f0.f12346a == this.f0.f12347b);
+                r0(z);
+                if (z) {
+                    if (this.f0.l != null) {
+                        try {
+                            this.f0.l.onComplete();
+                        } catch (Exception e2) {
+                            Log.w("HugePhotoDraweeView", "Error thrown by animation listener", e2);
+                        }
+                    }
+                    this.f0 = null;
+                }
+                invalidate();
+            }
+            if (this.j != null && f0()) {
+                int min2 = Math.min(this.i, N(this.A));
+                boolean z2 = false;
+                for (Map.Entry<Integer, List<i>> entry : this.j.entrySet()) {
+                    if (entry.getKey().intValue() == min2) {
+                        for (i iVar : entry.getValue()) {
+                            if (iVar.f12375e && (iVar.f12374d || iVar.f12373c == null)) {
+                                z2 = true;
+                            }
+                        }
+                    }
+                }
+                for (Map.Entry<Integer, List<i>> entry2 : this.j.entrySet()) {
+                    if (entry2.getKey().intValue() == min2 || z2) {
+                        for (i iVar2 : entry2.getValue()) {
+                            B0(iVar2.f12371a, iVar2.f12376f);
+                            if (iVar2.f12374d || iVar2.f12373c == null) {
+                                if (iVar2.f12374d && this.k) {
+                                    canvas.drawText("LOADING", iVar2.f12376f.left + 5, iVar2.f12376f.top + 35, this.m0);
+                                }
+                            } else {
+                                if (this.n0 != null) {
+                                    canvas.drawRect(iVar2.f12376f, this.n0);
+                                }
+                                if (this.p0 == null) {
+                                    this.p0 = new Matrix();
+                                }
+                                this.p0.reset();
+                                y0(this.r0, 0.0f, 0.0f, iVar2.f12373c.getWidth(), 0.0f, iVar2.f12373c.getWidth(), iVar2.f12373c.getHeight(), 0.0f, iVar2.f12373c.getHeight());
+                                if (getRequiredRotation() == 0) {
+                                    y0(this.s0, iVar2.f12376f.left, iVar2.f12376f.top, iVar2.f12376f.right, iVar2.f12376f.top, iVar2.f12376f.right, iVar2.f12376f.bottom, iVar2.f12376f.left, iVar2.f12376f.bottom);
+                                } else if (getRequiredRotation() == 90) {
+                                    y0(this.s0, iVar2.f12376f.right, iVar2.f12376f.top, iVar2.f12376f.right, iVar2.f12376f.bottom, iVar2.f12376f.left, iVar2.f12376f.bottom, iVar2.f12376f.left, iVar2.f12376f.top);
+                                } else if (getRequiredRotation() == 180) {
+                                    y0(this.s0, iVar2.f12376f.right, iVar2.f12376f.bottom, iVar2.f12376f.left, iVar2.f12376f.bottom, iVar2.f12376f.left, iVar2.f12376f.top, iVar2.f12376f.right, iVar2.f12376f.top);
+                                } else if (getRequiredRotation() == 270) {
+                                    y0(this.s0, iVar2.f12376f.left, iVar2.f12376f.bottom, iVar2.f12376f.left, iVar2.f12376f.top, iVar2.f12376f.right, iVar2.f12376f.top, iVar2.f12376f.right, iVar2.f12376f.bottom);
+                                }
+                                this.p0.setPolyToPoly(this.r0, 0, this.s0, 0, 4);
+                                canvas.drawBitmap(iVar2.f12373c, this.p0, this.l0);
+                                if (this.k) {
+                                    canvas.drawRect(iVar2.f12376f, this.m0);
+                                }
+                            }
+                            if (iVar2.f12375e && this.k) {
+                                canvas.drawText("ISS " + iVar2.f12372b + " RECT " + iVar2.f12371a.top + "," + iVar2.f12371a.left + "," + iVar2.f12371a.bottom + "," + iVar2.f12371a.right, iVar2.f12376f.left + 5, iVar2.f12376f.top + 15, this.m0);
+                            }
+                        }
+                    }
+                }
+                if (this.k) {
+                    canvas.drawText("Scale: " + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(this.A)), 5.0f, 15.0f, this.m0);
+                    canvas.drawText("Translate: " + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(this.C.x)) + ":" + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(this.C.y)), 5.0f, 35.0f, this.m0);
+                    PointF center = getCenter();
+                    canvas.drawText("Source center: " + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(center.x)) + ":" + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(center.y)), 5.0f, 55.0f, this.m0);
+                    c cVar = this.f0;
+                    if (cVar != null) {
+                        PointF A02 = A0(cVar.f12348c);
+                        PointF A03 = A0(this.f0.f12350e);
+                        PointF A04 = A0(this.f0.f12349d);
+                        canvas.drawCircle(A02.x, A02.y, 10.0f, this.m0);
+                        canvas.drawCircle(A03.x, A03.y, 20.0f, this.m0);
+                        canvas.drawCircle(A04.x, A04.y, 25.0f, this.m0);
+                        canvas.drawCircle(getWidth() / 2, getHeight() / 2, 30.0f, this.m0);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            if (this.f12339e != null) {
+                float f3 = this.A;
+                if (this.f12340f) {
+                    f3 *= this.H / bitmap.getWidth();
+                    f2 = this.A * (this.I / this.f12339e.getHeight());
+                } else {
+                    f2 = f3;
+                }
+                if (this.p0 == null) {
+                    this.p0 = new Matrix();
+                }
+                this.p0.reset();
+                this.p0.postScale(f3, f2);
+                this.p0.postRotate(getRequiredRotation());
+                Matrix matrix = this.p0;
+                PointF pointF = this.C;
+                matrix.postTranslate(pointF.x, pointF.y);
+                if (getRequiredRotation() == 180) {
+                    Matrix matrix2 = this.p0;
+                    float f4 = this.A;
+                    matrix2.postTranslate(this.H * f4, f4 * this.I);
+                } else if (getRequiredRotation() == 90) {
+                    this.p0.postTranslate(this.A * this.I, 0.0f);
+                } else if (getRequiredRotation() == 270) {
+                    this.p0.postTranslate(0.0f, this.A * this.H);
+                }
+                if (this.n0 != null) {
+                    if (this.q0 == null) {
+                        this.q0 = new RectF();
+                    }
+                    this.q0.set(0.0f, 0.0f, this.H, this.I);
+                    this.p0.mapRect(this.q0);
+                    canvas.drawRect(this.q0, this.n0);
+                }
+                Bitmap bitmap2 = this.f12339e;
+                if (bitmap2 != null && !bitmap2.isRecycled()) {
+                    canvas.drawBitmap(this.f12339e, this.p0, this.l0);
+                } else {
+                    Log.i("HugePhotoDraweeView", "onDraw-> Bitmap is NULL or Recycled <--");
+                }
+            }
+        }
+    }
+
+    @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView, android.view.View
+    public void onMeasure(int i2, int i3) {
+        int mode = View.MeasureSpec.getMode(i2);
+        int mode2 = View.MeasureSpec.getMode(i3);
+        int size = View.MeasureSpec.getSize(i2);
+        int size2 = View.MeasureSpec.getSize(i3);
+        boolean z = mode != 1073741824;
+        boolean z2 = mode2 != 1073741824;
+        if (this.H > 0 && this.I > 0) {
+            if (z && z2) {
+                size = x0();
+                size2 = w0();
+            } else if (z2) {
+                double w0 = w0();
+                double x02 = x0();
+                Double.isNaN(w0);
+                Double.isNaN(x02);
+                double d2 = w0 / x02;
+                double d3 = size;
+                Double.isNaN(d3);
+                size2 = (int) (d2 * d3);
+            } else if (z) {
+                double x03 = x0();
+                double w02 = w0();
+                Double.isNaN(x03);
+                Double.isNaN(w02);
+                double d4 = x03 / w02;
+                double d5 = size2;
+                Double.isNaN(d5);
+                size = (int) (d4 * d5);
+            }
+        }
+        setMeasuredDimension(Math.max(size, getSuggestedMinimumWidth()), Math.max(size2, getSuggestedMinimumHeight()));
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        PointF center = getCenter();
+        if (!this.g0 || center == null) {
+            return;
+        }
+        this.f0 = null;
+        this.E = Float.valueOf(this.A);
+        this.F = center;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0093, code lost:
+        if (r6 != 262) goto L53;
+     */
+    @Override // com.facebook.drawee.view.DraweeView, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
+        GestureDetector gestureDetector;
+        c cVar = this.f0;
+        if (cVar != null && !cVar.i) {
+            getParent().requestDisallowInterceptTouchEvent(true);
+            return true;
+        }
+        c cVar2 = this.f0;
+        if (cVar2 != null && cVar2.l != null) {
+            try {
+                this.f0.l.a();
+            } catch (Exception e2) {
+                Log.w("HugePhotoDraweeView", "Error thrown by animation listener", e2);
+            }
+        }
+        this.f0 = null;
+        if (this.u0 && this.C == null) {
+            this.C = new PointF();
+        }
+        if (this.C == null) {
+            return true;
+        }
+        boolean z = false;
+        if (!this.O && ((gestureDetector = this.Q) == null || gestureDetector.onTouchEvent(motionEvent))) {
+            this.M = false;
+            this.N = false;
+            this.P = 0;
+            return true;
+        }
+        if (this.D == null) {
+            this.D = new PointF(0.0f, 0.0f);
+        }
+        if (this.V == null) {
+            this.V = new PointF(0.0f, 0.0f);
+        }
+        int pointerCount = motionEvent.getPointerCount();
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action == 2) {
+                    if (this.P > 0) {
+                        if (pointerCount >= 2) {
+                            float R = R(motionEvent.getX(0), motionEvent.getX(1), motionEvent.getY(0), motionEvent.getY(1));
+                            float x = (motionEvent.getX(0) + motionEvent.getX(1)) / 2.0f;
+                            float y = (motionEvent.getY(0) + motionEvent.getY(1)) / 2.0f;
+                            if (this.v) {
+                                PointF pointF = this.V;
+                                if (R(pointF.x, x, pointF.y, y) > 5.0f || Math.abs(R - this.W) > 5.0f || this.N) {
+                                    this.M = true;
+                                    this.N = true;
+                                    this.A = Math.min(this.n, (R / this.W) * this.B);
+                                    float j0 = j0();
+                                    float f2 = this.A;
+                                    if (f2 <= j0) {
+                                        Log.i("HugePhotoDraweeView", "scale is " + this.A + "<= minScaleValue is " + j0);
+                                    } else if (this.u) {
+                                        PointF pointF2 = this.V;
+                                        float f3 = pointF2.x;
+                                        PointF pointF3 = this.D;
+                                        float f4 = pointF2.y - pointF3.y;
+                                        float f5 = this.B;
+                                        float f6 = f4 * (f2 / f5);
+                                        PointF pointF4 = this.C;
+                                        pointF4.x = x - ((f3 - pointF3.x) * (f2 / f5));
+                                        pointF4.y = y - f6;
+                                    } else if (this.G != null) {
+                                        this.C.x = (getWidth() / 2) - (this.A * this.G.x);
+                                        this.C.y = (getHeight() / 2) - (this.A * this.G.y);
+                                    } else {
+                                        this.C.x = (getWidth() / 2) - (this.A * (x0() / 2));
+                                        this.C.y = (getHeight() / 2) - (this.A * (w0() / 2));
+                                    }
+                                    Z(true);
+                                    r0(false);
+                                    z = true;
+                                }
+                            }
+                        } else {
+                            if (this.O) {
+                                float abs = (Math.abs(this.V.y - motionEvent.getY()) * 2.0f) + this.a0;
+                                if (this.c0 == -1.0f) {
+                                    this.c0 = abs;
+                                }
+                                boolean z2 = motionEvent.getY() > this.d0.y;
+                                this.d0.set(0.0f, motionEvent.getY());
+                                float abs2 = Math.abs(1.0f - (abs / this.c0)) * 0.5f;
+                                if (abs2 > 0.03f || this.e0) {
+                                    this.e0 = true;
+                                    float max = Math.max(j0(), Math.min(this.n, this.A * (this.c0 > 0.0f ? z2 ? abs2 + 1.0f : 1.0f - abs2 : 1.0f)));
+                                    this.A = max;
+                                    if (this.u) {
+                                        PointF pointF5 = this.V;
+                                        float f7 = pointF5.x;
+                                        PointF pointF6 = this.D;
+                                        float f8 = pointF5.y;
+                                        float f9 = this.B;
+                                        float f10 = (f8 - pointF6.y) * (max / f9);
+                                        PointF pointF7 = this.C;
+                                        pointF7.x = f7 - ((f7 - pointF6.x) * (max / f9));
+                                        pointF7.y = f8 - f10;
+                                    } else if (this.G != null) {
+                                        this.C.x = (getWidth() / 2) - (this.A * this.G.x);
+                                        this.C.y = (getHeight() / 2) - (this.A * this.G.y);
+                                    } else {
+                                        this.C.x = (getWidth() / 2) - (this.A * (x0() / 2));
+                                        this.C.y = (getHeight() / 2) - (this.A * (w0() / 2));
+                                    }
+                                }
+                                this.c0 = abs;
+                                Z(true);
+                                r0(false);
+                            } else if (!this.M) {
+                                float abs3 = Math.abs(motionEvent.getX() - this.V.x);
+                                float abs4 = Math.abs(motionEvent.getY() - this.V.y);
+                                float f11 = this.t0 * 5.0f;
+                                if (abs3 > f11 || abs4 > f11 || this.N) {
+                                    this.C.x = this.D.x + (motionEvent.getX() - this.V.x);
+                                    this.C.y = this.D.y + (motionEvent.getY() - this.V.y);
+                                    PointF pointF8 = this.C;
+                                    float f12 = pointF8.x;
+                                    float f13 = pointF8.y;
+                                    Z(true);
+                                    boolean z3 = f12 != this.C.x;
+                                    boolean z4 = z3 && abs3 > abs4 && !this.N;
+                                    boolean z5 = f13 == this.C.y && abs4 > 3.0f * f11;
+                                    if (!z4 && (!z3 || z5 || this.N)) {
+                                        this.N = true;
+                                    } else if (abs3 > f11) {
+                                        this.P = 0;
+                                        this.k0.removeMessages(1);
+                                        getParent().requestDisallowInterceptTouchEvent(false);
+                                    }
+                                    if (!this.u) {
+                                        PointF pointF9 = this.C;
+                                        PointF pointF10 = this.D;
+                                        pointF9.x = pointF10.x;
+                                        pointF9.y = pointF10.y;
+                                        getParent().requestDisallowInterceptTouchEvent(false);
+                                    }
+                                    r0(false);
+                                }
+                            }
+                            z = true;
+                        }
+                    }
+                    if (z) {
+                        this.k0.removeMessages(1);
+                        invalidate();
+                        return true;
+                    }
+                } else if (action != 3) {
+                    if (action != 5) {
+                        if (action != 6) {
+                            if (action != 261) {
+                            }
+                        }
+                    }
+                }
+                return super.onTouchEvent(motionEvent);
+            }
+            t0();
+            this.k0.removeMessages(1);
+            if (this.O) {
+                this.O = false;
+                if (!this.e0) {
+                    S(this.b0, this.V);
+                }
+            }
+            if (this.P <= 0 || !(this.M || this.N)) {
+                if (pointerCount == 1) {
+                    this.M = false;
+                    this.N = false;
+                    this.P = 0;
+                }
+                return true;
+            }
+            if (this.M && pointerCount == 2) {
+                this.N = true;
+                PointF pointF11 = this.D;
+                PointF pointF12 = this.C;
+                pointF11.set(pointF12.x, pointF12.y);
+                if (motionEvent.getActionIndex() == 1) {
+                    this.V.set(motionEvent.getX(0), motionEvent.getY(0));
+                } else {
+                    this.V.set(motionEvent.getX(1), motionEvent.getY(1));
+                }
+            }
+            if (pointerCount < 3) {
+                this.M = false;
+            }
+            if (pointerCount < 2) {
+                this.N = false;
+                this.P = 0;
+            }
+            r0(true);
+            return true;
+        }
+        this.f0 = null;
+        getParent().requestDisallowInterceptTouchEvent(true);
+        this.P = Math.max(this.P, pointerCount);
+        if (pointerCount >= 2) {
+            if (this.v) {
+                float R2 = R(motionEvent.getX(0), motionEvent.getX(1), motionEvent.getY(0), motionEvent.getY(1));
+                this.B = this.A;
+                this.W = R2;
+                PointF pointF13 = this.D;
+                PointF pointF14 = this.C;
+                pointF13.set(pointF14.x, pointF14.y);
+                this.V.set((motionEvent.getX(0) + motionEvent.getX(1)) / 2.0f, (motionEvent.getY(0) + motionEvent.getY(1)) / 2.0f);
+            } else {
+                this.P = 0;
+            }
+            this.k0.removeMessages(1);
+        } else if (!this.O) {
+            PointF pointF15 = this.D;
+            PointF pointF16 = this.C;
+            pointF15.set(pointF16.x, pointF16.y);
+            this.V.set(motionEvent.getX(), motionEvent.getY());
+            this.k0.sendEmptyMessageDelayed(1, 600L);
+        }
+        return true;
+    }
+
+    public final synchronized void p0(d.b.g0.a.b1.e.d.d dVar, int i2, int i3, int i4) {
+        if (this.H > 0 && this.I > 0 && (this.H != i2 || this.I != i3)) {
+            s0(false);
+            if (this.f12339e != null) {
+                if (!this.f12341g) {
+                    this.f12339e.recycle();
+                }
+                this.f12339e = null;
+                this.f12340f = false;
+                this.f12341g = false;
+            }
+        }
+        this.R = dVar;
+        this.H = i2;
+        this.I = i3;
+        this.J = i4;
+        P();
+        O();
+        invalidate();
+        requestLayout();
+    }
+
+    public final void q0() {
+        Float f2;
+        if (getWidth() == 0 || getHeight() == 0 || this.H <= 0 || this.I <= 0) {
+            return;
+        }
+        if (this.F != null && (f2 = this.E) != null) {
+            this.A = f2.floatValue();
+            if (this.C == null) {
+                this.C = new PointF();
+            }
+            this.C.x = (getWidth() / 2) - (this.A * this.F.x);
+            this.C.y = (getHeight() / 2) - (this.A * this.F.y);
+            this.F = null;
+            this.E = null;
+            Z(true);
+            r0(true);
+        }
+        Z(false);
+    }
+
+    public final void r0(boolean z) {
+        if (this.R == null || this.j == null) {
+            return;
+        }
+        int min = Math.min(this.i, N(this.A));
+        for (Map.Entry<Integer, List<i>> entry : this.j.entrySet()) {
+            for (i iVar : entry.getValue()) {
+                if (iVar.f12372b < min || (iVar.f12372b > min && iVar.f12372b != this.i)) {
+                    iVar.f12375e = false;
+                    if (iVar.f12373c != null) {
+                        iVar.f12373c.recycle();
+                        iVar.f12373c = null;
+                    }
+                }
+                if (iVar.f12372b != min) {
+                    if (iVar.f12372b == this.i) {
+                        iVar.f12375e = true;
+                    }
+                } else if (E0(iVar)) {
+                    iVar.f12375e = true;
+                    if (!iVar.f12374d && iVar.f12373c == null && z) {
+                        X(new j(this, this.R, iVar));
+                    }
+                } else if (iVar.f12372b != this.i) {
+                    iVar.f12375e = false;
+                    if (iVar.f12373c != null) {
+                        iVar.f12373c.recycle();
+                        iVar.f12373c = null;
+                    }
+                }
+            }
+        }
+    }
+
+    public final void s0(boolean z) {
+        this.A = 0.0f;
+        this.B = 0.0f;
+        this.C = null;
+        this.D = null;
+        this.E = Float.valueOf(0.0f);
+        this.F = null;
+        this.G = null;
+        this.M = false;
+        this.N = false;
+        this.O = false;
+        this.P = 0;
+        this.i = 0;
+        this.V = null;
+        this.W = 0.0f;
+        this.b0 = null;
+        this.c0 = 0.0f;
+        this.d0 = null;
+        this.e0 = false;
+        this.f0 = null;
+        this.o0 = null;
+        this.p0 = null;
+        this.q0 = null;
+        if (z) {
+            this.f12342h = null;
+            if (this.R != null) {
+                synchronized (this.S) {
+                    this.R.recycle();
+                    this.R = null;
+                }
+            }
+            Bitmap bitmap = this.f12339e;
+            if (bitmap != null && !this.f12341g) {
+                bitmap.recycle();
+            }
+            this.H = 0;
+            this.I = 0;
+            this.J = 0;
+            this.K = null;
+            this.L = null;
+            this.g0 = false;
+            this.h0 = false;
+            this.f12339e = null;
+            this.f12340f = false;
+            this.f12341g = false;
+        }
+        Map<Integer, List<i>> map = this.j;
+        if (map != null) {
+            for (Map.Entry<Integer, List<i>> entry : map.entrySet()) {
+                for (i iVar : entry.getValue()) {
+                    iVar.f12375e = false;
+                    if (iVar.f12373c != null) {
+                        iVar.f12373c.recycle();
+                        iVar.f12373c = null;
+                    }
+                }
+            }
+            this.j = null;
+        }
+        setGestureDetector(getContext());
+    }
+
+    public final void setBitmapDecoderClass(Class<? extends d.b.g0.a.b1.e.d.c> cls) {
+        if (cls != null) {
+            this.T = new d.b.g0.a.b1.e.d.a(cls);
+            return;
+        }
+        throw new IllegalArgumentException("Decoder class cannot be set to null");
+    }
+
+    public final void setBitmapDecoderFactory(d.b.g0.a.b1.e.d.b<? extends d.b.g0.a.b1.e.d.c> bVar) {
+        if (bVar != null) {
+            this.T = bVar;
+            return;
+        }
+        throw new IllegalArgumentException("Decoder factory cannot be set to null");
+    }
+
+    public final void setDebug(boolean z) {
+        this.k = z;
     }
 
     public final void setDoubleTapZoomDpi(int i2) {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        setDoubleTapZoomScale((((displayMetrics.ydpi + displayMetrics.xdpi) / 2.0f) * 2.0f) / i2);
-    }
-
-    public final void setDoubleTapZoomStyle(int i2) {
-        if (!VALID_ZOOM_STYLES.contains(Integer.valueOf(i2))) {
-            throw new IllegalArgumentException("Invalid zoom style: " + i2);
-        }
-        this.doubleTapZoomStyle = i2;
+        setDoubleTapZoomScale((((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f) * 2.0f) / i2);
     }
 
     public final void setDoubleTapZoomDuration(int i2) {
-        this.dnb = Math.max(0, i2);
+        this.z = Math.max(0, i2);
     }
 
-    public void setParallelLoadingEnabled(boolean z) {
-        this.dna = z;
+    public final void setDoubleTapZoomScale(float f2) {
+        this.x = f2;
     }
 
-    public final void setDebug(boolean z) {
-        this.debug = z;
+    public final void setDoubleTapZoomStyle(int i2) {
+        if (y0.contains(Integer.valueOf(i2))) {
+            this.y = i2;
+            return;
+        }
+        throw new IllegalArgumentException("Invalid zoom style: " + i2);
+    }
+
+    public final void setImage(d.b.g0.a.b1.e.b bVar) {
+        setImage(bVar, null, null);
+    }
+
+    @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
+    public void setImageDrawable(@Nullable Drawable drawable) {
+        d.b.g0.a.b1.e.c.b(getContext(), drawable);
+        super.setImageDrawable(drawable);
+    }
+
+    public void setIsDynamicBitmap(boolean z) {
+        this.u0 = z;
+    }
+
+    public final void setMaxScale(float f2) {
+        this.n = f2;
+    }
+
+    public void setMaxTileSize(int i2) {
+        this.r = i2;
+        this.s = i2;
+    }
+
+    public final void setMaximumDpi(int i2) {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        setMinScale(((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f) / i2);
+    }
+
+    public final void setMinScale(float f2) {
+        this.m = f2;
+    }
+
+    public final void setMinimumDpi(int i2) {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        setMaxScale((((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f) * 2.0f) / i2);
+    }
+
+    public final void setMinimumScaleType(int i2) {
+        if (B0.contains(Integer.valueOf(i2))) {
+            this.q = i2;
+            if (g0()) {
+                Z(true);
+                invalidate();
+                return;
+            }
+            return;
+        }
+        throw new IllegalArgumentException("Invalid scale type: " + i2);
+    }
+
+    public void setMinimumTileDpi(int i2) {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        this.o = (int) Math.min((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f, i2);
+        if (g0()) {
+            s0(false);
+            invalidate();
+        }
+    }
+
+    public void setOnImageEventListener(g gVar) {
+        this.i0 = gVar;
     }
 
     @Override // android.view.View
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.onLongClickListener = onLongClickListener;
+        this.j0 = onLongClickListener;
     }
 
-    public void setOnImageEventListener(e eVar) {
-        this.dng = eVar;
+    public final void setOrientation(int i2) {
+        if (x0.contains(Integer.valueOf(i2))) {
+            this.l = i2;
+            s0(false);
+            invalidate();
+            requestLayout();
+            return;
+        }
+        throw new IllegalArgumentException("Invalid orientation: " + i2);
     }
 
-    /* loaded from: classes8.dex */
-    public final class b {
-        private d dnn;
-        private long duration;
-        private int easing;
-        private boolean interruptible;
-        private boolean panLimited;
-        private final PointF targetSCenter;
-        private final float targetScale;
-        private final PointF vFocus;
-
-        private b(PointF pointF) {
-            this.duration = 500L;
-            this.easing = 2;
-            this.interruptible = true;
-            this.panLimited = true;
-            this.targetScale = HugePhotoDraweeView.this.scale;
-            this.targetSCenter = pointF;
-            this.vFocus = null;
+    public final void setPanEnabled(boolean z) {
+        PointF pointF;
+        this.u = z;
+        if (z || (pointF = this.C) == null) {
+            return;
         }
-
-        private b(float f, PointF pointF) {
-            this.duration = 500L;
-            this.easing = 2;
-            this.interruptible = true;
-            this.panLimited = true;
-            this.targetScale = f;
-            this.targetSCenter = pointF;
-            this.vFocus = null;
+        pointF.x = (getWidth() / 2) - (this.A * (x0() / 2));
+        this.C.y = (getHeight() / 2) - (this.A * (w0() / 2));
+        if (g0()) {
+            r0(true);
+            invalidate();
         }
+    }
 
-        private b(float f, PointF pointF, PointF pointF2) {
-            this.duration = 500L;
-            this.easing = 2;
-            this.interruptible = true;
-            this.panLimited = true;
-            this.targetScale = f;
-            this.targetSCenter = pointF;
-            this.vFocus = pointF2;
-        }
-
-        public b cx(long j) {
-            this.duration = j;
-            return this;
-        }
-
-        public b gb(boolean z) {
-            this.interruptible = z;
-            return this;
-        }
-
-        /* renamed from: if  reason: not valid java name */
-        public b m28if(int i) {
-            if (!HugePhotoDraweeView.VALID_EASING_STYLES.contains(Integer.valueOf(i))) {
-                throw new IllegalArgumentException("Unknown easing type: " + i);
+    public final void setPanLimit(int i2) {
+        if (A0.contains(Integer.valueOf(i2))) {
+            this.p = i2;
+            if (g0()) {
+                Z(true);
+                invalidate();
+                return;
             }
-            this.easing = i;
-            return this;
+            return;
         }
+        throw new IllegalArgumentException("Invalid pan limit: " + i2);
+    }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public b gc(boolean z) {
-            this.panLimited = z;
-            return this;
+    public void setParallelLoadingEnabled(boolean z) {
+        this.t = z;
+    }
+
+    public final void setQuickScaleEnabled(boolean z) {
+        this.w = z;
+    }
+
+    public final void setRegionDecoderClass(Class<? extends d.b.g0.a.b1.e.d.d> cls) {
+        if (cls != null) {
+            this.U = new d.b.g0.a.b1.e.d.a(cls);
+            return;
         }
+        throw new IllegalArgumentException("Decoder class cannot be set to null");
+    }
 
-        public void start() {
-            PointF pointF;
-            if (HugePhotoDraweeView.this.dnf != null && HugePhotoDraweeView.this.dnf.dnn != null) {
-                try {
-                    HugePhotoDraweeView.this.dnf.dnn.aBI();
-                } catch (Exception e) {
-                    Log.w("HugePhotoDraweeView", "Error thrown by animation listener", e);
+    public final void setRegionDecoderFactory(d.b.g0.a.b1.e.d.b<? extends d.b.g0.a.b1.e.d.d> bVar) {
+        if (bVar != null) {
+            this.U = bVar;
+            return;
+        }
+        throw new IllegalArgumentException("Decoder factory cannot be set to null");
+    }
+
+    public final void setScaleAndCenter(float f2, PointF pointF) {
+        this.f0 = null;
+        this.E = Float.valueOf(f2);
+        this.F = pointF;
+        this.G = pointF;
+        invalidate();
+    }
+
+    public final void setTileBackgroundColor(int i2) {
+        if (Color.alpha(i2) == 0) {
+            this.n0 = null;
+        } else {
+            Paint paint = new Paint();
+            this.n0 = paint;
+            paint.setStyle(Paint.Style.FILL);
+            this.n0.setColor(i2);
+        }
+        invalidate();
+    }
+
+    public final void setZoomEnabled(boolean z) {
+        this.v = z;
+    }
+
+    public final void t0() {
+        if (this.A < j0()) {
+            u0();
+        }
+    }
+
+    public final void u0() {
+        this.f0 = null;
+        this.E = Float.valueOf(i0(0.0f));
+        if (g0()) {
+            this.F = new PointF(x0() / 2, w0() / 2);
+        } else {
+            this.F = new PointF(0.0f, 0.0f);
+        }
+        invalidate();
+    }
+
+    public final void v0(ImageViewState imageViewState) {
+        if (imageViewState == null || imageViewState.getCenter() == null || !x0.contains(Integer.valueOf(imageViewState.getOrientation()))) {
+            return;
+        }
+        this.l = imageViewState.getOrientation();
+        this.E = Float.valueOf(imageViewState.getScale());
+        this.F = imageViewState.getCenter();
+        invalidate();
+    }
+
+    public final int w0() {
+        int requiredRotation = getRequiredRotation();
+        if (requiredRotation != 90 && requiredRotation != 270) {
+            return this.I;
+        }
+        return this.H;
+    }
+
+    public final int x0() {
+        int requiredRotation = getRequiredRotation();
+        if (requiredRotation != 90 && requiredRotation != 270) {
+            return this.H;
+        }
+        return this.I;
+    }
+
+    public final void y0(float[] fArr, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9) {
+        fArr[0] = f2;
+        fArr[1] = f3;
+        fArr[2] = f4;
+        fArr[3] = f5;
+        fArr[4] = f6;
+        fArr[5] = f7;
+        fArr[6] = f8;
+        fArr[7] = f9;
+    }
+
+    public final PointF z0(float f2, float f3, PointF pointF) {
+        if (this.C == null) {
+            return null;
+        }
+        pointF.set(C0(f2), D0(f3));
+        return pointF;
+    }
+
+    public final void setImage(d.b.g0.a.b1.e.b bVar, ImageViewState imageViewState) {
+        setImage(bVar, null, imageViewState);
+    }
+
+    public final void setImage(d.b.g0.a.b1.e.b bVar, d.b.g0.a.b1.e.b bVar2) {
+        setImage(bVar, bVar2, null);
+    }
+
+    public void setMaxTileSize(int i2, int i3) {
+        this.r = i2;
+        this.s = i3;
+    }
+
+    public final void setImage(d.b.g0.a.b1.e.b bVar, d.b.g0.a.b1.e.b bVar2, ImageViewState imageViewState) {
+        if (bVar != null) {
+            s0(true);
+            if (imageViewState != null) {
+                v0(imageViewState);
+            }
+            if (bVar2 != null) {
+                if (bVar.c() == null) {
+                    if (bVar.g() > 0 && bVar.e() > 0) {
+                        this.H = bVar.g();
+                        this.I = bVar.e();
+                        this.L = bVar2.f();
+                        if (bVar2.c() != null) {
+                            this.f12341g = bVar2.j();
+                            m0(bVar2.c());
+                        } else {
+                            Uri i2 = bVar2.i();
+                            if (i2 == null && bVar2.d() != null) {
+                                i2 = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + bVar2.d());
+                            }
+                            X(new e(this, getContext(), this.T, i2, true));
+                        }
+                    } else {
+                        throw new IllegalArgumentException("Preview image cannot be used unless dimensions are provided for the main image");
+                    }
+                } else {
+                    throw new IllegalArgumentException("Preview image cannot be used when a bitmap is provided for the main image");
                 }
             }
-            int width = (((HugePhotoDraweeView.this.getWidth() - HugePhotoDraweeView.this.getPaddingRight()) - HugePhotoDraweeView.this.getPaddingLeft()) / 2) + HugePhotoDraweeView.this.getPaddingLeft();
-            int height = (((HugePhotoDraweeView.this.getHeight() - HugePhotoDraweeView.this.getPaddingBottom()) - HugePhotoDraweeView.this.getPaddingTop()) / 2) + HugePhotoDraweeView.this.getPaddingTop();
-            float limitedScale = HugePhotoDraweeView.this.limitedScale(this.targetScale);
-            if (this.panLimited) {
-                pointF = HugePhotoDraweeView.this.limitedSCenter(this.targetSCenter.x, this.targetSCenter.y, limitedScale, new PointF());
+            if (bVar.c() != null && bVar.f() != null) {
+                l0(Bitmap.createBitmap(bVar.c(), bVar.f().left, bVar.f().top, bVar.f().width(), bVar.f().height()), 0, false);
+                return;
+            } else if (bVar.c() != null && !bVar.h()) {
+                l0(bVar.c(), 0, bVar.j());
+                return;
             } else {
-                pointF = this.targetSCenter;
+                this.K = bVar.f();
+                Uri i3 = bVar.i();
+                this.f12342h = i3;
+                if (i3 == null && bVar.d() != null) {
+                    this.f12342h = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + bVar.d());
+                }
+                if (!bVar.h() && this.K == null) {
+                    X(new e(this, getContext(), this.T, this.f12342h, false));
+                    return;
+                } else {
+                    X(new k(this, getContext(), this.U, bVar));
+                    return;
+                }
             }
-            HugePhotoDraweeView.this.dnf = new a();
-            HugePhotoDraweeView.this.dnf.scaleStart = HugePhotoDraweeView.this.scale;
-            HugePhotoDraweeView.this.dnf.scaleEnd = limitedScale;
-            HugePhotoDraweeView.this.dnf.time = System.currentTimeMillis();
-            HugePhotoDraweeView.this.dnf.sCenterEndRequested = pointF;
-            HugePhotoDraweeView.this.dnf.sCenterStart = HugePhotoDraweeView.this.getCenter();
-            HugePhotoDraweeView.this.dnf.sCenterEnd = pointF;
-            HugePhotoDraweeView.this.dnf.vFocusStart = HugePhotoDraweeView.this.sourceToViewCoord(pointF);
-            HugePhotoDraweeView.this.dnf.vFocusEnd = new PointF(width, height);
-            HugePhotoDraweeView.this.dnf.duration = this.duration;
-            HugePhotoDraweeView.this.dnf.interruptible = this.interruptible;
-            HugePhotoDraweeView.this.dnf.easing = this.easing;
-            HugePhotoDraweeView.this.dnf.time = System.currentTimeMillis();
-            HugePhotoDraweeView.this.dnf.dnn = this.dnn;
-            if (this.vFocus != null) {
-                float f = this.vFocus.x - (HugePhotoDraweeView.this.dnf.sCenterStart.x * limitedScale);
-                float f2 = this.vFocus.y - (HugePhotoDraweeView.this.dnf.sCenterStart.y * limitedScale);
-                f fVar = new f(limitedScale, new PointF(f, f2));
-                HugePhotoDraweeView.this.a(true, fVar);
-                HugePhotoDraweeView.this.dnf.vFocusEnd = new PointF((fVar.vTranslate.x - f) + this.vFocus.x, (fVar.vTranslate.y - f2) + this.vFocus.y);
-            }
-            HugePhotoDraweeView.this.invalidate();
         }
+        throw new NullPointerException("imageSource must not be null");
+    }
+
+    /* loaded from: classes3.dex */
+    public static class c {
+
+        /* renamed from: a  reason: collision with root package name */
+        public float f12346a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public float f12347b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public PointF f12348c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public PointF f12349d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public PointF f12350e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public PointF f12351f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public PointF f12352g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public long f12353h;
+        public boolean i;
+        public int j;
+        public long k;
+        public f l;
+
+        public c() {
+            this.f12353h = 500L;
+            this.i = true;
+            this.j = 2;
+            this.k = System.currentTimeMillis();
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    public HugePhotoDraweeView(Context context) {
+        this(context, null);
     }
 }

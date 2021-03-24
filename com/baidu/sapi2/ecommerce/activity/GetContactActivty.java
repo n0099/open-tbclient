@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.baidu.pass.ecommerce.c.a;
+import com.baidu.pass.ecommerce.ContactUtil;
+import com.baidu.pass.ecommerce.result.GetContactResult;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GetContactActivty extends Activity {
-    private static final int REQUEST_CODE_CONTACT = 4002;
+    public static final int REQUEST_CODE_CONTACT = 4002;
 
     private String[] getPhoneContacts(Uri uri) {
         String[] strArr = new String[2];
@@ -26,30 +27,31 @@ public class GetContactActivty extends Activity {
     }
 
     @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 4002) {
-            a aVar = new a();
+            GetContactResult getContactResult = new GetContactResult();
             if (i2 == -1 && intent != null) {
                 String[] phoneContacts = getPhoneContacts(intent.getData());
-                aVar.f2815a = phoneContacts[0];
-                aVar.b = phoneContacts[1];
-                if (TextUtils.isEmpty(aVar.f2815a) && TextUtils.isEmpty(aVar.b)) {
+                String str = phoneContacts[0];
+                getContactResult.name = str;
+                getContactResult.phone = phoneContacts[1];
+                if (TextUtils.isEmpty(str) && TextUtils.isEmpty(getContactResult.phone)) {
                     Toast.makeText(this, String.format("读取手机联系人失败，可能%1$s已被禁止该权限或手机号为空", SapiUtils.getAppName(this)), 0).show();
-                    aVar.setResultCode(-901);
+                    getContactResult.setResultCode(-901);
                 } else {
-                    aVar.setResultCode(0);
+                    getContactResult.setResultCode(0);
                 }
             } else {
-                aVar.setResultCode(-301);
+                getContactResult.setResultCode(-301);
             }
-            com.baidu.pass.ecommerce.a.c().a().onCall(aVar);
+            ContactUtil.getInstance().getGetContactCallback().onCall(getContactResult);
             finish();
         }
     }
 
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         startActivityForResult(new Intent("android.intent.action.PICK", ContactsContract.CommonDataKinds.Phone.CONTENT_URI), 4002);
     }

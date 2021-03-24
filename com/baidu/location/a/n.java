@@ -6,95 +6,106 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class n implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f1930a = new Object();
-    private static n b = null;
-    private float[] c;
-    private int d = 0;
-    private List<Float> e = new ArrayList();
-    private List<Float> f = new ArrayList();
-    private boolean g = false;
-    private boolean h;
-    private SensorManager i;
+    public static Object f6556a = new Object();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static n f6557b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float[] f6558c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f6559d = 0;
+
+    /* renamed from: e  reason: collision with root package name */
+    public List<Float> f6560e = new ArrayList();
+
+    /* renamed from: f  reason: collision with root package name */
+    public List<Float> f6561f = new ArrayList();
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f6562g = false;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f6563h;
+    public SensorManager i;
 
     public n() {
-        this.h = false;
+        this.f6563h = false;
         try {
             if (this.i == null) {
                 this.i = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
             if (this.i.getDefaultSensor(6) != null) {
-                this.h = true;
+                this.f6563h = true;
             }
-        } catch (Exception e) {
-            this.h = false;
+        } catch (Exception unused) {
+            this.f6563h = false;
         }
     }
 
     public static n a() {
         n nVar;
-        synchronized (f1930a) {
-            if (b == null) {
-                b = new n();
+        synchronized (f6556a) {
+            if (f6557b == null) {
+                f6557b = new n();
             }
-            nVar = b;
+            nVar = f6557b;
         }
         return nVar;
     }
 
     public void b() {
         Sensor defaultSensor;
-        if (this.h && !this.g) {
+        if (this.f6563h && !this.f6562g) {
             try {
-                this.d = 0;
-                this.e.clear();
-                this.f.clear();
+                this.f6559d = 0;
+                this.f6560e.clear();
+                this.f6561f.clear();
                 if (this.i == null) {
                     this.i = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
                 }
                 if (this.i != null && (defaultSensor = this.i.getDefaultSensor(6)) != null) {
                     this.i.registerListener(this, defaultSensor, 2);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            this.g = true;
+            this.f6562g = true;
         }
     }
 
     public void c() {
-        if (this.g) {
+        if (this.f6562g) {
             try {
                 if (this.i != null) {
                     this.i.unregisterListener(this);
                     this.i = null;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            this.g = false;
+            this.f6562g = false;
         }
     }
 
     public float d() {
-        float f;
-        synchronized (this.f) {
-            if (Math.abs(((int) (System.currentTimeMillis() / 1000)) - this.d) > 5 || this.f.size() <= 0) {
-                f = 0.0f;
-            } else {
+        float f2;
+        synchronized (this.f6561f) {
+            f2 = 0.0f;
+            if (Math.abs(((int) (System.currentTimeMillis() / 1000)) - this.f6559d) <= 5 && this.f6561f.size() > 0) {
                 try {
-                    f = this.f.get(this.f.size() - 1).floatValue();
-                } catch (Throwable th) {
-                    f = 0.0f;
+                    f2 = this.f6561f.get(this.f6561f.size() - 1).floatValue();
+                } catch (Throwable unused) {
                 }
             }
         }
-        return f;
+        return f2;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -104,46 +115,34 @@ public class n implements SensorEventListener {
     @Override // android.hardware.SensorEventListener
     @SuppressLint({"NewApi"})
     public void onSensorChanged(SensorEvent sensorEvent) {
-        switch (sensorEvent.sensor.getType()) {
-            case 6:
-                if (!this.g) {
-                    return;
-                }
-                this.c = (float[]) sensorEvent.values.clone();
-                int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
-                if (currentTimeMillis == this.d) {
-                    this.e.add(Float.valueOf(this.c[0]));
-                    return;
-                }
-                this.d = currentTimeMillis;
-                if (this.e.size() <= 0) {
-                    return;
-                }
-                int size = this.e.size();
-                float f = 0.0f;
-                Iterator<Float> it = this.e.iterator();
-                while (true) {
-                    float f2 = f;
-                    if (!it.hasNext()) {
-                        float f3 = f2 / size;
-                        synchronized (this.f) {
-                            try {
-                                this.f.add(Float.valueOf(f3));
-                                if (this.f.size() >= 4) {
-                                    this.f.remove(0);
-                                }
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                this.f.clear();
-                            }
-                        }
-                        this.e.clear();
-                        return;
-                    }
-                    f = it.next().floatValue() + f2;
-                }
-            default:
+        if (sensorEvent.sensor.getType() == 6 && this.f6562g) {
+            this.f6558c = (float[]) sensorEvent.values.clone();
+            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
+            if (currentTimeMillis == this.f6559d) {
+                this.f6560e.add(Float.valueOf(this.f6558c[0]));
                 return;
+            }
+            this.f6559d = currentTimeMillis;
+            if (this.f6560e.size() > 0) {
+                int size = this.f6560e.size();
+                float f2 = 0.0f;
+                for (Float f3 : this.f6560e) {
+                    f2 += f3.floatValue();
+                }
+                float f4 = f2 / size;
+                synchronized (this.f6561f) {
+                    try {
+                        this.f6561f.add(Float.valueOf(f4));
+                        if (this.f6561f.size() >= 4) {
+                            this.f6561f.remove(0);
+                        }
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                        this.f6561f.clear();
+                    }
+                }
+                this.f6560e.clear();
+            }
         }
     }
 }

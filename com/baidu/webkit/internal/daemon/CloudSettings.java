@@ -17,90 +17,93 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class CloudSettings implements INoProGuard, INetListener {
-    private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
-    private static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
-    private static final String LOG_TAG = "CloudSettings";
+    public static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
+    public static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
+    public static final String LOG_TAG = "CloudSettings";
     public static List<a> NetRecordList = new ArrayList();
-    private static boolean mDownloading;
-    private static boolean mReady;
-    private static boolean mSuccessDownload;
+    public static boolean mDownloading;
+    public static boolean mReady;
+    public static boolean mSuccessDownload;
     public static a netRecord;
-    private static String sLastGetTime;
-    private Map<String, String> mHeader;
-    private long mStartTime;
-    private int mNetres = -1;
-    private ByteArrayOutputStream mData = null;
+    public static String sLastGetTime;
+    public Map<String, String> mHeader;
+    public long mStartTime;
+    public int mNetres = -1;
+    public ByteArrayOutputStream mData = null;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f3832a;
-        public int b = -1;
-        public boolean c;
+        public long f26915a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f26916b = -1;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f26917c;
 
         public a() {
         }
 
-        final void a(int i) {
+        public final void a(int i) {
             Log.w(CloudSettings.LOG_TAG, "setNetRes " + i);
-            this.b = i;
+            this.f26916b = i;
         }
 
-        final void a(long j) {
+        public final void a(long j) {
             Log.w(CloudSettings.LOG_TAG, "setNetTime " + j);
-            this.f3832a = j;
+            this.f26915a = j;
         }
 
-        final void a(boolean z) {
+        public final void a(boolean z) {
             Log.w(CloudSettings.LOG_TAG, "mCronet " + z);
-            this.c = z;
+            this.f26917c = z;
         }
     }
 
-    private static void addRawLogItem(StringBuilder sb, String str, long j) {
+    public static void addRawLogItem(StringBuilder sb, String str, long j) {
         if (sb.length() > 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         }
         sb.append(str);
         sb.append("=");
         sb.append(j);
     }
 
-    private static void addRawLogItem(StringBuilder sb, String str, String str2) {
+    public static void addRawLogItem(StringBuilder sb, String str, String str2) {
         if (sb.length() > 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         }
         sb.append(str);
         sb.append("=");
         sb.append(str2);
     }
 
-    private static void addRawLogItem(StringBuilder sb, String str, boolean z) {
+    public static void addRawLogItem(StringBuilder sb, String str, boolean z) {
         if (sb.length() > 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         }
         sb.append(str);
         sb.append("=");
         sb.append(z);
     }
 
-    private static String bytesToHexString(byte[] bArr) {
+    public static String bytesToHexString(byte[] bArr) {
         StringBuilder sb = new StringBuilder("");
         if (bArr == null || bArr.length <= 0) {
             return null;
         }
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() < 2) {
                 sb.append(0);
             }
@@ -111,9 +114,7 @@ public class CloudSettings implements INoProGuard, INetListener {
 
     public static String getUrl(Context context) {
         String cloudSettingUrl = WebSettingsGlobalBlink.getCloudSettingUrl();
-        if (cloudSettingUrl == null || cloudSettingUrl.length() <= 0) {
-            cloudSettingUrl = CLOUD_SETTING_URL;
-        }
+        cloudSettingUrl = (cloudSettingUrl == null || cloudSettingUrl.length() <= 0) ? "https://browserkernel.baidu.com/config/t5config?cmd=1&" : "https://browserkernel.baidu.com/config/t5config?cmd=1&";
         StringBuilder sb = new StringBuilder();
         addRawLogItem(sb, "package_name", context.getPackageName());
         addRawLogItem(sb, "sdk_ver", WebKitFactory.getSdkVersionName());
@@ -139,7 +140,7 @@ public class CloudSettings implements INoProGuard, INetListener {
         return mReady;
     }
 
-    private static String refFormatNowDate() {
+    public static String refFormatNowDate() {
         return new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
     }
 
@@ -153,15 +154,16 @@ public class CloudSettings implements INoProGuard, INetListener {
         }
         try {
             byte[] decode = Base64.decode(str.getBytes(), 0);
-            if (decode != null) {
-                sLastGetTime = reverseString(new String(decode, "utf-8"));
-                b.b();
-                String str2 = ZeusInitConfigUtils.get("engineCloudSettingsData", (String) null);
-                if (str2 == null) {
-                    Log.w(LOG_TAG, "restoreLastSentTimeFromCfg null");
-                } else {
-                    WebSettingsGlobalBlink.setCloudSettings(new String(str2.getBytes("utf-8"), "utf-8"));
-                }
+            if (decode == null) {
+                return;
+            }
+            sLastGetTime = reverseString(new String(decode, "utf-8"));
+            b.b();
+            String str2 = ZeusInitConfigUtils.get("engineCloudSettingsData", (String) null);
+            if (str2 == null) {
+                Log.w(LOG_TAG, "restoreLastSentTimeFromCfg null");
+            } else {
+                WebSettingsGlobalBlink.setCloudSettings(new String(str2.getBytes("utf-8"), "utf-8"));
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -181,13 +183,13 @@ public class CloudSettings implements INoProGuard, INetListener {
         }
     }
 
-    private static String reverseString(String str) {
+    public static String reverseString(String str) {
         StringBuilder sb = new StringBuilder(str);
         sb.reverse();
         return sb.toString();
     }
 
-    private static void saveLastSentTimeToCfg(byte[] bArr) {
+    public static void saveLastSentTimeToCfg(byte[] bArr) {
         try {
             String refFormatNowDate = refFormatNowDate();
             sLastGetTime = refFormatNowDate;
@@ -222,30 +224,31 @@ public class CloudSettings implements INoProGuard, INetListener {
                 bdNetTask.setNet(bdNet);
                 bdNetTask.setUrl(getUrl(context));
                 bdNet.start(bdNetTask, false);
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    private static synchronized boolean tryToUploadCloudSettings() {
-        boolean z = false;
+    public static synchronized boolean tryToUploadCloudSettings() {
         synchronized (CloudSettings.class) {
-            if (!mDownloading) {
-                if (sLastGetTime == null) {
-                    restoreLastSentTimeFromCfg();
-                }
-                if (!refFormatNowDate().equals(sLastGetTime)) {
-                    mDownloading = true;
-                    sLastGetTime = null;
-                    z = true;
-                } else if (!mSuccessDownload) {
-                    mDownloading = true;
-                    z = true;
-                }
+            if (mDownloading) {
+                return false;
+            }
+            if (sLastGetTime == null) {
+                restoreLastSentTimeFromCfg();
+            }
+            if (!refFormatNowDate().equals(sLastGetTime)) {
+                mDownloading = true;
+                sLastGetTime = null;
+                return true;
+            } else if (mSuccessDownload) {
+                return false;
+            } else {
+                mDownloading = true;
+                return true;
             }
         }
-        return z;
     }
 
     @Override // com.baidu.webkit.net.INetListener
@@ -302,8 +305,9 @@ public class CloudSettings implements INoProGuard, INetListener {
             Log.w(LOG_TAG, "mData==null");
             return;
         }
-        if (this.mHeader != null) {
-            String str = this.mHeader.get(Headers.LAST_MODIFIED);
+        Map<String, String> map = this.mHeader;
+        if (map != null) {
+            String str = map.get("Last-Modified");
             Log.w(LOG_TAG, "lastModify " + str);
             if (str != null) {
                 Log.w(LOG_TAG, "lastModify1 " + str);
@@ -318,8 +322,8 @@ public class CloudSettings implements INoProGuard, INetListener {
             byteArray = new d(WebSettingsGlobalBlink.getRc4SecrectKey()).a(byteArray);
             WebSettingsGlobalBlink.setCloudSettings(new String(byteArray, "utf-8"));
             VideoCloudSetting.saveVideoSettingToCfg();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         saveLastSentTimeToCfg(byteArray);
         mReady = true;

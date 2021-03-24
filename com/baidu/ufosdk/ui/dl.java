@@ -5,16 +5,14 @@ import android.widget.LinearLayout;
 import com.baidu.ufosdk.UfoSDK;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class dl implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackListActivity f3738a;
+    public final /* synthetic */ FeedbackListActivity f23179a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public dl(FeedbackListActivity feedbackListActivity) {
-        this.f3738a = feedbackListActivity;
+        this.f23179a = feedbackListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,24 +23,24 @@ public final class dl implements View.OnClickListener {
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        if (!com.baidu.ufosdk.b.d.c(this.f3738a)) {
+        if (!com.baidu.ufosdk.b.d.c(this.f23179a)) {
             com.baidu.ufosdk.f.c.c("Network is not avaiable. Please try again later.");
             return;
         }
         try {
-            linearLayout = this.f3738a.b;
+            linearLayout = this.f23179a.f23023b;
             linearLayout.setVisibility(8);
-            view2 = this.f3738a.v;
+            view2 = this.f23179a.v;
             view2.setVisibility(0);
             if (UfoSDK.clientid.length() == 0) {
                 new Thread(new dm(this)).start();
-            } else {
-                this.f3738a.y = Executors.newSingleThreadExecutor();
-                executorService = this.f3738a.y;
-                executorService.execute(new dn(this));
+                return;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            this.f23179a.y = Executors.newSingleThreadExecutor();
+            executorService = this.f23179a.y;
+            executorService.execute(new dn(this));
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

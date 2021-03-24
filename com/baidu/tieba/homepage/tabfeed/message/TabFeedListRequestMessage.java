@@ -1,14 +1,14 @@
 package com.baidu.tieba.homepage.tabfeed.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.util.v;
+import d.b.b.e.p.l;
+import d.b.h0.r.k;
+import d.b.h0.z0.w;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TabFeedListRequestMessage extends NetMessage {
     public static final int LOAD_RN = 20;
     public static final int LOAD_TYPE_LOADMORE = 2;
@@ -23,23 +23,23 @@ public class TabFeedListRequestMessage extends NetMessage {
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.activity_name = this.tabCode;
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = 20;
-            builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-            builder.q_type = Integer.valueOf(k.bkV().getViewImageQuality());
+            builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
+            builder.q_type = Integer.valueOf(k.c().e());
             if (z) {
-                v.b(builder, true);
+                w.a(builder, true);
             }
             ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }

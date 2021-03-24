@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import android.database.Cursor;
 import androidx.annotation.Nullable;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class w {
     public static void a() {
     }
@@ -12,7 +12,7 @@ public class w {
         if (cursor != null) {
             try {
                 cursor.close();
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
     }

@@ -2,13 +2,13 @@ package com.kwad.sdk.crash.utils;
 
 import android.os.Build;
 import com.kwad.sdk.utils.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class AbiUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Abi f6391a;
+    public static Abi f34477a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum Abi {
         UNKNOWN,
         ARMEABI_V7A,
@@ -27,32 +27,34 @@ public final class AbiUtil {
         if (Build.VERSION.SDK_INT < 21) {
             return Abi.ARMEABI_V7A;
         }
-        if (f6391a != null) {
-            return f6391a;
+        Abi abi = f34477a;
+        if (abi != null) {
+            return abi;
         }
         try {
-            Abi abi = ((Boolean) n.a(n.a("dalvik.system.VMRuntime", "getRuntime", new Object[0]), "is64Bit", new Object[0])).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
-            f6391a = abi;
-            return abi;
+            Abi abi2 = ((Boolean) n.a(n.a("dalvik.system.VMRuntime", "getRuntime", new Object[0]), "is64Bit", new Object[0])).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
+            f34477a = abi2;
+            return abi2;
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
             try {
-                Abi abi2 = ((Integer) n.a(n.a("sun.misc.Unsafe", "getUnsafe", new Object[0]), "addressSize", new Object[0])).intValue() == 8 ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
-                f6391a = abi2;
-                return abi2;
+                Abi abi3 = ((Integer) n.a(n.a("sun.misc.Unsafe", "getUnsafe", new Object[0]), "addressSize", new Object[0])).intValue() == 8 ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
+                f34477a = abi3;
+                return abi3;
             } catch (Throwable th2) {
                 com.kwad.sdk.core.d.a.b(th2);
                 try {
                     if (com.kwad.sdk.crash.d.a().f().getApplicationInfo().nativeLibraryDir.contains("arm64")) {
-                        Abi abi3 = Abi.ARM64_V8A;
-                        f6391a = abi3;
-                        return abi3;
+                        Abi abi4 = Abi.ARM64_V8A;
+                        f34477a = abi4;
+                        return abi4;
                     }
                 } catch (Throwable th3) {
                     com.kwad.sdk.core.d.a.b(th3);
                 }
-                f6391a = Abi.UNKNOWN;
-                return f6391a;
+                Abi abi5 = Abi.UNKNOWN;
+                f34477a = abi5;
+                return abi5;
             }
         }
     }

@@ -9,39 +9,39 @@ import com.kwai.video.hodor.anotations.AccessedByNative;
 import com.kwai.video.hodor.util.HeaderUtil;
 import com.kwai.video.hodor.util.Timber;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ResourceDownloadTask extends AbstractHodorTask {
     public static final int ResourceDirEvictStrategy_Auto = 1;
     public static final int ResourceDirEvictStrategy_Manual = 0;
     public static final int SaveMode_CopyAfterDownload = 2;
     public static final int SaveMode_MoveAfterDownload = 1;
     public static final int SaveMode_NonExport = 0;
-    private static final int SaveMode_Unset = -1;
+    public static final int SaveMode_Unset = -1;
     @AccessedByNative
-    private final String mCacheKey;
+    public final String mCacheKey;
     @AccessedByNative
-    private final String mHttpHeadersString;
-    private ResourceDownloadCallback mResourceDownloadCallback;
+    public final String mHttpHeadersString;
+    public ResourceDownloadCallback mResourceDownloadCallback;
     @AccessedByNative
-    private final String mUrl;
+    public final String mUrl;
     @AccessedByNative
-    private String mExpectSavePath = "";
+    public String mExpectSavePath = "";
     @AccessedByNative
-    private int mSaveMode = -1;
+    public int mSaveMode = -1;
     @AccessedByNative
-    private int mEvictStrategy = 0;
+    public int mEvictStrategy = 0;
     @AccessedByNative
-    private boolean mDeleteCacheOnCancel = false;
-    private long mStepDownloadBytes = -1;
+    public boolean mDeleteCacheOnCancel = false;
+    public long mStepDownloadBytes = -1;
     @AccessedByNative
-    private int mProgressCallbackIntervalMs = 200;
+    public int mProgressCallbackIntervalMs = 200;
     @AccessedByNative
-    private int mReadTimeoutSec = 10;
+    public int mReadTimeoutSec = 10;
     @AccessedByNative
-    private boolean mUpdatePriorityIfExist = false;
-    private boolean setPathBefore = false;
+    public boolean mUpdatePriorityIfExist = false;
+    public boolean setPathBefore = false;
     @AccessedByNative
-    private AwesomeCacheCallback mAwesomeCacheCallback = new AwesomeCacheCallback() { // from class: com.kwai.video.hodor.ResourceDownloadTask.1
+    public AwesomeCacheCallback mAwesomeCacheCallback = new AwesomeCacheCallback() { // from class: com.kwai.video.hodor.ResourceDownloadTask.1
         @Override // com.kwai.video.cache.AwesomeCacheCallback
         public void onDownloadFinish(AcCallBackInfo acCallBackInfo) {
             ResourceDownloadTask.this.mTaskInfo.copyInfoAfterDownload(acCallBackInfo);
@@ -53,12 +53,17 @@ public class ResourceDownloadTask extends AbstractHodorTask {
 
         @Override // com.kwai.video.cache.AwesomeCacheCallback
         public void onSessionProgress(AcCallBackInfo acCallBackInfo) {
+            TaskInfo taskInfo;
+            String str;
             if (!ResourceDownloadTask.this.setPathBefore) {
                 if (TextUtils.isEmpty(ResourceDownloadTask.this.mExpectSavePath)) {
-                    ResourceDownloadTask.this.mTaskInfo.cacheFilePath = ResourceDownloadTask.this.getInnerCacheFilePath();
+                    taskInfo = ResourceDownloadTask.this.mTaskInfo;
+                    str = ResourceDownloadTask.this.getInnerCacheFilePath();
                 } else {
-                    ResourceDownloadTask.this.mTaskInfo.cacheFilePath = ResourceDownloadTask.this.mExpectSavePath;
+                    taskInfo = ResourceDownloadTask.this.mTaskInfo;
+                    str = ResourceDownloadTask.this.mExpectSavePath;
                 }
+                taskInfo.cacheFilePath = str;
                 ResourceDownloadTask.this.setPathBefore = true;
             }
             ResourceDownloadTask.this.mTaskInfo.copyInfoInProgress(acCallBackInfo);
@@ -68,27 +73,27 @@ public class ResourceDownloadTask extends AbstractHodorTask {
             }
         }
     };
-    private TaskInfo mTaskInfo = new TaskInfo();
+    public TaskInfo mTaskInfo = new TaskInfo();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface ResourceDirEvictStrategy {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface ResourceDownloadCallback {
         void onCdnReport(TaskInfo taskInfo);
 
         void onTaskStatusChanged(TaskInfo taskInfo);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface SaveMode {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class TaskInfo extends BaseTaskInfo {
-        private String cacheFilePath = "";
-        private boolean loadFromCache;
+        public String cacheFilePath = "";
+        public boolean loadFromCache;
 
         public void debugPrintTaskStatus(int i, String str) {
             Timber.log(i, "%s loadFromCache:%b, complete:%b,cacheFilePath:%s, currentUrl:%s", str, Boolean.valueOf(this.loadFromCache), Boolean.valueOf(isComplete()), this.cacheFilePath, this.currentUrl);

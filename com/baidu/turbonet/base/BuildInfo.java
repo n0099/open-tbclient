@@ -6,19 +6,13 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.StrictMode;
 import com.baidu.turbonet.base.annotations.CalledByNative;
+import d.b.j0.a.a;
 /* loaded from: classes5.dex */
 public class BuildInfo {
-    private BuildInfo() {
-    }
-
     @CalledByNative
-    public static String getDevice() {
-        return Build.DEVICE;
-    }
-
-    @CalledByNative
-    public static String getBrand() {
-        return Build.BRAND;
+    public static String getAndroidBuildFingerprint() {
+        String str = Build.FINGERPRINT;
+        return str.substring(0, Math.min(str.length(), 128));
     }
 
     @CalledByNative
@@ -27,8 +21,18 @@ public class BuildInfo {
     }
 
     @CalledByNative
-    public static String getAndroidBuildFingerprint() {
-        return Build.FINGERPRINT.substring(0, Math.min(Build.FINGERPRINT.length(), 128));
+    public static String getBrand() {
+        return Build.BRAND;
+    }
+
+    @CalledByNative
+    public static String getBuildType() {
+        return Build.TYPE;
+    }
+
+    @CalledByNative
+    public static String getDevice() {
+        return Build.DEVICE;
     }
 
     @CalledByNative
@@ -47,47 +51,17 @@ public class BuildInfo {
     }
 
     @CalledByNative
-    public static String getPackageVersionCode(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            if (packageInfo.versionCode <= 0) {
-                return "";
-            }
-            return Integer.toString(packageInfo.versionCode);
-        } catch (PackageManager.NameNotFoundException e) {
-            a.d("BuildInfo", "versionCode not available.");
-            return "versionCode not available.";
-        }
-    }
-
-    @CalledByNative
-    public static String getPackageVersionName(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            if (packageInfo.versionName == null) {
-                return "";
-            }
-            return packageInfo.versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            a.d("BuildInfo", "versionName not available");
-            return "versionName not available";
-        }
-    }
-
-    @CalledByNative
     public static String getPackageLabel(Context context) {
-        String str;
         StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
         try {
             PackageManager packageManager = context.getPackageManager();
             CharSequence applicationLabel = packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 128));
-            str = applicationLabel != null ? applicationLabel.toString() : "";
-        } catch (PackageManager.NameNotFoundException e) {
-            str = "";
+            return applicationLabel != null ? applicationLabel.toString() : "";
+        } catch (PackageManager.NameNotFoundException unused) {
+            return "";
         } finally {
             StrictMode.setThreadPolicy(allowThreadDiskReads);
         }
-        return str;
     }
 
     @CalledByNative
@@ -97,8 +71,25 @@ public class BuildInfo {
     }
 
     @CalledByNative
-    public static String getBuildType() {
-        return Build.TYPE;
+    public static String getPackageVersionCode(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionCode > 0 ? Integer.toString(packageInfo.versionCode) : "";
+        } catch (PackageManager.NameNotFoundException unused) {
+            a.a("BuildInfo", "versionCode not available.");
+            return "versionCode not available.";
+        }
+    }
+
+    @CalledByNative
+    public static String getPackageVersionName(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionName != null ? packageInfo.versionName : "";
+        } catch (PackageManager.NameNotFoundException unused) {
+            a.a("BuildInfo", "versionName not available");
+            return "versionName not available";
+        }
     }
 
     @CalledByNative

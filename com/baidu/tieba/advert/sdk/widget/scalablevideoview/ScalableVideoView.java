@@ -9,15 +9,169 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
-import com.baidu.tieba.R;
+import com.baidu.tieba.R$styleable;
+import d.b.i0.r.a.j.a.a;
+import d.b.i0.r.a.j.a.b;
 import java.io.IOException;
-/* loaded from: classes7.dex */
-public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected ScalableType gnf;
-    protected MediaPlayer mMediaPlayer;
+/* loaded from: classes4.dex */
+public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
+
+    /* renamed from: e  reason: collision with root package name */
+    public ScalableType f14674e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public MediaPlayer f14675f;
 
     public ScalableVideoView(Context context) {
         this(context, null);
+    }
+
+    public final void a() {
+        if (this.f14675f == null) {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            this.f14675f = mediaPlayer;
+            mediaPlayer.setOnVideoSizeChangedListener(this);
+            setSurfaceTextureListener(this);
+            return;
+        }
+        e();
+    }
+
+    public boolean b() {
+        return this.f14675f.isPlaying();
+    }
+
+    public void c(MediaPlayer.OnPreparedListener onPreparedListener) throws IllegalStateException {
+        this.f14675f.setOnPreparedListener(onPreparedListener);
+        this.f14675f.prepareAsync();
+    }
+
+    public void d() {
+        e();
+        MediaPlayer mediaPlayer = this.f14675f;
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+        this.f14675f = null;
+    }
+
+    public void e() {
+        MediaPlayer mediaPlayer = this.f14675f;
+        if (mediaPlayer != null) {
+            mediaPlayer.reset();
+        }
+    }
+
+    public final void f(int i, int i2) {
+        Matrix m;
+        if (i == 0 || i2 == 0 || (m = new a(new b(getWidth(), getHeight()), new b(i, i2)).m(this.f14674e)) == null) {
+            return;
+        }
+        setTransform(m);
+    }
+
+    public void g() {
+        this.f14675f.start();
+    }
+
+    public int getCurrentPosition() {
+        return this.f14675f.getCurrentPosition();
+    }
+
+    public int getDuration() {
+        return this.f14675f.getDuration();
+    }
+
+    public int getVideoHeight() {
+        MediaPlayer mediaPlayer = this.f14675f;
+        if (mediaPlayer == null) {
+            return 0;
+        }
+        return mediaPlayer.getVideoHeight();
+    }
+
+    public int getVideoWidth() {
+        MediaPlayer mediaPlayer = this.f14675f;
+        if (mediaPlayer == null) {
+            return 0;
+        }
+        return mediaPlayer.getVideoWidth();
+    }
+
+    public void h() {
+        this.f14675f.stop();
+    }
+
+    @Override // android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (this.f14675f == null) {
+            return;
+        }
+        if (b()) {
+            h();
+        }
+        d();
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+        Surface surface = new Surface(surfaceTexture);
+        MediaPlayer mediaPlayer = this.f14675f;
+        if (mediaPlayer != null) {
+            mediaPlayer.setSurface(surface);
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+        return false;
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+    }
+
+    @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
+    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
+        f(i, i2);
+    }
+
+    public void setDataSource(String str) throws IOException {
+        a();
+        this.f14675f.setDataSource(str);
+    }
+
+    public void setLooping(boolean z) {
+        this.f14675f.setLooping(z);
+    }
+
+    public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
+        this.f14675f.setOnCompletionListener(onCompletionListener);
+    }
+
+    public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
+        this.f14675f.setOnErrorListener(onErrorListener);
+    }
+
+    public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
+        this.f14675f.setOnInfoListener(onInfoListener);
+    }
+
+    public void setScalableType(ScalableType scalableType) {
+        this.f14674e = scalableType;
+        f(getVideoWidth(), getVideoHeight());
+    }
+
+    public void setVolume(float f2, float f3) {
+        MediaPlayer mediaPlayer = this.f14675f;
+        if (mediaPlayer != null) {
+            mediaPlayer.setVolume(f2, f3);
+        }
     }
 
     public ScalableVideoView(Context context, AttributeSet attributeSet) {
@@ -27,155 +181,17 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.gnf = ScalableType.NONE;
-        if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.scaleStyle, 0, 0)) != null) {
-            int i2 = obtainStyledAttributes.getInt(R.styleable.scaleStyle_scalableType, ScalableType.NONE.ordinal());
-            obtainStyledAttributes.recycle();
-            this.gnf = ScalableType.values()[i2];
-        }
-    }
-
-    private void bMV() {
-        if (this.mMediaPlayer == null) {
-            this.mMediaPlayer = new MediaPlayer();
-            this.mMediaPlayer.setOnVideoSizeChangedListener(this);
-            setSurfaceTextureListener(this);
+        this.f14674e = ScalableType.NONE;
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.scaleStyle, 0, 0)) == null) {
             return;
         }
-        reset();
-    }
-
-    public void reset() {
-        if (this.mMediaPlayer != null) {
-            this.mMediaPlayer.reset();
-        }
-    }
-
-    public void setDataSource(String str) throws IOException {
-        bMV();
-        this.mMediaPlayer.setDataSource(str);
+        int i2 = obtainStyledAttributes.getInt(R$styleable.scaleStyle_scalableType, ScalableType.NONE.ordinal());
+        obtainStyledAttributes.recycle();
+        this.f14674e = ScalableType.values()[i2];
     }
 
     public void setDataSource(Context context, Uri uri) throws Exception {
-        bMV();
-        this.mMediaPlayer.setDataSource(context, uri);
-    }
-
-    @Override // android.view.View
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        if (this.mMediaPlayer != null) {
-            if (isPlaying()) {
-                stop();
-            }
-            release();
-        }
-    }
-
-    public int getVideoHeight() {
-        if (this.mMediaPlayer == null) {
-            return 0;
-        }
-        return this.mMediaPlayer.getVideoHeight();
-    }
-
-    public int getVideoWidth() {
-        if (this.mMediaPlayer == null) {
-            return 0;
-        }
-        return this.mMediaPlayer.getVideoWidth();
-    }
-
-    public void setScalableType(ScalableType scalableType) {
-        this.gnf = scalableType;
-        by(getVideoWidth(), getVideoHeight());
-    }
-
-    public void prepareAsync(MediaPlayer.OnPreparedListener onPreparedListener) throws IllegalStateException {
-        this.mMediaPlayer.setOnPreparedListener(onPreparedListener);
-        this.mMediaPlayer.prepareAsync();
-    }
-
-    public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        this.mMediaPlayer.setOnErrorListener(onErrorListener);
-    }
-
-    public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        this.mMediaPlayer.setOnCompletionListener(onCompletionListener);
-    }
-
-    public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        this.mMediaPlayer.setOnInfoListener(onInfoListener);
-    }
-
-    public int getCurrentPosition() {
-        return this.mMediaPlayer.getCurrentPosition();
-    }
-
-    public int getDuration() {
-        return this.mMediaPlayer.getDuration();
-    }
-
-    public boolean isPlaying() {
-        return this.mMediaPlayer.isPlaying();
-    }
-
-    public void setLooping(boolean z) {
-        this.mMediaPlayer.setLooping(z);
-    }
-
-    public void setVolume(float f, float f2) {
-        if (this.mMediaPlayer != null) {
-            this.mMediaPlayer.setVolume(f, f2);
-        }
-    }
-
-    private void by(int i, int i2) {
-        Matrix a2;
-        if (i != 0 && i2 != 0 && (a2 = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.gnf)) != null) {
-            setTransform(a2);
-        }
-    }
-
-    public void start() {
-        this.mMediaPlayer.start();
-    }
-
-    public void stop() {
-        this.mMediaPlayer.stop();
-    }
-
-    public void release() {
-        reset();
-        if (this.mMediaPlayer != null) {
-            this.mMediaPlayer.release();
-        }
-        this.mMediaPlayer = null;
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        Surface surface = new Surface(surfaceTexture);
-        if (this.mMediaPlayer != null) {
-            this.mMediaPlayer.setSurface(surface);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        return false;
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-    }
-
-    @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-        by(i, i2);
+        a();
+        this.f14675f.setDataSource(context, uri);
     }
 }

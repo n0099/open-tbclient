@@ -80,163 +80,7 @@ public final class Plugin_setting extends Message {
     public static final Integer DEFAULT_LOAD_PRIORITY = 1000;
     public static final Integer DEFAULT_IS_PATCH = 0;
 
-    private Plugin_setting(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.package_name == null) {
-                this.package_name = "";
-            } else {
-                this.package_name = builder.package_name;
-            }
-            if (builder.display_name == null) {
-                this.display_name = "";
-            } else {
-                this.display_name = builder.display_name;
-            }
-            if (builder.apk_path == null) {
-                this.apk_path = "";
-            } else {
-                this.apk_path = builder.apk_path;
-            }
-            if (builder.version == null) {
-                this.version = "";
-            } else {
-                this.version = builder.version;
-            }
-            if (builder.enable == null) {
-                this.enable = DEFAULT_ENABLE;
-            } else {
-                this.enable = builder.enable;
-            }
-            if (builder.forbidden == null) {
-                this.forbidden = DEFAULT_FORBIDDEN;
-            } else {
-                this.forbidden = builder.forbidden;
-            }
-            if (builder.md5 == null) {
-                this.md5 = "";
-            } else {
-                this.md5 = builder.md5;
-            }
-            if (builder.size == null) {
-                this.size = DEFAULT_SIZE;
-            } else {
-                this.size = builder.size;
-            }
-            if (builder.install_status == null) {
-                this.install_status = DEFAULT_INSTALL_STATUS;
-            } else {
-                this.install_status = builder.install_status;
-            }
-            if (builder.temp_version_code == null) {
-                this.temp_version_code = DEFAULT_TEMP_VERSION_CODE;
-            } else {
-                this.temp_version_code = builder.temp_version_code;
-            }
-            if (builder.temp_md5 == null) {
-                this.temp_md5 = "";
-            } else {
-                this.temp_md5 = builder.temp_md5;
-            }
-            if (builder.url == null) {
-                this.url = "";
-            } else {
-                this.url = builder.url;
-            }
-            if (builder.requireLoad == null) {
-                this.requireLoad = "";
-            } else {
-                this.requireLoad = builder.requireLoad;
-            }
-            if (builder.cmd_range == null) {
-                this.cmd_range = "";
-            } else {
-                this.cmd_range = builder.cmd_range;
-            }
-            if (builder.version_code == null) {
-                this.version_code = DEFAULT_VERSION_CODE;
-            } else {
-                this.version_code = builder.version_code;
-            }
-            if (builder.is_inject_classloader == null) {
-                this.is_inject_classloader = DEFAULT_IS_INJECT_CLASSLOADER;
-            } else {
-                this.is_inject_classloader = builder.is_inject_classloader;
-            }
-            if (builder.abandon_apk_path == null) {
-                this.abandon_apk_path = "";
-            } else {
-                this.abandon_apk_path = builder.abandon_apk_path;
-            }
-            if (builder.install_fail_count == null) {
-                this.install_fail_count = DEFAULT_INSTALL_FAIL_COUNT;
-            } else {
-                this.install_fail_count = builder.install_fail_count;
-            }
-            if (builder.priority == null) {
-                this.priority = DEFAULT_PRIORITY;
-            } else {
-                this.priority = builder.priority;
-            }
-            if (builder.has_res == null) {
-                this.has_res = DEFAULT_HAS_RES;
-            } else {
-                this.has_res = builder.has_res;
-            }
-            if (builder.is_third == null) {
-                this.is_third = DEFAULT_IS_THIRD;
-            } else {
-                this.is_third = builder.is_third;
-            }
-            if (builder.load_priority == null) {
-                this.load_priority = DEFAULT_LOAD_PRIORITY;
-            } else {
-                this.load_priority = builder.load_priority;
-            }
-            if (builder.is_Patch == null) {
-                this.is_Patch = DEFAULT_IS_PATCH;
-            } else {
-                this.is_Patch = builder.is_Patch;
-            }
-            this.replaceMethodClasses = builder.replaceMethodClasses;
-            this.ext = builder.ext;
-            if (builder.rollback == null) {
-                this.rollback = -1;
-                return;
-            } else {
-                this.rollback = builder.rollback.intValue();
-                return;
-            }
-        }
-        this.package_name = builder.package_name;
-        this.display_name = builder.display_name;
-        this.apk_path = builder.apk_path;
-        this.version = builder.version;
-        this.enable = builder.enable;
-        this.forbidden = builder.forbidden;
-        this.md5 = builder.md5;
-        this.size = builder.size;
-        this.install_status = builder.install_status;
-        this.temp_version_code = builder.temp_version_code;
-        this.temp_md5 = builder.temp_md5;
-        this.url = builder.url;
-        this.requireLoad = builder.requireLoad;
-        this.cmd_range = builder.cmd_range;
-        this.version_code = builder.version_code;
-        this.is_inject_classloader = builder.is_inject_classloader;
-        this.abandon_apk_path = builder.abandon_apk_path;
-        this.install_fail_count = builder.install_fail_count;
-        this.priority = builder.priority;
-        this.has_res = builder.has_res;
-        this.is_third = builder.is_third;
-        this.load_priority = builder.load_priority;
-        this.is_Patch = builder.is_Patch;
-        this.replaceMethodClasses = builder.replaceMethodClasses;
-        this.ext = builder.ext;
-        this.rollback = builder.rollback.intValue();
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<Plugin_setting> {
         public String abandon_apk_path;
         public String apk_path;
@@ -270,34 +114,35 @@ public final class Plugin_setting extends Message {
 
         public Builder(Plugin_setting plugin_setting) {
             super(plugin_setting);
-            if (plugin_setting != null) {
-                this.package_name = plugin_setting.package_name;
-                this.display_name = plugin_setting.display_name;
-                this.apk_path = plugin_setting.apk_path;
-                this.version = plugin_setting.version;
-                this.enable = plugin_setting.enable;
-                this.forbidden = plugin_setting.forbidden;
-                this.md5 = plugin_setting.md5;
-                this.size = plugin_setting.size;
-                this.install_status = plugin_setting.install_status;
-                this.temp_version_code = plugin_setting.temp_version_code;
-                this.temp_md5 = plugin_setting.temp_md5;
-                this.url = plugin_setting.url;
-                this.requireLoad = plugin_setting.requireLoad;
-                this.cmd_range = plugin_setting.cmd_range;
-                this.version_code = plugin_setting.version_code;
-                this.is_inject_classloader = plugin_setting.is_inject_classloader;
-                this.abandon_apk_path = plugin_setting.abandon_apk_path;
-                this.install_fail_count = plugin_setting.install_fail_count;
-                this.priority = plugin_setting.priority;
-                this.has_res = plugin_setting.has_res;
-                this.is_third = plugin_setting.is_third;
-                this.load_priority = plugin_setting.load_priority;
-                this.is_Patch = plugin_setting.is_Patch;
-                this.replaceMethodClasses = plugin_setting.replaceMethodClasses;
-                this.ext = plugin_setting.ext;
-                this.rollback = Integer.valueOf(plugin_setting.rollback);
+            if (plugin_setting == null) {
+                return;
             }
+            this.package_name = plugin_setting.package_name;
+            this.display_name = plugin_setting.display_name;
+            this.apk_path = plugin_setting.apk_path;
+            this.version = plugin_setting.version;
+            this.enable = plugin_setting.enable;
+            this.forbidden = plugin_setting.forbidden;
+            this.md5 = plugin_setting.md5;
+            this.size = plugin_setting.size;
+            this.install_status = plugin_setting.install_status;
+            this.temp_version_code = plugin_setting.temp_version_code;
+            this.temp_md5 = plugin_setting.temp_md5;
+            this.url = plugin_setting.url;
+            this.requireLoad = plugin_setting.requireLoad;
+            this.cmd_range = plugin_setting.cmd_range;
+            this.version_code = plugin_setting.version_code;
+            this.is_inject_classloader = plugin_setting.is_inject_classloader;
+            this.abandon_apk_path = plugin_setting.abandon_apk_path;
+            this.install_fail_count = plugin_setting.install_fail_count;
+            this.priority = plugin_setting.priority;
+            this.has_res = plugin_setting.has_res;
+            this.is_third = plugin_setting.is_third;
+            this.load_priority = plugin_setting.load_priority;
+            this.is_Patch = plugin_setting.is_Patch;
+            this.replaceMethodClasses = plugin_setting.replaceMethodClasses;
+            this.ext = plugin_setting.ext;
+            this.rollback = Integer.valueOf(plugin_setting.rollback);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -305,5 +150,185 @@ public final class Plugin_setting extends Message {
         public Plugin_setting build(boolean z) {
             return new Plugin_setting(this, z);
         }
+    }
+
+    public Plugin_setting(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            String str = builder.package_name;
+            if (str == null) {
+                this.package_name = "";
+            } else {
+                this.package_name = str;
+            }
+            String str2 = builder.display_name;
+            if (str2 == null) {
+                this.display_name = "";
+            } else {
+                this.display_name = str2;
+            }
+            String str3 = builder.apk_path;
+            if (str3 == null) {
+                this.apk_path = "";
+            } else {
+                this.apk_path = str3;
+            }
+            String str4 = builder.version;
+            if (str4 == null) {
+                this.version = "";
+            } else {
+                this.version = str4;
+            }
+            Integer num = builder.enable;
+            if (num == null) {
+                this.enable = DEFAULT_ENABLE;
+            } else {
+                this.enable = num;
+            }
+            Integer num2 = builder.forbidden;
+            if (num2 == null) {
+                this.forbidden = DEFAULT_FORBIDDEN;
+            } else {
+                this.forbidden = num2;
+            }
+            String str5 = builder.md5;
+            if (str5 == null) {
+                this.md5 = "";
+            } else {
+                this.md5 = str5;
+            }
+            Integer num3 = builder.size;
+            if (num3 == null) {
+                this.size = DEFAULT_SIZE;
+            } else {
+                this.size = num3;
+            }
+            Integer num4 = builder.install_status;
+            if (num4 == null) {
+                this.install_status = DEFAULT_INSTALL_STATUS;
+            } else {
+                this.install_status = num4;
+            }
+            Integer num5 = builder.temp_version_code;
+            if (num5 == null) {
+                this.temp_version_code = DEFAULT_TEMP_VERSION_CODE;
+            } else {
+                this.temp_version_code = num5;
+            }
+            String str6 = builder.temp_md5;
+            if (str6 == null) {
+                this.temp_md5 = "";
+            } else {
+                this.temp_md5 = str6;
+            }
+            String str7 = builder.url;
+            if (str7 == null) {
+                this.url = "";
+            } else {
+                this.url = str7;
+            }
+            String str8 = builder.requireLoad;
+            if (str8 == null) {
+                this.requireLoad = "";
+            } else {
+                this.requireLoad = str8;
+            }
+            String str9 = builder.cmd_range;
+            if (str9 == null) {
+                this.cmd_range = "";
+            } else {
+                this.cmd_range = str9;
+            }
+            Integer num6 = builder.version_code;
+            if (num6 == null) {
+                this.version_code = DEFAULT_VERSION_CODE;
+            } else {
+                this.version_code = num6;
+            }
+            Integer num7 = builder.is_inject_classloader;
+            if (num7 == null) {
+                this.is_inject_classloader = DEFAULT_IS_INJECT_CLASSLOADER;
+            } else {
+                this.is_inject_classloader = num7;
+            }
+            String str10 = builder.abandon_apk_path;
+            if (str10 == null) {
+                this.abandon_apk_path = "";
+            } else {
+                this.abandon_apk_path = str10;
+            }
+            Integer num8 = builder.install_fail_count;
+            if (num8 == null) {
+                this.install_fail_count = DEFAULT_INSTALL_FAIL_COUNT;
+            } else {
+                this.install_fail_count = num8;
+            }
+            Integer num9 = builder.priority;
+            if (num9 == null) {
+                this.priority = DEFAULT_PRIORITY;
+            } else {
+                this.priority = num9;
+            }
+            Integer num10 = builder.has_res;
+            if (num10 == null) {
+                this.has_res = DEFAULT_HAS_RES;
+            } else {
+                this.has_res = num10;
+            }
+            Integer num11 = builder.is_third;
+            if (num11 == null) {
+                this.is_third = DEFAULT_IS_THIRD;
+            } else {
+                this.is_third = num11;
+            }
+            Integer num12 = builder.load_priority;
+            if (num12 == null) {
+                this.load_priority = DEFAULT_LOAD_PRIORITY;
+            } else {
+                this.load_priority = num12;
+            }
+            Integer num13 = builder.is_Patch;
+            if (num13 == null) {
+                this.is_Patch = DEFAULT_IS_PATCH;
+            } else {
+                this.is_Patch = num13;
+            }
+            this.replaceMethodClasses = builder.replaceMethodClasses;
+            this.ext = builder.ext;
+            Integer num14 = builder.rollback;
+            if (num14 == null) {
+                this.rollback = -1;
+                return;
+            } else {
+                this.rollback = num14.intValue();
+                return;
+            }
+        }
+        this.package_name = builder.package_name;
+        this.display_name = builder.display_name;
+        this.apk_path = builder.apk_path;
+        this.version = builder.version;
+        this.enable = builder.enable;
+        this.forbidden = builder.forbidden;
+        this.md5 = builder.md5;
+        this.size = builder.size;
+        this.install_status = builder.install_status;
+        this.temp_version_code = builder.temp_version_code;
+        this.temp_md5 = builder.temp_md5;
+        this.url = builder.url;
+        this.requireLoad = builder.requireLoad;
+        this.cmd_range = builder.cmd_range;
+        this.version_code = builder.version_code;
+        this.is_inject_classloader = builder.is_inject_classloader;
+        this.abandon_apk_path = builder.abandon_apk_path;
+        this.install_fail_count = builder.install_fail_count;
+        this.priority = builder.priority;
+        this.has_res = builder.has_res;
+        this.is_third = builder.is_third;
+        this.load_priority = builder.load_priority;
+        this.is_Patch = builder.is_Patch;
+        this.replaceMethodClasses = builder.replaceMethodClasses;
+        this.ext = builder.ext;
+        this.rollback = builder.rollback.intValue();
     }
 }

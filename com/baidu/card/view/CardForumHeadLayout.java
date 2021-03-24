@@ -13,240 +13,279 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.a.b.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.bx;
-import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TagTextHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+import d.b.h0.b.g.b;
+import d.b.h0.r.q.a2;
+import d.b.h0.r.q.w1;
+/* loaded from: classes2.dex */
 public class CardForumHeadLayout extends RelativeLayout implements View.OnClickListener {
-    private BarImageView ald;
-    private SingleLineEllipsizeTextView ale;
-    private TextView alf;
-    private TextView alg;
-    private TextView alh;
-    private TextView ali;
-    private TextView alj;
-    private String alk;
-    private View.OnClickListener alm;
-    private int aln;
-    private cb alo;
+
+    /* renamed from: e  reason: collision with root package name */
+    public BarImageView f4384e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SingleLineEllipsizeTextView f4385f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f4386g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f4387h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public String l;
+    public View.OnClickListener m;
+    public int n;
+    public a2 o;
 
     public CardForumHeadLayout(Context context) {
         super(context);
-        this.aln = 3;
-        init(context);
+        this.n = 3;
+        a(context);
     }
 
-    public CardForumHeadLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.aln = 3;
-        init(context);
-    }
-
-    public CardForumHeadLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.aln = 3;
-        init(context);
-    }
-
-    private void init(Context context) {
+    public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_forum_head_layout, (ViewGroup) this, true);
-        this.ald = (BarImageView) findViewById(R.id.forum_head_image);
-        this.ale = (SingleLineEllipsizeTextView) findViewById(R.id.forum_head_barname);
-        this.alf = (TextView) findViewById(R.id.forum_head_info_attention);
-        this.alg = (TextView) findViewById(R.id.forum_head_info_thread);
-        this.alh = (TextView) findViewById(R.id.hot_rank_index);
-        this.ali = (TextView) findViewById(R.id.hot_rank_num);
-        this.alj = (TextView) findViewById(R.id.thread_extend_info);
-        this.ald.setShowOval(true);
-        this.ald.setAutoChangeStyle(true);
-        this.ald.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        this.ald.setStrokeColorResId(R.color.CAM_X0401);
-        this.ald.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ald.setOnClickListener(this);
-        this.ale.setOnClickListener(this);
-        this.alf.setOnClickListener(this);
-        this.alg.setOnClickListener(this);
-        this.ale.setEllipsisSuffix(getResources().getString(R.string.ellipsis_suffix_bar));
+        this.f4384e = (BarImageView) findViewById(R.id.forum_head_image);
+        this.f4385f = (SingleLineEllipsizeTextView) findViewById(R.id.forum_head_barname);
+        this.f4386g = (TextView) findViewById(R.id.forum_head_info_attention);
+        this.f4387h = (TextView) findViewById(R.id.forum_head_info_thread);
+        this.i = (TextView) findViewById(R.id.hot_rank_index);
+        this.j = (TextView) findViewById(R.id.hot_rank_num);
+        this.k = (TextView) findViewById(R.id.thread_extend_info);
+        this.f4384e.setShowOval(true);
+        this.f4384e.setAutoChangeStyle(true);
+        this.f4384e.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        this.f4384e.setStrokeColorResId(R.color.CAM_X0401);
+        this.f4384e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f4384e.setOnClickListener(this);
+        this.f4385f.setOnClickListener(this);
+        this.f4386g.setOnClickListener(this);
+        this.f4387h.setOnClickListener(this);
+        this.f4385f.setEllipsisSuffix(getResources().getString(R.string.ellipsis_suffix_bar));
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
-        this.ale.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize, 0, 0);
-        onChangeSkinType();
+        this.f4385f.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize, 0, 0);
+        b();
     }
 
-    private void tv() {
-        this.ald.setVisibility(8);
-        this.ale.setVisibility(8);
-        this.alg.setVisibility(8);
-        this.alf.setVisibility(8);
-    }
-
-    public void setData(String str, String str2, int i, int i2) {
-        if (StringUtils.isNull(str)) {
-            tv();
+    public void b() {
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType == this.n) {
             return;
         }
-        this.ald.setPlaceHolder(1);
-        this.ald.setVisibility(0);
-        this.ale.setVisibility(0);
-        this.alk = str;
-        this.ale.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.alk));
-        this.ald.startLoad(str2, 10, false);
-        this.alg.setText(String.format(getContext().getString(R.string.forum_thread_number), au.numberUniformFormatExtra(i)));
-        this.alf.setText(String.format(getContext().getString(R.string.concern), au.numberUniformFormatExtra(i2)));
-        b.g(this.ale);
+        this.n = skinType;
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), null);
+        int g2 = l.g(getContext(), R.dimen.tbds42);
+        pureDrawable.setBounds(0, 0, g2, g2);
+        this.f4385f.setCompoundDrawables(null, null, pureDrawable, null);
+        this.f4385f.setCompoundDrawablePadding(l.g(getContext(), R.dimen.M_W_X002));
+        SkinManager.setViewTextColor(this.f4385f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f4386g, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f4387h, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0109);
+        c();
+        d();
     }
 
-    public void setData(cb cbVar) {
-        this.alo = cbVar;
-        if (cbVar == null || cbVar.bpI() == null) {
-            tv();
-        } else if (cbVar.eVk) {
-            this.alg.setVisibility(8);
-            this.alf.setVisibility(8);
-            this.alh.setVisibility(0);
-            this.ali.setVisibility(0);
-            this.alj.setVisibility(0);
-            this.alj.setText(cbVar.bnq());
-            int i = cbVar.eVA >= 1000 ? cbVar.eVA : 1000;
-            this.ali.setVisibility(0);
-            this.ali.setText(this.ali.getContext().getResources().getString(R.string.thread_rank_tag, au.ed(i)));
-            int i2 = cbVar.position + 1;
-            this.alh.setText(i2 >= 10 ? String.valueOf(i2) : "0" + i2);
-            tw();
-            bx bpI = cbVar.bpI();
-            this.ald.setPlaceHolder(1);
-            this.ald.setVisibility(0);
-            this.ald.startLoad(bpI.getAvatar(), 10, false);
-            this.ale.setVisibility(0);
-            this.alk = bpI.forumName;
-            this.ale.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.alk));
-            b.g(this.ale);
-        } else if (cbVar.eVl) {
-            this.alj.setVisibility(8);
-            if ("agree_num".equals(cbVar.eVm) || "comment_num".equals(cbVar.eVm) || "share_num".equals(cbVar.eVm)) {
-                this.alh.setVisibility(0);
-                this.ali.setVisibility(0);
-                if ("agree_num".equals(cbVar.eVm)) {
-                    long j = 0;
-                    if (cbVar.bpL() != null) {
-                        j = cbVar.bpL().agreeNum;
-                    }
-                    this.ali.setText(this.ali.getContext().getResources().getString(R.string.thread_like_rank_tag, au.ed(j)));
-                } else if ("comment_num".equals(cbVar.eVm)) {
-                    this.ali.setText(this.ali.getContext().getResources().getString(R.string.thread_discuss_rank_tag, au.ed(cbVar.bnJ())));
-                } else if ("share_num".equals(cbVar.eVm)) {
-                    this.ali.setText(this.ali.getContext().getResources().getString(R.string.thread_spread_rank_tag, au.ed(cbVar.bpw())));
-                }
-                int i3 = cbVar.position + 1;
-                this.alh.setText(i3 >= 10 ? String.valueOf(i3) : "0" + i3);
-                tw();
-            } else {
-                this.alh.setVisibility(8);
-                this.ali.setVisibility(8);
-            }
-            setData(cbVar.bpI().forumName, cbVar.bpI().getAvatar(), cbVar.bpI().postNum, cbVar.bpI().memberNum);
-        } else {
-            if (cbVar.bpM()) {
-                this.alg.setVisibility(8);
-                this.alf.setVisibility(8);
-                this.alh.setVisibility(8);
-                this.ali.setVisibility(8);
-                this.alj.setVisibility(0);
-                this.alj.setText(cbVar.bnq());
-            } else {
-                this.alj.setVisibility(8);
-                this.alh.setVisibility(8);
-                this.ali.setVisibility(8);
-                this.alg.setVisibility(0);
-                this.alf.setVisibility(0);
-            }
-            setData(cbVar.bpI().forumName, cbVar.bpI().getAvatar(), cbVar.bpI().postNum, cbVar.bpI().memberNum);
-            if (cbVar.blx()) {
-                if (cbVar.bnS() != null && !StringUtils.isNull(cbVar.bnS().getName_show())) {
-                    this.alf.setText(cbVar.bnS().getName_show());
-                } else {
-                    this.alf.setText(R.string.user_name_default_txt);
-                }
-                this.alg.setText(cbVar.bnq());
-            }
-        }
+    public final void c() {
+        b.e(this.f4385f);
     }
 
-    private void tw() {
+    public final void d() {
         Drawable mutate;
-        if (this.alo != null) {
-            int oK = TagTextHelper.oK(this.alo.position + 1);
-            this.alh.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.M_W_X002));
-            int color = ap.getColor(oK);
-            if (this.alo.eVl) {
-                if ("agree_num".equals(this.alo.eVm)) {
-                    mutate = ap.getDrawable(R.drawable.icon_pure_tiebatreasure_like).mutate();
-                } else if ("comment_num".equals(this.alo.eVm)) {
-                    mutate = ap.getDrawable(R.drawable.icon_pure_tiebatreasure_discuss).mutate();
+        a2 a2Var = this.o;
+        if (a2Var != null) {
+            int indexTextColorRes = TagTextHelper.getIndexTextColorRes(a2Var.position + 1);
+            this.i.setCompoundDrawablePadding(l.g(getContext(), R.dimen.M_W_X002));
+            int color = SkinManager.getColor(indexTextColorRes);
+            a2 a2Var2 = this.o;
+            if (a2Var2.Z1) {
+                if ("agree_num".equals(a2Var2.a2)) {
+                    mutate = SkinManager.getDrawable(R.drawable.icon_pure_tiebatreasure_like).mutate();
+                } else if ("comment_num".equals(this.o.a2)) {
+                    mutate = SkinManager.getDrawable(R.drawable.icon_pure_tiebatreasure_discuss).mutate();
                 } else {
-                    mutate = "share_num".equals(this.alo.eVm) ? ap.getDrawable(R.drawable.icon_pure_tiebatreasure_spread).mutate() : null;
+                    mutate = "share_num".equals(this.o.a2) ? SkinManager.getDrawable(R.drawable.icon_pure_tiebatreasure_spread).mutate() : null;
                 }
             } else {
-                mutate = ap.getDrawable(R.drawable.icon_pure_topic_hot).mutate();
+                mutate = SkinManager.getDrawable(R.drawable.icon_pure_topic_hot).mutate();
             }
-            int dimens = l.getDimens(getContext(), R.dimen.tbds42);
-            if (mutate != null) {
-                mutate.setBounds(0, 0, dimens, dimens);
-                DrawableCompat.setTint(mutate, color);
-                this.alh.setCompoundDrawables(mutate, null, null, null);
-                this.alh.setBackgroundDrawable(null);
-                ap.setViewTextColor(this.alh, oK);
-                ap.setViewTextColor(this.ali, oK);
+            int g2 = l.g(getContext(), R.dimen.tbds42);
+            if (mutate == null) {
+                return;
             }
+            mutate.setBounds(0, 0, g2, g2);
+            DrawableCompat.setTint(mutate, color);
+            this.i.setCompoundDrawables(mutate, null, null, null);
+            this.i.setBackgroundDrawable(null);
+            SkinManager.setViewTextColor(this.i, indexTextColorRes);
+            SkinManager.setViewTextColor(this.j, indexTextColorRes);
         }
+    }
+
+    public final void e() {
+        this.f4384e.setVisibility(8);
+        this.f4385f.setVisibility(8);
+        this.f4387h.setVisibility(8);
+        this.f4386g.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!StringUtils.isNull(this.alk)) {
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.alk, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
-            createNormalCfg.setCallFrom(14);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
-            if (this.alm != null) {
-                this.alm.onClick(view);
-            }
+        if (StringUtils.isNull(this.l)) {
+            return;
         }
-    }
-
-    public void onChangeSkinType() {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.aln) {
-            this.aln = skinType;
-            Drawable a2 = WebPManager.a(R.drawable.icon_pure_ba16, ap.getColor(R.color.CAM_X0105), (WebPManager.ResourceStateType) null);
-            int dimens = l.getDimens(getContext(), R.dimen.tbds42);
-            a2.setBounds(0, 0, dimens, dimens);
-            this.ale.setCompoundDrawables(null, null, a2, null);
-            this.ale.setCompoundDrawablePadding(l.getDimens(getContext(), R.dimen.M_W_X002));
-            ap.setViewTextColor(this.ale, R.color.CAM_X0105);
-            ap.setViewTextColor(this.alf, R.color.CAM_X0109);
-            ap.setViewTextColor(this.alg, R.color.CAM_X0109);
-            ap.setViewTextColor(this.alj, R.color.CAM_X0109);
-            tx();
-            tw();
+        FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.l, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+        createNormalCfg.setCallFrom(14);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
+        View.OnClickListener onClickListener = this.m;
+        if (onClickListener != null) {
+            onClickListener.onClick(view);
         }
-    }
-
-    private void tx() {
-        b.h(this.ale);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.alm = onClickListener;
+        this.m = onClickListener;
+    }
+
+    public void setData(String str, String str2, int i, int i2) {
+        if (StringUtils.isNull(str)) {
+            e();
+            return;
+        }
+        this.f4384e.setPlaceHolder(1);
+        this.f4384e.setVisibility(0);
+        this.f4385f.setVisibility(0);
+        this.l = str;
+        this.f4385f.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.l));
+        this.f4384e.W(str2, 10, false);
+        this.f4387h.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i)));
+        this.f4386g.setText(String.format(getContext().getString(R.string.concern), StringHelper.numberUniformFormatExtra(i2)));
+        b.d(this.f4385f);
+    }
+
+    public CardForumHeadLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.n = 3;
+        a(context);
+    }
+
+    public CardForumHeadLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.n = 3;
+        a(context);
+    }
+
+    public void setData(a2 a2Var) {
+        String str;
+        String str2;
+        this.o = a2Var;
+        if (a2Var != null && a2Var.h0() != null) {
+            if (a2Var.Y1) {
+                this.f4387h.setVisibility(8);
+                this.f4386g.setVisibility(8);
+                this.i.setVisibility(0);
+                this.j.setVisibility(0);
+                this.k.setVisibility(0);
+                this.k.setText(a2Var.r1());
+                int i = a2Var.v2;
+                if (i < 1000) {
+                    i = 1000;
+                }
+                this.j.setVisibility(0);
+                String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(i);
+                TextView textView = this.j;
+                textView.setText(textView.getContext().getResources().getString(R.string.thread_rank_tag, numberUniformFormatExtraWithRoundInt));
+                int i2 = a2Var.position + 1;
+                TextView textView2 = this.i;
+                if (i2 >= 10) {
+                    str2 = String.valueOf(i2);
+                } else {
+                    str2 = "0" + i2;
+                }
+                textView2.setText(str2);
+                d();
+                w1 h0 = a2Var.h0();
+                this.f4384e.setPlaceHolder(1);
+                this.f4384e.setVisibility(0);
+                this.f4384e.W(h0.a(), 10, false);
+                this.f4385f.setVisibility(0);
+                this.l = h0.f50916b;
+                this.f4385f.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.l));
+                b.d(this.f4385f);
+                return;
+            } else if (a2Var.Z1) {
+                this.k.setVisibility(8);
+                if (!"agree_num".equals(a2Var.a2) && !"comment_num".equals(a2Var.a2) && !"share_num".equals(a2Var.a2)) {
+                    this.i.setVisibility(8);
+                    this.j.setVisibility(8);
+                } else {
+                    this.i.setVisibility(0);
+                    this.j.setVisibility(0);
+                    if ("agree_num".equals(a2Var.a2)) {
+                        String numberUniformFormatExtraWithRoundInt2 = StringHelper.numberUniformFormatExtraWithRoundInt(a2Var.L() != null ? a2Var.L().agreeNum : 0L);
+                        TextView textView3 = this.j;
+                        textView3.setText(textView3.getContext().getResources().getString(R.string.thread_like_rank_tag, numberUniformFormatExtraWithRoundInt2));
+                    } else if ("comment_num".equals(a2Var.a2)) {
+                        String numberUniformFormatExtraWithRoundInt3 = StringHelper.numberUniformFormatExtraWithRoundInt(a2Var.Z0());
+                        TextView textView4 = this.j;
+                        textView4.setText(textView4.getContext().getResources().getString(R.string.thread_discuss_rank_tag, numberUniformFormatExtraWithRoundInt3));
+                    } else if ("share_num".equals(a2Var.a2)) {
+                        String numberUniformFormatExtraWithRoundInt4 = StringHelper.numberUniformFormatExtraWithRoundInt(a2Var.g1());
+                        TextView textView5 = this.j;
+                        textView5.setText(textView5.getContext().getResources().getString(R.string.thread_spread_rank_tag, numberUniformFormatExtraWithRoundInt4));
+                    }
+                    int i3 = a2Var.position + 1;
+                    TextView textView6 = this.i;
+                    if (i3 >= 10) {
+                        str = String.valueOf(i3);
+                    } else {
+                        str = "0" + i3;
+                    }
+                    textView6.setText(str);
+                    d();
+                }
+                setData(a2Var.h0().f50916b, a2Var.h0().a(), a2Var.h0().f50922h, a2Var.h0().i);
+                return;
+            } else {
+                if (a2Var.Y1()) {
+                    this.f4387h.setVisibility(8);
+                    this.f4386g.setVisibility(8);
+                    this.i.setVisibility(8);
+                    this.j.setVisibility(8);
+                    this.k.setVisibility(0);
+                    this.k.setText(a2Var.r1());
+                } else {
+                    this.k.setVisibility(8);
+                    this.i.setVisibility(8);
+                    this.j.setVisibility(8);
+                    this.f4387h.setVisibility(0);
+                    this.f4386g.setVisibility(0);
+                }
+                setData(a2Var.h0().f50916b, a2Var.h0().a(), a2Var.h0().f50922h, a2Var.h0().i);
+                if (a2Var.y()) {
+                    if (a2Var.T() != null && !StringUtils.isNull(a2Var.T().getName_show())) {
+                        this.f4386g.setText(a2Var.T().getName_show());
+                    } else {
+                        this.f4386g.setText(R.string.user_name_default_txt);
+                    }
+                    this.f4387h.setText(a2Var.r1());
+                    return;
+                }
+                return;
+            }
+        }
+        e();
     }
 }

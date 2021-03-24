@@ -3,64 +3,63 @@ package com.kwad.sdk.glide.load.resource.e;
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<a<?, ?>> f6818a = new ArrayList();
+    public final List<a<?, ?>> f35750a = new ArrayList();
 
-    /* loaded from: classes3.dex */
-    private static final class a<Z, R> {
+    /* loaded from: classes6.dex */
+    public static final class a<Z, R> {
 
         /* renamed from: a  reason: collision with root package name */
-        final e<Z, R> f6819a;
-        private final Class<Z> b;
-        private final Class<R> c;
+        public final e<Z, R> f35751a;
 
-        a(@NonNull Class<Z> cls, @NonNull Class<R> cls2, @NonNull e<Z, R> eVar) {
-            this.b = cls;
-            this.c = cls2;
-            this.f6819a = eVar;
+        /* renamed from: b  reason: collision with root package name */
+        public final Class<Z> f35752b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final Class<R> f35753c;
+
+        public a(@NonNull Class<Z> cls, @NonNull Class<R> cls2, @NonNull e<Z, R> eVar) {
+            this.f35752b = cls;
+            this.f35753c = cls2;
+            this.f35751a = eVar;
         }
 
         public boolean a(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return this.b.isAssignableFrom(cls) && cls2.isAssignableFrom(this.c);
+            return this.f35752b.isAssignableFrom(cls) && cls2.isAssignableFrom(this.f35753c);
         }
     }
 
     @NonNull
     public synchronized <Z, R> e<Z, R> a(@NonNull Class<Z> cls, @NonNull Class<R> cls2) {
-        e<Z, R> eVar;
-        if (!cls2.isAssignableFrom(cls)) {
-            for (a<?, ?> aVar : this.f6818a) {
-                if (aVar.a(cls, cls2)) {
-                    eVar = (e<Z, R>) aVar.f6819a;
-                }
-            }
-            throw new IllegalArgumentException("No transcoder registered to transcode from " + cls + " to " + cls2);
+        if (cls2.isAssignableFrom(cls)) {
+            return g.a();
         }
-        eVar = g.a();
-        return eVar;
+        for (a<?, ?> aVar : this.f35750a) {
+            if (aVar.a(cls, cls2)) {
+                return (e<Z, R>) aVar.f35751a;
+            }
+        }
+        throw new IllegalArgumentException("No transcoder registered to transcode from " + cls + " to " + cls2);
     }
 
     public synchronized <Z, R> void a(@NonNull Class<Z> cls, @NonNull Class<R> cls2, @NonNull e<Z, R> eVar) {
-        this.f6818a.add(new a<>(cls, cls2, eVar));
+        this.f35750a.add(new a<>(cls, cls2, eVar));
     }
 
     @NonNull
     public synchronized <Z, R> List<Class<R>> b(@NonNull Class<Z> cls, @NonNull Class<R> cls2) {
-        ArrayList arrayList;
-        ArrayList arrayList2 = new ArrayList();
+        ArrayList arrayList = new ArrayList();
         if (cls2.isAssignableFrom(cls)) {
-            arrayList2.add(cls2);
-            arrayList = arrayList2;
-        } else {
-            for (a<?, ?> aVar : this.f6818a) {
-                if (aVar.a(cls, cls2)) {
-                    arrayList2.add(cls2);
-                }
+            arrayList.add(cls2);
+            return arrayList;
+        }
+        for (a<?, ?> aVar : this.f35750a) {
+            if (aVar.a(cls, cls2)) {
+                arrayList.add(cls2);
             }
-            arrayList = arrayList2;
         }
         return arrayList;
     }

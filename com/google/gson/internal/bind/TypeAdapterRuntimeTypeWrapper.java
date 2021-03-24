@@ -3,48 +3,51 @@ package com.google.gson.internal.bind;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory;
+import d.g.c.d.a;
+import d.g.c.d.b;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
-    private final TypeAdapter<T> delegate;
-    private final Gson pUS;
-    private final Type type;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: a  reason: collision with root package name */
+    public final Gson f30989a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final TypeAdapter<T> f30990b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Type f30991c;
+
     public TypeAdapterRuntimeTypeWrapper(Gson gson, TypeAdapter<T> typeAdapter, Type type) {
-        this.pUS = gson;
-        this.delegate = typeAdapter;
-        this.type = type;
+        this.f30989a = gson;
+        this.f30990b = typeAdapter;
+        this.f30991c = type;
+    }
+
+    public final Type a(Type type, Object obj) {
+        return obj != null ? (type == Object.class || (type instanceof TypeVariable) || (type instanceof Class)) ? obj.getClass() : type : type;
     }
 
     @Override // com.google.gson.TypeAdapter
-    public T read(com.google.gson.stream.a aVar) throws IOException {
-        return this.delegate.read(aVar);
+    public T read(a aVar) throws IOException {
+        return this.f30990b.read(aVar);
     }
 
     @Override // com.google.gson.TypeAdapter
-    public void write(com.google.gson.stream.b bVar, T t) throws IOException {
-        TypeAdapter<T> typeAdapter = this.delegate;
-        Type b = b(this.type, t);
-        if (b != this.type) {
-            typeAdapter = this.pUS.getAdapter(com.google.gson.b.a.r(b));
-            if ((typeAdapter instanceof ReflectiveTypeAdapterFactory.Adapter) && !(this.delegate instanceof ReflectiveTypeAdapterFactory.Adapter)) {
-                typeAdapter = this.delegate;
+    public void write(b bVar, T t) throws IOException {
+        TypeAdapter<T> typeAdapter = this.f30990b;
+        Type a2 = a(this.f30991c, t);
+        if (a2 != this.f30991c) {
+            typeAdapter = this.f30989a.getAdapter(d.g.c.c.a.b(a2));
+            if (typeAdapter instanceof ReflectiveTypeAdapterFactory.Adapter) {
+                TypeAdapter<T> typeAdapter2 = this.f30990b;
+                if (!(typeAdapter2 instanceof ReflectiveTypeAdapterFactory.Adapter)) {
+                    typeAdapter = typeAdapter2;
+                }
             }
         }
         typeAdapter.write(bVar, t);
-    }
-
-    private Type b(Type type, Object obj) {
-        if (obj != null) {
-            if (type == Object.class || (type instanceof TypeVariable) || (type instanceof Class)) {
-                return obj.getClass();
-            }
-            return type;
-        }
-        return type;
     }
 }

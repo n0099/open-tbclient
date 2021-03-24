@@ -8,7 +8,7 @@ import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractKsDrawAd implements KsDrawAd {
     @Override // com.kwad.sdk.api.KsDrawAd
     @Nullable
@@ -21,5 +21,5 @@ public abstract class AbstractKsDrawAd implements KsDrawAd {
     @Nullable
     @KsAdSdkDynamicApi
     @Keep
-    protected abstract View getDrawView2(Context context);
+    public abstract View getDrawView2(Context context);
 }

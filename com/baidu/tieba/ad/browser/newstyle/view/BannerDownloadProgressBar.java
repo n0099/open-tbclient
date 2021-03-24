@@ -12,184 +12,211 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import com.baidu.tieba.R$styleable;
+/* loaded from: classes4.dex */
 public class BannerDownloadProgressBar extends AppCompatTextView {
-    private final Paint bjh;
-    private int dZX;
-    private int giP;
-    private int giQ;
-    private final Paint giR;
-    private final RectF giS;
-    private final RectF giT;
-    private Shader giU;
-    private final Paint mForegroundPaint;
-    private int mProgress;
-    private int mRadius;
-    private String mText;
-    private int mTextColor;
-    private float mTextSize;
-    private int strokeWidth;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f14513e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f14514f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f14515g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f14516h;
+    public int i;
+    public String j;
+    public int k;
+    public int l;
+    public int m;
+    public final Paint n;
+    public final Paint o;
+    public final Paint p;
+    public final RectF q;
+    public final RectF r;
+    public Shader s;
 
     public BannerDownloadProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mProgress = 0;
-        this.mTextColor = -1;
-        this.mTextSize = 10.0f;
-        this.dZX = 100;
-        this.mRadius = 0;
-        this.strokeWidth = 0;
-        this.mForegroundPaint = new Paint();
-        this.giR = new Paint();
-        this.bjh = new Paint();
-        this.giS = new RectF();
-        this.giT = new RectF();
-        init(context, attributeSet);
+        this.f14513e = 0;
+        this.f14514f = -1;
+        this.f14515g = 10.0f;
+        this.k = 100;
+        this.l = 0;
+        this.m = 0;
+        this.n = new Paint();
+        this.o = new Paint();
+        this.p = new Paint();
+        this.q = new RectF();
+        this.r = new RectF();
+        i(context, attributeSet);
     }
 
-    public BannerDownloadProgressBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mProgress = 0;
-        this.mTextColor = -1;
-        this.mTextSize = 10.0f;
-        this.dZX = 100;
-        this.mRadius = 0;
-        this.strokeWidth = 0;
-        this.mForegroundPaint = new Paint();
-        this.giR = new Paint();
-        this.bjh = new Paint();
-        this.giS = new RectF();
-        this.giT = new RectF();
-        init(context, attributeSet);
+    public final void f(Canvas canvas) {
+        this.l = getMeasuredHeight() / 2;
+        RectF rectF = this.r;
+        rectF.left = 0.0f;
+        rectF.top = 0.0f;
+        rectF.right = getMeasuredWidth();
+        this.r.bottom = getMeasuredHeight();
+        this.o.setStrokeWidth(this.m);
+        this.o.setColor(Color.parseColor("#E5E5E5"));
+        RectF rectF2 = this.r;
+        int i = this.l;
+        canvas.drawRoundRect(rectF2, i, i, this.o);
     }
 
-    private void init(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ad_progress);
+    public final void g(Canvas canvas) {
+        this.l = getMeasuredHeight() / 2;
+        float f2 = this.f14513e / (this.k + 0.0f);
+        RectF rectF = this.q;
+        int i = this.m;
+        rectF.left = i;
+        rectF.top = i;
+        rectF.bottom = getMeasuredHeight() - this.m;
+        this.q.right = getMeasuredWidth() * f2;
+        RectF rectF2 = this.q;
+        float f3 = rectF2.right;
+        int i2 = this.l;
+        if (f3 < i2 * 2) {
+            rectF2.right = i2 * 2;
+        }
+        LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, this.q.right, 0.0f, new int[]{this.f14516h, this.i}, (float[]) null, Shader.TileMode.CLAMP);
+        this.s = linearGradient;
+        this.n.setShader(linearGradient);
+        RectF rectF3 = this.q;
+        int i3 = this.l;
+        canvas.drawRoundRect(rectF3, i3, i3, this.n);
+    }
+
+    public int getMaxProgress() {
+        return this.k;
+    }
+
+    public int getProgress() {
+        return this.f14513e;
+    }
+
+    public final void h(Canvas canvas) {
+        Paint.FontMetrics fontMetrics = this.p.getFontMetrics();
+        float f2 = fontMetrics.descent;
+        double height = ((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f);
+        Double.isNaN(height);
+        canvas.drawText(this.j, (getMeasuredWidth() - this.p.measureText(this.j)) / 2.0f, (float) (height + 0.5d), this.p);
+    }
+
+    public final void i(Context context, AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ad_progress);
         int parseColor = Color.parseColor("#666666");
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.progress_button_radian);
         int parseColor2 = Color.parseColor("#2BBCFF");
         int parseColor3 = Color.parseColor("#2B87FF");
-        this.strokeWidth = getResources().getDimensionPixelSize(R.dimen.progress_button_frame);
-        this.giP = obtainStyledAttributes.getColor(R.styleable.ad_progress_ad_btn_foreground_start, parseColor2);
-        this.giQ = obtainStyledAttributes.getColor(R.styleable.ad_progress_ad_btn_foreground_end, parseColor3);
-        this.mTextColor = obtainStyledAttributes.getColor(R.styleable.ad_progress_ad_btn_textColor, parseColor);
-        this.dZX = obtainStyledAttributes.getInteger(R.styleable.ad_progress_ad_btn_max, this.dZX);
-        this.mProgress = obtainStyledAttributes.getInteger(R.styleable.ad_progress_ad_btn_progress, 0);
-        this.mText = obtainStyledAttributes.getString(R.styleable.ad_progress_ad_btn_text);
-        this.mTextSize = obtainStyledAttributes.getDimension(R.styleable.ad_progress_ad_btn_textSize, (int) getResources().getDimension(R.dimen.progress_button_font_size));
-        this.mRadius = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ad_progress_ad_btn_radius, dimensionPixelSize);
+        this.m = getResources().getDimensionPixelSize(R.dimen.progress_button_frame);
+        this.f14516h = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_foreground_start, parseColor2);
+        this.i = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_foreground_end, parseColor3);
+        this.f14514f = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_textColor, parseColor);
+        this.k = obtainStyledAttributes.getInteger(R$styleable.ad_progress_ad_btn_max, this.k);
+        this.f14513e = obtainStyledAttributes.getInteger(R$styleable.ad_progress_ad_btn_progress, 0);
+        this.j = obtainStyledAttributes.getString(R$styleable.ad_progress_ad_btn_text);
+        this.f14515g = obtainStyledAttributes.getDimension(R$styleable.ad_progress_ad_btn_textSize, (int) getResources().getDimension(R.dimen.progress_button_font_size));
+        this.l = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ad_progress_ad_btn_radius, dimensionPixelSize);
         obtainStyledAttributes.recycle();
-        rX();
+        j();
     }
 
-    private void rX() {
-        this.bjh.setAntiAlias(true);
-        this.bjh.setTextSize(this.mTextSize);
-        this.bjh.setColor(this.mTextColor);
-        this.mForegroundPaint.setAntiAlias(true);
-        this.mForegroundPaint.setStyle(Paint.Style.FILL);
-        this.giR.setAntiAlias(true);
-        this.giR.setStyle(Paint.Style.STROKE);
+    public final void j() {
+        this.p.setAntiAlias(true);
+        this.p.setTextSize(this.f14515g);
+        this.p.setColor(this.f14514f);
+        this.n.setAntiAlias(true);
+        this.n.setStyle(Paint.Style.FILL);
+        this.o.setAntiAlias(true);
+        this.o.setStyle(Paint.Style.STROKE);
         setGravity(17);
     }
 
     @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.mProgress > 0) {
-            D(canvas);
+        if (this.f14513e > 0) {
+            g(canvas);
         }
-        U(canvas);
-        if (!TextUtils.isEmpty(this.mText)) {
-            J(canvas);
+        f(canvas);
+        if (TextUtils.isEmpty(this.j)) {
+            return;
         }
-    }
-
-    private void J(Canvas canvas) {
-        Paint.FontMetrics fontMetrics = this.bjh.getFontMetrics();
-        float height = (getHeight() / 2) - fontMetrics.descent;
-        float measuredWidth = (getMeasuredWidth() - this.bjh.measureText(this.mText)) / 2.0f;
-        canvas.drawText(this.mText, measuredWidth, (float) (((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + height + 0.5d), this.bjh);
-    }
-
-    private void U(Canvas canvas) {
-        this.mRadius = getMeasuredHeight() / 2;
-        this.giT.left = 0.0f;
-        this.giT.top = 0.0f;
-        this.giT.right = getMeasuredWidth();
-        this.giT.bottom = getMeasuredHeight();
-        this.giR.setStrokeWidth(this.strokeWidth);
-        this.giR.setColor(Color.parseColor("#E5E5E5"));
-        canvas.drawRoundRect(this.giT, this.mRadius, this.mRadius, this.giR);
-    }
-
-    private void D(Canvas canvas) {
-        this.mRadius = getMeasuredHeight() / 2;
-        float f = this.mProgress / (this.dZX + 0.0f);
-        this.giS.left = this.strokeWidth;
-        this.giS.top = this.strokeWidth;
-        this.giS.bottom = getMeasuredHeight() - this.strokeWidth;
-        this.giS.right = f * getMeasuredWidth();
-        if (this.giS.right < this.mRadius * 2) {
-            this.giS.right = this.mRadius * 2;
-        }
-        this.giU = new LinearGradient(0.0f, 0.0f, this.giS.right, 0.0f, new int[]{this.giP, this.giQ}, (float[]) null, Shader.TileMode.CLAMP);
-        this.mForegroundPaint.setShader(this.giU);
-        canvas.drawRoundRect(this.giS, this.mRadius, this.mRadius, this.mForegroundPaint);
-    }
-
-    public void setText(String str) {
-        if (str != null && !str.equals(this.mText)) {
-            this.mText = str;
-            this.mProgress = 0;
-            postInvalidate();
-        }
+        h(canvas);
     }
 
     public void setForeground(int i, int i2) {
-        if (i != this.giP || i2 != this.giQ) {
-            this.giP = i;
-            this.giQ = i2;
-            rX();
+        if (i == this.f14516h && i2 == this.i) {
+            return;
+        }
+        this.f14516h = i;
+        this.i = i2;
+        j();
+        postInvalidate();
+    }
+
+    public void setMaxProgress(int i) {
+        this.k = i;
+    }
+
+    public void setProgress(int i) {
+        if (i >= 0 && i <= this.k && i != this.f14513e) {
+            this.f14513e = i;
+            this.j = getResources().getString(R.string.ad_button_already_download) + this.f14513e + "%";
+            if (this.f14513e == this.k) {
+                this.j = "";
+            }
             postInvalidate();
         }
     }
 
-    public void setTextSize(int i) {
-        if (i != this.mTextSize) {
-            this.mTextSize = i;
-            postInvalidate();
+    public void setText(String str) {
+        if (str == null || str.equals(this.j)) {
+            return;
         }
+        this.j = str;
+        this.f14513e = 0;
+        postInvalidate();
     }
 
     @Override // android.widget.TextView
     public void setTextColor(int i) {
-        if (i != this.mTextColor) {
-            this.mTextColor = i;
-            rX();
-            postInvalidate();
+        if (i == this.f14514f) {
+            return;
         }
+        this.f14514f = i;
+        j();
+        postInvalidate();
     }
 
-    public int getMaxProgress() {
-        return this.dZX;
-    }
-
-    public void setMaxProgress(int i) {
-        this.dZX = i;
-    }
-
-    public int getProgress() {
-        return this.mProgress;
-    }
-
-    public void setProgress(int i) {
-        if (i >= 0 && i <= this.dZX && i != this.mProgress) {
-            this.mProgress = i;
-            this.mText = getResources().getString(R.string.ad_button_already_download) + this.mProgress + "%";
-            if (this.mProgress == this.dZX) {
-                this.mText = "";
-            }
-            postInvalidate();
+    public void setTextSize(int i) {
+        float f2 = i;
+        if (f2 == this.f14515g) {
+            return;
         }
+        this.f14515g = f2;
+        postInvalidate();
+    }
+
+    public BannerDownloadProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f14513e = 0;
+        this.f14514f = -1;
+        this.f14515g = 10.0f;
+        this.k = 100;
+        this.l = 0;
+        this.m = 0;
+        this.n = new Paint();
+        this.o = new Paint();
+        this.p = new Paint();
+        this.q = new RectF();
+        this.r = new RectF();
+        i(context, attributeSet);
     }
 }

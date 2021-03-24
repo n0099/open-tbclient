@@ -1,16 +1,15 @@
 package com.kwad.sdk.reward;
 
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    protected a f7028a;
+    public a f36457a;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f7028a = (a) n();
+        this.f36457a = (a) n();
     }
 }

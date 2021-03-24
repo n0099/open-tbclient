@@ -1,7 +1,6 @@
 package com.qq.e.comm.net.rr;
 
 import android.net.Uri;
-import com.baidu.webkit.internal.ETAG;
 import com.qq.e.comm.net.rr.Request;
 import com.qq.e.comm.util.StringUtil;
 import java.io.UnsupportedEncodingException;
@@ -9,34 +8,44 @@ import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractRequest implements Request {
-    private int b;
-    private int c;
-    private int d;
-    private String e;
-    private Request.Method j;
-    private byte[] k;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f38356b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f38357c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f38358d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f38359e;
+    public Request.Method j;
+    public byte[] k;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f7584a = true;
-    private Map<String, String> f = new HashMap();
-    private Map<String, String> g = new HashMap();
-    private Map<String, String> h = Collections.unmodifiableMap(this.f);
-    private Map<String, String> i = Collections.unmodifiableMap(this.g);
+    public boolean f38355a = true;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Map<String, String> f38360f = new HashMap();
+
+    /* renamed from: g  reason: collision with root package name */
+    public Map<String, String> f38361g = new HashMap();
+
+    /* renamed from: h  reason: collision with root package name */
+    public Map<String, String> f38362h = Collections.unmodifiableMap(this.f38360f);
+    public Map<String, String> i = Collections.unmodifiableMap(this.f38361g);
 
     public AbstractRequest(String str, Request.Method method, byte[] bArr) {
-        this.e = str;
+        this.f38359e = str;
         this.j = method;
-        if (bArr == null) {
-            this.k = null;
-        } else {
-            this.k = (byte[]) bArr.clone();
-        }
+        this.k = bArr == null ? null : (byte[]) bArr.clone();
     }
 
     public AbstractRequest(String str, Map<String, String> map, Request.Method method) {
-        this.e = str;
+        this.f38359e = str;
         this.j = method;
         if (Request.Method.POST == method) {
             StringBuilder sb = new StringBuilder();
@@ -45,7 +54,7 @@ public abstract class AbstractRequest implements Request {
                     String encode = URLEncoder.encode(entry.getKey(), "utf-8");
                     String encode2 = URLEncoder.encode(entry.getValue(), "utf-8");
                     if (sb.length() > 0) {
-                        sb.append(ETAG.ITEM_SEPARATOR);
+                        sb.append("&");
                     }
                     sb.append(encode);
                     sb.append("=");
@@ -55,8 +64,8 @@ public abstract class AbstractRequest implements Request {
                     this.k = sb.toString().getBytes("utf-8");
                     addHeader("Content-Type", "application/x-www-form-urlencoded");
                 }
-            } catch (UnsupportedEncodingException e) {
-                throw new IllegalArgumentException(e);
+            } catch (UnsupportedEncodingException e2) {
+                throw new IllegalArgumentException(e2);
             }
         }
     }
@@ -66,22 +75,22 @@ public abstract class AbstractRequest implements Request {
         if (StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
             return;
         }
-        this.f.put(str, str2);
+        this.f38360f.put(str, str2);
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public void addQuery(String str, String str2) {
-        this.g.put(str, str2);
+        this.f38361g.put(str, str2);
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getConnectionTimeOut() {
-        return this.c;
+        return this.f38357c;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public Map<String, String> getHeaders() {
-        return this.h;
+        return this.f38362h;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
@@ -96,7 +105,7 @@ public abstract class AbstractRequest implements Request {
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getPriority() {
-        return this.b;
+        return this.f38356b;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
@@ -106,12 +115,12 @@ public abstract class AbstractRequest implements Request {
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getSocketTimeOut() {
-        return this.d;
+        return this.f38358d;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public String getUrl() {
-        return this.e;
+        return this.f38359e;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
@@ -128,24 +137,24 @@ public abstract class AbstractRequest implements Request {
 
     @Override // com.qq.e.comm.net.rr.Request
     public boolean isAutoClose() {
-        return this.f7584a;
+        return this.f38355a;
     }
 
     public void setAutoClose(boolean z) {
-        this.f7584a = z;
+        this.f38355a = z;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public void setConnectionTimeOut(int i) {
-        this.c = i;
+        this.f38357c = i;
     }
 
     public void setPriority(int i) {
-        this.b = i;
+        this.f38356b = i;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public void setSocketTimeOut(int i) {
-        this.d = i;
+        this.f38358d = i;
     }
 }

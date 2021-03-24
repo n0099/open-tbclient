@@ -1,16 +1,16 @@
 package com.baidu.tieba.lego.model;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
+import tbclient.Error;
 import tbclient.Lego.DataRes;
 import tbclient.Lego.LegoResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class LegoSocketResponse extends SocketResponsedMessage {
-    private DataRes resultData;
+    public DataRes resultData;
 
     public LegoSocketResponse() {
-        super(CmdConfigSocket.CMD_ENTERTAINMENT);
+        super(309312);
     }
 
     public DataRes getResultData() {
@@ -18,17 +18,20 @@ public class LegoSocketResponse extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         LegoResIdl legoResIdl = (LegoResIdl) new Wire(new Class[0]).parseFrom(bArr, LegoResIdl.class);
-        if (legoResIdl != null) {
-            if (legoResIdl.error != null) {
-                if (legoResIdl.error.errorno != null) {
-                    setError(legoResIdl.error.errorno.intValue());
-                }
-                setErrorString(legoResIdl.error.usermsg);
-            }
-            this.resultData = legoResIdl.data;
+        if (legoResIdl == null) {
+            return;
         }
+        Error error = legoResIdl.error;
+        if (error != null) {
+            Integer num = error.errorno;
+            if (num != null) {
+                setError(num.intValue());
+            }
+            setErrorString(legoResIdl.error.usermsg);
+        }
+        this.resultData = legoResIdl.data;
     }
 }

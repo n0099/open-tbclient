@@ -10,19 +10,58 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.bytedance.sdk.openadsdk.utils.ac;
+import com.bytedance.sdk.openadsdk.utils.ad;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public class PlayableLoadingView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f4582a;
-    private TextView b;
-    private TextView c;
+    public ProgressBar f28816a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f28817b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f28818c;
 
     public PlayableLoadingView(@NonNull Context context) {
         super(context);
         a(context);
+    }
+
+    private void a(Context context) {
+        setBackgroundColor(Color.parseColor("#0D1833"));
+        setClickable(true);
+        setVisibility(8);
+        LayoutInflater.from(context).inflate(ad.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
+        this.f28816a = (ProgressBar) findViewById(ad.e(context, "tt_playable_pb_view"));
+        this.f28817b = (TextView) findViewById(ad.e(context, "tt_playable_progress_tip"));
+        this.f28818c = (TextView) findViewById(ad.e(context, "tt_playable_play"));
+    }
+
+    public void b() {
+        setVisibility(0);
+    }
+
+    public TextView getPlayView() {
+        return this.f28818c;
+    }
+
+    public void setProgress(int i) {
+        if (i < 0) {
+            i = 0;
+        }
+        if (i > 100) {
+            i = 100;
+        }
+        ProgressBar progressBar = this.f28816a;
+        if (progressBar != null) {
+            progressBar.setProgress(i);
+        }
+        TextView textView = this.f28817b;
+        if (textView != null) {
+            textView.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i)));
+        }
     }
 
     public PlayableLoadingView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -35,36 +74,7 @@ public class PlayableLoadingView extends FrameLayout {
         a(context);
     }
 
-    private void a(Context context) {
-        setBackgroundColor(Color.parseColor("#0D1833"));
-        setClickable(true);
-        setVisibility(8);
-        LayoutInflater.from(context).inflate(ac.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
-        this.f4582a = (ProgressBar) findViewById(ac.e(context, "tt_playable_pb_view"));
-        this.b = (TextView) findViewById(ac.e(context, "tt_playable_progress_tip"));
-        this.c = (TextView) findViewById(ac.e(context, "tt_playable_play"));
-    }
-
-    public void setProgress(int i) {
-        int i2 = i < 0 ? 0 : i;
-        int i3 = i2 <= 100 ? i2 : 100;
-        if (this.f4582a != null) {
-            this.f4582a.setProgress(i3);
-        }
-        if (this.b != null) {
-            this.b.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i3)));
-        }
-    }
-
     public void a() {
         setVisibility(8);
-    }
-
-    public void b() {
-        setVisibility(0);
-    }
-
-    public TextView getPlayView() {
-        return this.c;
     }
 }

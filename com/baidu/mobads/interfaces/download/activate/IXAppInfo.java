@@ -1,7 +1,7 @@
 package com.baidu.mobads.interfaces.download.activate;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAppInfo {
     JSONObject convertToJsonObject();
 

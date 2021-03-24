@@ -2,14 +2,15 @@ package com.kwad.sdk.lib.a.a;
 
 import com.kwad.sdk.lib.a.a.b;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a<MODEL, CallerContext extends b<?, MODEL>> extends Presenter {
-    protected CallerContext b;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: b  reason: collision with root package name */
+    public CallerContext f35901b;
+
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.b = (CallerContext) n();
+        this.f35901b = (CallerContext) n();
     }
 }

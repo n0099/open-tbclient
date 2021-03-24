@@ -15,123 +15,119 @@ import com.google.zxing.aztec.detector.Detector;
 import com.google.zxing.common.DecoderResult;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class AztecReader implements Reader {
     @Override // com.google.zxing.Reader
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, FormatException {
         return decode(binaryBitmap, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0037  */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0045 A[LOOP:0: B:14:0x0043->B:15:0x0045, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x008b  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0097  */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x0022  */
+    @Override // com.google.zxing.Reader
+    public void reset() {
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0031  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0051  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x005e A[LOOP:0: B:33:0x005c->B:34:0x005e, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0084  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x008f  */
     @Override // com.google.zxing.Reader
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException {
         ResultPoint[] resultPointArr;
-        DecoderResult decoderResult;
         ResultPoint[] resultPointArr2;
         FormatException formatException;
-        NotFoundException notFoundException;
-        DecoderResult decoderResult2;
+        ResultPoint[] resultPointArr3;
         List<byte[]> byteSegments;
         String eCLevel;
         ResultPointCallback resultPointCallback;
         Detector detector = new Detector(binaryBitmap.getBlackMatrix());
+        DecoderResult decoderResult = null;
         try {
             AztecDetectorResult detect = detector.detect(false);
             resultPointArr = detect.getPoints();
             try {
-                decoderResult = new Decoder().decode(detect);
                 resultPointArr2 = resultPointArr;
                 formatException = null;
-                notFoundException = null;
-            } catch (FormatException e) {
-                e = e;
-                decoderResult = null;
+                decoderResult = new Decoder().decode(detect);
+                e = null;
+            } catch (FormatException e2) {
+                e = e2;
                 resultPointArr2 = resultPointArr;
                 formatException = e;
-                notFoundException = null;
+                e = null;
                 if (decoderResult == null) {
                 }
+                resultPointArr3 = resultPointArr2;
                 if (map != null) {
-                    while (r1 < r2) {
+                    while (r11 < r0) {
                     }
                 }
-                Result result = new Result(decoderResult2.getText(), decoderResult2.getRawBytes(), decoderResult2.getNumBits(), resultPointArr2, BarcodeFormat.AZTEC, System.currentTimeMillis());
-                byteSegments = decoderResult2.getByteSegments();
+                Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), decoderResult.getNumBits(), resultPointArr3, BarcodeFormat.AZTEC, System.currentTimeMillis());
+                byteSegments = decoderResult.getByteSegments();
                 if (byteSegments != null) {
                 }
-                eCLevel = decoderResult2.getECLevel();
+                eCLevel = decoderResult.getECLevel();
                 if (eCLevel != null) {
                 }
                 return result;
-            } catch (NotFoundException e2) {
-                e = e2;
-                decoderResult = null;
+            } catch (NotFoundException e3) {
+                e = e3;
                 resultPointArr2 = resultPointArr;
                 formatException = null;
-                notFoundException = e;
                 if (decoderResult == null) {
                 }
+                resultPointArr3 = resultPointArr2;
                 if (map != null) {
                 }
-                Result result2 = new Result(decoderResult2.getText(), decoderResult2.getRawBytes(), decoderResult2.getNumBits(), resultPointArr2, BarcodeFormat.AZTEC, System.currentTimeMillis());
-                byteSegments = decoderResult2.getByteSegments();
+                Result result2 = new Result(decoderResult.getText(), decoderResult.getRawBytes(), decoderResult.getNumBits(), resultPointArr3, BarcodeFormat.AZTEC, System.currentTimeMillis());
+                byteSegments = decoderResult.getByteSegments();
                 if (byteSegments != null) {
                 }
-                eCLevel = decoderResult2.getECLevel();
+                eCLevel = decoderResult.getECLevel();
                 if (eCLevel != null) {
                 }
                 return result2;
             }
-        } catch (FormatException e3) {
-            e = e3;
-            resultPointArr = null;
-        } catch (NotFoundException e4) {
+        } catch (FormatException e4) {
             e = e4;
+            resultPointArr = null;
+        } catch (NotFoundException e5) {
+            e = e5;
             resultPointArr = null;
         }
         if (decoderResult == null) {
             try {
                 AztecDetectorResult detect2 = detector.detect(true);
                 resultPointArr2 = detect2.getPoints();
-                decoderResult2 = new Decoder().decode(detect2);
-            } catch (FormatException | NotFoundException e5) {
-                if (notFoundException != null) {
-                    throw notFoundException;
+                decoderResult = new Decoder().decode(detect2);
+            } catch (FormatException | NotFoundException e6) {
+                if (e == null) {
+                    if (formatException != null) {
+                        throw formatException;
+                    }
+                    throw e6;
                 }
-                if (formatException != null) {
-                    throw formatException;
-                }
-                throw e5;
+                throw e;
             }
-        } else {
-            decoderResult2 = decoderResult;
         }
+        resultPointArr3 = resultPointArr2;
         if (map != null && (resultPointCallback = (ResultPointCallback) map.get(DecodeHintType.NEED_RESULT_POINT_CALLBACK)) != null) {
-            for (ResultPoint resultPoint : resultPointArr2) {
+            for (ResultPoint resultPoint : resultPointArr3) {
                 resultPointCallback.foundPossibleResultPoint(resultPoint);
             }
         }
-        Result result22 = new Result(decoderResult2.getText(), decoderResult2.getRawBytes(), decoderResult2.getNumBits(), resultPointArr2, BarcodeFormat.AZTEC, System.currentTimeMillis());
-        byteSegments = decoderResult2.getByteSegments();
+        Result result22 = new Result(decoderResult.getText(), decoderResult.getRawBytes(), decoderResult.getNumBits(), resultPointArr3, BarcodeFormat.AZTEC, System.currentTimeMillis());
+        byteSegments = decoderResult.getByteSegments();
         if (byteSegments != null) {
             result22.putMetadata(ResultMetadataType.BYTE_SEGMENTS, byteSegments);
         }
-        eCLevel = decoderResult2.getECLevel();
+        eCLevel = decoderResult.getECLevel();
         if (eCLevel != null) {
             result22.putMetadata(ResultMetadataType.ERROR_CORRECTION_LEVEL, eCLevel);
         }
         return result22;
-    }
-
-    @Override // com.google.zxing.Reader
-    public void reset() {
     }
 }

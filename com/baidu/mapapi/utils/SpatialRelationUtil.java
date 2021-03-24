@@ -4,31 +4,32 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SpatialRelationUtil {
-    private static LatLng a(LatLng latLng, LatLng latLng2, LatLng latLng3) {
+    public static LatLng a(LatLng latLng, LatLng latLng2, LatLng latLng3) {
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
         GeoPoint ll2mc2 = CoordUtil.ll2mc(latLng2);
         GeoPoint ll2mc3 = CoordUtil.ll2mc(latLng3);
         double sqrt = Math.sqrt(((ll2mc.getLongitudeE6() - ll2mc.getLongitudeE6()) * (ll2mc2.getLongitudeE6() - ll2mc.getLongitudeE6())) + ((ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6()) * (ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6())));
-        double latitudeE6 = (((ll2mc3.getLatitudeE6() - ll2mc.getLatitudeE6()) * (ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6())) + ((ll2mc2.getLongitudeE6() - ll2mc.getLongitudeE6()) * (ll2mc3.getLongitudeE6() - ll2mc.getLongitudeE6()))) / (sqrt * sqrt);
-        return CoordUtil.mc2ll(new GeoPoint(((ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6()) * latitudeE6) + ll2mc.getLatitudeE6(), ll2mc.getLongitudeE6() + ((ll2mc2.getLongitudeE6() - ll2mc.getLongitudeE6()) * latitudeE6)));
+        double longitudeE6 = (((ll2mc2.getLongitudeE6() - ll2mc.getLongitudeE6()) * (ll2mc3.getLongitudeE6() - ll2mc.getLongitudeE6())) + ((ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6()) * (ll2mc3.getLatitudeE6() - ll2mc.getLatitudeE6()))) / (sqrt * sqrt);
+        return CoordUtil.mc2ll(new GeoPoint(ll2mc.getLatitudeE6() + ((ll2mc2.getLatitudeE6() - ll2mc.getLatitudeE6()) * longitudeE6), ll2mc.getLongitudeE6() + ((ll2mc2.getLongitudeE6() - ll2mc.getLongitudeE6()) * longitudeE6)));
     }
 
     public static LatLng getNearestPointFromLine(List<LatLng> list, LatLng latLng) {
-        if (list == null || list.size() == 0 || latLng == null) {
-            return null;
-        }
-        int i = 0;
         LatLng latLng2 = null;
-        while (i < list.size() - 1) {
-            LatLng a2 = a(list.get(i), list.get(i + 1), latLng);
-            LatLng latLng3 = ((a2.latitude - list.get(i).latitude) * (a2.latitude - list.get(i + 1).latitude) > 0.0d || (a2.longitude - list.get(i).longitude) * (a2.longitude - list.get(i + 1).longitude) > 0.0d) ? DistanceUtil.getDistance(latLng, list.get(i)) < DistanceUtil.getDistance(latLng, list.get(i + 1)) ? list.get(i) : list.get(i + 1) : a2;
-            if (latLng2 != null && DistanceUtil.getDistance(latLng, latLng3) >= DistanceUtil.getDistance(latLng, latLng2)) {
-                latLng3 = latLng2;
+        if (list != null && list.size() != 0 && latLng != null) {
+            int i = 0;
+            while (i < list.size() - 1) {
+                int i2 = i + 1;
+                LatLng a2 = a(list.get(i), list.get(i2), latLng);
+                if ((a2.latitude - list.get(i).latitude) * (a2.latitude - list.get(i2).latitude) > 0.0d || (a2.longitude - list.get(i).longitude) * (a2.longitude - list.get(i2).longitude) > 0.0d) {
+                    a2 = DistanceUtil.getDistance(latLng, list.get(i)) < DistanceUtil.getDistance(latLng, list.get(i2)) ? list.get(i) : list.get(i2);
+                }
+                if (latLng2 == null || DistanceUtil.getDistance(latLng, a2) < DistanceUtil.getDistance(latLng, latLng2)) {
+                    latLng2 = a2;
+                }
+                i = i2;
             }
-            i++;
-            latLng2 = latLng3;
         }
         return latLng2;
     }
@@ -38,10 +39,12 @@ public class SpatialRelationUtil {
             return false;
         }
         double distance = DistanceUtil.getDistance(latLng, latLng2);
-        if (distance <= i) {
-            return distance == ((double) i) ? true : true;
+        double d2 = i;
+        if (distance > d2) {
+            return false;
         }
-        return false;
+        int i2 = (distance > d2 ? 1 : (distance == d2 ? 0 : -1));
+        return true;
     }
 
     public static boolean isPolygonContainsPoint(List<LatLng> list, LatLng latLng) {
@@ -59,22 +62,28 @@ public class SpatialRelationUtil {
         int i4 = 0;
         while (i3 < size) {
             LatLng latLng2 = list.get(i3);
-            LatLng latLng3 = list.get((i3 + 1) % size);
-            if (latLng2.latitude == latLng3.latitude) {
-                i = i4;
-            } else if (latLng.latitude < Math.min(latLng2.latitude, latLng3.latitude)) {
-                i = i4;
-            } else if (latLng.latitude > Math.max(latLng2.latitude, latLng3.latitude)) {
-                i = i4;
-            } else {
-                double d = latLng2.longitude + (((latLng.latitude - latLng2.latitude) * (latLng3.longitude - latLng2.longitude)) / (latLng3.latitude - latLng2.latitude));
-                if (d == latLng.longitude) {
+            i3++;
+            LatLng latLng3 = list.get(i3 % size);
+            double d2 = latLng2.latitude;
+            double d3 = latLng3.latitude;
+            if (d2 != d3 && latLng.latitude >= Math.min(d2, d3) && latLng.latitude <= Math.max(latLng2.latitude, latLng3.latitude)) {
+                double d4 = latLng.latitude;
+                double d5 = latLng2.latitude;
+                double d6 = latLng3.longitude;
+                i = size;
+                double d7 = latLng2.longitude;
+                double d8 = (((d4 - d5) * (d6 - d7)) / (latLng3.latitude - d5)) + d7;
+                double d9 = latLng.longitude;
+                if (d8 == d9) {
                     return true;
                 }
-                i = d < latLng.longitude ? i4 + 1 : i4;
+                if (d8 < d9) {
+                    i4++;
+                }
+            } else {
+                i = size;
             }
-            i3++;
-            i4 = i;
+            size = i;
         }
         return i4 % 2 == 1;
     }

@@ -10,34 +10,36 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.ValueCallback;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.browser.core.INoProGuard;
-import com.baidu.browser.core.g;
 import com.baidu.browser.core.permission.BdPermissionActivity;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import d.b.h.a.g;
+import d.b.h.a.j.a;
+import d.b.h.a.j.b;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class BdUploadHandler implements INoProGuard {
-    private static final String AUDIO_MIME_TYPE = "audio/*";
-    private static final String IMAGE_MIME_TYPE = "image/*";
-    private static final String MEDIA_SOURCE_KEY = "capture";
-    private static final String MEDIA_SOURCE_VALUE_CAMCORDER = "camcorder";
-    private static final String MEDIA_SOURCE_VALUE_CAMERA = "camera";
-    private static final String MEDIA_SOURCE_VALUE_FILE_SYSTEM = "filesystem";
-    private static final String MEDIA_SOURCE_VALUE_MICROPHONE = "microphone";
-    private static final String VIDEO_MIME_TYPE = "video/*";
-    private Activity mActivity;
-    private String mCameraFilePath;
-    private boolean mCanHandleResult = false;
-    private boolean mCaughtActivityNotFoundException;
-    private boolean mHandled;
-    private WebChromeClient.FileChooserParams mParams;
-    private ValueCallback<Uri> mUploadMessage;
-    private ValueCallback<Uri[]> mUploadMessage1;
+    public static final String AUDIO_MIME_TYPE = "audio/*";
+    public static final String IMAGE_MIME_TYPE = "image/*";
+    public static final String MEDIA_SOURCE_KEY = "capture";
+    public static final String MEDIA_SOURCE_VALUE_CAMCORDER = "camcorder";
+    public static final String MEDIA_SOURCE_VALUE_CAMERA = "camera";
+    public static final String MEDIA_SOURCE_VALUE_FILE_SYSTEM = "filesystem";
+    public static final String MEDIA_SOURCE_VALUE_MICROPHONE = "microphone";
+    public static final String VIDEO_MIME_TYPE = "video/*";
+    public Activity mActivity;
+    public String mCameraFilePath;
+    public boolean mCanHandleResult = false;
+    public boolean mCaughtActivityNotFoundException;
+    public boolean mHandled;
+    public WebChromeClient.FileChooserParams mParams;
+    public ValueCallback<Uri> mUploadMessage;
+    public ValueCallback<Uri[]> mUploadMessage1;
 
     public BdUploadHandler(Activity activity) {
         this.mActivity = activity;
@@ -45,31 +47,34 @@ public class BdUploadHandler implements INoProGuard {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Intent createCamcorderIntent() {
-        if (com.baidu.browser.core.permission.b.checkCamera(this.mActivity)) {
+        if (b.a(this.mActivity)) {
             return new Intent("android.media.action.VIDEO_CAPTURE");
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-        com.baidu.browser.core.permission.a.sI().a(4099, new b(this));
+        a.b().a(4099, new d.b.h.b.c.b.b(this));
         return intent;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"NewApi"})
     public Intent createCameraIntentAfterCheckPermission() {
+        Uri fromFile;
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         if (WebKitFactory.getContext() != null) {
-            File file = new File(WebKitFactory.getContext().getExternalFilesDir(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + "browser-photos");
+            File externalFilesDir = WebKitFactory.getContext().getExternalFilesDir(Environment.DIRECTORY_DCIM);
+            File file = new File(externalFilesDir.getAbsolutePath() + File.separator + "browser-photos");
             file.mkdirs();
             this.mCameraFilePath = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
             if (Build.VERSION.SDK_INT >= 24) {
                 ContentValues contentValues = new ContentValues(1);
                 contentValues.put("_data", this.mCameraFilePath);
-                intent.putExtra("output", BdSailor.getInstance().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues));
+                fromFile = BdSailor.getInstance().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
             } else {
-                intent.putExtra("output", Uri.fromFile(new File(this.mCameraFilePath)));
+                fromFile = Uri.fromFile(new File(this.mCameraFilePath));
             }
+            intent.putExtra("output", fromFile);
         }
         if (Build.VERSION.SDK_INT >= 19) {
             intent.setFlags(3);
@@ -80,7 +85,7 @@ public class BdUploadHandler implements INoProGuard {
     private Intent createChooserIntent(Intent... intentArr) {
         Intent intent = new Intent("android.intent.action.CHOOSER");
         intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-        intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.L("string", "sailor_choose_upload")));
+        intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.d("string", "sailor_choose_upload")));
         return intent;
     }
 
@@ -89,34 +94,37 @@ public class BdUploadHandler implements INoProGuard {
     }
 
     public void cancelUpload() {
-        if (this.mUploadMessage != null) {
-            this.mUploadMessage.onReceiveValue(null);
+        ValueCallback<Uri> valueCallback = this.mUploadMessage;
+        if (valueCallback != null) {
+            valueCallback.onReceiveValue(null);
         }
-        if (this.mUploadMessage1 != null) {
-            this.mUploadMessage1.onReceiveValue(null);
+        ValueCallback<Uri[]> valueCallback2 = this.mUploadMessage1;
+        if (valueCallback2 != null) {
+            valueCallback2.onReceiveValue(null);
         }
     }
 
     public Intent createCameraIntent() {
-        if (com.baidu.browser.core.permission.b.checkCamera(this.mActivity) && com.baidu.browser.core.permission.b.P(this.mActivity)) {
+        if (b.a(this.mActivity) && b.b(this.mActivity)) {
             return createCameraIntentAfterCheckPermission();
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
-        intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"});
-        com.baidu.browser.core.permission.a.sI().a(4099, new a(this));
+        intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, StorageUtils.EXTERNAL_STORAGE_PERMISSION});
+        a.b().a(4099, new d.b.h.b.c.b.a(this));
         return intent;
     }
 
     @SuppressLint({"NewApi"})
     public Intent createDefaultOpenableIntent() {
+        WebChromeClient.FileChooserParams fileChooserParams;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("*/*");
         Intent createChooserIntent = createChooserIntent(createCameraIntent(), createCamcorderIntent(), createSoundRecorderIntent());
         createChooserIntent.putExtra("android.intent.extra.INTENT", intent);
-        if (Build.VERSION.SDK_INT >= 21 && this.mParams != null) {
-            createChooserIntent.putExtra("android.intent.extra.INTENT", this.mParams.createIntent());
+        if (Build.VERSION.SDK_INT >= 21 && (fileChooserParams = this.mParams) != null) {
+            createChooserIntent.putExtra("android.intent.extra.INTENT", fileChooserParams.createIntent());
         }
         return createChooserIntent;
     }
@@ -132,7 +140,7 @@ public class BdUploadHandler implements INoProGuard {
         return this.mActivity;
     }
 
-    String getFilePath() {
+    public String getFilePath() {
         return this.mCameraFilePath;
     }
 
@@ -149,8 +157,16 @@ public class BdUploadHandler implements INoProGuard {
         this.mUploadMessage = valueCallback;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0041 A[Catch: all -> 0x00a2, TryCatch #0 {all -> 0x00a2, blocks: (B:2:0x0000, B:4:0x0005, B:9:0x000d, B:13:0x0014, B:15:0x0018, B:21:0x0021, B:26:0x002c, B:29:0x0034, B:31:0x0041, B:33:0x0047, B:35:0x006c, B:37:0x007b, B:34:0x0068, B:38:0x007f, B:41:0x0085, B:42:0x008f, B:43:0x0094, B:45:0x0098, B:46:0x009d), top: B:51:0x0000 }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0083  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0098 A[Catch: all -> 0x00a2, TryCatch #0 {all -> 0x00a2, blocks: (B:2:0x0000, B:4:0x0005, B:9:0x000d, B:13:0x0014, B:15:0x0018, B:21:0x0021, B:26:0x002c, B:29:0x0034, B:31:0x0041, B:33:0x0047, B:35:0x006c, B:37:0x007b, B:34:0x0068, B:38:0x007f, B:41:0x0085, B:42:0x008f, B:43:0x0094, B:45:0x0098, B:46:0x009d), top: B:51:0x0000 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void onResult(int i, Intent intent) {
-        Uri uri = null;
+        Uri uri;
+        File file;
+        Uri fromFile;
         try {
             if (this.mCanHandleResult) {
                 this.mCanHandleResult = false;
@@ -165,32 +181,45 @@ public class BdUploadHandler implements INoProGuard {
             }
             if (intent != null && i == -1) {
                 uri = intent.getData();
-            }
-            if (uri == null && ((intent == null || intent.getData() == null) && i == -1)) {
-                File file = new File(this.mCameraFilePath);
-                if (file.exists()) {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        ContentValues contentValues = new ContentValues(1);
-                        contentValues.put("_data", file.getAbsolutePath());
-                        uri = BdSailor.getInstance().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+                if (uri == null && ((intent == null || intent.getData() == null) && i == -1)) {
+                    file = new File(this.mCameraFilePath);
+                    if (file.exists()) {
+                        if (Build.VERSION.SDK_INT >= 24) {
+                            ContentValues contentValues = new ContentValues(1);
+                            contentValues.put("_data", file.getAbsolutePath());
+                            fromFile = BdSailor.getInstance().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+                        } else {
+                            fromFile = Uri.fromFile(file);
+                        }
+                        uri = fromFile;
+                        this.mActivity.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", uri));
+                        if (uri == null) {
+                            uri = Uri.fromFile(file);
+                        }
+                    }
+                }
+                if (this.mUploadMessage1 != null) {
+                    if (uri != null) {
+                        this.mUploadMessage1.onReceiveValue(new Uri[]{uri});
                     } else {
-                        uri = Uri.fromFile(file);
+                        this.mUploadMessage1.onReceiveValue(null);
                     }
-                    this.mActivity.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", uri));
-                    if (uri == null) {
-                        uri = Uri.fromFile(file);
-                    }
+                }
+                if (this.mUploadMessage != null) {
+                    this.mUploadMessage.onReceiveValue(uri);
+                }
+                this.mHandled = true;
+                this.mCaughtActivityNotFoundException = false;
+            }
+            uri = null;
+            if (uri == null) {
+                file = new File(this.mCameraFilePath);
+                if (file.exists()) {
                 }
             }
             if (this.mUploadMessage1 != null) {
-                if (uri != null) {
-                    this.mUploadMessage1.onReceiveValue(new Uri[]{uri});
-                } else {
-                    this.mUploadMessage1.onReceiveValue(null);
-                }
             }
             if (this.mUploadMessage != null) {
-                this.mUploadMessage.onReceiveValue(uri);
             }
             this.mHandled = true;
             this.mCaughtActivityNotFoundException = false;
@@ -200,11 +229,13 @@ public class BdUploadHandler implements INoProGuard {
     }
 
     public void onResult(Uri uri) {
-        if (this.mUploadMessage != null) {
-            this.mUploadMessage.onReceiveValue(uri);
+        ValueCallback<Uri> valueCallback = this.mUploadMessage;
+        if (valueCallback != null) {
+            valueCallback.onReceiveValue(uri);
         }
-        if (this.mUploadMessage1 != null) {
-            this.mUploadMessage1.onReceiveValue(new Uri[]{uri});
+        ValueCallback<Uri[]> valueCallback2 = this.mUploadMessage1;
+        if (valueCallback2 != null) {
+            valueCallback2.onReceiveValue(new Uri[]{uri});
         }
     }
 
@@ -212,11 +243,8 @@ public class BdUploadHandler implements INoProGuard {
         Intent intent;
         this.mUploadMessage1 = valueCallback;
         this.mParams = fileChooserParams;
-        String str = "*/*";
-        String[] acceptTypes = this.mParams.getAcceptTypes();
-        if (acceptTypes != null && acceptTypes.length > 0) {
-            str = acceptTypes[0];
-        }
+        String[] acceptTypes = fileChooserParams.getAcceptTypes();
+        String str = (acceptTypes == null || acceptTypes.length <= 0) ? "*/*" : acceptTypes[0];
         Intent[] intentArr = null;
         if (str.equals(IMAGE_MIME_TYPE)) {
             intentArr = new Intent[]{createCameraIntent()};
@@ -229,45 +257,46 @@ public class BdUploadHandler implements INoProGuard {
             if (fileChooserParams.isCaptureEnabled() && intentArr.length == 1) {
                 intent = intentArr[0];
             } else {
-                intent = new Intent("android.intent.action.CHOOSER");
-                intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
+                Intent intent2 = new Intent("android.intent.action.CHOOSER");
+                intent2.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
                 if (Build.VERSION.SDK_INT >= 21 && fileChooserParams != null) {
-                    intent.putExtra("android.intent.extra.INTENT", fileChooserParams.createIntent());
+                    intent2.putExtra("android.intent.extra.INTENT", fileChooserParams.createIntent());
                 }
+                intent = intent2;
             }
             if (intent != null) {
                 try {
                     return startActivityForResult(intent, 11);
-                } catch (Exception e) {
-                    Log.printStackTrace(e);
+                } catch (Exception e2) {
+                    Log.printStackTrace(e2);
                 }
             }
         }
         try {
             return startActivityForResult(createDefaultOpenableIntent(), 11);
-        } catch (Exception e2) {
-            Log.printStackTrace(e2);
+        } catch (Exception e3) {
+            Log.printStackTrace(e3);
             return false;
         }
     }
 
     public boolean openFileChooser(ValueCallback<Uri> valueCallback, String str) {
-        String str2 = "";
         this.mUploadMessage = valueCallback;
-        String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        String str3 = split[0];
+        String[] split = str.split(";");
+        String str2 = split[0];
+        String str3 = "";
         for (String str4 : split) {
             String[] split2 = str4.split("=");
             if (split2.length == 2 && MEDIA_SOURCE_KEY.equals(split2[0])) {
-                str2 = split2[1];
+                str3 = split2[1];
             }
         }
-        return openFileChooser(str2, str3);
+        return openFileChooser(str3, str2);
     }
 
     public boolean openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
         this.mUploadMessage = valueCallback;
-        String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        String[] split = str.split(";");
         String str3 = split[0];
         String str4 = str2.length() > 0 ? str2 : "";
         if (str2.equals(MEDIA_SOURCE_VALUE_FILE_SYSTEM)) {
@@ -281,97 +310,66 @@ public class BdUploadHandler implements INoProGuard {
         return openFileChooser(str4, str3);
     }
 
-    protected boolean openFileChooser(String str, String str2) {
-        if (str == null || str2 == null) {
-            return false;
-        }
-        this.mCameraFilePath = null;
-        if (str2.equals(IMAGE_MIME_TYPE)) {
-            if (str.equals("camera")) {
-                try {
+    public boolean openFileChooser(String str, String str2) {
+        if (str != null && str2 != null) {
+            this.mCameraFilePath = null;
+            try {
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+            }
+            if (str2.equals(IMAGE_MIME_TYPE)) {
+                if (str.equals(MEDIA_SOURCE_VALUE_CAMERA)) {
                     return startActivityForResult(createCameraIntent(), 11);
-                } catch (Exception e) {
-                    Log.printStackTrace(e);
                 }
-            } else if (str.equals(MEDIA_SOURCE_VALUE_FILE_SYSTEM)) {
-                try {
+                if (str.equals(MEDIA_SOURCE_VALUE_FILE_SYSTEM)) {
                     return startActivityForResult(createOpenableIntent(IMAGE_MIME_TYPE), 11);
-                } catch (Exception e2) {
-                    Log.printStackTrace(e2);
                 }
+                Intent createChooserIntent = createChooserIntent(createCameraIntent());
+                createChooserIntent.putExtra("android.intent.extra.INTENT", createOpenableIntent(IMAGE_MIME_TYPE));
+                return startActivityForResult(createChooserIntent, 11);
+            } else if (str2.equals(VIDEO_MIME_TYPE)) {
+                if (str.equals(MEDIA_SOURCE_VALUE_CAMCORDER)) {
+                    return startActivityForResult(createCamcorderIntent(), 11);
+                }
+                if (str.equals(MEDIA_SOURCE_VALUE_FILE_SYSTEM)) {
+                    return startActivityForResult(createOpenableIntent(VIDEO_MIME_TYPE), 11);
+                }
+                Intent createChooserIntent2 = createChooserIntent(createCamcorderIntent());
+                createChooserIntent2.putExtra("android.intent.extra.INTENT", createOpenableIntent(VIDEO_MIME_TYPE));
+                return startActivityForResult(createChooserIntent2, 11);
             } else {
+                if (str2.equals(AUDIO_MIME_TYPE)) {
+                    if (str.equals(MEDIA_SOURCE_VALUE_MICROPHONE)) {
+                        return startActivityForResult(createSoundRecorderIntent(), 11);
+                    }
+                    if (str.equals(MEDIA_SOURCE_VALUE_FILE_SYSTEM)) {
+                        return startActivityForResult(createOpenableIntent(AUDIO_MIME_TYPE), 11);
+                    }
+                    Intent createChooserIntent3 = createChooserIntent(createSoundRecorderIntent());
+                    createChooserIntent3.putExtra("android.intent.extra.INTENT", createOpenableIntent(AUDIO_MIME_TYPE));
+                    return startActivityForResult(createChooserIntent3, 11);
+                }
                 try {
-                    Intent createChooserIntent = createChooserIntent(createCameraIntent());
-                    createChooserIntent.putExtra("android.intent.extra.INTENT", createOpenableIntent(IMAGE_MIME_TYPE));
-                    return startActivityForResult(createChooserIntent, 11);
+                    return startActivityForResult(createDefaultOpenableIntent(), 11);
                 } catch (Exception e3) {
                     Log.printStackTrace(e3);
                 }
             }
-        } else if (str2.equals(VIDEO_MIME_TYPE)) {
-            if (str.equals(MEDIA_SOURCE_VALUE_CAMCORDER)) {
-                try {
-                    return startActivityForResult(createCamcorderIntent(), 11);
-                } catch (Exception e4) {
-                    Log.printStackTrace(e4);
-                }
-            } else if (str.equals(MEDIA_SOURCE_VALUE_FILE_SYSTEM)) {
-                try {
-                    return startActivityForResult(createOpenableIntent(VIDEO_MIME_TYPE), 11);
-                } catch (Exception e5) {
-                    Log.printStackTrace(e5);
-                }
-            } else {
-                try {
-                    Intent createChooserIntent2 = createChooserIntent(createCamcorderIntent());
-                    createChooserIntent2.putExtra("android.intent.extra.INTENT", createOpenableIntent(VIDEO_MIME_TYPE));
-                    return startActivityForResult(createChooserIntent2, 11);
-                } catch (Exception e6) {
-                    Log.printStackTrace(e6);
-                }
-            }
-        } else if (str2.equals(AUDIO_MIME_TYPE)) {
-            if (str.equals(MEDIA_SOURCE_VALUE_MICROPHONE)) {
-                try {
-                    return startActivityForResult(createSoundRecorderIntent(), 11);
-                } catch (Exception e7) {
-                    Log.printStackTrace(e7);
-                }
-            } else if (str.equals(MEDIA_SOURCE_VALUE_FILE_SYSTEM)) {
-                try {
-                    return startActivityForResult(createOpenableIntent(AUDIO_MIME_TYPE), 11);
-                } catch (Exception e8) {
-                    Log.printStackTrace(e8);
-                }
-            } else {
-                try {
-                    Intent createChooserIntent3 = createChooserIntent(createSoundRecorderIntent());
-                    createChooserIntent3.putExtra("android.intent.extra.INTENT", createOpenableIntent(AUDIO_MIME_TYPE));
-                    return startActivityForResult(createChooserIntent3, 11);
-                } catch (Exception e9) {
-                    Log.printStackTrace(e9);
-                }
-            }
         }
-        try {
-            return startActivityForResult(createDefaultOpenableIntent(), 11);
-        } catch (Exception e10) {
-            Log.printStackTrace(e10);
-            return false;
-        }
+        return false;
     }
 
     public boolean startActivityForResult(Intent intent, int i) {
         try {
             this.mActivity.startActivityForResult(intent, i);
             return true;
-        } catch (ActivityNotFoundException e) {
+        } catch (ActivityNotFoundException e2) {
             try {
                 this.mCaughtActivityNotFoundException = true;
                 this.mActivity.startActivityForResult(createDefaultOpenableIntent(), i);
                 return true;
-            } catch (ActivityNotFoundException e2) {
-                Log.printStackTrace(e);
+            } catch (ActivityNotFoundException unused) {
+                Log.printStackTrace(e2);
                 cancelUpload();
                 return false;
             }

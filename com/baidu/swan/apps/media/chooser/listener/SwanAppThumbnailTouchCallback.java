@@ -3,41 +3,65 @@ package com.baidu.swan.apps.media.chooser.listener;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
+import d.b.g0.a.b1.d.d.f;
 import java.util.Collections;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
-    private f dmP;
-    private SwanAppThumbnailAdapter dmQ;
+
+    /* renamed from: a  reason: collision with root package name */
+    public f f12337a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SwanAppThumbnailAdapter f12338b;
 
     public SwanAppThumbnailTouchCallback(f fVar, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
-        this.dmP = fVar;
-        this.dmQ = swanAppThumbnailAdapter;
+        this.f12337a = fVar;
+        this.f12338b = swanAppThumbnailAdapter;
+    }
+
+    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
+    public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+        super.clearView(recyclerView, viewHolder);
+        if (recyclerView.isComputingLayout()) {
+            return;
+        }
+        viewHolder.itemView.setScaleX(1.0f);
+        viewHolder.itemView.setScaleY(1.0f);
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-        return makeMovementFlags(15, 0);
+        return ItemTouchHelper.Callback.makeMovementFlags(15, 0);
+    }
+
+    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
+    public boolean isItemViewSwipeEnabled() {
+        return false;
+    }
+
+    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
+    public boolean isLongPressDragEnabled() {
+        return false;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
-        if (this.dmQ.aBt() == null) {
+        if (this.f12338b.m() == null) {
             return false;
         }
         int adapterPosition = viewHolder.getAdapterPosition();
         int adapterPosition2 = viewHolder2.getAdapterPosition();
-        if (this.dmQ != null) {
-            Collections.swap(this.dmQ.aBt(), adapterPosition, adapterPosition2);
-            this.dmQ.notifyItemMoved(adapterPosition, adapterPosition2);
+        SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f12338b;
+        if (swanAppThumbnailAdapter != null) {
+            Collections.swap(swanAppThumbnailAdapter.m(), adapterPosition, adapterPosition2);
+            this.f12338b.notifyItemMoved(adapterPosition, adapterPosition2);
         }
-        if (this.dmP != null) {
-            this.dmP.ah(adapterPosition, adapterPosition2);
+        f fVar = this.f12337a;
+        if (fVar != null) {
+            fVar.onMove(adapterPosition, adapterPosition2);
+            return true;
         }
         return true;
-    }
-
-    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -50,21 +74,6 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-        super.clearView(recyclerView, viewHolder);
-        if (!recyclerView.isComputingLayout()) {
-            viewHolder.itemView.setScaleX(1.0f);
-            viewHolder.itemView.setScaleY(1.0f);
-        }
-    }
-
-    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public boolean isLongPressDragEnabled() {
-        return false;
-    }
-
-    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public boolean isItemViewSwipeEnabled() {
-        return false;
+    public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
     }
 }

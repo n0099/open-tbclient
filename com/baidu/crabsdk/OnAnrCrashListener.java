@@ -1,7 +1,7 @@
 package com.baidu.crabsdk;
 
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public interface OnAnrCrashListener {
     void onAnrStarted(Map<String, Object> map);
 

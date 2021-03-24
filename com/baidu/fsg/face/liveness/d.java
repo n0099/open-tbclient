@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class d {
     public static final String A = "ABTestEnd";
     public static final String B = "showLivenessConfirm";
@@ -29,18 +29,32 @@ public final class d {
     public static final String Z = "videoFileException";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1766a = "#startLiveness";
+    public static final String f5973a = "#startLiveness";
     public static final String aa = "videoFileTooLargeException";
     public static final String ab = "videoMediaRecordIdealBitrate";
     public static final String ac = "videoFileSize";
     public static final String ad = "videoFileUploadTimeout";
-    public static final String b = "@queryVideo";
-    public static final String c = "enterLiveness";
-    public static final String d = "userSwitchSound";
-    public static final String e = "@getPortrait";
-    public static final String f = "passLiveness";
-    public static final String g = "faceDetected";
-    public static final String h = "showBlink";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f5974b = "@queryVideo";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f5975c = "enterLiveness";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f5976d = "userSwitchSound";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f5977e = "@getPortrait";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f5978f = "passLiveness";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f5979g = "faceDetected";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f5980h = "showBlink";
     public static final String i = "detectBlink";
     public static final String j = "showMouth";
     public static final String k = "detectMouth";

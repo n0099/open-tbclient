@@ -16,30 +16,22 @@ import com.baidu.fsg.face.liveness.callback.LivenessRecogCallback;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static final long MAX_CALL_INTERNAL_TIME = 300;
     public static final String TAG = "SapiLivenessRecog";
 
     /* renamed from: a  reason: collision with root package name */
-    private static SapiLivenessRecogManager f1636a;
-    private LivenessRecogCallback b;
-    private long c;
-    private long d;
+    public static SapiLivenessRecogManager f5656a;
 
-    private SapiLivenessRecogManager() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public LivenessRecogCallback f5657b;
 
-    public static synchronized SapiLivenessRecogManager getInstance() {
-        SapiLivenessRecogManager sapiLivenessRecogManager;
-        synchronized (SapiLivenessRecogManager.class) {
-            if (f1636a == null) {
-                f1636a = new SapiLivenessRecogManager();
-            }
-            sapiLivenessRecogManager = f1636a;
-        }
-        return sapiLivenessRecogManager;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public long f5658c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f5659d;
 
     private void a(LivenessRecogCallback livenessRecogCallback, LivenessRecogDTO livenessRecogDTO, Context context) {
         LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
@@ -52,7 +44,8 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
+        LivenessRecogType livenessRecogType = livenessRecogDTO.livenessType;
+        if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
             if (TextUtils.isEmpty(livenessRecogDTO.bduss)) {
                 livenessRecogResult.setResultCode(101);
                 livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_NO_LOGIN);
@@ -62,7 +55,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-        } else if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
+        } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
             if (TextUtils.isEmpty(livenessRecogDTO.authToken)) {
                 livenessRecogResult.setResultCode(-205);
                 livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_PARAM);
@@ -72,7 +65,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-        } else if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
+        } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
             if ((TextUtils.isEmpty(livenessRecogDTO.realName) || TextUtils.isEmpty(livenessRecogDTO.idCardNum)) && TextUtils.isEmpty(livenessRecogDTO.getAccessToken())) {
                 livenessRecogResult.setResultCode(-205);
                 livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_PARAM);
@@ -82,7 +75,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-        } else if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_FACEDETECT) {
+        } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_FACEDETECT) {
             if (TextUtils.isEmpty(livenessRecogDTO.exUid)) {
                 livenessRecogResult.setResultCode(-205);
                 livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_PARAM);
@@ -92,7 +85,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-        } else if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_OUTER && TextUtils.isEmpty(livenessRecogDTO.exUid)) {
+        } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER && TextUtils.isEmpty(livenessRecogDTO.exUid)) {
             livenessRecogResult.setResultCode(-205);
             livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_PARAM);
             if (livenessRecogCallback != null) {
@@ -101,7 +94,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        this.b = livenessRecogCallback;
+        this.f5657b = livenessRecogCallback;
         if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_FACEDETECT) {
             if (livenessRecogDTO.showGuidePage) {
                 Intent intent = new Intent(context, LivenessRecogGuidActivity.class);
@@ -114,33 +107,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             context.startActivity(intent2);
             return;
         }
-        this.d = System.currentTimeMillis();
+        this.f5659d = System.currentTimeMillis();
         Intent intent3 = new Intent(context, LivenessLoadingActivity.class);
         intent3.setFlags(268435456);
         context.startActivity(intent3);
-    }
-
-    public LivenessRecogCallback getLivenessRecogCallback() {
-        return this.b;
-    }
-
-    public void cleanLivenessRecogCallback() {
-        this.b = null;
-    }
-
-    private void a(final Context context) {
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.baidu.fsg.face.liveness.SapiLivenessRecogManager.1
-            @Override // java.lang.Runnable
-            public void run() {
-                Intent intent = new Intent();
-                intent.setAction(LivenessLoadingActivity.CLOSE_LOADING_ACTION);
-                context.sendBroadcast(intent);
-            }
-        }, System.currentTimeMillis() - this.d >= 1000 ? 0L : 1000L);
-    }
-
-    private boolean a() {
-        return System.currentTimeMillis() - this.c < 300;
     }
 
     private void b(Context context) {
@@ -148,35 +118,55 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     private void c(Context context) {
-        this.c = System.currentTimeMillis();
+        this.f5658c = System.currentTimeMillis();
+    }
+
+    public static synchronized SapiLivenessRecogManager getInstance() {
+        SapiLivenessRecogManager sapiLivenessRecogManager;
+        synchronized (SapiLivenessRecogManager.class) {
+            if (f5656a == null) {
+                f5656a = new SapiLivenessRecogManager();
+            }
+            sapiLivenessRecogManager = f5656a;
+        }
+        return sapiLivenessRecogManager;
     }
 
     public void checkSo(Context context) {
         com.baidu.fsg.face.base.b.d.a(context, 4);
     }
 
+    public void cleanLivenessRecogCallback() {
+        this.f5657b = null;
+    }
+
     @Override // com.baidu.fsg.face.base.b
     public void execute(e eVar, com.baidu.fsg.face.base.a.a aVar, SapiBiometricDto sapiBiometricDto, Context context) {
         if (aVar == null) {
             throw new IllegalArgumentException(com.baidu.fsg.face.base.a.a.class.getSimpleName() + " can't be null");
-        }
-        if (eVar == null) {
+        } else if (eVar == null) {
             throw new IllegalArgumentException(e.class.getSimpleName() + " can't be null");
-        }
-        if (sapiBiometricDto == null) {
-            throw new IllegalArgumentException(SapiBiometricDto.class.getSimpleName() + " can't be null");
-        }
-        SapiLivenessOperation sapiLivenessOperation = (SapiLivenessOperation) eVar;
-        if (sapiLivenessOperation.operationType == SapiLivenessOperation.OperationType.RECOGNIZE) {
-            if (!a()) {
+        } else if (sapiBiometricDto != null) {
+            SapiLivenessOperation.OperationType operationType = ((SapiLivenessOperation) eVar).operationType;
+            if (operationType == SapiLivenessOperation.OperationType.RECOGNIZE) {
+                if (a()) {
+                    return;
+                }
                 b(context);
                 c(context);
                 a((LivenessRecogCallback) aVar, (LivenessRecogDTO) sapiBiometricDto, context);
+            } else if (operationType != SapiLivenessOperation.OperationType.VIDEORECOG || a()) {
+            } else {
+                c(context);
+                b((LivenessRecogCallback) aVar, (LivenessRecogDTO) sapiBiometricDto, context);
             }
-        } else if (sapiLivenessOperation.operationType == SapiLivenessOperation.OperationType.VIDEORECOG && !a()) {
-            c(context);
-            b((LivenessRecogCallback) aVar, (LivenessRecogDTO) sapiBiometricDto, context);
+        } else {
+            throw new IllegalArgumentException(SapiBiometricDto.class.getSimpleName() + " can't be null");
         }
+    }
+
+    public LivenessRecogCallback getLivenessRecogCallback() {
+        return this.f5657b;
     }
 
     private void b(LivenessRecogCallback livenessRecogCallback, LivenessRecogDTO livenessRecogDTO, Context context) {
@@ -190,7 +180,8 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
+        LivenessRecogType livenessRecogType = livenessRecogDTO.livenessType;
+        if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
             if (TextUtils.isEmpty(livenessRecogDTO.bduss)) {
                 livenessRecogResult.setResultCode(101);
                 livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_NO_LOGIN);
@@ -200,7 +191,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-        } else if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
+        } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
             if (TextUtils.isEmpty(livenessRecogDTO.authToken)) {
                 livenessRecogResult.setResultCode(-205);
                 livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_PARAM);
@@ -210,7 +201,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-        } else if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
+        } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
             if ((TextUtils.isEmpty(livenessRecogDTO.realName) || TextUtils.isEmpty(livenessRecogDTO.idCardNum)) && TextUtils.isEmpty(livenessRecogDTO.getAccessToken())) {
                 livenessRecogResult.setResultCode(-205);
                 livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_PARAM);
@@ -220,7 +211,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-        } else if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_OUTER && TextUtils.isEmpty(livenessRecogDTO.exUid)) {
+        } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER && TextUtils.isEmpty(livenessRecogDTO.exUid)) {
             livenessRecogResult.setResultCode(-205);
             livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_PARAM);
             if (livenessRecogCallback != null) {
@@ -229,9 +220,24 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        this.b = livenessRecogCallback;
+        this.f5657b = livenessRecogCallback;
         Intent intent = new Intent(context, LivenessVideoLoadingActivity.class);
         intent.setFlags(268435456);
         context.startActivity(intent);
+    }
+
+    private void a(final Context context) {
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.baidu.fsg.face.liveness.SapiLivenessRecogManager.1
+            @Override // java.lang.Runnable
+            public void run() {
+                Intent intent = new Intent();
+                intent.setAction(LivenessLoadingActivity.CLOSE_LOADING_ACTION);
+                context.sendBroadcast(intent);
+            }
+        }, System.currentTimeMillis() - this.f5659d >= 1000 ? 0L : 1000L);
+    }
+
+    private boolean a() {
+        return System.currentTimeMillis() - this.f5658c < 300;
     }
 }

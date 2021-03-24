@@ -3,65 +3,92 @@ package com.baidu.tieba.newlist;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.hottopic.data.j;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.hottopic.message.RequestHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
+import d.b.i0.b1.c.j;
+import d.b.i0.z1.b;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class HotTopicListModel extends BdBaseModel {
-    private b lHK;
-    private boolean mIsLoading;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public HotTopicListModel(TbPageContext<?> tbPageContext, b bVar) {
-        super(tbPageContext);
-        cQU();
-        this.lHK = bVar;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public b f19372e;
 
-    private void cQU() {
-        registerListener(new com.baidu.adp.framework.listener.a(1003078, CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST) { // from class: com.baidu.tieba.newlist.HotTopicListModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                boolean z;
-                HotTopicListModel.this.mIsLoading = false;
-                if (responsedMessage != null) {
-                    if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == HotTopicListModel.this.getUniqueId()) {
-                        j hotRanklistData = (!(responsedMessage instanceof ResponseHttpHotRanklistMessage) || ((ResponseHttpHotRanklistMessage) responsedMessage).getHotRanklistData() == null) ? null : ((ResponseHttpHotRanklistMessage) responsedMessage).getHotRanklistData();
-                        if ((responsedMessage instanceof ResponseSocketHotRanklistMessage) && ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData() != null) {
-                            hotRanklistData = ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData();
-                        }
-                        if (hotRanklistData != null) {
-                            if (y.isEmpty(hotRanklistData.kxo)) {
-                                z = false;
-                            } else {
-                                LinkedList linkedList = new LinkedList();
-                                int size = hotRanklistData.kxo.size();
-                                for (int i = 0; i < size; i++) {
-                                    linkedList.add(new com.baidu.tieba.newlist.b.b(hotRanklistData.kxo.get(i), i));
-                                }
-                                HotTopicListModel.this.lHK.q(responsedMessage.getError(), linkedList);
-                                z = true;
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f19373f;
+
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:21:0x0039  */
+        /* JADX WARN: Removed duplicated region for block: B:25:0x0048  */
+        @Override // d.b.b.c.g.a
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            j jVar;
+            int i = 0;
+            HotTopicListModel.this.f19373f = false;
+            if (responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof ResponseHttpHotRanklistMessage;
+            if ((z || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == HotTopicListModel.this.getUniqueId()) {
+                if (z) {
+                    ResponseHttpHotRanklistMessage responseHttpHotRanklistMessage = (ResponseHttpHotRanklistMessage) responsedMessage;
+                    if (responseHttpHotRanklistMessage.getHotRanklistData() != null) {
+                        jVar = responseHttpHotRanklistMessage.getHotRanklistData();
+                        if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
+                            ResponseSocketHotRanklistMessage responseSocketHotRanklistMessage = (ResponseSocketHotRanklistMessage) responsedMessage;
+                            if (responseSocketHotRanklistMessage.getHotRanklistData() != null) {
+                                jVar = responseSocketHotRanklistMessage.getHotRanklistData();
                             }
-                            if (z) {
+                        }
+                        if (jVar != null) {
+                            if (!ListUtils.isEmpty(jVar.f52128h)) {
+                                LinkedList linkedList = new LinkedList();
+                                int size = jVar.f52128h.size();
+                                while (i < size) {
+                                    linkedList.add(new d.b.i0.z1.d.b(jVar.f52128h.get(i), i));
+                                    i++;
+                                }
+                                HotTopicListModel.this.f19372e.netCallback(responsedMessage.getError(), linkedList);
+                                i = 1;
+                            }
+                            if (i != 0) {
                                 return;
                             }
                         }
-                        HotTopicListModel.this.lHK.q(-1, null);
+                        HotTopicListModel.this.f19372e.netCallback(-1, null);
                     }
                 }
+                jVar = null;
+                if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
+                }
+                if (jVar != null) {
+                }
+                HotTopicListModel.this.f19372e.netCallback(-1, null);
             }
-        });
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public HotTopicListModel(TbPageContext<?> tbPageContext, b bVar) {
+        super(tbPageContext);
+        u();
+        this.f19372e = bVar;
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately() || this.mIsLoading) {
+        if (!d.b.b.e.p.j.A() || this.f19373f) {
             return false;
         }
         cancelLoadData();
@@ -71,13 +98,18 @@ public class HotTopicListModel extends BdBaseModel {
         requestHotRanklistMessage.setListType("all");
         requestHotRanklistMessage.setNeedTabList("0");
         requestHotRanklistMessage.setFid(0L);
-        this.mIsLoading = MessageManager.getInstance().sendMessage(requestHotRanklistMessage);
-        return this.mIsLoading;
+        boolean sendMessage = MessageManager.getInstance().sendMessage(requestHotRanklistMessage);
+        this.f19373f = sendMessage;
+        return sendMessage;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         cancelMessage();
         return false;
+    }
+
+    public final void u() {
+        registerListener(new a(CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289));
     }
 }

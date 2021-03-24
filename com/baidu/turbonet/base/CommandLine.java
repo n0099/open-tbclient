@@ -1,46 +1,33 @@
 package com.baidu.turbonet.base;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public abstract class CommandLine {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static final List<Object> oRf;
-    private static final AtomicReference<CommandLine> sCommandLine;
 
-    private static native void nativeAppendSwitch(String str);
-
-    private static native void nativeAppendSwitchWithValue(String str, String str2);
-
-    private static native void nativeAppendSwitchesAndArguments(String[] strArr);
-
-    private static native String nativeGetSwitchValue(String str);
-
-    private static native boolean nativeHasSwitch(String str);
-
-    private static native void nativeReset();
-
-    public abstract boolean hasSwitch(String str);
+    /* renamed from: a  reason: collision with root package name */
+    public static final AtomicReference<CommandLine> f22641a;
 
     static {
-        $assertionsDisabled = !CommandLine.class.desiredAssertionStatus();
-        oRf = new ArrayList();
-        sCommandLine = new AtomicReference<>();
+        new ArrayList();
+        f22641a = new AtomicReference<>();
     }
 
-    public static boolean isInitialized() {
-        return sCommandLine.get() != null;
+    public static CommandLine a() {
+        return f22641a.get();
     }
 
-    public static CommandLine egg() {
-        CommandLine commandLine = sCommandLine.get();
-        if ($assertionsDisabled || commandLine != null) {
-            return commandLine;
-        }
-        throw new AssertionError();
-    }
+    public static native void nativeAppendSwitch(String str);
 
-    private CommandLine() {
-    }
+    public static native void nativeAppendSwitchWithValue(String str, String str2);
+
+    public static native void nativeAppendSwitchesAndArguments(String[] strArr);
+
+    public static native String nativeGetSwitchValue(String str);
+
+    public static native boolean nativeHasSwitch(String str);
+
+    public static native void nativeReset();
+
+    public abstract boolean b(String str);
 }

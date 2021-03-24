@@ -3,50 +3,33 @@ package com.baidu.tieba.ala.frsgamelive.message;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaGameFrsLiveThreadsRequestMessage extends HttpMessage {
-    private String forumGameLabel;
-    private String forumId;
-    private int pn;
-    private int ps;
-    private int sortType;
-    private int tabType;
+    public String forumGameLabel;
+    public String forumId;
+    public int pn;
+    public int ps;
+    public int sortType;
+    public int tabType;
 
     public AlaGameFrsLiveThreadsRequestMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME);
-    }
-
-    public void setForumId(String str) {
-        this.forumId = str;
-    }
-
-    public void setPn(int i) {
-        this.pn = i;
     }
 
     public int getPn() {
         return this.pn;
     }
 
-    public void setPs(int i) {
-        this.ps = i;
+    public int getTabType() {
+        return this.tabType;
     }
 
     public void setForumGameLabel(String str) {
         this.forumGameLabel = str;
     }
 
-    public void setTabType(int i) {
-        this.tabType = i;
-    }
-
-    public int getTabType() {
-        return this.tabType;
-    }
-
-    public void setSortType(int i) {
-        this.sortType = i;
+    public void setForumId(String str) {
+        this.forumId = str;
     }
 
     public void setHttpParams() {
@@ -55,6 +38,22 @@ public class AlaGameFrsLiveThreadsRequestMessage extends HttpMessage {
         addParam("ps", this.ps);
         addParam("forum_game_label", this.forumGameLabel);
         addParam("tab_type", this.tabType);
-        addParam(PbActivityConfig.KEY_SORTTYPE, this.sortType);
+        addParam("sort_type", this.sortType);
+    }
+
+    public void setPn(int i) {
+        this.pn = i;
+    }
+
+    public void setPs(int i) {
+        this.ps = i;
+    }
+
+    public void setSortType(int i) {
+        this.sortType = i;
+    }
+
+    public void setTabType(int i) {
+        this.tabType = i;
     }
 }

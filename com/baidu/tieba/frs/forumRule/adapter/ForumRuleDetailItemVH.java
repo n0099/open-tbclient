@@ -5,46 +5,63 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+import d.b.h0.b1.m.a;
+import d.b.h0.r.u.c;
+/* loaded from: classes4.dex */
 public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
-    public EMTextView jwO;
-    public TbRichTextView jwP;
-    public boolean jwQ;
-    private Context mContext;
-    private View mRootView;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f16274a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f16275b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public EMTextView f16276c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TbRichTextView f16277d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f16278e;
 
     public ForumRuleDetailItemVH(Context context, View view) {
         super(view);
-        this.mContext = context;
-        this.mRootView = view;
-        am(view);
+        this.f16274a = context;
+        this.f16275b = view;
+        b(view);
     }
 
-    private void am(View view) {
-        this.jwO = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
-        this.jwP = (TbRichTextView) view.findViewById(R.id.forum_rule_item_content);
-        this.jwP.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-        com.baidu.tbadk.widget.richText.a layoutStrategy = this.jwP.getLayoutStrategy();
-        layoutStrategy.setLineSpacing(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
-        this.jwP.setLayoutStrategy(layoutStrategy);
-        onChangeSkinType();
+    public final void b(View view) {
+        this.f16276c = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
+        TbRichTextView tbRichTextView = (TbRichTextView) view.findViewById(R.id.forum_rule_item_content);
+        this.f16277d = tbRichTextView;
+        tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
+        a layoutStrategy = this.f16277d.getLayoutStrategy();
+        layoutStrategy.o(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
+        this.f16277d.setLayoutStrategy(layoutStrategy);
+        c();
     }
 
-    public void rh(boolean z) {
-        this.jwQ = z;
-        onChangeSkinType();
-    }
-
-    public void onChangeSkinType() {
-        if (this.jwQ) {
-            com.baidu.tbadk.core.elementsMaven.c.br(this.jwO).ob(R.string.F_X02).nZ(R.color.CAM_X0301);
-            this.jwP.setTextColor(ap.getColor(R.color.CAM_X0301));
+    public void c() {
+        if (this.f16278e) {
+            c a2 = c.a(this.f16276c);
+            a2.s(R.string.F_X02);
+            a2.n(R.color.CAM_X0301);
+            this.f16277d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
             return;
         }
-        com.baidu.tbadk.core.elementsMaven.c.br(this.jwO).ob(R.string.F_X02).nZ(R.color.CAM_X0105);
-        this.jwP.setTextColor(ap.getColor(R.color.CAM_X0105));
+        c a3 = c.a(this.f16276c);
+        a3.s(R.string.F_X02);
+        a3.n(R.color.CAM_X0105);
+        this.f16277d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+    }
+
+    public void d(boolean z) {
+        this.f16278e = z;
+        c();
     }
 }

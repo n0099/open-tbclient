@@ -1,13 +1,12 @@
 package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ForumMemberReadCacheRequestMessage extends CustomMessage<Object> {
-    private String forumName;
+    public String forumName;
 
     public ForumMemberReadCacheRequestMessage() {
-        super(CmdConfigCustom.CMD_FRS_MEMBER_INFO_CACHE);
+        super(2003009);
     }
 
     public String getForumName() {

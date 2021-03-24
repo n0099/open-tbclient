@@ -1,40 +1,41 @@
 package com.baidu.tieba.faceshop;
 
+import d.b.i0.k0.c.b;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
-public class EmotionData implements com.baidu.tieba.face.data.b, Serializable {
-    private static final long serialVersionUID = 1;
+/* loaded from: classes4.dex */
+public class EmotionData implements Serializable, b {
+    public static final long serialVersionUID = 1;
     public String groupId;
     public int orderId;
     public String sharpText;
 
-    public int getOrderId() {
-        return this.orderId;
+    @Override // d.b.i0.k0.c.b
+    public boolean IsValid() {
+        return true;
     }
 
-    public void setOrderId(int i) {
-        this.orderId = i;
+    @Override // d.b.i0.k0.c.b
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public int getOrderId() {
+        return this.orderId;
     }
 
     public String getSharpText() {
         return this.sharpText;
     }
 
-    public void setSharpText(String str) {
-        this.sharpText = str;
-    }
-
-    @Override // com.baidu.tieba.face.data.b
-    public String getGroupId() {
-        return this.groupId;
-    }
-
     public void setGroupId(String str) {
         this.groupId = str;
     }
 
-    @Override // com.baidu.tieba.face.data.b
-    public boolean IsValid() {
-        return true;
+    public void setOrderId(int i) {
+        this.orderId = i;
+    }
+
+    public void setSharpText(String str) {
+        this.sharpText = str;
     }
 }

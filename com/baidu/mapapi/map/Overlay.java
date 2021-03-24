@@ -1,29 +1,26 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class Overlay {
-    protected a listener;
+    public a listener;
     public com.baidu.mapsdkplatform.comapi.map.h type;
-    String v = System.currentTimeMillis() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + hashCode();
-    int w;
-    boolean x;
-    Bundle y;
+    public String v = System.currentTimeMillis() + "_" + hashCode();
+    public int w;
+    public boolean x;
+    public Bundle y;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(Overlay overlay);
 
         void b(Overlay overlay);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(int i, Bundle bundle) {
         Bundle bundle2 = new Bundle();
         bundle2.putFloat("red", ((i >> 16) & 255) / 255.0f);
@@ -33,7 +30,6 @@ public abstract class Overlay {
         bundle.putBundle("color", bundle2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(List<LatLng> list, Bundle bundle) {
         int size = list.size();
         double[] dArr = new double[size];
@@ -47,7 +43,6 @@ public abstract class Overlay {
         bundle.putDoubleArray("y_array", dArr2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Bundle a() {
         Bundle bundle = new Bundle();
         bundle.putString("id", this.v);
@@ -55,7 +50,6 @@ public abstract class Overlay {
         return bundle;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Bundle a(Bundle bundle) {
         bundle.putString("id", this.v);
         bundle.putInt("type", this.type.ordinal());

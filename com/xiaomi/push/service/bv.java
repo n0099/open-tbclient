@@ -1,30 +1,41 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.XMPushService;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class bv extends XMPushService.i {
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+/* loaded from: classes7.dex */
+public class bv extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f8558a;
+    public final /* synthetic */ XMPushService f41015a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bv(XMPushService xMPushService, int i) {
-        super(i);
-        this.f8558a = xMPushService;
+    public bv(XMPushService xMPushService) {
+        this.f41015a = xMPushService;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        return "prepare the mi push account.";
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        w.a(this.f8558a);
-        if (com.xiaomi.push.az.b(this.f8558a)) {
-            this.f8558a.a(true);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        String str;
+        super.handleMessage(message);
+        if (message != null) {
+            try {
+                int i = message.what;
+                if (i != 17) {
+                    if (i == 18) {
+                        Message obtain = Message.obtain((Handler) null, 0);
+                        obtain.what = 18;
+                        Bundle bundle = new Bundle();
+                        str = this.f41015a.f850a;
+                        bundle.putString("xmsf_region", str);
+                        obtain.setData(bundle);
+                        message.replyTo.send(obtain);
+                    }
+                } else if (message.obj != null) {
+                    this.f41015a.onStart((Intent) message.obj, 1);
+                }
+            } catch (Throwable unused) {
+            }
         }
     }
 }

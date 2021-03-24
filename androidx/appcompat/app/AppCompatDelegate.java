@@ -22,7 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.VectorEnabledTintResources;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public abstract class AppCompatDelegate {
     public static final int FEATURE_ACTION_MODE_OVERLAY = 10;
     public static final int FEATURE_SUPPORT_ACTION_BAR = 108;
@@ -30,15 +30,39 @@ public abstract class AppCompatDelegate {
     public static final int MODE_NIGHT_AUTO = 0;
     public static final int MODE_NIGHT_FOLLOW_SYSTEM = -1;
     public static final int MODE_NIGHT_NO = 1;
-    static final int MODE_NIGHT_UNSPECIFIED = -100;
+    public static final int MODE_NIGHT_UNSPECIFIED = -100;
     public static final int MODE_NIGHT_YES = 2;
-    static final String TAG = "AppCompatDelegate";
-    private static int sDefaultNightMode = -1;
+    public static final String TAG = "AppCompatDelegate";
+    public static int sDefaultNightMode = -1;
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes.dex */
     public @interface NightMode {
+    }
+
+    public static AppCompatDelegate create(Activity activity, AppCompatCallback appCompatCallback) {
+        return new AppCompatDelegateImpl(activity, activity.getWindow(), appCompatCallback);
+    }
+
+    public static int getDefaultNightMode() {
+        return sDefaultNightMode;
+    }
+
+    public static boolean isCompatVectorFromResourcesEnabled() {
+        return VectorEnabledTintResources.isCompatVectorFromResourcesEnabled();
+    }
+
+    public static void setCompatVectorFromResourcesEnabled(boolean z) {
+        VectorEnabledTintResources.setCompatVectorFromResourcesEnabled(z);
+    }
+
+    public static void setDefaultNightMode(int i) {
+        if (i != -1 && i != 0 && i != 1 && i != 2) {
+            Log.d(TAG, "setDefaultNightMode() called with an unknown mode");
+        } else {
+            sDefaultNightMode = i;
+        }
     }
 
     public abstract void addContentView(View view, ViewGroup.LayoutParams layoutParams);
@@ -101,41 +125,11 @@ public abstract class AppCompatDelegate {
     @Nullable
     public abstract ActionMode startSupportActionMode(@NonNull ActionMode.Callback callback);
 
-    public static AppCompatDelegate create(Activity activity, AppCompatCallback appCompatCallback) {
-        return new AppCompatDelegateImpl(activity, activity.getWindow(), appCompatCallback);
-    }
-
     public static AppCompatDelegate create(Dialog dialog, AppCompatCallback appCompatCallback) {
         return new AppCompatDelegateImpl(dialog.getContext(), dialog.getWindow(), appCompatCallback);
     }
 
     public static AppCompatDelegate create(Context context, Window window, AppCompatCallback appCompatCallback) {
         return new AppCompatDelegateImpl(context, window, appCompatCallback);
-    }
-
-    public static void setDefaultNightMode(int i) {
-        switch (i) {
-            case -1:
-            case 0:
-            case 1:
-            case 2:
-                sDefaultNightMode = i;
-                return;
-            default:
-                Log.d(TAG, "setDefaultNightMode() called with an unknown mode");
-                return;
-        }
-    }
-
-    public static int getDefaultNightMode() {
-        return sDefaultNightMode;
-    }
-
-    public static void setCompatVectorFromResourcesEnabled(boolean z) {
-        VectorEnabledTintResources.setCompatVectorFromResourcesEnabled(z);
-    }
-
-    public static boolean isCompatVectorFromResourcesEnabled() {
-        return VectorEnabledTintResources.isCompatVectorFromResourcesEnabled();
     }
 }

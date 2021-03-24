@@ -2,29 +2,24 @@ package com.baidu.lbsapi.auth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-class ErrorMessage {
-    ErrorMessage() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes2.dex */
+public class ErrorMessage {
     public static String a(int i, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("status", i);
             jSONObject.put("message", str);
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
         return jSONObject.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("status", -1);
             jSONObject.put("message", str);
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
         return jSONObject.toString();
     }

@@ -9,28 +9,31 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends Drawable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f6463a = new Paint(3);
-    private Bitmap b;
+    public Paint f34700a = new Paint(3);
+
+    /* renamed from: b  reason: collision with root package name */
+    public Bitmap f34701b;
 
     @MainThread
     public void a(Bitmap bitmap) {
-        if (bitmap == null || bitmap.sameAs(this.b)) {
+        if (bitmap == null || bitmap.sameAs(this.f34701b)) {
             return;
         }
-        this.b = bitmap;
+        this.f34701b = bitmap;
         invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        if (this.b == null) {
+        Bitmap bitmap = this.f34701b;
+        if (bitmap == null) {
             return;
         }
-        canvas.drawBitmap(this.b, (Rect) null, getBounds(), this.f6463a);
+        canvas.drawBitmap(bitmap, (Rect) null, getBounds(), this.f34700a);
     }
 
     @Override // android.graphics.drawable.Drawable

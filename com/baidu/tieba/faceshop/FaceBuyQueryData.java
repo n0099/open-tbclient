@@ -2,9 +2,9 @@ package com.baidu.tieba.faceshop;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class FaceBuyQueryData extends OrmObject implements Serializable {
-    private static final long serialVersionUID = 0;
+    public static final long serialVersionUID = 0;
     public BuyResult buy_result;
     public int ctime;
     public String errmsg;
@@ -15,9 +15,9 @@ public class FaceBuyQueryData extends OrmObject implements Serializable {
     public int time;
     public String usermsg;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class BuyResult extends OrmObject implements Serializable {
-        private static final long serialVersionUID = -34451984893L;
+        public static final long serialVersionUID = -34451984893L;
         public String pack_url;
         public int status;
     }

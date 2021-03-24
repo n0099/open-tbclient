@@ -1,18 +1,30 @@
 package com.baidu.mobads.constants;
-
-import com.baidu.ar.constants.HttpConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2370a = XAdSDKProxyVersion.DEBUG.booleanValue();
-    public static final int b;
-    public static String c;
-    public static final Object d;
-    public static final Object e;
-    public static final Object f;
-    public static final Object g;
-    public static final Object h;
+    public static final boolean f8203a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f8204b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f8205c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Object f8206d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final Object f8207e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final Object f8208f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final Object f8209g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final Object f8210h;
     public static int i;
     public static int j;
     public static int k;
@@ -27,13 +39,15 @@ public final class a {
     public static String t;
 
     static {
-        b = f2370a ? 2 : 4;
-        c = "0.0";
-        d = HttpConstants.OS_TYPE_VALUE;
-        e = "androidlunpan";
-        f = "androidinter";
-        g = "androidintin";
-        h = "androidlite";
+        boolean booleanValue = XAdSDKProxyVersion.DEBUG.booleanValue();
+        f8203a = booleanValue;
+        f8204b = booleanValue ? 2 : 4;
+        f8205c = "0.0";
+        f8206d = "android";
+        f8207e = "androidlunpan";
+        f8208f = "androidinter";
+        f8209g = "androidintin";
+        f8210h = "androidlite";
         i = 5;
         j = 3468;
         k = 0;

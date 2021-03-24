@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h extends a<List<com.kwad.sdk.core.response.model.b>> {
     public h() {
         super("posContentInfoList", new ArrayList());
@@ -16,10 +16,10 @@ public class h extends a<List<com.kwad.sdk.core.response.model.b>> {
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences.Editor editor) {
-        List<com.kwad.sdk.core.response.model.b> b = b();
-        if (w.a(b)) {
+        List<com.kwad.sdk.core.response.model.b> b2 = b();
+        if (w.a(b2)) {
             JSONArray jSONArray = new JSONArray();
-            for (com.kwad.sdk.core.response.model.b bVar : b) {
+            for (com.kwad.sdk.core.response.model.b bVar : b2) {
                 jSONArray.put(bVar.toJson());
             }
             editor.putString("posContentInfoList", jSONArray.toString());
@@ -46,8 +46,8 @@ public class h extends a<List<com.kwad.sdk.core.response.model.b>> {
                     }
                 }
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
         a((h) c());
     }

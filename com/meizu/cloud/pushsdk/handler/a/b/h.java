@@ -2,9 +2,10 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.xiaomi.mipush.sdk.MiPushMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h implements Parcelable {
     public static final Parcelable.Creator<h> CREATOR = new Parcelable.Creator<h>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.h.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,39 +24,43 @@ public class h implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private b f7436a;
-    private String b;
-    private int c;
+    public b f37836a;
 
-    protected h(Parcel parcel) {
-        this.f7436a = (b) parcel.readParcelable(b.class.getClassLoader());
-        this.b = parcel.readString();
-        this.c = parcel.readInt();
+    /* renamed from: b  reason: collision with root package name */
+    public String f37837b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f37838c;
+
+    public h(Parcel parcel) {
+        this.f37836a = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.f37837b = parcel.readString();
+        this.f37838c = parcel.readInt();
     }
 
     public h(String str, String str2, String str3, String str4, String str5) {
-        this.b = str2;
+        this.f37837b = str2;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (!jSONObject.isNull("notifyId")) {
-                this.c = jSONObject.getInt("notifyId");
+            if (!jSONObject.isNull(MiPushMessage.KEY_NOTIFY_ID)) {
+                this.f37838c = jSONObject.getInt(MiPushMessage.KEY_NOTIFY_ID);
             }
-        } catch (JSONException e) {
-            com.meizu.cloud.a.a.e("WithDrawMessage", "parse WithDrawMessage error " + e.getMessage());
+        } catch (JSONException e2) {
+            d.j.a.a.a.b("WithDrawMessage", "parse WithDrawMessage error " + e2.getMessage());
         }
-        this.f7436a = new b(str3, str4, str5);
+        this.f37836a = new b(str3, str4, str5);
     }
 
     public b a() {
-        return this.f7436a;
+        return this.f37836a;
     }
 
     public int b() {
-        return this.c;
+        return this.f37838c;
     }
 
     public String c() {
-        return this.b;
+        return this.f37837b;
     }
 
     @Override // android.os.Parcelable
@@ -64,13 +69,13 @@ public class h implements Parcelable {
     }
 
     public String toString() {
-        return "WithDrawMessage{controlMessage=" + this.f7436a + ", revokePackageName='" + this.b + "', notifyId=" + this.c + '}';
+        return "WithDrawMessage{controlMessage=" + this.f37836a + ", revokePackageName='" + this.f37837b + "', notifyId=" + this.f37838c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f7436a, i);
-        parcel.writeString(this.b);
-        parcel.writeInt(this.c);
+        parcel.writeParcelable(this.f37836a, i);
+        parcel.writeString(this.f37837b);
+        parcel.writeInt(this.f37838c);
     }
 }

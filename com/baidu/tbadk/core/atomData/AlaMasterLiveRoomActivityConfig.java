@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class AlaMasterLiveRoomActivityConfig extends IntentConfig {
     public static final String CREATE_MASTER_LIVE_TYPE = "create_master_live_type";
     public static final int CREATE_MASTER_LIVE_TYPE_FROM_CRASH_REOPEN = 2;
@@ -19,13 +19,13 @@ public class AlaMasterLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra("live_forum_name", str);
         getIntent().putExtra("live_forum_id", str2);
         getIntent().putExtra("user_id", str3);
-        getIntent().putExtra("create_master_live_type", 1);
-        getIntent().putExtra("special_forum_type", str4);
+        getIntent().putExtra(CREATE_MASTER_LIVE_TYPE, 1);
+        getIntent().putExtra(SPECIAL_FORIM_TYPE, str4);
     }
 
     public AlaMasterLiveRoomActivityConfig(Context context, Serializable serializable) {
         super(context);
         getIntent().putExtra("live_info_core", serializable);
-        getIntent().putExtra("create_master_live_type", 2);
+        getIntent().putExtra(CREATE_MASTER_LIVE_TYPE, 2);
     }
 }

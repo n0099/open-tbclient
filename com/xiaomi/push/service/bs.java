@@ -1,23 +1,39 @@
 package com.xiaomi.push.service;
 
+import com.xiaomi.push.fw;
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.ap;
-/* loaded from: classes5.dex */
-class bs implements ap.a {
+/* loaded from: classes7.dex */
+public class bs extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f8555a;
+    public final /* synthetic */ XMPushService f41012a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(XMPushService xMPushService) {
-        this.f8555a = xMPushService;
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ String f940a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ byte[] f941a;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bs(XMPushService xMPushService, int i, String str, byte[] bArr) {
+        super(i);
+        this.f41012a = xMPushService;
+        this.f940a = str;
+        this.f941a = bArr;
     }
 
-    @Override // com.xiaomi.push.service.ap.a
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "send mi push message";
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        this.f8555a.e();
-        if (ap.a().m547a() <= 0) {
-            this.f8555a.a(new XMPushService.f(12, null));
+        try {
+            y.a(this.f41012a, this.f940a, this.f941a);
+        } catch (fw e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
+            this.f41012a.a(10, e2);
         }
     }
 }

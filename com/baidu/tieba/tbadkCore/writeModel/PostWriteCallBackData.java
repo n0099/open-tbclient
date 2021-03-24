@@ -1,7 +1,6 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bu;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.IconStampData;
@@ -9,9 +8,10 @@ import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.video.VideoTitleData;
+import d.b.h0.r.q.t1;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class PostWriteCallBackData implements Serializable {
     public static final int COPY_TW_ZHIBO_TAG = 3;
     public static final int ERROR_ANTI_USER = 340016;
@@ -22,150 +22,36 @@ public class PostWriteCallBackData implements Serializable {
     public static final int VIDEO_FROM_ACTIVITY = 3;
     public static final int VIDEO_FROM_FRS = 2;
     public static final int VIDEO_FROM_MAINTAB = 1;
-    private static final long serialVersionUID = 3542955843976043534L;
-    private String colorMsg;
-    private int errorCode;
-    private String errorString;
-    private int generalTabId;
-    private IconStampData iconStampData;
-    private int isCopyTWZhibo;
-    private CustomDialogData mActDialogData;
-    private ContriInfo mContriInfo;
+    public static final long serialVersionUID = 3542955843976043534L;
+    public String colorMsg;
+    public int errorCode;
+    public String errorString;
+    public int generalTabId;
+    public IconStampData iconStampData;
+    public int isCopyTWZhibo;
+    public CustomDialogData mActDialogData;
+    public ContriInfo mContriInfo;
     public int mFrom;
-    private bu mReplyPrivacyTip;
-    private VideoEasterEggData mVideoEasterEggData;
+    public t1 mReplyPrivacyTip;
+    public VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
-    private String preMsg;
-    private int proZone;
-    private String video_id;
+    public String preMsg;
+    public int proZone;
+    public String video_id;
     public WriteData writeDataForVideo;
-    private String threadId = null;
-    private String postId = null;
-    private AccessState accessState = null;
-    private ArrayList<String> sensitiveWords = null;
-    private boolean isDyamicCallback = false;
+    public String threadId = null;
+    public String postId = null;
+    public AccessState accessState = null;
+    public ArrayList<String> sensitiveWords = null;
+    public boolean isDyamicCallback = false;
 
     public PostWriteCallBackData() {
     }
 
-    public PostWriteCallBackData(int i, String str, String str2, String str3) {
-        this.errorCode = i;
-        this.errorString = str;
-        this.preMsg = str2;
-        this.colorMsg = str3;
-    }
-
-    public int getErrorCode() {
-        return this.errorCode;
-    }
-
-    public void setErrorCode(int i) {
-        this.errorCode = i;
-    }
-
-    public String getErrorString() {
-        return this.errorString;
-    }
-
-    public void setErrorString(String str) {
-        this.errorString = str;
-    }
-
-    public String getPreMsg() {
-        return this.preMsg;
-    }
-
-    public void setPreMsg(String str) {
-        this.preMsg = str;
-    }
-
-    public String getColorMsg() {
-        return this.colorMsg;
-    }
-
-    public void setColorMsg(String str) {
-        this.colorMsg = str;
-    }
-
-    public String getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(String str) {
-        this.threadId = str;
-    }
-
-    public String getPostId() {
-        return this.postId;
-    }
-
-    public void setPostId(String str) {
-        this.postId = str;
-    }
-
-    public void setIsCopyTWZhibo(int i) {
-        this.isCopyTWZhibo = i;
-    }
-
-    public int getIsCopyTWZhibo() {
-        return this.isCopyTWZhibo;
-    }
-
-    public String getVideoid() {
-        return this.video_id;
-    }
-
-    public void setVideoid(String str) {
-        this.video_id = str;
-    }
-
-    public AccessState getAccessState() {
-        return this.accessState;
-    }
-
-    public void setAccessState(AccessState accessState) {
-        this.accessState = accessState;
-    }
-
-    public CustomDialogData getActivityDialog() {
-        return this.mActDialogData;
-    }
-
-    public void setActivityDialog(CustomDialogData customDialogData) {
-        this.mActDialogData = customDialogData;
-    }
-
-    public ContriInfo getContriInfo() {
-        return this.mContriInfo;
-    }
-
-    public void setContriInfo(ContriInfo contriInfo) {
-        this.mContriInfo = contriInfo;
-    }
-
-    public void setVideoEasterEggData(VideoEasterEggData videoEasterEggData) {
-        this.mVideoEasterEggData = videoEasterEggData;
-    }
-
-    public VideoEasterEggData getVideoEasterEggData() {
-        return this.mVideoEasterEggData;
-    }
-
-    public boolean isSensitiveError() {
-        return this.errorCode == 220015;
-    }
-
-    public void setSensitiveWords(ArrayList<String> arrayList) {
-        this.sensitiveWords = arrayList;
-    }
-
-    public ArrayList<String> getSensitiveWords() {
-        return this.sensitiveWords;
-    }
-
     public String buildVideoFakeOnWallUrl() {
-        if (this.mVideoTitleData == null || StringUtils.isNull(this.mVideoTitleData.url)) {
+        VideoTitleData videoTitleData = this.mVideoTitleData;
+        if (videoTitleData == null || StringUtils.isNull(videoTitleData.url)) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
@@ -177,44 +63,76 @@ public class PostWriteCallBackData implements Serializable {
         return sb.toString();
     }
 
-    public void setReplyPrivacyTip(bu buVar) {
-        this.mReplyPrivacyTip = buVar;
+    public AccessState getAccessState() {
+        return this.accessState;
     }
 
-    public bu getReplyPrivacyTip() {
-        return this.mReplyPrivacyTip;
+    public CustomDialogData getActivityDialog() {
+        return this.mActDialogData;
     }
 
-    public void setProZone(int i) {
-        this.proZone = i;
+    public String getColorMsg() {
+        return this.colorMsg;
     }
 
-    public int getProZone() {
-        return this.proZone;
+    public ContriInfo getContriInfo() {
+        return this.mContriInfo;
     }
 
-    public boolean isDyamicCallback() {
-        return this.isDyamicCallback;
+    public int getErrorCode() {
+        return this.errorCode;
     }
 
-    public void setDyamicCallback(boolean z) {
-        this.isDyamicCallback = z;
-    }
-
-    public void setGeneralTabId(int i) {
-        this.generalTabId = i;
+    public String getErrorString() {
+        return this.errorString;
     }
 
     public int getGeneralTabId() {
         return this.generalTabId;
     }
 
-    public void setIconStampData(IconStampData iconStampData) {
-        this.iconStampData = iconStampData;
-    }
-
     public IconStampData getIconStampData() {
         return this.iconStampData;
+    }
+
+    public int getIsCopyTWZhibo() {
+        return this.isCopyTWZhibo;
+    }
+
+    public String getPostId() {
+        return this.postId;
+    }
+
+    public String getPreMsg() {
+        return this.preMsg;
+    }
+
+    public int getProZone() {
+        return this.proZone;
+    }
+
+    public t1 getReplyPrivacyTip() {
+        return this.mReplyPrivacyTip;
+    }
+
+    public ArrayList<String> getSensitiveWords() {
+        return this.sensitiveWords;
+    }
+
+    public String getThreadId() {
+        return this.threadId;
+    }
+
+    public VideoEasterEggData getVideoEasterEggData() {
+        return this.mVideoEasterEggData;
+    }
+
+    public String getVideoid() {
+        return this.video_id;
+    }
+
+    public boolean isDyamicCallback() {
+        return this.isDyamicCallback;
     }
 
     public boolean isErrorLinkCountExceedLimit() {
@@ -223,5 +141,88 @@ public class PostWriteCallBackData implements Serializable {
 
     public boolean isErrorShowApplyMemberDialog() {
         return this.errorCode == 3300003;
+    }
+
+    public boolean isSensitiveError() {
+        return this.errorCode == 220015;
+    }
+
+    public void setAccessState(AccessState accessState) {
+        this.accessState = accessState;
+    }
+
+    public void setActivityDialog(CustomDialogData customDialogData) {
+        this.mActDialogData = customDialogData;
+    }
+
+    public void setColorMsg(String str) {
+        this.colorMsg = str;
+    }
+
+    public void setContriInfo(ContriInfo contriInfo) {
+        this.mContriInfo = contriInfo;
+    }
+
+    public void setDyamicCallback(boolean z) {
+        this.isDyamicCallback = z;
+    }
+
+    public void setErrorCode(int i) {
+        this.errorCode = i;
+    }
+
+    public void setErrorString(String str) {
+        this.errorString = str;
+    }
+
+    public void setGeneralTabId(int i) {
+        this.generalTabId = i;
+    }
+
+    public void setIconStampData(IconStampData iconStampData) {
+        this.iconStampData = iconStampData;
+    }
+
+    public void setIsCopyTWZhibo(int i) {
+        this.isCopyTWZhibo = i;
+    }
+
+    public void setPostId(String str) {
+        this.postId = str;
+    }
+
+    public void setPreMsg(String str) {
+        this.preMsg = str;
+    }
+
+    public void setProZone(int i) {
+        this.proZone = i;
+    }
+
+    public void setReplyPrivacyTip(t1 t1Var) {
+        this.mReplyPrivacyTip = t1Var;
+    }
+
+    public void setSensitiveWords(ArrayList<String> arrayList) {
+        this.sensitiveWords = arrayList;
+    }
+
+    public void setThreadId(String str) {
+        this.threadId = str;
+    }
+
+    public void setVideoEasterEggData(VideoEasterEggData videoEasterEggData) {
+        this.mVideoEasterEggData = videoEasterEggData;
+    }
+
+    public void setVideoid(String str) {
+        this.video_id = str;
+    }
+
+    public PostWriteCallBackData(int i, String str, String str2, String str3) {
+        this.errorCode = i;
+        this.errorString = str;
+        this.preMsg = str2;
+        this.colorMsg = str3;
     }
 }

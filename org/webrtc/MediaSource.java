@@ -1,9 +1,9 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class MediaSource {
-    private long nativeSource;
+    public long nativeSource;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum State {
         INITIALIZING,
         LIVE,
@@ -11,7 +11,7 @@ public class MediaSource {
         MUTED;
 
         @CalledByNative("State")
-        static State fromNativeIndex(int i) {
+        public static State fromNativeIndex(int i) {
             return values()[i];
         }
     }
@@ -26,7 +26,7 @@ public class MediaSource {
         }
     }
 
-    private static native State nativeGetState(long j);
+    public static native State nativeGetState(long j);
 
     public void dispose() {
         checkMediaSourceExists();
@@ -34,7 +34,6 @@ public class MediaSource {
         this.nativeSource = 0L;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public long getNativeMediaSource() {
         checkMediaSourceExists();
         return this.nativeSource;

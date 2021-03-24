@@ -1,49 +1,43 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.xiaomi.push.gd;
-import com.xiaomi.push.ii;
+import com.xiaomi.push.fw;
+import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes5.dex */
-final class v extends XMPushService.i {
+/* loaded from: classes7.dex */
+public final class v extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ii f8583a;
+    public final /* synthetic */ ib f41065a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f933a;
+    public final /* synthetic */ XMPushService f975a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f934a;
-    final /* synthetic */ String b;
+    public final /* synthetic */ String f976a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(int i, XMPushService xMPushService, ii iiVar, String str, String str2) {
+    public v(int i, XMPushService xMPushService, ib ibVar, String str) {
         super(i);
-        this.f933a = xMPushService;
-        this.f8583a = iiVar;
-        this.f934a = str;
-        this.b = str2;
+        this.f975a = xMPushService;
+        this.f41065a = ibVar;
+        this.f976a = str;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public String a() {
-        return "send wrong message ack for message.";
+        return "send app absent ack message for message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            ii a2 = p.a((Context) this.f933a, this.f8583a);
-            a2.f599a.a(BdStatsConstant.StatsType.ERROR, this.f934a);
-            a2.f599a.a(TiebaInitialize.LogFields.REASON, this.b);
-            w.a(this.f933a, a2);
-        } catch (gd e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f933a.a(10, e);
+            ib a2 = q.a((Context) this.f975a, this.f41065a);
+            a2.m431a().a("absent_target_package", this.f976a);
+            y.a(this.f975a, a2);
+        } catch (fw e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
+            this.f975a.a(10, e2);
         }
     }
 }

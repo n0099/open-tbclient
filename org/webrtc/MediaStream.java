@@ -3,10 +3,10 @@ package org.webrtc;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class MediaStream {
-    private static final String TAG = "MediaStream";
-    private long nativeStream;
+    public static final String TAG = "MediaStream";
+    public long nativeStream;
     public final List<AudioTrack> audioTracks = new ArrayList();
     public final List<VideoTrack> videoTracks = new ArrayList();
     public final List<VideoTrack> preservedVideoTracks = new ArrayList();
@@ -22,17 +22,17 @@ public class MediaStream {
         }
     }
 
-    private static native boolean nativeAddAudioTrackToNativeStream(long j, long j2);
+    public static native boolean nativeAddAudioTrackToNativeStream(long j, long j2);
 
-    private static native boolean nativeAddVideoTrackToNativeStream(long j, long j2);
+    public static native boolean nativeAddVideoTrackToNativeStream(long j, long j2);
 
-    private static native String nativeGetId(long j);
+    public static native String nativeGetId(long j);
 
-    private static native boolean nativeRemoveAudioTrack(long j, long j2);
+    public static native boolean nativeRemoveAudioTrack(long j, long j2);
 
-    private static native boolean nativeRemoveVideoTrack(long j, long j2);
+    public static native boolean nativeRemoveVideoTrack(long j, long j2);
 
-    private static void removeMediaStreamTrack(List<? extends MediaStreamTrack> list, long j) {
+    public static void removeMediaStreamTrack(List<? extends MediaStreamTrack> list, long j) {
         Iterator<? extends MediaStreamTrack> it = list.iterator();
         while (it.hasNext()) {
             MediaStreamTrack next = it.next();
@@ -46,12 +46,12 @@ public class MediaStream {
     }
 
     @CalledByNative
-    void addNativeAudioTrack(long j) {
+    public void addNativeAudioTrack(long j) {
         this.audioTracks.add(new AudioTrack(j));
     }
 
     @CalledByNative
-    void addNativeVideoTrack(long j) {
+    public void addNativeVideoTrack(long j) {
         this.videoTracks.add(new VideoTrack(j));
     }
 
@@ -107,14 +107,13 @@ public class MediaStream {
         return nativeGetId(this.nativeStream);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public long getNativeMediaStream() {
         checkMediaStreamExists();
         return this.nativeStream;
     }
 
     @CalledByNative
-    void removeAudioTrack(long j) {
+    public void removeAudioTrack(long j) {
         removeMediaStreamTrack(this.audioTracks, j);
     }
 
@@ -132,7 +131,7 @@ public class MediaStream {
     }
 
     @CalledByNative
-    void removeVideoTrack(long j) {
+    public void removeVideoTrack(long j) {
         removeMediaStreamTrack(this.videoTracks, j);
     }
 

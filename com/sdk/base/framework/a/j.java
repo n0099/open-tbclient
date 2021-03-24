@@ -1,124 +1,47 @@
 package com.sdk.base.framework.a;
 
-import com.baidu.webkit.internal.ETAG;
-import java.io.File;
-import java.io.Serializable;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
-/* loaded from: classes4.dex */
-public class j<T> implements Serializable {
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpOptions;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpTrace;
+/* JADX WARN: $VALUES field not found */
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes6.dex */
+public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7622a = j.class.getName();
-    private static final Boolean b = Boolean.valueOf(com.sdk.base.framework.c.f.b);
-    private String d;
-    private TreeMap<String, Object> e;
-    private ArrayList<File> f;
-    private HashMap<String, Object> g;
-    private com.sdk.base.framework.b.b<T> i;
-    private com.sdk.base.framework.f.h.g j;
-    private String c = i.f7621a.toString();
-    private int h = 0;
+    public static final j f38480a = new j("GET", 0, "GET");
 
-    public static String b(TreeMap<String, Object> treeMap) {
-        StringBuilder sb;
-        if (treeMap != null) {
-            try {
-                StringBuilder sb2 = new StringBuilder();
-                for (Map.Entry<String, Object> entry : treeMap.entrySet()) {
-                    String key = entry.getKey();
-                    Object value = entry.getValue();
-                    if (value != null && com.sdk.base.framework.a.a.c.b(key).booleanValue()) {
-                        String encode = URLEncoder.encode(value.toString(), "UTF-8");
-                        boolean z = com.sdk.base.framework.c.f.e;
-                        sb2.append(key).append("=").append(encode).append(ETAG.ITEM_SEPARATOR);
-                    }
-                }
-                sb2.deleteCharAt(sb2.length() - 1);
-                sb = sb2;
-            } catch (Exception e) {
-                com.sdk.base.framework.a.a.c.b(f7622a, e.getMessage(), b);
-                throw new Exception("http请求参数出错");
-            }
-        } else {
-            sb = null;
-        }
-        if (sb == null) {
-            return null;
-        }
-        return sb.toString();
+    /* renamed from: b  reason: collision with root package name */
+    public static final j f38481b = new j("POST", 1, "POST");
+
+    /* renamed from: c  reason: collision with root package name */
+    public static j f38482c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
+
+    /* renamed from: d  reason: collision with root package name */
+    public static j f38483d = new j("HEAD", 3, "HEAD");
+
+    /* renamed from: e  reason: collision with root package name */
+    public static j f38484e = new j("MOVE", 4, "MOVE");
+
+    /* renamed from: f  reason: collision with root package name */
+    public static j f38485f = new j("COPY", 5, "COPY");
+
+    /* renamed from: g  reason: collision with root package name */
+    public static j f38486g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
+
+    /* renamed from: h  reason: collision with root package name */
+    public static j f38487h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
+    public static j i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
+    public static j j = new j("CONNECT", 9, "CONNECT");
+    public final String k;
+
+    public j(String str, int i2, String str2) {
+        this.k = str2;
     }
 
-    public final String a() {
-        return this.c;
-    }
-
-    public final void a(int i) {
-        this.h = i;
-    }
-
-    public final void a(com.sdk.base.framework.b.b<T> bVar) {
-        this.i = bVar;
-    }
-
-    public final void a(com.sdk.base.framework.f.h.g gVar) {
-        this.j = gVar;
-    }
-
-    public final void a(String str) {
-        if (com.sdk.base.framework.a.a.c.b(str).booleanValue()) {
-            this.c = str;
-        }
-    }
-
-    public final void a(ArrayList<File> arrayList) {
-        this.f = arrayList;
-    }
-
-    public final void a(HashMap<String, Object> hashMap) {
-        this.g = hashMap;
-    }
-
-    public final void a(TreeMap<String, Object> treeMap) {
-        this.e = treeMap;
-    }
-
-    public final com.sdk.base.framework.f.h.g b() {
-        return this.j;
-    }
-
-    public final void b(String str) {
-        this.d = str;
-    }
-
-    public final ArrayList<File> c() {
-        return this.f;
-    }
-
-    public final boolean d() {
-        return (this.f == null || this.f.size() == 0) ? false : true;
-    }
-
-    public final String e() {
-        return this.d;
-    }
-
-    public final TreeMap<String, Object> f() {
-        return this.e;
-    }
-
-    public final int g() {
-        return this.h;
-    }
-
-    public final com.sdk.base.framework.b.b<T> h() {
-        return this.i;
-    }
-
-    public final HashMap<String, Object> i() {
-        return this.g;
+    @Override // java.lang.Enum
+    public final String toString() {
+        return this.k;
     }
 }

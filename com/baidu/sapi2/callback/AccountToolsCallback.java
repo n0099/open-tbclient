@@ -1,4 +1,4 @@
 package com.baidu.sapi2.callback;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface AccountToolsCallback extends SapiWebCallback {
 }

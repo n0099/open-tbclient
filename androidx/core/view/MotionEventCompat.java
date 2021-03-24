@@ -1,7 +1,7 @@
 package androidx.core.view;
 
 import android.view.MotionEvent;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class MotionEventCompat {
     @Deprecated
     public static final int ACTION_HOVER_ENTER = 9;
@@ -112,8 +112,8 @@ public final class MotionEventCompat {
     public static final int BUTTON_PRIMARY = 1;
 
     @Deprecated
-    public static int getActionMasked(MotionEvent motionEvent) {
-        return motionEvent.getActionMasked();
+    public static int findPointerIndex(MotionEvent motionEvent, int i) {
+        return motionEvent.findPointerIndex(i);
     }
 
     @Deprecated
@@ -122,13 +122,33 @@ public final class MotionEventCompat {
     }
 
     @Deprecated
-    public static int findPointerIndex(MotionEvent motionEvent, int i) {
-        return motionEvent.findPointerIndex(i);
+    public static int getActionMasked(MotionEvent motionEvent) {
+        return motionEvent.getActionMasked();
+    }
+
+    @Deprecated
+    public static float getAxisValue(MotionEvent motionEvent, int i) {
+        return motionEvent.getAxisValue(i);
+    }
+
+    @Deprecated
+    public static int getButtonState(MotionEvent motionEvent) {
+        return motionEvent.getButtonState();
+    }
+
+    @Deprecated
+    public static int getPointerCount(MotionEvent motionEvent) {
+        return motionEvent.getPointerCount();
     }
 
     @Deprecated
     public static int getPointerId(MotionEvent motionEvent, int i) {
         return motionEvent.getPointerId(i);
+    }
+
+    @Deprecated
+    public static int getSource(MotionEvent motionEvent) {
+        return motionEvent.getSource();
     }
 
     @Deprecated
@@ -141,35 +161,12 @@ public final class MotionEventCompat {
         return motionEvent.getY(i);
     }
 
-    @Deprecated
-    public static int getPointerCount(MotionEvent motionEvent) {
-        return motionEvent.getPointerCount();
-    }
-
-    @Deprecated
-    public static int getSource(MotionEvent motionEvent) {
-        return motionEvent.getSource();
-    }
-
     public static boolean isFromSource(MotionEvent motionEvent, int i) {
         return (motionEvent.getSource() & i) == i;
     }
 
     @Deprecated
-    public static float getAxisValue(MotionEvent motionEvent, int i) {
-        return motionEvent.getAxisValue(i);
-    }
-
-    @Deprecated
     public static float getAxisValue(MotionEvent motionEvent, int i, int i2) {
         return motionEvent.getAxisValue(i, i2);
-    }
-
-    @Deprecated
-    public static int getButtonState(MotionEvent motionEvent) {
-        return motionEvent.getButtonState();
-    }
-
-    private MotionEventCompat() {
     }
 }

@@ -15,8 +15,8 @@ import android.os.Build;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes14.dex */
-abstract class PackageParser {
+/* loaded from: classes2.dex */
+public abstract class PackageParser {
     public static final int PARSE_CHATTY = 2;
     public static final int PARSE_COLLECT_CERTIFICATES = 256;
     public static final int PARSE_FORWARD_LOCK = 16;
@@ -27,8 +27,19 @@ abstract class PackageParser {
     public static final int PARSE_MUST_BE_APK = 4;
     public static final int PARSE_ON_SDCARD = 32;
     public static final int PARSE_TRUSTED_OVERLAY = 512;
-    protected Context mContext;
-    protected Object mPackageParser;
+    public Context mContext;
+    public Object mPackageParser;
+
+    public PackageParser(Context context) {
+        this.mContext = context;
+    }
+
+    public static PackageParser newPluginParser(Context context) throws Exception {
+        if (Build.VERSION.SDK_INT >= 22) {
+            return new PackageParserAPI22(context);
+        }
+        return null;
+    }
 
     public abstract void collectCertificates(int i) throws Exception;
 
@@ -45,6 +56,10 @@ abstract class PackageParser {
     public abstract PermissionInfo generatePermissionInfo(Object obj, int i) throws Exception;
 
     public abstract ProviderInfo generateProviderInfo(Object obj, int i) throws Exception;
+
+    public ActivityInfo generateReceiverInfo(Object obj, int i) throws Exception {
+        return generateActivityInfo(obj, i);
+    }
 
     public abstract ServiceInfo generateServiceInfo(Object obj, int i) throws Exception;
 
@@ -73,20 +88,4 @@ abstract class PackageParser {
     public abstract String readNameFromComponent(Object obj) throws Exception;
 
     public abstract void writeSignature(Signature[] signatureArr) throws Exception;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public PackageParser(Context context) {
-        this.mContext = context;
-    }
-
-    public static PackageParser newPluginParser(Context context) throws Exception {
-        if (Build.VERSION.SDK_INT >= 22) {
-            return new PackageParserAPI22(context);
-        }
-        return null;
-    }
-
-    public ActivityInfo generateReceiverInfo(Object obj, int i) throws Exception {
-        return generateActivityInfo(obj, i);
-    }
 }

@@ -11,8 +11,20 @@ import com.baidu.android.imrtc.send.BIMInviteRtcInfo;
 import com.baidu.android.imrtc.send.BIMKickRequestRtcInfo;
 import com.baidu.android.imrtc.utils.IStatusListener;
 import com.baidu.android.imrtc.utils.RtcConstants;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMRtcClient {
+    public static void answer(@NonNull Context context, @NonNull BIMAnswerRtcInfo bIMAnswerRtcInfo, IStatusListener iStatusListener) {
+        BIMRtcManager.getInstance(context).answer(bIMAnswerRtcInfo, iStatusListener);
+    }
+
+    public static void cancelCall(@NonNull Context context, @NonNull BIMCancelRtcInfo bIMCancelRtcInfo, IStatusListener iStatusListener) {
+        BIMRtcManager.getInstance(context).cancelCall(bIMCancelRtcInfo, iStatusListener);
+    }
+
+    public static void closeRoom(@NonNull Context context, @NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
+        BIMRtcManager.getInstance(context).closeRoom(bIMCloseRoomRtcInfo, iStatusListener);
+    }
+
     public static void createRoom(@NonNull Context context, String str, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         BIMRtcManager.getInstance(context).createRoom(str, bIMRtcTokenListener);
     }
@@ -21,32 +33,16 @@ public class BIMRtcClient {
         BIMRtcManager.getInstance(context).generateToken(str, str2, j, bIMRtcTokenListener);
     }
 
-    public static void join(@NonNull Context context, @NonNull String str, IStatusListener iStatusListener) {
-        BIMRtcManager.getInstance(context).join(str, iStatusListener);
-    }
-
-    public static void cancelCall(@NonNull Context context, @NonNull BIMCancelRtcInfo bIMCancelRtcInfo, IStatusListener iStatusListener) {
-        BIMRtcManager.getInstance(context).cancelCall(bIMCancelRtcInfo, iStatusListener);
+    public static void hangout(@NonNull Context context, @NonNull String str, IStatusListener iStatusListener) {
+        BIMRtcManager.getInstance(context).hangout(str, iStatusListener);
     }
 
     public static void invite(@NonNull Context context, @NonNull BIMInviteRtcInfo bIMInviteRtcInfo, IStatusListener iStatusListener) {
         BIMRtcManager.getInstance(context).invite(bIMInviteRtcInfo, iStatusListener);
     }
 
-    public static void answer(@NonNull Context context, @NonNull BIMAnswerRtcInfo bIMAnswerRtcInfo, IStatusListener iStatusListener) {
-        BIMRtcManager.getInstance(context).answer(bIMAnswerRtcInfo, iStatusListener);
-    }
-
-    public static void hangout(@NonNull Context context, @NonNull String str, IStatusListener iStatusListener) {
-        BIMRtcManager.getInstance(context).hangout(str, iStatusListener);
-    }
-
-    public static void hangout(@NonNull Context context, @NonNull BIMRtcInfo bIMRtcInfo, IStatusListener iStatusListener) {
-        BIMRtcManager.getInstance(context).hangout(bIMRtcInfo, iStatusListener);
-    }
-
-    public static void closeRoom(@NonNull Context context, @NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
-        BIMRtcManager.getInstance(context).closeRoom(bIMCloseRoomRtcInfo, iStatusListener);
+    public static void join(@NonNull Context context, @NonNull String str, IStatusListener iStatusListener) {
+        BIMRtcManager.getInstance(context).join(str, iStatusListener);
     }
 
     public static void kickoff(Context context, @NonNull BIMKickRequestRtcInfo bIMKickRequestRtcInfo, IStatusListener iStatusListener) {
@@ -57,8 +53,8 @@ public class BIMRtcClient {
         BIMRtcManager.getInstance(context).registerRtcListener(bIMRtcListener);
     }
 
-    public static void unRegisterRtcListener(@NonNull Context context, @NonNull BIMRtcListener bIMRtcListener) {
-        BIMRtcManager.getInstance(context).unRegisterRtcListener(bIMRtcListener);
+    public static String report(Context context) {
+        return BIMRtcManager.getInstance(context).report();
     }
 
     public static void setRtcDebugAndLogEnable(@NonNull Context context, boolean z, boolean z2) {
@@ -66,7 +62,11 @@ public class BIMRtcClient {
         RtcConstants.LOG_DEBUG = z2;
     }
 
-    public static String report(Context context) {
-        return BIMRtcManager.getInstance(context).report();
+    public static void unRegisterRtcListener(@NonNull Context context, @NonNull BIMRtcListener bIMRtcListener) {
+        BIMRtcManager.getInstance(context).unRegisterRtcListener(bIMRtcListener);
+    }
+
+    public static void hangout(@NonNull Context context, @NonNull BIMRtcInfo bIMRtcInfo, IStatusListener iStatusListener) {
+        BIMRtcManager.getInstance(context).hangout(bIMRtcInfo, iStatusListener);
     }
 }

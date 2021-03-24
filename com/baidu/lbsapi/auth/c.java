@@ -4,23 +4,25 @@ import android.content.Context;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-class c {
+/* loaded from: classes2.dex */
+public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1875a;
-    private HashMap<String, String> b = null;
-    private a<String> c = null;
+    public Context f6323a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public HashMap<String, String> f6324b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public a<String> f6325c = null;
+
+    /* loaded from: classes2.dex */
     public interface a<Result> {
         void a(Result result);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context) {
-        this.f1875a = context;
+        this.f6323a = context;
     }
 
     private HashMap<String, String> a(HashMap<String, String> hashMap) {
@@ -43,7 +45,7 @@ class c {
             if (!jSONObject.has("status")) {
                 jSONObject.put("status", -1);
             }
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
             jSONObject = new JSONObject();
             try {
                 jSONObject.put("status", -1);
@@ -51,15 +53,15 @@ class c {
                 e2.printStackTrace();
             }
         }
-        if (this.c != null) {
-            this.c.a(jSONObject != null ? jSONObject.toString() : new JSONObject().toString());
+        a<String> aVar = this.f6325c;
+        if (aVar != null) {
+            aVar.a(jSONObject.toString());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void a(HashMap<String, String> hashMap, a<String> aVar) {
-        this.b = a(hashMap);
-        this.c = aVar;
+        this.f6324b = a(hashMap);
+        this.f6325c = aVar;
         new Thread(new d(this)).start();
     }
 }

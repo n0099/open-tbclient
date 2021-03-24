@@ -1,30 +1,34 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import com.xiaomi.push.je;
-import com.xiaomi.push.jo;
-/* loaded from: classes5.dex */
+import com.xiaomi.push.ix;
+import java.io.ByteArrayOutputStream;
+/* loaded from: classes7.dex */
 public class iw {
-    public static short a(Context context, ii iiVar) {
-        return (short) ((ah.b(context) ? 4 : 0) + 0 + g.m310a(context, iiVar.f605b).a() + (ah.a(context) ? 8 : 0));
+
+    /* renamed from: a  reason: collision with root package name */
+    public jb f40855a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final ji f798a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final ByteArrayOutputStream f799a;
+
+    public iw() {
+        this(new ix.a());
     }
 
-    public static <T extends ix<T, ?>> void a(T t, byte[] bArr) {
-        if (bArr == null) {
-            throw new jc("the message byte is empty.");
-        }
-        new jb(new jo.a(true, true, bArr.length)).a(t, bArr);
+    public iw(jd jdVar) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        this.f799a = byteArrayOutputStream;
+        ji jiVar = new ji(byteArrayOutputStream);
+        this.f798a = jiVar;
+        this.f40855a = jdVar.a(jiVar);
     }
 
-    public static <T extends ix<T, ?>> byte[] a(T t) {
-        if (t == null) {
-            return null;
-        }
-        try {
-            return new jd(new je.a()).a(t);
-        } catch (jc e) {
-            com.xiaomi.channel.commonutils.logger.b.a("convertThriftObjectToBytes catch TException.", e);
-            return null;
-        }
+    public byte[] a(iq iqVar) {
+        this.f799a.reset();
+        iqVar.b(this.f40855a);
+        return this.f799a.toByteArray();
     }
 }

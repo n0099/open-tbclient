@@ -1,8 +1,8 @@
 package com.baidu.mobads.interfaces.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IBase64 {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface EventHandler {
         void onTimer(int i);
 

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.text.TextUtils;
 import androidx.annotation.VisibleForTesting;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.bytedance.sdk.openadsdk.utils.s;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,29 +16,47 @@ import org.json.JSONObject;
 public class f implements e<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f4199a;
-    private final com.bytedance.sdk.openadsdk.core.d b = com.bytedance.sdk.openadsdk.core.d.a(c());
+    public final Context f27542a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final com.bytedance.sdk.openadsdk.core.d f27543b = com.bytedance.sdk.openadsdk.core.d.a(c());
 
     public f(Context context) {
-        this.f4199a = context;
+        this.f27542a = context;
+    }
+
+    private synchronized void b(int i, long j) {
+        long currentTimeMillis = System.currentTimeMillis() - j;
+        Context c2 = c();
+        com.bytedance.sdk.openadsdk.multipro.a.a.a(c2, "adevent", "gen_time <? AND retry >?", new String[]{currentTimeMillis + "", i + ""});
+    }
+
+    public static String d() {
+        return "CREATE TABLE IF NOT EXISTS adevent (_id INTEGER PRIMARY KEY AUTOINCREMENT,id TEXT UNIQUE,value TEXT ,gen_time TEXT , " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + " INTEGER default 0" + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public Context c() {
-        return this.f4199a == null ? com.bytedance.sdk.openadsdk.core.p.a() : this.f4199a;
+        Context context = this.f27542a;
+        return context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     @Override // com.bytedance.sdk.openadsdk.c.e
     public List<a> a(int i, String str) {
-        String str2 = (i <= 0 || TextUtils.isEmpty(str)) ? null : str + " DESC limit " + i;
+        String str2;
+        if (i <= 0 || TextUtils.isEmpty(str)) {
+            str2 = null;
+        } else {
+            str2 = str + " DESC limit " + i;
+        }
+        String str3 = str2;
         LinkedList linkedList = new LinkedList();
-        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "adevent", new String[]{"id", "value"}, null, null, null, null, str2);
+        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "adevent", new String[]{"id", "value"}, null, null, null, null, str3);
         if (a2 != null) {
             while (a2.moveToNext()) {
                 try {
                     try {
                         linkedList.add(new a(a2.getString(a2.getColumnIndex("id")), new JSONObject(a2.getString(a2.getColumnIndex("value")))));
-                    } catch (JSONException e) {
+                    } catch (JSONException unused) {
                     }
                 } finally {
                     if (a2 != null) {
@@ -48,26 +68,41 @@ public class f implements e<a> {
         return linkedList;
     }
 
+    @VisibleForTesting
+    private synchronized void b(List<a> list) {
+        LinkedList linkedList = new LinkedList();
+        for (a aVar : list) {
+            linkedList.add(aVar.f27534a);
+        }
+        com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "UPDATE adevent SET " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + " = " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + "+1 WHERE " + a("id", linkedList, 1000, true));
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.c.e
     public synchronized void a(a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", aVar.f4194a);
-        contentValues.put("value", aVar.b != null ? aVar.b.toString() : "");
+        contentValues.put("id", aVar.f27534a);
+        contentValues.put("value", aVar.f27535b != null ? aVar.f27535b.toString() : "");
         contentValues.put("gen_time", Long.valueOf(System.currentTimeMillis()));
-        contentValues.put("retry", (Integer) 0);
+        contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, (Integer) 0);
         com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "adevent", contentValues);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public synchronized void a(List<a> list) {
-        if (!s.a(list)) {
-            LinkedList linkedList = new LinkedList();
-            for (a aVar : list) {
-                linkedList.add(aVar.f4194a);
-            }
-            com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "DELETE FROM adevent WHERE " + a("id", linkedList, 1000, true));
+        if (s.a(list)) {
+            return;
         }
+        LinkedList linkedList = new LinkedList();
+        for (a aVar : list) {
+            linkedList.add(aVar.f27534a);
+        }
+        com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "DELETE FROM adevent WHERE " + a("id", linkedList, 1000, true));
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.c.e
+    public int b() {
+        return this.f27543b.b("serverbusy_retrycount", 0);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
@@ -75,55 +110,34 @@ public class f implements e<a> {
         b(i, j);
     }
 
-    private synchronized void b(int i, long j) {
-        com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "adevent", "gen_time <? AND retry >?", new String[]{(System.currentTimeMillis() - j) + "", i + ""});
-    }
-
     @Override // com.bytedance.sdk.openadsdk.c.e
     public synchronized void a(List<a> list, int i, long j) {
-        if (!s.a(list)) {
-            try {
-                b(list);
-                b(i, j);
-            } catch (Exception e) {
-            }
+        if (s.a(list)) {
+            return;
         }
-    }
-
-    @VisibleForTesting
-    private synchronized void b(List<a> list) {
-        LinkedList linkedList = new LinkedList();
-        for (a aVar : list) {
-            linkedList.add(aVar.f4194a);
+        try {
+            b(list);
+            b(i, j);
+        } catch (Exception unused) {
         }
-        com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "UPDATE adevent SET retry = retry+1 WHERE " + a("id", linkedList, 1000, true));
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public void a(boolean z) {
-        this.b.a("serverbusy_flag", z);
+        this.f27543b.a("serverbusy_flag", z);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public boolean a() {
-        return this.b.b("serverbusy_flag", false);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.c.e
-    public int b() {
-        return this.b.b("serverbusy_retrycount", 0);
+        return this.f27543b.b("serverbusy_flag", false);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public void a(int i) {
-        this.b.a("serverbusy_retrycount", i);
+        this.f27543b.a("serverbusy_retrycount", i);
     }
 
-    public static String d() {
-        return "CREATE TABLE IF NOT EXISTS adevent (_id INTEGER PRIMARY KEY AUTOINCREMENT,id TEXT UNIQUE,value TEXT ,gen_time TEXT , retry INTEGER default 0)";
-    }
-
-    private static String a(String str, List<?> list, int i, boolean z) {
+    public static String a(String str, List<?> list, int i, boolean z) {
         int i2;
         String str2 = z ? " IN " : " NOT IN ";
         String str3 = z ? " OR " : " AND ";
@@ -141,12 +155,17 @@ public class f implements e<a> {
             if (i3 != 0) {
                 sb.append(str3);
             }
-            sb.append(str).append(str2).append("('").append(a2).append("')");
+            sb.append(str);
+            sb.append(str2);
+            sb.append("('");
+            sb.append(a2);
+            sb.append("')");
         }
-        return a(sb.toString(), str + str2 + "('')");
+        String sb2 = sb.toString();
+        return a(sb2, str + str2 + "('')");
     }
 
-    private static String a(String str, String str2) {
+    public static String a(String str, String str2) {
         return !TextUtils.isEmpty(str) ? str : str2;
     }
 }

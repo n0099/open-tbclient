@@ -12,9 +12,9 @@ import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsFragmentActivity extends FragmentActivity {
-    private KsFragmentManager mFragmentManager;
+    public KsFragmentManager mFragmentManager;
 
     @Override // androidx.fragment.app.FragmentActivity
     @Keep
@@ -44,7 +44,6 @@ public class KsFragmentActivity extends FragmentActivity {
     public void onAttachFragment(KsFragment ksFragment) {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();

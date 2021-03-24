@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public final class LiveSessionInfo extends Message {
     public static final String DEFAULT_DEFAULT_LINE = "";
     public static final String DEFAULT_FLVURL = "";
@@ -28,52 +28,7 @@ public final class LiveSessionInfo extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String sessionId;
 
-    private LiveSessionInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.sessionId == null) {
-                this.sessionId = "";
-            } else {
-                this.sessionId = builder.sessionId;
-            }
-            if (builder.rtmpUrl == null) {
-                this.rtmpUrl = "";
-            } else {
-                this.rtmpUrl = builder.rtmpUrl;
-            }
-            if (builder.hlsUrl == null) {
-                this.hlsUrl = "";
-            } else {
-                this.hlsUrl = builder.hlsUrl;
-            }
-            if (builder.flvUrl == null) {
-                this.flvUrl = "";
-            } else {
-                this.flvUrl = builder.flvUrl;
-            }
-            if (builder.default_line == null) {
-                this.default_line = "";
-            } else {
-                this.default_line = builder.default_line;
-            }
-            this.L1 = builder.L1;
-            this.L2 = builder.L2;
-            this.L3 = builder.L3;
-            this.L4 = builder.L4;
-            return;
-        }
-        this.sessionId = builder.sessionId;
-        this.rtmpUrl = builder.rtmpUrl;
-        this.hlsUrl = builder.hlsUrl;
-        this.flvUrl = builder.flvUrl;
-        this.default_line = builder.default_line;
-        this.L1 = builder.L1;
-        this.L2 = builder.L2;
-        this.L3 = builder.L3;
-        this.L4 = builder.L4;
-    }
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<LiveSessionInfo> {
         public LiveTranscodeSessionInfo L1;
         public LiveTranscodeSessionInfo L2;
@@ -90,17 +45,18 @@ public final class LiveSessionInfo extends Message {
 
         public Builder(LiveSessionInfo liveSessionInfo) {
             super(liveSessionInfo);
-            if (liveSessionInfo != null) {
-                this.sessionId = liveSessionInfo.sessionId;
-                this.rtmpUrl = liveSessionInfo.rtmpUrl;
-                this.hlsUrl = liveSessionInfo.hlsUrl;
-                this.flvUrl = liveSessionInfo.flvUrl;
-                this.default_line = liveSessionInfo.default_line;
-                this.L1 = liveSessionInfo.L1;
-                this.L2 = liveSessionInfo.L2;
-                this.L3 = liveSessionInfo.L3;
-                this.L4 = liveSessionInfo.L4;
+            if (liveSessionInfo == null) {
+                return;
             }
+            this.sessionId = liveSessionInfo.sessionId;
+            this.rtmpUrl = liveSessionInfo.rtmpUrl;
+            this.hlsUrl = liveSessionInfo.hlsUrl;
+            this.flvUrl = liveSessionInfo.flvUrl;
+            this.default_line = liveSessionInfo.default_line;
+            this.L1 = liveSessionInfo.L1;
+            this.L2 = liveSessionInfo.L2;
+            this.L3 = liveSessionInfo.L3;
+            this.L4 = liveSessionInfo.L4;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,5 +65,55 @@ public final class LiveSessionInfo extends Message {
         public LiveSessionInfo build(boolean z) {
             return new LiveSessionInfo(this, z);
         }
+    }
+
+    public LiveSessionInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            String str = builder.sessionId;
+            if (str == null) {
+                this.sessionId = "";
+            } else {
+                this.sessionId = str;
+            }
+            String str2 = builder.rtmpUrl;
+            if (str2 == null) {
+                this.rtmpUrl = "";
+            } else {
+                this.rtmpUrl = str2;
+            }
+            String str3 = builder.hlsUrl;
+            if (str3 == null) {
+                this.hlsUrl = "";
+            } else {
+                this.hlsUrl = str3;
+            }
+            String str4 = builder.flvUrl;
+            if (str4 == null) {
+                this.flvUrl = "";
+            } else {
+                this.flvUrl = str4;
+            }
+            String str5 = builder.default_line;
+            if (str5 == null) {
+                this.default_line = "";
+            } else {
+                this.default_line = str5;
+            }
+            this.L1 = builder.L1;
+            this.L2 = builder.L2;
+            this.L3 = builder.L3;
+            this.L4 = builder.L4;
+            return;
+        }
+        this.sessionId = builder.sessionId;
+        this.rtmpUrl = builder.rtmpUrl;
+        this.hlsUrl = builder.hlsUrl;
+        this.flvUrl = builder.flvUrl;
+        this.default_line = builder.default_line;
+        this.L1 = builder.L1;
+        this.L2 = builder.L2;
+        this.L3 = builder.L3;
+        this.L4 = builder.L4;
     }
 }

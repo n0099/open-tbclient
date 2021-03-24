@@ -5,82 +5,84 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<a> f7228a = new ArrayList();
-    private final e.b b;
+    public final List<a> f37063a = new ArrayList();
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final e.b f37064b;
+
+    /* loaded from: classes6.dex */
     public class a {
-        private final List<Integer> b = new ArrayList();
-        private final Executor c;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final List<Integer> f37066b = new ArrayList();
+
+        /* renamed from: c  reason: collision with root package name */
+        public final Executor f37067c;
 
         public a(int i) {
-            this.c = com.kwai.filedownloader.f.b.a(1, "Flow-" + i);
+            this.f37067c = com.kwai.filedownloader.f.b.a(1, "Flow-" + i);
         }
 
         public void a(int i) {
-            this.b.add(Integer.valueOf(i));
+            this.f37066b.add(Integer.valueOf(i));
         }
 
         public void a(final MessageSnapshot messageSnapshot) {
-            this.c.execute(new Runnable() { // from class: com.kwai.filedownloader.message.g.a.1
+            this.f37067c.execute(new Runnable() { // from class: com.kwai.filedownloader.message.g.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.b.a(messageSnapshot);
+                    g.this.f37064b.a(messageSnapshot);
                     try {
-                        a.this.b.remove(Integer.valueOf(messageSnapshot.m()));
-                    } catch (Exception e) {
+                        a.this.f37066b.remove(Integer.valueOf(messageSnapshot.m()));
+                    } catch (Exception unused) {
                     }
                 }
             });
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public g(int i, e.b bVar) {
-        this.b = bVar;
+        this.f37064b = bVar;
         for (int i2 = 0; i2 < i; i2++) {
-            this.f7228a.add(new a(i2));
+            this.f37063a.add(new a(i2));
         }
     }
 
     public void a(MessageSnapshot messageSnapshot) {
         a aVar = null;
         try {
-            synchronized (this.f7228a) {
+            synchronized (this.f37063a) {
                 int m = messageSnapshot.m();
-                Iterator<a> it = this.f7228a.iterator();
+                Iterator<a> it = this.f37063a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     a next = it.next();
-                    if (next.b.contains(Integer.valueOf(m))) {
+                    if (next.f37066b.contains(Integer.valueOf(m))) {
                         aVar = next;
                         break;
                     }
                 }
                 if (aVar == null) {
                     int i = 0;
-                    Iterator<a> it2 = this.f7228a.iterator();
+                    Iterator<a> it2 = this.f37063a.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
                         }
                         a next2 = it2.next();
-                        if (next2.b.size() <= 0) {
+                        if (next2.f37066b.size() <= 0) {
                             aVar = next2;
                             break;
+                        } else if (i == 0 || next2.f37066b.size() < i) {
+                            i = next2.f37066b.size();
+                            aVar = next2;
                         }
-                        if (i == 0 || next2.b.size() < i) {
-                            i = next2.b.size();
-                        } else {
-                            next2 = aVar;
-                        }
-                        aVar = next2;
                     }
                 }
                 aVar.a(m);

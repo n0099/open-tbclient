@@ -27,95 +27,27 @@ import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.e.c;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WalkNavigateHelper {
-    private static WalkNavigateHelper d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static WalkNavigateHelper f7419d;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mapapi.walknavi.controllers.a.a f2174a = new com.baidu.mapapi.walknavi.controllers.a.a();
-    private boolean b;
-    private Activity c;
+    public com.baidu.mapapi.walknavi.controllers.a.a f7420a = new com.baidu.mapapi.walknavi.controllers.a.a();
 
-    private WalkNavigateHelper() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f7421b;
 
-    public static WalkNavigateHelper getInstance() {
-        if (d == null) {
-            d = new WalkNavigateHelper();
+    /* renamed from: c  reason: collision with root package name */
+    public Activity f7422c;
+
+    static {
+        if (a.a().equals(VersionInfo.getApiVersion())) {
+            NativeLoader.getInstance().loadLibrary(a.b());
+            return;
         }
-        return d;
-    }
-
-    public void initNaviEngine(Activity activity, IWEngineInitListener iWEngineInitListener) {
-        if (this.f2174a != null) {
-            this.f2174a.a(activity, iWEngineInitListener);
-        }
-    }
-
-    public void routePlanWithParams(WalkNaviLaunchParam walkNaviLaunchParam, IWRoutePlanListener iWRoutePlanListener) {
-        if (this.f2174a != null) {
-            if (!this.f2174a.a()) {
-                throw new com.baidu.mapapi.walknavi.controllers.a("naviengine init failed, please init naviengine first");
-            }
-            if (walkNaviLaunchParam == null || walkNaviLaunchParam.getStartPt() == null || walkNaviLaunchParam.getEndPt() == null) {
-                throw new com.baidu.mapapi.walknavi.controllers.a("launch param or startPt or endPt cannot be null");
-            }
-            if (checkDistanceClose(walkNaviLaunchParam)) {
-                if (iWRoutePlanListener != null) {
-                    iWRoutePlanListener.onRoutePlanFail(WalkRoutePlanError.DISTANCE_LESS_THAN_30M);
-                }
-            } else if (checkDistanceLong(walkNaviLaunchParam)) {
-                if (iWRoutePlanListener != null) {
-                    iWRoutePlanListener.onRoutePlanFail(WalkRoutePlanError.DISTANCE_MORE_THAN_50KM);
-                }
-            } else {
-                GeoPoint ll2mc = CoordUtil.ll2mc(walkNaviLaunchParam.getStartPt());
-                GeoPoint ll2mc2 = CoordUtil.ll2mc(walkNaviLaunchParam.getEndPt());
-                c create = WalkNaviLaunchParam.create();
-                create.b(1);
-                create.c(1);
-                create.a(0);
-                WNavigatorWrapper.getWNavigator().c(1);
-                WNavigatorWrapper.getWNavigator().d(walkNaviLaunchParam.getExtraNaviMode());
-                b.a().a(walkNaviLaunchParam.getStartPt());
-                b.a().b(walkNaviLaunchParam.getEndPt());
-                create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER);
-                create.d(0);
-                create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER});
-                this.f2174a.a(create, iWRoutePlanListener);
-            }
-        }
-    }
-
-    public View onCreate(Activity activity) {
-        if (this.f2174a != null) {
-            this.c = activity;
-            return this.f2174a.a(activity);
-        }
-        return null;
-    }
-
-    public boolean startWalkNavi(Activity activity) {
-        if (b.a().a(activity, (Bundle) null)) {
-            if (!this.b) {
-                if (!b.a().p()) {
-                    return false;
-                }
-                this.b = true;
-            }
-            return true;
-        }
-        return false;
-    }
-
-    public void switchWalkNaviMode(Activity activity, int i, WalkNaviModeSwitchListener walkNaviModeSwitchListener) {
-        if (this.f2174a != null) {
-            this.f2174a.a(activity, i, walkNaviModeSwitchListener);
-        }
-    }
-
-    public void startCameraAndSetMapView(Activity activity) {
-        this.f2174a.b(activity);
+        throw new BaiduMapSDKException("the version of bikenavi is not match with map");
     }
 
     private boolean checkDistanceClose(WalkNaviLaunchParam walkNaviLaunchParam) {
@@ -130,78 +62,56 @@ public class WalkNavigateHelper {
         return ll2point == null || ll2point2 == null || CoordUtil.getDistance(ll2point, ll2point2) > 50000.0d;
     }
 
-    public void setRouteGuidanceListener(Activity activity, IWRouteGuidanceListener iWRouteGuidanceListener) {
-        if (iWRouteGuidanceListener != null) {
-            this.f2174a.a(activity, iWRouteGuidanceListener);
+    public static WalkNavigateHelper getInstance() {
+        if (f7419d == null) {
+            f7419d = new WalkNavigateHelper();
         }
-    }
-
-    public void setWalkNaviStatusListener(IWNaviStatusListener iWNaviStatusListener) {
-        b.a().a(iWNaviStatusListener);
-    }
-
-    public void setTTsPlayer(IWTTSPlayer iWTTSPlayer) {
-        if (this.f2174a != null) {
-            this.f2174a.a(iWTTSPlayer);
-        }
-    }
-
-    public void triggerLocation(WLocData wLocData) {
-        if (this.f2174a != null) {
-            this.f2174a.a(wLocData);
-        }
-    }
-
-    public void setWalkNaviDisplayOption(WalkNaviDisplayOption walkNaviDisplayOption) {
-        if (this.f2174a != null) {
-            this.f2174a.a(walkNaviDisplayOption);
-        }
-    }
-
-    public void setWalkNpcModelInfoList(ArrayList<BaseNpcModel> arrayList) {
-        if (this.f2174a != null) {
-            this.f2174a.a(arrayList);
-        }
-    }
-
-    public ArrayList<BaseNpcModel> getWalkNpcModelInfoList() {
-        if (this.f2174a != null) {
-            return this.f2174a.b();
-        }
-        return null;
-    }
-
-    public void switchNPCModel(BaseNpcModel baseNpcModel) {
-        if (this.f2174a != null) {
-            this.f2174a.a(baseNpcModel);
-        }
+        return f7419d;
     }
 
     public void addMoreNPCModelOnClickListener(IWMoreNPCModelOnClickListener iWMoreNPCModelOnClickListener) {
-        if (this.f2174a != null) {
-            this.f2174a.a(iWMoreNPCModelOnClickListener);
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.a(iWMoreNPCModelOnClickListener);
         }
     }
 
     public void addNPCLoadAndInitListener(IWNPCLoadAndInitListener iWNPCLoadAndInitListener) {
-        if (this.f2174a != null) {
-            this.f2174a.a(iWNPCLoadAndInitListener);
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.a(iWNPCLoadAndInitListener);
         }
+    }
+
+    public ArrayList<BaseNpcModel> getWalkNpcModelInfoList() {
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            return aVar.b();
+        }
+        return null;
+    }
+
+    public void initNaviEngine(Activity activity, IWEngineInitListener iWEngineInitListener) {
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.a(activity, iWEngineInitListener);
+        }
+    }
+
+    public View onCreate(Activity activity) {
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            this.f7422c = activity;
+            return aVar.a(activity);
+        }
+        return null;
     }
 
     public void pause() {
         b.a().h();
-        if (this.f2174a != null) {
-            this.f2174a.c();
-        }
-    }
-
-    public void resume() {
-        if (this.c != null && !this.c.isFinishing()) {
-            b.a().g();
-            if (this.f2174a != null) {
-                this.f2174a.d();
-            }
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.c();
         }
     }
 
@@ -212,23 +122,137 @@ public class WalkNavigateHelper {
         b.a().k();
         b.a().w();
         b.a().i();
-        if (this.f2174a != null) {
-            this.f2174a.e();
-            this.f2174a = null;
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.e();
+            this.f7420a = null;
         }
-        this.b = false;
-        this.c = null;
-        if (d != null) {
-            d = null;
+        this.f7421b = false;
+        this.f7422c = null;
+        if (f7419d != null) {
+            f7419d = null;
         }
     }
 
-    static {
-        if (!a.a().equals(VersionInfo.getApiVersion())) {
-            throw new BaiduMapSDKException("the version of bikenavi is not match with map");
+    public void resume() {
+        Activity activity = this.f7422c;
+        if (activity == null || activity.isFinishing()) {
+            return;
         }
-        if (VersionInfo.KIT_NAME.compareToIgnoreCase(VersionInfo.KIT_NAME) != 0) {
+        b.a().g();
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.d();
         }
-        NativeLoader.getInstance().loadLibrary(a.b());
+    }
+
+    public void routePlanWithParams(WalkNaviLaunchParam walkNaviLaunchParam, IWRoutePlanListener iWRoutePlanListener) {
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            if (aVar.a()) {
+                if (walkNaviLaunchParam != null && walkNaviLaunchParam.getStartPt() != null && walkNaviLaunchParam.getEndPt() != null) {
+                    if (checkDistanceClose(walkNaviLaunchParam)) {
+                        if (iWRoutePlanListener != null) {
+                            iWRoutePlanListener.onRoutePlanFail(WalkRoutePlanError.DISTANCE_LESS_THAN_30M);
+                            return;
+                        }
+                        return;
+                    } else if (checkDistanceLong(walkNaviLaunchParam)) {
+                        if (iWRoutePlanListener != null) {
+                            iWRoutePlanListener.onRoutePlanFail(WalkRoutePlanError.DISTANCE_MORE_THAN_50KM);
+                            return;
+                        }
+                        return;
+                    } else {
+                        GeoPoint ll2mc = CoordUtil.ll2mc(walkNaviLaunchParam.getStartPt());
+                        GeoPoint ll2mc2 = CoordUtil.ll2mc(walkNaviLaunchParam.getEndPt());
+                        c create = WalkNaviLaunchParam.create();
+                        create.b(1);
+                        create.c(1);
+                        create.a(0);
+                        WNavigatorWrapper.getWNavigator().c(1);
+                        WNavigatorWrapper.getWNavigator().d(walkNaviLaunchParam.getExtraNaviMode());
+                        b.a().a(walkNaviLaunchParam.getStartPt());
+                        b.a().b(walkNaviLaunchParam.getEndPt());
+                        create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER);
+                        create.d(0);
+                        create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER});
+                        this.f7420a.a(create, iWRoutePlanListener);
+                        return;
+                    }
+                }
+                throw new com.baidu.mapapi.walknavi.controllers.a("launch param or startPt or endPt cannot be null");
+            }
+            throw new com.baidu.mapapi.walknavi.controllers.a("naviengine init failed, please init naviengine first");
+        }
+    }
+
+    public void setRouteGuidanceListener(Activity activity, IWRouteGuidanceListener iWRouteGuidanceListener) {
+        if (iWRouteGuidanceListener != null) {
+            this.f7420a.a(activity, iWRouteGuidanceListener);
+        }
+    }
+
+    public void setTTsPlayer(IWTTSPlayer iWTTSPlayer) {
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.a(iWTTSPlayer);
+        }
+    }
+
+    public void setWalkNaviDisplayOption(WalkNaviDisplayOption walkNaviDisplayOption) {
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.a(walkNaviDisplayOption);
+        }
+    }
+
+    public void setWalkNaviStatusListener(IWNaviStatusListener iWNaviStatusListener) {
+        b.a().a(iWNaviStatusListener);
+    }
+
+    public void setWalkNpcModelInfoList(ArrayList<BaseNpcModel> arrayList) {
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.a(arrayList);
+        }
+    }
+
+    public void startCameraAndSetMapView(Activity activity) {
+        this.f7420a.b(activity);
+    }
+
+    public boolean startWalkNavi(Activity activity) {
+        if (b.a().a(activity, (Bundle) null)) {
+            if (!this.f7421b) {
+                if (!b.a().p()) {
+                    return false;
+                }
+                this.f7421b = true;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public void switchNPCModel(BaseNpcModel baseNpcModel) {
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.a(baseNpcModel);
+        }
+    }
+
+    public void switchWalkNaviMode(Activity activity, int i, WalkNaviModeSwitchListener walkNaviModeSwitchListener) {
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.a(activity, i, walkNaviModeSwitchListener);
+        }
+    }
+
+    public void triggerLocation(WLocData wLocData) {
+        com.baidu.mapapi.walknavi.controllers.a.a aVar = this.f7420a;
+        if (aVar != null) {
+            aVar.a(wLocData);
+        }
     }
 }

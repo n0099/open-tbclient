@@ -1,43 +1,43 @@
 package com.vivo.push.b;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class l extends u {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8018a;
-    private int b;
+    public int f39383a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f39384b;
 
     public l() {
         super(12);
-        this.f8018a = -1;
-        this.b = -1;
+        this.f39383a = -1;
+        this.f39384b = -1;
     }
 
-    public final int d() {
-        return this.f8018a;
-    }
-
-    public final int e() {
-        return this.b;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f8018a);
-        aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.b);
+        aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f39383a);
+        aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f39384b);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.vivo.push.b.u, com.vivo.push.y
-    public final void d(com.vivo.push.a aVar) {
-        super.d(aVar);
-        this.f8018a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f8018a);
-        this.b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.b);
+    public final int d() {
+        return this.f39383a;
+    }
+
+    public final int e() {
+        return this.f39384b;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final String toString() {
         return "OnChangePushStatusCommand";
+    }
+
+    @Override // com.vivo.push.b.u, com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        this.f39383a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f39383a);
+        this.f39384b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f39384b);
     }
 }

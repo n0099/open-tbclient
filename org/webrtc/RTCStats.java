@@ -1,12 +1,14 @@
 package org.webrtc;
 
+import com.baidu.android.common.others.lang.StringUtil;
 import java.util.Map;
-/* loaded from: classes9.dex */
+import kotlin.text.Typography;
+/* loaded from: classes7.dex */
 public class RTCStats {
-    private final String id;
-    private final Map<String, Object> members;
-    private final long timestampUs;
-    private final String type;
+    public final String id;
+    public final Map<String, Object> members;
+    public final long timestampUs;
+    public final String type;
 
     public RTCStats(long j, String str, String str2, Map<String, Object> map) {
         this.timestampUs = j;
@@ -15,22 +17,22 @@ public class RTCStats {
         this.members = map;
     }
 
-    private static void appendValue(StringBuilder sb, Object obj) {
+    public static void appendValue(StringBuilder sb, Object obj) {
         if (!(obj instanceof Object[])) {
             if (!(obj instanceof String)) {
                 sb.append(obj);
                 return;
             }
-            sb.append('\"');
+            sb.append(Typography.quote);
             sb.append(obj);
-            sb.append('\"');
+            sb.append(Typography.quote);
             return;
         }
         Object[] objArr = (Object[]) obj;
         sb.append('[');
         for (int i = 0; i < objArr.length; i++) {
             if (i != 0) {
-                sb.append(", ");
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
             appendValue(sb, objArr[i]);
         }
@@ -38,7 +40,7 @@ public class RTCStats {
     }
 
     @CalledByNative
-    static RTCStats create(long j, String str, String str2, Map map) {
+    public static RTCStats create(long j, String str, String str2, Map map) {
         return new RTCStats(j, str, str2, map);
     }
 
@@ -67,7 +69,7 @@ public class RTCStats {
         sb.append(", id: ");
         sb.append(this.id);
         for (Map.Entry<String, Object> entry : this.members.entrySet()) {
-            sb.append(", ");
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append(entry.getKey());
             sb.append(": ");
             appendValue(sb, entry.getValue());

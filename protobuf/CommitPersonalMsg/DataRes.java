@@ -3,7 +3,7 @@ package protobuf.CommitPersonalMsg;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.BlockInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataRes extends Message {
     @ProtoField(tag = 6)
     public final BlockInfo blockInfo;
@@ -23,46 +23,7 @@ public final class DataRes extends Message {
     public static final Long DEFAULT_TOUID = 0L;
     public static final Integer DEFAULT_TOUSERTYPE = 0;
 
-    private DataRes(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.msgId == null) {
-                this.msgId = DEFAULT_MSGID;
-            } else {
-                this.msgId = builder.msgId;
-            }
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-            } else {
-                this.groupId = builder.groupId;
-            }
-            if (builder.recordId == null) {
-                this.recordId = DEFAULT_RECORDID;
-            } else {
-                this.recordId = builder.recordId;
-            }
-            if (builder.toUid == null) {
-                this.toUid = DEFAULT_TOUID;
-            } else {
-                this.toUid = builder.toUid;
-            }
-            if (builder.toUserType == null) {
-                this.toUserType = DEFAULT_TOUSERTYPE;
-            } else {
-                this.toUserType = builder.toUserType;
-            }
-            this.blockInfo = builder.blockInfo;
-            return;
-        }
-        this.msgId = builder.msgId;
-        this.groupId = builder.groupId;
-        this.recordId = builder.recordId;
-        this.toUid = builder.toUid;
-        this.toUserType = builder.toUserType;
-        this.blockInfo = builder.blockInfo;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public BlockInfo blockInfo;
         public Long groupId;
@@ -76,14 +37,15 @@ public final class DataRes extends Message {
 
         public Builder(DataRes dataRes) {
             super(dataRes);
-            if (dataRes != null) {
-                this.msgId = dataRes.msgId;
-                this.groupId = dataRes.groupId;
-                this.recordId = dataRes.recordId;
-                this.toUid = dataRes.toUid;
-                this.toUserType = dataRes.toUserType;
-                this.blockInfo = dataRes.blockInfo;
+            if (dataRes == null) {
+                return;
             }
+            this.msgId = dataRes.msgId;
+            this.groupId = dataRes.groupId;
+            this.recordId = dataRes.recordId;
+            this.toUid = dataRes.toUid;
+            this.toUserType = dataRes.toUserType;
+            this.blockInfo = dataRes.blockInfo;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -91,5 +53,49 @@ public final class DataRes extends Message {
         public DataRes build(boolean z) {
             return new DataRes(this, z);
         }
+    }
+
+    public DataRes(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.msgId;
+            if (l == null) {
+                this.msgId = DEFAULT_MSGID;
+            } else {
+                this.msgId = l;
+            }
+            Long l2 = builder.groupId;
+            if (l2 == null) {
+                this.groupId = DEFAULT_GROUPID;
+            } else {
+                this.groupId = l2;
+            }
+            Long l3 = builder.recordId;
+            if (l3 == null) {
+                this.recordId = DEFAULT_RECORDID;
+            } else {
+                this.recordId = l3;
+            }
+            Long l4 = builder.toUid;
+            if (l4 == null) {
+                this.toUid = DEFAULT_TOUID;
+            } else {
+                this.toUid = l4;
+            }
+            Integer num = builder.toUserType;
+            if (num == null) {
+                this.toUserType = DEFAULT_TOUSERTYPE;
+            } else {
+                this.toUserType = num;
+            }
+            this.blockInfo = builder.blockInfo;
+            return;
+        }
+        this.msgId = builder.msgId;
+        this.groupId = builder.groupId;
+        this.recordId = builder.recordId;
+        this.toUid = builder.toUid;
+        this.toUserType = builder.toUserType;
+        this.blockInfo = builder.blockInfo;
     }
 }

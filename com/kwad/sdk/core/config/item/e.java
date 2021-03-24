@@ -3,7 +3,7 @@ package com.kwad.sdk.core.config.item;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e extends a<Integer> {
     public e(String str, Integer num) {
         super(str, num);
@@ -21,10 +21,6 @@ public class e extends a<Integer> {
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            a((e) Integer.valueOf(jSONObject.optInt(a(), c().intValue())));
-        } else {
-            a((e) c());
-        }
+        a((e) (jSONObject != null ? Integer.valueOf(jSONObject.optInt(a(), c().intValue())) : c()));
     }
 }

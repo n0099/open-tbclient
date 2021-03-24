@@ -1,20 +1,21 @@
 package com.xiaomi.clientreport.data;
 
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.vivo.push.PushClientConstants;
-import com.xiaomi.push.bj;
+import com.xiaomi.push.bq;
 import com.xiaomi.push.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     public String clientInterfaceId;
-    private String pkgName;
+    public String pkgName;
     public int production;
     public int reportType;
-    private String sdkVersion;
-    private String os = bj.a();
-    private String miuiVersion = l.m501a();
+    public String sdkVersion;
+    public String os = bq.a();
+    public String miuiVersion = l.m513a();
 
     public String getPackageName() {
         return this.pkgName;
@@ -34,13 +35,13 @@ public class a {
             jSONObject.put("production", this.production);
             jSONObject.put("reportType", this.reportType);
             jSONObject.put("clientInterfaceId", this.clientInterfaceId);
-            jSONObject.put("os", this.os);
+            jSONObject.put(IXAdRequestInfo.OS, this.os);
             jSONObject.put("miuiVersion", this.miuiVersion);
             jSONObject.put(PushClientConstants.TAG_PKG_NAME, this.pkgName);
             jSONObject.put(CommandMessage.SDK_VERSION, this.sdkVersion);
             return jSONObject;
-        } catch (JSONException e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+        } catch (JSONException e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
             return null;
         }
     }

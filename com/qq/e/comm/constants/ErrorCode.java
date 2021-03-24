@@ -1,53 +1,84 @@
 package com.qq.e.comm.constants;
-@Deprecated
-/* loaded from: classes4.dex */
-public class ErrorCode {
+/* loaded from: classes6.dex */
+public interface ErrorCode {
+    public static final int AD_APP_ID_BLOCKED = 5019;
+    public static final int AD_DATA_EXPIRE = 5012;
+    public static final int AD_DATA_NOT_READY = 4014;
+    public static final int AD_INSTANCE_NOT_READY = 4017;
+    public static final int AD_MANAGER_INIT_ERROR = 200101;
+    public static final int AD_POS_ID_BLOCKED = 5018;
+    public static final int AD_REPLAY = 4015;
+    public static final int AD_REQUEST_THROTTLING = 5013;
+    public static final int AD_TYPE_DEPRECATED = 5021;
+    public static final int APPID_NULL = 400102;
+    public static final int CONSTRUCTOR_PARAM_ERROR = 4001;
+    public static final int CONTAINER_SIZE_ERROR = 4005;
+    public static final int CONTENT_FORCE_EXPOSURE = 4012;
+    public static final int CONTEXT_NULL = 400103;
+    public static final int DEVICE_UNSUPPORT = 4007;
+    public static final int DOWNLOADED_NOT_INSTALL_APK = 5045;
+    public static final int DOWNLOADED_NOT_INSTALL_APK_INTER_TIME = 5042;
+    public static final int DOWNLOADED_NOT_INSTALL_APK_NOT_EXITS = 5044;
+    public static final int DOWNLOADED_NOT_INSTALL_APK_NULL = 5043;
+    public static final int DOWNLOADED_NOT_INSTALL_APK_THROTTLING = 5041;
+    public static final int ERROR_AD_ID = 5038;
+    public static final int EXPRESS_REWARD_VIDEO_RENDER_FAIL = 5022;
+    public static final int IMAGE_LOAD_ERROR = 5008;
+    public static final int INIT_ERROR = 2001;
+    public static final int INNER_ERROR = 2002;
+    public static final int JSON_ERROR_CLIENT = 5000;
+    public static final int JS_PARSE_NATIVE_PARAM_ERROR = 200202;
+    public static final int MANIFEST_ERROR = 4002;
+    public static final int METHOD_CALL_ERROR = 5024;
+    public static final int NATIVE_CLICK_BEFORE_EXPOSE = 4006;
+    public static final int NATIVE_EXPRESS_DATA_AND_TEMPLATE_NOT_MATCHED_ERROR = 5011;
+    public static final int NATIVE_PARSE_JS_PARAM_ERROR = 200201;
+    public static final int NETWORK_ERROR = 3001;
+    public static final int NETWORK_HTTP_STATUS_CODE = 3005;
+    public static final int NETWORK_SSL_HANDSHAKE = 3004;
+    public static final int NETWORK_TIMEOUT = 3002;
+    public static final int NETWORK_UNKNOWN = 3000;
+    public static final int NETWORK_UNREACHABLE = 3003;
+    public static final int NOT_INIT = 2003;
+    public static final int NOT_SUPPORT_EXPRESS_VIDEO = 4013;
+    public static final int NO_AD_FILL = 5004;
+    public static final int NO_AD_FILL_FOR_INSTALLED = 5014;
+    public static final int NO_AD_FILL_FOR_LIST_EMPTY = 5025;
+    public static final int NO_AD_FILL_FOR_MULTI = 5039;
+    public static final int ORENTATION_MISMATCH = 4016;
+    public static final int PACKAGE_NAME_ERROR = 5006;
+    public static final int PLUGIN_INIT_ERROR = 200102;
+    public static final int POFACTORY_GET_INTERFACE_ERROR = 200103;
+    public static final int POSID_ERROR = 4003;
+    public static final int POSID_NULL = 400101;
+    public static final int RENDER_TYPE_POSTYPE_NOTMATCH = 5010;
+    public static final int RESOURCE_LOAD_ERROR = 5007;
+    public static final int REWARD_PAGE_SHOW_ERROR = 5027;
+    public static final int SCREEN_ORIENTATION_ERROR = 4008;
+    public static final int SERVER_JSON_PARSE_ERROR = 5001;
+    public static final int SKIP_VIEW_SIZE_ERROR = 4009;
+    public static final int SPLASH_CONTAINER_HEIGHT_ERROR = 400501;
+    public static final int SPLASH_CONTAINER_INVISIBLE = 4004;
+    public static final int SPLASH_CONTAINER_NULL = 400104;
+    public static final int SPLASH_DELAY_TIME_OUT = 4011;
+    public static final int SPLASH_PRELOAD_NOT_MATCH_NO_AD = 5047;
+    public static final int SPLASH_SKIP_INVISIBLE = 4019;
+    public static final int TRAFFIC_CONTROL_DAY = 5005;
+    public static final int TRAFFIC_CONTROL_HOUR = 5009;
+    public static final int UNKNOWN_ERROR = 6000;
+    public static final int VIDEO_DOWNLOAD_FAIL = 5002;
+    public static final int VIDEO_DURATION_ERROR = 5040;
+    public static final int VIDEO_LOAD_TIMEOUT = 5046;
+    public static final int VIDEO_PLAY_ERROR = 5003;
+    public static final int VIDEO_URL_ERROR = 5020;
 
-    /* loaded from: classes4.dex */
-    public static final class AdError {
-        public static final int DETAIl_URL_ERROR = 503;
-        public static final int JSON_PARSE_ERROR = 502;
-        public static final int NO_FILL_ERROR = 501;
-        public static final int PLACEMENT_ERROR = 500;
-        public static final int RETRY_LOAD_SUCCESS = 506;
-        public static final int RETRY_NO_FILL_ERROR = 505;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class InitError {
-        public static final int GET_INTERFACE_ERROR = 303;
-        public static final int INIT_ADMANGER_ERROR = 301;
-        public static final int INIT_AD_ERROR = 300;
-        public static final int INIT_PLUGIN_ERROR = 302;
-        public static final int INVALID_REQUEST_ERROR = 304;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class NetWorkError {
-        public static final int HTTP_STATUS_ERROR = 403;
-        public static final int IMG_LOAD_ERROR = 406;
-        public static final int QUEUE_FULL_ERROR = 401;
-        public static final int RESOURCE_LOAD_FAIL_ERROR = 405;
-        public static final int RETRY_TIME_JS_ERROR = 407;
-        public static final int RETRY_TIME_NATIVE_ERROR = 402;
-        public static final int STUB_NETWORK_ERROR = 400;
-        public static final int TIME_OUT_ERROR = 404;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class OtherError {
-        public static final int ANDROID_PERMMISON_ERROR = 602;
-        public static final int CONTAINER_HEIGHT_ERROR = 606;
-        public static final int CONTAINER_INVISIBLE_ERROR = 600;
-        public static final int CONTENT_FORCE_EXPOSURE = 800;
-        public static final int GET_PARAS_FROM_JS_ERROR = 603;
-        public static final int GET_PARAS_FROM_NATIVE_ERROR = 604;
-        public static final int NATIVE_FORCE_EXPOSURE = 607;
-        public static final int NETWORK_TYPE_ERROR = 601;
-        public static final int SKIP_VIEW_SIZE_ERROR = 608;
-        public static final int UNKNOWN_ERROR = 605;
-        public static final int VIDEO_DOWNLOAD_ERROR = 700;
-        public static final int VIDEO_PLAY_ERROR = 701;
-        public static final int VIDEO_PRELOAD_ERROR = 702;
+    /* loaded from: classes6.dex */
+    public interface ServerError {
+        public static final int NOT_SUPPORT_EXPRESS_VIDEO = 107035;
+        public static final int ORENTATION_MISMATCH = 100159;
+        public static final int PACKAGE_NAME_ERROR = 107030;
+        public static final int RENDER_TYPE_POSTYPE_NOTMATCH = 107034;
+        public static final int TRAFFIC_CONTROL_DAY = 109506;
+        public static final int TRAFFIC_CONTROL_HOUR = 109507;
     }
 }

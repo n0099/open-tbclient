@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface a {
 
     /* renamed from: com.kwad.sdk.glide.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1139a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0406a {
         @NonNull
         Bitmap a(int i, int i2, @NonNull Bitmap.Config config);
 

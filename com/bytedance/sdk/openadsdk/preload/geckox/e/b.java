@@ -7,14 +7,14 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<Class<? extends d<?, ?>>, com.bytedance.sdk.openadsdk.preload.b.b.b> f5074a = new HashMap();
+    public final Map<Class<? extends d<?, ?>>, com.bytedance.sdk.openadsdk.preload.b.b.b> f30273a = new HashMap();
 
     public void a(Class<? extends d<?, ?>> cls, com.bytedance.sdk.openadsdk.preload.b.b.a aVar) {
-        synchronized (this.f5074a) {
-            com.bytedance.sdk.openadsdk.preload.b.b.b bVar = this.f5074a.get(cls);
+        synchronized (this.f30273a) {
+            com.bytedance.sdk.openadsdk.preload.b.b.b bVar = this.f30273a.get(cls);
             if (bVar == null) {
                 bVar = new com.bytedance.sdk.openadsdk.preload.b.b.b(new com.bytedance.sdk.openadsdk.preload.b.b.a[0]);
-                this.f5074a.put(cls, bVar);
+                this.f30273a.put(cls, bVar);
             }
             bVar.a(aVar);
         }
@@ -22,8 +22,8 @@ public class b {
 
     public com.bytedance.sdk.openadsdk.preload.b.b.a a(Class<? extends d<?, ?>> cls) {
         com.bytedance.sdk.openadsdk.preload.b.b.b bVar;
-        synchronized (this.f5074a) {
-            bVar = this.f5074a.get(cls);
+        synchronized (this.f30273a) {
+            bVar = this.f30273a.get(cls);
         }
         return bVar;
     }

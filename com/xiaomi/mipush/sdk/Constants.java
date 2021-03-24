@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Constants {
     public static final String ACCEPT_TIME_SEPARATOR_SERVER = "-";
     public static final String ACCEPT_TIME_SEPARATOR_SP = ",";
@@ -42,7 +42,6 @@ public class Constants {
     public static final String SP_KEY_LAST_REINITIALIZE = "last_reinitialize";
     public static final String WAVE_SEPARATOR = "~";
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public static int a() {
         return com.xiaomi.push.ab.a();
     }

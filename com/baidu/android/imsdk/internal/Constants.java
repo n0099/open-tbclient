@@ -4,8 +4,9 @@ import android.content.Context;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class Constants {
     public static final int ACK_MAX_SIZE = 20;
     public static final String ACTION_METHOD = "com.baidu.android.imsdk.action.METHOD";
@@ -246,31 +247,32 @@ public final class Constants {
     public static final String SETTING_DEBUG_MODE = "com.baidu.android.imsdk.Settings.debug_mode";
     public static final byte SHORT_PING_CMD_TYPE = 101;
     public static final int SOCKET_BACKUP_PORT_SSL = 8443;
+    public static final int SOCKET_PORT_TCP = 8100;
     public static final int SYNC_FOR_INTERNAL_LOGIN = 1;
     public static final int SYNC_FOR_SERVER_NOTIFY = 2;
     public static final int SYNC_FOR_USER_LOGIN = 0;
     public static final long SYNC_MSG_DELAY_TIME = 10800000;
     public static final int SYNC_USERS_PROFILE_DURATION_MS = 3600000;
     public static final String THREAD_PREFIX = "IM-";
-    private static final int TPL_ZHIDA_OL = 6376141;
-    private static final int TPL_ZHIDA_RD = 6376141;
+    public static final int TPL_ZHIDA_OL = 6376141;
+    public static final int TPL_ZHIDA_RD = 6376141;
     public static final int TYPE_CONNECTION_LONG = 0;
     public static final int TYPE_GET_CHAT_OBJECT = 2;
     public static final String URL_HTTP_BOX = "http://180.97.36.95:8080/";
     public static final String URL_HTTP_ONLINE = "https://pim.baidu.com/";
     public static final String URL_HTTP_QA = "http://10.64.132.67:8080/";
     public static final String URL_HTTP_RD = "http://rd-im-server.bcc-szth.baidu.com:8080/";
-    private static final int URL_SOCKET_PORT_OL_BOX = 8100;
-    private static final int URL_SOCKET_PORT_QA = 8100;
-    private static final int URL_SOCKET_PORT_RD = 8100;
-    private static final int URL_SOCKET_PORT_TEST_BOX = 8100;
+    public static final int URL_SOCKET_PORT_OL_BOX = 8100;
+    public static final int URL_SOCKET_PORT_QA = 8100;
+    public static final int URL_SOCKET_PORT_RD = 8100;
+    public static final int URL_SOCKET_PORT_TEST_BOX = 8100;
     public static final int URL_SOCKET_SERVER_CONN_TIME_OUT = 10000;
-    private static final String URL_SOCKET_SERVER_OL_BOX = "pimc.baidu.com";
-    private static final String URL_SOCKET_SERVER_OL_HQ = "pimc2.baidu.com";
-    private static final String URL_SOCKET_SERVER_OL_SSL = "pimc.baidu.com";
-    private static final String URL_SOCKET_SERVER_QA = "10.64.132.59";
-    private static final String URL_SOCKET_SERVER_RD = "rd-im-server.bcc-szth.baidu.com";
-    private static final String URL_SOCKET_SERVER_TEST_BOX = "180.97.36.95";
+    public static final String URL_SOCKET_SERVER_OL_BOX = "pimc.baidu.com";
+    public static final String URL_SOCKET_SERVER_OL_HQ = "pimc2.baidu.com";
+    public static final String URL_SOCKET_SERVER_OL_SSL = "pimc.baidu.com";
+    public static final String URL_SOCKET_SERVER_QA = "10.64.132.59";
+    public static final String URL_SOCKET_SERVER_RD = "rd-im-server.bcc-szth.baidu.com";
+    public static final String URL_SOCKET_SERVER_TEST_BOX = "180.97.36.95";
     public static final String USERINFO_PREFIX = "USERINFO";
     public static final int USER_SETTING_UK_NOT_CONCERNED = -2;
     public static final String ZHIDA_SP_PRE = "prefix_crm_zhida_";
@@ -282,13 +284,12 @@ public final class Constants {
     public static final int SOCKET_PORT_SSL = 443;
     public static int URL_SOCKET_PORT_OL_SSL = SOCKET_PORT_SSL;
     public static String URL_SOCKET_SERVER = "pimc.baidu.com";
-    public static final int SOCKET_PORT_TCP = 8100;
-    public static int URL_SOCKET_PORT = SOCKET_PORT_TCP;
+    public static int URL_SOCKET_PORT = 8100;
     public static int IM_ENV = 0;
-    public static final String[] mSdkPermissions = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
+    public static final String[] mSdkPermissions = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
 
-    public static boolean isDebugMode() {
-        return IMSettings.isDebugMode();
+    public static boolean dispatchToPimc2(long j) {
+        return j == APPID_HAOKAN || j == APPID_HAOKAN_JISU || j == APPID_QUANMIN || j == APPID_YIMEI || j == APPID_TIEBA;
     }
 
     public static int getEnv(Context context) {
@@ -298,63 +299,49 @@ public final class Constants {
         }
         try {
             return Utility.readIntData(context, KEY_ENV, 0);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return IM_ENV;
         }
     }
 
+    public static int getTplZhida(Context context) {
+        Utility.readIntData(context, KEY_ENV, -1);
+        return 6376141;
+    }
+
+    public static boolean isDebugMode() {
+        return IMSettings.isDebugMode();
+    }
+
     public static boolean setEnv(Context context, int i) {
         long appid = AccountManager.getAppid(context);
-        switch (i) {
-            case 0:
-                if (dispatchToPimc2(appid)) {
-                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
-                    URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
-                    break;
-                } else {
-                    URL_SOCKET_SERVER = "pimc.baidu.com";
-                    URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
-                    break;
-                }
-            case 1:
+        if (i != 0) {
+            if (i == 1) {
                 URL_SOCKET_SERVER = URL_SOCKET_SERVER_RD;
-                URL_SOCKET_PORT = SOCKET_PORT_TCP;
-                break;
-            case 2:
+                URL_SOCKET_PORT = 8100;
+            } else if (i == 2) {
                 URL_SOCKET_SERVER = URL_SOCKET_SERVER_QA;
-                URL_SOCKET_PORT = SOCKET_PORT_TCP;
-                break;
-            case 3:
+                URL_SOCKET_PORT = 8100;
+            } else if (i == 3) {
                 if (dispatchToPimc2(appid)) {
                     URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
                     URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
-                    break;
                 } else {
                     URL_SOCKET_SERVER = URL_SOCKET_SERVER_TEST_BOX;
-                    URL_SOCKET_PORT = SOCKET_PORT_TCP;
-                    break;
+                    URL_SOCKET_PORT = 8100;
                 }
+            }
+        } else if (dispatchToPimc2(appid)) {
+            URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
+            URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
+        } else {
+            URL_SOCKET_SERVER = "pimc.baidu.com";
+            URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
         }
         IM_ENV = i;
-        if (IM_ENV != getEnv(context)) {
+        if (i != getEnv(context)) {
             Utility.writeIntData(context, KEY_ENV, i);
         }
         return true;
-    }
-
-    private static boolean dispatchToPimc2(long j) {
-        if (j != APPID_HAOKAN && j != APPID_HAOKAN_JISU && j != APPID_QUANMIN && j != APPID_YIMEI && j != APPID_TIEBA) {
-            return false;
-        }
-        return true;
-    }
-
-    public static int getTplZhida(Context context) {
-        switch (Utility.readIntData(context, KEY_ENV, -1)) {
-            case 1:
-            case 2:
-            default:
-                return 6376141;
-        }
     }
 }

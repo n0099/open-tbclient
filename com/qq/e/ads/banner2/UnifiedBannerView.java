@@ -7,29 +7,46 @@ import android.os.Looper;
 import android.widget.FrameLayout;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.a;
+import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
+import com.qq.e.comm.compliance.DownloadConfirmListener;
 import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.constants.LoadAdParams;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.pi.UBVI;
+import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
-public class UnifiedBannerView extends FrameLayout {
+/* loaded from: classes6.dex */
+public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplianceInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    private UBVI f7495a;
-    private boolean b;
-    private boolean c;
-    private boolean d;
-    private DownAPPConfirmPolicy e;
-    private AtomicInteger f;
-    private int g;
-    private LoadAdParams h;
+    public UBVI f38028a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f38029b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f38030c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f38031d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public DownAPPConfirmPolicy f38032e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public AtomicInteger f38033f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f38034g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public LoadAdParams f38035h;
 
     public UnifiedBannerView(Activity activity, String str, UnifiedBannerADListener unifiedBannerADListener) {
         this(activity, str, unifiedBannerADListener, (Map) null);
@@ -37,18 +54,18 @@ public class UnifiedBannerView extends FrameLayout {
 
     public UnifiedBannerView(Activity activity, String str, UnifiedBannerADListener unifiedBannerADListener, Map map) {
         super(activity);
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.f = new AtomicInteger(0);
-        this.g = 30;
-        this.h = null;
+        this.f38029b = false;
+        this.f38030c = false;
+        this.f38031d = false;
+        this.f38033f = new AtomicInteger(0);
+        this.f38034g = 30;
+        this.f38035h = null;
         if (GDTADManager.getInstance().isInitialized()) {
             a(activity, GDTADManager.getInstance().getAppStatus().getAPPID(), str, unifiedBannerADListener, map);
             return;
         }
         GDTLogger.e("SDK 尚未初始化，请在 Application 中调用 GDTADManager.getInstance().initWith() 初始化");
-        unifiedBannerADListener.onNoAD(a.a(2003));
+        unifiedBannerADListener.onNoAD(AdErrorConvertor.formatErrorCode(2003));
     }
 
     @Deprecated
@@ -59,12 +76,12 @@ public class UnifiedBannerView extends FrameLayout {
     @Deprecated
     public UnifiedBannerView(Activity activity, String str, String str2, UnifiedBannerADListener unifiedBannerADListener, Map map) {
         super(activity);
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.f = new AtomicInteger(0);
-        this.g = 30;
-        this.h = null;
+        this.f38029b = false;
+        this.f38030c = false;
+        this.f38031d = false;
+        this.f38033f = new AtomicInteger(0);
+        this.f38034g = 30;
+        this.f38035h = null;
         GDTLogger.w("此构造方法即将废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo");
         a(activity, str, str2, unifiedBannerADListener, map);
     }
@@ -74,12 +91,12 @@ public class UnifiedBannerView extends FrameLayout {
             GDTLogger.e(String.format("UnifiedBannerView Constructor params error, appid=%s,posId=%s,context=%s,listener=%s", str, str2, activity, unifiedBannerADListener));
             return;
         }
-        this.b = true;
+        this.f38029b = true;
         if (!a.a(activity)) {
             GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
             return;
         }
-        this.c = true;
+        this.f38030c = true;
         setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
         GDTADManager.INIT_EXECUTOR.execute(new Runnable() { // from class: com.qq.e.ads.banner2.UnifiedBannerView.1
             @Override // java.lang.Runnable
@@ -95,23 +112,21 @@ public class UnifiedBannerView extends FrameLayout {
                         public void run() {
                             try {
                                 if (pOFactory != null) {
-                                    UnifiedBannerView.this.f7495a = pOFactory.getUnifiedBannerViewDelegate(UnifiedBannerView.this, activity, str, str2, unifiedBannerADListener);
-                                    UnifiedBannerView.this.d = true;
+                                    UnifiedBannerView.this.f38028a = pOFactory.getUnifiedBannerViewDelegate(UnifiedBannerView.this, activity, str, str2, unifiedBannerADListener);
+                                    UnifiedBannerView.this.f38031d = true;
                                     UnifiedBannerView.a(UnifiedBannerView.this, map, str2);
-                                    if (UnifiedBannerView.this.e != null) {
-                                        UnifiedBannerView.this.setDownConfirmPolicy(UnifiedBannerView.this.e);
+                                    if (UnifiedBannerView.this.f38032e != null) {
+                                        UnifiedBannerView.this.setDownConfirmPolicy(UnifiedBannerView.this.f38032e);
                                     }
-                                    UnifiedBannerView.this.setRefresh(UnifiedBannerView.this.g);
-                                    UnifiedBannerView.this.setLoadAdParams(UnifiedBannerView.this.h);
-                                    while (UnifiedBannerView.this.f.getAndDecrement() > 0) {
+                                    UnifiedBannerView.this.setRefresh(UnifiedBannerView.this.f38034g);
+                                    UnifiedBannerView.this.setLoadAdParams(UnifiedBannerView.this.f38035h);
+                                    while (UnifiedBannerView.this.f38033f.getAndDecrement() > 0) {
                                         UnifiedBannerView.this.loadAD();
                                     }
                                 }
-                            } catch (Throwable th) {
+                            } finally {
                                 try {
-                                    GDTLogger.e("Exception while init UnifiedBannerView Core", th);
                                 } finally {
-                                    UnifiedBannerView.this.d = true;
                                 }
                             }
                         }
@@ -123,74 +138,100 @@ public class UnifiedBannerView extends FrameLayout {
         });
     }
 
-    static /* synthetic */ void a(UnifiedBannerView unifiedBannerView, Map map, String str) {
+    public static /* synthetic */ void a(UnifiedBannerView unifiedBannerView, Map map, String str) {
         if (map == null || map.size() <= 0) {
             return;
         }
         try {
             GDTADManager.getInstance().getSM().setDEVCodeSetting(Constants.KEYS.AD_TAGS, new JSONObject(map), str);
-        } catch (Exception e) {
+        } catch (Exception e2) {
             GDTLogger.e("UnifiedBanner#setTag Exception");
-            e.printStackTrace();
+            e2.printStackTrace();
         }
     }
 
     public void destroy() {
-        if (this.f7495a != null) {
-            this.f7495a.destroy();
+        UBVI ubvi = this.f38028a;
+        if (ubvi != null) {
+            ubvi.destroy();
         }
     }
 
-    public Map getExt() {
-        try {
-            if (this.f7495a != null) {
-                return UBVI.ext;
-            }
-        } catch (Exception e) {
-            GDTLogger.e("banner2 can not get ext");
+    @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
+    public String getApkInfoUrl() {
+        UBVI ubvi = this.f38028a;
+        if (ubvi != null) {
+            return ubvi.getApkInfoUrl();
         }
         return null;
     }
 
+    public Map getExt() {
+        try {
+            if (this.f38028a != null) {
+                return UBVI.ext;
+            }
+            return null;
+        } catch (Exception unused) {
+            GDTLogger.e("banner2 can not get ext");
+            return null;
+        }
+    }
+
     public void loadAD() {
-        if (!this.b || !this.c) {
+        if (!this.f38029b || !this.f38030c) {
             GDTLogger.e("UnifiedBannerView init Paras OR Context error,See More logs while new BannerView");
-        } else if (!this.d) {
-            this.f.incrementAndGet();
-        } else if (this.f7495a != null) {
-            this.f7495a.fetchAd();
+        } else if (!this.f38031d) {
+            this.f38033f.incrementAndGet();
         } else {
-            GDTLogger.e("UnifiedBannerView Init error,See More Logs");
+            UBVI ubvi = this.f38028a;
+            if (ubvi != null) {
+                ubvi.fetchAd();
+            } else {
+                GDTLogger.e("UnifiedBannerView Init error,See More Logs");
+            }
         }
     }
 
     @Override // android.view.View
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (this.f7495a != null) {
-            this.f7495a.onWindowFocusChanged(z);
+        UBVI ubvi = this.f38028a;
+        if (ubvi != null) {
+            ubvi.onWindowFocusChanged(z);
         }
     }
 
     public void setDownConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
-        this.e = downAPPConfirmPolicy;
-        if (downAPPConfirmPolicy == null || this.f7495a == null) {
+        UBVI ubvi;
+        this.f38032e = downAPPConfirmPolicy;
+        if (downAPPConfirmPolicy == null || (ubvi = this.f38028a) == null) {
             return;
         }
-        this.f7495a.setDownAPPConfirmPolicy(downAPPConfirmPolicy);
+        ubvi.setDownAPPConfirmPolicy(downAPPConfirmPolicy);
+    }
+
+    @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
+    public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
+        UBVI ubvi = this.f38028a;
+        if (ubvi != null) {
+            ubvi.setDownloadConfirmListener(downloadConfirmListener);
+        }
     }
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
-        this.h = loadAdParams;
-        if (this.f7495a != null) {
-            this.f7495a.setLoadAdParams(this.h);
+        this.f38035h = loadAdParams;
+        UBVI ubvi = this.f38028a;
+        if (ubvi != null) {
+            ubvi.setLoadAdParams(loadAdParams);
         }
     }
 
     public void setRefresh(int i) {
-        this.g = i;
-        if (this.f7495a != null) {
-            this.f7495a.setRefresh(i);
+        this.f38034g = i;
+        UBVI ubvi = this.f38028a;
+        if (ubvi != null) {
+            ubvi.setRefresh(i);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.searchbox.http.callback;
 import java.io.IOException;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class ByteResponseCallback extends ResponseCallback<byte[]> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.ResponseCallback

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.logsystem.logsys.eventscene.snapshot;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public enum ProcessSnapshotType {
     PROCESS_SMAPS,
     PROCESS_STATUS,

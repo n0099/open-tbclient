@@ -6,7 +6,7 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AndroidCertVerifyResult {
     public final List<X509Certificate> mCertificateChain;
     public final boolean mIsIssuedByKnownRoot;
@@ -30,7 +30,7 @@ public class AndroidCertVerifyResult {
         for (int i = 0; i < this.mCertificateChain.size(); i++) {
             try {
                 bArr[i] = this.mCertificateChain.get(i).getEncoded();
-            } catch (CertificateEncodingException e) {
+            } catch (CertificateEncodingException unused) {
                 return new byte[0];
             }
         }

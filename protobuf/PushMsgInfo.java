@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class PushMsgInfo extends Message {
     public static final String DEFAULT_ET = "";
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
@@ -22,45 +22,7 @@ public final class PushMsgInfo extends Message {
     public static final Integer DEFAULT_GROUPTYPE = 0;
     public static final Long DEFAULT_PUSHTIME = 0L;
 
-    private PushMsgInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-            } else {
-                this.groupId = builder.groupId;
-            }
-            if (builder.msgInfo == null) {
-                this.msgInfo = DEFAULT_MSGINFO;
-            } else {
-                this.msgInfo = immutableCopyOf(builder.msgInfo);
-            }
-            if (builder.groupType == null) {
-                this.groupType = DEFAULT_GROUPTYPE;
-            } else {
-                this.groupType = builder.groupType;
-            }
-            if (builder.et == null) {
-                this.et = "";
-            } else {
-                this.et = builder.et;
-            }
-            if (builder.pushTime == null) {
-                this.pushTime = DEFAULT_PUSHTIME;
-                return;
-            } else {
-                this.pushTime = builder.pushTime;
-                return;
-            }
-        }
-        this.groupId = builder.groupId;
-        this.msgInfo = immutableCopyOf(builder.msgInfo);
-        this.groupType = builder.groupType;
-        this.et = builder.et;
-        this.pushTime = builder.pushTime;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<PushMsgInfo> {
         public String et;
         public Long groupId;
@@ -73,13 +35,14 @@ public final class PushMsgInfo extends Message {
 
         public Builder(PushMsgInfo pushMsgInfo) {
             super(pushMsgInfo);
-            if (pushMsgInfo != null) {
-                this.groupId = pushMsgInfo.groupId;
-                this.msgInfo = PushMsgInfo.copyOf(pushMsgInfo.msgInfo);
-                this.groupType = pushMsgInfo.groupType;
-                this.et = pushMsgInfo.et;
-                this.pushTime = pushMsgInfo.pushTime;
+            if (pushMsgInfo == null) {
+                return;
             }
+            this.groupId = pushMsgInfo.groupId;
+            this.msgInfo = Message.copyOf(pushMsgInfo.msgInfo);
+            this.groupType = pushMsgInfo.groupType;
+            this.et = pushMsgInfo.et;
+            this.pushTime = pushMsgInfo.pushTime;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -87,5 +50,48 @@ public final class PushMsgInfo extends Message {
         public PushMsgInfo build(boolean z) {
             return new PushMsgInfo(this, z);
         }
+    }
+
+    public PushMsgInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.groupId;
+            if (l == null) {
+                this.groupId = DEFAULT_GROUPID;
+            } else {
+                this.groupId = l;
+            }
+            List<MsgInfo> list = builder.msgInfo;
+            if (list == null) {
+                this.msgInfo = DEFAULT_MSGINFO;
+            } else {
+                this.msgInfo = Message.immutableCopyOf(list);
+            }
+            Integer num = builder.groupType;
+            if (num == null) {
+                this.groupType = DEFAULT_GROUPTYPE;
+            } else {
+                this.groupType = num;
+            }
+            String str = builder.et;
+            if (str == null) {
+                this.et = "";
+            } else {
+                this.et = str;
+            }
+            Long l2 = builder.pushTime;
+            if (l2 == null) {
+                this.pushTime = DEFAULT_PUSHTIME;
+                return;
+            } else {
+                this.pushTime = l2;
+                return;
+            }
+        }
+        this.groupId = builder.groupId;
+        this.msgInfo = Message.immutableCopyOf(builder.msgInfo);
+        this.groupType = builder.groupType;
+        this.et = builder.et;
+        this.pushTime = builder.pushTime;
     }
 }

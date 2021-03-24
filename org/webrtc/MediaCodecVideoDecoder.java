@@ -9,7 +9,9 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.view.Surface;
 import androidx.annotation.Nullable;
-import com.yy.mediaframework.base.VideoEncoderConfig;
+import com.baidu.rtc.PeerConnectionClient;
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.nio.ByteBuffer;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -24,71 +26,70 @@ import java.util.concurrent.TimeUnit;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class MediaCodecVideoDecoder {
-    private static final int DEQUEUE_INPUT_TIMEOUT = 500000;
-    private static final String FORMAT_KEY_CROP_BOTTOM = "crop-bottom";
-    private static final String FORMAT_KEY_CROP_LEFT = "crop-left";
-    private static final String FORMAT_KEY_CROP_RIGHT = "crop-right";
-    private static final String FORMAT_KEY_CROP_TOP = "crop-top";
-    private static final String FORMAT_KEY_SLICE_HEIGHT = "slice-height";
-    private static final String FORMAT_KEY_STRIDE = "stride";
-    private static final String H264_MIME_TYPE = "video/avc";
-    private static final long MAX_DECODE_TIME_MS = 200;
-    private static final int MAX_QUEUED_OUTPUTBUFFERS = 3;
-    private static final int MEDIA_CODEC_RELEASE_TIMEOUT_MS = 5000;
-    private static final String TAG = "MediaCodecVideoDecoder";
-    private static final String VP8_MIME_TYPE = "video/x-vnd.on2.vp8";
-    private static final String VP9_MIME_TYPE = "video/x-vnd.on2.vp9";
-    private static int codecErrors = 0;
+    public static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
+    public static final int COLOR_QCOM_FORMATYVU420PackedSemiPlanar16m4ka = 2141391874;
+    public static final int COLOR_QCOM_FORMATYVU420PackedSemiPlanar32m4ka = 2141391873;
+    public static final int COLOR_QCOM_FORMATYVU420PackedSemiPlanar64x32Tile2m8ka = 2141391875;
+    public static final int DEQUEUE_INPUT_TIMEOUT = 500000;
+    public static final String FORMAT_KEY_CROP_BOTTOM = "crop-bottom";
+    public static final String FORMAT_KEY_CROP_LEFT = "crop-left";
+    public static final String FORMAT_KEY_CROP_RIGHT = "crop-right";
+    public static final String FORMAT_KEY_CROP_TOP = "crop-top";
+    public static final String FORMAT_KEY_SLICE_HEIGHT = "slice-height";
+    public static final String FORMAT_KEY_STRIDE = "stride";
+    public static final String H264_MIME_TYPE = "video/avc";
+    public static final long MAX_DECODE_TIME_MS = 200;
+    public static final int MAX_QUEUED_OUTPUTBUFFERS = 3;
+    public static final int MEDIA_CODEC_RELEASE_TIMEOUT_MS = 5000;
+    public static final String TAG = "MediaCodecVideoDecoder";
+    public static final String VP8_MIME_TYPE = "video/x-vnd.on2.vp8";
+    public static final String VP9_MIME_TYPE = "video/x-vnd.on2.vp9";
+    public static int codecErrors = 0;
     @Nullable
-    private static EglBase eglBase = null;
+    public static EglBase eglBase = null;
     @Nullable
-    private static MediaCodecVideoDecoderErrorCallback errorCallback = null;
+    public static MediaCodecVideoDecoderErrorCallback errorCallback = null;
     @Nullable
-    private static MediaCodecVideoDecoder runningInstance = null;
-    private static final String supportedHisiH264HighProfileHwCodecPrefix = "OMX.hisi.";
-    private static final String supportedMediaTekH264HighProfileHwCodecPrefix = "OMX.MTK.";
-    private int colorFormat;
-    private final Queue<TimeStamps> decodeStartTimeMs = new ArrayDeque();
-    private final Queue<DecodedOutputBuffer> dequeuedSurfaceOutputBuffers = new ArrayDeque();
-    private int droppedFrames;
-    private boolean hasDecodedFirstFrame;
-    private int height;
-    private ByteBuffer[] inputBuffers;
+    public static MediaCodecVideoDecoder runningInstance = null;
+    public static final String supportedExynosH264HighProfileHwCodecPrefix = "OMX.Exynos.";
+    public static final String supportedHisiH264HighProfileHwCodecPrefix = "OMX.hisi.";
+    public static final String supportedMediaTekH264HighProfileHwCodecPrefix = "OMX.MTK.";
+    public static final String supportedQcomH264HighProfileHwCodecPrefix = "OMX.qcom.";
+    public int colorFormat;
+    public final Queue<TimeStamps> decodeStartTimeMs = new ArrayDeque();
+    public final Queue<DecodedOutputBuffer> dequeuedSurfaceOutputBuffers = new ArrayDeque();
+    public int droppedFrames;
+    public boolean hasDecodedFirstFrame;
+    public int height;
+    public ByteBuffer[] inputBuffers;
     @Nullable
-    private MediaCodec mediaCodec;
+    public MediaCodec mediaCodec;
     @Nullable
-    private Thread mediaCodecThread;
-    private ByteBuffer[] outputBuffers;
-    private int sliceHeight;
-    private int stride;
+    public Thread mediaCodecThread;
+    public ByteBuffer[] outputBuffers;
+    public int sliceHeight;
+    public int stride;
     @Nullable
-    private Surface surface;
+    public Surface surface;
     @Nullable
-    private TextureListener textureListener;
-    private int width;
-    private static Set<String> hwDecoderDisabledTypes = new HashSet();
-    private static final String supportedQcomH264HighProfileHwCodecPrefix = "OMX.qcom.";
-    private static final String supportedExynosH264HighProfileHwCodecPrefix = "OMX.Exynos.";
-    private static final String[] supportedVp9HwCodecPrefixes = {supportedQcomH264HighProfileHwCodecPrefix, supportedExynosH264HighProfileHwCodecPrefix};
-    private static final int COLOR_QCOM_FORMATYVU420PackedSemiPlanar32m4ka = 2141391873;
-    private static final int COLOR_QCOM_FORMATYVU420PackedSemiPlanar16m4ka = 2141391874;
-    private static final int COLOR_QCOM_FORMATYVU420PackedSemiPlanar64x32Tile2m8ka = 2141391875;
-    private static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
-    private static final List<Integer> supportedColorList = Arrays.asList(19, 21, 2141391872, Integer.valueOf((int) COLOR_QCOM_FORMATYVU420PackedSemiPlanar32m4ka), Integer.valueOf((int) COLOR_QCOM_FORMATYVU420PackedSemiPlanar16m4ka), Integer.valueOf((int) COLOR_QCOM_FORMATYVU420PackedSemiPlanar64x32Tile2m8ka), Integer.valueOf((int) COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m));
+    public TextureListener textureListener;
+    public int width;
+    public static Set<String> hwDecoderDisabledTypes = new HashSet();
+    public static final String[] supportedVp9HwCodecPrefixes = {"OMX.qcom.", "OMX.Exynos."};
+    public static final List<Integer> supportedColorList = Arrays.asList(19, 21, 2141391872, 2141391873, 2141391874, 2141391875, 2141391876);
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class DecodedOutputBuffer {
-        private final long decodeTimeMs;
-        private final long endDecodeTimeMs;
-        private final int index;
-        private final long ntpTimeStampMs;
-        private final int offset;
-        private final long presentationTimeStampMs;
-        private final int size;
-        private final long timeStampMs;
+        public final long decodeTimeMs;
+        public final long endDecodeTimeMs;
+        public final int index;
+        public final long ntpTimeStampMs;
+        public final int offset;
+        public final long presentationTimeStampMs;
+        public final int size;
+        public final long timeStampMs;
 
         public DecodedOutputBuffer(int i, int i2, int i3, long j, long j2, long j3, long j4, long j5) {
             this.index = i;
@@ -102,50 +103,49 @@ public class MediaCodecVideoDecoder {
         }
 
         @CalledByNative("DecodedOutputBuffer")
-        long getDecodeTimeMs() {
+        public long getDecodeTimeMs() {
             return this.decodeTimeMs;
         }
 
         @CalledByNative("DecodedOutputBuffer")
-        int getIndex() {
+        public int getIndex() {
             return this.index;
         }
 
         @CalledByNative("DecodedOutputBuffer")
-        long getNtpTimestampMs() {
+        public long getNtpTimestampMs() {
             return this.ntpTimeStampMs;
         }
 
         @CalledByNative("DecodedOutputBuffer")
-        int getOffset() {
+        public int getOffset() {
             return this.offset;
         }
 
         @CalledByNative("DecodedOutputBuffer")
-        long getPresentationTimestampMs() {
+        public long getPresentationTimestampMs() {
             return this.presentationTimeStampMs;
         }
 
         @CalledByNative("DecodedOutputBuffer")
-        int getSize() {
+        public int getSize() {
             return this.size;
         }
 
         @CalledByNative("DecodedOutputBuffer")
-        long getTimestampMs() {
+        public long getTimestampMs() {
             return this.timeStampMs;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class DecodedTextureBuffer {
-        private final long decodeTimeMs;
-        private final long frameDelayMs;
-        private final long ntpTimeStampMs;
-        private final long presentationTimeStampMs;
-        private final long timeStampMs;
-        private final VideoFrame.Buffer videoFrameBuffer;
+        public final long decodeTimeMs;
+        public final long frameDelayMs;
+        public final long ntpTimeStampMs;
+        public final long presentationTimeStampMs;
+        public final long timeStampMs;
+        public final VideoFrame.Buffer videoFrameBuffer;
 
         public DecodedTextureBuffer(VideoFrame.Buffer buffer, long j, long j2, long j3, long j4, long j5) {
             this.videoFrameBuffer = buffer;
@@ -157,38 +157,37 @@ public class MediaCodecVideoDecoder {
         }
 
         @CalledByNative("DecodedTextureBuffer")
-        long getDecodeTimeMs() {
+        public long getDecodeTimeMs() {
             return this.decodeTimeMs;
         }
 
         @CalledByNative("DecodedTextureBuffer")
-        long getFrameDelayMs() {
+        public long getFrameDelayMs() {
             return this.frameDelayMs;
         }
 
         @CalledByNative("DecodedTextureBuffer")
-        long getNtpTimestampMs() {
+        public long getNtpTimestampMs() {
             return this.ntpTimeStampMs;
         }
 
         @CalledByNative("DecodedTextureBuffer")
-        long getPresentationTimestampMs() {
+        public long getPresentationTimestampMs() {
             return this.presentationTimeStampMs;
         }
 
         @CalledByNative("DecodedTextureBuffer")
-        long getTimeStampMs() {
+        public long getTimeStampMs() {
             return this.timeStampMs;
         }
 
         @CalledByNative("DecodedTextureBuffer")
-        VideoFrame.Buffer getVideoFrameBuffer() {
+        public VideoFrame.Buffer getVideoFrameBuffer() {
             return this.videoFrameBuffer;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class DecoderProperties {
         public final String codecName;
         public final int colorFormat;
@@ -199,23 +198,19 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static class HwDecoderFactory implements VideoDecoderFactory {
-        private final VideoCodecInfo[] supportedHardwareCodecs = getSupportedHardwareCodecs();
+        public final VideoCodecInfo[] supportedHardwareCodecs = getSupportedHardwareCodecs();
 
-        HwDecoderFactory() {
-        }
-
-        private static VideoCodecInfo[] getSupportedHardwareCodecs() {
+        public static VideoCodecInfo[] getSupportedHardwareCodecs() {
             ArrayList arrayList = new ArrayList();
             if (MediaCodecVideoDecoder.isVp8HwSupported()) {
                 Logging.d(MediaCodecVideoDecoder.TAG, "VP8 HW Decoder supported.");
-                arrayList.add(new VideoCodecInfo("VP8", new HashMap()));
+                arrayList.add(new VideoCodecInfo(PeerConnectionClient.VIDEO_CODEC_VP8, new HashMap()));
             }
             if (MediaCodecVideoDecoder.isVp9HwSupported()) {
                 Logging.d(MediaCodecVideoDecoder.TAG, "VP9 HW Decoder supported.");
-                arrayList.add(new VideoCodecInfo("VP9", new HashMap()));
+                arrayList.add(new VideoCodecInfo(PeerConnectionClient.VIDEO_CODEC_VP9, new HashMap()));
             }
             if (MediaCodecVideoDecoder.isH264HighProfileHwSupported()) {
                 Logging.d(MediaCodecVideoDecoder.TAG, "H.264 High Profile HW Decoder supported.");
@@ -228,7 +223,7 @@ public class MediaCodecVideoDecoder {
             return (VideoCodecInfo[]) arrayList.toArray(new VideoCodecInfo[arrayList.size()]);
         }
 
-        private static boolean isCodecSupported(VideoCodecInfo[] videoCodecInfoArr, VideoCodecInfo videoCodecInfo) {
+        public static boolean isCodecSupported(VideoCodecInfo[] videoCodecInfoArr, VideoCodecInfo videoCodecInfo) {
             for (VideoCodecInfo videoCodecInfo2 : videoCodecInfoArr) {
                 if (isSameCodec(videoCodecInfo2, videoCodecInfo)) {
                     return true;
@@ -237,9 +232,9 @@ public class MediaCodecVideoDecoder {
             return false;
         }
 
-        private static boolean isSameCodec(VideoCodecInfo videoCodecInfo, VideoCodecInfo videoCodecInfo2) {
+        public static boolean isSameCodec(VideoCodecInfo videoCodecInfo, VideoCodecInfo videoCodecInfo2) {
             if (videoCodecInfo.name.equalsIgnoreCase(videoCodecInfo2.name)) {
-                if (videoCodecInfo.name.equalsIgnoreCase("H264")) {
+                if (videoCodecInfo.name.equalsIgnoreCase(PeerConnectionClient.VIDEO_CODEC_H264)) {
                     return H264Utils.isSameH264Profile(videoCodecInfo.params, videoCodecInfo2.params);
                 }
                 return true;
@@ -276,20 +271,19 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface MediaCodecVideoDecoderErrorCallback {
         void onMediaCodecVideoDecoderCriticalError(int i);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public class TextureListener implements VideoSink {
         @Nullable
-        private DecodedOutputBuffer bufferToRender;
-        private final Object newFrameLock = new Object();
+        public DecodedOutputBuffer bufferToRender;
+        public final Object newFrameLock = new Object();
         @Nullable
-        private DecodedTextureBuffer renderedBuffer;
-        private final SurfaceTextureHelper surfaceTextureHelper;
+        public DecodedTextureBuffer renderedBuffer;
+        public final SurfaceTextureHelper surfaceTextureHelper;
 
         public TextureListener(SurfaceTextureHelper surfaceTextureHelper) {
             this.surfaceTextureHelper = surfaceTextureHelper;
@@ -297,11 +291,11 @@ public class MediaCodecVideoDecoder {
         }
 
         public void addBufferToRender(DecodedOutputBuffer decodedOutputBuffer) {
-            if (this.bufferToRender != null) {
+            if (this.bufferToRender == null) {
+                this.bufferToRender = decodedOutputBuffer;
+            } else {
                 Logging.e(MediaCodecVideoDecoder.TAG, "Unexpected addBufferToRender() called while waiting for a texture.");
                 throw new IllegalStateException("Waiting for a texture.");
-            } else {
-                this.bufferToRender = decodedOutputBuffer;
             }
         }
 
@@ -312,7 +306,7 @@ public class MediaCodecVideoDecoder {
                 if (this.renderedBuffer == null && i > 0 && isWaitingForTexture()) {
                     try {
                         this.newFrameLock.wait(i);
-                    } catch (InterruptedException e) {
+                    } catch (InterruptedException unused) {
                         Thread.currentThread().interrupt();
                     }
                 }
@@ -361,12 +355,11 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class TimeStamps {
-        private final long decodeStartTimeMs;
-        private final long ntpTimeStampMs;
-        private final long timeStampMs;
+        public final long decodeStartTimeMs;
+        public final long ntpTimeStampMs;
+        public final long timeStampMs;
 
         public TimeStamps(long j, long j2, long j3) {
             this.decodeStartTimeMs = j;
@@ -375,7 +368,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum VideoCodecType {
         VIDEO_CODEC_UNKNOWN,
         VIDEO_CODEC_VP8,
@@ -383,13 +376,9 @@ public class MediaCodecVideoDecoder {
         VIDEO_CODEC_H264;
 
         @CalledByNative("VideoCodecType")
-        static VideoCodecType fromNativeIndex(int i) {
+        public static VideoCodecType fromNativeIndex(int i) {
             return values()[i];
         }
-    }
-
-    @CalledByNative
-    MediaCodecVideoDecoder() {
     }
 
     private void MaybeRenderDecodedTextureBuffer() {
@@ -402,9 +391,10 @@ public class MediaCodecVideoDecoder {
     }
 
     private void checkOnMediaCodecThread() throws IllegalStateException {
-        if (this.mediaCodecThread.getId() != Thread.currentThread().getId()) {
-            throw new IllegalStateException("MediaCodecVideoDecoder previously operated on " + this.mediaCodecThread + " but is now called on " + Thread.currentThread());
+        if (this.mediaCodecThread.getId() == Thread.currentThread().getId()) {
+            return;
         }
+        throw new IllegalStateException("MediaCodecVideoDecoder previously operated on " + this.mediaCodecThread + " but is now called on " + Thread.currentThread());
     }
 
     public static VideoDecoderFactory createFactory() {
@@ -416,8 +406,8 @@ public class MediaCodecVideoDecoder {
         checkOnMediaCodecThread();
         try {
             return this.mediaCodec.dequeueInputBuffer(500000L);
-        } catch (IllegalStateException e) {
-            Logging.e(TAG, "dequeueIntputBuffer failed", e);
+        } catch (IllegalStateException e2) {
+            Logging.e(TAG, "dequeueIntputBuffer failed", e2);
             return -2;
         }
     }
@@ -425,9 +415,9 @@ public class MediaCodecVideoDecoder {
     @Nullable
     @CalledByNativeUnchecked
     private DecodedOutputBuffer dequeueOutputBuffer(int i) {
+        long j;
         int integer;
         int integer2;
-        long j = MAX_DECODE_TIME_MS;
         checkOnMediaCodecThread();
         if (this.decodeStartTimeMs.isEmpty()) {
             return null;
@@ -435,70 +425,68 @@ public class MediaCodecVideoDecoder {
         MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
         while (true) {
             int dequeueOutputBuffer = this.mediaCodec.dequeueOutputBuffer(bufferInfo, TimeUnit.MILLISECONDS.toMicros(i));
-            switch (dequeueOutputBuffer) {
-                case -3:
-                    this.outputBuffers = this.mediaCodec.getOutputBuffers();
-                    Logging.d(TAG, "Decoder output buffers changed: " + this.outputBuffers.length);
-                    if (!this.hasDecodedFirstFrame) {
-                        break;
-                    } else {
-                        throw new RuntimeException("Unexpected output buffer change event.");
-                    }
-                case -2:
-                    MediaFormat outputFormat = this.mediaCodec.getOutputFormat();
-                    Logging.d(TAG, "Decoder format changed: " + outputFormat.toString());
-                    if (outputFormat.containsKey(FORMAT_KEY_CROP_LEFT) && outputFormat.containsKey(FORMAT_KEY_CROP_RIGHT) && outputFormat.containsKey(FORMAT_KEY_CROP_BOTTOM) && outputFormat.containsKey(FORMAT_KEY_CROP_TOP)) {
-                        integer = (outputFormat.getInteger(FORMAT_KEY_CROP_RIGHT) + 1) - outputFormat.getInteger(FORMAT_KEY_CROP_LEFT);
-                        integer2 = (outputFormat.getInteger(FORMAT_KEY_CROP_BOTTOM) + 1) - outputFormat.getInteger(FORMAT_KEY_CROP_TOP);
-                    } else {
-                        integer = outputFormat.getInteger("width");
-                        integer2 = outputFormat.getInteger("height");
-                    }
-                    if (!this.hasDecodedFirstFrame || (integer == this.width && integer2 == this.height)) {
-                        this.width = integer;
-                        this.height = integer2;
-                        if (this.textureListener != null) {
-                            this.textureListener.setSize(this.width, this.height);
-                        }
-                        if (!useSurface() && outputFormat.containsKey("color-format")) {
-                            this.colorFormat = outputFormat.getInteger("color-format");
-                            Logging.d(TAG, "Color: 0x" + Integer.toHexString(this.colorFormat));
-                            if (!supportedColorList.contains(Integer.valueOf(this.colorFormat))) {
-                                throw new IllegalStateException("Non supported color format: " + this.colorFormat);
-                            }
-                        }
-                        if (outputFormat.containsKey(FORMAT_KEY_STRIDE)) {
-                            this.stride = outputFormat.getInteger(FORMAT_KEY_STRIDE);
-                        }
-                        if (outputFormat.containsKey(FORMAT_KEY_SLICE_HEIGHT)) {
-                            this.sliceHeight = outputFormat.getInteger(FORMAT_KEY_SLICE_HEIGHT);
-                        }
-                        if (Build.MODEL.contains("NV2001")) {
-                            if (this.sliceHeight == 360) {
-                                this.sliceHeight = 368;
-                            }
-                            if (this.sliceHeight == 540) {
-                                this.sliceHeight = VideoEncoderConfig.DEFAULT_ENCODE_HIGH_WIDTH;
-                            }
-                        }
-                        Logging.d(TAG, "Frame stride and slice height: " + this.stride + " x " + this.sliceHeight);
-                        this.stride = Math.max(this.width, this.stride);
-                        this.sliceHeight = Math.max(this.height, this.sliceHeight);
-                        break;
-                    }
-                    break;
-                case -1:
-                    return null;
-                default:
+            if (dequeueOutputBuffer == -3) {
+                this.outputBuffers = this.mediaCodec.getOutputBuffers();
+                Logging.d(TAG, "Decoder output buffers changed: " + this.outputBuffers.length);
+                if (this.hasDecodedFirstFrame) {
+                    throw new RuntimeException("Unexpected output buffer change event.");
+                }
+            } else if (dequeueOutputBuffer != -2) {
+                if (dequeueOutputBuffer != -1) {
                     this.hasDecodedFirstFrame = true;
                     TimeStamps remove = this.decodeStartTimeMs.remove();
                     long elapsedRealtime = SystemClock.elapsedRealtime() - remove.decodeStartTimeMs;
-                    if (elapsedRealtime > MAX_DECODE_TIME_MS) {
+                    if (elapsedRealtime > 200) {
                         Logging.e(TAG, "Very high decode time: " + elapsedRealtime + "ms. Q size: " + this.decodeStartTimeMs.size() + ". Might be caused by resuming H264 decoding after a pause.");
+                        j = 200L;
                     } else {
                         j = elapsedRealtime;
                     }
                     return new DecodedOutputBuffer(dequeueOutputBuffer, bufferInfo.offset, bufferInfo.size, TimeUnit.MICROSECONDS.toMillis(bufferInfo.presentationTimeUs), remove.timeStampMs, remove.ntpTimeStampMs, j, SystemClock.elapsedRealtime());
+                }
+                return null;
+            } else {
+                MediaFormat outputFormat = this.mediaCodec.getOutputFormat();
+                Logging.d(TAG, "Decoder format changed: " + outputFormat.toString());
+                if (outputFormat.containsKey("crop-left") && outputFormat.containsKey("crop-right") && outputFormat.containsKey("crop-bottom") && outputFormat.containsKey("crop-top")) {
+                    integer = (outputFormat.getInteger("crop-right") + 1) - outputFormat.getInteger("crop-left");
+                    integer2 = (outputFormat.getInteger("crop-bottom") + 1) - outputFormat.getInteger("crop-top");
+                } else {
+                    integer = outputFormat.getInteger("width");
+                    integer2 = outputFormat.getInteger("height");
+                }
+                if (!this.hasDecodedFirstFrame || (integer == this.width && integer2 == this.height)) {
+                    this.width = integer;
+                    this.height = integer2;
+                    TextureListener textureListener = this.textureListener;
+                    if (textureListener != null) {
+                        textureListener.setSize(integer, integer2);
+                    }
+                    if (!useSurface() && outputFormat.containsKey("color-format")) {
+                        this.colorFormat = outputFormat.getInteger("color-format");
+                        Logging.d(TAG, "Color: 0x" + Integer.toHexString(this.colorFormat));
+                        if (!supportedColorList.contains(Integer.valueOf(this.colorFormat))) {
+                            throw new IllegalStateException("Non supported color format: " + this.colorFormat);
+                        }
+                    }
+                    if (outputFormat.containsKey("stride")) {
+                        this.stride = outputFormat.getInteger("stride");
+                    }
+                    if (outputFormat.containsKey("slice-height")) {
+                        this.sliceHeight = outputFormat.getInteger("slice-height");
+                    }
+                    if (Build.MODEL.contains("NV2001")) {
+                        if (this.sliceHeight == 360) {
+                            this.sliceHeight = 368;
+                        }
+                        if (this.sliceHeight == 540) {
+                            this.sliceHeight = PayBeanFactory.BEAN_ID_PAY_SETTING;
+                        }
+                    }
+                    Logging.d(TAG, "Frame stride and slice height: " + this.stride + " x " + this.sliceHeight);
+                    this.stride = Math.max(this.width, this.stride);
+                    this.sliceHeight = Math.max(this.height, this.sliceHeight);
+                }
             }
         }
         throw new RuntimeException("Unexpected size change. Configured " + this.width + "*" + this.height + ". New " + integer + "*" + integer2);
@@ -507,6 +495,8 @@ public class MediaCodecVideoDecoder {
     @Nullable
     @CalledByNativeUnchecked
     private DecodedTextureBuffer dequeueTextureBuffer(int i) {
+        StringBuilder sb;
+        String str;
         checkOnMediaCodecThread();
         if (useSurface()) {
             DecodedOutputBuffer dequeueOutputBuffer = dequeueOutputBuffer(i);
@@ -522,10 +512,19 @@ public class MediaCodecVideoDecoder {
                 this.droppedFrames++;
                 DecodedOutputBuffer remove = this.dequeuedSurfaceOutputBuffers.remove();
                 if (i > 0) {
-                    Logging.w(TAG, "Draining decoder. Dropping frame with TS: " + remove.presentationTimeStampMs + ". Total number of dropped frames: " + this.droppedFrames);
+                    sb = new StringBuilder();
+                    str = "Draining decoder. Dropping frame with TS: ";
                 } else {
-                    Logging.w(TAG, "Too many output buffers " + this.dequeuedSurfaceOutputBuffers.size() + ". Dropping frame with TS: " + remove.presentationTimeStampMs + ". Total number of dropped frames: " + this.droppedFrames);
+                    sb = new StringBuilder();
+                    sb.append("Too many output buffers ");
+                    sb.append(this.dequeuedSurfaceOutputBuffers.size());
+                    str = ". Dropping frame with TS: ";
                 }
+                sb.append(str);
+                sb.append(remove.presentationTimeStampMs);
+                sb.append(". Total number of dropped frames: ");
+                sb.append(this.droppedFrames);
+                Logging.w(TAG, sb.toString());
                 this.mediaCodec.releaseOutputBuffer(remove.index, false);
                 return new DecodedTextureBuffer(null, remove.presentationTimeStampMs, remove.timeStampMs, remove.ntpTimeStampMs, remove.decodeTimeMs, SystemClock.elapsedRealtime() - remove.endDecodeTimeMs);
             } else {
@@ -542,23 +541,24 @@ public class MediaCodecVideoDecoder {
 
     public static void disableVp8HwCodec() {
         Logging.w(TAG, "VP8 decoding is disabled by application.");
-        hwDecoderDisabledTypes.add(VP8_MIME_TYPE);
+        hwDecoderDisabledTypes.add("video/x-vnd.on2.vp8");
     }
 
     public static void disableVp9HwCodec() {
         Logging.w(TAG, "VP9 decoding is disabled by application.");
-        hwDecoderDisabledTypes.add(VP9_MIME_TYPE);
+        hwDecoderDisabledTypes.add("video/x-vnd.on2.vp9");
     }
 
     public static void disposeEglContext() {
-        if (eglBase != null) {
-            eglBase.release();
+        EglBase eglBase2 = eglBase;
+        if (eglBase2 != null) {
+            eglBase2.release();
             eglBase = null;
         }
     }
 
     @Nullable
-    private static DecoderProperties findDecoder(String str, String[] strArr) {
+    public static DecoderProperties findDecoder(String str, String[] strArr) {
         MediaCodecInfo mediaCodecInfo;
         String str2;
         boolean z;
@@ -570,8 +570,8 @@ public class MediaCodecVideoDecoder {
         for (int i = 0; i < MediaCodecList.getCodecCount(); i++) {
             try {
                 mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
-            } catch (IllegalArgumentException e) {
-                Logging.e(TAG, "Cannot retrieve decoder codec info", e);
+            } catch (IllegalArgumentException e2) {
+                Logging.e(TAG, "Cannot retrieve decoder codec info", e2);
                 mediaCodecInfo = null;
             }
             if (mediaCodecInfo != null && !mediaCodecInfo.isEncoder()) {
@@ -589,7 +589,9 @@ public class MediaCodecVideoDecoder {
                         i2++;
                     }
                 }
-                if (str2 != null) {
+                if (str2 == null) {
+                    continue;
+                } else {
                     Logging.d(TAG, "Found candidate decoder " + str2);
                     int length2 = strArr.length;
                     int i3 = 0;
@@ -627,14 +629,12 @@ public class MediaCodecVideoDecoder {
                                 }
                             }
                             continue;
-                        } catch (IllegalArgumentException e2) {
-                            Logging.e(TAG, "Cannot retrieve decoder capabilities", e2);
+                        } catch (IllegalArgumentException e3) {
+                            Logging.e(TAG, "Cannot retrieve decoder capabilities", e3);
                         }
                     } else {
                         continue;
                     }
-                } else {
-                    continue;
                 }
             }
         }
@@ -644,74 +644,76 @@ public class MediaCodecVideoDecoder {
 
     @CalledByNativeUnchecked
     private boolean initDecode(VideoCodecType videoCodecType, int i, int i2) {
-        String str;
         String[] supportedH264HwCodecPrefixes;
+        String str;
         SurfaceTextureHelper create;
-        if (this.mediaCodecThread != null) {
-            throw new RuntimeException("initDecode: Forgot to release()?");
-        }
-        if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP8) {
-            str = VP8_MIME_TYPE;
-            supportedH264HwCodecPrefixes = supportedVp8HwCodecPrefixes();
-        } else if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP9) {
-            str = VP9_MIME_TYPE;
-            supportedH264HwCodecPrefixes = supportedVp9HwCodecPrefixes;
-        } else if (videoCodecType != VideoCodecType.VIDEO_CODEC_H264) {
-            throw new RuntimeException("initDecode: Non-supported codec " + videoCodecType);
-        } else {
-            str = "video/avc";
-            supportedH264HwCodecPrefixes = supportedH264HwCodecPrefixes();
-        }
-        DecoderProperties findDecoder = findDecoder(str, supportedH264HwCodecPrefixes);
-        if (findDecoder == null) {
-            throw new RuntimeException("Cannot find HW decoder for " + videoCodecType);
-        }
-        Logging.d(TAG, "Java initDecode: " + videoCodecType + " : " + i + " x " + i2 + ". Color: 0x" + Integer.toHexString(findDecoder.colorFormat) + ". Use Surface: " + useSurface());
-        runningInstance = this;
-        this.mediaCodecThread = Thread.currentThread();
-        try {
-            this.width = i;
-            this.height = i2;
-            this.stride = i;
-            this.sliceHeight = i2;
-            if (useSurface() && (create = SurfaceTextureHelper.create("Decoder SurfaceTextureHelper", eglBase.getEglBaseContext())) != null) {
-                this.textureListener = new TextureListener(create);
-                this.textureListener.setSize(i, i2);
-                this.surface = new Surface(create.getSurfaceTexture());
+        if (this.mediaCodecThread == null) {
+            if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP8) {
+                supportedH264HwCodecPrefixes = supportedVp8HwCodecPrefixes();
+                str = "video/x-vnd.on2.vp8";
+            } else if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP9) {
+                supportedH264HwCodecPrefixes = supportedVp9HwCodecPrefixes;
+                str = "video/x-vnd.on2.vp9";
+            } else if (videoCodecType != VideoCodecType.VIDEO_CODEC_H264) {
+                throw new RuntimeException("initDecode: Non-supported codec " + videoCodecType);
+            } else {
+                supportedH264HwCodecPrefixes = supportedH264HwCodecPrefixes();
+                str = "video/avc";
             }
-            MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i, i2);
-            if (!useSurface()) {
-                createVideoFormat.setInteger("color-format", findDecoder.colorFormat);
+            DecoderProperties findDecoder = findDecoder(str, supportedH264HwCodecPrefixes);
+            if (findDecoder == null) {
+                throw new RuntimeException("Cannot find HW decoder for " + videoCodecType);
             }
-            Logging.d(TAG, "  Format: " + createVideoFormat);
-            this.mediaCodec = MediaCodecVideoEncoder.createByCodecName(findDecoder.codecName);
-            if (this.mediaCodec == null) {
-                Logging.e(TAG, "Can not create media decoder");
+            Logging.d(TAG, "Java initDecode: " + videoCodecType + ZeusCrashHandler.NAME_SEPERATOR + i + " x " + i2 + ". Color: 0x" + Integer.toHexString(findDecoder.colorFormat) + ". Use Surface: " + useSurface());
+            runningInstance = this;
+            this.mediaCodecThread = Thread.currentThread();
+            try {
+                this.width = i;
+                this.height = i2;
+                this.stride = i;
+                this.sliceHeight = i2;
+                if (useSurface() && (create = SurfaceTextureHelper.create("Decoder SurfaceTextureHelper", eglBase.getEglBaseContext())) != null) {
+                    TextureListener textureListener = new TextureListener(create);
+                    this.textureListener = textureListener;
+                    textureListener.setSize(i, i2);
+                    this.surface = new Surface(create.getSurfaceTexture());
+                }
+                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i, i2);
+                if (!useSurface()) {
+                    createVideoFormat.setInteger("color-format", findDecoder.colorFormat);
+                }
+                Logging.d(TAG, "  Format: " + createVideoFormat);
+                MediaCodec createByCodecName = MediaCodecVideoEncoder.createByCodecName(findDecoder.codecName);
+                this.mediaCodec = createByCodecName;
+                if (createByCodecName == null) {
+                    Logging.e(TAG, "Can not create media decoder");
+                    return false;
+                }
+                createByCodecName.configure(createVideoFormat, this.surface, (MediaCrypto) null, 0);
+                this.mediaCodec.start();
+                this.colorFormat = findDecoder.colorFormat;
+                this.outputBuffers = this.mediaCodec.getOutputBuffers();
+                this.inputBuffers = this.mediaCodec.getInputBuffers();
+                this.decodeStartTimeMs.clear();
+                this.hasDecodedFirstFrame = false;
+                this.dequeuedSurfaceOutputBuffers.clear();
+                this.droppedFrames = 0;
+                Logging.d(TAG, "Input buffers: " + this.inputBuffers.length + ". Output buffers: " + this.outputBuffers.length);
+                return true;
+            } catch (IllegalStateException e2) {
+                Logging.e(TAG, "initDecode failed", e2);
                 return false;
             }
-            this.mediaCodec.configure(createVideoFormat, this.surface, (MediaCrypto) null, 0);
-            this.mediaCodec.start();
-            this.colorFormat = findDecoder.colorFormat;
-            this.outputBuffers = this.mediaCodec.getOutputBuffers();
-            this.inputBuffers = this.mediaCodec.getInputBuffers();
-            this.decodeStartTimeMs.clear();
-            this.hasDecodedFirstFrame = false;
-            this.dequeuedSurfaceOutputBuffers.clear();
-            this.droppedFrames = 0;
-            Logging.d(TAG, "Input buffers: " + this.inputBuffers.length + ". Output buffers: " + this.outputBuffers.length);
-            return true;
-        } catch (IllegalStateException e) {
-            Logging.e(TAG, "initDecode failed", e);
-            return false;
         }
+        throw new RuntimeException("initDecode: Forgot to release()?");
     }
 
     public static boolean isH264HighProfileHwSupported() {
         if (hwDecoderDisabledTypes.contains("video/avc")) {
             return false;
         }
-        if (Build.VERSION.SDK_INT < 21 || findDecoder("video/avc", new String[]{supportedQcomH264HighProfileHwCodecPrefix}) == null) {
-            if (Build.VERSION.SDK_INT < 23 || findDecoder("video/avc", new String[]{supportedExynosH264HighProfileHwCodecPrefix}) == null) {
+        if (Build.VERSION.SDK_INT < 21 || findDecoder("video/avc", new String[]{"OMX.qcom."}) == null) {
+            if (Build.VERSION.SDK_INT < 23 || findDecoder("video/avc", new String[]{"OMX.Exynos."}) == null) {
                 if (!PeerConnectionFactory.fieldTrialsFindFullName("WebRTC-MediaTekH264").equals(PeerConnectionFactory.TRIAL_ENABLED) || Build.VERSION.SDK_INT < 27 || findDecoder("video/avc", new String[]{supportedMediaTekH264HighProfileHwCodecPrefix}) == null) {
                     return Build.VERSION.SDK_INT >= 23 && findDecoder("video/avc", new String[]{supportedHisiH264HighProfileHwCodecPrefix}) != null;
                 }
@@ -727,21 +729,22 @@ public class MediaCodecVideoDecoder {
     }
 
     public static boolean isVp8HwSupported() {
-        return (hwDecoderDisabledTypes.contains(VP8_MIME_TYPE) || findDecoder(VP8_MIME_TYPE, supportedVp8HwCodecPrefixes()) == null) ? false : true;
+        return (hwDecoderDisabledTypes.contains("video/x-vnd.on2.vp8") || findDecoder("video/x-vnd.on2.vp8", supportedVp8HwCodecPrefixes()) == null) ? false : true;
     }
 
     public static boolean isVp9HwSupported() {
-        return (hwDecoderDisabledTypes.contains(VP9_MIME_TYPE) || findDecoder(VP9_MIME_TYPE, supportedVp9HwCodecPrefixes) == null) ? false : true;
+        return (hwDecoderDisabledTypes.contains("video/x-vnd.on2.vp9") || findDecoder("video/x-vnd.on2.vp9", supportedVp9HwCodecPrefixes) == null) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static native long nativeCreateDecoder(String str, boolean z);
 
     public static void printStackTrace() {
-        if (runningInstance == null || runningInstance.mediaCodecThread == null) {
+        Thread thread;
+        MediaCodecVideoDecoder mediaCodecVideoDecoder = runningInstance;
+        if (mediaCodecVideoDecoder == null || (thread = mediaCodecVideoDecoder.mediaCodecThread) == null) {
             return;
         }
-        StackTraceElement[] stackTrace = runningInstance.mediaCodecThread.getStackTrace();
+        StackTraceElement[] stackTrace = thread.getStackTrace();
         if (stackTrace.length > 0) {
             Logging.d(TAG, "MediaCodecVideoDecoder stacks trace:");
             for (StackTraceElement stackTraceElement : stackTrace) {
@@ -759,8 +762,8 @@ public class MediaCodecVideoDecoder {
             this.decodeStartTimeMs.add(new TimeStamps(SystemClock.elapsedRealtime(), j2, j3));
             this.mediaCodec.queueInputBuffer(i, 0, i2, j, 0);
             return true;
-        } catch (IllegalStateException e) {
-            Logging.e(TAG, "decode failed", e);
+        } catch (IllegalStateException e2) {
+            Logging.e(TAG, "decode failed", e2);
             return false;
         }
     }
@@ -778,8 +781,8 @@ public class MediaCodecVideoDecoder {
                     MediaCodecVideoDecoder.this.mediaCodec.stop();
                     MediaCodecVideoDecoder.this.mediaCodec.release();
                     Logging.d(MediaCodecVideoDecoder.TAG, "Java releaseDecoder on release thread done");
-                } catch (Exception e) {
-                    Logging.e(MediaCodecVideoDecoder.TAG, "Media decoder release failed", e);
+                } catch (Exception e2) {
+                    Logging.e(MediaCodecVideoDecoder.TAG, "Media decoder release failed", e2);
                 }
                 countDownLatch.countDown();
             }
@@ -812,8 +815,9 @@ public class MediaCodecVideoDecoder {
         this.mediaCodec.flush();
         this.width = i;
         this.height = i2;
-        if (this.textureListener != null) {
-            this.textureListener.setSize(i, i2);
+        TextureListener textureListener = this.textureListener;
+        if (textureListener != null) {
+            textureListener.setSize(i, i2);
         }
         this.decodeStartTimeMs.clear();
         this.dequeuedSurfaceOutputBuffers.clear();
@@ -843,18 +847,18 @@ public class MediaCodecVideoDecoder {
         errorCallback = mediaCodecVideoDecoderErrorCallback;
     }
 
-    private static final String[] supportedH264HwCodecPrefixes() {
+    public static final String[] supportedH264HwCodecPrefixes() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(supportedQcomH264HighProfileHwCodecPrefix);
-        arrayList.add("OMX.Intel.");
+        arrayList.add("OMX.qcom.");
+        arrayList.add(MediaCodecUtils.INTEL_PREFIX);
         arrayList.add(supportedHisiH264HighProfileHwCodecPrefix);
-        arrayList.add(supportedExynosH264HighProfileHwCodecPrefix);
+        arrayList.add("OMX.Exynos.");
         if (PeerConnectionFactory.fieldTrialsFindFullName("BRTC.MTK.H264.Decode").equals(PeerConnectionFactory.TRIAL_ENABLED)) {
             arrayList.add(supportedMediaTekH264HighProfileHwCodecPrefix);
         }
         arrayList.add("OMX.rk.");
         arrayList.add("OMX.allwinner.");
-        arrayList.add("OMX.Nvidia.");
+        arrayList.add(MediaCodecUtils.NVIDIA_PREFIX);
         arrayList.add("OMX.IMG.");
         arrayList.add("OMX.amlogic.");
         arrayList.add("OMX.google.");
@@ -862,54 +866,54 @@ public class MediaCodecVideoDecoder {
         return (String[]) arrayList.toArray(new String[arrayList.size()]);
     }
 
-    private static final String[] supportedVp8HwCodecPrefixes() {
+    public static final String[] supportedVp8HwCodecPrefixes() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(supportedQcomH264HighProfileHwCodecPrefix);
-        arrayList.add("OMX.Nvidia.");
-        arrayList.add(supportedExynosH264HighProfileHwCodecPrefix);
-        arrayList.add("OMX.Intel.");
+        arrayList.add("OMX.qcom.");
+        arrayList.add(MediaCodecUtils.NVIDIA_PREFIX);
+        arrayList.add("OMX.Exynos.");
+        arrayList.add(MediaCodecUtils.INTEL_PREFIX);
         if (PeerConnectionFactory.fieldTrialsFindFullName("WebRTC-MediaTekVP8").equals(PeerConnectionFactory.TRIAL_ENABLED) && Build.VERSION.SDK_INT >= 24) {
             arrayList.add(supportedMediaTekH264HighProfileHwCodecPrefix);
         }
         return (String[]) arrayList.toArray(new String[arrayList.size()]);
     }
 
-    static boolean useSurface() {
+    public static boolean useSurface() {
         return eglBase != null;
     }
 
     @CalledByNative
-    int getColorFormat() {
+    public int getColorFormat() {
         return this.colorFormat;
     }
 
     @CalledByNative
-    int getHeight() {
+    public int getHeight() {
         return this.height;
     }
 
     @CalledByNative
-    ByteBuffer[] getInputBuffers() {
+    public ByteBuffer[] getInputBuffers() {
         return this.inputBuffers;
     }
 
     @CalledByNative
-    ByteBuffer[] getOutputBuffers() {
+    public ByteBuffer[] getOutputBuffers() {
         return this.outputBuffers;
     }
 
     @CalledByNative
-    int getSliceHeight() {
+    public int getSliceHeight() {
         return this.sliceHeight;
     }
 
     @CalledByNative
-    int getStride() {
+    public int getStride() {
         return this.stride;
     }
 
     @CalledByNative
-    int getWidth() {
+    public int getWidth() {
         return this.width;
     }
 }

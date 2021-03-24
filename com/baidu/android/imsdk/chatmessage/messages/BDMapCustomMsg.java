@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDMapCustomMsg extends NormalMsg {
     public static final Parcelable.Creator<BDMapCustomMsg> CREATOR = new Parcelable.Creator<BDMapCustomMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.BDMapCustomMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -20,12 +20,14 @@ public class BDMapCustomMsg extends NormalMsg {
         }
     };
 
-    public BDMapCustomMsg() {
-        setMsgType(101);
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        return "[自定义消息]";
     }
 
-    private BDMapCustomMsg(Parcel parcel) {
-        super(parcel);
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        return true;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -33,13 +35,11 @@ public class BDMapCustomMsg extends NormalMsg {
         super.writeToParcel(parcel, i);
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        return true;
+    public BDMapCustomMsg() {
+        setMsgType(101);
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        return "[自定义消息]";
+    public BDMapCustomMsg(Parcel parcel) {
+        super(parcel);
     }
 }

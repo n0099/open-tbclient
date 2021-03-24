@@ -6,59 +6,86 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.n.l;
-/* loaded from: classes.dex */
+import d.b.h0.m0.l;
+/* loaded from: classes4.dex */
 public class AlaJumpStatStatic {
-    public static String Tag = "tag";
 
-    static {
-        MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.b.b(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) { // from class: com.baidu.tieba.ala.AlaJumpStatStatic.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.b.f
-            public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-                Object data;
-                if (customMessage != null && customMessageTask == null && (data = customMessage.getData()) != null) {
-                    AlaJumpStatStatic.j(data, data.getClass().getSimpleName());
-                }
-                return customMessage;
+    /* loaded from: classes4.dex */
+    public static class a extends d.b.b.c.f.b {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+        @Override // d.b.b.c.f.f
+        public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            CustomMessage<?> customMessage2 = customMessage;
+            process2(customMessage2, customMessageTask);
+            return customMessage2;
+        }
+
+        /* renamed from: process  reason: avoid collision after fix types in other method */
+        public CustomMessage<?> process2(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            Object data;
+            if (customMessage != null && customMessageTask == null && (data = customMessage.getData()) != null) {
+                AlaJumpStatStatic.b(data, data.getClass().getSimpleName());
             }
-        });
-        MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.b.b(CmdConfigCustom.START_GO_ACTION) { // from class: com.baidu.tieba.ala.AlaJumpStatStatic.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.b.f
-            public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-                Object data;
-                if (customMessage != null && (data = customMessage.getData()) != null) {
-                    String simpleName = data.getClass().getSimpleName();
-                    if (("AlaLiveRoomActivityConfig".equals(simpleName) || "AlaMasterLiveRoomActivityConfig".equals(simpleName) || "AlaWriteShareInBarActivityConfig".equals(simpleName) || "AlaLiveFloatWindowActivityConfig".equals(simpleName) || "AlaPersonCenterActivityConfig".equals(simpleName)) && TbadkCoreApplication.getInst().getIntentClass(data.getClass()) == null) {
-                        AlaJumpStatStatic.j(data, simpleName);
-                    }
-                }
-                return customMessage;
-            }
-        });
+            return customMessage;
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final void j(Object obj, String str) {
-        com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-        statsItem.append("workflow", "ala_jump_fail");
-        statsItem.append("config", str);
-        statsItem.append("startTime", Long.valueOf(System.currentTimeMillis() - l.bEp().bEo()));
+    /* loaded from: classes4.dex */
+    public static class b extends d.b.b.c.f.b {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+        @Override // d.b.b.c.f.f
+        public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            CustomMessage<?> customMessage2 = customMessage;
+            process2(customMessage2, customMessageTask);
+            return customMessage2;
+        }
+
+        /* renamed from: process  reason: avoid collision after fix types in other method */
+        public CustomMessage<?> process2(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            Object data;
+            if (customMessage != null && (data = customMessage.getData()) != null) {
+                String simpleName = data.getClass().getSimpleName();
+                if (("AlaLiveRoomActivityConfig".equals(simpleName) || "AlaMasterLiveRoomActivityConfig".equals(simpleName) || "AlaWriteShareInBarActivityConfig".equals(simpleName) || "AlaLiveFloatWindowActivityConfig".equals(simpleName) || "AlaPersonCenterActivityConfig".equals(simpleName)) && TbadkCoreApplication.getInst().getIntentClass(data.getClass()) == null) {
+                    AlaJumpStatStatic.b(data, simpleName);
+                }
+            }
+            return customMessage;
+        }
+    }
+
+    static {
+        MessageManager.getInstance().addMessageRule(new a(2911003));
+        MessageManager.getInstance().addMessageRule(new b(2002001));
+    }
+
+    public static final void b(Object obj, String str) {
+        d.b.b.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+        statsItem.b("workflow", "ala_jump_fail");
+        statsItem.b("config", str);
+        statsItem.c("startTime", Long.valueOf(System.currentTimeMillis() - l.b().c()));
         if (obj instanceof AlaLiveRoomActivityConfig) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
-            statsItem.append("fromType", alaLiveRoomActivityConfig.getIntent().getStringExtra("live_from_type"));
-            statsItem.append("liveUname", alaLiveRoomActivityConfig.getIntent().getStringExtra("user_name"));
+            statsItem.b("fromType", alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));
+            statsItem.b("liveUname", alaLiveRoomActivityConfig.getIntent().getStringExtra("user_name"));
             try {
                 AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) alaLiveRoomActivityConfig.getIntent().getSerializableExtra("live_info_core");
                 if (alaLiveInfoCoreData != null) {
-                    statsItem.append("hostUid", Long.valueOf(alaLiveInfoCoreData.userID));
-                    statsItem.append("hostUname", alaLiveInfoCoreData.userName);
-                    statsItem.append(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, Long.valueOf(alaLiveInfoCoreData.liveID));
+                    statsItem.c("hostUid", Long.valueOf(alaLiveInfoCoreData.userID));
+                    statsItem.b("hostUname", alaLiveInfoCoreData.userName);
+                    statsItem.c(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, Long.valueOf(alaLiveInfoCoreData.liveID));
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

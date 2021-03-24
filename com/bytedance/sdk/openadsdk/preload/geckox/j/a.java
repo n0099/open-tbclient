@@ -34,14 +34,7 @@ public class a {
         return com.bytedance.sdk.openadsdk.preload.b.c.a(arrayList, null);
     }
 
-    private static h a(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
-        l.b bVar3 = new l.b();
-        bVar3.a("patch").a(c(aVar, file, bVar, bVar2));
-        bVar3.a("full").a(b(aVar, file, bVar, bVar2));
-        return bVar3.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class);
-    }
-
-    private static List<h> b(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
+    public static List<h> b(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(h.a.a().a(g.class).b());
         arrayList.add(h.a.a().a(com.bytedance.sdk.openadsdk.preload.geckox.d.a.a.b.class).a(bVar, file).a(new com.bytedance.sdk.openadsdk.preload.b.b.b(e(aVar), bVar2.a(com.bytedance.sdk.openadsdk.preload.geckox.d.a.a.b.class))).b());
@@ -50,7 +43,7 @@ public class a {
         return arrayList;
     }
 
-    private static List<h> c(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
+    public static List<h> c(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(h.a.a().a(com.bytedance.sdk.openadsdk.preload.geckox.d.h.class).b());
         arrayList.add(h.a.a().a(com.bytedance.sdk.openadsdk.preload.geckox.d.a.b.c.class).a(bVar, file).a(new com.bytedance.sdk.openadsdk.preload.b.b.b(e(aVar), bVar2.a(com.bytedance.sdk.openadsdk.preload.geckox.d.a.b.c.class))).b());
@@ -61,14 +54,14 @@ public class a {
         return arrayList;
     }
 
-    private static h d(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
+    public static h d(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
         l.b bVar3 = new l.b();
         bVar3.a("patch").a(f(aVar, file, bVar, bVar2));
         bVar3.a("full").a(e(aVar, file, bVar, bVar2));
         return bVar3.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class);
     }
 
-    private static List<h> e(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
+    public static List<h> e(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(h.a.a().a(g.class).b());
         arrayList.add(h.a.a().a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.a.b.class).a(bVar, file).a(new com.bytedance.sdk.openadsdk.preload.b.b.b(e(aVar), bVar2.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.a.b.class))).b());
@@ -78,7 +71,7 @@ public class a {
         return arrayList;
     }
 
-    private static List<h> f(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
+    public static List<h> f(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(h.a.a().a(com.bytedance.sdk.openadsdk.preload.geckox.d.h.class).b());
         arrayList.add(h.a.a().a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.b.c.class).a(bVar, file).a(new com.bytedance.sdk.openadsdk.preload.b.b.b(e(aVar), bVar2.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.b.c.class))).b());
@@ -90,35 +83,31 @@ public class a {
         return arrayList;
     }
 
-    private static h g(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
+    public static h g(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
         l.b bVar3 = new l.b();
         bVar3.a("patch").a(b(aVar, file, bVar));
         bVar3.a("full").a(a(aVar, file, bVar));
         return bVar3.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class);
     }
 
-    private static List<h> a(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar) {
-        return Collections.emptyList();
-    }
-
-    private static List<h> b(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar) {
-        return Collections.emptyList();
-    }
-
-    private static com.bytedance.sdk.openadsdk.preload.b.b.a a(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a d(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (aVar == null) {
             return null;
         }
-        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.j.a.1
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.j.a.4
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
             public <T> void a(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
-                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a(((UpdatePackage) bVar.b(f.class)).getChannel(), th);
+                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
             }
         };
     }
 
-    private static com.bytedance.sdk.openadsdk.preload.b.b.a b(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+    public static List<h> b(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar) {
+        return Collections.emptyList();
+    }
+
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a b(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (aVar == null) {
             return null;
         }
@@ -132,47 +121,15 @@ public class a {
         };
     }
 
-    private static com.bytedance.sdk.openadsdk.preload.b.b.a c(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
-        if (aVar == null) {
-            return null;
-        }
-        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.j.a.3
-            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
-            public <T> void b(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
-                super.b(bVar, dVar);
-                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.b((UpdatePackage) bVar.b(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class));
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
-            public <T> void a(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
-                super.a(bVar, dVar, th);
-                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
-            }
-        };
-    }
-
-    private static com.bytedance.sdk.openadsdk.preload.b.b.a d(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
-        if (aVar == null) {
-            return null;
-        }
-        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.j.a.4
-            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
-            public <T> void a(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
-                super.a(bVar, dVar, th);
-                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
-            }
-        };
-    }
-
-    private static com.bytedance.sdk.openadsdk.preload.b.b.a e(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a e(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (aVar == null) {
             return null;
         }
         return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.j.a.5
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
-            public <T> void c(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
-                super.c(bVar, dVar);
-                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class));
+            public <T> void a(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
+                super.a(bVar, dVar, th);
+                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.b((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
             }
 
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -182,18 +139,67 @@ public class a {
             }
 
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
-            public <T> void a(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
-                super.a(bVar, dVar, th);
-                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.b((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
+            public <T> void c(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
+                super.c(bVar, dVar);
+                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class));
             }
         };
     }
 
-    private static com.bytedance.sdk.openadsdk.preload.b.b.a f(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+    public static h a(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
+        l.b bVar3 = new l.b();
+        bVar3.a("patch").a(c(aVar, file, bVar, bVar2));
+        bVar3.a("full").a(b(aVar, file, bVar, bVar2));
+        return bVar3.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class);
+    }
+
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a c(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+        if (aVar == null) {
+            return null;
+        }
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.j.a.3
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
+                super.a(bVar, dVar, th);
+                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
+                super.b(bVar, dVar);
+                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.b((UpdatePackage) bVar.b(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class));
+            }
+        };
+    }
+
+    public static List<h> a(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar) {
+        return Collections.emptyList();
+    }
+
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a a(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+        if (aVar == null) {
+            return null;
+        }
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.j.a.1
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
+                super.a(bVar, dVar, th);
+                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a(((UpdatePackage) bVar.b(f.class)).getChannel(), th);
+            }
+        };
+    }
+
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a f(final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (aVar == null) {
             return null;
         }
         return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.j.a.6
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
+                super.a(bVar, dVar, th);
+                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a((Map) bVar.a(c.class), th);
+            }
+
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
             public <T> void b(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
@@ -209,12 +215,6 @@ public class a {
                     hashMap.put(accessKey, list);
                 }
                 com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a(map, hashMap);
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
-            public <T> void a(b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
-                super.a(bVar, dVar, th);
-                com.bytedance.sdk.openadsdk.preload.geckox.e.a.this.a((Map) bVar.a(c.class), th);
             }
         };
     }

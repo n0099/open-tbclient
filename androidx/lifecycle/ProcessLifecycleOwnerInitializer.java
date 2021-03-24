@@ -8,19 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class ProcessLifecycleOwnerInitializer extends ContentProvider {
     @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        LifecycleDispatcher.init(getContext());
-        ProcessLifecycleOwner.init(getContext());
-        return true;
-    }
-
-    @Override // android.content.ContentProvider
-    @Nullable
-    public Cursor query(@NonNull Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        return null;
+    public int delete(@NonNull Uri uri, String str, String[] strArr) {
+        return 0;
     }
 
     @Override // android.content.ContentProvider
@@ -36,8 +28,16 @@ public class ProcessLifecycleOwnerInitializer extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int delete(@NonNull Uri uri, String str, String[] strArr) {
-        return 0;
+    public boolean onCreate() {
+        LifecycleDispatcher.init(getContext());
+        ProcessLifecycleOwner.init(getContext());
+        return true;
+    }
+
+    @Override // android.content.ContentProvider
+    @Nullable
+    public Cursor query(@NonNull Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+        return null;
     }
 
     @Override // android.content.ContentProvider

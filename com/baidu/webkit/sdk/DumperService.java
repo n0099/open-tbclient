@@ -10,31 +10,28 @@ import android.telephony.TelephonyManager;
 import com.baidu.webkit.sdk.dumper.CrashCallback;
 import com.baidu.webkit.sdk.dumper.ZeusLogUploader;
 import com.baidu.webkit.sdk.dumper.ZwDebug;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class DumperService extends Service implements ZeusLogUploader.OnFinishedListener {
-    private static final String CALLBACK = "CRASH_CALLBACK";
-    private static final String CRASHLOGENCRYPT = "CRASHLOGENCRYPT";
-    private static final String ENCRYPTKEY = "ENCRYPTKEY";
-    private static final String HTTPS = "HTTPS";
-    private static final String LOG = "CRASH_FILE";
-    private static final String SIGNAL = "CRASH_SIGNAL";
-    private static final String TAG = "DumperService";
-    private static final String TIME = "CRASH_TIME";
-    private static final String TYPE = "LOG_TYPE";
-    private String mCallback;
-    private String mCrashImei;
-    private int mCrashSignal;
-    private long mCrashTime;
-    private ZeusLogUploader mLogUploader;
-    private boolean mCrashLogFailedEncrypt = true;
-    private String mEncryptKey = "";
+    public static final String CALLBACK = "CRASH_CALLBACK";
+    public static final String CRASHLOGENCRYPT = "CRASHLOGENCRYPT";
+    public static final String ENCRYPTKEY = "ENCRYPTKEY";
+    public static final String HTTPS = "HTTPS";
+    public static final String LOG = "CRASH_FILE";
+    public static final String SIGNAL = "CRASH_SIGNAL";
+    public static final String TAG = "DumperService";
+    public static final String TIME = "CRASH_TIME";
+    public static final String TYPE = "LOG_TYPE";
+    public String mCallback;
+    public String mCrashImei;
+    public int mCrashSignal;
+    public long mCrashTime;
+    public ZeusLogUploader mLogUploader;
+    public boolean mCrashLogFailedEncrypt = true;
+    public String mEncryptKey = "";
 
     private boolean isNetworkConnected(Context context) {
-        if (context == null) {
-            return false;
-        }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
+        NetworkInfo activeNetworkInfo;
+        return (context == null || (activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) ? false : true;
     }
 
     @Override // android.app.Service
@@ -53,22 +50,38 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
         System.exit(0);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0035  */
     @Override // com.baidu.webkit.sdk.dumper.ZeusLogUploader.OnFinishedListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final void onFinished(String str, int i, String str2) {
+        Object obj;
+        ZeusLogUploader zeusLogUploader;
         Context applicationContext = getApplicationContext();
-        Object obj = null;
-        if (this.mCallback != null && !this.mCallback.isEmpty()) {
+        String str3 = this.mCallback;
+        if (str3 != null && !str3.isEmpty()) {
             try {
                 obj = Class.forName(this.mCallback).newInstance();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
+            if (this.mCrashLogFailedEncrypt && i == 3 && (zeusLogUploader = this.mLogUploader) != null && zeusLogUploader.encryptUploadFailedFile(str, true) != 6) {
+                str2 = "Failed to encrypt file.";
+            }
+            if (obj != null) {
+                ((CrashCallback) obj).onCrash(applicationContext, this.mCrashImei, this.mCrashSignal, this.mCrashTime, str, i, str2);
+            }
+            Log.d(TAG, "DumperService::onFinished  status=" + i + ", msg=" + str2);
+            stopSelf();
         }
-        String str3 = (!this.mCrashLogFailedEncrypt || i != 3 || this.mLogUploader == null || this.mLogUploader.encryptUploadFailedFile(str, true) == 6) ? str2 : "Failed to encrypt file.";
+        obj = null;
+        if (this.mCrashLogFailedEncrypt) {
+            str2 = "Failed to encrypt file.";
+        }
         if (obj != null) {
-            ((CrashCallback) obj).onCrash(applicationContext, this.mCrashImei, this.mCrashSignal, this.mCrashTime, str, i, str3);
         }
-        Log.d(TAG, "DumperService::onFinished  status=" + i + ", msg=" + str3);
+        Log.d(TAG, "DumperService::onFinished  status=" + i + ", msg=" + str2);
         stopSelf();
     }
 
@@ -77,26 +90,31 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
         if (intent == null) {
             stopSelf();
         }
-        String stringExtra = intent.getStringExtra(TYPE);
-        String stringExtra2 = intent.getStringExtra(LOG);
-        boolean booleanExtra = intent.getBooleanExtra(HTTPS, true);
-        this.mCrashSignal = intent.getIntExtra(SIGNAL, -1);
-        this.mCrashTime = intent.getLongExtra(TIME, -1L);
-        this.mCallback = intent.getStringExtra(CALLBACK);
-        this.mCrashLogFailedEncrypt = intent.getBooleanExtra(CRASHLOGENCRYPT, true);
-        this.mEncryptKey = intent.getStringExtra(ENCRYPTKEY);
-        this.mLogUploader = new ZeusLogUploader(stringExtra, null, booleanExtra);
-        if (this.mLogUploader != null) {
+        String stringExtra = intent.getStringExtra("LOG_TYPE");
+        String stringExtra2 = intent.getStringExtra("CRASH_FILE");
+        boolean booleanExtra = intent.getBooleanExtra("HTTPS", true);
+        this.mCrashSignal = intent.getIntExtra("CRASH_SIGNAL", -1);
+        this.mCrashTime = intent.getLongExtra("CRASH_TIME", -1L);
+        this.mCallback = intent.getStringExtra("CRASH_CALLBACK");
+        this.mCrashLogFailedEncrypt = intent.getBooleanExtra("CRASHLOGENCRYPT", true);
+        this.mEncryptKey = intent.getStringExtra("ENCRYPTKEY");
+        ZeusLogUploader zeusLogUploader = new ZeusLogUploader(stringExtra, null, booleanExtra);
+        this.mLogUploader = zeusLogUploader;
+        if (zeusLogUploader != null) {
             ZeusLogUploader.setEncryptKey(this.mEncryptKey);
             ZeusLogUploader.setUploadCrashLogFailedEncrypt(this.mCrashLogFailedEncrypt);
         }
         ZwDebug.init(this);
         try {
             this.mCrashImei = ((TelephonyManager) getSystemService("phone")).getDeviceId();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        this.mCrashImei = this.mCrashImei == null ? "0" : this.mCrashImei;
+        String str = this.mCrashImei;
+        if (str == null) {
+            str = "0";
+        }
+        this.mCrashImei = str;
         if (!isNetworkConnected(getApplicationContext())) {
             onFinished(stringExtra2, 3, "doUpload Failed, Network is not connected.");
             return 3;
@@ -105,8 +123,9 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
             stopSelf();
             return 0;
         } else {
-            if (this.mLogUploader != null) {
-                this.mLogUploader.uploadLogFile(stringExtra2, true, this);
+            ZeusLogUploader zeusLogUploader2 = this.mLogUploader;
+            if (zeusLogUploader2 != null) {
+                zeusLogUploader2.uploadLogFile(stringExtra2, true, this);
             } else {
                 onFinished(stringExtra2, 3, "doUpload Failed, logUploader is null.");
             }

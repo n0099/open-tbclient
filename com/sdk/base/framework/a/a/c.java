@@ -2,24 +2,31 @@ package com.sdk.base.framework.a.a;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.common.others.lang.StringUtil;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final LinkedHashMap<K, V> f7603a;
-    private int b;
-    private int c;
-    private b<K, Long> d;
+    public final LinkedHashMap<K, V> f38407a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f38408b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f38409c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b<K, Long> f38410d;
 
     public c(int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("maxSize <= 0");
         }
-        this.c = i;
-        this.f7603a = new LinkedHashMap<>(0, 0.75f, true);
-        this.d = new b<>(0, 0.75f);
+        this.f38409c = i;
+        this.f38407a = new LinkedHashMap<>(0, 0.75f, true);
+        this.f38410d = new b<>(0, 0.75f);
     }
 
     public static int a(String str, String str2, Boolean bool) {
@@ -41,32 +48,31 @@ public class c<K, V> {
         if (length < 100) {
             return str.getBytes(str2).length;
         }
-        for (int i = 0; i < length; i += 100) {
+        int i = 0;
+        while (i < length) {
             int i2 = i + 100;
-            if (i2 >= length) {
-                i2 = length;
-            }
-            j += new String(str.substring(i, i2)).getBytes(str2).length;
+            j += new String(str.substring(i, i2 < length ? i2 : length)).getBytes(str2).length;
+            i = i2;
         }
         return j;
     }
 
     public static Boolean a(String str) {
-        return str == null || str.length() == 0 || str.trim().length() == 0 || "null".equals(str);
+        return (str == null || str.length() == 0 || str.trim().length() == 0 || StringUtil.NULL_STRING.equals(str)) ? Boolean.TRUE : Boolean.FALSE;
     }
 
     private void a(int i) {
         while (true) {
             synchronized (this) {
-                if (this.b <= i || this.f7603a.isEmpty()) {
+                if (this.f38408b <= i || this.f38407a.isEmpty()) {
                     break;
                 }
-                Map.Entry<K, V> next = this.f7603a.entrySet().iterator().next();
+                Map.Entry<K, V> next = this.f38407a.entrySet().iterator().next();
                 K key = next.getKey();
                 V value = next.getValue();
-                this.f7603a.remove(key);
-                this.d.remove(key);
-                this.b -= b(key, value);
+                this.f38407a.remove(key);
+                this.f38410d.remove(key);
+                this.f38408b -= b(key, value);
             }
         }
     }
@@ -84,9 +90,9 @@ public class c<K, V> {
     private int b(K k, V v) {
         int a2 = a((c<K, V>) k, (K) v);
         if (a2 <= 0) {
-            this.b = 0;
-            for (Map.Entry<K, V> entry : this.f7603a.entrySet()) {
-                this.b = a((c<K, V>) entry.getKey(), (K) entry.getValue()) + this.b;
+            this.f38408b = 0;
+            for (Map.Entry<K, V> entry : this.f38407a.entrySet()) {
+                this.f38408b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
             }
         }
         return a2;
@@ -103,22 +109,22 @@ public class c<K, V> {
     }
 
     public static Boolean b(String str) {
-        return (str == null || str.length() == 0 || str.trim().length() == 0 || "null".equals(str) || str.equals("")) ? false : true;
+        return (str == null || str.length() == 0 || str.trim().length() == 0 || StringUtil.NULL_STRING.equals(str) || str.equals("")) ? Boolean.FALSE : Boolean.TRUE;
     }
 
     private V b(K k) {
         V remove;
-        if (k == null) {
-            throw new NullPointerException("key == null");
-        }
-        synchronized (this) {
-            remove = this.f7603a.remove(k);
-            this.d.remove(k);
-            if (remove != null) {
-                this.b -= b(k, remove);
+        if (k != null) {
+            synchronized (this) {
+                remove = this.f38407a.remove(k);
+                this.f38410d.remove(k);
+                if (remove != null) {
+                    this.f38408b -= b(k, remove);
+                }
             }
+            return remove;
         }
-        return remove;
+        throw new NullPointerException("key == null");
     }
 
     public static int c(String str, String str2, Boolean bool) {
@@ -131,25 +137,25 @@ public class c<K, V> {
         return -1;
     }
 
-    protected int a(K k, V v) {
+    public int a(K k, V v) {
         return 1;
     }
 
     public final V a(K k) {
-        if (k == null) {
-            throw new NullPointerException("key == null");
-        }
-        synchronized (this) {
-            if (!this.d.containsKey(k)) {
-                b((c<K, V>) k);
+        if (k != null) {
+            synchronized (this) {
+                if (!this.f38410d.containsKey(k)) {
+                    b((c<K, V>) k);
+                    return null;
+                }
+                V v = this.f38407a.get(k);
+                if (v != null) {
+                    return v;
+                }
                 return null;
             }
-            V v = this.f7603a.get(k);
-            if (v != null) {
-                return v;
-            }
-            return null;
         }
+        throw new NullPointerException("key == null");
     }
 
     public final V a(K k, V v, long j) {
@@ -158,14 +164,14 @@ public class c<K, V> {
             throw new NullPointerException("key == null || value == null");
         }
         synchronized (this) {
-            this.b += b(k, v);
-            put = this.f7603a.put(k, v);
-            this.d.put(k, Long.valueOf(j));
+            this.f38408b += b(k, v);
+            put = this.f38407a.put(k, v);
+            this.f38410d.put(k, Long.valueOf(j));
             if (put != null) {
-                this.b -= b(k, put);
+                this.f38408b -= b(k, put);
             }
         }
-        a(this.c);
+        a(this.f38409c);
         return put;
     }
 }

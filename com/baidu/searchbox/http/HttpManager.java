@@ -1,20 +1,13 @@
 package com.baidu.searchbox.http;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HttpManager extends AbstractHttpManager {
     public static volatile HttpManager httpManager;
-    private static ExtraInfoDispatcher sExtraInfoDispatcher = new ExtraInfoDispatcher();
+    public static ExtraInfoDispatcher sExtraInfoDispatcher = new ExtraInfoDispatcher();
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public HttpManager(Context context) {
         super(context);
-    }
-
-    public static HttpManager newHttpManager(Context context) {
-        HttpManager httpManager2 = new HttpManager(context);
-        httpManager2.setHttpDnsEnable(getDefault(context).getHttpDnsEnable());
-        return httpManager2;
     }
 
     public static HttpManager getDefault(Context context) {
@@ -31,5 +24,11 @@ public class HttpManager extends AbstractHttpManager {
 
     public static ExtraInfoDispatcher getExtraInfoDispatcher() {
         return sExtraInfoDispatcher;
+    }
+
+    public static HttpManager newHttpManager(Context context) {
+        HttpManager httpManager2 = new HttpManager(context);
+        httpManager2.setHttpDnsEnable(getDefault(context).getHttpDnsEnable());
+        return httpManager2;
     }
 }

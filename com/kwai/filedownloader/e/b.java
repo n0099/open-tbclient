@@ -1,21 +1,24 @@
 package com.kwai.filedownloader.e;
 
 import com.kwai.filedownloader.f.c;
-import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b implements com.kwai.filedownloader.e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final BufferedOutputStream f7205a;
-    private final FileDescriptor b;
-    private final RandomAccessFile c;
+    public final BufferedOutputStream f36994a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final FileDescriptor f36995b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final RandomAccessFile f36996c;
+
+    /* loaded from: classes6.dex */
     public static class a implements c.e {
         @Override // com.kwai.filedownloader.f.c.e
         public com.kwai.filedownloader.e.a a(File file) {
@@ -28,36 +31,37 @@ public class b implements com.kwai.filedownloader.e.a {
         }
     }
 
-    b(File file) {
-        this.c = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
-        this.b = this.c.getFD();
-        this.f7205a = new BufferedOutputStream(new FileOutputStream(this.c.getFD()));
+    public b(File file) {
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        this.f36996c = randomAccessFile;
+        this.f36995b = randomAccessFile.getFD();
+        this.f36994a = new BufferedOutputStream(new FileOutputStream(this.f36996c.getFD()));
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void a() {
-        this.f7205a.flush();
-        this.b.sync();
+        this.f36994a.flush();
+        this.f36995b.sync();
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void a(long j) {
-        this.c.seek(j);
+        this.f36996c.seek(j);
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void a(byte[] bArr, int i, int i2) {
-        this.f7205a.write(bArr, i, i2);
+        this.f36994a.write(bArr, i, i2);
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void b() {
-        this.f7205a.close();
-        this.c.close();
+        this.f36994a.close();
+        this.f36996c.close();
     }
 
     @Override // com.kwai.filedownloader.e.a
     public void b(long j) {
-        this.c.setLength(j);
+        this.f36996c.setLength(j);
     }
 }

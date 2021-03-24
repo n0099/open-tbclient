@@ -10,11 +10,11 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMUserLogoutMsg extends Message {
-    private int mClearAfterLogout;
-    private Context mContext;
-    private String mDeviceId;
+    public int mClearAfterLogout;
+    public Context mContext;
+    public String mDeviceId;
 
     public IMUserLogoutMsg(Context context) {
         this.mContext = context;
@@ -24,32 +24,32 @@ public class IMUserLogoutMsg extends Message {
         setType(52);
     }
 
-    @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("method", 52);
-            jSONObject.put("appid", this.mAppid);
-            jSONObject.put("uk", this.mUk);
-            jSONObject.put("device_id", this.mDeviceId);
-            this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            LogUtils.e(getClass().getSimpleName(), "Exception ", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-        }
-    }
-
     public static IMUserLogoutMsg newInstance(Context context, Intent intent) {
         new IMUserLogoutMsg(context).setClearAfterLogout(intent.getIntExtra(Constants.EXTRA_CLEAR_AFTER_LOGOUT, 0));
         return new IMUserLogoutMsg(context);
     }
 
+    private void setClearAfterLogout(int i) {
+        this.mClearAfterLogout = i;
+    }
+
+    @Override // com.baidu.android.imsdk.request.Message
+    public void buildBody() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("method", 52);
+            jSONObject.put("appid", this.mAppid);
+            jSONObject.put("uk", this.mUk);
+            jSONObject.put(Constants.KEY_DEVICE_ID, this.mDeviceId);
+            this.mBody = jSONObject.toString();
+        } catch (JSONException e2) {
+            LogUtils.e(IMUserLogoutMsg.class.getSimpleName(), "Exception ", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+        }
+    }
+
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Utility.logout(context, getListenerKey());
-    }
-
-    private void setClearAfterLogout(int i) {
-        this.mClearAfterLogout = i;
     }
 }

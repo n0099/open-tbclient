@@ -8,7 +8,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.lib.a.c;
 import com.kwad.sdk.lib.desigin.CustomAppBarFlingConsumer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NestedScrollViewPager extends a implements CustomAppBarFlingConsumer {
     public NestedScrollViewPager(@NonNull Context context) {
         super(context);

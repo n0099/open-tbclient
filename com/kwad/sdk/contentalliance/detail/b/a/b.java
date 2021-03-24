@@ -6,64 +6,78 @@ import com.kwad.sdk.contentalliance.a.d;
 import com.kwad.sdk.contentalliance.home.h;
 import com.kwad.sdk.core.i.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.contentalliance.detail.b {
-    private KsContentPage.SubShowItem b;
-    private AdTemplate c;
-    private com.kwad.sdk.contentalliance.detail.b.b d;
-    private int e;
+
+    /* renamed from: b  reason: collision with root package name */
+    public KsContentPage.SubShowItem f32139b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdTemplate f32140c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.detail.b.b f32141d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f32142e;
     @Nullable
-    private com.kwad.sdk.core.i.a f;
-    private int g;
-    private c h = new c() { // from class: com.kwad.sdk.contentalliance.detail.b.a.b.1
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.kwad.sdk.core.i.a f32143f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f32144g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c f32145h = new c() { // from class: com.kwad.sdk.contentalliance.detail.b.a.b.1
         @Override // com.kwad.sdk.core.i.c
         public void b() {
-            if (b.this.g == -1) {
+            if (b.this.f32144g == -1) {
                 return;
             }
-            b.this.g = -1;
-            if (b.this.b != null) {
-                b.this.b.onPageVisibleChange(false);
+            b.this.f32144g = -1;
+            if (b.this.f32139b != null) {
+                b.this.f32139b.onPageVisibleChange(false);
             }
         }
 
         @Override // com.kwad.sdk.core.i.c
         public void c_() {
-            if (b.this.g == 1) {
+            if (b.this.f32144g == 1) {
                 return;
             }
-            b.this.g = 1;
-            if (b.this.b != null) {
-                b.this.b.onPageVisibleChange(true);
+            b.this.f32144g = 1;
+            if (b.this.f32139b != null) {
+                b.this.f32139b.onPageVisibleChange(true);
             }
         }
     };
-    private com.kwad.sdk.contentalliance.a.c i = new d() { // from class: com.kwad.sdk.contentalliance.detail.b.a.b.2
+    public com.kwad.sdk.contentalliance.a.c i = new d() { // from class: com.kwad.sdk.contentalliance.detail.b.a.b.2
         @Override // com.kwad.sdk.contentalliance.a.d, com.kwad.sdk.contentalliance.a.c
         public void c() {
-            if (b.this.b != null) {
-                b.this.b.onPageResume();
+            if (b.this.f32139b != null) {
+                b.this.f32139b.onPageResume();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.a.d, com.kwad.sdk.contentalliance.a.c
         public void d() {
-            if (b.this.b != null) {
-                b.this.b.onPagePause();
+            if (b.this.f32139b != null) {
+                b.this.f32139b.onPagePause();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.a.d, com.kwad.sdk.contentalliance.a.c
         public void e() {
-            if (b.this.b != null) {
-                b.this.b.onPageCreate();
+            if (b.this.f32139b != null) {
+                b.this.f32139b.onPageCreate();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.a.d, com.kwad.sdk.contentalliance.a.c
         public void f() {
-            if (b.this.b != null) {
-                b.this.b.onPageDestroy();
+            if (b.this.f32139b != null) {
+                b.this.f32139b.onPageDestroy();
             }
         }
 
@@ -71,55 +85,59 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         public void g() {
         }
     };
-    private com.kwad.sdk.contentalliance.a.a j = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.b.a.b.3
+    public com.kwad.sdk.contentalliance.a.a j = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.b.a.b.3
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
             super.j();
-            if (b.this.f == null) {
+            if (b.this.f32143f == null) {
                 return;
             }
-            b.this.f.a(b.this.h);
+            b.this.f32143f.a(b.this.f32145h);
         }
 
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
             super.k();
-            if (b.this.f == null) {
+            if (b.this.f32143f == null) {
                 return;
             }
-            b.this.h.b();
-            b.this.f.b(b.this.h);
+            b.this.f32145h.b();
+            b.this.f32143f.b(b.this.f32145h);
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        h hVar = this.f5594a.f5600a;
+        h hVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32151a;
         if (hVar != null) {
-            this.f = hVar.f5826a;
+            this.f32143f = hVar.f32788a;
         }
-        this.g = 0;
-        this.c = this.f5594a.j;
-        this.d = this.f5594a.q;
-        this.e = this.f5594a.i;
-        if (this.d == null || this.c == null) {
+        this.f32144g = 0;
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
+        AdTemplate adTemplate = cVar.j;
+        this.f32140c = adTemplate;
+        com.kwad.sdk.contentalliance.detail.b.b bVar = cVar.q;
+        this.f32141d = bVar;
+        this.f32142e = cVar.i;
+        if (bVar == null || adTemplate == null) {
             return;
         }
-        this.b = this.d.a(this.c);
-        if (this.b != null) {
-            this.f5594a.c.add(this.i);
-            this.f5594a.b.add(this.j);
+        KsContentPage.SubShowItem a2 = bVar.a(adTemplate);
+        this.f32139b = a2;
+        if (a2 == null) {
+            return;
         }
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32153c.add(this.i);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.add(this.j);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.f5594a != null) {
-            this.f5594a.b.remove(this.j);
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
+        if (cVar != null) {
+            cVar.f32152b.remove(this.j);
         }
     }
 }

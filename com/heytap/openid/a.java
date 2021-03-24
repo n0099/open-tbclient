@@ -4,23 +4,22 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.heytap.openid.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static abstract class AbstractBinderC1079a extends Binder implements a {
+    /* loaded from: classes6.dex */
+    public static abstract class AbstractBinderC0346a extends Binder implements a {
 
-        /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.heytap.openid.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C1080a implements a {
+        /* loaded from: classes6.dex */
+        public static class C0347a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f5289a;
+            public IBinder f31087a;
 
-            public C1080a(IBinder iBinder) {
-                this.f5289a = iBinder;
+            public C0347a(IBinder iBinder) {
+                this.f31087a = iBinder;
             }
 
             public String a(String str, String str2, String str3) {
@@ -31,7 +30,7 @@ public interface a extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    this.f5289a.transact(1, obtain, obtain2, 0);
+                    this.f31087a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -42,7 +41,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f5289a;
+                return this.f31087a;
             }
         }
 
@@ -51,7 +50,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1080a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0347a(iBinder) : (a) queryLocalInterface;
         }
     }
 }

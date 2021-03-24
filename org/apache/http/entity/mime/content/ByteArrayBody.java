@@ -2,32 +2,19 @@ package org.apache.http.entity.mime.content;
 
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ByteArrayBody extends AbstractContentBody {
-    private final byte[] data;
-    private final String filename;
+    public final byte[] data;
+    public final String filename;
 
     public ByteArrayBody(byte[] bArr, String str, String str2) {
         super(str);
-        if (bArr == null) {
-            throw new IllegalArgumentException("byte[] may not be null");
+        if (bArr != null) {
+            this.data = bArr;
+            this.filename = str2;
+            return;
         }
-        this.data = bArr;
-        this.filename = str2;
-    }
-
-    public ByteArrayBody(byte[] bArr, String str) {
-        this(bArr, "application/octet-stream", str);
-    }
-
-    @Override // org.apache.http.entity.mime.content.ContentBody
-    public String getFilename() {
-        return this.filename;
-    }
-
-    @Override // org.apache.http.entity.mime.content.ContentBody
-    public void writeTo(OutputStream outputStream) throws IOException {
-        outputStream.write(this.data);
+        throw new IllegalArgumentException("byte[] may not be null");
     }
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
@@ -36,12 +23,26 @@ public class ByteArrayBody extends AbstractContentBody {
     }
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
+    public long getContentLength() {
+        return this.data.length;
+    }
+
+    @Override // org.apache.http.entity.mime.content.ContentBody
+    public String getFilename() {
+        return this.filename;
+    }
+
+    @Override // org.apache.http.entity.mime.content.ContentDescriptor
     public String getTransferEncoding() {
         return "binary";
     }
 
-    @Override // org.apache.http.entity.mime.content.ContentDescriptor
-    public long getContentLength() {
-        return this.data.length;
+    @Override // org.apache.http.entity.mime.content.ContentBody
+    public void writeTo(OutputStream outputStream) throws IOException {
+        outputStream.write(this.data);
+    }
+
+    public ByteArrayBody(byte[] bArr, String str) {
+        this(bArr, "application/octet-stream", str);
     }
 }

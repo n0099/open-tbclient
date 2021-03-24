@@ -7,52 +7,51 @@ import androidx.annotation.WorkerThread;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, com.kwad.sdk.core.config.item.a> f6015a = new ConcurrentHashMap();
+    public static Map<String, com.kwad.sdk.core.config.item.a> f33435a = new ConcurrentHashMap();
 
-    private static void a(SharedPreferences.Editor editor) {
+    public static void a(SharedPreferences.Editor editor) {
         if (editor != null) {
-            for (String str : f6015a.keySet()) {
-                f6015a.get(str).a(editor);
+            for (String str : f33435a.keySet()) {
+                f33435a.get(str).a(editor);
             }
         }
     }
 
-    private static void a(SharedPreferences sharedPreferences) {
+    public static void a(SharedPreferences sharedPreferences) {
         if (sharedPreferences != null) {
-            for (String str : f6015a.keySet()) {
-                f6015a.get(str).a(sharedPreferences);
+            for (String str : f33435a.keySet()) {
+                f33435a.get(str).a(sharedPreferences);
             }
         }
     }
 
     public static <T> void a(@NonNull com.kwad.sdk.core.config.item.a<T> aVar) {
-        f6015a.put(aVar.a(), aVar);
+        f33435a.put(aVar.a(), aVar);
     }
 
     public static void a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        for (String str : f6015a.keySet()) {
-            f6015a.get(str).a(jSONObject);
+        for (String str : f33435a.keySet()) {
+            f33435a.get(str).a(jSONObject);
         }
     }
 
     @WorkerThread
     public static synchronized boolean a(Context context) {
-        boolean z = false;
         synchronized (b.class) {
             if (context != null) {
                 SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_config", 0).edit();
                 a(edit);
-                z = edit.commit();
+                return edit.commit();
             }
+            return false;
         }
-        return z;
     }
 
     @WorkerThread

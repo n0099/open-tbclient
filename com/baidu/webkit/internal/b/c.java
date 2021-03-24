@@ -1,15 +1,14 @@
 package com.baidu.webkit.internal.b;
 
 import android.content.DialogInterface;
-/* loaded from: classes14.dex */
-final class c implements DialogInterface.OnCancelListener {
+/* loaded from: classes5.dex */
+public final class c implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f3817a;
+    public final /* synthetic */ b f26871a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f3817a = bVar;
+        this.f26871a = bVar;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener

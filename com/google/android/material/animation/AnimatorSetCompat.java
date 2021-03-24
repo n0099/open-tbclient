@@ -6,11 +6,11 @@ import android.animation.ValueAnimator;
 import androidx.annotation.RestrictTo;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AnimatorSetCompat {
     public static void playTogether(AnimatorSet animatorSet, List<Animator> list) {
-        long j = 0;
         int size = list.size();
+        long j = 0;
         for (int i = 0; i < size; i++) {
             Animator animator = list.get(i);
             j = Math.max(j, animator.getStartDelay() + animator.getDuration());

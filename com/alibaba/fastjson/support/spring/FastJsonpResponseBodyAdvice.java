@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.support.spring;
 
-import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.core.MethodParameter;
@@ -17,33 +16,20 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 @Deprecated
 @Order(Integer.MIN_VALUE)
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class FastJsonpResponseBodyAdvice implements ResponseBodyAdvice<Object> {
-    private static final Pattern CALLBACK_PARAM_PATTERN = Pattern.compile("[0-9A-Za-z_\\.]*");
-    public static final String[] DEFAULT_JSONP_QUERY_PARAM_NAMES = {BuyTBeanActivityConfig.CALLBACK, "jsonp"};
-    private final String[] jsonpQueryParamNames;
+    public static final Pattern CALLBACK_PARAM_PATTERN = Pattern.compile("[0-9A-Za-z_\\.]*");
+    public static final String[] DEFAULT_JSONP_QUERY_PARAM_NAMES = {"callback", "jsonp"};
+    public final String[] jsonpQueryParamNames;
 
     public FastJsonpResponseBodyAdvice() {
         this.jsonpQueryParamNames = DEFAULT_JSONP_QUERY_PARAM_NAMES;
-    }
-
-    public FastJsonpResponseBodyAdvice(String... strArr) {
-        Assert.isTrue(!ObjectUtils.isEmpty(strArr), "At least one query param name is required");
-        this.jsonpQueryParamNames = strArr;
-    }
-
-    public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> cls) {
-        return FastJsonHttpMessageConverter.class.isAssignableFrom(cls);
     }
 
     public Object beforeBodyWrite(Object obj, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> cls, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         MappingFastJsonValue orCreateContainer = getOrCreateContainer(obj);
         beforeBodyWriteInternal(orCreateContainer, mediaType, methodParameter, serverHttpRequest, serverHttpResponse);
         return orCreateContainer;
-    }
-
-    protected MappingFastJsonValue getOrCreateContainer(Object obj) {
-        return obj instanceof MappingFastJsonValue ? (MappingFastJsonValue) obj : new MappingFastJsonValue(obj);
     }
 
     public void beforeBodyWriteInternal(MappingFastJsonValue mappingFastJsonValue, MediaType mediaType, MethodParameter methodParameter, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
@@ -57,11 +43,24 @@ public class FastJsonpResponseBodyAdvice implements ResponseBodyAdvice<Object> {
         }
     }
 
-    protected boolean isValidJsonpQueryParam(String str) {
+    public MediaType getContentType(MediaType mediaType, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+        return new MediaType("application", "javascript");
+    }
+
+    public MappingFastJsonValue getOrCreateContainer(Object obj) {
+        return obj instanceof MappingFastJsonValue ? (MappingFastJsonValue) obj : new MappingFastJsonValue(obj);
+    }
+
+    public boolean isValidJsonpQueryParam(String str) {
         return CALLBACK_PARAM_PATTERN.matcher(str).matches();
     }
 
-    protected MediaType getContentType(MediaType mediaType, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        return new MediaType("application", "javascript");
+    public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> cls) {
+        return FastJsonHttpMessageConverter.class.isAssignableFrom(cls);
+    }
+
+    public FastJsonpResponseBodyAdvice(String... strArr) {
+        Assert.isTrue(!ObjectUtils.isEmpty(strArr), "At least one query param name is required");
+        this.jsonpQueryParamNames = strArr;
     }
 }

@@ -10,25 +10,70 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SelectForumConfig;
-import com.baidu.tbadk.core.elementsMaven.c;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.h0.r.u.c;
+/* loaded from: classes5.dex */
 public class ForumSelectedView extends RelativeLayout implements View.OnClickListener {
-    private ImageView fiU;
-    private TextView jqG;
-    private ImageView mIconView;
-    private View mLineView;
-    private int mSkinType;
-    private TextView mTipView;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f22361e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f22362f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f22363g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f22364h;
+    public ImageView i;
+    public View j;
 
     public ForumSelectedView(Context context) {
         this(context, null);
+    }
+
+    public final void a() {
+        LayoutInflater.from(getContext()).inflate(R.layout.cell_forum_selected_layout, (ViewGroup) this, true);
+        this.f22362f = (ImageView) findViewById(R.id.cell_forum_selected_icon);
+        this.f22363g = (TextView) findViewById(R.id.cell_forum_selected_name);
+        this.f22364h = (TextView) findViewById(R.id.cell_forum_selected_tip);
+        this.i = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
+        this.j = findViewById(R.id.cell_forum_selected_line);
+        setOnClickListener(this);
+        b();
+    }
+
+    public void b() {
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType == this.f22361e) {
+            return;
+        }
+        this.f22361e = skinType;
+        SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
+        this.f22362f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f22363g, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f22364h, R.color.CAM_X0109);
+        c a2 = c.a(this.f22364h);
+        a2.h(R.string.J_X06);
+        a2.c(R.color.CAM_X0206);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SkinManager.setBackgroundColor(this.j, R.color.CAM_X0210);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(getContext())));
+    }
+
+    public void setSelectedForum(String str) {
+        this.f22364h.setVisibility(8);
+        this.f22363g.setText(str);
     }
 
     public ForumSelectedView(Context context, AttributeSet attributeSet) {
@@ -37,42 +82,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
 
     public ForumSelectedView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mSkinType = 3;
-        init();
-    }
-
-    private void init() {
-        LayoutInflater.from(getContext()).inflate(R.layout.cell_forum_selected_layout, (ViewGroup) this, true);
-        this.mIconView = (ImageView) findViewById(R.id.cell_forum_selected_icon);
-        this.jqG = (TextView) findViewById(R.id.cell_forum_selected_name);
-        this.mTipView = (TextView) findViewById(R.id.cell_forum_selected_tip);
-        this.fiU = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
-        this.mLineView = findViewById(R.id.cell_forum_selected_line);
-        setOnClickListener(this);
-        onChangeSkinType();
-    }
-
-    public void setSelectedForum(String str) {
-        this.mTipView.setVisibility(8);
-        this.jqG.setText(str);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectForumConfig(getContext())));
-    }
-
-    public void onChangeSkinType() {
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.mSkinType) {
-            this.mSkinType = skinType;
-            ap.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
-            this.mIconView.setImageDrawable(WebPManager.a(R.drawable.icon_pure_ba16, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-            ap.setViewTextColor(this.jqG, R.color.CAM_X0105);
-            ap.setViewTextColor(this.mTipView, R.color.CAM_X0109);
-            c.br(this.mTipView).oh(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
-            SvgManager.bsU().a(this.fiU, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-            ap.setBackgroundColor(this.mLineView, R.color.CAM_X0210);
-        }
+        this.f22361e = 3;
+        a();
     }
 }

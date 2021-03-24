@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<DialogSyncMsg> CREATOR = new Parcelable.Creator<DialogSyncMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DialogSyncMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,12 +23,12 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
             return new DialogSyncMsg[i];
         }
     };
-    private int category;
-    private long fromUid;
-    private long operatedMaxMsgid;
-    private long paid;
-    private int status;
-    private int updateTime;
+    public int category;
+    public long fromUid;
+    public long operatedMaxMsgid;
+    public long paid;
+    public int status;
+    public int updateTime;
 
     public DialogSyncMsg() {
         this.status = -1;
@@ -38,6 +38,55 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
         this.operatedMaxMsgid = -1L;
         this.paid = -1L;
         setNotifyCmd(22);
+    }
+
+    public long getOperatedMaxMsgid() {
+        return this.operatedMaxMsgid;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public long getPaid() {
+        return this.paid;
+    }
+
+    public int getSyncCategory() {
+        return this.category;
+    }
+
+    public long getSyncFromUid() {
+        return this.fromUid;
+    }
+
+    public int getSyncStatus() {
+        return this.status;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        try {
+            JSONObject jSONObject = new JSONObject(getJsonContent());
+            this.status = jSONObject.getInt("status");
+            this.updateTime = jSONObject.getInt("update_time");
+            this.category = jSONObject.getInt("category");
+            this.fromUid = jSONObject.getLong("from_uid");
+            this.operatedMaxMsgid = jSONObject.optLong("msgid", -1L);
+            this.paid = jSONObject.optLong("pa_uid", -1L);
+            return true;
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            return false;
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+        parcel.writeInt(this.status);
+        parcel.writeInt(this.updateTime);
+        parcel.writeInt(this.category);
+        parcel.writeLong(this.fromUid);
+        parcel.writeLong(this.operatedMaxMsgid);
+        parcel.writeLong(this.paid);
     }
 
     public DialogSyncMsg(Parcel parcel) {
@@ -54,54 +103,5 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
         this.fromUid = parcel.readLong();
         this.operatedMaxMsgid = parcel.readLong();
         this.paid = parcel.readLong();
-    }
-
-    public long getOperatedMaxMsgid() {
-        return this.operatedMaxMsgid;
-    }
-
-    public int getSyncStatus() {
-        return this.status;
-    }
-
-    public int getSyncCategory() {
-        return this.category;
-    }
-
-    public long getSyncFromUid() {
-        return this.fromUid;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public long getPaid() {
-        return this.paid;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeInt(this.status);
-        parcel.writeInt(this.updateTime);
-        parcel.writeInt(this.category);
-        parcel.writeLong(this.fromUid);
-        parcel.writeLong(this.operatedMaxMsgid);
-        parcel.writeLong(this.paid);
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public boolean parseJsonString() {
-        try {
-            JSONObject jSONObject = new JSONObject(getJsonContent());
-            this.status = jSONObject.getInt("status");
-            this.updateTime = jSONObject.getInt("update_time");
-            this.category = jSONObject.getInt("category");
-            this.fromUid = jSONObject.getLong("from_uid");
-            this.operatedMaxMsgid = jSONObject.optLong("msgid", -1L);
-            this.paid = jSONObject.optLong("pa_uid", -1L);
-            return true;
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-            return false;
-        }
     }
 }

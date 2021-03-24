@@ -2,13 +2,12 @@ package com.kwad.sdk.glide.load;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidubce.services.bos.BosClientConfiguration;
 import com.kwad.sdk.glide.load.ImageHeaderParser;
 import com.kwad.sdk.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class b {
     @NonNull
     public static ImageHeaderParser.ImageType a(@NonNull List<ImageHeaderParser> list, @Nullable InputStream inputStream, @NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
@@ -18,7 +17,7 @@ public final class b {
         if (!inputStream.markSupported()) {
             inputStream = new RecyclableBufferedInputStream(inputStream, bVar);
         }
-        inputStream.mark(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE);
+        inputStream.mark(5242880);
         int size = list.size();
         for (int i = 0; i < size; i++) {
             try {
@@ -26,7 +25,6 @@ public final class b {
                 if (a2 != ImageHeaderParser.ImageType.UNKNOWN) {
                     return a2;
                 }
-                inputStream.reset();
             } finally {
                 inputStream.reset();
             }
@@ -56,7 +54,7 @@ public final class b {
         if (!inputStream.markSupported()) {
             inputStream = new RecyclableBufferedInputStream(inputStream, bVar);
         }
-        inputStream.mark(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE);
+        inputStream.mark(5242880);
         int size = list.size();
         for (int i = 0; i < size; i++) {
             try {
@@ -64,7 +62,6 @@ public final class b {
                 if (a2 != -1) {
                     return a2;
                 }
-                inputStream.reset();
             } finally {
                 inputStream.reset();
             }

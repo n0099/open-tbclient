@@ -1,15 +1,16 @@
 package com.google.zxing.oned.rss.expanded;
 
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.google.zxing.oned.rss.DataCharacter;
 import com.google.zxing.oned.rss.FinderPattern;
-/* loaded from: classes4.dex */
-final class ExpandedPair {
-    private final FinderPattern finderPattern;
-    private final DataCharacter leftChar;
-    private final boolean mayBeLast;
-    private final DataCharacter rightChar;
+/* loaded from: classes6.dex */
+public final class ExpandedPair {
+    public final FinderPattern finderPattern;
+    public final DataCharacter leftChar;
+    public final boolean mayBeLast;
+    public final DataCharacter rightChar;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ExpandedPair(DataCharacter dataCharacter, DataCharacter dataCharacter2, FinderPattern finderPattern, boolean z) {
         this.leftChar = dataCharacter;
         this.rightChar = dataCharacter2;
@@ -17,31 +18,18 @@ final class ExpandedPair {
         this.mayBeLast = z;
     }
 
-    boolean mayBeLast() {
-        return this.mayBeLast;
+    public static boolean equalsOrNull(Object obj, Object obj2) {
+        if (obj == null) {
+            return obj2 == null;
+        }
+        return obj.equals(obj2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DataCharacter getLeftChar() {
-        return this.leftChar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DataCharacter getRightChar() {
-        return this.rightChar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FinderPattern getFinderPattern() {
-        return this.finderPattern;
-    }
-
-    public boolean mustBeLast() {
-        return this.rightChar == null;
-    }
-
-    public String toString() {
-        return "[ " + this.leftChar + " , " + this.rightChar + " : " + (this.finderPattern == null ? "null" : Integer.valueOf(this.finderPattern.getValue())) + " ]";
+    public static int hashNotNull(Object obj) {
+        if (obj == null) {
+            return 0;
+        }
+        return obj.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -52,18 +40,39 @@ final class ExpandedPair {
         return false;
     }
 
-    private static boolean equalsOrNull(Object obj, Object obj2) {
-        return obj == null ? obj2 == null : obj.equals(obj2);
+    public FinderPattern getFinderPattern() {
+        return this.finderPattern;
+    }
+
+    public DataCharacter getLeftChar() {
+        return this.leftChar;
+    }
+
+    public DataCharacter getRightChar() {
+        return this.rightChar;
     }
 
     public int hashCode() {
         return (hashNotNull(this.leftChar) ^ hashNotNull(this.rightChar)) ^ hashNotNull(this.finderPattern);
     }
 
-    private static int hashNotNull(Object obj) {
-        if (obj == null) {
-            return 0;
-        }
-        return obj.hashCode();
+    public boolean mayBeLast() {
+        return this.mayBeLast;
+    }
+
+    public boolean mustBeLast() {
+        return this.rightChar == null;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[ ");
+        sb.append(this.leftChar);
+        sb.append(" , ");
+        sb.append(this.rightChar);
+        sb.append(ZeusCrashHandler.NAME_SEPERATOR);
+        FinderPattern finderPattern = this.finderPattern;
+        sb.append(finderPattern == null ? StringUtil.NULL_STRING : Integer.valueOf(finderPattern.getValue()));
+        sb.append(" ]");
+        return sb.toString();
     }
 }

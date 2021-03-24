@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.PinYinUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static final Parcelable.Creator<GroupInfo> CREATOR = new Parcelable.Creator<GroupInfo>() { // from class: com.baidu.android.imsdk.group.GroupInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,39 +22,23 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
             return new GroupInfo[i];
         }
     };
-    private int brief;
-    private int mActiveState;
-    private long mBduid;
-    private long mCreateTime;
-    private String mDescription;
-    private int mDisturb;
-    private String mGroupId;
-    private String mGroupName;
-    private String mHeadUrl;
-    private int mMarkTop;
-    private long mMarkTopTime;
-    private long mMembersVersion;
-    private int mNum;
-    private String mPinYin;
-    private int mType;
-    private long mUk;
-    private int state;
-
-    public String getHeadUrl() {
-        return this.mHeadUrl;
-    }
-
-    public void setHeadUrl(String str) {
-        this.mHeadUrl = str;
-    }
-
-    public int getBrief() {
-        return this.brief;
-    }
-
-    public void setBrief(int i) {
-        this.brief = i;
-    }
+    public int brief;
+    public int mActiveState;
+    public long mBduid;
+    public long mCreateTime;
+    public String mDescription;
+    public int mDisturb;
+    public String mGroupId;
+    public String mGroupName;
+    public String mHeadUrl;
+    public int mMarkTop;
+    public long mMarkTopTime;
+    public long mMembersVersion;
+    public int mNum;
+    public String mPinYin;
+    public int mType;
+    public long mUk;
+    public int state;
 
     public GroupInfo(String str) {
         this.mGroupName = "";
@@ -63,34 +47,145 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         this.mGroupId = str;
     }
 
-    GroupInfo(Parcel parcel) {
-        this.mGroupName = "";
-        this.mDescription = "";
-        this.mType = 0;
-        this.mGroupId = parcel.readString();
-        this.mGroupName = parcel.readString();
-        this.mDescription = parcel.readString();
-        this.mDisturb = parcel.readInt();
-        this.state = parcel.readInt();
-        this.mType = parcel.readInt();
-        this.mNum = parcel.readInt();
-        this.mCreateTime = parcel.readLong();
-        this.mBduid = parcel.readLong();
-        this.mUk = parcel.readLong();
-        this.mActiveState = parcel.readInt();
-        this.mMembersVersion = parcel.readLong();
-        this.brief = parcel.readInt();
-        this.mMarkTop = parcel.readInt();
-        this.mMarkTopTime = parcel.readLong();
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public int getActiveState() {
+        return this.mActiveState;
+    }
+
+    public int getBrief() {
+        return this.brief;
+    }
+
+    public long getBuid() {
+        return this.mBduid;
+    }
+
+    public long getCreateTime() {
+        return this.mCreateTime;
+    }
+
+    public String getDescription() {
+        return this.mDescription;
+    }
+
+    public int getDisturb() {
+        return this.mDisturb;
+    }
+
+    public String getGroupId() {
+        return this.mGroupId;
+    }
+
+    public String getGroupName() {
+        return this.mGroupName;
+    }
+
+    public String getHeadUrl() {
+        return this.mHeadUrl;
+    }
+
+    public int getMarkTop() {
+        return this.mMarkTop;
+    }
+
+    public long getMarkTopTime() {
+        return this.mMarkTopTime;
+    }
+
+    public long getMembersVersion() {
+        return this.mMembersVersion;
+    }
+
+    public int getNum() {
+        return this.mNum;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.PinYinUtils.PinYinObject
+    public String getPy() {
+        if (TextUtils.isEmpty(this.mPinYin)) {
+            this.mPinYin = PinYinUtils.getPy(this.mGroupName);
+        }
+        return this.mPinYin;
+    }
+
+    public int getState() {
+        return this.state;
+    }
+
+    public int getType() {
+        return this.mType;
+    }
+
+    public long getUk() {
+        return this.mUk;
+    }
+
+    public void setActiveState(int i) {
+        this.mActiveState = i;
+    }
+
+    public void setBrief(int i) {
+        this.brief = i;
+    }
+
+    public void setBuid(long j) {
+        this.mBduid = j;
+    }
+
+    public void setCreateTime(long j) {
+        this.mCreateTime = j;
+    }
+
+    public void setDescription(String str) {
+        this.mDescription = str;
+    }
+
+    public void setDisturb(int i) {
+        this.mDisturb = i;
+    }
+
+    public void setGroupName(String str) {
+        this.mGroupName = str;
+    }
+
+    public void setHeadUrl(String str) {
+        this.mHeadUrl = str;
+    }
+
+    public void setMarkTop(int i) {
+        this.mMarkTop = i;
+    }
+
+    public void setMarkTopTime(long j) {
+        this.mMarkTopTime = j;
+    }
+
+    public void setMembersVersion(long j) {
+        this.mMembersVersion = j;
+    }
+
+    public void setNum(int i) {
+        this.mNum = i;
+    }
+
+    public void setState(int i) {
+        this.state = i;
+    }
+
+    public void setType(int i) {
+        this.mType = i;
+    }
+
+    public void setUk(long j) {
+        this.mUk = j;
     }
 
     public String toString() {
         return "GroupInfo [mGroupId=" + this.mGroupId + ", mGroupName=" + this.mGroupName + ", mDescription=" + this.mDescription + ", mType=" + this.mType + ", mPinYin=" + this.mPinYin + ", mCreateTime=" + this.mCreateTime + ", mBduid=" + this.mBduid + ", mUk=" + this.mUk + ", mNum=" + this.mNum + ", mMembersVersion=" + this.mMembersVersion + ", mDisturb=" + this.mDisturb + ", state=" + this.state + ", activeState=" + this.mActiveState + " marktop = " + this.mMarkTop + " martTime = " + this.mMarkTopTime + "]";
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
     }
 
     @Override // android.os.Parcelable
@@ -112,119 +207,24 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         parcel.writeLong(this.mMarkTopTime);
     }
 
-    public String getGroupId() {
-        return this.mGroupId;
-    }
-
-    public void setGroupName(String str) {
-        this.mGroupName = str;
-    }
-
-    public String getGroupName() {
-        return this.mGroupName;
-    }
-
-    public void setDescription(String str) {
-        this.mDescription = str;
-    }
-
-    public String getDescription() {
-        return this.mDescription;
-    }
-
-    public int getType() {
-        return this.mType;
-    }
-
-    public void setType(int i) {
-        this.mType = i;
-    }
-
-    public int getState() {
-        return this.state;
-    }
-
-    public void setState(int i) {
-        this.state = i;
-    }
-
-    public int getDisturb() {
-        return this.mDisturb;
-    }
-
-    public void setDisturb(int i) {
-        this.mDisturb = i;
-    }
-
-    public void setCreateTime(long j) {
-        this.mCreateTime = j;
-    }
-
-    public long getCreateTime() {
-        return this.mCreateTime;
-    }
-
-    public void setBuid(long j) {
-        this.mBduid = j;
-    }
-
-    public long getBuid() {
-        return this.mBduid;
-    }
-
-    public void setUk(long j) {
-        this.mUk = j;
-    }
-
-    public long getUk() {
-        return this.mUk;
-    }
-
-    public void setNum(int i) {
-        this.mNum = i;
-    }
-
-    public int getNum() {
-        return this.mNum;
-    }
-
-    public long getMembersVersion() {
-        return this.mMembersVersion;
-    }
-
-    public void setMembersVersion(long j) {
-        this.mMembersVersion = j;
-    }
-
-    public int getActiveState() {
-        return this.mActiveState;
-    }
-
-    public void setActiveState(int i) {
-        this.mActiveState = i;
-    }
-
-    public void setMarkTop(int i) {
-        this.mMarkTop = i;
-    }
-
-    public int getMarkTop() {
-        return this.mMarkTop;
-    }
-
-    public void setMarkTopTime(long j) {
-        this.mMarkTopTime = j;
-    }
-
-    public long getMarkTopTime() {
-        return this.mMarkTopTime;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.PinYinUtils.PinYinObject
-    public String getPy() {
-        if (TextUtils.isEmpty(this.mPinYin)) {
-            this.mPinYin = PinYinUtils.getPy(this.mGroupName);
-        }
-        return this.mPinYin;
+    public GroupInfo(Parcel parcel) {
+        this.mGroupName = "";
+        this.mDescription = "";
+        this.mType = 0;
+        this.mGroupId = parcel.readString();
+        this.mGroupName = parcel.readString();
+        this.mDescription = parcel.readString();
+        this.mDisturb = parcel.readInt();
+        this.state = parcel.readInt();
+        this.mType = parcel.readInt();
+        this.mNum = parcel.readInt();
+        this.mCreateTime = parcel.readLong();
+        this.mBduid = parcel.readLong();
+        this.mUk = parcel.readLong();
+        this.mActiveState = parcel.readInt();
+        this.mMembersVersion = parcel.readLong();
+        this.brief = parcel.readInt();
+        this.mMarkTop = parcel.readInt();
+        this.mMarkTopTime = parcel.readLong();
     }
 }

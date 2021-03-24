@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static boolean a(@NonNull Throwable th) {
         ArrayList arrayList = new ArrayList(5);
@@ -32,12 +32,12 @@ public class a {
         if (stackTraceElementArr == null || stackTraceElementArr.length == 0) {
             return false;
         }
-        String[] b = d.a().b();
-        if (b == null || b.length == 0) {
+        String[] b2 = d.a().b();
+        if (b2 == null || b2.length == 0) {
             return true;
         }
         boolean z = false;
-        for (String str : b) {
+        for (String str : b2) {
             z = a(stackTraceElementArr, str);
             if (z) {
                 break;
@@ -53,7 +53,7 @@ public class a {
         return z;
     }
 
-    private static boolean a(@NonNull StackTraceElement[] stackTraceElementArr, String str) {
+    public static boolean a(@NonNull StackTraceElement[] stackTraceElementArr, String str) {
         for (StackTraceElement stackTraceElement : stackTraceElementArr) {
             String className = stackTraceElement.getClassName();
             if (!TextUtils.isEmpty(className) && className.contains(str)) {
@@ -64,7 +64,7 @@ public class a {
         return false;
     }
 
-    private static boolean b(StackTraceElement[] stackTraceElementArr, String str) {
+    public static boolean b(StackTraceElement[] stackTraceElementArr, String str) {
         for (StackTraceElement stackTraceElement : stackTraceElementArr) {
             String className = stackTraceElement.getClassName();
             if (!TextUtils.isEmpty(className) && className.contains(str)) {

@@ -3,32 +3,32 @@ package com.baidu.tieba.write.write.message;
 import GetSticker.DataReq;
 import GetSticker.GetStickerReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.CommonReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class RequestGetStickerMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3602common;
+    public CommonReq f22565common;
 
     public RequestGetStickerMessage() {
-        super(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST);
-    }
-
-    public void setCommon(CommonReq commonReq) {
-        this.f3602common = commonReq;
+        super(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f946common = this.f3602common;
+        builder.f993common = this.f22565common;
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GetStickerReqIdl.Builder builder2 = new GetStickerReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
+    }
+
+    public void setCommon(CommonReq commonReq) {
+        this.f22565common = commonReq;
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.android.pushservice;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.j.m;
 import com.meizu.cloud.pushsdk.MzPushMessageReceiver;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
     @Override // com.meizu.cloud.pushsdk.MzPushMessageReceiver
     public void onMessage(Context context, String str) {
@@ -33,8 +33,9 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
             intent.putExtra("mz_notification_self_define_content", selfDefineContentString);
             intent.putExtra("mz_push_msg_type", 3);
             m.a(intent, context.getApplicationContext());
-        } catch (Exception e) {
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+            com.baidu.android.pushservice.frequency.b.a().a(context, false, 1, new com.baidu.android.pushservice.message.i().c(context, selfDefineContentString));
+        } catch (Exception e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
         }
     }
 
@@ -48,8 +49,8 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
             if (Double.parseDouble(m.n(context)) < 6.0d) {
                 return;
             }
-        } catch (Exception e) {
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+        } catch (Exception e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
         }
         super.onReceive(context, intent);
     }
@@ -67,8 +68,8 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
                 intent.putExtra("mz_pushid", pushId);
                 intent.putExtra("mz_register_errorcode", registerStatus.getCode());
                 m.a(intent, context.getApplicationContext());
-            } catch (Exception e) {
-                new b.c(context).a(Log.getStackTraceString(e)).a();
+            } catch (Exception e2) {
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
             }
         }
     }

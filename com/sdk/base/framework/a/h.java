@@ -2,8 +2,9 @@ package com.sdk.base.framework.a;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.http.Headers;
-import com.baidu.ar.constants.HttpConstants;
+import com.android.internal.http.multipart.Part;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.sdk.base.module.manager.SDKManager;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -12,47 +13,66 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+/* loaded from: classes6.dex */
 public class h<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7620a = h.class.getSimpleName();
-    private static boolean b = com.sdk.base.framework.c.f.b;
-    private static String c = UUID.randomUUID().toString();
-    private Context d;
-    private j<T> e;
+    public static final String f38474a = "h";
 
-    public h(Context context, j<T> jVar) {
-        this.d = context;
-        this.e = jVar;
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f38475b = com.sdk.base.framework.c.f.f38519b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f38476c = UUID.randomUUID().toString();
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final HostnameVerifier f38477f = new i();
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f38478d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public k<T> f38479e;
+
+    public h(Context context, k<T> kVar) {
+        this.f38478d = context;
+        this.f38479e = kVar;
     }
 
-    private ByteArrayOutputStream a(j<T> jVar) {
+    private ByteArrayOutputStream a(k<T> kVar) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        if (jVar != null) {
+        if (kVar != null) {
             try {
-                String b2 = j.b(this.e.f());
-                if (jVar.e().contains("/dro/log/v1.0/log")) {
-                    b2 = jVar.f().toString();
+                String b2 = k.b(this.f38479e.e());
+                if (kVar.d().contains("/dro/log/v1.0/log")) {
+                    b2 = kVar.e().toString();
                 }
-                ArrayList<File> c2 = jVar.c();
-                if (c2 == null || c2.size() <= 0) {
+                ArrayList<File> b3 = kVar.b();
+                if (b3 == null || b3.size() <= 0) {
                     byteArrayOutputStream.write(b2.getBytes("utf-8"));
                 } else {
-                    byteArrayOutputStream.write(("--" + c + "\r\n").getBytes("utf-8"));
+                    byteArrayOutputStream.write(("--" + f38476c + Part.CRLF).getBytes("utf-8"));
                     byteArrayOutputStream.write("Content-Disposition: form-data; name=\"params\"".getBytes("utf-8"));
                     byteArrayOutputStream.write("\r\n\r\n".getBytes("utf-8"));
                     byteArrayOutputStream.write(b2.getBytes("utf-8"));
-                    byteArrayOutputStream.write("\r\n".getBytes("utf-8"));
-                    for (int i = 0; i < c2.size(); i++) {
-                        File file = c2.get(i);
+                    byteArrayOutputStream.write(Part.CRLF.getBytes("utf-8"));
+                    for (int i = 0; i < b3.size(); i++) {
+                        File file = b3.get(i);
                         if (file != null) {
                             FileInputStream fileInputStream = new FileInputStream(file);
                             String name = file.getName();
-                            byteArrayOutputStream.write(("--" + c + "\r\n").getBytes("utf-8"));
-                            byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + name + "\"; filename=\"" + name + "\"\r\n").getBytes("utf-8"));
+                            byteArrayOutputStream.write(("--" + f38476c + Part.CRLF).getBytes("utf-8"));
+                            StringBuilder sb = new StringBuilder("Content-Disposition: form-data; name=\"");
+                            sb.append(name);
+                            sb.append("\"; filename=\"");
+                            sb.append(name);
+                            sb.append("\"\r\n");
+                            byteArrayOutputStream.write(sb.toString().getBytes("utf-8"));
                             byteArrayOutputStream.write("Content-Type: application/octet-stream\r\n".getBytes("utf-8"));
                             byteArrayOutputStream.write("Content-Transfer-Encoding: binary\r\n\r\n".getBytes("utf-8"));
                             byte[] bArr = new byte[1024];
@@ -63,126 +83,182 @@ public class h<T> {
                                 }
                                 byteArrayOutputStream.write(bArr, 0, read);
                             }
-                            byteArrayOutputStream.write(("\r\n--" + c + "--\r\n").getBytes("utf-8"));
+                            StringBuilder sb2 = new StringBuilder("\r\n--");
+                            sb2.append(f38476c);
+                            sb2.append("--\r\n");
+                            byteArrayOutputStream.write(sb2.toString().getBytes("utf-8"));
                             byteArrayOutputStream.flush();
                             fileInputStream.close();
                         }
                     }
                 }
-            } catch (Exception e) {
-                com.sdk.base.framework.f.g.a.b(e.toString());
-                com.sdk.base.framework.a.a.c.b(f7620a, e.toString(), Boolean.valueOf(b));
+            } catch (Exception e2) {
+                com.sdk.base.framework.f.f.a.b(e2.toString());
+                com.sdk.base.framework.a.a.c.b(f38474a, e2.toString(), Boolean.valueOf(f38475b));
             }
         }
         return byteArrayOutputStream;
     }
 
-    private static boolean b(String str) {
+    public static boolean a(String str) {
         return (!SDKManager.isIsStrong() || str.contains("/api/netm/v1.0/qhbt") || str.contains("/api/netm/v1.0/qhbv") || str.contains("/dro/netm/v1.0/gmctc") || str.contains("/st/api/v1.0/ses")) ? false : true;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x0080 -> B:10:0x0049). Please submit an issue!!! */
     public final String a() {
         String str;
+        StringBuilder sb;
         try {
-            if (this.e != null) {
-                String a2 = this.e.a();
-                String e = this.e.e();
-                str = i.f7621a.k;
+            if (this.f38479e != null) {
+                String a2 = this.f38479e.a();
+                String d2 = this.f38479e.d();
+                str = j.f38480a.k;
                 if (a2.equals(str)) {
-                    String b2 = j.b(this.e.f());
-                    return com.sdk.base.framework.a.a.c.b(b2).booleanValue() ? e + "?" + b2 : e;
+                    String b2 = k.b(this.f38479e.e());
+                    if (!com.sdk.base.framework.a.a.c.b(b2).booleanValue()) {
+                        return d2;
+                    }
+                    sb = new StringBuilder();
+                    sb.append(d2);
+                    sb.append("?");
+                    sb.append(b2);
+                } else if (!com.sdk.base.framework.a.a.c.b((String) null).booleanValue()) {
+                    return d2;
+                } else {
+                    sb = new StringBuilder();
+                    sb.append(d2);
+                    sb.append("?unikey=");
+                    sb.append((String) null);
                 }
-                j<T> jVar = this.e;
-                return com.sdk.base.framework.a.a.c.b((String) null).booleanValue() ? e + "?unikey=" + ((String) null) : e;
+                return sb.toString();
             }
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(f7620a, e2.getMessage(), Boolean.valueOf(b));
+            com.sdk.base.framework.a.a.c.b(f38474a, e2.getMessage(), Boolean.valueOf(f38475b));
         }
         return null;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r1v10 int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x010d: INVOKE  (r0v21 java.lang.Object A[REMOVE]) = (r0v20 java.util.Map$Entry<java.lang.String, java.lang.Object>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:65:0x013b */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v5 int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r7v11 java.lang.Object)] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x008a A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x008b  */
     @SuppressLint({"DefaultLocale"})
-    public final HttpURLConnection a(String str) {
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final HttpURLConnection a(String str, boolean z) {
         HttpURLConnection httpURLConnection;
-        com.sdk.base.framework.f.h.c.c.a();
+        a aVar;
+        HttpURLConnection httpURLConnection2;
+        com.sdk.base.framework.f.g.c a2;
+        com.sdk.base.framework.f.g.c.f38552c.a();
         try {
+            HttpsURLConnection httpsURLConnection = null;
+            r1 = null;
+            HttpURLConnection httpURLConnection3 = null;
             if (com.sdk.base.framework.a.a.c.b(str).booleanValue()) {
                 URL url = new URL(str);
-                int a2 = com.sdk.base.framework.f.h.b.a(this.d, (ArrayList<String>) null).a();
+                int a3 = com.sdk.base.framework.f.g.b.a(this.f38478d, null).a();
                 System.currentTimeMillis();
-                if (!b(str) || a2 == com.sdk.base.framework.f.h.c.b.a()) {
-                    httpURLConnection = null;
-                } else {
+                if (a(str) && a3 != com.sdk.base.framework.f.g.c.f38551b.a()) {
                     int b2 = com.sdk.base.framework.f.a.a.b();
                     if (b2 < 23) {
-                        String e = this.e.e();
-                        if (b(e)) {
+                        String d2 = this.f38479e.d();
+                        if (a(d2)) {
                             ArrayList arrayList = new ArrayList();
-                            if (com.sdk.base.framework.a.a.c.b(e).booleanValue()) {
-                                arrayList.add(e);
+                            if (com.sdk.base.framework.a.a.c.b(d2).booleanValue()) {
+                                arrayList.add(d2);
                             }
-                            a2 = com.sdk.base.framework.f.h.b.a(this.d, arrayList).a();
+                            a2 = com.sdk.base.framework.f.g.b.a(this.f38478d, arrayList);
                         } else {
-                            a2 = com.sdk.base.framework.f.h.b.a(this.d, (ArrayList<String>) null).a();
+                            a2 = com.sdk.base.framework.f.g.b.a(this.f38478d, null);
                         }
-                        httpURLConnection = (b2 <= 21 || a2 == com.sdk.base.framework.f.h.c.b.a()) ? null : new a(this.d, url).a();
+                        a3 = a2.a();
+                        if (b2 <= 21 || a3 == com.sdk.base.framework.f.g.c.f38551b.a()) {
+                            httpURLConnection2 = null;
+                            if (httpURLConnection2 != null) {
+                                return null;
+                            }
+                            httpURLConnection3 = httpURLConnection2;
+                        } else {
+                            aVar = new a(this.f38478d, url);
+                        }
                     } else {
-                        httpURLConnection = new a(this.d, url).a();
+                        aVar = new a(this.f38478d, url);
                     }
-                    if (httpURLConnection == null) {
-                        return null;
+                    httpURLConnection2 = aVar.a();
+                    if (httpURLConnection2 != null) {
                     }
                 }
-                if (httpURLConnection == null) {
+                if (httpURLConnection3 == null) {
                     httpURLConnection = (HttpURLConnection) url.openConnection();
-                } else if (a2 == com.sdk.base.framework.f.h.c.f7646a.a()) {
-                    a2 = 2;
-                }
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setConnectTimeout(30000);
-                httpURLConnection.setReadTimeout(30000);
-                httpURLConnection.setInstanceFollowRedirects(true);
-                if (com.sdk.base.framework.f.h.g.c == this.e.b()) {
-                    httpURLConnection.setInstanceFollowRedirects(false);
-                }
-                httpURLConnection.setRequestProperty("user-agent", com.sdk.base.framework.f.e.a.a(this.d));
-                httpURLConnection.setRequestProperty("netType", new StringBuilder().append(a2).toString());
-                httpURLConnection.setRequestProperty("os", HttpConstants.OS_TYPE_VALUE);
-                HashMap<String, Object> i = this.e.i();
-                if (i != null && i.size() > 0) {
-                    for (Map.Entry<String, Object> entry : i.entrySet()) {
-                        httpURLConnection.setRequestProperty(entry.getKey(), new StringBuilder().append(entry.getValue()).toString());
+                } else {
+                    httpURLConnection = httpURLConnection3;
+                    if (a3 == com.sdk.base.framework.f.g.c.f38550a.a()) {
+                        a3 = 2;
+                        httpURLConnection = httpURLConnection3;
                     }
                 }
-                return httpURLConnection;
+                String protocol = url.getProtocol();
+                httpsURLConnection = httpURLConnection;
+                httpsURLConnection = httpURLConnection;
+                if (com.sdk.base.framework.a.a.c.b(protocol).booleanValue() && z) {
+                    httpsURLConnection = httpURLConnection;
+                    if (SDKManager.isSmartTrust()) {
+                        httpsURLConnection = httpURLConnection;
+                        if ("https".equals(protocol.toLowerCase(Locale.getDefault()))) {
+                            HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) httpURLConnection;
+                            httpsURLConnection2.setHostnameVerifier(f38477f);
+                            httpsURLConnection = httpsURLConnection2;
+                        }
+                    }
+                }
+                httpsURLConnection.setDoOutput(true);
+                httpsURLConnection.setConnectTimeout(30000);
+                httpsURLConnection.setReadTimeout(30000);
+                httpsURLConnection.setInstanceFollowRedirects(false);
+                httpsURLConnection.setRequestProperty("user-agent", com.sdk.base.framework.f.d.a.a(this.f38478d));
+                StringBuilder sb = new StringBuilder();
+                sb.append(a3);
+                httpsURLConnection.setRequestProperty("netType", sb.toString());
+                httpsURLConnection.setRequestProperty(IXAdRequestInfo.OS, "android");
+                HashMap<String, Object> h2 = this.f38479e.h();
+                if (h2 != null && h2.size() > 0) {
+                    for (Map.Entry<String, Object> entry : h2.entrySet()) {
+                        Object value = entry.getValue();
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append(value);
+                        httpsURLConnection.setRequestProperty(entry.getKey(), sb2.toString());
+                    }
+                }
             }
-            return null;
+            return httpsURLConnection;
         } catch (Exception e2) {
-            com.sdk.base.framework.f.g.a.b(e2.toString());
-            com.sdk.base.framework.a.a.c.b(f7620a, e2.toString(), Boolean.valueOf(b));
+            com.sdk.base.framework.f.f.a.b(e2.toString());
+            com.sdk.base.framework.a.a.c.b(f38474a, e2.toString(), Boolean.valueOf(f38475b));
             throw e2;
         }
     }
 
     public final HttpURLConnection a(HttpURLConnection httpURLConnection) {
         String str;
+        String str2;
         if (httpURLConnection != null) {
-            if (this.e == null || !this.e.d()) {
-                httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            k<T> kVar = this.f38479e;
+            if (kVar == null || !kVar.c()) {
+                str = "application/x-www-form-urlencoded";
             } else {
-                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + c);
+                str = "multipart/form-data; boundary=" + f38476c;
             }
-            httpURLConnection.setRequestProperty("Charset", "UTF-8");
-            httpURLConnection.setRequestProperty(Headers.CONN_DIRECTIVE, "keep-alive");
-            if (this.e != null) {
-                str = i.b.k;
-                if (str.equals(this.e.a())) {
+            httpURLConnection.setRequestProperty("Content-Type", str);
+            httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+            httpURLConnection.setRequestProperty("connection", "keep-alive");
+            if (this.f38479e != null) {
+                str2 = j.f38481b.k;
+                if (str2.equals(this.f38479e.a())) {
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.connect();
-                    httpURLConnection.getOutputStream().write(a(this.e).toByteArray());
+                    httpURLConnection.getOutputStream().write(a(this.f38479e).toByteArray());
                 } else {
                     httpURLConnection.setRequestMethod("GET");
                     httpURLConnection.connect();
@@ -192,11 +268,11 @@ public class h<T> {
         return httpURLConnection;
     }
 
-    public final j<T> b() {
-        return this.e;
+    public final k<T> b() {
+        return this.f38479e;
     }
 
     public final void c() {
-        this.e.a(i.f7621a.toString());
+        this.f38479e.a(j.f38480a.toString());
     }
 }

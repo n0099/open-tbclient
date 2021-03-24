@@ -9,20 +9,27 @@ import com.google.zxing.qrcode.QRCodeReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class MultiFormatReader implements Reader {
-    private Map<DecodeHintType, ?> hints;
-    private Reader[] readers;
+    public Map<DecodeHintType, ?> hints;
+    public Reader[] readers;
+
+    private Result decodeInternal(BinaryBitmap binaryBitmap) throws NotFoundException {
+        Reader[] readerArr = this.readers;
+        if (readerArr != null) {
+            for (Reader reader : readerArr) {
+                try {
+                    return reader.decode(binaryBitmap, this.hints);
+                } catch (ReaderException unused) {
+                }
+            }
+        }
+        throw NotFoundException.getNotFoundInstance();
+    }
 
     @Override // com.google.zxing.Reader
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException {
         setHints(null);
-        return decodeInternal(binaryBitmap);
-    }
-
-    @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
-        setHints(map);
         return decodeInternal(binaryBitmap);
     }
 
@@ -33,15 +40,25 @@ public final class MultiFormatReader implements Reader {
         return decodeInternal(binaryBitmap);
     }
 
+    @Override // com.google.zxing.Reader
+    public void reset() {
+        Reader[] readerArr = this.readers;
+        if (readerArr != null) {
+            for (Reader reader : readerArr) {
+                reader.reset();
+            }
+        }
+    }
+
     public void setHints(Map<DecodeHintType, ?> map) {
-        boolean z = false;
         this.hints = map;
+        boolean z = true;
         boolean z2 = map != null && map.containsKey(DecodeHintType.TRY_HARDER);
         Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
         ArrayList arrayList = new ArrayList();
         if (collection != null) {
-            if (collection.contains(BarcodeFormat.UPC_A) || collection.contains(BarcodeFormat.UPC_E) || collection.contains(BarcodeFormat.EAN_13) || collection.contains(BarcodeFormat.EAN_8) || collection.contains(BarcodeFormat.CODABAR) || collection.contains(BarcodeFormat.CODE_39) || collection.contains(BarcodeFormat.CODE_93) || collection.contains(BarcodeFormat.CODE_128) || collection.contains(BarcodeFormat.ITF) || collection.contains(BarcodeFormat.RSS_14) || collection.contains(BarcodeFormat.RSS_EXPANDED)) {
-                z = true;
+            if (!collection.contains(BarcodeFormat.UPC_A) && !collection.contains(BarcodeFormat.UPC_E) && !collection.contains(BarcodeFormat.EAN_13) && !collection.contains(BarcodeFormat.EAN_8) && !collection.contains(BarcodeFormat.CODABAR) && !collection.contains(BarcodeFormat.CODE_39) && !collection.contains(BarcodeFormat.CODE_93) && !collection.contains(BarcodeFormat.CODE_128) && !collection.contains(BarcodeFormat.ITF) && !collection.contains(BarcodeFormat.RSS_14) && !collection.contains(BarcodeFormat.RSS_EXPANDED)) {
+                z = false;
             }
             if (z && !z2) {
                 arrayList.add(new MultiFormatOneDReader(map));
@@ -82,23 +99,8 @@ public final class MultiFormatReader implements Reader {
     }
 
     @Override // com.google.zxing.Reader
-    public void reset() {
-        if (this.readers != null) {
-            for (Reader reader : this.readers) {
-                reader.reset();
-            }
-        }
-    }
-
-    private Result decodeInternal(BinaryBitmap binaryBitmap) throws NotFoundException {
-        if (this.readers != null) {
-            for (Reader reader : this.readers) {
-                try {
-                    return reader.decode(binaryBitmap, this.hints);
-                } catch (ReaderException e) {
-                }
-            }
-        }
-        throw NotFoundException.getNotFoundInstance();
+    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
+        setHints(map);
+        return decodeInternal(binaryBitmap);
     }
 }

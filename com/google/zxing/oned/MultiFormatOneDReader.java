@@ -11,9 +11,9 @@ import com.google.zxing.oned.rss.expanded.RSSExpandedReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class MultiFormatOneDReader extends OneDReader {
-    private final OneDReader[] readers;
+    public final OneDReader[] readers;
 
     public MultiFormatOneDReader(Map<DecodeHintType, ?> map) {
         Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
@@ -63,7 +63,7 @@ public final class MultiFormatOneDReader extends OneDReader {
         for (OneDReader oneDReader : this.readers) {
             try {
                 return oneDReader.decodeRow(i, bitArray, map);
-            } catch (ReaderException e) {
+            } catch (ReaderException unused) {
             }
         }
         throw NotFoundException.getNotFoundInstance();

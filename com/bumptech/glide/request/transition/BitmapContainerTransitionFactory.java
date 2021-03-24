@@ -5,11 +5,23 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class BitmapContainerTransitionFactory<R> implements TransitionFactory<R> {
-    private final TransitionFactory<Drawable> realFactory;
+    public final TransitionFactory<Drawable> realFactory;
 
-    protected abstract Bitmap getBitmap(R r);
+    /* loaded from: classes5.dex */
+    public final class BitmapGlideAnimation implements Transition<R> {
+        public final Transition<Drawable> transition;
+
+        public BitmapGlideAnimation(Transition<Drawable> transition) {
+            this.transition = transition;
+        }
+
+        @Override // com.bumptech.glide.request.transition.Transition
+        public boolean transition(R r, Transition.ViewAdapter viewAdapter) {
+            return this.transition.transition(new BitmapDrawable(viewAdapter.getView().getResources(), BitmapContainerTransitionFactory.this.getBitmap(r)), viewAdapter);
+        }
+    }
 
     public BitmapContainerTransitionFactory(TransitionFactory<Drawable> transitionFactory) {
         this.realFactory = transitionFactory;
@@ -20,17 +32,5 @@ public abstract class BitmapContainerTransitionFactory<R> implements TransitionF
         return new BitmapGlideAnimation(this.realFactory.build(dataSource, z));
     }
 
-    /* loaded from: classes14.dex */
-    private final class BitmapGlideAnimation implements Transition<R> {
-        private final Transition<Drawable> transition;
-
-        BitmapGlideAnimation(Transition<Drawable> transition) {
-            this.transition = transition;
-        }
-
-        @Override // com.bumptech.glide.request.transition.Transition
-        public boolean transition(R r, Transition.ViewAdapter viewAdapter) {
-            return this.transition.transition(new BitmapDrawable(viewAdapter.getView().getResources(), BitmapContainerTransitionFactory.this.getBitmap(r)), viewAdapter);
-        }
-    }
+    public abstract Bitmap getBitmap(R r);
 }

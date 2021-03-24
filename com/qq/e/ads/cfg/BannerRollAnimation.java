@@ -1,18 +1,18 @@
 package com.qq.e.ads.cfg;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum BannerRollAnimation {
     Default(0),
     NoAnimation(-1);
     
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f7498a;
+    public final int f38045a;
 
     BannerRollAnimation(int i) {
-        this.f7498a = i;
+        this.f38045a = i;
     }
 
     public final int value() {
-        return this.f7498a;
+        return this.f38045a;
     }
 }

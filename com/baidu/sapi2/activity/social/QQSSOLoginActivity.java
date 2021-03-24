@@ -5,25 +5,24 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.j.a.a.a;
-import com.baidu.sapi2.social.SocialLoginBase;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.enums.SocialType;
 import com.tencent.connect.UnionInfo;
-import com.tencent.open.SocialOperation;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class QQSSOLoginActivity extends BaseSSOLoginActivity {
-    private static final String DEFAULT_QQ_NOT_INSTALL_ERROR = "QQ未安装";
-    private static final String TAG = QQSSOLoginActivity.class.getSimpleName();
-    private IUiListener qqLoginListener;
+    public static final String DEFAULT_QQ_NOT_INSTALL_ERROR = "QQ未安装";
+    public static final String TAG = QQSSOLoginActivity.class.getSimpleName();
+    public IUiListener qqLoginListener;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface QqCallback {
         void onFailure();
 
@@ -33,11 +32,11 @@ public class QQSSOLoginActivity extends BaseSSOLoginActivity {
     private void getQQSSOToken(final QqCallback qqCallback) {
         final Tencent createInstance = Tencent.createInstance(this.configuration.qqAppID, this);
         if (!SapiUtils.isAppInstalled(this, "com.tencent.mobileqq")) {
-            Toast.makeText(this, DEFAULT_QQ_NOT_INSTALL_ERROR, 1).show();
+            Toast.makeText(this.configuration.context, DEFAULT_QQ_NOT_INSTALL_ERROR, 0).show();
             qqCallback.onFailure();
             return;
         }
-        this.qqLoginListener = new IUiListener() { // from class: com.baidu.sapi2.activity.social.QQSSOLoginActivity.2
+        IUiListener iUiListener = new IUiListener() { // from class: com.baidu.sapi2.activity.social.QQSSOLoginActivity.2
             @Override // com.tencent.tauth.IUiListener
             public void onCancel() {
                 qqCallback.onFailure();
@@ -65,8 +64,8 @@ public class QQSSOLoginActivity extends BaseSSOLoginActivity {
                     } else {
                         qqCallback.onFailure();
                     }
-                } catch (Exception e) {
-                    Log.e(e);
+                } catch (Exception e2) {
+                    Log.e(e2);
                     qqCallback.onFailure();
                 }
             }
@@ -76,7 +75,8 @@ public class QQSSOLoginActivity extends BaseSSOLoginActivity {
                 qqCallback.onFailure();
             }
         };
-        createInstance.login(this, "all", this.qqLoginListener);
+        this.qqLoginListener = iUiListener;
+        createInstance.login(this, "all", iUiListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -91,7 +91,7 @@ public class QQSSOLoginActivity extends BaseSSOLoginActivity {
                 @Override // com.tencent.tauth.IUiListener
                 public void onComplete(Object obj) {
                     if (obj != null) {
-                        qqCallback.onSuccess(tencent.getAccessToken(), tencent.getOpenId(), ((JSONObject) obj).optString(SocialOperation.GAME_UNION_ID));
+                        qqCallback.onSuccess(tencent.getAccessToken(), tencent.getOpenId(), ((JSONObject) obj).optString("unionid"));
                         return;
                     }
                     qqCallback.onFailure();
@@ -107,26 +107,29 @@ public class QQSSOLoginActivity extends BaseSSOLoginActivity {
         qqCallback.onFailure();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        Log.d(TAG, "requestCode = " + i + " resultCode = " + i2 + " data = " + intent);
+        String str = TAG;
+        Log.d(str, "requestCode = " + i + " resultCode = " + i2 + " data = " + intent);
         if (i == 11101 || i == 10102) {
             Tencent.onActivityResultData(i, i2, intent, this.qqLoginListener);
         }
+        if (this.mIsVerification && i == 11101 && i2 == 0) {
+            setActivtyResult(3001);
+            finish();
+        }
     }
 
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setupViews();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.c.sapi_sdk_title_login_qq);
+        setTitleText("QQ帐号登录");
         RelativeLayout relativeLayout = this.rootView;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(4);
@@ -135,12 +138,30 @@ public class QQSSOLoginActivity extends BaseSSOLoginActivity {
             @Override // com.baidu.sapi2.activity.social.QQSSOLoginActivity.QqCallback
             public void onFailure() {
                 QQSSOLoginActivity qQSSOLoginActivity = QQSSOLoginActivity.this;
+                if (qQSSOLoginActivity.mIsVerification) {
+                    qQSSOLoginActivity.setActivtyResult(3001);
+                    QQSSOLoginActivity.this.finish();
+                    return;
+                }
                 qQSSOLoginActivity.handleBack(qQSSOLoginActivity.businessFrom);
             }
 
             @Override // com.baidu.sapi2.activity.social.QQSSOLoginActivity.QqCallback
             public void onSuccess(String str, String str2, String str3) {
-                QQSSOLoginActivity.this.loadLoginInNA(ParamsUtil.getUrlQQBind(((SocialLoginBase) QQSSOLoginActivity.this).configuration, str, str2, str3), "授权QQ账号登录中");
+                QQSSOLoginActivity qQSSOLoginActivity = QQSSOLoginActivity.this;
+                if (!qQSSOLoginActivity.mIsVerification) {
+                    QQSSOLoginActivity.this.loadLoginInNA(ParamsUtil.getUrlQQBind(qQSSOLoginActivity.configuration, str, str2, str3), "授权QQ账号登录中");
+                    return;
+                }
+                Intent intent = new Intent();
+                intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, str);
+                intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str2);
+                intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_UNION_ID, str3);
+                intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_CODE, String.valueOf(SocialType.QQ_SSO.getType()));
+                intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_NAME, "qzone");
+                intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, SapiAccountManager.getInstance().getConfignation().qqAppID);
+                QQSSOLoginActivity.this.setActivtyResult(3001, intent);
+                QQSSOLoginActivity.this.finish();
             }
         });
     }

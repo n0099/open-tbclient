@@ -7,17 +7,9 @@ import com.alibaba.fastjson.serializer.SerializeWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import org.springframework.web.socket.sockjs.frame.AbstractSockJsMessageCodec;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class FastjsonSockJsMessageCodec extends AbstractSockJsMessageCodec {
-    public String[] decode(String str) throws IOException {
-        return (String[]) JSON.parseObject(str, String[].class);
-    }
-
-    public String[] decodeInputStream(InputStream inputStream) throws IOException {
-        return (String[]) JSON.parseObject(inputStream, String[].class, new Feature[0]);
-    }
-
-    protected char[] applyJsonQuoting(String str) {
+    public char[] applyJsonQuoting(String str) {
         SerializeWriter serializeWriter = new SerializeWriter();
         try {
             new JSONSerializer(serializeWriter).write(str);
@@ -25,5 +17,13 @@ public class FastjsonSockJsMessageCodec extends AbstractSockJsMessageCodec {
         } finally {
             serializeWriter.close();
         }
+    }
+
+    public String[] decode(String str) throws IOException {
+        return (String[]) JSON.parseObject(str, String[].class);
+    }
+
+    public String[] decodeInputStream(InputStream inputStream) throws IOException {
+        return (String[]) JSON.parseObject(inputStream, String[].class, new Feature[0]);
     }
 }

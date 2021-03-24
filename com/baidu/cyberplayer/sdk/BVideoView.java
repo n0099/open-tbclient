@@ -24,42 +24,56 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnMediaSourceChangedListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener, ICyberVideoView {
 
     /* renamed from: a  reason: collision with root package name */
-    static String f1375a = "BVideoView";
-    private boolean A;
-    private float B;
-    private long C;
-    private String D;
-    private String E;
-    private i.a F;
-    private Context b;
-    private CyberPlayer c;
-    private Uri d;
-    private Map<String, String> e;
-    private int f;
-    private int g;
-    private int h;
-    private int i;
-    private int j;
-    private HashMap<String, String> k;
-    private CyberPlayerManager.HttpDNS l;
-    private boolean m;
-    private CyberPlayerManager.OnPreparedListener n;
-    private CyberPlayerManager.OnVideoSizeChangedListener o;
-    private CyberPlayerManager.OnCompletionListener p;
-    private CyberPlayerManager.OnSeekCompleteListener q;
-    private CyberPlayerManager.OnBufferingUpdateListener r;
-    private CyberPlayerManager.OnErrorListener s;
-    private CyberPlayerManager.OnInfoListener t;
-    private CyberPlayerManager.OnMediaSourceChangedListener u;
-    private e v;
-    private a w;
-    private ArrayList<ICyberVideoView.OnSnapShotCompleteListener> x;
-    private int y;
-    private boolean z;
+    public static String f4777a = "BVideoView";
+    public boolean A;
+    public float B;
+    public long C;
+    public String D;
+    public String E;
+    public i.a F;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f4778b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public CyberPlayer f4779c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Uri f4780d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Map<String, String> f4781e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f4782f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f4783g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f4784h;
+    public int i;
+    public int j;
+    public HashMap<String, String> k;
+    public CyberPlayerManager.HttpDNS l;
+    public boolean m;
+    public CyberPlayerManager.OnPreparedListener n;
+    public CyberPlayerManager.OnVideoSizeChangedListener o;
+    public CyberPlayerManager.OnCompletionListener p;
+    public CyberPlayerManager.OnSeekCompleteListener q;
+    public CyberPlayerManager.OnBufferingUpdateListener r;
+    public CyberPlayerManager.OnErrorListener s;
+    public CyberPlayerManager.OnInfoListener t;
+    public CyberPlayerManager.OnMediaSourceChangedListener u;
+    public e v;
+    public a w;
+    public ArrayList<ICyberVideoView.OnSnapShotCompleteListener> x;
+    public int y;
+    public boolean z;
 
     public BVideoView(Context context) {
         this(context, null);
@@ -67,8 +81,8 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
 
     public BVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.g = 0;
-        this.h = 0;
+        this.f4783g = 0;
+        this.f4784h = 0;
         this.i = 0;
         this.j = 0;
         this.k = new HashMap<>();
@@ -88,7 +102,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
                             Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
                             createBitmap.copyPixelsFromBuffer(buffer);
                             Bitmap a2 = n.a(createBitmap);
-                            CyberLog.d(BVideoView.f1375a, "onTakeSnapShot rotate bmp finished");
+                            CyberLog.d(BVideoView.f4777a, "onTakeSnapShot rotate bmp finished");
                             synchronized (BVideoView.this.x) {
                                 for (int i3 = 0; i3 < BVideoView.this.x.size(); i3++) {
                                     ((ICyberVideoView.OnSnapShotCompleteListener) BVideoView.this.x.get(i3)).onSnapShotComplete(a2);
@@ -105,35 +119,37 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.cyberplayer.sdk.BVideoView.2.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (BVideoView.this.c != null && BVideoView.this.c.getDecodeMode() == 4 && Build.VERSION.SDK_INT <= 16) {
-                            BVideoView.this.c.sendCommand(1002, 0, j, null);
+                        if (BVideoView.this.f4779c != null && BVideoView.this.f4779c.getDecodeMode() == 4 && Build.VERSION.SDK_INT <= 16) {
+                            BVideoView.this.f4779c.sendCommand(1002, 0, j, null);
                         }
-                        if (BVideoView.this.c == null || BVideoView.this.C <= 0) {
+                        if (BVideoView.this.f4779c == null || BVideoView.this.C <= 0) {
                             return;
                         }
                         long j2 = j - BVideoView.this.C;
                         HashMap hashMap = new HashMap();
                         hashMap.put("type", "20513");
                         hashMap.put("surface_drawed", "" + j2);
-                        BVideoView.this.c.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
+                        BVideoView.this.f4779c.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
                     }
                 });
             }
 
             @Override // com.baidu.cyberplayer.sdk.i.a
             public boolean a(int i) {
-                Surface c;
-                CyberLog.d(BVideoView.f1375a, "onSurfaceReady renderType:" + i);
+                Surface c2;
+                String str = BVideoView.f4777a;
+                CyberLog.d(str, "onSurfaceReady renderType:" + i);
                 if (i != 0 || Build.VERSION.SDK_INT >= 16) {
                     return false;
                 }
-                if (BVideoView.this.c != null && BVideoView.this.v != null && (c = BVideoView.this.v.c()) != null) {
-                    BVideoView.this.c.setSurface(c);
+                if (BVideoView.this.f4779c == null || BVideoView.this.v == null || (c2 = BVideoView.this.v.c()) == null) {
+                    return true;
                 }
+                BVideoView.this.f4779c.setSurface(c2);
                 return true;
             }
         };
-        this.b = context.getApplicationContext();
+        this.f4778b = context.getApplicationContext();
         this.w = new a();
         this.x = new ArrayList<>();
         reset();
@@ -146,13 +162,14 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
             setFocusableInTouchMode(true);
             requestFocus();
         }
-        this.g = 0;
-        this.h = 0;
+        this.f4783g = 0;
+        this.f4784h = 0;
         this.i = 0;
         this.j = 0;
         setEGLContextClientVersion(2);
-        this.v = new e();
-        setRenderer(this.v);
+        e eVar = new e();
+        this.v = eVar;
+        setRenderer(eVar);
         setRenderMode(0);
         this.v.a(this.F);
         this.v.a(new e.a() { // from class: com.baidu.cyberplayer.sdk.BVideoView.1
@@ -163,143 +180,152 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
         });
     }
 
-    private static boolean a(String str) {
+    public static boolean a(String str) {
         try {
             if (CyberCfgManager.getInstance().a("enable_hls_force_mediaplayer", false) && str.split("\\?")[0].endsWith(".m3u8")) {
-                CyberLog.d(f1375a, "force mediaplayer");
+                CyberLog.d(f4777a, "force mediaplayer");
                 return true;
             }
-            return false;
-        } catch (Exception e) {
-            return false;
+        } catch (Exception unused) {
         }
+        return false;
     }
 
     private void b() {
-        Surface c;
-        if (this.d == null) {
+        Surface c2;
+        if (this.f4780d == null) {
             return;
         }
         this.C = System.currentTimeMillis();
         d();
         try {
-            if (a(this.d.toString())) {
+            if (a(this.f4780d.toString())) {
                 this.y = 4;
             }
-            this.c = new CyberPlayer(this.y, this.l, this.m);
-            this.c.setOnPreparedListener(this);
-            this.c.setOnCompletionListener(this);
-            this.c.setOnVideoSizeChangedListener(this);
-            this.c.setOnSeekCompleteListener(this);
-            this.c.setOnBufferingUpdateListener(this);
-            this.c.setOnErrorListener(this);
-            this.c.setOnInfoListener(this);
-            this.c.setOnMediaSourceChangedListener(this);
+            CyberPlayer cyberPlayer = new CyberPlayer(this.y, this.l, this.m);
+            this.f4779c = cyberPlayer;
+            cyberPlayer.setOnPreparedListener(this);
+            this.f4779c.setOnCompletionListener(this);
+            this.f4779c.setOnVideoSizeChangedListener(this);
+            this.f4779c.setOnSeekCompleteListener(this);
+            this.f4779c.setOnBufferingUpdateListener(this);
+            this.f4779c.setOnErrorListener(this);
+            this.f4779c.setOnInfoListener(this);
+            this.f4779c.setOnMediaSourceChangedListener(this);
             if (this.k != null) {
                 for (String str : this.k.keySet()) {
-                    this.c.setOption(str, this.k.get(str));
+                    this.f4779c.setOption(str, this.k.get(str));
                 }
             }
             if (this.D != null) {
-                this.c.setPlayJson(this.D);
+                this.f4779c.setPlayJson(this.D);
             }
             if (this.E != null) {
-                this.c.setClarityInfo(this.E);
+                this.f4779c.setClarityInfo(this.E);
             }
-            this.c.setOption(CyberPlayerManager.OPT_CLIENT_SET_URL_TIME, "" + this.C);
-            this.c.setDataSource(this.b, this.d, this.e);
-            this.c.prepareAsync();
-            this.g = 1;
-            if (this.v != null && (c = this.v.c()) != null) {
-                this.c.setSurface(c);
+            CyberPlayer cyberPlayer2 = this.f4779c;
+            cyberPlayer2.setOption(CyberPlayerManager.OPT_CLIENT_SET_URL_TIME, "" + this.C);
+            this.f4779c.setDataSource(this.f4778b, this.f4780d, this.f4781e);
+            this.f4779c.prepareAsync();
+            this.f4783g = 1;
+            if (this.v != null && (c2 = this.v.c()) != null) {
+                this.f4779c.setSurface(c2);
             }
-            this.c.setScreenOnWhilePlaying(true);
+            this.f4779c.setScreenOnWhilePlaying(true);
             if (this.z) {
-                this.c.muteOrUnmuteAudio(this.z);
+                this.f4779c.muteOrUnmuteAudio(this.z);
             }
             if (this.A) {
-                this.c.setLooping(this.A);
+                this.f4779c.setLooping(this.A);
             }
             if (this.B != 1.0f) {
-                this.c.setSpeed(this.B);
+                this.f4779c.setSpeed(this.B);
             }
             c();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             onError(-111, 0, null);
         }
     }
 
     private void c() {
-        ArrayList<a.C0105a> b;
-        if (this.c == null || (b = this.w.b()) == null) {
+        ArrayList<a.C0069a> b2;
+        if (this.f4779c == null || (b2 = this.w.b()) == null) {
             return;
         }
-        int size = b.size();
+        int size = b2.size();
         for (int i = 0; i < size; i++) {
-            a.C0105a c0105a = b.get(i);
-            if (c0105a != null && c0105a.a() != null) {
-                this.c.setExternalInfo(c0105a.a(), c0105a.b());
+            a.C0069a c0069a = b2.get(i);
+            if (c0069a != null && c0069a.a() != null) {
+                this.f4779c.setExternalInfo(c0069a.a(), c0069a.b());
             }
         }
     }
 
     private void d() {
-        if (this.c != null) {
-            if (this.c.getDecodeMode() == 4) {
-                this.c.reset();
+        CyberPlayer cyberPlayer = this.f4779c;
+        if (cyberPlayer != null) {
+            if (cyberPlayer.getDecodeMode() == 4) {
+                this.f4779c.reset();
             }
-            this.c.release();
-            this.c = null;
-            this.g = 0;
-            this.h = 0;
+            this.f4779c.release();
+            this.f4779c = null;
+            this.f4783g = 0;
+            this.f4784h = 0;
             this.i = 0;
             this.j = 0;
         }
-        if (this.v != null) {
-            this.v.a();
+        e eVar = this.v;
+        if (eVar != null) {
+            eVar.a();
         }
     }
 
     private boolean e() {
-        return (this.c == null || this.g == -1 || this.g == 0 || this.g == 1) ? false : true;
+        int i;
+        return (this.f4779c == null || (i = this.f4783g) == -1 || i == 0 || i == 1) ? false : true;
     }
 
     private boolean f() {
-        return (this.c == null || this.g == 0 || this.g == 1) ? false : true;
+        int i;
+        return (this.f4779c == null || (i = this.f4783g) == 0 || i == 1) ? false : true;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void changeProxyDynamic(String str) {
-        if (this.c != null && TextUtils.isEmpty(n.c())) {
-            String str2 = this.k != null ? this.k.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
+        if (this.f4779c != null && TextUtils.isEmpty(n.c())) {
+            HashMap<String, String> hashMap = this.k;
+            String str2 = hashMap != null ? hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
             if (TextUtils.isEmpty(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return;
                 }
-                this.c.changeProxyDynamic(null, false);
+                this.f4779c.changeProxyDynamic(null, false);
             } else if (str.equals(str2)) {
                 return;
             } else {
-                this.c.changeProxyDynamic(str, true);
+                this.f4779c.changeProxyDynamic(str, true);
             }
-            this.c.seekTo(getCurrentPosition() + AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL);
-            if (this.k != null) {
-                this.k.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
+            this.f4779c.seekTo(getCurrentPosition() + AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL);
+            HashMap<String, String> hashMap2 = this.k;
+            if (hashMap2 != null) {
+                hashMap2.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void destory() {
-        CyberLog.i(f1375a, "destory called");
+        CyberLog.i(f4777a, "destory called");
         d();
-        if (this.k != null) {
-            this.k.clear();
+        HashMap<String, String> hashMap = this.k;
+        if (hashMap != null) {
+            hashMap.clear();
             this.k = null;
         }
-        if (this.w != null) {
-            this.w.a();
+        a aVar = this.w;
+        if (aVar != null) {
+            aVar.a();
             this.w = null;
         }
         synchronized (this.x) {
@@ -307,9 +333,10 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
                 this.x.clear();
             }
         }
-        if (this.e != null) {
-            this.e.clear();
-            this.e = null;
+        Map<String, String> map = this.f4781e;
+        if (map != null) {
+            map.clear();
+            this.f4781e = null;
         }
         this.l = null;
         this.n = null;
@@ -330,37 +357,39 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public int getCurrentPosition() {
         if (f()) {
-            return this.c.getCurrentPosition();
+            return this.f4779c.getCurrentPosition();
         }
         return 0;
     }
 
     public int getCurrentPositionSync() {
         if (f()) {
-            return this.c.getCurrentPositionSync();
+            return this.f4779c.getCurrentPositionSync();
         }
         return 0;
     }
 
     public CyberPlayer getCyberPlayer() {
-        return this.c;
+        return this.f4779c;
     }
 
     public int getDecodeMode() {
-        return this.c != null ? this.c.getDecodeMode() : this.y;
+        CyberPlayer cyberPlayer = this.f4779c;
+        return cyberPlayer != null ? cyberPlayer.getDecodeMode() : this.y;
     }
 
     public long getDownloadSpeed() {
-        if (this.c == null || this.g == 0) {
+        CyberPlayer cyberPlayer = this.f4779c;
+        if (cyberPlayer == null || this.f4783g == 0) {
             return -1L;
         }
-        return this.c.getDownloadSpeed();
+        return cyberPlayer.getDownloadSpeed();
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public int getDuration() {
         if (f()) {
-            return this.c.getDuration();
+            return this.f4779c.getDuration();
         }
         return -1;
     }
@@ -368,7 +397,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public long getPlayedTime() {
         if (f()) {
-            return this.c.getPlayedTime();
+            return this.f4779c.getPlayedTime();
         }
         return -1L;
     }
@@ -390,81 +419,93 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public boolean isPlaying() {
-        return e() && this.g == 3;
+        return e() && this.f4783g == 3;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void muteOrUnmuteAudio(boolean z) {
         this.z = z;
-        CyberLog.i(f1375a, "muteOrUnmuteAudio flag:" + z);
-        if (this.c != null) {
-            this.c.muteOrUnmuteAudio(z);
+        String str = f4777a;
+        CyberLog.i(str, "muteOrUnmuteAudio flag:" + z);
+        CyberPlayer cyberPlayer = this.f4779c;
+        if (cyberPlayer != null) {
+            cyberPlayer.muteOrUnmuteAudio(z);
         } else {
-            CyberLog.i(f1375a, "muteOrUnmuteAudio must call after setVideoPath or setVideoURI");
+            CyberLog.i(f4777a, "muteOrUnmuteAudio must call after setVideoPath or setVideoURI");
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
     public void onBufferingUpdate(int i) {
-        if (this.r != null) {
-            this.r.onBufferingUpdate(i);
+        CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener = this.r;
+        if (onBufferingUpdateListener != null) {
+            onBufferingUpdateListener.onBufferingUpdate(i);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
     public void onCompletion() {
-        this.g = 5;
-        this.h = 5;
-        if (this.p != null) {
-            this.p.onCompletion();
+        this.f4783g = 5;
+        this.f4784h = 5;
+        CyberPlayerManager.OnCompletionListener onCompletionListener = this.p;
+        if (onCompletionListener != null) {
+            onCompletionListener.onCompletion();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
     public boolean onError(int i, int i2, Object obj) {
-        this.g = -1;
-        this.h = -1;
-        if (this.s != null) {
-            return this.s.onError(i, i2, obj);
+        this.f4783g = -1;
+        this.f4784h = -1;
+        CyberPlayerManager.OnErrorListener onErrorListener = this.s;
+        if (onErrorListener != null) {
+            return onErrorListener.onError(i, i2, obj);
         }
         return true;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
     public boolean onInfo(int i, int i2, Object obj) {
-        if (i == 10001 && this.c != null && this.c.getDecodeMode() != 4) {
+        CyberPlayer cyberPlayer;
+        if (i == 10001 && (cyberPlayer = this.f4779c) != null && cyberPlayer.getDecodeMode() != 4) {
             this.v.c(i2);
         }
-        return this.t != null && this.t.onInfo(i, i2, obj);
+        CyberPlayerManager.OnInfoListener onInfoListener = this.t;
+        return onInfoListener != null && onInfoListener.onInfo(i, i2, obj);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnMediaSourceChangedListener
     public boolean onMediaSourceChanged(int i, int i2, Object obj) {
-        return this.u != null && this.u.onMediaSourceChanged(i, i2, obj);
+        CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener = this.u;
+        return onMediaSourceChangedListener != null && onMediaSourceChangedListener.onMediaSourceChanged(i, i2, obj);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
     public void onPrepared() {
-        this.g = 2;
-        if (this.n != null) {
-            this.n.onPrepared();
+        this.f4783g = 2;
+        CyberPlayerManager.OnPreparedListener onPreparedListener = this.n;
+        if (onPreparedListener != null) {
+            onPreparedListener.onPrepared();
         }
-        if (this.f > 0) {
-            seekTo(this.f);
+        int i = this.f4782f;
+        if (i > 0) {
+            seekTo(i);
         }
-        this.f = -1;
-        CyberLog.i(f1375a, "onPrepared mTargetState::" + this.h);
-        if (this.h == 3 && this.g == 2) {
+        this.f4782f = -1;
+        String str = f4777a;
+        CyberLog.i(str, "onPrepared mTargetState::" + this.f4784h);
+        if (this.f4784h == 3 && this.f4783g == 2) {
             start();
-        } else if (this.h == 4 && this.g == 2) {
+        } else if (this.f4784h == 4 && this.f4783g == 2) {
             pause();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
     public void onSeekComplete() {
-        if (this.q != null) {
-            this.q.onSeekComplete();
+        CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener = this.q;
+        if (onSeekCompleteListener != null) {
+            onSeekCompleteListener.onSeekComplete();
         }
     }
 
@@ -472,67 +513,77 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
         this.i = i;
         this.j = i2;
-        if (this.v != null) {
-            this.v.a(this.i, this.j, i3, i4);
+        e eVar = this.v;
+        if (eVar != null) {
+            eVar.a(i, i2, i3, i4);
         }
-        if (this.o != null) {
-            this.o.onVideoSizeChanged(i, i2, i3, i4);
+        CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener = this.o;
+        if (onVideoSizeChangedListener != null) {
+            onVideoSizeChangedListener.onVideoSizeChanged(i, i2, i3, i4);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void pause() {
         if (e()) {
-            this.c.pause();
-            this.g = 4;
-        } else if (this.c != null) {
-            this.c.sendCommand(1000, 0, 0L, null);
+            this.f4779c.pause();
+            this.f4783g = 4;
+        } else {
+            CyberPlayer cyberPlayer = this.f4779c;
+            if (cyberPlayer != null) {
+                cyberPlayer.sendCommand(1000, 0, 0L, null);
+            }
         }
-        this.h = 4;
+        this.f4784h = 4;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void reset() {
+        CyberPlayer cyberPlayer;
         this.z = false;
         this.m = true;
         this.A = false;
         this.B = 1.0f;
-        this.f = -1;
-        this.d = null;
-        this.e = null;
+        this.f4782f = -1;
+        this.f4780d = null;
+        this.f4781e = null;
         this.l = null;
         this.E = null;
         this.D = null;
-        if (this.g == -1 && this.c != null) {
-            this.c.release();
-            this.c = null;
+        if (this.f4783g == -1 && (cyberPlayer = this.f4779c) != null) {
+            cyberPlayer.release();
+            this.f4779c = null;
         }
         this.y = 0;
-        this.g = 0;
-        this.h = 0;
+        this.f4783g = 0;
+        this.f4784h = 0;
         this.i = 0;
         this.j = 0;
-        if (this.c != null) {
-            this.c.reset();
+        CyberPlayer cyberPlayer2 = this.f4779c;
+        if (cyberPlayer2 != null) {
+            cyberPlayer2.reset();
         }
-        if (this.v != null) {
-            this.v.b();
+        e eVar = this.v;
+        if (eVar != null) {
+            eVar.b();
         }
-        if (this.k != null) {
-            this.k.clear();
+        HashMap<String, String> hashMap = this.k;
+        if (hashMap != null) {
+            hashMap.clear();
         }
-        if (this.w != null) {
-            this.w.a();
+        a aVar = this.w;
+        if (aVar != null) {
+            aVar.a();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void seekTo(int i) {
-        if (this.c != null) {
+        if (this.f4779c != null) {
             if (e()) {
-                this.c.seekTo(i);
+                this.f4779c.seekTo(i);
             } else {
-                this.f = i;
+                this.f4782f = i;
             }
         }
     }
@@ -540,9 +591,12 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setClarityInfo(String str) {
         if (TextUtils.isEmpty(str)) {
-            CyberLog.w(f1375a, "setClarityInfo is null");
-        } else if (this.c != null) {
-            this.c.setClarityInfo(str);
+            CyberLog.w(f4777a, "setClarityInfo is null");
+            return;
+        }
+        CyberPlayer cyberPlayer = this.f4779c;
+        if (cyberPlayer != null) {
+            cyberPlayer.setClarityInfo(str);
         } else {
             this.E = str;
         }
@@ -558,8 +612,9 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        if (this.c != null) {
-            this.c.setExternalInfo(str, obj);
+        CyberPlayer cyberPlayer = this.f4779c;
+        if (cyberPlayer != null) {
+            cyberPlayer.setExternalInfo(str, obj);
         } else {
             this.w.a(str, obj);
         }
@@ -572,8 +627,9 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setLooping(boolean z) {
         this.A = z;
-        if (this.c != null) {
-            this.c.setLooping(z);
+        CyberPlayer cyberPlayer = this.f4779c;
+        if (cyberPlayer != null) {
+            cyberPlayer.setLooping(z);
         }
     }
 
@@ -619,16 +675,17 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setOption(String str, String str2) {
-        if (this.g != 0) {
-            CyberLog.i(f1375a, "Do not set option when the video player playing");
+        if (this.f4783g != 0) {
+            CyberLog.i(f4777a, "Do not set option when the video player playing");
             return;
         }
-        if (this.k != null) {
-            this.k.put(str, str2);
+        HashMap<String, String> hashMap = this.k;
+        if (hashMap != null) {
+            hashMap.put(str, str2);
         }
-        if (this.c != null) {
+        if (this.f4779c != null) {
             if (str == null || !str.equals(CyberPlayerManager.OPT_HTTP_PROXY) || TextUtils.isEmpty(n.c())) {
-                this.c.setOption(str, str2);
+                this.f4779c.setOption(str, str2);
             }
         }
     }
@@ -636,9 +693,12 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setPlayJson(String str) {
         if (TextUtils.isEmpty(str)) {
-            CyberLog.w(f1375a, "setPlayJson is null");
-        } else if (this.c != null) {
-            this.c.setPlayJson(str);
+            CyberLog.w(f4777a, "setPlayJson is null");
+            return;
+        }
+        CyberPlayer cyberPlayer = this.f4779c;
+        if (cyberPlayer != null) {
+            cyberPlayer.setPlayJson(str);
         } else {
             this.D = str;
         }
@@ -650,13 +710,14 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setSpeed(float f) {
-        CyberLog.i(f1375a, "setSpeed()");
-        this.B = f;
-        if (this.c != null) {
-            this.c.setSpeed(f);
+    public void setSpeed(float f2) {
+        CyberLog.i(f4777a, "setSpeed()");
+        this.B = f2;
+        CyberPlayer cyberPlayer = this.f4779c;
+        if (cyberPlayer != null) {
+            cyberPlayer.setSpeed(f2);
         } else {
-            CyberLog.i(f1375a, "setSpeed must call after setVideoPath or setVideoURI");
+            CyberLog.i(f4777a, "setSpeed must call after setVideoPath or setVideoURI");
         }
     }
 
@@ -666,15 +727,17 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setVideoRotation(int i) {
-        if (this.v != null) {
-            this.v.b(i);
+        e eVar = this.v;
+        if (eVar != null) {
+            eVar.b(i);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setVideoScalingMode(int i) {
-        if (this.v != null) {
-            this.v.a(i);
+        e eVar = this.v;
+        if (eVar != null) {
+            eVar.a(i);
         }
     }
 
@@ -685,9 +748,9 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void setVideoURI(Uri uri, Map<String, String> map) {
-        this.d = uri;
-        this.e = map;
-        this.f = -1;
+        this.f4780d = uri;
+        this.f4781e = map;
+        this.f4782f = -1;
         b();
         requestLayout();
         invalidate();
@@ -695,48 +758,56 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void start() {
-        CyberLog.i(f1375a, "start mCyberPlayer:" + this.c + " mCurrentState:" + this.g);
+        String str = f4777a;
+        CyberLog.i(str, "start mCyberPlayer:" + this.f4779c + " mCurrentState:" + this.f4783g);
         if (e()) {
-            this.c.start();
-            this.g = 3;
-        } else if (this.c != null) {
-            this.c.sendCommand(1000, 1, 0L, null);
+            this.f4779c.start();
+            this.f4783g = 3;
+        } else {
+            CyberPlayer cyberPlayer = this.f4779c;
+            if (cyberPlayer != null) {
+                cyberPlayer.sendCommand(1000, 1, 0L, null);
+            }
         }
-        this.h = 3;
+        this.f4784h = 3;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void stopPlayback() {
-        if (this.c != null) {
-            this.c.setOnPreparedListener(null);
-            this.c.setOnCompletionListener(null);
-            this.c.setOnVideoSizeChangedListener(null);
-            this.c.setOnSeekCompleteListener(null);
-            this.c.setOnBufferingUpdateListener(null);
-            this.c.setOnErrorListener(null);
-            this.c.setOnInfoListener(null);
-            this.c.setOnMediaSourceChangedListener(null);
-            this.c.stop();
-            this.c.release();
-            this.c = null;
-            this.g = 0;
-            this.h = 0;
+        CyberPlayer cyberPlayer = this.f4779c;
+        if (cyberPlayer != null) {
+            cyberPlayer.setOnPreparedListener(null);
+            this.f4779c.setOnCompletionListener(null);
+            this.f4779c.setOnVideoSizeChangedListener(null);
+            this.f4779c.setOnSeekCompleteListener(null);
+            this.f4779c.setOnBufferingUpdateListener(null);
+            this.f4779c.setOnErrorListener(null);
+            this.f4779c.setOnInfoListener(null);
+            this.f4779c.setOnMediaSourceChangedListener(null);
+            this.f4779c.stop();
+            this.f4779c.release();
+            this.f4779c = null;
+            this.f4783g = 0;
+            this.f4784h = 0;
         }
-        if (this.k != null) {
-            this.k.clear();
+        HashMap<String, String> hashMap = this.k;
+        if (hashMap != null) {
+            hashMap.clear();
         }
-        if (this.v != null) {
-            this.v.a();
+        e eVar = this.v;
+        if (eVar != null) {
+            eVar.a();
         }
-        if (this.w != null) {
-            this.w.a();
+        a aVar = this.w;
+        if (aVar != null) {
+            aVar.a();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void switchMediaSource(int i) {
         if (f()) {
-            this.c.switchMediaSource(i);
+            this.f4779c.switchMediaSource(i);
         }
     }
 
@@ -746,15 +817,15 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public boolean takeSnapshotAsync(ICyberVideoView.OnSnapShotCompleteListener onSnapShotCompleteListener, float f, int i, int i2) {
+    public boolean takeSnapshotAsync(ICyberVideoView.OnSnapShotCompleteListener onSnapShotCompleteListener, float f2, int i, int i2) {
         if (onSnapShotCompleteListener == null) {
             return false;
         }
-        CyberLog.d(f1375a, "takeSnapshotAsync called");
+        CyberLog.d(f4777a, "takeSnapshotAsync called");
         if (this.v != null) {
             synchronized (this.x) {
                 if (this.x.isEmpty()) {
-                    this.v.a(f, i, i2);
+                    this.v.a(f2, i, i2);
                 }
                 this.x.add(onSnapShotCompleteListener);
             }

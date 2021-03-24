@@ -6,7 +6,7 @@ import com.baidu.mobads.interfaces.download.activate.IXAppInfo;
 import com.baidu.mobads.interfaces.download.activate.IXMonitorActivation;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAdContainerFactory {
     IXAppInfo createAppInfo();
 
@@ -22,7 +22,7 @@ public interface IXAdContainerFactory {
 
     IXMonitorActivation getXMonitorActivation(Context context, IXAdLogger iXAdLogger);
 
-    double handleShakeVersion(double d, String str);
+    double handleShakeVersion(double d2, String str);
 
     boolean runCommandByProxy(Uri uri);
 

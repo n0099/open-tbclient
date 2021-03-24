@@ -1,7 +1,7 @@
 package aegon.chrome.base;
 
 import aegon.chrome.base.annotations.CalledByNative;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface IntStringCallback {
     @CalledByNative
     void onResult(int i, String str);

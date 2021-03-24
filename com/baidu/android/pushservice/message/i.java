@@ -3,22 +3,36 @@ package com.baidu.android.pushservice.message;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.a.b;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1250a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
+    public String f3471a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f3472b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f3473c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f3474d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f3475e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f3476f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f3477g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f3478h;
     public String i;
     public String j;
     public int k;
@@ -26,25 +40,27 @@ public class i {
     public String m;
 
     public PublicMsg a(Context context) {
+        String str;
         PublicMsg publicMsg = new PublicMsg();
         try {
             publicMsg.mMsgId = this.j;
             publicMsg.mAppId = this.i;
-            if (TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.h)) {
-                publicMsg.mTitle = this.e;
-                publicMsg.mDescription = this.f;
-                publicMsg.mUrl = this.f1250a;
-                publicMsg.mPkgContent = this.c;
+            if (TextUtils.isEmpty(this.f3477g) && TextUtils.isEmpty(this.f3478h)) {
+                publicMsg.mTitle = this.f3475e;
+                publicMsg.mDescription = this.f3476f;
+                publicMsg.mUrl = this.f3471a;
+                str = this.f3473c;
             } else {
-                publicMsg.mTitle = this.g;
-                publicMsg.mDescription = this.h;
-                publicMsg.mUrl = this.b;
-                publicMsg.mPkgContent = this.d;
+                publicMsg.mTitle = this.f3477g;
+                publicMsg.mDescription = this.f3478h;
+                publicMsg.mUrl = this.f3472b;
+                str = this.f3474d;
             }
+            publicMsg.mPkgContent = str;
             return publicMsg;
-        } catch (Exception e) {
-            com.baidu.android.pushservice.f.a.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e.getMessage(), context.getApplicationContext());
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+        } catch (Exception e2) {
+            com.baidu.android.pushservice.g.a.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e2.getMessage(), context.getApplicationContext());
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
             return null;
         }
     }
@@ -52,24 +68,25 @@ public class i {
     public String a(Context context, String str) {
         JSONArray jSONArray;
         try {
-            if (!TextUtils.isEmpty(str)) {
-                JSONObject jSONObject = new JSONObject(str);
-                if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
-                    a(context, jSONArray);
-                    if (!TextUtils.isEmpty(this.l)) {
-                        JSONObject jSONObject2 = new JSONObject(new String(this.l));
-                        String string = !jSONObject2.isNull("custom_content") ? jSONObject2.getString("custom_content") : null;
-                        if (jSONObject2.isNull("hwprisigninfo")) {
-                            return string;
-                        }
-                        this.m = jSONObject2.getString("hwprisigninfo");
-                        return string;
-                    }
-                }
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return null;
-        } catch (JSONException e) {
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.isNull("extras") || (jSONArray = jSONObject.getJSONArray("extras")) == null) {
+                return null;
+            }
+            a(context, jSONArray);
+            if (TextUtils.isEmpty(this.l)) {
+                return null;
+            }
+            JSONObject jSONObject2 = new JSONObject(new String(this.l));
+            String string = !jSONObject2.isNull("custom_content") ? jSONObject2.getString("custom_content") : null;
+            if (!jSONObject2.isNull("hwprisigninfo")) {
+                this.m = jSONObject2.getString("hwprisigninfo");
+            }
+            return string;
+        } catch (JSONException e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
             return null;
         }
     }
@@ -90,8 +107,8 @@ public class i {
                 if (!jSONObject.isNull("msgBody")) {
                     this.l = jSONObject.getString("msgBody");
                 }
-            } catch (Exception e) {
-                new b.c(context).a(Log.getStackTraceString(e)).a();
+            } catch (Exception e2) {
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
                 return;
             }
         }
@@ -116,8 +133,8 @@ public class i {
                 return null;
             }
             return jSONObject2.getString("custom_content");
-        } catch (JSONException e) {
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+        } catch (JSONException e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
             return null;
         }
     }
@@ -125,24 +142,25 @@ public class i {
     public String c(Context context, String str) {
         JSONArray jSONArray;
         try {
-            if (!TextUtils.isEmpty(str)) {
-                JSONObject jSONObject = new JSONObject(str);
-                if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
-                    a(context, jSONArray);
-                    if (!TextUtils.isEmpty(this.l)) {
-                        JSONObject jSONObject2 = new JSONObject(this.l);
-                        String string = !jSONObject2.isNull("custom_content") ? jSONObject2.getString("custom_content") : null;
-                        if (jSONObject2.isNull("mzpri_signinfo")) {
-                            return string;
-                        }
-                        this.m = jSONObject2.getString("mzpri_signinfo");
-                        return string;
-                    }
-                }
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return null;
-        } catch (JSONException e) {
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.isNull("extras") || (jSONArray = jSONObject.getJSONArray("extras")) == null) {
+                return null;
+            }
+            a(context, jSONArray);
+            if (TextUtils.isEmpty(this.l)) {
+                return null;
+            }
+            JSONObject jSONObject2 = new JSONObject(this.l);
+            String string = !jSONObject2.isNull("custom_content") ? jSONObject2.getString("custom_content") : null;
+            if (!jSONObject2.isNull("mzpri_signinfo")) {
+                this.m = jSONObject2.getString("mzpri_signinfo");
+            }
+            return string;
+        } catch (JSONException e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
             return null;
         }
     }

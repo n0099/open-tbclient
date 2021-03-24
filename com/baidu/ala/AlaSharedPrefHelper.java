@@ -4,14 +4,10 @@ import android.content.SharedPreferences;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class AlaSharedPrefHelper {
-    private static AlaSharedPrefHelper mInstance;
-    private SharedPreferences mSP;
-
-    private synchronized SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(AlaSharedPrefConfig.ALA_SHARED_PRE_FILE_NAME, 0);
-    }
+    public static AlaSharedPrefHelper mInstance;
+    public SharedPreferences mSP;
 
     public static AlaSharedPrefHelper getInstance() {
         if (mInstance == null) {
@@ -24,68 +20,84 @@ public class AlaSharedPrefHelper {
         return mInstance;
     }
 
-    public boolean isContains(String str) {
-        this.mSP = getSharedPreferences();
-        return this.mSP.contains(str);
+    private synchronized SharedPreferences getSharedPreferences() {
+        return TbadkCoreApplication.getInst().getSharedPreferences(AlaSharedPrefConfig.ALA_SHARED_PRE_FILE_NAME, 0);
     }
 
     public boolean getBoolean(String str, boolean z) {
-        this.mSP = getSharedPreferences();
-        return this.mSP.getBoolean(str, z);
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        return sharedPreferences.getBoolean(str, z);
     }
 
-    public float getFloat(String str, float f) {
-        this.mSP = getSharedPreferences();
-        return this.mSP.getFloat(str, f);
+    public float getFloat(String str, float f2) {
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        return sharedPreferences.getFloat(str, f2);
     }
 
     public int getInt(String str, int i) {
-        this.mSP = getSharedPreferences();
-        return this.mSP.getInt(str, i);
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        return sharedPreferences.getInt(str, i);
     }
 
     public long getLong(String str, long j) {
         try {
-            this.mSP = getSharedPreferences();
-            return this.mSP.getLong(str, j);
-        } catch (ClassCastException e) {
-            BdLog.e(e);
+            SharedPreferences sharedPreferences = getSharedPreferences();
+            this.mSP = sharedPreferences;
+            return sharedPreferences.getLong(str, j);
+        } catch (ClassCastException e2) {
+            BdLog.e(e2);
             return j;
         }
     }
 
     public String getString(String str, String str2) {
-        this.mSP = getSharedPreferences();
-        return this.mSP.getString(str, str2);
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        return sharedPreferences.getString(str, str2);
+    }
+
+    public boolean isContains(String str) {
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        return sharedPreferences.contains(str);
     }
 
     public void putBoolean(String str, boolean z) {
-        this.mSP = getSharedPreferences();
-        EditorHelper.putBoolean(this.mSP, str, z);
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        EditorHelper.putBoolean(sharedPreferences, str, z);
     }
 
-    public void putString(String str, String str2) {
-        this.mSP = getSharedPreferences();
-        EditorHelper.putString(this.mSP, str, str2);
-    }
-
-    public void putFloat(String str, float f) {
-        this.mSP = getSharedPreferences();
-        EditorHelper.putFloat(this.mSP, str, f);
+    public void putFloat(String str, float f2) {
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        EditorHelper.putFloat(sharedPreferences, str, f2);
     }
 
     public void putInt(String str, int i) {
-        this.mSP = getSharedPreferences();
-        EditorHelper.putInt(this.mSP, str, i);
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        EditorHelper.putInt(sharedPreferences, str, i);
     }
 
     public void putLong(String str, long j) {
-        this.mSP = getSharedPreferences();
-        EditorHelper.putLong(this.mSP, str, j);
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        EditorHelper.putLong(sharedPreferences, str, j);
+    }
+
+    public void putString(String str, String str2) {
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        EditorHelper.putString(sharedPreferences, str, str2);
     }
 
     public void remove(String str) {
-        this.mSP = getSharedPreferences();
-        EditorHelper.remove(this.mSP, str);
+        SharedPreferences sharedPreferences = getSharedPreferences();
+        this.mSP = sharedPreferences;
+        EditorHelper.remove(sharedPreferences, str);
     }
 }

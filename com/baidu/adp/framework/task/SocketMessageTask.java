@@ -4,11 +4,21 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
-    private DupLicateMode Lg;
-    private boolean mCanRetry;
-    private boolean mNeedAck;
-    private boolean mNeedCompress;
-    private Class<? extends SocketResponsedMessage> mResponsedClass;
+
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f2128a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f2129b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f2130c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Class<? extends SocketResponsedMessage> f2131d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public DupLicateMode f2132e;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -20,54 +30,54 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.mNeedAck = false;
-        this.mNeedCompress = false;
-        this.mCanRetry = true;
-        this.Lg = DupLicateMode.NONE;
+        this.f2128a = false;
+        this.f2129b = false;
+        this.f2130c = true;
+        this.f2132e = DupLicateMode.NONE;
+    }
+
+    public DupLicateMode a() {
+        return this.f2132e;
+    }
+
+    public boolean b() {
+        return this.f2128a;
+    }
+
+    public boolean c() {
+        return this.f2129b;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.checkSocketCmd(this.mCmd);
+        return FrameHelper.c(this.mCmd);
     }
 
-    public void setNeedAck(boolean z) {
-        this.mNeedAck = z;
+    public boolean d() {
+        return this.f2130c;
     }
 
-    public boolean getNeedAck() {
-        return this.mNeedAck;
+    public void e(boolean z) {
+        this.f2130c = z;
     }
 
-    public boolean getNeedCompress() {
-        return this.mNeedCompress;
+    public void f(DupLicateMode dupLicateMode) {
+        this.f2132e = dupLicateMode;
     }
 
-    public void setNeedCompress(boolean z) {
-        this.mNeedCompress = z;
+    public void g(boolean z) {
+        this.f2128a = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
-        return this.mResponsedClass;
+        return this.f2131d;
+    }
+
+    public void h(boolean z) {
+        this.f2129b = z;
     }
 
     public void setResponsedClass(Class<? extends SocketResponsedMessage> cls) {
-        this.mResponsedClass = cls;
-    }
-
-    public boolean isCanRetry() {
-        return this.mCanRetry;
-    }
-
-    public void setCanRetry(boolean z) {
-        this.mCanRetry = z;
-    }
-
-    public DupLicateMode lc() {
-        return this.Lg;
-    }
-
-    public void a(DupLicateMode dupLicateMode) {
-        this.Lg = dupLicateMode;
+        this.f2131d = cls;
     }
 }

@@ -1,24 +1,13 @@
 package com.baidu.tieba.quickWebView.message;
 
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
-    private String result;
-
-    public String getResult() {
-        return this.result;
-    }
+    public String result;
 
     public QuickWebViewHttpResMsg() {
-        super(1003364);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        super.decodeInBackGround(i, bArr);
-        this.result = parseToString(bArr);
-        this.result = quote(this.result);
+        super(CmdConfigHttp.CMD_WEB_HTTP_PROXY);
     }
 
     public static String quote(String str) {
@@ -29,45 +18,61 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
         StringBuilder sb = new StringBuilder(length + 4);
         for (int i = 0; i < length; i++) {
             char charAt = str.charAt(i);
-            switch (charAt) {
-                case '\b':
-                    sb.append("\\b");
-                    break;
-                case '\t':
-                    sb.append("\\t");
-                    break;
-                case '\n':
-                    sb.append("\\n");
-                    break;
-                case '\f':
-                    sb.append("\\f");
-                    break;
-                case '\r':
-                    sb.append("\\r");
-                    break;
-                case '\"':
-                case '\\':
-                    sb.append('\\');
-                    sb.append(charAt);
-                    break;
-                case '\'':
-                    sb.append("\\'");
-                    break;
-                case '/':
-                    sb.append('\\');
-                    sb.append(charAt);
-                    break;
-                default:
-                    if (charAt < ' ') {
-                        String str2 = "000" + Integer.toHexString(charAt);
-                        sb.append("\\u" + str2.substring(str2.length() - 4));
-                        break;
+            if (charAt == '\f') {
+                sb.append("\\f");
+            } else if (charAt != '\r') {
+                if (charAt != '\"') {
+                    if (charAt != '\'') {
+                        if (charAt != '/') {
+                            if (charAt != '\\') {
+                                switch (charAt) {
+                                    case '\b':
+                                        sb.append("\\b");
+                                        continue;
+                                    case '\t':
+                                        sb.append("\\t");
+                                        continue;
+                                    case '\n':
+                                        sb.append("\\n");
+                                        continue;
+                                    default:
+                                        if (charAt >= ' ') {
+                                            sb.append(charAt);
+                                            break;
+                                        } else {
+                                            String str2 = "000" + Integer.toHexString(charAt);
+                                            sb.append("\\u" + str2.substring(str2.length() - 4));
+                                            continue;
+                                        }
+                                }
+                            }
+                        } else {
+                            sb.append('\\');
+                            sb.append(charAt);
+                        }
                     } else {
-                        sb.append(charAt);
-                        break;
+                        sb.append("\\'");
                     }
+                }
+                sb.append('\\');
+                sb.append(charAt);
+            } else {
+                sb.append("\\r");
             }
         }
         return sb.toString();
+    }
+
+    public String getResult() {
+        return this.result;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        super.decodeInBackGround(i, bArr);
+        String parseToString = parseToString(bArr);
+        this.result = parseToString;
+        this.result = quote(parseToString);
     }
 }

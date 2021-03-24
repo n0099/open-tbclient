@@ -2,35 +2,39 @@ package com.ksad.download;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f5294a;
-    private static File b;
-    private static a c;
+    public static Context f31151a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static File f31152b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static a f31153c;
 
     public static Context a() {
-        return f5294a;
+        return f31151a;
     }
 
     public static void a(Context context) {
-        f5294a = context.getApplicationContext();
+        f31151a = context.getApplicationContext();
     }
 
     public static void a(a aVar) {
-        c = aVar;
+        f31153c = aVar;
     }
 
     public static void a(File file) {
-        b = file;
+        f31152b = file;
     }
 
     public static void a(String str) {
-        c.installApp(a(), str);
+        f31153c.installApp(a(), str);
     }
 
     public static File b() {
-        return b;
+        return f31152b;
     }
 }

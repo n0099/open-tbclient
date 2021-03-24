@@ -10,21 +10,25 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMUserManager {
-    private static final String TAG = "IMUserManager";
-    private Context mContext;
-    private static ChatObjectCache sChatObjectCache = null;
-    private static IMUserManager mInstance = null;
-    private static UKCache sUkCache = null;
-    private static UKCache sBuidCache = null;
+    public static final String TAG = "IMUserManager";
+    public static IMUserManager mInstance;
+    public static UKCache sBuidCache;
+    public static ChatObjectCache sChatObjectCache;
+    public static UKCache sUkCache;
+    public Context mContext;
 
-    private IMUserManager(Context context) {
+    public IMUserManager(Context context) {
         this.mContext = null;
         this.mContext = context;
         sChatObjectCache = ChatObjectCache.getInstance();
         sUkCache = new UKCache(500);
         sBuidCache = new UKCache(500);
+    }
+
+    private ChatObject createChatObject(long j) {
+        return new ChatObject(this.mContext, 0, j);
     }
 
     public static IMUserManager getInstance(Context context) {
@@ -34,21 +38,6 @@ public class IMUserManager {
             }
         }
         return mInstance;
-    }
-
-    public long getUKbyBuid(long j) {
-        ChatUser chatUserByBuid;
-        Long l = sUkCache.get(j);
-        if (l == null && (chatUserByBuid = ChatUserDBManager.getInstance(this.mContext).getChatUserByBuid(j)) != null && chatUserByBuid.getBuid() >= 0 && chatUserByBuid.getUk() >= 0) {
-            l = Long.valueOf(chatUserByBuid.getUk());
-            sChatObjectCache.put(createChatObject(l.longValue()), chatUserByBuid);
-            sUkCache.put(Long.valueOf(j), l);
-            sBuidCache.put(l, Long.valueOf(j));
-        }
-        if (l == null || l.longValue() <= -1) {
-            return -1L;
-        }
-        return l.longValue();
     }
 
     public long getBuidByUK(long j) {
@@ -66,8 +55,50 @@ public class IMUserManager {
         return l.longValue();
     }
 
-    private ChatObject createChatObject(long j) {
-        return new ChatObject(this.mContext, 0, j);
+    public ChatUser getChatUser(long j) {
+        ChatUser chatUser;
+        ChatObject createChatObject = createChatObject(j);
+        if (isUserExist(j)) {
+            synchronized (IMUserManager.class) {
+                chatUser = (ChatUser) sChatObjectCache.get(createChatObject);
+            }
+            return chatUser;
+        }
+        ChatUser chatUser2 = ChatUserDBManager.getInstance(this.mContext).getChatUser(j);
+        synchronized (IMUserManager.class) {
+            if (chatUser2 != null) {
+                sChatObjectCache.put(createChatObject, chatUser2);
+                sUkCache.put(Long.valueOf(chatUser2.getBuid()), Long.valueOf(j));
+                sBuidCache.put(Long.valueOf(j), Long.valueOf(chatUser2.getBuid()));
+            }
+        }
+        return chatUser2;
+    }
+
+    public long getUKbyBuid(long j) {
+        ChatUser chatUserByBuid;
+        Long l = sUkCache.get(j);
+        if (l == null && (chatUserByBuid = ChatUserDBManager.getInstance(this.mContext).getChatUserByBuid(j)) != null && chatUserByBuid.getBuid() >= 0 && chatUserByBuid.getUk() >= 0) {
+            l = Long.valueOf(chatUserByBuid.getUk());
+            sChatObjectCache.put(createChatObject(l.longValue()), chatUserByBuid);
+            sUkCache.put(Long.valueOf(j), l);
+            sBuidCache.put(l, Long.valueOf(j));
+        }
+        if (l == null || l.longValue() <= -1) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public synchronized ArrayList<ChatUser> getUserBatch(List<Long> list) {
+        ArrayList<ChatUser> arrayList;
+        arrayList = new ArrayList<>();
+        if (list != null) {
+            for (Long l : list) {
+                arrayList.add(getChatUser(l.longValue()));
+            }
+        }
+        return arrayList;
     }
 
     public boolean isUserExist(long j) {
@@ -87,30 +118,21 @@ public class IMUserManager {
                     }
                     ChatUserDBManager.getInstance(this.mContext).deleteChatUser(j);
                     sChatObjectCache.remove(createChatObject);
+                    return false;
                 }
             }
             return false;
         }
     }
 
-    public ChatUser getChatUser(long j) {
-        ChatUser chatUser;
+    public void removeChatObject(long j) {
         ChatObject createChatObject = createChatObject(j);
-        if (isUserExist(j)) {
-            synchronized (IMUserManager.class) {
-                chatUser = (ChatUser) sChatObjectCache.get(createChatObject);
-            }
-        } else {
-            chatUser = ChatUserDBManager.getInstance(this.mContext).getChatUser(j);
-            synchronized (IMUserManager.class) {
-                if (chatUser != null) {
-                    sChatObjectCache.put(createChatObject, chatUser);
-                    sUkCache.put(Long.valueOf(chatUser.getBuid()), Long.valueOf(j));
-                    sBuidCache.put(Long.valueOf(j), Long.valueOf(chatUser.getBuid()));
-                }
-            }
+        ChatObjectCache chatObjectCache = sChatObjectCache;
+        if (chatObjectCache == null || chatObjectCache.get(createChatObject) == null) {
+            return;
         }
-        return chatUser;
+        LogUtils.e(TAG, "removeChatObject uk = " + j);
+        sChatObjectCache.remove(createChatObject);
     }
 
     public void updateUser(ChatUser chatUser) {
@@ -126,47 +148,25 @@ public class IMUserManager {
         }
     }
 
-    public synchronized ArrayList<ChatUser> getUserBatch(List<Long> list) {
-        ArrayList<ChatUser> arrayList;
-        arrayList = new ArrayList<>();
-        if (list != null) {
-            for (Long l : list) {
-                arrayList.add(getChatUser(l.longValue()));
-            }
-        }
-        return arrayList;
-    }
-
     public synchronized boolean updateUserIpInfo(ArrayList<IpInfo> arrayList) {
-        boolean z = false;
-        synchronized (this) {
-            if (arrayList != null) {
-                if (ChatUserDBManager.getInstance(this.mContext).updateUserIpInfo(arrayList) >= 0) {
-                    Iterator<IpInfo> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        IpInfo next = it.next();
-                        ChatObject createChatObject = createChatObject(next.getUid());
-                        ChatUser chatUser = (ChatUser) sChatObjectCache.get(createChatObject);
-                        if (chatUser != null) {
-                            chatUser.setIpInfo(next);
-                            chatUser.setIsIpLocationExist(0);
-                            sChatObjectCache.put(createChatObject, chatUser);
-                            sUkCache.put(Long.valueOf(chatUser.getBuid()), Long.valueOf(chatUser.getUk()));
-                            sBuidCache.put(Long.valueOf(chatUser.getUk()), Long.valueOf(chatUser.getBuid()));
-                        }
+        if (arrayList != null) {
+            if (ChatUserDBManager.getInstance(this.mContext).updateUserIpInfo(arrayList) >= 0) {
+                Iterator<IpInfo> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    IpInfo next = it.next();
+                    ChatObject createChatObject = createChatObject(next.getUid());
+                    ChatUser chatUser = (ChatUser) sChatObjectCache.get(createChatObject);
+                    if (chatUser != null) {
+                        chatUser.setIpInfo(next);
+                        chatUser.setIsIpLocationExist(0);
+                        sChatObjectCache.put(createChatObject, chatUser);
+                        sUkCache.put(Long.valueOf(chatUser.getBuid()), Long.valueOf(chatUser.getUk()));
+                        sBuidCache.put(Long.valueOf(chatUser.getUk()), Long.valueOf(chatUser.getBuid()));
                     }
-                    z = true;
                 }
+                return true;
             }
         }
-        return z;
-    }
-
-    public void removeChatObject(long j) {
-        ChatObject createChatObject = createChatObject(j);
-        if (sChatObjectCache != null && sChatObjectCache.get(createChatObject) != null) {
-            LogUtils.e(TAG, "removeChatObject uk = " + j);
-            sChatObjectCache.remove(createChatObject);
-        }
+        return false;
     }
 }

@@ -7,7 +7,7 @@ import android.view.OrientationEventListener;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
-import com.baidu.smallgame.sdk.b.c;
+import d.b.e0.a.d.c;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -15,40 +15,40 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class ArBridge {
-    private static final boolean DEBUG = false;
-    private static final int INVALID_MESSAGE_ID = -1;
-    static final String TAG = "EngineLogger";
-    private com.baidu.smallgame.sdk.a.a mDataStore;
-    private EGLContext mEglContext;
-    private FirstFrameListener mFirstFrameListener;
-    private long mNativeARBridge;
-    private OrientationEventListener mOrientationEventListener;
-    private int mScreenHeight;
-    private int mScreenWidth;
-    private c mStuckScreenHandler;
-    private b mVideoCallback;
-    private List<Runnable> mPendingRunnables = new LinkedList();
-    private boolean mIsInitNative = false;
-    private AtomicBoolean mDestroyed = new AtomicBoolean(true);
-    private int mScreenTextureId = -1;
+    public static final boolean DEBUG = false;
+    public static final int INVALID_MESSAGE_ID = -1;
+    public static final String TAG = "EngineLogger";
+    public d.b.e0.a.c.a mDataStore;
+    public EGLContext mEglContext;
+    public FirstFrameListener mFirstFrameListener;
+    public long mNativeARBridge;
+    public OrientationEventListener mOrientationEventListener;
+    public int mScreenHeight;
+    public int mScreenWidth;
+    public c mStuckScreenHandler;
+    public b mVideoCallback;
+    public List<Runnable> mPendingRunnables = new LinkedList();
+    public boolean mIsInitNative = false;
+    public AtomicBoolean mDestroyed = new AtomicBoolean(true);
+    public int mScreenTextureId = -1;
     public boolean mFirstFrameFinished = false;
-    private long mCurrentGLThreadID = -1;
-    private int mDeviceOrientation = -1;
-    private TouchOrientation mTouchOrientation = TouchOrientation.SCREEN_ORIENTATION_NOT_DEFINED;
-    private boolean mHasResumeByUser = false;
-    private int mImuType = 0;
-    private final PerformanceJsonBean mPerformanceJsonBean = new PerformanceJsonBean();
-    private com.baidu.mario.a.b mGameRecorder = new com.baidu.mario.a.b(V8Engine.getAppContext());
+    public long mCurrentGLThreadID = -1;
+    public int mDeviceOrientation = -1;
+    public TouchOrientation mTouchOrientation = TouchOrientation.SCREEN_ORIENTATION_NOT_DEFINED;
+    public boolean mHasResumeByUser = false;
+    public int mImuType = 0;
+    public final PerformanceJsonBean mPerformanceJsonBean = new PerformanceJsonBean();
+    public d.b.u.c.b mGameRecorder = new d.b.u.c.b(V8Engine.getAppContext());
 
     @NotProguard
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface FirstFrameListener {
         void onFirstFrameFinished();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public enum TouchOrientation {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -57,14 +57,25 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void h(Bitmap bitmap);
+        void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface b {
-        void h(String str, int i, String str2);
+        void a(String str, int i, String str2);
+    }
+
+    public ArBridge() {
+        this.mNativeARBridge = 0L;
+        this.mNativeARBridge = nativeInitializeAR();
+        Log.e(TAG, "initialize ar bridge. nativePtr: " + this.mNativeARBridge);
+        this.mStuckScreenHandler = new d.b.e0.a.b();
+    }
+
+    public static void exceptionCallback(String str) {
+        Log.e(TAG, str, new Throwable());
     }
 
     public static native boolean libraryHasLoaded();
@@ -75,144 +86,181 @@ public class ArBridge {
 
     private native void nativeInterruptLoading();
 
-    private native void nativeSetDisplayMetrics(long j, float f, float f2, float f3, float f4, float f5);
+    private native void nativeSetDisplayMetrics(long j, float f2, float f3, float f4, float f5, float f6);
 
-    private native void nativeSetSize(long j, float f, float f2);
+    private native void nativeSetSize(long j, float f2, float f3);
 
     private native void nativeSetup(Object obj);
 
-    native int getCaseId();
-
-    native int getMessageID();
-
-    native void nativeClearScreen();
-
-    native void nativeCreateCase(String str, int i, HashMap<String, Object> hashMap, int i2, int i3);
-
-    native void nativeDensity(float f);
-
-    native void nativeDestroyCase();
-
-    native int nativeGetFps();
-
-    native boolean nativeIsFlipYNeeded();
-
-    native boolean nativeIsRenderCallbackQueueEmpty();
-
-    native void nativeOnPause();
-
-    native void nativeOnPauseByUser();
-
-    native void nativeOnResume();
-
-    native void nativeOnResumeByUser();
-
-    native void nativeReset();
-
-    native void nativeSetCameraDefaultPos();
-
-    native void nativeSetEuler(float f, float f2, float f3, String str);
-
-    native void nativeSetFrustum(float f, float f2);
-
-    native void nativeSetSlamRelocationType(int i);
-
-    native void nativeSetTargetInfo(HashMap<String, Object> hashMap);
-
-    native void nativeSmallGameDestroy(long j);
-
-    native void nativeSmallGameOnInit(long j);
-
-    native void nativeSmallGameOnPause();
-
-    native void nativeSmallGameOnPauseOnGLThread();
-
-    native void nativeSmallGameOnResume();
-
-    native boolean nativeSmallGameShouldSwapBuffer();
-
-    native int nativeSmallGameUpdate();
-
-    native void nativeUpdate();
-
-    native void nativeUpdateRMatrix(float[] fArr);
-
-    native void nativeUpdateRTMatrix(float[] fArr);
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public native void nativeUpdateRecordingStatus(boolean z);
-
-    native void nativeUpdateSLAMMatrix(float[] fArr);
-
-    native void onTouchEventNative(int i, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, long j, int i4);
-
-    native void sendMessageToEngine(int i, int i2, HashMap<String, Object> hashMap, int i3);
-
-    native boolean updateFrameBuffers(int[] iArr);
-
-    public long nativePtr() {
-        return this.mNativeARBridge;
+    private void onFirstFrameFinished() {
+        Log.i(TAG, "onFirstFrameFinished");
+        d.b.u.c.b bVar = this.mGameRecorder;
+        if (bVar != null && this.mEglContext != null) {
+            bVar.t(nativeIsFlipYNeeded(), this.mEglContext, this.mScreenWidth, this.mScreenHeight, V8Engine.getAppContext());
+        }
+        FirstFrameListener firstFrameListener = this.mFirstFrameListener;
+        if (firstFrameListener != null) {
+            firstFrameListener.onFirstFrameFinished();
+            this.mFirstFrameListener = null;
+            this.mFirstFrameFinished = true;
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setOnStuckScreenListener(com.baidu.smallgame.sdk.b.a aVar) {
-        this.mStuckScreenHandler.a(aVar);
+    public void clearARMemory() {
+        d.b.e0.a.c.a aVar = this.mDataStore;
+        if (aVar != null) {
+            aVar.a();
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setStuckScreenLimitTime(long j) {
-        this.mStuckScreenHandler.setStuckScreenLimitTime(j);
+    public void finalize() throws Throwable {
+        super.finalize();
+        synchronized (this) {
+            if (this.mIsInitNative) {
+                try {
+                    nativeFinalize();
+                } catch (Throwable unused) {
+                }
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c getStuckScreenHandler() {
-        return this.mStuckScreenHandler;
+    public native int getCaseId();
+
+    public d.b.u.c.b getGameRecorder() {
+        return this.mGameRecorder;
+    }
+
+    public int getImuType() {
+        return this.mImuType;
+    }
+
+    public native int getMessageID();
+
+    public JSONArray getPerformanceJson() {
+        return this.mPerformanceJsonBean.toJSONArray();
     }
 
     public PerformanceJsonBean getPerformanceJsonBean() {
         return this.mPerformanceJsonBean;
     }
 
-    public JSONArray getPerformanceJson() {
-        return this.mPerformanceJsonBean.toJSONArray();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ArBridge() {
-        this.mNativeARBridge = 0L;
-        this.mNativeARBridge = nativeInitializeAR();
-        Log.e(TAG, "initialize ar bridge. nativePtr: " + this.mNativeARBridge);
-        this.mStuckScreenHandler = new com.baidu.smallgame.sdk.b();
-    }
-
     public int getScreenTextureId() {
         return this.mScreenTextureId;
     }
 
-    protected void finalize() throws Throwable {
-        super.finalize();
-        synchronized (this) {
-            if (this.mIsInitNative) {
-                try {
-                    nativeFinalize();
-                } catch (Throwable th) {
-                }
-            }
+    public c getStuckScreenHandler() {
+        return this.mStuckScreenHandler;
+    }
+
+    public String getValue(int i, String str) {
+        d.b.e0.a.c.a aVar = this.mDataStore;
+        if (aVar != null) {
+            return aVar.b(i, str);
+        }
+        Log.e("ArBridge", "get value error!");
+        return "";
+    }
+
+    public void initDataStore(SharedPreferences sharedPreferences) {
+        if (this.mDataStore == null) {
+            d.b.e0.a.c.a aVar = new d.b.e0.a.c.a();
+            this.mDataStore = aVar;
+            aVar.c(sharedPreferences);
         }
     }
 
-    public void setFirstFrameListener(FirstFrameListener firstFrameListener) {
-        this.mFirstFrameListener = firstFrameListener;
+    public boolean isDestroyed() {
+        return this.mDestroyed.get();
     }
+
+    public boolean isRenderCallbackQueueEmpty() {
+        return nativeIsRenderCallbackQueueEmpty();
+    }
+
+    public native void nativeClearScreen();
+
+    public native void nativeCreateCase(String str, int i, HashMap<String, Object> hashMap, int i2, int i3);
+
+    public native void nativeDensity(float f2);
+
+    public native void nativeDestroyCase();
+
+    public native int nativeGetFps();
+
+    public native boolean nativeIsFlipYNeeded();
+
+    public native boolean nativeIsRenderCallbackQueueEmpty();
+
+    public native void nativeOnPause();
+
+    public native void nativeOnPauseByUser();
+
+    public native void nativeOnResume();
+
+    public native void nativeOnResumeByUser();
+
+    public long nativePtr() {
+        return this.mNativeARBridge;
+    }
+
+    public native void nativeReset();
+
+    public native void nativeSetCameraDefaultPos();
+
+    public native void nativeSetEuler(float f2, float f3, float f4, String str);
+
+    public native void nativeSetFrustum(float f2, float f3);
+
+    public native void nativeSetSlamRelocationType(int i);
+
+    public native void nativeSetTargetInfo(HashMap<String, Object> hashMap);
+
+    public native void nativeSmallGameDestroy(long j);
+
+    public native void nativeSmallGameOnInit(long j);
+
+    public native void nativeSmallGameOnPause();
+
+    public native void nativeSmallGameOnPauseOnGLThread();
+
+    public native void nativeSmallGameOnResume();
+
+    public native boolean nativeSmallGameShouldSwapBuffer();
+
+    public native int nativeSmallGameUpdate();
+
+    public native void nativeUpdate();
+
+    public native void nativeUpdateRMatrix(float[] fArr);
+
+    public native void nativeUpdateRTMatrix(float[] fArr);
+
+    public native void nativeUpdateRecordingStatus(boolean z);
+
+    public native void nativeUpdateSLAMMatrix(float[] fArr);
 
     public void notifyFrameUpdated() {
-        if (this.mGameRecorder != null) {
-            this.mGameRecorder.fy(getScreenTextureId());
+        d.b.u.c.b bVar = this.mGameRecorder;
+        if (bVar != null) {
+            bVar.u(getScreenTextureId());
         }
     }
 
-    private static void exceptionCallback(String str) {
-        Log.e(TAG, str, new Throwable());
+    public native void onTouchEventNative(int i, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, long j, int i4);
+
+    public native void sendMessageToEngine(int i, int i2, HashMap<String, Object> hashMap, int i3);
+
+    public void setCameraDefaultPos() {
+        nativeSetCameraDefaultPos();
+    }
+
+    public void setDensity(float f2) {
+        nativeDensity(f2);
+    }
+
+    public void setDisplayMetrics(float f2, float f3, float f4, float f5, float f6) {
+        nativeSetDisplayMetrics(this.mNativeARBridge, f2, f3, f4, f5, f6);
     }
 
     public void setEglContextToRecorder(EGLContext eGLContext, int i, int i2) {
@@ -224,26 +272,58 @@ public class ArBridge {
         Log.i(TAG, "set eglContext:" + this.mEglContext);
     }
 
-    private void onFirstFrameFinished() {
-        Log.i(TAG, "onFirstFrameFinished");
-        if (this.mGameRecorder != null && this.mEglContext != null) {
-            this.mGameRecorder.a(nativeIsFlipYNeeded(), this.mEglContext, this.mScreenWidth, this.mScreenHeight, V8Engine.getAppContext());
+    @Deprecated
+    public void setEnginGLJniEnv() {
+    }
+
+    public void setFirstFrameListener(FirstFrameListener firstFrameListener) {
+        this.mFirstFrameListener = firstFrameListener;
+    }
+
+    public void setGLThreadID(long j) {
+        this.mCurrentGLThreadID = j;
+    }
+
+    public void setGameRecordCallback(d.b.u.c.c cVar) {
+        d.b.u.c.b bVar = this.mGameRecorder;
+        if (bVar != null) {
+            bVar.C(cVar);
         }
-        if (this.mFirstFrameListener != null) {
-            this.mFirstFrameListener.onFirstFrameFinished();
-            this.mFirstFrameListener = null;
-            this.mFirstFrameFinished = true;
-        }
+    }
+
+    public void setImuType(int i) {
+        this.mImuType = i;
+    }
+
+    public void setOnStuckScreenListener(d.b.e0.a.d.a aVar) {
+        this.mStuckScreenHandler.b(aVar);
+    }
+
+    public void setScreenShotStatus(boolean z) {
+    }
+
+    public void setSize(float f2, float f3) {
+        nativeSetSize(this.mNativeARBridge, f2, f3);
+    }
+
+    public void setSlamRelocationType(int i) {
+        nativeSetSlamRelocationType(i);
+    }
+
+    public void setStuckScreenLimitTime(long j) {
+        this.mStuckScreenHandler.c(j);
     }
 
     public void setTouchOrientation(TouchOrientation touchOrientation) {
         this.mTouchOrientation = touchOrientation;
     }
 
-    @Deprecated
-    public void surfaceViewCapture(a aVar) {
+    public void setValue(int i, String str, String str2) {
+        d.b.e0.a.c.a aVar = this.mDataStore;
         if (aVar != null) {
-            aVar.h(null);
+            aVar.d(i, str, str2);
+        } else {
+            Log.e("ArBridge", "set value error!");
         }
     }
 
@@ -251,107 +331,24 @@ public class ArBridge {
         this.mVideoCallback = bVar;
     }
 
-    public void updateVideoFrame(String str, int i, String str2) {
-        Log.i(TAG, "updateVideoFrame:" + i + "     ;avideoPath:" + str2);
-        if (this.mVideoCallback != null) {
-            this.mVideoCallback.h(str, i, str2);
+    public boolean shouldSwapBuffer() {
+        return nativeSmallGameShouldSwapBuffer();
+    }
+
+    public void smallGameDestroy() {
+        Log.w(TAG, "[V8Dispose][ArBridge] MiniGameDestroy, destroyed=" + this.mDestroyed);
+        if (this.mDestroyed.getAndSet(true)) {
+            return;
         }
+        nativeSmallGameDestroy(this.mNativeARBridge);
+        this.mNativeARBridge = 0L;
+        this.mGameRecorder.I();
+        this.mGameRecorder.x();
     }
 
-    public void setGLThreadID(long j) {
-        this.mCurrentGLThreadID = j;
-    }
-
-    public void setDensity(float f) {
-        nativeDensity(f);
-    }
-
-    public void updateRTMatrix(float[] fArr) {
-        nativeUpdateRTMatrix(fArr);
-    }
-
-    public void updateSLAMMatrix(float[] fArr) {
-        nativeUpdateSLAMMatrix(fArr);
-    }
-
-    public void setSlamRelocationType(int i) {
-        nativeSetSlamRelocationType(i);
-    }
-
-    public void updateRMatrix(float[] fArr) {
-        nativeUpdateRMatrix(fArr);
-    }
-
-    public void setCameraDefaultPos() {
-        nativeSetCameraDefaultPos();
-    }
-
-    public int getImuType() {
-        return this.mImuType;
-    }
-
-    public void setImuType(int i) {
-        this.mImuType = i;
-    }
-
-    public void update() {
-        nativeUpdate();
-    }
-
-    public boolean updateFbos(int[] iArr) {
-        return updateFrameBuffers(iArr);
-    }
-
-    @Deprecated
-    public void setEnginGLJniEnv() {
-    }
-
-    private static void updateVideoFrame(Object obj, String str, int i, String str2) {
-        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
-        if (arBridge != null) {
-            arBridge.updateVideoFrame(str, i, str2);
-        }
-    }
-
-    public void initDataStore(SharedPreferences sharedPreferences) {
-        if (this.mDataStore == null) {
-            this.mDataStore = new com.baidu.smallgame.sdk.a.a();
-            this.mDataStore.b(sharedPreferences);
-        }
-    }
-
-    public void clearARMemory() {
-        if (this.mDataStore != null) {
-            this.mDataStore.clearARMemory();
-        }
-    }
-
-    public void setValue(int i, String str, String str2) {
-        if (this.mDataStore != null) {
-            this.mDataStore.setValue(i, str, str2);
-        } else {
-            Log.e("ArBridge", "set value error!");
-        }
-    }
-
-    public String getValue(int i, String str) {
-        if (this.mDataStore != null) {
-            return this.mDataStore.getValue(i, str);
-        }
-        Log.e("ArBridge", "get value error!");
-        return "";
-    }
-
-    private static void setValue(Object obj, int i, String str, String str2) {
-        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
-        if (arBridge != null) {
-            arBridge.setValue(i, str, str2);
-        }
-    }
-
-    private static String getValue(Object obj, int i, String str) {
-        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
-        return arBridge == null ? "" : arBridge.getValue(i, str);
+    public void smallGameOnInit() {
+        nativeSmallGameOnInit(this.mNativeARBridge);
+        this.mDestroyed.set(false);
     }
 
     public void smallGameOnPause() {
@@ -364,16 +361,6 @@ public class ArBridge {
         nativeSmallGameOnPauseOnGLThread();
     }
 
-    public com.baidu.mario.a.b getGameRecorder() {
-        return this.mGameRecorder;
-    }
-
-    public void setGameRecordCallback(com.baidu.mario.a.c cVar) {
-        if (this.mGameRecorder != null) {
-            this.mGameRecorder.setGameRecordCallback(cVar);
-        }
-    }
-
     public void smallGameOnResume() {
         Log.w(TAG, "[V8Dispose][ArBridge] MiniGameOnResume.");
         nativeSmallGameOnResume();
@@ -383,44 +370,61 @@ public class ArBridge {
         this.mScreenTextureId = nativeSmallGameUpdate();
     }
 
-    public boolean shouldSwapBuffer() {
-        return nativeSmallGameShouldSwapBuffer();
-    }
-
-    public boolean isRenderCallbackQueueEmpty() {
-        return nativeIsRenderCallbackQueueEmpty();
-    }
-
-    public void setScreenShotStatus(boolean z) {
-    }
-
-    public void smallGameDestroy() {
-        Log.w(TAG, "[V8Dispose][ArBridge] MiniGameDestroy, destroyed=" + this.mDestroyed);
-        if (!this.mDestroyed.getAndSet(true)) {
-            nativeSmallGameDestroy(this.mNativeARBridge);
-            this.mNativeARBridge = 0L;
-            this.mGameRecorder.stopRecord();
-            this.mGameRecorder.release();
+    @Deprecated
+    public void surfaceViewCapture(a aVar) {
+        if (aVar != null) {
+            aVar.a(null);
         }
     }
 
-    public boolean isDestroyed() {
-        return this.mDestroyed.get();
+    public void update() {
+        nativeUpdate();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void smallGameOnInit() {
-        nativeSmallGameOnInit(this.mNativeARBridge);
-        this.mDestroyed.set(false);
+    public boolean updateFbos(int[] iArr) {
+        return updateFrameBuffers(iArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setSize(float f, float f2) {
-        nativeSetSize(this.mNativeARBridge, f, f2);
+    public native boolean updateFrameBuffers(int[] iArr);
+
+    public void updateRMatrix(float[] fArr) {
+        nativeUpdateRMatrix(fArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setDisplayMetrics(float f, float f2, float f3, float f4, float f5) {
-        nativeSetDisplayMetrics(this.mNativeARBridge, f, f2, f3, f4, f5);
+    public void updateRTMatrix(float[] fArr) {
+        nativeUpdateRTMatrix(fArr);
+    }
+
+    public void updateSLAMMatrix(float[] fArr) {
+        nativeUpdateSLAMMatrix(fArr);
+    }
+
+    public void updateVideoFrame(String str, int i, String str2) {
+        Log.i(TAG, "updateVideoFrame:" + i + "     ;avideoPath:" + str2);
+        b bVar = this.mVideoCallback;
+        if (bVar != null) {
+            bVar.a(str, i, str2);
+        }
+    }
+
+    public static String getValue(Object obj, int i, String str) {
+        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
+        return arBridge == null ? "" : arBridge.getValue(i, str);
+    }
+
+    public static void setValue(Object obj, int i, String str, String str2) {
+        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
+        if (arBridge == null) {
+            return;
+        }
+        arBridge.setValue(i, str, str2);
+    }
+
+    public static void updateVideoFrame(Object obj, String str, int i, String str2) {
+        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
+        if (arBridge == null) {
+            return;
+        }
+        arBridge.updateVideoFrame(str, i, str2);
     }
 }

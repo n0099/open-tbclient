@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EntryScrollGifView extends EntryScrollView {
     public EntryScrollGifView(@NonNull Context context) {
         super(context);
@@ -16,27 +16,27 @@ public class EntryScrollGifView extends EntryScrollView {
     }
 
     @Override // com.kwad.sdk.entry.view.EntryScrollView
-    protected float a(int i, int i2) {
+    public float a(int i, int i2) {
         return 0.65f;
     }
 
     @Override // com.kwad.sdk.entry.view.EntryScrollView
-    protected int getAdShowStyle() {
+    public int getAdShowStyle() {
         return 2;
     }
 
     @Override // com.kwad.sdk.entry.view.EntryScrollView
-    protected boolean getEnableWebp() {
+    public boolean getEnableWebp() {
         return true;
     }
 
     @Override // com.kwad.sdk.entry.view.EntryScrollView
-    protected int getItemPlayRes() {
+    public int getItemPlayRes() {
         return R.drawable.ksad_entrybig_play_selector;
     }
 
     @Override // com.kwad.sdk.entry.view.EntryScrollView
-    protected float getRatio() {
+    public float getRatio() {
         return 1.0f;
     }
 }

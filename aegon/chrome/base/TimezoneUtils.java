@@ -3,7 +3,7 @@ package aegon.chrome.base;
 import aegon.chrome.base.annotations.CalledByNative;
 import android.os.StrictMode;
 import java.util.TimeZone;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class TimezoneUtils {
     @CalledByNative
     public static String getDefaultTimeZoneId() {

@@ -11,21 +11,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONStringer;
 import org.json.JSONTokener;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AddCardToWXCardPackage {
-    private static final String TAG = "MicroMsg.AddCardToWXCardPackage";
+    public static final String TAG = "MicroMsg.AddCardToWXCardPackage";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
         public List<WXCardItem> cardArrary;
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
-            if (this.cardArrary == null || this.cardArrary.size() == 0 || this.cardArrary.size() > 40) {
+            String str;
+            String str2;
+            List<WXCardItem> list = this.cardArrary;
+            if (list == null || list.size() == 0 || this.cardArrary.size() > 40) {
                 return false;
             }
             for (WXCardItem wXCardItem : this.cardArrary) {
-                if (wXCardItem == null || wXCardItem.cardId == null || wXCardItem.cardId.length() > 1024 || (wXCardItem.cardExtMsg != null && wXCardItem.cardExtMsg.length() > 1024)) {
+                if (wXCardItem == null || (str = wXCardItem.cardId) == null || str.length() > 1024 || ((str2 = wXCardItem.cardExtMsg) != null && str2.length() > 1024)) {
                     return false;
                 }
             }
@@ -55,14 +58,14 @@ public class AddCardToWXCardPackage {
                 }
                 jSONStringer.endArray();
                 jSONStringer.endObject();
-            } catch (Exception e) {
-                Log.e(AddCardToWXCardPackage.TAG, "Req.toBundle exception:" + e.getMessage());
+            } catch (Exception e2) {
+                Log.e(AddCardToWXCardPackage.TAG, "Req.toBundle exception:" + e2.getMessage());
             }
             bundle.putString("_wxapi_add_card_to_wx_card_list", jSONStringer.toString());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
         public List<WXCardItem> cardArrary;
 
@@ -75,7 +78,8 @@ public class AddCardToWXCardPackage {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseResp
         public boolean checkArgs() {
-            return (this.cardArrary == null || this.cardArrary.size() == 0) ? false : true;
+            List<WXCardItem> list = this.cardArrary;
+            return (list == null || list.size() == 0) ? false : true;
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseResp
@@ -98,7 +102,7 @@ public class AddCardToWXCardPackage {
                     wXCardItem.cardState = jSONObject.optInt("is_succ");
                     this.cardArrary.add(wXCardItem);
                 }
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
 
@@ -127,14 +131,14 @@ public class AddCardToWXCardPackage {
                 }
                 jSONStringer.endArray();
                 jSONStringer.endObject();
-            } catch (Exception e) {
-                Log.e(AddCardToWXCardPackage.TAG, "Resp.toBundle exception:" + e.getMessage());
+            } catch (Exception e2) {
+                Log.e(AddCardToWXCardPackage.TAG, "Resp.toBundle exception:" + e2.getMessage());
             }
             bundle.putString("_wxapi_add_card_to_wx_card_list", jSONStringer.toString());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class WXCardItem {
         public String cardExtMsg;
         public String cardId;

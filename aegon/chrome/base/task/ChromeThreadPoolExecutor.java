@@ -13,16 +13,16 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ChromeThreadPoolExecutor extends ThreadPoolExecutor {
-    public static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-    public static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
-    public static final int MAXIMUM_POOL_SIZE = (CPU_COUNT * 2) + 1;
-    public static final ThreadFactory sThreadFactory = new AnonymousClass1();
-    public static final BlockingQueue<Runnable> sPoolWorkQueue = new ArrayBlockingQueue(128);
+    public static final int CORE_POOL_SIZE;
+    public static final int CPU_COUNT;
+    public static final int MAXIMUM_POOL_SIZE;
+    public static final BlockingQueue<Runnable> sPoolWorkQueue;
+    public static final ThreadFactory sThreadFactory;
 
     /* renamed from: aegon.chrome.base.task.ChromeThreadPoolExecutor$1 */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class AnonymousClass1 implements ThreadFactory {
         public final AtomicInteger mCount = new AtomicInteger(1);
 
@@ -33,8 +33,18 @@ public class ChromeThreadPoolExecutor extends ThreadPoolExecutor {
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(ChromeThreadPoolExecutor$1$$Lambda$1.lambdaFactory$(runnable), "CrAsyncTask #" + this.mCount.getAndIncrement());
+            Runnable lambdaFactory$ = ChromeThreadPoolExecutor$1$$Lambda$1.lambdaFactory$(runnable);
+            return new Thread(lambdaFactory$, "CrAsyncTask #" + this.mCount.getAndIncrement());
         }
+    }
+
+    static {
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        CPU_COUNT = availableProcessors;
+        CORE_POOL_SIZE = Math.max(2, Math.min(availableProcessors - 1, 4));
+        MAXIMUM_POOL_SIZE = (CPU_COUNT * 2) + 1;
+        sThreadFactory = new AnonymousClass1();
+        sPoolWorkQueue = new ArrayBlockingQueue(128);
     }
 
     public ChromeThreadPoolExecutor() {
@@ -42,58 +52,61 @@ public class ChromeThreadPoolExecutor extends ThreadPoolExecutor {
         allowCoreThreadTimeOut(true);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0039  */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x0084  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x0061  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x006c  */
     @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.Executor
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void execute(Runnable runnable) {
         Runnable[] runnableArr;
-        Class<?> cls;
+        Object obj;
         try {
             super.execute(runnable);
-        } catch (RejectedExecutionException e) {
+        } catch (RejectedExecutionException e2) {
             HashMap hashMap = new HashMap();
             for (Runnable runnable2 : (Runnable[]) getQueue().toArray(new Runnable[0])) {
-                Class<?> cls2 = runnable2.getClass();
-                if (cls2 == AsyncTask.NamedFutureTask.class) {
+                Class<?> cls = runnable2.getClass();
+                if (cls == AsyncTask.NamedFutureTask.class) {
                     try {
-                        cls = ((AsyncTask.NamedFutureTask) runnable2).this$0.getClass();
-                    } catch (IllegalAccessException e2) {
-                        if (BuildConfig.DCHECK_IS_ON) {
-                            throw new RuntimeException(e2);
-                        }
-                        cls = cls2;
-                        String name = cls.getName();
-                        hashMap.put(name, Integer.valueOf((hashMap.containsKey(name) ? ((Integer) hashMap.get(name)).intValue() : 0) + 1));
-                    } catch (NoSuchFieldException e3) {
+                        obj = ((AsyncTask.NamedFutureTask) runnable2).this$0;
+                    } catch (IllegalAccessException e3) {
                         if (BuildConfig.DCHECK_IS_ON) {
                             throw new RuntimeException(e3);
                         }
-                        cls = cls2;
+                        String name = cls.getName();
+                        hashMap.put(name, Integer.valueOf((!hashMap.containsKey(name) ? ((Integer) hashMap.get(name)).intValue() : 0) + 1));
+                    } catch (NoSuchFieldException e4) {
+                        if (BuildConfig.DCHECK_IS_ON) {
+                            throw new RuntimeException(e4);
+                        }
                         String name2 = cls.getName();
-                        hashMap.put(name2, Integer.valueOf((hashMap.containsKey(name2) ? ((Integer) hashMap.get(name2)).intValue() : 0) + 1));
+                        hashMap.put(name2, Integer.valueOf((!hashMap.containsKey(name2) ? ((Integer) hashMap.get(name2)).intValue() : 0) + 1));
                     }
                 } else {
-                    if (cls2.getEnclosingClass() == android.os.AsyncTask.class) {
-                        Field declaredField = cls2.getDeclaredField("this$0");
+                    if (cls.getEnclosingClass() == android.os.AsyncTask.class) {
+                        Field declaredField = cls.getDeclaredField("this$0");
                         declaredField.setAccessible(true);
-                        cls = declaredField.get(runnable2).getClass();
+                        obj = declaredField.get(runnable2);
                     }
-                    cls = cls2;
+                    String name22 = cls.getName();
+                    hashMap.put(name22, Integer.valueOf((!hashMap.containsKey(name22) ? ((Integer) hashMap.get(name22)).intValue() : 0) + 1));
                 }
-                String name22 = cls.getName();
-                hashMap.put(name22, Integer.valueOf((hashMap.containsKey(name22) ? ((Integer) hashMap.get(name22)).intValue() : 0) + 1));
+                cls = obj.getClass();
+                String name222 = cls.getName();
+                hashMap.put(name222, Integer.valueOf((!hashMap.containsKey(name222) ? ((Integer) hashMap.get(name222)).intValue() : 0) + 1));
             }
-            StringBuilder append = new StringBuilder().append("Prominent classes in AsyncTask: ");
             StringBuilder sb = new StringBuilder();
+            sb.append("Prominent classes in AsyncTask: ");
+            StringBuilder sb2 = new StringBuilder();
             for (Map.Entry entry : hashMap.entrySet()) {
                 if (((Integer) entry.getValue()).intValue() > 32) {
-                    sb.append((String) entry.getKey()).append(' ');
+                    sb2.append((String) entry.getKey());
+                    sb2.append(' ');
                 }
             }
-            throw new RejectedExecutionException(append.append(sb.length() == 0 ? "NO CLASSES FOUND" : sb.toString()).toString(), e);
+            sb.append(sb2.length() == 0 ? "NO CLASSES FOUND" : sb2.toString());
+            throw new RejectedExecutionException(sb.toString(), e2);
         }
     }
 }

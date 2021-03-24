@@ -2,15 +2,11 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    static b f2627a = new b();
-
-    b() {
-    }
+    public static b f9058a = new b();
 
     public synchronized void a(Context context) {
         String o = bw.o(context);

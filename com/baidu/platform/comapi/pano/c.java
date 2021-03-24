@@ -1,36 +1,40 @@
 package com.baidu.platform.comapi.pano;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2900a;
-    PanoStateError b;
-    int c;
+    public String f9891a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PanoStateError f9892b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f9893c;
 
     public c() {
     }
 
     public c(PanoStateError panoStateError) {
-        this.b = panoStateError;
+        this.f9892b = panoStateError;
     }
 
     public PanoStateError a() {
-        return this.b;
+        return this.f9892b;
     }
 
     public void a(int i) {
-        this.c = i;
+        this.f9893c = i;
     }
 
     public void a(String str) {
-        this.f2900a = str;
+        this.f9891a = str;
     }
 
     public String b() {
-        return this.f2900a;
+        return this.f9891a;
     }
 
     public int c() {
-        return this.c;
+        return this.f9893c;
     }
 }

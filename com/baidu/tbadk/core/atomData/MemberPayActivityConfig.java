@@ -4,7 +4,8 @@ import android.content.Context;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+/* loaded from: classes3.dex */
 public class MemberPayActivityConfig extends IntentConfig {
     public static final String FROM = "from";
     public static final int FROM_AVATAR_PENDANT_LIST = 22;
@@ -47,19 +48,51 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("member_type", i);
     }
 
+    public void setClose(boolean z) {
+        getIntent().putExtra(IntentConfig.CLOSE, z);
+    }
+
+    public void setFrom(int i) {
+        if (i > 0) {
+            getIntent().putExtra("from", i);
+        }
+    }
+
+    public void setFromScence(int i) {
+        getIntent().putExtra(FROM_SCENE, i);
+    }
+
+    public void setReferPageClickZone(String str, String str2) {
+        if (!StringUtils.isNull(str)) {
+            getIntent().putExtra(MemberPayStatistic.REFER_PAGE, str);
+        }
+        if (StringUtils.isNull(str2)) {
+            return;
+        }
+        getIntent().putExtra(MemberPayStatistic.CLICK_ZONE, str2);
+    }
+
+    public void setSceneId(String str) {
+        getIntent().putExtra("scene_id", str);
+    }
+
+    public void setStType(String str) {
+        getIntent().putExtra("st_type", str);
+    }
+
     public MemberPayActivityConfig(Context context, int i, boolean z, int i2) {
         super(context);
         getIntent().putExtra("member_type", i);
-        getIntent().putExtra("close", z);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
         getIntent().putExtra("from", i2);
     }
 
     public MemberPayActivityConfig(Context context, int i, boolean z, int i2, int i3) {
         super(context);
         getIntent().putExtra("member_type", i);
-        getIntent().putExtra("close", z);
+        getIntent().putExtra(IntentConfig.CLOSE, z);
         getIntent().putExtra("from", i2);
-        getIntent().putExtra("from_scene", i3);
+        getIntent().putExtra(FROM_SCENE, i3);
     }
 
     public MemberPayActivityConfig(Context context, int i, String str, int i2) {
@@ -108,36 +141,5 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("member_type", i);
         getIntent().putExtra(IS_WRITE, i3);
         getIntent().putExtra("from", i2);
-    }
-
-    public void setReferPageClickZone(String str, String str2) {
-        if (!StringUtils.isNull(str)) {
-            getIntent().putExtra("refer_page", str);
-        }
-        if (!StringUtils.isNull(str2)) {
-            getIntent().putExtra("click_zone", str2);
-        }
-    }
-
-    public void setSceneId(String str) {
-        getIntent().putExtra("scene_id", str);
-    }
-
-    public void setFromScence(int i) {
-        getIntent().putExtra("from_scene", i);
-    }
-
-    public void setStType(String str) {
-        getIntent().putExtra("st_type", str);
-    }
-
-    public void setFrom(int i) {
-        if (i > 0) {
-            getIntent().putExtra("from", i);
-        }
-    }
-
-    public void setClose(boolean z) {
-        getIntent().putExtra("close", z);
     }
 }

@@ -6,25 +6,25 @@ import java.nio.ByteBuffer;
 import org.webrtc.GlGenericDrawer;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class YuvConverter {
-    private static final String FRAGMENT_SHADER = "uniform vec2 xUnit;\nuniform vec4 coeffs;\n\nvoid main() {\n  gl_FragColor.r = coeffs.a + dot(coeffs.rgb,\n      sample(tc - 1.5 * xUnit).rgb);\n  gl_FragColor.g = coeffs.a + dot(coeffs.rgb,\n      sample(tc - 0.5 * xUnit).rgb);\n  gl_FragColor.b = coeffs.a + dot(coeffs.rgb,\n      sample(tc + 0.5 * xUnit).rgb);\n  gl_FragColor.a = coeffs.a + dot(coeffs.rgb,\n      sample(tc + 1.5 * xUnit).rgb);\n}\n";
-    private final ThreadUtils.ThreadChecker threadChecker = new ThreadUtils.ThreadChecker();
-    private final GlTextureFrameBuffer i420TextureFrameBuffer = new GlTextureFrameBuffer(6408);
-    private final ShaderCallbacks shaderCallbacks = new ShaderCallbacks();
-    private final GlGenericDrawer drawer = new GlGenericDrawer(FRAGMENT_SHADER, this.shaderCallbacks);
+    public static final String FRAGMENT_SHADER = "uniform vec2 xUnit;\nuniform vec4 coeffs;\n\nvoid main() {\n  gl_FragColor.r = coeffs.a + dot(coeffs.rgb,\n      sample(tc - 1.5 * xUnit).rgb);\n  gl_FragColor.g = coeffs.a + dot(coeffs.rgb,\n      sample(tc - 0.5 * xUnit).rgb);\n  gl_FragColor.b = coeffs.a + dot(coeffs.rgb,\n      sample(tc + 0.5 * xUnit).rgb);\n  gl_FragColor.a = coeffs.a + dot(coeffs.rgb,\n      sample(tc + 1.5 * xUnit).rgb);\n}\n";
+    public final ThreadUtils.ThreadChecker threadChecker = new ThreadUtils.ThreadChecker();
+    public final GlTextureFrameBuffer i420TextureFrameBuffer = new GlTextureFrameBuffer(6408);
+    public final ShaderCallbacks shaderCallbacks = new ShaderCallbacks();
+    public final GlGenericDrawer drawer = new GlGenericDrawer(FRAGMENT_SHADER, this.shaderCallbacks);
 
-    /* loaded from: classes9.dex */
-    private static class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
-        private float[] coeffs;
-        private int coeffsLoc;
-        private float stepSize;
-        private int xUnitLoc;
-        private static final float[] yCoeffs = {0.256788f, 0.504129f, 0.0979059f, 0.0627451f};
-        private static final float[] uCoeffs = {-0.148223f, -0.290993f, 0.439216f, 0.501961f};
-        private static final float[] vCoeffs = {0.439216f, -0.367788f, -0.0714274f, 0.501961f};
+    /* loaded from: classes7.dex */
+    public static class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
+        public float[] coeffs;
+        public int coeffsLoc;
+        public float stepSize;
+        public int xUnitLoc;
+        public static final float[] yCoeffs = {0.256788f, 0.504129f, 0.0979059f, 0.0627451f};
+        public static final float[] uCoeffs = {-0.148223f, -0.290993f, 0.439216f, 0.501961f};
+        public static final float[] vCoeffs = {0.439216f, -0.367788f, -0.0714274f, 0.501961f};
 
-        private ShaderCallbacks() {
+        public ShaderCallbacks() {
         }
 
         @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks
@@ -36,8 +36,10 @@ public class YuvConverter {
         @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks
         public void onPrepareShader(GlShader glShader, float[] fArr, int i, int i2, int i3, int i4) {
             GLES20.glUniform4fv(this.coeffsLoc, 1, this.coeffs, 0);
-            float f = i;
-            GLES20.glUniform2f(this.xUnitLoc, (this.stepSize * fArr[0]) / f, (this.stepSize * fArr[1]) / f);
+            int i5 = this.xUnitLoc;
+            float f2 = this.stepSize;
+            float f3 = i;
+            GLES20.glUniform2f(i5, (fArr[0] * f2) / f3, (f2 * fArr[1]) / f3);
         }
 
         public void setPlaneU() {
@@ -93,7 +95,7 @@ public class YuvConverter {
         nativeAllocateByteBuffer.limit(i6);
         ByteBuffer slice = nativeAllocateByteBuffer.slice();
         nativeAllocateByteBuffer.position(i6);
-        int i9 = i7 + ((i2 - 1) * i);
+        int i9 = ((i2 - 1) * i) + i7;
         nativeAllocateByteBuffer.limit(i6 + i9);
         ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
         nativeAllocateByteBuffer.position(i8);

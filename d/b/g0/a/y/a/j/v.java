@@ -1,0 +1,22 @@
+package d.b.g0.a.y.a.j;
+
+import android.graphics.Canvas;
+import org.json.JSONArray;
+/* loaded from: classes3.dex */
+public class v extends a {
+    @Override // d.b.g0.a.y.a.j.a
+    public void a(b bVar, Canvas canvas) {
+        try {
+            bVar.g();
+            canvas.save();
+        } catch (CloneNotSupportedException e2) {
+            if (d.b.g0.a.k.f45050a) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    @Override // d.b.g0.a.y.a.j.a
+    public void b(JSONArray jSONArray) {
+    }
+}

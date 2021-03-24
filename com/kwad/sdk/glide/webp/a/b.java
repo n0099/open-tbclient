@@ -14,9 +14,8 @@ import com.kwad.sdk.glide.load.d;
 import com.kwad.sdk.glide.load.engine.h;
 import com.kwad.sdk.glide.load.resource.bitmap.DownsampleStrategy;
 import com.kwad.sdk.glide.request.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b<TranscodeType> extends f<TranscodeType> implements Cloneable {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public b(@NonNull com.kwad.sdk.glide.c cVar, @NonNull g gVar, @NonNull Class<TranscodeType> cls, @NonNull Context context) {
         super(cVar, gVar, cls, context);
     }
@@ -75,8 +74,8 @@ public class b<TranscodeType> extends f<TranscodeType> implements Cloneable {
     @NonNull
     @CheckResult
     /* renamed from: b */
-    public b<TranscodeType> a(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return (b) super.a(f);
+    public b<TranscodeType> a(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        return (b) super.a(f2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

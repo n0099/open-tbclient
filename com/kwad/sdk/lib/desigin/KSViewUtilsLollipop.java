@@ -13,29 +13,24 @@ import androidx.annotation.RequiresApi;
 import com.kwad.sdk.R;
 @Keep
 @RequiresApi(21)
-/* loaded from: classes3.dex */
-class KSViewUtilsLollipop {
-    private static final int[] STATE_LIST_ANIM_ATTRS = {16843848};
+/* loaded from: classes6.dex */
+public class KSViewUtilsLollipop {
+    public static final int[] STATE_LIST_ANIM_ATTRS = {16843848};
 
-    KSViewUtilsLollipop() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void setBoundsViewOutlineProvider(View view) {
         view.setOutlineProvider(ViewOutlineProvider.BOUNDS);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setDefaultAppBarLayoutStateListAnimator(View view, float f) {
+    public static void setDefaultAppBarLayoutStateListAnimator(View view, float f2) {
         int integer = view.getResources().getInteger(R.integer.ksad_app_bar_elevation_anim_duration);
         StateListAnimator stateListAnimator = new StateListAnimator();
-        stateListAnimator.addState(new int[]{16842766, R.attr.ksad_state_collapsible, -R.attr.ksad_state_collapsed}, ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(integer));
-        stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view, "elevation", f).setDuration(integer));
+        long j = integer;
+        stateListAnimator.addState(new int[]{16842766, R.attr.ksad_state_collapsible, -R.attr.ksad_state_collapsed}, ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(j));
+        stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view, "elevation", f2).setDuration(j));
         stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(0L));
         view.setStateListAnimator(stateListAnimator);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void setStateListAnimatorFromAttrs(View view, AttributeSet attributeSet, int i, int i2) {
         Context context = view.getContext();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, STATE_LIST_ANIM_ATTRS, i, i2);

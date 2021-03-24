@@ -2,22 +2,23 @@ package com.xiaomi.clientreport.processor;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.coremedia.iso.boxes.PerformerBox;
 import com.xiaomi.clientreport.data.PerfClientReport;
-import com.xiaomi.push.bj;
+import com.xiaomi.push.bq;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b implements IPerfProcessor {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f8193a;
+    public Context f40134a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f23a;
+    public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f40a;
 
     public b(Context context) {
-        this.f8193a = context;
+        this.f40134a = context;
     }
 
     public static String a(com.xiaomi.clientreport.data.a aVar) {
@@ -25,13 +26,15 @@ public class b implements IPerfProcessor {
     }
 
     private String b(com.xiaomi.clientreport.data.a aVar) {
-        String str = "";
+        String str;
         int i = aVar.production;
         String str2 = aVar.clientInterfaceId;
-        if (i > 0 && !TextUtils.isEmpty(str2)) {
+        if (i <= 0 || TextUtils.isEmpty(str2)) {
+            str = "";
+        } else {
             str = String.valueOf(i) + "#" + str2;
         }
-        File externalFilesDir = this.f8193a.getExternalFilesDir("perf");
+        File externalFilesDir = this.f40134a.getExternalFilesDir(PerformerBox.TYPE);
         if (externalFilesDir == null) {
             com.xiaomi.channel.commonutils.logger.b.d("cannot get folder when to write perf");
             return null;
@@ -43,37 +46,29 @@ public class b implements IPerfProcessor {
     }
 
     private String c(com.xiaomi.clientreport.data.a aVar) {
-        String str;
-        String b = b(aVar);
-        if (TextUtils.isEmpty(b)) {
+        String b2 = b(aVar);
+        if (TextUtils.isEmpty(b2)) {
             return null;
         }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= 20) {
-                str = null;
-                break;
+        for (int i = 0; i < 20; i++) {
+            String str = b2 + i;
+            if (bq.m167a(this.f40134a, str)) {
+                return str;
             }
-            str = b + i2;
-            if (bj.m172a(this.f8193a, str)) {
-                break;
-            }
-            i = i2 + 1;
         }
-        return str;
+        return null;
     }
 
     @Override // com.xiaomi.clientreport.processor.c
     public void a() {
-        bj.a(this.f8193a, "perf", "perfUploading");
-        File[] m173a = bj.m173a(this.f8193a, "perfUploading");
-        if (m173a == null || m173a.length <= 0) {
+        bq.a(this.f40134a, PerformerBox.TYPE, "perfUploading");
+        File[] m168a = bq.m168a(this.f40134a, "perfUploading");
+        if (m168a == null || m168a.length <= 0) {
             return;
         }
-        for (File file : m173a) {
+        for (File file : m168a) {
             if (file != null) {
-                List<String> a2 = e.a(this.f8193a, file.getAbsolutePath());
+                List<String> a2 = e.a(this.f40134a, file.getAbsolutePath());
                 file.delete();
                 a(a2);
             }
@@ -82,55 +77,58 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a */
-    public void mo65a(com.xiaomi.clientreport.data.a aVar) {
-        if ((aVar instanceof PerfClientReport) && this.f23a != null) {
+    public void mo59a(com.xiaomi.clientreport.data.a aVar) {
+        if ((aVar instanceof PerfClientReport) && this.f40a != null) {
             PerfClientReport perfClientReport = (PerfClientReport) aVar;
             String a2 = a((com.xiaomi.clientreport.data.a) perfClientReport);
             String a3 = e.a(perfClientReport);
-            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f23a.get(a2);
-            HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = hashMap == null ? new HashMap<>() : hashMap;
-            PerfClientReport perfClientReport2 = (PerfClientReport) hashMap2.get(a3);
+            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f40a.get(a2);
+            if (hashMap == null) {
+                hashMap = new HashMap<>();
+            }
+            PerfClientReport perfClientReport2 = (PerfClientReport) hashMap.get(a3);
             if (perfClientReport2 != null) {
                 perfClientReport.perfCounts += perfClientReport2.perfCounts;
                 perfClientReport.perfLatencies += perfClientReport2.perfLatencies;
             }
-            hashMap2.put(a3, perfClientReport);
-            this.f23a.put(a2, hashMap2);
+            hashMap.put(a3, perfClientReport);
+            this.f40a.put(a2, hashMap);
         }
     }
 
     public void a(List<String> list) {
-        bj.a(this.f8193a, list);
+        bq.a(this.f40134a, list);
     }
 
     public void a(com.xiaomi.clientreport.data.a[] aVarArr) {
-        String c = c(aVarArr[0]);
-        if (TextUtils.isEmpty(c)) {
+        String c2 = c(aVarArr[0]);
+        if (TextUtils.isEmpty(c2)) {
             return;
         }
-        e.a(c, aVarArr);
+        e.a(c2, aVarArr);
     }
 
     @Override // com.xiaomi.clientreport.processor.d
     public void b() {
-        if (this.f23a == null) {
+        HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap = this.f40a;
+        if (hashMap == null) {
             return;
         }
-        if (this.f23a.size() > 0) {
-            for (String str : this.f23a.keySet()) {
-                HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f23a.get(str);
-                if (hashMap != null && hashMap.size() > 0) {
-                    com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[hashMap.size()];
-                    hashMap.values().toArray(aVarArr);
+        if (hashMap.size() > 0) {
+            for (String str : this.f40a.keySet()) {
+                HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = this.f40a.get(str);
+                if (hashMap2 != null && hashMap2.size() > 0) {
+                    com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[hashMap2.size()];
+                    hashMap2.values().toArray(aVarArr);
                     a(aVarArr);
                 }
             }
         }
-        this.f23a.clear();
+        this.f40a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IPerfProcessor
     public void setPerfMap(HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap) {
-        this.f23a = hashMap;
+        this.f40a = hashMap;
     }
 }

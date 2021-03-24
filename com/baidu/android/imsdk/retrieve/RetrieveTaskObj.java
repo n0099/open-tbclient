@@ -1,15 +1,15 @@
 package com.baidu.android.imsdk.retrieve;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RetrieveTaskObj {
-    private static final String TAG = "RetrieveTaskObj";
-    private String mFileMeta;
-    private String mFileid;
-    private String mJobID;
-    private String mOrigin;
-    private String mStatus;
-    private String mType;
-    private String mValue;
-    private String mVersion;
+    public static final String TAG = "RetrieveTaskObj";
+    public String mFileMeta;
+    public String mFileid;
+    public String mJobID;
+    public String mOrigin;
+    public String mStatus;
+    public String mType;
+    public String mValue;
+    public String mVersion;
 
     public RetrieveTaskObj(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
         this.mType = str;
@@ -22,68 +22,68 @@ public class RetrieveTaskObj {
         this.mFileid = str8;
     }
 
+    public String getFileMeta() {
+        return this.mFileMeta;
+    }
+
     public String getFileid() {
         return this.mFileid;
-    }
-
-    public void setFileid(String str) {
-        this.mFileid = str;
-    }
-
-    public String getType() {
-        return this.mType;
-    }
-
-    public void setType(String str) {
-        this.mType = str;
-    }
-
-    public String getValue() {
-        return this.mValue;
-    }
-
-    public void setValue(String str) {
-        this.mValue = str;
     }
 
     public String getJobID() {
         return this.mJobID;
     }
 
-    public void setJobID(String str) {
-        this.mJobID = str;
-    }
-
-    public String getVersion() {
-        return this.mVersion;
-    }
-
-    public void setVersion(String str) {
-        this.mVersion = str;
+    public String getOrigin() {
+        return this.mOrigin;
     }
 
     public String getStatus() {
         return this.mStatus;
     }
 
-    public void setStatus(String str) {
-        this.mStatus = str;
+    public String getType() {
+        return this.mType;
     }
 
-    public String getOrigin() {
-        return this.mOrigin;
+    public String getValue() {
+        return this.mValue;
+    }
+
+    public String getVersion() {
+        return this.mVersion;
+    }
+
+    public void setFileMeta(String str) {
+        this.mFileMeta = str;
+    }
+
+    public void setFileid(String str) {
+        this.mFileid = str;
+    }
+
+    public void setJobID(String str) {
+        this.mJobID = str;
     }
 
     public void setOrigin(String str) {
         this.mOrigin = str;
     }
 
-    public String getFileMeta() {
-        return this.mFileMeta;
+    public void setStatus(String str) {
+        this.mStatus = str;
     }
 
-    public void setFileMeta(String str) {
-        this.mFileMeta = str;
+    public void setType(String str) {
+        this.mType = str;
+    }
+
+    public void setValue(String str) {
+        this.mValue = str;
+    }
+
+    public void setVersion(String str) {
+        this.mVersion = str;
     }
 
     public String toString() {

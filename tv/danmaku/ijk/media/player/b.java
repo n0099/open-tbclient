@@ -1,49 +1,49 @@
 package tv.danmaku.ijk.media.player;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface b {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(b bVar, int i);
     }
 
     /* renamed from: tv.danmaku.ijk.media.player.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC1311b {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC1897b {
         void b(b bVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         boolean a(b bVar, int i, int i2, Object obj);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         boolean b(b bVar, int i, int i2, Object obj);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         boolean c(b bVar, int i, int i2, Object obj);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface f {
         void a(b bVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface g {
         void c(b bVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface h {
         void a(b bVar, tv.danmaku.ijk.media.player.c cVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface i {
         void a(b bVar, int i, int i2, int i3, int i4);
     }

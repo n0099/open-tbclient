@@ -1,31 +1,31 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-/* loaded from: classes2.dex */
-public class ReplyMeCacheModel extends CacheModel<l, ReplyMessageFragment> {
+import d.b.i0.e1.b.m;
+/* loaded from: classes4.dex */
+public class ReplyMeCacheModel extends CacheModel<m, ReplyMessageFragment> {
     public ReplyMeCacheModel(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<l> bDB() {
-        return l.class;
+    public Class<m> D() {
+        return m.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int bDC() {
-        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
+    public int E() {
+        return 2001257;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int bDD() {
-        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
+    public int F() {
+        return 2001257;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String bDk() {
+    public String q() {
         return "tb_user_replyme";
     }
 }

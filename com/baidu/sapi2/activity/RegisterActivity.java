@@ -1,7 +1,6 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiWebView;
@@ -11,9 +10,11 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
-/* loaded from: classes3.dex */
+import d.b.a0.a.f;
+import d.b.a0.a.g;
+/* loaded from: classes2.dex */
 public class RegisterActivity extends BaseActivity {
-    private WebAuthResult p = new WebAuthResult() { // from class: com.baidu.sapi2.activity.RegisterActivity.1
+    public WebAuthResult p = new WebAuthResult() { // from class: com.baidu.sapi2.activity.RegisterActivity.1
         @Override // com.baidu.sapi2.shell.result.WebAuthResult
         public void finishActivity() {
             super.finishActivity();
@@ -22,26 +23,22 @@ public class RegisterActivity extends BaseActivity {
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
         return CoreViewRouter.getInstance().getWebRegDTO();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
         this.p.activity = this;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         this.sapiWebView.back();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
@@ -55,12 +52,11 @@ public class RegisterActivity extends BaseActivity {
         CoreViewRouter.getInstance().release();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -76,21 +72,18 @@ public class RegisterActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
-        if (!this.executeSubClassMethod) {
-            return;
+        if (this.executeSubClassMethod) {
+            this.sapiWebView.back();
         }
-        this.sapiWebView.back();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.g.sapi_sdk_title_register);
+        setTitleText(g.sapi_sdk_title_register);
         final WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.RegisterActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
@@ -137,6 +130,7 @@ public class RegisterActivity extends BaseActivity {
                 CoreViewRouter.getInstance().release();
             }
         });
+        setNewLoginTitleAndSetStyleChangeCallBack();
         WebRegDTO webRegDTO = CoreViewRouter.getInstance().getWebRegDTO();
         this.sapiWebView.loadRegist(webRegDTO != null ? webRegDTO.extraParams : null);
     }

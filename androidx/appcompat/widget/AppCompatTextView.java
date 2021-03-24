@@ -22,178 +22,50 @@ import androidx.core.widget.AutoSizeableTextView;
 import androidx.core.widget.TextViewCompat;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class AppCompatTextView extends TextView implements TintableBackgroundView, AutoSizeableTextView {
-    private final AppCompatBackgroundHelper mBackgroundTintHelper;
+    public final AppCompatBackgroundHelper mBackgroundTintHelper;
     @Nullable
-    private Future<PrecomputedTextCompat> mPrecomputedTextFuture;
-    private final AppCompatTextHelper mTextHelper;
+    public Future<PrecomputedTextCompat> mPrecomputedTextFuture;
+    public final AppCompatTextHelper mTextHelper;
 
     public AppCompatTextView(Context context) {
         this(context, null);
     }
 
-    public AppCompatTextView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 16842884);
-    }
-
-    public AppCompatTextView(Context context, AttributeSet attributeSet, int i) {
-        super(TintContextWrapper.wrap(context), attributeSet, i);
-        this.mBackgroundTintHelper = new AppCompatBackgroundHelper(this);
-        this.mBackgroundTintHelper.loadFromAttributes(attributeSet, i);
-        this.mTextHelper = new AppCompatTextHelper(this);
-        this.mTextHelper.loadFromAttributes(attributeSet, i);
-        this.mTextHelper.applyCompoundDrawablesTints();
-    }
-
-    @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i) {
-        super.setBackgroundResource(i);
-        if (this.mBackgroundTintHelper != null) {
-            this.mBackgroundTintHelper.onSetBackgroundResource(i);
+    private void consumeTextFutureAndSetBlocking() {
+        Future<PrecomputedTextCompat> future = this.mPrecomputedTextFuture;
+        if (future != null) {
+            try {
+                this.mPrecomputedTextFuture = null;
+                TextViewCompat.setPrecomputedText(this, future.get());
+            } catch (InterruptedException | ExecutionException unused) {
+            }
         }
     }
 
-    @Override // android.view.View
-    public void setBackgroundDrawable(Drawable drawable) {
-        super.setBackgroundDrawable(drawable);
-        if (this.mBackgroundTintHelper != null) {
-            this.mBackgroundTintHelper.onSetBackgroundDrawable(drawable);
-        }
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
-        if (this.mBackgroundTintHelper != null) {
-            this.mBackgroundTintHelper.setSupportBackgroundTintList(colorStateList);
-        }
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public ColorStateList getSupportBackgroundTintList() {
-        if (this.mBackgroundTintHelper != null) {
-            return this.mBackgroundTintHelper.getSupportBackgroundTintList();
-        }
-        return null;
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
-        if (this.mBackgroundTintHelper != null) {
-            this.mBackgroundTintHelper.setSupportBackgroundTintMode(mode);
-        }
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public PorterDuff.Mode getSupportBackgroundTintMode() {
-        if (this.mBackgroundTintHelper != null) {
-            return this.mBackgroundTintHelper.getSupportBackgroundTintMode();
-        }
-        return null;
-    }
-
-    @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i) {
-        super.setTextAppearance(context, i);
-        if (this.mTextHelper != null) {
-            this.mTextHelper.onSetTextAppearance(context, i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.TextView, android.view.View
     public void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.mBackgroundTintHelper != null) {
-            this.mBackgroundTintHelper.applySupportBackgroundTint();
+        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+        if (appCompatBackgroundHelper != null) {
+            appCompatBackgroundHelper.applySupportBackgroundTint();
         }
-        if (this.mTextHelper != null) {
-            this.mTextHelper.applyCompoundDrawablesTints();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (this.mTextHelper != null) {
-            this.mTextHelper.onLayout(z, i, i2, i3, i4);
-        }
-    }
-
-    @Override // android.widget.TextView
-    public void setTextSize(int i, float f) {
-        if (PLATFORM_SUPPORTS_AUTOSIZE) {
-            super.setTextSize(i, f);
-        } else if (this.mTextHelper != null) {
-            this.mTextHelper.setTextSize(i, f);
-        }
-    }
-
-    @Override // android.widget.TextView
-    protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        super.onTextChanged(charSequence, i, i2, i3);
-        if (this.mTextHelper != null && !PLATFORM_SUPPORTS_AUTOSIZE && this.mTextHelper.isAutoSizeEnabled()) {
-            this.mTextHelper.autoSizeText();
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            appCompatTextHelper.applyCompoundDrawablesTints();
         }
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void setAutoSizeTextTypeWithDefaults(int i) {
-        if (PLATFORM_SUPPORTS_AUTOSIZE) {
-            super.setAutoSizeTextTypeWithDefaults(i);
-        } else if (this.mTextHelper != null) {
-            this.mTextHelper.setAutoSizeTextTypeWithDefaults(i);
+    public int getAutoSizeMaxTextSize() {
+        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+            return super.getAutoSizeMaxTextSize();
         }
-    }
-
-    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
-        if (PLATFORM_SUPPORTS_AUTOSIZE) {
-            super.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
-        } else if (this.mTextHelper != null) {
-            this.mTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
-        }
-    }
-
-    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
-        if (PLATFORM_SUPPORTS_AUTOSIZE) {
-            super.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
-        } else if (this.mTextHelper != null) {
-            this.mTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
-        }
-    }
-
-    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public int getAutoSizeTextType() {
-        if (PLATFORM_SUPPORTS_AUTOSIZE) {
-            return super.getAutoSizeTextType() == 1 ? 1 : 0;
-        } else if (this.mTextHelper != null) {
-            return this.mTextHelper.getAutoSizeTextType();
-        } else {
-            return 0;
-        }
-    }
-
-    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public int getAutoSizeStepGranularity() {
-        if (PLATFORM_SUPPORTS_AUTOSIZE) {
-            return super.getAutoSizeStepGranularity();
-        }
-        if (this.mTextHelper != null) {
-            return this.mTextHelper.getAutoSizeStepGranularity();
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            return appCompatTextHelper.getAutoSizeMaxTextSize();
         }
         return -1;
     }
@@ -201,23 +73,25 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public int getAutoSizeMinTextSize() {
-        if (PLATFORM_SUPPORTS_AUTOSIZE) {
+        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
             return super.getAutoSizeMinTextSize();
         }
-        if (this.mTextHelper != null) {
-            return this.mTextHelper.getAutoSizeMinTextSize();
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            return appCompatTextHelper.getAutoSizeMinTextSize();
         }
         return -1;
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public int getAutoSizeMaxTextSize() {
-        if (PLATFORM_SUPPORTS_AUTOSIZE) {
-            return super.getAutoSizeMaxTextSize();
+    public int getAutoSizeStepGranularity() {
+        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+            return super.getAutoSizeStepGranularity();
         }
-        if (this.mTextHelper != null) {
-            return this.mTextHelper.getAutoSizeMaxTextSize();
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            return appCompatTextHelper.getAutoSizeStepGranularity();
         }
         return -1;
     }
@@ -225,18 +99,159 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public int[] getAutoSizeTextAvailableSizes() {
-        if (PLATFORM_SUPPORTS_AUTOSIZE) {
+        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
             return super.getAutoSizeTextAvailableSizes();
         }
-        if (this.mTextHelper != null) {
-            return this.mTextHelper.getAutoSizeTextAvailableSizes();
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        return appCompatTextHelper != null ? appCompatTextHelper.getAutoSizeTextAvailableSizes() : new int[0];
+    }
+
+    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public int getAutoSizeTextType() {
+        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+            return super.getAutoSizeTextType() == 1 ? 1 : 0;
         }
-        return new int[0];
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            return appCompatTextHelper.getAutoSizeTextType();
+        }
+        return 0;
+    }
+
+    @Override // android.widget.TextView
+    public int getFirstBaselineToTopHeight() {
+        return TextViewCompat.getFirstBaselineToTopHeight(this);
+    }
+
+    @Override // android.widget.TextView
+    public int getLastBaselineToBottomHeight() {
+        return TextViewCompat.getLastBaselineToBottomHeight(this);
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public ColorStateList getSupportBackgroundTintList() {
+        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+        if (appCompatBackgroundHelper != null) {
+            return appCompatBackgroundHelper.getSupportBackgroundTintList();
+        }
+        return null;
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public PorterDuff.Mode getSupportBackgroundTintMode() {
+        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+        if (appCompatBackgroundHelper != null) {
+            return appCompatBackgroundHelper.getSupportBackgroundTintMode();
+        }
+        return null;
+    }
+
+    @Override // android.widget.TextView
+    public CharSequence getText() {
+        consumeTextFutureAndSetBlocking();
+        return super.getText();
+    }
+
+    @NonNull
+    public PrecomputedTextCompat.Params getTextMetricsParamsCompat() {
+        return TextViewCompat.getTextMetricsParams(this);
     }
 
     @Override // android.widget.TextView, android.view.View
     public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
         return AppCompatHintHelper.onCreateInputConnection(super.onCreateInputConnection(editorInfo), editorInfo, this);
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            appCompatTextHelper.onLayout(z, i, i2, i3, i4);
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
+        consumeTextFutureAndSetBlocking();
+        super.onMeasure(i, i2);
+    }
+
+    @Override // android.widget.TextView
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        super.onTextChanged(charSequence, i, i2, i3);
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper == null || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE || !appCompatTextHelper.isAutoSizeEnabled()) {
+            return;
+        }
+        this.mTextHelper.autoSizeText();
+    }
+
+    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
+        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+            super.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
+            return;
+        }
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            appCompatTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
+        }
+    }
+
+    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
+        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+            super.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
+            return;
+        }
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            appCompatTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
+        }
+    }
+
+    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setAutoSizeTextTypeWithDefaults(int i) {
+        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+            super.setAutoSizeTextTypeWithDefaults(i);
+            return;
+        }
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            appCompatTextHelper.setAutoSizeTextTypeWithDefaults(i);
+        }
+    }
+
+    @Override // android.view.View
+    public void setBackgroundDrawable(Drawable drawable) {
+        super.setBackgroundDrawable(drawable);
+        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+        if (appCompatBackgroundHelper != null) {
+            appCompatBackgroundHelper.onSetBackgroundDrawable(drawable);
+        }
+    }
+
+    @Override // android.view.View
+    public void setBackgroundResource(@DrawableRes int i) {
+        super.setBackgroundResource(i);
+        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+        if (appCompatBackgroundHelper != null) {
+            appCompatBackgroundHelper.onSetBackgroundResource(i);
+        }
+    }
+
+    @Override // android.widget.TextView
+    public void setCustomSelectionActionModeCallback(ActionMode.Callback callback) {
+        super.setCustomSelectionActionModeCallback(TextViewCompat.wrapCustomSelectionActionModeCallback(this, callback));
     }
 
     @Override // android.widget.TextView
@@ -258,54 +273,39 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView
-    public int getFirstBaselineToTopHeight() {
-        return TextViewCompat.getFirstBaselineToTopHeight(this);
-    }
-
-    @Override // android.widget.TextView
-    public int getLastBaselineToBottomHeight() {
-        return TextViewCompat.getLastBaselineToBottomHeight(this);
-    }
-
-    @Override // android.widget.TextView
     public void setLineHeight(@IntRange(from = 0) @Px int i) {
         TextViewCompat.setLineHeight(this, i);
-    }
-
-    @Override // android.widget.TextView
-    public void setCustomSelectionActionModeCallback(ActionMode.Callback callback) {
-        super.setCustomSelectionActionModeCallback(TextViewCompat.wrapCustomSelectionActionModeCallback(this, callback));
-    }
-
-    @NonNull
-    public PrecomputedTextCompat.Params getTextMetricsParamsCompat() {
-        return TextViewCompat.getTextMetricsParams(this);
-    }
-
-    public void setTextMetricsParamsCompat(@NonNull PrecomputedTextCompat.Params params) {
-        TextViewCompat.setTextMetricsParams(this, params);
     }
 
     public void setPrecomputedText(@NonNull PrecomputedTextCompat precomputedTextCompat) {
         TextViewCompat.setPrecomputedText(this, precomputedTextCompat);
     }
 
-    private void consumeTextFutureAndSetBlocking() {
-        if (this.mPrecomputedTextFuture != null) {
-            try {
-                Future<PrecomputedTextCompat> future = this.mPrecomputedTextFuture;
-                this.mPrecomputedTextFuture = null;
-                TextViewCompat.setPrecomputedText(this, future.get());
-            } catch (InterruptedException e) {
-            } catch (ExecutionException e2) {
-            }
+    @Override // androidx.core.view.TintableBackgroundView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
+        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+        if (appCompatBackgroundHelper != null) {
+            appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
+        }
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
+        AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+        if (appCompatBackgroundHelper != null) {
+            appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
         }
     }
 
     @Override // android.widget.TextView
-    public CharSequence getText() {
-        consumeTextFutureAndSetBlocking();
-        return super.getText();
+    public void setTextAppearance(Context context, int i) {
+        super.setTextAppearance(context, i);
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            appCompatTextHelper.onSetTextAppearance(context, i);
+        }
     }
 
     public void setTextFuture(@NonNull Future<PrecomputedTextCompat> future) {
@@ -313,10 +313,34 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
         requestLayout();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
-        consumeTextFutureAndSetBlocking();
-        super.onMeasure(i, i2);
+    public void setTextMetricsParamsCompat(@NonNull PrecomputedTextCompat.Params params) {
+        TextViewCompat.setTextMetricsParams(this, params);
+    }
+
+    @Override // android.widget.TextView
+    public void setTextSize(int i, float f2) {
+        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+            super.setTextSize(i, f2);
+            return;
+        }
+        AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+        if (appCompatTextHelper != null) {
+            appCompatTextHelper.setTextSize(i, f2);
+        }
+    }
+
+    public AppCompatTextView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 16842884);
+    }
+
+    public AppCompatTextView(Context context, AttributeSet attributeSet, int i) {
+        super(TintContextWrapper.wrap(context), attributeSet, i);
+        AppCompatBackgroundHelper appCompatBackgroundHelper = new AppCompatBackgroundHelper(this);
+        this.mBackgroundTintHelper = appCompatBackgroundHelper;
+        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i);
+        AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
+        this.mTextHelper = appCompatTextHelper;
+        appCompatTextHelper.loadFromAttributes(attributeSet, i);
+        this.mTextHelper.applyCompoundDrawablesTints();
     }
 }

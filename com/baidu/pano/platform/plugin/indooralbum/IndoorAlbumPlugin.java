@@ -3,13 +3,13 @@ package com.baidu.pano.platform.plugin.indooralbum;
 import android.view.View;
 import com.baidu.lbsapi.panoramaview.PanoramaView;
 import com.baidu.pano.platform.plugin.indooralbum.IndoorAlbumCallback;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class IndoorAlbumPlugin {
-    protected static Object mLock = new Object();
-    protected static IndoorAlbumPlugin mPlugin = null;
-    protected PanoramaView mPanoView = null;
-    protected View mAlbumView = null;
-    protected IndoorAlbumCallback mCallback = null;
+    public static Object mLock = new Object();
+    public static IndoorAlbumPlugin mPlugin;
+    public PanoramaView mPanoView = null;
+    public View mAlbumView = null;
+    public IndoorAlbumCallback mCallback = null;
 
     public static synchronized IndoorAlbumPlugin getInstance() {
         IndoorAlbumPlugin indoorAlbumPlugin;
@@ -24,28 +24,20 @@ public class IndoorAlbumPlugin {
         return indoorAlbumPlugin;
     }
 
-    public void init() {
-        try {
-            this.mCallback = (IndoorAlbumCallback) Class.forName("com.baidu.panosdk.plugin.indoor.AlbumEntity").newInstance();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this.mCallback = null;
-        } catch (IllegalAccessException e2) {
-            e2.printStackTrace();
-            this.mCallback = null;
-        } catch (InstantiationException e3) {
-            e3.printStackTrace();
-            this.mCallback = null;
-        } catch (Exception e4) {
-            e4.printStackTrace();
-            this.mCallback = null;
+    public void clearAlbumView() {
+        View view = this.mAlbumView;
+        if (view != null) {
+            PanoramaView panoramaView = this.mPanoView;
+            if (panoramaView != null) {
+                panoramaView.removeView(view);
+                this.mPanoView = null;
+            }
+            this.mAlbumView = null;
         }
     }
 
-    public void init(IndoorAlbumCallback indoorAlbumCallback) {
-        synchronized (mLock) {
-            this.mCallback = indoorAlbumCallback;
-        }
+    public Object getLock() {
+        return mLock;
     }
 
     public boolean hasPlugin() {
@@ -56,25 +48,40 @@ public class IndoorAlbumPlugin {
         return z;
     }
 
+    public void init() {
+        try {
+            this.mCallback = (IndoorAlbumCallback) Class.forName("com.baidu.panosdk.plugin.indoor.AlbumEntity").newInstance();
+        } catch (ClassNotFoundException e2) {
+            e2.printStackTrace();
+            this.mCallback = null;
+        } catch (IllegalAccessException e3) {
+            e3.printStackTrace();
+            this.mCallback = null;
+        } catch (InstantiationException e4) {
+            e4.printStackTrace();
+            this.mCallback = null;
+        } catch (Exception e5) {
+            e5.printStackTrace();
+            this.mCallback = null;
+        }
+    }
+
     public void loadAlbumView(PanoramaView panoramaView, IndoorAlbumCallback.EntryInfo entryInfo) {
         synchronized (mLock) {
             clearAlbumView();
             if (entryInfo != null && entryInfo.isCorrect() && panoramaView != null && this.mCallback != null) {
                 this.mPanoView = panoramaView;
-                this.mAlbumView = this.mCallback.loadAlbumView(this.mPanoView, entryInfo);
-                this.mPanoView.removeView(this.mAlbumView);
+                View loadAlbumView = this.mCallback.loadAlbumView(panoramaView, entryInfo);
+                this.mAlbumView = loadAlbumView;
+                this.mPanoView.removeView(loadAlbumView);
                 this.mPanoView.addView(this.mAlbumView);
             }
         }
     }
 
-    protected void clearAlbumView() {
-        if (this.mAlbumView != null) {
-            if (this.mPanoView != null) {
-                this.mPanoView.removeView(this.mAlbumView);
-                this.mPanoView = null;
-            }
-            this.mAlbumView = null;
+    public void onDestroyView() {
+        synchronized (mLock) {
+            clearAlbumView();
         }
     }
 
@@ -90,13 +97,9 @@ public class IndoorAlbumPlugin {
         }
     }
 
-    public void onDestroyView() {
+    public void init(IndoorAlbumCallback indoorAlbumCallback) {
         synchronized (mLock) {
-            clearAlbumView();
+            this.mCallback = indoorAlbumCallback;
         }
-    }
-
-    public Object getLock() {
-        return mLock;
     }
 }

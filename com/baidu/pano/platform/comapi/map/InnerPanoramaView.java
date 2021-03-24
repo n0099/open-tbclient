@@ -11,50 +11,75 @@ import com.baidu.lbsapi.panoramaview.ImageMarker;
 import com.baidu.lbsapi.panoramaview.PanoramaView;
 import com.baidu.lbsapi.panoramaview.PanoramaViewListener;
 import com.baidu.lbsapi.panoramaview.StatisticsCallback;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.mobstat.Config;
 import com.baidu.pano.platform.comjni.MessageProxy;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class InnerPanoramaView extends BaseGLMapView {
-    private HashMap<String, com.baidu.pano.platform.comapi.a.a> d;
-    private PanoramaViewListener e;
-    private String f;
-    private com.baidu.pano.platform.comapi.a.b g;
-    private PanoramaView h;
-    private String i;
-    private String j;
-    private String k;
-    private boolean l;
-    private boolean m;
-    private String n;
-    private double o;
-    private double p;
-    private StatisticsCallback q;
-    private boolean r;
-    private boolean s;
-    private Handler t;
+
+    /* renamed from: d  reason: collision with root package name */
+    public HashMap<String, com.baidu.pano.platform.comapi.a.a> f9477d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public PanoramaViewListener f9478e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f9479f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public com.baidu.pano.platform.comapi.a.b f9480g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public PanoramaView f9481h;
+    public String i;
+    public String j;
+    public String k;
+    public boolean l;
+    public boolean m;
+    public String n;
+    public double o;
+    public double p;
+    public StatisticsCallback q;
+    public boolean r;
+    public boolean s;
+    public Handler t;
 
     public InnerPanoramaView(Context context) {
         this(context, null);
     }
 
-    public InnerPanoramaView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.d = new HashMap<>();
-        this.r = true;
-        this.s = true;
-        this.t = new c(this);
-        b = context;
-        MessageProxy.registerPanoViewListener(new d(this));
-    }
-
     @Override // com.baidu.pano.platform.comapi.map.BaseGLMapView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         return super.onTouchEvent(motionEvent);
+    }
+
+    public InnerPanoramaView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f9477d = new HashMap<>();
+        this.r = true;
+        this.s = true;
+        this.t = new c(this);
+        BaseGLMapView.f9471b = context;
+        MessageProxy.registerPanoViewListener(new d(this));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            String optString = new JSONObject(str).optString("Type", "");
+            if (optString.equals("street")) {
+                this.f9473a.b(-15.0f, 90.0f);
+            } else if (optString.equals("inter")) {
+                this.f9473a.b(-25.0f, 90.0f);
+            }
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -83,12 +108,47 @@ public class InnerPanoramaView extends BaseGLMapView {
                     jSONObject.put("RY", optInt4 / 100);
                 }
                 return jSONObject.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return str;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
         return str;
+    }
+
+    public void d() {
+        MessageProxy.unRegisterPanoViewListener();
+        this.f9473a.b();
+    }
+
+    public float c() {
+        e eVar = this.f9473a;
+        if (eVar != null) {
+            return eVar.c();
+        }
+        throw new NullPointerException("PanoController is null!");
+    }
+
+    public void b(String str) {
+        if (this.s) {
+            this.r = false;
+            if (!TextUtils.isEmpty(str)) {
+                e eVar = this.f9473a;
+                if (eVar != null) {
+                    eVar.b(str);
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("when you set the uid of panorama, it can not be null or empty string.");
+        }
+    }
+
+    public void d(String str) {
+        com.baidu.pano.platform.comapi.a.b bVar = this.f9480g;
+        if (bVar != null) {
+            bVar.a(str);
+            this.f9473a.b(this.f9480g.f9466d);
+        }
     }
 
     public String a(int i) {
@@ -96,287 +156,257 @@ public class InnerPanoramaView extends BaseGLMapView {
         try {
             jSONObject.put("code", i);
             if (i == 101) {
-                jSONObject.put(BdStatsConstant.StatsType.ERROR, "引擎初始化失败");
+                jSONObject.put("error", "引擎初始化失败");
             } else if (i == 102) {
-                jSONObject.put(BdStatsConstant.StatsType.ERROR, "描述信息加载失败");
+                jSONObject.put("error", "描述信息加载失败");
             } else if (i == 103) {
-                jSONObject.put(BdStatsConstant.StatsType.ERROR, "全景图加载失败");
+                jSONObject.put("error", "全景图加载失败");
             } else if (i == 201) {
-                jSONObject.put(BdStatsConstant.StatsType.ERROR, "该UID下对应的POI没有全景");
+                jSONObject.put("error", "该UID下对应的POI没有全景");
             } else if (i == 202) {
-                jSONObject.put(BdStatsConstant.StatsType.ERROR, "无法显示内景相册, 因为没有引入内景相册插件");
+                jSONObject.put("error", "无法显示内景相册, 因为没有引入内景相册插件");
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return jSONObject.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                String optString = new JSONObject(str).optString("Type", "");
-                if (optString.equals("street")) {
-                    this.f2729a.b(-15.0f, 90.0f);
-                } else if (optString.equals("inter")) {
-                    this.f2729a.b(-25.0f, 90.0f);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+    public boolean c(String str) {
+        e eVar = this.f9473a;
+        if (eVar == null) {
+            return false;
         }
+        return eVar.d(str);
+    }
+
+    public void d(boolean z) {
+        e eVar = this.f9473a;
+        if (eVar != null) {
+            eVar.d(z);
+        }
+    }
+
+    public void c(boolean z) {
+        e eVar = this.f9473a;
+        if (eVar != null) {
+            eVar.b(z);
+        }
+    }
+
+    public void f() {
+        this.f9473a.g();
+    }
+
+    public void b(float f2) {
+        if (this.f9473a != null) {
+            while (f2 < 0.0f) {
+                f2 += 360.0f;
+            }
+            this.f9473a.a(a(), f2 % 360.0f, 0.0f);
+        }
+    }
+
+    public float b() {
+        e eVar = this.f9473a;
+        if (eVar != null) {
+            return eVar.a(2);
+        }
+        throw new NullPointerException("PanoController is null!");
     }
 
     public void a(String str) {
         if (this.s) {
             this.r = false;
-            if (this.f2729a != null) {
-                this.f2729a.a(str);
+            e eVar = this.f9473a;
+            if (eVar != null) {
+                eVar.a(str);
             }
         }
+    }
+
+    public void b(int i) {
+        e eVar = this.f9473a;
+        if (eVar == null || i < 1 || i > 5) {
+            return;
+        }
+        eVar.a(70 - (i * 10));
+    }
+
+    public void b(Bitmap bitmap) {
+        this.f9473a.c(bitmap);
     }
 
     public void a(int i, int i2) {
         if (this.s) {
             this.r = false;
-            if (this.f2729a != null) {
-                this.f2729a.a(i, i2);
+            e eVar = this.f9473a;
+            if (eVar != null) {
+                eVar.a(i, i2);
             }
         }
     }
 
-    public void a(double d, double d2) {
+    public void b(boolean z) {
+        e eVar = this.f9473a;
+        if (eVar != null) {
+            eVar.a(z);
+        }
+    }
+
+    public boolean b(com.baidu.pano.platform.comapi.a.a aVar) {
+        if (aVar != null) {
+            for (Map.Entry<String, com.baidu.pano.platform.comapi.a.a> entry : this.f9477d.entrySet()) {
+                String str = aVar.mKey;
+                if (str != null && str.equals(entry.getKey())) {
+                    boolean c2 = this.f9473a.c(entry.getKey());
+                    if (c2) {
+                        this.f9477d.remove(entry.getKey());
+                    }
+                    return c2;
+                }
+            }
+            throw new IllegalStateException("the overlay item have not been added, you can not remove it.");
+        }
+        throw new IllegalArgumentException("when you remove an overlay item, it can not be null");
+    }
+
+    public void a(double d2, double d3) {
         if (this.s) {
             this.r = false;
-            if (this.f2729a != null) {
-                this.f2729a.a(d, d2);
+            e eVar = this.f9473a;
+            if (eVar != null) {
+                eVar.a(d2, d3);
             }
         }
     }
 
-    public void b(String str) {
-        if (this.s) {
-            this.r = false;
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException("when you set the uid of panorama, it can not be null or empty string.");
-            }
-            if (this.f2729a != null) {
-                this.f2729a.b(str);
-            }
+    public boolean e() {
+        boolean f2 = this.f9473a.f();
+        if (f2) {
+            this.f9477d.clear();
         }
+        return f2;
     }
 
-    public void a(float f) {
-        if (this.f2729a != null) {
-            if (f < -90.0f) {
-                f = -90.0f;
-            } else if (f > 90.0f) {
-                f = 90.0f;
+    public void a(float f2) {
+        if (this.f9473a != null) {
+            if (f2 < -90.0f) {
+                f2 = -90.0f;
+            } else if (f2 > 90.0f) {
+                f2 = 90.0f;
             }
-            this.f2729a.a(f, b(), 0.0f);
+            this.f9473a.a(f2, b(), 0.0f);
         }
     }
 
     public float a() {
-        if (this.f2729a != null) {
-            return this.f2729a.a(1);
-        }
-        throw new NullPointerException("PanoController is null!");
-    }
-
-    public void b(float f) {
-        if (this.f2729a != null) {
-            while (f < 0.0f) {
-                f += 360.0f;
-            }
-            this.f2729a.a(a(), f % 360.0f, 0.0f);
-        }
-    }
-
-    public float b() {
-        if (this.f2729a != null) {
-            return this.f2729a.a(2);
-        }
-        throw new NullPointerException("PanoController is null!");
-    }
-
-    public void b(int i) {
-        if (this.f2729a != null && i >= 1 && i <= 5) {
-            this.f2729a.a(70 - (i * 10));
-        }
-    }
-
-    public float c() {
-        if (this.f2729a != null) {
-            return this.f2729a.c();
+        e eVar = this.f9473a;
+        if (eVar != null) {
+            return eVar.a(1);
         }
         throw new NullPointerException("PanoController is null!");
     }
 
     public void a(PanoramaView.ImageDefinition imageDefinition) {
-        if (this.f2729a != null) {
-            this.f2729a.b(imageDefinition.getValue());
+        e eVar = this.f9473a;
+        if (eVar != null) {
+            eVar.b(imageDefinition.getValue());
         }
     }
 
     public boolean a(Bitmap bitmap) {
-        if (this.f2729a == null) {
+        e eVar = this.f9473a;
+        if (eVar == null) {
             return false;
         }
-        return this.f2729a.c(bitmap);
-    }
-
-    public boolean c(String str) {
-        if (this.f2729a == null) {
-            return false;
-        }
-        return this.f2729a.d(str);
+        return eVar.c(bitmap);
     }
 
     public void a(boolean z) {
-        if (this.f2729a != null) {
-            this.f2729a.c(z);
-        }
-    }
-
-    public void b(Bitmap bitmap) {
-        this.f2729a.c(bitmap);
-    }
-
-    public void d() {
-        MessageProxy.unRegisterPanoViewListener();
-        this.f2729a.b();
-    }
-
-    public void b(boolean z) {
-        if (this.f2729a != null) {
-            this.f2729a.a(z);
+        e eVar = this.f9473a;
+        if (eVar != null) {
+            eVar.c(z);
         }
     }
 
     public boolean a(com.baidu.pano.platform.comapi.a.a aVar) {
-        boolean z;
-        if (aVar == null) {
-            throw new IllegalArgumentException("when you add an overlay item, it can not be null");
-        }
-        for (Map.Entry<String, com.baidu.pano.platform.comapi.a.a> entry : this.d.entrySet()) {
-            if (aVar.equals(entry.getValue())) {
-                throw new IllegalStateException("the overlay item have been added, you can not add it again");
+        boolean a2;
+        if (aVar != null) {
+            for (Map.Entry<String, com.baidu.pano.platform.comapi.a.a> entry : this.f9477d.entrySet()) {
+                if (aVar.equals(entry.getValue())) {
+                    throw new IllegalStateException("the overlay item have been added, you can not add it again");
+                }
             }
+            String str = String.valueOf(System.currentTimeMillis()) + String.valueOf(this.f9477d.size());
+            Bundle bundle = aVar.toBundle(str, new Bundle());
+            if (1003 == bundle.getInt("markerType")) {
+                a2 = this.f9473a.b(bundle);
+            } else if (1001 == bundle.getInt("markerType")) {
+                a2 = this.f9473a.a(bundle);
+            } else {
+                a2 = 1002 == bundle.getInt("markerType") ? this.f9473a.a(bundle, ((ImageMarker) aVar).getMarkerBitmap()) : false;
+            }
+            if (a2) {
+                this.f9477d.put(str, aVar);
+            }
+            return a2;
         }
-        String str = String.valueOf(System.currentTimeMillis()) + String.valueOf(this.d.size());
-        Bundle bundle = aVar.toBundle(str, new Bundle());
-        if (1003 == bundle.getInt("markerType")) {
-            z = this.f2729a.b(bundle);
-        } else if (1001 == bundle.getInt("markerType")) {
-            z = this.f2729a.a(bundle);
-        } else if (1002 != bundle.getInt("markerType")) {
-            z = false;
-        } else {
-            z = this.f2729a.a(bundle, ((ImageMarker) aVar).getMarkerBitmap());
-        }
-        if (z) {
-            this.d.put(str, aVar);
-        }
-        return z;
+        throw new IllegalArgumentException("when you add an overlay item, it can not be null");
     }
 
-    public boolean a(String str, double d, double d2, double d3, Bitmap bitmap) {
+    public boolean a(String str, double d2, double d3, double d4, Bitmap bitmap) {
         if (str == null || bitmap == null) {
             return false;
         }
         Bundle bundle = new Bundle();
         bundle.putString("key", str);
-        bundle.putDouble(Config.EVENT_HEAT_X, d * 100.0d);
-        bundle.putDouble("y", d2 * 100.0d);
-        bundle.putFloat("z", ((float) d3) * 100.0f);
-        return this.f2729a.a(bundle, bitmap);
+        bundle.putDouble("x", d2 * 100.0d);
+        bundle.putDouble("y", d3 * 100.0d);
+        bundle.putFloat("z", ((float) d4) * 100.0f);
+        return this.f9473a.a(bundle, bitmap);
     }
 
-    public void a(String str, float f, float f2) {
-        if (this.f2729a != null) {
-            this.f2729a.a(str, f, f2);
+    public void a(String str, float f2, float f3) {
+        e eVar = this.f9473a;
+        if (eVar != null) {
+            eVar.a(str, f2, f3);
         }
-    }
-
-    public boolean b(com.baidu.pano.platform.comapi.a.a aVar) {
-        if (aVar == null) {
-            throw new IllegalArgumentException("when you remove an overlay item, it can not be null");
-        }
-        for (Map.Entry<String, com.baidu.pano.platform.comapi.a.a> entry : this.d.entrySet()) {
-            if (aVar.mKey != null && aVar.mKey.equals(entry.getKey())) {
-                boolean c = this.f2729a.c(entry.getKey());
-                if (c) {
-                    this.d.remove(entry.getKey());
-                }
-                return c;
-            }
-        }
-        throw new IllegalStateException("the overlay item have not been added, you can not remove it.");
-    }
-
-    public boolean e() {
-        boolean f = this.f2729a.f();
-        if (f) {
-            this.d.clear();
-        }
-        return f;
     }
 
     public void a(String str, String str2, PanoramaView panoramaView, com.baidu.pano.platform.comapi.a.b bVar) {
         this.i = str;
         this.j = str2;
-        this.h = panoramaView;
-        this.g = bVar;
+        this.f9481h = panoramaView;
+        this.f9480g = bVar;
     }
 
     public void a(com.baidu.pano.platform.comapi.a.b bVar) {
-        if (bVar == null) {
-            throw new IllegalArgumentException("when you add an overlay item, it can not be null");
+        if (bVar != null) {
+            this.f9473a.d(bVar.toBundle("", new Bundle()));
+            if (bVar.f9464b) {
+                this.f9473a.a(bVar.f9465c);
+                return;
+            }
+            return;
         }
-        this.f2729a.d(bVar.toBundle("", new Bundle()));
-        if (bVar.b) {
-            this.f2729a.a(bVar.c);
-        }
+        throw new IllegalArgumentException("when you add an overlay item, it can not be null");
     }
 
-    public void d(String str) {
-        if (this.g != null) {
-            this.g.a(str);
-            this.f2729a.b(this.g.d);
-        }
-    }
-
-    public void c(boolean z) {
-        if (this.f2729a != null) {
-            this.f2729a.b(z);
-        }
-    }
-
-    public void f() {
-        this.f2729a.g();
-    }
-
-    public void d(boolean z) {
-        if (this.f2729a != null) {
-            this.f2729a.d(z);
-        }
-    }
-
-    public double[] a(float f, float f2) {
-        if (this.f2729a != null) {
-            return this.f2729a.d(f, f2);
+    public double[] a(float f2, float f3) {
+        e eVar = this.f9473a;
+        if (eVar != null) {
+            return eVar.d(f2, f3);
         }
         return null;
     }
 
     public void a(PanoramaViewListener panoramaViewListener) {
-        this.e = panoramaViewListener;
+        this.f9478e = panoramaViewListener;
     }
 
-    public String a(double d, double d2, double d3, double d4) {
-        long sqrt = (long) Math.sqrt(Math.pow(d - d3, 2.0d) + Math.pow(d2 - d4, 2.0d));
+    public String a(double d2, double d3, double d4, double d5) {
+        long sqrt = (long) Math.sqrt(Math.pow(d2 - d4, 2.0d) + Math.pow(d3 - d5, 2.0d));
         if (sqrt > 10000) {
             return "";
         }

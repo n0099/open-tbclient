@@ -10,18 +10,7 @@ public final class DelGroupUsersResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    private DelGroupUsersResIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            this.error = builder.error;
-            this.data = builder.data;
-            return;
-        }
-        this.error = builder.error;
-        this.data = builder.data;
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DelGroupUsersResIdl> {
         public DataRes data;
         public Error error;
@@ -31,10 +20,11 @@ public final class DelGroupUsersResIdl extends Message {
 
         public Builder(DelGroupUsersResIdl delGroupUsersResIdl) {
             super(delGroupUsersResIdl);
-            if (delGroupUsersResIdl != null) {
-                this.error = delGroupUsersResIdl.error;
-                this.data = delGroupUsersResIdl.data;
+            if (delGroupUsersResIdl == null) {
+                return;
             }
+            this.error = delGroupUsersResIdl.error;
+            this.data = delGroupUsersResIdl.data;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,5 +32,16 @@ public final class DelGroupUsersResIdl extends Message {
         public DelGroupUsersResIdl build(boolean z) {
             return new DelGroupUsersResIdl(this, z);
         }
+    }
+
+    public DelGroupUsersResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+            this.data = builder.data;
+            return;
+        }
+        this.error = builder.error;
+        this.data = builder.data;
     }
 }

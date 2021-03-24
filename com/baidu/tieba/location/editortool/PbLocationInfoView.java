@@ -6,37 +6,58 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.adp.base.j;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.b.a.j;
+import d.b.i0.c3.a;
+/* loaded from: classes3.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect lkq;
-    private int mState;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f18773e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Rect f18774f;
 
     public PbLocationInfoView(Context context) {
         this(context, null);
     }
 
-    public PbLocationInfoView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
+    public void a() {
+        if (this.f18773e == 1) {
+            Drawable drawable = SkinManager.getDrawable(R.drawable.icon_posts_pin_loading_anim);
+            if (drawable != null) {
+                drawable.setBounds(this.f18774f);
+            }
+            setCompoundDrawables(drawable, null, null, null);
+            a.a((TbPageContextSupport) j.b(getContext()), (Animatable) drawable);
+            return;
+        }
+        Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_tips_site);
+        if (drawable2 != null) {
+            drawable2.setBounds(this.f18774f);
+        }
+        setCompoundDrawables(drawable2, null, null, null);
     }
 
-    private void init() {
-        this.lkq = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
+    public final void b() {
+        this.f18774f = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
         setState(0, null);
-        onChangeSkinType();
+        c();
     }
 
-    public void onChangeSkinType() {
-        setTextColor(ap.getColor(R.color.CAM_X0108));
-        ddV();
+    public void c() {
+        setTextColor(SkinManager.getColor(R.color.CAM_X0108));
+        a();
+    }
+
+    public int getState() {
+        return this.f18773e;
     }
 
     public void setState(int i, String str) {
-        this.mState = i;
+        this.f18773e = i;
         if (i == 1) {
             if (str == null) {
                 str = getResources().getString(R.string.location_loading);
@@ -48,27 +69,11 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        ddV();
+        a();
     }
 
-    public int getState() {
-        return this.mState;
-    }
-
-    public void ddV() {
-        if (this.mState == 1) {
-            Drawable drawable = ap.getDrawable(R.drawable.icon_posts_pin_loading_anim);
-            if (drawable != null) {
-                drawable.setBounds(this.lkq);
-            }
-            setCompoundDrawables(drawable, null, null, null);
-            com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) j.I(getContext()), (Animatable) drawable);
-            return;
-        }
-        Drawable drawable2 = ap.getDrawable(R.drawable.icon_tips_site);
-        if (drawable2 != null) {
-            drawable2.setBounds(this.lkq);
-        }
-        setCompoundDrawables(drawable2, null, null, null);
+    public PbLocationInfoView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        b();
     }
 }

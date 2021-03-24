@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsRecyclerView extends RecyclerView {
     public KsRecyclerView(Context context) {
         super(context);

@@ -1,40 +1,39 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import com.xiaomi.push.gd;
-import com.xiaomi.push.ii;
+import com.xiaomi.push.fw;
+import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes5.dex */
-final class t extends XMPushService.i {
+/* loaded from: classes7.dex */
+public final class t extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ii f8581a;
+    public final /* synthetic */ ib f41063a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f930a;
+    public final /* synthetic */ XMPushService f973a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(int i, XMPushService xMPushService, ii iiVar) {
+    public t(int i, XMPushService xMPushService, ib ibVar) {
         super(i);
-        this.f930a = xMPushService;
-        this.f8581a = iiVar;
+        this.f973a = xMPushService;
+        this.f41063a = ibVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public String a() {
-        return "send ack message for unrecognized new miui message.";
+        return "send ack message for obsleted message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            ii a2 = p.a((Context) this.f930a, this.f8581a);
-            a2.m422a().a("miui_message_unrecognized", "1");
-            w.a(this.f930a, a2);
-        } catch (gd e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f930a.a(10, e);
+            ib a2 = q.a((Context) this.f973a, this.f41063a);
+            a2.m431a().a("message_obsleted", "1");
+            y.a(this.f973a, a2);
+        } catch (fw e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
+            this.f973a.a(10, e2);
         }
     }
 }

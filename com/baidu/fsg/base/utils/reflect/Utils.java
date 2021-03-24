@@ -1,6 +1,6 @@
 package com.baidu.fsg.base.utils.reflect;
 
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import java.lang.reflect.Method;
 import java.net.SocketException;
 import java.util.ArrayList;
@@ -8,49 +8,27 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class Utils {
 
-    /* renamed from: a  reason: collision with root package name */
-    static final Object[] f1572a = new Object[0];
-    static final Class<?>[] b = new Class[0];
-    private static final String c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
-    private static final Pattern d = Pattern.compile(c);
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f5418c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: a  reason: collision with root package name */
+    public static final Object[] f5416a = new Object[0];
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Class<?>[] f5417b = new Class[0];
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Pattern f5419d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
+
     public static boolean a(Object[] objArr, Object[] objArr2) {
         return (objArr != null || objArr2 == null || objArr2.length <= 0) && (objArr2 != null || objArr == null || objArr.length <= 0) && (objArr == null || objArr2 == null || objArr.length == objArr2.length);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Class<?>[] a(Object... objArr) {
-        if (objArr == null) {
-            return null;
-        }
-        if (objArr.length == 0) {
-            return b;
-        }
-        Class<?>[] clsArr = new Class[objArr.length];
-        for (int i = 0; i < objArr.length; i++) {
-            clsArr[i] = objArr[i] == null ? null : objArr[i].getClass();
-        }
-        return clsArr;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Class<?>[] a(Class<?>[] clsArr) {
-        if (clsArr == null || clsArr.length == 0) {
-            return b;
-        }
-        return clsArr;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static Object[] b(Object[] objArr) {
-        if (objArr == null || objArr.length == 0) {
-            return f1572a;
-        }
-        return objArr;
+        return (objArr == null || objArr.length == 0) ? f5416a : objArr;
     }
 
     public static List<Class<?>> getAllInterfaces(Class<?> cls) {
@@ -62,7 +40,72 @@ public class Utils {
         return new ArrayList(linkedHashSet);
     }
 
-    private static void a(Class<?> cls, HashSet<Class<?>> hashSet) {
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0044 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0049  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean isMethodDeclaredThrowable(Method method, Throwable th) {
+        Class<?>[] exceptionTypes;
+        String name;
+        boolean z;
+        if (th instanceof RuntimeException) {
+            return true;
+        }
+        if (method == null || th == null || ((exceptionTypes = method.getExceptionTypes()) == null && exceptionTypes.length <= 0)) {
+            return false;
+        }
+        try {
+            name = method.getName();
+        } catch (Throwable unused) {
+        }
+        if (!BOSTokenRequest.ACCEPT.equals(name) && !"sendto".equals(name)) {
+            z = false;
+            if ((th instanceof SocketException) && z) {
+                if (method.getDeclaringClass().getName().indexOf("libcore") >= 0) {
+                    return true;
+                }
+            }
+            for (Class<?> cls : exceptionTypes) {
+                if (cls.isInstance(th) || cls.isAssignableFrom(th.getClass())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        z = true;
+        if (th instanceof SocketException) {
+            if (method.getDeclaringClass().getName().indexOf("libcore") >= 0) {
+            }
+        }
+        while (r3 < r6) {
+        }
+        return false;
+    }
+
+    public static boolean validateJavaIdentifier(String str) {
+        return f5419d.matcher(str).matches();
+    }
+
+    public static Class<?>[] a(Object... objArr) {
+        if (objArr == null) {
+            return null;
+        }
+        if (objArr.length == 0) {
+            return f5417b;
+        }
+        Class<?>[] clsArr = new Class[objArr.length];
+        for (int i = 0; i < objArr.length; i++) {
+            clsArr[i] = objArr[i] == null ? null : objArr[i].getClass();
+        }
+        return clsArr;
+    }
+
+    public static Class<?>[] a(Class<?>[] clsArr) {
+        return (clsArr == null || clsArr.length == 0) ? f5417b : clsArr;
+    }
+
+    public static void a(Class<?> cls, HashSet<Class<?>> hashSet) {
         Class<?>[] interfaces;
         while (cls != null) {
             for (Class<?> cls2 : cls.getInterfaces()) {
@@ -72,38 +115,5 @@ public class Utils {
             }
             cls = cls.getSuperclass();
         }
-    }
-
-    public static boolean isMethodDeclaredThrowable(Method method, Throwable th) {
-        if (th instanceof RuntimeException) {
-            return true;
-        }
-        if (method == null || th == null) {
-            return false;
-        }
-        Class<?>[] exceptionTypes = method.getExceptionTypes();
-        if (exceptionTypes != null || exceptionTypes.length > 0) {
-            try {
-                String name = method.getName();
-                boolean z = UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET.equals(name) || "sendto".equals(name);
-                if ((th instanceof SocketException) && z) {
-                    if (method.getDeclaringClass().getName().indexOf("libcore") >= 0) {
-                        return true;
-                    }
-                }
-            } catch (Throwable th2) {
-            }
-            for (Class<?> cls : exceptionTypes) {
-                if (cls.isInstance(th) || cls.isAssignableFrom(th.getClass())) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return false;
-    }
-
-    public static boolean validateJavaIdentifier(String str) {
-        return d.matcher(str).matches();
     }
 }

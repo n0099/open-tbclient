@@ -3,61 +3,61 @@ package com.baidu.swan.bdprivate.widget;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class ScrollView extends android.widget.ScrollView {
     public ScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init(context);
+        a(context);
     }
 
-    public ScrollView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context);
-    }
-
-    public ScrollView(Context context) {
-        super(context);
-        init(context);
-    }
-
-    private void init(Context context) {
+    public final void a(Context context) {
     }
 
     @Override // android.widget.ScrollView
-    protected int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {
+    public int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {
         int i;
         int i2;
-        int i3;
         if (getChildCount() == 0) {
             return 0;
         }
         int height = getHeight();
         int scrollY = getScrollY();
-        int i4 = scrollY + height;
+        int i3 = scrollY + height;
         int verticalFadingEdgeLength = getVerticalFadingEdgeLength();
         if (rect.top > 0) {
             scrollY += verticalFadingEdgeLength;
         }
         if (rect.bottom < getChildAt(0).getHeight()) {
-            i4 -= verticalFadingEdgeLength;
+            i3 -= verticalFadingEdgeLength;
         }
-        if (rect.top > i4 && rect.bottom > i4 && rect.top > scrollY) {
+        int i4 = rect.top;
+        if (i4 > i3 && rect.bottom > i3 && i4 > scrollY) {
             if (rect.height() > height) {
-                i3 = (rect.top - scrollY) + 0;
+                i2 = rect.top - scrollY;
             } else {
-                i3 = (rect.bottom - i4) + 0;
+                i2 = rect.bottom - i3;
             }
-            i = Math.min(i3, getChildAt(0).getBottom() - i4);
-        } else if (rect.bottom >= scrollY || rect.top >= scrollY || rect.bottom >= i4) {
-            i = 0;
+            return Math.min(i2 + 0, getChildAt(0).getBottom() - i3);
+        }
+        int i5 = rect.bottom;
+        if (i5 >= scrollY || rect.top >= scrollY || i5 >= i3) {
+            return 0;
+        }
+        if (rect.height() > height) {
+            i = 0 - (i3 - rect.bottom);
         } else {
-            if (rect.height() > height) {
-                i2 = 0 - (i4 - rect.bottom);
-            } else {
-                i2 = 0 - (scrollY - rect.top);
-            }
-            i = Math.max(i2, -getScrollY());
+            i = 0 - (scrollY - rect.top);
         }
-        return i;
+        return Math.max(i, -getScrollY());
+    }
+
+    public ScrollView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a(context);
+    }
+
+    public ScrollView(Context context) {
+        super(context);
+        a(context);
     }
 }

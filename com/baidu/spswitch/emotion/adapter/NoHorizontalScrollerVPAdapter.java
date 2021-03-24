@@ -1,16 +1,22 @@
 package com.baidu.spswitch.emotion.adapter;
 
+import android.view.View;
 import android.view.ViewGroup;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
+import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class NoHorizontalScrollerVPAdapter extends FragmentPagerAdapter {
-    private List<Fragment> mDatas;
+public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
+    public List<BDEmotionBagVerticalLayout> mDatas;
 
-    @Override // androidx.fragment.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        return this.mDatas.get(i);
+    public NoHorizontalScrollerVPAdapter(List<BDEmotionBagVerticalLayout> list) {
+        this.mDatas = list;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        viewGroup.removeView(this.mDatas.get(i));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -18,8 +24,15 @@ public class NoHorizontalScrollerVPAdapter extends FragmentPagerAdapter {
         return this.mDatas.size();
     }
 
-    @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        super.destroyItem(viewGroup, i, obj);
+    @Override // androidx.viewpager.widget.PagerAdapter
+    @NonNull
+    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
+        viewGroup.addView(this.mDatas.get(i));
+        return this.mDatas.get(i);
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object obj) {
+        return view == obj;
     }
 }

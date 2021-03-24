@@ -8,15 +8,19 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.ab;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MapStatus implements Parcelable {
     public static final Parcelable.Creator<MapStatus> CREATOR = new j();
 
     /* renamed from: a  reason: collision with root package name */
-    ab f2029a;
-    private double b;
+    public ab f6900a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public double f6901b;
     public final LatLngBounds bound;
-    private double c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public double f6902c;
     public final float overlook;
     public final float rotate;
     public final LatLng target;
@@ -24,128 +28,139 @@ public final class MapStatus implements Parcelable {
     public WinRound winRound;
     public final float zoom;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private float f2030a;
-        private LatLng b;
-        private float c;
-        private float d;
-        private Point e;
-        private LatLngBounds f;
-        private double g;
-        private double h;
-        private final float i;
+        public float f6903a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public LatLng f6904b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public float f6905c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public float f6906d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public Point f6907e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public LatLngBounds f6908f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public double f6909g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public double f6910h;
+        public final float i;
 
         public Builder() {
-            this.f2030a = -2.1474836E9f;
-            this.b = null;
-            this.c = -2.1474836E9f;
-            this.d = -2.1474836E9f;
-            this.e = null;
-            this.f = null;
-            this.g = 0.0d;
-            this.h = 0.0d;
+            this.f6903a = -2.1474836E9f;
+            this.f6904b = null;
+            this.f6905c = -2.1474836E9f;
+            this.f6906d = -2.1474836E9f;
+            this.f6907e = null;
+            this.f6908f = null;
+            this.f6909g = 0.0d;
+            this.f6910h = 0.0d;
             this.i = 15.0f;
         }
 
         public Builder(MapStatus mapStatus) {
-            this.f2030a = -2.1474836E9f;
-            this.b = null;
-            this.c = -2.1474836E9f;
-            this.d = -2.1474836E9f;
-            this.e = null;
-            this.f = null;
-            this.g = 0.0d;
-            this.h = 0.0d;
+            this.f6903a = -2.1474836E9f;
+            this.f6904b = null;
+            this.f6905c = -2.1474836E9f;
+            this.f6906d = -2.1474836E9f;
+            this.f6907e = null;
+            this.f6908f = null;
+            this.f6909g = 0.0d;
+            this.f6910h = 0.0d;
             this.i = 15.0f;
-            this.f2030a = mapStatus.rotate;
-            this.b = mapStatus.target;
-            this.c = mapStatus.overlook;
-            this.d = mapStatus.zoom;
-            this.e = mapStatus.targetScreen;
-            this.g = mapStatus.a();
-            this.h = mapStatus.b();
+            this.f6903a = mapStatus.rotate;
+            this.f6904b = mapStatus.target;
+            this.f6905c = mapStatus.overlook;
+            this.f6906d = mapStatus.zoom;
+            this.f6907e = mapStatus.targetScreen;
+            this.f6909g = mapStatus.a();
+            this.f6910h = mapStatus.b();
         }
 
-        private float a(float f) {
-            if (15.0f == f) {
+        private float a(float f2) {
+            if (15.0f == f2) {
                 return 15.5f;
             }
-            return f;
+            return f2;
         }
 
         public MapStatus build() {
-            return new MapStatus(this.f2030a, this.b, this.c, this.d, this.e, this.f);
+            return new MapStatus(this.f6903a, this.f6904b, this.f6905c, this.f6906d, this.f6907e, this.f6908f);
         }
 
-        public Builder overlook(float f) {
-            this.c = f;
+        public Builder overlook(float f2) {
+            this.f6905c = f2;
             return this;
         }
 
-        public Builder rotate(float f) {
-            this.f2030a = f;
+        public Builder rotate(float f2) {
+            this.f6903a = f2;
             return this;
         }
 
         public Builder target(LatLng latLng) {
-            this.b = latLng;
+            this.f6904b = latLng;
             return this;
         }
 
         public Builder targetScreen(Point point) {
-            this.e = point;
+            this.f6907e = point;
             return this;
         }
 
-        public Builder zoom(float f) {
-            this.d = a(f);
+        public Builder zoom(float f2) {
+            this.f6906d = a(f2);
             return this;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MapStatus(float f, LatLng latLng, float f2, float f3, Point point, double d, double d2, LatLngBounds latLngBounds) {
-        this.rotate = f;
+    public MapStatus(float f2, LatLng latLng, float f3, float f4, Point point, double d2, double d3, LatLngBounds latLngBounds) {
+        this.rotate = f2;
         this.target = latLng;
-        this.overlook = f2;
-        this.zoom = f3;
+        this.overlook = f3;
+        this.zoom = f4;
         this.targetScreen = point;
-        this.b = d;
-        this.c = d2;
+        this.f6901b = d2;
+        this.f6902c = d3;
         this.bound = latLngBounds;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MapStatus(float f, LatLng latLng, float f2, float f3, Point point, LatLngBounds latLngBounds) {
-        this.rotate = f;
+    public MapStatus(float f2, LatLng latLng, float f3, float f4, Point point, LatLngBounds latLngBounds) {
+        this.rotate = f2;
         this.target = latLng;
-        this.overlook = f2;
-        this.zoom = f3;
+        this.overlook = f3;
+        this.zoom = f4;
         this.targetScreen = point;
-        if (this.target != null) {
-            this.b = CoordUtil.ll2mc(this.target).getLongitudeE6();
-            this.c = CoordUtil.ll2mc(this.target).getLatitudeE6();
+        if (latLng != null) {
+            this.f6901b = CoordUtil.ll2mc(latLng).getLongitudeE6();
+            this.f6902c = CoordUtil.ll2mc(this.target).getLatitudeE6();
         }
         this.bound = latLngBounds;
     }
 
-    MapStatus(float f, LatLng latLng, float f2, float f3, Point point, ab abVar, double d, double d2, LatLngBounds latLngBounds, WinRound winRound) {
-        this.rotate = f;
+    public MapStatus(float f2, LatLng latLng, float f3, float f4, Point point, ab abVar, double d2, double d3, LatLngBounds latLngBounds, WinRound winRound) {
+        this.rotate = f2;
         this.target = latLng;
-        this.overlook = f2;
-        this.zoom = f3;
+        this.overlook = f3;
+        this.zoom = f4;
         this.targetScreen = point;
-        this.f2029a = abVar;
-        this.b = d;
-        this.c = d2;
+        this.f6900a = abVar;
+        this.f6901b = d2;
+        this.f6902c = d3;
         this.bound = latLngBounds;
         this.winRound = winRound;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public MapStatus(Parcel parcel) {
         this.rotate = parcel.readFloat();
         this.target = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
@@ -153,72 +168,75 @@ public final class MapStatus implements Parcelable {
         this.zoom = parcel.readFloat();
         this.targetScreen = (Point) parcel.readParcelable(Point.class.getClassLoader());
         this.bound = (LatLngBounds) parcel.readParcelable(LatLngBounds.class.getClassLoader());
-        this.b = parcel.readDouble();
-        this.c = parcel.readDouble();
+        this.f6901b = parcel.readDouble();
+        this.f6902c = parcel.readDouble();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static MapStatus a(ab abVar) {
         if (abVar == null) {
             return null;
         }
-        float f = abVar.b;
-        double d = abVar.e;
-        double d2 = abVar.d;
-        LatLng mc2ll = CoordUtil.mc2ll(new GeoPoint(d, d2));
-        float f2 = abVar.c;
-        float f3 = abVar.f2214a;
-        Point point = new Point(abVar.f, abVar.g);
-        LatLng mc2ll2 = CoordUtil.mc2ll(new GeoPoint(abVar.k.e.y, abVar.k.e.x));
-        LatLng mc2ll3 = CoordUtil.mc2ll(new GeoPoint(abVar.k.f.y, abVar.k.f.x));
-        LatLng mc2ll4 = CoordUtil.mc2ll(new GeoPoint(abVar.k.h.y, abVar.k.h.x));
-        LatLng mc2ll5 = CoordUtil.mc2ll(new GeoPoint(abVar.k.g.y, abVar.k.g.x));
+        float f2 = abVar.f7570b;
+        double d2 = abVar.f7573e;
+        double d3 = abVar.f7572d;
+        LatLng mc2ll = CoordUtil.mc2ll(new GeoPoint(d2, d3));
+        float f3 = abVar.f7571c;
+        float f4 = abVar.f7569a;
+        Point point = new Point(abVar.f7574f, abVar.f7575g);
+        com.baidu.mapapi.model.inner.Point point2 = abVar.k.f7581e;
+        LatLng mc2ll2 = CoordUtil.mc2ll(new GeoPoint(point2.y, point2.x));
+        com.baidu.mapapi.model.inner.Point point3 = abVar.k.f7582f;
+        LatLng mc2ll3 = CoordUtil.mc2ll(new GeoPoint(point3.y, point3.x));
+        com.baidu.mapapi.model.inner.Point point4 = abVar.k.f7584h;
+        LatLng mc2ll4 = CoordUtil.mc2ll(new GeoPoint(point4.y, point4.x));
+        com.baidu.mapapi.model.inner.Point point5 = abVar.k.f7583g;
+        LatLng mc2ll5 = CoordUtil.mc2ll(new GeoPoint(point5.y, point5.x));
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         builder.include(mc2ll2);
         builder.include(mc2ll3);
         builder.include(mc2ll4);
         builder.include(mc2ll5);
-        return new MapStatus(f, mc2ll, f2, f3, point, abVar, d2, d, builder.build(), abVar.j);
+        return new MapStatus(f2, mc2ll, f3, f4, point, abVar, d3, d2, builder.build(), abVar.j);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public double a() {
-        return this.b;
+        return this.f6901b;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public double b() {
-        return this.c;
+        return this.f6902c;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ab b(ab abVar) {
         if (abVar == null) {
             return null;
         }
-        if (this.rotate != -2.1474836E9f) {
-            abVar.b = (int) this.rotate;
+        float f2 = this.rotate;
+        if (f2 != -2.1474836E9f) {
+            abVar.f7570b = (int) f2;
         }
-        if (this.zoom != -2.1474836E9f) {
-            abVar.f2214a = this.zoom;
+        float f3 = this.zoom;
+        if (f3 != -2.1474836E9f) {
+            abVar.f7569a = f3;
         }
-        if (this.overlook != -2.1474836E9f) {
-            abVar.c = (int) this.overlook;
+        float f4 = this.overlook;
+        if (f4 != -2.1474836E9f) {
+            abVar.f7571c = (int) f4;
         }
-        if (this.target != null) {
-            CoordUtil.ll2mc(this.target);
-            abVar.d = this.b;
-            abVar.e = this.c;
+        LatLng latLng = this.target;
+        if (latLng != null) {
+            CoordUtil.ll2mc(latLng);
+            abVar.f7572d = this.f6901b;
+            abVar.f7573e = this.f6902c;
         }
-        if (this.targetScreen != null) {
-            abVar.f = this.targetScreen.x;
-            abVar.g = this.targetScreen.y;
-            return abVar;
+        Point point = this.targetScreen;
+        if (point != null) {
+            abVar.f7574f = point.x;
+            abVar.f7575g = point.y;
         }
         return abVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ab c() {
         return b(new ab());
     }
@@ -252,7 +270,7 @@ public final class MapStatus implements Parcelable {
         parcel.writeFloat(this.zoom);
         parcel.writeParcelable(this.targetScreen, i);
         parcel.writeParcelable(this.bound, i);
-        parcel.writeDouble(this.b);
-        parcel.writeDouble(this.c);
+        parcel.writeDouble(this.f6901b);
+        parcel.writeDouble(this.f6902c);
     }
 }

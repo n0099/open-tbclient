@@ -8,15 +8,23 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.profile.home.model.UserProfile;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f extends com.kwad.sdk.contentalliance.profile.home.b.a implements View.OnClickListener {
-    private ViewGroup b;
-    private View c;
-    private TextView d;
-    private com.kwad.sdk.contentalliance.profile.home.a.a e = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.f.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public ViewGroup f32906b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f32907c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f32908d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.profile.home.a.a f32909e = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.f.1
         @Override // com.kwad.sdk.contentalliance.profile.home.a.a
         public void a(@NonNull UserProfile userProfile) {
-            f.this.d.setText(userProfile.authorName);
+            f.this.f32908d.setText(userProfile.authorName);
         }
     };
 
@@ -24,42 +32,40 @@ public class f extends com.kwad.sdk.contentalliance.profile.home.b.a implements 
         Activity m = m();
         if (m != null && com.kwad.sdk.utils.d.a(m)) {
             int a2 = ao.a(o());
-            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f32906b.getLayoutParams();
             layoutParams.height += a2;
-            this.b.setLayoutParams(layoutParams);
-            this.b.setPadding(this.b.getPaddingLeft(), a2, this.b.getPaddingRight(), this.b.getPaddingBottom());
+            this.f32906b.setLayoutParams(layoutParams);
+            ViewGroup viewGroup = this.f32906b;
+            viewGroup.setPadding(viewGroup.getPaddingLeft(), a2, this.f32906b.getPaddingRight(), this.f32906b.getPaddingBottom());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c.setOnClickListener(this);
+        this.f32907c.setOnClickListener(this);
         e();
-        this.f5850a.f.add(this.e);
+        ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32867a.f32873f.add(this.f32909e);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f5850a.f.remove(this.e);
+        ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f32867a.f32873f.remove(this.f32909e);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = (ViewGroup) b(R.id.ksad_profile_title_bar);
-        this.c = b(R.id.ksad_profile_left_back);
-        this.d = (TextView) b(R.id.ksad_profile_title);
+        this.f32906b = (ViewGroup) b(R.id.ksad_profile_title_bar);
+        this.f32907c = b(R.id.ksad_profile_left_back);
+        this.f32908d = (TextView) b(R.id.ksad_profile_title);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity m;
-        if (view != this.c || (m = m()) == null) {
+        if (view != this.f32907c || (m = m()) == null) {
             return;
         }
         m.finish();

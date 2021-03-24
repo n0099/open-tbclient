@@ -7,9 +7,8 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.imsdk.utils.BaseUtils;
-import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.live.tbadk.pay.PayHelper;
+import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.ufosdk.f.i;
@@ -21,28 +20,31 @@ import com.baidu.ufosdk.ui.FeedbackFacePageActivity;
 import com.baidu.ufosdk.ui.FeedbackInputActivity;
 import com.baidu.ufosdk.ui.FeedbackListActivity;
 import com.baidu.ufosdk.ui.FeedbackReportActivity;
+import com.baidu.wallet.home.datamodel.HomeCfgResponse;
+import com.baidu.webkit.sdk.WebKitFactory;
+import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.tencent.connect.common.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class UfoSDK {
-    public static boolean localFirstCall;
-    private static Context mApplication;
-    public static boolean neverFeedback;
-    public static String notSolvedReplyText;
-    public static String solvedReplyText;
-    public static String clientid = "";
     public static String appid = "";
-    public static String devid = "";
-    public static String productid = "";
-    public static long lastSendTime = -1;
-    public static boolean robotAnswer = false;
-    public static boolean contactDialogSwitch = true;
-    public static boolean showFeedbackBtn = false;
-    public static String firstServerText = "您好，我是智能客服，请描述您的问题或建议。";
     public static String autoReplyText = "很抱歉没能解答您的问题，不如进入人工反馈，有专业人员为您解答。";
+    public static String clientid = "";
+    public static boolean contactDialogSwitch = true;
+    public static String devid = "";
+    public static String firstServerText = "您好，我是智能客服，请描述您的问题或建议。";
+    public static long lastSendTime = -1;
+    public static boolean localFirstCall = false;
+    public static Context mApplication = null;
+    public static boolean neverFeedback = false;
+    public static String notSolvedReplyText = null;
+    public static String productid = "";
+    public static boolean robotAnswer = false;
+    public static boolean showFeedbackBtn = false;
+    public static String solvedReplyText = null;
     public static String startStr = "";
 
     public static void closeRobotAnswer() {
@@ -80,7 +82,7 @@ public class UfoSDK {
         hashMap.put("6", "请描述您遇到的问题");
         hashMap.put("7", "帮助与反馈");
         hashMap.put("8", "常见问题");
-        hashMap.put("9", "小时以前");
+        hashMap.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "小时以前");
         hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "我要反馈");
         hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "刚刚");
         hashMap.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "请输入反馈内容不少于4个有效字符");
@@ -92,7 +94,7 @@ public class UfoSDK {
         hashMap.put(Constants.VIA_ACT_TYPE_NINETEEN, "网络不给力，请稍后再试");
         hashMap.put("20", "您还没有反馈");
         hashMap.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "图片过大，请调整上传图片大小");
-        hashMap.put(Constants.VIA_REPORT_TYPE_DATALINE, "重新加载");
+        hashMap.put(Constants.VIA_REPORT_TYPE_DATALINE, WeiboSdkWebActivity.CHANNEL_DATA_ERROR_ZH_CN);
         hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "请重新加载网络");
         hashMap.put(SoUtils.SO_EVENT_ID_DEFAULT, "发送");
         hashMap.put(SoUtils.SO_EVENT_ID_NEW_SO, "发送中...");
@@ -104,7 +106,7 @@ public class UfoSDK {
         hashMap.put("33", "请输入反馈内容");
         hashMap.put("34", "原创视频链接未填写");
         hashMap.put("35", "未上传问题截图");
-        hashMap.put("36", PayHelper.STATUS_CANCEL_DESC);
+        hashMap.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "取消");
         hashMap.put(PayConfig.PAYMENT_POS_KEY_MANGA, "提交");
         hashMap.put("38", "邮箱/手机/QQ");
         hashMap.put("39", "您的反馈将提交我们跟进，请留下您的联系方式。");
@@ -130,7 +132,7 @@ public class UfoSDK {
         hashMap.put("61", "请选择遇到的播放问题！");
         hashMap.put("62", "获取数据失败，请重新加载");
         hashMap.put("63", "网络异常，可前往“我的反馈”查看提交结果");
-        hashMap.put("64", "网络可能开小差了，请尝试重新接入");
+        hashMap.put(WebKitFactory.OS_64, "网络可能开小差了，请尝试重新接入");
         hashMap.put("65", "数据加载失败，请检查网络或重试");
         return hashMap;
     }
@@ -145,7 +147,7 @@ public class UfoSDK {
         hashMap.put("6", "Please describe the problems");
         hashMap.put("7", "Help & Feedback");
         hashMap.put("8", "FAQ");
-        hashMap.put("9", " hours ago");
+        hashMap.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, " hours ago");
         hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "Feeback");
         hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "just now");
         hashMap.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "Please input feedback not less than 4 valid characters");
@@ -169,7 +171,7 @@ public class UfoSDK {
         hashMap.put("33", "Feedback");
         hashMap.put("34", "Year");
         hashMap.put("35", "Month");
-        hashMap.put("36", "Cancel");
+        hashMap.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "Cancel");
         hashMap.put(PayConfig.PAYMENT_POS_KEY_MANGA, "Submit");
         hashMap.put("38", "Email/Tel/QQ");
         hashMap.put("39", "Your feedback will be sent to us, please leave your contact information.");
@@ -195,7 +197,7 @@ public class UfoSDK {
         hashMap.put("61", "Please select the problem you are experiencing!");
         hashMap.put("62", "Failed to get data, please reload");
         hashMap.put("63", "Network is abnormal, you can go to \"My Feedback\" to view the submission result.");
-        hashMap.put("64", "The network may be off, please try again");
+        hashMap.put(WebKitFactory.OS_64, "The network may be off, please try again");
         hashMap.put("65", "Data loading failed, please check the network or try again");
         return hashMap;
     }
@@ -249,7 +251,6 @@ public class UfoSDK {
         Intent intent = new Intent(context, FeedbackEditActivity.class);
         if (str.length() > 0) {
             intent.putExtra("shot", Base64.decode(str, 0));
-            return intent;
         }
         return intent;
     }
@@ -291,20 +292,21 @@ public class UfoSDK {
             hashMap.put("clientid", clientid);
             hashMap.put("appid", appid);
             hashMap.put("devid", devid);
-            hashMap.put("uid", b.d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.b);
+            hashMap.put("uid", b.f22904d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22904d);
+            hashMap.put("username", b.f22902b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
-            String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a2)) {
-                JSONObject jSONObject = new JSONObject(k.b(a2));
-                if (((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
+            String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+            if (!TextUtils.isEmpty(a3)) {
+                JSONObject jSONObject = new JSONObject(k.b(a3));
+                if (((Integer) jSONObject.get("errno")).intValue() == 0) {
                     return String.valueOf(jSONObject.get("newmsg"));
                 }
             }
-        } catch (Exception e) {
-            com.baidu.ufosdk.f.c.a("sendRecord fail.", e);
+        } catch (Exception e2) {
+            com.baidu.ufosdk.f.c.a("sendRecord fail.", e2);
         }
         return null;
     }
@@ -322,7 +324,7 @@ public class UfoSDK {
     public static Intent getFeedbackReportIntent(Context context, int i, String str) {
         Intent feedbackReportIntent = getFeedbackReportIntent(context);
         feedbackReportIntent.putExtra("feedback_channel", i);
-        feedbackReportIntent.putExtra("app_id", str);
+        feedbackReportIntent.putExtra(com.xiaomi.mipush.sdk.Constants.APP_ID, str);
         return feedbackReportIntent;
     }
 
@@ -341,7 +343,6 @@ public class UfoSDK {
         intent.putExtra("feedback_channel", i);
         if (str.length() > 0) {
             intent.putExtra("shot", Base64.decode(str, 0));
-            return intent;
         }
         return intent;
     }
@@ -363,10 +364,9 @@ public class UfoSDK {
         setExtraData(hashMap);
         Intent intent = new Intent(context, FeedbackReportActivity.class);
         intent.putExtra("feedback_channel", i);
-        intent.putExtra("app_id", str);
+        intent.putExtra(com.xiaomi.mipush.sdk.Constants.APP_ID, str);
         if (str2.length() > 0) {
             intent.putExtra("shot", Base64.decode(str2, 0));
-            return intent;
         }
         return intent;
     }
@@ -375,34 +375,37 @@ public class UfoSDK {
         return lastSendTime;
     }
 
-    private static String getMyFeekackNum() {
+    public static String getMyFeekackNum() {
         try {
             HashMap hashMap = new HashMap();
             hashMap.put("clientid", clientid);
             hashMap.put("appid", appid);
             hashMap.put("devid", devid);
-            hashMap.put("uid", b.d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.b);
+            hashMap.put("uid", b.f22904d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22904d);
+            hashMap.put("username", b.f22902b);
             hashMap.put("interval", String.valueOf(b.ai));
-            String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a2)) {
-                JSONObject jSONObject = new JSONObject(k.b(a2));
-                if (((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
-                    return String.valueOf(jSONObject.get("msgnum"));
-                }
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
+            String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+            if (TextUtils.isEmpty(a3)) {
+                return null;
             }
-        } catch (Exception e) {
-            com.baidu.ufosdk.f.c.a("sendRecord fail.", e);
+            JSONObject jSONObject = new JSONObject(k.b(a3));
+            if (((Integer) jSONObject.get("errno")).intValue() == 0) {
+                return String.valueOf(jSONObject.get("msgnum"));
+            }
+            return null;
+        } catch (Exception e2) {
+            com.baidu.ufosdk.f.c.a("sendRecord fail.", e2);
+            return null;
         }
-        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static String getNoticeFlag() {
         if (clientid.length() == 0) {
-            if (b.ae != null) {
-                b.ae.getNoticeFlagResult(null);
+            GetNoticeFlagCallBack getNoticeFlagCallBack = b.ae;
+            if (getNoticeFlagCallBack != null) {
+                getNoticeFlagCallBack.getNoticeFlagResult(null);
             }
             return null;
         }
@@ -420,8 +423,9 @@ public class UfoSDK {
             edit2.commit();
         }
         if (neverFeedback) {
-            if (b.ae != null) {
-                b.ae.getNoticeFlagResult(null);
+            GetNoticeFlagCallBack getNoticeFlagCallBack2 = b.ae;
+            if (getNoticeFlagCallBack2 != null) {
+                getNoticeFlagCallBack2.getNoticeFlagResult(null);
             }
             return null;
         }
@@ -430,28 +434,29 @@ public class UfoSDK {
             hashMap.put("clientid", clientid);
             hashMap.put("appid", appid);
             hashMap.put("devid", devid);
-            hashMap.put("uid", b.d);
-            hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.b);
+            hashMap.put("uid", b.f22904d);
+            hashMap.put(DpStatConstants.KEY_USER_ID, b.f22904d);
+            hashMap.put("username", b.f22902b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
-            String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
-            if (!TextUtils.isEmpty(a2)) {
-                JSONObject jSONObject = new JSONObject(k.b(a2));
-                if (((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
+            String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
+            String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
+            if (!TextUtils.isEmpty(a3)) {
+                JSONObject jSONObject = new JSONObject(k.b(a3));
+                if (((Integer) jSONObject.get("errno")).intValue() == 0) {
                     String valueOf = String.valueOf(jSONObject.get("newmsg"));
                     if (b.ae != null) {
                         b.ae.getNoticeFlagResult(valueOf);
-                        return valueOf;
                     }
                     return valueOf;
                 }
             }
-        } catch (Exception e) {
-            com.baidu.ufosdk.f.c.a("sendRecord fail.", e);
+        } catch (Exception e2) {
+            com.baidu.ufosdk.f.c.a("sendRecord fail.", e2);
         }
-        if (b.ae != null) {
-            b.ae.getNoticeFlagResult(null);
+        GetNoticeFlagCallBack getNoticeFlagCallBack3 = b.ae;
+        if (getNoticeFlagCallBack3 != null) {
+            getNoticeFlagCallBack3.getNoticeFlagResult(null);
         }
         return null;
     }
@@ -496,11 +501,12 @@ public class UfoSDK {
     }
 
     public static void init(Context context) {
+        String str;
         com.baidu.ufosdk.f.c.d("UfoSDK.init 被调用..时间是 -- " + System.currentTimeMillis());
         if (context == null) {
-            com.baidu.ufosdk.f.c.d("UfoSDK.init application is null.");
+            str = "UfoSDK.init application is null.";
         } else if (mApplication != null) {
-            com.baidu.ufosdk.f.c.d("UfoSDK#init called more than once.");
+            str = "UfoSDK#init called more than once.";
         } else {
             Context applicationContext = context.getApplicationContext();
             mApplication = applicationContext;
@@ -508,58 +514,60 @@ public class UfoSDK {
             com.baidu.ufosdk.b.e.a(mApplication);
             b.ab = getChineseMap();
             SharedPreferences sharedPreferences = mApplication.getSharedPreferences("UfoSharePreference", 0);
-            if (sharedPreferences == null) {
-                com.baidu.ufosdk.f.c.d("UfoSDK#sharepreference is null.");
-                return;
-            }
-            clientid = sharedPreferences.getString("UfoClientId", "");
-            appid = sharedPreferences.getString("UfoAppId", "");
-            devid = sharedPreferences.getString("UfoDevId", "");
-            productid = sharedPreferences.getString("UfoProductId", "");
-            lastSendTime = sharedPreferences.getLong("Ufolastsendtime", -1L);
-            neverFeedback = sharedPreferences.getBoolean("UfoNeverFeedback", true);
-            localFirstCall = sharedPreferences.getBoolean("UfoLocalFirstCall", true);
-            String string = sharedPreferences.getString("lastStart", "");
-            startStr = string;
-            String b = i.b(System.currentTimeMillis());
-            com.baidu.ufosdk.f.c.c("--UfoSDK:206 -- today : " + b + "; lastStart : " + startStr);
-            if (string.contains(b)) {
-                com.baidu.ufosdk.f.c.c("--UfoSDK:212 -- today : " + b + "; lastStart : " + startStr);
-                if (string.equals(b + "-enable")) {
-                    int i = sharedPreferences.getInt("editFeedbackViewUV", 0);
-                    int i2 = sharedPreferences.getInt("editFeedbackViewFromRobotUV", 0);
-                    int i3 = sharedPreferences.getInt("editFeedbackViewFromFaqUV", 0);
-                    int i4 = sharedPreferences.getInt("robotUv", 0);
-                    if (i != 0 || i2 != 0 || i3 != 0 || i4 != 0) {
-                        new Thread(new d(i, i2, i3, i4)).start();
+            if (sharedPreferences != null) {
+                clientid = sharedPreferences.getString("UfoClientId", "");
+                appid = sharedPreferences.getString("UfoAppId", "");
+                devid = sharedPreferences.getString("UfoDevId", "");
+                productid = sharedPreferences.getString("UfoProductId", "");
+                lastSendTime = sharedPreferences.getLong("Ufolastsendtime", -1L);
+                neverFeedback = sharedPreferences.getBoolean("UfoNeverFeedback", true);
+                localFirstCall = sharedPreferences.getBoolean("UfoLocalFirstCall", true);
+                String string = sharedPreferences.getString("lastStart", "");
+                startStr = string;
+                String b2 = i.b(System.currentTimeMillis());
+                com.baidu.ufosdk.f.c.c("--UfoSDK:206 -- today : " + b2 + "; lastStart : " + startStr);
+                if (string.contains(b2)) {
+                    com.baidu.ufosdk.f.c.c("--UfoSDK:212 -- today : " + b2 + "; lastStart : " + startStr);
+                    if (string.equals(b2 + "-enable")) {
+                        int i = sharedPreferences.getInt("editFeedbackViewUV", 0);
+                        int i2 = sharedPreferences.getInt("editFeedbackViewFromRobotUV", 0);
+                        int i3 = sharedPreferences.getInt("editFeedbackViewFromFaqUV", 0);
+                        int i4 = sharedPreferences.getInt("robotUv", 0);
+                        if (i != 0 || i2 != 0 || i3 != 0 || i4 != 0) {
+                            new Thread(new d(i, i2, i3, i4)).start();
+                        }
+                    }
+                } else {
+                    int i5 = sharedPreferences.getInt("editFeedbackViewUV", 0);
+                    int i6 = sharedPreferences.getInt("editFeedbackViewFromRobotUV", 0);
+                    int i7 = sharedPreferences.getInt("editFeedbackViewFromFaqUV", 0);
+                    int i8 = sharedPreferences.getInt("robotUv", 0);
+                    SharedPreferences.Editor edit = sharedPreferences.edit();
+                    edit.putBoolean("robotUv_has", false);
+                    edit.putBoolean("editFeedbackViewUV_has", false);
+                    edit.putBoolean("editFeedbackViewFromFaqUV_has", false);
+                    edit.putBoolean("editFeedbackViewFromRobotUV_has", false);
+                    edit.commit();
+                    com.baidu.ufosdk.f.c.a("--UfoSDK:182 -- edit.commit()");
+                    if (i5 == 0 && i6 == 0 && i7 == 0 && i8 == 0) {
+                        com.baidu.ufosdk.f.c.a("--UfoSDK:203 -- all zero!!");
+                        startStr = b2 + "-enable";
+                        edit.putString("lastStart", b2 + "-enable");
+                        edit.commit();
+                    } else {
+                        com.baidu.ufosdk.f.c.a("--UfoSDK:189 -- not all zero!!");
+                        new Thread(new c(i5, i6, i7, i8)).start();
                     }
                 }
-            } else {
-                int i5 = sharedPreferences.getInt("editFeedbackViewUV", 0);
-                int i6 = sharedPreferences.getInt("editFeedbackViewFromRobotUV", 0);
-                int i7 = sharedPreferences.getInt("editFeedbackViewFromFaqUV", 0);
-                int i8 = sharedPreferences.getInt("robotUv", 0);
-                SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putBoolean("robotUv_has", false);
-                edit.putBoolean("editFeedbackViewUV_has", false);
-                edit.putBoolean("editFeedbackViewFromFaqUV_has", false);
-                edit.putBoolean("editFeedbackViewFromRobotUV_has", false);
-                edit.commit();
-                com.baidu.ufosdk.f.c.a("--UfoSDK:182 -- edit.commit()");
-                if (i5 == 0 && i6 == 0 && i7 == 0 && i8 == 0) {
-                    com.baidu.ufosdk.f.c.a("--UfoSDK:203 -- all zero!!");
-                    startStr = b + "-enable";
-                    edit.putString("lastStart", b + "-enable");
-                    edit.commit();
-                } else {
-                    com.baidu.ufosdk.f.c.a("--UfoSDK:189 -- not all zero!!");
-                    new Thread(new c(i5, i6, i7, i8)).start();
+                if (clientid.length() == 0) {
+                    new Thread(new e()).start();
+                    return;
                 }
+                return;
             }
-            if (clientid.length() == 0) {
-                new Thread(new e()).start();
-            }
+            str = "UfoSDK#sharepreference is null.";
         }
+        com.baidu.ufosdk.f.c.d(str);
     }
 
     public static void isShowFeedbackBtn(boolean z) {
@@ -567,7 +575,7 @@ public class UfoSDK {
     }
 
     public static void openLogcatSwitch() {
-        b.f3606a = true;
+        b.f22901a = true;
     }
 
     public static void openRobotAnswer() {
@@ -583,8 +591,8 @@ public class UfoSDK {
         autoReplyText = str;
     }
 
-    public static void setBackTextSize(float f) {
-        b.M = f;
+    public static void setBackTextSize(float f2) {
+        b.M = f2;
     }
 
     public static void setBackbtnText(String str) {
@@ -596,15 +604,15 @@ public class UfoSDK {
     }
 
     public static void setBaiduCuid(String str) {
-        b.c = str;
+        b.f22903c = str;
     }
 
     public static void setChatThreadTime(int i) {
         b.ah = i;
     }
 
-    public static void setChatViewTextSize(float f) {
-        b.R = f;
+    public static void setChatViewTextSize(float f2) {
+        b.R = f2;
     }
 
     public static void setContactDialogSwitch(boolean z) {
@@ -612,16 +620,17 @@ public class UfoSDK {
     }
 
     public static void setCurrentUserIcon(Bitmap bitmap) {
-        b.g = bitmap;
+        b.f22907g = bitmap;
     }
 
     public static void setCustomLocation(String str) {
-        b.h = str;
+        b.f22908h = str;
     }
 
     public static void setCustomText(String str, String str2) {
-        if (b.ab != null) {
-            b.ab.put(str, str2);
+        HashMap hashMap = b.ab;
+        if (hashMap != null) {
+            hashMap.put(str, str2);
         }
     }
 
@@ -630,23 +639,23 @@ public class UfoSDK {
     }
 
     public static void setExtraData(Map map) {
-        b.f = com.baidu.ufosdk.c.a.a(map);
+        b.f22906f = com.baidu.ufosdk.c.a.a(map);
     }
 
     public static void setFaceBottomEntrance(int i) {
         b.q = i;
     }
 
-    public static void setFaceBottomTextSize(float f) {
-        b.Z = f;
+    public static void setFaceBottomTextSize(float f2) {
+        b.Z = f2;
     }
 
-    public static void setFeedbackDetailsTextSize(float f) {
-        b.N = f;
+    public static void setFeedbackDetailsTextSize(float f2) {
+        b.N = f2;
     }
 
-    public static void setFeedbackInputWordCountTextSize(float f) {
-        b.V = f;
+    public static void setFeedbackInputWordCountTextSize(float f2) {
+        b.V = f2;
     }
 
     public static void setFeedbackPrefix(String str) {
@@ -665,16 +674,16 @@ public class UfoSDK {
         b.ae = getNoticeFlagCallBack;
     }
 
-    public static void setHotProblemTitleSize(float f) {
-        b.S = f;
+    public static void setHotProblemTitleSize(float f2) {
+        b.S = f2;
     }
 
     public static void setListBgColor(int i) {
         b.D = i;
     }
 
-    public static void setListDeleteTextSize(float f) {
-        b.Y = f;
+    public static void setListDeleteTextSize(float f2) {
+        b.Y = f2;
     }
 
     public static void setListDividerColor(int i) {
@@ -689,20 +698,20 @@ public class UfoSDK {
         b.E = i;
     }
 
-    public static void setListTitleTextSize(float f) {
-        b.W = f;
+    public static void setListTitleTextSize(float f2) {
+        b.W = f2;
     }
 
     public static void setLogLevel(int i) {
         b.o = i;
     }
 
-    public static void setMyFeedbackBtnTextSize(float f) {
-        b.U = f;
+    public static void setMyFeedbackBtnTextSize(float f2) {
+        b.U = f2;
     }
 
-    public static void setNoHaveFeedbackTextSize(float f) {
-        b.X = f;
+    public static void setNoHaveFeedbackTextSize(float f2) {
+        b.X = f2;
     }
 
     public static void setNotSolvedReplyText(String str) {
@@ -717,16 +726,16 @@ public class UfoSDK {
         b.p = str;
     }
 
-    public static void setReloadBtnTextSize(float f) {
-        b.P = f;
+    public static void setReloadBtnTextSize(float f2) {
+        b.P = f2;
     }
 
     public static void setReloadBtnTxtColor(int i) {
         b.w = i;
     }
 
-    public static void setReloadTextSize(float f) {
-        b.O = f;
+    public static void setReloadTextSize(float f2) {
+        b.O = f2;
     }
 
     public static void setReloadTxtColor(int i) {
@@ -773,16 +782,16 @@ public class UfoSDK {
         b.t = i;
     }
 
-    public static void setTimeViewTextSize(float f) {
-        b.Q = f;
+    public static void setTimeViewTextSize(float f2) {
+        b.Q = f2;
     }
 
     public static void setTitleBarColor(int i) {
         b.A = i;
     }
 
-    public static void setTitleHelpAndFeedbackTextSize(float f) {
-        b.T = f;
+    public static void setTitleHelpAndFeedbackTextSize(float f2) {
+        b.T = f2;
     }
 
     public static void setTitleTextColor(int i) {
@@ -794,14 +803,14 @@ public class UfoSDK {
     }
 
     public static void setUserId(String str) {
-        b.d = str;
+        b.f22904d = str;
     }
 
     public static void setUserName(String str) {
-        b.b = str;
+        b.f22902b = str;
     }
 
     public static void setUserStatus(int i) {
-        b.e = i;
+        b.f22905e = i;
     }
 }

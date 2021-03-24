@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class SerialContext {
     public final int features;
     public final Object fieldName;
@@ -13,6 +13,22 @@ public class SerialContext {
         this.features = i;
     }
 
+    public Object getFieldName() {
+        return this.fieldName;
+    }
+
+    public Object getObject() {
+        return this.object;
+    }
+
+    public SerialContext getParent() {
+        return this.parent;
+    }
+
+    public String getPath() {
+        return toString();
+    }
+
     public String toString() {
         if (this.parent == null) {
             return "$";
@@ -21,21 +37,5 @@ public class SerialContext {
             return this.parent.toString() + "[" + this.fieldName + "]";
         }
         return this.parent.toString() + "." + this.fieldName;
-    }
-
-    public SerialContext getParent() {
-        return this.parent;
-    }
-
-    public Object getObject() {
-        return this.object;
-    }
-
-    public Object getFieldName() {
-        return this.fieldName;
-    }
-
-    public String getPath() {
-        return toString();
     }
 }

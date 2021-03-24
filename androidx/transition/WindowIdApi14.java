@@ -1,11 +1,10 @@
 package androidx.transition;
 
 import android.os.IBinder;
-/* loaded from: classes5.dex */
-class WindowIdApi14 implements WindowIdImpl {
-    private final IBinder mToken;
+/* loaded from: classes.dex */
+public class WindowIdApi14 implements WindowIdImpl {
+    public final IBinder mToken;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public WindowIdApi14(IBinder iBinder) {
         this.mToken = iBinder;
     }

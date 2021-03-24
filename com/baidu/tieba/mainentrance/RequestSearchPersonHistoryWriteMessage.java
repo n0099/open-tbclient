@@ -1,13 +1,12 @@
 package com.baidu.tieba.mainentrance;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class RequestSearchPersonHistoryWriteMessage extends CustomMessage<Object> {
-    private boolean isclear;
+    public boolean isclear;
 
     public RequestSearchPersonHistoryWriteMessage() {
-        super(CmdConfigCustom.CMD_WRITE_SEARCHPERSON_HISTORY);
+        super(2001190);
         this.isclear = false;
     }
 

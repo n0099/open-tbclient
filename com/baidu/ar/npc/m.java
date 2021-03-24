@@ -1,21 +1,22 @@
 package com.baidu.ar.npc;
 
 import android.graphics.Bitmap;
-/* loaded from: classes4.dex */
-class m implements Runnable {
+/* loaded from: classes2.dex */
+public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Bitmap f1294a;
-    final /* synthetic */ l b;
+    public final /* synthetic */ Bitmap f4188a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ l f4189b;
+
     public m(l lVar, Bitmap bitmap) {
-        this.b = lVar;
-        this.f1294a = bitmap;
+        this.f4189b = lVar;
+        this.f4188a = bitmap;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.f1293a.a(this.f1294a);
+        this.f4189b.f4186a.a(this.f4188a);
     }
 }

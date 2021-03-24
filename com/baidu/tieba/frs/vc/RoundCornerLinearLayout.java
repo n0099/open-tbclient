@@ -13,55 +13,70 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RoundCornerLinearLayout extends LinearLayout {
-    private static final int gcm = R.color.white_alpha100;
-    private Shape eXx;
-    private Paint mPaint;
-    private float mRadius;
-    private RectF mRectF;
-    private Paint mStrokePaint;
+    public static final int j = R.color.white_alpha100;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f16662e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Shape f16663f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Paint f16664g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Paint f16665h;
+    public RectF i;
 
     public RoundCornerLinearLayout(Context context) {
         this(context, null);
     }
 
-    public RoundCornerLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    public RoundCornerLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
+    public final void a() {
         setLayerType(1, null);
-        this.mPaint = new Paint();
-        this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(-7829368);
-        this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.mStrokePaint = new Paint();
-        this.mStrokePaint.setAntiAlias(true);
-        this.mStrokePaint.setColor(getResources().getColor(gcm));
-        this.mStrokePaint.setStyle(Paint.Style.FILL);
-        this.mStrokePaint.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(gcm));
-        this.mStrokePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
-        this.mRectF = new RectF();
-        this.mRadius = getResources().getDimension(R.dimen.tbds20);
+        Paint paint = new Paint();
+        this.f16664g = paint;
+        paint.setAntiAlias(true);
+        this.f16664g.setColor(-7829368);
+        this.f16664g.setStyle(Paint.Style.FILL);
+        this.f16664g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        Paint paint2 = new Paint();
+        this.f16665h = paint2;
+        paint2.setAntiAlias(true);
+        this.f16665h.setColor(getResources().getColor(j));
+        this.f16665h.setStyle(Paint.Style.FILL);
+        this.f16665h.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(j));
+        this.f16665h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
+        this.i = new RectF();
+        this.f16662e = getResources().getDimension(R.dimen.tbds20);
         setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.tbds1));
     }
 
-    public void setRadius(float f) {
-        this.mRadius = f;
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        int saveCount = canvas.getSaveCount();
+        canvas.save();
+        super.dispatchDraw(canvas);
+        Shape shape = this.f16663f;
+        if (shape != null) {
+            shape.draw(canvas, this.f16664g);
+        }
+        RectF rectF = this.i;
+        float f2 = this.f16662e;
+        canvas.drawRoundRect(rectF, f2, f2, this.f16665h);
+        if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
+            return;
+        }
+        canvas.restoreToCount(saveCount);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.eXx == null) {
+            if (this.f16663f == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
@@ -70,25 +85,24 @@ public class RoundCornerLinearLayout extends LinearLayout {
                 float paddingBottom = getPaddingBottom() > 0 ? getPaddingBottom() : 1.0f;
                 RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                 float[] fArr2 = new float[8];
-                Arrays.fill(fArr2, this.mRadius);
-                this.eXx = new RoundRectShape(fArr, rectF, fArr2);
-                this.mRectF.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
+                Arrays.fill(fArr2, this.f16662e);
+                this.f16663f = new RoundRectShape(fArr, rectF, fArr2);
+                this.i.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
             }
-            this.eXx.resize(getWidth(), getHeight());
+            this.f16663f.resize(getWidth(), getHeight());
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        int saveCount = canvas.getSaveCount();
-        canvas.save();
-        super.dispatchDraw(canvas);
-        if (this.eXx != null) {
-            this.eXx.draw(canvas, this.mPaint);
-        }
-        canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.mStrokePaint);
-        if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {
-            canvas.restoreToCount(saveCount);
-        }
+    public void setRadius(float f2) {
+        this.f16662e = f2;
+    }
+
+    public RoundCornerLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public RoundCornerLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a();
     }
 }

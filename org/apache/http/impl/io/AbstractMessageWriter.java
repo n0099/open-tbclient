@@ -9,13 +9,11 @@ import org.apache.http.message.LineFormatter;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractMessageWriter implements HttpMessageWriter {
-    protected final CharArrayBuffer lineBuf;
-    protected final LineFormatter lineFormatter;
-    protected final SessionOutputBuffer sessionBuffer;
-
-    protected abstract void writeHeadLine(HttpMessage httpMessage) throws IOException;
+    public final CharArrayBuffer lineBuf;
+    public final LineFormatter lineFormatter;
+    public final SessionOutputBuffer sessionBuffer;
 
     public AbstractMessageWriter(SessionOutputBuffer sessionOutputBuffer, LineFormatter lineFormatter, HttpParams httpParams) {
         throw new RuntimeException("Stub!");
@@ -25,4 +23,6 @@ public abstract class AbstractMessageWriter implements HttpMessageWriter {
     public void write(HttpMessage httpMessage) throws IOException, HttpException {
         throw new RuntimeException("Stub!");
     }
+
+    public abstract void writeHeadLine(HttpMessage httpMessage) throws IOException;
 }

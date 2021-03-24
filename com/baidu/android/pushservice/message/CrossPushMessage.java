@@ -1,13 +1,15 @@
 package com.baidu.android.pushservice.message;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class CrossPushMessage extends PublicMsg {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1232a;
-    public String b;
+    public String f3420a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f3421b;
 
     @Override // com.baidu.android.pushservice.message.PublicMsg
     public String toString() {
-        return super.toString() + " mDestPkg = " + this.f1232a + "\r\n mDestIcon = " + this.b;
+        return super.toString() + " mDestPkg = " + this.f3420a + "\r\n mDestIcon = " + this.f3421b;
     }
 }

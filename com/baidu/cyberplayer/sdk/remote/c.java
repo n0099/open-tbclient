@@ -5,21 +5,21 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a extends Binder implements c {
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        private static class C0111a implements c {
+        /* loaded from: classes2.dex */
+        public static class C0075a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f1445a;
+            public IBinder f5009a;
 
-            C0111a(IBinder iBinder) {
-                this.f1445a = iBinder;
+            public C0075a(IBinder iBinder) {
+                this.f5009a = iBinder;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.c
@@ -28,7 +28,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    this.f1445a.transact(2, obtain, obtain2, 0);
+                    this.f5009a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readStrongBinder();
                 } finally {
@@ -44,7 +44,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
                     obtain.writeInt(i);
-                    this.f1445a.transact(1, obtain, obtain2, 0);
+                    this.f5009a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readStrongBinder();
                 } finally {
@@ -65,7 +65,7 @@ public interface c extends IInterface {
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
-                    this.f1445a.transact(3, obtain, obtain2, 0);
+                    this.f5009a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -80,7 +80,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
                     obtain.writeString(str);
-                    this.f1445a.transact(4, obtain, obtain2, 0);
+                    this.f5009a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -91,7 +91,7 @@ public interface c extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f1445a;
+                return this.f5009a;
             }
         }
 
@@ -104,7 +104,7 @@ public interface c extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0111a(iBinder) : (c) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0075a(iBinder) : (c) queryLocalInterface;
         }
 
         @Override // android.os.IInterface
@@ -114,35 +114,35 @@ public interface c extends IInterface {
 
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            switch (i) {
-                case 1:
-                    parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    IBinder a2 = a(parcel.readInt());
-                    parcel2.writeNoException();
-                    parcel2.writeStrongBinder(a2);
-                    return true;
-                case 2:
-                    parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    IBinder a3 = a();
-                    parcel2.writeNoException();
-                    parcel2.writeStrongBinder(a3);
-                    return true;
-                case 3:
-                    parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    a(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readInt());
-                    parcel2.writeNoException();
-                    return true;
-                case 4:
-                    parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    boolean a4 = a(parcel.readString());
-                    parcel2.writeNoException();
-                    parcel2.writeInt(a4 ? 1 : 0);
-                    return true;
-                case 1598968902:
-                    parcel2.writeString("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    return true;
-                default:
+            if (i == 1) {
+                parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
+                IBinder a2 = a(parcel.readInt());
+                parcel2.writeNoException();
+                parcel2.writeStrongBinder(a2);
+                return true;
+            } else if (i == 2) {
+                parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
+                IBinder a3 = a();
+                parcel2.writeNoException();
+                parcel2.writeStrongBinder(a3);
+                return true;
+            } else if (i == 3) {
+                parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
+                a(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readInt());
+                parcel2.writeNoException();
+                return true;
+            } else if (i != 4) {
+                if (i != 1598968902) {
                     return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
+                return true;
+            } else {
+                parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
+                boolean a4 = a(parcel.readString());
+                parcel2.writeNoException();
+                parcel2.writeInt(a4 ? 1 : 0);
+                return true;
             }
         }
     }

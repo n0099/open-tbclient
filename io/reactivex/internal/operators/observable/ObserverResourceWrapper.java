@@ -1,54 +1,55 @@
 package io.reactivex.internal.operators.observable;
 
+import f.a.o;
+import f.a.t.b;
 import io.reactivex.internal.disposables.DisposableHelper;
-import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-public final class ObserverResourceWrapper<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
-    private static final long serialVersionUID = -8612022020200669122L;
-    final u<? super T> actual;
-    final AtomicReference<io.reactivex.disposables.b> subscription = new AtomicReference<>();
+/* loaded from: classes7.dex */
+public final class ObserverResourceWrapper<T> extends AtomicReference<b> implements o<T>, b {
+    public static final long serialVersionUID = -8612022020200669122L;
+    public final o<? super T> actual;
+    public final AtomicReference<b> subscription = new AtomicReference<>();
 
-    public ObserverResourceWrapper(u<? super T> uVar) {
-        this.actual = uVar;
+    public ObserverResourceWrapper(o<? super T> oVar) {
+        this.actual = oVar;
     }
 
-    @Override // io.reactivex.u
-    public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (DisposableHelper.setOnce(this.subscription, bVar)) {
-            this.actual.onSubscribe(this);
-        }
-    }
-
-    @Override // io.reactivex.u
-    public void onNext(T t) {
-        this.actual.onNext(t);
-    }
-
-    @Override // io.reactivex.u
-    public void onError(Throwable th) {
-        dispose();
-        this.actual.onError(th);
-    }
-
-    @Override // io.reactivex.u
-    public void onComplete() {
-        dispose();
-        this.actual.onComplete();
-    }
-
-    @Override // io.reactivex.disposables.b
+    @Override // f.a.t.b
     public void dispose() {
         DisposableHelper.dispose(this.subscription);
         DisposableHelper.dispose(this);
     }
 
-    @Override // io.reactivex.disposables.b
+    @Override // f.a.t.b
     public boolean isDisposed() {
         return this.subscription.get() == DisposableHelper.DISPOSED;
     }
 
-    public void setResource(io.reactivex.disposables.b bVar) {
+    @Override // f.a.o
+    public void onComplete() {
+        dispose();
+        this.actual.onComplete();
+    }
+
+    @Override // f.a.o
+    public void onError(Throwable th) {
+        dispose();
+        this.actual.onError(th);
+    }
+
+    @Override // f.a.o
+    public void onNext(T t) {
+        this.actual.onNext(t);
+    }
+
+    @Override // f.a.o
+    public void onSubscribe(b bVar) {
+        if (DisposableHelper.setOnce(this.subscription, bVar)) {
+            this.actual.onSubscribe(this);
+        }
+    }
+
+    public void setResource(b bVar) {
         DisposableHelper.set(this, bVar);
     }
 }

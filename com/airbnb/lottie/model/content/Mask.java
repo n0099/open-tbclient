@@ -1,32 +1,41 @@
 package com.airbnb.lottie.model.content;
-/* loaded from: classes5.dex */
-public class Mask {
-    private final com.airbnb.lottie.model.a.d GW;
-    private final MaskMode Hq;
-    private final com.airbnb.lottie.model.a.h Hr;
 
-    /* loaded from: classes5.dex */
+import d.a.a.s.i.d;
+import d.a.a.s.i.h;
+/* loaded from: classes.dex */
+public class Mask {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final MaskMode f1588a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final h f1589b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final d f1590c;
+
+    /* loaded from: classes.dex */
     public enum MaskMode {
         MaskModeAdd,
         MaskModeSubtract,
         MaskModeIntersect
     }
 
-    public Mask(MaskMode maskMode, com.airbnb.lottie.model.a.h hVar, com.airbnb.lottie.model.a.d dVar) {
-        this.Hq = maskMode;
-        this.Hr = hVar;
-        this.GW = dVar;
+    public Mask(MaskMode maskMode, h hVar, d dVar) {
+        this.f1588a = maskMode;
+        this.f1589b = hVar;
+        this.f1590c = dVar;
     }
 
-    public MaskMode jy() {
-        return this.Hq;
+    public MaskMode a() {
+        return this.f1588a;
     }
 
-    public com.airbnb.lottie.model.a.h jz() {
-        return this.Hr;
+    public h b() {
+        return this.f1589b;
     }
 
-    public com.airbnb.lottie.model.a.d jh() {
-        return this.GW;
+    public d c() {
+        return this.f1590c;
     }
 }

@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
-    private final VideoDecoderFactory hardwareVideoDecoderFactory;
+    public final VideoDecoderFactory hardwareVideoDecoderFactory;
     @Nullable
-    private final VideoDecoderFactory platformSoftwareVideoDecoderFactory;
-    private final VideoDecoderFactory softwareVideoDecoderFactory;
+    public final VideoDecoderFactory platformSoftwareVideoDecoderFactory;
+    public final VideoDecoderFactory softwareVideoDecoderFactory;
 
     public DefaultVideoDecoderFactory(@Nullable EglBase.Context context) {
         this.softwareVideoDecoderFactory = new SoftwareVideoDecoderFactory();
@@ -17,7 +17,6 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
         this.platformSoftwareVideoDecoderFactory = new PlatformSoftwareVideoDecoderFactory(context);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public DefaultVideoDecoderFactory(VideoDecoderFactory videoDecoderFactory) {
         this.softwareVideoDecoderFactory = new SoftwareVideoDecoderFactory();
         this.hardwareVideoDecoderFactory = videoDecoderFactory;
@@ -34,12 +33,13 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
     @Override // org.webrtc.VideoDecoderFactory
     @Nullable
     public VideoDecoder createDecoder(VideoCodecInfo videoCodecInfo) {
+        VideoDecoderFactory videoDecoderFactory;
         VideoDecoder createDecoder = this.softwareVideoDecoderFactory.createDecoder(videoCodecInfo);
         VideoDecoder createDecoder2 = this.hardwareVideoDecoderFactory.createDecoder(videoCodecInfo);
-        if (createDecoder == null && this.platformSoftwareVideoDecoderFactory != null) {
-            createDecoder = this.platformSoftwareVideoDecoderFactory.createDecoder(videoCodecInfo);
+        if (createDecoder == null && (videoDecoderFactory = this.platformSoftwareVideoDecoderFactory) != null) {
+            createDecoder = videoDecoderFactory.createDecoder(videoCodecInfo);
         }
-        return (createDecoder2 == null || createDecoder == null) ? createDecoder2 == null ? createDecoder : createDecoder2 : new VideoDecoderFallback(createDecoder, createDecoder2);
+        return (createDecoder2 == null || createDecoder == null) ? createDecoder2 != null ? createDecoder2 : createDecoder : new VideoDecoderFallback(createDecoder, createDecoder2);
     }
 
     @Override // org.webrtc.VideoDecoderFactory
@@ -47,8 +47,9 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         linkedHashSet.addAll(Arrays.asList(this.softwareVideoDecoderFactory.getSupportedCodecs()));
         linkedHashSet.addAll(Arrays.asList(this.hardwareVideoDecoderFactory.getSupportedCodecs()));
-        if (this.platformSoftwareVideoDecoderFactory != null) {
-            linkedHashSet.addAll(Arrays.asList(this.platformSoftwareVideoDecoderFactory.getSupportedCodecs()));
+        VideoDecoderFactory videoDecoderFactory = this.platformSoftwareVideoDecoderFactory;
+        if (videoDecoderFactory != null) {
+            linkedHashSet.addAll(Arrays.asList(videoDecoderFactory.getSupportedCodecs()));
         }
         return (VideoCodecInfo[]) linkedHashSet.toArray(new VideoCodecInfo[linkedHashSet.size()]);
     }

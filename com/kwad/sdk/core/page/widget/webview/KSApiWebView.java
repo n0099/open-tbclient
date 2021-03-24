@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import androidx.annotation.RequiresApi;
 import com.kwad.sdk.api.core.ApiWebView;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KSApiWebView extends ApiWebView {
     public KSApiWebView(Context context) {
         super(a(ao.d(context)));
@@ -30,7 +30,8 @@ public class KSApiWebView extends ApiWebView {
         super(a(ao.d(context)), attributeSet, i, z);
     }
 
-    private static Context a(Context context) {
-        return (Build.VERSION.SDK_INT < 21 || Build.VERSION.SDK_INT >= 23) ? context : context.createConfigurationContext(new Configuration());
+    public static Context a(Context context) {
+        int i = Build.VERSION.SDK_INT;
+        return (i < 21 || i >= 23) ? context : context.createConfigurationContext(new Configuration());
     }
 }

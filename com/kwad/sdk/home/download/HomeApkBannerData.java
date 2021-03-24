@@ -3,9 +3,9 @@ package com.kwad.sdk.home.download;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HomeApkBannerData extends com.kwad.sdk.core.response.a.a implements Serializable {
-    private static final long serialVersionUID = -3305476346070314287L;
+    public static final long serialVersionUID = -3305476346070314287L;
     public String appPackageName;
     public String mAdTemplateUniqueId;
     public String mDownloadFilePath;

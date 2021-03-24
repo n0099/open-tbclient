@@ -6,10 +6,10 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class BeanRequestCache implements NoProguard {
-    private static BeanRequestCache mRequestCache = null;
-    private final HashMap<String, BeanRequestBase> mRequestList = new HashMap<>();
+    public static BeanRequestCache mRequestCache;
+    public final HashMap<String, BeanRequestBase> mRequestList = new HashMap<>();
 
     public static synchronized BeanRequestCache getInstance() {
         BeanRequestCache beanRequestCache;
@@ -23,30 +23,14 @@ public final class BeanRequestCache implements NoProguard {
     }
 
     public void addBeanRequestToCache(String str, BeanRequestBase beanRequestBase) {
-        if (str != null && !str.equals("") && beanRequestBase != null) {
-            this.mRequestList.put(str, beanRequestBase);
+        if (str == null || str.equals("") || beanRequestBase == null) {
+            return;
         }
-    }
-
-    public BeanRequestBase getBeanRequestFromCache(String str) {
-        if (str == null || str.equals("")) {
-            return null;
-        }
-        return this.mRequestList.get(str);
-    }
-
-    public void removeBeanRequestFromCache(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.mRequestList.remove(str);
-        }
-    }
-
-    public void clearRequestCache() {
-        this.mRequestList.clear();
+        this.mRequestList.put(str, beanRequestBase);
     }
 
     public void clearPaySdkRequestCache() {
-        LogUtil.e(getClass().getSimpleName(), "clearPaySdkRequestCache", null);
+        LogUtil.e(BeanRequestCache.class.getSimpleName(), "clearPaySdkRequestCache", null);
         Set<String> keySet = this.mRequestList.keySet();
         HashSet<String> hashSet = new HashSet();
         for (String str : keySet) {
@@ -57,5 +41,23 @@ public final class BeanRequestCache implements NoProguard {
         for (String str2 : hashSet) {
             removeBeanRequestFromCache(str2);
         }
+    }
+
+    public void clearRequestCache() {
+        this.mRequestList.clear();
+    }
+
+    public BeanRequestBase getBeanRequestFromCache(String str) {
+        if (str == null || str.equals("")) {
+            return null;
+        }
+        return this.mRequestList.get(str);
+    }
+
+    public void removeBeanRequestFromCache(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.mRequestList.remove(str);
     }
 }

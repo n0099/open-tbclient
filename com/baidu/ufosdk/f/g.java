@@ -2,15 +2,14 @@ package com.baidu.ufosdk.f;
 
 import java.io.File;
 import java.util.Comparator;
-/* loaded from: classes7.dex */
-final class g implements Comparator {
+/* loaded from: classes5.dex */
+public final class g implements Comparator {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f3623a;
+    public final /* synthetic */ f f22953a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f3623a = fVar;
+        this.f22953a = fVar;
     }
 
     @Override // java.util.Comparator

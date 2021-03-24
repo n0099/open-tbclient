@@ -6,12 +6,11 @@ import android.provider.DocumentsContract;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 @RequiresApi(19)
-/* loaded from: classes4.dex */
-class SingleDocumentFile extends DocumentFile {
-    private Context mContext;
-    private Uri mUri;
+/* loaded from: classes.dex */
+public class SingleDocumentFile extends DocumentFile {
+    public Context mContext;
+    public Uri mUri;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public SingleDocumentFile(@Nullable DocumentFile documentFile, Context context, Uri uri) {
         super(documentFile);
         this.mContext = context;
@@ -19,8 +18,13 @@ class SingleDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
-    public DocumentFile createFile(String str, String str2) {
-        throw new UnsupportedOperationException();
+    public boolean canRead() {
+        return DocumentsContractApi19.canRead(this.mContext, this.mUri);
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public boolean canWrite() {
+        return DocumentsContractApi19.canWrite(this.mContext, this.mUri);
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
@@ -29,8 +33,22 @@ class SingleDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
-    public Uri getUri() {
-        return this.mUri;
+    public DocumentFile createFile(String str, String str2) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public boolean delete() {
+        try {
+            return DocumentsContract.deleteDocument(this.mContext.getContentResolver(), this.mUri);
+        } catch (Exception unused) {
+            return false;
+        }
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public boolean exists() {
+        return DocumentsContractApi19.exists(this.mContext, this.mUri);
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
@@ -43,6 +61,11 @@ class SingleDocumentFile extends DocumentFile {
     @Nullable
     public String getType() {
         return DocumentsContractApi19.getType(this.mContext, this.mUri);
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public Uri getUri() {
+        return this.mUri;
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
@@ -68,30 +91,6 @@ class SingleDocumentFile extends DocumentFile {
     @Override // androidx.documentfile.provider.DocumentFile
     public long length() {
         return DocumentsContractApi19.length(this.mContext, this.mUri);
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean canRead() {
-        return DocumentsContractApi19.canRead(this.mContext, this.mUri);
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean canWrite() {
-        return DocumentsContractApi19.canWrite(this.mContext, this.mUri);
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean delete() {
-        try {
-            return DocumentsContract.deleteDocument(this.mContext.getContentResolver(), this.mUri);
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean exists() {
-        return DocumentsContractApi19.exists(this.mContext, this.mUri);
     }
 
     @Override // androidx.documentfile.provider.DocumentFile

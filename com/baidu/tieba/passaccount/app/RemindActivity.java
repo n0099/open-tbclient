@@ -6,58 +6,65 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.data.j;
 import com.baidu.tbadk.switchs.FaceFeedbackEnableSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.passaccount.b.b;
-import com.baidu.tieba.passaccount.b.c;
-/* loaded from: classes7.dex */
+import d.b.i0.a2.d.c;
+/* loaded from: classes4.dex */
 public class RemindActivity extends BaseActivity<RemindActivity> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.remind_activity_layout);
-        ((NavigationBar) findViewById(R.id.view_navigation_bar)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        ((Button) findViewById(R.id.remind_button)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                c.dkA().a(RemindActivity.this, new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
-                    @Override // com.baidu.tieba.passaccount.b.c.a
-                    public void f(boolean z, boolean z2, String str) {
-                        b.dku().H(z2, str);
-                        RemindActivity.this.finishActivity(true);
-                    }
 
-                    @Override // com.baidu.tieba.passaccount.b.c.a
-                    public void F(boolean z, String str) {
-                        b.dku().H(z, str);
-                        RemindActivity.this.finishActivity(true);
-                    }
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
 
-                    @Override // com.baidu.tieba.passaccount.b.c.a
-                    public void djY() {
-                        b.dku().H(false, null);
-                    }
-
-                    @Override // com.baidu.tieba.passaccount.b.c.a
-                    public void onFail() {
-                        b.dku().H(false, null);
-                    }
-                });
+        /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0208a implements c.e {
+            public C0208a() {
             }
-        });
-        findViewById(R.id.feed_back_container).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
-        ((TextView) findViewById(R.id.feed_back_text)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.2
-            /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.passaccount.app.RemindActivity */
-            /* JADX WARN: Multi-variable type inference failed */
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                bf.bsY().a(RemindActivity.this.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
+
+            @Override // d.b.i0.a2.d.c.e
+            public void a(boolean z, boolean z2, String str) {
+                d.b.i0.a2.d.b.f().d(z2, str);
+                RemindActivity.this.finishActivity(true);
             }
-        });
+
+            @Override // d.b.i0.a2.d.c.e
+            public void b(boolean z, String str) {
+                d.b.i0.a2.d.b.f().d(z, str);
+                RemindActivity.this.finishActivity(true);
+            }
+
+            @Override // d.b.i0.a2.d.c.e
+            public void c() {
+                d.b.i0.a2.d.b.f().d(false, null);
+            }
+
+            @Override // d.b.i0.a2.d.c.e
+            public void onFail() {
+                d.b.i0.a2.d.b.f().d(false, null);
+            }
+        }
+
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            c.i().g(RemindActivity.this, new C0208a());
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public b() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            UrlManager.getInstance().dealOneLink((TbPageContext<?>) RemindActivity.this.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -67,8 +74,19 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
 
     public void finishActivity(boolean z) {
         super.finish();
-        if (!z) {
-            b.dku().a((j.c) null);
+        if (z) {
+            return;
         }
+        d.b.i0.a2.d.b.f().a(null);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.remind_activity_layout);
+        ((NavigationBar) findViewById(R.id.view_navigation_bar)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        ((Button) findViewById(R.id.remind_button)).setOnClickListener(new a());
+        findViewById(R.id.feed_back_container).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
+        ((TextView) findViewById(R.id.feed_back_text)).setOnClickListener(new b());
     }
 }

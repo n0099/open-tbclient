@@ -9,14 +9,14 @@ import com.kwai.video.cache.CacheSessionListener;
 import com.kwai.video.hodor.util.Timber;
 import java.lang.ref.WeakReference;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AspectAwesomeCache {
-    private AwesomeCacheCallback mAwesomeCacheCallback;
+    public AwesomeCacheCallback mAwesomeCacheCallback;
     @Nullable
-    private CacheSessionListener mCacheSessionListener;
-    private CacheSessionListener mCacheSessionListenerInnerBridge;
+    public CacheSessionListener mCacheSessionListener;
+    public CacheSessionListener mCacheSessionListenerInnerBridge;
     @NonNull
-    private final KwaiMediaPlayer mPlayer;
+    public final KwaiMediaPlayer mPlayer;
 
     public AspectAwesomeCache(@NonNull KwaiMediaPlayer kwaiMediaPlayer, boolean z) {
         this.mPlayer = kwaiMediaPlayer;
@@ -52,7 +52,6 @@ public class AspectAwesomeCache {
         this.mPlayer.setOption(1, "cache-read-timeout-ms", i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setCacheKey(String str) {
         this.mPlayer.setOption(4, "cache-key", str);
     }

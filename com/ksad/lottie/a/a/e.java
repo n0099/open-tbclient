@@ -6,89 +6,112 @@ import androidx.annotation.Nullable;
 import com.ksad.lottie.a.b.a;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class e implements j, l, a.InterfaceC1084a {
+/* loaded from: classes6.dex */
+public class e implements j, l, a.InterfaceC0351a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Path f5311a = new Path();
-    private final String b;
-    private final com.ksad.lottie.f c;
-    private final com.ksad.lottie.a.b.a<?, PointF> d;
-    private final com.ksad.lottie.a.b.a<?, PointF> e;
-    private final com.ksad.lottie.model.content.a f;
+    public final Path f31208a = new Path();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final String f31209b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final com.ksad.lottie.f f31210c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final com.ksad.lottie.a.b.a<?, PointF> f31211d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final com.ksad.lottie.a.b.a<?, PointF> f31212e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final com.ksad.lottie.model.content.a f31213f;
     @Nullable
-    private r g;
-    private boolean h;
+
+    /* renamed from: g  reason: collision with root package name */
+    public r f31214g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f31215h;
 
     public e(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.a aVar2) {
-        this.b = aVar2.a();
-        this.c = fVar;
-        this.d = aVar2.c().a();
-        this.e = aVar2.b().a();
-        this.f = aVar2;
-        aVar.a(this.d);
-        aVar.a(this.e);
-        this.d.a(this);
-        this.e.a(this);
+        this.f31209b = aVar2.a();
+        this.f31210c = fVar;
+        this.f31211d = aVar2.c().a();
+        this.f31212e = aVar2.b().a();
+        this.f31213f = aVar2;
+        aVar.a(this.f31211d);
+        aVar.a(this.f31212e);
+        this.f31211d.a(this);
+        this.f31212e.a(this);
     }
 
     private void b() {
-        this.h = false;
-        this.c.invalidateSelf();
+        this.f31215h = false;
+        this.f31210c.invalidateSelf();
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1084a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC0351a
     public void a() {
         b();
     }
 
     @Override // com.ksad.lottie.a.a.b
     public void a(List<b> list, List<b> list2) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= list.size()) {
-                return;
+        for (int i = 0; i < list.size(); i++) {
+            b bVar = list.get(i);
+            if (bVar instanceof r) {
+                r rVar = (r) bVar;
+                if (rVar.b() == ShapeTrimPath.Type.Simultaneously) {
+                    this.f31214g = rVar;
+                    rVar.a(this);
+                }
             }
-            b bVar = list.get(i2);
-            if ((bVar instanceof r) && ((r) bVar).b() == ShapeTrimPath.Type.Simultaneously) {
-                this.g = (r) bVar;
-                this.g.a(this);
-            }
-            i = i2 + 1;
         }
     }
 
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
-        if (this.h) {
-            return this.f5311a;
+        if (this.f31215h) {
+            return this.f31208a;
         }
-        this.f5311a.reset();
-        PointF e = this.d.e();
-        float f = e.x / 2.0f;
-        float f2 = e.y / 2.0f;
-        float f3 = f * 0.55228f;
+        this.f31208a.reset();
+        PointF e2 = this.f31211d.e();
+        float f2 = e2.x / 2.0f;
+        float f3 = e2.y / 2.0f;
         float f4 = f2 * 0.55228f;
-        this.f5311a.reset();
-        if (this.f.d()) {
-            this.f5311a.moveTo(0.0f, -f2);
-            this.f5311a.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
-            this.f5311a.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
-            this.f5311a.cubicTo(0.0f + f3, f2, f, 0.0f + f4, f, 0.0f);
-            this.f5311a.cubicTo(f, 0.0f - f4, 0.0f + f3, -f2, 0.0f, -f2);
+        float f5 = 0.55228f * f3;
+        this.f31208a.reset();
+        if (this.f31213f.d()) {
+            float f6 = -f3;
+            this.f31208a.moveTo(0.0f, f6);
+            float f7 = 0.0f - f4;
+            float f8 = -f2;
+            float f9 = 0.0f - f5;
+            this.f31208a.cubicTo(f7, f6, f8, f9, f8, 0.0f);
+            float f10 = f5 + 0.0f;
+            this.f31208a.cubicTo(f8, f10, f7, f3, 0.0f, f3);
+            float f11 = f4 + 0.0f;
+            this.f31208a.cubicTo(f11, f3, f2, f10, f2, 0.0f);
+            this.f31208a.cubicTo(f2, f9, f11, f6, 0.0f, f6);
         } else {
-            this.f5311a.moveTo(0.0f, -f2);
-            this.f5311a.cubicTo(0.0f + f3, -f2, f, 0.0f - f4, f, 0.0f);
-            this.f5311a.cubicTo(f, 0.0f + f4, 0.0f + f3, f2, 0.0f, f2);
-            this.f5311a.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
-            this.f5311a.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
+            float f12 = -f3;
+            this.f31208a.moveTo(0.0f, f12);
+            float f13 = f4 + 0.0f;
+            float f14 = 0.0f - f5;
+            this.f31208a.cubicTo(f13, f12, f2, f14, f2, 0.0f);
+            float f15 = f5 + 0.0f;
+            this.f31208a.cubicTo(f2, f15, f13, f3, 0.0f, f3);
+            float f16 = 0.0f - f4;
+            float f17 = -f2;
+            this.f31208a.cubicTo(f16, f3, f17, f15, f17, 0.0f);
+            this.f31208a.cubicTo(f17, f14, f16, f12, 0.0f, f12);
         }
-        PointF e2 = this.e.e();
-        this.f5311a.offset(e2.x, e2.y);
-        this.f5311a.close();
-        com.ksad.lottie.d.f.a(this.f5311a, this.g);
-        this.h = true;
-        return this.f5311a;
+        PointF e3 = this.f31212e.e();
+        this.f31208a.offset(e3.x, e3.y);
+        this.f31208a.close();
+        com.ksad.lottie.d.f.a(this.f31208a, this.f31214g);
+        this.f31215h = true;
+        return this.f31208a;
     }
 }

@@ -8,126 +8,134 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PointPageIndicator extends View {
-    protected Drawable euP;
-    protected Drawable euQ;
-    protected Rect euR;
-    protected Rect euS;
-    private int euT;
-    private int euU;
-    private int mPosition;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Drawable f13013e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Drawable f13014f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Rect f13015g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Rect f13016h;
+    public int i;
+    public int j;
+    public int k;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.euP = null;
-        this.euQ = null;
-        this.euR = new Rect();
-        this.euS = new Rect();
-        this.euT = 0;
-        this.mPosition = 0;
-        this.euU = 0;
-        init(context);
+        this.f13013e = null;
+        this.f13014f = null;
+        this.f13015g = new Rect();
+        this.f13016h = new Rect();
+        this.i = 0;
+        this.j = 0;
+        this.k = 0;
+        a(context);
     }
 
-    public PointPageIndicator(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.euP = null;
-        this.euQ = null;
-        this.euR = new Rect();
-        this.euS = new Rect();
-        this.euT = 0;
-        this.mPosition = 0;
-        this.euU = 0;
-        init(context);
+    public final void a(Context context) {
     }
 
-    public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.euP = null;
-        this.euQ = null;
-        this.euR = new Rect();
-        this.euS = new Rect();
-        this.euT = 0;
-        this.mPosition = 0;
-        this.euU = 0;
-        init(context);
+    public PointPageIndicator b(int i) {
+        this.j = i;
+        invalidate();
+        return this;
     }
 
-    private void init(Context context) {
-    }
-
-    public PointPageIndicator lM(int i) {
-        if (this.euU != i) {
-            this.euU = i;
+    public PointPageIndicator c(int i) {
+        if (this.k != i) {
+            this.k = i;
             invalidate();
         }
         return this;
     }
 
-    public PointPageIndicator lN(int i) {
-        this.euT = i;
-        return this;
-    }
-
-    public PointPageIndicator lO(int i) {
-        this.mPosition = i;
-        invalidate();
-        return this;
-    }
-
-    public PointPageIndicator az(int i, int i2) {
-        Resources resources = getResources();
-        return b(resources.getDrawable(i), resources.getDrawable(i2));
-    }
-
-    public PointPageIndicator b(Drawable drawable, Drawable drawable2) {
-        this.euP = drawable;
-        this.euQ = drawable2;
+    public PointPageIndicator d(Drawable drawable, Drawable drawable2) {
+        this.f13013e = drawable;
+        this.f13014f = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.euR.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.f13015g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.euS.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.f13016h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
+        return this;
+    }
+
+    public PointPageIndicator e(int i, int i2) {
+        Resources resources = getResources();
+        return d(resources.getDrawable(i), resources.getDrawable(i2));
+    }
+
+    public PointPageIndicator f(int i) {
+        this.i = i;
         return this;
     }
 
     @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        if (this.euU > 0) {
-            int i = this.euU;
-            int i2 = this.euT;
-            int height = getHeight();
-            int width2 = getWidth();
-            int i3 = this.mPosition;
-            Rect rect = this.euR;
-            Rect rect2 = this.euS;
-            Drawable drawable = this.euP;
-            Drawable drawable2 = this.euQ;
-            int width3 = (width2 - ((((i - 1) * i2) + (rect.width() * (i - 1))) + rect2.width())) / 2;
-            int i4 = 0;
-            while (i4 < i) {
-                if (i4 == i3) {
-                    if (drawable2 != null) {
-                        rect2.offsetTo(width3, (height - rect2.height()) / 2);
-                        drawable2.setBounds(rect2);
-                        drawable2.draw(canvas);
-                    }
-                    width = rect2.width();
-                } else {
-                    if (drawable != null) {
-                        rect.offsetTo(width3, (height - rect.height()) / 2);
-                        drawable.setBounds(rect);
-                        drawable.draw(canvas);
-                    }
-                    width = rect.width();
-                }
-                i4++;
-                width3 = width + i2 + width3;
-            }
+        int i = this.k;
+        if (i <= 0) {
+            return;
         }
+        int i2 = this.i;
+        int height = getHeight();
+        int width2 = getWidth();
+        int i3 = this.j;
+        Rect rect = this.f13015g;
+        Rect rect2 = this.f13016h;
+        Drawable drawable = this.f13013e;
+        Drawable drawable2 = this.f13014f;
+        int i4 = i - 1;
+        int width3 = (width2 - (((i2 * i4) + (rect.width() * i4)) + rect2.width())) / 2;
+        for (int i5 = 0; i5 < i; i5++) {
+            if (i5 == i3) {
+                if (drawable2 != null) {
+                    rect2.offsetTo(width3, (height - rect2.height()) / 2);
+                    drawable2.setBounds(rect2);
+                    drawable2.draw(canvas);
+                }
+                width = rect2.width();
+            } else {
+                if (drawable != null) {
+                    rect.offsetTo(width3, (height - rect.height()) / 2);
+                    drawable.setBounds(rect);
+                    drawable.draw(canvas);
+                }
+                width = rect.width();
+            }
+            width3 += width + i2;
+        }
+    }
+
+    public PointPageIndicator(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f13013e = null;
+        this.f13014f = null;
+        this.f13015g = new Rect();
+        this.f13016h = new Rect();
+        this.i = 0;
+        this.j = 0;
+        this.k = 0;
+        a(context);
+    }
+
+    public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f13013e = null;
+        this.f13014f = null;
+        this.f13015g = new Rect();
+        this.f13016h = new Rect();
+        this.i = 0;
+        this.j = 0;
+        this.k = 0;
+        a(context);
     }
 }

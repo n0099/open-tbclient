@@ -11,41 +11,55 @@ import com.kwad.sdk.core.download.b.a;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f extends com.kwad.sdk.a.a.a implements View.OnClickListener {
-    private ViewGroup b;
-    private ImageView c;
-    private TextView d;
-    private TextView e;
-    private AdTemplate f;
-    private AdInfo g;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ViewGroup f31701b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f31702c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f31703d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f31704e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public AdTemplate f31705f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public AdInfo f31706g;
     @Nullable
-    private com.kwad.sdk.core.download.b.b h;
-    private com.kwad.sdk.contentalliance.detail.video.e i = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.f.1
+
+    /* renamed from: h  reason: collision with root package name */
+    public com.kwad.sdk.core.download.b.b f31707h;
+    public com.kwad.sdk.contentalliance.detail.video.e i = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.f.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
             f.this.e();
         }
     };
-    private KsAppDownloadListener j = new com.kwad.sdk.core.download.b.c() { // from class: com.kwad.sdk.a.b.f.2
+    public KsAppDownloadListener j = new com.kwad.sdk.core.download.b.c() { // from class: com.kwad.sdk.a.b.f.2
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onDownloadFailed() {
-            f.this.e.setText(com.kwad.sdk.core.response.b.a.w(f.this.g));
+            f.this.f31704e.setText(com.kwad.sdk.core.response.b.a.w(f.this.f31706g));
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onDownloadFinished() {
-            f.this.e.setText(com.kwad.sdk.core.response.b.a.a(f.this.f));
+            f.this.f31704e.setText(com.kwad.sdk.core.response.b.a.a(f.this.f31705f));
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onIdle() {
-            f.this.e.setText(com.kwad.sdk.core.response.b.a.w(f.this.g));
+            f.this.f31704e.setText(com.kwad.sdk.core.response.b.a.w(f.this.f31706g));
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onInstalled() {
-            f.this.e.setText("立即打开");
+            f.this.f31704e.setText("立即打开");
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -55,63 +69,64 @@ public class f extends com.kwad.sdk.a.a.a implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        KSImageLoader.loadAppIcon(this.c, com.kwad.sdk.core.response.b.a.o(this.g), this.f, 12);
-        this.d.setText(com.kwad.sdk.core.response.b.a.q(this.g));
-        this.e.setText(com.kwad.sdk.core.response.b.a.w(this.g));
-        if (this.h != null) {
-            this.h.a(this.j);
+        KSImageLoader.loadAppIcon(this.f31702c, com.kwad.sdk.core.response.b.a.o(this.f31706g), this.f31705f, 12);
+        this.f31703d.setText(com.kwad.sdk.core.response.b.a.q(this.f31706g));
+        this.f31704e.setText(com.kwad.sdk.core.response.b.a.w(this.f31706g));
+        com.kwad.sdk.core.download.b.b bVar = this.f31707h;
+        if (bVar != null) {
+            bVar.a(this.j);
         }
-        this.b.setOnClickListener(this);
-        this.b.setVisibility(0);
+        this.f31701b.setOnClickListener(this);
+        this.f31701b.setVisibility(0);
     }
 
     private void f() {
-        com.kwad.sdk.core.download.b.a.a(this.b.getContext(), this.f, new a.InterfaceC1111a() { // from class: com.kwad.sdk.a.b.f.3
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
+        com.kwad.sdk.core.download.b.a.a(this.f31701b.getContext(), this.f31705f, new a.InterfaceC0378a() { // from class: com.kwad.sdk.a.b.f.3
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0378a
             public void a() {
-                com.kwad.sdk.core.report.b.a(f.this.f, 2, f.this.f5425a.c.getTouchCoords());
+                com.kwad.sdk.core.report.b.a(f.this.f31705f, 2, ((com.kwad.sdk.a.a.a) f.this).f31664a.f31667c.getTouchCoords());
             }
-        }, this.h);
+        }, this.f31707h);
     }
 
     private void g() {
-        this.f5425a.f5426a.onAdClicked(this.b, null);
+        ((com.kwad.sdk.a.a.a) this).f31664a.f31665a.onAdClicked(this.f31701b, null);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f = this.f5425a.d;
-        this.g = com.kwad.sdk.core.response.b.c.j(this.f);
-        this.h = this.f5425a.e;
-        this.f5425a.f.a(this.i);
-        this.b.setVisibility(8);
+        AdTemplate adTemplate = ((com.kwad.sdk.a.a.a) this).f31664a.f31668d;
+        this.f31705f = adTemplate;
+        this.f31706g = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        com.kwad.sdk.a.a.b bVar = ((com.kwad.sdk.a.a.a) this).f31664a;
+        this.f31707h = bVar.f31669e;
+        bVar.f31670f.a(this.i);
+        this.f31701b.setVisibility(8);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f5425a.f.b(this.i);
-        if (this.h != null) {
-            this.h.b(this.j);
+        ((com.kwad.sdk.a.a.a) this).f31664a.f31670f.b(this.i);
+        com.kwad.sdk.core.download.b.b bVar = this.f31707h;
+        if (bVar != null) {
+            bVar.b(this.j);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = (ViewGroup) b(R.id.ksad_video_complete_app_container);
-        this.c = (ImageView) b(R.id.ksad_app_icon);
-        this.d = (TextView) b(R.id.ksad_app_name);
-        this.e = (TextView) b(R.id.ksad_app_download);
+        this.f31701b = (ViewGroup) b(R.id.ksad_video_complete_app_container);
+        this.f31702c = (ImageView) b(R.id.ksad_app_icon);
+        this.f31703d = (TextView) b(R.id.ksad_app_name);
+        this.f31704e = (TextView) b(R.id.ksad_app_download);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.b) {
+        if (view == this.f31701b) {
             f();
             g();
         }

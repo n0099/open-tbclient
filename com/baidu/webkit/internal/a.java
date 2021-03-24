@@ -1,18 +1,16 @@
 package com.baidu.webkit.internal;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ long f3814a;
+    public final /* synthetic */ long f26867a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public a(long j) {
-        this.f3814a = j;
+        this.f26867a = j;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        ApisInteractWithMario.setMessageChannalFunctoinTable(this.f3814a);
+        ApisInteractWithMario.setMessageChannalFunctoinTable(this.f26867a);
     }
 }

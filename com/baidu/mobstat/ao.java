@@ -1,43 +1,58 @@
 package com.baidu.mobstat;
 
 import android.text.TextUtils;
+import com.baidu.android.common.others.IStringUtil;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ao {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2594a;
-    private String b;
-    private String c;
-    private long d;
-    private long e;
-    private float f;
-    private float g;
-    private float h;
-    private float i;
-    private String j;
-    private boolean k;
-    private String l;
+    public String f8941a;
 
-    public ao(String str, String str2, String str3, long j, long j2, float f, float f2, float f3, float f4, String str4, boolean z, String str5) {
-        this.f2594a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = j;
-        this.e = j2;
-        this.f = f;
-        this.g = f2;
-        this.h = f3;
-        this.i = f4;
+    /* renamed from: b  reason: collision with root package name */
+    public String f8942b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f8943c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f8944d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f8945e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f8946f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f8947g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f8948h;
+    public float i;
+    public String j;
+    public boolean k;
+    public String l;
+
+    public ao(String str, String str2, String str3, long j, long j2, float f2, float f3, float f4, float f5, String str4, boolean z, String str5) {
+        this.f8941a = str;
+        this.f8942b = str2;
+        this.f8943c = str3;
+        this.f8944d = j;
+        this.f8945e = j2;
+        this.f8946f = f2;
+        this.f8947g = f3;
+        this.f8948h = f4;
+        this.i = f5;
         this.j = str4;
         this.k = z;
         this.l = str5;
     }
 
     public String a() {
-        return this.f2594a;
+        return this.f8941a;
     }
 
     public String b() {
@@ -51,9 +66,9 @@ public class ao {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("n", str);
-            jSONObject.put("t", this.b);
-            jSONObject.put("d", this.d);
-            long j2 = this.e - j;
+            jSONObject.put("t", this.f8942b);
+            jSONObject.put("d", this.f8944d);
+            long j2 = this.f8945e - j;
             if (j2 <= 0) {
                 j2 = 0;
             }
@@ -61,17 +76,17 @@ public class ao {
             jSONObject.put("at", 1);
             DecimalFormat decimalFormat = new DecimalFormat("0.0");
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
-            decimalFormatSymbols.setDecimalSeparator('.');
+            decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-            jSONObject.put(Config.SESSTION_ACTIVITY_X_VIEW_HEIGHT, decimalFormat.format(this.f));
-            jSONObject.put(Config.SESSTION_ACTIVITY_Y_VIEW_HEIGHT, decimalFormat.format(this.g));
-            jSONObject.put(Config.SESSTION_ACTIVITY_X_TOTAL_HEIGHT, decimalFormat.format(this.h));
+            jSONObject.put(Config.SESSTION_ACTIVITY_X_VIEW_HEIGHT, decimalFormat.format(this.f8946f));
+            jSONObject.put(Config.SESSTION_ACTIVITY_Y_VIEW_HEIGHT, decimalFormat.format(this.f8947g));
+            jSONObject.put(Config.SESSTION_ACTIVITY_X_TOTAL_HEIGHT, decimalFormat.format(this.f8948h));
             jSONObject.put(Config.SESSTION_ACTIVITY_Y_TOTAL_HEIGHT, decimalFormat.format(this.i));
             jSONObject.put("h5", 0);
             jSONObject.put("sign", this.l);
-        } catch (Exception e) {
-            jSONObject = null;
+            return jSONObject;
+        } catch (Exception unused) {
+            return null;
         }
-        return jSONObject;
     }
 }

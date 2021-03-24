@@ -6,140 +6,165 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.adp.base.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.themeCenter.dressCenter.e;
-/* loaded from: classes8.dex */
+import d.b.b.a.j;
+import d.b.i0.i3.h.e;
+/* loaded from: classes5.dex */
 public class MemberRecommendView extends FrameLayout {
-    private TbImageView kaU;
-    private int lrm;
-    private Context mContext;
-    private View mRootView;
-    private TextView mTitleView;
-    private TextView nHR;
-    private e nHS;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f21567e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f21568f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbImageView f21569g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f21570h;
+    public TextView i;
+    public e j;
+    public int k;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            String str;
+            TbPageContext tbPageContext;
+            int i = 9;
+            switch (MemberRecommendView.this.k) {
+                case 1:
+                    TiebaStatic.log("c10261");
+                    i = 8;
+                    str = MemberPayStatistic.REFER_PAGE_DRESS_UP_CENTER;
+                    break;
+                case 2:
+                case 3:
+                case 9:
+                    TiebaStatic.log("c10266");
+                    if (MemberRecommendView.this.k == 9) {
+                        str = MemberPayStatistic.REFER_PAGE_PERSONALITY_CARDS;
+                        break;
+                    }
+                    str = "";
+                    break;
+                case 4:
+                case 5:
+                    TiebaStatic.log("c10278");
+                    i = 12;
+                    if (MemberRecommendView.this.k != 4) {
+                        str = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
+                        break;
+                    } else {
+                        str = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND;
+                        break;
+                    }
+                case 6:
+                case 7:
+                    TiebaStatic.log("c10762");
+                    i = 19;
+                    if (MemberRecommendView.this.k != 7) {
+                        str = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
+                        break;
+                    } else {
+                        str = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
+                        break;
+                    }
+                case 8:
+                    i = 22;
+                    TiebaStatic.log("c11613");
+                    str = MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT;
+                    break;
+                default:
+                    i = 0;
+                    str = "";
+                    break;
+            }
+            if (MemberRecommendView.this.j == null || (tbPageContext = (TbPageContext) j.a(MemberRecommendView.this.f21567e)) == null) {
+                return;
+            }
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
+            memberPayActivityConfig.setReferPageClickZone(str, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+        }
+    }
 
     public MemberRecommendView(Context context) {
         super(context);
-        this.mContext = context;
-        initView();
+        this.f21567e = context;
+        f();
+    }
+
+    public void d() {
+        SkinManager.setBackgroundColor(this.f21568f, R.color.CAM_X0207);
+        SkinManager.setViewTextColor(this.f21570h, R.color.CAM_X0108);
+    }
+
+    public void e(e eVar) {
+        if (eVar == null) {
+            return;
+        }
+        this.j = eVar;
+        this.f21569g.W(eVar.b(), 10, false);
+        this.f21570h.setText(this.j.c());
+        if (StringUtils.isNull(this.j.a())) {
+            this.i.setVisibility(8);
+            return;
+        }
+        this.i.setVisibility(0);
+        this.i.setText(this.j.a());
+    }
+
+    public final void f() {
+        View inflate = LayoutInflater.from(this.f21567e).inflate(R.layout.member_extend_view, this);
+        this.f21568f = inflate;
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.vip_icon);
+        this.f21569g = tbImageView;
+        tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
+        this.f21569g.setDefaultBgResource(R.drawable.transparent_bg);
+        this.f21569g.setAutoChangeStyle(true);
+        this.f21570h = (TextView) this.f21568f.findViewById(R.id.title_view);
+        TextView textView = (TextView) this.f21568f.findViewById(R.id.jump_button);
+        this.i = textView;
+        textView.setOnClickListener(new a());
+    }
+
+    public View getButton() {
+        return this.i;
+    }
+
+    public int getFromType() {
+        return this.k;
+    }
+
+    public void setFromType(int i) {
+        this.k = i;
     }
 
     public MemberRecommendView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mContext = context;
-        initView();
+        this.f21567e = context;
+        f();
     }
 
     public MemberRecommendView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.mContext = context;
-        initView();
-    }
-
-    private void initView() {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.member_extend_view, this);
-        this.kaU = (TbImageView) this.mRootView.findViewById(R.id.vip_icon);
-        this.kaU.setDefaultResource(R.drawable.icon_vip_orange);
-        this.kaU.setDefaultBgResource(R.drawable.transparent_bg);
-        this.mTitleView = (TextView) this.mRootView.findViewById(R.id.title_view);
-        this.nHR = (TextView) this.mRootView.findViewById(R.id.jump_button);
-        this.nHR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.MemberRecommendView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                String str;
-                TbPageContext tbPageContext;
-                int i = 9;
-                switch (MemberRecommendView.this.lrm) {
-                    case 1:
-                        TiebaStatic.log("c10261");
-                        i = 8;
-                        str = MemberPayStatistic.REFER_PAGE_DRESS_UP_CENTER;
-                        break;
-                    case 2:
-                    case 3:
-                    case 9:
-                        TiebaStatic.log("c10266");
-                        if (MemberRecommendView.this.lrm != 9) {
-                            str = "";
-                            break;
-                        } else {
-                            str = MemberPayStatistic.REFER_PAGE_PERSONALITY_CARDS;
-                            break;
-                        }
-                    case 4:
-                    case 5:
-                        TiebaStatic.log("c10278");
-                        i = 12;
-                        str = MemberRecommendView.this.lrm == 4 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND : MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
-                        break;
-                    case 6:
-                    case 7:
-                        TiebaStatic.log("c10762");
-                        i = 19;
-                        str = MemberRecommendView.this.lrm == 7 ? MemberPayStatistic.REFER_PAGE_ALL_BUBBLE : MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
-                        break;
-                    case 8:
-                        i = 22;
-                        TiebaStatic.log("c11613");
-                        str = MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT;
-                        break;
-                    default:
-                        str = "";
-                        i = 0;
-                        break;
-                }
-                if (MemberRecommendView.this.nHS != null && (tbPageContext = (TbPageContext) j.J(MemberRecommendView.this.mContext)) != null) {
-                    MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
-                    memberPayActivityConfig.setReferPageClickZone(str, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
-                }
-            }
-        });
-    }
-
-    public void a(e eVar) {
-        if (eVar != null) {
-            this.nHS = eVar;
-            this.kaU.startLoad(this.nHS.getIconUrl(), 10, false);
-            this.mTitleView.setText(this.nHS.dRF());
-            if (StringUtils.isNull(this.nHS.dNA())) {
-                this.nHR.setVisibility(8);
-                return;
-            }
-            this.nHR.setVisibility(0);
-            this.nHR.setText(this.nHS.dNA());
-        }
-    }
-
-    public void bus() {
-        TbPageContext tbPageContext = (TbPageContext) j.J(this.mContext);
-        if (tbPageContext != null) {
-            tbPageContext.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            tbPageContext.getLayoutMode().onModeChanged(this.mRootView);
-        }
-    }
-
-    public int getFromType() {
-        return this.lrm;
-    }
-
-    public void setFromType(int i) {
-        this.lrm = i;
-    }
-
-    public View getButton() {
-        return this.nHR;
+        this.f21567e = context;
+        f();
     }
 }

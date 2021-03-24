@@ -1,32 +1,33 @@
 package com.opensource.svgaplayer;
 
-import com.opensource.svgaplayer.d;
-import kotlin.h;
+import kotlin.Metadata;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
-@kotlin.e
-/* loaded from: classes5.dex */
-final class SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2 extends Lambda implements kotlin.jvm.a.a<h> {
-    final /* synthetic */ f $videoItem;
-    final /* synthetic */ d.RunnableC1193d this$0;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002¨\u0006\u0004"}, d2 = {"<anonymous>", "", "invoke", "com/opensource/svgaplayer/SVGAParser$decodeFromInputStream$1$1$2$1", "com/opensource/svgaplayer/SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$1"}, k = 3, mv = {1, 1, 13}, pn = "", xi = 0, xs = "")
+/* loaded from: classes6.dex */
+public final class SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2 extends Lambda implements Function0<Unit> {
+    public final /* synthetic */ SVGAVideoEntity $videoItem;
+    public final /* synthetic */ SVGAParser$decodeFromInputStream$1 this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(f fVar, d.RunnableC1193d runnableC1193d) {
+    public SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(SVGAVideoEntity sVGAVideoEntity, SVGAParser$decodeFromInputStream$1 sVGAParser$decodeFromInputStream$1) {
         super(0);
-        this.$videoItem = fVar;
-        this.this$0 = runnableC1193d;
+        this.$videoItem = sVGAVideoEntity;
+        this.this$0 = sVGAParser$decodeFromInputStream$1;
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // kotlin.jvm.a.a
-    public /* bridge */ /* synthetic */ h invoke() {
+    @Override // kotlin.jvm.functions.Function0
+    public /* bridge */ /* synthetic */ Unit invoke() {
         invoke2();
-        return h.qtQ;
+        return Unit.INSTANCE;
     }
 
-    @Override // kotlin.jvm.a.a
+    @Override // kotlin.jvm.functions.Function0
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2() {
-        d.this.a(this.$videoItem, this.this$0.$callback);
+        SVGAParser$decodeFromInputStream$1 sVGAParser$decodeFromInputStream$1 = this.this$0;
+        sVGAParser$decodeFromInputStream$1.f37944e.s(this.$videoItem, sVGAParser$decodeFromInputStream$1.f37947h);
     }
 }

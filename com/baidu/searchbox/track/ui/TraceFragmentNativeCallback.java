@@ -10,35 +10,7 @@ import com.baidu.android.util.devices.DeviceUtil;
 @TargetApi(26)
 /* loaded from: classes3.dex */
 public class TraceFragmentNativeCallback extends BaseTraceFragmentCallback {
-    private FragmentManager.FragmentLifecycleCallbacks mFragmentCallbacks;
-
-    @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean register(@NonNull Activity activity) {
-        if (DeviceUtil.OSInfo.hasOreo()) {
-            if (this.mFragmentCallbacks == null) {
-                this.mFragmentCallbacks = getFragmentCallbacks();
-            }
-            FragmentManager fragmentManager = activity.getFragmentManager();
-            if (fragmentManager != null) {
-                fragmentManager.registerFragmentLifecycleCallbacks(this.mFragmentCallbacks, true);
-                return true;
-            }
-            return true;
-        }
-        return false;
-    }
-
-    @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean unregister(@NonNull Activity activity) {
-        FragmentManager fragmentManager;
-        if (DeviceUtil.OSInfo.hasOreo()) {
-            if (this.mFragmentCallbacks != null && (fragmentManager = activity.getFragmentManager()) != null) {
-                fragmentManager.unregisterFragmentLifecycleCallbacks(this.mFragmentCallbacks);
-            }
-            return true;
-        }
-        return false;
-    }
+    public FragmentManager.FragmentLifecycleCallbacks mFragmentCallbacks;
 
     private FragmentManager.FragmentLifecycleCallbacks getFragmentCallbacks() {
         return new FragmentManager.FragmentLifecycleCallbacks() { // from class: com.baidu.searchbox.track.ui.TraceFragmentNativeCallback.1
@@ -58,5 +30,33 @@ public class TraceFragmentNativeCallback extends BaseTraceFragmentCallback {
                 }
             }
         };
+    }
+
+    @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
+    public boolean register(@NonNull Activity activity) {
+        if (DeviceUtil.OSInfo.hasOreo()) {
+            if (this.mFragmentCallbacks == null) {
+                this.mFragmentCallbacks = getFragmentCallbacks();
+            }
+            FragmentManager fragmentManager = activity.getFragmentManager();
+            if (fragmentManager != null) {
+                fragmentManager.registerFragmentLifecycleCallbacks(this.mFragmentCallbacks, true);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
+    public boolean unregister(@NonNull Activity activity) {
+        FragmentManager fragmentManager;
+        if (DeviceUtil.OSInfo.hasOreo()) {
+            if (this.mFragmentCallbacks == null || (fragmentManager = activity.getFragmentManager()) == null) {
+                return true;
+            }
+            fragmentManager.unregisterFragmentLifecycleCallbacks(this.mFragmentCallbacks);
+            return true;
+        }
+        return false;
     }
 }

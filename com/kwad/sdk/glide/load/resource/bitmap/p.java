@@ -5,51 +5,53 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.util.Log;
+import com.bumptech.glide.load.resource.bitmap.Downsampler;
 import com.kwad.sdk.glide.load.DecodeFormat;
 import java.io.File;
-/* loaded from: classes3.dex */
-final class p {
+/* loaded from: classes6.dex */
+public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final File f6794a = new File("/proc/self/fd");
-    private static volatile p d;
-    private volatile int b;
-    private volatile boolean c = true;
+    public static final File f35679a = new File("/proc/self/fd");
 
-    private p() {
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public static volatile p f35680d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public volatile int f35681b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public volatile boolean f35682c = true;
+
     public static p a() {
-        if (d == null) {
+        if (f35680d == null) {
             synchronized (p.class) {
-                if (d == null) {
-                    d = new p();
+                if (f35680d == null) {
+                    f35680d = new p();
                 }
             }
         }
-        return d;
+        return f35680d;
     }
 
     private synchronized boolean b() {
-        boolean z;
-        synchronized (this) {
-            int i = this.b + 1;
-            this.b = i;
-            if (i >= 50) {
-                this.b = 0;
-                int length = f6794a.list().length;
-                this.c = length < 700;
-                if (!this.c && Log.isLoggable("Downsampler", 5)) {
-                    Log.w("Downsampler", "Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors " + length + ", limit 700");
-                }
+        boolean z = true;
+        int i = this.f35681b + 1;
+        this.f35681b = i;
+        if (i >= 50) {
+            this.f35681b = 0;
+            int length = f35679a.list().length;
+            if (length >= 700) {
+                z = false;
             }
-            z = this.c;
+            this.f35682c = z;
+            if (!this.f35682c && Log.isLoggable(Downsampler.TAG, 5)) {
+                Log.w(Downsampler.TAG, "Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors " + length + ", limit 700");
+            }
         }
-        return z;
+        return this.f35682c;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(26)
     public boolean a(int i, int i2, BitmapFactory.Options options, DecodeFormat decodeFormat, boolean z, boolean z2) {
         if (!z || Build.VERSION.SDK_INT < 26 || z2) {
@@ -59,7 +61,6 @@ final class p {
         if (z3) {
             options.inPreferredConfig = Bitmap.Config.HARDWARE;
             options.inMutable = false;
-            return z3;
         }
         return z3;
     }

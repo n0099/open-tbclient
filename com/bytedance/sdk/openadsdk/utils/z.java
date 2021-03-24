@@ -11,6 +11,10 @@ public class z {
         }
     }
 
+    public static void b(String str) {
+        throw new IllegalArgumentException(str);
+    }
+
     public static void a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             b(str2);
@@ -18,9 +22,10 @@ public class z {
     }
 
     public static void a(boolean z, String str) {
-        if (!z) {
-            b(str);
+        if (z) {
+            return;
         }
+        b(str);
     }
 
     public static void a(String str) {
@@ -28,12 +33,9 @@ public class z {
     }
 
     public static void a(Context context, String str) {
-        if (!(context instanceof Activity)) {
-            b(str);
+        if (context instanceof Activity) {
+            return;
         }
-    }
-
-    private static void b(String str) {
-        throw new IllegalArgumentException(str);
+        b(str);
     }
 }

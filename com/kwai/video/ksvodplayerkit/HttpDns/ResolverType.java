@@ -1,10 +1,8 @@
 package com.kwai.video.ksvodplayerkit.HttpDns;
-
-import org.apache.http.HttpHost;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public enum ResolverType {
     LOCAL("local"),
-    HTTP(HttpHost.DEFAULT_SCHEME_NAME),
+    HTTP("http"),
     LOCAL_AND_HTTP("local|http");
     
     public final String mValue;

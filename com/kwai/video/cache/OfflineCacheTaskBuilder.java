@@ -1,10 +1,13 @@
 package com.kwai.video.cache;
-/* loaded from: classes3.dex */
+
+import com.kwai.video.cache.AwesomeCache;
+/* loaded from: classes6.dex */
 public class OfflineCacheTaskBuilder extends OfflineCacheTaskBuilderBase {
     public OfflineCacheTaskBuilder(String str, String str2, String str3, AwesomeCacheCallback awesomeCacheCallback) {
-        this.mDataSpec.url = str;
-        this.mDataSpec.host = str3;
-        this.mDataSpec.key = str2;
+        AwesomeCache.OfflineCacheDataSpec offlineCacheDataSpec = this.mDataSpec;
+        offlineCacheDataSpec.url = str;
+        offlineCacheDataSpec.host = str3;
+        offlineCacheDataSpec.key = str2;
         this.mAwesomeCacheCallback = awesomeCacheCallback;
     }
 

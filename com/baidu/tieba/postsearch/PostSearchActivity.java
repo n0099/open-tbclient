@@ -5,86 +5,41 @@ import android.os.Bundle;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-/* loaded from: classes7.dex */
+import d.b.i0.m2.b;
+import d.b.i0.m2.d;
+import d.b.i0.m2.g;
+/* loaded from: classes5.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String jfU;
+    public static final String FORUM_SEARCH_CLICK = "c12842";
+    public static final int TAB_ID_ONLY_THREAD = 3;
+    public static final int TAB_ID_RELATIVE = 2;
+    public static final int TAB_ID_TIME = 1;
     public String mForumId;
     public String mForumName;
-    private g mOL;
-    private d mOM;
-    private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-        }
+    public d mModel;
+    public ViewPager.OnPageChangeListener mOnPageChangeListener = new a();
+    public String mSearchKey;
+    public g mView;
 
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            PostSearchActivity.this.Hx(i);
+    /* loaded from: classes5.dex */
+    public class a implements ViewPager.OnPageChangeListener {
+        public a() {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
         }
-    };
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.mOL = new g(this);
-        this.mOL.initView();
-        this.mOL.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.mOM = new d(this);
-        initData();
-    }
-
-    public void xX(String str) {
-        this.jfU = str;
-        this.mOL.HC(1);
-        this.mOM.dCd();
-        this.mOL.showLoadingView();
-    }
-
-    public void QS(String str) {
-        this.mOL.QS(str);
-    }
-
-    public void dBN() {
-        this.mOL.bb(this.mOM.mPj);
-    }
-
-    public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.cXS())) {
-            this.mOL.hideLoadingView();
-            this.mOL.dCh();
-            return;
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f2, int i2) {
         }
-        this.mOL.hideLoadingView();
-        this.mOL.dBV();
-        this.mOL.a(i, bVar, z);
-    }
 
-    public boolean dBO() {
-        return this.mOL.dBO();
-    }
-
-    public void hideSoftKeyPad() {
-        this.mOL.hideSoftKeyPad();
-    }
-
-    public d dBP() {
-        return this.mOM;
-    }
-
-    public g dBQ() {
-        return this.mOL;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void onChangeSkinType(int i) {
-        this.mOL.onChangeSkinType(i);
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            PostSearchActivity.this.stateTabClick(i);
+        }
     }
 
     private void initData() {
@@ -93,36 +48,88 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.mOM.dCa();
+        this.mModel.j();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX INFO: Access modifiers changed from: private */
+    public void stateTabClick(int i) {
+        int i2 = 2;
+        if (i == 0) {
+            i2 = 1;
+        } else if (i != 1) {
+            i2 = i != 2 ? 0 : 3;
+        }
+        StatisticItem param = new StatisticItem("c12404").param("fid", this.mForumId).param("fname", this.mForumName).param("uid", TbadkCoreApplication.getCurrentAccount());
+        if (i2 != 0) {
+            param.param("tab_id", i2);
+        }
+        TiebaStatic.log(param);
+    }
+
+    public d getModel() {
+        return this.mModel;
+    }
+
+    public g getPostSearchView() {
+        return this.mView;
+    }
+
+    public void hideSoftKeyPad() {
+        this.mView.d();
+    }
+
+    public boolean isHistoryVisible() {
+        return this.mView.f();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i) {
+        this.mView.g(i);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        g gVar = new g(this);
+        this.mView = gVar;
+        gVar.e();
+        this.mView.l(this.mOnPageChangeListener);
+        this.mModel = new d(this);
+        initData();
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.mOL != null) {
-            this.mOL.onDestroy();
+        g gVar = this.mView;
+        if (gVar != null) {
+            gVar.h();
         }
         super.onDestroy();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Hx(int i) {
-        int i2 = 0;
-        switch (i) {
-            case 0:
-                i2 = 1;
-                break;
-            case 1:
-                i2 = 2;
-                break;
-            case 2:
-                i2 = 3;
-                break;
+    public void refreshHistoryList() {
+        this.mView.i(this.mModel.j);
+    }
+
+    public void refreshResultListByTab(int i, b bVar, boolean z) {
+        if (i == 1 && (bVar == null || !bVar.a())) {
+            this.mView.c();
+            this.mView.n();
+            return;
         }
-        ar dR = new ar("c12404").dR("fid", this.mForumId).dR("fname", this.mForumName).dR("uid", TbadkCoreApplication.getCurrentAccount());
-        if (i2 != 0) {
-            dR.aq("tab_id", i2);
-        }
-        TiebaStatic.log(dR);
+        this.mView.c();
+        this.mView.b();
+        this.mView.j(i, bVar, z);
+    }
+
+    public void setEditSearchText(String str) {
+        this.mView.k(str);
+    }
+
+    public void startSearch(String str) {
+        this.mSearchKey = str;
+        this.mView.o(1);
+        this.mModel.q();
+        this.mView.m();
     }
 }

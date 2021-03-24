@@ -4,58 +4,58 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.util.TypeUtils;
+import com.baidu.tieba.wallet.pay.WalletPayViewController;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class NumberDeserializer implements ObjectDeserializer {
     public static final NumberDeserializer instance = new NumberDeserializer();
 
-    /* JADX WARN: Type inference failed for: r0v23, types: [java.math.BigDecimal, T, java.lang.Object] */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: java.lang.StringBuilder */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v6, types: [java.math.BigDecimal, T, java.lang.Object] */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         if (jSONLexer.token() == 2) {
-            if (type == Double.TYPE || type == Double.class) {
-                String numberString = jSONLexer.numberString();
+            if (type != Double.TYPE && type != Double.class) {
+                long longValue = jSONLexer.longValue();
                 jSONLexer.nextToken(16);
-                return (T) Double.valueOf(Double.parseDouble(numberString));
+                if (type == Short.TYPE || type == Short.class) {
+                    if (longValue <= 32767 && longValue >= -32768) {
+                        return (T) Short.valueOf((short) longValue);
+                    }
+                    throw new JSONException("short overflow : " + longValue);
+                } else if (type != Byte.TYPE && type != Byte.class) {
+                    if (longValue >= -2147483648L && longValue <= 2147483647L) {
+                        return (T) Integer.valueOf((int) longValue);
+                    }
+                    return (T) Long.valueOf(longValue);
+                } else if (longValue <= 127 && longValue >= -128) {
+                    return (T) Byte.valueOf((byte) longValue);
+                } else {
+                    throw new JSONException("short overflow : " + longValue);
+                }
             }
-            long longValue = jSONLexer.longValue();
+            String numberString = jSONLexer.numberString();
             jSONLexer.nextToken(16);
-            if (type == Short.TYPE || type == Short.class) {
-                if (longValue > 32767 || longValue < -32768) {
-                    throw new JSONException("short overflow : " + longValue);
-                }
-                return (T) Short.valueOf((short) longValue);
-            } else if (type == Byte.TYPE || type == Byte.class) {
-                if (longValue > 127 || longValue < -128) {
-                    throw new JSONException("short overflow : " + longValue);
-                }
-                return (T) Byte.valueOf((byte) longValue);
-            } else if (longValue >= -2147483648L && longValue <= 2147483647L) {
-                return (T) Integer.valueOf((int) longValue);
-            } else {
-                return (T) Long.valueOf(longValue);
-            }
+            return (T) Double.valueOf(Double.parseDouble(numberString));
         } else if (jSONLexer.token() == 3) {
-            if (type == Double.TYPE || type == Double.class) {
-                String numberString2 = jSONLexer.numberString();
+            if (type != Double.TYPE && type != Double.class) {
+                ?? r1 = (T) jSONLexer.decimalValue();
                 jSONLexer.nextToken(16);
-                return (T) Double.valueOf(Double.parseDouble(numberString2));
-            }
-            ?? r0 = (T) jSONLexer.decimalValue();
-            jSONLexer.nextToken(16);
-            if (type == Short.TYPE || type == Short.class) {
-                if (r0.compareTo(BigDecimal.valueOf(32767L)) > 0 || r0.compareTo(BigDecimal.valueOf(-32768L)) < 0) {
-                    throw new JSONException("short overflow : " + ((Object) r0));
+                if (type != Short.TYPE && type != Short.class) {
+                    return (type == Byte.TYPE || type == Byte.class) ? (T) Byte.valueOf(r1.byteValue()) : r1;
+                } else if (r1.compareTo(BigDecimal.valueOf(32767L)) <= 0 && r1.compareTo(BigDecimal.valueOf(-32768L)) >= 0) {
+                    return (T) Short.valueOf(r1.shortValue());
+                } else {
+                    throw new JSONException("short overflow : " + ((Object) r1));
                 }
-                return (T) Short.valueOf(r0.shortValue());
-            } else if (type == Byte.TYPE || type == Byte.class) {
-                return (T) Byte.valueOf(r0.byteValue());
-            } else {
-                return r0;
             }
-        } else if (jSONLexer.token() == 18 && "NaN".equals(jSONLexer.stringVal())) {
+            String numberString2 = jSONLexer.numberString();
+            jSONLexer.nextToken(16);
+            return (T) Double.valueOf(Double.parseDouble(numberString2));
+        } else if (jSONLexer.token() == 18 && WalletPayViewController.DEF_CHANNEL_TITLE.equals(jSONLexer.stringVal())) {
             jSONLexer.nextToken();
             if (type == Double.class) {
                 return (T) Double.valueOf(Double.NaN);
@@ -66,30 +66,31 @@ public class NumberDeserializer implements ObjectDeserializer {
             return null;
         } else {
             Object parse = defaultJSONParser.parse();
-            if (parse != null) {
-                if (type == Double.TYPE || type == Double.class) {
-                    try {
-                        return (T) TypeUtils.castToDouble(parse);
-                    } catch (Exception e) {
-                        throw new JSONException("parseDouble error, field : " + obj, e);
+            if (parse == null) {
+                return null;
+            }
+            if (type != Double.TYPE && type != Double.class) {
+                if (type != Short.TYPE && type != Short.class) {
+                    if (type != Byte.TYPE && type != Byte.class) {
+                        return (T) TypeUtils.castToBigDecimal(parse);
                     }
-                } else if (type == Short.TYPE || type == Short.class) {
-                    try {
-                        return (T) TypeUtils.castToShort(parse);
-                    } catch (Exception e2) {
-                        throw new JSONException("parseShort error, field : " + obj, e2);
-                    }
-                } else if (type == Byte.TYPE || type == Byte.class) {
                     try {
                         return (T) TypeUtils.castToByte(parse);
-                    } catch (Exception e3) {
-                        throw new JSONException("parseByte error, field : " + obj, e3);
+                    } catch (Exception e2) {
+                        throw new JSONException("parseByte error, field : " + obj, e2);
                     }
-                } else {
-                    return (T) TypeUtils.castToBigDecimal(parse);
+                }
+                try {
+                    return (T) TypeUtils.castToShort(parse);
+                } catch (Exception e3) {
+                    throw new JSONException("parseShort error, field : " + obj, e3);
                 }
             }
-            return null;
+            try {
+                return (T) TypeUtils.castToDouble(parse);
+            } catch (Exception e4) {
+                throw new JSONException("parseDouble error, field : " + obj, e4);
+            }
         }
     }
 

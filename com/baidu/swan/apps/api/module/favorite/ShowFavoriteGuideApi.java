@@ -1,132 +1,42 @@
 package com.baidu.swan.apps.api.module.favorite;
 
+import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.ao.ak;
-import com.baidu.swan.apps.ao.p;
-import com.baidu.swan.apps.api.a.b;
-import com.baidu.swan.apps.api.a.d;
-import com.baidu.swan.apps.api.module.favorite.a;
-import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.apps.storage.c.h;
+import d.b.g0.a.c0.c;
+import d.b.g0.a.h;
+import d.b.g0.a.i2.k0;
+import d.b.g0.a.i2.p;
+import d.b.g0.a.r1.e;
+import d.b.g0.a.t.b.d;
+import d.b.g0.a.t.c.c.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class ShowFavoriteGuideApi extends d implements a.InterfaceC0381a {
-    private long cHw;
-    private long cHx;
-    private long cHy;
-    private String mCallbackKey;
+/* loaded from: classes3.dex */
+public class ShowFavoriteGuideApi extends d implements a.j {
 
-    public ShowFavoriteGuideApi(@NonNull b bVar) {
-        super(bVar);
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public String f12095d;
 
-    public com.baidu.swan.apps.api.c.b kr(String str) {
-        if (DEBUG) {
-            Log.d("Api-showFavoriteGuide", "handle: " + str);
-        }
-        final e aIO = e.aIO();
-        if (aIO == null) {
-            return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
-        }
-        final SwanAppActivity aIH = aIO.aIH();
-        if (aIH == null) {
-            c.e("Api-showFavoriteGuide", "null activity");
-            return new com.baidu.swan.apps.api.c.b(1001, "null activity");
-        } else if (!ak.aOs()) {
-            c.i("Api-showFavoriteGuide", "not support outside baiduboxapp");
-            return new com.baidu.swan.apps.api.c.b(1001, "not support outside baiduboxapp");
-        } else {
-            Pair<com.baidu.swan.apps.api.c.b, JSONObject> bh = com.baidu.swan.apps.api.d.b.bh("Api-showFavoriteGuide", str);
-            com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bh.first;
-            if (!bVar.isSuccess()) {
-                if (DEBUG) {
-                    c.e("Api-showFavoriteGuide", "parse fail");
-                    return bVar;
-                }
-                return bVar;
-            }
-            final JSONObject jSONObject = (JSONObject) bh.second;
-            final String optString = jSONObject.optString("type");
-            if (a.ajU().kq(optString)) {
-                return new com.baidu.swan.apps.api.c.b(202);
-            }
-            p.aNS().execute(new Runnable() { // from class: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    com.baidu.swan.apps.storage.c.b aMk = h.aMk();
-                    final GuideType parse = GuideType.parse(optString);
-                    final String string = ShowFavoriteGuideApi.this.getContext().getString(parse.defaultText);
-                    ShowFavoriteGuideApi.this.mCallbackKey = jSONObject.optString("cb");
-                    String str2 = aIO.id;
-                    String str3 = "favorite_guide_count_" + str2;
-                    if (com.baidu.swan.apps.database.favorite.a.nw(str2)) {
-                        c.i("Api-showFavoriteGuide", "favorite already");
-                        h.aMk().putString(str3, "-1");
-                        return;
-                    }
-                    String string2 = h.aMk().getString(str3, "");
-                    if (TextUtils.equals("-1", string2)) {
-                        c.i("Api-showFavoriteGuide", "favorite at one time");
-                        return;
-                    }
-                    String[] split = string2.split("#");
-                    int i = 0;
-                    long j = 0;
-                    if (split.length == 2 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1])) {
-                        i = Integer.parseInt(split[0]);
-                        j = Long.parseLong(split[1]);
-                    }
-                    long currentTimeMillis = System.currentTimeMillis();
-                    ShowFavoriteGuideApi.this.cHw = aMk.getLong("swan_favorite_guide_duration", 3L);
-                    ShowFavoriteGuideApi.this.cHx = aMk.getLong("swan_favorite_guide_intervalDays", 3L);
-                    ShowFavoriteGuideApi.this.cHy = aMk.getLong("swan_favorite_guide_maxTimes", 3L);
-                    c.i("Api-showFavoriteGuide", "duration=" + ShowFavoriteGuideApi.this.cHw + ", mIntervalDays=" + ShowFavoriteGuideApi.this.cHx + ", mMaxTimes=" + ShowFavoriteGuideApi.this.cHy + " ,storageValue=" + string2);
-                    if (i < ShowFavoriteGuideApi.this.cHy && currentTimeMillis - j > ShowFavoriteGuideApi.this.cHx * 86400000) {
-                        h.aMk().putString(str3, (i + 1) + "#" + currentTimeMillis);
-                        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi.1.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                a.ajU().a(ShowFavoriteGuideApi.this, aIH, aIO, parse, string, aIO.aIR().getIconUrl(), ShowFavoriteGuideApi.this.cHw);
-                            }
-                        });
-                        return;
-                    }
-                    c.i("Api-showFavoriteGuide", "Not satisfying display conditions");
-                }
-            }, "Api-showFavoriteGuide");
-            return new com.baidu.swan.apps.api.c.b(0);
-        }
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public long f12096e;
 
-    @Override // com.baidu.swan.apps.api.module.favorite.a.InterfaceC0381a
-    @AnyThread
-    public void eR(boolean z) {
-        if (this.mCallbackKey != null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("action", z ? 1 : 0);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            a(this.mCallbackKey, new com.baidu.swan.apps.api.c.b(0, "success", jSONObject));
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public long f12097f;
 
-    /* loaded from: classes8.dex */
+    /* renamed from: g  reason: collision with root package name */
+    public long f12098g;
+
+    /* loaded from: classes3.dex */
     public enum GuideType {
-        NORMAL("bar", -1, 992, a.h.aiapps_favorite_guide_default_hint),
-        WEAK("bar-autohide", -1, 865, a.h.aiapps_favorite_guide_default_hint),
-        TIPS(AlaStaticKeys.ALA_STATIC_VALUE_TIP, 18, -1, a.h.aiapps_favorite_guide_default_tips);
+        NORMAL("bar", -1, 992, h.aiapps_favorite_guide_default_hint),
+        WEAK("bar-autohide", -1, 865, h.aiapps_favorite_guide_default_hint),
+        TIPS("tip", 18, -1, h.aiapps_favorite_guide_default_tips);
         
         @StringRes
         public int defaultText;
@@ -154,29 +64,180 @@ public class ShowFavoriteGuideApi extends d implements a.InterfaceC0381a {
         }
     }
 
-    public static void a(GuideType guideType, String str, String str2) {
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f12099e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ JSONObject f12100f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ e f12101g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ Activity f12102h;
+
+        /* renamed from: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class RunnableC0166a implements Runnable {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ GuideType f12103e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ String f12104f;
+
+            public RunnableC0166a(GuideType guideType, String str) {
+                this.f12103e = guideType;
+                this.f12104f = str;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                d.b.g0.a.t.c.c.a l = d.b.g0.a.t.c.c.a.l();
+                a aVar = a.this;
+                ShowFavoriteGuideApi showFavoriteGuideApi = ShowFavoriteGuideApi.this;
+                Activity activity = aVar.f12102h;
+                e eVar = aVar.f12101g;
+                l.p(showFavoriteGuideApi, activity, eVar, this.f12103e, this.f12104f, eVar.J().P(), ShowFavoriteGuideApi.this.f12096e);
+            }
+        }
+
+        public a(String str, JSONObject jSONObject, e eVar, Activity activity) {
+            this.f12099e = str;
+            this.f12100f = jSONObject;
+            this.f12101g = eVar;
+            this.f12102h = activity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.b.g0.a.a2.g.b a2 = d.b.g0.a.a2.g.h.a();
+            GuideType parse = GuideType.parse(this.f12099e);
+            String string = ShowFavoriteGuideApi.this.h().getString(parse.defaultText);
+            ShowFavoriteGuideApi.this.f12095d = this.f12100f.optString("cb");
+            String str = this.f12101g.f45739f;
+            String str2 = "favorite_guide_count_" + str;
+            if (d.b.g0.a.g0.c.a.n(str)) {
+                c.g("Api-showFavoriteGuide", "favorite already");
+                d.b.g0.a.a2.g.h.a().putString(str2, "-1");
+                return;
+            }
+            String string2 = d.b.g0.a.a2.g.h.a().getString(str2, "");
+            if (TextUtils.equals("-1", string2)) {
+                c.g("Api-showFavoriteGuide", "favorite at one time");
+                return;
+            }
+            String[] split = string2.split("#");
+            long j = 0;
+            int i = 0;
+            if (split.length == 2 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1])) {
+                i = Integer.parseInt(split[0]);
+                j = Long.parseLong(split[1]);
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            int i2 = i;
+            ShowFavoriteGuideApi.this.f12096e = a2.getLong("swan_favorite_guide_duration", 3L);
+            ShowFavoriteGuideApi.this.f12097f = a2.getLong("swan_favorite_guide_intervalDays", 3L);
+            ShowFavoriteGuideApi.this.f12098g = a2.getLong("swan_favorite_guide_maxTimes", 3L);
+            c.g("Api-showFavoriteGuide", "duration=" + ShowFavoriteGuideApi.this.f12096e + ", mIntervalDays=" + ShowFavoriteGuideApi.this.f12097f + ", mMaxTimes=" + ShowFavoriteGuideApi.this.f12098g + " ,storageValue=" + string2);
+            if (i2 < ShowFavoriteGuideApi.this.f12098g && currentTimeMillis - j > ShowFavoriteGuideApi.this.f12097f * 86400000) {
+                d.b.g0.a.a2.g.h.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
+                k0.X(new RunnableC0166a(parse, string));
+                return;
+            }
+            c.g("Api-showFavoriteGuide", "Not satisfying display conditions");
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f12106a;
+
+        static {
+            int[] iArr = new int[GuideType.values().length];
+            f12106a = iArr;
+            try {
+                iArr[GuideType.TIPS.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f12106a[GuideType.WEAK.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    public ShowFavoriteGuideApi(@NonNull d.b.g0.a.t.b.b bVar) {
+        super(bVar);
+    }
+
+    public static void y(GuideType guideType, String str, String str2) {
         String str3;
-        String aIP = e.aIP();
-        com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
+        String T = e.T();
+        d.b.g0.a.z1.k.e eVar = new d.b.g0.a.z1.k.e();
         if (guideType == null) {
             str3 = "window";
         } else {
-            switch (guideType) {
-                case TIPS:
-                    str3 = "TIPS";
-                    break;
-                case WEAK:
-                    str3 = "flow";
-                    break;
-                default:
-                    str3 = "flow_close";
-                    break;
-            }
+            int i = b.f12106a[guideType.ordinal()];
+            str3 = i != 1 ? i != 2 ? "flow_close" : "flow" : "TIPS";
         }
-        eVar.mType = str3;
-        eVar.mSource = str;
-        eVar.mValue = str2;
-        eVar.s("appkey", aIP);
-        com.baidu.swan.apps.statistic.h.a("923", eVar);
+        eVar.f47251b = str3;
+        eVar.f47252c = str;
+        eVar.f47253d = str2;
+        eVar.a("appkey", T);
+        d.b.g0.a.z1.h.u("923", eVar);
+    }
+
+    @Override // d.b.g0.a.t.c.c.a.j
+    @AnyThread
+    public void e(boolean z) {
+        if (this.f12095d != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("action", z ? 1 : 0);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            c(this.f12095d, new d.b.g0.a.t.e.b(0, "success", jSONObject));
+        }
+    }
+
+    public d.b.g0.a.t.e.b z(String str) {
+        if (d.f45928c) {
+            Log.d("Api-showFavoriteGuide", "handle: " + str);
+        }
+        e O = e.O();
+        if (O == null) {
+            return new d.b.g0.a.t.e.b(1001, "SwanApp is null");
+        }
+        SwanAppActivity n = O.n();
+        if (n == null) {
+            c.b("Api-showFavoriteGuide", "null activity");
+            return new d.b.g0.a.t.e.b(1001, "null activity");
+        } else if (!k0.D()) {
+            c.g("Api-showFavoriteGuide", "not support outside baiduboxapp");
+            return new d.b.g0.a.t.e.b(1001, "not support outside baiduboxapp");
+        } else {
+            Pair<d.b.g0.a.t.e.b, JSONObject> a2 = d.b.g0.a.t.f.b.a("Api-showFavoriteGuide", str);
+            d.b.g0.a.t.e.b bVar = (d.b.g0.a.t.e.b) a2.first;
+            if (!bVar.b()) {
+                if (d.f45928c) {
+                    c.b("Api-showFavoriteGuide", "parse fail");
+                }
+                return bVar;
+            }
+            JSONObject jSONObject = (JSONObject) a2.second;
+            String optString = jSONObject.optString("type");
+            if (d.b.g0.a.t.c.c.a.l().n(optString)) {
+                return new d.b.g0.a.t.e.b(202);
+            }
+            p.g().execute(new a(optString, jSONObject, O, n), "Api-showFavoriteGuide");
+            return new d.b.g0.a.t.e.b(0);
+        }
     }
 }

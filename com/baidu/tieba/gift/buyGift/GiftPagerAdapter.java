@@ -5,33 +5,32 @@ import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class GiftPagerAdapter extends PagerAdapter {
-    private List<View> bbS;
+
+    /* renamed from: a  reason: collision with root package name */
+    public List<View> f16865a;
 
     public GiftPagerAdapter(List<View> list) {
-        this.bbS = new ArrayList();
-        this.bbS = list;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        if (this.bbS == null) {
-            return 0;
-        }
-        return this.bbS.size();
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
+        this.f16865a = new ArrayList();
+        this.f16865a = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        if (i >= 0 && i < getCount()) {
-            viewGroup.removeView(this.bbS.get(i));
+        if (i < 0 || i >= getCount()) {
+            return;
         }
+        viewGroup.removeView(this.f16865a.get(i));
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        List<View> list = this.f16865a;
+        if (list == null) {
+            return 0;
+        }
+        return list.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -39,8 +38,13 @@ public class GiftPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.bbS.get(i);
+        View view = this.f16865a.get(i);
         viewGroup.addView(view);
         return view;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
     }
 }

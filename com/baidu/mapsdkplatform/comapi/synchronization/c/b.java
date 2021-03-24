@@ -1,33 +1,35 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.c;
 
 import com.baidu.mapsdkplatform.comapi.synchronization.c.a;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
-public class b extends a.AbstractRunnableC0258a {
+/* loaded from: classes2.dex */
+public class b extends a.AbstractRunnableC0099a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f2245a;
-    final /* synthetic */ String b;
-    final /* synthetic */ a c;
+    public final /* synthetic */ e f7732a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ String f7733b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ a f7734c;
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, e eVar, String str) {
         super(null);
-        this.c = aVar;
-        this.f2245a = eVar;
-        this.b = str;
+        this.f7734c = aVar;
+        this.f7732a = eVar;
+        this.f7733b = str;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC0258a
+    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC0099a
     public void a() {
         int i;
         int i2;
-        c cVar = new c("GET", this.f2245a);
-        i = this.c.f2244a;
+        c cVar = new c("GET", this.f7732a);
+        i = this.f7734c.f7729a;
         cVar.b(i);
-        i2 = this.c.b;
+        i2 = this.f7734c.f7730b;
         cVar.a(i2);
-        cVar.a(this.b);
+        cVar.a(this.f7733b);
     }
 }

@@ -1,13 +1,17 @@
 package com.kwad.sdk.core.download;
 
 import android.content.Context;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.text.TextUtils;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.core.network.k;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import com.kwad.sdk.utils.ad;
+import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -15,23 +19,26 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f6068a = ad.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
+    public static final String f33587a = ad.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        final OutputStream f6069a;
+        public final OutputStream f33588a;
 
         public a(File file, boolean z) {
-            this.f6069a = new FileOutputStream(file, z);
+            this.f33588a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.core.download.e.c
@@ -44,21 +51,21 @@ public class e {
 
         @Override // com.kwad.sdk.core.download.e.c
         public void a(byte[] bArr, int i, int i2) {
-            this.f6069a.write(bArr, i, i2);
+            this.f33588a.write(bArr, i, i2);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f6069a.close();
+            this.f33588a.close();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         boolean a(int i, int i2, Object obj);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface c extends Closeable {
         void a(int i, Map<String, List<String>> map);
 
@@ -80,10 +87,10 @@ public class e {
             openConnection.setUseCaches(z);
             openConnection.setDoInput(true);
             openConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-            openConnection.setRequestProperty("Charset", "UTF-8");
+            openConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
             return openConnection;
-        } catch (MalformedURLException e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (MalformedURLException e2) {
+            com.kwad.sdk.core.d.a.a(e2);
             return null;
         }
     }
@@ -103,22 +110,22 @@ public class e {
         }
     }
 
-    private static void a(Closeable closeable) {
+    public static void a(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (IOException e) {
+            } catch (IOException unused) {
             }
         }
     }
 
     public static boolean a(String str, File file, b bVar, int i) {
         a aVar;
+        a aVar2 = null;
         try {
             aVar = new a(file, false);
         } catch (Throwable th) {
             th = th;
-            aVar = null;
         }
         try {
             boolean a2 = a(str, (String) null, aVar, bVar, i);
@@ -126,7 +133,8 @@ public class e {
             return a2;
         } catch (Throwable th2) {
             th = th2;
-            a(aVar);
+            aVar2 = aVar;
+            a(aVar2);
             throw th;
         }
     }
@@ -136,21 +144,22 @@ public class e {
     }
 
     public static boolean a(String str, String str2, c cVar, b bVar, int i, long j, long j2, boolean z) {
-        HttpURLConnection httpURLConnection;
+        HttpURLConnection httpURLConnection = null;
         try {
-            httpURLConnection = (HttpURLConnection) a(str, 10000, i > 0 ? i : BdStatisticsManager.UPLOAD_TIMER_INTERVAL, false, true);
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) a(str, 10000, i > 0 ? i : 120000, false, true);
             try {
-                if (httpURLConnection == null) {
-                    throw new IOException("Fail to createUrlConnection");
+                if (httpURLConnection2 != null) {
+                    boolean a2 = a(httpURLConnection2, str2, cVar, bVar, i, j, j2, z);
+                    a(cVar);
+                    if (httpURLConnection2 != null) {
+                        httpURLConnection2.disconnect();
+                    }
+                    return a2;
                 }
-                boolean a2 = a(httpURLConnection, str2, cVar, bVar, i, j, j2, z);
-                a(cVar);
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                return a2;
+                throw new IOException("Fail to createUrlConnection");
             } catch (Throwable th) {
                 th = th;
+                httpURLConnection = httpURLConnection2;
                 a(cVar);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -159,299 +168,160 @@ public class e {
             }
         } catch (Throwable th2) {
             th = th2;
-            httpURLConnection = null;
         }
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    public static boolean a(java.net.HttpURLConnection r17, java.lang.String r18, com.kwad.sdk.core.download.e.c r19, com.kwad.sdk.core.download.e.b r20, int r21, long r22, long r24, boolean r26) {
-        /*
-            r8 = 0
-            r7 = 0
-            r5 = 0
-            r10 = 0
-            int r4 = (r22 > r10 ? 1 : (r22 == r10 ? 0 : -1))
-            if (r4 > 0) goto Lf
-            r10 = 0
-            int r4 = (r24 > r10 ? 1 : (r24 == r10 ? 0 : -1))
-            if (r4 <= 0) goto L35
-        Lf:
-            java.lang.String r6 = "Range"
-            java.lang.String r9 = "bytes=%s-%s"
-            r4 = 2
-            java.lang.Object[] r10 = new java.lang.Object[r4]     // Catch: java.lang.Throwable -> L1e4
-            r4 = 0
-            java.lang.Long r11 = java.lang.Long.valueOf(r22)     // Catch: java.lang.Throwable -> L1e4
-            r10[r4] = r11     // Catch: java.lang.Throwable -> L1e4
-            r11 = 1
-            r12 = 0
-            int r4 = (r24 > r12 ? 1 : (r24 == r12 ? 0 : -1))
-            if (r4 <= 0) goto L7b
-            java.lang.Long r4 = java.lang.Long.valueOf(r24)     // Catch: java.lang.Throwable -> L1e4
-        L2a:
-            r10[r11] = r4     // Catch: java.lang.Throwable -> L1e4
-            java.lang.String r4 = java.lang.String.format(r9, r10)     // Catch: java.lang.Throwable -> L1e4
-            r0 = r17
-            r0.setRequestProperty(r6, r4)     // Catch: java.lang.Throwable -> L1e4
-        L35:
-            boolean r4 = android.text.TextUtils.isEmpty(r18)     // Catch: java.lang.Throwable -> L1e4
-            if (r4 != 0) goto L7f
-            java.lang.String r4 = "Host"
-            r0 = r17
-            r1 = r18
-            r0.setRequestProperty(r4, r1)     // Catch: java.lang.Throwable -> L1e4
-            r4 = 0
-            r0 = r17
-            r0.setInstanceFollowRedirects(r4)     // Catch: java.lang.Throwable -> L1e4
-            int r4 = r17.getResponseCode()     // Catch: java.lang.Throwable -> L1e4
-            r6 = 302(0x12e, float:4.23E-43)
-            if (r4 != r6) goto L7f
-            java.lang.String r4 = "Location"
-            r0 = r17
-            java.lang.String r4 = r0.getHeaderField(r4)     // Catch: java.lang.Throwable -> L1e4
-            r6 = 0
-            r0 = r19
-            r1 = r20
-            r2 = r21
-            boolean r4 = a(r4, r6, r0, r1, r2)     // Catch: java.lang.Throwable -> L1e4
-            a(r19)
-            a(r8)
-            if (r17 == 0) goto L72
-            r17.disconnect()
-        L72:
-            a(r5)
-            if (r7 == 0) goto L7a
-            r7.delete()
-        L7a:
-            return r4
-        L7b:
-            java.lang.String r4 = ""
-            goto L2a
-        L7f:
-            java.lang.String r4 = "User-Agent"
-            java.lang.String r6 = com.kwad.sdk.core.network.k.a()     // Catch: java.lang.Throwable -> L1e4
-            r0 = r17
-            r0.setRequestProperty(r4, r6)     // Catch: java.lang.Throwable -> L1e4
-            java.io.BufferedInputStream r9 = new java.io.BufferedInputStream     // Catch: java.lang.Throwable -> L1e4
-            java.io.InputStream r4 = r17.getInputStream()     // Catch: java.lang.Throwable -> L1e4
-            r9.<init>(r4)     // Catch: java.lang.Throwable -> L1e4
-            int r4 = r17.getContentLength()     // Catch: java.lang.Throwable -> L1e9
-            java.util.Map r6 = r17.getHeaderFields()     // Catch: java.lang.Throwable -> L1e9
-            if (r6 != 0) goto L10e
-            java.util.HashMap r6 = new java.util.HashMap     // Catch: java.lang.Throwable -> L1e9
-            r6.<init>()     // Catch: java.lang.Throwable -> L1e9
-            r12 = r6
-        La4:
-            java.io.BufferedInputStream r10 = new java.io.BufferedInputStream     // Catch: java.lang.Throwable -> L1e9
-            java.io.InputStream r6 = r17.getInputStream()     // Catch: java.lang.Throwable -> L1e9
-            r10.<init>(r6)     // Catch: java.lang.Throwable -> L1e9
-            if (r4 > 0) goto L1fc
-            java.util.Random r4 = new java.util.Random     // Catch: java.lang.Throwable -> L1ed
-            long r8 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L1ed
-            r4.<init>(r8)     // Catch: java.lang.Throwable -> L1ed
-            java.io.File r8 = new java.io.File     // Catch: java.lang.Throwable -> L1ed
-            java.lang.String r6 = com.kwad.sdk.core.download.e.f6068a     // Catch: java.lang.Throwable -> L1ed
-            java.lang.StringBuilder r9 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L1ed
-            r9.<init>()     // Catch: java.lang.Throwable -> L1ed
-            int r4 = r4.nextInt()     // Catch: java.lang.Throwable -> L1ed
-            java.lang.StringBuilder r4 = r9.append(r4)     // Catch: java.lang.Throwable -> L1ed
-            java.lang.String r9 = ".tmp"
-            java.lang.StringBuilder r4 = r4.append(r9)     // Catch: java.lang.Throwable -> L1ed
-            java.lang.String r4 = r4.toString()     // Catch: java.lang.Throwable -> L1ed
-            r8.<init>(r6, r4)     // Catch: java.lang.Throwable -> L1ed
-            java.io.FileOutputStream r6 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L1f2
-            r6.<init>(r8)     // Catch: java.lang.Throwable -> L1f2
-            r4 = 10240(0x2800, float:1.4349E-41)
-            byte[] r5 = new byte[r4]     // Catch: java.lang.Throwable -> Lee
-            r4 = 0
-        Le1:
-            int r7 = r10.read(r5)     // Catch: java.lang.Throwable -> Lee
-            r9 = -1
-            if (r7 == r9) goto L119
-            int r4 = r4 + r7
-            r9 = 0
-            r6.write(r5, r9, r7)     // Catch: java.lang.Throwable -> Lee
-            goto Le1
-        Lee:
-            r4 = move-exception
-            r7 = r8
-            r9 = r10
-        Lf1:
-            boolean r5 = r4 instanceof java.io.IOException     // Catch: java.lang.Throwable -> Lf8
-            if (r5 == 0) goto L19d
-            java.io.IOException r4 = (java.io.IOException) r4     // Catch: java.lang.Throwable -> Lf8
-        Lf7:
-            throw r4     // Catch: java.lang.Throwable -> Lf8
-        Lf8:
-            r4 = move-exception
-            r5 = r6
-        Lfa:
-            a(r19)
-            a(r9)
-            if (r17 == 0) goto L105
-            r17.disconnect()
-        L105:
-            a(r5)
-            if (r7 == 0) goto L10d
-            r7.delete()
-        L10d:
-            throw r4
-        L10e:
-            java.util.HashMap r6 = new java.util.HashMap     // Catch: java.lang.Throwable -> L1e9
-            java.util.Map r8 = r17.getHeaderFields()     // Catch: java.lang.Throwable -> L1e9
-            r6.<init>(r8)     // Catch: java.lang.Throwable -> L1e9
-            r12 = r6
-            goto La4
-        L119:
-            a(r10)     // Catch: java.lang.Throwable -> Lee
-            a(r6)     // Catch: java.lang.Throwable -> Lee
-            java.io.BufferedInputStream r9 = new java.io.BufferedInputStream     // Catch: java.lang.Throwable -> Lee
-            java.io.FileInputStream r5 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Lee
-            r5.<init>(r8)     // Catch: java.lang.Throwable -> Lee
-            r9.<init>(r5)     // Catch: java.lang.Throwable -> Lee
-            java.lang.String r5 = "Content-Length"
-            java.lang.String r7 = java.lang.String.valueOf(r4)     // Catch: java.lang.Throwable -> L1f8
-            java.util.List r7 = java.util.Collections.singletonList(r7)     // Catch: java.lang.Throwable -> L1f8
-            r12.put(r5, r7)     // Catch: java.lang.Throwable -> L1f8
-            r11 = r4
-            r5 = r6
-            r7 = r8
-        L13a:
-            r14 = 0
-            int r4 = (r22 > r14 ? 1 : (r22 == r14 ? 0 : -1))
-            if (r4 <= 0) goto L17d
-            if (r26 == 0) goto L17d
-            r0 = r22
-            int r4 = (int) r0
-        L145:
-            int r6 = r11 + r4
-            long r10 = (long) r6
-            r0 = r19
-            r0.a(r10)     // Catch: java.lang.Throwable -> L179
-            int r8 = r17.getResponseCode()     // Catch: java.lang.Throwable -> L179
-            r0 = r19
-            r0.a(r8, r12)     // Catch: java.lang.Throwable -> L179
-            if (r20 == 0) goto L15e
-            r8 = 0
-            r0 = r20
-            r0.a(r4, r6, r8)     // Catch: java.lang.Throwable -> L179
-        L15e:
-            r8 = 10240(0x2800, float:1.4349E-41)
-            byte[] r8 = new byte[r8]     // Catch: java.lang.Throwable -> L179
-        L162:
-            int r10 = r9.read(r8)     // Catch: java.lang.Throwable -> L179
-            r11 = -1
-            if (r10 == r11) goto L17f
-            int r4 = r4 + r10
-            r11 = 0
-            r0 = r19
-            r0.a(r8, r11, r10)     // Catch: java.lang.Throwable -> L179
-            if (r20 == 0) goto L162
-            r10 = 0
-            r0 = r20
-            r0.a(r4, r6, r10)     // Catch: java.lang.Throwable -> L179
-            goto L162
-        L179:
-            r4 = move-exception
-            r6 = r5
-            goto Lf1
-        L17d:
-            r4 = 0
-            goto L145
-        L17f:
-            if (r20 == 0) goto L187
-            r4 = 0
-            r0 = r20
-            r0.a(r6, r6, r4)     // Catch: java.lang.Throwable -> L179
-        L187:
-            r4 = 1
-            a(r19)
-            a(r9)
-            if (r17 == 0) goto L193
-            r17.disconnect()
-        L193:
-            a(r5)
-            if (r7 == 0) goto L7a
-            r7.delete()
-            goto L7a
-        L19d:
-            java.io.IOException r5 = new java.io.IOException     // Catch: java.lang.Throwable -> Lf8
-            java.lang.StringBuilder r8 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lf8
-            r8.<init>()     // Catch: java.lang.Throwable -> Lf8
-            java.lang.Class r10 = r4.getClass()     // Catch: java.lang.Throwable -> Lf8
-            java.lang.String r10 = r10.getName()     // Catch: java.lang.Throwable -> Lf8
-            java.lang.StringBuilder r8 = r8.append(r10)     // Catch: java.lang.Throwable -> Lf8
-            java.lang.String r10 = ":"
-            java.lang.StringBuilder r8 = r8.append(r10)     // Catch: java.lang.Throwable -> Lf8
-            java.lang.String r10 = r4.getMessage()     // Catch: java.lang.Throwable -> Lf8
-            java.lang.StringBuilder r8 = r8.append(r10)     // Catch: java.lang.Throwable -> Lf8
-            java.lang.String r8 = r8.toString()     // Catch: java.lang.Throwable -> Lf8
-            r5.<init>(r8, r4)     // Catch: java.lang.Throwable -> Lf8
-            r4 = r5
-            goto Lf7
-        L1c9:
-            r4 = move-exception
-            r9 = r8
-            goto Lfa
-        L1cd:
-            r4 = move-exception
-            goto Lfa
-        L1d0:
-            r4 = move-exception
-            r9 = r10
-            goto Lfa
-        L1d4:
-            r4 = move-exception
-            r7 = r8
-            r9 = r10
-            goto Lfa
-        L1d9:
-            r4 = move-exception
-            r5 = r6
-            r7 = r8
-            r9 = r10
-            goto Lfa
-        L1df:
-            r4 = move-exception
-            r5 = r6
-            r7 = r8
-            goto Lfa
-        L1e4:
-            r4 = move-exception
-            r6 = r5
-            r9 = r8
-            goto Lf1
-        L1e9:
-            r4 = move-exception
-            r6 = r5
-            goto Lf1
-        L1ed:
-            r4 = move-exception
-            r6 = r5
-            r9 = r10
-            goto Lf1
-        L1f2:
-            r4 = move-exception
-            r6 = r5
-            r7 = r8
-            r9 = r10
-            goto Lf1
-        L1f8:
-            r4 = move-exception
-            r7 = r8
-            goto Lf1
-        L1fc:
-            r11 = r4
-            r9 = r10
-            goto L13a
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.kwad.sdk.core.download.e.a(java.net.HttpURLConnection, java.lang.String, com.kwad.sdk.core.download.e$c, com.kwad.sdk.core.download.e$b, int, long, long, boolean):boolean");
+    /* JADX WARN: Removed duplicated region for block: B:79:0x0160 A[Catch: all -> 0x018a, TryCatch #4 {all -> 0x018a, blocks: (B:77:0x015c, B:79:0x0160, B:81:0x0189, B:80:0x0163), top: B:99:0x015c }] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0163 A[Catch: all -> 0x018a, TryCatch #4 {all -> 0x018a, blocks: (B:77:0x015c, B:79:0x0160, B:81:0x0189, B:80:0x0163), top: B:99:0x015c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean a(HttpURLConnection httpURLConnection, String str, c cVar, b bVar, int i, long j, long j2, boolean z) {
+        File file;
+        FileOutputStream fileOutputStream;
+        BufferedInputStream bufferedInputStream;
+        long j3;
+        BufferedInputStream bufferedInputStream2 = null;
+        if (j > 0 || j2 > 0) {
+            try {
+                Object[] objArr = new Object[2];
+                objArr[0] = Long.valueOf(j);
+                objArr[1] = j2 > 0 ? Long.valueOf(j2) : "";
+                httpURLConnection.setRequestProperty("Range", String.format("bytes=%s-%s", objArr));
+            } catch (Throwable th) {
+                th = th;
+                file = null;
+                fileOutputStream = null;
+                try {
+                    if (th instanceof IOException) {
+                    }
+                } catch (Throwable th2) {
+                    a(cVar);
+                    a(bufferedInputStream2);
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    a(fileOutputStream);
+                    if (file != null) {
+                        file.delete();
+                    }
+                    throw th2;
+                }
+            }
+        }
+        if (!TextUtils.isEmpty(str)) {
+            httpURLConnection.setRequestProperty("Host", str);
+            httpURLConnection.setInstanceFollowRedirects(false);
+            if (httpURLConnection.getResponseCode() == 302) {
+                boolean a2 = a(httpURLConnection.getHeaderField("Location"), (String) null, cVar, bVar, i);
+                a(cVar);
+                a(null);
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                a(null);
+                return a2;
+            }
+        }
+        httpURLConnection.setRequestProperty("User-Agent", k.a());
+        BufferedInputStream bufferedInputStream3 = new BufferedInputStream(httpURLConnection.getInputStream());
+        try {
+            int contentLength = httpURLConnection.getContentLength();
+            HashMap hashMap = httpURLConnection.getHeaderFields() == null ? new HashMap() : new HashMap(httpURLConnection.getHeaderFields());
+            BufferedInputStream bufferedInputStream4 = new BufferedInputStream(httpURLConnection.getInputStream());
+            if (contentLength <= 0) {
+                try {
+                    Random random = new Random(System.currentTimeMillis());
+                    file = new File(f33587a, random.nextInt() + ".tmp");
+                } catch (Throwable th3) {
+                    th = th3;
+                    file = null;
+                    fileOutputStream = null;
+                }
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                    try {
+                        byte[] bArr = new byte[10240];
+                        contentLength = 0;
+                        while (true) {
+                            int read = bufferedInputStream4.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            contentLength += read;
+                            fileOutputStream.write(bArr, 0, read);
+                        }
+                        a(bufferedInputStream4);
+                        a(fileOutputStream);
+                        bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
+                    } catch (Throwable th4) {
+                        th = th4;
+                        bufferedInputStream2 = bufferedInputStream4;
+                        if (th instanceof IOException) {
+                            throw new IOException(th.getClass().getName() + ":" + th.getMessage(), th);
+                        }
+                        throw th;
+                    }
+                    try {
+                        hashMap.put("Content-Length", Collections.singletonList(String.valueOf(contentLength)));
+                        bufferedInputStream4 = bufferedInputStream;
+                        j3 = 0;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        bufferedInputStream2 = bufferedInputStream;
+                        if (th instanceof IOException) {
+                        }
+                    }
+                } catch (Throwable th6) {
+                    th = th6;
+                    fileOutputStream = null;
+                    bufferedInputStream2 = bufferedInputStream4;
+                    if (th instanceof IOException) {
+                    }
+                }
+            } else {
+                j3 = 0;
+                file = null;
+                fileOutputStream = null;
+            }
+            int i2 = (j <= j3 || !z) ? 0 : (int) j;
+            int i3 = contentLength + i2;
+            cVar.a(i3);
+            cVar.a(httpURLConnection.getResponseCode(), hashMap);
+            if (bVar != null) {
+                bVar.a(i2, i3, null);
+            }
+            byte[] bArr2 = new byte[10240];
+            while (true) {
+                int read2 = bufferedInputStream4.read(bArr2);
+                if (read2 == -1) {
+                    break;
+                }
+                i2 += read2;
+                cVar.a(bArr2, 0, read2);
+                if (bVar != null) {
+                    bVar.a(i2, i3, null);
+                }
+            }
+            if (bVar != null) {
+                bVar.a(i3, i3, null);
+            }
+            a(cVar);
+            a(bufferedInputStream4);
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+            a(fileOutputStream);
+            if (file != null) {
+                file.delete();
+                return true;
+            }
+            return true;
+        } catch (Throwable th7) {
+            th = th7;
+            file = null;
+            fileOutputStream = null;
+            bufferedInputStream2 = bufferedInputStream3;
+        }
     }
 }

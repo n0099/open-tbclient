@@ -1,62 +1,157 @@
 package com.xiaomi.push;
 
-import android.annotation.TargetApi;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
-import android.content.ComponentName;
-import android.content.Context;
-import android.os.SystemClock;
-import com.xiaomi.push.fc;
-import com.xiaomi.push.service.XMJobService;
-@TargetApi(21)
-/* loaded from: classes5.dex */
-public class fe implements fc.a {
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.zip.GZIPInputStream;
+/* loaded from: classes7.dex */
+public class fe {
 
     /* renamed from: a  reason: collision with root package name */
-    JobScheduler f8362a;
+    public static final byte[] f40497a = {80, 85, 83, 72};
 
     /* renamed from: a  reason: collision with other field name */
-    Context f316a;
+    public byte f374a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f317a = false;
+    public int f375a;
 
-    fe(Context context) {
-        this.f316a = context;
-        this.f8362a = (JobScheduler) context.getSystemService("jobscheduler");
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public short f376a;
 
-    @Override // com.xiaomi.push.fc.a
-    public void a() {
-        this.f317a = false;
-        this.f8362a.cancel(1);
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public byte[] f40498b;
 
-    void a(long j) {
-        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f316a.getPackageName(), XMJobService.class.getName()));
-        builder.setMinimumLatency(j);
-        builder.setOverrideDeadline(j);
-        builder.setRequiredNetworkType(1);
-        builder.setPersisted(false);
-        com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + builder.build().getId() + " in " + j);
-        this.f8362a.schedule(builder.build());
-    }
+    /* loaded from: classes7.dex */
+    public static class a {
 
-    @Override // com.xiaomi.push.fc.a
-    public void a(boolean z) {
-        if (z || this.f317a) {
-            long b = fy.b();
-            if (z) {
-                a();
-                b -= SystemClock.elapsedRealtime() % b;
+        /* renamed from: a  reason: collision with root package name */
+        public static final c f40499a = new c();
+
+        /* renamed from: a  reason: collision with other field name */
+        public static final d f377a = new d();
+
+        public static byte[] a(byte[] bArr) {
+            return a(bArr, f377a);
+        }
+
+        public static byte[] a(byte[] bArr, b bVar) {
+            if (fe.m294a(bArr)) {
+                fe a2 = fe.a(bArr);
+                return (a2.f374a == 0 || a2.f374a != bVar.a()) ? a2.f40498b : bVar.a(a2.f40498b, a2.f375a);
             }
-            this.f317a = true;
-            a(b);
+            return bArr;
         }
     }
 
-    @Override // com.xiaomi.push.fc.a
-    public boolean a() {
-        return this.f317a;
+    /* loaded from: classes7.dex */
+    public interface b {
+        byte a();
+
+        byte[] a(byte[] bArr, int i);
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c {
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d implements b {
+        @Override // com.xiaomi.push.fe.b
+        public byte a() {
+            return (byte) 2;
+        }
+
+        @Override // com.xiaomi.push.fe.b
+        public byte[] a(byte[] bArr, int i) {
+            GZIPInputStream gZIPInputStream = null;
+            try {
+                GZIPInputStream gZIPInputStream2 = new GZIPInputStream(new ByteArrayInputStream(bArr), i);
+                try {
+                    byte[] bArr2 = new byte[i];
+                    gZIPInputStream2.read(bArr2);
+                    try {
+                        gZIPInputStream2.close();
+                    } catch (IOException unused) {
+                    }
+                    return bArr2;
+                } catch (IOException unused2) {
+                    gZIPInputStream = gZIPInputStream2;
+                    if (gZIPInputStream != null) {
+                        try {
+                            gZIPInputStream.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    return bArr;
+                } catch (Throwable th) {
+                    th = th;
+                    gZIPInputStream = gZIPInputStream2;
+                    if (gZIPInputStream != null) {
+                        try {
+                            gZIPInputStream.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException unused5) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
+    }
+
+    public fe(byte b2, int i, byte[] bArr) {
+        this((short) 1, b2, i, bArr);
+    }
+
+    public fe(short s, byte b2, int i, byte[] bArr) {
+        this.f376a = (short) 1;
+        this.f376a = s;
+        this.f374a = b2;
+        this.f375a = i;
+        this.f40498b = bArr;
+    }
+
+    public static fe a(byte b2, int i, byte[] bArr) {
+        return new fe(b2, i, bArr);
+    }
+
+    public static fe a(short s, byte b2, int i, byte[] bArr) {
+        return new fe(s, b2, i, bArr);
+    }
+
+    public static fe a(byte[] bArr) {
+        if (m294a(bArr)) {
+            ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
+            order.getInt();
+            short s = order.getShort();
+            byte b2 = order.get();
+            int i = order.getInt();
+            byte[] bArr2 = new byte[order.getInt()];
+            order.get(bArr2);
+            return a(s, b2, i, bArr2);
+        }
+        return a((byte) 0, bArr.length, bArr);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m294a(byte[] bArr) {
+        byte[] bArr2 = f40497a;
+        return a(bArr2, bArr, bArr2.length);
+    }
+
+    public static boolean a(byte[] bArr, byte[] bArr2, int i) {
+        if (bArr.length < i || bArr2.length < i) {
+            return false;
+        }
+        for (int i2 = 0; i2 < i; i2++) {
+            if (bArr[i2] != bArr2[i2]) {
+                return false;
+            }
+        }
+        return true;
     }
 }

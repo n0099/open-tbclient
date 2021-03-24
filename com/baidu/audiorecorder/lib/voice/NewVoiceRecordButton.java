@@ -9,265 +9,125 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.base.j;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes7.dex */
-public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.lib.voice.f, n {
-    private FrameLayout aeg;
-    private ImageView aeh;
-    private RecordingAnimView aei;
-    private TextView aej;
-    private TextView aek;
-    private EditorTools ael;
-    private int aem;
-    private boolean aen;
-    private com.baidu.tbadk.core.dialog.a aeo;
-    private VoiceData.VoiceModel mModel;
-    private PermissionJudgePolicy mPermissionJudgePolicy;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import d.b.b.a.j;
+import d.b.b.e.q.f;
+import d.b.h0.r.s.a;
+import d.b.h0.w.n;
+/* loaded from: classes2.dex */
+public class NewVoiceRecordButton extends LinearLayout implements f, n {
+
+    /* renamed from: e  reason: collision with root package name */
+    public FrameLayout f4238e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f4239f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public RecordingAnimView f4240g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f4241h;
+    public TextView i;
+    public EditorTools j;
+    public int k;
+    public VoiceData$VoiceModel l;
+    public boolean m;
+    public d.b.h0.r.s.a n;
+    public PermissionJudgePolicy o;
+
+    /* loaded from: classes2.dex */
+    public class a implements View.OnTouchListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action == 1) {
+                    if (NewVoiceRecordButton.this.l == null) {
+                        NewVoiceRecordButton.this.n();
+                    } else {
+                        NewVoiceRecordButton.this.l();
+                    }
+                }
+            } else if (NewVoiceRecordButton.this.l == null) {
+                NewVoiceRecordButton.this.m();
+            }
+            return true;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements a.e {
+        public b() {
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            aVar.dismiss();
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class c implements a.e {
+        public c() {
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            aVar.dismiss();
+            NewVoiceRecordButton.this.d(new d.b.h0.w.a(11, -1, null));
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class d implements Runnable {
+        public d() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (NewVoiceRecordButton.this.f4241h == null || NewVoiceRecordButton.this.m) {
+                return;
+            }
+            NewVoiceRecordButton.this.f4241h.setVisibility(4);
+            NewVoiceRecordButton.this.f4241h.setText("");
+        }
+    }
 
     public NewVoiceRecordButton(Context context) {
         super(context);
-        this.aem = 0;
-        initView();
+        this.k = 0;
+        j();
     }
 
-    private void initView() {
-        inflate(getContext(), R.layout.layou_new_record_button, this);
-        this.aeg = (FrameLayout) findViewById(R.id.layout_record_button);
-        this.aeh = (ImageView) findViewById(R.id.iv_record_init);
-        this.aei = (RecordingAnimView) findViewById(R.id.record_anim_view);
-        this.aei.setCertainColumnCount(8);
-        this.aei.setColumnColor(R.color.CAM_X0111);
-        this.aei.setColumnWidth(getResources().getDimensionPixelSize(R.dimen.ds4));
-        this.aej = (TextView) findViewById(R.id.tv_duration);
-        this.aek = (TextView) findViewById(R.id.tv_tip);
-        this.aeg.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.1
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()) {
-                    case 0:
-                        if (NewVoiceRecordButton.this.mModel == null) {
-                            NewVoiceRecordButton.this.startRecord();
-                            return true;
-                        }
-                        return true;
-                    case 1:
-                        if (NewVoiceRecordButton.this.mModel == null) {
-                            NewVoiceRecordButton.this.stopRecord();
-                            return true;
-                        }
-                        NewVoiceRecordButton.this.rS();
-                        return true;
-                    default:
-                        return true;
-                }
-            }
-        });
-        com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
-        if (recorderManager != null) {
-            recorderManager.a(this);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void rS() {
-        if (this.aeo == null) {
-            this.aeo = new com.baidu.tbadk.core.dialog.a(j.J(getContext()).getPageActivity());
-            this.aeo.AB(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    aVar.dismiss();
-                    NewVoiceRecordButton.this.b(new com.baidu.tbadk.editortools.a(11, -1, null));
-                }
-            }).b(getContext().getString(R.string.cancel), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    aVar.dismiss();
-                }
-            }).b(j.J(getContext()));
-        }
-        this.aeo.bqz();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startRecord() {
-        if (getContext() instanceof Activity) {
-            if (this.mPermissionJudgePolicy == null) {
-                this.mPermissionJudgePolicy = new PermissionJudgePolicy();
-            }
-            this.mPermissionJudgePolicy.clearRequestPermissionList();
-            this.mPermissionJudgePolicy.appendRequestPermission((Activity) getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            this.mPermissionJudgePolicy.appendRequestPermission((Activity) getContext(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-            if (this.mPermissionJudgePolicy.startRequestPermission((Activity) getContext())) {
-                return;
-            }
-        }
-        if (this.mModel != null) {
-            com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.BS(this.mModel.voiceId));
-        }
-        com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
-        if (recorderManager != null && recorderManager.rV()) {
-            this.aen = recorderManager.a(this, -1);
-            this.aej.setVisibility(0);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void stopRecord() {
-        this.aeh.setVisibility(0);
-        this.aei.rZ();
-        this.aei.setVisibility(4);
-        this.aek.setText(getResources().getText(R.string.voice_record_press_to_record));
-        this.aej.setVisibility(4);
-        com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
-        if (this.aen && recorderManager != null) {
-            recorderManager.stopRecord();
-        }
-        this.aen = false;
-    }
-
-    @Override // com.baidu.tbadk.editortools.b
-    public void a(com.baidu.tbadk.editortools.a aVar) {
-        if (aVar != null) {
-            switch (aVar.code) {
-                case 1:
-                    TiebaStatic.log(new ar("c12612").aq("obj_locate", 6));
-                    return;
-                case 9:
-                    reset();
-                    return;
-                case 52:
-                    if (aVar.data instanceof VoiceData.VoiceModel) {
-                        this.mModel = (VoiceData.VoiceModel) aVar.data;
-                        this.aek.setText(getResources().getText(R.string.voice_restart));
-                        return;
-                    }
-                    reset();
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    private void reset() {
-        this.mModel = null;
-        this.aek.setText(getResources().getText(R.string.voice_record_press_to_record));
-        this.aej.setText("");
-        this.aej.setVisibility(4);
-    }
-
-    @Override // com.baidu.adp.lib.voice.f
-    public void onStartedRecorder(boolean z) {
-        if (z) {
-            this.aeh.setVisibility(4);
-            this.aei.setVisibility(0);
-            this.aei.start();
-            this.aek.setText(getResources().getText(R.string.voice_record_release_to_stop));
-        }
-    }
-
-    @Override // com.baidu.adp.lib.voice.f
-    public void onStopingRecorder() {
-    }
-
-    @Override // com.baidu.adp.lib.voice.f
-    public void onShowErr(int i, String str) {
-        this.aej.setVisibility(0);
-        this.aej.setText(str);
-        postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.4
-            @Override // java.lang.Runnable
-            public void run() {
-                if (NewVoiceRecordButton.this.aej != null && !NewVoiceRecordButton.this.aen) {
-                    NewVoiceRecordButton.this.aej.setVisibility(4);
-                    NewVoiceRecordButton.this.aej.setText("");
-                }
-            }
-        }, 2000L);
-    }
-
-    @Override // com.baidu.adp.lib.voice.f
-    public void onSendVoice(String str, int i) {
-        if (!TextUtils.isEmpty(str) && i > 0) {
-            this.mModel = new VoiceData.VoiceModel();
-            this.mModel.duration = i;
-            this.mModel.isLocal = true;
-            this.mModel.voiceId = str;
-            this.mModel.voice_status = 1;
-            this.aek.setText(getResources().getText(R.string.voice_restart));
-            b(new com.baidu.tbadk.editortools.a(10, -1, this.mModel));
-        }
-    }
-
-    @Override // com.baidu.adp.lib.voice.f
-    public void onDeletedVoice(String str) {
-    }
-
-    @Override // com.baidu.adp.lib.voice.f
-    public void onShowRecordTime(int i) {
-        this.aej.setText(VoiceManager.formatVoiceTime(i));
-    }
-
-    @Override // com.baidu.adp.lib.voice.f
-    public void onShowRecording(int i) {
-    }
-
-    @Override // com.baidu.tbadk.editortools.n
-    public void setEditorTools(EditorTools editorTools) {
-        this.ael = editorTools;
-    }
-
-    @Override // com.baidu.tbadk.editortools.n
-    public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.ael != null) {
-            this.ael.b(aVar);
-        }
-    }
-
-    @Override // com.baidu.tbadk.editortools.n
-    public void setToolId(int i) {
-        this.aem = i;
-    }
-
-    @Override // com.baidu.tbadk.editortools.n
-    public int getToolId() {
-        return this.aem;
-    }
-
-    @Override // com.baidu.tbadk.editortools.n
-    public void init() {
-    }
-
-    @Override // com.baidu.tbadk.editortools.n
-    public void display() {
+    @Override // d.b.h0.w.n
+    public void b() {
         setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.editortools.n
-    public void hide() {
-        setVisibility(8);
+    @Override // d.b.h0.w.n
+    public void d(d.b.h0.w.a aVar) {
+        EditorTools editorTools = this.j;
+        if (editorTools != null) {
+            editorTools.A(aVar);
+        }
     }
 
-    @Override // com.baidu.tbadk.editortools.n
-    public void onChangeSkinType(int i) {
-        ap.setViewTextColor(this.aek, R.color.CAM_X0106, 1, i);
-        ap.setViewTextColor(this.aej, R.color.CAM_X0302, 1, i);
-        ap.setBackgroundResource(this.aeh, R.drawable.ic_post_record, i);
-        this.aei.onChangeSkinType(i);
-    }
-
-    public com.baidu.tieba.tbadkCore.voice.a getRecorderManager() {
+    public d.b.i0.c3.p0.a getRecorderManager() {
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager == null || voiceManager.getRecorderManager() == null) {
             return null;
@@ -275,15 +135,189 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
         return voiceManager.getRecorderManager();
     }
 
+    @Override // d.b.h0.w.n
+    public int getToolId() {
+        return this.k;
+    }
+
     public VoiceManager getVoiceManager() {
         TbPageContext tbPageContext;
         Context context = getContext();
-        if (context instanceof VoiceManager.c) {
-            return ((VoiceManager.c) context).getVoiceManager();
+        if (context instanceof VoiceManager.j) {
+            return ((VoiceManager.j) context).getVoiceManager();
         }
-        if ((j.J(getContext()) instanceof com.baidu.adp.base.f) && (tbPageContext = (TbPageContext) j.J(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
-            return ((VoiceManager.c) tbPageContext.getOrignalPage()).getVoiceManager();
+        if ((j.a(getContext()) instanceof d.b.b.a.f) && (tbPageContext = (TbPageContext) j.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
+            return ((VoiceManager.j) tbPageContext.getOrignalPage()).getVoiceManager();
         }
         return null;
+    }
+
+    @Override // d.b.h0.w.n
+    public void hide() {
+        setVisibility(8);
+    }
+
+    @Override // d.b.h0.w.n
+    public void init() {
+    }
+
+    public final void j() {
+        LinearLayout.inflate(getContext(), R.layout.layou_new_record_button, this);
+        this.f4238e = (FrameLayout) findViewById(R.id.layout_record_button);
+        this.f4239f = (ImageView) findViewById(R.id.iv_record_init);
+        RecordingAnimView recordingAnimView = (RecordingAnimView) findViewById(R.id.record_anim_view);
+        this.f4240g = recordingAnimView;
+        recordingAnimView.setCertainColumnCount(8);
+        this.f4240g.setColumnColor(R.color.CAM_X0111);
+        this.f4240g.setColumnWidth(getResources().getDimensionPixelSize(R.dimen.ds4));
+        this.f4241h = (TextView) findViewById(R.id.tv_duration);
+        this.i = (TextView) findViewById(R.id.tv_tip);
+        this.f4238e.setOnTouchListener(new a());
+        d.b.i0.c3.p0.a recorderManager = getRecorderManager();
+        if (recorderManager != null) {
+            recorderManager.b(this);
+        }
+    }
+
+    public final void k() {
+        this.l = null;
+        this.i.setText(getResources().getText(R.string.voice_record_press_to_record));
+        this.f4241h.setText("");
+        this.f4241h.setVisibility(4);
+    }
+
+    public final void l() {
+        if (this.n == null) {
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(j.a(getContext()).getPageActivity());
+            this.n = aVar;
+            aVar.setMessage(getContext().getString(R.string.voice_restart_tip)).setPositiveButton(getContext().getString(R.string.voice_restart), new c()).setNegativeButton(getContext().getString(R.string.cancel), new b()).create(j.a(getContext()));
+        }
+        this.n.show();
+    }
+
+    public final void m() {
+        if (getContext() instanceof Activity) {
+            if (this.o == null) {
+                this.o = new PermissionJudgePolicy();
+            }
+            this.o.clearRequestPermissionList();
+            this.o.appendRequestPermission((Activity) getContext(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            this.o.appendRequestPermission((Activity) getContext(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+            if (this.o.startRequestPermission((Activity) getContext())) {
+                return;
+            }
+        }
+        VoiceData$VoiceModel voiceData$VoiceModel = this.l;
+        if (voiceData$VoiceModel != null) {
+            d.b.h0.r.g0.a.a(d.b.h0.r.g0.a.b(voiceData$VoiceModel.voiceId));
+        }
+        d.b.i0.c3.p0.a recorderManager = getRecorderManager();
+        if (recorderManager == null || !recorderManager.d()) {
+            return;
+        }
+        this.m = recorderManager.c(this, -1);
+        this.f4241h.setVisibility(0);
+    }
+
+    public final void n() {
+        this.f4239f.setVisibility(0);
+        this.f4240g.g();
+        this.f4240g.setVisibility(4);
+        this.i.setText(getResources().getText(R.string.voice_record_press_to_record));
+        this.f4241h.setVisibility(4);
+        d.b.i0.c3.p0.a recorderManager = getRecorderManager();
+        if (this.m && recorderManager != null) {
+            recorderManager.stopRecord();
+        }
+        this.m = false;
+    }
+
+    @Override // d.b.h0.w.b
+    public void onAction(d.b.h0.w.a aVar) {
+        if (aVar == null) {
+            return;
+        }
+        int i = aVar.f51523a;
+        if (i == 1) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 6));
+        } else if (i == 9) {
+            k();
+        } else if (i != 52) {
+        } else {
+            Object obj = aVar.f51525c;
+            if (obj instanceof VoiceData$VoiceModel) {
+                this.l = (VoiceData$VoiceModel) obj;
+                this.i.setText(getResources().getText(R.string.voice_restart));
+                return;
+            }
+            k();
+        }
+    }
+
+    @Override // d.b.h0.w.n
+    public void onChangeSkinType(int i) {
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1, i);
+        SkinManager.setViewTextColor(this.f4241h, R.color.CAM_X0302, 1, i);
+        SkinManager.setBackgroundResource(this.f4239f, R.drawable.ic_post_record, i);
+        this.f4240g.f(i);
+    }
+
+    @Override // d.b.b.e.q.f
+    public void onDeletedVoice(String str) {
+    }
+
+    @Override // d.b.b.e.q.f
+    public void onSendVoice(String str, int i) {
+        if (TextUtils.isEmpty(str) || i <= 0) {
+            return;
+        }
+        VoiceData$VoiceModel voiceData$VoiceModel = new VoiceData$VoiceModel();
+        this.l = voiceData$VoiceModel;
+        voiceData$VoiceModel.duration = i;
+        voiceData$VoiceModel.isLocal = true;
+        voiceData$VoiceModel.voiceId = str;
+        voiceData$VoiceModel.voice_status = 1;
+        this.i.setText(getResources().getText(R.string.voice_restart));
+        d(new d.b.h0.w.a(10, -1, this.l));
+    }
+
+    @Override // d.b.b.e.q.f
+    public void onShowErr(int i, String str) {
+        this.f4241h.setVisibility(0);
+        this.f4241h.setText(str);
+        postDelayed(new d(), 2000L);
+    }
+
+    @Override // d.b.b.e.q.f
+    public void onShowRecordTime(int i) {
+        this.f4241h.setText(VoiceManager.formatVoiceTime(i));
+    }
+
+    @Override // d.b.b.e.q.f
+    public void onShowRecording(int i) {
+    }
+
+    @Override // d.b.b.e.q.f
+    public void onStartedRecorder(boolean z) {
+        if (z) {
+            this.f4239f.setVisibility(4);
+            this.f4240g.setVisibility(0);
+            this.f4240g.h();
+            this.i.setText(getResources().getText(R.string.voice_record_release_to_stop));
+        }
+    }
+
+    @Override // d.b.b.e.q.f
+    public void onStopingRecorder() {
+    }
+
+    @Override // d.b.h0.w.n
+    public void setEditorTools(EditorTools editorTools) {
+        this.j = editorTools;
+    }
+
+    @Override // d.b.h0.w.n
+    public void setToolId(int i) {
+        this.k = i;
     }
 }

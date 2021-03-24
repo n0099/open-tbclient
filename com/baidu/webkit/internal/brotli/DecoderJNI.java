@@ -4,19 +4,20 @@ import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class DecoderJNI implements INoProGuard {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class Wrapper implements INoProGuard {
-        private final ByteBuffer inputBuffer;
-        private final long[] context = new long[3];
-        private a lastStatus = a.NEEDS_MORE_INPUT;
-        private boolean fresh = true;
+        public final long[] context;
+        public final ByteBuffer inputBuffer;
+        public a lastStatus = a.NEEDS_MORE_INPUT;
+        public boolean fresh = true;
 
         public Wrapper(int i) throws IOException {
-            this.context[1] = i;
-            this.inputBuffer = WebSettingsGlobalBlink.kernelBrotliCreate(this.context);
+            this.context = r0;
+            long[] jArr = {0, i};
+            this.inputBuffer = WebSettingsGlobalBlink.kernelBrotliCreate(jArr);
             if (this.context[0] == 0) {
                 throw new IOException("failed to initialize native brotli decoder");
             }
@@ -24,28 +25,19 @@ public class DecoderJNI implements INoProGuard {
 
         private void parseStatus() {
             long j = this.context[1];
-            if (j == 1) {
-                this.lastStatus = a.DONE;
-            } else if (j == 2) {
-                this.lastStatus = a.NEEDS_MORE_INPUT;
-            } else if (j == 3) {
-                this.lastStatus = a.NEEDS_MORE_OUTPUT;
-            } else if (j == 4) {
-                this.lastStatus = a.OK;
-            } else {
-                this.lastStatus = a.ERROR;
-            }
+            this.lastStatus = j == 1 ? a.DONE : j == 2 ? a.NEEDS_MORE_INPUT : j == 3 ? a.NEEDS_MORE_OUTPUT : j == 4 ? a.OK : a.ERROR;
         }
 
         public void destroy() {
-            if (this.context[0] == 0) {
+            long[] jArr = this.context;
+            if (jArr[0] == 0) {
                 throw new IllegalStateException("brotli decoder is already destroyed");
             }
-            WebSettingsGlobalBlink.kernelBrotliDestroy(this.context);
+            WebSettingsGlobalBlink.kernelBrotliDestroy(jArr);
             this.context[0] = 0;
         }
 
-        protected void finalize() throws Throwable {
+        public void finalize() throws Throwable {
             if (this.context[0] != 0) {
                 destroy();
             }
@@ -65,16 +57,16 @@ public class DecoderJNI implements INoProGuard {
         }
 
         public ByteBuffer pull() {
-            if (this.context[0] == 0) {
-                throw new IllegalStateException("brotli decoder is already destroyed");
+            if (this.context[0] != 0) {
+                if (this.lastStatus == a.NEEDS_MORE_OUTPUT || hasOutput()) {
+                    this.fresh = false;
+                    ByteBuffer kernelBrotliPull = WebSettingsGlobalBlink.kernelBrotliPull(this.context);
+                    parseStatus();
+                    return kernelBrotliPull;
+                }
+                throw new IllegalStateException("pulling output from decoder in " + this.lastStatus + " state");
             }
-            if (this.lastStatus == a.NEEDS_MORE_OUTPUT || hasOutput()) {
-                this.fresh = false;
-                ByteBuffer kernelBrotliPull = WebSettingsGlobalBlink.kernelBrotliPull(this.context);
-                parseStatus();
-                return kernelBrotliPull;
-            }
-            throw new IllegalStateException("pulling output from decoder in " + this.lastStatus + " state");
+            throw new IllegalStateException("brotli decoder is already destroyed");
         }
 
         public void push(int i) {
@@ -84,19 +76,20 @@ public class DecoderJNI implements INoProGuard {
             if (this.context[0] == 0) {
                 throw new IllegalStateException("brotli decoder is already destroyed");
             }
-            if (this.lastStatus != a.NEEDS_MORE_INPUT && this.lastStatus != a.OK) {
+            a aVar = this.lastStatus;
+            if (aVar != a.NEEDS_MORE_INPUT && aVar != a.OK) {
                 throw new IllegalStateException("pushing input to decoder in " + this.lastStatus + " state");
-            }
-            if (this.lastStatus == a.OK && i != 0) {
+            } else if (this.lastStatus == a.OK && i != 0) {
                 throw new IllegalStateException("pushing input to decoder in OK state");
+            } else {
+                this.fresh = false;
+                WebSettingsGlobalBlink.kernelBrotliPush(this.context, i);
+                parseStatus();
             }
-            this.fresh = false;
-            WebSettingsGlobalBlink.kernelBrotliPush(this.context, i);
-            parseStatus();
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum a {
         ERROR,
         DONE,

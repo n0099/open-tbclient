@@ -5,59 +5,66 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class NewFaceSyncDownloadModel extends FaceBaseModel {
-    private final HttpMessageListener lCC = new HttpMessageListener(1003351) { // from class: com.baidu.tieba.newfaceshop.NewFaceSyncDownloadModel.1
+
+    /* renamed from: e  reason: collision with root package name */
+    public final HttpMessageListener f19217e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
+        public a(NewFaceSyncDownloadModel newFaceSyncDownloadModel, int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            com.baidu.tieba.newfaceshop.a.a aVar;
             Object extra;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                if (httpResponsedMessage.getOrginalMessage() == null || (extra = httpResponsedMessage.getOrginalMessage().getExtra()) == null || !(extra instanceof com.baidu.tieba.newfaceshop.a.a)) {
-                    aVar = null;
-                } else {
-                    aVar = (com.baidu.tieba.newfaceshop.a.a) extra;
+                d.b.i0.x1.e.a aVar = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof d.b.i0.x1.e.a)) {
+                    aVar = (d.b.i0.x1.e.a) extra;
                 }
                 if (aVar != null) {
                     aVar.a((GetCloudFaceGroupMessage) httpResponsedMessage);
                 }
             }
         }
-    };
+    }
 
     public NewFaceSyncDownloadModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.lCC.setTag(getUniqueId());
-        this.lCC.setSelfListener(true);
-        registerListener(this.lCC);
-    }
-
-    private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003351, TbConfig.SERVER_ADDRESS + Config.SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
-        tbHttpMessageTask.setResponsedClass(GetCloudFaceGroupMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public void a(com.baidu.tieba.newfaceshop.a.a aVar) {
-        HttpMessage httpMessage = new HttpMessage(1003351);
-        httpMessage.setExtra(aVar);
-        sendMessage(httpMessage);
+        this.f19217e.setTag(getUniqueId());
+        this.f19217e.setSelfListener(true);
+        registerListener(this.f19217e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterTask(1003351);
+        MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
         return true;
+    }
+
+    public final void registerTask() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP, TbConfig.SERVER_ADDRESS + "c/e/meme/getAllMeme");
+        tbHttpMessageTask.setResponsedClass(GetCloudFaceGroupMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public void s(d.b.i0.x1.e.a aVar) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
+        httpMessage.setExtra(aVar);
+        sendMessage(httpMessage);
     }
 }

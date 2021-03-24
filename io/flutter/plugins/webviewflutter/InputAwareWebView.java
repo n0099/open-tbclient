@@ -8,101 +8,43 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.ListPopupWindow;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class InputAwareWebView extends WebView {
-    private static final String TAG = "InputAwareWebView";
-    private View containerView;
-    private OnScrollChangedCallback mOnScrollChangedCallback;
-    private ThreadedInputConnectionProxyAdapterView proxyAdapterView;
-    private View threadedInputConnectionProxyView;
+    public static final String TAG = "InputAwareWebView";
+    public View containerView;
+    public OnScrollChangedCallback mOnScrollChangedCallback;
+    public ThreadedInputConnectionProxyAdapterView proxyAdapterView;
+    public View threadedInputConnectionProxyView;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes7.dex */
     public interface OnScrollChangedCallback {
         void onScroll(int i, int i2, int i3, int i4);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public InputAwareWebView(Context context, View view) {
         super(context);
         this.containerView = view;
     }
 
-    @Override // android.webkit.WebView, android.view.View
-    protected void onScrollChanged(int i, int i2, int i3, int i4) {
-        super.onScrollChanged(i, i2, i3, i4);
-        if (this.mOnScrollChangedCallback != null) {
-            this.mOnScrollChangedCallback.onScroll(i, i2, i3, i4);
-        }
-    }
-
-    public OnScrollChangedCallback getOnScrollChangedCallback() {
-        return this.mOnScrollChangedCallback;
-    }
-
-    public void setOnScrollChangedCallback(OnScrollChangedCallback onScrollChangedCallback) {
-        this.mOnScrollChangedCallback = onScrollChangedCallback;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setContainerView(View view) {
-        this.containerView = view;
-        if (this.proxyAdapterView != null) {
-            Log.w(TAG, "The containerView has changed while the proxyAdapterView exists.");
-            if (view != null) {
-                setInputConnectionTarget(this.proxyAdapterView);
+    private boolean isCalledFromListPopupWindowShow() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        for (int i = 0; i < stackTrace.length; i++) {
+            if (stackTrace[i].getClassName().equals(ListPopupWindow.class.getCanonicalName()) && stackTrace[i].getMethodName().equals("show")) {
+                return true;
             }
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void lockInputConnection() {
-        if (this.proxyAdapterView != null) {
-            this.proxyAdapterView.setLocked(true);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void unlockInputConnection() {
-        if (this.proxyAdapterView != null) {
-            this.proxyAdapterView.setLocked(false);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dispose() {
-        resetInputConnection();
-    }
-
-    @Override // android.view.View
-    public boolean checkInputConnectionProxy(View view) {
-        View view2 = this.threadedInputConnectionProxyView;
-        this.threadedInputConnectionProxyView = view;
-        if (view2 == view) {
-            return super.checkInputConnectionProxy(view);
-        }
-        if (this.containerView == null) {
-            Log.e(TAG, "Can't create a proxy view because there's no container view. Text input may not work.");
-            return super.checkInputConnectionProxy(view);
-        }
-        this.proxyAdapterView = new ThreadedInputConnectionProxyAdapterView(this.containerView, view, view.getHandler());
-        setInputConnectionTarget(this.proxyAdapterView);
-        return super.checkInputConnectionProxy(view);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void clearFocus() {
-        super.clearFocus();
-        resetInputConnection();
+        return false;
     }
 
     private void resetInputConnection() {
-        if (this.proxyAdapterView != null) {
-            if (this.containerView == null) {
-                Log.e(TAG, "Can't reset the input connection to the container view because there is none.");
-            } else {
-                setInputConnectionTarget(this.containerView);
-            }
+        if (this.proxyAdapterView == null) {
+            return;
+        }
+        View view = this.containerView;
+        if (view == null) {
+            Log.e(TAG, "Can't reset the input connection to the container view because there is none.");
+        } else {
+            setInputConnectionTarget(view);
         }
     }
 
@@ -121,20 +63,82 @@ public final class InputAwareWebView extends WebView {
         });
     }
 
+    @Override // android.view.View
+    public boolean checkInputConnectionProxy(View view) {
+        View view2 = this.threadedInputConnectionProxyView;
+        this.threadedInputConnectionProxyView = view;
+        if (view2 == view) {
+            return super.checkInputConnectionProxy(view);
+        }
+        View view3 = this.containerView;
+        if (view3 == null) {
+            Log.e(TAG, "Can't create a proxy view because there's no container view. Text input may not work.");
+            return super.checkInputConnectionProxy(view);
+        }
+        ThreadedInputConnectionProxyAdapterView threadedInputConnectionProxyAdapterView = new ThreadedInputConnectionProxyAdapterView(view3, view, view.getHandler());
+        this.proxyAdapterView = threadedInputConnectionProxyAdapterView;
+        setInputConnectionTarget(threadedInputConnectionProxyAdapterView);
+        return super.checkInputConnectionProxy(view);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void clearFocus() {
+        super.clearFocus();
+        resetInputConnection();
+    }
+
+    public void dispose() {
+        resetInputConnection();
+    }
+
+    public OnScrollChangedCallback getOnScrollChangedCallback() {
+        return this.mOnScrollChangedCallback;
+    }
+
+    public void lockInputConnection() {
+        ThreadedInputConnectionProxyAdapterView threadedInputConnectionProxyAdapterView = this.proxyAdapterView;
+        if (threadedInputConnectionProxyAdapterView == null) {
+            return;
+        }
+        threadedInputConnectionProxyAdapterView.setLocked(true);
+    }
+
     @Override // android.webkit.WebView, android.view.View
-    protected void onFocusChanged(boolean z, int i, Rect rect) {
+    public void onFocusChanged(boolean z, int i, Rect rect) {
         if (Build.VERSION.SDK_INT >= 27 || !isCalledFromListPopupWindowShow() || z) {
             super.onFocusChanged(z, i, rect);
         }
     }
 
-    private boolean isCalledFromListPopupWindowShow() {
-        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-        for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().equals(ListPopupWindow.class.getCanonicalName()) && stackTrace[i].getMethodName().equals("show")) {
-                return true;
-            }
+    @Override // android.webkit.WebView, android.view.View
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        super.onScrollChanged(i, i2, i3, i4);
+        OnScrollChangedCallback onScrollChangedCallback = this.mOnScrollChangedCallback;
+        if (onScrollChangedCallback != null) {
+            onScrollChangedCallback.onScroll(i, i2, i3, i4);
         }
-        return false;
+    }
+
+    public void setContainerView(View view) {
+        this.containerView = view;
+        if (this.proxyAdapterView == null) {
+            return;
+        }
+        Log.w(TAG, "The containerView has changed while the proxyAdapterView exists.");
+        if (view != null) {
+            setInputConnectionTarget(this.proxyAdapterView);
+        }
+    }
+
+    public void setOnScrollChangedCallback(OnScrollChangedCallback onScrollChangedCallback) {
+        this.mOnScrollChangedCallback = onScrollChangedCallback;
+    }
+
+    public void unlockInputConnection() {
+        ThreadedInputConnectionProxyAdapterView threadedInputConnectionProxyAdapterView = this.proxyAdapterView;
+        if (threadedInputConnectionProxyAdapterView == null) {
+            return;
+        }
+        threadedInputConnectionProxyAdapterView.setLocked(false);
     }
 }

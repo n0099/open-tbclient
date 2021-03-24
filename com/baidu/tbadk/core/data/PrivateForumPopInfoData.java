@@ -3,55 +3,64 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.PrivatePopInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PrivateForumPopInfoData extends OrmObject {
-    private String eQB = null;
-    private String eQC = null;
-    private String eQD = null;
-    private Integer eQE = null;
 
-    public void Ad(String str) {
-        this.eQB = str;
+    /* renamed from: e  reason: collision with root package name */
+    public String f13218e = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f13219f = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f13220g = null;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Integer f13221h = null;
+
+    public void A(String str) {
+        this.f13220g = str;
     }
 
-    public String bmQ() {
-        return this.eQB;
+    public String s() {
+        return this.f13219f;
     }
 
-    public void Ae(String str) {
-        this.eQC = str;
+    public Integer t() {
+        return this.f13221h;
     }
 
-    public String bmR() {
-        return this.eQC;
+    public String u() {
+        return this.f13218e;
     }
 
-    public void Af(String str) {
-        this.eQD = str;
+    public String v() {
+        return this.f13220g;
     }
 
-    public String bmS() {
-        return this.eQD;
-    }
-
-    public void m(Integer num) {
-        this.eQE = num;
-    }
-
-    public Integer bmT() {
-        return this.eQE;
-    }
-
-    public void a(PrivatePopInfo privatePopInfo) {
-        if (privatePopInfo != null) {
-            try {
-                this.eQB = privatePopInfo.pop_type;
-                this.eQC = privatePopInfo.pop_content;
-                this.eQD = privatePopInfo.pop_url;
-                this.eQE = privatePopInfo.pop_forum_id;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+    public void w(PrivatePopInfo privatePopInfo) {
+        if (privatePopInfo == null) {
+            return;
         }
+        try {
+            this.f13218e = privatePopInfo.pop_type;
+            this.f13219f = privatePopInfo.pop_content;
+            this.f13220g = privatePopInfo.pop_url;
+            this.f13221h = privatePopInfo.pop_forum_id;
+        } catch (Exception e2) {
+            BdLog.detailException(e2);
+        }
+    }
+
+    public void x(String str) {
+        this.f13219f = str;
+    }
+
+    public void y(Integer num) {
+        this.f13221h = num;
+    }
+
+    public void z(String str) {
+        this.f13218e = str;
     }
 }

@@ -8,9 +8,9 @@ import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ParamInterceptor implements Interceptor {
-    private IAsyncRequestParamsHandler paramsHandler;
+    public IAsyncRequestParamsHandler paramsHandler;
 
     public ParamInterceptor(IAsyncRequestParamsHandler iAsyncRequestParamsHandler) {
         this.paramsHandler = iAsyncRequestParamsHandler;
@@ -18,21 +18,18 @@ public class ParamInterceptor implements Interceptor {
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
-        Request request;
-        Request request2 = chain.request();
+        Request request = chain.request();
         if (this.paramsHandler != null) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             this.paramsHandler.onHandleParams(linkedHashMap);
-            if (linkedHashMap != null && !linkedHashMap.isEmpty()) {
-                HttpUrl.Builder newBuilder = request2.url().newBuilder();
+            if (!linkedHashMap.isEmpty()) {
+                HttpUrl.Builder newBuilder = request.url().newBuilder();
                 for (Map.Entry entry : linkedHashMap.entrySet()) {
                     newBuilder.setQueryParameter((String) entry.getKey(), (String) entry.getValue());
                 }
-                request = request2.newBuilder().url(newBuilder.build()).build();
-                return chain.proceed(request);
+                request = request.newBuilder().url(newBuilder.build()).build();
             }
         }
-        request = request2;
         return chain.proceed(request);
     }
 }

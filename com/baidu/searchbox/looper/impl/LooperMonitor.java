@@ -1,22 +1,41 @@
 package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.searchbox.track.Track;
-import com.github.a.a.b;
-import com.github.a.a.c;
-import com.github.a.a.d;
-/* loaded from: classes4.dex */
+import d.f.b.a.b;
+import d.f.b.a.c;
+import d.f.b.a.d;
+@Singleton
+@Service
+/* loaded from: classes3.dex */
 public class LooperMonitor implements ILooperMonitor {
-    private static volatile boolean sIsStartTrack = false;
-    private static LooperContextDispatcher sLooperContextDispatcher;
-    private c mBlockCanaryCore;
-    private boolean mMonitorStarted = false;
+    public static volatile boolean sIsStartTrack = false;
+    public static LooperContextDispatcher sLooperContextDispatcher;
+    public c mBlockCanaryCore;
+    public boolean mMonitorStarted = false;
+
+    private void startLooperPrint() {
+        if (this.mMonitorStarted) {
+            return;
+        }
+        this.mMonitorStarted = true;
+        sLooperContextDispatcher.addLooperPrinter(this.mBlockCanaryCore.h());
+    }
 
     public static void startTrack(Context context) {
-        if (!sIsStartTrack) {
-            sIsStartTrack = true;
-            Track.getInstance().startTrack(context);
+        if (sIsStartTrack) {
+            return;
+        }
+        sIsStartTrack = true;
+        Track.getInstance().startTrack(context);
+    }
+
+    public void addBlockInterceptor(d dVar) {
+        if (dVar != null) {
+            this.mBlockCanaryCore.b(dVar);
         }
     }
 
@@ -26,14 +45,20 @@ public class LooperMonitor implements ILooperMonitor {
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
+    public boolean isMonitorStarted() {
+        return this.mMonitorStarted;
+    }
+
+    @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
     public void startLooperMonitor(Context context, int i) {
         if (sLooperContextDispatcher == null) {
             sLooperContextDispatcher = new LooperContextDispatcher();
         }
         b.init(context, sLooperContextDispatcher, i);
-        c.a(b.get());
-        this.mBlockCanaryCore = c.eAM();
-        this.mBlockCanaryCore.addBlockInterceptor(b.get());
+        c.l(b.get());
+        c f2 = c.f();
+        this.mBlockCanaryCore = f2;
+        f2.b(b.get());
         startLooperPrint();
         startTrack(context);
     }
@@ -42,27 +67,9 @@ public class LooperMonitor implements ILooperMonitor {
     public void stopLooperMonitor() {
         if (this.mMonitorStarted) {
             this.mMonitorStarted = false;
-            sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.eAJ());
-            this.mBlockCanaryCore.eAK().stop();
-            this.mBlockCanaryCore.eAL().stop();
+            sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.h());
+            this.mBlockCanaryCore.k().d();
+            this.mBlockCanaryCore.e().d();
         }
-    }
-
-    private void startLooperPrint() {
-        if (!this.mMonitorStarted) {
-            this.mMonitorStarted = true;
-            sLooperContextDispatcher.addLooperPrinter(this.mBlockCanaryCore.eAJ());
-        }
-    }
-
-    public void addBlockInterceptor(d dVar) {
-        if (dVar != null) {
-            this.mBlockCanaryCore.addBlockInterceptor(dVar);
-        }
-    }
-
-    @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
-    public boolean isMonitorStarted() {
-        return this.mMonitorStarted;
     }
 }

@@ -1,20 +1,20 @@
 package com.baidu.webkit.internal;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3815a;
-    final /* synthetic */ String b;
+    public final /* synthetic */ String f26868a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ String f26869b;
+
     public b(String str, String str2) {
-        this.f3815a = str;
-        this.b = str2;
+        this.f26868a = str;
+        this.f26869b = str2;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        ApisInteractWithMario.setCrashKeyValue(this.f3815a, this.b);
+        ApisInteractWithMario.setCrashKeyValue(this.f26868a, this.f26869b);
     }
 }

@@ -2,8 +2,8 @@ package com.baidu.mapapi.search.route;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
-final class n implements Parcelable.Creator<SuggestAddrInfo> {
+/* loaded from: classes2.dex */
+public final class n implements Parcelable.Creator<SuggestAddrInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */

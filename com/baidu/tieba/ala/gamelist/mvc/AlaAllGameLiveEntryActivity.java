@@ -18,115 +18,131 @@ import com.baidu.ala.atomdata.AlaAllGameLiveEntryActivityConfig;
 import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.ala.square.IAlaSquareTabController;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.gamelist.a.a;
 import com.baidu.tieba.view.NoScrollGridView;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
-    private IAlaSquareTabController gAR;
-    private LinearLayout gLj;
-    private ArrayList<AlaSquareTabInfo> gYZ;
-    private LinearLayout gZd;
-    private TextView gZe;
-    private ImageView gZf;
-    private NoScrollGridView gZg;
-    private View gZh;
-    private a gZi;
-    private int gZj;
-    private NavigationBar mNavigationBar;
-    private LinearLayout mRootView;
+    public ArrayList<AlaSquareTabInfo> mAlaSquareTabInfos;
+    public View mCustomScrollView;
+    public d.b.i0.t.h.a.a mGameEntryAdapter;
+    public NoScrollGridView mGridView;
+    public int mHasSearchTab;
+    public NavigationBar mNavigationBar;
+    public LinearLayout mNoDataRootView;
+    public LinearLayout mRootView;
+    public ImageView mSearchIcon;
+    public LinearLayout mSearchRoot;
+    public IAlaSquareTabController mSquareTabController;
+    public TextView mTextSearchHint;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        bVD();
-        initView();
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_SQUARE_TAB_CONTROLLER, IAlaSquareTabController.class);
-        if (runTask != null && runTask.getData() != null) {
-            this.gAR = (IAlaSquareTabController) runTask.getData();
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(AlaAllGameLiveEntryActivity.this.getPageContext().getPageActivity())));
         }
     }
 
-    private void bVD() {
+    /* loaded from: classes4.dex */
+    public class b implements AdapterView.OnItemClickListener {
+        public b() {
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+            AlaSquareTabInfo alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(AlaAllGameLiveEntryActivity.this.mGameEntryAdapter.a(), i);
+            if (alaSquareTabInfo == null || AlaAllGameLiveEntryActivity.this.mSquareTabController == null) {
+                return;
+            }
+            int tabIndex = AlaAllGameLiveEntryActivity.this.mSquareTabController.getTabIndex(alaSquareTabInfo.id);
+            if (tabIndex >= 0) {
+                AlaAllGameLiveEntryActivity.this.mSquareTabController.goToTab(tabIndex);
+                AlaAllGameLiveEntryActivity.this.finish();
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaNewSquareSubListActivityConfig(AlaAllGameLiveEntryActivity.this, alaSquareTabInfo)));
+        }
+    }
+
+    private void dealWithIntent() {
         Intent intent = getIntent();
         if (intent != null) {
-            this.gZj = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);
-            this.gYZ = intent.getParcelableArrayListExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_DATA);
+            this.mHasSearchTab = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);
+            this.mAlaSquareTabInfos = intent.getParcelableArrayListExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_DATA);
         }
     }
 
     private void initView() {
-        this.mRootView = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.ala_all_game_entry_activity, null);
-        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.ala_all_game_entry_activity, null);
+        this.mRootView = linearLayout;
+        NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.ala_all_game_entry_title));
-        this.gZd = (LinearLayout) this.mRootView.findViewById(R.id.search_container);
-        this.gZe = (TextView) this.gZd.findViewById(R.id.search_text);
-        this.gZe.setClickable(false);
-        this.gZf = (ImageView) this.gZd.findViewById(R.id.search_icon);
-        this.gZd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(AlaAllGameLiveEntryActivity.this.getPageContext().getPageActivity())));
-            }
-        });
-        if (this.gZj == 1) {
-            this.gZd.setVisibility(0);
+        LinearLayout linearLayout2 = (LinearLayout) this.mRootView.findViewById(R.id.search_container);
+        this.mSearchRoot = linearLayout2;
+        TextView textView = (TextView) linearLayout2.findViewById(R.id.search_text);
+        this.mTextSearchHint = textView;
+        textView.setClickable(false);
+        this.mSearchIcon = (ImageView) this.mSearchRoot.findViewById(R.id.search_icon);
+        this.mSearchRoot.setOnClickListener(new a());
+        if (this.mHasSearchTab == 1) {
+            this.mSearchRoot.setVisibility(0);
         } else {
-            this.gZd.setVisibility(8);
+            this.mSearchRoot.setVisibility(8);
         }
-        this.gLj = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.ala_all_game_no_data, (ViewGroup) null);
-        this.gZh = this.mRootView.findViewById(R.id.scroll_grid_view_root);
-        this.gZi = new a(getPageContext());
-        this.gZg = (NoScrollGridView) this.mRootView.findViewById(R.id.ala_live_list);
-        this.gZg.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity.2
-            @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                AlaSquareTabInfo alaSquareTabInfo = (AlaSquareTabInfo) y.getItem(AlaAllGameLiveEntryActivity.this.gZi.getData(), i);
-                if (alaSquareTabInfo != null && AlaAllGameLiveEntryActivity.this.gAR != null) {
-                    int tabIndex = AlaAllGameLiveEntryActivity.this.gAR.getTabIndex(alaSquareTabInfo.id);
-                    if (tabIndex >= 0) {
-                        AlaAllGameLiveEntryActivity.this.gAR.goToTab(tabIndex);
-                        AlaAllGameLiveEntryActivity.this.finish();
-                        return;
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(AlaAllGameLiveEntryActivity.this, alaSquareTabInfo)));
-                }
-            }
-        });
-        this.gZg.setAdapter((ListAdapter) this.gZi);
-        if (y.isEmpty(this.gYZ)) {
-            this.gZh.setVisibility(8);
-            this.mRootView.addView(this.gLj, 1);
+        this.mNoDataRootView = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.ala_all_game_no_data, (ViewGroup) null);
+        this.mCustomScrollView = this.mRootView.findViewById(R.id.scroll_grid_view_root);
+        this.mGameEntryAdapter = new d.b.i0.t.h.a.a(getPageContext());
+        NoScrollGridView noScrollGridView = (NoScrollGridView) this.mRootView.findViewById(R.id.ala_live_list);
+        this.mGridView = noScrollGridView;
+        noScrollGridView.setOnItemClickListener(new b());
+        this.mGridView.setAdapter((ListAdapter) this.mGameEntryAdapter);
+        if (ListUtils.isEmpty(this.mAlaSquareTabInfos)) {
+            this.mCustomScrollView.setVisibility(8);
+            this.mRootView.addView(this.mNoDataRootView, 1);
         } else {
-            this.mRootView.removeView(this.gLj);
-            this.gZh.setVisibility(0);
-            this.gZi.setData(this.gYZ);
+            this.mRootView.removeView(this.mNoDataRootView);
+            this.mCustomScrollView.setVisibility(0);
+            this.mGameEntryAdapter.b(this.mAlaSquareTabInfos);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         setContentView(this.mRootView);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setImageResource(this.gZf, R.drawable.icon_search);
-        ap.setViewTextColor(this.gZe, R.color.enter_forum_search_text_color);
-        ap.setBackgroundResource(this.gZd, R.drawable.all_game_search_frame);
+        SkinManager.setImageResource(this.mSearchIcon, R.drawable.icon_search);
+        SkinManager.setViewTextColor(this.mTextSearchHint, R.color.enter_forum_search_text_color);
+        SkinManager.setBackgroundResource(this.mSearchRoot, R.drawable.all_game_search_frame);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        dealWithIntent();
+        initView();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_SQUARE_TAB_CONTROLLER, IAlaSquareTabController.class);
+        if (runTask == null || runTask.getData() == null) {
+            return;
+        }
+        this.mSquareTabController = (IAlaSquareTabController) runTask.getData();
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.gAR = null;
+        this.mSquareTabController = null;
     }
 }

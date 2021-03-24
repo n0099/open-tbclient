@@ -6,7 +6,6 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.http.Headers;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import java.lang.reflect.Array;
@@ -16,33 +15,40 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7424a = e.class.getSimpleName();
+    public static final String f37794a = "e";
 
     public static long a(String str) {
-        long j = 0;
+        long j;
+        long j2 = 0;
         int i = 0;
         while (i < str.length()) {
             char charAt = str.charAt(i);
             if (charAt <= 127) {
-                j++;
+                j = 1;
             } else if (charAt <= 2047) {
-                j += 2;
-            } else if (charAt < 55296 || charAt > 57343) {
-                j = charAt < 65535 ? j + 3 : j + 4;
+                j = 2;
             } else {
-                j += 4;
+                if (charAt >= 55296 && charAt <= 57343) {
+                    j2 += 4;
+                    i++;
+                } else if (charAt < 65535) {
+                    j = 3;
+                } else {
+                    j2 += 4;
+                }
                 i++;
             }
+            j2 += j;
             i++;
         }
-        return j;
+        return j2;
     }
 
-    private static Object a(Object obj) {
+    public static Object a(Object obj) {
         if (Build.VERSION.SDK_INT >= 19) {
             return obj;
         }
@@ -92,9 +98,9 @@ public class e {
             Object a2 = a(entry.getValue());
             try {
                 jSONObject.put(str, a2);
-            } catch (JSONException e) {
-                c.a(f7424a, "Could not put key '%s' and value '%s' into new JSONObject: %s", str, a2, e);
-                e.printStackTrace();
+            } catch (JSONException e2) {
+                c.a(f37794a, "Could not put key '%s' and value '%s' into new JSONObject: %s", str, a2, e2);
+                e2.printStackTrace();
             }
         }
         return jSONObject;
@@ -106,13 +112,13 @@ public class e {
 
     public static boolean a(Context context) {
         try {
-            c.c(f7424a, "Checking tracker internet connectivity.", new Object[0]);
+            c.c(f37794a, "Checking tracker internet connectivity.", new Object[0]);
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             boolean z = activeNetworkInfo != null && activeNetworkInfo.isConnected();
-            c.b(f7424a, "Tracker connection online: %s", Boolean.valueOf(z));
+            c.b(f37794a, "Tracker connection online: %s", Boolean.valueOf(z));
             return z;
-        } catch (Exception e) {
-            c.a(f7424a, "Security exception checking connection: %s", e.toString());
+        } catch (Exception e2) {
+            c.a(f37794a, "Security exception checking connection: %s", e2.toString());
             return true;
         }
     }
@@ -127,32 +133,34 @@ public class e {
             if (telephonyManager != null) {
                 return telephonyManager.getNetworkOperatorName();
             }
-        } catch (Exception e) {
-            c.a(f7424a, "getCarrier: %s", e.toString());
+            return null;
+        } catch (Exception e2) {
+            c.a(f37794a, "getCarrier: %s", e2.toString());
+            return null;
         }
-        return null;
     }
 
     public static Location c(Context context) {
         try {
-            LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
-            if (locationManager != null) {
-                Criteria criteria = new Criteria();
-                criteria.setPowerRequirement(1);
-                criteria.setAccuracy(2);
-                String bestProvider = locationManager.getBestProvider(criteria, true);
-                if (bestProvider != null) {
-                    Location lastKnownLocation = locationManager.getLastKnownLocation(bestProvider);
-                    c.b(f7424a, "Location found: %s", lastKnownLocation);
-                    return lastKnownLocation;
-                }
-                c.a(f7424a, "Location Manager provider is null.", new Object[0]);
-            } else {
-                c.a(f7424a, "Location Manager is null.", new Object[0]);
+            LocationManager locationManager = (LocationManager) context.getSystemService("location");
+            if (locationManager == null) {
+                c.a(f37794a, "Location Manager is null.", new Object[0]);
+                return null;
             }
-        } catch (Exception e) {
-            c.a(f7424a, "Failed to retrieve location: %s", e.toString());
+            Criteria criteria = new Criteria();
+            criteria.setPowerRequirement(1);
+            criteria.setAccuracy(2);
+            String bestProvider = locationManager.getBestProvider(criteria, true);
+            if (bestProvider == null) {
+                c.a(f37794a, "Location Manager provider is null.", new Object[0]);
+                return null;
+            }
+            Location lastKnownLocation = locationManager.getLastKnownLocation(bestProvider);
+            c.b(f37794a, "Location found: %s", lastKnownLocation);
+            return lastKnownLocation;
+        } catch (Exception e2) {
+            c.a(f37794a, "Failed to retrieve location: %s", e2.toString());
+            return null;
         }
-        return null;
     }
 }

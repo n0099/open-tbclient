@@ -3,7 +3,7 @@ package org.chromium.support_lib_boundary;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import java.lang.reflect.InvocationHandler;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface WebkitToCompatConverterBoundaryInterface {
     Object convertSafeBrowsingResponse(InvocationHandler invocationHandler);
 

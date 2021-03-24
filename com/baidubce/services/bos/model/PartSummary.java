@@ -1,39 +1,39 @@
 package com.baidubce.services.bos.model;
 
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PartSummary {
-    private String eTag;
-    private Date lastModified;
-    private int partNumber;
-    private long size;
+    public String eTag;
+    public Date lastModified;
+    public int partNumber;
+    public long size;
 
-    public int getPartNumber() {
-        return this.partNumber;
-    }
-
-    public void setPartNumber(int i) {
-        this.partNumber = i;
+    public String getETag() {
+        return this.eTag;
     }
 
     public Date getLastModified() {
         return this.lastModified;
     }
 
-    public void setLastModified(Date date) {
-        this.lastModified = date;
+    public int getPartNumber() {
+        return this.partNumber;
     }
 
-    public String getETag() {
-        return this.eTag;
+    public long getSize() {
+        return this.size;
     }
 
     public void setETag(String str) {
         this.eTag = str;
     }
 
-    public long getSize() {
-        return this.size;
+    public void setLastModified(Date date) {
+        this.lastModified = date;
+    }
+
+    public void setPartNumber(int i) {
+        this.partNumber = i;
     }
 
     public void setSize(long j) {

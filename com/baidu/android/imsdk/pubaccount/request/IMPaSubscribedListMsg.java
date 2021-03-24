@@ -15,9 +15,9 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMPaSubscribedListMsg extends Message {
-    private Context mContext;
+    public Context mContext;
 
     public IMPaSubscribedListMsg(Context context) {
         this.mContext = context;
@@ -26,35 +26,74 @@ public class IMPaSubscribedListMsg extends Message {
         setType(104);
     }
 
+    private void localSyncSubscribedPaList(Context context, List<PaInfo> list) {
+        if (list == null) {
+            return;
+        }
+        if (list.size() == 0) {
+            PaInfoDBManager.getInstance(context).deleteAllSubscribedPa();
+            return;
+        }
+        List<PaInfo> querySubscribedPaList = PaInfoDBManager.getInstance(context).querySubscribedPaList();
+        ArrayList arrayList = new ArrayList();
+        for (PaInfo paInfo : list) {
+            boolean z = false;
+            if (querySubscribedPaList != null) {
+                Iterator<PaInfo> it = querySubscribedPaList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    PaInfo next = it.next();
+                    if (paInfo.getPaId() == next.getPaId()) {
+                        querySubscribedPaList.remove(next);
+                        PaInfoDBManager.getInstance(context).acceptPaPush(paInfo.getPaId(), paInfo.isAcceptPush());
+                        z = true;
+                        break;
+                    }
+                }
+            }
+            if (!z) {
+                arrayList.add(paInfo);
+            }
+        }
+        if (querySubscribedPaList != null) {
+            for (PaInfo paInfo2 : querySubscribedPaList) {
+                PaInfoDBManager.getInstance(context).unSubscribePa(paInfo2.getPaId());
+            }
+        }
+        Iterator it2 = arrayList.iterator();
+        while (it2.hasNext()) {
+            PaInfoDBManager.getInstance(context).subscribePa((PaInfo) it2.next());
+        }
+    }
+
     public static IMPaSubscribedListMsg newInstance(Context context, Intent intent) {
         return new IMPaSubscribedListMsg(context);
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
+    public void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("method", 104);
             jSONObject.put("appid", this.mAppid);
             jSONObject.put("uk", this.mUk);
             this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "buildBody:", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "buildBody:", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
     }
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        Exception e;
-        List<PaInfo> list;
+        List<PaInfo> list = null;
         if (i == 0) {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("pa_info_list");
-                if (optJSONArray == null) {
-                    list = null;
-                } else {
-                    list = new ArrayList<>();
+                if (optJSONArray != null) {
+                    ArrayList arrayList = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         try {
                             JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
@@ -72,31 +111,29 @@ public class IMPaSubscribedListMsg extends Message {
                             paInfo.setDetail(jSONObject2.optString("detail_description"));
                             paInfo.setTPL(jSONObject2.optLong("tpl", -1L));
                             paInfo.setStatus(jSONObject2.optInt("status"));
-                            list.add(paInfo);
+                            arrayList.add(paInfo);
                         } catch (Exception e2) {
                             e = e2;
+                            list = arrayList;
                             LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             super.handleMessageResult(context, jSONObject, i, str);
                             PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
                         }
                     }
-                    localSyncSubscribedPaList(context, list);
+                    localSyncSubscribedPaList(context, arrayList);
+                    list = arrayList;
                 }
             } catch (Exception e3) {
                 e = e3;
-                list = null;
             }
-        } else if (1001 != i) {
-            list = null;
-        } else {
+        } else if (1001 == i) {
             try {
                 str = "query from local db";
                 list = PaInfoDBManager.getInstance(context).querySubscribedPaList();
                 i = 0;
             } catch (Exception e4) {
                 e = e4;
-                list = null;
                 i = 0;
                 LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -106,42 +143,5 @@ public class IMPaSubscribedListMsg extends Message {
         }
         super.handleMessageResult(context, jSONObject, i, str);
         PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
-    }
-
-    private void localSyncSubscribedPaList(Context context, List<PaInfo> list) {
-        boolean z;
-        if (list != null) {
-            if (list.size() == 0) {
-                PaInfoDBManager.getInstance(context).deleteAllSubscribedPa();
-                return;
-            }
-            List<PaInfo> querySubscribedPaList = PaInfoDBManager.getInstance(context).querySubscribedPaList();
-            ArrayList arrayList = new ArrayList();
-            for (PaInfo paInfo : list) {
-                if (querySubscribedPaList != null) {
-                    for (PaInfo paInfo2 : querySubscribedPaList) {
-                        if (paInfo.getPaId() == paInfo2.getPaId()) {
-                            querySubscribedPaList.remove(paInfo2);
-                            PaInfoDBManager.getInstance(context).acceptPaPush(paInfo.getPaId(), paInfo.isAcceptPush());
-                            z = true;
-                            break;
-                        }
-                    }
-                }
-                z = false;
-                if (!z) {
-                    arrayList.add(paInfo);
-                }
-            }
-            if (querySubscribedPaList != null) {
-                for (PaInfo paInfo3 : querySubscribedPaList) {
-                    PaInfoDBManager.getInstance(context).unSubscribePa(paInfo3.getPaId());
-                }
-            }
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                PaInfoDBManager.getInstance(context).subscribePa((PaInfo) it.next());
-            }
-        }
     }
 }

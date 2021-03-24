@@ -1,31 +1,34 @@
 package io.reactivex.internal.subscriptions;
 
-import io.reactivex.disposables.b;
+import f.a.t.b;
+import g.d.d;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-import org.a.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ArrayCompositeSubscription extends AtomicReferenceArray<d> implements b {
-    private static final long serialVersionUID = 2746389416410565408L;
+    public static final long serialVersionUID = 2746389416410565408L;
 
     public ArrayCompositeSubscription(int i) {
         super(i);
     }
 
-    public boolean setResource(int i, d dVar) {
-        d dVar2;
-        do {
-            dVar2 = get(i);
-            if (dVar2 == SubscriptionHelper.CANCELLED) {
-                if (dVar != null) {
-                    dVar.cancel();
+    @Override // f.a.t.b
+    public void dispose() {
+        d andSet;
+        if (get(0) != SubscriptionHelper.CANCELLED) {
+            int length = length();
+            for (int i = 0; i < length; i++) {
+                d dVar = get(i);
+                SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
+                if (dVar != subscriptionHelper && (andSet = getAndSet(i, subscriptionHelper)) != SubscriptionHelper.CANCELLED && andSet != null) {
+                    andSet.cancel();
                 }
-                return false;
             }
-        } while (!compareAndSet(i, dVar2, dVar));
-        if (dVar2 != null) {
-            dVar2.cancel();
         }
-        return true;
+    }
+
+    @Override // f.a.t.b
+    public boolean isDisposed() {
+        return get(0) == SubscriptionHelper.CANCELLED;
     }
 
     public d replaceResource(int i, d dVar) {
@@ -35,6 +38,7 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<d> im
             if (dVar2 == SubscriptionHelper.CANCELLED) {
                 if (dVar != null) {
                     dVar.cancel();
+                    return null;
                 }
                 return null;
             }
@@ -42,21 +46,22 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<d> im
         return dVar2;
     }
 
-    @Override // io.reactivex.disposables.b
-    public void dispose() {
-        d andSet;
-        if (get(0) != SubscriptionHelper.CANCELLED) {
-            int length = length();
-            for (int i = 0; i < length; i++) {
-                if (get(i) != SubscriptionHelper.CANCELLED && (andSet = getAndSet(i, SubscriptionHelper.CANCELLED)) != SubscriptionHelper.CANCELLED && andSet != null) {
-                    andSet.cancel();
+    public boolean setResource(int i, d dVar) {
+        d dVar2;
+        do {
+            dVar2 = get(i);
+            if (dVar2 == SubscriptionHelper.CANCELLED) {
+                if (dVar != null) {
+                    dVar.cancel();
+                    return false;
                 }
+                return false;
             }
+        } while (!compareAndSet(i, dVar2, dVar));
+        if (dVar2 != null) {
+            dVar2.cancel();
+            return true;
         }
-    }
-
-    @Override // io.reactivex.disposables.b
-    public boolean isDisposed() {
-        return get(0) == SubscriptionHelper.CANCELLED;
+        return true;
     }
 }

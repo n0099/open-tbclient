@@ -1,74 +1,41 @@
 package com.bytedance.sdk.openadsdk.utils;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public final class ac {
+public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f5114a = null;
-    private static Resources b = null;
+    public static Object f30359a;
 
-    private static String a(Context context) {
-        if (f5114a == null) {
-            f5114a = context.getPackageName();
+    /* renamed from: b  reason: collision with root package name */
+    public static Method f30360b;
+
+    static {
+        try {
+            Method declaredMethod = Class.class.getDeclaredMethod("forName", String.class);
+            Method declaredMethod2 = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+            Class cls = (Class) declaredMethod.invoke(null, "dalvik.system.VMRuntime");
+            f30360b = (Method) declaredMethod2.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
+            f30359a = ((Method) declaredMethod2.invoke(cls, "getRuntime", null)).invoke(null, new Object[0]);
+        } catch (Throwable th) {
+            u.b("Reflection", "reflect bootstrap failed:", th);
         }
-        return f5114a;
     }
 
-    private static int a(Context context, String str, String str2) {
-        if (b == null) {
-            b = context.getResources();
+    public static boolean a(String... strArr) {
+        Method method;
+        Object obj = f30359a;
+        if (obj != null && (method = f30360b) != null) {
+            try {
+                method.invoke(obj, strArr);
+                return true;
+            } catch (Throwable unused) {
+            }
         }
-        return b.getIdentifier(str, str2, a(context));
+        return false;
     }
 
-    public static String a(Context context, String str) {
-        return context.getResources().getString(b(context, str));
-    }
-
-    public static int b(Context context, String str) {
-        return a(context, str, "string");
-    }
-
-    public static Drawable c(Context context, String str) {
-        return context.getResources().getDrawable(d(context, str));
-    }
-
-    public static int d(Context context, String str) {
-        return a(context, str, "drawable");
-    }
-
-    public static int e(Context context, String str) {
-        return a(context, str, "id");
-    }
-
-    public static int f(Context context, String str) {
-        return a(context, str, "layout");
-    }
-
-    public static int g(Context context, String str) {
-        return a(context, str, "style");
-    }
-
-    public static int h(Context context, String str) {
-        return a(context, str, "dimen");
-    }
-
-    public static int i(Context context, String str) {
-        return context.getResources().getColor(j(context, str));
-    }
-
-    public static int j(Context context, String str) {
-        return a(context, str, "color");
-    }
-
-    public static int k(Context context, String str) {
-        return a(context, str, "integer");
-    }
-
-    public static int l(Context context, String str) {
-        return context.getResources().getInteger(k(context, str));
+    public static boolean a() {
+        return a("L");
     }
 }

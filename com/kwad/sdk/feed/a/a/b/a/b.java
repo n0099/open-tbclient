@@ -5,60 +5,77 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.lib.widget.recycler.e;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.feed.a.a.a.a {
-    private AdTemplate b;
-    private String c;
-    private Map<String, e.a> d;
-    private com.kwad.sdk.core.i.a e;
-    private Handler f = new Handler();
-    private boolean g = false;
-    private e.a h = new e.a() { // from class: com.kwad.sdk.feed.a.a.b.a.b.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public AdTemplate f34813b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f34814c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Map<String, e.a> f34815d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.core.i.a f34816e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Handler f34817f = new Handler();
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f34818g = false;
+
+    /* renamed from: h  reason: collision with root package name */
+    public e.a f34819h = new e.a() { // from class: com.kwad.sdk.feed.a.a.b.a.b.1
         @Override // com.kwad.sdk.lib.widget.recycler.e.a
-        public void a(AdTemplate adTemplate, float f) {
-            com.kwad.sdk.core.d.a.a("FeedHomeItemAdPvPresenter", "position=" + ((com.kwad.sdk.feed.a.a.a.b) b.this.f6892a).h + "--visiblePercent=" + f);
-            if (f < 0.3f || b.this.g) {
+        public void a(AdTemplate adTemplate, float f2) {
+            com.kwad.sdk.core.d.a.a("FeedHomeItemAdPvPresenter", "position=" + ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) b.this).f36007a).f36006h + "--visiblePercent=" + f2);
+            if (f2 < 0.3f || b.this.f34818g) {
                 return;
             }
-            b.this.f.postDelayed(new Runnable() { // from class: com.kwad.sdk.feed.a.a.b.a.b.1.1
+            b.this.f34817f.postDelayed(new Runnable() { // from class: com.kwad.sdk.feed.a.a.b.a.b.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (b.this.b.mPvReported || !b.this.e.e()) {
+                    if (b.this.f34813b.mPvReported || !b.this.f34816e.e()) {
                         return;
                     }
-                    com.kwad.sdk.core.report.b.a(b.this.b, (JSONObject) null);
-                    if (b.this.d != null && b.this.h != null) {
-                        b.this.d.remove(b.this.c);
+                    com.kwad.sdk.core.report.b.a(b.this.f34813b, (JSONObject) null);
+                    if (b.this.f34815d != null && b.this.f34819h != null) {
+                        b.this.f34815d.remove(b.this.f34814c);
                     }
-                    com.kwad.sdk.core.d.a.a("FeedHomeItemAdPvPresenter", "reportAdPv position=" + ((com.kwad.sdk.feed.a.a.a.b) b.this.f6892a).h);
+                    com.kwad.sdk.core.d.a.a("FeedHomeItemAdPvPresenter", "reportAdPv position=" + ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) b.this).f36007a).f36006h);
                 }
             }, 1000L);
-            b.this.g = true;
+            b.this.f34818g = true;
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.b = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).i;
-        this.c = this.b.mUniqueId;
-        this.e = ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).f6496a.b;
-        if (this.b.mPvReported) {
+        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a;
+        AdTemplate adTemplate = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) callercontext).i;
+        this.f34813b = adTemplate;
+        String str = adTemplate.mUniqueId;
+        this.f34814c = str;
+        this.f34816e = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f34792a.f34855b;
+        if (adTemplate.mPvReported) {
             return;
         }
-        this.d = ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).f6496a.c;
-        this.d.put(this.c, this.h);
+        Map<String, e.a> map = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f34792a.f34856c;
+        this.f34815d = map;
+        map.put(str, this.f34819h);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.d != null && this.h != null) {
-            this.d.remove(this.c);
+        Map<String, e.a> map = this.f34815d;
+        if (map != null && this.f34819h != null) {
+            map.remove(this.f34814c);
         }
-        this.g = false;
-        this.f.removeCallbacksAndMessages(null);
+        this.f34818g = false;
+        this.f34817f.removeCallbacksAndMessages(null);
     }
 }

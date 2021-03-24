@@ -1,12 +1,15 @@
 package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes9.dex */
+import d.b.i0.t.d.f.e.a.c;
+/* loaded from: classes4.dex */
 public class GameLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
-    public c gIv;
+
+    /* renamed from: a  reason: collision with root package name */
+    public c f14925a;
 
     public GameLiveDoubleViewHolder(c cVar) {
-        super(cVar.getView());
-        this.gIv = cVar;
+        super(cVar.m());
+        this.f14925a = cVar;
     }
 }

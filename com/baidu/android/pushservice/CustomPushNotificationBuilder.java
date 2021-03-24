@@ -7,17 +7,17 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.j.m;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class CustomPushNotificationBuilder extends PushNotificationBuilder {
-    private int mLayoutIconDrawable;
-    private int mLayoutIconId;
-    private int mLayoutId;
-    private int mLayoutTextId;
-    private int mLayoutTitleId;
+    public int mLayoutIconDrawable;
+    public int mLayoutIconId;
+    public int mLayoutId;
+    public int mLayoutTextId;
+    public int mLayoutTitleId;
 
     public CustomPushNotificationBuilder(int i, int i2, int i3, int i4) {
         this.mLayoutId = i;
@@ -54,16 +54,23 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
         objectOutputStream.writeInt(this.mStatusbarIcon);
         objectOutputStream.writeInt(this.mNotificationFlags);
         objectOutputStream.writeInt(this.mNotificationDefaults);
+        int i = 0;
         if (this.mNotificationsound != null) {
             objectOutputStream.writeBoolean(true);
             objectOutputStream.writeObject(this.mNotificationsound);
         } else {
             objectOutputStream.writeBoolean(false);
         }
-        if (this.mVibratePattern != null) {
-            objectOutputStream.writeInt(this.mVibratePattern.length);
-            for (int i = 0; i < this.mVibratePattern.length; i++) {
-                objectOutputStream.writeLong(this.mVibratePattern[i]);
+        long[] jArr = this.mVibratePattern;
+        if (jArr != null) {
+            objectOutputStream.writeInt(jArr.length);
+            while (true) {
+                long[] jArr2 = this.mVibratePattern;
+                if (i >= jArr2.length) {
+                    break;
+                }
+                objectOutputStream.writeLong(jArr2[i]);
+                i++;
             }
         } else {
             objectOutputStream.writeInt(0);
@@ -83,37 +90,45 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
     @Override // com.baidu.android.pushservice.PushNotificationBuilder
     @SuppressLint({"NewApi"})
     public Notification construct(Context context) {
+        int i;
         Notification.Builder builder = new Notification.Builder(context);
-        if (this.mNotificationDefaults != 0) {
-            builder.setDefaults(this.mNotificationDefaults);
+        int i2 = this.mNotificationDefaults;
+        if (i2 != 0) {
+            builder.setDefaults(i2);
         }
-        if (this.mNotificationsound != null) {
-            builder.setSound(Uri.parse(this.mNotificationsound));
+        String str = this.mNotificationsound;
+        if (str != null) {
+            builder.setSound(Uri.parse(str));
         }
-        if (this.mVibratePattern != null) {
-            builder.setVibrate(this.mVibratePattern);
+        long[] jArr = this.mVibratePattern;
+        if (jArr != null) {
+            builder.setVibrate(jArr);
         }
-        if (this.mStatusbarIcon != 0) {
-            builder.setSmallIcon(this.mStatusbarIcon);
+        int i3 = this.mStatusbarIcon;
+        if (i3 != 0) {
+            builder.setSmallIcon(i3);
         }
         if (this.mLayoutId != 0) {
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), this.mLayoutId);
-            if (this.mLayoutIconDrawable != 0) {
-                remoteViews.setImageViewResource(this.mLayoutIconId, this.mLayoutIconDrawable);
+            int i4 = this.mLayoutIconDrawable;
+            if (i4 != 0) {
+                remoteViews.setImageViewResource(this.mLayoutIconId, i4);
             }
-            if (this.mNotificationTitle != null) {
-                remoteViews.setTextViewText(this.mLayoutTitleId, this.mNotificationTitle);
+            String str2 = this.mNotificationTitle;
+            if (str2 != null) {
+                remoteViews.setTextViewText(this.mLayoutTitleId, str2);
             }
-            if (this.mNotificationText != null) {
-                remoteViews.setTextViewText(this.mLayoutTextId, this.mNotificationText);
+            String str3 = this.mNotificationText;
+            if (str3 != null) {
+                remoteViews.setTextViewText(this.mLayoutTextId, str3);
             }
             builder.setContent(remoteViews);
         } else {
             builder.setContentTitle(this.mNotificationTitle);
             builder.setContentText(this.mNotificationText);
         }
-        if (Build.VERSION.SDK_INT >= 21 && this.mColor != 0) {
-            builder.setColor(this.mColor);
+        if (Build.VERSION.SDK_INT >= 21 && (i = this.mColor) != 0) {
+            builder.setColor(i);
         }
         if (m.p(context)) {
             if (TextUtils.isEmpty(this.mChannelId)) {
@@ -122,12 +137,13 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
             if (TextUtils.isEmpty(this.mChannelName)) {
                 this.mChannelName = "云推送";
             }
-            com.baidu.android.pushservice.i.h.a(context, this.mChannelId, this.mChannelName);
+            com.baidu.android.pushservice.j.h.a(context, this.mChannelId, this.mChannelName);
             builder.setChannelId(this.mChannelId);
         }
         Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();
-        if (this.mNotificationFlags != 0 && build != null) {
-            build.flags = this.mNotificationFlags;
+        int i5 = this.mNotificationFlags;
+        if (i5 != 0 && build != null) {
+            build.flags = i5;
         }
         return build;
     }

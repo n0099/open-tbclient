@@ -1,16 +1,16 @@
 package rx.internal.subscriptions;
 
-import rx.k;
-/* loaded from: classes4.dex */
+import h.k;
+/* loaded from: classes7.dex */
 public enum Unsubscribed implements k {
     INSTANCE;
 
-    @Override // rx.k
+    @Override // h.k
     public boolean isUnsubscribed() {
         return true;
     }
 
-    @Override // rx.k
+    @Override // h.k
     public void unsubscribe() {
     }
 }

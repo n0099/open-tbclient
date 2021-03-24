@@ -8,32 +8,117 @@ import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
-import com.ss.android.socialbase.appdownloader.b;
-import com.ss.android.socialbase.appdownloader.c.c;
-import com.ss.android.socialbase.appdownloader.c.j;
-import com.ss.android.socialbase.appdownloader.c.k;
-import com.ss.android.socialbase.appdownloader.d;
-import com.ss.android.socialbase.appdownloader.i;
+import d.o.a.e.a.d;
+import d.o.a.e.a.e;
+import d.o.a.e.a.k;
+import d.o.a.e.a.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class JumpUnknownSourceActivity extends Activity {
-    private Intent b;
-    @Nullable
-    private Intent c;
-    private JSONObject d;
-    private j qft;
 
-    @Override // android.app.Activity
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        setIntent(intent);
+    /* renamed from: a  reason: collision with root package name */
+    public d.m f38708a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Intent f38709b;
+    @Nullable
+
+    /* renamed from: c  reason: collision with root package name */
+    public Intent f38710c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f38711d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public JSONObject f38712e;
+
+    /* loaded from: classes7.dex */
+    public class a implements DialogInterface.OnCancelListener {
+        public a() {
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            if (JumpUnknownSourceActivity.this.f38710c != null) {
+                JumpUnknownSourceActivity jumpUnknownSourceActivity = JumpUnknownSourceActivity.this;
+                d.o.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f38710c, true);
+            }
+            d.o.a.e.a.c.B(JumpUnknownSourceActivity.this.f38711d, JumpUnknownSourceActivity.this.f38712e);
+            JumpUnknownSourceActivity.this.finish();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public b() {
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            if (JumpUnknownSourceActivity.this.f38710c != null) {
+                JumpUnknownSourceActivity jumpUnknownSourceActivity = JumpUnknownSourceActivity.this;
+                d.o.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f38710c, true);
+            }
+            d.o.a.e.a.c.B(JumpUnknownSourceActivity.this.f38711d, JumpUnknownSourceActivity.this.f38712e);
+            JumpUnknownSourceActivity.this.finish();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements DialogInterface.OnClickListener {
+        public c() {
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            JumpUnknownSourceActivity jumpUnknownSourceActivity = JumpUnknownSourceActivity.this;
+            if (d.o.a.e.a.c.n(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f38710c, JumpUnknownSourceActivity.this.f38711d, JumpUnknownSourceActivity.this.f38712e)) {
+                d.o.a.e.a.c.I(JumpUnknownSourceActivity.this.f38711d, JumpUnknownSourceActivity.this.f38712e);
+            } else {
+                JumpUnknownSourceActivity jumpUnknownSourceActivity2 = JumpUnknownSourceActivity.this;
+                d.o.a.e.a.c.p(jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.f38710c, true);
+            }
+            d.o.a.e.a.c.f(JumpUnknownSourceActivity.this.f38711d, JumpUnknownSourceActivity.this.f38712e);
+            JumpUnknownSourceActivity.this.finish();
+        }
     }
 
     @Override // android.app.Activity
-    protected void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         a();
+        k.d().f(this);
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        k.d().f(this);
+    }
+
+    @Override // android.app.Activity
+    public void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        this.f38709b = intent;
+        if (intent != null) {
+            this.f38710c = (Intent) intent.getParcelableExtra("intent");
+            this.f38711d = intent.getIntExtra("id", -1);
+            try {
+                this.f38712e = new JSONObject(intent.getStringExtra("config"));
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+        b();
+        d.m mVar = this.f38708a;
+        if (mVar != null && !mVar.b()) {
+            this.f38708a.a();
+        } else if (this.f38708a == null) {
+            finish();
+        }
     }
 
     private void a() {
@@ -43,72 +128,27 @@ public class JumpUnknownSourceActivity extends Activity {
         window.setAttributes(attributes);
     }
 
-    @Override // android.app.Activity
-    protected void onResume() {
-        super.onResume();
-        Intent intent = getIntent();
-        this.b = intent;
-        if (intent != null) {
-            this.c = (Intent) intent.getParcelableExtra("intent");
-            try {
-                this.d = new JSONObject(intent.getStringExtra("config"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        b();
-        if (this.qft != null && !this.qft.b()) {
-            this.qft.a();
-        } else if (this.qft == null) {
-            finish();
-        }
-    }
-
     private void b() {
-        if (this.qft == null && this.b != null) {
-            try {
-                c eFu = d.eFz().eFu();
-                k kVar = null;
-                if (eFu != null) {
-                    kVar = eFu.iA(this);
-                }
-                com.ss.android.socialbase.appdownloader.d.a aVar = kVar == null ? new com.ss.android.socialbase.appdownloader.d.a(this) : kVar;
-                int a2 = i.a(this, "appdownloader_tip");
-                int a3 = i.a(this, "appdownloader_label_ok");
-                int a4 = i.a(this, "appdownloader_label_cancel");
-                String optString = this.d.optString("jump_unknown_source_tips");
-                if (TextUtils.isEmpty(optString)) {
-                    optString = getString(i.a(this, "appdownloader_jump_unknown_source_tips"));
-                }
-                aVar.Ra(a2).aba(optString).h(a3, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.3
-                    @Override // android.content.DialogInterface.OnClickListener
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (!b.a(JumpUnknownSourceActivity.this, JumpUnknownSourceActivity.this.c, JumpUnknownSourceActivity.this.d)) {
-                            b.c(JumpUnknownSourceActivity.this, JumpUnknownSourceActivity.this.c, true);
-                        }
-                        JumpUnknownSourceActivity.this.finish();
-                    }
-                }).i(a4, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.2
-                    @Override // android.content.DialogInterface.OnClickListener
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (JumpUnknownSourceActivity.this.c != null) {
-                            b.c(JumpUnknownSourceActivity.this, JumpUnknownSourceActivity.this.c, true);
-                        }
-                        JumpUnknownSourceActivity.this.finish();
-                    }
-                }).h(new DialogInterface.OnCancelListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.1
-                    @Override // android.content.DialogInterface.OnCancelListener
-                    public void onCancel(DialogInterface dialogInterface) {
-                        if (JumpUnknownSourceActivity.this.c != null) {
-                            b.c(JumpUnknownSourceActivity.this, JumpUnknownSourceActivity.this.c, true);
-                        }
-                        JumpUnknownSourceActivity.this.finish();
-                    }
-                }).BW(false);
-                this.qft = aVar.eFk();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (this.f38708a != null || this.f38709b == null) {
+            return;
+        }
+        try {
+            d.e b2 = e.F().b();
+            d.n a2 = b2 != null ? b2.a(this) : null;
+            if (a2 == null) {
+                a2 = new e.C1840e(this);
             }
+            int a3 = l.a(this, "tt_appdownloader_tip");
+            int a4 = l.a(this, "tt_appdownloader_label_ok");
+            int a5 = l.a(this, "tt_appdownloader_label_cancel");
+            String optString = this.f38712e.optString("jump_unknown_source_tips");
+            if (TextUtils.isEmpty(optString)) {
+                optString = getString(l.a(this, "tt_appdownloader_jump_unknown_source_tips"));
+            }
+            a2.a(a3).a(optString).b(a4, new c()).a(a5, new b()).c(new a()).a(false);
+            this.f38708a = a2.a();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

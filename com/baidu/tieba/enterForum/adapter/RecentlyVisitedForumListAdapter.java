@@ -6,198 +6,262 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tieba.R;
+import d.b.b.e.p.k;
+import d.b.b.e.p.l;
 import java.util.LinkedList;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumViewHolder> {
-    private LinkedList<VisitedForumData> iIY;
-    private boolean iIZ;
-    private a iJa;
-    private View.OnLongClickListener iJb;
-    private View.OnClickListener iJc;
-    private TbPageContext<?> mPageContext;
 
-    /* loaded from: classes2.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public TbPageContext<?> f15354a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinkedList<VisitedForumData> f15355b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f15356c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public a f15357d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View.OnLongClickListener f15358e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View.OnClickListener f15359f;
+
+    /* loaded from: classes4.dex */
+    public class ForumViewHolder extends RecyclerView.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public View f15360a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public TextView f15361b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public TextView f15362c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public BarImageView f15363d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public MessageRedDotView f15364e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public ImageView f15365f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public LinearGradientView f15366g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public TextView f15367h;
+        public LinearLayout i;
+
+        /* loaded from: classes4.dex */
+        public class a implements View.OnClickListener {
+            public a(RecentlyVisitedForumListAdapter recentlyVisitedForumListAdapter) {
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (RecentlyVisitedForumListAdapter.this.f15357d != null) {
+                    RecentlyVisitedForumListAdapter.this.f15357d.a(ForumViewHolder.this);
+                }
+            }
+        }
+
+        /* loaded from: classes4.dex */
+        public class b implements View.OnLongClickListener {
+            public b(RecentlyVisitedForumListAdapter recentlyVisitedForumListAdapter) {
+            }
+
+            @Override // android.view.View.OnLongClickListener
+            public boolean onLongClick(View view) {
+                if (RecentlyVisitedForumListAdapter.this.f15358e != null) {
+                    RecentlyVisitedForumListAdapter.this.f15358e.onLongClick(view);
+                    return true;
+                }
+                return true;
+            }
+        }
+
+        /* loaded from: classes4.dex */
+        public class c implements View.OnClickListener {
+            public c(RecentlyVisitedForumListAdapter recentlyVisitedForumListAdapter) {
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (RecentlyVisitedForumListAdapter.this.f15359f != null) {
+                    RecentlyVisitedForumListAdapter.this.f15359f.onClick(view);
+                }
+            }
+        }
+
+        public ForumViewHolder(View view) {
+            super(view);
+            view.setOnClickListener(new a(RecentlyVisitedForumListAdapter.this));
+            view.setOnLongClickListener(new b(RecentlyVisitedForumListAdapter.this));
+            this.f15360a = view.findViewById(R.id.top_container);
+            BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_image);
+            this.f15363d = barImageView;
+            barImageView.setPlaceHolderAutoChangeSkinType(1);
+            this.f15361b = (TextView) view.findViewById(R.id.forum_name);
+            this.f15364e = (MessageRedDotView) view.findViewById(R.id.red_dot_view);
+            this.f15362c = (TextView) view.findViewById(R.id.forum_follow);
+            LinearGradientView linearGradientView = (LinearGradientView) view.findViewById(R.id.forum_bg);
+            this.f15366g = linearGradientView;
+            linearGradientView.setCornerRadius(l.g(RecentlyVisitedForumListAdapter.this.f15354a.getPageActivity(), R.dimen.tbds10));
+            this.f15366g.setRoundMode(3);
+            this.f15366g.setVisibility(8);
+            this.f15364e.setThreeDotMode(2);
+            this.f15364e.setEnterForumStyle(true);
+            ImageView imageView = (ImageView) view.findViewById(R.id.delete_image);
+            this.f15365f = imageView;
+            imageView.setOnClickListener(new c(RecentlyVisitedForumListAdapter.this));
+            this.f15367h = (TextView) view.findViewById(R.id.live_label_view);
+            this.i = (LinearLayout) view.findViewById(R.id.bottom_container);
+        }
+    }
+
+    /* loaded from: classes4.dex */
     public interface a {
         void a(ForumViewHolder forumViewHolder);
     }
 
     public RecentlyVisitedForumListAdapter(TbPageContext<?> tbPageContext) {
-        this.mPageContext = tbPageContext;
-    }
-
-    public void h(LinkedList<VisitedForumData> linkedList) {
-        this.iIY = linkedList;
+        this.f15354a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: z */
-    public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new ForumViewHolder(this.mPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.recently_visited_forum_item, (ViewGroup) null));
+    /* renamed from: g */
+    public void onBindViewHolder(ForumViewHolder forumViewHolder, int i) {
+        LinkedList<VisitedForumData> linkedList;
+        if (forumViewHolder == null || (linkedList = this.f15355b) == null || linkedList.get(i) == null) {
+            return;
+        }
+        VisitedForumData visitedForumData = this.f15355b.get(i);
+        forumViewHolder.itemView.setTag(visitedForumData);
+        o(visitedForumData, forumViewHolder);
+        n(visitedForumData, forumViewHolder);
+        p(visitedForumData, forumViewHolder);
+        forumViewHolder.f15363d.W(visitedForumData.u(), 10, false);
+        forumViewHolder.f15363d.setStrokeColorResId(R.color.CAM_X0201);
+        forumViewHolder.f15363d.setStrokeWith(3);
+        forumViewHolder.f15363d.setShowOval(true);
+        q(visitedForumData, forumViewHolder);
+        SkinManager.setImageResource(forumViewHolder.f15365f, R.drawable.icon_ba_delete_n);
+        SkinManager.setViewTextColor(forumViewHolder.f15361b, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(forumViewHolder.f15362c, R.color.CAM_X0109);
+        TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f15354a.getPageActivity(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(l.g(this.f15354a.getPageActivity(), R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f15354a.getPageActivity(), R.dimen.tbds5)).into(forumViewHolder.i);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.iIY == null) {
+        LinkedList<VisitedForumData> linkedList = this.f15355b;
+        if (linkedList == null) {
             return 0;
         }
-        return this.iIY.size();
+        return linkedList.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: a */
-    public void onBindViewHolder(ForumViewHolder forumViewHolder, int i) {
-        if (forumViewHolder != null && this.iIY != null && this.iIY.get(i) != null) {
-            VisitedForumData visitedForumData = this.iIY.get(i);
-            forumViewHolder.itemView.setTag(visitedForumData);
-            a(visitedForumData, forumViewHolder);
-            b(visitedForumData, forumViewHolder);
-            d(visitedForumData, forumViewHolder);
-            forumViewHolder.iJf.startLoad(visitedForumData.bAM(), 10, false);
-            forumViewHolder.iJf.setStrokeColorResId(R.color.CAM_X0201);
-            forumViewHolder.iJf.setStrokeWith(3);
-            forumViewHolder.iJf.setShowOval(true);
-            c(visitedForumData, forumViewHolder);
-            ap.setImageResource(forumViewHolder.fGC, R.drawable.icon_ba_delete_n);
-            ap.setViewTextColor(forumViewHolder.fmq, R.color.CAM_X0105);
-            ap.setViewTextColor(forumViewHolder.iJe, R.color.CAM_X0109);
-            com.baidu.tbadk.core.util.f.a.btx().ph(R.color.CAM_X0901).pc(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds10)).pd(R.color.CAM_X0804).pb(4353).pe(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).pf(0).pg(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds5)).bv(forumViewHolder.bye);
-        }
+    /* renamed from: h */
+    public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        return new ForumViewHolder(this.f15354a.getPageActivity().getLayoutInflater().inflate(R.layout.recently_visited_forum_item, (ViewGroup) null));
     }
 
-    private void a(VisitedForumData visitedForumData, ForumViewHolder forumViewHolder) {
-        if (visitedForumData != null && forumViewHolder != null) {
-            String forumName = visitedForumData.getForumName();
-            if (au.isEmpty(forumName)) {
-                forumName = "";
-            }
-            forumViewHolder.fmq.setText(forumName);
-        }
+    public void i(LinkedList<VisitedForumData> linkedList) {
+        this.f15355b = linkedList;
     }
 
-    private void b(VisitedForumData visitedForumData, ForumViewHolder forumViewHolder) {
-        if (visitedForumData != null && forumViewHolder != null) {
-            forumViewHolder.iJe.setText("关注 " + au.numFormatOverWanNa(visitedForumData.bAQ()));
-        }
+    public void j(View.OnClickListener onClickListener) {
+        this.f15359f = onClickListener;
     }
 
-    private void c(VisitedForumData visitedForumData, ForumViewHolder forumViewHolder) {
-        if (visitedForumData != null && forumViewHolder != null) {
-            ThemeColorInfo themeColorInfo = visitedForumData.getThemeColorInfo();
-            if (themeColorInfo == null) {
-                forumViewHolder.iJh.setVisibility(0);
-                forumViewHolder.iJh.setDefaultGradientColor();
-            } else if (forumViewHolder.iJh != null) {
-                forumViewHolder.iJh.setGradientColor(themeColorInfo.day, themeColorInfo.night, themeColorInfo.dark);
-                forumViewHolder.iJh.setVisibility(0);
-            }
-        }
-    }
-
-    private void d(VisitedForumData visitedForumData, ForumViewHolder forumViewHolder) {
-        if (visitedForumData != null && forumViewHolder != null) {
-            forumViewHolder.iJg.setVisibility(8);
-            forumViewHolder.fGC.setVisibility(8);
-            forumViewHolder.iJi.setVisibility(8);
-            if (this.iIZ) {
-                forumViewHolder.fGC.setVisibility(0);
-                forumViewHolder.fGC.setTag(visitedForumData);
-            } else if (!visitedForumData.bAN()) {
-                if (visitedForumData.bAO() <= 0) {
-                    forumViewHolder.iJg.setVisibility(8);
-                    return;
-                }
-                forumViewHolder.iJg.setVisibility(0);
-                forumViewHolder.iJg.refresh(visitedForumData.bAO());
-            } else {
-                forumViewHolder.iJi.setVisibility(0);
-            }
-        }
-    }
-
-    public void mc(boolean z) {
-        this.iIZ = z;
+    public void k(boolean z) {
+        this.f15356c = z;
         notifyDataSetChanged();
     }
 
-    public void a(a aVar) {
-        this.iJa = aVar;
+    public void l(a aVar) {
+        this.f15357d = aVar;
     }
 
-    public void a(View.OnLongClickListener onLongClickListener) {
-        this.iJb = onLongClickListener;
+    public void m(View.OnLongClickListener onLongClickListener) {
+        this.f15358e = onLongClickListener;
     }
 
-    public void x(View.OnClickListener onClickListener) {
-        this.iJc = onClickListener;
+    public final void n(VisitedForumData visitedForumData, ForumViewHolder forumViewHolder) {
+        if (visitedForumData == null || forumViewHolder == null) {
+            return;
+        }
+        int t = visitedForumData.t();
+        TextView textView = forumViewHolder.f15362c;
+        textView.setText("关注 " + StringHelper.numFormatOverWanNa(t));
     }
 
-    /* loaded from: classes2.dex */
-    public class ForumViewHolder extends RecyclerView.ViewHolder {
-        public LinearLayout bye;
-        public ImageView fGC;
-        public TextView fmq;
-        public View iJd;
-        public TextView iJe;
-        public BarImageView iJf;
-        public MessageRedDotView iJg;
-        public LinearGradientView iJh;
-        public TextView iJi;
+    public final void o(VisitedForumData visitedForumData, ForumViewHolder forumViewHolder) {
+        if (visitedForumData == null || forumViewHolder == null) {
+            return;
+        }
+        String forumName = visitedForumData.getForumName();
+        if (k.isEmpty(forumName)) {
+            forumName = "";
+        }
+        forumViewHolder.f15361b.setText(forumName);
+    }
 
-        public ForumViewHolder(View view) {
-            super(view);
-            view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.adapter.RecentlyVisitedForumListAdapter.ForumViewHolder.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    if (RecentlyVisitedForumListAdapter.this.iJa != null) {
-                        RecentlyVisitedForumListAdapter.this.iJa.a(ForumViewHolder.this);
-                    }
-                }
-            });
-            view.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.adapter.RecentlyVisitedForumListAdapter.ForumViewHolder.2
-                @Override // android.view.View.OnLongClickListener
-                public boolean onLongClick(View view2) {
-                    if (RecentlyVisitedForumListAdapter.this.iJb != null) {
-                        RecentlyVisitedForumListAdapter.this.iJb.onLongClick(view2);
-                        return true;
-                    }
-                    return true;
-                }
-            });
-            this.iJd = view.findViewById(R.id.top_container);
-            this.iJf = (BarImageView) view.findViewById(R.id.forum_image);
-            this.iJf.setPlaceHolderAutoChangeSkinType(1);
-            this.fmq = (TextView) view.findViewById(R.id.forum_name);
-            this.iJg = (MessageRedDotView) view.findViewById(R.id.red_dot_view);
-            this.iJe = (TextView) view.findViewById(R.id.forum_follow);
-            this.iJh = (LinearGradientView) view.findViewById(R.id.forum_bg);
-            this.iJh.setCornerRadius(l.getDimens(RecentlyVisitedForumListAdapter.this.mPageContext.getPageActivity(), R.dimen.tbds10));
-            this.iJh.setRoundMode(3);
-            this.iJh.setVisibility(8);
-            this.iJg.setThreeDotMode(2);
-            this.iJg.setEnterForumStyle(true);
-            this.fGC = (ImageView) view.findViewById(R.id.delete_image);
-            this.fGC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.adapter.RecentlyVisitedForumListAdapter.ForumViewHolder.3
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    if (RecentlyVisitedForumListAdapter.this.iJc != null) {
-                        RecentlyVisitedForumListAdapter.this.iJc.onClick(view2);
-                    }
-                }
-            });
-            this.iJi = (TextView) view.findViewById(R.id.live_label_view);
-            this.bye = (LinearLayout) view.findViewById(R.id.bottom_container);
+    public final void p(VisitedForumData visitedForumData, ForumViewHolder forumViewHolder) {
+        if (visitedForumData == null || forumViewHolder == null) {
+            return;
+        }
+        forumViewHolder.f15364e.setVisibility(8);
+        forumViewHolder.f15365f.setVisibility(8);
+        forumViewHolder.f15367h.setVisibility(8);
+        if (this.f15356c) {
+            forumViewHolder.f15365f.setVisibility(0);
+            forumViewHolder.f15365f.setTag(visitedForumData);
+        } else if (!visitedForumData.B()) {
+            if (visitedForumData.x() <= 0) {
+                forumViewHolder.f15364e.setVisibility(8);
+                return;
+            }
+            forumViewHolder.f15364e.setVisibility(0);
+            forumViewHolder.f15364e.f(visitedForumData.x());
+        } else {
+            forumViewHolder.f15367h.setVisibility(0);
+        }
+    }
+
+    public final void q(VisitedForumData visitedForumData, ForumViewHolder forumViewHolder) {
+        if (visitedForumData == null || forumViewHolder == null) {
+            return;
+        }
+        ThemeColorInfo z = visitedForumData.z();
+        if (z == null) {
+            forumViewHolder.f15366g.setVisibility(0);
+            forumViewHolder.f15366g.setDefaultGradientColor();
+            return;
+        }
+        LinearGradientView linearGradientView = forumViewHolder.f15366g;
+        if (linearGradientView != null) {
+            linearGradientView.setGradientColor(z.day, z.night, z.dark);
+            forumViewHolder.f15366g.setVisibility(0);
         }
     }
 }

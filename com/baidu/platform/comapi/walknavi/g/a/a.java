@@ -1,8 +1,12 @@
 package com.baidu.platform.comapi.walknavi.g.a;
 
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
+    public static Bundle a(Bundle bundle, int i, int i2) {
+        return bundle;
+    }
+
     public static Bundle a(Bundle bundle, int i, int i2, int i3) {
         bundle.putInt("updatetype", i);
         if (i == 1) {
@@ -14,11 +18,7 @@ public class a {
         return null;
     }
 
-    private static Bundle a(Bundle bundle, int i, int i2) {
-        return bundle;
-    }
-
-    private static Bundle b(Bundle bundle, int i, int i2) {
+    public static Bundle b(Bundle bundle, int i, int i2) {
         bundle.putInt("totaldist", i);
         bundle.putInt("totaltime", i2);
         return bundle;

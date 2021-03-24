@@ -5,7 +5,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     public int A;
     public String B;
@@ -30,17 +30,31 @@ public class a {
     public int U;
     public int V;
     public int W;
-    private long X;
+    public long X;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f6228a;
-    public SceneImpl b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
+    public AdTemplate f33993a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SceneImpl f33994b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f33995c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f33996d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f33997e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f33998f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f33999g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f34000h;
     public long i;
     public long j;
     public long k;
@@ -71,8 +85,8 @@ public class a {
         this.E = -1;
         this.V = -1;
         this.W = -1;
-        this.c = j;
-        this.f6228a = null;
+        this.f33995c = j;
+        this.f33993a = null;
     }
 
     public a(long j, @NonNull AdTemplate adTemplate) {
@@ -86,13 +100,13 @@ public class a {
         this.E = -1;
         this.V = -1;
         this.W = -1;
-        this.c = j;
-        this.f6228a = adTemplate;
+        this.f33995c = j;
+        this.f33993a = adTemplate;
         a(adTemplate.getShowPosition());
     }
 
     private void a(long j) {
-        this.X = 1 + j;
+        this.X = j + 1;
     }
 
     public long a() {

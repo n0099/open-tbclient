@@ -7,32 +7,35 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1491a;
-    private RotateAnimation b;
+    public View f5144a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RotateAnimation f5145b;
 
     public a(Context context) {
         super(context, ResUtils.style(context, "RimThemeLoadingDialog"));
     }
 
-    public a(Context context, int i) {
-        super(context, i);
-    }
-
     @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(ResUtils.layout(getContext(), "rim_base_dialog_common_loading_layout"));
         setCanceledOnTouchOutside(false);
         setCancelable(false);
-        this.f1491a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
-        this.b = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-        this.b.setRepeatCount(-1);
-        this.b.setDuration(1000L);
-        this.b.setInterpolator(new LinearInterpolator());
-        this.f1491a.startAnimation(this.b);
+        this.f5144a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
+        RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
+        this.f5145b = rotateAnimation;
+        rotateAnimation.setRepeatCount(-1);
+        this.f5145b.setDuration(1000L);
+        this.f5145b.setInterpolator(new LinearInterpolator());
+        this.f5144a.startAnimation(this.f5145b);
+    }
+
+    public a(Context context, int i) {
+        super(context, i);
     }
 }

@@ -4,20 +4,18 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.cesium.d.b;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes6.dex */
+import d.b.j.f;
+/* loaded from: classes2.dex */
 public final class Util {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f1063a = false;
-    private static final String b = "Util";
+    public static final boolean f2525a = false;
 
-    private Util() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f2526b = "Util";
 
     public static boolean hasOtherServiceRuninMyPid(Context context, String str) {
-        for (ActivityManager.RunningServiceInfo runningServiceInfo : ((ActivityManager) context.getApplicationContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningServices(100)) {
+        for (ActivityManager.RunningServiceInfo runningServiceInfo : ((ActivityManager) context.getApplicationContext().getSystemService("activity")).getRunningServices(100)) {
             if (runningServiceInfo.pid == Process.myPid() && !TextUtils.equals(runningServiceInfo.service.getClassName(), str)) {
                 return true;
             }
@@ -26,10 +24,10 @@ public final class Util {
     }
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
-        return b.a(bArr, str, z);
+        return f.c.a(bArr, str, z);
     }
 
     public static String toMd5(byte[] bArr, boolean z) {
-        return b.a(bArr, z);
+        return f.c.b(bArr, z);
     }
 }

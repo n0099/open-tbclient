@@ -9,12 +9,12 @@ import com.baidu.fsg.base.restnet.fp.GetFPResponse;
 import com.baidu.fsg.base.utils.JsonUtils;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class InitDelayThread extends Thread {
-    InitDelayCallback mCallback;
-    WeakReference<Context> mContext;
+    public InitDelayCallback mCallback;
+    public WeakReference<Context> mContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public interface InitDelayCallback extends NoProguard {
         void callBack();
     }
@@ -26,29 +26,27 @@ public class InitDelayThread extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        long j;
         super.run();
-        if (this.mContext != null && this.mContext.get() != null) {
-            String rimAllConfig = BdWalletUtils.getRimAllConfig(this.mContext.get());
-            long j2 = 0;
-            if (!TextUtils.isEmpty(rimAllConfig)) {
-                try {
-                    GetFPResponse.RimConfig rimConfig = (GetFPResponse.RimConfig) JsonUtils.fromJson(rimAllConfig, GetFPResponse.RimConfig.class);
-                    if (rimConfig != null && rimConfig.f1511common != null) {
-                        try {
-                            j = Long.parseLong(rimConfig.f1511common.init_delay);
-                        } catch (NumberFormatException e) {
-                            e.printStackTrace();
-                        }
-                        j2 = j;
-                    }
-                    j = 0;
-                    j2 = j;
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            new Handler(Looper.myLooper()).postDelayed(new b(this), j2);
+        WeakReference<Context> weakReference = this.mContext;
+        if (weakReference == null || weakReference.get() == null) {
+            return;
         }
+        String rimAllConfig = BdWalletUtils.getRimAllConfig(this.mContext.get());
+        long j = 0;
+        if (!TextUtils.isEmpty(rimAllConfig)) {
+            try {
+                GetFPResponse.RimConfig rimConfig = (GetFPResponse.RimConfig) JsonUtils.fromJson(rimAllConfig, GetFPResponse.RimConfig.class);
+                if (rimConfig != null && rimConfig.f5212common != null) {
+                    try {
+                        j = Long.parseLong(rimConfig.f5212common.init_delay);
+                    } catch (NumberFormatException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            } catch (JSONException e3) {
+                e3.printStackTrace();
+            }
+        }
+        new Handler(Looper.myLooper()).postDelayed(new b(this), j);
     }
 }

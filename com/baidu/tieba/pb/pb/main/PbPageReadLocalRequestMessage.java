@@ -2,56 +2,55 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PbPageReadLocalRequestMessage extends CustomMessage<Object> {
-    private String cacheKey;
-    private Context context;
-    private boolean markCache;
-    private String postId;
-    private int updateType;
+    public String cacheKey;
+    public Context context;
+    public boolean markCache;
+    public String postId;
+    public int updateType;
 
     public PbPageReadLocalRequestMessage() {
-        super(CmdConfigCustom.PB_PAGE_CACHE_CMD);
-    }
-
-    public Context getContext() {
-        return this.context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
-    public String getPostId() {
-        return this.postId;
-    }
-
-    public void setPostId(String str) {
-        this.postId = str;
-    }
-
-    public int getUpdateType() {
-        return this.updateType;
-    }
-
-    public void setUpdateType(int i) {
-        this.updateType = i;
-    }
-
-    public boolean isMarkCache() {
-        return this.markCache;
-    }
-
-    public void setMarkCache(boolean z) {
-        this.markCache = z;
+        super(2004003);
     }
 
     public String getCacheKey() {
         return this.cacheKey;
     }
 
+    public Context getContext() {
+        return this.context;
+    }
+
+    public String getPostId() {
+        return this.postId;
+    }
+
+    public int getUpdateType() {
+        return this.updateType;
+    }
+
+    public boolean isMarkCache() {
+        return this.markCache;
+    }
+
     public void setCacheKey(String str) {
         this.cacheKey = str;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public void setMarkCache(boolean z) {
+        this.markCache = z;
+    }
+
+    public void setPostId(String str) {
+        this.postId = str;
+    }
+
+    public void setUpdateType(int i) {
+        this.updateType = i;
     }
 }

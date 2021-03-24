@@ -1,30 +1,29 @@
 package com.kwai.filedownloader.a;
 
-import com.baidubce.http.Headers;
 import com.kwai.filedownloader.f.f;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static b a(Map<String, List<String>> map, b bVar, List<String> list) {
-        int e = bVar.e();
-        String a2 = bVar.a(Headers.LOCATION);
+        int e2 = bVar.e();
+        String a2 = bVar.a("Location");
         ArrayList arrayList = new ArrayList();
         int i = 0;
-        while (a(e)) {
+        while (a(e2)) {
             if (a2 == null) {
-                throw new IllegalAccessException(f.a("receive %d (redirect) but the location is null with response [%s]", Integer.valueOf(e), bVar.c()));
+                throw new IllegalAccessException(f.a("receive %d (redirect) but the location is null with response [%s]", Integer.valueOf(e2), bVar.c()));
             }
-            if (com.kwai.filedownloader.f.d.f7212a) {
-                com.kwai.filedownloader.f.d.c(d.class, "redirect to %s with %d, %s", a2, Integer.valueOf(e), arrayList);
+            if (com.kwai.filedownloader.f.d.f37011a) {
+                com.kwai.filedownloader.f.d.c(d.class, "redirect to %s with %d, %s", a2, Integer.valueOf(e2), arrayList);
             }
             bVar.f();
             bVar = a(map, a2);
             arrayList.add(a2);
             bVar.d();
-            e = bVar.e();
-            a2 = bVar.a(Headers.LOCATION);
+            e2 = bVar.e();
+            a2 = bVar.a("Location");
             i++;
             if (i >= 10) {
                 throw new IllegalAccessException(f.a("redirect too many times! %s", arrayList));
@@ -36,7 +35,7 @@ public class d {
         return bVar;
     }
 
-    private static b a(Map<String, List<String>> map, String str) {
+    public static b a(Map<String, List<String>> map, String str) {
         b a2 = com.kwai.filedownloader.download.b.a().a(str);
         for (Map.Entry<String, List<String>> entry : map.entrySet()) {
             String key = entry.getKey();
@@ -50,7 +49,7 @@ public class d {
         return a2;
     }
 
-    private static boolean a(int i) {
+    public static boolean a(int i) {
         return i == 301 || i == 302 || i == 303 || i == 300 || i == 307 || i == 308;
     }
 }

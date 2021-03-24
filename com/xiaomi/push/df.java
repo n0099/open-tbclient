@@ -1,131 +1,208 @@
 package com.xiaomi.push;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
-public class df {
-    public static int a(Context context, int i) {
-        int a2 = gx.a(context);
-        if (-1 == a2) {
-            return -1;
+import android.util.Log;
+import android.util.Pair;
+import com.xiaomi.channel.commonutils.logger.LoggerInterface;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class df implements LoggerInterface {
+
+    /* renamed from: a  reason: collision with other field name */
+    public Context f230a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Handler f231a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f40359b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f40360c = "";
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final SimpleDateFormat f228a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f40358a = "/MiPushLog";
+
+    /* renamed from: a  reason: collision with other field name */
+    public static List<Pair<String, Throwable>> f229a = Collections.synchronizedList(new ArrayList());
+
+    public df(Context context) {
+        this.f230a = context;
+        if (context.getApplicationContext() != null) {
+            this.f230a = context.getApplicationContext();
         }
-        return ((a2 == 0 ? 13 : 11) * i) / 10;
+        this.f40359b = this.f230a.getPackageName();
+        HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
+        handlerThread.start();
+        this.f231a = new Handler(handlerThread.getLooper());
     }
 
-    public static int a(hm hmVar) {
-        return fa.a(hmVar.a());
-    }
-
-    public static int a(ix ixVar, hm hmVar) {
-        switch (dg.f8316a[hmVar.ordinal()]) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-                return fa.a(hmVar.a());
-            case 11:
-                int a2 = fa.a(hmVar.a());
-                if (ixVar != null) {
-                    try {
-                        if (ixVar instanceof id) {
-                            String str = ((id) ixVar).f563d;
-                            return (TextUtils.isEmpty(str) || fa.a(fa.m274a(str)) == -1) ? a2 : fa.a(fa.m274a(str));
-                        } else if (ixVar instanceof il) {
-                            String str2 = ((il) ixVar).f622d;
-                            if (TextUtils.isEmpty(str2)) {
-                                return a2;
-                            }
-                            if (fa.a(fa.m274a(str2)) != -1) {
-                                a2 = fa.a(fa.m274a(str2));
-                            }
-                            if (hw.UploadTinyData.equals(fa.m274a(str2))) {
-                                return -1;
-                            }
-                            return a2;
-                        } else {
-                            return a2;
-                        }
-                    } catch (Exception e) {
-                        com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Notification type error");
-                        return a2;
-                    }
-                }
-                return a2;
-            case 12:
-                int a3 = fa.a(hmVar.a());
-                if (ixVar != null) {
-                    try {
-                        if (ixVar instanceof ih) {
-                            String a4 = ((ih) ixVar).a();
-                            if (!TextUtils.isEmpty(a4) && fg.a(a4) != -1) {
-                                a3 = fg.a(a4);
-                            }
-                        } else if (ixVar instanceof ig) {
-                            String a5 = ((ig) ixVar).a();
-                            if (!TextUtils.isEmpty(a5) && fg.a(a5) != -1) {
-                                a3 = fg.a(a5);
-                            }
-                        }
-                        return a3;
-                    } catch (Exception e2) {
-                        com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Command type error");
-                        return a3;
-                    }
-                }
-                return a3;
-            default:
-                return -1;
-        }
-    }
-
-    public static void a(String str, Context context, int i, int i2) {
-        if (i <= 0 || i2 <= 0) {
-            return;
-        }
-        int a2 = a(context, i2);
-        if (i != fa.a(hw.UploadTinyData)) {
-            fb.a(context.getApplicationContext()).a(str, i, 1L, a2);
-        }
-    }
-
-    public static void a(String str, Context context, ii iiVar, int i) {
-        hm a2;
-        if (context == null || iiVar == null || (a2 = iiVar.a()) == null) {
-            return;
-        }
-        int a3 = a(a2);
-        int i2 = 0;
-        if (i <= 0) {
-            byte[] a4 = iw.a(iiVar);
-            if (a4 != null) {
-                i2 = a4.length;
-            }
-        } else {
-            i2 = i;
-        }
-        a(str, context, a3, i2);
-    }
-
-    public static void a(String str, Context context, ix ixVar, hm hmVar, int i) {
-        a(str, context, a(ixVar, hmVar), i);
-    }
-
-    public static void a(String str, Context context, byte[] bArr) {
-        if (context == null || bArr == null || bArr.length <= 0) {
-            return;
-        }
-        ii iiVar = new ii();
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:85:0x017a -> B:110:0x017f). Please submit an issue!!! */
+    /* renamed from: a  reason: collision with other method in class */
+    public void m225a() {
+        RandomAccessFile randomAccessFile;
+        FileLock fileLock;
+        File file;
+        File externalFilesDir;
+        BufferedWriter bufferedWriter = null;
         try {
-            iw.a(iiVar, bArr);
-            a(str, context, iiVar, bArr.length);
-        } catch (jc e) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("fail to convert bytes to container");
+            try {
+                try {
+                    if (TextUtils.isEmpty(this.f40360c) && (externalFilesDir = this.f230a.getExternalFilesDir(null)) != null) {
+                        this.f40360c = externalFilesDir.getAbsolutePath() + "";
+                    }
+                    file = new File(this.f40360c + f40358a);
+                } catch (IOException e2) {
+                    Log.e(this.f40359b, "", e2);
+                }
+            } catch (Exception e3) {
+                e = e3;
+                fileLock = null;
+                randomAccessFile = null;
+            } catch (Throwable th) {
+                th = th;
+                fileLock = null;
+                randomAccessFile = null;
+            }
+            if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
+                Log.w(this.f40359b, "Create mipushlog directory fail.");
+                return;
+            }
+            File file2 = new File(file, "log.lock");
+            if (!file2.exists() || file2.isDirectory()) {
+                file2.createNewFile();
+            }
+            randomAccessFile = new RandomAccessFile(file2, "rw");
+            try {
+                fileLock = randomAccessFile.getChannel().lock();
+                try {
+                    BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
+                    while (!f229a.isEmpty()) {
+                        try {
+                            Pair<String, Throwable> remove = f229a.remove(0);
+                            String str = (String) remove.first;
+                            if (remove.second != null) {
+                                str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
+                            }
+                            bufferedWriter2.write(str + "\n");
+                        } catch (Exception e4) {
+                            e = e4;
+                            bufferedWriter = bufferedWriter2;
+                            Log.e(this.f40359b, "", e);
+                            if (bufferedWriter != null) {
+                                try {
+                                    bufferedWriter.close();
+                                } catch (IOException e5) {
+                                    Log.e(this.f40359b, "", e5);
+                                }
+                            }
+                            if (fileLock != null && fileLock.isValid()) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e6) {
+                                    Log.e(this.f40359b, "", e6);
+                                }
+                            }
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            bufferedWriter = bufferedWriter2;
+                            if (bufferedWriter != null) {
+                                try {
+                                    bufferedWriter.close();
+                                } catch (IOException e7) {
+                                    Log.e(this.f40359b, "", e7);
+                                }
+                            }
+                            if (fileLock != null && fileLock.isValid()) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e8) {
+                                    Log.e(this.f40359b, "", e8);
+                                }
+                            }
+                            if (randomAccessFile != null) {
+                                try {
+                                    randomAccessFile.close();
+                                } catch (IOException e9) {
+                                    Log.e(this.f40359b, "", e9);
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                    bufferedWriter2.flush();
+                    bufferedWriter2.close();
+                    File file3 = new File(file, "log1.txt");
+                    if (file3.length() >= 1048576) {
+                        File file4 = new File(file, "log0.txt");
+                        if (file4.exists() && file4.isFile()) {
+                            file4.delete();
+                        }
+                        file3.renameTo(file4);
+                    }
+                    if (0 != 0) {
+                        try {
+                            bufferedWriter.close();
+                        } catch (IOException e10) {
+                            Log.e(this.f40359b, "", e10);
+                        }
+                    }
+                    if (fileLock != null && fileLock.isValid()) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e11) {
+                            Log.e(this.f40359b, "", e11);
+                        }
+                    }
+                    randomAccessFile.close();
+                } catch (Exception e12) {
+                    e = e12;
+                }
+            } catch (Exception e13) {
+                e = e13;
+                fileLock = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileLock = null;
+            }
+        } catch (Throwable th4) {
+            th = th4;
         }
+    }
+
+    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
+    public final void log(String str) {
+        log(str, null);
+    }
+
+    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
+    public final void log(String str, Throwable th) {
+        this.f231a.post(new dg(this, str, th));
+    }
+
+    @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
+    public final void setTag(String str) {
+        this.f40359b = str;
     }
 }

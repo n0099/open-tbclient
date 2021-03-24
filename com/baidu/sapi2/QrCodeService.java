@@ -2,9 +2,6 @@ package com.baidu.sapi2;
 
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.QrLoginStatusCheckCallback;
 import com.baidu.sapi2.callback.SapiCallback;
@@ -18,299 +15,301 @@ import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.QrLoginStatusCheckResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.g;
+import com.facebook.common.util.UriUtil;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class QrCodeService extends AbstractService implements NoProguard {
-    private static QrCodeService b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static QrCodeService f10581b;
 
     /* renamed from: a  reason: collision with root package name */
-    private HttpClientWrap f3123a;
+    public HttpClientWrap f10582a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SapiCallback f3124a;
-        final /* synthetic */ GetQrCodeImageResult b;
-        final /* synthetic */ boolean c;
+        public final /* synthetic */ SapiCallback f10583a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ GetQrCodeImageResult f10584b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ boolean f10585c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        a(Looper looper, SapiCallback sapiCallback, GetQrCodeImageResult getQrCodeImageResult, boolean z) {
+        public a(Looper looper, SapiCallback sapiCallback, GetQrCodeImageResult getQrCodeImageResult, boolean z) {
             super(looper);
-            this.f3124a = sapiCallback;
-            this.b = getQrCodeImageResult;
-            this.c = z;
+            this.f10583a = sapiCallback;
+            this.f10584b = getQrCodeImageResult;
+            this.f10585c = z;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            this.b.setResultCode(i);
-            this.f3124a.onFailure(this.b);
+            this.f10584b.setResultCode(i);
+            this.f10583a.onFailure(this.f10584b);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
-            this.f3124a.onFinish();
+            this.f10583a.onFinish();
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
-            this.f3124a.onStart();
+            this.f10583a.onStart();
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
-                String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
-                this.b.setResultCode(parseInt);
-                this.b.setResultMsg(optString);
+                int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                String optString = jSONObject.optString("errmsg");
+                this.f10584b.setResultCode(parseInt);
+                this.f10584b.setResultMsg(optString);
                 if (parseInt != 0) {
-                    this.f3124a.onFailure(this.b);
+                    this.f10583a.onFailure(this.f10584b);
                     return;
                 }
-                this.b.imageUrl = SapiUtils.COOKIE_HTTPS_URL_PREFIX + jSONObject.optString("imgurl");
-                this.b.prompt = jSONObject.optString("prompt");
-                this.b.channelId = jSONObject.optString("sign");
-                if (this.c) {
-                    this.b.contentUrl = jSONObject.optString("qrcontent_url");
+                GetQrCodeImageResult getQrCodeImageResult = this.f10584b;
+                getQrCodeImageResult.imageUrl = "https://" + jSONObject.optString("imgurl");
+                this.f10584b.prompt = jSONObject.optString("prompt");
+                this.f10584b.channelId = jSONObject.optString("sign");
+                if (this.f10585c) {
+                    this.f10584b.contentUrl = jSONObject.optString("qrcontent_url");
                 }
-                this.f3124a.onSuccess(this.b);
+                this.f10583a.onSuccess(this.f10584b);
             } catch (Throwable th) {
-                this.f3124a.onFailure(this.b);
+                this.f10583a.onFailure(this.f10584b);
                 Log.e(th);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ boolean f3125a;
-        final /* synthetic */ QrLoginStatusCheckCallback b;
-        final /* synthetic */ QrLoginStatusCheckResult c;
-        final /* synthetic */ QrLoginStstusCheckDTO d;
+        public final /* synthetic */ boolean f10587a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ QrLoginStatusCheckCallback f10588b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ QrLoginStatusCheckResult f10589c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ QrLoginStstusCheckDTO f10590d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        b(Looper looper, boolean z, QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, QrLoginStstusCheckDTO qrLoginStstusCheckDTO) {
+        public b(Looper looper, boolean z, QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, QrLoginStstusCheckDTO qrLoginStstusCheckDTO) {
             super(looper);
-            this.f3125a = z;
-            this.b = qrLoginStatusCheckCallback;
-            this.c = qrLoginStatusCheckResult;
-            this.d = qrLoginStstusCheckDTO;
+            this.f10587a = z;
+            this.f10588b = qrLoginStatusCheckCallback;
+            this.f10589c = qrLoginStatusCheckResult;
+            this.f10590d = qrLoginStstusCheckDTO;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            this.c.setResultCode(i);
-            this.b.onFailure(this.c);
-            this.b.onFinish();
+            this.f10589c.setResultCode(i);
+            this.f10588b.onFailure(this.f10589c);
+            this.f10588b.onFinish();
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
-            if (this.f3125a) {
-                this.b.onStart();
+            if (this.f10587a) {
+                this.f10588b.onStart();
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
             try {
                 JSONObject jSONObject = new JSONObject(str.substring(3, str.length() - 2));
-                int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
-                String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
-                this.c.setResultCode(parseInt);
-                this.c.setResultMsg(optString);
-                if (parseInt == 0) {
-                    JSONObject jSONObject2 = new JSONObject(jSONObject.optString("channel_v"));
-                    int optInt = jSONObject2.optInt("status");
-                    this.c.status = optInt;
-                    if (optInt == 1) {
-                        this.b.onScanQrCodeDone(this.c);
-                        QrCodeService.this.qrLoginStatusCheck(this.b, this.d, false);
-                    } else if (optInt == 0) {
-                        QrCodeService.this.getQrLoginResult(this.b, this.c, jSONObject2.optString("v"), this.d.hostDeviceId, this.d.isJoinCodeLogin);
-                    } else if (optInt == 2) {
-                        this.c.setResultCode(optInt);
-                        this.c.setResultMsg("您已取消操作");
-                        this.b.onFailure(this.c);
-                        this.b.onFinish();
-                    } else {
-                        QrCodeService.this.qrLoginStatusCheck(this.b, this.d, false);
+                int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                String optString = jSONObject.optString("errmsg");
+                this.f10589c.setResultCode(parseInt);
+                this.f10589c.setResultMsg(optString);
+                if (parseInt != 0) {
+                    if (parseInt != 1) {
+                        this.f10588b.onFailure(this.f10589c);
+                        this.f10588b.onFinish();
+                        return;
                     }
-                } else if (parseInt != 1) {
-                    this.b.onFailure(this.c);
-                    this.b.onFinish();
+                    QrCodeService.this.qrLoginStatusCheck(this.f10588b, this.f10590d, false);
+                    return;
+                }
+                JSONObject jSONObject2 = new JSONObject(jSONObject.optString("channel_v"));
+                int optInt = jSONObject2.optInt("status");
+                this.f10589c.status = optInt;
+                if (optInt == 1) {
+                    this.f10588b.onScanQrCodeDone(this.f10589c);
+                    QrCodeService.this.qrLoginStatusCheck(this.f10588b, this.f10590d, false);
+                } else if (optInt == 0) {
+                    QrCodeService.this.getQrLoginResult(this.f10588b, this.f10589c, jSONObject2.optString("v"), this.f10590d.hostDeviceId, this.f10590d.isJoinCodeLogin);
+                } else if (optInt == 2) {
+                    this.f10589c.setResultCode(optInt);
+                    this.f10589c.setResultMsg("您已取消操作");
+                    this.f10588b.onFailure(this.f10589c);
+                    this.f10588b.onFinish();
                 } else {
-                    QrCodeService.this.qrLoginStatusCheck(this.b, this.d, false);
+                    QrCodeService.this.qrLoginStatusCheck(this.f10588b, this.f10590d, false);
                 }
             } catch (Throwable th) {
-                this.b.onFailure(this.c);
-                this.b.onFinish();
+                this.f10588b.onFailure(this.f10589c);
+                this.f10588b.onFinish();
                 Log.e(th);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class c extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ QrLoginStatusCheckCallback f3126a;
-        final /* synthetic */ QrLoginStatusCheckResult b;
-        final /* synthetic */ boolean c;
+        public final /* synthetic */ QrLoginStatusCheckCallback f10592a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ QrLoginStatusCheckResult f10593b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ boolean f10594c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        c(Looper looper, QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, boolean z) {
+        public c(Looper looper, QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, boolean z) {
             super(looper);
-            this.f3126a = qrLoginStatusCheckCallback;
-            this.b = qrLoginStatusCheckResult;
-            this.c = z;
+            this.f10592a = qrLoginStatusCheckCallback;
+            this.f10593b = qrLoginStatusCheckResult;
+            this.f10594c = z;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            this.b.setResultCode(i);
-            this.f3126a.onFailure(this.b);
+            this.f10593b.setResultCode(i);
+            this.f10592a.onFailure(this.f10593b);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
-            this.f3126a.onFinish();
+            this.f10592a.onFinish();
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
             JSONObject optJSONObject;
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
-                String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
-                this.b.setResultCode(parseInt);
-                this.b.setResultMsg(optString);
+                int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                String optString = jSONObject.optString("errmsg");
+                this.f10593b.setResultCode(parseInt);
+                this.f10593b.setResultMsg(optString);
                 if (parseInt != 0 && parseInt != 110000) {
-                    this.f3126a.onFailure(this.b);
+                    this.f10592a.onFailure(this.f10593b);
                     return;
                 }
-                if (this.c) {
+                if (this.f10594c) {
                     optJSONObject = jSONObject.optJSONObject("data");
                 } else {
-                    optJSONObject = jSONObject.optJSONObject("res");
+                    optJSONObject = jSONObject.optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
                 }
                 SapiAccount parseAccount = QrCodeService.this.parseAccount(optJSONObject);
                 parseAccount.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(optJSONObject).tplStokenMap);
                 ServiceManager.getInstance().getIsAccountManager().validate(parseAccount);
-                this.f3126a.onSuccess(this.b);
+                this.f10592a.onSuccess(this.f10593b);
             } catch (Throwable th) {
-                this.f3126a.onFailure(this.b);
+                this.f10592a.onFailure(this.f10593b);
                 Log.e(th);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class d extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SapiCallback f3127a;
-        final /* synthetic */ QrAppLoginResult b;
+        public final /* synthetic */ SapiCallback f10596a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ QrAppLoginResult f10597b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        d(Looper looper, SapiCallback sapiCallback, QrAppLoginResult qrAppLoginResult) {
+        public d(Looper looper, SapiCallback sapiCallback, QrAppLoginResult qrAppLoginResult) {
             super(looper);
-            this.f3127a = sapiCallback;
-            this.b = qrAppLoginResult;
+            this.f10596a = sapiCallback;
+            this.f10597b = qrAppLoginResult;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            this.b.setResultCode(i);
-            this.f3127a.onFailure(this.b);
+            this.f10597b.setResultCode(i);
+            this.f10596a.onFailure(this.f10597b);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
-            this.f3127a.onFinish();
+            this.f10596a.onFinish();
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
-            this.f3127a.onStart();
+            this.f10596a.onStart();
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
-                this.b.setResultCode(parseInt);
+                int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                this.f10597b.setResultCode(parseInt);
                 if (parseInt != 0) {
-                    this.f3127a.onFailure(this.b);
+                    this.f10596a.onFailure(this.f10597b);
                     return;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("local");
                 if (optJSONObject != null) {
-                    this.b.country = optJSONObject.optString("country");
-                    this.b.province = optJSONObject.optString("provice");
-                    this.b.city = optJSONObject.optString("city");
+                    this.f10597b.country = optJSONObject.optString("country");
+                    this.f10597b.province = optJSONObject.optString("provice");
+                    this.f10597b.city = optJSONObject.optString("city");
                 }
-                this.f3127a.onSuccess(this.b);
+                this.f10596a.onSuccess(this.f10597b);
             } catch (Throwable th) {
-                this.f3127a.onFailure(this.b);
+                this.f10596a.onFailure(this.f10597b);
                 Log.e(th);
             }
         }
     }
 
-    private QrCodeService(SapiConfiguration sapiConfiguration, String str) {
+    public QrCodeService(SapiConfiguration sapiConfiguration, String str) {
         super(sapiConfiguration, str);
     }
 
     public static synchronized QrCodeService getInstance(SapiConfiguration sapiConfiguration, String str) {
         QrCodeService qrCodeService;
         synchronized (QrCodeService.class) {
-            if (b == null) {
-                b = new QrCodeService(sapiConfiguration, str);
+            if (f10581b == null) {
+                f10581b = new QrCodeService(sapiConfiguration, str);
             }
-            qrCodeService = b;
+            qrCodeService = f10581b;
         }
         return qrCodeService;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void getQrCodeImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
         SapiUtils.notNull(sapiCallback, SapiCallback.class.getSimpleName() + " can't be null");
         if (getQrCodeImageDTO == null) {
@@ -328,22 +327,22 @@ public class QrCodeService extends AbstractService implements NoProguard {
         }
         httpHashMapWrap.put("needQrCodeContent", getQrCodeImageDTO.needQrCodeContent ? "1" : "0");
         httpHashMapWrap.put("hostDeviceId", getQrCodeImageDTO.hostDeviceId);
-        new HttpClientWrap().get(com.baidu.sapi2.utils.e.j, httpHashMapWrap, null, getUaInfo(), new a(Looper.getMainLooper(), sapiCallback, getQrCodeImageResult, z));
+        new HttpClientWrap().get(g.j, httpHashMapWrap, null, getUaInfo(), new a(Looper.getMainLooper(), sapiCallback, getQrCodeImageResult, z));
     }
 
-    protected void getQrLoginResult(QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, String str, String str2, boolean z) {
+    public void getQrLoginResult(QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, String str, String str2, boolean z) {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("display", "pcsdk");
         httpHashMapWrap.put("qrcode", "1");
         httpHashMapWrap.put("bduss", str);
         httpHashMapWrap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
         httpHashMapWrap.put("hostDeviceId", str2);
-        String str3 = z ? com.baidu.sapi2.utils.e.m : com.baidu.sapi2.utils.e.l;
-        this.f3123a = new HttpClientWrap();
-        this.f3123a.get(str3, httpHashMapWrap, null, getUaInfo(), new c(Looper.getMainLooper(), qrLoginStatusCheckCallback, qrLoginStatusCheckResult, z));
+        String str3 = z ? g.m : g.l;
+        HttpClientWrap httpClientWrap = new HttpClientWrap();
+        this.f10582a = httpClientWrap;
+        httpClientWrap.get(str3, httpHashMapWrap, null, getUaInfo(), new c(Looper.getMainLooper(), qrLoginStatusCheckCallback, qrLoginStatusCheckResult, z));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void qrAppLogin(SapiCallback<QrAppLoginResult> sapiCallback, String str, String str2) {
         SapiUtils.notNull(sapiCallback, SapiCallback.class.getSimpleName() + " can't be null");
         SapiUtils.notEmpty(str2, "cmd can't be empty");
@@ -356,30 +355,32 @@ public class QrCodeService extends AbstractService implements NoProguard {
         if (currentAccount != null) {
             httpHashMapWrap.put("bduss", currentAccount.bduss);
             httpHashMapWrap.put("stoken", currentAccount.stoken);
-            httpHashMapWrap.put("ptoken", currentAccount.ptoken);
+            httpHashMapWrap.put(SapiAccount.f10605h, currentAccount.ptoken);
         }
-        new HttpClientWrap().post("/v2/sapi/qrlogin?lp=" + (TextUtils.isEmpty(urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP)) ? "app" : urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP)), httpHashMapWrap, null, getUaInfo(), new d(Looper.getMainLooper(), sapiCallback, qrAppLoginResult));
+        StringBuilder sb = new StringBuilder();
+        sb.append("/v2/sapi/qrlogin?lp=");
+        sb.append(TextUtils.isEmpty(urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP)) ? "app" : urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP));
+        new HttpClientWrap().post(sb.toString(), httpHashMapWrap, null, getUaInfo(), new d(Looper.getMainLooper(), sapiCallback, qrAppLoginResult));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void qrLoginStatusCheck(QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStstusCheckDTO qrLoginStstusCheckDTO, boolean z) {
         SapiUtils.notNull(qrLoginStatusCheckCallback, SapiCallback.class.getSimpleName() + " can't be null");
         QrLoginStatusCheckResult qrLoginStatusCheckResult = new QrLoginStatusCheckResult();
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("apiver", "v3");
-        httpHashMapWrap.put(BuyTBeanActivityConfig.CALLBACK, "cb");
-        httpHashMapWrap.put(SharedPrefConfig.CHANNEL_ID, qrLoginStstusCheckDTO.channelId);
+        httpHashMapWrap.put("callback", "cb");
+        httpHashMapWrap.put("channel_id", qrLoginStstusCheckDTO.channelId);
         httpHashMapWrap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
-        this.f3123a = new HttpClientWrap();
-        this.f3123a.get(com.baidu.sapi2.utils.e.k, httpHashMapWrap, null, getUaInfo(), 40000, new b(Looper.getMainLooper(), z, qrLoginStatusCheckCallback, qrLoginStatusCheckResult, qrLoginStstusCheckDTO));
+        HttpClientWrap httpClientWrap = new HttpClientWrap();
+        this.f10582a = httpClientWrap;
+        httpClientWrap.get(g.k, httpHashMapWrap, null, getUaInfo(), 40000, new b(Looper.getMainLooper(), z, qrLoginStatusCheckCallback, qrLoginStatusCheckResult, qrLoginStstusCheckDTO));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void stopLoginStatusCheck() {
-        HttpClientWrap httpClientWrap = this.f3123a;
+        HttpClientWrap httpClientWrap = this.f10582a;
         if (httpClientWrap != null) {
             httpClientWrap.cancelRequest();
-            this.f3123a = null;
+            this.f10582a = null;
         }
     }
 }

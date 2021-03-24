@@ -3,13 +3,15 @@ package com.baidu.minivideo.plugin.capture.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.tencent.connect.share.QzonePublish;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class VideoPlayData implements Parcelable, Jsonable, Serializable {
+/* loaded from: classes2.dex */
+public class VideoPlayData implements Jsonable, Parcelable, Serializable {
     public static final Parcelable.Creator<VideoPlayData> CREATOR = new Parcelable.Creator<VideoPlayData>() { // from class: com.baidu.minivideo.plugin.capture.bean.VideoPlayData.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
@@ -40,83 +42,9 @@ public class VideoPlayData implements Parcelable, Jsonable, Serializable {
     public VideoPlayData() {
     }
 
-    public VideoPlayData(String str, int i, int i2, boolean z) {
-        this.videoPath = str;
-        this.start = i;
-        this.end = i2;
-        this.isOriginal = z;
-    }
-
-    protected VideoPlayData(Parcel parcel) {
-        this.videoPath = parcel.readString();
-        this.offset = parcel.readInt();
-        this.start = parcel.readInt();
-        this.end = parcel.readInt();
-        this.next = (VideoPlayData) parcel.readParcelable(VideoPlayData.class.getClassLoader());
-        this.isOriginal = parcel.readByte() != 0;
-        this.insertIndex = parcel.readInt();
-        this.rotation = parcel.readInt();
-        this.width = parcel.readInt();
-        this.height = parcel.readInt();
-        this.mMaterialId = parcel.readString();
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
-    public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH, this.videoPath);
-            jSONObject.put("offset", this.offset);
-            jSONObject.put("start", this.start);
-            jSONObject.put("end", this.end);
-            jSONObject.put(UnitedSchemeConstants.UNITED_SCHEME_NEXT, this.next.toJson().toString());
-            jSONObject.put("isOriginal", this.isOriginal);
-            jSONObject.put("insertIndex", this.insertIndex);
-            jSONObject.put("rotation", this.rotation);
-            jSONObject.put("width", this.width);
-            jSONObject.put("height", this.height);
-            jSONObject.put("mMaterialId", this.mMaterialId);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jSONObject;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
-    public boolean parse(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.videoPath = jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
-            this.offset = jSONObject.optInt("offset");
-            this.start = jSONObject.optInt("start");
-            this.end = jSONObject.optInt("end");
-            String optString = jSONObject.optString(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
-            if (!TextUtils.isEmpty(optString)) {
-                VideoPlayData videoPlayData = new VideoPlayData();
-                videoPlayData.parse(optString);
-                this.next = videoPlayData;
-            }
-            this.isOriginal = jSONObject.optBoolean("isOriginal");
-            this.insertIndex = jSONObject.optInt("insertIndex");
-            this.rotation = jSONObject.optInt("rotation");
-            this.width = jSONObject.optInt("width");
-            this.height = jSONObject.optInt("height");
-            this.mMaterialId = jSONObject.optString("mMaterialId");
-            return true;
-        } catch (JSONException e) {
-            return false;
-        }
-    }
-
-    public void setInsertIndex(int i) {
-        this.insertIndex = i;
-    }
-
-    public void setMaterialId(String str) {
-        this.mMaterialId = str;
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
     }
 
     public boolean equals(VideoPlayData videoPlayData) {
@@ -133,9 +61,62 @@ public class VideoPlayData implements Parcelable, Jsonable, Serializable {
         return this.start == videoPlayData.start && this.end == videoPlayData.end;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
+    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
+    public boolean parse(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.videoPath = jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
+            this.offset = jSONObject.optInt("offset");
+            this.start = jSONObject.optInt(IntentConfig.START);
+            this.end = jSONObject.optInt(ProgressInfo.JSON_KEY_END);
+            String optString = jSONObject.optString(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+            if (!TextUtils.isEmpty(optString)) {
+                VideoPlayData videoPlayData = new VideoPlayData();
+                videoPlayData.parse(optString);
+                this.next = videoPlayData;
+            }
+            this.isOriginal = jSONObject.optBoolean("isOriginal");
+            this.insertIndex = jSONObject.optInt("insertIndex");
+            this.rotation = jSONObject.optInt("rotation");
+            this.width = jSONObject.optInt("width");
+            this.height = jSONObject.optInt("height");
+            this.mMaterialId = jSONObject.optString("mMaterialId");
+            return true;
+        } catch (JSONException unused) {
+            return false;
+        }
+    }
+
+    public void setInsertIndex(int i) {
+        this.insertIndex = i;
+    }
+
+    public void setMaterialId(String str) {
+        this.mMaterialId = str;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
+    public JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH, this.videoPath);
+            jSONObject.put("offset", this.offset);
+            jSONObject.put(IntentConfig.START, this.start);
+            jSONObject.put(ProgressInfo.JSON_KEY_END, this.end);
+            jSONObject.put(UnitedSchemeConstants.UNITED_SCHEME_NEXT, this.next.toJson().toString());
+            jSONObject.put("isOriginal", this.isOriginal);
+            jSONObject.put("insertIndex", this.insertIndex);
+            jSONObject.put("rotation", this.rotation);
+            jSONObject.put("width", this.width);
+            jSONObject.put("height", this.height);
+            jSONObject.put("mMaterialId", this.mMaterialId);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        return jSONObject;
     }
 
     @Override // android.os.Parcelable
@@ -151,5 +132,26 @@ public class VideoPlayData implements Parcelable, Jsonable, Serializable {
         parcel.writeInt(this.width);
         parcel.writeInt(this.height);
         parcel.writeString(this.mMaterialId);
+    }
+
+    public VideoPlayData(String str, int i, int i2, boolean z) {
+        this.videoPath = str;
+        this.start = i;
+        this.end = i2;
+        this.isOriginal = z;
+    }
+
+    public VideoPlayData(Parcel parcel) {
+        this.videoPath = parcel.readString();
+        this.offset = parcel.readInt();
+        this.start = parcel.readInt();
+        this.end = parcel.readInt();
+        this.next = (VideoPlayData) parcel.readParcelable(VideoPlayData.class.getClassLoader());
+        this.isOriginal = parcel.readByte() != 0;
+        this.insertIndex = parcel.readInt();
+        this.rotation = parcel.readInt();
+        this.width = parcel.readInt();
+        this.height = parcel.readInt();
+        this.mMaterialId = parcel.readString();
     }
 }

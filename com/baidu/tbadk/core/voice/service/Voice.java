@@ -3,47 +3,50 @@ package com.baidu.tbadk.core.voice.service;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.Date;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class Voice implements Parcelable {
-    public static final Parcelable.Creator<Voice> CREATOR = new Parcelable.Creator<Voice>() { // from class: com.baidu.tbadk.core.voice.service.Voice.1
+    public static final Parcelable.Creator<Voice> CREATOR = new a();
+    public Date createDate;
+    public int duration;
+    public int id;
+    public String name;
+    public long sob;
+    public int stas;
+
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<Voice> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: qm */
+        /* renamed from: a */
+        public Voice createFromParcel(Parcel parcel) {
+            Voice voice = new Voice();
+            voice.c((int) parcel.readLong());
+            voice.d(parcel.readString());
+            return voice;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: b */
         public Voice[] newArray(int i) {
             return new Voice[i];
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: R */
-        public Voice createFromParcel(Parcel parcel) {
-            Voice voice = new Voice();
-            voice.setDuration((int) parcel.readLong());
-            voice.setName(parcel.readString());
-            return voice;
-        }
-    };
-    private Date createDate;
-    private int duration;
-    private int id;
-    private String name;
-    private long sob;
-    private int stas;
-
-    public String getName() {
-        return this.name;
     }
 
-    public void setName(String str) {
-        this.name = str;
-    }
-
-    public int getDuration() {
+    public int a() {
         return this.duration;
     }
 
-    public void setDuration(int i) {
+    public String b() {
+        return this.name;
+    }
+
+    public void c(int i) {
         this.duration = i;
+    }
+
+    public void d(String str) {
+        this.name = str;
     }
 
     @Override // android.os.Parcelable

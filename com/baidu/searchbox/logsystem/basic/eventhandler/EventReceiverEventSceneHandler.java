@@ -8,9 +8,9 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventScene
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class EventReceiverEventSceneHandler extends ProcessEventSceneHandler {
-    private static final String RECEIVER = "Failed to initialize display event receiver";
+    public static final String RECEIVER = "Failed to initialize display event receiver";
 
     @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
     @Nullable

@@ -2,15 +2,14 @@ package com.baidu.mobads.utils;
 
 import java.io.File;
 import java.util.Comparator;
-/* loaded from: classes4.dex */
-class o implements Comparator<File> {
+/* loaded from: classes2.dex */
+public class o implements Comparator<File> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f2491a;
+    public final /* synthetic */ n f8553a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.f2491a = nVar;
+        this.f8553a = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -9,51 +9,61 @@ import androidx.arch.core.executor.ArchTaskExecutor;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public abstract class ComputableLiveData<T> {
-    final AtomicBoolean mComputing;
-    final Executor mExecutor;
-    final AtomicBoolean mInvalid;
+    public final AtomicBoolean mComputing;
+    public final Executor mExecutor;
+    public final AtomicBoolean mInvalid;
     @VisibleForTesting
-    final Runnable mInvalidationRunnable;
-    final LiveData<T> mLiveData;
+    public final Runnable mInvalidationRunnable;
+    public final LiveData<T> mLiveData;
     @VisibleForTesting
-    final Runnable mRefreshRunnable;
-
-    @WorkerThread
-    protected abstract T compute();
+    public final Runnable mRefreshRunnable;
 
     public ComputableLiveData() {
         this(ArchTaskExecutor.getIOThreadExecutor());
+    }
+
+    @WorkerThread
+    public abstract T compute();
+
+    @NonNull
+    public LiveData<T> getLiveData() {
+        return this.mLiveData;
+    }
+
+    public void invalidate() {
+        ArchTaskExecutor.getInstance().executeOnMainThread(this.mInvalidationRunnable);
     }
 
     public ComputableLiveData(@NonNull Executor executor) {
         this.mInvalid = new AtomicBoolean(true);
         this.mComputing = new AtomicBoolean(false);
         this.mRefreshRunnable = new Runnable() { // from class: androidx.lifecycle.ComputableLiveData.2
-            /* JADX DEBUG: Multi-variable search result rejected for r4v4, resolved type: androidx.lifecycle.LiveData<T> */
+            /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: androidx.lifecycle.LiveData<T> */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             @WorkerThread
             public void run() {
-                boolean z;
                 do {
+                    boolean z = false;
                     if (ComputableLiveData.this.mComputing.compareAndSet(false, true)) {
                         Object obj = null;
-                        z = false;
+                        boolean z2 = false;
                         while (ComputableLiveData.this.mInvalid.compareAndSet(true, false)) {
                             try {
                                 obj = ComputableLiveData.this.compute();
-                                z = true;
-                            } finally {
+                                z2 = true;
+                            } catch (Throwable th) {
                                 ComputableLiveData.this.mComputing.set(false);
+                                throw th;
                             }
                         }
-                        if (z) {
+                        if (z2) {
                             ComputableLiveData.this.mLiveData.postValue(obj);
                         }
-                    } else {
-                        z = false;
+                        ComputableLiveData.this.mComputing.set(false);
+                        z = z2;
                     }
                     if (!z) {
                         return;
@@ -67,25 +77,18 @@ public abstract class ComputableLiveData<T> {
             public void run() {
                 boolean hasActiveObservers = ComputableLiveData.this.mLiveData.hasActiveObservers();
                 if (ComputableLiveData.this.mInvalid.compareAndSet(false, true) && hasActiveObservers) {
-                    ComputableLiveData.this.mExecutor.execute(ComputableLiveData.this.mRefreshRunnable);
+                    ComputableLiveData computableLiveData = ComputableLiveData.this;
+                    computableLiveData.mExecutor.execute(computableLiveData.mRefreshRunnable);
                 }
             }
         };
         this.mExecutor = executor;
         this.mLiveData = new LiveData<T>() { // from class: androidx.lifecycle.ComputableLiveData.1
             @Override // androidx.lifecycle.LiveData
-            protected void onActive() {
-                ComputableLiveData.this.mExecutor.execute(ComputableLiveData.this.mRefreshRunnable);
+            public void onActive() {
+                ComputableLiveData computableLiveData = ComputableLiveData.this;
+                computableLiveData.mExecutor.execute(computableLiveData.mRefreshRunnable);
             }
         };
-    }
-
-    @NonNull
-    public LiveData<T> getLiveData() {
-        return this.mLiveData;
-    }
-
-    public void invalidate() {
-        ArchTaskExecutor.getInstance().executeOnMainThread(this.mInvalidationRunnable);
     }
 }

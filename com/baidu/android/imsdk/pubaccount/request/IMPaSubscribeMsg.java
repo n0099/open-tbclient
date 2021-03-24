@@ -13,15 +13,11 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMPaSubscribeMsg extends Message {
-    private Context mContext;
-    private long mPaId;
-    private PaInfo mPaInfo;
-
-    public long getPaId() {
-        return this.mPaId;
-    }
+    public Context mContext;
+    public long mPaId;
+    public PaInfo mPaInfo;
 
     public IMPaSubscribeMsg(Context context, long j, PaInfo paInfo) {
         this.mContext = context;
@@ -40,7 +36,7 @@ public class IMPaSubscribeMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
+    public void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("method", 100);
@@ -53,10 +49,14 @@ public class IMPaSubscribeMsg extends Message {
                 jSONObject.put("origin_id", triggerId);
             }
             this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "buildBody:", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "buildBody:", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
+    }
+
+    public long getPaId() {
+        return this.mPaId;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -64,9 +64,9 @@ public class IMPaSubscribeMsg extends Message {
         if (i == 0) {
             try {
                 PaInfoDBManager.getInstance(context).subscribePa(this.mPaInfo);
-            } catch (Exception e) {
-                LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            } catch (Exception e2) {
+                LogUtils.e(LogUtils.TAG, "handleMessageResult:", e2);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             }
         }
         super.handleMessageResult(context, jSONObject, i, str);

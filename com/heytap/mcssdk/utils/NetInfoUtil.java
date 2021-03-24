@@ -7,15 +7,17 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.apollon.statistics.g;
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NetInfoUtil {
-    private static final int NETWORK_CLASS_2_G = 1;
-    private static final int NETWORK_CLASS_3_G = 2;
-    private static final int NETWORK_CLASS_4_G = 3;
-    private static final int NETWORK_CLASS_UNAVAILABLE = -1;
-    private static final int NETWORK_CLASS_UNKNOWN = 0;
-    private static final int NETWORK_CLASS_WIFI = -101;
+    public static final int NETWORK_CLASS_2_G = 1;
+    public static final int NETWORK_CLASS_3_G = 2;
+    public static final int NETWORK_CLASS_4_G = 3;
+    public static final int NETWORK_CLASS_UNAVAILABLE = -1;
+    public static final int NETWORK_CLASS_UNKNOWN = 0;
+    public static final int NETWORK_CLASS_WIFI = -101;
     public static final int NETWORK_TYPE_1xRTT = 7;
     public static final int NETWORK_TYPE_CDMA = 4;
     public static final int NETWORK_TYPE_EDGE = 2;
@@ -31,9 +33,9 @@ public class NetInfoUtil {
     public static final int NETWORK_TYPE_IDEN = 11;
     public static final int NETWORK_TYPE_LTE = 13;
     public static final int NETWORK_TYPE_UMTS = 3;
-    private static final int NETWORK_TYPE_UNAVAILABLE = -1;
+    public static final int NETWORK_TYPE_UNAVAILABLE = -1;
     public static final int NETWORK_TYPE_UNKNOWN = 0;
-    private static final int NETWORK_TYPE_WIFI = -101;
+    public static final int NETWORK_TYPE_WIFI = -101;
 
     @SuppressLint({"DefaultLocale"})
     public static String getNetType(Context context) {
@@ -42,92 +44,72 @@ public class NetInfoUtil {
             NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
             if (activeNetworkInfo != null) {
                 String upperCase = activeNetworkInfo.getTypeName().toUpperCase();
-                try {
-                    if (upperCase.equals("MOBILE")) {
-                        String extraInfo = activeNetworkInfo.getExtraInfo();
-                        return !TextUtils.isEmpty(extraInfo) ? extraInfo.toUpperCase() : upperCase;
-                    }
-                    return upperCase;
-                } catch (Exception e) {
-                    e = e;
-                    LogUtil.e(e);
-                    return "0";
+                if (upperCase.equals("MOBILE")) {
+                    String extraInfo = activeNetworkInfo.getExtraInfo();
+                    return !TextUtils.isEmpty(extraInfo) ? extraInfo.toUpperCase() : upperCase;
                 }
+                return upperCase;
             }
             return "0";
         } catch (Exception e2) {
-            e = e2;
+            LogUtil.e(e2);
+            return "0";
         }
     }
 
-    private static int getNetworkClassByType(int i) {
-        switch (i) {
-            case -101:
-                return -101;
-            case -1:
-                return -1;
-            case 1:
-            case 2:
-            case 4:
-            case 7:
-            case 11:
-                return 1;
-            case 3:
-            case 5:
-            case 6:
-            case 8:
-            case 9:
-            case 10:
-            case 12:
-            case 14:
-            case 15:
-                return 2;
-            case 13:
-                return 3;
-            default:
-                return 0;
+    public static int getNetworkClassByType(int i) {
+        int i2 = -101;
+        if (i != -101) {
+            i2 = -1;
+            if (i != -1) {
+                switch (i) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        return 1;
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        return 2;
+                    case 13:
+                        return 3;
+                    default:
+                        return 0;
+                }
+            }
         }
+        return i2;
     }
 
     public static String getNetworkType(Context context) {
-        int i;
-        NetworkInfo activeNetworkInfo;
         TelephonyManager telephonyManager;
+        int i = 0;
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.isConnected()) {
-            int type = activeNetworkInfo.getType();
-            if (type == 1) {
-                i = -101;
-            } else {
-                if (type == 0 && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
+            NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.isConnected()) {
+                int type = activeNetworkInfo.getType();
+                if (type == 1) {
+                    i = -101;
+                } else if (type == 0 && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
                     i = telephonyManager.getNetworkType();
                 }
-                i = 0;
+            } else {
+                i = -1;
             }
-        } else {
-            i = -1;
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        switch (getNetworkClassByType(i)) {
-            case -101:
-                return "WIFI";
-            case -1:
-                return RomUtils.UNKNOWN;
-            case 0:
-                return RomUtils.UNKNOWN;
-            case 1:
-                return "2G";
-            case 2:
-                return "3G";
-            case 3:
-                return "4G";
-            default:
-                return RomUtils.UNKNOWN;
-        }
+        int networkClassByType = getNetworkClassByType(i);
+        return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : g.f3873b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
     }
 
     public static boolean is2GNetwork(Context context) {
@@ -139,8 +121,8 @@ public class NetInfoUtil {
                 }
             }
             return true;
-        } catch (Exception e) {
-            LogUtil.e(e);
+        } catch (Exception e2) {
+            LogUtil.e(e2);
             return false;
         }
     }
@@ -154,8 +136,8 @@ public class NetInfoUtil {
                 }
             }
             return true;
-        } catch (Exception e) {
-            LogUtil.e(e);
+        } catch (Exception e2) {
+            LogUtil.e(e2);
             return false;
         }
     }
@@ -166,10 +148,11 @@ public class NetInfoUtil {
             if (activeNetworkInfo != null) {
                 return activeNetworkInfo.isConnected();
             }
-        } catch (Exception e) {
-            LogUtil.e(e);
+            return false;
+        } catch (Exception e2) {
+            LogUtil.e(e2);
+            return false;
         }
-        return false;
     }
 
     public static boolean isWapNet(Context context) {
@@ -179,9 +162,9 @@ public class NetInfoUtil {
 
     public static boolean isWifiNetWork(Context context) {
         try {
-            return getNetType(context).equals("WIFI");
-        } catch (Exception e) {
-            LogUtil.e(e);
+            return getNetType(context).equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
+        } catch (Exception e2) {
+            LogUtil.e(e2);
             return false;
         }
     }

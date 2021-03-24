@@ -8,25 +8,82 @@ import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.ar.constants.HttpConstants;
+import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class StatusBarUtil {
-    View actionBarView;
-    boolean lightStatusBar;
-    boolean transparentStatusBar;
-    Window window;
+    public View actionBarView;
+    public boolean lightStatusBar;
+    public boolean transparentStatusBar;
+    public Window window;
 
-    private StatusBarUtil(Window window, boolean z, boolean z2, View view) {
+    /* loaded from: classes4.dex */
+    public static final class Builder {
+        public View actionBarView;
+        public boolean lightStatusBar = false;
+        public boolean transparentStatusbar = false;
+        public Window window;
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public Builder setWindow(Window window) {
+            this.window = window;
+            return this;
+        }
+
+        public boolean process() {
+            return new StatusBarUtil(this.window, this.lightStatusBar, this.transparentStatusbar, this.actionBarView, null).process();
+        }
+
+        public Builder setActionbarView(View view) {
+            this.actionBarView = view;
+            return this;
+        }
+
+        public Builder setLightStatusBar(boolean z) {
+            this.lightStatusBar = z;
+            return this;
+        }
+
+        public Builder setTransparentStatusbar(boolean z) {
+            this.transparentStatusbar = z;
+            return this;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public Builder setWindow(Activity activity) {
+            this.window = activity.getWindow();
+            return this;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public Builder setWindow(Dialog dialog) {
+            this.window = dialog.getWindow();
+            return this;
+        }
+    }
+
+    public StatusBarUtil(Window window, boolean z, boolean z2, View view) {
         this.lightStatusBar = z;
         this.transparentStatusBar = z2;
         this.window = window;
         this.actionBarView = view;
     }
 
-    /* synthetic */ StatusBarUtil(Window window, boolean z, boolean z2, View view, StatusBarUtil statusBarUtil) {
-        this(window, z, z2, view);
+    public static Builder from(Activity activity) {
+        return new Builder().setWindow(activity);
+    }
+
+    public static int getStatusBarOffsetPx(Context context) {
+        if (isLessKitkat()) {
+            return 0;
+        }
+        Context applicationContext = context.getApplicationContext();
+        int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (identifier > 0) {
+            return applicationContext.getResources().getDimensionPixelSize(identifier);
+        }
+        return 0;
     }
 
     public static boolean isKitkat() {
@@ -41,86 +98,6 @@ public final class StatusBarUtil {
         return Build.VERSION.SDK_INT >= 21;
     }
 
-    public static Builder from(Activity activity) {
-        return new Builder().setWindow(activity);
-    }
-
-    public static Builder from(Dialog dialog) {
-        return new Builder().setWindow(dialog);
-    }
-
-    public static Builder from(Window window) {
-        return new Builder().setWindow(window);
-    }
-
-    public static int getStatusBarOffsetPx(Context context) {
-        if (isLessKitkat()) {
-            return 0;
-        }
-        Context applicationContext = context.getApplicationContext();
-        int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE);
-        if (identifier > 0) {
-            return applicationContext.getResources().getDimensionPixelSize(identifier);
-        }
-        return 0;
-    }
-
-    public void processActionBar(final View view) {
-        if (view != null && this.transparentStatusBar && !isLessKitkat()) {
-            view.post(new Runnable() { // from class: com.baidu.tieba.compatible.StatusBarUtil.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    view.setPadding(view.getPaddingLeft(), view.getPaddingTop() + StatusBarUtil.getStatusBarOffsetPx(view.getContext()), view.getPaddingRight(), view.getPaddingBottom());
-                    view.getLayoutParams().height += StatusBarUtil.getStatusBarOffsetPx(view.getContext());
-                }
-            });
-        }
-    }
-
-    public boolean processPrivateAPI() {
-        return processFlyMe(this.lightStatusBar) || processMIUI(this.lightStatusBar);
-    }
-
-    public boolean process() {
-        int i = Build.VERSION.SDK_INT;
-        if (processPrivateAPI() || processLollipopAbove()) {
-            if (i == 19) {
-                processKitkat();
-            }
-            processActionBar(this.actionBarView);
-            return true;
-        }
-        return false;
-    }
-
-    @TargetApi(19)
-    void processKitkat() {
-        WindowManager.LayoutParams attributes = this.window.getAttributes();
-        if (this.transparentStatusBar) {
-            attributes.flags |= 67108864;
-        } else {
-            attributes.flags &= -67108865;
-        }
-        this.window.setAttributes(attributes);
-    }
-
-    private boolean processMIUI(boolean z) {
-        Class<?> cls = this.window.getClass();
-        try {
-            Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-            int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
-            Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
-            Window window = this.window;
-            Object[] objArr = new Object[2];
-            objArr[0] = Integer.valueOf(z ? i : 0);
-            objArr[1] = Integer.valueOf(i);
-            method.invoke(window, objArr);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
     private boolean processFlyMe(boolean z) {
         WindowManager.LayoutParams attributes = this.window.getAttributes();
         try {
@@ -130,12 +107,12 @@ public final class StatusBarUtil {
             declaredField.setAccessible(true);
             int i2 = declaredField.getInt(attributes);
             if (z) {
-                declaredField.set(attributes, Integer.valueOf(i | i2));
+                declaredField.set(attributes, Integer.valueOf(i2 | i));
             } else {
                 declaredField.set(attributes, Integer.valueOf((i ^ (-1)) & i2));
             }
             return true;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return false;
         }
     }
@@ -157,48 +134,73 @@ public final class StatusBarUtil {
         return true;
     }
 
-    /* loaded from: classes14.dex */
-    public static final class Builder {
-        private View actionBarView;
-        private boolean lightStatusBar = false;
-        private boolean transparentStatusbar = false;
-        private Window window;
-
-        public Builder setActionbarView(View view) {
-            this.actionBarView = view;
-            return this;
+    private boolean processMIUI(boolean z) {
+        Class<?> cls = this.window.getClass();
+        try {
+            Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+            int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+            Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+            Window window = this.window;
+            Object[] objArr = new Object[2];
+            objArr[0] = Integer.valueOf(z ? i : 0);
+            objArr[1] = Integer.valueOf(i);
+            method.invoke(window, objArr);
+            return true;
+        } catch (Exception unused) {
+            return false;
         }
+    }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public Builder setWindow(Window window) {
-            this.window = window;
-            return this;
+    public boolean process() {
+        int i = Build.VERSION.SDK_INT;
+        if (processPrivateAPI() || processLollipopAbove()) {
+            if (i == 19) {
+                processKitkat();
+            }
+            processActionBar(this.actionBarView);
+            return true;
         }
+        return false;
+    }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public Builder setWindow(Activity activity) {
-            this.window = activity.getWindow();
-            return this;
+    public void processActionBar(final View view) {
+        if (view == null || !this.transparentStatusBar || isLessKitkat()) {
+            return;
         }
+        view.post(new Runnable() { // from class: com.baidu.tieba.compatible.StatusBarUtil.1
+            @Override // java.lang.Runnable
+            public void run() {
+                View view2 = view;
+                view2.setPadding(view2.getPaddingLeft(), view.getPaddingTop() + StatusBarUtil.getStatusBarOffsetPx(view.getContext()), view.getPaddingRight(), view.getPaddingBottom());
+                view.getLayoutParams().height += StatusBarUtil.getStatusBarOffsetPx(view.getContext());
+            }
+        });
+    }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public Builder setWindow(Dialog dialog) {
-            this.window = dialog.getWindow();
-            return this;
+    @TargetApi(19)
+    public void processKitkat() {
+        WindowManager.LayoutParams attributes = this.window.getAttributes();
+        if (this.transparentStatusBar) {
+            attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
+        } else {
+            attributes.flags &= -67108865;
         }
+        this.window.setAttributes(attributes);
+    }
 
-        public Builder setLightStatusBar(boolean z) {
-            this.lightStatusBar = z;
-            return this;
-        }
+    public boolean processPrivateAPI() {
+        return processFlyMe(this.lightStatusBar) || processMIUI(this.lightStatusBar);
+    }
 
-        public Builder setTransparentStatusbar(boolean z) {
-            this.transparentStatusbar = z;
-            return this;
-        }
+    public static Builder from(Dialog dialog) {
+        return new Builder().setWindow(dialog);
+    }
 
-        public boolean process() {
-            return new StatusBarUtil(this.window, this.lightStatusBar, this.transparentStatusbar, this.actionBarView, null).process();
-        }
+    public static Builder from(Window window) {
+        return new Builder().setWindow(window);
+    }
+
+    public /* synthetic */ StatusBarUtil(Window window, boolean z, boolean z2, View view, StatusBarUtil statusBarUtil) {
+        this(window, z, z2, view);
     }
 }

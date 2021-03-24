@@ -1,0 +1,9 @@
+package d.b.f0.m;
+
+import android.content.Context;
+/* loaded from: classes3.dex */
+public interface b {
+    String a();
+
+    void a(Context context, c cVar);
+}

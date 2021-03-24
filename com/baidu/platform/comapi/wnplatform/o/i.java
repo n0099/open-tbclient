@@ -2,67 +2,45 @@ package com.baidu.platform.comapi.wnplatform.o;
 
 import android.media.MediaPlayer;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static i f3084a;
-    private MediaPlayer b = null;
-    private boolean c = false;
+    public static i f10369a;
 
-    public static synchronized i a() {
-        i iVar;
-        synchronized (i.class) {
-            if (f3084a == null) {
-                f3084a = new i();
-            }
-            iVar = f3084a;
-        }
-        return iVar;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public MediaPlayer f10370b = null;
 
-    private i() {
-    }
-
-    public boolean b() {
-        return this.c;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f10371c = false;
 
     private void c() {
-        if (this.b == null) {
-            this.b = new MediaPlayer();
+        if (this.f10370b == null) {
+            this.f10370b = new MediaPlayer();
         }
     }
 
     private void d() {
-        if (this.b != null) {
-            this.b.release();
-            this.b = null;
+        MediaPlayer mediaPlayer = this.f10370b;
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            this.f10370b = null;
         }
     }
 
-    public boolean a(String str) {
-        boolean z = true;
-        com.baidu.platform.comapi.wnplatform.d.a.b("WN player play-->" + str);
-        if (TextUtils.isEmpty(str)) {
-            return false;
+    public boolean b() {
+        return this.f10371c;
+    }
+
+    public static synchronized i a() {
+        i iVar;
+        synchronized (i.class) {
+            if (f10369a == null) {
+                f10369a = new i();
+            }
+            iVar = f10369a;
         }
-        d();
-        c();
-        try {
-            com.baidu.platform.comapi.wnplatform.m.d.a().a(true);
-        } catch (Exception e) {
-            com.baidu.platform.comapi.wnplatform.m.d.a().a(false);
-        }
-        if (com.baidu.platform.comapi.walknavi.b.a().f() != null) {
-            this.b.setDataSource(str);
-            this.b.prepare();
-            this.b.start();
-            this.b.setOnCompletionListener(new j(this));
-            return z;
-        }
-        z = false;
-        return z;
+        return iVar;
     }
 
     public void b(String str) {
@@ -70,15 +48,15 @@ public class i {
         d();
         c();
         try {
-            this.c = true;
+            this.f10371c = true;
             if (com.baidu.platform.comapi.walknavi.b.a().f() != null) {
-                this.b.setDataSource(str);
-                this.b.prepare();
-                this.b.start();
-                this.b.setOnCompletionListener(new k(this));
+                this.f10370b.setDataSource(str);
+                this.f10370b.prepare();
+                this.f10370b.start();
+                this.f10370b.setOnCompletionListener(new k(this));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -87,15 +65,38 @@ public class i {
         d();
         c();
         try {
-            this.c = true;
+            this.f10371c = true;
             if (com.baidu.platform.comapi.walknavi.b.a().f() != null) {
-                this.b.setDataSource(str);
-                this.b.prepare();
-                this.b.start();
-                this.b.setOnCompletionListener(new l(this));
+                this.f10370b.setDataSource(str);
+                this.f10370b.prepare();
+                this.f10370b.start();
+                this.f10370b.setOnCompletionListener(new l(this));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public boolean a(String str) {
+        com.baidu.platform.comapi.wnplatform.d.a.b("WN player play-->" + str);
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        d();
+        c();
+        try {
+            com.baidu.platform.comapi.wnplatform.m.d.a().a(true);
+            if (com.baidu.platform.comapi.walknavi.b.a().f() != null) {
+                this.f10370b.setDataSource(str);
+                this.f10370b.prepare();
+                this.f10370b.start();
+                this.f10370b.setOnCompletionListener(new j(this));
+                return true;
+            }
+            return false;
+        } catch (Exception unused) {
+            com.baidu.platform.comapi.wnplatform.m.d.a().a(false);
+            return false;
         }
     }
 }

@@ -1,170 +1,85 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.g;
-import io.reactivex.disposables.c;
+import f.a.o;
+import f.a.t.b;
+import f.a.x.e.c.a;
 import io.reactivex.internal.disposables.DisposableHelper;
-import io.reactivex.u;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
-public final class ObservableRefCount<T> extends io.reactivex.internal.operators.observable.a<T, T> {
-    final ReentrantLock lock;
-    volatile io.reactivex.disposables.a qpA;
-    final AtomicInteger qpB;
-    final io.reactivex.c.a<? extends T> qqD;
+/* loaded from: classes7.dex */
+public final class ObservableRefCount<T> extends a<T, T> {
 
-    @Override // io.reactivex.q
-    public void a(u<? super T> uVar) {
-        boolean z;
-        this.lock.lock();
-        if (this.qpB.incrementAndGet() == 1) {
-            AtomicBoolean atomicBoolean = new AtomicBoolean(true);
-            try {
-                this.qqD.a(a(uVar, atomicBoolean));
-                if (z) {
-                    return;
-                }
-                return;
-            } finally {
-                if (atomicBoolean.get()) {
-                }
-            }
-        }
-        try {
-            a(uVar, this.qpA);
-        } finally {
-            this.lock.unlock();
-        }
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public final f.a.y.a<? extends T> f68062e;
 
-    private g<io.reactivex.disposables.b> a(u<? super T> uVar, AtomicBoolean atomicBoolean) {
-        return new a(uVar, atomicBoolean);
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public volatile f.a.t.a f68063f;
 
-    void a(u<? super T> uVar, io.reactivex.disposables.a aVar) {
-        ConnectionObserver connectionObserver = new ConnectionObserver(uVar, aVar, a(aVar));
-        uVar.onSubscribe(connectionObserver);
-        this.qqD.subscribe(connectionObserver);
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public final AtomicInteger f68064g;
 
-    private io.reactivex.disposables.b a(io.reactivex.disposables.a aVar) {
-        return c.D(new b(aVar));
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public final ReentrantLock f68065h;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public final class ConnectionObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
-        private static final long serialVersionUID = 3813126992133394324L;
-        final io.reactivex.disposables.a currentBase;
-        final io.reactivex.disposables.b resource;
-        final u<? super T> subscriber;
+    /* loaded from: classes7.dex */
+    public final class ConnectionObserver extends AtomicReference<b> implements o<T>, b {
+        public static final long serialVersionUID = 3813126992133394324L;
+        public final f.a.t.a currentBase;
+        public final b resource;
+        public final o<? super T> subscriber;
 
-        ConnectionObserver(u<? super T> uVar, io.reactivex.disposables.a aVar, io.reactivex.disposables.b bVar) {
-            this.subscriber = uVar;
+        public ConnectionObserver(o<? super T> oVar, f.a.t.a aVar, b bVar) {
+            this.subscriber = oVar;
             this.currentBase = aVar;
             this.resource = bVar;
         }
 
-        @Override // io.reactivex.u
-        public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.setOnce(this, bVar);
+        public void cleanup() {
+            ObservableRefCount.this.f68065h.lock();
+            try {
+                if (ObservableRefCount.this.f68063f == this.currentBase) {
+                    f.a.y.a<? extends T> aVar = ObservableRefCount.this.f68062e;
+                    ObservableRefCount.this.f68063f.dispose();
+                    ObservableRefCount.this.f68063f = new f.a.t.a();
+                    ObservableRefCount.this.f68064g.set(0);
+                }
+            } finally {
+                ObservableRefCount.this.f68065h.unlock();
+            }
         }
 
-        @Override // io.reactivex.u
-        public void onError(Throwable th) {
-            cleanup();
-            this.subscriber.onError(th);
-        }
-
-        @Override // io.reactivex.u
-        public void onNext(T t) {
-            this.subscriber.onNext(t);
-        }
-
-        @Override // io.reactivex.u
-        public void onComplete() {
-            cleanup();
-            this.subscriber.onComplete();
-        }
-
-        @Override // io.reactivex.disposables.b
+        @Override // f.a.t.b
         public void dispose() {
             DisposableHelper.dispose(this);
             this.resource.dispose();
         }
 
-        @Override // io.reactivex.disposables.b
+        @Override // f.a.t.b
         public boolean isDisposed() {
             return DisposableHelper.isDisposed(get());
         }
 
-        void cleanup() {
-            ObservableRefCount.this.lock.lock();
-            try {
-                if (ObservableRefCount.this.qpA == this.currentBase) {
-                    if (ObservableRefCount.this.qqD instanceof io.reactivex.disposables.b) {
-                        ((io.reactivex.disposables.b) ObservableRefCount.this.qqD).dispose();
-                    }
-                    ObservableRefCount.this.qpA.dispose();
-                    ObservableRefCount.this.qpA = new io.reactivex.disposables.a();
-                    ObservableRefCount.this.qpB.set(0);
-                }
-            } finally {
-                ObservableRefCount.this.lock.unlock();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public final class a implements g<io.reactivex.disposables.b> {
-        private final u<? super T> observer;
-        private final AtomicBoolean qpC;
-
-        a(u<? super T> uVar, AtomicBoolean atomicBoolean) {
-            this.observer = uVar;
-            this.qpC = atomicBoolean;
+        @Override // f.a.o
+        public void onComplete() {
+            cleanup();
+            this.subscriber.onComplete();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.b.g
-        /* renamed from: f */
-        public void accept(io.reactivex.disposables.b bVar) {
-            try {
-                ObservableRefCount.this.qpA.a(bVar);
-                ObservableRefCount.this.a(this.observer, ObservableRefCount.this.qpA);
-            } finally {
-                ObservableRefCount.this.lock.unlock();
-                this.qpC.set(false);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public final class b implements Runnable {
-        private final io.reactivex.disposables.a qpD;
-
-        b(io.reactivex.disposables.a aVar) {
-            this.qpD = aVar;
+        @Override // f.a.o
+        public void onError(Throwable th) {
+            cleanup();
+            this.subscriber.onError(th);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            ObservableRefCount.this.lock.lock();
-            try {
-                if (ObservableRefCount.this.qpA == this.qpD && ObservableRefCount.this.qpB.decrementAndGet() == 0) {
-                    if (ObservableRefCount.this.qqD instanceof io.reactivex.disposables.b) {
-                        ((io.reactivex.disposables.b) ObservableRefCount.this.qqD).dispose();
-                    }
-                    ObservableRefCount.this.qpA.dispose();
-                    ObservableRefCount.this.qpA = new io.reactivex.disposables.a();
-                }
-            } finally {
-                ObservableRefCount.this.lock.unlock();
-            }
+        @Override // f.a.o
+        public void onNext(T t) {
+            this.subscriber.onNext(t);
+        }
+
+        @Override // f.a.o
+        public void onSubscribe(b bVar) {
+            DisposableHelper.setOnce(this, bVar);
         }
     }
 }

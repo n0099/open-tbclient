@@ -1,15 +1,67 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ListObjectsRequest extends GenericBucketRequest {
-    private String delimiter;
-    private String marker;
-    private int maxKeys;
-    private String prefix;
+    public String delimiter;
+    public String marker;
+    public int maxKeys;
+    public String prefix;
 
     public ListObjectsRequest(String str) {
         this(str, null);
+    }
+
+    public String getDelimiter() {
+        return this.delimiter;
+    }
+
+    public String getMarker() {
+        return this.marker;
+    }
+
+    public int getMaxKeys() {
+        return this.maxKeys;
+    }
+
+    public String getPrefix() {
+        return this.prefix;
+    }
+
+    public void setDelimiter(String str) {
+        this.delimiter = str;
+    }
+
+    public void setMarker(String str) {
+        this.marker = str;
+    }
+
+    public void setMaxKeys(int i) {
+        this.maxKeys = i;
+    }
+
+    public void setPrefix(String str) {
+        this.prefix = str;
+    }
+
+    public ListObjectsRequest withDelimiter(String str) {
+        setDelimiter(str);
+        return this;
+    }
+
+    public ListObjectsRequest withMarker(String str) {
+        setMarker(str);
+        return this;
+    }
+
+    public ListObjectsRequest withMaxKeys(int i) {
+        setMaxKeys(i);
+        return this;
+    }
+
+    public ListObjectsRequest withPrefix(String str) {
+        setPrefix(str);
+        return this;
     }
 
     public ListObjectsRequest(String str, String str2) {
@@ -19,68 +71,16 @@ public class ListObjectsRequest extends GenericBucketRequest {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.model.AbstractBceRequest
-    public ListObjectsRequest withRequestCredentials(BceCredentials bceCredentials) {
-        setRequestCredentials(bceCredentials);
-        return this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.services.bos.model.GenericBucketRequest
     public ListObjectsRequest withBucketName(String str) {
         setBucketName(str);
         return this;
     }
 
-    public String getPrefix() {
-        return this.prefix;
-    }
-
-    public void setPrefix(String str) {
-        this.prefix = str;
-    }
-
-    public ListObjectsRequest withPrefix(String str) {
-        setPrefix(str);
-        return this;
-    }
-
-    public String getMarker() {
-        return this.marker;
-    }
-
-    public void setMarker(String str) {
-        this.marker = str;
-    }
-
-    public ListObjectsRequest withMarker(String str) {
-        setMarker(str);
-        return this;
-    }
-
-    public String getDelimiter() {
-        return this.delimiter;
-    }
-
-    public void setDelimiter(String str) {
-        this.delimiter = str;
-    }
-
-    public ListObjectsRequest withDelimiter(String str) {
-        setDelimiter(str);
-        return this;
-    }
-
-    public int getMaxKeys() {
-        return this.maxKeys;
-    }
-
-    public void setMaxKeys(int i) {
-        this.maxKeys = i;
-    }
-
-    public ListObjectsRequest withMaxKeys(int i) {
-        setMaxKeys(i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.model.AbstractBceRequest
+    public ListObjectsRequest withRequestCredentials(BceCredentials bceCredentials) {
+        setRequestCredentials(bceCredentials);
         return this;
     }
 }

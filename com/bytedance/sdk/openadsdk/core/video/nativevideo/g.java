@@ -20,9 +20,9 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.b;
-import com.bytedance.sdk.openadsdk.utils.ac;
-import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.ad;
 import com.bytedance.sdk.openadsdk.utils.al;
+import com.bytedance.sdk.openadsdk.utils.am;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
@@ -31,55 +31,55 @@ import java.util.EnumSet;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public class g extends h {
-    private TextView J;
-    private ImageView K;
-    private View L;
-    private TextView M;
-    private TextView N;
-    private TextView O;
-    private ImageView P;
-    private View Q;
-    private ImageView R;
-    private TextView S;
-    private View T;
-    private SeekBar U;
-    private TextView V;
-    private TextView W;
-    private ImageView X;
-    private final al Y;
-    private boolean Z;
-    private boolean aA;
-    private boolean aB;
-    private boolean aa;
-    private int ab;
-    private int ac;
-    private int ad;
-    private int ae;
-    private int af;
-    private final Rect ag;
-    private ColorStateList ah;
-    private float ai;
-    private final Rect aj;
-    private int ak;
-    private boolean al;
-    private int am;
-    private int an;
-    private com.bytedance.sdk.openadsdk.core.widget.g ao;
-    private boolean ap;
-    private final View.OnTouchListener aq;
-    private float ar;
-    private ColorStateList as;
-    private float at;
-    private final Rect au;
-    private float av;
-    private ColorStateList aw;
-    private float ax;
-    private final Rect ay;
-    private final Rect az;
+    public TextView J;
+    public ImageView K;
+    public View L;
+    public TextView M;
+    public TextView N;
+    public TextView O;
+    public ImageView P;
+    public View Q;
+    public ImageView R;
+    public TextView S;
+    public View T;
+    public SeekBar U;
+    public TextView V;
+    public TextView W;
+    public ImageView X;
+    public final am Y;
+    public boolean Z;
+    public boolean aA;
+    public boolean aB;
+    public boolean aa;
+    public int ab;
+    public int ac;
+    public int ad;
+    public int ae;
+    public int af;
+    public final Rect ag;
+    public ColorStateList ah;
+    public float ai;
+    public final Rect aj;
+    public int ak;
+    public boolean al;
+    public int am;
+    public int an;
+    public com.bytedance.sdk.openadsdk.core.widget.g ao;
+    public boolean ap;
+    public final View.OnTouchListener aq;
+    public float ar;
+    public ColorStateList as;
+    public float at;
+    public final Rect au;
+    public float av;
+    public ColorStateList aw;
+    public float ax;
+    public final Rect ay;
+    public final Rect az;
 
     public g(Context context, View view, boolean z, EnumSet<b.a> enumSet, l lVar, c cVar, boolean z2) {
         super(context, view, z, enumSet, lVar, cVar, z2);
-        this.Y = new al(this);
+        this.Y = new am(this);
         this.Z = false;
         this.aa = false;
         this.ab = 0;
@@ -95,25 +95,25 @@ public class g extends h {
         this.ao = null;
         this.ap = false;
         this.aq = new View.OnTouchListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.7
-            private float b;
+
+            /* renamed from: b  reason: collision with root package name */
+            public float f28743b;
 
             @Override // android.view.View.OnTouchListener
             @SuppressLint({"ClickableViewAccessibility"})
             public boolean onTouch(View view2, MotionEvent motionEvent) {
                 float x = motionEvent.getX();
-                switch (motionEvent.getActionMasked()) {
-                    case 0:
-                        this.b = x;
-                        break;
-                    case 1:
-                        g.this.ap = Math.abs(this.b - motionEvent.getX()) < 10.0f;
-                        break;
-                    case 2:
+                int actionMasked = motionEvent.getActionMasked();
+                if (actionMasked != 0) {
+                    if (actionMasked == 1) {
+                        g.this.ap = Math.abs(this.f28743b - motionEvent.getX()) < 10.0f;
+                    } else if (actionMasked == 2) {
                         view2.getParent().requestDisallowInterceptTouchEvent(true);
-                        break;
-                    case 3:
+                    } else if (actionMasked == 3) {
                         view2.getParent().requestDisallowInterceptTouchEvent(false);
-                        break;
+                    }
+                } else {
+                    this.f28743b = x;
                 }
                 return false;
             }
@@ -123,10 +123,11 @@ public class g extends h {
         this.az = new Rect();
         this.z = p.a().getApplicationContext();
         c(z2);
-        this.f4568a = view;
+        this.f28745a = view;
         this.u = z;
-        this.ao = new com.bytedance.sdk.openadsdk.core.widget.g(this);
-        this.ao.a(this.u);
+        com.bytedance.sdk.openadsdk.core.widget.g gVar = new com.bytedance.sdk.openadsdk.core.widget.g(this);
+        this.ao = gVar;
+        gVar.a(this.u);
         DisplayMetrics displayMetrics = this.z.getResources().getDisplayMetrics();
         this.am = displayMetrics.widthPixels;
         this.an = displayMetrics.heightPixels;
@@ -134,120 +135,150 @@ public class g extends h {
         this.E = cVar;
         this.y = lVar;
         c(8);
-        a(context, this.f4568a);
+        a(context, this.f28745a);
         a();
         n();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void a(Context context, View view) {
-        super.a(context, view);
-        this.J = (TextView) view.findViewById(ac.e(context, "tt_video_back"));
-        this.K = (ImageView) view.findViewById(ac.e(context, "tt_video_close"));
-        this.L = view.findViewById(ac.e(context, "tt_video_top_layout"));
-        this.P = (ImageView) view.findViewById(ac.e(context, "tt_video_fullscreen_back"));
-        this.M = (TextView) view.findViewById(ac.e(context, "tt_video_title"));
-        this.N = (TextView) view.findViewById(ac.e(context, "tt_video_top_title"));
-        this.O = (TextView) view.findViewById(ac.e(context, "tt_video_current_time"));
-        this.Q = view.findViewById(ac.e(context, "tt_video_loading_retry"));
-        this.R = (ImageView) view.findViewById(ac.e(context, "tt_video_retry"));
-        this.S = (TextView) view.findViewById(ac.e(context, "tt_video_retry_des"));
-        this.U = (SeekBar) view.findViewById(ac.e(context, "tt_video_seekbar"));
-        this.V = (TextView) view.findViewById(ac.e(context, "tt_video_time_left_time"));
-        this.W = (TextView) view.findViewById(ac.e(context, "tt_video_time_play"));
-        this.T = view.findViewById(ac.e(context, "tt_video_ad_bottom_layout"));
-        this.X = (ImageView) view.findViewById(ac.e(context, "tt_video_ad_full_screen"));
-        this.g = (ViewStub) view.findViewById(ac.e(context, "tt_video_ad_cover"));
+    private void y() {
+        DisplayMetrics displayMetrics = this.z.getResources().getDisplayMetrics();
+        TextView textView = this.W;
+        if (textView != null) {
+            this.ar = textView.getTextSize();
+            this.W.setTextSize(2, 14.0f);
+            ColorStateList textColors = this.W.getTextColors();
+            this.as = textColors;
+            if (textColors != null) {
+                this.W.setTextColor(ad.i(this.z, "tt_ssxinzi15"));
+            }
+            this.at = this.W.getAlpha();
+            this.W.setAlpha(0.85f);
+            this.W.setShadowLayer(0.0f, al.a(this.z, 0.5f), al.a(this.z, 0.5f), ad.i(this.z, "tt_video_shaoow_color_fullscreen"));
+            ViewGroup.LayoutParams layoutParams = this.W.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                this.au.set(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+                al.b(this.W, (int) TypedValue.applyDimension(1, 16.0f, displayMetrics), this.au.top, (int) TypedValue.applyDimension(1, 14.0f, displayMetrics), this.au.bottom);
+            }
+        }
+        TextView textView2 = this.V;
+        if (textView2 != null) {
+            this.av = textView2.getTextSize();
+            this.V.setTextSize(2, 14.0f);
+            ColorStateList textColors2 = this.V.getTextColors();
+            this.aw = textColors2;
+            if (textColors2 != null) {
+                this.V.setTextColor(ad.i(this.z, "tt_ssxinzi15"));
+            }
+            this.ax = this.V.getAlpha();
+            this.V.setAlpha(0.85f);
+            this.V.setShadowLayer(0.0f, al.a(this.z, 0.5f), al.a(this.z, 0.5f), ad.i(this.z, "tt_video_shaoow_color_fullscreen"));
+            ViewGroup.LayoutParams layoutParams2 = this.V.getLayoutParams();
+            if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
+                this.ay.set(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin, marginLayoutParams2.rightMargin, marginLayoutParams2.bottomMargin);
+                Rect rect = this.ay;
+                al.b(this.V, (int) TypedValue.applyDimension(1, 14.0f, displayMetrics), rect.top, rect.right, rect.bottom);
+            }
+        }
+        ImageView imageView = this.X;
+        if (imageView != null) {
+            ViewGroup.LayoutParams layoutParams3 = imageView.getLayoutParams();
+            if (layoutParams3 instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams3 = (ViewGroup.MarginLayoutParams) layoutParams3;
+                this.az.set(marginLayoutParams3.leftMargin, marginLayoutParams3.topMargin, marginLayoutParams3.rightMargin, marginLayoutParams3.bottomMargin);
+                ImageView imageView2 = this.X;
+                Rect rect2 = this.az;
+                al.b(imageView2, rect2.left, rect2.top, (int) TypedValue.applyDimension(1, 16.0f, displayMetrics), this.az.bottom);
+            }
+        }
+        ImageView imageView3 = this.X;
+        if (imageView3 != null) {
+            imageView3.setImageDrawable(ad.c(this.z, "tt_shrink_fullscreen"));
+        }
+        TextView textView3 = this.N;
+        if (textView3 != null) {
+            ColorStateList textColors3 = textView3.getTextColors();
+            this.ah = textColors3;
+            if (textColors3 != null) {
+                this.N.setTextColor(ad.i(this.z, "tt_ssxinzi15"));
+            }
+            this.ai = this.N.getAlpha();
+            this.N.setAlpha(0.85f);
+            ViewGroup.LayoutParams layoutParams4 = this.N.getLayoutParams();
+            if (layoutParams4 instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams4 = (ViewGroup.MarginLayoutParams) layoutParams4;
+                this.aj.set(marginLayoutParams4.leftMargin, marginLayoutParams4.topMargin, marginLayoutParams4.rightMargin, marginLayoutParams4.bottomMargin);
+                Rect rect3 = this.ay;
+                al.b(this.N, (int) TypedValue.applyDimension(1, 1.0f, displayMetrics), rect3.top, rect3.right, rect3.bottom);
+            }
+        }
+        View view = this.L;
+        if (view != null) {
+            ViewGroup.LayoutParams layoutParams5 = view.getLayoutParams();
+            this.ak = layoutParams5.height;
+            layoutParams5.height = (int) TypedValue.applyDimension(1, 49.0f, displayMetrics);
+            this.L.setLayoutParams(layoutParams5);
+            this.L.setBackgroundResource(ad.d(this.z, "tt_shadow_fullscreen_top"));
+        }
+        b(this.al, true);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void a() {
-        int i = 8;
-        super.a();
-        this.ao.a(this.f4568a);
-        ak.a((View) this.K, (this.u || this.x.contains(b.a.hideCloseBtn)) ? 8 : 0);
-        this.K.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (g.this.r()) {
-                    g.this.B.c(g.this, view);
-                }
+    private void z() {
+        TextView textView = this.W;
+        if (textView != null) {
+            textView.setTextSize(0, this.ar);
+            ColorStateList colorStateList = this.as;
+            if (colorStateList != null) {
+                this.W.setTextColor(colorStateList);
             }
-        });
-        TextView textView = this.J;
-        if (!this.u || this.x.contains(b.a.alwayShowBackBtn)) {
-            i = 0;
+            this.W.setAlpha(this.at);
+            this.W.setShadowLayer(al.a(this.z, 1.0f), 0.0f, 0.0f, ad.i(this.z, "tt_video_shadow_color"));
+            TextView textView2 = this.W;
+            Rect rect = this.au;
+            al.b(textView2, rect.left, rect.top, rect.right, rect.bottom);
         }
-        ak.a((View) textView, i);
-        this.J.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (g.this.r()) {
-                    g.this.B.d(g.this, view);
-                }
+        TextView textView3 = this.V;
+        if (textView3 != null) {
+            textView3.setTextSize(0, this.av);
+            ColorStateList colorStateList2 = this.aw;
+            if (colorStateList2 != null) {
+                this.V.setTextColor(colorStateList2);
             }
-        });
-        this.P.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (g.this.r()) {
-                    g.this.B.e(g.this, view);
-                }
+            this.V.setAlpha(this.ax);
+            this.V.setShadowLayer(al.a(this.z, 1.0f), 0.0f, 0.0f, ad.i(this.z, "tt_video_shadow_color"));
+            TextView textView4 = this.V;
+            Rect rect2 = this.ay;
+            al.b(textView4, rect2.left, rect2.top, rect2.right, rect2.bottom);
+        }
+        ImageView imageView = this.X;
+        if (imageView != null) {
+            Rect rect3 = this.az;
+            al.b(imageView, rect3.left, rect3.top, rect3.right, rect3.bottom);
+        }
+        ImageView imageView2 = this.X;
+        if (imageView2 != null) {
+            imageView2.setImageDrawable(ad.c(this.z, "tt_enlarge_video"));
+        }
+        TextView textView5 = this.N;
+        if (textView5 != null) {
+            ColorStateList colorStateList3 = this.ah;
+            if (colorStateList3 != null) {
+                textView5.setTextColor(colorStateList3);
             }
-        });
-        this.R.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                g.this.b(false, true);
-                g.this.f();
-                g.this.d();
-                if (g.this.r()) {
-                    g.this.B.f(g.this, view);
-                }
-            }
-        });
-        this.X.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.5
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (g.this.r()) {
-                    g.this.B.b(g.this, view);
-                }
-            }
-        });
-        this.U.setThumbOffset(0);
-        this.U.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.6
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                if (!g.this.Z && g.this.z != null) {
-                    seekBar.setThumb(ac.c(p.a(), "tt_seek_thumb_normal"));
-                }
-                if (g.this.r()) {
-                    seekBar.setThumbOffset(0);
-                    g.this.B.a(g.this, seekBar.getProgress());
-                }
-            }
-
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                if (!g.this.Z && g.this.z != null) {
-                    seekBar.setThumb(ac.c(p.a(), "tt_seek_thumb_press"));
-                }
-                if (g.this.r()) {
-                    seekBar.setThumbOffset(0);
-                    g.this.B.b(g.this, seekBar.getProgress());
-                }
-            }
-
-            @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
-                if (g.this.r()) {
-                    g.this.B.a(g.this, i2, z);
-                }
-            }
-        });
-        this.U.setOnTouchListener(this.aq);
+            this.N.setAlpha(this.ai);
+            TextView textView6 = this.N;
+            Rect rect4 = this.ay;
+            al.b(textView6, rect4.left, rect4.top, rect4.right, rect4.bottom);
+        }
+        View view = this.L;
+        if (view != null) {
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            layoutParams.height = this.ak;
+            this.L.setLayoutParams(layoutParams);
+            this.L.setBackgroundResource(ad.d(this.z, "tt_video_black_desc_gradient"));
+        }
+        b(this.al, true);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
@@ -262,72 +293,17 @@ public class g extends h {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void a(boolean z) {
-        int i;
-        int i2;
-        int i3 = h() ? this.an : this.q;
-        int i4 = h() ? this.am : this.r;
-        if (this.t > 0 && this.s > 0 && i3 > 0) {
-            if (!i() && !h() && !this.x.contains(b.a.fixedSize)) {
-                i4 = this.z.getResources().getDimensionPixelSize(ac.h(this.z, "tt_video_container_maxheight"));
-            }
-            int i5 = (int) (((i3 * 1.0f) / this.s) * this.t);
-            if (i5 > i4) {
-                i = (int) (((i4 * 1.0f) / this.t) * this.s);
-            } else {
-                i4 = i5;
-                i = i3;
-            }
-            if (z || h()) {
-                i2 = i4;
-            } else {
-                int i6 = this.q;
-                i2 = this.r;
-                i = i6;
-            }
-            this.b.a(i, i2);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void a(String str) {
-        if (this.M != null) {
-            this.M.setText(str);
-        }
-        if (this.N != null) {
-            this.N.setText(str);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void a(int i) {
-        if (this.T != null && this.T.getVisibility() == 0) {
-            ak.a((View) this.o, 8);
-            return;
-        }
-        ak.a((View) this.o, 0);
-        this.U.setProgress(i);
-        this.o.setProgress(i);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void a(long j, long j2) {
-        this.V.setText(com.bytedance.sdk.openadsdk.core.video.e.a.a(j2));
-        this.W.setText(com.bytedance.sdk.openadsdk.core.video.e.a.a(j));
-        this.U.setProgress(com.bytedance.sdk.openadsdk.core.video.e.a.a(j, j2));
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void d() {
-        ak.g(this.d);
-        ak.g(this.e);
-        ak.f(this.Q);
-        if (this.f != null && this.y != null && this.y.R() != null && this.y.R().h() != null) {
-            ak.g(this.f);
-            com.bytedance.sdk.openadsdk.h.d.a(this.z).a(this.y.R().h(), this.f);
+        l lVar;
+        al.g(this.f28748d);
+        al.g(this.f28749e);
+        al.f(this.Q);
+        if (this.f28750f != null && (lVar = this.y) != null && lVar.X() != null && this.y.X().h() != null) {
+            al.g(this.f28750f);
+            com.bytedance.sdk.openadsdk.i.e.c().a(this.y.X().h(), this.f28750f);
         }
-        if (this.c.getVisibility() == 0) {
-            ak.a((View) this.c, 8);
+        if (this.f28747c.getVisibility() == 0) {
+            al.a((View) this.f28747c, 8);
         }
     }
 
@@ -338,43 +314,9 @@ public class g extends h {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void a(long j) {
-        this.W.setText(com.bytedance.sdk.openadsdk.core.video.e.a.a(j));
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    @SuppressLint({"ClickableViewAccessibility"})
-    public void a(l lVar, WeakReference<Context> weakReference, boolean z) {
-        if (lVar != null) {
-            a(this.f4568a, p.a());
-            a(false, this.u);
-            ak.a(this.h, 0);
-            ak.a((View) this.i, 0);
-            ak.a(this.j, 0);
-            if (this.i != null && this.y != null && this.y.R() != null && this.y.R().h() != null) {
-                com.bytedance.sdk.openadsdk.h.d.a(this.z).a(this.y.R().h(), this.i);
-            }
-            ak.a((View) this.n, 0);
-            ak.a((View) this.k, 8);
-            ak.a((View) this.l, 8);
-            ak.a((View) this.m, 8);
-            ak.a(this.n, ac.a(this.z, "tt_video_dial_replay"));
-            ak.a(this.n, new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.8
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (g.this.B != null) {
-                        g.this.B.g();
-                    }
-                }
-            }, "video_ad_button");
-            ak.a(this.n, (View.OnTouchListener) null, "video_ad_button");
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void f() {
-        ak.f(this.d);
-        ak.f(this.Q);
+        al.f(this.f28748d);
+        al.f(this.Q);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
@@ -383,25 +325,27 @@ public class g extends h {
         this.U.setSecondaryProgress(0);
         this.o.setProgress(0);
         this.o.setSecondaryProgress(0);
-        this.V.setText(ac.b(this.z, "tt_00_00"));
-        this.W.setText(ac.b(this.z, "tt_00_00"));
+        this.V.setText(ad.b(this.z, "tt_00_00"));
+        this.W.setText(ad.b(this.z, "tt_00_00"));
         c(8);
         if (x()) {
-            this.b.setVisibility(8);
+            this.f28746b.setVisibility(8);
         }
-        if (this.f != null) {
-            this.f.setImageDrawable(null);
+        ImageView imageView = this.f28750f;
+        if (imageView != null) {
+            imageView.setImageDrawable(null);
         }
         c(8);
-        ak.a(this.T, 8);
-        ak.a(this.h, 8);
-        ak.a((View) this.i, 8);
-        ak.a(this.j, 8);
-        ak.a((View) this.k, 8);
-        ak.a((View) this.l, 8);
-        ak.a((View) this.m, 8);
-        if (this.A != null) {
-            this.A.a(true);
+        al.a(this.T, 8);
+        al.a(this.f28752h, 8);
+        al.a((View) this.i, 8);
+        al.a(this.j, 8);
+        al.a((View) this.k, 8);
+        al.a((View) this.l, 8);
+        al.a((View) this.m, 8);
+        com.bytedance.sdk.openadsdk.core.widget.h hVar = this.A;
+        if (hVar != null) {
+            hVar.a(true);
         }
     }
 
@@ -415,79 +359,36 @@ public class g extends h {
         return this.u;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void a(@Nullable ViewGroup viewGroup) {
-        if (viewGroup != null && (this.f4568a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            this.Z = true;
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f4568a.getLayoutParams();
-            this.ac = marginLayoutParams.leftMargin;
-            this.ab = marginLayoutParams.topMargin;
-            this.ad = marginLayoutParams.width;
-            this.ae = marginLayoutParams.height;
-            marginLayoutParams.width = -1;
-            marginLayoutParams.height = -1;
-            marginLayoutParams.topMargin = 0;
-            marginLayoutParams.leftMargin = 0;
-            this.f4568a.setLayoutParams(marginLayoutParams);
-            ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
-            if (layoutParams instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-                int[] rules = layoutParams2.getRules();
-                this.af = rules.length > 0 ? rules[3] : 0;
-                layoutParams2.addRule(3, 0);
-                viewGroup.setLayoutParams(layoutParams2);
-            }
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
-                this.ag.set(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin, marginLayoutParams2.rightMargin, marginLayoutParams2.bottomMargin);
-                ak.b(viewGroup, 0, 0, 0, 0);
-            }
-            a(true);
-            this.X.setImageDrawable(ac.c(this.z, "tt_shrink_video"));
-            this.U.setThumb(ac.c(this.z, "tt_seek_thumb_fullscreen_selector"));
-            this.U.setThumbOffset(0);
-            com.bytedance.sdk.openadsdk.core.video.e.a.a(this.f4568a, false);
-            e(this.Z);
-            ak.a(this.L, 8);
-            if (!this.u) {
-                ak.a((View) this.K, 8);
-                ak.a((View) this.J, 8);
-            } else if (this.x.contains(b.a.hideCloseBtn)) {
-                ak.a((View) this.K, 8);
-            }
-        }
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h, com.bytedance.sdk.openadsdk.core.widget.h.b
+    public void j() {
+        a(true, false);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void b(@Nullable ViewGroup viewGroup) {
-        u.f("FullScreen", "Detail exitFullScreen.....");
-        if (viewGroup != null && this.f4568a != null && (this.f4568a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            this.Z = false;
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f4568a.getLayoutParams();
-            marginLayoutParams.width = this.ad;
-            marginLayoutParams.height = this.ae;
-            marginLayoutParams.leftMargin = this.ac;
-            marginLayoutParams.topMargin = this.ab;
-            this.f4568a.setLayoutParams(marginLayoutParams);
-            ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
-            if (layoutParams instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-                layoutParams2.addRule(3, this.af);
-                viewGroup.setLayoutParams(layoutParams2);
-            }
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ak.b(viewGroup, this.ag.left, this.ag.top, this.ag.right, this.ag.bottom);
-            }
-            a(true);
-            this.X.setImageDrawable(ac.c(this.z, "tt_enlarge_video"));
-            this.U.setThumb(ac.c(this.z, "tt_seek_thumb_normal"));
-            this.U.setThumbOffset(0);
-            com.bytedance.sdk.openadsdk.core.video.e.a.a(this.f4568a, true);
-            e(this.Z);
-            ak.a(this.L, 8);
-            if (this.x.contains(b.a.alwayShowBackBtn)) {
-                ak.a((View) this.J, 0);
-            }
+    public boolean k() {
+        return this.v;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h, com.bytedance.sdk.openadsdk.core.widget.g.a
+    public void l() {
+        j();
+        b(false);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h, com.bytedance.sdk.openadsdk.core.widget.g.a
+    public boolean m() {
+        com.bytedance.sdk.openadsdk.core.widget.h hVar = this.A;
+        return hVar != null && hVar.a();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
+    public void c(int i) {
+        this.w = i;
+        al.a(this.f28745a, i);
+        if (i != 0) {
+            this.aB = false;
+        } else if (this.aA) {
+            this.aB = true;
         }
     }
 
@@ -499,237 +400,379 @@ public class g extends h {
         }
     }
 
-    private void y() {
-        DisplayMetrics displayMetrics = this.z.getResources().getDisplayMetrics();
-        if (this.W != null) {
-            this.ar = this.W.getTextSize();
-            this.W.setTextSize(2, 14.0f);
-            this.as = this.W.getTextColors();
-            if (this.as != null) {
-                this.W.setTextColor(ac.i(this.z, "tt_ssxinzi15"));
-            }
-            this.at = this.W.getAlpha();
-            this.W.setAlpha(0.85f);
-            this.W.setShadowLayer(0.0f, ak.a(this.z, 0.5f), ak.a(this.z, 0.5f), ac.i(this.z, "tt_video_shaoow_color_fullscreen"));
-            ViewGroup.LayoutParams layoutParams = this.W.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                this.au.set(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
-                ak.b(this.W, (int) TypedValue.applyDimension(1, 16.0f, displayMetrics), this.au.top, (int) TypedValue.applyDimension(1, 14.0f, displayMetrics), this.au.bottom);
-            }
-        }
-        if (this.V != null) {
-            this.av = this.V.getTextSize();
-            this.V.setTextSize(2, 14.0f);
-            this.aw = this.V.getTextColors();
-            if (this.aw != null) {
-                this.V.setTextColor(ac.i(this.z, "tt_ssxinzi15"));
-            }
-            this.ax = this.V.getAlpha();
-            this.V.setAlpha(0.85f);
-            this.V.setShadowLayer(0.0f, ak.a(this.z, 0.5f), ak.a(this.z, 0.5f), ac.i(this.z, "tt_video_shaoow_color_fullscreen"));
-            ViewGroup.LayoutParams layoutParams2 = this.V.getLayoutParams();
-            if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
-                this.ay.set(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin, marginLayoutParams2.rightMargin, marginLayoutParams2.bottomMargin);
-                ak.b(this.V, (int) TypedValue.applyDimension(1, 14.0f, displayMetrics), this.ay.top, this.ay.right, this.ay.bottom);
-            }
-        }
-        if (this.X != null) {
-            ViewGroup.LayoutParams layoutParams3 = this.X.getLayoutParams();
-            if (layoutParams3 instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams3 = (ViewGroup.MarginLayoutParams) layoutParams3;
-                this.az.set(marginLayoutParams3.leftMargin, marginLayoutParams3.topMargin, marginLayoutParams3.rightMargin, marginLayoutParams3.bottomMargin);
-                ak.b(this.X, this.az.left, this.az.top, (int) TypedValue.applyDimension(1, 16.0f, displayMetrics), this.az.bottom);
-            }
-        }
-        if (this.X != null) {
-            this.X.setImageDrawable(ac.c(this.z, "tt_shrink_fullscreen"));
-        }
-        if (this.N != null) {
-            this.ah = this.N.getTextColors();
-            if (this.ah != null) {
-                this.N.setTextColor(ac.i(this.z, "tt_ssxinzi15"));
-            }
-            this.ai = this.N.getAlpha();
-            this.N.setAlpha(0.85f);
-            ViewGroup.LayoutParams layoutParams4 = this.N.getLayoutParams();
-            if (layoutParams4 instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams4 = (ViewGroup.MarginLayoutParams) layoutParams4;
-                this.aj.set(marginLayoutParams4.leftMargin, marginLayoutParams4.topMargin, marginLayoutParams4.rightMargin, marginLayoutParams4.bottomMargin);
-                ak.b(this.N, (int) TypedValue.applyDimension(1, 1.0f, displayMetrics), this.ay.top, this.ay.right, this.ay.bottom);
-            }
-        }
-        if (this.L != null) {
-            ViewGroup.LayoutParams layoutParams5 = this.L.getLayoutParams();
-            this.ak = layoutParams5.height;
-            layoutParams5.height = (int) TypedValue.applyDimension(1, 49.0f, displayMetrics);
-            this.L.setLayoutParams(layoutParams5);
-            this.L.setBackgroundResource(ac.d(this.z, "tt_shadow_fullscreen_top"));
-        }
-        b(this.al, true);
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
+    public void a(Context context, View view) {
+        super.a(context, view);
+        this.J = (TextView) view.findViewById(ad.e(context, "tt_video_back"));
+        this.K = (ImageView) view.findViewById(ad.e(context, "tt_video_close"));
+        this.L = view.findViewById(ad.e(context, "tt_video_top_layout"));
+        this.P = (ImageView) view.findViewById(ad.e(context, "tt_video_fullscreen_back"));
+        this.M = (TextView) view.findViewById(ad.e(context, "tt_video_title"));
+        this.N = (TextView) view.findViewById(ad.e(context, "tt_video_top_title"));
+        this.O = (TextView) view.findViewById(ad.e(context, "tt_video_current_time"));
+        this.Q = view.findViewById(ad.e(context, "tt_video_loading_retry"));
+        this.R = (ImageView) view.findViewById(ad.e(context, "tt_video_retry"));
+        this.S = (TextView) view.findViewById(ad.e(context, "tt_video_retry_des"));
+        this.U = (SeekBar) view.findViewById(ad.e(context, "tt_video_seekbar"));
+        this.V = (TextView) view.findViewById(ad.e(context, "tt_video_time_left_time"));
+        this.W = (TextView) view.findViewById(ad.e(context, "tt_video_time_play"));
+        this.T = view.findViewById(ad.e(context, "tt_video_ad_bottom_layout"));
+        this.X = (ImageView) view.findViewById(ad.e(context, "tt_video_ad_full_screen"));
+        this.f28751g = (ViewStub) view.findViewById(ad.e(context, "tt_video_ad_cover"));
     }
 
-    private void z() {
-        if (this.W != null) {
-            this.W.setTextSize(0, this.ar);
-            if (this.as != null) {
-                this.W.setTextColor(this.as);
-            }
-            this.W.setAlpha(this.at);
-            this.W.setShadowLayer(ak.a(this.z, 1.0f), 0.0f, 0.0f, ac.i(this.z, "tt_video_shadow_color"));
-            ak.b(this.W, this.au.left, this.au.top, this.au.right, this.au.bottom);
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
+    public void b(@Nullable ViewGroup viewGroup) {
+        View view;
+        u.f("FullScreen", "Detail exitFullScreen.....");
+        if (viewGroup == null || (view = this.f28745a) == null || !(view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            return;
         }
-        if (this.V != null) {
-            this.V.setTextSize(0, this.av);
-            if (this.aw != null) {
-                this.V.setTextColor(this.aw);
-            }
-            this.V.setAlpha(this.ax);
-            this.V.setShadowLayer(ak.a(this.z, 1.0f), 0.0f, 0.0f, ac.i(this.z, "tt_video_shadow_color"));
-            ak.b(this.V, this.ay.left, this.ay.top, this.ay.right, this.ay.bottom);
+        this.Z = false;
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f28745a.getLayoutParams();
+        marginLayoutParams.width = this.ad;
+        marginLayoutParams.height = this.ae;
+        marginLayoutParams.leftMargin = this.ac;
+        marginLayoutParams.topMargin = this.ab;
+        this.f28745a.setLayoutParams(marginLayoutParams);
+        ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
+        if (layoutParams instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
+            layoutParams2.addRule(3, this.af);
+            viewGroup.setLayoutParams(layoutParams2);
         }
-        if (this.X != null) {
-            ak.b(this.X, this.az.left, this.az.top, this.az.right, this.az.bottom);
+        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            Rect rect = this.ag;
+            al.b(viewGroup, rect.left, rect.top, rect.right, rect.bottom);
         }
-        if (this.X != null) {
-            this.X.setImageDrawable(ac.c(this.z, "tt_enlarge_video"));
-        }
-        if (this.N != null) {
-            if (this.ah != null) {
-                this.N.setTextColor(this.ah);
-            }
-            this.N.setAlpha(this.ai);
-            ak.b(this.N, this.ay.left, this.ay.top, this.ay.right, this.ay.bottom);
-        }
-        if (this.L != null) {
-            ViewGroup.LayoutParams layoutParams = this.L.getLayoutParams();
-            layoutParams.height = this.ak;
-            this.L.setLayoutParams(layoutParams);
-            this.L.setBackgroundResource(ac.d(this.z, "tt_video_black_desc_gradient"));
-        }
-        b(this.al, true);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h, com.bytedance.sdk.openadsdk.utils.al.a
-    public void a(Message message) {
-        switch (message.what) {
-            case 1:
-                j();
-                return;
-            default:
-                return;
+        a(true);
+        this.X.setImageDrawable(ad.c(this.z, "tt_enlarge_video"));
+        this.U.setThumb(ad.c(this.z, "tt_seek_thumb_normal"));
+        this.U.setThumbOffset(0);
+        com.bytedance.sdk.openadsdk.core.video.e.a.a(this.f28745a, true);
+        e(this.Z);
+        al.a(this.L, 8);
+        if (this.x.contains(b.a.alwayShowBackBtn)) {
+            al.a((View) this.J, 0);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void a(boolean z, boolean z2, boolean z3) {
-        ak.a(this.T, 0);
-        ak.a((View) this.o, 0);
-        if (this.Z) {
-            ak.a(this.L, 0);
-            ak.a((View) this.N, 0);
-        } else if (z3) {
-            ak.a(this.L, 8);
-        }
-        ak.a((View) this.c, (!z || this.d.getVisibility() == 0) ? 8 : 0);
-        if (!this.u && !this.Z) {
-            if (!this.x.contains(b.a.hideCloseBtn) && !z3) {
-                ak.a((View) this.K, 0);
+    public void a() {
+        super.a();
+        this.ao.a(this.f28745a);
+        int i = 8;
+        al.a((View) this.K, (this.u || this.x.contains(b.a.hideCloseBtn)) ? 8 : 0);
+        this.K.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (g.this.r()) {
+                    g gVar = g.this;
+                    gVar.B.c(gVar, view);
+                }
             }
-            ak.a((View) this.J, z3 ? 8 : 0);
-        }
-        ak.a((View) this.V, 0);
-        ak.a((View) this.W, 0);
-        ak.a((View) this.U, 0);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void a(boolean z, boolean z2) {
-        ak.a(this.T, 8);
-        ak.a(this.L, 8);
-        ak.a((View) this.o, z ? 0 : 8);
-        ak.a((View) this.c, 8);
-        if (!this.u && !this.Z) {
-            ak.a((View) this.K, 8);
-            if (!this.x.contains(b.a.alwayShowBackBtn)) {
-                ak.a((View) this.J, 8);
+        });
+        al.a((View) this.J, (!this.u || this.x.contains(b.a.alwayShowBackBtn)) ? 0 : 0);
+        this.J.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (g.this.r()) {
+                    g gVar = g.this;
+                    gVar.B.d(gVar, view);
+                }
             }
-        } else if (this.x.contains(b.a.hideCloseBtn)) {
-            ak.a((View) this.K, 8);
-        }
-        if (z2) {
-            ak.a((View) this.K, 8);
-            ak.a((View) this.J, 8);
-        }
-        b(false);
-    }
+        });
+        this.P.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (g.this.r()) {
+                    g gVar = g.this;
+                    gVar.B.e(gVar, view);
+                }
+            }
+        });
+        this.R.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.4
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                g.this.b(false, true);
+                g.this.f();
+                g.this.d();
+                if (g.this.r()) {
+                    g gVar = g.this;
+                    gVar.B.f(gVar, view);
+                }
+            }
+        });
+        this.X.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.5
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (g.this.r()) {
+                    g gVar = g.this;
+                    gVar.B.b(gVar, view);
+                }
+            }
+        });
+        this.U.setThumbOffset(0);
+        this.U.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.6
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
+                if (g.this.r()) {
+                    g gVar = g.this;
+                    gVar.B.a(gVar, i2, z);
+                }
+            }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h, com.bytedance.sdk.openadsdk.core.widget.h.b
-    public void j() {
-        a(true, false);
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                if (!g.this.Z && g.this.z != null) {
+                    seekBar.setThumb(ad.c(p.a(), "tt_seek_thumb_press"));
+                }
+                if (g.this.r()) {
+                    seekBar.setThumbOffset(0);
+                    g gVar = g.this;
+                    gVar.B.b(gVar, seekBar.getProgress());
+                }
+            }
+
+            @Override // android.widget.SeekBar.OnSeekBarChangeListener
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                if (!g.this.Z && g.this.z != null) {
+                    seekBar.setThumb(ad.c(p.a(), "tt_seek_thumb_normal"));
+                }
+                if (g.this.r()) {
+                    seekBar.setThumbOffset(0);
+                    g gVar = g.this;
+                    gVar.B.a(gVar, seekBar.getProgress());
+                }
+            }
+        });
+        this.U.setOnTouchListener(this.aq);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public boolean b(int i) {
-        return this.U != null && i > this.U.getSecondaryProgress();
+        SeekBar seekBar = this.U;
+        return seekBar != null && i > seekBar.getSecondaryProgress();
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void b(boolean z) {
-        if (this.M != null) {
+        TextView textView = this.M;
+        if (textView != null) {
             if (this.u) {
-                ak.a((View) this.M, 8);
+                al.a((View) textView, 8);
             } else {
-                ak.a((View) this.M, z ? 0 : 8);
+                al.a((View) textView, z ? 0 : 8);
             }
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public boolean k() {
-        return this.v;
+    public void a(boolean z) {
+        int i = h() ? this.an : this.q;
+        int i2 = h() ? this.am : this.r;
+        if (this.t <= 0 || this.s <= 0 || i <= 0) {
+            return;
+        }
+        if (!i() && !h() && !this.x.contains(b.a.fixedSize)) {
+            i2 = this.z.getResources().getDimensionPixelSize(ad.h(this.z, "tt_video_container_maxheight"));
+        }
+        int i3 = this.s;
+        int i4 = this.t;
+        int i5 = (int) (i4 * ((i * 1.0f) / i3));
+        if (i5 > i2) {
+            i = (int) (i3 * ((i2 * 1.0f) / i4));
+        } else {
+            i2 = i5;
+        }
+        if (!z && !h()) {
+            i = this.q;
+            i2 = this.r;
+        }
+        this.f28746b.a(i, i2);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
-    public void c(int i) {
-        this.w = i;
-        ak.a(this.f4568a, i);
-        if (i != 0) {
-            this.aB = false;
-        } else if (this.aA) {
-            this.aB = true;
+    public void a(String str) {
+        TextView textView = this.M;
+        if (textView != null) {
+            textView.setText(str);
         }
+        TextView textView2 = this.N;
+        if (textView2 != null) {
+            textView2.setText(str);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
+    public void a(int i) {
+        View view = this.T;
+        if (view != null && view.getVisibility() == 0) {
+            al.a((View) this.o, 8);
+            return;
+        }
+        al.a((View) this.o, 0);
+        this.U.setProgress(i);
+        this.o.setProgress(i);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
+    public void a(long j, long j2) {
+        this.V.setText(com.bytedance.sdk.openadsdk.core.video.e.a.a(j2));
+        this.W.setText(com.bytedance.sdk.openadsdk.core.video.e.a.a(j));
+        this.U.setProgress(com.bytedance.sdk.openadsdk.core.video.e.a.a(j, j2));
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
+    public void a(long j) {
+        this.W.setText(com.bytedance.sdk.openadsdk.core.video.e.a.a(j));
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
+    @SuppressLint({"ClickableViewAccessibility"})
+    public void a(l lVar, WeakReference<Context> weakReference, boolean z) {
+        l lVar2;
+        if (lVar == null) {
+            return;
+        }
+        a(this.f28745a, p.a());
+        a(false, this.u);
+        al.a(this.f28752h, 0);
+        al.a((View) this.i, 0);
+        al.a(this.j, 0);
+        if (this.i != null && (lVar2 = this.y) != null && lVar2.X() != null && this.y.X().h() != null) {
+            com.bytedance.sdk.openadsdk.i.e.c().a(this.y.X().h(), this.i);
+        }
+        al.a((View) this.n, 0);
+        al.a((View) this.k, 8);
+        al.a((View) this.l, 8);
+        al.a((View) this.m, 8);
+        al.a(this.n, ad.a(this.z, "tt_video_dial_replay"));
+        al.a(this.n, new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.8
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                d dVar = g.this.B;
+                if (dVar != null) {
+                    dVar.g();
+                }
+            }
+        }, "video_ad_button");
+        al.a(this.n, (View.OnTouchListener) null, "video_ad_button");
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
+    public void a(@Nullable ViewGroup viewGroup) {
+        if (viewGroup != null && (this.f28745a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            this.Z = true;
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f28745a.getLayoutParams();
+            this.ac = marginLayoutParams.leftMargin;
+            this.ab = marginLayoutParams.topMargin;
+            this.ad = marginLayoutParams.width;
+            this.ae = marginLayoutParams.height;
+            marginLayoutParams.width = -1;
+            marginLayoutParams.height = -1;
+            marginLayoutParams.topMargin = 0;
+            marginLayoutParams.leftMargin = 0;
+            this.f28745a.setLayoutParams(marginLayoutParams);
+            ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
+            if (layoutParams instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
+                int[] rules = layoutParams2.getRules();
+                this.af = rules.length > 0 ? rules[3] : 0;
+                layoutParams2.addRule(3, 0);
+                viewGroup.setLayoutParams(layoutParams2);
+            }
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
+                this.ag.set(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin, marginLayoutParams2.rightMargin, marginLayoutParams2.bottomMargin);
+                al.b(viewGroup, 0, 0, 0, 0);
+            }
+            a(true);
+            this.X.setImageDrawable(ad.c(this.z, "tt_shrink_video"));
+            this.U.setThumb(ad.c(this.z, "tt_seek_thumb_fullscreen_selector"));
+            this.U.setThumbOffset(0);
+            com.bytedance.sdk.openadsdk.core.video.e.a.a(this.f28745a, false);
+            e(this.Z);
+            al.a(this.L, 8);
+            if (!this.u) {
+                al.a((View) this.K, 8);
+                al.a((View) this.J, 8);
+            } else if (this.x.contains(b.a.hideCloseBtn)) {
+                al.a((View) this.K, 8);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h, com.bytedance.sdk.openadsdk.utils.am.a
+    public void a(Message message) {
+        if (message.what != 1) {
+            return;
+        }
+        j();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
+    public void a(boolean z, boolean z2, boolean z3) {
+        al.a(this.T, 0);
+        al.a((View) this.o, 0);
+        if (this.Z) {
+            al.a(this.L, 0);
+            al.a((View) this.N, 0);
+        } else if (z3) {
+            al.a(this.L, 8);
+        }
+        al.a((View) this.f28747c, (!z || this.f28748d.getVisibility() == 0) ? 8 : 0);
+        if (!this.u && !this.Z) {
+            if (!this.x.contains(b.a.hideCloseBtn) && !z3) {
+                al.a((View) this.K, 0);
+            }
+            al.a((View) this.J, z3 ? 8 : 0);
+        }
+        al.a((View) this.V, 0);
+        al.a((View) this.W, 0);
+        al.a((View) this.U, 0);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
+    public void a(boolean z, boolean z2) {
+        al.a(this.T, 8);
+        al.a(this.L, 8);
+        al.a((View) this.o, z ? 0 : 8);
+        al.a((View) this.f28747c, 8);
+        if (!this.u && !this.Z) {
+            al.a((View) this.K, 8);
+            if (!this.x.contains(b.a.alwayShowBackBtn)) {
+                al.a((View) this.J, 8);
+            }
+        } else if (this.x.contains(b.a.hideCloseBtn)) {
+            al.a((View) this.K, 8);
+        }
+        if (z2) {
+            al.a((View) this.K, 8);
+            al.a((View) this.J, 8);
+        }
+        b(false);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h, com.bytedance.sdk.openadsdk.core.widget.g.a
     public void a(View view, boolean z) {
         if (h()) {
             String format = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
-            if (this.y != null && !TextUtils.isEmpty(this.y.ad())) {
-                a(this.y.ad());
+            l lVar = this.y;
+            if (lVar != null && !TextUtils.isEmpty(lVar.aj())) {
+                a(this.y.aj());
             }
             this.O.setText(format);
         } else {
             a("");
             this.O.setText("");
         }
-        if (!this.C) {
-            b(this.u && !this.Z);
-            if (r()) {
-                this.B.a(this, view, true, this.d.getVisibility() != 0);
-            }
+        if (this.C) {
+            return;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h, com.bytedance.sdk.openadsdk.core.widget.g.a
-    public void l() {
-        j();
-        b(false);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h, com.bytedance.sdk.openadsdk.core.widget.g.a
-    public boolean m() {
-        return this.A != null && this.A.a();
+        b(this.u && !this.Z);
+        if (r()) {
+            this.B.a(this, view, true, this.f28748d.getVisibility() != 0);
+        }
     }
 }

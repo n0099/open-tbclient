@@ -31,19 +31,49 @@ import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ao;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KSImageLoader {
     public static DisplayImageOptions IMGOPTION_ENTRY;
     public static DisplayImageOptions IMGOPTION_NORMAL = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).build();
     public static DisplayImageOptions IMGOPTION_TREND;
     public static DisplayImageOptions IMGOPTION_TUBE;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* renamed from: com.kwad.sdk.core.imageloader.KSImageLoader$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType;
+
+        static {
+            int[] iArr = new int[FailReason.FailType.values().length];
+            $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType = iArr;
+            try {
+                iArr[FailReason.FailType.UNKNOWN.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType[FailReason.FailType.IO_ERROR.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType[FailReason.FailType.OUT_OF_MEMORY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType[FailReason.FailType.NETWORK_DENIED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType[FailReason.FailType.DECODING_ERROR.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public static class InnerImageLoadingListener implements ImageLoadingListener {
         @Nullable
-        AdTemplate adTemplate;
-        ImageLoadingListener loadingListener;
+        public AdTemplate adTemplate;
+        public ImageLoadingListener loadingListener;
 
         public InnerImageLoadingListener(@Nullable AdTemplate adTemplate, ImageLoadingListener imageLoadingListener) {
             this.adTemplate = adTemplate;
@@ -52,56 +82,60 @@ public class KSImageLoader {
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
         public boolean onDecode(String str, InputStream inputStream, DecodedResult decodedResult) {
-            if (this.loadingListener != null) {
-                return this.loadingListener.onDecode(str, inputStream, decodedResult);
+            ImageLoadingListener imageLoadingListener = this.loadingListener;
+            if (imageLoadingListener != null) {
+                return imageLoadingListener.onDecode(str, inputStream, decodedResult);
             }
             return false;
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
         public void onLoadingCancelled(String str, View view) {
-            if (this.loadingListener != null) {
-                this.loadingListener.onLoadingCancelled(str, view);
+            ImageLoadingListener imageLoadingListener = this.loadingListener;
+            if (imageLoadingListener != null) {
+                imageLoadingListener.onLoadingCancelled(str, view);
             }
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
         public void onLoadingComplete(String str, View view, DecodedResult decodedResult) {
-            if (this.loadingListener != null) {
-                this.loadingListener.onLoadingComplete(str, view, decodedResult);
+            ImageLoadingListener imageLoadingListener = this.loadingListener;
+            if (imageLoadingListener != null) {
+                imageLoadingListener.onLoadingComplete(str, view, decodedResult);
             }
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
         public void onLoadingFailed(String str, View view, FailReason failReason) {
-            if (this.loadingListener != null) {
-                this.loadingListener.onLoadingFailed(str, view, failReason);
+            String str2;
+            String str3;
+            ImageLoadingListener imageLoadingListener = this.loadingListener;
+            if (imageLoadingListener != null) {
+                imageLoadingListener.onLoadingFailed(str, view, failReason);
             }
             if (this.adTemplate != null) {
                 StringBuilder sb = new StringBuilder("ImageLoader:");
                 if (failReason != null) {
                     Throwable cause = failReason.getCause();
-                    String str2 = "";
-                    if (cause != null && cause.getStackTrace().length > 0) {
+                    if (cause == null || cause.getStackTrace().length <= 0) {
+                        str2 = "";
+                    } else {
                         str2 = cause.getMessage() + " @ " + cause.getStackTrace()[0].getFileName() + cause.getStackTrace()[0].getClassName() + cause.getStackTrace()[0].getLineNumber();
                     }
-                    switch (failReason.getType()) {
-                        case UNKNOWN:
-                            sb.append(RomUtils.UNKNOWN);
-                            break;
-                        case IO_ERROR:
-                            sb.append("IO_ERROR").append(str2);
-                            break;
-                        case OUT_OF_MEMORY:
-                            sb.append("OUT_OF_MEMORY");
-                            break;
-                        case NETWORK_DENIED:
-                            sb.append("NETWORK_DENIED");
-                            break;
-                        case DECODING_ERROR:
-                            sb.append("DECODING_ERROR");
-                            break;
+                    int i = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType[failReason.getType().ordinal()];
+                    if (i == 1) {
+                        str3 = RomUtils.UNKNOWN;
+                    } else if (i == 2) {
+                        sb.append("IO_ERROR");
+                        sb.append(str2);
+                    } else if (i == 3) {
+                        str3 = "OUT_OF_MEMORY";
+                    } else if (i == 4) {
+                        str3 = "NETWORK_DENIED";
+                    } else if (i == 5) {
+                        str3 = "DECODING_ERROR";
                     }
+                    sb.append(str3);
                 }
                 e.c(this.adTemplate, str, sb.toString());
             }
@@ -109,8 +143,9 @@ public class KSImageLoader {
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
         public void onLoadingStarted(String str, View view) {
-            if (this.loadingListener != null) {
-                this.loadingListener.onLoadingStarted(str, view);
+            ImageLoadingListener imageLoadingListener = this.loadingListener;
+            if (imageLoadingListener != null) {
+                imageLoadingListener.onLoadingStarted(str, view);
             }
         }
     }
@@ -128,7 +163,7 @@ public class KSImageLoader {
         return bitmap;
     }
 
-    private static void checkInit() {
+    public static void checkInit() {
         if (ImageLoader.getInstance().isInited()) {
             return;
         }

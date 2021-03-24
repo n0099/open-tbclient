@@ -1,27 +1,37 @@
 package com.kwad.sdk.utils;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.IMConnection;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class al {
-    private static volatile al l;
+    public static volatile al l;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f7118a = false;
-    private volatile boolean b = false;
-    private volatile boolean c = false;
-    private volatile boolean d = false;
-    private volatile boolean e = false;
-    private volatile boolean f = false;
-    private volatile long g = 0;
-    private volatile long h = 0;
-    private volatile long i = 0;
-    private volatile long j = -1;
-    private volatile boolean k = false;
+    public volatile boolean f36719a = false;
 
-    private al() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public volatile boolean f36720b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public volatile boolean f36721c = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public volatile boolean f36722d = false;
+
+    /* renamed from: e  reason: collision with root package name */
+    public volatile boolean f36723e = false;
+
+    /* renamed from: f  reason: collision with root package name */
+    public volatile boolean f36724f = false;
+
+    /* renamed from: g  reason: collision with root package name */
+    public volatile long f36725g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public volatile long f36726h = 0;
+    public volatile long i = 0;
+    public volatile long j = -1;
+    public volatile boolean k = false;
 
     public static al a() {
         if (l == null) {
@@ -35,35 +45,35 @@ public class al {
     }
 
     private void e(@NonNull AdTemplate adTemplate) {
-        if (this.k && !this.b) {
-            this.b = true;
-            this.h = System.currentTimeMillis();
+        if (this.k && !this.f36720b) {
+            this.f36720b = true;
+            this.f36726h = System.currentTimeMillis();
             com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(66L, adTemplate);
-            aVar.l = this.h - this.g;
+            aVar.l = this.f36726h - this.f36725g;
             com.kwad.sdk.core.report.g.c(aVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(@NonNull AdTemplate adTemplate) {
-        if (!this.k || this.c || this.e) {
+        if (!this.k || this.f36721c || this.f36723e) {
             return;
         }
-        this.c = true;
+        this.f36721c = true;
         com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(67L, adTemplate);
-        aVar.m = System.currentTimeMillis() - this.g;
+        aVar.m = System.currentTimeMillis() - this.f36725g;
         aVar.n = this.j;
         com.kwad.sdk.core.report.g.c(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(@NonNull AdTemplate adTemplate) {
-        if (!this.k || this.d || this.e) {
+        if (!this.k || this.f36722d || this.f36723e) {
             return;
         }
-        this.d = true;
+        this.f36722d = true;
         com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(68L, adTemplate);
-        aVar.m = System.currentTimeMillis() - this.g;
+        aVar.m = System.currentTimeMillis() - this.f36725g;
         aVar.n = this.j;
         aVar.b();
         com.kwad.sdk.core.report.g.c(aVar);
@@ -75,36 +85,36 @@ public class al {
 
     public void a(@NonNull AdTemplate adTemplate) {
         this.k = com.kwad.sdk.core.config.c.U();
-        if (this.k && !this.f7118a) {
-            this.f7118a = true;
-            this.g = System.currentTimeMillis();
+        if (this.k && !this.f36719a) {
+            this.f36719a = true;
+            this.f36725g = System.currentTimeMillis();
             com.kwad.sdk.core.report.g.c(new com.kwad.sdk.core.report.a(65L, adTemplate));
         }
     }
 
     public void b(@NonNull AdTemplate adTemplate) {
-        if (this.k && !this.e) {
-            this.e = true;
+        if (this.k && !this.f36723e) {
+            this.f36723e = true;
             this.i = System.currentTimeMillis();
             com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(69L, adTemplate);
-            aVar.l = this.i - this.h;
-            aVar.m = this.i - this.g;
+            aVar.l = this.i - this.f36726h;
+            aVar.m = this.i - this.f36725g;
             aVar.n = this.j;
             com.kwad.sdk.core.report.g.c(aVar);
         }
     }
 
     public boolean b() {
-        return this.f;
+        return this.f36724f;
     }
 
     public void c(@NonNull AdTemplate adTemplate) {
-        if (this.k && !this.f) {
-            this.f = true;
+        if (this.k && !this.f36724f) {
+            this.f36724f = true;
             long currentTimeMillis = System.currentTimeMillis();
             com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(70L, adTemplate);
             aVar.l = currentTimeMillis - this.i;
-            aVar.m = currentTimeMillis - this.g;
+            aVar.m = currentTimeMillis - this.f36725g;
             aVar.n = this.j;
             com.kwad.sdk.core.report.g.c(aVar);
         }
@@ -124,7 +134,7 @@ public class al {
                 public void run() {
                     al.this.g(adTemplate);
                 }
-            }, null, IMConnection.RETRY_DELAY_TIMES);
+            }, null, 3000L);
         }
     }
 }

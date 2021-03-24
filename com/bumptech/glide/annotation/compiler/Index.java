@@ -6,8 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes3.dex */
-@interface Index {
+/* loaded from: classes.dex */
+public @interface Index {
     String[] extensions() default {};
 
     String[] modules() default {};

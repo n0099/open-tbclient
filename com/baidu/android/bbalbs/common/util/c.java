@@ -2,33 +2,31 @@ package com.baidu.android.bbalbs.common.util;
 
 import com.baidu.android.bbalbs.common.util.b;
 import java.util.Comparator;
-/* loaded from: classes4.dex */
-class c implements Comparator<b.a> {
+/* loaded from: classes2.dex */
+public class c implements Comparator<b.a> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1058a;
+    public final /* synthetic */ b f2511a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f1058a = bVar;
+        this.f2511a = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(b.a aVar, b.a aVar2) {
-        int i = aVar2.b - aVar.b;
+        int i = aVar2.f2505b - aVar.f2505b;
         if (i == 0) {
-            if (aVar.d && aVar2.d) {
+            if (aVar.f2507d && aVar2.f2507d) {
                 return 0;
             }
-            if (aVar.d) {
+            if (aVar.f2507d) {
                 return -1;
             }
-            if (aVar2.d) {
+            if (aVar2.f2507d) {
                 return 1;
             }
-            return i;
         }
         return i;
     }

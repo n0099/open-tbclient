@@ -1,21 +1,20 @@
 package com.kuaishou.aegon.httpdns;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final /* synthetic */ class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f5413a;
+    public final String f31621a;
 
-    private c(String str) {
-        this.f5413a = str;
+    public c(String str) {
+        this.f31621a = str;
     }
 
-    public static Runnable aaj(String str) {
+    public static Runnable a(String str) {
         return new c(str);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        HttpDnsResolver.nativeSetJsonConfig(this.f5413a);
+        HttpDnsResolver.nativeSetJsonConfig(this.f31621a);
     }
 }

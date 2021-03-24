@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -17,7 +17,6 @@ public class c extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
         if (b() == null || messageV3 == null) {
@@ -29,12 +28,11 @@ public class c extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start NotificationDeleteMessageHandler match");
+        d.j.a.a.a.d("AbstractMessageHandler", "start NotificationDeleteMessageHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_DELETE.equals(i(intent));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: d */
     public void b(MessageV3 messageV3) {
@@ -42,7 +40,6 @@ public class c extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: j */
     public MessageV3 c(Intent intent) {

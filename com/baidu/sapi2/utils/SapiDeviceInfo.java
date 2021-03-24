@@ -4,17 +4,15 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.pass.common.SecurityUtil;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
-import com.baidu.sapi2.utils.SapiDeviceUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,30 +20,34 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SapiDeviceInfo implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f3435a = 11;
-    private static final String c = "android";
-    private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
+    public static final int f11412a = 11;
 
-    static String a() {
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f11414c = "android";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f11413b = Character.toString(1);
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f11415d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
+
+    public static String a() {
         return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 11) + "0";
     }
 
-    static List<String> b() {
-        List<SapiAccount> shareAccounts = ServiceManager.getInstance().getIsAccountManager().getShareAccounts();
-        ArrayList arrayList = new ArrayList();
-        for (SapiAccount sapiAccount : shareAccounts) {
-            arrayList.add(sapiAccount.uid);
-        }
-        return arrayList;
+    public static String b() {
+        return !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "";
     }
 
     public static List<String> buildDeviceTokens(String str) {
         String str2;
+        String str3;
+        String str4;
+        String str5;
         ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
         SapiConfiguration confignation = isAccountManager.getConfignation();
         Context context = confignation.context;
@@ -54,48 +56,64 @@ public class SapiDeviceInfo implements NoProguard {
         arrayList.add(diExceptIndex.contains(0) ? "" : context.getPackageName());
         arrayList.add(diExceptIndex.contains(1) ? "" : SapiUtils.getVersionName(context));
         arrayList.add(diExceptIndex.contains(2) ? "" : isAccountManager.getVersionName());
-        arrayList.add(diExceptIndex.contains(3) ? "" : c());
-        arrayList.add(diExceptIndex.contains(4) ? "" : d());
+        arrayList.add(diExceptIndex.contains(3) ? "" : b());
+        arrayList.add(diExceptIndex.contains(4) ? "" : c());
+        String str6 = "android";
         arrayList.add(diExceptIndex.contains(5) ? "" : "android");
         arrayList.add(diExceptIndex.contains(6) ? "" : SapiUtils.getClientId(context));
         arrayList.add(diExceptIndex.contains(7) ? "" : confignation.tpl);
-        arrayList.add(diExceptIndex.contains(8) ? "" : String.valueOf(isAccountManager.getShareAccounts().size()));
-        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(",", b()));
-        if (diExceptIndex.contains(10) || str == null) {
-            str = "";
-        }
-        arrayList.add(str);
+        diExceptIndex.contains(8);
+        arrayList.add("");
+        diExceptIndex.contains(9);
+        arrayList.add("");
+        arrayList.add((diExceptIndex.contains(10) || str == null) ? "" : "");
         arrayList.add(diExceptIndex.contains(11) ? "" : String.valueOf(SapiContext.getInstance().getDeviceInfoReadTimes()));
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         arrayList.add((diExceptIndex.contains(12) || currentAccount == null) ? "" : currentAccount.uid);
         arrayList.add(diExceptIndex.contains(13) ? "" : SapiUtils.getNetworkClass(context));
-        String str3 = "";
-        if (!diExceptIndex.contains(14)) {
-            str3 = SapiContext.getInstance().getRootStatus();
-            if (TextUtils.isEmpty(str3)) {
-                str3 = String.valueOf(SapiUtils.isRoot());
-                SapiContext.getInstance().setRootStatus(str3);
-            }
-        }
-        arrayList.add(str3);
-        arrayList.add(diExceptIndex.contains(15) ? "" : SapiUtils.getWifiInfo(context));
-        arrayList.add(diExceptIndex.contains(16) ? "" : SapiDeviceUtils.b(context));
-        if (diExceptIndex.contains(17)) {
+        if (diExceptIndex.contains(14)) {
             str2 = "";
         } else {
-            str2 = SapiUtils.isEmulator(context) ? "emulator" : "android";
+            str2 = SapiContext.getInstance().getRootStatus();
+            if (TextUtils.isEmpty(str2)) {
+                str2 = String.valueOf(SapiUtils.isRoot());
+                SapiContext.getInstance().setRootStatus(str2);
+            }
         }
         arrayList.add(str2);
-        arrayList.add(diExceptIndex.contains(18) ? "" : SapiDeviceUtils.c(context));
+        arrayList.add(diExceptIndex.contains(15) ? "" : SapiUtils.getWifiInfo(context));
+        arrayList.add(diExceptIndex.contains(16) ? "" : f.b(context));
+        if (diExceptIndex.contains(17)) {
+            str6 = "";
+        } else if (SapiUtils.isEmulator(context)) {
+            str6 = "emulator";
+        }
+        arrayList.add(str6);
+        arrayList.add(diExceptIndex.contains(18) ? "" : f.c(context));
         arrayList.add((diExceptIndex.contains(19) || SapiUtils.getCpuName() == null) ? "" : SapiUtils.getCpuName());
         arrayList.add(diExceptIndex.contains(20) ? "" : SapiUtils.getRamMemorySize());
-        arrayList.add(diExceptIndex.contains(21) ? "" : SapiUtils.getInternalMemorySize() + "");
-        arrayList.add(diExceptIndex.contains(22) ? "" : SapiUtils.getInternalAvailableMemorySize() + "");
-        arrayList.add(diExceptIndex.contains(23) ? "" : SapiUtils.getTimeSinceBoot() + "");
+        if (diExceptIndex.contains(21)) {
+            str3 = "";
+        } else {
+            str3 = SapiUtils.getInternalMemorySize() + "";
+        }
+        arrayList.add(str3);
+        if (diExceptIndex.contains(22)) {
+            str4 = "";
+        } else {
+            str4 = SapiUtils.getInternalAvailableMemorySize() + "";
+        }
+        arrayList.add(str4);
+        if (diExceptIndex.contains(23)) {
+            str5 = "";
+        } else {
+            str5 = SapiUtils.getTimeSinceBoot() + "";
+        }
+        arrayList.add(str5);
         diExceptIndex.contains(24);
         arrayList.add("");
         arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(",", SapiUtils.getPackageList(context)));
-        arrayList.add((diExceptIndex.contains(26) || SapiUtils.getLocalIpAddress() == null) ? "" : SapiUtils.getLocalIpAddress());
+        arrayList.add((diExceptIndex.contains(26) || SapiUtils.getLocalIpAddress() == null) ? "" : "");
         arrayList.add(diExceptIndex.contains(27) ? "" : SapiUtils.a(context));
         diExceptIndex.contains(28);
         arrayList.add("");
@@ -111,18 +129,14 @@ public class SapiDeviceInfo implements NoProguard {
         return arrayList;
     }
 
-    static String c() {
-        return !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "";
-    }
-
-    static String d() {
+    public static String c() {
         return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "";
     }
 
     public static String getDeviceInfo(String str) {
         List<String> buildDeviceTokens = buildDeviceTokens(str);
         a.a(buildDeviceTokens);
-        return a(TextUtils.join(b, buildDeviceTokens));
+        return a(TextUtils.join(f11413b, buildDeviceTokens));
     }
 
     public static String getDiCookieInfo(List<String> list) {
@@ -131,56 +145,52 @@ public class SapiDeviceInfo implements NoProguard {
 
     public static String getDiCookieInfo(List<String> list, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        if (!a.f3436a.isEmpty() && list != null) {
-            for (String str : list) {
-                try {
-                    jSONObject.put(str, a.f3436a.get(str));
-                } catch (JSONException e) {
-                    Log.e(e);
-                }
-            }
-            if ("NoZidYet".equals(jSONObject.optString("sf_zid"))) {
-                try {
-                    ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
-                    SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                    jSONObject.put("sf_zid", isAccountManager.getZidAndCheckSafe(isAccountManager.getConfignation().context, currentAccount == null ? null : currentAccount.uid, 120));
-                } catch (JSONException e2) {
-                    Log.e(e2);
-                }
-            }
-            if (jSONObject.length() == 0) {
-                return null;
-            }
-            if (z) {
-                return a(jSONObject.toString());
-            }
-            return jSONObject.toString();
+        if (a.f11416a.isEmpty() || list == null) {
+            return null;
         }
-        return null;
+        for (String str : list) {
+            try {
+                jSONObject.put(str, a.f11416a.get(str));
+            } catch (JSONException e2) {
+                Log.e(e2);
+            }
+        }
+        if ("NoZidYet".equals(jSONObject.optString("sf_zid"))) {
+            try {
+                ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
+                SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+                jSONObject.put("sf_zid", isAccountManager.getZidAndCheckSafe(isAccountManager.getConfignation().context, currentAccount == null ? null : currentAccount.uid, 120));
+            } catch (JSONException e3) {
+                Log.e(e3);
+            }
+        }
+        if (jSONObject.length() == 0) {
+            return null;
+        }
+        if (z) {
+            return a(jSONObject.toString());
+        }
+        return jSONObject.toString();
     }
 
-    private static String a(String str) {
+    public static String a(String str) {
         try {
             String a2 = a();
-            String base64Encode = SapiDeviceUtils.DeviceCrypto.base64Encode(new AES().encrypt(str, a2, d));
-            return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{a2, base64Encode, SecurityUtil.md5(TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{a2, base64Encode, "check"}).getBytes(), false).substring(0, 6)});
+            String base64Encode = SecurityUtil.base64Encode(SecurityUtil.aesEncrypt(str, a2, f11415d));
+            return TextUtils.join("_", new String[]{a2, base64Encode, SecurityUtil.md5(TextUtils.join("_", new String[]{a2, base64Encode, BundleOpProvider.METHOD_BUNDLE_CHECK}).getBytes(), false).substring(0, 6)});
         } catch (Throwable th) {
             Log.e(th);
             return "";
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static Map<String, String> f3436a = new HashMap();
+        public static Map<String, String> f11416a = new HashMap();
 
-        a() {
-        }
-
-        static List<String> a() {
+        public static List<String> a() {
             ArrayList arrayList = new ArrayList();
             arrayList.add("PackageName");
             arrayList.add("AppVersion");
@@ -207,10 +217,10 @@ public class SapiDeviceInfo implements NoProguard {
             arrayList.add("internal_avail_memory");
             arrayList.add("up_time");
             arrayList.add("gps");
-            arrayList.add(UbcStatConstant.ContentType.UBC_TYPE_GIFT_PACKAGE_LIST);
-            arrayList.add(TableDefine.UserInfoColumns.COLUMN_IP);
+            arrayList.add("package_list");
+            arrayList.add("ip");
             arrayList.add("device_name");
-            arrayList.add("map_location");
+            arrayList.add(SuggestAddrField.KEY_MAP_LOCATION);
             arrayList.add("device_sn");
             arrayList.add("device_uuid");
             arrayList.add("mtj_cuid");
@@ -222,10 +232,10 @@ public class SapiDeviceInfo implements NoProguard {
             return arrayList;
         }
 
-        static void a(List<String> list) {
+        public static void a(List<String> list) {
             List<String> a2 = a();
             for (int i = 0; i < a2.size() && i < list.size(); i++) {
-                f3436a.put(a2.get(i), list.get(i));
+                f11416a.put(a2.get(i), list.get(i));
             }
         }
     }

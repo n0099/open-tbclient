@@ -8,10 +8,15 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.tube.model.TubeProfileResultData;
 import com.kwad.sdk.contentalliance.tube.view.WarpLinearLayout;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes3.dex */
+import java.util.List;
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.contentalliance.tube.profile.a.a {
-    private WarpLinearLayout b;
-    private com.kwad.sdk.contentalliance.tube.profile.e c = new com.kwad.sdk.contentalliance.tube.profile.e() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.a.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public WarpLinearLayout f33239b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.tube.profile.e f33240c = new com.kwad.sdk.contentalliance.tube.profile.e() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.a.1
         @Override // com.kwad.sdk.contentalliance.tube.profile.e
         public void a(@NonNull TubeProfileResultData tubeProfileResultData) {
             a.this.a(tubeProfileResultData);
@@ -30,37 +35,40 @@ public class a extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull TubeProfileResultData tubeProfileResultData) {
-        if (tubeProfileResultData.tubeProfile.tubeInfo.tagList == null || tubeProfileResultData.tubeProfile.tubeInfo.tagList.isEmpty()) {
-            this.b.setVisibility(8);
-            return;
+        WarpLinearLayout warpLinearLayout;
+        int i;
+        List<String> list = tubeProfileResultData.tubeProfile.tubeInfo.tagList;
+        if (list == null || list.isEmpty()) {
+            warpLinearLayout = this.f33239b;
+            i = 8;
+        } else {
+            for (String str : tubeProfileResultData.tubeProfile.tubeInfo.tagList) {
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                layoutParams.rightMargin = ao.a(o(), 8.0f);
+                this.f33239b.addView(a(str), layoutParams);
+            }
+            warpLinearLayout = this.f33239b;
+            i = 0;
         }
-        for (String str : tubeProfileResultData.tubeProfile.tubeInfo.tagList) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.rightMargin = ao.a(o(), 8.0f);
-            this.b.addView(a(str), layoutParams);
-        }
-        this.b.setVisibility(0);
+        warpLinearLayout.setVisibility(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.tube.profile.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f5963a.e.add(this.c);
+        ((com.kwad.sdk.contentalliance.tube.profile.a.a) this).f33230a.f33235e.add(this.f33240c);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f5963a.e.remove(this.c);
+        ((com.kwad.sdk.contentalliance.tube.profile.a.a) this).f33230a.f33235e.remove(this.f33240c);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
         com.kwad.sdk.core.d.a.a("TubeHeaderTagListPresenter", "TubeHeaderTagListPresenter onCreate");
-        this.b = (WarpLinearLayout) b(R.id.ksad_tube_tag_list_container);
+        this.f33239b = (WarpLinearLayout) b(R.id.ksad_tube_tag_list_container);
     }
 }

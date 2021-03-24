@@ -6,50 +6,53 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.emotioncenter.data.b;
 import com.baidu.tieba.faceshop.emotioncenter.view.EmotionHorizontalView;
-/* loaded from: classes8.dex */
-public class EmotionHorizontalAdapter extends com.baidu.adp.widget.ListView.a<b, EmotionGridViewHolder> {
-    private TbPageContext mPageContext;
+import d.b.b.j.e.a;
+import d.b.i0.l0.y.c.b;
+/* loaded from: classes4.dex */
+public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
+    public TbPageContext m;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* loaded from: classes4.dex */
+    public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public EmotionHorizontalView f15769a;
+
+        public EmotionGridViewHolder(View view) {
+            super(view);
+            this.f15769a = (EmotionHorizontalView) view;
+        }
+
+        public void b(b bVar) {
+            EmotionHorizontalView emotionHorizontalView = this.f15769a;
+            if (emotionHorizontalView == null || bVar == null) {
+                return;
+            }
+            emotionHorizontalView.setData(bVar.f56683e);
+        }
+    }
+
     public EmotionHorizontalAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.mPageContext = tbPageContext;
+        this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bh */
-    public EmotionGridViewHolder e(ViewGroup viewGroup) {
-        EmotionHorizontalView emotionHorizontalView = new EmotionHorizontalView(this.mPageContext);
+    @Override // d.b.b.j.e.a
+    /* renamed from: h0 */
+    public EmotionGridViewHolder R(ViewGroup viewGroup) {
+        EmotionHorizontalView emotionHorizontalView = new EmotionHorizontalView(this.m);
         EmotionGridViewHolder emotionGridViewHolder = new EmotionGridViewHolder(emotionHorizontalView);
-        emotionHorizontalView.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+        emotionHorizontalView.f(TbadkCoreApplication.getInst().getSkinType());
         return emotionGridViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, b bVar, EmotionGridViewHolder emotionGridViewHolder) {
-        emotionGridViewHolder.a(bVar);
-        return emotionGridViewHolder.getView();
-    }
-
-    /* loaded from: classes8.dex */
-    public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
-        private EmotionHorizontalView jab;
-
-        public EmotionGridViewHolder(View view) {
-            super(view);
-            this.jab = (EmotionHorizontalView) view;
-        }
-
-        public void a(b bVar) {
-            if (this.jab != null && bVar != null) {
-                this.jab.setData(bVar.jae);
-            }
-        }
+    @Override // d.b.b.j.e.a
+    /* renamed from: i0 */
+    public View X(int i, View view, ViewGroup viewGroup, b bVar, EmotionGridViewHolder emotionGridViewHolder) {
+        emotionGridViewHolder.b(bVar);
+        return emotionGridViewHolder.a();
     }
 }

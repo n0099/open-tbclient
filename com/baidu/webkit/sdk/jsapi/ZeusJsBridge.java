@@ -8,13 +8,13 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebView;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ZeusJsBridge {
     public static final String JS_BRIDGE_NAME = "_flyflowNative";
-    private static final String REMOVE_CLOUD_SETTINGS_VALUE = "flyflownative_remove";
-    private static final String TAG = "jsapi";
-    private HashMap<String, IJsAbility> mJsAbilityMap = new LinkedHashMap();
-    private WebView mWebView;
+    public static final String REMOVE_CLOUD_SETTINGS_VALUE = "flyflownative_remove";
+    public static final String TAG = "jsapi";
+    public HashMap<String, IJsAbility> mJsAbilityMap = new LinkedHashMap();
+    public WebView mWebView;
 
     public ZeusJsBridge(WebView webView) {
         this.mWebView = webView;
@@ -37,9 +37,9 @@ public class ZeusJsBridge {
         IJsAbility iJsAbility = this.mJsAbilityMap.get(str);
         if (iJsAbility != null) {
             iJsAbility.jsExec(this.mWebView, str2, str3, str4);
-        } else {
-            Log.e(TAG, "cannot find module : " + str + " js impl");
+            return;
         }
+        Log.e(TAG, "cannot find module : " + str + " js impl");
     }
 
     @JavascriptInterface
@@ -57,7 +57,8 @@ public class ZeusJsBridge {
     }
 
     public void init() {
-        if (this.mWebView == null || this.mWebView.isDestroyed()) {
+        WebView webView = this.mWebView;
+        if (webView == null || webView.isDestroyed()) {
             return;
         }
         if (WebKitFactory.getCurEngine() != 1) {
@@ -69,7 +70,8 @@ public class ZeusJsBridge {
     }
 
     public void release() {
-        if (this.mWebView == null || this.mWebView.isDestroyed()) {
+        WebView webView = this.mWebView;
+        if (webView == null || webView.isDestroyed()) {
             return;
         }
         if (TextUtils.equals("true", WebSettingsGlobalBlink.GetCloudSettingsValue(REMOVE_CLOUD_SETTINGS_VALUE)) && WebKitFactory.getCurEngine() == 1) {

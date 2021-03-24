@@ -8,10 +8,9 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
 import android.provider.Settings;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
+import com.baidu.tbadk.core.util.FieldBuilder;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
@@ -26,43 +25,8 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class j {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f1974a = false;
-    public static boolean b = false;
-    public static boolean c = false;
-    public static int d = 0;
-    private static String aw = "http://loc.map.baidu.com/sdk.php";
-    public static String e = "http://loc.map.baidu.com/sdk_ep.php";
-    private static String ax = "http://loc.map.baidu.com/user_err.php";
-    private static String ay = "http://loc.map.baidu.com/oqur.php";
-    private static String az = "http://loc.map.baidu.com/tcu.php";
-    private static String aA = "http://loc.map.baidu.com/rtbu.php";
-    private static String aB = "http://loc.map.baidu.com/iofd.php";
-    private static String aC = "http://loc.map.baidu.com/wloc";
-    public static String f = "https://loc.map.baidu.com/sdk.php";
-    public static String g = "no";
-    public static boolean h = false;
-    public static boolean i = false;
-    public static boolean j = false;
-    public static boolean k = false;
-    public static boolean l = false;
-    public static boolean m = false;
-    public static String n = "gcj02";
-    public static String o = "";
-    public static boolean p = true;
-    public static int q = 3;
-    public static double r = 0.0d;
-    public static double s = 0.0d;
-    public static double t = 0.0d;
-    public static double u = 0.0d;
-    public static int v = 0;
-    public static byte[] w = null;
-    public static boolean x = false;
-    public static int y = 0;
-    public static float z = 1.1f;
     public static float A = 2.2f;
     public static float B = 2.3f;
     public static float C = 3.8f;
@@ -89,6 +53,12 @@ public class j {
     public static int X = 0;
     public static int Y = 0;
     public static int Z = 420000;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f6714a = false;
+    public static String aA = "http://loc.map.baidu.com/rtbu.php";
+    public static String aB = "http://loc.map.baidu.com/iofd.php";
+    public static String aC = "http://loc.map.baidu.com/wloc";
     public static boolean aa = true;
     public static boolean ab = true;
     public static int ac = 20;
@@ -111,23 +81,72 @@ public class j {
     public static int at = 60;
     public static int au = 70;
     public static int av = 6;
+    public static String aw = "http://loc.map.baidu.com/sdk.php";
+    public static String ax = "http://loc.map.baidu.com/user_err.php";
+    public static String ay = "http://loc.map.baidu.com/oqur.php";
+    public static String az = "http://loc.map.baidu.com/tcu.php";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f6715b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static boolean f6716c = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f6717d = 0;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f6718e = "http://loc.map.baidu.com/sdk_ep.php";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f6719f = "https://loc.map.baidu.com/sdk.php";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f6720g = "no";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static boolean f6721h = false;
+    public static boolean i = false;
+    public static boolean j = false;
+    public static boolean k = false;
+    public static boolean l = false;
+    public static boolean m = false;
+    public static String n = "gcj02";
+    public static String o = "";
+    public static boolean p = true;
+    public static int q = 3;
+    public static double r = 0.0d;
+    public static double s = 0.0d;
+    public static double t = 0.0d;
+    public static double u = 0.0d;
+    public static int v = 0;
+    public static byte[] w = null;
+    public static boolean x = false;
+    public static int y = 0;
+    public static float z = 1.1f;
 
     public static int a(Context context) {
         try {
             return Settings.System.getInt(context.getContentResolver(), "airplane_mode_on", 0);
-        } catch (Exception e2) {
+        } catch (Exception unused) {
             return 2;
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0017 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:9:0x0016 A[RETURN] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static int a(Context context, String str) {
         boolean z2;
-        try {
-            z2 = context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
-        } catch (Exception e2) {
-            z2 = true;
+        if (context.checkPermission(str, Process.myPid(), Process.myUid()) != 0) {
+            z2 = false;
+            return z2 ? 0 : 1;
         }
-        return !z2 ? 0 : 1;
+        z2 = true;
+        if (z2) {
+        }
     }
 
     public static int a(String str, String str2, String str3) {
@@ -135,14 +154,13 @@ public class j {
         int length;
         int indexOf2;
         String substring;
-        if (str == null || str.equals("") || (indexOf = str.indexOf(str2)) == -1 || (indexOf2 = str.indexOf(str3, (length = indexOf + str2.length()))) == -1 || (substring = str.substring(length, indexOf2)) == null || substring.equals("")) {
-            return Integer.MIN_VALUE;
+        if (str != null && !str.equals("") && (indexOf = str.indexOf(str2)) != -1 && (indexOf2 = str.indexOf(str3, (length = indexOf + str2.length()))) != -1 && (substring = str.substring(length, indexOf2)) != null && !substring.equals("")) {
+            try {
+                return Integer.parseInt(substring);
+            } catch (NumberFormatException unused) {
+            }
         }
-        try {
-            return Integer.parseInt(substring);
-        } catch (NumberFormatException e2) {
-            return Integer.MIN_VALUE;
-        }
+        return Integer.MIN_VALUE;
     }
 
     public static String a() {
@@ -169,7 +187,7 @@ public class j {
             }
         }
         if (location != null) {
-            String b4 = (d == 0 || i2 == 0) ? com.baidu.location.b.e.b(location) : com.baidu.location.b.e.c(location);
+            String b4 = (f6717d == 0 || i2 == 0) ? com.baidu.location.b.e.b(location) : com.baidu.location.b.e.c(location);
             if (b4 != null) {
                 stringBuffer.append(b4);
             }
@@ -185,26 +203,24 @@ public class j {
             stringBuffer.append(a2);
         }
         String stringBuffer2 = stringBuffer.toString();
-        try {
-            if (location == null || hVar == null) {
-                q = 3;
-            } else {
+        if (location != null && hVar != null) {
+            try {
                 float speed = location.getSpeed();
-                int i3 = d;
+                int i3 = f6717d;
                 int g2 = hVar.g();
                 int a4 = hVar.a();
                 boolean h2 = hVar.h();
                 if (speed < ar && ((i3 == 1 || i3 == 0) && (g2 < at || h2))) {
                     q = 1;
-                } else if (speed >= as || (!(i3 == 1 || i3 == 0 || i3 == 3) || (g2 >= au && a4 <= av))) {
-                    q = 3;
-                } else {
+                } else if (speed < as && ((i3 == 1 || i3 == 0 || i3 == 3) && (g2 < au || a4 > av))) {
                     q = 2;
                 }
+            } catch (Exception unused) {
+                q = 3;
             }
-        } catch (Exception e2) {
-            q = 3;
+            return stringBuffer2;
         }
+        q = 3;
         return stringBuffer2;
     }
 
@@ -231,7 +247,7 @@ public class j {
     }
 
     public static String a(String str) {
-        return Jni.en1(o + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str);
+        return Jni.en1(o + ";" + str);
     }
 
     public static boolean a(BDLocation bDLocation) {
@@ -243,7 +259,7 @@ public class j {
         if (Build.VERSION.SDK_INT >= 19) {
             try {
                 return Settings.Secure.getInt(context.getContentResolver(), "location_mode", -1);
-            } catch (Exception e2) {
+            } catch (Exception unused) {
                 return -1;
             }
         }
@@ -260,30 +276,26 @@ public class j {
                     if (!nextElement.isLoopbackAddress() && (nextElement instanceof Inet4Address)) {
                         byte[] address = nextElement.getAddress();
                         String str = "";
-                        int i2 = 0;
-                        while (true) {
-                            int i3 = i2;
-                            if (i3 >= address.length) {
-                                return str;
-                            }
-                            String hexString = Integer.toHexString(address[i3] & 255);
+                        for (byte b2 : address) {
+                            String hexString = Integer.toHexString(b2 & 255);
                             if (hexString.length() == 1) {
                                 hexString = '0' + hexString;
                             }
                             str = str + hexString;
-                            i2 = i3 + 1;
                         }
+                        return str;
                     }
                 }
             }
-        } catch (Exception e2) {
+            return null;
+        } catch (Exception unused) {
+            return null;
         }
-        return null;
     }
 
     public static boolean b(String str, String str2, String str3) {
         try {
-            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(com.baidu.android.bbalbs.common.a.b.a(str3.getBytes())));
+            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(com.baidu.android.bbalbs.common.a.b.a(str3.getBytes())));
             Signature signature = Signature.getInstance("SHA1WithRSA");
             signature.initVerify(generatePublic);
             signature.update(str.getBytes());
@@ -301,7 +313,8 @@ public class j {
     public static String c(Context context) {
         int a2 = a(context, "android.permission.ACCESS_COARSE_LOCATION");
         int a3 = a(context, "android.permission.ACCESS_FINE_LOCATION");
-        return "&per=" + a2 + "|" + a3 + "|" + a(context, "android.permission.READ_PHONE_STATE");
+        int a4 = a(context, "android.permission.READ_PHONE_STATE");
+        return "&per=" + a2 + FieldBuilder.SE + a3 + FieldBuilder.SE + a4;
     }
 
     public static String d() {
@@ -309,22 +322,16 @@ public class j {
     }
 
     public static String d(Context context) {
-        NetworkInfo activeNetworkInfo;
-        int type;
         int i2 = -1;
         if (context != null) {
             try {
-                activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (Exception e2) {
-            }
-            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                type = activeNetworkInfo.getType();
-                i2 = type;
-                return "&netc=" + i2;
+                NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+                if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
+                    i2 = activeNetworkInfo.getType();
+                }
+            } catch (Exception unused) {
             }
         }
-        type = -1;
-        i2 = type;
         return "&netc=" + i2;
     }
 
@@ -337,16 +344,14 @@ public class j {
             if (Environment.getExternalStorageState().equals("mounted")) {
                 String path = Environment.getExternalStorageDirectory().getPath();
                 File file = new File(path + "/baidu/tempdata");
-                if (file.exists()) {
-                    return path;
+                if (!file.exists()) {
+                    file.mkdirs();
                 }
-                file.mkdirs();
                 return path;
             }
-            return null;
-        } catch (Exception e2) {
-            return null;
+        } catch (Exception unused) {
         }
+        return null;
     }
 
     public static String g() {
@@ -364,7 +369,7 @@ public class j {
                 file.mkdirs();
             }
             return file.getAbsolutePath();
-        } catch (Exception e2) {
+        } catch (Exception unused) {
             return null;
         }
     }
@@ -376,7 +381,7 @@ public class j {
                 file.mkdirs();
             }
             return com.baidu.location.f.getServiceContext().getFilesDir().getPath();
-        } catch (Exception e2) {
+        } catch (Exception unused) {
             return null;
         }
     }

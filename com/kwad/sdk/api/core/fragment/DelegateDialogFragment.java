@@ -21,11 +21,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-/* loaded from: classes3.dex */
-abstract class DelegateDialogFragment extends DialogFragment implements IDelegateFragment {
-    private IDialogFragmentLifecycle mBase;
+/* loaded from: classes6.dex */
+public abstract class DelegateDialogFragment extends DialogFragment implements IDelegateFragment {
+    public IDialogFragmentLifecycle mBase;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public DelegateDialogFragment(KsDialogFragment ksDialogFragment) {
         this.mBase = ksDialogFragment;
     }
@@ -68,10 +67,10 @@ abstract class DelegateDialogFragment extends DialogFragment implements IDelegat
     public void onAttachFragment(Fragment fragment) {
         if (fragment instanceof IDelegateFragment) {
             this.mBase.onAttachFragment(((IDelegateFragment) fragment).getBase());
-        } else if (fragment != null) {
-            throw new RuntimeException(fragment + " is not a DelegateFragment or DelegateDialogFragment");
-        } else {
+        } else if (fragment == null) {
             this.mBase.onAttachFragment(null);
+        } else {
+            throw new RuntimeException(fragment + " is not a DelegateFragment or DelegateDialogFragment");
         }
     }
 
@@ -225,7 +224,7 @@ abstract class DelegateDialogFragment extends DialogFragment implements IDelegat
         this.mBase.onPrepareOptionsMenu(menu);
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0154a
+    @Override // androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         this.mBase.onRequestPermissionsResult(i, strArr, iArr);
@@ -267,21 +266,18 @@ abstract class DelegateDialogFragment extends DialogFragment implements IDelegat
         this.mBase.onViewStateRestored(bundle);
     }
 
-    void setBase(KsDialogFragment ksDialogFragment) {
+    public void setBase(KsDialogFragment ksDialogFragment) {
         this.mBase = ksDialogFragment;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void superOnCancel(DialogInterface dialogInterface) {
         super.onCancel(dialogInterface);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Dialog superOnCreateDialog(Bundle bundle) {
         return super.onCreateDialog(bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void superOnDismiss(DialogInterface dialogInterface) {
         super.onDismiss(dialogInterface);
     }

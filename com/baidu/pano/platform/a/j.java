@@ -6,26 +6,79 @@ import android.os.Build;
 import android.os.Process;
 import android.os.SystemClock;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class j extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private final BlockingQueue<n<?>> f2707a;
-    private final i b;
-    private final b c;
-    private final r d;
-    private volatile boolean e = false;
+    public final BlockingQueue<n<?>> f9373a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final i f9374b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final b f9375c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final r f9376d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public volatile boolean f9377e = false;
 
     public j(BlockingQueue<n<?>> blockingQueue, i iVar, b bVar, r rVar) {
-        this.f2707a = blockingQueue;
-        this.b = iVar;
-        this.c = bVar;
-        this.d = rVar;
+        this.f9373a = blockingQueue;
+        this.f9374b = iVar;
+        this.f9375c = bVar;
+        this.f9376d = rVar;
     }
 
     public void a() {
-        this.e = true;
+        this.f9377e = true;
         interrupt();
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Process.setThreadPriority(10);
+        while (true) {
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            try {
+                n<?> take = this.f9373a.take();
+                try {
+                    take.a("network-queue-take");
+                    if (take.h()) {
+                        take.b("network-discard-cancelled");
+                    } else {
+                        a(take);
+                        l a2 = this.f9374b.a(take);
+                        take.a("network-http-complete");
+                        if (a2.f9381d && take.w()) {
+                            take.b("not-modified");
+                        } else {
+                            q<?> a3 = take.a(a2);
+                            take.a("network-parse-complete");
+                            if (take.r() && a3.f9408b != null) {
+                                this.f9375c.a(take.e(), a3.f9408b);
+                                take.a("network-cache-written");
+                            }
+                            take.v();
+                            this.f9376d.a(take, a3);
+                        }
+                    }
+                } catch (v e2) {
+                    e2.a(SystemClock.elapsedRealtime() - elapsedRealtime);
+                    a(take, e2);
+                } catch (Exception e3) {
+                    w.a(e3, "Unhandled exception %s", e3.toString());
+                    v vVar = new v(e3);
+                    vVar.a(SystemClock.elapsedRealtime() - elapsedRealtime);
+                    this.f9376d.a(take, vVar);
+                }
+            } catch (InterruptedException unused) {
+                if (this.f9377e) {
+                    return;
+                }
+            }
+        }
     }
 
     @TargetApi(14)
@@ -35,52 +88,7 @@ public class j extends Thread {
         }
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Process.setThreadPriority(10);
-        while (true) {
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            try {
-                n<?> take = this.f2707a.take();
-                try {
-                    take.a("network-queue-take");
-                    if (take.h()) {
-                        take.b("network-discard-cancelled");
-                    } else {
-                        a(take);
-                        l a2 = this.b.a(take);
-                        take.a("network-http-complete");
-                        if (a2.d && take.w()) {
-                            take.b("not-modified");
-                        } else {
-                            q<?> a3 = take.a(a2);
-                            take.a("network-parse-complete");
-                            if (take.r() && a3.b != null) {
-                                this.c.a(take.e(), a3.b);
-                                take.a("network-cache-written");
-                            }
-                            take.v();
-                            this.d.a(take, a3);
-                        }
-                    }
-                } catch (v e) {
-                    e.a(SystemClock.elapsedRealtime() - elapsedRealtime);
-                    a(take, e);
-                } catch (Exception e2) {
-                    w.a(e2, "Unhandled exception %s", e2.toString());
-                    v vVar = new v(e2);
-                    vVar.a(SystemClock.elapsedRealtime() - elapsedRealtime);
-                    this.d.a(take, vVar);
-                }
-            } catch (InterruptedException e3) {
-                if (this.e) {
-                    return;
-                }
-            }
-        }
-    }
-
     private void a(n<?> nVar, v vVar) {
-        this.d.a(nVar, nVar.a(vVar));
+        this.f9376d.a(nVar, nVar.a(vVar));
     }
 }

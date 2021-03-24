@@ -7,45 +7,29 @@ import android.net.Uri;
 import android.provider.Settings;
 import android.view.Window;
 import android.view.WindowManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ScreenBrightUtils {
     public static final int BRIGHT_MIN = 50;
-    private static final String TAG = "BdBrightUtils";
-    private static int mBrightLevel = -1;
+    public static final String TAG = "BdBrightUtils";
+    public static int mBrightLevel = -1;
 
-    public static boolean isAutoBrightness(Context context) {
-        try {
-            return Settings.System.getInt(context.getContentResolver(), "screen_brightness_mode") == 1;
-        } catch (Settings.SettingNotFoundException e) {
-            e.printStackTrace();
-            return false;
+    public static int getActivityBrightness(Activity activity) {
+        if (activity != null) {
+            float f2 = activity.getWindow().getAttributes().screenBrightness;
+            int screenBrightness = f2 < 0.0f ? getScreenBrightness(activity) : (int) (f2 * 255.0f);
+            int i = mBrightLevel;
+            return (i < 0 || screenBrightness > 50) ? screenBrightness : i;
         }
+        return -1;
     }
 
     public static int getScreenBrightness(Context context) {
         try {
             return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return 0;
         }
-    }
-
-    public static int getActivityBrightness(Activity activity) {
-        int i;
-        if (activity != null) {
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            if (attributes.screenBrightness < 0.0f) {
-                i = getScreenBrightness(activity);
-            } else {
-                i = (int) (attributes.screenBrightness * 255.0f);
-            }
-            if (mBrightLevel >= 0 && i <= 50) {
-                return mBrightLevel;
-            }
-            return i;
-        }
-        return -1;
     }
 
     public static float getWinBrightness(Activity activity) {
@@ -55,17 +39,27 @@ public class ScreenBrightUtils {
         return -1.0f;
     }
 
-    private static void setWinBrightness(Activity activity, int i) {
-        if (activity != null) {
-            Window window = activity.getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = i;
-            window.setAttributes(attributes);
+    public static boolean isAutoBrightness(Context context) {
+        try {
+            return Settings.System.getInt(context.getContentResolver(), "screen_brightness_mode") == 1;
+        } catch (Settings.SettingNotFoundException e2) {
+            e2.printStackTrace();
+            return false;
         }
     }
 
-    public static void setWinDefBrightness(Activity activity) {
-        setWinBrightness(activity, -1);
+    public static int limitRange(int i, int i2, int i3) {
+        if (i < i2) {
+            i = i2;
+        }
+        return i > i3 ? i3 : i;
+    }
+
+    public static void saveBrightness(Activity activity, int i) {
+        Uri uriFor = Settings.System.getUriFor("screen_brightness");
+        ContentResolver contentResolver = activity.getContentResolver();
+        Settings.System.putInt(contentResolver, "screen_brightness", i);
+        contentResolver.notifyChange(uriFor, null);
     }
 
     public static void setBrightness(Activity activity, int i) {
@@ -78,23 +72,24 @@ public class ScreenBrightUtils {
         }
     }
 
-    public static void stopAutoBrightness(Activity activity) {
-        Settings.System.putInt(activity.getContentResolver(), "screen_brightness_mode", 0);
+    public static void setWinBrightness(Activity activity, int i) {
+        if (activity != null) {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.screenBrightness = i;
+            window.setAttributes(attributes);
+        }
+    }
+
+    public static void setWinDefBrightness(Activity activity) {
+        setWinBrightness(activity, -1);
     }
 
     public static void startAutoBrightness(Activity activity) {
         Settings.System.putInt(activity.getContentResolver(), "screen_brightness_mode", 1);
     }
 
-    public static void saveBrightness(Activity activity, int i) {
-        Uri uriFor = Settings.System.getUriFor("screen_brightness");
-        ContentResolver contentResolver = activity.getContentResolver();
-        Settings.System.putInt(contentResolver, "screen_brightness", i);
-        contentResolver.notifyChange(uriFor, null);
-    }
-
-    private static int limitRange(int i, int i2, int i3) {
-        int i4 = i < i2 ? i2 : i;
-        return i4 > i3 ? i3 : i4;
+    public static void stopAutoBrightness(Activity activity) {
+        Settings.System.putInt(activity.getContentResolver(), "screen_brightness_mode", 0);
     }
 }

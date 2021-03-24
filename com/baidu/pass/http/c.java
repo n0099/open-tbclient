@@ -1,18 +1,20 @@
 package com.baidu.pass.http;
-/* loaded from: classes5.dex */
-/* synthetic */ class c {
+/* loaded from: classes2.dex */
+public /* synthetic */ class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f2843a = new int[Method.values().length];
+    public static final /* synthetic */ int[] f9754a;
 
     static {
+        int[] iArr = new int[Method.values().length];
+        f9754a = iArr;
         try {
-            f2843a[Method.GET.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[Method.GET.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            f2843a[Method.POST.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f9754a[Method.POST.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
     }
 }

@@ -1,24 +1,26 @@
 package okio;
 
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public abstract class ForwardingSink implements Sink {
-    private final Sink delegate;
+    public final Sink delegate;
 
     public ForwardingSink(Sink sink) {
-        if (sink == null) {
-            throw new IllegalArgumentException("delegate == null");
+        if (sink != null) {
+            this.delegate = sink;
+            return;
         }
-        this.delegate = sink;
+        throw new IllegalArgumentException("delegate == null");
+    }
+
+    @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        this.delegate.close();
     }
 
     public final Sink delegate() {
         return this.delegate;
-    }
-
-    @Override // okio.Sink
-    public void write(Buffer buffer, long j) throws IOException {
-        this.delegate.write(buffer, j);
     }
 
     @Override // okio.Sink, java.io.Flushable
@@ -31,12 +33,12 @@ public abstract class ForwardingSink implements Sink {
         return this.delegate.timeout();
     }
 
-    @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        this.delegate.close();
+    public String toString() {
+        return getClass().getSimpleName() + "(" + this.delegate.toString() + SmallTailInfo.EMOTION_SUFFIX;
     }
 
-    public String toString() {
-        return getClass().getSimpleName() + "(" + this.delegate.toString() + ")";
+    @Override // okio.Sink
+    public void write(Buffer buffer, long j) throws IOException {
+        this.delegate.write(buffer, j);
     }
 }

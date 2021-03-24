@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.mobads.interfaces.IXAdContainer;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAdDummyContainer extends IXAdContainer {
     boolean isAdAvailable(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters);
 

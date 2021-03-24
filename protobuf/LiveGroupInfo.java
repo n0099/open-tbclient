@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class LiveGroupInfo extends Message {
     public static final String DEFAULT_AUTHORNAME = "";
     public static final String DEFAULT_BACKGROUND = "";
@@ -101,198 +101,7 @@ public final class LiveGroupInfo extends Message {
     public static final Integer DEFAULT_ISVIP = 0;
     public static final List<Photo> DEFAULT_BACKGROUNDS = Collections.emptyList();
 
-    private LiveGroupInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.name == null) {
-                this.name = "";
-            } else {
-                this.name = builder.name;
-            }
-            if (builder.status == null) {
-                this.status = DEFAULT_STATUS;
-            } else {
-                this.status = builder.status;
-            }
-            if (builder.forumId == null) {
-                this.forumId = DEFAULT_FORUMID;
-            } else {
-                this.forumId = builder.forumId;
-            }
-            if (builder.authorName == null) {
-                this.authorName = "";
-            } else {
-                this.authorName = builder.authorName;
-            }
-            if (builder.authorId == null) {
-                this.authorId = DEFAULT_AUTHORID;
-            } else {
-                this.authorId = builder.authorId;
-            }
-            if (builder.groupType == null) {
-                this.groupType = DEFAULT_GROUPTYPE;
-            } else {
-                this.groupType = builder.groupType;
-            }
-            if (builder.publisherId == null) {
-                this.publisherId = DEFAULT_PUBLISHERID;
-            } else {
-                this.publisherId = builder.publisherId;
-            }
-            if (builder.publisherName == null) {
-                this.publisherName = "";
-            } else {
-                this.publisherName = builder.publisherName;
-            }
-            if (builder.createTime == null) {
-                this.createTime = DEFAULT_CREATETIME;
-            } else {
-                this.createTime = builder.createTime;
-            }
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-            } else {
-                this.groupId = builder.groupId;
-            }
-            if (builder.deviceId == null) {
-                this.deviceId = DEFAULT_DEVICEID;
-            } else {
-                this.deviceId = builder.deviceId;
-            }
-            if (builder.streamId == null) {
-                this.streamId = "";
-            } else {
-                this.streamId = builder.streamId;
-            }
-            if (builder.intro == null) {
-                this.intro = "";
-            } else {
-                this.intro = builder.intro;
-            }
-            if (builder.background == null) {
-                this.background = "";
-            } else {
-                this.background = builder.background;
-            }
-            if (builder.portrait == null) {
-                this.portrait = "";
-            } else {
-                this.portrait = builder.portrait;
-            }
-            if (builder.startTime == null) {
-                this.startTime = DEFAULT_STARTTIME;
-            } else {
-                this.startTime = builder.startTime;
-            }
-            if (builder.publisherPortrait == null) {
-                this.publisherPortrait = "";
-            } else {
-                this.publisherPortrait = builder.publisherPortrait;
-            }
-            if (builder.listeners == null) {
-                this.listeners = DEFAULT_LISTENERS;
-            } else {
-                this.listeners = builder.listeners;
-            }
-            if (builder.likers == null) {
-                this.likers = DEFAULT_LIKERS;
-            } else {
-                this.likers = builder.likers;
-            }
-            if (builder.isLiving == null) {
-                this.isLiving = DEFAULT_ISLIVING;
-            } else {
-                this.isLiving = builder.isLiving;
-            }
-            if (builder.playUrl == null) {
-                this.playUrl = "";
-            } else {
-                this.playUrl = builder.playUrl;
-            }
-            if (builder.gagers == null) {
-                this.gagers = DEFAULT_GAGERS;
-            } else {
-                this.gagers = builder.gagers;
-            }
-            if (builder.portraitId == null) {
-                this.portraitId = "";
-            } else {
-                this.portraitId = builder.portraitId;
-            }
-            if (builder.lastMsgId == null) {
-                this.lastMsgId = DEFAULT_LASTMSGID;
-            } else {
-                this.lastMsgId = builder.lastMsgId;
-            }
-            if (builder.forumName == null) {
-                this.forumName = "";
-            } else {
-                this.forumName = builder.forumName;
-            }
-            if (builder.flag == null) {
-                this.flag = DEFAULT_FLAG;
-            } else {
-                this.flag = builder.flag;
-            }
-            if (builder.fromType == null) {
-                this.fromType = DEFAULT_FROMTYPE;
-            } else {
-                this.fromType = builder.fromType;
-            }
-            if (builder.isVip == null) {
-                this.isVip = DEFAULT_ISVIP;
-            } else {
-                this.isVip = builder.isVip;
-            }
-            this.label = builder.label;
-            if (builder.signature == null) {
-                this.signature = "";
-            } else {
-                this.signature = builder.signature;
-            }
-            if (builder.backgrounds == null) {
-                this.backgrounds = DEFAULT_BACKGROUNDS;
-            } else {
-                this.backgrounds = immutableCopyOf(builder.backgrounds);
-            }
-            this.avatar = builder.avatar;
-            return;
-        }
-        this.name = builder.name;
-        this.status = builder.status;
-        this.forumId = builder.forumId;
-        this.authorName = builder.authorName;
-        this.authorId = builder.authorId;
-        this.groupType = builder.groupType;
-        this.publisherId = builder.publisherId;
-        this.publisherName = builder.publisherName;
-        this.createTime = builder.createTime;
-        this.groupId = builder.groupId;
-        this.deviceId = builder.deviceId;
-        this.streamId = builder.streamId;
-        this.intro = builder.intro;
-        this.background = builder.background;
-        this.portrait = builder.portrait;
-        this.startTime = builder.startTime;
-        this.publisherPortrait = builder.publisherPortrait;
-        this.listeners = builder.listeners;
-        this.likers = builder.likers;
-        this.isLiving = builder.isLiving;
-        this.playUrl = builder.playUrl;
-        this.gagers = builder.gagers;
-        this.portraitId = builder.portraitId;
-        this.lastMsgId = builder.lastMsgId;
-        this.forumName = builder.forumName;
-        this.flag = builder.flag;
-        this.fromType = builder.fromType;
-        this.isVip = builder.isVip;
-        this.label = builder.label;
-        this.signature = builder.signature;
-        this.backgrounds = immutableCopyOf(builder.backgrounds);
-        this.avatar = builder.avatar;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<LiveGroupInfo> {
         public Long authorId;
         public String authorName;
@@ -332,40 +141,41 @@ public final class LiveGroupInfo extends Message {
 
         public Builder(LiveGroupInfo liveGroupInfo) {
             super(liveGroupInfo);
-            if (liveGroupInfo != null) {
-                this.name = liveGroupInfo.name;
-                this.status = liveGroupInfo.status;
-                this.forumId = liveGroupInfo.forumId;
-                this.authorName = liveGroupInfo.authorName;
-                this.authorId = liveGroupInfo.authorId;
-                this.groupType = liveGroupInfo.groupType;
-                this.publisherId = liveGroupInfo.publisherId;
-                this.publisherName = liveGroupInfo.publisherName;
-                this.createTime = liveGroupInfo.createTime;
-                this.groupId = liveGroupInfo.groupId;
-                this.deviceId = liveGroupInfo.deviceId;
-                this.streamId = liveGroupInfo.streamId;
-                this.intro = liveGroupInfo.intro;
-                this.background = liveGroupInfo.background;
-                this.portrait = liveGroupInfo.portrait;
-                this.startTime = liveGroupInfo.startTime;
-                this.publisherPortrait = liveGroupInfo.publisherPortrait;
-                this.listeners = liveGroupInfo.listeners;
-                this.likers = liveGroupInfo.likers;
-                this.isLiving = liveGroupInfo.isLiving;
-                this.playUrl = liveGroupInfo.playUrl;
-                this.gagers = liveGroupInfo.gagers;
-                this.portraitId = liveGroupInfo.portraitId;
-                this.lastMsgId = liveGroupInfo.lastMsgId;
-                this.forumName = liveGroupInfo.forumName;
-                this.flag = liveGroupInfo.flag;
-                this.fromType = liveGroupInfo.fromType;
-                this.isVip = liveGroupInfo.isVip;
-                this.label = liveGroupInfo.label;
-                this.signature = liveGroupInfo.signature;
-                this.backgrounds = LiveGroupInfo.copyOf(liveGroupInfo.backgrounds);
-                this.avatar = liveGroupInfo.avatar;
+            if (liveGroupInfo == null) {
+                return;
             }
+            this.name = liveGroupInfo.name;
+            this.status = liveGroupInfo.status;
+            this.forumId = liveGroupInfo.forumId;
+            this.authorName = liveGroupInfo.authorName;
+            this.authorId = liveGroupInfo.authorId;
+            this.groupType = liveGroupInfo.groupType;
+            this.publisherId = liveGroupInfo.publisherId;
+            this.publisherName = liveGroupInfo.publisherName;
+            this.createTime = liveGroupInfo.createTime;
+            this.groupId = liveGroupInfo.groupId;
+            this.deviceId = liveGroupInfo.deviceId;
+            this.streamId = liveGroupInfo.streamId;
+            this.intro = liveGroupInfo.intro;
+            this.background = liveGroupInfo.background;
+            this.portrait = liveGroupInfo.portrait;
+            this.startTime = liveGroupInfo.startTime;
+            this.publisherPortrait = liveGroupInfo.publisherPortrait;
+            this.listeners = liveGroupInfo.listeners;
+            this.likers = liveGroupInfo.likers;
+            this.isLiving = liveGroupInfo.isLiving;
+            this.playUrl = liveGroupInfo.playUrl;
+            this.gagers = liveGroupInfo.gagers;
+            this.portraitId = liveGroupInfo.portraitId;
+            this.lastMsgId = liveGroupInfo.lastMsgId;
+            this.forumName = liveGroupInfo.forumName;
+            this.flag = liveGroupInfo.flag;
+            this.fromType = liveGroupInfo.fromType;
+            this.isVip = liveGroupInfo.isVip;
+            this.label = liveGroupInfo.label;
+            this.signature = liveGroupInfo.signature;
+            this.backgrounds = Message.copyOf(liveGroupInfo.backgrounds);
+            this.avatar = liveGroupInfo.avatar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -373,5 +183,226 @@ public final class LiveGroupInfo extends Message {
         public LiveGroupInfo build(boolean z) {
             return new LiveGroupInfo(this, z);
         }
+    }
+
+    public LiveGroupInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            String str = builder.name;
+            if (str == null) {
+                this.name = "";
+            } else {
+                this.name = str;
+            }
+            Integer num = builder.status;
+            if (num == null) {
+                this.status = DEFAULT_STATUS;
+            } else {
+                this.status = num;
+            }
+            Integer num2 = builder.forumId;
+            if (num2 == null) {
+                this.forumId = DEFAULT_FORUMID;
+            } else {
+                this.forumId = num2;
+            }
+            String str2 = builder.authorName;
+            if (str2 == null) {
+                this.authorName = "";
+            } else {
+                this.authorName = str2;
+            }
+            Long l = builder.authorId;
+            if (l == null) {
+                this.authorId = DEFAULT_AUTHORID;
+            } else {
+                this.authorId = l;
+            }
+            Integer num3 = builder.groupType;
+            if (num3 == null) {
+                this.groupType = DEFAULT_GROUPTYPE;
+            } else {
+                this.groupType = num3;
+            }
+            Long l2 = builder.publisherId;
+            if (l2 == null) {
+                this.publisherId = DEFAULT_PUBLISHERID;
+            } else {
+                this.publisherId = l2;
+            }
+            String str3 = builder.publisherName;
+            if (str3 == null) {
+                this.publisherName = "";
+            } else {
+                this.publisherName = str3;
+            }
+            Integer num4 = builder.createTime;
+            if (num4 == null) {
+                this.createTime = DEFAULT_CREATETIME;
+            } else {
+                this.createTime = num4;
+            }
+            Long l3 = builder.groupId;
+            if (l3 == null) {
+                this.groupId = DEFAULT_GROUPID;
+            } else {
+                this.groupId = l3;
+            }
+            Integer num5 = builder.deviceId;
+            if (num5 == null) {
+                this.deviceId = DEFAULT_DEVICEID;
+            } else {
+                this.deviceId = num5;
+            }
+            String str4 = builder.streamId;
+            if (str4 == null) {
+                this.streamId = "";
+            } else {
+                this.streamId = str4;
+            }
+            String str5 = builder.intro;
+            if (str5 == null) {
+                this.intro = "";
+            } else {
+                this.intro = str5;
+            }
+            String str6 = builder.background;
+            if (str6 == null) {
+                this.background = "";
+            } else {
+                this.background = str6;
+            }
+            String str7 = builder.portrait;
+            if (str7 == null) {
+                this.portrait = "";
+            } else {
+                this.portrait = str7;
+            }
+            Integer num6 = builder.startTime;
+            if (num6 == null) {
+                this.startTime = DEFAULT_STARTTIME;
+            } else {
+                this.startTime = num6;
+            }
+            String str8 = builder.publisherPortrait;
+            if (str8 == null) {
+                this.publisherPortrait = "";
+            } else {
+                this.publisherPortrait = str8;
+            }
+            Integer num7 = builder.listeners;
+            if (num7 == null) {
+                this.listeners = DEFAULT_LISTENERS;
+            } else {
+                this.listeners = num7;
+            }
+            Integer num8 = builder.likers;
+            if (num8 == null) {
+                this.likers = DEFAULT_LIKERS;
+            } else {
+                this.likers = num8;
+            }
+            Integer num9 = builder.isLiving;
+            if (num9 == null) {
+                this.isLiving = DEFAULT_ISLIVING;
+            } else {
+                this.isLiving = num9;
+            }
+            String str9 = builder.playUrl;
+            if (str9 == null) {
+                this.playUrl = "";
+            } else {
+                this.playUrl = str9;
+            }
+            Integer num10 = builder.gagers;
+            if (num10 == null) {
+                this.gagers = DEFAULT_GAGERS;
+            } else {
+                this.gagers = num10;
+            }
+            String str10 = builder.portraitId;
+            if (str10 == null) {
+                this.portraitId = "";
+            } else {
+                this.portraitId = str10;
+            }
+            Long l4 = builder.lastMsgId;
+            if (l4 == null) {
+                this.lastMsgId = DEFAULT_LASTMSGID;
+            } else {
+                this.lastMsgId = l4;
+            }
+            String str11 = builder.forumName;
+            if (str11 == null) {
+                this.forumName = "";
+            } else {
+                this.forumName = str11;
+            }
+            Integer num11 = builder.flag;
+            if (num11 == null) {
+                this.flag = DEFAULT_FLAG;
+            } else {
+                this.flag = num11;
+            }
+            Integer num12 = builder.fromType;
+            if (num12 == null) {
+                this.fromType = DEFAULT_FROMTYPE;
+            } else {
+                this.fromType = num12;
+            }
+            Integer num13 = builder.isVip;
+            if (num13 == null) {
+                this.isVip = DEFAULT_ISVIP;
+            } else {
+                this.isVip = num13;
+            }
+            this.label = builder.label;
+            String str12 = builder.signature;
+            if (str12 == null) {
+                this.signature = "";
+            } else {
+                this.signature = str12;
+            }
+            List<Photo> list = builder.backgrounds;
+            if (list == null) {
+                this.backgrounds = DEFAULT_BACKGROUNDS;
+            } else {
+                this.backgrounds = Message.immutableCopyOf(list);
+            }
+            this.avatar = builder.avatar;
+            return;
+        }
+        this.name = builder.name;
+        this.status = builder.status;
+        this.forumId = builder.forumId;
+        this.authorName = builder.authorName;
+        this.authorId = builder.authorId;
+        this.groupType = builder.groupType;
+        this.publisherId = builder.publisherId;
+        this.publisherName = builder.publisherName;
+        this.createTime = builder.createTime;
+        this.groupId = builder.groupId;
+        this.deviceId = builder.deviceId;
+        this.streamId = builder.streamId;
+        this.intro = builder.intro;
+        this.background = builder.background;
+        this.portrait = builder.portrait;
+        this.startTime = builder.startTime;
+        this.publisherPortrait = builder.publisherPortrait;
+        this.listeners = builder.listeners;
+        this.likers = builder.likers;
+        this.isLiving = builder.isLiving;
+        this.playUrl = builder.playUrl;
+        this.gagers = builder.gagers;
+        this.portraitId = builder.portraitId;
+        this.lastMsgId = builder.lastMsgId;
+        this.forumName = builder.forumName;
+        this.flag = builder.flag;
+        this.fromType = builder.fromType;
+        this.isVip = builder.isVip;
+        this.label = builder.label;
+        this.signature = builder.signature;
+        this.backgrounds = Message.immutableCopyOf(builder.backgrounds);
+        this.avatar = builder.avatar;
     }
 }

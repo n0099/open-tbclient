@@ -3,11 +3,11 @@ package com.kwai.filedownloader;
 import android.os.Handler;
 import android.util.SparseArray;
 import java.util.List;
-/* loaded from: classes3.dex */
-class aa implements v {
+/* loaded from: classes6.dex */
+public class aa implements v {
 
     /* renamed from: a  reason: collision with root package name */
-    private final SparseArray<Handler> f7173a = new SparseArray<>();
+    public final SparseArray<Handler> f36852a = new SparseArray<>();
 
     private void a(Handler handler) {
         handler.sendEmptyMessage(2);
@@ -19,31 +19,25 @@ class aa implements v {
 
     @Override // com.kwai.filedownloader.v
     public void a() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.f7173a.size()) {
-                return;
-            }
-            a(this.f7173a.get(this.f7173a.keyAt(i2)));
-            i = i2 + 1;
+        for (int i = 0; i < this.f36852a.size(); i++) {
+            a(this.f36852a.get(this.f36852a.keyAt(i)));
         }
     }
 
     @Override // com.kwai.filedownloader.v
     public void a(List<Integer> list) {
         for (Integer num : list) {
-            b(this.f7173a.get(num.intValue()));
+            b(this.f36852a.get(num.intValue()));
         }
     }
 
     @Override // com.kwai.filedownloader.v
     public boolean a(int i) {
-        return this.f7173a.get(i) != null;
+        return this.f36852a.get(i) != null;
     }
 
     @Override // com.kwai.filedownloader.v
     public int b() {
-        return this.f7173a.size();
+        return this.f36852a.size();
     }
 }

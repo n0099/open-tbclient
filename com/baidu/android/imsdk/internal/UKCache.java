@@ -1,13 +1,20 @@
 package com.baidu.android.imsdk.internal;
 
 import android.util.LruCache;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UKCache {
-    private LruCache<Long, Long> mCache;
+    public LruCache<Long, Long> mCache;
 
     public UKCache(int i) {
         this.mCache = null;
         this.mCache = new LruCache<>(i);
+    }
+
+    public Long get(long j) {
+        if (j < 0) {
+            return null;
+        }
+        return this.mCache.get(Long.valueOf(j));
     }
 
     public boolean put(Long l, Long l2) {
@@ -16,13 +23,6 @@ public class UKCache {
         }
         this.mCache.put(l, l2);
         return true;
-    }
-
-    public Long get(long j) {
-        if (j < 0) {
-            return null;
-        }
-        return this.mCache.get(Long.valueOf(j));
     }
 
     public Long remove(Long l) {

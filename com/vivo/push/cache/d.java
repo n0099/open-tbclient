@@ -2,38 +2,47 @@ package com.vivo.push.cache;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.webkit.internal.Base64;
 import com.vivo.push.util.h;
 import com.vivo.push.util.p;
 import com.vivo.push.util.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+/* loaded from: classes7.dex */
 public abstract class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f8048a = {34, 32, 33, 37, 33, 34, 32, 33, 33, 33, 34, 41, 35, 32, 32, 32};
-    public static final byte[] b = {33, 34, 35, 36, 37, 38, 39, 40, 41, 32, 38, 37, 36, 35, 34, 33};
-    protected static final Object c = new Object();
-    protected List<T> d = new ArrayList();
-    protected Context e;
+    public static final byte[] f39457a = {34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 37, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 41, Base64.INTERNAL_PADDING, 32, 32, 32};
 
-    protected abstract String a();
+    /* renamed from: b  reason: collision with root package name */
+    public static final byte[] f39458b = {PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 32, 38, 37, 36, Base64.INTERNAL_PADDING, 34, PublicSuffixDatabase.EXCEPTION_MARKER};
 
-    protected abstract List<T> a(String str);
+    /* renamed from: c  reason: collision with root package name */
+    public static final Object f39459c = new Object();
 
-    abstract String b(String str) throws Exception;
+    /* renamed from: d  reason: collision with root package name */
+    public List<T> f39460d = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: e  reason: collision with root package name */
+    public Context f39461e;
+
     public d(Context context) {
-        this.e = context.getApplicationContext();
+        this.f39461e = context.getApplicationContext();
         c();
     }
 
+    public abstract String a();
+
+    public abstract List<T> a(String str);
+
+    public abstract String b(String str) throws Exception;
+
     public final void c() {
-        synchronized (c) {
+        synchronized (f39459c) {
             h.a(a());
-            this.d.clear();
-            String a2 = y.b(this.e).a(a(), null);
+            this.f39460d.clear();
+            String a2 = y.b(this.f39461e).a(a(), null);
             if (TextUtils.isEmpty(a2)) {
                 p.d("CacheSettings", "ClientManager init " + a() + " strApps empty.");
             } else if (a2.length() > 10000) {
@@ -44,20 +53,20 @@ public abstract class d<T> {
                     p.d("CacheSettings", "ClientManager init " + a() + " strApps : " + a2);
                     List<T> a3 = a(b(a2));
                     if (a3 != null) {
-                        this.d.addAll(a3);
+                        this.f39460d.addAll(a3);
                     }
-                } catch (Exception e) {
+                } catch (Exception e2) {
                     d();
-                    p.d("CacheSettings", p.a(e));
+                    p.d("CacheSettings", p.a(e2));
                 }
             }
         }
     }
 
     public final void d() {
-        synchronized (c) {
-            this.d.clear();
-            y.b(this.e).b(a(), "");
+        synchronized (f39459c) {
+            this.f39460d.clear();
+            y.b(this.f39461e).b(a(), "");
             p.d("CacheSettings", "clear " + a() + " strApps");
         }
     }

@@ -2,26 +2,24 @@ package com.baidu.platform.comapi.walknavi.g.b;
 
 import android.view.View;
 import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class x implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2994a;
+    public final /* synthetic */ c f10119a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public x(c cVar) {
-        this.f2994a = cVar;
+        this.f10119a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.platform.comapi.walknavi.g.a aVar;
         com.baidu.platform.comapi.walknavi.g.a aVar2;
-        aVar = this.f2994a.m;
+        aVar = this.f10119a.m;
         if (aVar != null) {
             System.out.println("mBarQuitBtn onClick showQuitDialog");
-            aVar2 = this.f2994a.m;
+            aVar2 = this.f10119a.m;
             aVar2.a(false, R.drawable.res_0x7f080001_avd_hide_password__1);
         }
     }

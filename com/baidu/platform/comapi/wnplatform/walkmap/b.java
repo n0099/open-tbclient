@@ -2,24 +2,14 @@ package com.baidu.platform.comapi.wnplatform.walkmap;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatus;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b implements BaiduMap.OnMapStatusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3093a;
+    public final /* synthetic */ a f10388a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f3093a = aVar;
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus) {
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
+        this.f10388a = aVar;
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
@@ -30,10 +20,19 @@ public class b implements BaiduMap.OnMapStatusChangeListener {
     public void onMapStatusChangeFinish(MapStatus mapStatus) {
         f fVar;
         f fVar2;
-        fVar = this.f3093a.d;
-        if (fVar != null) {
-            fVar2 = this.f3093a.d;
-            fVar2.a();
+        fVar = this.f10388a.f10387d;
+        if (fVar == null) {
+            return;
         }
+        fVar2 = this.f10388a.f10387d;
+        fVar2.a();
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeStart(MapStatus mapStatus) {
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
     }
 }

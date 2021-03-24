@@ -1,5 +1,17 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
-public interface gf {
-    boolean a(gj gjVar);
+
+import com.baidu.tbadk.core.data.SmallTailInfo;
+/* loaded from: classes7.dex */
+public class gf {
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f40578a;
+
+    public gf(String str) {
+        this.f40578a = str;
+    }
+
+    public String toString() {
+        return "stream:error (" + this.f40578a + SmallTailInfo.EMOTION_SUFFIX;
+    }
 }

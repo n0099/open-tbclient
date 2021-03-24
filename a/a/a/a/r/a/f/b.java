@@ -1,61 +1,69 @@
 package a.a.a.a.r.a.f;
 
 import com.kwad.sdk.api.KsDrawAd;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class b implements KsDrawAd.AdInteractionListener {
-    public final /* synthetic */ KsDrawAd Bf;
-    public final /* synthetic */ a Bg;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f994a;
-    public boolean b;
-    public final /* synthetic */ String d;
+    public boolean f1226a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f1227b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ KsDrawAd f1228c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ String f1229d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ a f1230e;
 
     public b(a aVar, KsDrawAd ksDrawAd, String str) {
-        this.Bg = aVar;
-        this.Bf = ksDrawAd;
-        this.d = str;
+        this.f1230e = aVar;
+        this.f1228c = ksDrawAd;
+        this.f1229d = str;
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
     public void onAdClicked() {
         a.a.a.a.v.d.a();
-        this.Bg.zk.a(this.b);
-        this.b = true;
-        this.Bg.e();
+        this.f1230e.f1010g.a(this.f1227b);
+        this.f1227b = true;
+        this.f1230e.e();
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
     public void onAdShow() {
         a.a.a.a.v.d.a();
-        this.Bg.zk.b(this.f994a);
-        this.f994a = true;
-        this.Bg.a((a) this.Bf, this.d);
+        this.f1230e.f1010g.b(this.f1226a);
+        this.f1226a = true;
+        this.f1230e.a((a) this.f1228c, this.f1229d);
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
     public void onVideoPlayEnd() {
-        this.Bg.zk.i();
+        this.f1230e.f1010g.i();
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
     public void onVideoPlayError() {
         a.a.a.a.v.d.b();
-        this.Bg.zk.j();
+        this.f1230e.f1010g.j();
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
     public void onVideoPlayPause() {
-        this.Bg.zk.k();
+        this.f1230e.f1010g.k();
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
     public void onVideoPlayResume() {
-        this.Bg.zk.l();
+        this.f1230e.f1010g.l();
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
     public void onVideoPlayStart() {
-        this.Bg.zk.n();
+        this.f1230e.f1010g.n();
     }
 }

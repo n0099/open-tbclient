@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.c;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.app.NotificationCompatJellybean;
 import com.bytedance.sdk.openadsdk.utils.x;
 import java.util.Iterator;
 import java.util.UUID;
@@ -10,40 +11,35 @@ import org.json.JSONObject;
 public class a implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f4194a;
-    public final JSONObject b;
+    public final String f27534a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final JSONObject f27535b;
+
     public a(String str, JSONObject jSONObject) {
-        this.f4194a = str;
-        this.b = jSONObject;
+        this.f27534a = str;
+        this.f27535b = jSONObject;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static a a(Context context, String str, String str2, String str3, JSONObject jSONObject) {
         return new a(UUID.randomUUID().toString(), b(context, str, str2, str3, jSONObject));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static a a(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
-        return new a(UUID.randomUUID().toString(), b(str, str2, str3, j, j2, jSONObject));
-    }
-
-    private static JSONObject b(Context context, String str, String str2, String str3, JSONObject jSONObject) {
+    public static JSONObject b(Context context, String str, String str2, String str3, JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject2.put("event_ts", System.currentTimeMillis());
             jSONObject2.putOpt("tag", str);
-            jSONObject2.putOpt("label", str2);
+            jSONObject2.putOpt(NotificationCompatJellybean.KEY_LABEL, str2);
             jSONObject2.putOpt("category", "app_union");
             try {
                 jSONObject2.putOpt("value", Long.valueOf(Long.parseLong(str3)));
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException unused) {
                 jSONObject2.putOpt("value", 0L);
             }
             jSONObject2.putOpt("is_ad_event", "1");
             jSONObject2.putOpt("nt", Integer.valueOf(x.c(context)));
-            jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.i.d().u());
+            jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.i.d().v());
             if (jSONObject != null) {
                 Iterator<String> keys = jSONObject.keys();
                 while (keys.hasNext()) {
@@ -51,32 +47,13 @@ public class a implements i {
                     jSONObject2.putOpt(next, jSONObject.opt(next));
                 }
             }
-        } catch (Exception e2) {
+        } catch (Exception unused2) {
         }
         return jSONObject2;
     }
 
-    private static JSONObject b(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            jSONObject2.put("event_ts", System.currentTimeMillis());
-            jSONObject2.putOpt("tag", str2);
-            jSONObject2.putOpt("label", str3);
-            jSONObject2.putOpt("category", str);
-            jSONObject2.putOpt("value", Long.valueOf(j));
-            jSONObject2.putOpt("is_ad_event", "1");
-            jSONObject2.putOpt("ext_value", Long.valueOf(j2));
-            jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.i.d().u());
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    jSONObject2.putOpt(next, jSONObject.opt(next));
-                }
-            }
-        } catch (Exception e) {
-        }
-        return jSONObject2;
+    public static a a(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
+        return new a(UUID.randomUUID().toString(), b(str, str2, str3, j, j2, jSONObject));
     }
 
     public static a a(String str) {
@@ -87,30 +64,52 @@ public class a implements i {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("localId", null);
             JSONObject optJSONObject = jSONObject.optJSONObject("event");
-            if (TextUtils.isEmpty(optString) || optJSONObject == null) {
-                return null;
+            if (!TextUtils.isEmpty(optString) && optJSONObject != null) {
+                return new a(optString, optJSONObject);
             }
-            return new a(optString, optJSONObject);
-        } catch (Throwable th) {
-            return null;
+        } catch (Throwable unused) {
         }
+        return null;
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f4194a) || this.b == null) {
+        if (TextUtils.isEmpty(this.f27534a) || this.f27535b == null) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("localId", this.f4194a);
-            jSONObject.put("event", this.b);
-        } catch (Throwable th) {
+            jSONObject.put("localId", this.f27534a);
+            jSONObject.put("event", this.f27535b);
+        } catch (Throwable unused) {
         }
         return jSONObject.toString();
     }
 
+    public static JSONObject b(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put("event_ts", System.currentTimeMillis());
+            jSONObject2.putOpt("tag", str2);
+            jSONObject2.putOpt(NotificationCompatJellybean.KEY_LABEL, str3);
+            jSONObject2.putOpt("category", str);
+            jSONObject2.putOpt("value", Long.valueOf(j));
+            jSONObject2.putOpt("is_ad_event", "1");
+            jSONObject2.putOpt("ext_value", Long.valueOf(j2));
+            jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.i.d().v());
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    jSONObject2.putOpt(next, jSONObject.opt(next));
+                }
+            }
+        } catch (Exception unused) {
+        }
+        return jSONObject2;
+    }
+
     @Override // com.bytedance.sdk.openadsdk.c.i
     public String b() {
-        return this.f4194a;
+        return this.f27534a;
     }
 }

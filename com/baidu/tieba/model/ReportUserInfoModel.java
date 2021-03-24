@@ -6,51 +6,60 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.data.Config;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.message.ResponseReportUserInfoMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ReportUserInfoModel extends BdBaseModel {
     public static final long TIME_INTERVAL = 300000;
     public static final int TYPE_ADDRESS = 1;
-    private a lwq;
-    private final HttpMessageListener lwr;
+
+    /* renamed from: e  reason: collision with root package name */
+    public b f19035e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final HttpMessageListener f19036f;
     public long timeInterval;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void dK(int i);
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
 
-        void onError(int i, String str);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001522 || ReportUserInfoModel.this.f19035e == null || !(httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
+                return;
+            }
+            ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
+            if (responseReportUserInfoMessage.getErrorCode() == 0) {
+                ReportUserInfoModel.this.f19035e.a(responseReportUserInfoMessage.getTimeInterval());
+            } else {
+                ReportUserInfoModel.this.f19035e.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
+            }
+        }
     }
 
-    public void a(a aVar) {
-        this.lwq = aVar;
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(int i);
+
+        void onError(int i, String str);
     }
 
     public ReportUserInfoModel(Context context) {
         super(null);
         this.timeInterval = 300000L;
-        this.lwr = new HttpMessageListener(1001522) { // from class: com.baidu.tieba.model.ReportUserInfoModel.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && ReportUserInfoModel.this.lwq != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
-                    ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
-                    if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                        ReportUserInfoModel.this.lwq.dK(responseReportUserInfoMessage.getTimeInterval());
-                    } else {
-                        ReportUserInfoModel.this.lwq.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
-                    }
-                }
-            }
-        };
+        this.f19036f = new a(CmdConfigHttp.REPORT_USER_INFO);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -59,35 +68,39 @@ public class ReportUserInfoModel extends BdBaseModel {
         return false;
     }
 
-    public boolean KO() {
+    public boolean t() {
         return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.getInst().getReporyUserInfoLastTime()) >= this.timeInterval;
     }
 
-    public void dgS() {
-        TbadkCoreApplication.getInst().setReporyUserInfoCurrentTime();
-    }
-
-    public void hl(long j) {
-        this.timeInterval = j;
-    }
-
-    public void dgT() {
+    public void u() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001522, TbConfig.SERVER_ADDRESS + Config.REPORT_USER_INFO);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, TbConfig.SERVER_ADDRESS + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.lwr);
-    }
-
-    public void a(int i, float f, float f2) {
-        HttpMessage httpMessage = new HttpMessage(1001522);
-        httpMessage.addParam("type", String.valueOf(i));
-        httpMessage.addParam("lng", String.valueOf(f));
-        httpMessage.addParam("lat", String.valueOf(f2));
-        MessageManager.getInstance().sendMessage(httpMessage);
+        messageManager.registerListener(this.f19036f);
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.lwr);
+        MessageManager.getInstance().unRegisterListener(this.f19036f);
+    }
+
+    public void v(int i, float f2, float f3) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.REPORT_USER_INFO);
+        httpMessage.addParam("type", String.valueOf(i));
+        httpMessage.addParam(SuggestAddrField.KEY_LNG, String.valueOf(f2));
+        httpMessage.addParam(SuggestAddrField.KEY_LAT, String.valueOf(f3));
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void w() {
+        TbadkCoreApplication.getInst().setReporyUserInfoCurrentTime();
+    }
+
+    public void x(long j) {
+        this.timeInterval = j;
+    }
+
+    public void y(b bVar) {
+        this.f19035e = bVar;
     }
 }

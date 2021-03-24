@@ -2,103 +2,86 @@ package com.ksad.lottie.c;
 
 import android.util.JsonReader;
 import android.util.Log;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import com.ksad.lottie.model.content.Mask;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class u {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0088, code lost:
+        if (r0.equals("a") != false) goto L24;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x008e  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00bb A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static Mask a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        boolean z;
-        boolean z2;
+        char c2;
         jsonReader.beginObject();
-        com.ksad.lottie.model.a.d dVar2 = null;
-        com.ksad.lottie.model.a.h hVar = null;
         Mask.MaskMode maskMode = null;
+        com.ksad.lottie.model.a.h hVar = null;
+        com.ksad.lottie.model.a.d dVar2 = null;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            switch (nextName.hashCode()) {
-                case 111:
-                    if (nextName.equals(Config.OS)) {
-                        z = true;
-                        break;
-                    }
-                    z = true;
-                    break;
-                case 3588:
-                    if (nextName.equals("pt")) {
-                        z = true;
-                        break;
-                    }
-                    z = true;
-                    break;
-                case 3357091:
-                    if (nextName.equals(UbcStatConstant.KEY_CONTENT_EXT_MODE)) {
-                        z = false;
-                        break;
-                    }
-                    z = true;
-                    break;
-                default:
-                    z = true;
-                    break;
+            int hashCode = nextName.hashCode();
+            char c3 = 0;
+            if (hashCode == 111) {
+                if (nextName.equals(Config.OS)) {
+                    c2 = 2;
+                }
+                c2 = 65535;
+            } else if (hashCode != 3588) {
+                if (hashCode == 3357091 && nextName.equals("mode")) {
+                    c2 = 0;
+                }
+                c2 = 65535;
+            } else {
+                if (nextName.equals(Config.PLATFORM_TYPE)) {
+                    c2 = 1;
+                }
+                c2 = 65535;
             }
-            switch (z) {
-                case false:
-                    String nextString = jsonReader.nextString();
-                    switch (nextString.hashCode()) {
-                        case 97:
-                            if (nextString.equals("a")) {
-                                z2 = false;
-                                break;
+            if (c2 == 0) {
+                String nextString = jsonReader.nextString();
+                int hashCode2 = nextString.hashCode();
+                if (hashCode2 != 97) {
+                    if (hashCode2 != 105) {
+                        if (hashCode2 == 115 && nextString.equals("s")) {
+                            c3 = 1;
+                            if (c3 != 0) {
+                                if (c3 == 1) {
+                                    maskMode = Mask.MaskMode.MaskModeSubtract;
+                                } else if (c3 != 2) {
+                                    Log.w("LOTTIE", "Unknown mask mode " + nextName + ". Defaulting to Add.");
+                                } else {
+                                    dVar.a("Animation contains intersect masks. They are not supported but will be treated like add masks.");
+                                    maskMode = Mask.MaskMode.MaskModeIntersect;
+                                }
                             }
-                            z2 = true;
-                            break;
-                        case 105:
-                            if (nextString.equals("i")) {
-                                z2 = true;
-                                break;
-                            }
-                            z2 = true;
-                            break;
-                        case 115:
-                            if (nextString.equals("s")) {
-                                z2 = true;
-                                break;
-                            }
-                            z2 = true;
-                            break;
-                        default:
-                            z2 = true;
-                            break;
-                    }
-                    switch (z2) {
-                        case false:
                             maskMode = Mask.MaskMode.MaskModeAdd;
-                            continue;
-                        case true:
-                            maskMode = Mask.MaskMode.MaskModeSubtract;
-                            continue;
-                        case true:
-                            dVar.a("Animation contains intersect masks. They are not supported but will be treated like add masks.");
-                            maskMode = Mask.MaskMode.MaskModeIntersect;
-                            continue;
-                        default:
-                            Log.w("LOTTIE", "Unknown mask mode " + nextName + ". Defaulting to Add.");
+                        }
+                        c3 = 65535;
+                        if (c3 != 0) {
+                        }
+                        maskMode = Mask.MaskMode.MaskModeAdd;
+                    } else {
+                        if (nextString.equals("i")) {
+                            c3 = 2;
+                            if (c3 != 0) {
+                            }
                             maskMode = Mask.MaskMode.MaskModeAdd;
-                            continue;
+                        }
+                        c3 = 65535;
+                        if (c3 != 0) {
+                        }
+                        maskMode = Mask.MaskMode.MaskModeAdd;
                     }
-                case true:
-                    hVar = d.e(jsonReader, dVar);
-                    break;
-                case true:
-                    dVar2 = d.b(jsonReader, dVar);
-                    break;
-                default:
-                    jsonReader.skipValue();
-                    break;
+                }
+            } else if (c2 == 1) {
+                hVar = d.e(jsonReader, dVar);
+            } else if (c2 != 2) {
+                jsonReader.skipValue();
+            } else {
+                dVar2 = d.b(jsonReader, dVar);
             }
         }
         jsonReader.endObject();

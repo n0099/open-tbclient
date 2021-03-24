@@ -1,21 +1,23 @@
 package com.kwad.sdk.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f6333a;
-    private a b;
+    public final com.kwad.sdk.core.webview.a f34318a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public a f34319b;
+
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
     }
 
     public b(com.kwad.sdk.core.webview.a aVar, a aVar2) {
-        this.f6333a = aVar;
-        this.b = aVar2;
+        this.f34318a = aVar;
+        this.f34319b = aVar2;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -26,7 +28,7 @@ public class b implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.b.a();
+        this.f34319b.a();
         cVar.a(null);
     }
 

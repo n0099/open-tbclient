@@ -3,15 +3,15 @@ package com.bun.miitmdid.supplier.g;
 import android.content.Context;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3883a;
+    public Context f27117a;
 
     public a(Context context) {
-        com.heytap.openid.a.a.a(context);
-        this.f3883a = context;
+        com.heytap.openid.sdk.a.a(context);
+        this.f27117a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -24,8 +24,8 @@ public class a implements InnerIdSupplier {
                     if (supplierListener != null) {
                         supplierListener.OnSupport(a.this.isSupported(), a.this);
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
         }).start();
@@ -38,25 +38,23 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
-        String str = "";
         try {
-            str = com.heytap.openid.a.a.d(this.f3883a);
-            return str == null ? "" : str;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return str;
+            String d2 = com.heytap.openid.sdk.a.d(this.f27117a);
+            return d2 == null ? "" : d2;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return "";
         }
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
-        String str = "";
         try {
-            str = com.heytap.openid.a.a.b(this.f3883a);
-            return str == null ? "" : str;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return str;
+            String b2 = com.heytap.openid.sdk.a.b(this.f27117a);
+            return b2 == null ? "" : b2;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return "";
         }
     }
 
@@ -67,19 +65,18 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
-        String str = "";
         try {
-            str = com.heytap.openid.a.a.c(this.f3883a);
-            return str == null ? "" : str;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return str;
+            String c2 = com.heytap.openid.sdk.a.c(this.f27117a);
+            return c2 == null ? "" : c2;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return "";
         }
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        return com.heytap.openid.a.a.a();
+        return com.heytap.openid.sdk.a.a();
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier

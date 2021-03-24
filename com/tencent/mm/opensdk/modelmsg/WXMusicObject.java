@@ -3,29 +3,49 @@ package com.tencent.mm.opensdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WXMusicObject implements WXMediaMessage.IMediaObject {
-    private static final int LENGTH_LIMIT = 10240;
-    private static final String TAG = "MicroMsg.SDK.WXMusicObject";
+    public static final int LENGTH_LIMIT = 10240;
+    public static final int LYRIC_LENGTH_LIMIT = 32768;
+    public static final String TAG = "MicroMsg.SDK.WXMusicObject";
     public String musicDataUrl;
     public String musicLowBandDataUrl;
     public String musicLowBandUrl;
     public String musicUrl;
+    public String songAlbumUrl;
+    public String songLyric;
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if ((this.musicUrl == null || this.musicUrl.length() == 0) && (this.musicLowBandUrl == null || this.musicLowBandUrl.length() == 0)) {
-            Log.e(TAG, "both arguments are null");
-            return false;
-        } else if (this.musicUrl != null && this.musicUrl.length() > LENGTH_LIMIT) {
-            Log.e(TAG, "checkArgs fail, musicUrl is too long");
-            return false;
-        } else if (this.musicLowBandUrl == null || this.musicLowBandUrl.length() <= LENGTH_LIMIT) {
-            return true;
+        String str;
+        String str2;
+        String str3 = this.musicUrl;
+        if ((str3 == null || str3.length() == 0) && ((str = this.musicLowBandUrl) == null || str.length() == 0)) {
+            str2 = "both arguments are null";
         } else {
-            Log.e(TAG, "checkArgs fail, musicLowBandUrl is too long");
-            return false;
+            String str4 = this.musicUrl;
+            if (str4 == null || str4.length() <= 10240) {
+                String str5 = this.musicLowBandUrl;
+                if (str5 == null || str5.length() <= 10240) {
+                    String str6 = this.songAlbumUrl;
+                    if (str6 == null || str6.length() <= 10240) {
+                        String str7 = this.songLyric;
+                        if (str7 == null || str7.length() <= 32768) {
+                            return true;
+                        }
+                        str2 = "checkArgs fail, songLyric is too long";
+                    } else {
+                        str2 = "checkArgs fail, songAlbumUrl is too long";
+                    }
+                } else {
+                    str2 = "checkArgs fail, musicLowBandUrl is too long";
+                }
+            } else {
+                str2 = "checkArgs fail, musicUrl is too long";
+            }
         }
+        Log.e("MicroMsg.SDK.WXMusicObject", str2);
+        return false;
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
@@ -34,6 +54,8 @@ public class WXMusicObject implements WXMediaMessage.IMediaObject {
         bundle.putString("_wxmusicobject_musicLowBandUrl", this.musicLowBandUrl);
         bundle.putString("_wxmusicobject_musicDataUrl", this.musicDataUrl);
         bundle.putString("_wxmusicobject_musicLowBandDataUrl", this.musicLowBandDataUrl);
+        bundle.putString("_wxmusicobject_musicAlbumUrl", this.songAlbumUrl);
+        bundle.putString("_wxmusicobject_musicLyric", this.songLyric);
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
@@ -47,5 +69,7 @@ public class WXMusicObject implements WXMediaMessage.IMediaObject {
         this.musicLowBandUrl = bundle.getString("_wxmusicobject_musicLowBandUrl");
         this.musicDataUrl = bundle.getString("_wxmusicobject_musicDataUrl");
         this.musicLowBandDataUrl = bundle.getString("_wxmusicobject_musicLowBandDataUrl");
+        this.songAlbumUrl = bundle.getString("_wxmusicobject_musicAlbumUrl");
+        this.songLyric = bundle.getString("_wxmusicobject_musicLyric");
     }
 }

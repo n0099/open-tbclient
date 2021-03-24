@@ -1,21 +1,23 @@
 package com.baidu.searchbox.anr.ubc;
 
 import android.text.TextUtils;
-import com.baidu.pyramid.runtime.service.c;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.PerfSampleManager;
 import com.baidu.searchbox.config.QuickPersistConfig;
-import com.baidu.ubc.ab;
-/* loaded from: classes5.dex */
+import com.baidu.ubc.UBCManager;
+@Service
+/* loaded from: classes2.dex */
 public class ANRPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
-    private static String UBC_ANR_ID = "1794";
-    private static String ACTIVE_ANR_UPLOAD_TYPE = "1";
-    private static String PASSIVE_ANR_UPLOAD_TYPE = "0";
+    public static String ACTIVE_ANR_UPLOAD_TYPE = "1";
+    public static String PASSIVE_ANR_UPLOAD_TYPE = "0";
+    public static String UBC_ANR_ID = "1794";
 
     @Override // com.baidu.searchbox.PerfSampleManager.IPerfSampleCallback
     public String getSampleFlag() {
-        ab abVar = (ab) c.a(ab.SERVICE_REFERENCE);
-        if (abVar != null) {
-            String uploadType = abVar.getUploadType(UBC_ANR_ID);
+        UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        if (uBCManager != null) {
+            String uploadType = uBCManager.getUploadType(UBC_ANR_ID);
             if (TextUtils.equals(ACTIVE_ANR_UPLOAD_TYPE, uploadType)) {
                 if (!UbcANRRegister.sEnable) {
                     QuickPersistConfig.getInstance().putBoolean(UbcANRRegister.KEY_ANR_ACTIVE_UPLOAD, true);

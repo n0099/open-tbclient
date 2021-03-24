@@ -1,33 +1,34 @@
 package rx.internal.subscriptions;
 
+import h.k;
+import h.m.a;
+import h.n.d;
+import h.r.c;
 import java.util.concurrent.atomic.AtomicReference;
-import rx.c.c;
-import rx.exceptions.a;
-import rx.functions.d;
-import rx.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class CancellableSubscription extends AtomicReference<d> implements k {
-    private static final long serialVersionUID = 5718521705281392066L;
+    public static final long serialVersionUID = 5718521705281392066L;
 
     public CancellableSubscription(d dVar) {
         super(dVar);
     }
 
-    @Override // rx.k
+    @Override // h.k
     public boolean isUnsubscribed() {
         return get() == null;
     }
 
-    @Override // rx.k
+    @Override // h.k
     public void unsubscribe() {
         d andSet;
-        if (get() != null && (andSet = getAndSet(null)) != null) {
-            try {
-                andSet.cancel();
-            } catch (Exception e) {
-                a.N(e);
-                c.onError(e);
-            }
+        if (get() == null || (andSet = getAndSet(null)) == null) {
+            return;
+        }
+        try {
+            andSet.cancel();
+        } catch (Exception e2) {
+            a.e(e2);
+            c.j(e2);
         }
     }
 }

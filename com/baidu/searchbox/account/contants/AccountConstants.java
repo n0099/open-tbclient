@@ -1,5 +1,5 @@
 package com.baidu.searchbox.account.contants;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class AccountConstants {
     public static final int FAILURE = 2;
     public static final int FEMALE_CODE = 0;

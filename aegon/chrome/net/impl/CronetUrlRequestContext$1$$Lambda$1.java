@@ -1,11 +1,11 @@
 package aegon.chrome.net.impl;
 
 import aegon.chrome.net.impl.CronetUrlRequestContext;
-/* loaded from: classes3.dex */
-final /* synthetic */ class CronetUrlRequestContext$1$$Lambda$1 implements Runnable {
-    private final CronetUrlRequestContext.AnonymousClass1 arg$1;
+/* loaded from: classes.dex */
+public final /* synthetic */ class CronetUrlRequestContext$1$$Lambda$1 implements Runnable {
+    public final CronetUrlRequestContext.AnonymousClass1 arg$1;
 
-    private CronetUrlRequestContext$1$$Lambda$1(CronetUrlRequestContext.AnonymousClass1 anonymousClass1) {
+    public CronetUrlRequestContext$1$$Lambda$1(CronetUrlRequestContext.AnonymousClass1 anonymousClass1) {
         this.arg$1 = anonymousClass1;
     }
 

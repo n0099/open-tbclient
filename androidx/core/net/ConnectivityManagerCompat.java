@@ -8,9 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
 import androidx.annotation.RestrictTo;
+import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class ConnectivityManagerCompat {
     public static final int RESTRICT_BACKGROUND_STATUS_DISABLED = 1;
     public static final int RESTRICT_BACKGROUND_STATUS_ENABLED = 3;
@@ -18,38 +19,12 @@ public final class ConnectivityManagerCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public @interface RestrictBackgroundStatus {
     }
 
-    @RequiresPermission("android.permission.ACCESS_NETWORK_STATE")
-    public static boolean isActiveNetworkMetered(@NonNull ConnectivityManager connectivityManager) {
-        if (Build.VERSION.SDK_INT >= 16) {
-            return connectivityManager.isActiveNetworkMetered();
-        }
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetworkInfo != null) {
-            switch (activeNetworkInfo.getType()) {
-                case 0:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 8:
-                default:
-                    return true;
-                case 1:
-                case 7:
-                case 9:
-                    return false;
-            }
-        }
-        return true;
-    }
-
     @Nullable
-    @RequiresPermission("android.permission.ACCESS_NETWORK_STATE")
+    @RequiresPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)
     public static NetworkInfo getNetworkInfoFromBroadcast(@NonNull ConnectivityManager connectivityManager, @NonNull Intent intent) {
         NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra("networkInfo");
         if (networkInfo != null) {
@@ -65,6 +40,16 @@ public final class ConnectivityManagerCompat {
         return 3;
     }
 
-    private ConnectivityManagerCompat() {
+    @RequiresPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)
+    public static boolean isActiveNetworkMetered(@NonNull ConnectivityManager connectivityManager) {
+        if (Build.VERSION.SDK_INT >= 16) {
+            return connectivityManager.isActiveNetworkMetered();
+        }
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetworkInfo == null) {
+            return true;
+        }
+        int type = activeNetworkInfo.getType();
+        return (type == 1 || type == 7 || type == 9) ? false : true;
     }
 }

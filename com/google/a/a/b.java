@@ -5,15 +5,18 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class b extends Binder implements IInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f5256a = null;
+    public static d.g.a.a.b f30874a;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public b(String str) {
         attachInterface(this, str);
+    }
+
+    public boolean a(int i, Parcel parcel) throws RemoteException {
+        return false;
     }
 
     @Override // android.os.IInterface
@@ -34,9 +37,5 @@ public class b extends Binder implements IInterface {
             return true;
         }
         return a(i, parcel);
-    }
-
-    protected boolean a(int i, Parcel parcel) throws RemoteException {
-        return false;
     }
 }

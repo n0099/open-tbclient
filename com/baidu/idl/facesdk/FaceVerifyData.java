@@ -1,5 +1,5 @@
 package com.baidu.idl.facesdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FaceVerifyData {
     public int cols;
     public byte[] mRegDigest;
@@ -8,10 +8,10 @@ public class FaceVerifyData {
     public int nPoints;
     public int rows;
 
-    FaceVerifyData() {
+    public FaceVerifyData() {
     }
 
-    FaceVerifyData(int[] iArr, int[] iArr2, byte[] bArr, int i, int i2, int i3) {
+    public FaceVerifyData(int[] iArr, int[] iArr2, byte[] bArr, int i, int i2, int i3) {
         this.mRegImg = iArr;
         this.mRegLdmk = iArr2;
         this.mRegDigest = bArr;

@@ -11,144 +11,170 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.im.forum.broadcast.a;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.im.forum.broadcast.data.BroadcastMajorHistoryRequestMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseHttpMajorHistoryMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseHttpMajorResidueMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseSocketMajorHistoryMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
-    private boolean gec;
-    private boolean isLoading;
-    private final a kIc;
-    private com.baidu.tieba.im.forum.broadcast.data.a kId;
-    private HttpMessageListener kIe;
-    private long lastId;
-    private final String mForumId;
-    private com.baidu.adp.framework.listener.a netMessageListener;
 
-    public ForumBroadCastMajorHistoryModel(TbPageContext tbPageContext, a aVar, String str) {
+    /* renamed from: e  reason: collision with root package name */
+    public final d.b.i0.d1.i.a.a f17929e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final String f17930f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f17931g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f17932h;
+    public boolean i;
+    public d.b.i0.d1.i.a.b.a j;
+    public d.b.b.c.g.a k;
+    public HttpMessageListener l;
+
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            ForumBroadCastMajorHistoryModel.this.f17931g = false;
+            if (responsedMessage == null) {
+                return;
+            }
+            d.b.i0.d1.i.a.b.a aVar = null;
+            if (responsedMessage instanceof ResponseHttpMajorHistoryMessage) {
+                aVar = ((ResponseHttpMajorHistoryMessage) responsedMessage).getData();
+            } else if (responsedMessage instanceof ResponseSocketMajorHistoryMessage) {
+                aVar = ((ResponseSocketMajorHistoryMessage) responsedMessage).getData();
+            }
+            ForumBroadCastMajorHistoryModel.this.mErrorCode = responsedMessage.getError();
+            ForumBroadCastMajorHistoryModel.this.mErrorString = responsedMessage.getErrorString();
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(ForumBroadCastMajorHistoryModel.this.mErrorCode);
+            errorData.setError_msg(ForumBroadCastMajorHistoryModel.this.mErrorString);
+            if (ForumBroadCastMajorHistoryModel.this.f17929e == null) {
+                return;
+            }
+            if (ForumBroadCastMajorHistoryModel.this.mErrorCode != 0 || aVar == null) {
+                ForumBroadCastMajorHistoryModel.this.f17929e.onServerError(errorData);
+                return;
+            }
+            ForumBroadCastMajorHistoryModel.this.j = aVar;
+            ForumBroadCastMajorHistoryModel.this.G();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends HttpMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage == null) {
+                return;
+            }
+            ForumBroadcastMajorResidueData data = httpResponsedMessage instanceof ResponseHttpMajorResidueMessage ? ((ResponseHttpMajorResidueMessage) httpResponsedMessage).getData() : null;
+            if (ForumBroadCastMajorHistoryModel.this.f17929e != null) {
+                ForumBroadCastMajorHistoryModel.this.f17929e.netResidueCallback(data);
+            }
+        }
+    }
+
+    public ForumBroadCastMajorHistoryModel(TbPageContext tbPageContext, d.b.i0.d1.i.a.a aVar, String str) {
         super(tbPageContext);
-        this.lastId = 0L;
-        this.kId = null;
-        this.netMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669) { // from class: com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                ForumBroadCastMajorHistoryModel.this.isLoading = false;
-                if (responsedMessage != null) {
-                    com.baidu.tieba.im.forum.broadcast.data.a aVar2 = null;
-                    if (responsedMessage instanceof ResponseHttpMajorHistoryMessage) {
-                        aVar2 = ((ResponseHttpMajorHistoryMessage) responsedMessage).getData();
-                    } else if (responsedMessage instanceof ResponseSocketMajorHistoryMessage) {
-                        aVar2 = ((ResponseSocketMajorHistoryMessage) responsedMessage).getData();
-                    }
-                    ForumBroadCastMajorHistoryModel.this.mErrorCode = responsedMessage.getError();
-                    ForumBroadCastMajorHistoryModel.this.mErrorString = responsedMessage.getErrorString();
-                    ErrorData errorData = new ErrorData();
-                    errorData.setError_code(ForumBroadCastMajorHistoryModel.this.mErrorCode);
-                    errorData.setError_msg(ForumBroadCastMajorHistoryModel.this.mErrorString);
-                    if (ForumBroadCastMajorHistoryModel.this.kIc != null) {
-                        if (ForumBroadCastMajorHistoryModel.this.mErrorCode != 0 || aVar2 == null) {
-                            ForumBroadCastMajorHistoryModel.this.kIc.a(errorData);
-                            return;
-                        }
-                        ForumBroadCastMajorHistoryModel.this.kId = aVar2;
-                        ForumBroadCastMajorHistoryModel.this.ctQ();
-                    }
-                }
-            }
-        };
-        this.kIe = new HttpMessageListener(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE) { // from class: com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null) {
-                    ForumBroadcastMajorResidueData forumBroadcastMajorResidueData = null;
-                    if (httpResponsedMessage instanceof ResponseHttpMajorResidueMessage) {
-                        forumBroadcastMajorResidueData = ((ResponseHttpMajorResidueMessage) httpResponsedMessage).getData();
-                    }
-                    if (ForumBroadCastMajorHistoryModel.this.kIc != null) {
-                        ForumBroadCastMajorHistoryModel.this.kIc.a(forumBroadcastMajorResidueData);
-                    }
-                }
-            }
-        };
-        com.baidu.tieba.tbadkCore.a.a.a(309669, ResponseSocketMajorHistoryMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
-        com.baidu.tieba.tbadkCore.a.a.c(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE, "c/f/forum/getForumMangerRights", ResponseHttpMajorResidueMessage.class, true, true, true, true);
-        registerListener(this.netMessageListener);
-        registerListener(this.kIe);
-        this.kIc = aVar;
-        this.mForumId = str;
+        this.f17932h = 0L;
+        this.j = null;
+        this.k = new a(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
+        this.l = new b(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE);
+        d.b.i0.c3.d0.a.h(309669, ResponseSocketMajorHistoryMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
+        d.b.i0.c3.d0.a.e(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE, "c/f/forum/getForumMangerRights", ResponseHttpMajorResidueMessage.class, true, true, true, true);
+        registerListener(this.k);
+        registerListener(this.l);
+        this.f17929e = aVar;
+        this.f17930f = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ctQ() {
-        if (this.kId.cWh() != null && this.kId.cWh().size() > 1) {
-            this.lastId = this.kId.cWh().get(this.kId.cWh().size() - 1).cWn();
+    public void B() {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE);
+        httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
+        httpMessage.addParam("forum_id", this.f17930f);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public boolean C() {
+        d.b.i0.d1.i.a.b.a aVar = this.j;
+        if (aVar == null) {
+            return false;
         }
-        this.kId.sM(this.gec);
-        this.kIc.a(this.kId);
+        return !ListUtils.isEmpty(aVar.b());
     }
 
-    public void bRp() {
-        if (!this.isLoading) {
-            this.gec = false;
-            xQ(2);
-        }
-    }
-
-    public void refresh() {
-        if (!this.isLoading) {
-            this.gec = true;
-            xQ(1);
-        }
-    }
-
-    private void xQ(int i) {
+    public final void D(int i) {
         BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();
         broadcastMajorHistoryRequestMessage.queryType = 1;
         broadcastMajorHistoryRequestMessage.needCount = 15;
         try {
-            broadcastMajorHistoryRequestMessage.forumId = Long.parseLong(this.mForumId);
-        } catch (Exception e) {
+            broadcastMajorHistoryRequestMessage.forumId = Long.parseLong(this.f17930f);
+        } catch (Exception unused) {
             broadcastMajorHistoryRequestMessage.forumId = 0L;
         }
         if (i == 2) {
-            broadcastMajorHistoryRequestMessage.lastId = this.lastId;
-        } else if (i == 1) {
-            broadcastMajorHistoryRequestMessage.lastId = 0L;
-        } else {
+            broadcastMajorHistoryRequestMessage.lastId = this.f17932h;
+        } else if (i != 1) {
             return;
+        } else {
+            broadcastMajorHistoryRequestMessage.lastId = 0L;
         }
-        this.isLoading = true;
+        this.f17931g = true;
         sendMessage(broadcastMajorHistoryRequestMessage);
     }
 
-    public void cWs() {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE);
-        httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-        httpMessage.addParam("forum_id", this.mForumId);
-        MessageManager.getInstance().sendMessage(httpMessage);
+    public void E() {
+        if (this.f17931g) {
+            return;
+        }
+        this.i = false;
+        D(2);
+    }
+
+    public void F() {
+        this.j = null;
+    }
+
+    public final void G() {
+        if (this.j.b() != null && this.j.b().size() > 1) {
+            this.f17932h = this.j.b().get(this.j.b().size() - 1).b();
+        }
+        this.j.e(this.i);
+        this.f17929e.netCallback(this.j);
+    }
+
+    public void H() {
+        if (this.f17931g) {
+            return;
+        }
+        this.i = true;
+        D(1);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
-    }
-
-    public boolean hasData() {
-        return (this.kId == null || y.isEmpty(this.kId.cWh())) ? false : true;
-    }
-
-    public void onDestory() {
-        this.kId = null;
     }
 }

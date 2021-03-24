@@ -1,0 +1,14 @@
+package d.b.g0.a.p.c;
+
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import d.b.g0.a.t1.k.p;
+/* loaded from: classes3.dex */
+public interface u {
+    boolean a(Activity activity, String str, p.b bVar);
+
+    boolean b(Context context, String str);
+
+    boolean c(Activity activity, Uri uri, String str);
+}

@@ -1,192 +1,176 @@
 package com.xiaomi.push;
 
-import com.kwai.video.player.PlayerPostEvent;
-import com.kwai.video.player.PlayerProps;
-import com.tencent.connect.common.Constants;
-/* loaded from: classes5.dex */
-public enum fh {
-    TCP_CONN_FAIL(1),
-    TCP_CONN_TIME(2),
-    PING_RTT(3),
-    CHANNEL_CON_FAIL(4),
-    CHANNEL_CON_OK(5),
-    ICMP_PING_FAIL(6),
-    ICMP_PING_OK(7),
-    CHANNEL_ONLINE_RATE(8),
-    GSLB_REQUEST_SUCCESS(10000),
-    GSLB_TCP_NOACCESS(PlayerPostEvent.MEDIA_INFO_PLAY_TO_END),
-    GSLB_TCP_NETUNREACH(10102),
-    GSLB_TCP_CONNREFUSED(10103),
-    GSLB_TCP_NOROUTETOHOST(10104),
-    GSLB_TCP_TIMEOUT(10105),
-    GSLB_TCP_INVALARG(Constants.REQUEST_SEND_TO_MY_COMPUTER),
-    GSLB_TCP_UKNOWNHOST(Constants.REQUEST_SHARE_TO_TROOP_BAR),
-    GSLB_TCP_ERR_OTHER(10199),
-    GSLB_ERR(10999),
-    CONN_SUCCESS(20000),
-    CONN_TCP_NOACCESS(20101),
-    CONN_TCP_NETUNREACH(20102),
-    CONN_TCP_CONNREFUSED(20103),
-    CONN_TCP_NOROUTETOHOST(20104),
-    CONN_TCP_TIMEOUT(20105),
-    CONN_TCP_INVALARG(20106),
-    CONN_TCP_UKNOWNHOST(20107),
-    CONN_TCP_ERR_OTHER(20199),
-    CONN_XMPP_ERR(20399),
-    CONN_BOSH_UNKNOWNHOST(20407),
-    CONN_BOSH_ERR(20499),
-    BIND_SUCCESS(30000),
-    BIND_TCP_READ_TIMEOUT_DEPRECTED(PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH),
-    BIND_TCP_CONNRESET_DEPRECTED(PlayerProps.FFP_PROP_STRING_STREAM_ID),
-    BIND_TCP_BROKEN_PIPE_DEPRECTED(PlayerProps.FFP_PROP_STRING_DOMAIN),
-    BIND_TCP_READ_TIMEOUT(30108),
-    BIND_TCP_CONNRESET(30109),
-    BIND_TCP_BROKEN_PIPE(30110),
-    BIND_TCP_ERR(30199),
-    BIND_XMPP_ERR(30399),
-    BIND_BOSH_ITEM_NOT_FOUND(30401),
-    BIND_BOSH_ERR(30499),
-    BIND_TIMEOUT(30501),
-    BIND_INVALID_SIG(30502),
-    CHANNEL_TCP_READTIMEOUT_DEPRECTED(40101),
-    CHANNEL_TCP_CONNRESET_DEPRECTED(40102),
-    CHANNEL_TCP_BROKEN_PIPE_DEPRECTED(40103),
-    CHANNEL_TCP_READTIMEOUT(40108),
-    CHANNEL_TCP_CONNRESET(40109),
-    CHANNEL_TCP_BROKEN_PIPE(40110),
-    CHANNEL_TCP_ERR(40199),
-    CHANNEL_XMPPEXCEPTION(40399),
-    CHANNEL_BOSH_ITEMNOTFIND(40401),
-    CHANNEL_BOSH_EXCEPTION(40499),
-    CHANNEL_TIMER_DELAYED(50001),
-    CHANNEL_STATS_COUNTER(8000);
-    
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.xiaomi.push.du;
+import com.xiaomi.push.fl;
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.av;
+/* loaded from: classes7.dex */
+public class fh extends fs {
+
+    /* renamed from: a  reason: collision with root package name */
+    public fc f40501a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f321a;
+    public fd f378a;
 
-    fh(int i) {
-        this.f321a = i;
+    /* renamed from: a  reason: collision with other field name */
+    public Thread f379a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public byte[] f380a;
+
+    public fh(XMPushService xMPushService, fm fmVar) {
+        super(xMPushService, fmVar);
     }
 
-    public static fh a(int i) {
-        switch (i) {
-            case 1:
-                return TCP_CONN_FAIL;
-            case 2:
-                return TCP_CONN_TIME;
-            case 3:
-                return PING_RTT;
-            case 4:
-                return CHANNEL_CON_FAIL;
-            case 5:
-                return CHANNEL_CON_OK;
-            case 6:
-                return ICMP_PING_FAIL;
-            case 7:
-                return ICMP_PING_OK;
-            case 8:
-                return CHANNEL_ONLINE_RATE;
-            case 8000:
-                return CHANNEL_STATS_COUNTER;
-            case 10000:
-                return GSLB_REQUEST_SUCCESS;
-            case PlayerPostEvent.MEDIA_INFO_PLAY_TO_END /* 10101 */:
-                return GSLB_TCP_NOACCESS;
-            case 10102:
-                return GSLB_TCP_NETUNREACH;
-            case 10103:
-                return GSLB_TCP_CONNREFUSED;
-            case 10104:
-                return GSLB_TCP_NOROUTETOHOST;
-            case 10105:
-                return GSLB_TCP_TIMEOUT;
-            case Constants.REQUEST_SEND_TO_MY_COMPUTER /* 10106 */:
-                return GSLB_TCP_INVALARG;
-            case Constants.REQUEST_SHARE_TO_TROOP_BAR /* 10107 */:
-                return GSLB_TCP_UKNOWNHOST;
-            case 10199:
-                return GSLB_TCP_ERR_OTHER;
-            case 10999:
-                return GSLB_ERR;
-            case 20000:
-                return CONN_SUCCESS;
-            case 20101:
-                return CONN_TCP_NOACCESS;
-            case 20102:
-                return CONN_TCP_NETUNREACH;
-            case 20103:
-                return CONN_TCP_CONNREFUSED;
-            case 20104:
-                return CONN_TCP_NOROUTETOHOST;
-            case 20105:
-                return CONN_TCP_TIMEOUT;
-            case 20106:
-                return CONN_TCP_INVALARG;
-            case 20107:
-                return CONN_TCP_UKNOWNHOST;
-            case 20199:
-                return CONN_TCP_ERR_OTHER;
-            case 20399:
-                return CONN_XMPP_ERR;
-            case 20407:
-                return CONN_BOSH_UNKNOWNHOST;
-            case 20499:
-                return CONN_BOSH_ERR;
-            case 30000:
-                return BIND_SUCCESS;
-            case PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH /* 30101 */:
-                return BIND_TCP_READ_TIMEOUT_DEPRECTED;
-            case PlayerProps.FFP_PROP_STRING_STREAM_ID /* 30102 */:
-                return BIND_TCP_CONNRESET_DEPRECTED;
-            case PlayerProps.FFP_PROP_STRING_DOMAIN /* 30103 */:
-                return BIND_TCP_BROKEN_PIPE_DEPRECTED;
-            case 30108:
-                return BIND_TCP_READ_TIMEOUT;
-            case 30109:
-                return BIND_TCP_CONNRESET;
-            case 30110:
-                return BIND_TCP_BROKEN_PIPE;
-            case 30199:
-                return BIND_TCP_ERR;
-            case 30399:
-                return BIND_XMPP_ERR;
-            case 30401:
-                return BIND_BOSH_ITEM_NOT_FOUND;
-            case 30499:
-                return BIND_BOSH_ERR;
-            case 30501:
-                return BIND_TIMEOUT;
-            case 30502:
-                return BIND_INVALID_SIG;
-            case 40101:
-                return CHANNEL_TCP_READTIMEOUT_DEPRECTED;
-            case 40102:
-                return CHANNEL_TCP_CONNRESET_DEPRECTED;
-            case 40103:
-                return CHANNEL_TCP_BROKEN_PIPE_DEPRECTED;
-            case 40108:
-                return CHANNEL_TCP_READTIMEOUT;
-            case 40109:
-                return CHANNEL_TCP_CONNRESET;
-            case 40110:
-                return CHANNEL_TCP_BROKEN_PIPE;
-            case 40199:
-                return CHANNEL_TCP_ERR;
-            case 40399:
-                return CHANNEL_XMPPEXCEPTION;
-            case 40401:
-                return CHANNEL_BOSH_ITEMNOTFIND;
-            case 40499:
-                return CHANNEL_BOSH_EXCEPTION;
-            case 50001:
-                return CHANNEL_TIMER_DELAYED;
-            default:
-                return null;
+    private fa a(boolean z) {
+        fg fgVar = new fg();
+        if (z) {
+            fgVar.a("1");
+        }
+        byte[] m350a = gz.m350a();
+        if (m350a != null) {
+            du.j jVar = new du.j();
+            jVar.a(a.a(m350a));
+            fgVar.a(jVar.m262a(), (String) null);
+        }
+        return fgVar;
+    }
+
+    private void h() {
+        try {
+            this.f40501a = new fc(((fs) this).f408a.getInputStream(), this);
+            this.f378a = new fd(((fs) this).f408a.getOutputStream(), this);
+            fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f40508b + SmallTailInfo.EMOTION_SUFFIX);
+            this.f379a = fiVar;
+            fiVar.start();
+        } catch (Exception e2) {
+            throw new fw("Error to init reader and writer", e2);
         }
     }
 
-    public int a() {
-        return this.f321a;
+    @Override // com.xiaomi.push.fs, com.xiaomi.push.fl
+    public synchronized void a() {
+        h();
+        this.f378a.a();
+    }
+
+    @Override // com.xiaomi.push.fs
+    public synchronized void a(int i, Exception exc) {
+        if (this.f40501a != null) {
+            this.f40501a.b();
+            this.f40501a = null;
+        }
+        if (this.f378a != null) {
+            try {
+                this.f378a.b();
+            } catch (Exception e2) {
+                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            }
+            this.f378a = null;
+        }
+        this.f380a = null;
+        super.a(i, exc);
+    }
+
+    public void a(fa faVar) {
+        if (faVar == null) {
+            return;
+        }
+        if (faVar.m286a()) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("[Slim] RCV blob chid=" + faVar.a() + "; id=" + faVar.e() + "; errCode=" + faVar.b() + "; err=" + faVar.m290c());
+        }
+        if (faVar.a() == 0) {
+            if ("PING".equals(faVar.m283a())) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("[Slim] RCV ping id=" + faVar.e());
+                g();
+            } else if ("CLOSE".equals(faVar.m283a())) {
+                c(13, null);
+            }
+        }
+        for (fl.a aVar : ((fl) this).f397a.values()) {
+            aVar.a(faVar);
+        }
+    }
+
+    @Override // com.xiaomi.push.fl
+    @Deprecated
+    public void a(gc gcVar) {
+        b(fa.a(gcVar, (String) null));
+    }
+
+    @Override // com.xiaomi.push.fl
+    public synchronized void a(av.b bVar) {
+        ez.a(bVar, c(), this);
+    }
+
+    @Override // com.xiaomi.push.fl
+    public synchronized void a(String str, String str2) {
+        ez.a(str, str2, this);
+    }
+
+    @Override // com.xiaomi.push.fs
+    /* renamed from: a  reason: collision with other method in class */
+    public void mo296a(boolean z) {
+        if (this.f378a == null) {
+            throw new fw("The BlobWriter is null.");
+        }
+        fa a2 = a(z);
+        com.xiaomi.channel.commonutils.logger.b.m51a("[Slim] SND ping id=" + a2.e());
+        b(a2);
+        f();
+    }
+
+    @Override // com.xiaomi.push.fs, com.xiaomi.push.fl
+    public void a(fa[] faVarArr) {
+        for (fa faVar : faVarArr) {
+            b(faVar);
+        }
+    }
+
+    @Override // com.xiaomi.push.fs, com.xiaomi.push.fl
+    public boolean a() {
+        return true;
+    }
+
+    @Override // com.xiaomi.push.fs, com.xiaomi.push.fl
+    public synchronized byte[] a() {
+        if (this.f380a == null && !TextUtils.isEmpty(((fl) this).f394a)) {
+            String m593a = com.xiaomi.push.service.bi.m593a();
+            this.f380a = com.xiaomi.push.service.be.a(((fl) this).f394a.getBytes(), (((fl) this).f394a.substring(((fl) this).f394a.length() / 2) + m593a.substring(m593a.length() / 2)).getBytes());
+        }
+        return this.f380a;
+    }
+
+    @Override // com.xiaomi.push.fl
+    public void b(fa faVar) {
+        fd fdVar = this.f378a;
+        if (fdVar == null) {
+            throw new fw("the writer is null.");
+        }
+        try {
+            int a2 = fdVar.a(faVar);
+            ((fl) this).f40510d = System.currentTimeMillis();
+            String f2 = faVar.f();
+            if (!TextUtils.isEmpty(f2)) {
+                gq.a(((fl) this).f393a, f2, a2, false, true, System.currentTimeMillis());
+            }
+            for (fl.a aVar : ((fl) this).f400b.values()) {
+                aVar.a(faVar);
+            }
+        } catch (Exception e2) {
+            throw new fw(e2);
+        }
+    }
+
+    public void b(gc gcVar) {
+        if (gcVar == null) {
+            return;
+        }
+        for (fl.a aVar : ((fl) this).f397a.values()) {
+            aVar.a(gcVar);
+        }
     }
 }

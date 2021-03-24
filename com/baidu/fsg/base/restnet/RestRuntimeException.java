@@ -1,31 +1,24 @@
 package com.baidu.fsg.base.restnet;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class RestRuntimeException extends RuntimeException {
-    private static final long serialVersionUID = -6136655840566008535L;
+    public static final long serialVersionUID = -6136655840566008535L;
 
     public RestRuntimeException(String str) {
         super(str);
     }
 
-    public RestRuntimeException(String str, Throwable th) {
-        super(str, th);
-    }
-
-    private static String buildMessage(String str, Throwable th) {
+    public static String buildMessage(String str, Throwable th) {
         if (th != null) {
             StringBuilder sb = new StringBuilder();
             if (str != null) {
-                sb.append(str).append("; ");
+                sb.append(str);
+                sb.append("; ");
             }
-            sb.append("rest exception is ").append(th);
+            sb.append("rest exception is ");
+            sb.append(th);
             return sb.toString();
         }
         return str;
-    }
-
-    @Override // java.lang.Throwable
-    public String getMessage() {
-        return buildMessage(super.getMessage(), getCause());
     }
 
     public boolean contains(Class<?> cls) {
@@ -52,5 +45,14 @@ public class RestRuntimeException extends RuntimeException {
             cause = cause.getCause();
         }
         return false;
+    }
+
+    @Override // java.lang.Throwable
+    public String getMessage() {
+        return buildMessage(super.getMessage(), getCause());
+    }
+
+    public RestRuntimeException(String str, Throwable th) {
+        super(str, th);
     }
 }

@@ -6,13 +6,20 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import java.net.URLDecoder;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class NASLib extends Activity {
-    private static NASCallBack callback;
+    public static NASCallBack callback;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface NASCallBack {
         void callback(String str, String str2);
+    }
+
+    private void load_uri() {
+        Uri data = getIntent().getData();
+        if (data != null) {
+            parseRequest(data.toString(), true, getApplicationContext());
+        }
     }
 
     public static void onAppStart(Context context) {
@@ -23,8 +30,44 @@ public class NASLib extends Activity {
         Logger.onClientExit(context);
     }
 
-    public static void setLooperDisabled(boolean z) {
-        Logger.looperDisabled = z;
+    private String parseRequest(String str, boolean z, Context context) {
+        String str2;
+        String str3 = null;
+        try {
+            if (str.contains(Info.kUrlSecStart)) {
+                String trim = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + 7), "utf-8")).trim();
+                if (trim.contains(Info.kUrlLogStart)) {
+                    String[] split = trim.split(Info.kUrlLogStart);
+                    trim = split[0];
+                    str2 = split[1];
+                } else {
+                    str2 = null;
+                }
+                Logger.onCallUp();
+                if (str2 != null) {
+                    Logger.recordServerAction(context, "%s", str2);
+                }
+                if (trim != null) {
+                    try {
+                        if (callback != null) {
+                            callback.callback(str, trim);
+                        } else if (z) {
+                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(trim)));
+                        }
+                        return trim;
+                    } catch (Exception e2) {
+                        e = e2;
+                        str3 = trim;
+                        e.printStackTrace();
+                        return str3;
+                    }
+                }
+                return null;
+            }
+            return null;
+        } catch (Exception e3) {
+            e = e3;
+        }
     }
 
     public static void recordCustomAction(Context context, String str) {
@@ -35,15 +78,12 @@ public class NASLib extends Activity {
         callback = nASCallBack;
     }
 
-    public String parseUri(Context context, Uri uri) {
-        if (uri != null) {
-            return parseRequest(uri.toString(), false, context);
-        }
-        return null;
+    public static void setLooperDisabled(boolean z) {
+        Logger.looperDisabled = z;
     }
 
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         requestWindowFeature(1);
         getWindow().setFlags(1024, 2048);
@@ -52,51 +92,10 @@ public class NASLib extends Activity {
         finish();
     }
 
-    private String parseRequest(String str, boolean z, Context context) {
-        String str2;
-        String str3;
-        try {
-        } catch (Exception e) {
-            e = e;
-            str2 = null;
-        }
-        if (str.contains(Info.kUrlSecStart)) {
-            str2 = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + Info.kUrlSecStart.length()), "utf-8")).trim();
-            if (str2.contains(Info.kUrlLogStart)) {
-                String[] split = str2.split(Info.kUrlLogStart);
-                str2 = split[0];
-                str3 = split[1];
-            } else {
-                str3 = null;
-            }
-            Logger.onCallUp();
-            if (str3 != null) {
-                Logger.recordServerAction(context, "%s", str3);
-            }
-            if (str2 != null) {
-                try {
-                    if (callback != null) {
-                        callback.callback(str, str2);
-                    } else if (z) {
-                        startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str2)));
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    return str2;
-                }
-            } else {
-                str2 = null;
-            }
-            return str2;
+    public String parseUri(Context context, Uri uri) {
+        if (uri != null) {
+            return parseRequest(uri.toString(), false, context);
         }
         return null;
-    }
-
-    private void load_uri() {
-        Uri data = getIntent().getData();
-        if (data != null) {
-            parseRequest(data.toString(), true, getApplicationContext());
-        }
     }
 }

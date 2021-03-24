@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import android.widget.FrameLayout;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class VideoPlayer {
     public static final int DATA_ID_ATTRIBUTE_ID = 8;
     public static final int DATA_ID_AUTOPLAY = 15;
@@ -43,10 +43,10 @@ public abstract class VideoPlayer {
     public static final int NOTIFY_SET_VOLUME = 5;
     public static final int NOTIFY_SET_ZEUS_VIDEO_EXT = 8;
     public static final int NOTIFY_UPDATE_VIDEO_RECT = 7;
-    protected Context mContext;
-    protected VideoPlayerListener mListener;
+    public Context mContext;
+    public VideoPlayerListener mListener;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface VideoPlayerListener {
         void onEnded();
 

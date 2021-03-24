@@ -2,18 +2,24 @@ package com.baidu.ufosdk.d;
 
 import android.webkit.WebView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3615a;
-    private boolean b = true;
-    private WeakReference c;
-    private String d;
+    public int f22932a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f22933b = true;
+
+    /* renamed from: c  reason: collision with root package name */
+    public WeakReference f22934c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f22935d;
 
     public c(WebView webView, String str, int i) {
-        this.c = new WeakReference(webView);
-        this.d = str;
-        this.f3615a = i;
+        this.f22934c = new WeakReference(webView);
+        this.f22935d = str;
+        this.f22932a = i;
     }
 }

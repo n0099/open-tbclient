@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e extends com.baidu.mobads.production.a {
-    private ArrayList<IXAdInstanceInfo> A;
-    private boolean B;
-    private int C;
-    private f z;
+    public ArrayList<IXAdInstanceInfo> A;
+    public boolean B;
+    public int C;
+    public f z;
 
     public e(Context context) {
         super(context);
@@ -32,8 +32,84 @@ public class e extends com.baidu.mobads.production.a {
         this.C = 8000;
     }
 
+    public void a(Context context, int i, int i2, IXAdInstanceInfo iXAdInstanceInfo) {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void a(RequestParameters requestParameters) {
+        int width = requestParameters.getWidth();
+        int height = requestParameters.getHeight();
+        if (width > 0 && height > 0) {
+            this.z.d(width);
+            this.z.e(height);
+        }
+        this.z.a(requestParameters.getExtras());
+        super.a(requestParameters);
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        this.A = iXAdContainer.getAdContainerContext().getAdResponseInfo().getAdInstanceList();
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void b(IXAdResponseInfo iXAdResponseInfo) {
+    }
+
+    public void c(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
+        try {
+            ((IXAdDummyContainer) this.f8440h).onComplete(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, null);
+        } catch (Exception unused) {
+        }
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void d() {
+        this.m = this.C;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public boolean q() {
+        return this.B;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void request() {
+        super.a(this.z);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    /* renamed from: b */
+    public com.baidu.mobads.vo.d getAdRequestInfo() {
+        return this.z;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void c() {
+        this.f8440h.load();
+    }
+
+    public void d(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
+        try {
+            ((IXAdDummyContainer) this.f8440h).onCstartcard(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(0, iXAdInstanceInfo.getCstartcardTrackers()));
+        } catch (Exception unused) {
+        }
+    }
+
+    public void b(View view, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
+        a(view, iXAdInstanceInfo, -1, iXAdFeedsRequestParameters);
+    }
+
     public e(Context context, String str) {
         this(context, str, true);
+    }
+
+    public void b(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
+        try {
+            ((IXAdDummyContainer) this.f8440h).onStart(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(0, iXAdInstanceInfo.getStartTrackers()));
+        } catch (Exception unused) {
+        }
     }
 
     public e(Context context, String str, boolean z) {
@@ -44,8 +120,20 @@ public class e extends com.baidu.mobads.production.a {
         this(context, str, true, i);
     }
 
+    public void b(Context context, int i, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
+        try {
+            ((IXAdDummyContainer) this.f8440h).onFullScreen(context, i, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getFullScreenTrackers()));
+        } catch (Exception unused) {
+        }
+    }
+
     public e(Context context, String str, boolean z, int i) {
         this(context, str, IXAdConstants4PDK.SlotType.SLOT_TYPE_FEEDS, z, i);
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
+        pVar.a(bVar, i);
     }
 
     public e(Context context, String str, IXAdConstants4PDK.SlotType slotType, boolean z, int i) {
@@ -79,57 +167,18 @@ public class e extends com.baidu.mobads.production.a {
     }
 
     @Override // com.baidu.mobads.production.a
-    public void a(RequestParameters requestParameters) {
-        int width = requestParameters.getWidth();
-        int height = requestParameters.getHeight();
-        if (width > 0 && height > 0) {
-            this.z.d(width);
-            this.z.e(height);
-        }
-        this.z.a(requestParameters.getExtras());
-        super.a(requestParameters);
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void d() {
-        this.m = this.C;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void request() {
-        super.a(this.z);
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
-        pVar.a(bVar, i);
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+    public void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
         iXAdContainer.start();
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-        this.A = iXAdContainer.getAdContainerContext().getAdResponseInfo().getAdInstanceList();
     }
 
     public ArrayList<IXAdInstanceInfo> a() {
         return this.A;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    /* renamed from: b */
-    public com.baidu.mobads.vo.d getAdRequestInfo() {
-        return this.z;
-    }
-
     public void a(View view, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
-            ((IXAdDummyContainer) this.h).onImpression(view, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(-1, iXAdInstanceInfo.getThirdImpressionTrackingUrls()));
-        } catch (Exception e) {
+            ((IXAdDummyContainer) this.f8440h).onImpression(view, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(-1, iXAdInstanceInfo.getThirdImpressionTrackingUrls()));
+        } catch (Exception unused) {
         }
     }
 
@@ -146,63 +195,28 @@ public class e extends com.baidu.mobads.production.a {
             stringBuffer.append("_&_");
             stringBuffer.append(iXAdInstanceInfo.getTitle());
             stringBuffer.append("_&_");
-            q.f2399a = stringBuffer.toString();
-        } catch (Exception e) {
+            q.f8305a = stringBuffer.toString();
+        } catch (Exception unused) {
         }
         try {
-            return ((IXAdDummyContainer) this.h).isAdAvailable(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
-        } catch (Exception e2) {
+            return ((IXAdDummyContainer) this.f8440h).isAdAvailable(context, iXAdInstanceInfo, iXAdFeedsRequestParameters);
+        } catch (Exception unused2) {
             return false;
         }
-    }
-
-    public void b(View view, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        a(view, iXAdInstanceInfo, -1, iXAdFeedsRequestParameters);
     }
 
     public void a(View view, IXAdInstanceInfo iXAdInstanceInfo, int i, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
             getAdRequestInfo().d().setClickView(view);
-            ((IXAdDummyContainer) this.h).onClick(view, iXAdInstanceInfo, i, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getThirdClickTrackingUrls()));
-        } catch (Exception e) {
-        }
-    }
-
-    public void b(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        try {
-            ((IXAdDummyContainer) this.h).onStart(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(0, iXAdInstanceInfo.getStartTrackers()));
-        } catch (Exception e) {
-        }
-    }
-
-    public void a(Context context, int i, int i2, IXAdInstanceInfo iXAdInstanceInfo) {
-    }
-
-    public void c(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        try {
-            ((IXAdDummyContainer) this.h).onComplete(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, null);
-        } catch (Exception e) {
+            ((IXAdDummyContainer) this.f8440h).onClick(view, iXAdInstanceInfo, i, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getThirdClickTrackingUrls()));
+        } catch (Exception unused) {
         }
     }
 
     public void a(Context context, int i, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
         try {
-            ((IXAdDummyContainer) this.h).onClose(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getCloseTrackers()));
-        } catch (Exception e) {
-        }
-    }
-
-    public void d(Context context, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        try {
-            ((IXAdDummyContainer) this.h).onCstartcard(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(0, iXAdInstanceInfo.getCstartcardTrackers()));
-        } catch (Exception e) {
-        }
-    }
-
-    public void b(Context context, int i, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-        try {
-            ((IXAdDummyContainer) this.h).onFullScreen(context, i, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getFullScreenTrackers()));
-        } catch (Exception e) {
+            ((IXAdDummyContainer) this.f8440h).onClose(context, iXAdInstanceInfo, iXAdFeedsRequestParameters, a(i, iXAdInstanceInfo.getCloseTrackers()));
+        } catch (Exception unused) {
         }
     }
 
@@ -211,19 +225,5 @@ public class e extends com.baidu.mobads.production.a {
         hashMap.put(XAdSDKFoundationFacade.getInstance().getAdConstants().feedsTrackerParameterKeyProgress(), Integer.valueOf(i));
         hashMap.put(XAdSDKFoundationFacade.getInstance().getAdConstants().feedsTrackerParameterKeyList(), list);
         return hashMap;
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public void c() {
-        this.h.load();
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public void b(IXAdResponseInfo iXAdResponseInfo) {
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public boolean q() {
-        return this.B;
     }
 }

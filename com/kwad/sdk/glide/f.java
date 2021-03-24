@@ -12,102 +12,120 @@ import com.kwad.sdk.glide.request.a.j;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeType>> implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final com.kwad.sdk.glide.request.f f6605a = new com.kwad.sdk.glide.request.f().a(com.kwad.sdk.glide.load.engine.h.c).a(Priority.LOW).b(true);
-    private final Context b;
-    private final g c;
-    private final Class<TranscodeType> d;
-    private final c e;
-    private final e f;
-    @NonNull
-    private h<?, ? super TranscodeType> g;
-    @Nullable
-    private Object h;
-    @Nullable
-    private List<com.kwad.sdk.glide.request.e<TranscodeType>> i;
-    @Nullable
-    private f<TranscodeType> j;
-    @Nullable
-    private f<TranscodeType> k;
-    @Nullable
-    private Float l;
-    private boolean m = true;
-    private boolean n;
-    private boolean o;
+    public static final com.kwad.sdk.glide.request.f f35156a = new com.kwad.sdk.glide.request.f().a(com.kwad.sdk.glide.load.engine.h.f35537c).a(Priority.LOW).b(true);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final Context f35157b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final g f35158c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Class<TranscodeType> f35159d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final c f35160e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final e f35161f;
+    @NonNull
+
+    /* renamed from: g  reason: collision with root package name */
+    public h<?, ? super TranscodeType> f35162g;
+    @Nullable
+
+    /* renamed from: h  reason: collision with root package name */
+    public Object f35163h;
+    @Nullable
+    public List<com.kwad.sdk.glide.request.e<TranscodeType>> i;
+    @Nullable
+    public f<TranscodeType> j;
+    @Nullable
+    public f<TranscodeType> k;
+    @Nullable
+    public Float l;
+    public boolean m = true;
+    public boolean n;
+    public boolean o;
+
     /* renamed from: com.kwad.sdk.glide.f$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f6606a;
+        public static final /* synthetic */ int[] f35164a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final /* synthetic */ int[] f35165b;
 
         static {
+            int[] iArr = new int[Priority.values().length];
+            f35165b = iArr;
             try {
-                b[Priority.LOW.ordinal()] = 1;
-            } catch (NoSuchFieldError e) {
+                iArr[Priority.LOW.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
             try {
-                b[Priority.NORMAL.ordinal()] = 2;
-            } catch (NoSuchFieldError e2) {
+                f35165b[Priority.NORMAL.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
             try {
-                b[Priority.HIGH.ordinal()] = 3;
-            } catch (NoSuchFieldError e3) {
+                f35165b[Priority.HIGH.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
             try {
-                b[Priority.IMMEDIATE.ordinal()] = 4;
-            } catch (NoSuchFieldError e4) {
+                f35165b[Priority.IMMEDIATE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
-            f6606a = new int[ImageView.ScaleType.values().length];
+            int[] iArr2 = new int[ImageView.ScaleType.values().length];
+            f35164a = iArr2;
             try {
-                f6606a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 1;
-            } catch (NoSuchFieldError e5) {
-            }
-            try {
-                f6606a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 2;
-            } catch (NoSuchFieldError e6) {
+                iArr2[ImageView.ScaleType.CENTER_CROP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused5) {
             }
             try {
-                f6606a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 3;
-            } catch (NoSuchFieldError e7) {
+                f35164a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused6) {
             }
             try {
-                f6606a[ImageView.ScaleType.FIT_START.ordinal()] = 4;
-            } catch (NoSuchFieldError e8) {
+                f35164a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 3;
+            } catch (NoSuchFieldError unused7) {
             }
             try {
-                f6606a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
-            } catch (NoSuchFieldError e9) {
+                f35164a[ImageView.ScaleType.FIT_START.ordinal()] = 4;
+            } catch (NoSuchFieldError unused8) {
             }
             try {
-                f6606a[ImageView.ScaleType.FIT_XY.ordinal()] = 6;
-            } catch (NoSuchFieldError e10) {
+                f35164a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError unused9) {
             }
             try {
-                f6606a[ImageView.ScaleType.CENTER.ordinal()] = 7;
-            } catch (NoSuchFieldError e11) {
+                f35164a[ImageView.ScaleType.FIT_XY.ordinal()] = 6;
+            } catch (NoSuchFieldError unused10) {
             }
             try {
-                f6606a[ImageView.ScaleType.MATRIX.ordinal()] = 8;
-            } catch (NoSuchFieldError e12) {
+                f35164a[ImageView.ScaleType.CENTER.ordinal()] = 7;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                f35164a[ImageView.ScaleType.MATRIX.ordinal()] = 8;
+            } catch (NoSuchFieldError unused12) {
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @SuppressLint({"CheckResult"})
     public f(@NonNull c cVar, g gVar, Class<TranscodeType> cls, Context context) {
-        this.e = cVar;
-        this.c = gVar;
-        this.d = cls;
-        this.b = context;
-        this.g = gVar.b(cls);
-        this.f = cVar.e();
+        this.f35160e = cVar;
+        this.f35158c = gVar;
+        this.f35159d = cls;
+        this.f35157b = context;
+        this.f35162g = gVar.b(cls);
+        this.f35161f = cVar.e();
         a(gVar.h());
         a((com.kwad.sdk.glide.request.a<?>) gVar.i());
     }
@@ -115,17 +133,17 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
     private <Y extends j<TranscodeType>> Y a(@NonNull Y y, @Nullable com.kwad.sdk.glide.request.e<TranscodeType> eVar, com.kwad.sdk.glide.request.a<?> aVar, Executor executor) {
         com.kwad.sdk.glide.g.j.a(y);
         if (this.n) {
-            com.kwad.sdk.glide.request.c b = b(y, eVar, aVar, executor);
-            com.kwad.sdk.glide.request.c b2 = y.b();
-            if (!b.a(b2) || a(aVar, b2)) {
-                this.c.a((j<?>) y);
-                y.a(b);
-                this.c.a(y, b);
-            } else {
-                b.h();
-                if (!((com.kwad.sdk.glide.request.c) com.kwad.sdk.glide.g.j.a(b2)).c()) {
-                    b2.a();
-                }
+            com.kwad.sdk.glide.request.c b2 = b(y, eVar, aVar, executor);
+            com.kwad.sdk.glide.request.c b3 = y.b();
+            if (!b2.a(b3) || a(aVar, b3)) {
+                this.f35158c.a((j<?>) y);
+                y.a(b2);
+                this.f35158c.a(y, b2);
+                return y;
+            }
+            b2.h();
+            if (!((com.kwad.sdk.glide.request.c) com.kwad.sdk.glide.g.j.a(b3)).c()) {
+                b3.a();
             }
             return y;
         }
@@ -133,23 +151,24 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
     }
 
     private com.kwad.sdk.glide.request.c a(j<TranscodeType> jVar, com.kwad.sdk.glide.request.e<TranscodeType> eVar, com.kwad.sdk.glide.request.a<?> aVar, com.kwad.sdk.glide.request.d dVar, h<?, ? super TranscodeType> hVar, Priority priority, int i, int i2, Executor executor) {
-        return SingleRequest.a(this.b, this.f, this.h, this.d, aVar, i, i2, priority, jVar, eVar, this.i, dVar, this.f.c(), hVar.b(), executor);
+        Context context = this.f35157b;
+        e eVar2 = this.f35161f;
+        return SingleRequest.a(context, eVar2, this.f35163h, this.f35159d, aVar, i, i2, priority, jVar, eVar, this.i, dVar, eVar2.c(), hVar.b(), executor);
     }
 
     private com.kwad.sdk.glide.request.c a(j<TranscodeType> jVar, @Nullable com.kwad.sdk.glide.request.e<TranscodeType> eVar, @Nullable com.kwad.sdk.glide.request.d dVar, h<?, ? super TranscodeType> hVar, Priority priority, int i, int i2, com.kwad.sdk.glide.request.a<?> aVar, Executor executor) {
         com.kwad.sdk.glide.request.b bVar;
         com.kwad.sdk.glide.request.b bVar2;
         if (this.k != null) {
-            com.kwad.sdk.glide.request.b bVar3 = new com.kwad.sdk.glide.request.b(dVar);
-            bVar = bVar3;
-            bVar2 = bVar3;
+            bVar2 = new com.kwad.sdk.glide.request.b(dVar);
+            bVar = bVar2;
         } else {
             bVar = null;
             bVar2 = dVar;
         }
-        com.kwad.sdk.glide.request.c b = b(jVar, eVar, bVar2, hVar, priority, i, i2, aVar, executor);
+        com.kwad.sdk.glide.request.c b2 = b(jVar, eVar, bVar2, hVar, priority, i, i2, aVar, executor);
         if (bVar == null) {
-            return b;
+            return b2;
         }
         int A = this.k.A();
         int C = this.k.C();
@@ -157,8 +176,10 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
             A = aVar.A();
             C = aVar.C();
         }
-        bVar.a(b, this.k.a(jVar, eVar, bVar, this.k.g, this.k.z(), A, C, this.k, executor));
-        return bVar;
+        f<TranscodeType> fVar = this.k;
+        com.kwad.sdk.glide.request.b bVar3 = bVar;
+        bVar3.a(b2, fVar.a(jVar, eVar, bVar, fVar.f35162g, fVar.z(), A, C, this.k, executor));
+        return bVar3;
     }
 
     @SuppressLint({"CheckResult"})
@@ -174,35 +195,34 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
 
     @NonNull
     private Priority b(@NonNull Priority priority) {
-        switch (priority) {
-            case LOW:
-                return Priority.NORMAL;
-            case NORMAL:
-                return Priority.HIGH;
-            case HIGH:
-            case IMMEDIATE:
-                return Priority.IMMEDIATE;
-            default:
+        int i = AnonymousClass1.f35165b[priority.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i == 3 || i == 4) {
+                    return Priority.IMMEDIATE;
+                }
                 throw new IllegalArgumentException("unknown priority: " + z());
+            }
+            return Priority.HIGH;
         }
+        return Priority.NORMAL;
     }
 
     @NonNull
     private f<TranscodeType> b(@Nullable Object obj) {
-        this.h = obj;
+        this.f35163h = obj;
         this.n = true;
         return this;
     }
 
     private com.kwad.sdk.glide.request.c b(j<TranscodeType> jVar, @Nullable com.kwad.sdk.glide.request.e<TranscodeType> eVar, com.kwad.sdk.glide.request.a<?> aVar, Executor executor) {
-        return a(jVar, eVar, (com.kwad.sdk.glide.request.d) null, this.g, aVar.z(), aVar.A(), aVar.C(), aVar, executor);
+        return a(jVar, eVar, (com.kwad.sdk.glide.request.d) null, this.f35162g, aVar.z(), aVar.A(), aVar.C(), aVar, executor);
     }
 
-    /* JADX WARN: Type inference failed for: r1v4, types: [com.kwad.sdk.glide.request.a] */
+    /* JADX WARN: Type inference failed for: r0v5, types: [com.kwad.sdk.glide.request.a] */
     private com.kwad.sdk.glide.request.c b(j<TranscodeType> jVar, com.kwad.sdk.glide.request.e<TranscodeType> eVar, @Nullable com.kwad.sdk.glide.request.d dVar, h<?, ? super TranscodeType> hVar, Priority priority, int i, int i2, com.kwad.sdk.glide.request.a<?> aVar, Executor executor) {
-        int i3;
-        int i4;
-        if (this.j == null) {
+        f<TranscodeType> fVar = this.j;
+        if (fVar == null) {
             if (this.l != null) {
                 com.kwad.sdk.glide.request.h hVar2 = new com.kwad.sdk.glide.request.h(dVar);
                 hVar2.a(a(jVar, eVar, aVar, hVar2, hVar, priority, i, i2, executor), a(jVar, eVar, aVar.clone().a(this.l.floatValue()), hVar2, hVar, b(priority), i, i2, executor));
@@ -212,22 +232,21 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
         } else if (this.o) {
             throw new IllegalStateException("You cannot use a request as both the main request and a thumbnail, consider using clone() on the request(s) passed to thumbnail()");
         } else {
-            h<?, ? super TranscodeType> hVar3 = this.j.m ? hVar : this.j.g;
+            h<?, ? super TranscodeType> hVar3 = fVar.m ? hVar : fVar.f35162g;
             Priority z = this.j.y() ? this.j.z() : b(priority);
             int A = this.j.A();
             int C = this.j.C();
-            if (!k.a(i, i2) || this.j.B()) {
-                i3 = C;
-                i4 = A;
-            } else {
-                int A2 = aVar.A();
-                i3 = aVar.C();
-                i4 = A2;
+            if (k.a(i, i2) && !this.j.B()) {
+                A = aVar.A();
+                C = aVar.C();
             }
+            int i3 = A;
+            int i4 = C;
             com.kwad.sdk.glide.request.h hVar4 = new com.kwad.sdk.glide.request.h(dVar);
             com.kwad.sdk.glide.request.c a2 = a(jVar, eVar, aVar, hVar4, hVar, priority, i, i2, executor);
             this.o = true;
-            com.kwad.sdk.glide.request.c a3 = this.j.a(jVar, eVar, hVar4, hVar3, z, i4, i3, this.j, executor);
+            f<TranscodeType> fVar2 = this.j;
+            com.kwad.sdk.glide.request.c a3 = fVar2.a(jVar, eVar, hVar4, hVar3, z, i3, i4, fVar2, executor);
             this.o = false;
             hVar4.a(a2, a3);
             return hVar4;
@@ -240,7 +259,7 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
     /* renamed from: a */
     public f<TranscodeType> clone() {
         f<TranscodeType> fVar = (f) super.clone();
-        fVar.g = (h<?, ? super TranscodeType>) fVar.g.clone();
+        fVar.f35162g = (h<?, ? super TranscodeType>) fVar.f35162g.clone();
         return fVar;
     }
 
@@ -272,7 +291,7 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
 
     @NonNull
     public j<TranscodeType> a(int i, int i2) {
-        return a((f<TranscodeType>) com.kwad.sdk.glide.request.a.g.a(this.c, i, i2));
+        return a((f<TranscodeType>) com.kwad.sdk.glide.request.a.g.a(this.f35158c, i, i2));
     }
 
     @NonNull
@@ -281,36 +300,34 @@ public class f<TranscodeType> extends com.kwad.sdk.glide.request.a<f<TranscodeTy
     }
 
     @NonNull
-    <Y extends j<TranscodeType>> Y a(@NonNull Y y, @Nullable com.kwad.sdk.glide.request.e<TranscodeType> eVar, Executor executor) {
+    public <Y extends j<TranscodeType>> Y a(@NonNull Y y, @Nullable com.kwad.sdk.glide.request.e<TranscodeType> eVar, Executor executor) {
         return (Y) a(y, eVar, this, executor);
     }
 
     @NonNull
     public com.kwad.sdk.glide.request.a.k<ImageView, TranscodeType> a(@NonNull ImageView imageView) {
-        f<TranscodeType> fVar;
+        com.kwad.sdk.glide.request.a<?> aVar;
         k.a();
         com.kwad.sdk.glide.g.j.a(imageView);
         if (!e() && d() && imageView.getScaleType() != null) {
-            switch (AnonymousClass1.f6606a[imageView.getScaleType().ordinal()]) {
+            switch (AnonymousClass1.f35164a[imageView.getScaleType().ordinal()]) {
                 case 1:
-                    fVar = clone().f();
+                    aVar = c().f();
                     break;
                 case 2:
-                    fVar = clone().h();
+                case 6:
+                    aVar = c().h();
                     break;
                 case 3:
                 case 4:
                 case 5:
-                    fVar = clone().g();
-                    break;
-                case 6:
-                    fVar = clone().h();
+                    aVar = c().g();
                     break;
             }
-            return (com.kwad.sdk.glide.request.a.k) a(this.f.a(imageView, this.d), null, fVar, com.kwad.sdk.glide.g.e.a());
+            return (com.kwad.sdk.glide.request.a.k) a(this.f35161f.a(imageView, this.f35159d), null, aVar, com.kwad.sdk.glide.g.e.a());
         }
-        fVar = this;
-        return (com.kwad.sdk.glide.request.a.k) a(this.f.a(imageView, this.d), null, fVar, com.kwad.sdk.glide.g.e.a());
+        aVar = this;
+        return (com.kwad.sdk.glide.request.a.k) a(this.f35161f.a(imageView, this.f35159d), null, aVar, com.kwad.sdk.glide.g.e.a());
     }
 
     @NonNull

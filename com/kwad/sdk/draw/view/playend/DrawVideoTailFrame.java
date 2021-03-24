@@ -25,30 +25,44 @@ import com.kwad.sdk.draw.view.DrawDownloadProgressBar;
 import com.kwad.sdk.reward.widget.AppScoreView;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private AdBaseFrameLayout f6438a;
-    private AdTemplate b;
-    private AdInfo c;
+    public AdBaseFrameLayout f34625a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AdTemplate f34626b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdInfo f34627c;
     @Nullable
-    private b d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b f34628d;
     @Nullable
-    private KsAppDownloadListener e;
-    private ImageView f;
-    private ViewGroup g;
-    private ImageView h;
-    private TextView i;
-    private AppScoreView j;
-    private TextView k;
-    private TextView l;
-    private DrawDownloadProgressBar m;
-    private ViewGroup n;
-    private TextView o;
-    private TextView p;
-    private KsDrawAd.AdInteractionListener q;
-    private KsLogoView r;
+
+    /* renamed from: e  reason: collision with root package name */
+    public KsAppDownloadListener f34629e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f34630f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ViewGroup f34631g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ImageView f34632h;
+    public TextView i;
+    public AppScoreView j;
+    public TextView k;
+    public TextView l;
+    public DrawDownloadProgressBar m;
+    public ViewGroup n;
+    public TextView o;
+    public TextView p;
+    public KsDrawAd.AdInteractionListener q;
+    public KsLogoView r;
 
     public DrawVideoTailFrame(@NonNull Context context) {
         super(context);
@@ -66,16 +80,17 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     }
 
     private void a(Context context) {
-        inflate(context, R.layout.ksad_draw_video_tailframe, this);
-        this.f = (ImageView) findViewById(R.id.ksad_video_cover);
-        this.g = (ViewGroup) findViewById(R.id.ksad_app_container);
-        this.h = (ImageView) findViewById(R.id.ksad_app_icon);
+        FrameLayout.inflate(context, R.layout.ksad_draw_video_tailframe, this);
+        this.f34630f = (ImageView) findViewById(R.id.ksad_video_cover);
+        this.f34631g = (ViewGroup) findViewById(R.id.ksad_app_container);
+        this.f34632h = (ImageView) findViewById(R.id.ksad_app_icon);
         this.i = (TextView) findViewById(R.id.ksad_app_name);
         this.j = (AppScoreView) findViewById(R.id.ksad_app_score);
         this.k = (TextView) findViewById(R.id.ksad_app_download_count);
         this.l = (TextView) findViewById(R.id.ksad_app_ad_desc);
-        this.m = (DrawDownloadProgressBar) findViewById(R.id.ksad_app_download_btn);
-        this.m.setTextSize(15);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.ksad_app_download_btn);
+        this.m = drawDownloadProgressBar;
+        drawDownloadProgressBar.setTextSize(15);
         this.n = (ViewGroup) findViewById(R.id.ksad_h5_container);
         this.o = (TextView) findViewById(R.id.ksad_h5_ad_desc);
         this.p = (TextView) findViewById(R.id.ksad_h5_open_btn);
@@ -86,17 +101,17 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
         return new c() { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.1
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
-                DrawVideoTailFrame.this.m.a(a.w(DrawVideoTailFrame.this.c), DrawVideoTailFrame.this.m.getMax());
+                DrawVideoTailFrame.this.m.a(a.w(DrawVideoTailFrame.this.f34627c), DrawVideoTailFrame.this.m.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
-                DrawVideoTailFrame.this.m.a(a.a(DrawVideoTailFrame.this.b), DrawVideoTailFrame.this.m.getMax());
+                DrawVideoTailFrame.this.m.a(a.a(DrawVideoTailFrame.this.f34626b), DrawVideoTailFrame.this.m.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
-                DrawVideoTailFrame.this.m.a(a.w(DrawVideoTailFrame.this.c), DrawVideoTailFrame.this.m.getMax());
+                DrawVideoTailFrame.this.m.a(a.w(DrawVideoTailFrame.this.f34627c), DrawVideoTailFrame.this.m.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -106,59 +121,63 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onProgressUpdate(int i) {
-                DrawVideoTailFrame.this.m.a(i + "%", i);
+                DrawDownloadProgressBar drawDownloadProgressBar = DrawVideoTailFrame.this.m;
+                drawDownloadProgressBar.a(i + "%", i);
             }
         };
     }
 
     public void a() {
-        if (this.d != null) {
-            if (this.e != null) {
-                this.d.c(this.e);
+        b bVar = this.f34628d;
+        if (bVar != null) {
+            KsAppDownloadListener ksAppDownloadListener = this.f34629e;
+            if (ksAppDownloadListener != null) {
+                bVar.c(ksAppDownloadListener);
                 return;
             }
-            this.e = getAppDownloadListener();
-            this.d.a(this.e);
+            KsAppDownloadListener appDownloadListener = getAppDownloadListener();
+            this.f34629e = appDownloadListener;
+            this.f34628d.a(appDownloadListener);
         }
     }
 
     public void a(AdTemplate adTemplate) {
-        this.b = adTemplate;
-        this.c = com.kwad.sdk.core.response.b.c.j(adTemplate);
-        AdInfo.AdMaterialInfo.MaterialFeature E = a.E(this.c);
+        this.f34626b = adTemplate;
+        AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        this.f34627c = j;
+        AdInfo.AdMaterialInfo.MaterialFeature E = a.E(j);
         String str = E.coverUrl;
         this.r.a(adTemplate);
         if (!TextUtils.isEmpty(str)) {
             int i = E.width;
             int i2 = E.height;
             if (i > 0 && i > i2) {
-                int c = ao.c(getContext());
+                int c2 = ao.c(getContext());
                 if (getWidth() != 0) {
-                    c = getWidth();
+                    c2 = getWidth();
                 }
-                float f = i2 / i;
-                ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-                layoutParams.width = c;
-                layoutParams.height = (int) (f * c);
+                ViewGroup.LayoutParams layoutParams = this.f34630f.getLayoutParams();
+                layoutParams.width = c2;
+                layoutParams.height = (int) (c2 * (i2 / i));
             }
-            KSImageLoader.loadImage(this.f, str, this.b);
+            KSImageLoader.loadImage(this.f34630f, str, this.f34626b);
         }
-        if (a.y(this.c)) {
-            KSImageLoader.loadAppIcon(this.h, a.o(this.c), this.b, 11);
-            this.i.setText(a.q(this.c));
-            float u = a.u(this.c);
+        if (a.y(this.f34627c)) {
+            KSImageLoader.loadAppIcon(this.f34632h, a.o(this.f34627c), this.f34626b, 11);
+            this.i.setText(a.q(this.f34627c));
+            float u = a.u(this.f34627c);
             if (u >= 3.0f) {
                 this.j.setScore(u);
                 this.j.setVisibility(0);
             }
-            this.k.setText(a.t(this.c));
-            this.l.setText(a.n(this.c));
-            this.g.setVisibility(0);
+            this.k.setText(a.t(this.f34627c));
+            this.l.setText(a.n(this.f34627c));
+            this.f34631g.setVisibility(0);
             this.n.setVisibility(8);
         } else {
-            this.o.setText(a.n(this.c));
-            this.p.setText(a.w(this.c));
-            this.g.setVisibility(8);
+            this.o.setText(a.n(this.f34627c));
+            this.p.setText(a.w(this.f34627c));
+            this.f34631g.setVisibility(8);
             this.n.setVisibility(0);
         }
         this.m.setOnClickListener(this);
@@ -166,28 +185,30 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     }
 
     public void b() {
-        if (this.d == null || this.e == null) {
+        KsAppDownloadListener ksAppDownloadListener;
+        b bVar = this.f34628d;
+        if (bVar == null || (ksAppDownloadListener = this.f34629e) == null) {
             return;
         }
-        this.d.b(this.e);
+        bVar.b(ksAppDownloadListener);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        b.a(this.d, view == this.m);
-        com.kwad.sdk.core.download.b.a.a(getContext(), this.b, new a.InterfaceC1111a() { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
+        b.a(this.f34628d, view == this.m);
+        com.kwad.sdk.core.download.b.a.a(getContext(), this.f34626b, new a.InterfaceC0378a() { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0378a
             public void a() {
                 if (DrawVideoTailFrame.this.q != null) {
                     DrawVideoTailFrame.this.q.onAdClicked();
                 }
-                com.kwad.sdk.core.report.b.a(DrawVideoTailFrame.this.b, 2, DrawVideoTailFrame.this.f6438a.getTouchCoords());
+                com.kwad.sdk.core.report.b.a(DrawVideoTailFrame.this.f34626b, 2, DrawVideoTailFrame.this.f34625a.getTouchCoords());
             }
-        }, this.d);
+        }, this.f34628d);
     }
 
     public void setAdBaseFrameLayout(AdBaseFrameLayout adBaseFrameLayout) {
-        this.f6438a = adBaseFrameLayout;
+        this.f34625a = adBaseFrameLayout;
     }
 
     public void setAdInteractionListener(KsDrawAd.AdInteractionListener adInteractionListener) {
@@ -195,6 +216,6 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     }
 
     public void setApkDownloadHelper(@Nullable b bVar) {
-        this.d = bVar;
+        this.f34628d = bVar;
     }
 }

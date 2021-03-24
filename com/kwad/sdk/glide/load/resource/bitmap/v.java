@@ -10,33 +10,36 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import com.bumptech.glide.load.resource.bitmap.VideoDecoder;
 import com.kwad.sdk.glide.load.d;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Long> f6801a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new d.a<Long>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.1
+    public static final com.kwad.sdk.glide.load.d<Long> f35697a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new d.a<Long>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.1
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f6802a = ByteBuffer.allocate(8);
+        public final ByteBuffer f35703a = ByteBuffer.allocate(8);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.d.a
         public void a(@NonNull byte[] bArr, @NonNull Long l, @NonNull MessageDigest messageDigest) {
             messageDigest.update(bArr);
-            synchronized (this.f6802a) {
-                this.f6802a.position(0);
-                messageDigest.update(this.f6802a.putLong(l.longValue()).array());
+            synchronized (this.f35703a) {
+                this.f35703a.position(0);
+                messageDigest.update(this.f35703a.putLong(l.longValue()).array());
             }
         }
     });
-    public static final com.kwad.sdk.glide.load.d<Integer> b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new d.a<Integer>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.2
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final com.kwad.sdk.glide.load.d<Integer> f35698b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new d.a<Integer>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.2
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f6803a = ByteBuffer.allocate(4);
+        public final ByteBuffer f35704a = ByteBuffer.allocate(4);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.d.a
@@ -45,21 +48,28 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
                 return;
             }
             messageDigest.update(bArr);
-            synchronized (this.f6803a) {
-                this.f6803a.position(0);
-                messageDigest.update(this.f6803a.putInt(num.intValue()).array());
+            synchronized (this.f35704a) {
+                this.f35704a.position(0);
+                messageDigest.update(this.f35704a.putInt(num.intValue()).array());
             }
         }
     });
-    private static final b c = new b();
-    private final c<T> d;
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e e;
-    private final b f;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* renamed from: c  reason: collision with root package name */
+    public static final b f35699c = new b();
+
+    /* renamed from: d  reason: collision with root package name */
+    public final c<T> f35700d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f35701e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final b f35702f;
+
+    /* loaded from: classes6.dex */
     public static final class a implements c<AssetFileDescriptor> {
-        private a() {
+        public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,29 +80,21 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
     }
 
     @VisibleForTesting
-    /* loaded from: classes3.dex */
-    static class b {
-        b() {
-        }
-
+    /* loaded from: classes6.dex */
+    public static class b {
         public MediaMetadataRetriever a() {
             return new MediaMetadataRetriever();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface c<T> {
         void a(MediaMetadataRetriever mediaMetadataRetriever, T t);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class d implements c<ParcelFileDescriptor> {
-        d() {
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.resource.bitmap.v.c
         public void a(MediaMetadataRetriever mediaMetadataRetriever, ParcelFileDescriptor parcelFileDescriptor) {
@@ -100,28 +102,25 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
         }
     }
 
-    v(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, c<T> cVar) {
-        this(eVar, cVar, c);
+    public v(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, c<T> cVar) {
+        this(eVar, cVar, f35699c);
     }
 
     @VisibleForTesting
-    v(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, c<T> cVar, b bVar) {
-        this.e = eVar;
-        this.d = cVar;
-        this.f = bVar;
+    public v(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, c<T> cVar, b bVar) {
+        this.f35701e = eVar;
+        this.f35700d = cVar;
+        this.f35702f = bVar;
     }
 
-    private static Bitmap a(MediaMetadataRetriever mediaMetadataRetriever, long j, int i) {
+    public static Bitmap a(MediaMetadataRetriever mediaMetadataRetriever, long j, int i) {
         return mediaMetadataRetriever.getFrameAtTime(j, i);
     }
 
     @Nullable
-    private static Bitmap a(MediaMetadataRetriever mediaMetadataRetriever, long j, int i, int i2, int i3, DownsampleStrategy downsampleStrategy) {
-        Bitmap bitmap = null;
-        if (Build.VERSION.SDK_INT >= 27 && i2 != Integer.MIN_VALUE && i3 != Integer.MIN_VALUE && downsampleStrategy != DownsampleStrategy.f) {
-            bitmap = b(mediaMetadataRetriever, j, i, i2, i3, downsampleStrategy);
-        }
-        return bitmap == null ? a(mediaMetadataRetriever, j, i) : bitmap;
+    public static Bitmap a(MediaMetadataRetriever mediaMetadataRetriever, long j, int i, int i2, int i3, DownsampleStrategy downsampleStrategy) {
+        Bitmap b2 = (Build.VERSION.SDK_INT < 27 || i2 == Integer.MIN_VALUE || i3 == Integer.MIN_VALUE || downsampleStrategy == DownsampleStrategy.f35640f) ? null : b(mediaMetadataRetriever, j, i, i2, i3, downsampleStrategy);
+        return b2 == null ? a(mediaMetadataRetriever, j, i) : b2;
     }
 
     public static com.kwad.sdk.glide.load.f<AssetFileDescriptor, Bitmap> a(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar) {
@@ -129,25 +128,21 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
     }
 
     @TargetApi(27)
-    private static Bitmap b(MediaMetadataRetriever mediaMetadataRetriever, long j, int i, int i2, int i3, DownsampleStrategy downsampleStrategy) {
-        int i4;
-        int i5;
+    public static Bitmap b(MediaMetadataRetriever mediaMetadataRetriever, long j, int i, int i2, int i3, DownsampleStrategy downsampleStrategy) {
         try {
             int parseInt = Integer.parseInt(mediaMetadataRetriever.extractMetadata(18));
             int parseInt2 = Integer.parseInt(mediaMetadataRetriever.extractMetadata(19));
             int parseInt3 = Integer.parseInt(mediaMetadataRetriever.extractMetadata(24));
             if (parseInt3 == 90 || parseInt3 == 270) {
-                i4 = parseInt;
-                i5 = parseInt2;
-            } else {
-                i4 = parseInt2;
-                i5 = parseInt;
+                parseInt2 = parseInt;
+                parseInt = parseInt2;
             }
-            float a2 = downsampleStrategy.a(i5, i4, i2, i3);
-            return mediaMetadataRetriever.getScaledFrameAtTime(j, i, Math.round(i5 * a2), Math.round(i4 * a2));
+            float a2 = downsampleStrategy.a(parseInt, parseInt2, i2, i3);
+            return mediaMetadataRetriever.getScaledFrameAtTime(j, i, Math.round(parseInt * a2), Math.round(a2 * parseInt2));
         } catch (Throwable th) {
-            if (Log.isLoggable("VideoDecoder", 3)) {
-                Log.d("VideoDecoder", "Exception trying to decode frame on oreo+", th);
+            if (Log.isLoggable(VideoDecoder.TAG, 3)) {
+                Log.d(VideoDecoder.TAG, "Exception trying to decode frame on oreo+", th);
+                return null;
             }
             return null;
         }
@@ -159,28 +154,33 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
 
     @Override // com.kwad.sdk.glide.load.f
     public com.kwad.sdk.glide.load.engine.s<Bitmap> a(@NonNull T t, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        long longValue = ((Long) eVar.a(f6801a)).longValue();
-        if (longValue >= 0 || longValue == -1) {
-            Integer num = (Integer) eVar.a(b);
-            Integer num2 = num == null ? 2 : num;
-            DownsampleStrategy downsampleStrategy = (DownsampleStrategy) eVar.a(DownsampleStrategy.h);
-            DownsampleStrategy downsampleStrategy2 = downsampleStrategy == null ? DownsampleStrategy.g : downsampleStrategy;
-            MediaMetadataRetriever a2 = this.f.a();
-            try {
-                try {
-                    this.d.a(a2, t);
-                    Bitmap a3 = a(a2, longValue, num2.intValue(), i, i2, downsampleStrategy2);
-                    a2.release();
-                    return com.kwad.sdk.glide.load.resource.bitmap.d.a(a3, this.e);
-                } catch (RuntimeException e) {
-                    throw new IOException(e);
-                }
-            } catch (Throwable th) {
-                a2.release();
-                throw th;
-            }
+        long longValue = ((Long) eVar.a(f35697a)).longValue();
+        if (longValue < 0 && longValue != -1) {
+            throw new IllegalArgumentException("Requested frame must be non-negative, or DEFAULT_FRAME, given: " + longValue);
         }
-        throw new IllegalArgumentException("Requested frame must be non-negative, or DEFAULT_FRAME, given: " + longValue);
+        Integer num = (Integer) eVar.a(f35698b);
+        if (num == null) {
+            num = 2;
+        }
+        DownsampleStrategy downsampleStrategy = (DownsampleStrategy) eVar.a(DownsampleStrategy.f35642h);
+        if (downsampleStrategy == null) {
+            downsampleStrategy = DownsampleStrategy.f35641g;
+        }
+        DownsampleStrategy downsampleStrategy2 = downsampleStrategy;
+        MediaMetadataRetriever a2 = this.f35702f.a();
+        try {
+            try {
+                this.f35700d.a(a2, t);
+                Bitmap a3 = a(a2, longValue, num.intValue(), i, i2, downsampleStrategy2);
+                a2.release();
+                return com.kwad.sdk.glide.load.resource.bitmap.d.a(a3, this.f35701e);
+            } catch (RuntimeException e2) {
+                throw new IOException(e2);
+            }
+        } catch (Throwable th) {
+            a2.release();
+            throw th;
+        }
     }
 
     @Override // com.kwad.sdk.glide.load.f

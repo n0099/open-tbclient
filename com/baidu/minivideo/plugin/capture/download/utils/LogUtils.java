@@ -1,23 +1,23 @@
 package com.baidu.minivideo.plugin.capture.download.utils;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class LogUtils {
-    private static final String TAG = "LogUtils";
-
-    public static void d(String str, String str2) {
-    }
+    public static final String TAG = "LogUtils";
 
     public static void d(String str) {
         d(TAG, str);
     }
 
-    public static void i(String str, String str2) {
+    public static void d(String str, String str2) {
+    }
+
+    public static void e(String str, String str2) {
     }
 
     public static void i(String str) {
         i(TAG, str);
     }
 
-    public static void e(String str, String str2) {
+    public static void i(String str, String str2) {
     }
 
     public static void w(String str) {

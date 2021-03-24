@@ -12,179 +12,97 @@ import com.baidu.android.imsdk.upload.action.track.Msg;
 import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.android.imsdk.upload.action.track.Ui;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMTrack {
 
-    /* loaded from: classes3.dex */
-    public static final class UiBuilder {
-        public static final String CATEGORY_CLICK = "category_click";
-        public static final String CATEGORY_MI = "category_mi";
-        public static final String CATEGORY_SHOW = "category_show";
-        private Context context;
-        private Ui ui = new Ui();
+    /* renamed from: com.baidu.android.imsdk.upload.action.IMTrack$2  reason: invalid class name */
+    /* loaded from: classes2.dex */
+    public static /* synthetic */ class AnonymousClass2 {
+        public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType;
 
-        public UiBuilder(Context context) {
-            this.context = context;
-            this.ui.category = "";
-            this.ui.page = "";
-            this.ui.startTime = -1L;
-            this.ui.endTime = -1L;
-            this.ui.duration = -1L;
-            this.ui.ext = "";
-            this.ui.aliasId = -1L;
-        }
-
-        public UiBuilder category(String str) {
-            this.ui.category = str;
-            return this;
-        }
-
-        public UiBuilder page(String str) {
-            this.ui.page = str;
-            return this;
-        }
-
-        public UiBuilder startTime(long j) {
-            this.ui.startTime = j;
-            return this;
-        }
-
-        public UiBuilder endTime(long j) {
-            this.ui.endTime = j;
-            return this;
-        }
-
-        public UiBuilder duration(long j) {
-            this.ui.duration = j;
-            return this;
-        }
-
-        public UiBuilder ext(String str) {
-            this.ui.ext = str;
-            return this;
-        }
-
-        public UiBuilder aliasId(long j) {
-            this.ui.aliasId = j;
-            return this;
-        }
-
-        public void build() {
-            IMTrack.reportTracker(this.context, IMPushPb.ActionType.UI, this.ui);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static final class CrashBuilder {
-        public static final int CRASH_TYPE_CATCH = 201001;
-        public static final int CRASH_TYPE_DEFAULT = 201002;
-        private Context context;
-        private Crash crash = new Crash();
-
-        public CrashBuilder(Context context) {
-            this.context = context;
-            this.crash.exception = "";
-            this.crash.timestamp = System.currentTimeMillis();
-            this.crash.ext = "";
-            this.crash.aliasId = 201001L;
-        }
-
-        public CrashBuilder exception(String str) {
-            this.crash.exception = str;
-            return this;
-        }
-
-        public CrashBuilder ext(String str) {
-            this.crash.ext = str;
-            return this;
-        }
-
-        public CrashBuilder aliasId(long j) {
-            this.crash.aliasId = j;
-            return this;
-        }
-
-        public void build() {
-            if (!TextUtils.isEmpty(this.crash.exception)) {
-                IMTrack.reportTracker(this.context, IMPushPb.ActionType.CRASH, this.crash);
+        static {
+            int[] iArr = new int[IMPushPb.ActionType.values().length];
+            $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType = iArr;
+            try {
+                iArr[IMPushPb.ActionType.UI.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.CRASH.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.DB.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.CONNECTION.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.REQUEST.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.ACK.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.MSG.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static final class DbBuilder {
-        public static final String ACTION_ADD = "add";
-        public static final String ACTION_DELETE = "delete";
-        public static final String ACTION_MIGRATE = "migrate";
-        public static final String ACTION_QUERY = "query";
-        public static final String ACTION_UPDATE = "update";
-        private Context context;
-        private Db db = new Db();
+    /* loaded from: classes2.dex */
+    public static final class AckBuilder {
+        public static final String PROXY_TYPE = "proxy";
+        public static final String PUSH_TYPE = "push";
+        public Ack ack;
+        public Context context;
 
-        public DbBuilder(Context context) {
+        public AckBuilder(Context context) {
+            Ack ack = new Ack();
+            this.ack = ack;
             this.context = context;
-            this.db.table = "";
-            this.db.className = "";
-            this.db.method = "";
-            this.db.action = "";
-            this.db.startTime = -1L;
-            this.db.endTime = -1L;
-            this.db.duration = -1L;
-            this.db.ext = "";
-            this.db.aliasId = -1L;
+            ack.type = "";
+            ack.value = "";
+            ack.timestamp = -1L;
+            ack.ext = "";
+            ack.aliasId = -1L;
         }
 
-        public DbBuilder table(String str) {
-            this.db.table = str;
-            return this;
-        }
-
-        public DbBuilder className(String str) {
-            this.db.className = str;
-            return this;
-        }
-
-        public DbBuilder method(String str) {
-            this.db.method = str;
-            return this;
-        }
-
-        public DbBuilder action(String str) {
-            this.db.action = str;
-            return this;
-        }
-
-        public DbBuilder startTime(long j) {
-            this.db.startTime = j;
-            return this;
-        }
-
-        public DbBuilder endTime(long j) {
-            this.db.endTime = j;
-            return this;
-        }
-
-        public DbBuilder duration(long j) {
-            this.db.duration = j;
-            return this;
-        }
-
-        public DbBuilder ext(String str) {
-            this.db.ext = str;
-            return this;
-        }
-
-        public DbBuilder aliasId(long j) {
-            this.db.aliasId = j;
+        public AckBuilder aliasId(long j) {
+            this.ack.aliasId = j;
             return this;
         }
 
         public void build() {
-            IMTrack.reportTracker(this.context, IMPushPb.ActionType.DB, this.db);
+            IMTrack.reportTracker(this.context, IMPushPb.ActionType.ACK, this.ack);
+        }
+
+        public AckBuilder ext(String str) {
+            this.ack.ext = str;
+            return this;
+        }
+
+        public AckBuilder timestamp(long j) {
+            this.ack.timestamp = j;
+            return this;
+        }
+
+        public AckBuilder type(String str) {
+            this.ack.type = str;
+            return this;
+        }
+
+        public AckBuilder value(String str) {
+            this.ack.value = str;
+            return this;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ConnectionBuilder {
         public static final int CONN_TYPE_SOCKET_CONNECTION_ENV_FAIL = 401203;
         public static final int CONN_TYPE_SOCKET_CONNECTION_EXCEPTION = 401205;
@@ -192,18 +110,49 @@ public class IMTrack {
         public static final int CONN_TYPE_SOCKET_CONNECTION_STOP = 401202;
         public static final int CONN_TYPE_SOCKET_CONNECTION_TIMEOUT = 401204;
         public static final int CONN_TYPE_SOCKET_RETRY_5_FAIL = 401206;
-        private Connection connection = new Connection();
-        private Context context;
+        public Connection connection;
+        public Context context;
 
         public ConnectionBuilder(Context context) {
+            Connection connection = new Connection();
+            this.connection = connection;
             this.context = context;
-            this.connection.startTime = -1L;
-            this.connection.stopTime = -1L;
-            this.connection.reason = "";
-            this.connection.retryTime = -1L;
-            this.connection.retryCount = -1L;
-            this.connection.ext = "";
-            this.connection.aliasId = -1L;
+            connection.startTime = -1L;
+            connection.stopTime = -1L;
+            connection.reason = "";
+            connection.retryTime = -1L;
+            connection.retryCount = -1L;
+            connection.ext = "";
+            connection.aliasId = -1L;
+        }
+
+        public ConnectionBuilder aliasId(long j) {
+            this.connection.aliasId = j;
+            return this;
+        }
+
+        public void build() {
+            IMTrack.reportTracker(this.context, IMPushPb.ActionType.CONNECTION, this.connection);
+        }
+
+        public ConnectionBuilder ext(String str) {
+            this.connection.ext = str;
+            return this;
+        }
+
+        public ConnectionBuilder reason(String str) {
+            this.connection.reason = str;
+            return this;
+        }
+
+        public ConnectionBuilder retryCount(long j) {
+            this.connection.retryCount = j;
+            return this;
+        }
+
+        public ConnectionBuilder retryTime(long j) {
+            this.connection.retryTime = j;
+            return this;
         }
 
         public ConnectionBuilder startTime(long j) {
@@ -215,55 +164,221 @@ public class IMTrack {
             this.connection.stopTime = j;
             return this;
         }
+    }
 
-        public ConnectionBuilder reason(String str) {
-            this.connection.reason = str;
-            return this;
+    /* loaded from: classes2.dex */
+    public static final class CrashBuilder {
+        public static final int CRASH_TYPE_CATCH = 201001;
+        public static final int CRASH_TYPE_DEFAULT = 201002;
+        public Context context;
+        public Crash crash;
+
+        public CrashBuilder(Context context) {
+            Crash crash = new Crash();
+            this.crash = crash;
+            this.context = context;
+            crash.exception = "";
+            crash.timestamp = System.currentTimeMillis();
+            Crash crash2 = this.crash;
+            crash2.ext = "";
+            crash2.aliasId = 201001L;
         }
 
-        public ConnectionBuilder retryTime(long j) {
-            this.connection.retryTime = j;
-            return this;
-        }
-
-        public ConnectionBuilder retryCount(long j) {
-            this.connection.retryCount = j;
-            return this;
-        }
-
-        public ConnectionBuilder ext(String str) {
-            this.connection.ext = str;
-            return this;
-        }
-
-        public ConnectionBuilder aliasId(long j) {
-            this.connection.aliasId = j;
+        public CrashBuilder aliasId(long j) {
+            this.crash.aliasId = j;
             return this;
         }
 
         public void build() {
-            IMTrack.reportTracker(this.context, IMPushPb.ActionType.CONNECTION, this.connection);
+            if (TextUtils.isEmpty(this.crash.exception)) {
+                return;
+            }
+            IMTrack.reportTracker(this.context, IMPushPb.ActionType.CRASH, this.crash);
+        }
+
+        public CrashBuilder exception(String str) {
+            this.crash.exception = str;
+            return this;
+        }
+
+        public CrashBuilder ext(String str) {
+            this.crash.ext = str;
+            return this;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
+    public static final class DbBuilder {
+        public static final String ACTION_ADD = "add";
+        public static final String ACTION_DELETE = "delete";
+        public static final String ACTION_MIGRATE = "migrate";
+        public static final String ACTION_QUERY = "query";
+        public static final String ACTION_UPDATE = "update";
+        public Context context;
+        public Db db;
+
+        public DbBuilder(Context context) {
+            Db db = new Db();
+            this.db = db;
+            this.context = context;
+            db.table = "";
+            db.className = "";
+            db.method = "";
+            db.action = "";
+            db.startTime = -1L;
+            db.endTime = -1L;
+            db.duration = -1L;
+            db.ext = "";
+            db.aliasId = -1L;
+        }
+
+        public DbBuilder action(String str) {
+            this.db.action = str;
+            return this;
+        }
+
+        public DbBuilder aliasId(long j) {
+            this.db.aliasId = j;
+            return this;
+        }
+
+        public void build() {
+            IMTrack.reportTracker(this.context, IMPushPb.ActionType.DB, this.db);
+        }
+
+        public DbBuilder className(String str) {
+            this.db.className = str;
+            return this;
+        }
+
+        public DbBuilder duration(long j) {
+            this.db.duration = j;
+            return this;
+        }
+
+        public DbBuilder endTime(long j) {
+            this.db.endTime = j;
+            return this;
+        }
+
+        public DbBuilder ext(String str) {
+            this.db.ext = str;
+            return this;
+        }
+
+        public DbBuilder method(String str) {
+            this.db.method = str;
+            return this;
+        }
+
+        public DbBuilder startTime(long j) {
+            this.db.startTime = j;
+            return this;
+        }
+
+        public DbBuilder table(String str) {
+            this.db.table = str;
+            return this;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static final class MsgBuilder {
+        public Context context;
+        public Msg msg;
+
+        public MsgBuilder(Context context) {
+            Msg msg = new Msg();
+            this.msg = msg;
+            this.context = context;
+            msg.msgCount = -1L;
+            msg.roomId = "";
+            msg.duration = -1L;
+            msg.startMsgId = -1L;
+            msg.endMsgId = -1L;
+            msg.ext = "";
+            msg.aliasId = -1L;
+        }
+
+        public MsgBuilder aliasId(long j) {
+            this.msg.aliasId = j;
+            return this;
+        }
+
+        public void build() {
+            IMTrack.reportTracker(this.context, IMPushPb.ActionType.MSG, this.msg);
+        }
+
+        public MsgBuilder duration(long j) {
+            this.msg.duration = j;
+            return this;
+        }
+
+        public MsgBuilder endMsgId(long j) {
+            this.msg.endMsgId = j;
+            return this;
+        }
+
+        public MsgBuilder ext(String str) {
+            this.msg.ext = str;
+            return this;
+        }
+
+        public MsgBuilder msgCount(long j) {
+            this.msg.msgCount = j;
+            return this;
+        }
+
+        public MsgBuilder roomId(String str) {
+            this.msg.roomId = str;
+            return this;
+        }
+
+        public MsgBuilder startMsgId(long j) {
+            this.msg.startMsgId = j;
+            return this;
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public static final class RequestBuilder {
         public static final int REQUEST_INIT = 501100;
         public static final int REQUEST_JOIN = 501112;
         public static final int REQUEST_JOIN_CALLBACK = 501113;
         public static final int REQUEST_LOGIN = 501101;
-        private Context context;
-        private Request request = new Request();
+        public Context context;
+        public Request request;
 
         public RequestBuilder(Context context) {
+            Request request = new Request();
+            this.request = request;
             this.context = context;
-            this.request.method = "";
-            this.request.requestId = "";
-            this.request.timestamp = -1L;
-            this.request.responseTime = -1L;
-            this.request.errorCode = -1L;
-            this.request.ext = "";
-            this.request.aliasId = -1L;
+            request.method = "";
+            request.requestId = "";
+            request.timestamp = -1L;
+            request.responseTime = -1L;
+            request.errorCode = -1L;
+            request.ext = "";
+            request.aliasId = -1L;
+        }
+
+        public RequestBuilder aliasId(long j) {
+            this.request.aliasId = j;
+            return this;
+        }
+
+        public void build() {
+            IMTrack.reportTracker(this.context, IMPushPb.ActionType.REQUEST, this.request);
+        }
+
+        public RequestBuilder errorCode(long j) {
+            this.request.errorCode = j;
+            return this;
+        }
+
+        public RequestBuilder ext(String str) {
+            this.request.ext = str;
+            return this;
         }
 
         public RequestBuilder method(String str) {
@@ -285,130 +400,69 @@ public class IMTrack {
             this.request.responseTime = j;
             return this;
         }
-
-        public RequestBuilder errorCode(long j) {
-            this.request.errorCode = j;
-            return this;
-        }
-
-        public RequestBuilder ext(String str) {
-            this.request.ext = str;
-            return this;
-        }
-
-        public RequestBuilder aliasId(long j) {
-            this.request.aliasId = j;
-            return this;
-        }
-
-        public void build() {
-            IMTrack.reportTracker(this.context, IMPushPb.ActionType.REQUEST, this.request);
-        }
     }
 
-    /* loaded from: classes3.dex */
-    public static final class AckBuilder {
-        public static final String PROXY_TYPE = "proxy";
-        public static final String PUSH_TYPE = "push";
-        private Ack ack = new Ack();
-        private Context context;
+    /* loaded from: classes2.dex */
+    public static final class UiBuilder {
+        public static final String CATEGORY_CLICK = "category_click";
+        public static final String CATEGORY_MI = "category_mi";
+        public static final String CATEGORY_SHOW = "category_show";
+        public Context context;
+        public Ui ui;
 
-        public AckBuilder(Context context) {
+        public UiBuilder(Context context) {
+            Ui ui = new Ui();
+            this.ui = ui;
             this.context = context;
-            this.ack.type = "";
-            this.ack.value = "";
-            this.ack.timestamp = -1L;
-            this.ack.ext = "";
-            this.ack.aliasId = -1L;
+            ui.category = "";
+            ui.page = "";
+            ui.startTime = -1L;
+            ui.endTime = -1L;
+            ui.duration = -1L;
+            ui.ext = "";
+            ui.aliasId = -1L;
         }
 
-        public AckBuilder type(String str) {
-            this.ack.type = str;
-            return this;
-        }
-
-        public AckBuilder value(String str) {
-            this.ack.value = str;
-            return this;
-        }
-
-        public AckBuilder timestamp(long j) {
-            this.ack.timestamp = j;
-            return this;
-        }
-
-        public AckBuilder ext(String str) {
-            this.ack.ext = str;
-            return this;
-        }
-
-        public AckBuilder aliasId(long j) {
-            this.ack.aliasId = j;
+        public UiBuilder aliasId(long j) {
+            this.ui.aliasId = j;
             return this;
         }
 
         public void build() {
-            IMTrack.reportTracker(this.context, IMPushPb.ActionType.ACK, this.ack);
+            IMTrack.reportTracker(this.context, IMPushPb.ActionType.UI, this.ui);
+        }
+
+        public UiBuilder category(String str) {
+            this.ui.category = str;
+            return this;
+        }
+
+        public UiBuilder duration(long j) {
+            this.ui.duration = j;
+            return this;
+        }
+
+        public UiBuilder endTime(long j) {
+            this.ui.endTime = j;
+            return this;
+        }
+
+        public UiBuilder ext(String str) {
+            this.ui.ext = str;
+            return this;
+        }
+
+        public UiBuilder page(String str) {
+            this.ui.page = str;
+            return this;
+        }
+
+        public UiBuilder startTime(long j) {
+            this.ui.startTime = j;
+            return this;
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static final class MsgBuilder {
-        private Context context;
-        private Msg msg = new Msg();
-
-        public MsgBuilder(Context context) {
-            this.context = context;
-            this.msg.msgCount = -1L;
-            this.msg.roomId = "";
-            this.msg.duration = -1L;
-            this.msg.startMsgId = -1L;
-            this.msg.endMsgId = -1L;
-            this.msg.ext = "";
-            this.msg.aliasId = -1L;
-        }
-
-        public MsgBuilder msgCount(long j) {
-            this.msg.msgCount = j;
-            return this;
-        }
-
-        public MsgBuilder roomId(String str) {
-            this.msg.roomId = str;
-            return this;
-        }
-
-        public MsgBuilder duration(long j) {
-            this.msg.duration = j;
-            return this;
-        }
-
-        public MsgBuilder startMsgId(long j) {
-            this.msg.startMsgId = j;
-            return this;
-        }
-
-        public MsgBuilder endMsgId(long j) {
-            this.msg.endMsgId = j;
-            return this;
-        }
-
-        public MsgBuilder ext(String str) {
-            this.msg.ext = str;
-            return this;
-        }
-
-        public MsgBuilder aliasId(long j) {
-            this.msg.aliasId = j;
-            return this;
-        }
-
-        public void build() {
-            IMTrack.reportTracker(this.context, IMPushPb.ActionType.MSG, this.msg);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public static void reportTracker(Context context, final IMPushPb.ActionType actionType, final Object obj) {
         final Context applicationContext = context.getApplicationContext();
         if (Utility.isUploadIMTrack(applicationContext)) {
@@ -442,43 +496,6 @@ public class IMTrack {
                     }
                 }
             });
-        }
-    }
-
-    /* renamed from: com.baidu.android.imsdk.upload.action.IMTrack$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
-    static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType = new int[IMPushPb.ActionType.values().length];
-
-        static {
-            try {
-                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.UI.ordinal()] = 1;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.CRASH.ordinal()] = 2;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.DB.ordinal()] = 3;
-            } catch (NoSuchFieldError e3) {
-            }
-            try {
-                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.CONNECTION.ordinal()] = 4;
-            } catch (NoSuchFieldError e4) {
-            }
-            try {
-                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.REQUEST.ordinal()] = 5;
-            } catch (NoSuchFieldError e5) {
-            }
-            try {
-                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.ACK.ordinal()] = 6;
-            } catch (NoSuchFieldError e6) {
-            }
-            try {
-                $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[IMPushPb.ActionType.MSG.ordinal()] = 7;
-            } catch (NoSuchFieldError e7) {
-            }
         }
     }
 }

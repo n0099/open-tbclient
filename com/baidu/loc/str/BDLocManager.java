@@ -19,32 +19,30 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
-import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class BDLocManager implements Debug {
-    private static final String TAG = "loc tiny String";
-    private static final long WIFI_SCAN_SPAN_MIN = 10000;
-    private CellStateListener mCellListener;
-    private Context mContext;
-    private String mExtraInfo;
-    private TelephonyManager mTeleman;
-    private WifiManager mWifiman;
-    private static Object lock = new Object();
-    private static BDLocManager instance = null;
-    private static Class<?> mCdmaClass = null;
-    private static char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.".toCharArray();
-    private BDCellInfo mCellInfo = new BDCellInfo();
-    private WifiList mWifiList = null;
-    private long mScanTime = 0;
-    private String connectWifi = null;
-    private int connecetWifiLevel = 0;
-    private long time = System.currentTimeMillis();
+    public static final String TAG = "loc tiny String";
+    public static final long WIFI_SCAN_SPAN_MIN = 10000;
+    public static BDLocManager instance;
+    public static Class<?> mCdmaClass;
+    public CellStateListener mCellListener;
+    public Context mContext;
+    public String mExtraInfo;
+    public TelephonyManager mTeleman;
+    public WifiManager mWifiman;
+    public static Object lock = new Object();
+    public static char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.".toCharArray();
+    public BDCellInfo mCellInfo = new BDCellInfo();
+    public WifiList mWifiList = null;
+    public long mScanTime = 0;
+    public String connectWifi = null;
+    public int connecetWifiLevel = 0;
+    public long time = System.currentTimeMillis();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public class BDCellInfo {
         public int mCid;
         public int mLac;
@@ -52,7 +50,7 @@ public class BDLocManager implements Debug {
         public int mMnc;
         public char mNetworkType;
 
-        private BDCellInfo() {
+        public BDCellInfo() {
             this.mLac = -1;
             this.mCid = -1;
             this.mMcc = -1;
@@ -70,8 +68,9 @@ public class BDLocManager implements Debug {
                 StringBuffer stringBuffer = new StringBuffer(128);
                 stringBuffer.append(this.mNetworkType);
                 stringBuffer.append("h");
-                if (this.mMcc != 460) {
-                    stringBuffer.append(this.mMcc);
+                int i = this.mMcc;
+                if (i != 460) {
+                    stringBuffer.append(i);
                 }
                 stringBuffer.append(String.format(Locale.CHINA, "h%xh%xh%x", Integer.valueOf(this.mMnc), Integer.valueOf(this.mLac), Integer.valueOf(this.mCid)));
                 return stringBuffer.toString();
@@ -80,8 +79,8 @@ public class BDLocManager implements Debug {
         }
     }
 
-    /* loaded from: classes5.dex */
-    private class CellStateListener extends PhoneStateListener {
+    /* loaded from: classes2.dex */
+    public class CellStateListener extends PhoneStateListener {
         public CellStateListener() {
         }
 
@@ -92,16 +91,15 @@ public class BDLocManager implements Debug {
             }
             try {
                 BDLocManager.this.setCellInfo(cellLocation);
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public class WifiList {
         public List<ScanResult> wifiList;
-        private long wifiTime;
+        public long wifiTime;
 
         public WifiList(List<ScanResult> list) {
             this.wifiList = null;
@@ -117,142 +115,182 @@ public class BDLocManager implements Debug {
             return currentTimeMillis < 0 || currentTimeMillis > 500;
         }
 
+        /*  JADX ERROR: JadxOverflowException in pass: LoopRegionVisitor
+            jadx.core.utils.exceptions.JadxOverflowException: LoopRegionVisitor.assignOnlyInLoop endless recursion
+            	at jadx.core.utils.ErrorsCounter.addError(ErrorsCounter.java:56)
+            	at jadx.core.utils.ErrorsCounter.error(ErrorsCounter.java:30)
+            	at jadx.core.dex.attributes.nodes.NotificationAttrNode.addError(NotificationAttrNode.java:18)
+            */
         private void sort() {
-            boolean z;
-            if (size() < 1) {
-                return;
-            }
-            boolean z2 = true;
-            for (int size = this.wifiList.size() - 1; size >= 1 && z2; size--) {
-                int i = 0;
-                z2 = false;
-                while (i < size) {
-                    if (this.wifiList.get(i).level < this.wifiList.get(i + 1).level) {
-                        this.wifiList.set(i + 1, this.wifiList.get(i));
-                        this.wifiList.set(i, this.wifiList.get(i + 1));
-                        z = true;
-                    } else {
-                        z = z2;
-                    }
-                    i++;
-                    z2 = z;
-                }
-            }
+            /*
+                r7 = this;
+                int r0 = r7.size()
+                r1 = 1
+                if (r0 >= r1) goto L8
+                return
+            L8:
+                java.util.List<android.net.wifi.ScanResult> r0 = r7.wifiList
+                int r0 = r0.size()
+                int r0 = r0 - r1
+                r2 = 1
+            L10:
+                if (r0 < r1) goto L4d
+                if (r2 == 0) goto L4d
+                r2 = 0
+                r3 = 0
+            L16:
+                if (r2 >= r0) goto L49
+                java.util.List<android.net.wifi.ScanResult> r4 = r7.wifiList
+                java.lang.Object r4 = r4.get(r2)
+                android.net.wifi.ScanResult r4 = (android.net.wifi.ScanResult) r4
+                int r4 = r4.level
+                java.util.List<android.net.wifi.ScanResult> r5 = r7.wifiList
+                int r6 = r2 + 1
+                java.lang.Object r5 = r5.get(r6)
+                android.net.wifi.ScanResult r5 = (android.net.wifi.ScanResult) r5
+                int r5 = r5.level
+                if (r4 >= r5) goto L47
+                java.util.List<android.net.wifi.ScanResult> r3 = r7.wifiList
+                java.lang.Object r3 = r3.get(r6)
+                android.net.wifi.ScanResult r3 = (android.net.wifi.ScanResult) r3
+                java.util.List<android.net.wifi.ScanResult> r4 = r7.wifiList
+                java.lang.Object r5 = r4.get(r2)
+                r4.set(r6, r5)
+                java.util.List<android.net.wifi.ScanResult> r4 = r7.wifiList
+                r4.set(r2, r3)
+                r3 = 1
+            L47:
+                r2 = r6
+                goto L16
+            L49:
+                int r0 = r0 + (-1)
+                r2 = r3
+                goto L10
+            L4d:
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.loc.str.BDLocManager.WifiList.sort():void");
         }
 
         public int size() {
-            if (this.wifiList == null) {
+            List<ScanResult> list = this.wifiList;
+            if (list == null) {
                 return 0;
             }
-            return this.wifiList.size();
+            return list.size();
         }
 
         public String toString(int i) {
-            boolean z;
             int i2;
+            boolean z;
             if (size() < 1) {
                 return null;
             }
             boolean hasConnectWifi = BDLocManager.this.hasConnectWifi();
             if (hasConnectWifi) {
-                i--;
+                i2 = i - 1;
                 z = false;
             } else {
+                i2 = i;
                 z = true;
             }
             StringBuffer stringBuffer = new StringBuffer(512);
             int size = this.wifiList.size();
             int i3 = 0;
-            int i4 = 0;
             boolean z2 = true;
-            boolean z3 = z;
-            while (i3 < size) {
-                if (this.wifiList.get(i3).level == 0) {
-                    i2 = i4;
-                } else {
-                    String str = this.wifiList.get(i3).BSSID;
-                    int i5 = this.wifiList.get(i3).level;
+            for (int i4 = 0; i4 < size; i4++) {
+                if (this.wifiList.get(i4).level != 0) {
+                    String str = this.wifiList.get(i4).BSSID;
+                    int i5 = this.wifiList.get(i4).level;
                     String replace = str.replace(":", "");
                     if (BDLocManager.this.connectWifi == null || !replace.equals(BDLocManager.this.connectWifi)) {
-                        if (i4 < i) {
+                        if (i3 < i2) {
                             stringBuffer.append("h");
                             stringBuffer.append(replace);
                             stringBuffer.append("m");
                             stringBuffer.append(StrictMath.abs(i5));
-                            i2 = i4 + 1;
+                            i3++;
                             z2 = false;
-                        } else {
-                            i2 = i4;
                         }
-                        if (i2 > i && z3) {
+                        if (i3 > i2 && z) {
                             break;
                         }
                     } else {
                         BDLocManager.this.connecetWifiLevel = StrictMath.abs(i5);
-                        i2 = i4;
-                        z3 = true;
+                        z = true;
                     }
                 }
-                i3++;
-                i4 = i2;
             }
             String str2 = hasConnectWifi ? "h" + BDLocManager.this.connectWifi + "km" + BDLocManager.this.connecetWifiLevel : null;
-            return !z2 ? str2 + stringBuffer.toString() : str2;
+            if (z2) {
+                return str2;
+            }
+            return str2 + stringBuffer.toString();
         }
     }
 
-    BDLocManager(Context context) {
+    public BDLocManager(Context context) {
         this.mContext = null;
         this.mTeleman = null;
         this.mCellListener = null;
         this.mWifiman = null;
         this.mExtraInfo = null;
-        this.mContext = context.getApplicationContext();
-        String packageName = this.mContext.getPackageName();
+        Context applicationContext = context.getApplicationContext();
+        this.mContext = applicationContext;
+        String packageName = applicationContext.getPackageName();
         try {
             this.mTeleman = (TelephonyManager) this.mContext.getSystemService("phone");
-            this.mCellListener = new CellStateListener();
-            this.mTeleman.listen(this.mCellListener, 16);
-        } catch (Exception e) {
+            CellStateListener cellStateListener = new CellStateListener();
+            this.mCellListener = cellStateListener;
+            this.mTeleman.listen(cellStateListener, 16);
+        } catch (Exception unused) {
         }
-        this.mExtraInfo = ETAG.ITEM_SEPARATOR + packageName + ETAG.ITEM_SEPARATOR + ((String) null);
+        this.mExtraInfo = "&" + packageName + "&" + ((String) null);
         this.mWifiman = (WifiManager) this.mContext.getApplicationContext().getSystemService("wifi");
     }
 
-    private static String data2Base64(byte[] bArr) {
+    public static String data2Base64(byte[] bArr) {
         boolean z;
-        boolean z2;
         char[] cArr = new char[((bArr.length + 2) / 3) * 4];
         int i = 0;
         int i2 = 0;
-        while (i2 < bArr.length) {
-            int i3 = (bArr[i2] & 255) << 8;
-            if (i2 + 1 < bArr.length) {
-                i3 |= bArr[i2 + 1] & 255;
+        while (i < bArr.length) {
+            int i3 = (bArr[i] & 255) << 8;
+            int i4 = i + 1;
+            boolean z2 = true;
+            if (i4 < bArr.length) {
+                i3 |= bArr[i4] & 255;
                 z = true;
             } else {
                 z = false;
             }
-            int i4 = i3 << 8;
-            if (i2 + 2 < bArr.length) {
-                i4 |= bArr[i2 + 2] & 255;
-                z2 = true;
+            int i5 = i3 << 8;
+            int i6 = i + 2;
+            if (i6 < bArr.length) {
+                i5 |= bArr[i6] & 255;
             } else {
                 z2 = false;
             }
-            cArr[i + 3] = alphabet[z2 ? 63 - (i4 & 63) : 64];
-            int i5 = i4 >> 6;
-            cArr[i + 2] = alphabet[z ? 63 - (i5 & 63) : 64];
-            int i6 = i5 >> 6;
-            cArr[i + 1] = alphabet[63 - (i6 & 63)];
-            cArr[i + 0] = alphabet[63 - ((i6 >> 6) & 63)];
-            i2 += 3;
-            i += 4;
+            int i7 = 64;
+            cArr[i2 + 3] = alphabet[z2 ? 63 - (i5 & 63) : 64];
+            int i8 = i5 >> 6;
+            int i9 = i2 + 2;
+            char[] cArr2 = alphabet;
+            if (z) {
+                i7 = 63 - (i8 & 63);
+            }
+            cArr[i9] = cArr2[i7];
+            int i10 = i8 >> 6;
+            char[] cArr3 = alphabet;
+            cArr[i2 + 1] = cArr3[63 - (i10 & 63)];
+            cArr[i2 + 0] = cArr3[63 - ((i10 >> 6) & 63)];
+            i += 3;
+            i2 += 4;
         }
         return new String(cArr);
     }
 
-    private static String encode(String str) {
+    public static String encode(String str) {
         if (str == null) {
             return null;
         }
@@ -268,56 +306,69 @@ public class BDLocManager implements Debug {
             i++;
             i2++;
         }
-        int i3 = i2 + 1;
         bArr[i2] = nextInt;
-        int i4 = i3 + 1;
-        bArr[i3] = nextInt2;
+        bArr[i2 + 1] = nextInt2;
         return data2Base64(bArr);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:18:0x00b0 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x00b6 A[Catch: Exception -> 0x00e6, TRY_LEAVE, TryCatch #0 {Exception -> 0x00e6, blocks: (B:19:0x00b2, B:21:0x00b6), top: B:24:0x00b2 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private BDCellInfo getBDCellInfo(CellInfo cellInfo) {
+        int ci;
         int intValue = Integer.valueOf(Build.VERSION.SDK_INT).intValue();
         if (intValue < 17) {
             return null;
         }
         BDCellInfo bDCellInfo = new BDCellInfo();
         boolean z = false;
-        if (cellInfo instanceof CellInfoGsm) {
-            CellIdentityGsm cellIdentity = ((CellInfoGsm) cellInfo).getCellIdentity();
-            bDCellInfo.mMcc = getValidValue(cellIdentity.getMcc());
-            bDCellInfo.mMnc = getValidValue(cellIdentity.getMnc());
-            bDCellInfo.mLac = getValidValue(cellIdentity.getLac());
-            bDCellInfo.mCid = getValidValue(cellIdentity.getCid());
-            bDCellInfo.mNetworkType = 'g';
-            z = true;
-        } else if (cellInfo instanceof CellInfoCdma) {
+        if (!(cellInfo instanceof CellInfoGsm)) {
+            if (!(cellInfo instanceof CellInfoCdma)) {
+                if (cellInfo instanceof CellInfoLte) {
+                    CellIdentityLte cellIdentity = ((CellInfoLte) cellInfo).getCellIdentity();
+                    bDCellInfo.mMcc = getValidValue(cellIdentity.getMcc());
+                    bDCellInfo.mMnc = getValidValue(cellIdentity.getMnc());
+                    bDCellInfo.mLac = getValidValue(cellIdentity.getTac());
+                    ci = cellIdentity.getCi();
+                }
+                if (intValue >= 18) {
+                    if (cellInfo instanceof CellInfoWcdma) {
+                    }
+                }
+                return bDCellInfo;
+            }
             CellIdentityCdma cellIdentity2 = ((CellInfoCdma) cellInfo).getCellIdentity();
             bDCellInfo.mMnc = getValidValue(cellIdentity2.getSystemId());
             bDCellInfo.mLac = getValidValue(cellIdentity2.getNetworkId());
             bDCellInfo.mCid = getValidValue(cellIdentity2.getBasestationId());
             bDCellInfo.mNetworkType = 'w';
             z = true;
-        } else if (cellInfo instanceof CellInfoLte) {
-            CellIdentityLte cellIdentity3 = ((CellInfoLte) cellInfo).getCellIdentity();
-            bDCellInfo.mMcc = getValidValue(cellIdentity3.getMcc());
-            bDCellInfo.mMnc = getValidValue(cellIdentity3.getMnc());
-            bDCellInfo.mLac = getValidValue(cellIdentity3.getTac());
-            bDCellInfo.mCid = getValidValue(cellIdentity3.getCi());
-            bDCellInfo.mNetworkType = 'g';
-            z = true;
-        }
-        if (intValue >= 18 && !z) {
-            try {
-                if (cellInfo instanceof CellInfoWcdma) {
-                    CellIdentityWcdma cellIdentity4 = ((CellInfoWcdma) cellInfo).getCellIdentity();
-                    bDCellInfo.mMcc = getValidValue(cellIdentity4.getMcc());
-                    bDCellInfo.mMnc = getValidValue(cellIdentity4.getMnc());
-                    bDCellInfo.mLac = getValidValue(cellIdentity4.getLac());
-                    bDCellInfo.mCid = getValidValue(cellIdentity4.getCid());
-                    bDCellInfo.mNetworkType = 'g';
+            if (intValue >= 18 && !z) {
+                try {
+                    if (cellInfo instanceof CellInfoWcdma) {
+                        CellIdentityWcdma cellIdentity3 = ((CellInfoWcdma) cellInfo).getCellIdentity();
+                        bDCellInfo.mMcc = getValidValue(cellIdentity3.getMcc());
+                        bDCellInfo.mMnc = getValidValue(cellIdentity3.getMnc());
+                        bDCellInfo.mLac = getValidValue(cellIdentity3.getLac());
+                        bDCellInfo.mCid = getValidValue(cellIdentity3.getCid());
+                        bDCellInfo.mNetworkType = 'g';
+                    }
+                } catch (Exception unused) {
                 }
-            } catch (Exception e) {
             }
+            return bDCellInfo;
+        }
+        CellIdentityGsm cellIdentity4 = ((CellInfoGsm) cellInfo).getCellIdentity();
+        bDCellInfo.mMcc = getValidValue(cellIdentity4.getMcc());
+        bDCellInfo.mMnc = getValidValue(cellIdentity4.getMnc());
+        bDCellInfo.mLac = getValidValue(cellIdentity4.getLac());
+        ci = cellIdentity4.getCid();
+        bDCellInfo.mCid = getValidValue(ci);
+        bDCellInfo.mNetworkType = 'g';
+        z = true;
+        if (intValue >= 18) {
         }
         return bDCellInfo;
     }
@@ -333,6 +384,17 @@ public class BDLocManager implements Debug {
         return bDLocManager;
     }
 
+    /* JADX WARN: Can't wrap try/catch for region: R(16:1|(1:3)|4|(2:5|6)|(10:8|9|(1:11)|12|13|(1:27)|17|(1:19)|20|(1:22)(2:24|25))|30|9|(0)|12|13|(1:15)|27|17|(0)|20|(0)(0)) */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x003c, code lost:
+        r6 = null;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x001b  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x003f  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0054 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0055  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private String getLocStringData(int i) {
         String str;
         String str2;
@@ -340,29 +402,34 @@ public class BDLocManager implements Debug {
         if (i < 3) {
             i = 3;
         }
-        try {
-            str = this.mCellInfo != null ? this.mCellInfo.toCellString() : null;
-        } catch (Exception e) {
-            str = null;
-        }
-        if (str == null) {
-            str = "Z";
-        }
-        try {
-            if (this.mWifiList == null || this.mWifiList.needToFresh()) {
+        if (this.mCellInfo != null) {
+            str = this.mCellInfo.toCellString();
+            if (str == null) {
+                str = "Z";
+            }
+            if (this.mWifiList != null || this.mWifiList.needToFresh()) {
                 this.mWifiList = new WifiList(this.mWifiman.getScanResults());
             }
             str2 = this.mWifiList.toString(i);
-        } catch (Exception e2) {
-            str2 = null;
-        }
-        if (str2 != null) {
-            str = str + str2;
-        }
-        if (str.equals("Z")) {
+            if (str2 != null) {
+                str = str + str2;
+            }
+            if (str.equals("Z")) {
+                return encode(str + "t" + System.currentTimeMillis() + this.mExtraInfo) + "|qloc2";
+            }
             return null;
         }
-        return encode(str + "t" + System.currentTimeMillis() + this.mExtraInfo) + "|qloc2";
+        str = null;
+        if (str == null) {
+        }
+        if (this.mWifiList != null) {
+        }
+        this.mWifiList = new WifiList(this.mWifiman.getScanResults());
+        str2 = this.mWifiList.toString(i);
+        if (str2 != null) {
+        }
+        if (str.equals("Z")) {
+        }
     }
 
     private BDCellInfo getRegisteredBDCellInfo() {
@@ -370,37 +437,24 @@ public class BDLocManager implements Debug {
             return null;
         }
         try {
-            try {
-                List<CellInfo> allCellInfo = this.mTeleman.getAllCellInfo();
-                if (allCellInfo == null || allCellInfo.size() <= 0) {
-                    return null;
-                }
-                BDCellInfo bDCellInfo = null;
-                for (CellInfo cellInfo : allCellInfo) {
-                    try {
-                        if (cellInfo.isRegistered()) {
-                            BDCellInfo bDCellInfo2 = getBDCellInfo(cellInfo);
-                            if (bDCellInfo2 != null) {
-                                try {
-                                    if (!bDCellInfo2.isValid()) {
-                                        bDCellInfo2 = null;
-                                    }
-                                    return bDCellInfo2;
-                                } catch (Exception e) {
-                                    return bDCellInfo2;
-                                }
-                            }
-                            bDCellInfo = bDCellInfo2;
-                        }
-                    } catch (Exception e2) {
-                        return bDCellInfo;
-                    }
-                }
-                return bDCellInfo;
-            } catch (NoSuchMethodError e3) {
+            List<CellInfo> allCellInfo = this.mTeleman.getAllCellInfo();
+            if (allCellInfo == null || allCellInfo.size() <= 0) {
                 return null;
             }
-        } catch (Exception e4) {
+            BDCellInfo bDCellInfo = null;
+            for (CellInfo cellInfo : allCellInfo) {
+                try {
+                    if (cellInfo.isRegistered() && (bDCellInfo = getBDCellInfo(cellInfo)) != null) {
+                        if (bDCellInfo.isValid()) {
+                            return bDCellInfo;
+                        }
+                        return null;
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return bDCellInfo;
+        } catch (Exception | NoSuchMethodError unused2) {
             return null;
         }
     }
@@ -423,19 +477,17 @@ public class BDLocManager implements Debug {
         try {
             String bssid = connectionInfo.getBSSID();
             String replace = bssid != null ? bssid.replace(":", "") : null;
-            if (replace == null || replace.length() != 12) {
-                return false;
+            if (replace != null && replace.length() == 12) {
+                this.connectWifi = new String(replace);
+                return true;
             }
-            this.connectWifi = new String(replace);
-            return true;
-        } catch (Exception e) {
-            return false;
+        } catch (Exception unused) {
         }
+        return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setCellInfo(CellLocation cellLocation) {
-        int i = 0;
         if (cellLocation == null || this.mTeleman == null) {
             return;
         }
@@ -453,6 +505,7 @@ public class BDLocManager implements Debug {
                 String substring = networkOperator.substring(3);
                 if (substring != null) {
                     char[] charArray = substring.toCharArray();
+                    int i = 0;
                     while (i < charArray.length && Character.isDigit(charArray[i])) {
                         i++;
                     }
@@ -462,24 +515,26 @@ public class BDLocManager implements Debug {
                     }
                     bDCellInfo.mMnc = intValue2;
                 }
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
         if (cellLocation instanceof GsmCellLocation) {
-            bDCellInfo.mLac = ((GsmCellLocation) cellLocation).getLac();
-            bDCellInfo.mCid = ((GsmCellLocation) cellLocation).getCid();
+            GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
+            bDCellInfo.mLac = gsmCellLocation.getLac();
+            bDCellInfo.mCid = gsmCellLocation.getCid();
             bDCellInfo.mNetworkType = 'g';
         } else if (cellLocation instanceof CdmaCellLocation) {
             bDCellInfo.mNetworkType = 'w';
             if (mCdmaClass == null) {
                 try {
                     mCdmaClass = Class.forName("android.telephony.cdma.CdmaCellLocation");
-                } catch (Exception e2) {
+                } catch (Exception unused2) {
                     mCdmaClass = null;
                     return;
                 }
             }
-            if (mCdmaClass != null && mCdmaClass.isInstance(cellLocation)) {
+            Class<?> cls = mCdmaClass;
+            if (cls != null && cls.isInstance(cellLocation)) {
                 try {
                     int systemId = ((CdmaCellLocation) cellLocation).getSystemId();
                     if (systemId < 0) {
@@ -488,7 +543,7 @@ public class BDLocManager implements Debug {
                     bDCellInfo.mMnc = systemId;
                     bDCellInfo.mCid = ((CdmaCellLocation) cellLocation).getBaseStationId();
                     bDCellInfo.mLac = ((CdmaCellLocation) cellLocation).getNetworkId();
-                } catch (Exception e3) {
+                } catch (Exception unused3) {
                     return;
                 }
             }
@@ -501,7 +556,7 @@ public class BDLocManager implements Debug {
     public String getLocString() {
         try {
             return getLocStringData(15);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }
@@ -509,18 +564,17 @@ public class BDLocManager implements Debug {
     public String getLocString(int i) {
         try {
             return getLocStringData(i);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }
 
     public boolean startWifiScan() {
-        boolean z = false;
         if (this.mWifiman == null) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis() - this.mScanTime;
-        if (currentTimeMillis > WIFI_SCAN_SPAN_MIN || currentTimeMillis < 0) {
+        if (currentTimeMillis > 10000 || currentTimeMillis < 0) {
             if (this.mWifiman.isWifiEnabled()) {
                 this.mWifiman.startScan();
                 this.mScanTime = System.currentTimeMillis();
@@ -530,20 +584,19 @@ public class BDLocManager implements Debug {
                 return false;
             } else {
                 try {
-                    if (this.mWifiman.isScanAlwaysAvailable()) {
-                        this.mWifiman.startScan();
-                        this.mScanTime = System.currentTimeMillis();
-                        z = true;
-                    } else {
+                    if (!this.mWifiman.isScanAlwaysAvailable()) {
                         this.mScanTime = 0L;
+                        return false;
                     }
-                    return z;
-                } catch (Exception e) {
+                    this.mWifiman.startScan();
+                    this.mScanTime = System.currentTimeMillis();
+                    return true;
+                } catch (Exception unused) {
                     this.mScanTime = 0L;
-                    return z;
-                } catch (NoSuchMethodError e2) {
+                    return false;
+                } catch (NoSuchMethodError unused2) {
                     this.mScanTime = 0L;
-                    return z;
+                    return false;
                 }
             }
         }

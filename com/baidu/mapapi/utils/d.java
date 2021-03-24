@@ -6,8 +6,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import com.baidu.mapframework.open.aidl.a;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class d implements ServiceConnection {
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -23,22 +22,22 @@ public final class d implements ServiceConnection {
             thread2 = b.v;
             thread2.interrupt();
         }
-        str = b.c;
+        str = b.f7393c;
         Log.d(str, "onServiceConnected " + componentName);
         try {
-            aVar2 = b.d;
+            aVar2 = b.f7394d;
             if (aVar2 != null) {
-                com.baidu.mapframework.open.aidl.a unused = b.d = null;
+                com.baidu.mapframework.open.aidl.a unused = b.f7394d = null;
             }
-            com.baidu.mapframework.open.aidl.a unused2 = b.d = a.AbstractBinderC0254a.a(iBinder);
-            aVar3 = b.d;
+            com.baidu.mapframework.open.aidl.a unused2 = b.f7394d = a.AbstractBinderC0095a.a(iBinder);
+            aVar3 = b.f7394d;
             aVar3.a(new e(this));
-        } catch (RemoteException e) {
-            str2 = b.c;
-            Log.d(str2, "getComOpenClient ", e);
-            aVar = b.d;
+        } catch (RemoteException e2) {
+            str2 = b.f7393c;
+            Log.d(str2, "getComOpenClient ", e2);
+            aVar = b.f7394d;
             if (aVar != null) {
-                com.baidu.mapframework.open.aidl.a unused3 = b.d = null;
+                com.baidu.mapframework.open.aidl.a unused3 = b.f7394d = null;
             }
         }
     }
@@ -47,11 +46,11 @@ public final class d implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         String str;
         com.baidu.mapframework.open.aidl.a aVar;
-        str = b.c;
+        str = b.f7393c;
         Log.d(str, "onServiceDisconnected " + componentName);
-        aVar = b.d;
+        aVar = b.f7394d;
         if (aVar != null) {
-            com.baidu.mapframework.open.aidl.a unused = b.d = null;
+            com.baidu.mapframework.open.aidl.a unused = b.f7394d = null;
             boolean unused2 = b.u = false;
         }
     }

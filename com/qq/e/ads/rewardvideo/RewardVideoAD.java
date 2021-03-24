@@ -9,85 +9,113 @@ import android.text.TextUtils;
 import com.qq.e.comm.a;
 import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADListener;
+import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
+import com.qq.e.comm.compliance.DownloadConfirmCallBack;
+import com.qq.e.comm.compliance.DownloadConfirmListener;
 import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.constants.LoadAdParams;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.pi.RVADI;
+import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.VideoAdValidity;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class RewardVideoAD {
+/* loaded from: classes6.dex */
+public class RewardVideoAD implements ApkDownloadComplianceInterface, DownloadConfirmListener {
     public static final int REWARD_TYPE_PAGE = 1;
     public static final int REWARD_TYPE_VIDEO = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private RewardVideoADListener f7540a;
-    private volatile boolean b;
-    private RVADI c;
-    private volatile boolean d;
-    private volatile boolean e;
-    private volatile boolean f;
-    private String g;
-    private boolean h;
-    private Map<String, String> i;
-    private LoadAdParams j;
+    public RewardVideoADListener f38197a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public volatile boolean f38198b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RVADI f38199c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public volatile boolean f38200d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public volatile boolean f38201e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public volatile boolean f38202f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f38203g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f38204h;
+    public Map<String, String> i;
+    public LoadAdParams j;
+    public ServerSideVerificationOptions k;
+    public DownloadConfirmListener l;
+
     /* renamed from: com.qq.e.ads.rewardvideo.RewardVideoAD$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class AnonymousClass1 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Context f7541a;
-        final /* synthetic */ String b;
-        final /* synthetic */ RewardVideoADListener c;
-        final /* synthetic */ String d;
-        final /* synthetic */ boolean e;
+        public final /* synthetic */ Context f38205a;
 
-        AnonymousClass1(Context context, String str, RewardVideoADListener rewardVideoADListener, String str2, boolean z) {
-            this.f7541a = context;
-            this.b = str;
-            this.c = rewardVideoADListener;
-            this.d = str2;
-            this.e = z;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ String f38206b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ RewardVideoADListener f38207c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ String f38208d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ boolean f38209e;
+
+        public AnonymousClass1(Context context, String str, RewardVideoADListener rewardVideoADListener, String str2, boolean z) {
+            this.f38205a = context;
+            this.f38206b = str;
+            this.f38207c = rewardVideoADListener;
+            this.f38208d = str2;
+            this.f38209e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (GDTADManager.getInstance().initWith(this.f7541a, this.b)) {
+            if (GDTADManager.getInstance().initWith(this.f38205a, this.f38206b)) {
                 try {
                     final POFactory pOFactory = GDTADManager.getInstance().getPM().getPOFactory();
                     new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.qq.e.ads.rewardvideo.RewardVideoAD.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             try {
-                                if (pOFactory != null) {
-                                    ADListenerAdapter aDListenerAdapter = new ADListenerAdapter(AnonymousClass1.this.c, new ADListenerAdapter.CacheCallback() { // from class: com.qq.e.ads.rewardvideo.RewardVideoAD.1.1.1
-                                        @Override // com.qq.e.ads.rewardvideo.RewardVideoAD.ADListenerAdapter.CacheCallback
-                                        public void onCached() {
-                                            RewardVideoAD.this.h = true;
-                                        }
-
-                                        @Override // com.qq.e.ads.rewardvideo.RewardVideoAD.ADListenerAdapter.CacheCallback
-                                        public void onLoaded() {
-                                            RewardVideoAD.this.h = false;
-                                        }
-                                    });
-                                    aDListenerAdapter.setBase(RewardVideoAD.this);
-                                    RewardVideoAD.this.c = pOFactory.getRewardVideoADDelegate(AnonymousClass1.this.f7541a, AnonymousClass1.this.b, AnonymousClass1.this.d, aDListenerAdapter);
-                                    RewardVideoAD.this.c.setVolumeOn(AnonymousClass1.this.e);
-                                    RewardVideoAD.this.c.setLoadAdParams(RewardVideoAD.this.j);
-                                    RewardVideoAD.this.b = true;
-                                    if (RewardVideoAD.this.f) {
-                                        RewardVideoAD.this.loadAD();
-                                    }
-                                } else {
+                                if (pOFactory == null) {
                                     RewardVideoAD.this.a(2001);
+                                    return;
+                                }
+                                ADListenerAdapter aDListenerAdapter = new ADListenerAdapter(AnonymousClass1.this.f38207c, new ADListenerAdapter.CacheCallback() { // from class: com.qq.e.ads.rewardvideo.RewardVideoAD.1.1.1
+                                    @Override // com.qq.e.ads.rewardvideo.RewardVideoAD.ADListenerAdapter.CacheCallback
+                                    public void onCached() {
+                                        RewardVideoAD.this.f38204h = true;
+                                    }
+
+                                    @Override // com.qq.e.ads.rewardvideo.RewardVideoAD.ADListenerAdapter.CacheCallback
+                                    public void onLoaded() {
+                                        RewardVideoAD.this.f38204h = false;
+                                    }
+                                });
+                                aDListenerAdapter.setBase(RewardVideoAD.this);
+                                RewardVideoAD.this.f38199c = pOFactory.getRewardVideoADDelegate(AnonymousClass1.this.f38205a, AnonymousClass1.this.f38206b, AnonymousClass1.this.f38208d, aDListenerAdapter);
+                                RewardVideoAD.this.f38199c.setVolumeOn(AnonymousClass1.this.f38209e);
+                                RewardVideoAD.this.f38199c.setLoadAdParams(RewardVideoAD.this.j);
+                                RewardVideoAD.this.f38199c.setServerSideVerificationOptions(RewardVideoAD.this.k);
+                                RewardVideoAD.this.f38198b = true;
+                                if (RewardVideoAD.this.f38202f) {
+                                    RewardVideoAD.this.loadAD();
                                 }
                             } catch (Throwable th) {
                                 GDTLogger.e("Exception while init Core", th);
@@ -104,7 +132,7 @@ public class RewardVideoAD {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ADListenerAdapter implements ADListener {
         public static final int EVENT_TYPE_ON_AD_CLICK = 6;
         public static final int EVENT_TYPE_ON_AD_CLOSE = 8;
@@ -117,12 +145,14 @@ public class RewardVideoAD {
         public static final int EVENT_TYPE_ON_VIDEO_COMPLETE = 7;
 
         /* renamed from: a  reason: collision with root package name */
-        private CacheCallback f7545a;
+        public CacheCallback f38216a;
         public RewardVideoADListener adListener;
-        private WeakReference<RewardVideoAD> b;
 
-        /* loaded from: classes4.dex */
-        interface CacheCallback {
+        /* renamed from: b  reason: collision with root package name */
+        public WeakReference<RewardVideoAD> f38217b;
+
+        /* loaded from: classes6.dex */
+        public interface CacheCallback {
             void onCached();
 
             void onLoaded();
@@ -134,7 +164,7 @@ public class RewardVideoAD {
 
         public ADListenerAdapter(RewardVideoADListener rewardVideoADListener, CacheCallback cacheCallback) {
             this.adListener = rewardVideoADListener;
-            this.f7545a = cacheCallback;
+            this.f38216a = cacheCallback;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
@@ -142,14 +172,16 @@ public class RewardVideoAD {
             switch (aDEvent.getType()) {
                 case 1:
                     this.adListener.onADLoad();
-                    if (this.f7545a != null) {
-                        this.f7545a.onLoaded();
+                    CacheCallback cacheCallback = this.f38216a;
+                    if (cacheCallback != null) {
+                        cacheCallback.onLoaded();
                         return;
                     }
                     return;
                 case 2:
-                    if (this.f7545a != null) {
-                        this.f7545a.onCached();
+                    CacheCallback cacheCallback2 = this.f38216a;
+                    if (cacheCallback2 != null) {
+                        cacheCallback2.onCached();
                     }
                     this.adListener.onVideoCached();
                     return;
@@ -160,13 +192,18 @@ public class RewardVideoAD {
                     this.adListener.onADExpose();
                     return;
                 case 5:
-                    this.adListener.onReward();
+                    if (aDEvent.getParas().length <= 0 || !(aDEvent.getParas()[0] instanceof String)) {
+                        return;
+                    }
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(ServerSideVerificationOptions.TRANS_ID, aDEvent.getParas()[0]);
+                    this.adListener.onReward(hashMap);
                     return;
                 case 6:
-                    if (this.b != null && aDEvent.getParas().length == 1) {
+                    if (this.f38217b != null && aDEvent.getParas().length == 1) {
                         Object obj = aDEvent.getParas()[0];
-                        if ((obj instanceof String) && this.b.get() != null) {
-                            this.b.get().setExt((String) obj);
+                        if ((obj instanceof String) && this.f38217b.get() != null) {
+                            this.f38217b.get().setExt((String) obj);
                         }
                     }
                     this.adListener.onADClick();
@@ -181,7 +218,7 @@ public class RewardVideoAD {
                     if (aDEvent.getParas().length <= 0 || !(aDEvent.getParas()[0] instanceof Integer)) {
                         return;
                     }
-                    this.adListener.onError(a.a(((Integer) aDEvent.getParas()[0]).intValue()));
+                    this.adListener.onError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
                     return;
                 default:
                     return;
@@ -189,7 +226,7 @@ public class RewardVideoAD {
         }
 
         public void setBase(RewardVideoAD rewardVideoAD) {
-            this.b = new WeakReference<>(rewardVideoAD);
+            this.f38217b = new WeakReference<>(rewardVideoAD);
         }
     }
 
@@ -205,7 +242,7 @@ public class RewardVideoAD {
             return;
         }
         GDTLogger.e("SDK 尚未初始化，请在 Application 中调用 GDTADManager.getInstance().initWith() 初始化");
-        rewardVideoADListener.onError(a.a(2003));
+        rewardVideoADListener.onError(AdErrorConvertor.formatErrorCode(2003));
     }
 
     @Deprecated
@@ -226,8 +263,8 @@ public class RewardVideoAD {
         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.qq.e.ads.rewardvideo.RewardVideoAD.2
             @Override // java.lang.Runnable
             public void run() {
-                if (RewardVideoAD.this.f7540a != null) {
-                    RewardVideoAD.this.f7540a.onError(a.a(i));
+                if (RewardVideoAD.this.f38197a != null) {
+                    RewardVideoAD.this.f38197a.onError(AdErrorConvertor.formatErrorCode(i));
                 }
             }
         });
@@ -238,49 +275,63 @@ public class RewardVideoAD {
             GDTLogger.e(String.format("RewardVideoAD Constructor params error, context=%s, appID=%s, posID=%s, rewardVideoADListener=%s", context, str, str2, rewardVideoADListener));
             return;
         }
-        this.f7540a = rewardVideoADListener;
-        this.d = true;
+        this.f38197a = rewardVideoADListener;
+        this.f38200d = true;
         if (!a.a(context)) {
             GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
             a(4002);
             return;
         }
-        this.e = true;
-        this.g = str2;
+        this.f38201e = true;
+        this.f38203g = str2;
         GDTADManager.INIT_EXECUTOR.execute(new AnonymousClass1(context, str, rewardVideoADListener, str2, z));
     }
 
     public VideoAdValidity checkValidity() {
-        return hasShown() ? VideoAdValidity.SHOWED : SystemClock.elapsedRealtime() > getExpireTimestamp() - 1000 ? VideoAdValidity.OVERDUE : (this.h || this.c == null || this.c.getRewardAdType() != 0) ? VideoAdValidity.VALID : VideoAdValidity.NONE_CACHE;
+        RVADI rvadi;
+        return hasShown() ? VideoAdValidity.SHOWED : SystemClock.elapsedRealtime() > getExpireTimestamp() - 1000 ? VideoAdValidity.OVERDUE : (this.f38204h || (rvadi = this.f38199c) == null || rvadi.getRewardAdType() != 0) ? VideoAdValidity.VALID : VideoAdValidity.NONE_CACHE;
     }
 
     public String getAdNetWorkName() {
-        if (this.c != null) {
-            return this.c.getAdNetWorkName();
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            return rvadi.getAdNetWorkName();
         }
         GDTLogger.e("please invoke getAdNetWorkName method after callback \"onADLoad\" or the ad does not support \"getAdNetWorkName\" ");
         return null;
     }
 
+    @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
+    public String getApkInfoUrl() {
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            return rvadi.getApkInfoUrl();
+        }
+        return null;
+    }
+
     public int getECPM() {
-        if (this.c != null) {
-            return this.c.getECPM();
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            return rvadi.getECPM();
         }
         GDTLogger.e("please invoke getECPM method after callback \"onADLoad\" ");
         return -1;
     }
 
     public String getECPMLevel() {
-        if (this.c != null) {
-            return this.c.getECPMLevel();
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            return rvadi.getECPMLevel();
         }
         GDTLogger.e("please invoke getECPMLevel method after callback \"onADLoad\" ");
         return null;
     }
 
     public long getExpireTimestamp() {
-        if (this.c != null) {
-            return this.c.getExpireTimestamp();
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            return rvadi.getExpireTimestamp();
         }
         GDTLogger.e("please invoke getExpireTimestamp method after callback \"onADLoad\" ");
         return 0L;
@@ -291,38 +342,61 @@ public class RewardVideoAD {
     }
 
     public int getRewardAdType() {
-        if (this.c != null) {
-            return this.c.getRewardAdType();
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            return rvadi.getRewardAdType();
         }
         GDTLogger.e("please invoke getRewardAdType method after callback \"onADLoad\" or the ad does not support \"getRewardAdType\" ");
         return 0;
     }
 
     public int getVideoDuration() {
-        if (this.c != null) {
-            return this.c.getVideoDuration();
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            return rvadi.getVideoDuration();
         }
         GDTLogger.e("please invoke getVideoDuration method after callback \"onADLoad\" or the ad does not support \"getVideoDuration\" ");
         return 0;
     }
 
     public boolean hasShown() {
-        if (this.c != null) {
-            return this.c.hasShown();
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            return rvadi.hasShown();
         }
         GDTLogger.e("please invoke hasShown method after callback \"onADLoad\" ");
         return false;
     }
 
     public void loadAD() {
-        if (!this.d || !this.e) {
+        if (!this.f38200d || !this.f38201e) {
             GDTLogger.e("AD init Params OR Context error, details in logs produced while init RewardVideoAD");
-        } else if (!this.b) {
-            this.f = true;
-        } else if (this.c != null) {
-            this.c.loadAD();
+        } else if (!this.f38198b) {
+            this.f38202f = true;
         } else {
-            GDTLogger.e("RewardVideo AD Init error, see more logs");
+            RVADI rvadi = this.f38199c;
+            if (rvadi != null) {
+                rvadi.loadAD();
+            } else {
+                GDTLogger.e("RewardVideo AD Init error, see more logs");
+            }
+        }
+    }
+
+    @Override // com.qq.e.comm.compliance.DownloadConfirmListener
+    public void onDownloadConfirm(Activity activity, int i, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
+        DownloadConfirmListener downloadConfirmListener = this.l;
+        if (downloadConfirmListener != null) {
+            downloadConfirmListener.onDownloadConfirm(activity, i, str, downloadConfirmCallBack);
+        }
+    }
+
+    @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
+    public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
+        this.l = downloadConfirmListener;
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            rvadi.setDownloadConfirmListener(this);
         }
     }
 
@@ -332,8 +406,17 @@ public class RewardVideoAD {
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         this.j = loadAdParams;
-        if (this.c != null) {
-            this.c.setLoadAdParams(this.j);
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            rvadi.setLoadAdParams(loadAdParams);
+        }
+    }
+
+    public void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions) {
+        this.k = serverSideVerificationOptions;
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            rvadi.setServerSideVerificationOptions(serverSideVerificationOptions);
         }
     }
 
@@ -342,24 +425,26 @@ public class RewardVideoAD {
             return;
         }
         try {
-            GDTADManager.getInstance().getSM().setDEVCodeSetting(Constants.KEYS.AD_TAGS, new JSONObject(map), this.g);
-        } catch (Exception e) {
+            GDTADManager.getInstance().getSM().setDEVCodeSetting(Constants.KEYS.AD_TAGS, new JSONObject(map), this.f38203g);
+        } catch (Exception e2) {
             GDTLogger.e("NativeUnifiedAD#setTag Exception");
-            e.printStackTrace();
+            e2.printStackTrace();
         }
     }
 
     public void showAD() {
-        if (this.c != null) {
-            this.c.showAD();
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            rvadi.showAD();
         } else {
             GDTLogger.e("please invoke showAD method after callback \"onADLoad\" ");
         }
     }
 
     public void showAD(Activity activity) {
-        if (this.c != null) {
-            this.c.showAD(activity);
+        RVADI rvadi = this.f38199c;
+        if (rvadi != null) {
+            rvadi.showAD(activity);
         } else {
             GDTLogger.e("please invoke showAD method after callback \"onADLoad\" ");
         }

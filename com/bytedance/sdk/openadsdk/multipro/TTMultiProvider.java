@@ -10,21 +10,11 @@ import com.bytedance.sdk.openadsdk.core.h.g;
 /* loaded from: classes6.dex */
 public class TTMultiProvider extends ContentProvider {
     @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        if (!g.a()) {
-            return false;
-        }
-        f.b(getContext()).a(getContext());
-        return true;
-    }
-
-    @Override // android.content.ContentProvider
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         if (g.a()) {
-            return f.b(getContext()).a(uri, strArr, str, strArr2, str2);
+            return f.b(getContext()).a(uri, str, strArr);
         }
-        return null;
+        return 0;
     }
 
     @Override // android.content.ContentProvider
@@ -46,11 +36,21 @@ public class TTMultiProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+    public boolean onCreate() {
         if (g.a()) {
-            return f.b(getContext()).a(uri, str, strArr);
+            f.b(getContext()).a(getContext());
+            return true;
         }
-        return 0;
+        return false;
+    }
+
+    @Override // android.content.ContentProvider
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        if (g.a()) {
+            return f.b(getContext()).a(uri, strArr, str, strArr2, str2);
+        }
+        return null;
     }
 
     @Override // android.content.ContentProvider

@@ -5,94 +5,108 @@ import android.os.Handler;
 import com.baidu.android.pushservice.d.g;
 import com.baidu.android.pushservice.d.j;
 import java.util.List;
-import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f1089a;
-    private Context b;
-    private Handler c;
-    private Runnable d;
-    private volatile boolean e;
+    public static volatile c f2725a;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public Context f2726b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Handler f2727c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Runnable f2728d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public volatile boolean f2729e;
+
+    /* loaded from: classes2.dex */
     public interface a {
-        void a(int i, String str);
+        void a(int i, List<String> list);
     }
 
-    private c(Context context) {
-        this.b = context.getApplicationContext();
-        this.c = new Handler(context.getMainLooper());
+    public c(Context context) {
+        this.f2726b = context.getApplicationContext();
+        this.f2727c = new Handler(context.getMainLooper());
     }
 
     public static c a(Context context) {
-        if (f1089a == null) {
+        if (f2725a == null) {
             synchronized (c.class) {
-                if (f1089a == null) {
-                    f1089a = new c(context);
+                if (f2725a == null) {
+                    f2725a = new c(context);
                 }
             }
         }
-        return f1089a;
+        return f2725a;
     }
 
-    private com.baidu.android.pushservice.g.c a(final a aVar, String str) {
-        return new com.baidu.android.pushservice.d.g(this.b, str, new g.a() { // from class: com.baidu.android.pushservice.c.2
+    private com.baidu.android.pushservice.h.c a(final a aVar, String str) {
+        return new com.baidu.android.pushservice.d.g(this.f2726b, str, new g.a() { // from class: com.baidu.android.pushservice.c.2
             @Override // com.baidu.android.pushservice.d.g.a
             public void a(List<String> list) {
-                if (c.this.c != null) {
-                    c.this.c.removeCallbacksAndMessages(null);
+                if (c.this.f2727c != null) {
+                    c.this.f2727c.removeCallbacksAndMessages(null);
                 }
-                if (c.this.e) {
-                    c.this.e = false;
-                } else if (list == null || list.isEmpty()) {
-                    aVar.a(-1, null);
+                if (c.this.f2729e) {
+                    c.this.f2729e = false;
                 } else {
-                    aVar.a(0, list.get(new Random().nextInt(list.size())));
+                    aVar.a(0, list);
                 }
             }
         });
     }
 
-    private com.baidu.android.pushservice.g.c b(final a aVar, String str) {
-        return new com.baidu.android.pushservice.d.j(this.b, str, new j.a() { // from class: com.baidu.android.pushservice.c.3
+    private com.baidu.android.pushservice.h.c b(final a aVar, String str) {
+        return new com.baidu.android.pushservice.d.j(this.f2726b, str, new j.a() { // from class: com.baidu.android.pushservice.c.3
             @Override // com.baidu.android.pushservice.d.j.a
-            public void a(int i, String[] strArr) {
-                String str2 = null;
-                if (i == 0 && strArr != null && strArr.length > 0) {
-                    str2 = strArr[0];
-                }
-                aVar.a(i, str2);
+            public void a(int i, List<String> list) {
+                aVar.a(i, list);
             }
         });
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:16:0x003c  */
+    /* JADX WARN: Removed duplicated region for block: B:20:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void a(int i, final a aVar) {
-        com.baidu.android.pushservice.g.c a2;
-        if (aVar != null) {
-            if (i == 0) {
-                a2 = b(aVar, h.d(this.b));
-            } else if (i == 1) {
-                a2 = b(aVar, h.c(this.b));
-            } else if (i != 2) {
-                return;
-            } else {
-                if (this.d == null) {
-                    this.d = new Runnable() { // from class: com.baidu.android.pushservice.c.1
+        com.baidu.android.pushservice.h.c a2;
+        String c2;
+        if (aVar == null) {
+            return;
+        }
+        if (i == 0) {
+            c2 = h.d(this.f2726b);
+        } else if (i != 1) {
+            if (i == 2) {
+                if (this.f2728d == null) {
+                    this.f2728d = new Runnable() { // from class: com.baidu.android.pushservice.c.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.e = true;
+                            c.this.f2729e = true;
                             aVar.a(-1, null);
                         }
                     };
                 }
-                this.c.postDelayed(this.d, 5000L);
-                a2 = a(aVar, h.c(this.b));
+                this.f2727c.postDelayed(this.f2728d, 5000L);
+                a2 = a(aVar, h.c(this.f2726b));
+                if (a2 == null) {
+                    com.baidu.android.pushservice.h.d.a().a(a2);
+                    return;
+                }
+                return;
             }
-            if (a2 != null) {
-                com.baidu.android.pushservice.g.d.a().a(a2);
-            }
+            return;
+        } else {
+            c2 = h.c(this.f2726b);
+        }
+        a2 = b(aVar, c2);
+        if (a2 == null) {
         }
     }
 }

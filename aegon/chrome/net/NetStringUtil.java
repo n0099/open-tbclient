@@ -7,13 +7,13 @@ import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
 import java.text.Normalizer;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class NetStringUtil {
     @CalledByNative
     public static String convertToUnicode(ByteBuffer byteBuffer, String str) {
         try {
             return Charset.forName(str).newDecoder().decode(byteBuffer).toString();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }
@@ -35,7 +35,7 @@ public class NetStringUtil {
             newDecoder.onUnmappableCharacter(CodingErrorAction.REPLACE);
             newDecoder.replaceWith("�");
             return newDecoder.decode(byteBuffer).toString();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }
@@ -44,7 +44,7 @@ public class NetStringUtil {
     public static String toUpperCase(String str) {
         try {
             return str.toUpperCase(Locale.getDefault());
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }

@@ -3,26 +3,28 @@ package com.baidu.tieba.im.forum.broadcast.data;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ResponseHttpMajorResidueMessage extends JsonHttpResponsedMessage {
-    ForumBroadcastMajorResidueData majorHistoryData;
+    public ForumBroadcastMajorResidueData majorHistoryData;
 
     public ResponseHttpMajorResidueMessage() {
         super(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE);
     }
 
-    public ForumBroadcastMajorResidueData getData() {
-        return this.majorHistoryData;
-    }
-
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.majorHistoryData = new ForumBroadcastMajorResidueData();
-            this.majorHistoryData.CY(optJSONObject.optInt("used_cnt"));
-            this.majorHistoryData.CZ(optJSONObject.optInt("has_cnt"));
-            this.majorHistoryData.Da(optJSONObject.optInt("predict_push_usercnt"));
+        if (jSONObject == null || jSONObject.optInt("error_code", -1) != 0 || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+            return;
         }
+        ForumBroadcastMajorResidueData forumBroadcastMajorResidueData = new ForumBroadcastMajorResidueData();
+        this.majorHistoryData = forumBroadcastMajorResidueData;
+        forumBroadcastMajorResidueData.w(optJSONObject.optInt("used_cnt"));
+        this.majorHistoryData.u(optJSONObject.optInt("has_cnt"));
+        this.majorHistoryData.v(optJSONObject.optInt("predict_push_usercnt"));
+    }
+
+    public ForumBroadcastMajorResidueData getData() {
+        return this.majorHistoryData;
     }
 }

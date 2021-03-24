@@ -1,12 +1,18 @@
 package com.squareup.wire;
 
-import com.thunder.livesdk.system.ThunderNetStateService;
+import com.alipay.sdk.encrypt.a;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class WireOutput {
-    private final byte[] buffer;
-    private final int limit;
-    private int position;
+    public final byte[] buffer;
+    public final int limit;
+    public int position;
+
+    public WireOutput(byte[] bArr, int i, int i2) {
+        this.buffer = bArr;
+        this.position = i;
+        this.limit = i + i2;
+    }
 
     public static int int32Size(int i) {
         if (i >= 0) {
@@ -22,66 +28,28 @@ public final class WireOutput {
         return 10;
     }
 
-    public static int tagSize(int i, WireType wireType) {
-        return int32Size(makeTag(i, wireType));
-    }
-
-    public static int messageSize(int i, int i2) {
-        return tagSize(i, WireType.LENGTH_DELIMITED) + int32Size(i2) + i2;
-    }
-
-    public static int writeTag(int i, WireType wireType, byte[] bArr, int i2) {
-        return writeVarint(makeTag(i, wireType), bArr, i2);
-    }
-
-    public static int writeVarint(long j, byte[] bArr, int i) {
-        int i2 = i;
-        while (((-128) & j) != 0) {
-            bArr[i2] = (byte) ((127 & j) | 128);
-            j >>>= 7;
-            i2++;
-        }
-        bArr[i2] = (byte) j;
-        return (i2 + 1) - i;
+    public static int makeTag(int i, WireType wireType) {
+        return (i << 3) | wireType.value();
     }
 
     public static int messageHeaderSize(int i, int i2) {
         return tagSize(i, WireType.LENGTH_DELIMITED) + int32Size(i2);
     }
 
-    public static int writeMessageHeader(int i, byte[] bArr, int i2, int i3) {
-        int writeTag = writeTag(i, WireType.LENGTH_DELIMITED, bArr, i2) + i2;
-        return (writeTag + writeVarint(i3, bArr, writeTag)) - i2;
+    public static int messageSize(int i, int i2) {
+        return tagSize(i, WireType.LENGTH_DELIMITED) + int32Size(i2) + i2;
     }
 
-    public static int makeTag(int i, WireType wireType) {
-        return (i << 3) | wireType.value();
-    }
-
-    private WireOutput(byte[] bArr, int i, int i2) {
-        this.buffer = bArr;
-        this.position = i;
-        this.limit = i + i2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static WireOutput newInstance(byte[] bArr) {
         return newInstance(bArr, 0, bArr.length);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static WireOutput newInstance(byte[] bArr, int i, int i2) {
-        return new WireOutput(bArr, i, i2);
+    public static int tagSize(int i, WireType wireType) {
+        return int32Size(makeTag(i, wireType));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int varintTagSize(int i) {
-        return varint32Size(makeTag(i, WireType.VARINT));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static int varint32Size(int i) {
-        if ((i & (-128)) == 0) {
+        if ((i & a.f1896g) == 0) {
             return 1;
         }
         if ((i & (-16384)) == 0) {
@@ -90,10 +58,9 @@ public final class WireOutput {
         if (((-2097152) & i) == 0) {
             return 3;
         }
-        return ((-268435456) & i) == 0 ? 4 : 5;
+        return (i & (-268435456)) == 0 ? 4 : 5;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static int varint64Size(long j) {
         if (((-128) & j) == 0) {
             return 1;
@@ -119,71 +86,41 @@ public final class WireOutput {
         if (((-72057594037927936L) & j) == 0) {
             return 8;
         }
-        return (Long.MIN_VALUE & j) == 0 ? 9 : 10;
+        return (j & Long.MIN_VALUE) == 0 ? 9 : 10;
     }
 
-    void writeRawByte(byte b) throws IOException {
-        if (this.position == this.limit) {
-            throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
-        }
-        byte[] bArr = this.buffer;
-        int i = this.position;
-        this.position = i + 1;
-        bArr[i] = b;
+    public static int varintTagSize(int i) {
+        return varint32Size(makeTag(i, WireType.VARINT));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeRawByte(int i) throws IOException {
-        writeRawByte((byte) i);
+    public static int writeMessageHeader(int i, byte[] bArr, int i2, int i3) {
+        int writeTag = writeTag(i, WireType.LENGTH_DELIMITED, bArr, i2) + i2;
+        return (writeTag + writeVarint(i3, bArr, writeTag)) - i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeRawBytes(byte[] bArr) throws IOException {
-        writeRawBytes(bArr, 0, bArr.length);
+    public static int writeTag(int i, WireType wireType, byte[] bArr, int i2) {
+        return writeVarint(makeTag(i, wireType), bArr, i2);
     }
 
-    void writeRawBytes(byte[] bArr, int i, int i2) throws IOException {
-        if (this.limit - this.position >= i2) {
-            System.arraycopy(bArr, i, this.buffer, this.position, i2);
-            this.position += i2;
-            return;
-        }
-        throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeTag(int i, WireType wireType) throws IOException {
-        writeVarint32(makeTag(i, wireType));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeSignedVarint32(int i) throws IOException {
-        if (i >= 0) {
-            writeVarint32(i);
-        } else {
-            writeVarint64(i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeVarint32(int i) throws IOException {
-        while ((i & (-128)) != 0) {
-            writeRawByte((i & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
-            i >>>= 7;
-        }
-        writeRawByte(i);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeVarint64(long j) throws IOException {
+    public static int writeVarint(long j, byte[] bArr, int i) {
+        int i2 = i;
         while (((-128) & j) != 0) {
-            writeRawByte((((int) j) & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
+            bArr[i2] = (byte) ((127 & j) | 128);
             j >>>= 7;
+            i2++;
         }
-        writeRawByte((int) j);
+        bArr[i2] = (byte) j;
+        return (i2 + 1) - i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public static int zigZag32(int i) {
+        return (i >> 31) ^ (i << 1);
+    }
+
+    public static long zigZag64(long j) {
+        return (j >> 63) ^ (j << 1);
+    }
+
     public void writeFixed32(int i) throws IOException {
         writeRawByte(i & 255);
         writeRawByte((i >> 8) & 255);
@@ -191,7 +128,6 @@ public final class WireOutput {
         writeRawByte((i >> 24) & 255);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void writeFixed64(long j) throws IOException {
         writeRawByte(((int) j) & 255);
         writeRawByte(((int) (j >> 8)) & 255);
@@ -203,13 +139,65 @@ public final class WireOutput {
         writeRawByte(((int) (j >> 56)) & 255);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int zigZag32(int i) {
-        return (i << 1) ^ (i >> 31);
+    public void writeRawByte(byte b2) throws IOException {
+        int i = this.position;
+        if (i != this.limit) {
+            byte[] bArr = this.buffer;
+            this.position = i + 1;
+            bArr[i] = b2;
+            return;
+        }
+        throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static long zigZag64(long j) {
-        return (j << 1) ^ (j >> 63);
+    public void writeRawBytes(byte[] bArr) throws IOException {
+        writeRawBytes(bArr, 0, bArr.length);
+    }
+
+    public void writeSignedVarint32(int i) throws IOException {
+        if (i >= 0) {
+            writeVarint32(i);
+        } else {
+            writeVarint64(i);
+        }
+    }
+
+    public void writeVarint32(int i) throws IOException {
+        while ((i & a.f1896g) != 0) {
+            writeRawByte((i & 127) | 128);
+            i >>>= 7;
+        }
+        writeRawByte(i);
+    }
+
+    public void writeVarint64(long j) throws IOException {
+        while (((-128) & j) != 0) {
+            writeRawByte((((int) j) & 127) | 128);
+            j >>>= 7;
+        }
+        writeRawByte((int) j);
+    }
+
+    public static WireOutput newInstance(byte[] bArr, int i, int i2) {
+        return new WireOutput(bArr, i, i2);
+    }
+
+    public void writeRawBytes(byte[] bArr, int i, int i2) throws IOException {
+        int i3 = this.limit;
+        int i4 = this.position;
+        if (i3 - i4 >= i2) {
+            System.arraycopy(bArr, i, this.buffer, i4, i2);
+            this.position += i2;
+            return;
+        }
+        throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
+    }
+
+    public void writeTag(int i, WireType wireType) throws IOException {
+        writeVarint32(makeTag(i, wireType));
+    }
+
+    public void writeRawByte(int i) throws IOException {
+        writeRawByte((byte) i);
     }
 }

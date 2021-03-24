@@ -2,7 +2,7 @@ package com.baidu.pass.biometrics.base.utils;
 
 import android.content.Context;
 import com.baidu.android.common.util.DeviceId;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class PhoneUtils {
     public static String getCUID2(Context context) {
         return DeviceId.getCUID(context);

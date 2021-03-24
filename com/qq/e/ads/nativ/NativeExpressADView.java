@@ -1,10 +1,14 @@
 package com.qq.e.ads.nativ;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.FrameLayout;
 import com.qq.e.ads.nativ.NativeExpressAD;
+import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
+import com.qq.e.comm.compliance.DownloadConfirmCallBack;
+import com.qq.e.comm.compliance.DownloadConfirmListener;
 import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.AdData;
@@ -16,21 +20,36 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class NativeExpressADView extends FrameLayout {
+/* loaded from: classes6.dex */
+public class NativeExpressADView extends FrameLayout implements ApkDownloadComplianceInterface, DownloadConfirmListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private NEADVI f7522a;
-    private boolean b;
-    private volatile boolean c;
-    private volatile boolean d;
-    private NativeExpressMediaListener e;
-    public Map<String, String> ext;
-    private AdData f;
-    private volatile boolean g;
-    private ViewBindStatusListener h;
+    public NEADVI f38136a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f38137b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public volatile boolean f38138c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public volatile boolean f38139d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public NativeExpressMediaListener f38140e;
+    public Map<String, String> ext;
+
+    /* renamed from: f  reason: collision with root package name */
+    public AdData f38141f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public volatile boolean f38142g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ViewBindStatusListener f38143h;
+    public DownloadConfirmListener i;
+
+    /* loaded from: classes6.dex */
     public interface ViewBindStatusListener {
         void onAttachedToWindow();
 
@@ -41,14 +60,14 @@ public class NativeExpressADView extends FrameLayout {
         void onStartTemporaryDetach();
     }
 
-    public NativeExpressADView(final NEADI neadi, final Context context, final ADSize aDSize, final String str, final String str2, final JSONObject jSONObject, final HashMap<String, JSONObject> hashMap) {
+    public NativeExpressADView(final NEADI neadi, final Context context, final ADSize aDSize, final String str, final String str2, final JSONObject jSONObject, final HashMap<String, Object> hashMap) {
         super(context);
-        this.b = false;
-        this.c = false;
-        this.d = false;
+        this.f38137b = false;
+        this.f38138c = false;
+        this.f38139d = false;
         this.ext = new HashMap();
-        this.g = false;
-        this.f = a(hashMap);
+        this.f38142g = false;
+        this.f38141f = a(hashMap);
         GDTADManager.INIT_EXECUTOR.execute(new Runnable() { // from class: com.qq.e.ads.nativ.NativeExpressADView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -63,26 +82,24 @@ public class NativeExpressADView extends FrameLayout {
                         public void run() {
                             try {
                                 if (pOFactory != null) {
-                                    NativeExpressADView.this.f7522a = pOFactory.getNativeExpressADView(neadi, context, NativeExpressADView.this, aDSize, str, str2, jSONObject, hashMap);
-                                    NativeExpressADView.this.b = true;
-                                    if (NativeExpressADView.this.e != null) {
-                                        NativeExpressADView.this.setMediaListener(NativeExpressADView.this.e);
+                                    NativeExpressADView.this.f38136a = pOFactory.getNativeExpressADView(neadi, context, NativeExpressADView.this, aDSize, str, str2, jSONObject, hashMap);
+                                    NativeExpressADView.this.f38137b = true;
+                                    if (NativeExpressADView.this.f38140e != null) {
+                                        NativeExpressADView.this.setMediaListener(NativeExpressADView.this.f38140e);
                                     }
-                                    if (NativeExpressADView.this.c) {
+                                    if (NativeExpressADView.this.f38138c) {
                                         NativeExpressADView.this.preloadVideo();
                                     }
-                                    if (NativeExpressADView.this.d) {
+                                    if (NativeExpressADView.this.f38139d) {
                                         NativeExpressADView.this.render();
                                     }
-                                    if (NativeExpressADView.this.g) {
+                                    if (NativeExpressADView.this.f38142g) {
                                         NativeExpressADView.this.negativeFeedback();
                                     }
                                 }
-                            } catch (Throwable th) {
+                            } finally {
                                 try {
-                                    GDTLogger.e("Exception while init Native Express AD View Core", th);
                                 } finally {
-                                    NativeExpressADView.this.b = true;
                                 }
                             }
                         }
@@ -94,113 +111,164 @@ public class NativeExpressADView extends FrameLayout {
         });
     }
 
-    private static AdData a(HashMap<String, JSONObject> hashMap) {
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0019  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x001c A[RETURN] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static AdData a(HashMap<String, Object> hashMap) {
         JSONObject jSONObject;
         Object obj;
         if (hashMap != null) {
             try {
-                jSONObject = hashMap.get(Constants.KEYS.AD_INFO);
-            } catch (JSONException e) {
-                obj = null;
+                jSONObject = (JSONObject) hashMap.get(Constants.KEYS.AD_INFO);
+            } catch (JSONException unused) {
             }
         } else {
             jSONObject = null;
         }
-        obj = jSONObject != null ? jSONObject.get(Constants.KEYS.AD_INFO) : null;
-        if (obj instanceof AdData) {
+        if (jSONObject != null) {
+            obj = jSONObject.get(Constants.KEYS.AD_INFO);
+            if (obj instanceof AdData) {
+                return null;
+            }
             return (AdData) obj;
+        }
+        obj = null;
+        if (obj instanceof AdData) {
+        }
+    }
+
+    public void destroy() {
+        NEADVI neadvi = this.f38136a;
+        if (neadvi != null) {
+            neadvi.destroy();
+        }
+    }
+
+    @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
+    public String getApkInfoUrl() {
+        NEADVI neadvi = this.f38136a;
+        if (neadvi != null) {
+            return neadvi.getApkInfoUrl();
         }
         return null;
     }
 
-    public void destroy() {
-        if (this.f7522a != null) {
-            this.f7522a.destroy();
-        }
-    }
-
     public AdData getBoundData() {
-        return this.f;
+        return this.f38141f;
     }
 
     public void negativeFeedback() {
-        if (!this.b) {
-            this.g = true;
-        } else if (this.f7522a == null) {
+        if (!this.f38137b) {
+            this.f38142g = true;
+            return;
+        }
+        NEADVI neadvi = this.f38136a;
+        if (neadvi == null) {
             GDTLogger.e("Native Express negativeFeedback  core is null");
-        } else {
-            this.f7522a.reportAdNegative();
-            this.g = false;
+            return;
         }
+        neadvi.reportAdNegative();
+        this.f38142g = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.h != null) {
-            this.h.onAttachedToWindow();
+        ViewBindStatusListener viewBindStatusListener = this.f38143h;
+        if (viewBindStatusListener != null) {
+            viewBindStatusListener.onAttachedToWindow();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.h != null) {
-            this.h.onDetachedFromWindow();
+        ViewBindStatusListener viewBindStatusListener = this.f38143h;
+        if (viewBindStatusListener != null) {
+            viewBindStatusListener.onDetachedFromWindow();
+        }
+    }
+
+    @Override // com.qq.e.comm.compliance.DownloadConfirmListener
+    public void onDownloadConfirm(Activity activity, int i, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
+        DownloadConfirmListener downloadConfirmListener = this.i;
+        if (downloadConfirmListener != null) {
+            downloadConfirmListener.onDownloadConfirm(activity, i, str, downloadConfirmCallBack);
         }
     }
 
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        if (this.h != null) {
-            this.h.onFinishTemporaryDetach();
+        ViewBindStatusListener viewBindStatusListener = this.f38143h;
+        if (viewBindStatusListener != null) {
+            viewBindStatusListener.onFinishTemporaryDetach();
         }
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        if (this.h != null) {
-            this.h.onStartTemporaryDetach();
+        ViewBindStatusListener viewBindStatusListener = this.f38143h;
+        if (viewBindStatusListener != null) {
+            viewBindStatusListener.onStartTemporaryDetach();
         }
     }
 
     public void preloadVideo() {
-        if (!this.b) {
-            this.c = true;
-        } else if (this.f7522a != null) {
-            this.f7522a.preloadVideo();
+        if (!this.f38137b) {
+            this.f38138c = true;
+            return;
+        }
+        NEADVI neadvi = this.f38136a;
+        if (neadvi != null) {
+            neadvi.preloadVideo();
         } else {
             GDTLogger.e("Native Express AD View Init Error");
         }
     }
 
     public void render() {
-        if (!this.b) {
-            this.d = true;
-        } else if (this.f7522a != null) {
-            this.f7522a.render();
+        if (!this.f38137b) {
+            this.f38139d = true;
+            return;
+        }
+        NEADVI neadvi = this.f38136a;
+        if (neadvi != null) {
+            neadvi.render();
         } else {
             GDTLogger.e("Native Express AD View Init Error");
         }
     }
 
     public void setAdSize(ADSize aDSize) {
-        if (this.f7522a != null) {
-            this.f7522a.setAdSize(aDSize);
+        NEADVI neadvi = this.f38136a;
+        if (neadvi != null) {
+            neadvi.setAdSize(aDSize);
+        }
+    }
+
+    @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
+    public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
+        this.i = downloadConfirmListener;
+        NEADVI neadvi = this.f38136a;
+        if (neadvi != null) {
+            neadvi.setDownloadConfirmListener(this);
         }
     }
 
     public void setMediaListener(NativeExpressMediaListener nativeExpressMediaListener) {
-        this.e = nativeExpressMediaListener;
-        if (this.f7522a == null || nativeExpressMediaListener == null) {
+        this.f38140e = nativeExpressMediaListener;
+        NEADVI neadvi = this.f38136a;
+        if (neadvi == null || nativeExpressMediaListener == null) {
             return;
         }
-        this.f7522a.setAdListener(new NativeExpressAD.ADListenerAdapter(nativeExpressMediaListener));
+        neadvi.setAdListener(new NativeExpressAD.ADListenerAdapter(nativeExpressMediaListener));
     }
 
     public void setViewBindStatusListener(ViewBindStatusListener viewBindStatusListener) {
-        this.h = viewBindStatusListener;
+        this.f38143h = viewBindStatusListener;
     }
 }

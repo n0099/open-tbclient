@@ -1,15 +1,15 @@
 package com.baidu.tieba.gift.buyGift;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
+import tbclient.Error;
 import tbclient.SendGiftAndroid.SendGiftAndroidResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class SendGiftSocketResponseMessage extends SocketResponsedMessage {
-    private SendGiftAndroidResIdl mResponseData;
+    public SendGiftAndroidResIdl mResponseData;
 
     public SendGiftSocketResponseMessage() {
-        super(CmdConfigSocket.CMD_SEND_GIFT);
+        super(308007);
     }
 
     public SendGiftAndroidResIdl getResponseData() {
@@ -17,11 +17,13 @@ public class SendGiftSocketResponseMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.mResponseData = (SendGiftAndroidResIdl) new Wire(new Class[0]).parseFrom(bArr, SendGiftAndroidResIdl.class);
-        if (this.mResponseData.error != null) {
-            setError(this.mResponseData.error.errorno.intValue());
+        SendGiftAndroidResIdl sendGiftAndroidResIdl = (SendGiftAndroidResIdl) new Wire(new Class[0]).parseFrom(bArr, SendGiftAndroidResIdl.class);
+        this.mResponseData = sendGiftAndroidResIdl;
+        Error error = sendGiftAndroidResIdl.error;
+        if (error != null) {
+            setError(error.errorno.intValue());
             setErrorString(this.mResponseData.error.errmsg);
         }
     }

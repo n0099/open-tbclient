@@ -3,57 +3,62 @@ package com.baidu.mapsdkplatform.comapi.synchronization.render;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class LinkPointPolyLineInfo implements Parcelable {
     public static final Parcelable.Creator<LinkPointPolyLineInfo> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private long f2269a;
-    private LatLng b;
-    private LatLng c;
-    private int d;
+    public long f7818a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LatLng f7819b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LatLng f7820c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f7821d;
 
     public LinkPointPolyLineInfo() {
-        this.f2269a = 0L;
-        this.d = 0;
-        this.f2269a = 0L;
-        this.b = null;
-        this.c = null;
-        this.d = 0;
+        this.f7818a = 0L;
+        this.f7821d = 0;
+        this.f7818a = 0L;
+        this.f7819b = null;
+        this.f7820c = null;
+        this.f7821d = 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public LinkPointPolyLineInfo(Parcel parcel) {
-        this.f2269a = 0L;
-        this.d = 0;
-        this.f2269a = parcel.readLong();
-        this.b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.c = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.d = parcel.readInt();
+        this.f7818a = 0L;
+        this.f7821d = 0;
+        this.f7818a = parcel.readLong();
+        this.f7819b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f7820c = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f7821d = parcel.readInt();
     }
 
     public LatLng a() {
-        return this.b;
+        return this.f7819b;
     }
 
     public void a(int i) {
-        this.d = i;
+        this.f7821d = i;
     }
 
     public void a(LatLng latLng) {
-        this.b = latLng;
+        this.f7819b = latLng;
     }
 
     public LatLng b() {
-        return this.c;
+        return this.f7820c;
     }
 
     public void b(LatLng latLng) {
-        this.c = latLng;
+        this.f7820c = latLng;
     }
 
     public int c() {
-        return this.d;
+        return this.f7821d;
     }
 
     @Override // android.os.Parcelable
@@ -63,9 +68,9 @@ public final class LinkPointPolyLineInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(this.f2269a);
-        parcel.writeParcelable(this.b, i);
-        parcel.writeParcelable(this.c, i);
-        parcel.writeInt(this.d);
+        parcel.writeLong(this.f7818a);
+        parcel.writeParcelable(this.f7819b, i);
+        parcel.writeParcelable(this.f7820c, i);
+        parcel.writeInt(this.f7821d);
     }
 }

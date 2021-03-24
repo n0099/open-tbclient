@@ -1,5 +1,5 @@
 package com.baidu.ufosdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface a {
     void onSubmitNewMessage();
 }

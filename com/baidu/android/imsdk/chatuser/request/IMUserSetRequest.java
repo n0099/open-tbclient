@@ -12,13 +12,13 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMUserSetRequest extends IMUserBaseHttpRequest {
-    private long mAppid;
-    private int mBlack;
-    private int mDisturb;
-    private String mKey;
-    private long mUserUk;
+    public long mAppid;
+    public int mBlack;
+    public int mDisturb;
+    public String mKey;
+    public long mUserUk;
 
     public IMUserSetRequest(Context context, String str, long j, long j2, int i, int i2) {
         this.mContext = context;
@@ -29,34 +29,46 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
         this.mAppid = j2;
     }
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
+    }
+
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         StringBuilder sb = new StringBuilder();
         sb.append("method=update_contacter_setting");
-        sb.append("&appid=").append(this.mAppid);
-        sb.append("&contacter=").append(this.mUserUk);
-        sb.append("&timestamp=").append(currentTimeMillis);
+        sb.append("&appid=");
+        sb.append(this.mAppid);
+        sb.append("&contacter=");
+        sb.append(this.mUserUk);
+        sb.append("&timestamp=");
+        sb.append(currentTimeMillis);
         if (this.mDisturb != -1) {
-            sb.append("&do_not_disturb=").append(this.mDisturb);
+            sb.append("&do_not_disturb=");
+            sb.append(this.mDisturb);
         }
         if (this.mBlack != -1) {
-            sb.append("&blacklist=").append(this.mBlack);
+            sb.append("&blacklist=");
+            sb.append(this.mBlack);
         }
-        sb.append("&sign=").append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
+        sb.append("&sign=");
+        sb.append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
         return sb.toString().getBytes();
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return "application/x-www-form-urlencoded";
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+        ChatUserManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mUserUk, this.mDisturb, this.mBlack);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
-        int i2;
         String str;
+        int i2;
         int i3;
         String optString;
         try {
@@ -68,21 +80,15 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
                 i3 = jSONObject.getInt("error_code");
                 optString = jSONObject.optString("error_msg", "");
             }
-            str = optString;
             i2 = i3;
-        } catch (JSONException e) {
-            LogUtils.e("IMUserSetRequest", "JSONException", e);
-            i2 = 1010;
+            str = optString;
+        } catch (JSONException e2) {
+            LogUtils.e("IMUserSetRequest", "JSONException", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            i2 = 1010;
         }
         ChatUserManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, i2, str, this.mUserUk, this.mDisturb, this.mBlack);
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-        ChatUserManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mUserUk, this.mDisturb, this.mBlack);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

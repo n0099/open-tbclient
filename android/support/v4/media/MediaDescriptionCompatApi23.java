@@ -4,22 +4,17 @@ import android.media.MediaDescription;
 import android.net.Uri;
 import androidx.annotation.RequiresApi;
 @RequiresApi(23)
-/* loaded from: classes14.dex */
-class MediaDescriptionCompatApi23 {
-    public static Uri getMediaUri(Object obj) {
-        return ((MediaDescription) obj).getMediaUri();
-    }
+/* loaded from: classes.dex */
+public class MediaDescriptionCompatApi23 {
 
-    /* loaded from: classes14.dex */
-    static class Builder {
+    /* loaded from: classes.dex */
+    public static class Builder {
         public static void setMediaUri(Object obj, Uri uri) {
             ((MediaDescription.Builder) obj).setMediaUri(uri);
         }
-
-        private Builder() {
-        }
     }
 
-    private MediaDescriptionCompatApi23() {
+    public static Uri getMediaUri(Object obj) {
+        return ((MediaDescription) obj).getMediaUri();
     }
 }

@@ -1,116 +1,57 @@
 package rx.observables;
 
+import h.d;
+import h.e;
+import h.f;
+import h.j;
+import h.k;
+import h.m.a;
+import h.r.c;
 import java.util.concurrent.atomic.AtomicLong;
-import rx.c.c;
-import rx.d;
-import rx.e;
-import rx.f;
-import rx.j;
-import rx.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
-    protected abstract S a(S s, e<? super T> eVar);
 
-    protected abstract S eNr();
+    /* loaded from: classes7.dex */
+    public static final class SubscriptionProducer<S, T> extends AtomicLong implements f, k, e<T> {
+        public static final long serialVersionUID = -3736864024352728072L;
+        public final j<? super T> actualSubscriber;
+        public boolean hasTerminated;
+        public boolean onNextCalled;
+        public final SyncOnSubscribe<S, T> parent;
+        public S state;
 
-    @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((j) ((j) obj));
-    }
-
-    public final void call(j<? super T> jVar) {
-        try {
-            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(jVar, this, eNr());
-            jVar.add(subscriptionProducer);
-            jVar.setProducer(subscriptionProducer);
-        } catch (Throwable th) {
-            rx.exceptions.a.N(th);
-            jVar.onError(th);
-        }
-    }
-
-    protected void ci(S s) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class SubscriptionProducer<S, T> extends AtomicLong implements e<T>, f, k {
-        private static final long serialVersionUID = -3736864024352728072L;
-        private final j<? super T> actualSubscriber;
-        private boolean hasTerminated;
-        private boolean onNextCalled;
-        private final SyncOnSubscribe<S, T> parent;
-        private S state;
-
-        SubscriptionProducer(j<? super T> jVar, SyncOnSubscribe<S, T> syncOnSubscribe, S s) {
+        public SubscriptionProducer(j<? super T> jVar, SyncOnSubscribe<S, T> syncOnSubscribe, S s) {
             this.actualSubscriber = jVar;
             this.parent = syncOnSubscribe;
             this.state = s;
         }
 
-        @Override // rx.k
-        public boolean isUnsubscribed() {
-            return get() < 0;
-        }
-
-        @Override // rx.k
-        public void unsubscribe() {
-            long j;
-            do {
-                j = get();
-                if (compareAndSet(0L, -1L)) {
-                    eNt();
-                    return;
-                }
-            } while (!compareAndSet(j, -2L));
-        }
-
-        private boolean eNs() {
-            if (this.hasTerminated || get() < -1) {
-                set(-1L);
-                eNt();
-                return true;
-            }
-            return false;
-        }
-
-        private void eNt() {
+        public final void a() {
             try {
-                this.parent.ci(this.state);
+                this.parent.b(this.state);
             } catch (Throwable th) {
-                rx.exceptions.a.N(th);
-                c.onError(th);
+                a.e(th);
+                c.j(th);
             }
         }
 
-        @Override // rx.f
-        public void request(long j) {
-            if (j > 0 && rx.internal.operators.a.e(this, j) == 0) {
-                if (j == Long.MAX_VALUE) {
-                    fastPath();
-                } else {
-                    slowPath(j);
-                }
-            }
-        }
-
-        private void fastPath() {
+        public final void b() {
             SyncOnSubscribe<S, T> syncOnSubscribe = this.parent;
             j<? super T> jVar = this.actualSubscriber;
             do {
                 try {
                     this.onNextCalled = false;
-                    a(syncOnSubscribe);
+                    d(syncOnSubscribe);
                 } catch (Throwable th) {
-                    a(jVar, th);
+                    c(jVar, th);
                     return;
                 }
-            } while (!eNs());
+            } while (!f());
         }
 
-        private void a(j<? super T> jVar, Throwable th) {
+        public final void c(j<? super T> jVar, Throwable th) {
             if (this.hasTerminated) {
-                c.onError(th);
+                c.j(th);
                 return;
             }
             this.hasTerminated = true;
@@ -118,7 +59,11 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             unsubscribe();
         }
 
-        private void slowPath(long j) {
+        public final void d(SyncOnSubscribe<S, T> syncOnSubscribe) {
+            this.state = syncOnSubscribe.a(this.state, this);
+        }
+
+        public final void e(long j) {
             SyncOnSubscribe<S, T> syncOnSubscribe = this.parent;
             j<? super T> jVar = this.actualSubscriber;
             do {
@@ -126,57 +71,99 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                 do {
                     try {
                         this.onNextCalled = false;
-                        a(syncOnSubscribe);
-                        if (!eNs()) {
-                            if (this.onNextCalled) {
-                                j2--;
-                            }
-                        } else {
+                        d(syncOnSubscribe);
+                        if (f()) {
                             return;
                         }
+                        if (this.onNextCalled) {
+                            j2--;
+                        }
                     } catch (Throwable th) {
-                        a(jVar, th);
+                        c(jVar, th);
                         return;
                     }
                 } while (j2 != 0);
                 j = addAndGet(-j);
             } while (j > 0);
-            eNs();
+            f();
         }
 
-        private void a(SyncOnSubscribe<S, T> syncOnSubscribe) {
-            this.state = syncOnSubscribe.a(this.state, this);
+        public final boolean f() {
+            if (this.hasTerminated || get() < -1) {
+                set(-1L);
+                a();
+                return true;
+            }
+            return false;
         }
 
-        @Override // rx.e
+        @Override // h.k
+        public boolean isUnsubscribed() {
+            return get() < 0;
+        }
+
+        @Override // h.e
         public void onCompleted() {
-            if (this.hasTerminated) {
-                throw new IllegalStateException("Terminal event already emitted.");
-            }
-            this.hasTerminated = true;
-            if (!this.actualSubscriber.isUnsubscribed()) {
+            if (!this.hasTerminated) {
+                this.hasTerminated = true;
+                if (this.actualSubscriber.isUnsubscribed()) {
+                    return;
+                }
                 this.actualSubscriber.onCompleted();
+                return;
             }
+            throw new IllegalStateException("Terminal event already emitted.");
         }
 
-        @Override // rx.e
+        @Override // h.e
         public void onError(Throwable th) {
-            if (this.hasTerminated) {
-                throw new IllegalStateException("Terminal event already emitted.");
-            }
-            this.hasTerminated = true;
-            if (!this.actualSubscriber.isUnsubscribed()) {
+            if (!this.hasTerminated) {
+                this.hasTerminated = true;
+                if (this.actualSubscriber.isUnsubscribed()) {
+                    return;
+                }
                 this.actualSubscriber.onError(th);
+                return;
+            }
+            throw new IllegalStateException("Terminal event already emitted.");
+        }
+
+        @Override // h.e
+        public void onNext(T t) {
+            if (!this.onNextCalled) {
+                this.onNextCalled = true;
+                this.actualSubscriber.onNext(t);
+                return;
+            }
+            throw new IllegalStateException("onNext called multiple times!");
+        }
+
+        @Override // h.f
+        public void request(long j) {
+            if (j <= 0 || h.o.a.a.b(this, j) != 0) {
+                return;
+            }
+            if (j == Long.MAX_VALUE) {
+                b();
+            } else {
+                e(j);
             }
         }
 
-        @Override // rx.e
-        public void onNext(T t) {
-            if (this.onNextCalled) {
-                throw new IllegalStateException("onNext called multiple times!");
-            }
-            this.onNextCalled = true;
-            this.actualSubscriber.onNext(t);
+        @Override // h.k
+        public void unsubscribe() {
+            long j;
+            do {
+                j = get();
+                if (compareAndSet(0L, -1L)) {
+                    a();
+                    return;
+                }
+            } while (!compareAndSet(j, -2L));
         }
     }
+
+    public abstract S a(S s, e<? super T> eVar);
+
+    public abstract void b(S s);
 }

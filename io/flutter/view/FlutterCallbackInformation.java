@@ -4,20 +4,20 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.FlutterJNI;
 @Keep
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class FlutterCallbackInformation {
     public final String callbackClassName;
     public final String callbackLibraryPath;
     public final String callbackName;
 
-    @NonNull
-    public static FlutterCallbackInformation lookupCallbackInformation(long j) {
-        return FlutterJNI.nativeLookupCallbackInformation(j);
-    }
-
-    private FlutterCallbackInformation(String str, String str2, String str3) {
+    public FlutterCallbackInformation(String str, String str2, String str3) {
         this.callbackName = str;
         this.callbackClassName = str2;
         this.callbackLibraryPath = str3;
+    }
+
+    @NonNull
+    public static FlutterCallbackInformation lookupCallbackInformation(long j) {
+        return FlutterJNI.nativeLookupCallbackInformation(j);
     }
 }

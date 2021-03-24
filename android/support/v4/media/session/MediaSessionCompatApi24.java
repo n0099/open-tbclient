@@ -7,13 +7,12 @@ import android.support.v4.media.session.MediaSessionCompatApi23;
 import android.util.Log;
 import androidx.annotation.RequiresApi;
 import java.lang.reflect.InvocationTargetException;
-/* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(24)
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class MediaSessionCompatApi24 {
-    private static final String TAG = "MediaSessionCompatApi24";
+    public static final String TAG = "MediaSessionCompatApi24";
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface Callback extends MediaSessionCompatApi23.Callback {
         void onPrepare();
 
@@ -24,22 +23,7 @@ public class MediaSessionCompatApi24 {
         void onPrepareFromUri(Uri uri, Bundle bundle);
     }
 
-    public static Object createCallback(Callback callback) {
-        return new CallbackProxy(callback);
-    }
-
-    public static String getCallingPackage(Object obj) {
-        MediaSession mediaSession = (MediaSession) obj;
-        try {
-            return (String) mediaSession.getClass().getMethod("getCallingPackage", new Class[0]).invoke(mediaSession, new Object[0]);
-        } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-            Log.e(TAG, "Cannot execute MediaSession.getCallingPackage()", e);
-            return null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public static class CallbackProxy<T extends Callback> extends MediaSessionCompatApi23.CallbackProxy<T> {
         public CallbackProxy(T t) {
             super(t);
@@ -69,6 +53,17 @@ public class MediaSessionCompatApi24 {
         }
     }
 
-    private MediaSessionCompatApi24() {
+    public static Object createCallback(Callback callback) {
+        return new CallbackProxy(callback);
+    }
+
+    public static String getCallingPackage(Object obj) {
+        MediaSession mediaSession = (MediaSession) obj;
+        try {
+            return (String) mediaSession.getClass().getMethod("getCallingPackage", new Class[0]).invoke(mediaSession, new Object[0]);
+        } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
+            Log.e(TAG, "Cannot execute MediaSession.getCallingPackage()", e2);
+            return null;
+        }
     }
 }

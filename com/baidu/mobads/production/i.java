@@ -1,20 +1,21 @@
 package com.baidu.mobads.production;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+
+import com.baidu.mobads.interfaces.IXAdContainer;
+/* loaded from: classes2.dex */
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2464a;
+    public final /* synthetic */ a f8473a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar) {
-        this.f2464a = aVar;
+        this.f8473a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.f2464a.h != null) {
-            this.f2464a.h.pause();
+        IXAdContainer iXAdContainer = this.f8473a.f8440h;
+        if (iXAdContainer != null) {
+            iXAdContainer.pause();
         }
     }
 }

@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ShowMessageFromWX {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
         public String country;
         public String lang;
@@ -22,10 +22,11 @@ public class ShowMessageFromWX {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
-            if (this.message == null) {
+            WXMediaMessage wXMediaMessage = this.message;
+            if (wXMediaMessage == null) {
                 return false;
             }
-            return this.message.checkArgs();
+            return wXMediaMessage.checkArgs();
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -51,7 +52,7 @@ public class ShowMessageFromWX {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
         public Resp() {
         }
@@ -69,8 +70,5 @@ public class ShowMessageFromWX {
         public int getType() {
             return 4;
         }
-    }
-
-    private ShowMessageFromWX() {
     }
 }

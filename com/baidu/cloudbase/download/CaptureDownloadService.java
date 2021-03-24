@@ -1,16 +1,17 @@
 package com.baidu.cloudbase.download;
 
+import a.a.a.c.ac;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.cloudbase.download.b;
 import com.baidu.cloudbase.download.exception.DownloadException;
+import d.b.k.b.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class CaptureDownloadService extends Service {
     public static final String ACTION_CANCEL = "com.baidu.cloudar.download.ACTION_CANCEL";
     public static final String ACTION_CANCEL_ALL = "com.baidu.cloudar.download.ACTION_CANCEL_ALL";
@@ -22,84 +23,94 @@ public class CaptureDownloadService extends Service {
     public static final String EXTRA_POSITION = "extra_position";
     public static final String EXTRA_TAG = "extra_tag";
     public static final String TAG = "CaptureDownloadService";
-    public com.baidu.cloudbase.download.a mDownloadManager;
+    public d.b.k.b.a mDownloadManager;
 
-    /* loaded from: classes9.dex */
-    public static class a extends com.baidu.cloudbase.download.a.a {
-        public a.a.a.b.a ape;
-        public int mLastProgress;
-        public long mLastTime;
-        public LocalBroadcastManager mLocalBroadcastManager;
-        public int mPosition;
+    /* loaded from: classes2.dex */
+    public static class a extends d.b.k.b.c.a {
 
-        public a(int i, a.a.a.b.a aVar, Context context) {
-            this.mPosition = i;
-            this.ape = aVar;
-            this.mLocalBroadcastManager = LocalBroadcastManager.getInstance(context);
+        /* renamed from: a  reason: collision with root package name */
+        public ac f4625a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f4626b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public long f4627c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public LocalBroadcastManager f4628d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f4629e;
+
+        public a(int i, ac acVar, Context context) {
+            this.f4629e = i;
+            this.f4625a = acVar;
+            this.f4628d = LocalBroadcastManager.getInstance(context);
         }
 
-        private void a(a.a.a.b.a aVar) {
-            Intent intent = new Intent();
-            intent.setAction(CaptureDownloadService.ACTION_DOWNLOAD_BROAD_CAST);
-            intent.putExtra("extra_position", this.mPosition);
-            intent.putExtra("extra_file_info", aVar.a().toString());
-            this.mLocalBroadcastManager.sendBroadcast(intent);
-        }
-
-        private boolean checkSendBroadLimit(int i) {
+        public final boolean a(int i) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.mLastTime <= 300 || i == this.mLastProgress) {
+            if (currentTimeMillis - this.f4627c <= 300 || i == this.f4626b) {
                 return false;
             }
-            this.mLastTime = currentTimeMillis;
-            this.mLastProgress = i;
+            this.f4627c = currentTimeMillis;
+            this.f4626b = i;
             return true;
         }
 
-        @Override // com.baidu.cloudbase.download.a.a
-        public void c(DownloadException downloadException) {
-            downloadException.printStackTrace();
-            a.a.a.b.a aVar = this.ape;
-            aVar.g = 5;
-            a(aVar);
+        public final void b(ac acVar) {
+            Intent intent = new Intent();
+            intent.setAction(CaptureDownloadService.ACTION_DOWNLOAD_BROAD_CAST);
+            intent.putExtra("extra_position", this.f4629e);
+            intent.putExtra("extra_file_info", acVar.a().toString());
+            this.f4628d.sendBroadcast(intent);
         }
 
-        @Override // com.baidu.cloudbase.download.a.a
+        @Override // d.b.k.b.c.a
         public void onCompleted(String str) {
-            a.a.a.b.a aVar = this.ape;
-            aVar.g = 6;
-            aVar.e = 100;
-            aVar.h = str;
-            a(aVar);
+            ac acVar = this.f4625a;
+            acVar.f1404g = 6;
+            acVar.f1402e = 100;
+            acVar.f1405h = str;
+            b(acVar);
         }
 
-        @Override // com.baidu.cloudbase.download.a.a
+        @Override // d.b.k.b.c.a
         public void onDownloadCanceled() {
-            a.a.a.b.a aVar = this.ape;
-            aVar.g = 0;
-            aVar.e = 0;
-            aVar.f = "";
-            a(aVar);
+            ac acVar = this.f4625a;
+            acVar.f1404g = 0;
+            acVar.f1402e = 0;
+            acVar.f1403f = "";
+            b(acVar);
         }
 
-        @Override // com.baidu.cloudbase.download.a.a
+        @Override // d.b.k.b.c.a
         public void onDownloadPaused() {
-            a.a.a.b.a aVar = this.ape;
-            aVar.g = 4;
-            a(aVar);
+            ac acVar = this.f4625a;
+            acVar.f1404g = 4;
+            b(acVar);
         }
 
-        @Override // com.baidu.cloudbase.download.a.a
+        @Override // d.b.k.b.c.a
+        public void onFailed(DownloadException downloadException) {
+            downloadException.printStackTrace();
+            ac acVar = this.f4625a;
+            acVar.f1404g = 5;
+            b(acVar);
+        }
+
+        @Override // d.b.k.b.c.a
         public void onProgress(long j, long j2, int i) {
-            if (this.mLastTime == 0) {
-                this.mLastTime = System.currentTimeMillis();
+            if (this.f4627c == 0) {
+                this.f4627c = System.currentTimeMillis();
             }
-            a.a.a.b.a aVar = this.ape;
-            aVar.g = 3;
-            aVar.e = i;
-            aVar.f = com.baidu.cloudbase.download.b.a.getDownloadPerSize(j, j2);
-            if (checkSendBroadLimit(i)) {
-                a(this.ape);
+            ac acVar = this.f4625a;
+            acVar.f1404g = 3;
+            acVar.f1402e = i;
+            acVar.f1403f = d.b.k.b.d.a.a(j, j2);
+            if (a(i)) {
+                b(this.f4625a);
             }
         }
     }
@@ -112,11 +123,11 @@ public class CaptureDownloadService extends Service {
     }
 
     private void cancel(String str) {
-        this.mDownloadManager.cancel(str);
+        this.mDownloadManager.c(str);
     }
 
     private void cancelAll() {
-        this.mDownloadManager.cancelAll();
+        this.mDownloadManager.d();
     }
 
     public static void cancelAll(Context context) {
@@ -129,8 +140,10 @@ public class CaptureDownloadService extends Service {
         context.stopService(new Intent(context, CaptureDownloadService.class));
     }
 
-    private void download(int i, a.a.a.b.a aVar, String str) {
-        this.mDownloadManager.a(new b.a().dq(aVar.d).tX(), str, new a(i, aVar, getApplicationContext()));
+    private void download(int i, ac acVar, String str) {
+        b.a aVar = new b.a();
+        aVar.d(acVar.f1401d);
+        this.mDownloadManager.f(aVar.a(), str, new a(i, acVar, getApplicationContext()));
     }
 
     public static void pause(Context context, String str) {
@@ -141,11 +154,11 @@ public class CaptureDownloadService extends Service {
     }
 
     private void pause(String str) {
-        this.mDownloadManager.pause(str);
+        this.mDownloadManager.m(str);
     }
 
     private void pauseAll() {
-        this.mDownloadManager.pauseAll();
+        this.mDownloadManager.n();
     }
 
     public static void pauseAll(Context context) {
@@ -154,17 +167,17 @@ public class CaptureDownloadService extends Service {
         context.startService(intent);
     }
 
-    public static void start(Context context, int i, String str, a.a.a.b.a aVar) {
+    public static void start(Context context, int i, String str, ac acVar) {
         Intent intent = new Intent(context, CaptureDownloadService.class);
         intent.setAction(ACTION_DOWNLOAD);
         intent.putExtra("extra_position", i);
         intent.putExtra("extra_tag", str);
-        intent.putExtra("extra_file_info", aVar.a().toString());
+        intent.putExtra("extra_file_info", acVar.a().toString());
         context.startService(intent);
     }
 
-    public static void start(Context context, String str, a.a.a.b.a aVar) {
-        start(context, 0, str, aVar);
+    public static void start(Context context, String str, ac acVar) {
+        start(context, 0, str, acVar);
     }
 
     @Override // android.app.Service
@@ -175,96 +188,90 @@ public class CaptureDownloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mDownloadManager = com.baidu.cloudbase.download.a.tW();
+        this.mDownloadManager = d.b.k.b.a.i();
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.mDownloadManager.pauseAll();
+        this.mDownloadManager.n();
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x008e, code lost:
-        if (r1.equals(com.baidu.cloudbase.download.CaptureDownloadService.ACTION_DOWNLOAD) != false) goto L8;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0080, code lost:
+        if (r0.equals(com.baidu.cloudbase.download.CaptureDownloadService.ACTION_DOWNLOAD) != false) goto L8;
      */
     @Override // android.app.Service
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int onStartCommand(Intent intent, int i, int i2) {
-        char c = 0;
         if (intent != null) {
             String action = intent.getAction();
+            char c2 = 0;
             int intExtra = intent.getIntExtra("extra_position", 0);
-            a.a.a.b.a aVar = new a.a.a.b.a();
+            ac acVar = new ac();
             String stringExtra = intent.getStringExtra("extra_file_info");
             if (!TextUtils.isEmpty(stringExtra)) {
                 try {
                     JSONObject jSONObject = new JSONObject(stringExtra);
-                    aVar.f1015a = jSONObject.optString("name");
-                    aVar.b = jSONObject.optString("id");
-                    aVar.c = jSONObject.optString("image");
-                    aVar.d = jSONObject.optString("url");
-                    aVar.e = jSONObject.optInt("progress");
-                    aVar.f = jSONObject.optString("downloadPerSize");
-                    aVar.g = jSONObject.optInt("status");
-                    aVar.h = jSONObject.optString("savePath");
-                } catch (JSONException e) {
+                    acVar.f1398a = jSONObject.optString("name");
+                    acVar.f1399b = jSONObject.optString("id");
+                    acVar.f1400c = jSONObject.optString("image");
+                    acVar.f1401d = jSONObject.optString("url");
+                    acVar.f1402e = jSONObject.optInt("progress");
+                    acVar.f1403f = jSONObject.optString("downloadPerSize");
+                    acVar.f1404g = jSONObject.optInt("status");
+                    acVar.f1405h = jSONObject.optString("savePath");
+                } catch (JSONException unused) {
                 }
             }
             String stringExtra2 = intent.getStringExtra("extra_tag");
             switch (action.hashCode()) {
                 case -1845641145:
                     if (action.equals(ACTION_CANCEL_ALL)) {
-                        c = 4;
+                        c2 = 4;
                         break;
                     }
-                    c = 65535;
+                    c2 = 65535;
                     break;
                 case -1229466579:
                     if (action.equals(ACTION_PAUSE_ALL)) {
-                        c = 3;
+                        c2 = 3;
                         break;
                     }
-                    c = 65535;
+                    c2 = 65535;
                     break;
                 case -540402171:
                     if (action.equals(ACTION_CANCEL)) {
-                        c = 2;
+                        c2 = 2;
                         break;
                     }
-                    c = 65535;
+                    c2 = 65535;
                     break;
                 case 1657148651:
                     if (action.equals(ACTION_PAUSE)) {
-                        c = 1;
+                        c2 = 1;
                         break;
                     }
-                    c = 65535;
+                    c2 = 65535;
                     break;
                 case 1915551059:
                     break;
                 default:
-                    c = 65535;
+                    c2 = 65535;
                     break;
             }
-            switch (c) {
-                case 0:
-                    download(intExtra, aVar, stringExtra2);
-                    break;
-                case 1:
-                    pause(stringExtra2);
-                    break;
-                case 2:
-                    cancel(stringExtra2);
-                    break;
-                case 3:
-                    pauseAll();
-                    break;
-                case 4:
-                    cancelAll();
-                    break;
+            if (c2 == 0) {
+                download(intExtra, acVar, stringExtra2);
+            } else if (c2 == 1) {
+                pause(stringExtra2);
+            } else if (c2 == 2) {
+                cancel(stringExtra2);
+            } else if (c2 == 3) {
+                pauseAll();
+            } else if (c2 == 4) {
+                cancelAll();
             }
         }
         return super.onStartCommand(intent, i, i2);

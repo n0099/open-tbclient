@@ -10,18 +10,29 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.poly.b;
-/* loaded from: classes14.dex */
+import d.b.c0.e;
+import d.b.c0.f;
+import d.b.c0.g;
+import d.b.c0.k.d.b;
+/* loaded from: classes2.dex */
 public class a extends RelativeLayout implements View.OnClickListener {
-    private ImageView crT;
-    private TextView crU;
-    private TextView crV;
-    private ImageView crW;
-    private InterfaceC0316a crX;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f10448e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f10449f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f10450g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ImageView f10451h;
+    public InterfaceC0133a i;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public interface InterfaceC0316a {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0133a {
         void a();
     }
 
@@ -29,59 +40,59 @@ public class a extends RelativeLayout implements View.OnClickListener {
         this(context, null);
     }
 
-    private void c(Context context) {
-        LayoutInflater.from(context).inflate(b.f.view_channel_list_item, (ViewGroup) this, true);
-        this.crT = (ImageView) findViewById(b.e.channel_icon_view);
-        this.crU = (TextView) findViewById(b.e.channel_name_view);
-        this.crV = (TextView) findViewById(b.e.channel_desc_view);
-        this.crW = (ImageView) findViewById(b.e.channel_select_view);
-        setOnClickListener(this);
-    }
-
-    public void a(o oVar, InterfaceC0316a interfaceC0316a) {
+    public void a(o oVar, InterfaceC0133a interfaceC0133a) {
         String displayName = oVar.getDisplayName();
         String S = oVar.S();
         String icon = oVar.getIcon();
         int P = oVar.P();
         int N = oVar.N();
-        com.baidu.poly.a.d.b.ads().b(this.crT, icon);
-        this.crU.setText(displayName);
+        b.c().b(this.f10448e, icon);
+        this.f10449f.setText(displayName);
         if (P == 1) {
-            this.crW.setImageResource(b.d.channel_checked);
+            this.f10451h.setImageResource(e.channel_checked);
         } else {
-            this.crW.setImageResource(b.d.unchecked);
+            this.f10451h.setImageResource(e.unchecked);
         }
         if (1 == N) {
-            this.crX = interfaceC0316a;
+            this.i = interfaceC0133a;
         } else {
-            this.crT.setAlpha(0.4f);
-            this.crU.setAlpha(0.4f);
-            this.crV.setAlpha(0.4f);
-            this.crW.setVisibility(8);
+            this.f10448e.setAlpha(0.4f);
+            this.f10449f.setAlpha(0.4f);
+            this.f10450g.setAlpha(0.4f);
+            this.f10451h.setVisibility(8);
         }
         if (!TextUtils.isEmpty(S)) {
             String M = oVar.M();
             if (!TextUtils.isEmpty(M)) {
                 try {
-                    this.crV.setTextColor(Color.parseColor(M));
-                } catch (Exception e) {
+                    this.f10450g.setTextColor(Color.parseColor(M));
+                } catch (Exception unused) {
                 }
             }
-            this.crV.setText(S);
+            this.f10450g.setText(S);
             return;
         }
-        this.crV.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.crU.getLayoutParams();
+        this.f10450g.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f10449f.getLayoutParams();
         layoutParams.addRule(15);
         layoutParams.topMargin = 0;
-        this.crU.setLayoutParams(layoutParams);
+        this.f10449f.setLayoutParams(layoutParams);
+    }
+
+    public final void b(Context context) {
+        LayoutInflater.from(context).inflate(g.view_channel_list_item, (ViewGroup) this, true);
+        this.f10448e = (ImageView) findViewById(f.channel_icon_view);
+        this.f10449f = (TextView) findViewById(f.channel_name_view);
+        this.f10450g = (TextView) findViewById(f.channel_desc_view);
+        this.f10451h = (ImageView) findViewById(f.channel_select_view);
+        setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC0316a interfaceC0316a = this.crX;
-        if (interfaceC0316a != null) {
-            interfaceC0316a.a();
+        InterfaceC0133a interfaceC0133a = this.i;
+        if (interfaceC0133a != null) {
+            interfaceC0133a.a();
         }
     }
 
@@ -91,6 +102,6 @@ public class a extends RelativeLayout implements View.OnClickListener {
 
     public a(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        c(context);
+        b(context);
     }
 }

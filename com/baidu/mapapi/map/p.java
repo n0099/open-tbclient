@@ -5,20 +5,22 @@ import android.animation.AnimatorListenerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.mapapi.map.SwipeDismissTouchListener;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class p extends AnimatorListenerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ViewGroup.LayoutParams f2075a;
-    final /* synthetic */ int b;
-    final /* synthetic */ SwipeDismissTouchListener c;
+    public final /* synthetic */ ViewGroup.LayoutParams f7090a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ int f7091b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ SwipeDismissTouchListener f7092c;
+
     public p(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i) {
-        this.c = swipeDismissTouchListener;
-        this.f2075a = layoutParams;
-        this.b = i;
+        this.f7092c = swipeDismissTouchListener;
+        this.f7090a = layoutParams;
+        this.f7091b = i;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -28,14 +30,14 @@ public class p extends AnimatorListenerAdapter {
         Object obj;
         View view2;
         View view3;
-        dismissCallbacks = this.c.f;
-        view = this.c.e;
-        obj = this.c.l;
+        dismissCallbacks = this.f7092c.f6999f;
+        view = this.f7092c.f6998e;
+        obj = this.f7092c.l;
         dismissCallbacks.onDismiss(view, obj);
-        view2 = this.c.e;
+        view2 = this.f7092c.f6998e;
         view2.setTranslationX(0.0f);
-        this.f2075a.height = this.b;
-        view3 = this.c.e;
-        view3.setLayoutParams(this.f2075a);
+        this.f7090a.height = this.f7091b;
+        view3 = this.f7092c.f6998e;
+        view3.setLayoutParams(this.f7090a);
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.sapi2.dto;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
-public class AccountToolsDTO {
+/* loaded from: classes2.dex */
+public class AccountToolsDTO extends SapiWebDTO {
     public static final int TYPE_APPEAL_ACCOUNT = 4;
     public static final int TYPE_CANCEL_ACCOUNT = 3;
     public static final int TYPE_FIND_ACCOUNT = 2;

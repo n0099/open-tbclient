@@ -1,119 +1,27 @@
 package io.reactivex.internal.subscriptions;
 
-import io.reactivex.d.a;
+import f.a.a0.a;
+import f.a.x.i.b;
+import g.d.d;
 import io.reactivex.exceptions.ProtocolViolationException;
-import io.reactivex.internal.util.b;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public enum SubscriptionHelper implements d {
     CANCELLED;
 
-    @Override // org.a.d
-    public void request(long j) {
-    }
-
-    @Override // org.a.d
-    public void cancel() {
-    }
-
-    public static boolean validate(d dVar, d dVar2) {
-        if (dVar2 == null) {
-            a.onError(new NullPointerException("next is null"));
-            return false;
-        } else if (dVar != null) {
-            dVar2.cancel();
-            reportSubscriptionSet();
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public static void reportSubscriptionSet() {
-        a.onError(new ProtocolViolationException("Subscription already set!"));
-    }
-
-    public static boolean validate(long j) {
-        if (j <= 0) {
-            a.onError(new IllegalArgumentException("n > 0 required but it was " + j));
-            return false;
-        }
-        return true;
-    }
-
-    public static void reportMoreProduced(long j) {
-        a.onError(new ProtocolViolationException("More produced than requested: " + j));
-    }
-
-    public static boolean isCancelled(d dVar) {
-        return dVar == CANCELLED;
-    }
-
-    public static boolean set(AtomicReference<d> atomicReference, d dVar) {
-        d dVar2;
-        do {
-            dVar2 = atomicReference.get();
-            if (dVar2 == CANCELLED) {
-                if (dVar != null) {
-                    dVar.cancel();
-                }
-                return false;
-            }
-        } while (!atomicReference.compareAndSet(dVar2, dVar));
-        if (dVar2 != null) {
-            dVar2.cancel();
-        }
-        return true;
-    }
-
-    public static boolean setOnce(AtomicReference<d> atomicReference, d dVar) {
-        io.reactivex.internal.functions.a.n(dVar, "s is null");
-        if (atomicReference.compareAndSet(null, dVar)) {
-            return true;
-        }
-        dVar.cancel();
-        if (atomicReference.get() != CANCELLED) {
-            reportSubscriptionSet();
-        }
-        return false;
-    }
-
-    public static boolean replace(AtomicReference<d> atomicReference, d dVar) {
-        d dVar2;
-        do {
-            dVar2 = atomicReference.get();
-            if (dVar2 == CANCELLED) {
-                if (dVar != null) {
-                    dVar.cancel();
-                }
-                return false;
-            }
-        } while (!atomicReference.compareAndSet(dVar2, dVar));
-        return true;
-    }
-
     public static boolean cancel(AtomicReference<d> atomicReference) {
         d andSet;
-        if (atomicReference.get() == CANCELLED || (andSet = atomicReference.getAndSet(CANCELLED)) == CANCELLED) {
+        d dVar = atomicReference.get();
+        SubscriptionHelper subscriptionHelper = CANCELLED;
+        if (dVar == subscriptionHelper || (andSet = atomicReference.getAndSet(subscriptionHelper)) == CANCELLED) {
             return false;
         }
         if (andSet != null) {
             andSet.cancel();
-        }
-        return true;
-    }
-
-    public static boolean deferredSetOnce(AtomicReference<d> atomicReference, AtomicLong atomicLong, d dVar) {
-        if (setOnce(atomicReference, dVar)) {
-            long andSet = atomicLong.getAndSet(0L);
-            if (andSet != 0) {
-                dVar.request(andSet);
-            }
             return true;
         }
-        return false;
+        return true;
     }
 
     public static void deferredRequest(AtomicReference<d> atomicReference, AtomicLong atomicLong, long j) {
@@ -130,5 +38,105 @@ public enum SubscriptionHelper implements d {
                 }
             }
         }
+    }
+
+    public static boolean deferredSetOnce(AtomicReference<d> atomicReference, AtomicLong atomicLong, d dVar) {
+        if (setOnce(atomicReference, dVar)) {
+            long andSet = atomicLong.getAndSet(0L);
+            if (andSet != 0) {
+                dVar.request(andSet);
+                return true;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isCancelled(d dVar) {
+        return dVar == CANCELLED;
+    }
+
+    public static boolean replace(AtomicReference<d> atomicReference, d dVar) {
+        d dVar2;
+        do {
+            dVar2 = atomicReference.get();
+            if (dVar2 == CANCELLED) {
+                if (dVar != null) {
+                    dVar.cancel();
+                    return false;
+                }
+                return false;
+            }
+        } while (!atomicReference.compareAndSet(dVar2, dVar));
+        return true;
+    }
+
+    public static void reportMoreProduced(long j) {
+        a.f(new ProtocolViolationException("More produced than requested: " + j));
+    }
+
+    public static void reportSubscriptionSet() {
+        a.f(new ProtocolViolationException("Subscription already set!"));
+    }
+
+    public static boolean set(AtomicReference<d> atomicReference, d dVar) {
+        d dVar2;
+        do {
+            dVar2 = atomicReference.get();
+            if (dVar2 == CANCELLED) {
+                if (dVar != null) {
+                    dVar.cancel();
+                    return false;
+                }
+                return false;
+            }
+        } while (!atomicReference.compareAndSet(dVar2, dVar));
+        if (dVar2 != null) {
+            dVar2.cancel();
+            return true;
+        }
+        return true;
+    }
+
+    public static boolean setOnce(AtomicReference<d> atomicReference, d dVar) {
+        f.a.x.b.a.b(dVar, "s is null");
+        if (atomicReference.compareAndSet(null, dVar)) {
+            return true;
+        }
+        dVar.cancel();
+        if (atomicReference.get() != CANCELLED) {
+            reportSubscriptionSet();
+            return false;
+        }
+        return false;
+    }
+
+    public static boolean validate(d dVar, d dVar2) {
+        if (dVar2 == null) {
+            a.f(new NullPointerException("next is null"));
+            return false;
+        } else if (dVar != null) {
+            dVar2.cancel();
+            reportSubscriptionSet();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override // g.d.d
+    public void cancel() {
+    }
+
+    @Override // g.d.d
+    public void request(long j) {
+    }
+
+    public static boolean validate(long j) {
+        if (j <= 0) {
+            a.f(new IllegalArgumentException("n > 0 required but it was " + j));
+            return false;
+        }
+        return true;
     }
 }

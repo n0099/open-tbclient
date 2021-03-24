@@ -5,43 +5,48 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<String> f6601a = new ArrayList();
-    private final Map<String, List<a<?, ?>>> b = new HashMap();
+    public final List<String> f35148a = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final Map<String, List<a<?, ?>>> f35149b = new HashMap();
+
+    /* loaded from: classes6.dex */
     public static class a<T, R> {
 
         /* renamed from: a  reason: collision with root package name */
-        final Class<R> f6602a;
-        final com.kwad.sdk.glide.load.f<T, R> b;
-        private final Class<T> c;
+        public final Class<R> f35150a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final com.kwad.sdk.glide.load.f<T, R> f35151b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final Class<T> f35152c;
 
         public a(@NonNull Class<T> cls, @NonNull Class<R> cls2, com.kwad.sdk.glide.load.f<T, R> fVar) {
-            this.c = cls;
-            this.f6602a = cls2;
-            this.b = fVar;
+            this.f35152c = cls;
+            this.f35150a = cls2;
+            this.f35151b = fVar;
         }
 
         public boolean a(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return this.c.isAssignableFrom(cls) && cls2.isAssignableFrom(this.f6602a);
+            return this.f35152c.isAssignableFrom(cls) && cls2.isAssignableFrom(this.f35150a);
         }
     }
 
     @NonNull
     private synchronized List<a<?, ?>> a(@NonNull String str) {
         List<a<?, ?>> list;
-        if (!this.f6601a.contains(str)) {
-            this.f6601a.add(str);
+        if (!this.f35148a.contains(str)) {
+            this.f35148a.add(str);
         }
-        list = this.b.get(str);
+        list = this.f35149b.get(str);
         if (list == null) {
             list = new ArrayList<>();
-            this.b.put(str, list);
+            this.f35149b.put(str, list);
         }
         return list;
     }
@@ -50,12 +55,12 @@ public class e {
     public synchronized <T, R> List<com.kwad.sdk.glide.load.f<T, R>> a(@NonNull Class<T> cls, @NonNull Class<R> cls2) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (String str : this.f6601a) {
-            List<a<?, ?>> list = this.b.get(str);
+        for (String str : this.f35148a) {
+            List<a<?, ?>> list = this.f35149b.get(str);
             if (list != null) {
                 for (a<?, ?> aVar : list) {
                     if (aVar.a(cls, cls2)) {
-                        arrayList.add(aVar.b);
+                        arrayList.add(aVar.f35151b);
                     }
                 }
             }
@@ -68,12 +73,12 @@ public class e {
     }
 
     public synchronized void a(@NonNull List<String> list) {
-        ArrayList<String> arrayList = new ArrayList(this.f6601a);
-        this.f6601a.clear();
-        this.f6601a.addAll(list);
+        ArrayList<String> arrayList = new ArrayList(this.f35148a);
+        this.f35148a.clear();
+        this.f35148a.addAll(list);
         for (String str : arrayList) {
             if (!list.contains(str)) {
-                this.f6601a.add(str);
+                this.f35148a.add(str);
             }
         }
     }
@@ -82,12 +87,12 @@ public class e {
     public synchronized <T, R> List<Class<R>> b(@NonNull Class<T> cls, @NonNull Class<R> cls2) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (String str : this.f6601a) {
-            List<a<?, ?>> list = this.b.get(str);
+        for (String str : this.f35148a) {
+            List<a<?, ?>> list = this.f35149b.get(str);
             if (list != null) {
                 for (a<?, ?> aVar : list) {
-                    if (aVar.a(cls, cls2) && !arrayList.contains(aVar.f6602a)) {
-                        arrayList.add(aVar.f6602a);
+                    if (aVar.a(cls, cls2) && !arrayList.contains(aVar.f35150a)) {
+                        arrayList.add(aVar.f35150a);
                     }
                 }
             }

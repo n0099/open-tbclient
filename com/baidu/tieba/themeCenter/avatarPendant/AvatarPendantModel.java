@@ -3,50 +3,66 @@ package com.baidu.tieba.themeCenter.avatarPendant;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.themeCenter.dressCenter.e;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.i0.i3.h.e;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
-    private com.baidu.adp.framework.listener.a jdE;
-    private List<com.baidu.tieba.themeCenter.avatarPendant.a> mAvatarPendantList;
-    private e mRecommand;
-    private a nIx;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(int i, String str, e eVar, List<com.baidu.tieba.themeCenter.avatarPendant.a> list);
+    /* renamed from: e  reason: collision with root package name */
+    public b f21578e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public e f21579f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public List<d.b.i0.i3.d.a> f21580g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d.b.b.c.g.a f21581h;
+
+    /* loaded from: classes5.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof AvatarPendantListSocketResponseMessage;
+            if (z || (responsedMessage instanceof AvatarPendantListHttpResponseMessage)) {
+                if (z) {
+                    AvatarPendantListSocketResponseMessage avatarPendantListSocketResponseMessage = (AvatarPendantListSocketResponseMessage) responsedMessage;
+                    AvatarPendantModel.this.f21580g = avatarPendantListSocketResponseMessage.getAvatarPendantListList();
+                    AvatarPendantModel.this.f21579f = avatarPendantListSocketResponseMessage.getRecommand();
+                } else if (responsedMessage instanceof AvatarPendantListHttpResponseMessage) {
+                    AvatarPendantListHttpResponseMessage avatarPendantListHttpResponseMessage = (AvatarPendantListHttpResponseMessage) responsedMessage;
+                    AvatarPendantModel.this.f21580g = avatarPendantListHttpResponseMessage.getAvatarPendantListList();
+                    AvatarPendantModel.this.f21579f = avatarPendantListHttpResponseMessage.getRecommand();
+                }
+                if (AvatarPendantModel.this.f21578e != null) {
+                    AvatarPendantModel.this.f21578e.a(responsedMessage.getError(), responsedMessage.getErrorString(), AvatarPendantModel.this.f21579f, AvatarPendantModel.this.f21580g);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i, String str, e eVar, List<d.b.i0.i3.d.a> list);
     }
 
     public AvatarPendantModel(AvatarPendantActivity avatarPendantActivity) {
         super(avatarPendantActivity.getPageContext());
-        this.jdE = new com.baidu.adp.framework.listener.a(1003178, CmdConfigSocket.CMD_AVATAR_APENDANT) { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null) {
-                    if ((responsedMessage instanceof AvatarPendantListSocketResponseMessage) || (responsedMessage instanceof AvatarPendantListHttpResponseMessage)) {
-                        if (responsedMessage instanceof AvatarPendantListSocketResponseMessage) {
-                            AvatarPendantListSocketResponseMessage avatarPendantListSocketResponseMessage = (AvatarPendantListSocketResponseMessage) responsedMessage;
-                            AvatarPendantModel.this.mAvatarPendantList = avatarPendantListSocketResponseMessage.getAvatarPendantListList();
-                            AvatarPendantModel.this.mRecommand = avatarPendantListSocketResponseMessage.getRecommand();
-                        } else if (responsedMessage instanceof AvatarPendantListHttpResponseMessage) {
-                            AvatarPendantListHttpResponseMessage avatarPendantListHttpResponseMessage = (AvatarPendantListHttpResponseMessage) responsedMessage;
-                            AvatarPendantModel.this.mAvatarPendantList = avatarPendantListHttpResponseMessage.getAvatarPendantListList();
-                            AvatarPendantModel.this.mRecommand = avatarPendantListHttpResponseMessage.getRecommand();
-                        }
-                        if (AvatarPendantModel.this.nIx != null) {
-                            AvatarPendantModel.this.nIx.a(responsedMessage.getError(), responsedMessage.getErrorString(), AvatarPendantModel.this.mRecommand, AvatarPendantModel.this.mAvatarPendantList);
-                        }
-                    }
-                }
-            }
-        };
+        this.f21581h = new a(CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, 309371);
         registerTask();
-        registerListener(this.jdE);
+        registerListener(this.f21581h);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         sendMessage(new AvatarPendantListRequestMessage());
@@ -58,20 +74,20 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
         return false;
     }
 
-    public void a(a aVar) {
-        this.nIx = aVar;
+    public final void registerTask() {
+        d.b.i0.c3.d0.a.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
     }
 
-    public List<com.baidu.tieba.themeCenter.avatarPendant.a> dRq() {
-        return this.mAvatarPendantList;
+    public List<d.b.i0.i3.d.a> x() {
+        return this.f21580g;
     }
 
-    private void registerTask() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_AVATAR_APENDANT, AvatarPendantListSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_AVATAR_APENDANT, 1003178, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
+    public void y() {
+        MessageManager.getInstance().unRegisterListener(this.f21581h);
     }
 
-    public void onDestory() {
-        MessageManager.getInstance().unRegisterListener(this.jdE);
+    public void z(b bVar) {
+        this.f21578e = bVar;
     }
 }

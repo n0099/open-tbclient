@@ -29,29 +29,88 @@ import java.text.DateFormat;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
-    private static final long APPROXIMATE_START_TIME = System.currentTimeMillis();
-    private static final boolean DEBUG = false;
-    private static volatile boolean INITED = false;
-    private static final String LOG_FILE_DIR_NAME = "zeuslogs";
-    private static final String LOG_FILE_NAME = "logFile";
-    private static final String NAME_SEPERATOR = " : ";
-    private static final String TAG = "ZeusCrashHandler";
-    private static ZeusCrashHandler sInstance;
-    private ZeusCrashHandlerClient mClient;
-    private Throwable mCrash;
-    private Thread mCrashThread;
-    private long mCrashTime;
-    private CrashFilter mFilter;
-    private final Thread.UncaughtExceptionHandler mPreviousHandler;
+    public static final long APPROXIMATE_START_TIME = System.currentTimeMillis();
+    public static final boolean DEBUG = false;
+    public static volatile boolean INITED = false;
+    public static final String LOG_FILE_DIR_NAME = "zeuslogs";
+    public static final String LOG_FILE_NAME = "logFile";
+    public static final String NAME_SEPERATOR = " : ";
+    public static final String TAG = "ZeusCrashHandler";
+    public static ZeusCrashHandler sInstance;
+    public ZeusCrashHandlerClient mClient;
+    public Throwable mCrash;
+    public Thread mCrashThread;
+    public long mCrashTime;
+    public CrashFilter mFilter;
+    public final Thread.UncaughtExceptionHandler mPreviousHandler;
 
-    /* loaded from: classes14.dex */
+    /* renamed from: com.baidu.webkit.sdk.dumper.ZeusCrashHandler$5  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public /* synthetic */ class AnonymousClass5 {
+        public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo;
+
+        static {
+            int[] iArr = new int[ExtraInfo.values().length];
+            $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo = iArr;
+            try {
+                iArr[ExtraInfo.CUID.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.EMULATOR.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.CHANNEL_NAME.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.ANDROID_BASEBAND.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.ANDROID_DISPLAY.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.ANDROID_FINGERPRINT.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.SDK_LEVEL.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.VISITED_URLS.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.GPU.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.START_TIME.ordinal()] = 10;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.CRASH_TIME.ordinal()] = 11;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[ExtraInfo.JAVA_EXCEPTION.ordinal()] = 12;
+            } catch (NoSuchFieldError unused12) {
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum ExtraInfo {
         CUID("CUID"),
         EMULATOR("Emulator"),
@@ -67,7 +126,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         ANDROID_DISPLAY("AndroidDisplay"),
         LOGCAT("");
         
-        private final String mName;
+        public final String mName;
 
         ExtraInfo(String str) {
             this.mName = str;
@@ -79,15 +138,13 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class ZeusCrashHandlerClient {
-        private static final String TAG = "CrashHandlerClientImpl";
-        private PackageInfo mAppPackageInfo;
-        private String mChannelName;
-        private ZeusCrashHandler mHandler;
+        public static final String TAG = "CrashHandlerClientImpl";
+        public PackageInfo mAppPackageInfo;
+        public String mChannelName;
+        public ZeusCrashHandler mHandler;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public ZeusCrashHandlerClient(ZeusCrashHandler zeusCrashHandler) {
             this.mHandler = zeusCrashHandler;
         }
@@ -121,7 +178,12 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
           (wrap: android.content.pm.PackageInfo : 0x000b: INVOKE  (r1v0 android.content.pm.PackageInfo A[REMOVE]) = (r2v0 'this' com.baidu.webkit.sdk.dumper.ZeusCrashHandler$ZeusCrashHandlerClient A[IMMUTABLE_TYPE, THIS]) type: DIRECT call: com.baidu.webkit.sdk.dumper.ZeusCrashHandler.ZeusCrashHandlerClient.getAppPackageInfo():android.content.pm.PackageInfo)
          android.content.pm.PackageInfo.versionCode int)] */
         private String getAppVersionCode() {
-            return getAppPackageInfo() != null ? new StringBuilder().append(getAppPackageInfo().versionCode).toString() : "0";
+            if (getAppPackageInfo() != null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(getAppPackageInfo().versionCode);
+                return sb.toString();
+            }
+            return "0";
         }
 
         private String getBaseBand() {
@@ -134,40 +196,36 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
 
         private String getChannelName() {
-            BufferedReader bufferedReader;
             if (this.mChannelName == null) {
+                BufferedReader bufferedReader = null;
                 try {
-                    Context context = WebViewFactory.getContext();
-                    bufferedReader = new BufferedReader(new InputStreamReader(context.getResources().openRawResource(context.getResources().getIdentifier("tnconfig", "raw", context.getPackageName()))));
                     try {
-                        this.mChannelName = bufferedReader.readLine();
+                        Context context = WebViewFactory.getContext();
+                        BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(context.getResources().openRawResource(context.getResources().getIdentifier("tnconfig", "raw", context.getPackageName()))));
                         try {
-                            bufferedReader.close();
-                        } catch (Throwable th) {
-                        }
-                    } catch (Throwable th2) {
-                        try {
-                            this.mChannelName = "0";
-                            if (bufferedReader != null) {
-                                try {
+                            this.mChannelName = bufferedReader2.readLine();
+                            bufferedReader2.close();
+                        } catch (Throwable unused) {
+                            bufferedReader = bufferedReader2;
+                            try {
+                                this.mChannelName = "0";
+                                if (bufferedReader != null) {
                                     bufferedReader.close();
-                                } catch (Throwable th3) {
                                 }
-                            }
-                            return this.mChannelName;
-                        } catch (Throwable th4) {
-                            BufferedReader bufferedReader2 = bufferedReader;
-                            if (bufferedReader2 != null) {
-                                try {
-                                    bufferedReader2.close();
-                                } catch (Throwable th5) {
+                                return this.mChannelName;
+                            } catch (Throwable th) {
+                                if (bufferedReader != null) {
+                                    try {
+                                        bufferedReader.close();
+                                    } catch (Throwable unused2) {
+                                    }
                                 }
+                                throw th;
                             }
-                            throw th4;
                         }
+                    } catch (Throwable unused3) {
                     }
-                } catch (Throwable th6) {
-                    bufferedReader = null;
+                } catch (Throwable unused4) {
                 }
             }
             return this.mChannelName;
@@ -177,15 +235,11 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             String deviceId;
             try {
                 String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("enableIMEI");
-                if (GetCloudSettingsValue != null && GetCloudSettingsValue.toLowerCase(Locale.getDefault()).equals("true") && (deviceId = ((TelephonyManager) WebViewFactory.getContext().getSystemService("phone")).getDeviceId()) != null) {
-                    if (deviceId.length() > 0) {
-                        return deviceId;
-                    }
-                }
+                return (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase(Locale.getDefault()).equals("true") || (deviceId = ((TelephonyManager) WebViewFactory.getContext().getSystemService("phone")).getDeviceId()) == null) ? "0" : deviceId.length() > 0 ? deviceId : "0";
             } catch (Throwable th) {
                 th.printStackTrace();
+                return "0";
             }
-            return "0";
         }
 
         private String getModel() {
@@ -194,25 +248,26 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
 
         private String getZeusVersion() {
+            String str;
             PackageInfo loadedPackageInfo = WebViewFactory.getLoadedPackageInfo();
-            return (loadedPackageInfo == null || loadedPackageInfo.versionName == null) ? "0" : loadedPackageInfo.versionName.replace(' ', '_');
+            return (loadedPackageInfo == null || (str = loadedPackageInfo.versionName) == null) ? "0" : str.replace(' ', '_');
         }
 
         public final String getExtraInfo(ExtraInfo extraInfo) {
-            switch (extraInfo) {
-                case CUID:
+            switch (AnonymousClass5.$SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[extraInfo.ordinal()]) {
+                case 1:
                     return WebKitFactory.getCUIDString();
-                case EMULATOR:
+                case 2:
                     return WebKitFactory.getEmulatorString();
-                case CHANNEL_NAME:
+                case 3:
                     return getChannelName();
-                case ANDROID_BASEBAND:
+                case 4:
                     return getBaseBand();
-                case ANDROID_DISPLAY:
+                case 5:
                     return Build.DISPLAY;
-                case ANDROID_FINGERPRINT:
+                case 6:
                     return Build.FINGERPRINT;
-                case SDK_LEVEL:
+                case 7:
                     return String.valueOf(Build.VERSION.SDK_INT);
                 default:
                     return null;
@@ -238,16 +293,17 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             }
             try {
                 Context context = WebViewFactory.getContext();
-                if (context != null) {
-                    Intent intent = new Intent();
-                    intent.setClass(context, DumperService.class);
-                    intent.putExtra("LOG_TYPE", "crashlog");
-                    intent.putExtra("CRASH_TIME", this.mHandler.getCrashTimestamp());
-                    intent.putExtra("CRASH_FILE", file.getAbsolutePath());
-                    intent.putExtra("CRASH_SIGNAL", 0);
-                    intent.putExtra("HTTPS", true);
-                    context.startService(intent);
+                if (context == null) {
+                    return;
                 }
+                Intent intent = new Intent();
+                intent.setClass(context, DumperService.class);
+                intent.putExtra("LOG_TYPE", "crashlog");
+                intent.putExtra("CRASH_TIME", this.mHandler.getCrashTimestamp());
+                intent.putExtra("CRASH_FILE", file.getAbsolutePath());
+                intent.putExtra("CRASH_SIGNAL", 0);
+                intent.putExtra("HTTPS", true);
+                context.startService(intent);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -258,8 +314,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         this.mPreviousHandler = uncaughtExceptionHandler;
     }
 
-    static File createFileInSpecifiedDir(File file, String str) {
-        File file2;
+    public static File createFileInSpecifiedDir(File file, String str) {
         if (file != null) {
             try {
                 if (file.exists() && !file.isDirectory()) {
@@ -268,15 +323,13 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                file2 = new File(file, str);
+                return new File(file, str);
             } catch (Throwable th) {
                 th.printStackTrace();
                 return null;
             }
-        } else {
-            file2 = null;
         }
-        return file2;
+        return null;
     }
 
     private void dumpCrashThread(Writer writer) throws IOException {
@@ -287,13 +340,15 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         writer.write("Crash address: ");
         writer.write(stackTrace != null ? stackTrace[0].toString() : "Unkown");
         writer.write("\n");
-        writer.write(String.format("Process uptime: %s H\n\n", String.valueOf((this.mCrashTime - APPROXIMATE_START_TIME) / 3600000.0d)));
+        double d2 = this.mCrashTime - APPROXIMATE_START_TIME;
+        Double.isNaN(d2);
+        writer.write(String.format("Process uptime: %s H\n\n", String.valueOf(d2 / 3600000.0d)));
         writer.write(String.format("Thread %d:%s (crashed)\n", Long.valueOf(this.mCrashThread.getId()), this.mCrashThread.getName()));
         this.mCrash.printStackTrace(new PrintWriter(writer));
     }
 
     private void dumpExtraInfo(Writer writer) throws IOException {
-        String str;
+        long approximateStartTimestamp;
         dumpIdentification(writer);
         writer.write("\n************************************************\n");
         if (this.mClient != null) {
@@ -304,26 +359,26 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                 writer.write(NAME_SEPERATOR);
                 String extraInfo2 = this.mClient.getExtraInfo(extraInfo);
                 if (extraInfo2 == null) {
-                    switch (extraInfo) {
-                        case START_TIME:
-                            str = getTimestmapString(getApproximateStartTimestamp());
-                            continue;
-                        case CRASH_TIME:
-                            str = getTimestmapString(getCrashTimestamp());
-                            continue;
-                        case JAVA_EXCEPTION:
+                    switch (AnonymousClass5.$SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo[extraInfo.ordinal()]) {
+                        case 10:
+                            approximateStartTimestamp = getApproximateStartTimestamp();
+                            extraInfo2 = getTimestmapString(approximateStartTimestamp);
+                            break;
+                        case 11:
+                            approximateStartTimestamp = getCrashTimestamp();
+                            extraInfo2 = getTimestmapString(approximateStartTimestamp);
+                            break;
+                        case 12:
                             StringWriter stringWriter = new StringWriter();
                             this.mCrash.printStackTrace(new PrintWriter(stringWriter));
-                            str = stringWriter.toString();
-                            continue;
+                            extraInfo2 = stringWriter.toString();
+                            break;
                         default:
-                            str = "UnsupportedInJavaCrash";
-                            continue;
+                            extraInfo2 = "UnsupportedInJavaCrash";
+                            break;
                     }
-                } else {
-                    str = extraInfo2;
                 }
-                writer.write(str);
+                writer.write(extraInfo2);
                 writer.write("\n************************************************\n");
             }
         }
@@ -351,8 +406,8 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             thread.join();
             thread2.join();
             Log.d(TAG, "dumpExtraLogcatInfo exitCode=" + waitFor);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (InterruptedException e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -397,42 +452,52 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     private boolean generateNativeCrashLog(File file) {
-        BufferedWriter bufferedWriter;
+        BufferedWriter bufferedWriter = null;
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(file));
-        } catch (Throwable th) {
-            th = th;
-            bufferedWriter = null;
-        }
-        try {
-            dumpExtraInfo(bufferedWriter);
-            bufferedWriter.write("\n\n");
-            dumpProcStatus(bufferedWriter);
-            bufferedWriter.write("\n\n");
-            dumpSystemInfo(bufferedWriter);
-            bufferedWriter.write("\n\n");
-            dumpCrashThread(bufferedWriter);
-            bufferedWriter.write("\n\n");
-            dumpMapInfo(bufferedWriter);
-            bufferedWriter.flush();
+            BufferedWriter bufferedWriter2 = new BufferedWriter(new FileWriter(file));
             try {
-                bufferedWriter.close();
-            } catch (Throwable th2) {
-            }
-            return true;
-        } catch (Throwable th3) {
-            th = th3;
-            try {
-                th.printStackTrace();
-                return false;
-            } finally {
-                if (bufferedWriter != null) {
-                    try {
-                        bufferedWriter.close();
-                    } catch (Throwable th4) {
+                dumpExtraInfo(bufferedWriter2);
+                bufferedWriter2.write("\n\n");
+                dumpProcStatus(bufferedWriter2);
+                bufferedWriter2.write("\n\n");
+                dumpSystemInfo(bufferedWriter2);
+                bufferedWriter2.write("\n\n");
+                dumpCrashThread(bufferedWriter2);
+                bufferedWriter2.write("\n\n");
+                dumpMapInfo(bufferedWriter2);
+                bufferedWriter2.flush();
+                try {
+                    bufferedWriter2.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return true;
+                }
+            } catch (Throwable th) {
+                th = th;
+                bufferedWriter = bufferedWriter2;
+                try {
+                    th.printStackTrace();
+                    if (bufferedWriter != null) {
+                        try {
+                            bufferedWriter.close();
+                            return false;
+                        } catch (Throwable unused2) {
+                            return false;
+                        }
                     }
+                    return false;
+                } catch (Throwable th2) {
+                    if (bufferedWriter != null) {
+                        try {
+                            bufferedWriter.close();
+                        } catch (Throwable unused3) {
+                        }
+                    }
+                    throw th2;
                 }
             }
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 
@@ -442,11 +507,12 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
 
     private File getLogFile() {
         Context context;
-        File logFile = this.mClient != null ? this.mClient.getLogFile() : null;
+        ZeusCrashHandlerClient zeusCrashHandlerClient = this.mClient;
+        File logFile = zeusCrashHandlerClient != null ? zeusCrashHandlerClient.getLogFile() : null;
         return (logFile != null || (context = WebViewFactory.getContext()) == null) ? logFile : createFileInSpecifiedDir(context.getExternalFilesDir(LOG_FILE_DIR_NAME), LOG_FILE_NAME);
     }
 
-    private static String getTimestmapString(long j) {
+    public static String getTimestmapString(long j) {
         return DateFormat.getDateTimeInstance().format(Long.valueOf(j));
     }
 
@@ -458,7 +524,8 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         ZeusCrashHandler zeusCrashHandler = new ZeusCrashHandler(Thread.getDefaultUncaughtExceptionHandler());
         sInstance = zeusCrashHandler;
         Thread.setDefaultUncaughtExceptionHandler(zeusCrashHandler);
-        sInstance.setClient(new ZeusCrashHandlerClient(sInstance));
+        ZeusCrashHandler zeusCrashHandler2 = sInstance;
+        zeusCrashHandler2.setClient(new ZeusCrashHandlerClient(zeusCrashHandler2));
         sInstance.setCrashFilter(new CrashFilter() { // from class: com.baidu.webkit.sdk.dumper.ZeusCrashHandler.1
             @Override // com.baidu.webkit.sdk.dumper.ZeusCrashHandler.CrashFilter
             public boolean filt(Thread thread, Throwable th) {
@@ -484,43 +551,43 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                 writer.write("Throwable:");
                 writer.write(th.getMessage());
                 writer.write("\n");
-            } catch (Throwable th2) {
+            } catch (Throwable unused) {
             }
             Log.e(TAG, "", th);
         }
     }
 
     private void writeFile(Writer writer, File file) throws IOException {
-        BufferedReader bufferedReader;
+        BufferedReader bufferedReader = null;
         try {
-            bufferedReader = new BufferedReader(new FileReader(file));
+            BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file));
             while (true) {
                 try {
-                    String readLine = bufferedReader.readLine();
+                    String readLine = bufferedReader2.readLine();
                     if (readLine == null) {
                         try {
-                            bufferedReader.close();
+                            bufferedReader2.close();
                             return;
-                        } catch (Throwable th) {
+                        } catch (Throwable unused) {
                             return;
                         }
                     }
                     writer.write(readLine);
                     writer.write("\n");
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader = bufferedReader2;
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (Throwable th3) {
+                        } catch (Throwable unused2) {
                         }
                     }
                     throw th;
                 }
             }
-        } catch (Throwable th4) {
-            th = th4;
-            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
@@ -532,7 +599,6 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         return this.mCrashTime;
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.webkit.sdk.dumper.ZeusCrashHandler$2] */
     public void logException(final Throwable th) {
         setCrashTime(System.currentTimeMillis());
         Log.i(TAG, "logException", th);
@@ -545,7 +611,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }.start();
     }
 
-    protected synchronized void onJavaCrash(Thread thread, Throwable th) {
+    public synchronized void onJavaCrash(Thread thread, Throwable th) {
         this.mCrashThread = thread;
         this.mCrash = th;
         File logFile = getLogFile();
@@ -571,12 +637,14 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         setCrashTime(System.currentTimeMillis());
         if (!WebSettingsGlobalBlink.isSFSwitchEnabled()) {
             Log.i(TAG, "(ZeusCrashHandler)");
-            if (this.mFilter == null || this.mFilter.filt(thread, th)) {
+            CrashFilter crashFilter = this.mFilter;
+            if (crashFilter == null || crashFilter.filt(thread, th)) {
                 onJavaCrash(thread, th);
             }
         }
-        if (this.mPreviousHandler != null) {
-            this.mPreviousHandler.uncaughtException(thread, th);
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.mPreviousHandler;
+        if (uncaughtExceptionHandler != null) {
+            uncaughtExceptionHandler.uncaughtException(thread, th);
         }
     }
 }

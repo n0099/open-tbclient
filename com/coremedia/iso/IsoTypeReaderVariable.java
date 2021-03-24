@@ -1,25 +1,25 @@
 package com.coremedia.iso;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class IsoTypeReaderVariable {
     public static long read(ByteBuffer byteBuffer, int i) {
-        switch (i) {
-            case 1:
-                return IsoTypeReader.readUInt8(byteBuffer);
-            case 2:
-                return IsoTypeReader.readUInt16(byteBuffer);
-            case 3:
-                return IsoTypeReader.readUInt24(byteBuffer);
-            case 4:
-                return IsoTypeReader.readUInt32(byteBuffer);
-            case 5:
-            case 6:
-            case 7:
-            default:
+        int readUInt8;
+        if (i == 1) {
+            readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
+        } else if (i == 2) {
+            readUInt8 = IsoTypeReader.readUInt16(byteBuffer);
+        } else if (i != 3) {
+            if (i != 4) {
+                if (i == 8) {
+                    return IsoTypeReader.readUInt64(byteBuffer);
+                }
                 throw new RuntimeException("I don't know how to read " + i + " bytes");
-            case 8:
-                return IsoTypeReader.readUInt64(byteBuffer);
+            }
+            return IsoTypeReader.readUInt32(byteBuffer);
+        } else {
+            readUInt8 = IsoTypeReader.readUInt24(byteBuffer);
         }
+        return readUInt8;
     }
 }

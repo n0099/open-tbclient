@@ -15,9 +15,9 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class IActivityProxy implements IComponentProxy {
-    private Activity mActivity;
+    public Activity mActivity;
 
     @KsAdSdkDynamicApi
     @Keep
@@ -62,12 +62,13 @@ public abstract class IActivityProxy implements IComponentProxy {
     @KsAdSdkDynamicApi
     @Keep
     public void onBackPressed() {
-        if (this.mActivity instanceof BaseProxyActivity) {
-            ((BaseProxyActivity) this.mActivity).superOnBackPressed();
-        } else if (!(this.mActivity instanceof BaseProxyFragmentActivity)) {
-            throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
+        Activity activity = this.mActivity;
+        if (activity instanceof BaseProxyActivity) {
+            ((BaseProxyActivity) activity).superOnBackPressed();
+        } else if (activity instanceof BaseProxyFragmentActivity) {
+            ((BaseProxyFragmentActivity) activity).superOnBackPressed();
         } else {
-            ((BaseProxyFragmentActivity) this.mActivity).superOnBackPressed();
+            throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
         }
     }
 
@@ -81,13 +82,11 @@ public abstract class IActivityProxy implements IComponentProxy {
     public void onConfigurationChanged(Configuration configuration) {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @KsAdSdkDynamicApi
     @Keep
     public void onCreate(@Nullable Bundle bundle) {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @KsAdSdkDynamicApi
     @Keep
     public void onDestroy() {
@@ -96,11 +95,12 @@ public abstract class IActivityProxy implements IComponentProxy {
     @KsAdSdkDynamicApi
     @Keep
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.mActivity instanceof BaseProxyActivity) {
-            return ((BaseProxyActivity) this.mActivity).superOnKeyDown(i, keyEvent);
+        Activity activity = this.mActivity;
+        if (activity instanceof BaseProxyActivity) {
+            return ((BaseProxyActivity) activity).superOnKeyDown(i, keyEvent);
         }
-        if (this.mActivity instanceof BaseProxyFragmentActivity) {
-            return ((BaseProxyFragmentActivity) this.mActivity).superOnKeyDown(i, keyEvent);
+        if (activity instanceof BaseProxyFragmentActivity) {
+            return ((BaseProxyFragmentActivity) activity).superOnKeyDown(i, keyEvent);
         }
         throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
     }
@@ -108,11 +108,12 @@ public abstract class IActivityProxy implements IComponentProxy {
     @KsAdSdkDynamicApi
     @Keep
     public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
-        if (this.mActivity instanceof BaseProxyActivity) {
-            return ((BaseProxyActivity) this.mActivity).superOnKeyLongPress(i, keyEvent);
+        Activity activity = this.mActivity;
+        if (activity instanceof BaseProxyActivity) {
+            return ((BaseProxyActivity) activity).superOnKeyLongPress(i, keyEvent);
         }
-        if (this.mActivity instanceof BaseProxyFragmentActivity) {
-            return ((BaseProxyFragmentActivity) this.mActivity).superOnKeyLongPress(i, keyEvent);
+        if (activity instanceof BaseProxyFragmentActivity) {
+            return ((BaseProxyFragmentActivity) activity).superOnKeyLongPress(i, keyEvent);
         }
         throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
     }
@@ -120,11 +121,12 @@ public abstract class IActivityProxy implements IComponentProxy {
     @KsAdSdkDynamicApi
     @Keep
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        if (this.mActivity instanceof BaseProxyActivity) {
-            return ((BaseProxyActivity) this.mActivity).superOnKeyUp(i, keyEvent);
+        Activity activity = this.mActivity;
+        if (activity instanceof BaseProxyActivity) {
+            return ((BaseProxyActivity) activity).superOnKeyUp(i, keyEvent);
         }
-        if (this.mActivity instanceof BaseProxyFragmentActivity) {
-            return ((BaseProxyFragmentActivity) this.mActivity).superOnKeyUp(i, keyEvent);
+        if (activity instanceof BaseProxyFragmentActivity) {
+            return ((BaseProxyFragmentActivity) activity).superOnKeyUp(i, keyEvent);
         }
         throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
     }
@@ -139,7 +141,6 @@ public abstract class IActivityProxy implements IComponentProxy {
     public void onPause() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @KsAdSdkDynamicApi
     @Keep
     public void onPostCreate(@Nullable Bundle bundle) {
@@ -150,7 +151,6 @@ public abstract class IActivityProxy implements IComponentProxy {
     public void onPostResume() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @KsAdSdkDynamicApi
     @Keep
     public void onPreCreate(@Nullable Bundle bundle) {
@@ -232,7 +232,6 @@ public abstract class IActivityProxy implements IComponentProxy {
         this.mActivity.overridePendingTransition(i, i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setActivity(Activity activity) {
         this.mActivity = activity;
     }

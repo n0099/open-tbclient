@@ -14,44 +14,58 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a implements ICloudCenter {
-    private int b;
-    private CloudListener c;
-    private String h;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f10394b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public CloudListener f10395c;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f10400h;
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Lock f3096a = new ReentrantLock();
-    private boolean d = true;
-    private boolean e = true;
-    private AsyncHttpClient f = new AsyncHttpClient();
-    private Handler g = new Handler(Looper.getMainLooper());
+    public final Lock f10393a = new ReentrantLock();
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f10396d = true;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f10397e = true;
+
+    /* renamed from: f  reason: collision with root package name */
+    public AsyncHttpClient f10398f = new AsyncHttpClient();
+
+    /* renamed from: g  reason: collision with root package name */
+    public Handler f10399g = new Handler(Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        switch (this.b) {
+        switch (this.f10394b) {
             case 10001:
                 CloudSearchResult cloudSearchResult = new CloudSearchResult();
-                this.f3096a.lock();
+                this.f10393a.lock();
                 try {
-                    this.c.onGetSearchResult(cloudSearchResult, i);
-                    return;
+                    this.f10395c.onGetSearchResult(cloudSearchResult, i);
+                    break;
                 } finally {
                 }
             case 10002:
                 DetailSearchResult detailSearchResult = new DetailSearchResult();
-                this.f3096a.lock();
+                this.f10393a.lock();
                 try {
-                    this.c.onGetDetailSearchResult(detailSearchResult, i);
-                    return;
+                    this.f10395c.onGetDetailSearchResult(detailSearchResult, i);
+                    break;
                 } finally {
                 }
             case 10003:
                 CloudRgcResult cloudRgcResult = new CloudRgcResult();
-                this.f3096a.lock();
+                this.f10393a.lock();
                 try {
-                    this.c.onGetCloudRgcResult(cloudRgcResult, i);
-                    return;
+                    this.f10395c.onGetCloudRgcResult(cloudRgcResult, i);
+                    break;
                 } finally {
                 }
             default:
@@ -68,7 +82,7 @@ public class a implements ICloudCenter {
         if (str == null) {
             return false;
         }
-        this.f.get(str, new b(this));
+        this.f10398f.get(str, new b(this));
         return true;
     }
 
@@ -81,12 +95,13 @@ public class a implements ICloudCenter {
             a(-4);
             return null;
         }
-        if (this.d) {
+        if (this.f10396d) {
             str = str + "&token=" + AppMD5.encodeUrlParamsValue(authToken);
         }
         String str2 = str + HttpClient.getPhoneInfo();
-        if (this.e) {
-            return str2 + "&sign=" + AppMD5.getSignMD5String(Uri.parse(str2).buildUpon().build().getEncodedQuery());
+        if (this.f10397e) {
+            Uri.Builder buildUpon = Uri.parse(str2).buildUpon();
+            return str2 + "&sign=" + AppMD5.getSignMD5String(buildUpon.build().getEncodedQuery());
         }
         return str2;
     }
@@ -95,79 +110,79 @@ public class a implements ICloudCenter {
     public void f(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            switch (this.b) {
+            switch (this.f10394b) {
                 case 10001:
                     CloudSearchResult cloudSearchResult = new CloudSearchResult();
                     try {
                         cloudSearchResult.parseFromJSON(jSONObject);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
-                    this.f3096a.lock();
+                    this.f10393a.lock();
                     try {
-                        this.c.onGetSearchResult(cloudSearchResult, cloudSearchResult.status);
-                        return;
+                        this.f10395c.onGetSearchResult(cloudSearchResult, cloudSearchResult.status);
+                        break;
                     } finally {
                     }
                 case 10002:
                     DetailSearchResult detailSearchResult = new DetailSearchResult();
                     try {
                         detailSearchResult.parseFromJSON(jSONObject);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e3) {
+                        e3.printStackTrace();
                     }
-                    this.f3096a.lock();
+                    this.f10393a.lock();
                     try {
-                        this.c.onGetDetailSearchResult(detailSearchResult, detailSearchResult.status);
-                        return;
+                        this.f10395c.onGetDetailSearchResult(detailSearchResult, detailSearchResult.status);
+                        break;
                     } finally {
                     }
                 case 10003:
                     CloudRgcResult cloudRgcResult = new CloudRgcResult();
                     try {
                         cloudRgcResult.parseFromJSON(jSONObject);
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
+                    } catch (JSONException e4) {
+                        e4.printStackTrace();
                     }
-                    this.f3096a.lock();
+                    this.f10393a.lock();
                     try {
-                        this.c.onGetCloudRgcResult(cloudRgcResult, cloudRgcResult.status);
-                        return;
+                        this.f10395c.onGetCloudRgcResult(cloudRgcResult, cloudRgcResult.status);
+                        break;
                     } finally {
                     }
                 default:
                     return;
             }
-        } catch (JSONException e4) {
-            e4.printStackTrace();
+        } catch (JSONException e5) {
+            e5.printStackTrace();
         }
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public void a(CloudListener cloudListener) {
-        this.f3096a.lock();
-        this.c = cloudListener;
-        this.f3096a.unlock();
+        this.f10393a.lock();
+        this.f10395c = cloudListener;
+        this.f10393a.unlock();
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public boolean a(String str) {
-        this.b = 10001;
-        this.d = false;
+        this.f10394b = 10001;
+        this.f10396d = false;
         return d(e(str));
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public boolean b(String str) {
-        this.b = 10002;
-        this.d = false;
+        this.f10394b = 10002;
+        this.f10396d = false;
         return d(e(str));
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public boolean c(String str) {
-        this.b = 10003;
-        this.d = true;
+        this.f10394b = 10003;
+        this.f10396d = true;
         return d(e(str));
     }
 }

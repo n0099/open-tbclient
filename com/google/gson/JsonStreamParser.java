@@ -1,49 +1,22 @@
 package com.google.gson;
 
-import com.google.gson.internal.h;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.MalformedJsonException;
-import com.google.gson.stream.a;
+import d.g.c.b.h;
+import d.g.c.d.a;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class JsonStreamParser implements Iterator<JsonElement> {
-    private final Object lock;
-    private final a parser;
+    public final Object lock;
+    public final a parser;
 
     public JsonStreamParser(String str) {
         this(new StringReader(str));
-    }
-
-    public JsonStreamParser(Reader reader) {
-        this.parser = new a(reader);
-        this.parser.By(true);
-        this.lock = new Object();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // java.util.Iterator
-    public JsonElement next() throws JsonParseException {
-        if (!hasNext()) {
-            throw new NoSuchElementException();
-        }
-        try {
-            return h.parse(this.parser);
-        } catch (JsonParseException e) {
-            if (e.getCause() instanceof EOFException) {
-                throw new NoSuchElementException();
-            }
-            throw e;
-        } catch (OutOfMemoryError e2) {
-            throw new JsonParseException("Failed parsing JSON source to Json", e2);
-        } catch (StackOverflowError e3) {
-            throw new JsonParseException("Failed parsing JSON source to Json", e3);
-        }
     }
 
     @Override // java.util.Iterator
@@ -51,11 +24,17 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
         boolean z;
         synchronized (this.lock) {
             try {
-                z = this.parser.eBD() != JsonToken.END_DOCUMENT;
-            } catch (MalformedJsonException e) {
-                throw new JsonSyntaxException(e);
-            } catch (IOException e2) {
-                throw new JsonIOException(e2);
+                try {
+                    try {
+                        z = this.parser.M() != JsonToken.END_DOCUMENT;
+                    } catch (IOException e2) {
+                        throw new JsonIOException(e2);
+                    }
+                } catch (MalformedJsonException e3) {
+                    throw new JsonSyntaxException(e3);
+                }
+            } catch (Throwable th) {
+                throw th;
             }
         }
         return z;
@@ -64,5 +43,33 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
     @Override // java.util.Iterator
     public void remove() {
         throw new UnsupportedOperationException();
+    }
+
+    public JsonStreamParser(Reader reader) {
+        a aVar = new a(reader);
+        this.parser = aVar;
+        aVar.R(true);
+        this.lock = new Object();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // java.util.Iterator
+    public JsonElement next() throws JsonParseException {
+        if (hasNext()) {
+            try {
+                return h.a(this.parser);
+            } catch (JsonParseException e2) {
+                if (e2.getCause() instanceof EOFException) {
+                    throw new NoSuchElementException();
+                }
+                throw e2;
+            } catch (OutOfMemoryError e3) {
+                throw new JsonParseException("Failed parsing JSON source to Json", e3);
+            } catch (StackOverflowError e4) {
+                throw new JsonParseException("Failed parsing JSON source to Json", e4);
+            }
+        }
+        throw new NoSuchElementException();
     }
 }

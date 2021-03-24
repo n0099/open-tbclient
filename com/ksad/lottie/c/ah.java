@@ -1,78 +1,68 @@
 package com.ksad.lottie.c;
 
 import android.util.JsonReader;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import androidx.appcompat.widget.SearchView;
 import com.baidu.mobstat.Config;
 import com.ksad.lottie.model.content.ShapeStroke;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ah {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static ShapeStroke a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        char c;
+        char c2;
+        char c3;
+        char c4;
+        ArrayList arrayList = new ArrayList();
         String str = null;
-        com.ksad.lottie.model.a.a aVar = null;
         com.ksad.lottie.model.a.b bVar = null;
+        com.ksad.lottie.model.a.a aVar = null;
         com.ksad.lottie.model.a.d dVar2 = null;
+        com.ksad.lottie.model.a.b bVar2 = null;
         ShapeStroke.LineCapType lineCapType = null;
         ShapeStroke.LineJoinType lineJoinType = null;
-        com.ksad.lottie.model.a.b bVar2 = null;
-        float f = 0.0f;
-        ArrayList arrayList = new ArrayList();
+        float f2 = 0.0f;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c2 = 65535;
-            switch (nextName.hashCode()) {
-                case 99:
-                    if (nextName.equals("c")) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 100:
-                    if (nextName.equals("d")) {
-                        c2 = 7;
-                        break;
-                    }
-                    break;
-                case 111:
-                    if (nextName.equals(Config.OS)) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case 119:
-                    if (nextName.equals("w")) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 3447:
-                    if (nextName.equals(com.baidu.fsg.base.statistics.j.g)) {
-                        c2 = 4;
-                        break;
-                    }
-                    break;
-                case 3454:
-                    if (nextName.equals("lj")) {
-                        c2 = 5;
-                        break;
-                    }
-                    break;
-                case 3487:
-                    if (nextName.equals("ml")) {
-                        c2 = 6;
-                        break;
-                    }
-                    break;
-                case 3519:
-                    if (nextName.equals("nm")) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
+            int hashCode = nextName.hashCode();
+            if (hashCode == 99) {
+                if (nextName.equals("c")) {
+                    c2 = 1;
+                }
+                c2 = 65535;
+            } else if (hashCode == 100) {
+                if (nextName.equals("d")) {
+                    c2 = 7;
+                }
+                c2 = 65535;
+            } else if (hashCode == 111) {
+                if (nextName.equals(Config.OS)) {
+                    c2 = 3;
+                }
+                c2 = 65535;
+            } else if (hashCode == 119) {
+                if (nextName.equals("w")) {
+                    c2 = 2;
+                }
+                c2 = 65535;
+            } else if (hashCode == 3447) {
+                if (nextName.equals("lc")) {
+                    c2 = 4;
+                }
+                c2 = 65535;
+            } else if (hashCode == 3454) {
+                if (nextName.equals("lj")) {
+                    c2 = 5;
+                }
+                c2 = 65535;
+            } else if (hashCode != 3487) {
+                if (hashCode == 3519 && nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {
+                    c2 = 0;
+                }
+                c2 = 65535;
+            } else {
+                if (nextName.equals("ml")) {
+                    c2 = 6;
+                }
+                c2 = 65535;
             }
             switch (c2) {
                 case 0:
@@ -82,7 +72,7 @@ public class ah {
                     aVar = d.g(jsonReader, dVar);
                     break;
                 case 2:
-                    bVar = d.a(jsonReader, dVar);
+                    bVar2 = d.a(jsonReader, dVar);
                     break;
                 case 3:
                     dVar2 = d.b(jsonReader, dVar);
@@ -94,78 +84,60 @@ public class ah {
                     lineJoinType = ShapeStroke.LineJoinType.values()[jsonReader.nextInt() - 1];
                     break;
                 case 6:
-                    f = (float) jsonReader.nextDouble();
+                    f2 = (float) jsonReader.nextDouble();
                     break;
                 case 7:
                     jsonReader.beginArray();
                     while (jsonReader.hasNext()) {
+                        jsonReader.beginObject();
                         String str2 = null;
                         com.ksad.lottie.model.a.b bVar3 = null;
-                        jsonReader.beginObject();
                         while (jsonReader.hasNext()) {
                             String nextName2 = jsonReader.nextName();
-                            char c3 = 65535;
-                            switch (nextName2.hashCode()) {
-                                case 110:
-                                    if (nextName2.equals("n")) {
-                                        c3 = 0;
-                                        break;
-                                    }
-                                    break;
-                                case 118:
-                                    if (nextName2.equals("v")) {
-                                        c3 = 1;
-                                        break;
-                                    }
-                                    break;
+                            int hashCode2 = nextName2.hashCode();
+                            if (hashCode2 != 110) {
+                                if (hashCode2 == 118 && nextName2.equals("v")) {
+                                    c4 = 1;
+                                }
+                                c4 = 65535;
+                            } else {
+                                if (nextName2.equals("n")) {
+                                    c4 = 0;
+                                }
+                                c4 = 65535;
                             }
-                            switch (c3) {
-                                case 0:
-                                    str2 = jsonReader.nextString();
-                                    break;
-                                case 1:
-                                    bVar3 = d.a(jsonReader, dVar);
-                                    break;
-                                default:
-                                    jsonReader.skipValue();
-                                    break;
+                            if (c4 == 0) {
+                                str2 = jsonReader.nextString();
+                            } else if (c4 != 1) {
+                                jsonReader.skipValue();
+                            } else {
+                                bVar3 = d.a(jsonReader, dVar);
                             }
                         }
                         jsonReader.endObject();
-                        switch (str2.hashCode()) {
-                            case 100:
-                                if (str2.equals("d")) {
-                                    c = 1;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 103:
-                                if (str2.equals(IXAdRequestInfo.GPS)) {
-                                    c = 2;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 111:
-                                if (str2.equals(Config.OS)) {
-                                    c = 0;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            default:
-                                c = 65535;
-                                break;
+                        int hashCode3 = str2.hashCode();
+                        if (hashCode3 == 100) {
+                            if (str2.equals("d")) {
+                                c3 = 1;
+                            }
+                            c3 = 65535;
+                        } else if (hashCode3 != 103) {
+                            if (hashCode3 == 111 && str2.equals(Config.OS)) {
+                                c3 = 0;
+                            }
+                            c3 = 65535;
+                        } else {
+                            if (str2.equals("g")) {
+                                c3 = 2;
+                            }
+                            c3 = 65535;
                         }
-                        switch (c) {
-                            case 0:
-                                bVar2 = bVar3;
-                                break;
-                            case 1:
-                            case 2:
-                                arrayList.add(bVar3);
-                                break;
+                        if (c3 != 0) {
+                            if (c3 != 1 && c3 != 2) {
+                            }
+                            arrayList.add(bVar3);
+                        } else {
+                            bVar = bVar3;
                         }
                     }
                     jsonReader.endArray();
@@ -175,12 +147,11 @@ public class ah {
                         arrayList.add(arrayList.get(0));
                         break;
                     }
-                    break;
                 default:
                     jsonReader.skipValue();
                     break;
             }
         }
-        return new ShapeStroke(str, bVar2, arrayList, aVar, dVar2, bVar, lineCapType, lineJoinType, f);
+        return new ShapeStroke(str, bVar, arrayList, aVar, dVar2, bVar2, lineCapType, lineJoinType, f2);
     }
 }

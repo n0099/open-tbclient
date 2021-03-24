@@ -5,43 +5,68 @@ import android.content.Context;
 import android.database.Cursor;
 import android.text.TextUtils;
 import androidx.annotation.VisibleForTesting;
-import com.bytedance.sdk.openadsdk.g.c.c;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.bytedance.sdk.openadsdk.h.c.c;
 import com.bytedance.sdk.openadsdk.utils.s;
 import java.util.LinkedList;
 import java.util.List;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class n implements e<c.a> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final com.bytedance.sdk.openadsdk.core.d f4210a = com.bytedance.sdk.openadsdk.core.d.a(e());
-    private final Context b;
+    public final com.bytedance.sdk.openadsdk.core.d f27589a = com.bytedance.sdk.openadsdk.core.d.a(e());
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Context f27590b;
 
     public n(Context context) {
-        this.b = context;
+        this.f27590b = context;
     }
 
-    public Context e() {
-        return this.b == null ? com.bytedance.sdk.openadsdk.core.p.a() : this.b;
+    private synchronized void b(int i, long j) {
+        long currentTimeMillis = System.currentTimeMillis() - j;
+        Context e2 = e();
+        String c2 = c();
+        com.bytedance.sdk.openadsdk.multipro.a.a.a(e2, c2, "gen_time <? AND retry >?", new String[]{currentTimeMillis + "", i + ""});
+    }
+
+    public static String f() {
+        return "CREATE TABLE IF NOT EXISTS logstats (_id INTEGER PRIMARY KEY AUTOINCREMENT,id TEXT UNIQUE,value TEXT ,gen_time TEXT , " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + " INTEGER default 0" + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public String c() {
         return "logstats";
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    public Context e() {
+        Context context = this.f27590b;
+        return context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context;
+    }
+
     @Override // com.bytedance.sdk.openadsdk.c.e
     public List<c.a> a(int i, String str) {
-        String str2 = (i <= 0 || TextUtils.isEmpty(str)) ? null : str + " DESC limit " + i;
+        String str2;
+        if (i <= 0 || TextUtils.isEmpty(str)) {
+            str2 = null;
+        } else {
+            str2 = str + " DESC limit " + i;
+        }
+        String str3 = str2;
         LinkedList linkedList = new LinkedList();
-        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), c(), new String[]{"id", "value"}, null, null, null, null, str2);
+        Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), c(), new String[]{"id", "value"}, null, null, null, null, str3);
         if (a2 != null) {
             while (a2.moveToNext()) {
                 try {
+                    String string = a2.getString(a2.getColumnIndex("id"));
+                    String string2 = a2.getString(a2.getColumnIndex("value"));
                     try {
-                        linkedList.add(new c.a(a2.getString(a2.getColumnIndex("id")), new JSONObject(a2.getString(a2.getColumnIndex("value")))));
-                    } catch (JSONException e) {
+                        if (string2 == null) {
+                            string2 = "";
+                        }
+                        linkedList.add(new c.a(string, new JSONObject(string2)));
+                    } catch (Throwable unused) {
                     }
                 } finally {
                     if (a2 != null) {
@@ -53,26 +78,41 @@ public class n implements e<c.a> {
         return linkedList;
     }
 
+    @VisibleForTesting
+    private synchronized void b(List<c.a> list) {
+        LinkedList linkedList = new LinkedList();
+        for (c.a aVar : list) {
+            linkedList.add(aVar.f29432a);
+        }
+        com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), "UPDATE " + c() + " SET " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + " = " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + "+1 WHERE " + a("id", linkedList, 1000, true));
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.c.e
     public synchronized void a(c.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", aVar.f4779a);
-        contentValues.put("value", aVar.b != null ? aVar.b.toString() : "");
+        contentValues.put("id", aVar.f29432a);
+        contentValues.put("value", aVar.f29433b != null ? aVar.f29433b.toString() : "");
         contentValues.put("gen_time", Long.valueOf(System.currentTimeMillis()));
-        contentValues.put("retry", (Integer) 0);
+        contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, (Integer) 0);
         com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), c(), contentValues);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public synchronized void a(List<c.a> list) {
-        if (!s.a(list)) {
-            LinkedList linkedList = new LinkedList();
-            for (c.a aVar : list) {
-                linkedList.add(aVar.f4779a);
-            }
-            com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), "DELETE FROM " + c() + " WHERE " + a("id", linkedList, 1000, true));
+        if (s.a(list)) {
+            return;
         }
+        LinkedList linkedList = new LinkedList();
+        for (c.a aVar : list) {
+            linkedList.add(aVar.f29432a);
+        }
+        com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), "DELETE FROM " + c() + " WHERE " + a("id", linkedList, 1000, true));
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.c.e
+    public int b() {
+        return this.f27589a.b("stats_serverbusy_retrycount", 0);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
@@ -80,55 +120,34 @@ public class n implements e<c.a> {
         b(i, j);
     }
 
-    private synchronized void b(int i, long j) {
-        com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), c(), "gen_time <? AND retry >?", new String[]{(System.currentTimeMillis() - j) + "", i + ""});
-    }
-
     @Override // com.bytedance.sdk.openadsdk.c.e
     public synchronized void a(List<c.a> list, int i, long j) {
-        if (!s.a(list)) {
-            try {
-                b(list);
-                b(i, j);
-            } catch (Exception e) {
-            }
+        if (s.a(list)) {
+            return;
         }
-    }
-
-    @VisibleForTesting
-    private synchronized void b(List<c.a> list) {
-        LinkedList linkedList = new LinkedList();
-        for (c.a aVar : list) {
-            linkedList.add(aVar.f4779a);
+        try {
+            b(list);
+            b(i, j);
+        } catch (Exception unused) {
         }
-        com.bytedance.sdk.openadsdk.multipro.a.a.a(e(), "UPDATE " + c() + " SET retry = retry+1 WHERE " + a("id", linkedList, 1000, true));
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public void a(boolean z) {
-        this.f4210a.a("stats_serverbusy_flag", z);
+        this.f27589a.a("stats_serverbusy_flag", z);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public boolean a() {
-        return this.f4210a.b("stats_serverbusy_flag", false);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.c.e
-    public int b() {
-        return this.f4210a.b("stats_serverbusy_retrycount", 0);
+        return this.f27589a.b("stats_serverbusy_flag", false);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public void a(int i) {
-        this.f4210a.a("stats_serverbusy_retrycount", i);
+        this.f27589a.a("stats_serverbusy_retrycount", i);
     }
 
-    public static String f() {
-        return "CREATE TABLE IF NOT EXISTS logstats (_id INTEGER PRIMARY KEY AUTOINCREMENT,id TEXT UNIQUE,value TEXT ,gen_time TEXT , retry INTEGER default 0)";
-    }
-
-    private static String a(String str, List<?> list, int i, boolean z) {
+    public static String a(String str, List<?> list, int i, boolean z) {
         int i2;
         String str2 = z ? " IN " : " NOT IN ";
         String str3 = z ? " OR " : " AND ";
@@ -146,12 +165,17 @@ public class n implements e<c.a> {
             if (i3 != 0) {
                 sb.append(str3);
             }
-            sb.append(str).append(str2).append("('").append(a2).append("')");
+            sb.append(str);
+            sb.append(str2);
+            sb.append("('");
+            sb.append(a2);
+            sb.append("')");
         }
-        return a(sb.toString(), str + str2 + "('')");
+        String sb2 = sb.toString();
+        return a(sb2, str + str2 + "('')");
     }
 
-    private static String a(String str, String str2) {
+    public static String a(String str, String str2) {
         return !TextUtils.isEmpty(str) ? str : str2;
     }
 }

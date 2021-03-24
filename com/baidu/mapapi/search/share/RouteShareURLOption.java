@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.share;
 
 import com.baidu.mapapi.search.route.PlanNode;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RouteShareURLOption {
     public RouteShareMode mMode;
     public PlanNode mFrom = null;
@@ -9,7 +9,7 @@ public class RouteShareURLOption {
     public int mPn = 0;
     public int mCityCode = -1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum RouteShareMode {
         CAR_ROUTE_SHARE_MODE(0),
         FOOT_ROUTE_SHARE_MODE(1),
@@ -18,15 +18,15 @@ public class RouteShareURLOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2146a;
+        public int f7333a;
 
         RouteShareMode(int i) {
-            this.f2146a = -1;
-            this.f2146a = i;
+            this.f7333a = -1;
+            this.f7333a = i;
         }
 
         public int getRouteShareMode() {
-            return this.f2146a;
+            return this.f7333a;
         }
     }
 

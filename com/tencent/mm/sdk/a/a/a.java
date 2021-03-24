@@ -4,39 +4,44 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.tencent.mm.sdk.b.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
 
     /* renamed from: com.tencent.mm.sdk.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C1256a {
+    /* loaded from: classes7.dex */
+    public static class C0512a {
         public String j;
         public Bundle k;
         public String l;
         public String m;
     }
 
-    public static boolean a(Context context, C1256a c1256a) {
-        if (context == null || c1256a == null) {
-            com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.MMessage", "send fail, invalid argument");
-            return false;
-        } else if (c.a(c1256a.m)) {
-            com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.MMessage", "send fail, action is null");
-            return false;
-        } else {
-            String str = c.a(c1256a.l) ? null : c1256a.l + ".permission.MM_MESSAGE";
-            Intent intent = new Intent(c1256a.m);
-            if (c1256a.k != null) {
-                intent.putExtras(c1256a.k);
+    public static boolean a(Context context, C0512a c0512a) {
+        String str;
+        if (context == null || c0512a == null) {
+            str = "send fail, invalid argument";
+        } else if (!c.a(c0512a.m)) {
+            String str2 = null;
+            if (!c.a(c0512a.l)) {
+                str2 = c0512a.l + ".permission.MM_MESSAGE";
+            }
+            Intent intent = new Intent(c0512a.m);
+            Bundle bundle = c0512a.k;
+            if (bundle != null) {
+                intent.putExtras(bundle);
             }
             String packageName = context.getPackageName();
             intent.putExtra("_mmessage_sdkVersion", 570490883);
             intent.putExtra("_mmessage_appPackage", packageName);
-            intent.putExtra("_mmessage_content", c1256a.j);
-            intent.putExtra("_mmessage_checksum", b.a(c1256a.j, 570490883, packageName));
-            context.sendBroadcast(intent, str);
-            com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str);
+            intent.putExtra("_mmessage_content", c0512a.j);
+            intent.putExtra("_mmessage_checksum", b.a(c0512a.j, 570490883, packageName));
+            context.sendBroadcast(intent, str2);
+            com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str2);
             return true;
+        } else {
+            str = "send fail, action is null";
         }
+        com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.MMessage", str);
+        return false;
     }
 }

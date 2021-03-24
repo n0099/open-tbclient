@@ -21,53 +21,43 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public static final String EXT_HEADER_TRACE_ID = "X-Bd-Traceid";
     public static final int REQUESTFROM_FEED = 1;
     public static final int REQUESTFROM_FRESCO = 2;
     public static final int REQUESTFROM_NONE = 0;
     public static final int REQUESTFROM_UBC = 3;
-    protected String bdTraceId;
-    protected OkHttpClient client;
-    protected int connectionTimeout;
-    protected CookieManager cookieManager;
-    protected Handler deliver;
-    protected boolean enableRetry;
-    protected JSONObject extraUserLog;
-    protected boolean followRedirects;
-    protected boolean followSslRedirects;
-    protected Headers headers;
-    protected AbstractHttpManager httpManager;
-    protected HttpUrl httpUrl;
+    public String bdTraceId;
+    public OkHttpClient client;
+    public int connectionTimeout;
+    public CookieManager cookieManager;
+    public Handler deliver;
+    public boolean enableRetry;
+    public JSONObject extraUserLog;
+    public boolean followRedirects;
+    public boolean followSslRedirects;
+    public Headers headers;
+    public AbstractHttpManager httpManager;
+    public HttpUrl httpUrl;
     public boolean isConnReused;
-    protected boolean isReqNetStatEnable;
-    protected boolean isWifiOnly;
-    protected LogInterceptor.Level logLevel;
-    protected String logTag;
-    protected NetworkStat<Request> networkStat;
-    protected Request okRequest;
-    protected Request.Builder okRequestBuilder;
-    protected Object originTag;
-    protected IAsyncRequestParamsHandler paramsHandler;
-    protected Proxy proxy;
-    protected int readTimeout;
-    protected int requestFrom;
-    protected RequestHandler requestHandler;
-    protected NetworkStatRecord requestNetStat;
-    protected int requestSubFrom;
-    protected Object tag;
-    protected int writeTimeout;
-
-    protected abstract Request buildOkRequest(RequestBody requestBody);
-
-    protected abstract RequestBody buildOkRequestBody();
-
-    protected abstract void initExtraHttpRequest(T t);
-
-    public abstract T newBuilder();
-
-    public abstract T newBuilder(AbstractHttpManager abstractHttpManager);
+    public boolean isReqNetStatEnable;
+    public boolean isWifiOnly;
+    public LogInterceptor.Level logLevel;
+    public String logTag;
+    public NetworkStat<Request> networkStat;
+    public Request okRequest;
+    public Request.Builder okRequestBuilder;
+    public Object originTag;
+    public IAsyncRequestParamsHandler paramsHandler;
+    public Proxy proxy;
+    public int readTimeout;
+    public int requestFrom;
+    public RequestHandler requestHandler;
+    public NetworkStatRecord requestNetStat;
+    public int requestSubFrom;
+    public Object tag;
+    public int writeTimeout;
 
     public HttpRequest(T t) {
         this.connectionTimeout = 0;
@@ -78,12 +68,14 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         this.requestNetStat = null;
         this.requestFrom = 0;
         this.requestSubFrom = 0;
-        this.httpManager = t.httpManager;
-        this.client = this.httpManager.getOkHttpClient();
+        AbstractHttpManager abstractHttpManager = t.httpManager;
+        this.httpManager = abstractHttpManager;
+        this.client = abstractHttpManager.getOkHttpClient();
         this.requestHandler = this.httpManager.getRequestHandler();
         this.networkStat = this.httpManager.getNetworkStat();
         this.deliver = this.httpManager.getDeliver();
-        this.httpUrl = t.httpUrl;
+        HttpUrl httpUrl = t.httpUrl;
+        this.httpUrl = httpUrl;
         this.tag = t.tag;
         this.connectionTimeout = t.connectionTimeout;
         this.readTimeout = t.readTimeout;
@@ -101,85 +93,48 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         this.proxy = t.proxy;
         this.followRedirects = t.followRedirects;
         this.followSslRedirects = t.followSslRedirects;
-        if (this.httpUrl == null) {
-            throw new IllegalArgumentException(" url not set, please check");
+        if (httpUrl != null) {
+            String generateBdTraceId = HttpUtils.generateBdTraceId();
+            this.bdTraceId = generateBdTraceId;
+            t.headersBuilder.add(EXT_HEADER_TRACE_ID, generateBdTraceId);
+            this.headers = t.headersBuilder.build();
+            if (this.isReqNetStatEnable) {
+                NetworkStatRecord networkStatRecord = new NetworkStatRecord();
+                this.requestNetStat = networkStatRecord;
+                networkStatRecord.url = this.httpUrl.toString();
+                NetworkStatRecord networkStatRecord2 = this.requestNetStat;
+                networkStatRecord2.from = t.requestFrom;
+                networkStatRecord2.subFrom = t.requestSubFrom;
+            }
+            initOkRequest(t);
+            return;
         }
-        this.bdTraceId = HttpUtils.generateBdTraceId();
-        t.headersBuilder.add(EXT_HEADER_TRACE_ID, this.bdTraceId);
-        this.headers = t.headersBuilder.build();
-        if (this.isReqNetStatEnable) {
-            this.requestNetStat = new NetworkStatRecord();
-            this.requestNetStat.url = this.httpUrl.toString();
-            this.requestNetStat.from = t.requestFrom;
-            this.requestNetStat.subFrom = t.requestSubFrom;
-        }
-        initOkRequest(t);
-    }
-
-    public long getContentLength() {
-        try {
-            return this.okRequest.body().contentLength();
-        } catch (IOException e) {
-            return 0L;
-        }
-    }
-
-    public String getBdTraceId() {
-        return this.bdTraceId;
-    }
-
-    public Request getOkRequest() {
-        return this.okRequest;
-    }
-
-    public Object tag() {
-        return this.originTag;
-    }
-
-    public NetworkStat<Request> getNetworkStat() {
-        return this.networkStat;
-    }
-
-    public NetworkStatRecord getRequestNetStat() {
-        return this.requestNetStat;
-    }
-
-    public int getRequestFrom() {
-        return this.requestFrom;
-    }
-
-    public int getRequestSubFrom() {
-        return this.requestSubFrom;
-    }
-
-    public JSONObject getExtraUserLog() {
-        return this.extraUserLog;
+        throw new IllegalArgumentException(" url not set, please check");
     }
 
     private void initOkRequest(T t) {
-        this.okRequestBuilder = new Request.Builder();
-        this.okRequestBuilder.url(this.httpUrl);
-        this.originTag = this.tag;
-        if (this.tag != null) {
-            this.okRequestBuilder.tag(this.tag);
+        Request.Builder builder = new Request.Builder();
+        this.okRequestBuilder = builder;
+        builder.url(this.httpUrl);
+        Object obj = this.tag;
+        this.originTag = obj;
+        if (obj != null) {
+            this.okRequestBuilder.tag(obj);
         }
         if (this.networkStat != null || this.isReqNetStatEnable) {
             this.okRequestBuilder.tag(this);
         }
-        if (this.headers != null && this.headers.size() > 0) {
+        Headers headers = this.headers;
+        if (headers != null && headers.size() > 0) {
             this.okRequestBuilder.headers(this.headers);
         }
         initExtraHttpRequest(t);
         this.okRequest = buildOkRequest(buildOkRequestBody());
     }
 
-    public RequestCall makeRequestCall() {
-        return new RequestCall(this);
-    }
+    public abstract Request buildOkRequest(RequestBody requestBody);
 
-    public Response executeSync() throws IOException {
-        return new RequestCall(this).executeSync();
-    }
+    public abstract RequestBody buildOkRequestBody();
 
     public <T> Cancelable executeAsync(ResponseCallback<T> responseCallback) {
         return new RequestCall(this).executeAsync(responseCallback);
@@ -197,15 +152,69 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         return new RequestCall(this).executeStat();
     }
 
-    public <T> Cancelable executeStat(StatResponseCallback<T> statResponseCallback) {
-        return new RequestCall(this).executeStat(statResponseCallback);
-    }
-
     public <T> Cancelable executeStatUIBack(StatResponseCallback<T> statResponseCallback) {
         return new RequestCall(this).executeStatUIBack(statResponseCallback);
     }
 
     public <T> Cancelable executeStatWithHandler(Handler handler, StatResponseCallback<T> statResponseCallback) {
         return new RequestCall(this).executeStatWithHandler(handler, statResponseCallback);
+    }
+
+    public Response executeSync() throws IOException {
+        return new RequestCall(this).executeSync();
+    }
+
+    public String getBdTraceId() {
+        return this.bdTraceId;
+    }
+
+    public long getContentLength() {
+        try {
+            return this.okRequest.body().contentLength();
+        } catch (IOException unused) {
+            return 0L;
+        }
+    }
+
+    public JSONObject getExtraUserLog() {
+        return this.extraUserLog;
+    }
+
+    public NetworkStat<Request> getNetworkStat() {
+        return this.networkStat;
+    }
+
+    public Request getOkRequest() {
+        return this.okRequest;
+    }
+
+    public int getRequestFrom() {
+        return this.requestFrom;
+    }
+
+    public NetworkStatRecord getRequestNetStat() {
+        return this.requestNetStat;
+    }
+
+    public int getRequestSubFrom() {
+        return this.requestSubFrom;
+    }
+
+    public abstract void initExtraHttpRequest(T t);
+
+    public RequestCall makeRequestCall() {
+        return new RequestCall(this);
+    }
+
+    public abstract T newBuilder();
+
+    public abstract T newBuilder(AbstractHttpManager abstractHttpManager);
+
+    public Object tag() {
+        return this.originTag;
+    }
+
+    public <T> Cancelable executeStat(StatResponseCallback<T> statResponseCallback) {
+        return new RequestCall(this).executeStat(statResponseCallback);
     }
 }

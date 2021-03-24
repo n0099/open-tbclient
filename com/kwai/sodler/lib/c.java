@@ -7,22 +7,27 @@ import androidx.annotation.Nullable;
 import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
 import java.io.IOException;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c implements com.kwai.sodler.lib.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final File f7252a;
-    private final File b;
-    private final Context c;
-    private final com.kwai.sodler.lib.ext.c d;
+    public final File f37151a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final File f37152b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Context f37153c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final com.kwai.sodler.lib.ext.c f37154d;
+
     public c(Context context, com.kwai.sodler.lib.ext.c cVar) {
-        this.c = context.getApplicationContext();
-        this.d = cVar;
-        this.f7252a = this.c.getDir(this.d.b(), 0);
-        this.b = this.c.getCacheDir();
+        Context applicationContext = context.getApplicationContext();
+        this.f37153c = applicationContext;
+        this.f37154d = cVar;
+        this.f37151a = applicationContext.getDir(cVar.b(), 0);
+        this.f37152b = this.f37153c.getCacheDir();
     }
 
     @Nullable
@@ -32,7 +37,7 @@ public class c implements com.kwai.sodler.lib.a.c {
 
     @Override // com.kwai.sodler.lib.a.c
     public void a() {
-        if (this.f7252a.getFreeSpace() < 10000000) {
+        if (this.f37151a.getFreeSpace() < 10000000) {
             throw new IOException("No enough capacity.");
         }
     }
@@ -57,6 +62,7 @@ public class c implements com.kwai.sodler.lib.a.c {
         }
         if (z) {
             a(str, str2);
+            return false;
         }
         return false;
     }
@@ -67,25 +73,27 @@ public class c implements com.kwai.sodler.lib.a.c {
         }
         if (z) {
             b(str);
+            return false;
         }
         return false;
     }
 
     public String b() {
-        return this.f7252a.getAbsolutePath();
+        return this.f37151a.getAbsolutePath();
     }
 
     @Override // com.kwai.sodler.lib.a.c
     public String b(com.kwai.sodler.lib.a.a aVar) {
-        String e = aVar.e();
-        a.c("Sodler.installer", "Install plugin, path = " + e);
-        File file = new File(e);
+        String str;
+        String e2 = aVar.e();
+        a.c("Sodler.installer", "Install plugin, path = " + e2);
+        File file = new File(e2);
         if (!file.exists()) {
             a.e("Sodler.installer", "Plugin path not exist");
             throw new PluginError.InstallError("Plugin file not exist.", 3001);
         }
         a.a("Sodler.installer", "Check plugin's signatures.");
-        if (!a(e, true)) {
+        if (!a(e2, true)) {
             a.e("Sodler.installer", "Check plugin's signatures fail.");
             throw new PluginError.InstallError("Check plugin's signatures fail.", 3003);
         }
@@ -96,36 +104,38 @@ public class c implements com.kwai.sodler.lib.a.c {
         a.a("Sodler.installer", "Install path = " + a2);
         File file2 = new File(a2);
         if (file2.exists()) {
-            if (!this.d.g() && a(file2.getAbsolutePath(), true)) {
-                a.b("Sodler.installer", "Plugin has been already installed.");
+            if (!this.f37154d.g() && a(file2.getAbsolutePath(), true)) {
+                str = "Plugin has been already installed.";
+                a.b("Sodler.installer", str);
                 return a2;
             }
             a.b("Sodler.installer", "Ignore installed plugin.");
         }
-        a.b("Sodler.installer", "Install plugin, from = " + e + ", to = " + a2);
+        a.b("Sodler.installer", "Install plugin, from = " + e2 + ", to = " + a2);
         if (file.renameTo(file2)) {
-            a.b("Sodler.installer", "Rename success.");
-        } else {
-            try {
-                a();
-                try {
-                    a.b("Sodler.installer", "Rename fail, try copy file.");
-                    com.kwai.sodler.lib.c.a.a(file, file2);
-                } catch (Throwable th) {
-                    a.a("Sodler.installer", th);
-                    throw new PluginError.InstallError(th, 3004);
-                }
-            } catch (Throwable th2) {
-                a.a("Sodler.installer", th2);
-                throw new PluginError.InstallError(th2, (int) PluginError.ERROR_INS_CAPACITY);
-            }
+            str = "Rename success.";
+            a.b("Sodler.installer", str);
+            return a2;
         }
-        return a2;
+        try {
+            a();
+            try {
+                a.b("Sodler.installer", "Rename fail, try copy file.");
+                com.kwai.sodler.lib.c.a.a(file, file2);
+                return a2;
+            } catch (Throwable th) {
+                a.a("Sodler.installer", th);
+                throw new PluginError.InstallError(th, 3004);
+            }
+        } catch (Throwable th2) {
+            a.a("Sodler.installer", th2);
+            throw new PluginError.InstallError(th2, 3005);
+        }
     }
 
     @Override // com.kwai.sodler.lib.a.c
     public String b(String str, String str2) {
-        return b() + File.separator + str + File.separator + str2 + File.separator + this.d.f();
+        return b() + File.separator + str + File.separator + str2 + File.separator + this.f37154d.f();
     }
 
     public void b(String str) {
@@ -137,14 +147,14 @@ public class c implements com.kwai.sodler.lib.a.c {
         File file = new File(e(str));
         if (file.exists()) {
             com.kwai.sodler.lib.c.a.a(file);
-        } else {
-            a.e("Sodler.installer", "Delete fail, dir not found, path = " + file.getAbsolutePath());
+            return;
         }
+        a.e("Sodler.installer", "Delete fail, dir not found, path = " + file.getAbsolutePath());
     }
 
     @Override // com.kwai.sodler.lib.a.c
     public boolean c(String str, String str2) {
-        if (this.d.g()) {
+        if (this.f37154d.g()) {
             return false;
         }
         return a(str, str2, true);
@@ -152,7 +162,7 @@ public class c implements com.kwai.sodler.lib.a.c {
 
     @Override // com.kwai.sodler.lib.a.c
     public File d(String str) {
-        return File.createTempFile(str + System.currentTimeMillis(), this.d.e(), this.b);
+        return File.createTempFile(str + System.currentTimeMillis(), this.f37154d.e(), this.f37152b);
     }
 
     @Override // com.kwai.sodler.lib.a.c

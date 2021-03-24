@@ -3,62 +3,92 @@ package com.ss.android.socialbase.downloader.downloader;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import d.o.a.e.b.g.d;
+import d.o.a.e.b.g.o;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DownloadService extends Service {
-    private static final String b = DownloadService.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f38837b = DownloadService.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    protected p f7815a;
+    public o f38838a;
 
-    @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-        b.a(this);
-        this.f7815a = b.eGx();
-        this.f7815a.a(new WeakReference(this));
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Intent f38839e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ int f38840f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ int f38841g;
+
+        public a(Intent intent, int i, int i2) {
+            this.f38839e = intent;
+            this.f38840f = i;
+            this.f38841g = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            o oVar = DownloadService.this.f38838a;
+            if (oVar != null) {
+                oVar.a(this.f38839e, this.f38840f, this.f38841g);
+            }
+        }
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        com.ss.android.socialbase.downloader.f.a.b(b, "onBind downloadServiceHandler != null:" + (this.f7815a != null));
-        if (this.f7815a != null) {
-            return this.f7815a.a(intent);
+        String str = f38837b;
+        StringBuilder sb = new StringBuilder();
+        sb.append("onBind downloadServiceHandler != null:");
+        sb.append(this.f38838a != null);
+        d.o.a.e.b.c.a.g(str, sb.toString());
+        o oVar = this.f38838a;
+        if (oVar != null) {
+            return oVar.a(intent);
         }
         return null;
     }
 
     @Override // android.app.Service
-    public int onStartCommand(final Intent intent, final int i, final int i2) {
-        if (com.ss.android.socialbase.downloader.f.a.a()) {
-            com.ss.android.socialbase.downloader.f.a.b(b, "DownloadService onStartCommand");
-        }
-        this.f7815a.c();
-        ExecutorService eGo = b.eGo();
-        if (eGo != null) {
-            eGo.execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.DownloadService.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    if (DownloadService.this.f7815a != null) {
-                        DownloadService.this.f7815a.a(intent, i, i2);
-                    }
-                }
-            });
-            return 3;
-        }
-        return 3;
+    public void onCreate() {
+        super.onCreate();
+        d.y(this);
+        o J0 = d.J0();
+        this.f38838a = J0;
+        J0.c(new WeakReference(this));
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (com.ss.android.socialbase.downloader.f.a.a()) {
-            com.ss.android.socialbase.downloader.f.a.b(b, "Service onDestroy");
+        if (d.o.a.e.b.c.a.e()) {
+            d.o.a.e.b.c.a.g(f38837b, "Service onDestroy");
         }
-        if (this.f7815a != null) {
-            this.f7815a.d();
-            this.f7815a = null;
+        o oVar = this.f38838a;
+        if (oVar != null) {
+            oVar.d();
+            this.f38838a = null;
         }
         super.onDestroy();
+    }
+
+    @Override // android.app.Service
+    public int onStartCommand(Intent intent, int i, int i2) {
+        if (d.o.a.e.b.c.a.e()) {
+            d.o.a.e.b.c.a.g(f38837b, "DownloadService onStartCommand");
+        }
+        this.f38838a.c();
+        ExecutorService w0 = d.w0();
+        if (w0 != null) {
+            w0.execute(new a(intent, i, i2));
+        }
+        return d.u0() ? 2 : 3;
     }
 }

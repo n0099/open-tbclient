@@ -7,50 +7,63 @@ import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.ap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g implements com.kwad.sdk.core.i.b, ap.a {
-    private Set<a> b;
-    private Set<com.kwad.sdk.core.i.c> c;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Set<a> f34278b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Set<com.kwad.sdk.core.i.c> f34279c;
     @NonNull
-    private View f;
-    private int g;
-    private boolean d = false;
-    private boolean e = true;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f34282f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f34283g;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f34280d = false;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f34281e = true;
 
     /* renamed from: a  reason: collision with root package name */
-    private final ap f6319a = new ap(this);
+    public final ap f34277a = new ap(this);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(boolean z);
     }
 
     public g(@NonNull View view, int i) {
-        this.f = view;
-        this.g = i;
+        this.f34282f = view;
+        this.f34283g = i;
     }
 
     private void a(boolean z) {
-        if (this.b != null) {
-            for (a aVar : this.b) {
+        Set<a> set = this.f34278b;
+        if (set != null) {
+            for (a aVar : set) {
                 if (aVar != null) {
                     aVar.a(z);
                 }
             }
         }
-        if (this.c != null) {
-            if (z != this.d || this.e) {
-                this.d = z;
-                this.e = false;
+        if (this.f34279c != null) {
+            if (z != this.f34280d || this.f34281e) {
+                this.f34280d = z;
+                this.f34281e = false;
                 if (z) {
-                    for (com.kwad.sdk.core.i.c cVar : this.c) {
+                    for (com.kwad.sdk.core.i.c cVar : this.f34279c) {
                         if (cVar != null) {
                             cVar.c_();
                         }
                     }
                     return;
                 }
-                for (com.kwad.sdk.core.i.c cVar2 : this.c) {
+                for (com.kwad.sdk.core.i.c cVar2 : this.f34279c) {
                     if (cVar2 != null) {
                         cVar2.c_();
                     }
@@ -60,15 +73,15 @@ public class g implements com.kwad.sdk.core.i.b, ap.a {
     }
 
     public void a() {
-        this.f6319a.removeMessages(1);
-        this.f6319a.sendEmptyMessage(1);
+        this.f34277a.removeMessages(1);
+        this.f34277a.sendEmptyMessage(1);
     }
 
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
         if (message.what == 1) {
             a(d());
-            this.f6319a.sendEmptyMessageDelayed(1, 500L);
+            this.f34277a.sendEmptyMessageDelayed(1, 500L);
         }
     }
 
@@ -77,52 +90,56 @@ public class g implements com.kwad.sdk.core.i.b, ap.a {
         if (cVar == null) {
             return;
         }
-        if (this.c == null) {
-            this.c = new HashSet();
+        if (this.f34279c == null) {
+            this.f34279c = new HashSet();
         }
-        this.c.add(cVar);
+        this.f34279c.add(cVar);
     }
 
     public void a(a aVar) {
         if (aVar == null) {
             return;
         }
-        if (this.b == null) {
-            this.b = new HashSet();
+        if (this.f34278b == null) {
+            this.f34278b = new HashSet();
         }
-        this.b.add(aVar);
+        this.f34278b.add(aVar);
     }
 
     public void b() {
-        this.f6319a.removeCallbacksAndMessages(null);
+        this.f34277a.removeCallbacksAndMessages(null);
     }
 
     @Override // com.kwad.sdk.core.i.b
     public void b(com.kwad.sdk.core.i.c cVar) {
-        if (cVar == null || this.c == null) {
+        Set<com.kwad.sdk.core.i.c> set;
+        if (cVar == null || (set = this.f34279c) == null) {
             return;
         }
-        this.c.remove(cVar);
+        set.remove(cVar);
     }
 
     public void b(a aVar) {
-        if (aVar == null || this.b == null) {
+        Set<a> set;
+        if (aVar == null || (set = this.f34278b) == null) {
             return;
         }
-        this.b.remove(aVar);
+        set.remove(aVar);
     }
 
     public void c() {
         b();
-        if (this.b != null) {
-            this.b.clear();
+        Set<a> set = this.f34278b;
+        if (set != null) {
+            set.clear();
         }
-        if (this.c != null) {
-            this.c.clear();
+        Set<com.kwad.sdk.core.i.c> set2 = this.f34279c;
+        if (set2 != null) {
+            set2.clear();
         }
     }
 
     public boolean d() {
-        return ao.a(this.f, this.g);
+        return ao.a(this.f34282f, this.f34283g);
     }
 }

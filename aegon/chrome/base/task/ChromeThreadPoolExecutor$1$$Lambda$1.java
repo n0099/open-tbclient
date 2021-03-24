@@ -1,11 +1,11 @@
 package aegon.chrome.base.task;
 
 import aegon.chrome.base.task.ChromeThreadPoolExecutor;
-/* loaded from: classes3.dex */
-final /* synthetic */ class ChromeThreadPoolExecutor$1$$Lambda$1 implements Runnable {
-    private final Runnable arg$1;
+/* loaded from: classes.dex */
+public final /* synthetic */ class ChromeThreadPoolExecutor$1$$Lambda$1 implements Runnable {
+    public final Runnable arg$1;
 
-    private ChromeThreadPoolExecutor$1$$Lambda$1(Runnable runnable) {
+    public ChromeThreadPoolExecutor$1$$Lambda$1(Runnable runnable) {
         this.arg$1 = runnable;
     }
 

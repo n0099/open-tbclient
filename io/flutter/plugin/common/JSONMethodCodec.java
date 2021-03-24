@@ -4,52 +4,9 @@ import java.nio.ByteBuffer;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class JSONMethodCodec implements MethodCodec {
     public static final JSONMethodCodec INSTANCE = new JSONMethodCodec();
-
-    private JSONMethodCodec() {
-    }
-
-    @Override // io.flutter.plugin.common.MethodCodec
-    public ByteBuffer encodeMethodCall(MethodCall methodCall) {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("method", methodCall.method);
-            jSONObject.put("args", JSONUtil.wrap(methodCall.arguments));
-            return JSONMessageCodec.INSTANCE.encodeMessage(jSONObject);
-        } catch (JSONException e) {
-            throw new IllegalArgumentException("Invalid JSON", e);
-        }
-    }
-
-    @Override // io.flutter.plugin.common.MethodCodec
-    public MethodCall decodeMethodCall(ByteBuffer byteBuffer) {
-        try {
-            Object decodeMessage = JSONMessageCodec.INSTANCE.decodeMessage(byteBuffer);
-            if (decodeMessage instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) decodeMessage;
-                Object obj = jSONObject.get("method");
-                Object unwrapNull = unwrapNull(jSONObject.opt("args"));
-                if (obj instanceof String) {
-                    return new MethodCall((String) obj, unwrapNull);
-                }
-            }
-            throw new IllegalArgumentException("Invalid method call: " + decodeMessage);
-        } catch (JSONException e) {
-            throw new IllegalArgumentException("Invalid JSON", e);
-        }
-    }
-
-    @Override // io.flutter.plugin.common.MethodCodec
-    public ByteBuffer encodeSuccessEnvelope(Object obj) {
-        return JSONMessageCodec.INSTANCE.encodeMessage(new JSONArray().put(JSONUtil.wrap(obj)));
-    }
-
-    @Override // io.flutter.plugin.common.MethodCodec
-    public ByteBuffer encodeErrorEnvelope(String str, String str2, Object obj) {
-        return JSONMessageCodec.INSTANCE.encodeMessage(new JSONArray().put(str).put(JSONUtil.wrap(str2)).put(JSONUtil.wrap(obj)));
-    }
 
     @Override // io.flutter.plugin.common.MethodCodec
     public Object decodeEnvelope(ByteBuffer byteBuffer) {
@@ -70,12 +27,52 @@ public final class JSONMethodCodec implements MethodCodec {
                 }
             }
             throw new IllegalArgumentException("Invalid envelope: " + decodeMessage);
-        } catch (JSONException e) {
-            throw new IllegalArgumentException("Invalid JSON", e);
+        } catch (JSONException e2) {
+            throw new IllegalArgumentException("Invalid JSON", e2);
         }
     }
 
-    Object unwrapNull(Object obj) {
+    @Override // io.flutter.plugin.common.MethodCodec
+    public MethodCall decodeMethodCall(ByteBuffer byteBuffer) {
+        try {
+            Object decodeMessage = JSONMessageCodec.INSTANCE.decodeMessage(byteBuffer);
+            if (decodeMessage instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) decodeMessage;
+                Object obj = jSONObject.get("method");
+                Object unwrapNull = unwrapNull(jSONObject.opt("args"));
+                if (obj instanceof String) {
+                    return new MethodCall((String) obj, unwrapNull);
+                }
+            }
+            throw new IllegalArgumentException("Invalid method call: " + decodeMessage);
+        } catch (JSONException e2) {
+            throw new IllegalArgumentException("Invalid JSON", e2);
+        }
+    }
+
+    @Override // io.flutter.plugin.common.MethodCodec
+    public ByteBuffer encodeErrorEnvelope(String str, String str2, Object obj) {
+        return JSONMessageCodec.INSTANCE.encodeMessage(new JSONArray().put(str).put(JSONUtil.wrap(str2)).put(JSONUtil.wrap(obj)));
+    }
+
+    @Override // io.flutter.plugin.common.MethodCodec
+    public ByteBuffer encodeMethodCall(MethodCall methodCall) {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("method", methodCall.method);
+            jSONObject.put("args", JSONUtil.wrap(methodCall.arguments));
+            return JSONMessageCodec.INSTANCE.encodeMessage(jSONObject);
+        } catch (JSONException e2) {
+            throw new IllegalArgumentException("Invalid JSON", e2);
+        }
+    }
+
+    @Override // io.flutter.plugin.common.MethodCodec
+    public ByteBuffer encodeSuccessEnvelope(Object obj) {
+        return JSONMessageCodec.INSTANCE.encodeMessage(new JSONArray().put(JSONUtil.wrap(obj)));
+    }
+
+    public Object unwrapNull(Object obj) {
         if (obj == JSONObject.NULL) {
             return null;
         }

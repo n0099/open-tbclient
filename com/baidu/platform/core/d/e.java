@@ -7,7 +7,7 @@ import com.baidu.mapapi.search.route.MassTransitRoutePlanOption;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.TransitRoutePlanOption;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface e {
     void a();
 

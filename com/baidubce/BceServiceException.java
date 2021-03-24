@@ -1,14 +1,16 @@
 package com.baidubce;
-/* loaded from: classes4.dex */
-public class BceServiceException extends BceClientException {
-    private static final long serialVersionUID = 1483785729559154396L;
-    private String errorCode;
-    private String errorMessage;
-    private ErrorType errorType;
-    private String requestId;
-    private int statusCode;
 
-    /* loaded from: classes4.dex */
+import com.baidu.tbadk.core.data.SmallTailInfo;
+/* loaded from: classes5.dex */
+public class BceServiceException extends BceClientException {
+    public static final long serialVersionUID = 1483785729559154396L;
+    public String errorCode;
+    public String errorMessage;
+    public ErrorType errorType;
+    public String requestId;
+    public int statusCode;
+
+    /* loaded from: classes5.dex */
     public enum ErrorType {
         Client,
         Service,
@@ -21,54 +23,54 @@ public class BceServiceException extends BceClientException {
         this.errorMessage = str;
     }
 
-    public BceServiceException(String str, Exception exc) {
-        super(null, exc);
-        this.errorType = ErrorType.Unknown;
-        this.errorMessage = str;
-    }
-
-    public void setRequestId(String str) {
-        this.requestId = str;
-    }
-
-    public String getRequestId() {
-        return this.requestId;
-    }
-
-    public void setErrorCode(String str) {
-        this.errorCode = str;
-    }
-
     public String getErrorCode() {
         return this.errorCode;
-    }
-
-    public void setErrorType(ErrorType errorType) {
-        this.errorType = errorType;
-    }
-
-    public ErrorType getErrorType() {
-        return this.errorType;
-    }
-
-    public void setErrorMessage(String str) {
-        this.errorMessage = str;
     }
 
     public String getErrorMessage() {
         return this.errorMessage;
     }
 
-    public void setStatusCode(int i) {
-        this.statusCode = i;
+    public ErrorType getErrorType() {
+        return this.errorType;
+    }
+
+    @Override // java.lang.Throwable
+    public String getMessage() {
+        return getErrorMessage() + " (Status Code: " + getStatusCode() + "; Error Code: " + getErrorCode() + "; Request ID: " + getRequestId() + SmallTailInfo.EMOTION_SUFFIX;
+    }
+
+    public String getRequestId() {
+        return this.requestId;
     }
 
     public int getStatusCode() {
         return this.statusCode;
     }
 
-    @Override // java.lang.Throwable
-    public String getMessage() {
-        return getErrorMessage() + " (Status Code: " + getStatusCode() + "; Error Code: " + getErrorCode() + "; Request ID: " + getRequestId() + ")";
+    public void setErrorCode(String str) {
+        this.errorCode = str;
+    }
+
+    public void setErrorMessage(String str) {
+        this.errorMessage = str;
+    }
+
+    public void setErrorType(ErrorType errorType) {
+        this.errorType = errorType;
+    }
+
+    public void setRequestId(String str) {
+        this.requestId = str;
+    }
+
+    public void setStatusCode(int i) {
+        this.statusCode = i;
+    }
+
+    public BceServiceException(String str, Exception exc) {
+        super(null, exc);
+        this.errorType = ErrorType.Unknown;
+        this.errorMessage = str;
     }
 }

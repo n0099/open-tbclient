@@ -18,21 +18,22 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
-import com.baidu.poly.b;
+import com.baidu.sapi2.SapiWebView;
+import d.b.c0.f;
+import d.b.c0.g;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class PayWebActivity extends Activity {
-    private Bundle cqG;
-    private ImageView i;
-    private boolean j;
-    private String k;
-    private WebView webView;
+    public ImageView i;
+    public boolean j;
+    public String k;
+    public Bundle l;
+    public WebView webView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
-        a() {
+        public a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -46,16 +47,18 @@ public class PayWebActivity extends Activity {
         Intent intent = getIntent();
         if (intent != null) {
             this.k = intent.getStringExtra("load_url");
-            this.cqG = intent.getBundleExtra("launch_payment_data");
+            this.l = intent.getBundleExtra("launch_payment_data");
         }
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
     private void W() {
-        this.i = (ImageView) findViewById(b.e.iv_pay_back);
-        this.i.setOnClickListener(new a());
-        this.webView = (WebView) findViewById(b.e.webView);
-        this.webView.setVerticalScrollBarEnabled(false);
+        ImageView imageView = (ImageView) findViewById(f.iv_pay_back);
+        this.i = imageView;
+        imageView.setOnClickListener(new a());
+        WebView webView = (WebView) findViewById(f.webView);
+        this.webView = webView;
+        webView.setVerticalScrollBarEnabled(false);
         this.webView.setHorizontalScrollBarEnabled(false);
         this.webView.getSettings().setJavaScriptEnabled(true);
         if (Build.VERSION.SDK_INT >= 19) {
@@ -69,7 +72,7 @@ public class PayWebActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean jz(String str) {
+    public boolean m(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -96,19 +99,19 @@ public class PayWebActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(b.f.activity_pay_web);
+        setContentView(g.activity_pay_web);
         this.j = false;
         V();
         W();
     }
 
     @Override // android.app.Activity
-    protected void onDestroy() {
+    public void onDestroy() {
         WebView webView = this.webView;
         if (webView != null) {
-            webView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+            webView.loadDataWithBaseURL(null, "", SapiWebView.K, "utf-8", null);
             this.webView.clearHistory();
             ((ViewGroup) this.webView.getParent()).removeView(this.webView);
             this.webView.destroy();
@@ -118,20 +121,19 @@ public class PayWebActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         if (this.j) {
             Intent intent = new Intent();
-            intent.putExtras(this.cqG);
+            intent.putExtras(this.l);
             setResult(-1, intent);
             finish();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes2.dex */
     public class b extends WebViewClient {
-        b() {
+        public b() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -153,10 +155,10 @@ public class PayWebActivity extends Activity {
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             try {
                 str = URLDecoder.decode(str, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+            } catch (UnsupportedEncodingException e2) {
+                e2.printStackTrace();
             }
-            return PayWebActivity.this.jz(str);
+            return PayWebActivity.this.m(str);
         }
 
         @Override // android.webkit.WebViewClient
@@ -165,10 +167,10 @@ public class PayWebActivity extends Activity {
                 String uri = webResourceRequest.getUrl().toString();
                 try {
                     uri = URLDecoder.decode(uri, "UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e2) {
+                    e2.printStackTrace();
                 }
-                return PayWebActivity.this.jz(uri);
+                return PayWebActivity.this.m(uri);
             }
             return true;
         }

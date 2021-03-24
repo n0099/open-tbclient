@@ -1,16 +1,15 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.QueryUserInfos.DataRes;
 import protobuf.QueryUserInfos.QueryUserInfosResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ResponseQueryUserInfoMessage extends SocketResponsedMessage {
-    private DataRes resData;
+    public DataRes resData;
 
     public ResponseQueryUserInfoMessage() {
-        super(CmdConfigSocket.CMD_QUERY_USER_INFO);
+        super(205003);
         this.resData = null;
     }
 
@@ -19,13 +18,14 @@ public class ResponseQueryUserInfoMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         QueryUserInfosResIdl queryUserInfosResIdl = (QueryUserInfosResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryUserInfosResIdl.class);
         setError(queryUserInfosResIdl.error.errorno.intValue());
         setErrorString(queryUserInfosResIdl.error.usermsg);
-        if (getError() == 0) {
-            this.resData = queryUserInfosResIdl.data;
+        if (getError() != 0) {
+            return;
         }
+        this.resData = queryUserInfosResIdl.data;
     }
 }

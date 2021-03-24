@@ -1,59 +1,58 @@
 package com.kwad.sdk.crash.utils;
 
 import android.os.Build;
+import com.baidu.searchbox.track.ui.TrackUI;
 import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a {
-        private a() {
+        public a() {
         }
 
-        abstract Object a();
+        public abstract Object a();
 
-        abstract void a(Object obj);
+        public abstract void a(Object obj);
     }
 
-    /* loaded from: classes3.dex */
-    private static class b extends a {
+    /* loaded from: classes6.dex */
+    public static class b extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final PrintWriter f6395a;
+        public final PrintWriter f34490a;
 
-        b(PrintWriter printWriter) {
+        public b(PrintWriter printWriter) {
             super();
-            this.f6395a = printWriter;
+            this.f34490a = printWriter;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
-        Object a() {
-            return this.f6395a;
+        public Object a() {
+            return this.f34490a;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
-        void a(Object obj) {
-            this.f6395a.println(obj);
+        public void a(Object obj) {
+            this.f34490a.println(obj);
         }
     }
 
-    private static void a(Throwable th, a aVar) {
+    public static void a(Throwable th, a aVar) {
         StackTraceElement[] stackTrace;
         Set newSetFromMap = Collections.newSetFromMap(new IdentityHashMap());
         newSetFromMap.add(th);
         synchronized (aVar.a()) {
             aVar.a(th);
-            int length = th.getStackTrace().length;
-            for (int i = 0; i < length; i++) {
-                aVar.a("\tat " + stackTrace[i]);
+            for (StackTraceElement stackTraceElement : th.getStackTrace()) {
+                aVar.a("\tat " + stackTraceElement);
             }
             if (Build.VERSION.SDK_INT >= 19) {
                 for (Throwable th2 : th.getSuppressed()) {
-                    a(th2, aVar, "Suppressed: ", "\t", newSetFromMap);
+                    a(th2, aVar, "Suppressed: ", TrackUI.SEPERATOR, newSetFromMap);
                 }
             }
             Throwable cause = th.getCause();
@@ -63,7 +62,7 @@ public class e {
         }
     }
 
-    private static void a(Throwable th, a aVar, String str, String str2, Set<Throwable> set) {
+    public static void a(Throwable th, a aVar, String str, String str2, Set<Throwable> set) {
         if (set.contains(th)) {
             aVar.a("\t[CIRCULAR REFERENCE:" + th + "]");
             return;
@@ -71,13 +70,12 @@ public class e {
         set.add(th);
         StackTraceElement[] stackTrace = th.getStackTrace();
         aVar.a(str2 + str + th);
-        int length = stackTrace.length;
-        for (int i = 0; i < length; i++) {
-            aVar.a(str2 + "\tat " + stackTrace[i]);
+        for (StackTraceElement stackTraceElement : stackTrace) {
+            aVar.a(str2 + "\tat " + stackTraceElement);
         }
         if (Build.VERSION.SDK_INT >= 19) {
             for (Throwable th2 : th.getSuppressed()) {
-                a(th2, aVar, "Suppressed: ", str2 + "\t", set);
+                a(th2, aVar, "Suppressed: ", str2 + TrackUI.SEPERATOR, set);
             }
         }
         Throwable cause = th.getCause();

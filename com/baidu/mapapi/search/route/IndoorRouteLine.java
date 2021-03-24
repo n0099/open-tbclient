@@ -10,93 +10,104 @@ import com.baidu.mapapi.search.core.RouteStep;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ParcelCreator"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
     public static final Parcelable.Creator<IndoorRouteLine> CREATOR = new g();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class IndoorRouteStep extends RouteStep {
-        private RouteNode d;
-        private RouteNode e;
-        private String f;
-        private String g;
-        private String h;
-        private List<IndoorStepNode> i;
-        private List<Double> j;
 
-        /* loaded from: classes4.dex */
+        /* renamed from: d  reason: collision with root package name */
+        public RouteNode f7268d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public RouteNode f7269e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public String f7270f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public String f7271g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public String f7272h;
+        public List<IndoorStepNode> i;
+        public List<Double> j;
+
+        /* loaded from: classes2.dex */
         public static class IndoorStepNode {
 
             /* renamed from: a  reason: collision with root package name */
-            private String f2132a;
-            private int b;
-            private LatLng c;
-            private String d;
+            public String f7273a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public int f7274b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public LatLng f7275c;
+
+            /* renamed from: d  reason: collision with root package name */
+            public String f7276d;
 
             public String getDetail() {
-                return this.d;
+                return this.f7276d;
             }
 
             public LatLng getLocation() {
-                return this.c;
+                return this.f7275c;
             }
 
             public String getName() {
-                return this.f2132a;
+                return this.f7273a;
             }
 
             public int getType() {
-                return this.b;
+                return this.f7274b;
             }
 
             public void setDetail(String str) {
-                this.d = str;
+                this.f7276d = str;
             }
 
             public void setLocation(LatLng latLng) {
-                this.c = latLng;
+                this.f7275c = latLng;
             }
 
             public void setName(String str) {
-                this.f2132a = str;
+                this.f7273a = str;
             }
 
             public void setType(int i) {
-                this.b = i;
+                this.f7274b = i;
             }
         }
 
         private List<LatLng> a(List<Double> list) {
             ArrayList arrayList = new ArrayList();
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= list.size()) {
-                    return arrayList;
-                }
-                arrayList.add(new LatLng(list.get(i2).doubleValue(), list.get(i2 + 1).doubleValue()));
-                i = i2 + 2;
+            for (int i = 0; i < list.size(); i += 2) {
+                arrayList.add(new LatLng(list.get(i).doubleValue(), list.get(i + 1).doubleValue()));
             }
+            return arrayList;
         }
 
         public String getBuildingId() {
-            return this.h;
+            return this.f7272h;
         }
 
         public RouteNode getEntrace() {
-            return this.d;
+            return this.f7268d;
         }
 
         public RouteNode getExit() {
-            return this.e;
+            return this.f7269e;
         }
 
         public String getFloorId() {
-            return this.g;
+            return this.f7271g;
         }
 
         public String getInstructions() {
-            return this.f;
+            return this.f7270f;
         }
 
         public List<IndoorStepNode> getStepNodes() {
@@ -112,23 +123,23 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         }
 
         public void setBuildingId(String str) {
-            this.h = str;
+            this.f7272h = str;
         }
 
         public void setEntrace(RouteNode routeNode) {
-            this.d = routeNode;
+            this.f7268d = routeNode;
         }
 
         public void setExit(RouteNode routeNode) {
-            this.e = routeNode;
+            this.f7269e = routeNode;
         }
 
         public void setFloorId(String str) {
-            this.g = str;
+            this.f7271g = str;
         }
 
         public void setInstructions(String str) {
-            this.f = str;
+            this.f7270f = str;
         }
 
         public void setPath(List<Double> list) {
@@ -144,7 +155,6 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         setType(RouteLine.TYPE.WALKSTEP);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public IndoorRouteLine(Parcel parcel) {
         super(parcel);
     }

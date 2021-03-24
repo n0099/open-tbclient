@@ -10,84 +10,94 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import d.b.h0.r.q.a2;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private Context mContext;
-    private TbPageContext<?> mPageContext;
-    private int mSkinType;
-    private ArrayList<cb> olw;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f22424e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ArrayList<a2> f22425f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbPageContext<?> f22426g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f22427h;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f22428e;
+
+        public a(String str) {
+            this.f22428e = str;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(FeedBackTopListView.this.f22424e).createNormalCfg(this.f22428e, null, WriteActivityConfig.FEED_BACK)));
+        }
+    }
 
     public FeedBackTopListView(Context context) {
         this(context, null);
     }
 
-    public FeedBackTopListView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mContext = null;
-        this.olw = null;
-        this.mSkinType = 3;
-        this.mContext = context;
-        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(ArrayList<cb> arrayList, TbPageContext<?> tbPageContext) {
-        int i = 0;
-        this.mPageContext = tbPageContext;
-        if (arrayList == null || arrayList.size() == 0) {
-            setVisibility(8);
-            return;
-        }
-        setVisibility(0);
-        if (arrayList.size() > 3) {
-            this.olw = new ArrayList<>(arrayList.subList(0, 3));
-        } else {
-            this.olw = arrayList;
-        }
-        while (true) {
-            int i2 = i;
-            if (i2 < this.olw.size()) {
-                addView(g(this.olw.get(i2), i2));
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    private View g(cb cbVar, int i) {
-        if (cbVar == null) {
+    public final View b(a2 a2Var, int i) {
+        if (a2Var == null) {
             return null;
         }
-        View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_top_item, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.f22424e).inflate(R.layout.frs_top_item, (ViewGroup) null);
         LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.frs_top_item);
         TextView textView = (TextView) inflate.findViewById(R.id.frs_top_title);
         inflate.findViewById(R.id.frs_top_divider);
-        final String tid = cbVar.getTid();
-        textView.setText(cbVar.getTitle());
-        this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
-        this.mPageContext.getLayoutMode().onModeChanged(inflate);
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) ap.getDrawable(R.drawable.icon_notice);
-        ap.setBackgroundResource(linearLayout, R.drawable.bg_frs_top_middle_selector);
+        String w1 = a2Var.w1();
+        textView.setText(a2Var.x1());
+        this.f22426g.getLayoutMode().k(this.f22427h == 1);
+        this.f22426g.getLayoutMode().j(inflate);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_notice);
+        SkinManager.setBackgroundResource(linearLayout, R.drawable.bg_frs_top_middle_selector);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }
         textView.setCompoundDrawables(bitmapDrawable, null, null, null);
-        linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.FeedBackTopListView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(FeedBackTopListView.this.mContext).createNormalCfg(tid, null, WriteActivityConfig.FEED_BACK)));
-            }
-        });
+        linearLayout.setOnClickListener(new a(w1));
         return inflate;
+    }
+
+    public void c(ArrayList<a2> arrayList, TbPageContext<?> tbPageContext) {
+        this.f22426g = tbPageContext;
+        if (arrayList != null && arrayList.size() != 0) {
+            setVisibility(0);
+            if (arrayList.size() > 3) {
+                this.f22425f = new ArrayList<>(arrayList.subList(0, 3));
+            } else {
+                this.f22425f = arrayList;
+            }
+            for (int i = 0; i < this.f22425f.size(); i++) {
+                addView(b(this.f22425f.get(i), i));
+            }
+            return;
+        }
+        setVisibility(8);
+    }
+
+    public FeedBackTopListView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f22424e = null;
+        this.f22425f = null;
+        this.f22427h = 3;
+        this.f22424e = context;
+        this.f22427h = TbadkCoreApplication.getInst().getSkinType();
     }
 }

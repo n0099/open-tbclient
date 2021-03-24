@@ -9,39 +9,49 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e extends GradientDrawable {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextPaint f6002a = new TextPaint(1);
-    private CharSequence b;
-    private float c;
-    private StaticLayout d;
-    private int e;
+    public TextPaint f33401a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public CharSequence f33402b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f33403c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public StaticLayout f33404d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f33405e;
 
     public e() {
-        this.f6002a.setColor(-1);
-        this.f6002a.setTextAlign(Paint.Align.CENTER);
+        TextPaint textPaint = new TextPaint(1);
+        this.f33401a = textPaint;
+        textPaint.setColor(-1);
+        this.f33401a.setTextAlign(Paint.Align.CENTER);
     }
 
-    public void a(float f) {
-        this.f6002a.setTextSize(f);
+    public void a(float f2) {
+        this.f33401a.setTextSize(f2);
     }
 
     public void a(int i) {
-        this.f6002a.setColor(i);
+        this.f33401a.setColor(i);
     }
 
     public void a(CharSequence charSequence) {
-        this.b = charSequence;
-        if (!TextUtils.isEmpty(this.b)) {
-            this.c = this.f6002a.measureText((String) this.b);
+        this.f33402b = charSequence;
+        if (!TextUtils.isEmpty(charSequence)) {
+            this.f33403c = this.f33401a.measureText((String) this.f33402b);
         }
-        this.d = new StaticLayout(this.b, this.f6002a, 200, Layout.Alignment.ALIGN_NORMAL, 1.0f, 1.0f, true);
+        this.f33404d = new StaticLayout(this.f33402b, this.f33401a, 200, Layout.Alignment.ALIGN_NORMAL, 1.0f, 1.0f, true);
     }
 
     public void b(int i) {
-        this.e = i;
+        this.f33405e = i;
     }
 
     @Override // android.graphics.drawable.GradientDrawable, android.graphics.drawable.Drawable
@@ -49,13 +59,15 @@ public class e extends GradientDrawable {
         super.draw(canvas);
         Rect bounds = getBounds();
         canvas.save();
-        canvas.translate(bounds.width() >= this.e ? bounds.right - (this.e / 2) : bounds.left + (this.e / 2), bounds.centerY() - (this.c / 2.0f));
-        this.d.draw(canvas);
+        int width = bounds.width();
+        int i = this.f33405e;
+        canvas.translate(width >= i ? bounds.right - (i / 2) : bounds.left + (i / 2), bounds.centerY() - (this.f33403c / 2.0f));
+        this.f33404d.draw(canvas);
         canvas.restore();
     }
 
     @Override // android.graphics.drawable.GradientDrawable, android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.e;
+        return this.f33405e;
     }
 }

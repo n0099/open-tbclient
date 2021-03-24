@@ -3,125 +3,129 @@ package com.baidu.android.pushservice.a;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.pushservice.d.f;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.j.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class b {
-    private static volatile b b;
-    private Context c;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile b f2680b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f2682c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<e> f1079a = new ArrayList<>();
-    private HashMap<String, f> d = new HashMap<>();
+    public ArrayList<e> f2681a = new ArrayList<>();
 
-    private b(Context context) {
-        this.c = context.getApplicationContext();
-        String d = com.baidu.android.pushservice.c.c.d(context);
-        if (TextUtils.isEmpty(d)) {
+    /* renamed from: d  reason: collision with root package name */
+    public HashMap<String, f> f2683d = new HashMap<>();
+
+    public b(Context context) {
+        this.f2682c = context.getApplicationContext();
+        String d2 = com.baidu.android.pushservice.c.c.d(context);
+        if (TextUtils.isEmpty(d2)) {
             return;
         }
         try {
-            ArrayList<e> c = c(m.b(d));
-            if (c != null) {
-                this.f1079a.addAll(c);
+            ArrayList<e> c2 = c(m.b(d2));
+            if (c2 != null) {
+                this.f2681a.addAll(c2);
             }
         } catch (Throwable th) {
-            new b.c(this.c).a(Log.getStackTraceString(th)).a();
+            new b.c(this.f2682c).a(Log.getStackTraceString(th)).a();
         }
     }
 
     public static synchronized b a(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (b == null) {
-                b = new b(context);
+            if (f2680b == null) {
+                f2680b = new b(context);
             }
-            bVar = b;
+            bVar = f2680b;
         }
         return bVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0070  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0075 A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0068  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private String a(List<e> list) {
         StringBuffer stringBuffer;
-        if (list == null || list.size() == 0) {
-            return "";
-        }
-        try {
-            stringBuffer = new StringBuffer();
-            int i = 0;
-            while (true) {
-                try {
-                    int i2 = i;
-                    if (i2 >= list.size()) {
-                        break;
-                    }
-                    e eVar = list.get(i2);
-                    if (eVar != null) {
-                        stringBuffer.append(eVar.b);
-                        stringBuffer.append(",");
-                        stringBuffer.append(eVar.f1078a);
-                        stringBuffer.append(",");
-                        stringBuffer.append(eVar.d);
-                        stringBuffer.append(",");
-                        stringBuffer.append(eVar.c);
-                        if (i2 != list.size() - 1) {
-                            stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        if (list != null && list.size() != 0) {
+            StringBuffer stringBuffer2 = null;
+            try {
+                stringBuffer = new StringBuffer();
+                for (int i = 0; i < list.size(); i++) {
+                    try {
+                        e eVar = list.get(i);
+                        if (eVar != null) {
+                            stringBuffer.append(eVar.f2678b);
+                            stringBuffer.append(",");
+                            stringBuffer.append(eVar.f2677a);
+                            stringBuffer.append(",");
+                            stringBuffer.append(eVar.f2689d);
+                            stringBuffer.append(",");
+                            stringBuffer.append(eVar.f2679c);
+                            if (i != list.size() - 1) {
+                                stringBuffer.append(";");
+                            }
                         }
-                    }
-                    i = i2 + 1;
-                } catch (Exception e) {
-                    e = e;
-                    new b.c(this.c).a(Log.getStackTraceString(e)).a();
-                    if (stringBuffer == null) {
+                    } catch (Exception e2) {
+                        e = e2;
+                        stringBuffer2 = stringBuffer;
+                        new b.c(this.f2682c).a(Log.getStackTraceString(e)).a();
+                        stringBuffer = stringBuffer2;
+                        if (stringBuffer != null) {
+                        }
+                        return "";
                     }
                 }
+            } catch (Exception e3) {
+                e = e3;
             }
-        } catch (Exception e2) {
-            e = e2;
-            stringBuffer = null;
+            if (stringBuffer != null) {
+                return stringBuffer.toString();
+            }
         }
-        return stringBuffer == null ? stringBuffer.toString() : "";
+        return "";
     }
 
     public e a(String str) {
-        if (this.f1079a != null && !TextUtils.isEmpty(str)) {
-            Iterator<e> it = this.f1079a.iterator();
-            while (it.hasNext()) {
-                e next = it.next();
-                if (str.equals(next.b)) {
-                    return next;
-                }
+        if (this.f2681a == null || TextUtils.isEmpty(str)) {
+            return null;
+        }
+        Iterator<e> it = this.f2681a.iterator();
+        while (it.hasNext()) {
+            e next = it.next();
+            if (str.equals(next.f2678b)) {
+                return next;
             }
         }
         return null;
     }
 
     public String a(e eVar, boolean z) {
-        return a(eVar, z, this.f1079a);
+        return a(eVar, z, this.f2681a);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:7:0x000c A[Catch: all -> 0x0045, TryCatch #0 {, blocks: (B:4:0x0002, B:5:0x0006, B:7:0x000c, B:9:0x001c, B:11:0x0026, B:13:0x002b, B:17:0x0033, B:18:0x0036), top: B:25:0x0002 }] */
+    /* JADX WARN: Removed duplicated region for block: B:7:0x000c A[Catch: all -> 0x0045, TryCatch #0 {, blocks: (B:4:0x0002, B:5:0x0006, B:7:0x000c, B:9:0x001c, B:11:0x0026, B:13:0x002b, B:17:0x0033, B:18:0x0036), top: B:26:0x0002 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized String a(e eVar, boolean z, ArrayList<e> arrayList) {
-        boolean z2;
-        String c;
+        String c2;
+        boolean z2 = false;
         Iterator<e> it = arrayList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next.b.equals(eVar.b) || next.f1078a.equals(eVar.f1078a)) {
+            if (next.f2678b.equals(eVar.f2678b) || next.f2677a.equals(eVar.f2677a)) {
                 arrayList.remove(next);
                 if (z) {
                     arrayList.add(eVar);
@@ -130,110 +134,99 @@ public final class b {
                 if (!z2 && z) {
                     arrayList.add(eVar);
                 }
-                c = m.c(a(arrayList));
-                com.baidu.android.pushservice.c.c.b(this.c, c);
+                c2 = m.c(a(arrayList));
+                com.baidu.android.pushservice.c.c.b(this.f2682c, c2);
             }
             while (it.hasNext()) {
             }
         }
-        z2 = false;
         if (!z2) {
             arrayList.add(eVar);
         }
-        c = m.c(a(arrayList));
-        com.baidu.android.pushservice.c.c.b(this.c, c);
-        return c;
+        c2 = m.c(a(arrayList));
+        com.baidu.android.pushservice.c.c.b(this.f2682c, c2);
+        return c2;
     }
 
     public void a(String str, f fVar) {
-        this.d.put(str, fVar);
+        this.f2683d.put(str, fVar);
     }
 
     public synchronized void a(String str, String str2) {
-        int i;
-        if (!TextUtils.isEmpty(str2)) {
-            ArrayList<e> c = c(m.b(str2));
-            String str3 = "";
-            if (b != null && c != null) {
-                try {
-                    if (str.equals("r_v2")) {
-                        ArrayList arrayList = new ArrayList();
-                        Iterator<e> it = c.iterator();
-                        while (it.hasNext()) {
-                            arrayList.add(it.next().b);
-                        }
-                        int i2 = 0;
-                        while (i2 < b.f1079a.size()) {
-                            if (arrayList.contains(b.f1079a.get(i2).b)) {
-                                b.f1079a.remove(i2);
-                                i = i2 - 1;
-                            } else {
-                                i = i2;
-                            }
-                            i2 = i + 1;
-                        }
-                        b.f1079a.addAll(c);
-                        str3 = a(b.f1079a);
+        if (TextUtils.isEmpty(str2)) {
+            return;
+        }
+        ArrayList<e> c2 = c(m.b(str2));
+        String str3 = "";
+        if (f2680b != null && c2 != null) {
+            try {
+                if (str.equals("r_v2")) {
+                    ArrayList arrayList = new ArrayList();
+                    Iterator<e> it = c2.iterator();
+                    while (it.hasNext()) {
+                        arrayList.add(it.next().f2678b);
                     }
-                    com.baidu.android.pushservice.c.c.b(this.c, m.c(str3));
-                } catch (Exception e) {
-                    new b.c(this.c).a(Log.getStackTraceString(e)).a();
+                    int i = 0;
+                    while (i < f2680b.f2681a.size()) {
+                        if (arrayList.contains(f2680b.f2681a.get(i).f2678b)) {
+                            f2680b.f2681a.remove(i);
+                            i--;
+                        }
+                        i++;
+                    }
+                    f2680b.f2681a.addAll(c2);
+                    str3 = a(f2680b.f2681a);
                 }
+                com.baidu.android.pushservice.c.c.b(this.f2682c, m.c(str3));
+            } catch (Exception e2) {
+                new b.c(this.f2682c).a(Log.getStackTraceString(e2)).a();
             }
         }
     }
 
     public e b(String str) {
         if (!TextUtils.isEmpty(str)) {
-            Iterator<e> it = this.f1079a.iterator();
+            Iterator<e> it = this.f2681a.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (!TextUtils.isEmpty(next.f1078a) && next.f1078a.equals(str)) {
+                if (!TextUtils.isEmpty(next.f2677a) && next.f2677a.equals(str)) {
                     return next;
                 }
             }
         }
-        m.a("ClientManager*BBind* isRegisteredClientByAppid return null!", this.c);
+        m.a("ClientManager*BBind* isRegisteredClientByAppid return null!", this.f2682c);
         return null;
     }
 
     public synchronized void b(Context context) {
-        ArrayList<e> arrayList;
-        int i;
-        String d = com.baidu.android.pushservice.c.c.d(context);
-        if (TextUtils.isEmpty(d)) {
-            arrayList = null;
-        } else {
-            String b2 = m.b(d);
+        ArrayList<e> arrayList = null;
+        String d2 = com.baidu.android.pushservice.c.c.d(context);
+        if (!TextUtils.isEmpty(d2)) {
+            String b2 = m.b(d2);
             m.a("ClientManager*BBind* clients=" + b2, context);
             arrayList = c(b2);
         }
-        if (b != null && arrayList != null) {
+        if (f2680b != null && arrayList != null) {
             ArrayList arrayList2 = new ArrayList();
             Iterator<e> it = arrayList.iterator();
             while (it.hasNext()) {
-                arrayList2.add(it.next().b);
+                arrayList2.add(it.next().f2678b);
             }
-            int i2 = 0;
-            while (i2 < b.f1079a.size()) {
-                if (arrayList2.contains(b.f1079a.get(i2).b)) {
-                    b.f1079a.remove(i2);
-                    i = i2 - 1;
-                } else {
-                    i = i2;
+            int i = 0;
+            while (i < f2680b.f2681a.size()) {
+                if (arrayList2.contains(f2680b.f2681a.get(i).f2678b)) {
+                    f2680b.f2681a.remove(i);
+                    i--;
                 }
-                i2 = i + 1;
+                i++;
             }
-            b.f1079a.addAll(arrayList);
-            m.a("ClientManager*BBind* sInstance.mClientsV2.size=" + b.f1079a.size(), context);
+            f2680b.f2681a.addAll(arrayList);
+            m.a("ClientManager*BBind* sInstance.mClientsV2.size=" + f2680b.f2681a.size(), context);
         }
     }
 
     public boolean b(String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return false;
-        }
-        return this.d.containsKey(str) && str2.equals(this.d.get(str).a());
+        return !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && this.f2683d.containsKey(str) && str2.equals(this.f2683d.get(str).a());
     }
 
     public ArrayList<e> c(String str) {
@@ -242,31 +235,30 @@ public final class b {
         }
         ArrayList<e> arrayList = new ArrayList<>();
         try {
-            for (String str2 : str.trim().split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
+            for (String str2 : str.trim().split(";")) {
                 String[] split = str2.trim().split(",");
                 if (split.length >= 3) {
                     e eVar = new e();
-                    eVar.b = split[0].trim();
-                    eVar.f1078a = split[1].trim();
-                    eVar.d = split[2].trim();
+                    eVar.f2678b = split[0].trim();
+                    eVar.f2677a = split[1].trim();
+                    eVar.f2689d = split[2].trim();
                     if (split.length > 3) {
-                        eVar.c = Integer.parseInt(split[split.length - 1].trim());
+                        eVar.f2679c = Integer.parseInt(split[split.length - 1].trim());
                     }
                     arrayList.add(eVar);
                 }
             }
-            return arrayList;
-        } catch (Exception e) {
-            new b.c(this.c).a(Log.getStackTraceString(e)).a();
-            return arrayList;
+        } catch (Exception e2) {
+            new b.c(this.f2682c).a(Log.getStackTraceString(e2)).a();
         }
+        return arrayList;
     }
 
     public String d(String str) {
-        return this.d.get(str) != null ? this.d.get(str).b() : "";
+        return this.f2683d.get(str) != null ? this.f2683d.get(str).b() : "";
     }
 
     public void e(String str) {
-        this.d.remove(str);
+        this.f2683d.remove(str);
     }
 }

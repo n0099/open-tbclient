@@ -2,12 +2,12 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SearchResult implements Parcelable {
     public ERRORNO error;
     public int status;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum ERRORNO {
         NO_ERROR,
         RESULT_NOT_FOUND,
@@ -38,7 +38,6 @@ public class SearchResult implements Parcelable {
         this.error = ERRORNO.NO_ERROR;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public SearchResult(Parcel parcel) {
         this.status = 0;
         int readInt = parcel.readInt();
@@ -57,6 +56,7 @@ public class SearchResult implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.error == null ? -1 : this.error.ordinal());
+        ERRORNO errorno = this.error;
+        parcel.writeInt(errorno == null ? -1 : errorno.ordinal());
     }
 }

@@ -1,25 +1,26 @@
 package com.baidu.fsg.base.statistics;
 
 import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
-/* loaded from: classes5.dex */
-class m implements IBeanResponseCallback {
+/* loaded from: classes2.dex */
+public class m implements IBeanResponseCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1541a;
-    final /* synthetic */ l b;
+    public final /* synthetic */ String f5327a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ l f5328b;
+
     public m(l lVar, String str) {
-        this.b = lVar;
-        this.f1541a = str;
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(int i, Object obj, String str, String str2) {
-        f.a().a(this.f1541a);
+        this.f5328b = lVar;
+        this.f5327a = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
     public void onBeanExecFailure(int i, int i2, String str) {
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
+    public void onBeanExecSuccess(int i, Object obj, String str, String str2) {
+        f.a().a(this.f5327a);
     }
 }

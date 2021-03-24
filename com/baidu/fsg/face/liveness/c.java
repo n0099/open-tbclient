@@ -2,42 +2,66 @@ package com.baidu.fsg.face.liveness;
 
 import android.content.Context;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1758a = 1;
-    public static final int b = 2;
-    public static final String c = ResUtils.string("error_msg_get_userinfo_failure");
-    public static final String d = ResUtils.string("error_msg_upload_failure");
-    public static final String e = ResUtils.string("error_msg_image_file_empty");
-    private Context f;
+    public static final int f5936a = 1;
 
-    public c(Context context) {
-        this.f = context;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f5937b = 2;
 
-    public void a() {
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f5938c = ResUtils.string("error_msg_get_userinfo_failure");
 
-    /* loaded from: classes5.dex */
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f5939d = ResUtils.string("error_msg_upload_failure");
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f5940e = ResUtils.string("error_msg_image_file_empty");
+
+    /* renamed from: f  reason: collision with root package name */
+    public Context f5941f;
+
+    /* loaded from: classes2.dex */
     public class a extends com.baidu.fsg.face.base.c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f1759a = 1;
-        public static final int b = 2;
-        public static final int c = 5;
-        public static final int d = -306;
-        public String e;
-        public String f;
-        public boolean g;
-        public boolean h = true;
+        public static final int f5942a = 1;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final int f5943b = 2;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final int f5944c = 5;
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final int f5945d = -306;
+
+        /* renamed from: e  reason: collision with root package name */
+        public String f5946e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public String f5947f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f5948g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public boolean f5949h = true;
         public boolean i = false;
 
-        a() {
-            this.msgMap.put(1, c.c);
-            this.msgMap.put(2, c.d);
-            this.msgMap.put(-306, c.e);
+        public a() {
+            this.msgMap.put(1, c.f5938c);
+            this.msgMap.put(2, c.f5939d);
+            this.msgMap.put(-306, c.f5940e);
         }
+    }
+
+    public c(Context context) {
+        this.f5941f = context;
+    }
+
+    public void a() {
     }
 }

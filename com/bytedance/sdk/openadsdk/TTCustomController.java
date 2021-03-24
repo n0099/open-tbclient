@@ -1,24 +1,28 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class TTCustomController {
-    public boolean isCanUseLocation() {
+    public boolean alist() {
         return true;
+    }
+
+    public String getDevImei() {
+        return null;
+    }
+
+    public String getDevOaid() {
+        return null;
     }
 
     public TTLocation getTTLocation() {
         return null;
     }
 
-    public boolean alist() {
+    public boolean isCanUseLocation() {
         return true;
     }
 
     public boolean isCanUsePhoneState() {
         return true;
-    }
-
-    public String getDevImei() {
-        return null;
     }
 
     public boolean isCanUseWifiState() {
@@ -27,9 +31,5 @@ public abstract class TTCustomController {
 
     public boolean isCanUseWriteExternal() {
         return true;
-    }
-
-    public String getDevOaid() {
-        return null;
     }
 }

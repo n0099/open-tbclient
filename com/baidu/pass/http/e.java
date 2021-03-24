@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.net.HttpCookie;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -18,124 +17,156 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-/* loaded from: classes5.dex */
-class e {
+/* loaded from: classes2.dex */
+public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2845a = "e";
-    private static final String b = "Set-Cookie";
-    private static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
-    private static final String d = "Cookie";
-    private static final String e = "https://";
+    public static final String f9763a = "e";
 
-    e() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f9764b = "Set-Cookie";
 
-    static String a(String str, String str2, String str3, long j, boolean z) {
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f9765c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f9766d = "Cookie";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f9767e = "https://";
+
+    public static String a(String str, String str2, String str3, long j, boolean z) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(j);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(calendar.getTime()) + ";httponly" + (z ? ";secure" : "");
+        StringBuilder sb = new StringBuilder();
+        sb.append(str2);
+        sb.append("=");
+        sb.append(str3);
+        sb.append(";domain=");
+        sb.append(str);
+        sb.append(";path=/;expires=");
+        sb.append(simpleDateFormat.format(calendar.getTime()));
+        sb.append(";httponly");
+        sb.append(z ? ";secure" : "");
+        return sb.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(9)
     public static void b(Context context, HttpURLConnection httpURLConnection, PassHttpParamDTO passHttpParamDTO) {
-        String str;
         HttpCookie httpCookie;
         try {
             CookieSyncManager.createInstance(context);
-            String cookie = CookieManager.getInstance().getCookie("https://" + new URI(passHttpParamDTO.url).getHost());
-            f.a(f2845a, "asyncCookie" + passHttpParamDTO.asyncCookie);
-            f.a(f2845a, "webviewCookies" + cookie);
-            String str2 = !passHttpParamDTO.asyncCookie ? null : cookie;
+            CookieManager cookieManager = CookieManager.getInstance();
+            URI uri = new URI(passHttpParamDTO.url);
+            StringBuilder sb = new StringBuilder();
+            sb.append("https://");
+            sb.append(uri.getHost());
+            String cookie = cookieManager.getCookie(sb.toString());
+            String str = f9763a;
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append("asyncCookie");
+            sb2.append(passHttpParamDTO.asyncCookie);
+            f.a(str, sb2.toString());
+            String str2 = f9763a;
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append("webviewCookies");
+            sb3.append(cookie);
+            f.a(str2, sb3.toString());
+            if (!passHttpParamDTO.asyncCookie) {
+                cookie = null;
+            }
             List<HttpCookie> list = passHttpParamDTO.cookie;
-            if (!TextUtils.isEmpty(str2) || (list != null && !list.isEmpty())) {
-                String str3 = "";
-                String[] split = TextUtils.isEmpty(str2) ? null : str2.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                if (split != null && split.length > 0) {
-                    int length = split.length;
-                    int i = 0;
-                    String str4 = "";
-                    while (i < length) {
-                        String str5 = split[i];
-                        if (TextUtils.isEmpty(str5)) {
-                            str = str4;
-                        } else {
-                            List<HttpCookie> parse = HttpCookie.parse(str5);
-                            if (parse.isEmpty()) {
-                                str = str4;
-                            } else {
-                                HttpCookie httpCookie2 = parse.get(0);
-                                if (httpCookie2 == null) {
-                                    str = str4;
-                                } else if (httpCookie2.hasExpired()) {
-                                    str = str4;
-                                } else {
-                                    if (list != null) {
-                                        httpCookie = httpCookie2;
-                                        for (HttpCookie httpCookie3 : list) {
-                                            if (!httpCookie.getName().equals(httpCookie3.getName()) || !a(passHttpParamDTO.url, httpCookie)) {
-                                                httpCookie3 = httpCookie;
-                                            }
-                                            httpCookie = httpCookie3;
-                                        }
-                                    } else {
+            if (TextUtils.isEmpty(cookie) && (list == null || list.isEmpty())) {
+                return;
+            }
+            String str3 = "";
+            String[] split = TextUtils.isEmpty(cookie) ? null : cookie.split(";");
+            if (split != null && split.length > 0) {
+                for (String str4 : split) {
+                    if (!TextUtils.isEmpty(str4)) {
+                        List<HttpCookie> parse = HttpCookie.parse(str4);
+                        if (!parse.isEmpty() && (httpCookie = parse.get(0)) != null && !httpCookie.hasExpired()) {
+                            if (list != null) {
+                                for (HttpCookie httpCookie2 : list) {
+                                    if (httpCookie.getName().equals(httpCookie2.getName()) && a(passHttpParamDTO.url, httpCookie)) {
                                         httpCookie = httpCookie2;
                                     }
-                                    str = !httpCookie.hasExpired() ? str4 + httpCookie.getName() + "=" + httpCookie.getValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : str4;
-                                    f.a(f2845a, "httpCookie webview item name:" + httpCookie.getName() + ",value:" + httpCookie.getValue());
                                 }
                             }
+                            if (!httpCookie.hasExpired()) {
+                                str3 = str3 + httpCookie.getName() + "=" + httpCookie.getValue() + ";";
+                            }
+                            String str5 = f9763a;
+                            StringBuilder sb4 = new StringBuilder();
+                            sb4.append("httpCookie webview item name:");
+                            sb4.append(httpCookie.getName());
+                            sb4.append(",value:");
+                            sb4.append(httpCookie.getValue());
+                            f.a(str5, sb4.toString());
                         }
-                        i++;
-                        str4 = str;
                     }
-                    str3 = str4;
-                }
-                if (list != null) {
-                    String str6 = str3;
-                    for (HttpCookie httpCookie4 : list) {
-                        if (a(passHttpParamDTO.url, httpCookie4)) {
-                            str6 = str6 + httpCookie4.getName() + "=" + httpCookie4.getValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
-                        }
-                    }
-                    str3 = str6;
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    String substring = str3.substring(0, str3.length() - 1);
-                    f.a(f2845a, "cookieStr" + substring);
-                    httpURLConnection.setRequestProperty("Cookie", substring);
                 }
             }
+            if (list != null) {
+                for (HttpCookie httpCookie3 : list) {
+                    if (a(passHttpParamDTO.url, httpCookie3)) {
+                        str3 = str3 + httpCookie3.getName() + "=" + httpCookie3.getValue() + ";";
+                    }
+                }
+            }
+            if (TextUtils.isEmpty(str3)) {
+                return;
+            }
+            String substring = str3.substring(0, str3.length() - 1);
+            String str6 = f9763a;
+            StringBuilder sb5 = new StringBuilder();
+            sb5.append("cookieStr");
+            sb5.append(substring);
+            f.a(str6, sb5.toString());
+            httpURLConnection.setRequestProperty("Cookie", substring);
         } catch (Exception e2) {
-            f.a(f2845a, "asyncWebviewCookie2NA:" + e2.toString());
+            f.a(f9763a, "asyncWebviewCookie2NA:" + e2.toString());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(9)
     public static void a(Context context, HttpURLConnection httpURLConnection, PassHttpParamDTO passHttpParamDTO) {
         Map<String, List<String>> headerFields;
         List<String> list;
         try {
-            f.a(f2845a, "asyncCookie" + passHttpParamDTO.asyncCookie);
+            String str = f9763a;
+            StringBuilder sb = new StringBuilder();
+            sb.append("asyncCookie");
+            sb.append(passHttpParamDTO.asyncCookie);
+            f.a(str, sb.toString());
             if (passHttpParamDTO.asyncCookie && (headerFields = httpURLConnection.getHeaderFields()) != null && !headerFields.isEmpty() && (list = headerFields.get("Set-Cookie")) != null && !list.isEmpty()) {
                 CookieSyncManager.createInstance(context);
                 CookieManager cookieManager = CookieManager.getInstance();
                 cookieManager.setAcceptCookie(true);
                 if (cookieManager.acceptCookie()) {
-                    for (String str : list) {
-                        if (!TextUtils.isEmpty(str)) {
-                            List<HttpCookie> parse = HttpCookie.parse(str);
+                    for (String str2 : list) {
+                        if (!TextUtils.isEmpty(str2)) {
+                            List<HttpCookie> parse = HttpCookie.parse(str2);
                             if (!parse.isEmpty()) {
                                 HttpCookie httpCookie = parse.get(0);
                                 if (a(passHttpParamDTO.url, httpCookie)) {
-                                    Log.e(f2845a, "httpcookie:" + httpCookie.toString());
-                                    String a2 = a(httpCookie.getDomain(), httpCookie.getName(), httpCookie.getValue(), System.currentTimeMillis() + (httpCookie.getMaxAge() * 1000), httpCookie.getSecure());
-                                    Log.e(f2845a, "httpcookie build:" + a2);
-                                    cookieManager.setCookie("https://" + httpCookie.getDomain(), a2);
+                                    String str3 = f9763a;
+                                    StringBuilder sb2 = new StringBuilder();
+                                    sb2.append("httpcookie:");
+                                    sb2.append(httpCookie.toString());
+                                    Log.e(str3, sb2.toString());
+                                    String a2 = a(httpCookie.getDomain(), httpCookie.getName(), httpCookie.getValue(), (httpCookie.getMaxAge() * 1000) + System.currentTimeMillis(), httpCookie.getSecure());
+                                    String str4 = f9763a;
+                                    StringBuilder sb3 = new StringBuilder();
+                                    sb3.append("httpcookie build:");
+                                    sb3.append(a2);
+                                    Log.e(str4, sb3.toString());
+                                    StringBuilder sb4 = new StringBuilder();
+                                    sb4.append("https://");
+                                    sb4.append(httpCookie.getDomain());
+                                    cookieManager.setCookie(sb4.toString(), a2);
                                 }
                             }
                         }
@@ -148,41 +179,46 @@ class e {
                 }
             }
         } catch (Exception e2) {
-            f.a(f2845a, "asyncNaCookie2Webview:" + e2.toString());
+            String str5 = f9763a;
+            f.a(str5, "asyncNaCookie2Webview:" + e2.toString());
         }
     }
 
     @TargetApi(9)
-    private static boolean a(String str, HttpCookie httpCookie) {
+    public static boolean a(String str, HttpCookie httpCookie) {
         try {
             URL url = new URL(str);
-            if (httpCookie.getDiscard() || httpCookie.hasExpired() || !a(url.getHost(), httpCookie.getDomain()) || !b(url.getPath(), httpCookie.getPath())) {
-                return false;
+            if (!httpCookie.getDiscard() && !httpCookie.hasExpired() && a(url.getHost(), httpCookie.getDomain()) && b(url.getPath(), httpCookie.getPath())) {
+                if (a(str, httpCookie.getSecure())) {
+                    return true;
+                }
             }
-            return a(str, httpCookie.getSecure());
-        } catch (Exception e2) {
-            return false;
+        } catch (Exception unused) {
         }
+        return false;
     }
 
-    private static boolean b(String str, String str2) {
+    public static boolean b(String str, String str2) {
         if (str.equals(str2)) {
             return true;
         }
-        return str.startsWith(str2) && (str2.endsWith("/") || str.charAt(str2.length()) == '/');
+        if (str.startsWith(str2)) {
+            return str2.endsWith("/") || str.charAt(str2.length()) == '/';
+        }
+        return false;
     }
 
-    private static boolean a(String str, boolean z) {
+    public static boolean a(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return !z || str.startsWith("https://");
     }
 
-    private static boolean a(String str, String str2) {
+    public static boolean a(String str, String str2) {
         if (str.equals(str2)) {
             return true;
         }
-        return (str.endsWith(str2) && str.charAt((str.length() - str2.length()) + (-1)) == '.' && !f.b(str)) || str.endsWith(str2) || str2.startsWith(".") || !f.b(str);
+        return (str.endsWith(str2) && str.charAt((str.length() - str2.length()) - 1) == '.' && !f.b(str)) || str.endsWith(str2) || str2.startsWith(".") || !f.b(str);
     }
 }

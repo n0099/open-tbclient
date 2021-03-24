@@ -4,69 +4,84 @@ import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Build;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
+import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class WebRtcAudioManager {
-    private static final int BITS_PER_SAMPLE = 16;
-    private static final boolean DEBUG = false;
-    private static final int DEFAULT_FRAME_PER_BUFFER = 256;
-    private static final String TAG = "WebRtcAudioManager";
-    private static final boolean blacklistDeviceForAAudioUsage = true;
-    private static boolean blacklistDeviceForOpenSLESUsage;
-    private static boolean blacklistDeviceForOpenSLESUsageIsOverridden;
-    private static boolean useStereoInput;
-    private static boolean useStereoOutput;
-    private boolean aAudio;
-    private final AudioManager audioManager;
-    private boolean hardwareAEC;
-    private boolean hardwareAGC;
-    private boolean hardwareNS;
-    private boolean initialized;
-    private int inputBufferSize;
-    private int inputChannels;
-    private boolean lowLatencyInput;
-    private boolean lowLatencyOutput;
-    private final long nativeAudioManager;
-    private int nativeChannels;
-    private int nativeSampleRate;
-    private int outputBufferSize;
-    private int outputChannels;
-    private boolean proAudio;
-    private int sampleRate;
-    private final VolumeLogger volumeLogger;
+    public static final int BITS_PER_SAMPLE = 16;
+    public static final boolean DEBUG = false;
+    public static final int DEFAULT_FRAME_PER_BUFFER = 256;
+    public static final String TAG = "WebRtcAudioManager";
+    public static final boolean blacklistDeviceForAAudioUsage = true;
+    public static boolean blacklistDeviceForOpenSLESUsage;
+    public static boolean blacklistDeviceForOpenSLESUsageIsOverridden;
+    public static boolean useStereoInput;
+    public static boolean useStereoOutput;
+    public boolean aAudio;
+    public final AudioManager audioManager;
+    public boolean hardwareAEC;
+    public boolean hardwareAGC;
+    public boolean hardwareNS;
+    public boolean initialized;
+    public int inputBufferSize;
+    public int inputChannels;
+    public boolean lowLatencyInput;
+    public boolean lowLatencyOutput;
+    public final long nativeAudioManager;
+    public int nativeChannels;
+    public int nativeSampleRate;
+    public int outputBufferSize;
+    public int outputChannels;
+    public boolean proAudio;
+    public int sampleRate;
+    public final VolumeLogger volumeLogger;
 
-    /* loaded from: classes9.dex */
-    private static class VolumeLogger {
-        private static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
-        private static final int TIMER_PERIOD_IN_SECONDS = 30;
-        private final AudioManager audioManager;
+    /* loaded from: classes.dex */
+    public static class VolumeLogger {
+        public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
+        public static final int TIMER_PERIOD_IN_SECONDS = 30;
+        public final AudioManager audioManager;
         @Nullable
-        private Timer timer;
+        public Timer timer;
 
-        /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes9.dex */
+        /* loaded from: classes7.dex */
         public class LogVolumeTask extends TimerTask {
-            private final int maxRingVolume;
-            private final int maxVoiceCallVolume;
+            public final int maxRingVolume;
+            public final int maxVoiceCallVolume;
 
-            LogVolumeTask(int i, int i2) {
+            public LogVolumeTask(int i, int i2) {
                 this.maxRingVolume = i;
                 this.maxVoiceCallVolume = i2;
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
+                StringBuilder sb;
+                int i;
                 int mode = VolumeLogger.this.audioManager.getMode();
                 if (mode == 1) {
-                    Logging.d(WebRtcAudioManager.TAG, "STREAM_RING stream volume: " + VolumeLogger.this.audioManager.getStreamVolume(2) + " (max=" + this.maxRingVolume + ")");
-                } else if (mode == 3) {
-                    Logging.d(WebRtcAudioManager.TAG, "VOICE_CALL stream volume: " + VolumeLogger.this.audioManager.getStreamVolume(0) + " (max=" + this.maxVoiceCallVolume + ")");
+                    sb = new StringBuilder();
+                    sb.append("STREAM_RING stream volume: ");
+                    sb.append(VolumeLogger.this.audioManager.getStreamVolume(2));
+                    sb.append(" (max=");
+                    i = this.maxRingVolume;
+                } else if (mode != 3) {
+                    return;
+                } else {
+                    sb = new StringBuilder();
+                    sb.append("VOICE_CALL stream volume: ");
+                    sb.append(VolumeLogger.this.audioManager.getStreamVolume(0));
+                    sb.append(" (max=");
+                    i = this.maxVoiceCallVolume;
                 }
+                sb.append(i);
+                sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                Logging.d(WebRtcAudioManager.TAG, sb.toString());
             }
         }
 
@@ -76,29 +91,32 @@ public class WebRtcAudioManager {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void stop() {
-            if (this.timer != null) {
-                this.timer.cancel();
+            Timer timer = this.timer;
+            if (timer != null) {
+                timer.cancel();
                 this.timer = null;
             }
         }
 
         public void start() {
-            this.timer = new Timer(THREAD_NAME);
-            this.timer.schedule(new LogVolumeTask(this.audioManager.getStreamMaxVolume(2), this.audioManager.getStreamMaxVolume(0)), 0L, 30000L);
+            Timer timer = new Timer("WebRtcVolumeLevelLoggerThread");
+            this.timer = timer;
+            timer.schedule(new LogVolumeTask(this.audioManager.getStreamMaxVolume(2), this.audioManager.getStreamMaxVolume(0)), 0L, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
         }
     }
 
-    WebRtcAudioManager(long j) {
+    public WebRtcAudioManager(long j) {
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
         this.nativeAudioManager = j;
-        this.audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
-        this.volumeLogger = new VolumeLogger(this.audioManager);
+        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
+        this.audioManager = audioManager;
+        this.volumeLogger = new VolumeLogger(audioManager);
         storeAudioParameters();
         nativeCacheAudioParameters(this.sampleRate, this.outputChannels, this.inputChannels, this.hardwareAEC, this.hardwareAGC, this.hardwareNS, this.lowLatencyOutput, this.lowLatencyInput, this.proAudio, this.aAudio, this.outputBufferSize, this.inputBufferSize, j);
         WebRtcAudioUtils.logAudioState(TAG);
     }
 
-    private static void assertTrue(boolean z) {
+    public static void assertTrue(boolean z) {
         if (!z) {
             throw new AssertionError("Expected condition to be true");
         }
@@ -125,11 +143,11 @@ public class WebRtcAudioManager {
         return 256;
     }
 
-    private static int getMinInputFrameSize(int i, int i2) {
+    public static int getMinInputFrameSize(int i, int i2) {
         return AudioRecord.getMinBufferSize(i, i2 == 1 ? 16 : 12, 2) / (i2 * 2);
     }
 
-    private static int getMinOutputFrameSize(int i, int i2) {
+    public static int getMinOutputFrameSize(int i, int i2) {
         return AudioTrack.getMinBufferSize(i, i2 == 1 ? 4 : 12, 2) / (i2 * 2);
     }
 
@@ -158,11 +176,7 @@ public class WebRtcAudioManager {
     public static boolean getStereoInput() {
         boolean z;
         synchronized (WebRtcAudioManager.class) {
-            try {
-                z = useStereoInput;
-            } catch (Throwable th) {
-                throw th;
-            }
+            z = useStereoInput;
         }
         return z;
     }
@@ -170,11 +184,7 @@ public class WebRtcAudioManager {
     public static boolean getStereoOutput() {
         boolean z;
         synchronized (WebRtcAudioManager.class) {
-            try {
-                z = useStereoOutput;
-            } catch (Throwable th) {
-                throw th;
-            }
+            z = useStereoOutput;
         }
         return z;
     }
@@ -184,12 +194,13 @@ public class WebRtcAudioManager {
     }
 
     private boolean init() {
-        Logging.d(TAG, OneKeyLoginSdkCall.l + WebRtcAudioUtils.getThreadInfo());
-        if (!this.initialized) {
-            Logging.d(TAG, "audio mode is: " + WebRtcAudioUtils.modeToString(this.audioManager.getMode()));
-            this.initialized = true;
-            this.volumeLogger.start();
+        Logging.d(TAG, "init" + WebRtcAudioUtils.getThreadInfo());
+        if (this.initialized) {
+            return true;
         }
+        Logging.d(TAG, "audio mode is: " + WebRtcAudioUtils.modeToString(this.audioManager.getMode()));
+        this.initialized = true;
+        this.volumeLogger.start();
         return true;
     }
 
@@ -198,7 +209,7 @@ public class WebRtcAudioManager {
         return false;
     }
 
-    private static boolean isAcousticEchoCancelerSupported() {
+    public static boolean isAcousticEchoCancelerSupported() {
         return WebRtcAudioEffects.canUseAcousticEchoCanceler();
     }
 
@@ -218,7 +229,7 @@ public class WebRtcAudioManager {
         return ContextUtils.getApplicationContext().getPackageManager().hasSystemFeature("android.hardware.audio.low_latency");
     }
 
-    private static boolean isNoiseSuppressorSupported() {
+    public static boolean isNoiseSuppressorSupported() {
         return WebRtcAudioEffects.canUseNoiseSuppressor();
     }
 
@@ -230,34 +241,22 @@ public class WebRtcAudioManager {
 
     public static void setBlacklistDeviceForOpenSLESUsage(boolean z) {
         synchronized (WebRtcAudioManager.class) {
-            try {
-                blacklistDeviceForOpenSLESUsageIsOverridden = true;
-                blacklistDeviceForOpenSLESUsage = z;
-            } catch (Throwable th) {
-                throw th;
-            }
+            blacklistDeviceForOpenSLESUsageIsOverridden = true;
+            blacklistDeviceForOpenSLESUsage = z;
         }
     }
 
     public static void setStereoInput(boolean z) {
         synchronized (WebRtcAudioManager.class) {
-            try {
-                Logging.w(TAG, "Overriding default input behavior: setStereoInput(" + z + ')');
-                useStereoInput = z;
-            } catch (Throwable th) {
-                throw th;
-            }
+            Logging.w(TAG, "Overriding default input behavior: setStereoInput(" + z + ')');
+            useStereoInput = z;
         }
     }
 
     public static void setStereoOutput(boolean z) {
         synchronized (WebRtcAudioManager.class) {
-            try {
-                Logging.w(TAG, "Overriding default output behavior: setStereoOutput(" + z + ')');
-                useStereoOutput = z;
-            } catch (Throwable th) {
-                throw th;
-            }
+            Logging.w(TAG, "Overriding default output behavior: setStereoOutput(" + z + ')');
+            useStereoOutput = z;
         }
     }
 

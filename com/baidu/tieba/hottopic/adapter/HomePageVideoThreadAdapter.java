@@ -6,126 +6,144 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.ab;
-import com.baidu.tieba.card.data.l;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-/* loaded from: classes7.dex */
-public class HomePageVideoThreadAdapter extends com.baidu.adp.widget.ListView.a<l, HomePageVideoThreadViewHolder> {
-    private BdUniqueId fIy;
-    private ab<l> iNL;
-    private com.baidu.tieba.card.l kuy;
-    private TbPageContext<HotTopicActivity> mPageContext;
+import d.b.i0.i2.e;
+import d.b.i0.x.b0;
+import d.b.i0.x.e0.l;
+/* loaded from: classes4.dex */
+public class HomePageVideoThreadAdapter extends d.b.b.j.e.a<l, HomePageVideoThreadViewHolder> {
+    public BdUniqueId m;
+    public TbPageContext<HotTopicActivity> n;
+    public d.b.i0.x.l o;
+    public b0<l> p;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public HomePageVideoThreadAdapter(TbPageContext<HotTopicActivity> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iNL = new ab<l>() { // from class: com.baidu.tieba.hottopic.adapter.HomePageVideoThreadAdapter.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.ab
-            public void a(View view, l lVar) {
-                if (lVar != null && lVar.blp() != null && !StringUtils.isNull(lVar.blp().getTid()) && !StringUtils.isNull(lVar.csW()) && HomePageVideoThreadAdapter.this.mPageContext != null && (HomePageVideoThreadAdapter.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
-                    ((HotTopicActivity) HomePageVideoThreadAdapter.this.mPageContext.getOrignalPage()).t(lVar);
-                }
-            }
-        };
-        this.mPageContext = tbPageContext;
-        this.fIy = tbPageContext.getUniqueId();
-    }
+    /* loaded from: classes4.dex */
+    public static class HomePageVideoThreadViewHolder extends TypeAdapter.ViewHolder implements e {
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bY */
-    public HomePageVideoThreadViewHolder e(ViewGroup viewGroup) {
-        this.kuy = new com.baidu.tieba.card.l(this.mPageContext);
-        this.kuy.pu(false);
-        this.kuy.o(this.fIy);
-        this.kuy.setFrom("hottopic");
-        return new HomePageVideoThreadViewHolder(this.kuy);
-    }
+        /* renamed from: e  reason: collision with root package name */
+        public d.b.i0.x.l f17526e;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, l lVar, HomePageVideoThreadViewHolder homePageVideoThreadViewHolder) {
-        if (lVar != null) {
-            lVar.xe(i + 1);
-            lVar.sourceType = 1;
-        }
-        homePageVideoThreadViewHolder.kuA.a(lVar);
-        homePageVideoThreadViewHolder.kuA.c(this.iNL);
-        if (this.mPageContext != null && (this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
-            this.mPageContext.getOrignalPage().s(lVar);
-        }
-        return homePageVideoThreadViewHolder.getView();
-    }
-
-    /* loaded from: classes7.dex */
-    public static class HomePageVideoThreadViewHolder extends TypeAdapter.ViewHolder implements com.baidu.tieba.play.e {
-        public com.baidu.tieba.card.l kuA;
-
-        public HomePageVideoThreadViewHolder(com.baidu.tieba.card.l lVar) {
-            super(lVar.getView());
-            this.kuA = lVar;
+        public HomePageVideoThreadViewHolder(d.b.i0.x.l lVar) {
+            super(lVar.m());
+            this.f17526e = lVar;
         }
 
-        @Override // com.baidu.tieba.play.e
-        public boolean isPlayStarted() {
-            if (this.kuA == null) {
-                return false;
-            }
-            return this.kuA.isPlayStarted();
-        }
-
-        @Override // com.baidu.tieba.play.e
-        public boolean isPlaying() {
-            if (this.kuA == null) {
-                return false;
-            }
-            return this.kuA.isPlaying();
-        }
-
-        @Override // com.baidu.tieba.play.e
-        public boolean isFullScreen() {
+        @Override // d.b.i0.i2.e
+        public boolean D() {
             return false;
         }
 
-        @Override // com.baidu.tieba.play.e
-        public void startPlay() {
-            if (this.kuA != null) {
-                this.kuA.startPlay();
-            }
-        }
-
-        @Override // com.baidu.tieba.play.e
-        public void stopPlay() {
-            if (this.kuA != null) {
-                this.kuA.stopPlay();
-            }
-        }
-
-        @Override // com.baidu.tieba.play.e
-        public View getVideoContainer() {
-            if (this.kuA == null) {
-                return null;
-            }
-            return this.kuA.getVideoContainer();
-        }
-
-        @Override // com.baidu.tieba.play.e
-        public String getPlayUrl() {
-            if (this.kuA == null) {
-                return null;
-            }
-            return this.kuA.getPlayUrl();
-        }
-
-        @Override // com.baidu.tieba.play.e
+        @Override // d.b.i0.i2.e
         public int getCurrentPosition() {
-            if (this.kuA == null) {
+            d.b.i0.x.l lVar = this.f17526e;
+            if (lVar == null) {
                 return 0;
             }
-            return this.kuA.getCurrentPosition();
+            return lVar.getCurrentPosition();
         }
+
+        @Override // d.b.i0.i2.e
+        public String getPlayUrl() {
+            d.b.i0.x.l lVar = this.f17526e;
+            if (lVar == null) {
+                return null;
+            }
+            return lVar.R();
+        }
+
+        @Override // d.b.i0.i2.e
+        public View getVideoContainer() {
+            d.b.i0.x.l lVar = this.f17526e;
+            if (lVar == null) {
+                return null;
+            }
+            return lVar.S();
+        }
+
+        @Override // d.b.i0.i2.e
+        public boolean isPlayStarted() {
+            d.b.i0.x.l lVar = this.f17526e;
+            if (lVar == null) {
+                return false;
+            }
+            return lVar.g0();
+        }
+
+        @Override // d.b.i0.i2.e
+        public boolean isPlaying() {
+            d.b.i0.x.l lVar = this.f17526e;
+            if (lVar == null) {
+                return false;
+            }
+            return lVar.isPlaying();
+        }
+
+        @Override // d.b.i0.i2.e
+        public void startPlay() {
+            d.b.i0.x.l lVar = this.f17526e;
+            if (lVar != null) {
+                lVar.startPlay();
+            }
+        }
+
+        @Override // d.b.i0.i2.e
+        public void stopPlay() {
+            d.b.i0.x.l lVar = this.f17526e;
+            if (lVar != null) {
+                lVar.stopPlay();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends b0<l> {
+        public a() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.i0.x.b0
+        /* renamed from: d */
+        public void a(View view, l lVar) {
+            if (lVar == null || lVar.n() == null || StringUtils.isNull(lVar.n().w1()) || StringUtils.isNull(lVar.M()) || HomePageVideoThreadAdapter.this.n == null || !(HomePageVideoThreadAdapter.this.n.getOrignalPage() instanceof d.b.i0.b1.b.a)) {
+                return;
+            }
+            ((HotTopicActivity) HomePageVideoThreadAdapter.this.n.getOrignalPage()).businessStatisticForTopicClick(lVar);
+        }
+    }
+
+    public HomePageVideoThreadAdapter(TbPageContext<HotTopicActivity> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.p = new a();
+        this.n = tbPageContext;
+        this.m = tbPageContext.getUniqueId();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.b.j.e.a
+    /* renamed from: i0 */
+    public HomePageVideoThreadViewHolder R(ViewGroup viewGroup) {
+        d.b.i0.x.l lVar = new d.b.i0.x.l(this.n);
+        this.o = lVar;
+        lVar.o0(false);
+        this.o.j0(this.m);
+        this.o.setFrom("hottopic");
+        return new HomePageVideoThreadViewHolder(this.o);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.b.j.e.a
+    /* renamed from: j0 */
+    public View X(int i, View view, ViewGroup viewGroup, l lVar, HomePageVideoThreadViewHolder homePageVideoThreadViewHolder) {
+        if (lVar != null) {
+            lVar.U(i + 1);
+            lVar.U = 1;
+        }
+        homePageVideoThreadViewHolder.f17526e.n(lVar);
+        homePageVideoThreadViewHolder.f17526e.q(this.p);
+        TbPageContext<HotTopicActivity> tbPageContext = this.n;
+        if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof d.b.i0.b1.b.a)) {
+            this.n.getOrignalPage().businessStatisticForTopic(lVar);
+        }
+        return homePageVideoThreadViewHolder.a();
     }
 }

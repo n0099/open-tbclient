@@ -4,6 +4,7 @@ import com.baidu.mobstat.by;
 import com.baidu.mobstat.cd;
 import com.baidu.mobstat.cq;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.ByteChannel;
@@ -13,80 +14,72 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ca implements by {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<cd> f2649a;
-    public static int b;
-    public static boolean c;
-    static final /* synthetic */ boolean h;
-    public final BlockingQueue<ByteBuffer> d;
-    public final BlockingQueue<ByteBuffer> e;
-    public SelectionKey f;
-    public ByteChannel g;
-    private final cb i;
-    private cd l;
-    private by.b m;
-    private volatile boolean j = false;
-    private by.a k = by.a.NOT_YET_CONNECTED;
-    private cq n = null;
-    private ByteBuffer o = ByteBuffer.allocate(0);
-    private cs p = null;
-    private String q = null;
-    private Integer r = null;
-    private Boolean s = null;
-    private String t = null;
+    public static final List<cd> f9140a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f9141b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static boolean f9142c;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final /* synthetic */ boolean f9143h = !ca.class.desiredAssertionStatus();
+
+    /* renamed from: d  reason: collision with root package name */
+    public final BlockingQueue<ByteBuffer> f9144d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final BlockingQueue<ByteBuffer> f9145e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SelectionKey f9146f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ByteChannel f9147g;
+    public final cb i;
+    public cd l;
+    public by.b m;
+    public volatile boolean j = false;
+    public by.a k = by.a.NOT_YET_CONNECTED;
+    public cq n = null;
+    public ByteBuffer o = ByteBuffer.allocate(0);
+    public cs p = null;
+    public String q = null;
+    public Integer r = null;
+    public Boolean s = null;
+    public String t = null;
 
     static {
-        h = !ca.class.desiredAssertionStatus();
-        f2649a = new ArrayList(4);
-        b = 16384;
-        c = false;
-        f2649a.add(new cf());
-        f2649a.add(new ce());
+        ArrayList arrayList = new ArrayList(4);
+        f9140a = arrayList;
+        f9141b = 16384;
+        f9142c = false;
+        arrayList.add(new cf());
+        f9140a.add(new ce());
     }
 
     public ca(cb cbVar, cd cdVar) {
         this.l = null;
-        if (cbVar == null || cdVar == null) {
-            throw new IllegalArgumentException("parameters must not be null");
+        if (cbVar != null && cdVar != null) {
+            this.f9144d = new LinkedBlockingQueue();
+            this.f9145e = new LinkedBlockingQueue();
+            this.i = cbVar;
+            this.m = by.b.CLIENT;
+            if (cdVar != null) {
+                this.l = cdVar.c();
+                return;
+            }
+            return;
         }
-        this.d = new LinkedBlockingQueue();
-        this.e = new LinkedBlockingQueue();
-        this.i = cbVar;
-        this.m = by.b.CLIENT;
-        if (cdVar != null) {
-            this.l = cdVar.c();
-        }
+        throw new IllegalArgumentException("parameters must not be null");
     }
 
-    public void a(ByteBuffer byteBuffer) {
-        if (!h && !byteBuffer.hasRemaining()) {
-            throw new AssertionError();
-        }
-        if (c) {
-            System.out.println("process(" + byteBuffer.remaining() + "): {" + (byteBuffer.remaining() > 1000 ? "too big to display" : new String(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining())) + "}");
-        }
-        if (this.k != by.a.NOT_YET_CONNECTED) {
-            d(byteBuffer);
-        } else if (c(byteBuffer)) {
-            if (!h && this.o.hasRemaining() == byteBuffer.hasRemaining() && byteBuffer.hasRemaining()) {
-                throw new AssertionError();
-            }
-            if (byteBuffer.hasRemaining()) {
-                d(byteBuffer);
-            } else if (this.o.hasRemaining()) {
-                d(this.o);
-            }
-        }
-        if (!h && !d() && !e() && byteBuffer.hasRemaining()) {
-            throw new AssertionError();
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:24:0x007e  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0138  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00ed  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x011c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -107,7 +100,7 @@ public class ca implements by {
         }
         byteBuffer2.mark();
         try {
-        } catch (cg e) {
+        } catch (cg e2) {
             if (this.o.capacity() != 0) {
             }
         }
@@ -115,7 +108,7 @@ public class ca implements by {
             try {
                 f(ByteBuffer.wrap(dc.a(this.i.a(this))));
                 a(-3, "");
-            } catch (ch e2) {
+            } catch (ch unused) {
                 c(1006, "remote peer closed connection before flashpolicy could be transmitted", true);
             }
             return false;
@@ -123,12 +116,12 @@ public class ca implements by {
         try {
             if (this.m == by.b.CLIENT) {
                 this.l.a(this.m);
-                cx d = this.l.d(byteBuffer2);
-                if (!(d instanceof cz)) {
+                cx d2 = this.l.d(byteBuffer2);
+                if (!(d2 instanceof cz)) {
                     b(1002, "wrong http function", false);
                     return false;
                 }
-                cz czVar = (cz) d;
+                cz czVar = (cz) d2;
                 if (this.l.a(this.p, czVar) == cd.b.MATCHED) {
                     try {
                         this.i.a(this, this.p, czVar);
@@ -151,104 +144,70 @@ public class ca implements by {
         return false;
         if (this.o.capacity() != 0) {
             byteBuffer2.reset();
-            int a2 = e.a();
+            int a2 = e2.a();
             if (a2 == 0) {
                 a2 = byteBuffer2.capacity() + 16;
-            } else if (!h && e.a() < byteBuffer2.remaining()) {
+            } else if (!f9143h && e2.a() < byteBuffer2.remaining()) {
                 throw new AssertionError();
             }
-            this.o = ByteBuffer.allocate(a2);
-            this.o.put(byteBuffer);
+            ByteBuffer allocate2 = ByteBuffer.allocate(a2);
+            this.o = allocate2;
+            allocate2.put(byteBuffer);
         } else {
-            this.o.position(this.o.limit());
-            this.o.limit(this.o.capacity());
+            ByteBuffer byteBuffer3 = this.o;
+            byteBuffer3.position(byteBuffer3.limit());
+            ByteBuffer byteBuffer4 = this.o;
+            byteBuffer4.limit(byteBuffer4.capacity());
         }
         return false;
     }
 
     private void d(ByteBuffer byteBuffer) {
-        String str;
         try {
-        } catch (ch e) {
-            this.i.a(this, e);
-            a(e);
+        } catch (ch e2) {
+            this.i.a(this, e2);
+            a(e2);
             return;
         }
         for (cq cqVar : this.l.c(byteBuffer)) {
-            if (c) {
-                System.out.println("matched frame: " + cqVar);
+            if (f9142c) {
+                PrintStream printStream = System.out;
+                printStream.println("matched frame: " + cqVar);
             }
-            cq.a f = cqVar.f();
-            boolean d = cqVar.d();
-            if (this.k != by.a.CLOSING) {
-                if (f == cq.a.CLOSING) {
-                    int i = 1005;
-                    if (!(cqVar instanceof cn)) {
-                        str = "";
-                    } else {
-                        cn cnVar = (cn) cqVar;
-                        int a2 = cnVar.a();
-                        str = cnVar.b();
-                        i = a2;
-                    }
-                    if (this.k == by.a.CLOSING) {
-                        a(i, str, true);
-                    } else if (this.l.b() == cd.a.TWOWAY) {
-                        c(i, str, true);
-                    } else {
-                        b(i, str, false);
-                    }
-                } else if (f == cq.a.PING) {
-                    this.i.b(this, cqVar);
-                } else if (f == cq.a.PONG) {
-                    this.i.c(this, cqVar);
+            cq.a f2 = cqVar.f();
+            boolean d2 = cqVar.d();
+            if (this.k == by.a.CLOSING) {
+                return;
+            }
+            if (f2 == cq.a.CLOSING) {
+                int i = 1005;
+                String str = "";
+                if (cqVar instanceof cn) {
+                    cn cnVar = (cn) cqVar;
+                    i = cnVar.a();
+                    str = cnVar.b();
+                }
+                if (this.k == by.a.CLOSING) {
+                    a(i, str, true);
+                } else if (this.l.b() == cd.a.TWOWAY) {
+                    c(i, str, true);
                 } else {
-                    if (!d || f == cq.a.CONTINUOUS) {
-                        if (f != cq.a.CONTINUOUS) {
-                            if (this.n != null) {
-                                throw new ch(1002, "Previous continuous frame sequence not completed.");
-                            }
-                            this.n = cqVar;
-                        } else if (d) {
-                            if (this.n == null) {
-                                throw new ch(1002, "Continuous frame sequence was not started.");
-                            }
-                            if (this.n.f() == cq.a.TEXT) {
-                                int max = Math.max(this.n.c().limit() - 64, 0);
-                                this.n.a(cqVar);
-                                if (!dc.a(this.n.c(), max)) {
-                                    throw new ch(1007);
-                                }
-                            }
-                            this.n = null;
-                        } else if (this.n == null) {
-                            throw new ch(1002, "Continuous frame sequence was not started.");
-                        }
-                        if (f == cq.a.TEXT && !dc.b(cqVar.c())) {
-                            throw new ch(1007);
-                        }
-                        if (f == cq.a.CONTINUOUS && this.n != null && this.n.f() == cq.a.TEXT) {
-                            int max2 = Math.max(this.n.c().limit() - 64, 0);
-                            this.n.a(cqVar);
-                            if (!dc.a(this.n.c(), max2)) {
-                                throw new ch(1007);
-                            }
-                        }
-                        try {
-                            this.i.a(this, cqVar);
-                        } catch (RuntimeException e2) {
-                            this.i.a(this, e2);
-                        }
-                    } else if (this.n != null) {
-                        throw new ch(1002, "Continuous frame sequence not completed.");
-                    } else {
-                        if (f == cq.a.TEXT) {
+                    b(i, str, false);
+                }
+            } else if (f2 == cq.a.PING) {
+                this.i.b(this, cqVar);
+            } else if (f2 == cq.a.PONG) {
+                this.i.c(this, cqVar);
+            } else {
+                if (d2 && f2 != cq.a.CONTINUOUS) {
+                    if (this.n == null) {
+                        if (f2 == cq.a.TEXT) {
                             try {
                                 this.i.a(this, dc.a(cqVar.c()));
                             } catch (RuntimeException e3) {
                                 this.i.a(this, e3);
                             }
-                        } else if (f == cq.a.BINARY) {
+                        } else if (f2 == cq.a.BINARY) {
                             try {
                                 this.i.a(this, cqVar.c());
                             } catch (RuntimeException e4) {
@@ -257,115 +216,191 @@ public class ca implements by {
                         } else {
                             throw new ch(1002, "non control or continious frame expected");
                         }
+                        this.i.a(this, e2);
+                        a(e2);
+                        return;
                     }
-                    this.i.a(this, e);
-                    a(e);
-                    return;
+                    throw new ch(1002, "Continuous frame sequence not completed.");
                 }
-            } else {
-                return;
-            }
-        }
-    }
-
-    private void c(int i, String str, boolean z) {
-        if (this.k != by.a.CLOSING && this.k != by.a.CLOSED) {
-            if (this.k == by.a.OPEN) {
-                if (i == 1006) {
-                    if (!h && z) {
-                        throw new AssertionError();
+                if (f2 != cq.a.CONTINUOUS) {
+                    if (this.n == null) {
+                        this.n = cqVar;
+                    } else {
+                        throw new ch(1002, "Previous continuous frame sequence not completed.");
                     }
-                    this.k = by.a.CLOSING;
-                    b(i, str, false);
-                    return;
-                }
-                if (this.l.b() != cd.a.NONE) {
-                    if (!z) {
-                        try {
-                            try {
-                                this.i.a(this, i, str);
-                            } catch (RuntimeException e) {
-                                this.i.a(this, e);
+                } else if (d2) {
+                    if (this.n != null) {
+                        if (this.n.f() == cq.a.TEXT) {
+                            int max = Math.max(this.n.c().limit() - 64, 0);
+                            this.n.a(cqVar);
+                            if (!dc.a(this.n.c(), max)) {
+                                throw new ch(1007);
                             }
-                        } catch (ch e2) {
-                            this.i.a(this, e2);
-                            b(1006, "generated frame is invalid", false);
                         }
+                        this.n = null;
+                    } else {
+                        throw new ch(1002, "Continuous frame sequence was not started.");
                     }
-                    a(new co(i, str));
+                } else if (this.n == null) {
+                    throw new ch(1002, "Continuous frame sequence was not started.");
                 }
-                b(i, str, z);
-            } else if (i == -3) {
-                if (!h && !z) {
-                    throw new AssertionError();
+                if (f2 == cq.a.TEXT && !dc.b(cqVar.c())) {
+                    throw new ch(1007);
                 }
-                b(-3, str, true);
-            } else {
-                b(-1, str, false);
-            }
-            if (i == 1002) {
-                b(i, str, z);
-            }
-            this.k = by.a.CLOSING;
-            this.o = null;
-        }
-    }
-
-    public void a(int i, String str) {
-        c(i, str, false);
-    }
-
-    protected synchronized void a(int i, String str, boolean z) {
-        if (this.k != by.a.CLOSED) {
-            if (this.f != null) {
-                this.f.cancel();
-            }
-            if (this.g != null) {
+                if (f2 == cq.a.CONTINUOUS && this.n != null && this.n.f() == cq.a.TEXT) {
+                    int max2 = Math.max(this.n.c().limit() - 64, 0);
+                    this.n.a(cqVar);
+                    if (!dc.a(this.n.c(), max2)) {
+                        throw new ch(1007);
+                    }
+                }
                 try {
-                    this.g.close();
-                } catch (IOException e) {
-                    this.i.a(this, e);
+                    this.i.a(this, cqVar);
+                } catch (RuntimeException e5) {
+                    this.i.a(this, e5);
                 }
             }
-            try {
-                this.i.a(this, i, str, z);
-            } catch (RuntimeException e2) {
-                this.i.a(this, e2);
-            }
-            if (this.l != null) {
-                this.l.a();
-            }
-            this.p = null;
-            this.k = by.a.CLOSED;
-            this.d.clear();
         }
     }
 
-    protected void a(int i, boolean z) {
-        a(i, "", z);
+    private cd.b e(ByteBuffer byteBuffer) throws cg {
+        byteBuffer.mark();
+        if (byteBuffer.limit() > cd.f9159c.length) {
+            return cd.b.NOT_MATCHED;
+        }
+        if (byteBuffer.limit() >= cd.f9159c.length) {
+            int i = 0;
+            while (byteBuffer.hasRemaining()) {
+                if (cd.f9159c[i] != byteBuffer.get()) {
+                    byteBuffer.reset();
+                    return cd.b.NOT_MATCHED;
+                }
+                i++;
+            }
+            return cd.b.MATCHED;
+        }
+        throw new cg(cd.f9159c.length);
+    }
+
+    private void f(ByteBuffer byteBuffer) {
+        if (f9142c) {
+            PrintStream printStream = System.out;
+            StringBuilder sb = new StringBuilder();
+            sb.append("write(");
+            sb.append(byteBuffer.remaining());
+            sb.append("): {");
+            sb.append(byteBuffer.remaining() > 1000 ? "too big to display" : new String(byteBuffer.array()));
+            sb.append("}");
+            printStream.println(sb.toString());
+        }
+        this.f9144d.add(byteBuffer);
+        this.i.b(this);
+    }
+
+    public void a(ByteBuffer byteBuffer) {
+        if (!f9143h && !byteBuffer.hasRemaining()) {
+            throw new AssertionError();
+        }
+        if (f9142c) {
+            PrintStream printStream = System.out;
+            StringBuilder sb = new StringBuilder();
+            sb.append("process(");
+            sb.append(byteBuffer.remaining());
+            sb.append("): {");
+            sb.append(byteBuffer.remaining() > 1000 ? "too big to display" : new String(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining()));
+            sb.append("}");
+            printStream.println(sb.toString());
+        }
+        if (this.k != by.a.NOT_YET_CONNECTED) {
+            d(byteBuffer);
+        } else if (c(byteBuffer)) {
+            if (!f9143h && this.o.hasRemaining() == byteBuffer.hasRemaining() && byteBuffer.hasRemaining()) {
+                throw new AssertionError();
+            }
+            if (byteBuffer.hasRemaining()) {
+                d(byteBuffer);
+            } else if (this.o.hasRemaining()) {
+                d(this.o);
+            }
+        }
+        if (!f9143h && !d() && !e() && byteBuffer.hasRemaining()) {
+            throw new AssertionError();
+        }
     }
 
     public void b(int i, String str) {
         a(i, str, false);
     }
 
-    protected synchronized void b(int i, String str, boolean z) {
-        if (!this.j) {
-            this.r = Integer.valueOf(i);
-            this.q = str;
-            this.s = Boolean.valueOf(z);
-            this.j = true;
-            this.i.b(this);
-            try {
-                this.i.b(this, i, str, z);
-            } catch (RuntimeException e) {
-                this.i.a(this, e);
-            }
-            if (this.l != null) {
-                this.l.a();
-            }
-            this.p = null;
+    public by.a g() {
+        return this.k;
+    }
+
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    public String toString() {
+        return super.toString();
+    }
+
+    public synchronized void b(int i, String str, boolean z) {
+        if (this.j) {
+            return;
         }
+        this.r = Integer.valueOf(i);
+        this.q = str;
+        this.s = Boolean.valueOf(z);
+        this.j = true;
+        this.i.b(this);
+        try {
+            this.i.b(this, i, str, z);
+        } catch (RuntimeException e2) {
+            this.i.a(this, e2);
+        }
+        if (this.l != null) {
+            this.l.a();
+        }
+        this.p = null;
+    }
+
+    public boolean f() {
+        return this.k == by.a.CLOSED;
+    }
+
+    public boolean e() {
+        return this.j;
+    }
+
+    public void a(int i, String str) {
+        c(i, str, false);
+    }
+
+    public synchronized void a(int i, String str, boolean z) {
+        if (this.k == by.a.CLOSED) {
+            return;
+        }
+        if (this.f9146f != null) {
+            this.f9146f.cancel();
+        }
+        if (this.f9147g != null) {
+            try {
+                this.f9147g.close();
+            } catch (IOException e2) {
+                this.i.a(this, e2);
+            }
+        }
+        try {
+            this.i.a(this, i, str, z);
+        } catch (RuntimeException e3) {
+            this.i.a(this, e3);
+        }
+        if (this.l != null) {
+            this.l.a();
+        }
+        this.p = null;
+        this.k = by.a.CLOSED;
+        this.f9144d.clear();
     }
 
     public void b() {
@@ -382,6 +417,17 @@ public class ca implements by {
         }
     }
 
+    public void b(ByteBuffer byteBuffer) throws IllegalArgumentException, cm {
+        if (byteBuffer == null) {
+            throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
+        }
+        a(this.l.a(byteBuffer, this.m == by.b.CLIENT));
+    }
+
+    public void a(int i, boolean z) {
+        a(i, "", z);
+    }
+
     public void a(int i) {
         c(i, "", false);
     }
@@ -390,67 +436,43 @@ public class ca implements by {
         c(chVar.a(), chVar.getMessage(), false);
     }
 
-    public void b(ByteBuffer byteBuffer) throws IllegalArgumentException, cm {
-        if (byteBuffer == null) {
-            throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
-        }
-        a(this.l.a(byteBuffer, this.m == by.b.CLIENT));
-    }
-
     public void a(byte[] bArr) throws IllegalArgumentException, cm {
         b(ByteBuffer.wrap(bArr));
     }
 
     private void a(Collection<cq> collection) {
-        if (!c()) {
-            throw new cm();
+        if (c()) {
+            for (cq cqVar : collection) {
+                a(cqVar);
+            }
+            return;
         }
-        for (cq cqVar : collection) {
-            a(cqVar);
-        }
+        throw new cm();
     }
 
     @Override // com.baidu.mobstat.by
     public void a(cq cqVar) {
-        if (c) {
-            System.out.println("send frame: " + cqVar);
+        if (f9142c) {
+            PrintStream printStream = System.out;
+            printStream.println("send frame: " + cqVar);
         }
         f(this.l.a(cqVar));
     }
 
-    private cd.b e(ByteBuffer byteBuffer) throws cg {
-        byteBuffer.mark();
-        if (byteBuffer.limit() > cd.c.length) {
-            return cd.b.NOT_MATCHED;
-        }
-        if (byteBuffer.limit() < cd.c.length) {
-            throw new cg(cd.c.length);
-        }
-        int i = 0;
-        while (byteBuffer.hasRemaining()) {
-            if (cd.c[i] == byteBuffer.get()) {
-                i++;
-            } else {
-                byteBuffer.reset();
-                return cd.b.NOT_MATCHED;
-            }
-        }
-        return cd.b.MATCHED;
-    }
-
     public void a(ct ctVar) throws cj {
-        if (!h && this.k == by.a.CONNECTING) {
+        if (!f9143h && this.k == by.a.CONNECTING) {
             throw new AssertionError("shall only be called once");
         }
         this.p = this.l.a(ctVar);
-        this.t = ctVar.a();
-        if (!h && this.t == null) {
+        String a2 = ctVar.a();
+        this.t = a2;
+        if (!f9143h && a2 == null) {
             throw new AssertionError();
         }
         try {
             this.i.a((by) this, this.p);
             a(this.l.a(this.p, this.m));
-        } catch (ch e) {
+        } catch (ch unused) {
             throw new cj("Handshake data rejected by client.");
         } catch (RuntimeException e2) {
             this.i.a(this, e2);
@@ -458,12 +480,49 @@ public class ca implements by {
         }
     }
 
-    private void f(ByteBuffer byteBuffer) {
-        if (c) {
-            System.out.println("write(" + byteBuffer.remaining() + "): {" + (byteBuffer.remaining() > 1000 ? "too big to display" : new String(byteBuffer.array())) + "}");
+    private void c(int i, String str, boolean z) {
+        by.a aVar = this.k;
+        if (aVar == by.a.CLOSING || aVar == by.a.CLOSED) {
+            return;
         }
-        this.d.add(byteBuffer);
-        this.i.b(this);
+        if (aVar == by.a.OPEN) {
+            if (i == 1006) {
+                if (!f9143h && z) {
+                    throw new AssertionError();
+                }
+                this.k = by.a.CLOSING;
+                b(i, str, false);
+                return;
+            }
+            if (this.l.b() != cd.a.NONE) {
+                try {
+                    if (!z) {
+                        try {
+                            this.i.a(this, i, str);
+                        } catch (RuntimeException e2) {
+                            this.i.a(this, e2);
+                        }
+                    }
+                    a(new co(i, str));
+                } catch (ch e3) {
+                    this.i.a(this, e3);
+                    b(1006, "generated frame is invalid", false);
+                }
+            }
+            b(i, str, z);
+        } else if (i == -3) {
+            if (!f9143h && !z) {
+                throw new AssertionError();
+            }
+            b(-3, str, true);
+        } else {
+            b(-1, str, false);
+        }
+        if (i == 1002) {
+            b(i, str, z);
+        }
+        this.k = by.a.CLOSING;
+        this.o = null;
     }
 
     private void a(List<ByteBuffer> list) {
@@ -473,50 +532,31 @@ public class ca implements by {
     }
 
     private void a(cx cxVar) {
-        if (c) {
-            System.out.println("open using draft: " + this.l.getClass().getSimpleName());
+        if (f9142c) {
+            PrintStream printStream = System.out;
+            printStream.println("open using draft: " + this.l.getClass().getSimpleName());
         }
         this.k = by.a.OPEN;
         try {
             this.i.a(this, cxVar);
-        } catch (RuntimeException e) {
-            this.i.a(this, e);
+        } catch (RuntimeException e2) {
+            this.i.a(this, e2);
         }
     }
 
-    public boolean c() {
-        if (!h && this.k == by.a.OPEN && this.j) {
-            throw new AssertionError();
-        }
-        return this.k == by.a.OPEN;
+    @Override // com.baidu.mobstat.by
+    public InetSocketAddress a() {
+        return this.i.c(this);
     }
 
     public boolean d() {
         return this.k == by.a.CLOSING;
     }
 
-    public boolean e() {
-        return this.j;
-    }
-
-    public boolean f() {
-        return this.k == by.a.CLOSED;
-    }
-
-    public by.a g() {
-        return this.k;
-    }
-
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    public String toString() {
-        return super.toString();
-    }
-
-    @Override // com.baidu.mobstat.by
-    public InetSocketAddress a() {
-        return this.i.c(this);
+    public boolean c() {
+        if (!f9143h && this.k == by.a.OPEN && this.j) {
+            throw new AssertionError();
+        }
+        return this.k == by.a.OPEN;
     }
 }

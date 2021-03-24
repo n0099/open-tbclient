@@ -1,6 +1,4 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
-class Empty {
-    Empty() {
-    }
+/* loaded from: classes7.dex */
+public class Empty {
 }

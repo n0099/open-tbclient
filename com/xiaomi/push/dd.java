@@ -1,132 +1,41 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes5.dex */
-public abstract class dd {
+import com.xiaomi.push.al;
+import com.xiaomi.push.db;
+/* loaded from: classes7.dex */
+public class dd extends al.b {
 
-    /* loaded from: classes5.dex */
-    public static class a extends dc {
-        public a() {
-            super(1);
+    /* renamed from: a  reason: collision with root package name */
+    public al.b f40355a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ db f227a;
+
+    public dd(db dbVar) {
+        this.f227a = dbVar;
+    }
+
+    @Override // com.xiaomi.push.al.b
+    public void b() {
+        db.b bVar = (db.b) this.f227a.f215a.peek();
+        if (bVar == null || !bVar.a()) {
+            return;
         }
-
-        @Override // com.xiaomi.push.dc
-        public String a(Context context, String str, List<ay> list) {
-            if (list == null) {
-                return az.a(context, new URL(str));
-            }
-            Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-            for (ay ayVar : list) {
-                buildUpon.appendQueryParameter(ayVar.a(), ayVar.b());
-            }
-            return az.a(context, new URL(buildUpon.toString()));
+        if (this.f227a.f215a.remove(bVar)) {
+            this.f40355a = bVar;
+        }
+        al.b bVar2 = this.f40355a;
+        if (bVar2 != null) {
+            bVar2.b();
         }
     }
 
-    static int a(int i, int i2) {
-        return (((i2 + 243) / 1448) * IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER) + 1080 + i + i2;
-    }
-
-    static int a(int i, int i2, int i3) {
-        return (((i2 + 200) / 1448) * IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER) + 1011 + i2 + i + i3;
-    }
-
-    private static int a(dc dcVar, String str, List<ay> list, String str2) {
-        if (dcVar.a() == 1) {
-            return a(str.length(), a(str2));
+    @Override // com.xiaomi.push.al.b
+    /* renamed from: c */
+    public void mo223c() {
+        al.b bVar = this.f40355a;
+        if (bVar != null) {
+            bVar.mo223c();
         }
-        if (dcVar.a() == 2) {
-            return a(str.length(), a(list), a(str2));
-        }
-        return -1;
-    }
-
-    static int a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return 0;
-        }
-        try {
-            return str.getBytes("UTF-8").length;
-        } catch (UnsupportedEncodingException e) {
-            return 0;
-        }
-    }
-
-    static int a(List<ay> list) {
-        int i = 0;
-        Iterator<ay> it = list.iterator();
-        while (true) {
-            int i2 = i;
-            if (!it.hasNext()) {
-                return i2 * 2;
-            }
-            ay next = it.next();
-            if (!TextUtils.isEmpty(next.a())) {
-                i2 += next.a().length();
-            }
-            i = !TextUtils.isEmpty(next.b()) ? next.b().length() + i2 : i2;
-        }
-    }
-
-    public static String a(Context context, String str, List<ay> list) {
-        return a(context, str, list, new a(), true);
-    }
-
-    public static String a(Context context, String str, List<ay> list, dc dcVar, boolean z) {
-        if (az.b(context)) {
-            try {
-                ArrayList<String> arrayList = new ArrayList<>();
-                cv cvVar = null;
-                if (z && (cvVar = cz.a().m220a(str)) != null) {
-                    arrayList = cvVar.a(str);
-                }
-                if (!arrayList.contains(str)) {
-                    arrayList.add(str);
-                }
-                String str2 = null;
-                Iterator<String> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    ArrayList arrayList2 = list != null ? new ArrayList(list) : null;
-                    long currentTimeMillis = System.currentTimeMillis();
-                    try {
-                    } catch (IOException e) {
-                        if (cvVar != null) {
-                            cvVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(dcVar, next, arrayList2, str2), e);
-                        }
-                        e.printStackTrace();
-                    }
-                    if (!dcVar.m229a(context, next, (List<ay>) arrayList2)) {
-                        return str2;
-                    }
-                    str2 = dcVar.a(context, next, (List<ay>) arrayList2);
-                    if (!TextUtils.isEmpty(str2)) {
-                        if (cvVar != null) {
-                            cvVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(dcVar, next, arrayList2, str2));
-                            return str2;
-                        }
-                        return str2;
-                    }
-                    if (cvVar != null) {
-                        cvVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(dcVar, next, arrayList2, str2), null);
-                    }
-                    str2 = str2;
-                }
-                return str2;
-            } catch (MalformedURLException e2) {
-                e2.printStackTrace();
-            }
-        }
-        return null;
     }
 }

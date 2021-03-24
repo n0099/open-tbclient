@@ -1,17 +1,16 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.squareup.wire.Wire;
 import protobuf.AddGroup.AddGroupResIdl;
 import protobuf.GroupInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ResponseAddGroupMessage extends SocketResponsedMessage {
-    private AddGroupInfoData groupInfo;
+    public AddGroupInfoData groupInfo;
 
     public ResponseAddGroupMessage() {
-        super(CmdConfigSocket.CMD_ADD_GROUP);
+        super(103101);
     }
 
     public AddGroupInfoData getAddGroupInfo() {
@@ -19,33 +18,34 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         AddGroupResIdl addGroupResIdl = (AddGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, AddGroupResIdl.class);
         setError(addGroupResIdl.error.errorno.intValue());
         setErrorString(addGroupResIdl.error.usermsg);
-        if (getError() == 0) {
-            AddGroupInfoData addGroupInfoData = new AddGroupInfoData();
-            GroupInfo groupInfo = addGroupResIdl.data.group;
-            addGroupInfoData.setGroupId(groupInfo.groupId.longValue());
-            addGroupInfoData.setForumId(groupInfo.forumId.intValue());
-            addGroupInfoData.setName(groupInfo.name);
-            addGroupInfoData.setIntro(groupInfo.intro);
-            addGroupInfoData.setPortrait(groupInfo.portrait);
-            addGroupInfoData.setPosition(groupInfo.position);
-            addGroupInfoData.setLng(String.valueOf(groupInfo.lng));
-            addGroupInfoData.setLat(String.valueOf(groupInfo.lat));
-            addGroupInfoData.setNotice(groupInfo.notice);
-            addGroupInfoData.setAlbum(groupInfo.album);
-            addGroupInfoData.setStatus(groupInfo.status.intValue());
-            addGroupInfoData.setAuthorId(groupInfo.authorId.longValue());
-            addGroupInfoData.setAuthorName(groupInfo.authorName);
-            addGroupInfoData.setAuthorNameShow(groupInfo.authorNameShow);
-            addGroupInfoData.setCreateTime(groupInfo.createTime.intValue());
-            addGroupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
-            addGroupInfoData.setMemberNum(groupInfo.memberNum.intValue());
-            addGroupInfoData.setGroupType(groupInfo.groupType.intValue());
-            this.groupInfo = addGroupInfoData;
+        if (getError() != 0) {
+            return;
         }
+        AddGroupInfoData addGroupInfoData = new AddGroupInfoData();
+        GroupInfo groupInfo = addGroupResIdl.data.group;
+        addGroupInfoData.setGroupId(groupInfo.groupId.longValue());
+        addGroupInfoData.setForumId(groupInfo.forumId.intValue());
+        addGroupInfoData.setName(groupInfo.name);
+        addGroupInfoData.setIntro(groupInfo.intro);
+        addGroupInfoData.setPortrait(groupInfo.portrait);
+        addGroupInfoData.setPosition(groupInfo.position);
+        addGroupInfoData.setLng(String.valueOf(groupInfo.lng));
+        addGroupInfoData.setLat(String.valueOf(groupInfo.lat));
+        addGroupInfoData.setNotice(groupInfo.notice);
+        addGroupInfoData.setAlbum(groupInfo.album);
+        addGroupInfoData.setStatus(groupInfo.status.intValue());
+        addGroupInfoData.setAuthorId(groupInfo.authorId.longValue());
+        addGroupInfoData.setAuthorName(groupInfo.authorName);
+        addGroupInfoData.setAuthorNameShow(groupInfo.authorNameShow);
+        addGroupInfoData.setCreateTime(groupInfo.createTime.intValue());
+        addGroupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
+        addGroupInfoData.setMemberNum(groupInfo.memberNum.intValue());
+        addGroupInfoData.setGroupType(groupInfo.groupType.intValue());
+        this.groupInfo = addGroupInfoData;
     }
 }

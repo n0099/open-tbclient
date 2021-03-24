@@ -1,16 +1,15 @@
 package com.baidu.adp.framework.message;
 /* loaded from: classes.dex */
 public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
-    private T mData;
+    public T mData;
 
     public CustomResponsedMessage(int i) {
         super(i);
         this.mData = null;
     }
 
-    public CustomResponsedMessage(int i, T t) {
-        super(i);
-        this.mData = null;
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, T t) throws Exception {
         this.mData = t;
     }
 
@@ -18,13 +17,14 @@ public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
         return this.mData;
     }
 
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, T t) throws Exception {
-        this.mData = t;
-    }
-
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public boolean hasError() {
         return getError() != 0;
+    }
+
+    public CustomResponsedMessage(int i, T t) {
+        super(i);
+        this.mData = null;
+        this.mData = t;
     }
 }

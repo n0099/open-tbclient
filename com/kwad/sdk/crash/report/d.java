@@ -8,24 +8,23 @@ import com.kwad.sdk.crash.utils.f;
 import com.kwad.sdk.crash.utils.g;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class d extends b {
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0018  */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00fd  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x004f  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x00ca  */
     @Override // com.kwad.sdk.crash.report.b
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    protected ExceptionMessage a(@NonNull File file, File file2, File file3, String str) {
+    public ExceptionMessage a(@NonNull File file, File file2, File file3, String str) {
         String str2;
         JavaExceptionMessage javaExceptionMessage;
-        JavaExceptionMessage javaExceptionMessage2;
-        JavaExceptionMessage javaExceptionMessage3;
+        Exception e2;
+        JavaExceptionMessage javaExceptionMessage2 = null;
         try {
             str2 = g.d(file);
-        } catch (Exception e) {
-            this.b += e + "\n";
+        } catch (Exception e3) {
+            this.f34471b += e3 + "\n";
             str2 = null;
         }
         if (str2 != null) {
@@ -33,55 +32,50 @@ public final class d extends b {
                 javaExceptionMessage = new JavaExceptionMessage();
                 try {
                     javaExceptionMessage.parseJson(new JSONObject(str2));
+                } catch (Exception e4) {
+                    e2 = e4;
+                    this.f34471b += e2 + "\n";
                     javaExceptionMessage2 = javaExceptionMessage;
-                } catch (Exception e2) {
-                    e = e2;
-                    this.b += e + "\n";
-                    javaExceptionMessage2 = javaExceptionMessage;
-                    if (javaExceptionMessage2 != null) {
+                    if (javaExceptionMessage2 == null) {
                     }
-                    javaExceptionMessage3.mLogUUID = f.a(file.getName());
-                    this.f6387a.a("ExceptionCollector", "------ Java Crash Report Begin ------\n" + javaExceptionMessage3);
-                    a(new File(str + ".jtrace"), javaExceptionMessage3);
-                    b(file3, javaExceptionMessage3);
-                    f.a(file, javaExceptionMessage3.toString());
+                    javaExceptionMessage2.mLogUUID = f.a(file.getName());
+                    this.f34470a.a("ExceptionCollector", "------ Java Crash Report Begin ------\n" + javaExceptionMessage2);
+                    a(new File(str + ".jtrace"), javaExceptionMessage2);
+                    b(file3, javaExceptionMessage2);
+                    f.a(file, javaExceptionMessage2.toString());
                     f.a(file3, file);
                     file.renameTo(file3);
-                    if (!TextUtils.isEmpty(this.b)) {
+                    if (!TextUtils.isEmpty(this.f34471b)) {
                     }
-                    return javaExceptionMessage3;
+                    return javaExceptionMessage2;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e5) {
                 javaExceptionMessage = null;
+                e2 = e5;
             }
-        } else {
-            javaExceptionMessage2 = null;
+            javaExceptionMessage2 = javaExceptionMessage;
         }
-        if (javaExceptionMessage2 != null) {
-            JavaExceptionMessage javaExceptionMessage4 = new JavaExceptionMessage();
+        if (javaExceptionMessage2 == null) {
+            javaExceptionMessage2 = new JavaExceptionMessage();
             if (!TextUtils.isEmpty(str2)) {
-                javaExceptionMessage4.mCrashDetail = str2;
+                javaExceptionMessage2.mCrashDetail = str2;
             }
-            javaExceptionMessage3 = javaExceptionMessage4;
-        } else {
-            javaExceptionMessage3 = javaExceptionMessage2;
         }
         try {
-            javaExceptionMessage3.mLogUUID = f.a(file.getName());
-            this.f6387a.a("ExceptionCollector", "------ Java Crash Report Begin ------\n" + javaExceptionMessage3);
-            a(new File(str + ".jtrace"), javaExceptionMessage3);
-            b(file3, javaExceptionMessage3);
-            f.a(file, javaExceptionMessage3.toString());
+            javaExceptionMessage2.mLogUUID = f.a(file.getName());
+            this.f34470a.a("ExceptionCollector", "------ Java Crash Report Begin ------\n" + javaExceptionMessage2);
+            a(new File(str + ".jtrace"), javaExceptionMessage2);
+            b(file3, javaExceptionMessage2);
+            f.a(file, javaExceptionMessage2.toString());
             f.a(file3, file);
             file.renameTo(file3);
         } catch (Throwable th) {
-            this.b += th + "\n";
+            this.f34471b += th + "\n";
             com.kwad.sdk.core.d.a.b(th);
         }
-        if (!TextUtils.isEmpty(this.b)) {
-            javaExceptionMessage3.mErrorMessage += this.b;
+        if (!TextUtils.isEmpty(this.f34471b)) {
+            javaExceptionMessage2.mErrorMessage += this.f34471b;
         }
-        return javaExceptionMessage3;
+        return javaExceptionMessage2;
     }
 }

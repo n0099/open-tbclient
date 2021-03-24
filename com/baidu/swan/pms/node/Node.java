@@ -1,47 +1,28 @@
 package com.baidu.swan.pms.node;
 
 import android.text.TextUtils;
+import d.b.g0.l.f;
+import d.b.g0.l.m.j.c;
+import d.b.g0.l.m.j.d;
+import d.b.g0.l.m.k.e;
 /* loaded from: classes3.dex */
 public enum Node {
-    HOST("host", com.baidu.swan.pms.node.c.c.class, com.baidu.swan.pms.node.c.d.class),
-    PACKAGE("package", com.baidu.swan.pms.node.d.d.class, com.baidu.swan.pms.node.d.e.class, true),
-    CERES("ceres", com.baidu.swan.pms.node.a.c.class, com.baidu.swan.pms.node.a.d.class),
-    COMMON("common", com.baidu.swan.pms.node.b.c.class, com.baidu.swan.pms.node.b.d.class);
+    HOST("host", c.class, d.class),
+    PACKAGE("package", d.b.g0.l.m.k.d.class, e.class, true),
+    CERES("ceres", d.b.g0.l.m.h.c.class, d.b.g0.l.m.h.d.class),
+    COMMON("common", d.b.g0.l.m.i.c.class, d.b.g0.l.m.i.d.class);
     
     public static final String TAG = "LXNODE";
-    private boolean mIsDataArray;
-    private String mName;
-    private Class<? extends e> mParamsProvider;
-    private Class<? extends d> mProcessor;
+    public boolean mIsDataArray;
+    public String mName;
+    public Class<? extends d.b.g0.l.m.e> mParamsProvider;
+    public Class<? extends d.b.g0.l.m.d> mProcessor;
 
     Node(String str, Class cls, Class cls2, boolean z) {
         this.mName = str;
         this.mParamsProvider = cls;
         this.mProcessor = cls2;
         this.mIsDataArray = z;
-    }
-
-    Node(String str, Class cls, Class cls2) {
-        this.mName = str;
-        this.mParamsProvider = cls;
-        this.mProcessor = cls2;
-        this.mIsDataArray = false;
-    }
-
-    public String getName() {
-        return this.mName;
-    }
-
-    public Class<? extends e> getParamsProvider() {
-        return this.mParamsProvider;
-    }
-
-    public Class<? extends d> getProcessor() {
-        return this.mProcessor;
-    }
-
-    public boolean isDataArray() {
-        return this.mIsDataArray;
     }
 
     public static Node getNodeByConfigName(String str) {
@@ -54,19 +35,41 @@ public enum Node {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static e getProvider(Node node) {
-        Class<? extends e> paramsProvider;
-        if (node != null && (paramsProvider = node.getParamsProvider()) != null) {
-            try {
-                return paramsProvider.newInstance();
-            } catch (IllegalAccessException | InstantiationException e) {
-                if (com.baidu.swan.pms.d.DEBUG) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
+    public static d.b.g0.l.m.e getProvider(Node node) {
+        Class<? extends d.b.g0.l.m.e> paramsProvider;
+        if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
+            return null;
         }
-        return null;
+        try {
+            return paramsProvider.newInstance();
+        } catch (IllegalAccessException | InstantiationException e2) {
+            if (f.f48888a) {
+                e2.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+    public String getName() {
+        return this.mName;
+    }
+
+    public Class<? extends d.b.g0.l.m.e> getParamsProvider() {
+        return this.mParamsProvider;
+    }
+
+    public Class<? extends d.b.g0.l.m.d> getProcessor() {
+        return this.mProcessor;
+    }
+
+    public boolean isDataArray() {
+        return this.mIsDataArray;
+    }
+
+    Node(String str, Class cls, Class cls2) {
+        this.mName = str;
+        this.mParamsProvider = cls;
+        this.mProcessor = cls2;
+        this.mIsDataArray = false;
     }
 }

@@ -1,72 +1,84 @@
 package com.baidu.sofire.j;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.sofire.o.b;
-/* loaded from: classes4.dex */
-public class a implements b {
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+/* loaded from: classes3.dex */
+public interface a extends IInterface {
 
-    /* renamed from: a  reason: collision with root package name */
-    private static a f3555a;
-    private b b = null;
-    private boolean c = false;
+    /* renamed from: com.baidu.sofire.j.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public static abstract class AbstractBinderC0157a extends Binder implements a {
 
-    private a() {
-    }
+        /* renamed from: com.baidu.sofire.j.a$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public static class C0158a implements a {
 
-    public static a a() {
-        if (f3555a == null) {
-            synchronized (a.class) {
-                if (f3555a == null) {
-                    f3555a = new a();
+            /* renamed from: a  reason: collision with root package name */
+            public static a f11816a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public IBinder f11817b;
+
+            public C0158a(IBinder iBinder) {
+                this.f11817b = iBinder;
+            }
+
+            @Override // com.baidu.sofire.j.a
+            public final String a(String str, String str2, String str3) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
+                    obtain.writeString(str);
+                    obtain.writeString(str2);
+                    obtain.writeString(str3);
+                    if (this.f11817b.transact(1, obtain, obtain2, 0) || AbstractBinderC0157a.a() == null) {
+                        obtain2.readException();
+                        return obtain2.readString();
+                    }
+                    return AbstractBinderC0157a.a().a(str, str2, str3);
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
             }
+
+            @Override // android.os.IInterface
+            public final IBinder asBinder() {
+                return this.f11817b;
+            }
         }
-        return f3555a;
+
+        public static a a() {
+            return C0158a.f11816a;
+        }
+
+        public static a a(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0158a(iBinder) : (a) queryLocalInterface;
+        }
+
+        @Override // android.os.Binder
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString("com.heytap.openid.IOpenID");
+                return true;
+            }
+            parcel.enforceInterface("com.heytap.openid.IOpenID");
+            String a2 = a(parcel.readString(), parcel.readString(), parcel.readString());
+            parcel2.writeNoException();
+            parcel2.writeString(a2);
+            return true;
+        }
     }
 
-    @Override // com.baidu.sofire.j.b
-    public final void a(Context context, c cVar) {
-        try {
-            if (this.c) {
-                return;
-            }
-            this.c = true;
-            switch (b.a.a(Build.MANUFACTURER)) {
-                case VIVO:
-                    this.b = new com.baidu.sofire.m.c();
-                    break;
-                case OPPO:
-                    this.b = new com.baidu.sofire.l.c();
-                    break;
-                case XIAOMI:
-                    this.b = new com.baidu.sofire.n.b();
-                    break;
-                case HUA_WEI:
-                    this.b = new com.baidu.sofire.k.b();
-                    break;
-                case UNSUPPORT:
-                    this.b = null;
-                    break;
-            }
-            if (this.b != null) {
-                this.b.a(context, cVar);
-            }
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-    }
-
-    @Override // com.baidu.sofire.j.b
-    public final String b() {
-        if (this.b == null) {
-            return null;
-        }
-        try {
-            return this.b.b();
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return null;
-        }
-    }
+    String a(String str, String str2, String str3);
 }

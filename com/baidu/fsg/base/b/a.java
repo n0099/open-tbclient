@@ -15,65 +15,148 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f1494a = 1000;
-    private static final long e = Long.MAX_VALUE;
-    private static final int f = 5;
-    private static final int g = 128;
-    private static final int h = 1;
-    private static final boolean c = ApollonConstants.DEBUG;
-    private static final String d = a.class.getSimpleName();
-    public static HashMap<String, a> b = new HashMap<>();
-    private static a i = null;
-    private final HashMap<Future<?>, Runnable> k = new HashMap<>();
-    private final ThreadFactory l = new com.baidu.fsg.base.b.b(this);
-    private long m = e;
-    private Timer n = new Timer();
-    private BlockingQueue<Runnable> o = new LinkedBlockingQueue(10);
-    private C0114a p = new C0114a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
-    private b q = new b(this, null);
-    private final HashMap<String, ArrayList<c>> j = new HashMap<>();
+    public static final long f5151a = 1000;
 
-    private a() {
+    /* renamed from: e  reason: collision with root package name */
+    public static final long f5155e = Long.MAX_VALUE;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final int f5156f = 5;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final int f5157g = 128;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final int f5158h = 1;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final boolean f5153c = ApollonConstants.DEBUG;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f5154d = a.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static HashMap<String, a> f5152b = new HashMap<>();
+    public static a i = null;
+    public final HashMap<Future<?>, Runnable> k = new HashMap<>();
+    public final ThreadFactory l = new com.baidu.fsg.base.b.b(this);
+    public long m = Long.MAX_VALUE;
+    public Timer n = new Timer();
+    public BlockingQueue<Runnable> o = new LinkedBlockingQueue(10);
+    public C0078a p = new C0078a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
+    public b q = new b(this, null);
+    public final HashMap<String, ArrayList<c>> j = new HashMap<>();
+
+    /* renamed from: com.baidu.fsg.base.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public class C0078a extends ThreadPoolExecutor {
+        public C0078a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
+            super(i, i2, j, timeUnit, blockingQueue, threadFactory);
+        }
+
+        @Override // java.util.concurrent.ThreadPoolExecutor
+        public void afterExecute(Runnable runnable, Throwable th) {
+            a.this.k.remove((Future) runnable);
+            super.afterExecute(runnable, th);
+        }
     }
 
-    public static synchronized a a(String str) {
-        a aVar;
-        synchronized (a.class) {
-            if (b.get(str) == null) {
-                i = new a();
-                b.put(str, i);
-            }
-            aVar = i;
+    /* loaded from: classes2.dex */
+    public class c {
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f5163a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public Runnable f5164b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public long f5165c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public long f5166d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f5167e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public long f5168f;
+
+        public c(long j, long j2, boolean z, String str, Runnable runnable) {
+            this.f5166d = j;
+            this.f5168f = System.currentTimeMillis() + j;
+            this.f5165c = j2;
+            this.f5167e = z;
+            this.f5164b = runnable;
+            this.f5163a = str;
         }
-        return aVar;
     }
 
-    public boolean a(c cVar, String str) {
-        if (cVar == null || cVar.b == null) {
-            return false;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d(c cVar) {
+        if (cVar.f5165c > 0) {
+            cVar.f5166d = 0L;
         }
-        synchronized (this.j) {
-            ArrayList<c> c2 = c(str);
-            if (!a(cVar, c2)) {
-                if (cVar.f <= System.currentTimeMillis()) {
-                    c(cVar);
-                } else if (cVar.d > 0) {
-                    c(cVar);
-                }
-                if (cVar.c > 0) {
-                    cVar.f = System.currentTimeMillis() + cVar.d + cVar.c;
-                    c2.add(cVar);
-                    a(cVar);
-                }
-            } else {
-                b(cVar, str);
+        if (cVar.f5167e) {
+            this.q.execute(cVar.f5164b);
+            return;
+        }
+        this.k.put(this.p.submit(cVar.f5164b), cVar.f5164b);
+        if (f5153c) {
+            String str = f5154d;
+            Log.d(str, "execute task, " + cVar.f5163a + " execute time is " + System.currentTimeMillis());
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements Executor {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final LinkedList<Runnable> f5160a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public Runnable f5161b;
+
+        public b() {
+            this.f5160a = new LinkedList<>();
+        }
+
+        public synchronized void a() {
+            Runnable poll = this.f5160a.poll();
+            this.f5161b = poll;
+            if (poll != null) {
+                a.this.p.execute(this.f5161b);
             }
         }
-        return true;
+
+        @Override // java.util.concurrent.Executor
+        public synchronized void execute(Runnable runnable) {
+            this.f5160a.offer(new e(this, runnable));
+            if (this.f5161b == null) {
+                a();
+            }
+        }
+
+        public /* synthetic */ b(a aVar, com.baidu.fsg.base.b.b bVar) {
+            this();
+        }
+
+        public synchronized void a(Runnable runnable) {
+            this.f5160a.remove(runnable);
+        }
+    }
+
+    private ArrayList<c> c(String str) {
+        ArrayList<c> arrayList = this.j.get(str);
+        if (arrayList == null) {
+            arrayList = new ArrayList<>();
+        }
+        this.j.put(str, arrayList);
+        return arrayList;
     }
 
     public void b(String str) {
@@ -88,15 +171,89 @@ public final class a {
         }
     }
 
+    public static synchronized a a(String str) {
+        a aVar;
+        synchronized (a.class) {
+            if (f5152b.get(str) == null) {
+                a aVar2 = new a();
+                i = aVar2;
+                f5152b.put(str, aVar2);
+            }
+            aVar = i;
+        }
+        return aVar;
+    }
+
+    private void c(c cVar) {
+        if (cVar.f5166d > 0) {
+            a(cVar, cVar.f5168f - System.currentTimeMillis());
+        } else {
+            d(cVar);
+        }
+    }
+
+    public boolean a(c cVar, String str) {
+        if (cVar == null || cVar.f5164b == null) {
+            return false;
+        }
+        synchronized (this.j) {
+            ArrayList<c> c2 = c(str);
+            if (!a(cVar, c2)) {
+                if (cVar.f5168f <= System.currentTimeMillis()) {
+                    c(cVar);
+                } else if (cVar.f5166d > 0) {
+                    c(cVar);
+                }
+                if (cVar.f5165c > 0) {
+                    cVar.f5168f = System.currentTimeMillis() + cVar.f5166d + cVar.f5165c;
+                    c2.add(cVar);
+                    a(cVar);
+                }
+            } else {
+                b(cVar, str);
+            }
+        }
+        return true;
+    }
+
+    private boolean b(c cVar, String str) {
+        if (cVar == null || cVar.f5164b == null) {
+            return false;
+        }
+        synchronized (this.j) {
+            ArrayList<c> c2 = c(str);
+            c a2 = a(cVar.f5163a, c2);
+            if (a2 != null) {
+                b(a2);
+                c2.remove(a2);
+                a(cVar, str);
+                return true;
+            }
+            return false;
+        }
+    }
+
+    private void b(c cVar) {
+        if (cVar.f5167e) {
+            this.q.a(cVar.f5164b);
+            return;
+        }
+        for (Future<?> future : this.k.keySet()) {
+            if (this.k.get(future) == cVar.f5164b && future != null && (!future.isCancelled() || !future.isDone())) {
+                future.cancel(true);
+            }
+        }
+    }
+
     public void a(String str, String str2) {
         synchronized (this.j) {
             ArrayList<c> c2 = c(str);
             Iterator<c> it = c2.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next.f1497a.equals(str2)) {
+                if (next.f5163a.equals(str2)) {
                     b(next);
-                    c2.remove(next.f1497a);
+                    c2.remove(next.f5163a);
                 }
             }
         }
@@ -106,51 +263,28 @@ public final class a {
         Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
             c next = it.next();
-            if (TextUtils.equals(str, next.f1497a)) {
+            if (TextUtils.equals(str, next.f5163a)) {
                 return next;
             }
         }
         return null;
     }
 
-    private ArrayList<c> c(String str) {
-        ArrayList<c> arrayList = this.j.get(str);
-        if (arrayList == null) {
-            arrayList = new ArrayList<>();
-        }
-        this.j.put(str, arrayList);
-        return arrayList;
-    }
-
-    private boolean b(c cVar, String str) {
-        boolean z = false;
-        if (cVar != null && cVar.b != null) {
-            synchronized (this.j) {
-                ArrayList<c> c2 = c(str);
-                c a2 = a(cVar.f1497a, c2);
-                if (a2 != null) {
-                    b(a2);
-                    c2.remove(a2);
-                    a(cVar, str);
-                    z = true;
-                }
-            }
-        }
-        return z;
-    }
-
     private void a(c cVar) {
-        if (cVar.f < this.m) {
-            a(Math.max(cVar.f - System.currentTimeMillis(), 1000L));
+        long j = cVar.f5168f;
+        if (j < this.m) {
+            a(Math.max(j - System.currentTimeMillis(), 1000L));
         }
     }
 
     private void a(long j) {
-        if (c) {
-            Log.d(d, "intervalMillis: " + j);
+        if (f5153c) {
+            String str = f5154d;
+            Log.d(str, "intervalMillis: " + j);
         }
-        if (this.n != null) {
-            this.n.cancel();
+        Timer timer = this.n;
+        if (timer != null) {
+            timer.cancel();
             this.n = null;
         }
         this.n = new Timer();
@@ -159,32 +293,33 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (c) {
-            Log.d(d, "scheduleForPeriodTasks run");
+        if (f5153c) {
+            Log.d(f5154d, "scheduleForPeriodTasks run");
         }
         synchronized (this.j) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.m = e;
+            this.m = Long.MAX_VALUE;
             for (String str : this.j.keySet()) {
                 ArrayList arrayList = new ArrayList();
                 Iterator<c> it = c(str).iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.f - currentTimeMillis < 1000) {
-                        if (c) {
-                            Log.d(d, "task.mNextRunTime - current = " + (next.f - currentTimeMillis));
+                    if (next.f5168f - currentTimeMillis < 1000) {
+                        if (f5153c) {
+                            String str2 = f5154d;
+                            Log.d(str2, "task.mNextRunTime - current = " + (next.f5168f - currentTimeMillis));
                         }
                         c(next);
-                        if (next.c > 0) {
-                            next.f = next.c + currentTimeMillis;
+                        if (next.f5165c > 0) {
+                            next.f5168f = next.f5165c + currentTimeMillis;
                             arrayList.add(next);
                         }
                     }
-                    if (next.f < this.m) {
-                        this.m = next.f;
+                    if (next.f5168f < this.m) {
+                        this.m = next.f5168f;
                     }
                 }
-                if (this.m < e) {
+                if (this.m < Long.MAX_VALUE) {
                     a(this.m - currentTimeMillis);
                 }
             }
@@ -194,123 +329,14 @@ public final class a {
     private boolean a(c cVar, ArrayList<c> arrayList) {
         Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(it.next().f1497a, cVar.f1497a)) {
+            if (TextUtils.equals(it.next().f5163a, cVar.f5163a)) {
                 return true;
             }
         }
         return false;
     }
 
-    private void b(c cVar) {
-        if (cVar.e) {
-            this.q.a(cVar.b);
-            return;
-        }
-        for (Future<?> future : this.k.keySet()) {
-            if (this.k.get(future) == cVar.b && future != null && (!future.isCancelled() || !future.isDone())) {
-                future.cancel(true);
-            }
-        }
-    }
-
-    private void c(c cVar) {
-        if (cVar.d > 0) {
-            a(cVar, cVar.f - System.currentTimeMillis());
-        } else {
-            d(cVar);
-        }
-    }
-
     private void a(c cVar, long j) {
         this.p.execute(new d(this, j, cVar));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(c cVar) {
-        if (cVar.c > 0) {
-            cVar.d = 0L;
-        }
-        if (cVar.e) {
-            this.q.execute(cVar.b);
-            return;
-        }
-        this.k.put(this.p.submit(cVar.b), cVar.b);
-        if (c) {
-            Log.d(d, "execute task, " + cVar.f1497a + " execute time is " + System.currentTimeMillis());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.baidu.fsg.base.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C0114a extends ThreadPoolExecutor {
-        public C0114a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
-            super(i, i2, j, timeUnit, blockingQueue, threadFactory);
-        }
-
-        @Override // java.util.concurrent.ThreadPoolExecutor
-        protected void afterExecute(Runnable runnable, Throwable th) {
-            a.this.k.remove((Future) runnable);
-            super.afterExecute(runnable, th);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
-    public class b implements Executor {
-
-        /* renamed from: a  reason: collision with root package name */
-        final LinkedList<Runnable> f1496a;
-        Runnable b;
-
-        private b() {
-            this.f1496a = new LinkedList<>();
-        }
-
-        /* synthetic */ b(a aVar, com.baidu.fsg.base.b.b bVar) {
-            this();
-        }
-
-        @Override // java.util.concurrent.Executor
-        public synchronized void execute(Runnable runnable) {
-            this.f1496a.offer(new e(this, runnable));
-            if (this.b == null) {
-                a();
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        public synchronized void a() {
-            Runnable poll = this.f1496a.poll();
-            this.b = poll;
-            if (poll != null) {
-                a.this.p.execute(this.b);
-            }
-        }
-
-        public synchronized void a(Runnable runnable) {
-            this.f1496a.remove(runnable);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c {
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f1497a;
-        public Runnable b;
-        public long c;
-        public long d;
-        public boolean e;
-        long f;
-
-        public c(long j, long j2, boolean z, String str, Runnable runnable) {
-            this.d = j;
-            this.f = System.currentTimeMillis() + j;
-            this.c = j2;
-            this.e = z;
-            this.b = runnable;
-            this.f1497a = str;
-        }
     }
 }

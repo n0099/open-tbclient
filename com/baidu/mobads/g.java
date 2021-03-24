@@ -1,59 +1,42 @@
 package com.baidu.mobads;
 
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f2384a;
-    private static HashMap<String, String> b = new HashMap<>();
+    public static g f8246a;
 
-    private g() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static HashMap<String, String> f8247b = new HashMap<>();
 
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f2384a == null) {
-                f2384a = new g();
+            if (f8246a == null) {
+                f8246a = new g();
             }
-            gVar = f2384a;
+            gVar = f8246a;
         }
         return gVar;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0095 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0004 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.Exception] */
-    /* JADX WARN: Type inference failed for: r1v5, types: [java.util.HashMap<java.lang.String, java.lang.String>, java.util.HashMap] */
-    /* JADX WARN: Type inference failed for: r1v6 */
     public int a(int i) {
-        int i2;
-        int e = 1;
-        e = 1;
+        int i2 = 1;
         if (i < 1) {
             return 1;
         }
         try {
-            if (b.containsKey(i + "")) {
-                i2 = Integer.parseInt(b.get(i + "")) + 1;
-                if (i2 < 1) {
-                    i2 = 1;
+            if (f8247b.containsKey(i + "")) {
+                int parseInt = Integer.parseInt(f8247b.get(i + "")) + 1;
+                if (parseInt >= 1) {
+                    i2 = parseInt;
                 }
-                try {
-                    e = b;
-                    e.put(i + "", i2 + "");
-                } catch (Exception e2) {
-                    e = e2;
-                }
+                f8247b.put(i + "", i2 + "");
             } else {
-                b.put(i + "", "1");
-                i2 = 1;
+                f8247b.put(i + "", "1");
             }
-        } catch (Exception e3) {
-            i2 = e;
+        } catch (Exception unused) {
         }
         return i2;
     }

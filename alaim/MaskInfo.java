@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public final class MaskInfo extends Message {
     public static final String DEFAULT_MASKGIDS = "";
     public static final String DEFAULT_MASKUIDS = "";
@@ -20,45 +20,7 @@ public final class MaskInfo extends Message {
     public static final Integer DEFAULT_REMINDMASK = 0;
     public static final Integer DEFAULT_SHIELDSTATUS = 0;
 
-    private MaskInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.userId == null) {
-                this.userId = DEFAULT_USERID;
-            } else {
-                this.userId = builder.userId;
-            }
-            if (builder.maskGids == null) {
-                this.maskGids = "";
-            } else {
-                this.maskGids = builder.maskGids;
-            }
-            if (builder.remindMask == null) {
-                this.remindMask = DEFAULT_REMINDMASK;
-            } else {
-                this.remindMask = builder.remindMask;
-            }
-            if (builder.maskUids == null) {
-                this.maskUids = "";
-            } else {
-                this.maskUids = builder.maskUids;
-            }
-            if (builder.shieldStatus == null) {
-                this.shieldStatus = DEFAULT_SHIELDSTATUS;
-                return;
-            } else {
-                this.shieldStatus = builder.shieldStatus;
-                return;
-            }
-        }
-        this.userId = builder.userId;
-        this.maskGids = builder.maskGids;
-        this.remindMask = builder.remindMask;
-        this.maskUids = builder.maskUids;
-        this.shieldStatus = builder.shieldStatus;
-    }
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<MaskInfo> {
         public String maskGids;
         public String maskUids;
@@ -71,13 +33,14 @@ public final class MaskInfo extends Message {
 
         public Builder(MaskInfo maskInfo) {
             super(maskInfo);
-            if (maskInfo != null) {
-                this.userId = maskInfo.userId;
-                this.maskGids = maskInfo.maskGids;
-                this.remindMask = maskInfo.remindMask;
-                this.maskUids = maskInfo.maskUids;
-                this.shieldStatus = maskInfo.shieldStatus;
+            if (maskInfo == null) {
+                return;
             }
+            this.userId = maskInfo.userId;
+            this.maskGids = maskInfo.maskGids;
+            this.remindMask = maskInfo.remindMask;
+            this.maskUids = maskInfo.maskUids;
+            this.shieldStatus = maskInfo.shieldStatus;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,5 +49,48 @@ public final class MaskInfo extends Message {
         public MaskInfo build(boolean z) {
             return new MaskInfo(this, z);
         }
+    }
+
+    public MaskInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.userId;
+            if (l == null) {
+                this.userId = DEFAULT_USERID;
+            } else {
+                this.userId = l;
+            }
+            String str = builder.maskGids;
+            if (str == null) {
+                this.maskGids = "";
+            } else {
+                this.maskGids = str;
+            }
+            Integer num = builder.remindMask;
+            if (num == null) {
+                this.remindMask = DEFAULT_REMINDMASK;
+            } else {
+                this.remindMask = num;
+            }
+            String str2 = builder.maskUids;
+            if (str2 == null) {
+                this.maskUids = "";
+            } else {
+                this.maskUids = str2;
+            }
+            Integer num2 = builder.shieldStatus;
+            if (num2 == null) {
+                this.shieldStatus = DEFAULT_SHIELDSTATUS;
+                return;
+            } else {
+                this.shieldStatus = num2;
+                return;
+            }
+        }
+        this.userId = builder.userId;
+        this.maskGids = builder.maskGids;
+        this.remindMask = builder.remindMask;
+        this.maskUids = builder.maskUids;
+        this.shieldStatus = builder.shieldStatus;
     }
 }

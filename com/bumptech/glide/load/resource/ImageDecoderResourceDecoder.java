@@ -9,7 +9,6 @@ import android.util.Size;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import com.baidu.mobstat.Config;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.PreferredColorSpace;
@@ -20,12 +19,12 @@ import com.bumptech.glide.load.resource.bitmap.Downsampler;
 import com.bumptech.glide.load.resource.bitmap.HardwareConfigState;
 import java.io.IOException;
 @RequiresApi(api = 28)
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class ImageDecoderResourceDecoder<T> implements ResourceDecoder<ImageDecoder.Source, T> {
-    private static final String TAG = "ImageDecoder";
-    final HardwareConfigState hardwareConfigState = HardwareConfigState.getInstance();
+    public static final String TAG = "ImageDecoder";
+    public final HardwareConfigState hardwareConfigState = HardwareConfigState.getInstance();
 
-    protected abstract Resource<T> decode(ImageDecoder.Source source, int i, int i2, ImageDecoder.OnHeaderDecodedListener onHeaderDecodedListener) throws IOException;
+    public abstract Resource<T> decode(ImageDecoder.Source source, int i, int i2, ImageDecoder.OnHeaderDecodedListener onHeaderDecodedListener) throws IOException;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
@@ -45,6 +44,7 @@ public abstract class ImageDecoderResourceDecoder<T> implements ResourceDecoder<
             @Override // android.graphics.ImageDecoder.OnHeaderDecodedListener
             @SuppressLint({"Override"})
             public void onHeaderDecoded(ImageDecoder imageDecoder, ImageDecoder.ImageInfo imageInfo, ImageDecoder.Source source2) {
+                boolean z2 = false;
                 if (ImageDecoderResourceDecoder.this.hardwareConfigState.isHardwareConfigAllowed(i, i2, z, false)) {
                     imageDecoder.setAllocator(3);
                 } else {
@@ -61,25 +61,32 @@ public abstract class ImageDecoderResourceDecoder<T> implements ResourceDecoder<
                 });
                 Size size = imageInfo.getSize();
                 int i3 = i;
-                if (i == Integer.MIN_VALUE) {
+                if (i3 == Integer.MIN_VALUE) {
                     i3 = size.getWidth();
                 }
                 int i4 = i2;
-                if (i2 == Integer.MIN_VALUE) {
+                if (i4 == Integer.MIN_VALUE) {
                     i4 = size.getHeight();
                 }
                 float scaleFactor = downsampleStrategy.getScaleFactor(size.getWidth(), size.getHeight(), i3, i4);
                 int round = Math.round(size.getWidth() * scaleFactor);
                 int round2 = Math.round(size.getHeight() * scaleFactor);
                 if (Log.isLoggable(ImageDecoderResourceDecoder.TAG, 2)) {
-                    Log.v(ImageDecoderResourceDecoder.TAG, "Resizing from [" + size.getWidth() + Config.EVENT_HEAT_X + size.getHeight() + "] to [" + round + Config.EVENT_HEAT_X + round2 + "] scaleFactor: " + scaleFactor);
+                    Log.v(ImageDecoderResourceDecoder.TAG, "Resizing from [" + size.getWidth() + "x" + size.getHeight() + "] to [" + round + "x" + round2 + "] scaleFactor: " + scaleFactor);
                 }
                 imageDecoder.setTargetSize(round, round2);
-                if (Build.VERSION.SDK_INT >= 28) {
-                    imageDecoder.setTargetColorSpace(ColorSpace.get(preferredColorSpace == PreferredColorSpace.DISPLAY_P3 && imageInfo.getColorSpace() != null && imageInfo.getColorSpace().isWideGamut() ? ColorSpace.Named.DISPLAY_P3 : ColorSpace.Named.SRGB));
-                } else if (Build.VERSION.SDK_INT >= 26) {
-                    imageDecoder.setTargetColorSpace(ColorSpace.get(ColorSpace.Named.SRGB));
+                int i5 = Build.VERSION.SDK_INT;
+                if (i5 < 28) {
+                    if (i5 >= 26) {
+                        imageDecoder.setTargetColorSpace(ColorSpace.get(ColorSpace.Named.SRGB));
+                        return;
+                    }
+                    return;
                 }
+                if (preferredColorSpace == PreferredColorSpace.DISPLAY_P3 && imageInfo.getColorSpace() != null && imageInfo.getColorSpace().isWideGamut()) {
+                    z2 = true;
+                }
+                imageDecoder.setTargetColorSpace(ColorSpace.get(z2 ? ColorSpace.Named.DISPLAY_P3 : ColorSpace.Named.SRGB));
             }
         });
     }

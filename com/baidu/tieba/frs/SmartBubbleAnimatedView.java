@@ -11,182 +11,226 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes4.dex */
 public class SmartBubbleAnimatedView extends View {
-    private Paint bjh;
-    private float dTw;
-    private ValueAnimator dyk;
-    Rect fiu;
-    public String fll;
-    public long jng;
-    private ValueAnimator jnh;
-    private a jni;
-    private int jnj;
-    private boolean jnk;
-    private Paint mPaint;
-    RectF rectF;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void buA();
+    /* renamed from: e  reason: collision with root package name */
+    public String f16109e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f16110f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f16111g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ValueAnimator f16112h;
+    public ValueAnimator i;
+    public Paint j;
+    public Paint k;
+    public RectF l;
+    public Rect m;
+    public e n;
+    public int o;
+    public boolean p;
+
+    /* loaded from: classes4.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public a() {
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            ViewGroup.LayoutParams layoutParams = SmartBubbleAnimatedView.this.getLayoutParams();
+            layoutParams.height = l.g(SmartBubbleAnimatedView.this.getContext(), R.dimen.tbds83);
+            SmartBubbleAnimatedView.this.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            SmartBubbleAnimatedView.this.f16111g = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+            if (SmartBubbleAnimatedView.this.p && (layoutParams instanceof LinearLayout.LayoutParams)) {
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) layoutParams;
+                int i = layoutParams2.topMargin;
+                if (i > 0) {
+                    layoutParams2.topMargin = i - 5;
+                }
+                if (layoutParams2.topMargin < 0) {
+                    layoutParams2.topMargin = 0;
+                }
+            }
+            SmartBubbleAnimatedView.this.setLayoutParams(layoutParams);
+            SmartBubbleAnimatedView.this.requestLayout();
+        }
     }
 
-    public void setExtrusionRemind(boolean z) {
-        this.jnk = z;
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public b() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            SmartBubbleAnimatedView.this.f();
+        }
     }
 
-    public void setOnBubbleAnimateListener(a aVar) {
-        this.jni = aVar;
+    /* loaded from: classes4.dex */
+    public class c implements ValueAnimator.AnimatorUpdateListener {
+        public c() {
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            ViewGroup.LayoutParams layoutParams = SmartBubbleAnimatedView.this.getLayoutParams();
+            layoutParams.height = (int) (layoutParams.height * ((Float) valueAnimator.getAnimatedValue()).floatValue());
+            SmartBubbleAnimatedView.this.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            SmartBubbleAnimatedView.this.setLayoutParams(layoutParams);
+            SmartBubbleAnimatedView.this.requestLayout();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements Animator.AnimatorListener {
+        public d() {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            if (SmartBubbleAnimatedView.this.n != null) {
+                SmartBubbleAnimatedView.this.n.a();
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            if (SmartBubbleAnimatedView.this.n != null) {
+                SmartBubbleAnimatedView.this.n.a();
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface e {
+        void a();
     }
 
     public SmartBubbleAnimatedView(Context context) {
         super(context);
-        this.jng = 4000L;
-        this.dTw = 0.0f;
-        this.mPaint = new Paint();
-        this.bjh = new Paint();
-        this.rectF = new RectF();
-        this.fiu = new Rect();
-        this.jnk = false;
-        a((AttributeSet) null, 0);
+        this.f16110f = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+        this.f16111g = 0.0f;
+        this.j = new Paint();
+        this.k = new Paint();
+        this.l = new RectF();
+        this.m = new Rect();
+        this.p = false;
+        d(null, 0);
     }
 
-    public SmartBubbleAnimatedView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.jng = 4000L;
-        this.dTw = 0.0f;
-        this.mPaint = new Paint();
-        this.bjh = new Paint();
-        this.rectF = new RectF();
-        this.fiu = new Rect();
-        this.jnk = false;
-        a(attributeSet, 0);
+    public final void d(AttributeSet attributeSet, int i) {
+        this.j.setColor(d.b.i0.c3.c.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
+        this.k.setColor(SkinManager.getColor(R.color.CAM_X0101));
+        this.k.setTextSize(l.g(getContext(), R.dimen.tbds32));
+        this.o = l.g(getContext(), R.dimen.tbds83);
     }
 
-    public SmartBubbleAnimatedView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.jng = 4000L;
-        this.dTw = 0.0f;
-        this.mPaint = new Paint();
-        this.bjh = new Paint();
-        this.rectF = new RectF();
-        this.fiu = new Rect();
-        this.jnk = false;
-        a(attributeSet, i);
+    public void e(int i) {
+        this.j.setColor(d.b.i0.c3.c.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
+        this.k.setColor(SkinManager.getColor(R.color.CAM_X0101));
+        this.k.setTextSize(l.g(getContext(), R.dimen.tbds32));
+        invalidate();
     }
 
-    public void cFb() {
-        this.dyk = ValueAnimator.ofFloat(0.0f, 1.1f);
-        if (this.jnk) {
+    public void f() {
+        if (this.p) {
+            e eVar = this.n;
+            if (eVar != null) {
+                eVar.a();
+                return;
+            }
+            return;
+        }
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
+        this.i = ofFloat;
+        ofFloat.addUpdateListener(new c());
+        this.i.addListener(new d());
+        this.i.setDuration(300L);
+        this.i.start();
+    }
+
+    public void g() {
+        this.f16112h = ValueAnimator.ofFloat(0.0f, 1.1f);
+        if (this.p) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams instanceof LinearLayout.LayoutParams) {
                 ((LinearLayout.LayoutParams) layoutParams).topMargin = 20;
                 setLayoutParams(layoutParams);
             }
         }
-        this.dyk.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                ViewGroup.LayoutParams layoutParams2 = SmartBubbleAnimatedView.this.getLayoutParams();
-                layoutParams2.height = com.baidu.adp.lib.util.l.getDimens(SmartBubbleAnimatedView.this.getContext(), R.dimen.tbds83);
-                SmartBubbleAnimatedView.this.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                SmartBubbleAnimatedView.this.dTw = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (SmartBubbleAnimatedView.this.jnk && (layoutParams2 instanceof LinearLayout.LayoutParams)) {
-                    LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) layoutParams2;
-                    if (layoutParams3.topMargin > 0) {
-                        layoutParams3.topMargin -= 5;
-                    }
-                    if (layoutParams3.topMargin < 0) {
-                        layoutParams3.topMargin = 0;
-                    }
-                }
-                SmartBubbleAnimatedView.this.setLayoutParams(layoutParams2);
-                SmartBubbleAnimatedView.this.requestLayout();
-            }
-        });
-        this.dyk.setDuration(400L);
-        this.dyk.start();
-        com.baidu.adp.lib.f.e.mA().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.2
-            @Override // java.lang.Runnable
-            public void run() {
-                SmartBubbleAnimatedView.this.cFc();
-            }
-        }, this.jng);
-    }
-
-    public void cFc() {
-        if (this.jnk) {
-            if (this.jni != null) {
-                this.jni.buA();
-                return;
-            }
-            return;
-        }
-        this.jnh = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.jnh.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.3
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                ViewGroup.LayoutParams layoutParams = SmartBubbleAnimatedView.this.getLayoutParams();
-                layoutParams.height = (int) (((Float) valueAnimator.getAnimatedValue()).floatValue() * layoutParams.height);
-                SmartBubbleAnimatedView.this.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                SmartBubbleAnimatedView.this.setLayoutParams(layoutParams);
-                SmartBubbleAnimatedView.this.requestLayout();
-            }
-        });
-        this.jnh.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.4
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                if (SmartBubbleAnimatedView.this.jni != null) {
-                    SmartBubbleAnimatedView.this.jni.buA();
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                if (SmartBubbleAnimatedView.this.jni != null) {
-                    SmartBubbleAnimatedView.this.jni.buA();
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-        this.jnh.setDuration(300L);
-        this.jnh.start();
-    }
-
-    private void a(AttributeSet attributeSet, int i) {
-        this.mPaint.setColor(com.baidu.tieba.tbadkCore.c.l(com.baidu.tbadk.core.util.ap.getColor(R.color.CAM_X0302), 0.83f));
-        this.bjh.setColor(com.baidu.tbadk.core.util.ap.getColor(R.color.CAM_X0101));
-        this.bjh.setTextSize(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds32));
-        this.jnj = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds83);
-    }
-
-    public void onChangeSkinType(int i) {
-        this.mPaint.setColor(com.baidu.tieba.tbadkCore.c.l(com.baidu.tbadk.core.util.ap.getColor(R.color.CAM_X0302), 0.83f));
-        this.bjh.setColor(com.baidu.tbadk.core.util.ap.getColor(R.color.CAM_X0101));
-        this.bjh.setTextSize(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds32));
-        invalidate();
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        float height = ((1.0f - this.dTw) * getHeight()) / 2.0f;
-        float width = (getWidth() / 2) + ((this.dTw * getWidth()) / 2.0f);
-        float height2 = (getHeight() / 2) + ((this.dTw * getHeight()) / 2.0f);
-        this.rectF.set(((1.0f - this.dTw) * getWidth()) / 2.0f, height, width, height2);
-        canvas.drawRoundRect(this.rectF, (height2 - height) / 2.0f, (height2 - height) / 2.0f, this.mPaint);
-        this.bjh.getTextBounds(this.fll, 0, this.fll.length(), this.fiu);
-        canvas.drawText(this.fll, 0, this.fll.length(), (getWidth() - this.fiu.width()) / 2, getHeight() - ((getHeight() - this.fiu.height()) / 2), this.bjh);
+        this.f16112h.addUpdateListener(new a());
+        this.f16112h.setDuration(400L);
+        this.f16112h.start();
+        d.b.b.e.m.e.a().postDelayed(new b(), this.f16110f);
     }
 
     public int getTipViewHeight() {
-        return this.jnj;
+        return this.o;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        float height = ((1.0f - this.f16111g) * getHeight()) / 2.0f;
+        float width = (getWidth() / 2) + ((this.f16111g * getWidth()) / 2.0f);
+        float height2 = (getHeight() / 2) + ((this.f16111g * getHeight()) / 2.0f);
+        this.l.set(((1.0f - this.f16111g) * getWidth()) / 2.0f, height, width, height2);
+        float f2 = (height2 - height) / 2.0f;
+        canvas.drawRoundRect(this.l, f2, f2, this.j);
+        Paint paint = this.k;
+        String str = this.f16109e;
+        paint.getTextBounds(str, 0, str.length(), this.m);
+        int width2 = this.m.width();
+        int height3 = this.m.height();
+        String str2 = this.f16109e;
+        canvas.drawText(str2, 0, str2.length(), (getWidth() - width2) / 2, getHeight() - ((getHeight() - height3) / 2), this.k);
+    }
+
+    public void setExtrusionRemind(boolean z) {
+        this.p = z;
+    }
+
+    public void setOnBubbleAnimateListener(e eVar) {
+        this.n = eVar;
+    }
+
+    public SmartBubbleAnimatedView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f16110f = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+        this.f16111g = 0.0f;
+        this.j = new Paint();
+        this.k = new Paint();
+        this.l = new RectF();
+        this.m = new Rect();
+        this.p = false;
+        d(attributeSet, 0);
+    }
+
+    public SmartBubbleAnimatedView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f16110f = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+        this.f16111g = 0.0f;
+        this.j = new Paint();
+        this.k = new Paint();
+        this.l = new RectF();
+        this.m = new Rect();
+        this.p = false;
+        d(attributeSet, i);
     }
 }

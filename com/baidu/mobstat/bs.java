@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class bs {
     public static byte[] a(byte[] bArr) {
         if (bArr == null) {
@@ -14,7 +14,7 @@ public class bs {
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
             gZIPOutputStream.write(bArr);
             gZIPOutputStream.close();
-        } catch (IOException e) {
+        } catch (IOException unused) {
         }
         return byteArrayOutputStream.toByteArray();
     }

@@ -1,18 +1,20 @@
 package com.baidu.tieba.godSquare.model.res;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.godSquare.model.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.godSquare.model.req.GodSquareRequestMsg;
 import com.squareup.wire.Wire;
+import d.b.i0.u0.c.a;
+import tbclient.Error;
 import tbclient.GetHotGod.DataRes;
 import tbclient.GetHotGod.GetHotGodResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GodSquareHttpResponsedMsg extends HttpResponsedMessage {
-    private boolean hasMore;
-    private DataRes mResult;
+    public boolean hasMore;
+    public DataRes mResult;
 
     public GodSquareHttpResponsedMsg() {
-        super(1003099);
+        super(CmdConfigHttp.CMD_GET_HOT_GOD);
     }
 
     public boolean getHasMore() {
@@ -24,27 +26,31 @@ public class GodSquareHttpResponsedMsg extends HttpResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetHotGodResIdl getHotGodResIdl = (GetHotGodResIdl) new Wire(new Class[0]).parseFrom(bArr, GetHotGodResIdl.class);
-        if (getHotGodResIdl.error != null) {
-            setError(getHotGodResIdl.error.errorno.intValue());
-            setErrorString(getHotGodResIdl.error.usermsg);
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof GodSquareRequestMsg)) {
+            return;
         }
-        if (getError() == 0 && getHotGodResIdl.data != null) {
-            this.mResult = getHotGodResIdl.data;
-            this.hasMore = getHotGodResIdl.data.has_more.intValue() != 0;
+        GodSquareRequestMsg godSquareRequestMsg = (GodSquareRequestMsg) getOrginalMessage().getExtra();
+        if (godSquareRequestMsg.pn == 1) {
+            a aVar = new a();
+            aVar.c(godSquareRequestMsg.pn + "", bArr);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof GodSquareRequestMsg)) {
-            GodSquareRequestMsg godSquareRequestMsg = (GodSquareRequestMsg) getOrginalMessage().getExtra();
-            if (godSquareRequestMsg.pn == 1) {
-                new a().l(godSquareRequestMsg.pn + "", bArr);
-            }
+    @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
+        GetHotGodResIdl getHotGodResIdl = (GetHotGodResIdl) new Wire(new Class[0]).parseFrom(bArr, GetHotGodResIdl.class);
+        Error error = getHotGodResIdl.error;
+        if (error != null) {
+            setError(error.errorno.intValue());
+            setErrorString(getHotGodResIdl.error.usermsg);
+        }
+        if (getError() == 0 && (dataRes = getHotGodResIdl.data) != null) {
+            this.mResult = dataRes;
+            this.hasMore = dataRes.has_more.intValue() != 0;
         }
     }
 }

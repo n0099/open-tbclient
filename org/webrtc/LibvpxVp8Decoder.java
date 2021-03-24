@@ -1,9 +1,9 @@
 package org.webrtc;
 
 import org.webrtc.VideoDecoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class LibvpxVp8Decoder extends WrappedNativeVideoDecoder {
-    static native long nativeCreateDecoder();
+    public static native long nativeCreateDecoder();
 
     @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder
     public long createNativeVideoDecoder() {

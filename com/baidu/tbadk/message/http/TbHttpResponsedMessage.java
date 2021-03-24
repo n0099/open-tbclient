@@ -2,30 +2,35 @@ package com.baidu.tbadk.message.http;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.network.http.d;
-import com.baidu.adp.lib.network.http.e;
-import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.util.ad;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.util.NetWorkState;
+import d.b.b.e.j.a.d;
+import d.b.b.e.j.a.e;
+import d.b.b.e.p.j;
+/* loaded from: classes3.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public TbHttpResponsedMessage(int i) {
         super(i);
     }
 
+    private int getMode(int i) {
+        if (i != 1) {
+            if (i == 2) {
+                return 2;
+            }
+            if (i == 3) {
+                return 3;
+            }
+        }
+        return 1;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String parseToString(byte[] bArr) throws Exception {
-        if (bArr == null) {
-            return null;
-        }
-        return new String(bArr, getCharset());
-    }
-
-    protected String getCharset() throws Exception {
+    public String getCharset() throws Exception {
         int indexOf;
         String contentType = getContentType();
         if (contentType == null || (indexOf = contentType.indexOf("charset")) == -1) {
@@ -38,30 +43,25 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         return contentType.substring(indexOf + 8, indexOf2);
     }
 
-    private int getMode(int i) {
-        switch (i) {
-            case 1:
-            default:
-                return 1;
-            case 2:
-                return 2;
-            case 3:
-                return 3;
+    @Override // com.baidu.adp.framework.message.HttpResponsedMessage
+    public void logStatInBackground(int i, e eVar) {
+        if (eVar.d().size() > 0) {
+            d dVar = eVar.d().get(eVar.d().size() - 1);
+            NetWorkState.mErrorNums.addAndGet(eVar.d().size() - 1);
+            NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
+            statisticsData.mMode = getMode(j.I());
+            statisticsData.mSize = dVar.f41778b;
+            statisticsData.mTime = dVar.f41782f;
+            statisticsData.mTimesNum = dVar.f41781e;
+            statisticsData.mMethod = eVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
+            NetWorkState.addStatisticsData(statisticsData);
         }
     }
 
-    @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, e eVar) {
-        if (eVar.lW().size() > 0) {
-            d dVar = eVar.lW().get(eVar.lW().size() - 1);
-            ad.mErrorNums.addAndGet(eVar.lW().size() - 1);
-            ad.a aVar = new ad.a();
-            aVar.mMode = getMode(j.netType());
-            aVar.mSize = dVar.downloadSize;
-            aVar.mTime = dVar.Nw;
-            aVar.mTimesNum = dVar.retry;
-            aVar.mMethod = eVar.lU().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
-            ad.a(aVar);
+    public String parseToString(byte[] bArr) throws Exception {
+        if (bArr == null) {
+            return null;
         }
+        return new String(bArr, getCharset());
     }
 }

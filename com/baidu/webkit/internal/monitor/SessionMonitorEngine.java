@@ -3,8 +3,7 @@ package com.baidu.webkit.internal.monitor;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tieba.ala.live.walletconfig.CashierData;
+import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.monitor.a;
@@ -15,7 +14,6 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebView;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,30 +22,30 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class SessionMonitorEngine implements INoProGuard {
-    private static final boolean DEBUG = false;
-    private static final String LOG_TAG = SessionMonitorEngine.class.getSimpleName();
+    public static final boolean DEBUG = false;
+    public static final String LOG_TAG = "SessionMonitorEngine";
     public static final int MONITOR_FRAMEWORK_TYPE_ASYNC_SEARCH_EVAJS = 2;
     public static final int MONITOR_FRAMEWORK_TYPE_SEARCH_CLICK = 1;
     public static final int MONITOR_FRAMEWORK_TYPE_SYNC_SEARCH_LOADURL = 3;
     public static final String PUBLIC_DATA_UNDIFNED = "undefined";
-    private static SessionMonitorEngine sInstance;
-    private ConcurrentHashMap<Integer, LinkedList<WeakReference<IExtraInfoCollector>>> mExtraInfoCollectors;
-    private JSONObject mStaticPublicData;
-    private String mWiseSid;
-    private b sExtraInterfaceProvider;
-    private a sFrameworkBehaviorProvider;
-    private WeakReference<IPrototype> sImplement;
+    public static SessionMonitorEngine sInstance;
+    public ConcurrentHashMap<Integer, LinkedList<WeakReference<IExtraInfoCollector>>> mExtraInfoCollectors;
+    public JSONObject mStaticPublicData;
+    public String mWiseSid;
+    public b sExtraInterfaceProvider;
+    public a sFrameworkBehaviorProvider;
+    public WeakReference<IPrototype> sImplement;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface IExtraInfoCollector extends INoProGuard {
         JSONObject onPageSessionFinished(WebView webView, String str);
 
         void onPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface IPrototype extends INoProGuard {
         void notifyPageActive(String str, WebView webView, boolean z);
 
@@ -64,7 +62,7 @@ public class SessionMonitorEngine implements INoProGuard {
         void recordImmediately(String str, String str2);
     }
 
-    private SessionMonitorEngine() {
+    public SessionMonitorEngine() {
         if (this.sExtraInterfaceProvider == null) {
             this.sExtraInterfaceProvider = new b();
         }
@@ -85,7 +83,7 @@ public class SessionMonitorEngine implements INoProGuard {
             this.mStaticPublicData = new JSONObject();
             try {
                 this.mStaticPublicData.put("cuid", WebKitFactory.getCUIDString());
-                this.mStaticPublicData.put("app_name", WebKitFactory.getContext().getApplicationContext().getPackageName());
+                this.mStaticPublicData.put(DpStatConstants.KEY_APP_NAME, WebKitFactory.getContext().getApplicationContext().getPackageName());
                 this.mStaticPublicData.put("app_version", WebKitFactory.getContext().getApplicationContext().getPackageManager().getPackageInfo(WebKitFactory.getContext().getApplicationContext().getPackageName(), 0).versionName);
                 this.mStaticPublicData.put("zeus_version", WebKitFactory.getZeusVersionName());
                 String str = Build.BRAND;
@@ -94,11 +92,12 @@ public class SessionMonitorEngine implements INoProGuard {
                 String str4 = Build.VERSION.RELEASE;
                 int i = Build.VERSION.SDK_INT;
                 this.mStaticPublicData.put("product", str3);
-                this.mStaticPublicData.put(Constants.PHONE_BRAND, str);
+                this.mStaticPublicData.put("brand", str);
                 this.mStaticPublicData.put("model", str2);
                 this.mStaticPublicData.put("version", str4);
-                this.mStaticPublicData.put(CashierData.SDK, i);
-                Log.i(LOG_TAG, "processStaticPublicData: " + this.mStaticPublicData.toString());
+                this.mStaticPublicData.put("sdk", i);
+                String str5 = LOG_TAG;
+                Log.i(str5, "processStaticPublicData: " + this.mStaticPublicData.toString());
             } catch (Throwable th) {
                 Log.printStackTrace(th);
             }
@@ -118,9 +117,9 @@ public class SessionMonitorEngine implements INoProGuard {
             return PUBLIC_DATA_UNDIFNED;
         }
         try {
-            processStaticPublicData.put("session_id", WebKitFactory.getStatisticsSessionId());
+            processStaticPublicData.put(ETAG.KEY_STATISTICS_SEESIONID, WebKitFactory.getStatisticsSessionId());
             processStaticPublicData.put(DpStatConstants.KEY_KERNEL_SESSION_ID, WebKitFactory.getKernelSessionId());
-            processStaticPublicData.put("network", NetWorkUtils.getNetWorkType() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + NetWorkUtils.getOperatorType());
+            processStaticPublicData.put("network", NetWorkUtils.getNetWorkType() + "_" + NetWorkUtils.getOperatorType());
             IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
             if (abTestInterface != null) {
                 JSONObject rawSwitch = abTestInterface.getRawSwitch();
@@ -134,102 +133,80 @@ public class SessionMonitorEngine implements INoProGuard {
                 }
             }
             return processStaticPublicData.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return PUBLIC_DATA_UNDIFNED;
         }
     }
 
     public long getRecordNA20SuperFrameTimeStamp(int i) {
-        if (this.sExtraInterfaceProvider != null) {
-            b bVar = this.sExtraInterfaceProvider;
-            switch (i) {
-                case 1:
-                    return bVar.g;
-                case 2:
-                    return bVar.e;
-                case 3:
-                    return bVar.f;
-                default:
-                    return -1L;
+        b bVar = this.sExtraInterfaceProvider;
+        if (bVar != null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return -1L;
+                    }
+                    return bVar.f26942f;
+                }
+                return bVar.f26941e;
             }
+            return bVar.f26943g;
         }
         return -1L;
     }
 
     public long getSearchButtonClickedTimeStamp() {
-        if (this.sExtraInterfaceProvider != null) {
-            return this.sExtraInterfaceProvider.f3837a;
+        b bVar = this.sExtraInterfaceProvider;
+        if (bVar != null) {
+            return bVar.f26937a;
         }
         return -1L;
     }
 
     public JSONObject getWebViewTimeStamp() {
-        if (this.sExtraInterfaceProvider != null) {
-            return this.sExtraInterfaceProvider.h;
+        b bVar = this.sExtraInterfaceProvider;
+        if (bVar != null) {
+            return bVar.f26944h;
         }
         return null;
     }
 
     public final JSONArray notifyCollectorPageSessionFinished(WebView webView, String str) {
-        Throwable th;
-        JSONArray jSONArray;
-        JSONArray jSONArray2 = null;
+        JSONObject onPageSessionFinished;
         Log.i("linhua-collector", "notifyCollectorPageSessionFinished: " + str);
+        JSONArray jSONArray = null;
+        try {
+        } catch (Throwable th) {
+            Log.printStackTrace(th);
+        }
+        if (this.mExtraInfoCollectors != null && !this.mExtraInfoCollectors.isEmpty() && webView != null) {
+            Iterator<WeakReference<IExtraInfoCollector>> it = this.mExtraInfoCollectors.get(Integer.valueOf(webView.hashCode())).iterator();
+            while (it.hasNext()) {
+                IExtraInfoCollector iExtraInfoCollector = it.next().get();
+                if (iExtraInfoCollector != null && (onPageSessionFinished = iExtraInfoCollector.onPageSessionFinished(webView, str)) != null) {
+                    if (jSONArray == null) {
+                        jSONArray = new JSONArray();
+                    }
+                    Log.i("linhua-collector", "get something: " + onPageSessionFinished);
+                    jSONArray.put(onPageSessionFinished);
+                }
+            }
+            return jSONArray;
+        }
+        return null;
+    }
+
+    public final void notifyCollectorPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3) {
+        Log.i("linhua-collector", "notifyCollectorPageSessionStarted: " + str + " isSameDocument: " + z2);
         try {
             if (this.mExtraInfoCollectors != null && !this.mExtraInfoCollectors.isEmpty() && webView != null) {
                 Iterator<WeakReference<IExtraInfoCollector>> it = this.mExtraInfoCollectors.get(Integer.valueOf(webView.hashCode())).iterator();
                 while (it.hasNext()) {
                     IExtraInfoCollector iExtraInfoCollector = it.next().get();
                     if (iExtraInfoCollector != null) {
-                        try {
-                            JSONObject onPageSessionFinished = iExtraInfoCollector.onPageSessionFinished(webView, str);
-                            if (onPageSessionFinished != null) {
-                                jSONArray = jSONArray2 == null ? new JSONArray() : jSONArray2;
-                                try {
-                                    Log.i("linhua-collector", "get something: " + onPageSessionFinished);
-                                    jSONArray.put(onPageSessionFinished);
-                                    jSONArray2 = jSONArray;
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    try {
-                                        Log.printStackTrace(th);
-                                        jSONArray2 = jSONArray;
-                                    } catch (Throwable th3) {
-                                        th = th3;
-                                        jSONArray2 = jSONArray;
-                                        Log.printStackTrace(th);
-                                        return jSONArray2;
-                                    }
-                                }
-                            }
-                        } catch (Throwable th4) {
-                            th = th4;
-                            jSONArray = jSONArray2;
-                        }
-                    } else {
-                        jSONArray = jSONArray2;
+                        iExtraInfoCollector.onPageSessionStarted(webView, str, z, z2, z3);
                     }
-                    jSONArray2 = jSONArray;
-                }
-            }
-        } catch (Throwable th5) {
-            th = th5;
-        }
-        return jSONArray2;
-    }
-
-    public final void notifyCollectorPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3) {
-        Log.i("linhua-collector", "notifyCollectorPageSessionStarted: " + str + " isSameDocument: " + z2);
-        try {
-            if (this.mExtraInfoCollectors == null || this.mExtraInfoCollectors.isEmpty() || webView == null) {
-                return;
-            }
-            Iterator<WeakReference<IExtraInfoCollector>> it = this.mExtraInfoCollectors.get(Integer.valueOf(webView.hashCode())).iterator();
-            while (it.hasNext()) {
-                IExtraInfoCollector iExtraInfoCollector = it.next().get();
-                if (iExtraInfoCollector != null) {
-                    iExtraInfoCollector.onPageSessionStarted(webView, str, z, z2, z3);
                 }
             }
         } catch (Throwable th) {
@@ -238,14 +215,16 @@ public class SessionMonitorEngine implements INoProGuard {
     }
 
     public void notifyPageActive(String str, WebView webView, boolean z) {
-        if (this.sImplement == null || this.sImplement.get() == null) {
+        WeakReference<IPrototype> weakReference = this.sImplement;
+        if (weakReference == null || weakReference.get() == null) {
             return;
         }
         this.sImplement.get().notifyPageActive(str, webView, z);
     }
 
     public void notifyPageLeave(String str, WebView webView) {
-        if (this.sImplement == null || this.sImplement.get() == null) {
+        WeakReference<IPrototype> weakReference = this.sImplement;
+        if (weakReference == null || weakReference.get() == null) {
             return;
         }
         this.sImplement.get().notifyPageLeave(str, webView);
@@ -263,28 +242,32 @@ public class SessionMonitorEngine implements INoProGuard {
     }
 
     public JSONObject peekNA20SuperFrameTimeStamp() {
-        if (this.sExtraInterfaceProvider != null) {
-            return this.sExtraInterfaceProvider.a();
+        b bVar = this.sExtraInterfaceProvider;
+        if (bVar != null) {
+            return bVar.a();
         }
         return null;
     }
 
     public JSONObject peekSearchTimeStamps() {
-        if (this.sExtraInterfaceProvider != null) {
-            return this.sExtraInterfaceProvider.b();
+        b bVar = this.sExtraInterfaceProvider;
+        if (bVar != null) {
+            return bVar.b();
         }
         return null;
     }
 
     public void record(WebView webView, IZeusMonitor iZeusMonitor) {
-        if (this.sImplement == null || this.sImplement.get() == null) {
+        WeakReference<IPrototype> weakReference = this.sImplement;
+        if (weakReference == null || weakReference.get() == null) {
             return;
         }
         this.sImplement.get().record(webView, iZeusMonitor);
     }
 
     public void record(WebView webView, String str) {
-        if (this.sImplement == null || this.sImplement.get() == null) {
+        WeakReference<IPrototype> weakReference = this.sImplement;
+        if (weakReference == null || weakReference.get() == null) {
             return;
         }
         this.sImplement.get().record(webView, str);
@@ -292,30 +275,31 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f3835a == null) {
-            aVar.f3835a = new a.C0962a(aVar, (byte) 0);
+        if (aVar.f26928a == null) {
+            aVar.f26928a = new a.C0284a(aVar, (byte) 0);
         }
         if (i == 9) {
-            aVar.f3835a.a();
-            aVar.f3835a.f = true;
+            aVar.f26928a.a();
+            aVar.f26928a.f26934f = true;
         }
-        if (aVar.f3835a.f) {
+        a.C0284a c0284a = aVar.f26928a;
+        if (c0284a.f26934f) {
             switch (i) {
                 case 7:
-                    aVar.f3835a.f3836a = ((Boolean) obj).booleanValue();
+                    c0284a.f26929a = ((Boolean) obj).booleanValue();
                     return;
                 case 8:
-                    aVar.f3835a.b = ((Boolean) obj).booleanValue();
+                    c0284a.f26930b = ((Boolean) obj).booleanValue();
                     return;
                 case 9:
-                    aVar.f3835a.c = ((Long) obj).longValue();
+                    c0284a.f26931c = ((Long) obj).longValue();
                     return;
                 case 10:
-                    aVar.f3835a.d = ((Long) obj).longValue();
-                    aVar.f3835a.f = true;
+                    c0284a.f26932d = ((Long) obj).longValue();
+                    aVar.f26928a.f26934f = true;
                     return;
                 case 11:
-                    aVar.f3835a.e = ((Boolean) obj).booleanValue();
+                    c0284a.f26933e = ((Boolean) obj).booleanValue();
                     return;
                 default:
                     return;
@@ -325,13 +309,15 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f3835a != null) {
-            aVar.f3835a.g.put(str, Long.valueOf((aVar.f3835a.g.containsKey(str) ? aVar.f3835a.g.get(str).longValue() : 0L) + j));
+        a.C0284a c0284a = aVar.f26928a;
+        if (c0284a != null) {
+            aVar.f26928a.f26935g.put(str, Long.valueOf(j + (c0284a.f26935g.containsKey(str) ? aVar.f26928a.f26935g.get(str).longValue() : 0L)));
         }
     }
 
     public void recordImmediately(String str, String str2) {
-        if (this.sImplement == null || this.sImplement.get() == null) {
+        WeakReference<IPrototype> weakReference = this.sImplement;
+        if (weakReference == null || weakReference.get() == null) {
             uploadRealTimeData(str, str2);
         } else {
             this.sImplement.get().recordImmediately(str, str2);
@@ -339,66 +325,55 @@ public class SessionMonitorEngine implements INoProGuard {
     }
 
     public void recordNA20SuperFrameTimeStamp(int i, long j) {
-        if (this.sExtraInterfaceProvider != null) {
-            b bVar = this.sExtraInterfaceProvider;
-            switch (i) {
-                case 1:
-                    bVar.g = j;
-                    return;
-                case 2:
-                    bVar.e = j;
-                    return;
-                case 3:
-                    bVar.f = j;
-                    return;
-                default:
-                    return;
+        b bVar = this.sExtraInterfaceProvider;
+        if (bVar != null) {
+            if (i == 1) {
+                bVar.f26943g = j;
+            } else if (i == 2) {
+                bVar.f26941e = j;
+            } else if (i != 3) {
+            } else {
+                bVar.f26942f = j;
             }
         }
     }
 
     public void recordSearchBoxJsBridgeInvoked(String str) {
-        if (this.sExtraInterfaceProvider != null) {
-            b bVar = this.sExtraInterfaceProvider;
-            if (!TextUtils.isEmpty(str) && str.startsWith("baiduboxapp://v1/browser/open") && str.contains("isContainer=1")) {
-                bVar.d = System.currentTimeMillis();
-                Log.d("linhua-x", "recordSearchBoxJsBridgeInvoked: " + str);
-            }
+        b bVar = this.sExtraInterfaceProvider;
+        if (bVar == null || TextUtils.isEmpty(str) || !str.startsWith("baiduboxapp://v1/browser/open") || !str.contains("isContainer=1")) {
+            return;
         }
+        bVar.f26940d = System.currentTimeMillis();
+        Log.d("linhua-x", "recordSearchBoxJsBridgeInvoked: " + str);
     }
 
     public void recordSearchTimeStamp(int i, long j) {
-        if (this.sExtraInterfaceProvider != null) {
-            b bVar = this.sExtraInterfaceProvider;
-            switch (i) {
-                case 1:
-                    bVar.f3837a = j;
-                    return;
-                case 2:
-                    bVar.b = j;
-                    return;
-                case 3:
-                    bVar.c = j;
-                    return;
-                default:
-                    return;
+        b bVar = this.sExtraInterfaceProvider;
+        if (bVar != null) {
+            if (i == 1) {
+                bVar.f26937a = j;
+            } else if (i == 2) {
+                bVar.f26938b = j;
+            } else if (i != 3) {
+            } else {
+                bVar.f26939c = j;
             }
         }
     }
 
     public void recordWebViewTimeStamp(String str, long j) {
-        if (this.sExtraInterfaceProvider != null) {
-            b bVar = this.sExtraInterfaceProvider;
-            if (bVar.h == null) {
-                bVar.h = new JSONObject();
+        b bVar = this.sExtraInterfaceProvider;
+        if (bVar != null) {
+            if (bVar.f26944h == null) {
+                bVar.f26944h = new JSONObject();
             }
             try {
-                if (TextUtils.isEmpty(str) || bVar.h.has(str)) {
+                if (TextUtils.isEmpty(str) || bVar.f26944h.has(str)) {
                     return;
                 }
-                bVar.h.put(str, j);
-            } catch (JSONException e) {
-                Log.printStackTrace(e);
+                bVar.f26944h.put(str, j);
+            } catch (JSONException e2) {
+                Log.printStackTrace(e2);
             }
         }
     }
@@ -435,16 +410,18 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f3835a == null) {
-            aVar.f3835a = new a.C0962a(aVar, (byte) 0);
+        if (aVar.f26928a == null) {
+            aVar.f26928a = new a.C0284a(aVar, (byte) 0);
         }
-        if (aVar.f3835a.c == -1) {
-            aVar.f3835a.a();
+        a.C0284a c0284a = aVar.f26928a;
+        if (c0284a.f26931c == -1) {
+            c0284a.a();
         }
-        if (aVar.f3835a.f) {
+        a.C0284a c0284a2 = aVar.f26928a;
+        if (c0284a2.f26934f) {
             return;
         }
-        aVar.f3835a.f = true;
+        c0284a2.f26934f = true;
     }
 
     public void updateCuidIfNeeded() {
@@ -468,26 +445,25 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void uploadRealTimeData(String str, String str2, boolean z) {
         String str3;
-        if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            if (WebSettingsGlobalBlink.isSessionDataEnable()) {
-                JSONObject jSONObject = new JSONObject(getPublicData());
-                jSONObject.put(DpStatConstants.KEY_SERVER_TYPE, "kernel_sailor");
-                Log.i("Session1", "uploadRealTimeData mWiseSid = " + this.mWiseSid);
-                if (!TextUtils.isEmpty(this.mWiseSid)) {
-                    jSONObject.put("wise_sid", this.mWiseSid);
+        if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+            try {
+                if (WebSettingsGlobalBlink.isSessionDataEnable()) {
+                    JSONObject jSONObject = new JSONObject(getPublicData());
+                    jSONObject.put(DpStatConstants.KEY_SERVER_TYPE, "kernel_sailor");
+                    Log.i("Session1", "uploadRealTimeData mWiseSid = " + this.mWiseSid);
+                    if (!TextUtils.isEmpty(this.mWiseSid)) {
+                        jSONObject.put("wise_sid", this.mWiseSid);
+                    }
+                    JSONArray jSONArray = new JSONArray();
+                    jSONArray.put(new JSONObject(str2));
+                    jSONObject.put("items", jSONArray);
+                    str3 = jSONObject.toString();
+                } else {
+                    str3 = getPublicData() + "###" + str2;
                 }
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(new JSONObject(str2));
-                jSONObject.put("items", jSONArray);
-                str3 = jSONObject.toString();
-            } else {
-                str3 = getPublicData() + "###" + str2;
+                new SessionMonitorNetWorker().upload("kernel_sailor", str3, str, z);
+            } catch (Throwable unused) {
             }
-            new SessionMonitorNetWorker().upload("kernel_sailor", str3, str, z);
-        } catch (Throwable th) {
         }
     }
 }

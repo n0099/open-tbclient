@@ -4,11 +4,15 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.RCPVFrameLayout;
 import com.kwad.sdk.widget.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends com.kwad.sdk.feed.a.a.a.a {
-    private RCPVFrameLayout b;
-    private a.InterfaceC1171a c = new a.InterfaceC1171a() { // from class: com.kwad.sdk.feed.a.a.b.d.1
-        @Override // com.kwad.sdk.widget.a.InterfaceC1171a
+
+    /* renamed from: b  reason: collision with root package name */
+    public RCPVFrameLayout f34846b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public a.InterfaceC0438a f34847c = new a.InterfaceC0438a() { // from class: com.kwad.sdk.feed.a.a.b.d.1
+        @Override // com.kwad.sdk.widget.a.InterfaceC0438a
         public void a() {
             d.this.e();
         }
@@ -16,27 +20,24 @@ public class d extends com.kwad.sdk.feed.a.a.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        com.kwad.sdk.core.report.e.a((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).i);
+        com.kwad.sdk.core.report.e.a((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a).i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.b.setVisibleListener(this.c);
+        this.f34846b.setVisibleListener(this.f34847c);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.b.setVisibleListener(null);
+        this.f34846b.setVisibleListener(null);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = (RCPVFrameLayout) b(R.id.ksad_feed_item_root);
+        this.f34846b = (RCPVFrameLayout) b(R.id.ksad_feed_item_root);
     }
 }

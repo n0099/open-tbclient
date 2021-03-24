@@ -1,25 +1,26 @@
 package com.baidu.webkit.internal.b;
 
 import android.app.AlertDialog;
-/* loaded from: classes14.dex */
-final class e implements Runnable {
+/* loaded from: classes5.dex */
+public final class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AlertDialog f3819a;
-    final /* synthetic */ b b;
+    public final /* synthetic */ AlertDialog f26873a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ b f26874b;
+
     public e(b bVar, AlertDialog alertDialog) {
-        this.b = bVar;
-        this.f3819a = alertDialog;
+        this.f26874b = bVar;
+        this.f26873a = alertDialog;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            this.f3819a.dismiss();
-        } catch (Exception e) {
-            e.printStackTrace();
+            this.f26873a.dismiss();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

@@ -23,7 +23,6 @@ import androidx.annotation.Nullable;
 import com.baidu.mobstat.Config;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.SdkConfig;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -40,68 +39,79 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ah {
-    private static String f;
-    private static int k;
-    private static long l;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7115a = "";
-    private static String b = "";
-    private static String c = "";
-    private static String d = "";
-    private static String e = "";
-    private static boolean g = false;
-    private static boolean h = false;
-    private static boolean i = false;
-    private static boolean j = false;
-    private static boolean m = true;
-    private static boolean n = true;
-    private static final List<String> o = Arrays.asList("a5f5faddde9e9f02", "8e17f7422b35fbea", "b88c3c236923d9d9", "cb36bf76cca443d0", "5d4e49ed381836c5", "cffa38e9136f93e9", "62bd2daa59ea0173", "b7aad49a2d5bc5d9", "f2138912c5e5dd5c", "330a1e81a2bf9f31", "59c0f432ccbef844", "521376155e535f39", "aa5ec6ce14abd680", "5522a09bb500d82f", "6dfe4a96800edfb4", "ecc9a2dded8cdf72", "399f868043955b11", "34dc327c00dbff94", "d1b4e3862c309f8b", "68bdbf71f863ccac", "01558dd995085a35", "351174200a06da52", "fa0988506c76ff4b", "8eb8ef823312c61a", "a72e81be65c4638b", "416d15a015c8f324", "474086ea2d737519", "befdddf908c8d749", "780ee58a6f57aab6", "cfe86fa07cae3601", "704ff4d1534f0ff4", "9298b9e9bbd7cdea", "7b634c42f236c6e8", "11eacf22b9ceab7d", "2941a4f39eec5864", "87d134dc5ba45550", "fdd2313bb1750eb9", "6560ef232d8424bb", "5d876286e1064482", "f66fefb916f4962d", "7baf82d0ac49f596", "57748921d8d88ed4", "120cd57f1a50b8f5", "e164f9610ddd9fc8", "6256f0e8da6389de", "bcb22df712476416", "714fa9aff63f7adb", "cb8252e4da7cf610", "e18f649aa80e140c", "966790a9db5ea8d8", "e1769e681af901dd", "d23f2574a60964a4", "d717e6298d3c9cb2", "f5ea5e8ba730864e", "a8a0a223d1a42232", "6675a4f231f5c8db", "3edb7c2103e5c75a", "8ce6a9a216b326c4", "af606153eb3be0a7", "7ae255c3d760c920", "e50e94c40048c5fd", "55009bca30f9dc4c", "c37566487909214a", "891b74f7e534d14a", "726e190aae663525", "df473127d30fb669", "bfbcc646d92dfd48", "a4a1954c44751936", "da4a44a3d7c4d8be", "5ff5bca4a775dd30", "14917461e1917c53", "14ce20d0a80955fa", "a56a63de4d3f3d39", "f780246adc7bd556", "3495a541aea0da72", "f7f205ce47fed2a5", "f52db3f434279c3a", "dca17088c97dee5e", "dd53a8b3a2a4ccc0", "52e07629290d45e4", "cda522b0f8f50d9a", "b85a1c8bcd51d82c", "e344a00cd3f5e93a", "fa59d8a66d7bdd88", "68fb1f1393a216e8", "4c30ab1fb10af181", "b1376e0578099143", "88752f72d8d305fd", "fddf20078d27bf3c", "dab2120bffa2be8c", "c7c8dde481793471", "e4b1bdbcabfc284d");
+    public static String f36707a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f36708b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f36709c = "";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f36710d = "";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f36711e = "";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f36712f = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static boolean f36713g = false;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static boolean f36714h = false;
+    public static boolean i = false;
+    public static boolean j = false;
+    public static int k = 0;
+    public static long l = 0;
+    public static boolean m = true;
+    public static boolean n = true;
+    public static final List<String> o = Arrays.asList("a5f5faddde9e9f02", "8e17f7422b35fbea", "b88c3c236923d9d9", "cb36bf76cca443d0", "5d4e49ed381836c5", "cffa38e9136f93e9", "62bd2daa59ea0173", "b7aad49a2d5bc5d9", "f2138912c5e5dd5c", "330a1e81a2bf9f31", "59c0f432ccbef844", "521376155e535f39", "aa5ec6ce14abd680", "5522a09bb500d82f", "6dfe4a96800edfb4", "ecc9a2dded8cdf72", "399f868043955b11", "34dc327c00dbff94", "d1b4e3862c309f8b", "68bdbf71f863ccac", "01558dd995085a35", "351174200a06da52", "fa0988506c76ff4b", "8eb8ef823312c61a", "a72e81be65c4638b", "416d15a015c8f324", "474086ea2d737519", "befdddf908c8d749", "780ee58a6f57aab6", "cfe86fa07cae3601", "704ff4d1534f0ff4", "9298b9e9bbd7cdea", "7b634c42f236c6e8", "11eacf22b9ceab7d", "2941a4f39eec5864", "87d134dc5ba45550", "fdd2313bb1750eb9", "6560ef232d8424bb", "5d876286e1064482", "f66fefb916f4962d", "7baf82d0ac49f596", "57748921d8d88ed4", "120cd57f1a50b8f5", "e164f9610ddd9fc8", "6256f0e8da6389de", "bcb22df712476416", "714fa9aff63f7adb", "cb8252e4da7cf610", "e18f649aa80e140c", "966790a9db5ea8d8", "e1769e681af901dd", "d23f2574a60964a4", "d717e6298d3c9cb2", "f5ea5e8ba730864e", "a8a0a223d1a42232", "6675a4f231f5c8db", "3edb7c2103e5c75a", "8ce6a9a216b326c4", "af606153eb3be0a7", "7ae255c3d760c920", "e50e94c40048c5fd", "55009bca30f9dc4c", "c37566487909214a", "891b74f7e534d14a", "726e190aae663525", "df473127d30fb669", "bfbcc646d92dfd48", "a4a1954c44751936", "da4a44a3d7c4d8be", "5ff5bca4a775dd30", "14917461e1917c53", "14ce20d0a80955fa", "a56a63de4d3f3d39", "f780246adc7bd556", "3495a541aea0da72", "f7f205ce47fed2a5", "f52db3f434279c3a", "dca17088c97dee5e", "dd53a8b3a2a4ccc0", "52e07629290d45e4", "cda522b0f8f50d9a", "b85a1c8bcd51d82c", "e344a00cd3f5e93a", "fa59d8a66d7bdd88", "68fb1f1393a216e8", "4c30ab1fb10af181", "b1376e0578099143", "88752f72d8d305fd", "fddf20078d27bf3c", "dab2120bffa2be8c", "c7c8dde481793471", "e4b1bdbcabfc284d");
 
     public static int a(Context context) {
         try {
             if (Build.VERSION.SDK_INT >= 21) {
                 return ((BatteryManager) context.getApplicationContext().getSystemService("batterymanager")).getIntProperty(4);
             }
-        } catch (Exception e2) {
+            return 0;
+        } catch (Exception unused) {
+            return 0;
         }
-        return 0;
     }
 
     public static int a(@NonNull Context context, @NonNull String str) {
-        if (str == null) {
-            throw new IllegalArgumentException("permission is null");
+        if (str != null) {
+            return context.checkPermission(str, Process.myPid(), Process.myUid());
         }
-        return context.checkPermission(str, Process.myPid(), Process.myUid());
+        throw new IllegalArgumentException("permission is null");
     }
 
     public static long a() {
         try {
             return a(Environment.getDataDirectory());
-        } catch (Exception e2) {
+        } catch (Exception unused) {
             return 0L;
         }
     }
 
-    private static long a(File file) {
-        long j2 = 0;
-        if (file != null) {
-            try {
-                StatFs statFs = new StatFs(file.getPath());
-                if (Build.VERSION.SDK_INT < 18) {
-                    j2 = statFs.getBlockCount() * statFs.getBlockSize();
-                } else {
-                    j2 = statFs.getBlockCountLong() * statFs.getBlockSizeLong();
-                }
-            } catch (Exception e2) {
-            }
+    public static long a(File file) {
+        if (file == null) {
+            return 0L;
         }
-        return j2;
+        try {
+            StatFs statFs = new StatFs(file.getPath());
+            return Build.VERSION.SDK_INT < 18 ? statFs.getBlockSize() * statFs.getBlockCount() : statFs.getBlockSizeLong() * statFs.getBlockCountLong();
+        } catch (Exception unused) {
+            return 0L;
+        }
     }
 
-    private static String a(String str, int i2, char c2) {
+    public static String a(String str, int i2, char c2) {
         StringBuilder sb = new StringBuilder();
         while (sb.length() + str.length() < i2) {
             sb.append(c2);
@@ -115,55 +125,50 @@ public class ah {
         n = sdkConfig.canReadICCID();
     }
 
-    private static boolean a(String str) {
+    public static boolean a(String str) {
         return o.contains(str.toLowerCase(Locale.US));
     }
 
     public static long b() {
         try {
             return b(Environment.getDataDirectory());
-        } catch (Exception e2) {
+        } catch (Exception unused) {
             return 0L;
         }
     }
 
     public static long b(Context context) {
-        if (l > 0) {
-            return l;
+        long j2 = l;
+        if (j2 > 0) {
+            return j2;
         }
         if (context == null) {
             return 0L;
         }
         try {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) context.getApplicationContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
-            long j2 = memoryInfo.totalMem;
-            if (j2 <= 0) {
-                j2 = n();
+            ((ActivityManager) context.getApplicationContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
+            long j3 = memoryInfo.totalMem;
+            if (j3 <= 0) {
+                j3 = n();
             }
-            l = j2;
-            return l;
-        } catch (Exception e2) {
+            l = j3;
+            return j3;
+        } catch (Exception unused) {
             return 0L;
         }
     }
 
-    private static long b(File file) {
-        long availableBlocksLong;
+    public static long b(File file) {
         try {
             StatFs statFs = new StatFs(file.getPath());
-            if (Build.VERSION.SDK_INT < 18) {
-                availableBlocksLong = statFs.getAvailableBlocks() * statFs.getBlockSize();
-            } else {
-                availableBlocksLong = statFs.getAvailableBlocksLong() * statFs.getBlockSizeLong();
-            }
-            return availableBlocksLong;
-        } catch (Exception e2) {
+            return Build.VERSION.SDK_INT < 18 ? statFs.getBlockSize() * statFs.getAvailableBlocks() : statFs.getBlockSizeLong() * statFs.getAvailableBlocksLong();
+        } catch (Exception unused) {
             return 0L;
         }
     }
 
-    private static void b(String str) {
+    public static void b(String str) {
         Context context = KsAdSDKImpl.get().getContext();
         if (context == null) {
             return;
@@ -172,11 +177,13 @@ public class ah {
     }
 
     public static int c() {
-        if (k > 0) {
-            return k;
+        int i2 = k;
+        if (i2 > 0) {
+            return i2;
         }
-        k = Runtime.getRuntime().availableProcessors();
-        return k;
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        k = availableProcessors;
+        return availableProcessors;
     }
 
     public static long c(Context context) {
@@ -185,9 +192,9 @@ public class ah {
         }
         try {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+            ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
             return memoryInfo.availMem;
-        } catch (Exception e2) {
+        } catch (Exception unused) {
             return 0L;
         }
     }
@@ -202,25 +209,25 @@ public class ah {
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String d(@Nullable Context context) {
-        if (g) {
+        if (f36713g) {
             return "";
         }
-        if (!TextUtils.isEmpty(b) || context == null) {
-            return b;
+        if (!TextUtils.isEmpty(f36708b) || context == null) {
+            return f36708b;
         }
         try {
             r1 = a(context, "android.permission.READ_PHONE_STATE") == 0;
             if (r1) {
-                b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                f36708b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
             }
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
-            b = null;
+            f36708b = null;
         }
-        if (r1 && c == null) {
-            g = true;
+        if (r1 && f36709c == null) {
+            f36713g = true;
         }
-        return b;
+        return f36708b;
     }
 
     public static String e() {
@@ -229,29 +236,25 @@ public class ah {
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String e(Context context) {
-        if (h) {
+        String str;
+        if (f36714h) {
             return "";
         }
-        if (!TextUtils.isEmpty(c) || context == null) {
-            return c;
+        if (!TextUtils.isEmpty(f36709c) || context == null) {
+            return f36709c;
         }
-        String str = "";
         try {
-            r1 = a(context, "android.permission.READ_PHONE_STATE") == 0;
-            if (r1) {
-                str = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSubscriberId();
-            }
-        } catch (Exception e2) {
+            r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
+            str = r2 ? ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSubscriberId() : "";
+        } catch (Exception unused) {
             str = null;
         }
-        if (r1 && str == null) {
-            h = true;
+        if (r2 && str == null) {
+            f36714h = true;
         }
-        if (TextUtils.isEmpty(str)) {
-            str = "";
-        }
-        c = str;
-        return c;
+        String str2 = TextUtils.isEmpty(str) ? "" : str;
+        f36709c = str2;
+        return str2;
     }
 
     public static String f() {
@@ -260,33 +263,30 @@ public class ah {
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String f(Context context) {
+        String str;
+        String str2;
+        str = "";
         if (i) {
             return "";
         }
-        if (TextUtils.isEmpty(d)) {
-            String str = "";
-            if (context == null || !n) {
-                return "";
-            }
-            try {
-                r1 = a(context, "android.permission.READ_PHONE_STATE") == 0;
-                if (r1) {
-                    str = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSimSerialNumber();
+        if (TextUtils.isEmpty(f36710d)) {
+            if (context != null && n) {
+                try {
+                    r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
+                    str2 = r2 ? ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSimSerialNumber() : "";
+                } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
+                    str2 = null;
                 }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-                str = null;
+                if (r2 && str2 == null) {
+                    i = true;
+                }
+                str = TextUtils.isEmpty(str2) ? "" : str2;
+                f36710d = str;
             }
-            if (r1 && str == null) {
-                i = true;
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            d = str;
-            return d;
+            return str;
         }
-        return d;
+        return f36710d;
     }
 
     public static int g(Context context) {
@@ -294,7 +294,7 @@ public class ah {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
             return displayMetrics.widthPixels;
-        } catch (Exception e2) {
+        } catch (Exception unused) {
             return 0;
         }
     }
@@ -312,7 +312,7 @@ public class ah {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
             return displayMetrics.heightPixels;
-        } catch (Exception e2) {
+        } catch (Exception unused) {
             return 0;
         }
     }
@@ -326,17 +326,17 @@ public class ah {
         if (j) {
             return "";
         }
-        if (!TextUtils.isEmpty(e) || context == null) {
-            return e;
+        if (!TextUtils.isEmpty(f36711e) || context == null) {
+            return f36711e;
         }
         try {
-            e = Settings.Secure.getString(context.getContentResolver(), "android_id");
-        } catch (Exception e2) {
+            f36711e = Settings.Secure.getString(context.getContentResolver(), "android_id");
+        } catch (Exception unused) {
         }
-        if (TextUtils.isEmpty(e)) {
+        if (TextUtils.isEmpty(f36711e)) {
             j = true;
         }
-        return e;
+        return f36711e;
     }
 
     public static int j() {
@@ -359,13 +359,13 @@ public class ah {
         if (context == null || !m) {
             return "";
         }
-        if (TextUtils.isEmpty(f7115a)) {
+        if (TextUtils.isEmpty(f36707a)) {
             try {
                 WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
                 if (connectionInfo != null) {
-                    f7115a = connectionInfo.getMacAddress();
+                    f36707a = connectionInfo.getMacAddress();
                 }
-                if (TextUtils.isEmpty(f7115a) || f7115a.equals(Config.DEF_MAC_ID)) {
+                if (TextUtils.isEmpty(f36707a) || f36707a.equals(Config.DEF_MAC_ID)) {
                     Iterator it = Collections.list(NetworkInterface.getNetworkInterfaces()).iterator();
                     while (true) {
                         if (!it.hasNext()) {
@@ -383,21 +383,21 @@ public class ah {
                                 if (sb.length() > 0) {
                                     sb.deleteCharAt(sb.length() - 1);
                                 }
-                                f7115a = sb.toString();
+                                f36707a = sb.toString();
                             }
                         }
                     }
                 }
-                if (TextUtils.isEmpty(f7115a) || f7115a.equals(Config.DEF_MAC_ID)) {
-                    f7115a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
+                if (TextUtils.isEmpty(f36707a) || f36707a.equals(Config.DEF_MAC_ID)) {
+                    f36707a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
                 }
-                if (!TextUtils.isEmpty(f7115a)) {
-                    f7115a = f7115a.toUpperCase(Locale.US);
+                if (!TextUtils.isEmpty(f36707a)) {
+                    f36707a = f36707a.toUpperCase(Locale.US);
                 }
-            } catch (Exception e2) {
+            } catch (Exception unused) {
             }
         }
-        return f7115a;
+        return f36707a;
     }
 
     public static String l() {
@@ -412,48 +412,48 @@ public class ah {
                     }
                 }
             }
-        } catch (Throwable th) {
+            return "";
+        } catch (Throwable unused) {
+            return "";
         }
-        return "";
     }
 
     public static String l(Context context) {
         try {
             PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(context.getPackageName(), 64);
-            if (packageInfo != null) {
-                return packageInfo.versionName;
-            }
-        } catch (Exception e2) {
+            return packageInfo != null ? packageInfo.versionName : "";
+        } catch (Exception unused) {
+            return "";
         }
-        return "";
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:20:0x0089 -> B:5:0x000a). Please submit an issue!!! */
     public static String m() {
         try {
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
-        if (!TextUtils.isEmpty(f)) {
-            return f;
+        if (TextUtils.isEmpty(f36712f)) {
+            String p = p();
+            if (!TextUtils.isEmpty(p)) {
+                String str = "ANDROID_" + p;
+                f36712f = str;
+                return str;
+            }
+            String i2 = i(KsAdSDKImpl.get().getContext());
+            if (!TextUtils.isEmpty(i2) && !a(i2)) {
+                String str2 = "ANDROID_" + i2;
+                f36712f = str2;
+                return str2;
+            }
+            String o2 = o();
+            if (!TextUtils.isEmpty(o2)) {
+                f36712f = "ANDROID_" + o2;
+                b(o2);
+                return f36712f;
+            }
+            return "ANDROID_";
         }
-        String p = p();
-        if (!TextUtils.isEmpty(p)) {
-            f = "ANDROID_" + p;
-            return f;
-        }
-        String i2 = i(KsAdSDKImpl.get().getContext());
-        if (!TextUtils.isEmpty(i2) && !a(i2)) {
-            f = "ANDROID_" + i2;
-            return f;
-        }
-        String o2 = o();
-        if (!TextUtils.isEmpty(o2)) {
-            f = "ANDROID_" + o2;
-            b(o2);
-            return f;
-        }
-        return "ANDROID_";
+        return f36712f;
     }
 
     public static String m(Context context) {
@@ -461,7 +461,7 @@ public class ah {
             return "";
         }
         int myPid = Process.myPid();
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses == null) {
             return "";
         }
@@ -473,74 +473,68 @@ public class ah {
         return "";
     }
 
-    private static long n() {
+    public static long n() {
         BufferedReader bufferedReader;
+        Throwable th;
         String readLine;
         BufferedReader bufferedReader2 = null;
         try {
-            bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
-        } catch (Exception e2) {
-        } catch (Throwable th) {
-            th = th;
+            try {
+                bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
+            } catch (IOException unused) {
+                return 0L;
+            }
+        } catch (Exception unused2) {
+        } catch (Throwable th2) {
             bufferedReader = null;
+            th = th2;
         }
         do {
             try {
                 readLine = bufferedReader.readLine();
-            } catch (Exception e3) {
+            } catch (Exception unused3) {
                 bufferedReader2 = bufferedReader;
                 if (bufferedReader2 != null) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException e4) {
-                    }
+                    bufferedReader2.close();
+                    return 0L;
                 }
                 return 0L;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
-                    } catch (IOException e5) {
+                    } catch (IOException unused4) {
                     }
                 }
                 throw th;
             }
             if (readLine == null) {
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e6) {
-                    }
-                }
+                bufferedReader.close();
                 return 0L;
             }
         } while (!readLine.contains("MemTotal"));
         long longValue = Long.valueOf(readLine.split("\\s+")[1]).longValue() << 10;
-        if (bufferedReader != null) {
-            try {
-                bufferedReader.close();
-                return longValue;
-            } catch (IOException e7) {
-                return longValue;
-            }
+        try {
+            bufferedReader.close();
+        } catch (IOException unused5) {
         }
         return longValue;
     }
 
-    private static boolean n(Context context) {
+    public static boolean n(Context context) {
         return (context == null || context.getResources() == null || context.getResources().getConfiguration() == null || (context.getResources().getConfiguration().screenLayout & 15) < 3) ? false : true;
     }
 
-    private static String o() {
+    public static String o() {
         try {
             return a(Long.toHexString(new Random(System.currentTimeMillis()).nextLong()), 16, '0');
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return null;
         }
     }
 
-    private static String p() {
+    public static String p() {
         Context context = KsAdSDKImpl.get().getContext();
         if (context == null) {
             return null;

@@ -12,8 +12,8 @@ import android.os.Process;
 import android.os.StrictMode;
 import android.util.AndroidRuntimeException;
 import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.internal.ApisInteractWithMario;
 import com.baidu.webkit.internal.GlobalConstants;
@@ -28,80 +28,76 @@ import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class WebViewFactory {
-    private static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
-    private static final String CHROMIUM_LIBS_PATH = "files/zeus/libs";
-    private static final String CHROMIUM_WEBVIEW_FACTORY = "com.baidu.zeus.WebViewChromiumFactoryProvider";
-    private static final boolean DEBUG = true;
-    private static final String SYSTEM_WEBVIEW_FACTORY = "com.baidu.webkit.sdk.system.WebViewSystemFactoryProvider";
-    private static final String TAG = "WebViewFactory";
-    private static final String ZEUS_APK_NAME = "com.baidu.zeus.apk";
-    private static final String ZEUS_LIB_NAME = "libcom.baidu.zeus.so";
-    private static IABTestInterface mABTestObject;
-    private static Context mContext;
-    private static ICronetListenerInterface mCronetListenerObject;
-    private static Thread mInitWebViewThread;
-    private static boolean mIsInstallUpdate;
-    private static boolean mIsZeusProvideInit;
-    private static INetProbeInterface mNetProbeObject;
-    private static PackageInfo mPackageInfo;
-    private static WebViewFactoryProvider mProvider;
-    private static boolean sCloudSettingInit;
-    private static String sDataDirectorySuffix;
-    private static final boolean sEnableSharedEngine = false;
-    private static Boolean sIsRendererProcess;
-    private static String sProcessSuffix;
-    private static boolean sProcessSuffixDone;
-    private static boolean sUsingSystemWebView;
-    private static boolean sWebViewDisabled;
-    private static boolean sforceMainProcessNoZeus;
-    private static final String SPLASH = File.separator;
-    private static final Object mProviderLock = new Object();
-    private static final Object mZeusProviderLock = new Object();
-    private static AtomicInteger mEngineType = new AtomicInteger(-1);
-    private static int sIsPreInitWebViewEnable = -1;
-    private static final Object sProviderLock = new Object();
+    public static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
+    public static final String CHROMIUM_LIBS_PATH = "files/zeus/libs";
+    public static final String CHROMIUM_WEBVIEW_FACTORY = "com.baidu.zeus.WebViewChromiumFactoryProvider";
+    public static final boolean DEBUG = true;
+    public static final String SYSTEM_WEBVIEW_FACTORY = "com.baidu.webkit.sdk.system.WebViewSystemFactoryProvider";
+    public static final String TAG = "WebViewFactory";
+    public static final String ZEUS_APK_NAME = "com.baidu.zeus.apk";
+    public static final String ZEUS_LIB_NAME = "libcom.baidu.zeus.so";
+    public static IABTestInterface mABTestObject = null;
+    public static Context mContext = null;
+    public static ICronetListenerInterface mCronetListenerObject = null;
+    public static Thread mInitWebViewThread = null;
+    public static boolean mIsInstallUpdate = false;
+    public static boolean mIsZeusProvideInit = false;
+    public static INetProbeInterface mNetProbeObject = null;
+    public static PackageInfo mPackageInfo = null;
+    public static WebViewFactoryProvider mProvider = null;
+    public static boolean sCloudSettingInit = false;
+    public static String sDataDirectorySuffix = null;
+    public static final boolean sEnableSharedEngine = false;
+    public static Boolean sIsRendererProcess;
+    public static String sProcessSuffix;
+    public static boolean sProcessSuffixDone;
+    public static boolean sUsingSystemWebView;
+    public static boolean sWebViewDisabled;
+    public static boolean sforceMainProcessNoZeus;
+    public static final String SPLASH = File.separator;
+    public static final Object mProviderLock = new Object();
+    public static final Object mZeusProviderLock = new Object();
+    public static AtomicInteger mEngineType = new AtomicInteger(-1);
+    public static int sIsPreInitWebViewEnable = -1;
+    public static final Object sProviderLock = new Object();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }
 
-    private static void checkNativeLibraryIntegrity() throws Throwable {
+    public static void checkNativeLibraryIntegrity() throws Throwable {
         d.a aVar;
         long j;
         if (Build.VERSION.SDK_INT != 19) {
             return;
         }
-        if (d.a(mContext).f3823a.a()) {
-            String str = aVar.d + GlobalConstants.LIB_ZEUS_CHROMIUM;
-            File file = new File(str);
-            if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != -1) {
-                try {
-                    j = file.length();
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                    j = 0;
-                }
-                Log.i(TAG, "checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
-                String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("enable_sosize_check");
-                if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false")) {
-                    if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != j || j == 0) {
-                        mProvider = null;
-                        throw new Exception("checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
-                    }
+        if (d.a(mContext).f26889a.a()) {
+            String str = aVar.f26896d + "libzeuswebviewchromium.so";
+            try {
+                j = new File(str).length();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                j = 0;
+            }
+            Log.i(TAG, "checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
+            String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("enable_sosize_check");
+            if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false")) {
+                if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != j || j == 0) {
+                    mProvider = null;
+                    throw new Exception("checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
                 }
             }
         }
     }
 
-    private static void checkNativeLibraryVersion(PackageInfo packageInfo, WebViewFactoryProvider webViewFactoryProvider) throws Throwable {
+    public static void checkNativeLibraryVersion(PackageInfo packageInfo, WebViewFactoryProvider webViewFactoryProvider) throws Throwable {
         String str = packageInfo.versionName;
         try {
             String zeusJarVersion = webViewFactoryProvider.getZeusJarVersion();
@@ -111,15 +107,15 @@ public final class WebViewFactory {
             if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                 return;
             }
-            SevenZipUtils.getInstance().clearTimestamp(d.a(mContext).f3823a.d);
-            throw new Exception("sdk and native library dismatch " + str + ", " + zeusJarVersion + ", " + zeusNativeLibraryVersion);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception("sdk and zeus jar dismatch " + str + ", 9.0.0.0");
+            SevenZipUtils.getInstance().clearTimestamp(d.a(mContext).f26889a.f26896d);
+            throw new Exception("sdk and native library dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusJarVersion + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusNativeLibraryVersion);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            throw new Exception("sdk and zeus jar dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + "9.0.0.0");
         }
     }
 
-    private static boolean checkZeusVersion(PackageInfo packageInfo) throws Throwable {
+    public static boolean checkZeusVersion(PackageInfo packageInfo) throws Throwable {
         if (packageInfo == null) {
             return false;
         }
@@ -135,7 +131,6 @@ public final class WebViewFactory {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void disableWebView() {
         synchronized (sProviderLock) {
             if (mProvider != null) {
@@ -145,7 +140,7 @@ public final class WebViewFactory {
         }
     }
 
-    private static void fetchDefaultPackageInfo() {
+    public static void fetchDefaultPackageInfo() {
         if (hasProvider()) {
             return;
         }
@@ -163,7 +158,7 @@ public final class WebViewFactory {
         }
     }
 
-    private static PackageInfo fetchPackageInfo() {
+    public static PackageInfo fetchPackageInfo() {
         PackageInfo packedPackageInfo = getPackedPackageInfo(mContext);
         if (packedPackageInfo == null) {
             packedPackageInfo = getInternPackageInfo(mContext);
@@ -178,15 +173,16 @@ public final class WebViewFactory {
         return packedPackageInfo;
     }
 
-    private static void fetchSystemPackageInfo() {
+    public static void fetchSystemPackageInfo() {
         if (hasProvider()) {
             return;
         }
         mPackageInfo = null;
-        if (Build.VERSION.SDK_INT > 20) {
+        int i = Build.VERSION.SDK_INT;
+        if (i > 20) {
             if (mPackageInfo == null) {
-                if (Build.VERSION.SDK_INT > 23) {
-                    try {
+                try {
+                    if (i > 23) {
                         Method declaredMethod = Class.forName("android.webkit.WebViewFactory").getDeclaredMethod("getWebViewContextAndSetProvider", null);
                         boolean isAccessible = declaredMethod.isAccessible();
                         declaredMethod.setAccessible(true);
@@ -194,16 +190,13 @@ public final class WebViewFactory {
                         declaredMethod.setAccessible(isAccessible);
                         try {
                             mPackageInfo = (PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, null);
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
-                    } catch (Throwable th) {
-                    }
-                } else {
-                    try {
+                    } else {
                         mPackageInfo = mContext.getPackageManager().getPackageInfo((String) Class.forName("android.webkit.WebViewFactory").getMethod("getWebViewPackageName", new Class[0]).invoke(null, null), 0);
-                    } catch (Throwable th2) {
                     }
+                } catch (Throwable unused) {
                 }
             }
             if (mPackageInfo == null) {
@@ -214,8 +207,8 @@ public final class WebViewFactory {
                     declaredMethod2.invoke(null, null);
                     declaredMethod2.setAccessible(isAccessible2);
                     mPackageInfo = (PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, null);
-                } catch (Throwable th3) {
-                    th3.printStackTrace();
+                } catch (Throwable th) {
+                    th.printStackTrace();
                 }
             }
         }
@@ -223,11 +216,13 @@ public final class WebViewFactory {
             PackageInfo packageInfo = new PackageInfo();
             mPackageInfo = packageInfo;
             packageInfo.packageName = "system_webview";
-            mPackageInfo.versionName = "Android" + Build.VERSION.RELEASE + "_webview";
-            mPackageInfo.versionCode = 0;
-            mPackageInfo.applicationInfo = new ApplicationInfo();
-            mPackageInfo.applicationInfo.sourceDir = "?frameworks.jar";
-            mPackageInfo.applicationInfo.nativeLibraryDir = "/system/lib";
+            packageInfo.versionName = "Android" + Build.VERSION.RELEASE + "_webview";
+            PackageInfo packageInfo2 = mPackageInfo;
+            packageInfo2.versionCode = 0;
+            packageInfo2.applicationInfo = new ApplicationInfo();
+            ApplicationInfo applicationInfo = mPackageInfo.applicationInfo;
+            applicationInfo.sourceDir = "?frameworks.jar";
+            applicationInfo.nativeLibraryDir = "/system/lib";
         }
         Log.i(TAG, "Package=" + mPackageInfo.packageName + ", Version=" + mPackageInfo.versionName);
         if (mPackageInfo != null) {
@@ -240,32 +235,34 @@ public final class WebViewFactory {
     }
 
     public static boolean forceInitZeusProvider() {
-        if (!mIsZeusProvideInit) {
-            synchronized (mZeusProviderLock) {
-                ZeusPerformanceTiming.forceInitT7();
-                d.a(mContext).a();
-                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_GET_PROVIDER);
-                ZeusCrashHandler.init();
-                LoadErrorCode.Statistics.init(getContext());
-                if (mContext == null) {
-                    throw new AndroidRuntimeException("WebViewFactory.setContext must be called before getProvider()");
+        boolean z;
+        if (mIsZeusProvideInit) {
+            return true;
+        }
+        synchronized (mZeusProviderLock) {
+            ZeusPerformanceTiming.forceInitT7();
+            d.a(mContext).a();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_GET_PROVIDER);
+            ZeusCrashHandler.init();
+            LoadErrorCode.Statistics.init(getContext());
+            if (mContext == null) {
+                throw new AndroidRuntimeException("WebViewFactory.setContext must be called before getProvider()");
+            }
+            StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
+            try {
+                WebViewFactoryProvider zeusProviderImpl = getZeusProviderImpl();
+                if (zeusProviderImpl != null && !isRendererProcess()) {
+                    ApisInteractWithMario.initialize();
                 }
-                StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
-                try {
-                    WebViewFactoryProvider zeusProviderImpl = getZeusProviderImpl();
-                    if (zeusProviderImpl != null && !isRendererProcess()) {
-                        ApisInteractWithMario.initialize();
-                    }
-                    ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_GET_PROVIDER);
-                    mIsZeusProvideInit = true;
-                    r0 = zeusProviderImpl != null;
-                    StrictMode.setThreadPolicy(allowThreadDiskReads);
-                } catch (Exception e) {
-                    throw new AndroidRuntimeException(e);
-                }
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_GET_PROVIDER);
+                mIsZeusProvideInit = true;
+                z = zeusProviderImpl != null;
+                StrictMode.setThreadPolicy(allowThreadDiskReads);
+            } catch (Exception e2) {
+                throw new AndroidRuntimeException(e2);
             }
         }
-        return r0;
+        return z;
     }
 
     public static boolean forceNoZeus() {
@@ -292,11 +289,10 @@ public final class WebViewFactory {
         return str;
     }
 
-    private static PackageInfo getInternPackageInfo(Context context) {
-        Throwable th;
+    public static PackageInfo getInternPackageInfo(Context context) {
         PackageInfo packageInfo;
+        Throwable th = null;
         try {
-            th = null;
             packageInfo = Class.forName(CHROMIUM_WEBVIEW_FACTORY, false, WebViewFactory.class.getClassLoader()) != null ? context.getPackageManager().getPackageInfo(context.getPackageName(), 0) : null;
         } catch (Throwable th2) {
             th = th2;
@@ -325,9 +321,9 @@ public final class WebViewFactory {
     }
 
     @SuppressLint({"NewApi"})
-    private static File getOptFile() {
+    public static File getOptFile() {
         if (!isRendererProcess() || Build.VERSION.SDK_INT <= 22) {
-            File file = new File(Build.VERSION.SDK_INT < 21 ? mContext.getDir("zeus", 0) : mContext.getCodeCacheDir(), "engine_code_cache");
+            File file = new File(Build.VERSION.SDK_INT < 21 ? mContext.getDir(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, 0) : mContext.getCodeCacheDir(), "engine_code_cache");
             if (!file.exists() && file.mkdirs()) {
                 file.setReadable(true, false);
                 file.setWritable(true, false);
@@ -337,92 +333,62 @@ public final class WebViewFactory {
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00e5 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00ff  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x008e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static PackageInfo getPackedPackageInfo(Context context) {
+    public static PackageInfo getPackedPackageInfo(Context context) {
         PackageInfo packageInfo;
         Object obj;
         ApplicationInfo applicationInfo;
-        d a2;
-        d.a aVar;
         String str;
-        String downloadLibPath;
-        String str2;
-        Throwable th = null;
         Log.i(TAG, "[getPackedPackageInfo] begin ...");
+        Throwable th = null;
         try {
-            applicationInfo = context.getApplicationInfo();
-            a2 = d.a(context);
-            aVar = a2.f3823a;
+            ApplicationInfo applicationInfo2 = context.getApplicationInfo();
+            d a2 = d.a(context);
+            d.a aVar = a2.f26889a;
             mIsInstallUpdate = false;
-            str = applicationInfo.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
-            downloadLibPath = UtilsBlink.getDownloadLibPath(context);
-        } catch (Throwable th2) {
-            th = th2;
+            String str2 = applicationInfo2.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
+            String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
+            if (downloadLibPath != null) {
+                String str3 = downloadLibPath + "libcom.baidu.zeus.so";
+                if (new File(str3).exists() && EngineManager.getInstance().isInstalled()) {
+                    mIsInstallUpdate = true;
+                    str2 = str3;
+                }
+            }
+            if (!a2.f26889a.a() && !EngineManager.getInstance().isInstalled()) {
+                LoadErrorCode.getInstance().trace(513);
+            }
+            packageInfo = context.getPackageManager().getPackageArchiveInfo(str2, 132);
+            if (packageInfo != null) {
+                try {
+                    packageInfo.applicationInfo.sourceDir = str2;
+                    packageInfo.applicationInfo.publicSourceDir = packageInfo.applicationInfo.sourceDir;
+                    if (!aVar.a() && !mIsInstallUpdate) {
+                        applicationInfo = packageInfo.applicationInfo;
+                        str = applicationInfo2.nativeLibraryDir;
+                        applicationInfo.nativeLibraryDir = str;
+                    }
+                    applicationInfo = packageInfo.applicationInfo;
+                    str = aVar.f26896d + ":" + applicationInfo2.nativeLibraryDir;
+                    applicationInfo.nativeLibraryDir = str;
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            }
+        } catch (Throwable th3) {
+            th = th3;
             packageInfo = null;
         }
-        if (downloadLibPath != null) {
-            str2 = downloadLibPath + "libcom.baidu.zeus.so";
-            if (new File(str2).exists() && EngineManager.getInstance().isInstalled()) {
-                mIsInstallUpdate = true;
-                if (!a2.f3823a.a() && !EngineManager.getInstance().isInstalled()) {
-                    LoadErrorCode.getInstance().trace(513);
-                }
-                packageInfo = context.getPackageManager().getPackageArchiveInfo(str2, IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER);
-                if (packageInfo != null) {
-                    try {
-                        packageInfo.applicationInfo.sourceDir = str2;
-                        packageInfo.applicationInfo.publicSourceDir = packageInfo.applicationInfo.sourceDir;
-                        if (aVar.a() || mIsInstallUpdate) {
-                            packageInfo.applicationInfo.nativeLibraryDir = aVar.d + ":" + applicationInfo.nativeLibraryDir;
-                        } else {
-                            packageInfo.applicationInfo.nativeLibraryDir = applicationInfo.nativeLibraryDir;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        th = th;
-                        StringBuilder sb = new StringBuilder("[getPackedPackageInfo] finish - ");
-                        if (th == null) {
-                        }
-                        Log.i(TAG, sb.append(obj).toString());
-                        if (th == null) {
-                        }
-                        LoadErrorCode.getInstance().set(1, LoadErrorCode.getRootMessage(th));
-                        return packageInfo;
-                    }
-                }
-                StringBuilder sb2 = new StringBuilder("[getPackedPackageInfo] finish - ");
-                if (th == null) {
-                    obj = Boolean.valueOf(packageInfo != null);
-                } else {
-                    obj = "exception:" + th.getCause();
-                }
-                Log.i(TAG, sb2.append(obj).toString());
-                if (th == null || packageInfo == null) {
-                    LoadErrorCode.getInstance().set(1, LoadErrorCode.getRootMessage(th));
-                }
-                return packageInfo;
-            }
-        }
-        str2 = str;
-        if (!a2.f3823a.a()) {
-            LoadErrorCode.getInstance().trace(513);
-        }
-        packageInfo = context.getPackageManager().getPackageArchiveInfo(str2, IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER);
-        if (packageInfo != null) {
-        }
-        StringBuilder sb22 = new StringBuilder("[getPackedPackageInfo] finish - ");
+        StringBuilder sb = new StringBuilder("[getPackedPackageInfo] finish - ");
         if (th == null) {
+            obj = Boolean.valueOf(packageInfo != null);
+        } else {
+            obj = "exception:" + th.getCause();
         }
-        Log.i(TAG, sb22.append(obj).toString());
-        if (th == null) {
+        sb.append(obj);
+        Log.i(TAG, sb.toString());
+        if (th != null || packageInfo == null) {
+            LoadErrorCode.getInstance().set(1, LoadErrorCode.getRootMessage(th));
         }
-        LoadErrorCode.getInstance().set(1, LoadErrorCode.getRootMessage(th));
         return packageInfo;
     }
 
@@ -430,15 +396,15 @@ public final class WebViewFactory {
         return getProcessName(mContext, Process.myPid());
     }
 
-    private static String getProcessName(Context context, int i) {
+    public static String getProcessName(Context context, int i) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        if (context != null && (runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) != null) {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == i) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
+        if (context == null || (runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) == null) {
             return null;
+        }
+        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+            if (runningAppProcessInfo.pid == i) {
+                return runningAppProcessInfo.processName;
+            }
         }
         return null;
     }
@@ -449,15 +415,15 @@ public final class WebViewFactory {
         }
         String processName = getProcessName(context, Process.myPid());
         android.util.Log.d(TAG, "context=" + context + ", processName=" + processName);
-        if (processName != null) {
-            int indexOf = processName.indexOf(58);
-            String substring = indexOf >= 0 ? processName.substring(indexOf + 1) : null;
-            Log.d(TAG, "suffix=" + substring);
-            sProcessSuffix = substring;
-            sProcessSuffixDone = true;
-            return substring;
+        if (processName == null) {
+            return null;
         }
-        return null;
+        int indexOf = processName.indexOf(58);
+        String substring = indexOf >= 0 ? processName.substring(indexOf + 1) : null;
+        Log.d(TAG, "suffix=" + substring);
+        sProcessSuffix = substring;
+        sProcessSuffixDone = true;
+        return substring;
     }
 
     public static WebViewFactoryProvider getProvider() {
@@ -478,28 +444,28 @@ public final class WebViewFactory {
                     ZeusCrashHandler.init();
                     LoadErrorCode.Statistics.init(getContext());
                 }
-                if (mContext == null) {
-                    throw new AndroidRuntimeException("WebViewFactory.setContext must be called before getProvider(), or invoke getProvider() on MainThread.");
-                }
-                StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
-                try {
-                    WebViewFactoryProvider providerImpl = getProviderImpl();
-                    if (providerImpl != null && !isRendererProcess()) {
-                        ApisInteractWithMario.initialize();
+                if (mContext != null) {
+                    StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
+                    try {
+                        WebViewFactoryProvider providerImpl = getProviderImpl();
+                        if (providerImpl != null && !isRendererProcess()) {
+                            ApisInteractWithMario.initialize();
+                        }
+                        if (!sUsingSystemWebView) {
+                            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_GET_PROVIDER);
+                        }
+                        StrictMode.setThreadPolicy(allowThreadDiskReads);
+                        return providerImpl;
+                    } catch (Exception e2) {
+                        throw new AndroidRuntimeException(e2);
                     }
-                    if (!sUsingSystemWebView) {
-                        ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_GET_PROVIDER);
-                    }
-                    StrictMode.setThreadPolicy(allowThreadDiskReads);
-                    return providerImpl;
-                } catch (Exception e) {
-                    throw new AndroidRuntimeException(e);
                 }
+                throw new AndroidRuntimeException("WebViewFactory.setContext must be called before getProvider(), or invoke getProvider() on MainThread.");
             }
         }
     }
 
-    private static WebViewFactoryProvider getProviderImpl() {
+    public static WebViewFactoryProvider getProviderImpl() {
         if (!sUsingSystemWebView) {
             ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_CHECK_USE_T7);
         }
@@ -525,10 +491,12 @@ public final class WebViewFactory {
             }
         }
         sforceMainProcessNoZeus = false;
-        if (mPackageInfo != null && !shouldUseSystemWebView) {
+        PackageInfo packageInfo = mPackageInfo;
+        if (packageInfo != null && !shouldUseSystemWebView) {
             try {
-                if (!checkZeusVersion(mPackageInfo)) {
-                    throw new Exception("sdk and zeus dismatch " + WebKitFactory.getSdkVersionCode() + ", " + mPackageInfo.versionName);
+                if (!checkZeusVersion(packageInfo)) {
+                    String sdkVersionCode = WebKitFactory.getSdkVersionCode();
+                    throw new Exception("sdk and zeus dismatch " + sdkVersionCode + StringUtil.ARRAY_ELEMENT_SEPARATOR + mPackageInfo.versionName);
                 }
                 boolean equals = mPackageInfo.packageName.equals(mContext.getPackageName());
                 File optFile = getOptFile();
@@ -561,7 +529,12 @@ public final class WebViewFactory {
                 EngineManager.getInstance().setNeedKillProcess(true);
             }
             if (LoadErrorCode.getInstance().getInt() == 0) {
-                LoadErrorCode.getInstance().set(6, "6:" + shouldUseSystemWebView + "," + (mPackageInfo != null));
+                LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+                StringBuilder sb = new StringBuilder("6:");
+                sb.append(shouldUseSystemWebView);
+                sb.append(",");
+                sb.append(mPackageInfo != null);
+                loadErrorCode.set(6, sb.toString());
             }
             fetchSystemPackageInfo();
             try {
@@ -570,12 +543,12 @@ public final class WebViewFactory {
                 if (webViewFactoryProvider != null) {
                     mEngineType.set(0);
                 }
-            } catch (Exception e) {
+            } catch (Exception e2) {
                 mProvider = null;
                 if (!isRendererProcess()) {
                     LoadErrorCode.Statistics.record();
                 }
-                throw new AndroidRuntimeException(e);
+                throw new AndroidRuntimeException(e2);
             }
         } else if (mIsInstallUpdate) {
             EngineManager.getInstance().setNeedKillProcess(false);
@@ -593,7 +566,7 @@ public final class WebViewFactory {
         return mProvider;
     }
 
-    private static PackageInfo getSharedPackageInfo(Context context) {
+    public static PackageInfo getSharedPackageInfo(Context context) {
         PackageInfo packageInfo;
         ApplicationInfo applicationInfo;
         Throwable th = null;
@@ -616,26 +589,20 @@ public final class WebViewFactory {
             }
         } catch (Throwable th3) {
             th = th3;
-            th = th;
-            if (th == null) {
-            }
-            LoadErrorCode.getInstance().set(3, LoadErrorCode.getRootMessage(th));
-            return packageInfo;
         }
-        if (th == null || packageInfo == null) {
+        if (th != null || packageInfo == null) {
             LoadErrorCode.getInstance().set(3, LoadErrorCode.getRootMessage(th));
         }
         return packageInfo;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0097  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00f2  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0101  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static WebViewFactoryProvider getZeusProviderImpl() {
+    public static WebViewFactoryProvider getZeusProviderImpl() {
         PackageInfo packageInfo;
-        WebViewFactoryProvider webViewFactoryProvider;
         if (!sUsingSystemWebView) {
             ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_CHECK_USE_T7);
         }
@@ -643,20 +610,18 @@ public final class WebViewFactory {
         if (!sUsingSystemWebView) {
             ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_CHECK_USE_T7);
         }
+        WebViewFactoryProvider webViewFactoryProvider = null;
         if (shouldUseSystemWebView) {
             packageInfo = null;
         } else {
             ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_FETCH_PACKAGE_INFO);
-            PackageInfo fetchPackageInfo = fetchPackageInfo();
+            packageInfo = fetchPackageInfo();
             ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_FETCH_PACKAGE_INFO);
-            packageInfo = fetchPackageInfo;
         }
-        if (packageInfo == null || shouldUseSystemWebView) {
-            webViewFactoryProvider = null;
-        } else {
+        if (packageInfo != null && !shouldUseSystemWebView) {
             try {
                 if (!checkZeusVersion(packageInfo)) {
-                    throw new Exception("sdk and zeus dismatch " + WebKitFactory.getSdkVersionCode() + ", " + packageInfo.versionName);
+                    throw new Exception("sdk and zeus dismatch " + WebKitFactory.getSdkVersionCode() + StringUtil.ARRAY_ELEMENT_SEPARATOR + packageInfo.versionName);
                 }
                 boolean equals = packageInfo.packageName.equals(mContext.getPackageName());
                 File optFile = getOptFile();
@@ -668,14 +633,16 @@ public final class WebViewFactory {
                     d.a(mContext).b();
                 }
                 ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_T7_CHROMIUM_PROVIDER_INIT);
-                webViewFactoryProvider = (WebViewFactoryProvider) loadClass.getMethod("getInstance", null).invoke(null, null);
+                WebViewFactoryProvider webViewFactoryProvider2 = (WebViewFactoryProvider) loadClass.getMethod("getInstance", null).invoke(null, null);
                 try {
                     ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_T7_CHROMIUM_PROVIDER_INIT);
-                    if (webViewFactoryProvider != null) {
-                        checkNativeLibraryVersion(packageInfo, webViewFactoryProvider);
+                    if (webViewFactoryProvider2 != null) {
+                        checkNativeLibraryVersion(packageInfo, webViewFactoryProvider2);
                     }
+                    webViewFactoryProvider = webViewFactoryProvider2;
                 } catch (Throwable th) {
                     th = th;
+                    webViewFactoryProvider = webViewFactoryProvider2;
                     LoadErrorCode.getInstance().set(4, LoadErrorCode.getRootMessage(th));
                     Log.i(TAG, "**** getProvider end, sys = " + shouldUseSystemWebView + "  zeusProvider = " + webViewFactoryProvider);
                     if (webViewFactoryProvider != null) {
@@ -687,7 +654,6 @@ public final class WebViewFactory {
                 }
             } catch (Throwable th2) {
                 th = th2;
-                webViewFactoryProvider = null;
             }
         }
         Log.i(TAG, "**** getProvider end, sys = " + shouldUseSystemWebView + "  zeusProvider = " + webViewFactoryProvider);
@@ -701,10 +667,10 @@ public final class WebViewFactory {
         return webViewFactoryProvider;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void handleTaskAfterWebkitInited() {
-        if (mProvider != null) {
-            mProvider.commonInitialize();
+        WebViewFactoryProvider webViewFactoryProvider = mProvider;
+        if (webViewFactoryProvider != null) {
+            webViewFactoryProvider.commonInitialize();
             if (isRendererProcess()) {
                 return;
             }
@@ -719,7 +685,7 @@ public final class WebViewFactory {
         return mEngineType.get() != -1;
     }
 
-    private static void initCloudSetting() {
+    public static void initCloudSetting() {
         if (sCloudSettingInit) {
             return;
         }
@@ -749,9 +715,9 @@ public final class WebViewFactory {
                 Thread thread = new Thread(new Runnable() { // from class: com.baidu.webkit.sdk.WebViewFactory.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        boolean z = true;
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
+                            boolean z = true;
                             if (WebViewFactory.isPreInitWebViewEnable() && WebKitFactory.getCurEngine() == 1) {
                                 Log.d("ZeusStartupTimingMonitor", "init bg webview start");
                                 WebView webView = new WebView(WebViewFactory.getContext(), true);
@@ -780,49 +746,53 @@ public final class WebViewFactory {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @RequiresApi(api = 8)
     public static boolean installZesEngineIfNeeded(boolean z, boolean z2) {
+        Context context;
         boolean z3 = z && isDebugApk(getContext());
         if (!z || z3) {
-            String requestZeusEngine = (!z3 || z2 || mContext == null) ? z2 ? ZeusSDK.getClient().requestZeusEngine(ZeusSDK.getSDKVersionName()) : null : "file://" + mContext.getExternalFilesDir("").getAbsolutePath() + "/zeus-engine-debug/zeus-engine.zes";
-            if (requestZeusEngine == null || requestZeusEngine.length() == 0) {
-                return false;
+            String str = null;
+            if (z3 && !z2 && (context = mContext) != null) {
+                str = "file://" + context.getExternalFilesDir("").getAbsolutePath() + "/zeus-engine-debug/zeus-engine.zes";
+            } else if (z2) {
+                str = ZeusSDK.getClient().requestZeusEngine(ZeusSDK.getSDKVersionName());
             }
-            File file = new File(requestZeusEngine.substring("file://".length()));
-            if (file.exists() && file.isFile()) {
-                boolean installSync = EngineManager.getInstance().installSync(requestZeusEngine, new WebKitFactory.WebkitInstallListener() { // from class: com.baidu.webkit.sdk.WebViewFactory.1
-                    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-                    public void onInstallFinish(int i, String str) {
-                    }
+            if (str != null && str.length() != 0) {
+                File file = new File(str.substring(7));
+                if (file.exists() && file.isFile()) {
+                    boolean installSync = EngineManager.getInstance().installSync(str, new WebKitFactory.WebkitInstallListener() { // from class: com.baidu.webkit.sdk.WebViewFactory.1
+                        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+                        public void onInstallFinish(int i, String str2) {
+                        }
 
-                    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-                    public void onInstallStart() {
+                        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+                        public void onInstallStart() {
+                        }
+                    });
+                    ZeusSDK.getClient().onInstallFinished(installSync, 0);
+                    if (z3) {
+                        File file2 = new File(str.substring(7));
+                        if (file2.exists() && file2.isFile()) {
+                            file2.delete();
+                        }
                     }
-                });
-                ZeusSDK.getClient().onInstallFinished(installSync, 0);
-                if (z3) {
-                    File file2 = new File(requestZeusEngine.substring("file://".length()));
-                    if (file2.exists() && file2.isFile()) {
-                        file2.delete();
-                    }
+                    return installSync;
                 }
-                return installSync;
             }
             return false;
         }
         return false;
     }
 
-    private static boolean isDebugApk(Context context) {
+    public static boolean isDebugApk(Context context) {
         try {
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             if (applicationInfo != null) {
                 return (applicationInfo.flags & 2) != 0;
             }
             return false;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return false;
         }
     }
@@ -853,71 +823,71 @@ public final class WebViewFactory {
         return sIsPreInitWebViewEnable == 1;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:8:0x0015, code lost:
-        if (r2.indexOf(com.baidu.webkit.sdk.WebViewRendererService.RENDER_SERVICE_PROCESS_NAME_SUFFIX) >= 0) goto L9;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static boolean isRendererProcess() {
-        boolean z = true;
-        if (sIsRendererProcess == null) {
+        Boolean bool = sIsRendererProcess;
+        if (bool == null) {
+            boolean z = false;
+            boolean z2 = true;
             try {
                 String processSuffix = getProcessSuffix(mContext);
                 if (processSuffix != null) {
+                    if (processSuffix.indexOf(WebViewRendererService.RENDER_SERVICE_PROCESS_NAME_SUFFIX) >= 0) {
+                        z = true;
+                    }
                 }
-                z = false;
-            } catch (Exception e) {
-                Log.w(TAG, "failed to get process info", e);
+                z2 = z;
+            } catch (Exception e2) {
+                Log.w(TAG, "failed to get process info", e2);
             }
-            sIsRendererProcess = Boolean.valueOf(z);
-            return z;
+            sIsRendererProcess = Boolean.valueOf(z2);
+            return z2;
         }
-        return sIsRendererProcess.booleanValue();
+        return bool.booleanValue();
     }
 
     public static boolean isSwanProcess() {
         try {
             String processSuffix = getProcessSuffix(mContext);
             if (processSuffix != null) {
-                return processSuffix.indexOf(GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME) >= 0;
+                return processSuffix.indexOf("swan") >= 0;
             }
             return false;
-        } catch (Exception e) {
-            Log.e(TAG, "failed to get process info", e);
+        } catch (Exception e2) {
+            Log.e(TAG, "failed to get process info", e2);
             return false;
         }
     }
 
-    private static boolean isVersionMatched(String str, String str2, boolean z) {
+    public static boolean isVersionMatched(String str, String str2, boolean z) {
         boolean z2 = false;
-        if (str == null || str2 == null) {
-            return false;
+        if (str != null && str2 != null) {
+            int[] iArr = {0, 0, 0, 0};
+            int[] iArr2 = {0, 0, 0, 0};
+            try {
+                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
+                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
+                iArr[0] = Integer.parseInt(split[0]);
+                iArr[1] = Integer.parseInt(split[1]);
+                iArr[2] = Integer.parseInt(split[2]);
+                iArr[3] = Integer.parseInt(split[3]);
+                iArr2[0] = Integer.parseInt(split2[0]);
+                iArr2[1] = Integer.parseInt(split2[1]);
+                iArr2[2] = Integer.parseInt(split2[2]);
+                iArr2[3] = Integer.parseInt(split2[3]);
+            } catch (Throwable unused) {
+            }
+            if (iArr[0] != 0 && iArr2[0] != 0) {
+                boolean z3 = iArr[0] == iArr2[0] && iArr[1] == iArr2[1] && iArr[2] == iArr2[2];
+                boolean z4 = z3 && iArr[3] == iArr2[3];
+                if (z3 && iArr[3] <= iArr2[3]) {
+                    z2 = true;
+                }
+                if (z) {
+                    return z4;
+                }
+            }
         }
-        int[] iArr = {0, 0, 0, 0};
-        int[] iArr2 = {0, 0, 0, 0};
-        try {
-            String[] split = str.split("\\.", 4);
-            String[] split2 = str2.split("\\.", 4);
-            iArr[0] = Integer.parseInt(split[0]);
-            iArr[1] = Integer.parseInt(split[1]);
-            iArr[2] = Integer.parseInt(split[2]);
-            iArr[3] = Integer.parseInt(split[3]);
-            iArr2[0] = Integer.parseInt(split2[0]);
-            iArr2[1] = Integer.parseInt(split2[1]);
-            iArr2[2] = Integer.parseInt(split2[2]);
-            iArr2[3] = Integer.parseInt(split2[3]);
-        } catch (Throwable th) {
-        }
-        if (iArr[0] == 0 || iArr2[0] == 0) {
-            return false;
-        }
-        boolean z3 = iArr[0] == iArr2[0] && iArr[1] == iArr2[1] && iArr[2] == iArr2[2];
-        boolean z4 = z3 && iArr[3] == iArr2[3];
-        if (z3 && iArr[3] <= iArr2[3]) {
-            z2 = true;
-        }
-        return !z ? z2 : z4;
+        return z2;
     }
 
     public static boolean isZeusProvider() {
@@ -933,7 +903,6 @@ public final class WebViewFactory {
         mCronetListenerObject = iCronetListenerInterface;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void setDataDirectorySuffix(String str) {
         synchronized (sProviderLock) {
             if (mProvider != null) {
@@ -951,7 +920,7 @@ public final class WebViewFactory {
         mNetProbeObject = iNetProbeInterface;
     }
 
-    static boolean setPackageInfo(PackageInfo packageInfo) {
+    public static boolean setPackageInfo(PackageInfo packageInfo) {
         synchronized (mProviderLock) {
             if (mProvider != null) {
                 throw new AndroidRuntimeException("cannot setPackageInfo while provider is loaded.");
@@ -961,40 +930,40 @@ public final class WebViewFactory {
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void setUseSystemWebView(boolean z) {
         sUsingSystemWebView = z;
     }
 
     public static void setUsingLzma(Context context, boolean z, WebKitUnzipCallback webKitUnzipCallback) {
         d a2 = d.a(context);
-        a2.f3823a.a(z);
+        a2.f26889a.a(z);
         if (!z || isRendererProcess()) {
             return;
         }
-        synchronized (d.e) {
+        synchronized (d.f26886e) {
             if (context != null) {
-                if (a2.f3823a != null && a2.b == null) {
-                    a2.b = new d.b(context);
+                if (a2.f26889a != null && a2.f26890b == null) {
+                    a2.f26890b = new d.b(context);
                 }
             }
         }
-        synchronized (d.e) {
-            if (a2.c != webKitUnzipCallback) {
-                a2.c = webKitUnzipCallback;
-                if (a2.d == null) {
-                    a2.d = new Handler(Looper.getMainLooper());
+        synchronized (d.f26886e) {
+            if (a2.f26891c != webKitUnzipCallback) {
+                a2.f26891c = webKitUnzipCallback;
+                if (a2.f26892d == null) {
+                    a2.f26892d = new Handler(Looper.getMainLooper());
                 }
-                a2.d.postDelayed(new e(a2), 15000L);
+                a2.f26892d.postDelayed(new e(a2), 15000L);
             }
         }
     }
 
-    private static boolean shouldUseSystemWebView(boolean z) {
+    public static boolean shouldUseSystemWebView(boolean z) {
         boolean z2;
         boolean z3;
         if ((sUsingSystemWebView && !z) || !WebKitFactory.isPlatformSupported()) {
-            LoadErrorCode.getInstance().trace("511:" + sUsingSystemWebView + "," + WebKitFactory.isPlatformSupported() + "," + WebKitFactory.isZeusSupported());
+            LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+            loadErrorCode.trace("511:" + sUsingSystemWebView + "," + WebKitFactory.isPlatformSupported() + "," + WebKitFactory.isZeusSupported());
             return true;
         }
         initCloudSetting();
@@ -1023,7 +992,6 @@ public final class WebViewFactory {
     }
 
     public static void startBrowserProcess() {
-        boolean z = true;
         if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.webkit.sdk.WebViewFactory.3
                 @Override // java.lang.Runnable
@@ -1035,10 +1003,7 @@ public final class WebViewFactory {
         }
         try {
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("zeus_init_opt_enable");
-            if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase("false")) {
-                z = false;
-            }
-            if (z && hasProvider()) {
+            if ((GetCloudSettingsValue == null || !GetCloudSettingsValue.equalsIgnoreCase("false")) && hasProvider()) {
                 Log.i(GlobalConstants.LOG_PER_TAG, " startBrowserProcessBackground from API");
                 getProvider().startBrowserProcess(true);
             }
@@ -1047,7 +1012,6 @@ public final class WebViewFactory {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean unzip() {
         if (hasProvider()) {
             return false;

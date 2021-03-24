@@ -2,7 +2,7 @@ package com.kwad.sdk.plugin;
 
 import android.content.Context;
 import com.kwad.sdk.api.SdkConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface e {
     void a(Context context, SdkConfig sdkConfig);
 

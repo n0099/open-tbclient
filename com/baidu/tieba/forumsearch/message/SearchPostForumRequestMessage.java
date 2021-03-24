@@ -1,24 +1,16 @@
 package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.SearchPostForum.DataReq;
 import tbclient.SearchPostForum.SearchPostForumReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class SearchPostForumRequestMessage extends NetMessage {
-    private String word;
+    public String word;
 
     public SearchPostForumRequestMessage() {
-        super(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM);
-    }
-
-    public String get_word() {
-        return this.word;
-    }
-
-    public void set_word(String str) {
-        this.word = str;
+        super(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -27,13 +19,21 @@ public class SearchPostForumRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.word = get_word();
             if (z) {
-                v.b(builder, true);
+                w.a(builder, true);
             }
             SearchPostForumReqIdl.Builder builder2 = new SearchPostForumReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
+    }
+
+    public String get_word() {
+        return this.word;
+    }
+
+    public void set_word(String str) {
+        this.word = str;
     }
 }

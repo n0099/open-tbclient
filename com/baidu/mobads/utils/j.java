@@ -1,37 +1,37 @@
 package com.baidu.mobads.utils;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class j extends com.baidu.mobads.f.a<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2485a;
-    final /* synthetic */ h c;
+    public final /* synthetic */ String f8540a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ h f8541c;
+
     public j(h hVar, String str) {
-        this.c = hVar;
-        this.f2485a = str;
+        this.f8541c = hVar;
+        this.f8540a = str;
     }
 
     @Override // com.baidu.mobads.f.a
     public Object a() {
-        Object a2;
         String str;
         String str2;
         try {
-            a2 = this.c.a("mapinfo");
+            Object a2 = this.f8541c.a("mapinfo");
+            if (a2 != null) {
+                String unused = h.f8533h = String.valueOf(a2);
+                str2 = h.f8533h;
+                return str2;
+            }
+            String unused2 = h.f8533h = new com.baidu.mobads.h.a(this.f8540a).a();
+            h hVar = this.f8541c;
+            str = h.f8533h;
+            hVar.a("mapinfo", str);
+            return null;
         } catch (Throwable th) {
             q.a().e(th);
+            return null;
         }
-        if (a2 != null) {
-            String unused = h.h = String.valueOf(a2);
-            str2 = h.h;
-            return str2;
-        }
-        String unused2 = h.h = new com.baidu.mobads.h.a(this.f2485a).a();
-        h hVar = this.c;
-        str = h.h;
-        hVar.a("mapinfo", str);
-        return null;
     }
 }

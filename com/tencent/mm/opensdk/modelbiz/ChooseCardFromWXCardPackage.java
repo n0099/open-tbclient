@@ -4,11 +4,11 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ChooseCardFromWXCardPackage {
-    private static final String TAG = "MicroMsg.ChooseCardFromWXCardPackage";
+    public static final String TAG = "MicroMsg.ChooseCardFromWXCardPackage";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
         public String appId;
         public String canMultiSelect;
@@ -22,7 +22,10 @@ public class ChooseCardFromWXCardPackage {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
-            return this.appId != null && this.appId.length() > 0 && this.signType != null && this.signType.length() > 0 && this.cardSign != null && this.cardSign.length() > 0;
+            String str;
+            String str2;
+            String str3 = this.appId;
+            return str3 != null && str3.length() > 0 && (str = this.signType) != null && str.length() > 0 && (str2 = this.cardSign) != null && str2.length() > 0;
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -45,7 +48,7 @@ public class ChooseCardFromWXCardPackage {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
         public String cardItemList;
 
@@ -58,7 +61,8 @@ public class ChooseCardFromWXCardPackage {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseResp
         public boolean checkArgs() {
-            return (this.cardItemList == null || this.cardItemList.length() == 0) ? false : true;
+            String str = this.cardItemList;
+            return (str == null || str.length() == 0) ? false : true;
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseResp

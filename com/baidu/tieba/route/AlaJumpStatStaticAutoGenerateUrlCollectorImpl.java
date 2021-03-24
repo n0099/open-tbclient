@@ -1,12 +1,21 @@
 package com.baidu.tieba.route;
 
-import com.baidu.adp.framework.a.d;
+import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
-public final class AlaJumpStatStaticAutoGenerateUrlCollectorImpl implements d {
-    @Override // com.baidu.adp.framework.a.d
+/* loaded from: classes5.dex */
+public final class AlaJumpStatStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, String> getCmdRouterMap() {
+        HashMap hashMap = new HashMap();
+        new ArrayList();
+        hashMap.put("2911003", "com.baidu.tieba.ala.AlaJumpStatStatic");
+        hashMap.put("2002001", "com.baidu.tieba.ala.AlaJumpStatStatic");
+        return hashMap;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, ArrayList<String>> getConfigRouterMap() {
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
@@ -16,15 +25,6 @@ public final class AlaJumpStatStaticAutoGenerateUrlCollectorImpl implements d {
         arrayList.add("AlaLiveFloatWindowActivityConfig");
         arrayList.add("AlaPersonCenterActivityConfig");
         hashMap.put("com.baidu.tieba.ala.AlaJumpStatStatic", arrayList);
-        return hashMap;
-    }
-
-    @Override // com.baidu.adp.framework.a.d
-    public Map<String, String> getCmdRouterMap() {
-        HashMap hashMap = new HashMap();
-        new ArrayList();
-        hashMap.put("2911003", "com.baidu.tieba.ala.AlaJumpStatStatic");
-        hashMap.put("2002001", "com.baidu.tieba.ala.AlaJumpStatStatic");
         return hashMap;
     }
 }

@@ -1,31 +1,31 @@
 package com.baidu.tieba.memberCenter.memberTask;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.FinishMemberTask.DataReq;
 import tbclient.FinishMemberTask.FinishMemberTaskReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class FinishMemberTaskReqMessage extends NetMessage {
-    private long taskId;
-
-    public void setTaskId(long j) {
-        this.taskId = j;
-    }
+    public long taskId;
 
     public FinishMemberTaskReqMessage() {
-        super(1003188, CmdConfigSocket.CMD_FINISH_MEMBER_TASK);
+        super(CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.task_id = Long.valueOf(this.taskId);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         FinishMemberTaskReqIdl.Builder builder2 = new FinishMemberTaskReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
+    }
+
+    public void setTaskId(long j) {
+        this.taskId = j;
     }
 }

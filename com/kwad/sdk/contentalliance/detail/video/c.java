@@ -2,26 +2,28 @@ package com.kwad.sdk.contentalliance.detail.video;
 
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f5746a;
-    public long b;
+    public long f32538a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f32539b;
 
     public c() {
-        this.b = -1L;
+        this.f32539b = -1L;
     }
 
     public c(long j) {
-        this.b = -1L;
-        this.f5746a = j;
+        this.f32539b = -1L;
+        this.f32538a = j;
     }
 
     public c(long j, long j2) {
-        this.b = -1L;
-        this.f5746a = j;
-        this.b = j2;
+        this.f32539b = -1L;
+        this.f32538a = j;
+        this.f32539b = j2;
     }
 
     @NonNull

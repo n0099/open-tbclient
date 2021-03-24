@@ -1,15 +1,10 @@
 package protobuf.PushNotify;
 
 import com.squareup.wire.Message;
-/* loaded from: classes2.dex */
+/* loaded from: classes7.dex */
 public final class PushNotifyReqIdl extends Message {
-    private PushNotifyReqIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-        }
-    }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<PushNotifyReqIdl> {
         public Builder() {
         }
@@ -23,5 +18,9 @@ public final class PushNotifyReqIdl extends Message {
         public PushNotifyReqIdl build(boolean z) {
             return new PushNotifyReqIdl(this, z);
         }
+    }
+
+    public PushNotifyReqIdl(Builder builder, boolean z) {
+        super(builder);
     }
 }

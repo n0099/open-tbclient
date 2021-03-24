@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.MD5;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ApiUtils {
     public static final int BUILD_INT = 10350;
     public static final int BUILD_INT_440 = 10355;
@@ -15,7 +15,19 @@ public class ApiUtils {
     public static final int BUILD_INT_VER_2_3 = 10352;
     public static final int BUILD_INT_VER_2_5 = 10353;
     public static final int STORY_INT_VER = 10772;
-    private static final String TAG = ApiUtils.class.getName();
+    public static final String TAG = "com.sina.weibo.sdk.ApiUtils";
+
+    public static boolean containSign(Signature[] signatureArr, String str) {
+        if (signatureArr != null && str != null) {
+            for (Signature signature : signatureArr) {
+                if (str.equals(MD5.hexdigest(signature.toByteArray()))) {
+                    LogUtil.d(TAG, "check pass");
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public static boolean validateWeiboSign(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
@@ -23,21 +35,8 @@ public class ApiUtils {
         }
         try {
             return containSign(context.getPackageManager().getPackageInfo(str, 64).signatures, WBConstants.WEIBO_SIGN);
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException unused) {
             return false;
         }
-    }
-
-    private static boolean containSign(Signature[] signatureArr, String str) {
-        if (signatureArr == null || str == null) {
-            return false;
-        }
-        for (Signature signature : signatureArr) {
-            if (str.equals(MD5.hexdigest(signature.toByteArray()))) {
-                LogUtil.d(TAG, "check pass");
-                return true;
-            }
-        }
-        return false;
     }
 }

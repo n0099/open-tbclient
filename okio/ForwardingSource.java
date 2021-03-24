@@ -1,15 +1,22 @@
 package okio;
 
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class ForwardingSource implements Source {
-    private final Source delegate;
+    public final Source delegate;
 
     public ForwardingSource(Source source) {
-        if (source == null) {
-            throw new IllegalArgumentException("delegate == null");
+        if (source != null) {
+            this.delegate = source;
+            return;
         }
-        this.delegate = source;
+        throw new IllegalArgumentException("delegate == null");
+    }
+
+    @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        this.delegate.close();
     }
 
     public final Source delegate() {
@@ -26,12 +33,7 @@ public abstract class ForwardingSource implements Source {
         return this.delegate.timeout();
     }
 
-    @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        this.delegate.close();
-    }
-
     public String toString() {
-        return getClass().getSimpleName() + "(" + this.delegate.toString() + ")";
+        return getClass().getSimpleName() + "(" + this.delegate.toString() + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

@@ -1,0 +1,133 @@
+package com.baidu.nps.utils;
+/* loaded from: classes2.dex */
+public class Constant {
+
+    /* loaded from: classes2.dex */
+    public static class ABI {
+        public static final int ABI_32 = 1;
+        public static final int ABI_64 = 2;
+        public static final int ABI_ALL = 3;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class BUNDLE {
+
+        /* loaded from: classes2.dex */
+        public static class TYPE {
+            public static final int BUNDLE_TYPE_DOWNLOADED = 2;
+            public static final int BUNDLE_TYPE_INSTALLED = 3;
+            public static final int BUNDLE_TYPE_UPDATED = 1;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class CODE {
+        public static final int RET_AMBIGUOUS_PKG_NAME = 9;
+        public static final int RET_BUNDLE_CHECK_ERROR = 22;
+        public static final int RET_CLASS_INIT_ERROR = 16;
+        public static final int RET_CLASS_LOAD_ERROR = 18;
+        public static final int RET_COPY_ERROR = 11;
+        public static final int RET_DOWNLOAD_BUNDLE_GROUP_NULL_ERROR = 26;
+        public static final int RET_DOWNLOAD_NO_DATA = 3;
+        public static final int RET_DOWNLOAD_RETBUNDLE_NULL_ERROR = 31;
+        public static final int RET_DOWNLOAD_SUCCESS = 2;
+        public static final int RET_FETCH_RETBUNDLE_NULL_ERROR = 30;
+        public static final int RET_FILE_NOT_EXIST = 7;
+        public static final int RET_GET_FAILURE = 1;
+        public static final int RET_GET_SUCCESS = 0;
+        public static final int RET_INIT_PERSET_RETBUNDLE_NULL_ERROR = 32;
+        public static final int RET_INSTALL_LOCAL_RETBUNDLE_NULL_ERROR = 29;
+        public static final int RET_INSTALL_NATIVE_LIBRARY_ERROR = 12;
+        public static final int RET_INSTALL_NEED_RESTART = 50;
+        public static final int RET_INSTALL_ONLY_RETBUNDLE_NULL_ERROR = 28;
+        public static final int RET_INSTALL_PERSET_RETBUNDLE_NULL_ERROR = 33;
+        public static final int RET_INSTALL_RETBUNDLE_NULL_ERROR = 27;
+        public static final int RET_INSTALL_SUCCESS = 13;
+        public static final int RET_INVALID = -1;
+        public static final int RET_INVALID_BUNDLE_INFO = 4;
+        public static final int RET_INVALID_FILE_PATH = 6;
+        public static final int RET_INVALID_PKG_NAME = 5;
+        public static final int RET_INVOKER_INIT_ERROR = 17;
+        public static final int RET_INVOKE_SUCCESS = 14;
+        public static final int RET_NO_THIS_PKG = 15;
+        public static final int RET_OTHER_ERROR = 19;
+        public static final int RET_PKGINFO_LOAD_ERROR = 8;
+        public static final int RET_PREPARE_BUNDLE_GROUP_NULL_ERROR = 25;
+        public static final int RET_PREPARE_DOWNLOAD_BUNDLE_NULL_ERROR = 23;
+        public static final int RET_RESOURCES_HOOK_ERROR = 21;
+        public static final int RET_RESOURCES_INIT_ERROR = 20;
+        public static final int RET_SIGNATURE_VERIFY_ERROR = 10;
+        public static final int RET_UNDER_INSTALL_ERROR = 34;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class DOWNLOAD {
+        public static final int DOWNLOAD_NORMAL = 48;
+        public static final int DOWNLOAD_SILENCE = 49;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class EXCEPTION {
+
+        /* loaded from: classes2.dex */
+        public static class ID {
+            public static final int PKG_MGR_UBI_PARSE_TIMESTAMP = 1;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class FILE {
+
+        /* loaded from: classes2.dex */
+        public static class SUFFIX {
+            public static final String APK_LIB_SUFFIX = ".so";
+            public static final String BUNDLE_SUFFIX = ".apk";
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class FLAG {
+        public static final int FORCE_UPDATE_ALERT = 16;
+        public static final int SILENT_DOWNLOAD_ALERT = 1;
+    }
+
+    /* loaded from: classes.dex */
+    public static class MSG {
+        public static String retMsgBundleNotReady(int i) {
+            return i != 41 ? i != 44 ? i != 46 ? "unkown errcode" : "bundle is broken" : "bundle need to force update" : "bundle is ready";
+        }
+
+        public static String retMsgErrParam(String str, String str2) {
+            return "invalid package or method, package=" + str + ", method=" + str2;
+        }
+
+        public static String retMsgInvalidPkg(String str) {
+            return "no such bundle with the name of " + str;
+        }
+
+        public static String retMsgSuccess() {
+            return "successful invoke";
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class STATUS {
+        public static final int PKG_AVAILABLE = 43;
+        public static final int PKG_BROKEN = 46;
+        public static final int PKG_FORBIDDEN = 42;
+        public static final int PKG_NEED_UPDATE = 44;
+        public static final int PKG_READY = 41;
+        public static final int PKG_RUNNING = 47;
+        public static final int SDK_NOT_READY = 45;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class TAG {
+        public static final String PARAM_PKG_NAME = "param_pkg_name";
+        public static final String PARAM_PKG_STUS = "param_pkg_status";
+        public static final String PARAM_VALUE = "param_value";
+        public static final String RET_CODE = "ret_code";
+        public static final String RET_VALUE = "ret_value";
+        public static final String TIME_STAMP = "time_stamp";
+    }
+}

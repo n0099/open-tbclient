@@ -1,25 +1,32 @@
 package com.win.opensdk;
 
-import java.security.Key;
-import java.security.spec.AlgorithmParameterSpec;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
-import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes14.dex */
-public class y {
-    public AlgorithmParameterSpec qkC;
-    public Key qkD;
+import com.win.opensdk.core.Info;
+/* loaded from: classes7.dex */
+public class y implements A2 {
 
-    static {
-        byte[] bArr = {-50, 53, 5, 13, -104, -111, 8, 10};
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ Info f40103a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ C f40104b;
+
+    public y(C c2, Info info) {
+        this.f40104b = c2;
+        this.f40103a = info;
     }
 
-    public y(String str, String str2) {
-        try {
-            this.qkC = new IvParameterSpec(str2.getBytes("utf-8"));
-            this.qkD = SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
-        } catch (Exception e) {
-            throw new RuntimeException("Error in getKey(String secretKey), Cause: " + e);
+    @Override // com.win.opensdk.A2
+    public void a(String str) {
+    }
+
+    @Override // com.win.opensdk.A2
+    public boolean a(String str, String str2) {
+        C.a(this.f40104b, this.f40103a, str);
+        PBBannerListener pBBannerListener = this.f40104b.f39640g;
+        if (pBBannerListener != null) {
+            pBBannerListener.onClicked();
+            return true;
         }
+        return true;
     }
 }

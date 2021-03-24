@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import java.lang.Thread;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class JavaHandlerThread {
     public final HandlerThread mThread;
     public Throwable mUnhandledException;
@@ -40,7 +40,7 @@ public class JavaHandlerThread {
             try {
                 this.mThread.join();
                 z = true;
-            } catch (InterruptedException e) {
+            } catch (InterruptedException unused) {
             }
         }
     }

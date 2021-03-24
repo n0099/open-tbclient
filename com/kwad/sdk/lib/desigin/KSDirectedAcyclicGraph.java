@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 @Keep
-/* loaded from: classes3.dex */
-final class KSDirectedAcyclicGraph<T> {
-    private final Pools.Pool<ArrayList<T>> mListPool = new Pools.SimplePool(10);
-    private final SimpleArrayMap<T, ArrayList<T>> mGraph = new SimpleArrayMap<>();
-    private final ArrayList<T> mSortResult = new ArrayList<>();
-    private final HashSet<T> mSortTmpMarked = new HashSet<>();
+/* loaded from: classes6.dex */
+public final class KSDirectedAcyclicGraph<T> {
+    public final Pools.Pool<ArrayList<T>> mListPool = new Pools.SimplePool(10);
+    public final SimpleArrayMap<T, ArrayList<T>> mGraph = new SimpleArrayMap<>();
+    public final ArrayList<T> mSortResult = new ArrayList<>();
+    public final HashSet<T> mSortTmpMarked = new HashSet<>();
 
     private void dfs(T t, ArrayList<T> arrayList, HashSet<T> hashSet) {
         if (arrayList.contains(t)) {
@@ -46,7 +46,6 @@ final class KSDirectedAcyclicGraph<T> {
         this.mListPool.release(arrayList);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void addEdge(@NonNull T t, @NonNull T t2) {
         if (!this.mGraph.containsKey(t) || !this.mGraph.containsKey(t2)) {
             throw new IllegalArgumentException("All nodes must be present in the graph before being added as an edge");
@@ -59,7 +58,6 @@ final class KSDirectedAcyclicGraph<T> {
         arrayList.add(t2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void addNode(@NonNull T t) {
         if (this.mGraph.containsKey(t)) {
             return;
@@ -67,7 +65,6 @@ final class KSDirectedAcyclicGraph<T> {
         this.mGraph.put(t, null);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void clear() {
         int size = this.mGraph.size();
         for (int i = 0; i < size; i++) {
@@ -79,34 +76,31 @@ final class KSDirectedAcyclicGraph<T> {
         this.mGraph.clear();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean contains(@NonNull T t) {
         return this.mGraph.containsKey(t);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public List getIncomingEdges(@NonNull T t) {
         return this.mGraph.get(t);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public List<T> getOutgoingEdges(@NonNull T t) {
-        ArrayList arrayList = null;
         int size = this.mGraph.size();
+        ArrayList arrayList = null;
         for (int i = 0; i < size; i++) {
             ArrayList<T> valueAt = this.mGraph.valueAt(i);
             if (valueAt != null && valueAt.contains(t)) {
-                ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;
-                arrayList2.add(this.mGraph.keyAt(i));
-                arrayList = arrayList2;
+                if (arrayList == null) {
+                    arrayList = new ArrayList();
+                }
+                arrayList.add(this.mGraph.keyAt(i));
             }
         }
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public ArrayList<T> getSortedList() {
         this.mSortResult.clear();
@@ -118,7 +112,6 @@ final class KSDirectedAcyclicGraph<T> {
         return this.mSortResult;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean hasOutgoingEdges(@NonNull T t) {
         int size = this.mGraph.size();
         for (int i = 0; i < size; i++) {
@@ -130,7 +123,7 @@ final class KSDirectedAcyclicGraph<T> {
         return false;
     }
 
-    int size() {
+    public int size() {
         return this.mGraph.size();
     }
 }

@@ -7,78 +7,25 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.vivo.vms.IPCCallback;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public interface IPCInvoke extends IInterface {
-    Bundle asyncCall(Bundle bundle, IPCCallback iPCCallback) throws RemoteException;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Stub extends Binder implements IPCInvoke {
-        private static final String DESCRIPTOR = "com.vivo.vms.IPCInvoke";
-        static final int TRANSACTION_asyncCall = 1;
+        public static final String DESCRIPTOR = "com.vivo.vms.IPCInvoke";
+        public static final int TRANSACTION_asyncCall = 1;
 
-        public Stub() {
-            attachInterface(this, DESCRIPTOR);
-        }
+        /* loaded from: classes7.dex */
+        public static class Proxy implements IPCInvoke {
+            public IBinder mRemote;
 
-        public static IPCInvoke asInterface(IBinder iBinder) {
-            if (iBinder == null) {
-                return null;
-            }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
-            if (queryLocalInterface != null && (queryLocalInterface instanceof IPCInvoke)) {
-                return (IPCInvoke) queryLocalInterface;
-            }
-            return new Proxy(iBinder);
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
-        }
-
-        @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            Bundle bundle;
-            switch (i) {
-                case 1:
-                    parcel.enforceInterface(DESCRIPTOR);
-                    if (parcel.readInt() != 0) {
-                        bundle = (Bundle) Bundle.CREATOR.createFromParcel(parcel);
-                    } else {
-                        bundle = null;
-                    }
-                    Bundle asyncCall = asyncCall(bundle, IPCCallback.Stub.asInterface(parcel.readStrongBinder()));
-                    parcel2.writeNoException();
-                    if (asyncCall != null) {
-                        parcel2.writeInt(1);
-                        asyncCall.writeToParcel(parcel2, 1);
-                    } else {
-                        parcel2.writeInt(0);
-                    }
-                    return true;
-                case 1598968902:
-                    parcel2.writeString(DESCRIPTOR);
-                    return true;
-                default:
-                    return super.onTransact(i, parcel, parcel2, i2);
-            }
-        }
-
-        /* loaded from: classes14.dex */
-        private static class Proxy implements IPCInvoke {
-            private IBinder mRemote;
-
-            Proxy(IBinder iBinder) {
+            public Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 return this.mRemote;
-            }
-
-            public String getInterfaceDescriptor() {
-                return Stub.DESCRIPTOR;
             }
 
             @Override // com.vivo.vms.IPCInvoke
@@ -102,6 +49,53 @@ public interface IPCInvoke extends IInterface {
                     obtain.recycle();
                 }
             }
+
+            public String getInterfaceDescriptor() {
+                return Stub.DESCRIPTOR;
+            }
+        }
+
+        public Stub() {
+            attachInterface(this, DESCRIPTOR);
+        }
+
+        public static IPCInvoke asInterface(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
+            if (queryLocalInterface != null && (queryLocalInterface instanceof IPCInvoke)) {
+                return (IPCInvoke) queryLocalInterface;
+            }
+            return new Proxy(iBinder);
+        }
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
+
+        @Override // android.os.Binder
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString(DESCRIPTOR);
+                return true;
+            }
+            parcel.enforceInterface(DESCRIPTOR);
+            Bundle asyncCall = asyncCall(parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null, IPCCallback.Stub.asInterface(parcel.readStrongBinder()));
+            parcel2.writeNoException();
+            if (asyncCall != null) {
+                parcel2.writeInt(1);
+                asyncCall.writeToParcel(parcel2, 1);
+            } else {
+                parcel2.writeInt(0);
+            }
+            return true;
         }
     }
+
+    Bundle asyncCall(Bundle bundle, IPCCallback iPCCallback) throws RemoteException;
 }

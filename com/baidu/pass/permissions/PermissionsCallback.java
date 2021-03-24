@@ -1,5 +1,5 @@
 package com.baidu.pass.permissions;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public abstract class PermissionsCallback implements com.baidu.pass.a {
     public static final int ERROR_CANCLE = -2;
     public static final int ERROR_FORBID_FOREVER = -3;

@@ -1,9 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
-public interface cf {
-    void a(Context context);
-
-    void b(Context context);
+/* loaded from: classes7.dex */
+public abstract class cf {
+    public abstract ce a(Context context, String str);
 }

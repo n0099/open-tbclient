@@ -3,15 +3,14 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f8587a;
+    public static Context f41070a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f937a = null;
+    public static String f982a;
 
     public static int a() {
         try {
@@ -20,14 +19,14 @@ public class t {
                 return 3;
             }
             return a2.getField("IS_DEVELOPMENT_VERSION").getBoolean(null) ? 2 : 1;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return 0;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m587a() {
-        return f8587a;
+    public static Context m617a() {
+        return f41070a;
     }
 
     public static Class<?> a(Context context, String str) {
@@ -38,83 +37,81 @@ public class t {
         if (z && Build.VERSION.SDK_INT >= 29) {
             try {
                 return context.getClassLoader().loadClass(str);
-            } catch (ClassNotFoundException e) {
+            } catch (ClassNotFoundException unused) {
             }
         }
         try {
             return Class.forName(str);
         } catch (ClassNotFoundException e2) {
-            com.xiaomi.channel.commonutils.logger.b.m58a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
+            com.xiaomi.channel.commonutils.logger.b.m51a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
             throw new ClassNotFoundException("loadClass fail ", e2);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m588a() {
-        String str;
+    public static synchronized String m618a() {
         synchronized (t.class) {
-            if (f937a != null) {
-                str = f937a;
-            } else {
-                String str2 = Build.VERSION.INCREMENTAL;
-                if (a() <= 0) {
-                    str = b();
-                    if (TextUtils.isEmpty(str)) {
-                        str = c();
-                        if (TextUtils.isEmpty(str)) {
-                            str = d();
-                            if (TextUtils.isEmpty(str)) {
-                                str = String.valueOf(s.a("ro.product.brand", "Android") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2);
-                            }
+            if (f982a != null) {
+                return f982a;
+            }
+            String str = Build.VERSION.INCREMENTAL;
+            if (a() <= 0) {
+                String b2 = b();
+                if (TextUtils.isEmpty(b2)) {
+                    b2 = c();
+                    if (TextUtils.isEmpty(b2)) {
+                        b2 = d();
+                        if (TextUtils.isEmpty(b2)) {
+                            str = String.valueOf(s.a("ro.product.brand", "Android") + "_" + str);
                         }
                     }
-                } else {
-                    str = str2;
                 }
-                f937a = str;
+                str = b2;
             }
+            f982a = str;
+            return str;
         }
-        return str;
     }
 
     public static String a(Context context) {
-        if (l.m505b()) {
+        if (l.m519b()) {
             return "";
         }
-        String str = (String) ba.a("com.xiaomi.xmsf.helper.MIIDAccountHelper", "getMIID", context);
+        String str = (String) bh.a("com.xiaomi.xmsf.helper.MIIDAccountHelper", "getMIID", context);
         return TextUtils.isEmpty(str) ? "0" : str;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m589a(Context context) {
-        f8587a = context.getApplicationContext();
+    public static void m619a(Context context) {
+        f41070a = context.getApplicationContext();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m590a() {
-        return TextUtils.equals((String) ba.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1");
+    public static boolean m620a() {
+        return TextUtils.equals((String) bh.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m591a(Context context) {
+    public static boolean m621a(Context context) {
         try {
             return (context.getApplicationInfo().flags & 2) != 0;
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
             return false;
         }
     }
 
-    private static String b() {
-        f937a = s.a("ro.build.version.emui", "");
-        return f937a;
+    public static String b() {
+        String a2 = s.a("ro.build.version.emui", "");
+        f982a = a2;
+        return a2;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m592b() {
+    public static boolean m622b() {
         try {
-            return a(null, "miui.os.Build").getField("IS_GLOBAL_BUILD").getBoolean(false);
-        } catch (ClassNotFoundException e) {
+            return a(null, "miui.os.Build").getField("IS_GLOBAL_BUILD").getBoolean(Boolean.FALSE);
+        } catch (ClassNotFoundException unused) {
             com.xiaomi.channel.commonutils.logger.b.d("miui.os.Build ClassNotFound");
             return false;
         } catch (Exception e2) {
@@ -123,19 +120,19 @@ public class t {
         }
     }
 
-    private static String c() {
+    public static String c() {
         String a2 = s.a("ro.build.version.opporom", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-            f937a = "ColorOS_" + a2;
+            f982a = "ColorOS_" + a2;
         }
-        return f937a;
+        return f982a;
     }
 
-    private static String d() {
+    public static String d() {
         String a2 = s.a("ro.vivo.os.version", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-            f937a = "FuntouchOS_" + a2;
+            f982a = "FuntouchOS_" + a2;
         }
-        return f937a;
+        return f982a;
     }
 }

@@ -3,21 +3,23 @@ package com.baidu.swan.games.view.webview;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
+import d.b.g0.a.k;
+import d.b.g0.g.k0.j.a;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class GameWebViewJavascriptInterface {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public static final boolean DEBUG = k.f45050a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swan";
-    private static final String TAG = "GameJavascriptInterface";
+    public static final String TAG = "GameJavascriptInterface";
 
     @JavascriptInterface
     public void closeGameWebView() {
         if (DEBUG) {
             Log.i(TAG, "closeGameWebView");
         }
-        a baj = a.baj();
-        if (baj != null) {
-            baj.close();
+        a H = a.H();
+        if (H != null) {
+            H.close();
         }
     }
 
@@ -26,9 +28,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "onGameLoadingFinish");
         }
-        a baj = a.baj();
-        if (baj != null) {
-            baj.onGameLoadingFinish();
+        a H = a.H();
+        if (H != null) {
+            H.K();
         }
     }
 }

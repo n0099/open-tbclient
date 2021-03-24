@@ -11,32 +11,37 @@ import com.kwai.video.player.KsMediaPlayerInitConfig;
 import com.kwai.video.player.KsSoLoader;
 import com.kwai.video.player.kwai_player.KwaiMediaPlayer;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile n f7304a;
-    private static boolean b = true;
+    public static volatile n f37352a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f37353b = true;
 
     public static String a(Context context) {
         File externalCacheDir = context.getExternalCacheDir();
-        return externalCacheDir != null ? externalCacheDir.getAbsolutePath() + File.separator + "ACache" : context.getDir("vodCache", 0) + File.separator + "ACache";
+        if (externalCacheDir != null) {
+            return externalCacheDir.getAbsolutePath() + File.separator + "ACache";
+        }
+        return context.getDir("vodCache", 0) + File.separator + "ACache";
     }
 
     public static void a(Context context, String str) {
         if (str != null) {
-            Aegon.a(context, str, context.getFilesDir().getAbsolutePath(), new Aegon.a() { // from class: com.kwai.video.ksvodplayerkit.h.3
-                @Override // com.kuaishou.aegon.Aegon.a
+            Aegon.initialize(context, str, context.getFilesDir().getAbsolutePath(), new Aegon.LibraryLoader() { // from class: com.kwai.video.ksvodplayerkit.h.3
+                @Override // com.kuaishou.aegon.Aegon.LibraryLoader
                 public void loadLibrary(String str2) {
-                    if (h.f7304a != null) {
-                        h.f7304a.a(str2);
+                    if (h.f37352a != null) {
+                        h.f37352a.a(str2);
                         return;
                     }
                     com.kwai.video.ksvodplayerkit.a.b.d("KSVodPlayerCommonInitConfig", "WARNING! Aegon is using System.loadLibrary");
                     System.loadLibrary(str2);
                 }
             });
-            Aegon.eCD();
+            Aegon.getCronetEngine();
             Aegon.setDebug(false);
         }
     }
@@ -45,8 +50,8 @@ public class h {
         AwesomeCacheInitConfig.setSoLoader(new AwesomeCacheSoLoader() { // from class: com.kwai.video.ksvodplayerkit.h.1
             @Override // com.kwai.video.cache.AwesomeCacheSoLoader
             public void loadLibrary(String str3) {
-                if (h.f7304a != null) {
-                    h.f7304a.a(str3);
+                if (h.f37352a != null) {
+                    h.f37352a.a(str3);
                     return;
                 }
                 com.kwai.video.ksvodplayerkit.a.b.d("KSVodPlayerCommonInitConfig", "WARNING! AwesomeCacheSoLoader is using System.loadLibrary");
@@ -60,8 +65,8 @@ public class h {
         KsMediaPlayerInitConfig.setSoLoader(new KsSoLoader() { // from class: com.kwai.video.ksvodplayerkit.h.2
             @Override // com.kwai.video.player.KsSoLoader
             public void loadLibrary(String str3) {
-                if (h.f7304a != null) {
-                    h.f7304a.a(str3);
+                if (h.f37352a != null) {
+                    h.f37352a.a(str3);
                     return;
                 }
                 com.kwai.video.ksvodplayerkit.a.b.d("KSVodPlayerCommonInitConfig", "WARNING! AwesomeCacheSoLoader is using System.loadLibrary");

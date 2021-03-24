@@ -2,31 +2,31 @@ package com.kwad.sdk.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class n implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.kwad.sdk.core.webview.a.c f6360a;
+    public com.kwad.sdk.core.webview.a.c f34391a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6361a;
+        public String f34392a;
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "lifeStatus", this.f6361a);
+            com.kwad.sdk.utils.o.a(jSONObject, "lifeStatus", this.f34392a);
             return jSONObject;
         }
     }
 
     private void a(String str) {
-        if (this.f6360a != null) {
+        if (this.f34391a != null) {
             a aVar = new a();
-            aVar.f6361a = str;
-            this.f6360a.a(aVar);
+            aVar.f34392a = str;
+            this.f34391a.a(aVar);
         }
     }
 
@@ -38,12 +38,12 @@ public class n implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.f6360a = cVar;
+        this.f34391a = cVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f6360a = null;
+        this.f34391a = null;
     }
 
     public void c() {

@@ -1,18 +1,18 @@
 package com.meizu.cloud.pushsdk.c.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static <T> T a(T t) {
-        if (t == null) {
-            throw new NullPointerException();
+        if (t != null) {
+            return t;
         }
-        return t;
+        throw null;
     }
 
     public static <T> T a(T t, Object obj) {
-        if (t == null) {
-            throw new NullPointerException(String.valueOf(obj));
+        if (t != null) {
+            return t;
         }
-        return t;
+        throw new NullPointerException(String.valueOf(obj));
     }
 
     public static void a(boolean z, Object obj) {

@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.JsonReader;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
@@ -14,18 +13,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Common {
-    private static AppExtraCall sAppExtraCall;
-    private static volatile Device sCommonDevice;
-    private static volatile Version sCommonVersion;
+    public static AppExtraCall sAppExtraCall;
+    public static volatile Device sCommonDevice;
+    public static volatile Version sCommonVersion;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface AppExtraCall {
         JSONObject getAppExtraInfo();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Device {
         @NonNull
         public String mCPU = "";
@@ -37,9 +36,9 @@ public class Common {
         public String mMemory = "";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Version {
-        protected static final String SDK_VERSION = "sdkversion";
+        public static final String SDK_VERSION = "sdkversion";
         @NonNull
         public String mSDKVersion = "";
         @NonNull
@@ -48,14 +47,11 @@ public class Common {
 
     public static String getAppExtra() {
         JSONObject appExtraInfo;
-        if (sAppExtraCall == null || (appExtraInfo = sAppExtraCall.getAppExtraInfo()) == null) {
+        AppExtraCall appExtraCall = sAppExtraCall;
+        if (appExtraCall == null || (appExtraInfo = appExtraCall.getAppExtraInfo()) == null) {
             return null;
         }
         return appExtraInfo.toString();
-    }
-
-    public static void setAppExtraCall(AppExtraCall appExtraCall) {
-        sAppExtraCall = appExtraCall;
     }
 
     public static Device getDeviceInfo() {
@@ -63,18 +59,16 @@ public class Common {
             Device device = new Device();
             String str = Build.HARDWARE;
             String num = Integer.toString(CpuInfoUtils.getNumCores());
-            String f = Float.toString(Math.round(CpuInfoUtils.getAveCpuFrequency() * 10.0f) / 10.0f);
+            String f2 = Float.toString(Math.round(CpuInfoUtils.getAveCpuFrequency() * 10.0f) / 10.0f);
             String arrays = Arrays.toString(Build.VERSION.SDK_INT >= 21 ? Build.SUPPORTED_ABIS : new String[]{Build.CPU_ABI});
             if (!TextUtils.isEmpty(arrays)) {
                 arrays = arrays.replace("[", "").replace("]", "");
             }
-            device.mCPU = str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + num + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + f + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + arrays;
+            device.mCPU = str + ";" + num + ";" + f2 + ";" + arrays;
             String prop = RomUtils.getProp("dalvik.vm.heapstartsize");
             String prop2 = RomUtils.getProp("dalvik.vm.heapgrowthlimit");
             String prop3 = RomUtils.getProp("dalvik.vm.heapsize");
-            StringBuilder sb = new StringBuilder();
-            sb.append(prop).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR).append(prop2).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR).append(prop3);
-            device.mMemory = sb.toString().replace("m", "");
+            device.mMemory = (prop + ";" + prop2 + ";" + prop3).replace("m", "");
             device.mModel = DeviceUtil.BrandInfo.getDeviceModel();
             device.mOSVersion = DeviceUtil.OSInfo.getOsVersion();
             if (sCommonDevice == null) {
@@ -89,13 +83,14 @@ public class Common {
 
     public static Version getVersionInfo() {
         JsonReader jsonReader;
+        IOException e2;
         if (sCommonVersion == null) {
             Version version = new Version();
             try {
                 jsonReader = new JsonReader(new InputStreamReader(AppRuntime.getAppContext().getAssets().open("loki_config", 3), "UTF-8"));
-            } catch (IOException e) {
-                e = e;
+            } catch (IOException e3) {
                 jsonReader = null;
+                e2 = e3;
             }
             try {
                 jsonReader.beginObject();
@@ -108,9 +103,9 @@ public class Common {
                     }
                 }
                 jsonReader.endObject();
-            } catch (IOException e2) {
-                e = e2;
-                e.printStackTrace();
+            } catch (IOException e4) {
+                e2 = e4;
+                e2.printStackTrace();
                 Closeables.closeSafely(jsonReader);
                 version.mAppVersion = Utility.getAppVersion(AppRuntime.getAppContext());
                 sCommonVersion = version;
@@ -120,5 +115,9 @@ public class Common {
             sCommonVersion = version;
         }
         return sCommonVersion;
+    }
+
+    public static void setAppExtraCall(AppExtraCall appExtraCall) {
+        sAppExtraCall = appExtraCall;
     }
 }

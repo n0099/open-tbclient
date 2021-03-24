@@ -2,8 +2,9 @@ package com.qq.e.comm.pi;
 
 import com.qq.e.ads.nativ.ADSize;
 import com.qq.e.comm.adevent.ADListener;
-/* loaded from: classes4.dex */
-public interface NEADVI {
+import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
+/* loaded from: classes6.dex */
+public interface NEADVI extends ApkDownloadComplianceInterface {
     void destroy();
 
     void preloadVideo();

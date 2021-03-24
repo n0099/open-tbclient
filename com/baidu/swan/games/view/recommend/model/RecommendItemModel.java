@@ -1,33 +1,36 @@
 package com.baidu.swan.games.view.recommend.model;
 
+import com.alipay.sdk.cons.b;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.NoProGuard;
-/* loaded from: classes8.dex */
+import d.g.c.a.c;
+/* loaded from: classes3.dex */
 public class RecommendItemModel implements NoProGuard {
-    @com.google.gson.a.c("app_key")
+    @c(b.f1858h)
     public String appKey;
-    @com.google.gson.a.c("app_name")
+    @c(DpStatConstants.KEY_APP_NAME)
     public String appName;
     public String buttonText;
-    @com.google.gson.a.c("desc")
+    @c("desc")
     public String desc;
-    @com.google.gson.a.c("icon_url")
+    @c("icon_url")
     public String iconUrl;
-    @com.google.gson.a.c("scheme")
+    @c("scheme")
     public String scheme;
-
-    public String getAppName() {
-        return this.appName;
-    }
 
     public String getAppKey() {
         return this.appKey;
     }
 
-    public String getScheme() {
-        return this.scheme;
+    public String getAppName() {
+        return this.appName;
     }
 
     public String getIconUrl() {
         return this.iconUrl;
+    }
+
+    public String getScheme() {
+        return this.scheme;
     }
 }

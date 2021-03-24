@@ -1,25 +1,25 @@
 package com.baidu.mobstat;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ch extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2657a;
+    public int f9175a;
 
     public ch(int i) {
-        this.f2657a = i;
+        this.f9175a = i;
+    }
+
+    public int a() {
+        return this.f9175a;
     }
 
     public ch(int i, String str) {
         super(str);
-        this.f2657a = i;
+        this.f9175a = i;
     }
 
     public ch(int i, Throwable th) {
         super(th);
-        this.f2657a = i;
-    }
-
-    public int a() {
-        return this.f2657a;
+        this.f9175a = i;
     }
 }

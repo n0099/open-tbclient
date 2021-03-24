@@ -3,103 +3,94 @@ package com.kwad.sdk.glide.b;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
-import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
+import com.bumptech.glide.gifdecoder.GifHeaderParser;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private ByteBuffer b;
-    private c c;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ByteBuffer f35076b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c f35077c;
 
     /* renamed from: a  reason: collision with root package name */
-    private final byte[] f6583a = new byte[256];
-    private int d = 0;
+    public final byte[] f35075a = new byte[256];
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f35078d = 0;
 
     private void a(int i) {
         boolean z = false;
-        while (!z && !o() && this.c.c <= i) {
-            switch (m()) {
-                case 33:
-                    switch (m()) {
-                        case 1:
-                            k();
-                            continue;
-                        case 249:
-                            this.c.d = new b();
-                            e();
-                            continue;
-                        case GDiffPatcher.COPY_INT_INT /* 254 */:
-                            k();
-                            continue;
-                        case 255:
-                            l();
-                            StringBuilder sb = new StringBuilder();
-                            for (int i2 = 0; i2 < 11; i2++) {
-                                sb.append((char) this.f6583a[i2]);
-                            }
-                            if (sb.toString().equals("NETSCAPE2.0")) {
-                                g();
-                                break;
-                            } else {
-                                k();
-                                continue;
-                            }
-                        default:
-                            k();
-                            continue;
+        while (!z && !o() && this.f35077c.f35069c <= i) {
+            int m = m();
+            if (m == 33) {
+                int m2 = m();
+                if (m2 != 1) {
+                    if (m2 == 249) {
+                        this.f35077c.f35070d = new b();
+                        e();
+                    } else if (m2 != 254 && m2 == 255) {
+                        l();
+                        StringBuilder sb = new StringBuilder();
+                        for (int i2 = 0; i2 < 11; i2++) {
+                            sb.append((char) this.f35075a[i2]);
+                        }
+                        if (sb.toString().equals("NETSCAPE2.0")) {
+                            g();
+                        }
                     }
-                case 44:
-                    if (this.c.d == null) {
-                        this.c.d = new b();
-                    }
-                    f();
-                    break;
-                case 59:
-                    z = true;
-                    break;
-                default:
-                    this.c.b = 1;
-                    break;
+                }
+                k();
+            } else if (m == 44) {
+                c cVar = this.f35077c;
+                if (cVar.f35070d == null) {
+                    cVar.f35070d = new b();
+                }
+                f();
+            } else if (m != 59) {
+                this.f35077c.f35068b = 1;
+            } else {
+                z = true;
             }
         }
     }
 
     @Nullable
     private int[] b(int i) {
-        int[] iArr = null;
         byte[] bArr = new byte[i * 3];
+        int[] iArr = null;
         try {
-            this.b.get(bArr);
+            this.f35076b.get(bArr);
             iArr = new int[256];
             int i2 = 0;
             int i3 = 0;
-            while (i3 < i) {
-                int i4 = i2 + 1;
-                int i5 = bArr[i2] & 255;
-                int i6 = i4 + 1;
-                int i7 = bArr[i4] & 255;
-                i2 = i6 + 1;
-                int i8 = i3 + 1;
-                iArr[i3] = (i5 << 16) | ViewCompat.MEASURED_STATE_MASK | (i7 << 8) | (bArr[i6] & 255);
-                i3 = i8;
+            while (i2 < i) {
+                int i4 = i3 + 1;
+                int i5 = i4 + 1;
+                int i6 = i5 + 1;
+                int i7 = i2 + 1;
+                iArr[i2] = ((bArr[i3] & 255) << 16) | (-16777216) | ((bArr[i4] & 255) << 8) | (bArr[i5] & 255);
+                i3 = i6;
+                i2 = i7;
             }
-        } catch (BufferUnderflowException e) {
-            if (Log.isLoggable("GifHeaderParser", 3)) {
-                Log.d("GifHeaderParser", "Format Error Reading Color Table", e);
+        } catch (BufferUnderflowException e2) {
+            if (Log.isLoggable(GifHeaderParser.TAG, 3)) {
+                Log.d(GifHeaderParser.TAG, "Format Error Reading Color Table", e2);
             }
-            this.c.b = 1;
+            this.f35077c.f35068b = 1;
         }
         return iArr;
     }
 
     private void c() {
-        this.b = null;
-        Arrays.fill(this.f6583a, (byte) 0);
-        this.c = new c();
-        this.d = 0;
+        this.f35076b = null;
+        Arrays.fill(this.f35075a, (byte) 0);
+        this.f35077c = new c();
+        this.f35078d = 0;
     }
 
     private void d() {
@@ -109,50 +100,56 @@ public class d {
     private void e() {
         m();
         int m = m();
-        this.c.d.g = (m & 28) >> 2;
-        if (this.c.d.g == 0) {
-            this.c.d.g = 1;
+        b bVar = this.f35077c.f35070d;
+        int i = (m & 28) >> 2;
+        bVar.f35065g = i;
+        if (i == 0) {
+            bVar.f35065g = 1;
         }
-        this.c.d.f = (m & 1) != 0;
+        this.f35077c.f35070d.f35064f = (m & 1) != 0;
         int n = n();
         if (n < 2) {
             n = 10;
         }
-        this.c.d.i = n * 10;
-        this.c.d.h = m();
+        b bVar2 = this.f35077c.f35070d;
+        bVar2.i = n * 10;
+        bVar2.f35066h = m();
         m();
     }
 
     private void f() {
-        this.c.d.f6581a = n();
-        this.c.d.b = n();
-        this.c.d.c = n();
-        this.c.d.d = n();
+        this.f35077c.f35070d.f35059a = n();
+        this.f35077c.f35070d.f35060b = n();
+        this.f35077c.f35070d.f35061c = n();
+        this.f35077c.f35070d.f35062d = n();
         int m = m();
         boolean z = (m & 128) != 0;
         int pow = (int) Math.pow(2.0d, (m & 7) + 1);
-        this.c.d.e = (m & 64) != 0;
+        this.f35077c.f35070d.f35063e = (m & 64) != 0;
+        b bVar = this.f35077c.f35070d;
         if (z) {
-            this.c.d.k = b(pow);
+            bVar.k = b(pow);
         } else {
-            this.c.d.k = null;
+            bVar.k = null;
         }
-        this.c.d.j = this.b.position();
+        this.f35077c.f35070d.j = this.f35076b.position();
         j();
         if (o()) {
             return;
         }
-        this.c.c++;
-        this.c.e.add(this.c.d);
+        c cVar = this.f35077c;
+        cVar.f35069c++;
+        cVar.f35071e.add(cVar.f35070d);
     }
 
     private void g() {
         do {
             l();
-            if (this.f6583a[0] == 1) {
-                this.c.m = (this.f6583a[1] & 255) | ((this.f6583a[2] & 255) << 8);
+            byte[] bArr = this.f35075a;
+            if (bArr[0] == 1) {
+                this.f35077c.m = ((bArr[2] & 255) << 8) | (bArr[1] & 255);
             }
-            if (this.d <= 0) {
+            if (this.f35078d <= 0) {
                 return;
             }
         } while (!o());
@@ -164,25 +161,27 @@ public class d {
             sb.append((char) m());
         }
         if (!sb.toString().startsWith("GIF")) {
-            this.c.b = 1;
+            this.f35077c.f35068b = 1;
             return;
         }
         i();
-        if (!this.c.h || o()) {
+        if (!this.f35077c.f35074h || o()) {
             return;
         }
-        this.c.f6582a = b(this.c.i);
-        this.c.l = this.c.f6582a[this.c.j];
+        c cVar = this.f35077c;
+        cVar.f35067a = b(cVar.i);
+        c cVar2 = this.f35077c;
+        cVar2.l = cVar2.f35067a[cVar2.j];
     }
 
     private void i() {
-        this.c.f = n();
-        this.c.g = n();
+        this.f35077c.f35072f = n();
+        this.f35077c.f35073g = n();
         int m = m();
-        this.c.h = (m & 128) != 0;
-        this.c.i = (int) Math.pow(2.0d, (m & 7) + 1);
-        this.c.j = m();
-        this.c.k = m();
+        this.f35077c.f35074h = (m & 128) != 0;
+        this.f35077c.i = (int) Math.pow(2.0d, (m & 7) + 1);
+        this.f35077c.j = m();
+        this.f35077c.k = m();
     }
 
     private void j() {
@@ -194,82 +193,79 @@ public class d {
         int m;
         do {
             m = m();
-            this.b.position(Math.min(this.b.position() + m, this.b.limit()));
+            this.f35076b.position(Math.min(this.f35076b.position() + m, this.f35076b.limit()));
         } while (m > 0);
     }
 
     private void l() {
-        int i;
-        int i2 = 0;
-        this.d = m();
-        if (this.d <= 0) {
-            return;
-        }
-        int i3 = 0;
-        while (true) {
-            try {
-                i = i2;
-                if (i >= this.d) {
+        int m = m();
+        this.f35078d = m;
+        if (m > 0) {
+            int i = 0;
+            int i2 = 0;
+            while (i < this.f35078d) {
+                try {
+                    i2 = this.f35078d - i;
+                    this.f35076b.get(this.f35075a, i, i2);
+                    i += i2;
+                } catch (Exception e2) {
+                    if (Log.isLoggable(GifHeaderParser.TAG, 3)) {
+                        Log.d(GifHeaderParser.TAG, "Error Reading Block n: " + i + " count: " + i2 + " blockSize: " + this.f35078d, e2);
+                    }
+                    this.f35077c.f35068b = 1;
                     return;
                 }
-                i3 = this.d - i;
-                this.b.get(this.f6583a, i, i3);
-                i2 = i + i3;
-            } catch (Exception e) {
-                if (Log.isLoggable("GifHeaderParser", 3)) {
-                    Log.d("GifHeaderParser", "Error Reading Block n: " + i + " count: " + i3 + " blockSize: " + this.d, e);
-                }
-                this.c.b = 1;
-                return;
             }
         }
     }
 
     private int m() {
         try {
-            return this.b.get() & 255;
-        } catch (Exception e) {
-            this.c.b = 1;
+            return this.f35076b.get() & 255;
+        } catch (Exception unused) {
+            this.f35077c.f35068b = 1;
             return 0;
         }
     }
 
     private int n() {
-        return this.b.getShort();
+        return this.f35076b.getShort();
     }
 
     private boolean o() {
-        return this.c.b != 0;
+        return this.f35077c.f35068b != 0;
     }
 
     public d a(@NonNull ByteBuffer byteBuffer) {
         c();
-        this.b = byteBuffer.asReadOnlyBuffer();
-        this.b.position(0);
-        this.b.order(ByteOrder.LITTLE_ENDIAN);
+        ByteBuffer asReadOnlyBuffer = byteBuffer.asReadOnlyBuffer();
+        this.f35076b = asReadOnlyBuffer;
+        asReadOnlyBuffer.position(0);
+        this.f35076b.order(ByteOrder.LITTLE_ENDIAN);
         return this;
     }
 
     public void a() {
-        this.b = null;
-        this.c = null;
+        this.f35076b = null;
+        this.f35077c = null;
     }
 
     @NonNull
     public c b() {
-        if (this.b == null) {
-            throw new IllegalStateException("You must call setData() before parseHeader()");
-        }
-        if (o()) {
-            return this.c;
-        }
-        h();
-        if (!o()) {
-            d();
-            if (this.c.c < 0) {
-                this.c.b = 1;
+        if (this.f35076b != null) {
+            if (o()) {
+                return this.f35077c;
             }
+            h();
+            if (!o()) {
+                d();
+                c cVar = this.f35077c;
+                if (cVar.f35069c < 0) {
+                    cVar.f35068b = 1;
+                }
+            }
+            return this.f35077c;
         }
-        return this.c;
+        throw new IllegalStateException("You must call setData() before parseHeader()");
     }
 }

@@ -1,17 +1,16 @@
 package com.sdk.base.framework.a.c;
 
 import java.util.concurrent.Callable;
-/* loaded from: classes4.dex */
-abstract class h<Params, Result> implements Callable<Result> {
+/* loaded from: classes6.dex */
+public abstract class h<Params, Result> implements Callable<Result> {
 
     /* renamed from: a  reason: collision with root package name */
-    Params[] f7612a;
+    public Params[] f38438a;
 
-    private h() {
+    public h() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(byte b) {
+    public /* synthetic */ h(byte b2) {
         this();
     }
 }

@@ -9,100 +9,124 @@ import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.newinterest.adapter.a;
-import com.baidu.tieba.newinterest.data.b;
 import com.baidu.tieba.view.NoScrollGridView;
+import d.b.i0.y1.a.a;
+import d.b.i0.y1.c.b;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class InterestSelectionFragment extends BaseFragment implements a.b {
-    private TBSpecificationBtn lHk;
-    private FrameLayout lHl;
-    private TextView lHm;
-    private TextView lHn;
-    private com.baidu.tieba.newinterest.b.a lHo;
-    private NoScrollGridView lHp;
-    private com.baidu.tieba.newinterest.adapter.a lHq;
-    private a lHr;
-    private View mRootView;
+/* loaded from: classes4.dex */
+public class InterestSelectionFragment extends BaseFragment implements a.c {
 
-    /* loaded from: classes7.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public View f19364e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TBSpecificationBtn f19365f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public FrameLayout f19366g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f19367h;
+    public TextView i;
+    public d.b.i0.y1.e.a j;
+    public NoScrollGridView k;
+    public d.b.i0.y1.a.a l;
+    public a m;
+    public int n;
+
+    /* loaded from: classes4.dex */
     public interface a {
-        void fe(List<b> list);
+        void a(List<b> list);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.lHo = new com.baidu.tieba.newinterest.b.a();
+    public InterestSelectionFragment(int i) {
+        this.n = i;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interest_selection_layout, viewGroup, false);
-        initUI();
-        cGY();
-        return this.mRootView;
-    }
-
-    private void initUI() {
-        this.lHp = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
-        this.lHk = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_selected_btn);
-        this.lHm = (TextView) this.mRootView.findViewById(R.id.interest_selection_title);
-        this.lHm.setTypeface(Typeface.DEFAULT_BOLD);
-        this.lHn = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
-        this.lHl = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
-        com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-        this.lHk.setTextSize(R.dimen.tbds42);
-        this.lHk.setConfig(aVar);
-        this.lHk.setText(getResources().getString(R.string.select_interest_introduce));
-        this.lHk.setEnabled(false);
-        this.lHk.setOnClickListener(this);
-        this.lHq = new com.baidu.tieba.newinterest.adapter.a(this.lHo.djJ(), getContext());
-        this.lHp.setAdapter((ListAdapter) this.lHq);
-    }
-
-    private void cGY() {
-        this.lHq.a(this);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.lHr != null) {
-            this.lHr.fe(this.lHq.djC());
-            ar arVar = new ar("c13682");
-            arVar.aq("obj_type", 2);
-            arVar.aq("obj_locate", 5);
-            TiebaStatic.log(arVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.newinterest.adapter.a.b
-    public void Fm(int i) {
-        if (i > 0 && !this.lHk.isEnabled()) {
-            this.lHk.setEnabled(true);
-            this.lHk.setText(getString(R.string.next_step));
+    @Override // d.b.i0.y1.a.a.c
+    public void C0(int i) {
+        if (i > 0 && !this.f19365f.isEnabled()) {
+            this.f19365f.setEnabled(true);
+            this.f19365f.setText(getString(R.string.next_step));
         } else if (i == 0) {
-            this.lHk.setEnabled(false);
-            this.lHk.setText(getResources().getString(R.string.select_interest_introduce));
+            this.f19365f.setEnabled(false);
+            this.f19365f.setText(getResources().getString(R.string.select_interest_introduce));
         }
     }
 
-    public void a(a aVar) {
-        this.lHr = aVar;
+    public final void E0() {
+        this.k = (NoScrollGridView) this.f19364e.findViewById(R.id.interest_selection_grid_view);
+        this.f19365f = (TBSpecificationBtn) this.f19364e.findViewById(R.id.interest_selected_btn);
+        TextView textView = (TextView) this.f19364e.findViewById(R.id.interest_selection_title);
+        this.f19367h = textView;
+        textView.setTypeface(Typeface.DEFAULT_BOLD);
+        this.i = (TextView) this.f19364e.findViewById(R.id.interest_selection_desc);
+        this.f19366g = (FrameLayout) this.f19364e.findViewById(R.id.bottom_select_layout);
+        d.b.h0.r.f0.m.a aVar = new d.b.h0.r.f0.m.a();
+        this.f19365f.setTextSize(R.dimen.tbds42);
+        this.f19365f.setConfig(aVar);
+        this.f19365f.setText(getResources().getString(R.string.select_interest_introduce));
+        this.f19365f.setEnabled(false);
+        this.f19365f.setOnClickListener(this);
+        d.b.i0.y1.a.a aVar2 = new d.b.i0.y1.a.a(this.j.c(), getContext());
+        this.l = aVar2;
+        this.k.setAdapter((ListAdapter) aVar2);
+    }
+
+    public final void F0() {
+        this.l.g(this);
+    }
+
+    public void G0(a aVar) {
+        this.m = aVar;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        ap.setViewTextColor(this.lHm, R.color.CAM_X0105);
-        ap.setViewTextColor(this.lHn, R.color.CAM_X0107);
-        ap.setBackgroundColor(this.lHl, R.color.CAM_X0201);
-        this.lHq.notifyDataSetChanged();
+        SkinManager.setBackgroundColor(this.f19364e, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.f19367h, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0107);
+        SkinManager.setBackgroundColor(this.f19366g, R.color.CAM_X0201);
+        this.l.notifyDataSetChanged();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
+    public void onClick(View view) {
+        a aVar = this.m;
+        if (aVar != null) {
+            aVar.a(this.l.f());
+            StatisticItem statisticItem = new StatisticItem("c13682");
+            statisticItem.param("obj_type", 2);
+            statisticItem.param("obj_locate", 5);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.j = new d.b.i0.y1.e.a();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.f19364e = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interest_selection_layout, viewGroup, false);
+        E0();
+        F0();
+        return this.f19364e;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onResume() {
+        super.onResume();
+        if (getFragmentManager().getFragments().size() == 1) {
+            d.b.i0.y1.d.a.b(1, this.n);
+        }
     }
 }

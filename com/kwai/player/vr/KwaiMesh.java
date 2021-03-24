@@ -3,14 +3,14 @@ package com.kwai.player.vr;
 import android.util.SparseArray;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KwaiMesh {
-    private static final int sPositionDataSize = 3;
-    private static final int sTextureCoordinateDataSize = 2;
-    private ShortBuffer mIndicesBuffer;
-    private int mNumIndices;
-    private SparseArray<FloatBuffer> mTexCoordinateBuffers = new SparseArray<>(2);
-    private SparseArray<FloatBuffer> mVerticesBuffers = new SparseArray<>(2);
+    public static final int sPositionDataSize = 3;
+    public static final int sTextureCoordinateDataSize = 2;
+    public ShortBuffer mIndicesBuffer;
+    public int mNumIndices;
+    public SparseArray<FloatBuffer> mTexCoordinateBuffers = new SparseArray<>(2);
+    public SparseArray<FloatBuffer> mVerticesBuffers = new SparseArray<>(2);
 
     public ShortBuffer getIndicesBuffer() {
         return this.mIndicesBuffer;

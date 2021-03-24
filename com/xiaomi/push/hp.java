@@ -1,145 +1,67 @@
 package com.xiaomi.push;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class hp implements ix<hp, Object>, Serializable, Cloneable {
+/* loaded from: classes7.dex */
+public enum hp {
+    Invalid("INVALID"),
+    BarClick("bar:click"),
+    BarCancel("bar:cancel"),
+    AppOpen("app:open"),
+    PackageUninstall("package uninstalled"),
+    AppUninstall("app_uninstalled"),
+    ClientInfoUpdate("client_info_update"),
+    ClientInfoUpdateOk("client_info_update_ok"),
+    ClientMIIDUpdate("client_miid_update"),
+    PullOfflineMessage("pull"),
+    IosSleep("ios_sleep"),
+    IosWakeUp("ios_wakeup"),
+    AwakeApp("awake_app"),
+    NormalClientConfigUpdate("normal_client_config_update"),
+    CustomClientConfigUpdate("custom_client_config_update"),
+    DailyCheckClientConfig("daily_check_client_config"),
+    DataCollection("data_collection"),
+    RegIdExpired("registration id expired"),
+    ConnectionDisabled("!!!MILINK CONNECTION DISABLED!!!"),
+    PackageUnregistered("package_unregistered"),
+    DecryptMessageFail("decrypt_msg_fail"),
+    SyncInfo("sync_info"),
+    SyncInfoResult("sync_info_result"),
+    ForceSync("force_sync"),
+    UploadClientLog("upload_client_log"),
+    NotificationBarInfo("notification_bar_info"),
+    SyncMIID("sync_miid"),
+    UploadTinyData("upload"),
+    CancelPushMessage("clear_push_message"),
+    CancelPushMessageACK("clear_push_message_ack"),
+    DisablePushMessage("disable_push"),
+    EnablePushMessage("enable_push"),
+    ClientABTest("client_ab_test"),
+    AwakeSystemApp("awake_system_app"),
+    AwakeAppResponse("awake_app_response"),
+    HybridRegister("hb_register"),
+    HybridRegisterResult("hb_register_res"),
+    HybridUnregister("hb_unregister"),
+    HybridUnregisterResult("hb_unregister_res"),
+    ThirdPartyRegUpdate("3rd_party_reg_update"),
+    VRUpload("vr_upload"),
+    PushLogUpload("log_upload"),
+    APP_WAKEUP("app_wakeup"),
+    APP_SLEEP("app_sleep"),
+    NOTIFICATION_SWITCH("notification_switch"),
+    ACTIVITY_RESUMED("activity_resumed"),
+    HeadsUpReporter("headsup_reporter"),
+    ScenePushRuleUpdate("scene_push_rule_update"),
+    ScenePushRuleDelete("scene_push_rule_delete"),
+    ScenePushRuleTrigger("scene_push_rule_trigger");
+    
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hq> f445a;
+    public final String f506a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private static final jn f444a = new jn("ClientUploadData");
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final jf f8421a = new jf("", (byte) 15, 1);
-
-    public int a() {
-        if (this.f445a == null) {
-            return 0;
-        }
-        return this.f445a.size();
+    hp(String str) {
+        this.f506a = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(hp hpVar) {
-        int a2;
-        if (getClass().equals(hpVar.getClass())) {
-            int compareTo = Boolean.valueOf(m348a()).compareTo(Boolean.valueOf(hpVar.m348a()));
-            if (compareTo == 0) {
-                if (!m348a() || (a2 = iy.a(this.f445a, hpVar.f445a)) == 0) {
-                    return 0;
-                }
-                return a2;
-            }
-            return compareTo;
-        }
-        return getClass().getName().compareTo(hpVar.getClass().getName());
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public void m347a() {
-        if (this.f445a == null) {
-            throw new jj("Required field 'uploadDataItems' was not present! Struct: " + toString());
-        }
-    }
-
-    public void a(hq hqVar) {
-        if (this.f445a == null) {
-            this.f445a = new ArrayList();
-        }
-        this.f445a.add(hqVar);
-    }
-
-    @Override // com.xiaomi.push.ix
-    public void a(ji jiVar) {
-        jiVar.m493a();
-        while (true) {
-            jf m489a = jiVar.m489a();
-            if (m489a.f8463a == 0) {
-                jiVar.f();
-                m347a();
-                return;
-            }
-            switch (m489a.f778a) {
-                case 1:
-                    if (m489a.f8463a == 15) {
-                        jg m490a = jiVar.m490a();
-                        this.f445a = new ArrayList(m490a.f779a);
-                        for (int i = 0; i < m490a.f779a; i++) {
-                            hq hqVar = new hq();
-                            hqVar.a(jiVar);
-                            this.f445a.add(hqVar);
-                        }
-                        jiVar.i();
-                        break;
-                    } else {
-                        jl.a(jiVar, m489a.f8463a);
-                        break;
-                    }
-                default:
-                    jl.a(jiVar, m489a.f8463a);
-                    break;
-            }
-            jiVar.g();
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m348a() {
-        return this.f445a != null;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m349a(hp hpVar) {
-        if (hpVar == null) {
-            return false;
-        }
-        boolean m348a = m348a();
-        boolean m348a2 = hpVar.m348a();
-        return !(m348a || m348a2) || (m348a && m348a2 && this.f445a.equals(hpVar.f445a));
-    }
-
-    @Override // com.xiaomi.push.ix
-    public void b(ji jiVar) {
-        m347a();
-        jiVar.a(f444a);
-        if (this.f445a != null) {
-            jiVar.a(f8421a);
-            jiVar.a(new jg((byte) 12, this.f445a.size()));
-            for (hq hqVar : this.f445a) {
-                hqVar.b(jiVar);
-            }
-            jiVar.e();
-            jiVar.b();
-        }
-        jiVar.c();
-        jiVar.m497a();
-    }
-
-    public boolean equals(Object obj) {
-        if (obj != null && (obj instanceof hp)) {
-            return m349a((hp) obj);
-        }
-        return false;
-    }
-
-    public int hashCode() {
-        return 0;
-    }
-
+    @Override // java.lang.Enum
     public String toString() {
-        StringBuilder sb = new StringBuilder("ClientUploadData(");
-        sb.append("uploadDataItems:");
-        if (this.f445a == null) {
-            sb.append("null");
-        } else {
-            sb.append(this.f445a);
-        }
-        sb.append(")");
-        return sb.toString();
+        return this.f506a;
     }
 }

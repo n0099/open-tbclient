@@ -9,153 +9,135 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.horizonalList.widget.HListView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ForumEmotionItemView extends LinearLayout {
-    private TextView iVJ;
-    private TextView iVK;
-    private HListView jaZ;
-    private TextView jba;
-    private TextView jcm;
-    private ViewGroup jcn;
-    private TextView jco;
-    private TextView jcp;
-    private View jcq;
-    private a jcr;
-    private View mLineView;
-    private TbPageContext mPageContext;
-    private TextView mTitle;
 
-    public ForumEmotionItemView(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity());
-        this.mPageContext = tbPageContext;
-        initView();
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public HListView f15860e;
 
-    private void initView() {
-        LayoutInflater.from(getContext()).inflate(R.layout.forum_emotion_list_item_layout, this);
-        this.jaZ = (HListView) findViewById(R.id.forum_emotion_item_list);
-        this.jcq = findViewById(R.id.forum_emotion_list_head);
-        this.jcm = (TextView) findViewById(R.id.forum_emotion_filter);
-        this.jcn = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
-        this.jcp = (TextView) findViewById(R.id.forum_emotion_rank);
-        this.mTitle = (TextView) findViewById(R.id.forum_emotion_title_tv);
-        this.iVJ = (TextView) findViewById(R.id.forum_emotion_download_num_tv);
-        this.iVK = (TextView) findViewById(R.id.forum_emotion_share_num_tv);
-        this.jba = (TextView) findViewById(R.id.forum_emotion_download_tv);
-        this.mLineView = findViewById(R.id.line);
-        this.jco = (TextView) findViewById(R.id.forum_emotion_board_title);
-        this.jaZ.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
-        this.jaZ.setSelector(this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg));
-        this.jcr = new a(this.mPageContext);
-        this.jaZ.setAdapter((ListAdapter) this.jcr);
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f15861f;
 
-    public void onChangeSkin(int i) {
-        ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-        ap.setViewTextColor(this.iVJ, R.color.CAM_X0109);
-        ap.setViewTextColor(this.iVK, R.color.CAM_X0109);
-        ap.setViewTextColor(this.jba, R.color.CAM_X0109);
-        ap.setViewTextColor(this.jcp, R.color.CAM_X0105);
-        ap.setBackgroundColor(this.mLineView, R.color.CAM_X0204);
-        ap.setViewTextColor(this.jcn.getChildAt(0), R.color.CAM_X0107);
-        ap.setBackgroundColor(this.jcn.getChildAt(0), R.color.CAM_X0201);
-        ap.setViewTextColor(this.jcn.getChildAt(1), R.color.CAM_X0107);
-        ap.setBackgroundColor(this.jcn.getChildAt(1), R.color.CAM_X0201);
-        ap.setViewTextColor(this.jco, R.color.CAM_X0107);
-        ap.setViewTextColor(this.jcm, R.color.CAM_X0107);
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f15862g;
 
-    public HListView getListView() {
-        return this.jaZ;
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f15863h;
+    public TextView i;
+    public TextView j;
+    public View k;
+    public View l;
+    public TextView m;
+    public ViewGroup n;
+    public TextView o;
+    public a p;
+    public TbPageContext q;
 
-    public TextView getTitleView() {
-        return this.mTitle;
-    }
-
-    public TextView getDownloadNumView() {
-        return this.iVJ;
-    }
-
-    public TextView getShareNumView() {
-        return this.iVK;
-    }
-
-    public TextView getDownLoadView() {
-        return this.jba;
-    }
-
-    public TextView getRankView() {
-        return this.jcp;
-    }
-
-    public View getLineView() {
-        return this.mLineView;
-    }
-
-    public View getHeaderView() {
-        return this.jcq;
-    }
-
-    public TextView getFilterView() {
-        return this.jcm;
-    }
-
-    public ViewGroup getFilterDropDownView() {
-        return this.jcn;
-    }
-
-    public a getAdapter() {
-        return this.jcr;
-    }
-
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class a extends BaseAdapter {
-        private TbPageContext eWx;
-        private List<EmotionPackageData.SingleEmotionData> mDatas = new ArrayList();
-        private boolean jbd = false;
-        private boolean showCover = false;
 
-        public a(TbPageContext tbPageContext) {
-            this.eWx = tbPageContext;
+        /* renamed from: f  reason: collision with root package name */
+        public TbPageContext f15865f;
+
+        /* renamed from: e  reason: collision with root package name */
+        public List<EmotionPackageData.SingleEmotionData> f15864e = new ArrayList();
+
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f15866g = false;
+
+        /* renamed from: h  reason: collision with root package name */
+        public boolean f15867h = false;
+
+        /* renamed from: com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public static class C0186a {
+
+            /* renamed from: a  reason: collision with root package name */
+            public View f15868a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public TbImageView f15869b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public TextView f15870c;
+
+            /* renamed from: d  reason: collision with root package name */
+            public View f15871d;
+
+            public C0186a(View view) {
+                this.f15868a = view;
+                view.setEnabled(false);
+                this.f15869b = (TbImageView) this.f15868a.findViewById(R.id.emotion_img);
+                this.f15870c = (TextView) this.f15868a.findViewById(R.id.emotion_single_bar_icon);
+                View findViewById = this.f15868a.findViewById(R.id.emotion_cover_view);
+                this.f15871d = findViewById;
+                findViewById.setVisibility(8);
+            }
+
+            public void a(EmotionPackageData.SingleEmotionData singleEmotionData, boolean z, boolean z2, int i) {
+                if (singleEmotionData == null) {
+                    return;
+                }
+                if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
+                    this.f15869b.setDefaultResource(R.drawable.img_default_100);
+                    this.f15869b.W(singleEmotionData.thumbnail, 10, false);
+                }
+                if (z) {
+                    this.f15870c.setVisibility(0);
+                } else {
+                    this.f15870c.setVisibility(8);
+                }
+                if (i == 7 && z2) {
+                    this.f15871d.setVisibility(0);
+                } else {
+                    this.f15871d.setVisibility(8);
+                }
+            }
         }
 
-        public void setData(List<EmotionPackageData.SingleEmotionData> list, boolean z) {
-            if (!y.isEmpty(list)) {
-                this.jbd = z;
-                if (list.size() > 8) {
-                    this.mDatas = list.subList(0, 8);
-                    this.showCover = true;
-                } else {
-                    this.mDatas = list;
-                    this.showCover = false;
-                }
-                notifyDataSetChanged();
+        public a(TbPageContext tbPageContext) {
+            this.f15865f = tbPageContext;
+        }
+
+        public void a(List<EmotionPackageData.SingleEmotionData> list, boolean z) {
+            if (ListUtils.isEmpty(list)) {
+                return;
             }
+            this.f15866g = z;
+            if (list.size() > 8) {
+                this.f15864e = list.subList(0, 8);
+                this.f15867h = true;
+            } else {
+                this.f15864e = list;
+                this.f15867h = false;
+            }
+            notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.mDatas == null) {
+            List<EmotionPackageData.SingleEmotionData> list = this.f15864e;
+            if (list == null) {
                 return 0;
             }
-            return this.mDatas.size();
+            return list.size();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            if (this.mDatas == null) {
+            List<EmotionPackageData.SingleEmotionData> list = this.f15864e;
+            if (list == null) {
                 return null;
             }
-            return this.mDatas.get(i);
+            return list.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -165,54 +147,101 @@ public class ForumEmotionItemView extends LinearLayout {
 
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
-            C0725a c0725a;
+            C0186a c0186a;
             if (view == null) {
-                view = LayoutInflater.from(this.eWx.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
-                C0725a c0725a2 = new C0725a(view);
-                view.setTag(c0725a2);
-                c0725a = c0725a2;
+                view = LayoutInflater.from(this.f15865f.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
+                c0186a = new C0186a(view);
+                view.setTag(c0186a);
             } else {
-                c0725a = (C0725a) view.getTag();
+                c0186a = (C0186a) view.getTag();
             }
-            c0725a.a(this.mDatas.get(i), i == 0 && this.jbd, this.showCover, i);
+            c0186a.a(this.f15864e.get(i), i == 0 && this.f15866g, this.f15867h, i);
             return view;
         }
+    }
 
-        /* renamed from: com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        static class C0725a {
-            private TextView akX;
-            private TbImageView jbe;
-            private View jbf;
-            private View mView;
+    public ForumEmotionItemView(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity());
+        this.q = tbPageContext;
+        a();
+    }
 
-            public C0725a(View view) {
-                this.mView = view;
-                this.mView.setEnabled(false);
-                this.jbe = (TbImageView) this.mView.findViewById(R.id.emotion_img);
-                this.akX = (TextView) this.mView.findViewById(R.id.emotion_single_bar_icon);
-                this.jbf = this.mView.findViewById(R.id.emotion_cover_view);
-                this.jbf.setVisibility(8);
-            }
+    public final void a() {
+        LayoutInflater.from(getContext()).inflate(R.layout.forum_emotion_list_item_layout, this);
+        this.f15860e = (HListView) findViewById(R.id.forum_emotion_item_list);
+        this.l = findViewById(R.id.forum_emotion_list_head);
+        this.m = (TextView) findViewById(R.id.forum_emotion_filter);
+        this.n = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
+        this.j = (TextView) findViewById(R.id.forum_emotion_rank);
+        this.f15861f = (TextView) findViewById(R.id.forum_emotion_title_tv);
+        this.f15862g = (TextView) findViewById(R.id.forum_emotion_download_num_tv);
+        this.f15863h = (TextView) findViewById(R.id.forum_emotion_share_num_tv);
+        this.i = (TextView) findViewById(R.id.forum_emotion_download_tv);
+        this.k = findViewById(R.id.line);
+        this.o = (TextView) findViewById(R.id.forum_emotion_board_title);
+        this.f15860e.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
+        this.f15860e.setSelector(this.q.getResources().getDrawable(R.drawable.transparent_bg));
+        a aVar = new a(this.q);
+        this.p = aVar;
+        this.f15860e.setAdapter((ListAdapter) aVar);
+    }
 
-            public void a(EmotionPackageData.SingleEmotionData singleEmotionData, boolean z, boolean z2, int i) {
-                if (singleEmotionData != null) {
-                    if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                        this.jbe.setDefaultResource(R.drawable.img_default_100);
-                        this.jbe.startLoad(singleEmotionData.thumbnail, 10, false);
-                    }
-                    if (z) {
-                        this.akX.setVisibility(0);
-                    } else {
-                        this.akX.setVisibility(8);
-                    }
-                    if (i == 7 && z2) {
-                        this.jbf.setVisibility(0);
-                    } else {
-                        this.jbf.setVisibility(8);
-                    }
-                }
-            }
-        }
+    public void b(int i) {
+        SkinManager.setViewTextColor(this.f15861f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f15862g, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f15863h, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.j, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.n.getChildAt(0), R.color.CAM_X0107);
+        SkinManager.setBackgroundColor(this.n.getChildAt(0), R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.n.getChildAt(1), R.color.CAM_X0107);
+        SkinManager.setBackgroundColor(this.n.getChildAt(1), R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.o, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.m, R.color.CAM_X0107);
+    }
+
+    public a getAdapter() {
+        return this.p;
+    }
+
+    public TextView getDownLoadView() {
+        return this.i;
+    }
+
+    public TextView getDownloadNumView() {
+        return this.f15862g;
+    }
+
+    public ViewGroup getFilterDropDownView() {
+        return this.n;
+    }
+
+    public TextView getFilterView() {
+        return this.m;
+    }
+
+    public View getHeaderView() {
+        return this.l;
+    }
+
+    public View getLineView() {
+        return this.k;
+    }
+
+    public HListView getListView() {
+        return this.f15860e;
+    }
+
+    public TextView getRankView() {
+        return this.j;
+    }
+
+    public TextView getShareNumView() {
+        return this.f15863h;
+    }
+
+    public TextView getTitleView() {
+        return this.f15861f;
     }
 }

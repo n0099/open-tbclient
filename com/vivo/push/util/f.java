@@ -1,21 +1,20 @@
 package com.vivo.push.util;
 
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes14.dex */
-final class f implements ThreadFactory {
+/* loaded from: classes7.dex */
+public final class f implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f8075a;
+    public final /* synthetic */ String f39540a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public f(String str) {
-        this.f8075a = str;
+        this.f39540a = str;
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public final Thread newThread(Runnable runnable) {
         Thread thread = new Thread(runnable);
-        thread.setName(this.f8075a);
+        thread.setName(this.f39540a);
         thread.setDaemon(true);
         return thread;
     }

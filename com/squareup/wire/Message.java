@@ -10,15 +10,70 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public abstract class Message {
-    private static final Wire WIRE = new Wire(new Class[0]);
-    private transient int cachedSerializedSize;
-    protected transient int hashCode = 0;
-    private transient boolean haveCachedSerializedSize;
-    private transient UnknownFieldMap unknownFields;
+    public static final Wire WIRE = new Wire(new Class[0]);
+    public transient int cachedSerializedSize;
+    public transient int hashCode = 0;
+    public transient boolean haveCachedSerializedSize;
+    public transient UnknownFieldMap unknownFields;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
+    public static abstract class Builder<T extends Message> {
+        public UnknownFieldMap unknownFieldMap;
+
+        public Builder() {
+        }
+
+        public static <T> List<T> checkForNulls(List<T> list) {
+            if (list != null && !list.isEmpty()) {
+                for (T t : list) {
+                    if (t == null) {
+                        throw null;
+                    }
+                }
+            }
+            return list;
+        }
+
+        private UnknownFieldMap ensureUnknownFieldMap() {
+            if (this.unknownFieldMap == null) {
+                this.unknownFieldMap = new UnknownFieldMap();
+            }
+            return this.unknownFieldMap;
+        }
+
+        public void addFixed32(int i, int i2) {
+            ensureUnknownFieldMap().addFixed32(i, Integer.valueOf(i2));
+        }
+
+        public void addFixed64(int i, long j) {
+            ensureUnknownFieldMap().addFixed64(i, Long.valueOf(j));
+        }
+
+        public void addLengthDelimited(int i, ByteString byteString) {
+            ensureUnknownFieldMap().addLengthDelimited(i, byteString);
+        }
+
+        public void addVarint(int i, long j) {
+            ensureUnknownFieldMap().addVarint(i, Long.valueOf(j));
+        }
+
+        public abstract T build(boolean z);
+
+        public void checkRequiredFields() {
+            Message.WIRE.builderAdapter(getClass()).checkRequiredFields(this);
+        }
+
+        public Builder(Message message) {
+            if (message == null || message.unknownFields == null) {
+                return;
+            }
+            this.unknownFieldMap = new UnknownFieldMap(message.unknownFields);
+        }
+    }
+
+    /* loaded from: classes.dex */
     public enum Datatype {
         INT32(1),
         INT64(2),
@@ -38,8 +93,7 @@ public abstract class Message {
         FLOAT(16),
         DOUBLE(17);
         
-        private static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
-        private final int value;
+        public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
         public static final Comparator<Datatype> ORDER_BY_NAME = new Comparator<Datatype>() { // from class: com.squareup.wire.Message.Datatype.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
@@ -47,97 +101,91 @@ public abstract class Message {
                 return datatype.name().compareTo(datatype2.name());
             }
         };
-        private static final Map<String, Datatype> TYPES_BY_NAME = new LinkedHashMap();
+        public static final Map<String, Datatype> TYPES_BY_NAME;
+        public final int value;
 
-        /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static Datatype[] valuesCustom() {
-            Datatype[] valuesCustom = values();
-            int length = valuesCustom.length;
-            Datatype[] datatypeArr = new Datatype[length];
-            System.arraycopy(valuesCustom, 0, datatypeArr, 0, length);
-            return datatypeArr;
-        }
-
-        static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype() {
+        public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype() {
             int[] iArr = $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
-            if (iArr == null) {
-                iArr = new int[valuesCustom().length];
-                try {
-                    iArr[BOOL.ordinal()] = 7;
-                } catch (NoSuchFieldError e) {
-                }
-                try {
-                    iArr[BYTES.ordinal()] = 10;
-                } catch (NoSuchFieldError e2) {
-                }
-                try {
-                    iArr[DOUBLE.ordinal()] = 17;
-                } catch (NoSuchFieldError e3) {
-                }
-                try {
-                    iArr[ENUM.ordinal()] = 8;
-                } catch (NoSuchFieldError e4) {
-                }
-                try {
-                    iArr[FIXED32.ordinal()] = 12;
-                } catch (NoSuchFieldError e5) {
-                }
-                try {
-                    iArr[FIXED64.ordinal()] = 14;
-                } catch (NoSuchFieldError e6) {
-                }
-                try {
-                    iArr[FLOAT.ordinal()] = 16;
-                } catch (NoSuchFieldError e7) {
-                }
-                try {
-                    iArr[INT32.ordinal()] = 1;
-                } catch (NoSuchFieldError e8) {
-                }
-                try {
-                    iArr[INT64.ordinal()] = 2;
-                } catch (NoSuchFieldError e9) {
-                }
-                try {
-                    iArr[MESSAGE.ordinal()] = 11;
-                } catch (NoSuchFieldError e10) {
-                }
-                try {
-                    iArr[SFIXED32.ordinal()] = 13;
-                } catch (NoSuchFieldError e11) {
-                }
-                try {
-                    iArr[SFIXED64.ordinal()] = 15;
-                } catch (NoSuchFieldError e12) {
-                }
-                try {
-                    iArr[SINT32.ordinal()] = 5;
-                } catch (NoSuchFieldError e13) {
-                }
-                try {
-                    iArr[SINT64.ordinal()] = 6;
-                } catch (NoSuchFieldError e14) {
-                }
-                try {
-                    iArr[STRING.ordinal()] = 9;
-                } catch (NoSuchFieldError e15) {
-                }
-                try {
-                    iArr[UINT32.ordinal()] = 3;
-                } catch (NoSuchFieldError e16) {
-                }
-                try {
-                    iArr[UINT64.ordinal()] = 4;
-                } catch (NoSuchFieldError e17) {
-                }
-                $SWITCH_TABLE$com$squareup$wire$Message$Datatype = iArr;
+            if (iArr != null) {
+                return iArr;
             }
-            return iArr;
+            int[] iArr2 = new int[valuesCustom().length];
+            try {
+                iArr2[BOOL.ordinal()] = 7;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                iArr2[BYTES.ordinal()] = 10;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                iArr2[DOUBLE.ordinal()] = 17;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                iArr2[ENUM.ordinal()] = 8;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                iArr2[FIXED32.ordinal()] = 12;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                iArr2[FIXED64.ordinal()] = 14;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                iArr2[FLOAT.ordinal()] = 16;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                iArr2[INT32.ordinal()] = 1;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                iArr2[INT64.ordinal()] = 2;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                iArr2[MESSAGE.ordinal()] = 11;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                iArr2[SFIXED32.ordinal()] = 13;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                iArr2[SFIXED64.ordinal()] = 15;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                iArr2[SINT32.ordinal()] = 5;
+            } catch (NoSuchFieldError unused13) {
+            }
+            try {
+                iArr2[SINT64.ordinal()] = 6;
+            } catch (NoSuchFieldError unused14) {
+            }
+            try {
+                iArr2[STRING.ordinal()] = 9;
+            } catch (NoSuchFieldError unused15) {
+            }
+            try {
+                iArr2[UINT32.ordinal()] = 3;
+            } catch (NoSuchFieldError unused16) {
+            }
+            try {
+                iArr2[UINT64.ordinal()] = 4;
+            } catch (NoSuchFieldError unused17) {
+            }
+            $SWITCH_TABLE$com$squareup$wire$Message$Datatype = iArr2;
+            return iArr2;
         }
 
         static {
-            TYPES_BY_NAME.put("int32", INT32);
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            TYPES_BY_NAME = linkedHashMap;
+            linkedHashMap.put("int32", INT32);
             TYPES_BY_NAME.put("int64", INT64);
             TYPES_BY_NAME.put("uint32", UINT32);
             TYPES_BY_NAME.put("uint64", UINT64);
@@ -158,6 +206,20 @@ public abstract class Message {
 
         Datatype(int i) {
             this.value = i;
+        }
+
+        public static Datatype of(String str) {
+            return TYPES_BY_NAME.get(str);
+        }
+
+        /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static Datatype[] valuesCustom() {
+            Datatype[] valuesCustom = values();
+            int length = valuesCustom.length;
+            Datatype[] datatypeArr = new Datatype[length];
+            System.arraycopy(valuesCustom, 0, datatypeArr, 0, length);
+            return datatypeArr;
         }
 
         public int value() {
@@ -191,13 +253,9 @@ public abstract class Message {
                     throw new AssertionError("No wiretype for datatype " + this);
             }
         }
-
-        public static Datatype of(String str) {
-            return TYPES_BY_NAME.get(str);
-        }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public enum Label {
         REQUIRED(32),
         OPTIONAL(64),
@@ -211,7 +269,11 @@ public abstract class Message {
                 return label.name().compareTo(label2.name());
             }
         };
-        private final int value;
+        public final int value;
+
+        Label(int i) {
+            this.value = i;
+        }
 
         /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
@@ -223,35 +285,30 @@ public abstract class Message {
             return labelArr;
         }
 
-        Label(int i) {
-            this.value = i;
-        }
-
-        public int value() {
-            return this.value;
+        public boolean isPacked() {
+            return this == PACKED;
         }
 
         public boolean isRepeated() {
             return this == REPEATED || this == PACKED;
         }
 
-        public boolean isPacked() {
-            return this == PACKED;
+        public int value() {
+            return this.value;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public Message(Builder builder) {
-        if (builder.unknownFieldMap != null) {
-            this.unknownFields = new UnknownFieldMap(builder.unknownFieldMap);
+        UnknownFieldMap unknownFieldMap = builder.unknownFieldMap;
+        if (unknownFieldMap != null) {
+            this.unknownFields = new UnknownFieldMap(unknownFieldMap);
         }
     }
 
-    protected Collection<List<UnknownFieldMap.FieldValue>> unknownFields() {
-        return this.unknownFields == null ? Collections.emptySet() : this.unknownFields.fieldMap.values();
+    public static <T> List<T> asList(T... tArr) {
+        return Arrays.asList(tArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public static <T> List<T> copyOf(List<T> list) {
         if (list == null) {
             return null;
@@ -259,43 +316,34 @@ public abstract class Message {
         return new ArrayList(list);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static <T> List<T> immutableCopyOf(List<T> list) {
-        return list == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList(list));
-    }
-
-    public static <E extends Enum & ProtoEnum> int intFromEnum(E e) {
-        return WIRE.enumAdapter(e.getClass()).toInt(e);
-    }
-
     public static <E extends Enum & ProtoEnum> E enumFromInt(Class<E> cls, int i) {
         return (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i));
     }
 
-    public byte[] toByteArray() {
-        return WIRE.messageAdapter(getClass()).toByteArray(this);
+    public static <T> List<T> immutableCopyOf(List<T> list) {
+        if (list == null) {
+            return Collections.emptyList();
+        }
+        return Collections.unmodifiableList(new ArrayList(list));
     }
 
-    public void writeTo(byte[] bArr) {
-        writeTo(bArr, 0, bArr.length);
-    }
-
-    public void writeTo(byte[] bArr, int i, int i2) {
-        write(WireOutput.newInstance(bArr, i, i2));
+    public static <E extends Enum & ProtoEnum> int intFromEnum(E e2) {
+        return WIRE.enumAdapter(e2.getClass()).toInt(e2);
     }
 
     private void write(WireOutput wireOutput) {
         try {
             WIRE.messageAdapter(getClass()).write(this, wireOutput);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException e2) {
+            throw new RuntimeException(e2);
         }
     }
 
-    public void writeUnknownFieldMap(WireOutput wireOutput) throws IOException {
-        if (this.unknownFields != null) {
-            this.unknownFields.write(wireOutput);
+    public boolean equals(Object obj, Object obj2) {
+        if (obj != obj2) {
+            return obj != null && obj.equals(obj2);
         }
+        return true;
     }
 
     public int getSerializedSize() {
@@ -307,85 +355,51 @@ public abstract class Message {
     }
 
     public int getUnknownFieldsSerializedSize() {
-        if (this.unknownFields == null) {
+        UnknownFieldMap unknownFieldMap = this.unknownFields;
+        if (unknownFieldMap == null) {
             return 0;
         }
-        return this.unknownFields.getSerializedSize();
+        return unknownFieldMap.getSerializedSize();
     }
 
-    protected boolean equals(Object obj, Object obj2) {
-        return obj == obj2 || (obj != null && obj.equals(obj2));
-    }
-
-    protected boolean equals(List<?> list, List<?> list2) {
-        if (list != null && list.isEmpty()) {
-            list = null;
-        }
-        if (list2 != null && list2.isEmpty()) {
-            list2 = null;
-        }
-        return list == list2 || (list != null && list.equals(list2));
-    }
-
-    protected static <T> List<T> asList(T... tArr) {
-        return Arrays.asList(tArr);
+    public byte[] toByteArray() {
+        return WIRE.messageAdapter(getClass()).toByteArray(this);
     }
 
     public String toString() {
         return WIRE.messageAdapter(getClass()).toString(this);
     }
 
-    /* loaded from: classes4.dex */
-    public static abstract class Builder<T extends Message> {
-        UnknownFieldMap unknownFieldMap;
+    public Collection<List<UnknownFieldMap.FieldValue>> unknownFields() {
+        UnknownFieldMap unknownFieldMap = this.unknownFields;
+        return unknownFieldMap == null ? Collections.emptySet() : unknownFieldMap.fieldMap.values();
+    }
 
-        public abstract T build(boolean z);
+    public void writeTo(byte[] bArr) {
+        writeTo(bArr, 0, bArr.length);
+    }
 
-        public Builder() {
+    public void writeUnknownFieldMap(WireOutput wireOutput) throws IOException {
+        UnknownFieldMap unknownFieldMap = this.unknownFields;
+        if (unknownFieldMap != null) {
+            unknownFieldMap.write(wireOutput);
         }
+    }
 
-        public Builder(Message message) {
-            if (message != null && message.unknownFields != null) {
-                this.unknownFieldMap = new UnknownFieldMap(message.unknownFields);
-            }
+    public boolean equals(List<?> list, List<?> list2) {
+        if (list != null && list.isEmpty()) {
+            list = null;
         }
+        if (list2 != null && list2.isEmpty()) {
+            list2 = null;
+        }
+        if (list != list2) {
+            return list != null && list.equals(list2);
+        }
+        return true;
+    }
 
-        public void addVarint(int i, long j) {
-            ensureUnknownFieldMap().addVarint(i, Long.valueOf(j));
-        }
-
-        public void addFixed32(int i, int i2) {
-            ensureUnknownFieldMap().addFixed32(i, Integer.valueOf(i2));
-        }
-
-        public void addFixed64(int i, long j) {
-            ensureUnknownFieldMap().addFixed64(i, Long.valueOf(j));
-        }
-
-        public void addLengthDelimited(int i, ByteString byteString) {
-            ensureUnknownFieldMap().addLengthDelimited(i, byteString);
-        }
-
-        private UnknownFieldMap ensureUnknownFieldMap() {
-            if (this.unknownFieldMap == null) {
-                this.unknownFieldMap = new UnknownFieldMap();
-            }
-            return this.unknownFieldMap;
-        }
-
-        public void checkRequiredFields() {
-            Message.WIRE.builderAdapter(getClass()).checkRequiredFields(this);
-        }
-
-        protected static <T> List<T> checkForNulls(List<T> list) {
-            if (list != null && !list.isEmpty()) {
-                for (T t : list) {
-                    if (t == null) {
-                        throw new NullPointerException();
-                    }
-                }
-            }
-            return list;
-        }
+    public void writeTo(byte[] bArr, int i, int i2) {
+        write(WireOutput.newInstance(bArr, i, i2));
     }
 }

@@ -6,97 +6,124 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.bytedance.sdk.openadsdk.utils.ac;
-import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.ad;
+import com.bytedance.sdk.openadsdk.utils.al;
 /* loaded from: classes6.dex */
 public class TopLayout1 extends FrameLayout implements a<TopLayout1> {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4296a;
-    private ImageView b;
-    private TextView c;
-    private View d;
-    private boolean e;
-    private boolean f;
-    private b g;
+    public TextView f27835a;
 
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setShowSkip(boolean z) {
-        if (this.c != null) {
-            this.c.setVisibility(z ? 0 : 8);
-        }
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f27836b;
 
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setSkipEnable(boolean z) {
-        if (this.c != null) {
-            this.c.setEnabled(z);
-            this.c.setClickable(z);
-        }
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f27837c;
 
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setShowSound(boolean z) {
-        if (this.b != null) {
-            this.b.setVisibility(z ? 0 : 8);
-        }
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public View f27838d;
 
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setSoundMute(boolean z) {
-        this.f = z;
-        this.b.setImageResource(this.f ? ac.d(getContext(), "tt_mute") : ac.d(getContext(), "tt_unmute"));
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f27839e;
 
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setShowCountDown(boolean z) {
-        if (this.f4296a != null) {
-            this.f4296a.setVisibility(z ? 0 : 8);
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f27840f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public b f27841g;
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a(CharSequence charSequence, CharSequence charSequence2) {
-        if (this.f4296a != null && !TextUtils.isEmpty(charSequence)) {
-            this.f4296a.setText(charSequence);
+        if (this.f27835a != null && !TextUtils.isEmpty(charSequence)) {
+            this.f27835a.setText(charSequence);
         }
-        if (this.c != null && !TextUtils.isEmpty(charSequence2)) {
-            this.c.setText(charSequence2);
-            if (!this.e) {
-                ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
-                layoutParams.width = charSequence2.length() <= 2 ? (int) ak.a(getContext(), 53.0f) : (int) ak.a(getContext(), 96.0f);
-                this.c.setLayoutParams(layoutParams);
-            }
+        if (this.f27837c == null || TextUtils.isEmpty(charSequence2)) {
+            return;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setShowDislike(boolean z) {
-        if (this.d != null) {
-            this.d.setVisibility(z ? 0 : 8);
+        this.f27837c.setText(charSequence2);
+        if (this.f27839e) {
+            return;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setListener(b bVar) {
-        this.g = bVar;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void a() {
-        if (this.c != null) {
-            this.c.performClick();
-        }
+        ViewGroup.LayoutParams layoutParams = this.f27837c.getLayoutParams();
+        layoutParams.width = (int) (charSequence2.length() <= 2 ? al.a(getContext(), 53.0f) : al.a(getContext(), 96.0f));
+        this.f27837c.setLayoutParams(layoutParams);
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void b() {
-        if (this.b != null) {
-            this.b.performClick();
+        ImageView imageView = this.f27836b;
+        if (imageView != null) {
+            imageView.performClick();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void c() {
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setListener(b bVar) {
+        this.f27841g = bVar;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setShowCountDown(boolean z) {
+        TextView textView = this.f27835a;
+        if (textView != null) {
+            textView.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setShowDislike(boolean z) {
+        View view = this.f27838d;
+        if (view != null) {
+            view.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setShowSkip(boolean z) {
+        TextView textView = this.f27837c;
+        if (textView != null) {
+            textView.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setShowSound(boolean z) {
+        ImageView imageView = this.f27836b;
+        if (imageView != null) {
+            imageView.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setSkipEnable(boolean z) {
+        TextView textView = this.f27837c;
+        if (textView != null) {
+            textView.setEnabled(z);
+            this.f27837c.setClickable(z);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setSoundMute(boolean z) {
+        int d2;
+        this.f27840f = z;
+        if (z) {
+            d2 = ad.d(getContext(), "tt_mute");
+        } else {
+            d2 = ad.d(getContext(), "tt_unmute");
+        }
+        this.f27836b.setImageResource(d2);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void a() {
+        TextView textView = this.f27837c;
+        if (textView != null) {
+            textView.performClick();
+        }
     }
 }

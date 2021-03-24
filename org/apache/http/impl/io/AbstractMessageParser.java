@@ -10,11 +10,9 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.message.LineParser;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractMessageParser implements HttpMessageParser {
-    protected final LineParser lineParser;
-
-    protected abstract HttpMessage parseHead(SessionInputBuffer sessionInputBuffer) throws IOException, HttpException, ParseException;
+    public final LineParser lineParser;
 
     public AbstractMessageParser(SessionInputBuffer sessionInputBuffer, LineParser lineParser, HttpParams httpParams) {
         throw new RuntimeException("Stub!");
@@ -28,4 +26,6 @@ public abstract class AbstractMessageParser implements HttpMessageParser {
     public HttpMessage parse() throws IOException, HttpException {
         throw new RuntimeException("Stub!");
     }
+
+    public abstract HttpMessage parseHead(SessionInputBuffer sessionInputBuffer) throws IOException, HttpException, ParseException;
 }

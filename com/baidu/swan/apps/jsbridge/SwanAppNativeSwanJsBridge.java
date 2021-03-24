@@ -2,33 +2,29 @@ package com.baidu.swan.apps.jsbridge;
 
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import com.baidu.swan.apps.ao.i;
-import com.baidu.swan.apps.b;
+import d.b.g0.a.e0.k.a;
+import d.b.g0.a.i2.i;
+import d.b.g0.a.k;
+import d.b.g0.a.x0.b.b;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class SwanAppNativeSwanJsBridge {
-    private static final boolean DEBUG = b.DEBUG;
+    public static final boolean DEBUG = k.f45050a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "_naSwan";
-    private static final String TAG = "SwanAppNativeSwanJsBridge";
-    private com.baidu.swan.apps.core.container.a mJSContainer;
+    public static final String TAG = "SwanAppNativeSwanJsBridge";
+    public a mJSContainer;
 
-    public SwanAppNativeSwanJsBridge(com.baidu.swan.apps.core.container.a aVar) {
+    public SwanAppNativeSwanJsBridge(a aVar) {
         this.mJSContainer = aVar;
     }
 
     @JavascriptInterface
-    public String getEnvVariables() {
-        return com.baidu.swan.apps.jsbridge.a.b.f(this.mJSContainer);
+    public String getAPIs(int i) {
+        return DEBUG ? d.b.g0.a.m1.a.a.n() ? i.d(i, false) : "" : !i.h() ? "" : i.d(i, false);
     }
 
     @JavascriptInterface
-    public String getAPIs(int i) {
-        if (DEBUG) {
-            return com.baidu.swan.apps.ad.a.a.aFr() ? i.C(i, false) : "";
-        } else if (!i.aNG()) {
-            return "";
-        } else {
-            return i.C(i, false);
-        }
+    public String getEnvVariables() {
+        return b.a(this.mJSContainer);
     }
 }

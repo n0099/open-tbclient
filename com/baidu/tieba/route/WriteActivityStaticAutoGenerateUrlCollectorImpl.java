@@ -1,12 +1,22 @@
 package com.baidu.tieba.route;
 
-import com.baidu.adp.framework.a.d;
+import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
-public final class WriteActivityStaticAutoGenerateUrlCollectorImpl implements d {
-    @Override // com.baidu.adp.framework.a.d
+/* loaded from: classes5.dex */
+public final class WriteActivityStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, String> getCmdRouterMap() {
+        HashMap hashMap = new HashMap();
+        new ArrayList();
+        hashMap.put("2002001", "com.baidu.tieba.write.write.WriteActivityStatic");
+        hashMap.put("2016301", "com.baidu.tieba.write.write.WriteActivityStatic");
+        hashMap.put("2001449", "com.baidu.tieba.write.write.WriteActivityStatic");
+        return hashMap;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, ArrayList<String>> getConfigRouterMap() {
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
@@ -25,16 +35,6 @@ public final class WriteActivityStaticAutoGenerateUrlCollectorImpl implements d 
         arrayList.add("AccountAccessActivityConfig");
         arrayList.add("AddLinkActivityConfig");
         hashMap.put("com.baidu.tieba.write.write.WriteActivityStatic", arrayList);
-        return hashMap;
-    }
-
-    @Override // com.baidu.adp.framework.a.d
-    public Map<String, String> getCmdRouterMap() {
-        HashMap hashMap = new HashMap();
-        new ArrayList();
-        hashMap.put("2002001", "com.baidu.tieba.write.write.WriteActivityStatic");
-        hashMap.put("2016301", "com.baidu.tieba.write.write.WriteActivityStatic");
-        hashMap.put("2001449", "com.baidu.tieba.write.write.WriteActivityStatic");
         return hashMap;
     }
 }

@@ -2,60 +2,72 @@ package com.kwad.sdk.core.diskcache.b;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f6037a;
-    int b;
-    long c;
-    File d;
+    public Context f33507a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public int f33508b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f33509c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public File f33510d;
+
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f6038a;
-        private int b = 1;
-        private long c = 100;
-        private File d;
+        public Context f33511a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f33512b = 1;
+
+        /* renamed from: c  reason: collision with root package name */
+        public long f33513c = 100;
+
+        /* renamed from: d  reason: collision with root package name */
+        public File f33514d;
 
         public a(Context context) {
-            this.f6038a = context.getApplicationContext();
+            this.f33511a = context.getApplicationContext();
         }
 
         public a a(int i) {
-            if (i <= 0) {
-                throw new IllegalArgumentException("appVersion <= 0");
+            if (i > 0) {
+                this.f33512b = i;
+                return this;
             }
-            this.b = i;
-            return this;
+            throw new IllegalArgumentException("appVersion <= 0");
         }
 
         public a a(long j) {
-            if (j <= 0) {
-                throw new IllegalArgumentException("maxSize <= 0");
+            if (j > 0) {
+                this.f33513c = j;
+                return this;
             }
-            this.c = j;
-            return this;
+            throw new IllegalArgumentException("maxSize <= 0");
         }
 
         public a a(File file) {
             d.a(file, "directory is not allow null");
-            this.d = file;
+            this.f33514d = file;
             return this;
         }
 
         public b a() {
             b bVar = new b();
-            bVar.f6037a = this.f6038a;
-            bVar.b = this.b;
-            bVar.c = this.c;
-            bVar.d = this.d;
+            bVar.f33507a = this.f33511a;
+            bVar.f33508b = this.f33512b;
+            bVar.f33509c = this.f33513c;
+            bVar.f33510d = this.f33514d;
             return bVar;
         }
     }
 
-    private b() {
+    public b() {
     }
 }

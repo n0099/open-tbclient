@@ -16,11 +16,13 @@ import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class CSJNativeAdVerticalImgView extends b {
-    public ImageView f;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f30765f;
+
+    /* loaded from: classes6.dex */
     public class a extends DrawableImageViewTarget {
         public a(CSJNativeAdVerticalImgView cSJNativeAdVerticalImgView, ImageView imageView) {
             super(imageView);
@@ -76,12 +78,12 @@ public final class CSJNativeAdVerticalImgView extends b {
         if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
             return;
         }
-        Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f));
+        Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f30765f));
     }
 
     @Override // a.a.a.a.r.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f = (ImageView) findViewById(R.id.ad_img);
+        this.f30765f = (ImageView) findViewById(R.id.ad_img);
     }
 }

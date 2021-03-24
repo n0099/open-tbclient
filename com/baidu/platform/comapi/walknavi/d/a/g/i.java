@@ -3,8 +3,8 @@ package com.baidu.platform.comapi.walknavi.d.a.g;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
-class i implements FileFilter {
+/* loaded from: classes2.dex */
+public class i implements FileFilter {
     @Override // java.io.FileFilter
     public boolean accept(File file) {
         return Pattern.matches("cpu[0-9]", file.getName());

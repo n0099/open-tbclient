@@ -1,27 +1,28 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.fl;
-import com.xiaomi.push.fx;
-import com.xiaomi.push.gj;
-import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes5.dex */
-class bl implements fx {
+import com.xiaomi.push.service.bk;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes7.dex */
+public class bl implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f8548a;
+    public final /* synthetic */ bk f41006a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(XMPushService xMPushService) {
-        this.f8548a = xMPushService;
+    public bl(bk bkVar) {
+        this.f41006a = bkVar;
     }
 
-    @Override // com.xiaomi.push.fx
-    public void a(fl flVar) {
-        this.f8548a.a(new XMPushService.c(flVar));
-    }
-
-    @Override // com.xiaomi.push.fx, com.xiaomi.push.gf
-    public void a(gj gjVar) {
-        this.f8548a.a(new XMPushService.k(gjVar));
+    @Override // java.lang.Runnable
+    public void run() {
+        ConcurrentHashMap concurrentHashMap;
+        try {
+            concurrentHashMap = this.f41006a.f934a;
+            for (bk.a aVar : concurrentHashMap.values()) {
+                aVar.run();
+            }
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("Sync job exception :" + e2.getMessage());
+        }
+        this.f41006a.f935a = false;
     }
 }

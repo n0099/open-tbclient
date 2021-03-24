@@ -8,16 +8,7 @@ public final class UpgradeMemberGroupResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    private UpgradeMemberGroupResIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            this.error = builder.error;
-        } else {
-            this.error = builder.error;
-        }
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<UpgradeMemberGroupResIdl> {
         public Error error;
 
@@ -26,15 +17,25 @@ public final class UpgradeMemberGroupResIdl extends Message {
 
         public Builder(UpgradeMemberGroupResIdl upgradeMemberGroupResIdl) {
             super(upgradeMemberGroupResIdl);
-            if (upgradeMemberGroupResIdl != null) {
-                this.error = upgradeMemberGroupResIdl.error;
+            if (upgradeMemberGroupResIdl == null) {
+                return;
             }
+            this.error = upgradeMemberGroupResIdl.error;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public UpgradeMemberGroupResIdl build(boolean z) {
             return new UpgradeMemberGroupResIdl(this, z);
+        }
+    }
+
+    public UpgradeMemberGroupResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+        } else {
+            this.error = builder.error;
         }
     }
 }

@@ -13,18 +13,62 @@ import com.bytedance.sdk.openadsdk.utils.u;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Iterator;
-import org.apache.http.HttpHost;
 /* loaded from: classes6.dex */
 public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.l f4487a;
-    private boolean h;
+    public com.bytedance.sdk.openadsdk.core.d.l f28527a;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f28528h;
 
     public f(Context context, x xVar, com.bytedance.sdk.openadsdk.core.d.l lVar, com.bytedance.sdk.openadsdk.c.j jVar, boolean z) {
-        super(context, xVar, lVar.ag(), jVar);
-        this.f4487a = lVar;
-        this.h = z;
+        super(context, xVar, lVar.am(), jVar);
+        this.f28527a = lVar;
+        this.f28528h = z;
+    }
+
+    private WebResourceResponse a(WebView webView, String str) {
+        com.bytedance.sdk.openadsdk.core.d.k kVar = null;
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
+        if (a2 != e.a.IMAGE) {
+            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f28527a.af().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                com.bytedance.sdk.openadsdk.core.d.k next = it.next();
+                if (!TextUtils.isEmpty(next.a()) && !TextUtils.isEmpty(str)) {
+                    String a3 = next.a();
+                    if (a3.startsWith("https")) {
+                        a3 = a3.replaceFirst("https", "http");
+                    }
+                    if ((str.startsWith("https") ? str.replaceFirst("https", "http") : str).equals(a3)) {
+                        kVar = next;
+                        break;
+                    }
+                }
+            }
+        }
+        if (a2 != e.a.IMAGE && kVar == null) {
+            return com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a(str, a2);
+        }
+        return a(str);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        this.f29014f = false;
+        super.onPageFinished(webView, str);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        this.f29015g = false;
+        super.onPageStarted(webView, str, bitmap);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
@@ -53,73 +97,32 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
         return super.shouldInterceptRequest(webView, str);
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
-        this.f = false;
-        super.onPageFinished(webView, str);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        this.g = false;
-        super.onPageStarted(webView, str, bitmap);
-    }
-
-    private WebResourceResponse a(WebView webView, String str) {
-        com.bytedance.sdk.openadsdk.core.d.k kVar;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
-        if (a2 != e.a.IMAGE) {
-            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f4487a.Z().iterator();
-            while (it.hasNext()) {
-                kVar = it.next();
-                if (!TextUtils.isEmpty(kVar.a()) && !TextUtils.isEmpty(str)) {
-                    String a3 = kVar.a();
-                    if (a3.startsWith("https")) {
-                        a3 = a3.replaceFirst("https", HttpHost.DEFAULT_SCHEME_NAME);
-                    }
-                    if ((str.startsWith("https") ? str.replaceFirst("https", HttpHost.DEFAULT_SCHEME_NAME) : str).equals(a3)) {
-                        break;
-                    }
-                }
-            }
-        }
-        kVar = null;
-        if (a2 == e.a.IMAGE || kVar != null) {
-            return a(str);
-        }
-        return com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a(str, a2);
-    }
-
     private WebResourceResponse a(String str) {
-        WebResourceResponse webResourceResponse;
-        File a2;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            a2 = com.bytedance.sdk.openadsdk.h.a.a.a().a(com.bytedance.sdk.openadsdk.h.a.a.a().a(str, 0, 0, null), this.h);
+            File a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(com.bytedance.sdk.openadsdk.i.a.a.a().a(str, 0, 0, null), this.f28528h);
+            if (a2 == null || !a2.exists() || a2.length() <= 0) {
+                return null;
+            }
+            return new WebResourceResponse(e.a.IMAGE.a(), "utf-8", new FileInputStream(a2));
         } catch (Throwable th) {
             u.c("ExpressClient", "get image WebResourceResponse error", th);
+            return null;
         }
-        if (a2 != null && a2.exists() && a2.length() > 0) {
-            webResourceResponse = new WebResourceResponse(e.a.IMAGE.a(), "utf-8", new FileInputStream(a2));
-            return webResourceResponse;
-        }
-        webResourceResponse = null;
-        return webResourceResponse;
     }
 
     private void a(long j, long j2, String str, int i) {
-        if (this.e != null && this.e.a() != null) {
-            e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
-            if (a2 == e.a.HTML) {
-                this.e.a().a(str, j, j2, i);
-            } else if (a2 == e.a.JS) {
-                this.e.a().b(str, j, j2, i);
-            }
+        com.bytedance.sdk.openadsdk.c.j jVar = this.f29013e;
+        if (jVar == null || jVar.a() == null) {
+            return;
+        }
+        e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
+        if (a2 == e.a.HTML) {
+            this.f29013e.a().a(str, j, j2, i);
+        } else if (a2 == e.a.JS) {
+            this.f29013e.a().b(str, j, j2, i);
         }
     }
 }

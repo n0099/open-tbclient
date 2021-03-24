@@ -1,30 +1,32 @@
 package kotlin.io;
 
+import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.ArrayList;
+import kotlin.Metadata;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.p;
-@kotlin.e
-/* loaded from: classes14.dex */
-final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<String, kotlin.h> {
-    final /* synthetic */ ArrayList $result;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "", "invoke"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes7.dex */
+public final class TextStreamsKt$readLines$1 extends Lambda implements Function1<String, Unit> {
+    public final /* synthetic */ ArrayList $result;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    TextStreamsKt$readLines$1(ArrayList arrayList) {
+    public TextStreamsKt$readLines$1(ArrayList arrayList) {
         super(1);
         this.$result = arrayList;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // kotlin.jvm.a.b
-    public /* bridge */ /* synthetic */ kotlin.h invoke(String str) {
+    @Override // kotlin.jvm.functions.Function1
+    public /* bridge */ /* synthetic */ Unit invoke(String str) {
         invoke2(str);
-        return kotlin.h.qtQ;
+        return Unit.INSTANCE;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(String str) {
-        p.p(str, "it");
         this.$result.add(str);
     }
 }

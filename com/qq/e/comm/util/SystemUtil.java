@@ -3,11 +3,10 @@ package com.qq.e.comm.util;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.qq.e.comm.managers.GDTADManager;
+import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class SystemUtil {
     public static String buildNewPathByProcessName(String str) {
         if (StringUtil.isEmpty(str)) {
@@ -17,23 +16,32 @@ public final class SystemUtil {
         if (StringUtil.isEmpty(processName)) {
             return str;
         }
-        return str + (processName.endsWith(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) ? "" : PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + Md5Util.encode(processName);
+        boolean endsWith = processName.endsWith("_");
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        sb.append(endsWith ? "" : "_");
+        sb.append(Md5Util.encode(processName));
+        return sb.toString();
     }
 
     public static String getProcessName(Context context) {
+        ActivityManager.RunningAppProcessInfo next;
         int myPid = Process.myPid();
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses != null) {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+            Iterator<ActivityManager.RunningAppProcessInfo> it = runningAppProcesses.iterator();
+            while (it.hasNext()) {
                 try {
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    next = it.next();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
+                if (next.pid == myPid) {
+                    return next.processName;
                 }
                 continue;
             }
+            return null;
         }
         return null;
     }

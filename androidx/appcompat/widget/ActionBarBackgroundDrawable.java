@@ -6,9 +6,9 @@ import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-/* loaded from: classes5.dex */
-class ActionBarBackgroundDrawable extends Drawable {
-    final ActionBarContainer mContainer;
+/* loaded from: classes.dex */
+public class ActionBarBackgroundDrawable extends Drawable {
+    public final ActionBarContainer mContainer;
 
     public ActionBarBackgroundDrawable(ActionBarContainer actionBarContainer) {
         this.mContainer = actionBarContainer;
@@ -16,27 +16,25 @@ class ActionBarBackgroundDrawable extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.mContainer.mIsSplit) {
-            if (this.mContainer.mSplitBackground != null) {
-                this.mContainer.mSplitBackground.draw(canvas);
+        ActionBarContainer actionBarContainer = this.mContainer;
+        if (actionBarContainer.mIsSplit) {
+            Drawable drawable = actionBarContainer.mSplitBackground;
+            if (drawable != null) {
+                drawable.draw(canvas);
                 return;
             }
             return;
         }
-        if (this.mContainer.mBackground != null) {
-            this.mContainer.mBackground.draw(canvas);
+        Drawable drawable2 = actionBarContainer.mBackground;
+        if (drawable2 != null) {
+            drawable2.draw(canvas);
         }
-        if (this.mContainer.mStackedBackground != null && this.mContainer.mIsStacked) {
-            this.mContainer.mStackedBackground.draw(canvas);
+        ActionBarContainer actionBarContainer2 = this.mContainer;
+        Drawable drawable3 = actionBarContainer2.mStackedBackground;
+        if (drawable3 == null || !actionBarContainer2.mIsStacked) {
+            return;
         }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
+        drawable3.draw(canvas);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -47,12 +45,26 @@ class ActionBarBackgroundDrawable extends Drawable {
     @Override // android.graphics.drawable.Drawable
     @RequiresApi(21)
     public void getOutline(@NonNull Outline outline) {
-        if (this.mContainer.mIsSplit) {
-            if (this.mContainer.mSplitBackground != null) {
-                this.mContainer.mSplitBackground.getOutline(outline);
+        ActionBarContainer actionBarContainer = this.mContainer;
+        if (actionBarContainer.mIsSplit) {
+            Drawable drawable = actionBarContainer.mSplitBackground;
+            if (drawable != null) {
+                drawable.getOutline(outline);
+                return;
             }
-        } else if (this.mContainer.mBackground != null) {
-            this.mContainer.mBackground.getOutline(outline);
+            return;
         }
+        Drawable drawable2 = actionBarContainer.mBackground;
+        if (drawable2 != null) {
+            drawable2.getOutline(outline);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
     }
 }

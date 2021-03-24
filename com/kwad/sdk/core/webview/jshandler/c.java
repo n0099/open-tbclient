@@ -2,36 +2,40 @@ package com.kwad.sdk.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f6334a;
-    private b b;
+    public final com.kwad.sdk.core.webview.a f34320a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public b f34321b;
+
+    /* loaded from: classes6.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6335a;
-        public int b;
+        public int f34322a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f34323b;
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "width", this.f6335a);
-            com.kwad.sdk.utils.o.a(jSONObject, "height", this.b);
+            com.kwad.sdk.utils.o.a(jSONObject, "width", this.f34322a);
+            com.kwad.sdk.utils.o.a(jSONObject, "height", this.f34323b);
             return jSONObject;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(a aVar);
     }
 
     public c(com.kwad.sdk.core.webview.a aVar) {
-        this.f6334a = aVar;
+        this.f34320a = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -41,19 +45,19 @@ public class c implements com.kwad.sdk.core.webview.a.a {
     }
 
     public void a(b bVar) {
-        this.b = bVar;
+        this.f34321b = bVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         a aVar = new a();
-        if (this.b != null) {
-            this.b.a(aVar);
-            cVar.a(aVar);
-            return;
+        b bVar = this.f34321b;
+        if (bVar != null) {
+            bVar.a(aVar);
+        } else {
+            aVar.f34322a = this.f34320a.f34288e.getWidth();
+            aVar.f34323b = this.f34320a.f34288e.getHeight();
         }
-        aVar.f6335a = this.f6334a.e.getWidth();
-        aVar.b = this.f6334a.e.getHeight();
         cVar.a(aVar);
     }
 

@@ -6,6 +6,7 @@ import android.os.Message;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
+import com.alipay.sdk.data.a;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,36 +14,37 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class SelfDestructiveThread {
-    private static final int MSG_DESTRUCTION = 0;
-    private static final int MSG_INVOKE_RUNNABLE = 1;
-    private final int mDestructAfterMillisec;
+    public static final int MSG_DESTRUCTION = 0;
+    public static final int MSG_INVOKE_RUNNABLE = 1;
+    public final int mDestructAfterMillisec;
     @GuardedBy("mLock")
-    private Handler mHandler;
-    private final int mPriority;
+    public Handler mHandler;
+    public final int mPriority;
     @GuardedBy("mLock")
-    private HandlerThread mThread;
-    private final String mThreadName;
-    private final Object mLock = new Object();
-    private Handler.Callback mCallback = new Handler.Callback() { // from class: androidx.core.provider.SelfDestructiveThread.1
+    public HandlerThread mThread;
+    public final String mThreadName;
+    public final Object mLock = new Object();
+    public Handler.Callback mCallback = new Handler.Callback() { // from class: androidx.core.provider.SelfDestructiveThread.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            switch (message.what) {
-                case 0:
-                    SelfDestructiveThread.this.onDestruction();
-                    break;
-                case 1:
-                    SelfDestructiveThread.this.onInvokeRunnable((Runnable) message.obj);
-                    break;
+            int i = message.what;
+            if (i == 0) {
+                SelfDestructiveThread.this.onDestruction();
+                return true;
+            } else if (i != 1) {
+                return true;
+            } else {
+                SelfDestructiveThread.this.onInvokeRunnable((Runnable) message.obj);
+                return true;
             }
-            return true;
         }
     };
     @GuardedBy("mLock")
-    private int mGeneration = 0;
+    public int mGeneration = 0;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface ReplyCallback<T> {
         void onReply(T t);
     }
@@ -53,13 +55,18 @@ public class SelfDestructiveThread {
         this.mDestructAfterMillisec = i2;
     }
 
-    @VisibleForTesting
-    public boolean isRunning() {
-        boolean z;
+    private void post(Runnable runnable) {
         synchronized (this.mLock) {
-            z = this.mThread != null;
+            if (this.mThread == null) {
+                HandlerThread handlerThread = new HandlerThread(this.mThreadName, this.mPriority);
+                this.mThread = handlerThread;
+                handlerThread.start();
+                this.mHandler = new Handler(this.mThread.getLooper(), this.mCallback);
+                this.mGeneration++;
+            }
+            this.mHandler.removeMessages(0);
+            this.mHandler.sendMessage(this.mHandler.obtainMessage(1, runnable));
         }
-        return z;
     }
 
     @VisibleForTesting
@@ -71,16 +78,31 @@ public class SelfDestructiveThread {
         return i;
     }
 
-    private void post(Runnable runnable) {
+    @VisibleForTesting
+    public boolean isRunning() {
+        boolean z;
         synchronized (this.mLock) {
-            if (this.mThread == null) {
-                this.mThread = new HandlerThread(this.mThreadName, this.mPriority);
-                this.mThread.start();
-                this.mHandler = new Handler(this.mThread.getLooper(), this.mCallback);
-                this.mGeneration++;
+            z = this.mThread != null;
+        }
+        return z;
+    }
+
+    public void onDestruction() {
+        synchronized (this.mLock) {
+            if (this.mHandler.hasMessages(1)) {
+                return;
             }
+            this.mThread.quit();
+            this.mThread = null;
+            this.mHandler = null;
+        }
+    }
+
+    public void onInvokeRunnable(Runnable runnable) {
+        runnable.run();
+        synchronized (this.mLock) {
             this.mHandler.removeMessages(0);
-            this.mHandler.sendMessage(this.mHandler.obtainMessage(1, runnable));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), this.mDestructAfterMillisec);
         }
     }
 
@@ -92,7 +114,7 @@ public class SelfDestructiveThread {
                 final Object obj;
                 try {
                     obj = callable.call();
-                } catch (Exception e) {
+                } catch (Exception unused) {
                     obj = null;
                 }
                 handler.post(new Runnable() { // from class: androidx.core.provider.SelfDestructiveThread.2.1
@@ -106,7 +128,6 @@ public class SelfDestructiveThread {
     }
 
     public <T> T postAndWait(final Callable<T> callable, int i) throws InterruptedException {
-        T t;
         final ReentrantLock reentrantLock = new ReentrantLock();
         final Condition newCondition = reentrantLock.newCondition();
         final AtomicReference atomicReference = new AtomicReference();
@@ -116,7 +137,7 @@ public class SelfDestructiveThread {
             public void run() {
                 try {
                     atomicReference.set(callable.call());
-                } catch (Exception e) {
+                } catch (Exception unused) {
                 }
                 reentrantLock.lock();
                 try {
@@ -130,41 +151,21 @@ public class SelfDestructiveThread {
         reentrantLock.lock();
         try {
             if (!atomicBoolean.get()) {
-                t = (T) atomicReference.get();
-            } else {
-                long nanos = TimeUnit.MILLISECONDS.toNanos(i);
-                do {
-                    try {
-                        nanos = newCondition.awaitNanos(nanos);
-                    } catch (InterruptedException e) {
-                    }
-                    if (!atomicBoolean.get()) {
-                        t = (T) atomicReference.get();
-                    }
-                } while (nanos > 0);
-                throw new InterruptedException("timeout");
+                return (T) atomicReference.get();
             }
-            return t;
+            long nanos = TimeUnit.MILLISECONDS.toNanos(i);
+            do {
+                try {
+                    nanos = newCondition.awaitNanos(nanos);
+                } catch (InterruptedException unused) {
+                }
+                if (!atomicBoolean.get()) {
+                    return (T) atomicReference.get();
+                }
+            } while (nanos > 0);
+            throw new InterruptedException(a.i);
         } finally {
             reentrantLock.unlock();
-        }
-    }
-
-    void onInvokeRunnable(Runnable runnable) {
-        runnable.run();
-        synchronized (this.mLock) {
-            this.mHandler.removeMessages(0);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), this.mDestructAfterMillisec);
-        }
-    }
-
-    void onDestruction() {
-        synchronized (this.mLock) {
-            if (!this.mHandler.hasMessages(1)) {
-                this.mThread.quit();
-                this.mThread = null;
-                this.mHandler = null;
-            }
         }
     }
 }

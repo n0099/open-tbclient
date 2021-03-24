@@ -7,32 +7,38 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class CenterTextView extends TextView {
-    private StaticLayout dSi;
-    private TextPaint dSj;
+
+    /* renamed from: e  reason: collision with root package name */
+    public StaticLayout f12673e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextPaint f12674f;
 
     public CenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
-    @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        initView();
-    }
-
-    private void initView() {
-        this.dSj = new TextPaint(1);
-        this.dSj.setTextSize(getTextSize());
-        this.dSj.setColor(getCurrentTextColor());
-        this.dSi = new StaticLayout(getText(), this.dSj, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+    public final void a() {
+        TextPaint textPaint = new TextPaint(1);
+        this.f12674f = textPaint;
+        textPaint.setTextSize(getTextSize());
+        this.f12674f.setColor(getCurrentTextColor());
+        this.f12673e = new StaticLayout(getText(), this.f12674f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
     }
 
     @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        if (this.dSi != null) {
-            this.dSi.draw(canvas);
+    public void onDraw(Canvas canvas) {
+        StaticLayout staticLayout = this.f12673e;
+        if (staticLayout != null) {
+            staticLayout.draw(canvas);
         }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        a();
     }
 }

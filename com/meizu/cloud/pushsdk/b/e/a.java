@@ -5,58 +5,67 @@ import com.meizu.cloud.pushsdk.b.c.i;
 import com.meizu.cloud.pushsdk.b.c.k;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f7355a = null;
+    public static String f37569a;
 
     public static k a(com.meizu.cloud.pushsdk.b.a.b bVar) throws com.meizu.cloud.pushsdk.b.b.a {
         try {
             i.a a2 = new i.a().a(bVar.e());
             a(a2, bVar);
-            switch (bVar.d()) {
-                case 0:
-                    a2 = a2.a();
-                    break;
-                case 1:
-                    a2 = a2.a(bVar.m());
-                    break;
-                case 2:
-                    a2 = a2.c(bVar.m());
-                    break;
-                case 3:
-                    a2 = a2.b(bVar.m());
-                    break;
-                case 4:
-                    a2 = a2.b();
-                    break;
-                case 5:
-                    a2 = a2.d(bVar.m());
-                    break;
+            int d2 = bVar.d();
+            if (d2 == 0) {
+                a2 = a2.a();
+            } else if (d2 == 1) {
+                a2 = a2.a(bVar.m());
+            } else if (d2 == 2) {
+                a2 = a2.c(bVar.m());
+            } else if (d2 == 3) {
+                a2 = a2.b(bVar.m());
+            } else if (d2 == 4) {
+                a2 = a2.b();
+            } else if (d2 == 5) {
+                a2 = a2.d(bVar.m());
             }
-            i c = a2.c();
+            i c2 = a2.c();
             bVar.a(new e());
-            return bVar.l().a(c);
-        } catch (IOException e) {
-            throw new com.meizu.cloud.pushsdk.b.b.a(e);
+            return bVar.l().a(c2);
+        } catch (IOException e2) {
+            throw new com.meizu.cloud.pushsdk.b.b.a(e2);
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0020  */
+    /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void a(i.a aVar, com.meizu.cloud.pushsdk.b.a.b bVar) {
-        if (bVar.h() != null) {
-            aVar.a("User-Agent", bVar.h());
-        } else if (f7355a != null) {
-            bVar.a(f7355a);
-            aVar.a("User-Agent", f7355a);
-        }
-        com.meizu.cloud.pushsdk.b.c.c o = bVar.o();
-        if (o != null) {
-            aVar.a(o);
-            if (bVar.h() == null || o.b().contains("User-Agent")) {
+        String str;
+        com.meizu.cloud.pushsdk.b.c.c o;
+        if (bVar.h() == null) {
+            String str2 = f37569a;
+            if (str2 != null) {
+                bVar.a(str2);
+                str = f37569a;
+            }
+            o = bVar.o();
+            if (o == null) {
+                aVar.a(o);
+                if (bVar.h() == null || o.b().contains("User-Agent")) {
+                    return;
+                }
+                aVar.a("User-Agent", bVar.h());
                 return;
             }
-            aVar.a("User-Agent", bVar.h());
+            return;
+        }
+        str = bVar.h();
+        aVar.a("User-Agent", str);
+        o = bVar.o();
+        if (o == null) {
         }
     }
 
@@ -64,21 +73,21 @@ public final class a {
         try {
             i.a a2 = new i.a().a(bVar.e());
             a(a2, bVar);
-            i c = a2.a().c();
+            i c2 = a2.a().c();
             bVar.a(new e());
-            k a3 = bVar.l().a(c);
+            k a3 = bVar.l().a(c2);
             com.meizu.cloud.pushsdk.b.i.b.a(a3, bVar.j(), bVar.k());
             return a3;
-        } catch (IOException e) {
+        } catch (IOException e2) {
             try {
                 File file = new File(bVar.j() + File.separator + bVar.k());
                 if (file.exists()) {
                     file.delete();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
-            throw new com.meizu.cloud.pushsdk.b.b.a(e);
+            throw new com.meizu.cloud.pushsdk.b.b.a(e2);
         }
     }
 
@@ -86,11 +95,11 @@ public final class a {
         try {
             i.a a2 = new i.a().a(bVar.e());
             a(a2, bVar);
-            i c = a2.a(new b(bVar.n(), bVar.i())).c();
+            i c2 = a2.a(new b(bVar.n(), bVar.i())).c();
             bVar.a(new e());
-            return bVar.l().a(c);
-        } catch (IOException e) {
-            throw new com.meizu.cloud.pushsdk.b.b.a(e);
+            return bVar.l().a(c2);
+        } catch (IOException e2) {
+            throw new com.meizu.cloud.pushsdk.b.b.a(e2);
         }
     }
 }

@@ -8,193 +8,33 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.R;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x02ca  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x02d0  */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x02d3  */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0095 A[Catch: Exception -> 0x02be, TryCatch #1 {Exception -> 0x02be, blocks: (B:3:0x0008, B:5:0x000e, B:7:0x001f, B:9:0x0043, B:10:0x004b, B:12:0x0057, B:13:0x005f, B:15:0x006b, B:16:0x0072, B:18:0x0078, B:20:0x0081, B:67:0x0223, B:23:0x008b, B:25:0x0095, B:26:0x009d, B:28:0x00a6, B:35:0x00b8, B:39:0x00c7, B:76:0x0243, B:79:0x024f, B:82:0x025b, B:42:0x00d1, B:44:0x0145, B:47:0x014f, B:51:0x0179, B:53:0x017f, B:54:0x019c, B:56:0x01a5, B:58:0x01d6, B:106:0x02c2, B:59:0x01d9, B:61:0x01e2, B:62:0x01f8, B:64:0x0201, B:102:0x02a5, B:101:0x029f, B:85:0x0267, B:87:0x026d, B:90:0x0279, B:92:0x027f, B:95:0x028b, B:97:0x0291, B:70:0x022f, B:49:0x015e, B:57:0x01b8), top: B:118:0x0008, inners: #0, #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00a6 A[Catch: Exception -> 0x02be, TryCatch #1 {Exception -> 0x02be, blocks: (B:3:0x0008, B:5:0x000e, B:7:0x001f, B:9:0x0043, B:10:0x004b, B:12:0x0057, B:13:0x005f, B:15:0x006b, B:16:0x0072, B:18:0x0078, B:20:0x0081, B:67:0x0223, B:23:0x008b, B:25:0x0095, B:26:0x009d, B:28:0x00a6, B:35:0x00b8, B:39:0x00c7, B:76:0x0243, B:79:0x024f, B:82:0x025b, B:42:0x00d1, B:44:0x0145, B:47:0x014f, B:51:0x0179, B:53:0x017f, B:54:0x019c, B:56:0x01a5, B:58:0x01d6, B:106:0x02c2, B:59:0x01d9, B:61:0x01e2, B:62:0x01f8, B:64:0x0201, B:102:0x02a5, B:101:0x029f, B:85:0x0267, B:87:0x026d, B:90:0x0279, B:92:0x027f, B:95:0x028b, B:97:0x0291, B:70:0x022f, B:49:0x015e, B:57:0x01b8), top: B:118:0x0008, inners: #0, #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00b0  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00b3  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00c4  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00c7 A[Catch: Exception -> 0x02be, TryCatch #1 {Exception -> 0x02be, blocks: (B:3:0x0008, B:5:0x000e, B:7:0x001f, B:9:0x0043, B:10:0x004b, B:12:0x0057, B:13:0x005f, B:15:0x006b, B:16:0x0072, B:18:0x0078, B:20:0x0081, B:67:0x0223, B:23:0x008b, B:25:0x0095, B:26:0x009d, B:28:0x00a6, B:35:0x00b8, B:39:0x00c7, B:76:0x0243, B:79:0x024f, B:82:0x025b, B:42:0x00d1, B:44:0x0145, B:47:0x014f, B:51:0x0179, B:53:0x017f, B:54:0x019c, B:56:0x01a5, B:58:0x01d6, B:106:0x02c2, B:59:0x01d9, B:61:0x01e2, B:62:0x01f8, B:64:0x0201, B:102:0x02a5, B:101:0x029f, B:85:0x0267, B:87:0x026d, B:90:0x0279, B:92:0x027f, B:95:0x028b, B:97:0x0291, B:70:0x022f, B:49:0x015e, B:57:0x01b8), top: B:118:0x0008, inners: #0, #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x023b  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0240  */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onCreate(Bundle bundle) {
-        String str;
-        String str2;
-        int i;
-        int optInt;
-        String str3;
-        int i2;
-        int i3;
-        String str4;
-        int i4 = 0;
-        int i5 = 1;
-        super.onCreate(bundle);
-        try {
-            Intent intent = getIntent();
-            if (intent != null) {
-                String uri = intent.getData().toString();
-                if (uri.contains("tbyunpushnotifybody=")) {
-                    JSONObject jSONObject = new JSONObject(uri.substring(uri.indexOf("tbyunpushnotifybody=") + "tbyunpushnotifybody=".length()));
-                    if (jSONObject.isNull("task_id")) {
-                        str = "";
-                    } else {
-                        str = jSONObject.getString("task_id");
-                    }
-                    if (jSONObject.isNull(Constants.EXTRA_SERVICE)) {
-                        str2 = "";
-                    } else {
-                        str2 = jSONObject.getString(Constants.EXTRA_SERVICE);
-                    }
-                    String str5 = "";
-                    if (!jSONObject.isNull("jump_scheme")) {
-                        str5 = jSONObject.getString("jump_scheme");
-                    }
-                    if (!StringUtils.isNull(str5)) {
-                        if (str5.equals(UrlSchemaHelper.JUMP_TO_CHAT) || str5.equals(UrlSchemaHelper.HTTPS_JUMP_TO_CHAT)) {
-                            i = 1;
-                        } else if (str5.contains(UrlSchemaHelper.GOTO_OFFICIAL_CHAT)) {
-                            i = 2;
-                        } else if (str5.contains(UrlSchemaHelper.GOTO_PERSONAL_CHAT)) {
-                            i = 3;
-                        }
-                        optInt = jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION) ? jSONObject.optInt(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION) : 0;
-                        if (!jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE)) {
-                            str3 = null;
-                        } else {
-                            str3 = jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
-                        }
-                        if (optInt != 1) {
-                            i2 = 2;
-                        } else {
-                            i2 = optInt == 2 ? 1 : 0;
-                        }
-                        int i6 = optInt != 2 ? 1 : 0;
-                        if (str3 != null && optInt == 1) {
-                            i4 = !str3.equals(getString(R.string.des_page_home_recommend)) ? 1 : 2;
-                        }
-                        if (str5 != null) {
-                            if (str5.contains("type=interaction")) {
-                                i5 = 2;
-                            } else if (str5.contains("type=recommend")) {
-                                i5 = 3;
-                            } else if (str5.contains("type=attention-bazhu")) {
-                                i5 = 4;
-                            } else if (str5.contains("type=attention-common")) {
-                                i5 = 5;
-                            }
-                        }
-                        ar aq = new ar(TbadkCoreStatisticKey.PUSH_CCLICK).aq("obj_type", 2).dR("task_id", str).dR(Constants.EXTRA_SERVICE, str2).dR(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).dR(TiebaInitialize.Params.OBJ_TO, str5).aq("obj_source", i).aq("obj_locate", i2).aq("obj_param1", i6).aq(TiebaInitialize.Params.OBJ_PARAM2, i4).aq(TiebaInitialize.Params.OBJ_PARAM3, i5).aq("obj_id", TbadkCoreApplication.getInst().getStartType()).aq("obj_ishost", 1);
-                        if (TextUtils.isEmpty(str5) && str5.contains("HotThreadList")) {
-                            i3 = 6;
-                        } else if (TextUtils.isEmpty(str5) && str5.contains("HotInteraction")) {
-                            i3 = 7;
-                        } else if (TextUtils.isEmpty(str5) && str5.contains("frs?kw=")) {
-                            i3 = 7;
-                        } else {
-                            i3 = (TextUtils.isEmpty(str5) && str5.contains("collect")) ? 8 : i;
-                        }
-                        aq.aq("obj_source", i3);
-                        TiebaStatic.log(aq);
-                        if (!TextUtils.isEmpty(str5)) {
-                            try {
-                                str4 = Uri.parse(str5).buildUpon().appendQueryParameter("from_yunpush", "1").build().toString();
-                            } catch (Exception e) {
-                                BdLog.e(e);
-                                str4 = str5;
-                            }
-                            if (VO(str4)) {
-                                MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
-                                mainTabActivityConfig.setTargetScheme(str4);
-                                mainTabActivityConfig.setPushFollowUpAction(optInt);
-                                mainTabActivityConfig.setPushDesPage(str3);
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
-                            } else {
-                                bf.bsY().b(getPageContext(), new String[]{str4, "yun_push_tag"});
-                            }
-                            if (str4.contains("ForumGradePage")) {
-                                ar v = new ar("c13782").v("uid", TbadkCoreApplication.getCurrentAccountId());
-                                try {
-                                    Uri parse = Uri.parse(str4);
-                                    String queryParameter = parse.getQueryParameter("forum_id");
-                                    String queryParameter2 = parse.getQueryParameter("obj_type");
-                                    v.dR("fid", queryParameter);
-                                    v.dR("obj_type", queryParameter2);
-                                } catch (Exception e2) {
-                                    BdLog.e(e2);
-                                }
-                                TiebaStatic.log(v);
-                            }
-                            if (str4.contains("unidispatch/hotuserrank")) {
-                                TiebaStatic.log(new ar("c13662").v("uid", TbadkCoreApplication.getCurrentAccountId()));
-                            }
-                            if (str4.contains("weeklygodview")) {
-                                TiebaStatic.log(new ar("c13691").v("uid", TbadkCoreApplication.getCurrentAccountId()).aq("obj_source", 2));
-                            }
-                        }
-                    }
-                    i = 0;
-                    if (jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION)) {
-                    }
-                    if (!jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE)) {
-                    }
-                    if (optInt != 1) {
-                    }
-                    if (optInt != 2) {
-                    }
-                    if (str3 != null) {
-                        if (!str3.equals(getString(R.string.des_page_home_recommend))) {
-                        }
-                    }
-                    if (str5 != null) {
-                    }
-                    ar aq2 = new ar(TbadkCoreStatisticKey.PUSH_CCLICK).aq("obj_type", 2).dR("task_id", str).dR(Constants.EXTRA_SERVICE, str2).dR(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).dR(TiebaInitialize.Params.OBJ_TO, str5).aq("obj_source", i).aq("obj_locate", i2).aq("obj_param1", i6).aq(TiebaInitialize.Params.OBJ_PARAM2, i4).aq(TiebaInitialize.Params.OBJ_PARAM3, i5).aq("obj_id", TbadkCoreApplication.getInst().getStartType()).aq("obj_ishost", 1);
-                    if (TextUtils.isEmpty(str5)) {
-                    }
-                    if (TextUtils.isEmpty(str5)) {
-                    }
-                    if (TextUtils.isEmpty(str5)) {
-                    }
-                    if (TextUtils.isEmpty(str5)) {
-                    }
-                    aq2.aq("obj_source", i3);
-                    TiebaStatic.log(aq2);
-                    if (!TextUtils.isEmpty(str5)) {
-                    }
-                }
-            }
-        } catch (Exception e3) {
-        }
-        finish();
+    public static final String JUME_SCHEME = "jump_scheme";
+    public static final String PUSH_BODY = "tbyunpushnotifybody=";
+    public static final String SERVICE_ID = "service_id";
+    public static final String TASK_ID = "task_id";
+
+    private boolean needToMainTab(String str) {
+        return Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() || str.startsWith(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL) || str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TOPIC_DETAIL) || str.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER) || str.startsWith(UrlSchemaHelper.SCHEMA_LIVE_SDK) || str.startsWith(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK) || str.contains("achievement=");
     }
 
-    private boolean VO(String str) {
-        return Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() || str.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("flt://") || str.startsWith("bdtiebalive://") || str.startsWith("tiebachushou://") || str.contains("achievement=");
+    @Override // com.baidu.tbadk.BaseActivity
+    public void closeAnimation() {
+        ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -202,8 +42,182 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public void closeAnimation() {
-        ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
+    /* JADX WARN: Removed duplicated region for block: B:121:0x019b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0094 A[Catch: Exception -> 0x0264, TryCatch #2 {Exception -> 0x0264, blocks: (B:3:0x0015, B:5:0x001b, B:7:0x0029, B:10:0x0040, B:12:0x0046, B:14:0x004c, B:16:0x0052, B:18:0x0058, B:19:0x005c, B:21:0x0064, B:23:0x006c, B:26:0x0075, B:34:0x008c, B:36:0x0094, B:38:0x009a, B:40:0x00a0, B:52:0x00b8, B:58:0x00cb, B:71:0x00f4, B:73:0x0156, B:91:0x018f, B:97:0x01b8, B:99:0x01be, B:101:0x01f4, B:104:0x01fe, B:109:0x0228, B:108:0x0225, B:110:0x022b, B:112:0x0233, B:113:0x0245, B:115:0x024d, B:100:0x01de, B:96:0x01b5, B:76:0x0160, B:78:0x0166, B:81:0x0170, B:83:0x0176, B:86:0x017f, B:88:0x0185, B:61:0x00d5, B:64:0x00df, B:67:0x00e9, B:29:0x007f, B:105:0x020d, B:93:0x019b), top: B:123:0x0015, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0099  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00a0 A[Catch: Exception -> 0x0264, TryCatch #2 {Exception -> 0x0264, blocks: (B:3:0x0015, B:5:0x001b, B:7:0x0029, B:10:0x0040, B:12:0x0046, B:14:0x004c, B:16:0x0052, B:18:0x0058, B:19:0x005c, B:21:0x0064, B:23:0x006c, B:26:0x0075, B:34:0x008c, B:36:0x0094, B:38:0x009a, B:40:0x00a0, B:52:0x00b8, B:58:0x00cb, B:71:0x00f4, B:73:0x0156, B:91:0x018f, B:97:0x01b8, B:99:0x01be, B:101:0x01f4, B:104:0x01fe, B:109:0x0228, B:108:0x0225, B:110:0x022b, B:112:0x0233, B:113:0x0245, B:115:0x024d, B:100:0x01de, B:96:0x01b5, B:76:0x0160, B:78:0x0166, B:81:0x0170, B:83:0x0176, B:86:0x017f, B:88:0x0185, B:61:0x00d5, B:64:0x00df, B:67:0x00e9, B:29:0x007f, B:105:0x020d, B:93:0x019b), top: B:123:0x0015, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00aa  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00b1  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00b3  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00b6 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00cb A[Catch: Exception -> 0x0264, TryCatch #2 {Exception -> 0x0264, blocks: (B:3:0x0015, B:5:0x001b, B:7:0x0029, B:10:0x0040, B:12:0x0046, B:14:0x004c, B:16:0x0052, B:18:0x0058, B:19:0x005c, B:21:0x0064, B:23:0x006c, B:26:0x0075, B:34:0x008c, B:36:0x0094, B:38:0x009a, B:40:0x00a0, B:52:0x00b8, B:58:0x00cb, B:71:0x00f4, B:73:0x0156, B:91:0x018f, B:97:0x01b8, B:99:0x01be, B:101:0x01f4, B:104:0x01fe, B:109:0x0228, B:108:0x0225, B:110:0x022b, B:112:0x0233, B:113:0x0245, B:115:0x024d, B:100:0x01de, B:96:0x01b5, B:76:0x0160, B:78:0x0166, B:81:0x0170, B:83:0x0176, B:86:0x017f, B:88:0x0185, B:61:0x00d5, B:64:0x00df, B:67:0x00e9, B:29:0x007f, B:105:0x020d, B:93:0x019b), top: B:123:0x0015, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x0156 A[Catch: Exception -> 0x0264, TryCatch #2 {Exception -> 0x0264, blocks: (B:3:0x0015, B:5:0x001b, B:7:0x0029, B:10:0x0040, B:12:0x0046, B:14:0x004c, B:16:0x0052, B:18:0x0058, B:19:0x005c, B:21:0x0064, B:23:0x006c, B:26:0x0075, B:34:0x008c, B:36:0x0094, B:38:0x009a, B:40:0x00a0, B:52:0x00b8, B:58:0x00cb, B:71:0x00f4, B:73:0x0156, B:91:0x018f, B:97:0x01b8, B:99:0x01be, B:101:0x01f4, B:104:0x01fe, B:109:0x0228, B:108:0x0225, B:110:0x022b, B:112:0x0233, B:113:0x0245, B:115:0x024d, B:100:0x01de, B:96:0x01b5, B:76:0x0160, B:78:0x0166, B:81:0x0170, B:83:0x0176, B:86:0x017f, B:88:0x0185, B:61:0x00d5, B:64:0x00df, B:67:0x00e9, B:29:0x007f, B:105:0x020d, B:93:0x019b), top: B:123:0x0015, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0166 A[Catch: Exception -> 0x0264, TryCatch #2 {Exception -> 0x0264, blocks: (B:3:0x0015, B:5:0x001b, B:7:0x0029, B:10:0x0040, B:12:0x0046, B:14:0x004c, B:16:0x0052, B:18:0x0058, B:19:0x005c, B:21:0x0064, B:23:0x006c, B:26:0x0075, B:34:0x008c, B:36:0x0094, B:38:0x009a, B:40:0x00a0, B:52:0x00b8, B:58:0x00cb, B:71:0x00f4, B:73:0x0156, B:91:0x018f, B:97:0x01b8, B:99:0x01be, B:101:0x01f4, B:104:0x01fe, B:109:0x0228, B:108:0x0225, B:110:0x022b, B:112:0x0233, B:113:0x0245, B:115:0x024d, B:100:0x01de, B:96:0x01b5, B:76:0x0160, B:78:0x0166, B:81:0x0170, B:83:0x0176, B:86:0x017f, B:88:0x0185, B:61:0x00d5, B:64:0x00df, B:67:0x00e9, B:29:0x007f, B:105:0x020d, B:93:0x019b), top: B:123:0x0015, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x0185 A[Catch: Exception -> 0x0264, TryCatch #2 {Exception -> 0x0264, blocks: (B:3:0x0015, B:5:0x001b, B:7:0x0029, B:10:0x0040, B:12:0x0046, B:14:0x004c, B:16:0x0052, B:18:0x0058, B:19:0x005c, B:21:0x0064, B:23:0x006c, B:26:0x0075, B:34:0x008c, B:36:0x0094, B:38:0x009a, B:40:0x00a0, B:52:0x00b8, B:58:0x00cb, B:71:0x00f4, B:73:0x0156, B:91:0x018f, B:97:0x01b8, B:99:0x01be, B:101:0x01f4, B:104:0x01fe, B:109:0x0228, B:108:0x0225, B:110:0x022b, B:112:0x0233, B:113:0x0245, B:115:0x024d, B:100:0x01de, B:96:0x01b5, B:76:0x0160, B:78:0x0166, B:81:0x0170, B:83:0x0176, B:86:0x017f, B:88:0x0185, B:61:0x00d5, B:64:0x00df, B:67:0x00e9, B:29:0x007f, B:105:0x020d, B:93:0x019b), top: B:123:0x0015, inners: #0, #1 }] */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onCreate(Bundle bundle) {
+        int i;
+        String string;
+        int i2;
+        int i3;
+        super.onCreate(bundle);
+        try {
+            Intent intent = getIntent();
+            if (intent != null) {
+                String uri = intent.getData().toString();
+                if (uri.contains(PUSH_BODY)) {
+                    JSONObject jSONObject = new JSONObject(uri.substring(uri.indexOf(PUSH_BODY) + 20));
+                    String string2 = !jSONObject.isNull("task_id") ? jSONObject.getString("task_id") : "";
+                    String string3 = !jSONObject.isNull("service_id") ? jSONObject.getString("service_id") : "";
+                    String string4 = jSONObject.isNull(JUME_SCHEME) ? "" : jSONObject.getString(JUME_SCHEME);
+                    if (!StringUtils.isNull(string4)) {
+                        if (!string4.equals(UrlSchemaHelper.JUMP_TO_CHAT) && !string4.equals(UrlSchemaHelper.HTTPS_JUMP_TO_CHAT)) {
+                            if (string4.contains(UrlSchemaHelper.GOTO_OFFICIAL_CHAT)) {
+                                i = 2;
+                            } else if (string4.contains(UrlSchemaHelper.GOTO_PERSONAL_CHAT)) {
+                                i = 3;
+                            }
+                            int optInt = !jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION) ? jSONObject.optInt(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION) : 0;
+                            string = jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE) ? null : jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
+                            int i4 = optInt == 1 ? 2 : optInt == 2 ? 1 : 0;
+                            int i5 = optInt == 2 ? 1 : 0;
+                            if (string == null && optInt == 1) {
+                                i2 = string.equals(getString(R.string.des_page_home_recommend)) ? 1 : 2;
+                            } else {
+                                i2 = 0;
+                            }
+                            if (string4 != null) {
+                                if (string4.contains("type=interaction")) {
+                                    i3 = 2;
+                                } else if (string4.contains("type=recommend")) {
+                                    i3 = 3;
+                                } else if (string4.contains("type=attention-bazhu")) {
+                                    i3 = 4;
+                                } else if (string4.contains("type=attention-common")) {
+                                    i3 = 5;
+                                }
+                                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i).param("obj_locate", i4).param("obj_param1", i5).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, i3).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                                if (TextUtils.isEmpty(string4) && string4.contains("HotThreadList")) {
+                                    i = 6;
+                                } else {
+                                    if ((!TextUtils.isEmpty(string4) || !string4.contains("HotInteraction")) && (TextUtils.isEmpty(string4) || !string4.contains("frs?kw="))) {
+                                        if (!TextUtils.isEmpty(string4) && string4.contains("collect")) {
+                                            i = 8;
+                                        }
+                                    }
+                                    i = 7;
+                                }
+                                param.param("obj_source", i);
+                                TiebaStatic.log(param);
+                                if (!TextUtils.isEmpty(string4)) {
+                                    try {
+                                        string4 = Uri.parse(string4).buildUpon().appendQueryParameter("from_yunpush", "1").build().toString();
+                                    } catch (Exception e2) {
+                                        BdLog.e(e2);
+                                    }
+                                    if (needToMainTab(string4)) {
+                                        MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
+                                        mainTabActivityConfig.setTargetScheme(string4);
+                                        mainTabActivityConfig.setPushFollowUpAction(optInt);
+                                        mainTabActivityConfig.setPushDesPage(string);
+                                        MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
+                                    } else {
+                                        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{string4, UrlManager.YUN_PUSH_TAG});
+                                    }
+                                    if (string4.contains("ForumGradePage")) {
+                                        StatisticItem param2 = new StatisticItem("c13782").param("uid", TbadkCoreApplication.getCurrentAccountId());
+                                        try {
+                                            Uri parse = Uri.parse(string4);
+                                            String queryParameter = parse.getQueryParameter("forum_id");
+                                            String queryParameter2 = parse.getQueryParameter("obj_type");
+                                            param2.param("fid", queryParameter);
+                                            param2.param("obj_type", queryParameter2);
+                                        } catch (Exception e3) {
+                                            BdLog.e(e3);
+                                        }
+                                        TiebaStatic.log(param2);
+                                    }
+                                    if (string4.contains("unidispatch/hotuserrank")) {
+                                        TiebaStatic.log(new StatisticItem("c13662").param("uid", TbadkCoreApplication.getCurrentAccountId()));
+                                    }
+                                    if (string4.contains("weeklygodview")) {
+                                        TiebaStatic.log(new StatisticItem("c13691").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", 2));
+                                    }
+                                }
+                            }
+                            i3 = 1;
+                            StatisticItem param3 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i).param("obj_locate", i4).param("obj_param1", i5).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, i3).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                            if (TextUtils.isEmpty(string4)) {
+                            }
+                            if (!TextUtils.isEmpty(string4)) {
+                            }
+                            if (!TextUtils.isEmpty(string4)) {
+                                i = 8;
+                            }
+                            param3.param("obj_source", i);
+                            TiebaStatic.log(param3);
+                            if (!TextUtils.isEmpty(string4)) {
+                            }
+                        }
+                        i = 1;
+                        if (!jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION)) {
+                        }
+                        string = jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE) ? null : jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
+                        if (optInt == 1) {
+                        }
+                        if (optInt == 2) {
+                        }
+                        if (string == null) {
+                        }
+                        i2 = 0;
+                        if (string4 != null) {
+                        }
+                        i3 = 1;
+                        StatisticItem param32 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i).param("obj_locate", i4).param("obj_param1", i5).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, i3).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                        if (TextUtils.isEmpty(string4)) {
+                        }
+                        if (!TextUtils.isEmpty(string4)) {
+                        }
+                        if (!TextUtils.isEmpty(string4)) {
+                        }
+                        param32.param("obj_source", i);
+                        TiebaStatic.log(param32);
+                        if (!TextUtils.isEmpty(string4)) {
+                        }
+                    }
+                    i = 0;
+                    if (!jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION)) {
+                    }
+                    string = jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE) ? null : jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
+                    if (optInt == 1) {
+                    }
+                    if (optInt == 2) {
+                    }
+                    if (string == null) {
+                    }
+                    i2 = 0;
+                    if (string4 != null) {
+                    }
+                    i3 = 1;
+                    StatisticItem param322 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i).param("obj_locate", i4).param("obj_param1", i5).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, i3).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                    if (TextUtils.isEmpty(string4)) {
+                    }
+                    if (!TextUtils.isEmpty(string4)) {
+                    }
+                    if (!TextUtils.isEmpty(string4)) {
+                    }
+                    param322.param("obj_source", i);
+                    TiebaStatic.log(param322);
+                    if (!TextUtils.isEmpty(string4)) {
+                    }
+                }
+            }
+        } catch (Exception unused) {
+        }
+        finish();
     }
 }

@@ -8,14 +8,19 @@ import com.bumptech.glide.load.resource.transcode.UnitTranscoder;
 import com.bumptech.glide.util.MultiClassKey;
 import java.util.Collections;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class LoadPathCache {
-    private static final LoadPath<?, ?, ?> NO_PATHS_SIGNAL = new LoadPath<>(Object.class, Object.class, Object.class, Collections.singletonList(new DecodePath(Object.class, Object.class, Object.class, Collections.emptyList(), new UnitTranscoder(), null)), null);
-    private final ArrayMap<MultiClassKey, LoadPath<?, ?, ?>> cache = new ArrayMap<>();
-    private final AtomicReference<MultiClassKey> keyRef = new AtomicReference<>();
+    public static final LoadPath<?, ?, ?> NO_PATHS_SIGNAL = new LoadPath<>(Object.class, Object.class, Object.class, Collections.singletonList(new DecodePath(Object.class, Object.class, Object.class, Collections.emptyList(), new UnitTranscoder(), null)), null);
+    public final ArrayMap<MultiClassKey, LoadPath<?, ?, ?>> cache = new ArrayMap<>();
+    public final AtomicReference<MultiClassKey> keyRef = new AtomicReference<>();
 
-    public boolean isEmptyLoadPath(@Nullable LoadPath<?, ?, ?> loadPath) {
-        return NO_PATHS_SIGNAL.equals(loadPath);
+    private MultiClassKey getKey(Class<?> cls, Class<?> cls2, Class<?> cls3) {
+        MultiClassKey andSet = this.keyRef.getAndSet(null);
+        if (andSet == null) {
+            andSet = new MultiClassKey();
+        }
+        andSet.set(cls, cls2, cls3);
+        return andSet;
     }
 
     @Nullable
@@ -29,6 +34,10 @@ public class LoadPathCache {
         return loadPath;
     }
 
+    public boolean isEmptyLoadPath(@Nullable LoadPath<?, ?, ?> loadPath) {
+        return NO_PATHS_SIGNAL.equals(loadPath);
+    }
+
     public void put(Class<?> cls, Class<?> cls2, Class<?> cls3, @Nullable LoadPath<?, ?, ?> loadPath) {
         synchronized (this.cache) {
             ArrayMap<MultiClassKey, LoadPath<?, ?, ?>> arrayMap = this.cache;
@@ -38,14 +47,5 @@ public class LoadPathCache {
             }
             arrayMap.put(multiClassKey, loadPath);
         }
-    }
-
-    private MultiClassKey getKey(Class<?> cls, Class<?> cls2, Class<?> cls3) {
-        MultiClassKey andSet = this.keyRef.getAndSet(null);
-        if (andSet == null) {
-            andSet = new MultiClassKey();
-        }
-        andSet.set(cls, cls2, cls3);
-        return andSet;
     }
 }

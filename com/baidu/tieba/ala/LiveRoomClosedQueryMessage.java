@@ -1,23 +1,23 @@
 package com.baidu.tieba.ala;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LiveRoomClosedQueryMessage extends CustomMessage<List<Object>> {
-    private List<Long> mIds;
-    private List<Object> mOriginData;
+    public List<Long> mIds;
+    public List<Object> mOriginData;
 
     public LiveRoomClosedQueryMessage(List<Long> list, List<Object> list2) {
-        super(CmdConfigCustom.CMD_LIVE_VIDEO_CLOSED_QUERY);
+        super(2921025);
         this.mOriginData = new ArrayList();
         this.mIds = new ArrayList();
-        if (!y.isEmpty(list2) && !y.isEmpty(list)) {
-            this.mOriginData.addAll(list2);
-            this.mIds.addAll(list);
+        if (ListUtils.isEmpty(list2) || ListUtils.isEmpty(list)) {
+            return;
         }
+        this.mOriginData.addAll(list2);
+        this.mIds.addAll(list);
     }
 
     public List<Long> getIds() {

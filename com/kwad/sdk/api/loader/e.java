@@ -3,7 +3,8 @@ package com.kwad.sdk.api.loader;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidubce.http.Headers;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.RequestParamsUtils;
@@ -18,38 +19,43 @@ import java.net.URLConnection;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-class e {
+/* loaded from: classes6.dex */
+public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5461a;
-    private String b;
-    private int c;
+    public String f31783a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public String f31784b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f31785c;
+
+    /* loaded from: classes6.dex */
     public interface a {
         void a(a.b bVar);
 
         void a(Exception exc);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public e(String str) {
-        this.b = str;
-        this.f5461a = str;
+        this.f31784b = str;
+        this.f31783a = str;
     }
 
     private String a() {
+        int i;
         Context context = Loader.get().getContext();
-        int i = com.kwad.sdk.api.a.f5448a;
-        int i2 = -1;
+        int i2 = com.kwad.sdk.api.a.f31745a;
         String valueOf = String.valueOf(Loader.get().a(context));
         IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
         if (ksAdSDKImpl != null) {
             if (TextUtils.isEmpty(valueOf)) {
                 valueOf = ksAdSDKImpl.getSDKVersion();
             }
-            i2 = ksAdSDKImpl.getSDKVersionCode();
+            i = ksAdSDKImpl.getSDKVersionCode();
+        } else {
+            i = -1;
         }
         JSONObject appInfo = Loader.get().getKsAdSDKImpl().getAppInfo();
         JSONObject deviceInfo = Loader.get().getKsAdSDKImpl().getDeviceInfo();
@@ -59,20 +65,19 @@ class e {
             jSONObject.put("sdkApiVersion", "3.3.9");
             jSONObject.put("sdkApiVersionCode", 3030900);
             jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
-            jSONObject.put("SDKVersionCode", i2);
-            jSONObject.put("sdkType", i);
-            jSONObject.put("appInfo", appInfo);
+            jSONObject.put("SDKVersionCode", i);
+            jSONObject.put("sdkType", i2);
+            jSONObject.put(DI.APP_INFO_NAME, appInfo);
             jSONObject.put("deviceInfo", deviceInfo);
             jSONObject.put("networkInfo", networkInfo);
             jSONObject.put("sdkAbi", s.b());
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return jSONObject.toString();
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, IF, INVOKE, MOVE_EXCEPTION] complete} */
-    private static String a(InputStream inputStream) {
+    public static String a(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] bArr = new byte[1024];
         while (true) {
@@ -83,8 +88,7 @@ class e {
                         break;
                     }
                     byteArrayOutputStream.write(bArr, 0, read);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (Throwable th) {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
@@ -92,49 +96,43 @@ class e {
                             e2.printStackTrace();
                         }
                     }
-                    if (byteArrayOutputStream != null) {
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
-                    return null;
+                    throw th;
                 }
-            } catch (Throwable th) {
+            } catch (IOException e4) {
+                e4.printStackTrace();
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                if (byteArrayOutputStream != null) {
-                    try {
-                        byteArrayOutputStream.close();
                     } catch (IOException e5) {
                         e5.printStackTrace();
                     }
                 }
-                throw th;
+                try {
+                    byteArrayOutputStream.close();
+                    return null;
+                } catch (IOException e6) {
+                    e6.printStackTrace();
+                    return null;
+                }
             }
         }
         String str = new String(byteArrayOutputStream.toByteArray());
         if (inputStream != null) {
             try {
                 inputStream.close();
-            } catch (IOException e6) {
-                e6.printStackTrace();
-            }
-        }
-        if (byteArrayOutputStream != null) {
-            try {
-                byteArrayOutputStream.close();
-                return str;
             } catch (IOException e7) {
                 e7.printStackTrace();
-                return str;
             }
+        }
+        try {
+            byteArrayOutputStream.close();
+        } catch (IOException e8) {
+            e8.printStackTrace();
         }
         return str;
     }
@@ -151,16 +149,16 @@ class e {
         openConnection.setUseCaches(z);
         openConnection.setDoInput(true);
         openConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-        openConnection.setRequestProperty("Charset", "UTF-8");
+        openConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
         return openConnection;
     }
 
     @Nullable
     private HttpURLConnection b() {
-        if (TextUtils.isEmpty(this.f5461a)) {
+        if (TextUtils.isEmpty(this.f31783a)) {
             return null;
         }
-        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f5461a, 10000, 30000, false);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f31783a, 10000, 30000, false);
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setDoOutput(true);
         httpURLConnection.setInstanceFollowRedirects(true);
@@ -174,53 +172,48 @@ class e {
         HttpURLConnection httpURLConnection = null;
         try {
             try {
-                HttpURLConnection b = b();
-                if (b != null) {
-                    b.connect();
-                    new DataOutputStream(b.getOutputStream()).write(a().getBytes());
-                    int responseCode = b.getResponseCode();
+                httpURLConnection = b();
+                if (httpURLConnection != null) {
+                    httpURLConnection.connect();
+                    new DataOutputStream(httpURLConnection.getOutputStream()).write(a().getBytes());
+                    int responseCode = httpURLConnection.getResponseCode();
                     if (responseCode == 200) {
-                        String a2 = a(b.getInputStream());
+                        String a2 = a(httpURLConnection.getInputStream());
                         a.b bVar = new a.b();
                         bVar.a(new JSONObject(a2));
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else {
-                        if (this.c < 21) {
-                            this.f5461a = b.getHeaderField(Headers.LOCATION);
-                            this.c++;
-                            b(aVar);
-                        }
+                    } else if (this.f31785c < 21) {
+                        this.f31783a = httpURLConnection.getHeaderField("Location");
+                        this.f31785c++;
+                        b(aVar);
                     }
                 }
-                if (b != null) {
-                    try {
-                        b.disconnect();
-                    } catch (Exception e) {
-                    }
+                if (httpURLConnection == null) {
+                    return;
                 }
             } catch (Exception e2) {
                 aVar.a(e2);
-                if (0 != 0) {
-                    try {
-                        httpURLConnection.disconnect();
-                    } catch (Exception e3) {
-                    }
+                if (0 == 0) {
+                    return;
                 }
+            }
+            try {
+                httpURLConnection.disconnect();
+            } catch (Exception unused) {
             }
         } catch (Throwable th) {
             if (0 != 0) {
                 try {
                     httpURLConnection.disconnect();
-                } catch (Exception e4) {
+                } catch (Exception unused2) {
                 }
             }
             throw th;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final a aVar) {
         i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.e.1
             @Override // java.lang.Runnable

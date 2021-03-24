@@ -1,12 +1,13 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
+import d.b.b.j.e.n;
 import java.io.Serializable;
 import tbclient.GuessLikeThreadInfo;
-/* loaded from: classes.dex */
-public class CardHListViewNormalItemData implements com.baidu.adp.widget.ListView.n, Serializable {
+/* loaded from: classes4.dex */
+public class CardHListViewNormalItemData implements n, Serializable {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private static final long serialVersionUID = 9123181123453164969L;
+    public static final long serialVersionUID = 9123181123453164969L;
     public long forumId;
     public String forumName;
     public String recomCover;
@@ -15,20 +16,21 @@ public class CardHListViewNormalItemData implements com.baidu.adp.widget.ListVie
     public long threadId;
     public String title;
 
-    @Override // com.baidu.adp.widget.ListView.n
+    @Override // d.b.b.j.e.n
     public BdUniqueId getType() {
         return TYPE;
     }
 
     public void parseProtobuf(GuessLikeThreadInfo guessLikeThreadInfo) {
-        if (guessLikeThreadInfo != null) {
-            this.title = guessLikeThreadInfo.title;
-            this.forumId = guessLikeThreadInfo.forum_id.longValue();
-            this.threadId = guessLikeThreadInfo.thread_id.longValue();
-            this.replyNum = guessLikeThreadInfo.reply_num.longValue();
-            this.forumName = guessLikeThreadInfo.forum_name;
-            this.recomCover = guessLikeThreadInfo.recom_cover;
-            this.recomReason = guessLikeThreadInfo.recom_reason;
+        if (guessLikeThreadInfo == null) {
+            return;
         }
+        this.title = guessLikeThreadInfo.title;
+        this.forumId = guessLikeThreadInfo.forum_id.longValue();
+        this.threadId = guessLikeThreadInfo.thread_id.longValue();
+        this.replyNum = guessLikeThreadInfo.reply_num.longValue();
+        this.forumName = guessLikeThreadInfo.forum_name;
+        this.recomCover = guessLikeThreadInfo.recom_cover;
+        this.recomReason = guessLikeThreadInfo.recom_reason;
     }
 }

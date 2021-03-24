@@ -1,46 +1,54 @@
 package com.baidu.mapapi.map;
 
 import android.util.Log;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.HashSet;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f2081a;
-    final /* synthetic */ int b;
-    final /* synthetic */ int c;
-    final /* synthetic */ String d;
-    final /* synthetic */ TileOverlay e;
+    public final /* synthetic */ int f7099a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ int f7100b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ int f7101c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ String f7102d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ TileOverlay f7103e;
+
     public v(TileOverlay tileOverlay, int i, int i2, int i3, String str) {
-        this.e = tileOverlay;
-        this.f2081a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = str;
+        this.f7103e = tileOverlay;
+        this.f7099a = i;
+        this.f7100b = i2;
+        this.f7101c = i3;
+        this.f7102d = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         TileProvider tileProvider;
         String str;
-        HashSet hashSet;
         String str2;
-        tileProvider = this.e.g;
-        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f2081a, this.b, this.c);
+        HashSet hashSet;
+        tileProvider = this.f7103e.f7039g;
+        Tile tile = ((FileTileProvider) tileProvider).getTile(this.f7099a, this.f7100b, this.f7101c);
         if (tile == null) {
-            str = TileOverlay.b;
-            Log.e(str, "FileTile pic is null");
+            str = TileOverlay.f7033b;
+            str2 = "FileTile pic is null";
         } else if (tile.width == 256 && tile.height == 256) {
-            this.e.a(this.f2081a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.c, tile);
+            this.f7103e.a(this.f7099a + "_" + this.f7100b + "_" + this.f7101c, tile);
+            hashSet = this.f7103e.f7038e;
+            hashSet.remove(this.f7102d);
         } else {
-            str2 = TileOverlay.b;
-            Log.e(str2, "FileTile pic must be 256 * 256");
+            str = TileOverlay.f7033b;
+            str2 = "FileTile pic must be 256 * 256";
         }
-        hashSet = this.e.e;
-        hashSet.remove(this.d);
+        Log.e(str, str2);
+        hashSet = this.f7103e.f7038e;
+        hashSet.remove(this.f7102d);
     }
 }

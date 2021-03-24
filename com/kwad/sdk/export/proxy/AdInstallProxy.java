@@ -2,7 +2,7 @@ package com.kwad.sdk.export.proxy;
 
 import android.content.Context;
 import com.ksad.download.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface AdInstallProxy extends a {
     @Override // com.ksad.download.a
     void installApp(Context context, String str);

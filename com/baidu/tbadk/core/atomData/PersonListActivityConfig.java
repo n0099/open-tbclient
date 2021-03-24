@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PersonListActivityConfig extends IntentConfig {
     public static final String FOLLOW = "follow";
     public static final String TOTLEFOLLOWNUM = "total_follow_num";
@@ -23,7 +23,7 @@ public class PersonListActivityConfig extends IntentConfig {
 
     public PersonListActivityConfig updateFollowNum(int i, String str) {
         if (getIntent() != null) {
-            getIntent().putExtra(TOTLEFOLLOWNUM, i);
+            getIntent().putExtra("total_follow_num", i);
             getIntent().putExtra("portrait", str);
         }
         return this;

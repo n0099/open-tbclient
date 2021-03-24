@@ -1,23 +1,27 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.content.Intent;
-import com.xiaomi.clientreport.data.Config;
-import com.xiaomi.push.ix;
-/* loaded from: classes5.dex */
-public class r {
-    public static <T extends ix<T, ?>> void a(Context context, Config config) {
-        if (config == null) {
-            return;
-        }
-        Intent intent = new Intent();
-        intent.setAction("action_cr_config");
-        intent.putExtra("action_cr_event_switch", config.isEventUploadSwitchOpen());
-        intent.putExtra("action_cr_event_frequency", config.getEventUploadFrequency());
-        intent.putExtra("action_cr_perf_switch", config.isPerfUploadSwitchOpen());
-        intent.putExtra("action_cr_perf_frequency", config.getPerfUploadFrequency());
-        intent.putExtra("action_cr_event_en", config.isEventEncrypted());
-        intent.putExtra("action_cr_max_file_size", config.getMaxFileLength());
-        aq.a(context).m90a(intent);
+import com.xiaomi.push.di;
+import com.xiaomi.push.hf;
+import com.xiaomi.push.hs;
+import com.xiaomi.push.ie;
+/* loaded from: classes7.dex */
+public class r implements di {
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f40205a;
+
+    public r(Context context) {
+        this.f40205a = context;
+    }
+
+    @Override // com.xiaomi.push.di
+    public String a() {
+        return b.m92a(this.f40205a).d();
+    }
+
+    @Override // com.xiaomi.push.di
+    public void a(ie ieVar, hf hfVar, hs hsVar) {
+        an.a(this.f40205a).a((an) ieVar, hfVar, hsVar);
     }
 }

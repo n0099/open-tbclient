@@ -2,13 +2,13 @@ package androidx.core.view;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public interface NestedScrollingParent {
     int getNestedScrollAxes();
 
-    boolean onNestedFling(@NonNull View view, float f, float f2, boolean z);
+    boolean onNestedFling(@NonNull View view, float f2, float f3, boolean z);
 
-    boolean onNestedPreFling(@NonNull View view, float f, float f2);
+    boolean onNestedPreFling(@NonNull View view, float f2, float f3);
 
     void onNestedPreScroll(@NonNull View view, int i, int i2, @NonNull int[] iArr);
 

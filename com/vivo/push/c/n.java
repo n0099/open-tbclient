@@ -1,13 +1,12 @@
 package com.vivo.push.c;
-/* loaded from: classes14.dex */
-final class n extends ab {
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes7.dex */
+public final class n extends ab {
     public n(com.vivo.push.y yVar) {
         super(yVar);
     }
 
     @Override // com.vivo.push.v
-    protected final void a(com.vivo.push.y yVar) {
+    public final void a(com.vivo.push.y yVar) {
         com.vivo.push.w.b(new o(this, (com.vivo.push.b.p) yVar));
     }
 }

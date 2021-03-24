@@ -8,80 +8,31 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TbPatternsCompat;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
+import d.b.b.e.p.j;
+import d.b.c.m.a;
 import java.util.Map;
-import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class VideoPasterRequestData extends HttpMessage {
-    private static String _ANDROID_ID = "";
-    private static final TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/ads");
-
-    public VideoPasterRequestData(com.baidu.afd.videopaster.a aVar) {
-        super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
-        addCommonParams();
-        addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
-        addParam("pid", aVar.ra());
-        addParam("ac", "1");
-        String ext = getExt(aVar);
-        if (!StringUtils.isNull(ext)) {
-            addParam("ext", ext);
-        }
-        addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.qP()));
-        addParam("sw", String.valueOf(aVar.width()));
-        addParam("sh", String.valueOf(aVar.height()));
-        addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.qP()));
-        addParam("ft", aVar.qN());
-        addParam(Config.EXCEPTION_CRASH_TYPE, "2");
-    }
-
-    private static String getExt(com.baidu.afd.videopaster.a aVar) {
-        if (aVar == null || aVar.qQ() == null || aVar.qQ().isEmpty()) {
-            return null;
-        }
-        JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : aVar.qQ().entrySet()) {
-            jSONArray.put(create(entry.getKey(), entry.getValue()));
-        }
-        return jSONArray.toString();
-    }
-
-    private void addCommonParams() {
-        addParam("_client_version", TbConfig.getVersion());
-        addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-        addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
-        addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
-        addParam("model", Build.MODEL);
-        addParam("_client_type", "2");
-        addParam("_os_version", Build.VERSION.RELEASE);
-        addParam("net_type", String.valueOf(j.netType()));
-        addParam("_phone_imei", TbadkCoreApplication.getInst().getImei());
-        addParam("android_id", androidId());
-    }
-
-    private static JSONObject create(String str, String str2) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("k", str);
-            jSONObject.put("v", str2);
-            return jSONObject;
-        } catch (JSONException e) {
-            return null;
-        }
-    }
+    public static String _ANDROID_ID = "";
+    public static final TbHttpMessageTask task;
 
     static {
-        task.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/ads");
+        task = tbHttpMessageTask;
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         task.setIsNeedAddCommenParam(false);
         task.setIsNeedAddStatisticsParam(false);
         task.setIsUseCurrentBDUSS(true);
@@ -90,13 +41,69 @@ public class VideoPasterRequestData extends HttpMessage {
         MessageManager.getInstance().registerTask(task);
     }
 
+    public VideoPasterRequestData(a aVar) {
+        super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
+        addCommonParams();
+        addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
+        addParam("pid", aVar.f());
+        addParam("ac", "1");
+        String ext = getExt(aVar);
+        if (!StringUtils.isNull(ext)) {
+            addParam("ext", ext);
+        }
+        addParam("is_https", 1);
+        addParam("flr", String.valueOf(aVar.d()));
+        addParam("sw", String.valueOf(aVar.g()));
+        addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.e()));
+        addParam("apna", TbadkCoreApplication.getInst().getPackageName());
+        addParam("fc", String.valueOf(aVar.d()));
+        addParam("ft", aVar.b());
+        addParam(Config.EXCEPTION_CRASH_TYPE, "2");
+    }
+
+    private void addCommonParams() {
+        addParam(HttpRequest.CLIENT_VERSION, TbConfig.getVersion());
+        addParam("uid", TbadkCoreApplication.getCurrentAccount());
+        addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+        addParam(TiebaStatic.Params.CUID_GALAXY2, TbadkCoreApplication.getInst().getCuidGalaxy2());
+        addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
+        addParam("model", Build.MODEL);
+        addParam(HttpRequest.CLIENT_TYPE, "2");
+        addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
+        addParam("net_type", String.valueOf(j.I()));
+        addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
+        addParam("android_id", androidId());
+    }
+
     public static String androidId() {
         if (TextUtils.isEmpty(_ANDROID_ID)) {
             try {
                 _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), "android_id");
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
         return _ANDROID_ID;
+    }
+
+    public static JSONObject create(String str, String str2) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(Config.APP_KEY, str);
+            jSONObject.put("v", str2);
+            return jSONObject;
+        } catch (JSONException unused) {
+            return null;
+        }
+    }
+
+    public static String getExt(a aVar) {
+        if (aVar == null || aVar.c() == null || aVar.c().isEmpty()) {
+            return null;
+        }
+        JSONArray jSONArray = new JSONArray();
+        for (Map.Entry<String, String> entry : aVar.c().entrySet()) {
+            jSONArray.put(create(entry.getKey(), entry.getValue()));
+        }
+        return jSONArray.toString();
     }
 }

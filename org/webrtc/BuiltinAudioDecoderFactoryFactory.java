@@ -1,7 +1,7 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class BuiltinAudioDecoderFactoryFactory implements AudioDecoderFactoryFactory {
-    private static native long nativeCreateBuiltinAudioDecoderFactory();
+    public static native long nativeCreateBuiltinAudioDecoderFactory();
 
     @Override // org.webrtc.AudioDecoderFactoryFactory
     public long createNativeAudioDecoderFactory() {

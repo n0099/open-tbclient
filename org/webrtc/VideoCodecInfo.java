@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class VideoCodecInfo {
     public static final String H264_CONSTRAINED_BASELINE_3_1 = "42e01f";
     public static final String H264_CONSTRAINED_HIGH_3_1 = "640c1f";
@@ -34,7 +34,6 @@ public class VideoCodecInfo {
     }
 
     public boolean equals(@Nullable Object obj) {
-        boolean z = true;
         if (obj == null) {
             return false;
         }
@@ -43,22 +42,18 @@ public class VideoCodecInfo {
         }
         if (obj instanceof VideoCodecInfo) {
             VideoCodecInfo videoCodecInfo = (VideoCodecInfo) obj;
-            if (!this.name.equalsIgnoreCase(videoCodecInfo.name) || !this.params.equals(videoCodecInfo.params)) {
-                z = false;
-            }
-            return z;
+            return this.name.equalsIgnoreCase(videoCodecInfo.name) && this.params.equals(videoCodecInfo.params);
         }
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @CalledByNative
     public String getName() {
         return this.name;
     }
 
     @CalledByNative
-    Map getParams() {
+    public Map getParams() {
         return this.params;
     }
 

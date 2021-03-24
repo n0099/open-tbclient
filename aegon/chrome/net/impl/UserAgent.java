@@ -3,12 +3,11 @@ package aegon.chrome.net.impl;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class UserAgent {
     public static final Object sLock = new Object();
-    public static int sVersionCode = 0;
+    public static int sVersionCode;
 
     public static String from(Context context) {
         StringBuilder sb = new StringBuilder();
@@ -29,7 +28,7 @@ public final class UserAgent {
             sb.append("; Build/");
             sb.append(str2);
         }
-        sb.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        sb.append(";");
         sb.append(" Cronet/");
         sb.append("77.0.3865.0");
         sb.append(')');
@@ -46,7 +45,7 @@ public final class UserAgent {
             if (sVersionCode == 0) {
                 try {
                     sVersionCode = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-                } catch (PackageManager.NameNotFoundException e) {
+                } catch (PackageManager.NameNotFoundException unused) {
                     throw new IllegalStateException("Cannot determine package version");
                 }
             }

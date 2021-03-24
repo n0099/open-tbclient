@@ -2,38 +2,31 @@ package com.baidu.cyberplayer.sdk;
 
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static l f1434a = null;
+    public static l f4973a;
 
-    private l() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized l a() {
         l lVar;
         synchronized (l.class) {
-            if (f1434a == null) {
-                f1434a = new l();
+            if (f4973a == null) {
+                f4973a = new l();
             }
-            lVar = f1434a;
+            lVar = f4973a;
         }
         return lVar;
     }
 
     public PlayerProvider a(int i, CyberPlayerManager.HttpDNS httpDNS, boolean z) {
-        PlayerProvider playerProvider = null;
-        if (z && !CyberCfgManager.getInstance().a("remote_forbidden", false)) {
-            playerProvider = com.baidu.cyberplayer.sdk.remote.h.a(i, httpDNS);
+        PlayerProvider a2 = (!z || CyberCfgManager.getInstance().a("remote_forbidden", false)) ? null : com.baidu.cyberplayer.sdk.remote.h.a(i, httpDNS);
+        if (a2 == null) {
+            a2 = d.a(i, httpDNS);
         }
-        if (playerProvider == null) {
-            playerProvider = d.a(i, httpDNS);
+        if (a2 == null && CyberCfgManager.getInstance().getCfgBoolValue("enable_mediaplayer_sub_thread", false)) {
+            a2 = j.a();
         }
-        if (playerProvider == null && CyberCfgManager.getInstance().getCfgBoolValue("enable_mediaplayer_sub_thread", false)) {
-            playerProvider = j.a();
-        }
-        return playerProvider == null ? new k() : playerProvider;
+        return a2 == null ? new k() : a2;
     }
 }

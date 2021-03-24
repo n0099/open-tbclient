@@ -2,117 +2,138 @@ package com.baidubce.services.vod.model;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MediaResource {
-    private Attributes attributes;
-    private String createTime;
-    private String mediaId;
-    private MediaMeta meta;
-    private String publishTime;
-    private String source;
-    private String status;
-    private String transcodingPresetGroupName;
-    private List<PlayableUrl> playableUrlList = new ArrayList();
-    private List<String> thumbnailList = new ArrayList();
+    public Attributes attributes;
+    public String createTime;
+    public String mediaId;
+    public MediaMeta meta;
+    public String publishTime;
+    public String source;
+    public String status;
+    public String transcodingPresetGroupName;
+    public List<PlayableUrl> playableUrlList = new ArrayList();
+    public List<String> thumbnailList = new ArrayList();
 
-    public String getMediaId() {
-        return this.mediaId;
-    }
-
-    public void setMediaId(String str) {
-        this.mediaId = str;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String str) {
-        this.status = str;
-    }
-
-    public MediaMeta getMeta() {
-        return this.meta;
-    }
-
-    public void setMeta(MediaMeta mediaMeta) {
-        this.meta = mediaMeta;
-    }
-
-    public String getPublishTime() {
-        return this.publishTime;
-    }
-
-    public void setPublishTime(String str) {
-        this.publishTime = str;
+    public Attributes getAttributes() {
+        return this.attributes;
     }
 
     public String getCreateTime() {
         return this.createTime;
     }
 
-    public void setCreateTime(String str) {
-        this.createTime = str;
+    public String getMediaId() {
+        return this.mediaId;
     }
 
-    public Attributes getAttributes() {
-        return this.attributes;
-    }
-
-    public void setAttributes(Attributes attributes) {
-        this.attributes = attributes;
-    }
-
-    public String getTranscodingPresetGroupName() {
-        return this.transcodingPresetGroupName;
-    }
-
-    public void setTranscodingPresetGroupName(String str) {
-        this.transcodingPresetGroupName = str;
-    }
-
-    public String getSource() {
-        return this.source;
-    }
-
-    public void setSource(String str) {
-        this.source = str;
+    public MediaMeta getMeta() {
+        return this.meta;
     }
 
     public List<PlayableUrl> getPlayableUrlList() {
         return this.playableUrlList;
     }
 
-    public void setPlayableUrlList(List<PlayableUrl> list) {
-        this.playableUrlList = list;
+    public String getPublishTime() {
+        return this.publishTime;
+    }
+
+    public String getSource() {
+        return this.source;
+    }
+
+    public String getStatus() {
+        return this.status;
     }
 
     public List<String> getThumbnailList() {
         return this.thumbnailList;
     }
 
+    public String getTranscodingPresetGroupName() {
+        return this.transcodingPresetGroupName;
+    }
+
+    public void setAttributes(Attributes attributes) {
+        this.attributes = attributes;
+    }
+
+    public void setCreateTime(String str) {
+        this.createTime = str;
+    }
+
+    public void setMediaId(String str) {
+        this.mediaId = str;
+    }
+
+    public void setMeta(MediaMeta mediaMeta) {
+        this.meta = mediaMeta;
+    }
+
+    public void setPlayableUrlList(List<PlayableUrl> list) {
+        this.playableUrlList = list;
+    }
+
+    public void setPublishTime(String str) {
+        this.publishTime = str;
+    }
+
+    public void setSource(String str) {
+        this.source = str;
+    }
+
+    public void setStatus(String str) {
+        this.status = str;
+    }
+
     public void setThumbnailList(List<String> list) {
         this.thumbnailList = list;
     }
 
+    public void setTranscodingPresetGroupName(String str) {
+        this.transcodingPresetGroupName = str;
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder("  MediaResource { \n");
-        sb.append("    mediaId = ").append(this.mediaId).append("\n");
-        sb.append("    status = ").append(this.status).append("\n");
-        sb.append("    attributes = ").append(this.attributes).append("\n");
-        sb.append("    meta = ").append(this.meta).append("\n");
-        sb.append("    createTime = ").append(this.createTime).append("\n");
-        sb.append("    publishTime = ").append(this.publishTime).append("\n");
-        sb.append("  transcodingPresetGroupName = ").append(this.transcodingPresetGroupName).append("\n");
-        sb.append("  source = ").append(this.source).append("\n");
-        sb.append("  playableUrlList = [").append("\n");
+        sb.append("    mediaId = ");
+        sb.append(this.mediaId);
+        sb.append("\n");
+        sb.append("    status = ");
+        sb.append(this.status);
+        sb.append("\n");
+        sb.append("    attributes = ");
+        sb.append(this.attributes);
+        sb.append("\n");
+        sb.append("    meta = ");
+        sb.append(this.meta);
+        sb.append("\n");
+        sb.append("    createTime = ");
+        sb.append(this.createTime);
+        sb.append("\n");
+        sb.append("    publishTime = ");
+        sb.append(this.publishTime);
+        sb.append("\n");
+        sb.append("  transcodingPresetGroupName = ");
+        sb.append(this.transcodingPresetGroupName);
+        sb.append("\n");
+        sb.append("  source = ");
+        sb.append(this.source);
+        sb.append("\n");
+        sb.append("  playableUrlList = [");
+        sb.append("\n");
         for (PlayableUrl playableUrl : this.playableUrlList) {
-            sb.append(playableUrl.toString()).append("\n");
+            sb.append(playableUrl.toString());
+            sb.append("\n");
         }
         sb.append("] \n");
-        sb.append("  thumbnailList = [").append("\n");
+        sb.append("  thumbnailList = [");
+        sb.append("\n");
         for (String str : this.thumbnailList) {
-            sb.append("    thumbnail =").append(str).append("\n");
+            sb.append("    thumbnail =");
+            sb.append(str);
+            sb.append("\n");
         }
         sb.append("  }\n");
         return sb.toString();

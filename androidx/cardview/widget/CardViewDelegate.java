@@ -2,8 +2,8 @@ package androidx.cardview.widget;
 
 import android.graphics.drawable.Drawable;
 import android.view.View;
-/* loaded from: classes14.dex */
-interface CardViewDelegate {
+/* loaded from: classes.dex */
+public interface CardViewDelegate {
     Drawable getCardBackground();
 
     View getCardView();

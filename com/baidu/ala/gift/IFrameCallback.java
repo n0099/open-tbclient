@@ -1,5 +1,5 @@
 package com.baidu.ala.gift;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public interface IFrameCallback {
     void onFrameEnd();
 

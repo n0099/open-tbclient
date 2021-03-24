@@ -4,9 +4,9 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PreloadData implements com.kwad.sdk.core.b, Serializable {
-    private static final long serialVersionUID = 5545639829734330536L;
+    public static final long serialVersionUID = 5545639829734330536L;
     public boolean isPreload = false;
     public long mCacheTime = 0;
 

@@ -1,6 +1,5 @@
 package com.baidu.platform.core.d;
 
-import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -19,13 +18,15 @@ import com.baidu.mapapi.search.route.MassTransitRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.pass.ecommerce.bean.AddressField;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h extends com.baidu.platform.base.d {
     private TransitResultNode a(int i, JSONObject jSONObject) {
         LatLng latLng = null;
@@ -34,10 +35,10 @@ public class h extends com.baidu.platform.base.d {
         }
         String optString = jSONObject.optString(ActVideoSetting.WIFI_DISPLAY);
         String optString2 = jSONObject.optString("city_name");
-        int optInt = i == 1 ? jSONObject.optInt("city_code") : jSONObject.optInt("city_id");
-        JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
+        int optInt = jSONObject.optInt(i == 1 ? "city_code" : AddressField.KEY_CITY_ID);
+        JSONObject optJSONObject = jSONObject.optJSONObject("location");
         if (optJSONObject != null) {
-            latLng = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
+            latLng = new LatLng(optJSONObject.optDouble(SuggestAddrField.KEY_LAT), optJSONObject.optDouble(SuggestAddrField.KEY_LNG));
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.baiduToGcj(latLng);
             }
@@ -46,6 +47,7 @@ public class h extends com.baidu.platform.base.d {
     }
 
     private MassTransitRouteLine.TransitStep a(JSONObject jSONObject) {
+        MassTransitRouteLine.TransitStep.StepVehicleInfoType stepVehicleInfoType;
         if (jSONObject == null) {
             return null;
         }
@@ -57,7 +59,7 @@ public class h extends com.baidu.platform.base.d {
         transitStep.setTrafficConditions(b(jSONObject.optJSONArray("traffic_condition")));
         JSONObject optJSONObject = jSONObject.optJSONObject("start_location");
         if (optJSONObject != null) {
-            LatLng latLng = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
+            LatLng latLng = new LatLng(optJSONObject.optDouble(SuggestAddrField.KEY_LAT), optJSONObject.optDouble(SuggestAddrField.KEY_LNG));
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.baiduToGcj(latLng);
             }
@@ -65,7 +67,7 @@ public class h extends com.baidu.platform.base.d {
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("end_location");
         if (optJSONObject2 != null) {
-            LatLng latLng2 = new LatLng(optJSONObject2.optDouble("lat"), optJSONObject2.optDouble("lng"));
+            LatLng latLng2 = new LatLng(optJSONObject2.optDouble(SuggestAddrField.KEY_LAT), optJSONObject2.optDouble(SuggestAddrField.KEY_LNG));
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng2 = CoordTrans.baiduToGcj(latLng2);
             }
@@ -124,10 +126,12 @@ public class h extends com.baidu.platform.base.d {
                     }
                     break;
                 case 4:
-                    transitStep.setVehileType(MassTransitRouteLine.TransitStep.StepVehicleInfoType.ESTEP_DRIVING);
+                    stepVehicleInfoType = MassTransitRouteLine.TransitStep.StepVehicleInfoType.ESTEP_DRIVING;
+                    transitStep.setVehileType(stepVehicleInfoType);
                     break;
                 case 5:
-                    transitStep.setVehileType(MassTransitRouteLine.TransitStep.StepVehicleInfoType.ESTEP_WALK);
+                    stepVehicleInfoType = MassTransitRouteLine.TransitStep.StepVehicleInfoType.ESTEP_WALK;
+                    transitStep.setVehileType(stepVehicleInfoType);
                     break;
                 case 6:
                     transitStep.setVehileType(MassTransitRouteLine.TransitStep.StepVehicleInfoType.ESTEP_COACH);
@@ -179,21 +183,21 @@ public class h extends com.baidu.platform.base.d {
         }
         try {
             jSONObject = new JSONObject(str);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             jSONObject = null;
         }
-        if (jSONObject != null) {
-            TaxiInfo taxiInfo = new TaxiInfo();
-            taxiInfo.setDesc(jSONObject.optString("remark"));
-            taxiInfo.setDistance(jSONObject.optInt("distance"));
-            taxiInfo.setDuration(jSONObject.optInt("duration"));
-            taxiInfo.setTotalPrice((float) jSONObject.optDouble("total_price"));
-            taxiInfo.setStartPrice((float) jSONObject.optDouble("start_price"));
-            taxiInfo.setPerKMPrice((float) jSONObject.optDouble("km_price"));
-            return taxiInfo;
+        if (jSONObject == null) {
+            return null;
         }
-        return null;
+        TaxiInfo taxiInfo = new TaxiInfo();
+        taxiInfo.setDesc(jSONObject.optString("remark"));
+        taxiInfo.setDistance(jSONObject.optInt("distance"));
+        taxiInfo.setDuration(jSONObject.optInt("duration"));
+        taxiInfo.setTotalPrice((float) jSONObject.optDouble("total_price"));
+        taxiInfo.setStartPrice((float) jSONObject.optDouble("start_price"));
+        taxiInfo.setPerKMPrice((float) jSONObject.optDouble("km_price"));
+        return taxiInfo;
     }
 
     private SuggestAddrInfo b(JSONObject jSONObject) {
@@ -240,32 +244,27 @@ public class h extends com.baidu.platform.base.d {
     private List<PoiInfo> d(JSONArray jSONArray) {
         if (jSONArray != null) {
             ArrayList arrayList = new ArrayList();
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= jSONArray.length()) {
-                    break;
-                }
-                JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
                 if (jSONObject != null) {
                     PoiInfo poiInfo = new PoiInfo();
                     poiInfo.address = jSONObject.optString("address");
                     poiInfo.uid = jSONObject.optString("uid");
                     poiInfo.name = jSONObject.optString("name");
-                    JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("location");
                     if (optJSONObject != null) {
-                        poiInfo.location = new LatLng(optJSONObject.optDouble("lat"), optJSONObject.optDouble("lng"));
+                        poiInfo.location = new LatLng(optJSONObject.optDouble(SuggestAddrField.KEY_LAT), optJSONObject.optDouble(SuggestAddrField.KEY_LNG));
                         if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                             poiInfo.location = CoordTrans.baiduToGcj(poiInfo.location);
                         }
                     }
                     arrayList.add(poiInfo);
                 }
-                i = i2 + 1;
             }
-            if (!arrayList.isEmpty()) {
-                return arrayList;
+            if (arrayList.isEmpty()) {
+                return null;
             }
+            return arrayList;
         }
         return null;
     }
@@ -273,33 +272,28 @@ public class h extends com.baidu.platform.base.d {
     @Override // com.baidu.platform.base.d
     public SearchResult a(String str) {
         MassTransitRouteResult massTransitRouteResult = new MassTransitRouteResult();
-        if (str == null || str.equals("")) {
-            massTransitRouteResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-        } else {
+        if (str != null && !str.equals("")) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("SDK_InnerError")) {
                     JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
                     if (optJSONObject.has("PermissionCheckError")) {
                         massTransitRouteResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
+                        return massTransitRouteResult;
                     } else if (optJSONObject.has("httpStateError")) {
                         String optString = optJSONObject.optString("httpStateError");
-                        if (optString.equals("NETWORK_ERROR")) {
-                            massTransitRouteResult.error = SearchResult.ERRORNO.NETWORK_ERROR;
-                        } else if (optString.equals("REQUEST_ERROR")) {
-                            massTransitRouteResult.error = SearchResult.ERRORNO.REQUEST_ERROR;
-                        } else {
-                            massTransitRouteResult.error = SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
-                        }
+                        massTransitRouteResult.error = optString.equals("NETWORK_ERROR") ? SearchResult.ERRORNO.NETWORK_ERROR : optString.equals("REQUEST_ERROR") ? SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
+                        return massTransitRouteResult;
                     }
                 }
                 if (!a(str, massTransitRouteResult, false) && !a(str, massTransitRouteResult)) {
                     massTransitRouteResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 }
-            } catch (Exception e) {
-                massTransitRouteResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                return massTransitRouteResult;
+            } catch (Exception unused) {
             }
         }
+        massTransitRouteResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
         return massTransitRouteResult;
     }
 
@@ -312,83 +306,84 @@ public class h extends com.baidu.platform.base.d {
     }
 
     public boolean a(String str, MassTransitRouteResult massTransitRouteResult) {
-        if (str == null || str.length() <= 0) {
-            return false;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject != null) {
-                switch (jSONObject.optInt("status_sdk")) {
-                    case 0:
-                        int optInt = jSONObject.optInt("type");
-                        JSONObject optJSONObject = jSONObject.optJSONObject("result");
-                        if (optJSONObject != null) {
-                            if (optInt == 1) {
-                                massTransitRouteResult.setOrigin(a(optInt, optJSONObject.optJSONObject("origin_info")));
-                                massTransitRouteResult.setDestination(a(optInt, optJSONObject.optJSONObject("destination_info")));
-                                massTransitRouteResult.setSuggestAddrInfo(b(optJSONObject));
-                                massTransitRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
-                            } else if (optInt == 2) {
-                                TransitResultNode a2 = a(optInt, optJSONObject.optJSONObject("origin"));
-                                massTransitRouteResult.setOrigin(a2);
-                                TransitResultNode a3 = a(optInt, optJSONObject.optJSONObject("destination"));
-                                massTransitRouteResult.setDestination(a3);
-                                massTransitRouteResult.setTotal(optJSONObject.optInt("total"));
-                                massTransitRouteResult.setTaxiInfo(b(optJSONObject.optString("taxi")));
-                                JSONArray optJSONArray = optJSONObject.optJSONArray("routes");
-                                if (optJSONArray == null || optJSONArray.length() <= 0) {
-                                    return false;
-                                }
-                                ArrayList arrayList = new ArrayList();
-                                for (int i = 0; i < optJSONArray.length(); i++) {
-                                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                                    if (optJSONObject2 != null) {
-                                        MassTransitRouteLine massTransitRouteLine = new MassTransitRouteLine();
-                                        massTransitRouteLine.setDistance(optJSONObject2.optInt("distance"));
-                                        massTransitRouteLine.setDuration(optJSONObject2.optInt("duration"));
-                                        massTransitRouteLine.setArriveTime(optJSONObject2.optString("arrive_time"));
-                                        massTransitRouteLine.setPrice(optJSONObject2.optDouble("price"));
-                                        massTransitRouteLine.setPriceInfo(c(optJSONObject2.optJSONArray("price_detail")));
-                                        if (a2 != null) {
-                                            RouteNode routeNode = new RouteNode();
-                                            routeNode.setLocation(a2.getLocation());
-                                            massTransitRouteLine.setStarting(routeNode);
-                                        }
-                                        if (a3 != null) {
-                                            RouteNode routeNode2 = new RouteNode();
-                                            routeNode2.setLocation(a3.getLocation());
-                                            massTransitRouteLine.setTerminal(routeNode2);
-                                        }
-                                        JSONArray optJSONArray2 = optJSONObject2.optJSONArray("steps");
-                                        if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                                            massTransitRouteLine.setNewSteps(a(optJSONArray2));
-                                            arrayList.add(massTransitRouteLine);
-                                        }
+        SearchResult.ERRORNO errorno;
+        SearchResult.ERRORNO errorno2;
+        if (str != null && str.length() > 0) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt("status_sdk");
+                if (optInt != 0) {
+                    if (optInt == 1) {
+                        errorno2 = SearchResult.ERRORNO.MASS_TRANSIT_SERVER_ERROR;
+                    } else if (optInt == 2) {
+                        errorno2 = SearchResult.ERRORNO.MASS_TRANSIT_OPTION_ERROR;
+                    } else if (optInt != 1002) {
+                        return false;
+                    } else {
+                        errorno2 = SearchResult.ERRORNO.MASS_TRANSIT_NO_POI_ERROR;
+                    }
+                    massTransitRouteResult.error = errorno2;
+                    return true;
+                }
+                int optInt2 = jSONObject.optInt("type");
+                JSONObject optJSONObject = jSONObject.optJSONObject("result");
+                if (optJSONObject != null) {
+                    if (optInt2 != 1) {
+                        if (optInt2 == 2) {
+                            TransitResultNode a2 = a(optInt2, optJSONObject.optJSONObject("origin"));
+                            massTransitRouteResult.setOrigin(a2);
+                            TransitResultNode a3 = a(optInt2, optJSONObject.optJSONObject("destination"));
+                            massTransitRouteResult.setDestination(a3);
+                            massTransitRouteResult.setTotal(optJSONObject.optInt("total"));
+                            massTransitRouteResult.setTaxiInfo(b(optJSONObject.optString("taxi")));
+                            JSONArray optJSONArray = optJSONObject.optJSONArray("routes");
+                            if (optJSONArray == null || optJSONArray.length() <= 0) {
+                                return false;
+                            }
+                            ArrayList arrayList = new ArrayList();
+                            for (int i = 0; i < optJSONArray.length(); i++) {
+                                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                                if (optJSONObject2 != null) {
+                                    MassTransitRouteLine massTransitRouteLine = new MassTransitRouteLine();
+                                    massTransitRouteLine.setDistance(optJSONObject2.optInt("distance"));
+                                    massTransitRouteLine.setDuration(optJSONObject2.optInt("duration"));
+                                    massTransitRouteLine.setArriveTime(optJSONObject2.optString("arrive_time"));
+                                    massTransitRouteLine.setPrice(optJSONObject2.optDouble("price"));
+                                    massTransitRouteLine.setPriceInfo(c(optJSONObject2.optJSONArray("price_detail")));
+                                    if (a2 != null) {
+                                        RouteNode routeNode = new RouteNode();
+                                        routeNode.setLocation(a2.getLocation());
+                                        massTransitRouteLine.setStarting(routeNode);
+                                    }
+                                    if (a3 != null) {
+                                        RouteNode routeNode2 = new RouteNode();
+                                        routeNode2.setLocation(a3.getLocation());
+                                        massTransitRouteLine.setTerminal(routeNode2);
+                                    }
+                                    JSONArray optJSONArray2 = optJSONObject2.optJSONArray("steps");
+                                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                                        massTransitRouteLine.setNewSteps(a(optJSONArray2));
+                                        arrayList.add(massTransitRouteLine);
                                     }
                                 }
-                                massTransitRouteResult.setRoutelines(arrayList);
-                                massTransitRouteResult.error = SearchResult.ERRORNO.NO_ERROR;
                             }
-                            return true;
+                            massTransitRouteResult.setRoutelines(arrayList);
+                            errorno = SearchResult.ERRORNO.NO_ERROR;
                         }
-                        return false;
-                    case 1:
-                        massTransitRouteResult.error = SearchResult.ERRORNO.MASS_TRANSIT_SERVER_ERROR;
                         return true;
-                    case 2:
-                        massTransitRouteResult.error = SearchResult.ERRORNO.MASS_TRANSIT_OPTION_ERROR;
-                        return true;
-                    case 1002:
-                        massTransitRouteResult.error = SearchResult.ERRORNO.MASS_TRANSIT_NO_POI_ERROR;
-                        return true;
-                    default:
-                        return false;
+                    }
+                    massTransitRouteResult.setOrigin(a(optInt2, optJSONObject.optJSONObject("origin_info")));
+                    massTransitRouteResult.setDestination(a(optInt2, optJSONObject.optJSONObject("destination_info")));
+                    massTransitRouteResult.setSuggestAddrInfo(b(optJSONObject));
+                    errorno = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
+                    massTransitRouteResult.error = errorno;
+                    return true;
                 }
+                return false;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            return false;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return false;
         }
+        return false;
     }
 }

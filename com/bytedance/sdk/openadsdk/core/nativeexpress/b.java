@@ -11,8 +11,8 @@ import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.core.q;
-import com.bytedance.sdk.openadsdk.h.a.b;
-import com.bytedance.sdk.openadsdk.utils.aj;
+import com.bytedance.sdk.openadsdk.i.a.b;
+import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,21 +23,35 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class b {
-    private static Set<b> j = Collections.synchronizedSet(new HashSet());
+    public static Set<b> j = Collections.synchronizedSet(new HashSet());
 
     /* renamed from: a  reason: collision with root package name */
-    private AdSlot f4482a;
-    private Context c;
-    private TTAdNative.NativeExpressAdListener d;
-    private List<com.bytedance.sdk.openadsdk.core.d.l> f;
-    private List<com.bytedance.sdk.openadsdk.core.d.l> g;
-    private a h;
-    private final AtomicBoolean e = new AtomicBoolean(false);
-    private int i = 5;
-    private ScheduledFuture<?> k = null;
-    private ScheduledFuture<?> l = null;
-    private ScheduledFuture<?> m = null;
-    private final q b = p.f();
+    public AdSlot f28513a;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f28515c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TTAdNative.NativeExpressAdListener f28516d;
+
+    /* renamed from: f  reason: collision with root package name */
+    public List<com.bytedance.sdk.openadsdk.core.d.l> f28518f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public List<com.bytedance.sdk.openadsdk.core.d.l> f28519g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public a f28520h;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final AtomicBoolean f28517e = new AtomicBoolean(false);
+    public int i = 5;
+    public ScheduledFuture<?> k = null;
+    public ScheduledFuture<?> l = null;
+    public ScheduledFuture<?> m = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final q f28514b = p.f();
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -46,13 +60,44 @@ public class b {
         void a(List<com.bytedance.sdk.openadsdk.core.d.l> list);
     }
 
-    private b(Context context) {
+    public b(Context context) {
         if (context != null) {
-            this.c = context.getApplicationContext();
+            this.f28515c = context.getApplicationContext();
         } else {
-            this.c = p.a();
+            this.f28515c = p.a();
         }
         j.add(this);
+    }
+
+    private void c(boolean z) {
+        try {
+            if (this.k == null || this.k.isCancelled()) {
+                return;
+            }
+            boolean cancel = this.k.cancel(z);
+            u.f("ExpressAdLoadManager", "TimeOutFutureTask-->cancel......success=" + cancel);
+        } catch (Throwable unused) {
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        List<com.bytedance.sdk.openadsdk.core.d.l> list = this.f28518f;
+        if (list != null) {
+            list.clear();
+        }
+        List<com.bytedance.sdk.openadsdk.core.d.l> list2 = this.f28519g;
+        if (list2 != null) {
+            list2.clear();
+        }
+        a(true);
+        b(true);
+        c(true);
+        c();
+    }
+
+    private void c() {
+        j.remove(this);
     }
 
     public static b a(Context context) {
@@ -64,37 +109,110 @@ public class b {
     }
 
     public void a(AdSlot adSlot, int i, @Nullable TTAdNative.NativeExpressAdListener nativeExpressAdListener, @Nullable a aVar, int i2) {
-        if (this.e.get()) {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (this.f28517e.get()) {
             u.f("ExpressAdLoadManager", "express ad is loading...");
             return;
         }
         this.i = i;
-        this.e.set(true);
-        this.f4482a = adSlot;
-        this.d = nativeExpressAdListener;
-        this.h = aVar;
-        a(this.f4482a, this.d);
+        this.f28517e.set(true);
+        this.f28513a = adSlot;
+        this.f28516d = nativeExpressAdListener;
+        this.f28520h = aVar;
+        a(adSlot, currentTimeMillis);
     }
 
-    private void a(AdSlot adSlot, TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
-        if (adSlot != null) {
-            com.bytedance.sdk.openadsdk.core.d.m mVar = new com.bytedance.sdk.openadsdk.core.d.m();
-            mVar.e = 2;
-            this.b.a(adSlot, mVar, this.i, new q.b() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.1
-                @Override // com.bytedance.sdk.openadsdk.core.q.b
-                public void a(int i, String str) {
-                    b.this.a(i, str);
-                }
+    private void b(boolean z) {
+        try {
+            if (this.m == null || this.m.isCancelled()) {
+                return;
+            }
+            boolean cancel = this.m.cancel(z);
+            u.b("ExpressAdLoadManager", "CheckValidDoneFutureTask-->cancel.....success=" + cancel);
+        } catch (Throwable unused) {
+        }
+    }
 
-                @Override // com.bytedance.sdk.openadsdk.core.q.b
-                public void a(com.bytedance.sdk.openadsdk.core.d.a aVar) {
-                    if (aVar.c() == null || aVar.c().isEmpty()) {
-                        b.this.a(-3, com.bytedance.sdk.openadsdk.core.h.a(-3));
-                        return;
-                    }
-                    b.this.f = aVar.c();
-                    b.this.g = aVar.c();
+    private void a(AdSlot adSlot, final long j2) {
+        if (adSlot == null) {
+            return;
+        }
+        com.bytedance.sdk.openadsdk.core.d.m mVar = new com.bytedance.sdk.openadsdk.core.d.m();
+        mVar.f28196e = 2;
+        this.f28514b.a(adSlot, mVar, this.i, new q.b() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.1
+            @Override // com.bytedance.sdk.openadsdk.core.q.b
+            public void a(int i, String str) {
+                b.this.a(i, str);
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.core.q.b
+            public void a(com.bytedance.sdk.openadsdk.core.d.a aVar) {
+                if (aVar.c() != null && !aVar.c().isEmpty()) {
+                    b.this.f28518f = aVar.c();
+                    b.this.f28519g = aVar.c();
                     b.this.a();
+                    b.this.a(j2);
+                    return;
+                }
+                b.this.a(-3, com.bytedance.sdk.openadsdk.core.h.a(-3));
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        List<com.bytedance.sdk.openadsdk.core.d.l> list = this.f28518f;
+        if (list == null) {
+            return;
+        }
+        for (com.bytedance.sdk.openadsdk.core.d.l lVar : list) {
+            if (lVar.aH() && lVar.af() != null && !lVar.af().isEmpty()) {
+                for (com.bytedance.sdk.openadsdk.core.d.k kVar : lVar.af()) {
+                    if (!TextUtils.isEmpty(kVar.a())) {
+                        com.bytedance.sdk.openadsdk.i.e.c().g().a(kVar.a(), (b.InterfaceC0321b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), false);
+                    }
+                }
+            }
+            if (com.bytedance.sdk.openadsdk.core.d.l.c(lVar) && lVar.X() != null && lVar.X().i() != null) {
+                if (p.h().a(String.valueOf(ak.d(lVar.ap()))) && p.h().L()) {
+                    com.bytedance.sdk.openadsdk.core.video.e.c.a(new com.bytedance.sdk.openadsdk.k.f.b().a(lVar.X().i()).a(204800).b(lVar.X().l()));
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(final long j2) {
+        if (this.f28517e.getAndSet(false)) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (b.this.f28519g == null || b.this.f28519g.size() <= 0) {
+                        if (b.this.f28516d != null) {
+                            b.this.f28516d.onError(108, com.bytedance.sdk.openadsdk.core.h.a(108));
+                            b.this.a(108);
+                        }
+                        if (b.this.f28520h != null) {
+                            b.this.f28520h.a();
+                        }
+                    } else {
+                        if (b.this.f28516d != null) {
+                            ArrayList arrayList = new ArrayList(b.this.f28519g.size());
+                            for (com.bytedance.sdk.openadsdk.core.d.l lVar : b.this.f28519g) {
+                                arrayList.add(b.this.a(lVar));
+                            }
+                            if (!arrayList.isEmpty()) {
+                                com.bytedance.sdk.openadsdk.c.d.a(b.this.f28515c, (com.bytedance.sdk.openadsdk.core.d.l) b.this.f28519g.get(0), ak.b(b.this.f28513a.getDurationSlotType()), j2);
+                                b.this.f28516d.onNativeExpressAdLoad(arrayList);
+                            } else {
+                                b.this.f28516d.onError(103, com.bytedance.sdk.openadsdk.core.h.a(103));
+                                b.this.a(103);
+                            }
+                        }
+                        if (b.this.f28520h != null) {
+                            b.this.f28520h.a(b.this.f28519g);
+                        }
+                    }
                     b.this.b();
                 }
             });
@@ -102,159 +220,61 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        if (this.f != null) {
-            for (com.bytedance.sdk.openadsdk.core.d.l lVar : this.f) {
-                if (lVar.aA() && lVar.Z() != null && !lVar.Z().isEmpty()) {
-                    for (com.bytedance.sdk.openadsdk.core.d.k kVar : lVar.Z()) {
-                        if (!TextUtils.isEmpty(kVar.a())) {
-                            com.bytedance.sdk.openadsdk.h.d.a(this.c).f().a(kVar.a(), (b.InterfaceC1033b) com.bytedance.sdk.openadsdk.h.a.b.a(), kVar.b(), kVar.c(), false);
-                        }
-                    }
-                }
-                if (com.bytedance.sdk.openadsdk.core.d.l.c(lVar) && lVar.R() != null && lVar.R().i() != null) {
-                    int d = aj.d(lVar.aj());
-                    if (p.h().a(String.valueOf(d)) && p.h().q(String.valueOf(d))) {
-                        com.bytedance.sdk.openadsdk.core.video.e.c.a(new com.bytedance.sdk.openadsdk.i.f.b().a(lVar.R().i()).a(com.baidu.fsg.base.statistics.b.b).b(lVar.R().l()));
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        if (this.e.getAndSet(false)) {
-            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    if (b.this.g == null || b.this.g.size() <= 0) {
-                        if (b.this.d != null) {
-                            b.this.d.onError(108, com.bytedance.sdk.openadsdk.core.h.a(108));
-                            b.this.a(108);
-                        }
-                        if (b.this.h != null) {
-                            b.this.h.a();
-                        }
-                    } else {
-                        if (b.this.d != null) {
-                            ArrayList arrayList = new ArrayList(b.this.g.size());
-                            for (com.bytedance.sdk.openadsdk.core.d.l lVar : b.this.g) {
-                                arrayList.add(b.this.a(lVar));
-                            }
-                            if (!arrayList.isEmpty()) {
-                                b.this.d.onNativeExpressAdLoad(arrayList);
-                            } else {
-                                b.this.d.onError(103, com.bytedance.sdk.openadsdk.core.h.a(103));
-                                b.this.a(103);
-                            }
-                        }
-                        if (b.this.h != null) {
-                            b.this.h.a(b.this.g);
-                        }
-                    }
-                    b.this.c();
-                }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        String str = "";
-        if (this.f != null && this.f.size() > 0) {
-            str = aj.h(this.f.get(0).aj());
-        }
-        com.bytedance.sdk.openadsdk.g.a.c f = com.bytedance.sdk.openadsdk.g.a.c.b().a(this.i).c(this.f4482a.getCodeId()).f(str);
-        f.b(i).g(com.bytedance.sdk.openadsdk.core.h.a(i));
-        com.bytedance.sdk.openadsdk.g.a.a().h(f);
+        List<com.bytedance.sdk.openadsdk.core.d.l> list = this.f28518f;
+        com.bytedance.sdk.openadsdk.h.a.c f2 = com.bytedance.sdk.openadsdk.h.a.c.b().a(this.i).c(this.f28513a.getCodeId()).f((list == null || list.size() <= 0) ? "" : ak.h(this.f28518f.get(0).ap()));
+        f2.b(i).g(com.bytedance.sdk.openadsdk.core.h.a(i));
+        com.bytedance.sdk.openadsdk.h.a.a().h(f2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str) {
-        if (this.e.getAndSet(false)) {
-            if (this.d != null) {
-                this.d.onError(i, str);
+        if (this.f28517e.getAndSet(false)) {
+            TTAdNative.NativeExpressAdListener nativeExpressAdListener = this.f28516d;
+            if (nativeExpressAdListener != null) {
+                nativeExpressAdListener.onError(i, str);
             }
-            if (this.h != null) {
-                this.h.a();
+            a aVar = this.f28520h;
+            if (aVar != null) {
+                aVar.a();
             }
-            c();
+            b();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public TTNativeExpressAd a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        switch (this.i) {
-            case 1:
-                if (lVar.R() != null) {
-                    return new com.bytedance.sdk.openadsdk.core.bannerexpress.c(this.c, lVar, this.f4482a);
-                }
-                return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.c, lVar, this.f4482a);
-            case 2:
-                if (lVar.R() != null) {
-                    return new com.bytedance.sdk.openadsdk.core.c.c(this.c, lVar, this.f4482a);
-                }
-                return new com.bytedance.sdk.openadsdk.core.c.b(this.c, lVar, this.f4482a);
-            case 3:
-            case 4:
-            case 6:
-            case 7:
-            case 8:
-            default:
+        int i = this.i;
+        if (i == 1) {
+            if (lVar.X() != null) {
+                return new com.bytedance.sdk.openadsdk.core.bannerexpress.c(this.f28515c, lVar, this.f28513a);
+            }
+            return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.f28515c, lVar, this.f28513a);
+        } else if (i == 2) {
+            if (lVar.X() != null) {
+                return new com.bytedance.sdk.openadsdk.core.c.c(this.f28515c, lVar, this.f28513a);
+            }
+            return new com.bytedance.sdk.openadsdk.core.c.b(this.f28515c, lVar, this.f28513a);
+        } else if (i != 5) {
+            if (i != 9) {
                 return null;
-            case 5:
-                if (lVar.R() != null) {
-                    return new o(this.c, lVar, this.f4482a);
-                }
-                return new k(this.c, lVar, this.f4482a);
-            case 9:
-                return new m(this.c, lVar, this.f4482a);
+            }
+            return new m(this.f28515c, lVar, this.f28513a);
+        } else if (lVar.X() != null) {
+            return new o(this.f28515c, lVar, this.f28513a);
+        } else {
+            return new k(this.f28515c, lVar, this.f28513a);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (this.f != null) {
-            this.f.clear();
-        }
-        if (this.g != null) {
-            this.g.clear();
-        }
-        a(true);
-        b(true);
-        c(true);
-        d();
     }
 
     private void a(boolean z) {
         try {
-            if (this.l != null && !this.l.isCancelled()) {
-                u.f("ExpressAdLoadManager", "CheckValidFutureTask-->cancel......success=" + this.l.cancel(z));
+            if (this.l == null || this.l.isCancelled()) {
+                return;
             }
-        } catch (Throwable th) {
+            boolean cancel = this.l.cancel(z);
+            u.f("ExpressAdLoadManager", "CheckValidFutureTask-->cancel......success=" + cancel);
+        } catch (Throwable unused) {
         }
-    }
-
-    private void b(boolean z) {
-        try {
-            if (this.m != null && !this.m.isCancelled()) {
-                u.b("ExpressAdLoadManager", "CheckValidDoneFutureTask-->cancel.....success=" + this.m.cancel(z));
-            }
-        } catch (Throwable th) {
-        }
-    }
-
-    private void c(boolean z) {
-        try {
-            if (this.k != null && !this.k.isCancelled()) {
-                u.f("ExpressAdLoadManager", "TimeOutFutureTask-->cancel......success=" + this.k.cancel(z));
-            }
-        } catch (Throwable th) {
-        }
-    }
-
-    private void d() {
-        j.remove(this);
     }
 }

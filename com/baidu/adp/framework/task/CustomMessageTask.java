@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class CustomMessageTask extends MessageTask {
-    private boolean isImme;
-    private BdAsyncTaskParallel mBdAsyncTaskParallel;
-    private CustomRunnable<?> mRunnable;
-    private TASK_TYPE mType;
+    public boolean isImme;
+    public BdAsyncTaskParallel mBdAsyncTaskParallel;
+    public CustomRunnable<?> mRunnable;
+    public TASK_TYPE mType;
 
     /* loaded from: classes.dex */
     public interface CustomRunnable<T> {
@@ -31,21 +31,21 @@ public class CustomMessageTask extends MessageTask {
         this.mRunnable = customRunnable;
     }
 
+    @Override // com.baidu.adp.framework.task.MessageTask
+    public boolean checkCmd() {
+        return FrameHelper.a(this.mCmd);
+    }
+
     public CustomRunnable<?> getRunnable() {
         return this.mRunnable;
     }
 
-    @Override // com.baidu.adp.framework.task.MessageTask
-    public boolean checkCmd() {
-        return FrameHelper.checkCustomCmd(this.mCmd);
+    public BdAsyncTaskParallel getTaskParallel() {
+        return this.mBdAsyncTaskParallel;
     }
 
     public TASK_TYPE getType() {
         return this.mType;
-    }
-
-    public void setType(TASK_TYPE task_type) {
-        this.mType = task_type;
     }
 
     public boolean isImme() {
@@ -56,11 +56,11 @@ public class CustomMessageTask extends MessageTask {
         this.isImme = z;
     }
 
-    public BdAsyncTaskParallel getTaskParallel() {
-        return this.mBdAsyncTaskParallel;
-    }
-
     public void setTaskParallel(BdAsyncTaskParallel bdAsyncTaskParallel) {
         this.mBdAsyncTaskParallel = bdAsyncTaskParallel;
+    }
+
+    public void setType(TASK_TYPE task_type) {
+        this.mType = task_type;
     }
 }

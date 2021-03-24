@@ -1,35 +1,43 @@
 package com.baidu.sapi2.utils;
 
+import android.annotation.TargetApi;
+import com.baidu.pass.common.SecurityUtil;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiConfiguration;
+import com.baidu.sapi2.SapiContext;
+import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class j {
-    public static final String g = "t_open_login";
-    public static final String h = "t_view_init_done";
-    public static final String i = "t_before_login";
-    public static final String j = "t_start_login";
-    public static final String k = "t_load_login";
-    public static final String l = "is_load_cache";
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f3466a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public boolean f;
-
-    public JSONObject a() {
+    @TargetApi(8)
+    public String a(Long l, String str, String str2) {
+        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+        String packageName = confignation.context.getPackageName();
+        String packageSign = SapiUtils.getPackageSign(confignation.context, packageName);
+        String packageSign2 = SapiUtils.getPackageSign(confignation.context, str);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(g, this.f3466a);
-            jSONObject.put(h, this.b);
-            jSONObject.put(i, this.c);
-            jSONObject.put(j, this.d);
-            jSONObject.put(k, this.e);
-            jSONObject.put(l, this.f);
-        } catch (JSONException e) {
+            jSONObject.put("type", "native");
+            jSONObject.put("timestamp", l);
+            jSONObject.put("host_api_key", confignation.bdOauthAppId);
+            jSONObject.put("host_pkgname", packageName);
+            jSONObject.put("host_key_hash", packageSign);
+            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+            jSONObject.put("bduss_sign", SecurityUtil.md5((currentAccount == null ? "" : currentAccount.bduss).getBytes(), false));
+            jSONObject.put("pkgname", str);
+            jSONObject.put("key_hash", packageSign2);
+            jSONObject.put(Constants.APP_ID, str2);
+        } catch (JSONException e2) {
+            Log.e(e2);
         }
-        return jSONObject;
+        String md5 = SecurityUtil.md5(("as#JU*342ns" + str2 + "#$FW34sfs").getBytes(), false);
+        try {
+            return SecurityUtil.base64Encode(SecurityUtil.aesEncrypt(jSONObject.toString(), new StringBuffer(md5.substring(md5.length() - 16, md5.length())).reverse().toString(), md5.substring(0, 16)));
+        } catch (Exception e3) {
+            Log.e(e3);
+            return "";
+        }
     }
 }

@@ -4,13 +4,21 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class GroupImageView extends TbClipImageView {
-    private int mDefaultBgId;
-    private int mDefaultId;
+    public int x0;
+    public int y0;
 
     public GroupImageView(Context context) {
         this(context, null, 0);
+    }
+
+    public final void G() {
+        setDrawerType(1);
+        setGifIconSupport(false);
+        setDrawBorder(true);
+        setDefaultResource(this.x0);
+        setDefaultBgResource(this.y0);
     }
 
     public GroupImageView(Context context, AttributeSet attributeSet) {
@@ -19,16 +27,8 @@ public class GroupImageView extends TbClipImageView {
 
     public GroupImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mDefaultId = R.drawable.transparent_bg;
-        this.mDefaultBgId = R.color.CAM_X0205;
-        init();
-    }
-
-    private void init() {
-        setDrawerType(1);
-        setGifIconSupport(false);
-        setDrawBorder(true);
-        setDefaultResource(this.mDefaultId);
-        setDefaultBgResource(this.mDefaultBgId);
+        this.x0 = R.drawable.transparent_bg;
+        this.y0 = R.color.CAM_X0205;
+        G();
     }
 }

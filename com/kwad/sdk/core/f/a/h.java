@@ -4,59 +4,33 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import com.kwad.sdk.utils.w;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f6085a;
+    public Context f33616a;
 
     public h(Context context) {
-        this.f6085a = context;
+        this.f33616a = context;
     }
 
     public String a() {
-        Cursor cursor;
-        String str;
+        String str = "";
+        Cursor cursor = null;
         try {
             try {
-                cursor = this.f6085a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
-            } catch (Throwable th) {
-                th = th;
-                w.a((Cursor) null);
-                throw th;
-            }
-        } catch (Exception e) {
-            e = e;
-            cursor = null;
-            str = "";
-        } catch (Throwable th2) {
-            th = th2;
-            w.a((Cursor) null);
-            throw th;
-        }
-        if (cursor != null) {
-            try {
-            } catch (Exception e2) {
-                e = e2;
-                str = "";
-            }
-            if (cursor.moveToNext()) {
-                str = cursor.getString(cursor.getColumnIndex("value"));
-                try {
+                cursor = this.f33616a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                if (cursor != null && cursor.moveToNext()) {
+                    str = cursor.getString(cursor.getColumnIndex("value"));
                     com.kwad.sdk.core.d.a.b("VivoDeviceIDHelper", "getOAID oaid:" + str);
-                    w.a(cursor);
-                } catch (Exception e3) {
-                    e = e3;
-                    com.kwad.sdk.core.d.a.b("VivoDeviceIDHelper", "getOAID fail");
-                    com.kwad.sdk.core.d.a.b(e);
-                    w.a(cursor);
-                    return str;
                 }
-                return str;
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.b("VivoDeviceIDHelper", "getOAID fail");
+                com.kwad.sdk.core.d.a.b(e2);
             }
+            return str;
+        } finally {
+            w.a(cursor);
         }
-        str = "";
-        w.a(cursor);
-        return str;
     }
 }

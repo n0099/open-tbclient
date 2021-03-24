@@ -24,59 +24,61 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import com.baidu.tieba.R$styleable;
+import d.b.b.a.f;
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class NavigationBar extends RelativeLayout {
-    private View barBgView;
-    private int containerWidth;
-    private boolean isAutoNight;
-    private boolean isFixedHeight;
-    private boolean isNeedAddStatusBarHeight;
-    private LinearLayout mAbsoluteCenterBox;
-    private ImageView mBackImageView;
-    private int mBackImagedeepResId;
-    private int mBackImagelightResId;
-    private View mBottomLine;
-    private int mBottomLineColor;
-    private LinearLayout mCenterBox;
-    private ImageView mCenterIcon;
-    private LinearLayout mCenterImgBox;
+    public View barBgView;
+    public int containerWidth;
+    public boolean isAutoNight;
+    public boolean isFixedHeight;
+    public boolean isNeedAddStatusBarHeight;
+    public LinearLayout mAbsoluteCenterBox;
+    public ImageView mBackImageView;
+    public int mBackImagedeepResId;
+    public int mBackImagelightResId;
+    public View mBottomLine;
+    public int mBottomLineColor;
+    public LinearLayout mCenterBox;
+    public ImageView mCenterIcon;
+    public LinearLayout mCenterImgBox;
     public TextView mCenterText;
-    private boolean mClickIsVaild;
-    private FrameLayout mContentLayout;
-    private Activity mCurrentActivity;
-    private int mFixedNavHeight;
-    private boolean mIsClose;
-    private boolean mIsCorner;
-    private LinearLayout mLeftBox;
-    private View.OnClickListener mLoginListener;
-    private TextView mLoginView;
-    private ValueAnimator.AnimatorUpdateListener mNavAnimatorUpdateListener;
-    private int mNavHeight;
-    private ValueAnimator mNavInAnimator;
-    private boolean mNavIsShow;
-    private ValueAnimator mNavOutAnimator;
-    private final View.OnClickListener mOnClickListener;
-    private View.OnClickListener mRegisterListener;
-    private TextView mRegisterView;
-    private LinearLayout mRightBox;
-    private View mRootView;
-    private int mSpecialBackgroundBackupColorId;
-    private Drawable mSpecialBackgroundDrawable;
-    private Paint mSpecialBackgroundPaint;
-    private View mStatusBarView;
+    public boolean mClickIsVaild;
+    public FrameLayout mContentLayout;
+    public Activity mCurrentActivity;
+    public int mFixedNavHeight;
+    public boolean mIsClose;
+    public boolean mIsCorner;
+    public LinearLayout mLeftBox;
+    public View.OnClickListener mLoginListener;
+    public TextView mLoginView;
+    public ValueAnimator.AnimatorUpdateListener mNavAnimatorUpdateListener;
+    public int mNavHeight;
+    public ValueAnimator mNavInAnimator;
+    public boolean mNavIsShow;
+    public ValueAnimator mNavOutAnimator;
+    public final View.OnClickListener mOnClickListener;
+    public View.OnClickListener mRegisterListener;
+    public TextView mRegisterView;
+    public LinearLayout mRightBox;
+    public View mRootView;
+    public int mSpecialBackgroundBackupColorId;
+    public Drawable mSpecialBackgroundDrawable;
+    public Paint mSpecialBackgroundPaint;
+    public View mStatusBarView;
     public TextView mTextTitle;
-    private int mTopPadding;
-    private View mUnloginView;
-    private View topCoverBgView;
+    public int mTopPadding;
+    public View mUnloginView;
+    public View topCoverBgView;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public enum ControlAlign {
         HORIZONTAL_LEFT,
         HORIZONTAL_CENTER,
@@ -84,13 +86,100 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_ABSOLUTE_CENTER
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public enum ControlType {
         BACK_BUTTON
     }
 
-    public int getFixedNavHeight() {
-        return this.mFixedNavHeight;
+    /* loaded from: classes3.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public a() {
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+            ViewGroup.LayoutParams layoutParams = NavigationBar.this.mContentLayout.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = intValue;
+                NavigationBar.this.mContentLayout.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public b() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+        public c() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (NavigationBar.this.mClickIsVaild) {
+                int id = view.getId();
+                if (id == R.id.navigationBarGoBack) {
+                    NavigationBar.this.mCurrentActivity.finish();
+                } else if (id == R.id.navigationBarHome) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002004, NavigationBar.this.mCurrentActivity));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements Animator.AnimatorListener {
+        public d() {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            NavigationBar.this.mNavIsShow = false;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements Animator.AnimatorListener {
+        public e() {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            NavigationBar.this.mNavIsShow = true;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            NavigationBar.this.mNavIsShow = true;
+        }
     }
 
     public NavigationBar(Context context) {
@@ -100,182 +189,14 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds88);
+        this.mNavHeight = l.g(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.CAM_X0204;
         this.mNavIsShow = true;
-        this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = NavigationBar.this.mContentLayout.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = intValue;
-                    NavigationBar.this.mContentLayout.setLayoutParams(layoutParams);
-                }
-            }
-        };
+        this.mNavAnimatorUpdateListener = new a();
         this.containerWidth = 0;
-        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (NavigationBar.this.mClickIsVaild) {
-                    int id = view.getId();
-                    if (id == R.id.navigationBarGoBack) {
-                        NavigationBar.this.mCurrentActivity.finish();
-                    } else if (id == R.id.navigationBarHome) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.START_GO_HOME, NavigationBar.this.mCurrentActivity));
-                    }
-                }
-            }
-        };
+        this.mOnClickListener = new c();
         init(context, null);
-    }
-
-    public NavigationBar(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mClickIsVaild = true;
-        this.isAutoNight = true;
-        this.isFixedHeight = true;
-        this.isNeedAddStatusBarHeight = false;
-        this.mTopPadding = 0;
-        this.mNavHeight = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds88);
-        this.mFixedNavHeight = 0;
-        this.mBottomLineColor = R.color.CAM_X0204;
-        this.mNavIsShow = true;
-        this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = NavigationBar.this.mContentLayout.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = intValue;
-                    NavigationBar.this.mContentLayout.setLayoutParams(layoutParams);
-                }
-            }
-        };
-        this.containerWidth = 0;
-        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (NavigationBar.this.mClickIsVaild) {
-                    int id = view.getId();
-                    if (id == R.id.navigationBarGoBack) {
-                        NavigationBar.this.mCurrentActivity.finish();
-                    } else if (id == R.id.navigationBarHome) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.START_GO_HOME, NavigationBar.this.mCurrentActivity));
-                    }
-                }
-            }
-        };
-        init(context, attributeSet);
-    }
-
-    public NavigationBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mClickIsVaild = true;
-        this.isAutoNight = true;
-        this.isFixedHeight = true;
-        this.isNeedAddStatusBarHeight = false;
-        this.mTopPadding = 0;
-        this.mNavHeight = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds88);
-        this.mFixedNavHeight = 0;
-        this.mBottomLineColor = R.color.CAM_X0204;
-        this.mNavIsShow = true;
-        this.mNavAnimatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = NavigationBar.this.mContentLayout.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = intValue;
-                    NavigationBar.this.mContentLayout.setLayoutParams(layoutParams);
-                }
-            }
-        };
-        this.containerWidth = 0;
-        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (NavigationBar.this.mClickIsVaild) {
-                    int id = view.getId();
-                    if (id == R.id.navigationBarGoBack) {
-                        NavigationBar.this.mCurrentActivity.finish();
-                    } else if (id == R.id.navigationBarHome) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.START_GO_HOME, NavigationBar.this.mCurrentActivity));
-                    }
-                }
-            }
-        };
-        init(context, attributeSet);
-    }
-
-    public void setStatusBarVisibility(int i) {
-        if (this.mStatusBarView != null) {
-            this.mStatusBarView.setVisibility(i);
-        }
-    }
-
-    private void init(Context context, AttributeSet attributeSet) {
-        boolean z;
-        this.mFixedNavHeight = this.mNavHeight;
-        this.mCurrentActivity = (Activity) context;
-        this.mRootView = LayoutInflater.from(context).inflate(R.layout.widget_navigation_bar, (ViewGroup) this, true);
-        this.mContentLayout = (FrameLayout) this.mRootView.findViewById(R.id.navigation_bar_content_layout);
-        this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.leftBox);
-        this.mCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.centerBox);
-        this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.rightBox);
-        this.mAbsoluteCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.absoluteCenterBox);
-        this.mCenterImgBox = (LinearLayout) this.mRootView.findViewById(R.id.center_img_box);
-        this.mCenterIcon = (ImageView) this.mRootView.findViewById(R.id.center_img);
-        this.mCenterText = (TextView) this.mRootView.findViewById(R.id.center_text);
-        this.mBottomLine = this.mRootView.findViewById(R.id.bottom_line);
-        this.topCoverBgView = this.mRootView.findViewById(R.id.navigation_bar_view_cover_bg);
-        this.topCoverBgView.setBackgroundDrawable(ap.getDrawable(0, R.drawable.navigation_cover_top_bg));
-        this.barBgView = this.mRootView.findViewById(R.id.navigation_bar_view_bg);
-        if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.NavigationBar);
-            z = obtainStyledAttributes.getBoolean(R.styleable.NavigationBar_canSpread, true);
-            obtainStyledAttributes.recycle();
-        } else {
-            z = true;
-        }
-        this.isNeedAddStatusBarHeight = z && UtilHelper.canUseStyleImmersiveSticky();
-        if (this.isNeedAddStatusBarHeight) {
-            this.mStatusBarView = createStateBarFillView();
-            addView(this.mStatusBarView);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mContentLayout.getLayoutParams();
-            layoutParams.addRule(3, this.mStatusBarView.getId());
-            this.mContentLayout.setLayoutParams(layoutParams);
-            this.mFixedNavHeight += UtilHelper.getStatusBarHeight();
-        }
-        setGravity(48);
-        initPadding();
-        switchNaviBarStatus(true);
-        this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-            }
-        });
-        this.mNavIsShow = true;
-    }
-
-    public void showNavigationBarExcludeStatusbar(boolean z) {
-        if (z) {
-            this.mLeftBox.setVisibility(0);
-            this.mCenterBox.setVisibility(0);
-            this.mRightBox.setVisibility(0);
-            this.mAbsoluteCenterBox.setVisibility(0);
-            return;
-        }
-        this.mLeftBox.setVisibility(8);
-        this.mCenterBox.setVisibility(8);
-        this.mRightBox.setVisibility(8);
-        this.mAbsoluteCenterBox.setVisibility(8);
-    }
-
-    public boolean isNavigationBarExcludeStatusbarVisible() {
-        return this.mLeftBox.getVisibility() == 0 || this.mCenterBox.getVisibility() == 0 || this.mRightBox.getVisibility() == 0;
     }
 
     private View createStateBarFillView() {
@@ -287,191 +208,123 @@ public class NavigationBar extends RelativeLayout {
         return view;
     }
 
-    public void switchNaviBarStatus(boolean z) {
-        if (z) {
-            this.mLeftBox.setVisibility(0);
-            this.mCenterBox.setVisibility(0);
-            this.mRightBox.setVisibility(0);
-            this.mAbsoluteCenterBox.setVisibility(0);
-            if (this.mUnloginView != null) {
-                this.mUnloginView.setVisibility(8);
-                return;
-            }
-            return;
+    private View getViewFromLayoutFile(int i) {
+        return LayoutInflater.from(this.mCurrentActivity).inflate(i, (ViewGroup) this, false);
+    }
+
+    private void init(Context context, AttributeSet attributeSet) {
+        boolean z;
+        this.mFixedNavHeight = this.mNavHeight;
+        this.mCurrentActivity = (Activity) context;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.widget_navigation_bar, (ViewGroup) this, true);
+        this.mRootView = inflate;
+        this.mContentLayout = (FrameLayout) inflate.findViewById(R.id.navigation_bar_content_layout);
+        this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.leftBox);
+        this.mCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.centerBox);
+        this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.rightBox);
+        this.mAbsoluteCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.absoluteCenterBox);
+        this.mCenterImgBox = (LinearLayout) this.mRootView.findViewById(R.id.center_img_box);
+        this.mCenterIcon = (ImageView) this.mRootView.findViewById(R.id.center_img);
+        this.mCenterText = (TextView) this.mRootView.findViewById(R.id.center_text);
+        this.mBottomLine = this.mRootView.findViewById(R.id.bottom_line);
+        View findViewById = this.mRootView.findViewById(R.id.navigation_bar_view_cover_bg);
+        this.topCoverBgView = findViewById;
+        boolean z2 = false;
+        findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, R.drawable.navigation_cover_top_bg));
+        this.barBgView = this.mRootView.findViewById(R.id.navigation_bar_view_bg);
+        if (attributeSet != null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.NavigationBar);
+            z = obtainStyledAttributes.getBoolean(R$styleable.NavigationBar_canSpread, true);
+            obtainStyledAttributes.recycle();
+        } else {
+            z = true;
         }
-        initUnloginView();
-        this.mLeftBox.setVisibility(8);
-        this.mCenterBox.setVisibility(8);
-        this.mRightBox.setVisibility(8);
-        this.mAbsoluteCenterBox.setVisibility(8);
-        this.mUnloginView.setVisibility(0);
+        if (z && UtilHelper.canUseStyleImmersiveSticky()) {
+            z2 = true;
+        }
+        this.isNeedAddStatusBarHeight = z2;
+        if (z2) {
+            View createStateBarFillView = createStateBarFillView();
+            this.mStatusBarView = createStateBarFillView;
+            addView(createStateBarFillView);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mContentLayout.getLayoutParams();
+            layoutParams.addRule(3, this.mStatusBarView.getId());
+            this.mContentLayout.setLayoutParams(layoutParams);
+            this.mFixedNavHeight += UtilHelper.getStatusBarHeight();
+        }
+        setGravity(48);
+        initPadding();
+        switchNaviBarStatus(true);
+        this.mRootView.setOnClickListener(new b());
+        this.mNavIsShow = true;
     }
 
     private void initUnloginView() {
         if (this.mUnloginView == null) {
-            this.mUnloginView = ((ViewStub) this.mRootView.findViewById(R.id.unlogin_view_stub)).inflate();
-            this.mRegisterView = (TextView) this.mUnloginView.findViewById(R.id.top_navi_register);
-            this.mLoginView = (TextView) this.mUnloginView.findViewById(R.id.top_navi_login);
-            this.mLoginView.setOnClickListener(this.mLoginListener);
+            View inflate = ((ViewStub) this.mRootView.findViewById(R.id.unlogin_view_stub)).inflate();
+            this.mUnloginView = inflate;
+            this.mRegisterView = (TextView) inflate.findViewById(R.id.top_navi_register);
+            TextView textView = (TextView) this.mUnloginView.findViewById(R.id.top_navi_login);
+            this.mLoginView = textView;
+            textView.setOnClickListener(this.mLoginListener);
             this.mRegisterView.setOnClickListener(this.mRegisterListener);
         }
     }
 
-    public void setLoginClickListener(View.OnClickListener onClickListener) {
-        this.mLoginListener = onClickListener;
-        if (this.mLoginView != null) {
-            this.mLoginView.setOnClickListener(onClickListener);
+    public TextView addCreateGroupButton(ControlAlign controlAlign, View.OnClickListener onClickListener) {
+        TextView textView = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_create_group);
+        if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            int dimension = (int) getResources().getDimension(R.dimen.ds16);
+            layoutParams.setMargins(0, dimension, dimension, dimension);
+            textView.setLayoutParams(layoutParams);
         }
-    }
-
-    public void setRegisterClickListener(View.OnClickListener onClickListener) {
-        this.mRegisterListener = onClickListener;
-        if (this.mRegisterView != null) {
-            this.mRegisterView.setOnClickListener(onClickListener);
+        getViewGroup(controlAlign).addView(textView);
+        if (onClickListener != null) {
+            textView.setOnClickListener(onClickListener);
         }
+        return textView;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void initPadding() {
-        setPadding(com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), this.mTopPadding, com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
-    }
-
-    public FrameLayout getContentLayout() {
-        return this.mContentLayout;
-    }
-
-    public void setContentPaddingTop(int i) {
-        this.mContentLayout.setPadding(com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), i, com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
-    }
-
-    public void setCustomContent(View view) {
-        this.mContentLayout.addView(view);
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        int i3;
-        if (this.isFixedHeight) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int i4 = this.mNavHeight;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mContentLayout.getLayoutParams();
-            if (Math.abs(layoutParams.topMargin) > this.mContentLayout.getHeight()) {
-                if (layoutParams.topMargin >= 0) {
-                    i3 = this.mContentLayout.getHeight() + i4;
-                } else {
-                    i3 = i4 - this.mContentLayout.getHeight();
-                }
-            } else {
-                i3 = layoutParams.topMargin + i4;
-            }
-            i2 = View.MeasureSpec.makeMeasureSpec(i3, mode);
+    public View addCustomView(ControlAlign controlAlign, View view, View.OnClickListener onClickListener) {
+        getViewGroup(controlAlign).addView(view);
+        if (onClickListener != null) {
+            view.setOnClickListener(onClickListener);
         }
-        if (this.isNeedAddStatusBarHeight && this.mStatusBarView != null && this.mStatusBarView.getVisibility() == 0) {
-            i2 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2) + UtilHelper.getStatusBarHeight(), View.MeasureSpec.getMode(i2));
+        if (controlAlign == ControlAlign.HORIZONTAL_CENTER) {
         }
-        super.onMeasure(i, i2);
-        this.containerWidth = View.MeasureSpec.getSize(i);
-        int measuredWidth = this.mLeftBox.getMeasuredWidth() + getPaddingLeft();
-        this.mCenterBox.measure(((this.containerWidth - measuredWidth) - (this.mRightBox.getMeasuredWidth() + getPaddingRight())) + 1073741824, this.mCenterBox.getMeasuredHeight() + 1073741824);
+        return view;
     }
 
-    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        this.mCenterBox.layout(this.mLeftBox.getMeasuredWidth() + getPaddingLeft(), this.mCenterBox.getTop(), this.containerWidth - (this.mRightBox.getMeasuredWidth() + getPaddingRight()), this.mCenterBox.getBottom());
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        if (this.mSpecialBackgroundDrawable != null) {
-            int measuredHeight = getMeasuredHeight() - ((int) ((this.mSpecialBackgroundDrawable.getIntrinsicHeight() / this.mSpecialBackgroundDrawable.getIntrinsicWidth()) * getWidth()));
-            this.mSpecialBackgroundDrawable.setBounds(0, measuredHeight, getMeasuredWidth(), getMeasuredHeight());
-            this.mSpecialBackgroundDrawable.draw(canvas);
-            if (measuredHeight > 0) {
-                if (this.mSpecialBackgroundPaint == null) {
-                    this.mSpecialBackgroundPaint = new Paint();
-                    this.mSpecialBackgroundPaint.setColor(ap.getColor(this.mSpecialBackgroundBackupColorId));
-                }
-                canvas.drawRect(0.0f, 0.0f, getWidth(), measuredHeight, this.mSpecialBackgroundPaint);
-            }
+    public Button addRightButton(ControlAlign controlAlign, String str) {
+        Button button = (Button) getViewFromLayoutFile(R.layout.widget_nb_item_stepbtn);
+        button.setText(str);
+        if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            int dimension = (int) getResources().getDimension(R.dimen.ds16);
+            layoutParams.setMargins(0, dimension, dimension, dimension);
+            button.setLayoutParams(layoutParams);
         }
+        getViewGroup(controlAlign).addView(button);
+        return button;
     }
 
-    public void setSpecialBackground(Drawable drawable, int i) {
-        this.mSpecialBackgroundDrawable = drawable;
-        this.mSpecialBackgroundBackupColorId = i;
+    public View addSystemImageButton(ControlAlign controlAlign, ControlType controlType) {
+        return addSystemImageButton(controlAlign, controlType, this.mOnClickListener);
     }
 
-    public TextView setCenterTextTitle(String str) {
-        if (str != null) {
-            this.mCenterText.setText(str);
-            this.mCenterText.setVisibility(0);
-            this.mCenterIcon.setVisibility(8);
-        } else {
-            this.mCenterText.setVisibility(8);
-            this.mCenterIcon.setVisibility(0);
-        }
-        return this.mCenterText;
+    public TextView addTextButton(ControlAlign controlAlign, String str) {
+        return addTextButton(controlAlign, str, null);
     }
 
-    public CharSequence getCenterTextTitleText() {
-        return this.mCenterText.getText();
+    public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str) {
+        TextView addTextButton = addTextButton(controlAlign, str, null);
+        setDefTextButtonColor(addTextButton);
+        return addTextButton;
     }
 
-    public TextView getCenterText() {
-        return this.mCenterText;
-    }
-
-    public void setIsClose(boolean z) {
-        this.mIsClose = z;
-    }
-
-    public void setIsCorner(boolean z) {
-        this.mIsCorner = z;
-    }
-
-    public TextView setTitleText(String str) {
-        if (this.mTextTitle == null) {
-            this.mTextTitle = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_title);
-            getViewGroup(ControlAlign.HORIZONTAL_CENTER).addView(this.mTextTitle);
-        }
-        this.mTextTitle.setText(str);
-        return this.mTextTitle;
-    }
-
-    public TextView setTitleText(String str, float f) {
-        if (this.mTextTitle == null) {
-            this.mTextTitle = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_title);
-            this.mTextTitle.setTextSize(0, f);
-            getViewGroup(ControlAlign.HORIZONTAL_CENTER).addView(this.mTextTitle);
-        }
-        this.mTextTitle.setText(str);
-        return this.mTextTitle;
-    }
-
-    public TextView setTitleText(int i) {
-        return setTitleText(this.mCurrentActivity.getString(i));
-    }
-
-    public View setTitleView(View view, View.OnClickListener onClickListener) {
-        return addCustomView(ControlAlign.HORIZONTAL_CENTER, view, onClickListener);
-    }
-
-    public boolean isFixedHeight() {
-        return this.isFixedHeight;
-    }
-
-    public void setFixedHeight(boolean z) {
-        this.isFixedHeight = z;
-    }
-
-    public View setTitleView(int i, View.OnClickListener onClickListener) {
-        return addCustomView(ControlAlign.HORIZONTAL_CENTER, getViewFromLayoutFile(i), onClickListener);
-    }
-
-    public View getTopCoverBgView() {
-        return this.topCoverBgView;
+    public ImageView getBackImageView() {
+        return this.mBackImageView;
     }
 
     public View getBarBgView() {
@@ -490,87 +343,404 @@ public class NavigationBar extends RelativeLayout {
         return this.mCenterImgBox;
     }
 
-    public View addSystemImageButton(ControlAlign controlAlign, ControlType controlType) {
-        return addSystemImageButton(controlAlign, controlType, this.mOnClickListener);
+    public TextView getCenterText() {
+        return this.mCenterText;
     }
 
-    public View addSystemImageButton(ControlAlign controlAlign, ControlType controlType, View.OnClickListener onClickListener) {
-        LinearLayout linearLayout = null;
-        if (controlType == ControlType.BACK_BUTTON && (linearLayout = (LinearLayout) findViewById(R.id.navigationBarGoBack)) == null) {
-            linearLayout = (LinearLayout) getViewFromLayoutFile(R.layout.widget_nb_item_back);
-            this.mBackImageView = (ImageView) linearLayout.findViewById(R.id.widget_navi_back_button);
-            this.mBackImageView.setContentDescription("返回");
-            onBackBtnOnChangeSkin();
-            if (linearLayout != null) {
-                getViewGroup(controlAlign).addView(linearLayout);
-                if (onClickListener != null) {
-                    linearLayout.setOnClickListener(onClickListener);
-                }
+    public CharSequence getCenterTextTitleText() {
+        return this.mCenterText.getText();
+    }
+
+    public FrameLayout getContentLayout() {
+        return this.mContentLayout;
+    }
+
+    public int getFixedNavHeight() {
+        return this.mFixedNavHeight;
+    }
+
+    public boolean getNavBarIsShow() {
+        return this.mNavIsShow;
+    }
+
+    public View getTopCoverBgView() {
+        return this.topCoverBgView;
+    }
+
+    public ViewGroup getViewGroup(ControlAlign controlAlign) {
+        if (controlAlign == ControlAlign.HORIZONTAL_LEFT) {
+            return this.mLeftBox;
+        }
+        if (controlAlign == ControlAlign.HORIZONTAL_RIGHT) {
+            return this.mRightBox;
+        }
+        if (controlAlign == ControlAlign.HORIZONTAL_ABSOLUTE_CENTER) {
+            return this.mAbsoluteCenterBox;
+        }
+        return this.mCenterBox;
+    }
+
+    public void hideBottomLine() {
+        this.mBottomLine.setVisibility(8);
+    }
+
+    public void hideNavigationBarWithAnimation() {
+        ValueAnimator valueAnimator = this.mNavOutAnimator;
+        if (valueAnimator == null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(0, 0 - this.mFixedNavHeight);
+            this.mNavOutAnimator = ofInt;
+            ofInt.addUpdateListener(this.mNavAnimatorUpdateListener);
+            this.mNavOutAnimator.addListener(new d());
+            this.mNavOutAnimator.setDuration(300L);
+            this.mNavOutAnimator.setInterpolator(new LinearInterpolator());
+        } else if (valueAnimator.isRunning()) {
+            return;
+        } else {
+            if ((this.mContentLayout.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) && ((ViewGroup.MarginLayoutParams) this.mContentLayout.getLayoutParams()).topMargin < 0) {
+                return;
             }
         }
-        return linearLayout;
+        this.mNavOutAnimator.start();
     }
 
-    public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str) {
-        TextView addTextButton = addTextButton(controlAlign, str, null);
-        setDefTextButtonColor(addTextButton);
-        return addTextButton;
+    public void initPadding() {
+        setPadding(l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), this.mTopPadding, l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
+    }
+
+    public boolean isAutoNight() {
+        return this.isAutoNight;
+    }
+
+    public boolean isFixedHeight() {
+        return this.isFixedHeight;
+    }
+
+    public boolean isNavigationBarExcludeStatusbarVisible() {
+        return this.mLeftBox.getVisibility() == 0 || this.mCenterBox.getVisibility() == 0 || this.mRightBox.getVisibility() == 0;
+    }
+
+    public void isShowBottomLine(boolean z) {
+        this.mBottomLine.setVisibility(z ? 0 : 8);
+    }
+
+    public void onBackBtnOnChangeSkin() {
+        onBackBtnOnChangeSkin(-1);
+    }
+
+    public void onCenterTextOnChangeSkin(int i) {
+        if (i < 0) {
+            i = TbadkCoreApplication.getInst().getSkinType();
+        }
+        SkinManager.setViewTextColor(this.mCenterText, R.color.CAM_X0105, 1, i);
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public void onChangeSkinType(f<?> fVar, int i) {
+        if (this.mIsCorner) {
+            SkinManager.setBackgroundResource(this, R.drawable.nav_bg_corner_shape, i);
+        } else {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
+        }
+        SkinManager.setBackgroundColor(this.mBottomLine, this.mBottomLineColor, i);
+        onBackBtnOnChangeSkin(i);
+        SkinManager.setNavbarTitleColor(this.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        SkinManager.setNavbarTitleColor(this.mCenterText, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        TextView textView = this.mRegisterView;
+        if (textView != null) {
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
+        }
+        TextView textView2 = this.mLoginView;
+        if (textView2 != null) {
+            SkinManager.setViewTextColor(textView2, R.color.CAM_X0106, 1);
+        }
+        initPadding();
+        if (fVar instanceof TbPageContext) {
+            TbPageContext tbPageContext = (TbPageContext) fVar;
+            tbPageContext.getLayoutMode().k(i == 1);
+            tbPageContext.getLayoutMode().j(this);
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        Drawable drawable = this.mSpecialBackgroundDrawable;
+        if (drawable != null) {
+            int measuredHeight = getMeasuredHeight() - ((int) ((drawable.getIntrinsicHeight() / this.mSpecialBackgroundDrawable.getIntrinsicWidth()) * getWidth()));
+            this.mSpecialBackgroundDrawable.setBounds(0, measuredHeight, getMeasuredWidth(), getMeasuredHeight());
+            this.mSpecialBackgroundDrawable.draw(canvas);
+            if (measuredHeight > 0) {
+                if (this.mSpecialBackgroundPaint == null) {
+                    Paint paint = new Paint();
+                    this.mSpecialBackgroundPaint = paint;
+                    paint.setColor(SkinManager.getColor(this.mSpecialBackgroundBackupColorId));
+                }
+                canvas.drawRect(0.0f, 0.0f, getWidth(), measuredHeight, this.mSpecialBackgroundPaint);
+            }
+        }
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        int measuredWidth = this.mLeftBox.getMeasuredWidth() + getPaddingLeft();
+        int measuredWidth2 = this.mRightBox.getMeasuredWidth() + getPaddingRight();
+        LinearLayout linearLayout = this.mCenterBox;
+        linearLayout.layout(measuredWidth, linearLayout.getTop(), this.containerWidth - measuredWidth2, this.mCenterBox.getBottom());
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        View view;
+        int i3;
+        int i4;
+        if (this.isFixedHeight) {
+            int mode = View.MeasureSpec.getMode(i2);
+            int i5 = this.mNavHeight;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mContentLayout.getLayoutParams();
+            if (Math.abs(layoutParams.topMargin) > this.mContentLayout.getHeight()) {
+                if (layoutParams.topMargin >= 0) {
+                    i3 = this.mContentLayout.getHeight();
+                } else {
+                    i4 = i5 - this.mContentLayout.getHeight();
+                    i2 = View.MeasureSpec.makeMeasureSpec(i4, mode);
+                }
+            } else {
+                i3 = layoutParams.topMargin;
+            }
+            i4 = i5 + i3;
+            i2 = View.MeasureSpec.makeMeasureSpec(i4, mode);
+        }
+        if (this.isNeedAddStatusBarHeight && (view = this.mStatusBarView) != null && view.getVisibility() == 0) {
+            i2 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2) + UtilHelper.getStatusBarHeight(), View.MeasureSpec.getMode(i2));
+        }
+        super.onMeasure(i, i2);
+        this.containerWidth = View.MeasureSpec.getSize(i);
+        int measuredWidth = this.mLeftBox.getMeasuredWidth() + getPaddingLeft();
+        int measuredWidth2 = this.mRightBox.getMeasuredWidth() + getPaddingRight();
+        LinearLayout linearLayout = this.mCenterBox;
+        linearLayout.measure(((this.containerWidth - measuredWidth) - measuredWidth2) + 1073741824, linearLayout.getMeasuredHeight() + 1073741824);
+    }
+
+    public void release() {
+        removeAllViews();
+    }
+
+    public void removeAllViews(ControlAlign controlAlign) {
+        getViewGroup(controlAlign).removeAllViews();
+    }
+
+    public void setAutoNight(boolean z) {
+        this.isAutoNight = z;
+    }
+
+    public void setBottomLineColor(int i) {
+        this.mBottomLineColor = i;
+    }
+
+    public void setBottomLineHeight(int i) {
+        this.mBottomLine.getLayoutParams().height = i;
+        requestLayout();
+    }
+
+    public TextView setCenterTextTitle(String str) {
+        if (str != null) {
+            this.mCenterText.setText(str);
+            this.mCenterText.setVisibility(0);
+            this.mCenterIcon.setVisibility(8);
+        } else {
+            this.mCenterText.setVisibility(8);
+            this.mCenterIcon.setVisibility(0);
+        }
+        return this.mCenterText;
+    }
+
+    public void setContentPaddingTop(int i) {
+        this.mContentLayout.setPadding(l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), i, l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), l.e(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
+    }
+
+    public void setCustomContent(View view) {
+        this.mContentLayout.addView(view);
     }
 
     public void setDefTextButtonColor(TextView textView) {
-        ap.setViewTextColor(textView, R.color.navi_op_text);
+        SkinManager.setViewTextColor(textView, R.color.navi_op_text);
     }
 
-    public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
-        TextView addTextButton = addTextButton(controlAlign, str, onClickListener, false);
-        setDefTextButtonColor(addTextButton);
-        return addTextButton;
+    public void setFixedHeight(boolean z) {
+        this.isFixedHeight = z;
     }
 
-    public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str, View.OnClickListener onClickListener, boolean z) {
-        TextView addTextButton = addTextButton(controlAlign, str, onClickListener, z);
-        setDefTextButtonColor(addTextButton);
-        return addTextButton;
+    public void setIsClose(boolean z) {
+        this.mIsClose = z;
     }
 
-    public TextView addTextButton(ControlAlign controlAlign, String str) {
-        return addTextButton(controlAlign, str, null);
+    public void setIsCorner(boolean z) {
+        this.mIsCorner = z;
     }
 
-    public TextView addCreateGroupButton(ControlAlign controlAlign, View.OnClickListener onClickListener) {
-        TextView textView = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_create_group);
-        if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) getResources().getDimension(R.dimen.ds16);
-            layoutParams.setMargins(0, dimension, dimension, dimension);
-            textView.setLayoutParams(layoutParams);
-        }
-        getViewGroup(controlAlign).addView(textView);
-        if (onClickListener != null) {
+    public void setLoginClickListener(View.OnClickListener onClickListener) {
+        this.mLoginListener = onClickListener;
+        TextView textView = this.mLoginView;
+        if (textView != null) {
             textView.setOnClickListener(onClickListener);
         }
-        return textView;
     }
 
-    public Button addRightButton(ControlAlign controlAlign, String str) {
-        Button button = (Button) getViewFromLayoutFile(R.layout.widget_nb_item_stepbtn);
-        button.setText(str);
-        if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) getResources().getDimension(R.dimen.ds16);
-            layoutParams.setMargins(0, dimension, dimension, dimension);
-            button.setLayoutParams(layoutParams);
+    public void setNavHeight(int i) {
+        this.mNavHeight = i;
+    }
+
+    public void setRegisterClickListener(View.OnClickListener onClickListener) {
+        this.mRegisterListener = onClickListener;
+        TextView textView = this.mRegisterView;
+        if (textView != null) {
+            textView.setOnClickListener(onClickListener);
         }
-        getViewGroup(controlAlign).addView(button);
-        return button;
+    }
+
+    public void setSpecialBackground(Drawable drawable, int i) {
+        this.mSpecialBackgroundDrawable = drawable;
+        this.mSpecialBackgroundBackupColorId = i;
+    }
+
+    public void setStatusBarVisibility(int i) {
+        View view = this.mStatusBarView;
+        if (view != null) {
+            view.setVisibility(i);
+        }
     }
 
     public void setSystemClickable(boolean z) {
         this.mClickIsVaild = z;
     }
 
+    public TextView setTitleText(String str) {
+        if (this.mTextTitle == null) {
+            this.mTextTitle = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_title);
+            getViewGroup(ControlAlign.HORIZONTAL_CENTER).addView(this.mTextTitle);
+        }
+        this.mTextTitle.setText(str);
+        return this.mTextTitle;
+    }
+
+    public View setTitleView(View view, View.OnClickListener onClickListener) {
+        return addCustomView(ControlAlign.HORIZONTAL_CENTER, view, onClickListener);
+    }
+
+    public void setmBackImageViewBg(int i, int i2) {
+        this.mBackImagedeepResId = i;
+        this.mBackImagelightResId = i2;
+        SkinManager.setNavbarIconSrc(this.mBackImageView, i, i2);
+    }
+
+    public void showBottomLine(boolean z) {
+        this.mBottomLine.setVisibility(8);
+    }
+
+    public void showNavigationBarExcludeStatusbar(boolean z) {
+        if (z) {
+            this.mLeftBox.setVisibility(0);
+            this.mCenterBox.setVisibility(0);
+            this.mRightBox.setVisibility(0);
+            this.mAbsoluteCenterBox.setVisibility(0);
+            return;
+        }
+        this.mLeftBox.setVisibility(8);
+        this.mCenterBox.setVisibility(8);
+        this.mRightBox.setVisibility(8);
+        this.mAbsoluteCenterBox.setVisibility(8);
+    }
+
+    public void showNavigationBarWithAnimation() {
+        ValueAnimator valueAnimator = this.mNavInAnimator;
+        if (valueAnimator == null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(0 - this.mFixedNavHeight, 0);
+            this.mNavInAnimator = ofInt;
+            ofInt.addUpdateListener(this.mNavAnimatorUpdateListener);
+            this.mNavInAnimator.addListener(new e());
+            this.mNavInAnimator.setDuration(300L);
+            this.mNavInAnimator.setInterpolator(new LinearInterpolator());
+        } else if (valueAnimator.isRunning()) {
+            return;
+        } else {
+            if ((this.mContentLayout.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) && ((ViewGroup.MarginLayoutParams) this.mContentLayout.getLayoutParams()).topMargin >= 0) {
+                return;
+            }
+        }
+        this.mNavInAnimator.start();
+    }
+
+    public void switchNaviBarStatus(boolean z) {
+        if (z) {
+            this.mLeftBox.setVisibility(0);
+            this.mCenterBox.setVisibility(0);
+            this.mRightBox.setVisibility(0);
+            this.mAbsoluteCenterBox.setVisibility(0);
+            View view = this.mUnloginView;
+            if (view != null) {
+                view.setVisibility(8);
+                return;
+            }
+            return;
+        }
+        initUnloginView();
+        this.mLeftBox.setVisibility(8);
+        this.mCenterBox.setVisibility(8);
+        this.mRightBox.setVisibility(8);
+        this.mAbsoluteCenterBox.setVisibility(8);
+        this.mUnloginView.setVisibility(0);
+    }
+
+    public View addSystemImageButton(ControlAlign controlAlign, ControlType controlType, View.OnClickListener onClickListener) {
+        if (controlType == ControlType.BACK_BUTTON) {
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.navigationBarGoBack);
+            if (linearLayout == null) {
+                LinearLayout linearLayout2 = (LinearLayout) getViewFromLayoutFile(R.layout.widget_nb_item_back);
+                ImageView imageView = (ImageView) linearLayout2.findViewById(R.id.widget_navi_back_button);
+                this.mBackImageView = imageView;
+                imageView.setContentDescription("返回");
+                onBackBtnOnChangeSkin();
+                if (linearLayout2 != null) {
+                    getViewGroup(controlAlign).addView(linearLayout2);
+                    if (onClickListener != null) {
+                        linearLayout2.setOnClickListener(onClickListener);
+                        return linearLayout2;
+                    }
+                    return linearLayout2;
+                }
+                return linearLayout2;
+            }
+            return linearLayout;
+        }
+        return null;
+    }
+
     public TextView addTextButton(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
         return addTextButton(controlAlign, str, onClickListener, false);
+    }
+
+    public void onBackBtnOnChangeSkin(int i) {
+        int i2;
+        if (i < 0) {
+            i = TbadkCoreApplication.getInst().getSkinType();
+        }
+        int i3 = this.mBackImagedeepResId;
+        if (i3 > 0 && (i2 = this.mBackImagelightResId) > 0) {
+            SkinManager.setNavbarIconSrc(this.mBackImageView, i3, i2, i);
+        } else if (this.mIsClose) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        } else {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
+        }
+    }
+
+    public View setTitleView(int i, View.OnClickListener onClickListener) {
+        return addCustomView(ControlAlign.HORIZONTAL_CENTER, getViewFromLayoutFile(i), onClickListener);
+    }
+
+    public void showBottomLine() {
+        this.mBottomLine.setVisibility(8);
     }
 
     public TextView addTextButton(ControlAlign controlAlign, String str, View.OnClickListener onClickListener, boolean z) {
@@ -603,223 +773,83 @@ public class NavigationBar extends RelativeLayout {
         return textView;
     }
 
-    public void removeAllViews(ControlAlign controlAlign) {
-        getViewGroup(controlAlign).removeAllViews();
-    }
-
-    public View addCustomView(ControlAlign controlAlign, View view, View.OnClickListener onClickListener) {
-        getViewGroup(controlAlign).addView(view);
-        if (onClickListener != null) {
-            view.setOnClickListener(onClickListener);
-        }
-        if (controlAlign == ControlAlign.HORIZONTAL_CENTER) {
-        }
-        return view;
+    public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
+        TextView addTextButton = addTextButton(controlAlign, str, onClickListener, false);
+        setDefTextButtonColor(addTextButton);
+        return addTextButton;
     }
 
     public View addCustomView(ControlAlign controlAlign, int i, View.OnClickListener onClickListener) {
         return addCustomView(controlAlign, getViewFromLayoutFile(i), onClickListener);
     }
 
-    public ViewGroup getViewGroup(ControlAlign controlAlign) {
-        if (controlAlign == ControlAlign.HORIZONTAL_LEFT) {
-            return this.mLeftBox;
-        }
-        if (controlAlign == ControlAlign.HORIZONTAL_RIGHT) {
-            return this.mRightBox;
-        }
-        if (controlAlign == ControlAlign.HORIZONTAL_ABSOLUTE_CENTER) {
-            return this.mAbsoluteCenterBox;
-        }
-        return this.mCenterBox;
+    public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str, View.OnClickListener onClickListener, boolean z) {
+        TextView addTextButton = addTextButton(controlAlign, str, onClickListener, z);
+        setDefTextButtonColor(addTextButton);
+        return addTextButton;
     }
 
-    public void showBottomLine(boolean z) {
-        this.mBottomLine.setVisibility(8);
-    }
-
-    public void showBottomLine() {
-        this.mBottomLine.setVisibility(8);
-    }
-
-    public void hideBottomLine() {
-        this.mBottomLine.setVisibility(8);
-    }
-
-    public void isShowBottomLine(boolean z) {
-        this.mBottomLine.setVisibility(z ? 0 : 8);
-    }
-
-    private View getViewFromLayoutFile(int i) {
-        return LayoutInflater.from(this.mCurrentActivity).inflate(i, (ViewGroup) this, false);
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public void onChangeSkinType(com.baidu.adp.base.f<?> fVar, int i) {
-        if (this.mIsCorner) {
-            ap.setBackgroundResource(this, R.drawable.nav_bg_corner_shape, i);
-        } else {
-            ap.setBackgroundColor(this, R.color.CAM_X0207, i);
+    public TextView setTitleText(String str, float f2) {
+        if (this.mTextTitle == null) {
+            TextView textView = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_title);
+            this.mTextTitle = textView;
+            textView.setTextSize(0, f2);
+            getViewGroup(ControlAlign.HORIZONTAL_CENTER).addView(this.mTextTitle);
         }
-        ap.setBackgroundColor(this.mBottomLine, this.mBottomLineColor, i);
-        onBackBtnOnChangeSkin(i);
-        ap.setNavbarTitleColor(this.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        ap.setNavbarTitleColor(this.mCenterText, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        if (this.mRegisterView != null) {
-            ap.setViewTextColor(this.mRegisterView, R.color.CAM_X0106, 1);
-        }
-        if (this.mLoginView != null) {
-            ap.setViewTextColor(this.mLoginView, R.color.CAM_X0106, 1);
-        }
-        initPadding();
-        if (fVar instanceof TbPageContext) {
-            ((TbPageContext) fVar).getLayoutMode().setNightMode(i == 1);
-            ((TbPageContext) fVar).getLayoutMode().onModeChanged(this);
-        }
-    }
-
-    public void onBackBtnOnChangeSkin() {
-        onBackBtnOnChangeSkin(-1);
-    }
-
-    public void onBackBtnOnChangeSkin(int i) {
-        if (i < 0) {
-            i = TbadkCoreApplication.getInst().getSkinType();
-        }
-        if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
-            ap.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
-        } else if (this.mIsClose) {
-            SvgManager.bsU().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        } else {
-            SvgManager.bsU().a(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
-        }
+        this.mTextTitle.setText(str);
+        return this.mTextTitle;
     }
 
     public void onBackBtnOnChangeSkin(int i, @ColorRes int i2) {
+        int i3;
         if (i < 0) {
             i = TbadkCoreApplication.getInst().getSkinType();
         }
-        if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
-            ap.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
+        int i4 = this.mBackImagedeepResId;
+        if (i4 > 0 && (i3 = this.mBackImagelightResId) > 0) {
+            SkinManager.setNavbarIconSrc(this.mBackImageView, i4, i3, i);
         } else if (this.mIsClose) {
-            SvgManager.bsU().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, (SvgManager.SvgResourceStateType) null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, null);
         } else {
-            SvgManager.bsU().a(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, i2, (SvgManager.SvgResourceStateType) null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.ic_icon_pure_topbar_return40_svg, i2, null);
         }
     }
 
-    public void onCenterTextOnChangeSkin(int i) {
-        if (i < 0) {
-            i = TbadkCoreApplication.getInst().getSkinType();
-        }
-        ap.setViewTextColor(this.mCenterText, R.color.CAM_X0105, 1, i);
+    public TextView setTitleText(int i) {
+        return setTitleText(this.mCurrentActivity.getString(i));
     }
 
-    public ImageView getBackImageView() {
-        return this.mBackImageView;
+    public NavigationBar(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.mClickIsVaild = true;
+        this.isAutoNight = true;
+        this.isFixedHeight = true;
+        this.isNeedAddStatusBarHeight = false;
+        this.mTopPadding = 0;
+        this.mNavHeight = l.g(getContext(), R.dimen.ds88);
+        this.mFixedNavHeight = 0;
+        this.mBottomLineColor = R.color.CAM_X0204;
+        this.mNavIsShow = true;
+        this.mNavAnimatorUpdateListener = new a();
+        this.containerWidth = 0;
+        this.mOnClickListener = new c();
+        init(context, attributeSet);
     }
 
-    public void setmBackImageViewBg(int i, int i2) {
-        this.mBackImagedeepResId = i;
-        this.mBackImagelightResId = i2;
-        ap.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId);
-    }
-
-    public void release() {
-        removeAllViews();
-    }
-
-    public boolean isAutoNight() {
-        return this.isAutoNight;
-    }
-
-    public void setAutoNight(boolean z) {
-        this.isAutoNight = z;
-    }
-
-    public void hideNavigationBarWithAnimation() {
-        if (this.mNavOutAnimator == null) {
-            this.mNavOutAnimator = ValueAnimator.ofInt(0, 0 - this.mFixedNavHeight);
-            this.mNavOutAnimator.addUpdateListener(this.mNavAnimatorUpdateListener);
-            this.mNavOutAnimator.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.4
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator) {
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator) {
-                    NavigationBar.this.mNavIsShow = false;
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationCancel(Animator animator) {
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationRepeat(Animator animator) {
-                }
-            });
-            this.mNavOutAnimator.setDuration(300L);
-            this.mNavOutAnimator.setInterpolator(new LinearInterpolator());
-        } else if (this.mNavOutAnimator.isRunning()) {
-            return;
-        } else {
-            if ((this.mContentLayout.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) && ((ViewGroup.MarginLayoutParams) this.mContentLayout.getLayoutParams()).topMargin < 0) {
-                return;
-            }
-        }
-        this.mNavOutAnimator.start();
-    }
-
-    public void showNavigationBarWithAnimation() {
-        if (this.mNavInAnimator == null) {
-            this.mNavInAnimator = ValueAnimator.ofInt(0 - this.mFixedNavHeight, 0);
-            this.mNavInAnimator.addUpdateListener(this.mNavAnimatorUpdateListener);
-            this.mNavInAnimator.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.core.view.NavigationBar.5
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator) {
-                    NavigationBar.this.mNavIsShow = true;
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator) {
-                    NavigationBar.this.mNavIsShow = true;
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationCancel(Animator animator) {
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationRepeat(Animator animator) {
-                }
-            });
-            this.mNavInAnimator.setDuration(300L);
-            this.mNavInAnimator.setInterpolator(new LinearInterpolator());
-        } else if (this.mNavInAnimator.isRunning()) {
-            return;
-        } else {
-            if ((this.mContentLayout.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) && ((ViewGroup.MarginLayoutParams) this.mContentLayout.getLayoutParams()).topMargin >= 0) {
-                return;
-            }
-        }
-        this.mNavInAnimator.start();
-    }
-
-    public boolean getNavBarIsShow() {
-        return this.mNavIsShow;
-    }
-
-    public void setBottomLineColor(int i) {
-        this.mBottomLineColor = i;
-    }
-
-    public void setBottomLineHeight(int i) {
-        this.mBottomLine.getLayoutParams().height = i;
-        requestLayout();
-    }
-
-    public void setNavHeight(int i) {
-        this.mNavHeight = i;
+    public NavigationBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.mClickIsVaild = true;
+        this.isAutoNight = true;
+        this.isFixedHeight = true;
+        this.isNeedAddStatusBarHeight = false;
+        this.mTopPadding = 0;
+        this.mNavHeight = l.g(getContext(), R.dimen.ds88);
+        this.mFixedNavHeight = 0;
+        this.mBottomLineColor = R.color.CAM_X0204;
+        this.mNavIsShow = true;
+        this.mNavAnimatorUpdateListener = new a();
+        this.containerWidth = 0;
+        this.mOnClickListener = new c();
+        init(context, attributeSet);
     }
 }

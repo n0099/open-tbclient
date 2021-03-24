@@ -2,8 +2,8 @@ package com.xiaomi.push;
 
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes5.dex */
-final class z implements FileFilter {
+/* loaded from: classes7.dex */
+public final class z implements FileFilter {
     @Override // java.io.FileFilter
     public boolean accept(File file) {
         return file.isDirectory();

@@ -2,6 +2,7 @@ package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,22 +11,23 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class o {
     public static <T> List<T> a(String str) {
         ArrayList arrayList = new ArrayList();
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    Object obj = jSONArray.get(i);
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
+        if (TextUtils.isEmpty(str)) {
+            return arrayList;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(str);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                Object obj = jSONArray.get(i);
+                if (obj != null) {
+                    arrayList.add(obj);
                 }
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
             }
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
         return arrayList;
     }
@@ -40,14 +42,13 @@ public class o {
 
     public static JSONObject a(Map<String, String> map) {
         JSONObject jSONObject = new JSONObject();
-        if (map == null || map.isEmpty()) {
-            return jSONObject;
-        }
-        try {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONObject.put(entry.getKey(), entry.getValue());
+        if (map != null && !map.isEmpty()) {
+            try {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (Exception unused) {
             }
-        } catch (Exception e) {
         }
         return jSONObject;
     }
@@ -56,31 +57,31 @@ public class o {
         jSONArray.put(jSONObject);
     }
 
-    public static void a(JSONObject jSONObject, String str, double d) {
+    public static void a(JSONObject jSONObject, String str, double d2) {
         try {
-            jSONObject.put(str, d);
-        } catch (JSONException e) {
+            jSONObject.put(str, d2);
+        } catch (JSONException unused) {
         }
     }
 
-    public static void a(JSONObject jSONObject, String str, float f) {
+    public static void a(JSONObject jSONObject, String str, float f2) {
         try {
-            jSONObject.put(str, f);
-        } catch (JSONException e) {
+            jSONObject.put(str, f2);
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, int i) {
         try {
             jSONObject.put(str, i);
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, long j) {
         try {
             jSONObject.put(str, j);
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
     }
 
@@ -90,14 +91,14 @@ public class o {
         }
         try {
             jSONObject.put(str, bVar.toJson());
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, String str2) {
         try {
             jSONObject.put(str, str2);
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
     }
 
@@ -126,21 +127,21 @@ public class o {
     public static void a(JSONObject jSONObject, String str, JSONArray jSONArray) {
         try {
             jSONObject.put(str, jSONArray);
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, JSONObject jSONObject2) {
         try {
             jSONObject.put(str, jSONObject2);
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, boolean z) {
         try {
             jSONObject.put(str, z);
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
     }
 
@@ -152,12 +153,12 @@ public class o {
             while (keys.hasNext()) {
                 String next = keys.next();
                 String optString = jSONObject.optString(next, "");
-                if (TextUtils.isEmpty(optString) || TextUtils.equals("null", optString)) {
+                if (TextUtils.isEmpty(optString) || TextUtils.equals(StringUtil.NULL_STRING, optString)) {
                     optString = "";
                 }
                 hashMap.put(next, optString);
             }
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
         return hashMap;
     }

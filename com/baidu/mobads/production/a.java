@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobad.feeds.RequestParameters;
+import com.baidu.mobads.g.q;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContainer;
 import com.baidu.mobads.interfaces.IXAdContainerContext;
@@ -27,58 +28,453 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.mobads.utils.q;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLinearAdSlot {
-    public static IXAdContainerFactory b;
-    private static final String[] z = {"android.permission.ACCESS_COARSE_LOCATION", "android.permission.WRITE_EXTERNAL_STORAGE"};
-    private IXAdResponseInfo B;
-    private String C;
-    protected RelativeLayout e;
-    protected Context f;
-    public IXAdContainer h;
-    protected String i;
-    protected p j;
-    protected com.baidu.mobads.vo.d k;
-    protected IXAdConstants4PDK.SlotType o;
-    protected long w;
-    protected long x;
-    protected long y;
-    protected Boolean c = false;
-    private AtomicBoolean A = new AtomicBoolean(true);
-    public IXAdInstanceInfo d = null;
-    protected int g = 0;
-    protected IXAdConstants4PDK.SlotState l = IXAdConstants4PDK.SlotState.IDEL;
-    protected int m = 5000;
-    protected int n = 0;
-    protected boolean p = false;
-    protected HashMap<String, String> q = new HashMap<>();
-    protected AtomicBoolean r = new AtomicBoolean();
-    private Handler D = new Handler(Looper.getMainLooper());
-    private Runnable E = null;
-    protected String s = "";
-    protected IXAdFeedsRequestParameters t = null;
-    protected HashMap<String, String> u = null;
-    private IOAdEventListener F = new b(this);
-    protected final IXAdLogger v = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
-    protected abstract void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap);
+    /* renamed from: b  reason: collision with root package name */
+    public static IXAdContainerFactory f8434b;
+    public static final String[] z = {"android.permission.ACCESS_COARSE_LOCATION", StorageUtils.EXTERNAL_STORAGE_PERMISSION};
+    public IXAdResponseInfo B;
+    public String C;
 
-    protected abstract void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i);
+    /* renamed from: e  reason: collision with root package name */
+    public RelativeLayout f8437e;
 
-    protected abstract void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap);
+    /* renamed from: f  reason: collision with root package name */
+    public Context f8438f;
+
+    /* renamed from: h  reason: collision with root package name */
+    public IXAdContainer f8440h;
+    public String i;
+    public p j;
+    public com.baidu.mobads.vo.d k;
+    public IXAdConstants4PDK.SlotType o;
+    public long w;
+    public long x;
+    public long y;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Boolean f8435c = Boolean.FALSE;
+    public AtomicBoolean A = new AtomicBoolean(true);
+
+    /* renamed from: d  reason: collision with root package name */
+    public IXAdInstanceInfo f8436d = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f8439g = 0;
+    public IXAdConstants4PDK.SlotState l = IXAdConstants4PDK.SlotState.IDEL;
+    public int m = 5000;
+    public int n = 0;
+    public boolean p = false;
+    public HashMap<String, String> q = new HashMap<>();
+    public AtomicBoolean r = new AtomicBoolean();
+    public Handler D = new Handler(Looper.getMainLooper());
+    public Runnable E = null;
+    public String s = "";
+    public IXAdFeedsRequestParameters t = null;
+    public HashMap<String, String> u = null;
+    public IOAdEventListener F = new b(this);
+    public final IXAdLogger v = XAdSDKFoundationFacade.getInstance().getAdLogger();
+
+    public a(Context context) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        BaiduXAdSDKContext.isRemoteLoadSuccess = Boolean.TRUE;
+        b("XAdMouldeLoader load success");
+    }
+
+    private boolean g(IXAdInstanceInfo iXAdInstanceInfo) {
+        if (iXAdInstanceInfo != null) {
+            try {
+                if (iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO && this.p) {
+                    return XAdSDKFoundationFacade.getInstance().getSystemUtils().isWifiConnected(getApplicationContext()).booleanValue();
+                }
+                return true;
+            } catch (Throwable th) {
+                this.v.d("XAbstractAdProdTemplate", th.getMessage());
+                return true;
+            }
+        }
+        return true;
+    }
+
+    private boolean h(IXAdInstanceInfo iXAdInstanceInfo) {
+        return iXAdInstanceInfo != null && this.o != null && IXAdConstants4PDK.SlotType.SLOT_TYPE_FEEDS.getValue().equals(this.o.getValue()) && iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO;
+    }
+
+    private void i(IXAdInstanceInfo iXAdInstanceInfo) {
+        this.v.d("XAbstractAdProdTemplate", "cacheCreativeAsset");
+        String a2 = a(iXAdInstanceInfo);
+        if (TextUtils.isEmpty(a2)) {
+            return;
+        }
+        if (!a(iXAdInstanceInfo, a2)) {
+            b(iXAdInstanceInfo, a2);
+            return;
+        }
+        iXAdInstanceInfo.setLocalCreativeURL(null);
+        String a3 = com.baidu.mobads.utils.m.a(getApplicationContext());
+        String b2 = com.baidu.mobads.utils.m.b(a2);
+        com.baidu.mobads.c.a a4 = com.baidu.mobads.c.a.a();
+        String mainPictureUrl = iXAdInstanceInfo.getMainPictureUrl();
+        if (a4 != null && a(a4, iXAdInstanceInfo.getCreativeType(), mainPictureUrl)) {
+            a4.a(iXAdInstanceInfo.getMainPictureUrl(), new e(this, iXAdInstanceInfo, a2, a3, b2));
+        } else {
+            a(iXAdInstanceInfo, a2, a3, b2);
+        }
+    }
+
+    public abstract void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap);
+
+    public abstract void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i);
+
+    public void a(boolean z2, IXAdInstanceInfo iXAdInstanceInfo) {
+    }
+
+    public abstract void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap);
 
     public abstract void b(IXAdResponseInfo iXAdResponseInfo);
 
     public abstract void c();
 
-    protected abstract void d();
+    public boolean c(IXAdInstanceInfo iXAdInstanceInfo) {
+        return iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.HTML;
+    }
+
+    public abstract void d();
+
+    public boolean d(IXAdInstanceInfo iXAdInstanceInfo) {
+        return iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO;
+    }
+
+    public void e() {
+    }
+
+    public void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+    }
+
+    public void e(IXAdInstanceInfo iXAdInstanceInfo) {
+        if (iXAdInstanceInfo == null || q() || !h(iXAdInstanceInfo)) {
+            return;
+        }
+        i(iXAdInstanceInfo);
+    }
+
+    public void f() {
+    }
+
+    public boolean f(IXAdInstanceInfo iXAdInstanceInfo) {
+        return false;
+    }
+
+    public void g() {
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public Activity getActivity() {
+        Context context = this.f8438f;
+        if (context instanceof Activity) {
+            return (Activity) context;
+        }
+        RelativeLayout relativeLayout = this.f8437e;
+        if (relativeLayout == null || !(relativeLayout.getContext() instanceof Activity)) {
+            return null;
+        }
+        return (Activity) this.f8437e.getContext();
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public IXAdContainerFactory getAdContainerFactory() {
+        return f8434b;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public IXAdResponseInfo getAdResponseInfo() {
+        return this.B;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public Context getApplicationContext() {
+        Activity activity = getActivity();
+        return activity == null ? this.f8438f : activity.getApplicationContext();
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public IXAdInstanceInfo getCurrentAdInstance() {
+        return this.f8436d;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public IXAdContainer getCurrentXAdContainer() {
+        return this.f8440h;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public int getDuration() {
+        return -1;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public String getId() {
+        return this.C;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public HashMap<String, String> getParameter() {
+        return this.q;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public int getPlayheadTime() {
+        return -1;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public ViewGroup getProdBase() {
+        return this.f8437e;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public IXAdProdInfo getProdInfo() {
+        return this.k.d();
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public IXAdFeedsRequestParameters getRequestParameters() {
+        if (this.t == null) {
+            this.t = new RequestParameters.Builder().build();
+        }
+        return this.t;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public IXAdConstants4PDK.SlotState getSlotState() {
+        return this.l;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public IXAdConstants4PDK.SlotType getType() {
+        return this.o;
+    }
+
+    public boolean h() {
+        return false;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public Boolean isAdServerRequestingSuccess() {
+        return this.f8435c;
+    }
+
+    public void j() {
+        if (this.f8440h == null || getApplicationContext() == null) {
+            return;
+        }
+        this.l = IXAdConstants4PDK.SlotState.PLAYING;
+        new Handler(getApplicationContext().getMainLooper()).post(new j(this));
+    }
+
+    public void k() {
+        p pVar = this.j;
+        if (pVar != null) {
+            pVar.removeAllListeners();
+            this.j.a();
+        }
+    }
+
+    public void l() {
+        Runnable runnable = this.E;
+        if (runnable != null) {
+            this.D.removeCallbacks(runnable);
+        }
+        this.E = null;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void load() {
+        IXAdContainer iXAdContainer = this.f8440h;
+        if (iXAdContainer != null) {
+            iXAdContainer.load();
+        } else {
+            this.r.set(true);
+        }
+    }
+
+    public void m() {
+        Runnable runnable = this.E;
+        if (runnable != null) {
+            this.D.postDelayed(runnable, this.m);
+        }
+    }
+
+    public void n() {
+        IXAdContainer iXAdContainer = this.f8440h;
+        if (iXAdContainer != null) {
+            iXAdContainer.onAttachedToWindow();
+        }
+    }
+
+    @SuppressLint({"MissingSuperCall"})
+    public void o() {
+        IXAdContainer iXAdContainer = this.f8440h;
+        if (iXAdContainer != null) {
+            iXAdContainer.onDetachedFromWindow();
+        }
+    }
+
+    public void p() {
+        IXAdContainer iXAdContainer = this.f8440h;
+        if (iXAdContainer != null) {
+            iXAdContainer.destroy();
+        }
+        BaiduXAdSDKContext.exit();
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void pause() {
+        i();
+    }
+
+    public boolean q() {
+        return false;
+    }
+
+    public HashMap r() {
+        HashMap hashMap = new HashMap();
+        try {
+            IXAdInstanceInfo primaryAdInstanceInfo = this.B.getPrimaryAdInstanceInfo();
+            if (primaryAdInstanceInfo != null && primaryAdInstanceInfo.getOriginJsonObject() != null) {
+                JSONObject originJsonObject = primaryAdInstanceInfo.getOriginJsonObject();
+                if (originJsonObject.has("custom_ext_data")) {
+                    hashMap.put("custom_ext_data", originJsonObject.optString("custom_ext_data"));
+                }
+                if (originJsonObject.optInt("pattern") == 1 || originJsonObject.optInt("pattern") == 2) {
+                    hashMap.put("pattern", Integer.valueOf(originJsonObject.optInt("pattern")));
+                }
+                if (originJsonObject.has("btn_pos")) {
+                    hashMap.put("btn_pos", Double.valueOf(originJsonObject.optDouble("btn_pos")));
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        return hashMap;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void resize() {
+        if (this.f8440h == null || getApplicationContext() == null) {
+            return;
+        }
+        new Handler(getApplicationContext().getMainLooper()).post(new h(this));
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void resume() {
+        j();
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void setActivity(Context context) {
+        this.f8438f = context;
+        g();
+        this.r.set(false);
+        d();
+        com.baidu.mobads.b.a.a().a(getApplicationContext());
+        XAdSDKFoundationFacade.getInstance().initializeApplicationContext(getApplicationContext());
+        this.E = new c(this);
+        q.a(this.f8438f).a();
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void setAdResponseInfo(IXAdResponseInfo iXAdResponseInfo) {
+        this.B = iXAdResponseInfo;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void setAdSlotBase(RelativeLayout relativeLayout) {
+        this.f8437e = relativeLayout;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void setId(String str) {
+        this.C = str;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void setParameter(HashMap<String, String> hashMap) {
+        this.q = hashMap;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void start() {
+        IXAdContainer iXAdContainer = this.f8440h;
+        if (iXAdContainer != null) {
+            iXAdContainer.start();
+        }
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void stop() {
+        XAdSDKFoundationFacade.getInstance().getAdLogger().d("XAbstractAdProdTemplate", IntentConfig.STOP);
+        IXAdContainer iXAdContainer = this.f8440h;
+        if (iXAdContainer != null) {
+            iXAdContainer.stop();
+            this.f8440h = null;
+        }
+    }
+
+    public void c(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        a(iXAdContainer, hashMap);
+        if (IXAdConstants4PDK.SlotType.SLOT_TYPE_SPLASH.getValue().equals(this.o.getValue())) {
+            return;
+        }
+        dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_LOADED));
+    }
+
+    public void d(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        this.l = IXAdConstants4PDK.SlotState.PLAYING;
+        b(iXAdContainer, hashMap);
+        dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_STARTED));
+    }
+
+    public synchronized void b(String str) {
+        AtomicBoolean atomicBoolean;
+        IXAdLogger iXAdLogger = this.v;
+        iXAdLogger.d("XAbstractAdProdTemplate", "doubleCheck:" + str + ", bfp=" + this.f8435c + ", apk=" + BaiduXAdSDKContext.isRemoteLoadSuccess);
+        if (this.A.get()) {
+            return;
+        }
+        if (BaiduXAdSDKContext.isRemoteLoadSuccess.booleanValue()) {
+            XAdSDKFoundationFacade.getInstance().initializeAdContainerFactory(getAdContainerFactory());
+        }
+        if (BaiduXAdSDKContext.isRemoteLoadSuccess.booleanValue() && this.f8435c.booleanValue()) {
+            try {
+                IXAdResponseInfo adResponseInfo = getAdResponseInfo();
+                if (adResponseInfo != null) {
+                    a(adResponseInfo);
+                } else {
+                    dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_ERROR));
+                    this.v.d("XAbstractAdProdTemplate", "doubleCheck IXAdResponseInfo is null, but isBFP4APPRequestSuccess is true");
+                }
+                atomicBoolean = this.A;
+            } catch (Exception e2) {
+                this.v.d("XAbstractAdProdTemplate", e2);
+                dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_ERROR));
+                atomicBoolean = this.A;
+            }
+            atomicBoolean.set(true);
+        }
+    }
 
     public void a(HashMap<String, String> hashMap) {
         this.u = hashMap;
@@ -110,7 +506,41 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
         i(primaryAdInstanceInfo);
     }
 
-    boolean a(String str, IXAdInstanceInfo iXAdInstanceInfo) {
+    public void d(String str) {
+        if (TextUtils.isEmpty(str)) {
+            this.v.e("代码位id(adPlaceId)不可以为空");
+        }
+    }
+
+    public void c(IXAdResponseInfo iXAdResponseInfo) {
+        b(iXAdResponseInfo);
+    }
+
+    public void c(String str) {
+        HashMap hashMap = new HashMap(1);
+        hashMap.put("error_message", str);
+        dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_ERROR, hashMap));
+    }
+
+    public void i() {
+        if (this.f8440h == null || getApplicationContext() == null) {
+            return;
+        }
+        this.l = IXAdConstants4PDK.SlotState.PAUSED;
+        new Handler(getApplicationContext().getMainLooper()).post(new i(this));
+    }
+
+    public boolean b(IXAdInstanceInfo iXAdInstanceInfo) {
+        return iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.STATIC_IMAGE || iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.GIF;
+    }
+
+    private void b(IXAdInstanceInfo iXAdInstanceInfo, String str) {
+        if (d(iXAdInstanceInfo)) {
+            com.baidu.mobads.b.a.a().a(this.f8438f, "383", iXAdInstanceInfo, this.k.d(), "file_dl_failed_not_wifi", str);
+        }
+    }
+
+    public boolean a(String str, IXAdInstanceInfo iXAdInstanceInfo) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -121,22 +551,30 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
                 iXAdInstanceInfo.setLocalCreativeURL(a2);
                 return true;
             }
-            return false;
-        } catch (Exception e) {
-            q.a().e(e);
-            return false;
+        } catch (Exception e2) {
+            com.baidu.mobads.utils.q.a().e(e2);
+        }
+        return false;
+    }
+
+    private void b(Message message, IXAdInstanceInfo iXAdInstanceInfo) {
+        if (d(iXAdInstanceInfo)) {
+            String str = "" + message.getData().getLong("caching_time_consume", 0L);
+            String a2 = a(iXAdInstanceInfo);
+            String str2 = message.getData().getBoolean("caching_result") ? "success" : com.alipay.sdk.util.e.f1969a;
+            com.baidu.mobads.b.a.a().a(this.f8438f, "383", iXAdInstanceInfo, this.k.d(), "file_dl_" + str2, a2, str);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void a(IOAdEvent iOAdEvent, String str) {
         String str2 = (String) iOAdEvent.getData().get("message");
         l();
         try {
             setAdResponseInfo(new com.baidu.mobads.vo.c(str2));
             if (this.B != null && this.B.getAdInstanceList().size() > 0) {
-                this.d = this.B.getPrimaryAdInstanceInfo();
-                this.s = this.d.getOriginJsonObject().optString(DownloadDataConstants.Columns.COLUMN_MIME_TYPE);
+                IXAdInstanceInfo primaryAdInstanceInfo = this.B.getPrimaryAdInstanceInfo();
+                this.f8436d = primaryAdInstanceInfo;
+                this.s = primaryAdInstanceInfo.getOriginJsonObject().optString(DownloadDataConstants.Columns.COLUMN_MIME_TYPE);
                 a();
                 e();
                 return;
@@ -148,62 +586,49 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
             }
             XAdSDKFoundationFacade.getInstance().getErrorCode().printErrorMessage(errorCode, errorMessage, "");
             a("response ad list empty: " + errorMessage, errorCode);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             XAdSDKFoundationFacade.getInstance().getErrorCode().printErrorMessage("", "response json parsing error", "");
             c("response json parsing error");
         }
     }
 
-    protected void e() {
+    public void b(com.baidu.mobads.vo.d dVar) {
+        this.k = dVar;
+        k();
+        this.f8435c = Boolean.FALSE;
+        String str = this.i;
+        if (str == null) {
+            str = dVar.b();
+        }
+        this.j = new p();
+        com.baidu.mobads.b.a.f8163b = str;
+        com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(str, "");
+        bVar.f8413e = 1;
+        this.j.addEventListener("URLLoader.Load.Complete", this.F);
+        this.j.addEventListener("URLLoader.Load.Error", this.F);
+        a(bVar, this.j, this.m);
     }
 
-    public a(Context context) {
+    private IXAdContainer b(IXAdContainerContext iXAdContainerContext) {
+        IXAdContainer createXAdContainer;
+        this.v.d("XAbstractAdProdTemplate", "createAdContainer");
+        IXAdContainer iXAdContainer = null;
+        if (f8434b != null) {
+            HashMap<String, String> hashMap = this.u;
+            if (hashMap != null && hashMap.containsKey("Display_Down_Info")) {
+                createXAdContainer = f8434b.createXAdContainer(iXAdContainerContext, this.u);
+            } else {
+                createXAdContainer = f8434b.createXAdContainer(iXAdContainerContext, null);
+            }
+            iXAdContainer = createXAdContainer;
+            if (iXAdContainer != null) {
+                IXAdLogger iXAdLogger = this.v;
+                iXAdLogger.d("XAbstractAdProdTemplate", "createAdContainer() apk.version=" + f8434b.getRemoteVersion());
+            }
+        }
+        return iXAdContainer;
     }
 
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public IXAdConstants4PDK.SlotState getSlotState() {
-        return this.l;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void setActivity(Context context) {
-        this.f = context;
-        g();
-        this.r.set(false);
-        d();
-        com.baidu.mobads.b.a.a().a(getApplicationContext());
-        XAdSDKFoundationFacade.getInstance().initializeApplicationContext(getApplicationContext());
-        this.E = new c(this);
-        com.baidu.mobads.g.q.a(this.f).a();
-    }
-
-    public void f() {
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void setAdSlotBase(RelativeLayout relativeLayout) {
-        this.e = relativeLayout;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void setId(String str) {
-        this.C = str;
-    }
-
-    protected void g() {
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public String getId() {
-        return this.C;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public IXAdConstants4PDK.SlotType getType() {
-        return this.o;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public void a(XAdErrorCode xAdErrorCode, String str) {
         HashMap hashMap = new HashMap();
         hashMap.put("msg", xAdErrorCode);
@@ -211,7 +636,13 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
         XAdSDKFoundationFacade.getInstance().getErrorCode().printErrorMessage(xAdErrorCode, str);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(int i) {
+        IXAdContainer iXAdContainer = this.f8440h;
+        if (iXAdContainer != null) {
+            iXAdContainer.onWindowVisibilityChanged(i);
+        }
+    }
+
     public void a(Context context) {
         if (BaiduXAdSDKContext.mApkLoader == null) {
             synchronized (com.baidu.mobads.g.g.class) {
@@ -220,7 +651,7 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
                 }
             }
         }
-        if (b != null) {
+        if (f8434b != null) {
             b();
         } else if (BaiduXAdSDKContext.mApkLoader != null) {
             this.v.d("XAbstractAdProdTemplate", "BaiduXAdSDKContext.mApkLoader != null,load apk");
@@ -230,46 +661,14 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        BaiduXAdSDKContext.isRemoteLoadSuccess = true;
-        b("XAdMouldeLoader load success");
+    public void b(boolean z2) {
+        this.p = z2;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void a(String str) {
-        this.c = true;
+        this.f8435c = Boolean.TRUE;
         this.A.set(false);
         b(str);
-    }
-
-    protected synchronized void b(String str) {
-        this.v.d("XAbstractAdProdTemplate", "doubleCheck:" + str + ", bfp=" + this.c + ", apk=" + BaiduXAdSDKContext.isRemoteLoadSuccess);
-        if (!this.A.get()) {
-            if (BaiduXAdSDKContext.isRemoteLoadSuccess.booleanValue()) {
-                XAdSDKFoundationFacade.getInstance().initializeAdContainerFactory(getAdContainerFactory());
-            }
-            if (BaiduXAdSDKContext.isRemoteLoadSuccess.booleanValue() && this.c.booleanValue()) {
-                try {
-                    IXAdResponseInfo adResponseInfo = getAdResponseInfo();
-                    if (adResponseInfo != null) {
-                        a(adResponseInfo);
-                    } else {
-                        dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_ERROR));
-                        this.v.d("XAbstractAdProdTemplate", "doubleCheck IXAdResponseInfo is null, but isBFP4APPRequestSuccess is true");
-                    }
-                    this.A.set(true);
-                } catch (Exception e) {
-                    this.v.d("XAbstractAdProdTemplate", e);
-                    dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_ERROR));
-                    this.A.set(true);
-                }
-            }
-        }
-    }
-
-    public boolean h() {
-        return false;
     }
 
     public String a(IXAdInstanceInfo iXAdInstanceInfo) {
@@ -279,105 +678,36 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
         if (iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO) {
             return iXAdInstanceInfo.getVideoUrl();
         }
-        if (iXAdInstanceInfo.getCreativeType() != IXAdInstanceInfo.CreativeType.RM) {
-            return "";
-        }
-        return iXAdInstanceInfo.getMainPictureUrl();
-    }
-
-    public boolean b(IXAdInstanceInfo iXAdInstanceInfo) {
-        return iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.STATIC_IMAGE || iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.GIF;
-    }
-
-    public boolean c(IXAdInstanceInfo iXAdInstanceInfo) {
-        return iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.HTML;
-    }
-
-    public boolean d(IXAdInstanceInfo iXAdInstanceInfo) {
-        return iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO;
-    }
-
-    public void e(IXAdInstanceInfo iXAdInstanceInfo) {
-        if (iXAdInstanceInfo != null && !q() && h(iXAdInstanceInfo)) {
-            i(iXAdInstanceInfo);
-        }
+        return iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.RM ? iXAdInstanceInfo.getMainPictureUrl() : "";
     }
 
     private boolean a(IXAdInstanceInfo iXAdInstanceInfo, String str) {
         return XAdSDKFoundationFacade.getInstance().getSystemUtils().isWifiConnected(getApplicationContext()).booleanValue() || h(iXAdInstanceInfo) || b(iXAdInstanceInfo);
     }
 
-    private boolean g(IXAdInstanceInfo iXAdInstanceInfo) {
-        if (iXAdInstanceInfo != null) {
-            try {
-                if (iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO && this.p) {
-                    return XAdSDKFoundationFacade.getInstance().getSystemUtils().isWifiConnected(getApplicationContext()).booleanValue();
-                }
-            } catch (Throwable th) {
-                this.v.d("XAbstractAdProdTemplate", th.getMessage());
-            }
-        }
-        return true;
-    }
-
-    private boolean h(IXAdInstanceInfo iXAdInstanceInfo) {
-        return iXAdInstanceInfo != null && this.o != null && IXAdConstants4PDK.SlotType.SLOT_TYPE_FEEDS.getValue().equals(this.o.getValue()) && iXAdInstanceInfo.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO;
-    }
-
     private void a(ArrayList<IXAdInstanceInfo> arrayList) {
-        if (arrayList != null && arrayList.size() > 0) {
-            Iterator<IXAdInstanceInfo> it = arrayList.iterator();
-            while (it.hasNext()) {
-                IXAdInstanceInfo next = it.next();
-                if (q() && h(next)) {
-                    i(next);
-                }
-            }
+        if (arrayList == null || arrayList.size() <= 0) {
+            return;
         }
-    }
-
-    private void b(IXAdInstanceInfo iXAdInstanceInfo, String str) {
-        if (d(iXAdInstanceInfo)) {
-            com.baidu.mobads.b.a.a().a(this.f, "383", iXAdInstanceInfo, this.k.d(), "file_dl_failed_not_wifi", str);
-        }
-    }
-
-    public boolean f(IXAdInstanceInfo iXAdInstanceInfo) {
-        return false;
-    }
-
-    private void i(IXAdInstanceInfo iXAdInstanceInfo) {
-        this.v.d("XAbstractAdProdTemplate", "cacheCreativeAsset");
-        String a2 = a(iXAdInstanceInfo);
-        if (!TextUtils.isEmpty(a2)) {
-            if (!a(iXAdInstanceInfo, a2)) {
-                b(iXAdInstanceInfo, a2);
-                return;
-            }
-            iXAdInstanceInfo.setLocalCreativeURL(null);
-            String a3 = com.baidu.mobads.utils.m.a(getApplicationContext());
-            String b2 = com.baidu.mobads.utils.m.b(a2);
-            com.baidu.mobads.c.a a4 = com.baidu.mobads.c.a.a();
-            String mainPictureUrl = iXAdInstanceInfo.getMainPictureUrl();
-            if (a4 != null && a(a4, iXAdInstanceInfo.getCreativeType(), mainPictureUrl)) {
-                a4.a(iXAdInstanceInfo.getMainPictureUrl(), new e(this, iXAdInstanceInfo, a2, a3, b2));
-            } else {
-                a(iXAdInstanceInfo, a2, a3, b2);
+        Iterator<IXAdInstanceInfo> it = arrayList.iterator();
+        while (it.hasNext()) {
+            IXAdInstanceInfo next = it.next();
+            if (q() && h(next)) {
+                i(next);
             }
         }
     }
 
     private boolean a(com.baidu.mobads.c.a aVar, IXAdInstanceInfo.CreativeType creativeType, String str) {
         try {
-            if (creativeType == IXAdInstanceInfo.CreativeType.VIDEO && this.o != null && IXAdConstants4PDK.SlotType.SLOT_TYPE_FEEDS.getValue().equals(this.o.getValue()) && aVar != null) {
-                if (aVar.a(str)) {
-                    return true;
-                }
+            if (creativeType != IXAdInstanceInfo.CreativeType.VIDEO || this.o == null || !IXAdConstants4PDK.SlotType.SLOT_TYPE_FEEDS.getValue().equals(this.o.getValue()) || aVar == null) {
+                return false;
             }
+            return aVar.a(str);
         } catch (Throwable th) {
             this.v.d("XAbstractAdProdTemplate", th);
+            return false;
         }
-        return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -386,7 +716,7 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
             if (g(iXAdInstanceInfo)) {
                 XAdSDKFoundationFacade.getInstance().getAdCreativeCacheManager().a(getApplicationContext(), str, str2, str3, new f(this, Looper.getMainLooper(), iXAdInstanceInfo));
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
     }
 
@@ -412,80 +742,26 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
         b(message, iXAdInstanceInfo);
     }
 
-    private void b(Message message, IXAdInstanceInfo iXAdInstanceInfo) {
-        if (d(iXAdInstanceInfo)) {
-            com.baidu.mobads.b.a.a().a(this.f, "383", iXAdInstanceInfo, this.k.d(), "file_dl_" + (message.getData().getBoolean("caching_result") ? "success" : "failed"), a(iXAdInstanceInfo), "" + message.getData().getLong("caching_time_consume", 0L));
-        }
-    }
-
-    public void a(boolean z2, IXAdInstanceInfo iXAdInstanceInfo) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(com.baidu.mobads.vo.d dVar) {
         this.v.d("XAbstractAdProdTemplate", "doRequest()");
-        a(this.f);
+        a(this.f8438f);
         b(dVar);
         return true;
     }
 
-    protected void b(com.baidu.mobads.vo.d dVar) {
-        this.k = dVar;
-        k();
-        this.c = false;
-        String b2 = this.i == null ? dVar.b() : this.i;
-        this.j = new p();
-        com.baidu.mobads.b.a.b = b2;
-        com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(b2, "");
-        bVar.e = 1;
-        this.j.addEventListener("URLLoader.Load.Complete", this.F);
-        this.j.addEventListener("URLLoader.Load.Error", this.F);
-        a(bVar, this.j, this.m);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-        a(iXAdContainer, hashMap);
-        if (!IXAdConstants4PDK.SlotType.SLOT_TYPE_SPLASH.getValue().equals(this.o.getValue())) {
-            dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_LOADED));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void d(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-        this.l = IXAdConstants4PDK.SlotState.PLAYING;
-        b(iXAdContainer, hashMap);
-        dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_STARTED));
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-    }
-
-    protected void c(IXAdResponseInfo iXAdResponseInfo) {
-        b(iXAdResponseInfo);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c(String str) {
-        HashMap hashMap = new HashMap(1);
-        hashMap.put("error_message", str);
-        dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_ERROR, hashMap));
-    }
-
-    protected void a(String str, String str2) {
+    public void a(String str, String str2) {
         HashMap hashMap = new HashMap(1);
         hashMap.put("error_message", str);
         hashMap.put("error_code", str2);
         dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_ERROR, hashMap));
     }
 
-    protected void a(IXAdResponseInfo iXAdResponseInfo) {
+    public void a(IXAdResponseInfo iXAdResponseInfo) {
         this.v.d("XAbstractAdProdTemplate", "handleAllReady");
-        this.g++;
-        this.d = iXAdResponseInfo.getPrimaryAdInstanceInfo();
+        this.f8439g++;
+        this.f8436d = iXAdResponseInfo.getPrimaryAdInstanceInfo();
         Context applicationContext = getApplicationContext();
-        k kVar = new k(applicationContext, getActivity(), this.k.d(), this.e, new l(applicationContext, this), iXAdResponseInfo, null);
+        k kVar = new k(applicationContext, getActivity(), this.k.d(), this.f8437e, new l(applicationContext, this), iXAdResponseInfo, null);
         if (Looper.myLooper() == Looper.getMainLooper()) {
             a(kVar);
         } else {
@@ -493,316 +769,78 @@ public abstract class a extends com.baidu.mobads.openad.a.c implements IXNonLine
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void a(IXAdResponseInfo iXAdResponseInfo, IXAdInstanceInfo iXAdInstanceInfo) {
-        this.d = iXAdInstanceInfo;
+        this.f8436d = iXAdInstanceInfo;
     }
 
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public Context getApplicationContext() {
-        Activity activity = getActivity();
-        return activity == null ? this.f : activity.getApplicationContext();
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public Activity getActivity() {
-        if (this.f instanceof Activity) {
-            return (Activity) this.f;
-        }
-        if (this.e == null || !(this.e.getContext() instanceof Activity)) {
-            return null;
-        }
-        return (Activity) this.e.getContext();
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public IXAdContainer getCurrentXAdContainer() {
-        return this.h;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public IXAdContainerFactory getAdContainerFactory() {
-        return b;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public void a(IXAdContainerContext iXAdContainerContext) {
         try {
             this.v.d("XAbstractAdProdTemplate", "processAllReadyOnUIThread()");
             this.x = System.currentTimeMillis();
-            this.h = b(iXAdContainerContext);
+            this.f8440h = b(iXAdContainerContext);
             this.y = System.currentTimeMillis();
-            if (this.h == null) {
+            if (this.f8440h == null) {
                 this.v.d("XAbstractAdProdTemplate", "processAllReadyOnUIThread(), mAdContainer is null");
                 dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_ERROR));
                 return;
             }
             this.v.d("XAbstractAdProdTemplate", "processAllReadyOnUIThread(), mAdContainer be created");
-            this.q.put("start", "" + this.w);
-            this.q.put("container_before_created", "" + this.x);
-            this.q.put("container_after_created", "" + this.y);
-            this.h.setParameters(this.q);
-            com.baidu.mobads.constants.a.c = this.h.getRemoteVersion();
-            this.v.d("XAbstractAdProdTemplate", "processAllReadyOnUIThread(), mAdContainer be created, hasCalledLoadAtAppSide=" + this.r.get());
+            HashMap<String, String> hashMap = this.q;
+            hashMap.put(IntentConfig.START, "" + this.w);
+            HashMap<String, String> hashMap2 = this.q;
+            hashMap2.put("container_before_created", "" + this.x);
+            HashMap<String, String> hashMap3 = this.q;
+            hashMap3.put("container_after_created", "" + this.y);
+            this.f8440h.setParameters(this.q);
+            com.baidu.mobads.constants.a.f8205c = this.f8440h.getRemoteVersion();
+            IXAdLogger iXAdLogger = this.v;
+            iXAdLogger.d("XAbstractAdProdTemplate", "processAllReadyOnUIThread(), mAdContainer be created, hasCalledLoadAtAppSide=" + this.r.get());
             if (this.r.get()) {
-                this.h.load();
+                this.f8440h.load();
             }
             if (IXAdConstants4PDK.SlotType.SLOT_TYPE_SPLASH.getValue().equals(this.o.getValue())) {
-                if (this.d == null) {
-                    this.d = this.B.getPrimaryAdInstanceInfo();
+                if (this.f8436d == null) {
+                    this.f8436d = this.B.getPrimaryAdInstanceInfo();
                 }
-                HashMap hashMap = new HashMap();
-                if (this.d != null) {
-                    if (b(this.d)) {
-                        hashMap.put(com.baidu.mobads.constants.a.s, "IMAGE");
-                    } else if (c(this.d)) {
-                        hashMap.put(com.baidu.mobads.constants.a.s, "H5");
-                    } else if (d(this.d)) {
-                        hashMap.put(com.baidu.mobads.constants.a.s, "VIDEO");
-                        int videoDuration = this.d.getVideoDuration();
+                HashMap hashMap4 = new HashMap();
+                if (this.f8436d != null) {
+                    if (b(this.f8436d)) {
+                        hashMap4.put(com.baidu.mobads.constants.a.s, "IMAGE");
+                    } else if (c(this.f8436d)) {
+                        hashMap4.put(com.baidu.mobads.constants.a.s, "H5");
+                    } else if (d(this.f8436d)) {
+                        hashMap4.put(com.baidu.mobads.constants.a.s, "VIDEO");
+                        int videoDuration = this.f8436d.getVideoDuration();
                         if (videoDuration != 0) {
-                            hashMap.put(com.baidu.mobads.constants.a.t, Integer.valueOf(videoDuration * 1000));
+                            hashMap4.put(com.baidu.mobads.constants.a.t, Integer.valueOf(videoDuration * 1000));
                         }
                     }
                 }
-                dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_LOADED, hashMap));
+                dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_LOADED, hashMap4));
             }
             c();
-        } catch (Exception e) {
-            this.v.e(XAdSDKFoundationFacade.getInstance().getErrorCode().genCompleteErrorMessage(XAdErrorCode.PERMISSION_PROBLEM, e.getMessage()));
+        } catch (Exception e2) {
+            this.v.e(XAdSDKFoundationFacade.getInstance().getErrorCode().genCompleteErrorMessage(XAdErrorCode.PERMISSION_PROBLEM, e2.getMessage()));
             dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_ERROR));
         }
     }
 
-    private IXAdContainer b(IXAdContainerContext iXAdContainerContext) {
-        IXAdContainer iXAdContainer = null;
-        this.v.d("XAbstractAdProdTemplate", "createAdContainer");
-        if (b != null) {
-            if (this.u != null && this.u.containsKey("Display_Down_Info")) {
-                iXAdContainer = b.createXAdContainer(iXAdContainerContext, this.u);
-            } else {
-                iXAdContainer = b.createXAdContainer(iXAdContainerContext, null);
-            }
-            if (iXAdContainer != null) {
-                this.v.d("XAbstractAdProdTemplate", "createAdContainer() apk.version=" + b.getRemoteVersion());
-            }
-        }
-        return iXAdContainer;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public IXAdProdInfo getProdInfo() {
-        return this.k.d();
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void setParameter(HashMap<String, String> hashMap) {
-        this.q = hashMap;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public HashMap<String, String> getParameter() {
-        return this.q;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public int getDuration() {
-        return -1;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public int getPlayheadTime() {
-        return -1;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public IXAdInstanceInfo getCurrentAdInstance() {
-        return this.d;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public ViewGroup getProdBase() {
-        return this.e;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void load() {
-        if (this.h != null) {
-            this.h.load();
-        } else {
-            this.r.set(true);
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void resize() {
-        if (this.h != null && getApplicationContext() != null) {
-            new Handler(getApplicationContext().getMainLooper()).post(new h(this));
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void pause() {
-        i();
-    }
-
-    protected void i() {
-        if (this.h != null && getApplicationContext() != null) {
-            this.l = IXAdConstants4PDK.SlotState.PAUSED;
-            new Handler(getApplicationContext().getMainLooper()).post(new i(this));
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void start() {
-        if (this.h != null) {
-            this.h.start();
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void resume() {
-        j();
-    }
-
-    protected void j() {
-        if (this.h != null && getApplicationContext() != null) {
-            this.l = IXAdConstants4PDK.SlotState.PLAYING;
-            new Handler(getApplicationContext().getMainLooper()).post(new j(this));
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void stop() {
-        XAdSDKFoundationFacade.getInstance().getAdLogger().d("XAbstractAdProdTemplate", "stop");
-        if (this.h != null) {
-            this.h.stop();
-            this.h = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void k() {
-        if (this.j != null) {
-            this.j.removeAllListeners();
-            this.j.a();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void l() {
-        if (this.E != null) {
-            this.D.removeCallbacks(this.E);
-        }
-        this.E = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void m() {
-        if (this.E != null) {
-            this.D.postDelayed(this.E, this.m);
-        }
-    }
-
-    public void n() {
-        if (this.h != null) {
-            this.h.onAttachedToWindow();
-        }
-    }
-
-    @SuppressLint({"MissingSuperCall"})
-    public void o() {
-        if (this.h != null) {
-            this.h.onDetachedFromWindow();
-        }
-    }
-
-    public void b(int i) {
-        if (this.h != null) {
-            this.h.onWindowVisibilityChanged(i);
-        }
-    }
-
     public void a(boolean z2) {
-        if (this.h != null) {
-            this.h.onWindowFocusChanged(z2);
+        IXAdContainer iXAdContainer = this.f8440h;
+        if (iXAdContainer != null) {
+            iXAdContainer.onWindowFocusChanged(z2);
         }
     }
 
     public boolean a(int i, KeyEvent keyEvent) {
-        if (this.h != null) {
-            return this.h.processKeyEvent(i, keyEvent).booleanValue();
+        IXAdContainer iXAdContainer = this.f8440h;
+        if (iXAdContainer != null) {
+            return iXAdContainer.processKeyEvent(i, keyEvent).booleanValue();
         }
         return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void d(String str) {
-        if (TextUtils.isEmpty(str)) {
-            this.v.e("代码位id(adPlaceId)不可以为空");
-        }
-    }
-
-    public void p() {
-        if (this.h != null) {
-            this.h.destroy();
-        }
-        BaiduXAdSDKContext.exit();
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public IXAdResponseInfo getAdResponseInfo() {
-        return this.B;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void setAdResponseInfo(IXAdResponseInfo iXAdResponseInfo) {
-        this.B = iXAdResponseInfo;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public Boolean isAdServerRequestingSuccess() {
-        return this.c;
     }
 
     public void a(RequestParameters requestParameters) {
         this.t = requestParameters;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public IXAdFeedsRequestParameters getRequestParameters() {
-        if (this.t == null) {
-            this.t = new RequestParameters.Builder().build();
-        }
-        return this.t;
-    }
-
-    public boolean q() {
-        return false;
-    }
-
-    public void b(boolean z2) {
-        this.p = z2;
-    }
-
-    public HashMap r() {
-        HashMap hashMap = new HashMap();
-        try {
-            IXAdInstanceInfo primaryAdInstanceInfo = this.B.getPrimaryAdInstanceInfo();
-            if (primaryAdInstanceInfo != null && primaryAdInstanceInfo.getOriginJsonObject() != null) {
-                JSONObject originJsonObject = primaryAdInstanceInfo.getOriginJsonObject();
-                if (originJsonObject.has("custom_ext_data")) {
-                    hashMap.put("custom_ext_data", originJsonObject.optString("custom_ext_data"));
-                }
-                if (originJsonObject.optInt("pattern") == 1 || originJsonObject.optInt("pattern") == 2) {
-                    hashMap.put("pattern", Integer.valueOf(originJsonObject.optInt("pattern")));
-                }
-                if (originJsonObject.has("btn_pos")) {
-                    hashMap.put("btn_pos", Double.valueOf(originJsonObject.optDouble("btn_pos")));
-                }
-            }
-        } catch (Throwable th) {
-        }
-        return hashMap;
     }
 }

@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ErrorCode {
     public static final int ERROR_AUTHERICATION_ERROR = 70000002;
     public static final int ERROR_INTERNAL_ERROR = 70000004;

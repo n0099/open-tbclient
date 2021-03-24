@@ -1,7 +1,7 @@
 package com.baidu.mapapi.model.inner;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Point implements Serializable {
     public int x;
     public int y;
@@ -18,7 +18,7 @@ public class Point implements Serializable {
         if (this == obj) {
             return true;
         }
-        if (obj != null && getClass() == obj.getClass()) {
+        if (obj != null && Point.class == obj.getClass()) {
             Point point = (Point) obj;
             return this.x == point.x && this.y == point.y;
         }

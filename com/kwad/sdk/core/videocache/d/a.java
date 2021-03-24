@@ -5,17 +5,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.baidu.android.imsdk.IMConstants;
 import com.kwad.sdk.core.videocache.j;
 import com.kwad.sdk.core.videocache.n;
 import com.kwai.video.player.misc.IMediaFormat;
-/* loaded from: classes3.dex */
-class a extends SQLiteOpenHelper implements b {
+/* loaded from: classes6.dex */
+public class a extends SQLiteOpenHelper implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f6290a = {IMConstants.MSG_ROW_ID, "url", "length", IMediaFormat.KEY_MIME};
+    public static final String[] f34173a = {"_id", "url", "length", IMediaFormat.KEY_MIME};
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
         super(context, "AndroidVideoCache.db", (SQLiteDatabase.CursorFactory) null, 1);
         j.a(context);
@@ -23,9 +21,9 @@ class a extends SQLiteOpenHelper implements b {
 
     private ContentValues a(n nVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("url", nVar.f6302a);
-        contentValues.put("length", Long.valueOf(nVar.b));
-        contentValues.put(IMediaFormat.KEY_MIME, nVar.c);
+        contentValues.put("url", nVar.f34219a);
+        contentValues.put("length", Long.valueOf(nVar.f34220b));
+        contentValues.put(IMediaFormat.KEY_MIME, nVar.f34221c);
         return contentValues;
     }
 
@@ -33,41 +31,34 @@ class a extends SQLiteOpenHelper implements b {
         return new n(cursor.getString(cursor.getColumnIndexOrThrow("url")), cursor.getLong(cursor.getColumnIndexOrThrow("length")), cursor.getString(cursor.getColumnIndexOrThrow(IMediaFormat.KEY_MIME)));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0028  */
     @Override // com.kwad.sdk.core.videocache.d.b
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public n a(String str) {
-        n a2;
-        Cursor cursor = null;
+        Throwable th;
+        Cursor cursor;
         j.a(str);
+        n nVar = null;
         try {
-            Cursor query = getReadableDatabase().query("SourceInfo", f6290a, "url=?", new String[]{str}, null, null, null);
-            if (query != null) {
+            cursor = getReadableDatabase().query("SourceInfo", f34173a, "url=?", new String[]{str}, null, null, null);
+            if (cursor != null) {
                 try {
-                    if (query.moveToFirst()) {
-                        a2 = a(query);
-                        if (query != null) {
-                            query.close();
-                        }
-                        return a2;
+                    if (cursor.moveToFirst()) {
+                        nVar = a(cursor);
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor = query;
+                } catch (Throwable th2) {
+                    th = th2;
                     if (cursor != null) {
                         cursor.close();
                     }
                     throw th;
                 }
             }
-            a2 = null;
-            if (query != null) {
+            if (cursor != null) {
+                cursor.close();
             }
-            return a2;
-        } catch (Throwable th2) {
-            th = th2;
+            return nVar;
+        } catch (Throwable th3) {
+            th = th3;
+            cursor = null;
         }
     }
 

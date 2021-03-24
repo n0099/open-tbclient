@@ -2,9 +2,9 @@ package com.xiaomi.clientreport.data;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PerfClientReport extends a {
-    private static final long DEFAULT_VALUE = -1;
+    public static final long DEFAULT_VALUE = -1;
     public int code;
     public long perfCounts = -1;
     public long perfLatencies = -1;
@@ -24,8 +24,8 @@ public class PerfClientReport extends a {
             json.put("perfCounts", this.perfCounts);
             json.put("perfLatencies", this.perfLatencies);
             return json;
-        } catch (JSONException e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+        } catch (JSONException e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
             return null;
         }
     }

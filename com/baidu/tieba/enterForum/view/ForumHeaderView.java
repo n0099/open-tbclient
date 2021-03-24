@@ -10,97 +10,107 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+import d.b.b.e.p.l;
+import d.b.i0.i0.d.c;
+/* loaded from: classes4.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
-    private int from;
-    private com.baidu.tieba.enterForum.data.c iIO;
-    private ImageView iSA;
-    private LinearLayout iSy;
-    private TextView iSz;
+
+    /* renamed from: e  reason: collision with root package name */
+    public LinearLayout f15548e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f15549f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView f15550g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c f15551h;
+    public int i;
 
     public ForumHeaderView(Context context) {
         super(context);
-        this.from = 0;
-        init();
+        this.i = 0;
+        a();
     }
 
-    public ForumHeaderView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.from = 0;
-        init();
-    }
-
-    public ForumHeaderView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.from = 0;
-        init();
-    }
-
-    public void init() {
+    public void a() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-        this.iSy = (LinearLayout) findViewById(R.id.search_container);
-        this.iSz = (TextView) findViewById(R.id.search_text);
-        this.iSA = (ImageView) findViewById(R.id.search_icon);
+        this.f15548e = (LinearLayout) findViewById(R.id.search_container);
+        this.f15549f = (TextView) findViewById(R.id.search_text);
+        this.f15550g = (ImageView) findViewById(R.id.search_icon);
         setDescendantFocusability(262144);
-        this.iSy.setOnClickListener(this);
+        this.f15548e.setOnClickListener(this);
     }
 
-    @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(View.MeasureSpec.makeMeasureSpec(l.getEquipmentWidth(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(l.getDimens(getContext(), R.dimen.tbds114), 1073741824));
+    public void b() {
+        c cVar = this.f15551h;
+        if (cVar != null && cVar.f55476a) {
+            if (cVar.f55478c > 0) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15550g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                SkinManager.setViewTextColor(this.f15549f, R.color.white_alpha50);
+                SkinManager.setBackgroundResource(this.f15548e, R.drawable.enter_forum_search_ad_bg);
+                return;
+            }
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15550g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.f15549f, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f15548e, R.drawable.enter_forum_search_bg);
+            return;
+        }
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15550g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.f15549f, R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(this.f15548e, R.drawable.enter_forum_search_bg);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!TbadkCoreApplication.isLogin()) {
-            TiebaStatic.eventStat(getContext(), "notlogin_8", "click", 1, new Object[0]);
+            TiebaStatic.eventStat(getContext(), "notlogin_8", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
         }
-        if (this.from != 1) {
-            TiebaStatic.log(new ar("c13367").dR("obj_location", "1"));
+        if (this.i != 1) {
+            TiebaStatic.log(new StatisticItem("c13367").param("obj_location", "1"));
         } else {
-            TiebaStatic.log(new ar("c13648").v("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new StatisticItem("c13648").param("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(getContext())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(getContext())));
     }
 
-    public void setSearchHint(String str) {
-        this.iSz.setText(str);
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(View.MeasureSpec.makeMeasureSpec(l.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(l.g(getContext(), R.dimen.tbds114), 1073741824));
     }
 
-    public void onChangeSkinType() {
-        if (this.iIO != null && this.iIO.iJq) {
-            if (this.iIO.iJs > 0) {
-                SvgManager.bsU().a(this.iSA, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-                ap.setViewTextColor(this.iSz, R.color.white_alpha50);
-                ap.setBackgroundResource(this.iSy, R.drawable.enter_forum_search_ad_bg);
-                return;
-            }
-            SvgManager.bsU().a(this.iSA, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-            ap.setViewTextColor(this.iSz, R.color.CAM_X0109);
-            ap.setBackgroundResource(this.iSy, R.drawable.enter_forum_search_bg);
-            return;
-        }
-        SvgManager.bsU().a(this.iSA, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-        ap.setViewTextColor(this.iSz, R.color.CAM_X0109);
-        ap.setBackgroundResource(this.iSy, R.drawable.enter_forum_search_bg);
-    }
-
-    public void setAdState(com.baidu.tieba.enterForum.data.c cVar) {
-        this.iIO = cVar;
-        onChangeSkinType();
+    public void setAdState(c cVar) {
+        this.f15551h = cVar;
+        b();
     }
 
     public void setFrom(int i) {
-        this.from = i;
+        this.i = i;
+    }
+
+    public void setSearchHint(String str) {
+        this.f15549f.setText(str);
+    }
+
+    public ForumHeaderView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.i = 0;
+        a();
+    }
+
+    public ForumHeaderView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.i = 0;
+        a();
     }
 }

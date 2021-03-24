@@ -6,68 +6,73 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.h;
-/* loaded from: classes9.dex */
-public class AlaGameFrsLiveDoubleView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.gamelist.b.a> {
-    private b gYv;
-    private b gYw;
+import d.b.i0.t.c;
+import d.b.i0.t.h.b.a;
+import d.b.i0.x.b;
+/* loaded from: classes4.dex */
+public class AlaGameFrsLiveDoubleView extends b<a> {
+    public d.b.i0.t.e.d.b m;
+    public d.b.i0.t.e.d.b n;
 
-    public AlaGameFrsLiveDoubleView(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        initView();
-    }
+    /* loaded from: classes4.dex */
+    public static class AlaGameFrsLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
 
-    @Override // com.baidu.tieba.card.b
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gYv.onChangeSkinType(tbPageContext, i);
-        this.gYw.onChangeSkinType(tbPageContext, i);
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public AlaGameFrsLiveDoubleView f14994a;
 
-    @Override // com.baidu.tieba.card.b
-    public int getLayout() {
-        return R.layout.ala_sub_list_game_live;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.b
-    public void a(com.baidu.tieba.ala.gamelist.b.a aVar) {
-        if (aVar != null) {
-            this.gYv.a(aVar.gZb);
-            this.gYw.a(aVar.gZc);
+        public AlaGameFrsLiveDoubleViewHolder(AlaGameFrsLiveDoubleView alaGameFrsLiveDoubleView) {
+            super(alaGameFrsLiveDoubleView.m());
+            this.f14994a = alaGameFrsLiveDoubleView;
         }
     }
 
-    public void c(h hVar) {
-        this.gYv.d(hVar);
-        this.gYw.d(hVar);
+    public AlaGameFrsLiveDoubleView(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        u();
     }
 
-    public void setLabelName(String str) {
-        this.gYv.setLabelName(str);
-        this.gYw.setLabelName(str);
+    @Override // d.b.i0.x.b
+    public int h() {
+        return R.layout.ala_sub_list_game_live;
+    }
+
+    @Override // d.b.i0.x.b
+    public void o(TbPageContext<?> tbPageContext, int i) {
+        this.m.e(tbPageContext, i);
+        this.n.e(tbPageContext, i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
     }
 
-    private void initView() {
-        this.gYv = new b(getTbPageContext());
-        this.gYw = new b(getTbPageContext());
-        ViewGroup viewGroup = (ViewGroup) getView();
-        View view = new View(getContext());
-        viewGroup.addView(this.gYv.getView());
-        viewGroup.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.ds16), -1));
-        viewGroup.addView(this.gYw.getView());
+    public final void u() {
+        this.m = new d.b.i0.t.e.d.b(l());
+        this.n = new d.b.i0.t.e.d.b(l());
+        ViewGroup viewGroup = (ViewGroup) m();
+        View view = new View(b());
+        viewGroup.addView(this.m.c());
+        viewGroup.addView(view, new LinearLayout.LayoutParams(l().getResources().getDimensionPixelSize(R.dimen.ds16), -1));
+        viewGroup.addView(this.n.c());
     }
 
-    /* loaded from: classes9.dex */
-    public static class AlaGameFrsLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
-        public AlaGameFrsLiveDoubleView gYx;
-
-        public AlaGameFrsLiveDoubleViewHolder(AlaGameFrsLiveDoubleView alaGameFrsLiveDoubleView) {
-            super(alaGameFrsLiveDoubleView.getView());
-            this.gYx = alaGameFrsLiveDoubleView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.i0.x.b
+    /* renamed from: v */
+    public void n(a aVar) {
+        if (aVar != null) {
+            this.m.d(aVar.f60772e);
+            this.n.d(aVar.f60773f);
         }
+    }
+
+    public void w(String str) {
+        this.m.f(str);
+        this.n.f(str);
+    }
+
+    public void x(c cVar) {
+        this.m.g(cVar);
+        this.n.g(cVar);
     }
 }

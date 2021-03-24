@@ -9,13 +9,11 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import com.baidu.tieba.homepage.personalize.bigday.BigdayActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RecommendFrsStatic {
-    public static String Tag = "tag";
-
     static {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003184, TbConfig.SERVER_ADDRESS + TbConfig.NEG_FEED_BACK);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEG_FEED_BACK, TbConfig.SERVER_ADDRESS + TbConfig.NEG_FEED_BACK);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         messageManager.registerTask(tbHttpMessageTask);

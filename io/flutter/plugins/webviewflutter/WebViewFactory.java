@@ -7,12 +7,11 @@ import io.flutter.plugin.common.StandardMessageCodec;
 import io.flutter.plugin.platform.PlatformView;
 import io.flutter.plugin.platform.PlatformViewFactory;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class WebViewFactory extends PlatformViewFactory {
-    private final View containerView;
-    private final BinaryMessenger messenger;
+    public final View containerView;
+    public final BinaryMessenger messenger;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public WebViewFactory(BinaryMessenger binaryMessenger, View view) {
         super(StandardMessageCodec.INSTANCE);
         this.messenger = binaryMessenger;

@@ -2,35 +2,29 @@ package com.kwad.sdk.api.loader;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.nps.utils.Constant;
 import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static File f5464a;
+    public static File f31792a;
 
-    private static File a(Context context) {
-        if (f5464a == null) {
-            f5464a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
+    public static File a(Context context) {
+        if (f31792a == null) {
+            f31792a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
         }
-        return f5464a;
+        return f31792a;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static File a(Context context, String str) {
-        return new File(a(context), "dynamic-" + System.currentTimeMillis() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".apk");
+        File a2 = a(context);
+        return new File(a2, "dynamic-" + System.currentTimeMillis() + "-" + str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(File file) {
-        if (file.isFile()) {
-            file.delete();
-            return;
-        }
-        File[] listFiles = file.listFiles();
-        if (listFiles != null && listFiles.length > 0) {
+        File[] listFiles;
+        if (!file.isFile() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
                 a(file2);
             }
@@ -38,55 +32,51 @@ public class g {
         file.delete();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static String b(Context context, String str) {
-        return c(new File(a(context), "apk-" + str)).getPath();
+        File a2 = a(context);
+        return c(new File(a2, "apk-" + str)).getPath();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(File file) {
         try {
             a(file);
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static File c(Context context, String str) {
-        return c(new File(a(context), "apk-" + str));
+        File a2 = a(context);
+        return c(new File(a2, "apk-" + str));
     }
 
-    private static File c(File file) {
+    public static File c(File file) {
         if (file.exists() && file.isFile()) {
             file.delete();
         }
-        if (!file.exists() || !file.isDirectory()) {
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            if (!file.exists() || !file.isDirectory()) {
-                throw new RuntimeException("Can not ensureDir:" + file);
-            }
+        if (file.exists() && file.isDirectory()) {
+            return file;
         }
-        return file;
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        if (file.exists() && file.isDirectory()) {
+            return file;
+        }
+        throw new RuntimeException("Can not ensureDir:" + file);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static String d(Context context, String str) {
         return new File(b(context, str), "dynamic.apk").getPath();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static String e(Context context, String str) {
         return c(new File(b(context, str), "dex")).getPath();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static String f(Context context, String str) {
         return c(new File(b(context, str), "libs")).getPath();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void g(final Context context, final String str) {
         if (TextUtils.isEmpty(str)) {
             return;
@@ -100,11 +90,11 @@ public class g {
                         return;
                     }
                     for (File file : listFiles) {
-                        if (f.a(str, file.getName().substring(file.getName().indexOf(Constants.ACCEPT_TIME_SEPARATOR_SERVER) + 1))) {
+                        if (f.a(str, file.getName().substring(file.getName().indexOf("-") + 1))) {
                             g.a(file);
                         }
                     }
-                } catch (Exception e) {
+                } catch (Exception unused) {
                 }
             }
         });

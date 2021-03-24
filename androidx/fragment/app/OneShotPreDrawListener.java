@@ -2,13 +2,13 @@ package androidx.fragment.app;
 
 import android.view.View;
 import android.view.ViewTreeObserver;
-/* loaded from: classes6.dex */
-class OneShotPreDrawListener implements View.OnAttachStateChangeListener, ViewTreeObserver.OnPreDrawListener {
-    private final Runnable mRunnable;
-    private final View mView;
-    private ViewTreeObserver mViewTreeObserver;
+/* loaded from: classes.dex */
+public class OneShotPreDrawListener implements ViewTreeObserver.OnPreDrawListener, View.OnAttachStateChangeListener {
+    public final Runnable mRunnable;
+    public final View mView;
+    public ViewTreeObserver mViewTreeObserver;
 
-    private OneShotPreDrawListener(View view, Runnable runnable) {
+    public OneShotPreDrawListener(View view, Runnable runnable) {
         this.mView = view;
         this.mViewTreeObserver = view.getViewTreeObserver();
         this.mRunnable = runnable;
@@ -28,15 +28,6 @@ class OneShotPreDrawListener implements View.OnAttachStateChangeListener, ViewTr
         return true;
     }
 
-    public void removeListener() {
-        if (this.mViewTreeObserver.isAlive()) {
-            this.mViewTreeObserver.removeOnPreDrawListener(this);
-        } else {
-            this.mView.getViewTreeObserver().removeOnPreDrawListener(this);
-        }
-        this.mView.removeOnAttachStateChangeListener(this);
-    }
-
     @Override // android.view.View.OnAttachStateChangeListener
     public void onViewAttachedToWindow(View view) {
         this.mViewTreeObserver = view.getViewTreeObserver();
@@ -45,5 +36,14 @@ class OneShotPreDrawListener implements View.OnAttachStateChangeListener, ViewTr
     @Override // android.view.View.OnAttachStateChangeListener
     public void onViewDetachedFromWindow(View view) {
         removeListener();
+    }
+
+    public void removeListener() {
+        if (this.mViewTreeObserver.isAlive()) {
+            this.mViewTreeObserver.removeOnPreDrawListener(this);
+        } else {
+            this.mView.getViewTreeObserver().removeOnPreDrawListener(this);
+        }
+        this.mView.removeOnAttachStateChangeListener(this);
     }
 }

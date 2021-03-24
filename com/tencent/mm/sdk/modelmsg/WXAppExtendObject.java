@@ -4,12 +4,12 @@ import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WXAppExtendObject implements WXMediaMessage.IMediaObject {
-    private static final int CONTENT_LENGTH_LIMIT = 10485760;
-    private static final int EXTINFO_LENGTH_LIMIT = 2048;
-    private static final int PATH_LENGTH_LIMIT = 10240;
-    private static final String TAG = "MicroMsg.SDK.WXAppExtendObject";
+    public static final int CONTENT_LENGTH_LIMIT = 10485760;
+    public static final int EXTINFO_LENGTH_LIMIT = 2048;
+    public static final int PATH_LENGTH_LIMIT = 10240;
+    public static final String TAG = "MicroMsg.SDK.WXAppExtendObject";
     public String extInfo;
     public byte[] fileData;
     public String filePath;
@@ -40,24 +40,36 @@ public class WXAppExtendObject implements WXMediaMessage.IMediaObject {
 
     @Override // com.tencent.mm.sdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if ((this.extInfo == null || this.extInfo.length() == 0) && ((this.filePath == null || this.filePath.length() == 0) && (this.fileData == null || this.fileData.length == 0))) {
-            a.a(TAG, "checkArgs fail, all arguments is null");
-            return false;
-        } else if (this.extInfo != null && this.extInfo.length() > 2048) {
-            a.a(TAG, "checkArgs fail, extInfo is invalid");
-            return false;
-        } else if (this.filePath != null && this.filePath.length() > PATH_LENGTH_LIMIT) {
-            a.a(TAG, "checkArgs fail, filePath is invalid");
-            return false;
-        } else if (this.filePath != null && getFileSize(this.filePath) > 10485760) {
-            a.a(TAG, "checkArgs fail, fileSize is too large");
-            return false;
-        } else if (this.fileData == null || this.fileData.length <= 10485760) {
-            return true;
+        String str;
+        byte[] bArr;
+        String str2;
+        String str3 = this.extInfo;
+        if ((str3 == null || str3.length() == 0) && (((str = this.filePath) == null || str.length() == 0) && ((bArr = this.fileData) == null || bArr.length == 0))) {
+            str2 = "checkArgs fail, all arguments is null";
         } else {
-            a.a(TAG, "checkArgs fail, fileData is too large");
-            return false;
+            String str4 = this.extInfo;
+            if (str4 == null || str4.length() <= 2048) {
+                String str5 = this.filePath;
+                if (str5 == null || str5.length() <= 10240) {
+                    String str6 = this.filePath;
+                    if (str6 == null || getFileSize(str6) <= 10485760) {
+                        byte[] bArr2 = this.fileData;
+                        if (bArr2 == null || bArr2.length <= 10485760) {
+                            return true;
+                        }
+                        str2 = "checkArgs fail, fileData is too large";
+                    } else {
+                        str2 = "checkArgs fail, fileSize is too large";
+                    }
+                } else {
+                    str2 = "checkArgs fail, filePath is invalid";
+                }
+            } else {
+                str2 = "checkArgs fail, extInfo is invalid";
+            }
         }
+        a.a("MicroMsg.SDK.WXAppExtendObject", str2);
+        return false;
     }
 
     @Override // com.tencent.mm.sdk.modelmsg.WXMediaMessage.IMediaObject

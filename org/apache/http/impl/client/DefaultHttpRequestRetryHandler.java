@@ -4,13 +4,17 @@ import java.io.IOException;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DefaultHttpRequestRetryHandler implements HttpRequestRetryHandler {
     public DefaultHttpRequestRetryHandler(int i, boolean z) {
         throw new RuntimeException("Stub!");
     }
 
-    public DefaultHttpRequestRetryHandler() {
+    public int getRetryCount() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean isRequestSentRetryEnabled() {
         throw new RuntimeException("Stub!");
     }
 
@@ -19,11 +23,7 @@ public class DefaultHttpRequestRetryHandler implements HttpRequestRetryHandler {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean isRequestSentRetryEnabled() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public int getRetryCount() {
+    public DefaultHttpRequestRetryHandler() {
         throw new RuntimeException("Stub!");
     }
 }

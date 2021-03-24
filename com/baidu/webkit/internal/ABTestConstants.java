@@ -1,11 +1,11 @@
 package com.baidu.webkit.internal;
 
 import com.baidu.webkit.sdk.IABTestInterface;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ABTestConstants implements INoProGuard {
-    private static final int ADBLOCK2_ON = 1;
-    private static final int ADBLOCK3_ON = 4;
-    private static final int ADBLOCK4_ON = 8;
+    public static final int ADBLOCK2_ON = 1;
+    public static final int ADBLOCK3_ON = 4;
+    public static final int ADBLOCK4_ON = 8;
     public static final String ADBLOCK_MF30_OPT_CODE = "adblock_mf30_opt";
     public static final int ADBLOCK_MF30_OPT_DEFAULT = 1;
     public static final String AD_FILTER_RULE_V2 = "ad_filter_rule_v2";
@@ -70,7 +70,7 @@ public final class ABTestConstants implements INoProGuard {
     public static final String MAGICFILTER_VERSION_CODE_KEY = "magicfilter_version";
     public static final String MAX_FATAL_ALLOCATION_FAILURE_SIZE = "max_fatal_allocation_failure_size";
     public static final int MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT = 10000000;
-    private static final int MF_ON = 2;
+    public static final int MF_ON = 2;
     public static final String MULTIPLE_CONTAINER_KEY = "main_browser_frame_multi_container";
     public static final String MULTIPLE_PROCESS_DEVICES_KEY = "multiple_process_devices";
     public static final String MULTIPLE_PROCESS_KEY = "multiple_process";
@@ -194,7 +194,7 @@ public final class ABTestConstants implements INoProGuard {
     public static final boolean ZEUS_UMA_ENABLE_VALUE = true;
     public static final String ZEUS_UMA_KEY = "zeus_uma";
 
-    private static final int getAdBlockAndMfOpt(IABTestInterface iABTestInterface) {
+    public static final int getAdBlockAndMfOpt(IABTestInterface iABTestInterface) {
         if (iABTestInterface == null) {
             return 1;
         }

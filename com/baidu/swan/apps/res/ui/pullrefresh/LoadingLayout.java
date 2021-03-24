@@ -6,56 +6,179 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
-/* loaded from: classes8.dex */
-public abstract class LoadingLayout extends FrameLayout implements ILoadingLayout {
-    private View dzP;
-    private ILoadingLayout.State dzQ;
-    private ILoadingLayout.State dzR;
+/* loaded from: classes3.dex */
+public abstract class LoadingLayout extends FrameLayout {
 
-    protected abstract View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet);
+    /* renamed from: e  reason: collision with root package name */
+    public View f12530e;
 
-    public abstract int getContentSize();
+    /* renamed from: f  reason: collision with root package name */
+    public ILoadingLayout$State f12531f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ILoadingLayout$State f12532g;
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f12533a;
+
+        static {
+            int[] iArr = new int[ILoadingLayout$State.values().length];
+            f12533a = iArr;
+            try {
+                iArr[ILoadingLayout$State.RESET.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f12533a[ILoadingLayout$State.RELEASE_TO_REFRESH.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f12533a[ILoadingLayout$State.PULL_TO_REFRESH.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f12533a[ILoadingLayout$State.REFRESHING.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f12533a[ILoadingLayout$State.NO_MORE_DATA.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                f12533a[ILoadingLayout$State.RELEASE_TO_LONG_REFRESH.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
 
     public LoadingLayout(Context context) {
         this(context, null);
     }
 
-    public LoadingLayout(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
+    public abstract View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet);
 
-    public LoadingLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.dzQ = ILoadingLayout.State.NONE;
-        this.dzR = ILoadingLayout.State.NONE;
-        init(context, attributeSet);
-    }
-
-    protected void init(Context context, AttributeSet attributeSet) {
-        this.dzP = a(context, this, attributeSet);
-        if (this.dzP == null) {
-            throw new NullPointerException("Loading view can not be null.");
+    public void b(Context context, AttributeSet attributeSet) {
+        View a2 = a(context, this, attributeSet);
+        this.f12530e = a2;
+        if (a2 != null) {
+            ViewGroup.LayoutParams layoutParams = a2.getLayoutParams();
+            addView(this.f12530e, new FrameLayout.LayoutParams(-1, layoutParams != null ? layoutParams.height : -2));
+            return;
         }
-        int i = -2;
-        ViewGroup.LayoutParams layoutParams = this.dzP.getLayoutParams();
-        if (layoutParams != null) {
-            i = layoutParams.height;
-        }
-        addView(this.dzP, new FrameLayout.LayoutParams(-1, i));
+        throw new NullPointerException("Loading view can not be null.");
     }
 
-    public void show(boolean z) {
+    public void c() {
+    }
+
+    public void d(float f2) {
+    }
+
+    public void e(int i) {
+    }
+
+    public void f(boolean z, String str, Runnable runnable) {
+        runnable.run();
+    }
+
+    public void g() {
+    }
+
+    public int getCanRefreshPullLength() {
+        return getContentSize();
+    }
+
+    public abstract int getContentSize();
+
+    public ILoadingLayout$State getPreState() {
+        return this.f12532g;
+    }
+
+    public int getRefreshingHeight() {
+        return getContentSize();
+    }
+
+    public ILoadingLayout$State getState() {
+        return this.f12531f;
+    }
+
+    public void h() {
+    }
+
+    public void i() {
+    }
+
+    public void j() {
+    }
+
+    public void k() {
+    }
+
+    public void l(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
+        switch (a.f12533a[iLoadingLayout$State.ordinal()]) {
+            case 1:
+                k();
+                return;
+            case 2:
+                j();
+                return;
+            case 3:
+                g();
+                return;
+            case 4:
+                h();
+                return;
+            case 5:
+                c();
+                return;
+            case 6:
+                i();
+                return;
+            default:
+                return;
+        }
+    }
+
+    public void m(boolean z) {
         ViewGroup.LayoutParams layoutParams;
-        if (z != (getVisibility() == 0) && (layoutParams = this.dzP.getLayoutParams()) != null) {
-            if (z) {
-                layoutParams.height = -2;
-            } else {
-                layoutParams.height = 0;
-            }
-            requestLayout();
-            setVisibility(z ? 0 : 4);
+        if (z == (getVisibility() == 0) || (layoutParams = this.f12530e.getLayoutParams()) == null) {
+            return;
         }
+        if (z) {
+            layoutParams.height = -2;
+        } else {
+            layoutParams.height = 0;
+        }
+        requestLayout();
+        setVisibility(z ? 0 : 4);
+    }
+
+    @Override // android.view.View
+    public void setBackgroundColor(int i) {
+        View view = this.f12530e;
+        if (view != null) {
+            view.setBackgroundColor(i);
+        }
+    }
+
+    public void setHeaderBackgroundColor(int i) {
+        View view = this.f12530e;
+        if (view != null) {
+            view.setBackgroundColor(i);
+        }
+    }
+
+    public void setHeaderBackgroundResource(int i) {
+        View view = this.f12530e;
+        if (view != null) {
+            view.setBackgroundColor(getResources().getColor(i));
+        }
+    }
+
+    public void setHeaderBigBackground(int i) {
     }
 
     public void setLastUpdatedLabel(CharSequence charSequence) {
@@ -73,110 +196,24 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     public void setReleaseLabel(CharSequence charSequence) {
     }
 
-    public void setHeaderBackgroundColor(int i) {
-        if (this.dzP != null) {
-            this.dzP.setBackgroundColor(i);
+    public void setState(ILoadingLayout$State iLoadingLayout$State) {
+        ILoadingLayout$State iLoadingLayout$State2 = this.f12531f;
+        if (iLoadingLayout$State2 != iLoadingLayout$State) {
+            this.f12532g = iLoadingLayout$State2;
+            this.f12531f = iLoadingLayout$State;
+            l(iLoadingLayout$State, iLoadingLayout$State2);
         }
     }
 
-    public void setHeaderBackgroundResource(int i) {
-        if (this.dzP != null) {
-            this.dzP.setBackgroundColor(getResources().getColor(i));
-        }
+    public LoadingLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
     }
 
-    @Override // android.view.View
-    public void setBackgroundColor(int i) {
-        if (this.dzP != null) {
-            this.dzP.setBackgroundColor(i);
-        }
-    }
-
-    public void setState(ILoadingLayout.State state) {
-        if (this.dzQ != state) {
-            this.dzR = this.dzQ;
-            this.dzQ = state;
-            a(state, this.dzR);
-        }
-    }
-
-    public ILoadingLayout.State getState() {
-        return this.dzQ;
-    }
-
-    public void onPull(float f) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ILoadingLayout.State getPreState() {
-        return this.dzR;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(ILoadingLayout.State state, ILoadingLayout.State state2) {
-        switch (state) {
-            case RESET:
-                onReset();
-                return;
-            case RELEASE_TO_REFRESH:
-                onReleaseToRefresh();
-                return;
-            case PULL_TO_REFRESH:
-                onPullToRefresh();
-                return;
-            case REFRESHING:
-                onRefreshing();
-                return;
-            case NO_MORE_DATA:
-                onNoMoreData();
-                return;
-            case RELEASE_TO_LONG_REFRESH:
-                aHi();
-                return;
-            default:
-                return;
-        }
-    }
-
-    protected void onReset() {
-    }
-
-    protected void onPullToRefresh() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void aHi() {
-    }
-
-    protected void onReleaseToRefresh() {
-    }
-
-    protected void onRefreshing() {
-    }
-
-    protected void onNoMoreData() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setHeaderBigBackground(int i) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int getCanRefreshPullLength() {
-        return getContentSize();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void iE(int i) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int getRefreshingHeight() {
-        return getContentSize();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(boolean z, String str, Runnable runnable) {
-        runnable.run();
+    public LoadingLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.NONE;
+        this.f12531f = iLoadingLayout$State;
+        this.f12532g = iLoadingLayout$State;
+        b(context, attributeSet);
     }
 }

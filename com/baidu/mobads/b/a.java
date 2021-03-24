@@ -4,9 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.constants.XAdSDKProxyVersion;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
@@ -19,34 +16,50 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.l;
 import com.baidu.mobads.utils.q;
-import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.thunder.livesdk.system.ThunderNetStateService;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f2358a = XAdSDKFoundationFacade.getInstance().getAdLogger();
-    private Context e;
-    private static a d = new a();
-    public static volatile String b = "";
-    public static volatile String c = "";
+    public final IXAdLogger f8166a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f8167e;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static a f8165d = new a();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile String f8163b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile String f8164c = "";
 
     public static a a() {
-        return d;
+        return f8165d;
     }
 
-    private a() {
+    private String b() {
+        String str = com.baidu.mobads.constants.a.f8205c;
+        if ("0.0".equals(str)) {
+            try {
+                double a2 = g.a(this.f8167e, g.a(this.f8167e));
+                return a2 > 0.0d ? String.valueOf(a2) : str;
+            } catch (Throwable th) {
+                this.f8166a.d(th);
+                return str;
+            }
+        }
+        return str;
     }
 
     public void a(Context context) {
-        if (this.e == null) {
-            this.e = context;
+        if (this.f8167e == null) {
+            this.f8167e = context;
         }
     }
 
@@ -56,40 +69,49 @@ public class a {
             hashMap.put("ad", str3);
             hashMap.put("stacktrace", str2);
             a(str, "404", hashMap);
-        } catch (Exception e) {
-            this.f2358a.d(e);
+        } catch (Exception e2) {
+            this.f8166a.d(e2);
         }
     }
 
     private void a(String str, String str2, HashMap<String, String> hashMap) {
+        String str3;
+        String str4;
         l adConstants = XAdSDKFoundationFacade.getInstance().getAdConstants();
         h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         Uri.Builder builder = new Uri.Builder();
         try {
             IXAdSystemUtils systemUtils = XAdSDKFoundationFacade.getInstance().getSystemUtils();
             Context applicationContext = XAdSDKFoundationFacade.getInstance().getApplicationContext();
-            String str3 = "";
-            String str4 = "";
             if (applicationContext != null) {
-                str3 = systemUtils.getEncodedSN(applicationContext);
-                str4 = commonUtils.base64Encode(systemUtils.getCUID(applicationContext));
+                str4 = systemUtils.getEncodedSN(applicationContext);
+                str3 = commonUtils.base64Encode(systemUtils.getCUID(applicationContext));
+            } else {
+                str3 = "";
+                str4 = str3;
             }
-            builder.appendQueryParameter("type", str2).appendQueryParameter(IXAdRequestInfo.P_VER, XAdSDKProxyVersion.RELEASE_TAG).appendQueryParameter("appsid", adConstants.getAppSid()).appendQueryParameter("v", "android_" + b() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30").appendQueryParameter("pack", adConstants.getAppPackageNameOfPublisher()).appendQueryParameter(IXAdRequestInfo.SN, str3).appendQueryParameter("cuid", str4).appendQueryParameter("os", HttpConstants.OS_TYPE_VALUE).appendQueryParameter(IXAdRequestInfo.OSV, Build.VERSION.RELEASE).appendQueryParameter(IXAdRequestInfo.BDR, "" + Build.VERSION.SDK_INT).appendQueryParameter(IXAdRequestInfo.BRAND, "" + commonUtils.getTextEncoder(Build.BRAND));
+            Uri.Builder appendQueryParameter = builder.appendQueryParameter("type", str2).appendQueryParameter(IXAdRequestInfo.P_VER, XAdSDKProxyVersion.RELEASE_TAG).appendQueryParameter("appsid", adConstants.getAppSid());
+            Uri.Builder appendQueryParameter2 = appendQueryParameter.appendQueryParameter("v", "android_" + b() + "_4.1.30").appendQueryParameter("pack", adConstants.getAppPackageNameOfPublisher()).appendQueryParameter(IXAdRequestInfo.SN, str4).appendQueryParameter("cuid", str3).appendQueryParameter(IXAdRequestInfo.OS, "android").appendQueryParameter(IXAdRequestInfo.OSV, Build.VERSION.RELEASE);
+            StringBuilder sb = new StringBuilder();
+            sb.append("");
+            sb.append(Build.VERSION.SDK_INT);
+            Uri.Builder appendQueryParameter3 = appendQueryParameter2.appendQueryParameter(IXAdRequestInfo.BDR, sb.toString());
+            appendQueryParameter3.appendQueryParameter(IXAdRequestInfo.BRAND, "" + commonUtils.getTextEncoder(Build.BRAND));
             if (str != null && str.length() > 128) {
                 int indexOf = str.indexOf(10);
                 if (indexOf <= 0) {
-                    indexOf = ThunderNetStateService.NetState.SYSNET_UNKNOWN;
+                    indexOf = 127;
                 }
                 str = str.substring(0, indexOf);
             }
-            builder.appendQueryParameter(TiebaInitialize.LogFields.REASON, str);
+            builder.appendQueryParameter("reason", str);
             if (hashMap != null) {
                 for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                     builder.appendQueryParameter(entry.getKey(), entry.getValue());
                 }
             }
         } catch (Throwable th) {
-            this.f2358a.d(th);
+            this.f8166a.d(th);
         }
         b bVar = new b("https://mobads-logs.baidu.com/brwhis.log", "");
         bVar.a(builder);
@@ -106,8 +128,8 @@ public class a {
         for (int i = 0; i < objArr.length; i++) {
             try {
                 hashMap.put("custom_" + i, String.valueOf(objArr[i]));
-            } catch (Exception e) {
-                q.a().e(e);
+            } catch (Exception e2) {
+                q.a().e(e2);
                 return;
             }
         }
@@ -127,8 +149,8 @@ public class a {
                 hashMap.put("probability", String.valueOf(d2));
                 a(new com.baidu.mobads.vo.a.b(str, iXAdInstanceInfo, iXAdProdInfo, hashMap).a(context));
             }
-        } catch (Exception e) {
-            q.a().e(e);
+        } catch (Exception e2) {
+            q.a().e(e2);
         }
     }
 
@@ -140,9 +162,9 @@ public class a {
                 hashMap = new HashMap<>();
             }
             hashMap.put("type", String.valueOf(i));
-            hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
+            hashMap.put(IXAdRequestInfo.OS, "android");
             hashMap.put(IXAdRequestInfo.OSV, Build.VERSION.RELEASE);
-            hashMap.put(Constants.PHONE_BRAND, systemUtils.getPhoneOSBrand());
+            hashMap.put("brand", systemUtils.getPhoneOSBrand());
             hashMap.put(IXAdRequestInfo.BDR, systemUtils.getPhoneOSBuildVersionSdk());
             hashMap.put("model", Build.MODEL);
             hashMap.put("v", b());
@@ -162,7 +184,7 @@ public class a {
             }
             a(a(context, String.valueOf(i), hashMap));
         } catch (Throwable th) {
-            this.f2358a.d(th);
+            this.f8166a.d(th);
         }
     }
 
@@ -173,13 +195,13 @@ public class a {
     private void a(int i, String str) {
         com.baidu.mobads.openad.b.a aVar = new com.baidu.mobads.openad.b.a();
         b bVar = new b(str, "");
-        bVar.e = i;
-        aVar.a(bVar, (Boolean) true);
+        bVar.f8413e = i;
+        aVar.a(bVar, Boolean.TRUE);
     }
 
     private String a(Context context, String str, Map<String, String> map) {
         try {
-            StringBuilder sb = new StringBuilder("type=" + str + ETAG.ITEM_SEPARATOR);
+            StringBuilder sb = new StringBuilder("type=" + str + "&");
             StringBuilder sb2 = new StringBuilder();
             map.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis() + "");
             h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
@@ -191,48 +213,30 @@ public class a {
                     sb.append(encodeURIComponent);
                     sb.append("=");
                     sb.append(encodeURIComponent2);
-                    sb.append(ETAG.ITEM_SEPARATOR);
+                    sb.append("&");
                     sb2.append(encodeURIComponent2);
                     sb2.append(",");
                 }
             }
             sb2.append("mobads,");
             String md5 = commonUtils.getMD5(sb2.toString());
-            this.f2358a.d("ExtraQuery.allValue:" + ((Object) sb2));
-            sb.append("vd=" + md5 + ETAG.ITEM_SEPARATOR);
-            this.f2358a.d("ExtraQuery.params:" + ((Object) sb));
+            IXAdLogger iXAdLogger = this.f8166a;
+            iXAdLogger.d("ExtraQuery.allValue:" + ((Object) sb2));
+            sb.append("vd=" + md5 + "&");
+            IXAdLogger iXAdLogger2 = this.f8166a;
+            iXAdLogger2.d("ExtraQuery.params:" + ((Object) sb));
             return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
-        } catch (Exception e) {
-            this.f2358a.d(e);
+        } catch (Exception e2) {
+            this.f8166a.d(e2);
             return "";
         }
-    }
-
-    private String b() {
-        String str = com.baidu.mobads.constants.a.c;
-        if ("0.0".equals(str)) {
-            try {
-                double a2 = g.a(this.e, g.a(this.e));
-                if (a2 > 0.0d) {
-                    return String.valueOf(a2);
-                }
-                return str;
-            } catch (Throwable th) {
-                this.f2358a.d(th);
-                return str;
-            }
-        }
-        return str;
     }
 
     private String a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return "";
+        if (jSONObject != null) {
+            String optString = jSONObject.optString("buyer", "");
+            return TextUtils.isEmpty(optString) ? jSONObject.optString("buyer_id", "") : optString;
         }
-        String optString = jSONObject.optString("buyer", "");
-        if (TextUtils.isEmpty(optString)) {
-            return jSONObject.optString("buyer_id", "");
-        }
-        return optString;
+        return "";
     }
 }

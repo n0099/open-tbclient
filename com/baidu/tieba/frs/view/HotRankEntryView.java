@@ -10,81 +10,103 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.ImageOverlayView;
+import d.b.b.e.p.k;
 import java.util.ArrayList;
+import java.util.List;
 import tbclient.HotUserRankEntry;
 import tbclient.ShortUserInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class HotRankEntryView extends RelativeLayout {
-    private ImageOverlayView jIC;
-    private ImageView jTL;
-    private TextView jTM;
-    private boolean jrL;
-    private ImageView mArrow;
-    private int mSkinType;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f16772e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f16773f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageOverlayView f16774g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f16775h;
+    public ImageView i;
+    public boolean j;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f16776e;
+
+        public a(Context context) {
+            this.f16776e = context;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotUserRankActivityConfig(this.f16776e)));
+        }
+    }
 
     public HotRankEntryView(Context context) {
         this(context, null);
     }
 
-    public HotRankEntryView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet, 0);
-        this.mSkinType = 3;
-        init(context);
-    }
-
-    private void init(final Context context) {
+    public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.hot_rank_entry, (ViewGroup) this, true);
-        this.jTL = (ImageView) findViewById(R.id.first_tag);
+        this.f16773f = (ImageView) findViewById(R.id.first_tag);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62);
         int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
         int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds20);
-        this.jIC = (ImageOverlayView) findViewById(R.id.image_group);
-        this.jIC.l(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
-        this.jIC.setStrokeStyle(1);
-        this.jIC.setLoadImageType(12);
-        this.jTM = (TextView) findViewById(R.id.entry_describe);
-        this.mArrow = (ImageView) findViewById(R.id.arrow);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.HotRankEntryView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotUserRankActivityConfig(context)));
-            }
-        });
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(R.id.image_group);
+        this.f16774g = imageOverlayView;
+        imageOverlayView.a(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
+        this.f16774g.setStrokeStyle(1);
+        this.f16774g.setLoadImageType(12);
+        this.f16775h = (TextView) findViewById(R.id.entry_describe);
+        this.i = (ImageView) findViewById(R.id.arrow);
+        setOnClickListener(new a(context));
+        b(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void b(int i) {
+        if (i != this.f16772e) {
+            this.f16772e = i;
+            SkinManager.setBackgroundResource(this, this.j ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f16773f, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
+            this.f16774g.d();
+            SkinManager.setViewTextColor(this.f16775h, R.color.CAM_X0101);
+            WebPManager.setPureDrawable(this.i, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+        }
     }
 
     public void setData(HotUserRankEntry hotUserRankEntry, boolean z) {
-        if (hotUserRankEntry != null && hotUserRankEntry.hot_user != null && hotUserRankEntry.hot_user.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (ShortUserInfo shortUserInfo : hotUserRankEntry.hot_user) {
-                if (shortUserInfo != null) {
-                    arrayList.add(shortUserInfo.portrait);
-                }
-            }
-            this.jIC.setData(arrayList);
-            this.jrL = z;
-            this.jTM.setText(!au.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
-            ap.setBackgroundResource(this, z ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
+        List<ShortUserInfo> list;
+        if (hotUserRankEntry == null || (list = hotUserRankEntry.hot_user) == null || list.size() <= 0) {
+            return;
         }
+        ArrayList arrayList = new ArrayList();
+        for (ShortUserInfo shortUserInfo : hotUserRankEntry.hot_user) {
+            if (shortUserInfo != null) {
+                arrayList.add(shortUserInfo.portrait);
+            }
+        }
+        this.f16774g.setData(arrayList);
+        this.j = z;
+        this.f16775h.setText(!k.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
+        SkinManager.setBackgroundResource(this, z ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
     }
 
-    public void onChangeSkinType(int i) {
-        if (i != this.mSkinType) {
-            this.mSkinType = i;
-            ap.setBackgroundResource(this, this.jrL ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
-            SvgManager.bsU().a(this.jTL, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
-            this.jIC.onChangeSkinType();
-            ap.setViewTextColor(this.jTM, R.color.CAM_X0101);
-            WebPManager.a(this.mArrow, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
-        }
+    public HotRankEntryView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet, 0);
+        this.f16772e = 3;
+        a(context);
     }
 }

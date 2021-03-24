@@ -1,9 +1,11 @@
 package com.baidu.location.b;
-/* loaded from: classes4.dex */
+
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
+/* loaded from: classes2.dex */
 public final class d {
     public static String a(int i) {
         if (i.i()) {
-            return "WIFI";
+            return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
         }
         switch (i) {
             case 1:
@@ -21,7 +23,7 @@ public final class d {
             case 12:
             case 14:
             case 15:
-                return "3G";
+                return com.baidu.apollon.statistics.g.f3873b;
             case 13:
                 return "4G";
             default:

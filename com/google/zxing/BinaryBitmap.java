@@ -2,28 +2,21 @@ package com.google.zxing;
 
 import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class BinaryBitmap {
-    private final Binarizer binarizer;
-    private BitMatrix matrix;
+    public final Binarizer binarizer;
+    public BitMatrix matrix;
 
     public BinaryBitmap(Binarizer binarizer) {
-        if (binarizer == null) {
-            throw new IllegalArgumentException("Binarizer must be non-null.");
+        if (binarizer != null) {
+            this.binarizer = binarizer;
+            return;
         }
-        this.binarizer = binarizer;
+        throw new IllegalArgumentException("Binarizer must be non-null.");
     }
 
-    public int getWidth() {
-        return this.binarizer.getWidth();
-    }
-
-    public int getHeight() {
-        return this.binarizer.getHeight();
-    }
-
-    public BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException {
-        return this.binarizer.getBlackRow(i, bitArray);
+    public BinaryBitmap crop(int i, int i2, int i3, int i4) {
+        return new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().crop(i, i2, i3, i4)));
     }
 
     public BitMatrix getBlackMatrix() throws NotFoundException {
@@ -33,12 +26,20 @@ public final class BinaryBitmap {
         return this.matrix;
     }
 
-    public boolean isCropSupported() {
-        return this.binarizer.getLuminanceSource().isCropSupported();
+    public BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException {
+        return this.binarizer.getBlackRow(i, bitArray);
     }
 
-    public BinaryBitmap crop(int i, int i2, int i3, int i4) {
-        return new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().crop(i, i2, i3, i4)));
+    public int getHeight() {
+        return this.binarizer.getHeight();
+    }
+
+    public int getWidth() {
+        return this.binarizer.getWidth();
+    }
+
+    public boolean isCropSupported() {
+        return this.binarizer.getLuminanceSource().isCropSupported();
     }
 
     public boolean isRotateSupported() {
@@ -56,7 +57,7 @@ public final class BinaryBitmap {
     public String toString() {
         try {
             return getBlackMatrix().toString();
-        } catch (NotFoundException e) {
+        } catch (NotFoundException unused) {
             return "";
         }
     }

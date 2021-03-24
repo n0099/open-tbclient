@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMPaSearchListMsg extends Message {
-    private Context mContext;
-    private String mSearchContent;
+    public Context mContext;
+    public String mSearchContent;
 
     public IMPaSearchListMsg(Context context, String str) {
         this.mContext = context;
@@ -24,21 +24,6 @@ public class IMPaSearchListMsg extends Message {
         this.mSearchContent = str;
         setNeedReplay(true);
         setType(103);
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("method", 103);
-            jSONObject.put("appid", this.mAppid);
-            jSONObject.put("uk", this.mUk);
-            jSONObject.put("content", this.mSearchContent);
-            this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "buildBody:", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-        }
     }
 
     public static IMPaSearchListMsg newInstance(Context context, Intent intent) {
@@ -49,43 +34,58 @@ public class IMPaSearchListMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
+    public void buildBody() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("method", 103);
+            jSONObject.put("appid", this.mAppid);
+            jSONObject.put("uk", this.mUk);
+            jSONObject.put("content", this.mSearchContent);
+            this.mBody = jSONObject.toString();
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "buildBody:", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         ArrayList arrayList;
-        JSONArray optJSONArray;
+        Exception e2;
+        ArrayList arrayList2 = null;
         if (i == 0) {
             try {
-                optJSONArray = jSONObject.optJSONArray("pa_list");
-            } catch (Exception e) {
-                e = e;
-                arrayList = null;
-            }
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                arrayList = new ArrayList();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    try {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        PaInfo paInfo = new PaInfo();
-                        paInfo.setPaId(jSONObject2.optLong("pa_uid"));
-                        paInfo.setNickName(jSONObject2.optString("pa_nickname"));
-                        paInfo.setAvatar(jSONObject2.optString("pa_avatar"));
-                        paInfo.setDescription("");
-                        paInfo.setUrl(jSONObject2.optString("pa_url"));
-                        paInfo.setAcceptPush(true);
-                        paInfo.setStatus(jSONObject2.optInt("status"));
-                        arrayList.add(paInfo);
-                    } catch (Exception e2) {
-                        e = e2;
-                        LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
-                        new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
-                        super.handleMessageResult(context, jSONObject, i, str);
-                        PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
+                JSONArray optJSONArray = jSONObject.optJSONArray("pa_list");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    arrayList = new ArrayList();
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        try {
+                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                            PaInfo paInfo = new PaInfo();
+                            paInfo.setPaId(jSONObject2.optLong("pa_uid"));
+                            paInfo.setNickName(jSONObject2.optString("pa_nickname"));
+                            paInfo.setAvatar(jSONObject2.optString("pa_avatar"));
+                            paInfo.setDescription("");
+                            paInfo.setUrl(jSONObject2.optString("pa_url"));
+                            paInfo.setAcceptPush(true);
+                            paInfo.setStatus(jSONObject2.optInt("status"));
+                            arrayList.add(paInfo);
+                        } catch (Exception e3) {
+                            e2 = e3;
+                            LogUtils.e(LogUtils.TAG, "handleMessageResult:", e2);
+                            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                            super.handleMessageResult(context, jSONObject, i, str);
+                            PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
+                        }
                     }
+                    arrayList2 = arrayList;
                 }
-                super.handleMessageResult(context, jSONObject, i, str);
-                PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
+            } catch (Exception e4) {
+                arrayList = null;
+                e2 = e4;
             }
         }
-        arrayList = null;
+        arrayList = arrayList2;
         super.handleMessageResult(context, jSONObject, i, str);
         PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
     }

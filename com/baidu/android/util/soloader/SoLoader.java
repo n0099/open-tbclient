@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.NoProGuard;
-import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -24,35 +23,468 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SoLoader implements NoProGuard {
-    private static final String TAG = "SoLoader";
-    private StringBuilder sb = new StringBuilder();
-    private static final boolean DEBUG = false;
-    private static final Set<String> sLoadedLibraries = Collections.synchronizedSet(new HashSet());
-    private static final List<File> soSources = new ArrayList();
+    public static final boolean DEBUG = false;
+    public static final String TAG = "SoLoader";
+    public static final Set<String> sLoadedLibraries = Collections.synchronizedSet(new HashSet());
+    public static final List<File> soSources = new ArrayList();
+    public StringBuilder sb = new StringBuilder();
 
-    private SoLoader() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.util.List<java.io.File> */
+    /* JADX WARN: Multi-variable type inference failed */
+    private void addLocalSoLibraryDirectory(Context context) {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new File(getNativeLibraryDir(context)));
+        arrayList.add(new File(context.getFilesDir(), "lib"));
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (!soSources.contains(arrayList.get(i))) {
+                soSources.add(arrayList.get(i));
+            }
+        }
+    }
+
+    private void addSysSoLibraryDirectory() {
+        String str = System.getenv("LD_LIBRARY_PATH");
+        if (str == null) {
+            str = "/vendor/lib:/system/lib";
+        }
+        for (String str2 : str.split(":")) {
+            File file = new File(str2);
+            if (!soSources.contains(file)) {
+                soSources.add(file);
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0085 A[Catch: IOException -> 0x0089, TRY_ENTER, TRY_LEAVE, TryCatch #6 {IOException -> 0x0089, blocks: (B:37:0x0085, B:56:0x00ac), top: B:79:0x0018 }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x00b3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x00bd A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x007b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private boolean executeRelease(Context context, ZipFile zipFile, String str, String str2) {
+        FileChannel fileChannel;
+        FileChannel fileChannel2;
+        if (zipFile == null) {
+            return false;
+        }
+        boolean z = true;
+        File releaseSoFilePath = getReleaseSoFilePath(context);
+        if (!releaseSoFilePath.exists()) {
+            releaseSoFilePath.mkdirs();
+        }
+        File file = new File(releaseSoFilePath, str);
+        FileLock fileLock = null;
+        try {
+            try {
+                File file2 = new File(releaseSoFilePath, str + ".lock");
+                if (!file2.exists()) {
+                    try {
+                        file2.createNewFile();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                try {
+                    fileChannel2 = new RandomAccessFile(file2, "rw").getChannel();
+                } catch (FileNotFoundException e3) {
+                    e = e3;
+                    fileChannel2 = null;
+                }
+            } catch (IOException e4) {
+                e4.printStackTrace();
+            }
+            try {
+                try {
+                    fileLock = fileChannel2.lock();
+                } catch (IOException e5) {
+                    try {
+                        e5.printStackTrace();
+                    } catch (FileNotFoundException e6) {
+                        e = e6;
+                        e.printStackTrace();
+                        if (fileLock != null) {
+                            z = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
+                        }
+                        if (fileLock != null) {
+                        }
+                        if (fileChannel2 != null) {
+                        }
+                        return z;
+                    }
+                }
+                if (fileLock != null && fileLock.isValid()) {
+                    z = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
+                }
+                if (fileLock != null) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
+                    }
+                }
+            } catch (Exception e8) {
+                fileChannel = fileChannel2;
+                e = e8;
+                try {
+                    e.printStackTrace();
+                    if (fileLock != null) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e9) {
+                            e9.printStackTrace();
+                        }
+                    }
+                    if (fileChannel != null) {
+                        fileChannel.close();
+                    }
+                    return z;
+                } catch (Throwable th) {
+                    th = th;
+                    if (fileLock != null) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e10) {
+                            e10.printStackTrace();
+                        }
+                    }
+                    if (fileChannel != null) {
+                        try {
+                            fileChannel.close();
+                        } catch (IOException e11) {
+                            e11.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                fileChannel = fileChannel2;
+                th = th2;
+                if (fileLock != null) {
+                }
+                if (fileChannel != null) {
+                }
+                throw th;
+            }
+        } catch (Exception e12) {
+            e = e12;
+            fileChannel = null;
+        } catch (Throwable th3) {
+            th = th3;
+            fileChannel = null;
+        }
+        if (fileChannel2 != null) {
+            fileChannel2.close();
+        }
+        return z;
+    }
+
+    @SuppressLint({"NewApi"})
+    private String getNativeLibraryDir(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return SoUtils.hasGingerbread() ? packageInfo.applicationInfo.nativeLibraryDir : new File(packageInfo.applicationInfo.dataDir, "lib").getAbsolutePath();
+        } catch (PackageManager.NameNotFoundException e2) {
+            e2.printStackTrace();
+            return "";
+        }
+    }
+
+    public static File getReleaseSoFilePath(Context context) {
+        return new File(context.getFilesDir(), "lib");
+    }
+
+    private long getSoSize(ZipFile zipFile, String str) {
+        if (zipFile != null) {
+            try {
+                ZipEntry entry = zipFile.getEntry(str);
+                if (entry != null) {
+                    return entry.getSize();
+                }
+                return 0L;
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    Log.e("SoLoader", "SoLoader getSoSize exception.", e2);
+                    return 0L;
+                }
+                return 0L;
+            }
+        }
+        return 0L;
+    }
+
+    private void initSoSource(Context context) {
+        if (DEBUG) {
+            Log.d("SoLoader", "initSoSource is called");
+        }
+        addSysSoLibraryDirectory();
+        addLocalSoLibraryDirectory(context);
+    }
+
+    public static boolean isSoLoadedSucc(String str) {
+        return sLoadedLibraries.contains(str);
     }
 
     public static void load(Context context, String str) {
-        if (!sLoadedLibraries.contains(str)) {
-            load(context, str, (ICallingSoLoader) null);
+        if (sLoadedLibraries.contains(str)) {
+            return;
+        }
+        load(context, str, (ICallingSoLoader) null);
+    }
+
+    private boolean loadInternal(Context context, String str, ICallingSoLoader iCallingSoLoader) {
+        if (!TextUtils.isEmpty(str)) {
+            if (loadLibrary(iCallingSoLoader, str, "SO_LOAD_LIBRARY")) {
+                return true;
+            }
+            return loadInternalFromLocal(context, str, iCallingSoLoader);
+        }
+        throw new IllegalArgumentException("load so library argument error,soName is null.");
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    private boolean loadInternalFromLocal(Context context, String str, ICallingSoLoader iCallingSoLoader) {
+        String fullName = SoUtils.getFullName(str);
+        ZipFile zipFile = null;
+        try {
+            String str2 = SoUtils.uris[0] + File.separator + fullName;
+            try {
+                try {
+                    zipFile = new ZipFile(new File(context.getApplicationInfo().sourceDir));
+                } catch (IOException e2) {
+                    this.sb.append(Log.getStackTraceString(e2));
+                    e2.printStackTrace();
+                }
+            } catch (ZipException e3) {
+                this.sb.append(Log.getStackTraceString(e3));
+                e3.printStackTrace();
+            }
+            if (zipFile == null) {
+                SoUtils.sendLog(this.sb.toString());
+                return false;
+            }
+            File file = new File(getNativeLibraryDir(context), fullName);
+            if (file.exists()) {
+                if (file.length() == getSoSize(zipFile, str2) && load(iCallingSoLoader, fullName, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD")) {
+                    if (zipFile != null) {
+                        try {
+                            zipFile.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    return true;
+                }
+            }
+            File file2 = new File(getReleaseSoFilePath(context), fullName);
+            if (file2.exists()) {
+                if (file2.length() == getSoSize(zipFile, str2) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), "SO_RELEASE_LIB_LOAD")) {
+                    if (zipFile != null) {
+                        try {
+                            zipFile.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    return true;
+                }
+            }
+            for (int i = 0; i < SoUtils.uris.length; i++) {
+                if (executeRelease(context, zipFile, fullName, SoUtils.uris[i]) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
+                    if (zipFile != null) {
+                        try {
+                            zipFile.close();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                    return true;
+                }
+            }
+            SoUtils.sendLog(this.sb.toString());
+            if (zipFile != null) {
+                try {
+                    zipFile.close();
+                } catch (IOException e7) {
+                    e7.printStackTrace();
+                }
+            }
+            return false;
+        } finally {
+            if (0 != 0) {
+                try {
+                    zipFile.close();
+                } catch (IOException e8) {
+                    e8.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private boolean loadLibrary(ICallingSoLoader iCallingSoLoader, String str, String str2) {
+        String simpleName = SoUtils.getSimpleName(str);
+        try {
+            iCallingSoLoader.loadLibrary(simpleName);
+            return true;
+        } catch (Throwable th) {
+            if (DEBUG) {
+                Log.e("SoLoader", "SoLoader load exception.", th);
+            }
+            StringBuilder sb = this.sb;
+            sb.append(str2 + ":::" + simpleName + ":" + Log.getStackTraceString(th));
+            return false;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0088 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private boolean releaseFileFromApk(ZipFile zipFile, File file, String str) {
+        FileOutputStream fileOutputStream;
+        File file2 = new File(file.getAbsoluteFile() + ".tmp");
+        InputStream inputStream = null;
+        try {
+            if (zipFile != null) {
+                try {
+                    InputStream inputStream2 = zipFile.getInputStream(zipFile.getEntry(str));
+                    try {
+                        fileOutputStream = new FileOutputStream(file2);
+                    } catch (Exception e2) {
+                        e = e2;
+                        fileOutputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = null;
+                    }
+                    try {
+                        if (SoUtils.copyStream(inputStream2, fileOutputStream, 256) > 0) {
+                            boolean renameTo = file2.renameTo(file);
+                            if (inputStream2 != null) {
+                                try {
+                                    inputStream2.close();
+                                } catch (Exception e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            try {
+                                fileOutputStream.close();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
+                            }
+                            return renameTo;
+                        }
+                        inputStream = inputStream2;
+                    } catch (Exception e5) {
+                        e = e5;
+                        inputStream = inputStream2;
+                        try {
+                            if (DEBUG) {
+                                Log.e("SoLoader", "SoLoader releaseFileFromApk exception.", e);
+                            }
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (Exception e6) {
+                                    e6.printStackTrace();
+                                }
+                            }
+                            if (fileOutputStream != null) {
+                                fileOutputStream.close();
+                                return false;
+                            }
+                            return false;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (Exception e7) {
+                                    e7.printStackTrace();
+                                }
+                            }
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (Exception e8) {
+                                    e8.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        inputStream = inputStream2;
+                        if (inputStream != null) {
+                        }
+                        if (fileOutputStream != null) {
+                        }
+                        throw th;
+                    }
+                } catch (Exception e9) {
+                    e = e9;
+                    fileOutputStream = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileOutputStream = null;
+                }
+            } else {
+                fileOutputStream = null;
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception e10) {
+                    e10.printStackTrace();
+                }
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+                return false;
+            }
+            return false;
+        } catch (Exception e11) {
+            e11.printStackTrace();
+            return false;
+        }
+    }
+
+    public static File unpackLibraryAndDependencies(String str) {
+        if (DEBUG) {
+            Log.d("SoLoader", "unpackLibDep is called, shortName=" + str);
+        }
+        String fullName = SoUtils.getFullName(str);
+        try {
+            if (soSources.size() == 0 || 0 >= soSources.size()) {
+                return null;
+            }
+            File file = new File(soSources.get(0), fullName);
+            if (DEBUG) {
+                Log.d("SoLoader", "unpackLibDep soFile path is: " + file.getAbsolutePath());
+            }
+            return file;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return null;
         }
     }
 
     public static void load(Context context, String str, boolean z) {
-        if (!sLoadedLibraries.contains(str)) {
-            DefaultSoLoader defaultSoLoader = DefaultSoLoader.getDefaultSoLoader();
-            if (!z) {
-                if (new SoLoader().loadInternalFromLocal(context, str, defaultSoLoader)) {
-                    sLoadedLibraries.add(str);
-                    return;
-                }
+        if (sLoadedLibraries.contains(str)) {
+            return;
+        }
+        DefaultSoLoader defaultSoLoader = DefaultSoLoader.getDefaultSoLoader();
+        if (!z) {
+            if (new SoLoader().loadInternalFromLocal(context, str, defaultSoLoader)) {
+                sLoadedLibraries.add(str);
                 return;
             }
-            load(context, str, defaultSoLoader);
+            return;
         }
+        load(context, str, defaultSoLoader);
     }
 
     public static void load(Context context, String str, ICallingSoLoader iCallingSoLoader) {
@@ -74,519 +506,11 @@ public final class SoLoader implements NoProGuard {
             return true;
         } catch (Throwable th) {
             if (DEBUG) {
-                Log.e(TAG, "SoLoader load exception.", th);
+                Log.e("SoLoader", "SoLoader load exception.", th);
             }
-            this.sb.append(str3 + ":::" + str2 + ":" + Log.getStackTraceString(th));
+            StringBuilder sb = this.sb;
+            sb.append(str3 + ":::" + str2 + ":" + Log.getStackTraceString(th));
             return false;
-        }
-    }
-
-    private boolean loadInternal(Context context, String str, ICallingSoLoader iCallingSoLoader) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("load so library argument error,soName is null.");
-        }
-        if (loadLibrary(iCallingSoLoader, str, "SO_LOAD_LIBRARY")) {
-            return true;
-        }
-        return loadInternalFromLocal(context, str, iCallingSoLoader);
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [218=7, 220=6, 221=6, 222=6] */
-    private boolean loadInternalFromLocal(Context context, String str, ICallingSoLoader iCallingSoLoader) {
-        ZipFile zipFile;
-        ZipFile zipFile2;
-        String fullName = SoUtils.getFullName(str);
-        try {
-            String str2 = SoUtils.uris[0] + File.separator + fullName;
-            try {
-                zipFile2 = new ZipFile(new File(context.getApplicationInfo().sourceDir));
-            } catch (ZipException e) {
-                this.sb.append(Log.getStackTraceString(e));
-                e.printStackTrace();
-                zipFile2 = null;
-            } catch (IOException e2) {
-                this.sb.append(Log.getStackTraceString(e2));
-                e2.printStackTrace();
-                zipFile2 = null;
-            }
-            try {
-                if (zipFile2 == null) {
-                    SoUtils.sendLog(this.sb.toString());
-                    if (zipFile2 != null) {
-                        try {
-                            zipFile2.close();
-                            return false;
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                            return false;
-                        }
-                    }
-                    return false;
-                }
-                File file = new File(getNativeLibraryDir(context), fullName);
-                if (file.exists()) {
-                    if (file.length() == getSoSize(zipFile2, str2) && load(iCallingSoLoader, fullName, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD")) {
-                        if (zipFile2 != null) {
-                            try {
-                                zipFile2.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        return true;
-                    }
-                }
-                File file2 = new File(getReleaseSoFilePath(context), fullName);
-                if (file2.exists()) {
-                    if (file2.length() == getSoSize(zipFile2, str2) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), "SO_RELEASE_LIB_LOAD")) {
-                        if (zipFile2 != null) {
-                            try {
-                                zipFile2.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        return true;
-                    }
-                }
-                for (int i = 0; i < SoUtils.uris.length; i++) {
-                    if (executeRelease(context, zipFile2, fullName, SoUtils.uris[i]) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
-                        if (zipFile2 != null) {
-                            try {
-                                zipFile2.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                        }
-                        return true;
-                    }
-                }
-                SoUtils.sendLog(this.sb.toString());
-                if (zipFile2 != null) {
-                    try {
-                        zipFile2.close();
-                        return false;
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
-                        return false;
-                    }
-                }
-                return false;
-            } catch (Throwable th) {
-                th = th;
-                zipFile = zipFile2;
-                if (zipFile != null) {
-                    try {
-                        zipFile.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            zipFile = null;
-        }
-    }
-
-    public static File getReleaseSoFilePath(Context context) {
-        return new File(context.getFilesDir(), "lib");
-    }
-
-    private boolean loadLibrary(ICallingSoLoader iCallingSoLoader, String str, String str2) {
-        String simpleName = SoUtils.getSimpleName(str);
-        try {
-            iCallingSoLoader.loadLibrary(simpleName);
-            return true;
-        } catch (Throwable th) {
-            if (DEBUG) {
-                Log.e(TAG, "SoLoader load exception.", th);
-            }
-            this.sb.append(str2 + ":::" + simpleName + ":" + Log.getStackTraceString(th));
-            return false;
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [299=4] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x00da  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0076 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x004d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0091 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x008c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x00bd A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x00b8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x0071 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:99:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private boolean executeRelease(Context context, ZipFile zipFile, String str, String str2) {
-        FileLock fileLock;
-        FileChannel fileChannel;
-        boolean releaseFileFromApk;
-        FileLock fileLock2 = null;
-        if (zipFile == null) {
-            return false;
-        }
-        File releaseSoFilePath = getReleaseSoFilePath(context);
-        if (!releaseSoFilePath.exists()) {
-            releaseSoFilePath.mkdirs();
-        }
-        File file = new File(releaseSoFilePath, str);
-        try {
-            File file2 = new File(releaseSoFilePath, str + ".lock");
-            if (!file2.exists()) {
-                try {
-                    file2.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            try {
-                fileChannel = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth).getChannel();
-            } catch (FileNotFoundException e2) {
-                e = e2;
-                fileChannel = null;
-            }
-            try {
-                try {
-                    fileLock2 = fileChannel.lock();
-                } catch (IOException e3) {
-                    try {
-                        e3.printStackTrace();
-                    } catch (FileNotFoundException e4) {
-                        e = e4;
-                        e.printStackTrace();
-                        fileLock = null;
-                        if (fileLock != null) {
-                        }
-                        releaseFileFromApk = true;
-                        if (fileLock != null) {
-                        }
-                        if (fileChannel != null) {
-                        }
-                    }
-                }
-                fileLock = fileLock2;
-                if (fileLock != null) {
-                    try {
-                        try {
-                            if (fileLock.isValid()) {
-                                releaseFileFromApk = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
-                                if (fileLock != null) {
-                                    try {
-                                        fileLock.release();
-                                    } catch (IOException e5) {
-                                        e5.printStackTrace();
-                                    }
-                                }
-                                if (fileChannel != null) {
-                                    try {
-                                        fileChannel.close();
-                                        return releaseFileFromApk;
-                                    } catch (IOException e6) {
-                                        e6.printStackTrace();
-                                        return releaseFileFromApk;
-                                    }
-                                }
-                                return releaseFileFromApk;
-                            }
-                        } catch (Exception e7) {
-                            e = e7;
-                            e.printStackTrace();
-                            if (fileLock != null) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException e8) {
-                                    e8.printStackTrace();
-                                }
-                            }
-                            if (fileChannel == null) {
-                                try {
-                                    fileChannel.close();
-                                    return true;
-                                } catch (IOException e9) {
-                                    e9.printStackTrace();
-                                    return true;
-                                }
-                            }
-                            return true;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        if (fileLock != null) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e10) {
-                                e10.printStackTrace();
-                            }
-                        }
-                        if (fileChannel != null) {
-                            try {
-                                fileChannel.close();
-                            } catch (IOException e11) {
-                                e11.printStackTrace();
-                            }
-                        }
-                        throw th;
-                    }
-                }
-                releaseFileFromApk = true;
-                if (fileLock != null) {
-                }
-                if (fileChannel != null) {
-                }
-            } catch (Exception e12) {
-                e = e12;
-                fileLock = null;
-                e.printStackTrace();
-                if (fileLock != null) {
-                }
-                if (fileChannel == null) {
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileLock = null;
-                if (fileLock != null) {
-                }
-                if (fileChannel != null) {
-                }
-                throw th;
-            }
-        } catch (Exception e13) {
-            e = e13;
-            fileLock = null;
-            fileChannel = null;
-        } catch (Throwable th3) {
-            th = th3;
-            fileLock = null;
-            fileChannel = null;
-        }
-    }
-
-    private long getSoSize(ZipFile zipFile, String str) {
-        if (zipFile == null) {
-            return 0L;
-        }
-        try {
-            ZipEntry entry = zipFile.getEntry(str);
-            if (entry == null) {
-                return 0L;
-            }
-            return entry.getSize();
-        } catch (Exception e) {
-            if (!DEBUG) {
-                return 0L;
-            }
-            Log.e(TAG, "SoLoader getSoSize exception.", e);
-            return 0L;
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [361=5, 363=4, 364=4, 365=4, 369=4, 371=4, 372=4, 373=4] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0094 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x0099 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private boolean releaseFileFromApk(ZipFile zipFile, File file, String str) {
-        FileOutputStream fileOutputStream;
-        InputStream inputStream;
-        File file2 = new File(file.getAbsoluteFile() + ".tmp");
-        if (zipFile != null) {
-            try {
-                inputStream = zipFile.getInputStream(zipFile.getEntry(str));
-                try {
-                    fileOutputStream = new FileOutputStream(file2);
-                    try {
-                        try {
-                            if (SoUtils.copyStream(inputStream, fileOutputStream, 256) > 0) {
-                                boolean renameTo = file2.renameTo(file);
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                        return renameTo;
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
-                                        return renameTo;
-                                    }
-                                }
-                                return renameTo;
-                            }
-                        } catch (Exception e3) {
-                            e = e3;
-                            if (DEBUG) {
-                                Log.e(TAG, "SoLoader releaseFileFromApk exception.", e);
-                            }
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception e4) {
-                                    e4.printStackTrace();
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (Exception e5) {
-                                    e5.printStackTrace();
-                                }
-                            }
-                            return false;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Exception e6) {
-                                e6.printStackTrace();
-                            }
-                        }
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (Exception e7) {
-                                e7.printStackTrace();
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (Exception e8) {
-                    e = e8;
-                    fileOutputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream = null;
-                    if (inputStream != null) {
-                    }
-                    if (fileOutputStream != null) {
-                    }
-                    throw th;
-                }
-            } catch (Exception e9) {
-                e = e9;
-                fileOutputStream = null;
-                inputStream = null;
-            } catch (Throwable th3) {
-                th = th3;
-                fileOutputStream = null;
-                inputStream = null;
-            }
-        } else {
-            fileOutputStream = null;
-            inputStream = null;
-        }
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (Exception e10) {
-                e10.printStackTrace();
-            }
-        }
-        if (fileOutputStream != null) {
-            try {
-                fileOutputStream.close();
-            } catch (Exception e11) {
-                e11.printStackTrace();
-            }
-        }
-        return false;
-    }
-
-    @SuppressLint({"NewApi"})
-    private String getNativeLibraryDir(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            return SoUtils.hasGingerbread() ? packageInfo.applicationInfo.nativeLibraryDir : new File(packageInfo.applicationInfo.dataDir, "lib").getAbsolutePath();
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
-
-    public static boolean isSoLoadedSucc(String str) {
-        return sLoadedLibraries.contains(str);
-    }
-
-    private void initSoSource(Context context) {
-        if (DEBUG) {
-            Log.d(TAG, "initSoSource is called");
-        }
-        addSysSoLibraryDirectory();
-        addLocalSoLibraryDirectory(context);
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0045, code lost:
-        if (com.baidu.android.util.soloader.SoLoader.DEBUG == false) goto L19;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0047, code lost:
-        android.util.Log.d(com.baidu.android.util.soloader.SoLoader.TAG, "unpackLibDep soFile path is: " + r1.getAbsolutePath());
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0066, code lost:
-        return r1;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static File unpackLibraryAndDependencies(String str) {
-        if (DEBUG) {
-            Log.d(TAG, "unpackLibDep is called, shortName=" + str);
-        }
-        String fullName = SoUtils.getFullName(str);
-        try {
-            if (soSources.size() != 0) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= soSources.size()) {
-                        break;
-                    }
-                    File file = new File(soSources.get(i2), fullName);
-                    if (file != null) {
-                        break;
-                    }
-                    i = i2 + 1;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    private void addSysSoLibraryDirectory() {
-        String str = System.getenv("LD_LIBRARY_PATH");
-        if (str == null) {
-            str = "/vendor/lib:/system/lib";
-        }
-        String[] split = str.split(":");
-        for (String str2 : split) {
-            File file = new File(str2);
-            if (!soSources.contains(file)) {
-                soSources.add(file);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: java.util.List<java.io.File> */
-    /* JADX WARN: Multi-variable type inference failed */
-    private void addLocalSoLibraryDirectory(Context context) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new File(getNativeLibraryDir(context)));
-        arrayList.add(new File(context.getFilesDir(), "lib"));
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (!soSources.contains(arrayList.get(i))) {
-                soSources.add(arrayList.get(i));
-            }
         }
     }
 }

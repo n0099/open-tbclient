@@ -7,25 +7,25 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyService;
 import com.kwad.sdk.api.proxy.IServiceProxy;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FileDownloadService {
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class SeparateProcessService extends BaseProxyService {
         @Override // com.kwad.sdk.api.proxy.BaseProxyService
         @NonNull
-        protected IServiceProxy getDelegate(Context context) {
+        public IServiceProxy getDelegate(Context context) {
             return (IServiceProxy) Loader.get().newComponentProxyNewProcess(context, SeparateProcessService.class, this);
         }
     }
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class SharedMainProcessService extends BaseProxyService {
         @Override // com.kwad.sdk.api.proxy.BaseProxyService
         @NonNull
-        protected IServiceProxy getDelegate(Context context) {
+        public IServiceProxy getDelegate(Context context) {
             return (IServiceProxy) Loader.get().newComponentProxyNewProcess(context, SharedMainProcessService.class, this);
         }
     }

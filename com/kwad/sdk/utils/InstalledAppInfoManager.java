@@ -17,13 +17,12 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class InstalledAppInfoManager {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AppPackageInfo implements Serializable {
-        private static final long serialVersionUID = -324393456884895874L;
+        public static final long serialVersionUID = -324393456884895874L;
         public String appName;
         public long firstInstallTime;
         public boolean isSystemApp;
@@ -34,17 +33,19 @@ public class InstalledAppInfoManager {
     }
 
     public static AppPackageInfo a(@NonNull PackageInfo packageInfo, @Nullable PackageManager packageManager) {
+        ApplicationInfo applicationInfo;
         AppPackageInfo appPackageInfo = new AppPackageInfo();
         appPackageInfo.packageName = packageInfo.packageName;
-        if (packageInfo.applicationInfo != null) {
-            appPackageInfo.isSystemApp = a(packageInfo.applicationInfo) || b(packageInfo.applicationInfo);
+        ApplicationInfo applicationInfo2 = packageInfo.applicationInfo;
+        if (applicationInfo2 != null) {
+            appPackageInfo.isSystemApp = a(applicationInfo2) || b(packageInfo.applicationInfo);
         }
         appPackageInfo.versionName = packageInfo.versionName;
         appPackageInfo.firstInstallTime = packageInfo.firstInstallTime;
         appPackageInfo.lastUpdateTime = packageInfo.lastUpdateTime;
-        if (packageManager != null && packageInfo.applicationInfo != null) {
+        if (packageManager != null && (applicationInfo = packageInfo.applicationInfo) != null) {
             try {
-                appPackageInfo.appName = packageManager.getApplicationLabel(packageInfo.applicationInfo).toString();
+                appPackageInfo.appName = packageManager.getApplicationLabel(applicationInfo).toString();
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }
@@ -54,13 +55,13 @@ public class InstalledAppInfoManager {
 
     @NonNull
     public static JSONArray a(Context context) {
-        Map<String, AppPackageInfo> b = b(context);
-        b.putAll(b(context, com.kwad.sdk.core.config.c.n()));
-        return a(b);
+        Map<String, AppPackageInfo> b2 = b(context);
+        b2.putAll(b(context, com.kwad.sdk.core.config.c.n()));
+        return a(b2);
     }
 
     @NonNull
-    private static JSONArray a(@NonNull Map<String, AppPackageInfo> map) {
+    public static JSONArray a(@NonNull Map<String, AppPackageInfo> map) {
         JSONArray jSONArray = new JSONArray();
         try {
             for (String str : map.keySet()) {
@@ -69,8 +70,8 @@ public class InstalledAppInfoManager {
                     o.a(jSONArray, a(appPackageInfo));
                 }
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
         return jSONArray;
     }
@@ -87,38 +88,37 @@ public class InstalledAppInfoManager {
         return jSONObject;
     }
 
-    private static boolean a(ApplicationInfo applicationInfo) {
+    public static boolean a(ApplicationInfo applicationInfo) {
         return (applicationInfo.flags & 1) != 0;
     }
 
     @NonNull
     public static JSONArray[] a(Context context, List<String> list) {
         JSONArray[] jSONArrayArr = new JSONArray[2];
-        if (context == null || list == null || list.isEmpty()) {
-            return jSONArrayArr;
-        }
-        HashMap hashMap = new HashMap();
-        HashMap hashMap2 = new HashMap();
-        for (String str : list) {
-            try {
-                PackageManager packageManager = context.getPackageManager();
-                PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
-                if (packageInfo != null) {
-                    AppPackageInfo a2 = a(packageInfo, packageManager);
-                    hashMap.put(a2.packageName, a2);
-                } else {
-                    AppPackageInfo appPackageInfo = new AppPackageInfo();
-                    appPackageInfo.packageName = str;
-                    hashMap2.put(appPackageInfo.packageName, appPackageInfo);
+        if (context != null && list != null && !list.isEmpty()) {
+            HashMap hashMap = new HashMap();
+            HashMap hashMap2 = new HashMap();
+            for (String str : list) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
+                    if (packageInfo != null) {
+                        AppPackageInfo a2 = a(packageInfo, packageManager);
+                        hashMap.put(a2.packageName, a2);
+                    } else {
+                        AppPackageInfo appPackageInfo = new AppPackageInfo();
+                        appPackageInfo.packageName = str;
+                        hashMap2.put(str, appPackageInfo);
+                    }
+                } catch (Exception unused) {
+                    AppPackageInfo appPackageInfo2 = new AppPackageInfo();
+                    appPackageInfo2.packageName = str;
+                    hashMap2.put(str, appPackageInfo2);
                 }
-            } catch (Exception e) {
-                AppPackageInfo appPackageInfo2 = new AppPackageInfo();
-                appPackageInfo2.packageName = str;
-                hashMap2.put(appPackageInfo2.packageName, appPackageInfo2);
             }
+            jSONArrayArr[0] = a(hashMap);
+            jSONArrayArr[1] = a(hashMap2);
         }
-        jSONArrayArr[0] = a(hashMap);
-        jSONArrayArr[1] = a(hashMap2);
         return jSONArrayArr;
     }
 
@@ -133,12 +133,12 @@ public class InstalledAppInfoManager {
             Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
             intent.addCategory("android.intent.category.LAUNCHER");
             List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 32);
-            List<String> b = AppStatusHelper.b(context);
+            List<String> b2 = AppStatusHelper.b(context);
             for (ResolveInfo resolveInfo : queryIntentActivities) {
                 if (resolveInfo != null && resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
                     String str = resolveInfo.activityInfo.packageName;
-                    if (b != null && !b.isEmpty()) {
-                        b.remove(str);
+                    if (b2 != null && !b2.isEmpty()) {
+                        b2.remove(str);
                     }
                     PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
                     if (packageInfo != null) {
@@ -148,8 +148,8 @@ public class InstalledAppInfoManager {
                     }
                 }
             }
-            if (b != null && !b.isEmpty()) {
-                for (String str2 : b) {
+            if (b2 != null && !b2.isEmpty()) {
+                for (String str2 : b2) {
                     try {
                         PackageInfo packageInfo2 = packageManager.getPackageInfo(str2, 0);
                         if (packageInfo2 != null) {
@@ -157,36 +157,35 @@ public class InstalledAppInfoManager {
                             a3.reportMethod = 2;
                             hashMap.put(a3.packageName, a3);
                         }
-                    } catch (Throwable th) {
+                    } catch (Throwable unused) {
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception unused2) {
         }
         return hashMap;
     }
 
     @NonNull
-    private static Map<String, AppPackageInfo> b(Context context, List<String> list) {
+    public static Map<String, AppPackageInfo> b(Context context, List<String> list) {
         HashMap hashMap = new HashMap();
-        if (context == null || list == null) {
-            return hashMap;
-        }
-        for (String str : list) {
-            try {
-                PackageManager packageManager = context.getPackageManager();
-                PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
-                if (packageInfo != null) {
-                    AppPackageInfo a2 = a(packageInfo, packageManager);
-                    hashMap.put(a2.packageName, a2);
+        if (context != null && list != null) {
+            for (String str : list) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
+                    if (packageInfo != null) {
+                        AppPackageInfo a2 = a(packageInfo, packageManager);
+                        hashMap.put(a2.packageName, a2);
+                    }
+                } catch (Exception unused) {
                 }
-            } catch (Exception e) {
             }
         }
         return hashMap;
     }
 
-    private static boolean b(ApplicationInfo applicationInfo) {
+    public static boolean b(ApplicationInfo applicationInfo) {
         return (applicationInfo.flags & 128) != 0;
     }
 }

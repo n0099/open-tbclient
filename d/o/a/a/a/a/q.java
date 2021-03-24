@@ -1,0 +1,7 @@
+package d.o.a.a.a.a;
+/* loaded from: classes.dex */
+public interface q {
+    void a();
+
+    void a(String str);
+}

@@ -2,27 +2,27 @@ package com.vivo.push.b;
 
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<String> f8008a;
+    public ArrayList<String> f39362a;
 
     public a(boolean z, String str, String str2, ArrayList<String> arrayList) {
         super(z ? 2002 : 2003, str, str2);
-        this.f8008a = arrayList;
+        this.f39362a = arrayList;
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a(CommandMessage.TYPE_TAGS, this.f8008a);
+        aVar.a(CommandMessage.TYPE_TAGS, this.f39362a);
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f8008a = aVar.b(CommandMessage.TYPE_TAGS);
+        this.f39362a = aVar.b(CommandMessage.TYPE_TAGS);
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y

@@ -1,82 +1,45 @@
 package com.coremedia.iso.boxes;
 
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.kwai.video.player.KsMediaMeta;
+import g.a.a.a;
+import g.a.b.b.b;
 import java.nio.ByteBuffer;
-import org.aspectj.a.b.b;
-import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AlbumBox extends AbstractFullBox {
     public static final String TYPE = "albm";
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_6 = null;
-    private String albumTitle;
-    private String language;
-    private int trackNumber;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_6 = null;
+    public String albumTitle;
+    public String language;
+    public int trackNumber;
 
     static {
         ajc$preClinit();
-    }
-
-    private static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("AlbumBox.java", AlbumBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getLanguage", "com.coremedia.iso.boxes.AlbumBox", "", "", "", FieldUtil.TYPE_STRING), 51);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getAlbumTitle", "com.coremedia.iso.boxes.AlbumBox", "", "", "", FieldUtil.TYPE_STRING), 55);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getTrackNumber", "com.coremedia.iso.boxes.AlbumBox", "", "", "", "int"), 59);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.AlbumBox", FieldUtil.TYPE_STRING, KsMediaMeta.KSM_KEY_LANGUAGE, "", "void"), 63);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "setAlbumTitle", "com.coremedia.iso.boxes.AlbumBox", FieldUtil.TYPE_STRING, "albumTitle", "", "void"), 67);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setTrackNumber", "com.coremedia.iso.boxes.AlbumBox", "int", "trackNumber", "", "void"), 71);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.AlbumBox", "", "", "", FieldUtil.TYPE_STRING), 103);
     }
 
     public AlbumBox() {
         super(TYPE);
     }
 
-    public String getLanguage() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this));
-        return this.language;
-    }
-
-    public String getAlbumTitle() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this));
-        return this.albumTitle;
-    }
-
-    public int getTrackNumber() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this));
-        return this.trackNumber;
-    }
-
-    public void setLanguage(String str) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, str));
-        this.language = str;
-    }
-
-    public void setAlbumTitle(String str) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, str));
-        this.albumTitle = str;
-    }
-
-    public void setTrackNumber(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Sw(i)));
-        this.trackNumber = i;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    protected long getContentSize() {
-        return (this.trackNumber == -1 ? 0 : 1) + Utf8.utf8StringLengthInBytes(this.albumTitle) + 6 + 1;
+    public static /* synthetic */ void ajc$preClinit() {
+        b bVar = new b("AlbumBox.java", AlbumBox.class);
+        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getLanguage", "com.coremedia.iso.boxes.AlbumBox", "", "", "", "java.lang.String"), 51);
+        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "getAlbumTitle", "com.coremedia.iso.boxes.AlbumBox", "", "", "", "java.lang.String"), 55);
+        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "getTrackNumber", "com.coremedia.iso.boxes.AlbumBox", "", "", "", "int"), 59);
+        ajc$tjp_3 = bVar.g("method-execution", bVar.f("1", "setLanguage", "com.coremedia.iso.boxes.AlbumBox", "java.lang.String", KsMediaMeta.KSM_KEY_LANGUAGE, "", "void"), 63);
+        ajc$tjp_4 = bVar.g("method-execution", bVar.f("1", "setAlbumTitle", "com.coremedia.iso.boxes.AlbumBox", "java.lang.String", "albumTitle", "", "void"), 67);
+        ajc$tjp_5 = bVar.g("method-execution", bVar.f("1", "setTrackNumber", "com.coremedia.iso.boxes.AlbumBox", "int", "trackNumber", "", "void"), 71);
+        ajc$tjp_6 = bVar.g("method-execution", bVar.f("1", "toString", "com.coremedia.iso.boxes.AlbumBox", "", "", "", "java.lang.String"), 103);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -91,24 +54,64 @@ public class AlbumBox extends AbstractFullBox {
         }
     }
 
+    public String getAlbumTitle() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_1, this, this));
+        return this.albumTitle;
+    }
+
     @Override // com.googlecode.mp4parser.AbstractBox
-    protected void getContent(ByteBuffer byteBuffer) {
+    public void getContent(ByteBuffer byteBuffer) {
         writeVersionAndFlags(byteBuffer);
         IsoTypeWriter.writeIso639(byteBuffer, this.language);
         byteBuffer.put(Utf8.convert(this.albumTitle));
         byteBuffer.put((byte) 0);
-        if (this.trackNumber != -1) {
-            IsoTypeWriter.writeUInt8(byteBuffer, this.trackNumber);
+        int i = this.trackNumber;
+        if (i != -1) {
+            IsoTypeWriter.writeUInt8(byteBuffer, i);
         }
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        return Utf8.utf8StringLengthInBytes(this.albumTitle) + 6 + 1 + (this.trackNumber == -1 ? 0 : 1);
+    }
+
+    public String getLanguage() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
+        return this.language;
+    }
+
+    public int getTrackNumber() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_2, this, this));
+        return this.trackNumber;
+    }
+
+    public void setAlbumTitle(String str) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_4, this, this, str));
+        this.albumTitle = str;
+    }
+
+    public void setLanguage(String str) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, str));
+        this.language = str;
+    }
+
+    public void setTrackNumber(int i) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i)));
+        this.trackNumber = i;
+    }
+
     public String toString() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this));
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_6, this, this));
         StringBuilder sb = new StringBuilder();
-        sb.append("AlbumBox[language=").append(getLanguage()).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        sb.append("albumTitle=").append(getAlbumTitle());
+        sb.append("AlbumBox[language=");
+        sb.append(getLanguage());
+        sb.append(";");
+        sb.append("albumTitle=");
+        sb.append(getAlbumTitle());
         if (this.trackNumber >= 0) {
-            sb.append(";trackNumber=").append(getTrackNumber());
+            sb.append(";trackNumber=");
+            sb.append(getTrackNumber());
         }
         sb.append("]");
         return sb.toString();

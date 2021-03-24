@@ -4,9 +4,13 @@ import android.content.Context;
 import android.view.animation.Interpolator;
 import android.widget.OverScroller;
 @Deprecated
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class ScrollerCompat {
-    OverScroller mScroller;
+    public OverScroller mScroller;
+
+    public ScrollerCompat(Context context, Interpolator interpolator) {
+        this.mScroller = interpolator != null ? new OverScroller(context, interpolator) : new OverScroller(context);
+    }
 
     @Deprecated
     public static ScrollerCompat create(Context context) {
@@ -14,17 +18,23 @@ public final class ScrollerCompat {
     }
 
     @Deprecated
-    public static ScrollerCompat create(Context context, Interpolator interpolator) {
-        return new ScrollerCompat(context, interpolator);
-    }
-
-    ScrollerCompat(Context context, Interpolator interpolator) {
-        this.mScroller = interpolator != null ? new OverScroller(context, interpolator) : new OverScroller(context);
+    public void abortAnimation() {
+        this.mScroller.abortAnimation();
     }
 
     @Deprecated
-    public boolean isFinished() {
-        return this.mScroller.isFinished();
+    public boolean computeScrollOffset() {
+        return this.mScroller.computeScrollOffset();
+    }
+
+    @Deprecated
+    public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+        this.mScroller.fling(i, i2, i3, i4, i5, i6, i7, i8);
+    }
+
+    @Deprecated
+    public float getCurrVelocity() {
+        return this.mScroller.getCurrVelocity();
     }
 
     @Deprecated
@@ -48,43 +58,13 @@ public final class ScrollerCompat {
     }
 
     @Deprecated
-    public float getCurrVelocity() {
-        return this.mScroller.getCurrVelocity();
+    public boolean isFinished() {
+        return this.mScroller.isFinished();
     }
 
     @Deprecated
-    public boolean computeScrollOffset() {
-        return this.mScroller.computeScrollOffset();
-    }
-
-    @Deprecated
-    public void startScroll(int i, int i2, int i3, int i4) {
-        this.mScroller.startScroll(i, i2, i3, i4);
-    }
-
-    @Deprecated
-    public void startScroll(int i, int i2, int i3, int i4, int i5) {
-        this.mScroller.startScroll(i, i2, i3, i4, i5);
-    }
-
-    @Deprecated
-    public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-        this.mScroller.fling(i, i2, i3, i4, i5, i6, i7, i8);
-    }
-
-    @Deprecated
-    public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
-        this.mScroller.fling(i, i2, i3, i4, i5, i6, i7, i8, i9, i10);
-    }
-
-    @Deprecated
-    public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
-        return this.mScroller.springBack(i, i2, i3, i4, i5, i6);
-    }
-
-    @Deprecated
-    public void abortAnimation() {
-        this.mScroller.abortAnimation();
+    public boolean isOverScrolled() {
+        return this.mScroller.isOverScrolled();
     }
 
     @Deprecated
@@ -98,7 +78,27 @@ public final class ScrollerCompat {
     }
 
     @Deprecated
-    public boolean isOverScrolled() {
-        return this.mScroller.isOverScrolled();
+    public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
+        return this.mScroller.springBack(i, i2, i3, i4, i5, i6);
+    }
+
+    @Deprecated
+    public void startScroll(int i, int i2, int i3, int i4) {
+        this.mScroller.startScroll(i, i2, i3, i4);
+    }
+
+    @Deprecated
+    public static ScrollerCompat create(Context context, Interpolator interpolator) {
+        return new ScrollerCompat(context, interpolator);
+    }
+
+    @Deprecated
+    public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
+        this.mScroller.fling(i, i2, i3, i4, i5, i6, i7, i8, i9, i10);
+    }
+
+    @Deprecated
+    public void startScroll(int i, int i2, int i3, int i4, int i5) {
+        this.mScroller.startScroll(i, i2, i3, i4, i5);
     }
 }

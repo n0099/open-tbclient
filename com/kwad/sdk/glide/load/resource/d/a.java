@@ -6,7 +6,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import com.baidu.mobstat.Config;
+import com.bumptech.glide.load.resource.gif.ByteBufferGifDecoder;
 import com.kwad.sdk.glide.b.a;
 import com.kwad.sdk.glide.g.k;
 import com.kwad.sdk.glide.load.DecodeFormat;
@@ -14,107 +14,111 @@ import com.kwad.sdk.glide.load.ImageHeaderParser;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final C1152a f6804a = new C1152a();
-    private static final b b = new b();
-    private final Context c;
-    private final List<ImageHeaderParser> d;
-    private final b e;
-    private final C1152a f;
-    private final com.kwad.sdk.glide.load.resource.d.b g;
+    public static final C0419a f35705a = new C0419a();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public static final b f35706b = new b();
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Context f35707c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final List<ImageHeaderParser> f35708d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final b f35709e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final C0419a f35710f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final com.kwad.sdk.glide.load.resource.d.b f35711g;
+
     @VisibleForTesting
     /* renamed from: com.kwad.sdk.glide.load.resource.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1152a {
-        C1152a() {
-        }
-
-        com.kwad.sdk.glide.b.a a(a.InterfaceC1139a interfaceC1139a, com.kwad.sdk.glide.b.c cVar, ByteBuffer byteBuffer, int i) {
-            return new com.kwad.sdk.glide.b.e(interfaceC1139a, cVar, byteBuffer, i);
+    /* loaded from: classes6.dex */
+    public static class C0419a {
+        public com.kwad.sdk.glide.b.a a(a.InterfaceC0406a interfaceC0406a, com.kwad.sdk.glide.b.c cVar, ByteBuffer byteBuffer, int i) {
+            return new com.kwad.sdk.glide.b.e(interfaceC0406a, cVar, byteBuffer, i);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Queue<com.kwad.sdk.glide.b.d> f6805a = k.a(0);
+        public final Queue<com.kwad.sdk.glide.b.d> f35712a = k.a(0);
 
-        b() {
-        }
-
-        synchronized com.kwad.sdk.glide.b.d a(ByteBuffer byteBuffer) {
+        public synchronized com.kwad.sdk.glide.b.d a(ByteBuffer byteBuffer) {
             com.kwad.sdk.glide.b.d poll;
-            poll = this.f6805a.poll();
+            poll = this.f35712a.poll();
             if (poll == null) {
                 poll = new com.kwad.sdk.glide.b.d();
             }
             return poll.a(byteBuffer);
         }
 
-        synchronized void a(com.kwad.sdk.glide.b.d dVar) {
+        public synchronized void a(com.kwad.sdk.glide.b.d dVar) {
             dVar.a();
-            this.f6805a.offer(dVar);
+            this.f35712a.offer(dVar);
         }
     }
 
     public a(Context context, List<ImageHeaderParser> list, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this(context, list, eVar, bVar, b, f6804a);
+        this(context, list, eVar, bVar, f35706b, f35705a);
     }
 
     @VisibleForTesting
-    a(Context context, List<ImageHeaderParser> list, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, b bVar2, C1152a c1152a) {
-        this.c = context.getApplicationContext();
-        this.d = list;
-        this.f = c1152a;
-        this.g = new com.kwad.sdk.glide.load.resource.d.b(eVar, bVar);
-        this.e = bVar2;
+    public a(Context context, List<ImageHeaderParser> list, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, b bVar2, C0419a c0419a) {
+        this.f35707c = context.getApplicationContext();
+        this.f35708d = list;
+        this.f35710f = c0419a;
+        this.f35711g = new com.kwad.sdk.glide.load.resource.d.b(eVar, bVar);
+        this.f35709e = bVar2;
     }
 
-    private static int a(com.kwad.sdk.glide.b.c cVar, int i, int i2) {
+    public static int a(com.kwad.sdk.glide.b.c cVar, int i, int i2) {
         int min = Math.min(cVar.a() / i2, cVar.b() / i);
         int max = Math.max(1, min == 0 ? 0 : Integer.highestOneBit(min));
-        if (Log.isLoggable("BufferGifDecoder", 2) && max > 1) {
-            Log.v("BufferGifDecoder", "Downsampling GIF, sampleSize: " + max + ", target dimens: [" + i + Config.EVENT_HEAT_X + i2 + "], actual dimens: [" + cVar.b() + Config.EVENT_HEAT_X + cVar.a() + "]");
+        if (Log.isLoggable(ByteBufferGifDecoder.TAG, 2) && max > 1) {
+            Log.v(ByteBufferGifDecoder.TAG, "Downsampling GIF, sampleSize: " + max + ", target dimens: [" + i + "x" + i2 + "], actual dimens: [" + cVar.b() + "x" + cVar.a() + "]");
         }
         return max;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[CONST_STR, INVOKE]}, finally: {[CONST_STR, INVOKE, CONST_STR, CONSTRUCTOR, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, IF] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, IF] complete} */
     @Nullable
     private e a(ByteBuffer byteBuffer, int i, int i2, com.kwad.sdk.glide.b.d dVar, com.kwad.sdk.glide.load.e eVar) {
         long a2 = com.kwad.sdk.glide.g.f.a();
         try {
             com.kwad.sdk.glide.b.c b2 = dVar.b();
-            if (b2.c() <= 0 || b2.d() != 0) {
-            }
-            Bitmap.Config config = eVar.a(i.f6813a) == DecodeFormat.PREFER_RGB_565 ? Bitmap.Config.RGB_565 : Bitmap.Config.ARGB_8888;
-            com.kwad.sdk.glide.b.a a3 = this.f.a(this.g, b2, byteBuffer, a(b2, i, i2));
-            a3.a(config);
-            a3.b();
-            Bitmap h = a3.h();
-            if (h == null) {
-                if (Log.isLoggable("BufferGifDecoder", 2)) {
-                    Log.v("BufferGifDecoder", "Decoded GIF from stream in " + com.kwad.sdk.glide.g.f.a(a2));
+            if (b2.c() > 0 && b2.d() == 0) {
+                Bitmap.Config config = eVar.a(i.f35739a) == DecodeFormat.PREFER_RGB_565 ? Bitmap.Config.RGB_565 : Bitmap.Config.ARGB_8888;
+                com.kwad.sdk.glide.b.a a3 = this.f35710f.a(this.f35711g, b2, byteBuffer, a(b2, i, i2));
+                a3.a(config);
+                a3.b();
+                Bitmap h2 = a3.h();
+                if (h2 == null) {
                     return null;
                 }
-                return null;
+                e eVar2 = new e(new c(this.f35707c, a3, com.kwad.sdk.glide.load.resource.b.a(), i, i2, h2));
+                if (Log.isLoggable(ByteBufferGifDecoder.TAG, 2)) {
+                    Log.v(ByteBufferGifDecoder.TAG, "Decoded GIF from stream in " + com.kwad.sdk.glide.g.f.a(a2));
+                }
+                return eVar2;
             }
-            e eVar2 = new e(new c(this.c, a3, com.kwad.sdk.glide.load.resource.b.a(), i, i2, h));
-            if (Log.isLoggable("BufferGifDecoder", 2)) {
-                Log.v("BufferGifDecoder", "Decoded GIF from stream in " + com.kwad.sdk.glide.g.f.a(a2));
+            if (Log.isLoggable(ByteBufferGifDecoder.TAG, 2)) {
+                Log.v(ByteBufferGifDecoder.TAG, "Decoded GIF from stream in " + com.kwad.sdk.glide.g.f.a(a2));
             }
-            return eVar2;
+            return null;
         } finally {
-            if (Log.isLoggable("BufferGifDecoder", 2)) {
-                Log.v("BufferGifDecoder", "Decoded GIF from stream in " + com.kwad.sdk.glide.g.f.a(a2));
+            if (Log.isLoggable(ByteBufferGifDecoder.TAG, 2)) {
+                Log.v(ByteBufferGifDecoder.TAG, "Decoded GIF from stream in " + com.kwad.sdk.glide.g.f.a(a2));
             }
         }
     }
@@ -122,17 +126,17 @@ public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, c> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public e a(@NonNull ByteBuffer byteBuffer, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        com.kwad.sdk.glide.b.d a2 = this.e.a(byteBuffer);
+        com.kwad.sdk.glide.b.d a2 = this.f35709e.a(byteBuffer);
         try {
             return a(byteBuffer, i, i2, a2, eVar);
         } finally {
-            this.e.a(a2);
+            this.f35709e.a(a2);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(@NonNull ByteBuffer byteBuffer, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return !((Boolean) eVar.a(i.b)).booleanValue() && com.kwad.sdk.glide.load.b.a(this.d, byteBuffer) == ImageHeaderParser.ImageType.GIF;
+        return !((Boolean) eVar.a(i.f35740b)).booleanValue() && com.kwad.sdk.glide.load.b.a(this.f35708d, byteBuffer) == ImageHeaderParser.ImageType.GIF;
     }
 }

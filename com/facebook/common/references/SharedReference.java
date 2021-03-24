@@ -1,46 +1,96 @@
 package com.facebook.common.references;
 
-import com.facebook.common.internal.g;
+import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
+import com.facebook.common.logging.FLog;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes4.dex */
+@VisibleForTesting
+/* loaded from: classes6.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> pBP = new IdentityHashMap();
+    public static final Map<Object, Integer> sLiveObjects = new IdentityHashMap();
     @GuardedBy("this")
-    private int mRefCount = 1;
+    public int mRefCount = 1;
+    public final ResourceReleaser<T> mResourceReleaser;
     @GuardedBy("this")
-    private T mValue;
-    private final c<T> pBE;
+    public T mValue;
 
-    public SharedReference(T t, c<T> cVar) {
-        this.mValue = (T) g.checkNotNull(t);
-        this.pBE = (c) g.checkNotNull(cVar);
-        bf(t);
+    /* loaded from: classes6.dex */
+    public static class NullReferenceException extends RuntimeException {
+        public NullReferenceException() {
+            super("Null shared reference");
+        }
     }
 
-    private static void bf(Object obj) {
-        synchronized (pBP) {
-            Integer num = pBP.get(obj);
+    public SharedReference(T t, ResourceReleaser<T> resourceReleaser) {
+        this.mValue = (T) Preconditions.checkNotNull(t);
+        this.mResourceReleaser = (ResourceReleaser) Preconditions.checkNotNull(resourceReleaser);
+        addLiveReference(t);
+    }
+
+    public static void addLiveReference(Object obj) {
+        synchronized (sLiveObjects) {
+            Integer num = sLiveObjects.get(obj);
             if (num == null) {
-                pBP.put(obj, 1);
+                sLiveObjects.put(obj, 1);
             } else {
-                pBP.put(obj, Integer.valueOf(num.intValue() + 1));
+                sLiveObjects.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
-    private static void bg(Object obj) {
-        synchronized (pBP) {
-            Integer num = pBP.get(obj);
+    private synchronized int decreaseRefCount() {
+        int i;
+        ensureValid();
+        Preconditions.checkArgument(this.mRefCount > 0);
+        i = this.mRefCount - 1;
+        this.mRefCount = i;
+        return i;
+    }
+
+    private void ensureValid() {
+        if (!isValid(this)) {
+            throw new NullReferenceException();
+        }
+    }
+
+    public static void removeLiveReference(Object obj) {
+        synchronized (sLiveObjects) {
+            Integer num = sLiveObjects.get(obj);
             if (num == null) {
-                com.facebook.common.c.a.h("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
+                FLog.wtf("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                pBP.remove(obj);
+                sLiveObjects.remove(obj);
             } else {
-                pBP.put(obj, Integer.valueOf(num.intValue() - 1));
+                sLiveObjects.put(obj, Integer.valueOf(num.intValue() - 1));
             }
+        }
+    }
+
+    public synchronized void addReference() {
+        ensureValid();
+        this.mRefCount++;
+    }
+
+    public synchronized boolean addReferenceIfValid() {
+        if (isValid()) {
+            addReference();
+            return true;
+        }
+        return false;
+    }
+
+    public void deleteReference() {
+        T t;
+        if (decreaseRefCount() == 0) {
+            synchronized (this) {
+                t = this.mValue;
+                this.mValue = null;
+            }
+            this.mResourceReleaser.release(t);
+            removeLiveReference(t);
         }
     }
 
@@ -48,48 +98,15 @@ public class SharedReference<T> {
         return this.mValue;
     }
 
+    public synchronized int getRefCountTestOnly() {
+        return this.mRefCount;
+    }
+
     public synchronized boolean isValid() {
         return this.mRefCount > 0;
     }
 
-    public static boolean a(SharedReference<?> sharedReference) {
+    public static boolean isValid(SharedReference<?> sharedReference) {
         return sharedReference != null && sharedReference.isValid();
-    }
-
-    public synchronized void etd() {
-        etg();
-        this.mRefCount++;
-    }
-
-    public void ete() {
-        T t;
-        if (etf() == 0) {
-            synchronized (this) {
-                t = this.mValue;
-                this.mValue = null;
-            }
-            this.pBE.release(t);
-            bg(t);
-        }
-    }
-
-    private synchronized int etf() {
-        etg();
-        g.checkArgument(this.mRefCount > 0);
-        this.mRefCount--;
-        return this.mRefCount;
-    }
-
-    private void etg() {
-        if (!a(this)) {
-            throw new NullReferenceException();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class NullReferenceException extends RuntimeException {
-        public NullReferenceException() {
-            super("Null shared reference");
-        }
     }
 }

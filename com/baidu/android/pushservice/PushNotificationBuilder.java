@@ -3,18 +3,18 @@ package com.baidu.android.pushservice;
 import android.app.Notification;
 import android.content.Context;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public abstract class PushNotificationBuilder implements Serializable {
-    protected String mChannelId;
-    protected String mChannelName;
-    protected int mColor;
-    protected int mNotificationDefaults;
-    protected int mNotificationFlags;
-    protected String mNotificationText;
-    protected String mNotificationTitle;
-    protected String mNotificationsound;
-    protected int mStatusbarIcon;
-    protected long[] mVibratePattern;
+    public String mChannelId;
+    public String mChannelName;
+    public int mColor;
+    public int mNotificationDefaults;
+    public int mNotificationFlags;
+    public String mNotificationText;
+    public String mNotificationTitle;
+    public String mNotificationsound;
+    public int mStatusbarIcon;
+    public long[] mVibratePattern;
 
     public abstract Notification construct(Context context);
 
